@@ -1,5 +1,5 @@
 {
- "auftrag": "LK-D 2",
+ "auftrag": "LK-D 3 (mit Ergänzung Rückläufer 939/940)",
  "stand": "2026-11-22",
  "regel": "Teilungsregel 15:30/15:35/15:40: feinste gemeinsame Teilung über Gymnasium und RS Gruppe I; IB und RS II/III lösen keine Teilung aus.",
  "hinweis": "Kinder nur als Nummern. Klasse je Teil: erste Klasse, in der ein Lehrplanpunkt eine Etappe des Teils als Hauptthema verlangt; *_ohne_eigenen_punkt = Klasse aus der Reihenfolge abgeleitet.",
@@ -87,6 +87,13 @@
       "rs_II_III": false,
       "ib_standard": false,
       "ib_extended": false
+     },
+     "status_je_schulart": {
+      "gym": "Pflicht",
+      "rs_I": "Pflicht",
+      "rs_II_III": "Pflicht",
+      "ib_standard": "Pflicht",
+      "ib_extended": "Pflicht"
      }
     },
     {
@@ -157,6 +164,13 @@
       "rs_II_III": false,
       "ib_standard": false,
       "ib_extended": false
+     },
+     "status_je_schulart": {
+      "gym": "Pflicht",
+      "rs_I": "Pflicht",
+      "rs_II_III": "Pflicht",
+      "ib_standard": "Pflicht",
+      "ib_extended": "Pflicht"
      }
     }
    ],
@@ -254,6 +268,13 @@
       "rs_II_III": false,
       "ib_standard": false,
       "ib_extended": false
+     },
+     "status_je_schulart": {
+      "gym": "Pflicht",
+      "rs_I": "Pflicht",
+      "rs_II_III": "Pflicht",
+      "ib_standard": "Pflicht",
+      "ib_extended": "Pflicht"
      }
     },
     {
@@ -343,6 +364,13 @@
       "rs_II_III": false,
       "ib_standard": false,
       "ib_extended": false
+     },
+     "status_je_schulart": {
+      "gym": "Pflicht",
+      "rs_I": "Pflicht",
+      "rs_II_III": "Pflicht",
+      "ib_standard": "Pflicht",
+      "ib_extended": "Pflicht"
      }
     }
    ],
@@ -442,6 +470,13 @@
       "rs_II_III": false,
       "ib_standard": false,
       "ib_extended": false
+     },
+     "status_je_schulart": {
+      "gym": "Pflicht",
+      "rs_I": "Pflicht",
+      "rs_II_III": "Pflicht",
+      "ib_standard": "Pflicht",
+      "ib_extended": "Pflicht"
      }
     },
     {
@@ -498,6 +533,13 @@
       "rs_II_III": false,
       "ib_standard": true,
       "ib_extended": true
+     },
+     "status_je_schulart": {
+      "gym": "Zusatz",
+      "rs_I": "Pflicht",
+      "rs_II_III": "Pflicht",
+      "ib_standard": "Zusatz",
+      "ib_extended": "Zusatz"
      }
     }
    ],
@@ -597,6 +639,13 @@
       "rs_II_III": false,
       "ib_standard": false,
       "ib_extended": false
+     },
+     "status_je_schulart": {
+      "gym": "Pflicht",
+      "rs_I": "Pflicht",
+      "rs_II_III": "Pflicht",
+      "ib_standard": "Pflicht",
+      "ib_extended": "Pflicht"
      }
     },
     {
@@ -672,6 +721,13 @@
       "rs_II_III": false,
       "ib_standard": false,
       "ib_extended": false
+     },
+     "status_je_schulart": {
+      "gym": "Zusatz",
+      "rs_I": "Pflicht",
+      "rs_II_III": "Pflicht",
+      "ib_standard": "Pflicht",
+      "ib_extended": "Pflicht"
      }
     },
     {
@@ -740,6 +796,13 @@
       "rs_II_III": true,
       "ib_standard": false,
       "ib_extended": false
+     },
+     "status_je_schulart": {
+      "gym": "Pflicht",
+      "rs_I": "Pflicht",
+      "rs_II_III": "Zusatz",
+      "ib_standard": "Pflicht",
+      "ib_extended": "Pflicht"
      }
     }
    ],
@@ -762,6 +825,10 @@
       {
        "lernziel": "rel_haeufigkeit",
        "titel": "Relative Häufigkeit"
+      },
+      {
+       "lernziel": "darstellen",
+       "titel": "Baumdiagramm und Vierfeldertafel"
       }
      ],
      "etappen_ohne_lehrplanpunkt": [],
@@ -780,16 +847,16 @@
        2
       ]
      },
-     "zu_duenn": true,
+     "zu_duenn": false,
      "stand_je_kind": {
       "1": {
        "erledigt": 0,
-       "etappen": 2,
+       "etappen": 3,
        "vollstaendig": false
       },
       "2": {
        "erledigt": 0,
-       "etappen": 2,
+       "etappen": 3,
        "vollstaendig": false
       }
      },
@@ -818,6 +885,13 @@
       "rs_II_III": false,
       "ib_standard": false,
       "ib_extended": false
+     },
+     "status_je_schulart": {
+      "gym": "Pflicht",
+      "rs_I": "Pflicht",
+      "rs_II_III": "Pflicht",
+      "ib_standard": "Pflicht",
+      "ib_extended": "Pflicht"
      }
     },
     {
@@ -897,6 +971,13 @@
       "rs_II_III": false,
       "ib_standard": false,
       "ib_extended": false
+     },
+     "status_je_schulart": {
+      "gym": "Pflicht",
+      "rs_I": "Pflicht",
+      "rs_II_III": "Pflicht",
+      "ib_standard": "Pflicht",
+      "ib_extended": "Pflicht"
      }
     }
    ],
@@ -923,6 +1004,10 @@
       {
        "lernziel": "wahre_groesse",
        "titel": "Wahre Größe im Schrägbild"
+      },
+      {
+       "lernziel": "raumwinkel",
+       "titel": "Winkel im Raum"
       }
      ],
      "etappen_ohne_lehrplanpunkt": [],
@@ -941,12 +1026,12 @@
      "stand_je_kind": {
       "1": {
        "erledigt": 0,
-       "etappen": 3,
+       "etappen": 4,
        "vollstaendig": false
       },
       "2": {
        "erledigt": 0,
-       "etappen": 3,
+       "etappen": 4,
        "vollstaendig": false
       }
      },
@@ -970,6 +1055,13 @@
       "rs_II_III": false,
       "ib_standard": true,
       "ib_extended": true
+     },
+     "status_je_schulart": {
+      "gym": "Pflicht",
+      "rs_I": "Pflicht",
+      "rs_II_III": "Pflicht",
+      "ib_standard": "Zusatz",
+      "ib_extended": "Zusatz"
      }
     },
     {
@@ -1034,6 +1126,13 @@
       "rs_II_III": false,
       "ib_standard": true,
       "ib_extended": true
+     },
+     "status_je_schulart": {
+      "gym": "Pflicht",
+      "rs_I": "Pflicht",
+      "rs_II_III": "Pflicht",
+      "ib_standard": "Zusatz",
+      "ib_extended": "Zusatz"
      }
     }
    ],
@@ -1131,6 +1230,13 @@
       "rs_II_III": true,
       "ib_standard": true,
       "ib_extended": true
+     },
+     "status_je_schulart": {
+      "gym": "Pflicht",
+      "rs_I": "Zusatz",
+      "rs_II_III": "Zusatz",
+      "ib_standard": "Zusatz",
+      "ib_extended": "Zusatz"
      }
     },
     {
@@ -1189,6 +1295,13 @@
       "rs_II_III": false,
       "ib_standard": true,
       "ib_extended": true
+     },
+     "status_je_schulart": {
+      "gym": "Pflicht",
+      "rs_I": "Pflicht",
+      "rs_II_III": "Pflicht",
+      "ib_standard": "Zusatz",
+      "ib_extended": "Zusatz"
      }
     }
    ],
@@ -1420,6 +1533,69 @@
    "braucht": "101 Prismen und Zylinder – Teil 1 von 2",
    "art": "empfohlen",
    "grund": "Vorgänger ist in dieser Schulart Zusatz"
+  },
+  {
+   "schulart": "gym",
+   "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2",
+   "braucht": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
+   "art": "Zusatz",
+   "grund": "Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts"
+  },
+  {
+   "schulart": "ib_standard",
+   "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2",
+   "braucht": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
+   "art": "Zusatz",
+   "grund": "Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts"
+  },
+  {
+   "schulart": "ib_extended",
+   "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2",
+   "braucht": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
+   "art": "Zusatz",
+   "grund": "Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts"
+  },
+  {
+   "schulart": "gym",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": "Zusatz",
+   "grund": "Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts"
+  },
+  {
+   "schulart": "rs_II_III",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 3 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "art": "Zusatz",
+   "grund": "Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts"
+  },
+  {
+   "schulart": "ib_standard",
+   "braucht_von": "91 Schrägbilder und Raumdarstellung – Teil 2 von 2",
+   "braucht": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2",
+   "art": "Zusatz",
+   "grund": "Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts"
+  },
+  {
+   "schulart": "ib_extended",
+   "braucht_von": "91 Schrägbilder und Raumdarstellung – Teil 2 von 2",
+   "braucht": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2",
+   "art": "Zusatz",
+   "grund": "Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts"
+  },
+  {
+   "schulart": "ib_standard",
+   "braucht_von": "101 Prismen und Zylinder – Teil 2 von 2",
+   "braucht": "101 Prismen und Zylinder – Teil 1 von 2",
+   "art": "Zusatz",
+   "grund": "Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts"
+  },
+  {
+   "schulart": "ib_extended",
+   "braucht_von": "101 Prismen und Zylinder – Teil 2 von 2",
+   "braucht": "101 Prismen und Zylinder – Teil 1 von 2",
+   "art": "Zusatz",
+   "grund": "Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts"
   }
  ],
  "grenzfaelle": [
@@ -2083,822 +2259,3054 @@
    "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
   }
  ],
+ "mehrere_klassen": [
+  {
+   "thema": 2,
+   "titel": "Lineare Gleichungen",
+   "spur": "ib_extended",
+   "erste_klasse": 2,
+   "klasse": 3,
+   "punkte": [
+    620
+   ],
+   "neue_etappen": [
+    "sonderfaelle"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 3 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_extended löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 2,
+   "titel": "Lineare Gleichungen",
+   "spur": "ib_standard",
+   "erste_klasse": 2,
+   "klasse": 3,
+   "punkte": [
+    620
+   ],
+   "neue_etappen": [
+    "sonderfaelle"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 3 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_standard löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 6,
+   "titel": "Gleichungssysteme mit 2 Unbekannten",
+   "spur": "ib_extended",
+   "erste_klasse": 3,
+   "klasse": 4,
+   "punkte": [
+    664
+   ],
+   "neue_etappen": [
+    "loesbarkeit"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 4 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_extended löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 6,
+   "titel": "Gleichungssysteme mit 2 Unbekannten",
+   "spur": "ib_standard",
+   "erste_klasse": 3,
+   "klasse": 4,
+   "punkte": [
+    644
+   ],
+   "neue_etappen": [],
+   "entscheidung": "wiederholung",
+   "anzeige": "wird in Kl. 4 wieder aufgegriffen",
+   "neuer_flug": false,
+   "begruendung": "In dieser Klasse ist keine Etappe zum ersten Mal verlangt: Wiederholung ohne neue Etappe, Grenzfall mit Anzeige."
+  },
+  {
+   "thema": 8,
+   "titel": "Quadratische Gleichungen (allgemein)",
+   "spur": "rs_II_III",
+   "erste_klasse": 9,
+   "klasse": 10,
+   "punkte": [
+    859,
+    860
+   ],
+   "neue_etappen": [
+    "ausklammern",
+    "diskriminante",
+    "ergaenzung",
+    "faktorisieren",
+    "loesungsformel"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 10 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "rs_II_III löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 18,
+   "titel": "Grundrechenarten und Rechengesetze",
+   "spur": "ib_extended",
+   "erste_klasse": 1,
+   "klasse": 2,
+   "punkte": [
+    584,
+    586
+   ],
+   "neue_etappen": [
+    "geteilt_ganz",
+    "mal_ganz"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 2 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_extended löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 18,
+   "titel": "Grundrechenarten und Rechengesetze",
+   "spur": "ib_standard",
+   "erste_klasse": 1,
+   "klasse": 2,
+   "punkte": [
+    584,
+    586
+   ],
+   "neue_etappen": [
+    "geteilt_ganz",
+    "mal_ganz"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 2 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_standard löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 20,
+   "titel": "Wurzeln und reelle Zahlen",
+   "spur": "ib_extended",
+   "erste_klasse": 3,
+   "klasse": 4,
+   "punkte": [
+    675
+   ],
+   "neue_etappen": [
+    "nenner_rational",
+    "teilweise"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 4 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_extended löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 20,
+   "titel": "Wurzeln und reelle Zahlen",
+   "spur": "ib_standard",
+   "erste_klasse": 3,
+   "klasse": 4,
+   "punkte": [
+    655
+   ],
+   "neue_etappen": [
+    "nenner_rational",
+    "teilweise"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 4 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_standard löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 21,
+   "titel": "Brüche und Anteile",
+   "spur": "ib_extended",
+   "erste_klasse": 1,
+   "klasse": 2,
+   "punkte": [
+    569,
+    570,
+    571
+   ],
+   "neue_etappen": [
+    "gleichwertig",
+    "verhaeltnis_kuerzen"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 2 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_extended löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 21,
+   "titel": "Brüche und Anteile",
+   "spur": "ib_standard",
+   "erste_klasse": 1,
+   "klasse": 2,
+   "punkte": [
+    569,
+    570,
+    571
+   ],
+   "neue_etappen": [
+    "gleichwertig",
+    "verhaeltnis_kuerzen"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 2 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_standard löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 26,
+   "titel": "Direkte Proportionalität und Dreisatz",
+   "spur": "rs_I",
+   "erste_klasse": 5,
+   "klasse": 6,
+   "punkte": [
+    385,
+    386,
+    387,
+    388
+   ],
+   "neue_etappen": [
+    "erkennen",
+    "pruefen",
+    "vervielfachen"
+   ],
+   "entscheidung": "geteilt",
+   "teil": 2,
+   "anzeige": "eigener Teil 2 von 2 in Kl. 6",
+   "neuer_flug": true,
+   "begruendung": "Die spätere Klasse verlangt eigene Etappen; Gym/RS I sind Maßstab der Teilung."
+  },
+  {
+   "thema": 26,
+   "titel": "Direkte Proportionalität und Dreisatz",
+   "spur": "rs_II_III",
+   "erste_klasse": 5,
+   "klasse": 6,
+   "punkte": [
+    385,
+    386,
+    387,
+    388
+   ],
+   "neue_etappen": [
+    "erkennen",
+    "pruefen",
+    "vervielfachen"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 6 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "rs_II_III löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 28,
+   "titel": "Terme aufstellen und deuten",
+   "spur": "ib_extended",
+   "erste_klasse": 1,
+   "klasse": 2,
+   "punkte": [
+    587,
+    589
+   ],
+   "neue_etappen": [
+    "struktur"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 2 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_extended löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 28,
+   "titel": "Terme aufstellen und deuten",
+   "spur": "ib_standard",
+   "erste_klasse": 1,
+   "klasse": 2,
+   "punkte": [
+    587,
+    589
+   ],
+   "neue_etappen": [
+    "struktur"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 2 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_standard löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 29,
+   "titel": "Terme umformen",
+   "spur": "ib_extended",
+   "erste_klasse": 1,
+   "klasse": 2,
+   "punkte": [
+    588
+   ],
+   "neue_etappen": [
+    "ausmultiplizieren"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 2 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_extended löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 29,
+   "titel": "Terme umformen",
+   "spur": "ib_extended",
+   "erste_klasse": 1,
+   "klasse": 4,
+   "punkte": [
+    661
+   ],
+   "neue_etappen": [
+    "ausklammern",
+    "binomisch",
+    "summe_mal_summe"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 4 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_extended löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 29,
+   "titel": "Terme umformen",
+   "spur": "ib_standard",
+   "erste_klasse": 1,
+   "klasse": 2,
+   "punkte": [
+    588
+   ],
+   "neue_etappen": [
+    "ausmultiplizieren"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 2 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_standard löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 29,
+   "titel": "Terme umformen",
+   "spur": "ib_standard",
+   "erste_klasse": 1,
+   "klasse": 4,
+   "punkte": [
+    641
+   ],
+   "neue_etappen": [
+    "ausklammern",
+    "binomisch",
+    "summe_mal_summe"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 4 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_standard löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 29,
+   "titel": "Terme umformen",
+   "spur": "rs_I",
+   "erste_klasse": 7,
+   "klasse": 8,
+   "punkte": [
+    732,
+    734
+   ],
+   "neue_etappen": [
+    "ausklammern",
+    "binomisch",
+    "gleichungen_binomisch",
+    "summe_mal_summe"
+   ],
+   "entscheidung": "geteilt",
+   "teil": 2,
+   "anzeige": "eigener Teil 2 von 2 in Kl. 8",
+   "neuer_flug": true,
+   "begruendung": "Die spätere Klasse verlangt eigene Etappen; Gym/RS I sind Maßstab der Teilung."
+  },
+  {
+   "thema": 29,
+   "titel": "Terme umformen",
+   "spur": "rs_II_III",
+   "erste_klasse": 7,
+   "klasse": 8,
+   "punkte": [
+    747,
+    749
+   ],
+   "neue_etappen": [
+    "ausklammern",
+    "binomisch",
+    "gleichungen_binomisch",
+    "summe_mal_summe"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 8 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "rs_II_III löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 32,
+   "titel": "Zuordnung und Funktion",
+   "spur": "ib_extended",
+   "erste_klasse": 1,
+   "klasse": 4,
+   "punkte": [
+    662
+   ],
+   "neue_etappen": [
+    "eindeutig",
+    "mengen"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 4 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_extended löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 32,
+   "titel": "Zuordnung und Funktion",
+   "spur": "ib_standard",
+   "erste_klasse": 1,
+   "klasse": 4,
+   "punkte": [
+    642
+   ],
+   "neue_etappen": [
+    "eindeutig",
+    "mengen"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 4 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_standard löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 33,
+   "titel": "Lineare Funktionen",
+   "spur": "ib_extended",
+   "erste_klasse": 3,
+   "klasse": 4,
+   "punkte": [
+    663
+   ],
+   "neue_etappen": [],
+   "entscheidung": "wiederholung",
+   "anzeige": "wird in Kl. 4 wieder aufgegriffen",
+   "neuer_flug": false,
+   "begruendung": "In dieser Klasse ist keine Etappe zum ersten Mal verlangt: Wiederholung ohne neue Etappe, Grenzfall mit Anzeige."
+  },
+  {
+   "thema": 33,
+   "titel": "Lineare Funktionen",
+   "spur": "ib_standard",
+   "erste_klasse": 3,
+   "klasse": 4,
+   "punkte": [
+    643
+   ],
+   "neue_etappen": [
+    "deuten"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 4 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_standard löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 33,
+   "titel": "Lineare Funktionen",
+   "spur": "rs_II_III",
+   "erste_klasse": 8,
+   "klasse": 9,
+   "punkte": [
+    988,
+    989,
+    990,
+    991
+   ],
+   "neue_etappen": [
+    "ablesen",
+    "aufstellen",
+    "bueschel",
+    "deuten",
+    "wirkung",
+    "zwei_punkte"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 9 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "rs_II_III löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 42,
+   "titel": "Grundbegriffe und Figuren",
+   "spur": "ib_extended",
+   "erste_klasse": 1,
+   "klasse": 2,
+   "punkte": [
+    583
+   ],
+   "neue_etappen": [
+    "koordinaten"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 2 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_extended löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 42,
+   "titel": "Grundbegriffe und Figuren",
+   "spur": "ib_standard",
+   "erste_klasse": 1,
+   "klasse": 2,
+   "punkte": [
+    583
+   ],
+   "neue_etappen": [
+    "koordinaten"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 2 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_standard löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 44,
+   "titel": "Konstruktionen, Kongruenz und Beweise",
+   "spur": "ib_extended",
+   "erste_klasse": 2,
+   "klasse": 3,
+   "punkte": [
+    632,
+    633
+   ],
+   "neue_etappen": [
+    "satz_kehrsatz"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 3 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_extended löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 44,
+   "titel": "Konstruktionen, Kongruenz und Beweise",
+   "spur": "ib_extended",
+   "erste_klasse": 2,
+   "klasse": 4,
+   "punkte": [
+    668
+   ],
+   "neue_etappen": [],
+   "entscheidung": "wiederholung",
+   "anzeige": "wird in Kl. 4 wieder aufgegriffen",
+   "neuer_flug": false,
+   "begruendung": "In dieser Klasse ist keine Etappe zum ersten Mal verlangt: Wiederholung ohne neue Etappe, Grenzfall mit Anzeige."
+  },
+  {
+   "thema": 44,
+   "titel": "Konstruktionen, Kongruenz und Beweise",
+   "spur": "ib_standard",
+   "erste_klasse": 2,
+   "klasse": 3,
+   "punkte": [
+    632,
+    633
+   ],
+   "neue_etappen": [
+    "satz_kehrsatz"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 3 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_standard löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 44,
+   "titel": "Konstruktionen, Kongruenz und Beweise",
+   "spur": "ib_standard",
+   "erste_klasse": 2,
+   "klasse": 4,
+   "punkte": [
+    648
+   ],
+   "neue_etappen": [],
+   "entscheidung": "wiederholung",
+   "anzeige": "wird in Kl. 4 wieder aufgegriffen",
+   "neuer_flug": false,
+   "begruendung": "In dieser Klasse ist keine Etappe zum ersten Mal verlangt: Wiederholung ohne neue Etappe, Grenzfall mit Anzeige."
+  },
+  {
+   "thema": 44,
+   "titel": "Konstruktionen, Kongruenz und Beweise",
+   "spur": "rs_I",
+   "erste_klasse": 7,
+   "klasse": 8,
+   "punkte": [
+    931
+   ],
+   "neue_etappen": [
+    "vierecke",
+    "vierecke_konstruieren"
+   ],
+   "entscheidung": "geteilt",
+   "teil": 2,
+   "anzeige": "eigener Teil 2 von 2 in Kl. 8",
+   "neuer_flug": true,
+   "begruendung": "Die spätere Klasse verlangt eigene Etappen; Gym/RS I sind Maßstab der Teilung."
+  },
+  {
+   "thema": 46,
+   "titel": "Kongruenzabbildungen",
+   "spur": "ib_standard",
+   "erste_klasse": 3,
+   "klasse": 4,
+   "punkte": [
+    649
+   ],
+   "neue_etappen": [],
+   "entscheidung": "wiederholung",
+   "anzeige": "wird in Kl. 4 wieder aufgegriffen",
+   "neuer_flug": false,
+   "begruendung": "In dieser Klasse ist keine Etappe zum ersten Mal verlangt: Wiederholung ohne neue Etappe, Grenzfall mit Anzeige."
+  },
+  {
+   "thema": 46,
+   "titel": "Kongruenzabbildungen",
+   "spur": "rs_I",
+   "erste_klasse": 6,
+   "klasse": 7,
+   "punkte": [
+    868,
+    869,
+    870,
+    871
+   ],
+   "neue_etappen": [
+    "gegenvektor",
+    "vektor_koordinaten",
+    "verschiebung"
+   ],
+   "entscheidung": "geteilt",
+   "teil": 2,
+   "anzeige": "eigener Teil 2 von 3 in Kl. 7",
+   "neuer_flug": true,
+   "begruendung": "Die spätere Klasse verlangt eigene Etappen; Gym/RS I sind Maßstab der Teilung."
+  },
+  {
+   "thema": 46,
+   "titel": "Kongruenzabbildungen",
+   "spur": "rs_I",
+   "erste_klasse": 6,
+   "klasse": 8,
+   "punkte": [
+    930,
+    933,
+    934,
+    935,
+    936,
+    937
+   ],
+   "neue_etappen": [
+    "drehung",
+    "punktspiegelung",
+    "vektor_drehen"
+   ],
+   "entscheidung": "geteilt",
+   "teil": 3,
+   "anzeige": "eigener Teil 3 von 3 in Kl. 8",
+   "neuer_flug": true,
+   "begruendung": "Die spätere Klasse verlangt eigene Etappen; Gym/RS I sind Maßstab der Teilung."
+  },
+  {
+   "thema": 46,
+   "titel": "Kongruenzabbildungen",
+   "spur": "rs_II_III",
+   "erste_klasse": 6,
+   "klasse": 7,
+   "punkte": [
+    906,
+    907,
+    908,
+    909
+   ],
+   "neue_etappen": [
+    "gegenvektor",
+    "vektor_koordinaten",
+    "verschiebung"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 7 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "Kl. 8 (Vierecke nach Eigenschaften unterscheiden) steckt in vierecke_ordnen aus Kl. 6; RS II/III löst ohnehin keine Teilung aus."
+  },
+  {
+   "thema": 46,
+   "titel": "Kongruenzabbildungen",
+   "spur": "rs_II_III",
+   "erste_klasse": 6,
+   "klasse": 8,
+   "punkte": [
+    956
+   ],
+   "neue_etappen": [],
+   "entscheidung": "wiederholung",
+   "anzeige": "wird in Kl. 8 wieder aufgegriffen",
+   "neuer_flug": false,
+   "begruendung": "Kl. 8 (Vierecke nach Eigenschaften unterscheiden) steckt in vierecke_ordnen aus Kl. 6; RS II/III löst ohnehin keine Teilung aus."
+  },
+  {
+   "thema": 47,
+   "titel": "Ähnlichkeit und Strahlensätze",
+   "spur": "ib_extended",
+   "erste_klasse": 3,
+   "klasse": 4,
+   "punkte": [
+    667
+   ],
+   "neue_etappen": [
+    "strahlensatz1",
+    "strahlensatz2"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 4 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_extended löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 47,
+   "titel": "Ähnlichkeit und Strahlensätze",
+   "spur": "ib_standard",
+   "erste_klasse": 3,
+   "klasse": 4,
+   "punkte": [
+    647
+   ],
+   "neue_etappen": [
+    "strahlensatz1",
+    "strahlensatz2"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 4 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_standard löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 50,
+   "titel": "Umfang und Flächeninhalt",
+   "spur": "ib_extended",
+   "erste_klasse": 1,
+   "klasse": 2,
+   "punkte": [
+    595,
+    596
+   ],
+   "neue_etappen": [
+    "sachaufgaben"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 2 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_extended löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 50,
+   "titel": "Umfang und Flächeninhalt",
+   "spur": "ib_standard",
+   "erste_klasse": 1,
+   "klasse": 2,
+   "punkte": [
+    595,
+    596
+   ],
+   "neue_etappen": [
+    "sachaufgaben"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 2 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_standard löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 53,
+   "titel": "Volumen und Oberfläche",
+   "spur": "ib_extended",
+   "erste_klasse": 1,
+   "klasse": 2,
+   "punkte": [
+    598,
+    599,
+    600
+   ],
+   "neue_etappen": [],
+   "entscheidung": "wiederholung",
+   "anzeige": "wird in Kl. 2 wieder aufgegriffen",
+   "neuer_flug": false,
+   "begruendung": "In dieser Klasse ist keine Etappe zum ersten Mal verlangt: Wiederholung ohne neue Etappe, Grenzfall mit Anzeige."
+  },
+  {
+   "thema": 53,
+   "titel": "Volumen und Oberfläche",
+   "spur": "ib_standard",
+   "erste_klasse": 1,
+   "klasse": 2,
+   "punkte": [
+    598,
+    599,
+    600
+   ],
+   "neue_etappen": [],
+   "entscheidung": "wiederholung",
+   "anzeige": "wird in Kl. 2 wieder aufgegriffen",
+   "neuer_flug": false,
+   "begruendung": "In dieser Klasse ist keine Etappe zum ersten Mal verlangt: Wiederholung ohne neue Etappe, Grenzfall mit Anzeige."
+  },
+  {
+   "thema": 55,
+   "titel": "Trigonometrie im rechtwinkligen Dreieck",
+   "spur": "ib_extended",
+   "erste_klasse": 3,
+   "klasse": 4,
+   "punkte": [
+    671
+   ],
+   "neue_etappen": [
+    "anwendung"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 4 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_extended löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 55,
+   "titel": "Trigonometrie im rechtwinkligen Dreieck",
+   "spur": "ib_standard",
+   "erste_klasse": 3,
+   "klasse": 4,
+   "punkte": [
+    651
+   ],
+   "neue_etappen": [
+    "anwendung"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 4 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_standard löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 57,
+   "titel": "Daten erfassen und darstellen",
+   "spur": "ib_extended",
+   "erste_klasse": 1,
+   "klasse": 2,
+   "punkte": [
+    607
+   ],
+   "neue_etappen": [],
+   "entscheidung": "wiederholung",
+   "anzeige": "wird in Kl. 2 wieder aufgegriffen",
+   "neuer_flug": false,
+   "begruendung": "In dieser Klasse ist keine Etappe zum ersten Mal verlangt: Wiederholung ohne neue Etappe, Grenzfall mit Anzeige."
+  },
+  {
+   "thema": 57,
+   "titel": "Daten erfassen und darstellen",
+   "spur": "ib_standard",
+   "erste_klasse": 1,
+   "klasse": 2,
+   "punkte": [
+    607
+   ],
+   "neue_etappen": [],
+   "entscheidung": "wiederholung",
+   "anzeige": "wird in Kl. 2 wieder aufgegriffen",
+   "neuer_flug": false,
+   "begruendung": "In dieser Klasse ist keine Etappe zum ersten Mal verlangt: Wiederholung ohne neue Etappe, Grenzfall mit Anzeige."
+  },
+  {
+   "thema": 57,
+   "titel": "Daten erfassen und darstellen",
+   "spur": "rs_I",
+   "erste_klasse": 5,
+   "klasse": 7,
+   "punkte": [
+    900
+   ],
+   "neue_etappen": [],
+   "entscheidung": "wiederholung",
+   "anzeige": "wird in Kl. 7 wieder aufgegriffen",
+   "neuer_flug": false,
+   "begruendung": "Kl. 7 (8 I 8/K4) verlangt dieselbe Fähigkeit wie Kl. 5 (6/k3, verzerrte Diagramme erkennen/berichtigen) auf höherem Niveau; die Etappe irrefuehrend deckt beides. Keine neue Etappe → kein eigener Flug."
+  },
+  {
+   "thema": 57,
+   "titel": "Daten erfassen und darstellen",
+   "spur": "rs_II_III",
+   "erste_klasse": 5,
+   "klasse": 7,
+   "punkte": [
+    928
+   ],
+   "neue_etappen": [],
+   "entscheidung": "wiederholung",
+   "anzeige": "wird in Kl. 7 wieder aufgegriffen",
+   "neuer_flug": false,
+   "begruendung": "wie RS I: Kl. 7 (6/K4) = Kl. 5 (6/k3) auf höherem Niveau; Etappe irrefuehrend."
+  },
+  {
+   "thema": 59,
+   "titel": "Zweidimensionale Daten",
+   "spur": "ib_standard",
+   "erste_klasse": 3,
+   "klasse": 4,
+   "punkte": [
+    658
+   ],
+   "neue_etappen": [],
+   "entscheidung": "wiederholung",
+   "anzeige": "wird in Kl. 4 wieder aufgegriffen",
+   "neuer_flug": false,
+   "begruendung": "In dieser Klasse ist keine Etappe zum ersten Mal verlangt: Wiederholung ohne neue Etappe, Grenzfall mit Anzeige."
+  },
+  {
+   "thema": 61,
+   "titel": "Zufall und Laplace",
+   "spur": "rs_I",
+   "erste_klasse": 8,
+   "klasse": 9,
+   "punkte": [
+    798,
+    799,
+    800,
+    801,
+    802
+   ],
+   "neue_etappen": [
+    "gegenereignis",
+    "grosse_zahlen",
+    "laplace",
+    "laplace_pruefen"
+   ],
+   "entscheidung": "geteilt",
+   "teil": 2,
+   "anzeige": "eigener Teil 2 von 2 in Kl. 9",
+   "neuer_flug": true,
+   "begruendung": "Die spätere Klasse verlangt eigene Etappen; Gym/RS I sind Maßstab der Teilung."
+  },
+  {
+   "thema": 61,
+   "titel": "Zufall und Laplace",
+   "spur": "rs_II_III",
+   "erste_klasse": 8,
+   "klasse": 9,
+   "punkte": [
+    993,
+    994,
+    995,
+    996,
+    997
+   ],
+   "neue_etappen": [
+    "gegenereignis",
+    "grosse_zahlen",
+    "laplace",
+    "laplace_pruefen"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 9 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "rs_II_III löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 63,
+   "titel": "Verknüpfte Ereignisse",
+   "spur": "ib_extended",
+   "erste_klasse": 1,
+   "klasse": 4,
+   "punkte": [
+    677,
+    682
+   ],
+   "neue_etappen": [
+    "bedingt",
+    "rueckschluss",
+    "tafel_wkeit",
+    "vierfeld"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 4 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_extended löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 63,
+   "titel": "Verknüpfte Ereignisse",
+   "spur": "ib_standard",
+   "erste_klasse": 1,
+   "klasse": 4,
+   "punkte": [
+    657,
+    680,
+    681
+   ],
+   "neue_etappen": [
+    "additionssatz",
+    "tafel_wkeit",
+    "verknuepfen",
+    "vierfeld"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 4 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_standard löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 91,
+   "titel": "Schrägbilder und Raumdarstellung",
+   "spur": "rs_I",
+   "erste_klasse": 7,
+   "klasse": 8,
+   "punkte": [
+    939,
+    940,
+    941
+   ],
+   "neue_etappen": [
+    "axialschnitt",
+    "koerper_symmetrie",
+    "koordinaten",
+    "rotation"
+   ],
+   "entscheidung": "geteilt",
+   "teil": 2,
+   "anzeige": "eigener Teil 2 von 2 in Kl. 8",
+   "neuer_flug": true,
+   "begruendung": "Die spätere Klasse verlangt eigene Etappen; Gym/RS I sind Maßstab der Teilung."
+  },
+  {
+   "thema": 91,
+   "titel": "Schrägbilder und Raumdarstellung",
+   "spur": "rs_II_III",
+   "erste_klasse": 8,
+   "klasse": 10,
+   "punkte": [
+    1006
+   ],
+   "neue_etappen": [
+    "axialschnitt",
+    "rotation"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 10 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "rs_II_III löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 92,
+   "titel": "Pyramide, Kegel, Kugel",
+   "spur": "ib_extended",
+   "erste_klasse": 3,
+   "klasse": 4,
+   "punkte": [
+    673
+   ],
+   "neue_etappen": [],
+   "entscheidung": "wiederholung",
+   "anzeige": "wird in Kl. 4 wieder aufgegriffen",
+   "neuer_flug": false,
+   "begruendung": "In dieser Klasse ist keine Etappe zum ersten Mal verlangt: Wiederholung ohne neue Etappe, Grenzfall mit Anzeige."
+  },
+  {
+   "thema": 92,
+   "titel": "Pyramide, Kegel, Kugel",
+   "spur": "ib_standard",
+   "erste_klasse": 3,
+   "klasse": 4,
+   "punkte": [
+    653
+   ],
+   "neue_etappen": [],
+   "entscheidung": "wiederholung",
+   "anzeige": "wird in Kl. 4 wieder aufgegriffen",
+   "neuer_flug": false,
+   "begruendung": "In dieser Klasse ist keine Etappe zum ersten Mal verlangt: Wiederholung ohne neue Etappe, Grenzfall mit Anzeige."
+  },
+  {
+   "thema": 98,
+   "titel": "Winkelsätze",
+   "spur": "ib_extended",
+   "erste_klasse": 1,
+   "klasse": 3,
+   "punkte": [
+    629
+   ],
+   "neue_etappen": [
+    "parkett"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 3 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_extended löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 98,
+   "titel": "Winkelsätze",
+   "spur": "ib_standard",
+   "erste_klasse": 1,
+   "klasse": 3,
+   "punkte": [
+    629
+   ],
+   "neue_etappen": [
+    "parkett"
+   ],
+   "entscheidung": "grenzfall",
+   "anzeige": "wird in Kl. 3 weitergeführt",
+   "neuer_flug": false,
+   "begruendung": "ib_standard löst keine Teilung aus (Regel 15:30/15:35); neue Etappen dort nur als Anzeige „weitergeführt“."
+  },
+  {
+   "thema": 101,
+   "titel": "Prismen und Zylinder",
+   "spur": "gym_by",
+   "erste_klasse": 8,
+   "klasse": 10,
+   "punkte": [
+    285
+   ],
+   "neue_etappen": [
+    "cavalieri"
+   ],
+   "entscheidung": "geteilt",
+   "teil": 2,
+   "anzeige": "eigener Teil 2 von 2 in Kl. 10",
+   "neuer_flug": true,
+   "begruendung": "Die spätere Klasse verlangt eigene Etappen; Gym/RS I sind Maßstab der Teilung."
+  }
+ ],
+ "nicht_mehr_mehrere_klassen": [
+  {
+   "thema": 2,
+   "titel": "Lineare Gleichungen",
+   "spur": "rs_I und rs_II_III",
+   "klassen_vorher": [
+    7,
+    8
+   ],
+   "klassen_jetzt": [
+    7
+   ],
+   "punkte": [
+    734,
+    749
+   ],
+   "entscheidung": "nicht teilen",
+   "anzeige": "wird in Kl. 8 in „29 Terme umformen – Teil 2 von 2“ wieder aufgegriffen",
+   "begruendung": "Der Kl.-8-Punkt verlangt Gleichungen mit Summenprodukten und binomischen Ausdrücken. Das braucht binomische Formeln aus 29 Teil 2; die eigene Etappe gleichungen_binomisch steht deshalb seit LK-D 2 in 29 Teil 2 (Hauptthema 29, 2 bleibt Nebenthema). 2 hat damit nur noch Hauptpunkte in Kl. 7 – kein zweiter Teil, kein zusätzlicher Flug."
+  }
+ ],
+ "wiederholung_anzeige": [
+  {
+   "thema": 6,
+   "spur": "ib_standard",
+   "klasse": 4,
+   "anzeige": "wird in Kl. 4 wieder aufgegriffen"
+  },
+  {
+   "thema": 33,
+   "spur": "ib_extended",
+   "klasse": 4,
+   "anzeige": "wird in Kl. 4 wieder aufgegriffen"
+  },
+  {
+   "thema": 44,
+   "spur": "ib_extended",
+   "klasse": 4,
+   "anzeige": "wird in Kl. 4 wieder aufgegriffen"
+  },
+  {
+   "thema": 44,
+   "spur": "ib_standard",
+   "klasse": 4,
+   "anzeige": "wird in Kl. 4 wieder aufgegriffen"
+  },
+  {
+   "thema": 46,
+   "spur": "ib_standard",
+   "klasse": 4,
+   "anzeige": "wird in Kl. 4 wieder aufgegriffen"
+  },
+  {
+   "thema": 46,
+   "spur": "rs_II_III",
+   "klasse": 8,
+   "anzeige": "wird in Kl. 8 wieder aufgegriffen"
+  },
+  {
+   "thema": 53,
+   "spur": "ib_extended",
+   "klasse": 2,
+   "anzeige": "wird in Kl. 2 wieder aufgegriffen"
+  },
+  {
+   "thema": 53,
+   "spur": "ib_standard",
+   "klasse": 2,
+   "anzeige": "wird in Kl. 2 wieder aufgegriffen"
+  },
+  {
+   "thema": 57,
+   "spur": "ib_extended",
+   "klasse": 2,
+   "anzeige": "wird in Kl. 2 wieder aufgegriffen"
+  },
+  {
+   "thema": 57,
+   "spur": "ib_standard",
+   "klasse": 2,
+   "anzeige": "wird in Kl. 2 wieder aufgegriffen"
+  },
+  {
+   "thema": 57,
+   "spur": "rs_I",
+   "klasse": 7,
+   "anzeige": "wird in Kl. 7 wieder aufgegriffen"
+  },
+  {
+   "thema": 57,
+   "spur": "rs_II_III",
+   "klasse": 7,
+   "anzeige": "wird in Kl. 7 wieder aufgegriffen"
+  },
+  {
+   "thema": 59,
+   "spur": "ib_standard",
+   "klasse": 4,
+   "anzeige": "wird in Kl. 4 wieder aufgegriffen"
+  },
+  {
+   "thema": 92,
+   "spur": "ib_extended",
+   "klasse": 4,
+   "anzeige": "wird in Kl. 4 wieder aufgegriffen"
+  },
+  {
+   "thema": 92,
+   "spur": "ib_standard",
+   "klasse": 4,
+   "anzeige": "wird in Kl. 4 wieder aufgegriffen"
+  },
+  {
+   "thema": 2,
+   "spur": "rs_I",
+   "klasse": 8,
+   "anzeige": "wird in Kl. 8 in „29 Terme umformen – Teil 2 von 2“ wieder aufgegriffen"
+  },
+  {
+   "thema": 2,
+   "spur": "rs_II_III",
+   "klasse": 8,
+   "anzeige": "wird in Kl. 8 in „29 Terme umformen – Teil 2 von 2“ wieder aufgegriffen"
+  }
+ ],
  "kanten": [
   {
    "braucht_von": "2 Lineare Gleichungen",
    "braucht": "1 Einfache Gleichungen",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "8 Quadratische Gleichungen (allgemein)",
    "braucht": "2 Lineare Gleichungen",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "6 Gleichungssysteme mit 2 Unbekannten",
    "braucht": "2 Lineare Gleichungen",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "5 Bruch- und Verhältnisgleichungen",
    "braucht": "2 Lineare Gleichungen",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "4 Formeln umstellen",
    "braucht": "2 Lineare Gleichungen",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "3 Lineare Ungleichungen",
    "braucht": "2 Lineare Gleichungen",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "7 Gleichungssysteme mit 3 Unbekannten",
    "braucht": "6 Gleichungssysteme mit 2 Unbekannten",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "11 Polynomgleichungen",
    "braucht": "8 Quadratische Gleichungen (allgemein)",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "33 Lineare Funktionen",
    "braucht": "2 Lineare Gleichungen",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "8 Quadratische Gleichungen (allgemein)",
    "braucht": "68 Elementare Wurzeln",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "16 Ganze Zahlen",
    "braucht": "15 Natürliche Zahlen",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "30 Potenzen und negative Exponenten",
    "braucht": "18 Grundrechenarten und Rechengesetze",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "1 Einfache Gleichungen",
    "braucht": "18 Grundrechenarten und Rechengesetze",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "9 Potenzgleichungen",
    "braucht": "20 Wurzeln und reelle Zahlen",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "24 Prozent- und Zinsrechnung",
    "braucht": "21 Brüche und Anteile",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "23 Rechnen mit rationalen Zahlen",
    "braucht": "21 Brüche und Anteile",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "62 Mehrstufige Zufallsexperimente",
    "braucht": "23 Rechnen mit rationalen Zahlen",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "31 Bruchterme",
    "braucht": "23 Rechnen mit rationalen Zahlen",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2",
    "braucht": "25 Größen und Einheiten",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "32 Zuordnung und Funktion",
    "braucht": "28 Terme aufstellen und deuten",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "29 Terme umformen – Teil 1 von 2",
    "braucht": "28 Terme aufstellen und deuten",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "8 Quadratische Gleichungen (allgemein)",
    "braucht": "29 Terme umformen – Teil 2 von 2",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "37 Exponential- und Logarithmusfunktionen",
    "braucht": "30 Potenzen und negative Exponenten",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "5 Bruch- und Verhältnisgleichungen",
    "braucht": "31 Bruchterme",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "33 Lineare Funktionen",
    "braucht": "32 Zuordnung und Funktion",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "39 Ganzrationale Funktionen",
    "braucht": "35 Quadratische Funktionen",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "10 Exponentialgleichungen",
    "braucht": "37 Exponential- und Logarithmusfunktionen",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "55 Trigonometrie im rechtwinkligen Dreieck",
    "braucht": "47 Ähnlichkeit und Strahlensätze",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "49 Matrizen und Abbildungen mit Matrizen",
    "braucht": "46 Kongruenzabbildungen – Teil 3 von 3",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "53 Volumen und Oberfläche",
    "braucht": "50 Umfang und Flächeninhalt",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "51 Kreisberechnungen",
    "braucht": "50 Umfang und Flächeninhalt",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "56 Allgemeine Trigonometrie",
    "braucht": "55 Trigonometrie im rechtwinkligen Dreieck",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "38 Sinus- und Kosinusfunktion",
    "braucht": "56 Allgemeine Trigonometrie",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "14 Trigonometrische Gleichungen",
    "braucht": "56 Allgemeine Trigonometrie",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "63 Verknüpfte Ereignisse",
    "braucht": "61 Zufall und Laplace – Teil 1 von 2",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "62 Mehrstufige Zufallsexperimente",
    "braucht": "61 Zufall und Laplace – Teil 2 von 2",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "35 Quadratische Funktionen",
    "braucht": "33 Lineare Funktionen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "47 Ähnlichkeit und Strahlensätze",
    "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
    "art": "empfohlen",
-   "herkunft": "bisher (inhaltlich zugeordnet)"
+   "herkunft": "bisher (inhaltlich zugeordnet)",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "74 Zweireihige Determinanten",
    "braucht": "46 Kongruenzabbildungen – Teil 2 von 3",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "58 Mittelwert und Häufigkeiten",
    "braucht": "57 Daten erfassen und darstellen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "74 Zweireihige Determinanten",
    "braucht": "50 Umfang und Flächeninhalt",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "71 Zinsen",
    "braucht": "24 Prozent- und Zinsrechnung",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "76 Reihen",
    "braucht": "28 Terme aufstellen und deuten",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "37 Exponential- und Logarithmusfunktionen",
    "braucht": "32 Zuordnung und Funktion",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "36 Potenzfunktionen",
    "braucht": "32 Zuordnung und Funktion",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "35 Quadratische Funktionen",
    "braucht": "32 Zuordnung und Funktion",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "2 Lineare Gleichungen",
    "braucht": "28 Terme aufstellen und deuten",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "2 Lineare Gleichungen",
    "braucht": "16 Ganze Zahlen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "4 Formeln umstellen",
    "braucht": "29 Terme umformen – Teil 1 von 2",
    "art": "empfohlen",
-   "herkunft": "bisher (inhaltlich zugeordnet)"
+   "herkunft": "bisher (inhaltlich zugeordnet)",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "6 Gleichungssysteme mit 2 Unbekannten",
    "braucht": "33 Lineare Funktionen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "30 Potenzen und negative Exponenten",
    "braucht": "67 Potenzen als Schreibweise",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "54 Satz des Pythagoras",
    "braucht": "68 Elementare Wurzeln",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "13 Wurzelgleichungen",
    "braucht": "68 Elementare Wurzeln",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "80 Normalverteilung",
    "braucht": "79 Standardabweichung",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "79 Standardabweichung",
    "braucht": "58 Mittelwert und Häufigkeiten",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "94 Vermehrter und verminderter Grundwert",
    "braucht": "24 Prozent- und Zinsrechnung",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "93 Indirekte Proportionalität",
    "braucht": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "92 Pyramide, Kegel, Kugel",
    "braucht": "51 Kreisberechnungen",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2",
    "braucht": "52 Körper darstellen",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "Zusatz",
+    "ib_extended": "Zusatz"
+   }
   },
   {
    "braucht_von": "92 Pyramide, Kegel, Kugel",
    "braucht": "54 Satz des Pythagoras",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "96 Rationale Exponenten und n-te Wurzel",
    "braucht": "68 Elementare Wurzeln",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "95 Median, Quartile, Boxplot",
    "braucht": "58 Mittelwert und Häufigkeiten",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "61 Zufall und Laplace – Teil 1 von 2",
    "braucht": "21 Brüche und Anteile",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "79 Standardabweichung",
    "braucht": "68 Elementare Wurzeln",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "97 Quadratische Terme und Extremwerte",
    "braucht": "29 Terme umformen – Teil 2 von 2",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "35 Quadratische Funktionen",
    "braucht": "29 Terme umformen – Teil 2 von 2",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "25 Größen und Einheiten",
    "braucht": "18 Grundrechenarten und Rechengesetze",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "28 Terme aufstellen und deuten",
    "braucht": "18 Grundrechenarten und Rechengesetze",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "29 Terme umformen – Teil 1 von 2",
    "braucht": "102 Potenzgesetze",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "30 Potenzen und negative Exponenten",
    "braucht": "21 Brüche und Anteile",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "31 Bruchterme",
    "braucht": "29 Terme umformen – Teil 2 von 2",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "34 Gebrochen-rationale Funktionen",
    "braucht": "32 Zuordnung und Funktion",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "34 Gebrochen-rationale Funktionen",
    "braucht": "93 Indirekte Proportionalität",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "36 Potenzfunktionen",
    "braucht": "35 Quadratische Funktionen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "37 Exponential- und Logarithmusfunktionen",
    "braucht": "103 Potenzgesetze mit ganzzahligen Exponenten",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "43 Mit Winkeln rechnen",
    "braucht": "42 Grundbegriffe und Figuren",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
    "braucht": "43 Mit Winkeln rechnen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
    "braucht": "98 Winkelsätze",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
    "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
    "art": "empfohlen",
-   "herkunft": "bisher (inhaltlich zugeordnet)"
+   "herkunft": "bisher (inhaltlich zugeordnet)",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "45 Kreis und Tangenten",
    "braucht": "42 Grundbegriffe und Figuren",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "45 Kreis und Tangenten",
    "braucht": "98 Winkelsätze",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "45 Kreis und Tangenten",
    "braucht": "73 Ortslinien und Ortsbereiche",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "46 Kongruenzabbildungen – Teil 1 von 3",
    "braucht": "42 Grundbegriffe und Figuren",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "50 Umfang und Flächeninhalt",
    "braucht": "42 Grundbegriffe und Figuren",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "52 Körper darstellen",
    "braucht": "42 Grundbegriffe und Figuren",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "55 Trigonometrie im rechtwinkligen Dreieck",
    "braucht": "54 Satz des Pythagoras",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "58 Mittelwert und Häufigkeiten",
    "braucht": "22 Dezimalzahlen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "59 Zweidimensionale Daten",
    "braucht": "57 Daten erfassen und darstellen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "59 Zweidimensionale Daten",
    "braucht": "33 Lineare Funktionen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "64 Simulation",
    "braucht": "61 Zufall und Laplace – Teil 2 von 2",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "66 Lineare Optimierung",
    "braucht": "3 Lineare Ungleichungen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "66 Lineare Optimierung",
    "braucht": "33 Lineare Funktionen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "67 Potenzen als Schreibweise",
    "braucht": "18 Grundrechenarten und Rechengesetze",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "68 Elementare Wurzeln",
    "braucht": "67 Potenzen als Schreibweise",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "69 Intervalle",
    "braucht": "16 Ganze Zahlen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "70 Schranken und Genauigkeit",
    "braucht": "22 Dezimalzahlen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "73 Ortslinien und Ortsbereiche",
    "braucht": "42 Grundbegriffe und Figuren",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "75 Betragsfunktion",
    "braucht": "32 Zuordnung und Funktion",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "75 Betragsfunktion",
    "braucht": "16 Ganze Zahlen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "81 Stichproben und Aussagekraft",
    "braucht": "57 Daten erfassen und darstellen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "81 Stichproben und Aussagekraft",
    "braucht": "58 Mittelwert und Häufigkeiten",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "92 Pyramide, Kegel, Kugel",
    "braucht": "101 Prismen und Zylinder – Teil 2 von 2",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "11 Polynomgleichungen",
    "braucht": "39 Ganzrationale Funktionen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "13 Wurzelgleichungen",
    "braucht": "8 Quadratische Gleichungen (allgemein)",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "17 Teilbarkeit",
    "braucht": "18 Grundrechenarten und Rechengesetze",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "18 Grundrechenarten und Rechengesetze",
    "braucht": "15 Natürliche Zahlen",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "19 Zehnerpotenzen und wissenschaftliche Schreibweise",
    "braucht": "67 Potenzen als Schreibweise",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "19 Zehnerpotenzen und wissenschaftliche Schreibweise",
    "braucht": "22 Dezimalzahlen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "20 Wurzeln und reelle Zahlen",
    "braucht": "68 Elementare Wurzeln",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "21 Brüche und Anteile",
    "braucht": "18 Grundrechenarten und Rechengesetze",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "21 Brüche und Anteile",
    "braucht": "17 Teilbarkeit",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "22 Dezimalzahlen",
    "braucht": "21 Brüche und Anteile",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "23 Rechnen mit rationalen Zahlen",
    "braucht": "22 Dezimalzahlen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "23 Rechnen mit rationalen Zahlen",
    "braucht": "16 Ganze Zahlen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "24 Prozent- und Zinsrechnung",
    "braucht": "22 Dezimalzahlen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "98 Winkelsätze",
    "braucht": "43 Mit Winkeln rechnen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "99 Flächen von Parallelogramm, Dreieck und Trapez",
    "braucht": "50 Umfang und Flächeninhalt",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "100 Volumen",
    "braucht": "50 Umfang und Flächeninhalt",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "100 Volumen",
    "braucht": "25 Größen und Einheiten",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "101 Prismen und Zylinder – Teil 1 von 2",
    "braucht": "99 Flächen von Parallelogramm, Dreieck und Trapez",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "Zusatz",
+    "rs_II_III": "Zusatz",
+    "ib_standard": "Zusatz",
+    "ib_extended": "Zusatz"
+   }
   },
   {
    "braucht_von": "101 Prismen und Zylinder – Teil 1 von 2",
    "braucht": "100 Volumen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "Zusatz",
+    "rs_II_III": "Zusatz",
+    "ib_standard": "Zusatz",
+    "ib_extended": "Zusatz"
+   }
   },
   {
    "braucht_von": "101 Prismen und Zylinder – Teil 1 von 2",
    "braucht": "51 Kreisberechnungen",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "Zusatz",
+    "rs_II_III": "Zusatz",
+    "ib_standard": "Zusatz",
+    "ib_extended": "Zusatz"
+   }
   },
   {
    "braucht_von": "102 Potenzgesetze",
    "braucht": "30 Potenzen und negative Exponenten",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "102 Potenzgesetze",
    "braucht": "28 Terme aufstellen und deuten",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "103 Potenzgesetze mit ganzzahligen Exponenten",
    "braucht": "102 Potenzgesetze",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "103 Potenzgesetze mit ganzzahligen Exponenten",
    "braucht": "30 Potenzen und negative Exponenten",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "96 Rationale Exponenten und n-te Wurzel",
    "braucht": "103 Potenzgesetze mit ganzzahligen Exponenten",
    "art": "empfohlen",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "empfohlen",
+    "ib_extended": "empfohlen"
+   }
   },
   {
    "braucht_von": "96 Rationale Exponenten und n-te Wurzel",
    "braucht": "30 Potenzen und negative Exponenten",
    "art": "hart",
-   "herkunft": "bisher"
+   "herkunft": "bisher",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2",
    "braucht": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2",
    "art": "hart",
-   "herkunft": "Teilung"
+   "herkunft": "Teilung",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "29 Terme umformen – Teil 2 von 2",
    "braucht": "29 Terme umformen – Teil 1 von 2",
    "art": "hart",
-   "herkunft": "Teilung"
+   "herkunft": "Teilung",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2",
    "braucht": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
    "art": "hart",
-   "herkunft": "Teilung"
+   "herkunft": "Teilung",
+   "art_je_schulart": {
+    "gym": "Zusatz",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "Zusatz",
+    "ib_extended": "Zusatz"
+   }
   },
   {
    "braucht_von": "46 Kongruenzabbildungen – Teil 2 von 3",
    "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
    "art": "hart",
-   "herkunft": "Teilung"
+   "herkunft": "Teilung",
+   "art_je_schulart": {
+    "gym": "Zusatz",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "46 Kongruenzabbildungen – Teil 3 von 3",
    "braucht": "46 Kongruenzabbildungen – Teil 2 von 3",
    "art": "hart",
-   "herkunft": "Teilung"
+   "herkunft": "Teilung",
+   "art_je_schulart": {
+    "gym": "empfohlen",
+    "rs_I": "hart",
+    "rs_II_III": "Zusatz",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "61 Zufall und Laplace – Teil 2 von 2",
    "braucht": "61 Zufall und Laplace – Teil 1 von 2",
    "art": "hart",
-   "herkunft": "Teilung"
+   "herkunft": "Teilung",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "hart",
+    "ib_extended": "hart"
+   }
   },
   {
    "braucht_von": "91 Schrägbilder und Raumdarstellung – Teil 2 von 2",
    "braucht": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2",
    "art": "hart",
-   "herkunft": "Teilung"
+   "herkunft": "Teilung",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "hart",
+    "rs_II_III": "hart",
+    "ib_standard": "Zusatz",
+    "ib_extended": "Zusatz"
+   }
   },
   {
    "braucht_von": "101 Prismen und Zylinder – Teil 2 von 2",
    "braucht": "101 Prismen und Zylinder – Teil 1 von 2",
    "art": "hart",
-   "herkunft": "Teilung"
+   "herkunft": "Teilung",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": "empfohlen",
+    "rs_II_III": "empfohlen",
+    "ib_standard": "Zusatz",
+    "ib_extended": "Zusatz"
+   }
+  },
+  {
+   "braucht_von": "46 Kongruenzabbildungen – Teil 3 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": null,
+   "herkunft": "Teilung über Zusatz-Teil hinweg",
+   "art_je_schulart": {
+    "gym": "hart",
+    "rs_I": null,
+    "rs_II_III": null,
+    "ib_standard": null,
+    "ib_extended": null
+   }
   }
  ],
  "verstoesse": [

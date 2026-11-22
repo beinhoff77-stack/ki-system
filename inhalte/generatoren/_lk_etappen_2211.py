@@ -460,8 +460,86 @@ def gleichungen_binomisch():
     return karte, 'Gleichungen mit Klammerprodukten und binomischen Formeln lösen, bei denen sich x² aufhebt', A
 
 
+# ------------------------------------------------------------------ 61 · darstellen (RS 8 I 7/K1, 8 II/III 6/K1; Gym 8 5/k5) – LK-D 3, F3
+def darstellen():
+    L = 'darstellen'
+    karte = {
+        'lernziel': L, 'titel': 'Baumdiagramm und Vierfeldertafel',
+        'einstieg': 'Bei einem Schulfest wird zweimal eine Münze geworfen. Wie viele Ausgänge gibt es, und wie viele davon gehören zu „mindestens einmal Zahl“? Ein Baumdiagramm oder eine Tabelle zeigt es auf einen Blick.',
+        'woerter': [['Baumdiagramm', 'Jede Stufe des Versuchs ist eine Verzweigung; jeder Weg ist ein Ergebnis'], ['Vierfeldertafel', 'Tabelle mit zwei Merkmalen, je ja/nein, und den Summen am Rand']],
+        'regel': 'Im Baumdiagramm ist ⟦jeder Weg ein Ergebnis⟧; ein Ereignis ist eine Auswahl von Wegen. In der Vierfeldertafel ergeben die vier Felder zusammen die Gesamtzahl; jede Zeile und Spalte hat ihre Summe am Rand.',
+        'schritte': [{'text': 'Zweimal Münze: Wege WW, WZ, ZW, ZZ – also 4 Ergebnisse.'},
+                     {'text': '„Mindestens einmal Zahl“ sind WZ, ZW, ZZ: ⟦3 Wege⟧.'},
+                     {'text': 'Vierfeldertafel: 30 Kinder, 18 mit Fahrrad, davon 10 mit Helm. Ohne Helm mit Fahrrad: 18 − 10 = 8.'}],
+        'fehler': 'WZ und ZW als ein Ergebnis zählen: Im Baum sind das ⟦zwei verschiedene Wege⟧.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Ein Würfel wird einmal, eine Münze einmal geworfen. Wie viele Wege hat das Baumdiagramm?', '6 Augenzahlen · 2 Seiten = 12 Wege.', 'Jede Augenzahl verzweigt in Wappen und Zahl.', o={'wert': 12}, c='6 * 2'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'In einer Vierfeldertafel stehen in den vier Feldern 12, 8, 5 und 15. Wie groß ist die Gesamtzahl?', '12 + 8 + 5 + 15 = 40.', 'Alle vier Felder addieren.', o={'wert': 40}, c='12 + 8 + 5 + 15'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Dreimal eine Münze werfen: Wie viele Ergebnisse zeigt das Baumdiagramm?', '2 · 2 · 2 = 8 Wege.', 'Jede Stufe verdoppelt die Wege.',
+                 **wahl('8', ['6', '3', '9'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Was steht in einer Vierfeldertafel ganz rechts unten?', 'Dort steht die Gesamtzahl, die Summe aller vier Felder.', 'Summe der Summen.',
+                 **wahl('die Gesamtzahl', ['das größte Feld', 'die Differenz', 'eine Wahrscheinlichkeit von 1 %'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Zweimal würfeln. Wie viele Ergebnisse gehören zum Ereignis „Augensumme 7“?', '(1|6), (2|5), (3|4), (4|3), (5|2), (6|1): 6 Wege.', 'Gehe die erste Augenzahl von 1 bis 6 durch.', o={'wert': 6}, c='6'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Von 50 Kindern spielen 28 ein Instrument, 20 singen im Chor. 12 tun beides. Wie viele machen keins von beidem?', 'Nur Instrument 16, nur Chor 8, beides 12: zusammen 36. Keins: 50 − 36 = 14.', 'Fülle die Vierfeldertafel Feld für Feld.', o={'wert': 14}, c='50 - (28 + 20 - 12)'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Eine Vierfeldertafel hat die Randsummen 30 (Mädchen) und 25 (Jungen). 18 Mädchen tragen eine Brille, insgesamt sind es 26. Wie viele Jungen tragen eine Brille?', 'Brillen gesamt minus Mädchen mit Brille: 26 − 18 = 8.', 'Spaltensumme minus das bekannte Feld.', o={'wert': 8}, c='26 - 18'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Ein Glücksrad hat die Felder rot und blau und wird zweimal gedreht. Welche Darstellung zeigt alle Ergebnisse am klarsten?', 'Ein Baumdiagramm mit zwei Stufen zeigt alle 4 Wege.', 'Mehrstufiger Versuch.',
+                 **wahl('ein zweistufiges Baumdiagramm', ['ein Kreisdiagramm', 'ein Säulendiagramm', 'eine Zahlengerade'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'Ein Baumdiagramm hat in der ersten Stufe 3 Äste und insgesamt 12 Wege. Jeder Ast hat gleich viele Zweige. Wie viele Zweige hat jeder Ast in der zweiten Stufe?', 'Wege = Äste · Zweige, also 12 : 3 = 4 Zweige je Ast.', 'Wege = Äste · Zweige.', o={'wert': 4}, c='12 / 3'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum hat „zweimal Münze“ 4 und nicht 3 Ergebnisse?', 'WZ und ZW sind verschiedene Wege: erst Wappen dann Zahl ist ein anderes Ergebnis als erst Zahl dann Wappen.', 'Achte auf die Reihenfolge.',
+                 **wahl('Weil WZ und ZW verschiedene Wege sind.', ['Weil die Münze zwei Seiten hat.', 'Weil man WW doppelt zählt.', 'Weil es 2 + 2 sind.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Jonas füllt eine Vierfeldertafel: Gesamt 40, Spalte „ja“ 25, Feld „ja/ja“ 10, Feld „ja/nein“ 20. Was stimmt?', '10 + 20 = 30 ist mehr als die Spaltensumme 25. Ein Feld ist falsch.', 'Prüfe die Spaltensumme.',
+                 **wahl('Die Felder passen nicht zur Summe 25.', ['Alles richtig.', 'Die Gesamtzahl muss 30 sein.', 'Es fehlt nur das Feld „nein/nein“.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Code besteht aus einem Buchstaben (A, B oder C) und einer Ziffer (0 bis 9). Wie viele Codes gibt es?', 'Baumdiagramm mit 3 · 10 = 30 Wegen.', 'Jeder Buchstabe verzweigt in 10 Ziffern.', o={'wert': 30}, c='3 * 10'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Zweimal Münze werfen. Wie viele Wege gehören zu „genau einmal Wappen“?', 'WZ und ZW: 2 Wege.', o={'wert': 2}, c='2'))
+    for (g, a, b) in ((40, 22, 9), (60, 35, 20), (24, 10, 4)):
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Vierfeldertafel: gesamt {g}, Merkmal A bei {a}, davon {b} auch mit B. Wie viele haben A, aber nicht B?', f'A ohne B = A gesamt − A mit B = {a} − {b} = {a - b}.', o={'wert': a - b}, c=f'{a} - {b}'))
+    for (m, n) in ((2, 3), (4, 2), (6, 6), (3, 5), (2, 2), (5, 4)):
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Ein Versuch hat {m} Ausgänge auf der ersten und {n} auf der zweiten Stufe. Wie viele Wege hat das Baumdiagramm?', f'{m} · {n} = {m * n} Wege.', o={'wert': m * n}, c=f'{m} * {n}'))
+    return karte, 'Ergebnisse mehrstufiger Versuche im Baumdiagramm und zwei Merkmale in der Vierfeldertafel darstellen und auszählen', A
+
+
+# ------------------------------------------------------------------ 91 · raumwinkel (RS 7 I 4/K1) – LK-D 3, F3
+def raumwinkel():
+    L = 'raumwinkel'
+    karte = {
+        'lernziel': L, 'titel': 'Winkel im Raum',
+        'einstieg': 'Ein Fahnenmast steht senkrecht auf dem Schulhof, ein Seil führt schräg von der Spitze zum Boden. Zwischen Mast und Boden ist ein rechter Winkel, zwischen Seil und Boden ein spitzer. Solche Winkel im Raum kann man an Körpern ablesen.',
+        'woerter': [['Neigungswinkel', 'Winkel zwischen einer Geraden und einer Ebene'], ['Winkel zwischen Ebenen', 'Winkel zweier Flächen entlang ihrer gemeinsamen Kante']],
+        'regel': 'Steht eine Kante ⟦senkrecht⟧ auf einer Fläche, bilden beide 90°. Am Quader treffen alle Flächen im rechten Winkel aufeinander. Beim geraden Prisma ist der Winkel zwischen zwei Seitenflächen der Innenwinkel der Grundfläche.',
+        'schritte': [{'text': 'Gerades Prisma mit einem gleichseitigen Dreieck als Grundfläche.'},
+                     {'text': 'Zwei Seitenflächen treffen sich an einer senkrechten Kante. Ihr Winkel ist der Dreieckswinkel: ⟦60°⟧.'},
+                     {'text': 'Jede Seitenfläche steht senkrecht auf der Grundfläche: 90°.'}],
+        'fehler': 'Den Winkel im Schrägbild messen: Dort ist der rechte Winkel oft als 45° oder 135° gezeichnet. Im Raum ist er ⟦90°⟧.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Wie groß ist der Winkel zwischen einer senkrechten Quaderkante und der Grundfläche?', 'Die Kante steht senkrecht auf der Grundfläche: 90°.', 'Senkrecht heißt 90°.', o={'wert': 90, 'einheit': '°'}, c='90'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Ein gerades Prisma hat ein Quadrat als Grundfläche. Unter welchem Winkel treffen zwei benachbarte Seitenflächen aufeinander?', 'Der Winkel ist der Innenwinkel des Quadrats: 90°.', 'Schau auf die Grundfläche.', o={'wert': 90, 'einheit': '°'}, c='90'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welcher Winkel ist ein Neigungswinkel?', 'Ein Neigungswinkel liegt zwischen einer Geraden und einer Ebene, z. B. Seil und Boden.', 'Gerade und Ebene.',
+                 **wahl('zwischen Seil und Boden', ['zwischen zwei Seilen', 'zwischen zwei Böden', 'zwischen zwei Punkten'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Im Schrägbild eines Würfels erscheint die Ecke vorne unten rechts mit 135°. Wie groß ist der Winkel am Würfel?', 'Am Würfel sind alle Winkel zwischen Kanten 90°; das Schrägbild verzerrt.', 'Zeichnung und Körper unterscheiden.',
+                 **wahl('90°', ['135°', '45°', '180°'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Ein gerades Prisma hat ein regelmäßiges Sechseck als Grundfläche. Wie groß ist der Winkel zwischen zwei benachbarten Seitenflächen?', 'Innenwinkelsumme Sechseck 720°, ein Winkel 720° : 6 = 120°.', 'Erst den Innenwinkel des Sechsecks.', o={'wert': 120, 'einheit': '°'}, c='720 / 6'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Ein Zelt hat einen dreieckigen Querschnitt mit zwei gleichen Winkeln von 65° am Boden. Wie groß ist der Winkel zwischen den beiden Zeltwänden oben?', '180° − 2 · 65° = 50°.', 'Winkelsumme im Dreieck.', o={'wert': 50, 'einheit': '°'}, c='180 - 2 * 65'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Zwei Seitenflächen eines geraden Prismas mit regelmäßiger Grundfläche bilden 108°. Wie viele Ecken hat die Grundfläche?', 'Regelmäßiges n-Eck mit Innenwinkel 108°: Fünfeck (540° : 5 = 108°).', 'Welches regelmäßige Vieleck hat 108°?', o={'wert': 5}, c='360 / (180 - 108)'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Eine Rampe steigt vom Boden an. Welcher Winkel beschreibt, wie steil sie ist?', 'Der Neigungswinkel zwischen Rampenfläche und Boden.', 'Fläche gegen Boden.',
+                 **wahl('der Winkel zwischen Rampe und Boden', ['der Winkel zwischen zwei Bodenfliesen', 'der Winkel am oberen Ende der Rampe zur Wand', 'der Winkel zwischen zwei Geländerstäben'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'In einem geraden Prisma mit dreieckiger Grundfläche bilden zwei Seitenflächen 70° und 50°. Welchen Winkel bilden die dritte und die zweite Seitenfläche?', 'Die Winkel zwischen Seitenflächen sind die Dreieckswinkel: 180° − 70° − 50° = 60°.', 'Winkelsumme der Grundfläche.', o={'wert': 60, 'einheit': '°'}, c='180 - 70 - 50'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum ist der Winkel zwischen zwei Seitenflächen eines geraden Prismas gleich dem Innenwinkel der Grundfläche?', 'Die Seitenflächen stehen senkrecht auf der Grundfläche; ihr Winkel zeigt sich unverändert in der Grundfläche.', 'Schneide waagrecht durch.',
+                 **wahl('Weil die Seitenflächen senkrecht auf der Grundfläche stehen.', ['Weil alle Kanten gleich lang sind.', 'Weil das Prisma symmetrisch ist.', 'Weil die Deckfläche kleiner ist.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Ben misst im Schrägbild eines Quaders zwischen Vorder- und Seitenfläche 45° und schreibt: „Die Flächen bilden 45°.“ Was stimmt?', 'Im Schrägbild ist der Winkel verzerrt. Am Quader bilden die Flächen 90°.', 'Ist ein Quader schief?',
+                 **wahl('Falsch: am Quader sind es 90°.', ['Richtig.', 'Falsch: es sind 135°.', 'Falsch: es sind 60°.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Dach hat zwei gleich geneigte Flächen. Jede bildet mit dem waagrechten Dachboden 35°. Wie groß ist der Winkel zwischen den beiden Dachflächen am First?', 'Querschnitt Dreieck: 180° − 2 · 35° = 110°.', 'Zeichne den Querschnitt.', o={'wert': 110, 'einheit': '°'}, c='180 - 2 * 35'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Ein gerades Prisma hat ein regelmäßiges Achteck als Grundfläche. Wie groß ist der Winkel zwischen zwei benachbarten Seitenflächen?', 'Innenwinkel: 1 080° : 8 = 135°.', o={'wert': 135, 'einheit': '°'}, c='(8 - 2) * 180 / 8'))
+    for w in (40, 55, 70):
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Zwei gleich geneigte Dachflächen bilden mit dem Dachboden je {w}°. Welchen Winkel bilden sie am First?', f'180° − 2 · {w}° = {180 - 2 * w}°.', o={'wert': 180 - 2 * w, 'einheit': '°'}, c=f'180 - 2 * {w}'))
+    for n in (3, 4, 5, 6, 9, 10):
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Gerades Prisma mit regelmäßigem {n}-Eck als Grundfläche: Welchen Winkel bilden zwei benachbarte Seitenflächen?', f'Innenwinkel des {n}-Ecks: ({n} − 2) · 180° : {n} = {z(Fr((n - 2) * 180, n))}°.', o={'wert': (n - 2) * 180 / n if (n - 2) * 180 % n else (n - 2) * 180 // n, 'einheit': '°'}, c=f'({n} - 2) * 180 / {n}'))
+    return karte, 'Winkel zwischen Kanten, Flächen und Geraden an Prismen und Quadern bestimmen', A
+
+
 NEU = {'abbildungen.kongruenz': [vektor_koordinaten, vektor_drehen], 'abbildungen.aehnlichkeit': [streckung_vektor],
-       'geometrie.konstruktion': [vierecke_konstruieren], 'messen.flaechen_vielecke': [drachen_raute], 'raum.schraegbilder': [wahre_groesse, koerper_symmetrie],
+       'geometrie.konstruktion': [vierecke_konstruieren], 'messen.flaechen_vielecke': [drachen_raute], 'raum.schraegbilder': [wahre_groesse, koerper_symmetrie, raumwinkel], 'stochastik.grundbegriffe': [darstellen],
        'messen.prisma_zylinder': [cavalieri], 'terme.umformen': [gleichungen_binomisch]}
 ABSCHNITT = 'Lehrplan-Ergänzung (LK)'
 

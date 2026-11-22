@@ -1,22 +1,23 @@
 # Die Route – wie Kontinente, Länder und Städte zusammenhängen (für den Gestalter)
 
 Stand 22.11.2026, Haupt-Chat. Zweck: Grundlage für eine neue Kinderseite mit **echter, interaktiver Karte** statt Anzeigetafel. Was die Karte können und wie sie aussehen soll, sagt Sebastian selbst. Hier steht nur, **was dargestellt wird**.
+**Alle Zahlen sind der Stand von heute und ändern sich noch:** Themen werden nach der Lehrplan-Prüfung auf Klassen verteilt, manche in zwei Flüge geteilt (zweiter Teil ins Nachbarland), und es kommen Themen dazu. Die Karte darf von keiner festen Anzahl Länder oder Städte ausgehen.
 Quelle der Zuordnung: `inhalte/reise/aufbau-vorschlag.md` und `.json` (alle Länder und Städte in Reihenfolge). Noch nicht gebaut; heute live ist der alte Aufbau mit „Orten“.
 
 ## 1 Vier Ebenen
 
-| Ebene | für Kinder | bedeutet (Eltern/Lehrer sehen das Mathe-Wort) | Menge |
+| Ebene | für Kinder | bedeutet (Eltern/Lehrer sehen das Mathe-Wort) | Menge (heute, vorläufig) |
 |---|---|---|---|
 | Kontinent | Reise-Kontinent | Themengebiet | 8 + Antarktis |
-| Flug | **ein Land** auf diesem Kontinent | ein Thema | 87 |
-| Etappe | **eine Stadt** in diesem Land | eine Etappe (Lernziel) | 606, je Flug 3–14 |
+| Flug | **ein Land** auf diesem Kontinent | ein Thema | rund 90, wird mehr |
+| Etappe | **eine Stadt** in diesem Land | eine Etappe (Lernziel) | rund 600, je Flug 3–14 |
 | Aufgabe | „Highlight“ der Stadt, **ohne Namen** | eine Aufgabe | je Stadt mindestens 18 |
 
 Die frühere Ebene „Ort“ (eine Stadt für mehrere Flüge) gibt es für Kinder nicht mehr. Der Mathe-Titel bleibt immer mit sichtbar („Italien · Natürliche Zahlen“).
 
 ## 2 Die Kontinente
 
-| Themengebiet | Reise-Kontinent | Flüge / Städte | Beispiele |
+| Themengebiet | Reise-Kontinent | Flüge / Städte (heute, vorläufig) | Beispiele |
 |---|---|---|---|
 | Zahlen | Europa | 13 / 115 | Italien (Natürliche Zahlen, 13 Städte: Rom → … → Siena), Deutschland (Brüche, 14) |
 | Geld und Verhältnisse | Nordamerika mit Mittelamerika und Karibik | 6 / 45 | Kanada, Kuba, Mexiko, USA |

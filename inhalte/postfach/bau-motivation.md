@@ -2,6 +2,29 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: FP-S 2 – Nacharbeit ChatGPT 924
+
+Zweig `bau-lehrer`, auf `lernen-app` 3e333b6. Nur Dateien, **nicht eingespielt**, kein DROP, kein DELETE, gelieferte Migrationen unverändert, kein App-Code, kein Merge nach `main`.
+Neue Datei: `supabase/migrations/20261122_fp_s2_nacharbeit_924.sql`. Einspielen nach FP-S: WD-S 2 → WD-S 3 → WD-4b → WD-S 4 → FP-S → **FP-S 2**.
+
+**Gebaut**
+1. **`sterne` nur aus diesem Aufruf:** keine Differenz der Kind-Summe mehr. Ein Zähler je Aufruf (`schule.aufruf_sterne`, transaktionslokal) wird von einem Trigger auf `schule.sterne` (AFTER INSERT) hochgezählt; `uebung_pruefen_wd` setzt ihn vor der Prüfung auf 0 und liest ihn danach. Sterne, die eine andere Sitzung gleichzeitig für dasselbe Kind bucht (Nachbuchung, zweites Gerät), landen nicht mehr in der Antwort. `misch.sterne` ebenso.
+2. **Misch-Gültigkeit einmal entschieden:** `uebung_pruefen_wd` entscheidet einmal (`schule.misch_entscheid` = Aufgabe:t/f) und reicht das an die Wertung (`misch_gueltig` übernimmt die Entscheidung für genau diese Aufgabe) und an die Antwort (`misch.gueltig`) durch. Kein zweites Nachrechnen mit anderem Ergebnis.
+3. **Nachbuchungs-Hinweis „gesehen“ im Server:** Spalte `landung_nachbuchung.gesehen_am` (je Kind), Aktion setzt sie einmal (späteres Antippen ändert den Zeitpunkt nicht).
+
+**Schnittstelle für die App**
+- `api.schule_landung_nachbuchung_gesehen` – Daten `{lernender_id}` (Zugriffsprüfung wie alle Lern-Aktionen; in `lernen-api` freigeschaltet, Version 0.9.1) → `{ok: true, gesehen_am}`.
+- `schule_konto.landung_nachbuchung` hat zusätzlich `gesehen_am` (null = Hinweis noch zeigen). `localStorage` ist damit nicht mehr nötig; bei altem Server (Feld fehlt) bisheriges Verhalten.
+- `sterne` und `misch.sterne` der Antwort: Bedeutung gleich, jetzt nur noch die Buchungen dieser Antwort. Abzug von `landung.bonus` in der App bleibt richtig.
+
+**Tests** (lokal PG 16, alle sechs Migrationen je zweimal eingespielt; Rollback bzw. Wegwerf-Datenbank, nur Testkind)
+- `fp_s_rauchtest.sql` Teil 8: 1 Fehler → 40, Tipp → 80, zweiter Versuch (erst falsch, dann richtig) → 80 und kein Fehler, gültige Mischkarte mit Tipp → `misch.gueltig` true, 0 Sterne, Fehler nach der Landung ohne Wirkung, Wiederlandung ohne zweiten Bonus, Misch-Entscheidung übernommen, Hinweis gesehen. Durchgelaufen; WD-S- und WD-S-3-Rauchtest weiter grün.
+- `wd_s3_gleichzeitig.sh`: wartet jetzt auf jeden Prozess einzeln (Abbruch = FEHLER, Exit 1). Neu C: Antwort, während eine andere Sitzung 7 Sterne bucht → Antwort meldet 10. Neu D: Landung gleichzeitig mit Nachbuchung → Landung 90 (10 + Bonus 80), Nachbuchung 320, Summe +410 = 90 + 320. Gegenprobe ohne FP-S 2: C meldet 17, D meldet 410 → FEHLER (Test greift).
+
+**Offen / nicht geprüft**
+- Nicht gegen die Live-Datenbank gelaufen (nur lokal mit Nachbau von `uebung_pruefen_intern`).
+- `sterne_wdh_richtig` unverändert 10 (Sebastians Entscheidung offen).
+
 ## 2026-11-22 – FERTIG: 0.87.0 – faire Punkte (FP-App), Cache v160
 
 Auf `lernen-app` 55d8921 (mit FP-S und Vorgabe „faire Punkte“ des Gestalters). Nur App, Version in sechs Dateien, Tests. Nichts in der Datenbank, Nachbuchung nicht ausgeführt, kein Merge nach `main`.

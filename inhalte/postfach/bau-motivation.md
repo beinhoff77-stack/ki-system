@@ -2,6 +2,21 @@
 
 Neueste oben.
 
+## 2026-11-23 – FERTIG: LW-2b (0.89.1) – Nachtrag zur Prüfung LW-2, Cache v165
+
+Auf `lernen-app` b2fe4d3 (Prüfung `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw2.md`). Nur App, Version in sechs Dateien, Tests. Nichts in der Datenbank, keine Migration, kein Merge nach `main`.
+Bilder: `docs/previews/la/lw2b-400-warnung.png` (Warnung über dem Detail-Blatt), `lw2b-820-zurueck.png` (Zurückziehen ohne Meldung).
+
+- **M1:** Meldung/Warnung (`.lw-toast`) liegt jetzt über Detail-Blatt (70) und Filter-Blatt (75): z-index 85. Auf dem Handy volle Breite unten (8 px Rand), ✕ oben rechts, Reparieren-Knopf und ↶ in einer Zeile. Test 400 px: nach „In den Plan: als Nächstes“ ist die Warnung an ihrer Mitte das oberste Element (`elementFromPoint`), der Reparieren-Knopf wird über dem Blatt geklickt und wirkt.
+- **S1:** Warnung nennt Themen ohne Untertitel, bei Teilen „‹Titel› – Teil x von y“; der Vorspann „… als Nächstes eingeplant ·“ fällt bei Warnungen weg (nur „… aus dem Plan genommen · ⚠ …“ behält ihn, weil er dort die Aussage trägt). Ein Titel steht höchstens zweimal (Text und Knopf). Höhe im Teile-Fall auf dem Handy etwa 130 px (vorher 281; Test ≤ 160). Auch die normalen Meldungen („… eingeplant“, „… aus dem Plan genommen“, „… vor … gesetzt“) nehmen die kurzen Namen.
+- **K1:** In einer Matrix-Zelle stehen Themen desselben Platzes in Buchstaben-Reihenfolge (3a, 3b, 3c, 3d); Test prüft jede Zelle.
+- **K2:** Beim Ziehen (Fahrplan → Matrix und Matrix → Fahrplan) wird die laufende Meldung sofort ausgeblendet; „Hier loslassen = aus dem Plan nehmen“ ist frei (Test 820).
+- **K3:** „TEILE DIESES THEMAS“ steht direkt unter der Stand-Zeile, vor den Etappen.
+- **Nicht gebaut:** S2 (Wortlaut „„B“ dahinter setzen“ bleibt), K4 (gehört zu LK-App).
+- **App-Test Kür:** Thema in „Wiederholung“ (alle Pflicht-Etappen gelandet und im Flug-Test nachgewiesen, Flug-Test fertig) mit offener Kür-Etappe: `#/lerneinheit/…-ueben` öffnet die Kür-Etappe (Adresse zeigt ihre Nummer, Bordkarte offen), kein Test, nichts gesperrt. Ohne Code-Änderung grün. **Hinweis:** Steht eine Pflicht-Etappe in `stand` noch mit `status: 'offen'`, bietet die App vorher den „Test zu den neuen Etappen“ an – das ist die bisherige Regel (Nachtrag-Test), kein Fehler.
+
+**Getestet:** neu 3 (M1/S1/K1/K3 bei 400, K2 bei 820, Kür startbar). Lernen alle grün; Gesamtlauf sonst nur die bekannten Reise-Tests (W80 „Jede neue Suche“ schwankt, W175 Tagesdatum). **Nicht geprüft:** echter Server, echte Geräte.
+
 ## 2026-11-23 – FERTIG: LW-2 – App 0.89.0 (Ziehen, Reihenfolge-Warnungen, Alle einplanen; Nacharbeit LW-1 S1/S2/K1/K2; Teile 12.7), Cache v164
 
 Auf `lernen-app` e20266e (Prüfung LW-1 des Gestalters, Vorgabe 12.7). Nur App, Version in sechs Dateien, Tests, Info-Seite. Nichts in der Datenbank, kein Merge nach `main`.

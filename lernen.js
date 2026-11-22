@@ -4115,27 +4115,30 @@ async function viewKindLehrplan(id, rest = []) {
   function zuruecknehmen() { if (gesperrt || !vorher.length) return; const v = vorher.pop(); plan = v.plan; rueckgaengig = true; rueckSchritt = v.schritt || null; tosteWeg(); zeichneAlles(); speichere(); }
   // Meldung unten: „‹Thema› als Nächstes eingeplant · ↶ Rückgängig“ (5 s); Warnung bleibt stehen, bis sie geschlossen wird
   const toast = el('div', { class: 'lw-toast', role: 'status', hidden: true }); let toastUhr = null;
-  const rueckIn = () => el('button', { type: 'button', onclick: () => zuruecknehmen() }, '↶ Rückgängig');
+  const rueckIn = () => el('button', { type: 'button', class: 'lw-rueck-k', 'aria-label': '↶ Rückgängig', title: 'Rückgängig', onclick: () => zuruecknehmen() }, '↶ Rückgängig');
   function toste(text) { clearTimeout(toastUhr); toast.hidden = false; toast.classList.remove('lw-warn');
     lernErsetze(toast, el('span', {}, text), rueckIn());
     toastUhr = setTimeout(tosteWeg, 5000); }
   function tosteWeg() { clearTimeout(toastUhr); toast.hidden = true; toast.classList.remove('lw-warn'); }
+  // LW-2b S1: kurze Namen – ohne Untertitel, bei Teilen „‹Titel› – Teil x von y“
+  const kurzName = (x) => { const t = teilVon(x); return t ? `${t.grund} – Teil ${t.n} von ${t.von}` : x.titel; };
   function warne(w, text, ids) {
     clearTimeout(toastUhr); toast.hidden = false; toast.classList.add('lw-warn');
-    const X = `„${w.x.titel}“`, V = `„${w.v.titel}“`; let msg, knopf = null;
+    const X = `„${kurzName(w.x)}“`, V = `„${kurzName(w.v)}“`; let msg, knopf = null;
     if (w.fall === 1 && ids.has(w.v.id) && !ids.has(w.x.id)) { msg = `⚠ ${X} baut hierauf auf und steht schon auf Platz ${platz(w.x)}`; if (blockVon(w.x) !== blockVon(w.v)) knopf = [`${X} dahinter setzen`, () => setzeHinter(w.x, w.v)]; }
     else if (w.fall === 1) { msg = `⚠ ${X} baut auf ${V} auf – das kommt erst auf Platz ${platz(w.v)}`; if (blockVon(w.x) !== blockVon(w.v)) knopf = [`${V} davor setzen`, () => setzeVor(w.v, w.x)]; }
     else if (ids.has(w.v.id)) msg = `⚠ ${X} im Plan baut darauf auf`;
     else { msg = `⚠ ${X} baut auf ${V} auf – das kann er noch nicht und es ist nicht im Plan`; knopf = [`${V} davor einplanen`, () => setzeVor(w.v, w.x)]; }
-    lernErsetze(toast, el('span', {}, text ? el('span', { class: 'lw-toast-was' }, text + ' · ') : null, msg),
+    const vorspann = !w.fall || (w.fall === 3 && ids.has(w.v.id)); // nur „… aus dem Plan genommen“ bleibt vorn stehen, sonst nennt die Warnung die Themen selbst
+    lernErsetze(toast, el('span', {}, text && vorspann ? el('span', { class: 'lw-toast-was' }, text + ' · ') : null, msg),
       knopf ? el('button', { type: 'button', class: 'lw-reparier', onclick: knopf[1] }, knopf[0]) : null, rueckIn(),
       el('button', { type: 'button', class: 'lw-toast-x', 'aria-label': 'Hinweis schließen', onclick: () => tosteWeg() }, '✕'));
   }
   // Ort von v vor den Ort von x setzen (v ggf. erst einplanen) bzw. Ort von x hinter den Ort von v
   const verschiebe = (y, ziel, dahinter) => { const iy = plan.findIndex((q) => q.block_id === blockVon(y)); if (iy < 0) return; const [e] = plan.splice(iy, 1);
     const iz = plan.findIndex((q) => q.block_id === blockVon(ziel)); plan.splice(iz < 0 ? plan.length : iz + (dahinter ? 1 : 0), 0, e); };
-  const setzeVor = (v, x) => aendere(() => { if (!imPlan(v)) setze(blockVon(v), v.id, 'lernen'); verschiebe(v, x, false); }, `„${v.titel}“ vor „${x.titel}“ gesetzt`, v);
-  const setzeHinter = (x, v) => aendere(() => verschiebe(x, v, true), `„${x.titel}“ hinter „${v.titel}“ gesetzt`, x);
+  const setzeVor = (v, x) => aendere(() => { if (!imPlan(v)) setze(blockVon(v), v.id, 'lernen'); verschiebe(v, x, false); }, `„${kurzName(v)}“ vor „${kurzName(x)}“ gesetzt`, v);
+  const setzeHinter = (x, v) => aendere(() => verschiebe(x, v, true), `„${kurzName(x)}“ hinter „${kurzName(v)}“ gesetzt`, x);
 
   // Einplanen: als Nächstes | ans Ende | nach Lehrplan einsortieren; im Plan verschieben; aus dem Plan
   const schluessel = (x, s2 = sa) => (lernMxZeile(x, s2) || 99) * 1000 + (Number(x.r[s2]) || Number(x.r.gym_by) || 999);
@@ -4151,19 +4154,19 @@ async function viewKindLehrplan(id, rest = []) {
       else if (wo === 'naechstes') an = plan.findIndex((y) => ortStufe(y) === 'kommt');
       else { const r = schluessel(x); an = plan.findIndex((y) => ortStufe(y) === 'kommt' && ortSchluessel(y) > r); }
       plan.splice(an < 0 ? plan.length : an, 0, e);
-    }, `„${x.titel}“ ${vorName}`, x);
+    }, `„${kurzName(x)}“ ${vorName}`, x);
   };
   // LW-2: aus der Matrix in den Fahrplan gezogen – vor den j-ten Platz (j = Anzahl Plätze: ans Ende)
   const einplanenAn = (x, j) => { const ziel = j < sichtbar.length ? plan[sichtbar[j]] : null; const b = blockVon(x);
     aendere(() => { if (!imPlan(x)) setze(b, x.id, 'lernen'); const i = plan.findIndex((y) => y.block_id === b); if (i < 0) return;
       if (plan[i] === ziel) return; const [e] = plan.splice(i, 1); const an = ziel ? plan.indexOf(ziel) : -1;
       if (!ziel) { const nach = plan.map((y) => ortStufe(y)).lastIndexOf('kommt'); plan.splice(nach < 0 ? plan.length : nach + 1, 0, e); } else plan.splice(an < 0 ? plan.length : an, 0, e); },
-    `„${x.titel}“ auf Platz ${Math.min(j, sichtbar.length) + 1} eingeplant`, x); };
+    `„${kurzName(x)}“ auf Platz ${Math.min(j, sichtbar.length) + 1} eingeplant`, x); };
   // LW-2 (Abschnitt 6): alle fehlenden Themen der gewählten Klassen in einem Schritt einplanen, sortiert nach Klasse und Lehrplan (ohne Zusatz-Teile)
   const alleEinplanen = (ts) => aendere(() => { ts.slice().sort((a, b) => schluessel(a) - schluessel(b)).forEach((x) => { if (!imPlan(x)) setze(blockVon(x), x.id, 'lernen'); }); },
     `${ts.length} ${ts.length === 1 ? 'Thema' : 'Themen'} eingeplant (nach Klasse und Lehrplan)`, ts);
   const ausDemPlan = (x) => aendere(() => { const b = blockVon(x);
-    if (kannAbwaehlen) setze(b, x.id, 'aus'); else { const i = plan.findIndex((y) => y.block_id === b); if (i >= 0) plan.splice(i, 1); } }, `„${x.titel}“ aus dem Plan genommen`, x);
+    if (kannAbwaehlen) setze(b, x.id, 'aus'); else { const i = plan.findIndex((y) => y.block_id === b); if (i >= 0) plan.splice(i, 1); } }, `„${kurzName(x)}“ aus dem Plan genommen`, x);
   const stufeSetzen = (x, wahl) => aendere(() => setze(blockVon(x), x.id, wahl),
     `„${x.titel}“: ${{ lernen: 'Lernen', wiederholen: 'Kann er – wiederholen', komplett: 'Kann er komplett', wieder: 'wieder in der Wiederholung' }[wahl]}`, x);
 
@@ -4252,6 +4255,10 @@ async function viewKindLehrplan(id, rest = []) {
     for (const x of l) { if (da.has(x.id)) continue; const t = teilVon(x);
       const fam = t ? l.filter((y) => { const ty = teilVon(y); return ty && ty.grund === t.grund && ty.von === t.von; }).sort((a, b) => teilVon(a).n - teilVon(b).n) : [x];
       fam.forEach((y, i) => { da.add(y.id); y._fam = fam.length > 1 ? ' lw-fam' + (i === 0 ? ' lw-fam-a' : '') + (i === fam.length - 1 ? ' lw-fam-z' : '') : ''; aus.push(y); }); }
+    // LW-2b K1: Themen desselben Platzes (3a, 3b …) stehen in der Zelle in Buchstaben-Reihenfolge
+    const pi = aus.map((y) => platzInfo(y)); const proNr = new Map();
+    pi.forEach((p, i) => { if (p) { if (!proNr.has(p.nr)) proNr.set(p.nr, []); proNr.get(p.nr).push(i); } });
+    for (const idx of proNr.values()) { if (idx.length < 2) continue; const sortiert = idx.map((i) => aus[i]).sort((a, b) => platzInfo(a).pos - platzInfo(b).pos); idx.forEach((i, k) => { aus[i] = sortiert[k]; }); }
     return aus; };
   const karteImFeld = (x) => karte(x, x._fam || '');
   const farbe = (k) => LERN_KL_FARBE[k] || '#888';
@@ -4347,6 +4354,7 @@ async function viewKindLehrplan(id, rest = []) {
     const liste = rail.querySelector('.lw-rliste'); const zeilen = [...liste.querySelectorAll(':scope > .lw-fp')]; const li = zeilen[j]; if (!li) return;
     const mitten = zeilen.map((z) => { const b = z.getBoundingClientRect(); return b.top + b.height / 2; });
     const h = li.getBoundingClientRect().height + 5; const start = ev.clientY, startX = ev.clientX; let ziel = j; zieht = true; let raus = false;
+    tosteWeg(); // LW-2b K2: laufende Meldung weg, damit „Hier loslassen = aus dem Plan nehmen“ zu sehen ist
     li.classList.add('zieht');
     const lauf = (e) => { const dy = e.clientY - start, dx = e.clientX - startX;
       // LW-2 (4a): über der Matrix losgelassen = aus dem Plan nehmen (Matrix rot gestrichelt)
@@ -4369,7 +4377,7 @@ async function viewKindLehrplan(id, rest = []) {
     const zeilen = () => [...rail.querySelectorAll('.lw-rliste > .lw-fp')];
     const lauf = (e) => {
       if (!geist) { if (Math.hypot(e.clientX - sx, e.clientY - sy) < 7) return;
-        geist = el('div', { class: 'lw-geist' }, teilVon(x) ? `${teilVon(x).grund} ${teilVon(x).n}/${teilVon(x).von}` : x.titel); document.body.append(geist); rail.classList.add('lw-ziel'); k.classList.add('lw-zieht-weg'); }
+        tosteWeg(); geist = el('div', { class: 'lw-geist' }, teilVon(x) ? `${teilVon(x).grund} ${teilVon(x).n}/${teilVon(x).von}` : x.titel); document.body.append(geist); rail.classList.add('lw-ziel'); k.classList.add('lw-zieht-weg'); }
       geist.style.left = `${e.clientX + 10}px`; geist.style.top = `${e.clientY + 8}px`;
       const r = rail.getBoundingClientRect(); const drin = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
       linie?.remove(); linie = null; j = null; if (!drin) return;
@@ -4448,11 +4456,11 @@ async function viewKindLehrplan(id, rest = []) {
       el('div', { class: 'lw-dinh' },
         el('h3', { class: 'lw-dh' }, `STAND VON ${String(kind.name || 'Kind').toUpperCase()}`),
         el('p', { class: 'lw-stpill ' + (LERN_STUFE[s.stufe]?.kl || '') }, lernStufeZeichenEl(s), ' ', el('b', {}, LERN_STUFE[s.stufe]?.wort || ''), ' · ', lernStufeZusatz(s), pl ? ` · Platz ${pl}` : ''),
-        el('ol', { class: 'lw-etappen' }, ...etappenStand(x, s)),
         fam.length > 1 ? [el('h3', { class: 'lw-dh' }, 'TEILE DIESES THEMAS'), el('ul', { class: 'lw-teile' }, ...fam.map(teileZeile)),
           fehlenTeile.some((y) => !zusatz(y)) || fehlenTeile.length ? el('div', { class: 'lw-alle-teile' },
             fehlenTeile.some((y) => zusatz(y)) ? el('label', { class: 'small' }, el('input', { type: 'checkbox', onchange: (ev) => { auchZusatz = ev.target.checked; } }), ' auch Zusatz') : null,
             el('button', { type: 'button', onclick: () => { const ts = fehlenTeile.filter((y) => auchZusatz || !zusatz(y)); if (ts.length) aendere(() => ts.forEach((y) => setze(blockVon(y), y.id, 'lernen')), `${ts.length === 1 ? 'Ein Teil' : ts.length + ' Teile'} von „${tl.grund}“ eingeplant`, ts); } }, 'Alle Teile einplanen')) : null] : null,
+        el('ol', { class: 'lw-etappen' }, ...etappenStand(x, s)),
         el('h3', { class: 'lw-dh' }, 'PLANEN'),
         el('div', { class: 'lw-planen' }, ...(drin && ['dran', 'kommt'].includes(s.stufe) ? [
           el('button', { type: 'button', onclick: () => einplanen(x, 'naechstes'), disabled: s.stufe === 'dran' || platzInfo(x)?.nr === 1 ? true : null }, 'Als Nächstes'),

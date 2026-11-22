@@ -538,9 +538,65 @@ def raumwinkel():
     return karte, 'Winkel zwischen Kanten, Flächen und Geraden an Prismen und Quadern bestimmen', A
 
 
+# ------------------------------------------------------------------ 20 · irrational_beweis (Gym 9 1/k3, Punkt 202) – LK-D 4, A1
+SCHRITTE_W2 = ['Annahme: √2 ist rational, also √2 = p/q mit teilerfremden natürlichen Zahlen p und q.',
+               'Quadrieren und umformen: 2 = p²/q², also p² = 2q².',
+               'p² ist gerade, also ist p gerade: p = 2r. Dann 4r² = 2q², also q² = 2r², und auch q ist gerade.',
+               'Widerspruch: p und q sind beide durch 2 teilbar, sie waren aber teilerfremd. Also ist √2 nicht rational.']
+
+
+def irrational_beweis():
+    L = 'irrational_beweis'
+    karte = {
+        'lernziel': L, 'titel': 'Warum √2 kein Bruch ist',
+        'einstieg': 'Der Taschenrechner zeigt √2 ≈ 1,41421356. Egal wie viele Stellen er anzeigt: Es gibt keinen Bruch, dessen Quadrat genau 2 ist. Das kann man nicht ausprobieren, man muss es beweisen – mit einem ⟦indirekten Beweis⟧.',
+        'woerter': [['indirekter Beweis', 'Man nimmt das Gegenteil an und zeigt, dass daraus ein Widerspruch folgt'],
+                    ['teilerfremd', 'Zwei Zahlen haben außer 1 keinen gemeinsamen Teiler; jeder Bruch lässt sich so kürzen']],
+        'regel': 'Indirekter Beweis: ⟦Gegenteil annehmen⟧, sauber weiterfolgern, auf einen Widerspruch stoßen. Dann war die Annahme falsch. Bei √2: Aus √2 = p/q (gekürzt) folgt, dass p und q beide gerade sind – das passt nicht zu „gekürzt“.',
+        'schritte': [{'text': 'Annahme: √2 = p/q, vollständig gekürzt.'},
+                     {'text': 'Quadrieren: p² = 2q². Also ist p² gerade, und damit ist auch p gerade.'},
+                     {'text': 'Mit p = 2r folgt q² = 2r²: Auch q ist gerade. ⟦Widerspruch⟧ zu „gekürzt“.'}],
+        'fehler': 'Mit Beispielen „beweisen“: Dass 7/5 oder 141/100 nicht passen, zeigt nichts über alle Brüche. Erst der ⟦Widerspruch⟧ gilt für jeden Bruch.',
+    }
+    A = []
+    def ordnen(l, p, s, g, reihe, w, h=None):
+        txt = 'Bringe die Beweisschritte für „√2 ist irrational“ in die richtige Reihenfolge. ' + ' '.join(f'({i + 1}) {SCHRITTE_W2[j]}' for i, j in enumerate(reihe))
+        soll = [reihe.index(j) + 1 for j in range(4)]
+        return auf(l, p, s, g, 'luecken', txt, w, h, o={'werte': soll}) | {'f': {'text': txt, 'schablone': '1. □ · 2. □ · 3. □ · 4. □', 'hinweis': 'Trage die Nummern der Schritte ein.'}}
+    A.append(auf(L, 'uebung', 1, 'direkt', 'auswahl', 'Womit beginnt ein indirekter Beweis für „√2 ist irrational“?', 'Man nimmt das Gegenteil an: √2 ist rational, also ein gekürzter Bruch p/q.', 'Gegenteil der Behauptung.',
+                 **wahl('Annahme: √2 ist ein gekürzter Bruch p/q.', ['Man rechnet √2 auf 10 Stellen aus.', 'Man probiert viele Brüche aus.', 'Annahme: √2 ist irrational.'], 1)))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'auswahl', 'Was folgt aus √2 = p/q durch Quadrieren?', '(p/q)² = 2, also p²/q² = 2 und damit p² = 2q².', 'Beide Seiten quadrieren und mit q² malnehmen.',
+                 **wahl('p² = 2q²', ['p = 2q', 'p² = q² + 2', '2p = q²'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welche Aussage ist ein Widerspruch, wenn p/q vollständig gekürzt ist?', 'Gekürzt heißt teilerfremd; sind p und q beide gerade, hätten sie den Teiler 2.', 'Was heißt „gekürzt“?',
+                 **wahl('p und q sind beide gerade.', ['p ist ungerade.', 'q ist größer als 1.', 'p ist größer als q.'], 2)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Warum darf man am Anfang annehmen, dass p/q gekürzt ist?', 'Jeder Bruch lässt sich vollständig kürzen; wäre √2 ein Bruch, dann auch ein gekürzter.', 'Kann man jeden Bruch kürzen?',
+                 **wahl('Weil man jeden Bruch vollständig kürzen kann.', ['Weil √2 kleiner als 2 ist.', 'Weil p und q gerade sind.', 'Weil das im Taschenrechner so steht.'], 3)))
+    A.append(ordnen(L, 'uebung', 2, 'mehrschritt', [2, 0, 3, 1], 'Richtig ist: Annahme, Quadrieren, beide gerade, Widerspruch.', 'Was muss zuerst stehen?'))
+    A.append(ordnen(L, 'uebung', 2, 'darstellung', [3, 1, 0, 2], 'Reihenfolge: (3) Annahme, (2) p² = 2q², (4) beide gerade, (1) Widerspruch.', 'Der Widerspruch steht am Ende.'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'auswahl', 'Aus p² = 2q² folgt „p² ist gerade“. Warum ist dann auch p gerade?', 'Wäre p ungerade, dann wäre auch p · p ungerade. Also muss p gerade sein.', 'Ungerade mal ungerade ist …?',
+                 **wahl('Das Quadrat einer ungeraden Zahl ist ungerade.', ['Weil 2 gerade ist.', 'Weil q gerade ist.', 'Weil jede Quadratzahl gerade ist.'], 0)))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'luecken', 'Setze p = 2r in p² = 2q² ein und vereinfache.', '(2r)² = 4r² = 2q², geteilt durch 2: q² = 2r².', 'Erst (2r)² ausrechnen.', o={'werte': [2]}) | {'f': {'text': 'Setze p = 2r in p² = 2q² ein und vereinfache.', 'schablone': 'q² = □ · r²', 'hinweis': 'eine ganze Zahl'}})
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Lena schreibt: „√2 = 1,414 ist ein endlicher Dezimalbruch, also rational. 1,414² = 1,999396 ≈ 2. Also stimmt die Annahme.“ Was ist falsch?', '1,414 ist nur ein Näherungswert; 1,414² ist nicht genau 2. Ein Näherungswert sagt nichts über √2 selbst.', 'Ist 1,999396 genau 2?',
+                 **wahl('1,414 ist nur ein Näherungswert, 1,414² ist nicht genau 2.', ['Sie hat falsch quadriert.', 'Nichts, das ist ein Beweis.', 'Dezimalbrüche sind nie rational.'], 1)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'auswahl', 'Tim beweist: „Aus p² = 2q² folgt p gerade. Also ist √2 irrational.“ Was fehlt?', 'Es fehlt der zweite Teil: auch q ist gerade. Erst dann entsteht der Widerspruch zu „gekürzt“.', 'Wo ist der Widerspruch?',
+                 **wahl('Der Nachweis, dass auch q gerade ist, und damit der Widerspruch.', ['Nichts, der Beweis ist fertig.', 'Eine Probe mit dem Taschenrechner.', 'Dass p größer als q ist.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum zeigt der Widerspruch, dass √2 irrational ist?', 'Aus der Annahme „√2 ist rational“ folgt etwas Unmögliches. Also ist die Annahme falsch, und √2 ist nicht rational.', 'Was folgt, wenn eine Annahme zu etwas Unmöglichem führt?',
+                 **wahl('Die Annahme „√2 ist rational“ führt zu etwas Unmöglichem, also ist sie falsch.', ['Weil p und q gerade sind.', 'Weil √2 unendlich viele Stellen hat.', 'Weil 2 eine Primzahl ist.'], 2)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'auswahl', 'Der gleiche Beweis klappt für √3 mit „durch 3 teilbar“ statt „gerade“. Für welche Zahl klappt er nicht, weil die Wurzel rational ist?', '√9 = 3 ist rational; der Beweis scheitert, weil aus p² = 9q² nicht folgt, dass p und q beide durch 9 teilbar sind.', 'Welche Wurzel geht auf?',
+                 **wahl('√9', ['√5', '√7', '√11'], 3)))
+    A.append(auf(L, 'test', 2, None, 'auswahl', 'Welcher Schritt kommt im Beweis direkt nach „p² = 2q²“?', 'Aus p² = 2q² folgt, dass p² und damit p gerade ist.', **wahl('p ist gerade, also p = 2r.', ['√2 ist irrational.', 'Annahme: √2 = p/q.', 'q ist ungerade.'], 0)))
+    for txt, r, f in (('„p² ist gerade, also ist p gerade.“', 'Begründung: Das Quadrat einer ungeraden Zahl ist ungerade.', ['Weil p² größer als p ist.', 'Weil 2 eine Primzahl ist.']),
+                      ('„Man darf p/q als gekürzt annehmen.“', 'Begründung: Jeder Bruch lässt sich vollständig kürzen.', ['Weil √2 kleiner als 2 ist.', 'Weil q nicht 0 ist.']),
+                      ('„Aus q² = 2r² folgt: q ist gerade.“', 'Begründung: Wie bei p – q² ist gerade, also auch q.', ['Weil r gerade ist.', 'Weil q kleiner als p ist.'])):
+        A.append(auf(L, 'korrektur', 2, None, 'auswahl', f'Welche Begründung gehört zu diesem Schritt? {txt}', r + ' Die anderen Antworten begründen den Schritt nicht.', **wahl(r.replace('Begründung: ', ''), f + ['Weil der Taschenrechner das zeigt.'], 1)))
+    for reihe in ([1, 0, 2, 3], [0, 2, 1, 3], [3, 0, 1, 2], [2, 3, 0, 1], [1, 3, 2, 0], [0, 1, 3, 2]):
+        A.append(ordnen(L, 'sicherung', 2, None, reihe, 'Immer: Annahme gekürzter Bruch → p² = 2q² → p und q gerade → Widerspruch.'))
+    return karte, 'Den indirekten Beweis für die Irrationalität von √2 in Schritten ordnen, begründen und Fehler darin finden', A
+
+
 NEU = {'abbildungen.kongruenz': [vektor_koordinaten, vektor_drehen], 'abbildungen.aehnlichkeit': [streckung_vektor],
        'geometrie.konstruktion': [vierecke_konstruieren], 'messen.flaechen_vielecke': [drachen_raute], 'raum.schraegbilder': [wahre_groesse, koerper_symmetrie, raumwinkel], 'stochastik.grundbegriffe': [darstellen],
-       'messen.prisma_zylinder': [cavalieri], 'terme.umformen': [gleichungen_binomisch]}
+       'messen.prisma_zylinder': [cavalieri], 'terme.umformen': [gleichungen_binomisch], 'zahlen.reell': [irrational_beweis]}
 ABSCHNITT = 'Lehrplan-Ergänzung (LK)'
 
 

@@ -1,16 +1,58 @@
-# LK-D 4 – Kür je Etappe und Schulart (22.11.2026, „Entscheidungen Sebastian 17:05“)
+# LK-D 4 – Pflicht und Kür je Etappe, Schulart und Gruppe (22.11.2026; „Entscheidungen 17:05“ und „Rückläufer ChatGPT 942/943“, 17:40)
 
-**Regel (Entscheidung 17:05, Punkt 1):** Eine Etappe ohne Lehrplanpunkt in der Schulart des Kindes ist dort **Kür**. Sie zählt nicht für Flug-Abschluss, Flug-Test und Stempel.
-- Ein Teil ganz ohne Pflicht-Etappe ist der bisherige „Zusatz“-Teil.
-- Pflicht-Etappe heißt: In dieser Schulart verlangt ein Lehrplanpunkt die Etappe als Hauptthema. Grundlage ist dieselbe Klasse je Etappe wie bei der Teilung.
+## Ergebnis vorab
+
+- **A1 (Muss) – √2:** Neue Lernkarte **20 `irrational_beweis`** „Warum √2 kein Bruch ist“ (Gym 9 1/k3, Punkt 202).
+  - Die Aufgaben üben drei Dinge: Beweisschritte ordnen (Lücken mit Schrittnummern), Fehler im Beweis finden (Näherungswert statt Beweis, fehlender zweiter Teil) und einen Schritt begründen (Paritätsargument, gekürzter Bruch, Widerspruch).
+  - Umfang: 22 Aufgaben, Prüfskript ohne Fehler.
+  - Punkt 202 hat jetzt `zahlarten, irrational_beweis`, also nicht mehr „durch Zahlarten abgedeckt“.
+  - In RS (758/971: Irrationalität nur nennen/erklären) ist die Etappe Kür. Klassen unverändert.
+- **B1 (Muss) – Pflicht/Kür aus dem Punkt-Mapping mit Quellen-Punkt:** Jede Etappe hat je Schulart und Gruppe `status_je_schulart` mit `status` (pflicht/kuer), `art`, `quelle` (Punkt-IDs), `klasse`, `gruppe` und `grund`.
+  - Die Art sagt, woher der Status kommt:
+    - `zugeordnet`: Ein Hauptpunkt verlangt die Etappe.
+    - `integrativ`: Ein Punkt deckt die Etappe inhaltlich mit ab. Das habe ich einzeln entschieden, der Quellen-Punkt kann aus einem anderen Thema stammen.
+    - `entschieden`: Kür, einzeln begründet.
+    - `kein_lehrplanstoff`: Das Thema hat in dieser Schulart/Gruppe weder Haupt- noch Nebenbezug.
+    - `integrativ_ib`: siehe Annahme unten.
+  - **„Keine Zuordnung“ ist nicht mehr automatisch Kür.** Gym, RS I und RS II/III habe ich jede Etappe ohne Zuordnung einzeln entschieden: 517 Entscheidungen. Jede Entscheidung steht mit Quelle und Grund je Etappe in `etappen_kuer`.
+  - **Annahme IB:** IB ist nur Orientierung (Inhaltsverzeichnisse). Dort gilt eine Etappe in einem Thema mit IB-Bezug als Pflicht (`integrativ_ib`, Quelle = erster IB-Punkt des Themas). Das ist nicht einzeln geprüft.
+
+| Schulart/Gruppe | Etappen (alle 618) |
+|---|---|
+| Gym | 414 zugeordnet · 75 integrativ Pflicht · 52 Kür (entschieden) · 77 Kür (Thema dort kein Lehrplanstoff) |
+| RS I | 342 zugeordnet · 160 integrativ Pflicht · 40 Kür (entschieden) · 76 Kür (Thema dort kein Lehrplanstoff) |
+| RS II/III | 295 zugeordnet · 145 integrativ Pflicht · 45 Kür (entschieden) · 133 Kür (Thema dort kein Lehrplanstoff) |
+| IB Std | 201 zugeordnet · 236 integrativ Pflicht · 0 Kür (entschieden) · 181 Kür (Thema dort kein Lehrplanstoff) |
+| IB Ext | 209 zugeordnet · 275 integrativ Pflicht · 0 Kür (entschieden) · 134 Kür (Thema dort kein Lehrplanstoff) |
+
+**Beispiele, die ChatGPT nannte:**
+- 46 `punktspiegelung` (Gym): **pflicht**, Quelle 120 (Kl. 7) – Lehrplanpunkt verlangt die Etappe (Zuordnung)
+- 46 `drehung` (Gym): **kuer** – Gym 7: Punktspiegelung ja, allgemeine Drehung nicht
+- 46 `vektor_drehen` (Gym): **kuer** – Vektoren kein Stoff Gym 7
+- 26 `geschickt` (Gym): **pflicht**, Quelle 41 (Kl. 5) – geschickte Zwischenschritte sind Teil der Schlussrechnung
+- 26 `aenderung` (Gym): **kuer** – Änderungsraten sind kein Stoff von Gym 5
+- 101 `prisma_volumen` (RS I): **pflicht**, Quelle 783 (Kl. 9) – Prismen/Zylinder modellieren und berechnen (Punkt aus 92)
+
+**Folgen gegenüber dem ersten LK-D-4-Stand (nur Zuordnung):**
+- **101 Teil 1 ist in RS I und II/III Pflicht, nicht Zusatz.** RS I Kl. 9 (Punkt 783) bzw. RS II/III Kl. 10 (Punkt 1009) verlangt Prismen und Zylinder (Punkt hängt an 92).
+- **26 im Gymnasium:** Teil 1 hat 4 Pflicht-Etappen, Teil 2 hat 3. Vervielfachen, Prüfen und geschickte Zwischenschritte gehören zur Schlussrechnung (Punkt 41); nur `aenderung` bleibt Kür.
+- Teile mit genau **einer** Pflicht-Etappe im Gymnasium: 46 Teil 3, 101 Teil 2.
+- Ganz Zusatz (0 Pflicht-Etappen): 44 Teil 2 (Gym); 46 Teil 2 (Gym); 46 Teil 3 (RS II/III); 91 Teil 1 (IB Std); 91 Teil 2 (IB Std).
+  - Gym 44 Teil 2 und 46 Teil 2 bleiben Zusatz. Inhaltlich geprüft: Gym 7 konstruiert nur Dreiecke und kennt nur Achsen- und Punktspiegelung.
+- **Kinder (beide Gymnasium):**
+  - Kind 2 hat 29 Teil 2 mit 3/3 vollständig.
+  - Kind 2 hat 99 vollständig (`drachen_raute` ist im Gymnasium Kür).
+  - Kein bereits geflogener Flug wird durch neue Pflicht-Etappen wieder offen.
+
+**Regel (Entscheidung 17:05, Punkt 1):** Eine Etappe, die in der Schulart des Kindes nicht Pflicht ist, ist dort **Kür**: Sie zählt nicht für Flug-Abschluss, Flug-Test und Stempel. Ein Teil ohne Pflicht-Etappe ist „Zusatz“.
 
 **JSON (`lk_teilung_2211.json`):**
 - In `teilungsliste`:
-  - jede Etappe hat `kuer_in` (Schularten, in denen sie Kür ist) und `klasse_je_schulart`;
-  - jeder Teil hat `pflicht_etappen_je_schulart`;
-  - `stand_je_kind` ist neu gerechnet (nur Pflicht-Etappen der Schulart des Kindes, beide Kinder Gymnasium); der alte Stand steht in `stand_je_kind_vorher`.
-- `etappen_kuer`: dieselbe Angabe für **alle** 87 Themen (617 Etappen). Kür je Schulart: Gym 204, RS I 275, RS II/III 322, IB Std 416, IB Ext 408.
-- `stand_je_kind_ungeteilt`: Stand der Kinder in ungeteilten Themen nach der Kür-Regel.
+  - jede Etappe hat `kuer_in`, `klasse_je_schulart` und `status_je_schulart`;
+  - jeder Teil hat `pflicht_etappen_je_schulart` und `status_je_schulart` (Pflicht/Zusatz);
+  - `stand_je_kind` zählt nur Pflicht-Etappen; der Stand vor der Kür-Regel steht in `stand_je_kind_vorher`.
+- `etappen_kuer`: dasselbe für alle 87 Themen.
+- `stand_je_kind_ungeteilt`: Stand der Kinder in den ungeteilten Themen.
 
 ### Pflicht-Etappen je Teil und Schulart, Stand je Kind
 
@@ -18,63 +60,53 @@ Spalten Gym bis IB Ext: Pflicht-Etappen / alle Etappen des Teils.
 
 | Teil | Gym | RS I | RS II/III | IB Std | IB Ext | Kür-Etappen (Schulart) | Stand jetzt (nur Pflicht, Gym) | Stand vorher (alle Etappen) |
 |---|---|---|---|---|---|---|---|---|
-| 26 Teil 1/2 | 3/5 | 2/5 | 2/5 | 4/5 | 4/5 | `geschickt`: Gym, RS I, RS II/III, IB Std, IB Ext; `sach`: RS I, RS II/III; `aenderung`: Gym, RS I, RS II/III | K1: 0/3 · K2: 0/3 | K1: 0/5 · K2: 0/5 |
-| 26 Teil 2/2 | 1/3 | 3/3 | 3/3 | 3/3 | 3/3 | `vervielfachen`: Gym; `pruefen`: Gym | K1: 0/1 · K2: 0/1 | K1: 0/3 · K2: 0/3 |
-| 29 Teil 1/2 | 5/5 | 5/5 | 5/5 | 3/5 | 3/5 | `minusklammer`: IB Std, IB Ext; `aequivalenz`: IB Std, IB Ext | K1: 0/5 · K2: 5/5 **vollständig** | K1: 0/5 · K2: 5/5 |
-| 29 Teil 2/2 | 3/4 | 4/4 | 4/4 | 3/4 | 3/4 | `gleichungen_binomisch`: Gym, IB Std, IB Ext | K1: 0/3 · K2: 3/3 **vollständig** | K1: 0/4 · K2: 3/4 |
-| 44 Teil 1/2 | 5/5 | 4/5 | 3/5 | 3/5 | 3/5 | `gleichschenklig`: RS I, RS II/III, IB Std, IB Ext; `planfigur`: IB Std, IB Ext; `satz_kehrsatz`: RS II/III | K1: 0/5 · K2: 0/5 | K1: 0/5 · K2: 0/5 |
-| 44 Teil 2/2 | 0/2 (Zusatz) | 2/2 | 2/2 | 0/2 (Zusatz) | 0/2 (Zusatz) | `vierecke`: Gym, IB Std, IB Ext; `vierecke_konstruieren`: Gym, IB Std, IB Ext | K1: 0/0 · K2: 0/0 | K1: 0/2 · K2: 0/2 |
-| 46 Teil 1/3 | 5/6 | 6/6 | 6/6 | 2/6 | 2/6 | `mittelsenkrechte`: IB Std, IB Ext; `winkelhalbierende`: IB Std, IB Ext; `symmetrie`: IB Std, IB Ext; `vierecke_ordnen`: IB Std, IB Ext; `eigenschaften`: Gym | K1: 0/5 · K2: 0/5 | K1: 0/6 · K2: 0/6 |
-| 46 Teil 2/3 | 0/3 (Zusatz) | 3/3 | 3/3 | 1/3 | 1/3 | `verschiebung`: Gym; `gegenvektor`: Gym, IB Std, IB Ext; `vektor_koordinaten`: Gym, IB Std, IB Ext | K1: 0/0 · K2: 0/0 | K1: 0/3 · K2: 0/3 |
-| 46 Teil 3/3 | 1/3 | 3/3 | 0/3 (Zusatz) | 2/3 | 2/3 | `punktspiegelung`: RS II/III; `drehung`: Gym, RS II/III; `vektor_drehen`: Gym, RS II/III, IB Std, IB Ext | K1: 0/1 · K2: 0/1 | K1: 0/3 · K2: 0/3 |
-| 61 Teil 1/2 | 3/3 | 3/3 | 3/3 | 2/3 | 2/3 | `darstellen`: IB Std, IB Ext | K1: 0/3 · K2: 0/3 | K1: 0/3 · K2: 0/3 |
+| 26 Teil 1/2 | 4/5 | 4/5 | 4/5 | 5/5 | 5/5 | `aenderung`: Gym, RS I, RS II/III | K1: 0/4 · K2: 0/4 | K1: 0/5 · K2: 0/5 |
+| 26 Teil 2/2 | 3/3 | 3/3 | 3/3 | 3/3 | 3/3 | – | K1: 0/3 · K2: 0/3 | K1: 0/3 · K2: 0/3 |
+| 29 Teil 1/2 | 5/5 | 5/5 | 5/5 | 5/5 | 5/5 | – | K1: 0/5 · K2: 5/5 **vollständig** | K1: 0/5 · K2: 5/5 |
+| 29 Teil 2/2 | 3/4 | 4/4 | 4/4 | 4/4 | 4/4 | `gleichungen_binomisch`: Gym | K1: 0/3 · K2: 3/3 **vollständig** | K1: 0/4 · K2: 3/4 |
+| 44 Teil 1/2 | 5/5 | 5/5 | 4/5 | 5/5 | 5/5 | `satz_kehrsatz`: RS II/III | K1: 0/5 · K2: 0/5 | K1: 0/5 · K2: 0/5 |
+| 44 Teil 2/2 | 0/2 (Zusatz) | 2/2 | 2/2 | 2/2 | 2/2 | `vierecke`: Gym; `vierecke_konstruieren`: Gym | K1: 0/0 · K2: 0/0 | K1: 0/2 · K2: 0/2 |
+| 46 Teil 1/3 | 6/6 | 6/6 | 6/6 | 6/6 | 6/6 | – | K1: 0/6 · K2: 0/6 | K1: 0/6 · K2: 0/6 |
+| 46 Teil 2/3 | 0/3 (Zusatz) | 3/3 | 3/3 | 3/3 | 3/3 | `verschiebung`: Gym; `gegenvektor`: Gym; `vektor_koordinaten`: Gym | K1: 0/0 · K2: 0/0 | K1: 0/3 · K2: 0/3 |
+| 46 Teil 3/3 | 1/3 | 3/3 | 0/3 (Zusatz) | 3/3 | 3/3 | `punktspiegelung`: RS II/III; `drehung`: Gym, RS II/III; `vektor_drehen`: Gym, RS II/III | K1: 0/1 · K2: 0/1 | K1: 0/3 · K2: 0/3 |
+| 61 Teil 1/2 | 3/3 | 3/3 | 3/3 | 3/3 | 3/3 | – | K1: 0/3 · K2: 0/3 | K1: 0/3 · K2: 0/3 |
 | 61 Teil 2/2 | 4/4 | 4/4 | 4/4 | 4/4 | 4/4 | – | K1: 0/4 · K2: 0/4 | K1: 0/4 · K2: 0/4 |
-| 91 Teil 1/2 | 1/4 | 4/4 | 2/4 | 0/4 (Zusatz) | 0/4 (Zusatz) | `pyramide`: IB Std, IB Ext; `lage`: Gym, RS II/III, IB Std, IB Ext; `wahre_groesse`: Gym, IB Std, IB Ext; `raumwinkel`: Gym, RS II/III, IB Std, IB Ext | K1: 0/1 · K2: 0/1 | K1: 0/4 · K2: 0/4 |
-| 91 Teil 2/2 | 1/4 | 4/4 | 2/4 | 0/4 (Zusatz) | 0/4 (Zusatz) | `koordinaten`: Gym, RS II/III, IB Std, IB Ext; `rotation`: IB Std, IB Ext; `axialschnitt`: Gym, IB Std, IB Ext; `koerper_symmetrie`: Gym, RS II/III, IB Std, IB Ext | K1: 0/1 · K2: 0/1 | K1: 0/4 · K2: 0/4 |
-| 101 Teil 1/2 | 7/7 | 0/7 (Zusatz) | 0/7 (Zusatz) | 0/7 (Zusatz) | 0/7 (Zusatz) | `prisma_volumen`: RS I, RS II/III, IB Std, IB Ext; `prisma_oberflaeche`: RS I, RS II/III, IB Std, IB Ext; `prisma_umstellen`: RS I, RS II/III, IB Std, IB Ext; `zylinder_volumen`: RS I, RS II/III, IB Std, IB Ext; `zylinder_oberflaeche`: RS I, RS II/III, IB Std, IB Ext; `sach`: RS I, RS II/III, IB Std, IB Ext; `verstehen`: RS I, RS II/III, IB Std, IB Ext | K1: 0/7 · K2: 0/7 | K1: 0/7 · K2: 0/7 |
-| 101 Teil 2/2 | 1/1 | 1/1 | 1/1 | 0/1 (Zusatz) | 0/1 (Zusatz) | `cavalieri`: IB Std, IB Ext | K1: 0/1 · K2: 0/1 | K1: 0/1 · K2: 0/1 |
+| 91 Teil 1/2 | 3/4 | 4/4 | 2/4 | 0/4 (Zusatz) | 4/4 | `pyramide`: IB Std; `lage`: Gym, RS II/III, IB Std; `wahre_groesse`: IB Std; `raumwinkel`: RS II/III, IB Std | K1: 0/3 · K2: 0/3 | K1: 0/4 · K2: 0/4 |
+| 91 Teil 2/2 | 2/4 | 4/4 | 2/4 | 0/4 (Zusatz) | 4/4 | `koordinaten`: Gym, RS II/III, IB Std; `rotation`: IB Std; `axialschnitt`: IB Std; `koerper_symmetrie`: Gym, RS II/III, IB Std | K1: 0/2 · K2: 0/2 | K1: 0/4 · K2: 0/4 |
+| 101 Teil 1/2 | 7/7 | 7/7 | 7/7 | 7/7 | 7/7 | – | K1: 0/7 · K2: 0/7 | K1: 0/7 · K2: 0/7 |
+| 101 Teil 2/2 | 1/1 | 1/1 | 1/1 | 1/1 | 1/1 | – | K1: 0/1 · K2: 0/1 | K1: 0/1 · K2: 0/1 |
 
-- **Kind 2, 29 Teil 2:** Im Gymnasium sind es 3/3, also **vollständig**. `gleichungen_binomisch` ist dort Kür (nur RS 8). Stempel und 100 Sterne also nachträglich, wie entschieden.
-- **Folge für das Gymnasium – viele kurze Pflicht-Flüge:**
-  - Mit einer einzigen Pflicht-Etappe: 26 Teil 2 (`erkennen`), 46 Teil 3 (`punktspiegelung`), 91 Teil 1 (`pyramide`), 91 Teil 2 (`rotation`), 101 Teil 2 (`cavalieri`).
-  - 44 Teil 2 und 46 Teil 2 sind im Gymnasium ganz Kür (Zusatz).
-  - Annahme: Der Flug-Test zieht dann nur aus diesen Etappen. TL-S muss klären, ob ein Test aus einer Etappe reicht.
-- **Etappen ohne Lehrplanpunkt in irgendeiner Schulart** sind jetzt überall Kür, z. B. 26 `geschickt` und `aenderung` (außer IB). Das ist die Regel, aber Sebastian soll es sehen.
+### Ungeteilte Themen: Stand der Kinder
 
-### Ungeteilte Themen: wo sich der Stand durch die Kür-Regel verschiebt
-
-Die Tabelle enthält nur Fälle, in denen die Kür-Regel etwas ändert oder Stand und Flug nicht zusammenpassen.
+Nur Fälle, in denen sich etwas ändert oder Stand und Flug nicht zusammenpassen.
 
 | Kind | Thema | Pflicht erledigt | vorher alle Etappen? | Flug geschafft? |
 |---|---|---|---|---|
 | 1 | 15 Natürliche Zahlen | 12/12 | nein | ja |
 | 2 | 24 Prozent- und Zinsrechnung | 6/6 | ja | nein |
-| 2 | 30 Potenzen und negative Exponenten | 2/2 | ja | nein |
+| 2 | 30 Potenzen und negative Exponenten | 3/3 | ja | nein |
 | 2 | 57 Daten erfassen und darstellen | 6/6 | ja | nein |
 | 2 | 99 Flächen von Parallelogramm, Dreieck und Trapez | 7/7 | nein | nein |
 | 2 | 100 Volumen | 7/7 | ja | nein |
 
-- **Durch die Kür-Regel neu vollständig:** Kind 2 in 99 (die fehlende Etappe `drachen_raute` ist nur RS). Kind 1 in 15 war schon geflogen und ist jetzt auch rechnerisch vollständig (`dualsystem` ist im Gymnasium Kür).
-- **Kind 2 in 24, 30, 57 und 100:** Alle Etappen sind erledigt, aber der Flug ist nicht abgeschlossen. Annahme: Es fehlt der Flug-Test. Das ändert die Kür-Regel nicht; ich nenne es nur.
+- **Kind 2 in 24, 30, 57 und 100:** Alle Pflicht-Etappen sind erledigt, aber kein Flug ist abgeschlossen. Annahme: Es fehlt der Flug-Test.
 
-### Widerspruch zum Inhalt: „Vertiefung“ in der Themendatei, aber mit Lehrplanpunkt
+### Widerspruch zum Inhalt: „Vertiefung“ in der Themendatei, aber Pflicht nach Lehrplan
 
-- Heute gibt es Kür nur für alle Schularten gemeinsam (`bewertung.lernziele_vertiefung` in der Themendatei). **47 Etappen** stehen dort als Vertiefung, haben aber in mindestens einer Schulart einen Lehrplanpunkt.
-- Nach der neuen Regel wären sie dort Pflicht. Im Gymnasium betrifft das: 7 `pruefen`, 7 `stufenform`, 7 `eliminieren`, 26 `erkennen`, 33 `wirkung`, 35 `spiegeln`, 61 `darstellen`, 62 `unabhaengig`, 63 `elemente`, 63 `schnitt`, 63 `venn`, 63 `mengen_verstehen`, 98 `aussenwinkel`, 101 `cavalieri`, 102 `geteilt_gleiche_basis`, 102 `anwenden`.
-- Dazu gehören meine neuen LK-Etappen (z. B. 61 `darstellen`, 101 `cavalieri`). Ich hatte sie als Vertiefung angelegt, damit bestehende Flüge unverändert bleiben.
+- **58 Etappen** stehen in der Themendatei unter `lernziele_vertiefung` (heute Kür für alle), sind aber in mindestens einer Schulart Pflicht.
+  - Im Gymnasium: 7 `pruefen`, 7 `stufenform`, 7 `eliminieren`, 20 `irrational_beweis`, 26 `erkennen`, 30 `fehler_finden`, 33 `einsetzen`, 33 `wirkung`, 33 `bueschel`, 35 `spiegeln`, 37 `punkte`, 43 `kreuzung`, 61 `darstellen`, 62 `unabhaengig`, 63 `elemente`, 63 `schnitt`, 63 `venn`, 63 `mengen_verstehen`, 91 `wahre_groesse`, 91 `raumwinkel`, 94 `formel`, 98 `aussenwinkel`, 101 `cavalieri`, 102 `geteilt_gleiche_basis`, 102 `anwenden`, 103 `fehler_ganz`.
+  - Darunter die neuen LK-Etappen, z. B. 20 `irrational_beweis`, 61 `darstellen`, 101 `cavalieri`.
 - **Offen, Sebastian/TL-S:** Welche Angabe gilt?
-  - Mein Vorschlag: Die Schulart-Regel gilt (Lehrplan), und `lernziele_vertiefung` gilt nur noch für Etappen ohne Lehrplanpunkt.
+  - Mein Vorschlag: Pflicht/Kür je Schulart nach dieser JSON, und `lernziele_vertiefung` nur noch als Vorgabe für Etappen ohne Lehrplanbezug.
   - Die Liste steht in `vertiefung_aber_lehrplanpunkt`.
-  - Der Stand je Kind oben ist schon nach der Schulart-Regel gerechnet.
 
-### (a) F1 und (c) F3 – schon geliefert (Commit c7a86ada, vor der Entscheidung von 17:05)
+### F1 und F3 – geliefert in Commit c7a86ada
 
-- **(a) F1:**
-  - Alle Themen habe ich systematisch gegen `lk_daten_2211.json` durchgezählt: 62 Fälle in `mehrere_klassen`, jeder mit Entscheidung und Begründung (Abschnitt „Ergänzung 939/940“ unten).
-  - **57:** Wiederholung ohne neue Etappe, Anzeige „wird in Kl. 7 wieder aufgegriffen“.
-  - **2:** In RS hat 2 nur noch Hauptpunkte in Kl. 7. Der Kl.-8-Punkt 734/749 hängt seit LK-D 2 an 29 Teil 2; nicht teilen, Anzeige „wird in Kl. 8 in 29 Teil 2 wieder aufgegriffen“.
-- **(c) F3:** Neue Etappe 61 `darstellen` „Baumdiagramm und Vierfeldertafel“ in 61 Teil 1 (Punkte 950, 968, Gym 185).
-- **Für `reise-aufbau`:** Neben den drei genannten neuen Etappen gibt es zwei weitere: **61 `darstellen`** (Teil 1) und **91 `raumwinkel`** (Teil 1).
+- F1: 62 Fälle in `mehrere_klassen`.
+  - 57: Wiederholung ohne neue Etappe.
+  - 2: nicht teilen.
+- F3: 61 `darstellen`.
+- **Für `reise-aufbau`:** Neue Etappen seit LK-D 3 sind 61 `darstellen`, 91 `raumwinkel` und jetzt 20 `irrational_beweis` (20 ist nicht geteilt, also kein neuer Flug).
 
 ---
 
@@ -126,7 +158,7 @@ Die Tabelle enthält nur Fälle, in denen die Kür-Regel etwas ändert oder Stan
 **(3) Muss F2 – Zusatz-Regel je Schulart in den JSON-Kanten.**
 - Jede der 137 Kanten in `kanten` hat jetzt `art_je_schulart` mit „hart“, „empfohlen“ oder „Zusatz“ (null = Kante gilt in dieser Schulart nicht).
 - Regeln:
-  - Ist der Teil, der etwas braucht, in der Schulart Zusatz, steht dort „Zusatz“: keine Pflicht, sperrt nichts. Das betrifft 9 Kanten.
+  - Ist der Teil, der etwas braucht, in der Schulart Zusatz, steht dort „Zusatz“: keine Pflicht, sperrt nichts. Das betrifft 5 Kanten.
   - Ist die Voraussetzung Zusatz, steht dort „empfohlen“.
   - Sonst gilt die bisherige Art.
 - Jeder Teil hat `status_je_schulart` (Pflicht/Zusatz).
@@ -140,17 +172,10 @@ Die Tabelle enthält nur Fälle, in denen die Kür-Regel etwas ändert oder Stan
 |---|---|---|---|---|
 | gym | 46 Kongruenzabbildungen – Teil 3 von 3 | 46 Kongruenzabbildungen – Teil 2 von 3 | **empfohlen** | Vorgänger ist in dieser Schulart Zusatz |
 | gym | 46 Kongruenzabbildungen – Teil 3 von 3 | 46 Kongruenzabbildungen – Teil 1 von 3 | **hart** | letzter Pflicht-Teil davor |
-| rs_I | 101 Prismen und Zylinder – Teil 2 von 2 | 101 Prismen und Zylinder – Teil 1 von 2 | **empfohlen** | Vorgänger ist in dieser Schulart Zusatz |
-| rs_II_III | 101 Prismen und Zylinder – Teil 2 von 2 | 101 Prismen und Zylinder – Teil 1 von 2 | **empfohlen** | Vorgänger ist in dieser Schulart Zusatz |
 | gym | 44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 | 44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
-| ib_standard | 44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 | 44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
-| ib_extended | 44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 | 44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
 | gym | 46 Kongruenzabbildungen – Teil 2 von 3 | 46 Kongruenzabbildungen – Teil 1 von 3 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
 | rs_II_III | 46 Kongruenzabbildungen – Teil 3 von 3 | 46 Kongruenzabbildungen – Teil 2 von 3 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
 | ib_standard | 91 Schrägbilder und Raumdarstellung – Teil 2 von 2 | 91 Schrägbilder und Raumdarstellung – Teil 1 von 2 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
-| ib_extended | 91 Schrägbilder und Raumdarstellung – Teil 2 von 2 | 91 Schrägbilder und Raumdarstellung – Teil 1 von 2 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
-| ib_standard | 101 Prismen und Zylinder – Teil 2 von 2 | 101 Prismen und Zylinder – Teil 1 von 2 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
-| ib_extended | 101 Prismen und Zylinder – Teil 2 von 2 | 101 Prismen und Zylinder – Teil 1 von 2 | **Zusatz** | Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts |
 
 **(4) Sollte F3 – 61 Teil 1 und 91.**
 - **61 Teil 1 – Baumdiagramm und Vierfeldertafel (RS 8 I 7/K1, Punkt 950; II/III 6/K1, Punkt 968): fehlten.**
@@ -264,8 +289,8 @@ Daten aus LK-D (`lk_daten_2211.json`, Stand nach dem Live).
 
 | Teil | Titel · Untertitel | Etappen | Gym | RS I | RS II/III | IB Std / Ext | Kind 1 | Kind 2 |
 |---|---|---|---|---|---|---|---|---|
-| 1/2 | Direkte Proportionalität und Dreisatz – Teil 1 von 2 · Dreisatz | Auf die Einheit schließen, Der Dreisatz, Geschickte Zwischenschritte °, Sachaufgaben mit Dreisatz, Änderungsraten berechnen ° | 5 | 5 | 5 | 2 / 2 | 0/5 (Pflicht Gym 0/3) | 0/5 (Pflicht Gym 0/3) |
-| 2/2 | Direkte Proportionalität und Dreisatz – Teil 2 von 2 · proportionale Zuordnungen erkennen | Was heißt proportional?, Verdoppeln, verdreifachen, halbieren, Ist die Tabelle proportional? | 5 | 6 | 6 | 2 / 2 | 0/3 (Pflicht Gym 0/1) | 0/3 (Pflicht Gym 0/1) |
+| 1/2 | Direkte Proportionalität und Dreisatz – Teil 1 von 2 · Dreisatz | Auf die Einheit schließen, Der Dreisatz, Geschickte Zwischenschritte °, Sachaufgaben mit Dreisatz, Änderungsraten berechnen ° | 5 | 5 | 5 | 2 / 2 | 0/5 (Pflicht Gym 0/4) | 0/5 (Pflicht Gym 0/4) |
+| 2/2 | Direkte Proportionalität und Dreisatz – Teil 2 von 2 · proportionale Zuordnungen erkennen | Was heißt proportional?, Verdoppeln, verdreifachen, halbieren, Ist die Tabelle proportional? | 5 | 6 | 6 | 2 / 2 | 0/3 (Pflicht Gym 0/3) | 0/3 (Pflicht Gym 0/3) |
 
 ### 29 Terme umformen · Flug geschafft: Kind 2
 
@@ -285,7 +310,7 @@ Daten aus LK-D (`lk_daten_2211.json`, Stand nach dem Live).
 
 | Teil | Titel · Untertitel | Etappen | Gym | RS I | RS II/III | IB Std / Ext | Kind 1 | Kind 2 |
 |---|---|---|---|---|---|---|---|---|
-| 1/3 | Kongruenzabbildungen – Teil 1 von 3 · Spiegeln und Symmetrie | An einer Achse spiegeln, Mittelsenkrechte und Lot, Die Winkelhalbierende, Symmetrische Figuren, Symmetrische Vierecke ordnen, Was bleibt bei Abbildungen gleich? | 7 | 6 | 6 | 3 / 3 | 0/6 (Pflicht Gym 0/5) | 0/6 (Pflicht Gym 0/5) |
+| 1/3 | Kongruenzabbildungen – Teil 1 von 3 · Spiegeln und Symmetrie | An einer Achse spiegeln, Mittelsenkrechte und Lot, Die Winkelhalbierende, Symmetrische Figuren, Symmetrische Vierecke ordnen, Was bleibt bei Abbildungen gleich? | 7 | 6 | 6 | 3 / 3 | 0/6 (Pflicht Gym 0/6) | 0/6 (Pflicht Gym 0/6) |
 | 2/3 | Kongruenzabbildungen – Teil 2 von 3 · Verschieben und Vektoren | Figuren verschieben, Gegenvektor und Rückweg, Vektoren in Koordinaten | 7 * | 7 | 7 | 3 / 3 | 0/3 (Pflicht Gym 0/0) | 0/3 (Pflicht Gym 0/0) |
 | 3/3 | Kongruenzabbildungen – Teil 3 von 3 · Drehen und Punktspiegelung | An einem Punkt spiegeln, Um einen Punkt drehen, Vektoren um 90° und 180° drehen | 7 | 8 | – | 3 / 3 | 0/3 (Pflicht Gym 0/1) | 0/3 (Pflicht Gym 0/1) |
 
@@ -300,8 +325,8 @@ Daten aus LK-D (`lk_daten_2211.json`, Stand nach dem Live).
 
 | Teil | Titel · Untertitel | Etappen | Gym | RS I | RS II/III | IB Std / Ext | Kind 1 | Kind 2 |
 |---|---|---|---|---|---|---|---|---|
-| 1/2 | Schrägbilder und Raumdarstellung – Teil 1 von 2 · Schrägbilder und Lage im Raum | Pyramiden: Ecken, Kanten, Flächen, Parallel, schneidend oder windschief?, Wahre Größe im Schrägbild, Winkel im Raum | 10 | 7 | 8 | – / – | 0/4 (Pflicht Gym 0/1) | 0/4 (Pflicht Gym 0/1) |
-| 2/2 | Schrägbilder und Raumdarstellung – Teil 2 von 2 · Raumkoordinaten, Körpersymmetrie, Rotationskörper | Punkte im Raum mit Koordinaten, Rotationskörper, Axialschnitte berechnen, Symmetrie von Körpern | 10 | 8 | 10 | – / – | 0/4 (Pflicht Gym 0/1) | 0/4 (Pflicht Gym 0/1) |
+| 1/2 | Schrägbilder und Raumdarstellung – Teil 1 von 2 · Schrägbilder und Lage im Raum | Pyramiden: Ecken, Kanten, Flächen, Parallel, schneidend oder windschief?, Wahre Größe im Schrägbild, Winkel im Raum | 10 | 7 | 8 | – / – | 0/4 (Pflicht Gym 0/3) | 0/4 (Pflicht Gym 0/3) |
+| 2/2 | Schrägbilder und Raumdarstellung – Teil 2 von 2 · Raumkoordinaten, Körpersymmetrie, Rotationskörper | Punkte im Raum mit Koordinaten, Rotationskörper, Axialschnitte berechnen, Symmetrie von Körpern | 10 | 8 | 10 | – / – | 0/4 (Pflicht Gym 0/2) | 0/4 (Pflicht Gym 0/2) |
 
 ### 101 Prismen und Zylinder
 
@@ -340,31 +365,24 @@ Ein Teil ohne Lehrplanpunkt in der Schulart ist dort Zusatz: keine Pflicht, sper
 | Terme umformen – Teil 1 von 2 | Pflicht | Pflicht | Pflicht | Pflicht | Pflicht |
 | Terme umformen – Teil 2 von 2 | Pflicht | Pflicht | Pflicht | Pflicht | Pflicht |
 | Konstruktionen, Kongruenz und Beweise – Teil 1 von 2 | Pflicht | Pflicht | Pflicht | Pflicht | Pflicht |
-| Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 | Zusatz | Pflicht | Pflicht | Zusatz | Zusatz |
+| Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 | Zusatz | Pflicht | Pflicht | Pflicht | Pflicht |
 | Kongruenzabbildungen – Teil 1 von 3 | Pflicht | Pflicht | Pflicht | Pflicht | Pflicht |
 | Kongruenzabbildungen – Teil 2 von 3 | Zusatz | Pflicht | Pflicht | Pflicht | Pflicht |
 | Kongruenzabbildungen – Teil 3 von 3 | Pflicht | Pflicht | Zusatz | Pflicht | Pflicht |
 | Zufall und Laplace – Teil 1 von 2 | Pflicht | Pflicht | Pflicht | Pflicht | Pflicht |
 | Zufall und Laplace – Teil 2 von 2 | Pflicht | Pflicht | Pflicht | Pflicht | Pflicht |
-| Schrägbilder und Raumdarstellung – Teil 1 von 2 | Pflicht | Pflicht | Pflicht | Zusatz | Zusatz |
-| Schrägbilder und Raumdarstellung – Teil 2 von 2 | Pflicht | Pflicht | Pflicht | Zusatz | Zusatz |
-| Prismen und Zylinder – Teil 1 von 2 | Pflicht | Zusatz | Zusatz | Zusatz | Zusatz |
-| Prismen und Zylinder – Teil 2 von 2 | Pflicht | Pflicht | Pflicht | Zusatz | Zusatz |
+| Schrägbilder und Raumdarstellung – Teil 1 von 2 | Pflicht | Pflicht | Pflicht | Zusatz | Pflicht |
+| Schrägbilder und Raumdarstellung – Teil 2 von 2 | Pflicht | Pflicht | Pflicht | Zusatz | Pflicht |
+| Prismen und Zylinder – Teil 1 von 2 | Pflicht | Pflicht | Pflicht | Pflicht | Pflicht |
+| Prismen und Zylinder – Teil 2 von 2 | Pflicht | Pflicht | Pflicht | Pflicht | Pflicht |
 
 **Kanten, die sich durch die Zusatz-Regel ändern** (vollständig in `kanten_je_schulart`):
 - Gym: 46 Kongruenzabbildungen – Teil 3 von 3 ← 46 Kongruenzabbildungen – Teil 2 von 3: **empfohlen** (Vorgänger ist in dieser Schulart Zusatz)
 - Gym: 46 Kongruenzabbildungen – Teil 3 von 3 ← 46 Kongruenzabbildungen – Teil 1 von 3: **hart** (letzter Pflicht-Teil davor)
-- RS I: 101 Prismen und Zylinder – Teil 2 von 2 ← 101 Prismen und Zylinder – Teil 1 von 2: **empfohlen** (Vorgänger ist in dieser Schulart Zusatz)
-- RS II/III: 101 Prismen und Zylinder – Teil 2 von 2 ← 101 Prismen und Zylinder – Teil 1 von 2: **empfohlen** (Vorgänger ist in dieser Schulart Zusatz)
 - Gym: 44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 ← 44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
-- IB Std: 44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 ← 44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
-- IB Ext: 44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 ← 44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
 - Gym: 46 Kongruenzabbildungen – Teil 2 von 3 ← 46 Kongruenzabbildungen – Teil 1 von 3: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
 - RS II/III: 46 Kongruenzabbildungen – Teil 3 von 3 ← 46 Kongruenzabbildungen – Teil 2 von 3: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
 - IB Std: 91 Schrägbilder und Raumdarstellung – Teil 2 von 2 ← 91 Schrägbilder und Raumdarstellung – Teil 1 von 2: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
-- IB Ext: 91 Schrägbilder und Raumdarstellung – Teil 2 von 2 ← 91 Schrägbilder und Raumdarstellung – Teil 1 von 2: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
-- IB Std: 101 Prismen und Zylinder – Teil 2 von 2 ← 101 Prismen und Zylinder – Teil 1 von 2: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
-- IB Ext: 101 Prismen und Zylinder – Teil 2 von 2 ← 101 Prismen und Zylinder – Teil 1 von 2: **Zusatz** (Teil ist in dieser Schulart Zusatz: keine Pflicht, sperrt nichts)
 
 - Im Gymnasium braucht 46 Teil 3 hart nur Teil 1, wie entschieden.
 - 101 Teil 2 braucht Teil 1 in RS I und II/III nur empfohlen: Prismen und Zylinder stehen in der Realschule bei 92. Damit ist der II/III-Verstoß „101 Teil 2 ← Teil 1“ aufgelöst.

@@ -193,7 +193,7 @@ select v.e, v.t, v.b, v.g, 'geprueft' from (values
   (200, 20, 'neben', 'LK-D 22.11.2026: Nebenbezug'),
   (201, 68, 'haupt', 'LK-D 22.11.2026: neu; Etappen: abschaetzen'),
   (201, 20, 'neben', 'LK-D 22.11.2026: Nebenbezug'),
-  (202, 20, 'haupt', 'LK-D 22.11.2026: neu; Etappen: zahlarten'),
+  (202, 20, 'haupt', 'LK-D 22.11.2026: neu; Etappen: zahlarten, irrational_beweis; indirekter Beweis √2: neue Etappe irrational_beweis (LK-D 4, A1)'),
   (203, 20, 'haupt', 'LK-D 22.11.2026: neu; Etappen: zahlarten'),
   (204, 20, 'haupt', 'LK-D 22.11.2026: neu; Etappen: heron, eingrenzen'),
   (205, 20, 'haupt', 'LK-D 22.11.2026: neu; Etappen: wurzel_mal, zusammenfassen'),

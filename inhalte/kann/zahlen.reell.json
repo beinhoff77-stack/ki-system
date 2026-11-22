@@ -8,6 +8,7 @@
   "wurzel_mal": "zwei Wurzeln malnehmen oder teilen, indem du sie unter eine Wurzel ziehst",
   "teilweise": "aus einer Wurzel die Quadratzahl herausziehen, etwa √180 = 6√5",
   "zusammenfassen": "gleichartige Wurzeln zusammenfassen, z. B. √8 − √50 = −3√2",
-  "nenner_rational": "aus dem Nenner eines Bruchs die Wurzel entfernen, auch bei √7 + √5"
+  "nenner_rational": "aus dem Nenner eines Bruchs die Wurzel entfernen, auch bei √7 + √5",
+  "irrational_beweis": "Den indirekten Beweis für die Irrationalität von √2 in Schritten ordnen, begründen und Fehler darin finden"
  }
 }

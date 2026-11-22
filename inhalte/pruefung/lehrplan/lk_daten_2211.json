@@ -16810,16 +16810,18 @@
    "bezug": "haupt",
    "rolle": "neu",
    "etappen": [
-    "zahlarten"
+    "zahlarten",
+    "irrational_beweis"
    ],
    "etappen_neu_in_dieser_klasse": [
-    "zahlarten"
+    "zahlarten",
+    "irrational_beweis"
    ],
    "neben": [],
    "vorher": {},
    "veraltet": [],
    "befund": "ergaenzt",
-   "notiz": null,
+   "notiz": "indirekter Beweis √2: neue Etappe irrational_beweis (LK-D 4, A1)",
    "korrektur_sql": true
   },
   {
@@ -26577,6 +26579,7 @@
     "etappen_je_klasse": {
      "9": [
       "zahlarten",
+      "irrational_beweis",
       "heron",
       "eingrenzen",
       "wurzel_mal",

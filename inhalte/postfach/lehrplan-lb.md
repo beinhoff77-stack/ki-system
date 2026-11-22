@@ -2,6 +2,34 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG LK-D 4, Ergänzung „Rückläufer ChatGPT 942/943“ (lehrplan-lb)
+
+Grundlage: `lernen-app` d722a791. Nichts eingespielt, Kinder nur als Nummern. Einzelheiten in `lk_teilung_2211.md`, Abschnitt „LK-D 4“.
+
+- **A1 – √2:** neue Lernkarte 20 `irrational_beweis` „Warum √2 kein Bruch ist“ (Gym 9, Punkt 202).
+  - 22 Aufgaben: Beweisschritte ordnen, Fehler im Beweis finden, Schritt begründen.
+  - 202 = `zahlarten, irrational_beweis`, also nicht mehr „durch Zahlarten abgedeckt“.
+  - In RS Kür (758/971 verlangen keinen Beweis).
+  - SQL: nur der Begründungstext von 202 ändert sich. Probelauf LP-RS ×2, dann LK-D ×2 bestanden; Klassen unverändert.
+- **B1 – Pflicht/Kür je Etappe, Schulart und Gruppe:**
+  - Jede Etappe hat `status_je_schulart` (status, art, quelle = Punkt-IDs, klasse, gruppe, grund), in den geteilten Themen und in `etappen_kuer` für alle 87 Themen.
+  - „Keine Zuordnung“ ist nicht mehr automatisch Kür. Für Gym, RS I und RS II/III habe ich jede nicht zugeordnete Etappe einzeln entschieden (integrativ Pflicht mit Quellen-Punkt, auch aus einem anderen Thema, oder Kür mit Grund).
+  - Kür ohne Einzelentscheidung gibt es nur noch, wenn das Thema in der Schulart/Gruppe weder Haupt- noch Nebenbezug hat.
+  - **Annahme IB:** Im IB gilt eine Etappe in einem Thema mit IB-Bezug pauschal als Pflicht (nicht einzeln geprüft).
+- **Folgen:**
+  - 101 Teil 1 ist in RS I/II/III Pflicht (Punkte 783/1009), nicht Zusatz.
+  - 26 im Gymnasium: 4 bzw. 3 Pflicht-Etappen (Schlussrechnung, Punkt 41); nur `aenderung` ist Kür.
+  - 46 Teil 3 im Gymnasium: nur `punktspiegelung` Pflicht; `drehung` und `vektor_drehen` sind Kür (Gym 7: nur Achsen- und Punktspiegelung).
+  - Zusatz bleiben: Gym 44 Teil 2 und 46 Teil 2, RS II/III 46 Teil 3, IB Std 91.
+- **Kinder (Gymnasium):**
+  - Kind 2: 29 Teil 2 mit 3/3 vollständig, 99 vollständig.
+  - Kein geflogener Flug wird wieder offen.
+- **Offen:** 58 Etappen stehen in der Themendatei als Vertiefung, sind nach dieser JSON aber in einer Schulart Pflicht (`vertiefung_aber_lehrplanpunkt`). Vorschlag: Die JSON gilt. Entscheidung Sebastian/TL-S.
+- **Für reise-aufbau:** Neue Etappen seit LK-D 3 sind 61 `darstellen`, 91 `raumwinkel` und 20 `irrational_beweis` (kein neuer Flug).
+- Prüfskript ohne Fehler, Tests 141/141.
+
+FERTIG: LK-D 4
+
 ## 2026-11-22 – MELDUNG LK-D 4 (lehrplan-lb)
 
 Grundlage: `lernen-app` 723770dd, „Entscheidungen Sebastian (17:05)“. Nichts eingespielt, Kinder nur als Nummern. Einzelheiten stehen in `lk_teilung_2211.md`, Abschnitt „LK-D 4“.

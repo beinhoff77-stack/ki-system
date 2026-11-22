@@ -4880,3 +4880,72 @@ html.lr-abschluss-offen, html.lr-abschluss-offen body { overflow: hidden; }
 .lern-reiter a.lern-plan-matrix-link { margin-left: auto; color: var(--accent); font-size: 14px; text-decoration: underline; text-underline-offset: 3px; }
 .lern-reiter:has(.lern-plan-matrix-link) { flex-wrap: wrap; overflow-x: visible; } .lern-reiter a.lern-plan-matrix-link { min-height: 36px; padding: 6px 4px; }
 .mx-chip.mx-ohne { opacity: .5; border-style: dotted; border-left-style: solid; }
+
+/* ---------- WD (0.85.0): Wiederholungen dynamisch, Ablegen mit Sternen und Gold ---------- */
+.lr-wdh-wartet { margin: 6px 0 0; }
+.lr-wdh-sterne { font-weight: 900; font-size: 20px; margin: 4px 0 8px; color: #B7791F; }
+.lr-misch-wdh { margin: 4px 0 0; font-weight: 700; }
+/* Gold im Reisepass */
+.lr-stempel.lr-stempel-gold { border-color: #C9971A; color: #8A6400; background: linear-gradient(135deg, #FFF6D6, #FFE9A8 60%, #F6D46B); box-shadow: 0 0 0 2px #F5D06A55, 0 4px 14px #C9971A40; }
+.lr-stempel.lr-stempel-gold small { color: #8A6400; font-weight: 800; }
+.lr-flug-eintraege { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 6px; }
+.lr-flug-eintrag { display: flex; flex-direction: column; padding: 8px 12px; border-radius: 12px; border: 1px solid var(--lr-linie, #D9DEE3); background: var(--lr-flaeche, #fff); }
+.lr-flug-eintrag small { opacity: .8; }
+.lr-flug-eintrag.lr-flug-gold { border-color: #C9971A; background: linear-gradient(135deg, #FFF6D6, #FFE9A8); color: #5C4300; }
+.lr-flug-eintrag.lr-flug-gold b::before { content: "★ "; color: #C9971A; }
+/* Einblendungen „Etappe abgelegt“ (klein) und „Flug abgelegt“ (groß) */
+.lr-abschluss.lr-abschluss-klein { background: #0009; align-items: center; justify-content: center; padding: 18px; }
+.lr-ab-abgelegt-klein { flex: 0 1 auto; height: auto; width: min(380px, 100%); border-radius: 24px; padding: 26px 22px 20px; align-items: center; text-align: center;
+  background: radial-gradient(120% 90% at 50% 0%, #FFF3C4 0, #F7D774 55%, #E0B43C 100%); color: #3E2C00; box-shadow: 0 18px 60px #0008; --ab-kb: #3E2C00; --ab-kt: #FFE9A8; --ab-ks: #1F1600; }
+.lr-ab-abgelegt-klein .lr-ab-oben { padding-right: 0; color: #5C4300; opacity: 1; }
+.lr-ab-abgelegt-klein .lr-ab-titel { font-size: 28px; max-width: none; text-transform: none; line-height: 1.1; hyphens: auto; -webkit-hyphens: auto; }
+.lr-ab-abgelegt-klein .lr-ab-unter { font-size: 15px; color: #4A3600; margin: 4px auto 0; }
+.lr-ab-gold-siegel { width: 74px; height: 74px; border-radius: 50%; display: grid; place-items: center; font-size: 40px; color: #fff; background: radial-gradient(circle at 35% 30%, #FFE27A, #C9971A 70%); box-shadow: 0 0 0 5px #fff8, 0 6px 18px #8A640066; margin-bottom: 6px; }
+.lr-ab-gold-sterne { font-size: 30px; font-weight: 900; margin: 10px 0 0; color: #3E2C00; }
+.lr-ab-abgelegt-gross .lr-ab-szene { background: radial-gradient(90% 70% at 50% 35%, #8A6400 0, #4A3600 55%, #1F1600 100%); }
+.lr-ab-abgelegt-gross { --ab-kb: #F5C542; --ab-kt: #1F1600; --ab-ks: #A87D10; }
+.lr-ab-gold-flug { position: relative; z-index: 3; margin-top: 8px; font-size: 22px; font-weight: 900; color: #FFE9A8; max-width: 520px; overflow-wrap: break-word; hyphens: auto; -webkit-hyphens: auto; }
+.lr-ab-abgelegt-gross .lr-ab-titel { color: #FFD23F; }
+@media (prefers-reduced-motion: no-preference) { .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ab-gold-siegel { animation: abStempel .5s cubic-bezier(.2, 1.4, .4, 1) both .15s; } }
+.lr-ab-abgelegt-klein .lr-ab-sterne.lr-ab-gold-sterne { color: #3E2C00; }
+.lr-ab-gold-siegel-gross { position: relative; z-index: 3; width: 120px; height: 120px; font-size: 64px; margin: 22px auto 0; }
+@media (min-width: 700px) { .lr-ab-gold-siegel-gross { width: 180px; height: 180px; font-size: 96px; } }
+
+/* ---------- LM-6 (0.86.0): Kinderseite „Meine Route 5–10“ – Matrix in den Farben der Kinderseiten (hell und Nacht) ---------- */
+.lr-route-link { font-weight: 700; }
+.rt-einleitung { margin: 0 0 8px; }
+.rt-legende { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0 0 12px; }
+.rt-legende span { white-space: nowrap; }
+.rt-zeichen { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 99px; font-size: 12px; font-weight: 900; margin-right: 6px; font-style: normal; color: #fff; background: #8A94A6; }
+.rt-zeichen.st-1 { background: var(--st1); } .rt-zeichen.st-2 { background: var(--st2); } .rt-zeichen.st-3 { background: var(--st3r); color: #1F1600; } .rt-zeichen.st-4 { background: #fff; color: #555; box-shadow: inset 0 0 0 1.5px #8A94A6; }
+.rt-route .mx-matrix, .rt-route .mx-liste-klasse { background: var(--lr-flaeche); border-color: var(--lr-linie); }
+.rt-route .mx-geb { background: var(--lr-blass); color: var(--lr-text); border-color: var(--lr-linie); }
+.rt-route .mx-zelle, .rt-route .mx-ecke, .rt-route .mx-gruppe { border-color: var(--lr-linie); }
+.rt-route .mx-gruppe-name { color: var(--lr-leise); }
+.rt-route .mx-chip { background: var(--lr-flaeche); color: var(--lr-text); border-color: var(--lr-linie); border-left-color: var(--f); }
+.rt-route .mx-chip.mx-st.st-1 { background: color-mix(in srgb, var(--st1) 22%, var(--lr-flaeche)); }
+.rt-route .mx-chip.mx-st.st-2 { background: color-mix(in srgb, var(--st2) 16%, var(--lr-flaeche)); }
+.rt-route .mx-chip.mx-st.st-3 { background: color-mix(in srgb, var(--st3r) 30%, var(--lr-flaeche)); box-shadow: 0 0 0 2px var(--st3r); }
+.rt-route .mx-chip.rt-blass { opacity: .45; border-style: dashed; border-left-style: solid; }
+.rt-route .mx-chip .mx-stand, .rt-route .mx-st.st-1 .mx-stand, .rt-route .mx-st.st-2 .mx-stand, .rt-route .mx-st.st-3 .mx-stand { color: var(--lr-text); }
+.rt-route .mx-chip.mx-vor { background: color-mix(in srgb, #F2B233 30%, var(--lr-flaeche)); box-shadow: 0 0 0 2px #E0A21E; }
+.rt-route .mx-chip.mx-weg2 { background: color-mix(in srgb, #F2B233 14%, var(--lr-flaeche)); box-shadow: 0 0 0 1px #D9B26A; }
+.rt-route .mx-chip.mx-nach { background: color-mix(in srgb, #4A90E2 26%, var(--lr-flaeche)); box-shadow: 0 0 0 2px #4A90E2; }
+.rt-route .mx-zeigt .mx-chip.rt-blass.mx-vor, .rt-route .mx-zeigt .mx-chip.rt-blass.mx-nach, .rt-route .mx-zeigt .mx-chip.rt-blass.mx-sel { opacity: 1; }
+.rt-route .mx-n { color: var(--lr-leise); }
+.rt-ort { display: block; font-size: 11px; color: var(--lr-leise); margin-top: 1px; }
+.rt-kann { white-space: normal !important; }
+.rt-route .mx-kl small.rt-kann { font-size: 11px; }
+.rt-detail { margin-top: 14px; }
+.rt-detail h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--lr-leise); margin: 16px 0 6px; }
+.rt-detail ul, .rt-detail ol { margin: 0; padding-left: 20px; }
+.rt-titel { margin: 2px 0 6px; hyphens: auto; -webkit-hyphens: auto; overflow-wrap: normal; }
+.rt-stand { font-weight: 800; margin: 0 0 8px; }
+.rt-weiter { margin: 4px 0 6px; }
+.rt-verweise { list-style: none; padding: 0 !important; } .rt-verweise li { margin: 6px 0; display: flex; align-items: center; flex-wrap: wrap; gap: 2px; }
+.rt-link { background: none; border: 0; padding: 0; font: inherit; font-weight: 700; color: var(--lr-text); text-decoration: underline; cursor: pointer; text-align: left; min-height: 0; }
+.rt-etappen { list-style: none; padding: 0 !important; counter-reset: rt; } .rt-etappen li { display: flex; gap: 8px; align-items: baseline; margin: 4px 0; }
+.rt-haken { flex: none; width: 20px; height: 20px; border-radius: 99px; border: 1.5px solid var(--lr-linie); display: inline-grid; place-items: center; font-size: 12px; font-weight: 900; }
+.rt-gelandet .rt-haken { background: var(--lr-gut); border-color: var(--lr-gut); color: var(--lr-auf-akzent); }
+.rt-liste .rt-detail { margin: 4px 0 8px; }
+.lr-inhalt:has(.rt-route) { max-width: 1240px; }

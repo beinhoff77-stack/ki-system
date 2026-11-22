@@ -777,7 +777,7 @@ test('Info-Seite „So funktioniert’s“: ein Tipp von der Startseite und vom 
   await page.getByText('Wie wird gelernt?').click();
   await page.getByText('6 eigene Lösungen (richtig im ersten Versuch ohne Tipp', { exact: false }).waitFor();
   await page.getByText('nach 1, 3, 7, 14 und 30 Lerntagen', { exact: false }).waitFor();
-  await page.getByText('höchstens 6 Wiederholungen', { exact: false }).waitFor();
+  await page.getByText('mindestens 6 und höchstens 12', { exact: false }).waitFor();
   await page.getByText('Zuerst kommt die Erklärung', { exact: false }).waitFor();
   await page.getByText('zuerst einen zweiten Versuch', { exact: false }).waitFor();
   const text = await page.locator('#main').innerText();
@@ -3812,4 +3812,253 @@ test('LM: Filter „Inhalt“ (was fehlt noch?) – Zähler fertig / in Prüfung
   assert.equal(await page.locator('.mx-chip.mx-weg').count(), 0);
   for (const breite of [400, 820]) { await page.setViewportSize({ width: breite, height: 900 }); await page.locator('.mx-chip').first().waitFor();
     assert.deepEqual(await gebrocheneWoerter(g.getByRole('button')), [], `${breite}: Filter`); assert.ok(await ohneQuerrollen(page), `${breite}: Querrollen`); }
+});
+
+// ---------- Bau-Auftrag WD (22.11.): Wiederholungen dynamisch, Ablegen mit Sternen und Gold (0.85.0) – Schnittstelle aus dem Nachtrag, erfundene Daten ----------
+const wdhAntwort = (extra) => async (route) => {
+  const b = JSON.parse(route.request().postData() || '{}');
+  if (b.aktion === 'schule_wiederholung') return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, ...extra(b) } }) });
+  if (b.aktion === 'schule_wiederholung_runde_fertig') { extra.fertig = (extra.fertig || 0) + 1; return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true } }) }); }
+  return route.fallback();
+};
+const wdhAufg = (n) => Array.from({ length: n }, (_, i) => ({ ...AUFG[11], einheit_id: 1, stadt: 'Rom', etappe: 'Welchen Wert hat eine Ziffer?', _i: i }));
+const wdhRichtig = async (page) => { const tf = page.getByRole('group', { name: 'Tastenfeld' });
+  if (await tf.count()) { for (const z of ['2', '0', '0', '0']) await tf.getByRole('button', { name: z, exact: true }).click(); await tf.getByRole('button', { name: 'Prüfen' }).click(); }
+  else { await page.locator('main input').first().fill('2000'); await page.getByRole('button', { name: 'Prüfen' }).click(); } };
+
+test('WD-1/WD-2/WD-4: Runde in der Größe des Servers, „Runde gemacht“ vom Server (nicht vom Gerät), wartende gesetzte Etappen', async (t) => {
+  const { page, calls } = await setup(t, { gestaltung: 'nacht' });
+  let gemacht = false;
+  const antw = (b) => { calls.push({ aktion: b.aktion, daten: b.daten }); return { faellig: 9, runde: 2, runde_gemacht: gemacht, gestaffelt: 3, aufgaben: wdhAufg(4) }; };
+  await page.route('**/functions/v1/lernen-api/**', wdhAntwort(antw));
+  await page.goto(origin + '/#/reise/1');
+  const knopf = page.locator('.lr-einsteigen-knopf'); await knopf.waitFor();
+  assert.equal((await knopf.innerText()).replace(/\s+/g, ' ').trim(), 'Erst 2 Wiederholungen ›');
+  assert.match(await page.locator('.lr-wdh-wartet').innerText(), /3 Etappen warten noch auf die erste Wiederholung – sie kommen ab dem nächsten Lerntag nach und nach dazu/);
+  assert.equal(calls.find((c) => c.aktion === 'schule_wiederholung').daten.anzahl, 12, 'bis zu 12 anfragen');
+  // Gerät sagt „gemacht“, Server nicht → Server gilt
+  await page.evaluate(() => lernWdhHeute(1, true)); await page.reload(); await knopf.waitFor();
+  assert.equal((await knopf.innerText()).replace(/\s+/g, ' ').trim(), 'Erst 2 Wiederholungen ›');
+  // Runde: genau 2 Bordkarten (die ersten „runde“), danach meldet die App die Runde dem Server
+  await page.goto(origin + '/#/wiederholen/1');
+  await page.getByText('WIEDERHOLEN 1 VON 2', { exact: false }).waitFor();
+  for (let i = 0; i < 2; i++) { await wdhRichtig(page); await page.getByRole('button', { name: i ? 'Fertig' : 'Nächste' }).click(); }
+  await page.getByRole('heading', { name: '2 von 2 richtig' }).waitFor();
+  assert.equal(antw.fertig, 1, 'Server merkt sich die Runde');
+  assert.equal(await page.getByRole('link', { name: 'Noch 7 Wiederholungen offen – wenn du magst' }).count(), 1);
+  // Server sagt „gemacht“ → Start führt ins Thema, Rest freiwillig (auch wenn das Gerät nichts weiß)
+  gemacht = true; await page.evaluate(() => localStorage.removeItem('lern.wdhrunde.1'));
+  await page.goto(origin + '/#/reise/1'); await knopf.waitFor();
+  assert.equal((await knopf.innerText()).replace(/\s+/g, ' ').trim(), 'Weiter nach Rom ›');
+  await page.getByRole('link', { name: 'Noch 9 Wiederholungen offen – wenn du magst' }).waitFor();
+  await page.goto(origin + '/#/wiederholen/1');
+  await page.getByText('FREIWILLIG WIEDERHOLEN 1 VON 4', { exact: false }).waitFor();
+  for (const breite of [400, 820, 1280]) { await page.setViewportSize({ width: breite, height: 900 }); await page.goto(origin + '/#/reise/1'); await knopf.waitFor();
+    assert.ok(await ohneQuerrollen(page), `${breite}: Querrollen`); }
+});
+
+test('WD: alter Server (ohne runde) – wie 0.84.0: höchstens 6, Merker auf dem Gerät, kein Aufruf runde_fertig', async (t) => {
+  const { page, calls } = await setup(t, { gestaltung: 'nacht' });
+  const antw = (b) => { calls.push({ aktion: b.aktion }); return { faellig: 1, aufgaben: wdhAufg(1) }; };
+  await page.route('**/functions/v1/lernen-api/**', wdhAntwort(antw));
+  await page.goto(origin + '/#/wiederholen/1');
+  await page.getByText('WIEDERHOLEN 1 VON 1', { exact: false }).waitFor();
+  await wdhRichtig(page); await page.getByRole('button', { name: 'Fertig' }).click();
+  await page.getByRole('heading', { name: '1 von 1 richtig' }).waitFor();
+  assert.equal(antw.fertig, undefined, 'kein runde_fertig');
+  assert.equal(await page.evaluate(() => lernWdhHeute(1)), true, 'Gerät merkt sich die Runde');
+  assert.equal(await page.locator('.lr-wdh-wartet, .lr-wdh-sterne').count(), 0);
+});
+
+test('WD-5/WD-6: 5 Sterne je richtiger Wiederholung, „Etappe abgelegt“ (klein, 30) und „Flug abgelegt“ (groß, 100, Stempel golden) – 400/820/1280', async (t) => {
+  for (const [breite, hoehe] of [[400, 860], [820, 1180], [1280, 900]]) {
+    const { page, calls } = await setup(t, { gestaltung: 'nacht' }); await page.setViewportSize({ width: breite, height: hoehe });
+    await page.route('**/functions/v1/lernen-api/**', wdhAntwort(() => ({ faellig: 2, runde: 2, runde_gemacht: false, gestaffelt: 0, aufgaben: wdhAufg(2) })));
+    let n = 0;
+    await page.route('**/functions/v1/lernen-api/**', async (route) => {
+      const b = JSON.parse(route.request().postData() || '{}'); if (b.aktion !== 'schule_uebung_pruefen') return route.fallback();
+      n++; calls.push({ aktion: b.aktion });
+      return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, format_ok: true, richtig: true, loesung: { wert: 2000 },
+        wiederholung: { bestanden: true, sterne: 5, stufe_neu: n === 1 ? 'wiederholung' : 'abgelegt', naechste_in: n === 1 ? 7 : null },
+        ...(n === 2 ? { abgelegt: { etappe: { titel: 'Welchen Wert hat eine Ziffer?', sterne: 30 }, flug: { titel: 'Natürliche Zahlen', sterne: 100 }, ort_gold: true } } : {}) } }) });
+    });
+    await page.goto(origin + '/#/wiederholen/1');
+    await wdhRichtig(page);
+    await page.getByText('Richtig! · +5 Sterne').waitFor();
+    await page.getByText('Nächste Wiederholung in 7 Lerntagen.').waitFor();
+    await page.getByRole('button', { name: 'Nächste' }).click(); await wdhRichtig(page);
+    const klein = page.getByRole('dialog', { name: 'Etappe abgelegt' }); await klein.waitFor();
+    assert.match(await klein.innerText(), /ETAPPE ABGELEGT[\s\S]*Welchen Wert hat eine Ziffer\?[\s\S]*★ \+30/);
+    const k = await klein.locator('.lr-ab-abgelegt-klein').boundingBox();
+    assert.ok(k.width <= 381 && k.height < hoehe, `${breite}: klein`);
+    assert.deepEqual(await gebrocheneWoerter(klein.locator('.lr-ab-titel, .lr-ab-unter, .lr-ab-gross-text')), [], `${breite}: klein`);
+    await page.screenshot({ path: path.join(root, `test-results/wd-etappe-abgelegt-${breite}.png`) });
+    await klein.getByRole('button', { name: 'Weiter' }).click();
+    const gross = page.getByRole('dialog', { name: 'Flug abgelegt' }); await gross.waitFor();
+    assert.match(await gross.innerText(), /FLUG ABGELEGT[\s\S]*Natürliche Zahlen[\s\S]*Dein Flug ist jetzt golden[\s\S]*Stempel ist jetzt golden/i);
+    assert.equal(await gross.locator('[data-ziel]').getAttribute('data-ziel'), '100');
+    assert.deepEqual(await gebrocheneWoerter(gross.locator('.lr-ab-titel, .lr-ab-gold-flug, .lr-ab-kann, .lr-ab-leise, .lr-ab-gross-text')), [], `${breite}: groß`);
+    const g = await gross.boundingBox(); assert.ok(g.width >= breite - 1, `${breite}: Vollbild`);
+    await gross.locator('.lr-ab-szene').click({ position: { x: 20, y: 200 } }); await page.waitForTimeout(150); // Endzustand der Bewegung
+    await page.screenshot({ path: path.join(root, `test-results/wd-flug-abgelegt-${breite}.png`) });
+    await gross.getByRole('button', { name: /^Weiter/ }).click();
+    await page.locator('.lr-abschluss').waitFor({ state: 'detached' });
+    await page.getByRole('button', { name: 'Fertig' }).click();
+    await page.getByText('★ +10 Sterne').waitFor();
+  }
+});
+
+test('WD-3: Mischkarte aus einer fälligen Etappe zählt als bestandene Wiederholung – sichtbar mit Sternen', async (t) => {
+  const misch = (aktion, e) => {
+    if (aktion !== 'schule_einheit_lesen') return null; const x = neueRegel({ strahl: { sitzt: true } })(aktion, e);
+    x.mischkarten = [{ ...zeig(AUFG[14]), stufe: 2, einheit_id: 2, quelle: 'aelter', stadt: 'New York', etappe: 'Große Zahlen lesen' }]; x.misch_jede = 1; x.misch_ab = 1; return x; };
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: misch });
+  await page.route('**/functions/v1/lernen-api/**', async (route) => {
+    const b = JSON.parse(route.request().postData() || '{}'); if (b.aktion !== 'schule_uebung_pruefen' || !b.daten?.misch) return route.fallback();
+    return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, format_ok: true, richtig: true, loesung: AUFG[14].loesung,
+      misch: { etappe: 'Große Zahlen lesen', stadt: 'New York', ok: true }, wiederholung: { bestanden: true, sterne: 5, stufe_neu: 'wiederholung', naechste_in: 14 } } }) });
+  });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1');
+  await page.getByText('BORDKARTE 1 · AUS DEINER REISE').waitFor();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click();
+  await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('↻ Zählt als Wiederholung dieser Etappe').waitFor();
+  assert.match(await page.locator('.lr-rueck-ok b').first().innerText(), /\+15 Sterne/i, '10 (Mischkarte, wie heute) + 5 (Wiederholung) – wie der Server bucht');
+});
+
+test('WD-6: Gold im Reisepass – Flug-Eintrag golden, Orts-Stempel golden; ohne Felder wie bisher', async (t) => {
+  const gold = (aktion, e) => { if (aktion !== 'schule_konto') return null; const x = structuredClone(e);
+    x.konto.orte = [{ block_id: 49, abgeschlossen: true, gold: true, themen: 1, erledigt: 1 }];
+    x.konto.fluege = [{ block_id: 49, titel: 'Natürliche Zahlen', abgelegt: true, etappen_abgelegt: 3, etappen: 3 }, { block_id: 52, titel: 'Zinsen', abgelegt: false, etappen_abgelegt: 1, etappen: 2 }];
+    return x; };
+  for (const breite of [400, 820, 1280]) {
+    const { page } = await setup(t, { gestaltung: 'nacht', anpassen: gold }); await page.setViewportSize({ width: breite, height: 900 });
+    await page.goto(origin + '/#/reisepass/1');
+    const st = page.locator('.lr-stempel.lr-stempel-gold'); await st.waitFor();
+    assert.match(await st.innerText(), /ROM[\s\S]*★ GOLD/i);
+    const e = page.locator('.lr-flug-eintrag');
+    assert.deepEqual(await e.allInnerTexts().then((l) => l.map((x) => x.replace(/\s+/g, ' '))), ['Natürliche Zahlen Rom · ★ GOLD', 'Zinsen New York · 1 von 2 Etappen abgelegt']);
+    assert.match(await e.first().getAttribute('class'), /lr-flug-gold/);
+    assert.deepEqual(await gebrocheneWoerter(page.locator('.lr-flug-eintrag b, .lr-flug-eintrag small, .lr-stempel b')), [], `${breite}`);
+    assert.ok(await ohneQuerrollen(page), `${breite}: Querrollen`);
+    await page.locator('.lr-pass-abgelegt').screenshot({ path: path.join(root, `test-results/wd-reisepass-${breite}.png`) });
+  }
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.goto(origin + '/#/reisepass/1'); await page.getByRole('heading', { name: 'Stempel' }).waitFor();
+  assert.equal(await page.locator('.lr-pass-abgelegt, .lr-stempel-gold').count(), 0);
+});
+
+test('WD: Info-Seite und „Was kommt wann wieder?“ – Runde, 5 Sterne, abgelegt, golden, Mischkarte als Wiederholung, Staffelung', async (t) => {
+  const { page } = await setup(t, { lernSeite: true, rolle: 'lehrer' });
+  await page.addInitScript(() => localStorage.setItem('lern_token', 't'.repeat(64)));
+  await page.goto(origin + '/lernen/#/info'); await page.getByRole('heading', { name: 'Erste Schritte' }).waitFor();
+  await page.evaluate(() => document.querySelectorAll('details').forEach((d) => { d.open = true; }));
+  const text = (await page.locator('#main').innerText()).replace(/\s+/g, ' ');
+  for (const s of ['sonst ein Fünftel der fälligen (aufgerundet), mindestens 6 und höchstens 12 (bis Klasse 6 höchstens 10)', 'auch wenn das Kind das Gerät wechselt',
+    'Endgültig abgelegt:', '100 Sterne, eine große Einblendung, und der Flug steht im Reisepass golden', 'wird auch der Stempel des Orts golden',
+    'zählt sie als bestandene Wiederholung dieser Etappe', '5 Sterne für jede richtige Wiederholung', 'je Lerntag kommen höchstens 6 solche Etappen neu in den Takt'])
+    assert.ok(text.includes(s), 'fehlt: ' + s);
+  assert.ok(!text.includes('Vor einem Flug kommen höchstens 6 Wiederholungen'), 'alter Satz');
+});
+
+// ---------- Bau-Auftrag LM, Schritt 3: LM-6 Kinderseite „Meine Route 5–10“ (0.86.0) – erfundene Daten, Testkind ----------
+const rtMock = ({ kindsicht = true, ohne = false } = {}) => async (route) => {
+  const b = JSON.parse(route.request().postData() || '{}');
+  if (!['schule_lehrplan_matrix', 'schule_lehrplan_thema'].includes(b.aktion)) return route.fallback();
+  const antw = (e) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) });
+  if (ohne) return antw(undefined); // alter Server: Aktion unbekannt
+  const f = lmsAnpassen();
+  if (b.aktion === 'schule_lehrplan_thema') {
+    const t = f('schule_lehrplan_thema', null, b.daten); const { lehrplan, eigenstaendig, ...rest } = t;
+    if (b.daten.thema_id === 1) rest.etappen = ETAPPEN.map((x) => ({ lernziel: x.lernziel, titel: x.titel })); // Merkheft (Einheit 1): stellenwert, strahl gelandet
+    return antw({ ...rest, kindsicht: true, braucht: rest.braucht.map(({ begruendung, ...x }) => x), baut_darauf: rest.baut_darauf.map(({ begruendung, ...x }) => x) });
+  }
+  const r = f('schule_lehrplan_matrix', null, {});
+  r.lernstand = { 1: r.lernstand[1] };
+  if (!kindsicht) { r.kinder = [r.kinder[0], { id: 2, name: 'Kind B', klasse: 5, schulart: 'gym_by' }]; return antw(r); } // Eltern sehen die Seite des Kindes: Lehrer-Sicht
+  r.kinder = [{ id: 1, name: 'Kind A', klasse: 8 }];
+  r.themen = r.themen.map(({ jahrgang, lehrplan_reihenfolge, lernbereich, pflicht, eigenstaendig, ...t }) => ({ ...t,
+    zeile: jahrgang.gym_by ? { klasse: jahrgang.gym_by } : jahrgang.rs_by ? { klasse: jahrgang.rs_by, eingeordnet: true } : jahrgang.ib_myp ? { klasse: jahrgang.ib_myp + 5, eingeordnet: true } : { eingeordnet: true },
+    reihenfolge_kind: lehrplan_reihenfolge.gym_by }));
+  return antw({ ...r, kindsicht: true });
+};
+
+test('LM-6: Kinderseite „Meine Route 5–10“ – Link auf der Abflugtafel, nur das eigene Kind, Stufen in Kinder-Sprache, Kopf je Klasse, Reisewörter', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' }); await page.setViewportSize({ width: 1280, height: 900 });
+  await page.route('**/functions/v1/lernen-api/**', rtMock());
+  await page.goto(origin + '/#/reise/1');
+  await page.getByRole('link', { name: 'Meine Route 5–10 ›' }).click();
+  await page.waitForURL(/#\/route\/1$/);
+  await page.getByRole('heading', { name: 'Deine Route durch die Mathe-Welt' }).waitFor();
+  const chips = page.locator('.rt-chip'); await chips.first().waitFor();
+  assert.equal(await chips.count(), THEMEN_ECHT.length, 'alle Flüge');
+  assert.equal(await page.locator('.mx-sch, .mx-leiste, [aria-label="Lernstand"], .lern-lp-stufe-knopf').count(), 0, 'keine Kennzeichen, keine Leiste, nichts zum Ändern');
+  const dran = page.locator('.rt-chip.mx-dran').first();
+  assert.match(await dran.locator('.mx-stand').innerText(), /^▶ hier bist du – Etappe 3 von \d+$/);
+  assert.ok(await dran.evaluate((x) => { const r = x.getBoundingClientRect(); return r.top >= 0 && r.bottom <= innerHeight; }), 'zum ▶-Flug gescrollt');
+  assert.match(await page.locator('.rt-chip.st-1 .mx-stand').first().innerText(), /^◉ kannst du$/);
+  assert.match(await page.locator('.rt-chip.st-2 .mx-stand').first().innerText(), /^↻ kommt zur Wiederholung$/);
+  const blass = page.locator('.rt-chip.rt-blass').first(); assert.equal(await blass.locator('.mx-stand').count(), 0, 'nicht im Plan: ohne Text');
+  assert.match(await page.locator('.mx-kl').nth(3).innerText(), /Kl\. 8[\s\S]*Du kannst schon \d+ von \d+ Flügen/);
+  assert.deepEqual(await page.locator('.mx-geb').allInnerTexts(), LMS_GEB, 'Spalten = Kontinente');
+  // Reisewörter: keine Lehrer-Wörter auf der Kinderseite (Flug-Titel und Kontinent-Namen aus der Datenbank ausgenommen)
+  const text = await page.evaluate(() => { const c = document.querySelector('#main').cloneNode(true); c.querySelectorAll('.mx-titel, .mx-geb, .rt-ort').forEach((x) => x.remove()); return c.innerText; });
+  assert.doesNotMatch(text, /Thema|Themen|Lernkarte|Aufgabe|Lehrplan|Gymnasium|Realschule|Pflicht|Lernbereich/);
+});
+
+test('LM-6: Detail eines Flugs – was du lernst, muss sitzen, brauchst du vorher (mit eigener Stufe), danach, Etappen mit ✓; „Weiter lernen ›“ nur beim ▶-Flug', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' }); await page.setViewportSize({ width: 1280, height: 900 });
+  await page.route('**/functions/v1/lernen-api/**', rtMock());
+  await page.goto(origin + '/#/route/1'); await page.locator('.rt-chip').first().waitFor();
+  const det = page.locator('.rt-detail');
+  await page.locator('.rt-chip[data-id="15"]').click();
+  await det.getByText('Der Wert einer Ziffer hängt von ihrer Stelle ab.').waitFor();
+  assert.match(await det.innerText(), /WAS DU HIER LERNST[\s\S]*DAS MUSS SITZEN/i);
+  // Voraussetzungen und Nachfolger mit eigener Stufe
+  await page.locator('.rt-chip[data-id="2"]').click();
+  await det.getByRole('heading', { name: 'Das brauchst du vorher' }).waitFor();
+  assert.ok(await det.locator('.rt-verweise .rt-zeichen').count() >= 2);
+  assert.match(await det.innerText(), /DANACH GEHT’S WEITER MIT/i);
+  assert.match(await page.locator('.rt-chip[data-id="1"]').getAttribute('class'), /mx-vor/);
+  assert.ok(await page.locator('svg.mx-linien path').count() >= 2, 'Linien wie LM-3');
+  assert.equal(await det.getByRole('link', { name: 'Weiter lernen ›' }).count(), 0, 'kein Lern-Knopf außer beim ▶-Flug');
+  // Etappen mit ✓ für gelandete Etappen (Merkheft)
+  await page.locator('.rt-chip[data-id="1"]').click();
+  await det.locator('.rt-etappen li').first().waitFor();
+  assert.deepEqual(await det.locator('.rt-etappen .rt-haken').evaluateAll((l) => l.map((x) => x.textContent)), ['✓', '✓', ''].concat(Array(ETAPPEN.length - 3).fill('')));
+  // ▶-Flug: großer Knopf öffnet die nächste Etappe
+  const dran = page.locator('.rt-chip.mx-dran').first(); const id = await dran.getAttribute('data-id'); await dran.click();
+  const w = det.getByRole('link', { name: 'Weiter lernen ›' }); await w.waitFor();
+  assert.equal(await w.getAttribute('href'), `#/lerneinheit/1-${id}-ueben`);
+  assert.doesNotMatch(await det.innerText(), /Lehrplan|LehrplanPLUS|M\d \d|weil /, 'kein Wortlaut, keine Begründung');
+});
+
+test('LM-6 Abnahme: 400, 820, 1280 – Liste auf Handy und Tablet (Detail unter dem Flug, keine Linien), Matrix mit Linien ab 1000 px, nichts läuft über, kein Querrollen; hell und Nacht', async (t) => {
+  for (const g of ['nacht', 'tag']) for (const breite of [400, 820, 1280]) {
+    const { page } = await setup(t, { gestaltung: g }); await page.setViewportSize({ width: breite, height: breite < 760 ? 860 : 900 });
+    await page.route('**/functions/v1/lernen-api/**', rtMock());
+    await page.goto(origin + '/#/route/1'); await page.locator('.rt-chip').first().waitFor();
+    assert.deepEqual(await ueberlaeuft(page.locator('.rt-chip, .rt-chip > span, .mx-geb, .mx-kl, .mx-liste-kopf, .rt-legende span')), [], `${g} ${breite}: überläuft`);
+    assert.deepEqual(await gebrocheneWoerter(page.locator('.mx-stand, .rt-kann, .rt-legende span, .rt-ort')), [], `${g} ${breite}: gebrochene Wörter`);
+    assert.ok(await ohneQuerrollen(page), `${g} ${breite}: Querrollen`);
+    await page.locator('.rt-chip.mx-dran').first().click(); await page.locator('.rt-detail h2').waitFor();
+    if (breite < 1000) { assert.equal(await page.locator('.mx-matrix, svg.mx-linien').count(), 0); assert.equal(await page.locator('.rt-chip.mx-dran + .rt-detail').count(), 1, 'Detail unter dem Flug'); }
+    else assert.ok(await page.locator('svg.mx-linien path').count() >= 1, 'Linien');
+    assert.deepEqual(await gebrocheneWoerter(page.locator('.rt-detail h3, .rt-stand, .rt-weiter')), [], `${g} ${breite}: Detail`);
+    assert.ok(await ohneQuerrollen(page), `${g} ${breite}: Querrollen mit Detail`);
+    if (g === 'nacht' || breite === 400) await page.screenshot({ path: path.join(root, `test-results/lm6-route-${g}-${breite}.png`) });
+  }
+});
+
+test('LM-6: Eltern öffnen die Seite des Kindes (Lehrer-Sicht) – Zeile aus Klasse und Schulart, nur das eigene Kind; ohne LM-S ein Hinweis', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' }); await page.setViewportSize({ width: 1280, height: 900 });
+  await page.route('**/functions/v1/lernen-api/**', rtMock({ kindsicht: false }));
+  await page.goto(origin + '/#/route/1'); await page.locator('.rt-chip').first().waitFor();
+  assert.equal(await page.locator('.rt-chip').count(), THEMEN_ECHT.length);
+  const g8 = THEMEN_ECHT.find((x) => x.klasse.gym_by === 8);
+  assert.equal(await page.locator('.mx-zelle').nth(3 * LMS_GEB.length + LMS_GEB.indexOf(g8.gebiet)).locator(`.rt-chip[data-id="${g8.thema_id}"]`).count(), 1, 'Gym 8 in Zeile Klasse 8');
+  assert.equal(await page.getByText('Kind B').count(), 0, 'kein Geschwister');
+  const { page: p2 } = await setup(t, { gestaltung: 'nacht' });
+  await p2.route('**/functions/v1/lernen-api/**', rtMock({ ohne: true }));
+  await p2.goto(origin + '/#/route/1'); await p2.getByText('Die Route ist bald da.').waitFor();
 });

@@ -2,6 +2,45 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: 0.86.0 – LM-6 Kinderseite „Meine Route 5–10“, Cache v156
+
+Auf 0.85.0 (gleicher Zweig). Nur App, Version in sechs Dateien, Tests. Nichts in der Datenbank, kein Merge nach `main`.
+Bilder: `docs/previews/la/lm6-route-nacht-400.png`, `lm6-route-tag-400.png`, `lm6-route-nacht-820.png`, `lm6-route-nacht-1280.png` (jeweils mit geöffnetem ▶-Flug).
+
+**Gebaut** (Vorgabe `inhalte/pruefung/lehrer/matrix/umsetzung.md`, LM-6)
+- **Zugang:** Textlink „Meine Route 5–10 ›“ auf der Abflugtafel (unter „Erst die Erklärungen ansehen“) und im bisherigen Design unter „Reisepass und Belohnungen ansehen“; neue Seite `#/route/<kind>` (in App und Lern-Seite angemeldet). Der große Knopf bleibt.
+- **Nur das eigene Kind:** Lernstand immer an, Schulart fest, keine Leiste, kein Vergleich, keine Kennzeichen „Gym 8 · RS 7“, keine Pflicht-Zählung, kein Lehrplan-Wortlaut, keine Lernbereiche, nichts zum Ändern.
+- **Reisewörter:** Überschrift „Deine Route durch die Mathe-Welt“, Spalten = Kontinente (Titel aus `gebiete[]`), Zeilen = Klasse 5–10, je Flug die Stadt klein darunter. Stufen: „◉ kannst du“, „↻ kommt zur Wiederholung“, „▶ hier bist du – Etappe x von y“, „○ kommt noch“; nicht im Plan blass, ohne Text. Beim Öffnen zum ▶-Flug gescrollt. Kopf je Klasse: Balken (◉ ↻ ▶) und „Du kannst schon n von m Flügen“ (m = Flüge der Klasse mit Inhalt, ohne eingeordnete).
+- **Detail** (beim Antippen `schule_lehrplan_thema {thema_id, lernender_id}`): „Was du hier lernst“, „Das muss sitzen“, „Das brauchst du vorher“ und „Danach geht’s weiter mit“ – je mit eigener Stufe (Zeichen + Wort), antippbar; „Die Etappen (n)“ mit ✓ für gelandete Etappen (aus dem Merkheft). Beim ▶-Flug großer Knopf „Weiter lernen ›“ (`#/lerneinheit/<kind>-<einheit>-ueben`), sonst kein Lern-Knopf.
+- **Verbindungen** wie LM-3 (gelb vorher, blau danach, „→ n“), Linien hinter den Karten.
+- **Handy und Tablet zuerst:** unter 1000 px Liste je Klasse nach Kontinent, Detail direkt unter dem Flug, keine Linien (die Kinderseiten sind höchstens 640–760 px breit – acht Spalten passten dort nicht); ab 1000 px Matrix mit Linien, die Seite dafür bis 1240 px breit. Farben der Kinderseiten (Ozean, Nacht, Dschungel, Wüste) über die `--lr-`-Variablen.
+- **Daten:** Mit Lern-Zugang liefert LM-S die Kindsicht (`zeile`, `reihenfolge_kind`). Öffnen Eltern die Seite des Kindes, liefert der Server die Lehrer-Sicht – dann rechnet die App die Zeile aus `jahrgang` und der Schulart des Kindes (wie `schule.thema_klasse_fuer`) und zeigt nur dieses Kind. Aufruf mit `mit_testkind: true`, damit auch das Testkind seine Route sieht. Ohne LM-S (alter Server): „Die Route ist bald da.“
+- **Info-Seite:** nicht geändert (die Kinderseite erklärt sich mit Einleitung und Legende). Wenn gewünscht, Satz für die Eltern liefern.
+
+**Getestet** (lernen 151, neu 4): Link auf der Abflugtafel, alle Flüge, keine Kennzeichen/Leiste/Knöpfe, Stufen-Texte, Scrollen zum ▶, Kopf je Klasse, Kontinente als Spalten, Reisewörter (keine „Thema/Lehrplan/Gymnasium/Pflicht/Aufgabe“); Detail mit Voraussetzungen (eigene Stufe), Nachfolgern, Linien, Etappen-✓, „Weiter lernen ›“ nur beim ▶-Flug, kein Wortlaut, keine Begründung; Abnahme 400/820/1280 in Nacht und Tag (nichts läuft über, kein Wort ohne Trennstrich gebrochen, kein Querrollen, Liste mit Detail unter dem Flug bzw. Matrix mit Linien); Lehrer-Sicht (Zeile aus jahrgang, kein Geschwister) und alter Server. Suche: nur die bekannten Reise-Fehler.
+
+**Nicht geprüft:** gegen den echten LM-S-Server (Kindsicht über den Lern-Zugang), echte Geräte.
+
+## 2026-11-22 – FERTIG: 0.85.0 – Wiederholungen dynamisch (WD, App-Teil), Cache v155
+
+Auf `lernen-app` 986d43e. Gebaut gegen die Schnittstelle im „Nachtrag zum Bau-Auftrag WD“. Nur App (`lernen.js`, `style.css`), Version in sechs Dateien, Tests. Nichts in der Datenbank, keine Kinderdaten, kein Merge nach `main`. Den Server habe ich nicht gesehen (`bau-lehrer` hat noch keinen WD-Stand) – getestet gegen nachgebildete Antworten.
+Bilder: `docs/previews/la/wd-etappe-abgelegt-400.png`, `wd-flug-abgelegt-400.png`, `wd-flug-abgelegt-1280.png`, `wd-reisepass-400.png`.
+
+**Gebaut**
+- **WD-1 Runde:** `schule_wiederholung` wird mit `anzahl: 12` aufgerufen (der alte Server begrenzt selbst auf 6 – `least(anzahl, 6)` –, also kein Unterschied). Liefert der Server `runde`, sind die ersten `runde` Bordkarten aus `aufgaben[]` die Pflicht-Runde (Reihenfolge vom Server): Startknopf „Erst n Wiederholungen ›“, Kopf „WIEDERHOLEN i VON n“. Danach „Noch k Wiederholungen offen – wenn du magst“ (k = `faellig` − Runde); freiwillige heißen „FREIWILLIG WIEDERHOLEN“.
+- **WD-2 Merker:** Mit `runde` gilt nur noch `runde_gemacht` vom Server, `localStorage` wird dann weder gelesen noch geschrieben. Am Ende der Pflicht-Runde ruft die App `schule_wiederholung_runde_fertig {lernender_id}` (scheitert der Aufruf, merkt sich das Gerät die Runde wie bisher).
+- **WD-4 Staffelung:** `gestaffelt` > 0 → auf der Abflugtafel (beide Designs) und am Ende der Runde: „n Etappen warten noch auf die erste Wiederholung – sie kommen ab dem nächsten Lerntag nach und nach dazu.“ Ein Datum „kommt ab …“ je Etappe liefert die Schnittstelle nicht – **Vorschlag (optional, nicht verbindlich):** im Plan je Flug in `thema_stufe` `wartet` (Zahl) und `kommt_ab_in` (Lerntage); die App zeigt dann im Plan „3 Etappen warten · kommt ab in 2 Lerntagen“ (ist schon eingebaut, ohne die Felder unsichtbar). Ebenso `etappen_abgelegt` → „2 von 7 abgelegt“.
+- **WD-5 Sterne:** `wiederholung.sterne` erscheint als „Richtig! · +5 Sterne“, darunter „Nächste Wiederholung in n Lerntagen“ (`naechste_in`), am Ende „★ +n Sterne“. Die App rechnet nichts selbst – sie zeigt, was der Server meldet.
+- **WD-3 Mischkarte:** Bei `wiederholung.bestanden` steht unter „✓ An Bord“ „↻ Zählt als Wiederholung dieser Etappe“; die Sterne-Zeile zeigt 10 (Mischkarte, wie heute) **plus** `wiederholung.sterne`. Entscheidet Sebastian anders (nur 5 oder nur 10), bitte entsprechend buchen und `wiederholung.sterne` 0 bzw. die Differenz melden – die App zeigt genau das.
+- **WD-6 Einblendungen** (aus `abgelegt` in `schule_uebung_pruefen`, nach einer Wiederholung oder Mischkarte): „Etappe abgelegt“ klein – goldene Karte über der Seite (★-Siegel, Titel der Etappe, Satz, „★ +30“, „Weiter“); danach, falls `flug`, „Flug abgelegt“ groß – Vollbild im Stil von „Flug geschafft“, in Gold (Konfetti, Zähler 100 ★, Siegel, „Im Reisepass: Dein Flug ist jetzt golden.“, bei `ort_gold` „Alle Flüge dieses Orts sind abgelegt – dein Stempel ist jetzt golden.“, „Weiter“, „Reisepass ansehen“). Gestalter-Vorgabe gab es noch nicht – bitte nachprüfen, ich gleiche an.
+- **Gold im Reisepass:** `konto.orte[].gold` → Stempel golden mit „★ GOLD“. Flüge: neuer Abschnitt „Abgelegt“ (nur wenn etwas abgelegt ist) mit dem Eintrag je Flug, golden bei `abgelegt`, sonst „1 von 2 Etappen abgelegt“. Bisher gab es im Reisepass keinen Eintrag je Flug – das ist der „Eintrag des Flugs“. **Erwartetes Format:** `konto.fluege[] { block_id, titel, abgelegt, etappen_abgelegt, etappen }` oder dieselben Felder in `konto.orte[].fluege[]` (beides gelesen) – bitte so liefern oder melden.
+- **Info-Seite:** Wiederholung (Rundengröße, ein Mal je Lerntag auch beim Gerätewechsel), neuer Eintrag „Endgültig abgelegt“, Mischkarten (zählen als Wiederholung), Belohnungen (5 / 30 / 100), Plan („Kann er – aber wiederholen“: höchstens 6 je Lerntag neu in den Takt). „Was kommt wann wieder?“ (Kind) mit Runde und Sternen nur, wenn der Server `runde` liefert. Die Info-Texte beschreiben WD – **erst mit dem Server live schalten.**
+- **Alter Server:** ohne `runde` alles wie 0.84.0 (höchstens 6, Merker auf dem Gerät, kein `runde_fertig`, keine neuen Zeilen) – eigener Test.
+
+**Getestet** (lernen 147, neu 6): Runde in Server-Größe und Server-Merker (Gerät sagt „gemacht“, Server nicht → Server gilt; umgekehrt auch), runde_fertig, freiwillig, wartende Etappen, 400/820/1280 ohne Querrollen; alter Server; 5 Sterne, „Etappe abgelegt“ (klein, 400/820/1280, keine gebrochenen Wörter) und „Flug abgelegt“ (Vollbild, Zähler 100, Stempel golden); Mischkarte als Wiederholung; Reisepass golden (400/820/1280) und ohne Felder unverändert; Info-Texte. Die bekannten Fehler der Reise-Tests unverändert.
+
+**Nicht geprüft:** echter Server, echte Geräte; Animation nur in Chromium.
+
 ## 2026-11-22 – bau-lehrer – FERTIG: Nacharbeit 907
 
 Auf AUFTRAEGE.md „Nacharbeit aus ChatGPTs Prüfergebnis 907“, Teil bau-lehrer. Neue Dateien; die eingespielten Migrationen bleiben unverändert. Nichts in der echten Datenbank ausgeführt.

@@ -124,3 +124,6 @@ Vorschlag: Heute · Mein Weg (mit Kartenansicht) · Merkheft (nur Geschafftes) �
 - Bericht: `inhalte/pruefung/lehrer/nachpruefung-4.md`, Bilder `inhalte/pruefung/lehrer/n4/bilder/`.
 - Alle Punkte aus Nachprüfung 3 erledigt (M1, S1–S4, K1–K4).
 - Neu: N1 Muss – „Nach Themengebiet“ (Standard-Ansicht) bricht auf dem Tablet 16 Wörter (Handy 2), gleiche Ursache wie M1. N2 Sollte – Plan-Titel links auf Handy/Tablet einzeilig abgeschnitten. N3 Sollte – Kopf „20 ↻“ gegen Abschnitt „24 Flüge“. N4/N5 Kann.
+
+## 2026-11-22 – FERTIG: Vorgabe Unser Lehrplan (LW-1 bis LW-3)
+Sebastian: „das setzen wir so um“. Vorgabe: inhalte/pruefung/lehrer/werkstatt/umsetzung.md, Entwurf: werkstatt/entwurf/unser-lehrplan.html, Bilder: werkstatt/bilder/. LW-1 Seite + Reiter, LW-2 Ziehen/Warnungen/Farben, LW-3 Kinder-Umschalter, Überblick-Karten, Was wackelt als Arbeitsliste (braucht gespeicherten Status). Testkind, erfundene Daten.

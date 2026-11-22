@@ -1,0 +1,4065 @@
+{
+ "stand": "2026-11-22",
+ "art": "Vorschlag – nicht umgesetzt",
+ "kontinente": [
+  {
+   "kontinent_id": 1,
+   "themengebiet": "Zahlen",
+   "reise": "Europa",
+   "fluege": [
+    {
+     "thema_id": 15,
+     "einheit_id": 1,
+     "thema": "Natürliche Zahlen",
+     "klasse": {
+      "gym_by": 5,
+      "rs_by": 5,
+      "ib_myp": 1
+     },
+     "heute_ort": "Rom",
+     "land": "Italien",
+     "iso": "IT",
+     "region": null,
+     "etappen": 13,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Rom"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Neapel"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Pompei"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Bari"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Bologna"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Venedig"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Verona"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Mailand"
+      },
+      {
+       "etappe": 9,
+       "stadt": "Turin"
+      },
+      {
+       "etappe": 10,
+       "stadt": "Genua"
+      },
+      {
+       "etappe": 11,
+       "stadt": "Pisa"
+      },
+      {
+       "etappe": 12,
+       "stadt": "Florenz"
+      },
+      {
+       "etappe": 13,
+       "stadt": "Siena"
+      }
+     ]
+    },
+    {
+     "thema_id": 16,
+     "einheit_id": 39,
+     "thema": "Ganze Zahlen",
+     "klasse": {
+      "gym_by": 5,
+      "rs_by": 5,
+      "ib_myp": 2
+     },
+     "heute_ort": "Rom",
+     "land": "Österreich",
+     "iso": "AT",
+     "region": null,
+     "etappen": 11,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Wien"
+      },
+      {
+       "etappe": 2,
+       "stadt": "St. Pölten"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Linz"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Salzburg"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Kitzbühel"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Innsbruck"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Bregenz"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Villach"
+      },
+      {
+       "etappe": 9,
+       "stadt": "Klagenfurt"
+      },
+      {
+       "etappe": 10,
+       "stadt": "Graz"
+      },
+      {
+       "etappe": 11,
+       "stadt": "Eisenstadt"
+      }
+     ]
+    },
+    {
+     "thema_id": 18,
+     "einheit_id": 44,
+     "thema": "Grundrechenarten und Rechengesetze",
+     "klasse": {
+      "gym_by": 5,
+      "rs_by": 5,
+      "ib_myp": 1
+     },
+     "heute_ort": "Rom",
+     "land": "Schweiz",
+     "iso": "CH",
+     "region": null,
+     "etappen": 14,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Basel"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Zürich"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Winterthur"
+      },
+      {
+       "etappe": 4,
+       "stadt": "St. Gallen"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Chur"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Lugano"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Locarno"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Sion"
+      },
+      {
+       "etappe": 9,
+       "stadt": "Montreux"
+      },
+      {
+       "etappe": 10,
+       "stadt": "Lausanne"
+      },
+      {
+       "etappe": 11,
+       "stadt": "Genf"
+      },
+      {
+       "etappe": 12,
+       "stadt": "Freiburg im Üechtland"
+      },
+      {
+       "etappe": 13,
+       "stadt": "Bern"
+      },
+      {
+       "etappe": 14,
+       "stadt": "Luzern"
+      }
+     ]
+    },
+    {
+     "thema_id": 67,
+     "einheit_id": 41,
+     "thema": "Potenzen als Schreibweise",
+     "klasse": {
+      "gym_by": 5,
+      "rs_by": 5,
+      "ib_myp": 1
+     },
+     "heute_ort": "Rom",
+     "land": "Slowenien",
+     "iso": "SI",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Ljubljana"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Kranj"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Bled"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Postojna"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Koper"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Piran"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Maribor"
+      }
+     ]
+    },
+    {
+     "thema_id": 17,
+     "einheit_id": 4,
+     "thema": "Teilbarkeit",
+     "klasse": {
+      "gym_by": 5,
+      "rs_by": 5,
+      "ib_myp": 1
+     },
+     "heute_ort": "Athen",
+     "land": "Griechenland",
+     "iso": "GR",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Athen"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Korinth"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Nafplio"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Olympia"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Patras"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Delphi"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Thessaloniki"
+      }
+     ]
+    },
+    {
+     "thema_id": 21,
+     "einheit_id": 9,
+     "thema": "Brüche und Anteile",
+     "klasse": {
+      "gym_by": 6,
+      "rs_by": 6,
+      "ib_myp": 1
+     },
+     "heute_ort": "Pisa",
+     "land": "Deutschland",
+     "iso": "DE",
+     "region": null,
+     "etappen": 14,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "München"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Augsburg"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Stuttgart"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Heidelberg"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Frankfurt am Main"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Köln"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Münster"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Bremen"
+      },
+      {
+       "etappe": 9,
+       "stadt": "Hamburg"
+      },
+      {
+       "etappe": 10,
+       "stadt": "Lübeck"
+      },
+      {
+       "etappe": 11,
+       "stadt": "Berlin"
+      },
+      {
+       "etappe": 12,
+       "stadt": "Dresden"
+      },
+      {
+       "etappe": 13,
+       "stadt": "Leipzig"
+      },
+      {
+       "etappe": 14,
+       "stadt": "Nürnberg"
+      }
+     ]
+    },
+    {
+     "thema_id": 22,
+     "einheit_id": 10,
+     "thema": "Dezimalzahlen",
+     "klasse": {
+      "gym_by": 6,
+      "rs_by": 6,
+      "ib_myp": 1
+     },
+     "heute_ort": "Brügge",
+     "land": "Belgien",
+     "iso": "BE",
+     "region": null,
+     "etappen": 8,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Brüssel"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Antwerpen"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Gent"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Brügge"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Ostende"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Namur"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Lüttich"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Löwen"
+      }
+     ]
+    },
+    {
+     "thema_id": 23,
+     "einheit_id": 12,
+     "thema": "Rechnen mit rationalen Zahlen",
+     "klasse": {
+      "gym_by": 6,
+      "rs_by": 6,
+      "ib_myp": 2
+     },
+     "heute_ort": "Florenz",
+     "land": "Vereinigtes Königreich",
+     "iso": "GB",
+     "region": null,
+     "etappen": 12,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "London"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Oxford"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Bath"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Bristol"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Cardiff"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Liverpool"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Manchester"
+      },
+      {
+       "etappe": 8,
+       "stadt": "York"
+      },
+      {
+       "etappe": 9,
+       "stadt": "Newcastle upon Tyne"
+      },
+      {
+       "etappe": 10,
+       "stadt": "Edinburgh"
+      },
+      {
+       "etappe": 11,
+       "stadt": "Glasgow"
+      },
+      {
+       "etappe": 12,
+       "stadt": "Belfast"
+      }
+     ]
+    },
+    {
+     "thema_id": 19,
+     "einheit_id": 42,
+     "thema": "Zehnerpotenzen und wissenschaftliche Schreibweise",
+     "klasse": {
+      "gym_by": 6,
+      "rs_by": 7,
+      "ib_myp": 4
+     },
+     "heute_ort": "Paris",
+     "land": "Spanien",
+     "iso": "ES",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Barcelona"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Valencia"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Granada"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Sevilla"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Córdoba"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Toledo"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Madrid"
+      }
+     ]
+    },
+    {
+     "thema_id": 30,
+     "einheit_id": 35,
+     "thema": "Potenzen und negative Exponenten",
+     "klasse": {
+      "gym_by": 6,
+      "rs_by": 7,
+      "ib_myp": 3
+     },
+     "heute_ort": "Paris",
+     "land": "Frankreich",
+     "iso": "FR",
+     "region": null,
+     "etappen": 3,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Paris"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Lyon"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Marseille"
+      }
+     ]
+    },
+    {
+     "thema_id": 68,
+     "einheit_id": 46,
+     "thema": "Elementare Wurzeln",
+     "klasse": {
+      "gym_by": 9,
+      "rs_by": 9,
+      "ib_myp": 1
+     },
+     "heute_ort": "Göttingen",
+     "land": "Niederlande",
+     "iso": "NL",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Amsterdam"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Haarlem"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Leiden"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Den Haag"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Rotterdam"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Utrecht"
+      }
+     ]
+    },
+    {
+     "thema_id": 20,
+     "einheit_id": 45,
+     "thema": "Wurzeln und reelle Zahlen",
+     "klasse": {
+      "gym_by": 9,
+      "rs_by": 9,
+      "ib_myp": 4
+     },
+     "heute_ort": "Göttingen",
+     "land": "Polen",
+     "iso": "PL",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Warschau"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Danzig"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Thorn"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Posen"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Breslau"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Krakau"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Zakopane"
+      }
+     ]
+    },
+    {
+     "thema_id": 96,
+     "einheit_id": 43,
+     "thema": "Rationale Exponenten und n-te Wurzel",
+     "klasse": {
+      "gym_by": 9,
+      "rs_by": 10,
+      "ib_myp": 5
+     },
+     "heute_ort": "Edinburgh",
+     "land": "Norwegen",
+     "iso": "NO",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Oslo"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Lillehammer"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Trondheim"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Ålesund"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Bergen"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Stavanger"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kontinent_id": 2,
+   "themengebiet": "Geld und Verhältnisse",
+   "reise": "Nordamerika (mit Mittelamerika und Karibik)",
+   "fluege": [
+    {
+     "thema_id": 25,
+     "einheit_id": 50,
+     "thema": "Größen und Einheiten",
+     "klasse": {
+      "gym_by": 5,
+      "rs_by": 5,
+      "ib_myp": 2
+     },
+     "heute_ort": "Toronto",
+     "land": "Kanada",
+     "iso": "CA",
+     "region": null,
+     "etappen": 8,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Victoria"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Vancouver"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Banff"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Calgary"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Winnipeg"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Toronto"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Ottawa"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Montreal"
+      }
+     ]
+    },
+    {
+     "thema_id": 26,
+     "einheit_id": 67,
+     "thema": "Direkte Proportionalität und Dreisatz",
+     "klasse": {
+      "gym_by": 5,
+      "rs_by": 6,
+      "ib_myp": 2
+     },
+     "heute_ort": "Chicago",
+     "land": "Kuba",
+     "iso": "CU",
+     "region": null,
+     "etappen": 8,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Havanna"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Viñales"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Varadero"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Santa Clara"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Cienfuegos"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Trinidad"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Camagüey"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Santiago de Cuba"
+      }
+     ]
+    },
+    {
+     "thema_id": 24,
+     "einheit_id": 11,
+     "thema": "Prozent- und Zinsrechnung",
+     "klasse": {
+      "gym_by": 6,
+      "rs_by": 6,
+      "ib_myp": 1
+     },
+     "heute_ort": "Mexiko-Stadt",
+     "land": "Mexiko",
+     "iso": "MX",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Guadalajara"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Guanajuato"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Mexiko-Stadt"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Puebla"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Oaxaca"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Veracruz"
+      }
+     ]
+    },
+    {
+     "thema_id": 71,
+     "einheit_id": 2,
+     "thema": "Zinsen",
+     "klasse": {
+      "gym_by": 6,
+      "rs_by": 7,
+      "ib_myp": 4
+     },
+     "heute_ort": "New York",
+     "land": "USA",
+     "iso": "US",
+     "region": null,
+     "etappen": 8,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Boston"
+      },
+      {
+       "etappe": 2,
+       "stadt": "New York"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Washington, D.C."
+      },
+      {
+       "etappe": 4,
+       "stadt": "Chicago"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Denver"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Phoenix"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Los Angeles"
+      },
+      {
+       "etappe": 8,
+       "stadt": "San Francisco"
+      }
+     ]
+    },
+    {
+     "thema_id": 94,
+     "einheit_id": 55,
+     "thema": "Vermehrter und verminderter Grundwert",
+     "klasse": {
+      "gym_by": 7,
+      "rs_by": 7,
+      "ib_myp": 3
+     },
+     "heute_ort": "Los Angeles",
+     "land": "Guatemala",
+     "iso": "GT",
+     "region": null,
+     "etappen": 8,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Guatemala-Stadt"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Antigua Guatemala"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Panajachel"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Chichicastenango"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Quetzaltenango"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Cobán"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Flores"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Puerto Barrios"
+      }
+     ]
+    },
+    {
+     "thema_id": 93,
+     "einheit_id": 7,
+     "thema": "Indirekte Proportionalität",
+     "klasse": {
+      "gym_by": 8,
+      "rs_by": 7,
+      "ib_myp": 4
+     },
+     "heute_ort": "Vancouver",
+     "land": "Costa Rica",
+     "iso": "CR",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "San José"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Alajuela"
+      },
+      {
+       "etappe": 3,
+       "stadt": "La Fortuna"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Liberia"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Puntarenas"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Quepos"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Cartago"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kontinent_id": 3,
+   "themengebiet": "Algebra",
+   "reise": "Asien (ohne Orient)",
+   "fluege": [
+    {
+     "thema_id": 1,
+     "einheit_id": 6,
+     "thema": "Einfache Gleichungen",
+     "klasse": {
+      "gym_by": 5,
+      "rs_by": 6,
+      "ib_myp": 1
+     },
+     "heute_ort": "Bagdad",
+     "land": "Kambodscha",
+     "iso": "KH",
+     "region": null,
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Siem Reap"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Battambang"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Phnom Penh"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Kampot"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Sihanoukville"
+      }
+     ]
+    },
+    {
+     "thema_id": 28,
+     "einheit_id": 59,
+     "thema": "Terme aufstellen und deuten",
+     "klasse": {
+      "rs_by": 6,
+      "gym_by": 7,
+      "ib_myp": 1
+     },
+     "heute_ort": "Teheran",
+     "land": "Vietnam",
+     "iso": "VN",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Hanoi"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Ha Long"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Hue"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Da Nang"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Hoi An"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Ho-Chi-Minh-Stadt"
+      }
+     ]
+    },
+    {
+     "thema_id": 102,
+     "einheit_id": 111,
+     "thema": "Potenzgesetze",
+     "klasse": {
+      "gym_by": 7,
+      "rs_by": 7,
+      "ib_myp": 3
+     },
+     "heute_ort": "Samarkand",
+     "land": "Usbekistan",
+     "iso": "UZ",
+     "region": null,
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Fergana"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Taschkent"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Samarkand"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Buchara"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Chiwa"
+      }
+     ]
+    },
+    {
+     "thema_id": 29,
+     "einheit_id": 3,
+     "thema": "Terme umformen",
+     "klasse": {
+      "gym_by": 7,
+      "rs_by": 7,
+      "ib_myp": 3
+     },
+     "heute_ort": "Samarkand",
+     "land": "Kasachstan",
+     "iso": "KZ",
+     "region": null,
+     "etappen": 8,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Almaty"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Taras"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Schymkent"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Türkistan"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Kysylorda"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Karaganda"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Astana"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Pawlodar"
+      }
+     ]
+    },
+    {
+     "thema_id": 2,
+     "einheit_id": 5,
+     "thema": "Lineare Gleichungen",
+     "klasse": {
+      "gym_by": 7,
+      "rs_by": 7,
+      "ib_myp": 2
+     },
+     "heute_ort": "Samarkand",
+     "land": "Kirgisistan",
+     "iso": "KG",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Bischkek"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Tscholpon-Ata"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Karakol"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Naryn"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Dschalal-Abad"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Osch"
+      }
+     ]
+    },
+    {
+     "thema_id": 69,
+     "einheit_id": 40,
+     "thema": "Intervalle",
+     "klasse": {
+      "gym_by": 8,
+      "rs_by": 7,
+      "ib_myp": 4
+     },
+     "heute_ort": "Delhi",
+     "land": "Mongolei",
+     "iso": "MN",
+     "region": null,
+     "etappen": 4,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Ulaanbaatar"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Darchan"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Erdenet"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Charchorin (Karakorum)"
+      }
+     ]
+    },
+    {
+     "thema_id": 3,
+     "einheit_id": 27,
+     "thema": "Lineare Ungleichungen",
+     "klasse": {
+      "gym_by": 8,
+      "rs_by": 7,
+      "ib_myp": 4
+     },
+     "heute_ort": "Delhi",
+     "land": "Indonesien",
+     "iso": "ID",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Jakarta"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Bandung"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Yogyakarta"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Solo"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Surabaya"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Malang"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Denpasar"
+      }
+     ]
+    },
+    {
+     "thema_id": 31,
+     "einheit_id": 34,
+     "thema": "Bruchterme",
+     "klasse": {
+      "gym_by": 8,
+      "rs_by": 8,
+      "ib_myp": 4
+     },
+     "heute_ort": "Mumbai",
+     "land": "Indien",
+     "iso": "IN",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Delhi"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Agra"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Jaipur"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Udaipur"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Ahmedabad"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Mumbai"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Panaji (Goa)"
+      }
+     ]
+    },
+    {
+     "thema_id": 103,
+     "einheit_id": 112,
+     "thema": "Potenzgesetze mit ganzzahligen Exponenten",
+     "klasse": {
+      "gym_by": 8,
+      "rs_by": 7,
+      "ib_myp": 4
+     },
+     "heute_ort": "Mumbai",
+     "land": "Nepal",
+     "iso": "NP",
+     "region": null,
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Bhaktapur"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Lalitpur (Patan)"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Kathmandu"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Pokhara"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Bharatpur"
+      }
+     ]
+    },
+    {
+     "thema_id": 5,
+     "einheit_id": 20,
+     "thema": "Bruch- und Verhältnisgleichungen",
+     "klasse": {
+      "gym_by": 8,
+      "rs_by": 8,
+      "ib_myp": 4
+     },
+     "heute_ort": "Mumbai",
+     "land": "Sri Lanka",
+     "iso": "LK",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Colombo"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Galle"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Nuwara Eliya"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Kandy"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Dambulla"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Anuradhapura"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Trincomalee"
+      }
+     ]
+    },
+    {
+     "thema_id": 4,
+     "einheit_id": 21,
+     "thema": "Formeln umstellen",
+     "klasse": {
+      "gym_by": 8,
+      "ib_myp": 4
+     },
+     "heute_ort": "Mumbai",
+     "land": "Bhutan",
+     "iso": "BT",
+     "region": null,
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Paro"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Thimphu"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Punakha"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Wangdue Phodrang"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Jakar"
+      }
+     ]
+    },
+    {
+     "thema_id": 6,
+     "einheit_id": 22,
+     "thema": "Gleichungssysteme mit 2 Unbekannten",
+     "klasse": {
+      "gym_by": 8,
+      "rs_by": 9,
+      "ib_myp": 4
+     },
+     "heute_ort": "Peking",
+     "land": "China",
+     "iso": "CN",
+     "region": null,
+     "etappen": 9,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Peking"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Xi'an"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Chengdu"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Chongqing"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Guilin"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Guangzhou"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Hangzhou"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Shanghai"
+      },
+      {
+       "etappe": 9,
+       "stadt": "Nanjing"
+      }
+     ]
+    },
+    {
+     "thema_id": 8,
+     "einheit_id": 25,
+     "thema": "Quadratische Gleichungen (allgemein)",
+     "klasse": {
+      "gym_by": 9,
+      "rs_by": 9,
+      "ib_myp": 4
+     },
+     "heute_ort": "Seoul",
+     "land": "Südkorea",
+     "iso": "KR",
+     "region": null,
+     "etappen": 8,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Incheon"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Seoul"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Suwon"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Daejeon"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Jeonju"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Gwangju"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Busan"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Gyeongju"
+      }
+     ]
+    },
+    {
+     "thema_id": 7,
+     "einheit_id": 23,
+     "thema": "Gleichungssysteme mit 3 Unbekannten",
+     "klasse": {
+      "gym_by": 9
+     },
+     "heute_ort": "Singapur",
+     "land": "Malaysia",
+     "iso": "MY",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Johor Bahru"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Malakka"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Kuala Lumpur"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Ipoh"
+      },
+      {
+       "etappe": 5,
+       "stadt": "George Town"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Alor Setar"
+      }
+     ]
+    },
+    {
+     "thema_id": 9,
+     "einheit_id": 24,
+     "thema": "Potenzgleichungen",
+     "klasse": {
+      "gym_by": 9,
+      "rs_by": 10,
+      "ib_myp": 4
+     },
+     "heute_ort": "Tokio",
+     "land": "Japan",
+     "iso": "JP",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Tokio"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Kamakura"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Kyoto"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Nara"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Osaka"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Hiroshima"
+      }
+     ]
+    },
+    {
+     "thema_id": 10,
+     "einheit_id": 63,
+     "thema": "Exponentialgleichungen",
+     "klasse": {
+      "gym_by": 10,
+      "rs_by": 10,
+      "ib_myp": 5
+     },
+     "heute_ort": "Bangkok",
+     "land": "Thailand",
+     "iso": "TH",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Phuket"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Hua Hin"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Bangkok"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Ayutthaya"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Sukhothai"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Chiang Mai"
+      }
+     ]
+    },
+    {
+     "thema_id": 11,
+     "einheit_id": 64,
+     "thema": "Polynomgleichungen",
+     "klasse": {
+      "gym_by": 10
+     },
+     "heute_ort": "Bangkok",
+     "land": "Laos",
+     "iso": "LA",
+     "region": null,
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Luang Prabang"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Vang Vieng"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Vientiane"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Thakhek"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Pakse"
+      }
+     ]
+    },
+    {
+     "thema_id": 97,
+     "einheit_id": 72,
+     "thema": "Quadratische Terme und Extremwerte",
+     "klasse": {
+      "rs_by": 8
+     },
+     "heute_ort": "Shanghai",
+     "land": "Philippinen",
+     "iso": "PH",
+     "region": null,
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Baguio"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Manila"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Legazpi"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Cebu"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Tagbilaran"
+      }
+     ]
+    },
+    {
+     "thema_id": 13,
+     "einheit_id": 75,
+     "thema": "Wurzelgleichungen",
+     "klasse": {
+      "rs_by": 9
+     },
+     "heute_ort": "Tokio",
+     "land": "Bangladesch",
+     "iso": "BD",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Rajshahi"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Khulna"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Dhaka"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Sylhet"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Chittagong"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Cox's Bazar"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kontinent_id": 4,
+   "themengebiet": "Funktionen",
+   "reise": "Orient (Naher Osten und Kaukasus) – neu, ersetzt Antarktis",
+   "fluege": [
+    {
+     "thema_id": 32,
+     "einheit_id": 16,
+     "thema": "Zuordnung und Funktion",
+     "klasse": {
+      "gym_by": 8,
+      "rs_by": 8,
+      "ib_myp": 3
+     },
+     "heute_ort": "McMurdo-Station",
+     "land": "Georgien",
+     "iso": "GE",
+     "region": null,
+     "etappen": 9,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Tiflis"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Stepanzminda"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Mzcheta"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Gori"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Borjomi"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Batumi"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Kutaissi"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Telawi"
+      },
+      {
+       "etappe": 9,
+       "stadt": "Sighnaghi"
+      }
+     ]
+    },
+    {
+     "thema_id": 33,
+     "einheit_id": 17,
+     "thema": "Lineare Funktionen",
+     "klasse": {
+      "gym_by": 8,
+      "rs_by": 8,
+      "ib_myp": 3
+     },
+     "heute_ort": "Neumayer-Station III",
+     "land": "Türkei",
+     "iso": "TR",
+     "region": null,
+     "etappen": 11,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Istanbul"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Bursa"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Çanakkale"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Izmir"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Selçuk"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Bodrum"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Antalya"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Konya"
+      },
+      {
+       "etappe": 9,
+       "stadt": "Göreme"
+      },
+      {
+       "etappe": 10,
+       "stadt": "Ankara"
+      },
+      {
+       "etappe": 11,
+       "stadt": "Safranbolu"
+      }
+     ]
+    },
+    {
+     "thema_id": 34,
+     "einheit_id": 15,
+     "thema": "Gebrochen-rationale Funktionen",
+     "klasse": {
+      "gym_by": 8,
+      "ib_myp": 4
+     },
+     "heute_ort": "Amundsen-Scott-Südpolstation",
+     "land": "Armenien",
+     "iso": "AM",
+     "region": null,
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Jerewan"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Etschmiadsin"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Gjumri"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Dilidschan"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Sewan"
+      }
+     ]
+    },
+    {
+     "thema_id": 35,
+     "einheit_id": 19,
+     "thema": "Quadratische Funktionen",
+     "klasse": {
+      "gym_by": 9,
+      "rs_by": 9,
+      "ib_myp": 4
+     },
+     "heute_ort": "Wostok-Station",
+     "land": "Irak",
+     "iso": "IQ",
+     "region": null,
+     "etappen": 9,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Bagdad"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Samarra"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Mossul"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Erbil"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Sulaimaniyya"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Basra"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Nadschaf"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Kerbela"
+      },
+      {
+       "etappe": 9,
+       "stadt": "Hilla (Babylon)"
+      }
+     ]
+    },
+    {
+     "thema_id": 36,
+     "einheit_id": 18,
+     "thema": "Potenzfunktionen",
+     "klasse": {
+      "gym_by": 9,
+      "rs_by": 10,
+      "ib_myp": 4
+     },
+     "heute_ort": "Rothera-Station",
+     "land": "Iran",
+     "iso": "IR",
+     "region": null,
+     "etappen": 10,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Teheran"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Rascht"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Täbris"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Hamadan"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Isfahan"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Schiras"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Bandar Abbas"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Kerman"
+      },
+      {
+       "etappe": 9,
+       "stadt": "Yazd"
+      },
+      {
+       "etappe": 10,
+       "stadt": "Kaschan"
+      }
+     ]
+    },
+    {
+     "thema_id": 37,
+     "einheit_id": 60,
+     "thema": "Exponential- und Logarithmusfunktionen",
+     "klasse": {
+      "gym_by": 10,
+      "rs_by": 10,
+      "ib_myp": 5
+     },
+     "heute_ort": "Halley-Station",
+     "land": "Vereinigte Arabische Emirate",
+     "iso": "AE",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Abu Dhabi"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Dubai"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Schardscha"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Adschman"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Umm al-Qaiwain"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Ras al-Chaima"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Fudschaira"
+      }
+     ]
+    },
+    {
+     "thema_id": 38,
+     "einheit_id": 62,
+     "thema": "Sinus- und Kosinusfunktion",
+     "klasse": {
+      "gym_by": 10,
+      "rs_by": 10,
+      "ib_myp": 5
+     },
+     "heute_ort": "Concordia-Station",
+     "land": "Saudi-Arabien",
+     "iso": "SA",
+     "region": null,
+     "etappen": 8,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Riad"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Hail"
+      },
+      {
+       "etappe": 3,
+       "stadt": "AlUla"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Tabuk"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Medina"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Dschidda"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Taif"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Abha"
+      }
+     ]
+    },
+    {
+     "thema_id": 39,
+     "einheit_id": 61,
+     "thema": "Ganzrationale Funktionen",
+     "klasse": {
+      "gym_by": 10,
+      "ib_myp": 5
+     },
+     "heute_ort": "Casey-Station",
+     "land": "Oman",
+     "iso": "OM",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Maskat"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Barka"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Sohar"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Ibri"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Bahla"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Nizwa"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Sur"
+      }
+     ]
+    },
+    {
+     "thema_id": 76,
+     "einheit_id": 85,
+     "thema": "Reihen",
+     "klasse": {
+      "ib_myp": 5
+     },
+     "heute_ort": "Palmer-Station",
+     "land": "Aserbaidschan",
+     "iso": "AZ",
+     "region": null,
+     "etappen": 8,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Baku"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Quba"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Schamachy"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Gabala"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Scheki"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Gandscha"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Mingətschevir"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Lənkəran"
+      }
+     ]
+    },
+    {
+     "thema_id": 75,
+     "einheit_id": 83,
+     "thema": "Betragsfunktion",
+     "klasse": {
+      "ib_myp": 5
+     },
+     "heute_ort": "Palmer-Station",
+     "land": "Jordanien",
+     "iso": "JO",
+     "region": null,
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Amman"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Dscherasch"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Madaba"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Wadi Musa (Petra)"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Aqaba"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kontinent_id": 5,
+   "themengebiet": "Geometrie",
+   "reise": "Afrika",
+   "fluege": [
+    {
+     "thema_id": 42,
+     "einheit_id": 47,
+     "thema": "Grundbegriffe und Figuren",
+     "klasse": {
+      "gym_by": 5,
+      "rs_by": 5,
+      "ib_myp": 1
+     },
+     "heute_ort": "Kairo",
+     "land": "Tunesien",
+     "iso": "TN",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Sidi Bou Saïd"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Tunis"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Sousse"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Monastir"
+      },
+      {
+       "etappe": 5,
+       "stadt": "El Djem"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Tozeur"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Kairouan"
+      }
+     ]
+    },
+    {
+     "thema_id": 73,
+     "einheit_id": 48,
+     "thema": "Ortslinien und Ortsbereiche",
+     "klasse": {
+      "gym_by": 5,
+      "rs_by": 7
+     },
+     "heute_ort": "Kairo",
+     "land": "Senegal",
+     "iso": "SN",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Saint-Louis"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Thiès"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Dakar"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Mbour"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Joal-Fadiouth"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Kaolack"
+      }
+     ]
+    },
+    {
+     "thema_id": 43,
+     "einheit_id": 49,
+     "thema": "Mit Winkeln rechnen",
+     "klasse": {
+      "gym_by": 5,
+      "rs_by": 5,
+      "ib_myp": 1
+     },
+     "heute_ort": "Timbuktu",
+     "land": "Ghana",
+     "iso": "GH",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Accra"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Ho"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Tamale"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Kumasi"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Takoradi"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Elmina"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Cape Coast"
+      }
+     ]
+    },
+    {
+     "thema_id": 46,
+     "einheit_id": 54,
+     "thema": "Kongruenzabbildungen",
+     "klasse": {
+      "rs_by": 6,
+      "gym_by": 7,
+      "ib_myp": 3
+     },
+     "heute_ort": "Marrakesch",
+     "land": "Marokko",
+     "iso": "MA",
+     "region": null,
+     "etappen": 10,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Tanger"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Chefchaouen"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Fès"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Meknès"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Rabat"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Casablanca"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Essaouira"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Agadir"
+      },
+      {
+       "etappe": 9,
+       "stadt": "Ouarzazate"
+      },
+      {
+       "etappe": 10,
+       "stadt": "Marrakesch"
+      }
+     ]
+    },
+    {
+     "thema_id": 98,
+     "einheit_id": 92,
+     "thema": "Winkelsätze",
+     "klasse": {
+      "gym_by": 7,
+      "rs_by": 7,
+      "ib_myp": 2
+     },
+     "heute_ort": "Addis Abeba",
+     "land": "Tansania",
+     "iso": "TZ",
+     "region": null,
+     "etappen": 9,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Sansibar-Stadt"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Daressalam"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Bagamoyo"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Tanga"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Moshi"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Arusha"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Mwanza"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Dodoma"
+      },
+      {
+       "etappe": 9,
+       "stadt": "Morogoro"
+      }
+     ]
+    },
+    {
+     "thema_id": 44,
+     "einheit_id": 57,
+     "thema": "Konstruktionen, Kongruenz und Beweise",
+     "klasse": {
+      "gym_by": 7,
+      "rs_by": 7,
+      "ib_myp": 3
+     },
+     "heute_ort": "Addis Abeba",
+     "land": "Ruanda",
+     "iso": "RW",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Kigali"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Musanze"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Rubavu (Gisenyi)"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Karongi (Kibuye)"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Huye"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Nyanza"
+      }
+     ]
+    },
+    {
+     "thema_id": 45,
+     "einheit_id": 58,
+     "thema": "Kreis und Tangenten",
+     "klasse": {
+      "rs_by": 7,
+      "gym_by": 7,
+      "ib_myp": 4
+     },
+     "heute_ort": "Alexandria",
+     "land": "Ägypten",
+     "iso": "EG",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Alexandria"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Gizeh"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Kairo"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Hurghada"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Luxor"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Assuan"
+      }
+     ]
+    },
+    {
+     "thema_id": 47,
+     "einheit_id": 8,
+     "thema": "Ähnlichkeit und Strahlensätze",
+     "klasse": {
+      "gym_by": 9,
+      "rs_by": 9,
+      "ib_myp": 3
+     },
+     "heute_ort": "Nairobi",
+     "land": "Kenia",
+     "iso": "KE",
+     "region": null,
+     "etappen": 8,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Malindi"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Mombasa"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Nairobi"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Naivasha"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Nakuru"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Kisumu"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Eldoret"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Nanyuki"
+      }
+     ]
+    },
+    {
+     "thema_id": 54,
+     "einheit_id": 37,
+     "thema": "Satz des Pythagoras",
+     "klasse": {
+      "gym_by": 9,
+      "rs_by": 9,
+      "ib_myp": 3
+     },
+     "heute_ort": "Kapstadt",
+     "land": "Simbabwe",
+     "iso": "ZW",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Harare"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Mutare"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Masvingo"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Bulawayo"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Hwange"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Victoria Falls"
+      }
+     ]
+    },
+    {
+     "thema_id": 55,
+     "einheit_id": 38,
+     "thema": "Trigonometrie im rechtwinkligen Dreieck",
+     "klasse": {
+      "gym_by": 9,
+      "rs_by": 9,
+      "ib_myp": 4
+     },
+     "heute_ort": "Sansibar",
+     "land": "Namibia",
+     "iso": "NA",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Windhoek"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Otjiwarongo"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Tsumeb"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Swakopmund"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Walvis Bay"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Lüderitz"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Keetmanshoop"
+      }
+     ]
+    },
+    {
+     "thema_id": 56,
+     "einheit_id": 36,
+     "thema": "Allgemeine Trigonometrie",
+     "klasse": {
+      "gym_by": 9,
+      "rs_by": 10,
+      "ib_myp": 4
+     },
+     "heute_ort": "Sansibar",
+     "land": "Südafrika",
+     "iso": "ZA",
+     "region": null,
+     "etappen": 9,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Kapstadt"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Stellenbosch"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Mossel Bay"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Knysna"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Gqeberha (Port Elizabeth)"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Durban"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Pretoria"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Johannesburg"
+      },
+      {
+       "etappe": 9,
+       "stadt": "Bloemfontein"
+      }
+     ]
+    },
+    {
+     "thema_id": 14,
+     "einheit_id": 26,
+     "thema": "Trigonometrische Gleichungen",
+     "klasse": {
+      "gym_by": 9,
+      "rs_by": 10,
+      "ib_myp": 5
+     },
+     "heute_ort": "Sansibar",
+     "land": "Mauritius",
+     "iso": "MU",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Port Louis"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Grand Baie"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Flic en Flac"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Quatre Bornes"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Curepipe"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Mahébourg"
+      }
+     ]
+    },
+    {
+     "thema_id": 74,
+     "einheit_id": 68,
+     "thema": "Zweireihige Determinanten",
+     "klasse": {
+      "rs_by": 7
+     },
+     "heute_ort": "Lagos",
+     "land": "Uganda",
+     "iso": "UG",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Entebbe"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Kampala"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Jinja"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Mbale"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Fort Portal"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Mbarara"
+      }
+     ]
+    },
+    {
+     "thema_id": 49,
+     "einheit_id": 76,
+     "thema": "Matrizen und Abbildungen mit Matrizen",
+     "klasse": {
+      "rs_by": 10,
+      "ib_myp": 5
+     },
+     "heute_ort": "Dakar",
+     "land": "Madagaskar",
+     "iso": "MG",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Toamasina"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Moramanga"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Antananarivo"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Antsirabe"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Ambositra"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Fianarantsoa"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Toliara"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kontinent_id": 6,
+   "themengebiet": "Fläche und Raum",
+   "reise": "Südamerika",
+   "fluege": [
+    {
+     "thema_id": 50,
+     "einheit_id": 51,
+     "thema": "Umfang und Flächeninhalt",
+     "klasse": {
+      "gym_by": 5,
+      "rs_by": 5,
+      "ib_myp": 1
+     },
+     "heute_ort": "Lima",
+     "land": "Peru",
+     "iso": "PE",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Lima"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Paracas"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Nazca"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Arequipa"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Puno"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Cusco"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Aguas Calientes (Machupicchu)"
+      }
+     ]
+    },
+    {
+     "thema_id": 53,
+     "einheit_id": 52,
+     "thema": "Volumen und Oberfläche",
+     "klasse": {
+      "gym_by": 5,
+      "rs_by": 6,
+      "ib_myp": 1
+     },
+     "heute_ort": "Rio de Janeiro",
+     "land": "Uruguay",
+     "iso": "UY",
+     "region": null,
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Colonia del Sacramento"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Montevideo"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Punta del Este"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Salto"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Paysandú"
+      }
+     ]
+    },
+    {
+     "thema_id": 99,
+     "einheit_id": 93,
+     "thema": "Flächen von Parallelogramm, Dreieck und Trapez",
+     "klasse": {
+      "gym_by": 6,
+      "rs_by": 6
+     },
+     "heute_ort": "Quito",
+     "land": "Ecuador",
+     "iso": "EC",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Otavalo"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Quito"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Baños"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Riobamba"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Cuenca"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Guayaquil"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Manta"
+      }
+     ]
+    },
+    {
+     "thema_id": 100,
+     "einheit_id": 95,
+     "thema": "Volumen",
+     "klasse": {
+      "gym_by": 6,
+      "rs_by": 6
+     },
+     "heute_ort": "Quito",
+     "land": "Kolumbien",
+     "iso": "CO",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Cartagena"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Barranquilla"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Santa Marta"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Medellín"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Salento"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Cali"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Bogotá"
+      }
+     ]
+    },
+    {
+     "thema_id": 51,
+     "einheit_id": 29,
+     "thema": "Kreisberechnungen",
+     "klasse": {
+      "gym_by": 8,
+      "rs_by": 9,
+      "ib_myp": 3
+     },
+     "heute_ort": "Buenos Aires",
+     "land": "Argentinien",
+     "iso": "AR",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Buenos Aires"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Rosario"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Mendoza"
+      },
+      {
+       "etappe": 4,
+       "stadt": "San Miguel de Tucumán"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Salta"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Puerto Iguazú"
+      }
+     ]
+    },
+    {
+     "thema_id": 52,
+     "einheit_id": 28,
+     "thema": "Körper darstellen",
+     "klasse": {
+      "gym_by": 8,
+      "rs_by": 5,
+      "ib_myp": 3
+     },
+     "heute_ort": "Cusco",
+     "land": "Bolivien",
+     "iso": "BO",
+     "region": null,
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Copacabana"
+      },
+      {
+       "etappe": 2,
+       "stadt": "La Paz"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Uyuni"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Potosí"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Sucre"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Cochabamba"
+      }
+     ]
+    },
+    {
+     "thema_id": 101,
+     "einheit_id": 94,
+     "thema": "Prismen und Zylinder",
+     "klasse": {
+      "gym_by": 8,
+      "rs_by": 9
+     },
+     "heute_ort": "Cusco",
+     "land": "Brasilien",
+     "iso": "BR",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Rio de Janeiro"
+      },
+      {
+       "etappe": 2,
+       "stadt": "São Paulo"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Curitiba"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Foz do Iguaçu"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Brasília"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Belo Horizonte"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Salvador"
+      }
+     ]
+    },
+    {
+     "thema_id": 91,
+     "einheit_id": 30,
+     "thema": "Schrägbilder und Raumdarstellung",
+     "klasse": {
+      "gym_by": 10,
+      "rs_by": 8,
+      "ib_myp": 4
+     },
+     "heute_ort": "Brasília",
+     "land": "Paraguay",
+     "iso": "PY",
+     "region": null,
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Asunción"
+      },
+      {
+       "etappe": 2,
+       "stadt": "San Bernardino"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Encarnación"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Ciudad del Este"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Concepción"
+      }
+     ]
+    },
+    {
+     "thema_id": 92,
+     "einheit_id": 65,
+     "thema": "Pyramide, Kegel, Kugel",
+     "klasse": {
+      "rs_by": 9,
+      "gym_by": 10,
+      "ib_myp": 3
+     },
+     "heute_ort": "Santiago de Chile",
+     "land": "Chile",
+     "iso": "CL",
+     "region": null,
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "San Pedro de Atacama"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Antofagasta"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Copiapó"
+      },
+      {
+       "etappe": 4,
+       "stadt": "La Serena"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Viña del Mar"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Valparaíso"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Santiago de Chile"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kontinent_id": 7,
+   "themengebiet": "Daten und Zufall",
+   "reise": "Australien (nach Bundesstaaten) und Ozeanien",
+   "fluege": [
+    {
+     "thema_id": 60,
+     "einheit_id": 53,
+     "thema": "Zählen und Kombinatorik",
+     "klasse": {
+      "gym_by": 5,
+      "rs_by": 5,
+      "ib_myp": 2
+     },
+     "heute_ort": "Melbourne",
+     "land": "Victoria",
+     "iso": "AU",
+     "region": "07",
+     "etappen": 7,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Melbourne"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Cowes (Phillip Island)"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Geelong"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Lorne"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Warrnambool"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Ballarat"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Bendigo"
+      }
+     ]
+    },
+    {
+     "thema_id": 57,
+     "einheit_id": 13,
+     "thema": "Daten erfassen und darstellen",
+     "klasse": {
+      "gym_by": 6,
+      "rs_by": 5,
+      "ib_myp": 1
+     },
+     "heute_ort": "Adelaide",
+     "land": "South Australia",
+     "iso": "AU",
+     "region": "05",
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Adelaide"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Hahndorf"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Victor Harbor"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Kingscote"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Port Augusta"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Coober Pedy"
+      }
+     ]
+    },
+    {
+     "thema_id": 58,
+     "einheit_id": 14,
+     "thema": "Mittelwert und Häufigkeiten",
+     "klasse": {
+      "gym_by": 6,
+      "rs_by": 7,
+      "ib_myp": 2
+     },
+     "heute_ort": "Sydney",
+     "land": "Tasmanien",
+     "iso": "AU",
+     "region": "06",
+     "etappen": 3,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Hobart"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Launceston"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Devonport"
+      }
+     ]
+    },
+    {
+     "thema_id": 95,
+     "einheit_id": 56,
+     "thema": "Median, Quartile, Boxplot",
+     "klasse": {
+      "gym_by": 7,
+      "rs_by": 7,
+      "ib_myp": 4
+     },
+     "heute_ort": "Brisbane",
+     "land": "Western Australia",
+     "iso": "AU",
+     "region": "08",
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Perth"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Fremantle"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Margaret River"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Albany"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Esperance"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Kalgoorlie"
+      }
+     ]
+    },
+    {
+     "thema_id": 61,
+     "einheit_id": 31,
+     "thema": "Zufall und Laplace",
+     "klasse": {
+      "gym_by": 8,
+      "rs_by": 9,
+      "ib_myp": 2
+     },
+     "heute_ort": "Auckland",
+     "land": "Neuseeland – Nordinsel",
+     "iso": "NZ",
+     "region": "NORD",
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Auckland"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Hamilton"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Rotorua"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Taupō"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Napier"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Wellington"
+      }
+     ]
+    },
+    {
+     "thema_id": 63,
+     "einheit_id": 33,
+     "thema": "Verknüpfte Ereignisse",
+     "klasse": {
+      "gym_by": 9,
+      "rs_by": 9,
+      "ib_myp": 4
+     },
+     "heute_ort": "Wellington",
+     "land": "Queensland",
+     "iso": "AU",
+     "region": "04",
+     "etappen": 11,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Gold Coast"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Brisbane"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Noosa Heads"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Hervey Bay"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Bundaberg"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Rockhampton"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Mackay"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Airlie Beach"
+      },
+      {
+       "etappe": 9,
+       "stadt": "Townsville"
+      },
+      {
+       "etappe": 10,
+       "stadt": "Cairns"
+      },
+      {
+       "etappe": 11,
+       "stadt": "Port Douglas"
+      }
+     ]
+    },
+    {
+     "thema_id": 62,
+     "einheit_id": 66,
+     "thema": "Mehrstufige Zufallsexperimente",
+     "klasse": {
+      "gym_by": 10,
+      "rs_by": 10,
+      "ib_myp": 4
+     },
+     "heute_ort": "Darwin",
+     "land": "New South Wales",
+     "iso": "AU",
+     "region": "02",
+     "etappen": 9,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Sydney"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Wollongong"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Katoomba"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Bathurst"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Dubbo"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Tamworth"
+      },
+      {
+       "etappe": 7,
+       "stadt": "Coffs Harbour"
+      },
+      {
+       "etappe": 8,
+       "stadt": "Port Macquarie"
+      },
+      {
+       "etappe": 9,
+       "stadt": "Newcastle"
+      }
+     ]
+    },
+    {
+     "thema_id": 64,
+     "einheit_id": 32,
+     "thema": "Simulation",
+     "klasse": {
+      "gym_by": 10,
+      "rs_by": 9,
+      "ib_myp": 2
+     },
+     "heute_ort": "Darwin",
+     "land": "Northern Territory",
+     "iso": "AU",
+     "region": "03",
+     "etappen": 6,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Darwin"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Jabiru"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Katherine"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Tennant Creek"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Alice Springs"
+      },
+      {
+       "etappe": 6,
+       "stadt": "Yulara"
+      }
+     ]
+    },
+    {
+     "thema_id": 81,
+     "einheit_id": 70,
+     "thema": "Stichproben und Aussagekraft",
+     "klasse": {
+      "rs_by": 7,
+      "ib_myp": 2
+     },
+     "heute_ort": "Perth",
+     "land": "Neuseeland – Südinsel",
+     "iso": "NZ",
+     "region": "SUED",
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Picton"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Kaikōura"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Christchurch"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Dunedin"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Queenstown"
+      }
+     ]
+    },
+    {
+     "thema_id": 79,
+     "einheit_id": 81,
+     "thema": "Standardabweichung",
+     "klasse": {
+      "ib_myp": 5
+     },
+     "heute_ort": "Suva",
+     "land": "Vanuatu",
+     "iso": "VU",
+     "region": null,
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Port Vila"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Luganville"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Norsup"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Lakatoro"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Isangel"
+      }
+     ]
+    },
+    {
+     "thema_id": 59,
+     "einheit_id": 80,
+     "thema": "Zweidimensionale Daten",
+     "klasse": {
+      "ib_myp": 5
+     },
+     "heute_ort": "Hobart",
+     "land": "Fidschi",
+     "iso": "FJ",
+     "region": null,
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Nadi"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Lautoka"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Sigatoka"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Navua (Pacific Harbour)"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Suva"
+      }
+     ]
+    },
+    {
+     "thema_id": 80,
+     "einheit_id": 88,
+     "thema": "Normalverteilung",
+     "klasse": {
+      "ib_myp": 5
+     },
+     "heute_ort": "Suva",
+     "land": "Papua-Neuguinea",
+     "iso": "PG",
+     "region": null,
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Port Moresby"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Lae"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Madang"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Goroka"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Mount Hagen"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kontinent_id": 8,
+   "themengebiet": "Entdecker-Inseln",
+   "reise": "Pazifik",
+   "fluege": [
+    {
+     "thema_id": 84,
+     "einheit_id": 90,
+     "thema": "Aussagenlogik",
+     "klasse": {
+      "ib_myp": 4
+     },
+     "heute_ort": "Honolulu",
+     "land": "Hawaii",
+     "iso": "US",
+     "region": "HI",
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Honolulu"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Kailua"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Kahului"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Hilo"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Līhuʻe"
+      }
+     ]
+    },
+    {
+     "thema_id": 65,
+     "einheit_id": 86,
+     "thema": "Graphentheorie",
+     "klasse": {
+      "ib_myp": 4
+     },
+     "heute_ort": "Tahiti",
+     "land": "Französisch-Polynesien",
+     "iso": "PF",
+     "region": null,
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Papeete"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Afareaitu"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Fare"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Uturoa"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Vaitape"
+      }
+     ]
+    },
+    {
+     "thema_id": 70,
+     "einheit_id": 91,
+     "thema": "Schranken und Genauigkeit",
+     "klasse": {
+      "ib_myp": 5
+     },
+     "heute_ort": "Honolulu",
+     "land": "Tonga",
+     "iso": "TO",
+     "region": null,
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Nukuʻalofa"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Kolonga"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Pangai"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Neiafu"
+      },
+      {
+       "etappe": 5,
+       "stadt": "ʻOhonua"
+      }
+     ]
+    },
+    {
+     "thema_id": 66,
+     "einheit_id": 87,
+     "thema": "Lineare Optimierung",
+     "klasse": {
+      "ib_myp": 5
+     },
+     "heute_ort": "Tahiti",
+     "land": "Samoa",
+     "iso": "WS",
+     "region": null,
+     "etappen": 5,
+     "staedte": [
+      {
+       "etappe": 1,
+       "stadt": "Apia"
+      },
+      {
+       "etappe": 2,
+       "stadt": "Leulumoega"
+      },
+      {
+       "etappe": 3,
+       "stadt": "Mulifanua"
+      },
+      {
+       "etappe": 4,
+       "stadt": "Palauli"
+      },
+      {
+       "etappe": 5,
+       "stadt": "Asau"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "expeditionen": [
+  {
+   "expedition": "5-aquarium",
+   "station": "Palmer-Station",
+   "betreiber": "USA"
+  },
+  {
+   "expedition": "5-flug_toronto",
+   "station": "McMurdo-Station",
+   "betreiber": "USA"
+  },
+  {
+   "expedition": "5-kettennachricht",
+   "station": "Amundsen-Scott-Südpolstation",
+   "betreiber": "USA"
+  },
+  {
+   "expedition": "5-oase",
+   "station": "Maitri-Station (Schirmacher-Oase)",
+   "betreiber": "Indien"
+  },
+  {
+   "expedition": "5-pyramide",
+   "station": "Princess-Elisabeth-Station",
+   "betreiber": "Belgien"
+  },
+  {
+   "expedition": "5-roemerstrasse",
+   "station": "Mario-Zucchelli-Station",
+   "betreiber": "Italien"
+  },
+  {
+   "expedition": "5-schatzsuche",
+   "station": "Esperanza-Station",
+   "betreiber": "Argentinien"
+  },
+  {
+   "expedition": "5-uhrturm",
+   "station": "Halley-VI-Station",
+   "betreiber": "Vereinigtes Königreich"
+  },
+  {
+   "expedition": "5-wetterstation",
+   "station": "Neumayer-Station III",
+   "betreiber": "Deutschland"
+  },
+  {
+   "expedition": "5-zeltplatz",
+   "station": "Kohnen-Station",
+   "betreiber": "Deutschland"
+  },
+  {
+   "expedition": "8-garten",
+   "station": "Troll-Station",
+   "betreiber": "Norwegen"
+  },
+  {
+   "expedition": "8-handytarif",
+   "station": "Rothera-Station",
+   "betreiber": "Vereinigtes Königreich"
+  },
+  {
+   "expedition": "8-kerzen",
+   "station": "Wostok-Station",
+   "betreiber": "Russland"
+  },
+  {
+   "expedition": "8-klassenfahrt",
+   "station": "Dumont-d’Urville-Station",
+   "betreiber": "Frankreich"
+  },
+  {
+   "expedition": "8-pool",
+   "station": "Davis-Station",
+   "betreiber": "Australien"
+  },
+  {
+   "expedition": "8-radtour",
+   "station": "Casey-Station",
+   "betreiber": "Australien"
+  },
+  {
+   "expedition": "8-roller",
+   "station": "Mawson-Station",
+   "betreiber": "Australien"
+  },
+  {
+   "expedition": "8-saftbar",
+   "station": "Syowa-Station",
+   "betreiber": "Japan"
+  },
+  {
+   "expedition": "8-schuelerzeitung",
+   "station": "Zhongshan-Station",
+   "betreiber": "China"
+  },
+  {
+   "expedition": "8-schulfest",
+   "station": "Arctowski-Station",
+   "betreiber": "Polen"
+  },
+  {
+   "expedition": "8-zelt",
+   "station": "Scott Base",
+   "betreiber": "Neuseeland"
+  }
+ ],
+ "selbstpruefung": {
+  "fluege": 87,
+  "laender": 87,
+  "staedte": 606,
+  "staedte_einmalig": 606,
+  "expeditionen": 21,
+  "geonames_bestaetigt": 606,
+  "geonames_nicht_gefunden": [],
+  "lange_teilstrecken_ueber_700km": [
+   "Calgary → Winnipeg: 1203 km Luftlinie",
+   "Winnipeg → Toronto: 1511 km Luftlinie",
+   "Washington, D.C. → Chicago: 956 km Luftlinie",
+   "Chicago → Denver: 1475 km Luftlinie",
+   "Denver → Phoenix: 943 km Luftlinie",
+   "Kysylorda → Karaganda: 793 km Luftlinie",
+   "Peking → Xi'an: 912 km Luftlinie",
+   "Guangzhou → Hangzhou: 1052 km Luftlinie",
+   "Rosario → Mendoza: 766 km Luftlinie",
+   "Mendoza → San Miguel de Tucumán: 761 km Luftlinie",
+   "Salta → Puerto Iguazú: 1095 km Luftlinie",
+   "Foz do Iguaçu → Brasília: 1288 km Luftlinie",
+   "Belo Horizonte → Salvador: 966 km Luftlinie"
+  ],
+  "fehler": [],
+  "hinweise": [
+   "Thema 15 (Natürliche Zahlen) hat 13 Etappen – außerhalb 3–12; Land mit genug Städten gewählt (Italien)",
+   "Thema 18 (Grundrechenarten und Rechengesetze) hat 14 Etappen – außerhalb 3–12; Land mit genug Städten gewählt (Schweiz)",
+   "Thema 21 (Brüche und Anteile) hat 14 Etappen – außerhalb 3–12; Land mit genug Städten gewählt (Deutschland)"
+  ]
+ }
+}

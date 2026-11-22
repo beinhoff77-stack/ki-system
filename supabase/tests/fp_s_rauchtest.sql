@@ -93,13 +93,16 @@ begin
   insert into schule.karte_stand (lernender_id, einheit_id, lernziel) values (v_l, v_e[6], v_lz[6]) on conflict do nothing;
   update schule.karte_stand set sitzt = true, sitzt_am = now() - interval '20 days', gesetzt_am = null, landung = null where lernender_id = v_l and einheit_id = v_e[6] and lernziel = v_lz[6];
   select coalesce(sum(menge), 0) into v_s0 from schule.sterne where lernender_id = v_l;
+  select etappen into v_i from schule.landung_nachbuchung where lernender_id = v_l; -- LK-S: auf dem echten Stand kann das Testkind schon eine Zeile haben
   select * into r from schule.landung_bonus_nachbuchen(v_l);
   if r.etappen is null or r.etappen < 1 or (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l) - v_s0 <> r.sterne then raise exception 'FEHLER 5 Nachbuchung: %', r; end if;
   if (select menge from schule.sterne where lernender_id = v_l and grund = 'landung' and bezug = 'landung:' || v_e[6] || ':' || v_lz[6]) <> 80 then raise exception 'FEHLER 5 Bonus der Etappe ohne Fehler'; end if;
   if exists (select 1 from schule.sterne where lernender_id = v_l and grund = 'landung' and bezug = 'landung:' || v_e[5] || ':' || v_lz[5]) then raise exception 'FEHLER 5 gesetzte Etappe nachgebucht'; end if;
   select count(*) into v_n from schule.landung_bonus_nachbuchen(v_l);
   if v_n <> 0 or (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l) - v_s0 <> r.sterne then raise exception 'FEHLER 5 zweiter Lauf bucht'; end if;
-  if (select etappen from schule.landung_nachbuchung where lernender_id = v_l) <> r.etappen then raise exception 'FEHLER 5 Hinweis für die App'; end if;
+  -- Hinweis für die App: eine Zeile je Kind; gab es sie schon, bleibt sie unverändert (on conflict do nothing), sonst trägt sie diese Nachbuchung
+  if (select count(*) from schule.landung_nachbuchung where lernender_id = v_l) <> 1
+     or (select etappen from schule.landung_nachbuchung where lernender_id = v_l) <> coalesce(v_i, r.etappen) then raise exception 'FEHLER 5 Hinweis für die App'; end if;
   raise notice 'ok 4–5 gesetzte Etappe ohne Bonus; Nachbuchung (% Etappen, % Sterne), zweiter Lauf bucht nichts', r.etappen, r.sterne;
 
   -- 8 FP-S 2: 1 Fehler, Tipp, zweiter Versuch (vor der Landung), Mischkarte mit Tipp, Fehler nach der Landung, Wiederlandung

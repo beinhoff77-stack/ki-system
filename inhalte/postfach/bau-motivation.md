@@ -2,6 +2,94 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: LK-S – ein Thema in mehreren Klassen (Server)
+
+Zweig `bau-lehrer`, auf `lernen-app` 22251c0. Nur Dateien, **nicht eingespielt**, kein DROP, kein DELETE, kein App-Code.
+Neue Dateien:
+- `supabase/migrations/20261123_lk_s_thema_je_klasse.sql` – einspielen **nach** `inhalte/pruefung/lehrplan/rs_korrektur_2211.sql`, in einer Transaktion;
+- `supabase/tests/lk_s_rauchtest.sql`.
+
+Geändert: `supabase/tests/fp_s_rauchtest.sql` Teil 5. Er läuft jetzt auch, wenn das Testkind schon eine Nachbuchungs-Zeile hat; diese bleibt unverändert.
+Gelesen (nur lesend): `rs_korrektur_2211.sql` ist live noch nicht eingespielt. Jedes Thema hat `klasse_fest` für RS und IB.
+
+**Schnittstelle für die App** (alle alten Felder bleiben; fehlen die neuen, bleibt die alte Anzeige)
+- `schule_lehrplan_matrix`
+  - Eltern/Lehrer, je Thema `klassen`: `{schulart: {zweig: [{klasse, rolle: neu|weitergefuehrt, etappen?, lernbereiche: [{eintrag_id, pfad, titel, stunden}], stunden, rolle_lehrplan?, nur_klasse_fest?}]}}`.
+    - Zweige: `gym_by.allgemein`, `rs_by.rs_I` / `rs_by.rs_II_III`, `ib_myp.myp_standard` / `ib_myp.myp_extended`.
+    - `etappen` fehlt = ganzes Thema; sonst die Lernziel-Schlüssel, die in dieser Klasse verlangt sind.
+  - Oben neu `abdeckung`: `{schulart: {zweig: {"<klasse>": {stunden, stunden_abgedeckt, lernbereiche: [{eintrag_id, pfad, titel, stunden, punkte, punkte_mit_thema, stunden_abgedeckt}]}}}}`.
+  - `kinder[].zweig`.
+  - Kindsicht: je Thema nur `klassen_kind: [{klasse, rolle, etappen?}]` (Schulart und Zweig des Kindes) und oben `zweig`.
+- `schule_lehrplan_thema {thema_id, lernender_id?}`
+  - Zusätzlich `klassen` (wie oben) und `etappen_titel {lernziel: titel}`.
+  - `baut_auf: [{thema_id, titel, art, klassen: {"rs_by/rs_I": 7, …}, verstoss: ["rs_by/rs_II_III", …]}]`. `verstoss` heißt: Die Voraussetzung liegt in dieser Schulart/diesem Zweig später als das Thema.
+  - `weiter_in: {"rs_by/rs_II_III": [{klasse: 9, etappen?}]}`.
+  - Mit Kind zusätzlich `zweig` und `klassen_kind: [{klasse, rolle, etappen?, etappen_verlangt, etappen_erledigt}]` („2 von 3 Etappen dieser Klasse“; erledigt = gelandet oder gesetzt). Eltern/Lehrer übergeben `lernender_id`; der Zugriff auf das Kind wird geprüft. Kindsicht: `klassen_kind`, `baut_auf` (mit Klasse).
+- **Regeln** (wie in `rs_pruefung_2211.md` Abschnitt 6):
+  - Klassen aus Hauptbezügen aktiver Basis-Quellen, ohne archivierte Einträge und ohne Zuordnungen mit `klaerungsbedarf`.
+  - RS 5/6 „allgemein“ gilt für beide Gruppen.
+  - `klasse_fest` gewinnt: Es ist die erste Klasse (null = kein Pflichtstoff dieser Schulart), frühere Klassen fallen weg.
+  - Rolle je Klasse: die erste Klasse `neu`, spätere `weitergefuehrt`. Die Aussage der Prüfung steht zusätzlich in `rolle_lehrplan`.
+  - Lernstand und Sterne bleiben je Thema/Etappe einmal.
+- Stand je Klasse und „Flug bleibt Flug“: `thema_stufe`, Flug-Abschluss und Stempel sind unverändert und gelten fürs ganze Thema; `klassen_kind` zeigt nur zusätzlich den Stand der Etappen dieser Klasse.
+
+**Server**
+- **Felder:** `schule.zuordnung.rolle`, `.etappen`; `schule.lernender.zweig` (`rs_I` | `rs_II_III`; leer = `rs_I`). Für IB gilt vorerst `myp_standard` (**Annahme**, es gibt kein IB-Kind-Feld).
+- **Sichten:** `schule.lehrplan_zweig`, `schule.thema_lage_klasse`, `schule.thema_lage` (je Etappe `klasse_ab`, `klassen[]`, `rollen`), `schule.lehrplan_abdeckung`.
+- **Befüllen:** `schule.lehrplan_rolle_setzen(jsonb)` ist wiederholbar. Es ändert nur vorhandene Zuordnungen und meldet fehlende Zuordnungen und unbekannte Etappen. Die Migration befüllt damit die Realschule aus `rs_pruefung_2211.json`: 409 Vorschläge, davon 19 mit Etappen. Gym/IB später aus `lk_daten_2211.json` mit derselben Funktion.
+  - Titel → Schlüssel (**Annahmen**, bitte von `lehrplan-lb` prüfen lassen): 33 „Steigung m und Achsenabschnitt t, Parameter“ → `ablesen`, `wirkung`; „Geradengleichung aus zwei Angaben, Parallelenscharen“ → `zwei_punkte`, `lage`.
+  - 44/931 „Vierecke konstruieren (Etappe fehlt)“ ohne Etappe.
+  - Gruppe II/III ist im Korrektur-SQL nicht eingespielt; deren Vorschläge treffen nur, wo die Zuordnung schon so besteht. Die Zahl meldet die Migration beim Einspielen.
+- **Teilen eines Themas** (Nachtrag „Route“): `schule.thema_teilen(plan, probelauf default true)`, nur angelegt, nicht aufgerufen. Ablauf:
+  1. Thema anlegen (über `schluessel` wiederholbar), Kann-Texte, Ort (`block_id`), Voraussetzung „Teil 2 braucht Teil 1“ (hart), Zuordnungen mit nur diesen Etappen umhängen.
+  2. Mit `neue_einheit_id` (vorher per `einheit_importieren` angelegt): Aufgaben, Karten, Lernziel-Stand, besprochen, Was wackelt, Wiederholungs-Runden, Staffel-Sicherung, abgelegt und Rückmeldungen umhängen. Sterne-Bezüge `landung:`/`wdh:` werden mitgezogen; Menge gleich, kein zweiter Bonus.
+  3. Vorher/Nachher je Kind (gelandet, gesetzt, Karten, Sterne, Flug-Abschlüsse, Plan) muss gleich sein, sonst Abbruch. Je Kind `neu_vollstaendig`.
+  - Weniger als 3 Etappen: abgelehnt. **Nicht drin:** Nachtrag Stempel/Bonus für den neuen Teil (Festlegung 14) und Plan/Route für den neuen Ort (Reise-Aufbau).
+- **Vorher/Nachher in der Migration** (sonst Abbruch): `thema_stufe` aller Kinder × Themen, Reiseoptionen, Klassen (`thema_jahrgang`), Kinder (ohne neues Feld), Plan, Karten, Lernziel-Stand, Sterne, Flug-Abschlüsse, Visum-Regeln, Themen, Voraussetzungen, Orte.
+
+**Test** `lk_s_rauchtest.sql` (Rollback, Testkind, Test-Thema; lokal grün, Migration zweimal eingespielt)
+1. Thema in zwei Klassen (neu + weitergeführt) erscheint in beiden, Matrix mit Abdeckung und alten Feldern.
+2. RS 8 I Lernbereich 4 = 40 Std., abgedeckt 40.
+3. Testkind II/III: Thema 33 in 8 und 9, Gruppe I nur in 8; Stufen durch den Zweig unverändert; Detail mit Stand je Klasse.
+4. Befüllen wiederholbar, Meldungen.
+5. Teilen: Schritt 1 ohne Einheit, Probelauf ändert nichts, echter Lauf hängt um (Sterne-Summe gleich, kein zweiter Bonus), < 3 Etappen abgelehnt.
+
+**Offen / nicht geprüft**
+- Nicht gegen die Live-Datenbank gelaufen. Lokal mit einem Ausschnitt der echten Lehrplan-Daten (Ids wie live) und Ersatz für `lehrplan_matrix`/`lehrplan_thema`. Die Erwartungen 40 Std. und 33 in 8/9 habe ich live nachgelesen (Zuordnungen bestehen schon so).
+- Laufzeit der Matrix mit allen Themen live nicht gemessen; die Sichten rechnen bei jedem Aufruf.
+
+## 2026-11-22 – FERTIG: LW-S – „Was wackelt“ mit gespeichertem Status (für LW-3)
+
+Zweig `bau-lehrer`, auf `lernen-app` 22251c0. Nur Dateien, **nicht eingespielt**, kein DROP, kein DELETE, kein App-Code.
+Neue Datei: `supabase/migrations/20261123_lw_s_wackelt_status.sql`. Unabhängig von LK-S und den WD/FP-Dateien; braucht nur LA-3 (`schule.besprochen`, ist live).
+
+**Schnittstelle** (in `lernen-api` freigeschaltet, Version 0.9.2; nur Eltern/Lehrer, Zugriff auf das Kind geprüft)
+- `schule_wackelt_lesen {lernender_id}` → `{ok, lernender_id, zu_besprechen, eintraege: [...]}`
+  - `zu_besprechen` = Zahl für den roten Punkt am Reiter.
+  - Je Eintrag: `thema_id`, `titel`, `einheit_id`/`lernziel` (null = ganzes Thema; gesetzt = Eintrag für eine Etappe), `status` (wirksam: `zu_besprechen` | `beobachten` | `besprochen`), `quelle` (`gespeichert` | `vorgabe`), `status_gespeichert`, `status_am`, `status_von`, `wieder_offen` (gespeichert war besprochen/beobachten, aber danach neue Fehler), `fehler` (endgültig falsche Antworten), `fehler_neu` (seit dem Status), `letzter_fehler_am`, `etappe` (die mit dem letzten Fehler – für die Zeile „Etappe: …“), `etappen` (alle mit Fehlern: `einheit_id`, `lernziel`, `titel`, `fehler`, `letzter_fehler_am`, `wackelt`, `sitzt`, `besprochen_am`).
+  - Sortiert: zu besprechen → beobachten → besprochen, darin neueste Fehler zuerst.
+- `schule_wackelt_setzen {lernender_id, thema_id, status, einheit_id?, lernziel?}` → `{ok, eintrag, zu_besprechen}` (`eintrag` im selben Format, gleich neu berechnet). Erneutes Setzen überschreibt Zeitpunkt und Person.
+- Aufgabe und Antwort zum Aufklappen weiter aus `schule_lernstand` (je Etappe `fehler[]`), dort unverändert.
+
+**Regeln**
+- Neue endgültig falsche Antwort im Thema (bzw. in der Etappe) nach dem Status → wieder `zu_besprechen`. „Endgültig“ wie bei LA-3: der 1. Versuch mit zweiter Chance zählt nicht. Ausgewertet beim Lesen; beim Antworten wird nichts geschrieben.
+- Hat eine Etappe einen eigenen Status, ist sie ein eigener Eintrag und steht nicht mehr im Eintrag ihres Themas.
+- **Annahme (bitte bestätigen):** Ohne gespeicherten Status gilt eine Vorgabe:
+  - `zu_besprechen`, wenn eine Etappe wackelt (Regel wie in der App: nicht gelandet und wieder offen, oder ≥ 3 falsch und mehr falsch als richtig) und nicht als besprochen markiert ist (LA-3);
+  - `besprochen`, wenn alle Etappen mit Fehlern als besprochen markiert sind;
+  - sonst `beobachten`.
+  - Damit entspricht die Zahl am ersten Tag etwa dem heutigen „offen“ (wackelt und nicht besprochen), nur je Thema statt je Etappe.
+- `schule.besprochen` (LA-3, „Besprochen ✓“ je Etappe) bleibt wie es ist; `schule_wackelt_setzen` schreibt dort nicht hinein.
+
+**Test** `supabase/tests/lw_s_rauchtest.sql` (Rollback, nur Testkind, Thema ohne Antworten des Testkinds; lokal grün, Migration zweimal eingespielt)
+1. drei Fehler → `zu_besprechen` (Vorgabe), Zahl +1;
+2. besprochen gesetzt (wer, wann), Zahl zurück, Lernstand/Sterne/Plan/Kinder/Antworten unverändert;
+3. 1. Versuch mit zweiter Chance zählt nicht, danach ein neuer Fehler → wieder `zu_besprechen`;
+4. Etappe mit eigenem Status → eigener Eintrag, kein Doppel, erneutes Setzen überschreibt;
+5. falscher Status, fremde Etappe, halbe Etappe, Aufruf ohne Eltern-/Lehrer-Recht abgelehnt.
+
+Nicht gegen die Live-Datenbank gelaufen (lokal mit Nachbau; die benutzten Spalten habe ich live nachgelesen).
+
 ## 2026-11-22 – FERTIG: 0.87.1 – Nachbuchungs-Hinweis beim Server quittiert (Nachtrag FP-S 3), Cache v161
 
 Auf `lernen-app` b359169 (mit FP-S 2: `gesehen_am`, Aktion `schule_landung_nachbuchung_gesehen`). Nur App, Version in sechs Dateien, Tests. Nichts in der Datenbank, kein Merge nach `main`.

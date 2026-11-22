@@ -632,3 +632,10 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 22.11. 11:05 (Berlin) – an bau-lehrer, bau-motivation
 
 - **Entscheidungen Sebastian:** Wiederholung zählt nur im ersten Versuch ohne Tipp (`wdh_nur_selbst` true); `sterne_wdh_richtig` = 10; WD-4b wird eingespielt (nach WD-S 3). Einzelheiten in `AUFTRAEGE.md`, „Entscheidungen Sebastian (22.11., 11:00 Berlin)“.
+
+## 22.11., 11:15 Berlin – Haupt-Chat: WD-Paket zusammengeführt, Probelauf
+
+- `lernen-app` 7675d32: WD-S 3, WD-4b (neu), Nacharbeit 907 c, App 0.86.2, Gestalter-Vorgabe Reise-Aufbau. App-Tests 157/157, Prüfskript ok.
+- Probelauf echte Datenbank (alles zurückgerollt): fünf Migrationen in Reihenfolge ok; Stufen, Reiseoptionen, Lernstand, Sterne vorher = nachher. WD-4b: fällige beim Kind 2 von 42 auf 14.
+- Tests: 907 (zwei), WD-S 2 grün. WD-S 3 bricht in Schritt 2 – Fehler im Test (rechnet nur mit Auswahl-Aufgaben), Funktion richtig; mit angepasster Vorbereitung ganz grün. Auftrag an `bau-lehrer` steht in AUFTRAEGE.md („Nachtrag WD-S 3 – Rauchtest stabil machen“).
+- Noch nichts eingespielt. Offen: Prüfung ChatGPT, dann „Live“ von Sebastian. Beide Kinder üben gerade (11:10).

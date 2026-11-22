@@ -2476,3 +2476,11 @@ Richtung von Sebastian (22.11.): Kontinent = Themengebiet (bleibt); **Flug = ein
 3. **Stau strecken (WD-4b): ja** – nach WD-S 3, Probelauf und ChatGPT, zusammen mit dem Paket.
 4. **Reise-Aufbau:** nach dem WD-Paket weitermachen (Entwurf des Gestalters, Aufwandsschätzung); für schon abgeschlossene Flüge gibt es Länder-Stempel **und** die 100 Sterne nachträglich.
 5. Kinder-Zugänge sind angelegt (je Kind ein Lern-Zugang) – erledigt.
+
+### Nachtrag WD-S 3 – Rauchtest stabil machen (22.11., 11:15 Berlin) · an `bau-lehrer`
+
+Probelauf des Haupt-Chats gegen die echte Datenbank (Rollback, Commit 7675d32): alle fünf Migrationen laufen, Stufen/Reise/Lernstand/Sterne unverändert, drei Tests grün. `supabase/tests/wd_s3_rauchtest.sql` bricht in Schritt 2 ab („keine frische: nicht die am längsten zurückliegende“).
+
+Ursache liegt im Test, nicht in der Funktion: Der Test rechnet nur mit den Auswahl-Aufgaben der Stufen 2–3 (`v_ids`), `schule.wdh_aufgabe_waehlen` wählt aber richtig aus **allen** freigegebenen Übungsaufgaben der Etappe. In der echten Etappe (Einheit 1, `roemisch_system`: 19 Aufgaben, davon 8 Auswahl Stufe 2–3) gibt es weitere nie beantwortete Aufgaben – die werden zu Recht vor einer alten gewählt. Schritt 2, erste Prüfung, besteht dort nur zufällig.
+
+Bitte nur die Testdatei ändern (keine Migration): Vor Schritt 1 alle übrigen Übungsaufgaben beider Test-Etappen als „innerhalb der Sperre beantwortet“ markieren (z. B. `w3_gesehen` am Vortag, nicht heute) – mit genau dieser Änderung läuft der ganze Test bei mir grün. Meldung im Postfach: „FERTIG: WD-S 3 Test“.

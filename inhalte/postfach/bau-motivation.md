@@ -2,6 +2,39 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: LK-S Test (und Teil-Verfahren nach der neuen Teilungsregel)
+
+Zweig `bau-lehrer`, auf `lernen-app` (Stand 15:50). Nichts eingespielt, kein DROP, kein DELETE.
+
+**1. Test-Fehler `eintrag_bearbeitung_check`** (nur Test geändert)
+- Erlaubte Werte laut echter Constraint: `originaltitel`, `deutsche_uebertragung`, `zusammenfassung_eigene_worte`, `redaktionelle_zuordnung`, `annahme`.
+- Der Test legt seine drei Test-Einträge jetzt mit `annahme` an (vorher `original`).
+- Gleich mitgeprüft: die übrigen Constraints und Trigger, die der Test berührt (`eintrag_parent_pruefen`, `zuordnung_*`, `einheit_status_check`, `einheit_schutz`, `aufgabe_schutz`, `block_thema` eindeutige Reihenfolge). Lokal bilde ich sie jetzt nach.
+
+**2. Teilungsregel (22.11., 15:35/15:40)** – Datei `20261123_lk_s_thema_je_klasse.sql`, nur Abschnitt 5 `thema_teilen` (Vorlage, wird nicht aufgerufen; die übrige Migration ist unverändert)
+- **Beliebig viele Teile, keine Mindestzahl:** `teile: [{etappen, neu, untertitel?, block_id?, einheit_id?}]`. Das alte Thema bleibt Teil 1.
+  - Geprüft wird: kein Teil leer (auch Teil 1 nicht), alle disjunkt, zusammen genau der alte Katalog, jede Teil-Einheit hat genau ihre Etappen.
+  - Die Kurzform mit nur einem Teil geht weiter.
+- **Benennung:** alle Teile „‹Titel› – Teil k von n“, mit Untertitel „… · ‹Untertitel›“; abschaltbar mit `benennen: false`.
+- **Kette:** Teil k braucht Teil k−1 (hart). Die übrigen Voraussetzungen ordnet `lehrplan-lb` den Teilen zu.
+- **Neu, weil freigegebene Einheiten unveränderlich sind:** Live verbieten die Trigger `einheit_schutz` und `aufgabe_schutz`, eine freigegebene Einheit oder ihre Aufgaben zu ändern. Die erste Fassung (Katalog an Ort und Stelle verkleinern, Aufgaben umhängen) wäre an jedem echten Flug gescheitert. Jetzt:
+  - Mit `rest_einheit_id` (neue Version des alten Themas mit den verbleibenden Etappen; Pflicht, wenn die alte Einheit freigegeben ist): alte Einheit → `ersetzt`. Die Aufgaben bleiben dort, damit Antworten und Sterne-Bezüge `aufgabe:` gültig bleiben.
+  - Lernstand je Etappe zieht in Teil-1- bzw. Teil-Einheit.
+  - Flug-Abschlüsse und abgeschlossene Tests der alten Einheit gehen an Teil 1.
+  - Offene Misch-Ausgaben ihrer Aufgaben verfallen.
+  - Ohne `rest_einheit_id` (nur bei nicht freigegebener alter Einheit): wie bisher Katalog verkleinern und Aufgaben umhängen.
+- **Vorher/Nachher je Kind:** Wie bisher, jetzt über alle beteiligten Einheiten. Die Flug-Abschlüsse werden nach Anzahl und Zeitpunkt verglichen. Offene Misch-Ausgaben stehen jetzt im Bericht, weil sie bei `ersetzt` verfallen. Neu je Kind und Teil: erledigt / Etappen.
+- **Test** Teil 7: drei Teile (2 + 1 + 3 Etappen) an einer freigegebenen Test-Einheit. Abgelehnt werden: leerer Teil, doppelte Etappe, leerer Teil 1, falscher Katalog, fehlende Rest-Version. Geprüft werden: Titel und Kette, Probelauf ohne Änderung, echter Lauf (`ersetzt`, Lernstand je Teil, Flug-Abschluss bei Teil 1, Sterne gleich, kein zweiter Bonus).
+- Lokal grün (alle sieben Teile), Migration zweimal eingespielt.
+
+**3. Wo „mindestens 3 Etappen“ vorausgesetzt wird** (live gelesen) – Folgen für Flüge mit 1–2 Etappen
+- `schule.einheit_importieren` und `schule.einheit_abgleichen`: „Datei unvollständig“ bei weniger als 3 Etappen; Import zusätzlich erst ab 30 Aufgaben. **Ein Teil mit 1–2 Etappen lässt sich heute nicht importieren.** Das braucht eine Lockerung (eigener Auftrag, Sebastians Okay).
+- `einheit_importieren` lehnt außerdem ab, wenn das Thema schon eine Einheit hat, die nicht `ersetzt` ist. Für die Rest-Version von Teil 1 muss die alte Einheit vorher auf `ersetzt` oder die Version anders angelegt werden. Das Teil-Verfahren erwartet die Einheiten fertig angelegt.
+- Mischkarten: Regel `misch_ab_gelandet` (Vorgabe 3) wird über `einheit_lesen_intern` an die App gegeben. Ob sie je Flug oder insgesamt zählt, entscheidet die App (bitte bei `bau-motivation` prüfen). Zählt sie je Flug, gäbe es in einem Flug mit 1–2 Etappen nie Mischkarten.
+- Flug-Test (`test_starten_intern`): je Pflicht-Etappe eine Aufgabe. Ein Flug mit 1 Etappe hat also 1 Testaufgabe (Quote 0 oder 100 %), mit 2 Etappen 2. Technisch geht das, als Test ist es dünn.
+- Nachtests, Abschluss, Landung: keine Mindestzahl an Etappen gefunden (die „3“ dort sind 3 Lösungen in Folge bzw. 3 Nachtest-Runden).
+- Expeditionen: mindestens 3 **Themen** (nicht Etappen). Mehr Teile machen das eher leichter.
+
 ## 2026-11-22 – FERTIG: LW-1 – App 0.88.0 „Unser Lehrplan“ (Reiter „Lehrplan“), Cache v163
 
 Auf `lernen-app` (mit Vorgabe `inhalte/pruefung/lehrer/werkstatt/umsetzung.md`) und 0.87.2. Nur App, Version in sechs Dateien, Tests, Info-Seite. Nichts in der Datenbank, kein Merge nach `main`.

@@ -2431,3 +2431,18 @@ Richtung von Sebastian (22.11.): Kontinent = Themengebiet (bleibt); **Flug = ein
 3. An WD-S 2 anpassen: kein eigenes Setzen von „Runde gemacht“ mehr – der Server setzt es; die Aktion nur noch zum Bestätigen; Aufgaben mit `pflicht`; `anzahl` weglassen. Text: nie „Schulden“/große Rückstandszahl zeigen; Runde sichtbar endlich („3 von 9“), unterbrechen und fortsetzen möglich.
 4. Matrix-Nachprüfung N1: am Rechner (1280) sind die Spalten zu schmal, Titel zerstückelt – Lösung nach `inhalte/pruefung/lehrer/matrix/nachpruefung.md`.
 „FERTIG: 0.86.1“.
+
+---
+
+# Fehler Mischkarten (22.11., gemeldet von einem Kind): dieselbe Aufgabe dreimal am Tag, in drei Etappen
+
+**Befund aus den Daten (ohne Namen):** Eine Aufgabe (Stufe 2, Etappe „Werte von Bruchtermen berechnen“) wurde am selben Tag dreimal beantwortet: 14:23 im normalen Üben ihrer eigenen Etappe, 18:39 als Mischkarte (Ausgabe von 13:10 eingelöst), 20:04 noch einmal als Mischkarte angezeigt – vom Server aber als normale Antwort gebucht, weil keine gültige Ausgabe mehr bestand. Im Pool dieser Etappe liegen 16 passende Aufgaben (Stufe 2–3).
+
+**Ursachen**
+1. **App:** Die Mischkarten-Liste (`ctx.daten.mischkarten`) wird je Flug einmal geladen und **für jede Etappe neu von vorn benutzt** (`mischRest` in `lernen.js`, „keine Wiederholung in der Sitzung“ gilt nur innerhalb einer Etappe). In der nächsten Etappe kommt dieselbe Karte wieder.
+2. **Server:** Eine vorab ausgegebene Mischkarte bleibt bis zu 24 Stunden offen und wird wieder ausgegeben, auch wenn das Kind **dieselbe Aufgabe inzwischen im normalen Üben gelöst** hat. Die Auswahl (`schule.mischkarten_waehlen`) schließt schon bearbeitete Aufgaben nicht aus.
+3. **Anzeige:** Beim dritten Mal zeigt die App „+10 Sterne“, obwohl der Server je Aufgabe nur einmal Sterne bucht.
+
+**Aufträge – Teil des WD-Pakets, vor dem Einspielen (mit WD zählt eine Mischkarte als Wiederholung; eine bekannte Aufgabe wäre dann kein Abruf, vgl. ChatGPT 911 MUSS 3):**
+- **`bau-lehrer`, WD-S 3 (Dateien):** (a) Auswahl der Mischkarten: zuerst Aufgaben, die das Kind **noch nie** beantwortet hat, dann die am längsten zurückliegenden; **nie** eine Aufgabe, die es in den letzten 3 Lerntagen beantwortet hat (egal ob Üben, Wiederholung, Mischkarte, Test); unter gleichwertigen zufällig. (b) Offene Ausgabe verfällt sofort, wenn dieselbe Aufgabe anders beantwortet wird. (c) Dieselbe Regel für die Aufgaben der Wiederholungs-Runde (`schule_wiederholung`): keine Aufgabe von heute oder gestern, wenn die Etappe andere hat. (d) Kommt eine Mischkarte ohne gültige Ausgabe an, antwortet der Server mit `misch: { gueltig: false }`, bucht sie nicht als Wiederholung und liefert die tatsächlich gebuchten Sterne (`sterne`) mit. Tests: gleiche Aufgabe nicht zweimal am Tag; Pool mit nur einer Aufgabe; nach normalem Üben keine Mischkarte derselben Aufgabe. „FERTIG: WD-S 3“.
+- **`bau-motivation`, 0.86.2:** (a) Eine gezeigte Mischkarte wird für die ganze Sitzung des Flugs aus der Liste genommen (nicht je Etappe neu); ist die Liste leer, einmal neu vom Server holen, sonst ohne Mischkarte weiter. (b) Sterne-Anzeige nur aus der Antwort des Servers (keine eigenen „+10“). (c) Bei `misch.gueltig === false` kein „Das war …“-Lob als Wiederholung. Test: drei Etappen nacheinander, keine Mischkarte doppelt. „FERTIG: 0.86.2“.

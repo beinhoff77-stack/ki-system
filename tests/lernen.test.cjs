@@ -3989,7 +3989,7 @@ test('WD: Info-Seite (Eltern) und Kindertext – Check-in, unterbrechen, abgeleg
   const text = (await page.locator('#main').innerText()).replace(/\s+/g, ' ');
   for (const s of ['sonst ein Fünftel der fälligen (aufgerundet), mindestens 6 und höchstens 12 (bis Klasse 6 höchstens 10)', 'Auf der Kinderseite heißt die Runde „Check-in“',
     'nie die Zahl aller fälligen Etappen', 'auch auf einem anderen Gerät', 'Endgültig abgelegt:', 'der Flug steht im Reisepass golden', 'wird auch der Stempel des Orts golden',
-    'kommt sie am nächsten Lerntag wieder zur Wiederholung; Gold und Sterne bleiben', 'zählt sie als bestandene Wiederholung dieser Etappe', 'Sterne für jede richtige Wiederholung',
+    'kommt sie am nächsten Lerntag wieder zur Wiederholung; Gold und Sterne bleiben', 'zählt sie als bestandene Wiederholung dieser Etappe', 'Wiederholungen bringen 10 ★, wenn sie selbst gelöst sind',
     'je Lerntag kommen höchstens 6 solche Etappen neu in den Takt'])
     assert.ok(text.includes(s), 'fehlt: ' + s);
   const kind = await page.evaluate(() => lernWdhErklaert(true).textContent);
@@ -4234,4 +4234,81 @@ test('0.86.3: kein „für immer“ mehr – Siegel und Einblendungen „ABGELEG
   await p2.getByText('Richtig – morgen noch einmal ohne Hilfe.').waitFor();
   assert.equal(await p2.locator('.lr-plus-stern').count(), 0);
   assert.equal(await p2.locator('.lr-checkin-sterne').innerText(), '★ 340', 'Zähler unverändert');
+});
+
+// ---------- Bau-Auftrag FP – faire Punkte (0.87.0), Vorgabe inhalte/pruefung/kind/faire-punkte/umsetzung.md – erfundene Daten ----------
+const fpLandung = async (page, landung, { breite = 400, hoehe = 860 } = {}) => {
+  await page.setViewportSize({ width: breite, height: hoehe });
+  await page.evaluate((l) => { lernAbschlussZu(); const e = { lernziel: 'stellenwert', titel: 'Welchen Wert hat eine Ziffer?', regel: 'Jeder Platz ist zehnmal so viel wert.' };
+    lernAbschlussZeigen({ id: 1 }, lernAbschlussEtappe({ e, nr: 1, von: 3, landung: l, daten: {}, sterne: 60, knopf: lernGrossKnopf('Weiter: Zahlenstrahl', 'Etappe 2 von 3', { onclick: () => {} }), kind: 1 }), { label: 'Etappe gelandet' }); }, landung);
+  const d = page.getByRole('dialog', { name: 'Etappe gelandet' }); await d.waitFor(); await d.locator('.lr-ab-szene').click({ position: { x: 5, y: 5 } }); await page.waitForTimeout(120); return d; };
+
+test('FP-1: Landungs-Bonus als Kachel in allen drei Fassungen (80/40/10), eigene Wörter, Sturmflug ohne Fehlerzahl, ohne landung keine Kachel; 360×640 ohne Scrollen', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' }); await page.goto(origin + '/#/reise/1'); await page.locator('.lr-einsteigen-knopf').waitFor();
+  const faelle = [[{ landung_art: 'sauber', bonus: 80, fehler: 0, stufe: 'ohne' }, /Landungs-Bonus[\s\S]*ohne Fehler gelandet[\s\S]*\+80 ★/],
+    [{ landung_art: 'direkt', bonus: 80, fehler: 0, stufe: 'ohne' }, /Landungs-Bonus[\s\S]*ohne Fehler gelandet[\s\S]*\+80 ★/],
+    [{ landung_art: 'sauber', bonus: 40, fehler: 1, stufe: 'wenig' }, /Landungs-Bonus[\s\S]*mit 1 Fehler gelandet[\s\S]*\+40 ★/],
+    [{ landung_art: 'sauber', bonus: 40, fehler: 2, stufe: 'wenig' }, /mit 2 Fehlern gelandet[\s\S]*\+40 ★/],
+    [{ landung_art: 'sturm', bonus: 40, fehler: 2, stufe: 'wenig' }, /Landungs-Bonus[\s\S]*gelandet – geschafft![\s\S]*\+40 ★/],
+    [{ landung_art: 'sturm', bonus: 10, fehler: 5, stufe: 'sonst' }, /gelandet – geschafft![\s\S]*\+10 ★/]];
+  for (const [l, re] of faelle) {
+    const d = await fpLandung(page, l); const k = d.locator('.lr-ab-bonus');
+    assert.match(await k.innerText(), re, JSON.stringify(l));
+    if (l.landung_art === 'sturm') assert.doesNotMatch(await k.innerText(), /\d Fehler/, 'Sturmflug ohne Fehlerzahl');
+    assert.doesNotMatch(await d.innerText(), /Direktflug \+|hätte|wären/, 'eigene Wörter, kein Vergleich');
+    const kn = await d.locator('.lr-ab-gross').boundingBox(); const kb = await k.boundingBox(); assert.ok(kb.y < kn.y, 'Kachel über dem Knopf');
+  }
+  for (const [b, h] of [[360, 640], [400, 860], [820, 1180], [1280, 900]]) {
+    const d = await fpLandung(page, { landung_art: 'sturm', bonus: 40, fehler: 2, stufe: 'wenig', bordkarten: 14 }, { breite: b, hoehe: h });
+    const kn = await d.locator('.lr-ab-gross').boundingBox(); assert.ok(kn.y + kn.height <= h, `${b}×${h}: ohne Scrollen`);
+    assert.deepEqual(await gebrocheneWoerter(d.locator('.lr-ab-bonus-text b, .lr-ab-bonus-zahl')), [], `${b}`);
+    if (b === 360 || b === 1280) await page.screenshot({ path: path.join(root, `test-results/fp-landung-${b}.png`) });
+  }
+  const ohne = await fpLandung(page, { landung_art: 'sauber' });
+  assert.equal(await ohne.locator('.lr-ab-bonus').count(), 0, 'ohne bonus wie bisher');
+});
+
+test('FP-2: Sterne nach der Antwort aus dem Serverwert (ohne Landungs-Bonus); Hinweis bei 5 Sternen höchstens einmal je Etappe und Lerntag, ohne Tadel', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: (aktion, e) => (aktion === 'schule_uebung_pruefen' && e.format_ok ? { ...e, sterne: 5 } : null) });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1');
+  const tf = page.getByRole('group', { name: 'Tastenfeld' }); await page.locator('.lr-bordkarte').first().waitFor();
+  if (await tf.count()) { for (const z of ['2', '0', '0', '0']) await tf.getByRole('button', { name: z, exact: true }).click(); await tf.getByRole('button', { name: 'Prüfen' }).click(); }
+  else { await page.locator('main input').first().fill('2000'); await page.getByRole('button', { name: 'Prüfen' }).click(); }
+  await page.locator('.lr-rueck-ok').waitFor();
+  assert.match(await page.locator('.lr-rueck-ok b').first().innerText(), /\+5 Sterne/i, 'Serverwert, nicht 10');
+  assert.equal(await page.locator('.lr-fp-hinweis').count(), 0, 'ohne Tipp/zweiten Versuch kein Hinweis');
+  // Bonus wird nicht in die Bordkarten-Sterne gerechnet
+  const r = await page.evaluate(() => { const ctx = { kind: 1, regeln: { sterne_uebung_richtig: 10 } }; const e = { lernziel: 'x' };
+    const a = lernFuenfHinweis(ctx, e, 5, { hilfe: true, zweiter: false })?.textContent; const b = lernFuenfHinweis(ctx, e, 5, { hilfe: true, zweiter: false });
+    const c = lernFuenfHinweis(ctx, { lernziel: 'y' }, 5, { hilfe: false, zweiter: true })?.textContent; const d = lernFuenfHinweis(ctx, { lernziel: 'z' }, 10, { hilfe: true, zweiter: false });
+    return [a, b, c, d]; });
+  assert.deepEqual(r, ['Ganz ohne Tipp gibt es 10 ★.', null, 'Gleich beim ersten Mal gibt es 10 ★.', null]);
+  assert.doesNotMatch(r.join(' '), /nur|leider|Abzug|weniger/);
+});
+
+test('FP-3: einmaliger Hinweis nach der Nachbuchung („Geschenk für deine Landungen“), „Super ›“ schließt ihn; ohne Nachbuchung nichts – 360/820/1280', async (t) => {
+  const nach = (aktion, e) => (aktion === 'schule_konto' ? { ...structuredClone(e), landung_nachbuchung: { etappen: 25, sterne: 1620, am: '2026-11-22T12:00:00Z' } } : null);
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: nach });
+  for (const b of [360, 820, 1280]) { await page.setViewportSize({ width: b, height: 800 });
+    await page.goto(origin + '/#/reise/1'); const k = page.locator('.lr-fp-geschenk'); await k.waitFor();
+    assert.match(await k.innerText(), /★ Geschenk für deine Landungen[\s\S]*Für deine bisherigen Landungen gibt es nachträglich \+1.620 ★ Landungs-Bonus\./);
+    assert.ok(await ohneQuerrollen(page), `${b}`); }
+  await page.getByRole('button', { name: 'Super ›' }).click(); await page.locator('.lr-fp-geschenk').waitFor({ state: 'detached' });
+  await page.reload(); await page.locator('.lr-einsteigen-knopf').waitFor();
+  assert.equal(await page.locator('.lr-fp-geschenk').count(), 0, 'nur einmal');
+  const { page: p2 } = await setup(t, { gestaltung: 'nacht' }); await p2.goto(origin + '/#/reise/1'); await p2.locator('.lr-einsteigen-knopf').waitFor();
+  assert.equal(await p2.locator('.lr-fp-geschenk').count(), 0);
+});
+
+test('FP-4: Info-Seite „Sterne“ nach der Vorgabe', async (t) => {
+  const { page } = await setup(t, { lernSeite: true, rolle: 'lehrer' });
+  await page.addInitScript(() => localStorage.setItem('lern_token', 't'.repeat(64)));
+  await page.goto(origin + '/lernen/#/info'); await page.getByRole('heading', { name: 'Erste Schritte' }).waitFor();
+  await page.evaluate(() => document.querySelectorAll('details').forEach((d) => { d.open = true; }));
+  const text = (await page.locator('#main').innerText()).replace(/\s+/g, ' ');
+  for (const s of ['Jede Übungsaufgabe bringt einmal Sterne: 10 ★, wenn sie im ersten Versuch ohne Tipp gelöst ist, sonst 5 ★.', 'Landungs-Bonus: +80 ★ ohne Fehler, +40 ★ mit 1–2 Fehlern, sonst +10 ★',
+    'Tipps zählen nicht als Fehler.', 'Tests, Wiederholungen und Mischkarten zählen hier nicht mit.', 'Wiederholungen bringen 10 ★, wenn sie selbst gelöst sind',
+    'Für Etappen, die vor dem 22.11. gelandet sind, wurde der Bonus einmal nachgetragen. Gebuchte Sterne werden nie abgezogen.'])
+    assert.ok(text.includes(s), 'fehlt: ' + s);
+  assert.ok(!text.includes('10 Sterne für jede Bordkarte, die zum ersten Mal richtig ist'), 'alter Satz');
 });

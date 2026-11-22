@@ -224,6 +224,7 @@ async function lernLadeKind(arg) {
   if (!d) { route('lernen'); return null; }
   if (k?.look) Object.assign(d.kind, k.look);
   d.konto = k?.konto || null; d.belohnungen = k?.belohnungen || []; d.einloesungen = k?.einloesungen || [];
+  d.regeln = k?.regeln || null; d.landungNachbuchung = k?.landung_nachbuchung || null; // FP-S: Sterne-Regeln und einmaliger Hinweis nach der Nachbuchung
   d.knobelTag = k?.knobel_tag || null; // F: „Knobeln des Tages“ (Migration F; fehlt → nichts)
   d.expeditionen = Array.isArray(k?.expeditionen) ? k.expeditionen : []; // W176 Teil 4 (fehlt → keine Expeditionen)
   d.u = u; // K3: für den Stand über Schularten
@@ -334,6 +335,14 @@ function lernMischWahl(rest, { nr, jede, ab = 3, gelandet, aus = false, zaehler 
   const wunsch = zaehler.n % 3 === 0 ? ['aelter', 'kontinent', 'flug'] : ['flug', 'kontinent', 'aelter'];
   for (const q of wunsch) { const i = rest.findIndex((x) => x.quelle === q); if (i >= 0) return { ...rest.splice(i, 1)[0], misch: true }; }
   return { ...rest.shift(), misch: true };
+}
+// FP (Vorgabe „faire Punkte“ 2): Hinweis bei 5 statt 10 Sternen – höchstens einmal je Etappe und Lerntag, ohne Tadel
+function lernFuenfHinweis(ctx, e, plus, { hilfe, zweiter }) {
+  const voll = Number(ctx.regeln?.sterne_uebung_richtig ?? 10);
+  if (!plus || plus >= voll || (!hilfe && !zweiter)) return null;
+  const schl = `lern.fp5.${ctx.kind}.${e.lernziel}`; const tag = lernHeuteTag(ctx.kind);
+  try { if (localStorage.getItem(schl) === tag) return null; localStorage.setItem(schl, tag); } catch { /* ohne Speicher: jedes Mal */ }
+  return el('p', { class: 'lr-leise lr-fp-hinweis' }, hilfe ? `Ganz ohne Tipp gibt es ${voll} ★.` : `Gleich beim ersten Mal gibt es ${voll} ★.`);
 }
 // 0.86.2: leere Mischkarten-Liste einmal je Sitzung neu holen (nur die Liste wird übernommen; schon gezeigte bleiben verbraucht)
 function lernMischNachladen(ctx) {
@@ -970,7 +979,7 @@ async function viewReise(arg) {
   const ortFluege = n ? d.mit.filter((e) => e.block_id === n.block_id) : [];
   const ort = ortFluege.reduce((z, e) => { const m = merk.find((x) => x.einheit_id === e.id); const q = m ? lernEtappenZahl(m) : { n: e.n, f: e.fertig }; return { n: z.n + q.n, f: z.f + Math.min(q.f, q.n), fluege: z.fluege + 1 }; }, { n: 0, f: 0, fluege: 0 });
   if (lernNeu(kind) && n) { lernErsetze(main, lernRahmen(kind, 'reise', ...lernAbflugtafel(d, { n, et, nWdh, wdhRest, wdhFertig: wdhGemacht, ort, ws }))); return; }
-  const teile = [el('header', { class: 'lr-kopf lr-kopf-kurz' }, el('p', { class: 'lr-gruss' }, `Hallo ${kind.name}!`))];
+  const teile = [el('header', { class: 'lr-kopf lr-kopf-kurz' }, el('p', { class: 'lr-gruss' }, `Hallo ${kind.name}!`)), lernNachbuchungHinweis(d)].filter(Boolean);
   if (n) {
     const kont = d.orte.filter((o) => o.kontinent === (d.orte.find((x) => x.block_id === n.block_id)?.kontinent));
     const ortN = d.orte.find((o) => o.block_id === n.block_id) || {};
@@ -1109,6 +1118,7 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort =
     // K3: oben drei Mini-Linien GYM · RS · IB; Antippen öffnet „Mein Weg · Stand“ bei dieser Schulart
     d.u && kind.klasse ? lernMiniLinien(lernStandModell(d.u, kind), (y, kl) => `#/weg/${kind.id}-stand${kl ? `-${y.sa}-${kl}` : ''}`) : null,
     rueckKarte,
+    lernNachbuchungHinweis(d),
     el('section', { class: 'lr-abflugtafel', 'aria-label': 'Abflugtafel' },
       el('a', { class: 'lr-flug lr-flug-jetzt', href: ziel },
         el('span', { class: 'lr-flug-ort' }, el('span', { class: 'lr-klapp', role: 'img', 'aria-label': code(n) }, ...[...code(n).slice(0, 9)].map((c, i) => el('i', { style: `--i:${i}` }, c))), el('small', {}, n.titel)),
@@ -2044,7 +2054,7 @@ async function viewLernEinheit(arg) {
   const ort = (uebers?.einheiten || []).find((e) => e.id === eId) || {};
   const titel = ort.stadt ? `${ort.stadt}: ${ort.ort_titel || ort.titel || ''}` : (daten.inhalt?.ziel || 'Lerneinheit').split(/[:;.]/)[0];
   $('#title').textContent = ort.stadt || titel; // kurz: der Ort; das Thema steht als Überschrift darunter
-  const ctx = { kind: k, einheit: eId, live, daten, ort, titel, kindObj: kind, basis: `#/lerneinheit/${k}-${eId}`, leitung: !!uebers?.leitung, konto, mischGezeigt: new Set(), mischNachgeladen: false };
+  const ctx = { kind: k, einheit: eId, live, daten, ort, titel, kindObj: kind, basis: `#/lerneinheit/${k}-${eId}`, leitung: !!uebers?.leitung, konto, regeln: konto?.regeln || null, mischGezeigt: new Set(), mischNachgeladen: false };
   lernHeuteSetzen(k, daten.heute_selbst, daten.heute_tag, daten.heute_bis); // H6: Tag (und Tagesende) vom Server
   const etappen = lernEtappen(daten);
   lernTitel = new Map(etappen.filter((e) => daten.inhalt?.etappen?.length).map((e) => [e.lernziel, e.titel]));
@@ -2148,10 +2158,35 @@ function lernAbschlussEtappe({ e, nr, von, landung, daten, sterne, knopf, knobel
     el('div', { class: 'lr-ab-kann' }, el('b', {}, 'Du kannst jetzt'), lernKannText(e, landung, daten)),
     el('div', { class: 'lr-ab-zeile' }, el('span', { class: 'lr-ab-sterne' }, `★ +${lernZahl(sterne || 0)}`),
       knobel ? el('button', { type: 'button', class: 'lr-ab-knobel-link', onclick: knobel }, 'Knobel-Bordkarte (freiwillig)') : null), // nur beim Sturmflug, klein
+    lernLandungsBonus(landung, art), // FP: unter der großen Zahl, über dem Knopf
     el('p', { class: 'lr-ab-leise' }, ...leise),
     knopf,
     el('a', { class: 'lr-ab-pause', href: `#/reise/${kind}` }, 'Pause – zur Abflugtafel'));
   return el('div', { class: `lr-ab-app lr-ab-${art} lr-ab-anim lr-abschluss-etappe`, 'data-art': art }, szene, blatt);
+}
+// FP (Vorgabe „faire Punkte“ 1): Landungs-Bonus als Kachel im Blatt der Etappen-Einblendung – eigene Wörter, nicht „Direktflug“.
+// Beim Sturmflug nie eine Fehlerzahl. Fehlt landung.bonus (alter Server, gesetzte Etappe), keine Kachel.
+function lernLandungsBonus(landung, art) {
+  const b = Number(landung?.bonus); if (!landung || !Number.isFinite(b) || !b || !landung.stufe) return null;
+  const f = Number(landung.fehler) || 0;
+  const zeile2 = landung.stufe === 'ohne' ? 'ohne Fehler gelandet' : landung.stufe === 'wenig' && art !== 'sturm' ? `mit ${f} ${f === 1 ? 'Fehler' : 'Fehlern'} gelandet` : 'gelandet – geschafft!';
+  return el('div', { class: 'lr-ab-bonus lr-ab-bonus-' + landung.stufe, role: 'status', 'aria-label': `Landungs-Bonus plus ${b} Sterne, ${zeile2}` },
+    landung.stufe === 'ohne' ? el('span', { class: 'lr-ab-bonus-funken', 'aria-hidden': 'true' }, el('i', {}, '✦'), el('i', {}, '✦'), el('i', {}, '✦')) : null,
+    el('span', { class: 'lr-ab-bonus-stern', 'aria-hidden': 'true' }, '★'),
+    el('span', { class: 'lr-ab-bonus-text' }, el('b', {}, 'Landungs-Bonus'), el('small', {}, zeile2)),
+    el('span', { class: 'lr-ab-bonus-zahl' }, '+', el('span', { 'data-ziel': String(b) }, lernZahl(b)), ' ★'));
+}
+// FP (Vorgabe 3): einmaliger Hinweis nach der Nachbuchung – „Super ›“ schließt ihn (auf diesem Gerät; der Server kennt kein „gesehen“)
+function lernNachbuchungHinweis(d) {
+  const n = d.landungNachbuchung; const s = Number(n?.sterne || 0); if (!s) return null;
+  const schl = `lern.fpnach.${d.kind.id}.${n.am || ''}`;
+  try { if (localStorage.getItem(schl)) return null; } catch { /* zeigen */ }
+  const karte = el('section', { class: 'lr-karte-box lr-fp-geschenk', role: 'status' },
+    el('span', { class: 'lr-ab-bonus-funken', 'aria-hidden': 'true' }, el('i', {}, '✦'), el('i', {}, '✦'), el('i', {}, '✦')),
+    el('b', {}, '★ Geschenk für deine Landungen'),
+    el('p', {}, 'Für deine bisherigen Landungen gibt es nachträglich ', el('b', {}, `+${lernZahl(s)} ★`), ' Landungs-Bonus.'),
+    el('button', { type: 'button', class: 'lr-knopf lr-knopf-klein', onclick: () => { try { localStorage.setItem(schl, '1'); } catch { /* egal */ } karte.remove(); } }, 'Super ›'));
+  return karte;
 }
 // 2. Flug geschafft (Bildschirm 1)
 function lernAbschlussFlug({ ctx, r, weiter, testAnsehen }) {
@@ -2507,7 +2542,10 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
           const sterneVor = sterne;
           // 0.86.2: Sterne nur aus der Antwort des Servers (`sterne` = tatsächlich gebucht; sonst `wiederholung.sterne`). Nur bei einer normalen Bordkarte
           // und einem Server ohne `sterne` bleibt die bisherige Anzeige (+10 beim ersten Richtig) – bei Mischkarten zeigt die App dann nichts.
-          const gebucht = typeof r.sterne === 'number' ? r.sterne : typeof r.wiederholung?.sterne === 'number' ? r.wiederholung.sterne : null;
+          // FP-S: `sterne` = in diesem Aufruf gebucht (Übung + Wiederholung + Landungs-Bonus + Ablegen). Bei der Bordkarte zählt nur der Teil ohne Bonus und Ablegen –
+          // der Landungs-Bonus steht in der Landungs-Einblendung, das Ablegen in seiner Einblendung.
+          const gebucht = typeof r.sterne === 'number' ? Math.max(0, r.sterne - Number(r.landung?.bonus || 0) - Number(r.abgelegt?.etappe?.sterne || 0) - Number(r.abgelegt?.flug?.sterne || 0))
+            : typeof r.wiederholung?.sterne === 'number' ? r.wiederholung.sterne : null;
           if (a.misch) { if (r.richtig && gebucht) sterne += gebucht; a.geloest = !!r.richtig; } // Mischkarte: nicht zurück in die Warteschlange
           else if (r.richtig) { sterne += gebucht !== null ? gebucht : (!a.geloest && !r.wiederholt ? 10 : 0); a.geloest = true; warte.push(a); }
           else { // V5: gemerkte Lösung zählt nicht – nach einem Fehler kommt eine andere Bordkarte derselben Stufe; dieselbe erst ganz am Ende
@@ -2532,6 +2570,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
             ? el('div', { class: 'lr-rueck lr-rueck-ok' }, el('b', {}, neu ? '✓ An Bord' + (sterne > sterneVor ? ` · +${sterne - sterneVor} Sterne` : '') : 'Richtig!'),
                 a.misch && mischGueltig && r.wiederholung?.bestanden ? el('p', { class: 'lr-misch-wdh' }, '↻ Zählt als Wiederholung dieser Etappe' + (r.wiederholung.sterne && !neu ? ` · +${r.wiederholung.sterne} Sterne` : '')) : null,
                 a.misch && mischGueltig && r.wiederholung?.bestanden === false ? el('p', { class: 'lr-misch-wdh lr-wdh-hilfe' }, 'Richtig – morgen noch einmal ohne Hilfe.') : null,
+                !a.misch ? lernFuenfHinweis(ctx, e, sterne - sterneVor, { hilfe: !!hilfe, zweiter: anlauf === 2 }) : null,
                 !a.misch && !warSitzt && !hilfe && anlauf !== 2 && r.karte?.neu_gezaehlt === false ? el('p', { class: 'lr-kennst' }, 'Die kennst du schon – gut wiederholt.') : null, // H3
                 r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null)
             : neu ? el('div', { class: 'lr-rueck lr-rueck-falsch lr-kursbox' }, el('p', { class: 'lr-ueber' }, a.antworttyp === 'zahl' && r.grund ? 'FAST – KURSKORREKTUR' : 'NOCH NICHT'), lernKurs(a, w),
@@ -3979,7 +4018,8 @@ const LERN_INFO_FRAGEN = [
     ['Endgültig abgelegt:', ' Besteht eine Etappe auch die letzte Wiederholung (nach 30 Lerntagen), ist sie abgelegt: Sie fällt aus der regelmäßigen Wiederholung und wird nur noch bei Bedarf aufgefrischt, das Kind bekommt 30 Sterne und eine kurze Einblendung. Sind alle Etappen eines Flugs abgelegt: 100 Sterne, eine große Einblendung, und der Flug steht im Reisepass golden. Sind alle Flüge eines Orts abgelegt, wird auch der Stempel des Orts golden. Fällt eine abgelegte Etappe später im Nachtest oder beim Üben auf, kommt sie am nächsten Lerntag wieder zur Wiederholung; Gold und Sterne bleiben, ein zweites Ablegen bringt nichts.'],
     ['Flug-Test:', ' Ist die letzte Pflicht-Etappe gelandet, führt der Landebildschirm nur noch zum Test („Weiter: Flug-Test“): eine Bordkarte je Etappe, ohne Tipps. Im Ergebnis ist jede Antwort deutlich als RICHTIG oder FALSCH markiert. Bei Fehlern zwei Wege: „Erst üben: ‹Etappe›“ oder „Gleich verbessern“. Alles richtig verbessert → Flug geschafft.'],
     ['Nachtests:', ' später, nach Lerntagen gezählt (nach 10, 25 und 60 Lerntagen); alle Etappen des Flugs, ohne Tipps. Ab 80 %: bestanden. 60–79 %: wiederholen. Unter 60 %: automatische Rückreise im Flugplan.'],
-    ['Belohnungen:', ' 10 Sterne für jede Bordkarte, die zum ersten Mal richtig ist, Sterne für jede richtige Wiederholung (auch über eine Mischkarte; je Fälligkeit einmal), 20 Sterne für jede richtige Bordkarte im Test, 30 Sterne für eine endgültig abgelegte Etappe, 100 Sterne für einen abgelegten Flug, 30 Sterne für eine Knobel-Bordkarte beim ersten Versuch, 100 Sterne und ein Stempel für jeden geschafften Ort. Welche Belohnungen es gibt, legen die Eltern fest, und sie bestätigen jede Einlösung.'],
+    ['Sterne:', ' Jede Übungsaufgabe bringt einmal Sterne: 10 ★, wenn sie im ersten Versuch ohne Tipp gelöst ist, sonst 5 ★. Bei jeder Landung einer Etappe gibt es einmal einen Landungs-Bonus: +80 ★ ohne Fehler, +40 ★ mit 1–2 Fehlern, sonst +10 ★. Tipps zählen nicht als Fehler. Tests, Wiederholungen und Mischkarten zählen hier nicht mit. Wiederholungen bringen 10 ★, wenn sie selbst gelöst sind (mit Tipp oder im zweiten Versuch: keine Sterne, die Etappe kommt am nächsten Lerntag wieder). Für Etappen, die vor dem 22.11. gelandet sind, wurde der Bonus einmal nachgetragen. Gebuchte Sterne werden nie abgezogen.'],
+    ['Belohnungen:', ' 20 Sterne für jede richtige Bordkarte im Test, 30 Sterne für eine endgültig abgelegte Etappe, 100 Sterne für einen abgelegten Flug, 30 Sterne für eine Knobel-Bordkarte beim ersten Versuch, 100 Sterne und ein Stempel für jeden geschafften Ort. Welche Belohnungen es gibt, legen die Eltern fest, und sie bestätigen jede Einlösung.'],
     'Keine Zeitvorgaben, keine Uhr, keine Ranglisten.']],
   ['Wie entstehen die Inhalte, und wer prüft sie?', [
     'Erklärungen und Bordkarten erstellt eine KI (Claude) nach festen Regeln: Bezug zum Lehrplan, Alltagseinstieg, einfache Sprache, jede Lösung vom Programm berechnet und geprüft.',

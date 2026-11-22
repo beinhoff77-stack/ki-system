@@ -2,6 +2,33 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: FP-S 4 – Sperrreihenfolge Mischkarte (ChatGPT 932, Sollte 1 und 2)
+
+Zweig `bau-lehrer`, auf `lernen-app` 3f693c4. Nur Dateien, **nicht eingespielt**, kein DROP, kein DELETE, kein App-Code.
+Neue Datei: `supabase/migrations/20261123_fp_s4_sperrfolge.sql`, einspielen nach FP-S 3.
+Gelesen (nur lesend): FP-S 3 ist in der Live-Datenbank schon drin (`misch_buchen`, `uebung_pruefen_wd`). `versuch_misch_verfall` und `misch_buchen` sind live gleich wie in meiner Testdatenbank.
+
+**Befund (Sollte 1)**
+Regel überall: erst die Etappe (`karte_stand`), dann die Ausgabe (`misch_ausgabe`). Ein Zyklus ist nur möglich, wenn eine Transaktion die Ausgabe hält und danach auf die Karte wartet.
+- **Mischpfad** (`uebung_pruefen_wd`, FP-S 3): Etappe → Ausgabe. ✓
+- **Normale Antwort, Trigger `versuch_misch_verfall`:** Die Trigger laufen in Namensfolge, also bucht `versuch_karte` vorher und sperrt dabei die Etappe. Etappe → Ausgabe. Ohne Buchung (1. Anlauf falsch, Wertung offen) sperrt der Trigger nur die Ausgabe und wartet danach auf nichts mehr. Kein Zyklus, aber auch keine feste Regel.
+- **`misch_buchen` – echte Lücke:** Es löst erst die Ausgabe ein und schreibt dann die Karte. Über den Mischpfad ist die Etappe schon gesperrt. Bucht aber `offene_entscheiden` einen früheren, offenen Mischkarten-Versuch (1. Anlauf falsch) aus einer Antwort ohne Misch-Wunsch, gilt Ausgabe → Etappe. Gleichzeitig mit einer Mischkarten-Antwort (Etappe → Ausgabe) ist ein Deadlock möglich.
+- **`mischkarten`** (Ausgeben/Verfallen) sperrt keine Karte und wartet danach auf nichts. Kein Zyklus.
+
+**Gebaut**
+- `versuch_misch_verfall` sperrt zuerst die Etappe, nur wenn es eine offene Ausgabe gibt.
+- `misch_buchen` sperrt zuerst die Etappe.
+- Eine Sperre, die die Transaktion schon hält, kostet nichts. Bestand unverändert (wird in der Migration geprüft).
+
+**Tests** `wd_s3_gleichzeitig.sh` (lokal mit allen acht Migrationen zweimal hintereinander grün, 9 × ok)
+- **Neu G1/G2:** Mischkarte und normale Antwort zur selben Aufgabe gleichzeitig, beide Reihenfolgen. Geprüft: kein Deadlock (abgebrochener Prozess = FEHLER), höchstens einmal gültig, gültig ⇔ eingelöst, sonst verfallen, genau ein Fortschritt, einmal Wiederholungs-Sterne. Ergebnis: Mischkarte zuerst → gültig; normale Antwort zuerst → verfallen, nicht gültig.
+- **Sollte 2:** E und F prüfen jetzt reihenfolgeunabhängig.
+  - E: genau eine von zwei Antworten gültig, egal welche.
+  - F: Mischkarte gültig und eingelöst, wenn sie die Sperre wirklich zuerst bekam, sonst nicht gültig und verfallen; in beiden Fällen ein Fortschritt.
+- **Gegenprobe ohne FP-S 4:** G1/G2 sind auch dann grün, weil der normale Pfad über `versuch_karte` schon Etappe → Ausgabe sperrt. Die behobene Lücke (`offene_entscheiden` → `misch_buchen`) lässt sich im Test nicht zuverlässig zeitlich herbeiführen; sie ist oben begründet.
+
+**Hinweis, nicht geändert:** Zwei gleichzeitige `mischkarten`-Aufrufe für dasselbe Kind setzen mehrere Ausgaben in einem UPDATE auf verfallen. Ein Deadlock zwischen ihnen ist nur denkbar, wenn sie die Zeilen in verschiedener Folge sperren. Das betrifft die Sperrfolge Etappe → Ausgabe nicht. Bisher nicht beobachtet.
+
 ## 2026-11-22 – FERTIG: LK-S – ein Thema in mehreren Klassen (Server)
 
 Zweig `bau-lehrer`, auf `lernen-app` 22251c0. Nur Dateien, **nicht eingespielt**, kein DROP, kein DELETE, kein App-Code.

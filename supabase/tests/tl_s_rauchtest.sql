@@ -1,4 +1,4 @@
--- Rauchtest TL-S (Teilung 7 Themen → 15 Teile, 8 neue Flüge) mit LW-Rest und Kür je Schulart. Realistisch: spielt die Migration in einer Transaktion ein und rollt alles zurück.
+-- Rauchtest TL-S (Teilung 7 Themen → 15 Teile, 8 neue Flüge) mit LW-Rest, Kür je Gruppe (TL-S 5: fünf Gruppen, leere Pflichtliste, Ein-Etappen-Flug). Reihenfolge: … LK-S → LK-D Einspiel → TL-S.
 -- Voraussetzung: LK-S und LW-S/LW-S 2 sind eingespielt. Aufruf: psql -v ON_ERROR_STOP=1 -f supabase/tests/tl_s_rauchtest.sql (aus dem Repo-Wurzelverzeichnis).
 -- Unabhängig vom Bestand: alte Antworten werden vor dem Teilen erfasst und danach gegen die Teile geprüft; die Besprochen-Regression nutzt nur das Testkind.
 -- Keine Namen, keine Kinderdaten in der Ausgabe (nur Zahlen).
@@ -46,6 +46,10 @@ begin
    where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) and jsonb_array_length(coalesce(e.inhalt->'etappen', '[]'::jsonb)) = 0
      and (e.status = 'freigegeben' or exists (select 1 from schule.route r join schule.block_thema bt on bt.block_id = r.block_id and bt.thema_id = t.id));
   if v_t is not null then raise exception 'FEHLER 2: leerer Teil freigegeben oder im Plan: %', v_t; end if;
+  -- T4: Reihenfolge LK-D Einspiel vor TL-S → kein Teil ohne Etappen
+  select string_agg(t.id::text, ',') into v_t from schule.thema t join schule.einheit e on e.thema_id = t.id
+   where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) and jsonb_array_length(coalesce(e.inhalt->'etappen', '[]'::jsonb)) = 0;
+  if v_t is not null then raise exception 'FEHLER 2 (T4): Teil ohne Etappen – LK-D Einspiel vor TL-S fehlt: %', v_t; end if;
   raise notice 'TL-S Rauchtest 2: leere Teile (warten auf Etappen): %', (select count(*) from schule.thema t join schule.einheit e on e.thema_id = t.id
      where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) and jsonb_array_length(coalesce(e.inhalt->'etappen', '[]'::jsonb)) = 0);
   select string_agg(t.id::text, ',') into v_t from schule.thema t
@@ -73,6 +77,18 @@ begin
    where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101)
      and not exists (select 1 from schule.aufgabe a where a.einheit_id = e.id and a.pool = 'test' and a.variante_gruppe = p.q);
   if v_t is not null then raise exception 'FEHLER 2: Pflicht-Etappe ohne Test-Aufgabe (kein Testpfad): %', v_t; end if;
+
+  -- 14 T5: echte Pflichtlisten aus LK-D 4 (lk_teilung_2211.json) in den Teilen
+  if (select inhalt#>'{bewertung,pflicht_je_schulart,gym_by}' from schule.einheit where id = schule.thema_einheit(schule.tl_knoten(29, 2)))
+       is distinct from '["summe_mal_summe", "ausklammern", "binomisch"]'::jsonb
+     or not ((select inhalt#>'{bewertung,pflicht_je_schulart,rs_I}' from schule.einheit where id = schule.thema_einheit(schule.tl_knoten(29, 2))) ? 'gleichungen_binomisch')
+     or (select inhalt#>'{bewertung,pflicht_je_schulart,rs_II_III}' from schule.einheit where id = schule.thema_einheit(schule.tl_knoten(46, 3))) is distinct from '[]'::jsonb
+     or (select inhalt#>'{bewertung,pflicht_je_schulart,myp_standard}' from schule.einheit where id = schule.thema_einheit(91)) is distinct from '[]'::jsonb
+     or (select jsonb_array_length(inhalt#>'{bewertung,pflicht_je_schulart,myp_extended}') from schule.einheit where id = schule.thema_einheit(91)) < 1
+     or (select inhalt#>'{bewertung,pflicht_je_schulart,gym_by}' from schule.einheit where id = schule.thema_einheit(schule.tl_knoten(44, 2))) is distinct from '[]'::jsonb
+     or (select inhalt#>'{bewertung,pflicht_je_schulart,gym_by}' from schule.einheit where id = schule.thema_einheit(schule.tl_knoten(46, 2))) is distinct from '[]'::jsonb
+     or (select inhalt#>'{bewertung,pflicht_je_schulart,gym_by}' from schule.einheit where id = schule.thema_einheit(schule.tl_knoten(101, 2))) is distinct from '["cavalieri"]'::jsonb then
+    raise exception 'FEHLER 14: Pflichtlisten nicht wie LK-D 4'; end if;
 
   -- 3 B3b: jede alte Antwort erscheint beim richtigen Teil (Antwort → Aufgabe → Einheit des Teils, der ihre Etappe führt; sonst Teil 1)
   select count(*) into v_n from tl_rt_versuch r join schule.versuch v on v.id = r.id join schule.aufgabe a on a.id = v.aufgabe_id
@@ -108,21 +124,21 @@ begin
   -- 5 B3c: Zusatz je Schulart – Gymnasium: 46 T3 ← T2 nur empfohlen, ← T1 hart; 44 T2 und 46 T2 Zusatz; Visum folgt der Schulart
   if not coalesce((select 'gym_by' = any(zusatz) from schule.thema where id = schule.tl_knoten(44, 2)), false)
      or not coalesce((select 'gym_by' = any(zusatz) from schule.thema where id = schule.tl_knoten(46, 2)), false) then raise exception 'FEHLER 5: Zusatz-Kennung fehlt'; end if;
-  if not exists (select 1 from schule.voraussetzung_schulart where thema_id = schule.tl_knoten(46, 3) and braucht_id = schule.tl_knoten(46, 2) and schulart = 'gym_by' and art = 'empfohlen')
-     or not exists (select 1 from schule.voraussetzung_schulart where thema_id = schule.tl_knoten(46, 3) and braucht_id = 46 and schulart = 'gym_by' and art = 'hart') then
+  if not exists (select 1 from schule.voraussetzung_schulart where thema_id = schule.tl_knoten(46, 3) and braucht_id = schule.tl_knoten(46, 2) and gruppe = 'gym_by' and art = 'empfohlen')
+     or not exists (select 1 from schule.voraussetzung_schulart where thema_id = schule.tl_knoten(46, 3) and braucht_id = 46 and gruppe = 'gym_by' and art = 'hart') then
     raise exception 'FEHLER 5: Abweichung Gymnasium für 46 Teil 3 fehlt'; end if;
   if exists (select 1 from schule.v_ort_visum v join schule.block_thema a on a.block_id = v.ort_id and a.thema_id = schule.tl_knoten(46, 3)
-              join schule.block_thema b on b.block_id = v.braucht_ort_id and b.thema_id = schule.tl_knoten(46, 2) where v.schulart = 'gym_by') then
+              join schule.block_thema b on b.block_id = v.braucht_ort_id and b.thema_id = schule.tl_knoten(46, 2) where v.gruppe = 'gym_by') then
     raise exception 'FEHLER 5: Zusatz-Teil sperrt im Gymnasium'; end if;
   if not exists (select 1 from schule.v_ort_visum v join schule.block_thema a on a.block_id = v.ort_id and a.thema_id = schule.tl_knoten(46, 3)
-                  join schule.block_thema b on b.block_id = v.braucht_ort_id and b.thema_id = schule.tl_knoten(46, 2) where v.schulart = 'rs_by') then
+                  join schule.block_thema b on b.block_id = v.braucht_ort_id and b.thema_id = schule.tl_knoten(46, 2) where v.gruppe = 'rs_I') then
     raise exception 'FEHLER 5: in der Realschule fehlt 46 Teil 3 ← Teil 2'; end if;
   if exists (select 1 from schule.v_ort_visum v join schule.block_thema b on b.block_id = v.braucht_ort_id join schule.thema t on t.id = b.thema_id
-              where v.schulart = any(t.zusatz)) then raise exception 'FEHLER 5: ein Zusatz-Teil ist irgendwo Visum'; end if;
+              where v.gruppe = any(t.zusatz)) then raise exception 'FEHLER 5: ein Zusatz-Teil ist irgendwo Visum'; end if;
   -- Zusatz-Teile stehen im Plan eines Kindes dieser Schulart nur als „zusatz“
   if exists (select 1 from schule.route r join schule.block_thema bt on bt.block_id = r.block_id join schule.thema t on t.id = bt.thema_id
               join schule.lernender l on l.id = r.lernender_id
-              where coalesce(l.schulart, 'gym_by') = any(t.zusatz) and r.art = 'normal' and r.status not in ('fertig', 'entfernt')) then
+              where schule.kind_gruppe(l.id) = any(t.zusatz) and r.art = 'normal' and r.status not in ('fertig', 'entfernt')) then
     raise exception 'FEHLER 5: offener Zusatz-Teil als Pflicht im Plan'; end if;
 
   -- 6 vollständig übernommene Teile: Stempel, Ort fertig, 100 Ort-Sterne genau einmal, Flug-Test gilt
@@ -179,7 +195,7 @@ begin
     from schule.einheit e
     cross join lateral (select x->>'lernziel' lz from jsonb_array_elements(e.inhalt->'etappen') x order by 1 limit 1) q1
     cross join lateral (select x->>'lernziel' lz from jsonb_array_elements(e.inhalt->'etappen') x where x->>'lernziel' > q1.lz order by 1 limit 1) q2
-   where e.status = 'freigegeben'
+   where e.status = 'freigegeben' and jsonb_typeof(e.inhalt#>'{bewertung,pflicht_je_schulart}') is null   -- Einheit ohne Listen je Gruppe (nicht die Teile)
      and not exists (select 1 from schule.lernziel_stand s where s.lernender_id = v_l and s.einheit_id = e.id)
      and not exists (select 1 from schule.abgelegt g where g.lernender_id = v_l and g.einheit_id = e.id)
    order by e.id limit 1;
@@ -189,14 +205,14 @@ begin
     raise exception 'FEHLER 10: ohne Liste weicht die Pflicht ab'; end if;
   update schule.einheit set status = 'geprueft' where id = v_e;   -- Schutz nur für den Test (Rollback)
   update schule.einheit set inhalt = jsonb_set(inhalt, '{bewertung,pflicht_je_schulart}',
-           jsonb_build_object((select coalesce(schulart, 'gym_by') from schule.lernender where id = v_l), jsonb_build_array(v_lz))) where id = v_e;
+           jsonb_build_object(schule.kind_gruppe(v_l), jsonb_build_array(v_lz))) where id = v_e;
   update schule.einheit set status = 'freigegeben' where id = v_e;
   perform schule.lernziele_anlegen(v_l, v_e);
   if not (select pflicht from schule.lernziel_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz)
      or (select pflicht from schule.lernziel_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz2) then
     raise exception 'FEHLER 10: Pflicht/Kür je Schulart nicht übernommen'; end if;
   -- andere Schulart: Liste gilt nicht
-  if exists (select 1 from schule.lernender l where l.id <> v_l and coalesce(l.schulart, 'gym_by') <> coalesce((select schulart from schule.lernender where id = v_l), 'gym_by')
+  if exists (select 1 from schule.lernender l where l.id <> v_l and schule.kind_gruppe(l.id) <> schule.kind_gruppe(v_l)
                and schule.pflicht_lernziele(l.id, v_e) = array[v_lz]) then raise exception 'FEHLER 10: Liste gilt für fremde Schulart'; end if;
   -- Flug „abgelegt“ braucht nur die Pflicht-Etappe des Kindes
   perform schule.wdh_ablegen(v_l, v_e, v_lz);
@@ -223,7 +239,7 @@ begin
   v_sa2 := case when v_sa = 'rs_by' then 'gym_by' else 'rs_by' end;
   select e.id, array(select x->>'lernziel' from jsonb_array_elements(e.inhalt->'etappen') x) into v_e, v_et
     from schule.einheit e join schule.thema t on t.id = e.thema_id
-   where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) and e.status = 'freigegeben' and jsonb_array_length(e.inhalt->'etappen') >= 2
+   where t.teil_stamm in (26, 61) and e.status = 'freigegeben' and jsonb_array_length(e.inhalt->'etappen') >= 2   -- nicht die Teile der Prüfungen 14–17
      and not exists (select 1 from schule.lernziel_stand s where s.lernender_id = v_l and s.einheit_id = e.id)
    order by e.id limit 1;
   if v_e is null then raise exception 'FEHLER 11 Vorbereitung: kein Teil'; end if;
@@ -264,7 +280,7 @@ begin
     cross join unnest(array['gesetzt', 'rueckreise', 'im_plan']) f
    where (x.n->f) is distinct from (v.st->f)
      and not (f = 'im_plan' and ((x.n->>'etappen')::int = 0
-                                 or (coalesce(l.schulart, 'gym_by') = any(coalesce(t.zusatz, '{}'))
+                                 or (schule.kind_gruppe(l.id) = any(coalesce(t.zusatz, '{}'))
                                      and exists (select 1 from schule.route r join schule.block_thema bt on bt.block_id = r.block_id and bt.thema_id = t.id
                                                   where r.lernender_id = v.lernender_id and r.art = 'zusatz' and r.status <> 'entfernt'))));
   if v_t is not null then raise exception 'FEHLER 12: Teil erbt Setzung/Plan/Rückreise nicht (Kind:Teil:Feld): %', v_t; end if;
@@ -273,14 +289,79 @@ begin
     (select count(*) from tl_rt_stufe where (st->>'rueckreise')::boolean), (select count(*) from tl_rt_stufe where (st->>'im_plan')::boolean);
 
   -- 13 TL-S 4: harte Kanten bleiben je Schulart hart, außer die Voraussetzung ist dort Zusatz (z. B. 102 ← 30, 29 ← 102 in allen Schularten)
-  select string_agg(o.thema_id || '←' || o.braucht_id || ':' || o.schulart, ', ') into v_t
+  select string_agg(o.thema_id || '←' || o.braucht_id || ':' || o.gruppe, ', ') into v_t
     from schule.voraussetzung_schulart o join schule.voraussetzung v on v.thema_id = o.thema_id and v.braucht_id = o.braucht_id join schule.thema b on b.id = o.braucht_id
-   where v.art = 'hart' and o.art <> 'hart' and not (o.schulart = any(coalesce(b.zusatz, '{}')));
+   where v.art = 'hart' and o.art <> 'hart' and not (o.gruppe = any(coalesce(b.zusatz, '{}')));
   if v_t is not null then raise exception 'FEHLER 13: harte Kante je Schulart abgeschwächt: %', v_t; end if;
-  if exists (select 1 from (values (102, 30), (29, 102)) x(a, b) cross join (values ('gym_by'), ('rs_by'), ('ib_myp')) s(sa)
-              where not exists (select 1 from schule.voraussetzung v left join schule.voraussetzung_schulart o on o.thema_id = v.thema_id and o.braucht_id = v.braucht_id and o.schulart = s.sa
+  if exists (select 1 from (values (102, 30), (29, 102)) x(a, b) cross join (values ('gym_by'), ('rs_I'), ('rs_II_III'), ('myp_standard'), ('myp_extended')) s(sa)
+              where not exists (select 1 from schule.voraussetzung v left join schule.voraussetzung_schulart o on o.thema_id = v.thema_id and o.braucht_id = v.braucht_id and o.gruppe = s.sa
                                  where v.thema_id = x.a and v.braucht_id = x.b and coalesce(o.art, v.art) = 'hart')) then
     raise exception 'FEHLER 13: 102 ← 30 oder 29 ← 102 nicht in jeder Schulart hart'; end if;
+
+  -- 15 T1 Gruppen: dieselbe Regel für Zusatz, Pflicht und Visum je Kind + Gruppe (RS I gegen II/III bei 46 Teil 3, IB Standard gegen Extended bei 91)
+  if schule.tl_knoten(46, 3) is null or (select zusatz from schule.thema where id = schule.tl_knoten(46, 3)) is distinct from '{rs_II_III}'
+     or (select zusatz from schule.thema where id = 91) is distinct from '{myp_standard}' then raise exception 'FEHLER 15: Zusatz je Gruppe falsch'; end if;
+  update schule.lernender set schulart = 'rs_by', zweig = 'rs_II_III' where id = v_l;
+  if schule.kind_gruppe(v_l) <> 'rs_II_III' or schule.pflicht_lernziele(v_l, schule.thema_einheit(schule.tl_knoten(46, 3))) <> '{}'::text[] then raise exception 'FEHLER 15: RS II/III 46 Teil 3 nicht Zusatz ohne Pflicht'; end if;
+  update schule.lernender set zweig = 'rs_I' where id = v_l;
+  if cardinality(schule.pflicht_lernziele(v_l, schule.thema_einheit(schule.tl_knoten(46, 3)))) < 1 then raise exception 'FEHLER 15: RS I 46 Teil 3 ohne Pflicht'; end if;
+  update schule.lernender set schulart = 'ib_myp', zweig = null where id = v_l;
+  if schule.kind_gruppe(v_l) <> 'myp_standard' or schule.pflicht_lernziele(v_l, schule.thema_einheit(91)) <> '{}'::text[] then raise exception 'FEHLER 15: IB Standard 91 nicht ohne Pflicht'; end if;
+  update schule.lernender set zweig = 'myp_extended' where id = v_l;
+  if cardinality(schule.pflicht_lernziele(v_l, schule.thema_einheit(91))) < 1 then raise exception 'FEHLER 15: IB Extended 91 ohne Pflicht'; end if;
+  -- Visum: Zusatz-Teil sperrt in seiner Gruppe nichts (in keiner Gruppe ist ein Zusatz-Teil Voraussetzung mit „hart“)
+  if exists (select 1 from schule.v_ort_visum v join schule.block_thema b on b.block_id = v.braucht_ort_id join schule.thema t on t.id = b.thema_id
+              where v.gruppe = any(t.zusatz) and not exists (select 1 from schule.block_thema b2 where b2.block_id = b.block_id and b2.thema_id <> t.id)) then
+    raise exception 'FEHLER 15: Zusatz-Teil ist in seiner Gruppe Visum'; end if;
+  update schule.lernender set schulart = v_sa, zweig = null where id = v_l;
+
+  -- 16 T2: ausdrücklich leere Pflichtliste (Gym 44 Teil 2) = freiwilliger Zusatz – kein Zwangstest, kein Stempel, kein Ort-Abschluss, kein „Flug abgelegt“
+  select schule.thema_einheit(schule.tl_knoten(44, 2)) into v_e;
+  update schule.lernender set schulart = 'gym_by', zweig = null where id = v_l;
+  if schule.pflicht_lernziele(v_l, v_e) <> '{}'::text[] then raise exception 'FEHLER 16 Vorbereitung: 44 Teil 2 im Gym nicht ohne Pflicht'; end if;
+  perform schule.lernziele_anlegen(v_l, v_e);
+  if exists (select 1 from schule.lernziel_stand where lernender_id = v_l and einheit_id = v_e and pflicht) then raise exception 'FEHLER 16: Pflicht-Zeile trotz leerer Liste'; end if;
+  insert into schule.karte_stand (lernender_id, einheit_id, lernziel, sitzt, sitzt_am)
+  select v_l, v_e, x->>'lernziel', true, now() from schule.einheit e, jsonb_array_elements(e.inhalt->'etappen') x where e.id = v_e on conflict do nothing;
+  if coalesce((schule.thema_stufe(v_l, schule.tl_knoten(44, 2))->>'test_offen')::boolean, false) then raise exception 'FEHLER 16: Zwangstest bei 0 Pflicht'; end if;
+  insert into schule.testsitzung (lernender_id, art, thema_id, einheit_id, block_id, aufgaben, status, gestartet_am)
+  select v_l, 'blocktest', schule.tl_knoten(44, 2), v_e, (select bt.block_id from schule.block_thema bt where bt.thema_id = schule.tl_knoten(44, 2) limit 1),
+         array(select a.id from schule.aufgabe a where a.einheit_id = v_e and a.pool = 'test'), 'laeuft', now() returning id into v_a;
+  insert into schule.versuch (lernender_id, aufgabe_id, testsitzung_id, client_id, richtig, punkte, punkte_max, hilfe, versuch_nr)
+  select v_l, x, v_a, 'tl-rt-16-' || x, true, 1, 1, 0, 1 from unnest((select aufgaben from schule.testsitzung where id = v_a)) x;
+  perform schule.test_abschliessen_intern(v_l, jsonb_build_object('sitzung_id', v_a));
+  if exists (select 1 from schule.flug_erstabschluss where lernender_id = v_l and einheit_id = v_e) then raise exception 'FEHLER 16: Stempel allein durch Kür'; end if;
+  if (schule.ort_stand(v_l, (select bt.block_id from schule.block_thema bt where bt.thema_id = schule.tl_knoten(44, 2) limit 1))->>'abgeschlossen')::boolean then
+    raise exception 'FEHLER 16: Ort (100 Sterne) allein durch Kür'; end if;
+  perform schule.wdh_ablegen(v_l, v_e, x->>'lernziel') from schule.einheit e, jsonb_array_elements(e.inhalt->'etappen') x where e.id = v_e;
+  if exists (select 1 from schule.abgelegt where lernender_id = v_l and art = 'flug' and einheit_id = v_e) then raise exception 'FEHLER 16: Flug abgelegt allein durch Kür'; end if;
+  -- ohne festgelegte Liste fällt die Regel wie bisher auf alle Etappen zurück (wdh_ablegen/konto_wd): pflicht_lernziele = null
+  if schule.pflicht_lernziele(v_l, v_e) is null then raise exception 'FEHLER 16: leer und „nicht festgelegt“ verwechselt'; end if;
+
+  -- 17 T4: Ein-Etappen-Flug 101 Teil 2 – Test, Korrektur, Stempel
+  select schule.thema_einheit(schule.tl_knoten(101, 2)) into v_e;
+  if (select status from schule.einheit where id = v_e) <> 'freigegeben'
+     or not exists (select 1 from schule.aufgabe where einheit_id = v_e and variante_gruppe = 'cavalieri' and pool = 'test')
+     or not exists (select 1 from schule.aufgabe where einheit_id = v_e and variante_gruppe = 'cavalieri' and pool = 'korrektur')
+     or (select count(*) from schule.aufgabe where einheit_id = v_e and variante_gruppe = 'cavalieri' and pool = 'sicherung') < 1 then
+    raise exception 'FEHLER 17: 101 Teil 2 ohne freigegebene Einheit oder Test/Korrektur/Sicherung'; end if;
+  perform schule.lernziele_anlegen(v_l, v_e);
+  insert into schule.testsitzung (lernender_id, art, thema_id, einheit_id, block_id, aufgaben, status, gestartet_am)
+  values (v_l, 'blocktest', schule.tl_knoten(101, 2), v_e, (select bt.block_id from schule.block_thema bt where bt.thema_id = schule.tl_knoten(101, 2) limit 1),
+          array(select a.id from schule.aufgabe a where a.einheit_id = v_e and a.pool = 'test' order by a.id), 'laeuft', now()) returning id into v_a;
+  insert into schule.versuch (lernender_id, aufgabe_id, testsitzung_id, client_id, richtig, punkte, punkte_max, hilfe, versuch_nr)
+  select v_l, x, v_a, 'tl-rt-17-' || x, false, 0, 1, 0, 1 from unnest((select aufgaben from schule.testsitzung where id = v_a)) x;
+  perform schule.test_abschliessen_intern(v_l, jsonb_build_object('sitzung_id', v_a));
+  if (select status from schule.lernziel_stand where lernender_id = v_l and einheit_id = v_e and lernziel = 'cavalieri') <> 'fehler'
+     or exists (select 1 from schule.flug_erstabschluss where lernender_id = v_l and einheit_id = v_e) then raise exception 'FEHLER 17: Fehler im Flug-Test nicht gewertet'; end if;
+  insert into schule.testsitzung (lernender_id, art, thema_id, einheit_id, block_id, aufgaben, status, gestartet_am)
+  values (v_l, 'korrektur', schule.tl_knoten(101, 2), v_e, (select bt.block_id from schule.block_thema bt where bt.thema_id = schule.tl_knoten(101, 2) limit 1),
+          array(select a.id from schule.aufgabe a where a.einheit_id = v_e and a.pool = 'korrektur' order by a.id limit 1), 'laeuft', now()) returning id into v_a2;
+  insert into schule.versuch (lernender_id, aufgabe_id, testsitzung_id, client_id, richtig, punkte, punkte_max, hilfe, versuch_nr)
+  select v_l, x, v_a2, 'tl-rt-17k-' || x, true, 1, 1, 0, 1 from unnest((select aufgaben from schule.testsitzung where id = v_a2)) x;
+  perform schule.test_abschliessen_intern(v_l, jsonb_build_object('sitzung_id', v_a2));
+  if not exists (select 1 from schule.flug_erstabschluss where lernender_id = v_l and einheit_id = v_e) then raise exception 'FEHLER 17: kein Stempel nach Korrektur'; end if;
+  update schule.lernender set schulart = v_sa, zweig = null where id = v_l;
 
   -- 9 nur einmal teilen: zweites Einspielen ändert nichts
   if (select count(*) from schule.thema t where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101)) <> 15 then raise exception 'FEHLER 9'; end if;

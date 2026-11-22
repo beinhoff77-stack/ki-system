@@ -49,6 +49,16 @@ Nur Vorgabe, kein App-Code. Ziel (Sebastian): eigenen Lehrplan machen – sehen,
 - Unten zugeklappt: „↻ In Wiederholung (n) ›“, „✓ Fertig (kann er) (n) ›“ (öffnet die Liste; dort „Wieder in die Wiederholung“).
 - Darüberfahren über einen Fahrplan-Eintrag hebt die Karte in der Matrix hervor.
 
+### 4a Rausziehen und Reihenfolge-Warnung (Sebastian 22.11.)
+- **Aus dem Plan ziehen:** Eintrag aus dem Fahrplan zurück in die Matrix ziehen = aus dem Plan genommen. Beim Ziehen über die Matrix wird sie rot gestrichelt mit „Hier loslassen = aus dem Plan nehmen“. Danach Einblendung mit „↶ Rückgängig“. Baut ein Thema im Plan darauf auf, steht das mit ⚠ in derselben Einblendung.
+- **Warnung, keine Sperre:** Nur harte Voraussetzungen (`schule.voraussetzung`, hart) lösen sie aus, empfohlene nicht. Prüfung nach jedem Einplanen, Ziehen, ↑/↓, „Als Nächstes“ und „Ans Ende“:
+  1. Thema steht **vor** seiner Voraussetzung → „⚠ „B“ baut auf „A“ auf – das kommt erst auf Platz 4“, Knopf **„„A“ davor setzen“**.
+  2. Voraussetzung wird **hinter** ein Thema geschoben, das darauf aufbaut → „⚠ „B“ baut hierauf auf und steht schon auf Platz 2“, Knopf **„hinter „B“ setzen“**.
+  3. Voraussetzung ist **weder gekonnt noch im Plan** → „⚠ … das kann er noch nicht und es ist nicht im Plan“, Knopf **„„A“ davor einplanen“**.
+  Die Einblendung ist dunkelrot, Rückgängig bleibt daneben. Der Lehrer darf es trotzdem so lassen.
+- **Dauerhaft im Fahrplan:** betroffener Eintrag mit rotem Rand und Zeile „braucht A – kommt erst auf Platz 4“ bzw. „braucht A – nicht gelernt, nicht im Plan“, solange der Konflikt besteht.
+- Gekonnt/Wiederholung/gesetzt gilt als erfüllt; aufgelöste Themen werden ignoriert.
+
 ## 5 Detail-Schublade (beim Antippen einer Karte)
 1. Kopf: Titel, Themengebiet, Schul-Kennzeichen, ✕.
 2. **Stand von ‹Kind›:** Stufen-Marke (z. B. „↻ in Wiederholung · Wdh 2 von 5 · nächste in 3 Lerntagen“), darunter **jede Etappe** mit Punkt: gelandet / Wiederholung / gerade dran („4 von 6“) / begonnen mit Fehlern / offen / freiwillig.

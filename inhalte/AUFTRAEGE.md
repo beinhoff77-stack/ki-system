@@ -2689,3 +2689,25 @@ Tests für 360×640 und 400×860 ergänzen. Meldung: „FERTIG: 0.87.2“.
 - **An `bau-lehrer` (klein, Datei `20261123_fp_s4_sperrfolge.sql` oder Ergänzung der Tests, nicht einspielen):** ChatGPT 932 Sollte 1 – Sperrreihenfolge prüfen: Mischpfad sperrt Karte → Ausgabe; der normale Antwortpfad kann über den Trigger `versuch_misch_verfall` die Ausgabe vor der Karte anfassen. Reihenfolge vereinheitlichen oder begründen, warum keine zyklische Sperre möglich ist; Paralleltest Misch- gegen normale Antwort zur selben Aufgabe. Sollte 2 – Tests E/F reihenfolgeunabhängig („genau einmal gültig“) statt fester Erwartung. Meldung: „FERTIG: FP-S 4“.
 - **An `lehrplan-lb` (in LK-D mit erledigen):** Repo-Klasse Thema 91 (rs_by 7) nachziehen; „Abdeckung nach Stunden“ ist ein **Zuordnungsgrad** (Lehrplan-Punkt hat ein Thema), keine Lernabdeckung – so benennen; Punkte 931, 937 und die 8er-Inhalte von Thema 61 bleiben als Lücke/teilweise ausgewiesen.
 - **An Gestalter und `bau-motivation` (für LK-App):** Die Zahl je Klasse heißt „Lehrplan zugeordnet: x von y Stunden“, nicht „abgedeckt/gelernt“.
+
+### Nachtrag LW-S 2 / LK-S 2 – Rückläufer ChatGPT 934 (22.11., 15:15 Berlin) · an `bau-lehrer`
+
+ChatGPT hat LW-S und LK-S bei Commit 73cfb45 gelesen. Zugriff, Rechte, Sichten-Aufbau und RS „allgemein“ sind in Ordnung. Fünf Muss – beide Dateien bleiben uneingespielt. Bitte in den gelieferten Dateien korrigieren (sie sind noch nirgends eingespielt) oder als Folgedatei; Tests ergänzen.
+
+**LW-S**
+- **A1 (Muss):** „Neuer Fehler öffnet wieder“ darf nicht jeden falschen ersten Übungsversuch ausschließen. Maßgeblich ist die endgültige Wertung (`versuch_wertung(v) = 'falsch'` bzw. festgehaltene Wertung; bei Tests die falsche Testantwort). `wackelt_fehler` und `wackelt_liste` gleich behandeln; auch Antworten, die erst nach dem Status-Zeitpunkt endgültig werden (30 Minuten / Weitergehen). Regression: erster Fehler → offen → endgültig → wieder „zu besprechen“; neutraler Fehler öffnet nicht.
+- **A2 (Sollte):** Zugangstest mit gültigem Lern-Zugang (eigenes und fremdes Kind), Eltern/Lehrer mit berechtigtem und fremdem Kind, gesperrtem Zugang – ohne echte Schlüssel in der Testdatei.
+
+**LK-S**
+- **B1 (Muss):** `thema_lage_klasse` darf Klassen vor `klasse_fest` nicht verschlucken. Beispiel Thema 61: `rs_by` = 9, der Lehrplan verlangt aber schon in RS 8 I Inhalte. Die Klassenliste zeigt **alle** belegten Klassen; `klasse_fest` bestimmt weiter nur den bisherigen Start in Route/Stufen. Regression: 61 in 8 und 9, Stufen/Visum unverändert.
+- **B2 (Muss):** `etappen = null` heißt nicht „alle Etappen in dieser Klasse“, wenn es nur „unbekannt“ ist. Je Punkt exakt auflösen (Daten jetzt aus `lk_daten_2211.json`, dort je Punkt Etappen für alle Schularten); „ganzes Thema“ nur, wenn ausdrücklich so geliefert. Test: Klassenstand je Etappe (z. B. 2 von 3).
+- **B3 (Muss):** Teilen muss den Etappenkatalog der **alten** Einheit atomar verkleinern; alte und neue Einheit je mindestens 3 verschiedene Etappen, disjunkt, zusammen vollständig; keine schon gelandete Etappe wird neu verlangt. `aufgaben_umhaengen = false` bei vorhandenem Lernstand verbieten. Der Rauchtest darf nicht selbst in 2 + 3 teilen.
+- **B4 (Muss):** Probelauf je Teilung mit vollständigem Vorher/Nachher: `thema_stufe`/`im_plan`, Reiseoptionen, Visum, Lernstand je Etappe, Stempel, Abschluss je Flug, Sterne-Buchungen mit Bezug, Plan; offene Misch-Ausgaben und Sitzungen mit umhängen.
+- **B5 (Sollte):** Unbekannte Etappen-Schlüssel sind ein Fehler (Abbruch oder Zuordnung unverändert), nicht stillschweigend „ganzes Thema“.
+- **B6 (Sollte):** Feld umbenennen/kennzeichnen: „Stunden mit Themenzuordnung“ (Schätzung), nicht „abgedeckt“.
+- Befüllung auf `lk_daten_2211.json` umstellen (Gym, RS I und II/III, IB) – nach `lk_korrektur_2211.sql`.
+- **Hinweis:** Nach LK-D erfüllt derzeit **kein** Thema die Teilungsregel (Maßstab Gymnasium). Das Teil-Verfahren bleibt als geprüfte Vorlage, wird aber vorerst nicht angewendet.
+Meldung: „FERTIG: LW-S 2“ und „FERTIG: LK-S 2“.
+
+### Stand 22.11., 15:15 Berlin – LK-D geliefert
+`lehrplan-lb`: Gymnasium 5–10 und IB geprüft (`lk_pruefung_2211.md`). Probelauf `lk_korrektur_2211.sql` und FP-S 4 grün (Kinder und Klassen unverändert, Gym-Punkte ohne Hauptthema 134 → 0). Gegenprobe Gymnasium bei ChatGPT angefragt. Entscheidungen bei Sebastian: Teilungsliste (Empfehlung: nichts teilen), 43/69/71 im Gymnasium als „Vertiefung“, drei harte IB-Voraussetzungen.

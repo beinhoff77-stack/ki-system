@@ -61,7 +61,7 @@ Nur Vorgabe, kein App-Code. Ziel (Sebastian): eigenen Lehrplan machen – sehen,
 - **Immer alle Themen sichtbar** (alle Schularten, Entdecker-Inseln; nur aufgelöste Themen ohne Flug fehlen). Kein Filter, der Themen ausblendet.
 - **„Klassen nach“ Gymnasium | Realschule | IB:** bestimmt nur, **in welcher Zeile** ein Thema steht (Klasse dieser Schule). Standard = Schulart des Kindes. Themen, die diese Schule nicht hat, stehen gestrichelt in der Klasse der anderen Schule.
 - **„Zeigen“ Alle Themen | Noch nicht im Plan · n | Im Plan · n:** hebt hervor, alles andere wird blass (nichts verschwindet).
-- **„bis Kl. X“** (Auswahl, Standard „alle Klassen“): begrenzt die Hervorhebung auf Klasse ≤ X (ersetzt „Einstieg prüfen“ und den Reiter „Stand“).
+- **„Klassen 5 6 7 8 9 10“ – Mehrfachauswahl** (Sebastian 22.11.: „wenn Leo in der 9 ist, brauche ich 5–8 nicht mehr sehen“): Knöpfe in Klassenfarbe zum An-/Abschalten; abgeschaltete Klassen verschwinden ganz aus der Matrix (der Fahrplan zeigt weiter alles). **Standard: Klasse des Kindes bis 10**, je Kind gemerkt (Gerät). Ein blauer Punkt am Knopf zeigt, dass die Klasse Themen aus dem Fahrplan enthält – auch wenn sie ausgeblendet ist. Mindestens eine Klasse bleibt an. „Noch nicht im Plan“ und „Alle n einplanen“ gelten nur für die gewählten Klassen.
 - Bei „Noch nicht im Plan“ oben im Fahrplan: „n Themen (bis Kl. X) noch nicht im Plan · [Alle n einplanen (nach Klasse und Lehrplan)]“ – damit kommt mit einem Klick alles in den Plan.
 - **Suchen**, **Auswählen** (Sammelleiste) wie beschrieben.
 - Kleine % je Schulart stehen im Überblick-Reiter.

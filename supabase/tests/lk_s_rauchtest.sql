@@ -29,14 +29,23 @@ begin
   if (w->'lehrplan_zuordnung'->'rs_by'->'rs_I'->'8'->>'stunden_zugeordnet') is null then raise exception 'FEHLER 2 Lehrplan-Zuordnung in der Matrix fehlt'; end if;
   raise notice 'ok 2 RS 8 I Lernbereich 4: 40 Std., davon 40 mit Themenzuordnung (% von % Punkten)', r.punkte_mit_thema, r.punkte;
 
-  -- 3 B1: Thema 61 in RS I in 8 und 9 – Klasse 8 nicht verschluckt; klasse_fest (9) bleibt Start der Route, Klassen (thema_jahrgang) unverändert
-  if (select array_agg(k.klasse order by k.klasse) from schule.thema_lage_klasse k where k.thema_id = 61 and k.schulart = 'rs_by' and k.zweig = 'rs_I') @> array[8, 9] is not true
-     or (select k.rolle from schule.thema_lage_klasse k where k.thema_id = 61 and k.schulart = 'rs_by' and k.zweig = 'rs_I' and k.klasse = 8) <> 'neu'
-     or (select k.klasse_route from schule.thema_lage_klasse k where k.thema_id = 61 and k.schulart = 'rs_by' and k.zweig = 'rs_I' limit 1) <> 9
-     or (schule.thema_jahrgang(61)->>'rs_by')::int <> 9 then
-    raise exception 'FEHLER 3 Thema 61: %', (select jsonb_agg(to_jsonb(k) - 'lernbereiche') from schule.thema_lage_klasse k where k.thema_id = 61 and k.schulart = 'rs_by');
+  -- 3 B1: Thema 61 in RS I in 8 und 9 – Klasse 8 nicht verschluckt; Start der Route in Klasse 9 (klasse_fest). Gilt vor und nach der Teilung (TL-S):
+  --   ungeteilt: Thema 61 trägt 8 und 9, Route ab 9; geteilt: die Teile von 61 (teil_stamm = 61) tragen zusammen 8 und 9, der Teil mit Klasse 9
+  --   startet die Route in 9 (Teil 1 dann in 8). Geprüft wird über die Teile-Familie coalesce(teil_stamm, id) = 61.
+  select coalesce(max(t.id) filter (where (to_jsonb(t)->>'teil_stamm')::bigint = 61 and (to_jsonb(t)->>'teil_nr')::int > 1), 61) into v_te
+    from schule.thema t where coalesce((to_jsonb(t)->>'teil_stamm')::bigint, t.id) = 61;   -- Teil mit dem Start in Klasse 9 (ungeteilt: 61)
+  if (select array_agg(distinct k.klasse order by k.klasse) from schule.thema_lage_klasse k join schule.thema t on t.id = k.thema_id
+       where coalesce((to_jsonb(t)->>'teil_stamm')::bigint, t.id) = 61 and k.schulart = 'rs_by' and k.zweig = 'rs_I') @> array[8, 9] is not true
+     or (select min(k.klasse) filter (where k.rolle = 'neu') from schule.thema_lage_klasse k join schule.thema t on t.id = k.thema_id
+          where coalesce((to_jsonb(t)->>'teil_stamm')::bigint, t.id) = 61 and k.schulart = 'rs_by' and k.zweig = 'rs_I') <> 8
+     or (select max(k.klasse_route) from schule.thema_lage_klasse k join schule.thema t on t.id = k.thema_id
+          where coalesce((to_jsonb(t)->>'teil_stamm')::bigint, t.id) = 61 and k.schulart = 'rs_by' and k.zweig = 'rs_I') <> 9
+     or (select k.klasse_route from schule.thema_lage_klasse k where k.thema_id = v_te and k.schulart = 'rs_by' and k.zweig = 'rs_I' limit 1) <> 9
+     or (schule.thema_jahrgang(v_te)->>'rs_by')::int <> 9 then
+    raise exception 'FEHLER 3 Thema 61 (Teil mit Klasse 9: %): %', v_te, (select jsonb_agg(to_jsonb(k) - 'lernbereiche') from schule.thema_lage_klasse k join schule.thema t on t.id = k.thema_id
+                                                where coalesce((to_jsonb(t)->>'teil_stamm')::bigint, t.id) = 61 and k.schulart = 'rs_by');
   end if;
-  w := schule.thema_klassen(61, 'rs_by', 'rs_I');
+  w := schule.thema_klassen(v_te, 'rs_by', 'rs_I');
   if not exists (select 1 from jsonb_array_elements(w->'rs_by'->'rs_I') c where (c->>'klasse')::int = 9 and (c->>'route_start')::boolean) then
     raise exception 'FEHLER 3 route_start fehlt: %', w; end if;
   raise notice 'ok 3 Thema 61 in RS I 8 (neu) und 9 (Start der Route, klasse_fest), Klasse laut thema_jahrgang weiter 9';

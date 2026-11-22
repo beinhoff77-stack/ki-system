@@ -2,6 +2,39 @@
 
 Neueste oben.
 
+## FERTIG: NT-S (22.11., bau-lehrer)
+
+**Dateien:** `supabase/migrations/20261124_nt_s_nachtest_menge.sql` (nach TL-S; nicht eingespielt, kein DROP/DELETE), `supabase/tests/nt_s_rauchtest.sql` (Rollback, Testkind, eigene Test-Flüge).
+
+**Umsetzung:**
+- Regel `schule.nachtest_je_etappe(Pflicht-Etappen)` = aufrunden(5 / n): 1 → 5, 2 → je 3, 3–4 → je 2, ab 5 → je 1 (Mindestzahl als Regel `nachtest_min_aufgaben` = 5). Gezählt: Pflicht-Etappen des Kindes (`lernziel_stand.pflicht`, nach TL-S Pflicht/Kür je Schulart).
+- `test_starten_intern`, nur der Nachtest-Zweig (Umbau per Anker): je Etappe `schule.nachtest_auswahl` – ungestellte Aufgaben zuerst; fehlen welche zur Menge, wird mit schon gestellten aufgefüllt (die am längsten zurückliegenden zuerst), nie doppelt im selben Nachtest. Ohne jede ungestellte Aufgabe bleibt es „Vorrat erschöpft“ wie bisher → für Flüge mit ≥ 5 Pflicht-Etappen ändert sich nichts.
+- Quote, Einstufung (0,8 / 0,6) und Wertung je Etappe unverändert; Flug-Test und Korrektur-Test unverändert.
+- `nachtest_stand`: `vorrat_runden` = Runden mit ungestellten Aufgaben bei dieser Menge, neu `aufgaben_je_etappe`.
+- Sicht `schule.nachtest_vorrat` (Bericht): je Pflicht-Etappe vorhanden / Bedarf für drei Nachtests / fehlen.
+
+**Rauchtest (lokal mit den Live-Funktionen nachgebaut, grün):** 1 Etappe: 5 Aufgaben, 1 Fehler → bestanden (bisher Rückreise); 2: 6 → bestanden (bisher Rückreise); 3: 6 → bestanden (bisher wiederholen); 5: 5 → bestanden (unverändert). Keine Aufgabe doppelt, Etappen gleich verteilt, zweite Runde ohne Wiederholung, Auffüllen 2 ungestellte + 3 älteste, ohne ungestellte → erschöpft.
+Hinweis (Fakt, unverändert): ein Fehler setzt die Etappe weiter auf „fehler“ → vor dem nächsten Nachtest Korrektur-Test, auch wenn der Nachtest bestanden ist.
+
+**Fehlliste Sicherungs-Aufgaben** (Bedarf drei Nachtests: 1 Etappe 15, 2 je 9, 3–4 je 6, ab 5 je 3; vorhanden = echter Stand, lesend):
+*Nach der Teilung – Gymnasium (Kinder 1, 2):*
+- 46 Teil 3 (1 Pflicht-Etappe): punktspiegelung 6 von 15 → **fehlen 9**
+- 91 Teil 2 (2): rotation 6 von 9 → **3**, axialschnitt 6 von 9 → **3**
+- 61 Teil 1 (3): darstellen 0 von 6 → **6** (Etappe kommt mit LK-D-Einspiel)
+- 91 Teil 1 (3): wahre_groesse 0 → **6**, raumwinkel 0 → **6** (kommen mit LK-D)
+- 101 Teil 2 (1): cavalieri 0 von 15 → **15** (kommt mit LK-D)
+- ohne Fehlbedarf: 26 T1/T2, 29 T1/T2, 44 T1, 46 T1, 61 T2, 101 T1; ohne Pflicht (kein Nachtest): 44 T2, 46 T2.
+*Zusätzlich Realschule I:* 29 T2 gleichungen_binomisch **6**; 44 T2 vierecke **3**, vierecke_konstruieren **9**; 46 T2 vektor_koordinaten **6**; 46 T3 vektor_drehen **6**; 91 T2 koerper_symmetrie **6** (dafür 91 T2 rotation/axialschnitt dort ausreichend, 4 Pflicht-Etappen).
+*IB (myp_standard):* wie RS I bei 29 T2, 44 T2, 46 T2/T3, 61 T1, 101 T2; 91 ohne Pflicht.
+*Bestehende Flüge mit ≤ 4 Pflicht-Etappen (vor der Teilung):* nur **30 Potenzen und negative Exponenten** (2): potenz_begriff 6 von 9 → **3**, negativer_exponent 7 von 9 → **2**. Ausreichend: 1, 7, 58, 65, 66, 69, 91, 102, 103.
+Annahme: Pflicht je Schulart aus `lk_teilung_2211.json` (LK-D 4), Etappen, die es noch nicht gibt, mitgezählt.
+
+## FERTIG: LK-S Test 2 (22.11., bau-lehrer)
+
+**Datei:** `supabase/tests/lk_s_rauchtest.sql` (nur Test, keine Migration).
+- Prüfung 3 (Thema 61 in RS I 8 und 9) läuft jetzt über die Teile-Familie (`coalesce(teil_stamm, id) = 61`): zusammen Klassen 8 und 9, „neu“ ab 8, Route-Start 9 beim Teil mit Klasse 9 (ungeteilt: 61 selbst; geteilt: Teil 2), `thema_jahrgang` und `route_start` an diesem Teil. Spalten der Teilung werden über `to_jsonb` gelesen – der Test läuft auch ohne TL-S.
+- Lokal nachgestellt: alter Test nach der Teilung von 61 → „FEHLER 3 Thema 61“ (wie im Probelauf); neuer Test vor und nach der Teilung durchgelaufen (Teil 1: RS 8, Teil 2: RS 9).
+
 ## FERTIG: TL-S 4 (22.11., bau-lehrer)
 
 **Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/tests/tl_s_rauchtest.sql`, `supabase/werkzeug/tl_s_daten.py`, neu `supabase/tests/nachbau_graph_live.sql` (Voraussetzungen, Orte, Ort-Themen wie live; keine Kinderdaten). Nicht eingespielt, kein DROP/DELETE.

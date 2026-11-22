@@ -2,6 +2,37 @@
 
 Neueste oben.
 
+## FERTIG: TL-S (22.11., bau-lehrer)
+
+**Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql` (eine atomare Migration, nicht eingespielt, kein DROP/DELETE), `supabase/tests/tl_s_rauchtest.sql` (spielt die Migration in einer Transaktion ein, prüft, Rollback).
+**Reihenfolge:** nach LK-S und LW-S/LW-S 2 (Schritt 0 prüft beides); einspielen erst nach dem Gym-Audit (LK-D 3).
+
+**Fakten (lokal, PG 16, Nachbau der 6 Themen mit Live-Struktur, echtem `thema_stufe`, `reiseoptionen`, `fehler_endgueltig_am`):**
+- 13 Teile / 7 neue Flüge (Zahl 15 im Kopf berichtigt). Zweimal eingespielt: zweiter Lauf teilt nichts mehr. Rauchtest grün, vor und nach dem Einspielen.
+- **B3a:** Lehrplan-Punkte nach `zuordnung.etappen` auf die Teile (über mehrere Teile → je Teil eine Zuordnung). Alle 28 Kanten der JSON gesetzt, u. a. 31/8/97/35 ← 29 Teil 2, 62/64 ← 61 Teil 2, 93 ← 26 Teil 2, 74 ← 46 Teil 2, 49 ← 46 Teil 3; alte Kanten auf Teil 1 umgehängt, nicht doppelt.
+- **B3b:** Aufgaben ziehen mit gleicher Id in die Einheit ihres Teils → `versuch → aufgabe → einheit` zeigt ohne Lesepfad-Umbau auf den richtigen Teil (Was wackelt, Lernstand, Lehrer-Ansicht, Wertung). Rauchtest 3 erfasst alle alten Antworten vor dem Teilen und prüft danach Teil und Summe der „Was wackelt“-Fehler je Kind.
+- **B3c:** `schule.voraussetzung_schulart` + `v_ort_visum.schulart`; `reiseoptionen` filtert nach der Schulart des Kindes. Gym: 44 T2 und 46 T2 Zusatz, 46 T3 ← T2 nur empfohlen, ← T1 hart. Zusatz-Teile stehen im Plan als Art „zusatz“ und sind nirgends Visum (Rauchtest 5).
+- **B4:** Abbruch-Vergleich je Thema und Kind jetzt mit ganzen Karten-/Lernziel-Zeilen (alle `wdh_*`, `misch_ok_am`), offenen Mischkarten, `thema_stufe`, Reiseoptionen; global zusätzlich Visum je Schulart. Erlaubte Deltas ausdrücklich: im Plan/gesetzt/Rückreise je Teil wie vorher (Zusatz-Teil: als „zusatz“ im Plan); Etappen/begonnen/gelandet/sicher/wieder offen summieren sich zum alten Wert; Stufe je Teil ergibt sich neu; Reiseoptionen/Visum gleich nach Abbildung neuer Orte auf den Ort von Teil 1. Alles andere bricht ab (lokal mehrfach ausgelöst und behoben).
+- **Kind 2, 29 Teil 2:** Stempel, Ort fertig, 100 Ort-Sterne (einmal), Stufe „wiederholung“ statt „Test offen“ – dafür wird der abgeschlossene Flug-Test der alten Einheit als Test-Sitzung des Teils mitgeführt (Einfügen bucht keine Sterne; Trigger nur bei UPDATE).
+- **LW-Rest:** `besprochen_aktiv` nutzt `fehler_endgueltig_am` (LW-S 2). Regression im Rauchtest 8: alte Markierung + endgültiger erster Fehlversuch → wieder offen; offener erster Anlauf → bleibt besprochen; ohne Fehler → bleibt.
+- Neue Teile: freigegebene Einheiten, jede Etappe mit ≥ 1 Test-Aufgabe (lokal 0 Etappen ohne). Live fehlen noch die LK-D-Etappen `vierecke_konstruieren`, `vektor_koordinaten`, `vektor_drehen`, `wahre_groesse` – werden übersprungen und gemeldet; nach Einspielen der Aufgaben gehören sie in den jeweiligen Teil.
+
+**Annahmen (bitte bestätigen oder ändern):**
+- Vorläufige Orte = Kopie des bisherigen Orts („Titel · Teil k“) direkt dahinter; folgende Orte rücken nach.
+- Expeditions-Aufgaben und Aufgaben ohne Etappe im Katalog (29: Potenz-Gruppen, 44: parallelen/winkelsumme, 46: parkett, 91: laengen) bleiben bei Teil 1.
+- Einheit-Texte (Ziel, Merke) gelten noch fürs ganze Thema → Nacharbeit je Teil nötig.
+- Freigegebene Einheit wird in der Transaktion kurz auf 'geprueft' gesetzt (Schutz-Trigger), danach wieder freigegeben.
+- `klasse_fest` von Teil 1 aus der Liste (26 RS 6→5, 61 RS 9→8, 91 RS 8→7). RS II/III nicht nach Zusatz unterschieden.
+- Erweiterung durch LK-D 3 (2, 57, 101): nur der Datenblock `v_daten` wächst, das Verfahren ist allgemein. Nicht berücksichtigt: Live-Abweichungen, die nach meinem Lesestand entstehen – vor dem Einspielen Rauchtest gegen live in Transaktion laufen lassen.
+
+**Rückfrage Flug-Test (Fakten, live gelesen):**
+- Flug-Test (Blocktest, `test_starten_intern`): **alle** Aufgaben des Pools „test“ der Einheit. Verteilung live: 546 Etappen mit 1, 84 mit 2, 1 mit 3 Test-Aufgaben.
+- Wertung (`test_abschliessen_intern`): je Etappe „alle richtig“ (bool_and). Keine Quote: eine falsche Antwort → Etappe „fehler“ → Korrektur-Test (eine Aufgabe je Fehler-Etappe aus Pool „korrektur“) → „korrigiert“. Flug geschafft, wenn alle Pflicht-Etappen nachgewiesen/korrigiert/gesichert sind. Ein Fehler entscheidet also nicht über Bestehen, sondern löst eine Korrektur aus – unabhängig von der Etappenzahl.
+- Nachtests nach 10/25/60 Lerntagen: je Pflicht-Etappe **eine** Aufgabe aus Pool „sicherung“. Einstufung mit Quote: ≥ 0,8 bestanden (Sicherung +1, bei 3 „gesichert“), ≥ 0,6 wiederholen, sonst Rückreise.
+- Folge für kleine Teile: 2 Etappen (z. B. 61 T1, 46 T2/T3 live) → 1 Fehler = 50 % = **Rückreise**; 3 Etappen → 67 % = wiederholen; erst ab 5 Etappen kostet ein Fehler nur eine Stufe nicht.
+- Vorschlag (Meinung): Nachtest mindestens **5 Aufgaben je Flug**, verteilt: 1 Etappe → 5, 2 Etappen → je 3, 3–4 Etappen → je 2, ab 5 → je 1. Dann gilt bei kleinen Teilen: 1 Fehler von 5–6 = 80–83 % = bestanden bzw. wiederholen, nie Rückreise. Dafür je Etappe genug Sicherungs-Aufgaben für 3 Runden ohne Wiederholung: bei 3 je Runde ≥ 9 (live 6–17 vorhanden – bei Etappen mit < 9 nachschreiben). Flug-Test (Blocktest) optional ebenso auf ≥ 2 Test-Aufgaben je Etappe bei Teilen mit ≤ 3 Etappen, damit ein Glückstreffer nicht reicht.
+- Umsetzung braucht Änderung an `test_starten_intern` (Anzahl je Etappe aus Etappenzahl) – eigener Bau-Auftrag, nicht in TL-S.
+
 ## 2026-11-22 – FERTIG: LK-S Test (und Teil-Verfahren nach der neuen Teilungsregel)
 
 Zweig `bau-lehrer`, auf `lernen-app` (Stand 15:50). Nichts eingespielt, kein DROP, kein DELETE.

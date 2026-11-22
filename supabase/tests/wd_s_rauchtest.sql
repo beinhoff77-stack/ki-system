@@ -97,9 +97,13 @@ begin
      and jsonb_array_length(coalesce(e.inhalt->'bewertung'->'lernziele_pflicht', '[]'::jsonb)) >= 2
      and not exists (select 1 from jsonb_array_elements_text(e.inhalt->'bewertung'->'lernziele_pflicht') p
                       where (select count(*) from schule.aufgabe a where a.einheit_id = e.id and a.variante_gruppe = p and a.pool = 'uebung' and a.freigegeben and a.stufe in (2, 3)) < 3)
-   order by jsonb_array_length(e.inhalt->'bewertung'->'lernziele_pflicht'), e.id limit 1;
+   -- TL-S 6: Flüge ohne Pflichtlisten je Gruppe zuerst (dort gilt die globale Liste); nach der Teilung zählt die Regel Pflicht/Kür des Testkinds
+   order by jsonb_typeof(e.inhalt#>'{bewertung,pflicht_je_schulart}') is not null, jsonb_array_length(e.inhalt->'bewertung'->'lernziele_pflicht'), e.id limit 1;
   if v_e is null then raise exception 'FEHLER Vorbereitung: kein passender Flug'; end if;
   select array_agg(p order by p) into v_lz from jsonb_array_elements_text((select inhalt->'bewertung'->'lernziele_pflicht' from schule.einheit where id = v_e)) p;
+  if to_regprocedure('schule.pflicht_lernziele(bigint,bigint)') is not null then   -- nach TL-S: Pflicht-Etappen des Testkinds („Flug abgelegt“ zählt nur diese)
+    execute 'select array(select x from unnest(coalesce(schule.pflicht_lernziele($1, $2), $3)) x order by x)' into v_lz using v_l, v_e, v_lz;
+  end if;
   select p.einheit_id, p.lernziel into v_xe, v_xlz from wd_pool p where p.einheit_id <> v_e order by p.nr limit 1;
   select p.einheit_id, p.lernziel into v_ye, v_ylz from wd_pool p where p.einheit_id <> v_e and (p.einheit_id, p.lernziel) <> (v_xe, v_xlz) order by p.nr limit 1;
   v_a1 := pg_temp.wd_aufgabe(v_e, v_lz[1]); v_a2 := pg_temp.wd_aufgabe(v_e, v_lz[2]);

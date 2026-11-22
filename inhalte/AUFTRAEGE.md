@@ -2756,3 +2756,17 @@ Nur Vorschlag, kein App-Code, keine Datenbank-Änderung. Meldung: „FERTIG: Rei
 - **Benennung:** Geteilte Themen heißen überall „‹Titel› – Teil 1 von 3“, „… – Teil 2 von 3“ (Kinderseite, Lehrplan-Übersicht, Plan, Stempel). Zusätzlich darf ein Untertitel sagen, was der Teil enthält („Teil 2 von 2 · binomische Formeln“). Auch dort, wo eine Schulart alle Teile in derselben Klasse hat (Gymnasium), stehen sie als Teil 1/2/3 nacheinander.
 - **Aufbau prüfen (`lehrplan-lb`, Pflicht in LK-D 2):** nach der Teilung für jede Schulart: Teil n setzt Teil n−1 voraus (hart); alle bisherigen Voraussetzungen des Themas dem richtigen Teil zuordnen (welcher Teil braucht was, welcher Teil wird wovon gebraucht); danach die ganze Kette gegen die Klassenlage prüfen – kein Teil darf etwas brauchen, das in dieser Schulart erst in einer späteren Klasse liegt. Verstöße mit Vorschlag listen; Sebastians harte Entscheidungen (z. B. 102 ← 30) bleiben. Ergebnis als Aufbau-Kette je Teil für die Anzeige („Baut auf“ / „Geht weiter in“).
 - **Gestalter / `bau-motivation`:** „Teil x von y“ in Karte, Detail und Route zeigen.
+
+### Stand 22.11., 15:50 Berlin – Lieferungen und Rückläufer ChatGPT 936/937
+
+**Übernommen in `lernen-app` (f28f8c7 ff.):** LW-S 2, LK-S 2, FP-S 4 (`bau-lehrer`); App 0.87.2 und LW-1 = 0.88.0 (`bau-motivation`).
+**Probelauf echte Datenbank (zurückgerollt):** `lk_korrektur_2211.sql`, FP-S 4, LW-S 2, LK-S 2 laufen; Stufen/Plan/Reise/Lernstand/Sterne/Klassen unverändert; Rauchtests wd_s, wd_s3, fp_s, lw_s grün. **`lk_s_rauchtest.sql` scheitert:** „new row for relation eintrag violates check constraint eintrag_bearbeitung_check“ – der Test legt einen Eintrag mit einem `bearbeitung`-Wert an, den die echte Datenbank nicht erlaubt. **An `bau-lehrer`:** erlaubte Werte aus der echten Constraint lesen, Test anpassen (keine Migration). Meldung: „FERTIG: LK-S Test“.
+**Noch nichts davon eingespielt.** Gymnasium-Korrektur wartet auf Sebastians ausdrückliches Okay.
+
+**ChatGPT 936/937 (Gegenprobe Gymnasium, IB, FP-S 4):**
+- Gymnasium: Stunden und Titel aller Lernbereiche 5–10 unabhängig bestätigt (amtlich + mathe.delta je Klasse); 237 Punkte, alle mit Hauptthema; „jedes Thema in genau einer Gym-Klasse“ stimmt formal für die gewählten Zuordnungen.
+- **Muss A1 → an `lehrplan-lb` (in LK-D 2 mit erledigen):** Daraus folgt nicht, dass spätere Klassen nichts Neues bringen. Aufgaben-/Kompetenz-Audit an den Übergängen 7→8, 8→9, 9→10: verlangt der Lehrplan dort etwas, das unsere Etappen nicht enthalten? Konkret Gym 10 Lernbereich 5: schiefe Prismen/Körper, Volumengleichheit (Cavalieri) – Punkt 285 hängt nur an der vorhandenen Etappe `prisma_volumen` (gerade Körper, Gym 8). Fehlendes als neue Etappe liefern; nach der neuen Teilungsregel wird ein solcher 10er Abschnitt ein eigener Teil („Prismen und Zylinder – Teil 2 von 2“).
+- **Sollte A2:** „0 Aufbau-Verstöße“ gilt für Themen-Hauptbezüge; Voraussetzungen je Etappe ergänzen, wo die 87 Reihenfolge-Hinweise es zeigen.
+- **Sollte A3:** 43, 69, 71 im Gymnasium als Zusatz/Vertiefung kennzeichnen (Entscheidung Sebastian offen).
+- **IB Muss B1:** Bericht nennt 3 harte Voraussetzungs-Verstöße je Kurs, die JSON enthält 2 (63 ← 61; 29 ← 102). Bericht berichtigen oder den dritten belegen.
+- **FP-S 4:** code-seitig in Ordnung; Sollte: Paralleltest mit echter Sperrbarriere/Timeout statt `sleep` (an `bau-lehrer`, ohne Eile).

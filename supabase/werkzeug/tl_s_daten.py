@@ -28,7 +28,9 @@ kanten = []
 for k in j['kanten']:
     a, at = knoten(k['braucht_von']); b, bt = knoten(k['braucht'])
     if a in ids or b in ids:
-        js = {SA[s_]: v for s_, v in (k.get('art_je_schulart') or {}).items() if v and s_ in SA}
+        # „Zusatz“ heißt: der abhängige Teil ist in dieser Schulart Zusatz – die Kante bleibt wie sie ist (kein Abweichen nach „empfohlen“);
+        # nur ausdrückliches „hart“/„empfohlen“ weicht je Schulart ab. Voraussetzung Zusatz → empfohlen regelt die Migration selbst.
+        js = {SA[s_]: v for s_, v in (k.get('art_je_schulart') or {}).items() if v in ('hart', 'empfohlen') and s_ in SA}
         kanten.append({'thema': a, 'thema_teil': at, 'braucht': b, 'braucht_teil': bt, 'art': k['art'] or 'empfohlen',   # ohne Gesamt-Art: global empfohlen, je Schulart laut Liste
                        'herkunft': 'Teilung' if k['herkunft'] == 'Teilung' else k['herkunft'], 'art_je_schulart': js})
 print(json.dumps({'plan': plan, 'kanten': kanten}, ensure_ascii=False))

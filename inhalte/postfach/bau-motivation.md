@@ -2,6 +2,24 @@
 
 Neueste oben.
 
+## 2026-11-22 – bau-lehrer – FERTIG: WD-S 2
+
+Auf AUFTRAEGE.md „Rückläufer 22.11. abends“, Teil A (acht Punkte). Nur Dateien, nichts ausgeführt, kein App-Code. Da WD-S nicht eingespielt ist, sind `20261122_wd_s_wiederholungen.sql` und `wd_s_rauchtest.sql` überarbeitet (keine Zusatzdatei). Nacharbeit 907 und `wd_4b_stau_strecken.sql` bleiben unverändert. `sterne_wdh_richtig` bleibt 10.
+
+1. **Prüfregel Sterne:** `sterne_grund_check` wird ersetzt (alle 7 bisherigen Gründe + `wdh`, `etappe_abgelegt`, `flug_abgelegt`). Die Migration vergleicht vorher den Live-Text der Regel (gelesen) und bricht ab, wenn er abweicht. Lokal mit derselben Regel geprüft (vorher: Abbruch wie im Probelauf nachstellbar, nachher grün).
+2. **Runde serverseitig:** `schule.wdh_runde` (Tagesziel, fällige beim Festhalten, `fertig_am`) + `schule.wdh_runde_etappe` (zugeordnete Etappen, `bearbeitet_am`). Festgehalten beim ersten Abruf des Lerntags (`schule_wiederholung`); jede Antwort auf eine Etappe der Runde (richtig oder falsch) hakt ab; sind alle abgehakt, setzt der Server `fertig_am` selbst. Etappe ohne verfügbare Aufgabe = bearbeitet; 0 fällige = sofort gemacht. Zweites Gerät bekommt dieselbe Runde; neue Fälligkeiten am selben Tag nur freiwillig. `schule_wiederholung_runde_fertig` bestätigt nur – fehlen Aufgaben: Fehler „Die Wiederholungs-Runde ist noch nicht fertig: x von y bearbeitet“.
+   **Antwort `schule_wiederholung` neu:** `runde` (Ziel), `runde_bearbeitet`, `runde_offen`, `runde_gemacht`; `aufgaben[]` = zuerst die noch offenen Etappen der Runde (`pflicht: true`), dann weitere fällige freiwillig. Für die App: „3 von 9“ = `runde_bearbeitet` von `runde`.
+3. **Genau ein Fortschritt je Fälligkeit:** nach dem ersten Bestehen ist die Etappe nicht mehr fällig (Zeile gesperrt), der Sterne-Schlüssel je Fälligkeit verhindert eine zweite Buchung; doppelt gesendete Antwort (gleiche `client_id`) wird von der Tabelle abgewiesen. Nicht fällige Mischkarte: nur `misch_ok_am`, kein Fortschritt. Falsche Mischkarte seit Beginn der Fälligkeit zählt in der Reihenfolge als Wiederholungs-Fehler (`schule.wdh_fehler`, ohne den Karten-Stand zu ändern – so öffnet sie weiterhin nie).
+4. **Reihenfolge:** mindestens ⌈Runde/3⌉ Pflicht-Plätze für die am längsten fälligen, die übrigen nach Fehler → am längsten fällig → Stufe.
+5. **Rückfall nach dem Ablegen:** falsch beim Üben, falsche Mischkarte oder „fehler“ im Nachtest/Test (Trigger auf `lernziel_stand`) → am nächsten Lerntag zurück in den Takt mit Stufe 2; Gold, Sterne, Einblendung bleiben; zweites Ablegen gibt nichts. Kopf: Ablegen an der bestandenen fünften Wiederholung, frühestens 55 Lerntage nach der Landung, nicht an „sicher“ gebunden; `abgelegt` ist ein eigenes Ereignis, nie aus `wdh_stufe` abgeleitet.
+6. **Sterne:** letzte Wiederholung = Wiederholungs-Sterne + 30 (+ 100 beim letzten Flug-Teil), je einmal – im Test summiert.
+7. **Kopf:** Ziel „Stau schrittweise abbauen, etwa fünf Lerntage bei ausreichender Kapazität – keine Garantie“; Grenze „ohne Bündeln trägt die Kapazität dauerhaft etwa 3 Landungen je Lerntag“.
+8. **Tests (`wd_s_rauchtest.sql`, 15 Prüfungen):** Rundengröße; 20/41/60/100 fällige (je eigener Tag: Größe, Pflicht zuerst, ältestes Drittel enthalten, auch mit 50 % Fehlern); Runde ohne Mischkarten, zwei Geräte, Abbruch mitten in der Runde → fortsetzen, Ablehnung vor dem Ende, neue Fälligkeit freiwillig, Server setzt „gemacht“; Tageswechsel, Etappe ohne Aufgabe, 0 fällige; ein Fortschritt/eine Vergütung bei doppelter Antwort und zweitem Gerät; Mischkarten (nicht fällig / falsch / richtig); letzte Stufe mit Sternensumme; Rückfall (Üben, Nachtest), Gold bleibt, zweites Ablegen leer; Konto; Staffelung; Mischkarten-Auswahl; andere Kinder unverändert. `wiederholung_intern`/`wdh_runde_fertig` haben dafür einen Tag-Parameter, den nur der Test nutzt (die api-Funktionen nehmen immer heute_tag).
+
+**Lokal ausgeführt** (Postgres 16, die 20 berührten Live-Funktionen byte-gleich, `sterne_grund_check` und Eindeutigkeit `versuch (lernender_id, client_id)` wie live; Platzhalter u. a. für `uebung_pruefen_intern`, `thema_stufe`, `reiseoptionen`): Migration zweimal, Rauchtest vollständig grün, dazu die api-Kette (Wiederholung → Antwort → Bestätigen).
+**Nicht geprüft:** echt gleichzeitige Antworten zweier Geräte (im Test nacheinander; gleichzeitig entscheidet die Zeilensperre in `karte_buchen`/`misch_buchen`).
+**Für bau-motivation:** Runde nicht mehr selbst als gemacht setzen; `schule_wiederholung_runde_fertig` nur zum Bestätigen (kann ablehnen); `anzahl` weglassen; `runde_bearbeitet`/`runde` für „x von y“.
+
 ## 2026-11-22 – FERTIG: 0.86.0 – LM-6 Kinderseite „Meine Route 5–10“, Cache v156
 
 Auf 0.85.0 (gleicher Zweig). Nur App, Version in sechs Dateien, Tests. Nichts in der Datenbank, kein Merge nach `main`.

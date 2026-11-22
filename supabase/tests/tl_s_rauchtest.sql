@@ -272,6 +272,16 @@ begin
     (select count(*) from tl_rt_stufe where st->>'gesetzt' = 'komplett'), (select count(*) from tl_rt_stufe where st->>'gesetzt' = 'wiederholen'),
     (select count(*) from tl_rt_stufe where (st->>'rueckreise')::boolean), (select count(*) from tl_rt_stufe where (st->>'im_plan')::boolean);
 
+  -- 13 TL-S 4: harte Kanten bleiben je Schulart hart, außer die Voraussetzung ist dort Zusatz (z. B. 102 ← 30, 29 ← 102 in allen Schularten)
+  select string_agg(o.thema_id || '←' || o.braucht_id || ':' || o.schulart, ', ') into v_t
+    from schule.voraussetzung_schulart o join schule.voraussetzung v on v.thema_id = o.thema_id and v.braucht_id = o.braucht_id join schule.thema b on b.id = o.braucht_id
+   where v.art = 'hart' and o.art <> 'hart' and not (o.schulart = any(coalesce(b.zusatz, '{}')));
+  if v_t is not null then raise exception 'FEHLER 13: harte Kante je Schulart abgeschwächt: %', v_t; end if;
+  if exists (select 1 from (values (102, 30), (29, 102)) x(a, b) cross join (values ('gym_by'), ('rs_by'), ('ib_myp')) s(sa)
+              where not exists (select 1 from schule.voraussetzung v left join schule.voraussetzung_schulart o on o.thema_id = v.thema_id and o.braucht_id = v.braucht_id and o.schulart = s.sa
+                                 where v.thema_id = x.a and v.braucht_id = x.b and coalesce(o.art, v.art) = 'hart')) then
+    raise exception 'FEHLER 13: 102 ← 30 oder 29 ← 102 nicht in jeder Schulart hart'; end if;
+
   -- 9 nur einmal teilen: zweites Einspielen ändert nichts
   if (select count(*) from schule.thema t where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101)) <> 15 then raise exception 'FEHLER 9'; end if;
 

@@ -2,6 +2,21 @@
 
 Neueste oben.
 
+## FERTIG: TL-S 4 (22.11., bau-lehrer)
+
+**Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/tests/tl_s_rauchtest.sql`, `supabase/werkzeug/tl_s_daten.py`, neu `supabase/tests/nachbau_graph_live.sql` (Voraussetzungen, Orte, Ort-Themen wie live; keine Kinderdaten). Nicht eingespielt, kein DROP/DELETE.
+
+**Ursache (Fehler, kein gewolltes Delta):** In `lk_teilung_2211.json` steht bei Kanten `art_je_schulart: "Zusatz"`, wenn der **abhängige** Teil in der Schulart Zusatz ist (z. B. 91 Teil 1 ← 52 im IB). Ich hatte „Zusatz“ als „empfohlen“ übersetzt → im IB fiel u. a. 91 ← 52 weg (Ort 109 → 86). Richtig: „Zusatz“ ändert die Kante nicht; nur ausdrückliches „hart“/„empfohlen“ weicht je Schulart ab, und „nur empfohlen“ gilt, wenn die **Voraussetzung** in der Schulart Zusatz ist (Entscheidung 16:20).
+**Zweiter Fund (lokal, live ohne Wirkung):** Teil 1 als Zusatz im Plan (101 Teil 1 in der Realschule) hätte den ganzen Ort 86 auf „zusatz“ gesetzt – dort liegt auch 52. Jetzt nur, wenn am Ort kein anderes Thema liegt.
+
+**Vorher/nachher je Schulart (Graph wie live, lesend übernommen; Migration lokal):**
+- Visum vorher 46 Ort-Paare; nachher je Schulart nach Abbildung der neuen Orte auf den Ort von Teil 1: Gym, RS, IB **ohne fehlende und ohne zusätzliche Paare**. Der Abbruch-Vergleich B4 läuft durch.
+- 102 ← 30 und 29 ← 102 sind in allen drei Schularten hart; Ort 62 braucht 44 in allen Schularten.
+- Neuer Rauchtest 13: keine harte Kante wird je Schulart abgeschwächt, außer ihre Voraussetzung ist dort Zusatz; 102 ← 30 und 29 ← 102 in jeder Schulart hart.
+- Migration lokal zweimal ohne Fehler, Rauchtest vorher/nachher grün.
+
+**Hinweis Kür-Daten (LK-D 4 ist in der JSON angekommen):** Die Migration übernimmt jetzt `pflicht_je_schulart` je Teil. Gegenüber der bisherigen Pflichtliste ändert sich im Gymnasium: 26 Teil 2 `erkennen` wird Pflicht, 44 Teil 2 `vierecke` wird Kür (44 Teil 2 ist dort ohnehin Zusatz). Weitere Abweichungen nur RS/IB. Live gibt es Lernstand-Zeilen nur zu 29 (Kinder 1–3), und dort stimmt die Regel mit dem Bestand überein → kein Abgleich nötig. Bestehende Zeilen werden sonst beim nächsten Teststart des Kindes abgeglichen (`lernziele_anlegen`); einen Sammel-Abgleich schlage ich für KS vor.
+
 ## FERTIG: TL-S 3 (22.11., bau-lehrer)
 
 **Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/tests/tl_s_rauchtest.sql` (nicht eingespielt, kein DROP/DELETE).

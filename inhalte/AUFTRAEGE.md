@@ -2797,3 +2797,22 @@ Grundlage `inhalte/pruefung/lehrplan/lk_teilung_2211.md`/`.json`. Sebastian frag
 **An `lehrplan-lb` – LK-D 3:** Audit der Gym-Übergänge 7→8, 8→9, 9→10 (ChatGPT 937 A1; konkret Gym 10 Lernbereich 5 schiefe Körper/Volumengleichheit, Punkt 285), IB-Zählung 3 vs. 2 berichtigen; falls neue Etappen/Teile nötig: liefern und Teilungsliste fortschreiben (`lk_teilung_2211`), „Zusatz“ je Teil und Schulart in die JSON. Meldung: „FERTIG: LK-D 3“.
 **An `reise-aufbau`:** Nachtrag „Vorschlag fortschreiben“ gilt, zusätzlich je neuem Teil ein Nachbarland (9 neue Flüge, Kurzflüge mit 2 Städten erlaubt), Koordinaten je Stadt und Antarktis-Station, deutsche Hauptstadt-Namen, ISO-Ländercode. Meldung: „FERTIG: Reise-Aufbau 2“.
 **An Gestalter / `bau-motivation`:** „Teil x von y · Untertitel“ und „Zusatz“ in Karte, Detail, Route, Stempel.
+
+### Rückläufer ChatGPT 939/940 (22.11., 16:40 Berlin) – Teilungsliste und Teil-Verfahren
+
+**Berichtigung Zahl:** Die Liste hat **13 Teile, 7 neue Flüge** (26: 2 · 29: 2 · 44: 2 · 46: 3 · 61: 2 · 91: 2), nicht 15/9 (Zählfehler im Bericht LK-D 2, vom Haupt-Chat übernommen). Gilt für alle Aufträge (`reise-aufbau`: 7 Nachbarländer).
+ChatGPT hat die sechs Schnitte gegen LehrplanPLUS geprüft: fachlich nachvollziehbar. Offene Punkte – nichts einspielen, bis sie erledigt sind:
+
+**An `lehrplan-lb` (in LK-D 3):**
+- **F1 (Muss):** Weitere Themen mit Hauptpunkten in zwei Klassen fehlen in der Liste: **2 Lineare Gleichungen** (RS I 7 + 8, gleiche Etappen), **57 Daten erfassen/darstellen** (RS 5 + 7, gleiche Etappe), **101 Prismen/Zylinder** (Gym 8 + 10). Für jedes ausdrücklich entscheiden und begründen: teilen (wenn die spätere Klasse eigene Etappen braucht – dann Etappen liefern) oder „Wiederholung ohne neue Etappe“ (dann als Grenzfall mit Anzeige „wird in Kl. x wieder aufgegriffen“). Alle Themen systematisch gegen `lk_daten_2211.json` durchzählen, nicht nur die sechs.
+- **F2 (Muss):** Zusatz-Regel in die JSON: Kanten je Schulart („hart“ / „empfohlen“ / „Zusatz“). Gymnasium: 46 Teil 3 ← Teil 1 hart, Teil 2 nur empfohlen; 44 Teil 2 Zusatz.
+- **F3 (Sollte):** 61 Teil 1 (RS 8): Lehrplan verlangt Baumdiagramm und Vierfeldertafel – in den Etappen `begriffe`/`rel_haeufigkeit` nachweisen oder Etappe ergänzen. 91: Aufgaben gegen die 7er/8er Anforderungen prüfen.
+- Zahl im Bericht berichtigen (13 / 7).
+
+**An `bau-lehrer` (LK-S 3 / TL-S, eine atomare Teilungs-Migration):**
+- **B3a (Muss):** Lehrplan-Punkt → Teil vollständig umhängen (Punkte, deren Etappen über zwei Teile reichen, mehrfach zuordnen); **alle** Voraussetzungen nach den Kanten der JSON auf die richtigen Teile setzen (z. B. 31, 8, 97 ← 29 Teil 2; 62, 64 ← 61 Teil 2), nicht nur Teil k ← Teil k−1.
+- **B3b (Muss):** Historische Antworten: `versuch` → Aufgabe → alte, ersetzte Einheit. Nach dem Teilen müssen alte Fehler/Antworten beim **richtigen neuen Teil** erscheinen (Lesepfad/Zuordnungstabelle Etappe → neuer Teil), in „Was wackelt“, Lernstand und Lehrer-Ansicht. Regression mit echten alten Versuchen.
+- **B3c (Muss):** Voraussetzungen **je Schulart**: Zusatz-Teile sperren nichts (Route/Visum). 
+- **B4 (Muss):** Abbruch-Vergleich muss auch `thema_stufe`, Reiseoptionen, Visum, offene Mischkarten und alle Wiederholungsfelder (`wdh_fehler`, `wdh_ab`, `wdh_lerntage`, `wdh_gesetzt_am`, `misch_ok_am`) umfassen; erwartete Änderungen als ausdrücklich erlaubte Delta-Regeln, jede andere Abweichung bricht ab.
+- **LW-Rest (Muss):** `schule.besprochen_aktiv` (LA-3) auf dieselbe endgültige Fehler-Semantik wie LW-S 2 umstellen; Regression: alte Besprochen-Markierung + neuer endgültiger erster Fehlversuch → wieder offen.
+- Sollte: neue Teile sind freigegebene, vollständige Einheiten mit eigenem Flug-Test; Rauchtest in realistischer, zurückgerollter Transaktion.

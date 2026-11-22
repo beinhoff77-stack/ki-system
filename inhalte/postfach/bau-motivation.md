@@ -2,6 +2,30 @@
 
 Neueste oben.
 
+## 2026-11-22 – bau-lehrer – FERTIG: FP-S
+
+Bau-Auftrag FP, Teil FP-S. Nur Dateien, nichts eingespielt, Nachbuchung nicht ausgeführt (nur lesend nachgerechnet). Kein DROP einer Tabelle/Spalte, kein DELETE.
+
+**Dateien:** `supabase/migrations/20261122_fp_s_faire_punkte.sql` (nach WD-S 2 und WD-S 3, eine Transaktion), `supabase/tests/fp_s_rauchtest.sql`.
+
+**Was gebaut ist**
+- Regel 1: `sterne_aus_versuch` bucht 10 (`sterne_uebung_richtig`) nur bei richtig im ersten Versuch ohne Tipp, sonst 5 (`sterne_uebung_mit_hilfe`). Je Aufgabe weiter eine Buchung – die erste richtige Antwort entscheidet (wer zuerst mit Tipp löst, bekommt für diese Aufgabe später keine 10 mehr; Annahme, bitte bestätigen). Gilt auch für Mischkarten, die als Übung gebucht werden; Wiederholungen bleiben wie in WD; Knobeln unverändert.
+- Regel 2/3: Bonus im Moment der Landung (Haken in `landung_speichern`, das nur bei einer echten Landung aus `karte_buchen` läuft): 80 / 40 / 10 nach `fehler_endgueltig` aus `landung_zaehlen` (dieselbe Zählung wie die Landungs-Art seit AB-S: nur Übung dieser Etappe, ohne Tests, Mischkarten, Wiederholungen; Tipp ist kein Fehler). Neuer Sterne-Grund `landung` (Prüfregel ersetzt, vorher gegen den WD-S-2-Stand geprüft), `bezug 'landung:<einheit>:<etappe>'` eindeutig → doppelter Aufruf und gleichzeitige Antworten: genau eine Buchung (die Landung selbst ist zusätzlich über die Zeilensperre in `karte_buchen` serialisiert). Gesetzte Etappen („Kann er“, `gesetzt_am`) bekommen keinen Bonus.
+- Regel 4: `schule.landung_bonus_nachbuchen()` (auch je Kind: `(p_l)`) – liefert je Kind `etappen`, `sterne`; zweiter Lauf bucht nichts. Schreibt `schule.landung_nachbuchung` für den einmaligen Hinweis der App.
+- Antworten: `schule_uebung_pruefen` liefert jetzt **immer `sterne`** (in diesem Aufruf tatsächlich gebucht: Übung + Wiederholung + Bonus + Ablegen) und bei der Landung **`landung {…, bonus, fehler, stufe: 'ohne'|'wenig'|'sonst'}`** (zur bisherigen Landungs-Einblendung dazu). `schule_konto` liefert **`regeln`** (alle Sterne-Regeln) und **`landung_nachbuchung {etappen, sterne, am}`** (null, solange nicht nachgebucht).
+
+**Rauchtest** (lokal grün, Postgres 16 mit byte-gleichen Live-Funktionen inkl. `landung_speichern`/`landung_zaehlen`; zusammen mit WD-S- und WD-S-3-Test grün): 10/5/5/0, Bonus 80/40/10 (0/2/3 Fehler) über den echten Antwortweg, genau einmal, gesetzte Etappe ohne Bonus, Nachbuchung zweimal = einmal, Regeln, Lernstände/Stufen/Karten/Sterne der anderen Kinder unverändert. Der Test nimmt nur Etappen, die das Testkind nie beantwortet hat, und setzt die Karte selbst kurz vor die Landeschwelle – unabhängig von der Zusammensetzung echter Etappen.
+
+**Nachbuchung – lesender Lauf auf der echten Datenbank (22.11., nur Nummern)**
+
+| Kind | Sterne vorher | Etappen echt gelandet | ohne / 1–2 / mehr Fehler | Bonus | Sterne nachher | gesetzt (kein Bonus) |
+|---|---|---|---|---|---|---|
+| 1 | 2740 | 25 | 17 / 6 / 2 | +1620 | 4360 | 0 |
+| 2 | 3970 | 28 | 27 / 1 / 0 | +2200 | 6170 | 36 |
+| 3 (Testkind) | 120 | 6 | 5 / 1 / 0 | +440 | 560 | 0 |
+
+Hinweise: Bei 16 bzw. 21 Etappen gibt es keine gespeicherte Landung (vor AB-S gelandet) – dort zählt die Nachbuchung die Fehler aus den Versuchen bis zur Landung neu. Die Nachbuchung erhöht den Kontostand um rund 55–60 % – vor dem Ausführen bitte mit Sebastian abstimmen (Belohnungen/Einlösungen hängen an Sternen).
+
 ## 2026-11-22 – bau-lehrer – FERTIG: WD-S 3 Test
 
 Auf „Nachtrag WD-S 3 – Rauchtest stabil machen“. Nur `supabase/tests/wd_s3_rauchtest.sql` geändert, keine Migration.

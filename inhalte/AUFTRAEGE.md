@@ -2971,3 +2971,20 @@ Stand `lernen-app` 8d7170e. Reihenfolge: lk_korrektur → FP-S 4 → LW-S 2 → 
 PM 2 (Nachbau) übernommen: `inhalte/pruefmaterial/gym/nachbau/` (104 Arbeiten, 1370 Aufgaben), `inhalte/pruefmaterial/rs/nachbau/` (95 Arbeiten, 1389 Aufgaben). Keine PDFs, keine Originaltexte laut Meldung; Stichprobe einer Arbeit ohne Auffälligkeit.
 
 App 0.89.0 (LW-2): App-Tests 148 von 148.
+
+## Rückläufer Prüfung 951 (Werkstatt 952–955, 22.11. abends) – Nachtrag TL-S 7 / NT-S 2 an bau-lehrer
+
+Einig: Reihenfolge der Kette richtig; Kür-Etappe bleibt erreichbar (Kind 1, Thema 15); `lk_s_rauchtest` Teil 4 ist überholt, kein Fehler im Code.
+
+**Muss vor dem Einspielen (ChatGPT 953–955):**
+- **A1 (TL-S):** `tl_teilen` bucht den Erstabschluss eines neuen Teils über `tl_erledigt` (Karte selbst gelandet + Lernzielstand nachgewiesen/korrigiert/gesichert), ohne zu prüfen, dass ein alter bestandener Flug-Test jede Pflicht-Etappe des Teils abgedeckt hat. Verlangt: Prüfung direkt vor der Buchung (oder Nachweis per Invariante, dass der Lernzielstand nur über Flug-Test/Korrektur entsteht); Negativtests: kein gültiger alter Flug-Test bzw. Test ohne Aufgabe zu einer Pflicht-Etappe → kein Abschluss, keine Sterne.
+- **D1 (NT-S):** `nachtest_auswahl` liefert höchstens, nicht genau die verlangte Menge; `test_starten_intern` lehnt nur die leere Liste ab. Verlangt: je Pflicht-Etappe genau `nachtest_je_etappe` Aufgaben, sonst kein Teststart. Test: 1 Pflicht-Etappe mit 1–4 verfügbaren Aufgaben; echter Start mit 4 Etappen.
+
+**Sollte:**
+- A2: `stufe_etappen` bei ausdrücklich leerer Pflichtliste nicht über alle Kür-Etappen rechnen.
+- D2: Pflicht-Zählung in NT-S und `nachtest_vorrat` nach der Gruppe des Kindes (`pflicht_lernziele`), nicht nach der globalen Liste; Vorrat für RS II/III ausweisen.
+- lk_s Teil 4: nicht md5 über das ganze Stufen-JSON; stattdessen Lern-/Sternbuchungen unverändert und Etappenzahl = Pflichtliste der jeweiligen Gruppe.
+- App-Test: Thema in „Wiederholung“ mit offener Kür-Etappe ist startbar (bau-motivation, später).
+- Visum-Übergang (bewusste Ausnahme, dauerhaft): in der Liste je Kind als eigene Spalte zeigen; Sebastian bestätigt einmal.
+
+PM Gym Runde 3 übernommen (Kl. 8 um 22 Arbeiten erweitert).

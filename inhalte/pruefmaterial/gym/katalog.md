@@ -2520,3 +2520,558 @@ Niveau I/II/III und Kompetenz K1–K6 sind **eigene Einschätzung** (Annahme). �
 | 6a | 1 | II | K5 | Definitionsmenge | Definitionsbereich ankreuzen | zahlen.intervalle › lesen |
 | 6b | 2 | II | K5 | Bruchterm | Termwert zeigen | terme.bruchterme › termwert |
 | 6c | 2 | II | K5 | Bruchterm | Werte in eine Formel einsetzen | terme.bruchterme › termwert |
+
+### G8-R2025 – Grundwissentest Mathematik 9 Realschule 2025 (WPFG I)
+
+- Quelle: <https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2025/2025_GWT_Mathematik_9_I_Angabe.pdf> (abgerufen 2026-11-22) · Herausgeber: ISB Bayern (Realschule) · amtlich (ISB), frei abrufbar; Urheberrecht beim ISB – nur verlinkt, nicht kopiert
+- Art: Grundwissentest Realschule Jgst. 9, WPFG I (prüft Kl.-8-Stoff der Realschule) · Nummer/Zeitpunkt: Beginn Kl. 9 (Sept.) · Jahr: 2025 · Bundesland: Bayern
+- Zeit: 45 min · Punkte: 23 · Hilfsmittel: kein Taschenrechner · frei zugänglich: ja
+- Passung: Bayern amtlich, aber Realschule (Kl.-8-Stoff RS: viel Überschneidung mit Gym 8, dazu RS-eigene Themen) · Kategorie: B Bayern amtlich, andere Schulart
+- Gemeinsam geprüfte Themen: abbildungen.kongruenz, bruch.prozent, funktionen.linear, geometrie.grundbegriffe, geometrie.konstruktion, geometrie.winkelsaetze, gleichungen.bruch, gleichungen.linear, groessen.einheiten, groessen.indirekt, messen.flaechen_vielecke, stochastik.grundbegriffe, terme.bruchterme, terme.umformen
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1a | 1 | I | K4 | Zeichnen | Gerade zeichnen | funktionen.linear › graph_ablesen |
+| 1b | 1 | I | K5 | Gleichung | Parallele angeben | funktionen.linear › lage |
+| 2 | 1 | II | K3 | Gleichung aufstellen | Gleichung für Sparbetrag | gleichungen.linear › sach |
+| 3a | 1 | I | K5 | Ergänzen | Term beim Distributivgesetz ergänzen | terme.umformen › ausmultiplizieren (Teil 1 von 2 (zusammenfassen und ausmultiplizieren)) |
+| 3b | 1 | I | K5 | Ergänzen | Term beim Ausklammern ergänzen | terme.umformen › ausklammern (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 4 | 1 | II | K5 | Koordinaten | fehlender Streckenendpunkt über Mittelpunkt | geometrie.grundbegriffe › koordinaten |
+| 5 | 1 | II | K5 | Gleichung | Lösungsmenge einer Gleichung | gleichungen.linear › klammern |
+| 6 | 1 | II | K4 | Zeichnen | Drehzentrum zeichnerisch | abbildungen.kongruenz › drehung (Teil 3 von 3 (Drehen und Punktspiegelung)) |
+| 7 | 1 | I | K4 | Zeichnen | Raute vervollständigen | geometrie.konstruktion › vierecke_konstruieren (Teil 2 von 2 (Vierecke)) |
+| 8 | 1 | I | K5 | Umformen | Klammer auflösen, zusammenfassen | terme.umformen › binomisch (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 9 | 1 | II | K6 | Fehler finden | Fehler in Flächenaussage | messen.flaechen_vielecke › verstehen |
+| 10 | 1 | I | K4 | Erkennen | Rotationskörper erkennen | außerhalb: Rotationskörper (nur Realschule) |
+| 11 | 1 | II | K3 | Auswahl | Gleichung zu Wiese mit Weg wählen | gleichungen.linear › sach |
+| 12 | 1 | II | K4 | Zeichnen | Hilfspfeile für Flächenberechnung | außerhalb: Determinante/Vektorrechnung (nur Realschule) |
+| 13 | 1 | II | K5 | Auswahl | Nenner zu gegebener Definitionsmenge | terme.bruchterme › definitionsmenge |
+| 14 | 1 | II | K5 | Bruchgleichung | Bruchgleichung lösen | gleichungen.bruch › hauptnenner |
+| 15 | 1 | II | K3 | Maßstab | Dreieckshöhe aus Maßstab | groessen.einheiten › massstab |
+| 16 | 1 | II | K4 | Fläche | Trapezfläche aus Zeichnung | messen.flaechen_vielecke › trapez |
+| 17 | 1 | II | K3 | Prozent | Füllstand in Prozent | bruch.prozent › prozentsatz |
+| 18 | 1 | II | K4 | Auswahl | Graph bei konstanter Fläche | groessen.indirekt › graph |
+| 19a | 1 | II | K1 | Begründen | Nichtparallelität begründen | geometrie.winkelsaetze › parallel_pruefen |
+| 19b | 1 | II | K5 | Winkel | fehlender Winkel | geometrie.winkelsaetze › figuren |
+| 20 | 1 | I | K5 | Häufigkeit | relative Häufigkeit in Prozent | stochastik.grundbegriffe › rel_haeufigkeit (Teil 1 von 2 (Ergebnis, Ereignis, relative Häufigkeit)) |
+
+### G8-R2024 – Grundwissentest Mathematik 9 Realschule 2024 (WPFG I)
+
+- Quelle: <https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2024/2024_GWT_Mathe_9_I_Angabe.pdf> (abgerufen 2026-11-22) · Herausgeber: ISB Bayern (Realschule) · amtlich (ISB), frei abrufbar; Urheberrecht beim ISB – nur verlinkt, nicht kopiert
+- Art: Grundwissentest Realschule Jgst. 9, WPFG I (prüft Kl.-8-Stoff der Realschule) · Nummer/Zeitpunkt: Beginn Kl. 9 (Sept.) · Jahr: 2024 · Bundesland: Bayern
+- Zeit: 45 min · Punkte: 22 · Hilfsmittel: kein Taschenrechner · frei zugänglich: ja
+- Passung: Bayern amtlich, aber Realschule (Kl.-8-Stoff RS: viel Überschneidung mit Gym 8, dazu RS-eigene Themen) · Kategorie: B Bayern amtlich, andere Schulart
+- Gemeinsam geprüfte Themen: abbildungen.kongruenz, daten.darstellen, funktionen.grundbegriffe, funktionen.linear, geometrie.konstruktion, geometrie.kreis, geometrie.winkelsaetze, gleichungen.bruch, gleichungen.linear, groessen.einheiten, messen.flaechen, messen.volumen, terme.bruchterme, terme.umformen
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1 | 1 | II | K1 | Ankreuzen | wahre Aussage zu einer Geraden | funktionen.linear › deuten |
+| 2a | 1 | I | K5 | Nullstelle | Nullstelle einer linearen Funktion | funktionen.grundbegriffe › nullstellen |
+| 2b | 1 | II | K5 | Parallele | Punkt für Parallele bestimmen | funktionen.linear › lage |
+| 3 | 1 | I | K5 | Ergänzen | Distributivgesetz ergänzen | terme.umformen › ausmultiplizieren (Teil 1 von 2 (zusammenfassen und ausmultiplizieren)) |
+| 4 | 1 | II | K4 | Drehen | Pfeil um Punkt drehen, Koordinaten | abbildungen.kongruenz › drehung (Teil 3 von 3 (Drehen und Punktspiegelung)) |
+| 5 | 1 | II | K5 | Gleichung | Gleichung, bei der sich x² weghebt | gleichungen.linear › beide_seiten |
+| 6 | 1 | I | K4 | Zeichnen | Parallelogramm aus Seiten und Winkel | geometrie.konstruktion › vierecke_konstruieren (Teil 2 von 2 (Vierecke)) |
+| 7 | 1 | I | K5 | Umformen | Klammern auflösen, zusammenfassen | terme.umformen › summe_mal_summe (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 8 | 1 | II | K5 | Vektor | Vektorkoordinaten aus zwei Punkten | abbildungen.kongruenz › vektor_koordinaten (Teil 2 von 3 (Verschieben und Vektoren)) |
+| 9 | 1 | II | K5 | Extremwert | Maximum ablesen | außerhalb: quadratische Terme/Gleichungen, Extremwerte (RS Kl. 8, Gym Kl. 9/10) |
+| 10 | 1 | II | K5 | Fläche | Fläche zwischen zwei Quadraten | messen.flaechen › zerlegen |
+| 11 | 1 | I | K6 | Benennen | Teile eines Rotationskörpers benennen | außerhalb: Rotationskörper (nur Realschule) |
+| 12 | 1 | II | K5 | Zuordnen | Eckpunkte in Flächenformel | außerhalb: Determinante/Vektorrechnung (nur Realschule) |
+| 13 | 1 | II | K6 | Begründen | warum ein Bruchterm eine Definitionsmenge braucht | terme.bruchterme › definitionsmenge |
+| 14 | 1 | II | K5 | Bruchgleichung | Bruchgleichung mit zwei Nennern | gleichungen.bruch › hauptnenner |
+| 15 | 1 | II | K1 | Ankreuzen | falsche Aussage zu Vierecken | abbildungen.kongruenz › eigenschaften (Teil 1 von 3 (Spiegeln und Symmetrie)) |
+| 16 | 1 | II | K3 | Volumen | Sauerstoffvolumen im Raum | messen.volumen › liter |
+| 17 | 1 | II | K3 | Schätzen | Weglänge auf Karte schätzen | groessen.einheiten › massstab |
+| 18 | 1 | II | K4 | Kreisdiagramm | Kreisdiagramm ergänzen | daten.darstellen › kreisdiagramm |
+| 19a | 1 | II | K5 | Winkel | Winkel an Tangente | geometrie.kreis › tangente |
+| 19b | 1 | II | K5 | Winkel | Winkel an Parallelen | geometrie.winkelsaetze › stufen_wechsel |
+| 20 | 1 | I | K5 | Häufigkeit | absolute Häufigkeit | daten.darstellen › absolute_haeufigkeit |
+
+### G8-R2023 – Grundwissentest Mathematik 9 Realschule 2023 (WPFG I)
+
+- Quelle: <https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2023/2023_GWT_Mathe_9_I_Angabe.pdf> (abgerufen 2026-11-22) · Herausgeber: ISB Bayern (Realschule) · amtlich (ISB), frei abrufbar; Urheberrecht beim ISB – nur verlinkt, nicht kopiert
+- Art: Grundwissentest Realschule Jgst. 9, WPFG I (prüft Kl.-8-Stoff der Realschule) · Nummer/Zeitpunkt: Beginn Kl. 9 (Sept.) · Jahr: 2023 · Bundesland: Bayern
+- Zeit: 45 min · Punkte: 22 · Hilfsmittel: kein Taschenrechner · frei zugänglich: ja
+- Passung: Bayern amtlich, aber Realschule (Kl.-8-Stoff RS: viel Überschneidung mit Gym 8, dazu RS-eigene Themen) · Kategorie: B Bayern amtlich, andere Schulart
+- Gemeinsam geprüfte Themen: abbildungen.kongruenz, bruch.prozent_grundwert, daten.darstellen, funktionen.linear, geometrie.konstruktion, geometrie.kreis, geometrie.winkelsaetze, gleichungen.bruch, gleichungen.linear, groessen.einheiten, messen.flaechen, messen.koerper_darstellung, messen.volumen, stochastik.grundbegriffe, terme.bruchterme, terme.umformen
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1a | 1 | I | K4 | Zeichnen | Gerade zeichnen | funktionen.linear › graph_ablesen |
+| 1b | 1 | II | K5 | Gleichung | senkrechte Gerade durch Punkt | funktionen.linear › aufstellen |
+| 1c | 1 | II | K1 | Erkennen | Parallele zur Winkelhalbierenden | funktionen.linear › lage |
+| 2 | 1 | I | K5 | Ausklammern | gemeinsamen Faktor ausklammern | terme.umformen › ausklammern (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 3 | 1 | II | K1 | Ankreuzen | allgemeingültige Aussage erkennen | terme.umformen › aequivalenz (Teil 1 von 2 (zusammenfassen und ausmultiplizieren)) |
+| 4 | 1 | II | K5 | Gleichung | Gleichung mit wegfallendem x² | gleichungen.linear › beide_seiten |
+| 5 | 1 | I | K4 | Zeichnen | Raute mit Winkel ergänzen | geometrie.konstruktion › vierecke_konstruieren (Teil 2 von 2 (Vierecke)) |
+| 6 | 1 | I | K5 | Umformen | binomische Klammer auflösen | terme.umformen › binomisch (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 7 | 1 | II | K5 | Vektor | Punkt aus Verschiebung | abbildungen.kongruenz › verschiebung (Teil 2 von 3 (Verschieben und Vektoren)) |
+| 8 | 1 | II | K5 | Extremwert | Art, Wert und Stelle eines Extremwerts | außerhalb: quadratische Terme/Gleichungen, Extremwerte (RS Kl. 8, Gym Kl. 9/10) |
+| 9 | 1 | III | K3 | Fläche | Gehege mit Zaunbedingung | messen.flaechen › sachaufgaben |
+| 10 | 1 | II | K6 | Fehler finden | Fehler im Schrägbild | messen.koerper_darstellung › schraegbild |
+| 11 | 1 | II | K5 | Auswahl | Flächenansatz mit Determinante | außerhalb: Determinante/Vektorrechnung (nur Realschule) |
+| 12 | 1 | II | K5 | Ergänzen | Nenner passend ergänzen | terme.bruchterme › definitionsmenge |
+| 13 | 1 | II | K5 | Bruchgleichung | Bruchgleichung mit D lösen | gleichungen.bruch › hauptnenner |
+| 14 | 1 | II | K4 | Konstruieren | Dreieck mit Thaleskreis | geometrie.kreis › umkehrung |
+| 15 | 1 | II | K3 | Volumen | Kartonvolumen aus Würfeln | messen.volumen › zusammengesetzt |
+| 16 | 1 | II | K3 | Prozent | Preis aus Sparbetrag | bruch.prozent_grundwert › zurueck |
+| 17 | 1 | II | K3 | Maßstab | Pfeilerhöhe aus Maßstab | groessen.einheiten › massstab |
+| 18 | 1 | II | K1 | Ankreuzen | falsche Aussage zum Diagramm | daten.darstellen › tabelle_auswerten |
+| 19 | 1 | II | K5 | Winkel | Winkel mit Parallelen und gleichschenkligem Dreieck | geometrie.winkelsaetze › figuren |
+| 20 | 1 | I | K5 | Häufigkeit | relative Häufigkeit aus Tabelle | stochastik.grundbegriffe › rel_haeufigkeit (Teil 1 von 2 (Ergebnis, Ereignis, relative Häufigkeit)) |
+
+### G8-R2022 – Grundwissentest Mathematik 9 Realschule 2022 (WPFG I)
+
+- Quelle: <https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2022/_A__2022_GWT_Mathe_9_I_Angabe.pdf> (abgerufen 2026-11-22) · Herausgeber: ISB Bayern (Realschule) · amtlich (ISB), frei abrufbar; Urheberrecht beim ISB – nur verlinkt, nicht kopiert
+- Art: Grundwissentest Realschule Jgst. 9, WPFG I (prüft Kl.-8-Stoff der Realschule) · Nummer/Zeitpunkt: Beginn Kl. 9 (Sept.) · Jahr: 2022 · Bundesland: Bayern
+- Zeit: 45 min · Punkte: 22 · Hilfsmittel: kein Taschenrechner · frei zugänglich: ja
+- Passung: Bayern amtlich, aber Realschule (Kl.-8-Stoff RS: viel Überschneidung mit Gym 8, dazu RS-eigene Themen) · Kategorie: B Bayern amtlich, andere Schulart
+- Gemeinsam geprüfte Themen: abbildungen.kongruenz, bruch.prozent_grundwert, daten.darstellen, funktionen.linear, geometrie.grundbegriffe, geometrie.konstruktion, geometrie.winkelsaetze, gleichungen.bruch, gleichungen.linear, groessen.einheiten, messen.flaechen, messen.koerper_darstellung, terme.aufstellen, terme.bruchterme, terme.umformen
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1a | 1 | I | K4 | Ablesen | Geradengleichung ablesen | funktionen.linear › ablesen |
+| 1b | 1 | I | K4 | Zeichnen | Gerade aus Punkt und Steigung | funktionen.linear › graph_ablesen |
+| 1c | 1 | II | K5 | Gleichung | Gerade aus Achsenschnittpunkten | funktionen.linear › zwei_punkte |
+| 2 | 1 | I | K5 | Ergänzen | Distributivgesetz ergänzen | terme.umformen › ausmultiplizieren (Teil 1 von 2 (zusammenfassen und ausmultiplizieren)) |
+| 3 | 1 | II | K5 | Gleichung | Gleichung mit wegfallendem x² | gleichungen.linear › beide_seiten |
+| 4 | 1 | I | K4 | Zeichnen | gleichschenkliges Trapez vervollständigen | geometrie.konstruktion › vierecke_konstruieren (Teil 2 von 2 (Vierecke)) |
+| 5 | 1 | I | K5 | Umformen | Klammer auflösen | terme.umformen › summe_mal_summe (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 6 | 1 | I | K5 | Koordinaten | fehlender Parallelogrammpunkt | geometrie.grundbegriffe › vierecke |
+| 7 | 1 | II | K1 | Erkennen | falschen Umfangsterm erkennen | terme.aufstellen › sachsituation |
+| 8 | 1 | II | K4 | Ablesen | Grundfläche aus Schrägbild | messen.koerper_darstellung › schraegbild |
+| 9 | 1 | II | K5 | Fläche | Dreiecksfläche mit Determinante | außerhalb: Determinante/Vektorrechnung (nur Realschule) |
+| 10 | 1 | I | K5 | Definitionsmenge | D eines Bruchterms | terme.bruchterme › definitionsmenge |
+| 11 | 1 | II | K5 | Bruchgleichung | Bruchgleichung lösen | gleichungen.bruch › hauptnenner |
+| 12 | 1 | II | K1 | Aussage | Seitenlänge aus Umfang beurteilen | messen.flaechen › verstehen |
+| 13 | 1 | II | K3 | Sachaufgabe | Wasserstand nach Zeit | funktionen.linear › deuten |
+| 14 | 1 | II | K4 | Erkennen | quadratischer Term mit Minimum | außerhalb: quadratische Terme/Gleichungen, Extremwerte (RS Kl. 8, Gym Kl. 9/10) |
+| 15 | 1 | II | K1 | Begründen | Preisänderungen begründen | bruch.prozent_grundwert › mehrfach |
+| 16 | 1 | II | K3 | Sachaufgabe | Plattformhöhe | groessen.einheiten › massstab |
+| 17 | 1 | II | K4 | Drehen | Bildpunkt einer Drehung | abbildungen.kongruenz › drehung (Teil 3 von 3 (Drehen und Punktspiegelung)) |
+| 18 | 2 | II | K5 | Winkel | zwei Winkel an Parallelen | geometrie.winkelsaetze › stufen_wechsel |
+| 19 | 1 | I | K5 | Häufigkeit | Anzahl aus relativer Häufigkeit | daten.darstellen › relative_haeufigkeit |
+
+### G8-R2021 – Grundwissentest Mathematik 9 Realschule 2021 (WPFG I)
+
+- Quelle: <https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2021/2021_gwt_mathe_9_i_angabe.pdf> (abgerufen 2026-11-22) · Herausgeber: ISB Bayern (Realschule) · amtlich (ISB), frei abrufbar; Urheberrecht beim ISB – nur verlinkt, nicht kopiert
+- Art: Grundwissentest Realschule Jgst. 9, WPFG I (prüft Kl.-8-Stoff der Realschule) · Nummer/Zeitpunkt: Beginn Kl. 9 (Sept.) · Jahr: 2021 · Bundesland: Bayern
+- Zeit: 45 min · Punkte: 23 · Hilfsmittel: kein Taschenrechner · frei zugänglich: ja
+- Passung: Bayern amtlich, aber Realschule (Kl.-8-Stoff RS: viel Überschneidung mit Gym 8, dazu RS-eigene Themen) · Kategorie: B Bayern amtlich, andere Schulart
+- Gemeinsam geprüfte Themen: abbildungen.kongruenz, bruch.brueche, bruch.prozent_grundwert, funktionen.grundbegriffe, funktionen.linear, geometrie.konstruktion, geometrie.winkelsaetze, gleichungen.bruch, gleichungen.linear, groessen.einheiten, messen.flaechen, messen.koerper_darstellung, messen.volumen, stochastik.grundbegriffe, terme.aufstellen, terme.bruchterme, terme.umformen, zahlen.teilbarkeit
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1a | 1 | I | K4 | Ablesen | Geradengleichung ablesen | funktionen.linear › ablesen |
+| 1b | 1 | I | K5 | Einsetzen | fehlende Koordinate auf Gerade | funktionen.grundbegriffe › punkt_graph |
+| 1c | 1 | II | K5 | Gleichung | senkrechte Gerade | funktionen.linear › aufstellen |
+| 2 | 1 | II | K1 | Erkennen | Geraden durch einen Quadranten | funktionen.linear › lage |
+| 3 | 1 | II | K2 | Knobel | kleinste dreistellige Zahl mit Quersumme | zahlen.teilbarkeit › quersumme |
+| 4 | 1 | II | K5 | Gleichung | Gleichung mit wegfallendem x² | gleichungen.linear › beide_seiten |
+| 5 | 1 | I | K5 | Umformen | Klammern auflösen | terme.umformen › summe_mal_summe (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 6 | 1 | II | K5 | Vektor | Punkt aus Vektorbeziehung | abbildungen.kongruenz › verschiebung (Teil 2 von 3 (Verschieben und Vektoren)) |
+| 7 | 1 | II | K1 | Auswahl | zwei passende Flächenterme | terme.aufstellen › sachsituation |
+| 8 | 1 | I | K4 | Zeichnen | Drachenviereck vervollständigen | geometrie.konstruktion › vierecke_konstruieren (Teil 2 von 2 (Vierecke)) |
+| 9 | 1 | II | K5 | Fläche | Dreiecksfläche aus Vektoren | außerhalb: Determinante/Vektorrechnung (nur Realschule) |
+| 10 | 1 | II | K3 | Prozent | Füllmenge vor Aufschlag | bruch.prozent_grundwert › zurueck |
+| 11 | 1 | II | K5 | Ergänzen | Nenner passend ergänzen | terme.bruchterme › definitionsmenge |
+| 12 | 1 | II | K5 | Bruchgleichung | Bruchgleichung lösen | gleichungen.bruch › hauptnenner |
+| 13 | 1 | II | K1 | Ankreuzen | Aussage zur Chorbeteiligung | bruch.brueche › anteil_bestimmen |
+| 14 | 1 | I | K4 | Zeichnen | Schrägbild eines Quaders | messen.koerper_darstellung › schraegbild |
+| 15 | 1 | II | K1 | Begründen | Trefferquoten vergleichen | stochastik.grundbegriffe › rel_haeufigkeit (Teil 1 von 2 (Ergebnis, Ereignis, relative Häufigkeit)) |
+| 16 | 1 | II | K3 | Volumen | Wassermenge zum Befüllen | messen.volumen › liter |
+| 17 | 1 | II | K3 | Zeit | Reisezeit mit Zuschlägen | groessen.einheiten › zeit |
+| 18 | 1 | II | K4 | Drehen | Bildpunkt einer Drehung | abbildungen.kongruenz › drehung (Teil 3 von 3 (Drehen und Punktspiegelung)) |
+| 19α | 1 | II | K5 | Winkel | Winkel aus Parallelen und Dreieck | geometrie.winkelsaetze › figuren |
+| 19β | 1 | II | K5 | Winkel | zweiter Winkel | geometrie.winkelsaetze › figuren |
+| 20 | 1 | II | K5 | Fläche | schraffierte Fläche einer Quadratfigur | messen.flaechen › zerlegen |
+
+### G8-R2020 – Grundwissentest Mathematik 9 Realschule 2020 (WPFG I)
+
+- Quelle: <https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2020/2020_gwt_mathe_9_i_loesung.pdf> (abgerufen 2026-11-22) · Herausgeber: ISB Bayern (Realschule) · amtlich (ISB), frei abrufbar; Urheberrecht beim ISB – nur verlinkt, nicht kopiert
+- Art: Grundwissentest Realschule Jgst. 9, WPFG I (prüft Kl.-8-Stoff der Realschule) · Nummer/Zeitpunkt: Beginn Kl. 9 (Sept.) · Jahr: 2020 · Bundesland: Bayern
+- Zeit: 45 min · Punkte: 23 · Hilfsmittel: kein Taschenrechner · frei zugänglich: ja
+- Passung: Bayern amtlich, aber Realschule (Kl.-8-Stoff RS: viel Überschneidung mit Gym 8, dazu RS-eigene Themen) · Kategorie: B Bayern amtlich, andere Schulart
+- Gemeinsam geprüfte Themen: abbildungen.kongruenz, bruch.brueche, bruch.prozent_grundwert, daten.darstellen, funktionen.grundbegriffe, funktionen.linear, geometrie.konstruktion, geometrie.kreis, geometrie.winkelsaetze, gleichungen.bruch, gleichungen.linear, messen.flaechen, messen.volumen, stochastik.grundbegriffe, terme.aufstellen, terme.bruchterme, terme.umformen
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1a | 1 | I | K4 | Zeichnen | Gerade zeichnen | funktionen.linear › graph_ablesen |
+| 1b | 1 | I | K5 | Prüfen | liegt Punkt auf Gerade | funktionen.grundbegriffe › punkt_graph |
+| 1c | 1 | II | K5 | Gleichung | Parallele durch Punkt | funktionen.linear › lage |
+| 2 | 1 | I | K5 | Gleichung | Gleichung mit Klammern | gleichungen.linear › klammern |
+| 3 | 1 | III | K2 | Knobel | Bruch aus Änderung von Zähler und Nenner | gleichungen.bruch › verhaeltnis |
+| 4 | 1 | I | K5 | Ergänzen | Ausklammern ergänzen | terme.umformen › ausklammern (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 5 | 1 | I | K5 | Umformen | Klammern auflösen | terme.umformen › summe_mal_summe (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 6 | 1 | II | K1 | Auswahl | Flächenterm einer Figur | terme.aufstellen › sachsituation |
+| 7 | 1 | I | K6 | Benennen | Viereck aus Eigenschaften | abbildungen.kongruenz › vierecke_ordnen (Teil 1 von 3 (Spiegeln und Symmetrie)) |
+| 8 | 1 | II | K5 | Vektor | Punkt mit Vektor berechnen | abbildungen.kongruenz › verschiebung (Teil 2 von 3 (Verschieben und Vektoren)) |
+| 9 | 1 | II | K2 | Anteil | Karten entfernen für Anteil | bruch.brueche › anteil_bestimmen |
+| 10 | 1 | II | K5 | Extremwert | Extremwert ankreuzen | außerhalb: quadratische Terme/Gleichungen, Extremwerte (RS Kl. 8, Gym Kl. 9/10) |
+| 11 | 1 | I | K5 | Definitionsmenge | D eines Bruchterms | terme.bruchterme › definitionsmenge |
+| 12 | 1 | II | K5 | Bruchgleichung | Bruchgleichung lösen | gleichungen.bruch › hauptnenner |
+| 13 | 1 | II | K1 | Ankreuzen | Aussagen zum Wahldiagramm | daten.darstellen › tabelle_auswerten |
+| 14 | 1 | I | K5 | Wahrscheinlichkeit | Teilbarkeitsereignis beim Würfeln | stochastik.grundbegriffe › laplace (Teil 2 von 2 (Laplace-Wahrscheinlichkeit)) |
+| 15 | 1 | II | K3 | Volumen | fehlendes Maß eines L-Profils | messen.volumen › rueckwaerts |
+| 16 | 1 | II | K3 | Fläche | Fliesenpakete für Wand mit Aussparungen | messen.flaechen › sachaufgaben |
+| 17a | 1 | II | K5 | Winkel | Winkel mit Parallelen und gleichen Strecken | geometrie.winkelsaetze › figuren |
+| 17b | 1 | II | K5 | Winkel | Winkel an Tangente | geometrie.kreis › tangente |
+| 18 | 1 | II | K5 | Fläche | Rechteck aus Umfang und Seitenverhältnis | messen.flaechen › verstehen |
+| 19 | 1 | II | K1 | Begründen | Mindestlänge einer Dreiecksseite | geometrie.konstruktion › konstruierbar (Teil 1 von 2 (Dreiecke konstruieren, Kongruenz)) |
+| 20 | 1 | II | K3 | Prozent | Preis vor Erhöhung | bruch.prozent_grundwert › zurueck |
+
+### G8-R2019 – Grundwissentest Mathematik 9 Realschule 2019 (WPFG I)
+
+- Quelle: <https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2019/2019_gwt_mathe_9_i_angabe.pdf> (abgerufen 2026-11-22) · Herausgeber: ISB Bayern (Realschule) · amtlich (ISB), frei abrufbar; Urheberrecht beim ISB – nur verlinkt, nicht kopiert
+- Art: Grundwissentest Realschule Jgst. 9, WPFG I (prüft Kl.-8-Stoff der Realschule) · Nummer/Zeitpunkt: Beginn Kl. 9 (Sept.) · Jahr: 2019 · Bundesland: Bayern
+- Zeit: 45 min · Punkte: 23 · Hilfsmittel: kein Taschenrechner · frei zugänglich: ja
+- Passung: Bayern amtlich, aber Realschule (Kl.-8-Stoff RS: viel Überschneidung mit Gym 8, dazu RS-eigene Themen) · Kategorie: B Bayern amtlich, andere Schulart
+- Gemeinsam geprüfte Themen: abbildungen.kongruenz, bruch.prozent, bruch.prozent_grundwert, funktionen.grundbegriffe, funktionen.linear, geometrie.grundbegriffe, geometrie.konstruktion, geometrie.winkelsaetze, gleichungen.bruch, gleichungen.linear, groessen.indirekt, messen.flaechen, messen.volumen, stochastik.grundbegriffe, terme.aufstellen, terme.umformen
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1a | 1 | I | K4 | Ablesen | Geradengleichung ablesen | funktionen.linear › ablesen |
+| 1b | 1 | II | K5 | Gleichung | Senkrechte durch Punkt | funktionen.linear › aufstellen |
+| 1c | 1 | I | K5 | Schnittpunkt | Schnitt mit der y-Achse | funktionen.grundbegriffe › nullstellen |
+| 2 | 1 | I | K5 | Gleichung | Gleichung mit Klammern | gleichungen.linear › klammern |
+| 3 | 1 | II | K1 | Beurteilen | Aussagen zu quadratischem Term | außerhalb: quadratische Terme/Gleichungen, Extremwerte (RS Kl. 8, Gym Kl. 9/10) |
+| 4 | 1 | I | K5 | Umformen | Klammern auflösen | terme.umformen › summe_mal_summe (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 5 | 1 | II | K3 | Term | Flächenterm vergrößertes Rechteck | terme.aufstellen › sachsituation |
+| 6 | 1 | II | K1 | Ankreuzen | Eigenschaften von Rauten | abbildungen.kongruenz › vierecke_ordnen (Teil 1 von 3 (Spiegeln und Symmetrie)) |
+| 7 | 1 | II | K5 | Koordinaten | Mittelpunkt nach Verschieben eines Endpunkts | geometrie.grundbegriffe › koordinaten |
+| 8 | 1 | II | K1 | Beurteilen | Prozentzunahme beurteilen | bruch.prozent_grundwert › mehrfach |
+| 9 | 1 | II | K5 | Ergänzen | Aussage über Maximum ergänzen | außerhalb: quadratische Terme/Gleichungen, Extremwerte (RS Kl. 8, Gym Kl. 9/10) |
+| 10a | 1 | I | K5 | Definitionsmenge | D einer Bruchgleichung | gleichungen.bruch › definitionsmenge |
+| 10b | 1 | II | K5 | Bruchgleichung | Bruchgleichung lösen | gleichungen.bruch › hauptnenner |
+| 11 | 1 | II | K1 | Fehler finden | falscher Wert in Tabelle | groessen.indirekt › unterscheiden |
+| 12 | 1 | I | K5 | Ausklammern | Ausklammern ergänzen | terme.umformen › ausklammern (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 13 | 1 | II | K4 | Diagramm | Aussagen zu Fahrtdiagramm | funktionen.grundbegriffe › graph_lesen |
+| 14 | 1 | II | K5 | Wahrscheinlichkeit | Wörter aus Karten legen | stochastik.grundbegriffe › laplace (Teil 2 von 2 (Laplace-Wahrscheinlichkeit)) |
+| 15 | 1 | II | K3 | Anteil | Anteil Tagesbedarf | bruch.prozent › prozentsatz |
+| 16 | 2 | II | K5 | Winkel | Winkel an Parallelen | geometrie.winkelsaetze › stufen_wechsel |
+| 17 | 1 | II | K5 | Umfang | Umfang aus Flächenangaben | messen.flaechen › verstehen |
+| 18 | 1 | II | K1 | Begründen | unmögliche Dreiecksseite | geometrie.konstruktion › konstruierbar (Teil 1 von 2 (Dreiecke konstruieren, Kongruenz)) |
+| 19 | 1 | II | K3 | Volumen | Kellerseite aus Wasservolumen | messen.volumen › rueckwaerts |
+
+### G8-R2018 – Grundwissentest Mathematik 9 Realschule 2018 (WPFG I)
+
+- Quelle: <https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2018/2018_gwt_mathe_9_i_angabe.pdf> (abgerufen 2026-11-22) · Herausgeber: ISB Bayern (Realschule) · amtlich (ISB), frei abrufbar; Urheberrecht beim ISB – nur verlinkt, nicht kopiert
+- Art: Grundwissentest Realschule Jgst. 9, WPFG I (prüft Kl.-8-Stoff der Realschule) · Nummer/Zeitpunkt: Beginn Kl. 9 (Sept.) · Jahr: 2018 · Bundesland: Bayern
+- Zeit: 45 min · Punkte: 23 · Hilfsmittel: kein Taschenrechner · frei zugänglich: ja
+- Passung: Bayern amtlich, aber Realschule (Kl.-8-Stoff RS: viel Überschneidung mit Gym 8, dazu RS-eigene Themen) · Kategorie: B Bayern amtlich, andere Schulart
+- Gemeinsam geprüfte Themen: bruch.prozent, daten.darstellen, funktionen.grundbegriffe, funktionen.linear, geometrie.grundbegriffe, geometrie.konstruktion, geometrie.kreis, gleichungen.bruch, gleichungen.linear, messen.flaechen, terme.aufstellen, terme.umformen
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1a | 1 | I | K4 | Zeichnen | Gerade zeichnen | funktionen.linear › graph_ablesen |
+| 1b | 1 | I | K5 | Ergänzen | parallele Gerade ergänzen | funktionen.linear › lage |
+| 1c | 1 | II | K2 | Angeben | Gerade ohne Schnitt mit x-Achse | funktionen.linear › lage |
+| 2 | 1 | I | K5 | Einsetzen | fehlende Koordinate | funktionen.grundbegriffe › punkt_graph |
+| 3 | 1 | I | K5 | Gleichung | lineare Gleichung | gleichungen.linear › klammern |
+| 4 | 1 | II | K1 | Ankreuzen | allgemeingültige Termaussagen | terme.umformen › aequivalenz (Teil 1 von 2 (zusammenfassen und ausmultiplizieren)) |
+| 5 | 1 | II | K2 | Ergänzen | Terme äquivalent ergänzen | terme.umformen › aequivalenz (Teil 1 von 2 (zusammenfassen und ausmultiplizieren)) |
+| 6 | 1 | II | K3 | Gleichung aufstellen | Verteilungssituation | gleichungen.linear › sach |
+| 7 | 1 | I | K4 | Zeichnen | gleichschenkliges Trapez | geometrie.konstruktion › vierecke_konstruieren (Teil 2 von 2 (Vierecke)) |
+| 8 | 1 | II | K5 | Koordinaten | Streckenendpunkt aus Mittelpunkt | geometrie.grundbegriffe › koordinaten |
+| 9 | 1 | II | K3 | Prozent | Prozentsatz aus Anteil | bruch.prozent › prozentsatz |
+| 10 | 1 | II | K4 | Erkennen | Terme mit Extremwert | außerhalb: quadratische Terme/Gleichungen, Extremwerte (RS Kl. 8, Gym Kl. 9/10) |
+| 11 | 1 | II | K5 | Zuordnen | Bruchgleichungen zu D | gleichungen.bruch › definitionsmenge |
+| 12 | 1 | II | K5 | Bruchgleichung | Bruchgleichung lösen | gleichungen.bruch › hauptnenner |
+| 13 | 1 | I | K5 | Ausklammern | gemeinsamer Faktor | terme.umformen › ausklammern (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 14 | 1 | II | K1 | Ankreuzen | Aussagen zum Gästediagramm | daten.darstellen › tabelle_auswerten |
+| 15 | 1 | III | K5 | Wahrscheinlichkeit | Ziehen ohne Zurücklegen | außerhalb: mehrstufige Zufallsexperimente (Pfadregel, Kl. 9/10) |
+| 16 | 1 | II | K3 | Sachaufgabe | Fahrpreis aus Gesamteinnahme | gleichungen.linear › sach |
+| 17 | 2 | II | K5 | Winkel | Winkel im Kreis mit Parallelen | geometrie.kreis › thales |
+| 18 | 1 | II | K5 | Fläche | Fläche aus Rechteckumfang | messen.flaechen › verstehen |
+| 19 | 1 | II | K1 | Begründen | unmögliches Dreieck | geometrie.konstruktion › konstruierbar (Teil 1 von 2 (Dreiecke konstruieren, Kongruenz)) |
+| 20 | 1 | II | K3 | Term | Volumenterm mit Ausschnitten | terme.aufstellen › sachsituation |
+
+### G8-R2017 – Grundwissentest Mathematik 9 Realschule 2017 (WPFG I)
+
+- Quelle: <https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2017/2017_gwt_mathematik_9i_loesung.pdf> (abgerufen 2026-11-22) · Herausgeber: ISB Bayern (Realschule) · amtlich (ISB), frei abrufbar; Urheberrecht beim ISB – nur verlinkt, nicht kopiert
+- Art: Grundwissentest Realschule Jgst. 9, WPFG I (prüft Kl.-8-Stoff der Realschule) · Nummer/Zeitpunkt: Beginn Kl. 9 (Sept.) · Jahr: 2017 · Bundesland: Bayern
+- Zeit: 45 min · Punkte: 22 · Hilfsmittel: kein Taschenrechner · frei zugänglich: ja
+- Passung: Bayern amtlich, aber Realschule (Kl.-8-Stoff RS: viel Überschneidung mit Gym 8, dazu RS-eigene Themen) · Kategorie: B Bayern amtlich, andere Schulart
+- Gemeinsam geprüfte Themen: abbildungen.kongruenz, bruch.prozent_grundwert, funktionen.grundbegriffe, funktionen.linear, geometrie.grundbegriffe, geometrie.konstruktion, geometrie.winkelsaetze, gleichungen.bruch, gleichungen.linear, groessen.einheiten, groessen.indirekt, messen.flaechen, messen.volumen, stochastik.grundbegriffe, terme.umformen
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1a | 1 | I | K4 | Ablesen | Geradengleichung ablesen | funktionen.linear › ablesen |
+| 1b | 1 | I | K5 | Prüfen | Punkt auf Gerade prüfen | funktionen.grundbegriffe › punkt_graph |
+| 1c | 1 | II | K5 | Gleichung | Gerade durch zwei Punkte | funktionen.linear › zwei_punkte |
+| 2 | 1 | I | K6 | Ankreuzen | Parallele zur y-Achse | funktionen.linear › lage |
+| 3 | 1 | I | K5 | Umformen | Klammer quadrieren, zusammenfassen | terme.umformen › binomisch (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 4 | 1 | II | K1 | Prüfen | Lösung durch Probe prüfen | gleichungen.linear › probe |
+| 5 | 1 | II | K5 | Winkel | Winkelbeziehungen in Figur | geometrie.winkelsaetze › figuren |
+| 6 | 1 | II | K4 | Zeichnen | Raute mit Seitenabstand | geometrie.konstruktion › vierecke_konstruieren (Teil 2 von 2 (Vierecke)) |
+| 7 | 1 | II | K5 | Koordinaten | Diagonalenschnittpunkt Drachenviereck | geometrie.grundbegriffe › vierecke |
+| 8 | 1 | II | K1 | Beurteilen | Aktienwert über ein Jahr | bruch.prozent_grundwert › mehrfach |
+| 9 | 1 | II | K5 | Bruchgleichung | Bruchgleichung mit D | gleichungen.bruch › hauptnenner |
+| 10 | 1 | II | K3 | Schätzen | Größenordnung eines Terms | groessen.einheiten › schaetzen |
+| 11 | 1 | II | K2 | Angeben | Term mit vorgegebenem Minimum | außerhalb: quadratische Terme/Gleichungen, Extremwerte (RS Kl. 8, Gym Kl. 9/10) |
+| 12 | 1 | II | K5 | Wahrscheinlichkeit | Stapelreihenfolge | stochastik.grundbegriffe › laplace (Teil 2 von 2 (Laplace-Wahrscheinlichkeit)) |
+| 13 | 1 | II | K3 | Indirekt | Restdauer mit weniger Pumpen | groessen.indirekt › dreisatz |
+| 14 | 1 | II | K3 | Geschwindigkeit | Durchschnittsgeschwindigkeit | groessen.einheiten › rechnen |
+| 15 | 1 | II | K3 | Volumen | Wasserstand aus Volumen | messen.volumen › rueckwaerts |
+| 16 | 1 | II | K1 | Zuordnen | Vierecke und Symmetrie | abbildungen.kongruenz › symmetrie (Teil 1 von 3 (Spiegeln und Symmetrie)) |
+| 17 | 1 | I | K4 | Konstruieren | Dreieck aus Seite und zwei Winkeln | geometrie.konstruktion › planfigur (Teil 1 von 2 (Dreiecke konstruieren, Kongruenz)) |
+| 18 | 1 | II | K5 | Winkel | Winkel an Parallelen | geometrie.winkelsaetze › stufen_wechsel |
+| 19 | 1 | II | K1 | Begründen | gleichschenkliges Dreieck möglich? | geometrie.konstruktion › konstruierbar (Teil 1 von 2 (Dreiecke konstruieren, Kongruenz)) |
+| 20 | 1 | II | K5 | Fläche | Fläche aus Umfang | messen.flaechen › verstehen |
+
+### G8-R2016 – Grundwissentest Mathematik 9 Realschule 2016 (WPFG I)
+
+- Quelle: <https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2016/2016_gwt_rs_mathematik_9i_loesung.pdf> (abgerufen 2026-11-22) · Herausgeber: ISB Bayern (Realschule) · amtlich (ISB), frei abrufbar; Urheberrecht beim ISB – nur verlinkt, nicht kopiert
+- Art: Grundwissentest Realschule Jgst. 9, WPFG I (prüft Kl.-8-Stoff der Realschule) · Nummer/Zeitpunkt: Beginn Kl. 9 (Sept.) · Jahr: 2016 · Bundesland: Bayern
+- Zeit: 45 min · Punkte: 21 · Hilfsmittel: kein Taschenrechner · frei zugänglich: ja
+- Passung: Bayern amtlich, aber Realschule (Kl.-8-Stoff RS: viel Überschneidung mit Gym 8, dazu RS-eigene Themen) · Kategorie: B Bayern amtlich, andere Schulart
+- Gemeinsam geprüfte Themen: abbildungen.kongruenz, bruch.prozent, funktionen.linear, geometrie.grundbegriffe, geometrie.konstruktion, geometrie.kreis, geometrie.winkelsaetze, gleichungen.bruch, gleichungen.linear, groessen.indirekt, messen.flaechen, messen.volumen, stochastik.grundbegriffe, terme.potenzgesetze_natuerlich, terme.umformen
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1a | 1 | I | K4 | Zeichnen | Gerade zeichnen | funktionen.linear › graph_ablesen |
+| 1b | 1 | II | K5 | Angeben | senkrechte Gerade nennen | funktionen.linear › aufstellen |
+| 1c | 1 | II | K5 | Schnittpunkt | Schnittpunkt zweier Geraden | funktionen.linear › schnittpunkte |
+| 2 | 1 | I | K4 | Ablesen | Steigung und Achsenabschnitt aus Gleichung | funktionen.linear › ablesen |
+| 3 | 1 | I | K5 | Umformen | zwei Klammern ausmultiplizieren | terme.umformen › summe_mal_summe (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 4 | 1 | II | K4 | Zuordnen | Extremwerte zuordnen | außerhalb: quadratische Terme/Gleichungen, Extremwerte (RS Kl. 8, Gym Kl. 9/10) |
+| 5 | 1 | I | K5 | Gleichung | lineare Gleichung mit Klammer | gleichungen.linear › klammern |
+| 6 | 1 | II | K4 | Zeichnen | Viereck ergänzen | geometrie.konstruktion › vierecke_konstruieren (Teil 2 von 2 (Vierecke)) |
+| 7 | 1 | I | K5 | Koordinaten | Parallelogrammpunkt | geometrie.grundbegriffe › vierecke |
+| 8 | 1 | II | K1 | Begründen | Prozentbehauptung prüfen | bruch.prozent › verstehen |
+| 9 | 1 | II | K5 | Bruchgleichung | D und L einer Bruchgleichung | gleichungen.bruch › hauptnenner |
+| 10 | 1 | II | K2 | Ergänzen | Zahlen für äquivalente Potenzterme | terme.potenzgesetze_natuerlich › mal_gleiche_basis |
+| 11 | 1 | II | K1 | Ankreuzen | Gewinnchancen beim Losziehen | stochastik.grundbegriffe › laplace (Teil 2 von 2 (Laplace-Wahrscheinlichkeit)) |
+| 12 | 1 | II | K4 | Tabellen | direkte und indirekte Tabelle ergänzen | groessen.indirekt › unterscheiden |
+| 13 | 1 | III | K3 | Modellieren | Zuschauer aus Grundriss abschätzen | messen.flaechen › sachaufgaben |
+| 14 | 1 | II | K5 | Winkel | Winkel am Kreis | geometrie.kreis › thales |
+| 15 | 1 | II | K1 | Ankreuzen | Vierecke mit senkrechten Diagonalen | abbildungen.kongruenz › vierecke_ordnen (Teil 1 von 3 (Spiegeln und Symmetrie)) |
+| 16 | 1 | II | K5 | Winkel | Winkel an Parallelen | geometrie.winkelsaetze › stufen_wechsel |
+| 17 | 1 | II | K1 | Ankreuzen | Quader-Änderung für größeres Volumen | messen.volumen › verstehen |
+| 18 | 1 | II | K2 | Fläche | Rechteck aus geteiltem Quadrat | messen.flaechen › zerlegen |
+| 19 | 1 | II | K1 | Ankreuzen | Kongruenzbedingungen | geometrie.konstruktion › kongruenzsatz (Teil 1 von 2 (Dreiecke konstruieren, Kongruenz)) |
+
+### G8-R2015 – Grundwissentest Mathematik 9 Realschule 2015 (WPFG I)
+
+- Quelle: <https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2015/2015_gwt_mathematik_9i_angabe.pdf> (abgerufen 2026-11-22) · Herausgeber: ISB Bayern (Realschule) · amtlich (ISB), frei abrufbar; Urheberrecht beim ISB – nur verlinkt, nicht kopiert
+- Art: Grundwissentest Realschule Jgst. 9, WPFG I (prüft Kl.-8-Stoff der Realschule) · Nummer/Zeitpunkt: Beginn Kl. 9 (Sept.) · Jahr: 2015 · Bundesland: Bayern
+- Zeit: 45 min · Punkte: 22 · Hilfsmittel: kein Taschenrechner · frei zugänglich: ja
+- Passung: Bayern amtlich, aber Realschule (Kl.-8-Stoff RS: viel Überschneidung mit Gym 8, dazu RS-eigene Themen) · Kategorie: B Bayern amtlich, andere Schulart
+- Gemeinsam geprüfte Themen: abbildungen.kongruenz, funktionen.linear, geometrie.grundbegriffe, geometrie.konstruktion, geometrie.kreis, geometrie.winkelsaetze, gleichungen.bruch, gleichungen.linear, groessen.einheiten, groessen.indirekt, stochastik.grundbegriffe, terme.aufstellen, terme.umformen
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1a | 1 | I | K4 | Zeichnen | Gerade aus Steigung und Punkt | funktionen.linear › graph_ablesen |
+| 1b | 1 | I | K4 | Ablesen | Geradengleichung angeben | funktionen.linear › ablesen |
+| 2 | 1 | II | K1 | Ankreuzen | Eigenschaften einer Geraden | funktionen.linear › deuten |
+| 3 | 1 | I | K5 | Umformen | Klammern auflösen | terme.umformen › summe_mal_summe (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 4 | 1 | II | K5 | Extremwert | Extremwert ergänzen | außerhalb: quadratische Terme/Gleichungen, Extremwerte (RS Kl. 8, Gym Kl. 9/10) |
+| 5 | 1 | I | K5 | Gleichung | lineare Gleichung | gleichungen.linear › klammern |
+| 6 | 1 | I | K5 | Ausklammern | gemeinsamer Faktor | terme.umformen › ausklammern (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 7 | 1 | II | K5 | Koordinaten | Streckenendpunkt | geometrie.grundbegriffe › koordinaten |
+| 8 | 1 | II | K5 | Koordinaten | Quadrat-Eckpunkt | geometrie.grundbegriffe › vierecke |
+| 9 | 1 | II | K3 | Rückwärts | Kopiervergrößerung rückgängig | groessen.einheiten › massstab |
+| 10 | 1 | II | K5 | Bruchgleichung | Bruchgleichung lösen | gleichungen.bruch › hauptnenner |
+| 11 | 1 | II | K5 | Winkel | Winkel im gleichschenkligen Dreieck | geometrie.konstruktion › gleichschenklig (Teil 1 von 2 (Dreiecke konstruieren, Kongruenz)) |
+| 12 | 1 | II | K5 | Wahrscheinlichkeit | dritter Kugelzug | stochastik.grundbegriffe › laplace (Teil 2 von 2 (Laplace-Wahrscheinlichkeit)) |
+| 13 | 1 | II | K5 | Winkel | Winkel an Parallelen | geometrie.winkelsaetze › stufen_wechsel |
+| 14 | 1 | II | K3 | Schätzen | Autos vor der Fähre | groessen.einheiten › schaetzen |
+| 15 | 1 | II | K4 | Konstruieren | rechtwinkliges Dreieck im Kreis | geometrie.kreis › umkehrung |
+| 16 | 1 | II | K1 | Ankreuzen | Bruchgleichungen mit gleicher D | gleichungen.bruch › definitionsmenge |
+| 17 | 1 | II | K1 | Zuordnen | Eigenschaften zu Vierecken | abbildungen.kongruenz › vierecke_ordnen (Teil 1 von 3 (Spiegeln und Symmetrie)) |
+| 18 | 1 | II | K3 | Indirekt | Produktionszeit mit mehr Maschinen | groessen.indirekt › dreisatz |
+| 19 | 1 | II | K3 | Term | Quadervolumen als Term | terme.aufstellen › sachsituation |
+| 20 | 1 | II | K1 | Begründen | Dreieck existiert nicht | geometrie.konstruktion › konstruierbar (Teil 1 von 2 (Dreiecke konstruieren, Kongruenz)) |
+| 21 | 1 | III | K2 | Gleichung | gleiche Flächen | gleichungen.linear › sach |
+
+### G8-R2012 – Grundwissentest Mathematik 9 Realschule 2012 (WPFG I)
+
+- Quelle: <https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/2012/9i_angabe.pdf> (abgerufen 2026-11-22) · Herausgeber: ISB Bayern (Realschule) · amtlich (ISB), frei abrufbar; Urheberrecht beim ISB – nur verlinkt, nicht kopiert
+- Art: Grundwissentest Realschule Jgst. 9, WPFG I (prüft Kl.-8-Stoff der Realschule) · Nummer/Zeitpunkt: Beginn Kl. 9 (Sept.) · Jahr: 2012 · Bundesland: Bayern
+- Zeit: 45 min · Punkte: 22 · Hilfsmittel: kein Taschenrechner · frei zugänglich: ja
+- Passung: Bayern amtlich, aber Realschule (Kl.-8-Stoff RS: viel Überschneidung mit Gym 8, dazu RS-eigene Themen) · Kategorie: B Bayern amtlich, andere Schulart
+- Gemeinsam geprüfte Themen: abbildungen.kongruenz, bruch.prozent_grundwert, funktionen.grundbegriffe, funktionen.linear, geometrie.grundbegriffe, geometrie.konstruktion, geometrie.winkelsaetze, gleichungen.bruch, gleichungen.ungleichungen, groessen.einheiten, messen.flaechen, messen.volumen, stochastik.grundbegriffe, terme.aufstellen, terme.umformen
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1 | 3 | I | K4 | Gerade | Gerade zeichnen, Koordinate, Parallele | funktionen.linear › lage |
+| 2 | 1 | II | K6 | Beschreiben | Gerade mit Steigung null | funktionen.linear › lage |
+| 3 | 1 | II | K4 | Ankreuzen | Term zur Wertetabelle | funktionen.grundbegriffe › wertetabelle |
+| 4 | 1 | II | K1 | Begründen | Winkelbeziehung begründen | geometrie.winkelsaetze › stufen_wechsel |
+| 5 | 1 | II | K5 | Fläche | Fläche aus Umfang | messen.flaechen › verstehen |
+| 6 | 1 | II | K3 | Prozent | zwei Rabatte nacheinander | bruch.prozent_grundwert › mehrfach |
+| 7 | 1 | II | K3 | Volumen | gefaltete Schachtel | messen.volumen › zusammengesetzt |
+| 8 | 2 | II | K4 | Diagramm | Fahrzeit ablesen, Fragen ankreuzen | funktionen.grundbegriffe › graph_lesen |
+| 9 | 1 | II | K5 | Bruchgleichung | Bruchgleichung lösen | gleichungen.bruch › hauptnenner |
+| 10 | 1 | II | K1 | Ankreuzen | korrekte Umformungen | terme.umformen › aequivalenz (Teil 1 von 2 (zusammenfassen und ausmultiplizieren)) |
+| 11 | 2 | II | K5 | Wahrscheinlichkeit | Glücksrad, Teiler | stochastik.grundbegriffe › laplace (Teil 2 von 2 (Laplace-Wahrscheinlichkeit)) |
+| 12 | 1 | II | K5 | Ungleichung | Lösungsmenge auswählen | gleichungen.ungleichungen › umformen |
+| 13 | 1 | II | K5 | Winkel | Winkel im Trapez | geometrie.winkelsaetze › figuren |
+| 14 | 1 | I | K5 | Koordinaten | Parallelogrammpunkt | geometrie.grundbegriffe › vierecke |
+| 15 | 1 | II | K2 | Tabelle | Produkt- und Summentabelle | terme.aufstellen › termwert |
+| 16 | 1 | II | K3 | Umrechnen | Körperlängen pro Sekunde | groessen.einheiten › rechnen |
+| 17 | 1 | I | K4 | Zeichnen | Drachenviereck an Achse ergänzen | abbildungen.kongruenz › achsenspiegelung (Teil 1 von 3 (Spiegeln und Symmetrie)) |
+| 18 | 1 | I | K4 | Konstruieren | Dreieck aus Seite und Winkeln | geometrie.konstruktion › planfigur (Teil 1 von 2 (Dreiecke konstruieren, Kongruenz)) |
+
+### G8-K3795 – Schulaufgabe Proportionalität und Funktionen
+
+- Quelle: <https://www.klassenarbeiten.de/data/dynamic/pdf/3795.pdf> (abgerufen 2026-11-22) · Herausgeber: klassenarbeiten.de (Schule unbekannt) · frei abrufbar auf klassenarbeiten.de; Urheberrecht beim Anbieter – nur verlinkt
+- Art: Schulaufgabe · Nummer/Zeitpunkt: Schulaufgabe (Annahme: 1. SA, Herbst) · Jahr: unbekannt · Bundesland: Bayern (laut Lösungsteil, G8)
+- Zeit: ? min · Punkte: ? · Hilfsmittel: nicht angegeben · frei zugänglich: ja
+- Passung: Gym Kl. 8 Bayern G8 · Kategorie: A Gymnasium Bayern
+- Gemeinsam geprüfte Themen: funktionen.gebrochen, funktionen.linear, groessen.indirekt, groessen.proportional
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1 | ? | I | K3 | Tabelle | Benzinkosten: Tabelle, Faktor, Vorschrift | groessen.proportional › sach (Teil 1 von 2 (Dreisatz)) |
+| 2 | ? | II | K3 | Indirekt | Vorrat und tägliche Brenndauer | groessen.indirekt › sach |
+| 3 | ? | II | K5 | Funktion | D und Nullstelle einer gebrochen-rationalen Funktion | funktionen.gebrochen › achsenpunkte |
+| 4 | ? | II | K4 | Gerade | Gerade zeichnen, D, Nullstelle | funktionen.linear › graph_ablesen |
+| 5 | ? | II | K5 | Gleichung | Gerade aus zwei Punkten, parallele Ursprungsgerade | funktionen.linear › zwei_punkte |
+
+### G8-K3809 – Stegreifaufgabe Proportionalität
+
+- Quelle: <https://www.klassenarbeiten.de/data/dynamic/pdf/3809.pdf> (abgerufen 2026-11-22) · Herausgeber: klassenarbeiten.de (Schule unbekannt) · frei abrufbar auf klassenarbeiten.de; Urheberrecht beim Anbieter – nur verlinkt
+- Art: Stegreifaufgabe · Nummer/Zeitpunkt: 1. Stegreifaufgabe · Jahr: unbekannt · Bundesland: Bayern (Annahme: Begriff „Stegreifaufgabe“)
+- Zeit: 18 min · Punkte: 12 · Hilfsmittel: nicht angegeben · frei zugänglich: ja
+- Passung: Gym Kl. 8, vermutlich Bayern · Kategorie: A Gymnasium Bayern
+- Gemeinsam geprüfte Themen: groessen.indirekt, groessen.proportional
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1 | 2 | I | K4 | Graph | Graph der Zuordnungsart zuordnen | groessen.proportional › erkennen (Teil 2 von 2 (proportionale Zuordnungen erkennen)) |
+| 2 | 3 | II | K1 | Prüfen | Tabelle prüfen, Ausreißer korrigieren | groessen.proportional › pruefen (Teil 2 von 2 (proportionale Zuordnungen erkennen)) |
+| 3 | 3 | II | K3 | Indirekt | Kosten bei weniger Teilnehmern | groessen.indirekt › dreisatz |
+| 4 | 4 | III | K3 | Indirekt | Anzahl Stücke bei anderen Maßen | groessen.indirekt › produkt |
+
+### G8-K3794 – Extemporale Proportionalität
+
+- Quelle: <https://www.klassenarbeiten.de/data/dynamic/pdf/3794.pdf> (abgerufen 2026-11-22) · Herausgeber: klassenarbeiten.de (Schule unbekannt) · frei abrufbar auf klassenarbeiten.de; Urheberrecht beim Anbieter – nur verlinkt
+- Art: Extemporale · Nummer/Zeitpunkt: Extemporale · Jahr: unbekannt · Bundesland: Bayern (Annahme: Begriff „Extemporale“)
+- Zeit: ? min · Punkte: 35 · Hilfsmittel: nicht angegeben · frei zugänglich: ja
+- Passung: Gym Kl. 8, vermutlich Bayern · Kategorie: A Gymnasium Bayern
+- Gemeinsam geprüfte Themen: groessen.indirekt, groessen.proportional
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1 | 12 | II | K3 | Indirekt | Vorrat: Reichweite berechnen, Diagramm zeichnen | groessen.indirekt › sach |
+| 2 | 6 | II | K3 | Indirekt | Arbeitszeit bei anderer Personen- und Stundenzahl | groessen.indirekt › dreisatz |
+| 3 | 7 | II | K3 | Indirekt | Druckzeiten berechnen, Zusammenhang beschreiben | groessen.indirekt › erkennen |
+| 4 | 3 | II | K3 | Vergleich | günstigste Packung über Grundpreis | groessen.proportional › einheit (Teil 1 von 2 (Dreisatz)) |
+| 5 | 3 | I | K5 | Tabelle | Tabelle indirekter Proportionalität ergänzen | groessen.indirekt › produkt |
+| 6 | 4 | III | K1 | Erklären | Seite und Höhe bei konstanter Dreiecksfläche | groessen.indirekt › produkt |
+
+### G8-K3629 – Schulaufgabe Terme und Vierecke (Gruppe A)
+
+- Quelle: <https://www.klassenarbeiten.de/data/dynamic/pdf/3629.pdf> (abgerufen 2026-11-22) · Herausgeber: klassenarbeiten.de (Schule unbekannt) · frei abrufbar auf klassenarbeiten.de; Urheberrecht beim Anbieter – nur verlinkt
+- Art: Schulaufgabe · Nummer/Zeitpunkt: Schulaufgabe (Oktober) · Jahr: 2005 · Bundesland: Bayern (Annahme: Begriff „Schulaufgabe“)
+- Zeit: ? min · Punkte: ? · Hilfsmittel: nicht angegeben · frei zugänglich: ja
+- Passung: Gym Kl. 8, vermutlich Bayern (älterer G9-Lehrplan: einzelne Themen heute nicht mehr in Kl. 8) · Kategorie: A Gymnasium Bayern
+- Gemeinsam geprüfte Themen: abbildungen.kongruenz, geometrie.konstruktion, messen.flaechen_vielecke, terme.bruchterme, terme.umformen
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1 | ? | II | K5 | Faktorisieren | vier Terme vollständig faktorisieren | terme.umformen › ausklammern (Teil 2 von 2 (Summe mal Summe, Ausklammern, binomische Formeln)) |
+| 2 | ? | I | K5 | Definitionsmenge | D zweier Bruchterme | terme.bruchterme › definitionsmenge |
+| 3 | ? | I | K5 | Erweitern | Brüche auf vorgegebenen Nenner erweitern | terme.bruchterme › erweitern |
+| 4 | ? | II | K6 | Benennen | speziellstes Viereck zu Eigenschaften | abbildungen.kongruenz › vierecke_ordnen (Teil 1 von 3 (Spiegeln und Symmetrie)) |
+| 5 | ? | II | K5 | Fläche | Trapezfläche mit Mittenparallele | messen.flaechen_vielecke › trapez |
+| 6 | ? | II | K4 | Konstruieren | Drachenviereck konstruieren und beschreiben | geometrie.konstruktion › vierecke_konstruieren (Teil 2 von 2 (Vierecke)) |
+
+### G8-K3636 – Schulaufgabe Bruchterme und Geometrie
+
+- Quelle: <https://www.klassenarbeiten.de/data/dynamic/pdf/3636.pdf> (abgerufen 2026-11-22) · Herausgeber: klassenarbeiten.de (Schule unbekannt) · frei abrufbar auf klassenarbeiten.de; Urheberrecht beim Anbieter – nur verlinkt
+- Art: Schulaufgabe · Nummer/Zeitpunkt: Schulaufgabe (Januar) · Jahr: 2006 · Bundesland: Bayern (Annahme: Begriff „Schulaufgabe“)
+- Zeit: ? min · Punkte: ? · Hilfsmittel: nicht angegeben · frei zugänglich: ja
+- Passung: Gym Kl. 8, vermutlich Bayern (älterer G9-Lehrplan: einzelne Themen heute nicht mehr in Kl. 8) · Kategorie: A Gymnasium Bayern
+- Gemeinsam geprüfte Themen: abbildungen.kongruenz, geometrie.konstruktion, gleichungen.bruch, terme.bruchterme
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1 | ? | II | K5 | Bruchterme | Bruchterme addieren, dividieren, vereinfachen | terme.bruchterme › addieren |
+| 2 | ? | II | K5 | Bruchgleichung | Bruchgleichung lösen | gleichungen.bruch › hauptnenner |
+| 3 | ? | III | K3 | Textaufgabe | gemeinsames Arbeiten als Gleichung | gleichungen.bruch › verhaeltnis |
+| 4 | ? | II | K6 | Formulieren | Diagonaleigenschaften von Vierecken | abbildungen.kongruenz › eigenschaften (Teil 1 von 3 (Spiegeln und Symmetrie)) |
+| 5 | ? | III | K1 | Beweisen | Winkel und Streckengleichheit mit Kongruenz | geometrie.konstruktion › kongruenzsatz (Teil 1 von 2 (Dreiecke konstruieren, Kongruenz)) |
+
+### G8-K3635 – 2. Schulaufgabe (Gruppe A)
+
+- Quelle: <https://www.klassenarbeiten.de/data/dynamic/pdf/3635.pdf> (abgerufen 2026-11-22) · Herausgeber: klassenarbeiten.de (Schule unbekannt) · frei abrufbar auf klassenarbeiten.de; Urheberrecht beim Anbieter – nur verlinkt
+- Art: 2. · Nummer/Zeitpunkt: 2. Schulaufgabe (Januar) · Jahr: 2005 · Bundesland: Bayern (Annahme: Begriff „Schulaufgabe“)
+- Zeit: ? min · Punkte: ? · Hilfsmittel: nicht angegeben · frei zugänglich: ja
+- Passung: Gym Kl. 8, vermutlich Bayern (älterer G9-Lehrplan: einzelne Themen heute nicht mehr in Kl. 8) · Kategorie: A Gymnasium Bayern
+- Gemeinsam geprüfte Themen: geometrie.konstruktion, gleichungen.bruch
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1 | ? | II | K5 | Bruchgleichung | Bruchgleichung lösen | gleichungen.bruch › hauptnenner |
+| 2 | ? | II | K5 | Betrag | zwei Betragsaufgaben ohne Rechnung | außerhalb: Betragsgleichungen/-ungleichungen (alter G9-Lehrplan) |
+| 3 | ? | III | K5 | Ungleichung | Bruchungleichung und Betragsgleichung mit Fallunterscheidung | außerhalb: Betragsgleichungen/-ungleichungen (alter G9-Lehrplan) |
+| 4 | ? | II | K6 | Formulieren | Kehrsatz bilden, Aussage verneinen | geometrie.konstruktion › satz_kehrsatz (Teil 1 von 2 (Dreiecke konstruieren, Kongruenz)) |
+| 5 | ? | III | K1 | Beweisen | zwei Lotstrecken gleich lang | geometrie.konstruktion › kongruenzsatz (Teil 1 von 2 (Dreiecke konstruieren, Kongruenz)) |
+
+### G8-K3642 – Schulaufgabe (Gruppe A)
+
+- Quelle: <https://www.klassenarbeiten.de/data/dynamic/pdf/3642.pdf> (abgerufen 2026-11-22) · Herausgeber: klassenarbeiten.de (Schule unbekannt) · frei abrufbar auf klassenarbeiten.de; Urheberrecht beim Anbieter – nur verlinkt
+- Art: Schulaufgabe · Nummer/Zeitpunkt: Schulaufgabe (März) · Jahr: 2006 · Bundesland: Bayern (Annahme: Begriff „Schulaufgabe“)
+- Zeit: ? min · Punkte: ? · Hilfsmittel: nicht angegeben · frei zugänglich: ja
+- Passung: Gym Kl. 8, vermutlich Bayern (älterer G9-Lehrplan: einzelne Themen heute nicht mehr in Kl. 8) · Kategorie: A Gymnasium Bayern
+- Gemeinsam geprüfte Themen: geometrie.kreis, gleichungen.formeln, groessen.einheiten
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1 | ? | II | K5 | Betrag | Betragsungleichungen | außerhalb: Betragsgleichungen/-ungleichungen (alter G9-Lehrplan) |
+| 2 | ? | II | K5 | Umstellen | Bruchgleichungen mit Parametern nach x auflösen | gleichungen.formeln › zwei_schritte |
+| 3 | ? | II | K4 | Graph | Wertetabelle und Graph einer Betragsfunktion | außerhalb: Betragsgleichungen/-ungleichungen (alter G9-Lehrplan) |
+| 4 | ? | III | K4 | Konstruieren | Tangenten von einem Punkt an einen Kreis | geometrie.kreis › tangente |
+| 5 | ? | III | K3 | Modellieren | Zuschauerraum im Grundriss entwerfen | groessen.einheiten › massstab |
+
+### G8-K3645 – 3. Schulaufgabe (Gruppe A)
+
+- Quelle: <https://www.klassenarbeiten.de/data/dynamic/pdf/3645.pdf> (abgerufen 2026-11-22) · Herausgeber: klassenarbeiten.de (Schule unbekannt) · frei abrufbar auf klassenarbeiten.de; Urheberrecht beim Anbieter – nur verlinkt
+- Art: 3. · Nummer/Zeitpunkt: 3. Schulaufgabe (März) · Jahr: 2001 · Bundesland: Bayern (Annahme: Begriff „Schulaufgabe“)
+- Zeit: ? min · Punkte: ? · Hilfsmittel: nicht angegeben · frei zugänglich: ja
+- Passung: Gym Kl. 8, vermutlich Bayern (älterer G9-Lehrplan: einzelne Themen heute nicht mehr in Kl. 8) · Kategorie: A Gymnasium Bayern
+- Gemeinsam geprüfte Themen: geometrie.konstruktion, gleichungen.formeln, gleichungen.ungleichungen, messen.flaechen_vielecke, messen.koerper_darstellung
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1a | ? | II | K5 | Ungleichung | Bruchungleichung lösen | gleichungen.ungleichungen › umformen |
+| 1b | ? | II | K5 | Betrag | Betragsungleichung ohne Rechnung | außerhalb: Betragsgleichungen/-ungleichungen (alter G9-Lehrplan) |
+| 2 | ? | II | K5 | Umstellen | Formel nach einer Größe umstellen | gleichungen.formeln › zwei_schritte |
+| 3a | ? | III | K4 | Konstruieren | Dreieck aus Seite, Gegenwinkel und Höhe | geometrie.konstruktion › planfigur (Teil 1 von 2 (Dreiecke konstruieren, Kongruenz)) |
+| 3b | ? | II | K6 | Beschreiben | Konstruktionsschritte beschreiben | geometrie.konstruktion › planfigur (Teil 1 von 2 (Dreiecke konstruieren, Kongruenz)) |
+| 4a | ? | II | K5 | Fläche | schraffierte Figur | messen.flaechen_vielecke › zusammengesetzt |
+| 4b | ? | I | K4 | Zeichnen | Schrägbild eines Prismas | messen.koerper_darstellung › schraegbild |
+
+### G8-K3648 – 4. Schulaufgabe (Gruppe A)
+
+- Quelle: <https://www.klassenarbeiten.de/data/dynamic/pdf/3648.pdf> (abgerufen 2026-11-22) · Herausgeber: klassenarbeiten.de (Schule unbekannt) · frei abrufbar auf klassenarbeiten.de; Urheberrecht beim Anbieter – nur verlinkt
+- Art: 4. · Nummer/Zeitpunkt: 4. Schulaufgabe (Juni) · Jahr: 2001 · Bundesland: Bayern (Annahme: Begriff „Schulaufgabe“)
+- Zeit: ? min · Punkte: ? · Hilfsmittel: nicht angegeben · frei zugänglich: ja
+- Passung: Gym Kl. 8, vermutlich Bayern (älterer G9-Lehrplan: einzelne Themen heute nicht mehr in Kl. 8) · Kategorie: A Gymnasium Bayern
+- Gemeinsam geprüfte Themen: geometrie.kreis, gleichungen.lgs2, messen.prisma_zylinder
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| 1 | ? | II | K4 | LGS | LGS zeichnerisch und rechnerisch, Gerade aufstellen | gleichungen.lgs2 › grafisch |
+| 2 | ? | III | K4 | Konstruieren | Raumstrecke im Würfel konstruieren | außerhalb: Strecke in wahrer Größe (alter G9-Lehrplan) |
+| 3 | ? | II | K3 | Volumen | Deich mit Trapezquerschnitt | messen.prisma_zylinder › prisma_volumen |
+| 4 | ? | III | K4 | Konstruieren | Sehnenviereck aus Diagonalen und Winkel | geometrie.kreis › umkreis_inkreis |
+
+### G8-K3641 – Schulaufgabe Geometrie und Algebra
+
+- Quelle: <https://www.klassenarbeiten.de/data/dynamic/pdf/3641.pdf> (abgerufen 2026-11-22) · Herausgeber: klassenarbeiten.de (Schule unbekannt) · frei abrufbar auf klassenarbeiten.de; Urheberrecht beim Anbieter – nur verlinkt
+- Art: Schulaufgabe · Nummer/Zeitpunkt: Schulaufgabe · Jahr: unbekannt · Bundesland: Bayern (Annahme: Begriff „Schulaufgabe“)
+- Zeit: 90 min · Punkte: 35 · Hilfsmittel: nicht angegeben · frei zugänglich: ja
+- Passung: vermutlich Bayern, Klasse nicht angegeben (Annahme Kl. 8, alter G9-Lehrplan) · Kategorie: A Gymnasium Bayern
+- Gemeinsam geprüfte Themen: abbildungen.kongruenz, funktionen.grundbegriffe, funktionen.linear, groessen.proportional
+
+| Nr | P | Niv | K | Typ | Inhalt (eigene Worte) | Zuordnung |
+|---|---|---|---|---|---|---|
+| G1 | 10 | III | K3 | Vektoren | Flugzeug mit Wind | außerhalb: Vektoraddition, Windkorrektur (alter G9-Lehrplan) |
+| G2 | 8 | II | K5 | Verschieben | Dreieck mehrfach verschieben, Gesamtvektor | abbildungen.kongruenz › verschiebung (Teil 2 von 3 (Verschieben und Vektoren)) |
+| A1 | 10 | II | K4 | Funktionen | Wertemengen, Graph zeichnen | funktionen.grundbegriffe › mengen |
+| A2 | 2 | II | K5 | Punktmengen | Punktmengen zu Geradengleichungen | funktionen.linear › lage |
+| A3 | 5 | III | K1 | Prüfen | Konstanz eines Quotienten prüfen | groessen.proportional › pruefen (Teil 2 von 2 (proportionale Zuordnungen erkennen)) |

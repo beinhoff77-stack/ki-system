@@ -45,6 +45,9 @@ Mittel-/Hauptschule, Jahrgangsstufenarbeit Mathematik 6 (Weiterarbeit):
 - 2023 https://www.isb.bayern.de/fileadmin/user_upload/Mittelschule/Jahrgangsstufenarbeiten/Mathematik/2023_jahrgangsstufenarbeiten_Mathematik_Weiterarbeit_final.pdf · 2024 https://isb.bayern.de/fileadmin/user_upload/Mittelschule/Jahrgangsstufenarbeiten/Mathematik/2024_Jahrgangsstufenarbeiten_Mathematik_Weiterarbeit_final.pdf
 - Hauptschule 2011 …/download/9663/2011_loesungen.pdf · 2006 …/download/5974/2006-test_6_loesungen.pdf (Lösungsdateien: nur Aufgabenstellung beschrieben, keine Lösung übernommen)
 
+Realschule, Grundwissentest Mathematik Jgst. 9, WPFG I (prüft Kl.-8-Stoff RS; 3. Runde, für Kl. 8), Basis `https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Grundwissenstests_Mathematik/`:
+`2025/2025_GWT_Mathematik_9_I_Angabe.pdf`, `2024/2024_GWT_Mathe_9_I_Angabe.pdf` (Host isb.bayern.de), `2023/2023_GWT_Mathe_9_I_Angabe.pdf`, `2022/_A__2022_GWT_Mathe_9_I_Angabe.pdf`, `2021/2021_gwt_mathe_9_i_angabe.pdf`, `2020/2020_gwt_mathe_9_i_loesung.pdf`, `2019/2019_gwt_mathe_9_i_angabe.pdf`, `2018/2018_gwt_mathe_9_i_angabe.pdf`, `2017/2017_gwt_mathematik_9i_loesung.pdf`, `2016/2016_gwt_rs_mathematik_9i_loesung.pdf`, `2015/2015_gwt_mathematik_9i_angabe.pdf`, `2012/9i_angabe.pdf` (Lösungsdateien: nur Aufgabenstellung beschrieben). Weitere vorhanden, nicht aufgenommen: WPFG II/III aller Jahre, WPFG I 2007–2011, 2013, 2014.
+
 ### Schul-Homepages (Fachschaft Mathematik)
 - Sigena-Gymnasium Nürnberg, Grundwissentest Beginn Kl. 6 (Kl.-5-Stoff) mit Mustertest: https://www.nuernberg.de/imperia/md/sigena_gymnasium/dokumente/unterricht/mathe/hinweise-gwt_klasse-6-lp-plus.pdf
 - Sigena-Gymnasium Nürnberg, Grundwissentest Beginn Kl. 9 (Kl.-8-Stoff) mit Mustertest: https://www.nuernberg.de/imperia/md/sigena_gymnasium/dokumente/unterricht/mathe/info_gwt_9_homepage_ab_2024.pdf
@@ -65,6 +68,7 @@ Je `https://www.klassenarbeiten.de/data/dynamic/pdf/<Nr>.pdf`. Die Übersichtsse
 - Kl. 5, 1. Runde: 1170, 1468, 1424, 1722, 861, 801, 301 (vermutlich Hessen), 1218, 1050
 - Kl. 5, 2. Runde: 1483, 1047, 2377, 1219, 1215, 1882, 1167, 1676, 1916 (Realschule)
 - Kl. 8: 3793 (Bayern laut Lösungskopf), 3801 (Berlin), 3806 (G8, Bundesland unbekannt); 2. Runde: 3800 (Berlin), 4033 (Probearbeit, unbekannt)
+- Kl. 8, 3. Runde (Übersicht `https://www.klassenarbeiten.de/gymnasium/klasse8/mathematik/`, 70 Einträge, alle vier Seiten gesichtet): 3795 (Bayern G8 laut Lösung), 3809 (Stegreifaufgabe), 3794 (Extemporale), 3629, 3636, 3635, 3642, 3645, 3648, 3641 (Schulaufgaben 2001–2006, Bayern angenommen)
 
 ### Sonstige (Kategorie C)
 - RWTH-Server, Klassenarbeit Nr. 3 Kl. 5 (2004): https://algo.rwth-aachen.de/infoki/Mathe5k/d/Arbeiten/Klassenarbeit03.pdf
@@ -95,7 +99,10 @@ Je `https://www.klassenarbeiten.de/data/dynamic/pdf/<Nr>.pdf`. Die Übersichtsse
 | Sachsen-Anhalt Zentrale Klassenarbeit Kl. 6 2026, Sachsen Lernstand Kl. 5 | andere Bundesländer/Klassen |
 | klassenarbeiten.de Listenseiten (Abruf-Tool) | Client-Fehler im Abruf-Tool; in Runde 2 per Browser geöffnet |
 | klassenarbeiten.de `klassenarbeiten/pdf/14.pdf` | nur Startseite, keine Arbeit |
-| klassenarbeiten.de, Kl.-8-Übersicht | nicht geöffnet – Kl. 8 hatte das Ziel schon erreicht |
+| klassenarbeiten.de Kl. 8: 3798, 3803 (Brandenburg), 3630, 3650, 3655, 3792, 3796, 3812, 4110, 3789 (Bundesland unbekannt, keine bayerischen Begriffe) | gesichtet, nicht aufgenommen (3. Runde) |
+| Sigena-Gymnasium Grundwissentest/Einstiegstest Beginn Kl. 9 | schon in Runde 1 erfasst; einziger veröffentlichter Gym-Test dieser Art |
+| ISB gym8-lehrplan „M 8.2 Laplace“, „M 8.3 gebrochen-rationale Funktionen“; Hildegardis Kempten „Standardaufgaben M8“; Uni Bayreuth SMART Kl. 8 | Niveau-/Übungsaufgaben, keine Arbeiten – nur als Referenz |
+| Realschule Jahrgangsstufentest 8, klassenarbeiten.de 4010 (RS Bayern Kl. 8) | Realschul-Kl.-7- bzw. RS-Kl.-8-Schulaufgabe – nicht aufgenommen |
 | tutory-Dokumente Burladingen, school-scout 5007, Klett 69485 (Vorschau) | Abruf scheiterte (Client-Fehler) |
 | school-scout 45218 (Vorschau Kl. 5: Geometrie, Terme, Größen) | Vorschau vollständig, aber kostenpflichtig, ohne Punkte – nicht aufgenommen |
 | Bange-Verlag Leseprobe | leitet auf Shop um, kein Inhalt |

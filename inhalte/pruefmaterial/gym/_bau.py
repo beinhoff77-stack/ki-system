@@ -629,6 +629,7 @@ BMT(2009, "A", "2009/bmt8-2009-aufgaben-gruppe-a.pdf", """
 """)
 
 exec(open(os.path.join(HIER, "_daten2.py")).read())
+exec(open(os.path.join(HIER, "_daten3.py")).read())
 
 # ---------------------------------------------------------------- Aufbau
 def laden():

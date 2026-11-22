@@ -2,12 +2,12 @@
 
 Stand 2026-11-22. Für jede Arbeit aus `../katalog.json` gibt es hier eine **nachgebaute Schulaufgabe** `<arbeit_id>.md` mit Lösungsblatt, dazu `nachbau.json` (maschinenlesbar).
 
-- Klasse 8: 51 Arbeiten, 541 Aufgaben
+- Klasse 8: 73 Arbeiten, 854 Aufgaben (3. Runde: + 10 bayerische Schulaufgaben/Exen, + 12 Realschul-Grundwissentests Jgst. 9)
 - Klasse 5: 53 Arbeiten, 829 Aufgaben
 
 ## Wie nachgebaut wurde
 
-- Jede Aufgabe kommt aus einem **Generator** für ihre Etappe (`_g8a.py`, `_g8b.py`, `_g8c.py`, `_g5a.py`, `_g5b.py`).
+- Jede Aufgabe kommt aus einem **Generator** für ihre Etappe (`_g8a.py` … `_g8d.py`, `_g5a.py`, `_g5b.py`).
   - Bei mehreren Aufgabenarten in einer Etappe wählt der Generator die Variante über Stichworte aus der Katalogbeschreibung.
   - Text, Zahlen und Sachkontext sind eigene. Die Zahlen sind zufällig, mit festem Startwert je Aufgabe, damit der Lauf reproduzierbar ist.
   - Es werden keine Originaltexte, Originalzahlen oder Lösungen übernommen.
@@ -26,9 +26,9 @@ Stand 2026-11-22. Für jede Arbeit aus `../katalog.json` gibt es hier eine **nac
 
 | Art | Kl. 8 | Kl. 5 | Bedeutung |
 |---|---|---|---|
-| gegengerechnet | 357 | 642 | Das Ergebnis wird im Skript ein zweites Mal geprüft, zum Beispiel durch Einsetzprobe, Auswertung des gedruckten Rechenausdrucks, Durchprobieren aller Fälle, Rückumwandlung oder Gaußsche Flächenformel. Bei Fehlschlag verwirft das Skript die Zahlen und zieht neue. |
-| Musterlösung | 124 | 173 | Zeichnungen, Konstruktionen, Begründungen und Wissensfragen. Hier gibt es nichts nachzurechnen; die Musterlösung ist von Hand formuliert. |
-| vom Skript berechnet | 60 | 14 | Das Ergebnis berechnet das Skript, aber ohne zweite, unabhängige Rechnung. |
+| gegengerechnet | 585 | 642 | Das Ergebnis wird im Skript ein zweites Mal geprüft, zum Beispiel durch Einsetzprobe, Auswertung des gedruckten Rechenausdrucks, Durchprobieren aller Fälle, Rückumwandlung oder Gaußsche Flächenformel. Bei Fehlschlag verwirft das Skript die Zahlen und zieht neue. |
+| Musterlösung | 187 | 173 | Zeichnungen, Konstruktionen, Begründungen und Wissensfragen. Hier gibt es nichts nachzurechnen; die Musterlösung ist von Hand formuliert. |
+| vom Skript berechnet | 82 | 14 | Das Ergebnis berechnet das Skript, aber ohne zweite, unabhängige Rechnung. |
 
 ## Neu bauen
 

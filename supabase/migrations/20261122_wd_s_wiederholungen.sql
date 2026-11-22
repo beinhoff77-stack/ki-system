@@ -1,36 +1,52 @@
--- Bau-Auftrag WD (22.11.), Server-Teil WD-S: Wiederholungen dynamisch – Stau vermeiden, Belohnung fürs Ablegen.
--- Vorgabe: inhalte/AUFTRAEGE.md „Bau-Auftrag WD“ und „Nachtrag zum Bau-Auftrag WD – Reihenfolge und Schnittstelle“ (verbindlich).
+-- Bau-Auftrag WD (22.11.), Server-Teil WD-S (Stand WD-S 2, 22.11. abends): Wiederholungen dynamisch – Stau vermeiden, Belohnung fürs Ablegen.
+-- Vorgabe: inhalte/AUFTRAEGE.md „Bau-Auftrag WD“, „Nachtrag zum Bau-Auftrag WD – Reihenfolge und Schnittstelle“ (verbindlich) und „Rückläufer 22.11. abends“ Teil A
+-- (ChatGPT 911/912).
+--
+-- Ziel und Grenzen (ehrlich):
+--   Ziel ist, einen Stau schrittweise abzubauen – bei ausreichender Kapazität in etwa fünf Lerntagen. Das ist keine Garantie: Wer täglich mehr landet
+--   als die Runde trägt, baut weiter auf. Bekannte Grenze: Ohne Bündeln (Entscheidung Sebastians: jede Etappe für sich) trägt die Kapazität dauerhaft
+--   etwa 3 Landungen je Lerntag (jede Landung erzeugt 5 Wiederholungen; die Runde hat höchstens 12 Pflicht-Plätze, dazu freiwillige und Mischkarten).
 --
 -- Befund heute (Live-Text gelesen 22.11.):
 --   Takt: Landung → Stufe 0 (1 Lerntag), jede richtige fällige Wiederholung +1 Stufe: 3, 7, 14, 30 Lerntage; ab Stufe 4 bleibt es bei 30 (karte_buchen).
 --   Sterne: Trigger versuch_sterne gibt für JEDE richtige Antwort außerhalb von Tests (auch mit Tipp/2. Anlauf, auch Wiederholung und Mischkarte)
 --   sterne_uebung_richtig = 10 Sterne – aber je Aufgabe nur einmal im Leben (Schlüssel lernender, grund 'uebung', bezug 'aufgabe:<id>').
---   Eine richtige Wiederholung gibt heute also 10 Sterne, wenn die Aufgabe noch nie richtig war (die Runde wählt bevorzugt ungesehene Aufgaben), sonst 0.
---   Mischkarte genauso (10 oder 0). → NICHT gekürzt: sterne_wdh_richtig steht auf 10 (Schnittstelle nennt 5) – Sebastian entscheidet (eine Zeile in schule.regel).
+--   → NICHT gekürzt: sterne_wdh_richtig steht auf 10 (Schnittstelle nennt 5), bis Sebastian entscheidet (eine Zeile in schule.regel).
 --
--- Was diese Datei baut (Schnittstelle laut Nachtrag):
---   WD-1 schule_wiederholung: runde (ein Fünftel der fälligen, aufgerundet, min 6, max 12, bis Klasse 6 max 10; bis 6 fällige: alle), faellig, aufgaben[] in der
---        Reihenfolge Wiederholungs-Fehler → am längsten fällig → niedrigste Stufe (die ersten `runde` sind Pflicht: aufgaben[].pflicht), runde_gemacht, gestaffelt.
---   WD-2 schule.wdh_runde + api.schule_wiederholung_runde_fertig {lernender_id}: Merker je Kind und Lerntag (heute_tag) auf dem Server.
---   WD-3 Mischkarten: Auswahl und Ausgabe bevorzugen fällige Etappen; Mischkarte aus fälliger Etappe, richtig im 1. Versuch ohne Tipp = bestandene Wiederholung
---        (rückt im Takt weiter wie karte_buchen), zusätzlich zum bisherigen Beleg (misch_ok_am). Falsch: wie heute (fällig, öffnet nie). Häufigkeit unverändert.
---   WD-4 flug_wdh_setzen: gesetzte Etappen kommen gestaffelt in den Takt – je Kind höchstens wdh_gesetzt_je_lerntag (6) neue erste Wiederholungen je Lerntag,
---        in Aufruf-Reihenfolge (Plan-Reihenfolge, Etappen-Reihenfolge). Den vorhandenen Stau streckt die eigene Datei 20261122_wd_4b_stau_strecken.sql.
---   WD-5 Sterne je bestandener Wiederholung (Runde, freiwillig, Mischkarte nach WD-3): einmal je Etappe und Fälligkeit (grund 'wdh', bezug 'wdh:<einheit>:<etappe>:<beginn>');
---        für denselben Versuch dann keine 'uebung'-Sterne (nichts doppelt).
---   WD-6 Ablegen: besteht eine Etappe die Wiederholung auf Stufe 4 (30 Lerntage), ist sie abgelegt: raus aus dem Takt (keine Fälligkeit mehr), 30 Sterne, Einblendung;
---        alle Pflicht-Etappen des Flugs abgelegt: 100 Sterne, Flug golden; alle Flüge eines Orts abgelegt: Orts-Stempel golden. Je Kind und Etappe/Flug/Ort einmal
---        (schule.abgelegt, wie flug_erstabschluss). Fällt eine abgelegte Etappe später wieder auf (falsch beim Üben, falsche Mischkarte), kommt sie wie heute
---        in den Takt zurück; das Gold bleibt.
+-- Was diese Datei baut:
+--   WD-1 Runde: Größe ein Fünftel der fälligen, aufgerundet, min 6, max 12 (bis Klasse 6 max 10; bis 6 fällige: alle). Auswahl: mindestens ein Drittel der
+--        Pflicht-Plätze für die am längsten fälligen Etappen, die übrigen nach Wiederholungs-Fehler (auch falsche Mischkarte seit Beginn der Fälligkeit) →
+--        am längsten fällig → niedrigste Stufe.
+--   WD-2 Runde serverseitig: beim ersten Abruf des Lerntags festgehalten (schule.wdh_runde: Tagesziel, schule.wdh_runde_etappe: zugeordnete Etappen).
+--        Jede Antwort auf eine dieser Etappen (richtig oder falsch – falsch = bearbeitet, nicht bestanden) hakt sie ab; sind alle abgehakt, setzt der Server
+--        „gemacht“ selbst. Eine Etappe ohne verfügbare Aufgabe (inzwischen gesperrt) zählt als bearbeitet; 0 fällige = sofort gemacht. Zweites Gerät setzt
+--        dieselbe Runde fort; neue Fälligkeiten am selben Tag sind nur freiwillig. api.schule_wiederholung_runde_fertig bestätigt nur und lehnt ab, wenn
+--        Aufgaben fehlen.
+--   WD-3 Mischkarten: Auswahl und Ausgabe bevorzugen fällige Etappen. Mischkarte aus fälliger Etappe, richtig im 1. Versuch ohne Tipp = bestandene
+--        Wiederholung (Takt wie karte_buchen); aus nicht fälliger Etappe nur der Misch-Beleg (misch_ok_am), kein Fortschritt. Falsch: wie heute (fällig,
+--        öffnet nie) und zählt für die Reihenfolge der nächsten Runde als Wiederholungs-Fehler.
+--   WD-4 flug_wdh_setzen: gesetzte Etappen gestaffelt – je Kind höchstens wdh_gesetzt_je_lerntag (6) neue erste Wiederholungen je Lerntag.
+--        Den vorhandenen Stau streckt die eigene Datei 20261122_wd_4b_stau_strecken.sql.
+--   WD-5 Sterne je bestandener Wiederholung: genau einmal je Etappe und Fälligkeit (grund 'wdh', bezug 'wdh:<einheit>:<etappe>:<beginn>') – auch bei zwei
+--        Geräten oder doppelt gesendeter Antwort: Nach dem ersten Bestehen ist die Etappe nicht mehr fällig (Zeile gesperrt: karte_buchen „for update“,
+--        misch_buchen über update), der Schlüssel verhindert eine zweite Buchung. Für denselben Versuch keine 'uebung'-Sterne.
+--   WD-6 Ablegen: bestandene fünfte Wiederholung (die auf Stufe 4, 30 Lerntage nach der vierten) – frühestens 55 Lerntage nach der Landung (1+3+7+14+30).
+--        Nicht zusätzlich an „sicher“ gebunden (Wunsch der Kinder). „abgelegt“ ist ein eigenes Ereignis in schule.abgelegt, nie aus wdh_stufe abgeleitet.
+--        Etappe: raus aus dem Takt, 30 Sterne; alle Pflicht-Etappen des Flugs: 100 Sterne, Flug golden; alle Flüge eines Orts: Stempel golden; je einmal.
+--        Letzte Wiederholung: Wiederholungs-Sterne + 30 + ggf. 100 kommen zusammen, je einmal.
+--        Rückfall: Fällt eine abgelegte Etappe beim Üben, mit einer Mischkarte oder im Nachtest/Test durch, kommt sie am nächsten Lerntag zurück in den
+--        Takt (Stufe 2); Gold, Sterne und Einblendung bleiben, ein zweites Ablegen gibt nichts.
 --   Antworten: schule_uebung_pruefen + wiederholung {bestanden, sterne, stufe_neu, naechste_in} und abgelegt {etappe {titel, sterne}, flug? {titel, sterne}, ort_gold?};
 --   schule_konto: konto.fluege[] {thema_id, einheit_id, titel, abgelegt, etappen_abgelegt, etappen}, konto.orte[].gold.
 --
--- Technik: Ein Trigger vor jeder Änderung an schule.karte_stand erkennt die Antwort auf eine fällige Etappe (richtig/falsch zählt hoch) und ob sie bestanden ist
---   (Stufe +1, neuer Beginn, kein Fehler). So bleiben karte_buchen, uebung_pruefen_intern und die Versuch-Trigger unverändert; geändert (genau bezeichnete Stellen,
---   jede genau einmal geprüft): sterne_aus_versuch, misch_buchen, mischkarten_waehlen, mischkarten, flug_wdh_setzen, api.schule_uebung_pruefen, api.schule_konto;
---   neu geschrieben: api.schule_wiederholung (gleiche Felder wie bisher plus die neuen).
--- Bestand: neue Tabellen und Regeln; keine Änderung an Lernständen, Karten, Plan (am Ende geprüft: Prüfsummen vorher = nachher, sonst Abbruch).
--- Nicht ausgeführt – der Haupt-Chat spielt ein (dazu lernen-api: Aktion schule_wiederholung_runde_fertig). Kein DROP, kein DELETE. Wiederholt ausführbar.
+-- Technik: Ein Trigger vor jeder Änderung an schule.karte_stand erkennt die Antwort auf eine Etappe (richtig/falsch zählt hoch), hakt die Runde ab,
+--   erkennt bestandene Wiederholungen und den Rückfall nach dem Ablegen; ein Trigger nach „fehler“ in schule.lernziel_stand holt abgelegte Etappen zurück.
+--   karte_buchen, uebung_pruefen_intern, test_abschliessen_intern und die Versuch-Trigger bleiben unverändert; geändert (genau bezeichnete Stellen, jede genau
+--   einmal geprüft): sterne_aus_versuch, misch_buchen, mischkarten_waehlen, mischkarten, flug_wdh_setzen, api.schule_uebung_pruefen, api.schule_konto;
+--   neu geschrieben: api.schule_wiederholung (bisherige Felder bleiben). Prüfregel sterne_grund_check um 'wdh', 'etappe_abgelegt', 'flug_abgelegt' erweitert.
+-- Bestand: neue Tabellen, Regeln, erweiterte Prüfregel; keine Änderung an Lernständen, Karten, Plan, Sternen (am Ende geprüft, sonst Abbruch).
+-- In einer Transaktion einspielen. Nicht ausgeführt – der Haupt-Chat spielt ein (dazu lernen-api 0.9.0). Kein DROP einer Tabelle/Spalte, kein DELETE.
+-- Wiederholt ausführbar.
 
 -- Prüfsummen vorher (Karten, Lernstände, Plan) – Vergleich am Ende
 create temp table wd_vorher on commit drop as
@@ -57,16 +73,42 @@ as $function$
   select coalesce((select (r.wert #>> '{}')::int from schule.regel r where r.schluessel = p), p_std);
 $function$;
 
--- WD-2: Pflicht-Runde je Kind und Lerntag erledigt
+-- Prüfregel der Sterne-Gründe um die neuen Gründe erweitern (Constraint ersetzen; bestehende Gründe bleiben)
+do $mig$
+declare d text := (select pg_get_constraintdef(c.oid) from pg_constraint c where c.conrelid = 'schule.sterne'::regclass and c.conname = 'sterne_grund_check');
+begin
+  if d is not null and position('etappe_abgelegt' in d) > 0 then return; end if;
+  if d is not null and d <> $a$CHECK ((grund = ANY (ARRAY['uebung'::text, 'test'::text, 'ort'::text, 'einloesung'::text, 'korrektur_hand'::text, 'bonus'::text, 'expedition'::text])))$a$ then
+    raise exception 'sterne_grund_check hat sich geändert (%), bitte prüfen', d; end if;
+  alter table schule.sterne drop constraint if exists sterne_grund_check;
+  alter table schule.sterne add constraint sterne_grund_check check (grund = any (array['uebung', 'test', 'ort', 'einloesung', 'korrektur_hand', 'bonus', 'expedition',
+                                                                                       'wdh', 'etappe_abgelegt', 'flug_abgelegt']));
+end $mig$;
+
+-- WD-2: die Runde je Kind und Lerntag (heute_tag), beim ersten Abruf festgehalten
 create table if not exists schule.wdh_runde (
   lernender_id bigint not null references schule.lernender(id),
   tag date not null,
-  fertig_am timestamptz not null default now(),
+  ziel integer not null default 0,            -- Pflicht-Aufgaben dieser Runde
+  faellig integer not null default 0,         -- fällige beim Festhalten
+  angelegt_am timestamptz not null default now(),
+  fertig_am timestamptz,                       -- vom Server gesetzt, sobald alle Etappen bearbeitet sind
   primary key (lernender_id, tag)
 );
-comment on table schule.wdh_runde is 'WD-2: Wiederholungs-Runde dieses Lerntags (schule.heute_tag) erledigt – gilt für alle Geräte';
+comment on table schule.wdh_runde is 'WD-2: Wiederholungs-Runde eines Lerntags (festgehalten beim ersten Abruf); fertig_am setzt der Server';
 alter table schule.wdh_runde enable row level security;
 revoke all on table schule.wdh_runde from public, anon, authenticated;
+
+create table if not exists schule.wdh_runde_etappe (
+  lernender_id bigint not null, tag date not null, nr integer not null,
+  einheit_id bigint not null, lernziel text not null,
+  bearbeitet_am timestamptz,                   -- Antwort (richtig oder falsch) auf diese Etappe an diesem Lerntag
+  primary key (lernender_id, tag, einheit_id, lernziel),
+  foreign key (lernender_id, tag) references schule.wdh_runde (lernender_id, tag)
+);
+comment on table schule.wdh_runde_etappe is 'WD-2: Etappen der Wiederholungs-Runde eines Lerntags';
+alter table schule.wdh_runde_etappe enable row level security;
+revoke all on table schule.wdh_runde_etappe from public, anon, authenticated;
 
 -- WD-6: endgültig abgelegt – je Kind und Etappe/Flug/Ort höchstens einmal (bezug 'etappe:<einheit>:<etappe>', 'flug:<thema>', 'ort:<block>')
 create table if not exists schule.abgelegt (
@@ -144,14 +186,46 @@ begin
 end $function$;
 revoke all on function schule.wdh_ablegen(bigint, bigint, text) from public, anon, authenticated;
 
--- WD-3/5/6: Antwort auf eine fällige Etappe erkennen (vor jeder Änderung an schule.karte_stand)
+-- Hat diese Etappe eine Aufgabe, die gerade gezeigt werden kann? (sonst zählt sie in der Runde als bearbeitet)
+create or replace function schule.wdh_aufgabe_da(p_e bigint, p_lz text)
+ returns boolean language sql stable set search_path to ''
+as $function$
+  select exists (select 1 from schule.aufgabe a join schule.einheit e on e.id = a.einheit_id
+                  where a.einheit_id = p_e and a.variante_gruppe = p_lz and a.pool = 'uebung' and a.freigegeben and e.status in ('geprueft', 'freigegeben'));
+$function$;
+
+-- WD-2: Runde prüfen – sind alle Etappen bearbeitet (oder ohne Aufgabe), setzt der Server fertig_am. Liefert die Zahl offener Etappen.
+create or replace function schule.wdh_runde_pruefen(p_l bigint, p_tag date)
+ returns integer language plpgsql set search_path to ''
+as $function$
+declare v_offen int;
+begin
+  select count(*) into v_offen from schule.wdh_runde_etappe r
+   where r.lernender_id = p_l and r.tag = p_tag and r.bearbeitet_am is null and schule.wdh_aufgabe_da(r.einheit_id, r.lernziel);
+  if v_offen = 0 then
+    update schule.wdh_runde set fertig_am = now() where lernender_id = p_l and tag = p_tag and fertig_am is null;
+  end if;
+  return v_offen;
+end $function$;
+
+-- WD-3/5/6/2: Antwort auf eine Etappe (vor jeder Änderung an schule.karte_stand)
 create or replace function schule.karte_wdh_ereignis()
  returns trigger language plpgsql set search_path to ''
 as $function$
-declare v_bestanden boolean; v_sterne int := 0; v_beginn text; v_abgelegt jsonb; v_erg jsonb;
+declare v_bestanden boolean; v_sterne int := 0; v_beginn text; v_abgelegt jsonb; v_erg jsonb; v_tag date;
 begin
-  if not old.sitzt or (new.richtig <= old.richtig and new.falsch <= old.falsch) then return new; end if; -- keine Antwort
-  if not schule.karte_faellig(old) then return new; end if;                                           -- keine Wiederholung
+  -- Rückfall nach dem Ablegen: kommt eine abgelegte Etappe wieder in den Takt (Fehler beim Üben, falsche Mischkarte, Nachtest), dann mit Stufe 2 am nächsten Lerntag
+  if old.sitzt and new.sitzt and old.wdh_ab is null and old.faellig_am is null and old.wdh_lerntage is null and new.wdh_ab is not null
+     and exists (select 1 from schule.abgelegt g where g.lernender_id = new.lernender_id and g.bezug = 'etappe:' || new.einheit_id || ':' || new.lernziel) then
+    new.wdh_stufe := 2; new.wdh_lerntage := 1; new.faellig_am := new.wdh_ab + interval '1 day';
+  end if;
+  if new.richtig <= old.richtig and new.falsch <= old.falsch then return new; end if;   -- keine Antwort
+  -- WD-2: Antwort auf eine Etappe der heutigen Runde → bearbeitet (richtig oder falsch)
+  v_tag := schule.heute_tag(new.lernender_id);
+  update schule.wdh_runde_etappe set bearbeitet_am = now()
+   where lernender_id = new.lernender_id and tag = v_tag and einheit_id = new.einheit_id and lernziel = new.lernziel and bearbeitet_am is null;
+  if found then perform schule.wdh_runde_pruefen(new.lernender_id, v_tag); end if;
+  if not old.sitzt or not schule.karte_faellig(old) then return new; end if;               -- keine Wiederholung
   v_bestanden := new.richtig > old.richtig and new.sitzt and new.wdh_fehler = 0 and new.wdh_ab is distinct from old.wdh_ab
                  and new.wdh_stufe = least(old.wdh_stufe + 1, 4);
   if v_bestanden then
@@ -160,7 +234,7 @@ begin
     values (new.lernender_id, schule.wd_regel('sterne_wdh_richtig', 10), 'wdh', 'wdh:' || new.einheit_id || ':' || new.lernziel || ':' || v_beginn)
     on conflict do nothing returning menge into v_sterne;
     perform set_config('schule.wdh_karte', new.einheit_id || '/' || new.lernziel, true);  -- sterne_aus_versuch: für diesen Versuch keine 'uebung'-Sterne
-    if old.wdh_stufe >= 4 then                                                             -- letzte Wiederholung (30 Lerntage) bestanden: abgelegt
+    if old.wdh_stufe >= 4 then                                                             -- fünfte Wiederholung (30 Lerntage) bestanden: abgelegt
       new.faellig_am := null; new.wdh_ab := null; new.wdh_lerntage := null;
       v_abgelegt := schule.wdh_ablegen(new.lernender_id, new.einheit_id, new.lernziel);
     end if;
@@ -171,6 +245,21 @@ begin
   return new;
 end $function$;
 create or replace trigger karte_wdh_ereignis before update on schule.karte_stand for each row execute function schule.karte_wdh_ereignis();
+
+-- WD-6 Rückfall im Nachtest/Test: Etappe einer Testsitzung auf „fehler“ → eine abgelegte Etappe kommt am nächsten Lerntag zurück (Stufe 2 setzt der Trigger oben)
+create or replace function schule.lernziel_rueckfall()
+ returns trigger language plpgsql set search_path to ''
+as $function$
+begin
+  if new.status = 'fehler' and old.status is distinct from 'fehler'
+     and exists (select 1 from schule.abgelegt g where g.lernender_id = new.lernender_id and g.bezug = 'etappe:' || new.einheit_id || ':' || new.lernziel) then
+    update schule.karte_stand set wdh_ab = now(), wdh_lerntage = 1, faellig_am = now() + interval '1 day'
+     where lernender_id = new.lernender_id and einheit_id = new.einheit_id and lernziel = new.lernziel
+       and sitzt and wdh_ab is null and faellig_am is null and wdh_lerntage is null;
+  end if;
+  return new;
+end $function$;
+create or replace trigger lernziel_rueckfall after update of status on schule.lernziel_stand for each row execute function schule.lernziel_rueckfall();
 
 -- Stellen in vorhandenen Funktionen ersetzen: jede Stelle genau einmal, sonst Abbruch; schon eingespielt (Merkmal im Text) → nichts tun
 create or replace function pg_temp.wd_ersetzen(p_fn text, p_merkmal text, p_alt text[], p_neu text[])
@@ -303,37 +392,81 @@ select pg_temp.wd_ersetzen('api.schule_konto(text, jsonb)', 'konto_wd',
   array[$a$'konto', schule.konto(v_l),$a$],
   array[$a$'konto', schule.konto_wd(v_l), -- WD-S: + fluege[], orte[].gold$a$]);
 
--- WD-1/WD-2/WD-4: schule_wiederholung (bisherige Felder ok, aufgaben, faellig bleiben; neu: runde, runde_gemacht, gestaffelt, aufgaben[].pflicht)
---   anzahl: höchstens so viele Aufgaben (bisher höchstens 6, jetzt höchstens 60); ohne anzahl alle fälligen (≤ 60). Die App 0.84 schickt anzahl 6 → wie bisher 6 Stück.
-create or replace function schule.wiederholung_intern(p_l bigint, p_daten jsonb, p_leiter boolean)
+-- Reihenfolge-Merkmal „Wiederholungs-Fehler“: Fehler in der Wiederholung oder falsche Mischkarte seit Beginn der Fälligkeit
+create or replace function schule.wdh_fehler(k schule.karte_stand)
+ returns boolean language sql stable set search_path to ''
+as $function$
+  select coalesce(k.wdh_fehler, 0) > 0
+      or exists (select 1 from schule.versuch v join schule.aufgabe a on a.id = v.aufgabe_id
+                  where v.lernender_id = k.lernender_id and coalesce(v.misch, false) and not v.richtig and v.testsitzung_id is null
+                    and a.einheit_id = k.einheit_id and a.variante_gruppe = k.lernziel and v.am >= coalesce(k.wdh_ab, k.sitzt_am, '-infinity'::timestamptz));
+$function$;
+
+-- WD-1/WD-2: Runde des Lerntags festhalten (einmal je Kind und Tag; ein zweites Gerät bekommt dieselbe)
+create or replace function schule.wdh_runde_holen(p_l bigint, p_tag date)
+ returns void language plpgsql set search_path to ''
+as $function$
+declare v_faellig int; v_da int; v_ziel int; v_alt int;
+begin
+  if exists (select 1 from schule.wdh_runde where lernender_id = p_l and tag = p_tag) then return; end if;
+  if to_regclass('pg_temp.wd_kand') is null then
+    create temp table wd_kand (einheit_id bigint, lernziel text, fehler boolean, faellig_am timestamptz, wdh_stufe int) on commit drop;
+  end if;
+  truncate wd_kand;  -- nur die Hilfstabelle dieser Sitzung
+  insert into wd_kand select k.einheit_id, k.lernziel, schule.wdh_fehler(k), k.faellig_am, k.wdh_stufe
+    from schule.karte_stand k where k.lernender_id = p_l and schule.karte_faellig(k);
+  select count(*), count(*) filter (where schule.wdh_aufgabe_da(c.einheit_id, c.lernziel)) into v_faellig, v_da from wd_kand c;
+  v_ziel := least(schule.wdh_runde_groesse(p_l, v_faellig), v_da);
+  v_alt := ceil(v_ziel / 3.0)::int;                         -- mindestens ein Drittel für die am längsten fälligen
+  insert into schule.wdh_runde (lernender_id, tag, ziel, faellig) values (p_l, p_tag, v_ziel, v_faellig) on conflict do nothing;
+  if not found then return; end if;                         -- gleichzeitig von einem anderen Gerät angelegt
+  insert into schule.wdh_runde_etappe (lernender_id, tag, nr, einheit_id, lernziel)
+  with da as (select * from wd_kand c where schule.wdh_aufgabe_da(c.einheit_id, c.lernziel)),
+  alt as (select d.* from da d order by d.faellig_am nulls first, d.wdh_stufe, d.einheit_id, d.lernziel limit v_alt),
+  rest as (select d.* from da d where not exists (select 1 from alt x where x.einheit_id = d.einheit_id and x.lernziel = d.lernziel)
+            order by d.fehler desc, d.faellig_am nulls first, d.wdh_stufe, d.einheit_id, d.lernziel limit greatest(v_ziel - v_alt, 0)),
+  wahl as (select * from alt union all select * from rest)
+  select p_l, p_tag, row_number() over (order by w.fehler desc, w.faellig_am nulls first, w.wdh_stufe, w.einheit_id, w.lernziel), w.einheit_id, w.lernziel from wahl w;
+  perform schule.wdh_runde_pruefen(p_l, p_tag);             -- 0 fällige: sofort gemacht
+end $function$;
+revoke all on function schule.wdh_runde_holen(bigint, date) from public, anon, authenticated;
+
+-- schule_wiederholung (bisherige Felder aufgaben, faellig bleiben; neu: runde, runde_bearbeitet, runde_offen, runde_gemacht, gestaffelt, aufgaben[].pflicht)
+--   aufgaben: zuerst die noch offenen Etappen der Runde (pflicht = true, Reihenfolge der Runde), dann weitere fällige freiwillig (Fehler → am längsten fällig → Stufe).
+--   anzahl: höchstens so viele Aufgaben (bisher höchstens 6, jetzt höchstens 60); ohne anzahl alle (≤ 60). p_tag nur für Rauchtests (sonst heute_tag).
+create or replace function schule.wiederholung_intern(p_l bigint, p_daten jsonb, p_leiter boolean, p_tag date default null)
  returns jsonb language plpgsql set search_path to ''
 as $function$
-declare v_l bigint := p_l; v_n int := least(coalesce(nullif(p_daten->>'anzahl', '')::int, 60), 60);
-  v_test boolean; v_leiter boolean; v_erg jsonb; v_faellig int; v_runde int;
+declare v_l bigint := p_l; v_n int := least(coalesce(nullif(p_daten->>'anzahl', '')::int, 60), 60); v_tag date := coalesce(p_tag, schule.heute_tag(p_l));
+  v_test boolean; v_erg jsonb; v_faellig int; v_r schule.wdh_runde; v_offen int;
 begin
   select ist_test into v_test from schule.lernender where id = v_l;
-  v_leiter := p_leiter;
+  perform schule.wdh_runde_holen(v_l, v_tag);
+  v_offen := schule.wdh_runde_pruefen(v_l, v_tag);
+  select * into v_r from schule.wdh_runde where lernender_id = v_l and tag = v_tag;
   select count(*) into v_faellig from schule.karte_stand k where k.lernender_id = v_l and schule.karte_faellig(k);
-  v_runde := schule.wdh_runde_groesse(v_l, v_faellig);
-  -- Reihenfolge WD-1: Wiederholungs-Fehler, am längsten fällig, niedrigste Stufe
-  select coalesce(jsonb_agg(x.j || jsonb_build_object('pflicht', x.nr <= v_runde) order by x.nr), '[]'::jsonb) into v_erg from (
-    select row_number() over (order by (k.wdh_fehler > 0) desc, k.faellig_am nulls first, k.wdh_stufe, k.einheit_id, k.lernziel) nr,
-           schule.aufgabe_anzeige(a, true) || jsonb_build_object('einheit_id', k.einheit_id, 'stadt', b.stadt, 'lernziel', k.lernziel, 'wdh_stufe', k.wdh_stufe,
-             'etappe', (select et->>'titel' from jsonb_array_elements(e.inhalt->'etappen') et where et->>'lernziel' = k.lernziel limit 1)) j
-      from schule.karte_stand k join schule.einheit e on e.id = k.einheit_id join schule.block b on b.id = e.block_id
-      cross join lateral (select a.* from schule.aufgabe a where a.einheit_id = k.einheit_id and a.pool = 'uebung' and a.variante_gruppe = k.lernziel
-                            and (a.freigegeben)
-                          order by (coalesce(a.stufe, 2) = 1), (select count(*) from schule.versuch vs where vs.lernender_id = v_l and vs.aufgabe_id = a.id), random() limit 1) a
-     where k.lernender_id = v_l and schule.karte_faellig(k)
-       and (e.status in ('geprueft','freigegeben') or (e.status = 'entwurf' and coalesce(v_test, false) and v_leiter))
-     order by nr limit v_n) x;
-  return jsonb_build_object('ok', true, 'aufgaben', v_erg, 'faellig', v_faellig, 'runde', v_runde,
-    'runde_gemacht', exists (select 1 from schule.wdh_runde r where r.lernender_id = v_l and r.tag = schule.heute_tag(v_l)),
+  select coalesce(jsonb_agg(x.j || jsonb_build_object('pflicht', x.pflicht) order by x.rang, x.nr), '[]'::jsonb) into v_erg from (
+    select q.* from (
+      select case when r.nr is not null then 0 else 1 end rang,
+             coalesce(r.nr, 1000 + row_number() over (order by schule.wdh_fehler(k) desc, k.faellig_am nulls first, k.wdh_stufe, k.einheit_id, k.lernziel)) nr,
+             r.nr is not null pflicht,
+             schule.aufgabe_anzeige(a, true) || jsonb_build_object('einheit_id', k.einheit_id, 'stadt', b.stadt, 'lernziel', k.lernziel, 'wdh_stufe', k.wdh_stufe,
+               'etappe', (select et->>'titel' from jsonb_array_elements(e.inhalt->'etappen') et where et->>'lernziel' = k.lernziel limit 1)) j
+        from schule.karte_stand k join schule.einheit e on e.id = k.einheit_id join schule.block b on b.id = e.block_id
+        left join schule.wdh_runde_etappe r on r.lernender_id = k.lernender_id and r.tag = v_tag and r.einheit_id = k.einheit_id and r.lernziel = k.lernziel
+        cross join lateral (select a.* from schule.aufgabe a where a.einheit_id = k.einheit_id and a.pool = 'uebung' and a.variante_gruppe = k.lernziel
+                              and (a.freigegeben)
+                            order by (coalesce(a.stufe, 2) = 1), (select count(*) from schule.versuch vs where vs.lernender_id = v_l and vs.aufgabe_id = a.id), random() limit 1) a
+       where k.lernender_id = v_l
+         and ((r.nr is not null and r.bearbeitet_am is null) or (r.nr is null and schule.karte_faellig(k)))
+         and (e.status in ('geprueft','freigegeben') or (e.status = 'entwurf' and coalesce(v_test, false) and p_leiter))) q
+     order by q.rang, q.nr limit v_n) x;
+  return jsonb_build_object('ok', true, 'aufgaben', v_erg, 'faellig', v_faellig, 'runde', coalesce(v_r.ziel, 0),
+    'runde_offen', v_offen, 'runde_bearbeitet', greatest(coalesce(v_r.ziel, 0) - v_offen, 0), 'runde_gemacht', v_r.fertig_am is not null,
     'gestaffelt', (select count(*) from schule.karte_stand k where k.lernender_id = v_l and k.sitzt and k.wdh_gesetzt_am is not null and k.wdh_stufe = 0
                      and k.wdh_fehler = 0 and k.wdh_lerntage > 1 and not schule.karte_faellig(k)));
 end $function$;
-
-revoke all on function schule.wiederholung_intern(bigint, jsonb, boolean) from public, anon, authenticated;
+revoke all on function schule.wiederholung_intern(bigint, jsonb, boolean, date) from public, anon, authenticated;
 
 create or replace function api.schule_wiederholung(p_schluessel text, p_daten jsonb)
  returns jsonb language plpgsql security definer set search_path to ''
@@ -344,15 +477,21 @@ begin
   return schule.wiederholung_intern(v_l, p_daten, schule.ist_leiter(p_schluessel)); -- WD-S
 end $function$;
 
--- WD-2: Merker setzen
-create or replace function schule.wdh_runde_fertig(p_l bigint)
+-- WD-2: bestätigen (setzt nichts selbst – „gemacht“ setzt der Server, sobald alle Etappen der Runde bearbeitet sind); fehlen Aufgaben: Ablehnung
+create or replace function schule.wdh_runde_fertig(p_l bigint, p_tag date default null)
  returns jsonb language plpgsql set search_path to ''
 as $function$
+declare v_tag date := coalesce(p_tag, schule.heute_tag(p_l)); v_offen int; v_r schule.wdh_runde;
 begin
-  insert into schule.wdh_runde (lernender_id, tag) values (p_l, schule.heute_tag(p_l)) on conflict do nothing;
-  return jsonb_build_object('ok', true, 'runde_gemacht', true, 'tag', schule.heute_tag(p_l));
+  perform schule.wdh_runde_holen(p_l, v_tag);
+  v_offen := schule.wdh_runde_pruefen(p_l, v_tag);
+  select * into v_r from schule.wdh_runde where lernender_id = p_l and tag = v_tag;
+  if v_r.fertig_am is null then
+    raise exception 'Die Wiederholungs-Runde ist noch nicht fertig: % von % bearbeitet', greatest(v_r.ziel - v_offen, 0), v_r.ziel using errcode = 'P0001';
+  end if;
+  return jsonb_build_object('ok', true, 'runde_gemacht', true, 'tag', v_tag, 'runde', v_r.ziel);
 end $function$;
-revoke all on function schule.wdh_runde_fertig(bigint) from public, anon, authenticated;
+revoke all on function schule.wdh_runde_fertig(bigint, date) from public, anon, authenticated;
 
 create or replace function api.schule_wiederholung_runde_fertig(p_schluessel text, p_daten jsonb default null)
  returns jsonb language plpgsql security definer set search_path to ''

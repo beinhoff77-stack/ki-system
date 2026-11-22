@@ -30,13 +30,14 @@ Nur Vorgabe, kein App-Code. Ziel (Sebastian): eigenen Lehrplan machen – sehen,
 - Zeile 1: Titel (höchstens 2 Zeilen, Silbentrennung, dann „…“).
 - Zeile 2 links: Stand – `◉ kann er` / `◉ gesetzt` / `↻ Wdh 2/5` / `▶ Etappe 3/7` / `Platz 4` / `2/7 begonnen` / leer.
 - Zeile 2 rechts: **Schul-Kennzeichen** `Gym 8 · RS 7 · IB 4` (gewählte Schulart dunkel, fehlende durchgestrichen, „Gym –“ orange). Tablet/Handy kurz: `G8 R7 I4`.
-- **Farbe nach Wichtigkeit** (Sebastian 22.11.: Fertiges braucht man nicht mehr, darum zurücknehmen):
-  - **▶ gerade dran:** kräftig gelb, gelber Ring, Titel fett – das Auffälligste auf der Seite.
-  - **im Plan (kommt noch):** weiß, blauer Strich links, blaue Platznummer, Text „Platz 4“.
-  - **↻ in Wiederholung:** hellgrün hinterlegt (#F0F7E8), hellgrüner Strich links, „↻ Wdh 2/5“ grün.
-  - **✓ fertig (kann er, auch gesetzt):** **durchsichtig** – kein Hintergrund, heller Rand, Titel grau, Kennzeichen blass, „✓ fertig“ / „✓ gesetzt“; beim Darüberfahren wieder weiß (bleibt antippbar).
-  - **+ nicht im Plan:** weiß, neutral, „+ nicht im Plan“ bzw. „1/7 Etappen“, wenn schon begonnen.
-  - **andere Schule:** gestrichelter Rand (zusätzlich zur Stufe). Aufgelöst: nicht in der Matrix.
+- **Farben (Sebastian 22.11.: „blau, wo er gerade dran ist, hellgelb, was schon in seinem Plan liegt“):**
+  - **▶ gerade dran:** **blau** – Fläche #DCEAFB, blauer Ring #3F7FD0, Titel fett dunkelblau, Platznummer blau. Das Auffälligste auf der Seite. Im Fahrplan derselbe blaue Eintrag mit blauem Fortschrittsbalken.
+  - **im Plan (kommt noch):** **hellgelb** – Fläche #FFF4CF, gelber Strich links, „Platz 4“, Platznummer goldgelb (#C99600). Im Fahrplan alle „kommt noch“-Einträge hellgelb.
+  - **↻ in Wiederholung:** hellgrün (#F0F7E8), hellgrüner Strich, „↻ Wdh 2/5“.
+  - **✓ fertig (kann er, auch gesetzt):** durchsichtig, Titel grau, „✓ fertig“ / „✓ gesetzt“; beim Darüberfahren weiß.
+  - **+ einplanen (nicht im Plan):** ruhig sandfarben (#EFEBE2) ohne Rahmen, Text „+ einplanen“ bzw. „1/7 Etappen“; beim Darüberfahren weiß.
+  - **andere Schule:** zusätzlich gestrichelter Rand.
+  - Ring je Klasse: grün kann er, hellgrün Wiederholung, blau angefangene Etappen.
   - Ganz fertige Klassen zusätzlich eingeklappt (siehe 2).
 - **Blaue Zahl** oben rechts = Platz im Fahrplan; bei Themen außerhalb erscheint beim Darüberfahren ein „+“.
 - Rechner: Karte ziehbar (in den Fahrplan).

@@ -1,4 +1,4 @@
--- Rauchtest TL-S (Teilung 6 Themen → 13 Teile) mit LW-Rest. Realistisch: spielt die Migration in einer Transaktion ein und rollt alles zurück.
+-- Rauchtest TL-S (Teilung 7 Themen → 15 Teile, 8 neue Flüge) mit LW-Rest und Kür je Schulart. Realistisch: spielt die Migration in einer Transaktion ein und rollt alles zurück.
 -- Voraussetzung: LK-S und LW-S/LW-S 2 sind eingespielt. Aufruf: psql -v ON_ERROR_STOP=1 -f supabase/tests/tl_s_rauchtest.sql (aus dem Repo-Wurzelverzeichnis).
 -- Unabhängig vom Bestand: alte Antworten werden vor dem Teilen erfasst und danach gegen die Teile geprüft; die Besprochen-Regression nutzt nur das Testkind.
 -- Keine Namen, keine Kinderdaten in der Ausgabe (nur Zahlen).
@@ -8,34 +8,43 @@ begin;
 create temp table tl_rt_versuch on commit drop as
   select v.id, v.lernender_id, case when a.pool = 'expedition' then null else a.variante_gruppe end lz, coalesce((to_jsonb(t)->>'teil_stamm')::bigint, t.id) stamm
     from schule.versuch v join schule.aufgabe a on a.id = v.aufgabe_id join schule.einheit e on e.id = a.einheit_id join schule.thema t on t.id = e.thema_id
-   where coalesce((to_jsonb(t)->>'teil_stamm')::bigint, t.id) in (26, 29, 44, 46, 61, 91);
+   where coalesce((to_jsonb(t)->>'teil_stamm')::bigint, t.id) in (26, 29, 44, 46, 61, 91, 101);
 create temp table tl_rt_wackelt on commit drop as
   select l.id lernender_id, s.stamm, (select sum(f.anzahl) from schule.thema t2, schule.wackelt_fehler(l.id, t2.id, null::bigint, null::text) f
                                        where coalesce((to_jsonb(t2)->>'teil_stamm')::bigint, t2.id) = s.stamm) fehler
-    from schule.lernender l cross join (values (26), (29), (44), (46), (61), (91)) s(stamm);
+    from schule.lernender l cross join (values (26), (29), (44), (46), (61), (91), (101)) s(stamm);
 
 \ir ../migrations/20261123_tl_s_teilung.sql
 
 do $$
 declare v_n int; v_t text; v_l bigint; v_e bigint; v_lz text; v_a bigint; v_a2 bigint; v_b schule.besprochen; v_lz2 text;
+  v_sa text; v_sa2 text; v_et text[]; v_st0 bigint; v_k0 bigint;
 begin
-  -- 1 Zahl: 13 Teile, 7 neue Flüge, je Thema Teile 1..n lückenlos, Titel „– Teil k von n“, Untertitel gesetzt
-  select count(*) into v_n from schule.thema where teil_stamm in (26, 29, 44, 46, 61, 91);
-  if v_n <> 13 then raise exception 'FEHLER 1: % Teile statt 13', v_n; end if;
-  select count(*) into v_n from schule.thema where teil_stamm in (26, 29, 44, 46, 61, 91) and teil_nr > 1;
-  if v_n <> 7 then raise exception 'FEHLER 1: % neue Flüge statt 7', v_n; end if;
+  -- 1 Zahl: 15 Teile, 8 neue Flüge, je Thema Teile 1..n lückenlos, Titel „– Teil k von n“, Untertitel gesetzt
+  select count(*) into v_n from schule.thema where teil_stamm in (26, 29, 44, 46, 61, 91, 101);
+  if v_n <> 15 then raise exception 'FEHLER 1: % Teile statt 15', v_n; end if;
+  select count(*) into v_n from schule.thema where teil_stamm in (26, 29, 44, 46, 61, 91, 101) and teil_nr > 1;
+  if v_n <> 8 then raise exception 'FEHLER 1: % neue Flüge statt 8', v_n; end if;
   select string_agg(id::text, ',') into v_t from schule.thema
-   where teil_stamm in (26, 29, 44, 46, 61, 91) and (unterthema not like '% – Teil ' || teil_nr || ' von ' || teil_von or coalesce(untertitel, '') = '');
+   where teil_stamm in (26, 29, 44, 46, 61, 91, 101) and (unterthema not like '% – Teil ' || teil_nr || ' von ' || teil_von or coalesce(untertitel, '') = '');
   if v_t is not null then raise exception 'FEHLER 1: Titel/Untertitel falsch bei Thema %', v_t; end if;
   if (select count(*) from schule.thema where teil_stamm = 46) <> 3 then raise exception 'FEHLER 1: Thema 46 hat nicht 3 Teile'; end if;
 
   -- 2 Katalog: jede Etappe in genau einem Teil; jeder Teil freigegeben mit eigener Einheit, eigenem Ort und Test-Aufgaben
   select string_agg(x.lz, ',') into v_t from (
     select q->>'lernziel' lz, t.teil_stamm from schule.thema t join schule.einheit e on e.thema_id = t.id, jsonb_array_elements(e.inhalt->'etappen') q
-     where t.teil_stamm in (26, 29, 44, 46, 61, 91) group by 1, 2 having count(*) > 1) x;
+     where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) group by 1, 2 having count(*) > 1) x;
   if v_t is not null then raise exception 'FEHLER 2: Etappe in mehreren Teilen: %', v_t; end if;
+  -- leere Hüllen (Etappen noch nicht in der Datenbank, z. B. 101 Teil 2): Entwurf, in keinem Plan
+  select string_agg(t.id::text, ',') into v_t from schule.thema t join schule.einheit e on e.thema_id = t.id
+   where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) and jsonb_array_length(coalesce(e.inhalt->'etappen', '[]'::jsonb)) = 0
+     and (e.status = 'freigegeben' or exists (select 1 from schule.route r join schule.block_thema bt on bt.block_id = r.block_id and bt.thema_id = t.id));
+  if v_t is not null then raise exception 'FEHLER 2: leerer Teil freigegeben oder im Plan: %', v_t; end if;
+  raise notice 'TL-S Rauchtest 2: leere Teile (warten auf Etappen): %', (select count(*) from schule.thema t join schule.einheit e on e.thema_id = t.id
+     where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) and jsonb_array_length(coalesce(e.inhalt->'etappen', '[]'::jsonb)) = 0);
   select string_agg(t.id::text, ',') into v_t from schule.thema t
-   where t.teil_stamm in (26, 29, 44, 46, 61, 91)
+   where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101)
+     and not exists (select 1 from schule.einheit e where e.thema_id = t.id and jsonb_array_length(coalesce(e.inhalt->'etappen', '[]'::jsonb)) = 0)
      and (schule.thema_einheit(t.id) is null
           or not exists (select 1 from schule.einheit e where e.id = schule.thema_einheit(t.id) and e.status = 'freigegeben')
           or not exists (select 1 from schule.block_thema bt where bt.thema_id = t.id)
@@ -43,14 +52,21 @@ begin
   if v_t is not null then raise exception 'FEHLER 2: Teil ohne freigegebene Einheit, Ort oder Test-Aufgaben: %', v_t; end if;
   -- Aufgaben einer Etappe liegen in der Einheit, die die Etappe führt
   select string_agg(a.id::text, ',') into v_t from schule.aufgabe a join schule.einheit e on e.id = a.einheit_id join schule.thema t on t.id = e.thema_id
-   where t.teil_stamm in (26, 29, 44, 46, 61, 91) and a.pool <> 'expedition'   -- Expeditionen bleiben bei Teil 1 (Annahme, siehe Meldung)
+   where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) and a.pool <> 'expedition'   -- Expeditionen bleiben bei Teil 1 (Annahme, siehe Meldung)
      and exists (select 1 from schule.thema t2 join schule.einheit e2 on e2.thema_id = t2.id, jsonb_array_elements(e2.inhalt->'etappen') q
                   where t2.teil_stamm = t.teil_stamm and q->>'lernziel' = a.variante_gruppe and e2.id <> e.id);
   if v_t is not null then raise exception 'FEHLER 2: Aufgaben im falschen Teil: %', v_t; end if;
   select count(*) into v_n from schule.thema t join schule.einheit e on e.thema_id = t.id, jsonb_array_elements(e.inhalt->'etappen') q
-   where t.teil_stamm in (26, 29, 44, 46, 61, 91)
+   where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101)
      and not exists (select 1 from schule.aufgabe a where a.einheit_id = e.id and a.pool = 'test' and a.variante_gruppe = q->>'lernziel');
   raise notice 'TL-S Rauchtest 2: Etappen der Teile ohne eigene Test-Aufgabe: %', v_n;
+  -- gültiger Testpfad: jede Pflicht-Etappe (lernziele_pflicht oder eine Liste je Schulart) eines freigegebenen Teils hat eine Test-Aufgabe
+  select string_agg(e.id || ':' || q, ',') into v_t from schule.thema t join schule.einheit e on e.thema_id = t.id and e.status = 'freigegeben',
+         lateral (select jsonb_array_elements_text(e.inhalt#>'{bewertung,lernziele_pflicht}') q
+                  union select jsonb_array_elements_text(x.value) from jsonb_each(coalesce(e.inhalt#>'{bewertung,pflicht_je_schulart}', '{}'::jsonb)) x) p
+   where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101)
+     and not exists (select 1 from schule.aufgabe a where a.einheit_id = e.id and a.pool = 'test' and a.variante_gruppe = p.q);
+  if v_t is not null then raise exception 'FEHLER 2: Pflicht-Etappe ohne Test-Aufgabe (kein Testpfad): %', v_t; end if;
 
   -- 3 B3b: jede alte Antwort erscheint beim richtigen Teil (Antwort → Aufgabe → Einheit des Teils, der ihre Etappe führt; sonst Teil 1)
   select count(*) into v_n from tl_rt_versuch r join schule.versuch v on v.id = r.id join schule.aufgabe a on a.id = v.aufgabe_id
@@ -79,7 +95,7 @@ begin
               where v.thema_id = x.t and v.braucht_id = schule.tl_knoten(61, 2))) then raise exception 'FEHLER 4: 62/64 ← 61 Teil 2 fehlt'; end if;
   if exists (select 1 from schule.voraussetzung v where v.braucht_id in (29, 61) and v.thema_id in (31, 8, 97, 62, 64)) then
     raise exception 'FEHLER 4: alte Kante auf Teil 1 statt Teil 2 übrig'; end if;
-  select string_agg(t.id::text, ',') into v_t from schule.thema t where t.teil_stamm in (26, 29, 44, 46, 61, 91) and t.teil_nr > 1
+  select string_agg(t.id::text, ',') into v_t from schule.thema t where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) and t.teil_nr > 1
      and not exists (select 1 from schule.voraussetzung v where v.thema_id = t.id and v.braucht_id = schule.tl_knoten(t.teil_stamm, t.teil_nr - 1));
   if v_t is not null then raise exception 'FEHLER 4: Teil ohne Kante zum Teil davor: %', v_t; end if;
 
@@ -105,7 +121,7 @@ begin
 
   -- 6 vollständig übernommene Teile: Stempel, Ort fertig, 100 Ort-Sterne genau einmal, Flug-Test gilt
   select count(*) into v_n from schule.flug_erstabschluss f join schule.einheit e on e.id = f.einheit_id join schule.thema t on t.id = e.thema_id
-   where t.teil_stamm in (26, 29, 44, 46, 61, 91) and t.teil_nr > 1
+   where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) and t.teil_nr > 1
      and (not exists (select 1 from schule.route r join schule.block_thema bt on bt.block_id = r.block_id and bt.thema_id = t.id
                        where r.lernender_id = f.lernender_id and r.status = 'fertig')
           or (select count(*) from schule.sterne s join schule.block_thema bt on s.bezug = 'block:' || bt.block_id and bt.thema_id = t.id
@@ -114,11 +130,11 @@ begin
           or schule.thema_stufe(f.lernender_id, t.id)->>'test_offen' = 'true');
   if v_n > 0 then raise exception 'FEHLER 6: % vollständige Teile ohne Stempel/Ort/Sterne/Test', v_n; end if;
   raise notice 'TL-S Rauchtest 6: vollständig übernommene neue Teile: %', (select count(*) from schule.flug_erstabschluss f join schule.einheit e on e.id = f.einheit_id
-     join schule.thema t on t.id = e.thema_id where t.teil_stamm in (26, 29, 44, 46, 61, 91) and t.teil_nr > 1);
+     join schule.thema t on t.id = e.thema_id where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) and t.teil_nr > 1);
 
   -- 7 Lehrplan: keine Zuordnung mit Etappen, die ihr Teil nicht führt
   select count(*) into v_n from schule.zuordnung z join schule.thema t on t.id = z.thema_id
-   where t.teil_stamm in (26, 29, 44, 46, 61, 91) and z.etappen is not null and not ('*' = any(z.etappen))
+   where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) and z.etappen is not null and not ('*' = any(z.etappen))
      and exists (select 1 from unnest(z.etappen) x where not exists (select 1 from schule.einheit e, jsonb_array_elements(e.inhalt->'etappen') q
                                                                    where e.id = schule.thema_einheit(t.id) and q->>'lernziel' = x));
   if v_n > 0 then raise exception 'FEHLER 7: % Zuordnungen mit fremden Etappen', v_n; end if;
@@ -131,7 +147,7 @@ begin
     cross join lateral (select a.variante_gruppe lz, min(a.id) a from schule.aufgabe a where a.einheit_id = e.id and a.pool = 'uebung' group by 1 order by 1 limit 1) q1
     cross join lateral (select a.variante_gruppe lz, min(a.id) a from schule.aufgabe a where a.einheit_id = e.id and a.pool = 'uebung' and a.variante_gruppe > q1.lz
                          group by 1 order by 1 limit 1) q2
-   where t.teil_stamm in (26, 29, 44, 46, 61, 91) and t.teil_nr > 1
+   where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) and t.teil_nr > 1
      and not exists (select 1 from schule.versuch v join schule.aufgabe a on a.id = v.aufgabe_id where v.lernender_id = v_l and a.einheit_id = e.id)
      and not exists (select 1 from schule.besprochen b where b.lernender_id = v_l and b.einheit_id = e.id)
    order by t.id limit 1;
@@ -151,8 +167,91 @@ begin
   v_b := schule.besprochen_aktiv(v_l, v_e, v_lz2);
   if v_b.lernender_id is null then raise exception 'FEHLER 8: offener erster Anlauf hebt Besprochen schon auf'; end if;
 
+  -- 10 Kür je Schulart: Liste für die Schulart des Testkinds → Kür-Etappe ist dort nicht Pflicht (Flug-Wertung, Flug-Abschluss, Flug abgelegt);
+  --    ohne Liste bleibt alles wie bisher
+  select e.id, q1.lz, q2.lz into v_e, v_lz, v_lz2
+    from schule.einheit e
+    cross join lateral (select x->>'lernziel' lz from jsonb_array_elements(e.inhalt->'etappen') x order by 1 limit 1) q1
+    cross join lateral (select x->>'lernziel' lz from jsonb_array_elements(e.inhalt->'etappen') x where x->>'lernziel' > q1.lz order by 1 limit 1) q2
+   where e.status = 'freigegeben'
+     and not exists (select 1 from schule.lernziel_stand s where s.lernender_id = v_l and s.einheit_id = e.id)
+     and not exists (select 1 from schule.abgelegt g where g.lernender_id = v_l and g.einheit_id = e.id)
+   order by e.id limit 1;
+  if v_e is null then raise exception 'FEHLER 10 Vorbereitung: keine passende Einheit'; end if;
+  -- ohne Liste: Pflicht wie lernziele_pflicht
+  if schule.pflicht_lernziele(v_l, v_e) is distinct from array(select jsonb_array_elements_text(coalesce((select inhalt#>'{bewertung,lernziele_pflicht}' from schule.einheit where id = v_e), '[]'))) then
+    raise exception 'FEHLER 10: ohne Liste weicht die Pflicht ab'; end if;
+  update schule.einheit set status = 'geprueft' where id = v_e;   -- Schutz nur für den Test (Rollback)
+  update schule.einheit set inhalt = jsonb_set(inhalt, '{bewertung,pflicht_je_schulart}',
+           jsonb_build_object((select coalesce(schulart, 'gym_by') from schule.lernender where id = v_l), jsonb_build_array(v_lz))) where id = v_e;
+  update schule.einheit set status = 'freigegeben' where id = v_e;
+  perform schule.lernziele_anlegen(v_l, v_e);
+  if not (select pflicht from schule.lernziel_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz)
+     or (select pflicht from schule.lernziel_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz2) then
+    raise exception 'FEHLER 10: Pflicht/Kür je Schulart nicht übernommen'; end if;
+  -- andere Schulart: Liste gilt nicht
+  if exists (select 1 from schule.lernender l where l.id <> v_l and coalesce(l.schulart, 'gym_by') <> coalesce((select schulart from schule.lernender where id = v_l), 'gym_by')
+               and schule.pflicht_lernziele(l.id, v_e) = array[v_lz]) then raise exception 'FEHLER 10: Liste gilt für fremde Schulart'; end if;
+  -- Flug „abgelegt“ braucht nur die Pflicht-Etappe des Kindes
+  perform schule.wdh_ablegen(v_l, v_e, v_lz);
+  if not exists (select 1 from schule.abgelegt g where g.lernender_id = v_l and g.art = 'flug' and g.einheit_id = v_e) then
+    raise exception 'FEHLER 10: Flug nicht abgelegt, obwohl die einzige Pflicht-Etappe abgelegt ist'; end if;
+  -- Liste wieder weg: bestehende Zeilen bleiben (kein Rückbau ohne Liste)
+  update schule.einheit set status = 'geprueft' where id = v_e;
+  update schule.einheit set inhalt = inhalt #- '{bewertung,pflicht_je_schulart}' where id = v_e;
+  update schule.einheit set status = 'freigegeben' where id = v_e;
+  perform schule.lernziele_anlegen(v_l, v_e);
+  if (select pflicht from schule.lernziel_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz2) then
+    raise exception 'FEHLER 10: ohne Liste wurde eine bestehende Zeile geändert'; end if;
+
+  -- 7b Ein Hauptbezug je Punkt; Nebenbezüge von Geschwister-Teilen geben dem Teil seine Klassen (thema_lage_klasse)
+  if exists (select 1 from schule.zuordnung where bezug = 'haupt' group by eintrag_id having count(*) > 1) then raise exception 'FEHLER 7b: Punkt mit zwei Hauptbezügen'; end if;
+  select string_agg(z.thema_id::text, ',') into v_t from schule.zuordnung z join schule.thema t on t.id = z.thema_id
+    join schule.eintrag e on e.id = z.eintrag_id join schule.lehrplan_zweig lz on lz.quelle_id = e.quelle_id
+   where z.bezug = 'neben' and z.begruendung like 'TL-S%Hauptbezug bei Teil%' and z.pruefstatus <> 'klaerungsbedarf'
+     and not exists (select 1 from schule.thema_lage_klasse k where k.thema_id = z.thema_id and k.schulart = lz.schulart);
+  if v_t is not null then raise exception 'FEHLER 7b: Teil ohne Lehrplan-Lage trotz Nebenbezug: %', v_t; end if;
+
+  -- 11 B2/B3: eine Regel Pflicht/Kür je Kind; Schulartwechsel öffnet neue Pflicht-Etappen, Rückwechsel macht sie wieder zur Kür; nichts gelöscht, nichts doppelt
+  select coalesce(schulart, 'gym_by') into v_sa from schule.lernender where id = v_l;
+  v_sa2 := case when v_sa = 'rs_by' then 'gym_by' else 'rs_by' end;
+  select e.id, array(select x->>'lernziel' from jsonb_array_elements(e.inhalt->'etappen') x) into v_e, v_et
+    from schule.einheit e join schule.thema t on t.id = e.thema_id
+   where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101) and e.status = 'freigegeben' and jsonb_array_length(e.inhalt->'etappen') >= 2
+     and not exists (select 1 from schule.lernziel_stand s where s.lernender_id = v_l and s.einheit_id = e.id)
+   order by e.id limit 1;
+  if v_e is null then raise exception 'FEHLER 11 Vorbereitung: kein Teil'; end if;
+  update schule.einheit set status = 'geprueft' where id = v_e;
+  -- wie 29 Teil 2: in der Schulart des Testkinds alle außer der letzten Etappe Pflicht (letzte = Kür), in der anderen alle Pflicht
+  update schule.einheit set inhalt = jsonb_set(inhalt, '{bewertung,pflicht_je_schulart}',
+           jsonb_build_object(case v_sa when 'rs_by' then 'rs_I' else v_sa end, to_jsonb(v_et[1:cardinality(v_et) - 1]),
+                              case v_sa2 when 'rs_by' then 'rs_I' else v_sa2 end, to_jsonb(v_et))) where id = v_e;
+  update schule.einheit set status = 'freigegeben' where id = v_e;
+  perform schule.lernziele_anlegen(v_l, v_e);
+  update schule.lernziel_stand set status = 'nachgewiesen' where lernender_id = v_l and einheit_id = v_e and pflicht;
+  select count(*) into v_st0 from schule.sterne where lernender_id = v_l;
+  select count(*) into v_k0 from schule.lernziel_stand where lernender_id = v_l;
+  if exists (select 1 from schule.lernziel_stand s where s.lernender_id = v_l and s.einheit_id = v_e and s.pflicht and s.status not in ('nachgewiesen', 'korrigiert', 'gesichert')) then
+    raise exception 'FEHLER 11: Schulart % – alle Pflicht-Etappen nachgewiesen, Flug trotzdem offen', v_sa; end if;
+  update schule.lernender set schulart = v_sa2, zweig = null where id = v_l;   -- Wechsel
+  if not exists (select 1 from schule.lernziel_stand s where s.lernender_id = v_l and s.einheit_id = v_e and s.lernziel = v_et[cardinality(v_et)] and s.pflicht and s.status = 'offen') then
+    raise exception 'FEHLER 11: nach dem Wechsel ist die neue Pflicht-Etappe nicht offen'; end if;
+  update schule.lernender set schulart = v_sa, zweig = null where id = v_l;      -- Rückwechsel
+  if exists (select 1 from schule.lernziel_stand s where s.lernender_id = v_l and s.einheit_id = v_e and s.pflicht and s.status not in ('nachgewiesen', 'korrigiert', 'gesichert')) then
+    raise exception 'FEHLER 11: nach dem Rückwechsel ist die Etappe nicht wieder Kür'; end if;
+  if (select count(*) from schule.sterne where lernender_id = v_l) <> v_st0 or (select count(*) from schule.lernziel_stand where lernender_id = v_l) <> v_k0 then
+    raise exception 'FEHLER 11: Wechsel hat Sterne oder Lernstand-Zeilen verändert'; end if;
+  -- Teil ohne Pflicht-Etappe für das Kind: kein Zwangstest
+  update schule.einheit set status = 'geprueft' where id = v_e;
+  update schule.einheit set inhalt = jsonb_set(inhalt, array['bewertung', 'pflicht_je_schulart', case v_sa when 'rs_by' then 'rs_I' else v_sa end], '[]'::jsonb) where id = v_e;
+  update schule.einheit set status = 'freigegeben' where id = v_e;
+  insert into schule.karte_stand (lernender_id, einheit_id, lernziel, sitzt, sitzt_am)
+  select v_l, v_e, x, true, now() from unnest(v_et) x on conflict do nothing;
+  if (schule.thema_stufe(v_l, (select thema_id from schule.einheit where id = v_e))->>'test_offen')::boolean then
+    raise exception 'FEHLER 11: Teil ohne Pflicht-Etappe verlangt einen Test'; end if;
+
   -- 9 nur einmal teilen: zweites Einspielen ändert nichts
-  if (select count(*) from schule.thema t where t.teil_stamm in (26, 29, 44, 46, 61, 91)) <> 13 then raise exception 'FEHLER 9'; end if;
+  if (select count(*) from schule.thema t where t.teil_stamm in (26, 29, 44, 46, 61, 91, 101)) <> 15 then raise exception 'FEHLER 9'; end if;
 
   raise notice 'TL-S Rauchtest: alles grün';
 end $$;

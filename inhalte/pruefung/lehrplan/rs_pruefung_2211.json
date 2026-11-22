@@ -1,6 +1,6 @@
 {
  "auftrag": "LP-RS",
- "stand": "2026-11-22",
+ "stand": "2026-11-22 (Nachtrag Gegenprobe ChatGPT 927/928/930)",
  "hinweis": "Kurzfassungen und Titel; keine Lehrplantexte wörtlich. klasse_bezug: neu = Klasse des Themas gleich Lehrplanklasse, weitergeführt = Thema aus früherer Klasse, vorgezogen = Lehrplan bringt den Stoff vor der Klasse des Themas.",
  "lernbereiche": [
   {
@@ -1442,7 +1442,7 @@
      "thema": 19,
      "titel": "Zehnerpotenzen und wissenschaftliche Schreibweise",
      "bezug": "neben",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "umgehaengt",
@@ -1963,7 +1963,7 @@
      "thema": 43,
      "titel": "Mit Winkeln rechnen",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ok",
@@ -2007,7 +2007,7 @@
      "thema": 43,
      "titel": "Mit Winkeln rechnen",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ok",
@@ -2085,7 +2085,7 @@
      "thema": 91,
      "titel": "Schrägbilder und Raumdarstellung",
      "bezug": "neben",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "ok",
@@ -2304,7 +2304,7 @@
      "thema": 26,
      "titel": "Direkte Proportionalität und Dreisatz",
      "bezug": "haupt",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "ok",
@@ -3149,7 +3149,7 @@
      "thema": 44,
      "titel": "Konstruktionen, Kongruenz und Beweise",
      "bezug": "neben",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "umgehaengt",
@@ -3680,7 +3680,7 @@
      "thema": 29,
      "titel": "Terme umformen",
      "bezug": "neben",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "ok",
@@ -3816,7 +3816,7 @@
      "thema": 26,
      "titel": "Direkte Proportionalität und Dreisatz",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "weitergeführt"
     }
    ],
    "befund": "ok",
@@ -3850,7 +3850,7 @@
      "thema": 26,
      "titel": "Direkte Proportionalität und Dreisatz",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "weitergeführt"
     }
    ],
    "befund": "ok",
@@ -3884,7 +3884,7 @@
      "thema": 26,
      "titel": "Direkte Proportionalität und Dreisatz",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "weitergeführt"
     }
    ],
    "befund": "ok",
@@ -3918,7 +3918,7 @@
      "thema": 26,
      "titel": "Direkte Proportionalität und Dreisatz",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "weitergeführt"
     }
    ],
    "befund": "ok",
@@ -4050,7 +4050,7 @@
      "thema": 103,
      "titel": "Potenzgesetze mit ganzzahligen Exponenten",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ergaenzt",
@@ -4307,7 +4307,7 @@
      "thema": 43,
      "titel": "Mit Winkeln rechnen",
      "bezug": "neben",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "umgehaengt",
@@ -4347,7 +4347,7 @@
      "thema": 43,
      "titel": "Mit Winkeln rechnen",
      "bezug": "neben",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "umgehaengt",
@@ -4497,7 +4497,7 @@
      "thema": 91,
      "titel": "Schrägbilder und Raumdarstellung",
      "bezug": "haupt",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "ok",
@@ -4531,7 +4531,7 @@
      "thema": 91,
      "titel": "Schrägbilder und Raumdarstellung",
      "bezug": "haupt",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     },
     {
      "thema": 52,
@@ -4571,7 +4571,7 @@
      "thema": 91,
      "titel": "Schrägbilder und Raumdarstellung",
      "bezug": "haupt",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "teilweise",
@@ -4722,7 +4722,7 @@
      "thema": 47,
      "titel": "Ähnlichkeit und Strahlensätze",
      "bezug": "neben",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "ergaenzt",
@@ -4835,7 +4835,7 @@
      "thema": 69,
      "titel": "Intervalle",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ok",
@@ -5255,7 +5255,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5285,12 +5285,12 @@
      "thema": 103,
      "titel": "Potenzgesetze mit ganzzahligen Exponenten",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5334,7 +5334,7 @@
    ],
    "befund": "umgehaengt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5368,7 +5368,7 @@
    ],
    "befund": "umgehaengt",
    "notiz": "48 stillgelegt",
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5402,7 +5402,7 @@
    ],
    "befund": "umgehaengt",
    "notiz": "48 stillgelegt",
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5436,7 +5436,7 @@
    ],
    "befund": "umgehaengt",
    "notiz": "48 stillgelegt",
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5463,7 +5463,7 @@
    "zuordnung_vorschlag": [],
    "befund": "luecke",
    "notiz": "Vektorkoordinaten: kein freigegebenes Thema",
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5507,7 +5507,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5542,12 +5542,12 @@
      "thema": 43,
      "titel": "Mit Winkeln rechnen",
      "bezug": "neben",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "umgehaengt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5582,12 +5582,12 @@
      "thema": 43,
      "titel": "Mit Winkeln rechnen",
      "bezug": "neben",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "umgehaengt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5622,7 +5622,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": "Thaleskreis in 45",
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5651,7 +5651,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5680,7 +5680,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5709,7 +5709,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5744,7 +5744,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5778,7 +5778,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5817,12 +5817,12 @@
      "thema": 69,
      "titel": "Intervalle",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5866,7 +5866,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5900,7 +5900,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5944,7 +5944,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -5978,7 +5978,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -6012,7 +6012,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -6056,7 +6056,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -6100,7 +6100,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -6135,7 +6135,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -6169,7 +6169,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -6203,7 +6203,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -6244,7 +6244,7 @@
      "thema": 44,
      "titel": "Konstruktionen, Kongruenz und Beweise",
      "bezug": "neben",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu (Etappen: Winkel in symmetrischen Vierecken)"
     }
    ],
    "befund": "umgehaengt",
@@ -6278,7 +6278,7 @@
      "thema": 44,
      "titel": "Konstruktionen, Kongruenz und Beweise",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu (Etappen: Vierecke konstruieren (Etappe fehlt))"
     }
    ],
    "befund": "teilweise",
@@ -6316,7 +6316,7 @@
      "thema": 46,
      "titel": "Kongruenzabbildungen",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu (Etappen: Um einen Punkt drehen)"
     }
    ],
    "befund": "umgehaengt",
@@ -6354,7 +6354,7 @@
      "thema": 46,
      "titel": "Kongruenzabbildungen",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu (Etappen: An einem Punkt spiegeln)"
     }
    ],
    "befund": "umgehaengt",
@@ -6392,7 +6392,7 @@
      "thema": 46,
      "titel": "Kongruenzabbildungen",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu (Etappen: Um einen Punkt drehen)"
     }
    ],
    "befund": "umgehaengt",
@@ -6430,7 +6430,7 @@
      "thema": 46,
      "titel": "Kongruenzabbildungen",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu (Etappen: Um einen Punkt drehen)"
     }
    ],
    "befund": "umgehaengt",
@@ -6468,7 +6468,7 @@
      "thema": 49,
      "titel": "Matrizen und Abbildungen mit Matrizen",
      "bezug": "neben",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "luecke",
@@ -6502,7 +6502,7 @@
      "thema": 91,
      "titel": "Schrägbilder und Raumdarstellung",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "weitergeführt"
     }
    ],
    "befund": "ok",
@@ -6536,7 +6536,7 @@
      "thema": 91,
      "titel": "Schrägbilder und Raumdarstellung",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "weitergeführt"
     }
    ],
    "befund": "ok",
@@ -6570,7 +6570,7 @@
      "thema": 91,
      "titel": "Schrägbilder und Raumdarstellung",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "weitergeführt"
     }
    ],
    "befund": "ok",
@@ -6652,7 +6652,7 @@
      "thema": 35,
      "titel": "Quadratische Funktionen",
      "bezug": "neben",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     },
     {
      "thema": 97,
@@ -7053,7 +7053,7 @@
      "thema": 61,
      "titel": "Zufall und Laplace",
      "bezug": "haupt",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     },
     {
      "thema": 60,
@@ -7065,7 +7065,7 @@
      "thema": 63,
      "titel": "Verknüpfte Ereignisse",
      "bezug": "neben",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ergaenzt",
@@ -7099,7 +7099,7 @@
      "thema": 61,
      "titel": "Zufall und Laplace",
      "bezug": "haupt",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "ok",
@@ -7128,12 +7128,12 @@
      "thema": 44,
      "titel": "Konstruktionen, Kongruenz und Beweise",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "ergaenzt",
    "notiz": "Gruppe II/III: Dreiecke erst Kl. 8 (Gruppe I Kl. 7)",
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7157,12 +7157,12 @@
      "thema": 44,
      "titel": "Konstruktionen, Kongruenz und Beweise",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7186,12 +7186,12 @@
      "thema": 44,
      "titel": "Konstruktionen, Kongruenz und Beweise",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7232,12 +7232,12 @@
      "thema": 44,
      "titel": "Konstruktionen, Kongruenz und Beweise",
      "bezug": "neben",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "umgehaengt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7266,12 +7266,12 @@
      "thema": 44,
      "titel": "Konstruktionen, Kongruenz und Beweise",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "teilweise",
    "notiz": "Vierecke konstruieren ohne eigene Etappe",
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7305,7 +7305,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7339,7 +7339,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7373,7 +7373,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7416,7 +7416,7 @@
      "thema": 35,
      "titel": "Quadratische Funktionen",
      "bezug": "neben",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     },
     {
      "thema": 97,
@@ -7427,7 +7427,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7461,7 +7461,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7495,7 +7495,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7529,7 +7529,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7563,7 +7563,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7598,7 +7598,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7627,7 +7627,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": "Gruppe II/III: nur Ursprungsgeraden in Kl. 8",
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7656,7 +7656,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7685,7 +7685,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7709,7 +7709,7 @@
      "thema": 61,
      "titel": "Zufall und Laplace",
      "bezug": "haupt",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     },
     {
      "thema": 60,
@@ -7721,12 +7721,12 @@
      "thema": 63,
      "titel": "Verknüpfte Ereignisse",
      "bezug": "neben",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7755,12 +7755,12 @@
      "thema": 61,
      "titel": "Zufall und Laplace",
      "bezug": "haupt",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -7799,7 +7799,7 @@
      "thema": 68,
      "titel": "Elementare Wurzeln",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ok",
@@ -7843,7 +7843,7 @@
      "thema": 68,
      "titel": "Elementare Wurzeln",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "umgehaengt",
@@ -8517,7 +8517,7 @@
      "thema": 101,
      "titel": "Prismen und Zylinder",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ergaenzt",
@@ -8577,7 +8577,7 @@
      "thema": 101,
      "titel": "Prismen und Zylinder",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ergaenzt",
@@ -9063,13 +9063,13 @@
      "thema": 61,
      "titel": "Zufall und Laplace",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "neu (Etappen: grosse_zahlen)"
     },
     {
      "thema": 64,
      "titel": "Simulation",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ok",
@@ -9098,7 +9098,7 @@
      "thema": 61,
      "titel": "Zufall und Laplace",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "neu (Etappen: laplace, laplace_pruefen)"
     }
    ],
    "befund": "ergaenzt",
@@ -9127,7 +9127,7 @@
      "thema": 61,
      "titel": "Zufall und Laplace",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "neu (Etappen: begriffe (Ergebnisraum))"
     }
    ],
    "befund": "ergaenzt",
@@ -9156,13 +9156,13 @@
      "thema": 61,
      "titel": "Zufall und Laplace",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "neu (Etappen: gegenereignis)"
     },
     {
      "thema": 63,
      "titel": "Verknüpfte Ereignisse",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ergaenzt",
@@ -9191,7 +9191,7 @@
      "thema": 61,
      "titel": "Zufall und Laplace",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "neu (Etappen: laplace)"
     }
    ],
    "befund": "ergaenzt",
@@ -9235,12 +9235,12 @@
      "thema": 68,
      "titel": "Elementare Wurzeln",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9279,12 +9279,12 @@
      "thema": 68,
      "titel": "Elementare Wurzeln",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "umgehaengt",
    "notiz": "12 stillgelegt",
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9318,7 +9318,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9347,7 +9347,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9376,7 +9376,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9405,7 +9405,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9439,7 +9439,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9473,7 +9473,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9507,7 +9507,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9541,7 +9541,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9575,7 +9575,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9619,7 +9619,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9648,7 +9648,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9677,7 +9677,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9706,12 +9706,12 @@
      "thema": 33,
      "titel": "Lineare Funktionen",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu (Etappen: Steigung m und Achsenabschnitt t, Parameter)"
     }
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9740,12 +9740,12 @@
      "thema": 33,
      "titel": "Lineare Funktionen",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu (Etappen: Geradengleichung aufstellen)"
     }
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9778,12 +9778,12 @@
      "thema": 33,
      "titel": "Lineare Funktionen",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu (Etappen: Geradengleichung aus zwei Angaben, Parallelenscharen)"
     }
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9827,7 +9827,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9861,7 +9861,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9894,18 +9894,18 @@
      "thema": 61,
      "titel": "Zufall und Laplace",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "neu (Etappen: grosse_zahlen)"
     },
     {
      "thema": 64,
      "titel": "Simulation",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9929,12 +9929,12 @@
      "thema": 61,
      "titel": "Zufall und Laplace",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "neu (Etappen: laplace, laplace_pruefen)"
     }
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9958,12 +9958,12 @@
      "thema": 61,
      "titel": "Zufall und Laplace",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "neu (Etappen: begriffe (Ergebnisraum))"
     }
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -9987,18 +9987,18 @@
      "thema": 61,
      "titel": "Zufall und Laplace",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "neu (Etappen: gegenereignis)"
     },
     {
      "thema": 63,
      "titel": "Verknüpfte Ereignisse",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -10022,12 +10022,12 @@
      "thema": 61,
      "titel": "Zufall und Laplace",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "neu (Etappen: laplace)"
     }
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -10761,7 +10761,7 @@
      "thema": 9,
      "titel": "Potenzgleichungen",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "umgehaengt",
@@ -10844,7 +10844,7 @@
      "thema": 9,
      "titel": "Potenzgleichungen",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ergaenzt",
@@ -11047,7 +11047,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11091,7 +11091,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11125,7 +11125,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11154,7 +11154,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11188,7 +11188,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11222,7 +11222,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11255,18 +11255,18 @@
      "thema": 91,
      "titel": "Schrägbilder und Raumdarstellung",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu (Etappen: Rotationskörper, Axialschnitte berechnen)"
     },
     {
      "thema": 92,
      "titel": "Pyramide, Kegel, Kugel",
      "bezug": "neben",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "umgehaengt",
    "notiz": "Achsenschnitte und Rotationskörper sind Etappen von 91",
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11295,12 +11295,12 @@
      "thema": 92,
      "titel": "Pyramide, Kegel, Kugel",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11339,18 +11339,18 @@
      "thema": 92,
      "titel": "Pyramide, Kegel, Kugel",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu"
     },
     {
      "thema": 101,
      "titel": "Prismen und Zylinder",
      "bezug": "neben",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11399,18 +11399,18 @@
      "thema": 92,
      "titel": "Pyramide, Kegel, Kugel",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu"
     },
     {
      "thema": 101,
      "titel": "Prismen und Zylinder",
      "bezug": "neben",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11439,12 +11439,12 @@
      "thema": 92,
      "titel": "Pyramide, Kegel, Kugel",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11473,7 +11473,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11507,7 +11507,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11536,7 +11536,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11560,12 +11560,12 @@
      "thema": 35,
      "titel": "Quadratische Funktionen",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "ergaenzt",
    "notiz": "Gruppe II/III: quadratische Funktionen erst Kl. 10",
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11589,12 +11589,12 @@
      "thema": 35,
      "titel": "Quadratische Funktionen",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11618,12 +11618,12 @@
      "thema": 35,
      "titel": "Quadratische Funktionen",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu"
     }
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11647,7 +11647,7 @@
      "thema": 35,
      "titel": "Quadratische Funktionen",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu"
     },
     {
      "thema": 97,
@@ -11658,7 +11658,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11692,7 +11692,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11726,7 +11726,7 @@
    ],
    "befund": "ok",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11755,7 +11755,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -11784,7 +11784,7 @@
    ],
    "befund": "ergaenzt",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -14538,7 +14538,7 @@
      "thema": 91,
      "titel": "Schrägbilder und Raumdarstellung",
      "bezug": "haupt",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "weitergeführt"
     },
     {
      "thema": 52,
@@ -14718,7 +14718,7 @@
      "thema": 101,
      "titel": "Prismen und Zylinder",
      "bezug": "neben",
-     "klasse_bezug": "neu"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "bereich",
@@ -14819,7 +14819,7 @@
    ],
    "befund": "bereich",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -14857,7 +14857,7 @@
    ],
    "befund": "bereich",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -14990,7 +14990,7 @@
      "thema": 92,
      "titel": "Pyramide, Kegel, Kugel",
      "bezug": "haupt",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "neu"
     },
     {
      "thema": 52,
@@ -15008,12 +15008,12 @@
      "thema": 101,
      "titel": "Prismen und Zylinder",
      "bezug": "neben",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "nur Nebenbezug"
     }
    ],
    "befund": "bereich",
    "notiz": "Körpergeometrie Kl. 10 II/III in 92/101",
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -15050,7 +15050,7 @@
      "thema": 43,
      "titel": "Mit Winkeln rechnen",
      "bezug": "neben",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "nur Nebenbezug"
     },
     {
      "thema": 46,
@@ -15090,7 +15090,7 @@
      "thema": 91,
      "titel": "Schrägbilder und Raumdarstellung",
      "bezug": "haupt",
-     "klasse_bezug": "vorgezogen"
+     "klasse_bezug": "neu"
     },
     {
      "thema": 52,
@@ -15138,7 +15138,7 @@
      "thema": 43,
      "titel": "Mit Winkeln rechnen",
      "bezug": "neben",
-     "klasse_bezug": "weitergeführt"
+     "klasse_bezug": "nur Nebenbezug"
     },
     {
      "thema": 46,
@@ -15149,7 +15149,7 @@
    ],
    "befund": "bereich",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   },
   {
    "quelle": {
@@ -15189,7 +15189,7 @@
    ],
    "befund": "bereich",
    "notiz": null,
-   "korrektur_sql": true
+   "korrektur_sql": false
   }
  ],
  "klassen_je_thema": [
@@ -16300,6 +16300,1143 @@
    ],
    "beleg": [],
    "befund": "nur Nebenbezug"
+  }
+ ],
+ "lage_je_gruppe": [
+  {
+   "thema": 1,
+   "titel": "Einfache Gleichungen",
+   "rs_by": 6,
+   "haupt_I": [
+    6
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    6
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 2,
+   "titel": "Lineare Gleichungen",
+   "rs_by": 7,
+   "haupt_I": [
+    7,
+    8
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    7,
+    8
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 3,
+   "titel": "Lineare Ungleichungen",
+   "rs_by": 7,
+   "haupt_I": [
+    7
+   ],
+   "neben_I": [
+    8
+   ],
+   "haupt_II/III": [
+    7
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 5,
+   "titel": "Bruch- und Verhältnisgleichungen",
+   "rs_by": 8,
+   "haupt_I": [
+    8
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    8
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 6,
+   "titel": "Gleichungssysteme mit 2 Unbekannten",
+   "rs_by": 9,
+   "haupt_I": [
+    9
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    9
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 8,
+   "titel": "Quadratische Gleichungen (allgemein)",
+   "rs_by": 9,
+   "haupt_I": [
+    9
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    9,
+    10
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 9,
+   "titel": "Potenzgleichungen",
+   "rs_by": 10,
+   "haupt_I": [],
+   "neben_I": [
+    10
+   ],
+   "haupt_II/III": [],
+   "neben_II/III": []
+  },
+  {
+   "thema": 10,
+   "titel": "Exponentialgleichungen",
+   "rs_by": 10,
+   "haupt_I": [
+    10
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    10
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 13,
+   "titel": "Wurzelgleichungen",
+   "rs_by": 9,
+   "haupt_I": [
+    9
+   ],
+   "neben_I": [],
+   "haupt_II/III": [],
+   "neben_II/III": []
+  },
+  {
+   "thema": 14,
+   "titel": "Trigonometrische Gleichungen",
+   "rs_by": 10,
+   "haupt_I": [
+    10
+   ],
+   "neben_I": [],
+   "haupt_II/III": [],
+   "neben_II/III": []
+  },
+  {
+   "thema": 15,
+   "titel": "Natürliche Zahlen",
+   "rs_by": 5,
+   "haupt_I": [
+    5
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    5
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 16,
+   "titel": "Ganze Zahlen",
+   "rs_by": 5,
+   "haupt_I": [
+    5
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    5
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 17,
+   "titel": "Teilbarkeit",
+   "rs_by": 5,
+   "haupt_I": [
+    5
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    5
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 18,
+   "titel": "Grundrechenarten und Rechengesetze",
+   "rs_by": 5,
+   "haupt_I": [
+    5
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    5
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 19,
+   "titel": "Zehnerpotenzen und wissenschaftliche Schreibweise",
+   "rs_by": 7,
+   "haupt_I": [
+    7
+   ],
+   "neben_I": [
+    5
+   ],
+   "haupt_II/III": [
+    7
+   ],
+   "neben_II/III": [
+    5
+   ]
+  },
+  {
+   "thema": 20,
+   "titel": "Wurzeln und reelle Zahlen",
+   "rs_by": 9,
+   "haupt_I": [
+    9
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    9
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 21,
+   "titel": "Brüche und Anteile",
+   "rs_by": 6,
+   "haupt_I": [
+    6
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    6
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 22,
+   "titel": "Dezimalzahlen",
+   "rs_by": 6,
+   "haupt_I": [
+    6
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    6
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 23,
+   "titel": "Rechnen mit rationalen Zahlen",
+   "rs_by": 6,
+   "haupt_I": [
+    6
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    6
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 24,
+   "titel": "Prozent- und Zinsrechnung",
+   "rs_by": 6,
+   "haupt_I": [
+    6
+   ],
+   "neben_I": [
+    7
+   ],
+   "haupt_II/III": [
+    6
+   ],
+   "neben_II/III": [
+    7
+   ]
+  },
+  {
+   "thema": 25,
+   "titel": "Größen und Einheiten",
+   "rs_by": 5,
+   "haupt_I": [
+    5
+   ],
+   "neben_I": [
+    6
+   ],
+   "haupt_II/III": [
+    5
+   ],
+   "neben_II/III": [
+    6
+   ]
+  },
+  {
+   "thema": 26,
+   "titel": "Direkte Proportionalität und Dreisatz",
+   "rs_by": 6,
+   "haupt_I": [
+    5,
+    6
+   ],
+   "neben_I": [
+    7
+   ],
+   "haupt_II/III": [
+    5,
+    6
+   ],
+   "neben_II/III": [
+    7
+   ]
+  },
+  {
+   "thema": 28,
+   "titel": "Terme aufstellen und deuten",
+   "rs_by": 6,
+   "haupt_I": [
+    6
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    6
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 29,
+   "titel": "Terme umformen",
+   "rs_by": 7,
+   "haupt_I": [
+    7,
+    8
+   ],
+   "neben_I": [
+    6
+   ],
+   "haupt_II/III": [
+    7,
+    8
+   ],
+   "neben_II/III": [
+    6
+   ]
+  },
+  {
+   "thema": 30,
+   "titel": "Potenzen und negative Exponenten",
+   "rs_by": 7,
+   "haupt_I": [
+    7
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    7
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 31,
+   "titel": "Bruchterme",
+   "rs_by": 8,
+   "haupt_I": [
+    8
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    8
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 32,
+   "titel": "Zuordnung und Funktion",
+   "rs_by": 8,
+   "haupt_I": [
+    8
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    8
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 33,
+   "titel": "Lineare Funktionen",
+   "rs_by": 8,
+   "haupt_I": [
+    8
+   ],
+   "neben_I": [
+    10
+   ],
+   "haupt_II/III": [
+    8,
+    9
+   ],
+   "neben_II/III": [
+    10
+   ]
+  },
+  {
+   "thema": 35,
+   "titel": "Quadratische Funktionen",
+   "rs_by": 9,
+   "haupt_I": [
+    9
+   ],
+   "neben_I": [
+    8
+   ],
+   "haupt_II/III": [
+    10
+   ],
+   "neben_II/III": [
+    8
+   ]
+  },
+  {
+   "thema": 36,
+   "titel": "Potenzfunktionen",
+   "rs_by": 10,
+   "haupt_I": [
+    10
+   ],
+   "neben_I": [],
+   "haupt_II/III": [],
+   "neben_II/III": []
+  },
+  {
+   "thema": 37,
+   "titel": "Exponential- und Logarithmusfunktionen",
+   "rs_by": 10,
+   "haupt_I": [
+    10
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    10
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 38,
+   "titel": "Sinus- und Kosinusfunktion",
+   "rs_by": 10,
+   "haupt_I": [
+    10
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    10
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 42,
+   "titel": "Grundbegriffe und Figuren",
+   "rs_by": 5,
+   "haupt_I": [
+    5
+   ],
+   "neben_I": [
+    8
+   ],
+   "haupt_II/III": [
+    5
+   ],
+   "neben_II/III": [
+    8
+   ]
+  },
+  {
+   "thema": 43,
+   "titel": "Mit Winkeln rechnen",
+   "rs_by": 5,
+   "haupt_I": [],
+   "neben_I": [
+    5,
+    7
+   ],
+   "haupt_II/III": [],
+   "neben_II/III": [
+    5,
+    7
+   ]
+  },
+  {
+   "thema": 44,
+   "titel": "Konstruktionen, Kongruenz und Beweise",
+   "rs_by": 7,
+   "haupt_I": [
+    7,
+    8
+   ],
+   "neben_I": [
+    6
+   ],
+   "haupt_II/III": [
+    8
+   ],
+   "neben_II/III": [
+    6
+   ]
+  },
+  {
+   "thema": 45,
+   "titel": "Kreis und Tangenten",
+   "rs_by": 7,
+   "haupt_I": [
+    7
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    7
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 46,
+   "titel": "Kongruenzabbildungen",
+   "rs_by": 6,
+   "haupt_I": [
+    6,
+    7,
+    8
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    6,
+    7,
+    8
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 47,
+   "titel": "Ähnlichkeit und Strahlensätze",
+   "rs_by": 9,
+   "haupt_I": [
+    9
+   ],
+   "neben_I": [
+    7
+   ],
+   "haupt_II/III": [
+    9
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 49,
+   "titel": "Matrizen und Abbildungen mit Matrizen",
+   "rs_by": 10,
+   "haupt_I": [
+    10
+   ],
+   "neben_I": [
+    8
+   ],
+   "haupt_II/III": [],
+   "neben_II/III": []
+  },
+  {
+   "thema": 50,
+   "titel": "Umfang und Flächeninhalt",
+   "rs_by": 5,
+   "haupt_I": [
+    5
+   ],
+   "neben_I": [
+    6,
+    7
+   ],
+   "haupt_II/III": [
+    5
+   ],
+   "neben_II/III": [
+    6,
+    7
+   ]
+  },
+  {
+   "thema": 51,
+   "titel": "Kreisberechnungen",
+   "rs_by": 9,
+   "haupt_I": [
+    9
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    9
+   ],
+   "neben_II/III": [
+    10
+   ]
+  },
+  {
+   "thema": 52,
+   "titel": "Körper darstellen",
+   "rs_by": 5,
+   "haupt_I": [
+    5
+   ],
+   "neben_I": [
+    7,
+    9
+   ],
+   "haupt_II/III": [
+    5
+   ],
+   "neben_II/III": [
+    10
+   ]
+  },
+  {
+   "thema": 53,
+   "titel": "Volumen und Oberfläche",
+   "rs_by": 6,
+   "haupt_I": [
+    6
+   ],
+   "neben_I": [
+    9
+   ],
+   "haupt_II/III": [
+    6
+   ],
+   "neben_II/III": [
+    10
+   ]
+  },
+  {
+   "thema": 54,
+   "titel": "Satz des Pythagoras",
+   "rs_by": 9,
+   "haupt_I": [
+    9
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    9
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 55,
+   "titel": "Trigonometrie im rechtwinkligen Dreieck",
+   "rs_by": 9,
+   "haupt_I": [
+    9
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    9
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 56,
+   "titel": "Allgemeine Trigonometrie",
+   "rs_by": 10,
+   "haupt_I": [
+    10
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    10
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 57,
+   "titel": "Daten erfassen und darstellen",
+   "rs_by": 5,
+   "haupt_I": [
+    5,
+    7
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    5,
+    7
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 58,
+   "titel": "Mittelwert und Häufigkeiten",
+   "rs_by": 7,
+   "haupt_I": [
+    7
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    7
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 60,
+   "titel": "Zählen und Kombinatorik",
+   "rs_by": 5,
+   "haupt_I": [
+    5
+   ],
+   "neben_I": [
+    8
+   ],
+   "haupt_II/III": [
+    5
+   ],
+   "neben_II/III": [
+    8
+   ]
+  },
+  {
+   "thema": 61,
+   "titel": "Zufall und Laplace",
+   "rs_by": 9,
+   "haupt_I": [
+    8,
+    9
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    8,
+    9
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 62,
+   "titel": "Mehrstufige Zufallsexperimente",
+   "rs_by": 10,
+   "haupt_I": [
+    10
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    10
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 63,
+   "titel": "Verknüpfte Ereignisse",
+   "rs_by": 9,
+   "haupt_I": [],
+   "neben_I": [
+    8,
+    9
+   ],
+   "haupt_II/III": [],
+   "neben_II/III": [
+    8,
+    9
+   ]
+  },
+  {
+   "thema": 64,
+   "titel": "Simulation",
+   "rs_by": 9,
+   "haupt_I": [],
+   "neben_I": [
+    9
+   ],
+   "haupt_II/III": [],
+   "neben_II/III": [
+    9
+   ]
+  },
+  {
+   "thema": 67,
+   "titel": "Potenzen als Schreibweise",
+   "rs_by": 5,
+   "haupt_I": [
+    5
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    5
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 68,
+   "titel": "Elementare Wurzeln",
+   "rs_by": 9,
+   "haupt_I": [],
+   "neben_I": [
+    9
+   ],
+   "haupt_II/III": [],
+   "neben_II/III": [
+    9
+   ]
+  },
+  {
+   "thema": 69,
+   "titel": "Intervalle",
+   "rs_by": 7,
+   "haupt_I": [],
+   "neben_I": [
+    7
+   ],
+   "haupt_II/III": [],
+   "neben_II/III": [
+    7
+   ]
+  },
+  {
+   "thema": 71,
+   "titel": "Zinsen",
+   "rs_by": 7,
+   "haupt_I": [
+    7
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    7
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 73,
+   "titel": "Ortslinien und Ortsbereiche",
+   "rs_by": 7,
+   "haupt_I": [
+    7
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    7
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 74,
+   "titel": "Zweireihige Determinanten",
+   "rs_by": 7,
+   "haupt_I": [
+    7
+   ],
+   "neben_I": [
+    8
+   ],
+   "haupt_II/III": [
+    7
+   ],
+   "neben_II/III": [
+    9
+   ]
+  },
+  {
+   "thema": 81,
+   "titel": "Stichproben und Aussagekraft",
+   "rs_by": 7,
+   "haupt_I": [
+    7
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    7
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 91,
+   "titel": "Schrägbilder und Raumdarstellung",
+   "rs_by": 8,
+   "haupt_I": [
+    7,
+    8
+   ],
+   "neben_I": [
+    5
+   ],
+   "haupt_II/III": [
+    8,
+    10
+   ],
+   "neben_II/III": [
+    5
+   ]
+  },
+  {
+   "thema": 92,
+   "titel": "Pyramide, Kegel, Kugel",
+   "rs_by": 9,
+   "haupt_I": [
+    9
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    10
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 93,
+   "titel": "Indirekte Proportionalität",
+   "rs_by": 7,
+   "haupt_I": [
+    7
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    7
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 94,
+   "titel": "Vermehrter und verminderter Grundwert",
+   "rs_by": 7,
+   "haupt_I": [
+    7
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    7
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 95,
+   "titel": "Median, Quartile, Boxplot",
+   "rs_by": 7,
+   "haupt_I": [
+    7
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    7
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 96,
+   "titel": "Rationale Exponenten und n-te Wurzel",
+   "rs_by": 10,
+   "haupt_I": [
+    10
+   ],
+   "neben_I": [],
+   "haupt_II/III": [],
+   "neben_II/III": []
+  },
+  {
+   "thema": 97,
+   "titel": "Quadratische Terme und Extremwerte",
+   "rs_by": 8,
+   "haupt_I": [
+    8
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    8
+   ],
+   "neben_II/III": [
+    10
+   ]
+  },
+  {
+   "thema": 98,
+   "titel": "Winkelsätze",
+   "rs_by": 7,
+   "haupt_I": [
+    7
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    7
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 99,
+   "titel": "Flächen von Parallelogramm, Dreieck und Trapez",
+   "rs_by": 6,
+   "haupt_I": [
+    6
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    6
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 100,
+   "titel": "Volumen",
+   "rs_by": 6,
+   "haupt_I": [
+    6
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    6
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 101,
+   "titel": "Prismen und Zylinder",
+   "rs_by": 9,
+   "haupt_I": [],
+   "neben_I": [
+    9
+   ],
+   "haupt_II/III": [],
+   "neben_II/III": [
+    10
+   ]
+  },
+  {
+   "thema": 102,
+   "titel": "Potenzgesetze",
+   "rs_by": 7,
+   "haupt_I": [
+    7
+   ],
+   "neben_I": [],
+   "haupt_II/III": [
+    7
+   ],
+   "neben_II/III": []
+  },
+  {
+   "thema": 103,
+   "titel": "Potenzgesetze mit ganzzahligen Exponenten",
+   "rs_by": 7,
+   "haupt_I": [],
+   "neben_I": [
+    7
+   ],
+   "haupt_II/III": [],
+   "neben_II/III": [
+    7
+   ]
+  }
+ ],
+ "neue_etappen": [
+  {
+   "eintrag_id": 799,
+   "thema": 61,
+   "etappen": "laplace, laplace_pruefen"
+  },
+  {
+   "eintrag_id": 800,
+   "thema": 61,
+   "etappen": "begriffe (Ergebnisraum)"
+  },
+  {
+   "eintrag_id": 801,
+   "thema": 61,
+   "etappen": "gegenereignis"
+  },
+  {
+   "eintrag_id": 802,
+   "thema": 61,
+   "etappen": "laplace"
+  },
+  {
+   "eintrag_id": 798,
+   "thema": 61,
+   "etappen": "grosse_zahlen"
+  },
+  {
+   "eintrag_id": 994,
+   "thema": 61,
+   "etappen": "laplace, laplace_pruefen"
+  },
+  {
+   "eintrag_id": 995,
+   "thema": 61,
+   "etappen": "begriffe (Ergebnisraum)"
+  },
+  {
+   "eintrag_id": 996,
+   "thema": 61,
+   "etappen": "gegenereignis"
+  },
+  {
+   "eintrag_id": 997,
+   "thema": 61,
+   "etappen": "laplace"
+  },
+  {
+   "eintrag_id": 993,
+   "thema": 61,
+   "etappen": "grosse_zahlen"
+  },
+  {
+   "eintrag_id": 988,
+   "thema": 33,
+   "etappen": "Steigung m und Achsenabschnitt t, Parameter"
+  },
+  {
+   "eintrag_id": 989,
+   "thema": 33,
+   "etappen": "Geradengleichung aufstellen"
+  },
+  {
+   "eintrag_id": 990,
+   "thema": 33,
+   "etappen": "Geradengleichung aus zwei Angaben, Parallelenscharen"
+  },
+  {
+   "eintrag_id": 930,
+   "thema": 44,
+   "etappen": "Winkel in symmetrischen Vierecken"
+  },
+  {
+   "eintrag_id": 931,
+   "thema": 44,
+   "etappen": "Vierecke konstruieren (Etappe fehlt)"
+  },
+  {
+   "eintrag_id": 1006,
+   "thema": 91,
+   "etappen": "Rotationskörper, Axialschnitte berechnen"
+  },
+  {
+   "eintrag_id": 933,
+   "thema": 46,
+   "etappen": "Um einen Punkt drehen"
+  },
+  {
+   "eintrag_id": 934,
+   "thema": 46,
+   "etappen": "An einem Punkt spiegeln"
+  },
+  {
+   "eintrag_id": 935,
+   "thema": 46,
+   "etappen": "Um einen Punkt drehen"
+  },
+  {
+   "eintrag_id": 936,
+   "thema": 46,
+   "etappen": "Um einen Punkt drehen"
   }
  ]
 }

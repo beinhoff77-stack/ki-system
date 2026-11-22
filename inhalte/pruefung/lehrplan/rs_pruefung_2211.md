@@ -1,11 +1,11 @@
 # Prüf-Auftrag LP-RS – Realschul-Lehrplan Punkt für Punkt (22.11.2026)
 
-Abruf aller Lehrplanseiten und Zweitquellen am 22.11.2026; Datenbank nur gelesen (Stand 22.11.2026). Nichts eingespielt. Keine Lehrplantexte wörtlich, nur Lernbereichstitel und eigene Kurzbeschreibungen.
+Abruf aller Lehrplanseiten und Zweitquellen am 22.11.2026 (13:00, Nachtrag nach Gegenprobe ChatGPT 927/928/930 um 13:30; Korrektur-SQL nach Entscheidung „Maßstab Gruppe I“ von 13:45); Datenbank nur gelesen (Stand 22.11.2026). Nichts eingespielt. Keine Lehrplantexte wörtlich, nur Lernbereichstitel und eigene Kurzbeschreibungen.
 
 Lieferung:
 - dieser Bericht,
-- `rs_pruefung_2211.json` (je Punkt: Quelle, Lernbereich, Punkt, Eintrag, Zuordnung vorher/Vorschlag, Bezug, Befund),
-- `rs_korrektur_2211.sql` (nur INSERT/UPDATE; Probelauf auf einer lokalen Kopie des echten Vorherstands bestanden, zweimal hintereinander, Gegenprobe bricht ab).
+- `rs_pruefung_2211.json` (beide Gruppen; je Punkt: Quelle, Lernbereich, Punkt, Eintrag, Zuordnung vorher/Vorschlag, Bezug, Befund),
+- `rs_korrektur_2211.sql` (nur Gruppe I und RS 5/6; nur INSERT/UPDATE; Probelauf auf einer lokalen Kopie des echten Stands nach dem Live bestanden, zweimal hintereinander, Gegenprobe bricht ab).
 
 ## Kurzergebnis
 
@@ -25,7 +25,45 @@ Deine Zweifel waren berechtigt. Die Lehrplan-Daten selbst (Stunden, Zahl der Pun
 - Titel: die meisten Lernbereichstitel sind umbenannt.
 - Die Klasse 8 sah leer aus, weil die Punkte von Vierecke, Drehung und Daten und Zufall an Themen anderer Klassen hingen. Diese Themen sind 44 und 46 (Klasse 7 bzw. 6), das stillgelegte 48 und 61 (Klasse 9). Nach der Korrektur hat jeder Punkt in Klasse 8 ein Thema, bis auf „Vektoren drehen“.
 
+Die Gruppen I und II/III unterscheiden sich in Stunden (7: 112/84, 8: 112/84, 9: 140/84, 10: 120/96) und in der Klassenlage (Dreiecke, lineare und quadratische Funktionen, Körperberechnungen, Raumgeometrie). Ein `rs_by` je Thema kann das nicht abbilden; Datenmodell je Gruppe × Klasse × Lernbereich × Punkt in Abschnitt 6.
+
 Die vier im Auftrag genannten fehlenden Zuordnungen sind nach der Korrektur geschlossen: RS 7 Dreiecke → 44, RS 7 Ortslinien → 73/45, RS 8 Daten und Zufall → 61, RS 9 Kreis → 51.
+
+## 0 Nachtrag 13:30 – Gegenprobe ChatGPT 927/928/930, selbst nachgeprüft
+
+Neu abgerufen bzw. gegen meinen Abruf von 13:00 und die DB gehalten, 22.11.2026:
+
+| Aussage ChatGPT | Ergebnis meiner Prüfung | Stand |
+|---|---|---|
+| Stundensummen 7 I 112 / II–III 84; 8 I 112 / 84; 9 I 140 / 84; 10 I 120 / 96 | bestätigt. Je Lernbereich: 7 I 10+23+14+10+12+22+12+9; 7 II/III 10+21+10+22+12+9; 8 I 12+6+13+40+7+26+8; 8 II/III 16+7+40+5+8+8; 9 I 10+17+20+10+20+12+42+9; 9 II/III 7+13+20+10+15+10+9; 10 I 42+30+16+22+10; 10 II/III 21+20+10+35+10. DB gleich | gesichert |
+| Dreiecke I 7 ↔ II/III 8 | bestätigt (M7 I LB3; M8 II/III LB1) | gesichert |
+| lineare Funktionen I 8 ↔ II/III 8 (y = mx) und 9 (y = mx + t) | bestätigt (M8 I LB6 mit y = mx + t; M8 II/III LB5 nur Ursprungsgerade; M9 II/III LB5) | gesichert |
+| quadratische Funktionen/Gleichungen I 9 ↔ II/III 10 | bestätigt (M9 I LB7; M10 II/III LB4). Ergänzung: rein quadratische Gleichungen schon M9 II/III LB1 | gesichert |
+| Körperberechnungen I 9 ↔ II/III 10 | bestätigt (M9 I LB5; M10 II/III LB2) | gesichert |
+| Matrizen-Abbildungen und Potenzfunktionen nur 10 I | bestätigt: 10 II/III hat keinen Lernbereich dazu. Ergänzung: Wurzel- und trigonometrische Gleichungen ebenfalls nur Gruppe I | gesichert |
+| Extremwerte quadratischer Terme in beiden Gruppen in 8 | bestätigt (M8 I LB4, M8 II/III LB3; beide → 97) | gesichert |
+| Schrägbilder 7 I und 8 II/III | bestätigt (M7 I LB4, M8 II/III LB2) | gesichert |
+| Determinanten auch 7 II/III | bestätigt (M7 II/III LB2 → 74) | gesichert |
+| Baumdiagramm/Vierfeldertafel 8, Laplace 9, Pfadregeln 10 | bestätigt. **Damit war meine 13:00-Empfehlung „61 nach Klasse 8“ falsch**; berichtigt in Abschnitt 4 | gesichert |
+| 48 und 78 ohne RS-Klasse trotz RS-Lernbereich | bestätigt für `themenliste.json` und, seit dem Live, für die DB (`klasse_fest` null). Nur die Themendateien tragen noch `rs_by` 7 bzw. 8. Beide Themen sind stillgelegt; ihre Zuordnungen in Gruppe I setzt das SQL auf „klaerungsbedarf“ | gesichert |
+| 91 bei RS 8, beschreibt aber auch 7 I | bestätigt; außerdem Rotationskörper 10 II/III | gesichert |
+| 46 (RS 6) enthält Drehung (8 I) | bestätigt (Etappe „Um einen Punkt drehen“); II/III hat keine Drehung | gesichert |
+| 33 mischt y = mx und y = mx + t | bestätigt | gesichert |
+
+**Zusätzlich gefunden:**
+- Die Klassen in den Themendateien und in `themenliste.json` passen bei 61, 44, 91, 101, 99 und 100 nicht zusammen (Abschnitt 4).
+- 33 in 8 II/III enthält schon die Orthogonalität (m₁·m₂ = −1), nicht nur y = mx.
+
+**Folgen für die Lieferung:**
+- Die Zuordnungen von 13:00 bleiben. Kein Punkt wechselt sein Thema; Rauchtest und Lücken bleiben gleich.
+- Geändert:
+  1. Das Etikett neu/weitergeführt wird je Gruppe berechnet, mit „neu (Etappen …)“ für Punkte, die neue Etappen bringen.
+  2. Abschnitt 4 zeigt die Lage je Gruppe.
+  3. Abschnitt 6 enthält das verbindliche Datenmodell.
+  4. Die JSON hat neu `lage_je_gruppe` und `neue_etappen`.
+  5. Die Begründungstexte im SQL sind angepasst.
+- Nach der Entscheidung von 13:45 („Maßstab Gruppe I“) gilt das Korrektur-SQL nur noch für Gruppe I und RS 5/6, und Thema 91 bekommt `rs_by` 7. II/III steht nur im Bericht (Abschnitt 7).
+- Probelauf auf dem echten Stand nach dem Live bestanden, zweimal hintereinander.
 
 ## 1 Lernbereiche: Original gegen DB
 
@@ -50,7 +88,7 @@ Mathe.Logo Bayern (C.C. Buchner, für Bayern zugelassen), Stoffverteilungspläne
 |---|---|---|
 | 5 | [Stoffverteilungsplan 5](https://www.ccbuchner.de/_files_media/mediathek/downloads/15108.pdf) | bestätigt alle Lernbereiche inkl. Dualsystem/römische Zahlen, Kombinieren, Maßstab |
 | 6 | [Produktseite 6](https://www.ccbuchner.de/produkt/mathe-logo-bayern-6-3660) | **offen**: Plan nur als Binärdatei, nicht lesbar |
-| 7 I | [Produktseite 7 I](https://www.ccbuchner.de/produkt/mathe-logo-bayern-7-i-3661) | **offen**: nicht lesbar |
+| 7 I | [Westermann Mathematik 7, Wpfg. I, Inhaltsverzeichnis](https://www.kapiert.de/fileadmin/redakteure/Lehrwerke/Mathematik/Inhaltsverzeichnis/314_123623_72_dpi_gesamt.pdf.pdf) (Mathe.Logo 7 I nicht lesbar) | bestätigt: Potenzen, Parallelverschiebung mit Vektoren, Winkel an Parallelen, Terme/Gleichungen/Ungleichungen, Ortslinien inkl. Thaleskreis, Dreiecke/Kongruenz, Proportionalität, Daten, Raumgeometrie mit Schrägbildern – alles in 7 I. Bundesland steht nicht im Verzeichnis (Annahme Bayern, wegen Wpfg. I). Determinanten nicht als Kapitel; vermutlich unter „Flächen im Koordinatensystem“ (Annahme) |
 | 7 II/III | [Produktseite 7 II/III](https://www.ccbuchner.de/produkt/mathe-logo-bayern-7-ii-iii-3662) | **offen**: nicht lesbar |
 | 8 I | [Stoffverteilungsplan 8 I](https://www.ccbuchner.de/_files_media/mediathek/downloads/15120.pdf) | Stunden aller 7 Lernbereiche gleich; Vierecke, Drehung und Daten und Zufall (Baumdiagramm, Vierfeldertafel) sind Stoff der 8. Reihenfolge abweichend (Daten und Zufall zuerst) – kein Widerspruch |
 | 8 II/III | [Stoffverteilungsplan 8 II/III](https://www.ccbuchner.de/_files_media/mediathek/downloads/15117.pdf) | Stunden aller 6 Lernbereiche gleich |
@@ -60,11 +98,13 @@ Mathe.Logo Bayern (C.C. Buchner, für Bayern zugelassen), Stoffverteilungspläne
 | 10 II/III | [Produktseite 10 II/III](https://www.ccbuchner.de/produkt/mathe-logo-bayern-10-ii-iii-4164) | **offen**: nicht lesbar |
 
 Abschlussprüfung (9/10):
+- [Abschlussprüfung 2026 Mathematik I](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Abschlusspruefung/Mathematik/2026/2026_mi_ht.pdf): u. a. Vektoren mit Ortskurve, Trigonometrie mit Sinussatz, Rotationskörper, Exponential- und gebrochenrationale Funktionen, Pfadregeln – alles Gruppe-I-Stoff 9/10 mit Thema.
+- [Abschlussprüfung 2026 Mathematik II/III](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Abschlusspruefung/Mathematik/2026/2026_mii_ht.pdf): Parabeln mit Geraden, Rotationskörper aus Kegel/Zylinder/Kugel, Strahlensatz, Trigonometrie, Pfadregeln; **keine Vektoren, Matrizen oder Potenzfunktionen** – bestätigt die Gruppentrennung.
 - [ISB Infobrief Mathematik 2023](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Infobriefe/Mathematik/Infobrief_Mathematik_2023.pdf): Für Mathematik I sind Rotationskörper und Potenzfunktionen wieder prüfungsrelevant. Beide sind nach der Korrektur zugeordnet (91/92 und 96/36).
 - [Abschlussprüfung 2021 Mathematik I](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Mathematik/Weiterentwicklung_Abschlusspruefung/Zeichenkatalog/2021_MI_HT.pdf): Die Aufgaben nutzen Abbildungen mit Vektoren/Matrizen, Trigonometrie, Exponentialfunktionen und Raumgeometrie. Alle Bereiche stehen im Lehrplan 9/10 I und haben ein Thema, **außer der Vektorrechnung als eigenem Werkzeug** (siehe Lücken).
 - Zusätzlich die [ISB-Jahrgangsstufentests 8 I 2025](https://www.isb.bayern.de/fileadmin/user_upload/Realschule/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2025/2025_JT_Mathematik_8_I_Angabe.pdf) und 8 II/III. Sie prüfen Drehung, Vektor/Mittelpunkt, Determinante und Thaleskreis, also genau die Inhalte der 8. Das bestätigt die Klassenlage.
 
-**Widersprüche Zweitquelle ↔ amtlich:** keine in den lesbaren Plänen. Offen sind 6, 7 I, 7 II/III und 10 II/III, weil die Pläne nicht lesbar sind. Amtlich gilt.
+**Widersprüche Zweitquelle ↔ amtlich:** keine in den lesbaren Plänen. Offen sind 6, 7 II/III und 10 II/III (Pläne nicht lesbar). Die von ChatGPT genannte Kapitelübersicht 8 II/III (braille.bildung.hessen.de) und die ISB-Leistungsaufgaben 9 habe ich nicht gefunden bzw. nicht gelesen. Amtlich gilt.
 
 ## 3 Jeder Punkt: Thema oder Lücke
 
@@ -85,7 +125,7 @@ Legende für die Themenspalte:
 | 1.4 | Kombinatorik | – | 1/2 | 0 → 2 | – | 60 Zählen und Kombinatorik (neu) |
 | 2 | Ganze Zahlen | 20 | 5/7 | 0 → 7 | – | 16 Ganze Zahlen (neu) |
 | 3 | Geometrische Grundvorstellungen und Grundbegriffe | 30 | 6/9 | 9 → 9 | – | 42 Grundbegriffe und Figuren (neu); 52 Körper darstellen (neu) |
-| 4 | Größen | 20 | 6/6 | 4 → 6 | – | 25 Größen und Einheiten (neu); 26 Direkte Proportionalität und Dreisatz (vorgezogen) |
+| 4 | Größen | 20 | 6/6 | 4 → 6 | – | 25 Größen und Einheiten (neu); 26 Direkte Proportionalität und Dreisatz (neu) |
 | 5 | Umfang und Flächeninhalt ebener Figuren | 15 | 6/6 | 0 → 6 | – | 50 Umfang und Flächeninhalt (neu) |
 | 6 | Auswertung von Daten | 5 | 3/3 | 0 → 3 | – | 57 Daten erfassen und darstellen (neu) |
 | Σ | | | 38/45 | 19 → 43 | | |
@@ -99,7 +139,7 @@ Legende für die Themenspalte:
 | 3 | Flächeninhalt ebener Figuren | 18 | 4/6 | 1 → 6 | – | 53 Volumen und Oberfläche (neu); 99 Flächen von Parallelogramm, Dreieck und Trapez (neu) |
 | 4 | Raumgeometrie | 14 | 2/4 | 0 → 4 | – | 100 Volumen (neu) |
 | 5 | Terme und Gleichungen | 15 | 7/7 | 7 → 7 | – | 1 Einfache Gleichungen (neu); 28 Terme aufstellen und deuten (neu) |
-| 6 | Direkte Proportionalität | 12 | 4/6 | 6 → 6 | – | 24 Prozent- und Zinsrechnung (neu); 26 Direkte Proportionalität und Dreisatz (neu) |
+| 6 | Direkte Proportionalität | 12 | 4/6 | 6 → 6 | – | 24 Prozent- und Zinsrechnung (neu); 26 Direkte Proportionalität und Dreisatz (weitergeführt) |
 | Σ | | | 32/40 | 30 → 40 | | |
 
 #### Realschule 7 – Gruppe I (Quelle 24)
@@ -109,7 +149,7 @@ Legende für die Themenspalte:
 | 1 | Potenzen | 10 | 3/3 | 1 → 3 | – | 19 Zehnerpotenzen und wissenschaftliche Schreibweise (neu); 30 Potenzen und negative Exponenten (neu); 102 Potenzgesetze (neu) |
 | 2 | Parallelverschiebung | 23 | 7/7 | 3 → 6 | 2/K4 | 46 Kongruenzabbildungen (weitergeführt); 74 Zweireihige Determinanten (neu); 98 Winkelsätze (neu) |
 | 3 | Dreiecke | 14 | 4/4 | 0 → 4 | – | 44 Konstruktionen, Kongruenz und Beweise (neu) |
-| 4 | Raumgeometrie | 10 | 3/3 | 3 → 3 | – | 91 Schrägbilder und Raumdarstellung (vorgezogen) |
+| 4 | Raumgeometrie | 10 | 3/3 | 3 → 3 | – | 91 Schrägbilder und Raumdarstellung (neu) |
 | 5 | Geometrische Ortslinien und Ortsbereiche | 12 | 5/5 | 0 → 5 | – | 45 Kreis und Tangenten (neu); 73 Ortslinien und Ortsbereiche (neu) |
 | 6 | Terme, Gleichungen und Ungleichungen | 22 | 4/4 | 3 → 4 | – | 2 Lineare Gleichungen (neu); 3 Lineare Ungleichungen (neu); 29 Terme umformen (neu) |
 | 7 | Proportionalitäten | 12 | 5/5 | 5 → 5 | – | 71 Zinsen (neu); 93 Indirekte Proportionalität (neu); 94 Vermehrter und verminderter Grundwert (neu) |
@@ -132,25 +172,25 @@ Legende für die Themenspalte:
 
 | LB | Titel (Original) | Std. | Punkte Orig./DB | zugeordnet vorher → nachher | Lücken | Themen (Hauptbezug) |
 |---|---|---|---|---|---|---|
-| 1 | Vierecke | 12 | 2/2 | 2 → 2 | – | 44 Konstruktionen, Kongruenz und Beweise (weitergeführt); 46 Kongruenzabbildungen (weitergeführt) |
-| 2 | Drehung | 6 | 5/5 | 0 → 4 | 2/K5 | 46 Kongruenzabbildungen (weitergeführt) |
-| 3 | Raumgeometrie | 13 | 3/3 | 3 → 3 | – | 91 Schrägbilder und Raumdarstellung (neu) |
+| 1 | Vierecke | 12 | 2/2 | 2 → 2 | – | 44 Konstruktionen, Kongruenz und Beweise (neu: neue Etappen); 46 Kongruenzabbildungen (weitergeführt) |
+| 2 | Drehung | 6 | 5/5 | 0 → 4 | 2/K5 | 46 Kongruenzabbildungen (neu: neue Etappen) |
+| 3 | Raumgeometrie | 13 | 3/3 | 3 → 3 | – | 91 Schrägbilder und Raumdarstellung (weitergeführt) |
 | 4 | Terme, Gleichungen und Ungleichungen | 40 | 3/3 | 3 → 3 | – | 2 Lineare Gleichungen (weitergeführt); 29 Terme umformen (weitergeführt); 97 Quadratische Terme und Extremwerte (neu) |
 | 5 | Bruchterme und Bruchgleichungen | 7 | 2/2 | 2 → 2 | – | 5 Bruch- und Verhältnisgleichungen (neu); 31 Bruchterme (neu) |
 | 6 | Funktionen | 26 | 6/6 | 6 → 6 | – | 32 Zuordnung und Funktion (neu); 33 Lineare Funktionen (neu) |
-| 7 | Daten und Zufall | 8 | 2/2 | 1 → 2 | – | 61 Zufall und Laplace (vorgezogen) |
+| 7 | Daten und Zufall | 8 | 2/2 | 1 → 2 | – | 61 Zufall und Laplace (neu) |
 | Σ | | | 23/23 | 17 → 22 | | |
 
 #### Realschule 8 – Gruppe II/III (Quelle 26)
 
 | LB | Titel (Original) | Std. | Punkte Orig./DB | zugeordnet vorher → nachher | Lücken | Themen (Hauptbezug) |
 |---|---|---|---|---|---|---|
-| 1 | Dreiecke und Vierecke | 16 | 5/5 | 2 → 5 | – | 44 Konstruktionen, Kongruenz und Beweise (weitergeführt); 46 Kongruenzabbildungen (weitergeführt) |
+| 1 | Dreiecke und Vierecke | 16 | 5/5 | 2 → 5 | – | 44 Konstruktionen, Kongruenz und Beweise (neu); 46 Kongruenzabbildungen (weitergeführt) |
 | 2 | Raumgeometrie | 7 | 2/2 | 2 → 2 | – | 91 Schrägbilder und Raumdarstellung (neu) |
 | 3 | Terme und Gleichungen | 40 | 3/3 | 3 → 3 | – | 2 Lineare Gleichungen (weitergeführt); 29 Terme umformen (weitergeführt); 97 Quadratische Terme und Extremwerte (neu) |
 | 4 | Bruchterme und Bruchgleichungen | 5 | 2/2 | 2 → 2 | – | 5 Bruch- und Verhältnisgleichungen (neu); 31 Bruchterme (neu) |
 | 5 | Funktionen | 8 | 5/5 | 1 → 5 | – | 32 Zuordnung und Funktion (neu); 33 Lineare Funktionen (neu) |
-| 6 | Daten und Zufall | 8 | 2/2 | 1 → 2 | – | 61 Zufall und Laplace (vorgezogen) |
+| 6 | Daten und Zufall | 8 | 2/2 | 1 → 2 | – | 61 Zufall und Laplace (neu) |
 | Σ | | | 19/19 | 11 → 19 | | |
 
 #### Realschule 9 – Gruppe I (Quelle 13)
@@ -164,7 +204,7 @@ Legende für die Themenspalte:
 | 5 | Raumgeometrie | 20 | 4/4 | 4 → 4 | – | 92 Pyramide, Kegel, Kugel (neu) |
 | 6 | Systeme linearer Gleichungen | 12 | 1/1 | 1 → 1 | – | 6 Gleichungssysteme mit 2 Unbekannten (neu) |
 | 7 | Quadratische Funktionen und quadratische Gleichungen | 42 | 9/9 | 9 → 9 | – | 8 Quadratische Gleichungen (allgemein) (neu); 13 Wurzelgleichungen (neu); 35 Quadratische Funktionen (neu) |
-| 8 | Daten und Zufall | 9 | 5/5 | 1 → 5 | – | 61 Zufall und Laplace (neu) |
+| 8 | Daten und Zufall | 9 | 5/5 | 1 → 5 | – | 61 Zufall und Laplace (neu: neue Etappen) |
 | Σ | | | 38/38 | 30 → 38 | | |
 
 #### Realschule 9 – Gruppe II/III (Quelle 14)
@@ -175,9 +215,9 @@ Legende für die Themenspalte:
 | 2 | Zentrische Streckung | 13 | 3/3 | 0 → 3 | – | 47 Ähnlichkeit und Strahlensätze (neu) |
 | 3 | Rechtwinklige Dreiecke | 20 | 6/6 | 6 → 6 | – | 54 Satz des Pythagoras (neu); 55 Trigonometrie im rechtwinkligen Dreieck (neu) |
 | 4 | Kreis | 10 | 2/2 | 0 → 2 | – | 51 Kreisberechnungen (neu) |
-| 5 | Lineare Funktionen | 15 | 4/4 | 4 → 4 | – | 33 Lineare Funktionen (weitergeführt) |
+| 5 | Lineare Funktionen | 15 | 4/4 | 4 → 4 | – | 33 Lineare Funktionen (neu: neue Etappen) |
 | 6 | Systeme linearer Gleichungen | 10 | 1/1 | 1 → 1 | – | 6 Gleichungssysteme mit 2 Unbekannten (neu) |
-| 7 | Daten und Zufall | 9 | 5/5 | 1 → 5 | – | 61 Zufall und Laplace (neu) |
+| 7 | Daten und Zufall | 9 | 5/5 | 1 → 5 | – | 61 Zufall und Laplace (neu: neue Etappen) |
 | Σ | | | 24/24 | 14 → 24 | | |
 
 #### Realschule 10 – Gruppe I (Quelle 15)
@@ -196,9 +236,9 @@ Legende für die Themenspalte:
 | LB | Titel (Original) | Std. | Punkte Orig./DB | zugeordnet vorher → nachher | Lücken | Themen (Hauptbezug) |
 |---|---|---|---|---|---|---|
 | 1 | Trigonometrie | 21 | 6/6 | 4 → 6 | – | 38 Sinus- und Kosinusfunktion (neu); 56 Allgemeine Trigonometrie (neu) |
-| 2 | Raumgeometrie | 20 | 5/5 | 5 → 5 | – | 91 Schrägbilder und Raumdarstellung (weitergeführt); 92 Pyramide, Kegel, Kugel (weitergeführt) |
+| 2 | Raumgeometrie | 20 | 5/5 | 5 → 5 | – | 91 Schrägbilder und Raumdarstellung (neu: neue Etappen); 92 Pyramide, Kegel, Kugel (neu) |
 | 3 | Exponentialfunktionen, Logarithmen | 10 | 3/3 | 1 → 3 | – | 10 Exponentialgleichungen (neu); 37 Exponential- und Logarithmusfunktionen (neu) |
-| 4 | Quadratische Funktionen und quadratische Gleichungen | 35 | 6/6 | 2 → 6 | – | 8 Quadratische Gleichungen (allgemein) (weitergeführt); 35 Quadratische Funktionen (weitergeführt) |
+| 4 | Quadratische Funktionen und quadratische Gleichungen | 35 | 6/6 | 2 → 6 | – | 8 Quadratische Gleichungen (allgemein) (weitergeführt); 35 Quadratische Funktionen (neu) |
 | 5 | Daten und Zufall | 10 | 2/2 | 0 → 2 | – | 62 Mehrstufige Zufallsexperimente (neu) |
 | Σ | | | 22/22 | 12 → 22 | | |
 
@@ -246,29 +286,66 @@ Legende für die Themenspalte:
 
 Lücken sind ein Auftrag an die Inhalte-Seite. Das SQL legt keine Themen an.
 
-## 4 Klasse je Thema (Realschule, `klasse_fest.rs_by`)
+## 4 Klasse je Thema und Wahlpflichtfächergruppe (Nachtrag 13:30)
 
-Alle Themen mit `rs_by` kommen im Original vor; alle bis auf die unten genannten in genau der hinterlegten Klasse (erste Klasse mit Hauptbezug).
+Ein einziges `klasse_fest.rs_by` je Thema reicht nicht, und zwar aus zwei Gründen:
+- Die Gruppen I und II/III legen denselben Stoff in verschiedene Klassen.
+- Mehrere Themen verteilen ihre Etappen über zwei oder drei Klassen.
 
-**Abweichend oder gruppenabhängig (gesichert, Beleg = Lernbereich im Original):**
+Die Tabelle zeigt die Klassen mit Hauptbezug laut Original, je Gruppe. RS 5/6 zählen für beide Gruppen. Vollständig für alle Themen steht das in der JSON unter `lage_je_gruppe`.
 
-| Thema | rs_by | laut Original zuerst | Beleg | Bewertung |
+**Gruppe I und II/III unterscheiden sich (gesichert, Beleg = Lernbereich im Original):**
+
+| Thema | rs_by heute | Gruppe I | Gruppe II/III | Beleg |
 |---|---|---|---|---|
-| 26 Direkte Proportionalität und Dreisatz | 6 | 5 (Dreisatz) | M5 LB4, M6 LB6 | Dreisatz beginnt in 5, Proportionalität als Zuordnung in 6. Klasse 6 vertretbar; Dreisatz-Etappe gehört nach vorn oder in 25 |
-| 61 Zufall und Laplace | 9 | 8 (beide Gruppen) | M8 LB7 (I), M8 LB6 (II/III), M9 LB8/LB7 | **falsch**: Ergebnis, Ereignis, Baumdiagramm und Vierfeldertafel sind Stoff der 8. Vorschlag `rs_by` 8 |
-| 44 Konstruktionen, Kongruenz | 7 | I: 7, II/III: 8 | M7 LB3 (I), M8 LB1 (II/III) | Gruppenunterschied, nur mit Klasse je Zweig abbildbar |
-| 91 Schrägbilder und Raumdarstellung | 8 | I: 7, II/III: 8 | M7 LB4 (I), M8 LB2 (II/III) | Gruppenunterschied |
-| 35 Quadratische Funktionen | 9 | I: 9, II/III: 10 | M9 LB7 (I), M10 LB4 (II/III) | Gruppenunterschied |
-| 92 Pyramide, Kegel, Kugel | 9 | I: 9, II/III: 10 | M9 LB5 (I), M10 LB2 (II/III) | Gruppenunterschied |
-| 33 Lineare Funktionen | 8 | I: 8; II/III: 8 (nur Ursprungsgeraden), 9 (allgemein) | M8 LB6, M8 LB5 (II/III), M9 LB5 (II/III) | passt; für II/III über zwei Klassen verteilt |
+| 44 Konstruktionen, Kongruenz (Dreiecke) | 7 | 7 (Dreiecke), 8 (Vierecke) | 8 | M7 I LB3, M8 I LB1, M8 II/III LB1 |
+| 33 Lineare Funktionen | 8 | 8 (y = mx + t vollständig) | 8 nur y = mx, 9 y = mx + t | M8 I LB6; M8 II/III LB5; M9 II/III LB5 |
+| 35 Quadratische Funktionen | 9 | 9 | 10 | M9 I LB7, M10 II/III LB4 |
+| 8 Quadratische Gleichungen (allgemein) | 9 | 9 | 9 (rein quadratisch), 10 | M9 I LB7; M9 II/III LB1, M10 II/III LB4 |
+| 92 Pyramide, Kegel, Kugel | 9 | 9 | 10 | M9 I LB5, M10 II/III LB2 |
+| 101 Prismen und Zylinder (nur Nebenbezug) | 9 | 9 | 10 | ebenda |
+| 91 Schrägbilder und Raumdarstellung | 8 | 7, 8 | 8; Rotationskörper/Axialschnitte 10 | M7 I LB4, M8 I LB3; M8 II/III LB2, M10 II/III LB2 |
+| 49 Matrizen und Abbildungen | 10 | 10 | – (kein Lernbereich) | nur M10 I LB2 |
+| 36 Potenzfunktionen, 96 rationale Exponenten | 10 | 10 | – | nur M10 I LB3 |
+| 13 Wurzelgleichungen, 14 trigonometrische Gleichungen | 9 / 10 | 9 / 10 | – | nur Gruppe I |
+| 46 Kongruenzabbildungen: Etappe Drehung | 6 | 8 | – (keine Drehung in II/III) | nur M8 I LB2 |
 
-**Nur Nebenbezug, kein eigener Punkt:**
-- 9 Potenzgleichungen (10), 43 Mit Winkeln rechnen (5), 63, 64, 68 (9), 69 Intervalle (7), 101 (9) und 103 (7).
-- Die Klassen sind plausibel, aber nicht durch einen eigenen Lehrplanpunkt belegt.
+**Gleich in beiden Gruppen, nicht pauschal verschieben (gesichert):**
+- 97 Extremwerte quadratischer Terme: 8 in beiden Gruppen (M8 I LB4, M8 II/III LB3).
+- 74 Zweireihige Determinanten: 7 in beiden Gruppen (M7 I und M7 II/III, jeweils LB2), weitergeführt in 8 (Funktionen) und 9 II/III.
+- Stochastik in beiden Gruppen gleich:
+  - 8: Ergebnis/Ereignis, Baumdiagramm und Vierfeldertafel als Darstellung, Häufigkeiten.
+  - 9: Laplace, Ergebnisraum, Gegenereignis, Gesetz der großen Zahlen.
+  - 10: Pfadregeln (62).
+- 26 Dreisatz beginnt in beiden Gruppen in 5 (M5 LB4), die Proportionalität in 6.
 
-**Stillgelegte Themen** 12, 40, 48, 77 und 78 tragen in der DB weiter `rs_by`; 907 b ist noch nicht eingespielt. Das SQL setzt alle Zuordnungen auf sie auf Neben + „klaerungsbedarf“ und löscht nichts.
+**Berichtigung meiner Meldung von 13:00:**
+- Ich hatte vorgeschlagen, Thema 61 nach Klasse 8 zu legen. Das war zu grob.
+- 61 erstreckt sich über zwei Klassen: Die Etappen *Ergebnis, Ergebnisraum, Ereignis* und *Relative Häufigkeit* gehören in 8. *Laplace*, *Laplace prüfen*, *Gegenereignis* und *Gesetz der großen Zahlen* gehören in 9.
+- Die Zuordnungen selbst bleiben richtig; nur das Etikett ändert sich: In 9 heißt es jetzt „neu (Etappen …)“ statt „weitergeführt“.
+- Die Klasse von 61 bleibt im SQL unverändert.
 
-Das SQL ändert **keine Klasse** (Rauchtest c). `rs_by` für 61 und eine Klasse je Zweig sind Entscheidungen für Sebastian bzw. bau-lehrer.
+**Widersprüche im Repo (gesichert, Stand `lernen-app` b3591695):**
+- Die Themendateien `inhalte/themen/*.json` und `themenliste.json` nennen verschiedene RS-Klassen:
+  - 61: Datei 8, Liste und DB 9.
+  - 44: Datei 6, Liste und DB 7.
+  - 91: Datei 5, Liste und DB 8.
+  - 101: Datei ohne RS-Klasse, Liste und DB 9.
+  - 99 und 100: Datei ohne RS-Klasse, Liste und DB 6.
+- 48 und 78 (stillgelegt) haben in der Liste und in der DB keine Klasse mehr, in den Themendateien noch (7 bzw. 8).
+- Etappen, die in eine andere Klasse gehören:
+  - 46 (RS 6) enthält Drehung und Punktspiegelung, die zu 8 I gehören.
+  - 33 enthält Ursprungsgerade (8) und allgemeine Gerade mit Parametern (9 für II/III).
+  - 91 enthält Raumlage (7 I / 8 II/III) und Rotationskörper (10 II/III).
+
+**Bezug neu/weitergeführt:**
+- Bisher hing das Etikett an `rs_by`. Jetzt berechne ich es je Gruppe aus der ersten Klasse mit Hauptbezug:
+  - „neu“: das Thema kommt in dieser Gruppe zum ersten Mal.
+  - „weitergeführt“: das Thema kam in einer früheren Klasse schon vor.
+  - „neu (Etappen …)“: das Thema ist bekannt, aber der Punkt bringt neue Etappen (Liste `neue_etappen` in der JSON).
+- Damit heißt z. B. 44 in 8 II/III jetzt „neu“, nicht „weitergeführt“.
+
+Seit der Entscheidung „Maßstab Gruppe I“ (13:45) ändert das SQL genau eine Klasse: 91 → 7. Alle anderen `rs_by` stimmen mit der ersten Gruppe-I-Klasse überein oder hängen an Etappen (26, 61). Mit `rs_by` allein lässt sich die Lage von Gruppe II/III nicht abbilden; das leistet das Datenmodell in Abschnitt 6.
 
 ## 5 Stichprobe Gymnasium 7 und 8 (nur Bericht, kein SQL)
 
@@ -284,35 +361,98 @@ Das SQL ändert **keine Klasse** (Rauchtest c). `rs_by` für 61 und eine Klasse 
 - Eine Korrektur wäre ein eigener Auftrag. Der Vorschlag je Punkt steht in der JSON (`korrektur_sql: false`).
 - Klassen Gym passen; 93 und 51 liegen im Gymnasium in 8, in der Realschule in 7 bzw. 9. `gym_by` ist dafür getrennt hinterlegt.
 
-## 6 Vorschlag Datenmodell (für bau-lehrer)
+## 6 Datenmodell: Gruppe × Klasse × Lernbereich × Punkt → Thema/Etappe (für bau-lehrer, verbindlich laut Nachtrag)
 
-1. **Bezug „neu“/„weitergeführt“ als eigenes Feld.** `schule.zuordnung` bekommt `rolle text check (rolle in ('neu','weitergefuehrt','vorgezogen'))`, getrennt von `bezug` (haupt/neben). Heute steht das nur in `begruendung`. Ableitbar aus Lehrplanklasse und Themenklasse, aber als Feld prüfbar.
-2. **Klasse je Zweig.** `klasse_fest` um `rs_by_I` und `rs_by_II_III` ergänzen. `thema_jahrgang` nimmt den Zweig des Kindes; `rs_by` bleibt Rückfallwert. Betrifft 35, 44, 91 und 92 (Abschnitt 4).
-3. **Ein Thema über mehrere Klassen.** Kein Kopieren des Themas: Es reichen die Zuordnungen mit Rolle „weitergeführt“ in den späteren Klassen. Die Etappen bekommen optional eine Klasse, ab der sie gelten (z. B. 33: Ursprungsgerade 8, allgemeine Gerade 9 für II/III).
-4. **Matrix nach Stunden statt Themenzahl.** Abdeckung je Lernbereich = Summe der Stunden der Punkte mit Hauptbezug / Stunden des Lernbereichs, Stunden anteilig auf die Punkte verteilt. Ansicht `schule.lehrplan_abdeckung(quelle_id, lernbereich, stunden, punkte, punkte_mit_haupt, stunden_abgedeckt, luecken)`. Dann zeigt RS 8 LB4 (40 Std., 3 Punkte, 1 Thema) 100 % statt „nur ein Thema“. Die Themenzahl sagt nichts über die Abdeckung.
-5. **Punktgenauigkeit sichern.** Prüfregel: Zahl der Kompetenzpunkte je Lernbereich = Original. Für RS 5/6 und Gym die Teilpunkte entweder zusammenlegen oder als `art = 'unterpunkt'` mit Verweis auf den Originalpunkt führen.
+Entwurf, nicht eingespielt. Die Namen sind Vorschläge; die Grundsätze sind fest.
 
-## 7 Korrektur-SQL `rs_korrektur_2211.sql`
+**Grundsätze**
+1. Der Lehrplan beschreibt, *wann* etwas dran ist: Gruppe × Klasse × Lernbereich × Punkt. Das Thema beschreibt, *was* gelernt wird (Etappen). Die Zuordnung verbindet beides.
+2. Der Lernstand hängt nur an Thema und Etappe, nie an Gruppe, Klasse oder Lehrplanpunkt. Kommt ein Thema in 8 und 9 vor, gibt es **einen** Lernstand und **einen** Satz Sterne.
+3. Die Klasse eines Themas wird für das Kind aus seiner Gruppe abgeleitet. `klasse_fest` bleibt nur als Ausnahme (Sebastians harte Entscheidungen, z. B. 102 ← 30).
 
-- Nur RS 5–10; nur INSERT/UPDATE auf `schule.zuordnung` und `schule.eintrag`; `schule.thema` unverändert; kein DROP, kein DELETE.
-- Reihenfolge:
-  1. alte Hauptbezüge zuerst auf Neben (eindeutiger Hauptbezug je Eintrag),
-  2. 10 Zuordnungen umhängen,
-  3. 32 veraltete kennzeichnen,
-  4. 10 Nebenbezüge zu Hauptbezügen,
-  5. 139 Zuordnungen ergänzen,
-  6. 47 Titel,
-  7. Prüfstatus „geprueft“ für Lernbereiche und RS-7–10-Punkte.
-- Auch 18 Zuordnungen auf Lernbereichsebene werden bereinigt, z. B. Raumgeometrie 6 → 100, 7 I/8 → 91, 9 I/10 II/III → 92.
-- Rauchtest (bricht mit Fehler ab, Transaktion rollt zurück):
-  - a) alle 440 erwarteten Zuordnungen mit Bezug vorhanden,
-  - b) Lücken genau 297, 298, 871, 909, 937,
-  - c) `thema_jahrgang` aller Themen unverändert,
-  - d) kein Hauptbezug auf stillgelegte Themen.
-- Probelauf: auf lokalem Postgres 16 mit dem echten Vorherstand (alle Einträge und Zuordnungen der 10 Quellen, alle Themenklassen; gelesen 22.11.):
-  - bestanden; zweiter Lauf ebenfalls (wiederholbar);
-  - Gegenprobe mit künstlich geänderter Klasse → Abbruch, nichts geändert.
-- Einspielen: `psql -1 -f` bzw. als eine Transaktion. Ohne Transaktion bricht Rauchtest c bewusst ab.
+**Struktur (ist schon fast da)**
+
+| Ebene | heute | Ergänzung |
+|---|---|---|
+| Gruppe × Klasse | `schule.quelle` (zweig `rs_I`/`rs_II_III`, `jahr_von`) | RS 5/6 haben schon zweig `allgemein` (gilt für beide Gruppen) |
+| Lernbereich, Punkt | `schule.eintrag` (art lernbereich/kompetenz, Stunden am Lernbereich) | Prüfregel: Zahl der Punkte je Lernbereich = Original; Teilpunkte nur als `art = 'teilpunkt'` mit Verweis auf den Originalpunkt |
+| Punkt → Thema | `schule.zuordnung` (bezug haupt/neben) | Felder `rolle` und `etappen`, s. u. |
+| Punkt → Etappe | – | `etappen text[]` (Lernziel-Schlüssel aus `inhalte/themen`), leer = ganzes Thema |
+
+```sql
+-- Entwurf, nicht einspielen
+alter table schule.zuordnung
+  add column rolle text check (rolle in ('neu', 'weitergefuehrt')),
+  add column etappen text[];          -- lernziel-Schlüssel; null = alle Etappen des Themas
+alter table schule.lernender
+  add column zweig text check (zweig in ('rs_I', 'rs_II_III'));   -- nur für schulart rs_by; Vorgabe rs_I (Entscheidung 22.11.)
+
+-- Lage je Thema (und Etappe) und Gruppe, abgeleitet, nicht gepflegt
+create view schule.thema_lage as
+select q.schulart, q.zweig,   -- 'allgemein' (RS 5/6) gilt für rs_I und rs_II_III z.thema_id, et.lernziel,
+       min(q.jahr_von) filter (where z.bezug = 'haupt') as klasse_ab,
+       array_agg(distinct q.jahr_von order by q.jahr_von) as klassen
+from schule.zuordnung z
+join schule.eintrag e on e.id = z.eintrag_id and not e.archiviert
+join schule.quelle q on q.id = e.quelle_id and q.aktiv
+left join lateral unnest(z.etappen) as et(lernziel) on true
+group by 1, 2, 3, 4;
+
+-- Abdeckung nach Stunden statt nach Themenzahl
+create view schule.lehrplan_abdeckung as
+select lb.quelle_id, lb.pfad, lb.text as lernbereich, lb.stunden,
+       count(k.id) as punkte,
+       count(k.id) filter (where exists (select 1 from schule.zuordnung z where z.eintrag_id = k.id and z.bezug = 'haupt')) as punkte_mit_thema,
+       round(lb.stunden * count(k.id) filter (where exists (select 1 from schule.zuordnung z where z.eintrag_id = k.id and z.bezug = 'haupt'))::numeric
+             / nullif(count(k.id), 0), 1) as stunden_abgedeckt
+from schule.eintrag lb
+join schule.eintrag k on k.pfad like lb.pfad || '/%' and k.quelle_id = lb.quelle_id and k.art = 'kompetenz' and not k.archiviert
+where lb.art = 'lernbereich'
+group by lb.id;
+```
+
+**Regeln für die App**
+- Die Klasse für ein Kind ist `thema_lage.klasse_ab` für Schulart und Zweig des Kindes. RS 5/6 gelten für beide Gruppen; `klasse_fest` gewinnt nur, wenn es gesetzt ist.
+- Etappen mit späterer `klasse_ab` werden erst ab dieser Klasse verlangt, z. B. 61 Laplace ab 9 und 33 allgemeine Gerade ab 9 für II/III. Vorher sind sie freiwillig („schon können“). Nichts wird doppelt gezählt.
+- Themen ohne Lehrplanpunkt in der Gruppe des Kindes sind dort kein Pflichtstoff, z. B. 49, 36 und 96 für II/III.
+- Die Matrix zeigt je Lernbereich die abgedeckten Stunden statt der Zahl der Themen. RS 8 I LB4 (40 Std., 3 Punkte, 1 Thema) steht dann bei 100 %.
+
+**Befüllung:**
+- `rolle` und `etappen` je Punkt liefert die JSON (`zuordnung_vorschlag[].klasse_bezug`, `neue_etappen`). Das Korrektur-SQL schreibt die Rolle bisher nur in `begruendung` der geänderten Zuordnungen. Die Felder selbst kann bau-lehrer nach dem Schemaschritt aus der JSON füllen.
+- Entschieden (22.11., 13:45): Maßstab ist Gruppe I. Das Modell führt trotzdem beide Gruppen. Bis `lernender.zweig` existiert, gilt für jedes RS-Kind `rs_I`. Echte RS-Kinder gibt es derzeit nicht.
+
+## 7 Korrektur-SQL `rs_korrektur_2211.sql` (Maßstab Gruppe I)
+
+Grundlage ist die Entscheidung von Sebastian vom 22.11., 13:45 (AUFTRAEGE, `lernen-app` 01caab63): Gruppe I ist der Maßstab der App.
+
+- **Umfang:** RS 5 und 6 (gelten für beide Gruppen) und 7 I, 8 I, 9 I, 10 I, also die Quellen 7, 8, 24, 12, 13 und 15.
+- **Gruppe II/III** (25, 26, 14, 16) wird nicht angefasst. Der Vorschlag je Punkt steht in der JSON (`korrektur_sql: false`).
+- **Erlaubte Befehle:** nur INSERT/UPDATE auf `schule.zuordnung`, `schule.eintrag` und `schule.thema`; kein DROP, kein DELETE.
+- **Reihenfolge:**
+  1. 31 alte Hauptbezüge zuerst auf Neben (eindeutiger Hauptbezug je Eintrag),
+  2. 6 Zuordnungen umhängen,
+  3. 27 veraltete kennzeichnen (Neben + „klaerungsbedarf“),
+  4. 8 Nebenbezüge zu Hauptbezügen,
+  5. 87 Zuordnungen ergänzen,
+  6. 26 Lernbereichstitel,
+  7. Prüfstatus „geprueft“ für die Lernbereiche und die Punkte 7–10 I,
+  8. **Klasse: Thema 91 `rs_by` 8 → 7.** In Gruppe I stehen Schrägbilder und Raumlage in 7 (M7 I LB4). Die übrigen Abweichungen bei Gruppe I ändern keine Klasse:
+     - 26: Dreisatz 5, Proportionalität 6.
+     - 61: Etappen in 8 und 9.
+     - Beides bleibt, bis es Etappenklassen gibt (Abschnitt 6).
+- Auch die Zuordnungen auf Lernbereichsebene werden bereinigt (z. B. Raumgeometrie 6 → 100, 8 I → 91, 9 I → 92). Die Lernbereiche von II/III bleiben, wie sie sind.
+- **Rauchtest** (bricht mit Fehler ab, die Transaktion rollt zurück):
+  - a) alle 305 erwarteten Zuordnungen mit Bezug vorhanden,
+  - b) Lücken in Gruppe I genau 297, 298, 871, 937,
+  - c) `thema_jahrgang` aller Themen unverändert außer 91 (nur `rs_by` → 7),
+  - d) kein Hauptbezug auf stillgelegte Themen in den Gruppe-I-Quellen.
+- **Probelauf auf lokalem Postgres 16** mit dem echten Stand **nach dem Live von 13:45**. Ich habe die DB nach dem Live neu gelesen: Zuordnungen und Einträge sind unverändert. Die zehn stillgelegten Themen haben jetzt `klasse_fest` = null, die Stilllegung ist also wirksam.
+  - Die Testkopie liefert für alle Themen dieselbe `rs_by` wie die DB.
+  - Der Probelauf ist bestanden, der zweite Lauf ebenfalls (wiederholbar).
+  - Gegenprobe mit einer künstlich geänderten Klasse (Thema 100): Abbruch bei Rauchtest c, nichts geändert.
+- **Einspielen:** `psql -1 -f` bzw. als eine Transaktion. Ohne Transaktion bricht Rauchtest c bewusst ab.
+- **Danach im Repo nachziehen:** `inhalte/themenliste.json` und `inhalte/themen/raum.schraegbilder.json` auf `rs_by` 7. Die Themendatei steht heute auf 5.
+- Die Rolle neu/weitergeführt schreibt das SQL nur in `begruendung` der geänderten Zuordnungen. Für alle Punkte steht sie in der JSON.
 
 ## Gesichert / Annahme / offen
 
@@ -323,8 +463,9 @@ Das SQL ändert **keine Klasse** (Rauchtest c). `rs_by` für 61 und eine Klasse 
 - Titelabweichungen.
 - Zuordnungsstand vorher. Abgleich gegen DB: 0 Abweichungen zu meinen Vorher-Daten.
 - Die Lücken.
-- Die Klassen-Befunde 61, 26 und die Gruppenunterschiede.
-- Zweitquellen 5, 8 I, 8 II/III, 9 I, 9 II/III, 10 I ohne Widerspruch.
+- Die Gruppenlage je Thema (Abschnitt 4), von ChatGPT 927/928/930 unabhängig bestätigt.
+- Die Widersprüche zwischen Themendateien und `themenliste.json` bei 61, 44, 91, 99, 100 und 101.
+- Zweitquellen 5, 7 I (Westermann), 8 I, 8 II/III, 9 I, 9 II/III, 10 I und die Abschlussprüfungen 2026 I und II/III ohne Widerspruch.
 
 **Annahme:**
 - Die Zuordnung Punkt → Thema beruht auf meinem inhaltlichen Urteil (Kurzfassung, Original-Punkt, Etappen des Themas). Vor allem diese Fälle sind diskutierbar:
@@ -332,14 +473,17 @@ Das SQL ändert **keine Klasse** (Rauchtest c). `rs_by` für 61 und eine Klasse 
   - 53 vs. 99/100 in RS 6,
   - 46 für Vierecke ordnen (8).
 - Kurzfassungen „sinngemäß richtig“ ohne Einzelprotokoll.
+- Etappen-Etiketten in `neue_etappen` nach Etappentiteln der Themendateien beurteilt.
 - „teilweise“ heißt: eine Etappe fehlt, nach Titeln der Etappen beurteilt, nicht nach Aufgaben.
 
 **Offen:**
-- Zweitquellen 6, 7 I, 7 II/III, 10 II/III (Pläne nicht lesbar).
-- `rs_by` 61 → 8 und Klasse je Zweig (Entscheidung).
+- Zweitquellen 6, 7 II/III und 10 II/III (Pläne nicht lesbar).
+- Gruppe II/III: Korrektur nur als Vorschlag in der JSON, kein SQL (Entscheidung Gruppe I).
+- Repo nachziehen: Klasse 91 in `themenliste.json` und in der Themendatei.
+- Schemaschritt `rolle`/`etappen`/`lernender.zweig` (bau-lehrer).
+- Die Etappenzuordnung je Punkt ist erst für die Themen mit Klassenwechsel gemacht (`neue_etappen`), noch nicht für alle Punkte.
 - Themen für die 3 Lücken.
 - Gym-Korrektur als eigener Auftrag.
-- 907 b (Stilllegung) noch nicht eingespielt.
 
 ## Quellen (alle abgerufen 22.11.2026)
 
@@ -351,8 +495,10 @@ Das SQL ändert **keine Klasse** (Rauchtest c). `rs_by` für 61 und eine Klasse 
   - 10 [I](https://www.lehrplanplus.bayern.de/fachlehrplan/realschule/10/mathematik/wpfg1) / [II/III](https://www.lehrplanplus.bayern.de/fachlehrplan/realschule/10/mathematik/wpfg2-3)
 - LehrplanPLUS Gymnasium Mathematik: [7](https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/7/mathematik), [8](https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/8/mathematik)
 - C.C. Buchner Mathe.Logo Bayern: Stoffverteilungspläne und Produktseiten wie in Abschnitt 2.
+- Westermann Mathematik 7 Wpfg. I, Inhaltsverzeichnis (kapiert.de), Link in Abschnitt 2.
 - ISB:
   - Infobrief Mathematik 2023,
+  - Abschlussprüfung 2026 Mathematik I und II/III,
   - Abschlussprüfung 2021 Mathematik I,
   - Jahrgangsstufentests 8 I und 8 II/III 2025.
   - Links in Abschnitt 2.

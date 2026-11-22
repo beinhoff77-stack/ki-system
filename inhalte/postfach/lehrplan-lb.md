@@ -2,6 +2,73 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG LP-RS Nachtrag: Gegenprobe ChatGPT 927/928/930 und Maßstab Gruppe I (lehrplan-lb)
+
+Grundlage sind `lernen-app` b3591695 (Nachtrag 13:30) und 01caab63 (Entscheidung „Gruppe I“, 13:45). Die Datenbank habe ich nach dem Live nur gelesen; nichts eingespielt.
+
+- **Gegenprobe:** Alle Aussagen von ChatGPT habe ich selbst gegen Original und DB geprüft.
+  - Bestätigt: die Stundensummen (7: 112/84, 8: 112/84, 9: 140/84, 10: 120/96) und die Gruppenlage. Das sind Dreiecke I 7 / II 8, lineare Funktionen I 8 / II 8 und 9, Quadratik und Körper I 9 / II 10, Matrizen und Potenzfunktionen nur 10 I.
+  - Ebenso bestätigt, was nicht verschoben wird: Extremwerte 8, Determinanten 7 in beiden Gruppen, Stochastik 8/9/10.
+  - 48/78: In Liste und DB haben sie keine Klasse mehr, in den Themendateien noch.
+- **Berichtigung:** Meine 13:00-Empfehlung „61 → Klasse 8“ war falsch. 61 erstreckt sich über zwei Klassen: Grundbegriffe/Häufigkeit in 8, Laplace in 9. Die Klasse bleibt 9.
+- **Zusätzlich gefunden:** Die Themendateien und `themenliste.json` nennen für 61, 44, 91, 99, 100 und 101 verschiedene RS-Klassen.
+- **Zweitquellen neu:**
+  - Westermann 7 I (kapiert.de) bestätigt 7 I.
+  - Die Abschlussprüfungen 2026 I und II/III (ISB) bestätigen die Trennung: in II/III weder Vektoren noch Matrizen noch Potenzfunktionen.
+  - Weiter offen: Mathe.Logo 6, 7 II/III, 10 II/III. Die Hessen-Übersicht 8 II/III und die ISB-Leistungsaufgaben 9 habe ich nicht gelesen.
+- **Bericht** `rs_pruefung_2211.md`: neuer Abschnitt 0 (Gegenprobe), Abschnitt 4 Lage je Gruppe, Abschnitt 6 Datenmodell, Abschnitt 7 SQL.
+- **Datenmodell** (Abschnitt 6, verbindlich): Gruppe × Klasse × Lernbereich × Punkt → Thema/Etappe.
+  - `zuordnung.rolle` (neu/weitergeführt), `zuordnung.etappen`, `lernender.zweig`.
+  - Abgeleitete Sicht `thema_lage` und Abdeckung nach Stunden.
+  - Lernstand und Sterne nur je Thema/Etappe, nie doppelt.
+- **JSON:** beide Gruppen; neu `lage_je_gruppe`, `neue_etappen`, Rolle je Gruppe berechnet.
+- **Korrektur-SQL** `rs_korrektur_2211.sql`, jetzt nur Gruppe I und RS 5/6 (Quellen 7, 8, 24, 12, 13, 15):
+  - 87 neue Zuordnungen, 6 umgehängt, 8 zu Haupt, 27 als veraltet markiert, 26 Titel.
+  - **Thema 91 `rs_by` 8 → 7.**
+  - Rauchtest: 305 erwartete Zuordnungen, Lücken genau 297/298/871/937, Klassen unverändert außer 91, kein Hauptbezug auf stillgelegte Themen.
+  - Probelauf auf dem echten Stand nach dem Live bestanden, zweimal hintereinander. Die Gegenprobe bricht ab. Kein DROP, kein DELETE.
+  - II/III nur als Vorschlag in der JSON.
+- **Danach nachziehen:** Klasse 91 in `themenliste.json` und `raum.schraegbilder.json`.
+
+FERTIG: LP-RS
+
+## 2026-11-22 – MELDUNG LP-RS Realschul-Lehrplan Punkt für Punkt (lehrplan-lb)
+
+Grundlage ist `lernen-app` c9f82c94, Auftrag „Prüf-Auftrag LP-RS“. Die Datenbank habe ich nur gelesen, nichts eingespielt. Lehrplan und Zweitquellen sind am 22.11. neu abgerufen; kein Lehrplantext ist wörtlich übernommen.
+
+- **Bericht:** `inhalte/pruefung/lehrplan/rs_pruefung_2211.md`, je Punkt in `rs_pruefung_2211.json`.
+- **Original gegen DB:**
+  - Stunden: alle 64 RS-Lernbereiche gleich.
+  - Punktzahl RS 7–10: alle 52 gleich. RS 5/6 (und Gym 7/8) sind in der DB feiner geteilt (RS 5 38/45, RS 6 32/40).
+  - Titel: 47 von 52 Lernbereichstiteln RS 7–10 weichen vom Original ab, 17 davon fälschlich als `originaltitel` markiert.
+- **Zuordnungen RS 5–10:**
+  - Vorher hatten 183 von 297 Punkten ein gültiges Hauptthema, nach Korrektur 292.
+  - 26 Punkte werden umgehängt, meist weg vom stillgelegten 48 bzw. von 43/44 hin zu 46/98.
+  - 3 echte Lücken (5 Punkte): Zahlensysteme RS 5, Vektorkoordinaten RS 7 I und II/III, Vektoren drehen RS 8 I.
+  - 4 Punkte sind nur teilweise abgedeckt.
+  - RS 8 ist vollständig bis auf „Vektoren drehen“.
+- **Klassen:**
+  - 61 Zufall und Laplace gehört laut Original in Klasse 8, nicht 9 (Entscheidung offen).
+  - 26 Dreisatz beginnt in 5.
+  - 35, 44, 91 und 92 unterscheiden sich nach Gruppe I / II/III.
+  - Das SQL ändert keine Klasse.
+- **Zweitquellen (Mathe.Logo, ISB):**
+  - 5, 8 I, 8 II/III, 9 I, 9 II/III und 10 I stimmen mit dem Original überein, ohne Widerspruch.
+  - Die Pläne für 6, 7 I, 7 II/III und 10 II/III sind nicht lesbar (offen, Produktlinks im Bericht).
+- **Gym 7/8 (Stichprobe):**
+  - Stunden stimmen.
+  - Hauptthema vorher 14/39 bzw. 23/39 Punkte, keine Lücken.
+  - Zwei falsche Hauptthemen (30 statt 102 bzw. 103).
+  - Nur Bericht; eine Korrektur wäre ein eigener Auftrag.
+- **Korrektur-SQL** `inhalte/pruefung/lehrplan/rs_korrektur_2211.sql`:
+  - Nur INSERT/UPDATE auf `schule.zuordnung`/`schule.eintrag`; kein DROP, kein DELETE. Veraltete Zuordnungen werden auf Neben + `klaerungsbedarf` gesetzt.
+  - Rauchtest: erwartete Zuordnungen, Lücken genau 297/298/871/909/937, `thema_jahrgang` unverändert, kein Hauptbezug auf stillgelegte Themen.
+  - Probelauf auf lokaler Kopie des echten Vorherstands bestanden, auch im zweiten Lauf. Die Gegenprobe bricht ab.
+  - In **einer** Transaktion einspielen (`psql -1`).
+- **Datenmodell-Vorschlag** (Abschnitt 6): Feld `rolle` neu/weitergeführt, Klasse je Zweig (`rs_by_I`/`rs_by_II_III`), Abdeckungsmatrix nach Stunden.
+
+FERTIG: LP-RS
+
 ## 2026-11-22 – MELDUNG Aufgaben nachliefern (lehrplan-lb)
 
 Grundlage ist `lernen-app` 197707e3, Auftrag „Aufgaben nachliefern“ im Bau-Auftrag FP. Die Datenbank habe ich nur gelesen, nichts ausgeführt.

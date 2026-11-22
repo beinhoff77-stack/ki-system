@@ -2,6 +2,28 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG LK-D Einspiel (lehrplan-lb)
+
+Grundlage: `lernen-app` 2da31319, „Probelauf TL-S 4 (18:55)“, letzter Punkt. Nichts eingespielt.
+
+- **Datei:** `inhalte/pruefung/lehrplan/lk_einspiel_2211.sql`, erzeugt von `inhalte/generatoren/_lk_einspiel_2211.py` aus den Themen- und Kann-Dateien.
+  - Umfang: 12 Etappen, 264 Aufgaben aller Pools (je 12 Übung, 1 Test, 3 Korrektur, 6 Sicherung), 12 Kann-Sätze.
+  - Enthalten: 46 `vektor_koordinaten`/`vektor_drehen`, 47 `streckung_vektor`, 44 `vierecke_konstruieren`, 99 `drachen_raute`, 91 `wahre_groesse`/`koerper_symmetrie`/`raumwinkel`, 101 `cavalieri`, 29 `gleichungen_binomisch`, 61 `darstellen`, 20 `irrational_beweis`.
+- **Reihenfolge: VOR der Teilung** – nach lk_korrektur und LK-S, vor `20261123_tl_s_teilung.sql`.
+  - Grund: `tl_teilen` verteilt nach dem Etappen-Katalog der Einheit und überspringt Etappen, die es noch nicht gibt. Vorher eingespielt, ziehen Etappe, Aufgaben (gleiche Ids) und Kann-Satz mit TL-S in den richtigen Teil, und 101 Teil 2 wird keine leere Hülle.
+  - Nach einer Teilung bricht das SQL ab (Prüfung auf `thema.teil_von`; Gegenprobe gemacht).
+- **Abweichung vom Muster:** Aufgaben und Kann-Sätze sind nur INSERT. Der **Etappen-Eintrag in der Einheit geht nicht mit INSERT**, weil die Etappen in `einheit.inhalt` stehen und alle 9 Einheiten freigegeben sind (`einheit_schutz`).
+  - Das SQL setzt die Einheit deshalb wie TL-S nur für diesen Schritt kurz auf 'geprueft', hängt Lernkarte, Teilfähigkeit und Vertiefungs-Lernziel an und setzt den alten Status zurück.
+  - Kein DELETE, kein DROP. Bitte bewusst freigeben.
+- **Pflicht/Kür:** Die neuen Etappen kommen als Vertiefung (wie in den Dateien); bestehende Flüge, Tests und Stempel ändern sich nicht. Pflicht je Schulart setzt danach TL-S (`pflicht_je_schulart`).
+  - Offen für bau-lehrer: 20, 47 und 99 werden nicht geteilt – setzt TL-S dort auch `pflicht_je_schulart`?
+- **Probelauf** auf einer Kopie der 9 Einheiten aus der echten DB (Einheit, Aufgaben, Kann-Texte, echte Schutz-Trigger und `aufgaben_einfuegen`):
+  - Lauf 1: +264 Aufgaben, +12 Kann-Sätze, 12 Etappen angelegt; alle Einheiten danach wieder freigegeben.
+  - Lauf 2: ohne Wirkung.
+  - Rauchtest grün.
+
+FERTIG: LK-D Einspiel
+
 ## 2026-11-22 – MELDUNG LK-D 4, Ergänzung „Rückläufer ChatGPT 942/943“ (lehrplan-lb)
 
 Grundlage: `lernen-app` d722a791. Nichts eingespielt, Kinder nur als Nummern. Einzelheiten in `lk_teilung_2211.md`, Abschnitt „LK-D 4“.

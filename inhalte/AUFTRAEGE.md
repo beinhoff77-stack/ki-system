@@ -2512,3 +2512,22 @@ Bitte nur die Testdatei ändern (keine Migration): Vor Schritt 1 alle übrigen �
 
 ### Aufgaben nachliefern · an `lehrplan-lb`
 Etappen mit weniger als 3 nie beantworteten Aufgaben der Stufen 2–3 (aus `schule.etappen_wenig_frisch()`): Einheit 39 „ordnen“ und „zahlengerade“, Einheit 5 „waage“. Je Etappe 8 neue Übungsaufgaben (Stufe 2–3, mindestens zwei Aufgabentypen, eigene Formulierungen, keine Schulbuch-Aufgaben wörtlich), im üblichen Einheiten-Format, Prüfskript grün. Meldung: „FERTIG: Aufgaben frisch“.
+
+### Nachtrag WD-S 4 – Rückläufer ChatGPT 921 (22.11., 11:55 Berlin)
+
+ChatGPT hat WD-S 3 / WD-4b / 907 c bei Commit 7675d32 gelesen: die vier Muss aus 919 sind zu, fünf neue Muss. Bewertung des Haupt-Chats: alle berechtigt, im Alltag selten, aber billig zu schließen – vor dem Einspielen erledigen. **Vor FP-S bearbeiten.**
+
+**An `bau-lehrer`** – neue Datei `supabase/migrations/20261122_wd_s4_nacharbeit_921.sql` (nach WD-S 3 und WD-4b einzuspielen; schon gelieferte Dateien nicht ändern, außer den Tests). Kein DROP, kein DELETE.
+1. **Mischkarte beim Einlösen prüfen (Muss 1):** Eine ausgegebene Mischkarte zählt nicht mehr als Misch-Nachweis/Wiederholung, wenn seit der Ausgabe eine *andere* Aufgabe derselben Etappe beantwortet wurde (Prüfung im Server beim Einlösen). Zweiter Versuch einer schon begonnenen Mischkarte bleibt möglich. Test: A ausgeben → B derselben Etappe beantworten → A ohne Neuladen einlösen → `misch.gueltig` false, keine Wiederholung.
+2. **Wiederholung mit Hilfe: keine Sterne (Muss 2, Festlegung Haupt-Chat):** Jede richtig gelöste *fällige Wiederholung oder Mischkarte* mit Tipp oder im zweiten Versuch bucht 0 Sterne – auch keine Übungssterne. Antwort und Konto stimmen überein. (FP ändert daran nichts: 5 Sterne mit Hilfe gelten nur beim normalen Üben einer Etappe.) Test: Sternsumme und Gründe vorher/nachher.
+3. **Runde fertig bei gleichzeitigen Antworten (Muss 3):** Abschluss der Tagesrunde je Kind und Tag serialisieren (Sperre auf der Runden-Zeile vor dem Zählen). Zwei-Sitzungen-Test an zwei verschiedenen letzten Pflicht-Etappen, Zustand danach direkt per SELECT.
+4. **`wdh_staffel_zurueck`/`_strecken` unter Sperre (Muss 4):** Karten in fester Reihenfolge `for update` sperren, unter der Sperre prüfen und schreiben.
+5. **Tests (Muss 5, Sollte 1, 3):** `wd_s3_rauchtest.sql` wie im Nachtrag „Rauchtest stabil machen“; Teil 7 darf fehlende WD-4b-Funktionen nicht überspringen; `wd_s3_gleichzeitig.sh` bricht bei „FEHLER“ mit Exit ≠ 0 ab; `wdh_aufgabe_da` als deterministisches EXISTS (ohne Zufallswahl); Fälle 0/1 freie Aufgabe und Lerntage mit Pausen.
+6. **Rechte (Sollte 4):** für alle neuen `schule.*`-Helfer aus WD-S 2/3/4 `revoke all … from public, anon, authenticated`, soweit noch nicht geschehen.
+Meldung im Postfach: „FERTIG: WD-S 4“ (ersetzt „FERTIG: WD-S 3 Test“).
+
+**An `bau-motivation`** – App 0.86.3 (vor 0.87.0):
+- Runde gemacht, noch fällige Etappen, aber keine wählbare Aufgabe: kein Angebot „freiwillige Extras“, sondern „Heute keine passende frische Aufgabe – bleibt für später offen.“ (Sollte 2)
+- Siegel-Text „FÜR IMMER GELERNT“ ersetzen (Etappe kann nach einem Fehler zurück in den Takt), z. B. „ABGELEGT“; Wortlaut nach Gestalter-Vorgabe `inhalte/pruefung/kind/abgelegt/`, falls dort anders. (Sollte 4)
+- Anzeige bei Wiederholung/Mischkarte mit Hilfe: 0 Sterne, aus dem Serverwert.
+Meldung: „FERTIG: 0.86.3“.

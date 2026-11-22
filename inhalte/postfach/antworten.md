@@ -639,3 +639,8 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - Probelauf echte Datenbank (alles zurückgerollt): fünf Migrationen in Reihenfolge ok; Stufen, Reiseoptionen, Lernstand, Sterne vorher = nachher. WD-4b: fällige beim Kind 2 von 42 auf 14.
 - Tests: 907 (zwei), WD-S 2 grün. WD-S 3 bricht in Schritt 2 – Fehler im Test (rechnet nur mit Auswahl-Aufgaben), Funktion richtig; mit angepasster Vorbereitung ganz grün. Auftrag an `bau-lehrer` steht in AUFTRAEGE.md („Nachtrag WD-S 3 – Rauchtest stabil machen“).
 - Noch nichts eingespielt. Offen: Prüfung ChatGPT, dann „Live“ von Sebastian. Beide Kinder üben gerade (11:10).
+
+## 22.11., 11:55 Berlin – Haupt-Chat: ChatGPT 921, faire Punkte
+
+- ChatGPT 921: vier Muss aus 919 zu, fünf neue Muss (Mischkarte beim Einlösen, Sterne bei Wiederholung mit Hilfe, Runde fertig bei gleichzeitigen Antworten, Rückweg Staffel unter Sperre, Rauchtest). Auftrag „Nachtrag WD-S 4“ in AUFTRAEGE.md an `bau-lehrer` und `bau-motivation` (0.86.3). Nichts eingespielt.
+- Neu entschieden (Sebastian): „Bau-Auftrag FP – faire Punkte“ (10/5, Landungs-Bonus 80/40/10, nachträglich). Reihenfolge: WD-S 4 → einspielen → FP.

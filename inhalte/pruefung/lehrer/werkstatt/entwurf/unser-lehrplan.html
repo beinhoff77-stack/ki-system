@@ -77,6 +77,7 @@ font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 .ch.gew{outline:2px solid var(--akz)}
 .zu-reihe{display:flex;align-items:center;gap:12px;border:0;border-bottom:1px solid var(--linie);background:#EEF4E8;padding:7px 10px;text-align:left;font-size:12.5px;font-weight:650;color:#2E5E1F}.zu-reihe .kb{color:#fff;font-weight:800;border-radius:7px;padding:2px 8px;font-size:12px}.zu-reihe .leise{margin-left:auto;color:var(--leise);font-weight:500}
 .klzu{border:0;background:none;color:var(--muted);font-size:10px;text-decoration:underline;padding:0}
+.rg{display:flex;flex-direction:column;align-items:center}.rg:not(.gr){flex-direction:row;gap:4px;align-items:center}.rk2{display:flex;flex-direction:column;gap:3px;margin-top:4px}.rl{font-size:9.5px;color:var(--leise);white-space:nowrap}.rl b{font-weight:700}
 /* Detail */
 .drawer{position:absolute;top:0;right:0;bottom:0;width:390px;max-width:100%;background:var(--karte);border-left:1px solid var(--linie);box-shadow:-12px 0 30px #0002;transform:translateX(105%);transition:transform .22s cubic-bezier(.2,.8,.2,1);z-index:20;display:flex;flex-direction:column}
 .drawer.auf{transform:none}
@@ -115,7 +116,7 @@ font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
 </style></head><body>
 <div class="huelle">
 <div class="einl"><h1>Entwurf: „Unser Lehrplan“ – Matrix, Fahrplan und Detail auf einer Seite</h1>
-<p>Klickbarer Prototyp für die Eltern-/Lehrer-Seite eines Kindes (ersetzt die Reiter „Stand“ und „Plan“). Themen, Klassen, Etappen und Verbindungen aus der echten Themenliste; <b>Lernstand und Plan von „Kind B“ (Gym 8) erfunden</b>. Alles probierbar: Thema antippen, einplanen, Stufe setzen, ziehen (Rechner), Auswählen, Einstieg prüfen, Rückgängig.</p></div>
+<p>Ringe je Klasse: gelandete Etappen / alle Etappen der Pflichtthemen dieser Klasse (groß: gewählte Schule, klein darunter: die anderen zwei). Klickbarer Prototyp für die Eltern-/Lehrer-Seite eines Kindes (ersetzt die Reiter „Stand“ und „Plan“). Themen, Klassen, Etappen und Verbindungen aus der echten Themenliste; <b>Lernstand und Plan von „Kind B“ (Gym 8) erfunden</b>. Alles probierbar: Thema antippen, einplanen, Stufe setzen, ziehen (Rechner), Auswählen, Einstieg prüfen, Rückgängig.</p></div>
 <div class="steuer"><span>Breite:</span><button data-w="400">Handy 400</button><button data-w="820">Tablet 820</button><button data-w="1280" class="an">Rechner 1280</button></div>
 <div id="stage" style="width:1280px"><div class="app" id="app"></div></div>
 </div>
@@ -146,9 +147,14 @@ function stText(x){const s=st(x),y=stufe[x.id]||{};if(s==='dran')return`▶ Etap
 function chip(x){const s=st(x),p=imPlan(x.id);const fremd=!(sa==='ib'?x.ib:x.k[sa]);
  const cls=['ch',s,fremd?'fremd':'',x.s?'aufg':'',sel===x.id?'sel':'',gew.has(x.id)?'gew':'',!passt(x)?'blass':'',q&&!(x.t+' '+x.u).toLowerCase().includes(q)?'blass':''].join(' ');
  return `<button class="${cls}" data-id="${x.id}" draggable="${breite>=760}">${p>=0?`<span class="pl">${p+1}</span>`:(x.s?'':'<span class="pl plus">+</span>')}<span class="cb">✓</span><span class="t">${esc(x.t)}</span><span class="m"><span class="st">${x.s?'aufgelöst':stText(x)}</span>${schB(x)}</span></button>`}
-function ring(k){const l=D.filter(x=>x.k[sa]===k&&!x.s);const c={kann:0,wdh:0,dran:0,offen:0};l.forEach(x=>{const s=st(x);if(c[s]!==undefined)c[s]++});const n=l.length||1;let a=0;const r=15,U=2*Math.PI*r;
- const seg=(v,f)=>{if(!v)return'';const len=v/n*U;const s=`<circle r="${r}" cx="20" cy="20" fill="none" stroke="${f}" stroke-width="6" stroke-dasharray="${len} ${U-len}" stroke-dashoffset="${-a}" transform="rotate(-90 20 20)"/>`;a+=len;return s};
- return `<svg width="40" height="40" aria-label="Stand Klasse ${k}"><circle r="${r}" cx="20" cy="20" fill="none" stroke="#E6E1D4" stroke-width="6"/>${seg(c.kann,'#2E7D32')}${seg(c.wdh,'#8BC34A')}${seg(c.dran,'#E9B53A')}${seg(c.offen,'#1F5FA8')}<text x="20" y="24" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1E2A26">${Math.round((c.kann+c.wdh)/n*100)}%</text></svg><span class="kn">${c.kann+c.wdh}/${l.length}</span>`}
+function etGel(x){const n=x.e.length,s=st(x);if(s==='kann'||s==='wdh')return n;if(s==='dran')return dranEt-1;return begonnen[x.id]?begonnen[x.id]-1:0}
+function themen(k,schule){return D.filter(x=>!x.s&&(schule==='ib'?x.ib===k-5:x.k[schule]===k))}
+function ringSvg(k,schule,gr){const l=themen(k,schule);if(!l.length)return '';const E=l.reduce((a,x)=>a+x.e.length,0);let g=0,w=0,d=0;l.forEach(x=>{const n=etGel(x),s=st(x);if(s==='kann')g+=n;else if(s==='wdh')w+=n;else d+=n});
+ const r=gr?15:9,sw=gr?6:4,c=gr?20:12,U=2*Math.PI*r;let a=0;const seg=(v,f)=>{if(!v)return'';const len=v/E*U;const o=`<circle r="${r}" cx="${c}" cy="${c}" fill="none" stroke="${f}" stroke-width="${sw}" stroke-dasharray="${len} ${U-len}" stroke-dashoffset="${-a}" transform="rotate(-90 ${c} ${c})"/>`;a+=len;return o};
+ const pz=Math.round((g+w+d)/E*100),tf=l.filter(x=>{const s=st(x);return s==='kann'||s==='wdh'}).length;
+ const lab=schule==='ib'?'MYP '+(k-5):SA[schule]+' '+k;
+ return `<span class="rg ${gr?'gr':''}" title="${lab}: ${g+w+d} von ${E} Etappen gelandet · ${tf}/${l.length} Themen fertig"><svg width="${2*c}" height="${2*c}"><circle r="${r}" cx="${c}" cy="${c}" fill="none" stroke="#E6E1D4" stroke-width="${sw}"/>${seg(g,'#2E7D32')}${seg(w,'#8BC34A')}${seg(d,'#E9B53A')}${gr?`<text x="${c}" y="${c+4}" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1E2A26">${pz}%</text>`:''}</svg>${gr?`<span class="kn">${tf}/${l.length} Themen</span>`:`<span class="rl"><b>${lab}</b> ${pz}%</span>`}</span>`}
+function ring(k){const andere=['gym','rs','ib'].filter(s=>s!==sa);return ringSvg(k,sa,true)+`<span class="rk2">${andere.map(s=>ringSvg(k,s,false)).join('')}</span>`}
 function kopf(){if(breite<760)return `<div class="kopf" style="flex-wrap:wrap;padding:8px 12px 0"><span class="zur">‹</span><span class="name">Kind B<small>Gym · Kl. 8</small></span><nav class="reiter" style="width:100%;margin:0;justify-content:space-around"><a>Überblick</a><a>Was wackelt</a><a class="an">Lehrplan</a></nav></div>`;return `<div class="kopf"><span class="zur">‹</span><span class="name">Kind B<small>Gymnasium · Kl. 8</small></span><nav class="reiter"><a>Überblick</a><a>Was wackelt</a><a class="an">Lehrplan</a></nav><span style="width:8px"></span></div>`}
 function leiste(){const kompakt=breite<760;const nf=D.filter(fehlt).length;return `<div class="leiste">
  ${kompakt?'':'<span class="lbl">Klassen nach</span>'}<div class="seg" data-g="sa">${['gym','rs','ib'].map(s=>`<button data-v="${s}" class="${sa===s?'an':''}">${{gym:'Gymnasium',rs:'Realschule',ib:'IB'}[s]}</button>`).join('')}</div>
@@ -168,7 +174,7 @@ function rail(){const fz=plan.map((id,i)=>{const x=BY[id];const vor=(VOR[id]||[]
  ${breite<760?'<div class="dz">Einplanen: unter „Alle Themen“ ein Thema antippen</div>':'<div class="dz" data-dz="1">+ Thema hierher ziehen</div>'}
  <div class="rsek">AUSSERHALB DES FAHRPLANS</div><div class="zu">↻ In Wiederholung <span>${nw} ›</span></div><div class="zu">◉ Kann er <span>${nk} ›</span></div></div></aside>`}
 function matrix(){const kls=[5,6,7,8,9,10];const gebs=GEB.filter(([g])=>D.some(x=>x.g===g&&sichtbar(x)));
- let h=`<div class="mx" style="grid-template-columns:62px repeat(${gebs.length},minmax(${breite>=1100?118:96}px,1fr))"><div class="ecke"></div>`+gebs.map(([g,i])=>`<div class="gh"><span class="gi">${i}</span>${esc(g)}</div>`).join('');
+ let h=`<div class="mx" style="grid-template-columns:78px repeat(${gebs.length},minmax(${breite>=1100?118:96}px,1fr))"><div class="ecke"></div>`+gebs.map(([g,i])=>`<div class="gh"><span class="gi">${i}</span>${esc(g)}</div>`).join('');
  for(const k of kls){if(fertig(k)&&!auf.has(k)){const l=D.filter(x=>kl(x)===k&&sichtbar(x)&&!x.s);const nw=l.filter(x=>st(x)==='wdh').length;h+=`<button class="zu-reihe" data-a="kl-auf" data-k="${k}" style="grid-column:1/-1"><span class="kb" style="background:${FARBE[k]}">${SA[sa]} Kl. ${k}</span><span>✓ Alles gekonnt · ${l.length} Themen${nw?` · davon ${nw} in Wiederholung`:''}</span><span class="leise">aufklappen ▾</span></button>`;continue}
   h+=`<div class="kz"><span class="kb" style="background:${FARBE[k]}"><small>${sa==='ib'?'MYP':SA[sa]}</small>${sa==='ib'?k-5:'Kl. '+k}</span>${ring(k)}${fertig(k)?`<button class="klzu" data-a="kl-zu" data-k="${k}">einklappen</button>`:''}</div>`;
   for(const [g] of gebs){const l=D.filter(x=>x.g===g&&kl(x)===k&&sichtbar(x)).sort((a,b)=>((a.r[sa]??999)-(b.r[sa]??999)));h+=`<div class="zel">${l.map(chip).join('')}</div>`}}

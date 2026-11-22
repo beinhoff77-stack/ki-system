@@ -23,7 +23,8 @@ Nur Vorgabe, kein App-Code. Ziel (Sebastian): eigenen Lehrplan machen – sehen,
 ```
 - **Detail als Schublade über der Matrix**, nicht als feste Spalte – so bleibt die volle Breite für die Matrix (löst N1 der Nachprüfung Matrix: zu schmale Spalten bei 1280).
 - **Fertige Klassen eingeklappt:** Klassen, in denen alles „kann er“/„Wiederholung“ ist, stehen als eine Zeile „Gym Kl. 5 · ✓ Alles gekonnt · 14 Themen · davon 3 in Wiederholung · aufklappen ▾“. Beim Öffnen scrollt die Seite zur Klasse des Kindes.
-- Klassen-Kasten links: Schulart + Klasse in Klassenfarbe (LA-8), darunter **Ring** (grün kann, hellgrün Wdh, gelb dran, blau im Plan) mit % und „9/10“.
+- Klassen-Kasten links: Schulart + Klasse in Klassenfarbe (LA-8), darunter **drei Ringe** (Sebastian 22.11.): groß die gewählte Schule, klein darunter die beiden anderen („RS 8 25 %“, „MYP 3 53 %“).
+- **Rechnung je Ring:** gelandete Etappen / alle Etappen der Pflichtthemen dieser Schule in dieser Klasse (IB: MYP-Jahr = Klasse − 5), unabhängig davon, in welcher Zeile die Themen stehen. Gelandet = Etappe gelandet (auch in Wiederholung); gesetzte Themen („Kann er …“) zählen mit allen Etappen. Farben im Ring: grün kann er, hellgrün Wiederholung, gelb angefangene Themen. Unter dem großen Ring „9/10 Themen“ (ganz fertige Themen). Aufgelöste Themen zählen nicht. Darüberfahren: „Gym 8: 12 von 101 Etappen gelandet · 1/15 Themen fertig“.
 
 ## 3 Die Karte (ein Thema in der Matrix)
 - Zeile 1: Titel (höchstens 2 Zeilen, Silbentrennung, dann „…“).

@@ -139,3 +139,6 @@ Vorgabe `inhalte/pruefung/kind/karte/umsetzung.md`, Entwurf `karte/entwurf/reise
 
 ## 2026-11-22 – FERTIG: Vorgabe Teile
 „Teil x von y · Untertitel“ und „Zusatz“ ergänzt: `lehrer/werkstatt/umsetzung.md` Abschnitt 12.7 (Matrix-Karte mit Marke 2/2 und Familien-Klammer, Zusatz gestrichelt und ohne Zählung in Ring/Abdeckung, Detail „Teile dieses Themas“, Fahrplan/Warnungen, Stempel nachgetragen) und `kind/karte/umsetzung.md` §11 (Nachbarländer mit feiner Kette, Abzeichen 1/2, Blatt mit allen Teilen, Zusatz mit „+“, Stempel „TEIL 2/2“). 12.1 „✈ Teil 2 · eig. Flug“ ersetzt.
+
+## 2026-11-22 – FERTIG: Prüfung LW-1 (0.88.0)
+Bericht `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw1.md`, Bilder `werkstatt/lw1/`. lernen-app 8af4fee, Testsuite 141/141 grün. Muss: keine. Sollte: S1 Handy – erste Karte erst bei 795 von 860 px (Leiste ganz ausgeklappt; Vorschlag eine Zeile „Fahrplan | Alle Themen · Filter ▾“); S2 Fahrplan zählt Orte, vier Karten mit „Platz 3“ (bis Reise-Aufbau „3a–3d“, Kopf „8 Plätze · 14 Themen“). Kann: K1 Etappen-Liste im Detail widerspricht „3 von 7“ (Testdaten, Vermutung), K2 Kopf Klasse 5 vs. Matrix Klasse 8, K3 Tablet-Leiste dreizeilig.

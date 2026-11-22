@@ -8,7 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import re
 from _bausatz import A, Z, baue, cz, eur, ist_endlich, kl, zt  # noqa: E402
 
-META = {'thema_schluessel': 'gleichungen.formeln', 'thema_id': 4, 'block_id': 60, 'klasse': {'gym_by': 8}}
+META = {'thema_schluessel': 'gleichungen.formeln', 'thema_id': 4, 'block_id': 60, 'klasse': {'gym_by': 8, 'ib_myp': 4}}
 
 ETAPPEN = [
     {'lernziel': 'ein_schritt', 'titel': 'Formeln in einem Schritt umstellen',

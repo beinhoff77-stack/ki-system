@@ -7,7 +7,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _bausatz import A, Z, baue, cz, mit_bild, runde, zt  # noqa: E402
 
-META = {'thema_schluessel': 'messen.koerper_darstellung', 'thema_id': 52, 'block_id': 86, 'klasse': {'gym_by': 8, 'rs_by': 5}}
+META = {'thema_schluessel': 'messen.koerper_darstellung', 'thema_id': 52, 'block_id': 86, 'klasse': {'gym_by': 8, 'rs_by': 5, 'ib_myp': 3}}
 
 ETAPPEN = [
     {'lernziel': 'prisma', 'titel': 'Prismen: Ecken, Kanten, Flächen',

@@ -3,7 +3,9 @@
  "thema_id": 71,
  "block_id": 52,
  "klasse": {
-  "gym_by": 6
+  "gym_by": 6,
+  "rs_by": 7,
+  "ib_myp": 4
  },
  "autor": "Claude (Runde 9, Generator finanzen_zinsen.py)",
  "inhalt": {

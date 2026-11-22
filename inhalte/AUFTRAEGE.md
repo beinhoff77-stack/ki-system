@@ -2689,3 +2689,230 @@ Tests für 360×640 und 400×860 ergänzen. Meldung: „FERTIG: 0.87.2“.
 - **An `bau-lehrer` (klein, Datei `20261123_fp_s4_sperrfolge.sql` oder Ergänzung der Tests, nicht einspielen):** ChatGPT 932 Sollte 1 – Sperrreihenfolge prüfen: Mischpfad sperrt Karte → Ausgabe; der normale Antwortpfad kann über den Trigger `versuch_misch_verfall` die Ausgabe vor der Karte anfassen. Reihenfolge vereinheitlichen oder begründen, warum keine zyklische Sperre möglich ist; Paralleltest Misch- gegen normale Antwort zur selben Aufgabe. Sollte 2 – Tests E/F reihenfolgeunabhängig („genau einmal gültig“) statt fester Erwartung. Meldung: „FERTIG: FP-S 4“.
 - **An `lehrplan-lb` (in LK-D mit erledigen):** Repo-Klasse Thema 91 (rs_by 7) nachziehen; „Abdeckung nach Stunden“ ist ein **Zuordnungsgrad** (Lehrplan-Punkt hat ein Thema), keine Lernabdeckung – so benennen; Punkte 931, 937 und die 8er-Inhalte von Thema 61 bleiben als Lücke/teilweise ausgewiesen.
 - **An Gestalter und `bau-motivation` (für LK-App):** Die Zahl je Klasse heißt „Lehrplan zugeordnet: x von y Stunden“, nicht „abgedeckt/gelernt“.
+
+### Nachtrag LW-S 2 / LK-S 2 – Rückläufer ChatGPT 934 (22.11., 15:15 Berlin) · an `bau-lehrer`
+
+ChatGPT hat LW-S und LK-S bei Commit 73cfb45 gelesen. Zugriff, Rechte, Sichten-Aufbau und RS „allgemein“ sind in Ordnung. Fünf Muss – beide Dateien bleiben uneingespielt. Bitte in den gelieferten Dateien korrigieren (sie sind noch nirgends eingespielt) oder als Folgedatei; Tests ergänzen.
+
+**LW-S**
+- **A1 (Muss):** „Neuer Fehler öffnet wieder“ darf nicht jeden falschen ersten Übungsversuch ausschließen. Maßgeblich ist die endgültige Wertung (`versuch_wertung(v) = 'falsch'` bzw. festgehaltene Wertung; bei Tests die falsche Testantwort). `wackelt_fehler` und `wackelt_liste` gleich behandeln; auch Antworten, die erst nach dem Status-Zeitpunkt endgültig werden (30 Minuten / Weitergehen). Regression: erster Fehler → offen → endgültig → wieder „zu besprechen“; neutraler Fehler öffnet nicht.
+- **A2 (Sollte):** Zugangstest mit gültigem Lern-Zugang (eigenes und fremdes Kind), Eltern/Lehrer mit berechtigtem und fremdem Kind, gesperrtem Zugang – ohne echte Schlüssel in der Testdatei.
+
+**LK-S**
+- **B1 (Muss):** `thema_lage_klasse` darf Klassen vor `klasse_fest` nicht verschlucken. Beispiel Thema 61: `rs_by` = 9, der Lehrplan verlangt aber schon in RS 8 I Inhalte. Die Klassenliste zeigt **alle** belegten Klassen; `klasse_fest` bestimmt weiter nur den bisherigen Start in Route/Stufen. Regression: 61 in 8 und 9, Stufen/Visum unverändert.
+- **B2 (Muss):** `etappen = null` heißt nicht „alle Etappen in dieser Klasse“, wenn es nur „unbekannt“ ist. Je Punkt exakt auflösen (Daten jetzt aus `lk_daten_2211.json`, dort je Punkt Etappen für alle Schularten); „ganzes Thema“ nur, wenn ausdrücklich so geliefert. Test: Klassenstand je Etappe (z. B. 2 von 3).
+- **B3 (Muss):** Teilen muss den Etappenkatalog der **alten** Einheit atomar verkleinern; alte und neue Einheit je mindestens 3 verschiedene Etappen, disjunkt, zusammen vollständig; keine schon gelandete Etappe wird neu verlangt. `aufgaben_umhaengen = false` bei vorhandenem Lernstand verbieten. Der Rauchtest darf nicht selbst in 2 + 3 teilen.
+- **B4 (Muss):** Probelauf je Teilung mit vollständigem Vorher/Nachher: `thema_stufe`/`im_plan`, Reiseoptionen, Visum, Lernstand je Etappe, Stempel, Abschluss je Flug, Sterne-Buchungen mit Bezug, Plan; offene Misch-Ausgaben und Sitzungen mit umhängen.
+- **B5 (Sollte):** Unbekannte Etappen-Schlüssel sind ein Fehler (Abbruch oder Zuordnung unverändert), nicht stillschweigend „ganzes Thema“.
+- **B6 (Sollte):** Feld umbenennen/kennzeichnen: „Stunden mit Themenzuordnung“ (Schätzung), nicht „abgedeckt“.
+- Befüllung auf `lk_daten_2211.json` umstellen (Gym, RS I und II/III, IB) – nach `lk_korrektur_2211.sql`.
+- **Hinweis:** Nach LK-D erfüllt derzeit **kein** Thema die Teilungsregel (Maßstab Gymnasium). Das Teil-Verfahren bleibt als geprüfte Vorlage, wird aber vorerst nicht angewendet.
+Meldung: „FERTIG: LW-S 2“ und „FERTIG: LK-S 2“.
+
+### Stand 22.11., 15:15 Berlin – LK-D geliefert
+`lehrplan-lb`: Gymnasium 5–10 und IB geprüft (`lk_pruefung_2211.md`). Probelauf `lk_korrektur_2211.sql` und FP-S 4 grün (Kinder und Klassen unverändert, Gym-Punkte ohne Hauptthema 134 → 0). Gegenprobe Gymnasium bei ChatGPT angefragt. Entscheidungen bei Sebastian: Teilungsliste (Empfehlung: nichts teilen), 43/69/71 im Gymnasium als „Vertiefung“, drei harte IB-Voraussetzungen.
+
+### Nachtrag Reise-Aufbau – Vorschlag fortschreiben (22.11., 15:25 Berlin) · an Chat `reise-aufbau`
+
+Stand nach LK-D: **Kein Thema wird geteilt** (Maßstab Gymnasium; Empfehlung `lehrplan-lb`, Bestätigung Sebastian steht aus – bei anderer Entscheidung folgt ein weiterer Nachtrag). Es bleibt bei: **ein Flug = ein Land, jedes Land genau einmal, jede Stadt genau einmal – unabhängig von Schulart und Klasse.** Realschule und IB fliegen dieselben Länder, nur in einer anderen Klasse.
+Bitte `inhalte/reise/aufbau-vorschlag.md`/`.json` fortschreiben:
+1. **Neue Etappen = neue Städte:** Sechs neue Lernkarten (Vertiefung/Kür) aus LK-D brauchen je eine Stadt im Land ihres Flugs, passend in die Strecke eingefügt: Thema 46 Kongruenzabbildungen (+2: Vektoren in Koordinaten, Vektoren drehen), 47 Ähnlichkeit (+1), 44 Konstruktionen (+1), 99 Flächen von Vielecken (+1), 91 Schrägbilder (+1). Kür-Städte als solche kennzeichnen.
+2. **Abgleich mit dem aktuellen Stand:** Themen, Einheiten und Etappenzahlen neu aus der Datenbank lesen (`db_stand.json` erneuern); Abweichungen zum Vorschlag vom 22.11. morgens auflisten.
+3. **Koordinaten:** je Land (Mittelpunkt) und je Stadt Breite/Länge aus GeoNames in die JSON – Grundlage für die geplante Karte der Kinderseite (`inhalte/reise/briefing-gestalter.md`).
+4. **Reserve:** je Kontinent mindestens drei freie Länder mit je 6–8 Städten benennen (für neue Themen).
+5. Prüfskript wie bisher (jedes Land einmal, jede Stadt einmal, Stadt im richtigen Land, Städte = Etappen je Flug).
+Nur Vorschlag, kein App-Code, keine Datenbank-Änderung. Meldung: „FERTIG: Reise-Aufbau 2“.
+
+### Nachtrag LK – Teilungsregel NEU (22.11., 15:30 Berlin) · Entscheidung Sebastian · ersetzt „Maßstab Gymnasium“
+
+„Ich will eine Teilung! Wenn z. B. Gymnasium in Klasse 7 und Real 7 und 8 – dann im Gymnasium 2 Teile und Realschule 7. und 8. Klasse.“
+
+**Regel:**
+1. Maßstab sind **Gymnasium und Realschule Gruppe I gemeinsam**: Verteilt *eine* der beiden ein Thema auf zwei (oder mehr) Klassen, wird das Thema für **alle** geteilt – je Klassenabschnitt ein eigener Flug mit eigenem Land (Nachbarland des ersten Teils), eigenem Test und Stempel.
+2. Jede Schulart ordnet die Teile ihren Klassen zu: Beispiel „Terme umformen“ – Realschule: Teil 1 in 7, Teil 2 in 8; Gymnasium: **beide Teile in 7**, als zwei Flüge nacheinander. Teil 2 setzt Teil 1 voraus.
+3. Geteilt wird nur, wenn **jeder** Teil mindestens 3 Etappen hat. Sonst bleibt es ein Flug; die Lehrplan-Übersicht zeigt dann „weitergeführt“ (LK-App).
+4. Folge: Jedes (Teil-)Thema liegt je Schulart in genau **einer** Klasse. „Thema in mehreren Klassen“ bleibt nur für die Reste unter 3 Etappen und für IB / RS II/III als Anzeige.
+5. IB und RS Gruppe II/III lösen **keine** Teilung aus (IB ist nur Orientierung, II/III nur Bericht) – Vorschlag Haupt-Chat, Bestätigung Sebastian offen; solche Fälle als Grenzfall listen.
+6. Lernstand: je Etappe in den richtigen Teil umhängen (Muster 21.11.); ist ein Teil dadurch vollständig, gilt er als geschafft, Stempel für den neuen Teil nachträglich, keine doppelten Sterne für schon vergütete Abschlüsse.
+
+**An `lehrplan-lb` (LK-D 2):** Teilungsliste nach dieser Regel neu erstellen (erste Kandidaten aus dem Bericht: 29 Terme umformen RS 7 + 8; 46 Kongruenzabbildungen RS 6 + 7 + 8; 91 Schrägbilder RS 7 + 8; prüfen: 26, 61 – erster bzw. zweiter Teil unter 3 Etappen). Je Teil: Titel, Etappen, Klasse je Schulart (Gym, RS I, RS II/III, IB), Voraussetzungen, Aufbau-Verstöße nach der Teilung, Stand je Kind (nur Nummern). Grenzfälle mit Empfehlung. Datei `inhalte/pruefung/lehrplan/lk_teilung_2211.md` + JSON. Meldung: „FERTIG: LK-D 2“.
+**An `bau-lehrer`:** Das Teil-Verfahren (LK-S, Muss B3/B4 aus ChatGPT 934) wird jetzt gebraucht – Vorrang vor der Mehr-Klassen-Anzeige. Mehrfach-Teilung (drei Teile) muss möglich sein.
+**An `reise-aufbau`:** Nachbarländer für die neuen Teile kommen nach Sebastians Entscheidung der Liste; der Nachtrag „Vorschlag fortschreiben“ gilt sonst weiter (Punkt „kein Thema wird geteilt“ ist überholt).
+
+### Berichtigung Teilungsregel (22.11., 15:35 Berlin) · Entscheidung Sebastian
+
+„Nicht zwingend 2 – so, dass der gesamte Lehrplan abzubilden wäre: so viele Splits wie nötig!“
+- **So viele Teile wie nötig:** Je Klassenabschnitt (über Gymnasium und Realschule Gruppe I zusammen betrachtet) ein eigener Teil = eigener Flug = eigenes Land. Liegen die Schnitte der beiden Schularten verschieden, wird an **allen** Schnittstellen geteilt (feinste gemeinsame Teilung).
+- **Die Mindestgröße „3 Etappen je Teil“ entfällt als Grund, nicht zu teilen.** Ziel: Jedes (Teil-)Thema liegt je Schulart in genau einer Klasse, es bleibt kein „weitergeführt“-Rest. Hat ein Teil nur 1–2 Etappen, schlägt `lehrplan-lb` vor: (a) Kurzflug mit 1–2 Städten oder (b) Inhalt auf mindestens 3 Etappen ergänzen, wenn der Lehrplan-Abschnitt sonst zu dünn abgedeckt ist – mit Empfehlung je Fall.
+- Damit sind auch 26 Proportionalität (RS 5 + 6) und 61 Zufall und Laplace (RS 8 + 9) Teilungs-Kandidaten.
+- IB und RS II/III lösen weiterhin keine Teilung aus (Vorschlag Haupt-Chat, als Grenzfälle listen).
+- **`bau-lehrer`:** prüfen und melden, ob irgendwo mindestens 3 Etappen je Flug vorausgesetzt werden (Flug-Test, Mischkarten ab 3 gelandeten Etappen, Abschluss, Nachtests) und was ein Flug mit 1–2 Etappen dort bewirkt; Teil-Verfahren ohne Mindestzahl, beliebig viele Teile, B3 entsprechend anpassen (disjunkt, vollständig, kein Teil leer).
+- **`reise-aufbau`:** Länder dürfen 1–2 Städte haben (Kurzflug).
+
+### Ergänzung Teilungsregel – Benennung und Aufbau (22.11., 15:40 Berlin) · Entscheidung Sebastian
+
+„Mir ist egal, wie viele Etappen es gibt – Hauptsache, die Lehrpläne werden sichtbar. Und wenn du im Gymnasium was teilst, benenne das in Teil 1 von 3 … und prüfe den Aufbau, was aufeinander aufbaut.“
+- **Etappenzahl je Teil ist egal** (auch 1). Kein Ergänzen von Inhalten nur wegen der Größe; „zu dünn“ nur melden.
+- **Benennung:** Geteilte Themen heißen überall „‹Titel› – Teil 1 von 3“, „… – Teil 2 von 3“ (Kinderseite, Lehrplan-Übersicht, Plan, Stempel). Zusätzlich darf ein Untertitel sagen, was der Teil enthält („Teil 2 von 2 · binomische Formeln“). Auch dort, wo eine Schulart alle Teile in derselben Klasse hat (Gymnasium), stehen sie als Teil 1/2/3 nacheinander.
+- **Aufbau prüfen (`lehrplan-lb`, Pflicht in LK-D 2):** nach der Teilung für jede Schulart: Teil n setzt Teil n−1 voraus (hart); alle bisherigen Voraussetzungen des Themas dem richtigen Teil zuordnen (welcher Teil braucht was, welcher Teil wird wovon gebraucht); danach die ganze Kette gegen die Klassenlage prüfen – kein Teil darf etwas brauchen, das in dieser Schulart erst in einer späteren Klasse liegt. Verstöße mit Vorschlag listen; Sebastians harte Entscheidungen (z. B. 102 ← 30) bleiben. Ergebnis als Aufbau-Kette je Teil für die Anzeige („Baut auf“ / „Geht weiter in“).
+- **Gestalter / `bau-motivation`:** „Teil x von y“ in Karte, Detail und Route zeigen.
+
+### Stand 22.11., 15:50 Berlin – Lieferungen und Rückläufer ChatGPT 936/937
+
+**Übernommen in `lernen-app` (f28f8c7 ff.):** LW-S 2, LK-S 2, FP-S 4 (`bau-lehrer`); App 0.87.2 und LW-1 = 0.88.0 (`bau-motivation`).
+**Probelauf echte Datenbank (zurückgerollt):** `lk_korrektur_2211.sql`, FP-S 4, LW-S 2, LK-S 2 laufen; Stufen/Plan/Reise/Lernstand/Sterne/Klassen unverändert; Rauchtests wd_s, wd_s3, fp_s, lw_s grün. **`lk_s_rauchtest.sql` scheitert:** „new row for relation eintrag violates check constraint eintrag_bearbeitung_check“ – der Test legt einen Eintrag mit einem `bearbeitung`-Wert an, den die echte Datenbank nicht erlaubt. **An `bau-lehrer`:** erlaubte Werte aus der echten Constraint lesen, Test anpassen (keine Migration). Meldung: „FERTIG: LK-S Test“.
+**Noch nichts davon eingespielt.** Gymnasium-Korrektur wartet auf Sebastians ausdrückliches Okay.
+
+**ChatGPT 936/937 (Gegenprobe Gymnasium, IB, FP-S 4):**
+- Gymnasium: Stunden und Titel aller Lernbereiche 5–10 unabhängig bestätigt (amtlich + mathe.delta je Klasse); 237 Punkte, alle mit Hauptthema; „jedes Thema in genau einer Gym-Klasse“ stimmt formal für die gewählten Zuordnungen.
+- **Muss A1 → an `lehrplan-lb` (in LK-D 2 mit erledigen):** Daraus folgt nicht, dass spätere Klassen nichts Neues bringen. Aufgaben-/Kompetenz-Audit an den Übergängen 7→8, 8→9, 9→10: verlangt der Lehrplan dort etwas, das unsere Etappen nicht enthalten? Konkret Gym 10 Lernbereich 5: schiefe Prismen/Körper, Volumengleichheit (Cavalieri) – Punkt 285 hängt nur an der vorhandenen Etappe `prisma_volumen` (gerade Körper, Gym 8). Fehlendes als neue Etappe liefern; nach der neuen Teilungsregel wird ein solcher 10er Abschnitt ein eigener Teil („Prismen und Zylinder – Teil 2 von 2“).
+- **Sollte A2:** „0 Aufbau-Verstöße“ gilt für Themen-Hauptbezüge; Voraussetzungen je Etappe ergänzen, wo die 87 Reihenfolge-Hinweise es zeigen.
+- **Sollte A3:** 43, 69, 71 im Gymnasium als Zusatz/Vertiefung kennzeichnen (Entscheidung Sebastian offen).
+- **IB Muss B1:** Bericht nennt 3 harte Voraussetzungs-Verstöße je Kurs, die JSON enthält 2 (63 ← 61; 29 ← 102). Bericht berichtigen oder den dritten belegen.
+- **FP-S 4:** code-seitig in Ordnung; Sollte: Paralleltest mit echter Sperrbarriere/Timeout statt `sleep` (an `bau-lehrer`, ohne Eile).
+
+## Bau-Auftrag RK – Reisekarte der Kinderseite (22.11., 16:05 Berlin) · vorgemerkt, noch NICHT bauen
+
+Sebastian: „Das soll die neue Darstellung werden – aber erst, wenn die neuen Etappen umgesetzt sind. Zudem braucht er dann noch die echten Städte und deren Position.“
+**Vorgabe (gilt):** `inhalte/pruefung/kind/karte/umsetzung.md`, Entwurf `karte/entwurf/reisekarte.html`, Bilder `karte/bilder/` – in `lernen-app` übernommen. Ersetzt die Anzeigetafel der Kinderseite. Entscheidungen Sebastian: echte Karte ohne Google; Land-Zeichen als Flaggen-Pin (Kopf = Flagge, Spitze = Hauptstadt, Schild Land + Hauptstadt); Startknopf schwebend in der Karte; dezente gezeichnete Linie statt Straßenverlauf; keine eigene Karte für Eltern/Lehrer. Ebenen Welt › Kontinent › Land, alles aus den Daten (keine feste Anzahl); golden = „alles sitzt“.
+
+**Reihenfolge (verbindlich):**
+1. Teilungsliste (`lehrplan-lb`, LK-D 2) → Entscheidung Sebastian.
+2. Teilen in der Datenbank (`bau-lehrer`, Teil-Verfahren) – „die neuen Etappen“.
+3. Reise-Aufbau fortschreiben (`reise-aufbau`): je Flug/Teil ein Land, je Etappe eine Stadt, **mit Koordinaten je Stadt und je Antarktis-Station, deutschen Hauptstadt-Namen, ISO-Ländercode je Land** (für Flagge und Kartenpfad).
+4. Reise-Aufbau in die Datenbank (`bau-lehrer`): Länder/Städte je Thema/Etappe, Lernstand und Stempel übernehmen.
+5. **RK-App** (`bau-motivation`): Karte nach Vorgabe; Kartenpfade im Build vorrechnen, je Kontinent eine Datei, Flaggen erst beim Anzeigen laden, kein Kartenserver.
+**Vor dem Bau zu klären (Haupt-Chat):** Lizenzen der Quellen – Natural Earth (gemeinfrei), flag-icons, i18n-iso-countries, countries-list (MIT), GeoNames (CC BY 4.0, Quellenangabe auf der Info-Seite); Größe der Kartendateien für die statische Seite.
+
+## Entscheidung Teilung (22.11., 16:20 Berlin) · Sebastian
+
+Grundlage `inhalte/pruefung/lehrplan/lk_teilung_2211.md`/`.json`. Sebastian fragte nach der Empfehlung des Haupt-Chats und hat zugestimmt („ja“):
+1. **Die Liste gilt:** 6 Themen → 15 Teile (26: 2 · 29: 2 · 44: 2 · 46: 3 · 61: 2 · 91: 2), 9 neue Flüge. Titel „‹Titel› – Teil x von y“, Untertitel wie im Bericht.
+2. **Zusatz statt Pflicht:** Ein Teil ohne Lehrplan-Punkt in der Schulart des Kindes ist dort **Zusatz** – keine Pflicht, sperrt nichts dahinter (Voraussetzung nur „empfohlen“). Betrifft im Gymnasium 46 Teil 2 (Verschieben und Vektoren) und 44 Teil 2 (Vierecke); 46 Teil 3 braucht im Gymnasium hart nur Teil 1.
+3. **Kurzflüge bleiben** (44 Teil 2, 61 Teil 1: je 2 Etappen).
+4. **Zwei Flüge = zwei Stempel und zweimal 100 Sterne.** Ist nach dem Umhängen ein neuer Teil vollständig (Kind 2: 29 Teil 2), bekommt er Stempel **und** die 100 Flug-Sterne nachträglich; Etappen-Sterne und Landungs-Bonus wandern mit der Etappe. Nichts wird gekürzt.
+5. **Nur einmal teilen:** Vorbereiten ab sofort; einspielen in **einem** Durchgang, sobald auch das Gym-Audit der Übergänge (ChatGPT 937 Muss A1, u. a. schiefe Körper Gym 10) vorliegt und die Liste dadurch feststeht.
+
+**An `bau-lehrer` – TL-S (Datei, nicht einspielen):** `supabase/migrations/20261123_tl_s_teilung.sql` – die sechs Teilungen mit dem Teil-Verfahren aus LK-S (Daten aus `lk_teilung_2211.json`): Themen/Einheiten je Teil, Etappen/Aufgaben/Lernstand/Sterne-Bezüge/Zuordnungen (Lehrplan-Punkt → Teil) umhängen, Voraussetzungen nach `kanten` (inkl. „Zusatz“-Regel je Schulart), Titel/Untertitel, Stempel und 100 Sterne für vollständig übernommene Teile, vorläufige Orte bis zum Reise-Aufbau. Vorher/Nachher je Kind (B4 aus ChatGPT 934). Rauchtest. Meldung: „FERTIG: TL-S“.
+**An `lehrplan-lb` – LK-D 3:** Audit der Gym-Übergänge 7→8, 8→9, 9→10 (ChatGPT 937 A1; konkret Gym 10 Lernbereich 5 schiefe Körper/Volumengleichheit, Punkt 285), IB-Zählung 3 vs. 2 berichtigen; falls neue Etappen/Teile nötig: liefern und Teilungsliste fortschreiben (`lk_teilung_2211`), „Zusatz“ je Teil und Schulart in die JSON. Meldung: „FERTIG: LK-D 3“.
+**An `reise-aufbau`:** Nachtrag „Vorschlag fortschreiben“ gilt, zusätzlich je neuem Teil ein Nachbarland (9 neue Flüge, Kurzflüge mit 2 Städten erlaubt), Koordinaten je Stadt und Antarktis-Station, deutsche Hauptstadt-Namen, ISO-Ländercode. Meldung: „FERTIG: Reise-Aufbau 2“.
+**An Gestalter / `bau-motivation`:** „Teil x von y · Untertitel“ und „Zusatz“ in Karte, Detail, Route, Stempel.
+
+### Rückläufer ChatGPT 939/940 (22.11., 16:40 Berlin) – Teilungsliste und Teil-Verfahren
+
+**Berichtigung Zahl:** Die Liste hat **13 Teile, 7 neue Flüge** (26: 2 · 29: 2 · 44: 2 · 46: 3 · 61: 2 · 91: 2), nicht 15/9 (Zählfehler im Bericht LK-D 2, vom Haupt-Chat übernommen). Gilt für alle Aufträge (`reise-aufbau`: 7 Nachbarländer).
+ChatGPT hat die sechs Schnitte gegen LehrplanPLUS geprüft: fachlich nachvollziehbar. Offene Punkte – nichts einspielen, bis sie erledigt sind:
+
+**An `lehrplan-lb` (in LK-D 3):**
+- **F1 (Muss):** Weitere Themen mit Hauptpunkten in zwei Klassen fehlen in der Liste: **2 Lineare Gleichungen** (RS I 7 + 8, gleiche Etappen), **57 Daten erfassen/darstellen** (RS 5 + 7, gleiche Etappe), **101 Prismen/Zylinder** (Gym 8 + 10). Für jedes ausdrücklich entscheiden und begründen: teilen (wenn die spätere Klasse eigene Etappen braucht – dann Etappen liefern) oder „Wiederholung ohne neue Etappe“ (dann als Grenzfall mit Anzeige „wird in Kl. x wieder aufgegriffen“). Alle Themen systematisch gegen `lk_daten_2211.json` durchzählen, nicht nur die sechs.
+- **F2 (Muss):** Zusatz-Regel in die JSON: Kanten je Schulart („hart“ / „empfohlen“ / „Zusatz“). Gymnasium: 46 Teil 3 ← Teil 1 hart, Teil 2 nur empfohlen; 44 Teil 2 Zusatz.
+- **F3 (Sollte):** 61 Teil 1 (RS 8): Lehrplan verlangt Baumdiagramm und Vierfeldertafel – in den Etappen `begriffe`/`rel_haeufigkeit` nachweisen oder Etappe ergänzen. 91: Aufgaben gegen die 7er/8er Anforderungen prüfen.
+- Zahl im Bericht berichtigen (13 / 7).
+
+**An `bau-lehrer` (LK-S 3 / TL-S, eine atomare Teilungs-Migration):**
+- **B3a (Muss):** Lehrplan-Punkt → Teil vollständig umhängen (Punkte, deren Etappen über zwei Teile reichen, mehrfach zuordnen); **alle** Voraussetzungen nach den Kanten der JSON auf die richtigen Teile setzen (z. B. 31, 8, 97 ← 29 Teil 2; 62, 64 ← 61 Teil 2), nicht nur Teil k ← Teil k−1.
+- **B3b (Muss):** Historische Antworten: `versuch` → Aufgabe → alte, ersetzte Einheit. Nach dem Teilen müssen alte Fehler/Antworten beim **richtigen neuen Teil** erscheinen (Lesepfad/Zuordnungstabelle Etappe → neuer Teil), in „Was wackelt“, Lernstand und Lehrer-Ansicht. Regression mit echten alten Versuchen.
+- **B3c (Muss):** Voraussetzungen **je Schulart**: Zusatz-Teile sperren nichts (Route/Visum). 
+- **B4 (Muss):** Abbruch-Vergleich muss auch `thema_stufe`, Reiseoptionen, Visum, offene Mischkarten und alle Wiederholungsfelder (`wdh_fehler`, `wdh_ab`, `wdh_lerntage`, `wdh_gesetzt_am`, `misch_ok_am`) umfassen; erwartete Änderungen als ausdrücklich erlaubte Delta-Regeln, jede andere Abweichung bricht ab.
+- **LW-Rest (Muss):** `schule.besprochen_aktiv` (LA-3) auf dieselbe endgültige Fehler-Semantik wie LW-S 2 umstellen; Regression: alte Besprochen-Markierung + neuer endgültiger erster Fehlversuch → wieder offen.
+- Sollte: neue Teile sind freigegebene, vollständige Einheiten mit eigenem Flug-Test; Rauchtest in realistischer, zurückgerollter Transaktion.
+
+## Sammel-Auftrag PM – Prüfungsmaterial sammeln, archivieren, Themen zuordnen (22.11., 16:50 Berlin) · Sebastian
+
+„Lass die Klassen 5 und 8 intensiv nach Prüfungsmaterial suchen vom Gymnasium und Klasse 7 und 8 Realschule – also Inhalte von Schulaufgaben. Die sollen sie alle archivieren und unseren Themen schon mal zuordnen.“
+
+**Zwei neue Chats, je eigener Zweig, nur Dateien:**
+- `pruefmaterial-gym` – Gymnasium Bayern Mathematik **Klasse 5 und 8** → `inhalte/pruefmaterial/gym/`
+- `pruefmaterial-rs` – Realschule Bayern Mathematik **Klasse 7 und 8**, beide Wahlpflichtfächergruppen (I getrennt von II/III ausweisen) → `inhalte/pruefmaterial/rs/`
+
+**Was gesucht wird:** echte Leistungsnachweise – Schulaufgaben (große Leistungsnachweise), Stegreifaufgaben/Kurzarbeiten, Probe- und Übungsschulaufgaben mit Lösungen, Jahrgangsstufentests/-arbeiten und Grundwissentests (ISB), zentrale Tests (z. B. BMT 8 Gymnasium), bei der Realschule auch Vorstufen zur Abschlussprüfung, soweit sie 7/8 betreffen. Quellen in dieser Reihenfolge: amtlich (isb.bayern.de, km.bayern.de, mebis/ByCS, Lehrplan-Serviceteil), Schul-Homepages (Fachschaft Mathematik), Verlage/Lernportale mit frei zugänglichen Beispielen, Elternportale. Intensiv suchen: je Klasse mindestens 30 verschiedene Arbeiten anstreben, verteilt über das Schuljahr (1. bis 4. Schulaufgabe) und über alle Lernbereiche; Lücken ausdrücklich benennen.
+
+**Archivieren – Regeln (verbindlich):**
+- **Keine Aufgaben wörtlich übernehmen, keine PDFs/Scans ins Repo, keine Lösungen abschreiben** (Urheberrecht; im Projekt gilt ohnehin: keine Schulbuch-/Prüfungsaufgaben wörtlich). Archiviert wird ein **Katalog**: Quelle mit Link und Abrufdatum, Herausgeber/Schule, Schulart, Klasse, Gruppe (RS), Art (Schulaufgabe/Stegreif/Test), Nummer im Schuljahr falls erkennbar, Jahr, Arbeitszeit, Gesamtpunkte, Hilfsmittel, frei zugänglich ja/nein, Lizenzhinweis der Quelle.
+- **Je Aufgabe der Arbeit** eine Zeile in eigenen Worten: was verlangt wird (Kompetenz), Aufgabentyp (rechnen, Sachaufgabe, begründen, konstruieren, Auswahl, Lückentext …), Anforderungsniveau (I reproduzieren / II Zusammenhänge / III verallgemeinern), Punkte, typische Zahlen-/Größenordnung, Besonderheit (z. B. „Fehler finden“, „Term aufstellen aus Text“). Keine Zahlenwerte oder Formulierungen übernehmen, die die Aufgabe wiedererkennbar kopieren.
+- Amtlich frei veröffentlichte Tests dürfen verlinkt werden; der Link genügt.
+- Keine Namen von Lehrkräften oder Schülern.
+
+**Zuordnen:** je Aufgabe → Lernbereich des LehrplanPLUS und → unser Thema und unsere Etappe (Schlüssel aus `inhalte/themenliste.json`, `inhalte/themen/*.json`; geteilte Themen nach `inhalte/pruefung/lehrplan/lk_teilung_2211.json`). Ohne passende Etappe: „Lücke“ mit Vorschlag. Zusätzlich je Arbeit: welche Themen zusammen geprüft werden (typische Kombination, Zeitpunkt im Schuljahr).
+
+**Auswertung je Klasse:** (1) typischer Aufbau einer Schulaufgabe (Zeit, Punkte, Zahl der Aufgaben, Anteil der Niveaus I/II/III); (2) Häufigkeit je Thema/Etappe; (3) Aufgabentypen, die bei uns fehlen oder selten sind; (4) Etappen, die in Prüfungen nie vorkommen; (5) Abgleich mit unserem Flug-Test (je Etappe eine Testaufgabe): reicht das, um auf eine echte Schulaufgabe vorzubereiten? (6) Vorschlag „Schulaufgaben-Training“ je Klasse – nur als Vorschlag, nichts bauen.
+
+**Lieferung je Chat:** `katalog.json` (maschinenlesbar, eine Zeile je Aufgabe), `katalog.md` (Übersicht je Arbeit), `auswertung.md` (Punkte 1–6, gesichert / Annahme / offen getrennt), `quellen.md` (alle Links mit Abrufdatum, auch die nicht verwertbaren mit Grund). Datenbank und App nicht anfassen, nichts einspielen, kein Merge nach `main`. Meldung in `inhalte/postfach/<chatname>.md`: „FERTIG: PM Gym“ bzw. „FERTIG: PM RS“.
+
+### Entscheidungen Sebastian (22.11., 17:05 Berlin) – Teilung, Stand LK-D 3 und Reise-Aufbau 2
+
+Stand der Liste: **7 Themen, 15 Teile, 8 neue Flüge** (26, 29, 44, 46 ×3, 61, 91, 101). „Ja, so wie du sagst – oder lass GPT nochmal prüfen“:
+1. **Zusatz-Regel auch je Etappe:** Eine Etappe ohne Lehrplan-Punkt in der Schulart des Kindes ist dort **Kür** (zählt nicht für Flug-Abschluss, Flug-Test, Stempel). Folge: Kind 2 hat 29 Teil 2 im Gymnasium vollständig (neue Etappe `gleichungen_binomisch` ist nur RS 8) → Stempel und 100 Sterne nachträglich wie entschieden.
+2. **Salomonen statt Neukaledonien** für 61 Teil 2 (keine strittigen Gebiete).
+3. **Marokko → Algerien → Mauretanien** bleibt für 46.
+4. ChatGPT prüft Liste (Stand LK-D 3), Etappen-Kür und Routen noch einmal.
+
+**An `lehrplan-lb` – LK-D 4:** (a) F1 aus ChatGPT 939 ist noch offen: 2 Lineare Gleichungen (RS I 7 + 8) und 57 Daten erfassen/darstellen (RS 5 + 7) – teilen oder „Wiederholung ohne neue Etappe“ ausdrücklich entscheiden und begründen; alle Themen systematisch durchzählen. (b) Kür je **Etappe** und Schulart in die JSON (`etappen[].kuer_in`), Pflicht-Etappen je Teil und Schulart ausweisen; Stand je Kind danach neu rechnen. (c) F3: 61 Teil 1 – Baumdiagramm/Vierfeldertafel. Meldung: „FERTIG: LK-D 4“.
+**An `reise-aufbau` – Reise-Aufbau 3:** 61 Teil 2 → Salomonen; 101 Teil 2 einplanen (jetzt 8 neue Flüge, 15 Teile); die drei neuen Etappen aus LK-D 3 (101 `cavalieri`, 91 `koerper_symmetrie`, 29 `gleichungen_binomisch`) je eine Stadt; gegen die aktuelle `lk_teilung_2211.json` abgleichen. Meldung: „FERTIG: Reise-Aufbau 3“.
+**An `bau-lehrer` (TL-S):** Liste Stand LK-D 3/4; Pflicht/Kür je Etappe und Schulart muss in Flug-Abschluss, Flug-Test, Stempel und Visum wirken (heute gibt es Kür nur je Etappe für alle – bitte melden, was dafür nötig ist). Geänderte `lk_korrektur_2211.sql` (seit 83d61a2e) ist noch nicht eingespielt.
+
+### Probelauf TL-S auf der echten Datenbank (22.11., 17:25 Berlin) – läuft noch nicht · an `bau-lehrer`
+
+Stand `lernen-app` 67f3c88, alles zurückgerollt. Reihenfolge: `lk_korrektur_2211.sql` (neue Fassung), FP-S 4, LW-S 2, LK-S, dann TL-S.
+- Die vier Vorgänger laufen; Rauchtests wd_s, wd_s3, fp_s, lw_s, **lk_s jetzt grün**.
+- **TL-S bricht ab** (Migration und `tl_s_rauchtest.sql`): `duplicate key value violates unique constraint "zuordnung_eintrag_id_idx"`. Die echte Datenbank hat `create unique index zuordnung_eintrag_id_idx on schule.zuordnung (eintrag_id) where bezug = 'haupt'` – je Lehrplan-Punkt genau **ein** Hauptbezug. TL-S legt für Punkte, deren Etappen über mehrere Teile reichen, je Teil eine Hauptzuordnung an. Lösung vorschlagen und umsetzen: ein Hauptbezug (Teil mit den meisten/ersten Etappen), die übrigen Teile als Nebenbezug mit `rolle`/`etappen` – und `thema_lage`/Matrix so, dass Nebenbezüge geteilter Themen als Lehrplan-Lage zählen; oder den Index begründet erweitern (dann mit Prüfung aller Stellen, die „ein Haupt je Punkt“ voraussetzen). Dazu `zuordnung_eintrag_id_thema_id_key (eintrag_id, thema_id)` beachten.
+- Der Abbruch war sauber: Lernstand, Sterne, Reiseoptionen, Themen-/Aufgaben-/Versuchszahl unverändert.
+- **Lokalen Nachbau um die echten Indizes/Constraints ergänzen** (`pg_indexes`, `pg_constraint` der Schemas schule/api lesen) – das ist der dritte Fall heute, in dem ein Test lokal grün und auf dem echten Stand rot ist.
+- Liste erweitern auf **7 Themen / 15 Teile** (101 mit `cavalieri`), neue Etappen aus LK-D 3 (`cavalieri`, `koerper_symmetrie`, `gleichungen_binomisch`, `darstellen`, `raumwinkel`) und Kür je Etappe und Schulart (Entscheidung 17:05).
+- Meldung: „FERTIG: TL-S 2“.
+
+### Flug-Test und Nachtests bei kleinen Teilen (Antwort `bau-lehrer`, 22.11.) – Entscheidung Sebastian offen
+Fakten: Flug-Test nimmt alle Test-Aufgaben der Einheit; ein Fehler löst nur einen Korrektur-Test der Etappe aus (kein Durchfallen). **Nachtests** (10/25/60 Lerntage): je Pflicht-Etappe eine Sicherungs-Aufgabe, Quote ≥ 0,8 bestanden, ≥ 0,6 wiederholen, sonst Rückreise → bei 2 Etappen bedeutet ein Fehler Rückreise. Vorschlag `bau-lehrer`: Nachtest mindestens 5 Aufgaben je Flug (1 Etappe → 5, 2 → je 3, 3–4 → je 2, ab 5 → je 1); dafür je Etappe mindestens 9 Sicherungs-Aufgaben (live 6–17). Eigener Bau-Auftrag nach Entscheidung.
+
+### Rückläufer ChatGPT 942/943 (22.11., 17:40 Berlin) – Liste LK-D 3, Kür je Etappe, Reise-Aufbau 2
+
+Bestätigt: 7 Themen / 15 Teile / 8 neue Flüge; die drei neuen Etappen (`cavalieri`, `koerper_symmetrie`, `gleichungen_binomisch`) sind vom Lehrplan verlangt und fachlich plausibel; Kanten je Schulart richtig erfasst; Geodaten-Stichprobe plausibel; Lizenzen: GeoNames CC BY 4.0 (Quellenangabe), Natural Earth gemeinfrei, COMNAP nur Bildung/nicht kommerziell.
+Schon erledigt bzw. beauftragt: 2 und 57 (seit LK-D 3 Ergänzung als begründete Wiederholung geführt – ChatGPT las den Stand davor); Salomonen, 101 Teil 2 und neue Etappen-Städte (Reise-Aufbau 3; Zielstand 95 Flüge).
+**Neu, an `lehrplan-lb` (LK-D 4):**
+- **A1 (Muss):** Gym 9 Lernbereich 1: indirekter Beweis zur Irrationalität von √2 – Lernkarte liefern (Beweisschritte ordnen, Fehler im Beweis finden, Schritt begründen), nicht als „durch Zahlarten abgedeckt“ führen.
+- **B1 (Muss):** `etappen[].kuer_in` bzw. Pflicht je Schulart **und Gruppe** aus dem Punkt-Mapping, mit Quellen-Punkt; „keine Zuordnung bekannt“ ist nicht automatisch Kür – bei integrativen Lehrplan-Punkten inhaltlich entscheiden (z. B. 46 Teil 3 im Gymnasium, 26 Etappen ohne Punkt).
+**Neu, an `bau-lehrer` (TL-S 2):**
+- **B2 (Muss):** Pflicht/Kür je Kind (Schulart, Gruppe, Etappe) als **eine** Regel im Server; Flug-Abschluss, Flug-Test, Nachtests, Stempel, 100 Sterne, Visum, Tages-Wiederholung und Mischkarten rechnen nur mit Pflicht-Etappen; Teil mit 0 Pflicht-Etappen = Zusatz ohne Zwangstest; Teil mit 1 Pflicht-Etappe braucht gültigen Testpfad. Regression: Gym-Kind 29 Teil 2 mit 3/3 Pflicht, 0/1 Kür → geschafft; RS-Kind 3/4 → offen.
+- **B3 (Muss):** Schulartwechsel eines Kindes: Historie (Karten, Sterne, Erstabschlüsse, Stempel) bleibt; neue Pflicht-Etappen öffnen den Teil wieder, ohne etwas zu löschen oder doppelt zu buchen; Rückwechsel macht sie wieder zur Kür.
+**An Gestalter / `bau-motivation`:** je Etappe sichtbar „Pflicht im Gymnasium / Kür in der Realschule“ mit Lehrplan-Bezug; Nenner je Kind.
+**Karte (RK):** Marokko–Algerien–Mauretanien nicht als befahrbare Strecke darstellen (Linie nur dekorativ); Antarktis-Stationen als virtuelle Ziele; Quellenangaben auf der Info-Seite.
+
+## Bau-Auftrag NT – Nachtests bei kleinen Flügen (22.11., 17:50 Berlin) · Entscheidung Sebastian: ja
+
+**Problem:** Nachtests (10/25/60 Lerntage) ziehen je Pflicht-Etappe eine Sicherungs-Aufgabe; Quote ≥ 0,8 bestanden, ≥ 0,6 wiederholen, sonst Rückreise. Bei 2 Etappen bedeutet ein Fehler 50 % = Rückreise.
+**Regel (entschieden):** Jeder Nachtest hat **mindestens 5 Aufgaben je Flug**: 1 Pflicht-Etappe → 5 Aufgaben, 2 → je 3, 3–4 → je 2, ab 5 → je 1. Gezählt werden nur Pflicht-Etappen des Kindes (Kür je Schulart). Keine Aufgabe doppelt innerhalb eines Nachtests; über die drei Nachtests möglichst keine Wiederholung.
+**NT-S · an `bau-lehrer`** (Datei `supabase/migrations/20261124_nt_s_nachtest_menge.sql`, nach TL-S; nicht einspielen): `test_starten_intern` (Nachtest-Zweig) nach der Regel; Quote und Einstufung unverändert; Rauchtest mit 1, 2, 3, 5 Etappen (ein Fehler ≠ Rückreise bei kleinen Flügen). Dazu Liste liefern: je Etappe vorhandene Sicherungs-Aufgaben gegen den Bedarf für drei Nachtests (1 Etappe 15, 2 Etappen je 9, 3–4 je 6, ab 5 je 3), für den Stand **nach** der Teilung (15 Teile) und für alle bestehenden Flüge mit höchstens 4 Etappen. Meldung: „FERTIG: NT-S“ mit der Fehlliste.
+**NT-D · an `lehrplan-lb`** (nach der Fehlliste): fehlende Sicherungs-Aufgaben schreiben (eigene Formulierungen, Lösungen berechnet, mindestens zwei Aufgabentypen je Etappe, Prüfskript grün), Einspiel-SQL als Datei. Meldung: „FERTIG: NT-D“.
+Hinweis Flug-Test: bleibt wie er ist (ein Fehler löst nur den Korrektur-Test der Etappe aus).
+
+### Probelauf TL-S 2 auf der echten Datenbank (22.11., 18:05 Berlin) – eigener Schutz bricht ab · an `bau-lehrer`
+
+Stand `lernen-app` 0967562, zurückgerollt. Vorgänger (lk_korrektur neu, FP-S 4, LW-S 2, LK-S) laufen, fünf Rauchtests danach grün. Der Abbruch an `zuordnung_eintrag_id_idx` ist behoben.
+**TL-S 2 bricht jetzt am eigenen Abbruch-Vergleich ab** (Migration und `tl_s_rauchtest.sql`): „Thema 46 – Stufen/Reiseoptionen außerhalb der erlaubten Deltas“ für Kind 2. Vorher: `stufe komplett`, `gesetzt komplett`, `im_plan true`, 10 Etappen („Kann er komplett“ gesetzt). Nachher: Teil 1 (46) `komplett`, 6 Etappen, im Plan – die neuen Teile (116/121 …) aber `nicht_im_plan`.
+**Zu lösen:** Ein **gesetztes** Thema („Kann er komplett“ / „Kann er – aber wiederholen“) vererbt Setzung, Plan-Platz und alle Folgen an **jeden** Teil (bei „komplett“: alle Teile komplett; Wiederholungs-Setzung: je Teil mit den Etappen des Teils, Fälligkeiten unverändert). Zusatz-Teile der Schulart: gesetzt bleibt gesetzt, Plan-Art „zusatz“. Prüfen, welche weiteren Themen/Kinder gesetzt sind (lesend auf dem echten Stand) – der lokale Nachbau braucht Fälle „gesetzt komplett“, „gesetzt mit Wiederholung“, „im Plan, nicht begonnen“, „Rückreise“.
+Der Abbruch war sauber (Lernstand, Sterne, Reiseoptionen, Erstabschlüsse, Zahl der Themen/Aufgaben/Versuche unverändert) – der Schutz B4 wirkt.
+Meldung: „FERTIG: TL-S 3“.
+
+### Probelauf TL-S 3 auf der echten Datenbank (22.11., 18:30 Berlin) – Abbruch am Visum-Vergleich IB · an `bau-lehrer`
+
+Stand `lernen-app` 8af4fee, zurückgerollt. Vorgänger laufen (lk_korrektur Stand LK-D 4, FP-S 4, LW-S 2, LK-S), fünf Rauchtests danach grün. Der Fall „gesetztes Thema 46“ ist behoben.
+**Neuer Abbruch** (Migration und Rauchtest): „TL-S: Visum außerhalb der erlaubten Deltas: ib_myp:109→86“. Für Gymnasium und Realschule meldet der Vergleich nichts. Bitte klären und beheben: Woher kommen 23 Visum-Zeilen weniger für IB – gewollte Folge der Kanten je Schulart (dann als ausdrücklich erlaubtes, begründetes Delta mit Liste der betroffenen Themen im Bericht) oder Fehler (z. B. IB-Kanten fehlen in `voraussetzung_schulart`, „empfohlen“ statt „hart“)? Sebastians harte Entscheidungen (z. B. 102 ← 30, 29 ← 102) dürfen in keiner Schulart verschwinden. Auf dem echten Stand lesend vorher/nachher je Schulart vergleichen.
+Abbruch sauber: Lernstand, Sterne, Reiseoptionen, Erstabschlüsse, Zahl der Themen/Aufgaben/Versuche unverändert. Meldung: „FERTIG: TL-S 4“.
+
+### Prüfung LW-1 des Gestalters (22.11., 18:40 Berlin) – kein Muss · Nacharbeit an `bau-motivation` (in LW-2 mit erledigen)
+
+Bericht `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw1.md`, Bilder `werkstatt/lw1/`. LW-1-Umfang erfüllt, Suite 141/141.
+- **S1 Handy:** erste Themen-Karte erst bei 795 von 860 px. Eine Zeile „Fahrplan · 8 | Alle Themen“ + „Filter ▾“ (Blatt mit Einordnen, Zeigen, Klassen, Einstieg, Suchen, Auswählen), Legende hinter ⓘ, Kopf-Knöpfe kompakt. Ziel: erste Karte über 400 px. (löst auch K3, Tablet-Leiste dreizeilig)
+- **S2:** Fahrplan zählt Orte, vier Karten „Platz 3“ → bis zum Reise-Aufbau „3a–3d“ und Kopf „8 Plätze · 14 Themen“.
+- **K1:** Detail-Etappenliste widerspricht „3 von 7“ – prüfen (Etappen vor `etappe_jetzt` ohne Karte als gelandet zeigen). **K2:** Kopf zeigt Klasse 5, Matrix Klasse 8 – gleiche Quelle verwenden (bitte als möglichen Fehler behandeln, nicht als Kann).
+Meldung zusammen mit „FERTIG: LW-2“.
+
+### Probelauf TL-S 4 auf der echten Datenbank (22.11., 18:55 Berlin) – läuft durch
+
+Stand `lernen-app` e20266e, zurückgerollt. Reihenfolge lk_korrektur (LK-D 4), FP-S 4, LW-S 2, LK-S, TL-S.
+- `tl_s_rauchtest.sql` grün; Migration läuft, zweiter Lauf ohne Wirkung.
+- Vorher = Nachher: Karten-Lernstand je Kind, Reiseoptionen, Aufgaben (29 854), Versuche (684). Themen 97 → 105; Teile 26:2 · 29:2 · 44:2 · 46:3 · 61:2 · 91:2 · 101:2.
+- Kind 2: +100 Sterne (eine Buchung „ort“), ein Erstabschluss mehr (29 Teil 2); 29 Teil 1 und 2 „wiederholung“, 46 Teil 1–3 „komplett“. Themen im Plan: Kind 1 25 → 26, Kind 2 70 → 74.
+- Rauchtests wd_s, wd_s3, fp_s, lw_s nach der Teilung grün.
+- **An `bau-lehrer`:** `lk_s_rauchtest.sql` scheitert **nach** der Teilung („FEHLER 3 Thema 61“, erwartet 61 in Klasse 8 und 9) – Test so umstellen, dass er vor und nach der Teilung gilt (Teile über `teil_stamm`). Meldung: „FERTIG: LK-S Test 2“.
+- **Vor dem Einspielen noch offen:** ChatGPT-Prüfung (945 + Nachtrag), Einspiel-SQL für die neuen Lernkarten aus LK-D (liefert `lehrplan-lb`: 46 `vektor_koordinaten`/`vektor_drehen`, 47 `streckung_vektor`, 44 `vierecke_konstruieren`, 99 `drachen_raute`, 91 `wahre_groesse`/`koerper_symmetrie`/`raumwinkel`, 101 `cavalieri`, 29 `gleichungen_binomisch`, 61 `darstellen`, 20 `irrational_beweis` – als Datei wie `aufgaben_frisch_2211.sql`, Meldung „FERTIG: LK-D Einspiel“), Sebastians „Live“. Länder/Städte folgen mit dem Reise-Aufbau; bis dahin tragen neue Teile vorläufige Orte.

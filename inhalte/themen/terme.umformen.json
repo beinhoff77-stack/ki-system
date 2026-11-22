@@ -3,7 +3,9 @@
  "thema_id": 29,
  "block_id": 62,
  "klasse": {
-  "gym_by": 7
+  "gym_by": 7,
+  "rs_by": 7,
+  "ib_myp": 3
  },
  "autor": "Claude (Runde 9, Generator terme_umformen.py)",
  "inhalt": {
@@ -37,6 +39,12 @@
      "ausklammern",
      "aequivalenz",
      "binomisch"
+    ]
+   },
+   {
+    "titel": "Lehrplan-Ergänzung (LK)",
+    "lernziele": [
+     "gleichungen_binomisch"
     ]
    }
   ],
@@ -873,6 +881,21 @@
      ]
     },
     "regel": "Das ⟦Mittelglied 2ab⟧ nie vergessen. (a + b)² = a² + 2ab + b². (a + b)(a − b) = a² − b²."
+   },
+   {
+    "lernziel": "gleichungen_binomisch",
+    "titel": "Gleichungen mit Klammerprodukten",
+    "einstieg": "Ein quadratisches Beet wird an jeder Seite um 3 m länger und ist dann 51 m² größer. Wie lang war die Seite? In der Gleichung stehen Klammern mit Quadrat. Nach dem Ausmultiplizieren fällt x² weg.",
+    "regel": "Erst beide Seiten ⟦ausmultiplizieren⟧ (binomische Formeln), dann zusammenfassen. Hebt sich x² auf, bleibt eine lineare Gleichung.",
+    "schritte": [
+     {
+      "text": "(x + 3)² = x² + 51. Links: x² + 6x + 9 = x² + 51."
+     },
+     {
+      "text": "x² auf beiden Seiten abziehen: 6x + 9 = 51, also 6x = 42 und ⟦x = 7⟧."
+     }
+    ],
+    "fehler": "(x + 3)² ist nicht x² + 9. Es fehlt das ⟦Doppelte Produkt⟧ 2 · 3 · x = 6x."
    }
   ],
   "teilfaehigkeiten": [
@@ -931,6 +954,12 @@
     "lernziele": [
      "binomisch"
     ]
+   },
+   {
+    "k": "gleichungen_binomisch",
+    "lernziele": [
+     "gleichungen_binomisch"
+    ]
    }
   ],
   "bewertung": {
@@ -944,7 +973,9 @@
     "aequivalenz",
     "binomisch"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "gleichungen_binomisch"
+   ],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {
@@ -7209,6 +7240,387 @@
    "c": "85 * 85",
    "w": "Eine Zahl mit Zehnerziffer a und Einer 5 ist 10a + 5. (10a + 5)² = 100a² + 100a + 25 = 100 · a · (a + 1) + 25. Für 85: a = 8, 8 · 9 = 72, dahinter 25: 7 225.",
    "h": "Schreibe die Zahl als 10a + 5 und quadriere mit der 1. Formel."
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 2)² = x² + 20."
+   },
+   "w": "x² + 4x + 4 = x² + 20 ⇒ 4x = 16 ⇒ x = 4.",
+   "g": "direkt",
+   "h": "Erst (x + 2)² ausmultiplizieren.",
+   "o": {
+    "wert": 4
+   },
+   "c": "(20 - 4) / 4"
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x − 1)² = x² − 9."
+   },
+   "w": "x² − 2x + 1 = x² − 9 ⇒ −2x = −10 ⇒ x = 5.",
+   "g": "direkt",
+   "h": "Zweite binomische Formel.",
+   "o": {
+    "wert": 5
+   },
+   "c": "(-9 - 1) / (-2)"
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Was ergibt (x + 5)² ausmultipliziert?"
+   },
+   "w": "Mit a² + 2ab + b²: x² + 2 · 5 · x + 25 = x² + 10x + 25.",
+   "g": "erkennen",
+   "h": "a² + 2ab + b².",
+   "a": [
+    "x² + 10x + 25",
+    "x² + 25",
+    "x² + 5x + 25",
+    "2x + 10"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum wird (x + 4)² = x² + 40 eine lineare Gleichung?"
+   },
+   "w": "x² steht auf beiden Seiten und hebt sich auf.",
+   "g": "erkennen",
+   "h": "Was passiert mit x²?",
+   "a": [
+    "x² hebt sich auf beiden Seiten weg.",
+    "Weil 40 gerade ist.",
+    "Weil man die Wurzel zieht.",
+    "Weil x positiv ist."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 3)(x − 3) = x² + 2x − 15."
+   },
+   "w": "x² − 9 = x² + 2x − 15 ⇒ 6 = 2x ⇒ x = 3.",
+   "g": "mehrschritt",
+   "h": "Dritte binomische Formel links.",
+   "o": {
+    "wert": 3
+   },
+   "c": "(-9 + 15) / 2"
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Feld wird an jeder Seite 2 m länger und dadurch 36 m² größer. Wie lang war die Seite (in m)?"
+   },
+   "w": "(x + 2)² = x² + 36 ⇒ 4x + 4 = 36 ⇒ x = 8.",
+   "g": "einkleidung",
+   "h": "Stelle (x + 2)² = x² + 36 auf.",
+   "o": {
+    "wert": 8,
+    "einheit": "m"
+   },
+   "c": "(36 - 4) / 4"
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl r muss rechts stehen, damit (x + 3)² = x² + r die Lösung x = 2 hat?"
+   },
+   "w": "Einsetzen: (2 + 3)² = 25 und 2² + r = 4 + r. Also 4 + r = 25, r = 21.",
+   "g": "umkehr",
+   "h": "Setze x = 2 auf beiden Seiten ein.",
+   "o": {
+    "wert": 21
+   },
+   "c": "(2 + 3) * (2 + 3) - 2 * 2"
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Schritt kommt bei 2(x + 1)² = 2x² + 14 zuerst?"
+   },
+   "w": "Erst (x + 1)² = x² + 2x + 1 ausmultiplizieren, dann mit 2 malnehmen.",
+   "g": "darstellung",
+   "h": "Potenz vor Punktrechnung.",
+   "a": [
+    "(x + 1)² ausmultiplizieren",
+    "durch x teilen",
+    "die Wurzel ziehen",
+    "14 durch 2 teilen"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 3 cm länger als breit. Ein Quadrat hat die Breite als Seite. Das Rechteck ist 27 cm² größer als das Quadrat. Wie breit ist es?"
+   },
+   "w": "x(x + 3) = x² + 27 ⇒ 3x = 27 ⇒ x = 9 cm.",
+   "g": "rueckwaerts",
+   "h": "Rechteck x(x + 3), Quadrat x².",
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "27 / 3"
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Gleichung (x + 1)² = x² + 2x + 1 gilt für …"
+   },
+   "w": "Beide Seiten sind gleich: Sie gilt für alle x.",
+   "g": "begruenden",
+   "h": "Multipliziere links aus.",
+   "a": [
+    "alle Zahlen x",
+    "nur x = 0",
+    "kein x",
+    "nur x = 1"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Lena löst (x + 3)² = x² + 15 so: x² + 9 = x² + 15 ⇒ 9 = 15, keine Lösung. Was stimmt?"
+   },
+   "w": "Das Glied 6x fehlt. Richtig: 6x + 9 = 15 ⇒ x = 1.",
+   "g": "fehler",
+   "h": "Prüfe die binomische Formel.",
+   "a": [
+    "Falsch: richtig ist x = 1.",
+    "Alles richtig.",
+    "Falsch: richtig ist x = 6.",
+    "Falsch: richtig ist x = 3."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 2)² − (x − 2)² = 24."
+   },
+   "w": "(x² + 4x + 4) − (x² − 4x + 4) = 8x = 24 ⇒ x = 3.",
+   "g": "transfer",
+   "h": "Beide Klammern ausmultiplizieren, dann abziehen.",
+   "o": {
+    "wert": 3
+   },
+   "c": "24 / 8"
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 5)² = x² + 45."
+   },
+   "w": "10x + 25 = 45 ⇒ x = 2.",
+   "o": {
+    "wert": 2
+   },
+   "c": "(45 - 25) / 10"
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 1)² = x² + 13."
+   },
+   "w": "2x + 1 = 13 ⇒ x = 6.",
+   "o": {
+    "wert": 6
+   },
+   "c": "(13 - 1) / 2"
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 4)² = x² + 40."
+   },
+   "w": "8x + 16 = 40 ⇒ x = 3.",
+   "o": {
+    "wert": 3
+   },
+   "c": "(40 - 16) / 8"
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 6)² = x² + 84."
+   },
+   "w": "12x + 36 = 84 ⇒ x = 4.",
+   "o": {
+    "wert": 4
+   },
+   "c": "(84 - 36) / 12"
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme x aus (x + 2)² = x² + 28."
+   },
+   "w": "4x + 4 = 28 ⇒ x = 6.",
+   "o": {
+    "wert": 6
+   },
+   "c": "(28 - 4) / 4"
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme x aus (x + 3)² = x² + 45."
+   },
+   "w": "6x + 9 = 45 ⇒ x = 6.",
+   "o": {
+    "wert": 6
+   },
+   "c": "(45 - 9) / 6"
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme x aus (x + 5)² = x² + 65."
+   },
+   "w": "10x + 25 = 65 ⇒ x = 4.",
+   "o": {
+    "wert": 4
+   },
+   "c": "(65 - 25) / 10"
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme x aus (x + 1)² = x² + 7."
+   },
+   "w": "2x + 1 = 7 ⇒ x = 3.",
+   "o": {
+    "wert": 3
+   },
+   "c": "(7 - 1) / 2"
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme x aus (x + 4)² = x² + 56."
+   },
+   "w": "8x + 16 = 56 ⇒ x = 5.",
+   "o": {
+    "wert": 5
+   },
+   "c": "(56 - 16) / 8"
+  },
+  {
+   "l": "gleichungen_binomisch",
+   "t": "gleichungen_binomisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme x aus (x + 2)² = x² + 16."
+   },
+   "w": "4x + 4 = 16 ⇒ x = 3.",
+   "o": {
+    "wert": 3
+   },
+   "c": "(16 - 4) / 4"
   }
  ],
  "offen": [

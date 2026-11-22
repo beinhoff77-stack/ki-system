@@ -4,7 +4,8 @@
  "block_id": 80,
  "klasse": {
   "gym_by": 7,
-  "rs_by": 6
+  "rs_by": 7,
+  "ib_myp": 3
  },
  "autor": "Claude (Paket Klasse 7)",
  "inhalt": {
@@ -36,6 +37,12 @@
     "titel": "Beweisen",
     "lernziele": [
      "satz_kehrsatz"
+    ]
+   },
+   {
+    "titel": "Lehrplan-Ergänzung (LK)",
+    "lernziele": [
+     "vierecke_konstruieren"
     ]
    }
   ],
@@ -1109,6 +1116,24 @@
       ]
      ]
     }
+   },
+   {
+    "lernziel": "vierecke_konstruieren",
+    "titel": "Vierecke konstruieren",
+    "einstieg": "Für ein Gartenbeet in Form eines Parallelogramms misst Ole zwei Seiten und einen Winkel. Reicht das, damit seine Schwester das Beet genau gleich nachbauen kann? Bei Vierecken hängt das von ihrer Art ab.",
+    "regel": "Ein beliebiges Viereck braucht ⟦5 Bestimmungsstücke⟧, ein Parallelogramm 3, ein Rechteck 2, eine Raute 2, ein Quadrat 1. Fehlende Winkel folgen aus der Winkelsumme 360° und den Eigenschaften.",
+    "schritte": [
+     {
+      "text": "Parallelogramm mit a = 5 cm, b = 3 cm, α = 70°."
+     },
+     {
+      "text": "Nachbarwinkel ergänzen sich zu 180°: β = 110°. Gegenüber gleich: γ = 70°, δ = 110°."
+     },
+     {
+      "text": "Konstruieren: a zeichnen, Winkel α antragen, b abtragen, Parallelen ziehen."
+     }
+    ],
+    "fehler": "Im Parallelogramm sind ⟦gegenüberliegende⟧ Winkel gleich, nicht benachbarte. Bei α = 70° ist β = 110°, nicht 70°."
    }
   ],
   "teilfaehigkeiten": [
@@ -1153,6 +1178,12 @@
     "lernziele": [
      "satz_kehrsatz"
     ]
+   },
+   {
+    "k": "vierecke_konstruieren",
+    "lernziele": [
+     "vierecke_konstruieren"
+    ]
    }
   ],
   "bewertung": {
@@ -1164,7 +1195,9 @@
     "vierecke",
     "satz_kehrsatz"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "vierecke_konstruieren"
+   ],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {
@@ -6772,6 +6805,402 @@
     "index": 1
    },
    "w": "a = [BC] beginnt in B und ist 5 cm lang: Kreis um B mit 5 cm."
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Parallelogramm ABCD ist α = 65°. Wie groß ist β?"
+   },
+   "w": "Benachbarte Winkel: α + β = 180°, also β = 115°.",
+   "g": "direkt",
+   "h": "Nachbarwinkel im Parallelogramm.",
+   "o": {
+    "wert": 115,
+    "einheit": "°"
+   },
+   "c": "180 - 65"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Viereck hat die Winkel 80°, 95° und 110°. Wie groß ist der vierte Winkel?"
+   },
+   "w": "360° − 80° − 95° − 110° = 75°.",
+   "g": "direkt",
+   "h": "Winkelsumme im Viereck.",
+   "o": {
+    "wert": 75,
+    "einheit": "°"
+   },
+   "c": "360 - 80 - 95 - 110"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Bestimmungsstücke braucht man mindestens für ein Rechteck?"
+   },
+   "w": "Zwei Seitenlängen genügen, die Winkel sind alle 90°.",
+   "g": "erkennen",
+   "h": "Welche Größen sind beim Rechteck schon festgelegt?",
+   "a": [
+    "2",
+    "1",
+    "3",
+    "5"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Angabe legt ein Quadrat eindeutig fest?"
+   },
+   "w": "Eine Seitenlänge reicht, alles andere ist durch die Quadrat-Eigenschaften festgelegt.",
+   "g": "erkennen",
+   "h": "Wie viele Stücke braucht ein Quadrat?",
+   "a": [
+    "eine Seitenlänge",
+    "ein Winkel",
+    "die Winkelsumme",
+    "zwei Winkel"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Drachenviereck ABCD (Symmetrieachse AC) sind α = 70° und γ = 110°. Wie groß ist β?"
+   },
+   "w": "β und δ sind gleich: (360° − 70° − 110°) : 2 = 90°.",
+   "g": "mehrschritt",
+   "h": "Im Drachen sind die Winkel neben der Symmetrieachse gleich.",
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "(360 - 70 - 110) / 2"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fenster hat die Form eines gleichschenkligen Trapezes. Die Winkel an der langen Seite sind je 72°. Wie groß ist jeder Winkel an der kurzen Seite?"
+   },
+   "w": "Nachbarwinkel an einem Schenkel: 180° − 72° = 108°.",
+   "g": "einkleidung",
+   "h": "Benachbarte Winkel an einem Schenkel ergänzen sich zu 180°.",
+   "o": {
+    "wert": 108,
+    "einheit": "°"
+   },
+   "c": "180 - 72"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Raute ist ein Winkel doppelt so groß wie sein Nachbarwinkel. Wie groß ist der kleinere Winkel?"
+   },
+   "w": "x + 2x = 180° ⇒ x = 60°.",
+   "g": "umkehr",
+   "h": "Nachbarwinkel ergeben zusammen 180°.",
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "180 / 3"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Parallelogramm ist durch a = 6 cm, b = 4 cm und α = 50° gegeben. Was zeichnest du zuerst?"
+   },
+   "w": "Man beginnt mit der Seite a, an deren Anfang α angetragen wird.",
+   "g": "darstellung",
+   "h": "Mit einer gegebenen Seite beginnen.",
+   "a": [
+    "die Seite a",
+    "die Diagonale",
+    "den Winkel γ",
+    "die Höhe"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Viereck sind die Winkel im Verhältnis 1 : 2 : 3 : 4. Wie groß ist der größte Winkel?"
+   },
+   "w": "1 + 2 + 3 + 4 = 10 Teile = 360°, ein Teil 36°. Größter: 4 · 36° = 144°.",
+   "g": "rueckwaerts",
+   "h": "Verteile 360° auf 10 Teile.",
+   "o": {
+    "wert": 144,
+    "einheit": "°"
+   },
+   "c": "4 * 360 / 10"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Reichen a = 5 cm, b = 3 cm und c = 5 cm, um ein Parallelogramm eindeutig zu konstruieren?"
+   },
+   "w": "Nein: Es fehlt ein Winkel oder eine Diagonale. Mit nur Seiten kann man das Parallelogramm noch „kippen“.",
+   "g": "begruenden",
+   "h": "Ist die Form schon starr?",
+   "a": [
+    "Nein, es fehlt ein Winkel.",
+    "Ja, drei Stücke reichen immer.",
+    "Ja, weil c = a ist.",
+    "Nein, es fehlen zwei Seiten."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jan sagt: „Im Drachenviereck sind alle vier Seiten gleich lang.“ Was stimmt?"
+   },
+   "w": "Im Drachen sind nur je zwei benachbarte Seiten gleich lang. Alle vier gleich: das ist eine Raute.",
+   "g": "fehler",
+   "h": "Zeichne einen Drachen.",
+   "a": [
+    "Falsch: das gilt nur für die Raute.",
+    "Richtig.",
+    "Falsch: das gilt nur für das Trapez.",
+    "Richtig, wenn die Diagonalen senkrecht sind."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bauplatz ist ein Parallelogramm mit α = 80°. Ein Zaun soll den Winkel β halbieren. Wie groß ist jeder der beiden Teilwinkel?"
+   },
+   "w": "β = 180° − 80° = 100°, halbiert: 50°.",
+   "g": "transfer",
+   "h": "Erst β, dann halbieren.",
+   "o": {
+    "wert": 50,
+    "einheit": "°"
+   },
+   "c": "(180 - 80) / 2"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Parallelogramm ist α = 48°. Wie groß ist δ?"
+   },
+   "w": "δ ist Nachbarwinkel von α: 180° − 48° = 132°.",
+   "o": {
+    "wert": 132,
+    "einheit": "°"
+   },
+   "c": "180 - 48"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Parallelogramm ABCD ist α = 35°. Wie groß ist β?"
+   },
+   "w": "β = 180° − 35° = 145°.",
+   "o": {
+    "wert": 145,
+    "einheit": "°"
+   },
+   "c": "180 - 35"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Parallelogramm ABCD ist α = 102°. Wie groß ist β?"
+   },
+   "w": "β = 180° − 102° = 78°.",
+   "o": {
+    "wert": 78,
+    "einheit": "°"
+   },
+   "c": "180 - 102"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Parallelogramm ABCD ist α = 76°. Wie groß ist β?"
+   },
+   "w": "β = 180° − 76° = 104°.",
+   "o": {
+    "wert": 104,
+    "einheit": "°"
+   },
+   "c": "180 - 76"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Viereck hat die Winkel 90°, 85° und 100°. Berechne den vierten Winkel."
+   },
+   "w": "360° − 90° − 85° − 100° = 85°.",
+   "o": {
+    "wert": 85,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 85 - 100"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Viereck hat die Winkel 70°, 120° und 95°. Berechne den vierten Winkel."
+   },
+   "w": "360° − 70° − 120° − 95° = 75°.",
+   "o": {
+    "wert": 75,
+    "einheit": "°"
+   },
+   "c": "360 - 70 - 120 - 95"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Viereck hat die Winkel 60°, 60° und 120°. Berechne den vierten Winkel."
+   },
+   "w": "360° − 60° − 60° − 120° = 120°.",
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "360 - 60 - 60 - 120"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Viereck hat die Winkel 110°, 80° und 75°. Berechne den vierten Winkel."
+   },
+   "w": "360° − 110° − 80° − 75° = 95°.",
+   "o": {
+    "wert": 95,
+    "einheit": "°"
+   },
+   "c": "360 - 110 - 80 - 75"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Viereck hat die Winkel 95°, 95° und 85°. Berechne den vierten Winkel."
+   },
+   "w": "360° − 95° − 95° − 85° = 85°.",
+   "o": {
+    "wert": 85,
+    "einheit": "°"
+   },
+   "c": "360 - 95 - 95 - 85"
+  },
+  {
+   "l": "vierecke_konstruieren",
+   "t": "vierecke_konstruieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Viereck hat die Winkel 130°, 50° und 90°. Berechne den vierten Winkel."
+   },
+   "w": "360° − 130° − 50° − 90° = 90°.",
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "360 - 130 - 50 - 90"
   }
  ],
  "offen": [

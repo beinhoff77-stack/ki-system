@@ -8,6 +8,7 @@
   "rueckwaerts": "aus Flächeninhalt und Grundseite die fehlende Höhe berechnen",
   "zusammengesetzt": "Flächen aus Rechtecken, Dreiecken und Trapezen durch Zerlegen oder Ergänzen berechnen",
   "oberflaeche": "die Oberfläche von Keilen und Schachteln mit dreieckigen Seiten berechnen",
-  "verstehen": "Flächen vergleichen und Aussagen über Flächeninhalt und Umfang prüfen"
+  "verstehen": "Flächen vergleichen und Aussagen über Flächeninhalt und Umfang prüfen",
+  "drachen_raute": "den Flächeninhalt von Drachenviereck und Raute aus den Diagonalen berechnen"
  }
 }

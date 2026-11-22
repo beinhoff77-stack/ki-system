@@ -6,6 +6,9 @@
   "lage": "im Quader erkennen, ob zwei Geraden parallel, schneidend oder windschief sind",
   "koordinaten": "für Ecken und Mittelpunkte eines Quaders die drei Koordinaten (x | y | z) angeben",
   "rotation": "angeben, welcher Körper entsteht, wenn sich eine Fläche um eine Achse dreht",
-  "axialschnitt": "für Zylinder und Kegel Fläche und Umfang des Schnitts durch die Achse berechnen"
+  "axialschnitt": "für Zylinder und Kegel Fläche und Umfang des Schnitts durch die Achse berechnen",
+  "wahre_groesse": "im Schrägbild verkürzte Tiefenkanten in wahre Längen zurückrechnen und Flächen in wahrer Größe erkennen",
+  "koerper_symmetrie": "Symmetrieebenen und Symmetriezentren von Quader, Würfel, Prisma und Pyramide bestimmen",
+  "raumwinkel": "Winkel zwischen Kanten, Flächen und Geraden an Prismen und Quadern bestimmen"
  }
 }

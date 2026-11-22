@@ -29,7 +29,7 @@ from _luecken_neu import (PI, A, K, P, Z, aufgaben, d, fig, gr, netz_rechtecke, 
                           schreiben, toleranz_pi, wahl, z)
 
 ZIEL = HIER.parent / 'themen' / 'messen.prisma_zylinder.json'
-META = {'thema_schluessel': 'messen.prisma_zylinder', 'thema_id': 101, 'block_id': 86, 'klasse': {'gym_by': 8}}
+META = {'thema_schluessel': 'messen.prisma_zylinder', 'thema_id': 101, 'block_id': 86, 'klasse': {'gym_by': 8, 'rs_by': 9}}
 SEED = 7101
 PIF = Fr(PI)
 
@@ -1005,3 +1005,9 @@ if __name__ == '__main__':
     from _bereinigen import bereinigen_datei
     bereinigen_datei('messen.prisma_zylinder')
 # ---- BEREINIGEN ENDE ----
+
+# ---- LK (22.11., Nachtrag LK-D 2, siehe _lk_etappen_2211.py): zuletzt, hängt nur an ----
+if __name__ == '__main__':
+    from _lk_etappen_2211 import lk_anhaengen
+    lk_anhaengen('messen.prisma_zylinder')
+# ---- LK ENDE ----

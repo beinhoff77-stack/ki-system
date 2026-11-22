@@ -8,6 +8,7 @@
   "zylinder_volumen": "das Volumen von Zylindern und Rohren berechnen und in Liter umrechnen",
   "zylinder_oberflaeche": "die Oberfläche eines Zylinders aus Kreisen und Mantel berechnen, auch ohne Deckel",
   "sach": "zusammengesetzte Alltagskörper in Prismen und Zylinder zerlegen und berechnen",
-  "verstehen": "begründen, wie sich das Volumen ändert, wenn Grundfläche oder Höhe sich ändern"
+  "verstehen": "begründen, wie sich das Volumen ändert, wenn Grundfläche oder Höhe sich ändern",
+  "cavalieri": "das Volumen schiefer Prismen und Zylinder mit V = G · h berechnen und das Prinzip von Cavalieri begründen"
  }
 }

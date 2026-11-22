@@ -538,7 +538,7 @@ def g_sach(s):
 
 GEN = {'erkennen': g_erkennen, 'vervielfachen': g_vervielfachen, 'einheit': g_einheit, 'dreisatz': g_dreisatz, 'geschickt': g_geschickt, 'pruefen': g_pruefen, 'sach': g_sach}
 DATEI = {
-    'thema_schluessel': 'groessen.proportional', 'thema_id': 26, 'block_id': 54, 'klasse': {'gym_by': 5, 'rs_by': 5, 'ib_myp': 2},
+    'thema_schluessel': 'groessen.proportional', 'thema_id': 26, 'block_id': 54, 'klasse': {'gym_by': 5, 'rs_by': 6, 'ib_myp': 2},
     'autor': 'Claude (Generator groessen_proportional.py)',
     'offen': ['Produktgleichheit (indirekte Proportionalität) steht im „umfang“, gehört aber zum Thema groessen.indirekt (Kl. 8) und ist hier weggelassen.',
               'Darstellung als Graph (Ursprungsgerade) bewusst weggelassen: Die App kann sie inzwischen zeichnen, lehrplan_gym Kl. 5 verlangt aber nur Schlussrechnung und Dreisatz; ein Graph wäre Stoff einer höheren Jahrgangsstufe. Dargestellt wird mit Tabellen (Lernkarten erkennen, pruefen, dreisatz und Aufgaben).'],

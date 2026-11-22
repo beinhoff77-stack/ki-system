@@ -1,0 +1,649 @@
+"""Neue Etappen für die Lücken aus LP-RS (Bau-Auftrag LK, LK-D, 22.11.2026).
+
+Hängt an bestehende Themen je eine neue Lernkarte mit Übungen an (alle Lösungen hier berechnet, Texte selbst formuliert):
+  46 abbildungen.kongruenz   · vektor_koordinaten (RS 7 I/II 2/K4)  · vektor_drehen (RS 8 I 2/K5)
+  47 abbildungen.aehnlichkeit · streckung_vektor (RS 9 I 2/K5)
+  44 geometrie.konstruktion   · vierecke_konstruieren (RS 8 I 1/K2, RS 8 II/III 1/K5)
+  99 messen.flaechen_vielecke · drachen_raute (RS 6 3/k2)
+  91 raum.schraegbilder       · wahre_groesse (RS 7 I 4/K3, RS 8 II/III 2/K2)
+Die neuen Lernkarten sind Vertiefung (nicht Pflicht): Flug, Test und Stempel bestehender Themen ändern sich nicht.
+Ob sie je Klasse Pflicht werden, regelt LK-S über zuordnung.etappen. Zweiter Lauf hängt nichts doppelt an.
+"""
+import json
+from fractions import Fraction as Fr
+from pathlib import Path
+
+THEMEN = Path(__file__).resolve().parent.parent / 'themen'
+KANN = Path(__file__).resolve().parent.parent / 'kann'
+
+
+def z(n):
+    if isinstance(n, Fr):
+        n = int(n) if n.denominator == 1 else float(n)
+    if isinstance(n, float) and n.is_integer():
+        n = int(n)
+    return str(n).replace('.', ',').replace('-', '−')
+
+
+def k(n):
+    return f'({z(n)})' if n < 0 else z(n)
+
+
+def V(x, y):
+    return f'({z(x)} | {z(y)})'
+
+
+def auf(l, p, s, g, y, text, w, h=None, **x):
+    a = {'l': l, 't': l, 'p': p, 's': s, 'y': y, 'f': {'text': text}, 'w': w}
+    if p == 'uebung':
+        a['g'] = g
+        a['h'] = h
+    a.update(x)
+    return a
+
+
+def wahl(richtig, falsch, pos):
+    o = list(falsch)
+    o.insert(pos, richtig)
+    assert len(set(o)) == len(o), o
+    return {'a': o, 'o': {'index': pos}}
+
+
+# ------------------------------------------------------------------ 46 · vektor_koordinaten
+def vektor_koordinaten():
+    L = 'vektor_koordinaten'
+    karte = {
+        'lernziel': L, 'titel': 'Vektoren in Koordinaten',
+        'einstieg': 'Ein Lieferroboter fährt auf einem Gitterplan von der Halle A zur Tür B. Sein Weg lässt sich als Pfeil angeben: so weit nach rechts und so weit nach oben. Diesen Pfeil nennt man ⟦Vektor⟧.',
+        'woerter': [['Vektor', 'Pfeil mit Richtung und Länge, geschrieben als (nach rechts | nach oben)'],
+                    ['Ortsvektor', 'Vektor vom Ursprung O zu einem Punkt; er hat dieselben Zahlen wie der Punkt']],
+        'regel': 'Vektor von A nach B: ⟦Ende minus Anfang⟧, also (xB − xA | yB − yA). Punkt plus Vektor gibt den Bildpunkt. Vektoren addiert man Zahl für Zahl.',
+        'schritte': [{'text': 'A(1 | 2) und B(6 | 5). Rechts: 6 − 1 = 5. Oben: 5 − 2 = 3.'},
+                     {'text': 'Also ist der Vektor von A nach B gleich ⟦(5 | 3)⟧.'},
+                     {'text': 'Probe: A(1 | 2) plus (5 | 3) ergibt (1 + 5 | 2 + 3) = (6 | 5). Das ist B.'}],
+        'fehler': 'Anfang minus Ende rechnen: 1 − 6 = −5 ist falsch herum. Der Vektor zeigt dann von B nach A. Immer ⟦Ende minus Anfang⟧.',
+    }
+    A = []
+    # Übungen Stufe 1
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'A(2 | 1) und B(7 | 4). Wie viele Einheiten nach rechts zeigt der Vektor von A nach B?',
+                 'Rechts: xB − xA = 7 − 2 = 5.', 'Ende minus Anfang, nur die erste Zahl.', o={'wert': 5}, c='7 - 2'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'C(−3 | 5) und D(1 | −2). Berechne die zweite Zahl (nach oben) des Vektors von C nach D.',
+                 'Oben: yD − yC = −2 − 5 = −7. Der Pfeil geht 7 nach unten.', 'Ende minus Anfang bei der zweiten Zahl.', o={'wert': -7}, c='-2 - 5'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welcher Vektor führt von P(0 | 0) zu Q(4 | −3)?',
+                 'Ende minus Anfang: (4 − 0 | −3 − 0) = (4 | −3).', 'Vom Ursprung aus hat der Vektor dieselben Zahlen wie der Zielpunkt.',
+                 **wahl('(4 | −3)', ['(−4 | 3)', '(−3 | 4)', '(3 | −4)'], 1)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Der Vektor von A nach B ist (2 | 6). Welcher Vektor führt von B zurück nach A?',
+                 'Der Rückweg ist der Gegenvektor: beide Zahlen mit umgekehrtem Vorzeichen, also (−2 | −6).', 'Zurück heißt: alles in die Gegenrichtung.',
+                 **wahl('(−2 | −6)', ['(2 | 6)', '(6 | 2)', '(−2 | 6)'], 2)))
+    # Stufe 2
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'luecken', 'A(3 | −1) wird mit dem Vektor (−5 | 4) verschoben. Gib die Koordinaten des Bildpunkts A′ an.',
+                 'A′ = (3 + (−5) | −1 + 4) = (−2 | 3).', 'Punkt plus Vektor, Zahl für Zahl.',
+                 f={'text': 'A(3 | −1) wird mit dem Vektor (−5 | 4) verschoben. Gib die Koordinaten des Bildpunkts A′ an.', 'schablone': 'A′(□ | □)', 'hinweis': 'Trage x und y ein.'},
+                 o={'werte': [-2, 3]}, c=['3 + (-5)', '-1 + 4']))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Ein Roboter steht bei (2 | 3). Er fährt erst (4 | 1), dann (−1 | 5). Bei welcher x-Koordinate steht er danach?',
+                 'Vektoren addieren: (4 + (−1) | 1 + 5) = (3 | 6). Von (2 | 3) aus: x = 2 + 3 = 5.', 'Addiere zuerst die beiden Fahrten.', o={'wert': 5}, c='2 + 4 + (-1)'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'luecken', 'Nach der Verschiebung mit (3 | −2) liegt der Bildpunkt bei P′(1 | 4). Wo lag P?',
+                 'Rückwärts: P = P′ minus Vektor = (1 − 3 | 4 − (−2)) = (−2 | 6).', 'Ziehe den Vektor vom Bildpunkt ab.',
+                 f={'text': 'Nach der Verschiebung mit (3 | −2) liegt der Bildpunkt bei P′(1 | 4). Wo lag P?', 'schablone': 'P(□ | □)', 'hinweis': 'Trage x und y ein.'},
+                 o={'werte': [-2, 6]}, c=['1 - 3', '4 - (-2)']))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'luecken', 'Die Strecke AB hat A(−2 | 1) und B(4 | 7). Berechne den Mittelpunkt M der Strecke.',
+                 'M = ((−2 + 4) : 2 | (1 + 7) : 2) = (1 | 4).', 'Mittelwert der x-Werte und der y-Werte.',
+                 f={'text': 'Die Strecke AB hat A(−2 | 1) und B(4 | 7). Berechne den Mittelpunkt M der Strecke.', 'schablone': 'M(□ | □)', 'hinweis': 'Trage x und y ein.'},
+                 o={'werte': [1, 4]}, c=['(-2 + 4) / 2', '(1 + 7) / 2']))
+    # Stufe 3
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'luecken', 'ABCD ist ein Parallelogramm mit A(1 | 1), B(6 | 2) und C(7 | 5). Berechne die vierte Ecke D.',
+                 'Im Parallelogramm gilt: Vektor AD = Vektor BC = (7 − 6 | 5 − 2) = (1 | 3). D = A + (1 | 3) = (2 | 4).', 'Gegenüberliegende Seiten sind gleiche Vektoren.',
+                 f={'text': 'ABCD ist ein Parallelogramm mit A(1 | 1), B(6 | 2) und C(7 | 5). Berechne die vierte Ecke D.', 'schablone': 'D(□ | □)', 'hinweis': 'Trage x und y ein.'},
+                 o={'werte': [2, 4]}, c=['1 + (7 - 6)', '1 + (5 - 2)']))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Die Vektoren von A nach B und von D nach C sind beide (5 | 2). Was folgt daraus für das Viereck ABCD?',
+                 'Gleiche Vektoren heißen gleich lang und parallel. Zwei Seiten gleich lang und parallel: ABCD ist ein Parallelogramm.',
+                 'Was haben gleiche Pfeile gemeinsam?',
+                 **wahl('Es ist ein Parallelogramm.', ['Es ist ein Quadrat.', 'Es ist ein Drachenviereck.', 'Es ist ein Trapez, aber kein Parallelogramm.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Lina rechnet den Vektor von A(4 | 2) nach B(1 | 6) so: (4 − 1 | 2 − 6) = (3 | −4). Was stimmt?',
+                 'Sie hat Anfang minus Ende gerechnet. Richtig: (1 − 4 | 6 − 2) = (−3 | 4).', 'Welche Reihenfolge gilt beim Vektor?',
+                 **wahl('Falsch herum: richtig ist (−3 | 4).', ['Alles richtig.', 'Nur die erste Zahl ist falsch.', 'Richtig ist (5 | 8).'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Schiff fährt von (0 | 0) dreimal hintereinander den Vektor (2 | 5). Welche y-Koordinate hat es danach?',
+                 'Dreimal derselbe Vektor: 3 · (2 | 5) = (6 | 15). y = 15.', 'Dreimal addieren ist dreimal so viel.', o={'wert': 15}, c='3 * 5'))
+    # Test, Korrektur, Sicherung
+    A.append(auf(L, 'test', 2, None, 'luecken', 'Bestimme den Vektor von A(−1 | 4) nach B(3 | −2).', 'Ende minus Anfang: (3 − (−1) | −2 − 4) = (4 | −6).',
+                 f={'text': 'Bestimme den Vektor von A(−1 | 4) nach B(3 | −2).', 'schablone': '(□ | □)', 'hinweis': 'Trage beide Zahlen ein.'}, o={'werte': [4, -6]}, c=['3 - (-1)', '-2 - 4']))
+    for (ax, ay, bx, by) in ((2, 5, 8, 1), (-4, 0, 1, 3), (0, -3, -5, 2)):
+        A.append(auf(L, 'korrektur', 2, None, 'luecken', f'Berechne den Vektor von A{V(ax, ay)} nach B{V(bx, by)}.', f'Ende minus Anfang: ({z(bx)} − {k(ax)} | {z(by)} − {k(ay)}) = {V(bx - ax, by - ay)}.',
+                     f={'text': f'Berechne den Vektor von A{V(ax, ay)} nach B{V(bx, by)}.', 'schablone': '(□ | □)', 'hinweis': 'Trage beide Zahlen ein.'},
+                     o={'werte': [bx - ax, by - ay]}, c=[f'{bx} - ({ax})', f'{by} - ({ay})']))
+    for (px, py, vx, vy) in ((1, 1, 3, 4), (-2, 5, 6, -1), (4, -3, -4, 2), (0, 2, 5, 5), (-1, -1, 2, -3), (3, 0, -2, 6)):
+        A.append(auf(L, 'sicherung', 2, None, 'luecken', f'Verschiebe P{V(px, py)} mit dem Vektor {V(vx, vy)}. Wo liegt P′?', f'P′ = ({z(px)} + {k(vx)} | {z(py)} + {k(vy)}) = {V(px + vx, py + vy)}.',
+                     f={'text': f'Verschiebe P{V(px, py)} mit dem Vektor {V(vx, vy)}. Wo liegt P′?', 'schablone': 'P′(□ | □)', 'hinweis': 'Trage x und y ein.'},
+                     o={'werte': [px + vx, py + vy]}, c=[f'{px} + ({vx})', f'{py} + ({vy})']))
+    kann = 'aus zwei Punkten den Vektor berechnen, Punkte verschieben und die vierte Ecke eines Parallelogramms bestimmen'
+    return karte, kann, A
+
+
+# ------------------------------------------------------------------ 46 · vektor_drehen
+def dreh(x, y, w):
+    return {90: (-y, x), -90: (y, -x), 180: (-x, -y)}[w]
+
+
+def vektor_drehen():
+    L = 'vektor_drehen'
+    karte = {
+        'lernziel': L, 'titel': 'Vektoren um 90° und 180° drehen',
+        'einstieg': 'Ein Kran schwenkt seinen Ausleger um eine Vierteldrehung. Die Spitze bewegt sich auf einem Kreis. Mit den Koordinaten des Auslegers kann man ihre neue Lage genau ausrechnen.',
+        'woerter': [['Drehung um 90°', 'Vierteldrehung gegen den Uhrzeigersinn'], ['Drehung um −90°', 'Vierteldrehung im Uhrzeigersinn']],
+        'regel': 'Um +90°: (x | y) wird ⟦(−y | x)⟧. Um −90°: (x | y) wird (y | −x). Um 180°: (x | y) wird (−x | −y).',
+        'schritte': [{'text': 'Der Vektor (4 | 1) soll um +90° gedreht werden.'},
+                     {'text': 'Zahlen tauschen und die neue erste Zahl umdrehen: (−1 | 4).'},
+                     {'text': 'Punkt drehen um Z: erst den Vektor von Z zum Punkt drehen, dann an Z anhängen.'}],
+        'fehler': 'Nur tauschen ohne Vorzeichen: (4 | 1) wird nicht (1 | 4). Bei +90° bekommt die ⟦neue erste Zahl ein Minus⟧.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'luecken', 'Drehe den Vektor (3 | 2) um +90°.', '(x | y) → (−y | x): (−2 | 3).', 'Tauschen, dann vorne das Vorzeichen umdrehen.',
+                 f={'text': 'Drehe den Vektor (3 | 2) um +90°.', 'schablone': '(□ | □)', 'hinweis': 'Trage beide Zahlen ein.'}, o={'werte': [-2, 3]}, c=['-2', '3']))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'luecken', 'Drehe den Vektor (−4 | 5) um 180°.', 'Bei 180° wechseln beide Vorzeichen: (4 | −5).', 'Halbe Drehung: der Pfeil zeigt genau zurück.',
+                 f={'text': 'Drehe den Vektor (−4 | 5) um 180°.', 'schablone': '(□ | □)', 'hinweis': 'Trage beide Zahlen ein.'}, o={'werte': [4, -5]}, c=['4', '-5']))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welcher Vektor entsteht, wenn (6 | 1) um −90° gedreht wird?', '(x | y) → (y | −x): (1 | −6).', 'Im Uhrzeigersinn: tauschen, hinten das Vorzeichen umdrehen.',
+                 **wahl('(1 | −6)', ['(−1 | 6)', '(−6 | −1)', '(1 | 6)'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Bei welcher Drehung bleibt die Länge eines Vektors gleich?', 'Drehungen ändern die Länge nie, nur die Richtung.', 'Denke an den Kranausleger.',
+                 **wahl('Bei jeder Drehung', ['Nur bei 180°', 'Nur bei 90°', 'Bei keiner Drehung'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'luecken', 'Drehe P(5 | 3) um Z(2 | 1) um +90°. Gib P′ an.',
+                 'Vektor ZP = (3 | 2). Gedreht: (−2 | 3). P′ = Z + (−2 | 3) = (0 | 4).', 'Erst Vektor ZP, dann drehen, dann an Z anhängen.',
+                 f={'text': 'Drehe P(5 | 3) um Z(2 | 1) um +90°. Gib P′ an.', 'schablone': 'P′(□ | □)', 'hinweis': 'Trage x und y ein.'}, o={'werte': [0, 4]}, c=['2 + (-2)', '1 + 3']))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'luecken', 'Ein Zeiger zeigt vom Mittelpunkt aus (0 | 4). Nach einer Vierteldrehung im Uhrzeigersinn: Wohin zeigt er?',
+                 'Um −90°: (x | y) → (y | −x) = (4 | 0). Er zeigt nach rechts.', 'Im Uhrzeigersinn heißt −90°.',
+                 f={'text': 'Ein Zeiger zeigt vom Mittelpunkt aus (0 | 4). Nach einer Vierteldrehung im Uhrzeigersinn: Wohin zeigt er?', 'schablone': '(□ | □)', 'hinweis': 'Trage beide Zahlen ein.'}, o={'werte': [4, 0]}, c=['4', '0']))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'luecken', 'Nach einer Drehung um +90° ist ein Vektor (−3 | 1). Wie lautete er vorher?',
+                 'Zurückdrehen um −90°: (x | y) → (y | −x) = (1 | 3). Probe: (1 | 3) um +90° gibt (−3 | 1).', 'Drehe in die Gegenrichtung zurück.',
+                 f={'text': 'Nach einer Drehung um +90° ist ein Vektor (−3 | 1). Wie lautete er vorher?', 'schablone': '(□ | □)', 'hinweis': 'Trage beide Zahlen ein.'}, o={'werte': [1, 3]}, c=['1', '3']))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Der Vektor (2 | 0) zeigt nach rechts. Wohin zeigt er nach einer Drehung um 180°?', '(2 | 0) → (−2 | 0): nach links.', 'Halbe Drehung.',
+                 **wahl('nach links', ['nach rechts', 'nach oben', 'nach unten'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'luecken', 'Das Quadrat ABCD hat A(1 | 1) und B(4 | 2). Die Ecken laufen gegen den Uhrzeigersinn. Berechne D.',
+                 'Vektor AB = (3 | 1). AD ist AB um +90° gedreht: (−1 | 3). D = A + (−1 | 3) = (0 | 4).', 'AD steht senkrecht auf AB und ist gleich lang.',
+                 f={'text': 'Das Quadrat ABCD hat A(1 | 1) und B(4 | 2). Die Ecken laufen gegen den Uhrzeigersinn. Berechne D.', 'schablone': 'D(□ | □)', 'hinweis': 'Trage x und y ein.'}, o={'werte': [0, 4]}, c=['1 + (-1)', '1 + 3']))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum ist (−y | x) senkrecht zu (x | y)?', 'Die Determinante bzw. das Produkt x · (−y) + y · x ist 0. Senkrechte Vektoren haben dieses Produkt 0.', 'Rechne x · (−y) + y · x.',
+                 **wahl('Weil x · (−y) + y · x = 0 ist.', ['Weil beide gleich lang sind.', 'Weil beide Zahlen getauscht sind.', 'Weil x und y positiv sind.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Tom dreht (5 | 2) um +90° und erhält (2 | −5). Was stimmt?', 'Das ist die Drehung um −90°. Richtig für +90°: (−2 | 5).', 'Wo steht bei +90° das Minus?',
+                 **wahl('Das ist −90°; richtig ist (−2 | 5).', ['Alles richtig.', 'Richtig ist (2 | 5).', 'Richtig ist (−5 | −2).'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Vektor wird viermal nacheinander um +90° gedreht. Um wie viel Grad hat er sich insgesamt gedreht?', '4 · 90° = 360°: Er zeigt wieder in die alte Richtung.', 'Vier Vierteldrehungen.', o={'wert': 360}, c='4 * 90'))
+    A.append(auf(L, 'test', 2, None, 'luecken', 'Drehe P(4 | 1) um Z(1 | 1) um +90°.', 'ZP = (3 | 0), gedreht (0 | 3), P′ = (1 | 4).',
+                 f={'text': 'Drehe P(4 | 1) um Z(1 | 1) um +90°.', 'schablone': 'P′(□ | □)', 'hinweis': 'Trage x und y ein.'}, o={'werte': [1, 4]}, c=['1 + 0', '1 + 3']))
+    for (x, y, w) in ((2, 5, 90), (-3, 4, -90), (6, -1, 180)):
+        rx, ry = dreh(x, y, w)
+        A.append(auf(L, 'korrektur', 2, None, 'luecken', f'Drehe den Vektor {V(x, y)} um {z(w)}°.', f'Ergebnis: {V(rx, ry)}.',
+                     f={'text': f'Drehe den Vektor {V(x, y)} um {z(w)}°.', 'schablone': '(□ | □)', 'hinweis': 'Trage beide Zahlen ein.'}, o={'werte': [rx, ry]}, c=[str(rx), str(ry)]))
+    for (x, y, w) in ((1, 4, 90), (5, 0, -90), (-2, -3, 180), (3, -2, 90), (-4, 1, -90), (0, -5, 180)):
+        rx, ry = dreh(x, y, w)
+        A.append(auf(L, 'sicherung', 2, None, 'luecken', f'Welcher Vektor entsteht aus {V(x, y)} bei einer Drehung um {z(w)}°?', f'Ergebnis: {V(rx, ry)}.',
+                     f={'text': f'Welcher Vektor entsteht aus {V(x, y)} bei einer Drehung um {z(w)}°?', 'schablone': '(□ | □)', 'hinweis': 'Trage beide Zahlen ein.'}, o={'werte': [rx, ry]}, c=[str(rx), str(ry)]))
+    kann = 'Vektoren und Punkte um 90°, −90° und 180° drehen und die neuen Koordinaten berechnen'
+    return karte, kann, A
+
+
+# ------------------------------------------------------------------ 47 · streckung_vektor
+def streckung_vektor():
+    L = 'streckung_vektor'
+    karte = {
+        'lernziel': L, 'titel': 'Strecken mit Vektoren rechnen',
+        'einstieg': 'Ein Beamer vergrößert ein Bild von der Linse aus. Jeder Punkt wandert auf einem Strahl weg vom Zentrum, und zwar k-mal so weit. Mit Vektoren kann man die neue Lage genau berechnen.',
+        'regel': 'Bildpunkt: ⟦P′ = Z + k · (Vektor ZP)⟧. Den Faktor findet man aus k = (Vektor ZP′) : (Vektor ZP), Zahl für Zahl.',
+        'schritte': [{'text': 'Z(1 | 2), P(4 | 3), k = 2. Vektor ZP = (3 | 1).'},
+                     {'text': 'k · ZP = (6 | 2). P′ = Z + (6 | 2) = ⟦(7 | 4)⟧.'}],
+        'fehler': 'k · P statt k · ZP rechnen: 2 · (4 | 3) = (8 | 6) stimmt nur, wenn Z der Ursprung ist. Immer erst den ⟦Vektor vom Zentrum⟧ bilden.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'luecken', 'Strecke den Vektor (2 | −3) mit k = 3.', '3 · (2 | −3) = (6 | −9).', 'Jede Zahl mal k.',
+                 f={'text': 'Strecke den Vektor (2 | −3) mit k = 3.', 'schablone': '(□ | □)', 'hinweis': 'Trage beide Zahlen ein.'}, o={'werte': [6, -9]}, c=['3 * 2', '3 * (-3)']))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'luecken', 'Z ist der Ursprung, P(4 | 6), k = 0,5. Gib P′ an.', 'P′ = 0,5 · (4 | 6) = (2 | 3).', 'Vom Ursprung aus: Punkt mal k.',
+                 f={'text': 'Z ist der Ursprung, P(4 | 6), k = 0,5. Gib P′ an.', 'schablone': 'P′(□ | □)', 'hinweis': 'Trage x und y ein.'}, o={'werte': [2, 3]}, c=['0.5 * 4', '0.5 * 6']))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Was bewirkt der Faktor k = −1 bei einer zentrischen Streckung?', 'k = −1: gleich lang, entgegengesetzt – das ist die Punktspiegelung an Z.', 'Negatives k: der Bildpunkt liegt auf der anderen Seite von Z.',
+                 **wahl('eine Punktspiegelung an Z', ['nichts', 'eine Verdopplung', 'eine Achsenspiegelung'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Bei welchem Faktor k wird eine Figur verkleinert?', 'Verkleinerung bei −1 < k < 1 (k ≠ 0), z. B. k = 0,4.', 'Vergleiche den Betrag von k mit 1.',
+                 **wahl('k = 0,4', ['k = 2', 'k = −3', 'k = 1'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'luecken', 'Z(2 | 1), P(5 | 3), k = 2. Berechne P′.', 'ZP = (3 | 2), 2 · ZP = (6 | 4), P′ = (2 + 6 | 1 + 4) = (8 | 5).', 'Erst ZP, dann mal k, dann an Z anhängen.',
+                 f={'text': 'Z(2 | 1), P(5 | 3), k = 2. Berechne P′.', 'schablone': 'P′(□ | □)', 'hinweis': 'Trage x und y ein.'}, o={'werte': [8, 5]}, c=['2 + 2 * 3', '1 + 2 * 2']))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Eine Lampe steht bei Z(0 | 0). Eine Kante eines Gegenstands geht bis P(3 | 2). Ihr Schatten an der Wand ist 4-mal so weit von der Lampe entfernt. Welche x-Koordinate hat der Schattenpunkt?',
+                 'P′ = 4 · (3 | 2) = (12 | 8). x = 12.', 'Vom Zentrum aus: mal k.', o={'wert': 12}, c='4 * 3'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Z(1 | 1), P(3 | 2) und P′(7 | 4). Berechne den Faktor k.', 'ZP = (2 | 1), ZP′ = (6 | 3). k = 6 : 2 = 3 (und 3 : 1 = 3).', 'Teile die Zahlen von ZP′ durch die von ZP.', o={'wert': 3}, c='(7 - 1) / (3 - 1)'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'luecken', 'Z(0 | 2), P(4 | 2), k = −0,5. Gib P′ an.', 'ZP = (4 | 0), −0,5 · ZP = (−2 | 0), P′ = (−2 | 2).', 'Negatives k: auf die andere Seite von Z.',
+                 f={'text': 'Z(0 | 2), P(4 | 2), k = −0,5. Gib P′ an.', 'schablone': 'P′(□ | □)', 'hinweis': 'Trage x und y ein.'}, o={'werte': [-2, 2]}, c=['0 + (-0.5) * 4', '2 + (-0.5) * 0']))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'luecken', 'Bei einer Streckung mit Z(1 | 0) und k = 3 entsteht P′(10 | 6). Wo lag P?', 'ZP′ = (9 | 6). ZP = ZP′ : 3 = (3 | 2). P = Z + (3 | 2) = (4 | 2).', 'Teile ZP′ durch k.',
+                 f={'text': 'Bei einer Streckung mit Z(1 | 0) und k = 3 entsteht P′(10 | 6). Wo lag P?', 'schablone': 'P(□ | □)', 'hinweis': 'Trage x und y ein.'}, o={'werte': [4, 2]}, c=['1 + 9 / 3', '0 + 6 / 3']))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Z(0 | 0), P(2 | 1) und Q(6 | 4). Kann Q ein Bildpunkt von P bei einer Streckung an Z sein?', '6 : 2 = 3, aber 4 : 1 = 4. Die Faktoren sind verschieden, also liegt Q nicht auf dem Strahl ZP.', 'Ein einziges k muss für beide Zahlen passen.',
+                 **wahl('Nein, die Faktoren 3 und 4 sind verschieden.', ['Ja, mit k = 3.', 'Ja, mit k = 4.', 'Ja, mit k = 3,5.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Mia rechnet für Z(2 | 2), P(3 | 4), k = 2: P′ = 2 · (3 | 4) = (6 | 8). Was stimmt?', 'Sie hat den Punkt statt ZP gestreckt. Richtig: ZP = (1 | 2), 2 · ZP = (2 | 4), P′ = (4 | 6).', 'Liegt Z im Ursprung?',
+                 **wahl('Falsch: richtig ist P′(4 | 6).', ['Alles richtig.', 'Richtig ist P′(5 | 6).', 'Richtig ist P′(8 | 10).'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Dreieck wird mit k = 3 gestreckt. Sein Flächeninhalt war 4 cm². Wie groß ist er danach?', 'Flächen wachsen mit k²: 4 cm² · 9 = 36 cm².', 'Längen mal k, Flächen mal k².', o={'wert': 36, 'einheit': 'cm²'}, c='4 * 3 * 3'))
+    A.append(auf(L, 'test', 2, None, 'luecken', 'Z(1 | 2), P(3 | 3), k = 3. Berechne P′.', 'ZP = (2 | 1), 3 · ZP = (6 | 3), P′ = (7 | 5).',
+                 f={'text': 'Z(1 | 2), P(3 | 3), k = 3. Berechne P′.', 'schablone': 'P′(□ | □)', 'hinweis': 'Trage x und y ein.'}, o={'werte': [7, 5]}, c=['1 + 3 * 2', '2 + 3 * 1']))
+    for (zx, zy, px, py, kk) in ((0, 1, 2, 3, 2), (2, -1, 4, 0, 3), (-1, 0, 1, 4, Fr(1, 2))):
+        bx, by = zx + kk * (px - zx), zy + kk * (py - zy)
+        A.append(auf(L, 'korrektur', 2, None, 'luecken', f'Z{V(zx, zy)}, P{V(px, py)}, k = {z(kk)}. Berechne P′.', f'ZP = {V(px - zx, py - zy)}, P′ = {V(bx, by)}.',
+                     f={'text': f'Z{V(zx, zy)}, P{V(px, py)}, k = {z(kk)}. Berechne P′.', 'schablone': 'P′(□ | □)', 'hinweis': 'Trage x und y ein.'},
+                     o={'werte': [float(bx) if isinstance(bx, Fr) else bx, float(by) if isinstance(by, Fr) else by]}, c=[f'{zx} + {float(kk)} * ({px} - ({zx}))', f'{zy} + {float(kk)} * ({py} - ({zy}))']))
+    for (zx, zy, px, py, kk) in ((0, 0, 3, -1, 2), (1, 1, 2, 3, 3), (-2, 0, 0, 2, 2), (0, 2, 4, 4, Fr(1, 2)), (3, 1, 1, 2, -1), (1, -2, 3, -1, -2)):
+        bx, by = zx + kk * (px - zx), zy + kk * (py - zy)
+        A.append(auf(L, 'sicherung', 2, None, 'luecken', f'Strecke P{V(px, py)} an Z{V(zx, zy)} mit k = {z(kk)}. Wo liegt P′?', f'ZP = {V(px - zx, py - zy)}, k · ZP an Z anhängen: P′ = {V(bx, by)}.',
+                     f={'text': f'Strecke P{V(px, py)} an Z{V(zx, zy)} mit k = {z(kk)}. Wo liegt P′?', 'schablone': 'P′(□ | □)', 'hinweis': 'Trage x und y ein.'},
+                     o={'werte': [float(bx) if isinstance(bx, Fr) else bx, float(by) if isinstance(by, Fr) else by]}, c=[f'{zx} + {float(kk)} * ({px} - ({zx}))', f'{zy} + {float(kk)} * ({py} - ({zy}))']))
+    kann = 'Bildpunkte einer zentrischen Streckung mit Vektoren berechnen und den Streckungsfaktor bestimmen'
+    return karte, kann, A
+
+
+# ------------------------------------------------------------------ 44 · vierecke_konstruieren
+def vierecke_konstruieren():
+    L = 'vierecke_konstruieren'
+    karte = {
+        'lernziel': L, 'titel': 'Vierecke konstruieren',
+        'einstieg': 'Für ein Gartenbeet in Form eines Parallelogramms misst Ole zwei Seiten und einen Winkel. Reicht das, damit seine Schwester das Beet genau gleich nachbauen kann? Bei Vierecken hängt das von ihrer Art ab.',
+        'regel': 'Ein beliebiges Viereck braucht ⟦5 Bestimmungsstücke⟧, ein Parallelogramm 3, ein Rechteck 2, eine Raute 2, ein Quadrat 1. Fehlende Winkel folgen aus der Winkelsumme 360° und den Eigenschaften.',
+        'schritte': [{'text': 'Parallelogramm mit a = 5 cm, b = 3 cm, α = 70°.'},
+                     {'text': 'Nachbarwinkel ergänzen sich zu 180°: β = 110°. Gegenüber gleich: γ = 70°, δ = 110°.'},
+                     {'text': 'Konstruieren: a zeichnen, Winkel α antragen, b abtragen, Parallelen ziehen.'}],
+        'fehler': 'Im Parallelogramm sind ⟦gegenüberliegende⟧ Winkel gleich, nicht benachbarte. Bei α = 70° ist β = 110°, nicht 70°.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Im Parallelogramm ABCD ist α = 65°. Wie groß ist β?', 'Benachbarte Winkel: α + β = 180°, also β = 115°.', 'Nachbarwinkel im Parallelogramm.', o={'wert': 115, 'einheit': '°'}, c='180 - 65'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Ein Viereck hat die Winkel 80°, 95° und 110°. Wie groß ist der vierte Winkel?', '360° − 80° − 95° − 110° = 75°.', 'Winkelsumme im Viereck.', o={'wert': 75, 'einheit': '°'}, c='360 - 80 - 95 - 110'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Wie viele Bestimmungsstücke braucht man mindestens für ein Rechteck?', 'Zwei Seitenlängen genügen, die Winkel sind alle 90°.', 'Welche Größen sind beim Rechteck schon festgelegt?',
+                 **wahl('2', ['1', '3', '5'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welche Angabe legt ein Quadrat eindeutig fest?', 'Eine Seitenlänge reicht, alles andere ist durch die Quadrat-Eigenschaften festgelegt.', 'Wie viele Stücke braucht ein Quadrat?',
+                 **wahl('eine Seitenlänge', ['ein Winkel', 'die Winkelsumme', 'zwei Winkel'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Im Drachenviereck ABCD (Symmetrieachse AC) sind α = 70° und γ = 110°. Wie groß ist β?', 'β und δ sind gleich: (360° − 70° − 110°) : 2 = 90°.', 'Im Drachen sind die Winkel neben der Symmetrieachse gleich.', o={'wert': 90, 'einheit': '°'}, c='(360 - 70 - 110) / 2'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Ein Fenster hat die Form eines gleichschenkligen Trapezes. Die Winkel an der langen Seite sind je 72°. Wie groß ist jeder Winkel an der kurzen Seite?', 'Nachbarwinkel an einem Schenkel: 180° − 72° = 108°.', 'Benachbarte Winkel an einem Schenkel ergänzen sich zu 180°.', o={'wert': 108, 'einheit': '°'}, c='180 - 72'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'In einer Raute ist ein Winkel doppelt so groß wie sein Nachbarwinkel. Wie groß ist der kleinere Winkel?', 'x + 2x = 180° ⇒ x = 60°.', 'Nachbarwinkel ergeben zusammen 180°.', o={'wert': 60, 'einheit': '°'}, c='180 / 3'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Ein Parallelogramm ist durch a = 6 cm, b = 4 cm und α = 50° gegeben. Was zeichnest du zuerst?', 'Man beginnt mit der Seite a, an deren Anfang α angetragen wird.', 'Mit einer gegebenen Seite beginnen.',
+                 **wahl('die Seite a', ['die Diagonale', 'den Winkel γ', 'die Höhe'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'In einem Viereck sind die Winkel im Verhältnis 1 : 2 : 3 : 4. Wie groß ist der größte Winkel?', '1 + 2 + 3 + 4 = 10 Teile = 360°, ein Teil 36°. Größter: 4 · 36° = 144°.', 'Verteile 360° auf 10 Teile.', o={'wert': 144, 'einheit': '°'}, c='4 * 360 / 10'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Reichen a = 5 cm, b = 3 cm und c = 5 cm, um ein Parallelogramm eindeutig zu konstruieren?', 'Nein: Es fehlt ein Winkel oder eine Diagonale. Mit nur Seiten kann man das Parallelogramm noch „kippen“.', 'Ist die Form schon starr?',
+                 **wahl('Nein, es fehlt ein Winkel.', ['Ja, drei Stücke reichen immer.', 'Ja, weil c = a ist.', 'Nein, es fehlen zwei Seiten.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Jan sagt: „Im Drachenviereck sind alle vier Seiten gleich lang.“ Was stimmt?', 'Im Drachen sind nur je zwei benachbarte Seiten gleich lang. Alle vier gleich: das ist eine Raute.', 'Zeichne einen Drachen.',
+                 **wahl('Falsch: das gilt nur für die Raute.', ['Richtig.', 'Falsch: das gilt nur für das Trapez.', 'Richtig, wenn die Diagonalen senkrecht sind.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Bauplatz ist ein Parallelogramm mit α = 80°. Ein Zaun soll den Winkel β halbieren. Wie groß ist jeder der beiden Teilwinkel?', 'β = 180° − 80° = 100°, halbiert: 50°.', 'Erst β, dann halbieren.', o={'wert': 50, 'einheit': '°'}, c='(180 - 80) / 2'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Im Parallelogramm ist α = 48°. Wie groß ist δ?', 'δ ist Nachbarwinkel von α: 180° − 48° = 132°.', o={'wert': 132, 'einheit': '°'}, c='180 - 48'))
+    for w in (35, 102, 76):
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Im Parallelogramm ABCD ist α = {w}°. Wie groß ist β?', f'β = 180° − {w}° = {180 - w}°.', o={'wert': 180 - w, 'einheit': '°'}, c=f'180 - {w}'))
+    for (a, b, c) in ((90, 85, 100), (70, 120, 95), (60, 60, 120), (110, 80, 75), (95, 95, 85), (130, 50, 90)):
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Ein Viereck hat die Winkel {a}°, {b}° und {c}°. Berechne den vierten Winkel.', f'360° − {a}° − {b}° − {c}° = {360 - a - b - c}°.', o={'wert': 360 - a - b - c, 'einheit': '°'}, c=f'360 - {a} - {b} - {c}'))
+    kann = 'entscheiden, welche Angaben ein Viereck festlegen, und fehlende Winkel in Vierecken berechnen'
+    return karte, kann, A
+
+
+# ------------------------------------------------------------------ 99 · drachen_raute
+def drachen_raute():
+    L = 'drachen_raute'
+    karte = {
+        'lernziel': L, 'titel': 'Drachenviereck und Raute',
+        'einstieg': 'Ein Papierdrachen wird aus zwei Leisten gebaut, die sich senkrecht kreuzen. Spannt man Papier darum, entsteht ein Drachenviereck. Wie viel Papier braucht man? Die beiden Leisten verraten es.',
+        'woerter': [['Diagonale', 'Verbindungsstrecke zweier gegenüberliegender Ecken'], ['Raute', 'Viereck mit vier gleich langen Seiten']],
+        'regel': 'Drachen und Raute: Die Diagonalen e und f stehen senkrecht. ⟦A = e · f : 2⟧.',
+        'schritte': [{'text': 'Ein Drachen hat die Diagonalen e = 8 cm und f = 5 cm.'},
+                     {'text': 'Rechteck um den Drachen: 8 cm · 5 cm = 40 cm². Der Drachen ist genau die Hälfte: ⟦20 cm²⟧.'}],
+        'fehler': 'e · f ohne Halbieren: 8 · 5 = 40 cm² ist das umgebende Rechteck. Der Drachen ist nur ⟦die Hälfte⟧.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Ein Drachenviereck hat die Diagonalen e = 6 cm und f = 4 cm. Berechne den Flächeninhalt.', 'A = 6 cm · 4 cm : 2 = 12 cm².', 'Diagonalen malnehmen, dann halbieren.', o={'wert': 12, 'einheit': 'cm²'}, c='6 * 4 / 2'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Eine Raute hat die Diagonalen 10 cm und 7 cm. Wie groß ist ihr Flächeninhalt?', 'A = 10 cm · 7 cm : 2 = 35 cm².', 'Gleiche Formel wie beim Drachen.', o={'wert': 35, 'einheit': 'cm²'}, c='10 * 7 / 2'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welche Eigenschaft haben Drachenviereck und Raute gemeinsam?', 'Bei beiden stehen die Diagonalen senkrecht aufeinander.', 'Denke an die gekreuzten Leisten.',
+                 **wahl('Die Diagonalen stehen senkrecht.', ['Alle Seiten sind gleich lang.', 'Alle Winkel sind 90°.', 'Gegenüberliegende Seiten sind parallel.'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welche Formel gilt für den Flächeninhalt eines Drachenvierecks?', 'A = e · f : 2, mit den Diagonalen e und f.', 'Die Hälfte des umgebenden Rechtecks.',
+                 **wahl('A = e · f : 2', ['A = e · f', 'A = (e + f) : 2', 'A = 2 · (e + f)'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Eine Raute hat die Diagonalen 1,2 m und 50 cm. Gib den Flächeninhalt in cm² an.', '1,2 m = 120 cm. A = 120 cm · 50 cm : 2 = 3 000 cm².', 'Erst in eine Einheit umrechnen.', o={'wert': 3000, 'einheit': 'cm²'}, c='120 * 50 / 2'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Für einen Drachen sind die Leisten 90 cm und 60 cm lang. Wie viel cm² Papier bedeckt der Drachen?', 'A = 90 cm · 60 cm : 2 = 2 700 cm².', 'Die Leisten sind die Diagonalen.', o={'wert': 2700, 'einheit': 'cm²'}, c='90 * 60 / 2'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Ein Drachen hat 24 cm² Fläche und die Diagonale e = 8 cm. Wie lang ist f?', '24 = 8 · f : 2 ⇒ 48 = 8 · f ⇒ f = 6 cm.', 'Rechne rückwärts: mal 2, dann durch e.', o={'wert': 6, 'einheit': 'cm'}, c='2 * 24 / 8'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'zahl', 'Ein Quadrat hat die Diagonale 6 cm. Berechne seine Fläche mit der Drachenformel.', 'Ein Quadrat ist eine besondere Raute: e = f = 6 cm. A = 6 · 6 : 2 = 18 cm².', 'Beide Diagonalen sind gleich lang.', o={'wert': 18, 'einheit': 'cm²'}, c='6 * 6 / 2'))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'Eine Raute hat 54 cm² Fläche. Eine Diagonale ist 3-mal so lang wie die andere. Wie lang ist die kürzere Diagonale?', 'x · 3x : 2 = 54 ⇒ 3x² = 108 ⇒ x² = 36 ⇒ x = 6 cm.', 'Setze für die längere 3x ein.', o={'wert': 6, 'einheit': 'cm'}, c='2 * 54 / 3 / 6'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum ist die Fläche eines Drachens genau die Hälfte des umgebenden Rechtecks?', 'Die Diagonalen teilen das Rechteck in acht rechtwinklige Dreiecke; der Drachen besteht aus vier davon, das Rechteck aus allen acht.', 'Zeichne das Rechteck um den Drachen.',
+                 **wahl('Der Drachen besteht aus 4 von 8 gleich großen Dreieckspaaren.', ['Weil der Drachen symmetrisch ist.', 'Weil alle Seiten halb so lang sind.', 'Weil die Winkel halb so groß sind.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Eva berechnet für eine Raute mit e = 9 cm und f = 4 cm: A = 9 · 4 = 36 cm². Was stimmt?', 'Sie hat vergessen zu halbieren. Richtig: 36 : 2 = 18 cm².', 'Vergleiche mit der Formel.',
+                 **wahl('Falsch: richtig sind 18 cm².', ['Alles richtig.', 'Richtig sind 26 cm².', 'Richtig sind 72 cm².'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Fliesenmuster besteht aus 20 Rauten mit den Diagonalen 30 cm und 20 cm. Wie viele m² bedecken sie?', 'Eine Raute: 30 · 20 : 2 = 300 cm². 20 Rauten: 6 000 cm² = 0,6 m².', 'Erst eine Raute, dann alle; zum Schluss in m².', o={'wert': 0.6, 'einheit': 'm²'}, c='20 * 30 * 20 / 2 / 10000'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Ein Drachenviereck hat die Diagonalen 12 cm und 5 cm. Berechne den Flächeninhalt.', 'A = 12 · 5 : 2 = 30 cm².', o={'wert': 30, 'einheit': 'cm²'}, c='12 * 5 / 2'))
+    for (e, f) in ((14, 6), (9, 8), (11, 4)):
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Eine Raute hat die Diagonalen e = {e} cm und f = {f} cm. Wie groß ist ihre Fläche?', f'A = {e} · {f} : 2 = {z(Fr(e * f, 2))} cm².', o={'wert': e * f / 2, 'einheit': 'cm²'}, c=f'{e} * {f} / 2'))
+    for (e, f) in ((7, 4), (16, 3), (5, 5), (13, 6), (20, 9), (15, 8)):
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Berechne den Flächeninhalt eines Drachenvierecks mit e = {e} cm und f = {f} cm.', f'A = {e} · {f} : 2 = {z(Fr(e * f, 2))} cm².', o={'wert': e * f / 2, 'einheit': 'cm²'}, c=f'{e} * {f} / 2'))
+    kann = 'den Flächeninhalt von Drachenviereck und Raute aus den Diagonalen berechnen'
+    return karte, kann, A
+
+
+# ------------------------------------------------------------------ 91 · wahre_groesse
+def wahre_groesse():
+    L = 'wahre_groesse'
+    karte = {
+        'lernziel': L, 'titel': 'Wahre Größe im Schrägbild',
+        'einstieg': 'Auf einem Bauplan ist eine Kiste im Schrägbild gezeichnet. Die Kanten nach hinten sehen kürzer aus, als sie sind. Wer die Kiste bauen will, muss die wahren Längen zurückrechnen.',
+        'woerter': [['Verkürzungsfaktor q', 'Kanten nach hinten werden mit q gezeichnet, z. B. q = 0,5'], ['wahre Größe', 'die echte Länge oder Form am Körper']],
+        'regel': 'Kanten ⟦nach hinten⟧: gezeichnete Länge = wahre Länge · q, also wahre Länge = gezeichnet : q. Flächen parallel zur Zeichenebene erscheinen in wahrer Größe.',
+        'schritte': [{'text': 'Eine Kante nach hinten ist mit q = 0,5 als 2,5 cm gezeichnet.'},
+                     {'text': 'Wahre Länge: 2,5 cm : 0,5 = ⟦5 cm⟧.'},
+                     {'text': 'Die Vorderfläche wird nicht verkürzt: Ihre Kanten und Winkel sind echt.'}],
+        'fehler': 'Mit q malnehmen statt teilen: 2,5 · 0,5 = 1,25 cm wäre noch kürzer. Beim Zurückrechnen ⟦teilt⟧ man durch q.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Im Schrägbild (q = 0,5) ist eine Kante nach hinten 3 cm lang gezeichnet. Wie lang ist sie wirklich?', '3 cm : 0,5 = 6 cm.', 'Durch q teilen.', o={'wert': 6, 'einheit': 'cm'}, c='3 / 0.5'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Eine Kante nach hinten ist 8 cm lang. Wie lang zeichnest du sie mit q = 0,5?', '8 cm · 0,5 = 4 cm.', 'Beim Zeichnen mit q malnehmen.', o={'wert': 4, 'einheit': 'cm'}, c='8 * 0.5'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welche Fläche eines Quaders erscheint im üblichen Schrägbild in wahrer Größe?', 'Die Vorderfläche liegt parallel zur Zeichenebene und wird nicht verzerrt.', 'Welche Fläche schaut dich direkt an?',
+                 **wahl('die Vorderfläche', ['die Grundfläche', 'die rechte Seitenfläche', 'keine Fläche'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Ein rechter Winkel der Grundfläche wird im Schrägbild gezeichnet. Wie sieht er aus?', 'Die Grundfläche ist verzerrt: der rechte Winkel erscheint z. B. als 45° oder 135°.', 'Die Grundfläche liegt nach hinten.',
+                 **wahl('verzerrt, nicht als 90°', ['immer als 90°', 'als 180°', 'gar nicht'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Ein Quader ist 6 cm breit, 4 cm hoch und 5 cm tief. Im Schrägbild (q = 0,5) wird er gezeichnet. Wie lang zeichnest du alle 4 Tiefenkanten zusammen?', 'Eine Tiefenkante: 5 cm · 0,5 = 2,5 cm. Vier Stück: 10 cm.', 'Erst eine Kante, dann alle vier.', o={'wert': 10, 'einheit': 'cm'}, c='4 * 5 * 0.5'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Auf dem Bauplan einer Kiste (q = 0,5, Maßstab 1 : 10) ist die Tiefe 2 cm lang gezeichnet. Wie tief ist die Kiste in Wirklichkeit in cm?', 'Wahre Länge im Plan: 2 cm : 0,5 = 4 cm. Maßstab 1 : 10: 40 cm.', 'Erst q, dann den Maßstab.', o={'wert': 40, 'einheit': 'cm'}, c='2 / 0.5 * 10'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Eine Kante ist 6 cm lang und wurde nach hinten als 4 cm gezeichnet. Welcher Verkürzungsfaktor q wurde benutzt? Gib q als Dezimalzahl auf zwei Stellen an.', 'q = 4 : 6 ≈ 0,67.', 'gezeichnet : wahr.', o={'wert': 0.67}, c='round(4 / 6, 2)'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Im Schrägbild eines Würfels sind alle Kanten nach hinten halb so lang gezeichnet. Was gilt für den echten Würfel?', 'Am echten Würfel sind alle Kanten gleich lang; nur die Zeichnung verkürzt die Tiefe.', 'Unterscheide Zeichnung und Körper.',
+                 **wahl('Alle Kanten sind gleich lang.', ['Die hinteren Kanten sind kürzer.', 'Der Würfel ist ein Quader.', 'Die Vorderfläche ist kleiner.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'Im Schrägbild (q = 0,5) einer quadratischen Säule ist die Tiefenkante 2 cm lang. Die Grundfläche ist ein Quadrat. Wie groß ist die echte Grundfläche in cm²?', 'Wahre Tiefe 2 : 0,5 = 4 cm. Quadrat: 4 cm · 4 cm = 16 cm².', 'Erst die wahre Länge, dann die Fläche.', o={'wert': 16, 'einheit': 'cm²'}, c='(2 / 0.5) * (2 / 0.5)'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum kann man im Schrägbild die Länge einer Raumdiagonale nicht direkt messen?', 'Sie verläuft schräg nach hinten und wird verzerrt dargestellt; nur Strecken parallel zur Zeichenebene sind in wahrer Länge.', 'Welche Strecken sind unverzerrt?',
+                 **wahl('Weil sie verzerrt gezeichnet wird.', ['Weil sie zu lang ist.', 'Weil sie unsichtbar ist.', 'Weil Diagonalen keine Länge haben.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Max misst im Schrägbild (q = 0,5) eine Tiefenkante von 3,5 cm und sagt: „Die Kiste ist 1,75 cm tief.“ Was stimmt?', 'Er hat mit q multipliziert. Richtig: 3,5 : 0,5 = 7 cm.', 'Zurückrechnen heißt teilen.',
+                 **wahl('Falsch: sie ist 7 cm tief.', ['Richtig.', 'Falsch: sie ist 3,5 cm tief.', 'Falsch: sie ist 5 cm tief.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Schrank (Breite 80 cm, Höhe 180 cm, Tiefe 60 cm) wird im Maßstab 1 : 20 mit q = 0,5 gezeichnet. Wie lang wird die Tiefenkante gezeichnet (in cm)?', '60 cm : 20 = 3 cm, mal q = 0,5: 1,5 cm.', 'Erst verkleinern, dann verkürzen.', o={'wert': 1.5, 'einheit': 'cm'}, c='60 / 20 * 0.5'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Im Schrägbild mit q = 0,5 ist eine Tiefenkante 4,5 cm lang. Wie lang ist sie wirklich?', '4,5 cm : 0,5 = 9 cm.', o={'wert': 9, 'einheit': 'cm'}, c='4.5 / 0.5'))
+    for g in (1.5, 3.2, 6):
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Eine Tiefenkante ist mit q = 0,5 als {z(g)} cm gezeichnet. Berechne die wahre Länge.', f'{z(g)} cm : 0,5 = {z(g * 2)} cm.', o={'wert': g * 2, 'einheit': 'cm'}, c=f'{g} / 0.5'))
+    for (w, q) in ((10, 0.5), (7, 0.5), (12, 0.5), (9, 0.5), (4, 0.5), (15, 0.5)):
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Eine Kante nach hinten ist {z(w)} cm lang. Wie lang wird sie mit q = {z(q)} gezeichnet?', f'{z(w)} cm · {z(q)} = {z(w * q)} cm.', o={'wert': w * q, 'einheit': 'cm'}, c=f'{w} * {q}'))
+    kann = 'im Schrägbild verkürzte Tiefenkanten in wahre Längen zurückrechnen und Flächen in wahrer Größe erkennen'
+    return karte, kann, A
+
+
+# ------------------------------------------------------------------ 101 · cavalieri (Gym 10 LB 5, Nachtrag LK-D 2 / ChatGPT 936 A1)
+def cavalieri():
+    L = 'cavalieri'
+    karte = {
+        'lernziel': L, 'titel': 'Schiefe Körper und Cavalieri',
+        'einstieg': 'Ein Stapel Bierdeckel steht gerade. Schiebt man ihn schräg, sieht er anders aus – aber es sind dieselben Deckel. Das Volumen bleibt gleich. Genau das sagt das Prinzip von Cavalieri.',
+        'woerter': [['Cavalieri-Prinzip', 'gleiche Querschnittsflächen in jeder Höhe und gleiche Höhe ergeben gleiches Volumen'], ['Höhe h', 'senkrechter Abstand von Grund- und Deckfläche, nicht die schräge Kante']],
+        'regel': 'Auch für schiefe Prismen und Zylinder gilt ⟦V = G · h⟧. h ist der senkrechte Abstand der beiden Grundflächen, nicht die Länge der schrägen Kante.',
+        'schritte': [{'text': 'Ein schiefes Prisma hat G = 12 cm², die schräge Kante ist 10 cm lang, der senkrechte Abstand der Grundflächen 8 cm.'},
+                     {'text': 'Es zählt die senkrechte Höhe: V = 12 cm² · 8 cm = ⟦96 cm³⟧. Die 10 cm braucht man nicht.'}],
+        'fehler': 'Mit der schrägen Kante rechnen: 12 · 10 = 120 cm³ ist zu viel. Beim schiefen Körper ⟦nur die senkrechte Höhe⟧ nehmen.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Ein schiefes Prisma hat die Grundfläche 15 cm² und die Höhe 6 cm. Berechne das Volumen.', 'V = 15 cm² · 6 cm = 90 cm³.', 'Grundfläche mal senkrechte Höhe.', o={'wert': 90, 'einheit': 'cm³'}, c='15 * 6'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Ein schiefer Zylinder hat eine Grundfläche von 20 cm² und eine Höhe von 9 cm. Wie groß ist sein Volumen?', 'V = 20 cm² · 9 cm = 180 cm³.', 'Wie beim geraden Zylinder.', o={'wert': 180, 'einheit': 'cm³'}, c='20 * 9'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welche Länge setzt man beim schiefen Prisma für h ein?', 'h ist der senkrechte Abstand der Grundflächen.', 'Miss senkrecht, nicht entlang der Kante.',
+                 **wahl('den senkrechten Abstand der Grundflächen', ['die Länge der schrägen Kante', 'die längste Seite der Grundfläche', 'die Diagonale des Körpers'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Ein gerades und ein schiefes Prisma haben dieselbe Grundfläche und dieselbe Höhe. Was gilt?', 'Nach Cavalieri sind die Volumen gleich.', 'Schräg schieben ändert das Volumen nicht.',
+                 **wahl('Sie haben dasselbe Volumen.', ['Das schiefe hat mehr Volumen.', 'Das gerade hat mehr Volumen.', 'Man kann es nicht sagen.'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Ein schiefes Prisma hat ein Dreieck als Grundfläche (g = 6 cm, h_D = 4 cm). Die Körperhöhe ist 10 cm. Berechne das Volumen.', 'G = 6 · 4 : 2 = 12 cm². V = 12 · 10 = 120 cm³.', 'Erst die Dreiecksfläche, dann mal Körperhöhe.', o={'wert': 120, 'einheit': 'cm³'}, c='6 * 4 / 2 * 10'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Ein schräger Turm ist ein schiefer Zylinder mit G = 3 m² und 12 m senkrechter Höhe; seine Wand ist 12,5 m lang. Wie viele m³ fasst er?', 'Es zählt die senkrechte Höhe: V = 3 · 12 = 36 m³.', 'Die Wandlänge ist die schräge Kante.', o={'wert': 36, 'einheit': 'm³'}, c='3 * 12'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Ein schiefes Prisma hat 84 cm³ Volumen und 14 cm² Grundfläche. Wie groß ist die Höhe?', 'h = V : G = 84 : 14 = 6 cm.', 'Teile das Volumen durch die Grundfläche.', o={'wert': 6, 'einheit': 'cm'}, c='84 / 14'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Zwei Münzstapel mit gleich vielen gleichen Münzen: einer gerade, einer schräg. Welche Aussage trifft zu?', 'In jeder Höhe liegt eine gleich große Münzfläche, also gleiches Volumen (Cavalieri).', 'Vergleiche Schicht für Schicht.',
+                 **wahl('gleiches Volumen, weil jede Schicht gleich groß ist', ['der schräge Stapel hat mehr Volumen', 'der gerade Stapel ist höher', 'die Oberflächen sind gleich'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'Ein schiefes und ein gerades Prisma haben gleiches Volumen und gleiche Höhe 8 cm. Das gerade hat G = 9 cm². Wie groß ist G beim schiefen?', 'Gleiches V und gleiches h ⇒ gleiche Grundfläche: 9 cm².', 'V = G · h für beide.', o={'wert': 9, 'einheit': 'cm²'}, c='9 * 8 / 8'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum hat ein schiefes Prisma dieselbe Formel V = G · h wie ein gerades?', 'Schneidet man beide in gleicher Höhe, sind die Schnittflächen gleich groß (= G). Nach Cavalieri sind die Volumen gleich.', 'Denke an die Schnitte parallel zur Grundfläche.',
+                 **wahl('Weil die Querschnitte in jeder Höhe gleich groß sind.', ['Weil die Kanten gleich lang sind.', 'Weil die Oberflächen gleich sind.', 'Weil beide gleich viele Ecken haben.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Paul berechnet ein schiefes Prisma (G = 10 cm², Kante 13 cm, Höhe 12 cm) so: V = 10 · 13 = 130 cm³. Was stimmt?', 'Er hat die schräge Kante genommen. Richtig: 10 · 12 = 120 cm³.', 'Welche Länge ist die Höhe?',
+                 **wahl('Falsch: richtig sind 120 cm³.', ['Alles richtig.', 'Richtig sind 156 cm³.', 'Richtig sind 1 560 cm³.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Tunnelstück verläuft schräg durch einen Berg. Sein Querschnitt ist überall 40 m², der Höhenunterschied der Endflächen senkrecht gemessen 250 m. Wie viel m³ Gestein wurden ausgebrochen?', 'Wie ein schiefes Prisma: 40 · 250 = 10 000 m³.', 'Gleicher Querschnitt überall: G · h.', o={'wert': 10000, 'einheit': 'm³'}, c='40 * 250'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Ein schiefes Prisma hat G = 18 cm² und h = 5 cm, die schräge Kante ist 6 cm lang. Berechne V.', 'V = 18 · 5 = 90 cm³.', o={'wert': 90, 'einheit': 'cm³'}, c='18 * 5'))
+    for (g, h, kante) in ((7, 4, 5), (25, 3, 4), (11, 6, 7)):
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Schiefes Prisma: G = {g} cm², senkrechte Höhe {h} cm, schräge Kante {kante} cm. Wie groß ist V?', f'V = {g} · {h} = {g * h} cm³; die Kante zählt nicht.', o={'wert': g * h, 'einheit': 'cm³'}, c=f'{g} * {h}'))
+    for (g, h) in ((12, 7), (30, 2), (16, 5), (9, 9), (40, 3), (22, 4)):
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Ein schiefer Zylinder hat G = {g} cm² und die Höhe {h} cm. Berechne das Volumen.', f'V = {g} · {h} = {g * h} cm³.', o={'wert': g * h, 'einheit': 'cm³'}, c=f'{g} * {h}'))
+    return karte, 'das Volumen schiefer Prismen und Zylinder mit V = G · h berechnen und das Prinzip von Cavalieri begründen', A
+
+
+# ------------------------------------------------------------------ 91 · koerper_symmetrie (RS 8 I LB 3/K1)
+def koerper_symmetrie():
+    L = 'koerper_symmetrie'
+    karte = {
+        'lernziel': L, 'titel': 'Symmetrie von Körpern',
+        'einstieg': 'Eine Schachtel lässt sich so durchschneiden, dass beide Hälften Spiegelbilder sind. Die Schnittfläche heißt Symmetrieebene. Manche Körper haben viele davon, ein Würfel sogar neun.',
+        'woerter': [['Symmetrieebene', 'Ebene, die einen Körper in zwei spiegelbildliche Hälften teilt'], ['Symmetriezentrum', 'Punkt, an dem der Körper punktgespiegelt auf sich selbst fällt']],
+        'regel': 'Quader (alle Kanten verschieden): ⟦3⟧ Symmetrieebenen. Quadratische Säule: 5. Würfel: 9. Gerade Pyramide mit regelmäßigem n-Eck: n Ebenen. Gerades Prisma mit regelmäßigem n-Eck: n + 1.',
+        'schritte': [{'text': 'Quader 6 cm × 4 cm × 2 cm: je eine Ebene parallel zu jedem Flächenpaar, mittig. Das sind 3.'},
+                     {'text': 'Diagonale Schnitte geben beim Quader keine Spiegelhälften, weil die Seiten verschieden lang sind.'}],
+        'fehler': 'Beim Quader auch diagonale Ebenen zählen: Die gibt es nur, wenn zwei Kanten ⟦gleich lang⟧ sind (quadratische Säule, Würfel).',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Wie viele Symmetrieebenen hat ein Quader mit den Kanten 5 cm, 3 cm und 2 cm?', 'Drei Ebenen, je mittig parallel zu einem Flächenpaar.', 'Alle Kanten verschieden.', o={'wert': 3}, c='3'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Wie viele Symmetrieebenen hat ein Würfel?', '3 parallel zu den Flächen + 6 durch gegenüberliegende Kanten = 9.', 'Zähle auch die Ebenen durch die Kanten.', o={'wert': 9}, c='3 + 6'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welcher Körper hat ein Symmetriezentrum?', 'Der Quader fällt bei Punktspiegelung am Mittelpunkt auf sich selbst; Pyramide und Kegel nicht.', 'Punktspiegelung am Mittelpunkt.',
+                 **wahl('Quader', ['Pyramide', 'Kegel', 'Dreiecksprisma'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Eine gerade Pyramide hat ein Quadrat als Grundfläche. Wie viele Symmetrieebenen hat sie?', 'Wie das Quadrat: 4 Ebenen, alle durch die Spitze.', 'Jede Symmetrieachse des Quadrats gibt eine Ebene.',
+                 **wahl('4', ['2', '5', '9'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Ein gerades Prisma hat ein regelmäßiges Sechseck als Grundfläche. Wie viele Symmetrieebenen hat es?', '6 Ebenen durch die Symmetrieachsen des Sechsecks + 1 waagrechte Mittelebene = 7.', 'Achsen der Grundfläche plus die Mittelebene.', o={'wert': 7}, c='6 + 1'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Eine Geschenkschachtel ist 10 cm lang, 10 cm breit und 4 cm hoch. Wie viele Symmetrieebenen hat sie?', 'Quadratische Säule: 3 + 2 Diagonalebenen = 5.', 'Zwei Kanten sind gleich lang.', o={'wert': 5}, c='3 + 2'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Eine gerade Pyramide mit regelmäßiger Grundfläche hat 5 Symmetrieebenen. Wie viele Ecken hat die Grundfläche?', 'Bei der Pyramide ist die Zahl der Ebenen gleich n: 5 Ecken.', 'n-Eck ⇒ n Ebenen.', o={'wert': 5}, c='5'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Durch welche Linien eines Würfels gehen die 6 diagonalen Symmetrieebenen?', 'Jede geht durch zwei gegenüberliegende Kanten.', 'Schneide den Würfel schräg.',
+                 **wahl('durch zwei gegenüberliegende Kanten', ['durch zwei benachbarte Ecken', 'durch die Mitte einer Fläche', 'durch eine einzige Kante'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'Ein gerades Prisma mit regelmäßiger Grundfläche hat 9 Symmetrieebenen und ist kein Würfel. Wie viele Ecken hat die Grundfläche?', 'n + 1 = 9 ⇒ n = 8: ein Achteck.', 'Prisma: n + 1 Ebenen.', o={'wert': 8}, c='9 - 1'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum hat eine Pyramide keine waagrechte Symmetrieebene?', 'Oben ist eine Spitze, unten eine Fläche – die Hälften sind nicht spiegelgleich.', 'Vergleiche oben und unten.',
+                 **wahl('Weil Spitze und Grundfläche verschieden sind.', ['Weil sie zu wenig Ecken hat.', 'Weil sie schief ist.', 'Weil sie kein Volumen hat.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Mia sagt: „Ein Quader mit 6 cm, 4 cm und 2 cm hat 9 Symmetrieebenen wie der Würfel.“ Was stimmt?', 'Nur 3: Diagonalebenen gibt es nur bei gleich langen Kanten.', 'Sind Kanten gleich lang?',
+                 **wahl('Falsch: er hat 3.', ['Richtig.', 'Falsch: er hat 6.', 'Falsch: er hat 5.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Bleistift ist ein gerades Prisma mit regelmäßigem Sechseck und ohne Spitze. Wie viele Symmetrieebenen hat er zusammen mit der Mittelebene quer?', '6 längs + 1 quer = 7.', 'Längsebenen wie die Sechseck-Achsen.', o={'wert': 7}, c='6 + 1'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Wie viele Symmetrieebenen hat eine quadratische Säule (Grundfläche Quadrat, Höhe anders)?', 'Quadratische Säule: 3 Ebenen parallel zu den Flächen und 2 diagonale, zusammen 5.', o={'wert': 5}, c='3 + 2'))
+    for n in (3, 4, 6):
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Wie viele Symmetrieebenen hat eine gerade Pyramide mit regelmäßigem {n}-Eck als Grundfläche?', f'Jede der {n} Symmetrieachsen des {n}-Ecks gibt eine Ebene durch die Spitze: {n}.', o={'wert': n}, c=str(n)))
+    for n in (3, 5, 6, 8, 10, 12):
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Ein gerades Prisma hat ein regelmäßiges {n}-Eck als Grundfläche (Höhe anders als die Seiten). Wie viele Symmetrieebenen hat es?', f'{n} Ebenen durch die Achsen des {n}-Ecks und 1 waagrechte Mittelebene: {n + 1}.', o={'wert': n + 1}, c=f'{n} + 1'))
+    return karte, 'Symmetrieebenen und Symmetriezentren von Quader, Würfel, Prisma und Pyramide bestimmen', A
+
+
+# ------------------------------------------------------------------ 29 · gleichungen_binomisch (RS 8 I 4/K3, 8 II/III 3/K3)
+def gleichungen_binomisch():
+    L = 'gleichungen_binomisch'
+    karte = {
+        'lernziel': L, 'titel': 'Gleichungen mit Klammerprodukten',
+        'einstieg': 'Ein quadratisches Beet wird an jeder Seite um 3 m länger und ist dann 51 m² größer. Wie lang war die Seite? In der Gleichung stehen Klammern mit Quadrat. Nach dem Ausmultiplizieren fällt x² weg.',
+        'regel': 'Erst beide Seiten ⟦ausmultiplizieren⟧ (binomische Formeln), dann zusammenfassen. Hebt sich x² auf, bleibt eine lineare Gleichung.',
+        'schritte': [{'text': '(x + 3)² = x² + 51. Links: x² + 6x + 9 = x² + 51.'},
+                     {'text': 'x² auf beiden Seiten abziehen: 6x + 9 = 51, also 6x = 42 und ⟦x = 7⟧.'}],
+        'fehler': '(x + 3)² ist nicht x² + 9. Es fehlt das ⟦Doppelte Produkt⟧ 2 · 3 · x = 6x.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Löse (x + 2)² = x² + 20.', 'x² + 4x + 4 = x² + 20 ⇒ 4x = 16 ⇒ x = 4.', 'Erst (x + 2)² ausmultiplizieren.', o={'wert': 4}, c='(20 - 4) / 4'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Löse (x − 1)² = x² − 9.', 'x² − 2x + 1 = x² − 9 ⇒ −2x = −10 ⇒ x = 5.', 'Zweite binomische Formel.', o={'wert': 5}, c='(-9 - 1) / (-2)'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Was ergibt (x + 5)² ausmultipliziert?', 'Mit a² + 2ab + b²: x² + 2 · 5 · x + 25 = x² + 10x + 25.', 'a² + 2ab + b².',
+                 **wahl('x² + 10x + 25', ['x² + 25', 'x² + 5x + 25', '2x + 10'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Warum wird (x + 4)² = x² + 40 eine lineare Gleichung?', 'x² steht auf beiden Seiten und hebt sich auf.', 'Was passiert mit x²?',
+                 **wahl('x² hebt sich auf beiden Seiten weg.', ['Weil 40 gerade ist.', 'Weil man die Wurzel zieht.', 'Weil x positiv ist.'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Löse (x + 3)(x − 3) = x² + 2x − 15.', 'x² − 9 = x² + 2x − 15 ⇒ 6 = 2x ⇒ x = 3.', 'Dritte binomische Formel links.', o={'wert': 3}, c='(-9 + 15) / 2'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Ein quadratisches Feld wird an jeder Seite 2 m länger und dadurch 36 m² größer. Wie lang war die Seite (in m)?', '(x + 2)² = x² + 36 ⇒ 4x + 4 = 36 ⇒ x = 8.', 'Stelle (x + 2)² = x² + 36 auf.', o={'wert': 8, 'einheit': 'm'}, c='(36 - 4) / 4'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Welche Zahl r muss rechts stehen, damit (x + 3)² = x² + r die Lösung x = 2 hat?', 'Einsetzen: (2 + 3)² = 25 und 2² + r = 4 + r. Also 4 + r = 25, r = 21.', 'Setze x = 2 auf beiden Seiten ein.', o={'wert': 21}, c='(2 + 3) * (2 + 3) - 2 * 2'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Welcher Schritt kommt bei 2(x + 1)² = 2x² + 14 zuerst?', 'Erst (x + 1)² = x² + 2x + 1 ausmultiplizieren, dann mit 2 malnehmen.', 'Potenz vor Punktrechnung.',
+                 **wahl('(x + 1)² ausmultiplizieren', ['durch x teilen', 'die Wurzel ziehen', '14 durch 2 teilen'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'Ein Rechteck ist 3 cm länger als breit. Ein Quadrat hat die Breite als Seite. Das Rechteck ist 27 cm² größer als das Quadrat. Wie breit ist es?', 'x(x + 3) = x² + 27 ⇒ 3x = 27 ⇒ x = 9 cm.', 'Rechteck x(x + 3), Quadrat x².', o={'wert': 9, 'einheit': 'cm'}, c='27 / 3'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Die Gleichung (x + 1)² = x² + 2x + 1 gilt für …', 'Beide Seiten sind gleich: Sie gilt für alle x.', 'Multipliziere links aus.',
+                 **wahl('alle Zahlen x', ['nur x = 0', 'kein x', 'nur x = 1'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Lena löst (x + 3)² = x² + 15 so: x² + 9 = x² + 15 ⇒ 9 = 15, keine Lösung. Was stimmt?', 'Das Glied 6x fehlt. Richtig: 6x + 9 = 15 ⇒ x = 1.', 'Prüfe die binomische Formel.',
+                 **wahl('Falsch: richtig ist x = 1.', ['Alles richtig.', 'Falsch: richtig ist x = 6.', 'Falsch: richtig ist x = 3.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Löse (x + 2)² − (x − 2)² = 24.', '(x² + 4x + 4) − (x² − 4x + 4) = 8x = 24 ⇒ x = 3.', 'Beide Klammern ausmultiplizieren, dann abziehen.', o={'wert': 3}, c='24 / 8'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Löse (x + 5)² = x² + 45.', '10x + 25 = 45 ⇒ x = 2.', o={'wert': 2}, c='(45 - 25) / 10'))
+    for (b, r) in ((1, 13), (4, 40), (6, 84)):
+        x = Fr(r - b * b, 2 * b)
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Löse (x + {b})² = x² + {r}.', f'{2 * b}x + {b * b} = {r} ⇒ x = {z(x)}.', o={'wert': float(x) if x.denominator != 1 else int(x)}, c=f'({r} - {b * b}) / {2 * b}'))
+    for (b, r) in ((2, 28), (3, 45), (5, 65), (1, 7), (4, 56), (2, 16)):
+        x = Fr(r - b * b, 2 * b)
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Bestimme x aus (x + {b})² = x² + {r}.', f'{2 * b}x + {b * b} = {r} ⇒ x = {z(x)}.', o={'wert': float(x) if x.denominator != 1 else int(x)}, c=f'({r} - {b * b}) / {2 * b}'))
+    return karte, 'Gleichungen mit Klammerprodukten und binomischen Formeln lösen, bei denen sich x² aufhebt', A
+
+
+# ------------------------------------------------------------------ 61 · darstellen (RS 8 I 7/K1, 8 II/III 6/K1; Gym 8 5/k5) – LK-D 3, F3
+def darstellen():
+    L = 'darstellen'
+    karte = {
+        'lernziel': L, 'titel': 'Baumdiagramm und Vierfeldertafel',
+        'einstieg': 'Bei einem Schulfest wird zweimal eine Münze geworfen. Wie viele Ausgänge gibt es, und wie viele davon gehören zu „mindestens einmal Zahl“? Ein Baumdiagramm oder eine Tabelle zeigt es auf einen Blick.',
+        'woerter': [['Baumdiagramm', 'Jede Stufe des Versuchs ist eine Verzweigung; jeder Weg ist ein Ergebnis'], ['Vierfeldertafel', 'Tabelle mit zwei Merkmalen, je ja/nein, und den Summen am Rand']],
+        'regel': 'Im Baumdiagramm ist ⟦jeder Weg ein Ergebnis⟧; ein Ereignis ist eine Auswahl von Wegen. In der Vierfeldertafel ergeben die vier Felder zusammen die Gesamtzahl; jede Zeile und Spalte hat ihre Summe am Rand.',
+        'schritte': [{'text': 'Zweimal Münze: Wege WW, WZ, ZW, ZZ – also 4 Ergebnisse.'},
+                     {'text': '„Mindestens einmal Zahl“ sind WZ, ZW, ZZ: ⟦3 Wege⟧.'},
+                     {'text': 'Vierfeldertafel: 30 Kinder, 18 mit Fahrrad, davon 10 mit Helm. Ohne Helm mit Fahrrad: 18 − 10 = 8.'}],
+        'fehler': 'WZ und ZW als ein Ergebnis zählen: Im Baum sind das ⟦zwei verschiedene Wege⟧.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Ein Würfel wird einmal, eine Münze einmal geworfen. Wie viele Wege hat das Baumdiagramm?', '6 Augenzahlen · 2 Seiten = 12 Wege.', 'Jede Augenzahl verzweigt in Wappen und Zahl.', o={'wert': 12}, c='6 * 2'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'In einer Vierfeldertafel stehen in den vier Feldern 12, 8, 5 und 15. Wie groß ist die Gesamtzahl?', '12 + 8 + 5 + 15 = 40.', 'Alle vier Felder addieren.', o={'wert': 40}, c='12 + 8 + 5 + 15'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Dreimal eine Münze werfen: Wie viele Ergebnisse zeigt das Baumdiagramm?', '2 · 2 · 2 = 8 Wege.', 'Jede Stufe verdoppelt die Wege.',
+                 **wahl('8', ['6', '3', '9'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Was steht in einer Vierfeldertafel ganz rechts unten?', 'Dort steht die Gesamtzahl, die Summe aller vier Felder.', 'Summe der Summen.',
+                 **wahl('die Gesamtzahl', ['das größte Feld', 'die Differenz', 'eine Wahrscheinlichkeit von 1 %'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Zweimal würfeln. Wie viele Ergebnisse gehören zum Ereignis „Augensumme 7“?', '(1|6), (2|5), (3|4), (4|3), (5|2), (6|1): 6 Wege.', 'Gehe die erste Augenzahl von 1 bis 6 durch.', o={'wert': 6}, c='6'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Von 50 Kindern spielen 28 ein Instrument, 20 singen im Chor. 12 tun beides. Wie viele machen keins von beidem?', 'Nur Instrument 16, nur Chor 8, beides 12: zusammen 36. Keins: 50 − 36 = 14.', 'Fülle die Vierfeldertafel Feld für Feld.', o={'wert': 14}, c='50 - (28 + 20 - 12)'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Eine Vierfeldertafel hat die Randsummen 30 (Mädchen) und 25 (Jungen). 18 Mädchen tragen eine Brille, insgesamt sind es 26. Wie viele Jungen tragen eine Brille?', 'Brillen gesamt minus Mädchen mit Brille: 26 − 18 = 8.', 'Spaltensumme minus das bekannte Feld.', o={'wert': 8}, c='26 - 18'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Ein Glücksrad hat die Felder rot und blau und wird zweimal gedreht. Welche Darstellung zeigt alle Ergebnisse am klarsten?', 'Ein Baumdiagramm mit zwei Stufen zeigt alle 4 Wege.', 'Mehrstufiger Versuch.',
+                 **wahl('ein zweistufiges Baumdiagramm', ['ein Kreisdiagramm', 'ein Säulendiagramm', 'eine Zahlengerade'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'Ein Baumdiagramm hat in der ersten Stufe 3 Äste und insgesamt 12 Wege. Jeder Ast hat gleich viele Zweige. Wie viele Zweige hat jeder Ast in der zweiten Stufe?', 'Wege = Äste · Zweige, also 12 : 3 = 4 Zweige je Ast.', 'Wege = Äste · Zweige.', o={'wert': 4}, c='12 / 3'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum hat „zweimal Münze“ 4 und nicht 3 Ergebnisse?', 'WZ und ZW sind verschiedene Wege: erst Wappen dann Zahl ist ein anderes Ergebnis als erst Zahl dann Wappen.', 'Achte auf die Reihenfolge.',
+                 **wahl('Weil WZ und ZW verschiedene Wege sind.', ['Weil die Münze zwei Seiten hat.', 'Weil man WW doppelt zählt.', 'Weil es 2 + 2 sind.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Jonas füllt eine Vierfeldertafel: Gesamt 40, Spalte „ja“ 25, Feld „ja/ja“ 10, Feld „ja/nein“ 20. Was stimmt?', '10 + 20 = 30 ist mehr als die Spaltensumme 25. Ein Feld ist falsch.', 'Prüfe die Spaltensumme.',
+                 **wahl('Die Felder passen nicht zur Summe 25.', ['Alles richtig.', 'Die Gesamtzahl muss 30 sein.', 'Es fehlt nur das Feld „nein/nein“.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Code besteht aus einem Buchstaben (A, B oder C) und einer Ziffer (0 bis 9). Wie viele Codes gibt es?', 'Baumdiagramm mit 3 · 10 = 30 Wegen.', 'Jeder Buchstabe verzweigt in 10 Ziffern.', o={'wert': 30}, c='3 * 10'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Zweimal Münze werfen. Wie viele Wege gehören zu „genau einmal Wappen“?', 'WZ und ZW: 2 Wege.', o={'wert': 2}, c='2'))
+    for (g, a, b) in ((40, 22, 9), (60, 35, 20), (24, 10, 4)):
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Vierfeldertafel: gesamt {g}, Merkmal A bei {a}, davon {b} auch mit B. Wie viele haben A, aber nicht B?', f'A ohne B = A gesamt − A mit B = {a} − {b} = {a - b}.', o={'wert': a - b}, c=f'{a} - {b}'))
+    for (m, n) in ((2, 3), (4, 2), (6, 6), (3, 5), (2, 2), (5, 4)):
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Ein Versuch hat {m} Ausgänge auf der ersten und {n} auf der zweiten Stufe. Wie viele Wege hat das Baumdiagramm?', f'{m} · {n} = {m * n} Wege.', o={'wert': m * n}, c=f'{m} * {n}'))
+    return karte, 'Ergebnisse mehrstufiger Versuche im Baumdiagramm und zwei Merkmale in der Vierfeldertafel darstellen und auszählen', A
+
+
+# ------------------------------------------------------------------ 91 · raumwinkel (RS 7 I 4/K1) – LK-D 3, F3
+def raumwinkel():
+    L = 'raumwinkel'
+    karte = {
+        'lernziel': L, 'titel': 'Winkel im Raum',
+        'einstieg': 'Ein Fahnenmast steht senkrecht auf dem Schulhof, ein Seil führt schräg von der Spitze zum Boden. Zwischen Mast und Boden ist ein rechter Winkel, zwischen Seil und Boden ein spitzer. Solche Winkel im Raum kann man an Körpern ablesen.',
+        'woerter': [['Neigungswinkel', 'Winkel zwischen einer Geraden und einer Ebene'], ['Winkel zwischen Ebenen', 'Winkel zweier Flächen entlang ihrer gemeinsamen Kante']],
+        'regel': 'Steht eine Kante ⟦senkrecht⟧ auf einer Fläche, bilden beide 90°. Am Quader treffen alle Flächen im rechten Winkel aufeinander. Beim geraden Prisma ist der Winkel zwischen zwei Seitenflächen der Innenwinkel der Grundfläche.',
+        'schritte': [{'text': 'Gerades Prisma mit einem gleichseitigen Dreieck als Grundfläche.'},
+                     {'text': 'Zwei Seitenflächen treffen sich an einer senkrechten Kante. Ihr Winkel ist der Dreieckswinkel: ⟦60°⟧.'},
+                     {'text': 'Jede Seitenfläche steht senkrecht auf der Grundfläche: 90°.'}],
+        'fehler': 'Den Winkel im Schrägbild messen: Dort ist der rechte Winkel oft als 45° oder 135° gezeichnet. Im Raum ist er ⟦90°⟧.',
+    }
+    A = []
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Wie groß ist der Winkel zwischen einer senkrechten Quaderkante und der Grundfläche?', 'Die Kante steht senkrecht auf der Grundfläche: 90°.', 'Senkrecht heißt 90°.', o={'wert': 90, 'einheit': '°'}, c='90'))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'zahl', 'Ein gerades Prisma hat ein Quadrat als Grundfläche. Unter welchem Winkel treffen zwei benachbarte Seitenflächen aufeinander?', 'Der Winkel ist der Innenwinkel des Quadrats: 90°.', 'Schau auf die Grundfläche.', o={'wert': 90, 'einheit': '°'}, c='90'))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welcher Winkel ist ein Neigungswinkel?', 'Ein Neigungswinkel liegt zwischen einer Geraden und einer Ebene, z. B. Seil und Boden.', 'Gerade und Ebene.',
+                 **wahl('zwischen Seil und Boden', ['zwischen zwei Seilen', 'zwischen zwei Böden', 'zwischen zwei Punkten'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Im Schrägbild eines Würfels erscheint die Ecke vorne unten rechts mit 135°. Wie groß ist der Winkel am Würfel?', 'Am Würfel sind alle Winkel zwischen Kanten 90°; das Schrägbild verzerrt.', 'Zeichnung und Körper unterscheiden.',
+                 **wahl('90°', ['135°', '45°', '180°'], 0)))
+    A.append(auf(L, 'uebung', 2, 'mehrschritt', 'zahl', 'Ein gerades Prisma hat ein regelmäßiges Sechseck als Grundfläche. Wie groß ist der Winkel zwischen zwei benachbarten Seitenflächen?', 'Innenwinkelsumme Sechseck 720°, ein Winkel 720° : 6 = 120°.', 'Erst den Innenwinkel des Sechsecks.', o={'wert': 120, 'einheit': '°'}, c='720 / 6'))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'zahl', 'Ein Zelt hat einen dreieckigen Querschnitt mit zwei gleichen Winkeln von 65° am Boden. Wie groß ist der Winkel zwischen den beiden Zeltwänden oben?', '180° − 2 · 65° = 50°.', 'Winkelsumme im Dreieck.', o={'wert': 50, 'einheit': '°'}, c='180 - 2 * 65'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'zahl', 'Zwei Seitenflächen eines geraden Prismas mit regelmäßiger Grundfläche bilden 108°. Wie viele Ecken hat die Grundfläche?', 'Regelmäßiges n-Eck mit Innenwinkel 108°: Fünfeck (540° : 5 = 108°).', 'Welches regelmäßige Vieleck hat 108°?', o={'wert': 5}, c='360 / (180 - 108)'))
+    A.append(auf(L, 'uebung', 2, 'darstellung', 'auswahl', 'Eine Rampe steigt vom Boden an. Welcher Winkel beschreibt, wie steil sie ist?', 'Der Neigungswinkel zwischen Rampenfläche und Boden.', 'Fläche gegen Boden.',
+                 **wahl('der Winkel zwischen Rampe und Boden', ['der Winkel zwischen zwei Bodenfliesen', 'der Winkel am oberen Ende der Rampe zur Wand', 'der Winkel zwischen zwei Geländerstäben'], 0)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'zahl', 'In einem geraden Prisma mit dreieckiger Grundfläche bilden zwei Seitenflächen 70° und 50°. Welchen Winkel bilden die dritte und die zweite Seitenfläche?', 'Die Winkel zwischen Seitenflächen sind die Dreieckswinkel: 180° − 70° − 50° = 60°.', 'Winkelsumme der Grundfläche.', o={'wert': 60, 'einheit': '°'}, c='180 - 70 - 50'))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum ist der Winkel zwischen zwei Seitenflächen eines geraden Prismas gleich dem Innenwinkel der Grundfläche?', 'Die Seitenflächen stehen senkrecht auf der Grundfläche; ihr Winkel zeigt sich unverändert in der Grundfläche.', 'Schneide waagrecht durch.',
+                 **wahl('Weil die Seitenflächen senkrecht auf der Grundfläche stehen.', ['Weil alle Kanten gleich lang sind.', 'Weil das Prisma symmetrisch ist.', 'Weil die Deckfläche kleiner ist.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Ben misst im Schrägbild eines Quaders zwischen Vorder- und Seitenfläche 45° und schreibt: „Die Flächen bilden 45°.“ Was stimmt?', 'Im Schrägbild ist der Winkel verzerrt. Am Quader bilden die Flächen 90°.', 'Ist ein Quader schief?',
+                 **wahl('Falsch: am Quader sind es 90°.', ['Richtig.', 'Falsch: es sind 135°.', 'Falsch: es sind 60°.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'zahl', 'Ein Dach hat zwei gleich geneigte Flächen. Jede bildet mit dem waagrechten Dachboden 35°. Wie groß ist der Winkel zwischen den beiden Dachflächen am First?', 'Querschnitt Dreieck: 180° − 2 · 35° = 110°.', 'Zeichne den Querschnitt.', o={'wert': 110, 'einheit': '°'}, c='180 - 2 * 35'))
+    A.append(auf(L, 'test', 2, None, 'zahl', 'Ein gerades Prisma hat ein regelmäßiges Achteck als Grundfläche. Wie groß ist der Winkel zwischen zwei benachbarten Seitenflächen?', 'Innenwinkel: 1 080° : 8 = 135°.', o={'wert': 135, 'einheit': '°'}, c='(8 - 2) * 180 / 8'))
+    for w in (40, 55, 70):
+        A.append(auf(L, 'korrektur', 2, None, 'zahl', f'Zwei gleich geneigte Dachflächen bilden mit dem Dachboden je {w}°. Welchen Winkel bilden sie am First?', f'180° − 2 · {w}° = {180 - 2 * w}°.', o={'wert': 180 - 2 * w, 'einheit': '°'}, c=f'180 - 2 * {w}'))
+    for n in (3, 4, 5, 6, 9, 10):
+        A.append(auf(L, 'sicherung', 2, None, 'zahl', f'Gerades Prisma mit regelmäßigem {n}-Eck als Grundfläche: Welchen Winkel bilden zwei benachbarte Seitenflächen?', f'Innenwinkel des {n}-Ecks: ({n} − 2) · 180° : {n} = {z(Fr((n - 2) * 180, n))}°.', o={'wert': (n - 2) * 180 / n if (n - 2) * 180 % n else (n - 2) * 180 // n, 'einheit': '°'}, c=f'({n} - 2) * 180 / {n}'))
+    return karte, 'Winkel zwischen Kanten, Flächen und Geraden an Prismen und Quadern bestimmen', A
+
+
+# ------------------------------------------------------------------ 20 · irrational_beweis (Gym 9 1/k3, Punkt 202) – LK-D 4, A1
+SCHRITTE_W2 = ['Annahme: √2 ist rational, also √2 = p/q mit teilerfremden natürlichen Zahlen p und q.',
+               'Quadrieren und umformen: 2 = p²/q², also p² = 2q².',
+               'p² ist gerade, also ist p gerade: p = 2r. Dann 4r² = 2q², also q² = 2r², und auch q ist gerade.',
+               'Widerspruch: p und q sind beide durch 2 teilbar, sie waren aber teilerfremd. Also ist √2 nicht rational.']
+
+
+def irrational_beweis():
+    L = 'irrational_beweis'
+    karte = {
+        'lernziel': L, 'titel': 'Warum √2 kein Bruch ist',
+        'einstieg': 'Der Taschenrechner zeigt √2 ≈ 1,41421356. Egal wie viele Stellen er anzeigt: Es gibt keinen Bruch, dessen Quadrat genau 2 ist. Das kann man nicht ausprobieren, man muss es beweisen – mit einem ⟦indirekten Beweis⟧.',
+        'woerter': [['indirekter Beweis', 'Man nimmt das Gegenteil an und zeigt, dass daraus ein Widerspruch folgt'],
+                    ['teilerfremd', 'Zwei Zahlen haben außer 1 keinen gemeinsamen Teiler; jeder Bruch lässt sich so kürzen']],
+        'regel': 'Indirekter Beweis: ⟦Gegenteil annehmen⟧, sauber weiterfolgern, auf einen Widerspruch stoßen. Dann war die Annahme falsch. Bei √2: Aus √2 = p/q (gekürzt) folgt, dass p und q beide gerade sind – das passt nicht zu „gekürzt“.',
+        'schritte': [{'text': 'Annahme: √2 = p/q, vollständig gekürzt.'},
+                     {'text': 'Quadrieren: p² = 2q². Also ist p² gerade, und damit ist auch p gerade.'},
+                     {'text': 'Mit p = 2r folgt q² = 2r²: Auch q ist gerade. ⟦Widerspruch⟧ zu „gekürzt“.'}],
+        'fehler': 'Mit Beispielen „beweisen“: Dass 7/5 oder 141/100 nicht passen, zeigt nichts über alle Brüche. Erst der ⟦Widerspruch⟧ gilt für jeden Bruch.',
+    }
+    A = []
+    def ordnen(l, p, s, g, reihe, w, h=None):
+        txt = 'Bringe die Beweisschritte für „√2 ist irrational“ in die richtige Reihenfolge. ' + ' '.join(f'({i + 1}) {SCHRITTE_W2[j]}' for i, j in enumerate(reihe))
+        soll = [reihe.index(j) + 1 for j in range(4)]
+        return auf(l, p, s, g, 'luecken', txt, w, h, o={'werte': soll}) | {'f': {'text': txt, 'schablone': '1. □ · 2. □ · 3. □ · 4. □', 'hinweis': 'Trage die Nummern der Schritte ein.'}}
+    A.append(auf(L, 'uebung', 1, 'direkt', 'auswahl', 'Womit beginnt ein indirekter Beweis für „√2 ist irrational“?', 'Man nimmt das Gegenteil an: √2 ist rational, also ein gekürzter Bruch p/q.', 'Gegenteil der Behauptung.',
+                 **wahl('Annahme: √2 ist ein gekürzter Bruch p/q.', ['Man rechnet √2 auf 10 Stellen aus.', 'Man probiert viele Brüche aus.', 'Annahme: √2 ist irrational.'], 1)))
+    A.append(auf(L, 'uebung', 1, 'direkt', 'auswahl', 'Was folgt aus √2 = p/q durch Quadrieren?', '(p/q)² = 2, also p²/q² = 2 und damit p² = 2q².', 'Beide Seiten quadrieren und mit q² malnehmen.',
+                 **wahl('p² = 2q²', ['p = 2q', 'p² = q² + 2', '2p = q²'], 0)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Welche Aussage ist ein Widerspruch, wenn p/q vollständig gekürzt ist?', 'Gekürzt heißt teilerfremd; sind p und q beide gerade, hätten sie den Teiler 2.', 'Was heißt „gekürzt“?',
+                 **wahl('p und q sind beide gerade.', ['p ist ungerade.', 'q ist größer als 1.', 'p ist größer als q.'], 2)))
+    A.append(auf(L, 'uebung', 1, 'erkennen', 'auswahl', 'Warum darf man am Anfang annehmen, dass p/q gekürzt ist?', 'Jeder Bruch lässt sich vollständig kürzen; wäre √2 ein Bruch, dann auch ein gekürzter.', 'Kann man jeden Bruch kürzen?',
+                 **wahl('Weil man jeden Bruch vollständig kürzen kann.', ['Weil √2 kleiner als 2 ist.', 'Weil p und q gerade sind.', 'Weil das im Taschenrechner so steht.'], 3)))
+    A.append(ordnen(L, 'uebung', 2, 'mehrschritt', [2, 0, 3, 1], 'Richtig ist: Annahme, Quadrieren, beide gerade, Widerspruch.', 'Was muss zuerst stehen?'))
+    A.append(ordnen(L, 'uebung', 2, 'darstellung', [3, 1, 0, 2], 'Reihenfolge: (3) Annahme, (2) p² = 2q², (4) beide gerade, (1) Widerspruch.', 'Der Widerspruch steht am Ende.'))
+    A.append(auf(L, 'uebung', 2, 'umkehr', 'auswahl', 'Aus p² = 2q² folgt „p² ist gerade“. Warum ist dann auch p gerade?', 'Wäre p ungerade, dann wäre auch p · p ungerade. Also muss p gerade sein.', 'Ungerade mal ungerade ist …?',
+                 **wahl('Das Quadrat einer ungeraden Zahl ist ungerade.', ['Weil 2 gerade ist.', 'Weil q gerade ist.', 'Weil jede Quadratzahl gerade ist.'], 0)))
+    A.append(auf(L, 'uebung', 2, 'einkleidung', 'luecken', 'Setze p = 2r in p² = 2q² ein und vereinfache.', '(2r)² = 4r² = 2q², geteilt durch 2: q² = 2r².', 'Erst (2r)² ausrechnen.', o={'werte': [2]}) | {'f': {'text': 'Setze p = 2r in p² = 2q² ein und vereinfache.', 'schablone': 'q² = □ · r²', 'hinweis': 'eine ganze Zahl'}})
+    A.append(auf(L, 'uebung', 3, 'fehler', 'auswahl', 'Lena schreibt: „√2 = 1,414 ist ein endlicher Dezimalbruch, also rational. 1,414² = 1,999396 ≈ 2. Also stimmt die Annahme.“ Was ist falsch?', '1,414 ist nur ein Näherungswert; 1,414² ist nicht genau 2. Ein Näherungswert sagt nichts über √2 selbst.', 'Ist 1,999396 genau 2?',
+                 **wahl('1,414 ist nur ein Näherungswert, 1,414² ist nicht genau 2.', ['Sie hat falsch quadriert.', 'Nichts, das ist ein Beweis.', 'Dezimalbrüche sind nie rational.'], 1)))
+    A.append(auf(L, 'uebung', 3, 'rueckwaerts', 'auswahl', 'Tim beweist: „Aus p² = 2q² folgt p gerade. Also ist √2 irrational.“ Was fehlt?', 'Es fehlt der zweite Teil: auch q ist gerade. Erst dann entsteht der Widerspruch zu „gekürzt“.', 'Wo ist der Widerspruch?',
+                 **wahl('Der Nachweis, dass auch q gerade ist, und damit der Widerspruch.', ['Nichts, der Beweis ist fertig.', 'Eine Probe mit dem Taschenrechner.', 'Dass p größer als q ist.'], 0)))
+    A.append(auf(L, 'uebung', 3, 'begruenden', 'auswahl', 'Warum zeigt der Widerspruch, dass √2 irrational ist?', 'Aus der Annahme „√2 ist rational“ folgt etwas Unmögliches. Also ist die Annahme falsch, und √2 ist nicht rational.', 'Was folgt, wenn eine Annahme zu etwas Unmöglichem führt?',
+                 **wahl('Die Annahme „√2 ist rational“ führt zu etwas Unmöglichem, also ist sie falsch.', ['Weil p und q gerade sind.', 'Weil √2 unendlich viele Stellen hat.', 'Weil 2 eine Primzahl ist.'], 2)))
+    A.append(auf(L, 'uebung', 3, 'transfer', 'auswahl', 'Der gleiche Beweis klappt für √3 mit „durch 3 teilbar“ statt „gerade“. Für welche Zahl klappt er nicht, weil die Wurzel rational ist?', '√9 = 3 ist rational; der Beweis scheitert, weil aus p² = 9q² nicht folgt, dass p und q beide durch 9 teilbar sind.', 'Welche Wurzel geht auf?',
+                 **wahl('√9', ['√5', '√7', '√11'], 3)))
+    A.append(auf(L, 'test', 2, None, 'auswahl', 'Welcher Schritt kommt im Beweis direkt nach „p² = 2q²“?', 'Aus p² = 2q² folgt, dass p² und damit p gerade ist.', **wahl('p ist gerade, also p = 2r.', ['√2 ist irrational.', 'Annahme: √2 = p/q.', 'q ist ungerade.'], 0)))
+    for txt, r, f in (('„p² ist gerade, also ist p gerade.“', 'Begründung: Das Quadrat einer ungeraden Zahl ist ungerade.', ['Weil p² größer als p ist.', 'Weil 2 eine Primzahl ist.']),
+                      ('„Man darf p/q als gekürzt annehmen.“', 'Begründung: Jeder Bruch lässt sich vollständig kürzen.', ['Weil √2 kleiner als 2 ist.', 'Weil q nicht 0 ist.']),
+                      ('„Aus q² = 2r² folgt: q ist gerade.“', 'Begründung: Wie bei p – q² ist gerade, also auch q.', ['Weil r gerade ist.', 'Weil q kleiner als p ist.'])):
+        A.append(auf(L, 'korrektur', 2, None, 'auswahl', f'Welche Begründung gehört zu diesem Schritt? {txt}', r + ' Die anderen Antworten begründen den Schritt nicht.', **wahl(r.replace('Begründung: ', ''), f + ['Weil der Taschenrechner das zeigt.'], 1)))
+    for reihe in ([1, 0, 2, 3], [0, 2, 1, 3], [3, 0, 1, 2], [2, 3, 0, 1], [1, 3, 2, 0], [0, 1, 3, 2]):
+        A.append(ordnen(L, 'sicherung', 2, None, reihe, 'Immer: Annahme gekürzter Bruch → p² = 2q² → p und q gerade → Widerspruch.'))
+    return karte, 'Den indirekten Beweis für die Irrationalität von √2 in Schritten ordnen, begründen und Fehler darin finden', A
+
+
+NEU = {'abbildungen.kongruenz': [vektor_koordinaten, vektor_drehen], 'abbildungen.aehnlichkeit': [streckung_vektor],
+       'geometrie.konstruktion': [vierecke_konstruieren], 'messen.flaechen_vielecke': [drachen_raute], 'raum.schraegbilder': [wahre_groesse, koerper_symmetrie, raumwinkel], 'stochastik.grundbegriffe': [darstellen],
+       'messen.prisma_zylinder': [cavalieri], 'terme.umformen': [gleichungen_binomisch], 'zahlen.reell': [irrational_beweis]}
+ABSCHNITT = 'Lehrplan-Ergänzung (LK)'
+
+
+def _schluessel(a):
+    return (a['l'], a['p'], a['f']['text'], json.dumps(a.get('a'), ensure_ascii=False), json.dumps(a['f'].get('schablone'), ensure_ascii=False))
+
+
+def lk_anhaengen(thema):
+    pfad = THEMEN / f'{thema}.json'
+    roh = pfad.read_text(encoding='utf-8')
+    d = json.loads(roh)
+    inh = d['inhalt']
+    da = {_schluessel(a) for a in d['aufgaben']}
+    neu_k = neu_a = 0
+    kann_neu = {}
+    for fn in NEU[thema]:
+        karte, kann, auf_ = fn()
+        L = karte['lernziel']
+        if L not in [e['lernziel'] for e in inh['etappen']]:
+            inh['etappen'].append(karte)
+            ab = next((x for x in inh['abschnitte'] if x['titel'] == ABSCHNITT), None)
+            if ab is None:
+                ab = {'titel': ABSCHNITT, 'lernziele': []}
+                inh['abschnitte'].append(ab)
+            ab['lernziele'].append(L)
+            inh['teilfaehigkeiten'].append({'k': L, 'lernziele': [L]})
+            inh['bewertung'].setdefault('lernziele_vertiefung', []).append(L)
+            neu_k += 1
+        kann_neu[L] = kann
+        for a in auf_:
+            if _schluessel(a) in da:
+                continue
+            d['aufgaben'].append(a)
+            da.add(_schluessel(a))
+            neu_a += 1
+    pfad.write_text(json.dumps(d, ensure_ascii=False, indent=1) + ('\n' if roh.endswith('\n') else ''), encoding='utf-8')
+    kp = KANN / f'{thema}.json'
+    if kp.exists():
+        kr = kp.read_text(encoding='utf-8')
+        kd = json.loads(kr)
+        for L, s in kann_neu.items():
+            kd['etappen'].setdefault(L, s)
+        kp.write_text(json.dumps(kd, ensure_ascii=False, indent=1) + ('\n' if kr.endswith('\n') else ''), encoding='utf-8')
+    print(f'  LK {thema}: {neu_k} neue Lernkarten, {neu_a} neue Aufgaben')
+
+
+if __name__ == '__main__':
+    import sys
+    for t in (sys.argv[1:] or list(NEU)):
+        lk_anhaengen(t)

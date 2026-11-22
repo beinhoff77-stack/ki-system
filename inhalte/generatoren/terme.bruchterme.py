@@ -8,7 +8,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _bausatz import A, L, Z, baue, bruch, cz, einsetzen, ist_endlich, kl, lin, mono, pot, zt  # noqa: E402
 
-META = {'thema_schluessel': 'terme.bruchterme', 'thema_id': 31, 'block_id': 60, 'klasse': {'gym_by': 8, 'rs_by': 8}}
+META = {'thema_schluessel': 'terme.bruchterme', 'thema_id': 31, 'block_id': 60, 'klasse': {'gym_by': 8, 'rs_by': 8, 'ib_myp': 4}}
 
 ETAPPEN = [
     {'lernziel': 'definitionsmenge', 'titel': 'Definitionsmenge bestimmen',

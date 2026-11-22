@@ -3,8 +3,9 @@
  "thema_id": 91,
  "block_id": 109,
  "klasse": {
-  "gym_by": 8,
-  "rs_by": 5
+  "gym_by": 10,
+  "rs_by": 7,
+  "ib_myp": 4
  },
  "autor": "Claude (Paket Klasse 8)",
  "inhalt": {
@@ -34,6 +35,14 @@
     "lernziele": [
      "rotation",
      "axialschnitt"
+    ]
+   },
+   {
+    "titel": "Lehrplan-Ergänzung (LK)",
+    "lernziele": [
+     "wahre_groesse",
+     "koerper_symmetrie",
+     "raumwinkel"
     ]
    }
   ],
@@ -836,6 +845,87 @@
       ]
      ]
     }
+   },
+   {
+    "lernziel": "wahre_groesse",
+    "titel": "Wahre Größe im Schrägbild",
+    "einstieg": "Auf einem Bauplan ist eine Kiste im Schrägbild gezeichnet. Die Kanten nach hinten sehen kürzer aus, als sie sind. Wer die Kiste bauen will, muss die wahren Längen zurückrechnen.",
+    "woerter": [
+     [
+      "Verkürzungsfaktor q",
+      "Kanten nach hinten werden mit q gezeichnet, z. B. q = 0,5"
+     ],
+     [
+      "wahre Größe",
+      "die echte Länge oder Form am Körper"
+     ]
+    ],
+    "regel": "Kanten ⟦nach hinten⟧: gezeichnete Länge = wahre Länge · q, also wahre Länge = gezeichnet : q. Flächen parallel zur Zeichenebene erscheinen in wahrer Größe.",
+    "schritte": [
+     {
+      "text": "Eine Kante nach hinten ist mit q = 0,5 als 2,5 cm gezeichnet."
+     },
+     {
+      "text": "Wahre Länge: 2,5 cm : 0,5 = ⟦5 cm⟧."
+     },
+     {
+      "text": "Die Vorderfläche wird nicht verkürzt: Ihre Kanten und Winkel sind echt."
+     }
+    ],
+    "fehler": "Mit q malnehmen statt teilen: 2,5 · 0,5 = 1,25 cm wäre noch kürzer. Beim Zurückrechnen ⟦teilt⟧ man durch q."
+   },
+   {
+    "lernziel": "koerper_symmetrie",
+    "titel": "Symmetrie von Körpern",
+    "einstieg": "Eine Schachtel lässt sich so durchschneiden, dass beide Hälften Spiegelbilder sind. Die Schnittfläche heißt Symmetrieebene. Manche Körper haben viele davon, ein Würfel sogar neun.",
+    "woerter": [
+     [
+      "Symmetrieebene",
+      "Ebene, die einen Körper in zwei spiegelbildliche Hälften teilt"
+     ],
+     [
+      "Symmetriezentrum",
+      "Punkt, an dem der Körper punktgespiegelt auf sich selbst fällt"
+     ]
+    ],
+    "regel": "Quader (alle Kanten verschieden): ⟦3⟧ Symmetrieebenen. Quadratische Säule: 5. Würfel: 9. Gerade Pyramide mit regelmäßigem n-Eck: n Ebenen. Gerades Prisma mit regelmäßigem n-Eck: n + 1.",
+    "schritte": [
+     {
+      "text": "Quader 6 cm × 4 cm × 2 cm: je eine Ebene parallel zu jedem Flächenpaar, mittig. Das sind 3."
+     },
+     {
+      "text": "Diagonale Schnitte geben beim Quader keine Spiegelhälften, weil die Seiten verschieden lang sind."
+     }
+    ],
+    "fehler": "Beim Quader auch diagonale Ebenen zählen: Die gibt es nur, wenn zwei Kanten ⟦gleich lang⟧ sind (quadratische Säule, Würfel)."
+   },
+   {
+    "lernziel": "raumwinkel",
+    "titel": "Winkel im Raum",
+    "einstieg": "Ein Fahnenmast steht senkrecht auf dem Schulhof, ein Seil führt schräg von der Spitze zum Boden. Zwischen Mast und Boden ist ein rechter Winkel, zwischen Seil und Boden ein spitzer. Solche Winkel im Raum kann man an Körpern ablesen.",
+    "woerter": [
+     [
+      "Neigungswinkel",
+      "Winkel zwischen einer Geraden und einer Ebene"
+     ],
+     [
+      "Winkel zwischen Ebenen",
+      "Winkel zweier Flächen entlang ihrer gemeinsamen Kante"
+     ]
+    ],
+    "regel": "Steht eine Kante ⟦senkrecht⟧ auf einer Fläche, bilden beide 90°. Am Quader treffen alle Flächen im rechten Winkel aufeinander. Beim geraden Prisma ist der Winkel zwischen zwei Seitenflächen der Innenwinkel der Grundfläche.",
+    "schritte": [
+     {
+      "text": "Gerades Prisma mit einem gleichseitigen Dreieck als Grundfläche."
+     },
+     {
+      "text": "Zwei Seitenflächen treffen sich an einer senkrechten Kante. Ihr Winkel ist der Dreieckswinkel: ⟦60°⟧."
+     },
+     {
+      "text": "Jede Seitenfläche steht senkrecht auf der Grundfläche: 90°."
+     }
+    ],
+    "fehler": "Den Winkel im Schrägbild messen: Dort ist der rechte Winkel oft als 45° oder 135° gezeichnet. Im Raum ist er ⟦90°⟧."
    }
   ],
   "teilfaehigkeiten": [
@@ -873,6 +963,24 @@
     "lernziele": [
      "axialschnitt"
     ]
+   },
+   {
+    "k": "wahre_groesse",
+    "lernziele": [
+     "wahre_groesse"
+    ]
+   },
+   {
+    "k": "koerper_symmetrie",
+    "lernziele": [
+     "koerper_symmetrie"
+    ]
+   },
+   {
+    "k": "raumwinkel",
+    "lernziele": [
+     "raumwinkel"
+    ]
    }
   ],
   "bewertung": {
@@ -883,7 +991,10 @@
    ],
    "lernziele_vertiefung": [
     "lage",
-    "koordinaten"
+    "koordinaten",
+    "wahre_groesse",
+    "koerper_symmetrie",
+    "raumwinkel"
    ],
    "testaufgaben_je_lernziel": 1
   },
@@ -7824,6 +7935,1175 @@
    "c": "2",
    "w": "Zylinder: Rechteck 2r · h. Kegel: Dreieck 1/2 · 2r · h = r · h. Verhältnis 2.",
    "h": "Vergleiche Rechteck und Dreieck mit gleicher Grundseite und Höhe."
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 0,5) ist eine Kante nach hinten 3 cm lang gezeichnet. Wie lang ist sie wirklich?"
+   },
+   "w": "3 cm : 0,5 = 6 cm.",
+   "g": "direkt",
+   "h": "Durch q teilen.",
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "3 / 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante nach hinten ist 8 cm lang. Wie lang zeichnest du sie mit q = 0,5?"
+   },
+   "w": "8 cm · 0,5 = 4 cm.",
+   "g": "direkt",
+   "h": "Beim Zeichnen mit q malnehmen.",
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "8 * 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Fläche eines Quaders erscheint im üblichen Schrägbild in wahrer Größe?"
+   },
+   "w": "Die Vorderfläche liegt parallel zur Zeichenebene und wird nicht verzerrt.",
+   "g": "erkennen",
+   "h": "Welche Fläche schaut dich direkt an?",
+   "a": [
+    "die Vorderfläche",
+    "die Grundfläche",
+    "die rechte Seitenfläche",
+    "keine Fläche"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein rechter Winkel der Grundfläche wird im Schrägbild gezeichnet. Wie sieht er aus?"
+   },
+   "w": "Die Grundfläche ist verzerrt: der rechte Winkel erscheint z. B. als 45° oder 135°.",
+   "g": "erkennen",
+   "h": "Die Grundfläche liegt nach hinten.",
+   "a": [
+    "verzerrt, nicht als 90°",
+    "immer als 90°",
+    "als 180°",
+    "gar nicht"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 6 cm breit, 4 cm hoch und 5 cm tief. Im Schrägbild (q = 0,5) wird er gezeichnet. Wie lang zeichnest du alle 4 Tiefenkanten zusammen?"
+   },
+   "w": "Eine Tiefenkante: 5 cm · 0,5 = 2,5 cm. Vier Stück: 10 cm.",
+   "g": "mehrschritt",
+   "h": "Erst eine Kante, dann alle vier.",
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "4 * 5 * 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf dem Bauplan einer Kiste (q = 0,5, Maßstab 1 : 10) ist die Tiefe 2 cm lang gezeichnet. Wie tief ist die Kiste in Wirklichkeit in cm?"
+   },
+   "w": "Wahre Länge im Plan: 2 cm : 0,5 = 4 cm. Maßstab 1 : 10: 40 cm.",
+   "g": "einkleidung",
+   "h": "Erst q, dann den Maßstab.",
+   "o": {
+    "wert": 40,
+    "einheit": "cm"
+   },
+   "c": "2 / 0.5 * 10"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante ist 6 cm lang und wurde nach hinten als 4 cm gezeichnet. Welcher Verkürzungsfaktor q wurde benutzt? Gib q als Dezimalzahl auf zwei Stellen an."
+   },
+   "w": "q = 4 : 6 ≈ 0,67.",
+   "g": "umkehr",
+   "h": "gezeichnet : wahr.",
+   "o": {
+    "wert": 0.67
+   },
+   "c": "round(4 / 6, 2)"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Schrägbild eines Würfels sind alle Kanten nach hinten halb so lang gezeichnet. Was gilt für den echten Würfel?"
+   },
+   "w": "Am echten Würfel sind alle Kanten gleich lang; nur die Zeichnung verkürzt die Tiefe.",
+   "g": "darstellung",
+   "h": "Unterscheide Zeichnung und Körper.",
+   "a": [
+    "Alle Kanten sind gleich lang.",
+    "Die hinteren Kanten sind kürzer.",
+    "Der Würfel ist ein Quader.",
+    "Die Vorderfläche ist kleiner."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 0,5) einer quadratischen Säule ist die Tiefenkante 2 cm lang. Die Grundfläche ist ein Quadrat. Wie groß ist die echte Grundfläche in cm²?"
+   },
+   "w": "Wahre Tiefe 2 : 0,5 = 4 cm. Quadrat: 4 cm · 4 cm = 16 cm².",
+   "g": "rueckwaerts",
+   "h": "Erst die wahre Länge, dann die Fläche.",
+   "o": {
+    "wert": 16,
+    "einheit": "cm²"
+   },
+   "c": "(2 / 0.5) * (2 / 0.5)"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum kann man im Schrägbild die Länge einer Raumdiagonale nicht direkt messen?"
+   },
+   "w": "Sie verläuft schräg nach hinten und wird verzerrt dargestellt; nur Strecken parallel zur Zeichenebene sind in wahrer Länge.",
+   "g": "begruenden",
+   "h": "Welche Strecken sind unverzerrt?",
+   "a": [
+    "Weil sie verzerrt gezeichnet wird.",
+    "Weil sie zu lang ist.",
+    "Weil sie unsichtbar ist.",
+    "Weil Diagonalen keine Länge haben."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Max misst im Schrägbild (q = 0,5) eine Tiefenkante von 3,5 cm und sagt: „Die Kiste ist 1,75 cm tief.“ Was stimmt?"
+   },
+   "w": "Er hat mit q multipliziert. Richtig: 3,5 : 0,5 = 7 cm.",
+   "g": "fehler",
+   "h": "Zurückrechnen heißt teilen.",
+   "a": [
+    "Falsch: sie ist 7 cm tief.",
+    "Richtig.",
+    "Falsch: sie ist 3,5 cm tief.",
+    "Falsch: sie ist 5 cm tief."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schrank (Breite 80 cm, Höhe 180 cm, Tiefe 60 cm) wird im Maßstab 1 : 20 mit q = 0,5 gezeichnet. Wie lang wird die Tiefenkante gezeichnet (in cm)?"
+   },
+   "w": "60 cm : 20 = 3 cm, mal q = 0,5: 1,5 cm.",
+   "g": "transfer",
+   "h": "Erst verkleinern, dann verkürzen.",
+   "o": {
+    "wert": 1.5,
+    "einheit": "cm"
+   },
+   "c": "60 / 20 * 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild mit q = 0,5 ist eine Tiefenkante 4,5 cm lang. Wie lang ist sie wirklich?"
+   },
+   "w": "4,5 cm : 0,5 = 9 cm.",
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "4.5 / 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Tiefenkante ist mit q = 0,5 als 1,5 cm gezeichnet. Berechne die wahre Länge."
+   },
+   "w": "1,5 cm : 0,5 = 3 cm.",
+   "o": {
+    "wert": 3.0,
+    "einheit": "cm"
+   },
+   "c": "1.5 / 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Tiefenkante ist mit q = 0,5 als 3,2 cm gezeichnet. Berechne die wahre Länge."
+   },
+   "w": "3,2 cm : 0,5 = 6,4 cm.",
+   "o": {
+    "wert": 6.4,
+    "einheit": "cm"
+   },
+   "c": "3.2 / 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Tiefenkante ist mit q = 0,5 als 6 cm gezeichnet. Berechne die wahre Länge."
+   },
+   "w": "6 cm : 0,5 = 12 cm.",
+   "o": {
+    "wert": 12,
+    "einheit": "cm"
+   },
+   "c": "6 / 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante nach hinten ist 10 cm lang. Wie lang wird sie mit q = 0,5 gezeichnet?"
+   },
+   "w": "10 cm · 0,5 = 5 cm.",
+   "o": {
+    "wert": 5.0,
+    "einheit": "cm"
+   },
+   "c": "10 * 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante nach hinten ist 7 cm lang. Wie lang wird sie mit q = 0,5 gezeichnet?"
+   },
+   "w": "7 cm · 0,5 = 3,5 cm.",
+   "o": {
+    "wert": 3.5,
+    "einheit": "cm"
+   },
+   "c": "7 * 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante nach hinten ist 12 cm lang. Wie lang wird sie mit q = 0,5 gezeichnet?"
+   },
+   "w": "12 cm · 0,5 = 6 cm.",
+   "o": {
+    "wert": 6.0,
+    "einheit": "cm"
+   },
+   "c": "12 * 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante nach hinten ist 9 cm lang. Wie lang wird sie mit q = 0,5 gezeichnet?"
+   },
+   "w": "9 cm · 0,5 = 4,5 cm.",
+   "o": {
+    "wert": 4.5,
+    "einheit": "cm"
+   },
+   "c": "9 * 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante nach hinten ist 4 cm lang. Wie lang wird sie mit q = 0,5 gezeichnet?"
+   },
+   "w": "4 cm · 0,5 = 2 cm.",
+   "o": {
+    "wert": 2.0,
+    "einheit": "cm"
+   },
+   "c": "4 * 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante nach hinten ist 15 cm lang. Wie lang wird sie mit q = 0,5 gezeichnet?"
+   },
+   "w": "15 cm · 0,5 = 7,5 cm.",
+   "o": {
+    "wert": 7.5,
+    "einheit": "cm"
+   },
+   "c": "15 * 0.5"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieebenen hat ein Quader mit den Kanten 5 cm, 3 cm und 2 cm?"
+   },
+   "w": "Drei Ebenen, je mittig parallel zu einem Flächenpaar.",
+   "g": "direkt",
+   "h": "Alle Kanten verschieden.",
+   "o": {
+    "wert": 3
+   },
+   "c": "3"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieebenen hat ein Würfel?"
+   },
+   "w": "3 parallel zu den Flächen + 6 durch gegenüberliegende Kanten = 9.",
+   "g": "direkt",
+   "h": "Zähle auch die Ebenen durch die Kanten.",
+   "o": {
+    "wert": 9
+   },
+   "c": "3 + 6"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper hat ein Symmetriezentrum?"
+   },
+   "w": "Der Quader fällt bei Punktspiegelung am Mittelpunkt auf sich selbst; Pyramide und Kegel nicht.",
+   "g": "erkennen",
+   "h": "Punktspiegelung am Mittelpunkt.",
+   "a": [
+    "Quader",
+    "Pyramide",
+    "Kegel",
+    "Dreiecksprisma"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine gerade Pyramide hat ein Quadrat als Grundfläche. Wie viele Symmetrieebenen hat sie?"
+   },
+   "w": "Wie das Quadrat: 4 Ebenen, alle durch die Spitze.",
+   "g": "erkennen",
+   "h": "Jede Symmetrieachse des Quadrats gibt eine Ebene.",
+   "a": [
+    "4",
+    "2",
+    "5",
+    "9"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges Sechseck als Grundfläche. Wie viele Symmetrieebenen hat es?"
+   },
+   "w": "6 Ebenen durch die Symmetrieachsen des Sechsecks + 1 waagrechte Mittelebene = 7.",
+   "g": "mehrschritt",
+   "h": "Achsen der Grundfläche plus die Mittelebene.",
+   "o": {
+    "wert": 7
+   },
+   "c": "6 + 1"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Geschenkschachtel ist 10 cm lang, 10 cm breit und 4 cm hoch. Wie viele Symmetrieebenen hat sie?"
+   },
+   "w": "Quadratische Säule: 3 + 2 Diagonalebenen = 5.",
+   "g": "einkleidung",
+   "h": "Zwei Kanten sind gleich lang.",
+   "o": {
+    "wert": 5
+   },
+   "c": "3 + 2"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine gerade Pyramide mit regelmäßiger Grundfläche hat 5 Symmetrieebenen. Wie viele Ecken hat die Grundfläche?"
+   },
+   "w": "Bei der Pyramide ist die Zahl der Ebenen gleich n: 5 Ecken.",
+   "g": "umkehr",
+   "h": "n-Eck ⇒ n Ebenen.",
+   "o": {
+    "wert": 5
+   },
+   "c": "5"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Durch welche Linien eines Würfels gehen die 6 diagonalen Symmetrieebenen?"
+   },
+   "w": "Jede geht durch zwei gegenüberliegende Kanten.",
+   "g": "darstellung",
+   "h": "Schneide den Würfel schräg.",
+   "a": [
+    "durch zwei gegenüberliegende Kanten",
+    "durch zwei benachbarte Ecken",
+    "durch die Mitte einer Fläche",
+    "durch eine einzige Kante"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma mit regelmäßiger Grundfläche hat 9 Symmetrieebenen und ist kein Würfel. Wie viele Ecken hat die Grundfläche?"
+   },
+   "w": "n + 1 = 9 ⇒ n = 8: ein Achteck.",
+   "g": "rueckwaerts",
+   "h": "Prisma: n + 1 Ebenen.",
+   "o": {
+    "wert": 8
+   },
+   "c": "9 - 1"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum hat eine Pyramide keine waagrechte Symmetrieebene?"
+   },
+   "w": "Oben ist eine Spitze, unten eine Fläche – die Hälften sind nicht spiegelgleich.",
+   "g": "begruenden",
+   "h": "Vergleiche oben und unten.",
+   "a": [
+    "Weil Spitze und Grundfläche verschieden sind.",
+    "Weil sie zu wenig Ecken hat.",
+    "Weil sie schief ist.",
+    "Weil sie kein Volumen hat."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Mia sagt: „Ein Quader mit 6 cm, 4 cm und 2 cm hat 9 Symmetrieebenen wie der Würfel.“ Was stimmt?"
+   },
+   "w": "Nur 3: Diagonalebenen gibt es nur bei gleich langen Kanten.",
+   "g": "fehler",
+   "h": "Sind Kanten gleich lang?",
+   "a": [
+    "Falsch: er hat 3.",
+    "Richtig.",
+    "Falsch: er hat 6.",
+    "Falsch: er hat 5."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bleistift ist ein gerades Prisma mit regelmäßigem Sechseck und ohne Spitze. Wie viele Symmetrieebenen hat er zusammen mit der Mittelebene quer?"
+   },
+   "w": "6 längs + 1 quer = 7.",
+   "g": "transfer",
+   "h": "Längsebenen wie die Sechseck-Achsen.",
+   "o": {
+    "wert": 7
+   },
+   "c": "6 + 1"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieebenen hat eine quadratische Säule (Grundfläche Quadrat, Höhe anders)?"
+   },
+   "w": "Quadratische Säule: 3 Ebenen parallel zu den Flächen und 2 diagonale, zusammen 5.",
+   "o": {
+    "wert": 5
+   },
+   "c": "3 + 2"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieebenen hat eine gerade Pyramide mit regelmäßigem 3-Eck als Grundfläche?"
+   },
+   "w": "Jede der 3 Symmetrieachsen des 3-Ecks gibt eine Ebene durch die Spitze: 3.",
+   "o": {
+    "wert": 3
+   },
+   "c": "3"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieebenen hat eine gerade Pyramide mit regelmäßigem 4-Eck als Grundfläche?"
+   },
+   "w": "Jede der 4 Symmetrieachsen des 4-Ecks gibt eine Ebene durch die Spitze: 4.",
+   "o": {
+    "wert": 4
+   },
+   "c": "4"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieebenen hat eine gerade Pyramide mit regelmäßigem 6-Eck als Grundfläche?"
+   },
+   "w": "Jede der 6 Symmetrieachsen des 6-Ecks gibt eine Ebene durch die Spitze: 6.",
+   "o": {
+    "wert": 6
+   },
+   "c": "6"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges 3-Eck als Grundfläche (Höhe anders als die Seiten). Wie viele Symmetrieebenen hat es?"
+   },
+   "w": "3 Ebenen durch die Achsen des 3-Ecks und 1 waagrechte Mittelebene: 4.",
+   "o": {
+    "wert": 4
+   },
+   "c": "3 + 1"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges 5-Eck als Grundfläche (Höhe anders als die Seiten). Wie viele Symmetrieebenen hat es?"
+   },
+   "w": "5 Ebenen durch die Achsen des 5-Ecks und 1 waagrechte Mittelebene: 6.",
+   "o": {
+    "wert": 6
+   },
+   "c": "5 + 1"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges 6-Eck als Grundfläche (Höhe anders als die Seiten). Wie viele Symmetrieebenen hat es?"
+   },
+   "w": "6 Ebenen durch die Achsen des 6-Ecks und 1 waagrechte Mittelebene: 7.",
+   "o": {
+    "wert": 7
+   },
+   "c": "6 + 1"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges 8-Eck als Grundfläche (Höhe anders als die Seiten). Wie viele Symmetrieebenen hat es?"
+   },
+   "w": "8 Ebenen durch die Achsen des 8-Ecks und 1 waagrechte Mittelebene: 9.",
+   "o": {
+    "wert": 9
+   },
+   "c": "8 + 1"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges 10-Eck als Grundfläche (Höhe anders als die Seiten). Wie viele Symmetrieebenen hat es?"
+   },
+   "w": "10 Ebenen durch die Achsen des 10-Ecks und 1 waagrechte Mittelebene: 11.",
+   "o": {
+    "wert": 11
+   },
+   "c": "10 + 1"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges 12-Eck als Grundfläche (Höhe anders als die Seiten). Wie viele Symmetrieebenen hat es?"
+   },
+   "w": "12 Ebenen durch die Achsen des 12-Ecks und 1 waagrechte Mittelebene: 13.",
+   "o": {
+    "wert": 13
+   },
+   "c": "12 + 1"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der Winkel zwischen einer senkrechten Quaderkante und der Grundfläche?"
+   },
+   "w": "Die Kante steht senkrecht auf der Grundfläche: 90°.",
+   "g": "direkt",
+   "h": "Senkrecht heißt 90°.",
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "90"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein Quadrat als Grundfläche. Unter welchem Winkel treffen zwei benachbarte Seitenflächen aufeinander?"
+   },
+   "w": "Der Winkel ist der Innenwinkel des Quadrats: 90°.",
+   "g": "direkt",
+   "h": "Schau auf die Grundfläche.",
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "90"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Winkel ist ein Neigungswinkel?"
+   },
+   "w": "Ein Neigungswinkel liegt zwischen einer Geraden und einer Ebene, z. B. Seil und Boden.",
+   "g": "erkennen",
+   "h": "Gerade und Ebene.",
+   "a": [
+    "zwischen Seil und Boden",
+    "zwischen zwei Seilen",
+    "zwischen zwei Böden",
+    "zwischen zwei Punkten"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Schrägbild eines Würfels erscheint die Ecke vorne unten rechts mit 135°. Wie groß ist der Winkel am Würfel?"
+   },
+   "w": "Am Würfel sind alle Winkel zwischen Kanten 90°; das Schrägbild verzerrt.",
+   "g": "erkennen",
+   "h": "Zeichnung und Körper unterscheiden.",
+   "a": [
+    "90°",
+    "135°",
+    "45°",
+    "180°"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges Sechseck als Grundfläche. Wie groß ist der Winkel zwischen zwei benachbarten Seitenflächen?"
+   },
+   "w": "Innenwinkelsumme Sechseck 720°, ein Winkel 720° : 6 = 120°.",
+   "g": "mehrschritt",
+   "h": "Erst den Innenwinkel des Sechsecks.",
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "720 / 6"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zelt hat einen dreieckigen Querschnitt mit zwei gleichen Winkeln von 65° am Boden. Wie groß ist der Winkel zwischen den beiden Zeltwänden oben?"
+   },
+   "w": "180° − 2 · 65° = 50°.",
+   "g": "einkleidung",
+   "h": "Winkelsumme im Dreieck.",
+   "o": {
+    "wert": 50,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 65"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Seitenflächen eines geraden Prismas mit regelmäßiger Grundfläche bilden 108°. Wie viele Ecken hat die Grundfläche?"
+   },
+   "w": "Regelmäßiges n-Eck mit Innenwinkel 108°: Fünfeck (540° : 5 = 108°).",
+   "g": "umkehr",
+   "h": "Welches regelmäßige Vieleck hat 108°?",
+   "o": {
+    "wert": 5
+   },
+   "c": "360 / (180 - 108)"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Rampe steigt vom Boden an. Welcher Winkel beschreibt, wie steil sie ist?"
+   },
+   "w": "Der Neigungswinkel zwischen Rampenfläche und Boden.",
+   "g": "darstellung",
+   "h": "Fläche gegen Boden.",
+   "a": [
+    "der Winkel zwischen Rampe und Boden",
+    "der Winkel zwischen zwei Bodenfliesen",
+    "der Winkel am oberen Ende der Rampe zur Wand",
+    "der Winkel zwischen zwei Geländerstäben"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem geraden Prisma mit dreieckiger Grundfläche bilden zwei Seitenflächen 70° und 50°. Welchen Winkel bilden die dritte und die zweite Seitenfläche?"
+   },
+   "w": "Die Winkel zwischen Seitenflächen sind die Dreieckswinkel: 180° − 70° − 50° = 60°.",
+   "g": "rueckwaerts",
+   "h": "Winkelsumme der Grundfläche.",
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "180 - 70 - 50"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum ist der Winkel zwischen zwei Seitenflächen eines geraden Prismas gleich dem Innenwinkel der Grundfläche?"
+   },
+   "w": "Die Seitenflächen stehen senkrecht auf der Grundfläche; ihr Winkel zeigt sich unverändert in der Grundfläche.",
+   "g": "begruenden",
+   "h": "Schneide waagrecht durch.",
+   "a": [
+    "Weil die Seitenflächen senkrecht auf der Grundfläche stehen.",
+    "Weil alle Kanten gleich lang sind.",
+    "Weil das Prisma symmetrisch ist.",
+    "Weil die Deckfläche kleiner ist."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ben misst im Schrägbild eines Quaders zwischen Vorder- und Seitenfläche 45° und schreibt: „Die Flächen bilden 45°.“ Was stimmt?"
+   },
+   "w": "Im Schrägbild ist der Winkel verzerrt. Am Quader bilden die Flächen 90°.",
+   "g": "fehler",
+   "h": "Ist ein Quader schief?",
+   "a": [
+    "Falsch: am Quader sind es 90°.",
+    "Richtig.",
+    "Falsch: es sind 135°.",
+    "Falsch: es sind 60°."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dach hat zwei gleich geneigte Flächen. Jede bildet mit dem waagrechten Dachboden 35°. Wie groß ist der Winkel zwischen den beiden Dachflächen am First?"
+   },
+   "w": "Querschnitt Dreieck: 180° − 2 · 35° = 110°.",
+   "g": "transfer",
+   "h": "Zeichne den Querschnitt.",
+   "o": {
+    "wert": 110,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 35"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges Achteck als Grundfläche. Wie groß ist der Winkel zwischen zwei benachbarten Seitenflächen?"
+   },
+   "w": "Innenwinkel: 1 080° : 8 = 135°.",
+   "o": {
+    "wert": 135,
+    "einheit": "°"
+   },
+   "c": "(8 - 2) * 180 / 8"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei gleich geneigte Dachflächen bilden mit dem Dachboden je 40°. Welchen Winkel bilden sie am First?"
+   },
+   "w": "180° − 2 · 40° = 100°.",
+   "o": {
+    "wert": 100,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 40"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei gleich geneigte Dachflächen bilden mit dem Dachboden je 55°. Welchen Winkel bilden sie am First?"
+   },
+   "w": "180° − 2 · 55° = 70°.",
+   "o": {
+    "wert": 70,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 55"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei gleich geneigte Dachflächen bilden mit dem Dachboden je 70°. Welchen Winkel bilden sie am First?"
+   },
+   "w": "180° − 2 · 70° = 40°.",
+   "o": {
+    "wert": 40,
+    "einheit": "°"
+   },
+   "c": "180 - 2 * 70"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gerades Prisma mit regelmäßigem 3-Eck als Grundfläche: Welchen Winkel bilden zwei benachbarte Seitenflächen?"
+   },
+   "w": "Innenwinkel des 3-Ecks: (3 − 2) · 180° : 3 = 60°.",
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "(3 - 2) * 180 / 3"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gerades Prisma mit regelmäßigem 4-Eck als Grundfläche: Welchen Winkel bilden zwei benachbarte Seitenflächen?"
+   },
+   "w": "Innenwinkel des 4-Ecks: (4 − 2) · 180° : 4 = 90°.",
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "(4 - 2) * 180 / 4"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gerades Prisma mit regelmäßigem 5-Eck als Grundfläche: Welchen Winkel bilden zwei benachbarte Seitenflächen?"
+   },
+   "w": "Innenwinkel des 5-Ecks: (5 − 2) · 180° : 5 = 108°.",
+   "o": {
+    "wert": 108,
+    "einheit": "°"
+   },
+   "c": "(5 - 2) * 180 / 5"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gerades Prisma mit regelmäßigem 6-Eck als Grundfläche: Welchen Winkel bilden zwei benachbarte Seitenflächen?"
+   },
+   "w": "Innenwinkel des 6-Ecks: (6 − 2) · 180° : 6 = 120°.",
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "(6 - 2) * 180 / 6"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gerades Prisma mit regelmäßigem 9-Eck als Grundfläche: Welchen Winkel bilden zwei benachbarte Seitenflächen?"
+   },
+   "w": "Innenwinkel des 9-Ecks: (9 − 2) · 180° : 9 = 140°.",
+   "o": {
+    "wert": 140,
+    "einheit": "°"
+   },
+   "c": "(9 - 2) * 180 / 9"
+  },
+  {
+   "l": "raumwinkel",
+   "t": "raumwinkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gerades Prisma mit regelmäßigem 10-Eck als Grundfläche: Welchen Winkel bilden zwei benachbarte Seitenflächen?"
+   },
+   "w": "Innenwinkel des 10-Ecks: (10 − 2) · 180° : 10 = 144°.",
+   "o": {
+    "wert": 144,
+    "einheit": "°"
+   },
+   "c": "(10 - 2) * 180 / 10"
   }
  ],
  "offen": [

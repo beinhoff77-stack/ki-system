@@ -3,7 +3,8 @@
  "thema_id": 100,
  "block_id": 114,
  "klasse": {
-  "gym_by": 6
+  "gym_by": 6,
+  "rs_by": 6
  },
  "autor": "Claude (Achtzehnte Runde, Teil A; Generator messen.volumen.py)",
  "inhalt": {

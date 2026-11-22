@@ -8,7 +8,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _kl7 import A, L, Z, baue, figur, jw, kl, ksys, zt  # noqa: E402
 
-META = {'thema_schluessel': 'geometrie.kreis', 'thema_id': 45, 'block_id': 79, 'klasse': {'gym_by': 7, 'rs_by': 7}}
+META = {'thema_schluessel': 'geometrie.kreis', 'thema_id': 45, 'block_id': 79, 'klasse': {'rs_by': 7, 'gym_by': 7, 'ib_myp': 4}}
 
 
 def rd(v): return round(v, 2)

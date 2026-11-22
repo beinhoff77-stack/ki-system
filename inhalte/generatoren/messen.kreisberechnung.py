@@ -7,7 +7,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _bausatz import PI, PIF, A, Z, baue, cz, mit_bild, runde, sicher_rundbar, zt  # noqa: E402
 
-META = {'thema_schluessel': 'messen.kreisberechnung', 'thema_id': 51, 'block_id': 84, 'klasse': {'gym_by': 8, 'rs_by': 9}}
+META = {'thema_schluessel': 'messen.kreisberechnung', 'thema_id': 51, 'block_id': 84, 'klasse': {'gym_by': 8, 'rs_by': 9, 'ib_myp': 3}}
 RUNDE = 'Runde auf eine Nachkommastelle.'
 TIPP_PI = 'Rechne mit der π-Taste und runde erst am Ende.'
 

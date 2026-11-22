@@ -3,7 +3,9 @@
  "thema_id": 17,
  "block_id": 48,
  "klasse": {
-  "gym_by": 5
+  "gym_by": 5,
+  "rs_by": 5,
+  "ib_myp": 1
  },
  "autor": "Claude (Runde 9, Generator zahlen_teilbarkeit.py)",
  "inhalt": {

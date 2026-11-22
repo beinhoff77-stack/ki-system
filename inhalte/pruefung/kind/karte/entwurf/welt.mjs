@@ -1,0 +1,21 @@
+import {readFileSync,writeFileSync} from 'fs';import * as topo from 'topojson-client';import * as d3 from 'd3-geo';import {createRequire} from 'module';
+const require=createRequire(import.meta.url);const iso=require('i18n-iso-countries');iso.registerLocale(require('i18n-iso-countries/langs/de.json'));
+const {countries}=require('countries-list');const C=JSON.parse(readFileSync('node_modules/cities.json/cities.json'));
+const t=JSON.parse(readFileSync('node_modules/world-atlas/countries-50m.json'));const F=topo.feature(t,t.objects.countries).features;
+const HS_DE={Rome:'Rom',Warsaw:'Warschau',Prague:'Prag',Vienna:'Wien',Brussels:'Brüssel',Lisbon:'Lissabon',Copenhagen:'Kopenhagen',Athens:'Athen',Bucharest:'Bukarest',Belgrade:'Belgrad',Kyiv:'Kiew',Kiev:'Kiew',Moscow:'Moskau',Cairo:'Kairo',Beijing:'Peking',Tokyo:'Tokio','Mexico City':'Mexiko-Stadt','Washington D.C.':'Washington, D.C.',Algiers:'Algier',Tripoli:'Tripolis',Khartoum:'Khartum','Addis Ababa':'Addis Abeba',Damascus:'Damaskus',Baghdad:'Bagdad',Tehran:'Teheran','New Delhi':'Neu-Delhi',Pyongyang:'Pjöngjang','Ulan Bator':'Ulaanbaatar',Nicosia:'Nikosia',Luxembourg:'Luxemburg',Chisinau:'Chișinău',Reykjavik:'Reykjavík',Tbilisi:'Tiflis',Yerevan:'Jerewan',Tashkent:'Taschkent',Bishkek:'Bischkek',Dushanbe:'Duschanbe',Ashgabat:'Aşgabat',Riyadh:'Riad',"Sana'a":'Sanaa',Muscat:'Maskat','Kuwait City':'Kuwait',Havana:'Havanna',Bogota:'Bogotá',Brasilia:'Brasília',Asuncion:'Asunción','Panama City':'Panama-Stadt','Guatemala City':'Guatemala-Stadt',Singapore:'Singapur',Mogadishu:'Mogadischu',Djibouti:'Dschibuti','Yaoundé':'Jaunde',Yaounde:'Jaunde',"N'Djamena":'N’Djamena',Kathmandu:'Kathmandu',Naypyidaw:'Naypyidaw','Sri Jayawardenepura Kotte':'Colombo',Bern:'Bern',Jerusalem:'Jerusalem','Kuala Lumpur':'Kuala Lumpur','Nur-Sultan':'Astana',Astana:'Astana','Vatican City':'Vatikanstadt',Montevideo:'Montevideo','Port Louis':'Port Louis'};
+const Wd=4000,Hd=2100;const p=d3.geoNaturalEarth1().fitExtent([[10,10],[Wd-10,Hd-10]],{type:'Sphere'});const gp=d3.geoPath(p);
+const r=n=>Math.round(n);
+function groesstes(f){const g=f.geometry;if(g.type==='Polygon')return f;let best=null,ba=-1;for(const c of g.coordinates){const pf={type:'Feature',geometry:{type:'Polygon',coordinates:c}};const a=d3.geoArea(pf);if(a>ba){ba=a;best=pf}}return best}
+const OR=['TR','SY','IQ','IR','SA','JO','IL','LB','YE','OM','AE','QA','KW','BH','GE','AM','AZ','PS','CY'];const MEL=['PG','FJ','SB','VU','NC','NZ','AU'];const POLY=['WS','TO','PF','US-HI','KI','TV','CK'];
+const out=[];let ohne=[];
+for(const f of F){let id=f.id;let a2=id?iso.numericToAlpha2(id):null;const n=f.properties.name;if(n==='Kosovo')a2='XK';if(n==='N. Cyprus'||n==='Somaliland'||n==='Indian Ocean Ter.'||n==='Ashmore and Cartier Is.'||n==='Siachen Glacier')continue;
+ const de=a2==='XK'?'Kosovo':(a2?iso.getName(a2,'de'):n)||n;const cl=a2&&countries[a2];const hsE=cl?cl.capital:(a2==='XK'?'Pristina':'');
+ const MAN={YE:[44.19,15.37],VU:[168.32,-17.74],TO:[-175.2,-21.14],SM:[12.45,43.94],MD:[28.86,47.01],MV:[73.51,4.18],KI:[172.98,1.33],IS:[-21.94,64.15],GD:[-61.75,12.05],PF:[-149.57,-17.54],MM:[96.08,19.76],AG:[-61.85,17.12],XK:[21.17,42.66]};
+ let hs=MAN[a2]||null;if(!hs&&hsE){const cand=C.filter(c=>c.country===a2&&(c.name===hsE||c.name.startsWith(hsE)||hsE.startsWith(c.name)&&c.name.length>3));if(cand.length)hs=[+cand[0].lng,+cand[0].lat];else ohne.push(a2+':'+hsE)}
+ const g=groesstes(f);const lp=p(d3.geoCentroid(g)).map(r);const area=gp.area(f);
+ const k=cl?cl.continent:'';const kont=a2==='AQ'?'ant':OR.includes(a2)?'or':MEL.includes(a2)?'au':POLY.includes(a2)?'po':({EU:'eu',AS:'as',AF:'af',NA:'na',SA:'sa',OC:'au',AN:'ant'})[k]||'as';
+ out.push({a2,de,hs:hsE?(HS_DE[hsE]||hsE):null,hp:hs?p(hs).map(r):null,lp,ar:Math.round(area),k:a2==='RU'?'as':kont,d:gp(f).replace(/(\d+)\.\d+/g,'$1')});}
+const grat=gp(d3.geoGraticule10()).replace(/(\d+)\.\d+/g,'$1'),sph=gp({type:'Sphere'}).replace(/(\d+)\.\d+/g,'$1');
+const PROJ={};for(const q of [[15,54],[92,48],[46,31],[20,6],[-100,47],[-60,-14],[134,-27],[-150,-12]])PROJ[q.join(',')]=p(q).map(r);
+writeFileSync('welt.json',JSON.stringify({W:Wd,H:Hd,L:out,grat,sph,du:p([11.34,44.49]).map(r),PROJ}));
+console.log(out.length,'ohne HS:',ohne.join(', '),(JSON.stringify(out).length/1024|0)+'KB');

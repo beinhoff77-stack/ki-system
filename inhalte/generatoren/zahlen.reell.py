@@ -1066,3 +1066,9 @@ ST.knobel('heron', A('Ist der Wert x₁ nach einem Heron-Schritt immer mindesten
 
 if __name__ == '__main__':
     stufen('zahlen.reell', ST)
+
+# ---- LK (22.11., LK-D 4, siehe _lk_etappen_2211.py): zuletzt, hängt nur an ----
+if __name__ == '__main__':
+    from _lk_etappen_2211 import lk_anhaengen
+    lk_anhaengen('zahlen.reell')
+# ---- LK ENDE ----

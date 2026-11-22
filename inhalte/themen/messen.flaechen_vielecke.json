@@ -3,7 +3,8 @@
  "thema_id": 99,
  "block_id": 114,
  "klasse": {
-  "gym_by": 6
+  "gym_by": 6,
+  "rs_by": 6
  },
  "autor": "Claude (Achtzehnte Runde, Teil A; Generator messen.flaechen_vielecke.py)",
  "inhalt": {
@@ -37,6 +38,12 @@
     "titel": "Verstehen",
     "lernziele": [
      "verstehen"
+    ]
+   },
+   {
+    "titel": "Lehrplan-Ergänzung (LK)",
+    "lernziele": [
+     "drachen_raute"
     ]
    }
   ],
@@ -2300,6 +2307,31 @@
      "winkel": []
     },
     "regel": "Gleiche Grundseite und gleiche Höhe: ⟦gleicher Flächeninhalt⟧. Die Form ist dabei egal."
+   },
+   {
+    "lernziel": "drachen_raute",
+    "titel": "Drachenviereck und Raute",
+    "einstieg": "Ein Papierdrachen wird aus zwei Leisten gebaut, die sich senkrecht kreuzen. Spannt man Papier darum, entsteht ein Drachenviereck. Wie viel Papier braucht man? Die beiden Leisten verraten es.",
+    "woerter": [
+     [
+      "Diagonale",
+      "Verbindungsstrecke zweier gegenüberliegender Ecken"
+     ],
+     [
+      "Raute",
+      "Viereck mit vier gleich langen Seiten"
+     ]
+    ],
+    "regel": "Drachen und Raute: Die Diagonalen e und f stehen senkrecht. ⟦A = e · f : 2⟧.",
+    "schritte": [
+     {
+      "text": "Ein Drachen hat die Diagonalen e = 8 cm und f = 5 cm."
+     },
+     {
+      "text": "Rechteck um den Drachen: 8 cm · 5 cm = 40 cm². Der Drachen ist genau die Hälfte: ⟦20 cm²⟧."
+     }
+    ],
+    "fehler": "e · f ohne Halbieren: 8 · 5 = 40 cm² ist das umgebende Rechteck. Der Drachen ist nur ⟦die Hälfte⟧."
    }
   ],
   "teilfaehigkeiten": [
@@ -2351,6 +2383,12 @@
     "lernziele": [
      "verstehen"
     ]
+   },
+   {
+    "k": "drachen_raute",
+    "lernziele": [
+     "drachen_raute"
+    ]
    }
   ],
   "bewertung": {
@@ -2363,7 +2401,9 @@
     "oberflaeche",
     "verstehen"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "drachen_raute"
+   ],
    "testaufgaben_je_lernziel": 1,
    "hilfen_im_test": false
   },
@@ -12363,6 +12403,398 @@
    "c": "5",
    "w": "36 = 1 · 36 = 2 · 18 = 3 · 12 = 4 · 9 = 6 · 6. Das sind 5 Rechtecke (das letzte ist ein Quadrat).",
    "h": "Zerlege 36 in zwei Faktoren."
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Drachenviereck hat die Diagonalen e = 6 cm und f = 4 cm. Berechne den Flächeninhalt."
+   },
+   "w": "A = 6 cm · 4 cm : 2 = 12 cm².",
+   "g": "direkt",
+   "h": "Diagonalen malnehmen, dann halbieren.",
+   "o": {
+    "wert": 12,
+    "einheit": "cm²"
+   },
+   "c": "6 * 4 / 2"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Raute hat die Diagonalen 10 cm und 7 cm. Wie groß ist ihr Flächeninhalt?"
+   },
+   "w": "A = 10 cm · 7 cm : 2 = 35 cm².",
+   "g": "direkt",
+   "h": "Gleiche Formel wie beim Drachen.",
+   "o": {
+    "wert": 35,
+    "einheit": "cm²"
+   },
+   "c": "10 * 7 / 2"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Eigenschaft haben Drachenviereck und Raute gemeinsam?"
+   },
+   "w": "Bei beiden stehen die Diagonalen senkrecht aufeinander.",
+   "g": "erkennen",
+   "h": "Denke an die gekreuzten Leisten.",
+   "a": [
+    "Die Diagonalen stehen senkrecht.",
+    "Alle Seiten sind gleich lang.",
+    "Alle Winkel sind 90°.",
+    "Gegenüberliegende Seiten sind parallel."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Formel gilt für den Flächeninhalt eines Drachenvierecks?"
+   },
+   "w": "A = e · f : 2, mit den Diagonalen e und f.",
+   "g": "erkennen",
+   "h": "Die Hälfte des umgebenden Rechtecks.",
+   "a": [
+    "A = e · f : 2",
+    "A = e · f",
+    "A = (e + f) : 2",
+    "A = 2 · (e + f)"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Raute hat die Diagonalen 1,2 m und 50 cm. Gib den Flächeninhalt in cm² an."
+   },
+   "w": "1,2 m = 120 cm. A = 120 cm · 50 cm : 2 = 3 000 cm².",
+   "g": "mehrschritt",
+   "h": "Erst in eine Einheit umrechnen.",
+   "o": {
+    "wert": 3000,
+    "einheit": "cm²"
+   },
+   "c": "120 * 50 / 2"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen Drachen sind die Leisten 90 cm und 60 cm lang. Wie viel cm² Papier bedeckt der Drachen?"
+   },
+   "w": "A = 90 cm · 60 cm : 2 = 2 700 cm².",
+   "g": "einkleidung",
+   "h": "Die Leisten sind die Diagonalen.",
+   "o": {
+    "wert": 2700,
+    "einheit": "cm²"
+   },
+   "c": "90 * 60 / 2"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Drachen hat 24 cm² Fläche und die Diagonale e = 8 cm. Wie lang ist f?"
+   },
+   "w": "24 = 8 · f : 2 ⇒ 48 = 8 · f ⇒ f = 6 cm.",
+   "g": "umkehr",
+   "h": "Rechne rückwärts: mal 2, dann durch e.",
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "2 * 24 / 8"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Diagonale 6 cm. Berechne seine Fläche mit der Drachenformel."
+   },
+   "w": "Ein Quadrat ist eine besondere Raute: e = f = 6 cm. A = 6 · 6 : 2 = 18 cm².",
+   "g": "darstellung",
+   "h": "Beide Diagonalen sind gleich lang.",
+   "o": {
+    "wert": 18,
+    "einheit": "cm²"
+   },
+   "c": "6 * 6 / 2"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Raute hat 54 cm² Fläche. Eine Diagonale ist 3-mal so lang wie die andere. Wie lang ist die kürzere Diagonale?"
+   },
+   "w": "x · 3x : 2 = 54 ⇒ 3x² = 108 ⇒ x² = 36 ⇒ x = 6 cm.",
+   "g": "rueckwaerts",
+   "h": "Setze für die längere 3x ein.",
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "2 * 54 / 3 / 6"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum ist die Fläche eines Drachens genau die Hälfte des umgebenden Rechtecks?"
+   },
+   "w": "Die Diagonalen teilen das Rechteck in acht rechtwinklige Dreiecke; der Drachen besteht aus vier davon, das Rechteck aus allen acht.",
+   "g": "begruenden",
+   "h": "Zeichne das Rechteck um den Drachen.",
+   "a": [
+    "Der Drachen besteht aus 4 von 8 gleich großen Dreieckspaaren.",
+    "Weil der Drachen symmetrisch ist.",
+    "Weil alle Seiten halb so lang sind.",
+    "Weil die Winkel halb so groß sind."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eva berechnet für eine Raute mit e = 9 cm und f = 4 cm: A = 9 · 4 = 36 cm². Was stimmt?"
+   },
+   "w": "Sie hat vergessen zu halbieren. Richtig: 36 : 2 = 18 cm².",
+   "g": "fehler",
+   "h": "Vergleiche mit der Formel.",
+   "a": [
+    "Falsch: richtig sind 18 cm².",
+    "Alles richtig.",
+    "Richtig sind 26 cm².",
+    "Richtig sind 72 cm²."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fliesenmuster besteht aus 20 Rauten mit den Diagonalen 30 cm und 20 cm. Wie viele m² bedecken sie?"
+   },
+   "w": "Eine Raute: 30 · 20 : 2 = 300 cm². 20 Rauten: 6 000 cm² = 0,6 m².",
+   "g": "transfer",
+   "h": "Erst eine Raute, dann alle; zum Schluss in m².",
+   "o": {
+    "wert": 0.6,
+    "einheit": "m²"
+   },
+   "c": "20 * 30 * 20 / 2 / 10000"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Drachenviereck hat die Diagonalen 12 cm und 5 cm. Berechne den Flächeninhalt."
+   },
+   "w": "A = 12 · 5 : 2 = 30 cm².",
+   "o": {
+    "wert": 30,
+    "einheit": "cm²"
+   },
+   "c": "12 * 5 / 2"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Raute hat die Diagonalen e = 14 cm und f = 6 cm. Wie groß ist ihre Fläche?"
+   },
+   "w": "A = 14 · 6 : 2 = 42 cm².",
+   "o": {
+    "wert": 42.0,
+    "einheit": "cm²"
+   },
+   "c": "14 * 6 / 2"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Raute hat die Diagonalen e = 9 cm und f = 8 cm. Wie groß ist ihre Fläche?"
+   },
+   "w": "A = 9 · 8 : 2 = 36 cm².",
+   "o": {
+    "wert": 36.0,
+    "einheit": "cm²"
+   },
+   "c": "9 * 8 / 2"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Raute hat die Diagonalen e = 11 cm und f = 4 cm. Wie groß ist ihre Fläche?"
+   },
+   "w": "A = 11 · 4 : 2 = 22 cm².",
+   "o": {
+    "wert": 22.0,
+    "einheit": "cm²"
+   },
+   "c": "11 * 4 / 2"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Flächeninhalt eines Drachenvierecks mit e = 7 cm und f = 4 cm."
+   },
+   "w": "A = 7 · 4 : 2 = 14 cm².",
+   "o": {
+    "wert": 14.0,
+    "einheit": "cm²"
+   },
+   "c": "7 * 4 / 2"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Flächeninhalt eines Drachenvierecks mit e = 16 cm und f = 3 cm."
+   },
+   "w": "A = 16 · 3 : 2 = 24 cm².",
+   "o": {
+    "wert": 24.0,
+    "einheit": "cm²"
+   },
+   "c": "16 * 3 / 2"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Flächeninhalt eines Drachenvierecks mit e = 5 cm und f = 5 cm."
+   },
+   "w": "A = 5 · 5 : 2 = 12,5 cm².",
+   "o": {
+    "wert": 12.5,
+    "einheit": "cm²"
+   },
+   "c": "5 * 5 / 2"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Flächeninhalt eines Drachenvierecks mit e = 13 cm und f = 6 cm."
+   },
+   "w": "A = 13 · 6 : 2 = 39 cm².",
+   "o": {
+    "wert": 39.0,
+    "einheit": "cm²"
+   },
+   "c": "13 * 6 / 2"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Flächeninhalt eines Drachenvierecks mit e = 20 cm und f = 9 cm."
+   },
+   "w": "A = 20 · 9 : 2 = 90 cm².",
+   "o": {
+    "wert": 90.0,
+    "einheit": "cm²"
+   },
+   "c": "20 * 9 / 2"
+  },
+  {
+   "l": "drachen_raute",
+   "t": "drachen_raute",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Flächeninhalt eines Drachenvierecks mit e = 15 cm und f = 8 cm."
+   },
+   "w": "A = 15 · 8 : 2 = 60 cm².",
+   "o": {
+    "wert": 60.0,
+    "einheit": "cm²"
+   },
+   "c": "15 * 8 / 2"
   }
  ],
  "offen": [

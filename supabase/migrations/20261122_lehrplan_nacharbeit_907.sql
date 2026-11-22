@@ -1,10 +1,13 @@
 -- Nacharbeit aus ChatGPTs Prüfergebnis 907 (22.11.) zur Dreißigsten Runde (Lehrplan-Zuordnungen und Voraussetzungen).
+-- Fassung c (22.11., ChatGPT 919 MUSS 4): Löschschutz auch für Einheiten im Status geprueft (für Kinder sichtbar), Rauchtest m;
+-- Rauchtest l nur für die zehn stillgelegten Themen; Regeln b und i zählen geprueft wie freigegeben.
 -- Fassung b (22.11. abends): Test-Lernender ohne feste id (ids GENERATED ALWAYS), N2 aufgelöste Themen ohne RS/IB-Klasse und
 -- -Reihenfolge (Abschnitt 3d, Rauchtest l), N3 „eigenständig“ für 83 entfernt.
 -- Ersetzt die eingespielte Datei 20261121_lehrplan_zuordnung_voraussetzungen.sql NICHT, sondern ist ihre berichtigte Fassung:
 -- gleicher Inhalt (Runden 30, 30 b, 30 c; 102 ← 30 bleibt hart, Entscheidung Sebastian), dazu
 --   * Rauchtest j: fehlt der Vorherstand der Reiseoptionen, bricht er mit EXCEPTION ab (statt still zu überspringen);
---   * vor jeder gezielten Löschung (Abschnitt 3c) wird geprüft, dass das aufgelöste Thema weiter keinen freigegebenen Flug hat, sonst Abbruch;
+--   * vor jeder gezielten Löschung (Abschnitt 3c) wird geprüft, dass das aufgelöste Thema keine für Kinder sichtbare Einheit
+--     (geprueft oder freigegeben) hat, sonst Abbruch;
 --   * Rauchtest k: Testfall „Zielort offen, Voraussetzungs-Ort fehlt“ für die harte Kante 102 ← 30 (mit einem erfundenen Test-Lernenden,
 --     der in einem Unterblock angelegt und sofort wieder zurückgerollt wird; keine echten Kinderdaten).
 -- Quelle: LehrplanPLUS Bayern, abgerufen 21.11.2026; Belege und Annahmen in inhalte/pruefung/lehrplan/runde30.md.
@@ -43,7 +46,7 @@ from (values (30, 1), (102, 2), (29, 3), (94, 4), (32, 5), (33, 6), (46, 7), (44
 where t.id = v.id;
 
 -- 3c) Veraltete Verbindungen von und zu aufgelösten Themen gezielt löschen – jede einzeln, jede erst nach Prüfung:
---     Das aufgelöste Thema der Zeile hat weiter keine freigegebene Einheit (keinen freigegebenen Flug). Sonst Abbruch, nichts gelöscht.
+--     Das aufgelöste Thema der Zeile hat weiter keine für Kinder sichtbare Einheit (Status geprueft oder freigegeben). Sonst Abbruch, nichts gelöscht.
 --   8 Quadratische Gleichungen (allgemein) ← 12 Reinquadratische Gleichungen: Quadratische Gleichungen braucht 12: Stoff steht jetzt als Etappe reinquadratisch in 8 selbst; ersetzt durch 8 ← 68
 --   12 Reinquadratische Gleichungen ← 68 Elementare Wurzeln: 12 ist aufgelöst (Entwurf ohne freigegebene Einheit)
 --   49 Matrizen und Abbildungen mit Matrizen ← 48 Vektoren und Determinanten: Matrizen braucht 48: Vektor-Flug aufgelöst; ersetzt durch 49 ← 46
@@ -56,8 +59,10 @@ where t.id = v.id;
 --   82 Bedingte Wahrscheinlichkeit ← 21 Brüche und Anteile: 82 ist aufgelöst (Stoff in 63 und 62)
 --   82 Bedingte Wahrscheinlichkeit ← 23 Rechnen mit rationalen Zahlen: 82 ist aufgelöst (Stoff in 63 und 62)
 --   82 Bedingte Wahrscheinlichkeit ← 61 Zufall und Laplace: 82 ist aufgelöst (Stoff in 63 und 62)
-do $$
-declare r record;
+-- Löschschutz als Sitzungsfunktion (pg_temp: verschwindet mit der Sitzung, kein DROP nötig), damit Rauchtest m ihn prüfen kann.
+-- Geschützt ist jedes Thema mit einer für Kinder sichtbaren Einheit: Status geprueft oder freigegeben (wie in der App).
+create or replace function pg_temp.lb907_loeschen() returns int language plpgsql as $f$
+declare r record; v_n int := 0; v_k int;
 begin
   for r in select * from (values
     (8, 12, 12),
@@ -73,12 +78,15 @@ begin
     (82, 23, 82),
     (82, 61, 82)
   ) v(thema_id, braucht_id, aufgeloest) loop
-    if exists (select 1 from schule.einheit e where e.thema_id = r.aufgeloest and e.status = 'freigegeben') then
-      raise exception 'Abbruch vor Löschung %←%: Thema % hat inzwischen einen freigegebenen Flug', r.thema_id, r.braucht_id, r.aufgeloest;
+    if exists (select 1 from schule.einheit e where e.thema_id = r.aufgeloest and e.status in ('geprueft', 'freigegeben')) then
+      raise exception 'Abbruch vor Löschung %←%: Thema % hat eine für Kinder sichtbare Einheit (geprueft oder freigegeben)', r.thema_id, r.braucht_id, r.aufgeloest;
     end if;
     delete from schule.voraussetzung where thema_id = r.thema_id and braucht_id = r.braucht_id;
+    get diagnostics v_k = row_count; v_n := v_n + v_k;
   end loop;
-end $$;
+  return v_n;
+end $f$;
+select pg_temp.lb907_loeschen() as geloeschte_zeilen;
 
 -- 3d) N2 (Nachprüfung Gestalter): Die zehn aufgelösten Themen (keine freigegebene Einheit) verlieren Klasse und Reihenfolge
 --     für Realschule und IB (für das Gymnasium hatten sie schon keine). Klasse über klasse_fest = null, weil thema_jahrgang
@@ -97,7 +105,7 @@ update schule.thema
    set klasse_fest = coalesce(klasse_fest, '{}'::jsonb) || '{"gym_by": null, "rs_by": null, "ib_myp": null}'::jsonb,
        lehrplan_reihenfolge = coalesce(lehrplan_reihenfolge, '{}'::jsonb) - 'gym_by' - 'rs_by' - 'ib_myp'
  where id in (12, 27, 40, 41, 48, 72, 77, 78, 82, 83)
-   and not exists (select 1 from schule.einheit e where e.thema_id = schule.thema.id and e.status = 'freigegeben');
+   and not exists (select 1 from schule.einheit e where e.thema_id = schule.thema.id and e.status in ('geprueft', 'freigegeben'));
 -- Reihenfolgen je Schulart und Klasse lückenlos nachziehen (die übrigen Themen rücken auf; Reihenfolge untereinander gleich)
 update schule.thema t set lehrplan_reihenfolge = coalesce(t.lehrplan_reihenfolge, '{}'::jsonb) || v.rf
 from (values
@@ -252,14 +260,14 @@ begin
   if schule.thema_jahrgang(12) ? 'gym_by' then raise exception 'Rauchtest: Thema 12 darf keine Gymnasium-Klasse haben'; end if;
   -- i) Neue Regel: keine Verbindung von oder zu einem Thema ohne freigegebene Einheit, außer ausdrücklich begründet (Begründung beginnt mit „Ausnahme:“)
   select string_agg(v.thema_id || '←' || v.braucht_id, ', ') into v_txt from schule.voraussetzung v
-   where (not exists (select 1 from schule.einheit e where e.thema_id = v.thema_id and e.status = 'freigegeben')
-       or not exists (select 1 from schule.einheit e where e.thema_id = v.braucht_id and e.status = 'freigegeben'))
+   where (not exists (select 1 from schule.einheit e where e.thema_id = v.thema_id and e.status in ('geprueft', 'freigegeben'))
+       or not exists (select 1 from schule.einheit e where e.thema_id = v.braucht_id and e.status in ('geprueft', 'freigegeben')))
      and coalesce(v.begruendung, '') not like 'Ausnahme:%';
   if v_txt is not null then raise exception 'Rauchtest: Verbindung von/zu Thema ohne freigegebene Einheit: %', v_txt; end if;
   -- b) jedes Thema mit Klasse und freigegebener Einheit hat Voraussetzungen oder ist ausdrücklich eigenständig
   select count(*), string_agg(t.id::text, ', ') into v_n, v_txt from schule.thema t
    where schule.thema_jahrgang(t.id) <> '{}'::jsonb and t.eigenstaendig is null
-     and exists (select 1 from schule.einheit e where e.thema_id = t.id and e.status = 'freigegeben')
+     and exists (select 1 from schule.einheit e where e.thema_id = t.id and e.status in ('geprueft', 'freigegeben'))
      and not exists (select 1 from schule.voraussetzung v where v.thema_id = t.id);
   if v_n > 0 then raise exception 'Rauchtest: Themen ohne Voraussetzung und ohne eigenständig: %', v_txt; end if;
   -- c) keine Kreise
@@ -366,12 +374,48 @@ begin
       raise exception 'Rauchtest k: Test-Lernender nicht zurückgerollt'; end if;
     raise notice 'Rauchtest k: 102 ← 30 sperrt den Ziel-Ort, solange der Voraussetzungs-Ort fehlt oder offen ist, und gibt ihn frei, wenn er fertig ist';
   end;
-  -- l) N2/N3: aufgelöste Themen ohne Klasse, ohne Reihenfolge, ohne „eigenständig“
+  -- l) N2/N3: nur die zehn stillgelegten Themen (nicht jedes nicht freigegebene) – ohne Klasse, Reihenfolge, „eigenständig“
   select string_agg(t.id::text, ', ') into v_txt from schule.thema t
-   where not exists (select 1 from schule.einheit e where e.thema_id = t.id and e.status = 'freigegeben')
+   where t.id in (12, 27, 40, 41, 48, 72, 77, 78, 82, 83)
+     and not exists (select 1 from schule.einheit e where e.thema_id = t.id and e.status in ('geprueft', 'freigegeben'))
      and (schule.thema_jahrgang(t.id) <> '{}'::jsonb
           or coalesce(t.lehrplan_reihenfolge, '{}'::jsonb) ?| array['gym_by', 'rs_by', 'ib_myp']
           or t.eigenstaendig is not null);
-  if v_txt is not null then raise exception 'Rauchtest l: aufgelöste Themen tragen noch Klasse, Reihenfolge oder eigenständig: %', v_txt; end if;
-  raise notice 'Rauchtest Dreißigste Runde (Nacharbeit 907 b) bestanden';
+  if v_txt is not null then raise exception 'Rauchtest l: stillgelegte Themen tragen noch Klasse, Reihenfolge oder eigenständig: %', v_txt; end if;
+  -- m) Löschschutz greift auch bei Status geprueft (und freigegeben): je eine Test-Einheit für das stillgelegte Thema 48 in einem
+  --    Unterblock anlegen, den Löschschutz aufrufen – er muss abbrechen –, danach alles zurückrollen. Ohne Test-Einheit (m0)
+  --    läuft er durch. Echte Einheiten werden nicht verändert.
+  declare
+    v_status text; v_meldung text; v_vers int; v_vor int; v_nach int;
+  begin
+    select count(*) into v_vor from schule.voraussetzung;
+    if exists (select 1 from schule.einheit e where e.thema_id = 48 and e.status in ('geprueft', 'freigegeben')) then
+      raise exception 'Rauchtest m: Thema 48 hat schon eine sichtbare Einheit – Testvoraussetzung fehlt';
+    end if;
+    perform pg_temp.lb907_loeschen();  -- m0: ohne sichtbare Einheit kein Abbruch
+    foreach v_status in array array['geprueft', 'freigegeben'] loop
+      v_meldung := null;
+      begin
+        select coalesce(max(version), 0) + 1000 into v_vers from schule.einheit where thema_id = 48;
+        insert into schule.einheit (thema_id, version, status, inhalt, erstellt_von)
+          values (48, v_vers, v_status, '{}'::jsonb, 'Rauchtest m (wird zurückgerollt)');
+        begin
+          perform pg_temp.lb907_loeschen();
+        exception when others then
+          v_meldung := sqlerrm;
+        end;
+        raise exception using errcode = 'P0001', message = 'lb907m_zurueckrollen';
+      exception when sqlstate 'P0001' then
+        if sqlerrm <> 'lb907m_zurueckrollen' then raise; end if;
+      end;
+      if v_meldung is null or v_meldung not like 'Abbruch vor Löschung %' then
+        raise exception 'Rauchtest m: Löschschutz greift nicht bei Status % (Meldung: %)', v_status, coalesce(v_meldung, 'keine');
+      end if;
+    end loop;
+    select count(*) into v_nach from schule.voraussetzung;
+    if v_nach <> v_vor or exists (select 1 from schule.einheit where erstellt_von like 'Rauchtest m%') then
+      raise exception 'Rauchtest m: Testzustand nicht zurückgerollt'; end if;
+    raise notice 'Rauchtest m: Löschschutz bricht bei geprueft und bei freigegeben ab, ohne sichtbare Einheit läuft er';
+  end;
+  raise notice 'Rauchtest Dreißigste Runde (Nacharbeit 907 c) bestanden';
 end $$;

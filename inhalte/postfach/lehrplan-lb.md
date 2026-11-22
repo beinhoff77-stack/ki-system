@@ -2,6 +2,17 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG Nacharbeit 907 c (lehrplan-lb)
+
+Grundlage ist `lernen-app` f278a3cf. Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Geändert ist `supabase/migrations/20261122_lehrplan_nacharbeit_907.sql`. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0f.
+
+- **Löschschutz (3c):** bricht jetzt auch bei Einheiten im Status `geprueft` ab, nicht nur bei `freigegeben`. Er steckt dafür in `pg_temp.lb907_loeschen()`. Dieselbe Regel gilt auch für 3d und die Regeln b und i; auf den heutigen Daten ändert das nichts.
+- **Rauchtest m (neu):** Je eine Test-Einheit `geprueft` und `freigegeben` für das stillgelegte Thema 48 wird angelegt und zurückgerollt. Der Schutz muss beide Male abbrechen; ohne sichtbare Einheit läuft er durch.
+- **Rauchtest l:** prüft nur noch die zehn stillgelegten Themen.
+- **Lokal auf Postgres 16:** Zwei Läufe und ein frischer Lauf bestanden. Die Gegenproben greifen: Mit dem alten Schutz schlägt m fehl; ist 48 echt `geprueft`, bricht die Migration vor der Löschung ab.
+
+FERTIG: Lehrplan Nacharbeit 907 c
+
 ## 2026-11-22 – MELDUNG Nacharbeit 907 b (lehrplan-lb)
 
 Grundlage ist `lernen-app` 6ec1c3ef. Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Berichtigt ist `supabase/migrations/20261122_lehrplan_nacharbeit_907.sql`. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0e.

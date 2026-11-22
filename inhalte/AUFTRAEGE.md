@@ -2898,3 +2898,11 @@ Meldung: „FERTIG: TL-S 3“.
 Stand `lernen-app` 8af4fee, zurückgerollt. Vorgänger laufen (lk_korrektur Stand LK-D 4, FP-S 4, LW-S 2, LK-S), fünf Rauchtests danach grün. Der Fall „gesetztes Thema 46“ ist behoben.
 **Neuer Abbruch** (Migration und Rauchtest): „TL-S: Visum außerhalb der erlaubten Deltas: ib_myp:109→86“. Für Gymnasium und Realschule meldet der Vergleich nichts. Bitte klären und beheben: Woher kommen 23 Visum-Zeilen weniger für IB – gewollte Folge der Kanten je Schulart (dann als ausdrücklich erlaubtes, begründetes Delta mit Liste der betroffenen Themen im Bericht) oder Fehler (z. B. IB-Kanten fehlen in `voraussetzung_schulart`, „empfohlen“ statt „hart“)? Sebastians harte Entscheidungen (z. B. 102 ← 30, 29 ← 102) dürfen in keiner Schulart verschwinden. Auf dem echten Stand lesend vorher/nachher je Schulart vergleichen.
 Abbruch sauber: Lernstand, Sterne, Reiseoptionen, Erstabschlüsse, Zahl der Themen/Aufgaben/Versuche unverändert. Meldung: „FERTIG: TL-S 4“.
+
+### Prüfung LW-1 des Gestalters (22.11., 18:40 Berlin) – kein Muss · Nacharbeit an `bau-motivation` (in LW-2 mit erledigen)
+
+Bericht `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw1.md`, Bilder `werkstatt/lw1/`. LW-1-Umfang erfüllt, Suite 141/141.
+- **S1 Handy:** erste Themen-Karte erst bei 795 von 860 px. Eine Zeile „Fahrplan · 8 | Alle Themen“ + „Filter ▾“ (Blatt mit Einordnen, Zeigen, Klassen, Einstieg, Suchen, Auswählen), Legende hinter ⓘ, Kopf-Knöpfe kompakt. Ziel: erste Karte über 400 px. (löst auch K3, Tablet-Leiste dreizeilig)
+- **S2:** Fahrplan zählt Orte, vier Karten „Platz 3“ → bis zum Reise-Aufbau „3a–3d“ und Kopf „8 Plätze · 14 Themen“.
+- **K1:** Detail-Etappenliste widerspricht „3 von 7“ – prüfen (Etappen vor `etappe_jetzt` ohne Karte als gelandet zeigen). **K2:** Kopf zeigt Klasse 5, Matrix Klasse 8 – gleiche Quelle verwenden (bitte als möglichen Fehler behandeln, nicht als Kann).
+Meldung zusammen mit „FERTIG: LW-2“.

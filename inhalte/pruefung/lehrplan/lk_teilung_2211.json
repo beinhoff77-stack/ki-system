@@ -1,0 +1,4465 @@
+{
+ "auftrag": "LK-D 2",
+ "stand": "2026-11-22",
+ "regel": "Teilungsregel 15:30/15:35/15:40: feinste gemeinsame Teilung über Gymnasium und RS Gruppe I; IB und RS II/III lösen keine Teilung aus.",
+ "hinweis": "Kinder nur als Nummern. Klasse je Teil: erste Klasse, in der ein Lehrplanpunkt eine Etappe des Teils als Hauptthema verlangt; *_ohne_eigenen_punkt = Klasse aus der Reihenfolge abgeleitet.",
+ "teilungsliste": [
+  {
+   "thema": 26,
+   "titel": "Direkte Proportionalität und Dreisatz",
+   "teile": [
+    {
+     "teil": 1,
+     "von": 2,
+     "titel": "Direkte Proportionalität und Dreisatz – Teil 1 von 2",
+     "untertitel": "Dreisatz",
+     "etappen": [
+      {
+       "lernziel": "einheit",
+       "titel": "Auf die Einheit schließen"
+      },
+      {
+       "lernziel": "dreisatz",
+       "titel": "Der Dreisatz"
+      },
+      {
+       "lernziel": "geschickt",
+       "titel": "Geschickte Zwischenschritte"
+      },
+      {
+       "lernziel": "sach",
+       "titel": "Sachaufgaben mit Dreisatz"
+      },
+      {
+       "lernziel": "aenderung",
+       "titel": "Änderungsraten berechnen"
+      }
+     ],
+     "etappen_ohne_lehrplanpunkt": [
+      "geschickt",
+      "aenderung"
+     ],
+     "klasse": {
+      "gym": 5,
+      "gym_ohne_eigenen_punkt": false,
+      "rs_I": 5,
+      "rs_I_ohne_eigenen_punkt": false,
+      "rs_II_III": [
+       5
+      ],
+      "ib_standard": [
+       2
+      ],
+      "ib_extended": [
+       2
+      ]
+     },
+     "zu_duenn": false,
+     "stand_je_kind": {
+      "1": {
+       "erledigt": 0,
+       "etappen": 5,
+       "vollstaendig": false
+      },
+      "2": {
+       "erledigt": 0,
+       "etappen": 5,
+       "vollstaendig": false
+      }
+     },
+     "baut_auf": [
+      {
+       "knoten": "25 Größen und Einheiten (Gym 5 · RS I 5)",
+       "art": "hart",
+       "herkunft": "bisher"
+      }
+     ],
+     "wird_gebraucht_von": [
+      {
+       "knoten": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2 (Gym 5 · RS I 6)",
+       "art": "hart",
+       "herkunft": "Teilung"
+      }
+     ]
+    },
+    {
+     "teil": 2,
+     "von": 2,
+     "titel": "Direkte Proportionalität und Dreisatz – Teil 2 von 2",
+     "untertitel": "proportionale Zuordnungen erkennen",
+     "etappen": [
+      {
+       "lernziel": "erkennen",
+       "titel": "Was heißt proportional?"
+      },
+      {
+       "lernziel": "vervielfachen",
+       "titel": "Verdoppeln, verdreifachen, halbieren"
+      },
+      {
+       "lernziel": "pruefen",
+       "titel": "Ist die Tabelle proportional?"
+      }
+     ],
+     "etappen_ohne_lehrplanpunkt": [],
+     "klasse": {
+      "gym": 5,
+      "gym_ohne_eigenen_punkt": false,
+      "rs_I": 6,
+      "rs_I_ohne_eigenen_punkt": false,
+      "rs_II_III": [
+       6
+      ],
+      "ib_standard": [
+       2
+      ],
+      "ib_extended": [
+       2
+      ]
+     },
+     "zu_duenn": false,
+     "stand_je_kind": {
+      "1": {
+       "erledigt": 0,
+       "etappen": 3,
+       "vollstaendig": false
+      },
+      "2": {
+       "erledigt": 0,
+       "etappen": 3,
+       "vollstaendig": false
+      }
+     },
+     "baut_auf": [
+      {
+       "knoten": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2 (Gym 5 · RS I 5)",
+       "art": "hart",
+       "herkunft": "Teilung"
+      }
+     ],
+     "wird_gebraucht_von": [
+      {
+       "knoten": "93 Indirekte Proportionalität (Gym 8 · RS I 7)",
+       "art": "hart",
+       "herkunft": "bisher"
+      }
+     ]
+    }
+   ],
+   "flug_geschafft_kinder": []
+  },
+  {
+   "thema": 29,
+   "titel": "Terme umformen",
+   "teile": [
+    {
+     "teil": 1,
+     "von": 2,
+     "titel": "Terme umformen – Teil 1 von 2",
+     "untertitel": "zusammenfassen und ausmultiplizieren",
+     "etappen": [
+      {
+       "lernziel": "zusammenfassen",
+       "titel": "Gleichartige Glieder zusammenfassen"
+      },
+      {
+       "lernziel": "produkte",
+       "titel": "Produkte vereinfachen"
+      },
+      {
+       "lernziel": "minusklammer",
+       "titel": "Minus vor der Klammer"
+      },
+      {
+       "lernziel": "ausmultiplizieren",
+       "titel": "Ausmultiplizieren"
+      },
+      {
+       "lernziel": "aequivalenz",
+       "titel": "Äquivalente Terme"
+      }
+     ],
+     "etappen_ohne_lehrplanpunkt": [],
+     "klasse": {
+      "gym": 7,
+      "gym_ohne_eigenen_punkt": false,
+      "rs_I": 7,
+      "rs_I_ohne_eigenen_punkt": false,
+      "rs_II_III": [
+       7
+      ],
+      "ib_standard": [
+       1,
+       2
+      ],
+      "ib_extended": [
+       1,
+       2
+      ]
+     },
+     "zu_duenn": false,
+     "stand_je_kind": {
+      "1": {
+       "erledigt": 0,
+       "etappen": 5,
+       "vollstaendig": false
+      },
+      "2": {
+       "erledigt": 5,
+       "etappen": 5,
+       "vollstaendig": true
+      }
+     },
+     "baut_auf": [
+      {
+       "knoten": "28 Terme aufstellen und deuten (Gym 7 · RS I 6)",
+       "art": "hart",
+       "herkunft": "bisher"
+      },
+      {
+       "knoten": "102 Potenzgesetze (Gym 7 · RS I 7)",
+       "art": "hart",
+       "herkunft": "bisher"
+      }
+     ],
+     "wird_gebraucht_von": [
+      {
+       "knoten": "4 Formeln umstellen (Gym 8 · RS I –)",
+       "art": "empfohlen",
+       "herkunft": "bisher (inhaltlich zugeordnet)"
+      },
+      {
+       "knoten": "29 Terme umformen – Teil 2 von 2 (Gym 7 · RS I 8)",
+       "art": "hart",
+       "herkunft": "Teilung"
+      }
+     ]
+    },
+    {
+     "teil": 2,
+     "von": 2,
+     "titel": "Terme umformen – Teil 2 von 2",
+     "untertitel": "Summe mal Summe, Ausklammern, binomische Formeln",
+     "etappen": [
+      {
+       "lernziel": "summe_mal_summe",
+       "titel": "Summe mal Summe"
+      },
+      {
+       "lernziel": "ausklammern",
+       "titel": "Gemeinsamen Faktor ausklammern"
+      },
+      {
+       "lernziel": "binomisch",
+       "titel": "Binomische Formeln"
+      }
+     ],
+     "etappen_ohne_lehrplanpunkt": [],
+     "klasse": {
+      "gym": 7,
+      "gym_ohne_eigenen_punkt": false,
+      "rs_I": 8,
+      "rs_I_ohne_eigenen_punkt": false,
+      "rs_II_III": [
+       8
+      ],
+      "ib_standard": [
+       4
+      ],
+      "ib_extended": [
+       4
+      ]
+     },
+     "zu_duenn": false,
+     "stand_je_kind": {
+      "1": {
+       "erledigt": 0,
+       "etappen": 3,
+       "vollstaendig": false
+      },
+      "2": {
+       "erledigt": 3,
+       "etappen": 3,
+       "vollstaendig": true
+      }
+     },
+     "baut_auf": [
+      {
+       "knoten": "29 Terme umformen – Teil 1 von 2 (Gym 7 · RS I 7)",
+       "art": "hart",
+       "herkunft": "Teilung"
+      }
+     ],
+     "wird_gebraucht_von": [
+      {
+       "knoten": "8 Quadratische Gleichungen (allgemein) (Gym 9 · RS I 9)",
+       "art": "hart",
+       "herkunft": "bisher"
+      },
+      {
+       "knoten": "97 Quadratische Terme und Extremwerte (Gym – · RS I 8)",
+       "art": "hart",
+       "herkunft": "bisher"
+      },
+      {
+       "knoten": "35 Quadratische Funktionen (Gym 9 · RS I 9)",
+       "art": "empfohlen",
+       "herkunft": "bisher"
+      },
+      {
+       "knoten": "31 Bruchterme (Gym 8 · RS I 8)",
+       "art": "hart",
+       "herkunft": "bisher"
+      }
+     ]
+    }
+   ],
+   "flug_geschafft_kinder": [
+    2
+   ]
+  },
+  {
+   "thema": 44,
+   "titel": "Konstruktionen, Kongruenz und Beweise",
+   "teile": [
+    {
+     "teil": 1,
+     "von": 2,
+     "titel": "Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
+     "untertitel": "Dreiecke konstruieren, Kongruenz",
+     "etappen": [
+      {
+       "lernziel": "gleichschenklig",
+       "titel": "Gleichschenklige Dreiecke"
+      },
+      {
+       "lernziel": "kongruenzsatz",
+       "titel": "Welcher Kongruenzsatz passt?"
+      },
+      {
+       "lernziel": "konstruierbar",
+       "titel": "Ist das Dreieck konstruierbar?"
+      },
+      {
+       "lernziel": "planfigur",
+       "titel": "Planfigur und Konstruktionsbeschreibung"
+      },
+      {
+       "lernziel": "satz_kehrsatz",
+       "titel": "Satz und Kehrsatz"
+      }
+     ],
+     "etappen_ohne_lehrplanpunkt": [],
+     "klasse": {
+      "gym": 7,
+      "gym_ohne_eigenen_punkt": false,
+      "rs_I": 7,
+      "rs_I_ohne_eigenen_punkt": false,
+      "rs_II_III": [
+       8
+      ],
+      "ib_standard": [
+       2,
+       3
+      ],
+      "ib_extended": [
+       2,
+       3
+      ]
+     },
+     "zu_duenn": false,
+     "stand_je_kind": {
+      "1": {
+       "erledigt": 0,
+       "etappen": 5,
+       "vollstaendig": false
+      },
+      "2": {
+       "erledigt": 0,
+       "etappen": 5,
+       "vollstaendig": false
+      }
+     },
+     "baut_auf": [
+      {
+       "knoten": "43 Mit Winkeln rechnen (Gym 5 · RS I 5)",
+       "art": "empfohlen",
+       "herkunft": "bisher"
+      },
+      {
+       "knoten": "98 Winkelsätze (Gym 7 · RS I 7)",
+       "art": "empfohlen",
+       "herkunft": "bisher"
+      },
+      {
+       "knoten": "46 Kongruenzabbildungen – Teil 1 von 3 (Gym 7 · RS I 6)",
+       "art": "empfohlen",
+       "herkunft": "bisher (inhaltlich zugeordnet)"
+      }
+     ],
+     "wird_gebraucht_von": [
+      {
+       "knoten": "44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 (Gym 7 · RS I 8)",
+       "art": "hart",
+       "herkunft": "Teilung"
+      }
+     ]
+    },
+    {
+     "teil": 2,
+     "von": 2,
+     "titel": "Konstruktionen, Kongruenz und Beweise – Teil 2 von 2",
+     "untertitel": "Vierecke",
+     "etappen": [
+      {
+       "lernziel": "vierecke",
+       "titel": "Winkel in symmetrischen Vierecken"
+      },
+      {
+       "lernziel": "vierecke_konstruieren",
+       "titel": "Vierecke konstruieren"
+      }
+     ],
+     "etappen_ohne_lehrplanpunkt": [],
+     "klasse": {
+      "gym": 7,
+      "gym_ohne_eigenen_punkt": true,
+      "rs_I": 8,
+      "rs_I_ohne_eigenen_punkt": false,
+      "rs_II_III": [
+       8
+      ],
+      "ib_standard": null,
+      "ib_extended": null
+     },
+     "zu_duenn": true,
+     "stand_je_kind": {
+      "1": {
+       "erledigt": 0,
+       "etappen": 2,
+       "vollstaendig": false
+      },
+      "2": {
+       "erledigt": 0,
+       "etappen": 2,
+       "vollstaendig": false
+      }
+     },
+     "baut_auf": [
+      {
+       "knoten": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2 (Gym 7 · RS I 7)",
+       "art": "hart",
+       "herkunft": "Teilung"
+      }
+     ],
+     "wird_gebraucht_von": []
+    }
+   ],
+   "flug_geschafft_kinder": []
+  },
+  {
+   "thema": 46,
+   "titel": "Kongruenzabbildungen",
+   "teile": [
+    {
+     "teil": 1,
+     "von": 3,
+     "titel": "Kongruenzabbildungen – Teil 1 von 3",
+     "untertitel": "Spiegeln und Symmetrie",
+     "etappen": [
+      {
+       "lernziel": "achsenspiegelung",
+       "titel": "An einer Achse spiegeln"
+      },
+      {
+       "lernziel": "mittelsenkrechte",
+       "titel": "Mittelsenkrechte und Lot"
+      },
+      {
+       "lernziel": "winkelhalbierende",
+       "titel": "Die Winkelhalbierende"
+      },
+      {
+       "lernziel": "symmetrie",
+       "titel": "Symmetrische Figuren"
+      },
+      {
+       "lernziel": "vierecke_ordnen",
+       "titel": "Symmetrische Vierecke ordnen"
+      },
+      {
+       "lernziel": "eigenschaften",
+       "titel": "Was bleibt bei Abbildungen gleich?"
+      }
+     ],
+     "etappen_ohne_lehrplanpunkt": [],
+     "klasse": {
+      "gym": 7,
+      "gym_ohne_eigenen_punkt": false,
+      "rs_I": 6,
+      "rs_I_ohne_eigenen_punkt": false,
+      "rs_II_III": [
+       6
+      ],
+      "ib_standard": [
+       3
+      ],
+      "ib_extended": [
+       3
+      ]
+     },
+     "zu_duenn": false,
+     "stand_je_kind": {
+      "1": {
+       "erledigt": 0,
+       "etappen": 6,
+       "vollstaendig": false
+      },
+      "2": {
+       "erledigt": 0,
+       "etappen": 6,
+       "vollstaendig": false
+      }
+     },
+     "baut_auf": [
+      {
+       "knoten": "42 Grundbegriffe und Figuren (Gym 5 · RS I 5)",
+       "art": "empfohlen",
+       "herkunft": "bisher"
+      }
+     ],
+     "wird_gebraucht_von": [
+      {
+       "knoten": "47 Ähnlichkeit und Strahlensätze (Gym 9 · RS I 9)",
+       "art": "empfohlen",
+       "herkunft": "bisher (inhaltlich zugeordnet)"
+      },
+      {
+       "knoten": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2 (Gym 7 · RS I 7)",
+       "art": "empfohlen",
+       "herkunft": "bisher (inhaltlich zugeordnet)"
+      },
+      {
+       "knoten": "46 Kongruenzabbildungen – Teil 2 von 3 (Gym 7 · RS I 7)",
+       "art": "hart",
+       "herkunft": "Teilung"
+      }
+     ]
+    },
+    {
+     "teil": 2,
+     "von": 3,
+     "titel": "Kongruenzabbildungen – Teil 2 von 3",
+     "untertitel": "Verschieben und Vektoren",
+     "etappen": [
+      {
+       "lernziel": "verschiebung",
+       "titel": "Figuren verschieben"
+      },
+      {
+       "lernziel": "gegenvektor",
+       "titel": "Gegenvektor und Rückweg"
+      },
+      {
+       "lernziel": "vektor_koordinaten",
+       "titel": "Vektoren in Koordinaten"
+      }
+     ],
+     "etappen_ohne_lehrplanpunkt": [],
+     "klasse": {
+      "gym": 7,
+      "gym_ohne_eigenen_punkt": true,
+      "rs_I": 7,
+      "rs_I_ohne_eigenen_punkt": false,
+      "rs_II_III": [
+       7
+      ],
+      "ib_standard": [
+       3
+      ],
+      "ib_extended": [
+       3
+      ]
+     },
+     "zu_duenn": false,
+     "stand_je_kind": {
+      "1": {
+       "erledigt": 0,
+       "etappen": 3,
+       "vollstaendig": false
+      },
+      "2": {
+       "erledigt": 0,
+       "etappen": 3,
+       "vollstaendig": false
+      }
+     },
+     "baut_auf": [
+      {
+       "knoten": "46 Kongruenzabbildungen – Teil 1 von 3 (Gym 7 · RS I 6)",
+       "art": "hart",
+       "herkunft": "Teilung"
+      }
+     ],
+     "wird_gebraucht_von": [
+      {
+       "knoten": "74 Zweireihige Determinanten (Gym – · RS I 7)",
+       "art": "empfohlen",
+       "herkunft": "bisher"
+      },
+      {
+       "knoten": "46 Kongruenzabbildungen – Teil 3 von 3 (Gym 7 · RS I 8)",
+       "art": "hart",
+       "herkunft": "Teilung"
+      }
+     ]
+    },
+    {
+     "teil": 3,
+     "von": 3,
+     "titel": "Kongruenzabbildungen – Teil 3 von 3",
+     "untertitel": "Drehen und Punktspiegelung",
+     "etappen": [
+      {
+       "lernziel": "punktspiegelung",
+       "titel": "An einem Punkt spiegeln"
+      },
+      {
+       "lernziel": "drehung",
+       "titel": "Um einen Punkt drehen"
+      },
+      {
+       "lernziel": "vektor_drehen",
+       "titel": "Vektoren um 90° und 180° drehen"
+      }
+     ],
+     "etappen_ohne_lehrplanpunkt": [],
+     "klasse": {
+      "gym": 7,
+      "gym_ohne_eigenen_punkt": false,
+      "rs_I": 8,
+      "rs_I_ohne_eigenen_punkt": false,
+      "rs_II_III": null,
+      "ib_standard": [
+       3
+      ],
+      "ib_extended": [
+       3
+      ]
+     },
+     "zu_duenn": false,
+     "stand_je_kind": {
+      "1": {
+       "erledigt": 0,
+       "etappen": 3,
+       "vollstaendig": false
+      },
+      "2": {
+       "erledigt": 0,
+       "etappen": 3,
+       "vollstaendig": false
+      }
+     },
+     "baut_auf": [
+      {
+       "knoten": "46 Kongruenzabbildungen – Teil 2 von 3 (Gym 7 · RS I 7)",
+       "art": "hart",
+       "herkunft": "Teilung"
+      }
+     ],
+     "wird_gebraucht_von": [
+      {
+       "knoten": "49 Matrizen und Abbildungen mit Matrizen (Gym – · RS I 10)",
+       "art": "empfohlen",
+       "herkunft": "bisher"
+      }
+     ]
+    }
+   ],
+   "flug_geschafft_kinder": []
+  },
+  {
+   "thema": 61,
+   "titel": "Zufall und Laplace",
+   "teile": [
+    {
+     "teil": 1,
+     "von": 2,
+     "titel": "Zufall und Laplace – Teil 1 von 2",
+     "untertitel": "Ergebnis, Ereignis, relative Häufigkeit",
+     "etappen": [
+      {
+       "lernziel": "begriffe",
+       "titel": "Ergebnis, Ergebnisraum, Ereignis"
+      },
+      {
+       "lernziel": "rel_haeufigkeit",
+       "titel": "Relative Häufigkeit"
+      }
+     ],
+     "etappen_ohne_lehrplanpunkt": [],
+     "klasse": {
+      "gym": 8,
+      "gym_ohne_eigenen_punkt": false,
+      "rs_I": 8,
+      "rs_I_ohne_eigenen_punkt": false,
+      "rs_II_III": [
+       8
+      ],
+      "ib_standard": [
+       2
+      ],
+      "ib_extended": [
+       2
+      ]
+     },
+     "zu_duenn": true,
+     "stand_je_kind": {
+      "1": {
+       "erledigt": 0,
+       "etappen": 2,
+       "vollstaendig": false
+      },
+      "2": {
+       "erledigt": 0,
+       "etappen": 2,
+       "vollstaendig": false
+      }
+     },
+     "baut_auf": [
+      {
+       "knoten": "21 Brüche und Anteile (Gym 6 · RS I 6)",
+       "art": "hart",
+       "herkunft": "bisher"
+      }
+     ],
+     "wird_gebraucht_von": [
+      {
+       "knoten": "63 Verknüpfte Ereignisse (Gym 9 · RS I 8)",
+       "art": "hart",
+       "herkunft": "bisher"
+      },
+      {
+       "knoten": "61 Zufall und Laplace – Teil 2 von 2 (Gym 8 · RS I 9)",
+       "art": "hart",
+       "herkunft": "Teilung"
+      }
+     ]
+    },
+    {
+     "teil": 2,
+     "von": 2,
+     "titel": "Zufall und Laplace – Teil 2 von 2",
+     "untertitel": "Laplace-Wahrscheinlichkeit",
+     "etappen": [
+      {
+       "lernziel": "laplace",
+       "titel": "Laplace-Wahrscheinlichkeit"
+      },
+      {
+       "lernziel": "laplace_pruefen",
+       "titel": "Ist es ein Laplace-Experiment?"
+      },
+      {
+       "lernziel": "gegenereignis",
+       "titel": "Das Gegenereignis"
+      },
+      {
+       "lernziel": "grosse_zahlen",
+       "titel": "Gesetz der großen Zahlen"
+      }
+     ],
+     "etappen_ohne_lehrplanpunkt": [],
+     "klasse": {
+      "gym": 8,
+      "gym_ohne_eigenen_punkt": false,
+      "rs_I": 9,
+      "rs_I_ohne_eigenen_punkt": false,
+      "rs_II_III": [
+       9
+      ],
+      "ib_standard": [
+       2
+      ],
+      "ib_extended": [
+       2
+      ]
+     },
+     "zu_duenn": false,
+     "stand_je_kind": {
+      "1": {
+       "erledigt": 0,
+       "etappen": 4,
+       "vollstaendig": false
+      },
+      "2": {
+       "erledigt": 0,
+       "etappen": 4,
+       "vollstaendig": false
+      }
+     },
+     "baut_auf": [
+      {
+       "knoten": "61 Zufall und Laplace – Teil 1 von 2 (Gym 8 · RS I 8)",
+       "art": "hart",
+       "herkunft": "Teilung"
+      }
+     ],
+     "wird_gebraucht_von": [
+      {
+       "knoten": "62 Mehrstufige Zufallsexperimente (Gym 10 · RS I 10)",
+       "art": "hart",
+       "herkunft": "bisher"
+      },
+      {
+       "knoten": "64 Simulation (Gym 10 · RS I 9)",
+       "art": "hart",
+       "herkunft": "bisher"
+      }
+     ]
+    }
+   ],
+   "flug_geschafft_kinder": []
+  },
+  {
+   "thema": 91,
+   "titel": "Schrägbilder und Raumdarstellung",
+   "teile": [
+    {
+     "teil": 1,
+     "von": 2,
+     "titel": "Schrägbilder und Raumdarstellung – Teil 1 von 2",
+     "untertitel": "Schrägbilder und Lage im Raum",
+     "etappen": [
+      {
+       "lernziel": "pyramide",
+       "titel": "Pyramiden: Ecken, Kanten, Flächen"
+      },
+      {
+       "lernziel": "lage",
+       "titel": "Parallel, schneidend oder windschief?"
+      },
+      {
+       "lernziel": "wahre_groesse",
+       "titel": "Wahre Größe im Schrägbild"
+      }
+     ],
+     "etappen_ohne_lehrplanpunkt": [],
+     "klasse": {
+      "gym": 10,
+      "gym_ohne_eigenen_punkt": false,
+      "rs_I": 7,
+      "rs_I_ohne_eigenen_punkt": false,
+      "rs_II_III": [
+       8
+      ],
+      "ib_standard": null,
+      "ib_extended": null
+     },
+     "zu_duenn": false,
+     "stand_je_kind": {
+      "1": {
+       "erledigt": 0,
+       "etappen": 3,
+       "vollstaendig": false
+      },
+      "2": {
+       "erledigt": 0,
+       "etappen": 3,
+       "vollstaendig": false
+      }
+     },
+     "baut_auf": [
+      {
+       "knoten": "52 Körper darstellen (Gym 8 · RS I 5)",
+       "art": "hart",
+       "herkunft": "bisher"
+      }
+     ],
+     "wird_gebraucht_von": [
+      {
+       "knoten": "91 Schrägbilder und Raumdarstellung – Teil 2 von 2 (Gym 10 · RS I 8)",
+       "art": "hart",
+       "herkunft": "Teilung"
+      }
+     ]
+    },
+    {
+     "teil": 2,
+     "von": 2,
+     "titel": "Schrägbilder und Raumdarstellung – Teil 2 von 2",
+     "untertitel": "Raumkoordinaten und Rotationskörper",
+     "etappen": [
+      {
+       "lernziel": "koordinaten",
+       "titel": "Punkte im Raum mit Koordinaten"
+      },
+      {
+       "lernziel": "rotation",
+       "titel": "Rotationskörper"
+      },
+      {
+       "lernziel": "axialschnitt",
+       "titel": "Axialschnitte berechnen"
+      }
+     ],
+     "etappen_ohne_lehrplanpunkt": [],
+     "klasse": {
+      "gym": 10,
+      "gym_ohne_eigenen_punkt": false,
+      "rs_I": 8,
+      "rs_I_ohne_eigenen_punkt": false,
+      "rs_II_III": [
+       10
+      ],
+      "ib_standard": null,
+      "ib_extended": null
+     },
+     "zu_duenn": false,
+     "stand_je_kind": {
+      "1": {
+       "erledigt": 0,
+       "etappen": 3,
+       "vollstaendig": false
+      },
+      "2": {
+       "erledigt": 0,
+       "etappen": 3,
+       "vollstaendig": false
+      }
+     },
+     "baut_auf": [
+      {
+       "knoten": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2 (Gym 10 · RS I 7)",
+       "art": "hart",
+       "herkunft": "Teilung"
+      }
+     ],
+     "wird_gebraucht_von": []
+    }
+   ],
+   "flug_geschafft_kinder": []
+  }
+ ],
+ "grenzfaelle": [
+  {
+   "thema": 2,
+   "titel": "Lineare Gleichungen",
+   "teil": null,
+   "spur": "ib_standard",
+   "klassen": [
+    2,
+    3
+   ],
+   "etappen_je_klasse": {
+    "2": [
+     "waage",
+     "beide_seiten",
+     "klammern",
+     "sach"
+    ],
+    "3": [
+     "sonderfaelle"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 2,
+   "titel": "Lineare Gleichungen",
+   "teil": null,
+   "spur": "ib_extended",
+   "klassen": [
+    2,
+    3
+   ],
+   "etappen_je_klasse": {
+    "2": [
+     "waage",
+     "beide_seiten",
+     "klammern",
+     "sach"
+    ],
+    "3": [
+     "sonderfaelle"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 6,
+   "titel": "Gleichungssysteme mit 2 Unbekannten",
+   "teil": null,
+   "spur": "ib_extended",
+   "klassen": [
+    3,
+    4
+   ],
+   "etappen_je_klasse": {
+    "3": [
+     "pruefen",
+     "grafisch",
+     "einsetzen",
+     "gleichsetzen",
+     "addition",
+     "sachaufgabe"
+    ],
+    "4": [
+     "loesbarkeit"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 8,
+   "titel": "Quadratische Gleichungen (allgemein)",
+   "teil": null,
+   "spur": "rs_II_III",
+   "klassen": [
+    9,
+    10
+   ],
+   "etappen_je_klasse": {
+    "9": [
+     "reinquadratisch"
+    ],
+    "10": [
+     "loesungsformel",
+     "diskriminante",
+     "ergaenzung",
+     "faktorisieren",
+     "ausklammern"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 18,
+   "titel": "Grundrechenarten und Rechengesetze",
+   "teil": null,
+   "spur": "ib_standard",
+   "klassen": [
+    1,
+    2
+   ],
+   "etappen_je_klasse": {
+    "1": [
+     "punkt_strich",
+     "klammern"
+    ],
+    "2": [
+     "mal_ganz",
+     "geteilt_ganz"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 18,
+   "titel": "Grundrechenarten und Rechengesetze",
+   "teil": null,
+   "spur": "ib_extended",
+   "klassen": [
+    1,
+    2
+   ],
+   "etappen_je_klasse": {
+    "1": [
+     "punkt_strich",
+     "klammern"
+    ],
+    "2": [
+     "mal_ganz",
+     "geteilt_ganz"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 20,
+   "titel": "Wurzeln und reelle Zahlen",
+   "teil": null,
+   "spur": "ib_standard",
+   "klassen": [
+    3,
+    4
+   ],
+   "etappen_je_klasse": {
+    "3": [
+     "zahlarten"
+    ],
+    "4": [
+     "teilweise",
+     "nenner_rational"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 20,
+   "titel": "Wurzeln und reelle Zahlen",
+   "teil": null,
+   "spur": "ib_extended",
+   "klassen": [
+    3,
+    4
+   ],
+   "etappen_je_klasse": {
+    "3": [
+     "zahlarten"
+    ],
+    "4": [
+     "teilweise",
+     "nenner_rational"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 21,
+   "titel": "Brüche und Anteile",
+   "teil": null,
+   "spur": "ib_standard",
+   "klassen": [
+    1,
+    2
+   ],
+   "etappen_je_klasse": {
+    "1": [
+     "anteil_bestimmen",
+     "bruchteil_von",
+     "gemischte_zahlen",
+     "vergleichen",
+     "erweitern",
+     "kuerzen"
+    ],
+    "2": [
+     "verhaeltnis_kuerzen",
+     "gleichwertig"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 21,
+   "titel": "Brüche und Anteile",
+   "teil": null,
+   "spur": "ib_extended",
+   "klassen": [
+    1,
+    2
+   ],
+   "etappen_je_klasse": {
+    "1": [
+     "anteil_bestimmen",
+     "bruchteil_von",
+     "gemischte_zahlen",
+     "vergleichen",
+     "erweitern",
+     "kuerzen"
+    ],
+    "2": [
+     "verhaeltnis_kuerzen",
+     "gleichwertig"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 28,
+   "titel": "Terme aufstellen und deuten",
+   "teil": null,
+   "spur": "ib_standard",
+   "klassen": [
+    1,
+    2
+   ],
+   "etappen_je_klasse": {
+    "1": [
+     "muster",
+     "uebersetzen",
+     "sachsituation"
+    ],
+    "2": [
+     "struktur"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 28,
+   "titel": "Terme aufstellen und deuten",
+   "teil": null,
+   "spur": "ib_extended",
+   "klassen": [
+    1,
+    2
+   ],
+   "etappen_je_klasse": {
+    "1": [
+     "muster",
+     "uebersetzen",
+     "sachsituation"
+    ],
+    "2": [
+     "struktur"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 29,
+   "titel": "Terme umformen",
+   "teil": 1,
+   "spur": "ib_standard",
+   "klassen": [
+    1,
+    2
+   ],
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 29,
+   "titel": "Terme umformen",
+   "teil": 1,
+   "spur": "ib_extended",
+   "klassen": [
+    1,
+    2
+   ],
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 32,
+   "titel": "Zuordnung und Funktion",
+   "teil": null,
+   "spur": "ib_standard",
+   "klassen": [
+    1,
+    4
+   ],
+   "etappen_je_klasse": {
+    "1": [
+     "wertetabelle",
+     "funktionswert"
+    ],
+    "4": [
+     "eindeutig",
+     "mengen"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 32,
+   "titel": "Zuordnung und Funktion",
+   "teil": null,
+   "spur": "ib_extended",
+   "klassen": [
+    1,
+    4
+   ],
+   "etappen_je_klasse": {
+    "1": [
+     "wertetabelle",
+     "funktionswert"
+    ],
+    "4": [
+     "eindeutig",
+     "mengen"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 33,
+   "titel": "Lineare Funktionen",
+   "teil": null,
+   "spur": "rs_II_III",
+   "klassen": [
+    8,
+    9
+   ],
+   "etappen_je_klasse": {
+    "8": [
+     "proportional",
+     "graph_ablesen",
+     "lage"
+    ],
+    "9": [
+     "ablesen",
+     "wirkung",
+     "aufstellen",
+     "zwei_punkte",
+     "bueschel",
+     "deuten"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 33,
+   "titel": "Lineare Funktionen",
+   "teil": null,
+   "spur": "ib_standard",
+   "klassen": [
+    3,
+    4
+   ],
+   "etappen_je_klasse": {
+    "3": [
+     "ablesen",
+     "graph_ablesen",
+     "zwei_punkte",
+     "aufstellen",
+     "schnittpunkte",
+     "lage"
+    ],
+    "4": [
+     "deuten"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 42,
+   "titel": "Grundbegriffe und Figuren",
+   "teil": null,
+   "spur": "ib_standard",
+   "klassen": [
+    1,
+    2
+   ],
+   "etappen_je_klasse": {
+    "1": [
+     "lagebeziehungen",
+     "winkelarten",
+     "verstehen"
+    ],
+    "2": [
+     "koordinaten"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 42,
+   "titel": "Grundbegriffe und Figuren",
+   "teil": null,
+   "spur": "ib_extended",
+   "klassen": [
+    1,
+    2
+   ],
+   "etappen_je_klasse": {
+    "1": [
+     "lagebeziehungen",
+     "winkelarten",
+     "verstehen"
+    ],
+    "2": [
+     "koordinaten"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 44,
+   "titel": "Konstruktionen, Kongruenz und Beweise",
+   "teil": 1,
+   "spur": "ib_standard",
+   "klassen": [
+    2,
+    3
+   ],
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 44,
+   "titel": "Konstruktionen, Kongruenz und Beweise",
+   "teil": 1,
+   "spur": "ib_extended",
+   "klassen": [
+    2,
+    3
+   ],
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 47,
+   "titel": "Ähnlichkeit und Strahlensätze",
+   "teil": null,
+   "spur": "ib_standard",
+   "klassen": [
+    3,
+    4
+   ],
+   "etappen_je_klasse": {
+    "3": [
+     "streckung",
+     "aehnlich"
+    ],
+    "4": [
+     "strahlensatz1",
+     "strahlensatz2"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 47,
+   "titel": "Ähnlichkeit und Strahlensätze",
+   "teil": null,
+   "spur": "ib_extended",
+   "klassen": [
+    3,
+    4
+   ],
+   "etappen_je_klasse": {
+    "3": [
+     "streckung",
+     "aehnlich"
+    ],
+    "4": [
+     "strahlensatz1",
+     "strahlensatz2"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 50,
+   "titel": "Umfang und Flächeninhalt",
+   "teil": null,
+   "spur": "ib_standard",
+   "klassen": [
+    1,
+    2
+   ],
+   "etappen_je_klasse": {
+    "1": [
+     "zerlegen",
+     "rechteck"
+    ],
+    "2": [
+     "sachaufgaben"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 50,
+   "titel": "Umfang und Flächeninhalt",
+   "teil": null,
+   "spur": "ib_extended",
+   "klassen": [
+    1,
+    2
+   ],
+   "etappen_je_klasse": {
+    "1": [
+     "zerlegen",
+     "rechteck"
+    ],
+    "2": [
+     "sachaufgaben"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 55,
+   "titel": "Trigonometrie im rechtwinkligen Dreieck",
+   "teil": null,
+   "spur": "ib_standard",
+   "klassen": [
+    3,
+    4
+   ],
+   "etappen_je_klasse": {
+    "3": [
+     "seiten",
+     "verhaeltnisse",
+     "seite",
+     "winkel"
+    ],
+    "4": [
+     "anwendung"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 55,
+   "titel": "Trigonometrie im rechtwinkligen Dreieck",
+   "teil": null,
+   "spur": "ib_extended",
+   "klassen": [
+    3,
+    4
+   ],
+   "etappen_je_klasse": {
+    "3": [
+     "seiten",
+     "verhaeltnisse",
+     "seite",
+     "winkel"
+    ],
+    "4": [
+     "anwendung"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 63,
+   "titel": "Verknüpfte Ereignisse",
+   "teil": null,
+   "spur": "ib_standard",
+   "klassen": [
+    1,
+    4
+   ],
+   "etappen_je_klasse": {
+    "1": [
+     "elemente",
+     "schnitt",
+     "venn",
+     "mengen_verstehen"
+    ],
+    "4": [
+     "verknuepfen",
+     "additionssatz",
+     "vierfeld",
+     "tafel_wkeit"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 63,
+   "titel": "Verknüpfte Ereignisse",
+   "teil": null,
+   "spur": "ib_extended",
+   "klassen": [
+    1,
+    4
+   ],
+   "etappen_je_klasse": {
+    "1": [
+     "elemente",
+     "schnitt",
+     "venn",
+     "mengen_verstehen"
+    ],
+    "4": [
+     "bedingt",
+     "vierfeld",
+     "tafel_wkeit",
+     "rueckschluss"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 98,
+   "titel": "Winkelsätze",
+   "teil": null,
+   "spur": "ib_standard",
+   "klassen": [
+    1,
+    3
+   ],
+   "etappen_je_klasse": {
+    "1": [
+     "innenwinkelsumme",
+     "aussenwinkel"
+    ],
+    "3": [
+     "parkett"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  },
+  {
+   "thema": 98,
+   "titel": "Winkelsätze",
+   "teil": null,
+   "spur": "ib_extended",
+   "klassen": [
+    1,
+    3
+   ],
+   "etappen_je_klasse": {
+    "1": [
+     "innenwinkelsumme",
+     "aussenwinkel"
+    ],
+    "3": [
+     "parkett"
+    ]
+   },
+   "empfehlung": "nicht teilen (löst keine Teilung aus); Anzeige „weitergeführt“"
+  }
+ ],
+ "kanten": [
+  {
+   "braucht_von": "2 Lineare Gleichungen",
+   "braucht": "1 Einfache Gleichungen",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "8 Quadratische Gleichungen (allgemein)",
+   "braucht": "2 Lineare Gleichungen",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "6 Gleichungssysteme mit 2 Unbekannten",
+   "braucht": "2 Lineare Gleichungen",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "5 Bruch- und Verhältnisgleichungen",
+   "braucht": "2 Lineare Gleichungen",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "4 Formeln umstellen",
+   "braucht": "2 Lineare Gleichungen",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "3 Lineare Ungleichungen",
+   "braucht": "2 Lineare Gleichungen",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "7 Gleichungssysteme mit 3 Unbekannten",
+   "braucht": "6 Gleichungssysteme mit 2 Unbekannten",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "11 Polynomgleichungen",
+   "braucht": "8 Quadratische Gleichungen (allgemein)",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "33 Lineare Funktionen",
+   "braucht": "2 Lineare Gleichungen",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "8 Quadratische Gleichungen (allgemein)",
+   "braucht": "68 Elementare Wurzeln",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "16 Ganze Zahlen",
+   "braucht": "15 Natürliche Zahlen",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "30 Potenzen und negative Exponenten",
+   "braucht": "18 Grundrechenarten und Rechengesetze",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "1 Einfache Gleichungen",
+   "braucht": "18 Grundrechenarten und Rechengesetze",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "9 Potenzgleichungen",
+   "braucht": "20 Wurzeln und reelle Zahlen",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "24 Prozent- und Zinsrechnung",
+   "braucht": "21 Brüche und Anteile",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "23 Rechnen mit rationalen Zahlen",
+   "braucht": "21 Brüche und Anteile",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "62 Mehrstufige Zufallsexperimente",
+   "braucht": "23 Rechnen mit rationalen Zahlen",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "31 Bruchterme",
+   "braucht": "23 Rechnen mit rationalen Zahlen",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2",
+   "braucht": "25 Größen und Einheiten",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "32 Zuordnung und Funktion",
+   "braucht": "28 Terme aufstellen und deuten",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "29 Terme umformen – Teil 1 von 2",
+   "braucht": "28 Terme aufstellen und deuten",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "8 Quadratische Gleichungen (allgemein)",
+   "braucht": "29 Terme umformen – Teil 2 von 2",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "37 Exponential- und Logarithmusfunktionen",
+   "braucht": "30 Potenzen und negative Exponenten",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "5 Bruch- und Verhältnisgleichungen",
+   "braucht": "31 Bruchterme",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "33 Lineare Funktionen",
+   "braucht": "32 Zuordnung und Funktion",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "39 Ganzrationale Funktionen",
+   "braucht": "35 Quadratische Funktionen",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "10 Exponentialgleichungen",
+   "braucht": "37 Exponential- und Logarithmusfunktionen",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "55 Trigonometrie im rechtwinkligen Dreieck",
+   "braucht": "47 Ähnlichkeit und Strahlensätze",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "49 Matrizen und Abbildungen mit Matrizen",
+   "braucht": "46 Kongruenzabbildungen – Teil 3 von 3",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "53 Volumen und Oberfläche",
+   "braucht": "50 Umfang und Flächeninhalt",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "51 Kreisberechnungen",
+   "braucht": "50 Umfang und Flächeninhalt",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "56 Allgemeine Trigonometrie",
+   "braucht": "55 Trigonometrie im rechtwinkligen Dreieck",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "38 Sinus- und Kosinusfunktion",
+   "braucht": "56 Allgemeine Trigonometrie",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "14 Trigonometrische Gleichungen",
+   "braucht": "56 Allgemeine Trigonometrie",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "63 Verknüpfte Ereignisse",
+   "braucht": "61 Zufall und Laplace – Teil 1 von 2",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "62 Mehrstufige Zufallsexperimente",
+   "braucht": "61 Zufall und Laplace – Teil 2 von 2",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "35 Quadratische Funktionen",
+   "braucht": "33 Lineare Funktionen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "47 Ähnlichkeit und Strahlensätze",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": "empfohlen",
+   "herkunft": "bisher (inhaltlich zugeordnet)"
+  },
+  {
+   "braucht_von": "74 Zweireihige Determinanten",
+   "braucht": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "58 Mittelwert und Häufigkeiten",
+   "braucht": "57 Daten erfassen und darstellen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "74 Zweireihige Determinanten",
+   "braucht": "50 Umfang und Flächeninhalt",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "71 Zinsen",
+   "braucht": "24 Prozent- und Zinsrechnung",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "76 Reihen",
+   "braucht": "28 Terme aufstellen und deuten",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "37 Exponential- und Logarithmusfunktionen",
+   "braucht": "32 Zuordnung und Funktion",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "36 Potenzfunktionen",
+   "braucht": "32 Zuordnung und Funktion",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "35 Quadratische Funktionen",
+   "braucht": "32 Zuordnung und Funktion",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "2 Lineare Gleichungen",
+   "braucht": "28 Terme aufstellen und deuten",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "2 Lineare Gleichungen",
+   "braucht": "16 Ganze Zahlen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "4 Formeln umstellen",
+   "braucht": "29 Terme umformen – Teil 1 von 2",
+   "art": "empfohlen",
+   "herkunft": "bisher (inhaltlich zugeordnet)"
+  },
+  {
+   "braucht_von": "6 Gleichungssysteme mit 2 Unbekannten",
+   "braucht": "33 Lineare Funktionen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "30 Potenzen und negative Exponenten",
+   "braucht": "67 Potenzen als Schreibweise",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "54 Satz des Pythagoras",
+   "braucht": "68 Elementare Wurzeln",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "13 Wurzelgleichungen",
+   "braucht": "68 Elementare Wurzeln",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "80 Normalverteilung",
+   "braucht": "79 Standardabweichung",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "79 Standardabweichung",
+   "braucht": "58 Mittelwert und Häufigkeiten",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "94 Vermehrter und verminderter Grundwert",
+   "braucht": "24 Prozent- und Zinsrechnung",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "93 Indirekte Proportionalität",
+   "braucht": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "92 Pyramide, Kegel, Kugel",
+   "braucht": "51 Kreisberechnungen",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2",
+   "braucht": "52 Körper darstellen",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "92 Pyramide, Kegel, Kugel",
+   "braucht": "54 Satz des Pythagoras",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "96 Rationale Exponenten und n-te Wurzel",
+   "braucht": "68 Elementare Wurzeln",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "95 Median, Quartile, Boxplot",
+   "braucht": "58 Mittelwert und Häufigkeiten",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "61 Zufall und Laplace – Teil 1 von 2",
+   "braucht": "21 Brüche und Anteile",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "79 Standardabweichung",
+   "braucht": "68 Elementare Wurzeln",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "97 Quadratische Terme und Extremwerte",
+   "braucht": "29 Terme umformen – Teil 2 von 2",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "35 Quadratische Funktionen",
+   "braucht": "29 Terme umformen – Teil 2 von 2",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "25 Größen und Einheiten",
+   "braucht": "18 Grundrechenarten und Rechengesetze",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "28 Terme aufstellen und deuten",
+   "braucht": "18 Grundrechenarten und Rechengesetze",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "29 Terme umformen – Teil 1 von 2",
+   "braucht": "102 Potenzgesetze",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "30 Potenzen und negative Exponenten",
+   "braucht": "21 Brüche und Anteile",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "31 Bruchterme",
+   "braucht": "29 Terme umformen – Teil 2 von 2",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "34 Gebrochen-rationale Funktionen",
+   "braucht": "32 Zuordnung und Funktion",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "34 Gebrochen-rationale Funktionen",
+   "braucht": "93 Indirekte Proportionalität",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "36 Potenzfunktionen",
+   "braucht": "35 Quadratische Funktionen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "37 Exponential- und Logarithmusfunktionen",
+   "braucht": "103 Potenzgesetze mit ganzzahligen Exponenten",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "43 Mit Winkeln rechnen",
+   "braucht": "42 Grundbegriffe und Figuren",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
+   "braucht": "43 Mit Winkeln rechnen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
+   "braucht": "98 Winkelsätze",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": "empfohlen",
+   "herkunft": "bisher (inhaltlich zugeordnet)"
+  },
+  {
+   "braucht_von": "45 Kreis und Tangenten",
+   "braucht": "42 Grundbegriffe und Figuren",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "45 Kreis und Tangenten",
+   "braucht": "98 Winkelsätze",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "45 Kreis und Tangenten",
+   "braucht": "73 Ortslinien und Ortsbereiche",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "braucht": "42 Grundbegriffe und Figuren",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "50 Umfang und Flächeninhalt",
+   "braucht": "42 Grundbegriffe und Figuren",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "52 Körper darstellen",
+   "braucht": "42 Grundbegriffe und Figuren",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "55 Trigonometrie im rechtwinkligen Dreieck",
+   "braucht": "54 Satz des Pythagoras",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "58 Mittelwert und Häufigkeiten",
+   "braucht": "22 Dezimalzahlen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "59 Zweidimensionale Daten",
+   "braucht": "57 Daten erfassen und darstellen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "59 Zweidimensionale Daten",
+   "braucht": "33 Lineare Funktionen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "64 Simulation",
+   "braucht": "61 Zufall und Laplace – Teil 2 von 2",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "66 Lineare Optimierung",
+   "braucht": "3 Lineare Ungleichungen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "66 Lineare Optimierung",
+   "braucht": "33 Lineare Funktionen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "67 Potenzen als Schreibweise",
+   "braucht": "18 Grundrechenarten und Rechengesetze",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "68 Elementare Wurzeln",
+   "braucht": "67 Potenzen als Schreibweise",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "69 Intervalle",
+   "braucht": "16 Ganze Zahlen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "70 Schranken und Genauigkeit",
+   "braucht": "22 Dezimalzahlen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "73 Ortslinien und Ortsbereiche",
+   "braucht": "42 Grundbegriffe und Figuren",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "75 Betragsfunktion",
+   "braucht": "32 Zuordnung und Funktion",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "75 Betragsfunktion",
+   "braucht": "16 Ganze Zahlen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "81 Stichproben und Aussagekraft",
+   "braucht": "57 Daten erfassen und darstellen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "81 Stichproben und Aussagekraft",
+   "braucht": "58 Mittelwert und Häufigkeiten",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "92 Pyramide, Kegel, Kugel",
+   "braucht": "101 Prismen und Zylinder",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "11 Polynomgleichungen",
+   "braucht": "39 Ganzrationale Funktionen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "13 Wurzelgleichungen",
+   "braucht": "8 Quadratische Gleichungen (allgemein)",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "17 Teilbarkeit",
+   "braucht": "18 Grundrechenarten und Rechengesetze",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "18 Grundrechenarten und Rechengesetze",
+   "braucht": "15 Natürliche Zahlen",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "19 Zehnerpotenzen und wissenschaftliche Schreibweise",
+   "braucht": "67 Potenzen als Schreibweise",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "19 Zehnerpotenzen und wissenschaftliche Schreibweise",
+   "braucht": "22 Dezimalzahlen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "20 Wurzeln und reelle Zahlen",
+   "braucht": "68 Elementare Wurzeln",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "21 Brüche und Anteile",
+   "braucht": "18 Grundrechenarten und Rechengesetze",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "21 Brüche und Anteile",
+   "braucht": "17 Teilbarkeit",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "22 Dezimalzahlen",
+   "braucht": "21 Brüche und Anteile",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "23 Rechnen mit rationalen Zahlen",
+   "braucht": "22 Dezimalzahlen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "23 Rechnen mit rationalen Zahlen",
+   "braucht": "16 Ganze Zahlen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "24 Prozent- und Zinsrechnung",
+   "braucht": "22 Dezimalzahlen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "98 Winkelsätze",
+   "braucht": "43 Mit Winkeln rechnen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "99 Flächen von Parallelogramm, Dreieck und Trapez",
+   "braucht": "50 Umfang und Flächeninhalt",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "100 Volumen",
+   "braucht": "50 Umfang und Flächeninhalt",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "100 Volumen",
+   "braucht": "25 Größen und Einheiten",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "101 Prismen und Zylinder",
+   "braucht": "99 Flächen von Parallelogramm, Dreieck und Trapez",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "101 Prismen und Zylinder",
+   "braucht": "100 Volumen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "101 Prismen und Zylinder",
+   "braucht": "51 Kreisberechnungen",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "102 Potenzgesetze",
+   "braucht": "30 Potenzen und negative Exponenten",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "102 Potenzgesetze",
+   "braucht": "28 Terme aufstellen und deuten",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "103 Potenzgesetze mit ganzzahligen Exponenten",
+   "braucht": "102 Potenzgesetze",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "103 Potenzgesetze mit ganzzahligen Exponenten",
+   "braucht": "30 Potenzen und negative Exponenten",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "96 Rationale Exponenten und n-te Wurzel",
+   "braucht": "103 Potenzgesetze mit ganzzahligen Exponenten",
+   "art": "empfohlen",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "96 Rationale Exponenten und n-te Wurzel",
+   "braucht": "30 Potenzen und negative Exponenten",
+   "art": "hart",
+   "herkunft": "bisher"
+  },
+  {
+   "braucht_von": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2",
+   "braucht": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2",
+   "art": "hart",
+   "herkunft": "Teilung"
+  },
+  {
+   "braucht_von": "29 Terme umformen – Teil 2 von 2",
+   "braucht": "29 Terme umformen – Teil 1 von 2",
+   "art": "hart",
+   "herkunft": "Teilung"
+  },
+  {
+   "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2",
+   "braucht": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
+   "art": "hart",
+   "herkunft": "Teilung"
+  },
+  {
+   "braucht_von": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": "hart",
+   "herkunft": "Teilung"
+  },
+  {
+   "braucht_von": "46 Kongruenzabbildungen – Teil 3 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "art": "hart",
+   "herkunft": "Teilung"
+  },
+  {
+   "braucht_von": "61 Zufall und Laplace – Teil 2 von 2",
+   "braucht": "61 Zufall und Laplace – Teil 1 von 2",
+   "art": "hart",
+   "herkunft": "Teilung"
+  },
+  {
+   "braucht_von": "91 Schrägbilder und Raumdarstellung – Teil 2 von 2",
+   "braucht": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2",
+   "art": "hart",
+   "herkunft": "Teilung"
+  }
+ ],
+ "verstoesse": [
+  {
+   "spur": "ib_standard",
+   "braucht_von": "63 Verknüpfte Ereignisse",
+   "braucht": "61 Zufall und Laplace – Teil 1 von 2",
+   "art": "hart",
+   "herkunft": "bisher",
+   "klasse": 1,
+   "klasse_vor": 2,
+   "befund": "Voraussetzung liegt später",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_extended",
+   "braucht_von": "63 Verknüpfte Ereignisse",
+   "braucht": "61 Zufall und Laplace – Teil 1 von 2",
+   "art": "hart",
+   "herkunft": "bisher",
+   "klasse": 1,
+   "klasse_vor": 2,
+   "befund": "Voraussetzung liegt später",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_standard",
+   "braucht_von": "29 Terme umformen – Teil 1 von 2",
+   "braucht": "102 Potenzgesetze",
+   "art": "hart",
+   "herkunft": "bisher",
+   "klasse": 1,
+   "klasse_vor": null,
+   "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_extended",
+   "braucht_von": "29 Terme umformen – Teil 1 von 2",
+   "braucht": "102 Potenzgesetze",
+   "art": "hart",
+   "herkunft": "bisher",
+   "klasse": 1,
+   "klasse_vor": null,
+   "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_standard",
+   "braucht_von": "34 Gebrochen-rationale Funktionen",
+   "braucht": "93 Indirekte Proportionalität",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 4,
+   "klasse_vor": null,
+   "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_extended",
+   "braucht_von": "34 Gebrochen-rationale Funktionen",
+   "braucht": "93 Indirekte Proportionalität",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 4,
+   "klasse_vor": null,
+   "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "rs_II_III",
+   "braucht_von": "37 Exponential- und Logarithmusfunktionen",
+   "braucht": "103 Potenzgesetze mit ganzzahligen Exponenten",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 10,
+   "klasse_vor": null,
+   "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_standard",
+   "braucht_von": "37 Exponential- und Logarithmusfunktionen",
+   "braucht": "103 Potenzgesetze mit ganzzahligen Exponenten",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 4,
+   "klasse_vor": null,
+   "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_extended",
+   "braucht_von": "37 Exponential- und Logarithmusfunktionen",
+   "braucht": "103 Potenzgesetze mit ganzzahligen Exponenten",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 4,
+   "klasse_vor": null,
+   "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_standard",
+   "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": "empfohlen",
+   "herkunft": "bisher (inhaltlich zugeordnet)",
+   "klasse": 2,
+   "klasse_vor": 3,
+   "befund": "Voraussetzung liegt später",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_extended",
+   "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": "empfohlen",
+   "herkunft": "bisher (inhaltlich zugeordnet)",
+   "klasse": 2,
+   "klasse_vor": 3,
+   "befund": "Voraussetzung liegt später",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_standard",
+   "braucht_von": "45 Kreis und Tangenten",
+   "braucht": "73 Ortslinien und Ortsbereiche",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 4,
+   "klasse_vor": null,
+   "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_extended",
+   "braucht_von": "45 Kreis und Tangenten",
+   "braucht": "73 Ortslinien und Ortsbereiche",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 4,
+   "klasse_vor": null,
+   "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "rs_II_III",
+   "braucht_von": "92 Pyramide, Kegel, Kugel",
+   "braucht": "101 Prismen und Zylinder",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 10,
+   "klasse_vor": null,
+   "befund": "Voraussetzung in dieser Spur kein Lehrplanstoff",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_standard",
+   "braucht_von": "23 Rechnen mit rationalen Zahlen",
+   "braucht": "16 Ganze Zahlen",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 1,
+   "klasse_vor": 2,
+   "befund": "Voraussetzung liegt später",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_extended",
+   "braucht_von": "23 Rechnen mit rationalen Zahlen",
+   "braucht": "16 Ganze Zahlen",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 1,
+   "klasse_vor": 2,
+   "befund": "Voraussetzung liegt später",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_standard",
+   "braucht_von": "100 Volumen",
+   "braucht": "25 Größen und Einheiten",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 1,
+   "klasse_vor": 2,
+   "befund": "Voraussetzung liegt später",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_extended",
+   "braucht_von": "100 Volumen",
+   "braucht": "25 Größen und Einheiten",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 1,
+   "klasse_vor": 2,
+   "befund": "Voraussetzung liegt später",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_standard",
+   "braucht_von": "101 Prismen und Zylinder",
+   "braucht": "99 Flächen von Parallelogramm, Dreieck und Trapez",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 1,
+   "klasse_vor": 2,
+   "befund": "Voraussetzung liegt später",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_extended",
+   "braucht_von": "101 Prismen und Zylinder",
+   "braucht": "99 Flächen von Parallelogramm, Dreieck und Trapez",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 1,
+   "klasse_vor": 2,
+   "befund": "Voraussetzung liegt später",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_standard",
+   "braucht_von": "101 Prismen und Zylinder",
+   "braucht": "51 Kreisberechnungen",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 1,
+   "klasse_vor": 2,
+   "befund": "Voraussetzung liegt später",
+   "sebastian_hart": false
+  },
+  {
+   "spur": "ib_extended",
+   "braucht_von": "101 Prismen und Zylinder",
+   "braucht": "51 Kreisberechnungen",
+   "art": "empfohlen",
+   "herkunft": "bisher",
+   "klasse": 1,
+   "klasse_vor": 2,
+   "befund": "Voraussetzung liegt später",
+   "sebastian_hart": false
+  }
+ ],
+ "aufbau_kette": [
+  {
+   "knoten": "1 Einfache Gleichungen",
+   "klassen": {
+    "gym_by": [
+     5
+    ],
+    "rs_I": [
+     6
+    ],
+    "rs_II_III": [
+     6
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "18 Grundrechenarten und Rechengesetze (Gym 5 · RS I 5) (hart)",
+   "geht_weiter_in": "2 Lineare Gleichungen (Gym 7 · RS I 7)"
+  },
+  {
+   "knoten": "2 Lineare Gleichungen",
+   "klassen": {
+    "gym_by": [
+     7
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": [
+     2
+    ],
+    "ib_extended": [
+     2
+    ]
+   },
+   "baut_auf": "1 Einfache Gleichungen (Gym 5 · RS I 6) (hart); 28 Terme aufstellen und deuten (Gym 7 · RS I 6) (hart); 16 Ganze Zahlen (Gym 5 · RS I 5)",
+   "geht_weiter_in": "8 Quadratische Gleichungen (allgemein) (Gym 9 · RS I 9); 6 Gleichungssysteme mit 2 Unbekannten (Gym 8 · RS I 9); 5 Bruch- und Verhältnisgleichungen (Gym 8 · RS I 8); 4 Formeln umstellen (Gym 8 · RS I –); 3 Lineare Ungleichungen (Gym 8 · RS I 7); 33 Lineare Funktionen (Gym 8 · RS I 8)"
+  },
+  {
+   "knoten": "3 Lineare Ungleichungen",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": [
+     2
+    ],
+    "ib_extended": [
+     2
+    ]
+   },
+   "baut_auf": "2 Lineare Gleichungen (Gym 7 · RS I 7) (hart)",
+   "geht_weiter_in": "66 Lineare Optimierung (Gym – · RS I –)"
+  },
+  {
+   "knoten": "4 Formeln umstellen",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_I": null,
+    "rs_II_III": null,
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "2 Lineare Gleichungen (Gym 7 · RS I 7) (hart); 29 Terme umformen – Teil 1 von 2 (Gym 7 · RS I 7)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "5 Bruch- und Verhältnisgleichungen",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_I": [
+     8
+    ],
+    "rs_II_III": [
+     8
+    ],
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "2 Lineare Gleichungen (Gym 7 · RS I 7) (hart); 31 Bruchterme (Gym 8 · RS I 8) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "6 Gleichungssysteme mit 2 Unbekannten",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_I": [
+     9
+    ],
+    "rs_II_III": [
+     9
+    ],
+    "ib_standard": [
+     3
+    ],
+    "ib_extended": [
+     3
+    ]
+   },
+   "baut_auf": "2 Lineare Gleichungen (Gym 7 · RS I 7) (hart); 33 Lineare Funktionen (Gym 8 · RS I 8)",
+   "geht_weiter_in": "7 Gleichungssysteme mit 3 Unbekannten (Gym 9 · RS I –)"
+  },
+  {
+   "knoten": "7 Gleichungssysteme mit 3 Unbekannten",
+   "klassen": {
+    "gym_by": [
+     9
+    ],
+    "rs_I": null,
+    "rs_II_III": null,
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "6 Gleichungssysteme mit 2 Unbekannten (Gym 8 · RS I 9) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "8 Quadratische Gleichungen (allgemein)",
+   "klassen": {
+    "gym_by": [
+     9
+    ],
+    "rs_I": [
+     9
+    ],
+    "rs_II_III": [
+     9
+    ],
+    "ib_standard": [
+     4
+    ],
+    "ib_extended": [
+     4
+    ]
+   },
+   "baut_auf": "2 Lineare Gleichungen (Gym 7 · RS I 7) (hart); 68 Elementare Wurzeln (Gym 9 · RS I 9) (hart); 29 Terme umformen – Teil 2 von 2 (Gym 7 · RS I 8) (hart)",
+   "geht_weiter_in": "11 Polynomgleichungen (Gym 10 · RS I –); 13 Wurzelgleichungen (Gym – · RS I 9)"
+  },
+  {
+   "knoten": "9 Potenzgleichungen",
+   "klassen": {
+    "gym_by": [
+     9
+    ],
+    "rs_I": [
+     10
+    ],
+    "rs_II_III": null,
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "20 Wurzeln und reelle Zahlen (Gym 9 · RS I 9) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "10 Exponentialgleichungen",
+   "klassen": {
+    "gym_by": [
+     10
+    ],
+    "rs_I": [
+     10
+    ],
+    "rs_II_III": [
+     10
+    ],
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "37 Exponential- und Logarithmusfunktionen (Gym 10 · RS I 10) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "11 Polynomgleichungen",
+   "klassen": {
+    "gym_by": [
+     10
+    ],
+    "rs_I": null,
+    "rs_II_III": null,
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "8 Quadratische Gleichungen (allgemein) (Gym 9 · RS I 9) (hart); 39 Ganzrationale Funktionen (Gym 10 · RS I –)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "13 Wurzelgleichungen",
+   "klassen": {
+    "gym_by": null,
+    "rs_I": [
+     9
+    ],
+    "rs_II_III": null,
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "68 Elementare Wurzeln (Gym 9 · RS I 9) (hart); 8 Quadratische Gleichungen (allgemein) (Gym 9 · RS I 9)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "14 Trigonometrische Gleichungen",
+   "klassen": {
+    "gym_by": [
+     9
+    ],
+    "rs_I": [
+     10
+    ],
+    "rs_II_III": null,
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "56 Allgemeine Trigonometrie (Gym 9 · RS I 10) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "15 Natürliche Zahlen",
+   "klassen": {
+    "gym_by": [
+     5
+    ],
+    "rs_I": [
+     5
+    ],
+    "rs_II_III": [
+     5
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "–",
+   "geht_weiter_in": "16 Ganze Zahlen (Gym 5 · RS I 5); 18 Grundrechenarten und Rechengesetze (Gym 5 · RS I 5)"
+  },
+  {
+   "knoten": "16 Ganze Zahlen",
+   "klassen": {
+    "gym_by": [
+     5
+    ],
+    "rs_I": [
+     5
+    ],
+    "rs_II_III": [
+     5
+    ],
+    "ib_standard": [
+     2
+    ],
+    "ib_extended": [
+     2
+    ]
+   },
+   "baut_auf": "15 Natürliche Zahlen (Gym 5 · RS I 5) (hart)",
+   "geht_weiter_in": "2 Lineare Gleichungen (Gym 7 · RS I 7); 69 Intervalle (Gym 8 · RS I 7); 75 Betragsfunktion (Gym – · RS I –); 23 Rechnen mit rationalen Zahlen (Gym 6 · RS I 6)"
+  },
+  {
+   "knoten": "17 Teilbarkeit",
+   "klassen": {
+    "gym_by": [
+     5
+    ],
+    "rs_I": [
+     5
+    ],
+    "rs_II_III": [
+     5
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "18 Grundrechenarten und Rechengesetze (Gym 5 · RS I 5)",
+   "geht_weiter_in": "21 Brüche und Anteile (Gym 6 · RS I 6)"
+  },
+  {
+   "knoten": "18 Grundrechenarten und Rechengesetze",
+   "klassen": {
+    "gym_by": [
+     5
+    ],
+    "rs_I": [
+     5
+    ],
+    "rs_II_III": [
+     5
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "15 Natürliche Zahlen (Gym 5 · RS I 5) (hart)",
+   "geht_weiter_in": "30 Potenzen und negative Exponenten (Gym 6 · RS I 7); 1 Einfache Gleichungen (Gym 5 · RS I 6); 25 Größen und Einheiten (Gym 5 · RS I 5); 28 Terme aufstellen und deuten (Gym 7 · RS I 6); 67 Potenzen als Schreibweise (Gym 5 · RS I 5); 17 Teilbarkeit (Gym 5 · RS I 5); 21 Brüche und Anteile (Gym 6 · RS I 6)"
+  },
+  {
+   "knoten": "19 Zehnerpotenzen und wissenschaftliche Schreibweise",
+   "klassen": {
+    "gym_by": [
+     6
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": [
+     3
+    ],
+    "ib_extended": [
+     3
+    ]
+   },
+   "baut_auf": "67 Potenzen als Schreibweise (Gym 5 · RS I 5) (hart); 22 Dezimalzahlen (Gym 6 · RS I 6)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "20 Wurzeln und reelle Zahlen",
+   "klassen": {
+    "gym_by": [
+     9
+    ],
+    "rs_I": [
+     9
+    ],
+    "rs_II_III": [
+     9
+    ],
+    "ib_standard": [
+     3
+    ],
+    "ib_extended": [
+     3
+    ]
+   },
+   "baut_auf": "68 Elementare Wurzeln (Gym 9 · RS I 9) (hart)",
+   "geht_weiter_in": "9 Potenzgleichungen (Gym 9 · RS I 10)"
+  },
+  {
+   "knoten": "21 Brüche und Anteile",
+   "klassen": {
+    "gym_by": [
+     6
+    ],
+    "rs_I": [
+     6
+    ],
+    "rs_II_III": [
+     6
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "18 Grundrechenarten und Rechengesetze (Gym 5 · RS I 5); 17 Teilbarkeit (Gym 5 · RS I 5)",
+   "geht_weiter_in": "24 Prozent- und Zinsrechnung (Gym 6 · RS I 6); 23 Rechnen mit rationalen Zahlen (Gym 6 · RS I 6); 61 Zufall und Laplace – Teil 1 von 2 (Gym 8 · RS I 8); 30 Potenzen und negative Exponenten (Gym 6 · RS I 7); 22 Dezimalzahlen (Gym 6 · RS I 6)"
+  },
+  {
+   "knoten": "22 Dezimalzahlen",
+   "klassen": {
+    "gym_by": [
+     6
+    ],
+    "rs_I": [
+     6
+    ],
+    "rs_II_III": [
+     6
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "21 Brüche und Anteile (Gym 6 · RS I 6)",
+   "geht_weiter_in": "58 Mittelwert und Häufigkeiten (Gym 6 · RS I 7); 70 Schranken und Genauigkeit (Gym – · RS I –); 19 Zehnerpotenzen und wissenschaftliche Schreibweise (Gym 6 · RS I 7); 23 Rechnen mit rationalen Zahlen (Gym 6 · RS I 6); 24 Prozent- und Zinsrechnung (Gym 6 · RS I 6)"
+  },
+  {
+   "knoten": "23 Rechnen mit rationalen Zahlen",
+   "klassen": {
+    "gym_by": [
+     6
+    ],
+    "rs_I": [
+     6
+    ],
+    "rs_II_III": [
+     6
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "21 Brüche und Anteile (Gym 6 · RS I 6) (hart); 22 Dezimalzahlen (Gym 6 · RS I 6); 16 Ganze Zahlen (Gym 5 · RS I 5)",
+   "geht_weiter_in": "62 Mehrstufige Zufallsexperimente (Gym 10 · RS I 10); 31 Bruchterme (Gym 8 · RS I 8)"
+  },
+  {
+   "knoten": "24 Prozent- und Zinsrechnung",
+   "klassen": {
+    "gym_by": [
+     6
+    ],
+    "rs_I": [
+     6
+    ],
+    "rs_II_III": [
+     6
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "21 Brüche und Anteile (Gym 6 · RS I 6) (hart); 22 Dezimalzahlen (Gym 6 · RS I 6)",
+   "geht_weiter_in": "71 Zinsen (Gym 6 · RS I 7); 94 Vermehrter und verminderter Grundwert (Gym 7 · RS I 7)"
+  },
+  {
+   "knoten": "25 Größen und Einheiten",
+   "klassen": {
+    "gym_by": [
+     5
+    ],
+    "rs_I": [
+     5
+    ],
+    "rs_II_III": [
+     5
+    ],
+    "ib_standard": [
+     2
+    ],
+    "ib_extended": [
+     2
+    ]
+   },
+   "baut_auf": "18 Grundrechenarten und Rechengesetze (Gym 5 · RS I 5)",
+   "geht_weiter_in": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2 (Gym 5 · RS I 5); 100 Volumen (Gym 6 · RS I 6)"
+  },
+  {
+   "knoten": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2",
+   "klassen": {
+    "gym_by": [
+     5
+    ],
+    "rs_I": [
+     5
+    ],
+    "rs_II_III": [
+     5
+    ],
+    "ib_standard": [
+     2
+    ],
+    "ib_extended": [
+     2
+    ]
+   },
+   "baut_auf": "25 Größen und Einheiten (Gym 5 · RS I 5) (hart)",
+   "geht_weiter_in": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2 (Gym 5 · RS I 6)"
+  },
+  {
+   "knoten": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2",
+   "klassen": {
+    "gym_by": [
+     5
+    ],
+    "rs_I": [
+     6
+    ],
+    "rs_II_III": [
+     6
+    ],
+    "ib_standard": [
+     2
+    ],
+    "ib_extended": [
+     2
+    ]
+   },
+   "baut_auf": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2 (Gym 5 · RS I 5) (hart)",
+   "geht_weiter_in": "93 Indirekte Proportionalität (Gym 8 · RS I 7)"
+  },
+  {
+   "knoten": "28 Terme aufstellen und deuten",
+   "klassen": {
+    "gym_by": [
+     7
+    ],
+    "rs_I": [
+     6
+    ],
+    "rs_II_III": [
+     6
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "18 Grundrechenarten und Rechengesetze (Gym 5 · RS I 5)",
+   "geht_weiter_in": "32 Zuordnung und Funktion (Gym 8 · RS I 8); 29 Terme umformen – Teil 1 von 2 (Gym 7 · RS I 7); 76 Reihen (Gym – · RS I –); 2 Lineare Gleichungen (Gym 7 · RS I 7); 102 Potenzgesetze (Gym 7 · RS I 7)"
+  },
+  {
+   "knoten": "29 Terme umformen – Teil 1 von 2",
+   "klassen": {
+    "gym_by": [
+     7
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": [
+     1,
+     2
+    ],
+    "ib_extended": [
+     1,
+     2
+    ]
+   },
+   "baut_auf": "28 Terme aufstellen und deuten (Gym 7 · RS I 6) (hart); 102 Potenzgesetze (Gym 7 · RS I 7) (hart)",
+   "geht_weiter_in": "4 Formeln umstellen (Gym 8 · RS I –); 29 Terme umformen – Teil 2 von 2 (Gym 7 · RS I 8)"
+  },
+  {
+   "knoten": "29 Terme umformen – Teil 2 von 2",
+   "klassen": {
+    "gym_by": [
+     7
+    ],
+    "rs_I": [
+     8
+    ],
+    "rs_II_III": [
+     8
+    ],
+    "ib_standard": [
+     4
+    ],
+    "ib_extended": [
+     4
+    ]
+   },
+   "baut_auf": "29 Terme umformen – Teil 1 von 2 (Gym 7 · RS I 7) (hart)",
+   "geht_weiter_in": "8 Quadratische Gleichungen (allgemein) (Gym 9 · RS I 9); 97 Quadratische Terme und Extremwerte (Gym – · RS I 8); 35 Quadratische Funktionen (Gym 9 · RS I 9); 31 Bruchterme (Gym 8 · RS I 8)"
+  },
+  {
+   "knoten": "30 Potenzen und negative Exponenten",
+   "klassen": {
+    "gym_by": [
+     6
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": [
+     3
+    ],
+    "ib_extended": [
+     3
+    ]
+   },
+   "baut_auf": "18 Grundrechenarten und Rechengesetze (Gym 5 · RS I 5) (hart); 67 Potenzen als Schreibweise (Gym 5 · RS I 5) (hart); 21 Brüche und Anteile (Gym 6 · RS I 6)",
+   "geht_weiter_in": "37 Exponential- und Logarithmusfunktionen (Gym 10 · RS I 10); 102 Potenzgesetze (Gym 7 · RS I 7); 103 Potenzgesetze mit ganzzahligen Exponenten (Gym 8 · RS I 7); 96 Rationale Exponenten und n-te Wurzel (Gym 9 · RS I 10)"
+  },
+  {
+   "knoten": "31 Bruchterme",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_I": [
+     8
+    ],
+    "rs_II_III": [
+     8
+    ],
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "23 Rechnen mit rationalen Zahlen (Gym 6 · RS I 6) (hart); 29 Terme umformen – Teil 2 von 2 (Gym 7 · RS I 8) (hart)",
+   "geht_weiter_in": "5 Bruch- und Verhältnisgleichungen (Gym 8 · RS I 8)"
+  },
+  {
+   "knoten": "32 Zuordnung und Funktion",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_I": [
+     8
+    ],
+    "rs_II_III": [
+     8
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "28 Terme aufstellen und deuten (Gym 7 · RS I 6) (hart)",
+   "geht_weiter_in": "33 Lineare Funktionen (Gym 8 · RS I 8); 37 Exponential- und Logarithmusfunktionen (Gym 10 · RS I 10); 36 Potenzfunktionen (Gym 9 · RS I 10); 35 Quadratische Funktionen (Gym 9 · RS I 9); 34 Gebrochen-rationale Funktionen (Gym 8 · RS I –); 75 Betragsfunktion (Gym – · RS I –)"
+  },
+  {
+   "knoten": "33 Lineare Funktionen",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_I": [
+     8
+    ],
+    "rs_II_III": [
+     8
+    ],
+    "ib_standard": [
+     3
+    ],
+    "ib_extended": [
+     3
+    ]
+   },
+   "baut_auf": "2 Lineare Gleichungen (Gym 7 · RS I 7) (hart); 32 Zuordnung und Funktion (Gym 8 · RS I 8) (hart)",
+   "geht_weiter_in": "35 Quadratische Funktionen (Gym 9 · RS I 9); 6 Gleichungssysteme mit 2 Unbekannten (Gym 8 · RS I 9); 59 Zweidimensionale Daten (Gym – · RS I –); 66 Lineare Optimierung (Gym – · RS I –)"
+  },
+  {
+   "knoten": "34 Gebrochen-rationale Funktionen",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_I": null,
+    "rs_II_III": null,
+    "ib_standard": [
+     4
+    ],
+    "ib_extended": [
+     4
+    ]
+   },
+   "baut_auf": "32 Zuordnung und Funktion (Gym 8 · RS I 8); 93 Indirekte Proportionalität (Gym 8 · RS I 7)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "35 Quadratische Funktionen",
+   "klassen": {
+    "gym_by": [
+     9
+    ],
+    "rs_I": [
+     9
+    ],
+    "rs_II_III": [
+     10
+    ],
+    "ib_standard": [
+     4
+    ],
+    "ib_extended": [
+     4
+    ]
+   },
+   "baut_auf": "33 Lineare Funktionen (Gym 8 · RS I 8); 32 Zuordnung und Funktion (Gym 8 · RS I 8) (hart); 29 Terme umformen – Teil 2 von 2 (Gym 7 · RS I 8)",
+   "geht_weiter_in": "39 Ganzrationale Funktionen (Gym 10 · RS I –); 36 Potenzfunktionen (Gym 9 · RS I 10)"
+  },
+  {
+   "knoten": "36 Potenzfunktionen",
+   "klassen": {
+    "gym_by": [
+     9
+    ],
+    "rs_I": [
+     10
+    ],
+    "rs_II_III": null,
+    "ib_standard": [
+     4
+    ],
+    "ib_extended": [
+     4
+    ]
+   },
+   "baut_auf": "32 Zuordnung und Funktion (Gym 8 · RS I 8) (hart); 35 Quadratische Funktionen (Gym 9 · RS I 9)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "37 Exponential- und Logarithmusfunktionen",
+   "klassen": {
+    "gym_by": [
+     10
+    ],
+    "rs_I": [
+     10
+    ],
+    "rs_II_III": [
+     10
+    ],
+    "ib_standard": [
+     4
+    ],
+    "ib_extended": [
+     4
+    ]
+   },
+   "baut_auf": "30 Potenzen und negative Exponenten (Gym 6 · RS I 7) (hart); 32 Zuordnung und Funktion (Gym 8 · RS I 8) (hart); 103 Potenzgesetze mit ganzzahligen Exponenten (Gym 8 · RS I 7)",
+   "geht_weiter_in": "10 Exponentialgleichungen (Gym 10 · RS I 10)"
+  },
+  {
+   "knoten": "38 Sinus- und Kosinusfunktion",
+   "klassen": {
+    "gym_by": [
+     10
+    ],
+    "rs_I": [
+     10
+    ],
+    "rs_II_III": [
+     10
+    ],
+    "ib_standard": null,
+    "ib_extended": [
+     4
+    ]
+   },
+   "baut_auf": "56 Allgemeine Trigonometrie (Gym 9 · RS I 10) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "39 Ganzrationale Funktionen",
+   "klassen": {
+    "gym_by": [
+     10
+    ],
+    "rs_I": null,
+    "rs_II_III": null,
+    "ib_standard": null,
+    "ib_extended": [
+     4
+    ]
+   },
+   "baut_auf": "35 Quadratische Funktionen (Gym 9 · RS I 9) (hart)",
+   "geht_weiter_in": "11 Polynomgleichungen (Gym 10 · RS I –)"
+  },
+  {
+   "knoten": "42 Grundbegriffe und Figuren",
+   "klassen": {
+    "gym_by": [
+     5
+    ],
+    "rs_I": [
+     5
+    ],
+    "rs_II_III": [
+     5
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "–",
+   "geht_weiter_in": "43 Mit Winkeln rechnen (Gym 5 · RS I 5); 45 Kreis und Tangenten (Gym 7 · RS I 7); 46 Kongruenzabbildungen – Teil 1 von 3 (Gym 7 · RS I 6); 50 Umfang und Flächeninhalt (Gym 5 · RS I 5); 52 Körper darstellen (Gym 8 · RS I 5); 73 Ortslinien und Ortsbereiche (Gym 5 · RS I 7)"
+  },
+  {
+   "knoten": "43 Mit Winkeln rechnen",
+   "klassen": {
+    "gym_by": [
+     5
+    ],
+    "rs_I": [
+     5
+    ],
+    "rs_II_III": [
+     5
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "42 Grundbegriffe und Figuren (Gym 5 · RS I 5)",
+   "geht_weiter_in": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2 (Gym 7 · RS I 7); 98 Winkelsätze (Gym 7 · RS I 7)"
+  },
+  {
+   "knoten": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
+   "klassen": {
+    "gym_by": [
+     7
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     8
+    ],
+    "ib_standard": [
+     2,
+     3
+    ],
+    "ib_extended": [
+     2,
+     3
+    ]
+   },
+   "baut_auf": "43 Mit Winkeln rechnen (Gym 5 · RS I 5); 98 Winkelsätze (Gym 7 · RS I 7); 46 Kongruenzabbildungen – Teil 1 von 3 (Gym 7 · RS I 6)",
+   "geht_weiter_in": "44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 (Gym 7 · RS I 8)"
+  },
+  {
+   "knoten": "44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2",
+   "klassen": {
+    "gym_by": [
+     7
+    ],
+    "rs_I": [
+     8
+    ],
+    "rs_II_III": [
+     8
+    ],
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2 (Gym 7 · RS I 7) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "45 Kreis und Tangenten",
+   "klassen": {
+    "gym_by": [
+     7
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": [
+     4
+    ],
+    "ib_extended": [
+     4
+    ]
+   },
+   "baut_auf": "42 Grundbegriffe und Figuren (Gym 5 · RS I 5); 98 Winkelsätze (Gym 7 · RS I 7); 73 Ortslinien und Ortsbereiche (Gym 5 · RS I 7)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "klassen": {
+    "gym_by": [
+     7
+    ],
+    "rs_I": [
+     6
+    ],
+    "rs_II_III": [
+     6
+    ],
+    "ib_standard": [
+     3
+    ],
+    "ib_extended": [
+     3
+    ]
+   },
+   "baut_auf": "42 Grundbegriffe und Figuren (Gym 5 · RS I 5)",
+   "geht_weiter_in": "47 Ähnlichkeit und Strahlensätze (Gym 9 · RS I 9); 44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2 (Gym 7 · RS I 7); 46 Kongruenzabbildungen – Teil 2 von 3 (Gym 7 · RS I 7)"
+  },
+  {
+   "knoten": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "klassen": {
+    "gym_by": [
+     7
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": [
+     3
+    ],
+    "ib_extended": [
+     3
+    ]
+   },
+   "baut_auf": "46 Kongruenzabbildungen – Teil 1 von 3 (Gym 7 · RS I 6) (hart)",
+   "geht_weiter_in": "74 Zweireihige Determinanten (Gym – · RS I 7); 46 Kongruenzabbildungen – Teil 3 von 3 (Gym 7 · RS I 8)"
+  },
+  {
+   "knoten": "46 Kongruenzabbildungen – Teil 3 von 3",
+   "klassen": {
+    "gym_by": [
+     7
+    ],
+    "rs_I": [
+     8
+    ],
+    "rs_II_III": null,
+    "ib_standard": [
+     3
+    ],
+    "ib_extended": [
+     3
+    ]
+   },
+   "baut_auf": "46 Kongruenzabbildungen – Teil 2 von 3 (Gym 7 · RS I 7) (hart)",
+   "geht_weiter_in": "49 Matrizen und Abbildungen mit Matrizen (Gym – · RS I 10)"
+  },
+  {
+   "knoten": "47 Ähnlichkeit und Strahlensätze",
+   "klassen": {
+    "gym_by": [
+     9
+    ],
+    "rs_I": [
+     9
+    ],
+    "rs_II_III": [
+     9
+    ],
+    "ib_standard": [
+     3
+    ],
+    "ib_extended": [
+     3
+    ]
+   },
+   "baut_auf": "46 Kongruenzabbildungen – Teil 1 von 3 (Gym 7 · RS I 6)",
+   "geht_weiter_in": "55 Trigonometrie im rechtwinkligen Dreieck (Gym 9 · RS I 9)"
+  },
+  {
+   "knoten": "49 Matrizen und Abbildungen mit Matrizen",
+   "klassen": {
+    "gym_by": null,
+    "rs_I": [
+     10
+    ],
+    "rs_II_III": null,
+    "ib_standard": [
+     4
+    ],
+    "ib_extended": [
+     4
+    ]
+   },
+   "baut_auf": "46 Kongruenzabbildungen – Teil 3 von 3 (Gym 7 · RS I 8)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "50 Umfang und Flächeninhalt",
+   "klassen": {
+    "gym_by": [
+     5
+    ],
+    "rs_I": [
+     5
+    ],
+    "rs_II_III": [
+     5
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "42 Grundbegriffe und Figuren (Gym 5 · RS I 5)",
+   "geht_weiter_in": "53 Volumen und Oberfläche (Gym 5 · RS I 6); 51 Kreisberechnungen (Gym 8 · RS I 9); 74 Zweireihige Determinanten (Gym – · RS I 7); 99 Flächen von Parallelogramm, Dreieck und Trapez (Gym 6 · RS I 6); 100 Volumen (Gym 6 · RS I 6)"
+  },
+  {
+   "knoten": "51 Kreisberechnungen",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_I": [
+     9
+    ],
+    "rs_II_III": [
+     9
+    ],
+    "ib_standard": [
+     2
+    ],
+    "ib_extended": [
+     2
+    ]
+   },
+   "baut_auf": "50 Umfang und Flächeninhalt (Gym 5 · RS I 5) (hart)",
+   "geht_weiter_in": "92 Pyramide, Kegel, Kugel (Gym 10 · RS I 9); 101 Prismen und Zylinder (Gym 8 · RS I 9)"
+  },
+  {
+   "knoten": "52 Körper darstellen",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_I": [
+     5
+    ],
+    "rs_II_III": [
+     5
+    ],
+    "ib_standard": [
+     3
+    ],
+    "ib_extended": [
+     3
+    ]
+   },
+   "baut_auf": "42 Grundbegriffe und Figuren (Gym 5 · RS I 5)",
+   "geht_weiter_in": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2 (Gym 10 · RS I 7)"
+  },
+  {
+   "knoten": "53 Volumen und Oberfläche",
+   "klassen": {
+    "gym_by": [
+     5
+    ],
+    "rs_I": [
+     6
+    ],
+    "rs_II_III": [
+     6
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "50 Umfang und Flächeninhalt (Gym 5 · RS I 5) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "54 Satz des Pythagoras",
+   "klassen": {
+    "gym_by": [
+     9
+    ],
+    "rs_I": [
+     9
+    ],
+    "rs_II_III": [
+     9
+    ],
+    "ib_standard": [
+     3
+    ],
+    "ib_extended": [
+     3
+    ]
+   },
+   "baut_auf": "68 Elementare Wurzeln (Gym 9 · RS I 9) (hart)",
+   "geht_weiter_in": "92 Pyramide, Kegel, Kugel (Gym 10 · RS I 9); 55 Trigonometrie im rechtwinkligen Dreieck (Gym 9 · RS I 9)"
+  },
+  {
+   "knoten": "55 Trigonometrie im rechtwinkligen Dreieck",
+   "klassen": {
+    "gym_by": [
+     9
+    ],
+    "rs_I": [
+     9
+    ],
+    "rs_II_III": [
+     9
+    ],
+    "ib_standard": [
+     3
+    ],
+    "ib_extended": [
+     3
+    ]
+   },
+   "baut_auf": "47 Ähnlichkeit und Strahlensätze (Gym 9 · RS I 9) (hart); 54 Satz des Pythagoras (Gym 9 · RS I 9)",
+   "geht_weiter_in": "56 Allgemeine Trigonometrie (Gym 9 · RS I 10)"
+  },
+  {
+   "knoten": "56 Allgemeine Trigonometrie",
+   "klassen": {
+    "gym_by": [
+     9
+    ],
+    "rs_I": [
+     10
+    ],
+    "rs_II_III": [
+     10
+    ],
+    "ib_standard": [
+     4
+    ],
+    "ib_extended": [
+     4
+    ]
+   },
+   "baut_auf": "55 Trigonometrie im rechtwinkligen Dreieck (Gym 9 · RS I 9) (hart)",
+   "geht_weiter_in": "38 Sinus- und Kosinusfunktion (Gym 10 · RS I 10); 14 Trigonometrische Gleichungen (Gym 9 · RS I 10)"
+  },
+  {
+   "knoten": "57 Daten erfassen und darstellen",
+   "klassen": {
+    "gym_by": [
+     6
+    ],
+    "rs_I": [
+     5
+    ],
+    "rs_II_III": [
+     5
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "–",
+   "geht_weiter_in": "58 Mittelwert und Häufigkeiten (Gym 6 · RS I 7); 59 Zweidimensionale Daten (Gym – · RS I –); 81 Stichproben und Aussagekraft (Gym – · RS I 7)"
+  },
+  {
+   "knoten": "58 Mittelwert und Häufigkeiten",
+   "klassen": {
+    "gym_by": [
+     6
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": [
+     2
+    ],
+    "ib_extended": [
+     2
+    ]
+   },
+   "baut_auf": "57 Daten erfassen und darstellen (Gym 6 · RS I 5); 22 Dezimalzahlen (Gym 6 · RS I 6)",
+   "geht_weiter_in": "79 Standardabweichung (Gym – · RS I –); 95 Median, Quartile, Boxplot (Gym 7 · RS I 7); 81 Stichproben und Aussagekraft (Gym – · RS I 7)"
+  },
+  {
+   "knoten": "59 Zweidimensionale Daten",
+   "klassen": {
+    "gym_by": null,
+    "rs_I": null,
+    "rs_II_III": null,
+    "ib_standard": [
+     3
+    ],
+    "ib_extended": [
+     3
+    ]
+   },
+   "baut_auf": "57 Daten erfassen und darstellen (Gym 6 · RS I 5); 33 Lineare Funktionen (Gym 8 · RS I 8)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "61 Zufall und Laplace – Teil 1 von 2",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_I": [
+     8
+    ],
+    "rs_II_III": [
+     8
+    ],
+    "ib_standard": [
+     2
+    ],
+    "ib_extended": [
+     2
+    ]
+   },
+   "baut_auf": "21 Brüche und Anteile (Gym 6 · RS I 6) (hart)",
+   "geht_weiter_in": "63 Verknüpfte Ereignisse (Gym 9 · RS I 8); 61 Zufall und Laplace – Teil 2 von 2 (Gym 8 · RS I 9)"
+  },
+  {
+   "knoten": "61 Zufall und Laplace – Teil 2 von 2",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_I": [
+     9
+    ],
+    "rs_II_III": [
+     9
+    ],
+    "ib_standard": [
+     2
+    ],
+    "ib_extended": [
+     2
+    ]
+   },
+   "baut_auf": "61 Zufall und Laplace – Teil 1 von 2 (Gym 8 · RS I 8) (hart)",
+   "geht_weiter_in": "62 Mehrstufige Zufallsexperimente (Gym 10 · RS I 10); 64 Simulation (Gym 10 · RS I 9)"
+  },
+  {
+   "knoten": "62 Mehrstufige Zufallsexperimente",
+   "klassen": {
+    "gym_by": [
+     10
+    ],
+    "rs_I": [
+     10
+    ],
+    "rs_II_III": [
+     10
+    ],
+    "ib_standard": null,
+    "ib_extended": [
+     4
+    ]
+   },
+   "baut_auf": "23 Rechnen mit rationalen Zahlen (Gym 6 · RS I 6) (hart); 61 Zufall und Laplace – Teil 2 von 2 (Gym 8 · RS I 9) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "63 Verknüpfte Ereignisse",
+   "klassen": {
+    "gym_by": [
+     9
+    ],
+    "rs_I": [
+     8
+    ],
+    "rs_II_III": null,
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "61 Zufall und Laplace – Teil 1 von 2 (Gym 8 · RS I 8) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "64 Simulation",
+   "klassen": {
+    "gym_by": [
+     10
+    ],
+    "rs_I": [
+     9
+    ],
+    "rs_II_III": [
+     9
+    ],
+    "ib_standard": [
+     2
+    ],
+    "ib_extended": [
+     2
+    ]
+   },
+   "baut_auf": "61 Zufall und Laplace – Teil 2 von 2 (Gym 8 · RS I 9) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "66 Lineare Optimierung",
+   "klassen": {
+    "gym_by": null,
+    "rs_I": null,
+    "rs_II_III": null,
+    "ib_standard": null,
+    "ib_extended": [
+     4
+    ]
+   },
+   "baut_auf": "3 Lineare Ungleichungen (Gym 8 · RS I 7); 33 Lineare Funktionen (Gym 8 · RS I 8)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "67 Potenzen als Schreibweise",
+   "klassen": {
+    "gym_by": [
+     5
+    ],
+    "rs_I": [
+     5
+    ],
+    "rs_II_III": [
+     5
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "18 Grundrechenarten und Rechengesetze (Gym 5 · RS I 5) (hart)",
+   "geht_weiter_in": "30 Potenzen und negative Exponenten (Gym 6 · RS I 7); 68 Elementare Wurzeln (Gym 9 · RS I 9); 19 Zehnerpotenzen und wissenschaftliche Schreibweise (Gym 6 · RS I 7)"
+  },
+  {
+   "knoten": "68 Elementare Wurzeln",
+   "klassen": {
+    "gym_by": [
+     9
+    ],
+    "rs_I": [
+     9
+    ],
+    "rs_II_III": [
+     9
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "67 Potenzen als Schreibweise (Gym 5 · RS I 5)",
+   "geht_weiter_in": "8 Quadratische Gleichungen (allgemein) (Gym 9 · RS I 9); 54 Satz des Pythagoras (Gym 9 · RS I 9); 13 Wurzelgleichungen (Gym – · RS I 9); 96 Rationale Exponenten und n-te Wurzel (Gym 9 · RS I 10); 79 Standardabweichung (Gym – · RS I –); 20 Wurzeln und reelle Zahlen (Gym 9 · RS I 9)"
+  },
+  {
+   "knoten": "69 Intervalle",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "16 Ganze Zahlen (Gym 5 · RS I 5)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "70 Schranken und Genauigkeit",
+   "klassen": {
+    "gym_by": null,
+    "rs_I": null,
+    "rs_II_III": null,
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "22 Dezimalzahlen (Gym 6 · RS I 6)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "71 Zinsen",
+   "klassen": {
+    "gym_by": [
+     6
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "24 Prozent- und Zinsrechnung (Gym 6 · RS I 6) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "73 Ortslinien und Ortsbereiche",
+   "klassen": {
+    "gym_by": [
+     5
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "42 Grundbegriffe und Figuren (Gym 5 · RS I 5) (hart)",
+   "geht_weiter_in": "45 Kreis und Tangenten (Gym 7 · RS I 7)"
+  },
+  {
+   "knoten": "74 Zweireihige Determinanten",
+   "klassen": {
+    "gym_by": null,
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "46 Kongruenzabbildungen – Teil 2 von 3 (Gym 7 · RS I 7); 50 Umfang und Flächeninhalt (Gym 5 · RS I 5)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "75 Betragsfunktion",
+   "klassen": {
+    "gym_by": null,
+    "rs_I": null,
+    "rs_II_III": null,
+    "ib_standard": null,
+    "ib_extended": [
+     4
+    ]
+   },
+   "baut_auf": "32 Zuordnung und Funktion (Gym 8 · RS I 8); 16 Ganze Zahlen (Gym 5 · RS I 5)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "76 Reihen",
+   "klassen": {
+    "gym_by": null,
+    "rs_I": null,
+    "rs_II_III": null,
+    "ib_standard": [
+     4
+    ],
+    "ib_extended": [
+     4
+    ]
+   },
+   "baut_auf": "28 Terme aufstellen und deuten (Gym 7 · RS I 6)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "79 Standardabweichung",
+   "klassen": {
+    "gym_by": null,
+    "rs_I": null,
+    "rs_II_III": null,
+    "ib_standard": null,
+    "ib_extended": [
+     4
+    ]
+   },
+   "baut_auf": "58 Mittelwert und Häufigkeiten (Gym 6 · RS I 7) (hart); 68 Elementare Wurzeln (Gym 9 · RS I 9)",
+   "geht_weiter_in": "80 Normalverteilung (Gym – · RS I –)"
+  },
+  {
+   "knoten": "80 Normalverteilung",
+   "klassen": {
+    "gym_by": null,
+    "rs_I": null,
+    "rs_II_III": null,
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "79 Standardabweichung (Gym – · RS I –) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "81 Stichproben und Aussagekraft",
+   "klassen": {
+    "gym_by": null,
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "57 Daten erfassen und darstellen (Gym 6 · RS I 5); 58 Mittelwert und Häufigkeiten (Gym 6 · RS I 7)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2",
+   "klassen": {
+    "gym_by": [
+     10
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     8
+    ],
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "52 Körper darstellen (Gym 8 · RS I 5) (hart)",
+   "geht_weiter_in": "91 Schrägbilder und Raumdarstellung – Teil 2 von 2 (Gym 10 · RS I 8)"
+  },
+  {
+   "knoten": "91 Schrägbilder und Raumdarstellung – Teil 2 von 2",
+   "klassen": {
+    "gym_by": [
+     10
+    ],
+    "rs_I": [
+     8
+    ],
+    "rs_II_III": [
+     10
+    ],
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2 (Gym 10 · RS I 7) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "92 Pyramide, Kegel, Kugel",
+   "klassen": {
+    "gym_by": [
+     10
+    ],
+    "rs_I": [
+     9
+    ],
+    "rs_II_III": [
+     10
+    ],
+    "ib_standard": [
+     3
+    ],
+    "ib_extended": [
+     3
+    ]
+   },
+   "baut_auf": "51 Kreisberechnungen (Gym 8 · RS I 9) (hart); 54 Satz des Pythagoras (Gym 9 · RS I 9) (hart); 101 Prismen und Zylinder (Gym 8 · RS I 9)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "93 Indirekte Proportionalität",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2 (Gym 5 · RS I 6) (hart)",
+   "geht_weiter_in": "34 Gebrochen-rationale Funktionen (Gym 8 · RS I –)"
+  },
+  {
+   "knoten": "94 Vermehrter und verminderter Grundwert",
+   "klassen": {
+    "gym_by": [
+     7
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "24 Prozent- und Zinsrechnung (Gym 6 · RS I 6) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "95 Median, Quartile, Boxplot",
+   "klassen": {
+    "gym_by": [
+     7
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": [
+     2
+    ],
+    "ib_extended": [
+     2
+    ]
+   },
+   "baut_auf": "58 Mittelwert und Häufigkeiten (Gym 6 · RS I 7) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "96 Rationale Exponenten und n-te Wurzel",
+   "klassen": {
+    "gym_by": [
+     9
+    ],
+    "rs_I": [
+     10
+    ],
+    "rs_II_III": null,
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "68 Elementare Wurzeln (Gym 9 · RS I 9) (hart); 103 Potenzgesetze mit ganzzahligen Exponenten (Gym 8 · RS I 7); 30 Potenzen und negative Exponenten (Gym 6 · RS I 7) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "97 Quadratische Terme und Extremwerte",
+   "klassen": {
+    "gym_by": null,
+    "rs_I": [
+     8
+    ],
+    "rs_II_III": [
+     8
+    ],
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "29 Terme umformen – Teil 2 von 2 (Gym 7 · RS I 8) (hart)",
+   "geht_weiter_in": "–"
+  },
+  {
+   "knoten": "98 Winkelsätze",
+   "klassen": {
+    "gym_by": [
+     7
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "43 Mit Winkeln rechnen (Gym 5 · RS I 5)",
+   "geht_weiter_in": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2 (Gym 7 · RS I 7); 45 Kreis und Tangenten (Gym 7 · RS I 7)"
+  },
+  {
+   "knoten": "99 Flächen von Parallelogramm, Dreieck und Trapez",
+   "klassen": {
+    "gym_by": [
+     6
+    ],
+    "rs_I": [
+     6
+    ],
+    "rs_II_III": [
+     6
+    ],
+    "ib_standard": [
+     2
+    ],
+    "ib_extended": [
+     2
+    ]
+   },
+   "baut_auf": "50 Umfang und Flächeninhalt (Gym 5 · RS I 5)",
+   "geht_weiter_in": "101 Prismen und Zylinder (Gym 8 · RS I 9)"
+  },
+  {
+   "knoten": "100 Volumen",
+   "klassen": {
+    "gym_by": [
+     6
+    ],
+    "rs_I": [
+     6
+    ],
+    "rs_II_III": [
+     6
+    ],
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "50 Umfang und Flächeninhalt (Gym 5 · RS I 5); 25 Größen und Einheiten (Gym 5 · RS I 5)",
+   "geht_weiter_in": "101 Prismen und Zylinder (Gym 8 · RS I 9)"
+  },
+  {
+   "knoten": "101 Prismen und Zylinder",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_I": [
+     9
+    ],
+    "rs_II_III": null,
+    "ib_standard": [
+     1
+    ],
+    "ib_extended": [
+     1
+    ]
+   },
+   "baut_auf": "99 Flächen von Parallelogramm, Dreieck und Trapez (Gym 6 · RS I 6); 100 Volumen (Gym 6 · RS I 6); 51 Kreisberechnungen (Gym 8 · RS I 9)",
+   "geht_weiter_in": "92 Pyramide, Kegel, Kugel (Gym 10 · RS I 9)"
+  },
+  {
+   "knoten": "102 Potenzgesetze",
+   "klassen": {
+    "gym_by": [
+     7
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": [
+     7
+    ],
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "30 Potenzen und negative Exponenten (Gym 6 · RS I 7) (hart); 28 Terme aufstellen und deuten (Gym 7 · RS I 6) (hart)",
+   "geht_weiter_in": "29 Terme umformen – Teil 1 von 2 (Gym 7 · RS I 7); 103 Potenzgesetze mit ganzzahligen Exponenten (Gym 8 · RS I 7)"
+  },
+  {
+   "knoten": "103 Potenzgesetze mit ganzzahligen Exponenten",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_I": [
+     7
+    ],
+    "rs_II_III": null,
+    "ib_standard": null,
+    "ib_extended": null
+   },
+   "baut_auf": "102 Potenzgesetze (Gym 7 · RS I 7) (hart); 30 Potenzen und negative Exponenten (Gym 6 · RS I 7)",
+   "geht_weiter_in": "37 Exponential- und Logarithmusfunktionen (Gym 10 · RS I 10); 96 Rationale Exponenten und n-te Wurzel (Gym 9 · RS I 10)"
+  }
+ ]
+}

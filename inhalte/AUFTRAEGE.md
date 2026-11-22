@@ -3041,3 +3041,13 @@ Schritt 4 der Reihenfolge aus „Bau-Auftrag RK“. Die Teilung ist eingespielt 
 ## LW-3 kann starten (23.11.) · an `bau-motivation`
 
 LW-S 2 ist eingespielt (`schule_wackelt_lesen` / `schule_wackelt_setzen` in der Datenbank). Edge Function 0.9.2 rollt der Haupt-Chat zusammen mit dem Live von 0.90.0 aus. Auftrag wie „Bau-Auftrag LW“, LW-3; Schnittstelle laut `inhalte/postfach/bau-lehrer.md` (LW-S / LW-S 2).
+
+## Nachtrag LW-3: Kopf der Kind-Seite schlank, Matrix groß (23.11., 00:50 Berlin) · Rückmeldung Sebastian zu 0.89.1
+
+Sebastian (Rechner, Reiter „Lehrplan“): Seitenaufbau passt nicht – der Block mit Reitern und großer Überschrift „Lehrplan ‹Kind›“ ist zu dominant, die Matrix dadurch zu klein; es fehlt der Wechsel zwischen den Kindern; „Einordnen“ ist nicht selbsterklärend.
+
+Zusätzlich zu LW-3 an `bau-motivation`:
+1. **Eine Kopfzeile** statt Reiter-Block plus Überschrift: Zurück · Kinder-Umschalter (Name als Auswahl; ersetzt die Überschrift) · Reiter Überblick | Was wackelt | Lehrplan · rechts Version/Abmelden klein. Ziel Rechner 1280 × 800: Kopf höchstens etwa 60 px.
+2. **Matrix und Fahrplan füllen die Höhe des Fensters** (bis zum unteren Rand, eigene Rollbereiche wie bisher). Der Block „Expeditionen“ steht nicht mehr unter der Matrix, sondern als Link/aufklappbar oder im Überblick.
+3. **„Einordnen“ verständlich:** Beschriftung „Lehrplan von:“ (Gymnasium | Realschule | IB MYP) mit ⓘ-Hinweis „Bestimmt nur, in welcher Klassen-Zeile ein Thema steht und welcher Ring groß ist. Es werden immer alle Themen gezeigt.“ Standard = Schulart des Kindes.
+4. Messung im Test: sichtbare Matrix-Höhe bei 1280 × 800 mindestens 600 px; bei 820 und 400 nichts schlechter als 0.89.1.

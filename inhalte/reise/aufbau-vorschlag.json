@@ -2466,7 +2466,7 @@
      "teil": 2,
      "von": 2,
      "thema": "Terme umformen – Teil 2 von 2",
-     "untertitel": "Summe mal Summe, Ausklammern, binomische Formeln",
+     "untertitel": "Summe mal Summe, binomische Formeln, Gleichungen mit Klammern",
      "einheit_id": null,
      "einheit_hinweis": "neue Einheit kommt mit TL-S (bau-lehrer)",
      "klasse": {
@@ -2484,7 +2484,7 @@
      "land": "Turkmenistan",
      "iso": "TM",
      "region": null,
-     "etappen": 3,
+     "etappen": 4,
      "kurzflug": false,
      "mitte": {
       "breite": 39.8552,
@@ -2510,24 +2510,36 @@
        "geonames_name": "Daşoguz"
       },
       {
-       "stadt": "Aschgabat",
+       "stadt": "Türkmenabat",
        "etappe": 2,
        "lernziel": "ausklammern",
        "etappe_titel": "Gemeinsamen Faktor ausklammern",
+       "breite": 39.07328,
+       "laenge": 63.57861,
+       "geonames_id": 1219649,
+       "geonames_name": "Türkmenabat"
+      },
+      {
+       "stadt": "Mary",
+       "etappe": 3,
+       "lernziel": "binomisch",
+       "etappe_titel": "Binomische Formeln",
+       "breite": 37.59378,
+       "laenge": 61.83031,
+       "geonames_id": 1218667,
+       "geonames_name": "Mary"
+      },
+      {
+       "stadt": "Aschgabat",
+       "etappe": 4,
+       "lernziel": "gleichungen_binomisch",
+       "etappe_titel": "Gleichungen mit Klammerprodukten",
+       "neu_lkd": true,
+       "noch_nicht_in_db": true,
        "breite": 37.95,
        "laenge": 58.38333,
        "geonames_id": 162183,
        "geonames_name": "Ashgabat"
-      },
-      {
-       "stadt": "Turkmenbaschi",
-       "etappe": 3,
-       "lernziel": "binomisch",
-       "etappe_titel": "Binomische Formeln",
-       "breite": 40.02216,
-       "laenge": 52.95517,
-       "geonames_id": 601594,
-       "geonames_name": "Türkmenbaşy"
       }
      ]
     },
@@ -6968,14 +6980,19 @@
      ]
     },
     {
-     "flug_id": "101",
+     "flug_id": "101-1",
      "thema_id": 101,
-     "teil": null,
-     "thema": "Prismen und Zylinder",
+     "teil": 1,
+     "von": 2,
+     "thema": "Prismen und Zylinder – Teil 1 von 2",
+     "untertitel": "gerade Prismen und Zylinder",
      "einheit_id": 94,
+     "einheit_hinweis": "bisherige Einheit",
      "klasse": {
       "gym_by": 8,
-      "rs_by": 9
+      "rs_by_I": 9,
+      "rs_by_II_III": null,
+      "ib_myp": null
      },
      "heute_ort": "Cusco",
      "land": "Brasilien – Südosten",
@@ -7008,6 +7025,7 @@
        "stadt": "Santos",
        "etappe": 1,
        "lernziel": "prisma_volumen",
+       "etappe_titel": "Volumen eines Prismas",
        "breite": -23.96083,
        "laenge": -46.33361,
        "geonames_id": 3449433,
@@ -7017,6 +7035,7 @@
        "stadt": "São Paulo",
        "etappe": 2,
        "lernziel": "prisma_oberflaeche",
+       "etappe_titel": "Oberfläche eines Prismas",
        "breite": -23.5475,
        "laenge": -46.63611,
        "geonames_id": 3448439,
@@ -7026,6 +7045,7 @@
        "stadt": "Campinas",
        "etappe": 3,
        "lernziel": "prisma_umstellen",
+       "etappe_titel": "Fehlende Größen am Prisma",
        "breite": -22.90556,
        "laenge": -47.06083,
        "geonames_id": 3467865,
@@ -7035,6 +7055,7 @@
        "stadt": "Belo Horizonte",
        "etappe": 4,
        "lernziel": "zylinder_volumen",
+       "etappe_titel": "Zylinder: Volumen begründen",
        "breite": -19.92083,
        "laenge": -43.93778,
        "geonames_id": 3470127,
@@ -7044,6 +7065,7 @@
        "stadt": "Ouro Preto",
        "etappe": 5,
        "lernziel": "zylinder_oberflaeche",
+       "etappe_titel": "Zylinder: Oberfläche über das Netz",
        "breite": -20.39484,
        "laenge": -43.50517,
        "geonames_id": 3455671,
@@ -7053,6 +7075,7 @@
        "stadt": "Petrópolis",
        "etappe": 6,
        "lernziel": "sach",
+       "etappe_titel": "Prismen und Zylinder im Alltag",
        "breite": -22.505,
        "laenge": -43.17861,
        "geonames_id": 3454031,
@@ -7062,10 +7085,70 @@
        "stadt": "Rio de Janeiro",
        "etappe": 7,
        "lernziel": "verstehen",
+       "etappe_titel": "Begründen und beurteilen",
        "breite": -22.90642,
        "laenge": -43.18223,
        "geonames_id": 3451190,
        "geonames_name": "Rio de Janeiro"
+      }
+     ]
+    },
+    {
+     "flug_id": "101-2",
+     "thema_id": 101,
+     "teil": 2,
+     "von": 2,
+     "thema": "Prismen und Zylinder – Teil 2 von 2",
+     "untertitel": "schiefe Körper und Cavalieri",
+     "einheit_id": null,
+     "einheit_hinweis": "neue Einheit kommt mit TL-S (bau-lehrer)",
+     "klasse": {
+      "gym_by": 10,
+      "rs_by_I": 9,
+      "rs_by_II_III": [
+       10
+      ],
+      "ib_myp": null
+     },
+     "nachbarschaft": "Brasilien – Südosten ↔ Brasilien – Mittelwesten: gemeinsame Grenze (Minas Gerais ↔ Goiás/Distrito Federal)",
+     "heute_ort": "Cusco",
+     "land": "Brasilien – Mittelwesten",
+     "iso": "BR",
+     "region": "BR_MITTELWEST",
+     "etappen": 1,
+     "kurzflug": true,
+     "mitte": {
+      "breite": -16.4244,
+      "laenge": -51.9606,
+      "quelle": "Natural Earth admin_1 (Mittel aus 4 Bundesstaaten)"
+     },
+     "hauptort_landesteil": {
+      "stadt": "Brasília",
+      "breite": -15.77972,
+      "laenge": -47.92972,
+      "geonames_id": 3469058,
+      "geonames_name": "Brasília",
+      "art": "Hauptstadt Brasiliens"
+     },
+     "hauptstadt": {
+      "name": "Brasília",
+      "breite": -15.77972,
+      "laenge": -47.92972,
+      "geonames_id": 3469058,
+      "geonames_name": "Brasília"
+     },
+     "staedte": [
+      {
+       "stadt": "Brasília",
+       "etappe": 1,
+       "lernziel": "cavalieri",
+       "etappe_titel": "Schiefe Körper und Cavalieri",
+       "neu_lkd": true,
+       "noch_nicht_in_db": true,
+       "breite": -15.77972,
+       "laenge": -47.92972,
+       "geonames_id": 3469058,
+       "geonames_name": "Brasília"
       }
      ]
     },
@@ -7145,7 +7228,7 @@
      "teil": 2,
      "von": 2,
      "thema": "Schrägbilder und Raumdarstellung – Teil 2 von 2",
-     "untertitel": "Raumkoordinaten und Rotationskörper",
+     "untertitel": "Raumkoordinaten, Körpersymmetrie, Rotationskörper",
      "einheit_id": null,
      "einheit_hinweis": "neue Einheit kommt mit TL-S (bau-lehrer)",
      "klasse": {
@@ -7161,7 +7244,7 @@
      "land": "Brasilien – Süden",
      "iso": "BR",
      "region": "BR_SUED",
-     "etappen": 3,
+     "etappen": 4,
      "kurzflug": false,
      "mitte": {
       "breite": -27.1429,
@@ -7213,6 +7296,18 @@
        "laenge": -48.54917,
        "geonames_id": 3463237,
        "geonames_name": "Florianópolis"
+      },
+      {
+       "stadt": "Porto Alegre",
+       "etappe": 4,
+       "lernziel": "koerper_symmetrie",
+       "etappe_titel": "Symmetrie von Körpern",
+       "neu_lkd": true,
+       "noch_nicht_in_db": true,
+       "breite": -30.03283,
+       "laenge": -51.23019,
+       "geonames_id": 3452925,
+       "geonames_name": "Porto Alegre"
       }
      ]
     },
@@ -7763,66 +7858,65 @@
        2
       ]
      },
-     "nachbarschaft": "Neuseeland – Nordinsel ↔ Neukaledonien: über das Meer (ca. 1 500 km), keine Landgrenze",
+     "nachbarschaft": "Neuseeland – Nordinsel → Salomonen: kein Nachbar (über das Meer, ca. 2 900 km); Entscheidung Sebastian 22.11. 17:05 – keine strittigen Gebiete, Neuseelands Nachbarn sonst belegt",
      "heute_ort": "Auckland",
-     "land": "Neukaledonien",
-     "iso": "NC",
+     "land": "Salomonen",
+     "iso": "SB",
      "region": null,
      "etappen": 4,
      "kurzflug": false,
      "mitte": {
-      "breite": -21.0647,
-      "laenge": 165.084,
+      "breite": -8.0295,
+      "laenge": 159.1705,
       "quelle": "Natural Earth admin_0 Beschriftungspunkt"
      },
      "hauptstadt": {
-      "name": "Nouméa",
-      "breite": -22.27407,
-      "laenge": 166.44884,
-      "geonames_id": 2139521,
-      "geonames_name": "Nouméa",
-      "hinweis": "französisches Überseegebiet, Hauptort Nouméa"
+      "name": "Honiara",
+      "breite": -9.43333,
+      "laenge": 159.95,
+      "geonames_id": 2108502,
+      "geonames_name": "Honiara"
      },
      "staedte": [
       {
-       "stadt": "Nouméa",
+       "stadt": "Honiara",
        "etappe": 1,
        "lernziel": "laplace",
        "etappe_titel": "Laplace-Wahrscheinlichkeit",
-       "breite": -22.27407,
-       "laenge": 166.44884,
-       "geonames_id": 2139521,
-       "geonames_name": "Nouméa"
+       "breite": -9.43333,
+       "laenge": 159.95,
+       "geonames_id": 2108502,
+       "geonames_name": "Honiara"
       },
       {
-       "stadt": "Païta",
+       "stadt": "Tulagi",
        "etappe": 2,
        "lernziel": "laplace_pruefen",
        "etappe_titel": "Ist es ein Laplace-Experiment?",
-       "breite": -22.13105,
-       "laenge": 166.35717,
-       "geonames_id": 2138981,
-       "geonames_name": "Païta"
+       "breite": -9.10306,
+       "laenge": 160.15056,
+       "geonames_id": 2102384,
+       "geonames_name": "Tulagi"
       },
       {
-       "stadt": "Bourail",
+       "stadt": "Auki",
        "etappe": 3,
        "lernziel": "gegenereignis",
        "etappe_titel": "Das Gegenereignis",
-       "breite": -21.5669,
-       "laenge": 165.49736,
-       "geonames_id": 2141714,
-       "geonames_name": "Bourail"
+       "breite": -8.76778,
+       "laenge": 160.69778,
+       "geonames_id": 2109701,
+       "geonames_name": "Auki"
       },
       {
-       "stadt": "Koné",
+       "stadt": "Kirakira",
        "etappe": 4,
        "lernziel": "grosse_zahlen",
        "etappe_titel": "Gesetz der großen Zahlen",
-       "breite": -21.05951,
-       "laenge": 164.86582,
-       "geonames_id": 2140691,
-       "geonames_name": "Koné"
+       "breite": -10.45442,
+       "laenge": 161.92045,
+       "geonames_id": 2178753,
+       "geonames_name": "Kirakira"
       }
      ]
     },
@@ -10130,75 +10224,6 @@
      }
     },
     {
-     "land": "Brasilien – Mittelwesten",
-     "iso": "BR",
-     "region": "BR_MITTELWEST",
-     "staedte": [
-      {
-       "stadt": "Brasília",
-       "breite": -15.77972,
-       "laenge": -47.92972,
-       "geonames_id": 3469058,
-       "geonames_name": "Brasília"
-      },
-      {
-       "stadt": "Pirenópolis",
-       "breite": -15.85072,
-       "laenge": -48.96087,
-       "geonames_id": 3453512,
-       "geonames_name": "Pirenópolis"
-      },
-      {
-       "stadt": "Goiânia",
-       "breite": -16.67861,
-       "laenge": -49.25389,
-       "geonames_id": 3462377,
-       "geonames_name": "Goiânia"
-      },
-      {
-       "stadt": "Cuiabá",
-       "breite": -15.59611,
-       "laenge": -56.09667,
-       "geonames_id": 3465038,
-       "geonames_name": "Cuiabá"
-      },
-      {
-       "stadt": "Campo Grande",
-       "breite": -20.44278,
-       "laenge": -54.64639,
-       "geonames_id": 3467747,
-       "geonames_name": "Campo Grande"
-      },
-      {
-       "stadt": "Corumbá",
-       "breite": -19.00917,
-       "laenge": -57.65333,
-       "geonames_id": 3465342,
-       "geonames_name": "Corumbá"
-      }
-     ],
-     "mitte": {
-      "breite": -16.4244,
-      "laenge": -51.9606,
-      "quelle": "Natural Earth admin_1 (Mittel aus 4 Bundesstaaten)"
-     },
-     "hauptstadt": {
-      "name": "Brasília",
-      "breite": -15.77972,
-      "laenge": -47.92972,
-      "geonames_id": 3469058,
-      "geonames_name": "Brasília"
-     },
-     "hauptort_landesteil": {
-      "stadt": "Brasília",
-      "breite": -15.77972,
-      "laenge": -47.92972,
-      "geonames_id": 3469058,
-      "geonames_name": "Brasília",
-      "art": "Hauptstadt Brasiliens"
-     }
-    },
-    {
      "land": "Brasilien – Norden",
      "iso": "BR",
      "region": "BR_NORD",
@@ -10334,74 +10359,6 @@
    "kontinent_id": 7,
    "reise": "Australien (nach Bundesstaaten) und Ozeanien",
    "laender": [
-    {
-     "land": "Salomonen",
-     "iso": "SB",
-     "region": null,
-     "staedte": [
-      {
-       "stadt": "Gizo",
-       "breite": -8.10303,
-       "laenge": 156.84186,
-       "geonames_id": 2108857,
-       "geonames_name": "Gizo"
-      },
-      {
-       "stadt": "Noro",
-       "breite": -8.22274,
-       "laenge": 157.19978,
-       "geonames_id": 2104863,
-       "geonames_name": "Noro"
-      },
-      {
-       "stadt": "Buala",
-       "breite": -8.14497,
-       "laenge": 159.59212,
-       "geonames_id": 2109528,
-       "geonames_name": "Buala"
-      },
-      {
-       "stadt": "Honiara",
-       "breite": -9.43333,
-       "laenge": 159.95,
-       "geonames_id": 2108502,
-       "geonames_name": "Honiara"
-      },
-      {
-       "stadt": "Tulagi",
-       "breite": -9.10306,
-       "laenge": 160.15056,
-       "geonames_id": 2102384,
-       "geonames_name": "Tulagi"
-      },
-      {
-       "stadt": "Auki",
-       "breite": -8.76778,
-       "laenge": 160.69778,
-       "geonames_id": 2109701,
-       "geonames_name": "Auki"
-      },
-      {
-       "stadt": "Kirakira",
-       "breite": -10.45442,
-       "laenge": 161.92045,
-       "geonames_id": 2178753,
-       "geonames_name": "Kirakira"
-      }
-     ],
-     "mitte": {
-      "breite": -8.0295,
-      "laenge": 159.1705,
-      "quelle": "Natural Earth admin_0 Beschriftungspunkt"
-     },
-     "hauptstadt": {
-      "name": "Honiara",
-      "breite": -9.43333,
-      "laenge": 159.95,
-      "geonames_id": 2108502,
-      "geonames_name": "Honiara"
-     }
-    },
     {
      "land": "Australian Capital Territory",
      "iso": "AU",
@@ -10922,24 +10879,84 @@
     "geonames_id": 2186313,
     "geonames_name": "Napier"
    }
+  ],
+  "Salomonen": [
+   {
+    "stadt": "Gizo",
+    "breite": -8.10303,
+    "laenge": 156.84186,
+    "geonames_id": 2108857,
+    "geonames_name": "Gizo"
+   },
+   {
+    "stadt": "Noro",
+    "breite": -8.22274,
+    "laenge": 157.19978,
+    "geonames_id": 2104863,
+    "geonames_name": "Noro"
+   },
+   {
+    "stadt": "Buala",
+    "breite": -8.14497,
+    "laenge": 159.59212,
+    "geonames_id": 2109528,
+    "geonames_name": "Buala"
+   }
+  ],
+  "Brasilien – Mittelwesten": [
+   {
+    "stadt": "Pirenópolis",
+    "breite": -15.85072,
+    "laenge": -48.96087,
+    "geonames_id": 3453512,
+    "geonames_name": "Pirenópolis"
+   },
+   {
+    "stadt": "Goiânia",
+    "breite": -16.67861,
+    "laenge": -49.25389,
+    "geonames_id": 3462377,
+    "geonames_name": "Goiânia"
+   },
+   {
+    "stadt": "Cuiabá",
+    "breite": -15.59611,
+    "laenge": -56.09667,
+    "geonames_id": 3465038,
+    "geonames_name": "Cuiabá"
+   },
+   {
+    "stadt": "Campo Grande",
+    "breite": -20.44278,
+    "laenge": -54.64639,
+    "geonames_id": 3467747,
+    "geonames_name": "Campo Grande"
+   },
+   {
+    "stadt": "Corumbá",
+    "breite": -19.00917,
+    "laenge": -57.65333,
+    "geonames_id": 3465342,
+    "geonames_name": "Corumbá"
+   }
   ]
  },
  "selbstpruefung": {
-  "fluege": 94,
-  "davon_neue_teile": 7,
-  "laender": 94,
-  "staedte": 612,
-  "staedte_einmalig": 612,
-  "staedte_mit_koordinaten": 612,
-  "neue_etappen_noch_nicht_in_db": 6,
+  "fluege": 95,
+  "davon_neue_teile": 8,
+  "laender": 95,
+  "staedte": 615,
+  "staedte_einmalig": 615,
+  "staedte_mit_koordinaten": 615,
+  "neue_etappen_noch_nicht_in_db": 9,
   "reserve_laender": {
    "Europa": 5,
    "Nordamerika (mit Mittelamerika und Karibik)": 3,
    "Asien (ohne Orient)": 3,
    "Orient (Naher Osten und Kaukasus) – neu, ersetzt Antarktis": 4,
    "Afrika": 3,
-   "Südamerika": 4,
-   "Australien (nach Bundesstaaten) und Ozeanien": 2,
+   "Südamerika": 3,
+   "Australien (nach Bundesstaaten) und Ozeanien": 1,
    "Pazifik": 3
   },
   "expeditionen": 21,
@@ -10954,8 +10971,9 @@
    "46-2: Marokko → Algerien (nächste Städte 58 km; zum vorigen Teil 58 km)",
    "46-3: Marokko → Mauretanien (nächste Städte 1549 km; zum vorigen Teil 1967 km)",
    "44-2: Ruanda → Burundi (nächste Städte 95 km; zum vorigen Teil 95 km)",
+   "101-2: Brasilien – Südosten → Brasilien – Mittelwesten (nächste Städte 625 km; zum vorigen Teil 625 km)",
    "91-2: Paraguay → Brasilien – Süden (nächste Städte 8 km; zum vorigen Teil 8 km)",
-   "61-2: Neuseeland – Nordinsel → Neukaledonien (nächste Städte 1807 km; zum vorigen Teil 1807 km)"
+   "61-2: Neuseeland – Nordinsel → Salomonen (nächste Städte 3206 km; zum vorigen Teil 3206 km)"
   ],
   "lange_teilstrecken_ueber_700km": [
    "Calgary → Winnipeg: 1203 km Luftlinie",
@@ -10971,10 +10989,11 @@
   ],
   "fehler": [],
   "hinweise": [
-   "Reserve Australien (nach Bundesstaaten) und Ozeanien: nur 2 Länder",
+   "Reserve Australien (nach Bundesstaaten) und Ozeanien: nur 1 Land",
    "Reserve Australian Capital Territory: 4 Städte (Ziel 6–8)",
    "Reserve Palau: 3 Städte (Ziel 6–8)",
    "Kurzflug 44-2 Burundi: 2 Städte (erlaubt, Teilung 16:20 Punkt 3)",
+   "Kurzflug 101-2 Brasilien – Mittelwesten: 1 Stadt (erlaubt, Teilung 16:20 Punkt 3)",
    "Kurzflug 61-1 Neuseeland – Nordinsel: 2 Städte (erlaubt, Teilung 16:20 Punkt 3)"
   ]
  }

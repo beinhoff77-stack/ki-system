@@ -2876,3 +2876,19 @@ Schon erledigt bzw. beauftragt: 2 und 57 (seit LK-D 3 Ergänzung als begründete
 - **B3 (Muss):** Schulartwechsel eines Kindes: Historie (Karten, Sterne, Erstabschlüsse, Stempel) bleibt; neue Pflicht-Etappen öffnen den Teil wieder, ohne etwas zu löschen oder doppelt zu buchen; Rückwechsel macht sie wieder zur Kür.
 **An Gestalter / `bau-motivation`:** je Etappe sichtbar „Pflicht im Gymnasium / Kür in der Realschule“ mit Lehrplan-Bezug; Nenner je Kind.
 **Karte (RK):** Marokko–Algerien–Mauretanien nicht als befahrbare Strecke darstellen (Linie nur dekorativ); Antarktis-Stationen als virtuelle Ziele; Quellenangaben auf der Info-Seite.
+
+## Bau-Auftrag NT – Nachtests bei kleinen Flügen (22.11., 17:50 Berlin) · Entscheidung Sebastian: ja
+
+**Problem:** Nachtests (10/25/60 Lerntage) ziehen je Pflicht-Etappe eine Sicherungs-Aufgabe; Quote ≥ 0,8 bestanden, ≥ 0,6 wiederholen, sonst Rückreise. Bei 2 Etappen bedeutet ein Fehler 50 % = Rückreise.
+**Regel (entschieden):** Jeder Nachtest hat **mindestens 5 Aufgaben je Flug**: 1 Pflicht-Etappe → 5 Aufgaben, 2 → je 3, 3–4 → je 2, ab 5 → je 1. Gezählt werden nur Pflicht-Etappen des Kindes (Kür je Schulart). Keine Aufgabe doppelt innerhalb eines Nachtests; über die drei Nachtests möglichst keine Wiederholung.
+**NT-S · an `bau-lehrer`** (Datei `supabase/migrations/20261124_nt_s_nachtest_menge.sql`, nach TL-S; nicht einspielen): `test_starten_intern` (Nachtest-Zweig) nach der Regel; Quote und Einstufung unverändert; Rauchtest mit 1, 2, 3, 5 Etappen (ein Fehler ≠ Rückreise bei kleinen Flügen). Dazu Liste liefern: je Etappe vorhandene Sicherungs-Aufgaben gegen den Bedarf für drei Nachtests (1 Etappe 15, 2 Etappen je 9, 3–4 je 6, ab 5 je 3), für den Stand **nach** der Teilung (15 Teile) und für alle bestehenden Flüge mit höchstens 4 Etappen. Meldung: „FERTIG: NT-S“ mit der Fehlliste.
+**NT-D · an `lehrplan-lb`** (nach der Fehlliste): fehlende Sicherungs-Aufgaben schreiben (eigene Formulierungen, Lösungen berechnet, mindestens zwei Aufgabentypen je Etappe, Prüfskript grün), Einspiel-SQL als Datei. Meldung: „FERTIG: NT-D“.
+Hinweis Flug-Test: bleibt wie er ist (ein Fehler löst nur den Korrektur-Test der Etappe aus).
+
+### Probelauf TL-S 2 auf der echten Datenbank (22.11., 18:05 Berlin) – eigener Schutz bricht ab · an `bau-lehrer`
+
+Stand `lernen-app` 0967562, zurückgerollt. Vorgänger (lk_korrektur neu, FP-S 4, LW-S 2, LK-S) laufen, fünf Rauchtests danach grün. Der Abbruch an `zuordnung_eintrag_id_idx` ist behoben.
+**TL-S 2 bricht jetzt am eigenen Abbruch-Vergleich ab** (Migration und `tl_s_rauchtest.sql`): „Thema 46 – Stufen/Reiseoptionen außerhalb der erlaubten Deltas“ für Kind 2. Vorher: `stufe komplett`, `gesetzt komplett`, `im_plan true`, 10 Etappen („Kann er komplett“ gesetzt). Nachher: Teil 1 (46) `komplett`, 6 Etappen, im Plan – die neuen Teile (116/121 …) aber `nicht_im_plan`.
+**Zu lösen:** Ein **gesetztes** Thema („Kann er komplett“ / „Kann er – aber wiederholen“) vererbt Setzung, Plan-Platz und alle Folgen an **jeden** Teil (bei „komplett“: alle Teile komplett; Wiederholungs-Setzung: je Teil mit den Etappen des Teils, Fälligkeiten unverändert). Zusatz-Teile der Schulart: gesetzt bleibt gesetzt, Plan-Art „zusatz“. Prüfen, welche weiteren Themen/Kinder gesetzt sind (lesend auf dem echten Stand) – der lokale Nachbau braucht Fälle „gesetzt komplett“, „gesetzt mit Wiederholung“, „im Plan, nicht begonnen“, „Rückreise“.
+Der Abbruch war sauber (Lernstand, Sterne, Reiseoptionen, Erstabschlüsse, Zahl der Themen/Aufgaben/Versuche unverändert) – der Schutz B4 wirkt.
+Meldung: „FERTIG: TL-S 3“.

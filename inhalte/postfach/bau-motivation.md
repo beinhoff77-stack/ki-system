@@ -2,6 +2,28 @@
 
 Neueste oben.
 
+## FERTIG: TL-S 2 (22.11., bau-lehrer)
+
+**Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql` (eine atomare Migration, nicht eingespielt, kein DROP/DELETE), `supabase/tests/tl_s_rauchtest.sql` (spielt die Migration ein, Rollback), neu `supabase/werkzeug/tl_s_daten.py` (Datenblock aus `lk_teilung_2211.json`), `supabase/tests/nachbau_live_constraints.sql` (echte Indizes/Constraints für lokale Nachbauten).
+**Reihenfolge:** lk_korrektur (neu) → FP-S 4 → LW-S 2 → LK-S → TL-S.
+
+**Fakten (lokal, Nachbau jetzt mit den echten eindeutigen Indizes/Constraints aus pg_indexes/pg_constraint, `thema_stufe` und `reiseoptionen` wie live):**
+- Abbruch `zuordnung_eintrag_id_idx` lokal nachgestellt und behoben. Lösung: je Punkt bleibt **ein** Hauptbezug – beim Teil mit den meisten Etappen des Punkts (Gleichstand: früherer Teil); die anderen Teile bekommen einen **Nebenbezug** mit `rolle` und ihren Etappen. `thema_lage_klasse` (LK-S) zählt Nebenbezüge von Geschwister-Teilen wie Hauptbezüge (Umbau per Anker, wiederholbar) → jeder Teil behält seine Klassen; `lehrplan_abdeckung` bleibt bei „Punkte mit Hauptthema“. Punkte „ganzes Thema“ (`*`) gelten für alle Teile (Nebenbezug). Index nicht erweitert.
+- Liste: 7 Themen / **15 Teile / 8 neue Flüge**, 34 Kanten inkl. `art_je_schulart` (z. B. 46 T3 ← T1 nur im Gym hart). Neue Etappen aus LK-D 3 (`cavalieri`, `koerper_symmetrie`, `gleichungen_binomisch`, `darstellen`, `raumwinkel`) sind eingeplant; live noch nicht vorhanden → übersprungen und gemeldet. **101 Teil 2** besteht nur aus `cavalieri` → wird als leere Hülle angelegt (Thema, Ort, Einheit im Entwurf, in keinem Plan, sperrt nichts; Zuordnungen folgen der vollen Etappenliste).
+- **B2 – eine Regel:** `schule.pflicht_lernziele(kind, einheit)` = Liste `bewertung.pflicht_je_schulart` der Gruppe (rs_I, rs_II_III, myp_standard …, über `kind_zweig`), sonst der Schulart, sonst `lernziele_pflicht`. `lernziele_anlegen` schreibt `lernziel_stand.pflicht` danach. Damit folgen Flug-Test-Wertung, Korrektur, Flug-Abschluss/Stempel, 100 Ort-Sterne, Nachtests, Ort-/Thema-Stand der Regel (alle lesen `lernziel_stand.pflicht`); `wdh_ablegen` und `konto_wd` auf die Regel umgestellt. `thema_stufe`: Teil mit 0 Pflicht-Etappen → kein Zwangstest; Kür-Fehler machen den Flug nicht „dran“. Teile: „vollständig“ (Stempel/100 Sterne) nur über die Pflicht-Etappen des Kindes.
+- **B3 – Schulartwechsel:** Trigger auf `lernender.schulart/zweig` gleicht `lernziel_stand.pflicht` der Einheiten mit Listen ab. Nichts wird gelöscht; neue Pflicht-Etappe = „offen“ → Flug wieder offen über den vorhandenen Nachtragstest (W177/I-5); Rückwechsel → wieder Kür. Erstabschluss/Stempel/Sterne bleiben, keine Doppelbuchung (Rauchtest 11).
+- Regressionen im Rauchtest: 3/3 Pflicht + 0/1 Kür → geschafft; nach Wechsel 3/4 → offen; Rückwechsel → geschafft; Sterne/Lernstand-Zeilen unverändert; 0 Pflicht → kein Test. Gültiger Testpfad: jede Pflicht-Etappe eines freigegebenen Teils hat eine Test-Aufgabe (Fehler sonst).
+- Ohne Daten aus LK-D 4 (`kuer_in`) ändert sich am Pflicht-Stand der Kinder nichts – Listen gibt es erst, wenn der Datenblock sie enthält (Werkzeug erzeugt sie aus `etappen[].kuer_in`).
+
+**Annahmen / offen:**
+- Live gibt es heute Kür nur als `lernziele_vertiefung` (26: erkennen, aenderung; 46: verschiebung, drehung, gegenvektor; 91: lage, koordinaten). Dadurch hat **46 Teil 2** nach der Teilung keine Pflicht-Etappe (für alle) → Zusatz ohne Zwangstest, kein Stempel. In der Realschule ist er laut Lehrplan Pflicht → LK-D 4 muss das mit `kuer_in` liefern.
+- Datenbank kennt nur `gym_by/rs_by/ib_myp` + `zweig` (rs_I/rs_II_III); IB-Gruppe (standard/extended) hat keinen Platz am Kind → `myp_standard` per `kind_zweig`.
+- Zusatz-**Teile** (Themen-Ebene) beim Schulartwechsel: Plan-Art (`zusatz`/`normal`) wird **nicht** automatisch umgestellt – gehört in Plan/Reise.
+
+**Vorschlag Aufteilung (B2 ist für eine Datei zu groß; in TL-S 2 nur, was die Teilung braucht):**
+1. TL-S 2 (diese Datei): Teilung, Zuordnungen, Kanten je Schulart, die Regel + Abgleich + Schulartwechsel, thema_stufe.
+2. **KS (eigener Auftrag, nach LK-D 4):** Tages-Wiederholung und Mischkarten nur aus Pflicht-Etappen; Blocktest-Auswahl und Korrektur-Test nur Pflicht (heute kommen Kür-Testaufgaben in den Blocktest, zählen aber nicht); `flug_erstabschluss_nachtragen`/`ort_stand` für Teile mit 0 Pflicht klären (Stempel ja/nein); Anzeige „Pflicht im Gym / Kür in der RS“ (Gestalter). Grund: das ändert das Verhalten für alle Flüge mit Vertiefung, nicht nur für die geteilten.
+
 ## FERTIG: TL-S (22.11., bau-lehrer)
 
 **Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql` (eine atomare Migration, nicht eingespielt, kein DROP/DELETE), `supabase/tests/tl_s_rauchtest.sql` (spielt die Migration in einer Transaktion ein, prüft, Rollback).

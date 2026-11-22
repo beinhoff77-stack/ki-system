@@ -51,7 +51,7 @@ KONTINENTE = [
    28: ("Vietnam", "VN", None, ["Hanoi", ("Ha Long","Ha Long"), ("Hue","Huế"), ("Da Nang","Da Nang"), ("Hoi An","Hội An"), ("Ho-Chi-Minh-Stadt","Ho Chi Minh City")]),
    102: ("Usbekistan", "UZ", None, [("Fergana","Fergana"), ("Taschkent","Tashkent"), "Samarkand", ("Buchara","Bukhara"), ("Chiwa","Khiva")]),
    "29-1": ("Kasachstan", "KZ", None, ["Almaty", ("Taras","Taraz"), ("Schymkent","Shymkent"), ("Türkistan","Turkestan"), ("Kysylorda","Kyzylorda")]),
-   "29-2": ("Turkmenistan", "TM", None, [("Daschoguz","Dashoguz"), ("Aschgabat","Ashgabat"), ("Turkmenbaschi","Turkmenbashi")]),
+   "29-2": ("Turkmenistan", "TM", None, [("Daschoguz","Dashoguz"), ("Türkmenabat","Turkmenabat"), "Mary", ("Aschgabat","Ashgabat")]),
    2: ("Kirgisistan", "KG", None, [("Bischkek","Bishkek"), ("Tscholpon-Ata","Cholpon-Ata"), "Karakol", "Naryn", ("Dschalal-Abad","Jalal-Abad"), ("Osch","Osh")]),
    69: ("Mongolei", "MN", None, ["Ulaanbaatar", ("Darchan","Darhan"), "Erdenet", ("Charchorin (Karakorum)","Kharkhorin")]),
    3: ("Indonesien", "ID", None, ["Jakarta", "Bandung", "Yogyakarta", ("Solo","Surakarta"), "Surabaya", "Malang", "Denpasar"]),
@@ -106,9 +106,10 @@ KONTINENTE = [
    100: ("Kolumbien", "CO", None, ["Cartagena", "Barranquilla", "Santa Marta", ("Medellín","Medellín"), "Salento", "Cali", ("Bogotá","Bogotá")]),
    51: ("Argentinien", "AR", None, ["Buenos Aires", "Rosario", "Mendoza", ("San Miguel de Tucumán","San Miguel de Tucumán"), "Salta", ("Puerto Iguazú","Puerto Iguazú")]),
    52: ("Bolivien", "BO", None, ["Copacabana", "La Paz", "Uyuni", ("Potosí","Potosí"), "Sucre", "Cochabamba"]),
-   101: ("Brasilien – Südosten", "BR", "BR_SUEDOST", ["Santos", ("São Paulo","São Paulo"), "Campinas", "Belo Horizonte", "Ouro Preto", ("Petrópolis","Petropolis"), "Rio de Janeiro"]),
+   "101-1": ("Brasilien – Südosten", "BR", "BR_SUEDOST", ["Santos", ("São Paulo","São Paulo"), "Campinas", "Belo Horizonte", "Ouro Preto", ("Petrópolis","Petropolis"), "Rio de Janeiro"]),
+   "101-2": ("Brasilien – Mittelwesten", "BR", "BR_MITTELWEST", [("Brasília","Brasilia")]),
    "91-1": ("Paraguay", "PY", None, [("Asunción","Asunción"), "San Bernardino", "Ciudad del Este"]),
-   "91-2": ("Brasilien – Süden", "BR", "BR_SUED", [("Foz do Iguaçu","Foz do Iguaçu"), "Curitiba", ("Florianópolis","Florianopolis")]),
+   "91-2": ("Brasilien – Süden", "BR", "BR_SUED", [("Foz do Iguaçu","Foz do Iguaçu"), "Curitiba", ("Florianópolis","Florianopolis"), "Porto Alegre"]),
    92: ("Chile", "CL", None, [("San Pedro de Atacama","San Pedro de Atacama"), "Antofagasta", ("Copiapó","Copiapó"), "La Serena", ("Viña del Mar","Viña del Mar"), ("Valparaíso","Valparaíso"), "Santiago de Chile"]),
  }},
  {"kontinent_id": 7, "themengebiet": "Daten und Zufall", "reise": "Australien (nach Bundesstaaten) und Ozeanien", "fluege": {
@@ -117,7 +118,7 @@ KONTINENTE = [
    58: ("Tasmanien", "AU", "06", ["Hobart", "Launceston", "Devonport"]),
    95: ("Western Australia", "AU", "08", ["Perth", "Fremantle", "Margaret River", "Albany", "Esperance", "Kalgoorlie"]),
    "61-1": ("Neuseeland – Nordinsel", "NZ", "NORD", ["Auckland", "Wellington"]),
-   "61-2": ("Neukaledonien", "NC", None, [("Nouméa","Noumea"), ("Païta","Paita"), "Bourail", ("Koné","Kone")]),
+   "61-2": ("Salomonen", "SB", None, ["Honiara", "Tulagi", "Auki", "Kirakira"]),
    63: ("Queensland", "AU", "04", ["Gold Coast", "Brisbane", "Noosa Heads", "Hervey Bay", "Bundaberg", "Rockhampton", "Mackay", "Airlie Beach", "Townsville", "Cairns", "Port Douglas"]),
    62: ("New South Wales", "AU", "02", ["Sydney", "Wollongong", ("Katoomba","Katoomba"), "Bathurst", "Dubbo", "Tamworth", "Coffs Harbour", "Port Macquarie", "Newcastle"]),
    64: ("Northern Territory", "AU", "03", ["Darwin", "Jabiru", "Katherine", "Tennant Creek", "Alice Springs", "Yulara"]),
@@ -162,18 +163,18 @@ NACHBARSCHAFT = {
  "44-2": "Ruanda ↔ Burundi: gemeinsame Landgrenze",
  "46-2": "Marokko ↔ Algerien: gemeinsame Landgrenze",
  "46-3": "Marokko ↔ Mauretanien: nur über das umstrittene Westsahara-Gebiet; Nachbar von Teil 2 (Algerien) mit Landgrenze",
- "61-2": "Neuseeland – Nordinsel ↔ Neukaledonien: über das Meer (ca. 1 500 km), keine Landgrenze",
+ "61-2": "Neuseeland – Nordinsel → Salomonen: kein Nachbar (über das Meer, ca. 2 900 km); Entscheidung Sebastian 22.11. 17:05 – keine strittigen Gebiete, Neuseelands Nachbarn sonst belegt",
+ "101-2": "Brasilien – Südosten ↔ Brasilien – Mittelwesten: gemeinsame Grenze (Minas Gerais ↔ Goiás/Distrito Federal)",
  "91-2": "Paraguay ↔ Brasilien – Süden: gemeinsame Landgrenze (Ciudad del Este ↔ Foz do Iguaçu)",
 }
 
-# Weitere Teilungen sind möglich (lehrplan-lb prüft 2, 57, 101). Vorgemerkte Nachbarländer – erst eintragen, wenn
+# Weitere Teilungen sind möglich (lehrplan-lb prüft 2, 57; 101 ist seit LK-D 3 geteilt). Vorgemerkte Nachbarländer – erst eintragen, wenn
 # lk_teilung_2211.json die Teilung enthält: Flug-Schlüssel "thema-1" (bisheriges Land) und "thema-2" … (neues Land),
 # Städte je Teil in der Etappen-Reihenfolge des Teils, Eintrag in NACHBARSCHAFT; das Neue aus RESERVE nehmen.
 VORGEMERKT = {
  2: "Kirgisistan → Tadschikistan (Reserve Asien, gemeinsame Landgrenze)",
  57: "South Australia → KEIN freier Nachbar: WA, NT, QLD, NSW, VIC sind belegt. Möglich: Australian Capital Territory "
      "(Reserve, kein Nachbar, 4 Orte) oder Kangaroo Island als eigener Landesteil – Entscheidung nötig. Adelaide (begonnen) bleibt in Teil 1.",
- 101: "Brasilien – Südosten → Brasilien – Mittelwesten oder – Nordosten (Reserve Südamerika, beide grenzen an)",
 }
 
 # Städte, die durch die Teilung frei werden – bleiben dem Land als Reserve-Städte
@@ -184,6 +185,8 @@ RESERVE_STAEDTE = {
  "Ruanda": ["Nyanza"],
  "Paraguay": [("Encarnación","Encarnación"), ("Concepción","Concepción")],
  "Neuseeland – Nordinsel": ["Hamilton", "Rotorua", ("Taupō","Taupo"), "Napier"],
+ "Salomonen": [("Gizo","Gizo"), "Noro", "Buala"],
+ "Brasilien – Mittelwesten": [("Pirenópolis","Pirenopolis"), ("Goiânia","Goiania"), ("Cuiabá","Cuiaba"), "Campo Grande", ("Corumbá","Corumba")],
 }
 
 # Reserve-Länder je Kontinent (frei für neue Themen); (Land, ISO, Landesteil, Städte als fahrbare Strecke)
@@ -207,11 +210,9 @@ RESERVE = {
      ("Sambia", "ZM", None, ["Livingstone", "Mongu", "Lusaka", "Kabwe", "Ndola", "Kitwe", "Chipata"]),
      ("Malawi", "MW", None, ["Blantyre", "Zomba", "Mangochi", "Salima", "Lilongwe", "Nkhata Bay", "Mzuzu"])],
  6: [("Brasilien – Nordosten", "BR", "BR_NORDOST", ["Salvador", "Aracaju", ("Maceió","Maceio"), "Recife", "Olinda", ("João Pessoa","Joao Pessoa"), "Natal", "Fortaleza"]),
-     ("Brasilien – Mittelwesten", "BR", "BR_MITTELWEST", [("Brasília","Brasilia"), ("Pirenópolis","Pirenopolis"), ("Goiânia","Goiania"), ("Cuiabá","Cuiaba"), "Campo Grande", ("Corumbá","Corumba")]),
      ("Brasilien – Norden", "BR", "BR_NORD", [("Macapá","Macapa"), ("Belém","Belem"), ("Santarém","Santarem"), "Manaus", "Boa Vista", "Porto Velho"]),
      ("Suriname", "SR", None, ["Nieuw Nickerie", "Paramaribo", "Lelydorp", "Brownsweg", "Moengo", "Albina"])],
- 7: [("Salomonen", "SB", None, [("Gizo","Gizo"), "Noro", "Buala", "Honiara", "Tulagi", "Auki", "Kirakira"]),
-     ("Australian Capital Territory", "AU", "01", ["Canberra", "Gungahlin", "Belconnen", "Tuggeranong"])],
+ 7: [("Australian Capital Territory", "AU", "01", ["Canberra", "Gungahlin", "Belconnen", "Tuggeranong"])],
  8: [("Mikronesien", "FM", None, [("Colonia (Yap)","Colonia"), "Weno", "Kolonia", "Palikir", "Tofol", "Lelu"]),
      ("Amerikanisch-Samoa", "AS", None, ["Pago Pago", ("Aūa","Aua"), ("Tāfuna","Tafuna"), "Faleniu", "Vaitogi", "Leone"]),
      ("Palau", "PW", None, ["Koror", "Kloulklubed", "Ngerkeai"])],

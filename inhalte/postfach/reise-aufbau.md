@@ -1,5 +1,32 @@
 # Postfach reise-aufbau
 
+## 2026-11-22 17:30 – FERTIG: Reise-Aufbau 3
+
+Grundlage: AUFTRAEGE `lernen-app` 723770dd, „Entscheidungen Sebastian (17:05)“, Abschnitt „An reise-aufbau – Reise-Aufbau 3“. Nur Vorschlag – kein App-Code, keine DB-Änderung (DB nur gelesen). Dateien in `inhalte/reise/`.
+
+**Ergebnis (Prüfskript grün, Exit 0):**
+- 95 Flüge (87 + 8 neue Teile); 95 Länder/Landesteile, jedes einmal.
+- 615 Städte (606 + 9 neue Etappen), jede einmal; Städte = Etappen bei allen Flügen.
+- 615/615 Städte in GeoNames im richtigen Land/Landesteil, alle mit Koordinaten; 9/9 begonnene Orte erhalten.
+
+**Umgesetzt:**
+- **61 Teil 2 → Salomonen:** Honiara → Tulagi → Auki → Kirakira. Kein Nachbar Neuseelands, wie entschieden.
+- **101 geteilt:** Teil 1 bleibt Brasilien – Südosten (7 Städte); **Teil 2 → Brasilien – Mittelwesten**, Kurzflug mit Brasília (`cavalieri`). Die beiden Großregionen grenzen aneinander.
+- **Neue Etappen LK-D 3:**
+  - 91 `koerper_symmetrie` → Porto Alegre
+  - 29 `gleichungen_binomisch` → Turkmenistan, neu geordnet: Daschoguz → Türkmenabat → Mary → Aschgabat
+  - 101 `cavalieri` → Brasília
+- **Marokko → Algerien → Mauretanien** unverändert.
+- **Kür je Etappe:** Das Prüfskript übernimmt `etappen[].kuer_in` aus `lk_teilung_2211.json`, sobald LK-D 4 es liefert (heute noch nicht in der JSON). An der Reise ändert das nichts, auch Kür-Etappen haben eine Stadt.
+- **Abgleich `lk_teilung_2211.json`** (723770dd, 7 Themen, 15 Teile): alle Teile da, Etappen disjunkt und vollständig.
+- **Abgleich DB:** unverändert seit Reise-Aufbau 2 (Prüfsumme über Einheiten und Lernziele identisch).
+
+**Offen:**
+1. **Reserve Ozeanien:** nur noch 1 Gebiet (Australian Capital Territory, 4 Orte). Mehr geht nur, wenn ein belegtes Gebiet geteilt wird, z. B. „Papua-Neuguinea – Inseln“.
+2. **Falls 57 geteilt wird:** South Australia hat keinen freien Nachbarn – Australian Capital Territory oder Kangaroo Island als Landesteil.
+3. **Falls 2 geteilt wird:** Tadschikistan ist vorgemerkt (Landgrenze). Asiens Reserve sinkt dann auf 2.
+4. **Lizenz COMNAP** (Stationen): nur Bildung/nicht kommerziell – in die Lizenzklärung RK.
+
 ## 2026-11-22 16:55 – FERTIG: Reise-Aufbau 2
 
 Grundlage: AUFTRAEGE `lernen-app` ea507c4 („Vorschlag fortschreiben“ 15:25, „Entscheidung Teilung“ 16:20), Berichtigung Sebastian: **7 neue Flüge (13 Teile), nicht 9**. Nur Vorschlag – kein App-Code, keine DB-Änderung (DB nur lesend). Dateien in `inhalte/reise/`; Bericht `aufbau-vorschlag.md`, Daten `aufbau-vorschlag.json`.

@@ -2,6 +2,41 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: LW-1 – App 0.88.0 „Unser Lehrplan“ (Reiter „Lehrplan“), Cache v163
+
+Auf `lernen-app` (mit Vorgabe `inhalte/pruefung/lehrer/werkstatt/umsetzung.md`) und 0.87.2. Nur App, Version in sechs Dateien, Tests, Info-Seite. Nichts in der Datenbank, kein Merge nach `main`.
+Bilder: `docs/previews/la/lw1-1280.png` (Detail offen), `lw1-820.png` (Fahrplan-Schublade), `lw1-400-fahrplan.png`, `lw1-400-detail.png`.
+
+**Gebaut**
+- **Kind-Seite mit drei Reitern** Überblick · Was wackelt · Lehrplan. Alte Adressen `#/kind/<id>-stand[-<schulart>]`, `-plan`, `#/plan/<id>`, `#/lernstand/<id>[-<schulart>]` führen auf „Lehrplan“ (mit Schulart → „Einordnen“). Links auf Überblick, „Zu tun“ und Info-Seite umgestellt. Der alte Reiter „Plan“ (viewPlan) ist entfernt; „Stand“ (Landkarte) ist nicht mehr erreichbar, „Alle Kinder im Vergleich“ bleibt.
+- **Leiste:** Einordnen Gym | RS | IB · Zeigen Alle Themen | Noch nicht im Plan · n | Im Plan · n (hebt hervor, nichts verschwindet) · **Klassen 5–10 Mehrfachauswahl** (Standard: Klasse des Kindes bis 10, je Kind auf dem Gerät gemerkt `lw.kl.<id>`, blauer Punkt = Themen aus dem Fahrplan, mindestens eine bleibt an) · Einstieg prüfen ▾ (Ampel, Fehlendes hervorgehoben, „Orientierung, keine Einstufung“) · Suchen · Auswählen · Stand/„↶ Rückgängig“ dauerhaft. Legende einzeilig.
+- **Fahrplan links (268 px):** Gerade dran (blau, Balken „Etappe x/y“), Kommt noch nummeriert (gelb), Ziehen am Griff ⋮⋮ und ↑ ↓ (Rechner beim Darüberfahren, Tablet/Handy immer), Ort mit mehreren Flügen „Flüge ▸“ klappt auf; unten zugeklappt „↻ In Wiederholung n ›“ und „✓ Fertig (kann er) n ›“ mit „Wieder in die Wiederholung“; „✎ Ändern lassen“ zum Plan. Darüberfahren hebt die Karten in der Matrix hervor.
+- **Matrix:** Spalten Themengebiete (Kopf klebt), Zeilen Klassen (Klassen-Kasten klebt links) mit **drei Ringen** (groß gewählte Schule mit „%“ und „n/m Themen“, klein die beiden anderen), Rechnung nach Abschnitt 2 (gelandete Etappen / alle Etappen der Pflichtthemen, IB = Klasse − 5, aufgelöste zählen nicht). **Ganz gekonnte Klassen eingeklappt** („✓ Alles gekonnt · n Themen · davon m in Wiederholung · aufklappen ▾“). Beim Öffnen scrollt die Matrix zum ▶-Thema.
+- **Karten** nach Abschnitt 3 (schon jetzt, nicht erst LW-2): blau gerade dran, hellgelb im Plan mit Platznummer, hellgrün Wiederholung, durchsichtig fertig, weiß eigene Schule, grau nur andere Schule; Stand-Zeile (`▶ Etappe 3/7`, `Platz 4`, `↻ Wdh 2/5`, `◉ kann er/gesetzt`, `2/7 begonnen`, `+ einplanen`), Schul-Kennzeichen `Gym 8 RS 7 IB 4` (Tablet/Handy `G8 R7 I4`), „+“ beim Darüberfahren.
+- **Detail als Schublade** von rechts (390 px; Handy: Blatt von unten, 82 %): Kopf mit ✕ (auch Esc), Stand von ‹Kind› mit jeder Etappe (gelandet / Wiederholung / gerade dran „n von m“ / begonnen mit Fehlern / offen / freiwillig), Planen („In den Plan: als Nächstes ▾“ mit „… ans Ende“, „… nach Lehrplan einsortieren“; im Plan „Als Nächstes“, „Ans Ende“, „Aus dem Plan“), Stufe als Segment (Lernen | Kann er – wiederholen | Kann er komplett, bei ◉ „Wieder in die Wiederholung“), Lehrstoff („Inhalte ansehen (n Etappen) ›“, „Fehler besprechen (n) ›“, ohne Inhalt „Bitte Inhalte bauen“), Zusammenhang (Braucht vorher / Darauf baut auf als kleine Karten mit ✓ / Platz n / fehlt, antippen öffnet). Detail lädt `schule_lehrplan_thema` mit `lernender_id`.
+- **Meldung unten** „‹Thema› als Nächstes eingeplant · ↶ Rückgängig“ (5 s). Speichern, Revision, Rückgängig mit Schritt des Servers, Konflikt „Neu laden“ (Seite gesperrt) wie bisher im Plan. Nach jedem Speichern werden Plan, Raster und Lernstand neu geholt.
+- **Tablet (760–1099):** Matrix volle Breite, Fahrplan als Schublade von links über „Fahrplan · n“. **Handy (< 760):** Umschalter „Fahrplan · n | Alle Themen“, je Klasse eine Karte mit Kasten und Ringen.
+- **Nachschlagen → Lehrplan:** keine Stufen-Knöpfe mehr; im Detail „Für ‹Kind› planen ›“ öffnet diesen Reiter mit dem Thema (Klasse wird eingeblendet und aufgeklappt). Der Klassenkopf trägt die Ring-Zahl derselben Rechnung (`data-ring`) – Test: gleiche Zahlen.
+- Expeditionen des Kindes (früher unter „Stand“) stehen unter der Matrix.
+
+**Abweichungen / Annahmen**
+- Fahrplan-Eintrag = Ort (wie heute im Plan), Abschnitt 10 letzter Punkt; „Als Nächstes“ setzt den Ort vor den ersten „kommt noch“-Ort.
+- Kein Ziehen Matrix ↔ Fahrplan und keine Reihenfolge-Warnungen – das ist LW-2. „Alle n einplanen“ ebenfalls LW-2.
+- Rückgängig auch dauerhaft oben rechts (nicht nur 5 s in der Meldung), damit „Rückgängig“ aus „Plan“ nicht verloren geht.
+- Die „Ort-Einstellung“ „alle Flüge: kann er komplett“ und „Ort aus dem Plan nehmen“ gibt es nicht mehr als eigene Knöpfe – dafür „Auswählen“ (mehrere Themen, ein Schritt).
+
+**Getestet:** neu 6 LW-1-Tests (Reiter/Umleitungen, Klassenwahl, Ringe = Nachschlagen, Zeigen/Einstieg/Suche, Detail, Planen + Rückgängig, Ziehen/↑↓, Auswählen/Sammelaktion, Wieder in die Wiederholung, Konflikt „Neu laden“, 400/820/1280). 34 Tests des alten Plan-/Stand-Bildschirms entfernt, ihr Inhalt steckt in den LW-Tests; 12 weitere angepasst. Lernen alle grün. Gesamtlauf sonst nur Reise-Tests (bekannte + W132/W175 mit Tagesdatum). **Nicht geprüft:** echter Server, echte Geräte.
+
+## 2026-11-22 – FERTIG: 0.87.2 – Nachprüfung Kinderansicht (S1, S2, K2, K3), Cache v162
+
+Auf `lernen-app` eadcfb4, getrennt von LW-1 (LW-1 liegt noch unfertig zur Seite). Nur App, Version in sechs Dateien, Tests. Nichts in der Datenbank, kein Merge nach `main`.
+- **S1:** Die Ansage „Vorher kurz einchecken“ steht jetzt direkt unter der Abflugtafel (vor Fortschritt, Stempel, Knobel). Zusätzlich über dem festen Knopf eine Zeile „Erst 9 Bordkarten Check-in · ca. 5 Min.“ (Zahl aus `offen` der Runde; nach Unterbrechung „Noch n …“). 360×640 und 400×860: Zeile einzeilig im Bild über „Weiter geht’s“.
+- **S2:** Hinweis bei 5 Sternen als eigene Zeile über die volle Breite der Rückmeldung (am Ende des grünen Kastens, unter „Weg zur Lösung“), nicht mehr als schmale Mittelspalte.
+- **K2:** Pause-Link „Pause – später weiter einchecken“ im Tag-Modus dunkel und fett (Kontrast ≥ 4,5).
+- **K3:** Auswahl-Antworten mit `hyphens: auto` (Seite ist `lang="de"`), Umbruch nur noch mit Trennstrich.
+Bilder: `docs/previews/la/0872-ansage-360.png`, `0872-fuenf-400.png`.
+
+**Getestet:** neu 5 (S1 und S2 je 360×640 und 400×860, K2/K3). Gesamtlauf 310 grün; Fehler nur die bekannten Reise-Tests und W175 (rechnet mit dem Tagesdatum: „Tag 12“ statt „Tag 11“ seit Mitternacht – nicht von mir, betrifft die Reise-Seite). **Nicht geprüft:** echte Geräte.
 ## 2026-11-22 – FERTIG: LK-S 2 – Nacharbeit ChatGPT 934 (B1–B6, Befüllung aus lk_daten_2211.json)
 
 Zweig `bau-lehrer`, auf `lernen-app` e9a0d66. In der gelieferten, noch nicht eingespielten Datei korrigiert: `supabase/migrations/20261123_lk_s_thema_je_klasse.sql`; Test `supabase/tests/lk_s_rauchtest.sql` neu gefasst. Nichts eingespielt, kein DROP, kein DELETE.

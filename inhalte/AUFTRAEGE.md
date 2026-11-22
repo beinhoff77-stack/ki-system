@@ -2770,3 +2770,16 @@ Nur Vorschlag, kein App-Code, keine Datenbank-Änderung. Meldung: „FERTIG: Rei
 - **Sollte A3:** 43, 69, 71 im Gymnasium als Zusatz/Vertiefung kennzeichnen (Entscheidung Sebastian offen).
 - **IB Muss B1:** Bericht nennt 3 harte Voraussetzungs-Verstöße je Kurs, die JSON enthält 2 (63 ← 61; 29 ← 102). Bericht berichtigen oder den dritten belegen.
 - **FP-S 4:** code-seitig in Ordnung; Sollte: Paralleltest mit echter Sperrbarriere/Timeout statt `sleep` (an `bau-lehrer`, ohne Eile).
+
+## Bau-Auftrag RK – Reisekarte der Kinderseite (22.11., 16:05 Berlin) · vorgemerkt, noch NICHT bauen
+
+Sebastian: „Das soll die neue Darstellung werden – aber erst, wenn die neuen Etappen umgesetzt sind. Zudem braucht er dann noch die echten Städte und deren Position.“
+**Vorgabe (gilt):** `inhalte/pruefung/kind/karte/umsetzung.md`, Entwurf `karte/entwurf/reisekarte.html`, Bilder `karte/bilder/` – in `lernen-app` übernommen. Ersetzt die Anzeigetafel der Kinderseite. Entscheidungen Sebastian: echte Karte ohne Google; Land-Zeichen als Flaggen-Pin (Kopf = Flagge, Spitze = Hauptstadt, Schild Land + Hauptstadt); Startknopf schwebend in der Karte; dezente gezeichnete Linie statt Straßenverlauf; keine eigene Karte für Eltern/Lehrer. Ebenen Welt › Kontinent › Land, alles aus den Daten (keine feste Anzahl); golden = „alles sitzt“.
+
+**Reihenfolge (verbindlich):**
+1. Teilungsliste (`lehrplan-lb`, LK-D 2) → Entscheidung Sebastian.
+2. Teilen in der Datenbank (`bau-lehrer`, Teil-Verfahren) – „die neuen Etappen“.
+3. Reise-Aufbau fortschreiben (`reise-aufbau`): je Flug/Teil ein Land, je Etappe eine Stadt, **mit Koordinaten je Stadt und je Antarktis-Station, deutschen Hauptstadt-Namen, ISO-Ländercode je Land** (für Flagge und Kartenpfad).
+4. Reise-Aufbau in die Datenbank (`bau-lehrer`): Länder/Städte je Thema/Etappe, Lernstand und Stempel übernehmen.
+5. **RK-App** (`bau-motivation`): Karte nach Vorgabe; Kartenpfade im Build vorrechnen, je Kontinent eine Datei, Flaggen erst beim Anzeigen laden, kein Kartenserver.
+**Vor dem Bau zu klären (Haupt-Chat):** Lizenzen der Quellen – Natural Earth (gemeinfrei), flag-icons, i18n-iso-countries, countries-list (MIT), GeoNames (CC BY 4.0, Quellenangabe auf der Info-Seite); Größe der Kartendateien für die statische Seite.

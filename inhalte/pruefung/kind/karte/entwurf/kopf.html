@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Entwurf: Reisekarte für Kinder</title>
+<style>
+:root{--f:'Avenir Next','Segoe UI',system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0;font-family:var(--f);background:#E9E6DF;color:#1E2A26}
+.steuer{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 16px;background:#fff;border-bottom:1px solid #DDD6C6;position:sticky;top:0;z-index:50;font-size:13px}
+.steuer b{font-size:11px;letter-spacing:.06em;color:#6B726E;margin-left:6px}
+.seg{display:inline-flex;background:#F1EEE6;border-radius:10px;padding:3px}.seg button{border:0;background:transparent;padding:6px 10px;border-radius:8px;font:inherit;font-weight:650;color:#4A5550;cursor:pointer}.seg button.an{background:#fff;color:#1E2A26;box-shadow:0 1px 3px #0002}
+.hinweis{font-size:12px;color:#6B726E;padding:8px 16px}
+#buehne{display:flex;justify-content:center;padding:18px}
+.geraet{background:var(--bg);color:var(--tx);border-radius:28px;overflow:hidden;box-shadow:0 10px 40px #0003;position:relative;display:flex;flex-direction:column}
+.geraet.handy{width:400px;height:860px}.geraet.rechner{width:1280px;height:820px;border-radius:16px}
+/* Farben Tag/Nacht */
+.tag{--grenzeD:#8F8775;--bg:#F6F3EC;--tx:#1E2A26;--leise:#6B726E;--meer:#CFE4EF;--meer2:#BBD8E8;--gitter:#B5D2E2;--land:#EDE8DC;--fremd:#E3DED1;--grenze:#FFFFFF;--offen:#FBF9F4;--gesch:#CDE7C1;--geschR:#5E9E4A;--gold:#F3D57A;--goldR:#C99600;--dran:#BFD8F7;--dranR:#1F5FA8;--plan:#FFF0B5;--planR:#D9A400;--sperr:#DAD6CC;--karte:#fff;--linie:#E2DCCD;--label:#2C3A35;--hs:#1E2A26;--knopf:#FFD23F;--knopfT:#1E2A26}
+.nacht{--grenzeD:#5D738A;--bg:#0D141C;--tx:#EEF2F0;--leise:#9AA7A1;--meer:#0F2233;--meer2:#0B1B29;--gitter:#183049;--land:#1B2733;--fremd:#151F29;--grenze:#0D141C;--offen:#243444;--gesch:#24543A;--geschR:#5FCB86;--gold:#7A6420;--goldR:#F1C64A;--dran:#1E4B80;--dranR:#6EB0FF;--plan:#5A4A14;--planR:#F1C64A;--sperr:#1A232D;--karte:#16212C;--linie:#253545;--label:#D9E3DE;--hs:#EEF2F0;--knopf:#FFD23F;--knopfT:#1E2A26}
+.kopfzeile{display:flex;align-items:center;gap:10px;padding:14px 16px 10px}
+.kopfzeile h1{font-size:19px;margin:0;font-weight:800}.kopfzeile .st{margin-left:auto;font-weight:800;font-size:14px;background:var(--karte);border:1px solid var(--linie);border-radius:999px;padding:5px 11px}
+.brot{display:flex;gap:6px;padding:0 16px 8px;font-size:12.5px;font-weight:700;color:var(--leise);align-items:center}.brot a{color:var(--leise);cursor:pointer;text-decoration:none}.brot a.an{color:var(--tx)}.brot i{font-style:normal;opacity:.5}
+.kartenrahmen{position:relative;flex:1;min-height:0;overflow:hidden;background:var(--meer);touch-action:none;cursor:grab}
+.kartenrahmen svg{position:absolute;left:0;top:0;transform-origin:0 0;user-select:none}
+.zoom{position:absolute;right:10px;top:10px;display:flex;flex-direction:column;gap:6px;z-index:5}.zoom button{width:34px;height:34px;border-radius:10px;border:1px solid var(--linie);background:var(--karte);color:var(--tx);font-size:18px;font-weight:700;cursor:pointer}
+.legende{position:absolute;left:10px;top:10px;background:color-mix(in srgb,var(--karte) 88%,transparent);border:1px solid var(--linie);border-radius:12px;padding:7px 9px;font-size:10.5px;display:grid;gap:3px;z-index:5}
+.legende span{display:flex;align-items:center;gap:6px}.legende i{width:13px;height:10px;border-radius:3px;display:inline-block;border:1.5px solid}
+/* Karte */
+.land{stroke:var(--grenzeD);stroke-width:1.15;stroke-linejoin:round;vector-effect:non-scaling-stroke;cursor:pointer;transition:fill .2s}
+.land.fremd{fill:var(--fremd);cursor:default}.land.eu{fill:var(--offen)}
+.land.offen{fill:var(--offen)}.land.gesch{fill:var(--gesch)}.land.gold{fill:var(--gold)}.land.dran{fill:var(--dran)}.land.plan{fill:var(--plan)}.land.sperr{fill:url(#schraffur)}
+.land.sel{stroke:var(--tx);stroke-width:2.6}
+.umriss{fill:none;stroke-width:2.6;vector-effect:non-scaling-stroke;pointer-events:none}
+
+.hsname{paint-order:stroke;stroke:var(--bg);stroke-width:3.5px;stroke-linejoin:round;pointer-events:none}
+
+.route{fill:none;stroke-width:2;opacity:.8;vector-effect:non-scaling-stroke;stroke-linecap:round}
+.route.war{stroke:var(--geschR)}.route.kommt{stroke:var(--planR);stroke-dasharray:1.5 6;opacity:.7}
+.pin circle{stroke:var(--bg);stroke-width:2}.pin text{font-size:13px;font-weight:800;fill:#fff;text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.stempel{pointer-events:none}
+.flieger{transition:transform .6s}
+@keyframes puls{0%{r:9;opacity:.6}100%{r:22;opacity:0}}.puls{fill:var(--dranR);animation:puls 1.8s infinite}
+.stadt circle{stroke:var(--bg);stroke-width:2.5;vector-effect:non-scaling-stroke}
+.sname{font-size:15px;font-weight:700;fill:var(--hs);paint-order:stroke;stroke:var(--bg);stroke-width:4px;stroke-linejoin:round}
+.sname.leise{fill:var(--leise);font-weight:600}
+/* Unten */
+.unten{padding:12px 14px 16px;background:var(--bg);border-top:1px solid var(--linie);display:grid;gap:10px}
+.jetzt{display:flex;align-items:center;gap:12px}
+.jetzt .flagge{width:44px;height:44px;border-radius:12px;background:var(--dran);display:grid;place-items:center;font-size:20px;flex:none}
+.jetzt .t1{font-size:11px;font-weight:800;letter-spacing:.07em;color:var(--leise)}.jetzt .t2{font-size:16.5px;font-weight:800}.jetzt .t3{font-size:12.5px;color:var(--leise)}
+.balken{display:flex;gap:3px}.balken i{flex:1;height:6px;border-radius:3px;background:var(--linie)}.balken i.g{background:var(--dranR)}
+.start{border:0;border-radius:16px;background:var(--knopf);color:var(--knopfT);font:inherit;font-size:18px;font-weight:800;padding:15px 18px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;box-shadow:0 4px 0 #C9A21C}
+.start small{font-size:12px;font-weight:700;opacity:.75;display:block;text-align:left}
+.schwebe{position:absolute;left:12px;right:12px;bottom:12px;z-index:6;background:color-mix(in srgb,var(--karte) 94%,transparent);border:1px solid var(--linie);border-radius:18px;padding:12px;display:grid;gap:10px;box-shadow:0 8px 24px #0003}
+/* Blatt */
+.blatt{position:absolute;left:0;right:0;bottom:0;z-index:8;background:var(--karte);border-radius:20px 20px 0 0;border-top:1px solid var(--linie);padding:14px 16px 18px;box-shadow:0 -10px 30px #0003;transform:translateY(105%);transition:transform .25s}
+.blatt.auf{transform:none}.blatt .x{position:absolute;right:12px;top:10px;border:0;background:var(--bg);color:var(--tx);width:30px;height:30px;border-radius:50%;font-size:15px;cursor:pointer}
+.blatt h3{margin:0 0 2px;font-size:19px}.blatt .sub{color:var(--leise);font-size:13px}
+.zeile{display:flex;gap:8px;align-items:center;margin-top:10px;font-size:13.5px}.chip{display:inline-flex;gap:5px;align-items:center;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:750;background:var(--bg);border:1px solid var(--linie)}
+.stadtliste{display:flex;gap:6px;overflow-x:auto;padding:2px 0 4px;scrollbar-width:none}.stadtliste span{flex:none;font-size:12px;font-weight:700;border-radius:999px;padding:5px 10px;background:var(--karte);border:1px solid var(--linie);white-space:nowrap}
+.stadtliste span.g{background:var(--gesch);border-color:transparent}.stadtliste span.d{background:var(--dran);border-color:var(--dranR)}.stadtliste span.a{background:var(--gold);border-color:transparent}
+/* Rechner */
+.rechner .koerper{flex:1;display:grid;grid-template-columns:1fr 360px;min-height:0}
+.rechner .seite{border-left:1px solid var(--linie);padding:16px;display:flex;flex-direction:column;gap:14px;overflow:auto;background:var(--bg)}
+.rkarte{background:var(--karte);border:1px solid var(--linie);border-radius:14px;padding:12px 14px}
+.rkarte h4{margin:0 0 8px;font-size:11px;letter-spacing:.07em;color:var(--leise)}
+.lzeile{display:flex;align-items:center;gap:8px;font-size:13px;padding:4px 0}.lzeile .nr{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;color:#fff;flex:none}
+.kont{cursor:pointer}.kont:hover{opacity:.85}
+.welt-l{font-size:15px;font-weight:800;fill:var(--tx);text-anchor:middle;paint-order:stroke;stroke:var(--meer);stroke-width:4px}
+.welt-z{font-size:12px;font-weight:700;fill:var(--leise);text-anchor:middle;paint-order:stroke;stroke:var(--meer);stroke-width:4px}
+.ms{transform:scale(var(--k,1))}
+.lname{font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;fill:var(--label);opacity:.85;paint-order:stroke;stroke:var(--bg);stroke-width:3px;stroke-linejoin:round}
+.lname.gross{font-size:19px;letter-spacing:.2em;opacity:1}
+.flagge{filter:drop-shadow(0 0 .6px #0008)}
+.hsring{fill:var(--bg);stroke:var(--hs);stroke-width:1.6}.hspunkt{fill:var(--hs)}
+.hsname{font-size:11.5px;font-weight:500;font-style:italic;fill:var(--hs)}
+.kschild{fill:color-mix(in srgb,var(--karte) 90%,transparent);stroke-width:2.5}
+.brot{align-items:flex-end}.brot a{display:flex;flex-direction:column;gap:1px}.brot a small{font-size:8.5px;letter-spacing:.1em;opacity:.7}.brot a span{font-size:13px}.brot .pf{padding-bottom:2px}.brot .mich{font-size:10px;display:none}.brot a.an .mich,.brot a[data-ans="europa"] .mich,.brot a[data-ans="land"] .mich{display:inline}
+.zumir{margin-left:auto;align-self:center;border:1px solid var(--linie);border-radius:999px;padding:4px 10px!important;background:var(--karte);color:var(--tx)!important;flex-direction:row!important;font-size:12px}
+.legende .lk{font-size:9px;letter-spacing:.1em;color:var(--leise)}.legende i.q{width:12px;height:12px;border-radius:4px;border:0}
+.blatt .bk .cap,.rkarte .bk .cap{font-size:9.5px;letter-spacing:.12em;font-weight:800;color:var(--leise)}
+.kname{font-size:22px;font-weight:900;letter-spacing:.22em;text-anchor:middle;paint-order:stroke;stroke:var(--meer);stroke-width:5px;stroke-linejoin:round;filter:saturate(1.6) brightness(.8)}
+.plring{fill:var(--bg);filter:drop-shadow(0 1px 1.5px #0004)}
+.kont{stroke:var(--grenzeD)!important}
+.pinform{filter:drop-shadow(0 1.5px 2px #0005)}
+.pland{font-size:11px;font-weight:850;letter-spacing:.1em;text-transform:uppercase;fill:var(--tx);paint-order:stroke;stroke:var(--bg);stroke-width:3.5px;stroke-linejoin:round}.pland.k{font-size:9.5px;fill:var(--label)}
+.phs{font-size:10.5px;font-style:italic;font-weight:500;fill:var(--leise);paint-order:stroke;stroke:var(--bg);stroke-width:3.5px;stroke-linejoin:round}
+.grau image{filter:grayscale(.85) opacity(.75)}.marke{filter:drop-shadow(0 2px 3px #0003)}
+.zl.lpin{cursor:pointer}
+</style></head><body>

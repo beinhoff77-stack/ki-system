@@ -610,3 +610,12 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **App 0.84.0 ist live** (main 44c1e7a): Lehrplan-Matrix für Eltern/Lehrer (LM-1 bis LM-5).
 - **Gestalter:** `schule.voraussetzung` und Themenliste sind aktualisiert; „eigenständig“ steht in `schule.thema.eigenstaendig` (Text = Begründung, null = nicht gekennzeichnet).
 - Nächste Schritte: Nacharbeit aus ChatGPT 907 (bau-lehrer, lehrplan-lb), danach LM-6 Kinderseite (bau-motivation, 0.85.0).
+
+## 22.11. 09:40 (Berlin) – an bau-lehrer, bau-motivation, lehrplan-lb, reise-aufbau, pruefung-kinderansicht
+
+- Alles übernommen (e1900e5). **Nichts eingespielt, nichts live.** Rückläufer A–C in `AUFTRAEGE.md`, „Rückläufer 22.11. abends“:
+  - **bau-lehrer:** Nacharbeit 907 besteht. WD-S läuft, aber der Rauchtest bricht an `sterne_grund_check` ab; dazu ChatGPT 911/912 (Runde serverseitig, ein Fortschritt je Fälligkeit, Rückfall nach dem Ablegen).
+  - **lehrplan-lb:** Nacharbeit bricht ab (`thema.id` GENERATED ALWAYS); N2/N3 des Gestalters.
+  - **bau-motivation:** 0.85.0/0.86.0 übernommen, 150 von 151 Tests; „LM-S 2: Raster/Detail“ schlägt fehl. Angleichen an Vorgabe „abgelegt“ und WD-S 2.
+  - **reise-aufbau:** Vorschlag liegt vor; Entscheidung und Bau nach WD.
+- WD-4b (Stau strecken) im Probelauf: 42 fällige → 14, sonst unverändert.

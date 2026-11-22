@@ -16,7 +16,8 @@
 --   4. Schnittstelle: schule_lehrplan_matrix – je Thema `klassen`, oben `lehrplan_zuordnung` (Stunden mit Themenzuordnung, eine Schätzung – keine
 --      Lernabdeckung) und je Kind `zweig`; Kindsicht `klassen_kind`. schule_lehrplan_thema – `klassen`, `baut_auf`, `weiter_in`, mit Kind `klassen_kind`
 --      mit Stand der Etappen dieser Klasse. Alle alten Felder bleiben.
---   5. Teilen eines Themas: schule.thema_teilen(plan, probelauf) – geprüfte Vorlage, hier NICHT aufgerufen (nach LK-D erfüllt derzeit kein Thema die Regel).
+--   5. Teilen eines Themas: schule.thema_teilen(plan, probelauf) – geprüfte Vorlage, hier NICHT aufgerufen. Teilungsregel 22.11. 15:35/15:40: so viele Teile
+--      wie nötig, ohne Mindestzahl an Etappen, Benennung „‹Titel› – Teil k von n“, Voraussetzungs-Kette Teil k braucht Teil k−1.
 -- Unverändert (am Ende geprüft): thema_stufe aller Kinder und Themen (Stufe, im Plan), Reiseoptionen, Plan (route), Lernstand (karte_stand,
 -- lernziel_stand), Sterne, Flug-Abschlüsse, Visum-Regeln (v_ort_visum), Klassen (thema_jahrgang). Kein DROP, kein DELETE. Wiederholt ausführbar.
 
@@ -353,24 +354,28 @@ revoke all on function schule.kind_zweig(text, text), schule.eintrag_lernbereich
 grant execute on function api.schule_lehrplan_matrix(text, jsonb), api.schule_lehrplan_thema(text, jsonb) to council_mcp;
 revoke all on function api.schule_lehrplan_matrix(text, jsonb), api.schule_lehrplan_thema(text, jsonb) from public, anon, authenticated;
 
--- 5. Teilen eines Themas (Nachtrag „Route“, 22.11.; LK-S 2 B3/B4): geprüfte Vorlage, hier NICHT aufgerufen.
+-- 5. Teilen eines Themas (Nachtrag „Route“, Berichtigung Teilungsregel 22.11. 15:35/15:40; LK-S 2 B3/B4): geprüfte Vorlage, hier NICHT aufgerufen.
+-- So viele Teile wie nötig, ohne Mindestzahl an Etappen; das alte Thema bleibt Teil 1, die neuen Teile folgen als Teil 2 … n.
 -- Plan (jsonb):
---   alt_thema, alte_einheit_id?  Thema, das geteilt wird (Einheit: Vorgabe schule.thema_einheit)
---   etappen             Lernziel-Schlüssel des neuen Teils
---   neu                 {schluessel, unterthema, block, beschreibung, kurz, klasse_fest, lehrplan_reihenfolge, lernbereich, lehrplan, reihenfolge}
---   block_id, block_reihenfolge   Ort des neuen Flugs (Nachbarland), optional
---   neue_einheit_id     Einheit des neuen Teils (vorher mit schule.einheit_importieren angelegt; ihr Etappenkatalog = genau die Etappen des neuen Teils).
---                       Ohne sie nur Schritt 1 (Thema, Texte, Ort, Voraussetzung, Zuordnungen); Lernstand und alter Katalog bleiben.
---   aufgaben_umhaengen  Vorgabe true; false ist verboten, sobald es zu diesen Etappen Lernstand oder Antworten gibt (B3).
--- Bedingungen (B3): neuer Teil und Rest je mindestens 3 verschiedene Etappen, disjunkt, zusammen genau der alte Katalog; neue Einheit hat genau diese
---   Etappen; keine offene Test-Sitzung der alten Einheit (ein laufender Flug-Test lässt sich nicht teilen – erst abschließen).
--- Schritt 2 (mit neuer Einheit), atomar in derselben Transaktion: alten Etappenkatalog verkleinern (inhalt.etappen, bewertung.lernziele_pflicht,
---   bewertung.lernziele_vertiefung, bewertung.testaufgaben_je_lernziel); Aufgaben, Karten, Lernziel-Stand, besprochen, Was wackelt, Wiederholungs-Runden,
---   Staffel-Sicherung, abgelegt, Rückmeldungen, offene Misch-Ausgaben (Lage) umhängen; Sterne-Bezüge landung:/wdh: mitziehen (Menge gleich, kein zweiter Bonus).
--- Vorher/Nachher je Kind (B4) – muss gleich sein, sonst Abbruch: Lernstand je Etappe (über beide Einheiten nach Schlüssel), Lernziel-Stand, Sterne-Buchungen
---   mit Bezug (Einheit im Bezug neutralisiert), Flug-Abschlüsse, abgelegt (Stempel), Plan (route), offene Misch-Ausgaben. Berichtet (darf sich ändern,
---   weil es den neuen Teil gibt): thema_stufe/im_plan beider Teile, Reiseoptionen, Visum-Regeln. Je Kind neu_vollstaendig (Nachtrag Stempel/Bonus für den
---   neuen Teil nach Festlegung 14 ist ein eigener Schritt).
+--   alt_thema, alte_einheit_id?   Thema, das geteilt wird (Einheit: Vorgabe schule.thema_einheit)
+--   teile               [{etappen: [...], neu: {schluessel, unterthema?, block, beschreibung, kurz, klasse_fest, lehrplan_reihenfolge, lernbereich, lehrplan, reihenfolge},
+--                         untertitel?, block_id?, block_reihenfolge?, einheit_id?}]  – Teil 2 … n (Kurzform: etappen/neu/neue_einheit_id/block_id oben = ein Teil)
+--   titel?, untertitel?  Grundtitel (Vorgabe: Titel des alten Themas ohne „ – Teil …“) und Untertitel von Teil 1
+--   benennen            Vorgabe true: alle Teile heißen „‹Titel› – Teil k von n“ (mit Untertitel: „… · ‹Untertitel›“)
+--   rest_einheit_id     neue Version der Einheit des alten Themas mit genau den verbleibenden Etappen (Pflicht, wenn die alte Einheit freigegeben ist –
+--                       freigegebene Einheiten und ihre Aufgaben sind unveränderlich). Dann: alte Einheit → 'ersetzt', Aufgaben bleiben dort (Antworten bleiben
+--                       gültig), Lernstand zieht in die neuen Einheiten, Flug-Abschlüsse und abgeschlossene Tests der alten Einheit zu Teil 1, offene
+--                       Misch-Ausgaben ihrer Aufgaben verfallen.
+--                       Ohne rest_einheit_id (nur bei nicht freigegebener alter Einheit): Katalog der alten Einheit wird verkleinert, Aufgaben werden umgehängt.
+--   aufgaben_umhaengen  nur ohne rest_einheit_id; false ist verboten, sobald es zu diesen Etappen Lernstand oder Antworten gibt.
+-- Bedingungen (B3, Teilungsregel): jeder Teil mindestens 1 Etappe, Teil 1 (Rest) mindestens 1, alle disjunkt, zusammen genau der alte Katalog; jede
+--   Teil-Einheit hat genau die Etappen ihres Teils; keine offene Test-Sitzung der alten Einheit. Fehlen Teil-Einheiten, läuft nur Schritt 1
+--   (Themen, Titel, Texte, Orte, Voraussetzungs-Kette, Zuordnungen); Lernstand und Katalog bleiben dann unverändert.
+-- Voraussetzungs-Kette: Teil k braucht Teil k−1 (hart). Die übrigen Voraussetzungen ordnet lehrplan-lb den Teilen zu (LK-D 2) – nicht diese Funktion.
+-- Vorher/Nachher je Kind (B4) – muss gleich sein, sonst Abbruch: Lernstand je Etappe (über alle beteiligten Einheiten nach Schlüssel), Lernziel-Stand,
+--   Sterne-Buchungen mit Bezug (Einheit im Bezug neutralisiert), Flug-Abschlüsse (Anzahl, Zeitpunkte), abgelegt, Plan (route). Berichtet: thema_stufe aller
+--   Teile, Reiseoptionen, Visum-Regeln, offene Misch-Ausgaben. Je Kind und Teil: Etappen erledigt / vollständig (Nachtrag Stempel/Bonus nach Festlegung 14
+--   ist ein eigener Schritt).
 -- probelauf = true (Vorgabe): alles wird ausgeführt und geprüft, dann zurückgerollt; Rückgabe ist der Bericht.
 create or replace function schule.thema_teilen(p_plan jsonb, p_probelauf boolean default true)
  returns jsonb language plpgsql set search_path to ''
@@ -386,13 +391,14 @@ begin
   end;
 end $function$;
 
--- Stand je Kind (B4): fest = muss gleich bleiben; bericht = darf sich ändern
-create or replace function schule.thema_teilen_stand(p_ae bigint, p_ne bigint, p_alt bigint, p_neu bigint)
+-- Stand je Kind (B4) über die beteiligten Einheiten und Themen: fest = muss gleich bleiben; bericht = darf sich ändern
+create or replace function schule.thema_teilen_stand(p_einheiten bigint[], p_themen bigint[])
  returns jsonb language plpgsql stable set search_path to ''
 as $function$
-declare v jsonb; v_e bigint[] := array_remove(array[p_ae, p_ne], null);
-  v_re text := '^(landung|wdh):(' || p_ae || coalesce('|' || p_ne, '') || '):'; v_visum text;
+declare v jsonb; v_e bigint[] := array(select x from unnest(p_einheiten) x where x is not null); v_ids text := array_to_string(array(select x from unnest(p_einheiten) x where x is not null), '|');
+  v_re text; v_visum text;
 begin
+  v_re := '^(landung|wdh):(' || v_ids || '):';
   if to_regclass('schule.v_ort_visum') is not null then   -- Visum-Regeln (Bericht)
     execute 'select md5(coalesce(string_agg(x::text, ''|'' order by x::text), '''')) from schule.v_ort_visum x' into v_visum; end if;
   select coalesce(jsonb_object_agg(l.id, jsonb_build_object(
@@ -404,16 +410,16 @@ begin
                            from schule.lernziel_stand s where s.lernender_id = l.id and s.einheit_id = any(v_e)),
       'sterne', (select coalesce(jsonb_agg(jsonb_build_array(s.grund, s.menge, regexp_replace(s.bezug, v_re, '\1:E:')) order by s.grund, regexp_replace(s.bezug, v_re, '\1:E:'), s.menge), '[]'::jsonb)
                    from schule.sterne s where s.lernender_id = l.id),
-      'flug_abschluesse', (select coalesce(jsonb_agg(jsonb_build_array(f.einheit_id, f.am) order by f.einheit_id, f.am), '[]'::jsonb) from schule.flug_erstabschluss f where f.lernender_id = l.id),
-      'abgelegt', (select coalesce(jsonb_agg(jsonb_build_array(a.art, regexp_replace(a.bezug, '^etappe:(' || p_ae || coalesce('|' || p_ne, '') || '):', 'etappe:E:'), a.sterne)
-                     order by a.art, a.bezug), '[]'::jsonb) from schule.abgelegt a where a.lernender_id = l.id),
-      'plan', (select md5(coalesce(string_agg(r::text, '|' order by r::text), '')) from schule.route r where r.lernender_id = l.id),
-      'misch_offen', (select count(*) from schule.misch_ausgabe m where m.lernender_id = l.id and m.eingeloest_am is null and m.verfallen_am is null)),
+      'flug_abschluesse', (select coalesce(jsonb_agg(jsonb_build_array(case when f.einheit_id = any(v_e) then 'E' else f.einheit_id::text end, f.am) order by f.am), '[]'::jsonb)
+                             from schule.flug_erstabschluss f where f.lernender_id = l.id),
+      'abgelegt', (select coalesce(jsonb_agg(jsonb_build_array(a.art, regexp_replace(a.bezug, '^etappe:(' || v_ids || '):', 'etappe:E:'), a.sterne)
+                     order by a.art, regexp_replace(a.bezug, '^etappe:(' || v_ids || '):', 'etappe:E:')), '[]'::jsonb) from schule.abgelegt a where a.lernender_id = l.id),
+      'plan', (select md5(coalesce(string_agg(r::text, '|' order by r::text), '')) from schule.route r where r.lernender_id = l.id)),
     'bericht', jsonb_build_object(
-      'stufe_alt', schule.thema_stufe(l.id, p_alt) - array['hinweis'],
-      'stufe_neu', case when p_neu is not null then schule.thema_stufe(l.id, p_neu) - array['hinweis'] end,
+      'stufen', (select coalesce(jsonb_object_agg(t, schule.thema_stufe(l.id, t) - array['hinweis']), '{}'::jsonb) from unnest(p_themen) t where t is not null),
       'reiseoptionen', md5(coalesce(schule.reiseoptionen(l.id)::text, '')),
-      'visum', v_visum))), '{}'::jsonb)
+      'visum', v_visum,
+      'misch_offen', (select count(*) from schule.misch_ausgabe m where m.lernender_id = l.id and m.eingeloest_am is null and m.verfallen_am is null)))), '{}'::jsonb)
     into v from schule.lernender l
    where exists (select 1 from schule.karte_stand k where k.lernender_id = l.id and k.einheit_id = any(v_e))
       or exists (select 1 from schule.versuch x join schule.aufgabe a on a.id = x.aufgabe_id where x.lernender_id = l.id and a.einheit_id = any(v_e));
@@ -423,115 +429,183 @@ end $function$;
 create or replace function schule.thema_teilen_ausfuehren(p_plan jsonb)
  returns jsonb language plpgsql set search_path to ''
 as $function$
-declare v_alt bigint := (p_plan->>'alt_thema')::bigint; v_et text[] := array(select distinct jsonb_array_elements_text(p_plan->'etappen'));
-  v_n jsonb := p_plan->'neu'; v_neu bigint; v_ae bigint; v_ne bigint := nullif(p_plan->>'neue_einheit_id', '')::bigint; v_b bigint := nullif(p_plan->>'block_id', '')::bigint;
-  v_kat text[]; v_rest text[]; v_nkat text[]; v_tab text; v_cnt int; v_um jsonb := '{}'::jsonb; v_vor jsonb; v_nach jsonb; v_kinder jsonb; v_zu int; v_diff jsonb;
-  v_auf boolean := coalesce((p_plan->>'aufgaben_umhaengen')::boolean, true);
+declare v_alt bigint := (p_plan->>'alt_thema')::bigint; v_ae bigint; v_re bigint := nullif(p_plan->>'rest_einheit_id', '')::bigint;
+  v_teile jsonb; v_n int; v_i int; v_tp jsonb; v_et text[]; v_kat text[]; v_rest text[]; v_alle text[] := '{}'; v_x text[];
+  v_themen bigint[] := '{}'; v_einh bigint[] := '{}'; v_th bigint; v_te bigint; v_frei boolean; v_auf boolean; v_mit_einheit boolean;
+  v_titel text; v_tab text; v_cnt int; v_um jsonb := '{}'::jsonb; v_vor jsonb; v_nach jsonb; v_kinder jsonb; v_zu int := 0; v_diff jsonb; v_status text;
 begin
   if v_alt is null or not exists (select 1 from schule.thema where id = v_alt) then raise exception 'alt_thema fehlt oder unbekannt' using errcode = 'P0001'; end if;
-  if coalesce(v_n->>'schluessel', '') = '' or coalesce(v_n->>'unterthema', '') = '' then raise exception 'neu.schluessel und neu.unterthema fehlen' using errcode = 'P0001'; end if;
+  v_teile := coalesce(p_plan->'teile', case when p_plan ? 'etappen' then jsonb_build_array(jsonb_strip_nulls(jsonb_build_object('etappen', p_plan->'etappen', 'neu', p_plan->'neu',
+               'einheit_id', p_plan->'neue_einheit_id', 'block_id', p_plan->'block_id', 'block_reihenfolge', p_plan->'block_reihenfolge', 'untertitel', p_plan->'teil_untertitel'))) end);
+  v_n := coalesce(jsonb_array_length(v_teile), 0) + 1;   -- Teil 1 = altes Thema
+  if v_n < 2 then raise exception 'teile fehlen' using errcode = 'P0001'; end if;
   v_ae := coalesce(nullif(p_plan->>'alte_einheit_id', '')::bigint, schule.thema_einheit(v_alt));
-  if v_ae is null or not exists (select 1 from schule.einheit where id = v_ae and thema_id = v_alt) then raise exception 'alte Einheit nicht gefunden' using errcode = 'P0001'; end if;
-  -- B3: Kataloge – je Teil mindestens 3 verschiedene Etappen, disjunkt, zusammen vollständig
+  select e.status into v_status from schule.einheit e where e.id = v_ae and e.thema_id = v_alt;
+  if v_status is null then raise exception 'alte Einheit nicht gefunden' using errcode = 'P0001'; end if;
+  v_frei := v_status = 'freigegeben';
+  -- B3 (Teilungsregel): jeder Teil mindestens 1 Etappe, disjunkt, zusammen genau der alte Katalog
   select array_agg(distinct q->>'lernziel') into v_kat from schule.einheit e, jsonb_array_elements(coalesce(e.inhalt->'etappen', '[]'::jsonb)) q where e.id = v_ae;
-  if not v_et <@ coalesce(v_kat, '{}') then raise exception 'nicht jede Etappe steht im Katalog der alten Einheit %', v_ae using errcode = 'P0001'; end if;
-  v_rest := array(select x from unnest(v_kat) x where not x = any(v_et));
-  if cardinality(v_et) < 3 or cardinality(v_rest) < 3 then
-    raise exception 'je Teil mindestens 3 Etappen (neu %, Rest %)', cardinality(v_et), cardinality(v_rest) using errcode = 'P0001'; end if;
-  if v_ne is not null then
-    select array_agg(distinct q->>'lernziel') into v_nkat from schule.einheit e, jsonb_array_elements(coalesce(e.inhalt->'etappen', '[]'::jsonb)) q where e.id = v_ne;
-    if not (coalesce(v_nkat, '{}') @> v_et and v_et @> coalesce(v_nkat, '{}')) then
-      raise exception 'Katalog der neuen Einheit % ist nicht genau der neue Teil (%)', v_ne, v_nkat using errcode = 'P0001'; end if;
-    if not v_auf and (exists (select 1 from schule.karte_stand k where k.einheit_id = v_ae and k.lernziel = any(v_et))
-                      or exists (select 1 from schule.versuch x join schule.aufgabe a on a.id = x.aufgabe_id where a.einheit_id = v_ae and a.variante_gruppe = any(v_et))) then
+  for v_i in 0 .. v_n - 2 loop
+    v_tp := v_teile->v_i;
+    v_et := array(select distinct jsonb_array_elements_text(coalesce(v_tp->'etappen', '[]'::jsonb)));
+    if cardinality(v_et) = 0 then raise exception 'Teil % ist leer', v_i + 2 using errcode = 'P0001'; end if;
+    if not v_et <@ coalesce(v_kat, '{}') then raise exception 'Teil %: Etappe nicht im Katalog der alten Einheit %', v_i + 2, v_ae using errcode = 'P0001'; end if;
+    if v_alle && v_et then raise exception 'Teil %: Etappe in zwei Teilen', v_i + 2 using errcode = 'P0001'; end if;
+    if coalesce(v_tp->'neu'->>'schluessel', '') = '' then raise exception 'Teil %: neu.schluessel fehlt', v_i + 2 using errcode = 'P0001'; end if;
+    v_alle := v_alle || v_et;
+  end loop;
+  v_rest := array(select x from unnest(v_kat) x where not x = any(v_alle));
+  if cardinality(v_rest) = 0 then raise exception 'Teil 1 (altes Thema) wäre leer' using errcode = 'P0001'; end if;
+  -- Einheiten: alle oder keine
+  v_mit_einheit := exists (select 1 from jsonb_array_elements(v_teile) t where nullif(t->>'einheit_id', '') is not null);
+  if v_mit_einheit then
+    if exists (select 1 from jsonb_array_elements(v_teile) t where nullif(t->>'einheit_id', '') is null) then
+      raise exception 'entweder alle Teil-Einheiten angeben oder keine' using errcode = 'P0001'; end if;
+    if v_frei and v_re is null then raise exception 'alte Einheit ist freigegeben: rest_einheit_id (neue Version mit den verbleibenden Etappen) fehlt' using errcode = 'P0001'; end if;
+    if v_re is not null then
+      select array_agg(distinct q->>'lernziel') into v_x from schule.einheit e, jsonb_array_elements(coalesce(e.inhalt->'etappen', '[]'::jsonb)) q where e.id = v_re and e.thema_id = v_alt;
+      if not (coalesce(v_x, '{}') @> v_rest and v_rest @> coalesce(v_x, '{}')) then
+        raise exception 'Katalog der Rest-Einheit % ist nicht genau Teil 1 (%)', v_re, v_rest using errcode = 'P0001'; end if;
+    end if;
+    for v_i in 0 .. v_n - 2 loop
+      v_tp := v_teile->v_i; v_et := array(select distinct jsonb_array_elements_text(v_tp->'etappen'));
+      select array_agg(distinct q->>'lernziel') into v_x from schule.einheit e, jsonb_array_elements(coalesce(e.inhalt->'etappen', '[]'::jsonb)) q where e.id = (v_tp->>'einheit_id')::bigint;
+      if not (coalesce(v_x, '{}') @> v_et and v_et @> coalesce(v_x, '{}')) then
+        raise exception 'Katalog der Einheit von Teil % ist nicht genau dieser Teil (%)', v_i + 2, v_x using errcode = 'P0001'; end if;
+    end loop;
+    v_auf := v_re is null and coalesce((p_plan->>'aufgaben_umhaengen')::boolean, true);
+    if v_re is null and not v_auf and (exists (select 1 from schule.karte_stand k where k.einheit_id = v_ae and k.lernziel = any(v_alle))
+                      or exists (select 1 from schule.versuch x join schule.aufgabe a on a.id = x.aufgabe_id where a.einheit_id = v_ae and a.variante_gruppe = any(v_alle))) then
       raise exception 'aufgaben_umhaengen = false ist bei vorhandenem Lernstand nicht erlaubt' using errcode = 'P0001'; end if;
     if exists (select 1 from schule.testsitzung t where t.einheit_id = v_ae and t.abgeschlossen_am is null) then
       raise exception 'offene Test-Sitzung der alten Einheit – erst abschließen' using errcode = 'P0001'; end if;
   end if;
 
-  select id into v_neu from schule.thema where schluessel = v_n->>'schluessel';
-  v_vor := schule.thema_teilen_stand(v_ae, v_ne, v_alt, v_neu);
+  -- Vorher
+  v_themen := array[v_alt] || array(select t.id from jsonb_array_elements(v_teile) with ordinality x(tp, o) join schule.thema t on t.schluessel = tp->'neu'->>'schluessel' order by o);
+  v_einh := array[v_ae, v_re] || array(select nullif(tp->>'einheit_id', '')::bigint from jsonb_array_elements(v_teile) tp);
+  v_vor := schule.thema_teilen_stand(v_einh, v_themen);
 
-  -- 1. Thema, Texte, Ort, Voraussetzung, Zuordnungen
-  if v_neu is null then
-    insert into schule.thema (fach, schluessel, block, unterthema, beschreibung, reihenfolge, pruefstatus, klasse_fest, lehrplan_reihenfolge, lernbereich, lehrplan, kurz)
-    select t.fach, v_n->>'schluessel', coalesce(v_n->>'block', t.block), v_n->>'unterthema', v_n->>'beschreibung', coalesce((v_n->>'reihenfolge')::int, t.reihenfolge + 1),
-           'ungeprueft', coalesce(v_n->'klasse_fest', t.klasse_fest), coalesce(v_n->'lehrplan_reihenfolge', '{}'::jsonb), v_n->'lernbereich', v_n->'lehrplan', v_n->>'kurz'
-      from schule.thema t where t.id = v_alt returning id into v_neu;
+  -- 1. Themen, Titel, Texte, Orte, Voraussetzungs-Kette, Zuordnungen
+  v_titel := coalesce(nullif(p_plan->>'titel', ''), regexp_replace((select unterthema from schule.thema where id = v_alt), ' – Teil [0-9]+ von [0-9]+.*$', ''));
+  if coalesce((p_plan->>'benennen')::boolean, true) then
+    update schule.thema set unterthema = v_titel || ' – Teil 1 von ' || v_n || coalesce(' · ' || nullif(p_plan->>'untertitel', ''), '') where id = v_alt;
   end if;
-  insert into schule.etappe_text (thema_id, lernziel, kann) select v_neu, x.lernziel, x.kann from schule.etappe_text x
-   where x.thema_id = v_alt and x.lernziel = any(v_et) on conflict (thema_id, lernziel) do nothing;
-  if v_b is not null then
-    insert into schule.block_thema (block_id, thema_id, reihenfolge) values (v_b, v_neu, coalesce((p_plan->>'block_reihenfolge')::int, 0)) on conflict (block_id, thema_id) do nothing;
-  end if;
-  insert into schule.voraussetzung (thema_id, braucht_id, begruendung, art)
-  select v_neu, v_alt, 'Teil 2 braucht Teil 1 (Thema geteilt nach LK-Regel)', 'hart'
-   where not exists (select 1 from schule.voraussetzung v where v.thema_id = v_neu and v.braucht_id = v_alt);
-  update schule.zuordnung z set thema_id = v_neu   -- Punkte, die nur Etappen des neuen Teils verlangen
-   where z.thema_id = v_alt and z.etappen is not null and not ('*' = any(z.etappen)) and z.etappen <@ v_et
-     and not exists (select 1 from schule.zuordnung y where y.eintrag_id = z.eintrag_id and y.thema_id = v_neu);
-  get diagnostics v_zu = row_count;
-
-  -- 2. mit neuer Einheit: Katalog verkleinern und Lernstand umhängen (atomar)
-  if v_ne is not null then
-    if not exists (select 1 from schule.einheit e where e.id = v_ne and e.thema_id = v_neu) then raise exception 'neue Einheit % gehört nicht zum neuen Thema %', v_ne, v_neu using errcode = 'P0001'; end if;
-    if exists (select 1 from schule.karte_stand k where k.einheit_id = v_ne and k.lernziel = any(v_et)
-                 and exists (select 1 from schule.karte_stand a where a.lernender_id = k.lernender_id and a.einheit_id = v_ae and a.lernziel = k.lernziel)) then
-      raise exception 'Kind hat schon Stand in beiden Einheiten – bitte prüfen' using errcode = 'P0001'; end if;
-    update schule.einheit e set inhalt = jsonb_set(jsonb_set(jsonb_set(jsonb_set(e.inhalt,
-             '{etappen}', coalesce((select jsonb_agg(q order by o) from jsonb_array_elements(e.inhalt->'etappen') with ordinality x(q, o) where not (q->>'lernziel') = any(v_et)), '[]'::jsonb)),
-             '{bewertung,lernziele_pflicht}', coalesce((select jsonb_agg(q) from jsonb_array_elements_text(coalesce(e.inhalt#>'{bewertung,lernziele_pflicht}', '[]'::jsonb)) q where not q = any(v_et)), '[]'::jsonb)),
-             '{bewertung,lernziele_vertiefung}', coalesce((select jsonb_agg(q) from jsonb_array_elements_text(coalesce(e.inhalt#>'{bewertung,lernziele_vertiefung}', '[]'::jsonb)) q where not q = any(v_et)), '[]'::jsonb)),
-             '{bewertung,testaufgaben_je_lernziel}', case when jsonb_typeof(e.inhalt#>'{bewertung,testaufgaben_je_lernziel}') = 'object'
-                                                         then (e.inhalt#>'{bewertung,testaufgaben_je_lernziel}') - v_et
-                                                         else coalesce(e.inhalt#>'{bewertung,testaufgaben_je_lernziel}', 'null'::jsonb) end)
-     where e.id = v_ae and e.inhalt ? 'bewertung';
-    update schule.einheit e set inhalt = jsonb_set(e.inhalt, '{etappen}',
-             coalesce((select jsonb_agg(q order by o) from jsonb_array_elements(e.inhalt->'etappen') with ordinality x(q, o) where not (q->>'lernziel') = any(v_et)), '[]'::jsonb))
-     where e.id = v_ae and not e.inhalt ? 'bewertung';
-    if v_auf then
-      update schule.aufgabe set einheit_id = v_ne, thema_id = v_neu where einheit_id = v_ae and variante_gruppe = any(v_et);
-      get diagnostics v_cnt = row_count; v_um := v_um || jsonb_build_object('aufgabe', v_cnt);
+  v_themen := array[v_alt];
+  for v_i in 0 .. v_n - 2 loop
+    v_tp := v_teile->v_i; v_et := array(select distinct jsonb_array_elements_text(v_tp->'etappen'));
+    select id into v_th from schule.thema where schluessel = v_tp->'neu'->>'schluessel';
+    if v_th is null then
+      insert into schule.thema (fach, schluessel, block, unterthema, beschreibung, reihenfolge, pruefstatus, klasse_fest, lehrplan_reihenfolge, lernbereich, lehrplan, kurz)
+      select t.fach, v_tp->'neu'->>'schluessel', coalesce(v_tp->'neu'->>'block', t.block), coalesce(nullif(v_tp->'neu'->>'unterthema', ''), v_titel), v_tp->'neu'->>'beschreibung',
+             coalesce((v_tp->'neu'->>'reihenfolge')::int, t.reihenfolge + v_i + 1), 'ungeprueft', coalesce(v_tp->'neu'->'klasse_fest', t.klasse_fest),
+             coalesce(v_tp->'neu'->'lehrplan_reihenfolge', '{}'::jsonb), v_tp->'neu'->'lernbereich', v_tp->'neu'->'lehrplan', v_tp->'neu'->>'kurz'
+        from schule.thema t where t.id = v_alt returning id into v_th;
     end if;
-    foreach v_tab in array array['karte_stand', 'lernziel_stand', 'besprochen', 'wdh_runde_etappe', 'wdh_staffel_sicherung', 'rueckmeldung'] loop
-      if to_regclass('schule.' || v_tab) is not null then
-        execute format('update schule.%I set einheit_id = $1 where einheit_id = $2 and lernziel = any($3)', v_tab) using v_ne, v_ae, v_et;
-        get diagnostics v_cnt = row_count; v_um := v_um || jsonb_build_object(v_tab, v_cnt);
-      end if;
+    if coalesce((p_plan->>'benennen')::boolean, true) then
+      update schule.thema set unterthema = v_titel || ' – Teil ' || (v_i + 2) || ' von ' || v_n || coalesce(' · ' || nullif(v_tp->>'untertitel', ''), '') where id = v_th;
+    end if;
+    insert into schule.etappe_text (thema_id, lernziel, kann) select v_th, x.lernziel, x.kann from schule.etappe_text x
+     where x.thema_id = v_alt and x.lernziel = any(v_et) on conflict (thema_id, lernziel) do nothing;
+    if nullif(v_tp->>'block_id', '') is not null then
+      insert into schule.block_thema (block_id, thema_id, reihenfolge)
+      select (v_tp->>'block_id')::bigint, v_th, coalesce((v_tp->>'block_reihenfolge')::int,
+               (select coalesce(max(bt.reihenfolge), -1) + 1 from schule.block_thema bt where bt.block_id = (v_tp->>'block_id')::bigint))
+       where not exists (select 1 from schule.block_thema bt where bt.block_id = (v_tp->>'block_id')::bigint and bt.thema_id = v_th);
+    end if;
+    insert into schule.voraussetzung (thema_id, braucht_id, begruendung, art)   -- Teil k braucht Teil k−1
+    select v_th, v_themen[v_i + 1], 'Teil ' || (v_i + 2) || ' braucht Teil ' || (v_i + 1) || ' (Thema geteilt nach LK-Regel)', 'hart'
+     where not exists (select 1 from schule.voraussetzung v where v.thema_id = v_th and v.braucht_id = v_themen[v_i + 1]);
+    update schule.zuordnung z set thema_id = v_th   -- Punkte, die nur Etappen dieses Teils verlangen
+     where z.thema_id = v_alt and z.etappen is not null and not ('*' = any(z.etappen)) and z.etappen <@ v_et
+       and not exists (select 1 from schule.zuordnung y where y.eintrag_id = z.eintrag_id and y.thema_id = v_th);
+    get diagnostics v_cnt = row_count; v_zu := v_zu + v_cnt;
+    v_themen := v_themen || v_th;
+  end loop;
+
+  -- 2. mit Einheiten: Lernstand umhängen (atomar)
+  if v_mit_einheit then
+    for v_i in 0 .. v_n - 2 loop
+      if not exists (select 1 from schule.einheit e where e.id = (v_teile->v_i->>'einheit_id')::bigint and e.thema_id = v_themen[v_i + 2]) then
+        raise exception 'Einheit von Teil % gehört nicht zu dessen Thema', v_i + 2 using errcode = 'P0001'; end if;
     end loop;
-    update schule.misch_ausgabe set einheit_id = v_ne   -- offene Ausgaben, deren Lage eine Etappe des neuen Teils ist
-     where einheit_id = v_ae and lernziel = any(v_et) and eingeloest_am is null and verfallen_am is null;
-    get diagnostics v_cnt = row_count; v_um := v_um || jsonb_build_object('misch_ausgabe', v_cnt);
-    if to_regclass('schule.wackelt_status') is not null then
-      execute 'update schule.wackelt_status set einheit_id = $1, thema_id = $2 where einheit_id = $3 and lernziel = any($4)' using v_ne, v_neu, v_ae, v_et;
-      get diagnostics v_cnt = row_count; v_um := v_um || jsonb_build_object('wackelt_status', v_cnt);
+    if v_re is null then   -- alte Einheit nicht freigegeben: Katalog verkleinern, Aufgaben mitnehmen
+      update schule.einheit e set inhalt = jsonb_set(e.inhalt, '{etappen}',
+               coalesce((select jsonb_agg(q order by o) from jsonb_array_elements(e.inhalt->'etappen') with ordinality x(q, o) where not (q->>'lernziel') = any(v_alle)), '[]'::jsonb))
+       where e.id = v_ae;
+      update schule.einheit e set inhalt = jsonb_set(jsonb_set(jsonb_set(e.inhalt,
+               '{bewertung,lernziele_pflicht}', coalesce((select jsonb_agg(q) from jsonb_array_elements_text(coalesce(e.inhalt#>'{bewertung,lernziele_pflicht}', '[]'::jsonb)) q where not q = any(v_alle)), '[]'::jsonb)),
+               '{bewertung,lernziele_vertiefung}', coalesce((select jsonb_agg(q) from jsonb_array_elements_text(coalesce(e.inhalt#>'{bewertung,lernziele_vertiefung}', '[]'::jsonb)) q where not q = any(v_alle)), '[]'::jsonb)),
+               '{bewertung,testaufgaben_je_lernziel}', case when jsonb_typeof(e.inhalt#>'{bewertung,testaufgaben_je_lernziel}') = 'object'
+                                                           then (e.inhalt#>'{bewertung,testaufgaben_je_lernziel}') - v_alle
+                                                           else coalesce(e.inhalt#>'{bewertung,testaufgaben_je_lernziel}', 'null'::jsonb) end)
+       where e.id = v_ae and e.inhalt ? 'bewertung';
     end if;
-    update schule.abgelegt set einheit_id = v_ne, thema_id = v_neu, bezug = 'etappe:' || v_ne || ':' || lernziel
-     where einheit_id = v_ae and lernziel = any(v_et) and bezug = 'etappe:' || v_ae || ':' || lernziel;
-    get diagnostics v_cnt = row_count; v_um := v_um || jsonb_build_object('abgelegt', v_cnt);
-    update schule.sterne s set bezug = regexp_replace(s.bezug, '^(landung|wdh):' || v_ae || ':', '\1:' || v_ne || ':')
-     where s.bezug ~ ('^(landung|wdh):' || v_ae || ':') and split_part(s.bezug, ':', 3) = any(v_et);
-    get diagnostics v_cnt = row_count; v_um := v_um || jsonb_build_object('sterne_bezug', v_cnt);
+    -- je Teil (2 … n) und für Teil 1 bei neuer Version: Lernstand je Etappe in die Ziel-Einheit
+    for v_i in 0 .. v_n - 1 loop
+      if v_i = 0 then
+        continue when v_re is null;
+        v_et := v_rest; v_te := v_re; v_th := v_alt;
+      else
+        v_et := array(select distinct jsonb_array_elements_text(v_teile->(v_i - 1)->'etappen')); v_te := (v_teile->(v_i - 1)->>'einheit_id')::bigint; v_th := v_themen[v_i + 1];
+      end if;
+      if exists (select 1 from schule.karte_stand k where k.einheit_id = v_te and k.lernziel = any(v_et)
+                   and exists (select 1 from schule.karte_stand a where a.lernender_id = k.lernender_id and a.einheit_id = v_ae and a.lernziel = k.lernziel)) then
+        raise exception 'Kind hat schon Stand in alter und neuer Einheit (Teil %) – bitte prüfen', v_i + 1 using errcode = 'P0001'; end if;
+      if v_auf and v_i > 0 then
+        update schule.aufgabe set einheit_id = v_te, thema_id = v_th where einheit_id = v_ae and variante_gruppe = any(v_et);
+        get diagnostics v_cnt = row_count; v_um := v_um || jsonb_build_object('aufgabe_' || (v_i + 1), v_cnt);
+      end if;
+      foreach v_tab in array array['karte_stand', 'lernziel_stand', 'besprochen', 'wdh_runde_etappe', 'wdh_staffel_sicherung', 'rueckmeldung'] loop
+        if to_regclass('schule.' || v_tab) is not null then
+          execute format('update schule.%I set einheit_id = $1 where einheit_id = $2 and lernziel = any($3)', v_tab) using v_te, v_ae, v_et;
+          get diagnostics v_cnt = row_count; v_um := v_um || jsonb_build_object(v_tab || '_' || (v_i + 1), v_cnt);
+        end if;
+      end loop;
+      update schule.misch_ausgabe set einheit_id = v_te   -- offene Ausgaben, deren Lage eine Etappe dieses Teils ist
+       where einheit_id = v_ae and lernziel = any(v_et) and eingeloest_am is null and verfallen_am is null;
+      if to_regclass('schule.wackelt_status') is not null then
+        execute 'update schule.wackelt_status set einheit_id = $1, thema_id = $2 where einheit_id = $3 and lernziel = any($4)' using v_te, v_th, v_ae, v_et;
+      end if;
+      update schule.abgelegt set einheit_id = v_te, thema_id = v_th, bezug = 'etappe:' || v_te || ':' || lernziel
+       where einheit_id = v_ae and lernziel = any(v_et) and bezug = 'etappe:' || v_ae || ':' || lernziel;
+      update schule.sterne s set bezug = regexp_replace(s.bezug, '^(landung|wdh):' || v_ae || ':', '\1:' || v_te || ':')
+       where s.bezug ~ ('^(landung|wdh):' || v_ae || ':') and split_part(s.bezug, ':', 3) = any(v_et);
+      get diagnostics v_cnt = row_count; v_um := v_um || jsonb_build_object('sterne_bezug_' || (v_i + 1), v_cnt);
+    end loop;
+    if v_re is not null then   -- neue Version von Teil 1: Flug-Abschlüsse und abgeschlossene Tests gehören zu Teil 1; alte Einheit ersetzt
+      update schule.flug_erstabschluss set einheit_id = v_re where einheit_id = v_ae;
+      get diagnostics v_cnt = row_count; v_um := v_um || jsonb_build_object('flug_erstabschluss', v_cnt);
+      update schule.testsitzung set einheit_id = v_re where einheit_id = v_ae and abgeschlossen_am is not null;
+      get diagnostics v_cnt = row_count; v_um := v_um || jsonb_build_object('testsitzung', v_cnt);
+      update schule.misch_ausgabe m set verfallen_am = now()   -- Aufgaben der ersetzten Einheit werden nicht mehr ausgegeben
+       where m.eingeloest_am is null and m.verfallen_am is null and exists (select 1 from schule.aufgabe a where a.id = m.aufgabe_id and a.einheit_id = v_ae);
+      get diagnostics v_cnt = row_count; v_um := v_um || jsonb_build_object('misch_verfallen', v_cnt);
+      update schule.einheit set status = 'ersetzt' where id = v_ae;
+    end if;
   end if;
 
   -- Vorher/Nachher je Kind (B4)
-  v_nach := schule.thema_teilen_stand(v_ae, v_ne, v_alt, v_neu);
+  v_nach := schule.thema_teilen_stand(v_einh, v_themen);
   select jsonb_object_agg(k, jsonb_build_object('vorher', v_vor->k->'fest', 'nachher', v_nach->k->'fest'))
     into v_diff from (select jsonb_object_keys(v_vor) k union select jsonb_object_keys(v_nach)) x
    where (v_vor->k->'fest') is distinct from (v_nach->k->'fest');
   if v_diff is not null then raise exception 'Vorher/Nachher je Kind verschieden: %', v_diff using errcode = 'P0001'; end if;
   select coalesce(jsonb_agg(jsonb_build_object('kind', l.k::bigint,
-           'neu_vollstaendig', v_ne is not null and (select count(*) from schule.karte_stand ks where ks.lernender_id = l.k::bigint and ks.einheit_id = v_ne
-                                                      and ks.lernziel = any(v_et) and (ks.sitzt or ks.gesetzt_am is not null)) = cardinality(v_et),
-           'etappen_neu_erledigt', (select count(*) from schule.karte_stand ks where ks.lernender_id = l.k::bigint and ks.einheit_id = coalesce(v_ne, v_ae)
-                                     and ks.lernziel = any(v_et) and (ks.sitzt or ks.gesetzt_am is not null)),
+           'teile', (select jsonb_agg(jsonb_build_object('teil', o, 'thema_id', v_themen[o],
+                       'etappen_erledigt', (select count(*) from schule.karte_stand ks where ks.lernender_id = l.k::bigint and ks.einheit_id = any(v_einh)
+                                             and (ks.sitzt or ks.gesetzt_am is not null)
+                                             and ks.lernziel = any(case when o = 1 then v_rest else array(select jsonb_array_elements_text(v_teile->(o - 2)->'etappen')) end)),
+                       'etappen', case when o = 1 then cardinality(v_rest) else jsonb_array_length(v_teile->(o - 2)->'etappen') end) order by o)
+                     from generate_series(1, v_n) o),
            'bericht_vorher', v_vor->l.k->'bericht', 'bericht_nachher', v_nach->l.k->'bericht') order by l.k::bigint), '[]'::jsonb)
     into v_kinder from (select jsonb_object_keys(v_nach) k) l;
-  return jsonb_build_object('ok', true, 'alt_thema', v_alt, 'neu_thema', v_neu, 'alte_einheit', v_ae, 'neue_einheit', v_ne,
-    'einheit_fehlt', v_ne is null, 'katalog_alt', to_jsonb(v_rest), 'katalog_neu', to_jsonb(v_et), 'zuordnungen', v_zu, 'umgehaengt', v_um,
+  return jsonb_build_object('ok', true, 'alt_thema', v_alt, 'themen', to_jsonb(v_themen), 'teile', v_n, 'alte_einheit', v_ae, 'rest_einheit', v_re,
+    'einheiten_fehlen', not v_mit_einheit, 'katalog_teil_1', to_jsonb(v_rest), 'zuordnungen', v_zu, 'umgehaengt', v_um,
+    'titel', (select jsonb_agg(t.unterthema order by array_position(v_themen, t.id)) from schule.thema t where t.id = any(v_themen)),
     'fest_je_kind', v_nach, 'kinder', v_kinder);
 end $function$;
-revoke all on function schule.thema_teilen(jsonb, boolean), schule.thema_teilen_ausfuehren(jsonb), schule.thema_teilen_stand(bigint, bigint, bigint, bigint)
+revoke all on function schule.thema_teilen(jsonb, boolean), schule.thema_teilen_ausfuehren(jsonb), schule.thema_teilen_stand(bigint[], bigint[])
   from public, anon, authenticated;
 
 -- Bestand unverändert?

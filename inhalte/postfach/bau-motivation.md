@@ -2,6 +2,22 @@
 
 Neueste oben.
 
+## 2026-11-22 – bau-lehrer – FERTIG: WD-S 4
+
+Auf „Nachtrag WD-S 4 – Rückläufer ChatGPT 921“, Teil „An bau-lehrer“ (ersetzt „FERTIG: WD-S 3 Test“). Nur Dateien, nichts eingespielt, kein DROP, kein DELETE.
+**Reihenfolge beim Einspielen:** WD-S 2 → WD-S 3 → WD-4b → **WD-S 4** (`supabase/migrations/20261122_wd_s4_nacharbeit_921.sql`) → FP-S.
+
+1. **Mischkarte beim Einlösen geprüft:** `misch_gueltig` verlangt zusätzlich, dass seit der Ausgabe keine *andere* Aufgabe derselben Etappe beantwortet wurde; der zweite Anlauf derselben Mischkarte bleibt gültig. Sonst `misch.gueltig: false`, keine Wiederholung (Umbau an genau einer Stelle; `misch_gueltig` lokal byte-gleich zu live geprüft).
+2. **Mit Hilfe 0 Sterne:** fällige Wiederholung mit Tipp/2. Versuch → `karte_wdh_ereignis` markiert den Versuch, `sterne_aus_versuch` bucht keine Übungssterne; gültige Mischkarte mit Tipp/2. Versuch → `sterne_aus_versuch` bucht nichts. Ungültige Mischkarte = normales Üben (wie bisher). Antwort und Konto lesen beide `schule.sterne`.
+3. **Runden-Abschluss unter Sperre:** `wdh_runde_pruefen` sperrt die Runden-Zeile vor dem Zählen.
+4. **Staffel unter Sperre:** `wdh_staffel_strecken` und `wdh_staffel_zurueck` sperren die Karten in fester Reihenfolge (`for update`) und prüfen/schreiben darunter.
+5. **Tests:** `wd_s3_rauchtest.sql` – Nachtrag „stabil machen“ enthalten; Teil 7 bricht ab, wenn die WD-4b-Funktionen fehlen (statt zu überspringen); neuer Teil 8: A ausgeben → B derselben Etappe beantworten → A einlösen = `gueltig false`, keine Wiederholung; Wiederholung mit Tipp und Mischkarte im 2. Versuch: Sternsumme unverändert, keine Übungs-/Wiederholungs-Gründe; 1 bzw. 0 freie Aufgabe; Lerntage mit Pausen (Sperre über 4 Kalendertage = 3 Lerntage). `wdh_aufgabe_da` ist jetzt ein deterministisches EXISTS. `wd_s3_gleichzeitig.sh`: zusätzlich zwei Sitzungen an den zwei letzten Pflicht-Etappen der Runde (Zustand danach per SELECT); Exit 1 bei jedem „FEHLER“.
+6. **Rechte:** alle `schule.*`-Helfer aus WD-S 2/3/4 ohne Rechte für public, anon, authenticated.
+
+**Lokal ausgeführt** (Postgres 16, berührte Live-Funktionen byte-gleich): alle fünf Migrationen in der Reihenfolge oben je zweimal, `wd_s_rauchtest`, `wd_s3_rauchtest` (Teile 1–8) und `fp_s_rauchtest` grün; `wd_s3_gleichzeitig.sh` Exit 0. **Gegenprobe ohne WD-S 4:** Teil 8 bricht ab, und der Gleichzeitig-Test meldet „FEHLER B: Runde nicht fertig (offen: 0)“ mit Exit 1 – genau der Fehler aus ChatGPT 921, mit WD-S 4 behoben.
+
+**FP-S nach WD-S 4 geprüft:** passt – die Stelle in `sterne_aus_versuch`, die FP-S ersetzt, bleibt unberührt, und `uebung_pruefen_wd` ändert WD-S 4 nicht. Geändert nur der Kopf von `20261122_fp_s_faire_punkte.sql` (Reihenfolge; 5 Sterne mit Hilfe nur beim normalen Üben). Vorher/Nachher-Zahlen der Nachbuchung: Eintrag „FERTIG: FP-S“ unten (unverändert).
+
 ## 2026-11-22 – bau-lehrer – FERTIG: FP-S
 
 Bau-Auftrag FP, Teil FP-S. Nur Dateien, nichts eingespielt, Nachbuchung nicht ausgeführt (nur lesend nachgerechnet). Kein DROP einer Tabelle/Spalte, kein DELETE.

@@ -1,5 +1,6 @@
 -- Bau-Auftrag FP (22.11.), Teil FP-S: faire Punkte. Entscheidung Sebastian „Ja“ (inhalte/AUFTRAEGE.md „Bau-Auftrag FP – faire Punkte“).
--- Baut auf WD-S 2/3 auf: nach 20261122_wd_s_wiederholungen.sql und 20261122_wd_s3_frische_aufgaben.sql einspielen, in einer Transaktion.
+-- Baut auf WD-S 2/3/4 auf. Reihenfolge beim Einspielen: WD-S 2, WD-S 3, WD-4b, WD-S 4 (20261122_wd_s4_nacharbeit_921.sql), dann diese Datei – in einer Transaktion.
+-- Mit WD-S 4: Wiederholung oder Mischkarte mit Tipp / im zweiten Versuch gibt 0 Sterne; die 5 Sterne mit Hilfe (Regel 1) gelten nur beim normalen Üben.
 --
 -- Regeln:
 --   1. Übungsaufgabe richtig im ersten Versuch ohne Tipp: sterne_uebung_richtig (10), je Aufgabe einmal wie bisher. Richtig im zweiten Versuch oder mit

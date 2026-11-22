@@ -1,5 +1,5 @@
--- Rauchtest WD-S 3 (frische Aufgaben, Mischkarten, „nur selbst“, WD-4b). Nach 20261122_wd_s_wiederholungen.sql, 20261122_wd_s3_frische_aufgaben.sql
--- und – für Teil 7 – den Funktionen aus 20261122_wd_4b_stau_strecken.sql (Teil 7 wird übersprungen, wenn sie fehlen).
+-- Rauchtest WD-S 3/4 (frische Aufgaben, Mischkarten, „nur selbst“, WD-4b, Nacharbeit 921). Nach 20261122_wd_s_wiederholungen.sql,
+-- 20261122_wd_s3_frische_aufgaben.sql, 20261122_wd_4b_stau_strecken.sql und 20261122_wd_s4_nacharbeit_921.sql (fehlt etwas: Abbruch).
 -- Transaktion mit Rollback, nur Testkind, keine Namen. Antworten über den echten Antwortweg schule.uebung_pruefen_wd → uebung_pruefen_intern
 -- (Auswahl-Aufgaben: richtig = Index der Lösung). „Schon beantwortet“ ohne Buchung legt der Test über eine eigene Testsitzung an.
 -- Gewählt werden nur Etappen, auf die das Testkind noch nie geantwortet hat (unabhängig vom Bestand).
@@ -166,8 +166,66 @@ begin
   if not schule.wdh_fehler(v_k) then raise exception 'FEHLER 6 endgültiger Misch-Fehler zählt nicht'; end if;
   raise notice 'ok 6 Misch-Fehler zählt erst nach endgültiger Wertung';
 
+  -- 8 WD-S 4 (ChatGPT 921): Mischkarte beim Einlösen geprüft, mit Hilfe 0 Sterne, 0/1 freie Aufgabe, Lerntage mit Pausen
+  if position('WD-S 4' in pg_get_functiondef('schule.misch_gueltig(bigint, schule.aufgabe, jsonb)'::regprocedure)) = 0 then
+    raise exception 'FEHLER 8: 20261122_wd_s4_nacharbeit_921.sql fehlt'; end if;
+  select q.einheit_id, q.lz into v_e, v_lz from (
+    select a.einheit_id, a.variante_gruppe lz from schule.aufgabe a join schule.einheit e on e.id = a.einheit_id and e.status = 'freigegeben' and e.id = schule.thema_einheit(e.thema_id)
+     where a.pool = 'uebung' and a.freigegeben and a.stufe in (2, 3) and a.antworttyp = 'auswahl' and e.block_id is not null and (a.einheit_id, a.variante_gruppe) <> (v_e2, v_lz2)
+     group by 1, 2 having count(*) >= 5
+        and not exists (select 1 from schule.versuch v join schule.aufgabe b on b.id = v.aufgabe_id where v.lernender_id = v_l and b.einheit_id = a.einheit_id and b.variante_gruppe = a.variante_gruppe)
+     order by 1, 2 limit 1) q;
+  if v_e is null then raise exception 'FEHLER 8 Vorbereitung: keine unbeantwortete Etappe'; end if;
+  select array_agg(a.id order by a.id) into v_ids from schule.aufgabe a where a.einheit_id = v_e and a.variante_gruppe = v_lz and a.pool = 'uebung' and a.freigegeben and a.stufe in (2, 3) and a.antworttyp = 'auswahl';
+  perform pg_temp.w3_gesehen(v_l, a.id, now() - interval '200 days') from schule.aufgabe a                     -- übrige Aufgaben der Etappe: lange her
+    where a.einheit_id = v_e and a.variante_gruppe = v_lz and a.pool = 'uebung' and a.freigegeben and not (a.id = any(v_ids));
+  -- 8a A ausgeben → B derselben Etappe beantworten → A einlösen: gueltig false, keine Wiederholung
+  perform pg_temp.w3_karte(v_l, v_e, v_lz, 1, 3, 9);
+  insert into schule.misch_ausgabe (lernender_id, aufgabe_id, einheit_id, lernziel, ausgegeben_am) values (v_l, v_ids[1], v_e2, v_lz2, now() - interval '1 minute');
+  w := pg_temp.w3_antwort(v_l, v_ids[2], false, 0, null, false);                                                -- B (falsch, als Übung)
+  perform pg_temp.w3_karte(v_l, v_e, v_lz, 1, 3, 9);                                                               -- wieder fällig wie vorher
+  v_n := (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l);
+  w := pg_temp.w3_antwort(v_l, v_ids[1], true, 0, null, true);                                                  -- A als Mischkarte
+  select * into v_k from schule.karte_stand where lernender_id = v_l and einheit_id = v_e and lernziel = v_lz;
+  if (w->'misch'->>'gueltig')::boolean is distinct from false or w ? 'wiederholung' or v_k.wdh_stufe <> 1 or not schule.karte_faellig(v_k) then
+    raise exception 'FEHLER 8a Mischkarte nach anderer Aufgabe der Etappe: %', w; end if;
+  if exists (select 1 from schule.sterne where lernender_id = v_l and grund = 'wdh' and bezug like 'wdh:' || v_e || ':' || v_lz || ':%') then raise exception 'FEHLER 8a als Wiederholung vergütet'; end if;
+  -- 8b fällige Wiederholung mit Tipp: 0 Sterne (keine Übungs-, keine Wiederholungssterne)
+  perform pg_temp.w3_karte(v_l, v_e, v_lz, 1, 3, 9);
+  v_n := (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l);
+  w := pg_temp.w3_antwort(v_l, v_ids[3], true, 1, null, false);
+  if not coalesce((w->'wiederholung'->>'mit_hilfe')::boolean, false) or (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l) <> v_n
+     or exists (select 1 from schule.sterne where lernender_id = v_l and bezug = 'aufgabe:' || v_ids[3]) then raise exception 'FEHLER 8b Wiederholung mit Tipp: Sterne %', w; end if;
+  -- 8c gültige Mischkarte im zweiten Versuch: möglich, aber 0 Sterne
+  perform pg_temp.w3_karte(v_l, v_e, v_lz, 2, 7, 2);                                                               -- nicht fällig
+  insert into schule.misch_ausgabe (lernender_id, aufgabe_id, einheit_id, lernziel) values (v_l, v_ids[4], v_e2, v_lz2);
+  w := pg_temp.w3_antwort(v_l, v_ids[4], false, 0, 1, true, 'w3-m2-1');                                          -- erster Anlauf falsch
+  v_n := (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l);
+  w := pg_temp.w3_antwort(v_l, v_ids[4], true, 0, 2, true);                                                       -- zweiter Anlauf richtig
+  if (w->'misch'->>'gueltig')::boolean is distinct from true or (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l) <> v_n then
+    raise exception 'FEHLER 8c Mischkarte im zweiten Versuch: %', w; end if;
+  -- 8d 1 freie Aufgabe → genau diese; 0 freie → keine (deterministisches wdh_aufgabe_da)
+  perform pg_temp.w3_gesehen(v_l, a.id, now() - interval '1 minute') from schule.aufgabe a
+    where a.einheit_id = v_e and a.variante_gruppe = v_lz and a.pool = 'uebung' and a.freigegeben and a.id <> v_ids[5]
+      and not exists (select 1 from schule.versuch v where v.lernender_id = v_l and v.aufgabe_id = a.id and schule.lern_datum(v_l, v.am) >= schule.wdh_sperre_ab(v_l));
+  if schule.wdh_aufgabe_waehlen(v_l, v_e, v_lz, false) is distinct from v_ids[5] or not schule.wdh_aufgabe_da(v_l, v_e, v_lz) then raise exception 'FEHLER 8d eine freie'; end if;
+  perform pg_temp.w3_gesehen(v_l, v_ids[5], now() - interval '1 minute');
+  if schule.wdh_aufgabe_waehlen(v_l, v_e, v_lz, false) is not null or schule.wdh_aufgabe_da(v_l, v_e, v_lz) then raise exception 'FEHLER 8d keine freie'; end if;
+  -- 8e Lerntage mit Pausen: am Tag der Sperrgrenze beantwortet = gesperrt, am Tag davor = frei (egal wie viele Kalendertage)
+  v_ab := schule.wdh_sperre_ab(v_l);
+  select a.id into v_x from schule.aufgabe a where a.einheit_id = v_e2 and a.variante_gruppe = v_lz2 and a.pool = 'uebung' and a.freigegeben
+     and not exists (select 1 from schule.versuch v where v.lernender_id = v_l and v.aufgabe_id = a.id) order by a.id limit 1;
+  if v_x is not null then
+    perform pg_temp.w3_gesehen(v_l, v_x, (v_ab::timestamp + interval '12 hours') at time zone coalesce((select zeitzone from schule.lernender where id = v_l), 'UTC'));
+    if schule.lern_datum(v_l, (select max(am) from schule.versuch where lernender_id = v_l and aufgabe_id = v_x)) < schule.wdh_sperre_ab(v_l) then raise exception 'FEHLER 8e an der Grenze frei'; end if;
+  end if;
+  if exists (select 1 from schule.lerntag t where t.lernender_id = v_l and t.fach = 'Mathematik' and t.datum > v_ab and t.datum < schule.heute_tag(v_l)
+               group by t.lernender_id having count(*) <> 1) then raise exception 'FEHLER 8e: zwischen Grenze und heute nicht genau ein Lerntag'; end if;
+  raise notice 'ok 8 WD-S 4: Mischkarte nach anderer Aufgabe ungültig; mit Hilfe 0 Sterne (Wiederholung, Mischkarte 2. Versuch); 1/0 freie Aufgabe; Sperre über % Kalendertage = 3 Lerntage', schule.heute_tag(v_l) - v_ab;
+
   -- 7 WD-4b: offene Runde ausgenommen, belegte Folgetage mitgezählt, Rückweg nur ohne Zwischenübung
-  if to_regprocedure('schule.wdh_staffel_strecken(bigint)') is null then raise notice 'übersprungen 7 (WD-4b-Funktionen fehlen)';
+  if to_regprocedure('schule.wdh_staffel_strecken(bigint)') is null or to_regprocedure('schule.wdh_staffel_zurueck(bigint)') is null then
+    raise exception 'FEHLER 7: WD-4b-Funktionen fehlen (20261122_wd_4b_stau_strecken.sql einspielen)';
   else
     update schule.karte_stand set sitzt = false, faellig_am = null, wdh_ab = null, wdh_lerntage = null, wdh_fehler = 0 where lernender_id = v_l;
     update schule.regel set wert = '2' where schluessel = 'wdh_gesetzt_je_lerntag';

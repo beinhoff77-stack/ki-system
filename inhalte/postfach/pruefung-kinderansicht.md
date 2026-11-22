@@ -1,5 +1,13 @@
 # Postfach pruefung-kinderansicht (Aufbau der Kinderansicht)
 
+## 2026-11-22 – FERTIG: Vorgabe Reise-Aufbau
+
+- `inhalte/pruefung/kind/reise-aufbau/umsetzung.md` + `entwurf/reise-aufbau.html` (400/820/1280): Abflugtafel (Land · Thema · „Stadt · Etappe“, Mini-Route), Flug-Seite als Rundreise mit „Grenze“ = Flug-Test und Karte ab Tablet, Etappe mit „Highlight x von y“, Reisepass mit Länder-Stempeln (gold, Antarktis-Stationen), Meine Route nach Reise-Kontinenten, Antarktis = Expeditionen.
+- Offene Entscheidungen: „Highlight“ statt „Bordkarte“ überall; Flug-Test als „Grenze“; Beispiel „Samarkand · Minus vor der Klammer“ passt nicht zum Vorschlag (Terme umformen → Kasachstan/Schymkent).
+- Prüfung Länder/Städte: 8 Änderungswünsche (Schreibweisen ə, Emirate englisch, Polynesien Inselnamen, Irak/Saudi-Städte, „Südsee“, begonnene Städte zuerst, Kasachstan, Expedition „flug_toronto“). Lücken zum Nachtrag: Reserve (Punkt 9) fehlt – eng in Orient, Südsee, Ozeanien; >12 Etappen bei Italien/Schweiz/Deutschland.
+
+FERTIG: Vorgabe Reise-Aufbau
+
 ## 2026-11-22 – FERTIG: Vorgabe abgelegt · FERTIG: Nachprüfung Matrix 0.84.0
 
 - Vorgabe WD (Gestalter): `inhalte/pruefung/kind/abgelegt/umsetzung.md` + `entwurf/abgelegt.html` – Check-in (Runde bis 12 als Koffer in Päckchen, „etwa n Minuten“, +5 ★), „Etappe abgelegt“ (Blatt, Siegel „FÜR IMMER“, +30 ★), „Flug abgelegt“ (ganzer Bildschirm Gold, +100 ★, Orts-Stempel golden), Gold im Reisepass; Vorschläge zu „sicher“, Rückfall, Sternen.

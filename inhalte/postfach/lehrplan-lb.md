@@ -2,6 +2,38 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG Aufgaben nachliefern (lehrplan-lb)
+
+Grundlage ist `lernen-app` 197707e3, Auftrag „Aufgaben nachliefern“ im Bau-Auftrag FP. Die Datenbank habe ich nur gelesen, nichts ausgeführt.
+
+**Neu: je 8 Übungen der Stufen 2 und 3** (Stufe 2: einkleidung, mehrschritt, umkehr, darstellung; Stufe 3: vier verschiedene Typen). Die Antwortarten sind gemischt: Zahl, Auswahl, Markierung.
+
+| Einheit | Etappe | Stufe 2 | Stufe 3 | Antwortarten |
+|---|---|---|---|---|
+| 39 `zahlen.ganz` | `zahlengerade` | 4 | 4 (rueckwaerts, begruenden, parameter, fehler) | Markierung, Zahl, Auswahl |
+| 39 `zahlen.ganz` | `ordnen` | 4 | 4 (transfer, begruenden, parameter, fehler) | Zahl, Auswahl |
+| 5 `gleichungen.linear` | `waage` | 4 | 4 (fehler, verknuepfen mit Prozent aus Kl. 6, begruenden, transfer) | Zahl, Auswahl |
+
+- **Erzeugung:** neues Modul `inhalte/generatoren/_frisch_2211.py`. Es ist als letzter Schritt in `zahlen_ganz.py` und `gleichungen_linear.py` eingehängt.
+  - Alle Lösungen werden berechnet, nachgerechnete Zahlaufgaben haben `c`.
+  - Die Texte sind selbst formuliert und für sich allein verständlich (Mischkarten).
+  - Die falschen Auswahlantworten stammen aus typischen Fehlern.
+- **Bestand unverändert:**
+  - Beide Generatoren erzeugen ohne die Ergänzung genau die eingecheckten Dateien.
+  - Mit der Ergänzung sind alle bisherigen Aufgaben, `inhalt` und Kopf identisch. Es kommen nur 16 bzw. 8 Aufgaben am Ende dazu.
+  - Keine der neuen Fragen gleicht einer Frage in der Datenbank, auch keiner gesperrten.
+- **Prüfskript:** `inhalt_pruefen.py` meldet für beide Dateien **OK**; „gleich gebaut hintereinander“: 0. `--alle` ohne Fehler, App-Tests 157/157.
+- **Einspielen (Haupt-Chat):** fertiges SQL in `inhalte/pruefung/lehrplan/aufgaben_frisch_2211.sql`, nicht ausgeführt, in einer Transaktion einzuspielen.
+  - Es arbeitet nur mit INSERT über `schule.aufgaben_einfuegen`, Einheit und `inhalt` bleiben unverändert.
+  - `tools/inhalt_sql.py` geht nicht, weil es die Einheit schon gibt. `einheit_abgleichen` würde `inhalt` neu schreiben, was bei freigegebenen Einheiten nur erlaubt ist, wenn er gleich bleibt, und den Typ `g` nicht mitnehmen.
+  - Gelesen: Der Trigger `aufgabe_schutz` sperrt bei freigegebenen Einheiten nur UPDATE und DELETE.
+  - Die neuen Aufgaben sind sofort sichtbar (`freigegeben` hat den Standard true) und werden hinter die vorhandenen Übungen gereiht.
+  - Die Datei ist wiederholt ausführbar: Ein zweiter Lauf fügt nichts ein.
+  - Der Rauchtest am Ende prüft je Etappe 8 neue Übungen.
+  - Lokal auf Postgres 16 mit den echten Definitionen von `aufgaben_einfuegen` und `aufgabe_schutz` zweimal ausgeführt: 16 und 8 eingefügt, beim zweiten Lauf 0, Rauchtest bestanden.
+
+FERTIG: Aufgaben frisch
+
 ## 2026-11-22 – MELDUNG Nacharbeit 907 c (lehrplan-lb)
 
 Grundlage ist `lernen-app` f278a3cf. Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Geändert ist `supabase/migrations/20261122_lehrplan_nacharbeit_907.sql`. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0f.

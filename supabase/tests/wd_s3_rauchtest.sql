@@ -58,6 +58,14 @@ begin
      order by 1, 2 limit 1) q;
   if v_e2 is null then raise exception 'FEHLER Vorbereitung: keine zwei passenden Etappen'; end if;
   select array_agg(a.id order by a.id) into v_ids from schule.aufgabe a where a.einheit_id = v_e and a.variante_gruppe = v_lz and a.pool = 'uebung' and a.freigegeben and a.stufe in (2, 3) and a.antworttyp = 'auswahl';
+  -- Nachtrag 22.11.: alle übrigen Übungsaufgaben beider Etappen (andere Stufen/Typen) gestern beantwortet = innerhalb der Sperre.
+  -- So rechnet der Test nur mit den Auswahl-Aufgaben der Stufen 2–3 – unabhängig davon, wie die echte Etappe zusammengesetzt ist.
+  insert into schule.lerntag (lernender_id, fach, datum, zeitzone)
+  values (v_l, 'Mathematik', schule.heute_tag(v_l) - 1, coalesce((select zeitzone from schule.lernender where id = v_l), 'UTC')) on conflict do nothing;
+  perform pg_temp.w3_gesehen(v_l, a.id, ((schule.heute_tag(v_l) - 1)::timestamp + interval '12 hours') at time zone coalesce((select zeitzone from schule.lernender where id = v_l), 'UTC'))
+     from schule.aufgabe a
+    where ((a.einheit_id = v_e and a.variante_gruppe = v_lz) or (a.einheit_id = v_e2 and a.variante_gruppe = v_lz2))
+      and a.pool = 'uebung' and a.freigegeben and not (a.stufe in (2, 3) and a.antworttyp = 'auswahl');
 
   -- 1 Sperre in Lerntagen: heute + die 2 vorigen Lerntage (Tage ohne Lernen zählen nicht)
   v_ab := schule.wdh_sperre_ab(v_l);

@@ -23,7 +23,8 @@ def datei_etappen(tid):
     d = json.load(open(REPO / themen[tid]["datei"]))
     return [e["lernziel"] for e in (d.get("etappen") or d["inhalt"]["etappen"])]
 NEU_LKD = {"vektor_koordinaten", "vektor_drehen", "streckung_vektor", "vierecke_konstruieren", "drachen_raute", "wahre_groesse",
-           "cavalieri", "koerper_symmetrie", "gleichungen_binomisch"}   # LK-D und LK-D 3
+           "cavalieri", "koerper_symmetrie", "gleichungen_binomisch",          # LK-D 3
+           "irrational_beweis", "darstellen", "raumwinkel"}                    # LK-D 4
 
 def kl_key(t):
     k, r = t["klasse"], t["reihenfolge"]
@@ -134,7 +135,9 @@ for k in KONTINENTE:
                     "einheit_id": db[tid][0] if teil == 1 else None,
                     "einheit_hinweis": "bisherige Einheit" if teil == 1 else "neue Einheit kommt mit TL-S (bau-lehrer)",
                     "klasse": {"gym_by": tl["klasse"]["gym"], "rs_by_I": tl["klasse"]["rs_I"], "rs_by_II_III": tl["klasse"]["rs_II_III"], "ib_myp": tl["klasse"]["ib_standard"]}}
-            if teil > 1: kopf["nachbarschaft"] = NACHBARSCHAFT.get(key) or fehler.append(f"Nachbarschaft fehlt für {key}")
+            if teil > 1:
+                kopf["nachbarschaft"] = NACHBARSCHAFT.get(key) or fehler.append(f"Nachbarschaft fehlt für {key}")
+                kopf["insel_ausnahme"] = (kopf["nachbarschaft"] or "").startswith("Insel-Ausnahme")
         else:
             if tid in teilung:
                 fehler.append(f"Thema {tid} ist laut lk_teilung_2211.json geteilt, im Vorschlag noch ein Flug")
@@ -253,7 +256,8 @@ for f in alle_fluege:
         try:
             d1 = min(km(a, b) for a in f1["staedte"] for b in f["staedte"])
             dv = min(km(a, b) for a in fv["staedte"] for b in f["staedte"])
-            nachbar.append(f"{f['flug_id']}: {f1['land']} → {f['land']} (nächste Städte {d1:.0f} km; zum vorigen Teil {dv:.0f} km)")
+            art = "Insel-Ausnahme, kein Nachbarland" if f.get("insel_ausnahme") else "Nachbar"
+            nachbar.append(f"{f['flug_id']}: {f1['land']} → {f['land']} – {art} (nächste Städte {d1:.0f} km; zum vorigen Teil {dv:.0f} km)")
         except KeyError:
             pass
 lange = []

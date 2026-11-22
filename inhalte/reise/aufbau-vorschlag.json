@@ -1294,7 +1294,7 @@
      "land": "Polen",
      "iso": "PL",
      "region": null,
-     "etappen": 7,
+     "etappen": 8,
      "kurzflug": false,
      "mitte": {
       "breite": 51.9903,
@@ -1371,6 +1371,18 @@
        "laenge": 19.94885,
        "geonames_id": 3080866,
        "geonames_name": "Zakopane"
+      },
+      {
+       "stadt": "Wieliczka",
+       "etappe": 8,
+       "lernziel": "irrational_beweis",
+       "neu_lkd": true,
+       "kuer": true,
+       "noch_nicht_in_db": true,
+       "breite": 49.98738,
+       "laenge": 20.06473,
+       "geonames_id": 755889,
+       "geonames_name": "Wieliczka"
       }
      ]
     },
@@ -1654,6 +1666,11 @@
        "etappe": 5,
        "lernziel": "aenderung",
        "etappe_titel": "Änderungsraten berechnen",
+       "kuer_in": [
+        "gym",
+        "rs_I",
+        "rs_II_III"
+       ],
        "breite": 22.14681,
        "laenge": -80.4481,
        "geonames_id": 3564124,
@@ -1681,6 +1698,7 @@
       ]
      },
      "nachbarschaft": "Kuba ↔ Jamaika: über die Jamaikastraße (ca. 150 km), keine Landgrenze",
+     "insel_ausnahme": false,
      "heute_ort": "Chicago",
      "land": "Jamaika",
      "iso": "JM",
@@ -2480,6 +2498,7 @@
       ]
      },
      "nachbarschaft": "Kasachstan ↔ Turkmenistan: gemeinsame Landgrenze",
+     "insel_ausnahme": false,
      "heute_ort": "Samarkand",
      "land": "Turkmenistan",
      "iso": "TM",
@@ -2534,6 +2553,9 @@
        "etappe": 4,
        "lernziel": "gleichungen_binomisch",
        "etappe_titel": "Gleichungen mit Klammerprodukten",
+       "kuer_in": [
+        "gym"
+       ],
        "neu_lkd": true,
        "noch_nicht_in_db": true,
        "breite": 37.95,
@@ -5277,6 +5299,7 @@
       ]
      },
      "nachbarschaft": "Marokko ↔ Algerien: gemeinsame Landgrenze",
+     "insel_ausnahme": false,
      "heute_ort": "Marrakesch",
      "land": "Algerien",
      "iso": "DZ",
@@ -5301,6 +5324,9 @@
        "etappe": 1,
        "lernziel": "verschiebung",
        "etappe_titel": "Figuren verschieben",
+       "kuer_in": [
+        "gym"
+       ],
        "breite": 34.87833,
        "laenge": -1.315,
        "geonames_id": 2475687,
@@ -5311,6 +5337,9 @@
        "etappe": 2,
        "lernziel": "gegenvektor",
        "etappe_titel": "Gegenvektor und Rückweg",
+       "kuer_in": [
+        "gym"
+       ],
        "breite": 35.69906,
        "laenge": -0.63588,
        "geonames_id": 2485926,
@@ -5321,6 +5350,9 @@
        "etappe": 3,
        "lernziel": "vektor_koordinaten",
        "etappe_titel": "Vektoren in Koordinaten",
+       "kuer_in": [
+        "gym"
+       ],
        "neu_lkd": true,
        "noch_nicht_in_db": true,
        "breite": 36.73225,
@@ -5348,6 +5380,7 @@
       ]
      },
      "nachbarschaft": "Marokko ↔ Mauretanien: nur über das umstrittene Westsahara-Gebiet; Nachbar von Teil 2 (Algerien) mit Landgrenze",
+     "insel_ausnahme": false,
      "heute_ort": "Marrakesch",
      "land": "Mauretanien",
      "iso": "MR",
@@ -5372,6 +5405,9 @@
        "etappe": 1,
        "lernziel": "punktspiegelung",
        "etappe_titel": "An einem Punkt spiegeln",
+       "kuer_in": [
+        "rs_II_III"
+       ],
        "breite": 20.94188,
        "laenge": -17.03842,
        "geonames_id": 2377457,
@@ -5382,6 +5418,10 @@
        "etappe": 2,
        "lernziel": "drehung",
        "etappe_titel": "Um einen Punkt drehen",
+       "kuer_in": [
+        "gym",
+        "rs_II_III"
+       ],
        "breite": 18.08581,
        "laenge": -15.9785,
        "geonames_id": 2377450,
@@ -5392,6 +5432,10 @@
        "etappe": 3,
        "lernziel": "vektor_drehen",
        "etappe_titel": "Vektoren um 90° und 180° drehen",
+       "kuer_in": [
+        "gym",
+        "rs_II_III"
+       ],
        "neu_lkd": true,
        "noch_nicht_in_db": true,
        "breite": 20.51875,
@@ -5598,6 +5642,9 @@
        "etappe": 5,
        "lernziel": "satz_kehrsatz",
        "etappe_titel": "Satz und Kehrsatz",
+       "kuer_in": [
+        "rs_II_III"
+       ],
        "breite": -2.59667,
        "laenge": 29.73944,
        "geonames_id": 203112,
@@ -5623,6 +5670,7 @@
       "ib_myp": null
      },
      "nachbarschaft": "Ruanda ↔ Burundi: gemeinsame Landgrenze",
+     "insel_ausnahme": false,
      "heute_ort": "Addis Abeba",
      "land": "Burundi",
      "iso": "BI",
@@ -5647,6 +5695,9 @@
        "etappe": 1,
        "lernziel": "vierecke",
        "etappe_titel": "Winkel in symmetrischen Vierecken",
+       "kuer_in": [
+        "gym"
+       ],
        "breite": -3.38193,
        "laenge": 29.36142,
        "geonames_id": 425378,
@@ -5657,6 +5708,9 @@
        "etappe": 2,
        "lernziel": "vierecke_konstruieren",
        "etappe_titel": "Vierecke konstruieren",
+       "kuer_in": [
+        "gym"
+       ],
        "neu_lkd": true,
        "noch_nicht_in_db": true,
        "breite": -3.42708,
@@ -7111,6 +7165,7 @@
       "ib_myp": null
      },
      "nachbarschaft": "Brasilien – Südosten ↔ Brasilien – Mittelwesten: gemeinsame Grenze (Minas Gerais ↔ Goiás/Distrito Federal)",
+     "insel_ausnahme": false,
      "heute_ort": "Cusco",
      "land": "Brasilien – Mittelwesten",
      "iso": "BR",
@@ -7173,7 +7228,7 @@
      "land": "Paraguay",
      "iso": "PY",
      "region": null,
-     "etappen": 3,
+     "etappen": 4,
      "kurzflug": false,
      "mitte": {
       "breite": -21.6745,
@@ -7193,6 +7248,9 @@
        "etappe": 1,
        "lernziel": "pyramide",
        "etappe_titel": "Pyramiden: Ecken, Kanten, Flächen",
+       "kuer_in": [
+        "ib_standard"
+       ],
        "breite": -25.28646,
        "laenge": -57.647,
        "geonames_id": 3439389,
@@ -7203,16 +7261,40 @@
        "etappe": 2,
        "lernziel": "lage",
        "etappe_titel": "Parallel, schneidend oder windschief?",
+       "kuer_in": [
+        "gym",
+        "rs_II_III",
+        "ib_standard"
+       ],
        "breite": -25.31067,
        "laenge": -57.29628,
        "geonames_id": 3437120,
        "geonames_name": "San Bernardino"
       },
       {
-       "stadt": "Ciudad del Este",
+       "stadt": "Encarnación",
        "etappe": 3,
        "lernziel": "wahre_groesse",
        "etappe_titel": "Wahre Größe im Schrägbild",
+       "kuer_in": [
+        "ib_standard"
+       ],
+       "neu_lkd": true,
+       "noch_nicht_in_db": true,
+       "breite": -27.33176,
+       "laenge": -55.86662,
+       "geonames_id": 3438735,
+       "geonames_name": "Encarnación"
+      },
+      {
+       "stadt": "Ciudad del Este",
+       "etappe": 4,
+       "lernziel": "raumwinkel",
+       "etappe_titel": "Winkel im Raum",
+       "kuer_in": [
+        "rs_II_III",
+        "ib_standard"
+       ],
        "neu_lkd": true,
        "noch_nicht_in_db": true,
        "breite": -25.5036,
@@ -7240,6 +7322,7 @@
       "ib_myp": null
      },
      "nachbarschaft": "Paraguay ↔ Brasilien – Süden: gemeinsame Landgrenze (Ciudad del Este ↔ Foz do Iguaçu)",
+     "insel_ausnahme": false,
      "heute_ort": "Brasília",
      "land": "Brasilien – Süden",
      "iso": "BR",
@@ -7272,6 +7355,11 @@
        "etappe": 1,
        "lernziel": "koordinaten",
        "etappe_titel": "Punkte im Raum mit Koordinaten",
+       "kuer_in": [
+        "gym",
+        "rs_II_III",
+        "ib_standard"
+       ],
        "breite": -25.54778,
        "laenge": -54.58806,
        "geonames_id": 3463030,
@@ -7282,6 +7370,9 @@
        "etappe": 2,
        "lernziel": "rotation",
        "etappe_titel": "Rotationskörper",
+       "kuer_in": [
+        "ib_standard"
+       ],
        "breite": -25.42778,
        "laenge": -49.27306,
        "geonames_id": 3464975,
@@ -7292,6 +7383,9 @@
        "etappe": 3,
        "lernziel": "axialschnitt",
        "etappe_titel": "Axialschnitte berechnen",
+       "kuer_in": [
+        "ib_standard"
+       ],
        "breite": -27.59667,
        "laenge": -48.54917,
        "geonames_id": 3463237,
@@ -7302,6 +7396,11 @@
        "etappe": 4,
        "lernziel": "koerper_symmetrie",
        "etappe_titel": "Symmetrie von Körpern",
+       "kuer_in": [
+        "gym",
+        "rs_II_III",
+        "ib_standard"
+       ],
        "neu_lkd": true,
        "noch_nicht_in_db": true,
        "breite": -30.03283,
@@ -7794,11 +7893,11 @@
      "land": "Neuseeland – Nordinsel",
      "iso": "NZ",
      "region": "NORD",
-     "etappen": 2,
-     "kurzflug": true,
+     "etappen": 3,
+     "kurzflug": false,
      "mitte": {
-      "breite": -39.0676,
-      "laenge": 174.7695,
+      "breite": -38.758,
+      "laenge": 175.2614,
       "quelle": "Mittel der Städte (Natural Earth 1:50 m hat keinen Punkt für diesen Landesteil)"
      },
      "hauptort_landesteil": {
@@ -7828,10 +7927,22 @@
        "geonames_name": "Auckland"
       },
       {
-       "stadt": "Wellington",
+       "stadt": "Rotorua",
        "etappe": 2,
        "lernziel": "rel_haeufigkeit",
        "etappe_titel": "Relative Häufigkeit",
+       "breite": -38.13874,
+       "laenge": 176.24516,
+       "geonames_id": 6241325,
+       "geonames_name": "Rotorua"
+      },
+      {
+       "stadt": "Wellington",
+       "etappe": 3,
+       "lernziel": "darstellen",
+       "etappe_titel": "Baumdiagramm und Vierfeldertafel",
+       "neu_lkd": true,
+       "noch_nicht_in_db": true,
        "breite": -41.28664,
        "laenge": 174.77557,
        "geonames_id": 2179537,
@@ -7858,7 +7969,8 @@
        2
       ]
      },
-     "nachbarschaft": "Neuseeland – Nordinsel → Salomonen: kein Nachbar (über das Meer, ca. 2 900 km); Entscheidung Sebastian 22.11. 17:05 – keine strittigen Gebiete, Neuseelands Nachbarn sonst belegt",
+     "nachbarschaft": "Insel-Ausnahme (kein Nachbarland): Neuseeland – Nordinsel → Salomonen über das Meer; Entscheidung Sebastian 22.11. 17:05 – keine strittigen Gebiete, Neuseelands Nachbarn sonst belegt",
+     "insel_ausnahme": true,
      "heute_ort": "Auckland",
      "land": "Salomonen",
      "iso": "SB",
@@ -10413,13 +10525,7 @@
       "geonames_name": "Canberra",
       "art": "Hauptstadt des Landesteils"
      }
-    }
-   ]
-  },
-  {
-   "kontinent_id": 8,
-   "reise": "Pazifik",
-   "laender": [
+    },
     {
      "land": "Mikronesien",
      "iso": "FM",
@@ -10481,6 +10587,129 @@
       "geonames_name": "Palikir"
      }
     },
+    {
+     "land": "Guam",
+     "iso": "GU",
+     "region": null,
+     "staedte": [
+      {
+       "stadt": "Hagåtña",
+       "breite": 13.47567,
+       "laenge": 144.74886,
+       "geonames_id": 4044012,
+       "geonames_name": "Hagåtña"
+      },
+      {
+       "stadt": "Tamuning",
+       "breite": 13.48754,
+       "laenge": 144.78143,
+       "geonames_id": 7874631,
+       "geonames_name": "Tamuning"
+      },
+      {
+       "stadt": "Dededo",
+       "breite": 13.51777,
+       "laenge": 144.8391,
+       "geonames_id": 4043909,
+       "geonames_name": "Dededo Village"
+      },
+      {
+       "stadt": "Yigo",
+       "breite": 13.53605,
+       "laenge": 144.88855,
+       "geonames_id": 4038794,
+       "geonames_name": "Yigo Village"
+      },
+      {
+       "stadt": "Mangilao",
+       "breite": 13.44761,
+       "laenge": 144.80109,
+       "geonames_id": 7268049,
+       "geonames_name": "Mangilao Village"
+      },
+      {
+       "stadt": "Inarajan",
+       "breite": 13.27363,
+       "laenge": 144.74845,
+       "geonames_id": 4043499,
+       "geonames_name": "Inarajan Village"
+      },
+      {
+       "stadt": "Umatac",
+       "breite": 13.29843,
+       "laenge": 144.66314,
+       "geonames_id": 4038733,
+       "geonames_name": "Umatac Village"
+      },
+      {
+       "stadt": "Agat",
+       "breite": 13.383,
+       "laenge": 144.66003,
+       "geonames_id": 4043804,
+       "geonames_name": "Agat Village"
+      }
+     ],
+     "mitte": {
+      "breite": 13.3542,
+      "laenge": 144.7036,
+      "quelle": "Natural Earth admin_0 Beschriftungspunkt"
+     },
+     "hauptstadt": {
+      "name": "Hagåtña",
+      "breite": 13.47567,
+      "laenge": 144.74886,
+      "geonames_id": 4044012,
+      "geonames_name": "Hagåtña",
+      "hinweis": "US-Außengebiet, Hauptort Hagåtña"
+     }
+    },
+    {
+     "land": "Palau",
+     "iso": "PW",
+     "region": null,
+     "staedte": [
+      {
+       "stadt": "Koror",
+       "breite": 7.33978,
+       "laenge": 134.47326,
+       "geonames_id": 1559446,
+       "geonames_name": "Koror"
+      },
+      {
+       "stadt": "Kloulklubed",
+       "breite": 7.04192,
+       "laenge": 134.25561,
+       "geonames_id": 7671223,
+       "geonames_name": "Kloulklubed"
+      },
+      {
+       "stadt": "Ngerkeai",
+       "breite": 7.55456,
+       "laenge": 134.63612,
+       "geonames_id": 4038014,
+       "geonames_name": "Ngerkeai"
+      }
+     ],
+     "mitte": {
+      "breite": 7.5183,
+      "laenge": 134.5802,
+      "quelle": "Natural Earth admin_0 Beschriftungspunkt"
+     },
+     "hauptstadt": {
+      "name": "Ngerulmud",
+      "breite": 7.50077,
+      "laenge": 134.6238,
+      "geonames_id": 8063361,
+      "geonames_name": "Ngerulmud",
+      "hinweis": "Ngerulmud (Melekeok); geonamescache führt „Melekeok“"
+     }
+    }
+   ]
+  },
+  {
+   "kontinent_id": 8,
+   "reise": "Pazifik",
+   "laender": [
     {
      "land": "Amerikanisch-Samoa",
      "iso": "AS",
@@ -10544,44 +10773,134 @@
      }
     },
     {
-     "land": "Palau",
-     "iso": "PW",
+     "land": "Wallis und Futuna",
+     "iso": "WF",
      "region": null,
      "staedte": [
       {
-       "stadt": "Koror",
-       "breite": 7.33978,
-       "laenge": 134.47326,
-       "geonames_id": 1559446,
-       "geonames_name": "Koror"
+       "stadt": "Mata-Utu",
+       "breite": -13.28163,
+       "laenge": -176.17453,
+       "geonames_id": 4034821,
+       "geonames_name": "Mata-Utu"
       },
       {
-       "stadt": "Kloulklubed",
-       "breite": 7.04192,
-       "laenge": 134.25561,
-       "geonames_id": 7671223,
-       "geonames_name": "Kloulklubed"
+       "stadt": "Liku",
+       "breite": -13.26852,
+       "laenge": -176.16586,
+       "geonames_id": 4034831,
+       "geonames_name": "Liku"
       },
       {
-       "stadt": "Ngerkeai",
-       "breite": 7.55456,
-       "laenge": 134.63612,
-       "geonames_id": 4038014,
-       "geonames_name": "Ngerkeai"
+       "stadt": "Alele",
+       "breite": -13.24667,
+       "laenge": -176.18341,
+       "geonames_id": 4034886,
+       "geonames_name": "Alele"
+      },
+      {
+       "stadt": "Halalo",
+       "breite": -13.3454,
+       "laenge": -176.21464,
+       "geonames_id": 4034856,
+       "geonames_name": "Halalo"
+      },
+      {
+       "stadt": "Utufua",
+       "breite": -13.34261,
+       "laenge": -176.19435,
+       "geonames_id": 4034763,
+       "geonames_name": "Utufua"
+      },
+      {
+       "stadt": "Leava (Futuna)",
+       "breite": -14.29333,
+       "laenge": -178.15833,
+       "geonames_id": 4034778,
+       "geonames_name": "Leava"
+      },
+      {
+       "stadt": "Alo (Futuna)",
+       "breite": -14.31096,
+       "laenge": -178.11094,
+       "geonames_id": 4034885,
+       "geonames_name": "Alo"
       }
      ],
      "mitte": {
-      "breite": 7.5183,
-      "laenge": 134.5802,
+      "breite": -14.2864,
+      "laenge": -178.1374,
       "quelle": "Natural Earth admin_0 Beschriftungspunkt"
      },
      "hauptstadt": {
-      "name": "Ngerulmud",
-      "breite": 7.50077,
-      "laenge": 134.6238,
-      "geonames_id": 8063361,
-      "geonames_name": "Ngerulmud",
-      "hinweis": "Ngerulmud (Melekeok); geonamescache führt „Melekeok“"
+      "name": "Mata-Utu",
+      "breite": -13.28163,
+      "laenge": -176.17453,
+      "geonames_id": 4034821,
+      "geonames_name": "Mata-Utu",
+      "hinweis": "französisches Überseegebiet, Hauptort Mata-Utu"
+     }
+    },
+    {
+     "land": "Tuvalu",
+     "iso": "TV",
+     "region": null,
+     "staedte": [
+      {
+       "stadt": "Funafuti",
+       "breite": -8.52425,
+       "laenge": 179.19417,
+       "geonames_id": 2110394,
+       "geonames_name": "Funafuti"
+      },
+      {
+       "stadt": "Vaiaku",
+       "breite": -8.52544,
+       "laenge": 179.1941,
+       "geonames_id": 7601977,
+       "geonames_name": "Vaiaku Village"
+      },
+      {
+       "stadt": "Fakaifou",
+       "breite": -8.51758,
+       "laenge": 179.20094,
+       "geonames_id": 7602508,
+       "geonames_name": "Fakaifou Village"
+      },
+      {
+       "stadt": "Alapi",
+       "breite": -8.52074,
+       "laenge": 179.1968,
+       "geonames_id": 7602506,
+       "geonames_name": "Alapi Village"
+      },
+      {
+       "stadt": "Senala",
+       "breite": -8.5174,
+       "laenge": 179.19829,
+       "geonames_id": 7602507,
+       "geonames_name": "Senala Village"
+      },
+      {
+       "stadt": "Teone",
+       "breite": -8.49922,
+       "laenge": 179.19502,
+       "geonames_id": 7602537,
+       "geonames_name": "Teone Village"
+      }
+     ],
+     "mitte": {
+      "breite": -8.5137,
+      "laenge": 179.2096,
+      "quelle": "Natural Earth admin_0 Beschriftungspunkt"
+     },
+     "hauptstadt": {
+      "name": "Funafuti",
+      "breite": -8.52425,
+      "laenge": 179.19417,
+      "geonames_id": 2110394,
+      "geonames_name": "Funafuti",
+      "hinweis": "Hauptstadt Funafuti (Atoll); Regierungssitz Vaiaku"
      }
     }
    ]
@@ -10836,18 +11155,25 @@
   ],
   "Paraguay": [
    {
-    "stadt": "Encarnación",
-    "breite": -27.33176,
-    "laenge": -55.86662,
-    "geonames_id": 3438735,
-    "geonames_name": "Encarnación"
-   },
-   {
     "stadt": "Concepción",
     "breite": -23.39985,
     "laenge": -57.43236,
     "geonames_id": 3438834,
     "geonames_name": "Concepción"
+   },
+   {
+    "stadt": "Pilar",
+    "breite": -26.85874,
+    "laenge": -58.30639,
+    "geonames_id": 3437526,
+    "geonames_name": "Pilar"
+   },
+   {
+    "stadt": "Villarrica",
+    "breite": -25.74946,
+    "laenge": -56.43518,
+    "geonames_id": 3436714,
+    "geonames_name": "Villarrica"
    }
   ],
   "Neuseeland – Nordinsel": [
@@ -10857,13 +11183,6 @@
     "laenge": 175.28333,
     "geonames_id": 2190324,
     "geonames_name": "Hamilton"
-   },
-   {
-    "stadt": "Rotorua",
-    "breite": -38.13874,
-    "laenge": 176.24516,
-    "geonames_id": 6241325,
-    "geonames_name": "Rotorua"
    },
    {
     "stadt": "Taupō",
@@ -10945,10 +11264,10 @@
   "fluege": 95,
   "davon_neue_teile": 8,
   "laender": 95,
-  "staedte": 615,
-  "staedte_einmalig": 615,
-  "staedte_mit_koordinaten": 615,
-  "neue_etappen_noch_nicht_in_db": 9,
+  "staedte": 618,
+  "staedte_einmalig": 618,
+  "staedte_mit_koordinaten": 618,
+  "neue_etappen_noch_nicht_in_db": 12,
   "reserve_laender": {
    "Europa": 5,
    "Nordamerika (mit Mittelamerika und Karibik)": 3,
@@ -10956,7 +11275,7 @@
    "Orient (Naher Osten und Kaukasus) – neu, ersetzt Antarktis": 4,
    "Afrika": 3,
    "Südamerika": 3,
-   "Australien (nach Bundesstaaten) und Ozeanien": 1,
+   "Australien (nach Bundesstaaten) und Ozeanien": 4,
    "Pazifik": 3
   },
   "expeditionen": 21,
@@ -10966,14 +11285,14 @@
    "IN: „Neu-Delhi“ nicht unter den GeoNames-Namen von Delhi"
   ],
   "nachbarteile": [
-   "26-2: Kuba → Jamaika (nächste Städte 486 km; zum vorigen Teil 486 km)",
-   "29-2: Kasachstan → Turkmenistan (nächste Städte 560 km; zum vorigen Teil 560 km)",
-   "46-2: Marokko → Algerien (nächste Städte 58 km; zum vorigen Teil 58 km)",
-   "46-3: Marokko → Mauretanien (nächste Städte 1549 km; zum vorigen Teil 1967 km)",
-   "44-2: Ruanda → Burundi (nächste Städte 95 km; zum vorigen Teil 95 km)",
-   "101-2: Brasilien – Südosten → Brasilien – Mittelwesten (nächste Städte 625 km; zum vorigen Teil 625 km)",
-   "91-2: Paraguay → Brasilien – Süden (nächste Städte 8 km; zum vorigen Teil 8 km)",
-   "61-2: Neuseeland – Nordinsel → Salomonen (nächste Städte 3206 km; zum vorigen Teil 3206 km)"
+   "26-2: Kuba → Jamaika – Nachbar (nächste Städte 486 km; zum vorigen Teil 486 km)",
+   "29-2: Kasachstan → Turkmenistan – Nachbar (nächste Städte 560 km; zum vorigen Teil 560 km)",
+   "46-2: Marokko → Algerien – Nachbar (nächste Städte 58 km; zum vorigen Teil 58 km)",
+   "46-3: Marokko → Mauretanien – Nachbar (nächste Städte 1549 km; zum vorigen Teil 1967 km)",
+   "44-2: Ruanda → Burundi – Nachbar (nächste Städte 95 km; zum vorigen Teil 95 km)",
+   "101-2: Brasilien – Südosten → Brasilien – Mittelwesten – Nachbar (nächste Städte 625 km; zum vorigen Teil 625 km)",
+   "91-2: Paraguay → Brasilien – Süden – Nachbar (nächste Städte 8 km; zum vorigen Teil 8 km)",
+   "61-2: Neuseeland – Nordinsel → Salomonen – Insel-Ausnahme, kein Nachbarland (nächste Städte 3206 km; zum vorigen Teil 3206 km)"
   ],
   "lange_teilstrecken_ueber_700km": [
    "Calgary → Winnipeg: 1203 km Luftlinie",
@@ -10989,12 +11308,10 @@
   ],
   "fehler": [],
   "hinweise": [
-   "Reserve Australien (nach Bundesstaaten) und Ozeanien: nur 1 Land",
    "Reserve Australian Capital Territory: 4 Städte (Ziel 6–8)",
    "Reserve Palau: 3 Städte (Ziel 6–8)",
    "Kurzflug 44-2 Burundi: 2 Städte (erlaubt, Teilung 16:20 Punkt 3)",
-   "Kurzflug 101-2 Brasilien – Mittelwesten: 1 Stadt (erlaubt, Teilung 16:20 Punkt 3)",
-   "Kurzflug 61-1 Neuseeland – Nordinsel: 2 Städte (erlaubt, Teilung 16:20 Punkt 3)"
+   "Kurzflug 101-2 Brasilien – Mittelwesten: 1 Stadt (erlaubt, Teilung 16:20 Punkt 3)"
   ]
  }
 }

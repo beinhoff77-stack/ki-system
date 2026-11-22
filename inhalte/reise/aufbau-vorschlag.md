@@ -1,9 +1,10 @@
-# Reise-Aufbau – Vorschlag (Stand 22.11.2026, fortgeschrieben „Reise-Aufbau 3“)
+# Reise-Aufbau – Vorschlag (Stand 22.11.2026, fortgeschrieben „Reise-Aufbau 4“)
 
 **Nur Vorschlag.** Kein App-Code, nichts in der Datenbank geändert, die Datenbank nur gelesen. Grundlagen in `inhalte/AUFTRAEGE.md`:
 - Festlegungen 1–14 („Vorarbeit ‚Reise-Aufbau‘“), Nachtrag „Vorschlag fortschreiben“ (15:25), „Entscheidung Teilung“ (16:20).
 - „Entscheidungen Sebastian (17:05)“: Salomonen statt Neukaledonien; Marokko → Algerien → Mauretanien bleibt; 101 geteilt; drei neue Etappen aus LK-D 3.
-- Teilung aus `inhalte/pruefung/lehrplan/lk_teilung_2211.json` (Stand `lernen-app` 723770dd: 7 Themen, 15 Teile); Kartenbedarf aus `inhalte/pruefung/kind/karte/umsetzung.md`.
+- „Rückläufer ChatGPT 947–950 (19:30)“, Abschnitt „Reise-Aufbau 4“: drei fehlende Städte, Insel-Ausnahme, Reserve Ozeanien.
+- Teilung aus `inhalte/pruefung/lehrplan/lk_teilung_2211.json` (Stand `lernen-app` 456c6ec2: 7 Themen, 15 Teile); Kartenbedarf aus `inhalte/pruefung/kind/karte/umsetzung.md`.
 
 Dateien:
 - `aufbau-vorschlag.json` – maschinenlesbar:
@@ -15,9 +16,21 @@ Dateien:
 - `laender_geo_bauen.py` → `laender_geo.json` – Mittelpunkte und deutsche Namen aus Natural Earth. Nur neu bauen, wenn Länder dazukommen; der Aufruf steht im Kopf des Skripts.
 - `db_stand.json` – gelesener DB-Stand: Thema → Einheit, Anzahl Etappen, Lernziele je Etappe in DB-Reihenfolge.
 
+## Was „Reise-Aufbau 4“ ändert (gegenüber Reise-Aufbau 3)
+
+- **Drei neue Etappen aus LK-D 4 bekommen je eine Stadt:**
+  - 20 `irrational_beweis` → **Wieliczka** (Polen, nach Zakopane)
+  - 61 Teil 1 `darstellen` → Neuseeland – Nordinsel, Strecke jetzt Auckland → **Rotorua** → Wellington; Teil 1 ist damit kein Kurzflug mehr
+  - 91 Teil 1 `raumwinkel` → Paraguay, Strecke jetzt Asunción → San Bernardino → **Encarnación** → Ciudad del Este
+- **Ziel erreicht:** 95 Flüge, 618 Städte. Das Prüfskript kennt die neuen Schlüssel und lief neu gegen die aktuellen Themendateien und die aktuelle Teilungsliste. Die gespeicherte Selbstprüfung in der JSON ist damit erneuert.
+- **Salomonen = Insel-Ausnahme, kein Nachbarland.** In der JSON steht dafür `insel_ausnahme: true` bei 61-2.
+- **Reserve Ozeanien auf drei Gebiete und mehr aufgefüllt.** Mikronesien (6 Orte) und Palau (3 Orte) gehören geografisch zu Ozeanien und wechseln aus der Pazifik-Reserve. Neu ist **Guam** (8 Orte, US-Außengebiet wie Hawaii). Zusammen mit dem Australian Capital Territory (4 Orte) sind es 4 Gebiete.
+- **Pazifik-Reserve** (Polynesien, wie Festlegung 5) neu: Amerikanisch-Samoa (6), **Wallis und Futuna** (7, französisches Gebiet, nicht strittig), **Tuvalu** (6, alle Orte auf dem Atoll Funafuti).
+- **Reserve-Städte:** Encarnación und Rotorua sind jetzt belegt. Paraguay hat neu Pilar und Villarrica als Reserve.
+
 ## Was „Reise-Aufbau 3“ ändert (gegenüber Reise-Aufbau 2)
 
-- **61 Teil 2 → Salomonen** (statt Neukaledonien; Entscheidung Sebastian 17:05). 4 Städte: Honiara → Tulagi → Auki → Kirakira. Die Salomonen sind kein Nachbar Neuseelands (ca. 3 200 km über das Meer). Das ist bewusst so entschieden: Neuseelands Nachbarn sind sonst belegt.
+- **61 Teil 2 → Salomonen** (statt Neukaledonien; Entscheidung Sebastian 17:05). 4 Städte: Honiara → Tulagi → Auki → Kirakira. Die Salomonen sind kein Nachbarland, sondern eine Insel-Ausnahme (ca. 3 200 km über das Meer). Das ist bewusst so entschieden: Neuseelands Nachbarn sind sonst belegt.
 - **101 geteilt:**
   - Teil 1 „gerade Prismen und Zylinder“ bleibt Brasilien – Südosten (7 Städte).
   - **Teil 2 „schiefe Körper und Cavalieri“ → Brasilien – Mittelwesten**, Kurzflug mit **Brasília** (Etappe `cavalieri`).
@@ -34,7 +47,7 @@ Dateien:
   - Pirenópolis, Goiânia, Cuiabá, Campo Grande, Corumbá und Gizo, Noro, Buala bleiben ihren Ländern als Reserve-Städte.
   - **Ozeanien hat nur noch 1 Reserve-Gebiet** (Australian Capital Territory, 4 Orte), Südamerika noch 3.
 
-## Teilungen gesamt (8 neue Flüge, 15 Teile)
+## Teilungen gesamt (8 neue Flüge, 15 Teile; Stand Reise-Aufbau 4)
 
 | Thema | Teil 1 (bisheriges Land) | neue Teile → Land | Nachbarschaft |
 |---|---|---|---|
@@ -42,28 +55,28 @@ Dateien:
 | 29 Terme umformen | Kasachstan (5) | Teil 2 → **Turkmenistan** (4) | Landgrenze |
 | 44 Konstruktionen | Ruanda (5) | Teil 2 → **Burundi** (2, Kurzflug) | Landgrenze |
 | 46 Kongruenzabbildungen | Marokko (6) | Teil 2 → **Algerien** (3), Teil 3 → **Mauretanien** (3) | Algerien: Landgrenze; Mauretanien: Landgrenze zu Algerien, zu Marokko nur über Westsahara (von Sebastian bestätigt) |
-| 61 Zufall und Laplace | Neuseeland – Nordinsel (2, Kurzflug) | Teil 2 → **Salomonen** (4) | kein Nachbar, über das Meer (Entscheidung Sebastian) |
-| 91 Schrägbilder | Paraguay (3) | Teil 2 → **Brasilien – Süden** (4) | Landgrenze (Ciudad del Este ↔ Foz do Iguaçu) |
+| 61 Zufall und Laplace | Neuseeland – Nordinsel (3) | Teil 2 → **Salomonen** (4) | **Insel-Ausnahme**, kein Nachbarland (Entscheidung Sebastian) |
+| 91 Schrägbilder | Paraguay (4) | Teil 2 → **Brasilien – Süden** (4) | Landgrenze (Ciudad del Este ↔ Foz do Iguaçu) |
 | 101 Prismen und Zylinder | Brasilien – Südosten (7) | Teil 2 → **Brasilien – Mittelwesten** (1, Kurzflug) | gemeinsame Grenze der Großregionen |
 
 **Erweiterbar:** Das Prüfskript liest die Teilung aus `lk_teilung_2211.json`. Ist dort ein Thema geteilt, das hier noch ein Flug ist (oder umgekehrt), meldet es einen Fehler und nennt das vorgemerkte Nachbarland:
 - 2 Kirgisistan → **Tadschikistan** (Reserve Asien, Landgrenze). Asien hätte dann nur noch 2 Reserve-Länder.
-- 57 South Australia → **kein freier Nachbar** (WA, NT, QLD, NSW, VIC sind belegt). Optionen: Australian Capital Territory (letzte Reserve Ozeaniens, kein Nachbar, 4 Orte) oder Kangaroo Island als eigener Landesteil. Adelaide (begonnen) bleibt in Teil 1. **Entscheidung nötig, falls 57 geteilt wird.**
+- 57 South Australia → **kein freier Nachbar** (WA, NT, QLD, NSW, VIC sind belegt). Optionen: Australian Capital Territory (Reserve, kein Nachbar, 4 Orte) oder Kangaroo Island als eigener Landesteil. Adelaide (begonnen) bleibt in Teil 1. **Entscheidung nötig, falls 57 geteilt wird.**
 
 ## Abgleich
 
 **Gesichert:**
-- **Datenbank** (erneut gelesen 22.11., nach 17:05): 87 freigegebene Einheiten, 606 Etappen. Prüfsumme über Thema, Einheit und Lernziele identisch mit `db_stand.json` (Stand Reise-Aufbau 2), also keine Änderung.
-- **Noch nicht in der DB:** 9 neue Etappen (6 aus LK-D, 3 aus LK-D 3) und die Teilung (TL-S); in der JSON mit `noch_nicht_in_db` gekennzeichnet.
-- **`lk_teilung_2211.json`:** Stand `lernen-app` 723770dd, 7 Themen, 15 Teile. Alle Teile sind im Vorschlag, die Etappen je Thema sind disjunkt und zusammen gleich den Etappen der Themendatei.
-- **Kür je Schulart:** Das Feld `kuer_in` gibt es in der JSON noch nicht (kommt mit LK-D 4).
+- **Datenbank** (erneut gelesen 22.11., nach 19:30): 87 freigegebene Einheiten, 606 Etappen. Prüfsumme über Thema, Einheit und Lernziele identisch mit `db_stand.json`, also keine Änderung. Das LK-D-Einspiel ist noch nicht in der DB.
+- **Noch nicht in der DB:** 12 neue Etappen (6 aus LK-D, 3 aus LK-D 3, 3 aus LK-D 4) und die Teilung (TL-S); in der JSON mit `noch_nicht_in_db` gekennzeichnet.
+- **`lk_teilung_2211.json`:** Stand `lernen-app` 456c6ec2, 7 Themen, 15 Teile. Alle Teile sind im Vorschlag, die Etappen je Thema sind disjunkt und zusammen gleich den Etappen der Themendatei.
+- **Kür je Schulart:** `kuer_in` steht jetzt je Etappe in der Teilungsliste (LK-D 4) und wird in die Stadt übernommen. Ungeteilte Themen haben das Feld dort nicht; 20 `irrational_beweis` ist in der JSON nur als neue Etappe gekennzeichnet.
 - **Lernstand** (nur gezählt): 29 – ein Kind, alle 8 bisherigen Etappen gelandet; 99 – ein Kind, alle 7 gelandet. In 26, 44, 46, 47, 61, 91 und 101 gibt es keinen Lernstand.
 
 **Änderungen seit dem Vorschlag vom Morgen:**
-- **Umfang:** 87 → 95 Flüge, 606 → 615 Städte.
+- **Umfang:** 87 → 95 Flüge, 606 → 618 Städte.
 - **Länder neu:** Jamaika, Turkmenistan, Burundi, Algerien, Mauretanien, Salomonen, Brasilien – Süden, Brasilien – Mittelwesten.
 - **Länder mit anderen Städten:** Brasilien → Brasilien – Südosten. Kuba, Kasachstan, Marokko, Ruanda, Paraguay und Neuseeland – Nordinsel geben Städte an die Reserve ab.
-- **Neue Städte in bestehenden Flügen:** Marokko mit Oujda, Kenia + Nyeri, Ecuador + Portoviejo.
+- **Neue Städte in bestehenden Flügen:** Marokko mit Oujda, Kenia + Nyeri, Ecuador + Portoviejo, Polen + Wieliczka.
 
 ## Ergebnis der Selbstprüfung (Skript)
 
@@ -72,16 +85,16 @@ Dateien:
 | Flüge | 95 = 87 Einheiten + 8 neue Teile ✔ (Soll aus `lk_teilung_2211.json` berechnet) |
 | Teile | je geteiltes Thema alle Teile da, Etappen disjunkt und zusammen = Themendatei ✔ |
 | Jedes Land/Landesteil einmal | 95 verschiedene ✔ (auch ISO + Landesteil eindeutig) |
-| Jede Stadt einmal | 615 verschiedene Namen und GeoNames-Orte ✔ |
-| Städte = Etappen je Flug | bei allen 95 ✔ (Summe 615) |
-| Stadt liegt im Land / Landesteil | 615/615 in GeoNames gefunden ✔, dazu alle Reserve-Städte und Hauptorte |
-| Koordinaten | 615/615 Städte, 95 Mittelpunkte, alle Hauptstädte, 21/21 Stationen (gegen die COMNAP-Liste abgeglichen) ✔ |
+| Jede Stadt einmal | 618 verschiedene Namen und GeoNames-Orte ✔ |
+| Städte = Etappen je Flug | bei allen 95 ✔ (Summe 618) |
+| Stadt liegt im Land / Landesteil | 618/618 in GeoNames gefunden ✔, dazu alle Reserve-Städte und Hauptorte |
+| Koordinaten | 618/618 Städte, 95 Mittelpunkte, alle Hauptstädte, 21/21 Stationen (gegen die COMNAP-Liste abgeglichen) ✔ |
 | Begonnene Orte bleiben | 9/9 ✔ |
 | Reserve nicht belegt | ✔ |
 
 **Hinweise des Skripts:**
-- Kurzflüge 44-2 Burundi (2 Städte), 61-1 Neuseeland – Nordinsel (2) und 101-2 Brasilien – Mittelwesten (1); alle erlaubt.
-- Reserve Ozeanien nur 1 Gebiet; Australian Capital Territory hat 4 Orte, Palau 3.
+- Kurzflüge 44-2 Burundi (2 Städte) und 101-2 Brasilien – Mittelwesten (1); beide erlaubt.
+- Reserve: Australian Capital Territory hat 4 Orte, Palau 3 (Ziel 6–8); dafür hat Ozeanien 4 Gebiete.
 - 10 Teilstrecken über 700 km Luftlinie (große Länder).
 
 **Grenzen der Prüfung:** GeoNames prüft „Ort dieses Namens im Land/Landesteil“, nicht „der gemeinte Ort“.
@@ -103,9 +116,9 @@ Dateien:
 
 ## Offene Punkte
 
-- **Reserve Ozeanien:** nur noch das Australian Capital Territory (4 Orte). Mehr geht nur durch Teilen eines belegten Gebiets, z. B. „Papua-Neuguinea – Inseln“ (Kokopo, Rabaul, Kimbe, Kavieng, Arawa, Lorengau; alle in GeoNames). Dann hieße Flug 80 „Papua-Neuguinea – Festland“. Nicht eingetragen.
+- **Reserve Ozeanien:** jetzt 4 Gebiete (Mikronesien, Guam, Palau, Australian Capital Territory). Weitere Möglichkeit, nicht eingetragen: „Papua-Neuguinea – Inselregion“ ohne Bougainville (Kokopo, Rabaul, Kimbe, Kavieng, Namatanai, Lorengau). Dann hieße Flug 80 „Papua-Neuguinea – Festland“.
 - **57 South Australia:** falls geteilt, gibt es keinen freien Nachbarn (siehe oben).
-- **Reserve Pazifik:** Palau hat nur 3 Orte.
+- **Reserve Pazifik:** 3 Gebiete (Amerikanisch-Samoa, Wallis und Futuna, Tuvalu). Die Orte sind kleine Dörfer, meist unter 1 500 Einwohnern.
 - **Lizenz COMNAP** (Stationen): an den Haupt-Chat (Lizenzklärung RK).
 
 ## Begonnene Orte – was bleibt (Festlegung 6)
@@ -148,7 +161,7 @@ Nachbarländer für die übrigen Flüge begonnener Orte: Rom → Österreich, Sc
 - **Vereinigtes Königreich** als ein Land (heute steht „Schottland“ bei Edinburgh). Edinburgh und Glasgow bleiben als Städte erhalten.
 - **Kindgerecht, aber wenig bekannt:** Kasachstan, Kirgisistan, Mongolei, Bhutan, Bangladesch, Laos, Aserbaidschan, Papua-Neuguinea, Vanuatu, Samoa, Tonga, Französisch-Polynesien. In Polynesien sind die „Städte“ kleine Hauptorte (500–30 000 Einwohner).
 - **Irak, Iran, Saudi-Arabien** gehören laut Festlegung 2 dazu. Inhaltlich gibt es dort gute Highlights (Babylon, Persepolis/Isfahan, AlUla), real gelten aber Reisewarnungen. Mekka ist bewusst nicht dabei (für Nicht-Muslime gesperrt).
-- **Strittige Gebiete gemieden:** kein Kaschmir, Tibet, Xinjiang, Taiwan, Krim, Westsahara, Abchasien/Südossetien, Bergkarabach, Kirkuk; kein Sabah (Anspruch der Philippinen), Mindanao, Belize. Neukaledonien bleibt gemieden (Entscheidung Sebastian 22.11., 17:05). Mauretanien grenzt an Marokko nur über Westsahara – Route Marokko → Algerien → Mauretanien von Sebastian bestätigt. Bewusst nicht gewählt wegen Krieg/Krise: Ukraine, Russland, Israel/Palästina, Syrien, Jemen, Libyen, Sudan, Mali (heute Timbuktu), Myanmar, Venezuela, Afghanistan.
+- **Strittige Gebiete gemieden:** kein Kaschmir, Tibet, Xinjiang, Taiwan, Krim, Westsahara, Abchasien/Südossetien, Bergkarabach, Kirkuk; kein Sabah (Anspruch der Philippinen), Mindanao, Belize, Bougainville. Neukaledonien bleibt gemieden (Entscheidung Sebastian 22.11., 17:05). Mauretanien grenzt an Marokko nur über Westsahara – Route Marokko → Algerien → Mauretanien von Sebastian bestätigt. Bewusst nicht gewählt wegen Krieg/Krise: Ukraine, Russland, Israel/Palästina, Syrien, Jemen, Libyen, Sudan, Mali (heute Timbuktu), Myanmar, Venezuela, Afghanistan.
 - **Fahrbar** heißt Straße oder Fähre (z. B. Sansibar, Kangaroo Island, Bali, Philippinen, Fidschi/Samoa/Tonga). Hawaii, Französisch-Polynesien, Vanuatu, Papua-Neuguinea (Port Moresby hat keine Straße nach Lae) brauchen Inselflüge – **Annahme:** für Inselgebiete zulässig.
 - **Reihenfolge innerhalb eines Landes** ist eine Strecke, nicht immer ein geschlossener Ring.
 - Städtenamen auf Deutsch, wo gebräuchlich (Mailand, Breslau, Täbris); sonst Landesschreibweise.
@@ -161,7 +174,7 @@ Vom Prüfskript erzeugt – nicht von Hand ändern. ↪ = weiterer Teil eines ge
 
 <!-- AUTO:START (aufbau_pruefen.py) -->
 
-### Zahlen → Europa  (13 Flüge, 115 Etappen)
+### Zahlen → Europa  (13 Flüge, 116 Etappen)
 
 | # | Flug | Kl. | heute | Land (ISO) · Hauptstadt | Etappen = Städte (Reihenfolge) |
 |---|---|---|---|---|---|
@@ -176,7 +189,7 @@ Vom Prüfskript erzeugt – nicht von Hand ändern. ↪ = weiterer Teil eines ge
 | 9 | Zehnerpotenzen und wissenschaftliche Schreibweise | Gym 6 · RS 7 | Paris | **Spanien** (ES) · Madrid | 7: Barcelona → Valencia → Granada → Sevilla → Córdoba → Toledo → Madrid |
 | 10 | Potenzen und negative Exponenten | Gym 6 · RS 7 | Paris | **Frankreich** (FR) · Paris | 3: Paris → Lyon → Marseille |
 | 11 | Elementare Wurzeln | Gym 9 · RS 9 | Göttingen | **Niederlande** (NL) · Amsterdam | 6: Amsterdam → Haarlem → Leiden → Den Haag → Rotterdam → Utrecht |
-| 12 | Wurzeln und reelle Zahlen | Gym 9 · RS 9 | Göttingen | **Polen** (PL) · Warschau | 7: Warschau → Danzig → Thorn → Posen → Breslau → Krakau → Zakopane |
+| 12 | Wurzeln und reelle Zahlen | Gym 9 · RS 9 | Göttingen | **Polen** (PL) · Warschau | 8: Warschau → Danzig → Thorn → Posen → Breslau → Krakau → Zakopane → Wieliczka ★Kür |
 | 13 | Rationale Exponenten und n-te Wurzel | Gym 9 · RS 10 | Edinburgh | **Norwegen** (NO) · Oslo | 6: Oslo → Lillehammer → Trondheim → Ålesund → Bergen → Stavanger |
 
 ### Geld und Verhältnisse → Nordamerika (mit Mittelamerika und Karibik)  (7 Flüge, 45 Etappen)
@@ -253,7 +266,7 @@ Vom Prüfskript erzeugt – nicht von Hand ändern. ↪ = weiterer Teil eines ge
 | 16 | Zweireihige Determinanten | RS 7 | Lagos | **Uganda** (UG) · Kampala | 6: Entebbe → Kampala → Jinja → Mbale → Fort Portal → Mbarara |
 | 17 | Matrizen und Abbildungen mit Matrizen | RS 10 | Dakar | **Madagaskar** (MG) · Antananarivo | 7: Toamasina → Moramanga → Antananarivo → Antsirabe → Ambositra → Fianarantsoa → Toliara |
 
-### Fläche und Raum → Südamerika  (11 Flüge, 61 Etappen)
+### Fläche und Raum → Südamerika  (11 Flüge, 62 Etappen)
 
 | # | Flug | Kl. | heute | Land (ISO) · Hauptstadt | Etappen = Städte (Reihenfolge) |
 |---|---|---|---|---|---|
@@ -265,11 +278,11 @@ Vom Prüfskript erzeugt – nicht von Hand ändern. ↪ = weiterer Teil eines ge
 | 6 | Körper darstellen | Gym 8 · RS 5 | Cusco | **Bolivien** (BO) · Sucre | 6: Copacabana → La Paz → Uyuni → Potosí → Sucre → Cochabamba |
 | 7 | Prismen und Zylinder – Teil 1 von 2 · gerade Prismen und Zylinder | Gym 8 · RS 9 | Cusco | **Brasilien – Südosten** (BR) · São Paulo (Landesteil) | 7: Santos → São Paulo → Campinas → Belo Horizonte → Ouro Preto → Petrópolis → Rio de Janeiro |
 | 8 | ↪ Prismen und Zylinder – Teil 2 von 2 · schiefe Körper und Cavalieri | Gym 10 · RS 9 | Cusco | **Brasilien – Mittelwesten** (BR) · Brasília (Landesteil) | 1: Brasília (neu) |
-| 9 | Schrägbilder und Raumdarstellung – Teil 1 von 2 · Schrägbilder und Lage im Raum | Gym 10 · RS 7 | Brasília | **Paraguay** (PY) · Asunción | 3: Asunción → San Bernardino → Ciudad del Este (neu) |
+| 9 | Schrägbilder und Raumdarstellung – Teil 1 von 2 · Schrägbilder und Lage im Raum | Gym 10 · RS 7 | Brasília | **Paraguay** (PY) · Asunción | 4: Asunción → San Bernardino → Encarnación (neu) → Ciudad del Este (neu) |
 | 10 | ↪ Schrägbilder und Raumdarstellung – Teil 2 von 2 · Raumkoordinaten, Körpersymmetrie, Rotationskörper | Gym 10 · RS 8 | Brasília | **Brasilien – Süden** (BR) · Curitiba (Landesteil) | 4: Foz do Iguaçu → Curitiba → Florianópolis → Porto Alegre (neu) |
 | 11 | Pyramide, Kegel, Kugel | Gym 10 · RS 9 | Santiago de Chile | **Chile** (CL) · Santiago de Chile | 7: San Pedro de Atacama → Antofagasta → Copiapó → La Serena → Viña del Mar → Valparaíso → Santiago de Chile |
 
-### Daten und Zufall → Australien (nach Bundesstaaten) und Ozeanien  (13 Flüge, 74 Etappen)
+### Daten und Zufall → Australien (nach Bundesstaaten) und Ozeanien  (13 Flüge, 75 Etappen)
 
 | # | Flug | Kl. | heute | Land (ISO) · Hauptstadt | Etappen = Städte (Reihenfolge) |
 |---|---|---|---|---|---|
@@ -277,7 +290,7 @@ Vom Prüfskript erzeugt – nicht von Hand ändern. ↪ = weiterer Teil eines ge
 | 2 | Daten erfassen und darstellen | Gym 6 · RS 5 | Adelaide | **South Australia** (AU) · Adelaide (Landesteil) | 6: Adelaide → Hahndorf → Victor Harbor → Kingscote → Port Augusta → Coober Pedy |
 | 3 | Mittelwert und Häufigkeiten | Gym 6 · RS 7 | Sydney | **Tasmanien** (AU) · Hobart (Landesteil) | 3: Hobart → Launceston → Devonport |
 | 4 | Median, Quartile, Boxplot | Gym 7 · RS 7 | Brisbane | **Western Australia** (AU) · Perth (Landesteil) | 6: Perth → Fremantle → Margaret River → Albany → Esperance → Kalgoorlie |
-| 5 | Zufall und Laplace – Teil 1 von 2 · Ergebnis, Ereignis, relative Häufigkeit | Gym 8 · RS 8 | Auckland | **Neuseeland – Nordinsel** (NZ) · Wellington (Landesteil) | 2: Auckland → Wellington |
+| 5 | Zufall und Laplace – Teil 1 von 2 · Ergebnis, Ereignis, relative Häufigkeit | Gym 8 · RS 8 | Auckland | **Neuseeland – Nordinsel** (NZ) · Wellington (Landesteil) | 3: Auckland → Rotorua → Wellington (neu) |
 | 6 | ↪ Zufall und Laplace – Teil 2 von 2 · Laplace-Wahrscheinlichkeit | Gym 8 · RS 9 | Auckland | **Salomonen** (SB) · Honiara | 4: Honiara → Tulagi → Auki → Kirakira |
 | 7 | Verknüpfte Ereignisse | Gym 9 · RS 9 | Wellington | **Queensland** (AU) · Brisbane (Landesteil) | 11: Gold Coast → Brisbane → Noosa Heads → Hervey Bay → Bundaberg → Rockhampton → Mackay → Airlie Beach → Townsville → Cairns → Port Douglas |
 | 8 | Mehrstufige Zufallsexperimente | Gym 10 · RS 10 | Darwin | **New South Wales** (AU) · Sydney (Landesteil) | 9: Sydney → Wollongong → Katoomba → Bathurst → Dubbo → Tamworth → Coffs Harbour → Port Macquarie → Newcastle |
@@ -322,11 +335,14 @@ Vom Prüfskript erzeugt – nicht von Hand ändern. ↪ = weiterer Teil eines ge
 | Südamerika | Brasilien – Norden (BR) · Manaus (Landesteil) | 6: Macapá → Belém → Santarém → Manaus → Boa Vista → Porto Velho |
 | Südamerika | Suriname (SR) · Paramaribo | 6: Nieuw Nickerie → Paramaribo → Lelydorp → Brownsweg → Moengo → Albina |
 | Australien | Australian Capital Territory (AU) · Canberra (Landesteil) | 4: Canberra → Gungahlin → Belconnen → Tuggeranong |
-| Pazifik | Mikronesien (FM) · Palikir | 6: Colonia (Yap) → Weno → Kolonia → Palikir → Tofol → Lelu |
+| Australien | Mikronesien (FM) · Palikir | 6: Colonia (Yap) → Weno → Kolonia → Palikir → Tofol → Lelu |
+| Australien | Guam (GU) · Hagåtña | 8: Hagåtña → Tamuning → Dededo → Yigo → Mangilao → Inarajan → Umatac → Agat |
+| Australien | Palau (PW) · Ngerulmud | 3: Koror → Kloulklubed → Ngerkeai |
 | Pazifik | Amerikanisch-Samoa (AS) · Pago Pago | 6: Pago Pago → Aūa → Tāfuna → Faleniu → Vaitogi → Leone |
-| Pazifik | Palau (PW) · Ngerulmud | 3: Koror → Kloulklubed → Ngerkeai |
+| Pazifik | Wallis und Futuna (WF) · Mata-Utu | 7: Mata-Utu → Liku → Alele → Halalo → Utufua → Leava (Futuna) → Alo (Futuna) |
+| Pazifik | Tuvalu (TV) · Funafuti | 6: Funafuti → Vaiaku → Fakaifou → Alapi → Senala → Teone |
 
-Reserve-Städte, die durch die Teilung frei wurden: Kuba: Trinidad, Camagüey, Santiago de Cuba; Kasachstan: Karaganda, Astana, Pawlodar; Marokko: Meknès, Essaouira, Agadir, Ouarzazate, Marrakesch; Ruanda: Nyanza; Paraguay: Encarnación, Concepción; Neuseeland – Nordinsel: Hamilton, Rotorua, Taupō, Napier; Salomonen: Gizo, Noro, Buala; Brasilien – Mittelwesten: Pirenópolis, Goiânia, Cuiabá, Campo Grande, Corumbá.
+Reserve-Städte, die durch die Teilung frei wurden: Kuba: Trinidad, Camagüey, Santiago de Cuba; Kasachstan: Karaganda, Astana, Pawlodar; Marokko: Meknès, Essaouira, Agadir, Ouarzazate, Marrakesch; Ruanda: Nyanza; Paraguay: Concepción, Pilar, Villarrica; Neuseeland – Nordinsel: Hamilton, Taupō, Napier; Salomonen: Gizo, Noro, Buala; Brasilien – Mittelwesten: Pirenópolis, Goiânia, Cuiabá, Campo Grande, Corumbá.
 
 ### Antarktis → Expeditionen (je Expedition eine Forschungsstation, Koordinaten COMNAP 2024)
 

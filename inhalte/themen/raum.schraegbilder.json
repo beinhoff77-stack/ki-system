@@ -3,8 +3,9 @@
  "thema_id": 91,
  "block_id": 109,
  "klasse": {
-  "gym_by": 8,
-  "rs_by": 5
+  "gym_by": 10,
+  "rs_by": 7,
+  "ib_myp": 4
  },
  "autor": "Claude (Paket Klasse 8)",
  "inhalt": {
@@ -34,6 +35,12 @@
     "lernziele": [
      "rotation",
      "axialschnitt"
+    ]
+   },
+   {
+    "titel": "Lehrplan-Ergänzung (LK)",
+    "lernziele": [
+     "wahre_groesse"
     ]
    }
   ],
@@ -836,6 +843,34 @@
       ]
      ]
     }
+   },
+   {
+    "lernziel": "wahre_groesse",
+    "titel": "Wahre Größe im Schrägbild",
+    "einstieg": "Auf einem Bauplan ist eine Kiste im Schrägbild gezeichnet. Die Kanten nach hinten sehen kürzer aus, als sie sind. Wer die Kiste bauen will, muss die wahren Längen zurückrechnen.",
+    "woerter": [
+     [
+      "Verkürzungsfaktor q",
+      "Kanten nach hinten werden mit q gezeichnet, z. B. q = 0,5"
+     ],
+     [
+      "wahre Größe",
+      "die echte Länge oder Form am Körper"
+     ]
+    ],
+    "regel": "Kanten ⟦nach hinten⟧: gezeichnete Länge = wahre Länge · q, also wahre Länge = gezeichnet : q. Flächen parallel zur Zeichenebene erscheinen in wahrer Größe.",
+    "schritte": [
+     {
+      "text": "Eine Kante nach hinten ist mit q = 0,5 als 2,5 cm gezeichnet."
+     },
+     {
+      "text": "Wahre Länge: 2,5 cm : 0,5 = ⟦5 cm⟧."
+     },
+     {
+      "text": "Die Vorderfläche wird nicht verkürzt: Ihre Kanten und Winkel sind echt."
+     }
+    ],
+    "fehler": "Mit q malnehmen statt teilen: 2,5 · 0,5 = 1,25 cm wäre noch kürzer. Beim Zurückrechnen ⟦teilt⟧ man durch q."
    }
   ],
   "teilfaehigkeiten": [
@@ -873,6 +908,12 @@
     "lernziele": [
      "axialschnitt"
     ]
+   },
+   {
+    "k": "wahre_groesse",
+    "lernziele": [
+     "wahre_groesse"
+    ]
    }
   ],
   "bewertung": {
@@ -883,7 +924,8 @@
    ],
    "lernziele_vertiefung": [
     "lage",
-    "koordinaten"
+    "koordinaten",
+    "wahre_groesse"
    ],
    "testaufgaben_je_lernziel": 1
   },
@@ -7824,6 +7866,401 @@
    "c": "2",
    "w": "Zylinder: Rechteck 2r · h. Kegel: Dreieck 1/2 · 2r · h = r · h. Verhältnis 2.",
    "h": "Vergleiche Rechteck und Dreieck mit gleicher Grundseite und Höhe."
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 0,5) ist eine Kante nach hinten 3 cm lang gezeichnet. Wie lang ist sie wirklich?"
+   },
+   "w": "3 cm : 0,5 = 6 cm.",
+   "g": "direkt",
+   "h": "Durch q teilen.",
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "3 / 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante nach hinten ist 8 cm lang. Wie lang zeichnest du sie mit q = 0,5?"
+   },
+   "w": "8 cm · 0,5 = 4 cm.",
+   "g": "direkt",
+   "h": "Beim Zeichnen mit q malnehmen.",
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "8 * 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Fläche eines Quaders erscheint im üblichen Schrägbild in wahrer Größe?"
+   },
+   "w": "Die Vorderfläche liegt parallel zur Zeichenebene und wird nicht verzerrt.",
+   "g": "erkennen",
+   "h": "Welche Fläche schaut dich direkt an?",
+   "a": [
+    "die Vorderfläche",
+    "die Grundfläche",
+    "die rechte Seitenfläche",
+    "keine Fläche"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein rechter Winkel der Grundfläche wird im Schrägbild gezeichnet. Wie sieht er aus?"
+   },
+   "w": "Die Grundfläche ist verzerrt: der rechte Winkel erscheint z. B. als 45° oder 135°.",
+   "g": "erkennen",
+   "h": "Die Grundfläche liegt nach hinten.",
+   "a": [
+    "verzerrt, nicht als 90°",
+    "immer als 90°",
+    "als 180°",
+    "gar nicht"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 6 cm breit, 4 cm hoch und 5 cm tief. Im Schrägbild (q = 0,5) wird er gezeichnet. Wie lang zeichnest du alle 4 Tiefenkanten zusammen?"
+   },
+   "w": "Eine Tiefenkante: 5 cm · 0,5 = 2,5 cm. Vier Stück: 10 cm.",
+   "g": "mehrschritt",
+   "h": "Erst eine Kante, dann alle vier.",
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "4 * 5 * 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf dem Bauplan einer Kiste (q = 0,5, Maßstab 1 : 10) ist die Tiefe 2 cm lang gezeichnet. Wie tief ist die Kiste in Wirklichkeit in cm?"
+   },
+   "w": "Wahre Länge im Plan: 2 cm : 0,5 = 4 cm. Maßstab 1 : 10: 40 cm.",
+   "g": "einkleidung",
+   "h": "Erst q, dann den Maßstab.",
+   "o": {
+    "wert": 40,
+    "einheit": "cm"
+   },
+   "c": "2 / 0.5 * 10"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante ist 6 cm lang und wurde nach hinten als 4 cm gezeichnet. Welcher Verkürzungsfaktor q wurde benutzt? Gib q als Dezimalzahl auf zwei Stellen an."
+   },
+   "w": "q = 4 : 6 ≈ 0,67.",
+   "g": "umkehr",
+   "h": "gezeichnet : wahr.",
+   "o": {
+    "wert": 0.67
+   },
+   "c": "round(4 / 6, 2)"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Schrägbild eines Würfels sind alle Kanten nach hinten halb so lang gezeichnet. Was gilt für den echten Würfel?"
+   },
+   "w": "Am echten Würfel sind alle Kanten gleich lang; nur die Zeichnung verkürzt die Tiefe.",
+   "g": "darstellung",
+   "h": "Unterscheide Zeichnung und Körper.",
+   "a": [
+    "Alle Kanten sind gleich lang.",
+    "Die hinteren Kanten sind kürzer.",
+    "Der Würfel ist ein Quader.",
+    "Die Vorderfläche ist kleiner."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 0,5) einer quadratischen Säule ist die Tiefenkante 2 cm lang. Die Grundfläche ist ein Quadrat. Wie groß ist die echte Grundfläche in cm²?"
+   },
+   "w": "Wahre Tiefe 2 : 0,5 = 4 cm. Quadrat: 4 cm · 4 cm = 16 cm².",
+   "g": "rueckwaerts",
+   "h": "Erst die wahre Länge, dann die Fläche.",
+   "o": {
+    "wert": 16,
+    "einheit": "cm²"
+   },
+   "c": "(2 / 0.5) * (2 / 0.5)"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum kann man im Schrägbild die Länge einer Raumdiagonale nicht direkt messen?"
+   },
+   "w": "Sie verläuft schräg nach hinten und wird verzerrt dargestellt; nur Strecken parallel zur Zeichenebene sind in wahrer Länge.",
+   "g": "begruenden",
+   "h": "Welche Strecken sind unverzerrt?",
+   "a": [
+    "Weil sie verzerrt gezeichnet wird.",
+    "Weil sie zu lang ist.",
+    "Weil sie unsichtbar ist.",
+    "Weil Diagonalen keine Länge haben."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Max misst im Schrägbild (q = 0,5) eine Tiefenkante von 3,5 cm und sagt: „Die Kiste ist 1,75 cm tief.“ Was stimmt?"
+   },
+   "w": "Er hat mit q multipliziert. Richtig: 3,5 : 0,5 = 7 cm.",
+   "g": "fehler",
+   "h": "Zurückrechnen heißt teilen.",
+   "a": [
+    "Falsch: sie ist 7 cm tief.",
+    "Richtig.",
+    "Falsch: sie ist 3,5 cm tief.",
+    "Falsch: sie ist 5 cm tief."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schrank (Breite 80 cm, Höhe 180 cm, Tiefe 60 cm) wird im Maßstab 1 : 20 mit q = 0,5 gezeichnet. Wie lang wird die Tiefenkante gezeichnet (in cm)?"
+   },
+   "w": "60 cm : 20 = 3 cm, mal q = 0,5: 1,5 cm.",
+   "g": "transfer",
+   "h": "Erst verkleinern, dann verkürzen.",
+   "o": {
+    "wert": 1.5,
+    "einheit": "cm"
+   },
+   "c": "60 / 20 * 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild mit q = 0,5 ist eine Tiefenkante 4,5 cm lang. Wie lang ist sie wirklich?"
+   },
+   "w": "4,5 cm : 0,5 = 9 cm.",
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "4.5 / 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Tiefenkante ist mit q = 0,5 als 1,5 cm gezeichnet. Berechne die wahre Länge."
+   },
+   "w": "1,5 cm : 0,5 = 3 cm.",
+   "o": {
+    "wert": 3.0,
+    "einheit": "cm"
+   },
+   "c": "1.5 / 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Tiefenkante ist mit q = 0,5 als 3,2 cm gezeichnet. Berechne die wahre Länge."
+   },
+   "w": "3,2 cm : 0,5 = 6,4 cm.",
+   "o": {
+    "wert": 6.4,
+    "einheit": "cm"
+   },
+   "c": "3.2 / 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Tiefenkante ist mit q = 0,5 als 6 cm gezeichnet. Berechne die wahre Länge."
+   },
+   "w": "6 cm : 0,5 = 12 cm.",
+   "o": {
+    "wert": 12,
+    "einheit": "cm"
+   },
+   "c": "6 / 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante nach hinten ist 10 cm lang. Wie lang wird sie mit q = 0,5 gezeichnet?"
+   },
+   "w": "10 cm · 0,5 = 5 cm.",
+   "o": {
+    "wert": 5.0,
+    "einheit": "cm"
+   },
+   "c": "10 * 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante nach hinten ist 7 cm lang. Wie lang wird sie mit q = 0,5 gezeichnet?"
+   },
+   "w": "7 cm · 0,5 = 3,5 cm.",
+   "o": {
+    "wert": 3.5,
+    "einheit": "cm"
+   },
+   "c": "7 * 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante nach hinten ist 12 cm lang. Wie lang wird sie mit q = 0,5 gezeichnet?"
+   },
+   "w": "12 cm · 0,5 = 6 cm.",
+   "o": {
+    "wert": 6.0,
+    "einheit": "cm"
+   },
+   "c": "12 * 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante nach hinten ist 9 cm lang. Wie lang wird sie mit q = 0,5 gezeichnet?"
+   },
+   "w": "9 cm · 0,5 = 4,5 cm.",
+   "o": {
+    "wert": 4.5,
+    "einheit": "cm"
+   },
+   "c": "9 * 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante nach hinten ist 4 cm lang. Wie lang wird sie mit q = 0,5 gezeichnet?"
+   },
+   "w": "4 cm · 0,5 = 2 cm.",
+   "o": {
+    "wert": 2.0,
+    "einheit": "cm"
+   },
+   "c": "4 * 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante nach hinten ist 15 cm lang. Wie lang wird sie mit q = 0,5 gezeichnet?"
+   },
+   "w": "15 cm · 0,5 = 7,5 cm.",
+   "o": {
+    "wert": 7.5,
+    "einheit": "cm"
+   },
+   "c": "15 * 0.5"
   }
  ],
  "offen": [

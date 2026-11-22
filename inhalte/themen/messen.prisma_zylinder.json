@@ -3,7 +3,8 @@
  "thema_id": 101,
  "block_id": 86,
  "klasse": {
-  "gym_by": 8
+  "gym_by": 8,
+  "rs_by": 9
  },
  "autor": "Claude (Achtzehnte Runde, Teil A; Generator messen.prisma_zylinder.py)",
  "inhalt": {

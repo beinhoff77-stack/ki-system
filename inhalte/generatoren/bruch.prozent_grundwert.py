@@ -9,7 +9,7 @@ from _kl7 import A, Z, baue, cz, eur, ist_endlich, zt  # noqa: E402
 
 TAB = lambda kopf, zeilen: {'typ': 'tabelle', 'kopf': kopf, 'zeilen': zeilen}
 
-META = {'thema_schluessel': 'bruch.prozent_grundwert', 'thema_id': 94, 'block_id': 108, 'klasse': {'gym_by': 7, 'rs_by': 7}}
+META = {'thema_schluessel': 'bruch.prozent_grundwert', 'thema_id': 94, 'block_id': 108, 'klasse': {'gym_by': 7, 'rs_by': 7, 'ib_myp': 3}}
 
 ETAPPEN = [
     {'lernziel': 'faktor', 'titel': 'Den Wachstumsfaktor bestimmen',

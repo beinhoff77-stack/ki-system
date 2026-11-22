@@ -3,7 +3,9 @@
  "thema_id": 98,
  "block_id": 80,
  "klasse": {
-  "gym_by": 7
+  "gym_by": 7,
+  "rs_by": 7,
+  "ib_myp": 2
  },
  "autor": "Claude (Vierzehnte Runde, nachgebessert in der Sechzehnten Runde; Generator geometrie.winkelsaetze.py)",
  "inhalt": {

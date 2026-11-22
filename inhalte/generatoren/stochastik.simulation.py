@@ -8,7 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import json
 from _bausatz import A, Z, baue, bruch, cz, ist_endlich, mit_bild, zt  # noqa: E402
 
-META = {'thema_schluessel': 'stochastik.simulation', 'thema_id': 64, 'block_id': 90, 'klasse': {'gym_by': 8, 'rs_by': 9}}
+META = {'thema_schluessel': 'stochastik.simulation', 'thema_id': 64, 'block_id': 90, 'klasse': {'gym_by': 10, 'rs_by': 9, 'ib_myp': 2}}
 
 ETAPPEN = [
     {'lernziel': 'zufallsgeraet', 'titel': 'Ein passendes Zufallsgerät wählen',

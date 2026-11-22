@@ -29,7 +29,7 @@ from _luecken_neu import (PI, A, K, P, Z, aufgaben, d, fig, gr, netz_rechtecke, 
                           schreiben, toleranz_pi, wahl, z)
 
 ZIEL = HIER.parent / 'themen' / 'messen.prisma_zylinder.json'
-META = {'thema_schluessel': 'messen.prisma_zylinder', 'thema_id': 101, 'block_id': 86, 'klasse': {'gym_by': 8}}
+META = {'thema_schluessel': 'messen.prisma_zylinder', 'thema_id': 101, 'block_id': 86, 'klasse': {'gym_by': 8, 'rs_by': 9}}
 SEED = 7101
 PIF = Fr(PI)
 

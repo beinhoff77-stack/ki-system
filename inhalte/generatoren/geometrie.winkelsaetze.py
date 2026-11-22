@@ -28,7 +28,7 @@ sys.path.insert(0, str(HIER))
 from _bausatz import jw, rechne, zt  # noqa: E402
 
 ZIEL = HIER.parent / 'themen' / 'geometrie.winkelsaetze.json'
-META = {'thema_schluessel': 'geometrie.winkelsaetze', 'thema_id': 98, 'block_id': 80, 'klasse': {'gym_by': 7}}
+META = {'thema_schluessel': 'geometrie.winkelsaetze', 'thema_id': 98, 'block_id': 80, 'klasse': {'gym_by': 7, 'rs_by': 7, 'ib_myp': 2}}
 P, K = 'pruefung', 'knobel'
 POS_TEXT = {'ro': 'rechts oberhalb', 'lo': 'links oberhalb', 'lu': 'links unterhalb', 'ru': 'rechts unterhalb'}
 

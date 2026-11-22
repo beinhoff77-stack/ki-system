@@ -24,7 +24,7 @@ sys.path.insert(0, str(HIER))
 from _luecken_neu import A, K, P, Z, aufgaben, d, fig, gr, schraeg_prisma, schraeg_quader, schreiben, wahl, z  # noqa: E402
 
 ZIEL = HIER.parent / 'themen' / 'messen.volumen.json'
-META = {'thema_schluessel': 'messen.volumen', 'thema_id': 100, 'block_id': 114, 'klasse': {'gym_by': 6}}
+META = {'thema_schluessel': 'messen.volumen', 'thema_id': 100, 'block_id': 114, 'klasse': {'gym_by': 6, 'rs_by': 6}}
 SEED = 7100
 STUFE = {'m³': 0, 'dm³': 1, 'cm³': 2, 'mm³': 3}
 NAME = {'m³': 'Kubikmeter', 'dm³': 'Kubikdezimeter', 'cm³': 'Kubikzentimeter', 'mm³': 'Kubikmillimeter'}

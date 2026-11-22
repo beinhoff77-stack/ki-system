@@ -7,7 +7,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _bausatz import A, L, Z, baue, cz, einsetzen, eur, kl, lin, mit_bild, zt  # noqa: E402
 
-META = {'thema_schluessel': 'gleichungen.lgs2', 'thema_id': 6, 'block_id': 59, 'klasse': {'gym_by': 8, 'rs_by': 9}}
+META = {'thema_schluessel': 'gleichungen.lgs2', 'thema_id': 6, 'block_id': 59, 'klasse': {'gym_by': 8, 'rs_by': 9, 'ib_myp': 4}}
 
 ETAPPEN = [
     {'lernziel': 'pruefen', 'titel': 'Ist das Zahlenpaar eine Lösung?',

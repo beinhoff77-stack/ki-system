@@ -7,7 +7,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _kl7 import A, L, Z, baue, cz, einsetzen, eur, figur, kl, lin, zt  # noqa: E402
 
-META = {'thema_schluessel': 'terme.aufstellen', 'thema_id': 28, 'block_id': 63, 'klasse': {'gym_by': 7, 'rs_by': 6}}
+META = {'thema_schluessel': 'terme.aufstellen', 'thema_id': 28, 'block_id': 63, 'klasse': {'rs_by': 6, 'gym_by': 7, 'ib_myp': 1}}
 HW = 'Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1).'
 
 ETAPPEN = [

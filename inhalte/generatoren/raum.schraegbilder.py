@@ -7,7 +7,7 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _bausatz import A, Z, baue, cz, mit_bild, zt  # noqa: E402
 
-META = {'thema_schluessel': 'raum.schraegbilder', 'thema_id': 91, 'block_id': 109, 'klasse': {'gym_by': 8, 'rs_by': 5}}
+META = {'thema_schluessel': 'raum.schraegbilder', 'thema_id': 91, 'block_id': 109, 'klasse': {'gym_by': 10, 'rs_by': 7, 'ib_myp': 4}}
 
 ETAPPEN = [
     {'lernziel': 'pyramide', 'titel': 'Pyramiden: Ecken, Kanten, Flächen',
@@ -768,3 +768,9 @@ if __name__ == '__main__':
     from _bereinigen import bereinigen_datei
     bereinigen_datei('raum.schraegbilder')
 # ---- BEREINIGEN ENDE ----
+
+# ---- LK (22.11., Lücken aus LP-RS, siehe _lk_etappen_2211.py): zuletzt, hängt nur an ----
+if __name__ == '__main__':
+    from _lk_etappen_2211 import lk_anhaengen
+    lk_anhaengen('raum.schraegbilder')
+# ---- LK ENDE ----

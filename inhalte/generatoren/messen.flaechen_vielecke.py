@@ -27,7 +27,7 @@ from _luecken_neu import (A, K, P, Z, aufgaben, d, dreieck, fig, gr, parallelogr
 from _luecken_neu import dreieck as _dreieck, parallelogramm as _parallelogramm, trapez as _trapez  # noqa: E402
 
 ZIEL = HIER.parent / 'themen' / 'messen.flaechen_vielecke.json'
-META = {'thema_schluessel': 'messen.flaechen_vielecke', 'thema_id': 99, 'block_id': 114, 'klasse': {'gym_by': 6}}
+META = {'thema_schluessel': 'messen.flaechen_vielecke', 'thema_id': 99, 'block_id': 114, 'klasse': {'gym_by': 6, 'rs_by': 6}}
 SEED = 7099
 
 
@@ -966,3 +966,9 @@ if __name__ == '__main__':
     d_, anz = datei()
     schreiben(ZIEL, d_, anz)
     stufen_datei('messen.flaechen_vielecke', ST)
+
+# ---- LK (22.11., Lücken aus LP-RS, siehe _lk_etappen_2211.py): zuletzt, hängt nur an ----
+if __name__ == '__main__':
+    from _lk_etappen_2211 import lk_anhaengen
+    lk_anhaengen('messen.flaechen_vielecke')
+# ---- LK ENDE ----

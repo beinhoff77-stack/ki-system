@@ -2641,3 +2641,13 @@ Sebastian: „Du musst die bestehenden erledigten Sachen der Kinder beachten …
 6. **`lehrplan-lb` liefert dazu je Kind (nur Nummern, lesend):** Themen mit Lernstand, die auf mehrere Klassen verteilt werden – je Klasse „Etappen verlangt / davon gelandet oder gesetzt“; und alle Fälle, in denen ein Kind ein Thema als geschafft hat, obwohl Etappen einer späteren Klasse noch fehlen (kein Fehler, nur Hinweis für die Anzeige).
 7. **`bau-lehrer`:** Rauchtest und Probelauf mit Vorher/Nachher je Kind: gelandete Etappen, Flug-Abschlüsse, Stempel, Sterne, Plan, Reiseoptionen identisch.
 8. **Gestalter:** Karte „weitergeführt“ zeigt den Stand nur für die Etappen dieser Klasse („2 von 3 neuen Etappen“), die erste Karte den Stand ihrer Etappen; ein abgeschlossener Flug bleibt in allen Zeilen als geschafft erkennbar.
+
+### Nachtrag LK – Route: zweiter Teil eines Themas fliegt ins Nachbarland (22.11., 14:25 Berlin) · Entscheidung Sebastian
+
+„Und wenn der zweite Teil von Terme umformen dann einfach in ein Nachbarland geht?“ – **Ja, so wird es gemacht.**
+- **Regel:** Verlangt der Lehrplan (Maßstab: Gymnasium; ohne Gym-Klasse Realschule Gruppe I, dann IB) von einem Thema in einer späteren Klasse **drei oder mehr eigene Etappen**, wird das Thema dort geteilt: eigener Flug, eigenes Land – ein **Nachbarland** des ersten Teils auf demselben Kontinent. Vorbild: Potenzgesetze (21.11.).
+- Bei nur ein oder zwei Etappen oder reiner Vertiefung bleibt es **ein** Flug (ein Flug braucht mindestens 3 Etappen); die Lehrplan-Übersicht zeigt das Thema trotzdem in beiden Klassen (LK).
+- Ersetzt Punkt 2 und 5 des Nachtrags „vorhandener Lernstand“ für die geteilten Themen: Jeder Teil hat eigenen Flug-Test, Stempel, Abschluss. Lernstand wird je Etappe umgehängt; ist ein Teil dadurch vollständig, gilt er als geschafft – ohne zweite Sterne für schon vergütete Abschlüsse, mit Nachtrag von Stempel/Bonus für den neuen Teil nach derselben Regel wie beim Reise-Aufbau (Festlegung 14).
+- **`lehrplan-lb` (in LK-D):** Liste aller Themen, die nach dieser Regel geteilt werden: Thema, Klassen, Etappen je Teil, Titelvorschlag je Teil, Voraussetzung (Teil 2 braucht Teil 1), Stand je Kind (nur Nummern). Dazu Grenzfälle (genau 3 Etappen, andere Lage in RS/IB) mit Empfehlung „teilen“ / „zusammen lassen“. Sebastian entscheidet die Liste.
+- **Chat `reise-aufbau`:** nach der Liste den Vorschlag ergänzen – je neuem Flug ein Nachbarland mit Städten (aus der Reserve), Skript-Prüfung wie bisher.
+- **`bau-lehrer`:** Teilen als wiederholbares Verfahren (Thema anlegen, Etappen/Aufgaben/Lernstand umhängen, Voraussetzung setzen, Vorher/Nachher je Kind) – als Funktion oder Vorlage, noch nichts einspielen.

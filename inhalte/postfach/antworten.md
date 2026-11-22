@@ -628,3 +628,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 22.11. 10:55 (Berlin) – an bau-lehrer, bau-motivation
 
 - **Fehler Mischkarten** (ein Kind bekam dieselbe Aufgabe dreimal am Tag in drei Etappen): Befund und Aufträge in `AUFTRAEGE.md`, „Fehler Mischkarten (22.11.)“. `bau-lehrer`: WD-S 3. `bau-motivation`: 0.86.2. Das WD-Paket wird erst danach eingespielt.
+
+## 22.11. 11:05 (Berlin) – an bau-lehrer, bau-motivation
+
+- **Entscheidungen Sebastian:** Wiederholung zählt nur im ersten Versuch ohne Tipp (`wdh_nur_selbst` true); `sterne_wdh_richtig` = 10; WD-4b wird eingespielt (nach WD-S 3). Einzelheiten in `AUFTRAEGE.md`, „Entscheidungen Sebastian (22.11., 11:00 Berlin)“.

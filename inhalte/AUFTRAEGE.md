@@ -2469,3 +2469,10 @@ Richtung von Sebastian (22.11.): Kontinent = Themengebiet (bleibt); **Flug = ein
 **`lehrplan-lb` – Nacharbeit 907 c:** MUSS 4 – der Löschschutz gilt auch für Einheiten im Status `geprueft` (für Kinder sichtbar), Test dazu; Rauchtest l nur für die zehn stillgelegten Themen, nicht für alle nicht freigegebenen.
 
 **`bau-motivation` – in 0.86.2 mit erledigen:** Text nach dem Ablegen nicht „kommt nicht mehr wieder“, sondern sinngemäß „aus der regelmäßigen Wiederholung – wird nur noch bei Bedarf aufgefrischt“; Antwort `wiederholung.bestanden === false` bei richtig mit Tipp/zweitem Versuch freundlich zeigen („Richtig – morgen noch einmal ohne Hilfe“).
+
+**Entscheidungen Sebastian (22.11., 11:00 Berlin) zum WD-Paket und zum Reise-Aufbau:**
+1. **Wiederholung zählt nur selbstständig:** Fortschritt im Takt, Wiederholungs-Sterne und Ablegen nur bei richtig im ersten Versuch ohne Tipp (`wdh_nur_selbst` = true bleibt). Mit Tipp oder im zweiten Versuch richtig: kein Fehler, die Etappe kommt am nächsten Lerntag wieder.
+2. **10 Sterne je richtiger Wiederholung** (`sterne_wdh_richtig` = 10, keine Kürzung); dazu 30 je abgelegter Etappe und 100 je abgelegtem Flug.
+3. **Stau strecken (WD-4b): ja** – nach WD-S 3, Probelauf und ChatGPT, zusammen mit dem Paket.
+4. **Reise-Aufbau:** nach dem WD-Paket weitermachen (Entwurf des Gestalters, Aufwandsschätzung); für schon abgeschlossene Flüge gibt es Länder-Stempel **und** die 100 Sterne nachträglich.
+5. Kinder-Zugänge sind angelegt (je Kind ein Lern-Zugang) – erledigt.

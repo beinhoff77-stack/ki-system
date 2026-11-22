@@ -33,7 +33,7 @@ Nur Vorgabe, kein App-Code. Ziel (Sebastian): eigenen Lehrplan machen – sehen,
 - **Farbe nach Wichtigkeit** (Sebastian 22.11.: Fertiges braucht man nicht mehr, darum zurücknehmen):
   - **▶ gerade dran:** kräftig gelb, gelber Ring, Titel fett – das Auffälligste auf der Seite.
   - **im Plan (kommt noch):** weiß, blauer Strich links, blaue Platznummer, Text „Platz 4“.
-  - **↻ in Wiederholung:** weiß, hellgrüner Strich links, „↻ Wdh 2/5“ grün.
+  - **↻ in Wiederholung:** hellgrün hinterlegt (#F0F7E8), hellgrüner Strich links, „↻ Wdh 2/5“ grün.
   - **✓ fertig (kann er, auch gesetzt):** **durchsichtig** – kein Hintergrund, heller Rand, Titel grau, Kennzeichen blass, „✓ fertig“ / „✓ gesetzt“; beim Darüberfahren wieder weiß (bleibt antippbar).
   - **+ nicht im Plan:** weiß, neutral, „+ nicht im Plan“ bzw. „1/7 Etappen“, wenn schon begonnen.
   - **andere Schule:** gestrichelter Rand (zusätzlich zur Stufe). Aufgelöst: nicht in der Matrix.

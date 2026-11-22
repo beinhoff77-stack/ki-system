@@ -77,12 +77,17 @@
 .kname{font-size:22px;font-weight:900;letter-spacing:.22em;text-anchor:middle;paint-order:stroke;stroke:var(--meer);stroke-width:5px;stroke-linejoin:round;filter:saturate(1.6) brightness(.8)}
 .plring{fill:var(--bg);filter:drop-shadow(0 1px 1.5px #0004)}
 .kont{stroke:var(--grenzeD)!important}
+.pinform{filter:drop-shadow(0 1.5px 2px #0005)}
+.pland{font-size:11px;font-weight:850;letter-spacing:.1em;text-transform:uppercase;fill:var(--tx);paint-order:stroke;stroke:var(--bg);stroke-width:3.5px;stroke-linejoin:round}.pland.k{font-size:9.5px;fill:var(--label)}
+.phs{font-size:10.5px;font-style:italic;font-weight:500;fill:var(--leise);paint-order:stroke;stroke:var(--bg);stroke-width:3.5px;stroke-linejoin:round}
+.grau image{filter:grayscale(.85) opacity(.75)}.marke{filter:drop-shadow(0 2px 3px #0003)}
+.zl.lpin{cursor:pointer}
 </style></head><body>
 <div class="steuer"><strong>Entwurf: Reisekarte (Kinder-Startseite)</strong>
 <b>ANSICHT</b><span class="seg"><button data-g="ans" data-v="welt">Welt</button><button data-g="ans" data-v="europa" class="an">Europa (Kontinent)</button><button data-g="ans" data-v="land">Italien (Land)</button></span>
 <b>STARTKNOPF</b><span class="seg"><button data-g="knopf" data-v="karte" class="an">in der Karte</button><button data-g="knopf" data-v="unten">unter der Karte</button></span>
 <b>GESTALTUNG</b><span class="seg"><button data-g="gest" data-v="tag" class="an">Tag</button><button data-g="gest" data-v="nacht">Nacht</button></span>
-<b>FLAGGEN</b><span class="seg"><button data-g="flagge" data-v="rund" class="an">rund</button><button data-g="flagge" data-v="eckig">eckig</button><button data-g="flagge" data-v="aus">aus</button></span>
+<b>LAND-ZEICHEN</b><span class="seg"><button data-g="flagge" data-v="pin" class="an">Flaggen-Pin</button><button data-g="flagge" data-v="marke">Briefmarke</button><button data-g="flagge" data-v="rund">rund</button><button data-g="flagge" data-v="eckig">eckig</button><button data-g="flagge" data-v="aus">aus</button></span>
 <b>GERÄT</b><span class="seg"><button data-g="breite" data-v="handy" class="an">Handy</button><button data-g="breite" data-v="rechner">Rechner</button></span></div>
 <div class="hinweis">Echte Grenzen (Natural Earth, gemeinfrei), echte Hauptstädte. Verschieben mit Finger/Maus, Zoom mit + / − oder Mausrad, Land antippen. Stand des Kindes erfunden. Länder-Zuordnung aus dem Vorschlag vom 22.11. (vorläufig).</div>
 <div id="buehne"></div>
@@ -103,7 +108,7 @@ let gest='tag',knopf='karte',breite='handy',ansicht='europa',sel=null,vb=null;
 const BY=n=>G.eur.find(x=>x.n===n);
 const ZT={gesch:'geschafft · Stempel',gold:'golden · alle Städte abgelegt',dran:'gerade dran',plan:'im Plan',offen:'offen – kannst du wählen',sperr:'noch gesperrt'};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-let flagArt='rund';
+let flagArt='pin';
 const fl=(a2,w=18)=>FLAG[a2]?`<image href="${FLAG[a2]}" width="${w}" height="${w*.75}" x="${-w/2}" y="${-w*.75}" preserveAspectRatio="none" class="flagge"/>`:'';
 const plakette=(a2,d=13,x=0,y=0)=>FLAG[a2]?`<g transform="translate(${x},${y})"><circle r="${d/2+1.6}" class="plring"/><image href="${FLAG[a2]}" width="${d}" height="${d}" x="${-d/2}" y="${-d/2}" preserveAspectRatio="xMidYMid slice" clip-path="url(#rund)"/><circle r="${d/2}" fill="none" stroke="#0003" stroke-width=".6"/></g>`:'';
 const flHtml=(a2,h=16)=>FLAG[a2]?`<img src="${FLAG[a2]}" style="height:${h}px;width:${h*4/3}px;border-radius:2px;box-shadow:0 0 0 1px #0002;vertical-align:-3px">`:'';
@@ -115,11 +120,33 @@ function stempel(gold){const c=gold?'var(--goldR)':'var(--geschR)';return `<g cl
 const hsZ=`<circle r="5" class="hsring"/><circle r="2" class="hspunkt"/>`;
 const landLabel=(a2,name,gross)=>{const w=name.length*(gross?8:7.7);if(flagArt==='aus')return `<g class="landlabel"><text class="lname" y="4" text-anchor="middle">${esc(name)}</text></g>`;if(flagArt==='eckig')return `<g class="landlabel">${fl(a2,gross?20:16)}<text class="lname" y="${gross?13:11}" text-anchor="middle">${esc(name)}</text></g>`;
  return `<g class="landlabel">${plakette(a2,gross?14:12,-w/2-(gross?11:10),0)}<text class="lname" y="3.6" text-anchor="middle">${esc(name)}</text></g>`};
+
+// ---- Land = Flaggen-Pin auf der Hauptstadt (Kopf = Flagge, Spitze = Hauptstadt, Schild = LAND + Hauptstadt) ----
+const STF={gesch:['var(--geschR)','✓'],gold:['var(--goldR)','★'],dran:['var(--dranR)',''],plan:['var(--planR)',null],sperr:['#9AA19D','🔒'],offen:['var(--hs)','']};
+function landPin(a2,name,hs,z,klein){const st=z?z.s:null;const [c,zei]=STF[st]||['#8A918D',''];const R=klein?8:11,Y=klein?-17:-23;
+ let s=`<g class="pinkopf${st==='sperr'?' grau':''}">`;
+ if(st==='dran')s+=`<circle class="puls" r="9"/>`;
+ s+=`<g class="pinform"><path d="M0,0 L${-R*.62},${Y+R*.78} L${R*.62},${Y+R*.78} Z" fill="${c}"/><circle cy="${Y}" r="${R+2.2}" fill="${c}"/></g>`;
+ s+=FLAG[a2]?`<image href="${FLAG[a2]}" width="${R*2}" height="${R*2}" x="${-R}" y="${Y-R}" preserveAspectRatio="xMidYMid slice" clip-path="url(#rund)"/>`:`<circle cy="${Y}" r="${R}" fill="var(--karte)"/>`;
+ s+=`<circle cy="${Y}" r="${R}" fill="none" stroke="#0002" stroke-width=".7"/><circle r="2.2" fill="${c}" stroke="var(--bg)" stroke-width="1.2"/>`;
+ if(st==='plan')s+=`<g transform="translate(${R*.85},${Y-R*.85})"><circle r="7" fill="var(--planR)" stroke="var(--bg)" stroke-width="1.5"/><text text-anchor="middle" dominant-baseline="central" font-size="9" font-weight="900" fill="#fff">${z.p}</text></g>`;
+ else if(zei)s+=`<g transform="translate(${R*.85},${Y-R*.85})"><circle r="7" fill="${st==='sperr'?'var(--karte)':c}" stroke="var(--bg)" stroke-width="1.5"/><text text-anchor="middle" dominant-baseline="central" font-size="${st==='sperr'?7:8.5}" font-weight="900" fill="#fff">${zei}</text></g>`;
+ if(st==='dran')s+=`<g transform="translate(${-R-14},${Y-6}) rotate(60) scale(.8)">${flieger()}</g>`;
+ s+=`</g>`;
+ const tx=R+6;s+=`<g class="pintext"><text class="pland${klein?' k':''}" x="${tx}" y="${Y-1}">${esc(name)}</text><text class="phs" x="${tx}" y="${Y+11}">${esc(hs||'')}</text></g>`;
+ return s}
+function landMarke(a2,name,hs,z){const st=z?z.s:null;const [c,zei]=STF[st]||['var(--linie)',''];const w=Math.max(62,name.length*6.6+16);
+ let s=`<g transform="translate(0,-48)" class="${st==='sperr'?'grau':''}"><rect x="${-w/2}" y="-2" width="${w}" height="40" rx="3" fill="var(--karte)" stroke="${z?c:'var(--linie)'}" stroke-width="${z?2:1}" class="marke"/>`;
+ s+=FLAG[a2]?`<image href="${FLAG[a2]}" x="${-w/2+4}" y="2" width="${w-8}" height="13" preserveAspectRatio="xMidYMid slice"/>`:'';
+ s+=`<text class="pland k" y="26" text-anchor="middle">${esc(name)}</text><text class="phs" y="35" text-anchor="middle" style="font-size:8.5px">${esc(hs||'')}</text>`;
+ if(zei||st==='plan')s+=`<g transform="translate(${w/2-2},-2)"><circle r="7" fill="${st==='sperr'?'var(--karte)':c}" stroke="var(--bg)" stroke-width="1.5"/><text text-anchor="middle" dominant-baseline="central" font-size="8.5" font-weight="900" fill="#fff">${st==='plan'?z.p:zei}</text></g>`;
+ s+=`</g><path d="M-5,-10 L0,0 L5,-10 Z" fill="${z?c:'var(--linie)'}"/><circle r="2.2" fill="var(--hs)"/>`;
+ if(st==='dran')s=`<circle class="puls" r="9"/>`+s;return s}
 // ---------- Welt ----------
 function welt(){const {W,H}=GW;let s=`<path d="${GW.sph}" fill="var(--meer)"/><path d="${GW.grat}" fill="none" stroke="var(--gitter)" stroke-width="1.5"/>`;
  for(const x of GW.L)s+=`<path class="kont" d="${x.d}" fill="${KF[x.k]||'#ccc'}" fill-opacity="${x.k==='eu'?.95:.6}" stroke="var(--grenze)" stroke-width="1.6" vector-effect="non-scaling-stroke" data-k="${x.k}" data-wl="${x.a2}"/>`;
- for(const x of GW.L){if(x.hp)s+=ms(x.hp[0],x.hp[1],`${hsZ}<text class="hsname" x="8" y="4">${esc(x.hs)}</text>`,'zl hs',`data-ar="${x.ar}"`);}
- for(const x of GW.L){if(x.k==='ant')continue;s+=ms(x.lp[0],x.lp[1]-6,landLabel(x.a2,x.de),'zl ll',`data-ar="${x.ar}"`)}
+ if(flagArt==='pin'||flagArt==='marke'){for(const x of [...GW.L].filter(x=>x.hp&&x.k!=='ant').sort((a,b)=>a.hp[1]-b.hp[1]))s+=ms(x.hp[0],x.hp[1],flagArt==='marke'?landMarke(x.a2,x.de,x.hs,null):landPin(x.a2,x.de,x.hs,null,true),'zl lpin',`data-ar="${x.ar}" data-wl="${x.a2}"`)}else{for(const x of GW.L){if(x.hp)s+=ms(x.hp[0],x.hp[1],`${hsZ}<text class="hsname" x="8" y="4">${esc(x.hs)}</text>`,'zl hs',`data-ar="${x.ar}"`);}
+ for(const x of GW.L){if(x.k==='ant')continue;s+=ms(x.lp[0],x.lp[1]-6,landLabel(x.a2,x.de),'zl ll',`data-ar="${x.ar}"`)}}
  const KP={eu:[15,54],as:[92,48],or:[46,31],af:[20,6],na:[-100,47],sa:[-60,-14],au:[134,-27],po:[-150,-12]};
  for(const k in KN){const [n,g,a,b]=KN[k];const pp=projW(KP[k]);s+=ms(pp[0],pp[1],`<text class="kname" style="fill:${KF[k]}">${n.toUpperCase()}</text><text class="welt-z" y="20" style="font-weight:800;fill:var(--tx)">${g} · ${a}/${b} Länder</text>`,'kont kl',`data-k="${k}"`)}
  s+=ms(W/2,H-40,`<text class="welt-l">Antarktis</text><text class="welt-z" y="16">Expeditionen · 0 von 21 Stationen</text>`,'kl');
@@ -131,10 +158,12 @@ function projW([lo,la]){// Natural Earth 1 wie im Bau (Näherung über bekannte 
 function europa(){const [W,H]=G.eurWH;let s=`<defs><pattern id="schraffur" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="var(--sperr)"/><line x1="0" y1="0" x2="0" y2="8" stroke="var(--linie)" stroke-width="3"/></pattern></defs><rect width="${W}" height="${H}" fill="var(--meer)"/>`;
  for(const x of G.eur){const z=ZU[x.n];s+=`<path class="${['land',x.eu?'eu':'fremd',z?z.s:'',sel===x.n?'sel':''].join(' ')}" d="${x.d}" data-l="${esc(x.n)}"/>`}
  for(const x of G.eur){const z=ZU[x.n];if(z&&z.s==='dran')s+=`<path class="umriss" d="${x.d}" stroke="var(--dranR)"/>`}
- const LP=n=>{const x=BY(n);return x.lp||x.c};
+ const LP=n=>{const x=BY(n);return flagArt==='pin'||flagArt==='marke'?[x.hp[0],x.hp[1]-(flagArt==='marke'?0:12)]:(x.lp||x.c)};
  const P=REISE.map(LP);const iD=REISE.indexOf('Italy');
  for(let i=0;i<P.length-1;i++)s+=`<path class="route ${i<iD?'war':'kommt'}" d="${bogen(P[i],P[i+1])}"/>`;
- for(const x of G.eur){if(!x.hp)continue;s+=ms(x.hp[0],x.hp[1],`${hsZ}<text class="hsname" x="8" y="4">${esc(x.hs)}</text>`,'zl hs',`data-ar="${ZU[x.n]?9e9:1}"`)}
+ if(flagArt!=='rund'&&flagArt!=='eckig'&&flagArt!=='aus'){const AR=a2=>{const w=GW.L.find(y=>y.a2===a2);return w?w.ar*4.2:500};const L=G.eur.filter(x=>x.hp).sort((a,b)=>(ZU[a.n]?1:0)-(ZU[b.n]?1:0)||b.hp[1]-a.hp[1]);
+  for(const x of L){const z=ZU[x.n];s+=ms(x.hp[0],x.hp[1],flagArt==='marke'?landMarke(x.a2,x.de,x.hs,z):landPin(x.a2,x.de,x.hs,z,!z),'zl lpin',`data-ar="${z?9e9:AR(x.a2)}" data-l="${esc(x.n)}"`)}return {W,H,svg:s}}
+ for(const x of G.eur){if(!x.hp)continue;s+=ms(x.hp[0],x.hp[1],`${hsZ}<text class="hsname" x="8" y="4">${esc(x.hs)}</text>`,'zl hs',`data-ar="${ZU[x.n]?9e9:9e9}"`)}
  for(const x of G.eur){if(!x.eu||!x.lp)continue;const z=ZU[x.n];const KLEIN=['LU','MC','SM','LI','AD','MT','XK','ME','MD','CY','AL','MK','BA'];
   let mark='';if(z){if(z.s==='gesch'||z.s==='gold')mark=`<g transform="translate(0,${flagArt==='eckig'?-30:-20})">${stempel(z.s==='gold')}</g>`;if(z.s==='plan')mark=`<g class="pin" transform="translate(0,${flagArt==='eckig'?-30:-19})"><circle r="11" fill="var(--planR)"/><text>${z.p}</text></g>`;if(z.s==='sperr')mark=`<g transform="translate(0,${flagArt==='eckig'?-28:-18})"><circle r="10" fill="var(--karte)" stroke="var(--linie)"/><text text-anchor="middle" dominant-baseline="central" font-size="11">🔒</text></g>`;if(z.s==='dran')mark=`<circle class="puls" r="9" cy="0"/><g transform="translate(0,${flagArt==='eckig'?-34:-22}) rotate(35)">${flieger()}</g>`}
   s+=ms(x.lp[0],x.lp[1],landLabel(x.a2,x.de,!!z)+mark,'zl ll',`data-ar="${z?9e9:(KLEIN.includes(x.a2)?50:5000)}"`)}
@@ -153,7 +182,7 @@ function italien(){const [W,H]=G.itWH;let s=`<rect width="${W}" height="${H}" fi
   inner+=`<text text-anchor="middle" dominant-baseline="central" font-size="11.5" font-weight="800" fill="${hell?'var(--leise)':'#fff'}">${st==='abgelegt'?'★':st==='gelandet'||st==='faellig'?'✓':i+1}</text>`;
   if(st==='faellig')inner+=`<g transform="translate(12,-12)"><circle r="8" fill="var(--planR)" stroke="var(--bg)" stroke-width="2"/><text text-anchor="middle" dominant-baseline="central" font-size="10" font-weight="900" fill="#fff">↻</text></g>`;
   if(st==='dran')inner=`<circle class="puls" r="10"/>`+inner+`<g transform="translate(0,-32) rotate(-20)">${flieger()}</g>`;
-  if(c.n==='Rom')inner+=`<g transform="translate(-20,10)">${hsZ}</g>`;
+  if(c.n==='Rom')inner+=flagArt==='pin'||flagArt==='marke'?`<g transform="translate(-26,8) scale(.85)">${landPin('IT','','',null,true).replace(/<g class="pintext">.*<\/g>$/,'')}</g>`:`<g transform="translate(-20,10)">${hsZ}</g>`;
   const lx=['Bari','Pompei','Rom','Siena','Florenz','Bologna','Venedig'].includes(c.n)?18:-18;
   inner+=`<text class="sname ${hell?'leise':''}" x="${lx}" y="5" text-anchor="${lx>0?'start':'end'}">${esc(c.n)}${st==='kuer'?' · Kür':''}${st==='dran'?` · ${DRAN_N}/6`:''}</text>`;
   s+=ms(x,y,inner)});
@@ -191,8 +220,9 @@ function passe(){const kr=document.getElementById('kr'),sv=document.getElementBy
  sv.setAttribute('width',W);sv.setAttribute('height',H);const r=W/H;let {x,y,w,h}=vb;if(w/h>r){const nh=w/r;y-=(nh-h)/2;h=nh}else{const nw=h*r;x-=(nw-w)/2;w=nw}
  sv.setAttribute('viewBox',`${x} ${y} ${w} ${h}`);const k=w/W;sv.style.setProperty('--k',k.toFixed(3));
  // Namen je nach Zoom: Fläche in Bildschirm-Pixeln entscheidet
- const px=k*k;for(const g of sv.querySelectorAll('.zl')){const a=+g.dataset.ar/px;g.style.display=a>(g.classList.contains('hs')?(ansicht==='welt'?9000:4500):(ansicht==='welt'?1400:900))?'':'none'}
- for(const g of sv.querySelectorAll('.kl'))g.style.opacity=ansicht==='welt'&&k<1.4?0:1;if(ansicht==='welt')for(const g of sv.querySelectorAll('.ll'))if(k>=1.4&&+g.dataset.ar/px<6000)g.style.display='none'}
+ const px=k*k;for(const g of sv.querySelectorAll('.zl.lpin')){const a=+g.dataset.ar/px;const T=ansicht==='welt'?2500:2200;g.style.display=a>(ansicht==='welt'?250:60)?'':'none';const tt=g.querySelector('.pintext');if(tt)tt.style.display=a>T?'':'none';const mk=g.querySelector('.marke');if(flagArt==='marke'&&a<=T)g.style.display=+g.dataset.ar>=9e9?'':'none'}
+ for(const g of sv.querySelectorAll('.zl:not(.pin)')){const a=+g.dataset.ar/px;g.style.display=a>(g.classList.contains('hs')?(ansicht==='welt'?9000:4500):(ansicht==='welt'?1400:900))?'':'none'}
+ for(const g of sv.querySelectorAll('.kl'))g.style.opacity=ansicht==='welt'&&k<1.4?0:1;if(ansicht==='welt')for(const g of sv.querySelectorAll('.ll,.zl.lpin'))if(k>=1.4&&+g.dataset.ar/px<6000)g.style.display='none'}
 document.addEventListener('click',e=>{const t=e.target;
  const b=t.closest('[data-g]');if(b){const g=b.dataset.g,v=b.dataset.v;if(g==='gest')gest=v;if(g==='knopf')knopf=v;if(g==='breite')breite=v;if(g==='flagge')flagArt=v;if(g==='ans'){ansicht=v;sel=null}document.querySelectorAll(`[data-g="${g}"]`).forEach(x=>x.classList.toggle('an',x.dataset.v===v));render();return}
  const a=t.closest('[data-ans]');if(a){ansicht=a.dataset.ans;sel=null;vb=null;document.querySelectorAll('[data-g="ans"]').forEach(x=>x.classList.toggle('an',x.dataset.v===ansicht));render();return}

@@ -2,6 +2,12 @@
 
 Neueste oben.
 
+## FERTIG: LK-S Test 2 (22.11., bau-lehrer)
+
+**Datei:** `supabase/tests/lk_s_rauchtest.sql` (nur Test, keine Migration).
+- Prüfung 3 (Thema 61 in RS I 8 und 9) läuft jetzt über die Teile-Familie (`coalesce(teil_stamm, id) = 61`): zusammen Klassen 8 und 9, „neu“ ab 8, Route-Start 9 beim Teil mit Klasse 9 (ungeteilt: 61 selbst; geteilt: Teil 2), `thema_jahrgang` und `route_start` an diesem Teil. Spalten der Teilung werden über `to_jsonb` gelesen – der Test läuft auch ohne TL-S.
+- Lokal nachgestellt: alter Test nach der Teilung von 61 → „FEHLER 3 Thema 61“ (wie im Probelauf); neuer Test vor und nach der Teilung durchgelaufen (Teil 1: RS 8, Teil 2: RS 9).
+
 ## FERTIG: TL-S 4 (22.11., bau-lehrer)
 
 **Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/tests/tl_s_rauchtest.sql`, `supabase/werkzeug/tl_s_daten.py`, neu `supabase/tests/nachbau_graph_live.sql` (Voraussetzungen, Orte, Ort-Themen wie live; keine Kinderdaten). Nicht eingespielt, kein DROP/DELETE.

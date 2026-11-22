@@ -2558,3 +2558,20 @@ Meldung im Postfach: „FERTIG: FP-S 2“.
 6. **Vorschlag Datenmodell** (kurz, für `bau-lehrer`): wie ein Thema in mehreren Klassen geführt wird („neu“/„weitergeführt“) und wie die Matrix je Klasse die Abdeckung der Lernbereiche nach Stunden zeigt statt einer Themenzahl.
 
 **Lieferung:** `inhalte/pruefung/lehrplan/rs_pruefung_2211.md` (Bericht mit Tabellen und Quellenliste), `rs_pruefung_2211.json` (maschinenlesbar: Quelle, Lernbereich, Punkt, Thema, Bezug, Befund) und – getrennt – ein Korrektur-SQL als Datei (nur INSERT/UPDATE auf `schule.zuordnung`, `schule.eintrag`, `schule.thema`; kein DROP, kein DELETE), das der Haupt-Chat nach Probelauf einspielt. Trennen: gesichert (am Original belegt) / Annahme / offen. Meldung im Postfach: „FERTIG: LP-RS“.
+
+### Nachtrag FP-S 3 – Rückläufer ChatGPT 929 (22.11., 13:30 Berlin) · an `bau-lehrer`
+
+ChatGPT 929: Muss aus 924 (Sterne aus Summendifferenz) ist zu. Ein Muss bleibt: **Mischkarte atomar einlösen.** FP-S 2 prüft die Gültigkeit ohne Sperre vor und reicht das Ergebnis durch; entschieden wird aber erst in `schule.misch_buchen` (UPDATE … FOR UPDATE SKIP LOCKED). Findet dieser Schritt keine freie Ausgabe (zweite gleichzeitige Antwort auf dieselbe Karte, oder inzwischen andere Aufgabe der Etappe beantwortet), wird normal gebucht – die Antwort meldet trotzdem `misch.gueltig = true`.
+Neue Datei `supabase/migrations/20261122_fp_s3_nacharbeit_929.sql` (nach FP-S 2): Gültigkeit und Beanspruchen der Ausgabe unter einer gemeinsamen Sperre entscheiden; der **tatsächliche** Ausgang geht an Versuch, Wiederholungswertung und Antwort (`misch.gueltig`, `kein_wdh`). Tests: zwei verschiedene `client_id` auf dieselbe ausgegebene Mischkarte; A vorprüfen → B derselben Etappe beantworten → A einlösen; in beiden Fällen keine falsche Misch-Bestätigung, kein Wiederholungsfortschritt im Rückfall. Paralleltest D zusätzlich für gleichzeitiges Beanspruchen desselben Landungs-Bonus. Kein DROP, kein DELETE. Meldung: „FERTIG: FP-S 3“.
+
+**An `bau-motivation`** (App 0.87.1): Nachbuchungs-Hinweis über die neue Aktion `schule_landung_nachbuchung_gesehen` quittieren (Feld `gesehen_am` aus `schule_konto`), localStorage nur noch als Rückfall. Meldung: „FERTIG: 0.87.1“.
+
+### Nachtrag LP-RS – Gegenprobe ChatGPT 927/928/930 (22.11., 13:30 Berlin) · an `lehrplan-lb`
+
+ChatGPT hat alle acht amtlichen Pläne (7–10 × Gruppe I, II/III) unabhängig gelesen. Bitte in die Prüfung einarbeiten und selbst nachprüfen:
+- Stichprobe 7 I / 8 I bestätigt. Stunden laut amtlichem Plan: 7 I 112 / II–III 84; 8 I 112 / 84; 9 I 140 / 84; 10 I 120 / 96.
+- **Die Gruppen unterscheiden sich in der Klassenlage:** Dreiecke I 7 ↔ II/III 8; lineare Funktionen I 8 ↔ II/III 8 (y = mx) und 9 (y = mx + t); quadratische Funktionen/Gleichungen I 9 ↔ II/III 10; Körperberechnungen I 9 ↔ II/III 10; Matrizen-Abbildungen und Potenzfunktionen nur 10 I. Ein einziges `klasse_fest.rs_by` je Thema kann das nicht abbilden.
+- Nicht pauschal verschieben: Extremwerte quadratischer Terme stehen in beiden Gruppen in 8; Schrägbilder 7 I und 8 II/III; Determinanten auch 7 II/III; Baumdiagramme/Vierfeldertafel schon in 8, Laplace 9, Pfadregeln 10.
+- Im Repo auffällig: Themen 48 und 78 ohne RS-Klasse trotz RS-Lernbereich; 91 steht bei RS 8, beschreibt aber auch 7 I; 46 (RS 6) enthält Drehung (8 I); 33 mischt y = mx und y = mx + t.
+- Zweitquellen, die ChatGPT lesen konnte: Inhaltsverzeichnis Westermann 7 I (kapiert.de), Kapitelübersicht 8 II/III (braille.bildung.hessen.de), ISB-Leistungsaufgaben 9, Abschlussprüfung 2026 I und II/III (isb.bayern.de). Die Jahrgangsstufenprofil-Adressen für 8–10 führten auf die Startseite – nicht als Beleg verwenden.
+- **Vorschlag Datenmodell (Punkt 6 des Auftrags) deshalb verbindlich so anlegen:** Zuordnung je `Gruppe × Klasse × Lernbereich × Punkt → Thema/Etappe` mit Bezug „neu/weitergeführt“; Lernstand und Sterne werden nie doppelt geführt. Welche Gruppe die App zeigt, entscheidet Sebastian (offen).

@@ -2352,3 +2352,23 @@ Die zwei Muss aus 907 sind erledigt: Der Altzustand (früher fertiger Flug mit n
 3. LM-S: negative Tests über `api.schule_lehrplan_matrix` / `api.schule_lehrplan_thema` mit einem Lern-Zugang des Testkinds (fremde `lernender_id`, `mit_testkind: true`, Detail, gesperrter Zugang) – keine echten Schlüssel in Dateien; `etappe_jetzt` = Nummer der ersten offenen Etappe in Reihenfolge statt „gelandet + 1“; Größenprüfung mit `octet_length`.
 
 **`lehrplan-lb` (nur Dateien):** Rauchtest j: fehlender Vorherstand → EXCEPTION; Kopfkommentar „kein DELETE“ berichtigen; vor jeder gezielten Löschung prüfen, dass das Thema weiter keinen freigegebenen Flug hat; Testfall „Zielort offen, Voraussetzungs-Ort fehlt“ für die Kante 102 ← 30. Restlücke „Vektorkoordinaten für Determinanten (RS 7)“ als offenen Inhaltspunkt im Bericht führen.
+
+---
+
+# Bau-Auftrag WD (22.11.): Wiederholungen dynamisch – Stau vermeiden, Belohnung fürs Ablegen
+
+Anlass: Sebastian und die Kinder. Jede gelandete Etappe erzeugt 5 Wiederholungen (1, 3, 7, 14, 30 Lerntage); die Runde am Anfang hat fest 6 Aufgaben. Bei mehr als etwa 1,2 Landungen pro Lerntag staut es sich; ein Kind hat nach dem Setzen mehrerer Flüge 41 fällige Etappen. **Entscheidungen Sebastians (22.11.):** Die Wiederholungs-Runde am Anfang bleibt (einmal pro Tag); ihre Größe wird errechnet; Mischkarten bleiben und bauen mit ab; **kein Bündeln je Flug – jede Etappe für sich**; Sterne 5 / 30 / 100; kein neues Abzeichen, sondern der vorhandene Stempel wird golden. **Gebaut wird erst nach ChatGPTs Prüfung des Konzepts und der Vorgabe des Gestalters.**
+
+**WD-1 Größe der Runde (Server liefert, App zeigt):** fällige Etappen bis 6 → alle; 7–24 → 8; 25–40 → 10; über 40 → 12; bis Klasse 6 höchstens 10. Werte in `schule.regel` (änderbar ohne Bau). Reihenfolge: zuerst Etappen mit einem Wiederholungs-Fehler, dann die am längsten fälligen, dann niedrigste Stufe. Weitere fällige bleiben freiwillig angeboten wie heute.
+
+**WD-2 „Runde heute gemacht“ merkt sich der Server** (heute nur das Gerät, `localStorage`): je Kind und Lerntag (`heute_bis`), damit ein Gerätewechsel keine zweite Pflicht-Runde auslöst.
+
+**WD-3 Mischkarten bauen mit ab:** Die Auswahl der Mischkarten bevorzugt fällige Etappen (sonst wie bisher). Eine Mischkarte aus einer fälligen Etappe, richtig im ersten Versuch ohne Tipp, gilt als bestandene Wiederholung: Die Etappe rückt im Takt weiter wie nach einer richtigen Wiederholung, zusätzlich zum bisherigen Beleg für „sicher“. Falsch bleibt wie heute (am nächsten Lerntag fällig, öffnet nie). Häufigkeit unverändert (jede 4., bis Klasse 6 jede 6., ab 3 gelandeten Etappen im Flug).
+
+**WD-4 Gesetzte Flüge gestaffelt:** „Kann er – aber wiederholen“ bringt je Kind höchstens 6 Etappen pro Lerntag neu in den Takt (ein Flug nach dem anderen, in Plan-Reihenfolge); die übrigen warten sichtbar („kommt ab …“). Für den vorhandenen Stau eine einmalige, verlustfreie Umverteilung vorschlagen (nur Fälligkeiten strecken; keine Landung, kein Stand geht verloren) – als eigene, gut lesbare Migration, die der Haupt-Chat erst nach Probelauf und Sebastians Okay einspielt.
+
+**WD-5 Sterne:** 5 Sterne je richtiger Wiederholung (Runde am Anfang, freiwillige Wiederholung oder Mischkarte nach WD-3; je Etappe und Fälligkeit einmal). Vorher feststellen und melden, was Wiederholungen und Mischkarten heute geben (Mischkarte in der App: 10) – nichts doppelt buchen, nichts stillschweigend kürzen.
+
+**WD-6 „Endgültig abgelegt“:** Besteht eine Etappe die letzte Wiederholung (30 Lerntage), ist sie abgelegt: raus aus dem Takt, **30 Sterne**, Einblendung (einmal je Kind und Etappe, serverseitig festgehalten wie `flug_erstabschluss`). Sind alle Etappen eines Flugs abgelegt: **100 Sterne**, größere Einblendung; im Reisepass wird der vorhandene Eintrag des Flugs **golden** (kein neues Abzeichen). Sind alle Flüge eines Orts abgelegt, wird der **Orts-Stempel golden**. Verhältnis zu „sicher“ (◉) klären und im Bericht vorschlagen: zwei ähnliche Zustände nebeneinander vermeiden. Eine abgelegte Etappe kann durch den Nachtest des Flugs weiter auffallen – Regel dafür vorschlagen (Vorschlag: sie kommt einmalig mit 7 Lerntagen zurück in den Takt, das Gold bleibt).
+
+**Aufteilung:** Server (`bau-lehrer`, Migrationen als Datei mit Rauchtests: Rundengröße, Server-Merker, Mischkarte als Wiederholung, Staffelung, Sterne, Ablegen einmalig; Lernstände bleiben unverändert – Vergleich vorher/nachher im Test). App (`bau-motivation`, nach LM-6): Runde in errechneter Größe, Einblendungen nach Vorgabe des Gestalters, goldener Flug-Eintrag und Stempel, Info-Seite. Gestalter: zwei Einblendungen („Etappe abgelegt“, „Flug abgelegt“) und das Gold im Reisepass, Vorgabe unter `inhalte/pruefung/kind/abgelegt/`.

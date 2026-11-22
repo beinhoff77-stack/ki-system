@@ -5042,3 +5042,15 @@ html.lr-abschluss-offen, html.lr-abschluss-offen body { overflow: hidden; }
 .lr-fp-hinweis { margin: 4px 0 0; font-size: 13px; }
 .lr-fp-geschenk { position: relative; border: 2px solid #E8B30E; background: #FFF6D6; color: #4A3300; display: flex; flex-direction: column; gap: 4px; }
 .lr-fp-geschenk p { margin: 0; } .lr-fp-geschenk .lr-knopf { align-self: flex-start; margin-top: 6px; }
+
+/* ---------- 0.87.2 (Nachprüfung Kinderansicht 22.11.) ---------- */
+/* S1: Zeile über dem festen Startknopf, wenn erst der Check-in kommt */
+.lr-dock-ansage { display: block; box-sizing: border-box; width: 100%; flex: 1 0 100%; margin: 0 0 6px; text-align: center; font-size: 13.5px; text-wrap: balance; font-weight: 700; color: var(--lr-text); background: var(--lr-flaeche); border-radius: 99px; padding: 4px 12px; }
+/* S2: Hinweis bei 5 Sternen als eigene Zeile unter der Rückmeldung (volle Breite) */
+.lr-rueck-ok { flex-wrap: wrap; }
+.lr-rueck-ok > .lr-fp-hinweis { flex: 1 0 100%; order: 10; margin: 2px 0 0; }
+/* K2: Pause-Link im Tag-Modus kräftiger (Kontrast auf Sand) */
+.lr-abflug-tag .lr-checkin-pause, .lr-abflug-tag .lr-ab-neu .lr-checkin-pause { color: #2E3A57; font-weight: 700; text-decoration-thickness: 2px; }
+/* K3: lange Zahlwörter in Auswahl-Antworten mit Trennstrich */
+.lern-auswahl, .lern-auswahl label, .lern-auswahl span { hyphens: auto; -webkit-hyphens: auto; overflow-wrap: break-word; word-break: normal; }
+.lr-mit-menue .lr-dock-start .lr-dock-ansage { width: calc(100% + 72px); margin-right: -72px; }

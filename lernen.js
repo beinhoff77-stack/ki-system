@@ -1126,11 +1126,12 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort =
       ...weitere.slice(0, maxZ).map((e) => zeile(e, e.geschafft ? 'GELANDET' : e.fertig ? 'UNTERWEGS' : 'WARTET', e.geschafft ? ' lr-flug-gelandet' : '')),
       ...d.kann.slice(0, 1).map((e) => zeile(e, 'GELANDET', ' lr-flug-gelandet')),
       ...d.spaeter.slice(0, 1).map((e) => zeile(e, `AB KLASSE ${kl(e) ?? ''}`.trim(), ' lr-flug-spaeter'))),
+    // 0.87.2 S1: Ansage direkt unter der Abflugtafel (vor Fortschritt und Stempel) – auf dem Handy im Blick
+    nWdh && !n.laeuft && !testDran ? (ws?.neu ? lernCheckinAnsage(ws) : el('p', { class: 'lr-leise lr-start-info' }, `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'}, dann ${n.stadt}.`)) : null,
     band,
     el('div', { class: 'lr-tafelchips' }, el('a', { href: `#/reisepass/${kind.id}` }, `◎ ${d.konto?.stempel ?? 0} Stempel`), el('span', {}, 'Abflug, wann es dir passt')),
     lernKnobelDesTages(d),
     lernExpeditionAngebot(d),
-    nWdh && !n.laeuft && !testDran ? (ws?.neu ? lernCheckinAnsage(ws) : el('p', { class: 'lr-leise lr-start-info' }, `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'}, dann ${n.stadt}.`)) : null,
     wdhRest ? el('a', { class: 'lr-textlink', href: `#/wiederholen/${kind.id}` }, `Noch ${wdhRest} ${wdhRest === 1 ? 'Wiederholung' : 'Wiederholungen'} offen – wenn du magst`) : null,
     nWdh ? null : lernExtraLink(ws, kind.id),
     el('a', { class: 'lr-textlink', href: `#/lerneinheit/${kind.id}-${n.id}` }, 'Erst die Erklärungen ansehen'),
@@ -1144,7 +1145,10 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort =
       el('p', { class: 'lr-ueber' }, `MEIN STAND · ${(LERN_SCHULART[jg.schulart] || '').toUpperCase()} KLASSE ${jg.klasse}`),
       el('div', { class: 'lr-fortschritt' }, el('div', { class: 'lr-balken', role: 'img', 'aria-label': `${jg.geschafft} von ${jg.themen} Flügen geschafft` }, el('span', { style: `width:${Math.round(100 * jg.geschafft / jg.themen)}%` })),
         el('b', {}, `${jg.geschafft} von ${jg.themen} Flügen`))) : null,
-    el('div', { class: 'lr-dock lr-dock-start' }, el('a', { class: 'lr-knopf lr-einsteigen-knopf', href: ziel },
+    el('div', { class: 'lr-dock lr-dock-start' },
+      // 0.87.2 S1: eine Zeile über dem festen Knopf – das Kind weiß vor dem Tippen, dass erst der Check-in kommt (Zahl aus dem Serverwert)
+      nWdh && !n.laeuft && !testDran && ws?.neu && ws.offen ? el('p', { class: 'lr-dock-ansage' }, `${ws.erledigt ? 'Noch' : 'Erst'} ${ws.offen} ${ws.offen === 1 ? 'Bordkarte' : 'Bordkarten'} Check-in · ca. ${Math.max(1, Math.ceil(ws.offen * 0.5))} Min.`) : null,
+      el('a', { class: 'lr-knopf lr-einsteigen-knopf', href: ziel },
       // N4: Die Wiederholung kann aus einem anderen Ort stammen – der Knopf nennt deshalb die Anzahl, nicht das Ziel.
       ...(n.laeuft || testDran ? [el('span', {}, n.laeuft ? 'Test weitermachen' : 'Zum Test'), el('span', { class: 'lr-mono' }, code(n).slice(0, 14) + ' ›')]
         : nWdh ? [el('span', {}, ws?.neu ? 'Weiter geht’s ›' : `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'} ›`)] // Vorgabe „abgelegt“ 1: Startknopf bleibt „Weiter geht’s“

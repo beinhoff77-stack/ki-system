@@ -4341,3 +4341,47 @@ test('FP-4: Info-Seite „Sterne“ nach der Vorgabe', async (t) => {
     assert.ok(text.includes(s), 'fehlt: ' + s);
   assert.ok(!text.includes('10 Sterne für jede Bordkarte, die zum ersten Mal richtig ist'), 'alter Satz');
 });
+
+// ---------- 0.87.2: Nachprüfung Kinderansicht 22.11. (S1, S2, K2, K3) – Handy 360×640 und 400×860 ----------
+for (const [b, h] of [[360, 640], [400, 860]]) {
+  test(`0.87.2 S1 (${b}×${h}): Check-in-Ansage direkt unter der Abflugtafel, Zeile „Erst 9 Bordkarten Check-in · ca. 5 Min.“ über dem festen Knopf im Blick`, async (t) => {
+    const { page } = await setup(t, { gestaltung: 'nacht' }); const srv = wdhServer({ runde: 9, faellig: 20 }); await page.route('**/functions/v1/lernen-api/**', srv.route);
+    await page.setViewportSize({ width: b, height: h }); await page.goto(origin + '/#/reise/1');
+    const zeile = page.locator('.lr-dock-ansage'); await zeile.waitFor();
+    assert.equal(await zeile.innerText(), 'Erst 9 Bordkarten Check-in · ca. 5 Min.');
+    const z = await zeile.boundingBox(); const k = await page.locator('.lr-einsteigen-knopf').boundingBox();
+    assert.ok(z.y >= 0 && z.y + z.height <= k.y + 1 && k.y + k.height <= h, `im Bild, über dem Knopf: ${JSON.stringify([z, k])}`);
+    assert.ok(z.height < 30, 'eine Zeile');
+    // Ansage vor Fortschritt und Stempel, direkt nach der Abflugtafel
+    assert.equal(await page.evaluate(() => { const a = document.querySelector('.lr-checkin-ansage'); const t2 = document.querySelector('.lr-abflugtafel');
+      return !!(a && t2 && (t2.compareDocumentPosition(a) & Node.DOCUMENT_POSITION_FOLLOWING) && (a.compareDocumentPosition(document.querySelector('.lr-tafelchips')) & Node.DOCUMENT_POSITION_FOLLOWING)); }), true);
+    await page.screenshot({ path: `test-results/0872-ansage-${b}.png` });
+  });
+  test(`0.87.2 S2 (${b}×${h}): Hinweis bei 5 Sternen als eigene Zeile unter der Rückmeldung, volle Breite`, async (t) => {
+    const { page } = await setup(t, { gestaltung: 'nacht', anpassen: (aktion, e) => (aktion === 'schule_uebung_pruefen' && e.format_ok ? { ...e, sterne: 5 } : null) });
+    await page.setViewportSize({ width: b, height: h }); await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.locator('.lr-bordkarte').first().waitFor();
+    await page.getByRole('button', { name: 'Tipp', exact: true }).click();
+    const tf = page.getByRole('group', { name: 'Tastenfeld' });
+    if (await tf.count()) { for (const z of ['2', '0', '0', '0']) await tf.getByRole('button', { name: z, exact: true }).click(); await tf.getByRole('button', { name: 'Prüfen' }).click(); }
+    else { await page.locator('main input').first().fill('2000'); await page.getByRole('button', { name: 'Prüfen' }).click(); }
+    const hw = page.locator('.lr-rueck-ok .lr-fp-hinweis'); await hw.waitFor();
+    assert.equal(await hw.innerText(), 'Ganz ohne Tipp gibt es 10 ★.');
+    const [r, kopf, x] = await Promise.all([page.locator('.lr-rueck-ok').boundingBox(), page.locator('.lr-rueck-ok > b').first().boundingBox(), hw.boundingBox()]);
+    assert.ok(x.y >= kopf.y + kopf.height - 1, 'unter der Rückmeldung');
+    assert.ok(x.width > r.width * 0.8, `volle Breite: ${x.width} von ${r.width}`);
+    assert.ok(x.height < 40, 'eine Zeile (höchstens zwei)');
+    await page.screenshot({ path: `test-results/0872-fuenf-${b}.png` });
+  });
+}
+test('0.87.2 K2/K3: Pause-Link im Tag-Modus kräftig (Kontrast ≥ 4,5); Auswahl-Antworten mit Silbentrennung', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'tag' }); const srv = wdhServer({ runde: 3, faellig: 9 }); await page.route('**/functions/v1/lernen-api/**', srv.route);
+  await page.setViewportSize({ width: 400, height: 860 }); await page.goto(origin + '/#/wiederholen/1');
+  const p = page.locator('.lr-checkin-pause'); await p.waitFor();
+  const k = await p.evaluate((a) => { const lum = (c) => { const v = c.match(/\d+(\.\d+)?/g).slice(0, 3).map(Number).map((x) => { x /= 255; return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4; }); return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2]; };
+    let n = a, bg = 'rgba(0, 0, 0, 0)'; while (n && /rgba\(0, 0, 0, 0\)|transparent/.test(bg)) { bg = getComputedStyle(n).backgroundColor; n = n.parentElement; }
+    const s = getComputedStyle(a); const [l1, l2] = [lum(s.color), lum(bg)].sort((x, y) => y - x); return { kontrast: (l1 + 0.05) / (l2 + 0.05), fett: Number(s.fontWeight) }; });
+  assert.ok(k.kontrast >= 4.5, `Kontrast ${k.kontrast.toFixed(2)}`); assert.ok(k.fett >= 700);
+  const h = await page.evaluate(() => { const box = el('div', { class: 'lern-auswahl' }, el('label', {}, el('span', {}, 'elf Millionen vierhundertneunzigtausendeinundfünfzig'))); document.querySelector('#main').append(box);
+    const s = getComputedStyle(box.querySelector('span')); const r = [document.documentElement.lang, s.hyphens || s.webkitHyphens]; box.remove(); return r; });
+  assert.deepEqual(h, ['de', 'auto']);
+});

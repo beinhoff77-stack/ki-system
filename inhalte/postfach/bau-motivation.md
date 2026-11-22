@@ -2,6 +2,17 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: 0.87.2 – Nachprüfung Kinderansicht (S1, S2, K2, K3), Cache v162
+
+Auf `lernen-app` eadcfb4, getrennt von LW-1 (LW-1 liegt noch unfertig zur Seite). Nur App, Version in sechs Dateien, Tests. Nichts in der Datenbank, kein Merge nach `main`.
+- **S1:** Die Ansage „Vorher kurz einchecken“ steht jetzt direkt unter der Abflugtafel (vor Fortschritt, Stempel, Knobel). Zusätzlich über dem festen Knopf eine Zeile „Erst 9 Bordkarten Check-in · ca. 5 Min.“ (Zahl aus `offen` der Runde; nach Unterbrechung „Noch n …“). 360×640 und 400×860: Zeile einzeilig im Bild über „Weiter geht’s“.
+- **S2:** Hinweis bei 5 Sternen als eigene Zeile über die volle Breite der Rückmeldung (am Ende des grünen Kastens, unter „Weg zur Lösung“), nicht mehr als schmale Mittelspalte.
+- **K2:** Pause-Link „Pause – später weiter einchecken“ im Tag-Modus dunkel und fett (Kontrast ≥ 4,5).
+- **K3:** Auswahl-Antworten mit `hyphens: auto` (Seite ist `lang="de"`), Umbruch nur noch mit Trennstrich.
+Bilder: `docs/previews/la/0872-ansage-360.png`, `0872-fuenf-400.png`.
+
+**Getestet:** neu 5 (S1 und S2 je 360×640 und 400×860, K2/K3). Gesamtlauf 310 grün; Fehler nur die bekannten Reise-Tests und W175 (rechnet mit dem Tagesdatum: „Tag 12“ statt „Tag 11“ seit Mitternacht – nicht von mir, betrifft die Reise-Seite). **Nicht geprüft:** echte Geräte.
+
 ## 2026-11-22 – FERTIG: LK-S – ein Thema in mehreren Klassen (Server)
 
 Zweig `bau-lehrer`, auf `lernen-app` 22251c0. Nur Dateien, **nicht eingespielt**, kein DROP, kein DELETE, kein App-Code.

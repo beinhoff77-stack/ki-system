@@ -2,6 +2,12 @@
 
 Neueste oben.
 
+## 2026-11-22 – bau-lehrer – FERTIG: WD-S 3 Test
+
+Auf „Nachtrag WD-S 3 – Rauchtest stabil machen“. Nur `supabase/tests/wd_s3_rauchtest.sql` geändert, keine Migration.
+- Vor Schritt 1 werden alle übrigen Übungsaufgaben beider Test-Etappen (alles außer Auswahl Stufe 2–3) als **gestern** beantwortet markiert (Testsitzung, also ohne Buchung; Lerntag gestern wird angelegt) – damit innerhalb der Sperre, aber nicht „heute“ (sonst wäre die Mischkarte in Schritt 3 zu Recht gesperrt).
+- Lokal nachgestellt: Etappe mit zusätzlichen Aufgaben anderer Art → alter Test bricht wie im Probelauf in Schritt 2 ab („nicht die am längsten zurückliegende“), neuer Test läuft ganz durch.
+
 ## 2026-11-22 – FERTIG: 0.86.2 – Fehler Mischkarten (App-Teil) und ChatGPT 919 (Cache v158)
 
 Auf `lernen-app` f278a3c. Nur App (`lernen.js`, `style.css`), Version in sechs Dateien, Tests. Nichts in der Datenbank, kein Merge nach `main`.

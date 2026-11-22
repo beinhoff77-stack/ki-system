@@ -3002,3 +3002,16 @@ Stand `lernen-app` 4240549. Reihenfolge: lk_korrektur → FP-S 4 → LW-S 2 → 
 ## Nachtrag LW-2b an bau-motivation (Prüfung Gestalter `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw2.md`)
 
 Muss M1 (Handy: Reihenfolge-Warnung liegt hinter dem Detail-Blatt), Soll S1 (Warnungstext kürzen), Kann K1–K3. S2 und K4: kein Bau.
+
+## EINGESPIELT: Teilung (TL-S 7) mit ganzer Kette – 23.11., 00:25 Berlin
+
+Freigabe Sebastian („Teilung in die Datenbank einspielen“), Prüfung Werkstatt 958/959 (Freigabe). Migration `tl_s7_teilung_kette_einspielen`, Werkstatt-Änderung 379. Stand der Dateien: `lernen-app` b2fe4d3.
+
+- In einem Durchgang: lk_korrektur → FP-S 4 → LW-S 2 → LK-S → lk_einspiel → nt_einspiel (NT-D 2) → TL-S 7 → NT-S 2.
+- Vorher geprüft: kein Kind in den letzten 30 Minuten aktiv, keine offene Test-Sitzung in den sieben Themen.
+- Ergebnis: 105 Themen, 30162 Aufgaben; Karten-Lernstand, Reiseoptionen, Versuche je Kind unverändert; Kind 2 ein Erstabschluss + 100 Sterne (6270), Kind 1 unverändert (4360), Thema 15 bei Kind 1 „Wiederholung“.
+- Danach auf dem echten Stand (Rollback): tl_s, wd_s, wd_s3, fp_s, lw_s, lk_s, nt_s grün.
+- Edge Function `lernen-api` bleibt 0.9.1; 0.9.2 (Wackelt-Status) mit App 0.89.x.
+- Neue Teile (Thema-ID): 276 Dreisatz T2, 277 Terme umformen T2, 278 Konstruktionen T2, 279/280 Kongruenzabbildungen T2/T3, 281 Zufall und Laplace T2, 282 Schrägbilder T2, 283 Prismen und Zylinder T2.
+- Offen für Sebastian (Liste je Kind): Kind 2 – „vom alten Thema gesetzt, jetzt offen“: 276, 279, 280; alle übrigen neuen Teile offen, nicht im Plan. Kind 1 – alle neuen Teile offen, nicht im Plan.
+- Visum-Übergang bleibt wie gebaut (dauerhaft); Sebastians ausdrückliche Bestätigung steht noch aus.

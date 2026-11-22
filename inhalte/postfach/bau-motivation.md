@@ -2,6 +2,31 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: FP-S 3 – Nacharbeit ChatGPT 929 (Mischkarte atomar einlösen)
+
+Zweig `bau-lehrer`, auf `lernen-app` b359169. Nur Dateien, **nicht eingespielt**, kein DROP, kein DELETE, gelieferte Migrationen unverändert, kein App-Code, kein Merge nach `main`.
+Neue Datei: `supabase/migrations/20261122_fp_s3_nacharbeit_929.sql`. Einspielen nach FP-S 2: WD-S 2 → WD-S 3 → WD-4b → WD-S 4 → FP-S → FP-S 2 → **FP-S 3**.
+Gelesen (nur lesend): FP-S 2 ist in der Live-Datenbank schon eingespielt; die Stellen, die FP-S 3 umbaut (`misch_buchen`, `versuch_buchen`, `sterne_aus_versuch`, `uebung_pruefen_wd`), sind dort gleich wie in meiner Testdatenbank. Einziger Weg zur Prüfung ist `api.schule_uebung_pruefen` → `uebung_pruefen_wd`.
+
+**Gebaut**
+1. **Eine Sperre für Gültigkeit und Einlösen:** `uebung_pruefen_wd` sperrt bei einer Mischkarte zuerst die Etappe (`karte_stand`, dieselbe Sperre wie jede Antwort auf diese Etappe) und dann die offene Ausgabe, und prüft erst danach mit dem Stand nach der Sperre. Folge: Eine zweite Antwort auf dieselbe Karte (andere `client_id`) wartet und sieht die Ausgabe eingelöst. Eine Antwort auf eine andere Aufgabe derselben Etappe ist entweder vorher fertig (dann ist die Mischkarte ungültig) oder wartet bis nach dem Einlösen.
+2. **Tatsächlicher Ausgang:** `misch_buchen` meldet, ob wirklich eingelöst und als Mischkarte gebucht wurde. Im Rückfall wird normal gebucht, aber **ohne Wiederholungswertung** (`kein_wdh`). Außerdem: `versuch.misch = false`, Sterne wie eine normale Übung, Antwort `misch.gueltig = false`.
+
+**Für die App:** keine neue Schnittstelle. `misch.gueltig` meldet jetzt den tatsächlichen Ausgang (bisher die Vorprüfung).
+
+**Tests** (lokal PG 16, alle sieben Migrationen je zweimal eingespielt)
+- `wd_s3_gleichzeitig.sh` neu:
+  - **E:** dieselbe Mischkarte mit zwei `client_id` → eine `gueltig: true`, eine `false`, ein Fortschritt (Stufe 1 → 2), einmal eingelöst, ein Mischkarten-Versuch.
+  - **F:** Antwort auf eine andere Aufgabe der Etappe läuft, Mischkarte wird währenddessen eingelöst → `gueltig: false`, nicht eingelöst, nur der eine Fortschritt der normalen Antwort.
+  - **D2:** zwei Nachbuchungen gleichzeitig auf denselben Landungs-Bonus → genau einmal gebucht, Meldungen zusammen = Summe.
+  - A–D weiter ok, Ergebnis ok (zweimal hintereinander).
+- **Gegenprobe ohne FP-S 3:** E meldet zweimal gültig (zwei Mischkarten-Versuche), F meldet gültig und löst ein → FEHLER. Der Test greift also. D2 ist auch ohne FP-S 3 ok (dort schützt der eindeutige Schlüssel der Sterne).
+- `fp_s_rauchtest.sql` Teil 9: Rückfall erzwungen (Ausgabe vor dem Einlösen schon eingelöst) → Ausgang „Rückfall“, Versuch nicht als Mischkarte, keine Wiederholungswertung, 10 Sterne wie Übung. Danach dieselbe Karte über `uebung_pruefen_wd` → keine Bestätigung. Ohne FP-S 3 wird Teil 9 übersprungen. Die drei Rauchtests sind grün.
+
+**Offen / nicht geprüft**
+- Nicht gegen die Live-Datenbank gelaufen; lokal mit Nachbau von `uebung_pruefen_intern`.
+- Bei einer Mischkarte wird die Etappe jetzt kurz gesperrt: Gleichzeitige Antworten auf dieselbe Etappe warten aufeinander. Andere Etappen warten nicht.
+
 ## 2026-11-22 – FERTIG: FP-S 2 – Nacharbeit ChatGPT 924
 
 Zweig `bau-lehrer`, auf `lernen-app` 3e333b6. Nur Dateien, **nicht eingespielt**, kein DROP, kein DELETE, gelieferte Migrationen unverändert, kein App-Code, kein Merge nach `main`.

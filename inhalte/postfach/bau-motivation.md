@@ -2,6 +2,53 @@
 
 Neueste oben.
 
+## 2026-11-22 – bau-lehrer – FERTIG: Nacharbeit 907
+
+Auf AUFTRAEGE.md „Nacharbeit aus ChatGPTs Prüfergebnis 907“, Teil bau-lehrer. Neue Dateien; die eingespielten Migrationen bleiben unverändert. Nichts in der echten Datenbank ausgeführt.
+- `supabase/migrations/20261122_nacharbeit_907.sql`:
+  - **Kopf dokumentiert** den Altzustand „früher fertiger Flug (Sitzung NULL oder durch Lesen false) → neue Pflicht-Etappe → erst dann Nachtrag → Nachtragstest“: festgelegtes Ergebnis **flug_geschafft = true** (zweites „Flug geschafft“); beim Einspielen im Bestand ausgeschlossen (Haupt-Chat: 4 von 4 Flügen mit Test fertig, Pflichtlisten vollständig); neue Fälle entstehen nicht. Ebenso festgehalten: erneutes Lesen derselben erfolgreichen Sitzung zeigt wieder true (gewollt).
+  - `schule.flug_erstabschluss_nachtragen`: `sitzung_id` und `am` aus **derselben, zeitlich ersten** Sitzung (`order by abgeschlossen_am, id`).
+  - LM-S: `etappe_jetzt` = Nummer der ersten noch nicht gelandeten Etappe in Etappen-Reihenfolge (neue Funktion `schule.etappe_jetzt`); fehlt, wenn alle gelandet sind. Umbau von `schule.lehrplan_matrix` an genau einer Stelle (live genau einmal vorhanden, gelesen).
+- `supabase/tests/ab_s_nacharbeit_907_rauchtest.sql`: der Altzustand in beiden Formen (NULL / vorher gelesen) → Nachtrag danach → Nachtragstest = true, erneutes Lesen wieder true; Nachtrag mit gegenläufigen ids/Zeiten → beide Werte aus der zeitlich ersten Sitzung.
+- `supabase/tests/lm_s_nacharbeit_907_rauchtest.sql`: Lern-Zugang des Testkinds und ein Eltern-Zugang, beide im Test angelegt (Name „Rauchtest“, Zufalls-Hash, Rollback – kein echter Schlüssel): fremde `lernender_id`, `mit_testkind: true`, Detail als Kind, Eltern = Lehrer-Sicht, gesperrter Zugang und abgelaufene Sitzung abgewiesen („Nicht angemeldet“), Größe mit `octet_length` (Raster < 90 000 Bytes, Detail < 30 000), `etappe_jetzt` (2 / keine / 1) und im Raster stimmig.
+- `supabase/tests/lm_s_lehrplan_matrix_rauchtest.sql` Prüfung 4 angepasst (etappe_jetzt nur bei „dran“, kann jetzt fehlen) – sonst würde der alte Test nach der Nacharbeit fälschlich abbrechen.
+- **Lokal ausgeführt** (Postgres 16): `test_abschliessen_intern`, `lehrplan_matrix`, `flug_erstabschluss_nachtragen` byte-gleich zum Live-Stand (md5 gleich), Zugangsfunktionen (`lern_ich`, `ist_leiter`, `wer_tn`, `sieht`, `zugriff`) wie live; Migration zweimal, beide neuen Tests grün, alter LM-S-Test grün. Gegenprobe: mit dem alten Nachtrag schlägt Prüfung 2 fehl.
+
+## 2026-11-22 – bau-lehrer – FERTIG: WD-S
+
+Bau-Auftrag WD (Server) nach der Schnittstelle im Nachtrag. Nur Dateien, in der echten Datenbank nichts ausgeführt, kein App-Code, kein Merge nach main, keine Kinderdaten.
+
+**Sterne heute (Live-Text gelesen 22.11.) – Meldung vor dem Bau:**
+- Jede richtige Antwort außerhalb eines Tests – auch mit Tipp oder im 2. Anlauf, auch eine Wiederholung oder Mischkarte – gibt `sterne_uebung_richtig` = **10 Sterne**, aber **je Aufgabe nur einmal** (Schlüssel `uebung` + `aufgabe:<id>`). Die Wiederholungs-Runde wählt bevorzugt ungesehene Aufgaben → eine richtige Wiederholung gibt heute meist 10, sonst 0. Mischkarte genauso.
+- Also: **Ja, eine richtige Wiederholung gibt heute schon 10.** Nicht gekürzt: `sterne_wdh_richtig` steht in der Migration auf **10** (Schnittstelle: 5). **Sebastian entscheidet 5 oder 10** – Umstellen ohne Bau: `update schule.regel set wert = '5' where schluessel = 'sterne_wdh_richtig'`.
+- Neu gilt: je bestandener Wiederholung (Runde, freiwillig, Mischkarte nach WD-3) einmal je Etappe und Fälligkeit `sterne_wdh_richtig`; für denselben Versuch dann keine `uebung`-Sterne (nichts doppelt). Die `uebung`-Sterne dieser Aufgabe bleiben für später übrig.
+
+**Dateien**
+- `supabase/migrations/20261122_wd_s_wiederholungen.sql` – WD-1 bis WD-6 (Regeln, Tabellen `schule.wdh_runde`, `schule.abgelegt`, Trigger `karte_wdh_ereignis`, Umbauten an genau bezeichneten Stellen). Prüft am Ende: Karten, Lernstände, Plan, Sterne vorher = nachher, sonst Abbruch. In einer Transaktion einspielen.
+- `supabase/migrations/20261122_wd_4b_stau_strecken.sql` – **eigene Datei, erst nach Probelauf und Sebastians Okay**: streckt einmalig gesetzte, heute fällige Etappen auf Stufe 0 (je Kind 6 je Lerntag); nur `faellig_am`, `wdh_ab`, `wdh_lerntage`; alte Werte in `schule.wdh_staffel_sicherung` (Rückweg im Kopf der Datei); prüft, dass sich sonst nichts ändert. Nur gelesen nachgerechnet: Kind 2 hat 34 solche Etappen → heute 6, dann 6/6/6/6/4 an den nächsten 5 Lerntagen; heute fällig 42 → 14 (die 8 übrigen sind natürlich gelandet oder mit Fehler und bleiben).
+- `supabase/tests/wd_s_rauchtest.sql` – Rollback, nur Testkind; Prüfungen 1–9 (s. u.), 10: Karten, Lernstände, Plan, Sterne, Stufen (`thema_stufe`) und Reiseoptionen aller anderen Kinder vorher = nachher.
+- `supabase/functions/lernen-api/index.ts`: Aktion `schule_wiederholung_runde_fertig: ['lernender_id']`, VERSION 0.9.0.
+
+**Schnittstelle (wie im Nachtrag; Abweichungen fett)**
+- `schule_wiederholung`: bisher `aufgaben`, `faellig`; neu `runde`, `runde_gemacht`, `gestaffelt`; `aufgaben[]` in WD-1-Reihenfolge (Wiederholungs-Fehler → am längsten fällig (`faellig_am`) → niedrigste Stufe), je Aufgabe zusätzlich **`pflicht`** (die ersten `runde`), `lernziel`, `wdh_stufe`. **`anzahl`** = höchstens so viele Aufgaben, Obergrenze jetzt 60 statt 6; ohne `anzahl` alle fälligen (≤ 60). Die App 0.84 schickt `anzahl: 6` → bekommt wie bisher 6 (jetzt in WD-1-Reihenfolge). Die neue App sollte `anzahl` weglassen.
+- `schule_wiederholung_runde_fertig {lernender_id}` → `{ok, runde_gemacht: true, tag}`; Merker je Kind und `heute_tag`, zweimal setzen geht.
+- `schule_uebung_pruefen`: bei Antwort auf eine **fällige** Etappe (auch Mischkarte) `wiederholung {bestanden, sterne, stufe_neu, naechste_in}`; bei Ablegen `abgelegt {etappe {titel, sterne}, flug? {titel, sterne}, ort_gold?}` – je Kind und Etappe/Flug/Ort einmal. `naechste_in` in Lerntagen; fehlt nach dem Ablegen.
+- `schule_konto`: `konto.fluege[] {thema_id, einheit_id, titel, abgelegt, etappen_abgelegt, etappen}` (Flüge mit Karten), `konto.orte[].gold`.
+- `gestaffelt` = gesetzte Etappen auf Stufe 0, die noch warten (erste Wiederholung später als in 1 Lerntag). „Kommt ab …“: `naechste_in` der Karte wie bisher.
+- Mischkarten-Liste (`schule.mischkarten`): fällige zuerst; jede Karte aus der Auswahl trägt **`faellig`**.
+
+**Regeln im Detail**
+- WD-1: bis 6 fällige alle; sonst ⌈fällige/5⌉, mindestens 6, höchstens 12 (bis Kl. 6: 10). Regeln `wdh_runde_min/max/max_bis_kl6/teiler`.
+- WD-3: Mischkarte aus fälliger Etappe, richtig ohne Tipp im 1. Versuch → wie eine richtige Wiederholung (Stufe +1, Takt 1/3/7/14/30), Beleg `misch_ok_am` wie bisher. Falsch → wie heute fällig, öffnet nie. Häufigkeit unverändert. Eine normale Wiederholung zählt wie heute auch mit Tipp/2. Anlauf als bestanden (Regel von `karte_buchen`, nicht geändert).
+- WD-4: `flug_wdh_setzen` gibt jeder Etappe den ersten Lerntag mit freiem Platz (je Kind höchstens `wdh_gesetzt_je_lerntag` = 6 erste Wiederholungen je Lerntag), in Aufruf-Reihenfolge (Plan-Reihenfolge aus `plan_setzen_intern`, im Flug die Etappen-Reihenfolge).
+- WD-6: „letzte Wiederholung“ = die Wiederholung auf Stufe 4 (30 Lerntage) bestanden → abgelegt: keine Fälligkeit mehr, 30 Sterne. **Flug abgelegt = alle Pflicht-Etappen abgelegt** (ohne Pflichtliste: alle Etappen) → 100 Sterne. Ort golden = alle Flüge mit Inhalt im Ort abgelegt (keine Sterne – die Schnittstelle nennt keine). Fällt eine abgelegte Etappe später auf (falsch beim Üben oder falsche Mischkarte), kommt sie wie heute für alle gelandeten Etappen am nächsten Lerntag zurück; Gold und Sterne bleiben, ein zweites Ablegen gibt nichts.
+
+**Wirklich ausgeführt – lokal** (Postgres 16, Wegwerf-Datenbank): die 20 berührten Live-Funktionen **byte-gleich** (md5 je Funktion gleich), Platzhalter nur für `uebung_pruefen_intern` (speichert den Versuch wie live), `konto`, `thema_stufe`, `reiseoptionen` und Inhalts-Hilfen. Migration zweimal; Rauchtest 1–10 grün: Rundengröße (0/5/6/7/20/41/60/100 → 0/5/6/6/6/9/12/12, Kl. 6: 60 → 10), Reihenfolge und `pflicht`, Merker, bestandene Wiederholung (Stufe 2 → 3, Sterne einmal, keine `uebung`-Sterne), Mischkarte falsch/richtig, Ablegen Etappe/Flug (je einmal), Konto, Staffelung (Regel testweise 2: 14 Etappen → 2 je Lerntag), Mischkarten-Auswahl fällige zuerst, andere Kinder unverändert. Dazu `api.schule_uebung_pruefen` / `schule_wiederholung` / `_runde_fertig` / `schule_konto` mit Platzhalter-Zugang. WD-4b lokal: 14 → 6/6/2, zweiter Lauf ändert nichts.
+
+**Vorschläge**
+1. **„sicher“ (◉) gegenüber „abgelegt“:** Heute heißt ◉ „Stufe 4 erreicht und belegt (Mischkarte oder Nachtest)“ – also *vor* der letzten 30-Tage-Wiederholung. Vorschlag: auf der Kinderseite ◉ nicht mehr als eigenen Zustand zeigen, sondern die Stufe als „Wiederholung x von 5“ und am Ende nur Gold (abgelegt). Für Eltern/Lehrer bleibt „sicher“ als Beleg-Hinweis. Auf dem Server bleibt `karte_sicher` unverändert (Nachtest-Logik hängt daran). Alternative (nicht empfohlen, verzögert das Gold): Ablegen erst, wenn zusätzlich „sicher“.
+2. **Nachtest nach dem Ablegen:** Heute ändert ein Nachtest den Karten-Takt nicht (er setzt nur die Etappe im Flug auf „fehler“ → Verbessern). Vorschlag wie im Auftrag: fällt eine abgelegte Etappe im Nachtest durch, kommt sie **einmalig mit 7 Lerntagen** (Stufe 2) zurück in den Takt; Gold, Sterne und Einblendung bleiben, ein erneutes Ablegen gibt nichts. **Nicht gebaut** – braucht eine Stelle in `test_abschliessen_intern`; auf Sebastians Okay als eigene kleine Datei.
+
 ## 2026-11-21 – FERTIG: 0.84.0 b – Matrix an LM-S 2 angepasst, Filter „Inhalt“, Info-Texte (Version bleibt 0.84.0, Cache v154)
 
 Auf AUFTRAEGE.md „Rückläufer 21.11. morgens“, Teil D. Stand `lernen-app` d463182 übernommen. Nur App (`lernen.js`, `style.css`) und Tests. Nichts in der Datenbank, keine Kinderdaten, kein Merge nach `main`.

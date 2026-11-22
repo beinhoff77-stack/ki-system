@@ -40,7 +40,8 @@
    {
     "titel": "Lehrplan-Ergänzung (LK)",
     "lernziele": [
-     "wahre_groesse"
+     "wahre_groesse",
+     "koerper_symmetrie"
     ]
    }
   ],
@@ -871,6 +872,31 @@
      }
     ],
     "fehler": "Mit q malnehmen statt teilen: 2,5 · 0,5 = 1,25 cm wäre noch kürzer. Beim Zurückrechnen ⟦teilt⟧ man durch q."
+   },
+   {
+    "lernziel": "koerper_symmetrie",
+    "titel": "Symmetrie von Körpern",
+    "einstieg": "Eine Schachtel lässt sich so durchschneiden, dass beide Hälften Spiegelbilder sind. Die Schnittfläche heißt Symmetrieebene. Manche Körper haben viele davon, ein Würfel sogar neun.",
+    "woerter": [
+     [
+      "Symmetrieebene",
+      "Ebene, die einen Körper in zwei spiegelbildliche Hälften teilt"
+     ],
+     [
+      "Symmetriezentrum",
+      "Punkt, an dem der Körper punktgespiegelt auf sich selbst fällt"
+     ]
+    ],
+    "regel": "Quader (alle Kanten verschieden): ⟦3⟧ Symmetrieebenen. Quadratische Säule: 5. Würfel: 9. Gerade Pyramide mit regelmäßigem n-Eck: n Ebenen. Gerades Prisma mit regelmäßigem n-Eck: n + 1.",
+    "schritte": [
+     {
+      "text": "Quader 6 cm × 4 cm × 2 cm: je eine Ebene parallel zu jedem Flächenpaar, mittig. Das sind 3."
+     },
+     {
+      "text": "Diagonale Schnitte geben beim Quader keine Spiegelhälften, weil die Seiten verschieden lang sind."
+     }
+    ],
+    "fehler": "Beim Quader auch diagonale Ebenen zählen: Die gibt es nur, wenn zwei Kanten ⟦gleich lang⟧ sind (quadratische Säule, Würfel)."
    }
   ],
   "teilfaehigkeiten": [
@@ -914,6 +940,12 @@
     "lernziele": [
      "wahre_groesse"
     ]
+   },
+   {
+    "k": "koerper_symmetrie",
+    "lernziele": [
+     "koerper_symmetrie"
+    ]
    }
   ],
   "bewertung": {
@@ -925,7 +957,8 @@
    "lernziele_vertiefung": [
     "lage",
     "koordinaten",
-    "wahre_groesse"
+    "wahre_groesse",
+    "koerper_symmetrie"
    ],
    "testaufgaben_je_lernziel": 1
   },
@@ -8261,6 +8294,385 @@
     "einheit": "cm"
    },
    "c": "15 * 0.5"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieebenen hat ein Quader mit den Kanten 5 cm, 3 cm und 2 cm?"
+   },
+   "w": "Drei Ebenen, je mittig parallel zu einem Flächenpaar.",
+   "g": "direkt",
+   "h": "Alle Kanten verschieden.",
+   "o": {
+    "wert": 3
+   },
+   "c": "3"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieebenen hat ein Würfel?"
+   },
+   "w": "3 parallel zu den Flächen + 6 durch gegenüberliegende Kanten = 9.",
+   "g": "direkt",
+   "h": "Zähle auch die Ebenen durch die Kanten.",
+   "o": {
+    "wert": 9
+   },
+   "c": "3 + 6"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper hat ein Symmetriezentrum?"
+   },
+   "w": "Der Quader fällt bei Punktspiegelung am Mittelpunkt auf sich selbst; Pyramide und Kegel nicht.",
+   "g": "erkennen",
+   "h": "Punktspiegelung am Mittelpunkt.",
+   "a": [
+    "Quader",
+    "Pyramide",
+    "Kegel",
+    "Dreiecksprisma"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine gerade Pyramide hat ein Quadrat als Grundfläche. Wie viele Symmetrieebenen hat sie?"
+   },
+   "w": "Wie das Quadrat: 4 Ebenen, alle durch die Spitze.",
+   "g": "erkennen",
+   "h": "Jede Symmetrieachse des Quadrats gibt eine Ebene.",
+   "a": [
+    "4",
+    "2",
+    "5",
+    "9"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges Sechseck als Grundfläche. Wie viele Symmetrieebenen hat es?"
+   },
+   "w": "6 Ebenen durch die Symmetrieachsen des Sechsecks + 1 waagrechte Mittelebene = 7.",
+   "g": "mehrschritt",
+   "h": "Achsen der Grundfläche plus die Mittelebene.",
+   "o": {
+    "wert": 7
+   },
+   "c": "6 + 1"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Geschenkschachtel ist 10 cm lang, 10 cm breit und 4 cm hoch. Wie viele Symmetrieebenen hat sie?"
+   },
+   "w": "Quadratische Säule: 3 + 2 Diagonalebenen = 5.",
+   "g": "einkleidung",
+   "h": "Zwei Kanten sind gleich lang.",
+   "o": {
+    "wert": 5
+   },
+   "c": "3 + 2"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine gerade Pyramide mit regelmäßiger Grundfläche hat 5 Symmetrieebenen. Wie viele Ecken hat die Grundfläche?"
+   },
+   "w": "Bei der Pyramide ist die Zahl der Ebenen gleich n: 5 Ecken.",
+   "g": "umkehr",
+   "h": "n-Eck ⇒ n Ebenen.",
+   "o": {
+    "wert": 5
+   },
+   "c": "5"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Durch welche Linien eines Würfels gehen die 6 diagonalen Symmetrieebenen?"
+   },
+   "w": "Jede geht durch zwei gegenüberliegende Kanten.",
+   "g": "darstellung",
+   "h": "Schneide den Würfel schräg.",
+   "a": [
+    "durch zwei gegenüberliegende Kanten",
+    "durch zwei benachbarte Ecken",
+    "durch die Mitte einer Fläche",
+    "durch eine einzige Kante"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma mit regelmäßiger Grundfläche hat 9 Symmetrieebenen und ist kein Würfel. Wie viele Ecken hat die Grundfläche?"
+   },
+   "w": "n + 1 = 9 ⇒ n = 8: ein Achteck.",
+   "g": "rueckwaerts",
+   "h": "Prisma: n + 1 Ebenen.",
+   "o": {
+    "wert": 8
+   },
+   "c": "9 - 1"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum hat eine Pyramide keine waagrechte Symmetrieebene?"
+   },
+   "w": "Oben ist eine Spitze, unten eine Fläche – die Hälften sind nicht spiegelgleich.",
+   "g": "begruenden",
+   "h": "Vergleiche oben und unten.",
+   "a": [
+    "Weil Spitze und Grundfläche verschieden sind.",
+    "Weil sie zu wenig Ecken hat.",
+    "Weil sie schief ist.",
+    "Weil sie kein Volumen hat."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Mia sagt: „Ein Quader mit 6 cm, 4 cm und 2 cm hat 9 Symmetrieebenen wie der Würfel.“ Was stimmt?"
+   },
+   "w": "Nur 3: Diagonalebenen gibt es nur bei gleich langen Kanten.",
+   "g": "fehler",
+   "h": "Sind Kanten gleich lang?",
+   "a": [
+    "Falsch: er hat 3.",
+    "Richtig.",
+    "Falsch: er hat 6.",
+    "Falsch: er hat 5."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bleistift ist ein gerades Prisma mit regelmäßigem Sechseck und ohne Spitze. Wie viele Symmetrieebenen hat er zusammen mit der Mittelebene quer?"
+   },
+   "w": "6 längs + 1 quer = 7.",
+   "g": "transfer",
+   "h": "Längsebenen wie die Sechseck-Achsen.",
+   "o": {
+    "wert": 7
+   },
+   "c": "6 + 1"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieebenen hat eine quadratische Säule (Grundfläche Quadrat, Höhe anders)?"
+   },
+   "w": "Quadratische Säule: 3 Ebenen parallel zu den Flächen und 2 diagonale, zusammen 5.",
+   "o": {
+    "wert": 5
+   },
+   "c": "3 + 2"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieebenen hat eine gerade Pyramide mit regelmäßigem 3-Eck als Grundfläche?"
+   },
+   "w": "Jede der 3 Symmetrieachsen des 3-Ecks gibt eine Ebene durch die Spitze: 3.",
+   "o": {
+    "wert": 3
+   },
+   "c": "3"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieebenen hat eine gerade Pyramide mit regelmäßigem 4-Eck als Grundfläche?"
+   },
+   "w": "Jede der 4 Symmetrieachsen des 4-Ecks gibt eine Ebene durch die Spitze: 4.",
+   "o": {
+    "wert": 4
+   },
+   "c": "4"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieebenen hat eine gerade Pyramide mit regelmäßigem 6-Eck als Grundfläche?"
+   },
+   "w": "Jede der 6 Symmetrieachsen des 6-Ecks gibt eine Ebene durch die Spitze: 6.",
+   "o": {
+    "wert": 6
+   },
+   "c": "6"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges 3-Eck als Grundfläche (Höhe anders als die Seiten). Wie viele Symmetrieebenen hat es?"
+   },
+   "w": "3 Ebenen durch die Achsen des 3-Ecks und 1 waagrechte Mittelebene: 4.",
+   "o": {
+    "wert": 4
+   },
+   "c": "3 + 1"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges 5-Eck als Grundfläche (Höhe anders als die Seiten). Wie viele Symmetrieebenen hat es?"
+   },
+   "w": "5 Ebenen durch die Achsen des 5-Ecks und 1 waagrechte Mittelebene: 6.",
+   "o": {
+    "wert": 6
+   },
+   "c": "5 + 1"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges 6-Eck als Grundfläche (Höhe anders als die Seiten). Wie viele Symmetrieebenen hat es?"
+   },
+   "w": "6 Ebenen durch die Achsen des 6-Ecks und 1 waagrechte Mittelebene: 7.",
+   "o": {
+    "wert": 7
+   },
+   "c": "6 + 1"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges 8-Eck als Grundfläche (Höhe anders als die Seiten). Wie viele Symmetrieebenen hat es?"
+   },
+   "w": "8 Ebenen durch die Achsen des 8-Ecks und 1 waagrechte Mittelebene: 9.",
+   "o": {
+    "wert": 9
+   },
+   "c": "8 + 1"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges 10-Eck als Grundfläche (Höhe anders als die Seiten). Wie viele Symmetrieebenen hat es?"
+   },
+   "w": "10 Ebenen durch die Achsen des 10-Ecks und 1 waagrechte Mittelebene: 11.",
+   "o": {
+    "wert": 11
+   },
+   "c": "10 + 1"
+  },
+  {
+   "l": "koerper_symmetrie",
+   "t": "koerper_symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gerades Prisma hat ein regelmäßiges 12-Eck als Grundfläche (Höhe anders als die Seiten). Wie viele Symmetrieebenen hat es?"
+   },
+   "w": "12 Ebenen durch die Achsen des 12-Ecks und 1 waagrechte Mittelebene: 13.",
+   "o": {
+    "wert": 13
+   },
+   "c": "12 + 1"
   }
  ],
  "offen": [

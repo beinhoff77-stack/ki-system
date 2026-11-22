@@ -2,6 +2,29 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG LK-D 2 Nachtrag: Rückläufer ChatGPT 936/937 (lehrplan-lb)
+
+Grundlage ist `lernen-app` „Stand 15:50 – Rückläufer ChatGPT 936/937“. Nichts eingespielt, Kinder nur als Nummern.
+
+- **Muss A1, Audit an den Übergängen 7→8, 8→9, 9→10** (Gymnasium und RS I), steht in `lk_teilung_2211.md`, Abschnitt 1. Drei Lücken, jeweils als neue Etappe geliefert:
+  - Gym 10 5/k4 schiefe Prismen und Cavalieri: **101 `cavalieri`**. Damit wird 101 geteilt: „Prismen und Zylinder – Teil 2 von 2“, Gym 10, RS I 9 über 9 I 5/K1.
+  - RS 8 I 3/K1 Symmetrie von Körpern: **91 `koerper_symmetrie`**, in 91 Teil 2.
+  - RS 8 I 4/K3 und 8 II/III 3/K3 Gleichungen mit binomischen Ausdrücken: **29 `gleichungen_binomisch`**, in 29 Teil 2.
+  - Teilweise gedeckt, nicht geliefert: Gym 9 indirekter Beweis zu √2 (Vorschlag offen).
+- **Neue Inhalte:** je 22 Aufgaben als Vertiefung. Prüfskript OK, App-Tests 141/141. Die Generatoren erzeugen die Dateien unverändert.
+- **Teilungsliste jetzt 7 Themen, 15 Teile, 8 neue Flüge.** Berichtigung: Die erste Fassung meldete 15 Teile und 9 Flüge für 6 Themen, richtig waren 13 und 7.
+- **Aufbau nach der Teilung:**
+  - Gymnasium 0 Verstöße, RS I 0.
+  - RS II/III 2, darunter neu 101 Teil 2 ← Teil 1.
+  - IB je Kurs 2 hart und 7 empfohlen.
+- **IB Muss B1:** Der LK-D-Bericht nannte fälschlich 3 harte Verstöße, richtig sind 2 (63 ← 61, 29 ← 102). Bericht berichtigt, die JSON war richtig.
+- **Kind 2, Thema 29:** Teil 2 hat durch die neue Etappe 3/4, nicht mehr 3/3. Der Flug-Abschluss bleibt. Vorschlag: die neue Etappe nachholen (Entscheidung Sebastian).
+- **Geändert:**
+  - `lk_daten_2211.json` und **`lk_korrektur_2211.sql`** (285 bekommt die Etappe `cavalieri`; 781 von 92 auf 101; 734 von 2 auf 29; 939 bekommt die Etappe `koerper_symmetrie`).
+  - Probelauf auf dem vollständigen echten Stand erneut bestanden, Klassen unverändert. **Der Probelauf des Haupt-Chats von 15:50 galt der alten Fassung.**
+
+FERTIG: LK-D 2
+
 ## 2026-11-22 – MELDUNG LK-D 2 Teilungsliste nach neuer Regel (lehrplan-lb)
 
 Grundlage ist `lernen-app` 367e31e0 (Teilungsregel 15:30/15:35/15:40). Nichts eingespielt, nichts ergänzt, Kinder nur als Nummern.

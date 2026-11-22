@@ -1,22 +1,67 @@
-# LK-D 2 – Teilungsliste nach der neuen Regel (22.11.2026)
+# LK-D 2 – Teilungsliste nach der neuen Regel (22.11.2026, ergänzt um Rückläufer ChatGPT 936/937)
 
-Grundlage: AUFTRAEGE `lernen-app` 367e31e0, also „Teilungsregel NEU“ (15:30), „Berichtigung“ (15:35) und „Ergänzung – Benennung und Aufbau“ (15:40). Daten aus LK-D (`lk_daten_2211.json`, Stand nach dem Live).
-- Nichts eingespielt, keine Inhalte ergänzt.
-- Kinder nur als Nummern.
+Grundlage: AUFTRAEGE `lernen-app`:
+- „Teilungsregel NEU“ (15:30), „Berichtigung“ (15:35), „Ergänzung – Benennung und Aufbau“ (15:40);
+- „Stand 15:50 – Rückläufer ChatGPT 936/937“ (Muss A1, IB Muss B1).
+
+Daten aus LK-D (`lk_daten_2211.json`, Stand nach dem Live).
+- Nichts eingespielt. Kinder nur als Nummern.
 - JSON: `lk_teilung_2211.json` (Teile, Grenzfälle, alle Voraussetzungs-Kanten, Verstöße, Aufbau-Kette je Teil).
 
-## Verfahren
+**Berichtigungen gegenüber der ersten Fassung von LK-D 2:**
+- Die erste Fassung meldete „15 Teile, 9 neue Flüge“. Richtig waren **13 Teile, 7 neue Flüge** (6 Themen); ich hatte falsch gezählt.
+- Mit dem Audit (Abschnitt 1) kommt 101 Prismen und Zylinder dazu. Stand jetzt: **7 Themen, 15 Teile, 8 neue Flüge.**
+- **IB-Voraussetzungen (Muss B1):**
+  - Der LK-D-Bericht nannte „3 harte Verstöße je Kurs“. **Das war falsch, es sind 2:** 63 ← 61 und 29 ← 102. Einen dritten gab es in keiner Fassung der Daten.
+  - Bericht und Postfach sind berichtigt; die JSON war schon richtig.
+  - Stand jetzt je IB-Kurs: 2 hart, 7 empfohlen.
 
-- **Klasse einer Etappe je Schulart:** die erste Klasse, in der ein Lehrplanpunkt sie als Hauptthema verlangt (aus LK-D).
-- **Teilung:** Etappen mit gleichem Klassenpaar (Gym, RS I) bilden einen Teil, also die feinste gemeinsame Teilung. Sortiert wird nach der Klasse.
-  - Hat eine Etappe nur in einer der beiden Schularten eine Klasse, kommt sie zum passenden Teil.
-  - Hat sie in keiner eine Klasse, kommt sie zum Teil der Etappe davor in der Themendatei. Das sind 2 Etappen, beide bei 26.
-- **Ergebnis:** Jedes Teil-Thema liegt in Gym und RS I in genau einer Klasse.
-- **IB und RS II/III** lösen keine Teilung aus. Ihre Klassen sind je Teil angegeben; wo ein Teil dort mehrere Klassen hat, steht er bei den Grenzfällen.
+## 1 Audit an den Übergängen 7→8, 8→9, 9→10 (Muss A1)
 
-## Ergebnis: 6 Themen werden geteilt, 15 Teile
+**Vorgehen:**
+- Für Gymnasium und RS Gruppe I habe ich jeden Punkt ab Klasse 8 gesucht, der nur Etappen verlangt, die schon in einer früheren Klasse neu waren. Das sind Kandidaten für „der Lehrplan verlangt mehr, als unsere Etappen enthalten“.
+- Danach habe ich die Punkte geprüft, deren Kurzfassung einen neuen Aspekt nennt (Beweis, Verallgemeinerung, schiefe Körper, Symmetrie).
+- Kriterium: Deckt eine vorhandene Etappe den verlangten Inhalt ab?
 
-Kein geteiltes Thema ändert eine Gym-Klasse: Im Gymnasium liegen alle Teile in derselben Klasse und kommen dort als Teil 1, 2, 3 nacheinander. Geteilt wird jeweils, weil die Realschule (Gruppe I) die Etappen auf mehrere Klassen verteilt.
+| Übergang | Punkt | verlangt (eigene Worte) | bisher | Befund | geliefert |
+|---|---|---|---|---|---|
+| Gym 8→10 | Gym 10 5/k4 (285) | Volumen schiefer Prismen, Volumengleichheit (Cavalieri) | 101 `prisma_volumen` (gerade Körper, Gym 8) | **fehlte** | neue Etappe **101 `cavalieri`** „Schiefe Körper und Cavalieri“ → eigener Teil (101 Teil 2 von 2, Gym 10) |
+| RS 8→9 | RS 9 I 5/K1 (781), II/III 10 2/K2 (1007) | Cavalieri bzw. Grenzwertidee für Volumen | 92 `verstehen` | **teilweise** | jetzt 101 `cavalieri` (92 bleibt Neben); RS-I-Klasse von 101 Teil 2 = 9 |
+| RS 7→8 | RS 8 I 3/K1 (939) | Symmetrische Körper: Symmetrieebenen, -achsen, -zentren | 91 `pyramide` (Ecken, Kanten) | **fehlte** | neue Etappe **91 `koerper_symmetrie`** „Symmetrie von Körpern“ (91 Teil 2, RS 8) |
+| RS 7→8 | RS 8 I 4/K3 (734), II/III 3/K3 (749) | lineare Gleichungen mit binomischen Ausdrücken auf beiden Seiten | 2 `klammern`, `beide_seiten` (RS 7) | **fehlte** | neue Etappe **29 `gleichungen_binomisch`** „Gleichungen mit Klammerprodukten“ (29 Teil 2, RS 8); 2 bleibt Neben |
+| RS 7→8 | RS 8 I 1/K1 (930) | Vierecke nach Eigenschaften unterscheiden | 46 `vierecke_ordnen` (RS 6) | gedeckt | – (Wiederholung, Anzeige „weitergeführt“) |
+| RS 8→9 | RS 9 I 8/K3 (800) | Ergebnisraum bilden | 61 `begriffe` (RS 8) | gedeckt | – |
+| Gym 8→9 | Gym 9 1/k3 (202) | Irrationalität von √2 durch indirekten Beweis | 20 `zahlarten` | **teilweise** (Beweisgedanke fehlt) | nicht geliefert: Ein Beweis lässt sich in der App nur als Lückentext abbilden. Vorschlag: Begründen-Aufgabe in 20 ergänzen (offen) |
+| Gym 9→10 | Gym 10 3/k3 (271) | große und negative Winkel auf 0 bis 2π zurückführen | 38 `periode` | gedeckt (Periodizität) | – |
+
+**Neue Inhalte:**
+- Je Etappe 12 Übungen (Stufe 1–3, alle Aufgabentypen), 1 Test, 3 Korrektur, 6 Sicherung, dazu ein Kann-Satz.
+- Alle Lösungen sind berechnet, die Texte selbst formuliert.
+- Sie stehen in `_lk_etappen_2211.py`, eingehängt in `messen.prisma_zylinder.py`, `terme_umformen.py` und `raum.schraegbilder.py`; diese Generatoren erzeugen die Dateien danach unverändert.
+- Prüfskript: alle Inhalte OK. Die Karten sind wie in LK-D Vertiefung; Flug und Stempel bestehender Themen bleiben unverändert.
+
+**Folgen:**
+- Die Zuordnung in `lk_daten_2211.json` und `lk_korrektur_2211.sql` ist angepasst:
+  - 285 bekommt die Etappe `cavalieri` (Thema unverändert);
+  - 781: 92 → 101;
+  - 734: 2 → 29;
+  - 939 bekommt die Etappe `koerper_symmetrie`.
+- **Das SQL hat sich damit geändert:** 33/18/13/187 statt 31/18/13/185 Änderungen.
+- Probelauf auf dem vollständigen echten Stand erneut bestanden: LP-RS, dann LK-D zweimal. Klassen unverändert.
+- **Der Probelauf des Haupt-Chats von 15:50 galt der alten Fassung.**
+
+## 2 Verfahren der Teilung
+
+- **Klasse einer Etappe je Schulart:** die erste Klasse, in der ein Lehrplanpunkt sie als Hauptthema verlangt.
+- **Teilung:** Etappen mit gleichem Klassenpaar (Gym, RS I) bilden einen Teil, also die feinste gemeinsame Teilung, sortiert nach Klasse.
+  - Hat eine Etappe nur in einer Schulart eine Klasse, kommt sie zum passenden Teil.
+  - Hat sie in keiner eine Klasse, kommt sie zum Teil der Etappe davor (nur 26: 2 Etappen).
+- **IB und RS II/III** lösen keine Teilung aus; wo ein Teil dort mehrere Klassen hat, steht er bei den Grenzfällen.
+
+## 3 Teilungsliste: 7 Themen, 15 Teile
+
+- Im Gymnasium liegen die Teile eines Themas in derselben Klasse und kommen dort als Teil 1, 2, 3 nacheinander. Ausnahme: 101, Teil 2 liegt im Gymnasium in Klasse 10.
+- Keine Gym-Klasse ändert sich.
 
 
 ### 26 Direkte Proportionalität und Dreisatz
@@ -31,7 +76,7 @@ Kein geteiltes Thema ändert eine Gym-Klasse: Im Gymnasium liegen alle Teile in 
 | Teil | Titel · Untertitel | Etappen | Gym | RS I | RS II/III | IB Std / Ext | Kind 1 | Kind 2 |
 |---|---|---|---|---|---|---|---|---|
 | 1/2 | Terme umformen – Teil 1 von 2 · zusammenfassen und ausmultiplizieren | Gleichartige Glieder zusammenfassen, Produkte vereinfachen, Minus vor der Klammer, Ausmultiplizieren, Äquivalente Terme | 7 | 7 | 7 | 1/2 / 1/2 | 0/5 | 5/5 |
-| 2/2 | Terme umformen – Teil 2 von 2 · Summe mal Summe, Ausklammern, binomische Formeln | Summe mal Summe, Gemeinsamen Faktor ausklammern, Binomische Formeln | 7 | 8 | 8 | 4 / 4 | 0/3 | 3/3 |
+| 2/2 | Terme umformen – Teil 2 von 2 · Summe mal Summe, binomische Formeln, Gleichungen mit Klammern | Summe mal Summe, Gemeinsamen Faktor ausklammern, Binomische Formeln, Gleichungen mit Klammerprodukten | 7 | 8 | 8 | 4 / 4 | 0/4 | 3/4 |
 
 ### 44 Konstruktionen, Kongruenz und Beweise
 
@@ -60,69 +105,72 @@ Kein geteiltes Thema ändert eine Gym-Klasse: Im Gymnasium liegen alle Teile in 
 | Teil | Titel · Untertitel | Etappen | Gym | RS I | RS II/III | IB Std / Ext | Kind 1 | Kind 2 |
 |---|---|---|---|---|---|---|---|---|
 | 1/2 | Schrägbilder und Raumdarstellung – Teil 1 von 2 · Schrägbilder und Lage im Raum | Pyramiden: Ecken, Kanten, Flächen, Parallel, schneidend oder windschief?, Wahre Größe im Schrägbild | 10 | 7 | 8 | – / – | 0/3 | 0/3 |
-| 2/2 | Schrägbilder und Raumdarstellung – Teil 2 von 2 · Raumkoordinaten und Rotationskörper | Punkte im Raum mit Koordinaten, Rotationskörper, Axialschnitte berechnen | 10 | 8 | 10 | – / – | 0/3 | 0/3 |
+| 2/2 | Schrägbilder und Raumdarstellung – Teil 2 von 2 · Raumkoordinaten, Körpersymmetrie, Rotationskörper | Punkte im Raum mit Koordinaten, Rotationskörper, Axialschnitte berechnen, Symmetrie von Körpern | 10 | 8 | 10 | – / – | 0/4 | 0/4 |
+
+### 101 Prismen und Zylinder
+
+| Teil | Titel · Untertitel | Etappen | Gym | RS I | RS II/III | IB Std / Ext | Kind 1 | Kind 2 |
+|---|---|---|---|---|---|---|---|---|
+| 1/2 | Prismen und Zylinder – Teil 1 von 2 · gerade Prismen und Zylinder | Volumen eines Prismas, Oberfläche eines Prismas, Fehlende Größen am Prisma, Zylinder: Volumen begründen, Zylinder: Oberfläche über das Netz, Prismen und Zylinder im Alltag, Begründen und beurteilen | 8 | 9 * | – | – / – | 0/7 | 0/7 |
+| 2/2 | Prismen und Zylinder – Teil 2 von 2 · schiefe Körper und Cavalieri **(dünn)** | Schiefe Körper und Cavalieri | 10 | 9 | 10 | – / – | 0/1 | 0/1 |
 
 Legende:
-- `*`: Diese Schulart hat für den Teil keinen eigenen Lehrplanpunkt; die Klasse folgt aus der Reihenfolge (Vertiefung).
+- `*`: Diese Schulart hat für den Teil keinen eigenen Lehrplanpunkt; die Klasse folgt aus der Reihenfolge.
 - `°`: Etappe ohne Lehrplanpunkt in Gym und RS I.
-- „–“: Der Teil ist in dieser Spur kein Lehrplanstoff.
+- „–“: kein Lehrplanstoff in dieser Spur.
 - Stand: erledigt/Etappen des Teils (gelandet, gesetzt oder nachgewiesen).
 
 **Zu dünn (nur gemeldet, nichts ergänzt):**
-- 44 Teil 2 „Vierecke“ (2 Etappen) und 61 Teil 1 „Ergebnis, Ereignis, relative Häufigkeit“ (2 Etappen). Vorschlag: Kurzflug mit 1–2 Städten.
-- 61 Teil 1 deckt den RS-8-Lernbereich „Daten und Zufall“ (8 Std.) zusammen mit den Nebenbezügen 60/63 ab, ist also nicht zu dünn für den Lehrplan.
+- 44 Teil 2 (2 Etappen), 61 Teil 1 (2) und 101 Teil 2 (1, neu).
+- Vorschlag: Kurzflug mit 1–2 Städten.
 
 **Lernstand (Regel Punkt 6):**
 - Nur Kind 2 hat Lernstand in einem geteilten Thema: 29 Terme umformen, Flug geschafft.
-- Nach der Teilung sind **beide Teile vollständig** (5/5 und 3/3). Teil 2 gilt als geschafft; der Stempel wird nachgetragen, Sterne gibt es nicht doppelt.
-- In den übrigen geteilten Themen hat kein Kind Lernstand.
+- Teil 1 ist vollständig (5/5).
+- **Teil 2 hat durch die neue Etappe „Gleichungen mit Klammerprodukten“ jetzt 4 Etappen, Kind 2 hat 3/4.** Ohne die Audit-Ergänzung wäre Teil 2 vollständig (3/3).
+- Nichts geht verloren: Der Flug-Abschluss von 29 bleibt. Teil 2 gilt erst nach der neuen Etappe als geschafft, Stempel dann nach der Regel.
+- Vorschlag: die neue Etappe für Kind 2 als „nachholen“ einplanen. Sebastian entscheidet.
 
-**Benennung:** überall „‹Titel› – Teil x von y“, Untertitel wie in der Tabelle (Vorschlag).
+**Benennung:** „‹Titel› – Teil x von y“ mit Untertitel wie oben (Vorschlag).
 
-## Aufbau nach der Teilung
+## 4 Aufbau nach der Teilung
 
-- **Teilung:** Teil n braucht Teil n−1, hart (7 neue Kanten).
-- **Bisherige Voraussetzungen** (128, ohne stillgelegte Themen) sind dem richtigen Teil zugeordnet:
+- **Teilung:** Teil n braucht Teil n−1, hart (8 Kanten).
+- **Bisherige Voraussetzungen** (128, ohne stillgelegte Themen) sind dem passenden Teil zugeordnet:
   - „braucht“ geht an den ersten Teil, dessen Klasse in Gym und RS I nicht vor der Voraussetzung liegt.
-  - „wird gebraucht von“ geht an den letzten Teil, der in Gym und RS I nicht nach dem abhängigen Thema liegt.
-  - Drei Fälle sind inhaltlich gesetzt (Annahme): 47 Ähnlichkeit, 44 Konstruktionen und 4 Formeln umstellen brauchen nur Teil 1 von 46 bzw. 29.
-- Alle Kanten stehen in der JSON (`kanten`).
+  - „wird gebraucht von“ geht an den letzten Teil, der nicht nach dem abhängigen Thema liegt.
+  - Drei Fälle sind inhaltlich gesetzt (Annahme): 47, 44 und 4 brauchen nur Teil 1 von 46 bzw. 29.
+- Zusammen 136 Kanten, alle in der JSON.
 
 **Wichtige Zuordnungen:**
 - 29 Terme umformen:
-  - Teil 1 braucht 28 Terme aufstellen und 102 Potenzgesetze (hart).
-  - Teil 2 wird gebraucht von 8 Quadratische Gleichungen, 31 Bruchterme und 97 Quadratische Terme (hart) sowie 35 Quadratische Funktionen (empfohlen).
-  - 4 Formeln umstellen braucht Teil 1.
-- 61 Zufall und Laplace:
-  - Teil 1 wird gebraucht von 63 Verknüpfte Ereignisse.
-  - Teil 2 wird gebraucht von 62 Mehrstufige Zufallsexperimente und 64 Simulation (alle hart).
-- 46 Kongruenzabbildungen:
-  - Teil 2 (Vektoren) wird gebraucht von 74 Determinanten.
-  - Teil 3 (Drehen) wird gebraucht von 49 Matrizen.
-  - Teil 1 wird gebraucht von 47 und 44.
-- 26 Proportionalität: Teil 1 braucht 25 Größen; Teil 2 wird gebraucht von 93 Indirekte Proportionalität (hart).
-- 91 Schrägbilder: Teil 1 braucht 52 Körper darstellen (hart).
+  - Teil 1 braucht 28 und 102 (hart).
+  - Teil 2 wird gebraucht von 8, 31, 97 (hart) und 35 (empfohlen).
+  - 4 braucht Teil 1.
+- 61 Zufall und Laplace: Teil 1 wird gebraucht von 63; Teil 2 von 62 und 64 (alle hart).
+- 46 Kongruenzabbildungen: Teil 2 wird gebraucht von 74, Teil 3 von 49, Teil 1 von 47 und 44.
+- 26 Proportionalität: Teil 1 braucht 25; Teil 2 wird gebraucht von 93 (hart).
+- 91 Schrägbilder: Teil 1 braucht 52 (hart).
+- 101 Prismen und Zylinder: Teil 2 (Cavalieri) wird gebraucht von 92 Pyramide, Kegel, Kugel (empfohlen). Das passt: Gym 10 und RS 9 begründen damit das Pyramidenvolumen.
 
-**Prüfung der ganzen Kette gegen die Klassenlage (alle 135 Kanten):**
+**Prüfung der ganzen Kette gegen die Klassenlage:**
 - **Gymnasium: 0 Verstöße. RS Gruppe I: 0 Verstöße.**
-- RS II/III: 2, beide empfohlen und schon aus LK-D bekannt; die Voraussetzung ist dort kein Lehrplanstoff:
-  - 37 ← 103;
-  - 92 ← 101.
-  - Vorschlag: für II/III weich machen.
-- IB: 10 je Kurs, unverändert gegenüber LK-D. Neu zugeordnet sind nur:
-  - 63 ← 61 **Teil 1** (hart; MYP 1 gegen 2);
-  - 29 **Teil 1** ← 102 (hart; **Sebastians Entscheidung, bleibt**, nur gemeldet).
+- RS II/III: 2.
+  - 37 ← 103 (empfohlen; 103 ist in II/III kein Lehrplanstoff).
+  - 101 Teil 2 ← Teil 1 (hart): Den Teil 1 verlangt II/III nicht als Hauptpunkt, Prismen stehen dort bei 92.
+  - Vorschlag: In II/III den Teil 1 von 101 als Vertiefung führen. Gruppe II/III ist nur Bericht.
+- IB je Kurs: 2 hart, 7 empfohlen.
+  - Hart: 63 ← 61 Teil 1 (MYP 1 gegen 2) und 29 Teil 1 ← 102. Das zweite ist **Sebastians Entscheidung, bleibt**, nur gemeldet.
+  - Empfohlen, u. a.: 92 ← 101 Teil 2 (101 hat keine IB-Klasse), 44 ← 46, 34 ← 93, 37 ← 103, 45 ← 73, 23 ← 16, 100 ← 25.
 
-**Hinweis zu 46 im Gymnasium (Aufbau-Befund mit Vorschlag):**
-- Teil 3 enthält die Punktspiegelung, die das Gymnasium in Klasse 7 verlangt.
-- Teil 2 (Verschieben und Vektoren) ist im Gymnasium kein Lehrplanstoff. Die harte Kette Teil 3 ← Teil 2 zwingt Gym-Kinder also durch einen Teil ohne Gym-Punkt.
-- Vorschlag:
-  - (a) im Gymnasium die Kante Teil 3 ← Teil 2 als „empfohlen“ führen, Teil 3 braucht dann Teil 1 hart; oder
-  - (b) die Punktspiegelung in Teil 1 verschieben. Das widerspricht aber der Regel, weil RS I sie erst in Klasse 8 verlangt.
-  - Empfehlung: (a). Sebastian entscheidet.
-- Dasselbe gilt schwächer für 44 Teil 2 (Vierecke, im Gymnasium ohne eigenen Punkt): Er ist der letzte Teil, nichts hängt im Gymnasium daran.
+**46 im Gymnasium (Befund mit Vorschlag):**
+- Teil 3 enthält die Punktspiegelung (Gym 7). Teil 2 (Verschieben und Vektoren) hat im Gymnasium keinen Punkt.
+- Die harte Kette Teil 3 ← Teil 2 führt Gym-Kinder also durch einen Teil ohne Gym-Pflicht.
+- Vorschlag: Im Gymnasium „empfohlen“, dann braucht Teil 3 hart nur Teil 1. Sebastian entscheidet.
 
-## Grenzfälle (keine Teilung, nur Anzeige „weitergeführt“)
+**Sollte A2 (Voraussetzungen je Etappe):** offen. Die 87 Reihenfolge-Hinweise aus LK-D sind die Grundlage. Mit der Teilung lösen sich die meisten davon auf, weil die betroffenen Etappen jetzt in getrennten Teilen liegen (26, 29, 46). Eine Liste je Etappe liefere ich auf Ansage.
+
+## 5 Grenzfälle (keine Teilung, Anzeige „weitergeführt“)
 
 | Thema | Teil | Spur | Klassen | Empfehlung |
 |---|---|---|---|---|
@@ -159,10 +207,10 @@ Legende:
 | 98 Winkelsätze | – | IB Std | 1, 3 | nicht teilen |
 | 98 Winkelsätze | – | IB Ext | 1, 3 | nicht teilen |
 
-- RS II/III: 8 Quadratische Gleichungen (9 + 10) und 33 Lineare Funktionen (8 + 9). Würde II/III Teilungen auslösen, kämen genau diese zwei Themen dazu.
-- IB: Die Schulbuch-Verzeichnisse verteilen viele Themen über 2 Jahre. Das ist Orientierung und kein Teilungsgrund.
+- RS II/III: 8 (9 + 10) und 33 (8 + 9). Würde II/III teilen, kämen genau diese zwei Themen dazu.
+- IB: Schulbuch-Orientierung, kein Teilungsgrund.
 
-## Aufbau-Kette je Teil (für die Anzeige)
+## 6 Aufbau-Kette je Teil (Anzeige)
 
 | Teil | Baut auf | Geht weiter in |
 |---|---|---|
@@ -179,26 +227,32 @@ Legende:
 | 61 Zufall und Laplace – Teil 2 von 2 | 61 Zufall und Laplace – Teil 1 von 2 (Gym 8 · RS I 8) (hart) | 62 Mehrstufige Zufallsexperimente (Gym 10 · RS I 10); 64 Simulation (Gym 10 · RS I 9) |
 | 91 Schrägbilder und Raumdarstellung – Teil 1 von 2 | 52 Körper darstellen (Gym 8 · RS I 5) (hart) | 91 Schrägbilder und Raumdarstellung – Teil 2 von 2 (Gym 10 · RS I 8) |
 | 91 Schrägbilder und Raumdarstellung – Teil 2 von 2 | 91 Schrägbilder und Raumdarstellung – Teil 1 von 2 (Gym 10 · RS I 7) (hart) | – |
+| 101 Prismen und Zylinder – Teil 1 von 2 | 99 Flächen von Parallelogramm, Dreieck und Trapez (Gym 6 · RS I 6); 100 Volumen (Gym 6 · RS I 6); 51 Kreisberechnungen (Gym 8 · RS I 9) | 101 Prismen und Zylinder – Teil 2 von 2 (Gym 10 · RS I 9) |
+| 101 Prismen und Zylinder – Teil 2 von 2 | 101 Prismen und Zylinder – Teil 1 von 2 (Gym 8 · RS I 9) (hart) | 92 Pyramide, Kegel, Kugel (Gym 10 · RS I 9) |
 
 Für alle übrigen Themen steht die Kette in `aufbau_kette` (JSON).
 
 ## Gesichert / Annahme / offen
 
 **Gesichert:**
-- Teilung nach der Regel aus den LK-D-Daten.
-- 0 Verstöße in Gymnasium und RS I nach der Teilung.
-- Kind 2: Thema 29 nach der Teilung in beiden Teilen vollständig.
-- Keine Gym-Klasse ändert sich.
+- Teilung nach der Regel.
+- 0 Verstöße in Gymnasium und RS I.
+- Keine Klassenänderung; SQL-Probelauf mit der neuen Fassung bestanden.
+- Prüfskript OK.
+- Die IB-Zahl der harten Verstöße ist 2 (berichtigt).
 
 **Annahme:**
-- Die Etappen-Klasse ergibt sich aus meiner Etappenzuordnung in LK-D.
-- Zuordnung bisheriger Voraussetzungen zu Teilen: nach Klassenlage, drei Fälle inhaltlich gesetzt.
-- 26: Die 2 Etappen ohne Lehrplanpunkt (Geschickte Zwischenschritte, Änderungsraten) gehören zu Teil 1.
-- Die Untertitel sind Vorschläge.
+- Etappen-Klassen aus meiner Etappenzuordnung.
+- Drei inhaltlich gesetzte Voraussetzungen.
+- Audit-Urteil „gedeckt / teilweise / fehlte“.
+- Untertitel als Vorschlag.
 
 **Offen (Sebastian):**
 - Liste bestätigen.
-- 46 im Gymnasium: (a) oder (b).
-- Kurzflüge für 44 Teil 2 und 61 Teil 1.
-- Ob II/III jemals teilen soll (8 und 33).
-- Danach `bau-lehrer` (Teil-Verfahren, Umhängen des Lernstands Kind 2 in 29) und `reise-aufbau` (Nachbarländer, 9 neue Flüge).
+- 46 im Gymnasium.
+- Kurzflüge (44 T2, 61 T1, 101 T2).
+- Kind 2 in 29 Teil 2 (neue Etappe nachholen).
+- 43/69/71 als Vertiefung (A3).
+- Beweis-Aufgabe zu √2 (Gym 9).
+- Etappen-Voraussetzungen (A2).
+- Neuer Probelauf des Haupt-Chats mit der geänderten `lk_korrektur_2211.sql`.

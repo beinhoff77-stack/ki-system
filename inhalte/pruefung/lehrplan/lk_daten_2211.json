@@ -5715,16 +5715,18 @@
    "bezug": "haupt",
    "rolle": "weitergefuehrt",
    "etappen": [
-    "pyramide"
+    "koerper_symmetrie"
    ],
-   "etappen_neu_in_dieser_klasse": [],
+   "etappen_neu_in_dieser_klasse": [
+    "koerper_symmetrie"
+   ],
    "neben": [],
    "vorher": {
     "91": "haupt"
    },
    "veraltet": [],
    "befund": "ok",
-   "notiz": null,
+   "notiz": "Symmetrie von Körpern: neue Etappe (LK-D 2)",
    "korrektur_sql": true
   },
   {
@@ -5898,16 +5900,18 @@
    },
    "punkt": "4/K3",
    "eintrag_id": 734,
-   "thema": 2,
-   "thema_titel": "Lineare Gleichungen",
+   "thema": 29,
+   "thema_titel": "Terme umformen",
    "bezug": "haupt",
    "rolle": "weitergefuehrt",
    "etappen": [
-    "klammern",
-    "beide_seiten"
+    "gleichungen_binomisch"
    ],
-   "etappen_neu_in_dieser_klasse": [],
+   "etappen_neu_in_dieser_klasse": [
+    "gleichungen_binomisch"
+   ],
    "neben": [
+    2,
     3
    ],
    "vorher": {
@@ -5915,8 +5919,8 @@
     "3": "neben"
    },
    "veraltet": [],
-   "befund": "ok",
-   "notiz": null,
+   "befund": "umgehaengt",
+   "notiz": "Gleichungen mit binomischen Ausdrücken: neue Etappe in 29 (LK-D 2); 2 bleibt Neben",
    "korrektur_sql": true
   },
   {
@@ -6640,22 +6644,25 @@
    },
    "punkt": "3/K3",
    "eintrag_id": 749,
-   "thema": 2,
-   "thema_titel": "Lineare Gleichungen",
+   "thema": 29,
+   "thema_titel": "Terme umformen",
    "bezug": "haupt",
    "rolle": "weitergefuehrt",
    "etappen": [
-    "klammern",
-    "beide_seiten"
+    "gleichungen_binomisch"
    ],
-   "etappen_neu_in_dieser_klasse": [],
-   "neben": [],
+   "etappen_neu_in_dieser_klasse": [
+    "gleichungen_binomisch"
+   ],
+   "neben": [
+    2
+   ],
    "vorher": {
     "2": "haupt"
    },
    "veraltet": [],
-   "befund": "ok",
-   "notiz": null,
+   "befund": "umgehaengt",
+   "notiz": "wie 8 I 4/K3",
    "korrektur_sql": false
   },
   {
@@ -7662,23 +7669,25 @@
    },
    "punkt": "5/K1",
    "eintrag_id": 781,
-   "thema": 92,
-   "thema_titel": "Pyramide, Kegel, Kugel",
+   "thema": 101,
+   "thema_titel": "Prismen und Zylinder",
    "bezug": "haupt",
    "rolle": "neu",
    "etappen": [
-    "verstehen"
+    "cavalieri"
    ],
    "etappen_neu_in_dieser_klasse": [
-    "verstehen"
+    "cavalieri"
    ],
-   "neben": [],
+   "neben": [
+    92
+   ],
    "vorher": {
     "92": "haupt"
    },
    "veraltet": [],
-   "befund": "ok",
-   "notiz": null,
+   "befund": "umgehaengt",
+   "notiz": "Cavalieri: Etappe cavalieri in 101 (LK-D 2); 92 bleibt Neben",
    "korrektur_sql": true
   },
   {
@@ -10405,23 +10414,25 @@
    },
    "punkt": "2/K2",
    "eintrag_id": 1007,
-   "thema": 92,
-   "thema_titel": "Pyramide, Kegel, Kugel",
+   "thema": 101,
+   "thema_titel": "Prismen und Zylinder",
    "bezug": "haupt",
    "rolle": "neu",
    "etappen": [
-    "verstehen"
+    "cavalieri"
    ],
    "etappen_neu_in_dieser_klasse": [
-    "verstehen"
+    "cavalieri"
    ],
-   "neben": [],
+   "neben": [
+    92
+   ],
    "vorher": {
     "92": "haupt"
    },
    "veraltet": [],
-   "befund": "ok",
-   "notiz": null,
+   "befund": "umgehaengt",
+   "notiz": "wie 9 I 5/K1",
    "korrektur_sql": false
   },
   {
@@ -19148,9 +19159,11 @@
    "bezug": "haupt",
    "rolle": "weitergefuehrt",
    "etappen": [
-    "prisma_volumen"
+    "cavalieri"
    ],
-   "etappen_neu_in_dieser_klasse": [],
+   "etappen_neu_in_dieser_klasse": [
+    "cavalieri"
+   ],
    "neben": [
     53
    ],
@@ -19159,7 +19172,7 @@
    },
    "veraltet": [],
    "befund": "umgehaengt",
-   "notiz": "bisher 53 Haupt (Quader Kl. 5)",
+   "notiz": "bisher 53 Haupt; schiefe Prismen/Cavalieri: neue Etappe cavalieri (LK-D 2)",
    "korrektur_sql": true
   },
   {
@@ -25359,10 +25372,11 @@
    },
    "rs_I": {
     "klassen": [
-     7,
+     7
+    ],
+    "neben": [
      8
     ],
-    "neben": [],
     "etappen_je_klasse": {
      "7": [
       "waage",
@@ -25375,10 +25389,11 @@
    },
    "rs_II_III": {
     "klassen": [
-     7,
+     7
+    ],
+    "neben": [
      8
     ],
-    "neben": [],
     "etappen_je_klasse": {
      "7": [
       "waage",
@@ -27315,7 +27330,8 @@
      "8": [
       "summe_mal_summe",
       "binomisch",
-      "ausklammern"
+      "ausklammern",
+      "gleichungen_binomisch"
      ]
     },
     "hinterlegt": 7
@@ -27339,7 +27355,8 @@
      "8": [
       "summe_mal_summe",
       "binomisch",
-      "ausklammern"
+      "ausklammern",
+      "gleichungen_binomisch"
      ]
     },
     "hinterlegt": 7
@@ -30660,6 +30677,7 @@
       "wahre_groesse"
      ],
      "8": [
+      "koerper_symmetrie",
       "rotation",
       "axialschnitt",
       "koordinaten"
@@ -30729,7 +30747,6 @@
     "neben": [],
     "etappen_je_klasse": {
      "9": [
-      "verstehen",
       "pyr_oberflaeche",
       "kegel_mantel",
       "pyr_volumen",
@@ -30747,7 +30764,6 @@
     "neben": [],
     "etappen_je_klasse": {
      "10": [
-      "verstehen",
       "pyr_oberflaeche",
       "kegel_mantel",
       "pyr_volumen",
@@ -31362,22 +31378,35 @@
       "prisma_oberflaeche",
       "prisma_umstellen",
       "verstehen"
+     ],
+     "10": [
+      "cavalieri"
      ]
     },
     "hinterlegt": 8
    },
    "rs_I": {
-    "klassen": [],
-    "neben": [
+    "klassen": [
      9
     ],
-    "etappen_je_klasse": {},
+    "neben": [],
+    "etappen_je_klasse": {
+     "9": [
+      "cavalieri"
+     ]
+    },
     "hinterlegt": 9
    },
    "rs_II_III": {
-    "klassen": [],
+    "klassen": [
+     10
+    ],
     "neben": [],
-    "etappen_je_klasse": {},
+    "etappen_je_klasse": {
+     "10": [
+      "cavalieri"
+     ]
+    },
     "hinterlegt": 9
    },
    "ib_standard": {
@@ -32113,13 +32142,13 @@
    "spur": "rs_I",
    "thema": 29,
    "titel": "Terme umformen",
-   "kette": "baut auf Terme aufstellen und deuten (Kl. 6, hart); Potenzgesetze (Kl. 7, hart) · neu in Kl. 7 · wird weitergeführt in Kl. 8: summe_mal_summe, binomisch, ausklammern"
+   "kette": "baut auf Terme aufstellen und deuten (Kl. 6, hart); Potenzgesetze (Kl. 7, hart) · neu in Kl. 7 · wird weitergeführt in Kl. 8: summe_mal_summe, binomisch, ausklammern, gleichungen_binomisch"
   },
   {
    "spur": "rs_II_III",
    "thema": 29,
    "titel": "Terme umformen",
-   "kette": "baut auf Terme aufstellen und deuten (Kl. 6, hart); Potenzgesetze (Kl. 7, hart) · neu in Kl. 7 · wird weitergeführt in Kl. 8: summe_mal_summe, binomisch, ausklammern"
+   "kette": "baut auf Terme aufstellen und deuten (Kl. 6, hart); Potenzgesetze (Kl. 7, hart) · neu in Kl. 7 · wird weitergeführt in Kl. 8: summe_mal_summe, binomisch, ausklammern, gleichungen_binomisch"
   },
   {
    "spur": "ib_standard",
@@ -33025,7 +33054,7 @@
    "spur": "rs_I",
    "thema": 91,
    "titel": "Schrägbilder und Raumdarstellung",
-   "kette": "baut auf Körper darstellen (Kl. 5, hart) · neu in Kl. 7 · wird weitergeführt in Kl. 8: rotation, axialschnitt, koordinaten"
+   "kette": "baut auf Körper darstellen (Kl. 5, hart) · neu in Kl. 7 · wird weitergeführt in Kl. 8: koerper_symmetrie, rotation, axialschnitt, koordinaten"
   },
   {
    "spur": "rs_II_III",
@@ -33049,7 +33078,7 @@
    "spur": "rs_II_III",
    "thema": 92,
    "titel": "Pyramide, Kegel, Kugel",
-   "kette": "baut auf Kreisberechnungen (Kl. 9, hart); Satz des Pythagoras (Kl. 9, hart); Prismen und Zylinder (nicht in dieser Schulart) · neu in Kl. 10"
+   "kette": "baut auf Kreisberechnungen (Kl. 9, hart); Satz des Pythagoras (Kl. 9, hart); Prismen und Zylinder (Kl. 10) · neu in Kl. 10"
   },
   {
    "spur": "ib_standard",
@@ -33223,7 +33252,19 @@
    "spur": "gym_by",
    "thema": 101,
    "titel": "Prismen und Zylinder",
-   "kette": "baut auf Flächen von Parallelogramm, Dreieck und Trapez (Kl. 6); Volumen (Kl. 6); Kreisberechnungen (Kl. 8) · neu in Kl. 8"
+   "kette": "baut auf Flächen von Parallelogramm, Dreieck und Trapez (Kl. 6); Volumen (Kl. 6); Kreisberechnungen (Kl. 8) · neu in Kl. 8 · wird weitergeführt in Kl. 10: cavalieri"
+  },
+  {
+   "spur": "rs_I",
+   "thema": 101,
+   "titel": "Prismen und Zylinder",
+   "kette": "baut auf Flächen von Parallelogramm, Dreieck und Trapez (Kl. 6); Volumen (Kl. 6); Kreisberechnungen (Kl. 9) · neu in Kl. 9"
+  },
+  {
+   "spur": "rs_II_III",
+   "thema": 101,
+   "titel": "Prismen und Zylinder",
+   "kette": "baut auf Flächen von Parallelogramm, Dreieck und Trapez (Kl. 6); Volumen (Kl. 6); Kreisberechnungen (Kl. 9) · neu in Kl. 10"
   },
   {
    "spur": "gym_by",
@@ -33365,15 +33406,6 @@
    "braucht": 73,
    "art": "empfohlen",
    "kt": 4,
-   "kb": null,
-   "befund": "Voraussetzung ist in dieser Spur kein Lehrplanstoff"
-  },
-  {
-   "spur": "rs_II_III",
-   "thema": 92,
-   "braucht": 101,
-   "art": "empfohlen",
-   "kt": 10,
    "kb": null,
    "befund": "Voraussetzung ist in dieser Spur kein Lehrplanstoff"
   },
@@ -34189,7 +34221,6 @@
    79,
    80,
    84,
-   101,
    103
   ],
   "rs_II_III": [
@@ -34218,7 +34249,6 @@
    80,
    84,
    96,
-   101,
    103
   ],
   "ib_standard": [
@@ -34495,7 +34525,7 @@
    "spur": "gym_by",
    "klasse": null,
    "etappen": null,
-   "art": "andere Lage in rs_I (Kl. 8: 3 Et.), rs_II_III (Kl. 8: 3 Et.), ib_standard (Kl. 4: 3 Et.), ib_extended (Kl. 4: 3 Et.)",
+   "art": "andere Lage in rs_I (Kl. 8: 4 Et.), rs_II_III (Kl. 8: 4 Et.), ib_standard (Kl. 4: 3 Et.), ib_extended (Kl. 4: 3 Et.)",
    "teile_je_spur": {
     "gym_by": [
      {
@@ -34536,7 +34566,8 @@
       "etappen": [
        "summe_mal_summe",
        "binomisch",
-       "ausklammern"
+       "ausklammern",
+       "gleichungen_binomisch"
       ],
       "je_kind": {
        "1": 0,
@@ -34564,7 +34595,8 @@
       "etappen": [
        "summe_mal_summe",
        "binomisch",
-       "ausklammern"
+       "ausklammern",
+       "gleichungen_binomisch"
       ],
       "je_kind": {
        "1": 0,
@@ -35107,7 +35139,7 @@
    "spur": "gym_by",
    "klasse": null,
    "etappen": null,
-   "art": "andere Lage in rs_I (Kl. 8: 3 Et.)",
+   "art": "andere Lage in rs_I (Kl. 8: 4 Et.)",
    "teile_je_spur": {
     "gym_by": [
      {
@@ -35138,6 +35170,7 @@
      {
       "klasse": 8,
       "etappen": [
+       "koerper_symmetrie",
        "rotation",
        "axialschnitt",
        "koordinaten"
@@ -35165,6 +35198,71 @@
       "etappen": [
        "rotation",
        "axialschnitt"
+      ],
+      "je_kind": {
+       "1": 0,
+       "2": 0
+      }
+     }
+    ]
+   },
+   "flug_geschafft": []
+  },
+  {
+   "thema": 101,
+   "titel": "Prismen und Zylinder",
+   "spur": "gym_by",
+   "klasse": 10,
+   "etappen": [
+    "cavalieri"
+   ],
+   "art": "nur 1 Etappe(n) in späterer Klasse",
+   "teile_je_spur": {
+    "gym_by": [
+     {
+      "klasse": 8,
+      "etappen": [
+       "zylinder_oberflaeche",
+       "prisma_volumen",
+       "zylinder_volumen",
+       "sach",
+       "prisma_oberflaeche",
+       "prisma_umstellen",
+       "verstehen"
+      ],
+      "je_kind": {
+       "1": 0,
+       "2": 0
+      }
+     },
+     {
+      "klasse": 10,
+      "etappen": [
+       "cavalieri"
+      ],
+      "je_kind": {
+       "1": 0,
+       "2": 0
+      }
+     }
+    ],
+    "rs_I": [
+     {
+      "klasse": 9,
+      "etappen": [
+       "cavalieri"
+      ],
+      "je_kind": {
+       "1": 0,
+       "2": 0
+      }
+     }
+    ],
+    "rs_II_III": [
+     {
+      "klasse": 10,
+      "etappen": [
+       "cavalieri"
       ],
       "je_kind": {
        "1": 0,

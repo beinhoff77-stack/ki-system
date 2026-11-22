@@ -3015,3 +3015,7 @@ Freigabe Sebastian („Teilung in die Datenbank einspielen“), Prüfung Werksta
 - Neue Teile (Thema-ID): 276 Dreisatz T2, 277 Terme umformen T2, 278 Konstruktionen T2, 279/280 Kongruenzabbildungen T2/T3, 281 Zufall und Laplace T2, 282 Schrägbilder T2, 283 Prismen und Zylinder T2.
 - Offen für Sebastian (Liste je Kind): Kind 2 – „vom alten Thema gesetzt, jetzt offen“: 276, 279, 280; alle übrigen neuen Teile offen, nicht im Plan. Kind 1 – alle neuen Teile offen, nicht im Plan.
 - Visum-Übergang bleibt wie gebaut (dauerhaft); Sebastians ausdrückliche Bestätigung steht noch aus.
+
+## LIVE: App 0.89.1 (LW-2 + LW-2b) – 23.11., 00:35 Berlin
+
+`main` b8ffdd7 = `lernen-app` c941c33, Auslieferung erfolgreich. App-Tests 151 von 151. Prüfung Gestalter LW-2: 1 Muss (behoben in 0.89.1, eigener Test), nicht erneut vom Gestalter angesehen. Edge Function `lernen-api` bleibt 0.9.1.

@@ -2,6 +2,21 @@
 
 Neueste oben.
 
+## 2026-11-22 – FERTIG: LW-S 2 – Nacharbeit ChatGPT 934 (A1, A2)
+
+Zweig `bau-lehrer`, auf `lernen-app` e9a0d66. In der gelieferten, noch nicht eingespielten Datei korrigiert: `supabase/migrations/20261123_lw_s_wackelt_status.sql`; Test `supabase/tests/lw_s_rauchtest.sql`. Nichts eingespielt, kein DROP, kein DELETE. **Die Schnittstelle bleibt gleich.**
+
+- **A1:** „Neuer Fehler öffnet wieder“ richtet sich jetzt nach der endgültigen Wertung. Neue Hilfsfunktion `schule.fehler_endgueltig_am(versuch)` liefert, wann eine Antwort endgültig falsch wurde:
+  - falsche Testantwort und 2. Anlauf bzw. Antwort ohne zweite Chance: sofort;
+  - 1. Anlauf: nach 30 Minuten oder beim Weitergehen, je nachdem, was zuerst kommt (wie `versuch_wertung`);
+  - neutral, ersetzt oder noch offen: zählt nicht.
+  - `wackelt_fehler` und `wackelt_liste` benutzen beide diese Funktion. Verglichen wird mit dem Zeitpunkt, an dem die Antwort endgültig wurde. Darum öffnet auch ein Fehler, der vor dem Status gegeben, aber erst danach endgültig wurde.
+- **A2:** Zugangstest mit Lern-Zugängen, die der Test selbst anlegt (zufällige Schlüssel, Rollback).
+  - Abgelehnt: Kind-Zugang beim eigenen und beim fremden Kind (lesen und setzen), gesperrter Zugang, abgelaufene Sitzung.
+  - Erlaubt: Lehrer liest beide Testkinder und setzt; `status_von` = „lehrer:Name“.
+  - **Hinweis:** Laut `schule.sieht` sehen Eltern/Lehrer mit Lern-Zugang alle Kinder. Ein „fremdes Kind“ gibt es für sie nicht. Council-Schlüssel mit Kind-Freigabe (`schule.zugang`) habe ich nicht getestet, weil das echte Council-Zugänge bräuchte.
+- **Test** (lokal grün, Migration zweimal eingespielt): neu Teil 3 (offener 1. Anlauf öffnet nicht → durch Weitergehen endgültig → wieder „zu besprechen“; neutraler 2. Anlauf öffnet nicht) und Teil 6 (Zugänge).
+
 ## 2026-11-22 – FERTIG: FP-S 4 – Sperrreihenfolge Mischkarte (ChatGPT 932, Sollte 1 und 2)
 
 Zweig `bau-lehrer`, auf `lernen-app` 3f693c4. Nur Dateien, **nicht eingespielt**, kein DROP, kein DELETE, kein App-Code.

@@ -2,9 +2,12 @@
 -- Vorgabe inhalte/pruefung/lehrer/werkstatt/umsetzung.md, Abschnitt 1a). Unabhängig von LK-S und den WD/FP-Dateien; braucht LA-3 (schule.besprochen).
 --   1. Tabelle schule.wackelt_status: gespeicherter Status je Kind und Thema – bei Bedarf je Etappe (einheit_id + lernziel) –
 --      'zu_besprechen' | 'beobachten' | 'besprochen', mit Zeitpunkt (am) und wer (von).
---   2. Wirksamer Status: Gibt es nach dem gespeicherten Zeitpunkt eine neue endgültig falsche Antwort im selben Thema (bzw. in der Etappe),
+--   2. Wirksamer Status: Wird nach dem gespeicherten Zeitpunkt eine Antwort im selben Thema (bzw. in der Etappe) endgültig falsch,
 --      ist der Eintrag wieder 'zu_besprechen' (wieder_offen = true). Das wird beim Lesen ausgewertet – kein Trigger im Antwortweg, nichts wird
---      beim Antworten geschrieben. „Endgültig falsch“ wie LA-3: falsch, außer dem 1. Versuch mit zweiter Chance außerhalb eines Tests.
+--      beim Antworten geschrieben. LW-S 2 (ChatGPT 934, A1): „endgültig falsch“ nach der Wertung der Übung (schule.versuch_wertung = 'falsch',
+--      auch festgehalten in wertung_fest) bzw. falsche Testantwort; neutral/ersetzt/offen zählt nicht. Zeitpunkt = wann sie endgültig wurde
+--      (2. Anlauf/ohne zweite Chance/Test: sofort; 1. Anlauf: nach 30 Minuten oder beim Weitergehen, je nachdem was zuerst kam) – so öffnet auch ein
+--      Fehler, der vor dem Status gegeben, aber erst danach endgültig wurde.
 --   3. Ohne gespeicherten Status (Vorgabe, damit die Liste ab dem ersten Tag stimmt): 'zu_besprechen', wenn eine Etappe des Eintrags wackelt
 --      (wie in der App: nicht gelandet und wieder offen, oder mindestens 3 falsche und mehr falsche als richtige) und nicht als besprochen
 --      markiert ist (LA-3); 'besprochen', wenn alle Etappen mit Fehlern als besprochen markiert sind (LA-3); sonst 'beobachten'.
@@ -39,16 +42,31 @@ create table if not exists schule.wackelt_status (
 alter table schule.wackelt_status enable row level security; -- nur über die api-Funktionen (security definer), wie die übrigen schule-Tabellen
 comment on table schule.wackelt_status is 'LW-S: „Was wackelt“ – Status je Kind und Thema (bezug = '''') oder je Etappe (bezug = einheit_id:lernziel); neue endgültig falsche Antworten danach machen den Eintrag beim Lesen wieder „zu besprechen“';
 
+-- LW-S 2: Zeitpunkt, zu dem eine Antwort endgültig falsch wurde (null = nicht endgültig falsch: richtig, neutral, ersetzt, noch offen)
+create or replace function schule.fehler_endgueltig_am(v schule.versuch)
+ returns timestamptz language plpgsql stable set search_path to ''
+as $function$
+begin
+  if v.richtig then return null; end if;
+  if v.testsitzung_id is not null then return v.am; end if;                       -- falsche Testantwort
+  if schule.versuch_wertung(v) <> 'falsch' then return null; end if;              -- neutral, ersetzt, offen
+  if coalesce(v.anlauf, 0) <> 1 then return v.am; end if;                         -- 2. Anlauf oder ohne zweite Chance: sofort endgültig
+  return least(v.am + interval '30 minutes',                                       -- 1. Anlauf: nach 30 Minuten oder beim Weitergehen
+               (select min(n.am) from schule.versuch n where n.lernender_id = v.lernender_id and n.testsitzung_id is null and n.id <> v.id
+                   and (n.am, n.id) > (v.am, v.id) and not (n.aufgabe_id = v.aufgabe_id and n.anlauf = 2)));
+end $function$;
+revoke all on function schule.fehler_endgueltig_am(schule.versuch) from public, anon, authenticated;
+
 -- endgültig falsche Antworten eines Kindes im Thema (oder in einer Etappe), optional erst nach einem Zeitpunkt
 create or replace function schule.wackelt_fehler(p_l bigint, p_thema bigint, p_e bigint, p_lz text, p_seit timestamptz default null)
  returns table (anzahl bigint, zuletzt timestamptz) language sql stable set search_path to ''
 as $function$
-  select count(*), max(v.am)
-    from schule.versuch v join schule.aufgabe a on a.id = v.aufgabe_id join schule.einheit e on e.id = a.einheit_id
-   where v.lernender_id = p_l and e.thema_id = p_thema and not v.richtig
-     and not (coalesce(v.anlauf, 0) = 1 and v.testsitzung_id is null)            -- wie LA-3: 1. Versuch mit zweiter Chance zählt nicht
-     and (p_e is null or (a.einheit_id = p_e and a.variante_gruppe = p_lz))
-     and (p_seit is null or v.am > p_seit);
+  select count(*), max(x.am) from (
+    select v.am, schule.fehler_endgueltig_am(v) endgueltig_am
+      from schule.versuch v join schule.aufgabe a on a.id = v.aufgabe_id join schule.einheit e on e.id = a.einheit_id
+     where v.lernender_id = p_l and e.thema_id = p_thema and not v.richtig
+       and (p_e is null or (a.einheit_id = p_e and a.variante_gruppe = p_lz))) x
+   where x.endgueltig_am is not null and (p_seit is null or x.endgueltig_am > p_seit);   -- LW-S 2: nach der endgültigen Wertung
 $function$;
 revoke all on function schule.wackelt_fehler(bigint, bigint, bigint, text, timestamptz) from public, anon, authenticated;
 
@@ -59,7 +77,7 @@ as $function$
   with fe as (   -- Etappen mit endgültig falschen Antworten
     select e.thema_id, a.einheit_id, a.variante_gruppe lernziel, count(*) fehler, max(v.am) zuletzt
       from schule.versuch v join schule.aufgabe a on a.id = v.aufgabe_id join schule.einheit e on e.id = a.einheit_id
-     where v.lernender_id = p_l and not v.richtig and not (coalesce(v.anlauf, 0) = 1 and v.testsitzung_id is null)
+     where v.lernender_id = p_l and not v.richtig and schule.fehler_endgueltig_am(v) is not null   -- LW-S 2: endgültige Wertung
      group by 1, 2, 3),
   et as (        -- dazu Lage der Etappe
     select fe.*, coalesce(k.sitzt, false) sitzt,

@@ -1,78 +1,135 @@
 # Auswertung Prüfmaterial Gymnasium Bayern – Kl. 5 und Kl. 8
 
-Stand 2026-11-22. Grundlage: `katalog.json` (Zahlen per `_bau.py` gezählt). Kennzeichnung: **[G]** gesichert (aus der Quelle), **[A]** Annahme/eigene Einschätzung, **[O]** offen.
+Stand 2026-11-22, 2. Runde (Ziel 50 Arbeiten je Klasse). Grundlage: `katalog.json`, Zahlen per `_bau.py` gezählt. Kennzeichnung: **[G]** gesichert (aus der Quelle), **[A]** Annahme/eigene Einschätzung, **[O]** offen.
+
+Jede Arbeit hat jetzt das Feld `kategorie`:
+**A** Gymnasium Bayern · **B** Bayern amtlich, aber Realschule/Mittelschule · **C** Bundesland unbekannt/anders oder Verlag.
 
 ## 0 Bestand und Lücken
 
-| | Ziel | gefunden | davon Bayern sicher | davon echte Kl.-Schulaufgabe zum laufenden Stoff |
-|---|---|---|---|---|
-| Kl. 5 | ≥ 30 | **10 Arbeiten, 82 Aufgaben** | 1 (Grundwissentest-Muster) | 0 sicher; 8 Klassenarbeiten ohne Bundesland, 1 Kurzarbeit |
-| Kl. 8 | ≥ 30 | **29 Arbeiten, 350 Aufgaben** | 27 | 2 Verlagsmuster (STARK), 1 klassenarbeiten.de (3793) |
+| | Ziel | gefunden | A Gym Bayern | B Bayern RS/MS amtlich | C sonst |
+|---|---|---|---|---|---|
+| Kl. 5 | 50 | **53 Arbeiten, 829 Aufgaben** | 1 | 28 | 24 |
+| Kl. 8 | 50 | **51 Arbeiten, 541 Aufgaben** | 47 | 0 | 4 |
 
-- [G] **Ziel 30 je Klasse nicht erreicht.** Kl. 5 deutlich zu dünn; für Kl. 5 gibt es **keinen amtlichen Test** (Gym-Jahrgangsstufentests nur in 6, 7, 8, 10).
-- [G] 16 der 29 Kl.-8-Arbeiten sind **BMT8** = Grundwissen **Kl. 5–7**, geschrieben zu Beginn Kl. 8. Sie prüfen *nicht* den Kl.-8-Stoff. Für den Kl.-8-Stoff bleiben 13 Arbeiten (davon 3 BMT10-Auszüge, 3 Muster der Sigena-Tests, 2 Schultests am Jahresende, 2 STARK, 3 klassenarbeiten.de).
-- [G] Verteilung übers Jahr: Kl. 8 nur 1. SA belegt (STARK SA 1, Stegreif 2, 3793); 2.–4. SA nur indirekt über Jahrestests/Einstiegstests. Kl. 5: keine Arbeit mit sicherer Nummer.
-- [O] Fehlend: echte bayerische Schulaufgaben Kl. 5 (alle vier), Kl. 8 SA 2–4. Schul-Homepages veröffentlichen fast nur Grundwissen-Kataloge, keine Schulaufgaben. Weiter suchbar: STARK-Leseprobe Kl. 5 (nicht gefunden), Elternportale (keine frei zugänglichen gefunden).
+- [G] **Ziel 50 formal erreicht, aber mit Einschränkung.** Kl. 5 kommt nur mit **schulartfremden** amtlichen Tests auf 50: 18 Realschul-Jahrgangsstufentests 6 (2005–2025) und 10 Mittel-/Hauptschul-Jahrgangsstufenarbeiten 6. Sie prüfen den Kl.-5-Stoff ihrer Schulart zu Beginn Kl. 6 (21 bzw. 24 P, 45 min, ohne Taschenrechner, fast nur 1-P-Aufgaben).
+- [G] Für das **Gymnasium Kl. 5** gibt es weiter **keinen amtlichen Test**, und frei zugänglich ist **keine sicher bayerische Schulaufgabe**. Kategorie A hat nur den Sigena-Grundwissentest (Muster).
+- [G] Bei Kl. 8 sind 20 der 51 Arbeiten **BMT8** (Grundwissen Kl. 5–7, Beginn Kl. 8) und 18 **BMT10-Auszüge** (nur die Teilaufgaben mit Kl.-8-Stoff, je 3–11). Echte Arbeiten zum laufenden Kl.-8-Stoff: 13 (Schultests, STARK, klassenarbeiten.de).
+- [A] Die Zuordnung „Bayern“ für STARK 8 (Klassenarbeiten Mathe 8) ist eine Annahme, weil die Themen dem G8-Lehrplan folgen.
+- [G] Die alten RS/MS-Tests (bis 2016) enthalten Brüche, 15 Aufgaben. Diese sind auf `bruch.*` gemappt und als „Kl.-6-Stoff Gym“ markiert. Sie zählen in der Kl.-5-Statistik mit; das verfälscht Kl. 5 leicht.
+- [O] Fehlend: echte Gym-Schulaufgaben Kl. 5 (alle vier) und Kl. 8 SA 2–4 aus Bayern.
+  - Schul-Homepages veröffentlichen keine; Verlage zeigen nur Leseproben.
+  - klassenarbeiten.de führt 167 Kl.-5-Gym-Arbeiten, aber ohne Bundesland.
 
-## 1 Typischer Aufbau einer Schulaufgabe
+## 1 Typischer Aufbau
 
 | | Kl. 5 | Kl. 8 |
 |---|---|---|
-| Zeit | [A] 45 min übliche SA-Länge; nur GWT belegt: 25 min / 14 BE | [G] STARK SA 1: 45 min, 38 P; Schul-Jahrestests 40 min, 27–31 P; Stegreif 18 min, 23 P |
-| Punkte | [G] Klassenarbeiten 31–47 P (Median ca. 38) | [G] 27–38 P (SA/Test), Grundwissentests 15–21 BE |
-| Zahl der Aufgaben | [G] 5–12 Aufgaben, meist ~10 | [G] 3 Hauptaufgaben mit 10 Teilaufgaben (STARK); Tests 8–13 Teilaufgaben |
-| Niveau I / II / III (Punkteanteil) | [A] **31 / 64 / 5 %** | [A] Kl.-8-Stoff: **21 / 67 / 12 %**; BMT8: 18 / 59 / 23 % |
-| Kompetenz | [A] K5 (Rechnen/Formal) 49 %, K4 Darstellen 21 %, K3 Modellieren 13 %, Begründen/Problemlösen zusammen 11 % | [A] Kl.-8-Stoff: K5 59 %; BMT8: K1 Argumentieren 23 %, K3 12 % |
-| Hilfsmittel | [O] meist nicht angegeben | [G] fast immer **ohne Taschenrechner**; effner.de: ab Kl. 8 mind. eine SA ohne Hilfsmittel |
+| Zeit | [G] amtl. Tests 45 min. [A] Schulaufgabe 45 min (Klassenarbeiten meist ohne Angabe) | [G] BMT 40 min; Schultests 35–45 min; Stegreif 18 min |
+| Punkte | [G] Klassenarbeiten 23–47 P (Median ≈ 35); amtl. Tests 21/24 P | [G] Arbeiten 27–43 P; BMT 21 BE |
+| Aufgabenzahl | [G] Klassenarbeiten 6–13 Aufgaben mit 2–10 P; amtl. Tests 19–24 Einzelaufgaben à 1 P | [G] Arbeiten 4–11 Teilaufgaben à 2–6 P; BMT 14–17 Teilaufgaben à 1–2 P |
+| Niveau I/II/III (Punkte) | [A] alle 40/53/7 %; Kat B 41/51/8; Kat C 41/54/5 | [A] Kl.-8-Stoff (ohne BMT8) 21/62/17 %; BMT8 18/60/22 % |
+| Kompetenz (Anteil Aufgaben) | [A] K5 Rechnen 34 %, K4 Darstellen 23 %, K3 Modellieren 17 %, K2 Problemlösen 11 %, K1 Argumentieren 10 %, K6 Kommunizieren 5 % | [A] K5 48 %, K1 16 %, K4 12 %, K3 10 %, K6 7 %, K2 6 % |
+| Hilfsmittel | [G] amtliche Tests ohne Taschenrechner; sonst meist nicht angegeben | [G] fast immer ohne Taschenrechner |
 
-[G] Typische Merkmale: Teilaufgaben mit 3–7 P (mehrschrittig), ein Sachkontext zieht sich durch eine Hauptaufgabe (STARK SA 1: Schneefall, Elektriker), Zeichnen/Konstruieren gehört dazu, oft eine Wissensfrage (Definition, wahr/falsch).
+[G] Klassenarbeiten Kl. 5 behandeln meist **ein Thema** (z. B. Zahlensysteme, Maßstab, Geometrie). Die amtlichen Tests mischen 8–10 Themen mit Einzelaufgaben.
+[G] In Kl. 8 hat eine Hauptaufgabe oft einen durchgehenden Kontext, z. B. Regentonne (STARK KA 5, KA 3800) oder Mischungsaufgabe.
 
 ## 2 Häufigkeit nach Thema/Etappe (Top)
 
-**Kl. 5** (82 Aufgaben): zahlen.rechengesetze 16 (davon termaufbau 6), messen.flaechen 12 (rechteck 4, einheiten 3, sachaufgaben 3), zahlen.potenzen_basis 9, groessen.einheiten 8, zahlen.ganz 6, messen.koerper_berechnung 6, gleichungen.einfach 5, geometrie.grundbegriffe 5, zahlen.teilbarkeit 4. Selten: Winkel 1, Kombinatorik 1, Proportionalität 1, natürliche Zahlen 1. [A] Die Stichprobe ist klein und nicht bayerisch gesichert – Rangfolge nur Tendenz.
+**Kl. 5** (829 Aufgaben; Kat B macht 74 % aus):
+- Themen: zahlen.rechengesetze 138, zahlen.natuerlich 101, groessen.einheiten 97, messen.flaechen 89, geometrie.grundbegriffe 80, messen.koerper_berechnung 55, zahlen.ganz 46, teilbarkeit 33, gleichungen.einfach 32, daten.darstellen 32.
+- Häufigste Etappen:
+  - lagebeziehungen 32
+  - flaechen › rechteck 28
+  - rechengesetze › sach 25, termaufbau 22
+  - stellenwert 21, runden_regel 20
+  - massstab 19, flaechen › verstehen 19
+  - zeit 17, koordinaten 17
+- [A] In der App selten, in Arbeiten häufig:
+  - Kombinatorik (19×)
+  - Körper- und Netzaufgaben (55 + 14 Lücken)
+  - Schätzen (15×)
+  - Maßstab (19×)
 
-**Kl. 8, Kl.-8-Stoff** (Arbeiten ohne BMT8): gleichungen.bruch › hauptnenner 10, funktionen.linear (graph_ablesen, deuten, schnittpunkte, lage), funktionen.gebrochen (asymptoten, parameter je 4), gleichungen.lgs2 › verfahren 4, stochastik.grundbegriffe › laplace 4, terme.bruchterme (D, kürzen), Zylinder-Volumen schätzen 3, Kreis zusammengesetzt 3.
-**Kl. 8, BMT8 (Grundwissen 5–7)**: terme.umformen 23, terme.aufstellen 21, gleichungen.linear 20, daten.darstellen 20, groessen.einheiten 18 (davon **schätzen 8**, Maßstab 5), messen.flaechen_vielecke 15, geometrie.winkelsaetze 13, messen.volumen 12, geometrie.kreis 10, Prozent (bruch.prozent + prozent_grundwert) 18.
+**Kl. 8, Kl.-8-Stoff** (ohne BMT8, 236 Aufgaben): gleichungen.bruch › hauptnenner 13, funktionen.linear (deuten 9, graph_ablesen 8, schnittpunkte 4), stochastik.grundbegriffe (laplace 9, begriffe 6, gegenereignis 5), potenzgesetze_ganzzahlig › vereinfachen 7, funktionen.gebrochen (parameter 6, asymptoten 5), gleichungen.formeln › zwei_schritte 6, lgs2 › verfahren 5, Zylindervolumen 6.
+**Kl. 8, BMT8** (305 Aufgaben): terme.umformen/aufstellen, gleichungen.linear, daten.darstellen, groessen.einheiten (Schätzen 8, Maßstab 9), Prozent, Vielecksflächen, Winkelsätze, Volumen.
 
 ## 3 Aufgabentypen, die in der App fehlen oder selten sind
 
-Lücken (Vorschlag als neue Etappe, Thema in Klammern):
-- **Mit Termen beweisen** (gerade/ungerade, Teilbarkeit) – 3× BMT8 (terme.aufstellen)
-- **Bruchgleichung aus Text** (Zähler/Nenner verändern) aufstellen – 2× (gleichungen.bruch)
-- **Zahl in einer Gleichung passend wählen** (Lösung vorgegeben) – 2× (gleichungen.linear, Kl. 7)
-- **Tabellenkalkulation**: Formel lesen/ergänzen/Fehler finden – 3× seit 2022 (terme.aufstellen / daten.kennwerte) – [G] neuer BMT8-Trend
-- **Netz/Schrägbild des Quaders zeichnen**, Würfelnetz-Lage – 5× (messen.koerper_berechnung Kl. 5)
-- Eulerscher Polyedersatz 2×, Satz vom Nullprodukt 1×, Gerade spiegeln 1×, Kombinationen ohne Reihenfolge 1×, Mehrfachnennungen 1×
-- Kl. 5: Lösungsmenge aus Grundmenge, Ungleichung über N, Wertänderung eines Terms begründen, Rechengeschichte erfinden
+Lücken mit Vorschlag für eine neue Etappe (Häufigkeit in Klammern):
+- **Kl. 5**
+  - Zahlenfolgen fortsetzen (8)
+  - **Quadernetz zeichnen (7)**
+  - **Würfelnetz-Lage (7)**
+  - Schrägbild Quader (5)
+  - Ungleichung über N (4)
+  - Termwert bei Veränderung begründen (3)
+  - fehlende Angabe in Sachaufgabe (3)
+  - Einzelfälle: ggT, Ansichten, Gauß-Summe, Kreissektor, Quersummenregel begründen
+- **Kl. 8**
+  - Zahl in Gleichung passend wählen (3)
+  - Mit Termen beweisen (3)
+  - Bruchgleichung aus Text (2)
+  - Gerade spiegeln (2)
+  - Tabellenkalkulation (3)
+  - Mehrfachnennungen (2)
+  - Eulerscher Polyedersatz (2)
+  - Ungleichungssystem grafisch (1)
+  - Vierfeldertafel (1)
+- **Außerhalb des Lehrplans:**
+  - Kl. 5: Wahrscheinlichkeit (5, nur in RS/MS-Tests)
+  - Kl. 8: mehrstufige Zufallsexperimente und Pythagoras/Wurzeln (14, nur BMT10-Auszüge und Berlin)
 
-Selten in der App, häufig in Arbeiten [A]:
-- **Fermi-/Schätzaufgaben mit nachvollziehbarem Weg** (8× BMT8) – App prüft Ergebniswerte, nicht den Weg.
-- **Offene Aufgaben** („gib ein Beispiel an“, „Term mit diesen Asymptoten“), **Begründen/Beweisen** (K1: 23 % BMT8).
-- **Zeichnen/Konstruieren** (Kl. 5: 13 von 82 Aufgaben) – in der App nicht prüfbar.
-- **Mehrschrittige Sachaufgaben über 4–7 P** mit durchgehendem Kontext.
+[A] Formate, die die App kaum hat:
+- Ankreuzen mit Begründung, „Fehler finden“ (Kl. 5: 18×), offene „gib ein Beispiel an“
+- Zeichnen/Konstruieren (Kl. 5: 68×)
+- Schätzen mit Weg
 
-## 4 Etappen, die nie in Prüfungen vorkamen
+## 4 Etappen, die nie geprüft wurden
 
-[A] Nur Tendenz, weil die Stichprobe klein ist; „nie“ heißt „in diesen 39 Arbeiten nicht“.
-- **Kl. 5**: zahlen.natuerlich fast ganz (u. a. römische Zahlen, Dualsystem, Zahlenstrahl, unendlich); zahlen.teilbarkeit › endziffer/quersumme/neunerregel (Regeln nur indirekt geprüft); groessen.proportional alle Etappen außer einheit; geometrie.winkel 6 von 7; stochastik.kombinatorik 6 von 7; gleichungen.einfach › waage/probe/ohne_loesung.
-- **Kl. 8**: zahlen.intervalle (alle), gleichungen.ungleichungen (alle außer grafisch), terme.potenzgesetze_ganzzahlig (nur Vereinfachen geprüft), messen.koerper_darstellung (nur Prisma-Kanten, aus BMT8), prisma_zylinder › Oberflächen, kreisberechnung › Sektor/exakt, stochastik.grundbegriffe › gegenereignis/große Zahlen, funktionen.linear › wirkung/büschel.
-- [A] lgs2 › einsetzen/gleichsetzen/addition erscheinen als „nie“, weil Aufgaben das Verfahren freistellen (zugeordnet zu „verfahren“). Kein inhaltlicher Befund.
+[A] „Nie“ heißt: in diesen 53 bzw. 51 Arbeiten nicht.
+- **Kl. 5**:
+  - zahlen.natuerlich › unendlich
+  - zahlen.ganz › deuten
+  - rechengesetze › differenz_summe
+  - **groessen.proportional** erkennen/vervielfachen/pruefen/geschickt/aenderung (nur Dreisatz/Sach/Einheit geprüft)
+  - geometrie.winkel › um_punkt, uhr, figuren, verstehen
+  - ortslinien › zwei_kreise, sachsituationen
+  - kombinatorik › baumdiagramm, grenzen
+  - gleichungen.einfach › probe, ohne_loesung
+  - Seit Runde 1 neu belegt: römische Zahlen, Dualsystem, Zahlenstrahl, Teilbarkeitsregeln.
+- **Kl. 8**:
+  - lgs2 › einsetzen/gleichsetzen/grafisch/prüfen. [A] Die Aufgaben lassen das Verfahren meist frei, deshalb sind sie unter „verfahren“ gezählt.
+  - ungleichungen › umformen/intervall
+  - zahlen.intervalle › enthalten/beurteilen
+  - koerper_darstellung › netz/zylinder/ansichten
+  - kreisberechnung › exakt/sektor
+  - prisma_zylinder › umstellen/sach
+  - stochastik › rel_haeufigkeit/grosse_zahlen
+  - funktionen.linear › aufstellen/büschel
+  - indirekt › vervielfachen/sach
 
 ## 5 Reicht der Flug-Test (1 Testaufgabe je Etappe)?
 
-**Nein** [A, gestützt auf G]:
-- Umfang: ein Flug mit 5–9 Etappen gibt 5–9 Einzelaufgaben à ~1 P; eine SA hat 30–45 P in 45 min.
-- Mischung: SA prüft **2–4 Themen gemeinsam** (Katalog: `themen_gemeinsam`); der Flug-Test nur ein Thema.
-- Tiefe: SA-Teilaufgaben sind mehrschrittig (3–7 P), mit Kontext; Flug-Test-Aufgaben sind isolierte Einschritt-Checks.
-- Niveau: Niveau III (12–23 % der Punkte) und Begründen/Offen fehlen weitgehend.
-- Bedingungen: keine Zeit, Hilfen verfügbar, kein Taschenrechner-Verbot spürbar, kein Zeichnen.
-- Der Flug-Test ist als **Lernstands-Check je Etappe** sinnvoll, ersetzt aber keine Schulaufgaben-Probe.
+**Für Schulaufgaben nein, für den Grundwissenstest eher ja** [A, gestützt auf G]:
+- Die amtlichen Tests (BMT8, RS/MS-Tests) bestehen aus **vielen 1-Punkt-Einzelaufgaben** über 8–10 Themen. Das ähnelt dem Flug-Test. Ein **gemischter** Test aus mehreren Flügen käme dem nahe.
+- Schulaufgaben/Klassenarbeiten haben 6–11 Aufgaben à 2–10 P. Sie sind mehrschrittig, haben einen Kontext und enthalten Zeichnen und Begründen. Das deckt der Flug-Test nicht ab.
+- Niveau III hat 7 % (Kl. 5) bis 17–22 % (Kl. 8) der Punkte. K1/K2 machen 21 % (Kl. 5) bzw. 22 % (Kl. 8) der Aufgaben aus; im Flug-Test kommen sie kaum vor.
+- Bedingungen fehlen: Zeitlimit, keine Hilfen, kein Taschenrechner.
 
 ## 6 Vorschlag „Schulaufgaben-Training“ (nur Vorschlag, nichts gebaut)
 
-1. **Probe-Schulaufgabe je Schulaufgaben-Block**: alle Flüge des Lernbereichs (z. B. Kl. 8 SA 1 = M8 1 + M8 2) gemischt, 45 min Timer, 30–40 P, 8–12 Teilaufgaben, Verteilung ca. 25 / 60 / 15 % (I/II/III), Notenschlüssel am Ende, keine Hilfen während der Probe.
-2. **Mehrschritt-Aufgaben** aus Etappenketten mit gemeinsamem Kontext (z. B. Gerade aufstellen → Nullstelle → Schnittpunkt), Teilpunkte pro Schritt.
-3. **Neue Aufgabenformen**: „Gib ein Beispiel an“, Wahr/falsch mit Begründung (Auswahl der Begründung), Fehler finden, Schätzen mit Spannweite, Tabellenkalkulationsformeln.
-4. **Grundwissen-Mix** vor BMT8 (Ende Kl. 7/Beginn Kl. 8) und vor schulinternen Grundwissentests (Beginn Kl. 6/9): 21 BE, 40 min, ohne Taschenrechner, Themen Kl. 5–7 gemischt.
-5. **Zeichen-/Konstruktionsaufgaben** als Papier-Aufgabe mit Selbstkontrolle (Musterbild vergleichen), da nicht automatisch prüfbar.
-6. Die Lücken aus Abschnitt 3 als neue Etappen prüfen (Auftrag an Inhalte-Chat).
+1. **Probe-Schulaufgabe je SA-Block**
+   - alle Flüge des Lernbereichs gemischt
+   - 45 min, 30–40 P, 6–11 Aufgaben
+   - Verteilung ca. 25/60/15 % (Kl. 8) bzw. 40/53/7 % (Kl. 5)
+   - Notenschlüssel, keine Hilfen
+2. **Grundwissen-Test** im amtlichen Stil
+   - 20–24 Einzelaufgaben à 1 P, 40–45 min, ohne Taschenrechner, Themen gemischt
+   - für Kl. 5 → Beginn Kl. 6 und für BMT8
+   - Die 18 RS-Tests und 20 BMT8 liefern dafür ein gutes Raster.
+3. **Mehrschritt-Aufgaben** mit Kontext aus Etappenketten (z. B. Füllvorgang → Funktion → Zeitpunkt), Teilpunkte je Schritt.
+4. **Neue Formate**: „Gib ein Beispiel an“, Wahr/falsch mit Begründung, Fehler finden, Schätzen mit Spannweite.
+5. **Zeichnen/Netze/Schrägbilder** als Papieraufgabe mit Musterbild zur Selbstkontrolle.
+6. Lücken aus §3 als neue Etappen prüfen (Auftrag an den Inhalte-Chat). Vorrang: Netze/Würfelnetz und Zahlenfolgen (Kl. 5), Beweisen mit Termen und Zahl passend wählen (Kl. 8).

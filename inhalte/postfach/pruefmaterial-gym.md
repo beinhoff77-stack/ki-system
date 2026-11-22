@@ -11,3 +11,12 @@ Zweig `pruefmaterial-gym` (von lernen-app), nur `inhalte/pruefmaterial/gym/` + d
 - Kernbefund: Flug-Test (1 Aufgabe je Etappe) reicht nicht als SA-Vorbereitung; Vorschlag „Schulaufgaben-Training“ in `auswertung.md` §6.
 - 33 Aufgaben als Lücke/außerhalb markiert (u. a. Beweisen mit Termen, Tabellenkalkulation, Quadernetz, Bruchgleichung aus Text).
 - Niveau I/II/III und Kompetenz = eigene Einschätzung.
+
+## FERTIG: PM Gym Runde 2 – Ziel 50 (22.11.)
+
+- Bestand: Kl. 5 **53 Arbeiten / 829 Aufgaben**, Kl. 8 **51 Arbeiten / 541 Aufgaben** – Ziel 50 formal erreicht.
+- Neues Feld `kategorie`: A Gym Bayern · B Bayern amtlich RS/MS · C sonst.
+  - Kl. 5: A 1, B 28, C 24. Kl. 5 erreicht 50 nur mit Realschul-/Mittelschul-Tests Jgst. 6; eine echte bayerische Gym-SA Kl. 5 ist weiter nicht frei verfügbar.
+  - Kl. 8: A 47 (20 BMT8, 18 BMT10-Auszüge), C 4. Zum laufenden Kl.-8-Stoff gibt es nur 13 echte Arbeiten.
+- Neue Lücken-Schwerpunkte: Quader-/Würfelnetze, Zahlenfolgen (Kl. 5); Zahl in Gleichung passend wählen, Beweisen mit Termen (Kl. 8).
+- `auswertung.md`, `quellen.md` neu; Daten der 2. Runde in `_daten2.py`.

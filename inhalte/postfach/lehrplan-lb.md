@@ -2,6 +2,32 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG NT-D und Thema 57 (lehrplan-lb)
+
+Grundlage: `lernen-app` 0149e285: „Bau-Auftrag NT“ (NT-D) mit der Fehlliste aus „FERTIG: NT-S“ und „Rückläufer ChatGPT 947–950“ (An lehrplan-lb). Nichts eingespielt.
+
+- **Sicherungs-Aufgaben nach der Fehlliste**, je Etappe mindestens zwei Aufgabentypen:
+  - 46 `punktspiegelung` +9 (6 → 15)
+  - 91 `rotation` +3, `axialschnitt` +3 (→ je 9)
+  - 101 `cavalieri` +9 (6 → 15)
+  - 44 `vierecke` +3, `vierecke_konstruieren` +3 (→ je 9)
+  - 30 `potenz_begriff` +3 (→ 9), `negativer_exponent` +2 (→ 9)
+- **Ohne neue Aufgaben:** Die Etappen, die NT-S mit „0 vorhanden“ zählte (`darstellen`, `wahre_groesse`, `raumwinkel`, `gleichungen_binomisch`, `vektor_koordinaten`, `vektor_drehen`, `koerper_symmetrie`), bringen mit `lk_einspiel_2211.sql` je 6 Sicherungen mit. Das deckt den Bedarf von 6.
+- **57 `irrefuehrend`:** 9 neue Übungen (Stufe 1–3) zu „verzerrte Diagramme berichtigen/verbessern“: Achse ab 0 neu zeichnen, ehrliche Säulenhöhen, Zeitachse, Bildsymbole, Kreissektor, 3D-Kreisdiagramm.
+- **Inhalte:** `inhalte/generatoren/_nt_2211.py`, eingehängt am Ende der sechs Generatoren; diese erzeugen die Dateien unverändert.
+  - Texte selbst formuliert, Lösungen berechnet.
+  - Prüfskript ohne Fehler, Tests 141/141.
+- **SQL:** `inhalte/pruefung/lehrplan/nt_einspiel_2211.sql`, 44 Aufgaben (35 Sicherung), nur INSERT über `aufgaben_einfuegen`, wiederholbar.
+- **Reihenfolge:** **nach** `lk_einspiel_2211.sql` (sonst bricht es bei 101 `cavalieri` mit Hinweis ab), am besten **vor** TL-S.
+  - Es läuft auch nach TL-S: Es sucht die Einheit, deren Etappen-Katalog die Etappe enthält (Thema oder Teil über `teil_stamm`).
+- **Probelauf** auf einer Kopie der betroffenen Einheiten mit den echten Schutz-Triggern und `aufgaben_einfuegen`:
+  - ohne LK-Einspiel: Abbruch mit Hinweis;
+  - danach Lauf 1: +44, Lauf 2: 0; Einheiten unverändert;
+  - Weg nach der Teilung nachgestellt (Einheit unter Teil-Thema): gefunden.
+- **Hinweis:** `lk_einspiel_2211.sql` habe ich nicht neu erzeugt; es bleibt wie geliefert. Neu erzeugt würde es die NT-Aufgaben zu `cavalieri` und `vierecke_konstruieren` mitnehmen. NT-D fügt sie dann nicht doppelt ein.
+
+FERTIG: NT-D
+
 ## 2026-11-22 – MELDUNG LK-D Einspiel (lehrplan-lb)
 
 Grundlage: `lernen-app` 2da31319, „Probelauf TL-S 4 (18:55)“, letzter Punkt. Nichts eingespielt.

@@ -1011,3 +1011,9 @@ if __name__ == '__main__':
     from _lk_etappen_2211 import lk_anhaengen
     lk_anhaengen('messen.prisma_zylinder')
 # ---- LK ENDE ----
+
+# ---- NT-D (22.11., siehe _nt_2211.py): zuletzt, hängt nur Aufgaben an ----
+if __name__ == '__main__':
+    from _nt_2211 import nt_anhaengen
+    nt_anhaengen('messen.prisma_zylinder')
+# ---- NT ENDE ----

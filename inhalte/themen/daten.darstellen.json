@@ -6670,6 +6670,183 @@
    "c": "(4 - 2) / 2 * 100",
    "w": "Richtig wäre die doppelte Fläche. Das Quadrat hat aber 2 · 2 = 4-fache Fläche – doppelt so viel wie richtig, also 100 % zu viel.",
    "h": "Wie verändert sich die Fläche eines Quadrats, wenn beide Seiten doppelt so lang werden?"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Du zeichnest ein Säulendiagramm richtig neu: Die Hochachse beginnt bei 0, 1 cm steht für 10 Stimmen. Wie hoch wird die Säule für 40 Stimmen?"
+   },
+   "w": "40 : 10 = 4, also 4 cm. Weil die Achse bei 0 beginnt, sind die Höhen echt vergleichbar.",
+   "g": "direkt",
+   "h": "Teile den Wert durch 10.",
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "40 / 10"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Hochachse eines Säulendiagramms beginnt bei 90, die Werte sind 92 und 98. Wie verbesserst du das Diagramm?"
+   },
+   "w": "Damit die Säulenhöhen den Werten entsprechen, muss die Achse bei 0 beginnen – oder die Lücke muss deutlich mit einem Achsenbruch markiert werden.",
+   "g": "erkennen",
+   "h": "Wo muss eine Hochachse beginnen?",
+   "a": [
+    "Die Achse bei 0 beginnen lassen.",
+    "Die Säulen breiter machen.",
+    "Die Werte runden.",
+    "Die Säulen farbig machen."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Zeichne ehrlich neu: Die Achse beginnt bei 0, 1 cm steht für 30 Stück. Wie hoch werden die Säulen für 120 und 150 Stück?",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "je eine ganze Zahl"
+   },
+   "w": "120 : 30 = 4 cm und 150 : 30 = 5 cm. Jetzt ist die zweite Säule nur 1/4 höher – genau wie die Werte.",
+   "g": "mehrschritt",
+   "h": "Teile jeden Wert durch 30.",
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   }
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einer Zeitachse stehen 2010, 2015, 2016 und 2020 in gleichen Abständen von 5 cm. Richtig wäre 1 cm pro Jahr. Wie lang muss der Abstand von 2015 bis 2016 werden?"
+   },
+   "w": "Zwischen 2015 und 2016 liegt ein Jahr, also 1 cm (statt 5 cm). Gleiche Abstände für ungleiche Zeiträume verzerren den Verlauf.",
+   "g": "einkleidung",
+   "h": "Wie viele Jahre liegen dazwischen?",
+   "o": {
+    "wert": 1,
+    "einheit": "cm"
+   },
+   "c": "2016 - 2015"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einem Bilddiagramm soll Laden B doppelt so viel verkaufen wie Laden A. Wie stellst du das ehrlich dar?"
+   },
+   "w": "Doppelt so viele gleich große Symbole verdoppeln die Fläche genau. Ein Symbol mit doppelter Höhe und Breite hätte die vierfache Fläche.",
+   "g": "darstellung",
+   "h": "Achte auf die Fläche der Bilder.",
+   "a": [
+    "Das Symbol von B wird doppelt so hoch und doppelt so breit.",
+    "B bekommt doppelt so viele gleich große Symbole.",
+    "Das Symbol von B wird dreimal so groß.",
+    "B bekommt eine andere Farbe."
+   ],
+   "o": {
+    "index": 1
+   }
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Lea verbessert ein Diagramm: Achse ab 0, Säule A (80 Punkte) ist 4 cm hoch. Säule B (90 Punkte) zeichnet sie 6 cm hoch. Wie hoch muss B richtig sein?"
+   },
+   "w": "4 cm stehen für 80, also 1 cm für 20. 90 : 20 = 4,5 cm. Leas 6 cm übertreiben den Unterschied.",
+   "g": "fehler",
+   "h": "Wie viele Punkte stehen für 1 cm?",
+   "o": {
+    "wert": 4.5,
+    "einheit": "cm"
+   },
+   "c": "90 / (80 / 4)"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Kreisdiagramm ist ein Anteil von 25 % als Sektor mit 120° gezeichnet. Mit welchem Winkel ist er richtig?"
+   },
+   "w": "25 % von 360° sind 90°. Der gezeichnete Sektor mit 120° ist zu groß.",
+   "g": "transfer",
+   "h": "Der ganze Kreis hat 360°.",
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "360 * 25 / 100"
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum ist ein schräg gekipptes 3D-Kreisdiagramm oft irreführend, und wie verbesserst du es?"
+   },
+   "w": "Durch das Kippen wirken die vorderen Stücke größer als die hinteren. Ein flaches Kreisdiagramm zeigt die Anteile unverzerrt.",
+   "g": "begruenden",
+   "h": "Welche Stücke sieht man größer?",
+   "a": [
+    "Es hat zu viele Farben – besser grau zeichnen.",
+    "Es ist zu klein – besser größer zeichnen.",
+    "Vordere Stücke wirken größer – besser flach zeichnen.",
+    "Es fehlt eine Hochachse – besser eine ergänzen."
+   ],
+   "o": {
+    "index": 2
+   }
+  },
+  {
+   "l": "irrefuehrend",
+   "t": "irrefuehrend",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem ehrlich gezeichneten Säulendiagramm steht 1 cm für 20 €. Eine Säule ist 7,5 cm hoch. Welchen Wert zeigt sie?"
+   },
+   "w": "7,5 · 20 € = 150 €.",
+   "g": "rueckwaerts",
+   "h": "Multipliziere die Höhe mit dem Wert für 1 cm.",
+   "o": {
+    "wert": 150,
+    "einheit": "€"
+   },
+   "c": "7.5 * 20"
   }
  ],
  "offen": [

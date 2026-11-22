@@ -9104,6 +9104,116 @@
     "einheit": "°"
    },
    "c": "(10 - 2) * 180 / 10"
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck mit den Seiten 5 cm und 8 cm dreht sich um die 5-cm-Seite. Welchen Radius hat der entstehende Zylinder?"
+   },
+   "w": "Die 5-cm-Seite liegt auf der Achse und wird zur Höhe; die 8-cm-Seite steht senkrecht dazu und wird zum Radius: r = 8 cm.",
+   "o": {
+    "wert": 8,
+    "einheit": "cm"
+   },
+   "c": "8"
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Halbkreis dreht sich um seinen Durchmesser. Welcher Körper entsteht?"
+   },
+   "w": "Jeder Punkt des Bogens beschreibt einen Kreis um die Achse; zusammen ergibt das eine Kugel.",
+   "a": [
+    "ein Kegel",
+    "eine Kugel",
+    "ein Zylinder",
+    "eine Halbkugel"
+   ],
+   "o": {
+    "index": 1
+   }
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck mit den Katheten 4 cm und 10 cm dreht sich um die 10-cm-Kathete. Gib Radius und Höhe des Kegels an.",
+    "schablone": "r = □ cm; h = □ cm",
+    "hinweis": "je eine ganze Zahl"
+   },
+   "w": "Die Kathete auf der Achse (10 cm) wird zur Höhe, die andere (4 cm) zum Radius.",
+   "o": {
+    "werte": [
+     4,
+     10
+    ]
+   }
+  },
+  {
+   "l": "axialschnitt",
+   "t": "axialschnitt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder hat r = 6 cm und h = 10 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
+   },
+   "w": "Der Axialschnitt ist ein Rechteck aus Durchmesser und Höhe: 12 cm · 10 cm = 120 cm².",
+   "o": {
+    "wert": 120,
+    "einheit": "cm²"
+   },
+   "c": "2 * 6 * 10"
+  },
+  {
+   "l": "axialschnitt",
+   "t": "axialschnitt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Form hat der Axialschnitt eines geraden Kreiskegels?"
+   },
+   "w": "Der Schnitt durch die Achse trifft die Spitze und einen Durchmesser der Grundfläche: ein gleichschenkliges Dreieck.",
+   "a": [
+    "ein gleichschenkliges Dreieck",
+    "ein Rechteck",
+    "ein Kreis",
+    "ein Trapez"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "axialschnitt",
+   "t": "axialschnitt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Zylinder hat r = 3 cm und h = 7 cm. Welche Seitenlängen hat das Rechteck des Axialschnitts?",
+    "schablone": "□ cm × □ cm",
+    "hinweis": "erst die Breite (Durchmesser), dann die Höhe"
+   },
+   "w": "Eine Seite ist der Durchmesser 2 · 3 = 6 cm, die andere die Höhe 7 cm.",
+   "o": {
+    "werte": [
+     6,
+     7
+    ]
+   }
   }
  ],
  "offen": [

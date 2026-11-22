@@ -2412,6 +2412,94 @@
    },
    "c": "-2 + 0 * 6**2",
    "w": "36 = 6², also 1/36 = 1/6² = 6⁻². Der Exponent ist −2."
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−3)³."
+   },
+   "w": "(−3)³ = (−3) · (−3) · (−3) = −27. Drei Minuszeichen: ungerade Anzahl, also negativ.",
+   "o": {
+    "wert": -27
+   },
+   "c": "(-3) ** 3"
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Was bedeutet 5⁴?"
+   },
+   "w": "Die Hochzahl gibt an, wie oft die Basis mit sich selbst malgenommen wird: 5⁴ = 5 · 5 · 5 · 5 = 625.",
+   "a": [
+    "5 · 5 · 5 · 5",
+    "5 · 4",
+    "4 · 4 · 4 · 4 · 4",
+    "5 + 5 + 5 + 5"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "potenz_begriff",
+   "t": "potenz_begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne (3/4)².",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "w": "Zähler und Nenner quadrieren: 3² / 4² = 9/16.",
+   "o": {
+    "werte": [
+     9,
+     16
+    ]
+   }
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 10⁻³ als Dezimalzahl."
+   },
+   "w": "10⁻³ = 1/10³ = 1/1 000 = 0,001.",
+   "o": {
+    "wert": 0.001
+   },
+   "c": "10 ** -3"
+  },
+  {
+   "l": "negativer_exponent",
+   "t": "negativer_exponent",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 4⁻².",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "w": "4⁻² = 1/4² = 1/16.",
+   "o": {
+    "werte": [
+     1,
+     16
+    ]
+   }
   }
  ],
  "offen": [

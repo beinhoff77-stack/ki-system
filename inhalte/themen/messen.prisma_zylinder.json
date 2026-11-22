@@ -9726,6 +9726,163 @@
     "einheit": "cm³"
    },
    "c": "22 * 4"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefes Prisma hat die Grundfläche G = 18 cm² und die Höhe h = 4 cm. Berechne sein Volumen."
+   },
+   "w": "Nach Cavalieri gilt auch für schiefe Prismen V = G · h = 18 · 4 = 72 cm³.",
+   "o": {
+    "wert": 72,
+    "einheit": "cm³"
+   },
+   "c": "18 * 4"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefes Prisma hat die Grundfläche G = 25 cm² und die Höhe h = 6 cm. Berechne sein Volumen."
+   },
+   "w": "Nach Cavalieri gilt auch für schiefe Prismen V = G · h = 25 · 6 = 150 cm³.",
+   "o": {
+    "wert": 150,
+    "einheit": "cm³"
+   },
+   "c": "25 * 6"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefes Prisma hat die Grundfläche G = 9 cm² und die Höhe h = 11 cm. Berechne sein Volumen."
+   },
+   "w": "Nach Cavalieri gilt auch für schiefe Prismen V = G · h = 9 · 11 = 99 cm³.",
+   "o": {
+    "wert": 99,
+    "einheit": "cm³"
+   },
+   "c": "9 * 11"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefer Zylinder hat das Volumen 96 cm³ und die Grundfläche 12 cm². Wie hoch ist er?"
+   },
+   "w": "V = G · h, also h = V : G = 96 : 12 = 8 cm.",
+   "o": {
+    "wert": 8,
+    "einheit": "cm"
+   },
+   "c": "96 / 12"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein schiefer Zylinder hat das Volumen 150 cm³ und die Grundfläche 25 cm². Wie hoch ist er?"
+   },
+   "w": "V = G · h, also h = V : G = 150 : 25 = 6 cm.",
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "150 / 25"
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Körper haben in jeder Höhe gleich große Querschnittsflächen und sind gleich hoch. Was folgt nach Cavalieri?"
+   },
+   "w": "Das Prinzip von Cavalieri: gleiche Querschnitte in jeder Höhe und gleiche Höhe ergeben gleiches Volumen – die Form darf verschieden sein.",
+   "a": [
+    "Sie haben das gleiche Volumen.",
+    "Sie haben die gleiche Oberfläche.",
+    "Sie sind deckungsgleich.",
+    "Der schiefere Körper hat mehr Volumen."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Stapel Münzen wird schräg geschoben. Was bleibt gleich?"
+   },
+   "w": "Jede Münze behält ihre Fläche und die Stapelhöhe ändert sich nicht. Deshalb bleibt das Volumen gleich, auch wenn der Stapel schief steht.",
+   "a": [
+    "die Oberfläche",
+    "die Länge der Seitenkante",
+    "die Form der Seitenfläche",
+    "das Volumen"
+   ],
+   "o": {
+    "index": 3
+   }
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein gerades und ein schiefes Prisma haben beide G = 14 cm² und die Höhe 5 cm. Berechne beide Volumen.",
+    "schablone": "gerade: □ cm³; schief: □ cm³",
+    "hinweis": "je eine ganze Zahl"
+   },
+   "w": "Beide: V = G · h = 14 · 5 = 70 cm³. Die Schräge ändert das Volumen nicht.",
+   "o": {
+    "werte": [
+     70,
+     70
+    ]
+   }
+  },
+  {
+   "l": "cavalieri",
+   "t": "cavalieri",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein schiefer Zylinder hat den Radius 2 cm und die Höhe 9 cm. Schreibe sein Volumen als Vielfaches von π.",
+    "schablone": "V = □ · π cm³",
+    "hinweis": "eine ganze Zahl"
+   },
+   "w": "G = π · 2² = 4π cm². V = G · h = 4π · 9 = 36π cm³.",
+   "o": {
+    "werte": [
+     36
+    ]
+   }
   }
  ],
  "offen": [

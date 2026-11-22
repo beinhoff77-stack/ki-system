@@ -2651,3 +2651,23 @@ Sebastian: „Du musst die bestehenden erledigten Sachen der Kinder beachten …
 - **`lehrplan-lb` (in LK-D):** Liste aller Themen, die nach dieser Regel geteilt werden: Thema, Klassen, Etappen je Teil, Titelvorschlag je Teil, Voraussetzung (Teil 2 braucht Teil 1), Stand je Kind (nur Nummern). Dazu Grenzfälle (genau 3 Etappen, andere Lage in RS/IB) mit Empfehlung „teilen“ / „zusammen lassen“. Sebastian entscheidet die Liste.
 - **Chat `reise-aufbau`:** nach der Liste den Vorschlag ergänzen – je neuem Flug ein Nachbarland mit Städten (aus der Reserve), Skript-Prüfung wie bisher.
 - **`bau-lehrer`:** Teilen als wiederholbares Verfahren (Thema anlegen, Etappen/Aufgaben/Lernstand umhängen, Voraussetzung setzen, Vorher/Nachher je Kind) – als Funktion oder Vorlage, noch nichts einspielen.
+
+## Bau-Auftrag LW – „Unser Lehrplan“ (22.11., 14:30 Berlin) · Sebastian hat freigegeben („das setzen wir so um“)
+
+**Vorgabe (gilt):** `inhalte/pruefung/lehrer/werkstatt/umsetzung.md`, Entwurf zum Anklicken `inhalte/pruefung/lehrer/werkstatt/entwurf/unser-lehrplan.html`, Bilder `werkstatt/bilder/` – in `lernen-app` übernommen (Stand Gestalter-Zweig 22.11.).
+
+### LW-App · an `bau-motivation` (einziger Chat am App-Code) – drei Schritte, je eigene Version
+- **LW-1 (0.88.0):** Kind-Seite mit Reitern **Überblick · Was wackelt · Lehrplan**. „Lehrplan“ ersetzt Stand und Plan (alte Links `-stand`/`-plan` führen dorthin). Matrix + Fahrplan links + Detail als Schublade, Zeigen-Filter, Klassen-Mehrfachauswahl, fertige Klassen eingeklappt, Ringe je Schule, Tablet/Handy.
+- **LW-2 (0.89.0):** Ziehen Matrix → Fahrplan und zurück (zurück = aus dem Plan, mit Rückgängig). Warnungen bei harten Voraussetzungen (3 Fälle, Abschnitt 4a) mit Reparieren-Knopf, keine Sperre. Farben nach Abschnitt 3: gerade dran blau, im Plan hellgelb, Wiederholung hellgrün, fertig durchsichtig, eigene Schule weiß, nur andere Schule grau.
+- **LW-3 (0.90.0, braucht LW-S):** Kinder-Umschalter im Kopf (Reiter bleibt beim Wechsel), Überblick-Karten mit Sprüngen, „Was wackelt“ als Arbeitsliste (Zu besprechen / Beobachten / Besprochen).
+- **Prüfen nach jedem Schritt:** 400 / 820 / 1280; keine Funktion aus „Plan“ verloren (Auswählen, Sammelaktion, Rückgängig, Konflikt „Neu laden“, Wieder in die Wiederholung); Stand-Zahlen gleich wie unter Nachschlagen → Lehrplan. Testkind und erfundene Daten, keine echten Kinderdaten. Tests ergänzen, Info-Seite anpassen.
+- Meldung je Schritt: „FERTIG: LW-1“ / „LW-2“ / „LW-3“ mit Versionsnummer. Merge auf `main` erst nach Sebastians „Live“. Die Prüfung nach dem Bau übernimmt der Gestalter.
+
+### LW-S · an `bau-lehrer` (Server für LW-3; Datei, nicht einspielen)
+Migration `supabase/migrations/20261123_lw_s_wackelt_status.sql`: gespeicherter Status je Kind und Thema (bei Bedarf je Etappe, siehe Vorgabe Abschnitt 1a) für „Was wackelt“: `zu_besprechen` | `beobachten` | `besprochen`, mit Zeitpunkt und wer; neue Fehler im selben Thema setzen einen Eintrag wieder auf „zu besprechen“. Aktionen `schule_wackelt_lesen` / `schule_wackelt_setzen` mit Zugriffsprüfung (nur Eltern/Lehrer), Zahl „zu besprechen“ für den Reiter. Rauchtest (Testkind). Lernstand, Stufen, Plan, Sterne unverändert. Kein DROP, kein DELETE. Meldung: „FERTIG: LW-S“ mit Schnittstelle.
+
+### Zusammenspiel LW und LK (wichtig)
+- **Reihenfolge App:** LW-1 → LW-2 → LW-3 → danach **LK-App** (Thema in mehreren Klassen) auf der neuen Lehrplan-Seite. LK-App wird also nicht mehr in die alte Matrix gebaut.
+- **Gestalter:** „Vorgabe LK“ ist eine Ergänzung derselben Vorgabe-Datei (Karte „weitergeführt“, „Baut auf“/„Geht weiter in“, Abdeckung nach Stunden, geteilte Themen als zwei Flüge). Sie darf LW-1/2 nicht aufhalten.
+- **Server:** LK-S und LW-S sind getrennte Dateien; beide dürfen parallel entstehen.
+- Warnungen bei Voraussetzungen (LW-2) nutzen später die Aufbau-Daten aus LK („Baut auf“).

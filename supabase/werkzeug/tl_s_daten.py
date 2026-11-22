@@ -3,14 +3,15 @@
 # erzeugt den Datenblock für TL-S aus inhalte/pruefung/lehrplan/lk_teilung_2211.json
 import json, re, sys
 j = json.load(open(sys.argv[1]))
-SA = {'gym': 'gym_by', 'rs_I': 'rs_by', 'ib_standard': 'ib_myp'}          # DB kennt nur gym_by / rs_by / ib_myp
+SA = {'gym': 'gym_by', 'rs_I': 'rs_by', 'ib_standard': 'ib_myp'}          # Schulart (Klassen)
+GR = {'gym': 'gym_by', 'rs_I': 'rs_I', 'rs_II_III': 'rs_II_III', 'ib_standard': 'myp_standard', 'ib_extended': 'myp_extended'}   # Gruppen (T1)
 def kl(v): return v[0] if isinstance(v, list) and v else (v if not isinstance(v, list) else None)
 plan = []
 for t in j['teilungsliste']:
     teile = []
     for p in t['teile']:
         et = [e['lernziel'] for e in p['etappen']]
-        zus = sorted({SA[k] for k, v in p['zusatz'].items() if v and k in SA})
+        zus = sorted({GR[k] for k, v in p['zusatz'].items() if v and k in GR})   # T1: fünf Gruppen
         # Kür je Etappe und Schulart (LK-D 4: etappen[].kuer_in) → Pflicht-Etappen je Schulart; ohne Angabe: keine Abweichung
         pj = {}
         if any('kuer_in' in e for e in p['etappen']):   # Schlüssel je Gruppe (Regel: Gruppe vor Schulart)
@@ -30,7 +31,7 @@ for k in j['kanten']:
     if a in ids or b in ids:
         # „Zusatz“ heißt: der abhängige Teil ist in dieser Schulart Zusatz – die Kante bleibt wie sie ist (kein Abweichen nach „empfohlen“);
         # nur ausdrückliches „hart“/„empfohlen“ weicht je Schulart ab. Voraussetzung Zusatz → empfohlen regelt die Migration selbst.
-        js = {SA[s_]: v for s_, v in (k.get('art_je_schulart') or {}).items() if v in ('hart', 'empfohlen') and s_ in SA}
+        js = {GR[s_]: v for s_, v in (k.get('art_je_schulart') or {}).items() if v in ('hart', 'empfohlen') and s_ in GR}
         kanten.append({'thema': a, 'thema_teil': at, 'braucht': b, 'braucht_teil': bt, 'art': k['art'] or 'empfohlen',   # ohne Gesamt-Art: global empfohlen, je Schulart laut Liste
                        'herkunft': 'Teilung' if k['herkunft'] == 'Teilung' else k['herkunft'], 'art_je_schulart': js})
 print(json.dumps({'plan': plan, 'kanten': kanten}, ensure_ascii=False))

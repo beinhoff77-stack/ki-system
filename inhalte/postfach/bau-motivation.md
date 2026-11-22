@@ -2,6 +2,26 @@
 
 Neueste oben.
 
+## FERTIG: TL-S 5 (22.11., bau-lehrer)
+
+**Dateien:** `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/tests/tl_s_rauchtest.sql`, `supabase/werkzeug/tl_s_daten.py`. Nicht eingespielt, kein DROP/DELETE (eine Constraint ersetzt: `lernender_zweig_check`, s. T1).
+**Reihenfolge (T4, jetzt erzwungen):** lk_korrektur → FP-S 4 → LW-S 2 → LK-S → **LK-D Einspiel** (`lk_einspiel_2211.sql`) → TL-S. Fehlt eine Etappe der Liste im Katalog, bricht TL-S mit Hinweis auf das Einspiel ab (lokal geprüft).
+
+**T2 – leere Pflichtliste (Vorrang):**
+- `pflicht_lernziele` unterscheidet: `null` = keine Liste festgelegt (Aufrufer wie bisher „alle Etappen“), `{}` = ausdrücklich keine Pflicht. Kein `nullif` mehr in tl_teilen, `wdh_ablegen`, `konto_wd`.
+- 0 Pflicht = freiwilliger Zusatz: kein Zwangstest (`thema_stufe`), kein Stempel (`test_abschliessen_intern`: „Einheit fertig“ verlangt ≥ 1 Pflicht-Etappe), kein Ort-Abschluss/100 Sterne (`ort_stand`: Thema ohne Pflicht-Etappe zählt nicht als erledigt), kein „Flug abgelegt“. Für alle heutigen Flüge (alle haben Pflicht-Etappen) ändert sich nichts.
+- Rauchtest 16 (Gym 44 Teil 2): alle Karten gelandet, Flug-Test ohne Fehler → kein Test-offen, kein Stempel, Ort nicht abgeschlossen, Flug nicht abgelegt. Rauchtest 15: RS II/III 46 Teil 3 und IB Standard 91 → Pflichtliste `{}`; 46 Teil 2 im Gym `{}` (Rauchtest 14).
+
+**T1 – fünf Gruppen (in TL-S 5 umgesetzt, weil Zusatz, Visum-Tabelle und Plan-Art von TL-S stammen und vor dem Einspielen stimmen müssen):**
+- Neue Regel `schule.kind_gruppe(Kind)`: gym_by · rs_I/rs_II_III (`lernender.zweig`, leer = rs_I) · myp_standard/myp_extended (`zweig` jetzt auch für IB, leer = myp_standard; `lernender_zweig_check` dafür ersetzt, `kind_zweig` für IB um den Zweig ergänzt). Dieselbe Gruppe nutzen Pflichtlisten (Gruppe vor Schulart), `thema.zusatz`, `voraussetzung_schulart.gruppe`, `v_ort_visum.gruppe`, `reiseoptionen`, Plan-Art „zusatz“, Abbruch-Vergleich und Lehrer-Ansicht (`verbindungen_kind`).
+- Zusatz laut LK-D 4: 44 T2 gym_by · 46 T2 gym_by · 46 T3 rs_II_III · 91 T1/T2 myp_standard (101 T1 nicht mehr).
+- Visum vorher/nachher je Gruppe (Graph wie live): keine fehlenden, keine zusätzlichen Paare; 102 ← 30 und 29 ← 102 in allen fünf Gruppen hart.
+
+**T4 – fertige Flüge:** Nachbau mit dem echten `lk_einspiel_2211.sql` vor TL-S (Einheiten-Id 31 lokal ersetzt): alle 15 Teile mit freigegebener Einheit, Etappen und Test-Aufgaben, keine leere Hülle. **101 Teil 2 (nur cavalieri)** im Rauchtest 17: Flug-Test falsch → Etappe „fehler“, kein Stempel; Korrektur richtig → Stempel.
+**T5:** Rauchtest 14 prüft die echten LK-D-4-Listen (29 T2 Gym 3 / RS mit gleichungen_binomisch, 46 T2/T3, 91, 44 T2, 101 T2). `lk_s_rauchtest` vor und nach der Teilung durchgelaufen.
+
+**T3 → KS (Vorschlag, wie vereinbart eigener Schritt):** Pflichtlisten je Gruppe für alle ungeteilten Themen (u. a. 20 `irrational_beweis`, 47, 99 aus dem LK-D Einspiel), `pflicht_abgleichen` auf vorhandene Lernstände mit Vorher/Nachher je Kind, dazu Tages-Wiederholung, Mischkarten und Blocktest-/Korrektur-Auswahl nur Pflicht. Grund: betrifft alle Flüge, nicht die Teilung.
+
 ## FERTIG: NT-S (22.11., bau-lehrer)
 
 **Dateien:** `supabase/migrations/20261124_nt_s_nachtest_menge.sql` (nach TL-S; nicht eingespielt, kein DROP/DELETE), `supabase/tests/nt_s_rauchtest.sql` (Rollback, Testkind, eigene Test-Flüge).

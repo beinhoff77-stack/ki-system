@@ -2671,3 +2671,6 @@ Migration `supabase/migrations/20261123_lw_s_wackelt_status.sql`: gespeicherter 
 - **Gestalter:** „Vorgabe LK“ ist eine Ergänzung derselben Vorgabe-Datei (Karte „weitergeführt“, „Baut auf“/„Geht weiter in“, Abdeckung nach Stunden, geteilte Themen als zwei Flüge). Sie darf LW-1/2 nicht aufhalten.
 - **Server:** LK-S und LW-S sind getrennte Dateien; beide dürfen parallel entstehen.
 - Warnungen bei Voraussetzungen (LW-2) nutzen später die Aufbau-Daten aus LK („Baut auf“).
+
+### Entscheidung Sebastian (22.11., 14:25 Berlin) – lange Flüge bleiben
+Die drei Flüge mit 13–14 Etappen (Brüche und Anteile, Grundrechenarten und Rechengesetze, Natürliche Zahlen und Stellenwertsysteme) werden **nicht** geteilt („so lassen – jedes Land hat doch genügend Städte“). Sie liegen in Gym und RS nur in einer Klasse. Im Reise-Aufbau bekommen sie große Länder. Geteilt wird nur nach der Lehrplan-Regel (spätere Klasse mit drei oder mehr eigenen Etappen).

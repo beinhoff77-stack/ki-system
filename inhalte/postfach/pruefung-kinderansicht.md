@@ -1,5 +1,11 @@
 # Postfach pruefung-kinderansicht (Aufbau der Kinderansicht)
 
+## 2026-11-22 – FERTIG: Vorgabe faire Punkte
+
+- `inhalte/pruefung/kind/faire-punkte/umsetzung.md`: Bonus-Kachel „Landungs-Bonus +80/+40/+10 ★“ im Blatt der Etappen-Einblendung (alle drei Fassungen), eigene Wörter statt „Direktflug“ (Bonus-Stufe und Fassung haben andere Regeln, z. B. Sauber + 80 bei Tipp ohne Fehler); Sturmflug nie mit Fehlerzahl; kein „hätte“. Hinweis bei 5 ★: „Ganz ohne Tipp gibt es 10 ★.“ / „Gleich beim ersten Mal gibt es 10 ★.“, höchstens einmal je Etappe und Lerntag. Nachbuchungs-Karte „Geschenk für deine Landungen“. Info-Seite-Text.
+
+FERTIG: Vorgabe faire Punkte
+
 ## 2026-11-22 – FERTIG: Vorgabe Reise-Aufbau
 
 - `inhalte/pruefung/kind/reise-aufbau/umsetzung.md` + `entwurf/reise-aufbau.html` (400/820/1280): Abflugtafel (Land · Thema · „Stadt · Etappe“, Mini-Route), Flug-Seite als Rundreise mit „Grenze“ = Flug-Test und Karte ab Tablet, Etappe mit „Highlight x von y“, Reisepass mit Länder-Stempeln (gold, Antarktis-Stationen), Meine Route nach Reise-Kontinenten, Antarktis = Expeditionen.

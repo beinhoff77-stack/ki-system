@@ -2906,3 +2906,13 @@ Bericht `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw1.md`, Bilder `werksta
 - **S2:** Fahrplan zählt Orte, vier Karten „Platz 3“ → bis zum Reise-Aufbau „3a–3d“ und Kopf „8 Plätze · 14 Themen“.
 - **K1:** Detail-Etappenliste widerspricht „3 von 7“ – prüfen (Etappen vor `etappe_jetzt` ohne Karte als gelandet zeigen). **K2:** Kopf zeigt Klasse 5, Matrix Klasse 8 – gleiche Quelle verwenden (bitte als möglichen Fehler behandeln, nicht als Kann).
 Meldung zusammen mit „FERTIG: LW-2“.
+
+### Probelauf TL-S 4 auf der echten Datenbank (22.11., 18:55 Berlin) – läuft durch
+
+Stand `lernen-app` e20266e, zurückgerollt. Reihenfolge lk_korrektur (LK-D 4), FP-S 4, LW-S 2, LK-S, TL-S.
+- `tl_s_rauchtest.sql` grün; Migration läuft, zweiter Lauf ohne Wirkung.
+- Vorher = Nachher: Karten-Lernstand je Kind, Reiseoptionen, Aufgaben (29 854), Versuche (684). Themen 97 → 105; Teile 26:2 · 29:2 · 44:2 · 46:3 · 61:2 · 91:2 · 101:2.
+- Kind 2: +100 Sterne (eine Buchung „ort“), ein Erstabschluss mehr (29 Teil 2); 29 Teil 1 und 2 „wiederholung“, 46 Teil 1–3 „komplett“. Themen im Plan: Kind 1 25 → 26, Kind 2 70 → 74.
+- Rauchtests wd_s, wd_s3, fp_s, lw_s nach der Teilung grün.
+- **An `bau-lehrer`:** `lk_s_rauchtest.sql` scheitert **nach** der Teilung („FEHLER 3 Thema 61“, erwartet 61 in Klasse 8 und 9) – Test so umstellen, dass er vor und nach der Teilung gilt (Teile über `teil_stamm`). Meldung: „FERTIG: LK-S Test 2“.
+- **Vor dem Einspielen noch offen:** ChatGPT-Prüfung (945 + Nachtrag), Einspiel-SQL für die neuen Lernkarten aus LK-D (liefert `lehrplan-lb`: 46 `vektor_koordinaten`/`vektor_drehen`, 47 `streckung_vektor`, 44 `vierecke_konstruieren`, 99 `drachen_raute`, 91 `wahre_groesse`/`koerper_symmetrie`/`raumwinkel`, 101 `cavalieri`, 29 `gleichungen_binomisch`, 61 `darstellen`, 20 `irrational_beweis` – als Datei wie `aufgaben_frisch_2211.sql`, Meldung „FERTIG: LK-D Einspiel“), Sebastians „Live“. Länder/Städte folgen mit dem Reise-Aufbau; bis dahin tragen neue Teile vorläufige Orte.

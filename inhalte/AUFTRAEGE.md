@@ -2738,3 +2738,13 @@ Nur Vorschlag, kein App-Code, keine Datenbank-Änderung. Meldung: „FERTIG: Rei
 **An `lehrplan-lb` (LK-D 2):** Teilungsliste nach dieser Regel neu erstellen (erste Kandidaten aus dem Bericht: 29 Terme umformen RS 7 + 8; 46 Kongruenzabbildungen RS 6 + 7 + 8; 91 Schrägbilder RS 7 + 8; prüfen: 26, 61 – erster bzw. zweiter Teil unter 3 Etappen). Je Teil: Titel, Etappen, Klasse je Schulart (Gym, RS I, RS II/III, IB), Voraussetzungen, Aufbau-Verstöße nach der Teilung, Stand je Kind (nur Nummern). Grenzfälle mit Empfehlung. Datei `inhalte/pruefung/lehrplan/lk_teilung_2211.md` + JSON. Meldung: „FERTIG: LK-D 2“.
 **An `bau-lehrer`:** Das Teil-Verfahren (LK-S, Muss B3/B4 aus ChatGPT 934) wird jetzt gebraucht – Vorrang vor der Mehr-Klassen-Anzeige. Mehrfach-Teilung (drei Teile) muss möglich sein.
 **An `reise-aufbau`:** Nachbarländer für die neuen Teile kommen nach Sebastians Entscheidung der Liste; der Nachtrag „Vorschlag fortschreiben“ gilt sonst weiter (Punkt „kein Thema wird geteilt“ ist überholt).
+
+### Berichtigung Teilungsregel (22.11., 15:35 Berlin) · Entscheidung Sebastian
+
+„Nicht zwingend 2 – so, dass der gesamte Lehrplan abzubilden wäre: so viele Splits wie nötig!“
+- **So viele Teile wie nötig:** Je Klassenabschnitt (über Gymnasium und Realschule Gruppe I zusammen betrachtet) ein eigener Teil = eigener Flug = eigenes Land. Liegen die Schnitte der beiden Schularten verschieden, wird an **allen** Schnittstellen geteilt (feinste gemeinsame Teilung).
+- **Die Mindestgröße „3 Etappen je Teil“ entfällt als Grund, nicht zu teilen.** Ziel: Jedes (Teil-)Thema liegt je Schulart in genau einer Klasse, es bleibt kein „weitergeführt“-Rest. Hat ein Teil nur 1–2 Etappen, schlägt `lehrplan-lb` vor: (a) Kurzflug mit 1–2 Städten oder (b) Inhalt auf mindestens 3 Etappen ergänzen, wenn der Lehrplan-Abschnitt sonst zu dünn abgedeckt ist – mit Empfehlung je Fall.
+- Damit sind auch 26 Proportionalität (RS 5 + 6) und 61 Zufall und Laplace (RS 8 + 9) Teilungs-Kandidaten.
+- IB und RS II/III lösen weiterhin keine Teilung aus (Vorschlag Haupt-Chat, als Grenzfälle listen).
+- **`bau-lehrer`:** prüfen und melden, ob irgendwo mindestens 3 Etappen je Flug vorausgesetzt werden (Flug-Test, Mischkarten ab 3 gelandeten Etappen, Abschluss, Nachtests) und was ein Flug mit 1–2 Etappen dort bewirkt; Teil-Verfahren ohne Mindestzahl, beliebig viele Teile, B3 entsprechend anpassen (disjunkt, vollständig, kein Teil leer).
+- **`reise-aufbau`:** Länder dürfen 1–2 Städte haben (Kurzflug).

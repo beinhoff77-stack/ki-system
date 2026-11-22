@@ -5018,3 +5018,4 @@ html.lr-abschluss-offen, html.lr-abschluss-offen body { overflow: hidden; }
 .lr-mini-gold { display: flex; gap: 2px; } .lr-mini-gold i { width: 9px; height: 6px; border-radius: 2px; background: #E2DBC8; } .lr-mini-gold i.g { background: #E8B30E; }
 .lr-ab-gold .lr-ab-szene { padding-top: 52px; }
 @media (max-height: 700px) { .lr-ab-gold .lr-ab-szene { padding-top: 48px; padding-bottom: 26px; } .lr-ab-gold .lr-ab-gblatt { padding-top: 12px; padding-bottom: 12px; } .lr-ab-gold .lr-ab-gross { min-height: 54px; margin-top: 10px; } }
+.lr-koffer i.lr-k-hilfe { background: #FFF3C4; border-color: #E8B30E; } .lr-koffer i.lr-k-hilfe::before { border-color: #E8B30E; }

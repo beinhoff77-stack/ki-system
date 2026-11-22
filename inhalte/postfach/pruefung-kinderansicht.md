@@ -130,3 +130,6 @@ Sebastian: „das setzen wir so um“. Vorgabe: inhalte/pruefung/lehrer/werkstat
 
 ## 2026-11-22 – FERTIG: Vorgabe LK
 Vorgabe `inhalte/pruefung/lehrer/werkstatt/umsetzung.md` Abschnitt 12 (12.1 Karte je Klasse neu/weitergeführt mit Stand dieser Etappen, geteilte Themen „✈ Teil 2 · eig. Flug“; 12.2 Kennzeichen als Spannen; 12.3 Ringe nach Etappen der Klasse + Abdeckung nach Stunden; 12.4 Detail „Baut auf“/„Geht weiter in“/„Lage im Lehrplan“; 12.5 Meine Route 5–10 knapp; 12.6 Prüfpunkte). Entwurf mit Beispielwerten, Bilder `werkstatt/bilder/lk-*.png`. LW-1/2 nicht betroffen. Offen: Nachprüfung 0.87.0 – main steht noch auf 0.84.0, wartet auf „0.87.0 live“.
+
+## 2026-11-22 – FERTIG: Nachprüfung 0.87.0
+Bericht `inhalte/pruefung/kind/nachpruefung_2211.md`, Bilder `kind/n087/`. main 4e042d1, Testsuite 163/163 grün. Alle sieben Punkte umgesetzt. Muss: keine. Sollte: S1 Check-in-Ansage auf dem Handy unter dem Bildschirm/hinter dem festen Knopf; S2 Hinweis bei 5 Sternen als schmale Mittelspalte statt darunter. Kann: K1–K3. Berichtigung: meine frühere Angabe „main = 0.84.0“ beruhte auf einem veralteten lokalen Stand.

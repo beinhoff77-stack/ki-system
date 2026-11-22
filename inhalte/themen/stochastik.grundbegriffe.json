@@ -37,6 +37,12 @@
     "lernziele": [
      "grosse_zahlen"
     ]
+   },
+   {
+    "titel": "Lehrplan-Ergänzung (LK)",
+    "lernziele": [
+     "darstellen"
+    ]
    }
   ],
   "etappen": [
@@ -428,6 +434,34 @@
      ],
      "zahlen": true
     }
+   },
+   {
+    "lernziel": "darstellen",
+    "titel": "Baumdiagramm und Vierfeldertafel",
+    "einstieg": "Bei einem Schulfest wird zweimal eine Münze geworfen. Wie viele Ausgänge gibt es, und wie viele davon gehören zu „mindestens einmal Zahl“? Ein Baumdiagramm oder eine Tabelle zeigt es auf einen Blick.",
+    "woerter": [
+     [
+      "Baumdiagramm",
+      "Jede Stufe des Versuchs ist eine Verzweigung; jeder Weg ist ein Ergebnis"
+     ],
+     [
+      "Vierfeldertafel",
+      "Tabelle mit zwei Merkmalen, je ja/nein, und den Summen am Rand"
+     ]
+    ],
+    "regel": "Im Baumdiagramm ist ⟦jeder Weg ein Ergebnis⟧; ein Ereignis ist eine Auswahl von Wegen. In der Vierfeldertafel ergeben die vier Felder zusammen die Gesamtzahl; jede Zeile und Spalte hat ihre Summe am Rand.",
+    "schritte": [
+     {
+      "text": "Zweimal Münze: Wege WW, WZ, ZW, ZZ – also 4 Ergebnisse."
+     },
+     {
+      "text": "„Mindestens einmal Zahl“ sind WZ, ZW, ZZ: ⟦3 Wege⟧."
+     },
+     {
+      "text": "Vierfeldertafel: 30 Kinder, 18 mit Fahrrad, davon 10 mit Helm. Ohne Helm mit Fahrrad: 18 − 10 = 8."
+     }
+    ],
+    "fehler": "WZ und ZW als ein Ergebnis zählen: Im Baum sind das ⟦zwei verschiedene Wege⟧."
    }
   ],
   "teilfaehigkeiten": [
@@ -472,6 +506,12 @@
     "lernziele": [
      "grosse_zahlen"
     ]
+   },
+   {
+    "k": "darstellen",
+    "lernziele": [
+     "darstellen"
+    ]
    }
   ],
   "bewertung": {
@@ -483,7 +523,9 @@
     "gegenereignis",
     "grosse_zahlen"
    ],
-   "lernziele_vertiefung": [],
+   "lernziele_vertiefung": [
+    "darstellen"
+   ],
    "testaufgaben_je_lernziel": 1
   },
   "quellen": {
@@ -5713,6 +5755,385 @@
    },
    "w": "Die Schätzung P ≈ 0,38 gilt weiter; der Kronkorken gleicht nichts aus. Wegen des Zufalls wird es meist nicht genau 380 sein.",
    "h": "Hat der Kronkorken ein Gedächtnis?"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel wird einmal, eine Münze einmal geworfen. Wie viele Wege hat das Baumdiagramm?"
+   },
+   "w": "6 Augenzahlen · 2 Seiten = 12 Wege.",
+   "g": "direkt",
+   "h": "Jede Augenzahl verzweigt in Wappen und Zahl.",
+   "o": {
+    "wert": 12
+   },
+   "c": "6 * 2"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Vierfeldertafel stehen in den vier Feldern 12, 8, 5 und 15. Wie groß ist die Gesamtzahl?"
+   },
+   "w": "12 + 8 + 5 + 15 = 40.",
+   "g": "direkt",
+   "h": "Alle vier Felder addieren.",
+   "o": {
+    "wert": 40
+   },
+   "c": "12 + 8 + 5 + 15"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Dreimal eine Münze werfen: Wie viele Ergebnisse zeigt das Baumdiagramm?"
+   },
+   "w": "2 · 2 · 2 = 8 Wege.",
+   "g": "erkennen",
+   "h": "Jede Stufe verdoppelt die Wege.",
+   "a": [
+    "8",
+    "6",
+    "3",
+    "9"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Was steht in einer Vierfeldertafel ganz rechts unten?"
+   },
+   "w": "Dort steht die Gesamtzahl, die Summe aller vier Felder.",
+   "g": "erkennen",
+   "h": "Summe der Summen.",
+   "a": [
+    "die Gesamtzahl",
+    "das größte Feld",
+    "die Differenz",
+    "eine Wahrscheinlichkeit von 1 %"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zweimal würfeln. Wie viele Ergebnisse gehören zum Ereignis „Augensumme 7“?"
+   },
+   "w": "(1|6), (2|5), (3|4), (4|3), (5|2), (6|1): 6 Wege.",
+   "g": "mehrschritt",
+   "h": "Gehe die erste Augenzahl von 1 bis 6 durch.",
+   "o": {
+    "wert": 6
+   },
+   "c": "6"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 50 Kindern spielen 28 ein Instrument, 20 singen im Chor. 12 tun beides. Wie viele machen keins von beidem?"
+   },
+   "w": "Nur Instrument 16, nur Chor 8, beides 12: zusammen 36. Keins: 50 − 36 = 14.",
+   "g": "einkleidung",
+   "h": "Fülle die Vierfeldertafel Feld für Feld.",
+   "o": {
+    "wert": 14
+   },
+   "c": "50 - (28 + 20 - 12)"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Vierfeldertafel hat die Randsummen 30 (Mädchen) und 25 (Jungen). 18 Mädchen tragen eine Brille, insgesamt sind es 26. Wie viele Jungen tragen eine Brille?"
+   },
+   "w": "Brillen gesamt minus Mädchen mit Brille: 26 − 18 = 8.",
+   "g": "umkehr",
+   "h": "Spaltensumme minus das bekannte Feld.",
+   "o": {
+    "wert": 8
+   },
+   "c": "26 - 18"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder rot und blau und wird zweimal gedreht. Welche Darstellung zeigt alle Ergebnisse am klarsten?"
+   },
+   "w": "Ein Baumdiagramm mit zwei Stufen zeigt alle 4 Wege.",
+   "g": "darstellung",
+   "h": "Mehrstufiger Versuch.",
+   "a": [
+    "ein zweistufiges Baumdiagramm",
+    "ein Kreisdiagramm",
+    "ein Säulendiagramm",
+    "eine Zahlengerade"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Baumdiagramm hat in der ersten Stufe 3 Äste und insgesamt 12 Wege. Jeder Ast hat gleich viele Zweige. Wie viele Zweige hat jeder Ast in der zweiten Stufe?"
+   },
+   "w": "Wege = Äste · Zweige, also 12 : 3 = 4 Zweige je Ast.",
+   "g": "rueckwaerts",
+   "h": "Wege = Äste · Zweige.",
+   "o": {
+    "wert": 4
+   },
+   "c": "12 / 3"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum hat „zweimal Münze“ 4 und nicht 3 Ergebnisse?"
+   },
+   "w": "WZ und ZW sind verschiedene Wege: erst Wappen dann Zahl ist ein anderes Ergebnis als erst Zahl dann Wappen.",
+   "g": "begruenden",
+   "h": "Achte auf die Reihenfolge.",
+   "a": [
+    "Weil WZ und ZW verschiedene Wege sind.",
+    "Weil die Münze zwei Seiten hat.",
+    "Weil man WW doppelt zählt.",
+    "Weil es 2 + 2 sind."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jonas füllt eine Vierfeldertafel: Gesamt 40, Spalte „ja“ 25, Feld „ja/ja“ 10, Feld „ja/nein“ 20. Was stimmt?"
+   },
+   "w": "10 + 20 = 30 ist mehr als die Spaltensumme 25. Ein Feld ist falsch.",
+   "g": "fehler",
+   "h": "Prüfe die Spaltensumme.",
+   "a": [
+    "Die Felder passen nicht zur Summe 25.",
+    "Alles richtig.",
+    "Die Gesamtzahl muss 30 sein.",
+    "Es fehlt nur das Feld „nein/nein“."
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Code besteht aus einem Buchstaben (A, B oder C) und einer Ziffer (0 bis 9). Wie viele Codes gibt es?"
+   },
+   "w": "Baumdiagramm mit 3 · 10 = 30 Wegen.",
+   "g": "transfer",
+   "h": "Jeder Buchstabe verzweigt in 10 Ziffern.",
+   "o": {
+    "wert": 30
+   },
+   "c": "3 * 10"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zweimal Münze werfen. Wie viele Wege gehören zu „genau einmal Wappen“?"
+   },
+   "w": "WZ und ZW: 2 Wege.",
+   "o": {
+    "wert": 2
+   },
+   "c": "2"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel: gesamt 40, Merkmal A bei 22, davon 9 auch mit B. Wie viele haben A, aber nicht B?"
+   },
+   "w": "A ohne B = A gesamt − A mit B = 22 − 9 = 13.",
+   "o": {
+    "wert": 13
+   },
+   "c": "22 - 9"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel: gesamt 60, Merkmal A bei 35, davon 20 auch mit B. Wie viele haben A, aber nicht B?"
+   },
+   "w": "A ohne B = A gesamt − A mit B = 35 − 20 = 15.",
+   "o": {
+    "wert": 15
+   },
+   "c": "35 - 20"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel: gesamt 24, Merkmal A bei 10, davon 4 auch mit B. Wie viele haben A, aber nicht B?"
+   },
+   "w": "A ohne B = A gesamt − A mit B = 10 − 4 = 6.",
+   "o": {
+    "wert": 6
+   },
+   "c": "10 - 4"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Versuch hat 2 Ausgänge auf der ersten und 3 auf der zweiten Stufe. Wie viele Wege hat das Baumdiagramm?"
+   },
+   "w": "2 · 3 = 6 Wege.",
+   "o": {
+    "wert": 6
+   },
+   "c": "2 * 3"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Versuch hat 4 Ausgänge auf der ersten und 2 auf der zweiten Stufe. Wie viele Wege hat das Baumdiagramm?"
+   },
+   "w": "4 · 2 = 8 Wege.",
+   "o": {
+    "wert": 8
+   },
+   "c": "4 * 2"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Versuch hat 6 Ausgänge auf der ersten und 6 auf der zweiten Stufe. Wie viele Wege hat das Baumdiagramm?"
+   },
+   "w": "6 · 6 = 36 Wege.",
+   "o": {
+    "wert": 36
+   },
+   "c": "6 * 6"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Versuch hat 3 Ausgänge auf der ersten und 5 auf der zweiten Stufe. Wie viele Wege hat das Baumdiagramm?"
+   },
+   "w": "3 · 5 = 15 Wege.",
+   "o": {
+    "wert": 15
+   },
+   "c": "3 * 5"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Versuch hat 2 Ausgänge auf der ersten und 2 auf der zweiten Stufe. Wie viele Wege hat das Baumdiagramm?"
+   },
+   "w": "2 · 2 = 4 Wege.",
+   "o": {
+    "wert": 4
+   },
+   "c": "2 * 2"
+  },
+  {
+   "l": "darstellen",
+   "t": "darstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Versuch hat 5 Ausgänge auf der ersten und 4 auf der zweiten Stufe. Wie viele Wege hat das Baumdiagramm?"
+   },
+   "w": "5 · 4 = 20 Wege.",
+   "o": {
+    "wert": 20
+   },
+   "c": "5 * 4"
   }
  ],
  "offen": [

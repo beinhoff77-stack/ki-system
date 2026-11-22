@@ -7,6 +7,7 @@
   "laplace": "bei gleich wahrscheinlichen Ergebnissen P = günstige : alle berechnen",
   "laplace_pruefen": "entscheiden, ob alle Ergebnisse eines Zufallsversuchs gleich wahrscheinlich sind",
   "gegenereignis": "mit P(nicht E) = 1 − P(E) rechnen, auch bei „mindestens eine Sechs“",
-  "grosse_zahlen": "abschätzen, wie oft ein Ergebnis bei vielen Versuchen ungefähr eintritt"
+  "grosse_zahlen": "abschätzen, wie oft ein Ergebnis bei vielen Versuchen ungefähr eintritt",
+  "darstellen": "Ergebnisse mehrstufiger Versuche im Baumdiagramm und zwei Merkmale in der Vierfeldertafel darstellen und auszählen"
  }
 }

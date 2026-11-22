@@ -1,4 +1,21 @@
-# LK-D 2 – Teilungsliste nach der neuen Regel (22.11.2026, ergänzt um Rückläufer ChatGPT 936/937)
+# LK-D 2/3 – Teilungsliste nach der neuen Regel (22.11.2026; LK-D 3 nach „Entscheidung Teilung“ 16:20)
+
+## LK-D 3 – was sich gegenüber der Entscheidung von 16:20 ändert
+
+- **Die Entscheidung von 16:20 nennt die alte, falsch gezählte Fassung:** „6 Themen → 15 Teile, 9 neue Flüge“.
+  - Richtig waren für diese 6 Themen 13 Teile und 7 neue Flüge (26: 2 · 29: 2 · 44: 2 · 46: 3 · 61: 2 · 91: 2 = 13).
+  - Die Aufteilung je Thema in der Entscheidung stimmt, nur die Summe nicht.
+- **Gym-Audit (ChatGPT 937, Muss A1) liegt vor** (Abschnitt 1; geliefert mit Commit 83d61a2e). Es bringt **ein weiteres geteiltes Thema: 101 Prismen und Zylinder** (Teil 2 von 2 · schiefe Körper und Cavalieri, Gym 10 / RS I 9).
+  - **Damit steht die Liste: 7 Themen, 15 Teile, 8 neue Flüge.**
+  - Dazu je eine neue Etappe in den schon geteilten Themen 29 (Teil 2) und 91 (Teil 2); die Zahl der Teile ändert das nicht.
+- **Kind 2, Thema 29 (betrifft Punkt 4 der Entscheidung):** Teil 2 hat durch die neue Etappe „Gleichungen mit Klammerprodukten“ jetzt 4 Etappen, Kind 2 hat 3. **Teil 2 ist nach dem Umhängen also nicht vollständig.**
+  - Stempel und die 100 Flug-Sterne für Teil 2 kommen erst, wenn die neue Etappe gelandet ist.
+  - Alternative: die neue Etappe in Teil 2 als Zusatz führen, dann ist Teil 2 für Kind 2 sofort vollständig. Sebastian entscheidet.
+- **Zusatz-Regel umgesetzt:** je Teil und Schulart `zusatz` in der JSON; Kanten je Schulart in `kanten_je_schulart` (Abschnitt 3a).
+- **IB-Zählung:** 2 harte Verstöße je Kurs (63 ← 61, 29 ← 102), nicht 3. LK-D-Bericht und Postfach sind berichtigt.
+- **Kurzflüge:** 44 Teil 2 und 61 Teil 1 (je 2 Etappen), neu 101 Teil 2 (1 Etappe).
+
+---
 
 Grundlage: AUFTRAEGE `lernen-app`:
 - „Teilungsregel NEU“ (15:30), „Berichtigung“ (15:35), „Ergänzung – Benennung und Aufbau“ (15:40);
@@ -131,7 +148,38 @@ Legende:
 - Nichts geht verloren: Der Flug-Abschluss von 29 bleibt. Teil 2 gilt erst nach der neuen Etappe als geschafft, Stempel dann nach der Regel.
 - Vorschlag: die neue Etappe für Kind 2 als „nachholen“ einplanen. Sebastian entscheidet.
 
-**Benennung:** „‹Titel› – Teil x von y“ mit Untertitel wie oben (Vorschlag).
+**Benennung:** „‹Titel› – Teil x von y“ mit Untertitel wie oben.
+
+## 3a Zusatz je Teil und Schulart (Regel 16:20)
+
+Ein Teil ohne Lehrplanpunkt in der Schulart ist dort Zusatz: keine Pflicht, sperrt nichts, und Voraussetzungen auf ihn sind nur „empfohlen“.
+
+| Teil | Gym | RS I | RS II/III | IB Std | IB Ext |
+|---|---|---|---|---|---|
+| Direkte Proportionalität und Dreisatz – Teil 1 von 2 | Pflicht | Pflicht | Pflicht | Pflicht | Pflicht |
+| Direkte Proportionalität und Dreisatz – Teil 2 von 2 | Pflicht | Pflicht | Pflicht | Pflicht | Pflicht |
+| Terme umformen – Teil 1 von 2 | Pflicht | Pflicht | Pflicht | Pflicht | Pflicht |
+| Terme umformen – Teil 2 von 2 | Pflicht | Pflicht | Pflicht | Pflicht | Pflicht |
+| Konstruktionen, Kongruenz und Beweise – Teil 1 von 2 | Pflicht | Pflicht | Pflicht | Pflicht | Pflicht |
+| Konstruktionen, Kongruenz und Beweise – Teil 2 von 2 | Zusatz | Pflicht | Pflicht | Zusatz | Zusatz |
+| Kongruenzabbildungen – Teil 1 von 3 | Pflicht | Pflicht | Pflicht | Pflicht | Pflicht |
+| Kongruenzabbildungen – Teil 2 von 3 | Zusatz | Pflicht | Pflicht | Pflicht | Pflicht |
+| Kongruenzabbildungen – Teil 3 von 3 | Pflicht | Pflicht | Zusatz | Pflicht | Pflicht |
+| Zufall und Laplace – Teil 1 von 2 | Pflicht | Pflicht | Pflicht | Pflicht | Pflicht |
+| Zufall und Laplace – Teil 2 von 2 | Pflicht | Pflicht | Pflicht | Pflicht | Pflicht |
+| Schrägbilder und Raumdarstellung – Teil 1 von 2 | Pflicht | Pflicht | Pflicht | Zusatz | Zusatz |
+| Schrägbilder und Raumdarstellung – Teil 2 von 2 | Pflicht | Pflicht | Pflicht | Zusatz | Zusatz |
+| Prismen und Zylinder – Teil 1 von 2 | Pflicht | Zusatz | Zusatz | Zusatz | Zusatz |
+| Prismen und Zylinder – Teil 2 von 2 | Pflicht | Pflicht | Pflicht | Zusatz | Zusatz |
+
+**Kanten, die sich durch die Zusatz-Regel ändern** (vollständig in `kanten_je_schulart`):
+- Gym: 46 Kongruenzabbildungen – Teil 3 von 3 ← 46 Kongruenzabbildungen – Teil 2 von 3: **empfohlen** (Vorgänger ist in dieser Schulart Zusatz)
+- Gym: 46 Kongruenzabbildungen – Teil 3 von 3 ← 46 Kongruenzabbildungen – Teil 1 von 3: **hart** (letzter Pflicht-Teil davor)
+- RS I: 101 Prismen und Zylinder – Teil 2 von 2 ← 101 Prismen und Zylinder – Teil 1 von 2: **empfohlen** (Vorgänger ist in dieser Schulart Zusatz)
+- RS II/III: 101 Prismen und Zylinder – Teil 2 von 2 ← 101 Prismen und Zylinder – Teil 1 von 2: **empfohlen** (Vorgänger ist in dieser Schulart Zusatz)
+
+- Im Gymnasium braucht 46 Teil 3 hart nur Teil 1, wie entschieden.
+- 101 Teil 2 braucht Teil 1 in RS I und II/III nur empfohlen: Prismen und Zylinder stehen in der Realschule bei 92. Damit ist der II/III-Verstoß „101 Teil 2 ← Teil 1“ aufgelöst.
 
 ## 4 Aufbau nach der Teilung
 
@@ -155,18 +203,14 @@ Legende:
 
 **Prüfung der ganzen Kette gegen die Klassenlage:**
 - **Gymnasium: 0 Verstöße. RS Gruppe I: 0 Verstöße.**
-- RS II/III: 2.
+- RS II/III: 2 vor der Zusatz-Regel, danach 1.
   - 37 ← 103 (empfohlen; 103 ist in II/III kein Lehrplanstoff).
-  - 101 Teil 2 ← Teil 1 (hart): Den Teil 1 verlangt II/III nicht als Hauptpunkt, Prismen stehen dort bei 92.
-  - Vorschlag: In II/III den Teil 1 von 101 als Vertiefung führen. Gruppe II/III ist nur Bericht.
+  - 101 Teil 2 ← Teil 1: Nach der Zusatz-Regel ist das nur empfohlen, der Verstoß entfällt (Abschnitt 3a).
 - IB je Kurs: 2 hart, 7 empfohlen.
   - Hart: 63 ← 61 Teil 1 (MYP 1 gegen 2) und 29 Teil 1 ← 102. Das zweite ist **Sebastians Entscheidung, bleibt**, nur gemeldet.
   - Empfohlen, u. a.: 92 ← 101 Teil 2 (101 hat keine IB-Klasse), 44 ← 46, 34 ← 93, 37 ← 103, 45 ← 73, 23 ← 16, 100 ← 25.
 
-**46 im Gymnasium (Befund mit Vorschlag):**
-- Teil 3 enthält die Punktspiegelung (Gym 7). Teil 2 (Verschieben und Vektoren) hat im Gymnasium keinen Punkt.
-- Die harte Kette Teil 3 ← Teil 2 führt Gym-Kinder also durch einen Teil ohne Gym-Pflicht.
-- Vorschlag: Im Gymnasium „empfohlen“, dann braucht Teil 3 hart nur Teil 1. Sebastian entscheidet.
+**46 im Gymnasium:** entschieden (16:20) und umgesetzt: Teil 2 ist Zusatz, Teil 3 braucht hart nur Teil 1.
 
 **Sollte A2 (Voraussetzungen je Etappe):** offen. Die 87 Reihenfolge-Hinweise aus LK-D sind die Grundlage. Mit der Teilung lösen sich die meisten davon auf, weil die betroffenen Etappen jetzt in getrennten Teilen liegen (26, 29, 46). Eine Liste je Etappe liefere ich auf Ansage.
 
@@ -248,10 +292,9 @@ Für alle übrigen Themen steht die Kette in `aufbau_kette` (JSON).
 - Untertitel als Vorschlag.
 
 **Offen (Sebastian):**
-- Liste bestätigen.
-- 46 im Gymnasium.
-- Kurzflüge (44 T2, 61 T1, 101 T2).
-- Kind 2 in 29 Teil 2 (neue Etappe nachholen).
+- Liste mit 101 bestätigen (7 Themen, 15 Teile, 8 neue Flüge).
+- Kurzflug 101 Teil 2.
+- Kind 2 in 29 Teil 2: neue Etappe nachholen oder als Zusatz führen.
 - 43/69/71 als Vertiefung (A3).
 - Beweis-Aufgabe zu √2 (Gym 9).
 - Etappen-Voraussetzungen (A2).

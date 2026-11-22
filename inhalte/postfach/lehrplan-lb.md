@@ -2,6 +2,26 @@
 
 Neueste Meldung oben.
 
+## 2026-11-22 – MELDUNG LK-D 3 (lehrplan-lb)
+
+Grundlage ist `lernen-app` 13dd8a52, „Entscheidung Teilung (16:20)“. Nichts eingespielt, Kinder nur als Nummern.
+
+- **Zählung berichtigt:** Die Entscheidung nennt „6 Themen → 15 Teile, 9 Flüge“; das war meine falsche Summe. Richtig für die 6 Themen: 13 Teile, 7 neue Flüge. Die Aufteilung je Thema stimmt.
+- **Gym-Audit (ChatGPT 937 A1)** liegt vor (Commit 83d61a2e, `lk_teilung_2211.md` Abschnitt 1):
+  - neue Etappe 101 `cavalieri` (Gym 10 5/k4, schiefe Körper und Volumengleichheit) → **101 wird geteilt** (Teil 2 von 2, Gym 10, RS I 9);
+  - neue Etappen 91 `koerper_symmetrie` und 29 `gleichungen_binomisch` (RS 8).
+  - **Die Liste steht damit bei 7 Themen, 15 Teilen, 8 neuen Flügen.**
+- **Kind 2, Thema 29:** Teil 2 hat jetzt 4 Etappen, Kind 2 hat 3. Teil 2 ist also nicht sofort vollständig, das widerspricht Punkt 4 der Entscheidung. Entweder die neue Etappe nachholen, oder sie in Teil 2 als Zusatz führen (Sebastian).
+- **Zusatz je Teil und Schulart** steht in der JSON (`teile[].zusatz`), dazu die Kanten je Schulart in `kanten_je_schulart`.
+  - Gymnasium: 46 Teil 2 und 44 Teil 2 sind Zusatz; 46 Teil 3 braucht hart nur Teil 1.
+  - RS I und II/III: 101 Teil 1 ist Zusatz (Prismen stehen dort bei 92), deshalb braucht Teil 2 ihn nur empfohlen.
+- **IB:** 2 harte Verstöße je Kurs, nicht 3; berichtigt.
+- **Aufbau:** Gymnasium 0, RS I 0, RS II/III 1 (empfohlen), IB 2 hart und 7 empfohlen.
+- **Kurzflüge:** 44 Teil 2, 61 Teil 1, neu 101 Teil 2 (1 Etappe).
+- `lk_korrektur_2211.sql` ist seit 83d61a2e geändert (Probelauf bestanden); der Probelauf des Haupt-Chats muss wiederholt werden.
+
+FERTIG: LK-D 3
+
 ## 2026-11-22 – MELDUNG LK-D 2 Nachtrag: Rückläufer ChatGPT 936/937 (lehrplan-lb)
 
 Grundlage ist `lernen-app` „Stand 15:50 – Rückläufer ChatGPT 936/937“. Nichts eingespielt, Kinder nur als Nummern.

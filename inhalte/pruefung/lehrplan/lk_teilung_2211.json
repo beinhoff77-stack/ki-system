@@ -80,7 +80,14 @@
        "art": "hart",
        "herkunft": "Teilung"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     },
     {
      "teil": 2,
@@ -143,7 +150,14 @@
        "art": "hart",
        "herkunft": "bisher"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     }
    ],
    "flug_geschafft_kinder": []
@@ -233,7 +247,14 @@
        "art": "hart",
        "herkunft": "Teilung"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     },
     {
      "teil": 2,
@@ -315,7 +336,14 @@
        "art": "hart",
        "herkunft": "bisher"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     }
    ],
    "flug_geschafft_kinder": [
@@ -407,7 +435,14 @@
        "art": "hart",
        "herkunft": "Teilung"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     },
     {
      "teil": 2,
@@ -456,7 +491,14 @@
        "herkunft": "Teilung"
       }
      ],
-     "wird_gebraucht_von": []
+     "wird_gebraucht_von": [],
+     "zusatz": {
+      "gym": true,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": true,
+      "ib_extended": true
+     }
     }
    ],
    "flug_geschafft_kinder": []
@@ -548,7 +590,14 @@
        "art": "hart",
        "herkunft": "Teilung"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     },
     {
      "teil": 2,
@@ -616,7 +665,14 @@
        "art": "hart",
        "herkunft": "Teilung"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": true,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     },
     {
      "teil": 3,
@@ -677,7 +733,14 @@
        "art": "empfohlen",
        "herkunft": "bisher"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": true,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     }
    ],
    "flug_geschafft_kinder": []
@@ -748,7 +811,14 @@
        "art": "hart",
        "herkunft": "Teilung"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     },
     {
      "teil": 2,
@@ -820,7 +890,14 @@
        "art": "hart",
        "herkunft": "bisher"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": false,
+      "ib_extended": false
+     }
     }
    ],
    "flug_geschafft_kinder": []
@@ -886,7 +963,14 @@
        "art": "hart",
        "herkunft": "Teilung"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": true,
+      "ib_extended": true
+     }
     },
     {
      "teil": 2,
@@ -943,7 +1027,14 @@
        "herkunft": "Teilung"
       }
      ],
-     "wird_gebraucht_von": []
+     "wird_gebraucht_von": [],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": true,
+      "ib_extended": true
+     }
     }
    ],
    "flug_geschafft_kinder": []
@@ -1033,7 +1124,14 @@
        "art": "hart",
        "herkunft": "Teilung"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": true,
+      "rs_II_III": true,
+      "ib_standard": true,
+      "ib_extended": true
+     }
     },
     {
      "teil": 2,
@@ -1084,10 +1182,244 @@
        "art": "empfohlen",
        "herkunft": "bisher"
       }
-     ]
+     ],
+     "zusatz": {
+      "gym": false,
+      "rs_I": false,
+      "rs_II_III": false,
+      "ib_standard": true,
+      "ib_extended": true
+     }
     }
    ],
    "flug_geschafft_kinder": []
+  }
+ ],
+ "zusatz_regel": "Teil ohne Lehrplanpunkt in der Schulart = Zusatz: keine Pflicht, sperrt nichts; Voraussetzungen auf ihn nur empfohlen (Entscheidung 22.11., 16:20).",
+ "kanten_je_schulart": [
+  {
+   "schulart": "gym",
+   "braucht_von": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2",
+   "braucht": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_I",
+   "braucht_von": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2",
+   "braucht": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_II_III",
+   "braucht_von": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2",
+   "braucht": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_standard",
+   "braucht_von": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2",
+   "braucht": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_extended",
+   "braucht_von": "26 Direkte Proportionalität und Dreisatz – Teil 2 von 2",
+   "braucht": "26 Direkte Proportionalität und Dreisatz – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "gym",
+   "braucht_von": "29 Terme umformen – Teil 2 von 2",
+   "braucht": "29 Terme umformen – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_I",
+   "braucht_von": "29 Terme umformen – Teil 2 von 2",
+   "braucht": "29 Terme umformen – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_II_III",
+   "braucht_von": "29 Terme umformen – Teil 2 von 2",
+   "braucht": "29 Terme umformen – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_standard",
+   "braucht_von": "29 Terme umformen – Teil 2 von 2",
+   "braucht": "29 Terme umformen – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_extended",
+   "braucht_von": "29 Terme umformen – Teil 2 von 2",
+   "braucht": "29 Terme umformen – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_I",
+   "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2",
+   "braucht": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_II_III",
+   "braucht_von": "44 Konstruktionen, Kongruenz und Beweise – Teil 2 von 2",
+   "braucht": "44 Konstruktionen, Kongruenz und Beweise – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "gym",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 3 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "art": "empfohlen",
+   "grund": "Vorgänger ist in dieser Schulart Zusatz"
+  },
+  {
+   "schulart": "gym",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 3 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": "hart",
+   "grund": "letzter Pflicht-Teil davor"
+  },
+  {
+   "schulart": "rs_I",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_I",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 3 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_II_III",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_standard",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_standard",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 3 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_extended",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 1 von 3",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_extended",
+   "braucht_von": "46 Kongruenzabbildungen – Teil 3 von 3",
+   "braucht": "46 Kongruenzabbildungen – Teil 2 von 3",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "gym",
+   "braucht_von": "61 Zufall und Laplace – Teil 2 von 2",
+   "braucht": "61 Zufall und Laplace – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_I",
+   "braucht_von": "61 Zufall und Laplace – Teil 2 von 2",
+   "braucht": "61 Zufall und Laplace – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_II_III",
+   "braucht_von": "61 Zufall und Laplace – Teil 2 von 2",
+   "braucht": "61 Zufall und Laplace – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_standard",
+   "braucht_von": "61 Zufall und Laplace – Teil 2 von 2",
+   "braucht": "61 Zufall und Laplace – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "ib_extended",
+   "braucht_von": "61 Zufall und Laplace – Teil 2 von 2",
+   "braucht": "61 Zufall und Laplace – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "gym",
+   "braucht_von": "91 Schrägbilder und Raumdarstellung – Teil 2 von 2",
+   "braucht": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_I",
+   "braucht_von": "91 Schrägbilder und Raumdarstellung – Teil 2 von 2",
+   "braucht": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_II_III",
+   "braucht_von": "91 Schrägbilder und Raumdarstellung – Teil 2 von 2",
+   "braucht": "91 Schrägbilder und Raumdarstellung – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "gym",
+   "braucht_von": "101 Prismen und Zylinder – Teil 2 von 2",
+   "braucht": "101 Prismen und Zylinder – Teil 1 von 2",
+   "art": "hart",
+   "grund": "Teilung"
+  },
+  {
+   "schulart": "rs_I",
+   "braucht_von": "101 Prismen und Zylinder – Teil 2 von 2",
+   "braucht": "101 Prismen und Zylinder – Teil 1 von 2",
+   "art": "empfohlen",
+   "grund": "Vorgänger ist in dieser Schulart Zusatz"
+  },
+  {
+   "schulart": "rs_II_III",
+   "braucht_von": "101 Prismen und Zylinder – Teil 2 von 2",
+   "braucht": "101 Prismen und Zylinder – Teil 1 von 2",
+   "art": "empfohlen",
+   "grund": "Vorgänger ist in dieser Schulart Zusatz"
   }
  ],
  "grenzfaelle": [

@@ -2540,3 +2540,21 @@ ChatGPT 924: die fünf Muss aus 921 sind zu (WD-S 4). Ein neues Muss zu FP-S, da
 3. **Nachbuchungs-Hinweis (Sollte 3):** „gesehen“ im Server merken (Zeitpunkt je Kind, kleine Aktion mit Zugriffsprüfung) statt nur im Gerät; an `bau-motivation` die Schnittstelle melden.
 4. **Tests (Sollte 1, 4):** `wd_s3_gleichzeitig.sh` wartet auf beide Prozesse einzeln und bricht bei Fehler ab; `fp_s_rauchtest.sql` ergänzt um 1 Fehler, Tipp, zweiter Versuch, Mischkarte, Fehler nach der Landung, Wiederlandung.
 Meldung im Postfach: „FERTIG: FP-S 2“.
+
+## Prüf-Auftrag LP-RS – Realschul-Lehrplan Punkt für Punkt (22.11., 13:00 Berlin) · an `lehrplan-lb`
+
+**Anlass (Sebastian):** „Ich glaube euch irgendwie noch nicht.“ In der Matrix hat RS 7 rund 20 Themen, RS 8 nur 7–10. Stichprobe des Haupt-Chats gegen LehrplanPLUS (Gruppe I, 7 und 8):
+- Lernbereiche und Stunden stimmen (7: 8 Lernbereiche, 8: 7 Lernbereiche, je ca. 112 Std.).
+- RS 8: Lernbereich 1 Vierecke (12 Std.), 2 Drehung (6 Std.), 7 Daten und Zufall (8 Std.) haben kein Thema in Klasse 8; Lernbereich 4 (40 Std.) nur eines – Terme/Gleichungen stehen in Klasse 7, weil ein Thema nur an einer Klasse hängt.
+- Zuordnungen fehlen ganz: RS 7 „Dreiecke“ (5 Punkte), „Ortslinien“ (6 Punkte) – obwohl Themen 44, 45, 73 diesen Lernbereich als Beschriftung tragen; RS 8 „Daten und Zufall“ 2 von 3; RS 9 „Kreis“ 2 von 2. Zuordnungstabelle und `thema.lernbereich` widersprechen sich.
+- Die Kompetenz-Texte ab Klasse 7 sind Kurzfassungen (Quelle-Hinweis „nicht gegen Original geprüft“).
+
+**Aufgabe (nur prüfen und Dateien liefern, nichts einspielen):**
+1. **Original abgleichen:** Realschule Bayern Mathematik 5–10, ab Klasse 7 **beide** Wahlpflichtfächergruppen (I und II/III), jede Seite von lehrplanplus.bayern.de neu abrufen. Je Lernbereich: Nummer, Titel, Stunden, Zahl der Kompetenz- und Inhaltspunkte – gegen `schule.eintrag` (Quellen 7, 8, 24, 25, 12, 26, 13, 14, 15, 16). Abweichungen und fehlende Punkte auflisten. Keine Lehrplantexte wörtlich übernehmen (eigene Kurzfassung bleibt), aber jede Kurzfassung auf Sinn gegen das Original prüfen.
+2. **Zweite Quelle je Klasse und Gruppe:** mindestens ein Stoffverteilungsplan oder Inhaltsverzeichnis eines zugelassenen bayerischen Realschulbuchs (z. B. C.C. Buchner Mathe.Logo, Westermann Mathematik Realschule Bayern, Cornelsen) und, für 9/10, die Themen der Abschlussprüfung (ISB/Kultusministerium). Zweck: Gegenprobe, ob ein Thema in der Praxis in dieser Klasse unterrichtet wird. Quelle mit Link und Abrufdatum nennen; Widersprüche zum amtlichen Plan ausweisen (amtlich gilt).
+3. **Jeder Punkt braucht ein Zuhause:** Für jeden Kompetenz-/Inhaltspunkt entweder Thema (mit Bezug „neu“ oder „weitergeführt“) oder ausdrücklich „Lücke – kein Thema vorhanden“. Tabelle je Klasse/Gruppe: Lernbereich · Stunden · Punkte · zugeordnet · Lücken · Themen.
+4. **Klasse je Thema prüfen:** Für jedes Thema mit `klasse_fest.rs_by`: In welchen Klassen kommt es laut Original vor (erstmals / weitergeführt)? Liste der falsch eingeordneten Themen mit Beleg (Lernbereich-Nummer).
+5. **Gymnasium als Stichprobe:** Klasse 7 und 8 nach demselben Verfahren (Leo). Nur Bericht.
+6. **Vorschlag Datenmodell** (kurz, für `bau-lehrer`): wie ein Thema in mehreren Klassen geführt wird („neu“/„weitergeführt“) und wie die Matrix je Klasse die Abdeckung der Lernbereiche nach Stunden zeigt statt einer Themenzahl.
+
+**Lieferung:** `inhalte/pruefung/lehrplan/rs_pruefung_2211.md` (Bericht mit Tabellen und Quellenliste), `rs_pruefung_2211.json` (maschinenlesbar: Quelle, Lernbereich, Punkt, Thema, Bezug, Befund) und – getrennt – ein Korrektur-SQL als Datei (nur INSERT/UPDATE auf `schule.zuordnung`, `schule.eintrag`, `schule.thema`; kein DROP, kein DELETE), das der Haupt-Chat nach Probelauf einspielt. Trennen: gesichert (am Original belegt) / Annahme / offen. Meldung im Postfach: „FERTIG: LP-RS“.

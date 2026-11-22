@@ -1,5 +1,9 @@
 # Postfach pruefung-kinderansicht (Aufbau der Kinderansicht)
 
+## 2026-11-22 – Entwurf „Unser Lehrplan“ (Lehrer-Werkstatt) – wartet auf Sebastians Okay
+
+- `inhalte/pruefung/lehrer/werkstatt/umsetzung.md` + `entwurf/unser-lehrplan.html`: Reiter „Lehrplan“ ersetzt „Stand“ und „Plan“ – Matrix (Karten mit Stufe, Platznummer, Gym/RS/IB) + Fahrplan links + Detail-Schublade (Etappen-Stand, Planen, Stufe setzen, Lehrstoff, Zusammenhang), Zeigen-Filter, Einstieg prüfen mit „fehlende einplanen“, fertige Klassen eingeklappt, Auswählen mit Sammelleiste; Handy/Tablet. Noch kein Bau-Auftrag.
+
 ## 2026-11-22 – FERTIG: Vorgabe faire Punkte
 
 - `inhalte/pruefung/kind/faire-punkte/umsetzung.md`: Bonus-Kachel „Landungs-Bonus +80/+40/+10 ★“ im Blatt der Etappen-Einblendung (alle drei Fassungen), eigene Wörter statt „Direktflug“ (Bonus-Stufe und Fassung haben andere Regeln, z. B. Sauber + 80 bei Tipp ohne Fehler); Sturmflug nie mit Fehlerzahl; kein „hätte“. Hinweis bei 5 ★: „Ganz ohne Tipp gibt es 10 ★.“ / „Gleich beim ersten Mal gibt es 10 ★.“, höchstens einmal je Etappe und Lerntag. Nachbuchungs-Karte „Geschenk für deine Landungen“. Info-Seite-Text.

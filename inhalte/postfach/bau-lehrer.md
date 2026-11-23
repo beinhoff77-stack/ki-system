@@ -2,6 +2,98 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-23 – FERTIG: SJ-S
+
+Stand `lernen-app` 745e0be übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.
+- neu: `supabase/migrations/20261127_sj_s_schuljahr.sql`, `supabase/tests/sj_s_rauchtest.sql`
+- **Reihenfolge Einspielen:** LZ-S → ZP-S → SJ-S. SJ-S bricht ab, wenn ZP-S fehlt. Unabhängig von NB-S, beide Reihenfolgen getestet. Mehrfach einspielbar.
+
+**Rechnung (eine Stelle: `schule.schuljahr_themen` → `schule.schuljahr_stand`), gleich dem Ring `lernLwRing`**
+- **Pflicht-Flüge der Klasse:** Thema mit freigegebener Einheit. Jahrgang in der Schulart des Kindes = Klasse. Dazu eine aktive Basis-Quelle dieser Schulart (IB: alle mit MYP-Jahr; Klasse = MYP-Jahr + 5).
+- **Etappen je Flug:** alle Etappen der Einheit (`etappen_anzahl` der Matrix). Nicht nur die Etappen der Regel.
+- **Fertig:** Stufe „komplett“ (auch gesetzt „kann er“) oder „wiederholung“. Fertige Flüge zählen mit allen Etappen, sonst zählen die gelandeten Etappen.
+- **Prozent:** gelandet ÷ gesamt, gerundet.
+- **Zusatz:** Zusatz-Teile der Gruppe des Kindes zählen nicht. Übrige Themen der Klasse stehen getrennt unter `zusatz`, mit eingeplant (ZP-S).
+- **Klassen:** −1, Haupt, +1 im Bereich 5–10, soweit Flüge da sind. Kind in Kl. 5 → 5, 6; Kind in Kl. 8 → 7, 8, 9.
+
+**Felder für die App:** `schuljahr_stand` in `schule_konto` (oben) und `schule_uebersicht.lernende[]` (je Kind)
+```
+{ schulart, klasse, rechnung: "<Text für ⓘ>",
+  klassen: [ { klasse, myp_jahr (nur IB), haupt,
+               fluege:  { gesamt, fertig, offen },
+               etappen: { gesamt, gelandet, offen },
+               prozent,                          // null, wenn 0 Etappen
+               ring:    { kann, wdh, an },       // Etappen je Ring-Farbe, Summe = gelandet
+               zusatz:  { fluege: { gesamt, fertig, offen, eingeplant }, etappen: { gesamt, gelandet, offen } } } ] }
+```
+Kinder-Karte z. B.: „Noch {fluege.offen} Flüge und {etappen.offen} Etappen bis Klasse {klasse} geschafft“.
+
+**Zahlen (echter Stand, lesend gerechnet, ohne ZP-S; Gymnasium)**
+| Kind | Klasse | Flüge gesamt/fertig/offen | Etappen gesamt/gelandet/offen | Prozent |
+|---|---|---|---|---|
+| 1 | 5 (Haupt) | 15 / 2 / 13 | 112 / 29 / 83 | 26 % |
+| 1 | 6 | 11 / 0 / 11 | 82 / 0 / 82 | 0 % |
+| 2 | 7 | 12 / 5 / 7 | 69 / 26 / 43 | 38 % |
+| 2 | 8 (Haupt) | 16 / 1 / 15 | 102 / 9 / 93 | 9 % |
+| 2 | 9 | 14 / 0 / 14 | 107 / 0 / 107 | 0 % |
+
+Zusatz Kind 2, Kl. 7: 2 Flüge (Teile 278, 279), 5 Etappen, 0 gelandet.
+
+**Abgleich mit dem Ring und der Abfrage des Haupt-Chats**
+- **Gesichert:** Die Ring-Funktion der App (`lernLwRing` aus `lernen.js`, unverändert per node ausgeführt) liefert auf den echten Matrix-Daten genau dieselben Zahlen, z. B. Kind 2 Kl. 7 mit 5/12 Themen und 26/69 Etappen (38 %).
+- **Etappen:** Der Haupt-Chat hat die Etappen der Regel gezählt (`thema_stufe.etappen`: 107 bzw. 61, 28 bzw. 23 gelandet). Der Ring zählt alle Etappen der Einheit (112 bzw. 69). Gerundet ergeben beide Rechnungen zufällig dieselben Prozente (26 % bzw. 38 %), die Zahlen dahinter unterscheiden sich. `schuljahr_stand` folgt dem Ring.
+- **5 oder 6 fertig (Kind 2, Kl. 7):** Auf dem heutigen Stand sind es 5: Teile 2, 28 („kann er“), 29, 102, 277. Die „6“ kann ich auf dem heutigen Stand nicht nachrechnen. Annahme: Der Ring in der Lehrplan-Ansicht rechnet mit der Arbeitskopie des Plans. Eine gerade gesetzte, noch nicht gespeicherte oder später zurückgenommene „Kann er“-Setzung zählt dort sofort mit. Der Ring im Überblick zeigt heute 5.
+
+**Abweichung (bewusst, betrifft heute kein Kind)**
+- Der Ring schließt Zusatz nur über die Quellen der Schulart aus. SJ-S zieht zusätzlich die Zusatz-Teile der Gruppe ab.
+- Für Gymnasium-Kinder ist das gleich: 278 und 279 haben keine Gymnasium-Quelle.
+- Für Realschule Zweig II/III (Teil 280) und IB „myp_standard“ (Teile 91, 282) würde SJ-S diese Teile als Zusatz führen, der Ring als Pflicht. Vorschlag an bau-motivation: Im Ring ebenso Zusatz der Gruppe abziehen, oder die Zahlen aus `schuljahr_stand` nehmen.
+
+**Rauchtest `sj_s` (lokal, Kopie des echten Stands; vor und nach ZP-S grün, mit NB-S in beiden Reihenfolgen)**
+1. Einspielen ändert nichts. Zahlen je Kind = Gegenrechnung nach der Ring-Regel aus `schule.lehrplan_matrix` (also `thema_stufe`). `offen` stimmt, Klassen −1/Haupt/+1. Konto und Übersicht sind gleich. Dauer je Kind höchstens 45 ms lokal; echt rund 90 ms für alle drei Kinder.
+2. Kein Zusatz der Gruppe unter Pflicht; Zusatz-Zahlen = übrige Themen der Klasse.
+3. Testkind: „kann er komplett“ → +1 fertig, alle Etappen gelandet. Eingeplanter Zusatz erscheint nur unter `zusatz.eingeplant`, die Pflicht-Zahlen bleiben gleich. Lokal mit dem Testkind in Kl. 8 geprüft, weil die lokalen Auszüge für seine Klasse keine Pflicht-Flüge haben; auf dem echten Stand läuft Teil 3 mit Testkind Kl. 7.
+- Weiter grün: `nb_s, zp_s, tl_s, rd_s, ex_s, lz_s, nt_s, lk_s, fp_s`. `wd_s` und `lw_s` laufen lokal schon vor ZP-S nicht (fehlende Auszüge), Ergebnis vor und nach gleich.
+
+## 2026-11-23 – FERTIG: NB-S
+
+Stand `lernen-app` 745e0be übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.
+- neu: `supabase/migrations/20261127_nb_s_nachbessern.sql`, `supabase/tests/nb_s_rauchtest.sql`
+- **Reihenfolge Einspielen:** LZ-S → ZP-S → NB-S. NB-S bricht ab, wenn ZP-S fehlt. Mehrfach einspielbar.
+- Nur lesend: keine Tabelle, kein Trigger, keine Schreib-Funktion. `karte_buchen` ist unverändert, Fahrplan, Stempel und Sterne ebenso.
+
+**Regel (wie bisher in `karte_buchen`, nur gelesen)**
+- **Wieder offen:** Zwei Fehler in Folge in der Wiederholung → `sitzt = false`, `geoeffnet_am`, `folge = 0`.
+- **Zurück:** drei eigene Lösungen in Folge (`least(3, karte_ziel)`). Tipp oder 2. Versuch zählt nicht, die Folge bleibt; ein Fehler setzt sie auf 0. Danach gelandet, Wiederholung ab Stufe 0, fällig in 1 Tag.
+- **Liste:** wie `thema_stufe.wieder_offen` und Stadt-Stand `wieder_offen`, aber über **alle** Etappen der aktuellen Einheit. Sie gilt auch bei fertigem Ort, bei Kür-Etappen und bei „Kann er“-Setzung. Älteste zuerst.
+
+**Felder für die App**
+- `schule_konto.nachbessern[]` und `schule_uebersicht.lernende[].nachbessern[]`, je Eintrag:
+  `thema_id, titel, einheit_id, block_id, stadt, lernziel, etappe_nr, etappe` (Titel der Etappe), `pflicht, wieder_offen_seit, folge, folge_noetig` (3), `noch, ort_fertig, gesetzt` (`komplett` | `wiederholen` | `etappe` | null).
+- `schule_reise_karte`:
+  - `naechster_start` mit `grund: 'nachbessern'` vor `dran`/`kommt` (erster Eintrag der Liste, dessen Flug auf der Karte liegt). Felder wie bisher: `thema_id, kontinent_id, land, iso, titel, grund, stadt {nr, name, lernziel, pflicht}, staedte`. Dazu `einheit_id, etappe, folge, folge_noetig`.
+  - Neu `nachbessern[]` (dieselbe Liste).
+  - Die Stadt steht wie bisher mit `stand: 'wieder_offen'`.
+- Karten-Text z. B.: „Nachbessern: {etappe}, noch {noch} richtige in Folge“.
+
+**Was App 0.90.1 zeigt:** unverändert. Die neuen Felder werden nicht gelesen, und `naechster_start` nutzt die App 0.90.1 nicht (nur Stadt-Stände im Reisepass). Die Lücke „Ort fertig → Etappe nicht mehr vorgelegt“ schließt erst NB-App.
+
+**Gefunden, nicht geändert (bitte entscheiden)**
+- In der Wiederholung setzt jede richtige Antwort, auch mit Tipp, den Fehler-Zähler zurück (`wdh_fehler := 0`).
+- „Fehler – richtig mit Tipp – Fehler“ öffnet die Etappe also **nicht** wieder. „Richtig mit Tipp zählt nicht“ gilt heute nur für die Folge nach dem Wieder-Öffnen.
+- **Stand heute (echt, lesend):** 0 wieder offene Etappen bei allen Kindern.
+
+**Rauchtest `nb_s` (lokal, Kopie des echten Stands; vor und nach ZP-S grün)** – am Testkind, Rollback:
+0. Lesend: wieder offene Etappen je Kind.
+1. Einspielen ändert nichts. Liste = wieder offene Etappen. Konto, Übersicht und Reisekarte liefern dieselbe Liste.
+2. Ort fertig, Etappe fällig: 1 Fehler → kein Eintrag. 2. Fehler → Eintrag mit Folge 0 von 3, `ort_fertig`, Titel und Datum. Die Stadt ist „wieder offen“, `naechster_start.grund = 'nachbessern'`.
+3. Richtig mit Tipp → Folge bleibt 0. Eigene Lösung → 1, Fehler → 0. Dann 3 eigene in Folge → Eintrag weg, Wiederholung neu (Stufe 0, fällig in 1 Tag).
+4. „Kann er komplett“ mit Rückfall → Eintrag `gesetzt: 'komplett'`, Stufe bleibt ◉ mit Hinweis `rueckfall`, nächster Start nachbessern. Nach 3 in Folge ist der Eintrag weg.
+5. Fahrplan und Stempel unverändert, andere Kinder unverändert.
+   - Sterne: nur der Landungs-Bonus der Etappe, wie bisher je Etappe einmal (`on conflict do nothing`).
+   - Er fällt im Test an, weil das Testkind vorher keine Landung hatte. Bei einem echten Kind ist er schon gebucht, die Rückkehr bringt also keine Sterne.
+- Weiter grün: `sj_s, zp_s, tl_s, rd_s, ex_s, lz_s, nt_s, lk_s, fp_s`.
+
 ## 2026-11-23 – FERTIG: ZP-S (Nachtrag Rückläufer ChatGPT 964)
 
 Stand `lernen-app` 80e54f2 übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code. Ersetzt die erste ZP-S-Fassung (6601e7b) vollständig:

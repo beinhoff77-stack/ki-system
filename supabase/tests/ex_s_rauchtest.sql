@@ -1,5 +1,5 @@
 -- Rauchtest EX-S (Expeditionen vor die Nase legen: Angebot, „Später“, 150/200 Sterne). Läuft vollständig in einer Transaktion mit Rollback.
--- Spielt die Migration 20261125_ex_s_expedition.sql selbst ein (wiederholbar; vorher oder schon eingespielt, beides geht).
+-- Spielt die Migrationen 20261125_ex_f_expedition_familie.sql (RD-S 2) und 20261125_ex_s_expedition.sql selbst ein (wiederholbar; vorher oder schon eingespielt, beides geht).
 -- Aufruf aus dem Repo-Wurzelverzeichnis: psql -v ON_ERROR_STOP=1 -f supabase/tests/ex_s_rauchtest.sql
 -- Nur Testkind; drei Test-Expeditionen als Entwurf (nur fürs Testkind sichtbar) mit Voraussetzungen in Thema 15. Ausgabe nur Zahlen.
 begin;
@@ -23,7 +23,9 @@ create temp table ex_rt_vorher on commit drop as
   union all select 'route', md5(coalesce(string_agg(r::text, '|' order by r.id), '')) from schule.route r
   union all select 'reiseoptionen_' || l.id, md5(schule.reiseoptionen(l.id)::text) from schule.lernender l where l.aktiv;
 
+\ir ../migrations/20261125_ex_f_expedition_familie.sql
 \ir ../migrations/20261125_ex_s_expedition.sql
+\ir ../migrations/20261125_ex_f_expedition_familie.sql
 \ir ../migrations/20261125_ex_s_expedition.sql
 
 do $$
@@ -175,6 +177,45 @@ begin
       raise exception 'Test 7: expeditionen_stand fehlt in schule_uebersicht'; end if;
   end if;
   raise notice 'Test 7 ok: expeditionen_stand in schule_konto und schule_uebersicht';
+end $$;
+
+-- Test 8 (RD-S 2): jede Voraussetzung und jeder Teil jeder Expedition findet seine Etappe; Familie des Themas trägt eine künftige Teilung
+do $$
+declare v_n int; v_m int; v_l bigint; v_p record; v_x bigint;
+begin
+  select count(*) into v_n from schule.expedition x, jsonb_array_elements(x.voraussetzungen) v
+   where not exists (select 1 from schule.einheit e, jsonb_array_elements(coalesce(e.inhalt->'etappen', '[]')) q
+                      where e.id = schule.thema_einheit((v->>'thema_id')::bigint) and q->>'lernziel' = v->>'lernziel');
+  select count(*) into v_m from schule.aufgabe a where a.pool = 'expedition' and a.variante_gruppe is not null
+     and not exists (select 1 from schule.einheit e, jsonb_array_elements(coalesce(e.inhalt->'etappen', '[]')) q
+                      where e.id = schule.thema_einheit(a.thema_id) and q->>'lernziel' = a.variante_gruppe);
+  if v_n > 0 or v_m > 0 then raise exception 'Test 8: % Voraussetzungen / % Expeditions-Teile ohne ihre Etappe', v_n, v_m; end if;
+  if exists (select 1 from schule.expedition x, jsonb_array_elements(x.voraussetzungen) v
+              where (v->>'thema_schluessel') is not null and v->>'thema_schluessel' <> (select t.schluessel from schule.thema t where t.id = (v->>'thema_id')::bigint)) then
+    raise exception 'Test 8: Themen-Schlüssel der Voraussetzung passt nicht zur Themen-ID'; end if;
+  -- künftige Teilung: Voraussetzung nennt den Stamm, die Etappe liegt in einem späteren Teil → trotzdem erfüllt, Angebot entsteht (Testkind, Entwurf)
+  select id into v_l from schule.lernender where ist_test and aktiv order by id limit 1;
+  select t.id, t.teil_stamm, (select x->>'lernziel' from schule.einheit e, jsonb_array_elements(e.inhalt->'etappen') x where e.id = schule.thema_einheit(t.id) limit 1) lz
+    into v_p from schule.thema t where t.teil_nr > 1 and schule.thema_einheit(t.id) is not null order by t.id limit 1;
+  insert into schule.expedition (schluessel, titel, status, voraussetzungen)
+  values ('rt-ex-familie', 'Rauchtest Familie', 'entwurf', jsonb_build_array(jsonb_build_object('thema_id', v_p.teil_stamm, 'lernziel', v_p.lz))) returning id into v_x;
+  insert into schule.aufgabe (einheit_id, thema_id, art, variante_gruppe, antworttyp, frage, loesung, pool, freigegeben, expedition_id, teil, reihenfolge)
+  values (schule.thema_einheit(v_p.teil_stamm), v_p.teil_stamm, 'uebung', v_p.lz, 'zahl', '{"text":"rt"}', '1', 'expedition', true, v_x, 'a', 1);
+  if schule.expedition_voraussetzungen_ok(v_l, (select x from schule.expedition x where x.id = v_x)) then
+    -- Karte sitzt schon: Angebot über den Nachtrag prüfen
+    perform schule.expedition_angebot_pruefen(v_l);
+  else
+    insert into schule.karte_stand (lernender_id, einheit_id, lernziel, sitzt, sitzt_am) values (v_l, schule.thema_einheit(v_p.id), v_p.lz, true, now())
+    on conflict (lernender_id, einheit_id, lernziel) do update set sitzt = true, sitzt_am = now(), gesetzt_am = null;
+  end if;
+  if not schule.expedition_voraussetzungen_ok(v_l, (select x from schule.expedition x where x.id = v_x)) then
+    raise exception 'Test 8: Voraussetzung im späteren Teil wird nicht erkannt'; end if;
+  if not exists (select 1 from schule.expedition_angebot where lernender_id = v_l and expedition_id = v_x) then
+    raise exception 'Test 8: Auslöser legt kein Angebot an (Familie)'; end if;
+  if schule.expedition_etappe(v_l, (select a from schule.aufgabe a where a.expedition_id = v_x)) <> schule.thema_einheit(v_p.id) then
+    raise exception 'Test 8: expedition_etappe findet die Karte im Teil nicht'; end if;
+  raise notice 'Test 8 ok: alle Voraussetzungen (%) und Expeditions-Teile (%) finden ihre Etappe; Stamm-Verweis auf späteren Teil wird erkannt, Angebot entsteht',
+    (select count(*) from schule.expedition x, jsonb_array_elements(x.voraussetzungen) v), (select count(*) from schule.aufgabe where pool = 'expedition');
 end $$;
 
 rollback;

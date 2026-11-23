@@ -5,7 +5,12 @@
 --    Ausgabe in expeditionen_kind (je Expedition) und als expeditionen_stand (Stationen gesamt/geschafft, oberste Karte) in schule_konto und schule_uebersicht.
 -- 3) Aktion api.schule_expedition_spaeter (lernen-api 0.9.3).
 -- Sperrt nichts, zählt nicht für „gelandet“, ändert keinen Lernstand. Wiederholbar; kein DROP, kein DELETE.
+-- Voraussetzung: 20261125_ex_f_expedition_familie.sql (Familie des Themas, gleiche Regel wie expedition_voraussetzungen_ok).
 -- Stand 23.11.: live gibt es noch keine Expeditions-Sterne und keine Antworten auf Expeditionen – keine Nachbuchung nötig (Rauchtest prüft das).
+
+do $$ begin
+  if to_regprocedure('schule.thema_familie(bigint)') is null then raise exception 'EX-S: zuerst 20261125_ex_f_expedition_familie.sql einspielen'; end if;
+end $$;
 
 -- 1) Regelwerte
 insert into schule.regel (schluessel, wert, hinweis) values
@@ -63,11 +68,13 @@ begin
   insert into schule.expedition_angebot (lernender_id, expedition_id, angeboten_am)
   select p_l, x.id,
          coalesce((select max(k.sitzt_am) from jsonb_array_elements(x.voraussetzungen) v
-                     join schule.einheit e on e.thema_id = (v->>'thema_id')::bigint
+                     join schule.thema t on coalesce(t.teil_stamm, t.id) = schule.thema_familie((v->>'thema_id')::bigint)   -- RD-S 2: Familie wie expedition_voraussetzungen_ok
+                     join schule.einheit e on e.thema_id = t.id
                      join schule.karte_stand k on k.einheit_id = e.id and k.lernender_id = p_l and k.lernziel = v->>'lernziel' and k.sitzt), now())
     from schule.expedition x
    where schule.expedition_sichtbar(p_l, x) and schule.expedition_voraussetzungen_ok(p_l, x)
-     and (p_thema is null or x.voraussetzungen @> jsonb_build_array(jsonb_build_object('thema_id', p_thema)))
+     and (p_thema is null or exists (select 1 from jsonb_array_elements(x.voraussetzungen) v
+                                      where schule.thema_familie((v->>'thema_id')::bigint) = schule.thema_familie(p_thema)))   -- RD-S 2: Familie
      and coalesce(schule.expedition_zustand(p_l, x), '') <> 'geschafft'
   on conflict (lernender_id, expedition_id) do nothing;
   get diagnostics v_n = row_count;

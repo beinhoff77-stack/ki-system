@@ -91,6 +91,12 @@ begin
       if (v_f->>'zusatz')::boolean is distinct from coalesce((select schule.kind_gruppe(v_x.id) = any(t.zusatz) from schule.thema t where t.id = (v_f->>'thema_id')::bigint), false) then
         raise exception 'Test 4: Zusatz weicht ab (Kind %, Thema %)', v_x.id, v_f->>'thema_id'; end if;
       if (v_f->>'golden')::boolean and v_f->>'stufe' <> 'komplett' then raise exception 'Test 4: golden ohne komplett (Kind %, Thema %)', v_x.id, v_f->>'thema_id'; end if;
+      -- RD-S 2: Stand je Stadt und Zähler je Flug nach derselben Regel (karte_sicher / sitzt), golden = alle Etappen der Regel sicher
+      if (v_f->>'sicher')::int is distinct from (select count(*)::int from jsonb_array_elements(v_f->'staedte') s where (s->>'pflicht')::boolean and s->>'stand' = 'sicher')
+         or (v_f->>'gelandet')::int is distinct from (select count(*)::int from jsonb_array_elements(v_f->'staedte') s where (s->>'pflicht')::boolean and s->>'stand' in ('gelandet', 'sicher'))
+         or (v_f->>'sicher')::int is distinct from (schule.thema_stufe(v_x.id, (v_f->>'thema_id')::bigint)->>'sicher')::int
+         or (v_f->>'golden')::boolean is distinct from ((v_f->>'etappen')::int > 0 and (v_f->>'sicher')::int = (v_f->>'etappen')::int) then
+        raise exception 'Test 4: Stand je Stadt und Zähler sicher/gelandet/golden passen nicht (Kind %, Thema %)', v_x.id, v_f->>'thema_id'; end if;
     end loop;
     if v_cnt <> (select count(*) from schule.reise_land l where l.art = 'flug' and schule.thema_einheit(l.thema_id) is not null) then
       raise exception 'Test 4: Karte zeigt % statt aller Flüge (Kind %)', v_cnt, v_x.id; end if;
@@ -164,24 +170,29 @@ begin
   update schule.lernender set schulart = 'gym_by', zweig = null where id = v_l;
   v_t := 15; v_e := schule.thema_einheit(v_t);
   select array_agg(x->>'lernziel' order by o) into v_lz from schule.einheit e, jsonb_array_elements(e.inhalt->'etappen') with ordinality q(x, o) where e.id = v_e;
-  insert into schule.karte_stand (lernender_id, einheit_id, lernziel, sitzt, sitzt_am, wdh_stufe, richtig, falsch)
-  values (v_l, v_e, v_lz[1], true, now(), 3, 5, 0), (v_l, v_e, v_lz[2], true, now(), 0, 5, 0), (v_l, v_e, v_lz[3], false, now(), 0, 5, 1),
-         (v_l, v_e, v_lz[4], false, null, 0, 1, 1), (v_l, v_e, v_lz[5], false, null, 0, 0, 0)
+  -- „sicher“ = schule.karte_sicher (dieselbe Regel wie der Zähler sicher in thema_stufe): live sitzt + wdh_stufe ≥ 4 und Nachweis;
+  --   hier über „Kann er – aber wiederholen“ (gesetzt_am, ohne Mischkarte seitdem). Erste Karte sicher, zweite nur gelandet (wdh_stufe 0).
+  insert into schule.karte_stand (lernender_id, einheit_id, lernziel, sitzt, sitzt_am, wdh_stufe, richtig, falsch, gesetzt_am, gesetzt_von, misch_ok_am)
+  values (v_l, v_e, v_lz[1], true, now(), 4, 5, 0, now(), 'rauchtest', null), (v_l, v_e, v_lz[2], true, now(), 0, 5, 0, null, null, null),
+         (v_l, v_e, v_lz[3], false, now(), 0, 5, 1, null, null, null), (v_l, v_e, v_lz[4], false, null, 0, 1, 1, null, null, null),
+         (v_l, v_e, v_lz[5], false, null, 0, 0, 0, null, null, null)
   on conflict (lernender_id, einheit_id, lernziel) do update set sitzt = excluded.sitzt, sitzt_am = excluded.sitzt_am, wdh_stufe = excluded.wdh_stufe,
-     richtig = excluded.richtig, falsch = excluded.falsch, gesetzt_am = null;
+     richtig = excluded.richtig, falsch = excluded.falsch, gesetzt_am = excluded.gesetzt_am, gesetzt_von = excluded.gesetzt_von, misch_ok_am = excluded.misch_ok_am;
+  if not schule.karte_sicher((select k from schule.karte_stand k where k.lernender_id = v_l and k.einheit_id = v_e and k.lernziel = v_lz[1])) then
+    raise exception 'Test 3: Aufbau „sicher“ greift nicht (karte_sicher)'; end if;
   v_k := schule.reise_karte(v_l);
   select string_agg(s->>'stand', ',' order by (s->>'nr')::int) into v_st
     from jsonb_array_elements(v_k->'kontinente') k, jsonb_array_elements(k->'fluege') f, jsonb_array_elements(f->'staedte') s
    where (f->>'thema_id')::bigint = v_t and (s->>'nr')::int <= 5;
   if v_st <> 'sicher,gelandet,wieder_offen,begonnen,offen' then raise exception 'Test 3: Stand je Etappe falsch: %', v_st; end if;
-  insert into schule.karte_stand (lernender_id, einheit_id, lernziel, sitzt, sitzt_am, wdh_stufe, richtig, falsch)
-  select v_l, v_e, x, true, now(), 3, 5, 0 from unnest(v_lz) x
-  on conflict (lernender_id, einheit_id, lernziel) do update set sitzt = true, sitzt_am = now(), wdh_stufe = 3, gesetzt_am = null;
+  insert into schule.karte_stand (lernender_id, einheit_id, lernziel, sitzt, sitzt_am, wdh_stufe, richtig, falsch, gesetzt_am, gesetzt_von, misch_ok_am)
+  select v_l, v_e, x, true, now(), 4, 5, 0, now(), 'rauchtest', null from unnest(v_lz) x
+  on conflict (lernender_id, einheit_id, lernziel) do update set sitzt = true, sitzt_am = now(), wdh_stufe = 4, gesetzt_am = now(), gesetzt_von = 'rauchtest', misch_ok_am = null;
   v_k := schule.reise_karte(v_l);
   select f into v_f from jsonb_array_elements(v_k->'kontinente') k, jsonb_array_elements(k->'fluege') f where (f->>'thema_id')::bigint = v_t;
   if not (v_f->>'golden')::boolean or v_f->>'stufe' <> 'komplett' or v_f->>'stufe' <> schule.thema_stufe(v_l, v_t)->>'stufe' then
     raise exception 'Test 3: golden/komplett falsch (stufe %, golden %)', v_f->>'stufe', v_f->>'golden'; end if;
-  raise notice 'Test 3 ok: Stand je Etappe (sicher, gelandet, wieder offen, begonnen, offen) und golden = alles sicher';
+  raise notice 'Test 3 ok: Stand je Etappe (sicher, gelandet, wieder offen, begonnen, offen) nach karte_sicher und golden = alles sicher';
   update schule.lernender set schulart = v_sa, zweig = v_zw where id = v_l;
 end $$;
 

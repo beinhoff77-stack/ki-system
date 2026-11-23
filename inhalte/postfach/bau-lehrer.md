@@ -2,6 +2,55 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-23 – FERTIG: RD-S 2
+
+Stand `lernen-app` fb2fcfb übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code:
+- neu: `supabase/migrations/20261125_ex_f_expedition_familie.sql`
+- geändert: `supabase/migrations/20261125_ex_s_expedition.sql`, `supabase/tests/rd_s_rauchtest.sql`, `supabase/tests/ex_s_rauchtest.sql`
+- Inhaltsquelle angeglichen: `inhalte/expeditionen/8-schulfest.json`, `inhalte/generatoren/expedition_schulfest.py`
+
+**Reihenfolge Einspielen:** RD-S-Migration → `rd_einspiel_2311.sql` → `20261125_ex_f_expedition_familie.sql` → `20261125_ex_s_expedition.sql`. EX-S bricht ab, wenn `ex_f` fehlt.
+
+**1) „sicher“ (rd_s Test 3)**
+- Live gilt `schule.karte_sicher`: Die Karte sitzt, `wdh_stufe` ≥ 4, und es gibt einen Nachweis.
+  - Nachweis entweder: Mischkarte seit dem Landen und bestandener Nachtest mit richtiger Antwort zu dieser Etappe.
+  - Oder: bei „Kann er“ bzw. Flug ohne Test keine Mischkarte seit dem Setzen, bzw. eine bestandene.
+- Der Zähler `sicher` in `thema_stufe` nutzt genau diese Funktion.
+- Die Karten-Funktion (`reise_etappe_stand`) nutzt sie schon. Sie ist unverändert; falsch war der Test.
+  - Der alte Test setzte nur `wdh_stufe` 3 ohne Nachweis; das ist live „gelandet“.
+  - Der lokale Nachbau hatte eine vereinfachte `karte_sicher`.
+- Test 3 neu:
+  - Erste Karte sicher über „Kann er“: `wdh_stufe` 4, `gesetzt_am`, keine Mischkarte seitdem. Vorab prüft der Test, dass `karte_sicher` greift.
+  - Zweite Karte nur gelandet, danach wieder offen, begonnen, offen.
+  - Golden: alle Karten so sicher.
+- Test 4 neu je Kind und Flug:
+  - `sicher` = Anzahl Pflicht-Städte mit Stand „sicher“ = `thema_stufe.sicher`.
+  - `gelandet` = Anzahl Pflicht-Städte „gelandet“ oder „sicher“.
+  - `golden` = alle Etappen der Regel sicher.
+  - Damit nutzen Stand je Stadt und die Zähler je Flug dieselbe Regel.
+- Gegenprobe lokal mit der Live-Fassung von `karte_sicher`: Der alte Test schlägt mit genau der Meldung aus dem Probelauf fehl, der neue ist grün.
+
+**2) Expedition „8-schulfest“ und Familie des Themas (`ex_f`)**
+- Neu: `schule.thema_familie(thema)` (Stamm über `teil_stamm`) und `schule.lernziel_thema(thema, lernziel)` (das Thema der Familie, dessen aktuelle Einheit die Etappe hat; das genannte Thema zuerst).
+- `expedition_voraussetzungen_ok` und `expedition_etappe` suchen die Karte in der Familie des genannten Themas. Eine künftige Teilung bricht Expeditionen damit nicht mehr.
+- Der Auslöser aus EX-S (`expedition_angebot_pruefen`: Auswahl der Expedition und „seit“ = späteste Landung) nutzt dieselbe Familien-Regel.
+- Datenkorrektur ohne feste IDs:
+  - Voraussetzungen, deren Lernziel nicht im genannten Thema liegt, zeigen auf den Teil, der es enthält; `thema_schluessel` wird mitgeführt.
+  - Ebenso Thema und Einheit der Expeditions-Teile (Aufgaben).
+  - Live betrifft das „8-schulfest“: laplace und grosse_zahlen, je Voraussetzung und Teil, gehen nach „Zufall und Laplace – Teil 2 von 2“.
+  - Live gibt es keine Karten und keine Antworten dazu; kein Kind ist betroffen.
+- Inhaltsquelle: Die JSON und der Generator nennen jetzt `stochastik.grundbegriffe_teil2`. Sonst würde ein neuer Import die alte Zuordnung zurückholen.
+- `ex_s_rauchtest` Test 8:
+  - Jede Voraussetzung und jeder Teil jeder Expedition findet seine Etappe im genannten Thema; der Themen-Schlüssel passt zur ID.
+  - Eine Voraussetzung, die den Stamm nennt, deren Etappe aber in einem späteren Teil liegt, gilt als erfüllt. Der Auslöser legt das Angebot an, und `expedition_etappe` findet die Karte im Teil.
+
+**Lokal geprüft**
+- `ex_f` und EX-S liefen je zweimal (zweiter Lauf: 0 Änderungen).
+- Auf dem Stand vor und nach dem Einspielen grün:
+  - `ex_s_rauchtest` (Tests 0–8)
+  - `rd_s_rauchtest`, zusätzlich mit der Live-Fassung von `karte_sicher`
+  - `tl_s`, `nt_s`, `lk_s`
+
 ## 2026-11-23 – FERTIG: EX-S
 
 Gehört zu RD-S. Stand `lernen-app` 759fa30 übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code:

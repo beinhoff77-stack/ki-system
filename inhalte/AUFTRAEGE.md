@@ -3147,3 +3147,17 @@ Datei `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw3.md`. Zusätzlich zu �
 - **K1** Hinweistext „Lehrplan von“ mit Beispiel. **K2** „Einstieg prüfen …“ → „Bereit für Klasse …?“. **K4** kürzere Knöpfe in „Was wackelt“ auf dem Handy.
 - Offen für Sebastian: **K3** Testkind im Kinder-Umschalter ausblenden oder ans Ende mit Marke „Test“.
 Hinweis: Der Gestalter hält den Kopf (53 px) für in Ordnung; Sebastians Rückmeldung („etwas sehr klein“) geht vor – Kopf 68–72 px.
+
+## Probelauf LZ-S (23.11., 02:30 Berlin, echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` 4994319. Migration `20261126_lz_s_ladezeit.sql` zweimal ohne Fehler.
+- **Ergebnis inhaltlich gleich** (eigener md5-Vergleich vorher/nachher: Matrix Kind 2, Matrix ohne Kind, Reisekarte und Reiseoptionen aller Kinder, `thema_stufe` aller Themen aller Kinder).
+- **Zeiten vorher → nachher:** Matrix je Kind 2532 → 186 ms · Matrix ohne Kind 4462 → 536 ms · Reisekarte 1037 → 219 ms · Stufen aller Themen (3 Kinder) 2537 → 244 ms.
+- Tests mit LZ: lz_s, rd_s, ex_s, nt_s, lk_s, wd_s, wd_s3, fp_s, lw_s grün. Ein erster Lauf von lz_s meldete „Antwort verändert“ bei Kind 2 – Ursache: Sebastian änderte in diesen Sekunden den Plan von Kind 2 (Plan-Änderung 02:30:44); Wiederholung ohne gleichzeitige Änderung grün.
+- **tl_s rot, unabhängig von LZ** (auch ohne LZ): „FEHLER 5: offener Zusatz-Teil als Pflicht im Plan“ – siehe nächster Abschnitt.
+Prüfbitte an ChatGPT gestellt.
+
+## Befund: Zusatz-Teil lässt sich als normaler Flug einplanen (23.11., 02:30 Berlin) · an `bau-lehrer`
+
+Sebastian hat über „Unser Lehrplan“ (App 0.90.1) für Kind 2 „Kongruenzabbildungen – Teil 2 von 3“ eingeplant (route.id 485, art `normal`, status `offen`, Platz 21). Der Teil ist im Gymnasium Zusatz (keine Pflicht-Etappe). `schule_plan_setzen` legt ihn trotzdem als `normal` an.
+Zu klären und als Datei zu liefern (ZP-S): Was passiert mit einem bewusst eingeplanten Zusatz-Teil? Vorschlag Haupt-Chat: Einplanen bleibt erlaubt (Entscheidung der Eltern), der Eintrag wird als Zusatz geführt (`art` passend), er sperrt nichts dahinter, gilt als erledigt, sobald alle seine Etappen gelandet sind (ohne Pflicht-Test; Stempel/100 Sterne: Entscheidung Sebastian), und die Lehrer-Ansicht zeigt ihn als „Zusatz · eingeplant“. Prüfen: Kann der Flug mit `art normal` und leerer Pflichtliste heute je „fertig“ werden, oder bleibt er für immer offen im Plan? Bestehenden Eintrag 485 mit umstellen. `tl_s_rauchtest` Teil 5 muss danach auf dem echten Stand grün sein. Entscheidung Sebastian zu Stempel/Sternen steht aus.

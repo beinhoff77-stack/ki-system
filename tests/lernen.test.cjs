@@ -4705,7 +4705,8 @@ test('RK-App 3 M1: Handy-Kopf bei 360 und 400 px ohne Überdeckung – rechts fe
     await zk.click(); await page.locator('.rk-st-hier').waitFor(); await page.waitForTimeout(300);
     assert.equal(await kopfPruefen('Land'), '🇮🇹 Italien 📍'.replace('🇮🇹 ', ''));
     assert.equal((await page.locator('header.top .rk-pfad').innerText()).replace(/\s+/g, ' ').trim(), '… › Italien 📍');
-    if (b === 360) await page.screenshot({ path: path.join(root, `test-results/rk3-kopf-land-360-${g}.png`) });
+    if (b === 360) { await page.screenshot({ path: path.join(root, `test-results/rk3-kopf-land-360-${g}.png`) });
+      const nm = await page.locator('.rk-schwebe .rk-dran-text b').evaluate((e) => e.scrollWidth <= e.clientWidth + 1); assert.ok(nm, '360 px: Stadtname in der Schwebekarte nicht gekürzt'); }
     await page.locator('header.top .rk-pfad-kurz').click(); await page.locator('.rk-pfad-teil.an', { hasText: 'Europa' }).waitFor();
   }
 });
@@ -4914,4 +4915,211 @@ test('RK-App: Info-Seite nennt die Reisekarte und die Quellen (GeoNames CC BY 4.
   for (const s2 of ['GeoNames (CC BY 4.0)', 'Natural Earth (gemeinfrei)', 'COMNAP Antarctic Facilities (nur private, nicht kommerzielle Bildungs-Nutzung)', 'Abflugtafel']) assert.ok(txt.includes(s2), s2);
   const lz = fs.readFileSync(path.join(root, 'karte/LIZENZEN.md'), 'utf8');
   for (const s2 of ['## flag-icons', '## i18n-iso-countries', '## countries-list', 'MIT', 'CC BY 4.0', 'COMNAP']) assert.ok(lz.includes(s2), s2);
+});
+
+// ---------- KJ (0.93.0): Jugendwort-Sticker, drei Karten der Kinderseite, Lehrer-Ansicht ----------
+const JW = JSON.parse(fs.readFileSync(path.join(root, 'daten/jugendwoerter.json'), 'utf8'));
+test('JW: Wortliste in der App = woerter.json der Vorgabe; Verfallsdatum (Monat gilt bis Monatsende), ungeeignete Wörter nie, kein Wort aus den letzten 4 Stickern, nie zweimal derselbe Spruch, Fehler-Regel, Anrede einmal je Lerntag', async (t) => {
+  assert.equal(fs.readFileSync(path.join(root, 'daten/jugendwoerter.json'), 'utf8'), fs.readFileSync(path.join(root, 'inhalte/pruefung/kind/jugendwoerter/woerter.json'), 'utf8'), 'Kopie unverändert');
+  const { page } = await setup(t); await page.goto(origin + '/#/reise/1'); await page.waitForFunction(() => typeof lernJwLaden === 'function');
+  const r = await page.evaluate(async () => {
+    const d = await lernJwLaden(); const out = {};
+    // Verfall: Monat „2026-11“ gilt am 23.11.2026 noch, „2026-10“ nicht mehr; ohne Verfallsdatum / „ungeeignet“ nie
+    out.gueltig = [lernJwWortGueltig({ einsatz: ['lob'], verfall: '2026-11' }, '2026-11-30'), lernJwWortGueltig({ einsatz: ['lob'], verfall: '2026-10' }, '2026-11-01'),
+      lernJwWortGueltig({ einsatz: ['lob'] }, '2026-11-01'), lernJwWortGueltig({ einsatz: 'ungeeignet', verfall: '2030-01' }, '2026-11-01')];
+    const kopie = structuredClone(d); kopie.woerter.find((w) => w.id === 'peak').verfall = '2026-10';
+    out.ohnePeak = lernJwSprueche(kopie, 'landung_direkt', '2026-11-23').map((s) => s.id);
+    out.mitPeak = lernJwSprueche(d, 'landung_direkt', '2026-11-23').map((s) => s.id);
+    out.nachAblauf = lernJwSprueche(d, 'landung_direkt', '2029-01-01').length; // alle Wörter abgelaufen → nichts ziehen
+    // 40 Züge über verschiedene Anlässe: kein Wort (außer Digga) aus den letzten 4 Stickern, nie derselbe Spruch zweimal hintereinander
+    localStorage.removeItem('lern.jw.1'); const anl = ['landung_sauber', 'landung_direkt', 'knobel_richtig', 'landung_sturm', 'flug_geschafft', 'wiederholung', 'nachbessern', 'serie_5'];
+    let n = 0; const zuege = []; const zufall = () => { n = (n * 9301 + 49297) % 233280; return n / 233280; };
+    for (let i = 0; i < 40; i++) zuege.push(lernJwZiehen(1, anl[i % anl.length], { heute: '2026-11-23', zufall }));
+    out.zuege = zuege.map((z) => ({ id: z.id, w: z.woerter, s: z.staerke, a: z.anlass }));
+    // Fehler-Regel: falsch, falsch, richtig, falsch, falsch, richtig, falsch → Sticker beim 1., 3. und 5. Fehler, nie beim 2. in Folge
+    localStorage.removeItem('lern.jw.2'); const f = [];
+    for (const x of ['f', 'f', 'r', 'f', 'f', 'r', 'f']) { if (x === 'r') { lernJwRichtig(2); continue; } f.push(!!lernJwFehler(2, { heute: '2026-11-23' })); }
+    out.fehler = f; out.fehlerNeuerTag = !!lernJwFehler(2, { heute: '2026-11-24' });
+    localStorage.removeItem('lern.jw.3'); out.anrede = [!!lernJwAnrede(3, { heute: '2026-11-23' }), !!lernJwAnrede(3, { heute: '2026-11-23' }), !!lernJwAnrede(3, { heute: '2026-11-24' })];
+    return out;
+  });
+  assert.deepEqual(r.gueltig, [true, false, false, false]);
+  assert.ok(r.mitPeak.includes('J01') && !r.ohnePeak.includes('J01') && !r.ohnePeak.includes('J02'), 'abgelaufenes Wort wird nicht gezogen');
+  assert.equal(r.nachAblauf, 0);
+  for (let i = 1; i < r.zuege.length; i++) {
+    assert.notEqual(r.zuege[i].id, r.zuege[i - 1].id, `Zug ${i}: derselbe Spruch`);
+    const gesperrt = new Set(r.zuege.slice(Math.max(0, i - 4), i).flatMap((z) => z.w).filter((w) => w !== 'digga'));
+    assert.ok(!r.zuege[i].w.some((w) => gesperrt.has(w)), `Zug ${i}: ${r.zuege[i].id} (${r.zuege[i].w}) – Wort aus den letzten 4`);
+  }
+  // Stärke folgt dem Anlass (nie nach oben ausweichen)
+  const staerke = Object.fromEntries(JW.sprueche.map((s) => [s.id, s.staerke])); for (const z of r.zuege) assert.equal(z.s, staerke[z.id]);
+  for (const z of r.zuege.filter((x) => x.a === 'landung_sturm')) assert.ok(!z.w.includes('peak'), 'Sturmflug nie „Peak“');
+  assert.deepEqual(r.fehler, [true, false, true, false, true]); assert.equal(r.fehlerNeuerTag, true, 'neuer Lerntag: 1. Fehler');
+  assert.deepEqual(r.anrede, [true, false, true], 'Anrede einmal je Lerntag');
+});
+
+test('JW: Sticker in der Landung (Szene unten rechts, verdeckt nichts), Antippen zeigt die Bedeutung; Knobel richtig, Fehler-Sticker klein (400/820, Tag und Nacht)', async (t) => {
+  for (const [b, h, g] of [[400, 860, 'tag'], [820, 1180, 'nacht']]) {
+    const { page } = await setup(t, { gestaltung: g }); await page.setViewportSize({ width: b, height: h });
+    await page.goto(origin + '/#/reise/1'); await page.waitForFunction(() => typeof lernJwLaden === 'function'); await page.evaluate(() => lernJwLaden());
+    await page.evaluate(() => { localStorage.removeItem('lern.jw.1');
+      lernAbschlussZeigen({ id: 1 }, lernAbschlussEtappe({ e: { titel: 'Runden', lernziel: 'stellenwert', ziel: 6 }, nr: 2, von: 5, landung: { landung_art: 'direkt', bonus: 80, stufe: 'ohne', fehler: 0 }, daten: {}, sterne: 60,
+        knopf: lernGrossKnopf('Weiter: Zahlenstrahl', 'Etappe 3 von 5', { href: '#/reise/1' }), kind: 1 }), { label: 'Etappe gelandet' }); });
+    const st = page.locator('.lr-abschluss .lr-ab-szene .lr-jw-sticker'); await st.waitFor(); await page.waitForTimeout(900);
+    const text = await st.innerText(); const ids = JW.sprueche.filter((s) => s.anlass === 'landung_direkt'); const spruch = ids.find((s) => text.startsWith(s.sticker));
+    assert.ok(spruch, `Spruch aus landung_direkt: ${text}`); assert.equal(spruch.staerke, 3);
+    assert.match(await st.getAttribute('aria-label'), /^Sticker: .+\. Tippen für die Bedeutung\.$/);
+    const kb = await st.boundingBox();
+    for (const s2 of ['.lr-ab-titel', '.lr-ab-riesig', '.lr-ab-gross', '.lr-ab-oben']) { const o = await page.locator('.lr-abschluss ' + s2).first().boundingBox();
+      assert.ok(kb.x >= o.x + o.width || kb.x + kb.width <= o.x || kb.y >= o.y + o.height || kb.y + kb.height <= o.y, `Sticker verdeckt ${s2}`); }
+    await page.screenshot({ path: path.join(root, `test-results/jw-landung-${b}-${g}.png`) });
+    await st.click(); const bl = page.locator('.lr-jw-blatt'); await bl.waitFor();
+    const wort = JW.woerter.find((w) => w.id === spruch.woerter[0]); assert.match(await bl.innerText(), new RegExp(wort.bedeutung.slice(0, 20).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+    if (wort.gesprochen) assert.match(await bl.innerText(), /gesprochen/);
+    await page.screenshot({ path: path.join(root, `test-results/jw-bedeutung-${b}-${g}.png`) });
+    await bl.getByRole('button', { name: 'Schließen' }).click(); assert.equal(await page.locator('.lr-jw-blatt').count(), 0);
+    assert.equal(await page.locator('.lr-abschluss').count(), 1, 'Antippen schließt die Landung nicht');
+    // Flug geschafft und Expedition: je ein Sticker
+    await page.evaluate(() => { lernAbschlussZeigen({ id: 1 }, lernAbschlussFlug({ ctx: { kind: 1, daten: { inhalt: { etappen: [{ lernziel: 'a', titel: 'A' }] }, stand: [] }, ort: { stadt: 'Rom' }, titelKurz: 'Natürliche Zahlen' },
+      r: { richtig: 4, gesamt: 4, flug: { titel: 'Natürliche Zahlen' }, sterne_flug: { summe: 400 } }, weiter: () => {}, testAnsehen: () => {} })); });
+    const fs2 = await page.locator('.lr-abschluss-flug .lr-ab-szene .lr-jw-sticker').innerText();
+    assert.ok(JW.sprueche.filter((s) => s.anlass === 'flug_geschafft').some((s) => fs2.startsWith(s.sticker)), fs2);
+    await page.screenshot({ path: path.join(root, `test-results/jw-flug-${b}-${g}.png`) });
+  }
+});
+
+// Drei Karten: Testkind mit wieder offener Etappe, eingeplantem Zusatz, schuljahr_stand (Zahlen erfunden, wie im Beispiel der Vorgabe)
+const KJ_NB = [{ thema_id: 1, titel: 'Natürliche Zahlen', einheit_id: 1, block_id: 49, stadt: 'Rom', lernziel: 'stellenwert', etappe_nr: 1, etappe: 'Welchen Wert hat eine Ziffer?', pflicht: true,
+  wieder_offen_seit: '2026-11-20', folge: 1, folge_noetig: 3, noch: 2, ort_fertig: false, gesetzt: null },
+  { thema_id: 1, titel: 'Natürliche Zahlen', einheit_id: 1, block_id: 49, stadt: 'Rom', lernziel: 'strahl', etappe_nr: 2, etappe: 'Zahlenstrahl', pflicht: true, wieder_offen_seit: '2026-11-21', folge: 0, folge_noetig: 3, noch: 3 }];
+const KJ_SJ = (haupt = 5) => ({ schulart: 'gym_by', klasse: haupt, rechnung: 'So wird gerechnet …', klassen: haupt === 5
+  ? [{ klasse: 5, haupt: true, fluege: { gesamt: 15, fertig: 2, offen: 13 }, etappen: { gesamt: 112, gelandet: 29, offen: 83 }, prozent: 26, ring: { kann: 6, wdh: 13, an: 10 }, zusatz: { fluege: { gesamt: 0, fertig: 0, offen: 0, eingeplant: 0 }, etappen: { gesamt: 0, gelandet: 0, offen: 0 } } },
+    { klasse: 6, haupt: false, fluege: { gesamt: 11, fertig: 0, offen: 11 }, etappen: { gesamt: 82, gelandet: 0, offen: 82 }, prozent: 0, ring: { kann: 0, wdh: 0, an: 0 } }]
+  : [{ klasse: 7, haupt: false, fluege: { gesamt: 12, fertig: 5, offen: 7 }, etappen: { gesamt: 61, gelandet: 23, offen: 38 }, prozent: 38, ring: { kann: 8, wdh: 10, an: 5 } },
+    { klasse: 8, haupt: true, fluege: { gesamt: 16, fertig: 1, offen: 15 }, etappen: { gesamt: 97, gelandet: 9, offen: 88 }, prozent: 9, ring: { kann: 3, wdh: 4, an: 2 } },
+    { klasse: 9, haupt: false, fluege: { gesamt: 14, fertig: 0, offen: 14 }, etappen: { gesamt: 87, gelandet: 0, offen: 87 }, prozent: 0, ring: { kann: 0, wdh: 0, an: 0 } }] });
+const KJ_ZP = [{ route_id: 485, block_id: 60, position: 21, status: 'offen', thema_id: 279, einheit_id: 3, etappen: 5, gelandet: 2, geschafft: false, geschafft_am: null, sterne: null }];
+function kjServer({ nb = KJ_NB, sj = KJ_SJ(5), zp = KJ_ZP, basis = null } = {}) {
+  const f = (aktion, e, d) => { let r = basis ? basis(aktion, e, d) : e; if (!r) return r;
+    if (aktion === 'schule_konto') r = { ...r, nachbessern: structuredClone(nb), schuljahr_stand: sj };
+    if (aktion === 'schule_uebersicht') r = { ...r, lernende: (r.lernende || []).map((l) => (l.id === 1 ? { ...l, nachbessern: structuredClone(nb), schuljahr_stand: sj, zusatz_plan: structuredClone(zp) } : l)) };
+    return r; };
+  f.neueAktionen = !!basis?.neueAktionen; return f;
+}
+
+test('KJ §0: Kinderseite – Nachbessern zuerst (Expedition als Chip), Gerade dran, Zusatz · eingeplant, Mein Schuljahr; Zahlen aus schuljahr_stand; gelber Knopf nie Zusatz (400/820, Tag und Nacht)', async (t) => {
+  for (const [b, h, g] of [[400, 860, 'tag'], [820, 1180, 'nacht']]) {
+    const ex = exServer();
+    const { page } = await setup(t, { gestaltung: g, anpassen: kjServer({ basis: ex.anpassen }) });
+    await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); localStorage.setItem('lern.rk.1', 'tafel'); });
+    await page.setViewportSize({ width: b, height: h }); await page.goto(origin + '/#/reise/1'); await page.locator('.lr-nb-karte').waitFor(); await page.waitForTimeout(400);
+    const folge = await page.evaluate(() => [...document.querySelector('.lr-inhalt').querySelectorAll('.lr-nb-karte, .lr-ex-wartet, .lr-ex-karte, .lr-abflugtafel, .lr-zp-karte, .lr-sj-karte')].map((e) => e.className.split(' ')[0]));
+    assert.deepEqual(folge, ['lr-nb-karte', 'lr-ex-wartet', 'lr-abflugtafel', 'lr-zp-karte', 'lr-karte-box'], 'Reihenfolge §0');
+    // Nachbessern
+    const nb = page.locator('.lr-nb-karte');
+    assert.match(await nb.innerText(), /↻ NACHBESSERN[\s\S]*Welchen Wert hat eine Ziffer\?[\s\S]*in Rom · Italien · Natürliche Zahlen[\s\S]*Die Etappe ist ein bisschen eingerostet\. Mit 3 richtigen in Folge sitzt sie wieder\.[\s\S]*1 von 3[\s\S]*Weiter nachbessern ›[\s\S]*Deine Sterne und Stempel bleiben\. Etwa 3 Minuten\.[\s\S]*\+1 weitere Etappe zum Nachbessern/);
+    assert.equal(await nb.locator('.lr-nb-kreise i.an').count(), 1);
+    assert.equal(await nb.locator('.lr-nb-knopf').getAttribute('href'), '#/lerneinheit/1-1-ueben-1');
+    assert.equal(await page.locator('.lr-ex-wartet').innerText(), '⛯ Expedition wartet: Die Wetterstation ›'); assert.equal(await page.locator('.lr-ex-karte').count(), 0);
+    // Zusatz · eingeplant: Zweitknopf, gelber Hauptknopf zeigt nie den Zusatz
+    const zp = page.locator('.lr-zp-karte');
+    assert.match(await zp.innerText(), /\+ ZUSATZ · EINGEPLANT[\s\S]*Terme umformen[\s\S]*2 von 5 Etappen · Extra-Flug, von deinen Eltern eingeplant[\s\S]*Weiter in Samarkand ›[\s\S]*Ganz fertig: Stempel und ★ 100\. Dein nächster Flug wartet trotzdem\./);
+    assert.equal(await zp.locator('.lr-zp-balken i').count(), 5); assert.equal(await zp.locator('.lr-zp-balken i.voll').count(), 2);
+    assert.doesNotMatch(await page.locator('.lr-einsteigen-knopf').getAttribute('href'), /-3-/, 'Hauptknopf nicht beim Zusatz');
+    // Mein Schuljahr – gleich schuljahr_stand
+    const sj = page.locator('.lr-sj-karte');
+    assert.match(await sj.innerText(), /MEIN SCHULJAHR · GYMNASIUM[\s\S]*26 %[\s\S]*Klasse 5[\s\S]*Schon geschafft: 2 von 15 Flügen · 29 von 112 Etappen[\s\S]*Noch 13 Flüge und 83 Etappen bis Klasse 5 geschafft[\s\S]*Nächstes Ziel: 30 % – nur noch 5 Etappen![\s\S]*Danach Klasse 6: 11 Flüge · 82 Etappen/);
+    assert.doesNotMatch(await sj.innerText(), /Zusatz|schlecht|hinterher/);
+    // Gerade dran bleibt im ersten Bildschirm (Knopf ≤ 700 px auf dem Handy)
+    const k = await page.locator('.lr-einsteigen-knopf').boundingBox(); assert.ok(k.y + k.height <= (b === 400 ? 860 : h), `Einsteigen ${k.y + k.height}`);
+    const tafel = await page.locator('.lr-flug-jetzt').boundingBox(); if (b === 400) assert.ok(tafel.y <= 700, `Gerade dran ${tafel.y}`);
+    assert.ok(await ohneQuerrollen(page));
+    await page.screenshot({ path: path.join(root, `test-results/kj-start-${b}-${g}.png`), fullPage: true });
+  }
+  // Ziel-Feld bei 9 % = 1 Etappe (Kl. 8: 9 von 97)
+  const { page } = await setup(t, { gestaltung: 'tag', anpassen: kjServer({ sj: KJ_SJ(8), nb: [], zp: [] }) }); await page.addInitScript(() => localStorage.setItem('lern.rk.1', 'tafel'));
+  await page.setViewportSize({ width: 400, height: 860 }); await page.goto(origin + '/#/reise/1'); const sj = page.locator('.lr-sj-karte'); await sj.waitFor();
+  assert.match(await sj.innerText(), /Klasse 7: noch 7 Flüge · 38 Etappen[\s\S]*38 %[\s\S]*9 %[\s\S]*Nächstes Ziel: 10 % – nur noch 1 Etappe![\s\S]*Danach Klasse 9: 14 Flüge · 87 Etappen/);
+  assert.equal(await page.locator('.lr-nb-karte, .lr-zp-karte').count(), 0, 'ohne Daten keine Karten');
+  await page.screenshot({ path: path.join(root, 'test-results/kj-sj-kl8-400.png'), fullPage: true });
+});
+
+test('KJ NB: Übung mit Leiste „↻ NACHBESSERN“ – Folge 1 → 2 → 0 (Fehler: „Kein Problem – neuer Anlauf.“) → 1 → 2 → 3, dann „Sitzt wieder!“ mit Sticker; Reisekarte zeigt Nachbessern zuerst', async (t) => {
+  let n = 0; const folgen = [2, 0, 1, 2, 3];
+  const server = kjServer({ basis: (aktion, e, d) => {
+    if (aktion !== 'schule_uebung_pruefen' || !e) return e; const f = folgen[Math.min(n, folgen.length - 1)]; const richtig = f > 0; n++;
+    return { ok: true, format_ok: true, richtig, loesung: { wert: 2000 }, loesungsweg: 'So.', karte: { ...(e.karte || {}), folge: f, neu_sitzt: f >= 3, sitzt: f >= 3 }, sterne: richtig ? 10 : 0 }; } });
+  server.neueAktionen = false;
+  const { page } = await setup(t, { gestaltung: 'tag', anpassen: server }); await page.setViewportSize({ width: 400, height: 860 });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); const leiste = page.locator('.lr-nb-leiste'); await leiste.waitFor();
+  assert.match(await leiste.innerText(), /↻ NACHBESSERN · Welchen Wert hat eine Ziffer\?[\s\S]*1 von 3 in Folge/);
+  await page.screenshot({ path: path.join(root, 'test-results/kj-nb-uebung-400.png') });
+  const antworte = async () => { await page.locator('.lr-bordkarte input').first().fill('7'); await page.getByRole('button', { name: 'Prüfen' }).click(); };
+  const weiter = () => page.locator('.lr-weiter').click();
+  await antworte(); await page.waitForFunction(() => /2 von 3 in Folge/.test(document.querySelector('.lr-nb-leiste')?.textContent || '')); await weiter();
+  await antworte(); await page.getByText('Kein Problem – neuer Anlauf.').waitFor(); assert.match(await page.locator('[role=status]').filter({ hasText: 'neuer Anlauf' }).first().innerText(), /Noch 3 richtige in Folge, dann sitzt die Etappe wieder\./);
+  assert.match(await leiste.innerText(), /0 von 3 in Folge/); await weiter();
+  await antworte(); await page.waitForFunction(() => /1 von 3 in Folge/.test(document.querySelector('.lr-nb-leiste')?.textContent || '')); await weiter();
+  await antworte(); await page.waitForFunction(() => /2 von 3 in Folge/.test(document.querySelector('.lr-nb-leiste')?.textContent || '')); await weiter();
+  await antworte(); const ab = page.locator('.lr-abschluss.lr-ab-hell, .lr-abschluss'); await ab.locator('.lr-nb-fertig').waitFor();
+  assert.equal(await ab.locator('.lr-ab-titel').textContent(), 'Sitzt wieder!');
+  assert.match(await ab.innerText(), /„Welchen Wert hat eine Ziffer\?“ in Rom ist wieder gelandet\.[\s\S]*In den nächsten Lerntagen fragen wir sie noch ein paar Mal ab\.[\s\S]*Weiter nachbessern: Zahlenstrahl/);
+  assert.equal(await ab.locator('.lr-nb-haken i').count(), 3); assert.doesNotMatch(await ab.innerText(), /Saubere Landung|Direktflug|Sturmflug/);
+  const st = ab.locator('.lr-jw-sticker'); await st.waitFor(); const txt = await st.innerText();
+  assert.ok(JW.sprueche.filter((s) => s.anlass === 'nachbessern').some((s) => txt.startsWith(s.sticker)), txt);
+  await page.waitForTimeout(1600); await page.screenshot({ path: path.join(root, 'test-results/kj-nb-fertig-400.png') });
+  // Reisekarte: Nachbessern oben in der schwebenden Zone (kompakt), Expedition nur als Chip, „Gerade dran“ bleibt der Pflicht-Flug; rechts Mein Schuljahr (1280)
+  for (const [b, h] of [[400, 860], [1280, 800]]) {
+    const srv = rkServer({ basis: kjServer() }); const { page: p2 } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen }); await p2.setViewportSize({ width: b, height: h });
+    await p2.goto(origin + '/#/reise/1'); await p2.locator('.rk .rk-pin').first().waitFor(); await p2.waitForTimeout(400);
+    const ort = b >= 1100 ? '.rk-seite' : '.rk-schwebe'; const nb = p2.locator(`${ort} .lr-nb-karte`); await nb.waitFor();
+    assert.equal(await nb.locator('.lr-nb-knopf').getAttribute('href'), '#/lerneinheit/1-1-ueben-1');
+    const yNb = (await nb.boundingBox()).y, yStart = (await p2.locator(`${ort} .rk-start`).boundingBox()).y; assert.ok(yNb < yStart, 'Nachbessern über Gerade dran');
+    assert.equal(await p2.locator(`${ort} .lr-zp-karte`).count(), 1, 'Zusatz eingeplant sichtbar');
+    if (b >= 1100) assert.match(await p2.locator('.rk-seite .lr-sj-karte').innerText(), /Schon geschafft: 2 von 15 Flügen · 29 von 112 Etappen/);
+    else { const kb = await p2.locator('.rk-schwebe .rk-start').boundingBox(); assert.ok(kb.y + kb.height <= h, 'Startknopf im Bild'); }
+    await p2.screenshot({ path: path.join(root, `test-results/kj-reisekarte-${b}.png`) });
+  }
+});
+
+test('KJ Lehrer: Ring ohne Zusatz-Teil der Gruppe (gleiche Auswahl wie schuljahr_stand), Karte „Stand“ mit „noch x von y Flügen · noch a von b Etappen“, eingeplanter Zusatz sichtbar (Fahrplan, Matrix, Detail, Überblick)', async (t) => {
+  const ringText = async (page) => page.locator('.lw-kz-zelle[data-kl="8"] .lw-kn').first().innerText();
+  // Basis ohne Zusatz
+  const { page: p0 } = await lwOeffnen(t, 1280); const ohne = await ringText(p0); const [, f0, g0] = ohne.match(/(\d+)\/(\d+)/).map(Number);
+  // Ein Pflicht-Thema der Kl. 8 ist für die Gruppe gym_by Zusatz-Teil → zählt nicht im Ring (Lehrplan und Überblick)
+  let zusatzId = null; let zpId = null;
+  const mitZusatz = () => { const basis = lmsAnpassen(); const f = (aktion, e, d) => { const r = basis(aktion, e, d);
+    if (aktion === 'schule_lehrplan_matrix' && r) { const st1 = (x) => r.lernstand[1][x.thema_id]?.stufe;
+      const t8 = r.themen.find((x) => x.jahrgang?.gym_by === 8 && !x.ohne_flug && st1(x) === 'kommt'); zusatzId = t8.thema_id; t8.teil = { nr: 2, von: 2, zusatz: ['gym_by'] };
+      const allein = (x) => r.themen.filter((y) => y.block_id === x.block_id).length === 1; const kommt = r.themen.find((x) => x !== t8 && st1(x) === 'kommt' && allein(x) && x.block_id !== t8.block_id); zpId = kommt.thema_id; Object.assign(r.lernstand[1][zpId], { zusatz_eingeplant: true, gelandet: 2, etappen: 5 }); }
+    if (aktion === 'schule_uebersicht' && r) (r.lernende || []).forEach((c) => { if (c.id === 1) c.zusatz_plan = [{ route_id: 1, block_id: 1, position: 3, status: 'offen', thema_id: zpId || 0, einheit_id: 1, etappen: 5, gelandet: 2, geschafft: false }]; });
+    return r; }; f.neueAktionen = true; return f; };
+  const fehlerSeite = []; const { page } = await lwOeffnen(t, 1280, { anpassen: mitZusatz() }).catch((e0) => { throw new Error(e0.message + ' | ' + fehlerSeite.join(' | ')); });
+  const mit = await ringText(page); const [, f1, g1] = mit.match(/(\d+)\/(\d+)/).map(Number);
+  assert.equal(g1, g0 - 1, `Ring Kl. 8: ${ohne} → ${mit} (Zusatz-Teil ${zusatzId} zählt nicht)`); assert.equal(f1, f0);
+  // eingeplanter Zusatz: Matrix-Karte, Fahrplan, Detail
+  const karte = page.locator(`.lw-karte[data-id="${zpId}"]`); assert.match(await karte.getAttribute('class'), /lw-zp/);
+  assert.match(await karte.innerText(), /Zusatz · eingeplant[\s\S]*2\/5 Etappen/);
+  assert.match(await page.locator('.lw-rail .lw-fp-zp').first().innerText(), /ZUSATZ · EINGEPLANT 2 von 5 Etappen · ohne Flug-Test/);
+  assert.match(await page.locator('.lw-rk-zahl').innerText(), / · \+ 1 Zusatz$/);
+  await karte.click(); const dr = page.locator('.lw-drawer.lw-auf'); await dr.waitFor();
+  assert.match(await dr.innerText(), /Zusatz · eingeplant – kein Pflichtstoff im Gymnasium[\s\S]*2 von 5 Etappen · fertig, sobald alle gelandet \(ohne Flug-Test\) · dann Stempel und ★ 100, einmal/);
+  await page.screenshot({ path: path.join(root, 'test-results/kj-lehrer-lehrplan-1280.png') });
+  // Überblick: gleicher Ring, Zahlen je Klasse, Zusatz-Zeile mit ⓘ
+  await page.goto(origin + '/#/kind/1-ueberblick'); const ue = page.locator('.lw-ue-stand'); await ue.waitFor();
+  assert.match(await ue.locator('.lw-ue-ring').nth(1).innerText(), new RegExp(`${f1}/${g1} Themen`));
+  assert.match(await ue.locator('.lw-sj-haupt').innerText(), new RegExp(`Kl\\. 8 Gymnasium · \\d+ % · noch ${g1 - f1} von ${g1} Flügen · noch \\d+ von \\d+ Etappen`));
+  assert.match(await ue.locator('.lw-sj-zus').innerText(), /\+ Zusatz eingeplant: .+ \(2 von 5 Etappen\) – zählt nicht mit/);
+  await ue.locator('.lw-sj-i').click(); assert.match(await ue.locator('.lw-sj-rechnung').innerText(), /^So wird gerechnet: Prozent = gelandete Etappen ÷ alle Etappen der Pflicht-Flüge dieser Klasse im Lehrplan Gymnasium\./);
+  // mit schuljahr_stand: Ring und Zahlen genau von dort
+  const basisSj = mitZusatz(); const mitSj = (aktion, e, d) => { const r = basisSj(aktion, e, d); if (aktion === 'schule_uebersicht' && r) (r.lernende || []).forEach((c) => { if (c.id === 1) c.schuljahr_stand = KJ_SJ(8); }); return r; }; mitSj.neueAktionen = true;
+  const { page: seite } = await setup(t, { anpassen: mitSj }); await seite.setViewportSize({ width: 400, height: 860 });
+  await seite.goto(origin + '/#/kind/1-ueberblick'); const ue3 = seite.locator('.lw-ue-stand'); await ue3.waitFor();
+  assert.match(await ue3.locator('.lw-sj-haupt').innerText(), /Kl\. 8 Gymnasium · 9 % · noch 15 von 16 Flügen · noch 88 von 97 Etappen/);
+  assert.match(await ue3.locator('.lw-sj-zeile').first().innerText(), /Kl\. 7 Gymnasium · 38 % · noch 7 von 12 Flügen · noch 38 von 61 Etappen/);
+  assert.match(await ue3.locator('.lw-ue-ring').nth(1).innerText(), /1\/16 Themen/);
+  await seite.screenshot({ path: path.join(root, 'test-results/kj-lehrer-stand-400.png'), fullPage: true });
+  await seite.setViewportSize({ width: 820, height: 1180 }); await seite.waitForTimeout(300); await seite.screenshot({ path: path.join(root, 'test-results/kj-lehrer-stand-820.png'), fullPage: true });
+  await page.setViewportSize({ width: 820, height: 1180 }); await page.goto(origin + '/#/kind/1-lehrplan'); await page.locator('.lw-karte').first().waitFor(); await page.waitForTimeout(300);
+  await page.screenshot({ path: path.join(root, 'test-results/kj-lehrer-lehrplan-820.png') });
 });

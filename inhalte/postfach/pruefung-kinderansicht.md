@@ -154,3 +154,6 @@ Vorgabe `inhalte/pruefung/kind/karten/umsetzung.md`, Entwurf `karten/entwurf/kar
 
 ## 2026-11-23 – FERTIG: Prüfung EX-App (0.91.1) – 0 Muss
 Bericht `inhalte/pruefung/kind/expedition/nachpruefung_ex.md`, Bilder `expedition/nachpruefung/`. lernen-app 600609c (0.91.2), EX- und W176-T4-Tests grün. Soll: S1 360×640 Chips in Ansicht 1 verdeckt, S2 „freiwillig“ noch bei Knobel-Bordkarten (Kinderseite). Kann K1–K4.
+
+## 2026-11-23 – FERTIG: Prüfung RK-App (0.92.0) – 1 Muss
+Bericht `inhalte/pruefung/kind/karte/nachpruefung_rk.md`, Bilder `karte/nachpruefung/`. c41a3d5, RK- und EX-Tests grün. Muss M1: Stadt „wieder offen“ als ✓ + „heute wiederholen“ gezeigt. Soll: S1 Rechner-Karte klein, S2 Handy-Karte klein (Kopf/Expedition), S3 „4/13“ statt „3/6“, S4 Land-Ausschnitt/Namen, S5 Welt Handy, S6 Blatt bleibt offen, S7 Zusatz-Text ohne „freiwillig“. Kann K1–K5.

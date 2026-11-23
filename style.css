@@ -5384,3 +5384,50 @@ a.wk-knopf:hover { background: #F5F2EA; }
   main.view:has(.lw-koerper) .lern-kind-kopf:has(.lw-kinder) .lern-kind-kopf-knoepfe { margin-left: auto; gap: 4px; }
   main.view:has(.lw-koerper) .lern-kind-kopf:has(.lw-kinder) .lern-info-oben { margin: 0; }
 }
+
+/* ---------- LW-3b (0.90.1): eine Kopfzeile auf der Kind-Seite, Matrix bis zum unteren Rand, „Lehrplan von:“ ---------- */
+body.lw-kopf-schlank[data-area]:not([data-area="login"]) { padding-top: 52px; }
+body.lw-kopf-schlank .area-nav { height: 52px; }
+body.lw-kopf-schlank[data-area]:not([data-area="login"]) header.top { top: 52px; }
+body.lw-kopf-schlank header.top { padding-top: calc(6px + env(safe-area-inset-top)); padding-bottom: 6px; gap: 8px 12px; flex-wrap: wrap; }
+body.lw-kopf-schlank header.top #title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+body.lw-kopf-schlank header.top .iconbtn { width: 38px; height: 38px; min-height: 0; }
+body.lw-kopf-schlank main.view { padding-top: 10px; }
+header.top > .lern-kind-kopf.lw-schlank { flex: 1 1 0; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0; padding: 0; background: none; border: 0; }
+.lw-schlank .lw-kinder { margin: 0; flex: 0 1 auto; }
+.lw-schlank .lw-k-einzel { display: flex; align-items: baseline; gap: 8px; } .lw-schlank .lw-k-einzel b { font-size: 16px; }
+.lw-schlank .lern-reiter { margin: 0; border: 0; flex: 0 1 auto; }
+.lw-schlank .lern-reiter a { padding-top: 8px; padding-bottom: 8px; }
+.lw-schlank .lern-kind-kopf-knoepfe { margin-left: auto; display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; }
+.lw-schlank .lern-start { font-size: 12.5px; padding: 6px 12px; min-height: 0; }
+.lw-schlank .lern-einstellen { min-height: 34px; padding: 4px 9px; font-size: 15px; }
+.lw-schlank .lern-info-oben { margin: 0; } .lw-schlank .lern-info-link { font-size: 17px; text-decoration: none; }
+.lw-vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.lw-hilfe { border: 0; background: none; padding: 0 2px; min-height: 0; font: inherit; font-size: 15px; color: #5F6B66; cursor: pointer; }
+.lw-sa-hilfe { flex: 1 0 100%; margin: 0; font-size: 12px; color: #4F5B56; background: #F3F0E8; border-radius: 8px; padding: 6px 10px; }
+@media (max-width: 759px) {
+  header.top > .lern-kind-kopf.lw-schlank { gap: 4px 8px; }
+  .lw-schlank .lern-reiter { flex: 1 0 100%; order: 3; }
+  .lw-schlank .lw-k-pfeil { display: none; }
+  .lw-schlank .lern-start { padding: 5px 9px; font-size: 12px; }
+  body.lw-kopf-schlank header.top { padding-left: 12px; padding-right: 12px; }
+  body.lw-kopf-schlank header.top .ver { display: none; }
+}
+@media (min-width: 1100px) {
+  header.top > .lern-kind-kopf.lw-schlank { flex-wrap: nowrap; }
+  .lw-schlank .lw-kinder { flex: 0 1 auto; min-width: 0; }
+  .lw-schlank .lw-k-chip:not(.lw-k-aktiv) .lw-k-info { display: none; }
+  .lw-schlank .lern-reiter { flex: none; }
+}
+body.lw-kopf-schlank header.top #btn-back { width: 38px; height: 38px; min-width: 0; min-height: 0; font-size: 20px; flex: none; }
+.lw-zeile2 { flex: 1 0 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.lw-zeile2 .lw-legende { margin: 0 0 0 6px; flex: 1 1 auto; }
+.lw-zeile2 .lw-rechts { margin-left: auto; }
+.lw-leiste { row-gap: 4px; padding-top: 4px; }
+@media (min-width: 760px) and (max-width: 1099px) { .lw-schlank .lern-reiter { flex: 1 0 100%; order: 3; } .lw-schlank .lw-k-chip:not(.lw-k-aktiv) .lw-k-info { display: none; } }
+.lw-leiste .lw-rueck { min-height: 32px; padding: 4px 10px; font-size: 13px; }
+.lw-kseg button { min-height: 0; }
+body.lw-kopf-schlank main.view { padding-top: 4px; }
+body.lw-kopf-schlank header.top { padding-top: calc(4px + env(safe-area-inset-top)); padding-bottom: 4px; }
+@media (max-width: 759px) { .lw-leiste .lw-rueck { font-size: 0; padding: 4px 8px; } .lw-leiste .lw-rueck::before { content: "↶"; font-size: 16px; } }
+body.lw-kopf-schlank .lern-abmelden { min-height: 30px; font-size: 12px; padding: 0 9px; margin-left: 0; flex: none; }

@@ -2,6 +2,19 @@
 
 Neueste oben.
 
+## 2026-11-23 – FERTIG: LW-3b (0.90.1) – Kopf der Kind-Seite schlank, Matrix groß, „Lehrplan von:“, Cache v167
+
+Auf `lernen-app` fb2fcfb (Nachtrag LW-3, Rückmeldung Sebastian zu 0.89.1). Nur App, Version in sechs Dateien, Tests, Info-Seite. Nichts in der Datenbank, keine Migration, kein Merge nach `main`.
+Bilder: `docs/previews/la/lw3b-1280.png` (1280 × 800), `lw3b-820.png`, `lw3b-400.png`.
+
+1. **Eine Kopfzeile** auf allen drei Reitern der Kind-Seite, im App-Kopf statt im Inhalt: ‹ Zurück · Kinder-Umschalter (ersetzt die Überschrift „Lehrplan ‹Kind›“; die Überschrift bleibt nur für Vorleser) · Reiter Überblick | Was wackelt (rote Zahl) | Lehrplan · rechts klein „Lernen starten ›“ (Eltern) bzw. „Lernreise ansehen ›“ (Lehrer), ⚙ (Einstellen), ⓘ (So funktioniert’s), Version bzw. Abmelden (Lernen-Seite). Die Bereichsleiste oben ist auf der Kind-Seite 52 statt 72 px hoch. **Gemessen 1280 × 800: Kopf 53 px.** Tablet: Reiter in einer zweiten Zeile; Handy: Umschalter + Knöpfe, darunter die Reiter. Auf anderen Seiten ist der Kopf wie bisher (Test).
+2. **Matrix und Fahrplan bis zum unteren Rand** (eigene Rollbereiche wie bisher). Die Legende steht jetzt in der zweiten Zeile der Leiste (kürzere Wörter: „fertig“, „gewählte Schule“, „Platz“), Stand und „↶ Rückgängig“ rechts daneben. **Gemessen 1280 × 800: Matrix 603 px sichtbar** (Test ≥ 600). 820: erste Karte bei 229 px (0.89.1: 366), 400: 314 px (0.89.1: 392).
+   **Expeditionen** des Kindes stehen im Überblick (unten), nicht mehr unter der Matrix.
+3. **„Lehrplan von:“** (Gymnasium | Realschule | IB MYP, auf allen Breiten ausgeschrieben) statt „Einordnen“, mit ⓘ: „Bestimmt nur, in welcher Klassen-Zeile ein Thema steht und welcher Ring groß ist. Es werden immer alle Themen gezeigt.“ Standard = Schulart des Kindes. Info-Seite angepasst. Unter Nachschlagen → Lehrplan (Matrix ohne Kind) heißt es weiter „Einordnen nach“ – dort nicht beauftragt.
+4. **Tests:** neu 2 (Kopf/Matrix/Lehrplan von/Expeditionen bei 1280, 820, 400; Info-Seite); W176-Test sieht die Expeditionen jetzt im Überblick. Lernen alle grün; Gesamtlauf sonst nur die bekannten Reise-Tests. **Nicht geprüft:** echte Geräte, echter Server.
+
+**Knapp:** 603 px ist nur 3 px über der Grenze. Wird die Leiste länger (z. B. „Noch nicht im Plan · 145“), kann die Legende in eine dritte Zeile rutschen – dann stünde sie besser hinter ⓘ wie auf Tablet/Handy (bitte entscheiden).
+
 ## 2026-11-23 – FERTIG: LW-3 (0.90.0) – Kinder-Umschalter, Überblick-Karten mit Sprüngen, „Was wackelt“ als Arbeitsliste, Cache v166
 
 Auf `lernen-app` 6da3aec (Vorgabe Abschnitt 1a, Schnittstelle LW-S / LW-S 2). Nur App, Version in sechs Dateien, Tests, Info-Seite. Nichts in der Datenbank, keine Migration, kein Merge nach `main`.

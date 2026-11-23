@@ -3346,3 +3346,7 @@ Datei `inhalte/pruefung/kind/karte/nachpruefung_rk.md`.
 2. `20261125_rd_s_reise.sql` Zeile 194 (Rückfall für `naechster_start.stadt`, wenn keine offene Stadt): übernimmt die erste Stadt bis auf vier Felder → mit RK-D gelangen die fünf neuen Stadtfelder in die Start-Antwort. → Rückfall auf das bisherige Feldset begrenzen (einschließlich optionalem `zaehlt`); Vorher/Nachher-Vergleich für einen Startkandidaten ohne offene Stadt.
 3. `rk_d_rauchtest.sql` Zeilen 114–116: Test 3b meldet Erfolg auch bei wirkungsloser Einplanung → erst `im_plan` wahr verlangen, dann `gesperrt` falsch und Grund leer am Flug und seinen offenen Städten (Testflug ohne fehlendes Visum).
 Fachregel: 31 gesperrte Flüge bei Kind 2 sind plausibel (28 harte Visa der Gruppe, 3 Klassenstufe außerhalb des Plans; zwei der 28 sind eingeplant – ein Planplatz überstimmt die Klassengrenze, nicht ein fehlendes hartes Visum).
+
+## Probelauf RK-D 2 (23.11., 04:55 Berlin, echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` d23b9fc, Datei `20261129_rk_d_karte_felder.sql` (a22f6b2d…). Zweimal ohne Fehler; Karten, Sterne, Plan, Reiseoptionen, Stufen unverändert; `naechster_start` aller Kinder vorher = nachher. Tests grün: rk_d (vor/nach, mit Mischstand-Test und strengem 3b), rd_s, nb_s. Karte Kind 2: 280 ms, 31 Flüge gesperrt. Nachprüfbitte an ChatGPT.

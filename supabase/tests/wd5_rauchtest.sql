@@ -24,9 +24,10 @@ create temp table wd5_schon on commit drop as select exists (select 1 from schul
 -- Test 1: Regel 3; je Kind höchstens 3 gesetzte Erst-Wiederholungen je Lerntag (ohne offene Runde)
 do $$ begin
   if schule.wd_regel('wdh_gesetzt_je_lerntag', 0) <> 3 then raise exception 'FEHLER 1: Regel nicht 3'; end if;
+  if schule.wd_regel('wdh_runde_teiler', 0) <> 1 then raise exception 'FEHLER 1: Teiler nicht 1 (Rundengröße A)'; end if;
   if exists (select 1 from schule.lernender l, lateral (select g.tag, count(*) n from schule.wdh_gesetzt_erst(l.id) g where not g.in_runde group by 1) c where c.n > 3) then
     raise exception 'FEHLER 1: mehr als 3 gesetzte Erst-Wiederholungen an einem Lerntag'; end if;
-  raise notice 'Test 1: Regel 3, höchstens 3 je Lerntag: OK';
+  raise notice 'Test 1: Regel 3, Teiler 1, höchstens 3 je Lerntag: OK';
 end $$;
 
 -- Test 2: Reihenfolge nach Plan (Platz, Einheit, Etappe): Lerntag steigt nicht ab

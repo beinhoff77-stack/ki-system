@@ -2,6 +2,114 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-23 – FERTIG: RK-D 2
+
+Stand `lernen-app` dee070b übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.
+- geändert: `supabase/migrations/20261129_rk_d_karte_felder.sql`, `supabase/tests/rk_d_rauchtest.sql`
+- unverändert: `20261125_rd_s_reise.sql`
+
+**Muss 1 – Wiederholbarkeit ohne Mischstand**
+- Der Einbau steht jetzt in `schule.rk_d_einbau()`; die Migration ruft ihn nur auf.
+- Er zählt die **sechs** Zielblöcke einzeln, je vollständiger Text.
+  - Alle sechs je genau einmal → „schon eingebaut“.
+  - Keiner da und keine „RK-D“-Markierung → einbauen (alle sechs Anker je genau einmal geprüft).
+  - Alles andere bricht mit Fehler ab: teilweise da, Markierung ohne Blöcke, Block doppelt.
+- Auch die erste RK-D-Fassung (fünf Blöcke) wird als Mischstand erkannt; sie war nie echt eingespielt.
+- **Test 5:** Block 6 wird zurückgesetzt, die Markierung in den anderen Blöcken bleibt → `rk_d_einbau` meldet „Mischstand (5 von 6)“. Nach dem Wiederherstellen → „schon eingebaut“.
+
+**Muss 2 – Rückfall für `naechster_start.stadt`**
+- Als Teil von RK-D (Zielblock 6, Text-Patch in `reise_karte`) zieht der Rückfall auf die erste Stadt zusätzlich die fünf neuen Felder ab.
+- Damit bleibt das bisherige Feldset: `nr, name, lernziel, pflicht` und, falls da, `zaehlt` (ZP-S).
+- **Test 4 (vor dem Einspielen aufgebaut):**
+  - Testkind mit einem eingeplanten Flug, alle Etappen gelandet, Flug-Test offen → Stufe „dran“, keine offene Stadt. Geprüft wird, dass der Rückfall erreicht ist.
+  - `naechster_start` vorher = nachher (ganzes Objekt). Die Stadt hat nur die bisherigen Felder.
+  - Auf dem echten Stand trifft die Auswahl Thema 1 (5 Etappen, Pflichtliste 4, beim Testkind kein Flug-Test) – lesend geprüft.
+
+**Muss 3 – Test 3b**
+- Der Testflug muss ohne fehlendes Visum sein (geprüft).
+- Nach der Einplanung zuerst `im_plan = true` verlangt, sonst Fehler.
+- Danach gilt am Flug und an allen offenen Städten: `gesperrt = false`, Grund leer.
+
+**Gelaufen** (lokal, Kopien wie echt; `reise_karte` md5-gleich mit echt):
+- `rk_d` grün vor und nach dem Einspielen; Migration zweimal → „eingebaut“, dann „schon eingebaut“.
+- Weiter grün: `rd_s, nb_s, zp_s, lz_s, ex_s, sj_s, tl_s, nt_s, lk_s, fp_s, wd5`.
+- **Dauer:** unverändert zu RK-D (Block 6 ist nur ein Feldabzug beim Start). Lokal je Kind höchstens 110–157 ms über alle Tests (Messung mit anderer Last als in RK-D).
+- **Echt:** gemessen sind nur die neuen Abfragen (5 ms). Geschätzt rund 255 ms je Kind – Annahme, echt erst nach dem Einspielen messbar.
+- **Lesend auf dem echten Stand nachvollzogen:** Anker und Funktionskörper (md5), Testdaten-Auswahl für Test 3 und Test 4. Die Tests schreiben (Rollback) und liefen deshalb nur lokal.
+
+## 2026-11-23 – FERTIG: WD-5 3 / RK-D
+
+Stand `lernen-app` e0f3873 übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.
+- geändert: `supabase/migrations/20261128_wd5_staffel_drosseln.sql` (Teiler), `supabase/tests/wd_s_rauchtest.sql`, `supabase/tests/wd_s3_rauchtest.sql`, `supabase/tests/wd5_rauchtest.sql`
+- neu: `supabase/migrations/20261129_rk_d_karte_felder.sql`, `supabase/tests/rk_d_rauchtest.sql`
+
+### 1. Rundengröße „A“ (Teiler 1)
+
+- **WD-5-Migration** setzt jetzt auch `wdh_runde_teiler = 1` (Abschnitt 1b; legt die Regel an, falls sie fehlt). Runde = alle fälligen, höchstens 12, bis Kl. 6 höchstens 10.
+- **Rückweg** (im Kopf der Datei):
+  - `update schule.regel set wert = '5' where schluessel = 'wdh_runde_teiler';` – wie vorher.
+  - `… wert = '2' …` – mildere Stufe.
+- **`wd_s` Teil 1:**
+  - Merkt sich Teiler, Mindest- und Höchstwerte und setzt sie im Test selbst.
+  - Prüft Teiler 5 wie bisher (0/5/6/7/20/41/60/100 → 0/5/6/6/6/9/12/12; Kl. 6: 60 → 10, 41 → 9).
+  - Prüft zusätzlich Teiler 1: 7/11/12/13/41/100 → 7/11/12/12/12/12; bis 6 alle; Kl. 6: 7/10/11/60 → 7/10/10/10.
+  - Stellt die gemerkten Werte wieder her.
+- **Weitere Stelle mit festem Teiler gefunden: `wd_s3` Teil 7 (WD-4b-Strecken).**
+  - Der Teil braucht eine Runde kleiner als die fälligen Etappen (6 von 8), sonst wird nichts gestreckt. Mit Teiler 1 war er rot: „FEHLER 7 Rückweg trotz Zwischenübung“.
+  - Jetzt setzt er Teiler 5 im Test und stellt ihn wieder her (wie schon die Staffel-Regel).
+- **`wd5_rauchtest`** prüft zusätzlich, dass Teiler 1 gesetzt ist.
+- **Lesend auf dem echten Stand geprüft:**
+  - Nur `wdh_runde_groesse` liest den Teiler, und nur `wdh_runde_holen` nutzt `wdh_runde_groesse`.
+  - Andere Tests mit Runden (`ab_s`, `i2`, `lb3`) rechnen keine Rundengröße nach.
+- **Lokal:**
+  - `wd5`, `wd_s3` und `fp_s` sind grün vor und nach dem Einspielen (Teiler 5 bzw. 1).
+  - `wd_s` Teil 1 ist mit beiden Teilern grün.
+  - `wd_s` Teil 2 ist lokal schon vorher rot („Pflicht zuerst, 5 statt 6“ bzw. mit Teiler 1 „11 statt 12“): In den lokalen Auszügen fehlt für eine Etappe eine freie Aufgabe. Der Test rechnet die Soll-Größe mit der Regel und passt auf dem echten Stand (dort laut Haupt-Chat grün).
+
+### 2. RK-D – Reisekarte: gesperrt und abgelegt
+
+- **Einbau:** direkt in `schule.reise_karte` (Text-Patch mit 5 geprüften Ankern, auf dem echten Stand md5-gleich mit lokal).
+  - Einmal je Aufruf `schule.rk_d_basis` (Visum je Flug, Klasse je Flug, abgelegt).
+  - Die Felder entstehen beim Aufbau von Flug und Stadt.
+  - `api.schule_reise_karte` bleibt unverändert.
+- **Neue Felder:**
+  - **Flug:** `gesperrt`, `gesperrt_grund` (`'visum'` | `'klasse'` | null), `ab_klasse`, `visum_fehlt` [{block_id, ort, kontinent}], `abgelegt`.
+  - **Stadt:** `gesperrt`, `gesperrt_grund`, `ab_klasse`, `abgelegt`, `abgelegt_am`.
+- **Festlegungen (bitte prüfen):**
+  - **Visum:** wie `reiseoptionen`. Der Ort des Flugs hat eine harte Voraussetzung der Gruppe des Kindes, deren Ort nicht fertig oder „kann schon“ ist und keinen Visum-Übergang hat.
+  - **ab Klasse:** Klasse des Themas in der Schulart des Kindes (gleiche Quelle wie `thema_jahrgang`, Matrix, `schuljahr_stand`; IB +5).
+    - Die Städte erben sie.
+    - Klassen je Etappe aus `thema_lage` wären genauer, kosten aber rund 30 ms je Aufruf (gemessen, echter Stand). Das hätte die 0,3 s gesprengt.
+  - **Flug gesperrt nur ohne eigenen Fortschritt** (kein Stempel, nicht golden, nicht gesetzt, Stufe nicht dran/wiederholung/komplett):
+    - Visum vor Klasse.
+    - Klasse nur, wenn nicht im Plan.
+    - Visum gilt auch im Plan.
+  - **Stadt gesperrt** nur bei Stand `offen`, mit dem Grund des Flugs.
+  - **abgelegt:** Stadt aus `schule.abgelegt` (Etappe, mit Datum), Flug aus dem Flug-Eintrag.
+- **Echter Stand (lesend nachgerechnet):**
+  - Kind 1 (Kl. 5): 95 Flüge, gesperrt 57 Visum + 11 Klasse; davon 9 im Plan mit fehlendem Visum.
+  - Kind 2 (Kl. 8): 28 Visum + 3 Klasse; davon 2 im Plan mit fehlendem Visum.
+  - Abgelegt: heute nichts (Tabelle leer).
+  - **Frage:** Sollen eingeplante Flüge mit fehlendem Visum 🔒 zeigen? Heute ja, wie die Abflugtafel „Visum fehlt“ zeigt.
+- **Dauer:**
+  - Lokal +15 bis +18 ms je Kind (Bestwert 93 → 110 ms, 20 Läufe).
+  - Echt gemessen nur die neuen Abfragen (`rk_d_basis`-Teil): 5 ms.
+  - **Annahme:** Mit dem Aufbau der Felder rund +25 ms, die Reisekarte geht von heute rund 230 ms auf rund 255 ms je Kind, also unter 0,3 s. Echt nicht gemessen (Funktion nicht eingespielt).
+- **Rauchtest `rk_d`** (Rollback, Testkind):
+  1. Übrige Felder md5-gleich mit der Antwort vor dem Einspielen; alle Flüge/Städte haben die neuen Felder; Dauer gemeldet.
+  2. Unabhängige Nachrechnung:
+     - Grund nur ohne Fortschritt.
+     - Visum mit Liste.
+     - Klasse nur außerhalb des Plans und über der Klasse des Kindes.
+     - `ab_klasse` = `thema_jahrgang`.
+     - Städte wie Flug, nur bei `offen`.
+  3. Testkind:
+     - Visum fehlt → gesperrt mit dem fehlenden Ort; Voraussetzung erledigt → frei.
+     - Kl. 5: Flug ab Kl. 8 gesperrt (Städte auch); eingeplant → frei.
+     - Etappe und Flug abgelegt → Stadt mit Datum und Flug abgelegt, andere Städte nicht.
+  - **Grün lokal** vor und nach dem Einspielen; dazu `rd_s, nb_s, zp_s, lz_s, ex_s, sj_s, tl_s, nt_s, lk_s, fp_s` grün.
+  - Lokal kein echtes Kind mit Klasse-Sperre ohne Visum; der Fall läuft über das Testkind.
+
 ## 2026-11-23 – FERTIG: WD-5 2
 
 Stand `lernen-app` 59bcd32 übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.

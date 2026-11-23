@@ -3327,3 +3327,32 @@ Datei `inhalte/pruefung/kind/karte/nachpruefung_rk.md`.
 - **S1** Rechner: Karte fensterfüllend, Kopf eine Zeile. **S2** Handy: eine Kopfzeile, schwebende Karte kompakter, Expeditions-Karte einzeilig. **S3** rechts „x/6 Bordkarten dieser Stadt“ statt „4/13“. **S4** Land-Ebene: Ausschnitt auf die Städte-Route, Städtenamen nach Vorrang, Überdeckungen auflösen. **S5** Welt auf dem Handy als Ausschnitt um den aktuellen Kontinent. **S6** Blatt beim Ebenenwechsel schließen. **S7** Zusatz-Text ohne „freiwillig“.
 - **K1–K3** nach Prüfung; **K4** Datenauftrag an `bau-lehrer`: „gesperrt“ (Visum/ab Klasse) und „abgelegt“ je Stadt in `schule_reise_karte`.
 - Dazu der wacklige Test „LB Teil 6 Punkt 6“ (Nachtrag vom 23.11.) und aus Prüfung EX: S1, S2 („freiwillig“ bei Knobel → „für Profis“), K1, K2.
+
+## Rückläufer ChatGPT 970 und Probelauf WD-5 3 + RK-D (23.11., 04:45 Berlin, echte Datenbank, alles zurückgerollt)
+
+**ChatGPT 970:** Muss-Punkte aus 968 an WD-5 2 behoben. Einzige Bedingung vor gemeinsamer Freigabe von WD-5 + Teiler 1: `wd_s_rauchtest` Teil 1 für den neuen Teiler korrigieren und im gemeinsamen Rollback-Lauf grün nachweisen; danach kein weiterer Muss-Einwand.
+**Probelauf (Stand `lernen-app` 410cc6b):** WD-5 3 (b6432679…, setzt `wdh_gesetzt_je_lerntag` = 3 und `wdh_runde_teiler` = 1) und RK-D (ddb5d738…) je zweimal ohne Fehler. Alles außer den Fälligkeiten gesetzter Erst-Wiederholungen unverändert (Karten sonst, Sterne, Plan, Reiseoptionen; Kind 1 ganz). Tests grün vor und nach: wd5, wd_s (Teiler 5 und 1), wd_s3, fp_s, rk_d. Kind 2 nachher fällig je Lerntag 16·8·8·9·3·6·4·3·3·3·3·3·3·3, Runde heute 12. Reisekarte Kind 2 mit RK-D: 282 ms, 31 Flüge „gesperrt“, 0 Städte „abgelegt“.
+→ Bedingung aus 970 erfüllt: WD-5 3 einspielbar nach Sebastians Satz. RK-D: Prüfbitte an ChatGPT.
+
+## Vorgabe JW (Jugendwörter) vom Gestalter, Fassung 2 – laut Vorgabe von Sebastian so festgelegt
+
+`inhalte/pruefung/kind/jugendwoerter/` (umsetzung.md, woerter.json, Entwurf, Bilder). Ein Sticker je Geschafft-Ansicht, Satz bleibt normales Deutsch; **keine Einstellungen, keine Auswahl, keine Altersstufen, Anrede „Digga“**; 74 Wörter geprüft, 30 im Einsatz, 52 Sprüche; Antippen zeigt die Bedeutung. Überholt die Punkte „je Kind abschaltbar / Wort gefällt mir nicht“ aus dem Auftrag JW. → JW-App an `bau-motivation` nach RK-App 2.
+
+## Rückläufer ChatGPT 972 (23.11., 04:50 Berlin)
+
+**WD-5 3 mit `wdh_runde_teiler` = 1: Freigabe.** Bedingung aus 970 erfüllt.
+**RK-D: Muss vor dem Einspielen** – an `bau-lehrer` (RK-D 2):
+1. `20261129_rk_d_karte_felder.sql` Zeile 85: Beim Wiederholen genügt der Text „RK-D“ irgendwo für „schon eingespielt“; ein teilweise zurückgeänderter Funktionskörper würde akzeptiert. → Rückkehr nur, wenn alle fünf Zielblöcke je genau einmal vollständig vorhanden sind; Mischstand bricht mit Fehler ab; Test mit einem fehlenden Zielblock bei erhaltener Markierung.
+2. `20261125_rd_s_reise.sql` Zeile 194 (Rückfall für `naechster_start.stadt`, wenn keine offene Stadt): übernimmt die erste Stadt bis auf vier Felder → mit RK-D gelangen die fünf neuen Stadtfelder in die Start-Antwort. → Rückfall auf das bisherige Feldset begrenzen (einschließlich optionalem `zaehlt`); Vorher/Nachher-Vergleich für einen Startkandidaten ohne offene Stadt.
+3. `rk_d_rauchtest.sql` Zeilen 114–116: Test 3b meldet Erfolg auch bei wirkungsloser Einplanung → erst `im_plan` wahr verlangen, dann `gesperrt` falsch und Grund leer am Flug und seinen offenen Städten (Testflug ohne fehlendes Visum).
+Fachregel: 31 gesperrte Flüge bei Kind 2 sind plausibel (28 harte Visa der Gruppe, 3 Klassenstufe außerhalb des Plans; zwei der 28 sind eingeplant – ein Planplatz überstimmt die Klassengrenze, nicht ein fehlendes hartes Visum).
+
+## Probelauf RK-D 2 (23.11., 04:55 Berlin, echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` d23b9fc, Datei `20261129_rk_d_karte_felder.sql` (a22f6b2d…). Zweimal ohne Fehler; Karten, Sterne, Plan, Reiseoptionen, Stufen unverändert; `naechster_start` aller Kinder vorher = nachher. Tests grün: rk_d (vor/nach, mit Mischstand-Test und strengem 3b), rd_s, nb_s. Karte Kind 2: 280 ms, 31 Flüge gesperrt. Nachprüfbitte an ChatGPT.
+
+## EINGESPIELT: WD-5 3 (Drosseln), Rundengröße A (Teiler 1), RK-D 2 (Kartenfelder) – 23.11., 05:00 Berlin
+
+Freigabe Sebastian („Drosseln, Rundengröße und Kartenfelder in die Datenbank einspielen“), Prüfung Werkstatt 972 und 974 (Freigaben), Werkstatt-Änderung 385. Kinder 125 bzw. 197 Minuten ohne Antwort, kein Test offen. In der Transaktion geprüft: außer den Fälligkeiten gesetzter Erst-Wiederholungen nichts verändert; `naechster_start` gleich; höchstens 3 gesetzte je Lerntag. Danach grün: wd5, wd_s, wd_s3, fp_s, rk_d, rd_s.
+Kind 2: fällig heute 16 (vorher 23), danach 8·8·9·3·6·4·3…; Kind 1: 0 fällig. Regeln: `wdh_gesetzt_je_lerntag` = 3, `wdh_runde_teiler` = 1.
+**Erprobung:** vier tatsächliche Lerntage; danach Rest nach der Runde, Dauer und Fehler bei Kind 2 ansehen (Haupt-Chat). Rückweg: Teiler 2 oder 5 (eine Einstellung); `schule.wdh_drosseln_zurueck()` nur, solange keine verschobene Etappe geübt wurde.

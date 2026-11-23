@@ -161,10 +161,12 @@ begin
     raise exception 'FEHLER 5: in der Realschule fehlt 46 Teil 3 ← Teil 2'; end if;
   if exists (select 1 from schule.v_ort_visum v join schule.block_thema b on b.block_id = v.braucht_ort_id join schule.thema t on t.id = b.thema_id
               where v.gruppe = any(t.zusatz)) then raise exception 'FEHLER 5: ein Zusatz-Teil ist irgendwo Visum'; end if;
-  -- Zusatz-Teile stehen im Plan eines Kindes dieser Schulart nur als „zusatz“
+  -- Zusatz-Teile stehen im Plan eines Kindes dieser Gruppe nicht als Pflicht-Flug: ein Plan-Eintrag art 'normal' ist nur erlaubt,
+  -- wenn er als „Zusatz · eingeplant“ geführt wird (ZP-S: Eltern haben ihn eingeplant; Fortschritt über alle Etappen, kein Pflicht-Test)
   if exists (select 1 from schule.route r join schule.block_thema bt on bt.block_id = r.block_id join schule.thema t on t.id = bt.thema_id
               join schule.lernender l on l.id = r.lernender_id
-              where schule.kind_gruppe(l.id) = any(t.zusatz) and r.art = 'normal' and r.status not in ('fertig', 'entfernt')) then
+              where schule.kind_gruppe(l.id) = any(t.zusatz) and r.art = 'normal' and r.status not in ('fertig', 'entfernt') and not (t.id = any(coalesce(r.ausgelassen, '{}')))
+                and not coalesce((schule.thema_stufe(l.id, t.id)->>'zusatz_eingeplant')::boolean, false)) then
     raise exception 'FEHLER 5: offener Zusatz-Teil als Pflicht im Plan'; end if;
 
   -- 6 vollständig übernommene Teile: Stempel, Ort fertig, 100 Ort-Sterne genau einmal, Flug-Test gilt
@@ -328,8 +330,12 @@ begin
     from tl_rt_stufe v join schule.thema t on t.teil_stamm = v.stamm and t.teil_nr > 1
     cross join lateral (select schule.thema_stufe(v.lernender_id, t.id) n) x
    where x.n->>'gesetzt' is not null or coalesce((x.n->>'rueckreise')::boolean, false)
-      or coalesce((x.n->>'im_plan')::boolean, false) is distinct from exists (select 1 from schule.flug_erstabschluss f join schule.einheit e on e.id = f.einheit_id
-                                                                             where f.lernender_id = v.lernender_id and e.thema_id = t.id);
+      or coalesce((x.n->>'im_plan')::boolean, false) is distinct from (
+           exists (select 1 from schule.flug_erstabschluss f join schule.einheit e on e.id = f.einheit_id
+                    where f.lernender_id = v.lernender_id and e.thema_id = t.id)
+           -- ZP-S: von den Eltern nach der Teilung selbst eingeplante Teile dürfen im Plan stehen
+        or exists (select 1 from schule.route r join schule.block_thema b on b.block_id = r.block_id
+                    where r.lernender_id = v.lernender_id and b.thema_id = t.id and schule.ist_plan(r)));
   if v_t is not null then raise exception 'FEHLER 12: neuer Teil erbt Setzung/Plan/Rückreise oder fehlt trotz eigener Leistung (Kind:Teil): %', v_t; end if;
   select string_agg(v.lernender_id || ':' || t.id, ', ') into v_t
     from tl_rt_stufe v join schule.thema t on t.teil_stamm = v.stamm and t.teil_nr > 1 join schule.block_thema bt on bt.thema_id = t.id

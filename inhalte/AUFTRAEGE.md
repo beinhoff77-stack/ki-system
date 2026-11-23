@@ -3268,3 +3268,7 @@ Datei `inhalte/pruefung/kind/expedition/nachpruefung_ex.md`. Für den nächsten 
 - S1 Ansicht „Expedition freigeschaltet“ bei 360 × 640: Voraussetzungs-Chips verdeckt → höchstens 2 Chips + „+2 weitere“ oder Szene scrollt.
 - S2 „freiwillig“ steht noch bei den Knobel-Bordkarten (Knopf, Link, Info-Text). Sebastian (23.11.): „wenn da irgendwo freiwillig steht, machen sie es nie“ → auf der ganzen Kinderseite ersetzen („für Profis“), Eltern-/Lehrer-Seiten dürfen es behalten.
 - K1 begonnene Expedition: Kopf „EXPEDITION · TEIL B VON 3“. K2 Stand-Kacheln über der Expeditions-Karte nach unten bzw. in „Mein Schuljahr“. K3 „gesehen am“ vom Server (zweites Gerät) – EX-S-Nachtrag. K4 kein Bau.
+
+## LIVE: App 0.91.2 – 23.11., 03:45 Berlin
+
+`main` b2be237 = `lernen-app` 1cc66d0, Auslieferung erfolgreich. App-Tests 169 von 169, Prüfung Gestalter EX-App ohne Muss. Enthält EX-App (0.91.0), LZ-App + Kopf (0.91.1), Absicherung Kinder-Wechsel (0.91.2). Server unverändert (`lernen-api` 0.9.3).

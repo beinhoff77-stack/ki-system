@@ -147,7 +147,8 @@ async function setup(t, opt = {}) {
       const a = AUFG[d.aufgabe_id]; const r = bewerte(a, d.antwort);
       if (a.expedition) { // W176 Teil 4: wie die Datenbank nach Migration T4
         e = r.format_ok && !r.richtig && d.anlauf === 1 ? { ok: true, format_ok: true, richtig: false, nochmal: true }
-          : { ok: true, ...r, loesung: a.loesung, loesungsweg: 'So wird gerechnet.', expedition: { id: a.expedition, teil: a.k, erledigt: true, geschafft: a.id === 603, sterne: a.id === 603 ? 50 : 0 } };
+          : { ok: true, ...r, loesung: a.loesung, loesungsweg: 'So wird gerechnet.', expedition: { id: a.expedition, teil: a.k, erledigt: true, geschafft: a.id === 603, sterne: a.id === 603 ? 150 : 0 } };
+        if (opt.anpassen) e = opt.anpassen(b.aktion, e, d) || e; // EX-App: nachgestellter EX-S-Server zählt die Teile mit
         await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) }); return;
       }
       if (d.misch && !(r.format_ok && !r.richtig && d.anlauf === 1)) { // W176 Teil 3: Mischkarte – kein Karten-Stand der aktuellen Etappe, dafür die Herkunft
@@ -1446,12 +1447,14 @@ const expKonto = (erledigt = []) => (aktion, e) => {
 test('W176 T4: Expedition – Angebot auf der Abflugtafel, Teil falsch → 2. Versuch → Lösung → nächster Teil, am Ende geschafft mit Sternen', async (t) => {
   const { page, calls } = await setup(t, { gestaltung: 'nacht', anpassen: expKonto() });
   await page.goto(origin + '/#/reise/1');
-  const box = page.locator('.lr-expedition-angebot'); await box.waitFor();
-  assert.match(await box.innerText(), /EXPEDITION[\s\S]*Handytarif – 3 Teile[\s\S]*Freiwillig/);
-  await box.getByRole('link', { name: 'Expedition starten ›' }).click();
+  const box = page.locator('.lr-ex-karte'); await box.waitFor(); // EX-App: oberste Karte, kein „freiwillig“
+  assert.match(await box.innerText(), /EXPEDITION FREIGESCHALTET[\s\S]*Handytarif[\s\S]*Rothera-Station · Antarktis · Station 12 von 21/);
+  assert.doesNotMatch(await page.locator('main').innerText(), /freiwillig/i);
+  await box.getByRole('link', { name: /Expedition starten/ }).click();
   await page.waitForURL(/#\/expedition\/1-7$/);
   await page.getByText('TEIL A VON 3').waitFor();
-  await page.getByText('Zählt nicht für „gelandet“', { exact: false }).waitFor();
+  await page.getByText('Du kannst jederzeit aufhören', { exact: false }).waitFor();
+  assert.doesNotMatch(await page.locator('main').innerText(), /freiwillig/i);
   const eingabe = page.locator('.lr-exp-teil input');
   await eingabe.fill('9'); await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Du hast einen zweiten Versuch.', { exact: false }).waitFor();
@@ -1468,23 +1471,24 @@ test('W176 T4: Expedition – Angebot auf der Abflugtafel, Teil falsch → 2. Ve
   await page.getByRole('button', { name: 'Weiter mit Teil C ›' }).click();
   await page.locator('.lr-exp-teil input').fill('71'); await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByRole('button', { name: 'Zum Abschluss ›' }).click();
-  await page.getByText('EXPEDITION ABGESCHLOSSEN').waitFor();
-  await page.getByText('2 von 3 Teilen selbst gelöst; bei den anderen hast du den Lösungsweg gesehen.').waitFor(); // H15: abgeschlossen ≠ selbst gelöst
-  await page.getByText('+50 Sterne').waitFor();
+  const ab = page.locator('.lr-abschluss .lr-ex-geschafft'); await ab.waitFor(); // EX-App Ansicht 3a: Sterne vom Server (150), keine Fehlerzahl
+  await ab.getByRole('heading', { name: 'Expedition geschafft' }).waitFor();
+  await page.waitForFunction(() => /★ \+150/.test(document.querySelector('.lr-ex-geschafft .lr-ex-zahl')?.textContent || ''));
+  assert.doesNotMatch(await ab.innerText(), /Fehler(?!frei)|freiwillig/i);
   await page.screenshot({ path: path.join(root, 'test-results/w176-expedition-390.png'), fullPage: true });
-  await page.goto(origin + '/#/reisepass/1'); await page.getByText('⛰ Expeditions-Stempel: 1').waitFor();
+  await page.goto(origin + '/#/reisepass/1'); await page.getByText('⛯ Expeditionen: 0 von 21 Stationen ›').waitFor();
 });
 
 test('W176 T4: Abbruch verliert nichts – erledigte Teile stehen da, es geht beim offenen Teil weiter; ohne Angebot keine Karte', async (t) => {
   const { page } = await setup(t, { gestaltung: 'nacht', anpassen: expKonto([601]) });
   await page.goto(origin + '/#/reise/1');
-  await page.getByRole('link', { name: 'Expedition fortsetzen ›' }).click();
+  await page.locator('.lr-ex-karte').getByRole('link', { name: /Weiter mit Teil b/ }).click();
   await page.getByText('TEIL B VON 3').waitFor();
   assert.equal(await page.locator('.lr-exp-teil.erledigt').count(), 1);
   // ohne Expeditionen (Server bietet keine an, z. B. Voraussetzungen fehlen): keine Karte
   const { page: p2 } = await setup(t, { gestaltung: 'nacht' });
   await p2.goto(origin + '/#/reise/1'); await p2.getByRole('heading', { name: /Abflüge/ }).waitFor();
-  assert.equal(await p2.locator('.lr-expedition-angebot').count(), 0);
+  assert.equal(await p2.locator('.lr-ex-karte').count(), 0);
   await p2.goto(origin + '/#/expedition/1-7'); await p2.getByText('Diese Expedition ist gerade nicht offen.').waitFor();
 });
 
@@ -4086,4 +4090,217 @@ test('LW-3b: Info-Seite – „Lehrplan von:“ statt „Einordnen“', async (t
   const txt = await page.locator('main').evaluate((m) => m.textContent);
   assert.ok(txt.includes('oben die Leiste „Lehrplan von:“ (Gymnasium | Realschule | IB MYP; Standard = Schulart des Kindes; ⓘ: bestimmt nur, in welcher Klassen-Zeile ein Thema steht und welcher Ring groß ist – es werden immer alle Themen gezeigt)'));
   assert.ok(!txt.includes('Leiste „Einordnen“'));
+});
+
+// ---------- EX-App (0.91.0): Expeditionen dem Kind vor die Nase legen (Vorgabe inhalte/pruefung/kind/expedition/umsetzung.md) ----------
+// Nachgestellter Server wie EX-S (lernen-api 0.9.3): expeditionen[] mit angeboten_am/ausgeblendet/sterne_*, expeditionen_stand, schule_expedition_spaeter, schule_reise_karte.
+// Erfundene Daten: Kind A (Klasse 5), Expedition 7 = „Die Wetterstation“ (5-wetterstation, Station 9 Neumayer-Station III).
+const EX_HEUTE = '2026-11-23';
+function exServer({ zustand = 'angeboten', frei = true, erledigt = [], angebotenAm = EX_HEUTE + 'T08:00:00Z', ausgeblendet = false, geschafftFertig = null, nachLandung = false } = {}) {
+  const st = { frei: frei && !nachLandung, ausgeblendet, erledigt: [...erledigt], spaeter: 0, karte: 0, geschafft: null };
+  const x = () => {
+    const fertig = st.erledigt.length === 3;
+    const z = fertig ? 'geschafft' : st.erledigt.length ? 'begonnen' : zustand;
+    return { id: 7, schluessel: '5-wetterstation', titel: 'Die Wetterstation', klasse: { gym_by: 5 }, einleitung: 'Auf deiner Reise besuchst du eine Wetterstation.', zustand: z,
+      teile_gesamt: 3, teile_erledigt: st.erledigt.length,
+      teile: [601, 602, 603].map((id) => ({ ...zeig(AUFG[id]), k: AUFG[id].k, erledigt: st.erledigt.includes(id), richtig_erst: st.erledigt.includes(id) && (st.richtig?.[id] ?? false),
+        ...(st.erledigt.includes(id) ? { loesung: AUFG[id].loesung, loesungsweg: 'So wird gerechnet.' } : {}) })),
+      angeboten_am: angebotenAm, spaeter_am: null, spaeter_bis: st.ausgeblendet ? EX_HEUTE : null, ausgeblendet: st.ausgeblendet,
+      sterne: fertig ? (geschafftFertig ?? 150) : null, fehlerfrei: fertig && geschafftFertig === 200, sterne_geschafft: 150, sterne_fehlerfrei: 200 };
+  };
+  const anpassen = (aktion, e, d) => {
+    if (aktion === 'schule_konto') { const k = structuredClone(e); const xs = st.frei ? [x()] : [];
+      const offen = xs.filter((y) => ['angeboten', 'begonnen'].includes(y.zustand));
+      k.expeditionen = xs;
+      k.expeditionen_stand = { stationen_gesamt: 21, stationen_geschafft: xs.filter((y) => y.zustand === 'geschafft').length, angeboten: offen.length, vorn: offen.filter((y) => !y.ausgeblendet).length,
+        oben_id: offen.find((y) => !y.ausgeblendet)?.id ?? null, heute: EX_HEUTE, angebote: [] };
+      return k; }
+    if (aktion === 'schule_uebung_pruefen') {
+      if (e?.landung && nachLandung) st.frei = true; // Auslöser auf karte_stand.sitzt: die Landung schaltet frei
+      if (e?.expedition) { const id = d.aufgabe_id; if (!st.erledigt.includes(id)) st.erledigt.push(id); st.richtig = { ...(st.richtig || {}), [id]: !!e.richtig && !d.hilfe && d.anlauf !== 2 };
+        if (st.erledigt.length === 3) { const ff = [601, 602, 603].every((i) => st.richtig[i]); geschafftFertig = ff ? 200 : 150; e.expedition.sterne = geschafftFertig; e.expedition.fehlerfrei = ff; } }
+      return e; }
+    if (aktion === 'schule_expedition_spaeter') { st.spaeter++; st.ausgeblendet = true; return { ok: true, lernender_id: d.lernender_id, expedition_id: d.expedition_id, spaeter_bis: EX_HEUTE }; }
+    if (aktion === 'schule_reise_karte') { st.karte++;
+      const stadt = (nr, lernziel, titel, stand) => ({ nr, name: 'Stadt ' + nr, breite: 0, laenge: 0, lernziel, titel, pflicht: true, stand });
+      return { ok: true, lernender_id: d.lernender_id, gruppe: 'gym_by', kontinente: [{ id: 1, schluessel: 'zahlen', reise: 'Europa', fluege: [
+        { thema_id: 16, titel: 'Ganze Zahlen', im_plan: true, staedte: [stadt(1, 'ordnen', 'Welche Zahl ist kleiner?', 'gelandet'), stadt(2, 'sach', 'Negative Zahlen im Alltag rechnen', 'gelandet')] },
+        { thema_id: 42, titel: 'Koordinatensystem', im_plan: true, staedte: [stadt(1, 'koordinaten', 'Punkte im Koordinatensystem', 'sicher')] },
+        { thema_id: 43, titel: 'Winkel', im_plan: false, staedte: [stadt(1, 'uhr', 'Winkel an der Uhr', 'offen')] }] }],
+        naechster_start: null, antarktis: { stationen: [] }, quellen: [{ name: 'COMNAP' }] }; }
+    if (e) return e;
+    return null;
+  };
+  anpassen.neueAktionen = true;
+  return { st, anpassen };
+}
+const exKeinScroll = (page) => page.evaluate(() => { const a = document.querySelector('.lr-abschluss .lr-ab-app'); return a ? a.scrollHeight <= a.clientHeight + 1 && a.getBoundingClientRect().bottom <= innerHeight + 1 : false; });
+
+test('EX-App: offene Expedition ist die oberste, größte Karte der Abflugtafel (vor dem nächsten Flug); „Gerade dran“ bleibt sichtbar; kein „freiwillig“ (400/820)', async (t) => {
+  for (const [w, h] of [[400, 780], [820, 1180]]) {
+    const ex = exServer();
+    const { page } = await setup(t, { gestaltung: 'tag', anpassen: ex.anpassen });
+    await page.addInitScript(() => localStorage.setItem('lern.exfrei.1.7', '1')); // Ansicht 1 schon gesehen
+    await page.setViewportSize({ width: w, height: h });
+    await page.goto(origin + '/#/reise/1');
+    const karte = page.locator('.lr-ex-karte'); await karte.waitFor();
+    const txt = await karte.innerText();
+    assert.match(txt, /EXPEDITION FREIGESCHALTET[\s\S]*NEU[\s\S]*Die Wetterstation[\s\S]*Neumayer-Station III · Antarktis · Station 9 von 21/);
+    assert.match(txt, /★ 150[\s\S]*★ 200 ohne Fehler[\s\S]*Expedition starten[\s\S]*Teil a von 3 · etwa 10 Minuten/);
+    assert.equal(await karte.locator('.lr-ex-teile i').count(), 3);
+    // oberste Karte: vor der Abflugtafel und vor allem anderen Inhalt
+    const vor = await page.evaluate(() => { const k = document.querySelector('.lr-ex-karte'), t2 = document.querySelector('.lr-abflugtafel'); return !!(k.compareDocumentPosition(t2) & Node.DOCUMENT_POSITION_FOLLOWING); });
+    assert.ok(vor, 'Expeditions-Karte steht vor der Abflugtafel');
+    const kb = await karte.boundingBox(); const fb = await page.locator('.lr-flug-jetzt').boundingBox();
+    assert.ok(kb.height > fb.height, 'größte Karte');
+    assert.ok(await page.locator('.lr-einsteigen-knopf').isVisible(), '„Gerade dran“ bleibt sichtbar und tippbar');
+    assert.doesNotMatch(await page.locator('main').innerText(), /freiwillig/i);
+    assert.equal(await page.locator('.lr-abschluss').count(), 0, 'Ansicht 1 nur einmal');
+    await page.screenshot({ path: path.join(root, `test-results/ex-2-abflugtafel-${w}.png`) });
+    await karte.getByRole('link', { name: /Expedition starten/ }).click();
+    await page.waitForURL(/#\/expedition\/1-7$/);
+    await page.getByText('⛯ EXPEDITION FREIGESCHALTET').waitFor();
+    assert.doesNotMatch(await page.locator('main').innerText(), /freiwillig/i);
+    await page.getByRole('link', { name: /Zum Flug: weiter in Rom ›/ }).waitFor(); // sperrt nichts: der nächste Flug ist einen Tipp entfernt
+  }
+});
+
+test('EX-App: Ansicht 1 „Expedition freigeschaltet“ beim Öffnen der Startseite – einmal; „Später“ ruft schule_expedition_spaeter, danach Chip bis Lerntag-Ende (400/820)', async (t) => {
+  for (const [w, h] of [[400, 780], [820, 1180]]) {
+    const ex = exServer();
+    const { page, calls } = await setup(t, { gestaltung: 'tag', anpassen: ex.anpassen });
+    await page.setViewportSize({ width: w, height: h });
+    await page.goto(origin + '/#/reise/1');
+    const a = page.locator('.lr-abschluss .lr-ex-frei'); await a.waitFor();
+    const txt = await a.innerText();
+    assert.match(txt, /ANTARKTIS · STATION 9 VON 21/);
+    assert.match(txt, /EXPEDITION FREIGESCHALTET/i);
+    assert.match(txt, /Die Wetterstation an der Neumayer-Station III\. 3 Teile, a bis c – alles, was du dafür brauchst, hast du gelandet\./);
+    for (const c of ['✓ Welche Zahl ist kleiner?', '✓ Mit Zeit rechnen']) assert.ok(txt.includes(c), c);
+    assert.match(txt, /★ 150[\s\S]*für die Expedition[\s\S]*★ 200, wenn alle Teile im ersten Versuch ohne Tipp klappen/);
+    assert.match(txt, /Neuer Stempel für deine Sammlung[\s\S]*Jetzt starten[\s\S]*Teil a von 3 · etwa 10 Minuten[\s\S]*Später/);
+    assert.doesNotMatch(txt, /freiwillig|Kür|Zusatz/i);
+    await page.waitForTimeout(1900);
+    if (w === 400) assert.ok(await exKeinScroll(page), '400 × 780 ohne Scrollen');
+    await page.screenshot({ path: path.join(root, `test-results/ex-1-freigeschaltet-${w}.png`) });
+    await a.getByRole('button', { name: 'Später' }).click();
+    await page.locator('.lr-ex-wartet').waitFor();
+    assert.deepEqual(calls.filter((c) => c.aktion === 'schule_expedition_spaeter').map((c) => c.daten), [{ lernender_id: 1, expedition_id: 7 }]);
+    assert.equal(await page.locator('.lr-ex-wartet').innerText(), '⛯ Expedition wartet: Die Wetterstation ›');
+    assert.equal(await page.locator('.lr-ex-karte').count(), 0, 'nach „Später“ keine große Karte');
+    await page.screenshot({ path: path.join(root, `test-results/ex-2b-spaeter-${w}.png`) });
+    // Chip öffnet Ansicht 1 ohne Bewegung; „Später“ dort ruft den Server nicht noch einmal
+    await page.locator('.lr-ex-wartet').click();
+    await page.locator('.lr-abschluss.lr-ab-fertig .lr-ex-frei').waitFor();
+    await page.locator('.lr-ex-frei').getByRole('button', { name: 'Später' }).click();
+    assert.equal(calls.filter((c) => c.aktion === 'schule_expedition_spaeter').length, 1);
+    // nächster Lerntag: Server blendet nicht mehr aus → große Karte wieder oben, Ansicht 1 nicht noch einmal
+    ex.st.ausgeblendet = false;
+    await page.reload(); await page.locator('.lr-ex-karte').waitFor();
+    assert.equal(await page.locator('.lr-abschluss').count(), 0);
+  }
+});
+
+test('EX-App: Landung der letzten Voraussetzung → Landungs-Ansicht → Ansicht 1; „Später“ führt dorthin, wohin der Landungs-Knopf führte', async (t) => {
+  const ex = exServer({ nachLandung: true });
+  const { page, calls } = await setup(t, { gestaltung: 'nacht', anpassen: ex.anpassen });
+  await page.setViewportSize({ width: 400, height: 780 });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
+  for (let i = 0; i < 2; i++) {
+    for (const z of ['2', '0', '0', '0']) await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: z, exact: true }).click();
+    await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: 'Prüfen' }).click();
+    if (i === 0) { await page.getByText(/An Bord/).waitFor(); await page.getByRole('button', { name: 'Neue Bordkarte ›' }).click(); }
+  }
+  const l = page.locator('.lr-abschluss-etappe'); await l.waitFor(); // Landungs-Ansicht bleibt unverändert
+  const knopfText = await l.locator('.lr-ab-gross').innerText();
+  await l.locator('.lr-ab-gross').click();
+  const a = page.locator('.lr-abschluss .lr-ex-frei'); await a.waitFor();
+  assert.match(await a.innerText(), /Die Wetterstation/);
+  await a.getByRole('button', { name: 'Später' }).click();
+  await page.locator('.lr-abschluss').waitFor({ state: 'detached' });
+  assert.equal(calls.filter((c) => c.aktion === 'schule_expedition_spaeter').length, 1);
+  // der Knopf der Landung (nächste Etappe) hat gewirkt: Erklärung bzw. Bordkarte der nächsten Etappe
+  assert.match(knopfText, /Weiter/);
+  await page.locator('.lr-bordkarte, .lr-erklaer, [class*="erkl"]').first().waitFor();
+  // Ansicht 1 kommt nur einmal: auf der Startseite nicht noch einmal
+  await page.goto(origin + '/#/reise/1'); await page.locator('.lr-ex-wartet').waitFor();
+  assert.equal(await page.locator('.lr-abschluss').count(), 0);
+});
+
+test('EX-App: Ansicht 3 nach geschaffter Expedition – 3b fehlerfrei 200 ★, 3a 150 ★ (Sterne vom Server), 400 ohne Scrollen', async (t) => {
+  for (const [w, h, falsch] of [[400, 780, false], [820, 1180, false], [400, 780, true]]) {
+    const ex = exServer({ zustand: 'angeboten' });
+    const { page } = await setup(t, { gestaltung: 'tag', anpassen: ex.anpassen });
+    await page.addInitScript(() => localStorage.setItem('lern.exfrei.1.7', '1'));
+    await page.setViewportSize({ width: w, height: h });
+    await page.goto(origin + '/#/expedition/1-7'); await page.getByText('TEIL A VON 3').waitFor();
+    for (const [id, wert, weiter] of [[601, falsch ? '7' : '8', 'Weiter mit Teil B ›'], [602, '11', 'Weiter mit Teil C ›'], [603, '71', 'Zum Abschluss ›']]) {
+      await page.locator('.lr-exp-teil:not(.erledigt) input').fill(wert); await page.getByRole('button', { name: 'Prüfen' }).click();
+      if (falsch && id === 601) { await page.getByText('Du hast einen zweiten Versuch.', { exact: false }).waitFor(); await page.locator('.lr-exp-teil:not(.erledigt) input').fill('8'); await page.getByRole('button', { name: 'Prüfen' }).click(); }
+      await page.getByRole('button', { name: weiter }).click();
+    }
+    const ab = page.locator('.lr-abschluss .lr-ex-geschafft'); await ab.waitFor();
+    await page.locator('.lr-abschluss').click({ position: { x: 20, y: 200 } }); // Endzustand
+    await page.waitForFunction(() => !/\+0$/.test(document.querySelector('.lr-ex-geschafft .lr-ex-zahl')?.textContent || '+0'));
+    const txt = await ab.innerText();
+    if (!falsch) {
+      assert.match(txt, /FEHLERFREI DURCHGEKOMMEN/i); assert.match(txt, /Die Wetterstation – alle 3 Teile im ersten Versuch, ohne Tipp\./);
+      assert.match(txt, /★ \+200[\s\S]*150 für die Expedition[\s\S]*\+ 50 fürs fehlerfreie Lösen/);
+      assert.equal(await ab.locator('.lr-ex-stempel .band').innerText(), '★ FEHLERFREI');
+    } else {
+      assert.match(txt, /EXPEDITION GESCHAFFT/i); assert.match(txt, /Die Wetterstation – alle 3 Teile gelöst\./);
+      assert.match(txt, /★ \+150[\s\S]*für die Expedition/);
+      assert.match(txt, /Bei der nächsten Expedition gibt es ★ 200, wenn alle Teile im ersten Versuch ohne Tipp klappen\./);
+      assert.equal(await ab.locator('.band').count(), 0);
+    }
+    assert.match(txt, /ANTARKTIS · STATION 9 VON 21[\s\S]*1 \/ 21[\s\S]*Stationen in deiner Sammlung/);
+    assert.match(txt, /Weiter in Rom[\s\S]*Stempel-Sammlung ansehen/);
+    assert.doesNotMatch(txt, /freiwillig|Fehlern|falsch/i);
+    if (w === 400) assert.ok(await exKeinScroll(page), '400 × 780 ohne Scrollen');
+    await page.screenshot({ path: path.join(root, `test-results/ex-3${falsch ? 'a-geschafft' : 'b-fehlerfrei'}-${w}.png`) });
+    await ab.getByRole('link', { name: 'Stempel-Sammlung ansehen' }).click();
+    await page.waitForURL(/#\/stationen\/1$/); await page.getByText('1 von 21 Stationen').waitFor();
+  }
+});
+
+test('EX-App: Stempel-Sammlung „k von 21 Stationen“ – je Station ein Platz, gesperrte zeigen die fehlenden Etappen (Stand aus schule_reise_karte), Reisepass-Zeile führt hin (400/820)', async (t) => {
+  for (const [w, h] of [[400, 780], [820, 1180]]) {
+    const ex = exServer({ zustand: 'angeboten' });
+    const { page, calls } = await setup(t, { gestaltung: 'tag', anpassen: ex.anpassen });
+    await page.addInitScript(() => localStorage.setItem('lern.exfrei.1.7', '1'));
+    await page.setViewportSize({ width: w, height: h });
+    await page.goto(origin + '/#/reisepass/1');
+    await page.locator('.lr-stats-box summary').click();
+    await page.getByRole('link', { name: '⛯ Expeditionen: 0 von 21 Stationen ›' }).click();
+    await page.waitForURL(/#\/stationen\/1$/);
+    await page.getByRole('heading', { name: 'Antarktis' }).waitFor();
+    assert.match(await page.locator('.lr-ex-samml-kopf').innerText(), /REISEPASS · EXPEDITIONEN[\s\S]*0 von 21 Stationen · 1 freigeschaltet/);
+    assert.equal(await page.locator('.lr-ex-platz').count(), 21);
+    assert.deepEqual(await page.locator('.lr-ex-gruppe-kopf').allInnerTexts(), ['KLASSE 5 · 10 STATIONEN', 'KLASSE 8 · 11 STATIONEN']);
+    assert.equal(await page.locator('.lr-ex-platz.lr-ex-angeboten').count(), 1);
+    assert.equal(await page.locator('.lr-ex-platz.lr-ex-gesperrt').count(), 20);
+    // Kurznamen ganz, nie abgeschnitten
+    const abgeschnitten = await page.evaluate(() => [...document.querySelectorAll('.lr-ex-name')].filter((n) => n.scrollWidth > n.clientWidth + 1).map((n) => n.textContent));
+    assert.deepEqual(abgeschnitten, []);
+    assert.equal(calls.filter((c) => c.aktion === 'schule_reise_karte').length, 1);
+    await page.screenshot({ path: path.join(root, `test-results/ex-4-sammlung-${w}.png`), fullPage: true });
+    // gesperrt (Station 7 Esperanza: Koordinaten ✓, Winkel an der Uhr? – je nach Voraussetzungen): Blatt mit ✓/○ und dem Hinweis zum Plan
+    await page.getByRole('button', { name: /Station 8, Halley VI: gesperrt/ }).click();
+    const b = page.locator('.lr-ex-blatt-info'); await b.waitFor();
+    const bt = await b.innerText();
+    assert.match(bt, /STATION 8 VON 21 · GESPERRT[\s\S]*Halley-VI-Station: Der Uhrturm/);
+    assert.match(bt, /○\s*Winkel an der Uhr · Winkel/);
+    assert.match(bt, /Diese Etappen sind noch nicht in deinem Plan\./);
+    assert.match(bt, /★ 150 · ★ 200 ohne Fehler/);
+    await page.screenshot({ path: path.join(root, `test-results/ex-4-sammlung-blatt-${w}.png`) });
+    await b.getByRole('button', { name: 'Schließen' }).click();
+    // Klasse 8 für ein Kind in Klasse 5: „Ab Klasse 8“
+    await page.getByRole('button', { name: /Station 11, Troll: gesperrt/ }).click();
+    await b.getByText('Ab Klasse 8').waitFor();
+    await b.getByRole('button', { name: 'Schließen' }).click();
+    // freigeschaltet antippen → Ansicht 1 ohne Bewegung
+    await page.getByRole('button', { name: /Station 9, Neumayer III: freigeschaltet/ }).click();
+    await page.locator('.lr-abschluss.lr-ab-fertig .lr-ex-frei').waitFor();
+    assert.doesNotMatch(await page.locator('main').innerText(), /freiwillig/i);
+  }
 });

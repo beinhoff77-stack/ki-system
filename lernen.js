@@ -201,14 +201,16 @@ function lernRahmen(kind, aktiv, ...inhalt) {
 function lernKopf(gruss, titel) {
   return el('header', { class: 'lr-kopf' }, el('p', { class: 'lr-gruss' }, gruss), el('h1', { class: 'lr-titel' }, titel));
 }
-function lernStats(konto) {
+function lernStats(konto, ex = null) {
   const s = (icon, wert, text) => el('div', { class: 'lr-stat' }, lernIcon(icon, 22), el('div', {}, el('b', {}, String(wert)), el('span', {}, text)));
   // Antippen erklärt, was die Zahlen bedeuten.
   return el('details', { class: 'lr-stats-box' },
     el('summary', { 'aria-label': 'Stempel, Sterne und Lerntage – antippen für Erklärung' },
       el('div', { class: 'lr-stats' }, s(LI.stempel, konto?.stempel ?? 0, 'Stempel'), s(LI.stern, lernZahl(konto?.sterne ?? 0), 'Sterne'), s(LI.tag, konto?.lerntage ?? 0, 'Lerntage')),
       // F: Knobel-Sterne – nur, wenn die Datenbank sie zählt (Migration F)
-      konto?.expeditions_stempel ? el('p', { class: 'lr-knobel-sterne' }, `⛰ Expeditions-Stempel: ${konto.expeditions_stempel}`) : null, // W176 Teil 4
+      // EX-App: „⛯ Expeditionen: k von n Stationen ›“ führt in die Stempel-Sammlung
+      ex?.d ? el('a', { class: 'lr-knobel-sterne lr-ex-pass-zeile', href: `#/stationen/${ex.d.kind.id}`, onclick: (ev) => ev.stopPropagation() }, `⛯ Expeditionen: ${lernExGeschafftZahl(ex.d)} von ${lernExGesamt(ex.d)} Stationen ›`)
+        : konto?.expeditions_stempel ? el('p', { class: 'lr-knobel-sterne' }, `⛯ Expeditionen: ${konto.expeditions_stempel}`) : null, // W176 Teil 4
       konto?.knobel_sterne ? el('p', { class: 'lr-knobel-sterne' }, `★ Knobel-Sterne: ${konto.knobel_sterne}`) : null),
     el('div', { class: 'lr-stats-erkl' },
       el('p', {}, el('b', {}, 'Sterne: '), '10 für jede Bordkarte, die du zum ersten Mal richtig löst, 20 für jede richtige Bordkarte im Test. Sterne kannst du später gegen Belohnungen eintauschen.'),
@@ -227,6 +229,7 @@ async function lernLadeKind(arg) {
   d.regeln = k?.regeln || null; d.landungNachbuchung = k?.landung_nachbuchung || null; // FP-S: Sterne-Regeln und einmaliger Hinweis nach der Nachbuchung
   d.knobelTag = k?.knobel_tag || null; // F: „Knobeln des Tages“ (Migration F; fehlt → nichts)
   d.expeditionen = Array.isArray(k?.expeditionen) ? k.expeditionen : []; // W176 Teil 4 (fehlt → keine Expeditionen)
+  d.exStand = k?.expeditionen_stand || null; // EX-S: Stationen gesamt/geschafft, oberste Karte (fehlt → wie bisher)
   d.u = u; // K3: für den Stand über Schularten
   return d;
 }
@@ -350,16 +353,187 @@ function lernMischNachladen(ctx) {
   lernCall('schule_einheit_lesen', { lernender_id: ctx.kind, einheit_id: ctx.einheit })
     .then((x) => { if (Array.isArray(x?.mischkarten)) ctx.daten.mischkarten = x.mischkarten; }).catch(() => { /* ohne Mischkarte weiter */ });
 }
-// ---------- W176 Teil 4: Expeditionen (Kind) ----------
-// Angebot auf der Abflugtafel: eine begonnene zuerst, sonst eine angebotene. Freiwillig, zählt nicht für „gelandet“.
-function lernExpeditionAngebot(d) {
-  const x = (d.expeditionen || []).find((e) => e.zustand === 'begonnen') || (d.expeditionen || []).find((e) => e.zustand === 'angeboten');
-  if (!x) return null;
-  const n = x.teile_gesamt || (x.teile || []).length, f = x.teile_erledigt || 0;
-  return el('section', { class: 'lr-karte-box lr-expedition-angebot' },
-    el('p', { class: 'lr-ueber' }, '⛰ EXPEDITION'),
-    el('p', {}, el('b', {}, x.titel), ` – ${n} Teile` + (f ? `, ${f} geschafft` : '') + '. Eine größere Bordkarte aus mehreren Etappen, die bei dir schon gelandet sind. Freiwillig.'),
-    el('a', { class: 'lr-knopf-zweit', href: `#/expedition/${d.kind.id}-${x.id}` }, f ? 'Expedition fortsetzen ›' : 'Expedition starten ›'));
+// ---------- W176 Teil 4 / EX-App (0.91.0): Expeditionen (Kind) ----------
+// Vorgabe inhalte/pruefung/kind/expedition/umsetzung.md: kein „freiwillig“ auf der Kinderseite; „Expedition freigeschaltet“ (Ansicht 1), oberste Karte der
+// Abflugtafel (Ansicht 2), nach „Später“ ein Chip bis Lerntag-Ende (2b), Abschluss 150/200 ★ (Ansicht 3), Stempel-Sammlung „k von n Stationen“ (Ansicht 4).
+// Farbe Polar (nicht Gold = abgelegt, nicht Siegelrot = Ort-Stempel). Die Expedition sperrt nichts: der nächste Flug ist überall mit einem Tipp erreichbar.
+// <EX-STATIONEN> (erzeugt von tools/ex_stationen.py – nicht von Hand ändern)
+// Quelle Stationen: COMNAP Antarctic Facilities 2024 (frei für Bildung/nicht kommerziell)
+const LERN_EX_STATIONEN = [
+  {"schluessel":"5-aquarium","nr":1,"station":"Palmer-Station","kurz":"Palmer","betreiber":"USA","breite":-64.7742,"laenge":-64.0531,"titel":"Das Aquarium","klasse":5,"teile":4,"vor":[{"thema":53,"lernziel":"quader","etappe":"Quader und Würfel beschreiben","flug":"Volumen und Oberfläche"},{"thema":53,"lernziel":"sachaufgaben","etappe":"Oberflächen im Alltag","flug":"Volumen und Oberfläche"},{"thema":1,"lernziel":"aufstellen","etappe":"Textaufgaben als Gleichung","flug":"Einfache Gleichungen"},{"thema":26,"lernziel":"einheit","etappe":"Auf die Einheit schließen","flug":"Direkte Proportionalität und Dreisatz"}]},
+  {"schluessel":"5-flug_toronto","nr":2,"station":"McMurdo-Station","kurz":"McMurdo","betreiber":"USA","breite":-77.85,"laenge":166.6667,"titel":"Flug nach Toronto","klasse":5,"teile":5,"vor":[{"thema":25,"lernziel":"zeit","etappe":"Mit Zeit rechnen","flug":"Größen und Einheiten"},{"thema":16,"lernziel":"sach","etappe":"Negative Zahlen im Alltag rechnen","flug":"Ganze Zahlen"},{"thema":60,"lernziel":"zaehlprinzip","etappe":"Das Zählprinzip","flug":"Zählen und Kombinatorik"},{"thema":26,"lernziel":"dreisatz","etappe":"Der Dreisatz","flug":"Direkte Proportionalität und Dreisatz"},{"thema":25,"lernziel":"masse","etappe":"Massen umrechnen","flug":"Größen und Einheiten"}]},
+  {"schluessel":"5-kettennachricht","nr":3,"station":"Amundsen-Scott-Südpolstation","kurz":"Amundsen-Scott","betreiber":"USA","breite":-89.9833,"laenge":142.2667,"titel":"Die Kettennachricht","klasse":5,"teile":5,"vor":[{"thema":67,"lernziel":"schreibweise","etappe":"Was ist eine Potenz?","flug":"Potenzen als Schreibweise"},{"thema":67,"lernziel":"berechnen","etappe":"Potenzen ausrechnen","flug":"Potenzen als Schreibweise"},{"thema":15,"lernziel":"ziffern_zu_zahlwort","etappe":"Große Zahlen lesen","flug":"Natürliche Zahlen"},{"thema":25,"lernziel":"zeit","etappe":"Mit Zeit rechnen","flug":"Größen und Einheiten"},{"thema":15,"lernziel":"vergleichen","etappe":"Welche Zahl ist größer?","flug":"Natürliche Zahlen"}]},
+  {"schluessel":"5-oase","nr":4,"station":"Maitri-Station (Schirmacher-Oase)","kurz":"Maitri","betreiber":"Indien","breite":-70.7668,"laenge":11.7308,"titel":"In der Oase","klasse":5,"teile":5,"vor":[{"thema":42,"lernziel":"koordinaten","etappe":"Punkte im Koordinatensystem","flug":"Grundbegriffe und Figuren"},{"thema":25,"lernziel":"massstab","etappe":"Maßstab auf Karten und Plänen","flug":"Größen und Einheiten"},{"thema":43,"lernziel":"drehungen","etappe":"Drehungen und Himmelsrichtungen","flug":"Mit Winkeln rechnen"},{"thema":73,"lernziel":"kreislinie","etappe":"Punkte mit festem Abstand zu M","flug":"Ortslinien und Ortsbereiche"},{"thema":73,"lernziel":"zwei_kreise","etappe":"Abstand zu zwei Punkten","flug":"Ortslinien und Ortsbereiche"}]},
+  {"schluessel":"5-pyramide","nr":5,"station":"Princess-Elisabeth-Station","kurz":"Princess Elisabeth","betreiber":"Belgien","breite":-71.9499,"laenge":23.3469,"titel":"Die Stufenpyramide","klasse":5,"teile":5,"vor":[{"thema":67,"lernziel":"quadrat","etappe":"Quadratzahlen bis 400","flug":"Potenzen als Schreibweise"},{"thema":18,"lernziel":"vorteil","etappe":"Geschickt: tauschen und verbinden","flug":"Grundrechenarten und Rechengesetze"},{"thema":15,"lernziel":"runden_regel","etappe":"Runden","flug":"Natürliche Zahlen"},{"thema":67,"lernziel":"zehner","etappe":"Zehnerpotenzen für große Zahlen","flug":"Potenzen als Schreibweise"},{"thema":18,"lernziel":"schriftlich","etappe":"Schriftlich mal und geteilt","flug":"Grundrechenarten und Rechengesetze"}]},
+  {"schluessel":"5-roemerstrasse","nr":6,"station":"Mario-Zucchelli-Station","kurz":"Mario Zucchelli","betreiber":"Italien","breite":-74.6948,"laenge":164.1133,"titel":"Die Römerstraße","klasse":5,"teile":4,"vor":[{"thema":15,"lernziel":"roemisch_system","etappe":"Warum sind römische Zahlen anders?","flug":"Natürliche Zahlen"},{"thema":25,"lernziel":"laenge","etappe":"Längen umrechnen","flug":"Größen und Einheiten"},{"thema":15,"lernziel":"strahl_ablesen","etappe":"Zahlenstrahl ablesen","flug":"Natürliche Zahlen"},{"thema":17,"lernziel":"vielfache","etappe":"Vielfache","flug":"Teilbarkeit"}]},
+  {"schluessel":"5-schatzsuche","nr":7,"station":"Esperanza-Station","kurz":"Esperanza","betreiber":"Argentinien","breite":-63.397,"laenge":-56.9981,"titel":"Die Schatzsuche","klasse":5,"teile":5,"vor":[{"thema":42,"lernziel":"koordinaten","etappe":"Punkte im Koordinatensystem","flug":"Grundbegriffe und Figuren"},{"thema":43,"lernziel":"drehungen","etappe":"Drehungen und Himmelsrichtungen","flug":"Mit Winkeln rechnen"},{"thema":60,"lernziel":"reihenfolgen","etappe":"Reihenfolgen ohne Wiederholung","flug":"Zählen und Kombinatorik"},{"thema":17,"lernziel":"neunerregel","etappe":"Teilbar durch 9","flug":"Teilbarkeit"},{"thema":25,"lernziel":"zeit","etappe":"Mit Zeit rechnen","flug":"Größen und Einheiten"}]},
+  {"schluessel":"5-uhrturm","nr":8,"station":"Halley-VI-Station","kurz":"Halley VI","betreiber":"Vereinigtes Königreich","breite":-75.5711,"laenge":-25.4739,"titel":"Der Uhrturm","klasse":5,"teile":4,"vor":[{"thema":43,"lernziel":"uhr","etappe":"Winkel an der Uhr","flug":"Mit Winkeln rechnen"},{"thema":25,"lernziel":"zeit","etappe":"Mit Zeit rechnen","flug":"Größen und Einheiten"},{"thema":17,"lernziel":"vielfache","etappe":"Vielfache","flug":"Teilbarkeit"}]},
+  {"schluessel":"5-wetterstation","nr":9,"station":"Neumayer-Station III","kurz":"Neumayer III","betreiber":"Deutschland","breite":-70.6605,"laenge":-8.2841,"titel":"Die Wetterstation","klasse":5,"teile":4,"vor":[{"thema":16,"lernziel":"ordnen","etappe":"Welche Zahl ist kleiner?","flug":"Ganze Zahlen"},{"thema":16,"lernziel":"sach","etappe":"Negative Zahlen im Alltag rechnen","flug":"Ganze Zahlen"},{"thema":18,"lernziel":"geteilt_ganz","etappe":"Ganze Zahlen dividieren","flug":"Grundrechenarten und Rechengesetze"},{"thema":25,"lernziel":"zeit","etappe":"Mit Zeit rechnen","flug":"Größen und Einheiten"}]},
+  {"schluessel":"5-zeltplatz","nr":10,"station":"Kohnen-Station","kurz":"Kohnen","betreiber":"Deutschland","breite":-75.0019,"laenge":0.0663,"titel":"Der Zeltplatz","klasse":5,"teile":5,"vor":[{"thema":42,"lernziel":"koordinaten","etappe":"Punkte im Koordinatensystem","flug":"Grundbegriffe und Figuren"},{"thema":50,"lernziel":"rechteck","etappe":"Rechteck und Quadrat berechnen","flug":"Umfang und Flächeninhalt"},{"thema":26,"lernziel":"dreisatz","etappe":"Der Dreisatz","flug":"Direkte Proportionalität und Dreisatz"},{"thema":73,"lernziel":"kreislinie","etappe":"Punkte mit festem Abstand zu M","flug":"Ortslinien und Ortsbereiche"},{"thema":73,"lernziel":"parallelen","etappe":"Punkte mit festem Abstand zu g","flug":"Ortslinien und Ortsbereiche"}]},
+  {"schluessel":"8-garten","nr":11,"station":"Troll-Station","kurz":"Troll","betreiber":"Norwegen","breite":-72.0119,"laenge":2.5331,"titel":"Gemüsegarten","klasse":8,"teile":4,"vor":[{"thema":99,"lernziel":"trapez","etappe":"Flächeninhalt des Trapezes","flug":"Flächen von Parallelogramm, Dreieck und Trapez"},{"thema":93,"lernziel":"produkt","etappe":"Produktgleichheit prüfen","flug":"Indirekte Proportionalität"},{"thema":32,"lernziel":"funktionswert","etappe":"Funktionswerte berechnen","flug":"Zuordnung und Funktion"},{"thema":3,"lernziel":"sachaufgabe","etappe":"Sachaufgaben mit Ungleichungen","flug":"Lineare Ungleichungen"}]},
+  {"schluessel":"8-handytarif","nr":12,"station":"Rothera-Station","kurz":"Rothera","betreiber":"Vereinigtes Königreich","breite":-67.5695,"laenge":-68.1249,"titel":"Handytarif","klasse":8,"teile":4,"vor":[{"thema":33,"lernziel":"aufstellen","etappe":"Geradengleichung aufstellen","flug":"Lineare Funktionen"},{"thema":33,"lernziel":"graph_ablesen","etappe":"Gerade zeichnen und am Graphen ablesen","flug":"Lineare Funktionen"},{"thema":3,"lernziel":"sachaufgabe","etappe":"Sachaufgaben mit Ungleichungen","flug":"Lineare Ungleichungen"},{"thema":94,"lernziel":"vermehrt","etappe":"Den vermehrten Grundwert berechnen","flug":"Vermehrter und verminderter Grundwert"}]},
+  {"schluessel":"8-kerzen","nr":13,"station":"Wostok-Station","kurz":"Wostok","betreiber":"Russland","breite":-78.4642,"laenge":106.8369,"titel":"Kerzenwerkstatt","klasse":8,"teile":4,"vor":[{"thema":100,"lernziel":"quader","etappe":"Volumen von Quader und Würfel","flug":"Volumen"},{"thema":32,"lernziel":"funktionswert","etappe":"Funktionswerte berechnen","flug":"Zuordnung und Funktion"},{"thema":3,"lernziel":"sachaufgabe","etappe":"Sachaufgaben mit Ungleichungen","flug":"Lineare Ungleichungen"},{"thema":33,"lernziel":"schnittpunkte","etappe":"Schnittpunkte berechnen","flug":"Lineare Funktionen"}]},
+  {"schluessel":"8-klassenfahrt","nr":14,"station":"Dumont-d’Urville-Station","kurz":"Dumont d’Urville","betreiber":"Frankreich","breite":-66.6628,"laenge":140.0013,"titel":"Klassenfahrt","klasse":8,"teile":4,"vor":[{"thema":93,"lernziel":"sach","etappe":"Sachaufgaben lösen","flug":"Indirekte Proportionalität"},{"thema":33,"lernziel":"aufstellen","etappe":"Geradengleichung aufstellen","flug":"Lineare Funktionen"},{"thema":3,"lernziel":"sachaufgabe","etappe":"Sachaufgaben mit Ungleichungen","flug":"Lineare Ungleichungen"},{"thema":94,"lernziel":"vermindert","etappe":"Den verminderten Grundwert berechnen","flug":"Vermehrter und verminderter Grundwert"}]},
+  {"schluessel":"8-pool","nr":15,"station":"Davis-Station","kurz":"Davis","betreiber":"Australien","breite":-68.5759,"laenge":77.9695,"titel":"Gartenpool","klasse":8,"teile":4,"vor":[{"thema":51,"lernziel":"umfang","etappe":"Kreisumfang berechnen","flug":"Kreisberechnungen"},{"thema":101,"lernziel":"zylinder_volumen","etappe":"Zylinder: Volumen begründen","flug":"Prismen und Zylinder"},{"thema":93,"lernziel":"sach","etappe":"Sachaufgaben lösen","flug":"Indirekte Proportionalität"},{"thema":51,"lernziel":"flaeche","etappe":"Flächeninhalt eines Kreises","flug":"Kreisberechnungen"}]},
+  {"schluessel":"8-radtour","nr":16,"station":"Casey-Station","kurz":"Casey","betreiber":"Australien","breite":-66.2823,"laenge":110.5268,"titel":"Radtour zum See","klasse":8,"teile":4,"vor":[{"thema":25,"lernziel":"massstab","etappe":"Maßstab auf Karten und Plänen","flug":"Größen und Einheiten"},{"thema":93,"lernziel":"sach","etappe":"Sachaufgaben lösen","flug":"Indirekte Proportionalität"},{"thema":33,"lernziel":"zwei_punkte","etappe":"Steigung aus zwei Punkten","flug":"Lineare Funktionen"},{"thema":3,"lernziel":"sachaufgabe","etappe":"Sachaufgaben mit Ungleichungen","flug":"Lineare Ungleichungen"}]},
+  {"schluessel":"8-roller","nr":17,"station":"Mawson-Station","kurz":"Mawson","betreiber":"Australien","breite":-67.6026,"laenge":62.873,"titel":"Sparen für den Roller","klasse":8,"teile":4,"vor":[{"thema":32,"lernziel":"wertetabelle","etappe":"Wertetabellen lesen und ergänzen","flug":"Zuordnung und Funktion"},{"thema":33,"lernziel":"schnittpunkte","etappe":"Schnittpunkte berechnen","flug":"Lineare Funktionen"},{"thema":24,"lernziel":"rabatt_aufschlag","etappe":"Rabatt und Aufschlag","flug":"Prozent- und Zinsrechnung"},{"thema":3,"lernziel":"sachaufgabe","etappe":"Sachaufgaben mit Ungleichungen","flug":"Lineare Ungleichungen"}]},
+  {"schluessel":"8-saftbar","nr":18,"station":"Syowa-Station","kurz":"Syowa","betreiber":"Japan","breite":-69.0041,"laenge":39.5818,"titel":"Saftbar","klasse":8,"teile":4,"vor":[{"thema":5,"lernziel":"verhaeltnis","etappe":"Verhältnisgleichungen","flug":"Bruch- und Verhältnisgleichungen"},{"thema":5,"lernziel":"ein_bruch","etappe":"Bruchgleichungen mit einem Bruch","flug":"Bruch- und Verhältnisgleichungen"},{"thema":6,"lernziel":"sachaufgabe","etappe":"Sachaufgaben mit zwei Unbekannten","flug":"Gleichungssysteme mit 2 Unbekannten"},{"thema":26,"lernziel":"sach","etappe":"Sachaufgaben mit Dreisatz","flug":"Direkte Proportionalität und Dreisatz"}]},
+  {"schluessel":"8-schuelerzeitung","nr":19,"station":"Zhongshan-Station","kurz":"Zhongshan","betreiber":"China","breite":-69.3732,"laenge":76.3719,"titel":"Schülerzeitung","klasse":8,"teile":4,"vor":[{"thema":31,"lernziel":"termwert","etappe":"Werte von Bruchtermen berechnen","flug":"Bruchterme"},{"thema":5,"lernziel":"ein_bruch","etappe":"Bruchgleichungen mit einem Bruch","flug":"Bruch- und Verhältnisgleichungen"},{"thema":34,"lernziel":"asymptoten","etappe":"Asymptoten bestimmen","flug":"Gebrochen-rationale Funktionen"},{"thema":33,"lernziel":"schnittpunkte","etappe":"Schnittpunkte berechnen","flug":"Lineare Funktionen"}]},
+  {"schluessel":"8-schulfest","nr":20,"station":"Arctowski-Station","kurz":"Arctowski","betreiber":"Polen","breite":-62.1598,"laenge":-58.4733,"titel":"Schulfest","klasse":8,"teile":4,"vor":[{"thema":61,"lernziel":"laplace","etappe":"Laplace-Wahrscheinlichkeit","flug":"Zufall und Laplace"},{"thema":61,"lernziel":"grosse_zahlen","etappe":"Gesetz der großen Zahlen","flug":"Zufall und Laplace"},{"thema":6,"lernziel":"sachaufgabe","etappe":"Sachaufgaben mit zwei Unbekannten","flug":"Gleichungssysteme mit 2 Unbekannten"},{"thema":3,"lernziel":"sachaufgabe","etappe":"Sachaufgaben mit Ungleichungen","flug":"Lineare Ungleichungen"}]},
+  {"schluessel":"8-zelt","nr":21,"station":"Scott Base","kurz":"Scott Base","betreiber":"Neuseeland","breite":-77.8494,"laenge":166.7673,"titel":"Zelt","klasse":8,"teile":4,"vor":[{"thema":52,"lernziel":"prisma","etappe":"Prismen: Ecken, Kanten, Flächen","flug":"Körper darstellen"},{"thema":101,"lernziel":"prisma_volumen","etappe":"Volumen eines Prismas","flug":"Prismen und Zylinder"},{"thema":101,"lernziel":"prisma_oberflaeche","etappe":"Oberfläche eines Prismas","flug":"Prismen und Zylinder"},{"thema":3,"lernziel":"sachaufgabe","etappe":"Sachaufgaben mit Ungleichungen","flug":"Lineare Ungleichungen"}]},
+];
+// </EX-STATIONEN>
+const lernExStation = (x) => LERN_EX_STATIONEN.find((s) => s.schluessel === x?.schluessel) || null;
+const lernExGesamt = (d) => Number(d?.exStand?.stationen_gesamt) || LERN_EX_STATIONEN.length;
+const lernExGeschafftZahl = (d) => (d?.exStand ? Number(d.exStand.stationen_geschafft) || 0 : (d?.expeditionen || []).filter((x) => x.zustand === 'geschafft').length);
+const lernExTeile = (x) => Number(x?.teile_gesamt) || (x?.teile || []).length || Number(lernExStation(x)?.teile) || 0;
+const lernExBuchstabe = (i) => String.fromCharCode(97 + Math.max(0, i));
+const lernExTeilK = (x) => { const t = x?.teile || []; const i = t.findIndex((y) => !y.erledigt); return i < 0 ? t.length : i; }; // 0-basiert: Index des nächsten Teils
+const lernExMinuten = (n) => `etwa ${Math.max(5, Math.round(n * 4 / 5) * 5)} Minuten`; // Annahme Vorgabe: 4 Minuten je Teil, auf 5 gerundet
+const lernExNochFehlerfrei = (x) => (x?.teile || []).every((t) => !t.erledigt || t.richtig_erst);
+const lernExMitLohn = (x) => x && ('sterne_geschafft' in x || 'angeboten_am' in x); // EX-S: neue Felder; alter Server → ohne Belohnungs-Zeile
+const lernExOffen = (x) => x && (x.zustand === 'angeboten' || x.zustand === 'begonnen');
+const lernExOrtZeile = (x) => { const s = lernExStation(x); return s ? `${s.station} · Antarktis` : 'Antarktis'; };
+// Die oberste Karte: Server (expeditionen_stand.oben_id), sonst die erste offene, nicht ausgeblendete (Liste ist schon sortiert: begonnen → angeboten)
+function lernExOben(d) {
+  const xs = d.expeditionen || [];
+  if (d.exStand && 'oben_id' in d.exStand) return d.exStand.oben_id ? xs.find((x) => x.id === Number(d.exStand.oben_id)) || null : null;
+  return xs.find((x) => lernExOffen(x) && !x.ausgeblendet) || null;
+}
+const lernExWartet = (d) => (d.expeditionen || []).find((x) => lernExOffen(x) && x.ausgeblendet) || null;
+// Kleiner Stempel (rund, Stempel-Blau); ff = mit Band „★ FEHLERFREI“
+function lernExStempel(s, { gross = false, klein = false, ff = false, datum = '' } = {}) {
+  return el('span', { class: 'lr-ex-stempel' + (gross ? ' gross' : '') + (klein ? ' klein' : '') + (ff ? ' ff' : ''), 'aria-hidden': 'true' },
+    el('span', { class: 'gr' }, 'ANTARKTIS'), el('b', {}, klein ? String(s?.nr ?? '') : String(s?.kurz || s?.station || 'Station').toUpperCase()),
+    el('span', { class: 'nr' }, klein ? '✓' : `STATION ${s?.nr ?? '?'}${datum ? ' · ' + datum : ''}`), ff ? el('span', { class: 'band' }, '★ FEHLERFREI') : null);
+}
+const LERN_EX_SZENE = '<svg viewBox="0 0 400 140" preserveAspectRatio="none"><path d="M0 70 L60 44 L110 66 L170 30 L230 62 L290 40 L350 64 L400 52 L400 140 L0 140Z" fill="#DCEFF5"/><path d="M0 96 Q120 80 220 92 T400 88 L400 140 L0 140Z" fill="#F2FAFC"/></svg>';
+const LERN_EX_STATION_BILD = '<svg viewBox="0 0 120 80"><rect x="8" y="34" width="84" height="26" rx="3" fill="#F2F6F8"/><rect x="8" y="30" width="84" height="7" fill="#E5484D"/><rect x="18" y="42" width="10" height="7" fill="#2FB9D6"/><rect x="36" y="42" width="10" height="7" fill="#2FB9D6"/><rect x="54" y="42" width="10" height="7" fill="#2FB9D6"/><rect x="14" y="60" width="4" height="14" fill="#9DB2C2"/><rect x="82" y="60" width="4" height="14" fill="#9DB2C2"/><rect x="104" y="12" width="2.5" height="62" fill="#F2F6F8"/><path d="M106.5 14 L120 18 L106.5 23Z" fill="#fff"/><circle cx="105" cy="10" r="3.5" fill="#4BE3A6"/></svg>';
+function lernExSzene(fehlerfrei = false) {
+  return [el('div', { class: 'lr-ex-licht' + (fehlerfrei ? ' voll' : ''), 'aria-hidden': 'true' }), el('div', { class: 'lr-ex-schnee', 'aria-hidden': 'true' }),
+    lernGrafik(LERN_EX_SZENE, 'lr-ex-eis'), lernGrafik(LERN_EX_STATION_BILD, 'lr-ex-station')];
+}
+// Ansicht 1 – „Expedition freigeschaltet“ (Ereignis). bewegt: nur beim Freischalten; aus der Sammlung/dem Chip ohne Bewegung.
+function lernExFreiAnsicht({ d, x, bewegt = true, weitere = 0, jetzt, spaeter }) {
+  const s = lernExStation(x); const n = lernExTeile(x); const k = lernExTeilK(x); const begonnen = x.zustand === 'begonnen';
+  const vor = s?.vor || [];
+  const mitLohn = lernExMitLohn(x);
+  const g = Number(x.sterne_geschafft ?? d.regeln?.sterne_expedition_geschafft ?? 150), f = Number(x.sterne_fehlerfrei ?? d.regeln?.sterne_expedition_fehlerfrei ?? 200);
+  return el('div', { class: 'lr-ab-app lr-ex-app lr-ex-frei' + (bewegt ? ' lr-ab-anim' : '') },
+    el('div', { class: 'lr-ab-szene lr-ex-szene' }, ...lernExSzene(),
+      el('div', { class: 'lr-ab-oben' }, `ANTARKTIS · STATION ${s?.nr ?? '?'} VON ${lernExGesamt(d)}`),
+      el('h2', { class: 'lr-ab-titel lr-ex-titel' }, 'Expedition freigeschaltet'),
+      el('p', { class: 'lr-ab-unter lr-ex-satz' }, el('b', {}, x.titel), s ? ` an der ${s.station}.` : '.', n ? ` ${n} Teile, a bis ${lernExBuchstabe(n - 1)} – alles, was du dafür brauchst, hast du gelandet.` : ''),
+      vor.length ? el('div', { class: 'lr-ex-chips' }, ...vor.map((v) => el('span', { class: 'lr-ex-chip' }, '✓ ', v.etappe))) : null),
+    el('div', { class: 'lr-ab-blatt lr-ex-blatt' },
+      mitLohn ? el('div', { class: 'lr-ex-lohn' },
+        el('div', { class: 'lr-ex-k' }, el('span', { class: 'lr-ex-zahl' }, `★ ${lernZahl(g)}`), el('span', { class: 'lr-ex-was' }, 'für die Expedition', el('br'), `★ ${lernZahl(f)}, wenn alle Teile im ersten Versuch ohne Tipp klappen`)),
+        el('div', { class: 'lr-ex-k lr-ex-k-stempel' }, lernExStempel(s, { klein: false }), el('span', { class: 'lr-ex-was' }, 'Neuer Stempel für deine Sammlung'))) : null,
+      weitere > 0 ? el('p', { class: 'lr-ab-leise lr-ex-weitere' }, `+${weitere} weitere ${weitere === 1 ? 'Expedition' : 'Expeditionen'} freigeschaltet`) : null,
+      lernGrossKnopf(begonnen ? `Weiter mit Teil ${lernExBuchstabe(k)}` : 'Jetzt starten', n ? `Teil ${lernExBuchstabe(k)} von ${n} · ${lernExMinuten(Math.max(1, n - k))}` : null, { class: 'lr-ex-gross', onclick: jetzt }),
+      el('button', { type: 'button', class: 'lr-ab-pause lr-ex-spaeter', onclick: spaeter }, 'Später')));
+}
+// „Später“: Server blendet bis zum Ende des Lerntags aus (sperrt nichts). Fehler → trotzdem weiter (nichts geht verloren).
+async function lernExSpaeter(kindId, x) {
+  try { const r = await lernCall('schule_expedition_spaeter', { lernender_id: kindId, expedition_id: x.id }); x.ausgeblendet = true; x.spaeter_bis = r?.spaeter_bis ?? x.spaeter_bis; return r; }
+  catch { return null; }
+}
+const lernExGesehenSchl = (kindId, id) => `lern.exfrei.${kindId}.${id}`;
+const lernExGesehen = (kindId, id) => { try { return !!localStorage.getItem(lernExGesehenSchl(kindId, id)); } catch { return false; } };
+const lernExGesehenSetzen = (kindId, id) => { try { localStorage.setItem(lernExGesehenSchl(kindId, id), '1'); } catch { /* egal */ } };
+// Noch nicht gezeigte, frisch freigeschaltete Expeditionen (nur neuer Server: angeboten_am), kleinste Stationsnummer zuerst
+function lernExNeuFrei(d) {
+  const nr = (x) => lernExStation(x)?.nr ?? 999;
+  return (d.expeditionen || []).filter((x) => x.zustand === 'angeboten' && x.angeboten_am && !x.ausgeblendet && !lernExGesehen(d.kind.id, x.id)).sort((a, b) => nr(a) - nr(b));
+}
+// Zeigt Ansicht 1 als Vollbild. weiter(): wohin „Später“ führt.
+function lernExFreiZeigen(d, x, { bewegt = true, weitere = 0, weiter, spaeterRufen = true } = {}) {
+  const kindId = d.kind.id;
+  const h = lernAbschlussZeigen(d.kind, lernExFreiAnsicht({ d, x, bewegt, weitere,
+    jetzt: () => { lernAbschlussZu(); route('expedition', `${kindId}-${x.id}`); },
+    spaeter: async (ev) => { ev.currentTarget.disabled = true; if (spaeterRufen) await lernExSpaeter(kindId, x); lernAbschlussZu(); weiter?.(); } }), { label: 'Expedition freigeschaltet' });
+  if (!bewegt) h.classList.add('lr-ab-fertig');
+  return h;
+}
+// Beim Öffnen der Startseite: einmal je Kind und Expedition (Freischalten ohne Landung: Teilung, „Kann er“, neue Expedition)
+function lernExFreiBeimStart(d) {
+  const neu = lernExNeuFrei(d); if (!neu.length || document.querySelector('.lr-abschluss')) return;
+  neu.forEach((x) => lernExGesehenSetzen(d.kind.id, x.id));
+  lernExFreiZeigen(d, neu[0], { weitere: neu.length - 1, weiter: () => render() });
+}
+// Nach der Landung (Etappe gelandet): Der große Knopf der Landungs-Ansicht führt zuerst zu Ansicht 1, wenn diese Landung eine Expedition freigeschaltet hat.
+// Der Server legt das Angebot beim Landen an (Auslöser auf karte_stand.sitzt); die App liest schule_konto einmal nach.
+function lernExNachLandung(ctx) {
+  return lernCall('schule_konto', { lernender_id: ctx.kind }).then((k) => {
+    const d = { kind: ctx.kindObj, expeditionen: Array.isArray(k?.expeditionen) ? k.expeditionen : [], exStand: k?.expeditionen_stand || null, regeln: k?.regeln || null };
+    return lernExNeuFrei(d).length ? d : null;
+  }).catch(() => null);
+}
+function lernExVorKnopf(knopf, warten) {
+  if (!knopf || !warten) return knopf;
+  knopf.addEventListener('click', async (ev) => {
+    if (knopf.dataset.exWeiter) return;
+    ev.preventDefault(); ev.stopImmediatePropagation();
+    const d = await warten; const neu = d ? lernExNeuFrei(d) : [];
+    const weiter = () => { knopf.dataset.exWeiter = '1'; if (knopf.tagName === 'A') { location.hash = knopf.getAttribute('href'); } else knopf.click(); };
+    if (!neu.length) { weiter(); return; }
+    neu.forEach((x) => lernExGesehenSetzen(d.kind.id, x.id));
+    lernExFreiZeigen(d, neu[0], { weitere: neu.length - 1, weiter });
+  }, true);
+  return knopf;
+}
+// Ansicht 2 – oberste, größte Karte der Abflugtafel; 2b – nach „Später“ ein Chip bis Lerntag-Ende
+function lernExKarte(d) {
+  const x = lernExOben(d); const kindId = d.kind.id;
+  if (!x) {
+    const w = lernExWartet(d); if (!w) return null;
+    return el('button', { type: 'button', class: 'lr-ex-wartet', onclick: () => lernExFreiZeigen(d, w, { bewegt: false, spaeterRufen: false }) },
+      el('span', { 'aria-hidden': 'true' }, '⛯ '), 'Expedition wartet: ', el('b', {}, w.titel), ' ›');
+  }
+  const s = lernExStation(x); const n = lernExTeile(x); const k = lernExTeilK(x); const begonnen = x.zustand === 'begonnen';
+  const heute = d.exStand?.heute; const neu = !begonnen && heute && String(x.angeboten_am || '').slice(0, 10) === String(heute).slice(0, 10);
+  const weitere = Math.max(0, (Number(d.exStand?.angeboten) || (d.expeditionen || []).filter(lernExOffen).length) - 1);
+  const mitLohn = lernExMitLohn(x); const ff = lernExNochFehlerfrei(x);
+  const g = Number(x.sterne_geschafft ?? 150), f = Number(x.sterne_fehlerfrei ?? 200);
+  const ziel = `#/expedition/${kindId}-${x.id}`;
+  return el('section', { class: 'lr-ex-karte', 'aria-label': 'Expedition freigeschaltet' },
+    el('div', { class: 'lr-ex-karte-kopf' }, el('span', { class: 'lr-ex-ueber' }, el('span', { 'aria-hidden': 'true' }, '⛯ '), 'EXPEDITION FREIGESCHALTET'), neu ? el('span', { class: 'lr-ex-neu' }, 'NEU') : null,
+      x.angeboten_am !== undefined ? el('button', { type: 'button', class: 'lr-ex-zu', 'aria-label': 'Später', title: 'Später', onclick: async (ev) => { ev.currentTarget.disabled = true; await lernExSpaeter(kindId, x); render(); } }, '✕') : null),
+    el('h2', { class: 'lr-ex-karte-titel' }, x.titel),
+    el('p', { class: 'lr-ex-karte-ort' }, [s?.station, 'Antarktis', s ? `Station ${s.nr} von ${lernExGesamt(d)}` : null].filter(Boolean).join(' · ')),
+    el('div', { class: 'lr-ex-karte-mitte' },
+      el('div', { class: 'lr-ex-teile', role: 'img', 'aria-label': `${(x.teile || []).filter((t) => t.erledigt).length} von ${n} Teilen gelöst` },
+        ...Array.from({ length: n }, (_, i) => el('i', { class: (x.teile?.[i]?.erledigt ? 'ok' : i === k ? 'jetzt' : '') }, lernExBuchstabe(i)))),
+      mitLohn ? el('div', { class: 'lr-ex-karte-lohn' }, el('b', {}, `★ ${lernZahl(g)}`), ff ? el('small', {}, `★ ${lernZahl(f)} ohne Fehler`) : null) : null),
+    el('a', { class: 'lr-ex-knopf', href: ziel }, el('span', {}, el('b', {}, begonnen ? `Weiter mit Teil ${lernExBuchstabe(k)}` : 'Expedition starten'),
+      n ? el('small', {}, `Teil ${lernExBuchstabe(k)} von ${n} · ${lernExMinuten(Math.max(1, n - k))}`) : null), el('span', { 'aria-hidden': 'true' }, '›')),
+    weitere ? el('a', { class: 'lr-ex-mehr', href: `#/stationen/${kindId}` }, `+${weitere} weitere ${weitere === 1 ? 'wartet' : 'warten'} im Reisepass`) : null);
+}
+// Ansicht 3 – nach geschaffter Expedition (3a 150 ★, 3b fehlerfrei 200 ★). Sterne kommen vom Server.
+function lernExGeschafftAnsicht({ d, x, sterne, fehlerfrei }) {
+  const s = lernExStation(x); const n = lernExTeile(x); const gesamt = lernExGesamt(d); const kindId = d.kind.id;
+  const k = Math.max(lernExGeschafftZahl(d), 1);
+  const offenNoch = gesamt > k;
+  const nf = d.naechste;
+  const g = Number(x.sterne_geschafft ?? 150), f = Number(x.sterne_fehlerfrei ?? 200);
+  const knopf = nf ? lernGrossKnopf(nf.laeuft ? 'Weiter: Flug-Test' : `Weiter in ${nf.stadt || nf.ort_titel || nf.titel}`,
+    nf.laeuft ? nf.titel : `${nf.titel}${nf.n ? ` · Etappe ${Math.min((nf.fertig || 0) + 1, nf.n)} von ${nf.n}` : ''}`, { href: `#/lerneinheit/${kindId}-${nf.id}-${nf.laeuft ? 'test' : 'ueben'}`, class: 'lr-ex-weiter' })
+    : lernGrossKnopf('Zur Reise', null, { href: `#/reise/${kindId}`, class: 'lr-ex-weiter' });
+  return el('div', { class: 'lr-ab-app lr-ex-app lr-ex-geschafft lr-ab-anim' + (fehlerfrei ? ' lr-ex-ff' : '') },
+    el('a', { class: 'lr-ab-skip', href: `#/reise/${kindId}` }, 'Überspringen ›'),
+    el('div', { class: 'lr-ab-szene lr-ex-szene' }, ...lernExSzene(fehlerfrei),
+      el('div', { class: 'lr-ab-oben' }, `ANTARKTIS · STATION ${s?.nr ?? '?'} VON ${gesamt}`),
+      el('h2', { class: 'lr-ab-titel lr-ex-titel' }, fehlerfrei ? 'Fehlerfrei durchgekommen' : 'Expedition geschafft'),
+      el('p', { class: 'lr-ab-unter lr-ex-satz' }, el('b', {}, x.titel), fehlerfrei ? ` – alle ${n} Teile im ersten Versuch, ohne Tipp.` : ` – alle ${n} Teile gelöst.`),
+      el('div', { class: 'lr-ex-knall' }, lernExStempel(s, { gross: true, ff: fehlerfrei, datum: lernStempelDatum(new Date()) }))),
+    el('div', { class: 'lr-ab-blatt lr-ex-blatt' },
+      el('div', { class: 'lr-ex-lohn' },
+        el('div', { class: 'lr-ex-k' }, el('span', { class: 'lr-ex-zahl' }, '★ +', el('span', { 'data-ziel': String(sterne) }, lernZahl(sterne))),
+          fehlerfrei ? el('span', { class: 'lr-ex-was' }, `${lernZahl(g)} für die Expedition`, el('br'), `+ ${lernZahl(Math.max(0, sterne - g))} fürs fehlerfreie Lösen`) : el('span', { class: 'lr-ex-was' }, 'für die Expedition')),
+        el('a', { class: 'lr-ex-k lr-ex-k-samml', href: `#/stationen/${kindId}` }, el('span', { class: 'lr-ex-zahl lr-ex-zahl-blau' }, `${k} / ${gesamt}`), el('span', { class: 'lr-ex-was' }, 'Stationen in deiner Sammlung'))),
+      !fehlerfrei && offenNoch ? el('p', { class: 'lr-ab-leise' }, `Bei der nächsten Expedition gibt es ★ ${lernZahl(f)}, wenn alle Teile im ersten Versuch ohne Tipp klappen.`) : null,
+      knopf,
+      el('a', { class: 'lr-ab-pause', href: `#/stationen/${kindId}` }, 'Stempel-Sammlung ansehen')));
 }
 async function viewExpedition(arg) {
   setChrome('Expedition', { back: true, showTabs: false });
@@ -373,22 +547,33 @@ async function viewExpedition(arg) {
   if (!x) { lernErsetze(main, lernRahmen(kind, 'reise', el('section', { class: 'lr-karte-box' }, el('p', {}, 'Diese Expedition ist gerade nicht offen.'),
     el('a', { class: 'lr-knopf-zweit', href: `#/reise/${kind.id}` }, 'Zur Abflugtafel')))); return; }
   $('#title').textContent = 'Expedition ' + x.titel;
+  const s = lernExStation(x);
   const flaeche = el('div', { class: 'lr-expedition-teile' });
-  let sterneNeu = 0;
+  const schonGeschafft = x.zustand === 'geschafft';
+  let letzte = null; // Antwort des letzten Teils (Sterne, falls schule_konto nicht antwortet)
   const erledigtZeile = (t) => el('div', { class: 'lr-exp-teil erledigt' },
     el('p', { class: 'lr-ueber' }, `TEIL ${String(t.k || '').toUpperCase()}`, t.richtig_erst ? ' ✓' : ''),
     el('p', {}, ...lernMarkiert(t.frage?.text || '')),
     t.loesung ? el('p', {}, el('b', {}, 'Lösung: '), lernLoesungText(t)) : null,
     t.loesungsweg ? el('p', { class: 'lr-leise' }, lernText(t.loesungsweg)) : null);
+  // Ansicht 3 einmal je Kind und Expedition: Sterne und „fehlerfrei“ aus dem Server (schule_konto), sonst aus der Antwort des letzten Teils
+  const abschluss = async () => {
+    let xs = x, dd = d;
+    try { const k = await lernCall('schule_konto', { lernender_id: kind.id }); const y = (k?.expeditionen || []).find((e) => e.id === x.id);
+      if (y) { xs = { ...x, ...y }; dd = { ...d, expeditionen: k.expeditionen, exStand: k.expeditionen_stand || d.exStand }; } } catch { /* Antwort des Teils */ }
+    const sterne = Number(xs.sterne ?? letzte?.expedition?.sterne ?? 0) || Number(xs.sterne_geschafft ?? 150);
+    const fehlerfrei = xs.fehlerfrei !== undefined ? !!xs.fehlerfrei : letzte?.expedition?.fehlerfrei !== undefined ? !!letzte.expedition.fehlerfrei : (x.teile || []).every((t) => t.richtig_erst);
+    try { localStorage.setItem(`lern.exfertig.${kind.id}.${x.id}`, '1'); } catch { /* egal */ }
+    if (!live()) return;
+    lernAbschlussZeigen(kind, lernExGeschafftAnsicht({ d: dd, x: xs, sterne, fehlerfrei }), { label: fehlerfrei ? 'Fehlerfrei durchgekommen' : 'Expedition geschafft' });
+  };
   const zeichne = () => {
     const teile = x.teile || []; const i = teile.findIndex((t) => !t.erledigt);
     if (i < 0) {
+      const ff = x.fehlerfrei === true || (!('fehlerfrei' in x) && teile.every((t) => t.richtig_erst));
       lernErsetze(flaeche, ...teile.map(erledigtZeile), el('section', { class: 'lr-karte-box lr-expedition-fertig' },
-        el('p', { class: 'lr-ueber' }, '⛰ EXPEDITION ABGESCHLOSSEN'), el('p', {}, el('b', {}, x.titel), ' – alle Teile erledigt. Der Expeditions-Stempel ist in deinem Reisepass.'),
-        el('p', { class: 'lr-exp-selbst' }, (() => { const n = teile.length, s = teile.filter((t) => t.richtig_erst).length; // H15: abgeschlossen ≠ selbst gelöst
-          return s === n ? `Alle ${n} Teile selbst gelöst – stark!` : `${s} von ${n} Teilen selbst gelöst; bei den anderen hast du den Lösungsweg gesehen.`; })()),
-        sterneNeu ? el('p', { class: 'lr-sterne-neu' }, `+${sterneNeu} Sterne`) : null,
-        el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Zur Abflugtafel')));
+        el('p', { class: 'lr-ueber' }, '⛯ EXPEDITION GESCHAFFT'), el('p', {}, el('b', {}, x.titel), ff ? ' – alle Teile im ersten Versuch, ohne Tipp.' : ' – alle Teile gelöst.'),
+        el('a', { class: 'lr-knopf-zweit', href: `#/stationen/${kind.id}` }, 'Stempel-Sammlung ansehen ›')));
       return;
     }
     const t = teile[i]; const auf = lernAufgabe(t, null, { tasten: false }); const cid = lernCid();
@@ -406,7 +591,7 @@ async function viewExpedition(arg) {
         if (r.nochmal) { anlauf = 2; lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, 'Noch nicht – schau noch einmal hin. Du hast einen zweiten Versuch.')); pruefen.disabled = false; return; }
         // Teil erledigt: Lösung zeigen; der nächste Teil nennt seine Werte selbst – ein Fehler hier blockiert nichts
         t.erledigt = true; t.loesung = r.loesung; t.loesungsweg = r.loesungsweg; t.richtig_erst = !!r.richtig && !hilfe && anlauf === 1;
-        if (r.expedition?.geschafft) sterneNeu = Number(r.expedition.sterne || 0);
+        letzte = r;
         auf.zeigeLoesung?.(r.loesung); pruefen.remove(); tipp?.remove();
         const naechster = (x.teile || []).find((y) => !y.erledigt);
         lernErsetze(meldung, el('div', { class: 'lr-rueck' + (r.richtig ? ' lr-rueck-ok' : '') },
@@ -414,20 +599,103 @@ async function viewExpedition(arg) {
           !r.richtig ? el('p', {}, 'Richtig ist: ' + lernLoesungText(t)) : null,
           r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null,
           !r.richtig ? el('p', { class: 'lr-leise' }, 'Keine Abzüge – im nächsten Teil geht es mit den richtigen Zahlen weiter.') : null,
-          el('button', { type: 'button', class: 'lr-knopf', onclick: () => { zeichne(); window.scrollTo?.(0, 0); } }, naechster ? `Weiter mit Teil ${String(naechster.k || '').toUpperCase()} ›` : 'Zum Abschluss ›')));
+          el('button', { type: 'button', class: 'lr-knopf', onclick: () => { zeichne(); window.scrollTo?.(0, 0); if (!naechster) abschluss(); } }, naechster ? `Weiter mit Teil ${String(naechster.k || '').toUpperCase()} ›` : 'Zum Abschluss ›')));
       } catch (err) { if (lernGesperrt(err)) { render(); return; } lernErsetze(meldung, el('p', { class: 'err-text' }, err.message)); pruefen.disabled = false; }
     });
     lernErsetze(flaeche, ...teile.slice(0, i).map(erledigtZeile),
       el('section', { class: 'lr-karte-box lr-aufgabe lr-bordkarte lr-exp-teil' },
-        el('div', { class: 'lr-bord-kopf' }, el('span', {}, `TEIL ${String(t.k || i + 1).toUpperCase()} VON ${teile.length}`), el('span', {}, '⛰')),
+        el('div', { class: 'lr-bord-kopf' }, el('span', {}, `TEIL ${String(t.k || i + 1).toUpperCase()} VON ${teile.length}`), el('span', { 'aria-hidden': 'true' }, '⛯')),
         auf.node, el('div', { class: 'lr-knopfzeile' }, pruefen, tipp)), hilfeBox, meldung);
   };
   zeichne();
+  const nf = d.naechste; // sperrt nichts: der nächste Flug ist mit einem Tipp erreichbar
   lernErsetze(main, lernRahmen(kind, 'reise',
-    el('header', { class: 'lr-kopf' }, el('p', { class: 'lr-ueber' }, '⛰ EXPEDITION · FREIWILLIG'), el('h1', {}, x.titel)),
+    el('header', { class: 'lr-kopf lr-ex-kopf' }, el('p', { class: 'lr-ueber' }, schonGeschafft ? '⛯ EXPEDITION GESCHAFFT' : '⛯ EXPEDITION FREIGESCHALTET'), el('h1', {}, x.titel),
+      s ? el('p', { class: 'lr-leise' }, `${s.station} · Antarktis · Station ${s.nr} von ${lernExGesamt(d)}`) : null),
     el('section', { class: 'lr-karte-box lr-exp-einleitung' }, el('p', {}, ...lernMarkiert(x.einleitung || '')), x.grafik ? lernBild(x.grafik) : null,
-      el('p', { class: 'lr-leise' }, 'Zählt nicht für „gelandet“. Du kannst jederzeit aufhören – erledigte Teile bleiben gespeichert.')),
-    flaeche));
+      schonGeschafft ? null : el('p', { class: 'lr-leise' }, 'Du kannst jederzeit aufhören – erledigte Teile bleiben gespeichert.')),
+    flaeche,
+    el('a', { class: 'lr-textlink lr-ex-flug', href: nf ? `#/lerneinheit/${kind.id}-${nf.id}-${nf.laeuft ? 'test' : 'ueben'}` : `#/reise/${kind.id}` }, nf ? `Zum Flug: weiter in ${nf.stadt || nf.titel} ›` : 'Zur Abflugtafel ›')));
+}
+// Ansicht 4 – Stempel-Sammlung (Reisepass · Expeditionen). Gesperrte Stationen zeigen, was fehlt (Stand je Etappe aus schule_reise_karte, wenn da).
+const lernReiseKarteSpeicher = new Map(); // je Kind einmal je Sitzung (RK: ~170 KB)
+function lernReiseKarte(kindId) {
+  if (!lernReiseKarteSpeicher.has(kindId)) {
+    const t0 = performance.now();
+    const p = lernCall('schule_reise_karte', { lernender_id: kindId }).then((r) => { if (r) r._ladezeit = Math.round(performance.now() - t0); return r; })
+      .catch((e) => { lernReiseKarteSpeicher.delete(kindId); throw e; });
+    lernReiseKarteSpeicher.set(kindId, p);
+  }
+  return lernReiseKarteSpeicher.get(kindId);
+}
+function lernExFehlt(s, karte) {
+  if (!karte) return null;
+  const fluege = (karte.kontinente || []).flatMap((k) => k.fluege || []);
+  return s.vor.map((v) => {
+    const fl = fluege.filter((f) => Number(f.thema_id) === v.thema || Number(f.teil_stamm) === v.thema);
+    const hit = fl.map((f) => ({ f, st: (f.staedte || []).find((c) => c.lernziel === v.lernziel) })).find((q) => q.st);
+    const ok = hit && ['gelandet', 'sicher'].includes(hit.st.stand);
+    return { ...v, ok: !!ok, flug: hit?.f?.titel || v.flug, im_plan: hit ? !!hit.f.im_plan : null };
+  });
+}
+async function viewStationen(arg) {
+  setChrome('Expeditionen', { back: true, showTabs: false });
+  const live = viewGuard();
+  loading();
+  const d = await lernLadeKind(arg);
+  if (!d || !live()) return;
+  const { kind } = d;
+  const karte = await lernReiseKarte(kind.id).catch(() => null);
+  if (!live()) return;
+  const gesamt = lernExGesamt(d); const k = lernExGeschafftZahl(d);
+  const zuX = new Map((d.expeditionen || []).map((x) => [x.schluessel, x]));
+  const frei = (d.expeditionen || []).filter(lernExOffen).length;
+  const stationen = LERN_EX_STATIONEN.slice();
+  for (const x of d.expeditionen || []) if (!lernExStation(x)) stationen.push({ schluessel: x.schluessel, nr: stationen.length + 1, station: x.titel, kurz: x.titel, titel: x.titel, klasse: Number(Object.values(x.klasse || {})[0]) || null, vor: [] });
+  const blatt = el('dialog', { class: 'lr-blatt lr-ex-blatt-info', 'aria-label': 'Station' });
+  blatt.addEventListener('click', (ev) => { if (ev.target === blatt) blatt.close(); });
+  const zeigeBlatt = (...inhalt) => { lernErsetze(blatt, el('div', { class: 'lr-ex-info' }, ...inhalt, el('button', { type: 'button', class: 'lr-blatt-zu', onclick: () => blatt.close() }, 'Schließen'))); blatt.showModal(); };
+  const tippen = (s, x) => {
+    if (lernExOffen(x)) { lernExFreiZeigen(d, x, { bewegt: false, spaeterRufen: !x.ausgeblendet, weiter: () => render() }); return; }
+    if (x?.zustand === 'geschafft') {
+      zeigeBlatt(el('p', { class: 'lr-ueber' }, `STATION ${s.nr} VON ${gesamt} · GESCHAFFT`), el('h2', {}, `${s.station}: ${x.titel}`),
+        el('div', { class: 'lr-ex-info-stempel' }, lernExStempel(s, { gross: true, ff: x.fehlerfrei === true })),
+        el('p', {}, 'Geschafft', x.fehlerfrei ? ' · fehlerfrei' : '', x.sterne ? ` · ★ ${lernZahl(x.sterne)}` : ''),
+        el('a', { class: 'lr-textlink', href: `#/expedition/${kind.id}-${x.id}` }, 'Expedition ansehen'));
+      return;
+    }
+    const abKlasse = s.klasse && kind.klasse && s.klasse > kind.klasse;
+    const f = abKlasse ? null : lernExFehlt(s, karte);
+    const fehlen = f ? f.filter((v) => !v.ok) : null;
+    const g = Number(d.regeln?.sterne_expedition_geschafft ?? 150), ff = Number(d.regeln?.sterne_expedition_fehlerfrei ?? 200);
+    zeigeBlatt(el('p', { class: 'lr-ueber' }, `STATION ${s.nr} VON ${gesamt} · GESPERRT`), el('h2', {}, `${s.station}: ${s.titel}`),
+      abKlasse ? el('p', {}, `Ab Klasse ${s.klasse}`)
+        : el('div', {}, fehlen ? el('p', {}, fehlen.length ? `Noch ${fehlen.length} ${fehlen.length === 1 ? 'Etappe' : 'Etappen'}, dann ist sie frei:` : 'Gleich frei – alle Etappen sind gelandet.')
+          : el('p', {}, 'Sie ist frei, sobald diese Etappen gelandet sind:'),
+        el('ul', { class: 'lr-ex-vor' }, ...(f || s.vor).map((v) => el('li', { class: f ? (v.ok ? 'ok' : 'fehlt') : '' },
+          el('span', { class: 'lr-ex-vor-z', 'aria-hidden': 'true' }, f ? (v.ok ? '✓' : '○') : '•'), f && !v.ok ? el('b', {}, v.etappe) : el('span', {}, v.etappe), f && !v.ok ? el('span', { class: 'lr-leise' }, ` · ${v.flug}`) : null))),
+        fehlen?.length ? el('p', { class: 'lr-leise' }, fehlen.every((v) => v.im_plan !== false) ? 'Die Etappen kommen in deinem Plan.' : 'Diese Etappen sind noch nicht in deinem Plan.') : null),
+      el('p', { class: 'lr-leise' }, `★ ${lernZahl(g)} · ★ ${lernZahl(ff)} ohne Fehler`));
+  };
+  const platz = (s) => {
+    const x = zuX.get(s.schluessel); const z = x?.zustand || 'gesperrt';
+    const kz = x ? lernExTeilK(x) : 0; const n = lernExTeile(x);
+    const inhalt = z === 'geschafft' ? lernExStempel(s, { klein: true, ff: x.fehlerfrei === true })
+      : z === 'begonnen' ? el('span', { class: 'lr-ex-luecke frei' }, el('b', {}, String(s.nr)), el('small', {}, `Teil ${kz + 1}/${n}`))
+      : z === 'angeboten' ? el('span', { class: 'lr-ex-luecke frei puls' }, el('b', {}, String(s.nr)), el('small', {}, 'frei'))
+      : el('span', { class: 'lr-ex-luecke' }, el('b', {}, String(s.nr)), el('small', { 'aria-hidden': 'true' }, '🔒'));
+    const wort = { geschafft: 'geschafft' + (x?.fehlerfrei ? ', fehlerfrei' : ''), begonnen: `begonnen, Teil ${kz + 1} von ${n}`, angeboten: 'freigeschaltet', gesperrt: 'gesperrt' }[z];
+    return el('button', { type: 'button', class: 'lr-ex-platz lr-ex-' + z, 'aria-label': `Station ${s.nr}, ${s.kurz}: ${wort}`, onclick: () => tippen(s, x) }, inhalt, el('span', { class: 'lr-ex-name' }, s.kurz));
+  };
+  const klassen = [...new Set(stationen.map((s) => s.klasse))].sort((a, b) => (a ?? 99) - (b ?? 99));
+  lernErsetze(main, lernRahmen(kind, 'reisepass',
+    el('header', { class: 'lr-kopf lr-ex-samml-kopf' }, el('p', { class: 'lr-ueber' }, 'REISEPASS · EXPEDITIONEN'), el('h1', { class: 'lr-titel' }, 'Antarktis'),
+      el('p', { class: 'lr-ex-samml-zahl' }, el('b', {}, `${k} von ${gesamt} Stationen`), frei ? ` · ${frei} freigeschaltet` : ''),
+      el('div', { class: 'lr-ex-balken', role: 'img', 'aria-label': `${k} von ${gesamt} Stationen` }, el('span', { style: `width:${Math.round(100 * k / Math.max(1, gesamt))}%` }))),
+    ...klassen.map((kl) => { const ss = stationen.filter((s) => s.klasse === kl);
+      return el('section', { class: 'lr-ex-gruppe' }, el('h2', { class: 'lr-ex-gruppe-kopf' }, kl ? `KLASSE ${kl} · ${ss.length} STATIONEN` : `${ss.length} STATIONEN`), el('div', { class: 'lr-ex-raster' }, ...ss.map(platz))); }),
+    karte?.quellen?.length ? el('p', { class: 'lr-leise lr-ex-quelle' }, 'Stationen: COMNAP Antarctic Facilities (für Bildung, nicht kommerziell).') : null,
+    el('a', { class: 'lr-textlink', href: `#/reisepass/${kind.id}` }, 'Zurück zum Reisepass'), blatt));
 }
 // Betrieb 18.11.: Wird eine Bordkarte gesperrt, während das Kind sie offen hat (neue Fassung eingespielt), antwortet der Server (alte Fassung) mit „nicht freigegeben“.
 // Dann keine rote Meldung: die Seite lädt still neu und zeigt die nächste Bordkarte; gewertet wurde nichts, die Checkliste bleibt, wie sie war.
@@ -1065,8 +1333,8 @@ async function viewReise(arg) {
   // K1/U1: Den Stempel gibt es erst, wenn alle Flüge des Ortes geschafft sind – das Band zählt deshalb alle Etappen des Ortes.
   const ortFluege = n ? d.mit.filter((e) => e.block_id === n.block_id) : [];
   const ort = ortFluege.reduce((z, e) => { const m = merk.find((x) => x.einheit_id === e.id); const q = m ? lernEtappenZahl(m) : { n: e.n, f: e.fertig }; return { n: z.n + q.n, f: z.f + Math.min(q.f, q.n), fluege: z.fluege + 1 }; }, { n: 0, f: 0, fluege: 0 });
-  if (lernNeu(kind) && n) { lernErsetze(main, lernRahmen(kind, 'reise', ...lernAbflugtafel(d, { n, et, nWdh, wdhRest, wdhFertig: wdhGemacht, ort, ws }))); return; }
-  const teile = [el('header', { class: 'lr-kopf lr-kopf-kurz' }, el('p', { class: 'lr-gruss' }, `Hallo ${kind.name}!`)), lernNachbuchungHinweis(d)].filter(Boolean);
+  if (lernNeu(kind) && n) { lernErsetze(main, lernRahmen(kind, 'reise', ...lernAbflugtafel(d, { n, et, nWdh, wdhRest, wdhFertig: wdhGemacht, ort, ws }))); lernExFreiBeimStart(d); return; }
+  const teile = [el('header', { class: 'lr-kopf lr-kopf-kurz' }, el('p', { class: 'lr-gruss' }, `Hallo ${kind.name}!`)), lernExKarte(d), lernNachbuchungHinweis(d)].filter(Boolean);
   if (n) {
     const kont = d.orte.filter((o) => o.kontinent === (d.orte.find((x) => x.block_id === n.block_id)?.kontinent));
     const ortN = d.orte.find((o) => o.block_id === n.block_id) || {};
@@ -1086,7 +1354,7 @@ async function viewReise(arg) {
       (() => { const o = ortStand(n.block_id); return o && o.themen > 1 ? el('p', { class: 'lr-leise lr-ortstand' },
         `${n.stadt} hat ${o.themen} Flüge, ${o.erledigt} davon geschafft. Den Stempel gibt es, wenn alle geschafft sind.`) : null; })()));
   } else teile.push(el('section', { class: 'lr-karte-box' }, el('h2', {}, 'Gerade ist nichts offen'), el('p', { class: 'lr-leise' }, 'Neue Orte kommen bald. '), nWdh ? el('a', { class: 'lr-knopf', href: `#/wiederholen/${kind.id}` }, `${nWdh} ${nWdh === 1 ? 'Bordkarte' : 'Bordkarten'} wiederholen`) : el('a', { class: 'lr-knopf-zweit', href: `#/reisepass/${kind.id}` }, 'Zum Reisepass')));
-  teile.push(lernStats(d.konto), el('a', { class: 'lr-textlink', href: `#/reisepass/${kind.id}` }, 'Reisepass und Belohnungen ansehen'),
+  teile.push(lernStats(d.konto, { d }), el('a', { class: 'lr-textlink', href: `#/reisepass/${kind.id}` }, 'Reisepass und Belohnungen ansehen'),
     el('a', { class: 'lr-textlink lr-route-link', href: `#/route/${kind.id}` }, 'Meine Route 5–10 ›')); // LM-6
   const jg = d.konto?.jahrgang;
   if (jg?.themen) teile.push(el('section', { class: 'lr-karte-box lr-jgstand' },
@@ -1100,6 +1368,7 @@ async function viewReise(arg) {
   if (d.frueher.length) teile.push(el('details', { class: 'lr-mehr' }, el('summary', {}, `Aus früheren Klassen – zum Auffrischen (${d.frueher.length})`), ...d.frueher.map((e) => lernOrtZeile(kind, e))));
   if (d.spaeter.length) teile.push(el('details', { class: 'lr-mehr' }, el('summary', {}, `Später – für höhere Klassen (${d.spaeter.length})`), ...d.spaeter.map((e) => lernOrtZeile(kind, e))));
   lernErsetze(main, lernRahmen(kind, 'reise', ...teile));
+  lernExFreiBeimStart(d);
 }
 
 // W150 Abflug: Startseite als Abflugtafel. Oberste Zeile = jetzt dran, ein gelber Knopf im Daumenbereich.
@@ -1204,6 +1473,7 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort =
       el('a', { class: 'lr-chip-stern', href: `#/reisepass/${kind.id}`, 'aria-label': `${lernZahl(d.konto?.sterne ?? 0)} Sterne – zum Reisepass` }, '★ ' + lernZahl(d.konto?.sterne ?? 0))),
     // K3: oben drei Mini-Linien GYM · RS · IB; Antippen öffnet „Mein Weg · Stand“ bei dieser Schulart
     d.u && kind.klasse ? lernMiniLinien(lernStandModell(d.u, kind), (y, kl) => `#/weg/${kind.id}-stand${kl ? `-${y.sa}-${kl}` : ''}`) : null,
+    lernExKarte(d), // EX-App: offene Expedition = oberste, größte Karte, vor dem nächsten Flug
     rueckKarte,
     lernNachbuchungHinweis(d),
     el('section', { class: 'lr-abflugtafel', 'aria-label': 'Abflugtafel' },
@@ -1218,7 +1488,6 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort =
     band,
     el('div', { class: 'lr-tafelchips' }, el('a', { href: `#/reisepass/${kind.id}` }, `◎ ${d.konto?.stempel ?? 0} Stempel`), el('span', {}, 'Abflug, wann es dir passt')),
     lernKnobelDesTages(d),
-    lernExpeditionAngebot(d),
     wdhRest ? el('a', { class: 'lr-textlink', href: `#/wiederholen/${kind.id}` }, `Noch ${wdhRest} ${wdhRest === 1 ? 'Wiederholung' : 'Wiederholungen'} offen – wenn du magst`) : null,
     nWdh ? null : lernExtraLink(ws, kind.id),
     el('a', { class: 'lr-textlink', href: `#/lerneinheit/${kind.id}-${n.id}` }, 'Erst die Erklärungen ansehen'),
@@ -1298,7 +1567,7 @@ async function viewReisepass(arg) {
   el('p', { class: 'lr-ueber' }, 'STIL'), el('div', { class: 'lr-chips' }, ...LERN_STILE.map(([s, t, h]) =>
     el('button', { type: 'button', class: kind.stil === s ? 'on' : '', 'aria-pressed': String(kind.stil === s), onclick: () => setze(s, kind.welt || 'Ozean') }, t, el('small', {}, ' · ' + h)))));
   lernErsetze(main, lernRahmen(kind, 'reisepass',
-    lernKopf('REISEPASS', kind.name), lernStats(konto),
+    lernKopf('REISEPASS', kind.name), lernStats(konto, { d }),
     // AB-A: Abzeichen der Landungen (gleichwertig nebeneinander)
     konto?.abzeichen ? el('section', { class: 'lr-karte-box lr-abzeichen-zeile' }, el('h2', {}, 'Abzeichen'),
       el('p', { class: 'lr-abzeichen' }, el('span', { class: 'lr-abz-direkt' }, `⚡ Direkt ${lernZahl(konto.abzeichen.direkt || 0)}`), ' · ',
@@ -2709,11 +2978,12 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
                   `${tf.n} ${tf.n === 1 ? 'Bordkarte' : 'Bordkarten'}, eine je Etappe, ohne Tipps`, { href: `${ctx.basis}-test` })
                 : lernGrossKnopf('Zur Abflugtafel', null, { href: `#/reise/${ctx.kind}` });
             const knobel = (e.bonus || []).find((k) => !k.versuche);
+            const exFrei = lernExNachLandung(ctx); // EX-App: hat diese Landung eine Expedition freigeschaltet? (Ansicht 1 vor dem nächsten Schritt)
             const zeigeLandung = () => {
               // Zurück-Taste nach der Landung: nicht zurück in die Bordkarten dieser Etappe, sondern zur Übersicht des Flugs (umsetzung.md 5)
               try { history.replaceState(history.state, '', `${ctx.basis}-erklaeren`); } catch { /* egal */ }
               lernErsetze(flaeche, el('p', { class: 'lr-leise lr-ab-dahinter' }, `Etappe „${e.titel}“ ist gelandet.`));
-              lernAbschlussZeigen(ctx.kindObj, lernAbschlussEtappe({ e, nr: pos + 1, von: mitAufg.length, landung, daten: ctx.daten, sterne, knopf: knopf(), kind: ctx.kind,
+              lernAbschlussZeigen(ctx.kindObj, lernAbschlussEtappe({ e, nr: pos + 1, von: mitAufg.length, landung, daten: ctx.daten, sterne, knopf: lernExVorKnopf(knopf(), exFrei), kind: ctx.kind,
                 // Sturmflug: die Knobel-Bordkarte kommt nicht von selbst, nur als kleiner Textlink
                 knobel: art === 'sturm' && knobel ? () => { lernAbschlussZu(); zeigeKnobel(); } : null }), { label: 'Etappe gelandet' });
             };
@@ -3625,7 +3895,7 @@ const LERN_INFO_FRAGEN = [
     ['Abschluss einer Etappe:', ' Nach der Landung (und der Knobel-Bordkarte) zeigt die App eine von drei Fassungen – jede mit eigenem Bild und eigener Farbe: Direktflug (alle Bordkarten im ersten Versuch richtig, ohne Tipp, genau so viele wie nötig), Saubere Landung (höchstens 2 endgültige Fehler, Stufe nie leichter geworden, höchstens 4 Bordkarten mehr als nötig; nach „wieder offen“ heißt sie „Wieder gelandet“) oder Sturmflug gemeistert (alles darüber; ohne Fehlerzahl, die Knobel-Bordkarte kommt dann nicht von selbst, nur als Textlink). Dazu ein Abzeichen – ⚡ Direkt, ✓ Sauber oder ⚡ Ausdauer –, das im Reisepass gezählt wird, der Satz „Du kannst jetzt …“ und genau ein Knopf zum nächsten Schritt (nächste Etappe, Flug-Test oder Abflugtafel); zurück in die Übungen derselben Etappe führt von dort kein Weg. Nach dem bestandenen Flug-Test: „Flug geschafft“ mit den Sternen des Flugs und der Liste „Das kannst du jetzt“, danach eine Bordkarte zum nächsten Flug im Plan („Boarding“ öffnet seine erste Erklärung). Mit dem letzten Flug eines Orts kommt dazwischen der Reisepass-Stempel. Landungen vor dieser Version haben kein Abzeichen.'],
     ['Wieder offen:', ' Zwei Fehler in einer fälligen Wiederholung öffnen eine gelandete Etappe wieder – überall: auf der Abflugtafel, in der Etappe, bei den Eltern und für den Flug-Test. Eigene Lösungen und Arten bleiben; es fehlen nur 3 eigene Lösungen in Folge. Ein früher bestandener Test bleibt getrennt als Beleg stehen. Fehler in Mischkarten oder Expeditionen öffnen nie, sie machen die Etappe nur am nächsten Lerntag fällig.'],
     ['Etappe sicher:', ' gelandet, die Wiederholung nach 14 Lerntagen bestanden und – beides nach der letzten Landung – einmal in einer Mischkarte richtig erkannt und im Nachtest des Flugs die Bordkarte dieser Etappe richtig. Ist nur der Nachtest des Flugs bestanden, steht bei den Eltern „Flug-Nachtest bestanden“.'],
-    ['Expeditionen:', ' größere Bordkarten aus 3–5 Teilen (a, b, c …), die Stoff aus mehreren Etappen verbinden – wie in einer Schulaufgabe mit Teil a, b, c. Das Kind bekommt eine Expedition auf der Abflugtafel angeboten, sobald alle ihre Etappen bei ihm gelandet sind; freiwillig, sie zählt nicht für „gelandet“. Jeder Teil hat zwei Versuche, danach steht die Lösung da und es geht mit dem nächsten Teil weiter (jeder Teil nennt seine Zahlen selbst). Richtig im ersten Versuch ist ein Beleg für die Etappe; falsch macht sie am nächsten Lerntag zur Wiederholung fällig – ohne Abzüge. Eine begonnene Expedition kann das Kind auch dann zu Ende führen, wenn eine ihrer Etappen inzwischen wieder offen ist. Gebucht wird auf die Version der Etappe, die beim Kind gelandet ist. Geschafft: Expeditions-Stempel und 50 Sterne. Alle Expeditionen mit Lösungen: Lehrplan → „Expeditionen ansehen“.'],
+    ['Expeditionen:', ' größere Bordkarten aus 3–5 Teilen (a, b, c …), die Stoff aus mehreren Etappen verbinden – wie in einer Schulaufgabe mit Teil a, b, c. Sobald alle ihre Etappen beim Kind gelandet sind, ist die Expedition freigeschaltet: Nach der Landung, die das auslöst, kommt einmal die Ansicht „Expedition freigeschaltet“ (großer Knopf „Jetzt starten“, kleiner Textlink „Später“). Solange sie offen ist, steht sie als oberste und größte Karte auf der Abflugtafel, vor dem nächsten Flug; nach „Später“ steht bis zum Ende des Lerntags nur ein kleiner Hinweis da, am nächsten Lerntag ist die Karte wieder oben. Auf der Kinderseite steht nirgends „freiwillig“ – die Regel bleibt trotzdem: Eine Expedition sperrt nichts und zählt nicht für „gelandet“. Jeder Teil hat zwei Versuche, danach steht die Lösung da und es geht mit dem nächsten Teil weiter (jeder Teil nennt seine Zahlen selbst). Richtig im ersten Versuch ist ein Beleg für die Etappe; falsch macht sie am nächsten Lerntag zur Wiederholung fällig – ohne Abzüge. Eine begonnene Expedition kann das Kind auch dann zu Ende führen, wenn eine ihrer Etappen inzwischen wieder offen ist. Gebucht wird auf die Version der Etappe, die beim Kind gelandet ist. Geschafft: Expeditions-Stempel und 150 Sterne, 200 Sterne bei fehlerfreiem Lösen (alle Teile im ersten Versuch, ohne Tipp; Werte vom Server). Jede Expedition gehört zu einer Forschungsstation in der Antarktis; der Reisepass zeigt die Stempel-Sammlung „k von 21 Stationen“ – gesperrte Stationen zeigen, welche Etappen noch fehlen. Quelle der Stationen: COMNAP Antarctic Facilities (nur private, nicht kommerzielle Bildungs-Nutzung). Alle Expeditionen mit Lösungen: Lehrplan → „Expeditionen ansehen“.'],
     ['Mischkarten:', ' Sind im Flug mindestens 3 Etappen gelandet, ist beim Üben jede 4. Bordkarte (bis Klasse 6 jede 6.) eine aus einer anderen Etappe, die schon gelandet ist – meist aus demselben Flug oder Kontinent, manchmal aus einem älteren Flug. Sie ist gekennzeichnet („Aus deiner Reise – erkennst du, was gefragt ist?“), nach der Lösung steht, aus welcher Etappe sie kam. Das Kind soll selbst erkennen, welches Verfahren passt. Sie zählt nicht für die gerade geübte Etappe; richtig ist ein Beleg für „sicher“, falsch macht die Herkunfts-Etappe am nächsten Lerntag zur Wiederholung fällig – ohne Abzüge. Ist die Herkunfts-Etappe gerade fällig und die Mischkarte im ersten Versuch ohne Tipp richtig, zählt sie als bestandene Wiederholung dieser Etappe – Mischkarten bauen so fällige Wiederholungen mit ab. Der Server prüft jede Mischkarte (Etappe gelandet, Stufe 2–3, nicht die gerade geübte); sonst zählt sie wie eine normale Bordkarte.'],
     ['Wiederholung:', ' Ist eine Etappe gelandet, kommt sie nach 1, 3, 7, 14 und 30 Lerntagen wieder, jeweils mit einer Bordkarte. Ein Lerntag ist ein Tag, an dem das Kind Mathe übt; Reisetage ohne Mathe zählen nicht. Am Anfang eines Lerntags kommt eine Runde: sind höchstens 6 Etappen fällig, alle; sonst ein Fünftel der fälligen (aufgerundet), mindestens 6 und höchstens 12 (bis Klasse 6 höchstens 10) – zuerst Etappen mit einem Wiederholungs-Fehler, dann die am längsten fälligen. Weitere werden nur angeboten. Auf der Kinderseite heißt die Runde „Check-in“: Das Kind sieht, wie weit es ist („3 von 9“), nie die Zahl aller fälligen Etappen. Es kann unterbrechen und am selben Lerntag fortsetzen, auch auf einem anderen Gerät; erledigt ist die Runde, wenn alle ihre Bordkarten beantwortet sind (falsch zählt als bearbeitet). Ein Fehler: Die Etappe kommt am nächsten Lerntag wieder. Zwei Fehler hintereinander: Das Kind übt sie noch einmal – eigene Lösungen bleiben, es braucht wieder 3 richtige in Folge.'],
     ['Endgültig abgelegt:', ' Besteht eine Etappe auch die letzte Wiederholung (nach 30 Lerntagen), ist sie abgelegt: Sie fällt aus der regelmäßigen Wiederholung und wird nur noch bei Bedarf aufgefrischt, das Kind bekommt 30 Sterne und eine kurze Einblendung. Sind alle Etappen eines Flugs abgelegt: 100 Sterne, eine große Einblendung, und der Flug steht im Reisepass golden. Sind alle Flüge eines Orts abgelegt, wird auch der Stempel des Orts golden. Fällt eine abgelegte Etappe später im Nachtest oder beim Üben auf, kommt sie am nächsten Lerntag wieder zur Wiederholung; Gold und Sterne bleiben, ein zweites Ablegen bringt nichts.'],

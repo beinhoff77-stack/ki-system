@@ -5431,3 +5431,92 @@ body.lw-kopf-schlank main.view { padding-top: 4px; }
 body.lw-kopf-schlank header.top { padding-top: calc(4px + env(safe-area-inset-top)); padding-bottom: 4px; }
 @media (max-width: 759px) { .lw-leiste .lw-rueck { font-size: 0; padding: 4px 8px; } .lw-leiste .lw-rueck::before { content: "↶"; font-size: 16px; } }
 body.lw-kopf-schlank .lern-abmelden { min-height: 30px; font-size: 12px; padding: 0 9px; margin-left: 0; flex: none; }
+
+/* ---------- EX-App (0.91.0): Expeditionen – Farbe Polar (Nachtblau, Eisblau, Polarlicht-Grün, Stempel-Blau); nicht Gold (= abgelegt), nicht Siegelrot (= Ort) ---------- */
+.lr-ex-app { --ab-kb: linear-gradient(90deg, #7FE3F0, #4BE3A6); --ab-kt: #062033; --ab-ks: #1D6E8C; }
+.lr-ex-app .lr-ab-gross { background: linear-gradient(90deg, #7FE3F0, #4BE3A6); }
+.lr-ex-app .lr-ab-gross.lr-ex-weiter { background: #FFD23F; color: #1B0C3A; box-shadow: 0 6px 0 #B78D00; }
+.lr-ex-szene { background: radial-gradient(120% 70% at 70% 0%, #1B4F7A 0, #0A2540 55%, #061629 100%); color: #EAF8FB; padding-bottom: 120px; }
+.lr-ex-szene > :not(.lr-ex-licht):not(.lr-ex-schnee):not(.lr-ex-eis):not(.lr-ex-station) { position: relative; z-index: 3; }
+.lr-ex-licht { position: absolute; inset: -20% -10% auto -10%; height: 70%; z-index: 1; filter: blur(18px); opacity: .75; pointer-events: none;
+  background: conic-gradient(from 200deg at 40% 120%, transparent 0 40deg, #4BE3A688 60deg, #2FB9D666 85deg, transparent 110deg 360deg); }
+.lr-ex-licht.voll { inset: -30% -20% auto -20%; height: 95%; opacity: .95; background: conic-gradient(from 180deg at 50% 120%, transparent 0 20deg, #4BE3A6aa 45deg, #7FE3F088 80deg, #4BE3A699 110deg, transparent 140deg 360deg); }
+.lr-ex-ff .lr-ex-szene { background: radial-gradient(120% 80% at 50% 0%, #135E52 0, #0A3A40 50%, #061629 100%); }
+.lr-ex-schnee { position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: .35;
+  background-image: radial-gradient(#fff 1px, transparent 1.5px), radial-gradient(#fff9 1px, transparent 1.5px); background-size: 46px 46px, 29px 29px; background-position: 0 0, 13px 17px; }
+.lr-ex-eis { position: absolute; left: 0; right: 0; bottom: 0; height: 110px; z-index: 2; pointer-events: none; }
+.lr-ex-eis svg, .lr-ex-station svg { width: 100%; height: 100%; display: block; }
+.lr-ex-station { position: absolute; right: 22px; bottom: 50px; width: 110px; height: 74px; z-index: 2; pointer-events: none; }
+.lr-ex-titel { max-width: 340px; font-size: 36px; overflow-wrap: normal; word-break: normal; hyphens: manual; }
+.lr-ex-satz { font-size: 16px; max-width: 360px; margin: 4px 0 0; }
+.lr-ex-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; max-width: 380px; }
+.lr-ex-chip { background: #ffffff1f; border: 1px solid #ffffff3d; border-radius: 99px; padding: 3px 10px; font-size: 13px; font-weight: 700; color: #EAF8FB; }
+.lr-ex-blatt .lr-ex-lohn { display: flex; gap: 10px; align-items: stretch; margin: 0 0 4px; }
+.lr-ex-k { flex: 1 1 0; min-width: 0; border: 1px solid var(--ab-bli); border-radius: 16px; padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; color: inherit; text-decoration: none; }
+.lr-ex-k-stempel { flex-direction: row; align-items: center; gap: 10px; }
+.lr-ex-zahl { font-size: 26px; font-weight: 900; color: #8A6200; line-height: 1.1; } .lr-ab-nacht .lr-ex-zahl { color: #FFD23F; }
+.lr-ex-zahl-blau, .lr-ab-nacht .lr-ex-zahl-blau { color: #1D6E8C; } .lr-ab-nacht .lr-ex-zahl-blau { color: #7FE3F0; }
+.lr-ex-was { font-size: 13.5px; color: var(--ab-ble); line-height: 1.25; overflow-wrap: normal; }
+.lr-ex-weitere { text-align: center; }
+/* Expeditions-Stempel: rund, Stempel-Blau #1D6E8C */
+.lr-ex-stempel { --g: 76px; width: var(--g); height: var(--g); flex: none; border-radius: 50%; border: 3px solid #1D6E8C; outline: 2px solid #1D6E8C; outline-offset: 3px; color: #1D6E8C; background: #E9FAFC;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transform: rotate(-8deg); position: relative; line-height: 1.05; }
+.lr-ex-stempel b { display: block; font-size: 9.5px; letter-spacing: .06em; max-width: 84%; overflow-wrap: normal; }
+.lr-ex-stempel .gr { font-size: 7.5px; letter-spacing: .12em; font-weight: 800; } .lr-ex-stempel .nr { font-size: 7.5px; font-weight: 800; opacity: .85; }
+.lr-ex-stempel.gross { --g: 150px; border-width: 4px; outline-width: 3px; outline-offset: 5px; } .lr-ex-stempel.gross b { font-size: 16px; } .lr-ex-stempel.gross .gr, .lr-ex-stempel.gross .nr { font-size: 11px; }
+.lr-ex-stempel.klein { --g: 52px; border-width: 2px; outline-width: 1px; outline-offset: 2px; } .lr-ex-stempel.klein b { font-size: 15px; } .lr-ex-stempel.klein .gr { font-size: 5.5px; } .lr-ex-stempel.klein .nr { font-size: 8px; }
+.lr-ex-stempel .band { position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%) rotate(8deg); background: #1D6E8C; color: #fff; font-size: 8.5px; font-weight: 900; letter-spacing: .06em; border-radius: 99px; padding: 2px 7px; white-space: nowrap; }
+.lr-ex-stempel.klein .band { font-size: 6.5px; padding: 1px 5px; bottom: -8px; }
+.lr-ex-knall { display: flex; justify-content: center; margin: 18px 0 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ex-licht { animation: exWehen 1.8s ease-out both; }
+  .lr-abschluss:not(.lr-ab-fertig) .lr-ab-anim .lr-ex-knall .lr-ex-stempel { animation: abStempel .5s cubic-bezier(.2, 1.4, .4, 1) both .6s; }
+  @keyframes exWehen { from { transform: translateX(-12%) skewX(8deg); opacity: 0; } to { transform: none; opacity: .75; } }
+  .lr-ex-luecke.puls { animation: exPuls 1.4s ease-out 1; }
+  @keyframes exPuls { 0% { box-shadow: 0 0 0 0 #4BE3A699; } 100% { box-shadow: 0 0 0 14px #4BE3A600; } }
+}
+@media (min-width: 700px) {
+  .lr-ex-titel { font-size: 60px; max-width: 620px; } .lr-ex-satz { font-size: 19px; max-width: 560px; } .lr-ex-chips { max-width: 620px; }
+  .lr-ex-station { width: 170px; height: 114px; right: 60px; bottom: 60px; } .lr-ex-eis { height: 140px; } .lr-ex-szene { padding-bottom: 150px; }
+  .lr-ex-stempel.gross { --g: 190px; } .lr-ex-stempel.gross b { font-size: 20px; }
+}
+@media (max-height: 820px) and (max-width: 699px) { .lr-ex-szene { padding-bottom: 96px; } .lr-ex-titel { font-size: 32px; } .lr-ex-stempel.gross { --g: 120px; } .lr-ex-station { width: 90px; height: 60px; bottom: 40px; } }
+/* Ansicht 2: oberste, größte Karte der Abflugtafel */
+.lr-ex-karte { background: linear-gradient(160deg, #123A5E, #0A2540 70%); color: #EAF8FB; border-radius: 22px; padding: 16px 16px 14px; margin: 0 0 14px; box-shadow: 0 10px 30px #0A254055; }
+.lr-ex-karte-kopf { display: flex; align-items: center; gap: 8px; }
+.lr-ex-ueber { font-size: 12px; font-weight: 900; letter-spacing: .14em; color: #4BE3A6; }
+.lr-ex-neu { background: #4BE3A6; color: #062033; font-size: 11px; font-weight: 900; letter-spacing: .06em; border-radius: 99px; padding: 2px 8px; }
+.lr-ex-zu { margin-left: auto; background: #ffffff1a; border: 0; color: #EAF8FB; width: 34px; height: 34px; border-radius: 50%; font-size: 15px; cursor: pointer; }
+.lr-ex-karte-titel { font-size: 26px; font-weight: 900; margin: 6px 0 2px; color: #fff; line-height: 1.1; }
+.lr-ex-karte-ort { margin: 0 0 10px; font-size: 14px; color: #BFE0EA; }
+.lr-ex-karte-mitte { display: flex; align-items: center; gap: 10px; margin: 0 0 10px; }
+.lr-ex-teile { display: flex; gap: 6px; flex-wrap: wrap; }
+.lr-ex-teile i { font-style: normal; width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; font-weight: 800; font-size: 14px; border: 1.5px solid #7FE3F088; color: #EAF8FB; }
+.lr-ex-teile i.ok { background: #4BE3A6; border-color: #4BE3A6; color: #062033; } .lr-ex-teile i.jetzt { box-shadow: 0 0 0 2px #0A2540, 0 0 0 4px #7FE3F0; }
+.lr-ex-karte-lohn { margin-left: auto; text-align: right; } .lr-ex-karte-lohn b { display: block; font-size: 22px; color: #FFD23F; } .lr-ex-karte-lohn small { font-size: 12px; color: #EAF8FB; font-weight: 700; }
+.lr-ex-knopf { display: flex; justify-content: space-between; align-items: center; gap: 10px; min-height: 62px; border-radius: 18px; background: linear-gradient(90deg, #7FE3F0, #4BE3A6); color: #062033; padding: 10px 18px; text-decoration: none; font-size: 15px; }
+.lr-ex-knopf b { display: block; font-size: 19px; } .lr-ex-knopf small { font-size: 13px; font-weight: 600; opacity: .85; } .lr-ex-knopf > span:last-child { font-size: 24px; font-weight: 900; }
+.lr-ex-knopf:focus-visible, .lr-ex-zu:focus-visible, .lr-ex-wartet:focus-visible, .lr-ex-platz:focus-visible { outline: 3px solid #4BE3A6; outline-offset: 2px; }
+.lr-ex-mehr { display: block; margin: 8px 0 0; text-align: center; font-size: 13.5px; color: #BFE0EA; }
+.lr-ex-wartet { display: block; width: 100%; text-align: left; margin: 0 0 10px; min-height: 44px; border-radius: 99px; border: 1.5px dashed #2FB9D6; background: #E9FAFC; color: #0A2540; font: inherit; font-size: 15px; padding: 8px 16px; cursor: pointer; }
+.lr-nacht .lr-ex-wartet { background: #0E2B3F; color: #EAF8FB; }
+.lr-ex-pass-zeile { display: block; text-decoration: underline; color: inherit; }
+/* Ansicht 4: Stempel-Sammlung */
+.lr-ex-samml-zahl { margin: 4px 0 8px; font-size: 17px; }
+.lr-ex-balken { height: 10px; border-radius: 99px; background: #DDE6EA; overflow: hidden; } .lr-nacht .lr-ex-balken { background: #29425A; }
+.lr-ex-balken span { display: block; height: 100%; background: linear-gradient(90deg, #7FE3F0, #4BE3A6); border-radius: 99px; }
+.lr-ex-gruppe-kopf { font-size: 13px; letter-spacing: .14em; font-weight: 900; margin: 22px 0 10px; color: var(--lr-leise); }
+.lr-ex-raster { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 14px 6px; }
+.lr-ex-platz { display: flex; flex-direction: column; align-items: center; gap: 6px; background: none; border: 0; padding: 4px 0; font: inherit; color: var(--lr-text); cursor: pointer; min-width: 0; }
+.lr-ex-name { font-size: 12.5px; line-height: 1.15; text-align: center; overflow-wrap: normal; word-break: normal; hyphens: manual; }
+.lr-ex-geschafft .lr-ex-name, .lr-ex-angeboten .lr-ex-name, .lr-ex-begonnen .lr-ex-name { font-weight: 800; } .lr-ex-gesperrt .lr-ex-name { color: var(--lr-leise); }
+.lr-ex-luecke { width: 52px; height: 52px; border-radius: 50%; border: 2px dashed #A9B6BD; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.05; color: var(--lr-leise); }
+.lr-ex-luecke b { font-size: 12px; } .lr-ex-luecke small { font-size: 11px; }
+.lr-ex-luecke.frei { border-color: #0E9F6E; color: #0E7A55; background: #4BE3A61f; } .lr-nacht .lr-ex-luecke.frei { color: #4BE3A6; }
+.lr-ex-info { padding: 18px 18px calc(18px + env(safe-area-inset-bottom)); }
+.lr-ex-info h2 { font-size: 21px; margin: 4px 0 10px; }
+.lr-ex-info .lr-blatt-zu { width: 100%; min-height: 48px; margin-top: 12px; border-radius: 12px; border: 1px solid var(--lr-linie, #ccc); background: transparent; color: inherit; font: inherit; font-size: 17px; cursor: pointer; }
+.lr-ex-vor { list-style: none; padding: 0; margin: 6px 0; } .lr-ex-vor li { padding: 3px 0 3px 1.5em; text-indent: -1.5em; }
+.lr-ex-vor li.ok { color: #0E7A55; } .lr-nacht .lr-ex-vor li.ok { color: #4BE3A6; } .lr-ex-vor-z { display: inline-block; width: 1.5em; text-indent: 0; }
+.lr-ex-info-stempel { display: flex; justify-content: center; margin: 14px 0; }
+.lr-ex-kopf .lr-ueber { color: #1D6E8C; } .lr-nacht .lr-ex-kopf .lr-ueber { color: #7FE3F0; }

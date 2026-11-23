@@ -2,6 +2,44 @@
 
 Neueste oben.
 
+## 2026-11-23 – FERTIG: EX-App (0.91.0)
+
+Stand `lernen-app` cfaf70a übernommen. Nur App, keine Datenbank, keine Migration, kein Merge nach `main`, keine Namen. Cache v168. Vorgabe `inhalte/pruefung/kind/expedition/umsetzung.md` §1–6, 8, 9 (§7 Antarktis auf der Karte folgt mit RK-App).
+
+**Gebaut**
+- Kein „freiwillig“ mehr bei Expeditionen auf der Kinderseite (Abflugtafel, Expedition, Abschluss). Farbe Polar, Zeichen ⛯. Eltern-/Lehrer-Seiten unverändert.
+- **Ansicht 1 „Expedition freigeschaltet“:**
+  - Nach der Landung, die das Angebot auslöst: Der große Knopf der Landungs-Ansicht führt zuerst hierher; „Später“ ruft `schule_expedition_spaeter` und führt dorthin, wohin der Knopf geführt hätte.
+  - Die App liest dafür nach der Landung einmal `schule_konto`, weil die Landungs-Antwort kein `expedition_frei` enthält.
+  - Ohne Landung freigeschaltet: beim nächsten Öffnen der Startseite, einmal.
+  - „Einmal“ wird auf dem Gerät gemerkt (der Server hat kein „gesehen“-Feld).
+  - Mehrere freigeschaltet: „+k weitere Expeditionen freigeschaltet“.
+- **Ansicht 2:** Die offene Expedition (`expeditionen_stand.oben_id`) ist die oberste und größte Karte der Abflugtafel, vor dem nächsten Flug.
+  - Inhalt: Titel, Station, Teile-Kästchen, ★ 150 / ★ 200 ohne Fehler, Knopf „Expedition starten“ bzw. „Weiter mit Teil b“, „NEU“ am Lerntag des Freischaltens, ✕ = Später.
+  - Der Einsteigen-Knopf bleibt sichtbar.
+- **2b:** Nach „Später“ steht nur der Chip „⛯ Expedition wartet: … ›“, bis `ausgeblendet` vom Server endet.
+- **Ansicht 3:** 3a „Expedition geschafft“ (★ +150) bzw. 3b „Fehlerfrei durchgekommen“ (★ +200 = 150 + 50, Stempel mit Band ★ FEHLERFREI).
+  - Sterne und „fehlerfrei“ kommen aus `schule_konto` nach dem letzten Teil; die App rechnet sie nicht.
+  - Dazu „k / 21 Stationen“, der gelbe Knopf „Weiter in {Stadt}“ und „Stempel-Sammlung ansehen“.
+  - Keine Fehlerzahl; die Zeile „2 von 3 selbst gelöst“ entfällt.
+- **Ansicht 4 Stempel-Sammlung** (`#/stationen/{kind}`): „k von 21 Stationen · f freigeschaltet“, Balken, Gruppen je Klasse, ein Platz je Station.
+  - Gesperrte Stationen: Antippen öffnet ein Blatt mit ✓/○ je Voraussetzung. Den Stand je Etappe liest die App aus `schule_reise_karte` (einmal je Sitzung gemerkt).
+  - Ist die Station erst in einer höheren Klasse dran: „Ab Klasse x“.
+  - Frei oder begonnen: Antippen öffnet Ansicht 1 ohne Bewegung.
+  - Reisepass: „⛯ Expeditionen: k von 21 Stationen ›“.
+- Info-Seite angepasst: Freischalten, Abflugtafel, 150/200, Sammlung, Quelle COMNAP.
+
+**Daten, die der Server nicht liefert**
+- Station, Nummer und Voraussetzungen: `expeditionen_kind` hat sie nicht.
+- Sie stehen statisch in `lernen.js`, erzeugt mit `tools/ex_stationen.py` aus `aufbau-vorschlag.json` (Reihenfolge = Nummer), `inhalte/expeditionen/*.json` und den Etappen-Titeln. Keine Lösungen.
+- Hinweis: In diesen Daten ist die Wetterstation Station 9. In den Bildern des Gestalters ist sie Station 4 (erfundene Reihenfolge).
+
+**Tests** (nachgestellter EX-S-Server, 400 und 820 px)
+- Fünf neue Tests: oberste Karte, Ansicht 1 mit Später und Chip, Landung → Ansicht 1, 3a/3b (400 × 780 ohne Scrollen), Sammlung mit Blatt.
+- Die drei W176-Tests sind angepasst.
+- Gesamtlauf 306/316. Rot sind nur die bekannten Reise/PWA-Tests (PWA-Hülle, Startkarte, W80 ×4, Review301, Woanders, W88).
+- Bilder: `docs/previews/la/ex-*.png`.
+
 ## 2026-11-23 – FERTIG: LW-3b (0.90.1) – Kopf der Kind-Seite schlank, Matrix groß, „Lehrplan von:“, Cache v167
 
 Auf `lernen-app` fb2fcfb (Nachtrag LW-3, Rückmeldung Sebastian zu 0.89.1). Nur App, Version in sechs Dateien, Tests, Info-Seite. Nichts in der Datenbank, keine Migration, kein Merge nach `main`.

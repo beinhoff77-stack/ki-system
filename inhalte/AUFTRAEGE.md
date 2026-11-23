@@ -3056,3 +3056,19 @@ Zusätzlich zu LW-3 an `bau-motivation`:
 
 `schule.expedition.voraussetzungen` nennt Thema + Lernziel. Nach TL-S 7 liegen `laplace` und `grosse_zahlen` in „Zufall und Laplace – Teil 2 von 2“, die Expedition „8-schulfest“ verweist aber noch auf Thema 61 (Teil 1). Folge: Sie kann keinem Kind mehr angeboten werden. Alle anderen 20 Expeditionen passen (geprüft: jede Voraussetzung findet ihre Etappe im genannten Thema). Derzeit kein Kind betroffen.
 Verlangt: Korrektur als Datei (Voraussetzung über `teil_stamm` auf den Teil umstellen, der das Lernziel enthält – keine feste ID), `expedition_voraussetzungen_ok` so, dass eine künftige Teilung das nicht mehr bricht (Familie des Themas statt Thema), Rauchtest „jede Voraussetzung jeder Expedition findet ihre Etappe“.
+
+## Auftrag EX – Expeditionen dem Kind vor die Nase legen (23.11., 01:10 Berlin) · Sebastian: „ok“
+
+Sebastian: Wichtig ist, dass das Kind Lust auf die Expedition hat und sie ihm vor die Nase gelegt wird; „wenn da irgendwo freiwillig steht, machen sie es nie“. Lehrer muss sie nicht zuweisen. Stand heute: Überschrift „EXPEDITION · FREIWILLIG“, ein Eintrag auf der Abflugtafel, 50 Sterne (`sterne_expedition_geschafft`), noch keinem Kind angeboten.
+
+**Entschieden (Vorschlag Haupt-Chat, Sebastian „ok“):**
+1. Das Wort „freiwillig“ verschwindet aus der Kinderseite; stattdessen „Expedition freigeschaltet“. Regel bleibt: sperrt nichts, zählt nicht für „gelandet“.
+2. Freischalten als Ereignis: nach der Landung, die die letzte Voraussetzung erfüllt, eigene Ansicht mit großem „Jetzt starten“ und kleinem „Später“.
+3. Solange offen: oberste, größte Karte der Abflugtafel, vor dem nächsten Flug; nach „Später“ am nächsten Lerntag wieder vorn.
+4. Belohnung: 150 Sterne je Expedition, 200 bei fehlerfreiem Lösen (alle Teile im ersten Versuch ohne Tipp); Expeditions-Stempel als Sammlung mit Lücken („3 von 21 Stationen“).
+5. Mit der Reisekarte: Antarktis als Kontinent, gesperrte Stationen zeigen, was fehlt.
+Nicht: Pflicht vor dem nächsten Flug.
+
+**EX-G · an den Gestalter:** kurze Vorgabe `inhalte/pruefung/kind/expedition/umsetzung.md` zu 1–4 (Freischalt-Ansicht, Karte auf der Abflugtafel, Stempel-Sammlung, Texte; 400 und 820 px), passend zur Vorgabe Reisekarte (§ Antarktis).
+**EX-S · an `bau-lehrer` (Datei, mit RD-S):** Sterne 150/200 (Regelwerte, fehlerfrei = alle Teile erster Versuch ohne Tipp), Feld „seit wann angeboten“ und „später bis“ je Kind, Zahl der Stationen gesamt/geschafft in der Übersicht; schon gebuchte Expeditionen gibt es nicht (keine Nachbuchung nötig – im Rauchtest prüfen).
+**EX-App · an `bau-motivation`:** nach LW-3 und nach EX-G.

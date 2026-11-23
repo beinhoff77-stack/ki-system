@@ -3083,3 +3083,12 @@ Tests: ex_s vor und nach grün; tl_s, nt_s, lk_s, wd_s, wd_s3, fp_s, lw_s grün.
 ## LW-3 (0.90.0) geliefert – ohne den Nachtrag „Kopf schlank, Matrix groß“
 
 `bau-motivation` hat auf 6da3aec gebaut; der Nachtrag (ed2ed15) ist nicht enthalten → LW-3b (0.90.1). Vorgabe EX des Gestalters liegt unter `inhalte/pruefung/kind/expedition/`.
+
+## Probelauf RD-S 2 + EX-F + EX-S (23.11., 01:35 Berlin, echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` 0d8717d. Reihenfolge: RD-S-Migration → rd_einspiel_2311 → ex_f (Familie des Themas) → ex_s; die ganze Kette zweimal ohne Fehler.
+- **Alle Tests grün:** rd_s und ex_s vor und nach dem Einspielen; tl_s, nt_s, lk_s, wd_s, wd_s3, fp_s, lw_s danach.
+- Kinderdaten (Karten, Sterne, Lernziel-Stände, Erstabschlüsse), alle Stufen, Reiseoptionen, Ortsnamen unverändert.
+- 123 Länder, 827 Städte, 0 Abweichungen. Expedition „8-schulfest“ zeigt auf den Teil 2 (Thema 281). Angebote nach dem Nachtragen: 0 (kein Kind hat eine Expedition freigeschaltet).
+- „sicher“ je Stadt = `schule.karte_sicher` (wie `thema_stufe`); falsch war der Test, nicht die Funktion.
+Prüfbitte an ChatGPT gestellt.

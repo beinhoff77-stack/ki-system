@@ -2,6 +2,64 @@
 
 Neueste oben.
 
+## 2026-11-23 – FERTIG: KJ 2 (App 0.93.1)
+
+Stand `lernen-app` bee3475 übernommen. Nur App: keine Datenbank, nichts eingespielt, kein Merge nach `main`, keine Namen. Cache v176.
+
+**Muss**
+- **M1:** `.rk-zur-karte` ist jetzt ein Textlink: durchsichtig, ohne Rand, Schrift wie die übrigen Textlinks, unterstrichen.
+  - Test bei 360/400/820, Tag und Nacht: Kontrast Schrift zu tatsächlichem Grund ≥ 4,5 : 1.
+- **M2:** `lernMiniLinien` steht nicht mehr auf der Abflugtafel. Unter „Mein Weg · Stand“ (Linienplan) bleiben die Linien.
+  - Der Test K3 prüft jetzt dort, dazu „0 Mini-Linien auf der Abflugtafel“.
+  - Die Prüfung von EX K2 („Stand-Kacheln unter der Abflugtafel“) ist damit entfallen und im Test angepasst.
+
+**Soll**
+- **S1:** Unter 600 px klebt der Anrede-Sticker schräg auf der rechten oberen Ecke der ersten Karte (Nachbessern, sonst Abflugtafel) und ragt über den Rand.
+  - Statt 12 px sind es 8 px, sonst entsteht bei 400 px Querrollen.
+  - Der Titel bleibt einzeilig. Ab 600 px steht der Sticker wie bisher im Kopf.
+- **S2:** Die Fortschrittslinie von „Gerade dran“ steht direkt unter der Tafel bzw. der Check-in-Ansage, vor der Zusatz-Karte.
+- **S3:** Beim Nachbessern steht die Leiste „↻ NACHBESSERN ○○○ x von 3 in Folge“ an der Stelle des Zählers in der Etappen-Leiste.
+  - Etappen-Name und ‹ › bleiben; „x von 2 richtig“ bzw. „heute … selbst gelöst“ entfallen.
+  - Der Etappen-Name steht nicht mehr doppelt in der Leiste.
+- **S4 Nacht:**
+  - Nachbessern: #2E1D14 / Rand #8A4A26 / Text #F6E3D6, Kopf und Knopf orange.
+  - Zusatz: #27231A / gestrichelt #8C7A55 / Text #EDE3CF.
+  - Zweitknopf dunkel mit hellem Rand. Dazu passend: die Leiste in der Übung, die Kreise und der Balken.
+- **S5 Lehrer:**
+  - a) Der Fahrplan-Kopf bricht nicht mehr im Wort um. Die Zahl-Zeile steht unter „Fahrplan“.
+  - b) Der Stand-Satz im Detail bricht um.
+    - Ursache des abgeschnittenen „(ohne“ im Prüf-Bild war vermutlich das Einschieben des Blatts (0,2 s Bewegung, Elternteil schneidet ab).
+    - Der Test misst erst nach dem Einschieben: Satz und Blatt liegen im Bild.
+  - c) Ein Zusatz-Teil in einer Gruppe bekommt die Marke „+ 1 Zusatz“ am Fahrplan-Eintrag. Der Kopf zählt jetzt Zusatz-Teile („+ 2 Zusatz“ in den Testdaten).
+    - **Ergebnis der Prüfung: Das liegt an den Testdaten.** Laut ZP-S Test 12 hat auf dem echten Stand jeder Zusatz-Teil einen eigenen Ort (233, 234, 235, 109, 237). Echt erscheint er also als eigener gestrichelter Platz.
+    - Die Marke deckt den Fall trotzdem ab, falls er kommt.
+- **S6:** Die schwebende „Einsteigen“-Leiste ist ausgeblendet, solange die Zeile der Tafel mit dem gelben „EINSTEIGEN“ im Bild ist (IntersectionObserver). Gilt für alle Breiten.
+  - Ausgeblendet heißt: unsichtbar und nicht tippbar, sie bleibt im Ablauf. Damit springt nichts.
+  - Bei 820 px reicht die Seite nicht, um die ganze Tafel hinauszurollen. Deshalb gilt die Zeile mit „EINSTEIGEN“, nicht die ganze Tafel.
+  - Test bei 360/400/820, Tag und Nacht: aus beim Öffnen, an nach dem Scrollen.
+  - Der Test „Gestaltung Abflug“ tippt jetzt die Tafel-Zeile statt der Leiste.
+
+**Kann**
+- **K2a:** Das Bedeutungs-Blatt ist nachts dunkel (#121831).
+- **K2b:** `daten/jugendwoerter.json` ist neu kopiert. Der Gleichheits-Test ist grün, „gesprochen“ steht nur noch einmal.
+
+**Gesamtlauf** `tests/lernen.test.cjs`: **190/190**, 375 s.
+- Der erste Lauf hatte 3 rote Tests, alle durch meine Änderungen und alle behoben:
+  - „Gestaltung Abflug“ tippte die jetzt ausgeblendete Leiste.
+  - Der Eck-Sticker verursachte bei 400 px Querrollen.
+  - Der Fahrplan-Kopf zählt jetzt auch den Zusatz-Teil in der Gruppe.
+- Kein wackliger Test.
+
+**Bilder** in `docs/previews/la/`:
+- Abflugtafel: `kj2-tafel-360-tag|nacht` (+ `-gescrollt` mit Leiste), `kj2-tafel-400-tag|nacht`, `kj2-tafel-820-nacht`
+- Nachbessern-Übung: `kj-nb-uebung-400`
+- Lehrer: `kj2-lehrer-1280`
+- Bedeutungs-Blatt nachts: `jw-bedeutung-820-nacht`
+
+**Offen (nicht in diesem Schritt):** K1, K3–K8 der Prüfung.
+
+**Nicht geprüft:** Echter Server und echte Daten (Zusatz-Teil als eigener Platz nur aus der Meldung ZP-S), echte Geräte.
+
 ## 2026-11-23 – FERTIG: KJ (App 0.93.0)
 
 Stand `lernen-app` e5fdb33 übernommen; `bau-motivation` ist darauf aufgesetzt. Nur App: keine Datenbank, nichts eingespielt, keine Datenbank-Datei nötig. Kein Merge nach `main`, keine Namen. Cache v175.

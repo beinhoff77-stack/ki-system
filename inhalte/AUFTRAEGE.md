@@ -3272,3 +3272,12 @@ Datei `inhalte/pruefung/kind/expedition/nachpruefung_ex.md`. Für den nächsten 
 ## LIVE: App 0.91.2 – 23.11., 03:45 Berlin
 
 `main` b2be237 = `lernen-app` 1cc66d0, Auslieferung erfolgreich. App-Tests 169 von 169, Prüfung Gestalter EX-App ohne Muss. Enthält EX-App (0.91.0), LZ-App + Kopf (0.91.1), Absicherung Kinder-Wechsel (0.91.2). Server unverändert (`lernen-api` 0.9.3).
+
+## Probeläufe NB-S 3 / SJ-S 3 / NT-D 3 und WD-5 (23.11., 04:00 Berlin, echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` 6b16f6b.
+- **NB-S + SJ-S + nt_einspiel_2311:** zweimal ohne Fehler; Karten, Sterne, Plan, Reiseoptionen, Stufen unverändert. Tests grün: nb_s, sj_s, zp_s (mit neuen Fällen 12/13) vor und nach; tl_s, nt_s, lz_s nach.
+- **WD-5:** zweimal ohne Fehler; Regel 3; alles außer den Fälligkeiten gesetzter Erst-Wiederholungen unverändert (Kind 1 ganz unverändert, Sterne, Plan). Kind 2 fällig je Tag vorher 23·11·11·12·6·9·3, nachher 16·8·8·9·3·6·4·3·3·3·3·3·3·3; gesetzte je Lerntag 3. Tests grün: wd5 (vor und nach), wd_s, wd_s3, fp_s.
+- **Befund bau-lehrer (Hochrechnung):** 3 je Lerntag allein löst den Stau nicht auf (pendelt um 20–30), weil die Runde (Rückstau ÷ 5, mindestens 6) kaum über dem Zulauf liegt. Vorschlag: `wdh_runde_teiler` 5 → 1 (Runde = alle fälligen, höchstens 12; bis Kl. 6 höchstens 10) → mit WD-5 Stau nach etwa 4 Lerntagen weg, danach 0–4. Milder: Teiler 2 → nach 14 Lerntagen noch um 10. Entscheidung Sebastian.
+Prüfbitte an ChatGPT gestellt (beide Pakete).
+RK-App 0.92.0 (Reisekarte) von `bau-motivation` zusammengeführt; App-Tests laufen.

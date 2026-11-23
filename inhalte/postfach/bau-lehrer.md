@@ -2,6 +2,73 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-23 – FERTIG: WD-5
+
+Stand `lernen-app` e2a8fcd übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.
+- neu: `supabase/migrations/20261128_wd5_staffel_drosseln.sql`, `supabase/tests/wd5_rauchtest.sql`
+- angepasst: `supabase/tests/wd_s_rauchtest.sql`, `supabase/tests/wd_s3_rauchtest.sql`. Beide merken sich den Regelwert und stellen ihn wieder her, statt fest „6“ zu setzen.
+- **Einspielen:** nach WD-S, WD-4b, WD-S 4 (alle echt vorhanden). Einmalig: Ein zweiter Lauf tut nichts.
+
+**Umsetzung**
+1. **Regel:** `wdh_gesetzt_je_lerntag` = 3. Neu gesetzte Etappen kommen damit zu 3 je Lerntag (`wdh_staffel_tag` liest die Regel), ebenso `wdh_staffel_strecken`.
+2. **Neuverteilung `schule.wdh_staffel_drosseln`:**
+   - **Betroffen:** alle gesetzten Etappen in erster Wiederholung (`wdh_gesetzt_am` gesetzt, Stufe 0, kein Fehler, nicht abgelegt), heute fällige und schon eingeplante.
+   - **Reihenfolge:** Plan-Reihenfolge (Platz, Einheit, Etappe), höchstens 3 je Lerntag ab heute.
+   - **Offene Runde von heute:** bleibt und belegt heutige Plätze.
+   - **Geändert:** nur `faellig_am`, `wdh_ab`, `wdh_lerntage`, und nur bei geändertem Lerntag. Alles andere wird am Ende geprüft, sonst Abbruch.
+3. **Sicherung:** in `schule.wdh_staffel_sicherung` mit neuer Spalte `lauf = 'wd5'`.
+   - Für 28 der verschobenen Etappen steht dort schon eine WD-4b-Sicherung. Sie wird in der neuen Spalte `frueher` aufbewahrt und beim Rückweg wiederhergestellt.
+   - **Rückweg:** `select schule.wdh_drosseln_zurueck();` (oder je Kind). Abgelehnt, sobald eine verschobene Etappe geübt wurde; die Regel bleibt dann 3.
+   - `wdh_staffel_zurueck` (WD-4b) fasst nur noch WD-4b-Sicherungen an.
+   - **Auf dem echten Stand gilt:** Die 28 WD-4b-Sicherungen sind noch unberührt (lesend geprüft).
+
+**Vorher/Nachher (echter Stand 23.11. lesend; Lauf der Migration auf einer lokalen Kopie dieser Daten – gleiche Zahlen)**
+- **Kind 1:** keine gesetzten Erst-Wiederholungen, unverändert. Fällig je Lerntag 0–13: 0 6 4 6 6 4 2 0 0 0 0 0 0 0.
+- **Kind 2:** 42 gesetzte Erst-Wiederholungen, keine offene Runde heute (die heutige ist fertig). 39 werden verschoben, 3 bleiben heute fällig.
+
+| Lerntag | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| vorher fällig | 23 | 11 | 11 | 12 | 6 | 9 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| davon gesetzt | 10 | 6 | 6 | 6 | 6 | 6 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| nachher fällig | 16 | 8 | 8 | 9 | 3 | 6 | 4 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
+| davon gesetzt | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
+
+**Hochrechnung Rückstau (fällig nach der Runde) je Lerntag, Kind 2**
+- **Annahmen:** eine Runde je Lerntag, alle richtig im ersten Versuch, älteste zuerst, keine neuen Landungen oder Setzungen. Bestanden heißt nächste Stufe nach 3/7/14/30 Lerntagen. Lerntag 0: Runde schon gemacht.
+
+| Lerntag | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 12 | 14 | 20 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| heute (6/Tag, Runde ÷5) | 23 | 27 | 30 | 33 | 32 | 36 | 37 | 33 | 35 | 34 | 33 | 33 | 27 | 18 |
+| WD-5 (3/Tag, Runde ÷5) | 16 | 18 | 20 | 23 | 21 | 23 | 24 | 24 | 28 | 30 | 29 | 29 | 30 | 21 |
+| WD-5 + Runde bis 12 | 16 | 12 | 8 | 5 | **0** | 2 | 0 | 0 | 3 | 1 | 2 | 0 | 0 | 0 |
+| nur Runde bis 12 (6/Tag) | 23 | 22 | 21 | 21 | 18 | 26 | 24 | 18 | 21 | 17 | 15 | 5 | 0 | 0 |
+
+- **Befund:** 3 je Lerntag allein löst den Stau **nicht** auf (er pendelt um 20–30). Grund: Die Runde (Rückstau ÷ 5, mindestens 6) ist meist 6. Das ist kaum mehr als der Zulauf aus 3 neuen und den zurückkommenden Wiederholungen.
+- **Vorschlag (nur Regelwert, kein Code):** `wdh_runde_teiler` 5 → 1. Die Runde ist dann alle fälligen, höchstens 12 (bis Kl. 6 höchstens 10).
+  - Mit WD-5 ist der Stau nach etwa 4 Lerntagen weg und bleibt danach bei 0–4.
+  - Ohne WD-5 dauert es etwa 13 Lerntage.
+  - **Preis:** bis zu 12 Wiederholungen je Lerntag statt 6, also etwa doppelte Wiederholungszeit, bis der Stau weg ist.
+  - **Milder:** Teiler 2 – Rückstau 16 → 12 → 10 → 9 → 7 → 9 → 9 → 7, auch nach 14 Lerntagen noch um 10; erst nach rund 20 Lerntagen bei 0.
+  - Entscheidung Sebastian. `update schule.regel set wert = '1' where schluessel = 'wdh_runde_teiler'` ginge jederzeit und ohne Migration.
+
+**Rauchtest `wd5`** (Transaktion, Rollback; spielt WD-5 zweimal ein)
+1. Regel 3, höchstens 3 gesetzte Erst-Wiederholungen je Lerntag.
+2. Reihenfolge nach Plan.
+3. Nur die Fälligkeit gesetzter Erst-Wiederholungen ist geändert. Offene Runde, übrige Etappen, höhere Stufen, Lernstände, Plan und Sterne sind unverändert.
+4. Rückweg echter Bestand: alles zurück, WD-4b-Sicherungen wieder da. Erneut drosseln ergibt die gleiche Verteilung.
+5. Testkind:
+   - 2 Etappen in der offenen Runde bleiben und belegen heute; 1 weitere bleibt heute, dann 3 / 2.
+   - Höhere Stufe und nicht gesetzte Etappe bleiben.
+   - Neu Gesetzte (`wdh_staffel_tag`) kommen ab Lerntag 2.
+   - Rückweg nach Zwischenübung abgelehnt, sonst zurück. WD-4b-Rückweg fasst WD-5 nicht an.
+
+**Lokal gelaufen** (Kopien wie echt; zusätzlich Kopie mit den echten Karten, Lerntagen, Runden, Plänen und Sicherungen der Kinder):
+- `wd5` grün vor und nach dem Einspielen. `wd_s3` und `fp_s` grün vor und nach (Regel jetzt 3).
+- `wd_s` lokal schon vor WD-5 rot (fehlende Auszüge, FEHLER 2), Ergebnis vor und nach gleich.
+- `wd_s3` auf der Kopie mit echten Karten rot bei FEHLER 3, ebenfalls vor und nach gleich (Mischkarten-Verlauf nicht mitkopiert).
+- `nb_s, zp_s` weiter grün.
+- **Lesend auf dem echten Stand nachvollzogen:** Funktionen (`karte_wdh_in`, `wdh_staffel_zurueck` md5-gleich mit lokal), Regeln, Runden, Sicherungen, Verteilung. Das Testkind hat heute keine Runde. Die Tests selbst schreiben (Rollback) und sind deshalb nur lokal gelaufen.
+
 ## 2026-11-23 – FERTIG: NB-S 3 / SJ-S 3
 
 Stand `lernen-app` 11e1544 übernommen. Nur Tests geändert, **Migrationen unverändert**; nichts eingespielt, kein DROP/DELETE, kein App-Code.

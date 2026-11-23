@@ -228,6 +228,7 @@ begin
     raise exception 'FEHLER 7: WD-4b-Funktionen fehlen (20261122_wd_4b_stau_strecken.sql einspielen)';
   else
     update schule.karte_stand set sitzt = false, faellig_am = null, wdh_ab = null, wdh_lerntage = null, wdh_fehler = 0 where lernender_id = v_l;
+    create temp table if not exists wd_regel_alt on commit drop as select wert from schule.regel where schluessel = 'wdh_gesetzt_je_lerntag';   -- WD-5: Standard merken (heute 3, vorher 6)
     update schule.regel set wert = '2' where schluessel = 'wdh_gesetzt_je_lerntag';
     -- 8 gesetzte Etappen auf Stufe 0 heute fällig (Stau), 2 schon für den nächsten Lerntag geplant
     create temp table w3_gesetzt as select row_number() over (order by p.einheit_id, p.lz) nr, p.einheit_id, p.lz from (
@@ -261,7 +262,7 @@ begin
     v_x := schule.wdh_staffel_zurueck(v_l);
     if v_x <> v_n or exists (select 1 from schule.karte_stand k join w3_gesetzt g on g.einheit_id = k.einheit_id and g.lz = k.lernziel
                               where k.lernender_id = v_l and g.nr <= 8 and not schule.karte_faellig(k)) then raise exception 'FEHLER 7 Rückweg (% gestreckt, % zurück)', v_n, v_x; end if;
-    update schule.regel set wert = '6' where schluessel = 'wdh_gesetzt_je_lerntag';
+    update schule.regel set wert = (select wert from wd_regel_alt) where schluessel = 'wdh_gesetzt_je_lerntag';   -- WD-5: gemerkten Standard zurück
     raise notice 'ok 7 WD-4b: % gestreckt, offene Runde ausgenommen, Folgetag mitgezählt (2 je Lerntag), Rückweg nach Zwischenübung abgelehnt (%), sonst zurück', v_n, v_fehler;
   end if;
   raise notice 'WD-S 3 Rauchtest durchgelaufen';

@@ -238,6 +238,7 @@ begin
 
   -- 9 WD-4 gestaffelt: Regel vorübergehend 2 je Lerntag; ein Flug mit mindestens 5 Etappen wird gesetzt
   perform pg_temp.wd_zuruecksetzen(v_l);
+  create temp table if not exists wd_regel_alt on commit drop as select wert from schule.regel where schluessel = 'wdh_gesetzt_je_lerntag';   -- WD-5: Standard merken (heute 3, vorher 6)
   update schule.regel set wert = '2' where schluessel = 'wdh_gesetzt_je_lerntag';
   select e.id, e.thema_id into v_e3, v_t3 from schule.einheit e
    where e.status = 'freigegeben' and e.id = schule.thema_einheit(e.thema_id) and e.id <> v_e and jsonb_array_length(coalesce(e.inhalt->'etappen', '[]'::jsonb)) >= 5
@@ -251,7 +252,7 @@ begin
     raise exception 'FEHLER 9 nicht alle Etappen gesetzt'; end if;
   r := schule.wiederholung_intern(v_l, '{}'::jsonb, false, v_heute + 3);
   if (r->>'gestaffelt')::int <> (select count(*) from schule.karte_stand where lernender_id = v_l and einheit_id = v_e3 and wdh_lerntage > 1) then raise exception 'FEHLER 9 gestaffelt %', r->'gestaffelt'; end if;
-  update schule.regel set wert = '6' where schluessel = 'wdh_gesetzt_je_lerntag';
+  update schule.regel set wert = (select wert from wd_regel_alt) where schluessel = 'wdh_gesetzt_je_lerntag';   -- WD-5: gemerkten Standard zurück
   raise notice 'ok 9 gesetzter Flug gestaffelt (je Lerntag höchstens 2: %), gestaffelt %', v_tage, r->'gestaffelt';
 
   -- 10 WD-3 Auswahl: fällige Etappen zuerst (eine heute noch nicht beantwortete Etappe – WD-S 3: keine Mischkarte aus einer Etappe von heute)

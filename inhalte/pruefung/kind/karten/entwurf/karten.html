@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Entwurf: Drei Karten für die Kinderseite</title>
+<style>
+:root{--f:'Avenir Next','Segoe UI',system-ui,sans-serif;--bg:#F6F3EC;--karte:#fff;--tx:#1E2A26;--leise:#6B726E;--linie:#E2DCCD;--knopf:#FFD23F;--dran:#1F5FA8;--dranbg:#DCEAFB;--plan:#C99600;--planbg:#FFF4CF;--gesch:#3E8E4E;--geschbg:#E3F1DF;--nb:#C8642B;--nbbg:#FFF1E6;--nbR:#F0B48C;--zus:#8A6A3A;--zusbg:#F6EFE2;--stern:#E0A100;--polar:#0A2540;--eis:#7FE3F0}
+*{box-sizing:border-box}body{margin:0;font-family:var(--f);background:#E4E0D6;color:var(--tx)}
+.steuer{position:sticky;top:0;z-index:9;background:#fff;border-bottom:1px solid #DDD6C6;padding:10px 14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:13px}
+.seg{display:inline-flex;background:#F1EEE6;border-radius:10px;padding:3px}.seg button{border:0;background:none;padding:6px 10px;border-radius:8px;font:inherit;font-weight:650;color:#4A5550;cursor:pointer}.seg button.an{background:#fff;color:#1E2A26;box-shadow:0 1px 3px #0002}
+.steuer b{font-size:11px;letter-spacing:.06em;color:#6B726E}
+#buehne{display:flex;justify-content:center;padding:18px}
+.geraet{background:var(--bg);width:400px;min-height:860px;border-radius:26px;box-shadow:0 10px 40px #0003;overflow:hidden;position:relative}
+.geraet.tab{width:820px;border-radius:18px}
+.kopf{display:flex;align-items:center;gap:10px;padding:14px 16px 6px}.kopf h1{margin:0;font-size:19px;font-weight:800}.kopf .st{margin-left:auto;font-weight:800;font-size:14px;background:var(--karte);border:1px solid var(--linie);border-radius:999px;padding:5px 11px;color:var(--stern)}
+.inhalt{padding:8px 14px 20px;display:grid;gap:12px}
+.tab .inhalt{grid-template-columns:1fr 1fr;align-items:start;padding:10px 20px 24px}.tab .breit{grid-column:1/-1}
+.k{background:var(--karte);border:1px solid var(--linie);border-radius:18px;padding:14px 16px;display:grid;gap:8px}
+.ober{font-size:11px;font-weight:850;letter-spacing:.09em;color:var(--leise);display:flex;align-items:center;gap:7px}
+.titel{font-size:19px;font-weight:850;line-height:1.2}.unter{font-size:13px;color:var(--leise)}
+.knopf{border:0;border-radius:14px;background:var(--knopf);color:#1E2A26;font:inherit;font-size:16.5px;font-weight:800;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;box-shadow:0 3px 0 #C9A21C;width:100%;text-align:left}
+.knopf small{display:block;font-size:11.5px;font-weight:650;opacity:.75}
+.knopf.zweit{background:var(--karte);border:1.5px solid var(--linie);box-shadow:none;font-size:15px;padding:10px 14px}
+/* Nachbessern */
+.nb{background:var(--nbbg);border:2px solid var(--nbR)}.nb .ober{color:var(--nb)}
+.punkte{display:flex;gap:8px;align-items:center}.punkte i{width:26px;height:26px;border-radius:50%;border:2.5px solid var(--nbR);display:grid;place-items:center;font-style:normal;font-weight:900;color:#fff;font-size:13px;background:#fff}.punkte i.g{background:var(--gesch);border-color:var(--gesch)}.punkte span{font-size:13px;font-weight:700;color:var(--nb);margin-left:4px}
+.ruhig{font-size:12px;color:var(--leise)}
+.chip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:750;background:var(--polar);color:var(--eis);width:max-content}
+.jetzt{display:flex;gap:12px;align-items:center}.jetzt .fl{width:42px;height:42px;border-radius:12px;background:var(--dranbg);display:grid;place-items:center;font-size:20px;flex:none}
+.balken{display:flex;gap:3px}.balken i{flex:1;height:6px;border-radius:3px;background:var(--linie)}.balken i.g{background:var(--dran)}
+/* Zusatz */
+.zus{border:1.5px dashed #CDB894;background:var(--zusbg)}.zus .ober{color:var(--zus)}
+.marke{display:inline-block;font-size:10.5px;font-weight:850;letter-spacing:.06em;border-radius:6px;padding:2px 7px;background:#EADFC9;color:var(--zus)}
+.etp{display:flex;gap:5px}.etp i{flex:1;height:8px;border-radius:4px;background:#E7DCC6}.etp i.g{background:var(--gesch)}
+/* Schuljahr */
+.sj{display:grid;gap:10px}
+.sjh{display:flex;gap:14px;align-items:center}
+.ring{width:96px;height:96px;flex:none}.ring text{font-family:var(--f)}
+.gross{font-size:30px;font-weight:900;line-height:1}.zahlen{font-size:14px;line-height:1.45}.zahlen b{font-size:17px}
+.ziel{background:var(--dranbg);color:#123B6B;border-radius:12px;padding:8px 11px;font-size:13px;font-weight:700}
+.nbr{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;font-size:13px;padding:6px 0;border-top:1px solid var(--linie)}
+.nbr .bal{height:8px;border-radius:4px;background:#EAE5D9;overflow:hidden}.nbr .bal i{display:block;height:100%;background:var(--gesch)}
+.kb{font-size:11.5px;font-weight:850;border-radius:7px;padding:3px 8px;color:#fff}
+/* Overlays */
+.voll{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column}
+.szene{flex:1;display:grid;place-items:center;text-align:center;padding:30px;gap:8px}
+.blatt{background:var(--karte);border-radius:22px 22px 0 0;padding:18px 18px 26px;display:grid;gap:12px;box-shadow:0 -8px 30px #0002}
+.stempel{width:120px;height:120px;border-radius:50%;border:5px solid;display:grid;place-items:center;text-align:center;font-weight:900;transform:rotate(-10deg);margin:auto}
+/* Lehrer */
+.lw{font-size:13px}.lw .fp{border-radius:12px;padding:9px 11px;display:flex;gap:9px;align-items:center;border:1px solid}.lw .nr{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:850;font-size:11.5px;flex:none}
+.lk{border-radius:12px;padding:9px 10px;border:1.5px solid;display:grid;gap:3px;position:relative;width:170px}.lk .pl{position:absolute;right:-7px;top:-7px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:850;font-size:11px}
+.hin{font-size:12px;color:var(--leise);background:#FAF8F3;border:1px dashed var(--linie);border-radius:10px;padding:8px 10px}
+table.st{border-collapse:collapse;width:100%;font-size:13px}table.st td{padding:6px 4px;border-top:1px solid var(--linie)}table.st td.r{text-align:right;font-variant-numeric:tabular-nums}
+.info{border:1px solid var(--linie);background:#FAF8F3;border-radius:10px;padding:9px 11px;font-size:12px;color:#4A5550}
+.unt{font-size:11px;color:var(--leise);text-align:center;padding:6px}
+svg.mini{width:100%;height:auto;border-radius:14px;display:block}
+</style></head><body>
+<div class="steuer"><b>ANSICHT</b><span class="seg" id="s"></span><b>GERÄT</b><span class="seg"><button data-g="handy" class="an">Handy 400</button><button data-g="tab">Tablet 820</button></span></div>
+<div id="buehne"></div>
+<script>
+const S=[['start','Startseite (alle drei)'],['nb','Nachbessern: Übung + Bestätigung'],['sj','Mein Schuljahr (Kl. 8)'],['zus','Zusatz geschafft'],['lehrer','Lehrer-Ansicht']];
+let ansicht='start',geraet='handy',nbStufe=0;
+const ring=(p,c='#3E8E4E',s=96,t=true)=>{const r=s/2-8,u=2*Math.PI*r;return `<svg class="ring" viewBox="0 0 ${s} ${s}" style="width:${s}px;height:${s}px"><circle cx="${s/2}" cy="${s/2}" r="${r}" fill="none" stroke="#EAE5D9" stroke-width="10"/><circle cx="${s/2}" cy="${s/2}" r="${r}" fill="none" stroke="${c}" stroke-width="10" stroke-linecap="round" stroke-dasharray="${u*p/100} ${u}" transform="rotate(-90 ${s/2} ${s/2})"/>${t?`<text x="50%" y="53%" text-anchor="middle" font-size="${s/4.2}" font-weight="900" fill="#1E2A26" dominant-baseline="middle">${p} %</text>`:''}</svg>`};
+// ---------- Karten ----------
+const nbKarte=(n=0)=>`<section class="k nb"><div class="ober">↻ NACHBESSERN</div>
+ <div class="titel">Runden</div><div class="unter">in Rom · Italien · Natürliche Zahlen</div>
+ <div style="font-size:14px">Die Etappe ist ein bisschen eingerostet. Mit <b>3 richtigen in Folge</b> sitzt sie wieder.</div>
+ <div class="punkte">${[0,1,2].map(i=>`<i class="${i<n?'g':''}">${i<n?'✓':''}</i>`).join('')}<span>${n} von 3</span></div>
+ <button class="knopf" style="background:#FFB27A;box-shadow:0 3px 0 #C8642B">${n?'Weiter nachbessern':'Jetzt nachbessern'}<span>›</span></button>
+ <div class="ruhig">Deine Sterne und Stempel bleiben. Etwa 3 Minuten.</div></section>`;
+const exChip=`<span class="chip">⛯ Expedition wartet: Primzahl-Expedition ›</span>`;
+const jetzt=`<section class="k"><div class="ober">GERADE DRAN</div><div class="jetzt"><div class="fl"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAA2CAIAAADrp0ihAAAAaUlEQVR4nOzPMRGDQBRAwX+ZlJERH/HvIEKoARHQPGbXwb5n1ly21rH/P3OH7fedO7zmocRqxGrEasRqxGrEasRqxGrEasRqxGrEasRqxGrEasRqxGrEasRqxGrEasRqxGrEasRqxGpOAAAA//9JK/+qAAAABklEQVQDAHncBKp2qcfeAAAAAElFTkSuQmCC" style="height:20px;width:26px;border-radius:3px;box-shadow:0 0 0 1px #0002"></div><div style="flex:1"><div style="font-weight:850;font-size:16.5px">Antwerpen <span class="unter">in Belgien</span></div><div class="unter">Dezimalzahlen · Stadt 3 von 8</div></div><div style="font-weight:850;text-align:right">2/6<div class="balken" style="width:60px;margin-top:4px"><i class="g"></i><i class="g"></i><i></i><i></i><i></i><i></i></div></div></div>
+ <button class="knopf">Weiter in Antwerpen<span>›</span></button></section>`;
+const zusKarte=(n=1)=>`<section class="k zus"><div class="ober">+ ZUSATZ · EINGEPLANT</div>
+ <div style="display:flex;gap:10px;align-items:center"><div class="fl" style="width:38px;height:38px;border-radius:10px;background:#EADFC9;display:grid;place-items:center;font-size:18px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAA2CAIAAADrp0ihAAAD+ElEQVR4nOyaW0wTWRiA/zO90BvtwrIo5VIWshYWAauSVaN76W4IELducBONMfEWbw+86IOKieIlGJVgNMZEoyQaY+KTGjXxkhg0PnirlUQFASUURIsKpbV0CrTHQXxop8US84/JkPmezvxzpunXc3rOf/6MHFbPgu8FPfUIvhcMTFIkMbEhiYkNSUxsSGJiQxITG5NWTAYWIwiMyUun98Ofb8gCn2a46y1lWUVaKggMES67n+uCim4o7QZ1kPBuMQadbkFJ0pJy/cK/QBgEEUv3Qf09yB8gcXtqfy9Jr9+akJsF2MgBm7IuWvOYaKJGaVBGU0pmqAvN6mKz0pQ+4vrgu9/08c7D1tmLs07vN9isgAqyWGUH1Dj4C5JfRo/nQYOZO2ieDI8bFpeO3n3S/P7YueAHd/KqSsADcyraOmGvnT9Q19LpwSJ4px5tf+UE7bl8i9FqdNY5gATaiJm8sMvODx7NpyfyYSLo/7UOveoKuj2yH/SAAdo+ttvObR0Rw3XJNCGrkXd9Yw1lTiaWFWCJ/dFDLX0RVi4VrS2icR9kn7ZyfzAQAByx8m5+5HAB9SviLPeUDThXVdPAMAgAglhCEKw9EQ5BoDczYlj11jW49h1nn7WPXfZsqQu0d3KCIAAIi8c0N6hCERr3UiEgi9EzZf2S1vnLeg+cVOZmqfJyPFcbR6OMIPkqwodO9fMjbeMsAUyi1tRQyzWGXjq/WHH7WFOL3/EcsBFEbFA+7uxSzyqYUr0hPOK7a2+3rmgpXvR2xxG//RkggTAVQ1ER3rrPg0nUxIgGg/QzgASCmCvqeyaz43YefPT0zbb68Ijhv39+qlqunlkAqCBMxV4V/2fOG4jdM+T1Odds5xrKnzOSltvGggpjKroVoIxYm4GwDA1fGAv7STIb6lPxJ+T7E+e5M5jB9rdq+i/cJWGYvjMXgcQ/3XwDCGJ+OTSmQdnriOD/HSQ6n0rdvDr8Mq12k7fxAYRCIAA4e8jVTP5sXNkGifEyCkarzj57gCgVIAA4YreNxJEc4aYbIVua4j+oKjSnbFwGAoC26++1jGZS4RGbk6xtjv+gfMqPY41g/wC3ugASaGJtBtg1kz8hq5rJHjvoh+LvToEXHYGWDi41ASQw87SL2aTGwndY1EmuXCcLO8d1G37t6q7a47lxVzN3BuCBX6Uqd8JOB0QXczwKapz3m7rInJCfq8ycGhpkh5w9fkez+8KNzKM7DJWlgIog5beMj1D3AH51T6D8Ns9iPFStmpYN2AheMC3rgoRQrILp/NlJSytEVjDlwZW4M3yQ4yUHK9bJ9DrtnGIhcigeRHqBRWRIYmJDEhMbkpjYkMTEhiQmNiat2CcAAAD//4dMyeIAAAAGSURBVAMAinVAeiYVQK0AAAAASUVORK5CYII=" style="height:18px;width:24px;border-radius:3px;box-shadow:0 0 0 1px #0002"></div><div><div style="font-weight:850;font-size:15.5px">Kongruenzabbildungen – Teil 2 von 3</div><div class="unter">Verschieben und Vektoren · Algerien</div></div></div>
+ <div class="etp">${[0,1,2].map(i=>`<i class="${i<n?'g':''}"></i>`).join('')}</div><div class="unter"><b style="color:var(--tx)">${n} von 3 Etappen</b> · Extra-Flug, von deinen Eltern eingeplant</div>
+ <button class="knopf zweit">Nach Algerien fliegen<span>›</span></button>
+ <div class="ruhig">Ganz fertig: Stempel und ★ 100. Dein nächster Flug wartet trotzdem.</div></section>`;
+const sjKarte=(kind)=>{const K=kind===5?{h:[5,15,2,107,28],nb:[[6,11,0,78,0,'danach']]}:{h:[8,16,1,97,9],nb:[[7,12,5,61,23,'davor'],[9,14,0,87,0,'danach']]};
+ const [kl,f,ff,e,eg]=K.h;const p=Math.round(eg/e*100);const zielP=(Math.floor(p/10)+1)*10;const zielE=Math.ceil(e*zielP/100)-eg;
+ const neben=K.nb.map(([k,f2,ff2,e2,eg2,w])=>{const p2=Math.round(eg2/e2*100);return `<div class="nbr"><span class="kb" style="background:${k<kl?'#7C5CBF':'#E07A1F'}">Kl. ${k}</span><div><div style="font-weight:700">${w==='davor'?(ff2===f2?'✓ Klasse '+k+' geschafft':`Klasse ${k}: noch ${f2-ff2} Flüge · ${e2-eg2} Etappen`):`Danach Klasse ${k}: ${f2} Flüge · ${e2} Etappen`}</div><div class="bal" style="margin-top:4px"><i style="width:${p2}%"></i></div></div><b>${p2} %</b></div>`}).join('');
+ return `<section class="k sj breit"><div class="ober">MEIN SCHULJAHR · GYMNASIUM</div>
+ <div class="sjh">${ring(p)}<div><div class="gross">Klasse ${kl}</div><div class="zahlen" style="margin-top:6px">Schon geschafft: <b>${ff}</b> von ${f} Flügen · <b>${eg}</b> von ${e} Etappen</div><div class="zahlen">Noch <b>${f-ff} Flüge</b> und <b>${e-eg} Etappen</b> bis Klasse ${kl} geschafft</div></div></div>
+ <div class="ziel">Nächstes Ziel: ${zielP} % – nur noch ${zielE} ${zielE===1?'Etappe':'Etappen'}!</div>${neben}</section>`};
+const karteMini=`<section class="k breit" style="padding:10px"><div class="ober" style="padding:2px 4px 6px">AUF DER REISEKARTE</div>
+<svg class="mini" viewBox="0 0 400 210"><rect width="400" height="210" fill="#CFE4EF"/><path d="M120 20 L190 30 L215 80 L260 120 L300 170 L270 200 L230 160 L190 120 L150 110 L125 70 Z" fill="#FBF9F4" stroke="#8F8775" stroke-width="1.2"/>
+<path d="M150 50 Q170 70 175 95 Q190 120 205 140" fill="none" stroke="#3E8E4E" stroke-width="2"/>
+<g transform="translate(150,50)"><rect x="-10" y="-10" width="20" height="20" rx="6" fill="#3E8E4E"/><text text-anchor="middle" y="4" font-size="11" fill="#fff" font-weight="800">✓</text><text x="14" y="4" font-size="12" font-weight="700">Bologna</text></g>
+<g transform="translate(175,95)"><circle r="16" fill="none" stroke="#C8642B" stroke-width="2" stroke-dasharray="4 3"/><rect x="-10" y="-10" width="20" height="20" rx="6" fill="#FFB27A" stroke="#C8642B" stroke-width="2"/><text text-anchor="middle" y="4" font-size="12" fill="#fff" font-weight="900">↻</text><text x="20" y="0" font-size="12" font-weight="800">Rom</text><text x="20" y="13" font-size="10.5" fill="#C8642B" font-weight="700">wieder offen</text></g>
+<g transform="translate(205,140)"><rect x="-10" y="-10" width="20" height="20" rx="6" fill="#3E8E4E"/><text text-anchor="middle" y="4" font-size="11" fill="#fff" font-weight="800">✓</text><text x="14" y="4" font-size="12" font-weight="700">Neapel</text></g>
+<g transform="translate(330,60)"><path d="M0,0 L-7,-14 L7,-14 Z" fill="#C99600"/><circle cy="-22" r="13" fill="#C99600"/><circle cy="-22" r="10.5" fill="#fff"/><image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAA2CAIAAADrp0ihAAAD+ElEQVR4nOyaW0wTWRiA/zO90BvtwrIo5VIWshYWAauSVaN76W4IELducBONMfEWbw+86IOKieIlGJVgNMZEoyQaY+KTGjXxkhg0PnirlUQFASUURIsKpbV0CrTHQXxop8US84/JkPmezvxzpunXc3rOf/6MHFbPgu8FPfUIvhcMTFIkMbEhiYkNSUxsSGJiQxITG5NWTAYWIwiMyUun98Ofb8gCn2a46y1lWUVaKggMES67n+uCim4o7QZ1kPBuMQadbkFJ0pJy/cK/QBgEEUv3Qf09yB8gcXtqfy9Jr9+akJsF2MgBm7IuWvOYaKJGaVBGU0pmqAvN6mKz0pQ+4vrgu9/08c7D1tmLs07vN9isgAqyWGUH1Dj4C5JfRo/nQYOZO2ieDI8bFpeO3n3S/P7YueAHd/KqSsADcyraOmGvnT9Q19LpwSJ4px5tf+UE7bl8i9FqdNY5gATaiJm8sMvODx7NpyfyYSLo/7UOveoKuj2yH/SAAdo+ttvObR0Rw3XJNCGrkXd9Yw1lTiaWFWCJ/dFDLX0RVi4VrS2icR9kn7ZyfzAQAByx8m5+5HAB9SviLPeUDThXVdPAMAgAglhCEKw9EQ5BoDczYlj11jW49h1nn7WPXfZsqQu0d3KCIAAIi8c0N6hCERr3UiEgi9EzZf2S1vnLeg+cVOZmqfJyPFcbR6OMIPkqwodO9fMjbeMsAUyi1tRQyzWGXjq/WHH7WFOL3/EcsBFEbFA+7uxSzyqYUr0hPOK7a2+3rmgpXvR2xxG//RkggTAVQ1ER3rrPg0nUxIgGg/QzgASCmCvqeyaz43YefPT0zbb68Ijhv39+qlqunlkAqCBMxV4V/2fOG4jdM+T1Odds5xrKnzOSltvGggpjKroVoIxYm4GwDA1fGAv7STIb6lPxJ+T7E+e5M5jB9rdq+i/cJWGYvjMXgcQ/3XwDCGJ+OTSmQdnriOD/HSQ6n0rdvDr8Mq12k7fxAYRCIAA4e8jVTP5sXNkGifEyCkarzj57gCgVIAA4YreNxJEc4aYbIVua4j+oKjSnbFwGAoC26++1jGZS4RGbk6xtjv+gfMqPY41g/wC3ugASaGJtBtg1kz8hq5rJHjvoh+LvToEXHYGWDi41ASQw87SL2aTGwndY1EmuXCcLO8d1G37t6q7a47lxVzN3BuCBX6Uqd8JOB0QXczwKapz3m7rInJCfq8ycGhpkh5w9fkez+8KNzKM7DJWlgIog5beMj1D3AH51T6D8Ns9iPFStmpYN2AheMC3rgoRQrILp/NlJSytEVjDlwZW4M3yQ4yUHK9bJ9DrtnGIhcigeRHqBRWRIYmJDEhMbkpjYkMTEhiQmNiat2CcAAAD//4dMyeIAAAAGSURBVAMAinVAeiYVQK0AAAAASUVORK5CYII=" x="-10.5" y="-32.5" width="21" height="21" preserveAspectRatio="xMidYMid slice" clip-path="circle(10.5px)"/><g transform="translate(10,-33)"><circle r="7" fill="#8A6A3A" stroke="#fff" stroke-width="1.5"/><text text-anchor="middle" y="3.5" font-size="10" font-weight="900" fill="#fff">+</text></g><text x="-40" y="16" font-size="10.5" font-weight="850" letter-spacing="1">ALGERIEN</text><text x="-40" y="28" font-size="10" fill="#8A6A3A" font-weight="700">Zusatz · eingeplant · 1/3</text></g>
+<g transform="translate(60,175)"><text font-size="10" fill="#6B726E">Rom: Stadt „wieder offen“ (orange, ↻) · Algerien: Pin mit „+“</text></g></svg></section>`;
+function start(){return `${nbKarte(0)}${exChip?`<div class="${geraet==='tab'?'breit':''}">${exChip}</div>`:''}${jetzt}${zusKarte(1)}${sjKarte(5)}${karteMini}`}
+function nbAnsicht(){
+ if(nbStufe<3){const n=nbStufe;return `<section class="k breit" style="background:var(--nbbg);border-color:var(--nbR)"><div class="ober" style="color:var(--nb)">↻ NACHBESSERN · RUNDEN</div><div class="punkte">${[0,1,2].map(i=>`<i class="${i<n?'g':''}">${i<n?'✓':''}</i>`).join('')}<span>${n} von 3 in Folge</span></div></section>
+ <section class="k breit"><div class="ober">BORDKARTE</div><div class="titel">Runde 48 763 auf Tausender.</div><div style="border:2px solid var(--linie);border-radius:12px;padding:14px;font-size:22px;font-weight:800;color:#B9B2A2">Antwort</div>
+ ${n===0&&window.fehler?`<div style="background:#FFF1E6;border-radius:12px;padding:10px 12px;font-size:14px"><b>Kein Problem – neuer Anlauf.</b><br>Noch 3 richtige in Folge, dann sitzt die Etappe wieder.</div>`:''}
+ <button class="knopf">Prüfen<span>›</span></button></section>
+ <div class="unt breit">Vorschau: <a href="#" onclick="nbStufe=(nbStufe+1)%4;render();return false">nächster Zustand</a> · <a href="#" onclick="window.fehler=!window.fehler;render();return false">Fehler zeigen</a></div>`}
+ return `<div class="voll"><div class="szene" style="background:linear-gradient(#FFE9D6,#F6F3EC)"><div style="font-size:52px">✓✓✓</div><div class="titel" style="font-size:26px">Sitzt wieder!</div><div style="font-size:15px">„Runden“ in Rom ist wieder gelandet.<br>In den nächsten Lerntagen fragen wir sie noch ein paar Mal ab.</div></div>
+ <div class="blatt"><button class="knopf">Weiter in Antwerpen<span>›</span></button><div class="ruhig" style="text-align:center"><a href="#" onclick="nbStufe=0;render();return false">(Vorschau zurück)</a></div></div></div>`}
+function zusAnsicht(){return `<div class="voll"><div class="szene" style="background:radial-gradient(circle at 50% 35%,#FFF6DD,#F3E7CC)"><div class="ober" style="justify-content:center;color:var(--zus)">ALGERIEN · EXTRA-FLUG</div><div class="titel" style="font-size:28px">Zusatz geschafft!</div>
+ <div style="font-size:15px">Alle 3 Etappen von<br><b>Kongruenzabbildungen – Teil 2 von 3</b><br>sind gelandet.</div>
+ <div class="stempel" style="border-color:#8A6A3A;color:#8A6A3A;background:#FFF9EC"><div style="font-size:12px;letter-spacing:.1em">ALGERIEN</div><div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAAA2CAIAAADrp0ihAAAD+ElEQVR4nOyaW0wTWRiA/zO90BvtwrIo5VIWshYWAauSVaN76W4IELducBONMfEWbw+86IOKieIlGJVgNMZEoyQaY+KTGjXxkhg0PnirlUQFASUURIsKpbV0CrTHQXxop8US84/JkPmezvxzpunXc3rOf/6MHFbPgu8FPfUIvhcMTFIkMbEhiYkNSUxsSGJiQxITG5NWTAYWIwiMyUun98Ofb8gCn2a46y1lWUVaKggMES67n+uCim4o7QZ1kPBuMQadbkFJ0pJy/cK/QBgEEUv3Qf09yB8gcXtqfy9Jr9+akJsF2MgBm7IuWvOYaKJGaVBGU0pmqAvN6mKz0pQ+4vrgu9/08c7D1tmLs07vN9isgAqyWGUH1Dj4C5JfRo/nQYOZO2ieDI8bFpeO3n3S/P7YueAHd/KqSsADcyraOmGvnT9Q19LpwSJ4px5tf+UE7bl8i9FqdNY5gATaiJm8sMvODx7NpyfyYSLo/7UOveoKuj2yH/SAAdo+ttvObR0Rw3XJNCGrkXd9Yw1lTiaWFWCJ/dFDLX0RVi4VrS2icR9kn7ZyfzAQAByx8m5+5HAB9SviLPeUDThXVdPAMAgAglhCEKw9EQ5BoDczYlj11jW49h1nn7WPXfZsqQu0d3KCIAAIi8c0N6hCERr3UiEgi9EzZf2S1vnLeg+cVOZmqfJyPFcbR6OMIPkqwodO9fMjbeMsAUyi1tRQyzWGXjq/WHH7WFOL3/EcsBFEbFA+7uxSzyqYUr0hPOK7a2+3rmgpXvR2xxG//RkggTAVQ1ER3rrPg0nUxIgGg/QzgASCmCvqeyaz43YefPT0zbb68Ijhv39+qlqunlkAqCBMxV4V/2fOG4jdM+T1Odds5xrKnzOSltvGggpjKroVoIxYm4GwDA1fGAv7STIb6lPxJ+T7E+e5M5jB9rdq+i/cJWGYvjMXgcQ/3XwDCGJ+OTSmQdnriOD/HSQ6n0rdvDr8Mq12k7fxAYRCIAA4e8jVTP5sXNkGifEyCkarzj57gCgVIAA4YreNxJEc4aYbIVua4j+oKjSnbFwGAoC26++1jGZS4RGbk6xtjv+gfMqPY41g/wC3ugASaGJtBtg1kz8hq5rJHjvoh+LvToEXHYGWDi41ASQw87SL2aTGwndY1EmuXCcLO8d1G37t6q7a47lxVzN3BuCBX6Uqd8JOB0QXczwKapz3m7rInJCfq8ycGhpkh5w9fkez+8KNzKM7DJWlgIog5beMj1D3AH51T6D8Ns9iPFStmpYN2AheMC3rgoRQrILp/NlJSytEVjDlwZW4M3yQ4yUHK9bJ9DrtnGIhcigeRHqBRWRIYmJDEhMbkpjYkMTEhiQmNiat2CcAAAD//4dMyeIAAAAGSURBVAMAinVAeiYVQK0AAAAASUVORK5CYII=" style="height:26px;width:34px;border-radius:3px;box-shadow:0 0 0 1px #0002"></div><div style="font-size:10px;letter-spacing:.14em">ZUSATZ</div></div></div>
+ <div class="blatt"><div style="display:flex;justify-content:space-between;align-items:center"><div><div style="font-weight:850">Neuer Stempel im Reisepass</div><div class="unter">mit dem Rand „ZUSATZ“</div></div><div style="font-size:24px;font-weight:900;color:var(--stern)">+ ★ 100</div></div>
+ <button class="knopf">Weiter in Antwerpen<span>›</span></button></div></div>`}
+function lehrer(){return `<section class="k breit"><div class="ober">LEHRER · ÜBERBLICK · KARTE „STAND“</div>
+ <table class="st"><tr><td><b>Kl. 7</b> Gymnasium</td><td class="r">58 %</td><td class="r">noch 7 von 12 Flügen</td><td class="r">noch 38 von 61 Etappen</td></tr>
+ <tr style="background:#F3F7FC"><td><b>Kl. 8</b> Gymnasium</td><td class="r"><b>9 %</b></td><td class="r"><b>noch 15 von 16 Flügen</b></td><td class="r"><b>noch 88 von 97 Etappen</b></td></tr>
+ <tr><td><b>Kl. 9</b> Gymnasium</td><td class="r">0 %</td><td class="r">noch 14 von 14 Flügen</td><td class="r">noch 87 von 87 Etappen</td></tr>
+ <tr><td colspan="4" class="ruhig">+ Zusatz eingeplant: Kongruenzabbildungen – Teil 2 von 3 (1 von 3 Etappen) – zählt nicht mit ⓘ</td></tr></table>
+ <div class="info"><b>ⓘ So wird gerechnet:</b> Prozent = gelandete Etappen ÷ alle Etappen der Pflicht-Flüge dieser Klasse im Lehrplan Gymnasium. Flüge in Wiederholung und „Kann er“ zählen mit allen Etappen. „Flüge“ = Pflicht-Flüge der Klasse; fertig = alle Etappen gelandet und Flug-Test bestanden. Zusatz zählt nicht mit, auch nicht, wenn er eingeplant ist.</div></section>
+ <section class="k lw"><div class="ober">FAHRPLAN</div>
+ <div class="fp" style="background:var(--dranbg);border-color:#7FA8DD"><span class="nr" style="background:var(--dran)">1</span><div><b>Dezimalzahlen</b><div class="ruhig">Zahlen · Gym 6 · Etappe 3/8</div></div></div>
+ <div class="fp" style="background:var(--zusbg);border:1.5px dashed #CDB894"><span class="nr" style="background:#8A6A3A">2</span><div style="flex:1"><b>Kongruenzabbildungen – Teil 2 von 3</b><div class="ruhig"><span class="marke">ZUSATZ · EINGEPLANT</span> · 1 von 3 Etappen · ohne Flug-Test</div></div></div>
+ <div class="fp" style="background:var(--planbg);border-color:#EBD38A"><span class="nr" style="background:var(--plan)">3</span><div><b>Teilbarkeit</b><div class="ruhig">Zahlen · Gym 5</div></div></div>
+ <div class="ruhig">Kopf: „8 Plätze · 12 Themen · + 1 Zusatz“. Nichts dahinter wird gesperrt; keine Warnung.</div></section>
+ <section class="k lw"><div class="ober">MATRIX-KARTE · DETAIL</div>
+ <div class="lk" style="background:var(--zusbg);border:1.5px dashed #CDB894"><span class="pl" style="background:#8A6A3A">2</span><b>Kongruenzabbildungen</b><span class="ruhig">2/3 · Verschieben und Vektoren</span><span class="marke" style="width:max-content">ZUSATZ · EINGEPLANT</span><span class="ruhig">Platz 2 · 1/3 Etappen</span></div>
+ <div class="hin"><b>Detail-Kopf:</b> „Kongruenzabbildungen – Teil 2 von 3“ · Marke „Zusatz · eingeplant – kein Pflichtstoff im Gymnasium“<br><b>Stand:</b> „1 von 3 Etappen · fertig, sobald alle gelandet (ohne Flug-Test) · dann Stempel und ★ 100, einmal“<br><b>Planen:</b> Als Nächstes · Ans Ende · Aus dem Plan (wie immer)</div></section>`}
+function render(){document.getElementById('s').innerHTML=S.map(([v,t])=>`<button data-a="${v}" class="${v===ansicht?'an':''}">${t}</button>`).join('');
+ let body=ansicht==='start'?start():ansicht==='nb'?nbAnsicht():ansicht==='sj'?sjKarte(8):ansicht==='zus'?zusAnsicht():lehrer();
+ const titel=ansicht==='lehrer'?'Lehrplan · Kind B':'Meine Reise';
+ document.getElementById('buehne').innerHTML=`<div class="geraet ${geraet}"><div class="kopf"><h1>${titel}</h1><span class="st">★ 2 340</span></div><div class="inhalt">${body}</div></div>`}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-a]');if(a){ansicht=a.dataset.a;nbStufe=0;render()}const g=e.target.closest('[data-g]');if(g){geraet=g.dataset.g;document.querySelectorAll('[data-g]').forEach(x=>x.classList.toggle('an',x===g));render()}});
+render();
+</script></body></html>

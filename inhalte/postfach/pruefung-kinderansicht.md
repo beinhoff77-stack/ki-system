@@ -148,3 +148,6 @@ Bericht `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw2.md`, Bilder `werksta
 
 ## 2026-11-23 – FERTIG: Prüfung LW-3 (0.90.1) – 0 Muss
 Bericht `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw3.md`, Bilder `werkstatt/lw3/`. 159/159 grün. Soll: S1 Leiste Rechner fest 2 Zeilen – Empfehlung Legende hinter ⓘ, „Gespeichert“ still, ⓘ-Hinweise schwebend; S2 Überblick: alte Karten Lernt es?/Wo hakt es?/Wo steht es?/Was kommt? weg (Was kommt? widerspricht Gerade dran), Zuletzt geschafft neben Diese Woche; S3 Matrix rollt 30 px zu weit; S4 Handy-Kopf einzeilig. Kann K1–K5.
+
+## 2026-11-23 – FERTIG: Vorgabe Karten (Nachbessern · Mein Schuljahr · Zusatz eingeplant)
+Vorgabe `inhalte/pruefung/kind/karten/umsetzung.md`, Entwurf `karten/entwurf/karten.html`, Bilder `karten/bilder/` (400/820). Reihenfolge Startseite: Nachbessern > Expedition (dann als Chip) > Gerade dran > Zusatz > Mein Schuljahr. Lehrer-Fassung Karte „Stand“ mit ⓘ-Text. Reisekarte §4 um „wieder offen“ ergänzt.

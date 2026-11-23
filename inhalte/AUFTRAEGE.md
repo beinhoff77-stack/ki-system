@@ -3369,3 +3369,13 @@ Datei `inhalte/pruefung/kind/karte/nachpruefung_rk2.md`. Erste Prüfung: M1, S1,
 - **Sperr-Anzeige (S3 der Prüfung, jetzt Muss, weil RK-D seit 05:00 eingespielt ist):** nach Abschnitt 3 der Prüfung – nicht im Plan und gesperrt = nur gedämpft, kein Schloss; im Plan und gesperrt = Platznummer grau + kleines 🔒, Route grau gepunktet; Grund beim Antippen („🔒 Erst ‹Land› schaffen“ mit Sprung-Knopf, „🔒 Ab Klasse 7 – kommt später.“); Land-Ebene eines gesperrten Flugs grau; „abgelegt“ = goldener ★ an der Stadt. Tests wie dort (Kl.-5-Lage Afrika 0 Schlösser; Europa Platz 3 genau ein 🔒).
 **Soll:** S1 Haltestellen-Kästchen entzerren (wie die Namen); S2 Länder-Schilder in dichten Gegenden nach Abschnitt 2 (Vorrang, vier Lagen, weglassen statt überdecken, Hauptstadt-Zeile nur für dran/nächste 3/angetippt, Fächer für Pin-Köpfe). **Kann:** K1 Quellen-Zeile, K2 Welt-Ausschnitt mit Nachbarn, K4 kleine Legende hinter ⓘ.
 Urteil Gestalter zu Frage 8: „was als Nächstes kommt“ ja auf allen Größen; „wo bin ich“ auf dem Handy erst mit M1.
+
+## Reihenfolge App (Entscheidung Sebastian 23.11., 05:50 Berlin: „getrennt“) · Bau-Auftrag KJ (0.93.0) an `bau-motivation`
+
+1. **RK-App 3 (0.92.3)** – Reisekarte live (läuft).
+2. **KJ (0.93.0), direkt danach, ein Schritt:**
+   - **JW-App – Jugendwort-Sticker:** Vorgabe `inhalte/pruefung/kind/jugendwoerter/umsetzung.md` (Fassung 2: ein Sticker je Geschafft-Ansicht, Satz bleibt normales Deutsch, keine Einstellungen, Anrede „Digga“, Antippen zeigt die Bedeutung), Daten `woerter.json` (als Datei in der App, mit Verfallsdatum; abgelaufene Wörter werden nicht gezogen), kein Wort aus den letzten 4 Stickern, Stärke nach Ergebnis.
+   - **NB-App / SJ-App / ZP-App:** Vorgabe `inhalte/pruefung/kind/karten/umsetzung.md`; Felder: `nachbessern[]` und `schuljahr_stand` in `schule_konto`/`schule_uebersicht`, `naechster_start.grund = nachbessern`, `zusatz_plan[]`, `zusatz_eingeplant`/`zusatz_geschafft` (Meldungen NB-S, SJ-S, ZP-S in `bau-lehrer.md`).
+   - **Muss aus ChatGPT 968:** Ring der Lehrer-Ansicht (`lernLwRing`) an `schuljahr_stand` anbinden bzw. dieselbe Themen-Auswahl (Zusatz der Gruppe abziehen); Test mit einem Gruppen-Zusatzfall.
+   - **Muss aus ChatGPT 966:** eingeplanter Zusatz in Lehrer-Ansicht („Zusatz · eingeplant“, Fortschritt x/y) und Kinderseite sichtbar.
+   - Karte „Stand“ im Überblick der Lehrer-Seite mit den Zahlen „noch x von y Flügen · noch a von b Etappen“.

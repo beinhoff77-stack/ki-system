@@ -2,6 +2,105 @@
 
 Neueste oben.
 
+## 2026-11-23 – FERTIG: KJ (App 0.93.0)
+
+Stand `lernen-app` e5fdb33 übernommen; `bau-motivation` ist darauf aufgesetzt. Nur App: keine Datenbank, nichts eingespielt, keine Datenbank-Datei nötig. Kein Merge nach `main`, keine Namen. Cache v175.
+
+**Teil 1 – Jugendwort-Sticker (JW-App, Vorgabe Fassung 2)**
+- **Wortliste:** `daten/jugendwoerter.json` ist eine unveränderte Kopie von `woerter.json` (der Test prüft die Gleichheit).
+  - Der Service Worker speichert `daten/` wie die Kartendateien: Netz zuerst, sonst aus dem Cache.
+  - Gezogen werden nur Wörter mit Einsatz-Liste und gültigem `verfall`. Es gibt keine Einstellungen.
+- **Auswahl** im Gerät (`lern.jw.<kind>`):
+  - Je Anlass ein Sack ohne Zurücklegen, nie zweimal derselbe Spruch hintereinander.
+  - Kein Wort aus den letzten 4 Stickern, solange ein anderer passender Spruch da ist; „Digga“ zählt nicht.
+  - Die Stärke folgt dem Anlass, nie nach oben.
+  - Fehler-Sticker nur beim 1., 3., 5. … Fehler des Lerntags, nie ab dem 2. in Folge.
+  - Die Anrede „Digga“ steht einmal je Lerntag im Kopf der Abflugtafel.
+- **Wo:**
+  - Landung (direkt 3, sauber 2, wieder gelandet 1, Sturm 2 mit Ausdauer-Wörtern), Flug geschafft, Expedition geschafft bzw. fehlerfrei.
+  - Knobel richtig im 1. Versuch, Serie 5 und 10 in der grünen Box.
+  - Wiederholung bestanden (Check-in und Mischkarte), Fehler (klein, grau, unter der Lösung).
+  - „Sitzt wieder!“ (Nachbessern).
+  - Kein Sticker auf Reisekarte, Stempeln und Test-Ergebnis.
+- Der Sticker sitzt unten rechts in der Szene und verdeckt nichts; das prüft der Test an Titel, Zahl, Knopf und Kopf.
+- Antippen öffnet ein kleines Blatt mit Wort, „gesprochen …“ (Çüş), Bedeutung und „Schließen“. Vorlesen: „Sticker: … Tippen für die Bedeutung.“
+- Die Plopp-Bewegung (0,35 s + 0,4 s) entfällt bei „weniger Bewegung“ und endet beim Antippen der Szene.
+
+**Teil 2 – Drei Karten (NB-, SJ-, ZP-App)**
+- **Reihenfolge auf der Abflugtafel:**
+  1. Nachbessern
+  2. Expedition (dann nur als Chip „⛯ Expedition wartet: … ›“)
+  3. Gerade dran
+  4. Zusatz · eingeplant
+  5. Mein Schuljahr
+- **Reisekarte:** Nachbessern und Zusatz kompakt in der schwebenden Zone (Handy/Tablet). Rechts (Rechner) die Karten in voller Größe, dazu Mein Schuljahr.
+- **Nachbessern:**
+  - Daten aus `nachbessern[]` (Konto, sonst Übersicht). Die Texte sind wörtlich aus der Vorgabe.
+  - Der orange Knopf führt direkt in die Übung der Etappe (`#/lerneinheit/k-e-ueben-<etappe_nr>`).
+  - In der Übung zeigt eine Leiste „↻ NACHBESSERN · Etappe“ drei Kreise und „x von 3 in Folge“.
+    - Die Folge kommt aus `karte.folge`, sonst zählt die App selbst: eigene Lösung +1, Tipp oder 2. Versuch lässt sie stehen, Fehler setzt sie auf 0 („Kein Problem – neuer Anlauf.“).
+  - Bei 3 kommt „Sitzt wieder!“ statt der Landung: drei Haken, Sticker, keine Extra-Sterne. Weiter geht es mit der nächsten Nachbessern-Etappe bzw. zum nächsten Flug.
+  - Reisekarte: `naechster_start.grund = 'nachbessern'` zeigt die Stadt orange. „Gerade dran“ und der gelbe Knopf bleiben beim Pflicht-Flug. „Zu mir“ springt zur offenen Stadt.
+- **Mein Schuljahr:**
+  - Die Zahlen kommen genau aus `schuljahr_stand` mit **allen** Etappen (`etappen`, `prozent`, `fluege`).
+  - „Nächstes Ziel“ = nächster voller Zehner, k = ⌈alle × p/100⌉ − gelandet. Nachbarklassen als schmale Balken.
+  - Kein Zusatz, keine Wertung.
+- **Zusatz · eingeplant:**
+  - Aus `zusatz_plan[]` (je Kind in der Übersicht): Balken je Etappe, „x von y Etappen · Extra-Flug, von deinen Eltern eingeplant“.
+  - Der Zweitknopf „Nach {Land} fliegen ›“ bzw. „Weiter in {Stadt} ›“ führt zur Übung. Der gelbe Hauptknopf zeigt nie den Zusatz.
+  - „Zusatz geschafft!“ (Stempel mit Rand „ZUSATZ“, + ★ 100) erscheint einmal je Teil auf diesem Gerät, sobald `zusatz_plan[].geschafft` kommt. Gebucht hat der Server.
+
+**Teil 3 – Lehrer/Eltern**
+- **Muss Ring (968):**
+  - `lernLwRing` zieht die Zusatz-Teile der Gruppe des Kindes ab (`teil.zusatz` enthält gym_by | rs_I | rs_II_III | myp_standard | myp_extended). Das ist dieselbe Auswahl wie `schuljahr_stand`.
+  - Im Überblick nimmt der Ring die Zahlen direkt aus `schuljahr_stand`, wenn die Klasse dort steht.
+  - Test: Ein Pflicht-Thema der Kl. 8 wird Zusatz-Teil der Gruppe → Ring Kl. 8 zählt ein Thema weniger, in Lehrplan und Überblick.
+- **Muss Zusatz eingeplant (966):**
+  - Matrix-Karte gestrichelt sand mit „Zusatz · eingeplant“ und „Platz n · x/y Etappen“.
+  - Fahrplan-Eintrag gestrichelt mit brauner Nummer, „ZUSATZ · EINGEPLANT x von y Etappen · ohne Flug-Test“, keine Reihenfolge-Warnung. Kopf „… · + 1 Zusatz“.
+  - Detail mit „Zusatz · eingeplant – kein Pflichtstoff im …“ und dem Stand-Satz der Vorgabe.
+  - Erkannt über `thema_stufe.zusatz_eingeplant`, sonst „Zusatz der Gruppe + im Plan“.
+- **Karte „Stand“ im Überblick:** je Klasse „Kl. n Gymnasium · p % · noch x von y Flügen · noch a von b Etappen“, die Hauptklasse hinterlegt. Darunter „+ Zusatz eingeplant: … (x von y Etappen) – zählt nicht mit ⓘ“; ⓘ zeigt den Rechen-Text der Vorgabe.
+
+**Reisekarte (Kleinigkeiten):**
+- **Gemacht:** Auf 360 px steht die Schwebekarte zweizeilig; der Stadtname wird nicht mehr gekürzt (im Test geprüft).
+- **Nicht gemacht:** Gedämpfte Pins in Ostafrika und auf dem Balkan liegen weiter eng. Die Köpfe kleiner zu machen hätte Trefferfläche und Tests berührt; das war mir zu riskant.
+
+**Tests:** 7 neue Tests.
+- JW: Kopie gleich, Verfall, 40 Züge ohne Wort aus den letzten 4, Stärke, Fehler-Regel, Anrede je Lerntag, Sticker verdeckt nichts, Bedeutung beim Antippen, Flug geschafft.
+- KJ §0: Reihenfolge, Texte, Zahlen gleich `schuljahr_stand`, Ziel bei 9 % = 1 Etappe, gelber Knopf nie Zusatz, Gerade dran im ersten Bildschirm.
+- KJ NB: Folge 1→2→0→1→2→3, „Sitzt wieder!“ mit Sticker; Reisekarte 400/1280.
+- KJ Lehrer: Ring mit Zusatz-Fall, Zusatz eingeplant (Fahrplan, Matrix, Detail), Karte Stand mit und ohne `schuljahr_stand`.
+- Zwei bestehende Tests waren nach dem ersten Lauf rot, beide durch meinen Code, und sind behoben:
+  - „IB: MYP-Jahr“: neue Beschriftung „MYP n“ statt „MYP-Jahr n“.
+  - „AB-A 4“: die Sticker-Bewegung endete nicht beim Antippen.
+- **Gesamtlauf** `tests/lernen.test.cjs` danach vollständig: **188/188**, 360 s. Kein wackliger Test aufgefallen.
+
+**Bilder** in `docs/previews/la/`:
+- `jw-landung-400-tag`, `jw-landung-820-nacht`, `jw-bedeutung-820-nacht`, `jw-flug-400-tag`
+- `kj-start-400-tag`, `kj-start-820-nacht`, `kj-sj-kl8-400`
+- `kj-nb-uebung-400`, `kj-nb-fertig-400`
+- `kj-reisekarte-400`, `kj-reisekarte-1280`
+- `kj-lehrer-lehrplan-820|1280`, `kj-lehrer-stand-400|820`
+- `rk3-kopf-land-360-tag`
+
+**Annahmen:**
+- `verfall` „JJJJ-MM“ gilt bis zum Monatsende. Ein Wort ohne Verfallsdatum wird nicht gezogen.
+- Für „Tipp genutzt“ gibt es kein Server-Feld (wie in der Vorgabe angenommen): Saubere Landungen sind Stärke 2, „wieder gelandet“ Stärke 1.
+- Die Serie 5/10 zählt die App in der laufenden Übung (richtige Antworten in Folge). `schuljahr_stand.etappen` = alle Etappen, wie im Auftrag.
+- Gruppe des Kindes: gym_by; bei RS/IB `zweig`, sonst rs_I bzw. myp_standard (wie `schule.kind_zweig`). Die App kennt `zweig` nur, wenn der Server ihn mitschickt.
+- „Zusatz geschafft“ erscheint einmal je Gerät (gemerkt in `lern.zp.<kind>.<thema>`), nicht einmal je Kind.
+
+**Offen:**
+- Auf 820 px ist die Abflugtafel nicht zweispaltig („rechts Mein Schuljahr“), alles steht untereinander.
+- Mein Schuljahr fehlt auf der Reisekarte am Handy und Tablet (nur Abflugtafel und rechte Spalte am Rechner).
+- Der Reisekarte-Pin für eingeplanten Zusatz (gelbe Nadel, Schild „Zusatz · eingeplant x/y“) ist nicht gebaut.
+
+**Nicht geprüft:**
+- Echter Server: die Felder `nachbessern`, `schuljahr_stand`, `zusatz_plan`, `zusatz_eingeplant` und `karte.folge` nur gegen nachgestellte Antworten.
+- Echte Geräte und Schrift „Çüş“ auf iOS.
+- Die übrigen Testdateien (Reise/PWA) habe ich nicht laufen lassen.
+
 ## 2026-11-23 – FERTIG: RK-App 3 (App 0.92.3)
 
 Stand `lernen-app` 5349917 übernommen; vor dem Push bis 845a737 nachgezogen, dabei kamen keine App-Dateien hinzu. Nur App: keine Datenbank, kein Merge nach `main`, keine Namen; nur Testkind und erfundene Daten. Cache v174.

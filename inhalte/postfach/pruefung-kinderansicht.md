@@ -151,3 +151,6 @@ Bericht `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw3.md`, Bilder `werksta
 
 ## 2026-11-23 – FERTIG: Vorgabe Karten (Nachbessern · Mein Schuljahr · Zusatz eingeplant)
 Vorgabe `inhalte/pruefung/kind/karten/umsetzung.md`, Entwurf `karten/entwurf/karten.html`, Bilder `karten/bilder/` (400/820). Reihenfolge Startseite: Nachbessern > Expedition (dann als Chip) > Gerade dran > Zusatz > Mein Schuljahr. Lehrer-Fassung Karte „Stand“ mit ⓘ-Text. Reisekarte §4 um „wieder offen“ ergänzt.
+
+## 2026-11-23 – FERTIG: Prüfung EX-App (0.91.1) – 0 Muss
+Bericht `inhalte/pruefung/kind/expedition/nachpruefung_ex.md`, Bilder `expedition/nachpruefung/`. lernen-app 600609c (0.91.2), EX- und W176-T4-Tests grün. Soll: S1 360×640 Chips in Ansicht 1 verdeckt, S2 „freiwillig“ noch bei Knobel-Bordkarten (Kinderseite). Kann K1–K4.

@@ -6178,6 +6178,111 @@
    },
    "c": "19 - 30",
    "w": "Rückwärts: x = 19 − 30 = −11. Probe: (−11) + 30 = 19 ✓"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 6 · x + 17 = 95."
+   },
+   "w": "Rückwärts: erst − 17: 95 − 17 = 78, dann : 6: 78 : 6 = 13.",
+   "o": {
+    "wert": 13
+   },
+   "c": "(95 - 17) / 6"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 9 · x + 25 = 97."
+   },
+   "w": "Rückwärts: erst − 25: 97 − 25 = 72, dann : 9: 72 : 9 = 8.",
+   "o": {
+    "wert": 8
+   },
+   "c": "(97 - 25) / 9"
+  },
+  {
+   "l": "zwei_schritte",
+   "t": "umkehren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Rechenweg löst x · 4 − 15 = 33?"
+   },
+   "w": "Rückwärts rechnen heißt: die letzte Rechnung zuerst umkehren. Erst + 15 (33 + 15 = 48), dann : 4 (48 : 4 = 12).",
+   "a": [
+    "erst : 4, dann + 15",
+    "erst − 15, dann · 4",
+    "erst + 15, dann : 4",
+    "erst · 4, dann − 15"
+   ],
+   "o": {
+    "index": 2
+   }
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "So wurde 3 · x + 8 = 35 gelöst: Schritt 1: 35 − 8 = 27. Schritt 2: 27 · 3 = 81. Ergebnis: x = 81. Wo steckt der Fehler?"
+   },
+   "w": "In Schritt 2 muss geteilt werden: 27 : 3 = 9. Probe: 3 · 9 + 8 = 35 ✓. Mit 81 wäre 3 · 81 + 8 = 251.",
+   "a": [
+    "In Schritt 1: Es muss 35 + 8 heißen.",
+    "In Schritt 2: Es muss 27 : 3 heißen.",
+    "Es gibt keinen Fehler.",
+    "Beide Schritte sind falsch."
+   ],
+   "o": {
+    "index": 1
+   }
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei x : 4 − 6 = 9 hat jemand x = 12 herausbekommen. Die Probe geht nicht auf. Wie heißt die richtige Lösung?"
+   },
+   "w": "Probe: 12 : 4 − 6 = −3, nicht 9. Richtig rückwärts: 9 + 6 = 15, 15 · 4 = 60. Probe: 60 : 4 − 6 = 9 ✓.",
+   "o": {
+    "wert": 60
+   },
+   "c": "(9 + 6) * 4"
+  },
+  {
+   "l": "probe",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist die Lösung von 5 · x − 12 = 43? Mache die Probe."
+   },
+   "w": "Probe mit 11: 5 · 11 − 12 = 55 − 12 = 43 ✓. Die anderen Zahlen ergeben nicht 43.",
+   "a": [
+    "9",
+    "12",
+    "11",
+    "6"
+   ],
+   "o": {
+    "index": 2
+   }
   }
  ],
  "offen": [

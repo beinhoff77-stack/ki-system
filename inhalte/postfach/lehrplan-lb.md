@@ -2,6 +2,46 @@
 
 Neueste Meldung oben.
 
+## 2026-11-23 – MELDUNG NT-D 3 (lehrplan-lb)
+
+Grundlage: `lernen-app` 83ada52, „Bau-Auftrag NT“, „Rückläufer Prüfung 951“, Werkstatt 958. Nichts eingespielt.
+
+- **1) Nachgerechnet** mit `schule.nachtest_vorrat` (lesend, echte DB): 95 Einheiten (freigegeben/geprüft), 5 Gruppen, 2 850 Zeilen.
+  - Pflicht-Etappen unter dem Vorrat für **eine** Runde: **0**.
+  - Unter drei Runden ohne Wiederholung, **vorher**: nur „Schrägbilder und Raumdarstellung – Teil 1 von 2“ (Einheit 30), Gruppe RS II/III (2 Pflicht-Etappen, je 3 pro Nachtest):
+
+| Etappe | Gruppe | Bedarf | vorher | neu | nachher |
+|---|---|---|---|---|---|
+| pyramide | RS II/III | 9 | 6 | +3 | 9 |
+| wahre_groesse | RS II/III | 9 | 6 | +3 | 9 |
+
+  - Thema 31 und Thema 1 haben in der DB noch die gemeinsame Pflichtliste (31: 7 Etappen, Bedarf 3, vorhanden 8; 1: 4 Etappen, Bedarf 6, vorhanden 6). Es fehlt also heute nichts.
+  - **Vorsorge** für die Pflichtlisten aus LK-D 4 (gelten erst, wenn `pflicht_je_schulart` für ungeteilte Themen gesetzt ist):
+
+| Thema · Etappe | Gruppe (LK-D 4) | Bedarf | vorher | neu | nachher |
+|---|---|---|---|---|---|
+| 31 definitionsmenge | RS I, RS II/III | 9 | 8 | +1 | 9 |
+| 31 termwert | RS I, RS II/III | 9 | 8 | +1 | 9 |
+| 1 zwei_schritte | Gymnasium | 9 | 6 | +3 | 9 |
+| 1 probe | Gymnasium | 9 | 6 | +3 | 9 |
+
+  - Gegenrechnung aus den Themendateien mit allen Pflichtlisten aus LK-D 4, alle Teile, alle fünf Gruppen: danach **keine** Pflicht-Etappe unter drei Runden.
+- **2) Aufgaben:** 14 Sicherungs-Aufgaben in `inhalte/generatoren/_nt_2311.py`, eingehängt am Ende von `raum.schraegbilder.py`, `terme.bruchterme.py` und `gleichungen_einfach.py`; die Generatoren erzeugen die Dateien unverändert.
+  - Je Etappe mindestens zwei Aufgabentypen (91: zahl/luecken bzw. zahl/auswahl/luecken; 1: zahl/auswahl).
+  - Texte selbst formuliert, Lösungen berechnet, Lösungsweg zu jeder Aufgabe.
+  - Teilfähigkeit wie in der Datei (Thema 1: `umkehren` / `verstehen`).
+  - Keine Text-Dublette in der echten DB (geprüft).
+  - Prüfskript: keine neuen Fehler. Die zwei Fehler bei `8-schulfest.json` (Voraussetzung `stochastik.grundbegriffe_teil2`) bestehen schon auf 83ada52 – Befund „8-schulfest nach Teilung“, gehört zu `bau-lehrer`.
+- **SQL:** `inhalte/pruefung/lehrplan/nt_einspiel_2311.sql`, 14 Aufgaben, nur INSERT über `aufgaben_einfuegen`, kein DROP, kein DELETE, wiederholbar. Rauchtest zählt nur eigene Themen/Teile.
+  - Die Einheit wird über den Etappen-Katalog gefunden (Thema oder Teil über `teil_stamm`); passt zum Stand nach TL-S (91 Teil 1 = Einheit 30).
+- **Probelauf** auf nachgestelltem Stand (91 Teil 1/Teil 2 mit `teil_stamm`, echte Schutz-Trigger und `aufgaben_einfuegen`):
+  - Lauf 1: +14 (Einheit 30: 6, Einheit 34: 2, Einheit 6: 6);
+  - Lauf 2: 0;
+  - Einheiten unverändert, Rauchtest grün.
+- Kleine Änderung an `_nt_2211.py`: SQL-Erzeugung mit Parametern; `nt_einspiel_2211.sql` bleibt Byte für Byte gleich.
+
+FERTIG: NT-D 3
+
 ## 2026-11-22 – MELDUNG NT-D 2 (lehrplan-lb)
 
 Grundlage: `lernen-app` af01ab5a, „Probelauf ganze Kette (20:10)“, Befund 4. Nichts eingespielt.

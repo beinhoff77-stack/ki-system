@@ -204,7 +204,7 @@ def nt_anhaengen(thema):
     print(f'  NT {thema}: {n} neue Aufgaben')
 
 
-def sql():
+def sql(NT=NT, TID=TID, SQL=SQL, titel='NT-D (22.11.2026): fehlende Sicherungs-Aufgaben für Nachtests kleiner Flüge (Fehlliste NT-S) und Thema 57 „verzerrte Diagramme berichtigen/verbessern“.', quelle='_nt_2211.py'):
     teile, soll = [], []
     for thema, fns in NT.items():
         t = TID[thema]
@@ -240,8 +240,8 @@ end $nt$;
     bed = bed.replace('%', '%%').replace('%%1$I', '%1$I')   # format(): Prozentzeichen im Text schützen
     ges = sum(n for t, l, n, tx in soll)
     sich = sum(1 for thema, fns in NT.items() for fn in fns for a in fn() if a['p'] == 'sicherung')
-    kopf = f"""-- NT-D (22.11.2026): fehlende Sicherungs-Aufgaben für Nachtests kleiner Flüge (Fehlliste NT-S) und Thema 57 „verzerrte Diagramme berichtigen/verbessern“.
--- Quelle: inhalte/generatoren/_nt_2211.py (Texte selbst formuliert, Lösungen berechnet), Dateien inhalte/themen/*.json. {ges} Aufgaben, davon {sich} Sicherung.
+    kopf = f"""-- {titel}
+-- Quelle: inhalte/generatoren/{quelle} (Texte selbst formuliert, Lösungen berechnet), Dateien inhalte/themen/*.json. {ges} Aufgaben, davon {sich} Sicherung.
 -- Nur für den Haupt-Chat; NICHT von lehrplan-lb ausgeführt. In EINER Transaktion einspielen (psql -1). Wiederholt ausführbar.
 -- Nur INSERT über schule.aufgaben_einfuegen; Einheiten werden nicht verändert. Kein DELETE, kein DROP.
 -- Reihenfolge: NACH lk_einspiel_2211.sql (cavalieri und vierecke_konstruieren gibt es erst dann; sonst Abbruch mit Hinweis).

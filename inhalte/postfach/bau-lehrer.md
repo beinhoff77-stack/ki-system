@@ -2,6 +2,61 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-23 – FERTIG: EX-S
+
+Gehört zu RD-S. Stand `lernen-app` 759fa30 übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code:
+- `supabase/migrations/20261125_ex_s_expedition.sql`
+- `supabase/tests/ex_s_rauchtest.sql` (spielt die Migration selbst ein, Rollback)
+- `supabase/functions/lernen-api/index.ts` 0.9.3: zusätzlich `schule_expedition_spaeter`
+
+**1) Sterne**
+- `sterne_expedition_geschafft` steigt von 50 auf **150**.
+- Neu: `sterne_expedition_fehlerfrei` = **200**. Fehlerfrei heißt: Bei jedem Teil war der erste Versuch außerhalb von Tests richtig, ohne Tipp und im ersten Anlauf.
+- `expedition_buchen` bucht 200 oder 150, genau einmal je Kind und Expedition (eindeutiger Schlüssel Kind + Grund + Bezug).
+- Beide Werte stehen auch in `sterne_regeln`.
+- Live gibt es noch keine Expeditions-Sterne und keine Antworten auf Expeditionen, also ist keine Nachbuchung nötig. Rauchtest 0 prüft das und bricht sonst ab.
+- Beim Einspielen setzt die Migration beide Werte auf 150 und 200, auch wenn sie vorher anders standen.
+
+**2) Angebot und „Später“**
+- Neue Tabelle `schule.expedition_angebot` (Kind, Expedition, `angeboten_am`, `spaeter_am`, `spaeter_bis`).
+- Das Angebot entsteht, sobald die letzte Voraussetzung sitzt: Auslöser auf `karte_stand.sitzt`.
+  - `angeboten_am` = Zeit der spätesten Landung unter den Voraussetzungen.
+  - Bestehende Stände trägt die Migration nach; auf dem echten Stand ist eine solche Nachtragung noch nicht gelaufen.
+- „Später“ setzt `spaeter_bis` auf das heutige Ortsdatum des Kindes (Zeitzone wie bei `lerntag`).
+  - Ausgeblendet ist die Expedition, solange `spaeter_bis` ≥ heute ist; ab dem nächsten Lerntag ist sie wieder vorn.
+- Es wird nichts gesperrt und nichts am Lernstand geändert.
+
+**Schnittstelle**
+- `expeditionen_kind` je Expedition: wie bisher, dazu:
+  - `angeboten_am`, `spaeter_am`, `spaeter_bis`, `ausgeblendet`
+  - `sterne` (gebuchte Menge), `fehlerfrei`
+  - `sterne_geschafft` (150), `sterne_fehlerfrei` (200)
+- Reihenfolge der Liste: begonnen → angeboten (vorn) → angeboten (später) → geschafft.
+- `expeditionen_stand` (neu in `schule_konto` und je Kind in `schule_uebersicht`):
+  - `stationen_gesamt`, `stationen_geschafft` (für „3 von 21 Stationen“)
+  - `angeboten` (Anzahl angeboten + begonnen), `vorn` (davon nicht ausgeblendet)
+  - `oben_id` = die Expedition für die oberste Karte der Abflugtafel: begonnen vor angeboten, dann nach `angeboten_am`
+  - `heute`, `angebote[]`
+- Neue Aktion `api.schule_expedition_spaeter {lernender_id, expedition_id}` mit Zugriffsprüfung wie `schule_konto`.
+  - Antwort: `{ok, lernender_id, expedition_id, spaeter_bis, expeditionen_stand}`.
+  - Fehler „Expedition ist nicht angeboten“, wenn es kein Angebot gibt.
+- „Jetzt starten“ braucht keine eigene Aktion: Die Antworten laufen wie bisher über `schule_uebung_pruefen`.
+- `schule_konto`, `schule_uebersicht` und `sterne_regeln` sind über eindeutige Anker erweitert. Die Anker habe ich auf dem echten Stand gelesen: je genau einmal vorhanden.
+
+**Lokal geprüft**
+- Nachbau: Stand nach RD-S, dazu die Expeditions-Funktionen so, wie sie live gelesen wurden.
+- Migration zweimal, Rauchtest grün, sowohl ohne als auch mit vorher eingespieltem EX-S:
+  - 0: keine Nachbuchung nötig.
+  - 1: Regelwerte 150 / 200.
+  - 2: Einspielen ändert Lernstand, Sterne, Route und Reiseoptionen nicht.
+  - 3: Kein Angebot, solange eine Voraussetzung fehlt; nach der letzten Landung ein Angebot mit „seit“ = diese Landung.
+  - 4: Das Angebot sperrt nichts (Reiseoptionen, Stufen, Lernziel-Stände).
+  - 5: „Später“ blendet bis zum nächsten Lerntag aus; Zugriff wird geprüft.
+  - 6: Mit Tipp 150, fehlerfrei 200, erst falsch und dann richtig 150 – je genau einmal, auch bei erneuter Antwort. Übrige Sterne, Lernstand anderer Kinder und Reiseoptionen unverändert.
+  - 7: Ausgabe in `schule_konto` und `schule_uebersicht`.
+- `rd_s`, `tl_s` und `nt_s` bleiben grün.
+- Die Erweiterung von `schule_uebersicht` ließ sich lokal nicht ausführen (die Funktion fehlt im Nachbau); live ist nur der Anker geprüft.
+
 ## 2026-11-23 – FERTIG: RD-S
 
 Stand `lernen-app` 6da3aec übernommen. Grundlage `inhalte/reise/aufbau-vorschlag.json` (Reise-Aufbau 4), Datenbank nur gelesen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code:

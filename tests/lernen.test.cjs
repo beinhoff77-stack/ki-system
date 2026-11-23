@@ -4179,7 +4179,7 @@ test('EX-App: offene Expedition ist die oberste, größte Karte der Abflugtafel 
   for (const [w, h] of [[400, 780], [820, 1180]]) {
     const ex = exServer();
     const { page } = await setup(t, { gestaltung: 'tag', anpassen: ex.anpassen });
-    await page.addInitScript(() => localStorage.setItem('lern.exfrei.1.7', '1')); // Ansicht 1 schon gesehen
+    await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); localStorage.setItem('lern.rk.1', 'tafel'); }); // Ansicht 1 schon gesehen; Abflugtafel (Reisekarte: eigener Test)
     await page.setViewportSize({ width: w, height: h });
     await page.goto(origin + '/#/reise/1');
     const karte = page.locator('.lr-ex-karte'); await karte.waitFor();
@@ -4447,4 +4447,194 @@ test('LZ-App: nach einer Plan-Änderung stimmen die gemerkten Daten (Plan wird n
   assert.ok(calls.filter((c) => c.aktion === 'schule_plan_lesen').length > lesenVor, 'Plan nach der Änderung neu gelesen (nicht aus dem Speicher)');
   const nachher = await page.locator('.lw-ue-liste li span:last-child').allInnerTexts();
   assert.notDeepEqual(nachher, vorher); assert.match(nachher[0], new RegExp(lwEsc(neu.titel)), 'Platz 2 = neu eingeplantes Thema');
+});
+
+// ---------- RK-App (0.92.0): Reisekarte statt Anzeigetafel ----------
+// Nachgestellter Server: schule_reise_karte aus dem Reise-Aufbau (inhalte/reise/aufbau-vorschlag.json – alle Kontinente, Länder, Städte aus den Daten),
+// Stand erfunden: Italien gerade dran (Stadt 5), Österreich geschafft, Schweiz/Slowenien/Deutschland im Plan, Griechenland golden, Algerien Zusatz.
+const RK_AUFBAU = JSON.parse(fs.readFileSync(path.join(root, 'inhalte/reise/aufbau-vorschlag.json'), 'utf8'));
+function rkKarte({ zustand = {} } = {}) {
+  let tid = 900;
+  const kontinente = RK_AUFBAU.kontinente.map((k) => {
+    const fluege = k.fluege.map((f) => { const von = k.fluege.filter((y) => y.thema_id === f.thema_id).length; const teil = f.teil ? Number(f.teil) : 1;
+      const z = zustand[f.flug_id] || {};
+      const staedte = f.staedte.map((c) => ({ nr: c.etappe, name: c.stadt, breite: c.breite, laenge: c.laenge, lernziel: c.lernziel, titel: 'Etappe ' + c.etappe, pflicht: !(c.kuer || (c.kuer_in || []).includes('gym')),
+        stand: z.staedte?.[c.etappe] || (z.alle || 'offen') }));
+      return { thema_id: teil > 1 ? ++tid : f.thema_id, flug: f.flug_id, titel: String(f.thema).replace(/ – Teil \d von \d$/, ''), untertitel: von > 1 ? 'Untertitel ' + teil : null, teil: von > 1 ? teil : null, teil_von: von > 1 ? von : null, teil_stamm: von > 1 ? f.thema_id : null,
+        land: f.land, iso: f.iso, region: f.region || null, mitte: f.mitte, hauptstadt: f.hauptstadt, hauptort: f.hauptort_landesteil?.stadt || null, kurzflug: !!f.kurzflug,
+        stufe: z.stufe || 'nicht_im_plan', gesetzt: z.gesetzt || null, stempel: !!z.stempel, stempel_am: z.stempel ? '2026-11-10' : null, golden: !!z.golden, im_plan: !!z.im_plan, plan_platz: z.plan_platz || null, zusatz: !!z.zusatz,
+        etappen: staedte.filter((c) => c.pflicht).length, gelandet: staedte.filter((c) => c.pflicht && ['gelandet', 'sicher', 'wieder_offen'].includes(c.stand)).length, sicher: 0, staedte }; });
+    return { id: k.kontinent_id, schluessel: 'k' + k.kontinent_id, themengebiet: k.themengebiet, reise: k.reise, laender: fluege.filter((f) => !f.zusatz).length, geschafft: fluege.filter((f) => f.stempel).length, zusatz_laender: fluege.filter((f) => f.zusatz).length, fluege };
+  });
+  return { ok: true, lernender_id: 1, gruppe: 'gym_by', kontinente,
+    naechster_start: { thema_id: 15, kontinent_id: 1, land: 'Italien', iso: 'IT', titel: 'Natürliche Zahlen', grund: 'dran', staedte: 13, stadt: { nr: 5, name: 'Bologna', lernziel: 'x', pflicht: true } },
+    antarktis: { stationen: RK_AUFBAU.expeditionen.map((x) => ({ name: x.station, betreiber: x.betreiber, breite: x.breite, laenge: x.laenge, expeditionen: [x.expedition] })) },
+    quellen: [{ name: 'GeoNames', lizenz: 'CC BY 4.0' }, { name: 'Natural Earth', lizenz: 'gemeinfrei' }, { name: 'COMNAP' }] };
+}
+const RK_STAND = { 15: { stufe: 'dran', im_plan: true, plan_platz: 1, staedte: { 1: 'sicher', 2: 'gelandet', 3: 'wieder_offen', 4: 'gelandet', 5: 'begonnen' } }, 16: { stempel: true, stufe: 'wiederholung', alle: 'gelandet' },
+  18: { stufe: 'kommt', im_plan: true, plan_platz: 2 }, 67: { stufe: 'kommt', im_plan: true, plan_platz: 3 }, '29-1': { stempel: true, alle: 'gelandet' }, '46-2': { zusatz: true } };
+function rkServer({ karte = true, basis = null } = {}) {
+  const daten = rkKarte({ zustand: { ...RK_STAND, ...Object.fromEntries(RK_AUFBAU.kontinente[0].fluege.filter((f) => f.land === 'Griechenland').map((f) => [f.flug_id, { golden: true, stempel: true, alle: 'sicher' }])),
+    ...Object.fromEntries(RK_AUFBAU.kontinente[0].fluege.filter((f) => f.land === 'Deutschland').map((f) => [f.flug_id, { stufe: 'kommt', im_plan: true, plan_platz: 4 }])) } });
+  const f = (aktion, e, d) => { if (aktion === 'schule_reise_karte') return karte ? structuredClone(daten) : null; return basis ? basis(aktion, e, d) : e; };
+  f.neueAktionen = true; return { anpassen: f, daten };
+}
+const rkOeffnen = async (t, b, h, opt = {}) => { const srv = rkServer(opt); const { page, calls } = await setup(t, { gestaltung: opt.gestaltung || 'tag', anpassen: srv.anpassen });
+  const flaggen = []; page.on('request', (r) => { if (/\/karte\/flaggen\//.test(r.url())) flaggen.push(r.url()); });
+  await page.setViewportSize({ width: b, height: h }); await page.goto(origin + '/#/reise/1'); await page.locator('.rk .rk-pin').first().waitFor(); await page.waitForTimeout(200); return { page, calls, flaggen, srv }; };
+
+test('RK-App: Reisekarte ersetzt die Anzeigetafel – Kontinent des aktuellen Flugs, Flaggen-Pins aus den Daten, Startknopf schwebend in der Karte (400/820/1280)', async (t) => {
+  for (const [b, h] of [[400, 860], [820, 1180], [1280, 800]]) {
+    const { page, calls, flaggen, srv } = await rkOeffnen(t, b, h);
+    assert.equal(await page.locator('.lr-abflugtafel').count(), 0, 'keine Anzeigetafel');
+    assert.equal(await page.locator('.rk-pfad-teil.an').innerText().then((x) => x.replace(/\s+/g, ' ').trim()), 'KONTINENT Europa 📍');
+    const nEuropa = srv.daten.kontinente[0].fluege.length;
+    assert.equal(await page.locator('.rk-pin-flug').count(), nEuropa, 'je Flug ein Pin – Zahl aus den Daten');
+    assert.ok(await page.locator('.rk-pin:not(.rk-pin-flug)').count() > 3, 'auch Länder ohne Flug');
+    await page.getByRole('button', { name: 'Italien, Hauptstadt Rom, gerade dran' }).waitFor();
+    await page.getByRole('button', { name: /Österreich, Hauptstadt Wien, ✓ geschafft/ }).waitFor();
+    await page.getByRole('button', { name: /Griechenland, Hauptstadt Athen, ★ golden/ }).waitFor();
+    assert.equal(await page.locator('.rk-pin[data-id="CH"] .rk-marke-t').textContent(), '2', 'Platznummer am Pin');
+    assert.ok(await page.locator('.rk-route.rk-war').count() >= 1 && await page.locator('.rk-route.rk-kommt').count() >= 1, 'Route geflogen/kommt');
+    // Startknopf: schwebend in der Karte (Handy/Tablet) bzw. rechte Spalte (Rechner) – führt wie die Abflugtafel
+    const ort = b >= 1100 ? '.rk-seite' : '.rk-karte .rk-schwebe';
+    const st = page.locator(`${ort} .rk-start`); await st.waitFor();
+    assert.match(await page.locator(`${ort} .rk-dran`).innerText(), /GERADE DRAN[\s\S]*Bologna[\s\S]*in Italien/);
+    const ziel = await st.getAttribute('href');
+    assert.ok(/^#\/(lerneinheit\/1-1-(ueben|test)|wiederholen\/1)$/.test(ziel), ziel);
+    if (b < 1100) { const kb = await page.locator('.rk-karte').boundingBox(); const sb = await st.boundingBox(); assert.ok(sb.y + sb.height <= kb.y + kb.height && sb.y > kb.y + kb.height / 2, 'Startknopf unten in der Karte'); }
+    // Flaggen erst beim Anzeigen: nur Länder, deren Pin gezeichnet ist
+    const sichtbar = await page.locator('.rk-pin image').count(); assert.ok(flaggen.length > 0 && flaggen.length <= sichtbar + 2, `Flaggen ${flaggen.length} ≤ Pins ${sichtbar}`);
+    assert.equal(calls.filter((c) => c.aktion === 'schule_reise_karte').length, 1);
+    assert.ok(await ohneQuerrollen(page), `${b}: kein Querrollen`);
+    const m = await page.evaluate(() => lernKarteMessung); console.log(`# RK ${b}: Dateien ${JSON.stringify(m)}`);
+    await page.screenshot({ path: path.join(root, `test-results/rk-kontinent-${b}.png`) });
+  }
+});
+
+test('RK-App: Land antippen → Blatt → „Städte in Italien ansehen“ → Städte als Haltestellen (Stand, Kür, hier bist du), Pfad-Zeile zurück; Welt mit Kontinenten und Antarktis', async (t) => {
+  for (const [b, h] of [[400, 860], [1280, 800]]) {
+    const { page, srv } = await rkOeffnen(t, b, h);
+    await page.getByRole('button', { name: 'Italien, Hauptstadt Rom, gerade dran' }).dispatchEvent('click');
+    const bl = b >= 1100 ? page.locator('.rk-seite-blatt') : page.locator('.rk-blatt'); await bl.waitFor();
+    assert.match(await bl.innerText(), /LAND[\s\S]*Italien[\s\S]*Hauptstadt: Rom · Kontinent Europa[\s\S]*✈ Natürliche Zahlen · 13 Städte[\s\S]*gerade dran/);
+    await bl.getByRole('button', { name: 'Städte in Italien ansehen ›' }).click();
+    await page.locator('.rk-stadt').first().waitFor(); await page.waitForTimeout(600);
+    const it = srv.daten.kontinente[0].fluege.find((f) => f.iso === 'IT');
+    assert.equal(await page.locator('.rk-stadt').count(), it.staedte.length, 'je Etappe eine Stadt');
+    assert.equal(await page.locator('.rk-st-hier').count(), 1); assert.match(await page.locator('.rk-st-name').filter({ hasText: 'Bologna' }).textContent(), /Bologna · 4\/\d+/);
+    assert.equal(await page.locator('.rk-st-wdh').count(), 1, '↻ heute wiederholen');
+    assert.equal(await page.locator('.rk-st-kuer').count(), it.staedte.filter((c) => !c.pflicht).length, 'Kür gestrichelt');
+    assert.equal((await page.locator('.rk-pfad-teil').allInnerTexts()).map((x) => x.replace(/\s+/g, ' ').trim()).join(' | '), 'WELT 🌍 Welt | KONTINENT Europa 📍 | LAND Italien 📍');
+    await page.screenshot({ path: path.join(root, `test-results/rk-land-${b}.png`) });
+    if (b >= 1100) assert.match(await page.locator('.rk-seite').innerText(), /STÄDTE IN ITALIEN[\s\S]*Rom/);
+    // Pfad-Zeile: Welt
+    await page.locator('.rk-pfad-teil', { hasText: 'Welt' }).click(); await page.locator('.rk-kname').first().waitFor(); await page.waitForTimeout(300);
+    const namen = await page.locator('.rk-kname').allTextContents();
+    assert.equal(namen.length, srv.daten.kontinente.length + 1, 'alle Kontinente aus den Daten + Antarktis'); assert.ok(namen.includes('EUROPA') && namen.includes('ANTARKTIS'));
+    assert.ok((await page.locator('.rk-kzahl').allTextContents()).includes('Expeditionen · 0 von 21 Stationen'));
+    assert.equal(await page.locator('.rk-station').count(), srv.daten.antarktis.stationen.length, 'Stationen nach Breite/Länge');
+    await page.screenshot({ path: path.join(root, `test-results/rk-welt-${b}.png`) });
+    // Kontinent antippen → Kontinent
+    await page.locator('.rk-kname', { hasText: 'AFRIKA' }).click({ force: true }); await page.locator('.rk-pfad-teil.an', { hasText: 'Afrika' }).waitFor();
+  }
+});
+
+test('RK-App: Teile und Zusatz (§11) – Teil-Abzeichen 1/2, Kette, Blatt „Teil 2 von 2“ mit Teil-Links; Zusatz „+“ und eigene Zählung', async (t) => {
+  const { page } = await rkOeffnen(t, 1280, 800);
+  await page.locator('.rk-pfad-teil', { hasText: 'Welt' }).click(); await page.locator('.rk-kname', { hasText: 'ASIEN' }).click({ force: true });
+  await page.locator('.rk-pin[data-id="TM"]').waitFor();
+  assert.equal(await page.locator('.rk-pin[data-id="KZ"] .rk-teil-t').textContent(), '1/2'); assert.equal(await page.locator('.rk-pin[data-id="TM"] .rk-teil-t').textContent(), '2/2');
+  assert.ok(await page.locator('.rk-kettenlinie').count() >= 1, 'Kette zwischen den Teilen');
+  assert.equal((await page.locator('.rk-pin[data-id="TM"] .rk-pland').textContent()), 'TURKMENISTAN', 'Schild bleibt Land');
+  await page.locator('.rk-pin[data-id="TM"]').dispatchEvent('click');
+  const bl = page.locator('.rk-seite-blatt'); await bl.waitFor();
+  assert.match(await bl.innerText(), /✈ Terme umformen – Teil 2 von 2[\s\S]*Untertitel 2[\s\S]*Teil 1:[\s\S]*Kasachstan ✓[\s\S]*Teil 2:[\s\S]*Turkmenistan \(hier\)/);
+  await bl.getByRole('button', { name: /Teil 1:/ }).click(); await page.locator('.rk-seite-blatt h3', { hasText: 'Kasachstan' }).waitFor();
+  // Zusatz in Afrika
+  await page.locator('.rk-pfad-teil', { hasText: 'Welt' }).click(); assert.ok((await page.locator('.rk-kzahl').allTextContents()).some((x) => / · \+1 Zusatz$/.test(x)));
+  await page.locator('.rk-kname', { hasText: 'AFRIKA' }).click({ force: true }); await page.locator('.rk-pin[data-id="DZ"]').waitFor();
+  assert.equal(await page.locator('.rk-pin[data-id="DZ"] .rk-marke-t').textContent(), '+');
+  await page.locator('.rk-pin[data-id="DZ"]').dispatchEvent('click'); await page.locator('.rk-seite-blatt').getByText('Zusatz', { exact: true }).waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/rk-teile-1280.png') });
+});
+
+test('RK-App: Verschieben und Zoomen mit Maus und Finger, + / − / ⤢; Beschriftungen bleiben gleich groß', async (t) => {
+  for (const [b, h] of [[1280, 800], [400, 860]]) {
+    const { page } = await rkOeffnen(t, b, h);
+    const vb = () => page.locator('.rk-svg').getAttribute('viewBox').then((v) => v.split(' ').map(Number));
+    const v0 = await vb(); const r = await page.locator('.rk-rahmen').boundingBox();
+    // Maus ziehen
+    await page.mouse.move(r.x + r.width / 2, r.y + 150); await page.mouse.down(); await page.mouse.move(r.x + r.width / 2 - 80, r.y + 190, { steps: 6 }); await page.mouse.up();
+    const v1 = await vb(); assert.ok(v1[0] > v0[0] && v1[1] < v0[1], `verschoben ${v0} → ${v1}`);
+    // Mausrad
+    await page.mouse.move(r.x + r.width / 2, r.y + 200); await page.mouse.wheel(0, -300); await page.waitForTimeout(100); const v2 = await vb(); assert.ok(v2[2] < v1[2], 'Rad zoomt hinein');
+    // Knöpfe
+    await page.getByRole('button', { name: 'Herauszoomen' }).click(); const v3 = await vb(); assert.ok(v3[2] > v2[2]);
+    await page.getByRole('button', { name: 'Ganze Ebene zeigen' }).click();
+    // zwei Finger: Pinch (Zeiger-Ereignisse wie auf dem Tablet)
+    const v4 = await vb();
+    await page.evaluate(({ x, y }) => { const e = document.querySelector('.rk-rahmen'); const f = (typ, id, px, py) => e.dispatchEvent(new PointerEvent(typ, { pointerId: id, pointerType: 'touch', clientX: px, clientY: py, bubbles: true, isPrimary: id === 1 }));
+      f('pointerdown', 1, x - 40, y); f('pointerdown', 2, x + 40, y); for (let i = 1; i <= 5; i++) { f('pointermove', 1, x - 40 - i * 16, y); f('pointermove', 2, x + 40 + i * 16, y); } f('pointerup', 1, x - 120, y); f('pointerup', 2, x + 120, y); }, { x: r.x + r.width / 2, y: r.y + 220 });
+    await page.waitForTimeout(100); const v5 = await vb(); assert.ok(v5[2] < v4[2] * 0.6, `Pinch zoomt hinein ${v4[2]} → ${v5[2]}`);
+    // Schrift der Länder-Schilder auf dem Bildschirm gleich groß (gegen den Zoom skaliert)
+    const groesse = await page.locator('.rk-pland').first().evaluate((x) => x.getBoundingClientRect().height); assert.ok(groesse > 8 && groesse < 20, `Schild ${groesse} px`);
+    // Antippen nach dem Ziehen öffnet kein Blatt
+    assert.equal(await page.locator('.rk-blatt:not([hidden]), .rk-seite-blatt').count(), 0);
+  }
+});
+
+test('RK-App: Schalter „Abflugtafel“ (bis zur Freigabe) und zurück; Start, Check-in, Flug-Test und Expedition aus der Karte erreichbar; Karte einmal je Sitzung', async (t) => {
+  const ex = exServer(); const srv = rkServer({ basis: ex.anpassen });
+  const { page, calls } = await setup(t, { gestaltung: 'nacht', anpassen: srv.anpassen }); await page.setViewportSize({ width: 400, height: 860 });
+  await page.addInitScript(() => localStorage.setItem('lern.exfrei.1.7', '1'));
+  await page.goto(origin + '/#/reise/1'); await page.locator('.rk .rk-pin').first().waitFor();
+  // Expedition: oberste Karte in der schwebenden Zone, „Gerade dran“ schmal darunter, beide tippbar
+  const exK = page.locator('.rk-schwebe .lr-ex-karte'); await exK.waitFor();
+  assert.equal(await page.locator('.rk-schwebe .rk-schwebe-karte.kompakt').count(), 1);
+  assert.match(await exK.getByRole('link', { name: /Expedition starten/ }).getAttribute('href'), /#\/expedition\/1-7$/);
+  const zielKarte = await page.locator('.rk-schwebe .rk-start').getAttribute('href');
+  await page.screenshot({ path: path.join(root, 'test-results/rk-expedition-400.png') });
+  // Antarktis: Stationen, die freigeschaltete pulsiert (grün)
+  await page.locator('.rk-pfad-teil', { hasText: 'Welt' }).click(); await page.locator('.rk-station-frei').waitFor();
+  assert.ok((await page.locator('.rk-kzahl').allTextContents()).includes('⛯ 1 Expedition freigeschaltet'));
+  // Schalter: Abflugtafel → gleiche Ziele
+  await page.getByRole('button', { name: 'Abflugtafel' }).click(); await page.locator('.lr-abflugtafel').waitFor();
+  assert.equal(await page.locator('.lr-einsteigen-knopf').getAttribute('href'), zielKarte, 'Startknopf führt wie die Tafel');
+  await page.reload(); await page.locator('.lr-abflugtafel').waitFor(); assert.equal(await page.locator('.rk').count(), 0, 'Wahl gemerkt');
+  await page.getByRole('button', { name: 'Zur Reisekarte ›' }).click(); await page.locator('.rk .rk-pin').first().waitFor();
+  // einmal je Sitzung: Seite wechseln und zurück
+  const vorher = calls.filter((c) => c.aktion === 'schule_reise_karte').length;
+  await page.evaluate(() => { location.hash = '#/reisepass/1'; }); await page.locator('.lr-stats-box').waitFor();
+  await page.evaluate(() => { location.hash = '#/reise/1'; }); await page.locator('.rk .rk-pin').first().waitFor();
+  assert.equal(calls.filter((c) => c.aktion === 'schule_reise_karte').length, vorher, 'Karten-Antwort aus dem Speicher');
+  // alter Server ohne Karte: Anzeigetafel wie bisher
+  const alt = rkServer({ karte: false }); const { page: p2 } = await setup(t, { gestaltung: 'nacht', anpassen: alt.anpassen }); await p2.goto(origin + '/#/reise/1'); await p2.locator('.lr-abflugtafel').waitFor();
+  assert.equal(await p2.locator('.rk').count(), 0);
+});
+
+test('RK-App: Startknopf zeigt Check-in und Flug-Test wie die Tafel; nach einer Landung ist die Karte „alt“ und wird im Hintergrund neu geholt', async (t) => {
+  // Test fällig: alle Etappen sitzen → „Zum Flug-Test“
+  const srv = rkServer({ basis: (aktion, e) => (aktion === 'schule_merkheft' && e ? { ...e, einheiten: e.einheiten.map((x) => (x.einheit_id === 1 ? { ...x, stand: Object.fromEntries(x.etappen.map((et) => [et.lernziel, { fertig: true }])) } : x)) } : e) });
+  const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen }); await page.setViewportSize({ width: 820, height: 1180 });
+  await page.goto(origin + '/#/reise/1'); const st = page.locator('.rk-schwebe .rk-start'); await st.waitFor();
+  const txt = await st.innerText(); const href = await st.getAttribute('href');
+  await page.getByRole('button', { name: 'Abflugtafel' }).click(); await page.locator('.lr-abflugtafel').waitFor();
+  assert.equal(await page.locator('.lr-einsteigen-knopf').getAttribute('href'), href);
+  if (/test$/.test(href)) assert.match(txt, /Zum Flug-Test/);
+  await page.getByRole('button', { name: 'Zur Reisekarte ›' }).click(); await page.locator('.rk-schwebe .rk-start').waitFor();
+  // Änderung (Antwort) → Karte gilt als alt → beim nächsten Öffnen sofort die alte, dann die neue
+  const n0 = (await page.evaluate(() => lernReiseKarteSpeicher.size));
+  await page.evaluate(() => lernVergessen(1)); assert.equal(await page.evaluate(() => lernReiseKarteSpeicher.has(1)), false); assert.ok(n0 >= 1);
+  await page.evaluate(() => { location.hash = '#/reisepass/1'; }); await page.locator('.lr-stats-box').waitFor();
+  await page.evaluate(() => { location.hash = '#/reise/1'; }); await page.locator('.rk .rk-pin').first().waitFor();
+  await page.waitForFunction(() => lernReiseKarteSpeicher.has(1));
+});
+
+test('RK-App: Info-Seite nennt die Reisekarte und die Quellen (GeoNames CC BY 4.0, Natural Earth, COMNAP); Lizenztexte liegen im Repo', async (t) => {
+  const { page } = await setup(t); await page.goto(origin + '/#/info'); await page.locator('main').getByText('Reisekarte:', { exact: false }).first().waitFor({ state: 'attached' });
+  const txt = await page.locator('main').evaluate((m) => m.textContent);
+  for (const s2 of ['GeoNames (CC BY 4.0)', 'Natural Earth (gemeinfrei)', 'COMNAP Antarctic Facilities (nur private, nicht kommerzielle Bildungs-Nutzung)', 'Abflugtafel']) assert.ok(txt.includes(s2), s2);
+  const lz = fs.readFileSync(path.join(root, 'karte/LIZENZEN.md'), 'utf8');
+  for (const s2 of ['## flag-icons', '## i18n-iso-countries', '## countries-list', 'MIT', 'CC BY 4.0', 'COMNAP']) assert.ok(lz.includes(s2), s2);
 });

@@ -28,6 +28,7 @@ const lernSpeicher = new Map(); // Schlüssel → { p, wert, t, kind, frisch }
 const lernSpeicherSchl = (a, d) => a + '|' + JSON.stringify(d || {});
 const lernKopie = (w) => (w && typeof w === 'object' ? structuredClone(w) : w);
 function lernVergessen(kindId) {
+  if (typeof lernReiseKarteVergessen === 'function') lernReiseKarteVergessen(kindId); // RK: Karte gilt als alt (wird im Hintergrund neu geholt)
   for (const [s, e] of lernSpeicher) if (kindId === undefined || kindId === null || e.kind === null || e.kind === Number(kindId)) lernSpeicher.delete(s);
 }
 function lernMerkeAuf(s, aktion, daten, p) {
@@ -657,16 +658,20 @@ async function viewExpedition(arg) {
     el('a', { class: 'lr-textlink lr-ex-flug', href: nf ? `#/lerneinheit/${kind.id}-${nf.id}-${nf.laeuft ? 'test' : 'ueben'}` : `#/reise/${kind.id}` }, nf ? `Zum Flug: weiter in ${nf.stadt || nf.titel} ›` : 'Zur Abflugtafel ›')));
 }
 // Ansicht 4 – Stempel-Sammlung (Reisepass · Expeditionen). Gesperrte Stationen zeigen, was fehlt (Stand je Etappe aus schule_reise_karte, wenn da).
-const lernReiseKarteSpeicher = new Map(); // je Kind einmal je Sitzung (RK: ~170 KB)
+// RK: Karten-Antwort (~170 KB) je Kind einmal je Sitzung laden und merken. Nach einer Änderung für das Kind (Landung, Plan …) gilt sie als alt:
+// die Ansicht zeigt sofort die alte und holt im Hintergrund die neue (lernReiseKarteFrisch).
+const lernReiseKarteSpeicher = new Map(); // Kind → Promise
+const lernReiseKarteAlt = new Map(); // Kind → letzte Antwort
 function lernReiseKarte(kindId) {
   if (!lernReiseKarteSpeicher.has(kindId)) {
     const t0 = performance.now();
-    const p = lernCall('schule_reise_karte', { lernender_id: kindId }).then((r) => { if (r) r._ladezeit = Math.round(performance.now() - t0); return r; })
+    const p = lernCallNetz('schule_reise_karte', { lernender_id: kindId }).then((r) => { if (r) { r._ladezeit = Math.round(performance.now() - t0); lernReiseKarteAlt.set(kindId, r); } return r; })
       .catch((e) => { lernReiseKarteSpeicher.delete(kindId); throw e; });
     lernReiseKarteSpeicher.set(kindId, p);
   }
   return lernReiseKarteSpeicher.get(kindId);
 }
+const lernReiseKarteVergessen = (kindId) => { if (kindId === undefined || kindId === null) lernReiseKarteSpeicher.clear(); else lernReiseKarteSpeicher.delete(Number(kindId)); };
 function lernExFehlt(s, karte) {
   if (!karte) return null;
   const fluege = (karte.kontinente || []).flatMap((k) => k.fluege || []);
@@ -1400,6 +1405,9 @@ async function viewReise(arg) {
   setChrome('Lernreise', { back: true, showTabs: false });
   const live = viewGuard();
   loading();
+  // RK: Karten-Antwort gleichzeitig laden (je Sitzung einmal; nach einer Änderung sofort die alte zeigen, die neue im Hintergrund)
+  const kidNr = Number(arg); const karteFrisch = lernReiseKarteSpeicher.has(kidNr); const karteAlt = kidNr && !karteFrisch ? lernReiseKarteAlt.get(kidNr) || null : null;
+  const kartePromise = kidNr && lernRkAnsicht(kidNr) === 'karte' ? lernReiseKarte(kidNr).catch(() => null) : null;
   const d = await lernLadeKind(arg);
   if (!d || !live()) return;
   const [merk, wdh] = await Promise.all([lernMerkDaten(d).catch(() => []), lernWdhLaden(d.kind.id).catch(() => null)]);
@@ -1413,7 +1421,22 @@ async function viewReise(arg) {
   // K1/U1: Den Stempel gibt es erst, wenn alle Flüge des Ortes geschafft sind – das Band zählt deshalb alle Etappen des Ortes.
   const ortFluege = n ? d.mit.filter((e) => e.block_id === n.block_id) : [];
   const ort = ortFluege.reduce((z, e) => { const m = merk.find((x) => x.einheit_id === e.id); const q = m ? lernEtappenZahl(m) : { n: e.n, f: e.fertig }; return { n: z.n + q.n, f: z.f + Math.min(q.f, q.n), fluege: z.fluege + 1 }; }, { n: 0, f: 0, fluege: 0 });
-  if (lernNeu(kind) && n) { lernErsetze(main, lernRahmen(kind, 'reise', ...lernAbflugtafel(d, { n, et, nWdh, wdhRest, wdhFertig: wdhGemacht, ort, ws }))); lernExFreiBeimStart(d); return; }
+  if (lernNeu(kind) && n) {
+    // RK-App: Reisekarte statt Anzeigetafel (nur wenn der Server die Karte liefert; Schalter „Abflugtafel“ führt zurück)
+    let karte = null;
+    if (kartePromise) { karte = karteAlt || await kartePromise; if (!karte && karteAlt) karte = karteAlt; }
+    if (!live()) return;
+    const mitKarte = Array.isArray(karte?.kontinente) && karte.kontinente.some((k) => (k.fluege || []).length);
+    if (mitKarte && lernRkAnsicht(kind.id) === 'karte') {
+      lernErsetze(main, lernRahmen(kind, 'reise', lernReisekarte(d, karte, lernRkStart(d, { n, et, nWdh, ws, wdhFertig: wdhGemacht }))));
+      lernExFreiBeimStart(d);
+      if (karte === karteAlt) kartePromise?.then((k2) => { if (live() && k2 && k2 !== karteAlt) render(); }); // die neue Antwort ist da → neu zeichnen
+      return;
+    }
+    lernErsetze(main, lernRahmen(kind, 'reise', ...lernAbflugtafel(d, { n, et, nWdh, wdhRest, wdhFertig: wdhGemacht, ort, ws }),
+      (mitKarte || lernRkAnsicht(kind.id) === 'tafel') ? el('button', { type: 'button', class: 'lr-textlink rk-zur-karte', onclick: () => { lernRkAnsicht(kind.id, 'karte'); render(); } }, 'Zur Reisekarte ›') : null));
+    lernExFreiBeimStart(d); return;
+  }
   const teile = [el('header', { class: 'lr-kopf lr-kopf-kurz' }, el('p', { class: 'lr-gruss' }, `Hallo ${kind.name}!`)), lernExKarte(d), lernNachbuchungHinweis(d)].filter(Boolean);
   if (n) {
     const kont = d.orte.filter((o) => o.kontinent === (d.orte.find((x) => x.block_id === n.block_id)?.kontinent));
@@ -1591,6 +1614,397 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort =
         : wdhFertig ? [el('span', {}, `Weiter nach ${n.stadt || n.ort_titel || n.titel} ›`)]
         : [el('span', {}, 'Einsteigen'), el('span', { class: 'lr-mono' }, code(n).slice(0, 14) + ' ›')]))),
   ];
+}
+
+// ---------- RK-App (0.92.0): Reisekarte – ersetzt die Anzeigetafel der Kinderseite ----------
+// Vorgabe inhalte/pruefung/kind/karte/umsetzung.md (§1–11) und EX-Vorgabe §7 (Antarktis). Ebenen Welt › Kontinent › Land, alles aus schule_reise_karte
+// (keine feste Zahl an Kontinenten, Ländern, Städten). Umrisse: karte/welt.json und karte/kontinent-<id>.json (Natural Earth, im Build vorgerechnet von
+// tools/karte/bauen.mjs), Flaggen karte/flaggen/<iso>.svg – erst beim Anzeigen geladen. Keine Kartenkacheln, kein Kartenserver.
+// Die alte Anzeigetafel bleibt hinter dem Schalter „Abflugtafel“ erreichbar (je Kind auf dem Gerät gemerkt), bis Sebastian die Karte freigibt.
+const LERN_KARTE_BASIS = (() => { try { const s = document.currentScript?.src || [...document.scripts].map((x) => x.src).find((x) => /lernen\.js/.test(x)); return new URL('karte/', s || location.href).href; } catch { return 'karte/'; } })();
+const lernKarteDateien = new Map(); // Datei → Promise (einmal je Sitzung)
+const lernKarteMessung = {}; // Datei → { ms, bytes } (Ladezeit und Größe; Test/Meldung)
+function lernKarteDatei(name) {
+  if (!lernKarteDateien.has(name)) {
+    const t0 = performance.now();
+    lernKarteDateien.set(name, fetch(LERN_KARTE_BASIS + name).then(async (r) => { if (!r.ok) throw new Error('Karte fehlt: ' + name); const txt = await r.text();
+      lernKarteMessung[name] = { ms: Math.round(performance.now() - t0), bytes: txt.length }; return JSON.parse(txt); })
+      .catch((e) => { lernKarteDateien.delete(name); throw e; }));
+  }
+  return lernKarteDateien.get(name);
+}
+// Projektion wie im Build (d3: geoNaturalEarth1 für die Welt, geoMercator mit Drehung je Kontinent) – Probe in tools/karte/bauen.mjs
+function lernKarteProj(q, lon, lat) {
+  const rad = Math.PI / 180; const f = Number(lat) * rad;
+  const l = ((Number(lon) - (q.art === 'merc' ? q.rot : -q.rot) + 540) % 360 - 180) * rad;
+  let x, y;
+  if (q.art === 'merc') { x = l; y = Math.log(Math.tan(Math.PI / 4 + Math.max(-1.5, Math.min(1.5, f)) / 2)); }
+  else { const f2 = f * f, f4 = f2 * f2; x = l * (0.8707 - 0.131979 * f2 + f4 * (-0.013791 + f4 * (0.003971 * f2 - 0.001529 * f4))); y = f * (1.007226 + f2 * (0.015085 + f4 * (-0.044475 + 0.028874 * f2 - 0.005916 * f4))); }
+  return [q.tx + q.k * x, q.ty - q.k * y];
+}
+const lernRkAnsicht = (kindId, setzen) => { try { if (setzen) localStorage.setItem('lern.rk.' + kindId, setzen); return localStorage.getItem('lern.rk.' + kindId) === 'tafel' ? 'tafel' : 'karte'; } catch { return 'karte'; } };
+const lernRkSchl = (f) => (f.region ? `${f.iso}:${f.region}` : f.iso);
+const lernRkKurz = (t) => String(t || '').replace(/\s*\(.*?\)\s*/g, ' ').replace(/\s+–\s+neu.*$/, '').trim();
+const lernRkFlagge = (iso) => (iso ? LERN_KARTE_BASIS + 'flaggen/' + String(iso).toLowerCase() + '.svg' : '');
+// Zustand eines Flugs/Landes (§4): golden · gerade dran · geschafft · „Kann er“ · im Plan · Zusatz · offen
+function lernRkZustand(f, nst) {
+  if (!f) return 'ohne';
+  if (f.golden) return 'gold';
+  if (f.stufe === 'dran' || (nst && Number(nst.thema_id) === Number(f.thema_id))) return 'dran';
+  if (f.stempel) return 'gesch';
+  if (f.gesetzt === 'komplett' || f.stufe === 'komplett') return 'kann';
+  if (f.zusatz) return 'zusatz';
+  if (f.im_plan) return 'plan';
+  return 'offen';
+}
+const LERN_RK_WORT = { gold: '★ golden – alles sitzt', dran: 'gerade dran', gesch: '✓ geschafft – noch in Wiederholung', kann: '◉ kannst du schon', plan: 'im Plan', zusatz: 'Zusatz für Entdecker', offen: 'offen', ohne: '' };
+const LERN_RK_STADT = { offen: 'kommt noch', begonnen: 'angefangen', gelandet: 'gelandet', sicher: 'sitzt sicher', wieder_offen: 'heute wiederholen' };
+// Startknopf (wie die Abflugtafel): Test läuft / Test bereit / erst Check-in / Thema
+function lernRkStart(d, { n, et, nWdh, ws, wdhFertig }) {
+  const kind = d.kind;
+  const testDran = !n.laeuft && !n.ohneTest && et.n > 0 && et.f >= et.n;
+  const ziel = n.laeuft || testDran ? `#/lerneinheit/${kind.id}-${n.id}-test` : nWdh ? `#/wiederholen/${kind.id}` : `#/lerneinheit/${kind.id}-${n.id}-ueben`;
+  const stadt = n.stadt || n.ort_titel || n.titel;
+  const text = n.laeuft ? 'Test weitermachen' : testDran ? 'Zum Flug-Test' : nWdh ? (ws?.neu ? 'Weiter geht’s' : `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'}`) : wdhFertig ? `Weiter nach ${stadt}` : `Weiter in ${stadt}`;
+  const ansage = nWdh && !n.laeuft && !testDran && ws?.neu && ws.offen ? `${ws.erledigt ? 'Noch' : 'Erst'} ${ws.offen} ${ws.offen === 1 ? 'Bordkarte' : 'Bordkarten'} Check-in · ca. ${Math.max(1, Math.ceil(ws.offen * 0.5))} Min.` : null;
+  return { ziel, text, testDran, ansage, wdh: nWdh };
+}
+
+function lernReisekarte(d, karte, start) {
+  const kind = d.kind; const nst = karte.naechster_start || null;
+  const KONT = (karte.kontinente || []).filter((k) => (k.fluege || []).length || k.laender);
+  const alleFluege = KONT.flatMap((k) => (k.fluege || []).map((f) => ({ ...f, kontinent_id: k.id })));
+  const flugVon = (kontId, gebiet) => alleFluege.find((f) => f.kontinent_id === kontId && lernRkSchl(f) === gebiet) || null;
+  const dranFlug = alleFluege.find((f) => nst && Number(f.thema_id) === Number(nst.thema_id)) || alleFluege.find((f) => f.stufe === 'dran') || null;
+  const dranStadt = dranFlug && nst?.stadt ? (dranFlug.staedte || []).find((s) => Number(s.nr) === Number(nst.stadt.nr)) : null;
+  const handy = () => innerWidth < 1100;
+  const rechner = () => !handy();
+  // Zustand der Ansicht
+  const z = { ebene: 'kontinent', kont: dranFlug?.kontinent_id ?? nst?.kontinent_id ?? KONT[0]?.id, land: null, sel: null, vb: null, daten: null, laedt: false };
+  if (z.kont === undefined || z.kont === null) z.ebene = 'welt';
+  const ns = 'http://www.w3.org/2000/svg';
+  const s = (tag, a = {}, ...kids) => { const e = document.createElementNS(ns, tag); for (const [k, v] of Object.entries(a)) if (v !== null && v !== undefined && v !== false) e.setAttribute(k, v); for (const c of kids.flat()) if (c !== null && c !== undefined && c !== false) e.append(c); return e; };
+  const svg = s('svg', { class: 'rk-svg', role: 'img', 'aria-label': 'Reisekarte' });
+  const ebenen = { meer: s('g'), land: s('g', { class: 'rk-laender' }), kette: s('g', { class: 'rk-kette' }), route: s('g', { class: 'rk-routen' }), oben: s('g', { class: 'rk-oben' }) };
+  svg.append(s('defs', {}, s('pattern', { id: 'rk-schraffur', width: 6, height: 6, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)' }, s('rect', { width: 6, height: 6, class: 'rk-schr-g' }), s('line', { x1: 0, y1: 0, x2: 0, y2: 6, class: 'rk-schr-l' })),
+    s('clipPath', { id: 'rk-kreis', clipPathUnits: 'objectBoundingBox' }, s('circle', { cx: 0.5, cy: 0.5, r: 0.5 }))), ebenen.meer, ebenen.land, ebenen.kette, ebenen.route, ebenen.oben);
+  const rahmen = el('div', { class: 'rk-rahmen' }, svg);
+  const pfad = el('nav', { class: 'rk-pfad', 'aria-label': 'Ebene der Karte' });
+  const blatt = el('section', { class: 'rk-blatt', 'aria-live': 'polite', hidden: true });
+  const seite = el('aside', { class: 'rk-seite' });
+  const schwebe = el('div', { class: 'rk-schwebe' });
+  const zoomKnoepfe = el('div', { class: 'rk-zoom' },
+    el('button', { type: 'button', 'aria-label': 'Hineinzoomen', onclick: () => zoomUm(1 / 1.5) }, '+'),
+    el('button', { type: 'button', 'aria-label': 'Herauszoomen', onclick: () => zoomUm(1.5) }, '−'),
+    el('button', { type: 'button', 'aria-label': 'Ganze Ebene zeigen', onclick: () => { passend(); zeichneOben(); } }, '⤢'));
+  const quelle = el('p', { class: 'rk-quelle' }, 'Karte: Natural Earth · Orte: GeoNames (CC BY 4.0)' + (z.ebene === 'welt' ? ' · Stationen: COMNAP' : ''));
+  const kartenTeil = el('div', { class: 'rk-karte' }, rahmen, zoomKnoepfe, quelle);
+  const wurzel = el('div', { class: 'rk' + (handy() ? ' rk-handy' : ' rk-rechner') },
+    el('header', { class: 'rk-kopf' }, el('h1', { class: 'lr-titel' }, 'Meine Reise'),
+      el('button', { type: 'button', class: 'rk-tafel-knopf', onclick: () => { lernRkAnsicht(kind.id, 'tafel'); render(); } }, 'Abflugtafel'),
+      el('a', { class: 'lr-chip-stern', href: `#/reisepass/${kind.id}`, 'aria-label': `${lernZahl(d.konto?.sterne ?? 0)} Sterne – zum Reisepass` }, '★ ' + lernZahl(d.konto?.sterne ?? 0))),
+    pfad, el('div', { class: 'rk-koerper' }, kartenTeil, seite));
+
+  // ---------- Startknopf schwebend in der Karte (§1), Expedition darüber (EX §3) ----------
+  const geradeDran = () => {
+    const ex = lernExKarte(d); const kompakt = !!ex && handy();
+    const f = dranFlug; const st = dranStadt; const n = f ? (Number(f.etappen) || (f.staedte || []).filter((x) => x.pflicht !== false).length) : 0; const g = f ? Number(f.gelandet) || 0 : 0;
+    const teil = f?.teil_von > 1 ? ` – Teil ${f.teil} von ${f.teil_von}` : '';
+    const zeile = f ? el('div', { class: 'rk-dran' },
+      f.iso ? el('img', { class: 'rk-dran-flagge', src: lernRkFlagge(f.iso), alt: '', loading: 'lazy' }) : null,
+      el('div', { class: 'rk-dran-text' }, el('small', {}, 'GERADE DRAN'), el('b', {}, st?.name || f.land, el('span', {}, ` in ${f.land}`)),
+        kompakt ? null : el('span', { class: 'rk-dran-sub' }, `${f.titel}${teil}${st ? ` · Stadt ${st.nr} von ${(f.staedte || []).length}` : ''}`)),
+      kompakt ? null : el('div', { class: 'rk-dran-stand', role: 'img', 'aria-label': `${g} von ${n} Städten gelandet` }, el('b', {}, `${g}/${n}`),
+        n <= 16 ? el('span', { class: 'rk-striche' }, ...Array.from({ length: n }, (_, i) => el('i', { class: i < g ? 'g' : '' }))) : null)) : null;
+    const text = st && !start.testDran && !start.wdh && !/Test/.test(start.text) ? `Weiter in ${st.name}` : start.text; // Name der Stadt aus der Karte (Reise-Aufbau)
+    const knopf = el('a', { class: 'rk-start', href: start.ziel }, el('span', {}, el('b', {}, text + ' ›'), st && !start.testDran && !start.wdh ? el('small', {}, `Stadt ${st.nr} · ${st.titel || ''}`) : start.wdh ? el('small', {}, 'Zuerst ein paar Bordkarten von früher') : null));
+    return [ex, el('div', { class: 'rk-schwebe-karte' + (kompakt ? ' kompakt' : '') }, zeile, start.ansage ? el('p', { class: 'lr-dock-ansage rk-ansage' }, start.ansage) : null, knopf)];
+  };
+
+  // ---------- Daten laden je Ebene ----------
+  async function lade() {
+    const name = z.ebene === 'welt' ? 'welt.json' : `kontinent-${z.kont}.json`;
+    z.laedt = true; wurzel.classList.add('rk-laedt');
+    try { z.daten = await lernKarteDatei(name); } catch { z.daten = null; }
+    z.laedt = false; wurzel.classList.remove('rk-laedt');
+  }
+  // ---------- Ansicht (viewBox) ----------
+  const groesse = () => { const r = rahmen.getBoundingClientRect(); return [Math.max(200, r.width), Math.max(200, r.height)]; };
+  const unten = () => (handy() ? (schwebe.getBoundingClientRect().height || 150) + 16 : 0);
+  function setzeVb(vb) { z.vb = vb; svg.setAttribute('viewBox', vb.map((v) => v.toFixed(1)).join(' ')); }
+  function passeAn(box, rand = 0.12) {
+    const [W, H] = groesse(); const u = unten(); const hNutz = Math.max(120, H - u);
+    let [x0, y0, x1, y1] = box; const bw = Math.max(20, x1 - x0) * (1 + 2 * rand), bh = Math.max(20, y1 - y0) * (1 + 2 * rand);
+    const k = Math.max(bw / W, bh / hNutz); const w = W * k, h = H * k; const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+    setzeVb([cx - w / 2, cy - hNutz * k / 2, w, h]);
+  }
+  function passend() {
+    const D = z.daten; if (!D) return;
+    if (z.ebene === 'welt') { passeAn([0, 20, D.w, D.h - 10], 0.02); return; }
+    if (z.ebene === 'land') { const g = D.gebiete.find((x) => x.id === z.land); if (g) { passeAn(g.b, 0.18); return; } }
+    // Kontinent: auf die eigene Länder-Route (Pins der Flüge), sonst ganze Datei
+    const pins = (D.gebiete || []).filter((g) => flugVon(z.kont, g.id)).map((g) => g.hs?.p || g.lp).filter(Boolean);
+    if (pins.length) { const xs = pins.map((p) => p[0]), ys = pins.map((p) => p[1]); passeAn([Math.min(...xs), Math.min(...ys) - 40, Math.max(...xs), Math.max(...ys)], 0.12); }
+    else passeAn([0, 0, D.w, D.h], 0);
+  }
+  const mass = () => { const [W] = groesse(); return z.vb ? z.vb[2] / W : 1; }; // Kartenmaß je Bildschirmpixel
+
+  // ---------- Zeichnen ----------
+  function zeichneLaender() {
+    const D = z.daten; lernErsetze(ebenen.meer); lernErsetze(ebenen.land); lernErsetze(ebenen.kette); lernErsetze(ebenen.route);
+    if (!D) { ebenen.meer.append(s('text', { x: 10, y: 30, class: 'rk-fehlt' }, 'Karte lädt nicht – bitte später noch einmal.')); return; }
+    ebenen.meer.append(s('rect', { x: -5000, y: -5000, width: 12000, height: 12000, class: 'rk-meer' }));
+    if (z.ebene === 'welt') {
+      if (D.graticule) ebenen.meer.append(s('path', { d: D.graticule, class: 'rk-gitter' }));
+      for (const g of D.gebiete) {
+        const k = KONT.find((x) => x.id === g.k);
+        const p = s('path', { d: g.d, class: 'rk-land rk-welt-k' + (g.k === 'ant' ? ' rk-ant' : k ? ` rk-k rk-k${(KONT.indexOf(k) % 8) + 1}` : ' rk-fremd') + (k && k.id === dranFlug?.kontinent_id ? ' rk-k-dran' : '') });
+        if (k) { p.addEventListener('click', () => { if (gezogen) return; geheKontinent(k.id); }); p.setAttribute('data-k', String(k.id)); }
+        if (g.k === 'ant') p.addEventListener('click', () => { if (!gezogen) route('stationen', String(kind.id)); });
+        ebenen.land.append(p);
+      }
+      return;
+    }
+    for (const g of D.gebiete) {
+      const f = flugVon(z.kont, g.id); const zst = lernRkZustand(f, nst);
+      const eigen = g.k === z.kont;
+      const cls = ['rk-land', f ? 'rk-z-' + zst : eigen ? 'rk-eigen' : 'rk-fremd'];
+      if (z.ebene === 'land') cls.push(g.id === z.land ? 'rk-auf' : 'rk-gedaempft');
+      if (z.sel === g.id) cls.push('rk-sel');
+      const p = s('path', { d: g.d, class: cls.join(' '), 'data-id': g.id });
+      p.addEventListener('click', () => { if (gezogen) return; waehle(g.id); });
+      ebenen.land.append(p);
+    }
+    if (z.ebene === 'land') { const g = D.gebiete.find((x) => x.id === z.land); if (g) ebenen.land.append(s('path', { d: g.d, class: 'rk-umriss' })); }
+  }
+  // Länder-Route (§5): Bögen in der Reihenfolge des Plans; geflogen grün durchgezogen, kommt gelb gepunktet. Teile: feine graue Kette (§11).
+  const reihe = (kontId) => {
+    const fl = alleFluege.filter((f) => f.kontinent_id === kontId && !f.zusatz);
+    const war = fl.filter((f) => ['gold', 'gesch', 'kann'].includes(lernRkZustand(f, nst))).sort((a, b) => String(a.stempel_am || '').localeCompare(String(b.stempel_am || '')));
+    const dran = fl.filter((f) => lernRkZustand(f, nst) === 'dran');
+    const plan = fl.filter((f) => lernRkZustand(f, nst) === 'plan').sort((a, b) => (Number(a.plan_platz) || 999) - (Number(b.plan_platz) || 999));
+    return [...war, ...dran, ...plan];
+  };
+  const kopfPos = (g, k) => { const p = g.hs?.p || g.lp; return p ? [p[0], p[1] - 30 * k] : null; };
+  const bogen = (a, b, k, cls) => { const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2; const dx = b[0] - a[0], dy = b[1] - a[1]; const l = Math.hypot(dx, dy) || 1;
+    return s('path', { d: `M${a[0]},${a[1]} Q${mx - dy / l * l * 0.18},${my + dx / l * l * 0.18} ${b[0]},${b[1]}`, class: cls, 'stroke-width': (2 * k).toFixed(2), ...(cls.includes('kommt') ? { 'stroke-dasharray': `${(1.5 * k).toFixed(2)} ${(6 * k).toFixed(2)}` } : {}) }); };
+  function zeichneRouten() {
+    lernErsetze(ebenen.route); lernErsetze(ebenen.kette); const D = z.daten; if (!D || z.ebene === 'welt') return; const k = mass();
+    if (z.ebene === 'kontinent') {
+      const gs = new Map(D.gebiete.map((g) => [g.id, g]));
+      const r = reihe(z.kont).map((f) => ({ f, g: gs.get(lernRkSchl(f)) })).filter((x) => x.g);
+      for (let i = 1; i < r.length; i++) { const a = kopfPos(r[i - 1].g, k), b = kopfPos(r[i].g, k); if (!a || !b) continue;
+        const war = ['gold', 'gesch', 'kann', 'dran'].includes(lernRkZustand(r[i].f, nst)) && ['gold', 'gesch', 'kann'].includes(lernRkZustand(r[i - 1].f, nst));
+        ebenen.route.append(bogen(a, b, k, 'rk-route ' + (war ? 'rk-war' : 'rk-kommt'))); }
+      // Teile eines Themas: Kette Pin zu Pin
+      const stamm = new Map(); for (const f of alleFluege.filter((x) => x.kontinent_id === z.kont && Number(x.teil_von) > 1)) { const st = f.teil_stamm || f.thema_id; if (!stamm.has(st)) stamm.set(st, []); stamm.get(st).push(f); }
+      for (const fs of stamm.values()) { const pts = fs.sort((a, b) => Number(a.teil) - Number(b.teil)).map((f) => gs.get(lernRkSchl(f))).filter(Boolean).map((g) => kopfPos(g, k)).filter(Boolean);
+        for (let i = 1; i < pts.length; i++) { ebenen.kette.append(s('line', { x1: pts[i - 1][0], y1: pts[i - 1][1], x2: pts[i][0], y2: pts[i][1], class: 'rk-kettenlinie', 'stroke-width': (1 * k).toFixed(2), 'stroke-dasharray': `${(1 * k).toFixed(2)} ${(5 * k).toFixed(2)}` })); } }
+    }
+    if (z.ebene === 'land') {
+      const f = flugVon(z.kont, z.land); if (!f) return;
+      const st = (f.staedte || []).slice().sort((a, b) => Number(a.nr) - Number(b.nr)).map((c) => ({ c, p: lernKarteProj(D.proj, c.laenge, c.breite) }));
+      const pf = st.filter((x) => x.c.pflicht !== false);
+      for (let i = 1; i < pf.length; i++) { const war = ['gelandet', 'sicher'].includes(pf[i].c.stand) || (dranStadt && Number(pf[i].c.nr) <= Number(dranStadt.nr) && f === dranFlug);
+        ebenen.route.append(bogen(pf[i - 1].p, pf[i].p, k, 'rk-route ' + (war ? 'rk-war' : 'rk-kommt'))); }
+      for (const x of st.filter((y) => y.c.pflicht === false)) { // Kür: grau gepunktet von der nächsten Pflicht-Stadt davor
+        const vor = pf.filter((y) => Number(y.c.nr) < Number(x.c.nr)).pop() || pf[0]; if (vor) ebenen.route.append(bogen(vor.p, x.p, k, 'rk-route rk-kuer-linie rk-kommt')); }
+    }
+  }
+  // Pins, Beschriftungen, Städte – gleich groß beim Zoomen (gegen den Zoom skaliert); Überdeckung: wichtigere zuerst, Berührendes weglassen (§6)
+  function zeichneOben() {
+    lernErsetze(ebenen.oben); const D = z.daten; if (!D || !z.vb) return; const k = mass(); const [W, H] = groesse();
+    zeichneRouten();
+    const belegt = []; const frei = (b) => !belegt.some((x) => !(b[2] < x[0] || b[0] > x[2] || b[3] < x[1] || b[1] > x[3]));
+    const bild = (p) => [(p[0] - z.vb[0]) / k, (p[1] - z.vb[1]) / k]; // Bildschirm-Pixel
+    const imBild = (q) => q[0] > -60 && q[1] > -60 && q[0] < W + 60 && q[1] < H + 60;
+    const gr = (p, ...kids) => s('g', { transform: `translate(${p[0].toFixed(1)},${p[1].toFixed(1)}) scale(${k.toFixed(4)})` }, ...kids);
+    if (z.ebene === 'welt') {
+      for (const kk of KONT) { const m = D.kontinente?.find((x) => x.id === kk.id)?.mitte; if (!m) continue;
+        const zus = Number(kk.zusatz_laender) || 0;
+        const t = gr(m, s('text', { class: 'rk-kname', y: -6 }, lernRkKurz(kk.reise).toUpperCase()), s('text', { class: 'rk-kzahl', y: 12 }, `${kk.themengebiet || ''}`),
+          s('text', { class: 'rk-kzahl', y: 27 }, `${Number(kk.geschafft) || 0}/${Number(kk.laender) || 0} Länder${zus ? ` · +${zus} Zusatz` : ''}`));
+        t.classList.add('rk-klick'); t.addEventListener('click', () => { if (!gezogen) geheKontinent(kk.id); }); ebenen.oben.append(t); }
+      // Antarktis: Expeditionen (EX §7) – Stationen nach Breite/Länge; geschafft blau ✓, frei grün mit Puls, gesperrt grau 🔒
+      const stand = lernExGeschafftZahl(d), gesamt = lernExGesamt(d); const frei2 = (d.expeditionen || []).filter(lernExOffen).length;
+      if (D.antarktis) { const t = gr(D.antarktis.mitte, s('text', { class: 'rk-kname rk-ant-name', y: -2 }, 'ANTARKTIS'), s('text', { class: 'rk-kzahl', y: 15 }, frei2 ? `⛯ ${frei2} ${frei2 === 1 ? 'Expedition' : 'Expeditionen'} freigeschaltet` : `Expeditionen · ${stand} von ${gesamt} Stationen`));
+        t.classList.add('rk-klick'); t.addEventListener('click', () => { if (!gezogen) route('stationen', String(kind.id)); }); ebenen.oben.append(t); }
+      for (const st of karte.antarktis?.stationen || []) { const x = (st.expeditionen || []).map((sc) => (d.expeditionen || []).find((e) => e.schluessel === sc)).find(Boolean);
+        const zs = x?.zustand === 'geschafft' ? 'gesch' : lernExOffen(x) ? 'frei' : 'zu'; const p = lernKarteProj(D.proj, st.laenge, st.breite);
+        const pin = gr(p, zs === 'frei' ? s('circle', { r: 9, class: 'rk-puls rk-puls-gruen' }) : null, s('circle', { r: 5.5, class: 'rk-station rk-station-' + zs }));
+        pin.append(s('title', {}, `${st.name}${zs === 'gesch' ? ' – geschafft' : zs === 'frei' ? ' – freigeschaltet' : ' – gesperrt'}`)); pin.classList.add('rk-klick');
+        pin.addEventListener('click', () => { if (!gezogen) route('stationen', String(kind.id)); }); ebenen.oben.append(pin); }
+      // hier bist du
+      if (dranStadt) ebenen.oben.append(gr(lernKarteProj(D.proj, dranStadt.laenge, dranStadt.breite), s('circle', { r: 10, class: 'rk-puls' }), s('circle', { r: 5, class: 'rk-hier' })));
+      return;
+    }
+    // Kontinent und Land: Flaggen-Pins (Kopf = Flagge, Spitze = Hauptstadt bzw. Hauptort des Landesteils)
+    const liste = D.gebiete.filter((g) => g.hs).map((g) => ({ g, f: flugVon(z.kont, g.id) }))
+      .sort((a, b) => (b.f ? 1 : 0) - (a.f ? 1 : 0) || (b.g.a || 0) - (a.g.a || 0));
+    const pins = [];
+    for (const { g, f } of liste) {
+      if (z.ebene === 'land' && g.id !== z.land && !f) continue;
+      const q = bild(g.hs.p); if (!imBild(q)) continue;
+      const flaeche = (g.a || 0) / (k * k);
+      if (!f && flaeche < (z.ebene === 'land' ? 2200 : 60)) continue;
+      const kopf = [q[0] - 14, q[1] - 44, q[0] + 14, q[1] - 16];
+      if (!f && !frei(kopf)) continue; belegt.push(kopf);
+      pins.push({ g, f, q, schild: f || flaeche >= 2200 });
+    }
+    // Beschriftungen (Schild rechts neben dem Kopf), mit Überdeckung
+    for (const x of pins) { const name = String(x.g.n || '').toUpperCase(); const breite = Math.max(name.length * 8.2, String(x.g.hs.n || '').length * 6.4) + 8;
+      const b = [x.q[0] + 16, x.q[1] - 46, x.q[0] + 16 + breite, x.q[1] - 16]; x.label = x.schild && (x.f || frei(b)); if (x.label) belegt.push(b); }
+    for (const x of pins.slice().reverse()) ebenen.oben.append(lernRkPin(x, k, gr));
+    // Land-Ebene: Städte der Reise als Haltestellen (§2/§4)
+    if (z.ebene === 'land') {
+      const f = flugVon(z.kont, z.land);
+      // Beschriftung der Städte ohne Überdeckung: „hier bist du“ zuerst, dann der Reihe nach; berührende Namen fallen weg (Nummer bleibt)
+      const stl = f ? (f.staedte || []).slice().sort((a, b) => Number(a.nr) - Number(b.nr)) : [];
+      const mitName = new Set(); const kaesten = [];
+      for (const c of [...stl.filter((c) => dranStadt && f === dranFlug && Number(c.nr) === Number(dranStadt.nr)), ...stl]) { if (mitName.has(c)) continue;
+        const q = bild(lernKarteProj(D.proj, c.laenge, c.breite)); const w = String(c.name).length * 8.6 + 40; const kb = [q[0] - 14, q[1] - 13, q[0] + w, q[1] + 13];
+        kaesten.push([q[0] - 13, q[1] - 13, q[0] + 13, q[1] + 13]);
+        if (!belegt.some((x) => !(kb[2] < x[0] || kb[0] > x[2] || kb[3] < x[1] || kb[1] > x[3])) && !kaesten.slice(0, -1).some((x) => !(kb[2] < x[0] || kb[0] + 26 > x[2] || kb[3] < x[1] || kb[1] > x[3]))) { mitName.add(c); belegt.push(kb); } }
+      if (f) for (const c of stl.slice().reverse()) {
+        const p = lernKarteProj(D.proj, c.laenge, c.breite); const hier = dranStadt && f === dranFlug && Number(c.nr) === Number(dranStadt.nr);
+        const kuer = c.pflicht === false; const zst = f.golden ? 'gold' : hier ? 'hier' : c.stand || 'offen';
+        const zeichen = zst === 'gold' ? '★' : ['gelandet', 'sicher'].includes(zst) ? '✓' : zst === 'wieder_offen' ? '✓' : String(c.nr);
+        const gross = hier ? 15 : 11.5;
+        const grp = gr(p, hier ? s('circle', { r: 22, class: 'rk-puls' }) : null,
+          s('rect', { x: -gross, y: -gross, width: gross * 2, height: gross * 2, rx: 5, class: `rk-stadt rk-st-${zst}${kuer ? ' rk-st-kuer' : ''}` }),
+          s('text', { class: 'rk-st-zahl' + (hier ? ' gross' : ''), y: 1 }, zeichen),
+          zst === 'wieder_offen' ? s('g', { transform: 'translate(10,-10)' }, s('circle', { r: 7, class: 'rk-st-wdh' }), s('text', { class: 'rk-st-wdh-t', y: 1 }, '↻')) : null,
+          !mitName.has(c) ? null : s('text', { class: 'rk-st-name' + (kuer ? ' leise' : ''), x: gross + 5, y: 5 }, hier ? `${c.name} · ${Number(f.gelandet) || 0}/${Number(f.etappen) || (f.staedte || []).length}` : kuer ? `${c.name} · Kür` : c.name));
+        grp.append(s('title', {}, `Stadt ${c.nr}: ${c.name} – ${c.titel || ''} (${hier ? 'hier bist du' : kuer ? 'Kür' : LERN_RK_STADT[c.stand] || c.stand || ''})`));
+        ebenen.oben.append(grp); }
+      // Teil geht weiter (§11)
+      const nx = f && Number(f.teil_von) > 1 ? alleFluege.find((y) => (y.teil_stamm || y.thema_id) === (f.teil_stamm || f.thema_id) && Number(y.teil) === Number(f.teil) + 1) : null;
+      lernErsetze(hinweis, nx ? el('button', { type: 'button', class: 'rk-weiter-hinweis', onclick: () => { z.kont = nx.kontinent_id; geheLand(lernRkSchl(nx)); } }, `Teil ${nx.teil} geht weiter in ${nx.land} ›`) : null);
+    } else lernErsetze(hinweis);
+  }
+  const hinweis = el('div', { class: 'rk-hinweis' }); kartenTeil.append(hinweis);
+  function lernRkPin({ g, f, q, label }, k, gr) {
+    const zst = lernRkZustand(f, nst); const iso = g.iso;
+    const marke = zst === 'gold' ? '★' : zst === 'gesch' ? '✓' : zst === 'kann' ? '◉' : zst === 'plan' && f.plan_platz ? String(f.plan_platz) : zst === 'zusatz' ? '+' : zst === 'dran' ? '✈' : null;
+    const r = f ? 13 : 9; const h = f ? 30 : 22;
+    const kids = [
+      zst === 'dran' ? s('circle', { r: 9, class: 'rk-puls' }) : null,
+      s('path', { d: `M0,0 L${-r * 0.42},${-h + r * 0.6} A${r},${r} 0 1 1 ${r * 0.42},${-h + r * 0.6} Z`, class: 'rk-nadel rk-n-' + (f ? zst : 'ohne') }),
+      iso ? s('image', { href: lernRkFlagge(iso), x: -r + 2, y: -h - r + 2, width: (r - 2) * 2, height: (r - 2) * 2, 'clip-path': 'url(#rk-kreis)', preserveAspectRatio: 'xMidYMid slice', class: f ? '' : 'rk-blass' }) : null,
+      s('circle', { cy: -h, r: r - 2, class: 'rk-kopfring' }),
+      s('circle', { r: 2.2, class: 'rk-spitze' }),
+      marke ? s('g', { transform: `translate(${r * 0.8},${-h - r * 0.8})` }, s('circle', { r: 7.5, class: 'rk-marke rk-m-' + zst }), s('text', { class: 'rk-marke-t', y: 0.5 }, marke)) : null,
+      f && Number(f.teil_von) > 1 ? s('g', { transform: `translate(${-r * 0.9},${-h + r * 0.75})` }, s('rect', { x: -10, y: -7, width: 20, height: 14, rx: 7, class: 'rk-teil' }), s('text', { class: 'rk-teil-t', y: 0.5 }, `${f.teil}/${f.teil_von}`)) : null,
+      label ? s('text', { class: 'rk-pland' + (f ? '' : ' k'), x: r + 4, y: -h - 1 }, String(g.n || '').toUpperCase()) : null,
+      label && g.hs.n ? s('text', { class: 'rk-phs', x: r + 4, y: -h + 12 }, g.hs.n) : null];
+    const pin = gr(g.hs.p, ...kids); pin.classList.add('rk-pin'); if (f) pin.classList.add('rk-pin-flug');
+    const wort = `${g.n}, ${g.region ? 'Hauptort' : 'Hauptstadt'} ${g.hs.n}${f ? ', ' + (LERN_RK_WORT[zst] || '') : ''}`;
+    pin.setAttribute('role', 'button'); pin.setAttribute('tabindex', '0'); pin.setAttribute('aria-label', wort); pin.setAttribute('data-id', g.id);
+    pin.addEventListener('click', (ev) => { ev.stopPropagation(); if (!gezogen) waehle(g.id); });
+    pin.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); waehle(g.id); } });
+    return pin;
+  }
+
+  // ---------- Blatt (§7) und Pfad-Zeile ----------
+  function waehle(id) {
+    z.sel = id; zeichneLaender(); zeichneOben(); zeigeBlatt();
+  }
+  function zeigeBlatt() {
+    const D = z.daten; const g = D?.gebiete?.find((x) => x.id === z.sel); if (!g) { blatt.hidden = true; lernErsetze(blatt); zeichneSeite(); return; }
+    const f = flugVon(z.kont, g.id); const zst = lernRkZustand(f, nst); const kont = KONT.find((x) => x.id === z.kont);
+    const teile = f && Number(f.teil_von) > 1 ? alleFluege.filter((y) => (y.teil_stamm || y.thema_id) === (f.teil_stamm || f.thema_id)).sort((a, b) => Number(a.teil) - Number(b.teil)) : [];
+    const vorTeil = teile.find((y) => Number(y.teil) === Number(f?.teil) - 1);
+    const inhalt = [
+      el('button', { type: 'button', class: 'rk-x', 'aria-label': 'Schließen', onclick: () => { z.sel = null; blatt.hidden = true; zeichneLaender(); zeichneOben(); zeichneSeite(); } }, '✕'),
+      el('p', { class: 'rk-cap' }, g.region ? 'LANDESTEIL' : 'LAND'),
+      el('h3', { class: 'rk-bname' }, g.iso ? el('img', { class: 'rk-plakette', src: lernRkFlagge(g.iso), alt: '' }) : null, g.n),
+      el('p', { class: 'rk-sub' }, `◉ ${g.region ? 'Hauptort' : 'Hauptstadt'}: ${g.hs?.n || '–'}${kont ? ` · Kontinent ${lernRkKurz(kont.reise)}` : ''}`),
+      f ? el('p', { class: 'rk-flug' }, el('b', {}, `✈ ${f.titel}${Number(f.teil_von) > 1 ? ` – Teil ${f.teil} von ${f.teil_von}` : ''}`), ` · ${(f.staedte || []).length} Städte`) : el('p', { class: 'rk-sub' }, 'Hier gibt es (noch) keinen Mathe-Flug.'),
+      f?.untertitel ? el('p', { class: 'rk-sub' }, f.untertitel) : null,
+      f ? el('p', { class: 'rk-zustand rk-zw-' + zst }, zst === 'plan' && f.plan_platz ? `Im Plan · Platz ${f.plan_platz}` : zst === 'gold' ? 'Alle Städte sind abgelegt. Hier musst du nichts mehr wiederholen.' : LERN_RK_WORT[zst]) : null,
+      // §11 Zusatz (Wortlaut der Vorgabe)
+      f && zst === 'zusatz' ? el('p', { class: 'rk-sub' }, el('b', {}, 'Zusatz'), ' – freiwillig, für Entdecker. Muss nicht sein.') : null,
+      teile.length ? el('p', { class: 'rk-teile' }, ...teile.flatMap((y, i) => [i ? ' · ' : null, el('button', { type: 'button', class: 'rk-teil-link', onclick: () => { z.kont = y.kontinent_id; z.sel = lernRkSchl(y); if (z.ebene === 'land') geheLand(lernRkSchl(y)); else geheKontinent(y.kontinent_id, lernRkSchl(y)); } },
+        `Teil ${y.teil}: `, el('img', { class: 'rk-mini-flagge', src: lernRkFlagge(y.iso), alt: '' }), ` ${y.land}${y === f ? ' (hier)' : ['gesch', 'gold', 'kann'].includes(lernRkZustand(y, nst)) ? ' ✓' : ''}`)])) : null,
+      vorTeil && !['gesch', 'gold', 'kann'].includes(lernRkZustand(vorTeil, nst)) && zst !== 'dran' ? el('p', { class: 'rk-sub' }, `Erst Teil ${vorTeil.teil} in ${vorTeil.land}`) : null,
+      f && z.ebene !== 'land' ? el('button', { type: 'button', class: 'rk-staedte-knopf', onclick: () => geheLand(g.id) }, `Städte in ${g.n} ansehen ›`) : null];
+    if (rechner()) { blatt.hidden = true; lernErsetze(blatt); zeichneSeite(inhalt); }
+    else { blatt.hidden = false; lernErsetze(blatt, ...inhalt); }
+  }
+  function zeichnePfad() {
+    const kont = KONT.find((x) => x.id === z.kont); const D = z.daten; const g = z.ebene === 'land' ? D?.gebiete?.find((x) => x.id === z.land) : null;
+    const mich = (bed) => (bed ? el('span', { class: 'rk-mich', 'aria-label': 'hier bist du' }, ' 📍') : null);
+    const teil = (cap, text, aktiv, onclick, extra = null, ich = false) => el('button', { type: 'button', class: 'rk-pfad-teil' + (aktiv ? ' an' : ''), 'aria-current': aktiv ? 'page' : null, onclick }, el('small', {}, cap), el('span', {}, extra, text, mich(ich)));
+    lernErsetze(pfad, teil('WELT', 'Welt', z.ebene === 'welt', () => geheWelt(), '🌍 '),
+      kont && z.ebene !== 'welt' ? [el('i', { 'aria-hidden': 'true' }, '›'), teil('KONTINENT', lernRkKurz(kont.reise), z.ebene === 'kontinent', () => geheKontinent(kont.id), null, kont.id === dranFlug?.kontinent_id)] : null,
+      g ? [el('i', { 'aria-hidden': 'true' }, '›'), teil(g.region ? 'LANDESTEIL' : 'LAND', g.n, true, () => {}, g.iso ? el('img', { class: 'rk-mini-flagge', src: lernRkFlagge(g.iso), alt: '' }) : null, dranFlug && lernRkSchl(dranFlug) === g.id)] : null,
+      dranFlug ? el('button', { type: 'button', class: 'rk-zumir', onclick: () => { z.kont = dranFlug.kontinent_id; geheLand(lernRkSchl(dranFlug)); } }, '📍 Zu mir') : null);
+  }
+  // Rechner: rechte Spalte – Gerade dran + Startknopf, angetipptes Land, „Meine Route · Länder“ bzw. „Städte in …“
+  function zeichneSeite(blattInhalt = null) {
+    if (!rechner()) { lernErsetze(seite); return; }
+    const teile = [el('section', { class: 'rk-seite-karte' }, ...geradeDran())];
+    if (blattInhalt) teile.push(el('section', { class: 'rk-seite-karte rk-seite-blatt' }, ...blattInhalt));
+    if (z.ebene === 'kontinent') { const r = reihe(z.kont);
+      if (r.length) teile.push(el('section', { class: 'rk-seite-karte' }, el('h4', {}, 'MEINE ROUTE · LÄNDER'), ...r.map((f, i) => el('button', { type: 'button', class: 'rk-lzeile', onclick: () => waehle(lernRkSchl(f)) },
+        el('span', { class: 'rk-nr rk-zn-' + lernRkZustand(f, nst) }, String(i + 1)), el('img', { class: 'rk-mini-flagge', src: lernRkFlagge(f.iso), alt: '' }), el('span', {}, el('b', {}, f.land), ` · ${f.titel}${Number(f.teil_von) > 1 ? ` · Teil ${f.teil} von ${f.teil_von}` : ''}`))))); }
+    if (z.ebene === 'land') { const f = flugVon(z.kont, z.land);
+      if (f) teile.push(el('section', { class: 'rk-seite-karte' }, el('h4', {}, `STÄDTE IN ${String(f.land).toUpperCase()}`), ...(f.staedte || []).slice().sort((a, b) => Number(a.nr) - Number(b.nr)).map((c) => el('div', { class: 'rk-lzeile' },
+        el('span', { class: 'rk-nr rk-zs-' + (c.stand || 'offen') + (c.pflicht === false ? ' kuer' : '') }, String(c.nr)), el('span', {}, el('b', {}, c.name), ` · ${c.titel || ''}${c.pflicht === false ? ' · Kür' : ''}`, el('small', {}, ` ${LERN_RK_STADT[c.stand] || ''}`)))))); }
+    lernErsetze(seite, ...teile);
+  }
+  // ---------- Ebenen wechseln (weich, ≤ 0,5 s) ----------
+  async function geheWelt() { z.ebene = 'welt'; z.land = null; z.sel = null; await neu(); }
+  async function geheKontinent(id, sel = null) { z.ebene = 'kontinent'; z.kont = id; z.land = null; z.sel = sel; await neu(); if (sel) zeigeBlatt(); }
+  async function geheLand(id) { const war = z.daten && z.ebene !== 'welt' && z.daten.id === z.kont; z.ebene = 'land'; z.land = id; z.sel = id; if (war) { zeichneLaender(); weich(); zeigeBlatt(); zeichnePfad(); } else { await neu(); zeigeBlatt(); } }
+  async function neu() {
+    blatt.hidden = true; await lade(); if (!document.body.contains(wurzel)) return;
+    quelle.textContent = 'Karte: Natural Earth · Orte: GeoNames (CC BY 4.0)' + (z.ebene === 'welt' ? ' · Stationen: COMNAP (Bildung, nicht kommerziell)' : '');
+    zeichneLaender(); passend(); zeichneOben(); zeichnePfad(); zeichneSeite(); lernErsetze(schwebe, ...(handy() ? geradeDran() : []));
+  }
+  function weich() {
+    const von = z.vb ? z.vb.slice() : null; passend(); const nach = z.vb.slice();
+    if (!von || lernWenigBewegung()) { zeichneOben(); return; }
+    const t0 = performance.now(); const lauf = (t) => { const p = Math.min(1, (t - t0) / 450); const e = 1 - Math.pow(1 - p, 3);
+      setzeVb(von.map((v, i) => v + (nach[i] - v) * e)); if (p < 1) requestAnimationFrame(lauf); else zeichneOben(); };
+    requestAnimationFrame(lauf);
+  }
+  // ---------- Verschieben (Finger/Maus), Zoomen (zwei Finger, Mausrad, + / −) ----------
+  let gezogen = false; const zeiger = new Map(); let start0 = null; let neuZeichnen = 0;
+  const spaeterOben = () => { cancelAnimationFrame(neuZeichnen); neuZeichnen = requestAnimationFrame(zeichneOben); };
+  const zuKarte = (cx, cy) => { const r = rahmen.getBoundingClientRect(); const k = mass(); return [z.vb[0] + (cx - r.left) * k, z.vb[1] + (cy - r.top) * k]; };
+  function zoomUm(f, cx, cy) { if (!z.vb) return; const r = rahmen.getBoundingClientRect(); const px = cx ?? r.left + r.width / 2, py = cy ?? r.top + r.height / 2;
+    const [mx, my] = zuKarte(px, py); const w = Math.max(20, Math.min(z.ebene === 'welt' ? 1200 : 4000, z.vb[2] * f)); const k2 = w / z.vb[2];
+    setzeVb([mx - (mx - z.vb[0]) * k2, my - (my - z.vb[1]) * k2, w, z.vb[3] * k2]); spaeterOben(); }
+  rahmen.addEventListener('wheel', (ev) => { ev.preventDefault(); zoomUm(ev.deltaY > 0 ? 1.15 : 1 / 1.15, ev.clientX, ev.clientY); }, { passive: false });
+  rahmen.addEventListener('pointerdown', (ev) => { zeiger.set(ev.pointerId, [ev.clientX, ev.clientY]); gezogen = false;
+    start0 = { vb: z.vb?.slice(), pts: new Map(zeiger), moved: 0 }; });
+  rahmen.addEventListener('pointermove', (ev) => {
+    if (!zeiger.has(ev.pointerId) || !start0?.vb) return; zeiger.set(ev.pointerId, [ev.clientX, ev.clientY]);
+    const k = start0.vb[2] / groesse()[0];
+    if (zeiger.size === 1) { const a = start0.pts.get(ev.pointerId); if (!a) return; const dx = ev.clientX - a[0], dy = ev.clientY - a[1];
+      if (Math.hypot(dx, dy) > 6) { gezogen = true; if (!rahmen.hasPointerCapture?.(ev.pointerId)) try { rahmen.setPointerCapture(ev.pointerId); } catch { /* egal */ } }
+      if (gezogen) { setzeVb([start0.vb[0] - dx * k, start0.vb[1] - dy * k, start0.vb[2], start0.vb[3]]); spaeterOben(); } }
+    else if (zeiger.size === 2) { const [p1, p2] = [...zeiger.values()]; const [q1, q2] = [...start0.pts.values()]; if (!q1 || !q2) return;
+      const d0 = Math.hypot(q1[0] - q2[0], q1[1] - q2[1]) || 1, d1 = Math.hypot(p1[0] - p2[0], p1[1] - p2[1]) || 1; gezogen = true;
+      const f = d0 / d1; const r = rahmen.getBoundingClientRect(); const mx0 = (q1[0] + q2[0]) / 2 - r.left, my0 = (q1[1] + q2[1]) / 2 - r.top; const mx1 = (p1[0] + p2[0]) / 2 - r.left, my1 = (p1[1] + p2[1]) / 2 - r.top;
+      const ax = start0.vb[0] + mx0 * k, ay = start0.vb[1] + my0 * k; const w = Math.max(20, start0.vb[2] * f); const k2 = w / groesse()[0];
+      setzeVb([ax - mx1 * k2, ay - my1 * k2, w, start0.vb[3] * f]); spaeterOben(); } });
+  const los = (ev) => { zeiger.delete(ev.pointerId); if (zeiger.size === 0) { start0 = null; setTimeout(() => { gezogen = false; }, 0); } else start0 = { vb: z.vb?.slice(), pts: new Map(zeiger) }; };
+  rahmen.addEventListener('pointerup', los); rahmen.addEventListener('pointercancel', los);
+  // Größe: Rechner/Handy umschalten, Ansicht anpassen
+  // Karte bis zum unteren Fensterrand (Rechner), auf dem Handy bleibt unten Platz für die Menüzeile
+  const hoeheSetzen = () => { const top = kartenTeil.getBoundingClientRect().top + scrollY; const h = Math.max(420, innerHeight - top - (handy() ? 12 : 16));
+    kartenTeil.style.height = h + 'px'; if (rechner()) seite.style.maxHeight = h + 'px'; };
+  const beiGroesse = () => { if (!document.body.contains(wurzel)) { removeEventListener('resize', beiGroesse); return; } hoeheSetzen(); wurzel.classList.toggle('rk-handy', handy()); wurzel.classList.toggle('rk-rechner', rechner());
+    lernErsetze(schwebe, ...(handy() ? geradeDran() : [])); zeichneSeite(); if (z.vb) { passend(); zeichneOben(); } };
+  addEventListener('resize', beiGroesse);
+  kartenTeil.append(schwebe, blatt);
+  // erster Aufbau, sobald die Karte im Dokument ist (Größe bekannt)
+  requestAnimationFrame(() => { hoeheSetzen(); lernErsetze(schwebe, ...(handy() ? geradeDran() : [])); neu().then(() => { if (z.ebene !== 'welt' && dranFlug && z.kont === dranFlug.kontinent_id) { /* Start-Ansicht: Kontinent, eingezoomt auf die Route */ } }); });
+  zeichnePfad();
+  wurzel._z = z; // für Tests
+  return wurzel;
 }
 
 function lernOrtZeile(kind, e) {
@@ -3975,6 +4389,7 @@ const LERN_INFO_FRAGEN = [
     ['Abschluss einer Etappe:', ' Nach der Landung (und der Knobel-Bordkarte) zeigt die App eine von drei Fassungen – jede mit eigenem Bild und eigener Farbe: Direktflug (alle Bordkarten im ersten Versuch richtig, ohne Tipp, genau so viele wie nötig), Saubere Landung (höchstens 2 endgültige Fehler, Stufe nie leichter geworden, höchstens 4 Bordkarten mehr als nötig; nach „wieder offen“ heißt sie „Wieder gelandet“) oder Sturmflug gemeistert (alles darüber; ohne Fehlerzahl, die Knobel-Bordkarte kommt dann nicht von selbst, nur als Textlink). Dazu ein Abzeichen – ⚡ Direkt, ✓ Sauber oder ⚡ Ausdauer –, das im Reisepass gezählt wird, der Satz „Du kannst jetzt …“ und genau ein Knopf zum nächsten Schritt (nächste Etappe, Flug-Test oder Abflugtafel); zurück in die Übungen derselben Etappe führt von dort kein Weg. Nach dem bestandenen Flug-Test: „Flug geschafft“ mit den Sternen des Flugs und der Liste „Das kannst du jetzt“, danach eine Bordkarte zum nächsten Flug im Plan („Boarding“ öffnet seine erste Erklärung). Mit dem letzten Flug eines Orts kommt dazwischen der Reisepass-Stempel. Landungen vor dieser Version haben kein Abzeichen.'],
     ['Wieder offen:', ' Zwei Fehler in einer fälligen Wiederholung öffnen eine gelandete Etappe wieder – überall: auf der Abflugtafel, in der Etappe, bei den Eltern und für den Flug-Test. Eigene Lösungen und Arten bleiben; es fehlen nur 3 eigene Lösungen in Folge. Ein früher bestandener Test bleibt getrennt als Beleg stehen. Fehler in Mischkarten oder Expeditionen öffnen nie, sie machen die Etappe nur am nächsten Lerntag fällig.'],
     ['Etappe sicher:', ' gelandet, die Wiederholung nach 14 Lerntagen bestanden und – beides nach der letzten Landung – einmal in einer Mischkarte richtig erkannt und im Nachtest des Flugs die Bordkarte dieser Etappe richtig. Ist nur der Nachtest des Flugs bestanden, steht bei den Eltern „Flug-Nachtest bestanden“.'],
+    ['Reisekarte:', ' die Startseite des Kindes ist eine echte Landkarte (ohne Google, ohne Kartenserver): Welt › Kontinent › Land. Jedes Land mit Flug ist ein Flaggen-Pin (Kopf = Flagge, Spitze = Hauptstadt, bei Landesteilen der Hauptort); die Farbe zeigt den Stand – blau gerade dran, gelb im Plan (mit Platznummer), grün geschafft (noch in Wiederholung), ◉ „kann er“, gold = alles sitzt, „+“ = Zusatz. Geteilte Themen liegen in Nachbarländern („1/2“, „2/2“, feine Kette). Land antippen → „Städte in … ansehen“: die Städte der Reise als nummerierte Haltestellen mit Stand, gestrichelt die Kür. Der gelbe Startknopf schwebt unten in der Karte (Rechner: rechte Spalte) und führt wie bisher – erst der Check-in, dann das Thema bzw. der Flug-Test; eine offene Expedition steht darüber. In der Welt-Ansicht zeigt die Antarktis die Stationen der Expeditionen. Verschieben mit Finger oder Maus, Zoomen mit zwei Fingern, Mausrad oder + / −. Der Schalter „Abflugtafel“ zeigt bis zur Freigabe die bisherige Tafel (je Kind auf dem Gerät gemerkt). Quellen: Ländergrenzen Natural Earth (gemeinfrei); Städte und ihre Lage GeoNames (CC BY 4.0); Antarktis-Stationen COMNAP Antarctic Facilities (nur private, nicht kommerzielle Bildungs-Nutzung); Flaggen flag-icons, Ländernamen i18n-iso-countries, Kontinente countries-list (MIT) – Lizenztexte in karte/LIZENZEN.md.'],
     ['Expeditionen:', ' größere Bordkarten aus 3–5 Teilen (a, b, c …), die Stoff aus mehreren Etappen verbinden – wie in einer Schulaufgabe mit Teil a, b, c. Sobald alle ihre Etappen beim Kind gelandet sind, ist die Expedition freigeschaltet: Nach der Landung, die das auslöst, kommt einmal die Ansicht „Expedition freigeschaltet“ (großer Knopf „Jetzt starten“, kleiner Textlink „Später“). Solange sie offen ist, steht sie als oberste und größte Karte auf der Abflugtafel, vor dem nächsten Flug; nach „Später“ steht bis zum Ende des Lerntags nur ein kleiner Hinweis da, am nächsten Lerntag ist die Karte wieder oben. Auf der Kinderseite steht nirgends „freiwillig“ – die Regel bleibt trotzdem: Eine Expedition sperrt nichts und zählt nicht für „gelandet“. Jeder Teil hat zwei Versuche, danach steht die Lösung da und es geht mit dem nächsten Teil weiter (jeder Teil nennt seine Zahlen selbst). Richtig im ersten Versuch ist ein Beleg für die Etappe; falsch macht sie am nächsten Lerntag zur Wiederholung fällig – ohne Abzüge. Eine begonnene Expedition kann das Kind auch dann zu Ende führen, wenn eine ihrer Etappen inzwischen wieder offen ist. Gebucht wird auf die Version der Etappe, die beim Kind gelandet ist. Geschafft: Expeditions-Stempel und 150 Sterne, 200 Sterne bei fehlerfreiem Lösen (alle Teile im ersten Versuch, ohne Tipp; Werte vom Server). Jede Expedition gehört zu einer Forschungsstation in der Antarktis; der Reisepass zeigt die Stempel-Sammlung „k von 21 Stationen“ – gesperrte Stationen zeigen, welche Etappen noch fehlen. Quelle der Stationen: COMNAP Antarctic Facilities (nur private, nicht kommerzielle Bildungs-Nutzung). Alle Expeditionen mit Lösungen: Lehrplan → „Expeditionen ansehen“.'],
     ['Mischkarten:', ' Sind im Flug mindestens 3 Etappen gelandet, ist beim Üben jede 4. Bordkarte (bis Klasse 6 jede 6.) eine aus einer anderen Etappe, die schon gelandet ist – meist aus demselben Flug oder Kontinent, manchmal aus einem älteren Flug. Sie ist gekennzeichnet („Aus deiner Reise – erkennst du, was gefragt ist?“), nach der Lösung steht, aus welcher Etappe sie kam. Das Kind soll selbst erkennen, welches Verfahren passt. Sie zählt nicht für die gerade geübte Etappe; richtig ist ein Beleg für „sicher“, falsch macht die Herkunfts-Etappe am nächsten Lerntag zur Wiederholung fällig – ohne Abzüge. Ist die Herkunfts-Etappe gerade fällig und die Mischkarte im ersten Versuch ohne Tipp richtig, zählt sie als bestandene Wiederholung dieser Etappe – Mischkarten bauen so fällige Wiederholungen mit ab. Der Server prüft jede Mischkarte (Etappe gelandet, Stufe 2–3, nicht die gerade geübte); sonst zählt sie wie eine normale Bordkarte.'],
     ['Wiederholung:', ' Ist eine Etappe gelandet, kommt sie nach 1, 3, 7, 14 und 30 Lerntagen wieder, jeweils mit einer Bordkarte. Ein Lerntag ist ein Tag, an dem das Kind Mathe übt; Reisetage ohne Mathe zählen nicht. Am Anfang eines Lerntags kommt eine Runde: sind höchstens 6 Etappen fällig, alle; sonst ein Fünftel der fälligen (aufgerundet), mindestens 6 und höchstens 12 (bis Klasse 6 höchstens 10) – zuerst Etappen mit einem Wiederholungs-Fehler, dann die am längsten fälligen. Weitere werden nur angeboten. Auf der Kinderseite heißt die Runde „Check-in“: Das Kind sieht, wie weit es ist („3 von 9“), nie die Zahl aller fälligen Etappen. Es kann unterbrechen und am selben Lerntag fortsetzen, auch auf einem anderen Gerät; erledigt ist die Runde, wenn alle ihre Bordkarten beantwortet sind (falsch zählt als bearbeitet). Ein Fehler: Die Etappe kommt am nächsten Lerntag wieder. Zwei Fehler hintereinander: Das Kind übt sie noch einmal – eigene Lösungen bleiben, es braucht wieder 3 richtige in Folge.'],

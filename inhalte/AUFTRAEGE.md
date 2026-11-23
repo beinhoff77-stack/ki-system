@@ -3250,3 +3250,14 @@ Stand `lernen-app` 600609c. `nt_einspiel_2311.sql` zweimal ohne Fehler (30162 �
 → Nachtrag NB-S 3 / SJ-S 3: Erwartungen der Tests an den echten Stand angleichen (lesend auf der echten Datenbank nachvollziehen), keine Änderung an den Migrationen, sofern die Funktionen richtig rechnen – sonst melden.
 
 App 0.91.2 (abgesichert): Ursache war ein echter Wettlauf beim Kinder-Wechsel (A → B → A blieb bei B) plus zeitabhängige Tests; behoben. Gesamtlauf läuft.
+
+## Entscheidung Sebastian (23.11., 03:37 Berlin): Zulauf gesetzter Etappen drosseln (6 → 3 je Lerntag) · Bau-Auftrag WD-5 an `bau-lehrer`
+
+**Befund Haupt-Chat (Kind 2, echte Daten 23.11.):** nach der Tagesrunde (6) noch 23 fällig; fällig werden 24.–26.11. je 11–12, danach 6, 9, 3. Davon „gesetzt, erste Wiederholung“ (wdh_gesetzt_am, Stufe 0): je 6 pro Tag bis 28.11., 2 am 29.11. (Staffel `wdh_gesetzt_je_lerntag` = 6). Rundengröße = Rückstau ÷ 5, mindestens 6, höchstens 12 → Stau pendelt um 30 statt sich in etwa 5 Lerntagen aufzulösen (Hochrechnung). Alle Wiederholungs-Aufgaben der heutigen Sitzung waren frisch (0 von 42 schon gesehen).
+**Entschieden:** gesetzte Etappen kommen nur noch mit 3 statt 6 je Lerntag neu in den Takt.
+**Berichtigung Haupt-Chat:** Das ist nicht nur eine Einstellung. `wdh_staffel_strecken` verschiebt nur schon fällige gesetzte Etappen; die bis 29.11. bereits mit 6 je Tag eingeplanten bleiben stehen.
+**WD-5 (Datei, nicht einspielen):** `supabase/migrations/20261128_wd5_staffel_drosseln.sql` + Rauchtest.
+- Regel `wdh_gesetzt_je_lerntag` = 3.
+- Einmalige Neuverteilung je Kind: alle gesetzten Etappen in erster Wiederholung (Stufe 0, kein Fehler) – fällige **und** schon eingeplante – in Plan-Reihenfolge mit höchstens 3 je Lerntag ab heute neu staffeln; Etappen der offenen Tagesrunde bleiben; alter Stand in `wdh_staffel_sicherung` (Rückweg wie WD-4b). Nicht gesetzte Etappen und höhere Stufen unverändert.
+- Meldung mit Vorher/Nachher je Kind (fällig je Tag für 14 Tage) und Hochrechnung des Rückstaus mit der Runden-Regel; Vorschlag, falls 3 je Tag nicht reicht.
+- Tests: höchstens 3 gesetzte Erst-Wiederholungen je Lerntag, Reihenfolge, offene Runde unberührt, Rückweg, Sterne/Lernstand sonst unverändert; wd_s, wd_s3, fp_s grün (wd_s3 setzt die Regel im Test selbst – an den neuen Standard anpassen).

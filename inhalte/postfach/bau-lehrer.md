@@ -2,6 +2,53 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-23 – FERTIG: ZP-S (Nachtrag Rückläufer ChatGPT 964)
+
+Stand `lernen-app` 80e54f2 übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code. Ersetzt die erste ZP-S-Fassung (6601e7b) vollständig:
+- `supabase/migrations/20261126_zp_s_zusatz_plan.sql` (neu geschrieben), `supabase/tests/zp_s_rauchtest.sql` (neu geschrieben)
+- `supabase/tests/tl_s_rauchtest.sql`: Teil 12 lässt „im Plan“ ohne Erstabschluss zu, wenn die Eltern den Teil selbst eingeplant haben (heute echt: Kind 1 Teil 276, Kind 2 Teile 276/279/280 – wäre sonst auf dem echten Stand rot).
+
+**Reihenfolge Einspielen:** LZ-S → ZP-S (bricht ab, wenn LZ-S fehlt). Mehrfach einspielbar.
+
+**Zwei getrennte Eigenschaften**
+1. **Pflicht/Kür je Gruppe** – unverändert (`thema.zusatz`).
+2. **„Von den Eltern eingeplant“** – der Plan-Eintrag bleibt `route.art = 'normal'` mit eigenem Platz (`position`) und `geaendert_von = 'eltern:…'`. Abgeleitet: `schule.zusatz_eingeplant(kind, thema)` = Zusatz-Teil der Gruppe + Plan-Eintrag `normal`, nicht entfernt, (von Eltern geplant oder schon fertig), nicht ausgelassen.
+- Warum nicht `art 'zusatz'`: App 0.90.1 nimmt Route-Einträge ohne `art`-Filter als „jetzt/nächster Flug“, und die Eltern-Planung verwirft `art <> 'normal'` – genau die Befunde aus 964.
+- **route 485:** bleibt unverändert (art normal, Platz 21, eltern, offen). Karten und Sterne unverändert (Rauchtest md5). Schutzschritt: Eltern-Einträge mit `art 'zusatz'` gehen auf `normal` zurück (heute 0 Zeilen). Entdecker-Orte des Systems bleiben `zusatz`.
+
+**Kinderseite (Server)**
+- `schule_uebersicht.route`: offener eingeplanter Zusatz-Ort fehlt dort → App 0.90.1 zeigt ihn **nicht** als nächsten Pflicht-Flug. Ist er geschafft (route fertig), steht er wieder in der Liste wie jeder fertige Ort.
+- `reiseoptionen` und `naechster_flug` überspringen ihn → der nächste Pflicht-Flug bleibt erreichbar, kein Kontinent wird verdeckt.
+- Die Einheit bleibt anklickbar (Lernstand/Einheitenliste unverändert).
+- Kein Flug-Test: `flug_ohne_test` gilt auch für eingeplanten Zusatz; `nachtest_stand` liefert `faellig false`, `grund 'zusatz'`.
+- Zählt nicht für Visum, nicht für „hart“/Pflicht-Weiterflug, nicht in die Lehrplan-Quote (Matrix zählt ihn als Zusatz wie bisher).
+
+**„Zusatz geschafft“, Stempel, 100 Sterne – bewusste Buchung**
+- Neue Tabelle `schule.zusatz_geschafft` (Kind, Teil, Einheit, Block, Sterne, am; ein Eintrag je Kind und Teil).
+- `schule.zusatz_geschafft_buchen(kind, thema)` – nur wenn eingeplant und **alle** Etappen gelandet: schreibt `zusatz_geschafft`, `flug_erstabschluss` (Stempel) und genau einmal 100 Sterne (`ort`, `block:<id>`, Regel `sterne_ort_geschafft`); erst danach `route.status = 'fertig'` (Kennung `geaendert_von` bleibt). Zweiter Aufruf bucht nichts.
+- Aufgerufen von Triggern bei Landung (`karte_stand`) und Plan-Änderung (`route`); `ort_stand` meldet „erledigt“ nur mit Eintrag in `zusatz_geschafft`. Der Sterne-Trigger an `route.status='fertig'` bucht hier nicht doppelt (gleicher Schlüssel, Rauchtest prüft genau 100).
+- Gruppen-Wechsel (Teil wird Pflicht): offene Orte werden neu bewertet, wie Pflicht weitergeführt.
+
+**Felder für die neue App („Zusatz · eingeplant“, Fortschritt, „Zusatz geschafft“)**
+- `schule_uebersicht.zusatz_plan[]`: `route_id, block_id, position, status, thema_id, einheit_id, etappen` (y, alle Etappen), `gelandet` (x), `geschafft`, `geschafft_am`, `sterne`.
+- `schule_plan_lesen.plan[]`: zusätzlich `zusatz_eingeplant: true` am Eintrag.
+- `thema_stufe` (über `lehrplan_matrix`, Einheitenseite): `zusatz`, `zusatz_eingeplant`, `zusatz_geschafft`; Etappen/gelandet bei eingeplantem Zusatz über **alle** Etappen.
+- `schule_reise_karte`: Flug `zusatz_eingeplant`, `zusatz_geschafft`; Stadt `zaehlt: true` (Etappe zählt für den Fortschritt). `naechster_start` bleibt ein Pflicht-Flug.
+
+**Was App 0.90.1 bis zur Umstellung zeigt**
+- Kinderseite: Einheit sichtbar unter „früher/zum Auffrischen“ (Teil 279 liegt in Jahrgang 7, Kind in Kl. 8), **nicht** als nächster Flug, kein Test. Nach „Zusatz geschafft“ unter „kann“. Stempel und Sterne erscheinen wie gewohnt in Konto/Pass.
+- Eltern-Planung: normaler Eintrag an seinem Platz – wählbar, abwählbar, verschiebbar. Ohne Kennzeichen „Zusatz · eingeplant“ (kommt mit ZP-App).
+- Lehrplan: Zusatz gestrichelt mit Stufe wie bisher.
+
+**Rauchtests (lokal, Kopie des echten Stands; vor und nach Einspielen grün)**
+- `zp_s` 0–11: lesend vorher; Kinderdaten md5; Platz/Absicht 485-Fall; Eltern einplanen, **umsortieren, herausnehmen, wieder einplanen**; Kinderseite: nicht in Route, nicht in Reiseoptionen, **nächster Pflicht-Flug kommt**, Einheit sichtbar, Fortschritt 0/y; Landen ohne Test, Nachtest `zusatz`; nach letzter Landung genau ein Stempel, genau 100 Sterne, route fertig, kein zweites Mal; kein Visum/hart; Matrix/Reisekarte; nicht eingeplanter Zusatz bucht nichts; Gruppen-Wechsel; andere Kinder unverändert.
+- Dazu grün: `tl_s, rd_s, ex_s, lz_s, nt_s, lk_s`.
+- Stände: vor ZP (Kopie echt), nach ZP (zweimal eingespielt), und simulierter 485-Fall + ZP.
+
+**Offen / Annahmen**
+- Lokal mit PG 16 und Auszügen der echten Funktionen (Fixtures); echte Funktionen wurden lesend übernommen. Echt nichts eingespielt.
+- Nächster Auftrag laut AUFTRAEGE: NB-S (Nachbessern).
+
 ## 2026-11-23 – FERTIG: ZP-S
 
 Stand `lernen-app` 0ef5bdc übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code:

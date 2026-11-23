@@ -330,8 +330,12 @@ begin
     from tl_rt_stufe v join schule.thema t on t.teil_stamm = v.stamm and t.teil_nr > 1
     cross join lateral (select schule.thema_stufe(v.lernender_id, t.id) n) x
    where x.n->>'gesetzt' is not null or coalesce((x.n->>'rueckreise')::boolean, false)
-      or coalesce((x.n->>'im_plan')::boolean, false) is distinct from exists (select 1 from schule.flug_erstabschluss f join schule.einheit e on e.id = f.einheit_id
-                                                                             where f.lernender_id = v.lernender_id and e.thema_id = t.id);
+      or coalesce((x.n->>'im_plan')::boolean, false) is distinct from (
+           exists (select 1 from schule.flug_erstabschluss f join schule.einheit e on e.id = f.einheit_id
+                    where f.lernender_id = v.lernender_id and e.thema_id = t.id)
+           -- ZP-S: von den Eltern nach der Teilung selbst eingeplante Teile dürfen im Plan stehen
+        or exists (select 1 from schule.route r join schule.block_thema b on b.block_id = r.block_id
+                    where r.lernender_id = v.lernender_id and b.thema_id = t.id and schule.ist_plan(r)));
   if v_t is not null then raise exception 'FEHLER 12: neuer Teil erbt Setzung/Plan/Rückreise oder fehlt trotz eigener Leistung (Kind:Teil): %', v_t; end if;
   select string_agg(v.lernender_id || ':' || t.id, ', ') into v_t
     from tl_rt_stufe v join schule.thema t on t.teil_stamm = v.stamm and t.teil_nr > 1 join schule.block_thema bt on bt.thema_id = t.id

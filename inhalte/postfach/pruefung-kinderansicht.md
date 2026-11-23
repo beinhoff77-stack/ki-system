@@ -175,3 +175,6 @@ FERTIG: Vorgabe JW – Jugendwort-Sticker (umsetzung.md, woerter.json, Entwurf, 
 - woerter.json: 74 Wörter (30 im Einsatz), 52 Sprüche; Entwurf und 40 Bilder neu.
 
 FERTIG: Vorgabe JW (Fassung 2) – festgelegt, ohne Einstellungen, Anrede Digga
+
+## 2026-11-23 – FERTIG: Prüfung RK-App 2 (0.92.2) – 1 Muss
+Bericht `inhalte/pruefung/kind/karte/nachpruefung_rk2.md`, Bilder `karte/nachpruefung2/`. lernen-app 7c7e4bc. M1 alt, S1, S3, S5–S7, K1–K3 erfüllt; S2/S4 teilweise. Neues Muss M1: Handy-Kopf überdeckt sich, „Zu mir“ in der Land-Ebene nicht antippbar, „Italien“ verdeckt. Soll: S1 Haltestellen-Kästchen überdecken sich, S2 Länder-Schilder (Vorgabe Abschnitt 2), S3 Sperr-Anzeige (Vorgabe Abschnitt 3; Muss mit RK-D). Kann K1–K4. Live nach M1.

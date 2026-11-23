@@ -3379,3 +3379,10 @@ Urteil Gestalter zu Frage 8: „was als Nächstes kommt“ ja auf allen Größen
    - **Muss aus ChatGPT 968:** Ring der Lehrer-Ansicht (`lernLwRing`) an `schuljahr_stand` anbinden bzw. dieselbe Themen-Auswahl (Zusatz der Gruppe abziehen); Test mit einem Gruppen-Zusatzfall.
    - **Muss aus ChatGPT 966:** eingeplanter Zusatz in Lehrer-Ansicht („Zusatz · eingeplant“, Fortschritt x/y) und Kinderseite sichtbar.
    - Karte „Stand“ im Überblick der Lehrer-Seite mit den Zahlen „noch x von y Flügen · noch a von b Etappen“.
+
+### Live App 0.92.3 – Reisekarte (23.11.2026)
+
+- `main` 2cce57b = `lernen-app` mit bau-motivation 2d90366 (RK-App 3). Gesamttest 183/183 grün, Auslieferung erfolgreich.
+- Vorher geprüft: letzte Übung beider Kinder über 3 Stunden her. Sebastian: „Live“ / „Live, sobald grün“.
+- Offen (kein Muss): gedämpfte Pins in dichten Gegenden eng; Stadtname auf 360 px gekürzt.
+- Nächster Schritt: bau-motivation baut KJ (0.93.0: Jugendwort-Sticker, Karten Nachbessern / Mein Schuljahr / Zusatz eingeplant, Ring an schuljahr_stand).

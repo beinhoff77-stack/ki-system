@@ -2,6 +2,48 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-23 – FERTIG: NB-S 2 / SJ-S 2
+
+Stand `lernen-app` 31d5374 übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.
+- geändert: `supabase/tests/nb_s_rauchtest.sql`, `supabase/tests/sj_s_rauchtest.sql`, `supabase/migrations/20261127_sj_s_schuljahr.sql`
+- unverändert: `supabase/migrations/20261127_nb_s_nachbessern.sql`
+
+**1. Rauchtests ohne feste ids**
+- **Ursache:** Auf dem echten Stand sind alle `schule.*.id` `generated always` (lesend geprüft: 28 Tabellen). Meine lokalen Kopien hatten `by default` oder gar keine Identität, deshalb lief das lokal grün.
+- **Betroffen:**
+  - `schule.route`: nb_s 1×, sj_s 2×. Jetzt ohne id; die id wird nirgends gebraucht.
+  - `schule.aufgabe`: Kopie in nb_s. Jetzt ohne id und ohne Identitäts-Spalten. Auf dem echten Stand greift das kaum, weil fast immer schon 3 Übungsaufgaben da sind.
+  - `schule.karte_stand` hat keine id (Schlüssel Kind/Einheit/Etappe), war nicht betroffen.
+- **Weitere Inserts in meinen Tests:** keine. Sterne, Stempel und `landung` schreiben die Funktionen selbst, ohne id.
+- **Lokale Kopien:** jetzt wie echt, alle ids `generated always`. Damit fällt derselbe Fehler lokal auf.
+
+**2. SJ-S 2 – beide Zählungen vorbereitet (nicht umgestellt)**
+- Je Klasse kommen zu den bisherigen Feldern hinzu:
+  - `etappen_pflicht {gesamt, gelandet, offen}` und `prozent_pflicht`: nur Pflicht-Etappen der Gruppe des Kindes (`stufe_etappen`, wie `thema_stufe.etappen`).
+  - `kuer {gesamt, gelandet, offen}`: übrige Etappen der Pflicht-Flüge.
+- Unverändert: `etappen` (alle Etappen, wie der Ring), `prozent`, `fluege`, `ring`, `zusatz`.
+- Fertige Flüge (Wiederholung oder „kann er“) zählen in beiden Teilen mit allen Etappen, also gilt Pflicht + Kür = `etappen.gesamt`.
+- **Eigenheit des Rings (nur Hinweis):** Bei offenen Flügen zählt `etappen.gelandet` nur gelandete Pflicht-Etappen. Gelandete Kür-Etappen offener Flüge stehen nur in `kuer.gelandet`.
+- **Zeilenfunktion umbenannt:** jetzt `schule.schuljahr_fluege` (vorher `schuljahr_themen`). Eine neue Ergebnis-Spalte geht sonst nur mit DROP; die alte Funktion war nie auf dem echten Stand.
+- **Echter Stand (lesend gerechnet, ohne ZP-S):**
+
+| Kind | Klasse | Etappen alle (Ring) | Pflicht-Etappen | Kür |
+|---|---|---|---|---|
+| 1 | 5 | 29 / 112 (26 %) | 28 / 107 (26 %) | 1 / 5 |
+| 1 | 6 | 0 / 82 | 0 / 78 | 0 / 4 |
+| 2 | 7 | 26 / 69 (38 %) | 23 / 61 (38 %) | 3 / 8 |
+| 2 | 8 | 9 / 102 (9 %) | 9 / 97 (9 %) | 0 / 5 |
+| 2 | 9 | 0 / 107 | 0 / 87 | 0 / 20 |
+
+Die Pflicht-Etappen entsprechen genau der Abfrage des Haupt-Chats von 03:10. Flüge sind unverändert (z. B. Kind 2 Kl. 7: 12 / 5 / 7).
+
+**App:** Kein Feld fällt weg. Für „nur Pflicht“ nimmt die App `etappen_pflicht` und `prozent_pflicht` statt `etappen` und `prozent` und zeigt `kuer` getrennt, ohne neue Migration. Der Ring müsste dann mitgehen; nach Sebastians Entscheidung.
+
+**Rauchtests** (lokal, Kopien wie echt mit ids `generated always`): 50 Läufe grün.
+- Tests: `nb_s, sj_s, zp_s, tl_s, rd_s, ex_s, lz_s, nt_s, lk_s, fp_s`.
+- Stände: vor ZP-S, nach ZP-S, NB → SJ, SJ → NB → SJ.
+- `sj_s` hat neu Test 4: `etappen_pflicht` = Summe aus `thema_stufe` (Etappen, gelandet; fertig: alle), Pflicht + Kür = alle, offen und Prozent stimmen.
+
 ## 2026-11-23 – FERTIG: SJ-S
 
 Stand `lernen-app` 745e0be übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.

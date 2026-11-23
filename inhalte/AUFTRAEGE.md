@@ -3261,3 +3261,10 @@ App 0.91.2 (abgesichert): Ursache war ein echter Wettlauf beim Kinder-Wechsel (A
 - Einmalige Neuverteilung je Kind: alle gesetzten Etappen in erster Wiederholung (Stufe 0, kein Fehler) – fällige **und** schon eingeplante – in Plan-Reihenfolge mit höchstens 3 je Lerntag ab heute neu staffeln; Etappen der offenen Tagesrunde bleiben; alter Stand in `wdh_staffel_sicherung` (Rückweg wie WD-4b). Nicht gesetzte Etappen und höhere Stufen unverändert.
 - Meldung mit Vorher/Nachher je Kind (fällig je Tag für 14 Tage) und Hochrechnung des Rückstaus mit der Runden-Regel; Vorschlag, falls 3 je Tag nicht reicht.
 - Tests: höchstens 3 gesetzte Erst-Wiederholungen je Lerntag, Reihenfolge, offene Runde unberührt, Rückweg, Sterne/Lernstand sonst unverändert; wd_s, wd_s3, fp_s grün (wd_s3 setzt die Regel im Test selbst – an den neuen Standard anpassen).
+
+## App 0.91.2: Gesamtlauf 169 von 169; Prüfung Gestalter EX-App: 0 Muss, 2 Soll, 4 Kann (23.11., 03:40 Berlin)
+
+Datei `inhalte/pruefung/kind/expedition/nachpruefung_ex.md`. Für den nächsten App-Schritt (mit NB/SJ/ZP-Karten):
+- S1 Ansicht „Expedition freigeschaltet“ bei 360 × 640: Voraussetzungs-Chips verdeckt → höchstens 2 Chips + „+2 weitere“ oder Szene scrollt.
+- S2 „freiwillig“ steht noch bei den Knobel-Bordkarten (Knopf, Link, Info-Text). Sebastian (23.11.): „wenn da irgendwo freiwillig steht, machen sie es nie“ → auf der ganzen Kinderseite ersetzen („für Profis“), Eltern-/Lehrer-Seiten dürfen es behalten.
+- K1 begonnene Expedition: Kopf „EXPEDITION · TEIL B VON 3“. K2 Stand-Kacheln über der Expeditions-Karte nach unten bzw. in „Mein Schuljahr“. K3 „gesehen am“ vom Server (zweites Gerät) – EX-S-Nachtrag. K4 kein Bau.

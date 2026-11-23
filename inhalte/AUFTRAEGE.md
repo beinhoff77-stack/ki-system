@@ -3337,3 +3337,12 @@ Datei `inhalte/pruefung/kind/karte/nachpruefung_rk.md`.
 ## Vorgabe JW (Jugendwörter) vom Gestalter, Fassung 2 – laut Vorgabe von Sebastian so festgelegt
 
 `inhalte/pruefung/kind/jugendwoerter/` (umsetzung.md, woerter.json, Entwurf, Bilder). Ein Sticker je Geschafft-Ansicht, Satz bleibt normales Deutsch; **keine Einstellungen, keine Auswahl, keine Altersstufen, Anrede „Digga“**; 74 Wörter geprüft, 30 im Einsatz, 52 Sprüche; Antippen zeigt die Bedeutung. Überholt die Punkte „je Kind abschaltbar / Wort gefällt mir nicht“ aus dem Auftrag JW. → JW-App an `bau-motivation` nach RK-App 2.
+
+## Rückläufer ChatGPT 972 (23.11., 04:50 Berlin)
+
+**WD-5 3 mit `wdh_runde_teiler` = 1: Freigabe.** Bedingung aus 970 erfüllt.
+**RK-D: Muss vor dem Einspielen** – an `bau-lehrer` (RK-D 2):
+1. `20261129_rk_d_karte_felder.sql` Zeile 85: Beim Wiederholen genügt der Text „RK-D“ irgendwo für „schon eingespielt“; ein teilweise zurückgeänderter Funktionskörper würde akzeptiert. → Rückkehr nur, wenn alle fünf Zielblöcke je genau einmal vollständig vorhanden sind; Mischstand bricht mit Fehler ab; Test mit einem fehlenden Zielblock bei erhaltener Markierung.
+2. `20261125_rd_s_reise.sql` Zeile 194 (Rückfall für `naechster_start.stadt`, wenn keine offene Stadt): übernimmt die erste Stadt bis auf vier Felder → mit RK-D gelangen die fünf neuen Stadtfelder in die Start-Antwort. → Rückfall auf das bisherige Feldset begrenzen (einschließlich optionalem `zaehlt`); Vorher/Nachher-Vergleich für einen Startkandidaten ohne offene Stadt.
+3. `rk_d_rauchtest.sql` Zeilen 114–116: Test 3b meldet Erfolg auch bei wirkungsloser Einplanung → erst `im_plan` wahr verlangen, dann `gesperrt` falsch und Grund leer am Flug und seinen offenen Städten (Testflug ohne fehlendes Visum).
+Fachregel: 31 gesperrte Flüge bei Kind 2 sind plausibel (28 harte Visa der Gruppe, 3 Klassenstufe außerhalb des Plans; zwei der 28 sind eingeplant – ein Planplatz überstimmt die Klassengrenze, nicht ein fehlendes hartes Visum).

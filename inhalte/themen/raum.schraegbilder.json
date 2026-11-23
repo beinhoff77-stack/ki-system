@@ -9214,6 +9214,112 @@
      7
     ]
    }
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Grundfläche einer Pyramide ist ein Siebeneck. Wie viele Kanten hat die Pyramide?"
+   },
+   "w": "7 Kanten in der Grundfläche und 7 Seitenkanten zur Spitze: 7 + 7 = 14.",
+   "o": {
+    "wert": 14
+   },
+   "c": "2 * 7"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat 10 Kanten. Wie viele Flächen hat sie?"
+   },
+   "w": "Bei einem n-Eck als Grundfläche hat die Pyramide 2n Kanten: n = 10 : 2 = 5. Flächen: Grundfläche + 5 Seitenflächen = 6.",
+   "o": {
+    "wert": 6
+   },
+   "c": "10 / 2 + 1"
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Grundfläche einer Pyramide ist ein Neuneck. Gib die Anzahl der Ecken, Kanten und Flächen an.",
+    "schablone": "Ecken □ · Kanten □ · Flächen □",
+    "hinweis": "je eine ganze Zahl"
+   },
+   "w": "Ecken: 9 + Spitze = 10. Kanten: 9 unten + 9 zur Spitze = 18. Flächen: 9 Seitenflächen + Grundfläche = 10.",
+   "o": {
+    "werte": [
+     10,
+     18,
+     10
+    ]
+   }
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild mit q = 0,5 ist eine Kante nach hinten 4,5 cm lang gezeichnet. Wie lang ist sie in Wirklichkeit?"
+   },
+   "w": "Nach hinten wird halbiert, also zurückrechnen: 4,5 cm : 0,5 = 9 cm.",
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "4.5 / 0.5"
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel wird als Schrägbild mit q = 0,5 und 45° gezeichnet. Welche Kanten erscheinen in wahrer Länge?"
+   },
+   "w": "Kanten parallel zur Zeichenebene (Breite und Höhe) bleiben in wahrer Länge; nur die Kanten nach hinten werden mit q verkürzt.",
+   "a": [
+    "die Kanten nach rechts und nach oben",
+    "nur die Kanten nach hinten",
+    "alle Kanten",
+    "keine Kante"
+   ],
+   "o": {
+    "index": 0
+   }
+  },
+  {
+   "l": "wahre_groesse",
+   "t": "wahre_groesse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Quader ist 8 cm breit, 3 cm hoch und 6 cm tief. Zeichne ihn mit q = 0,5. Wie lang werden Breite, Höhe und Tiefe gezeichnet?",
+    "schablone": "Breite □ cm · Höhe □ cm · Tiefe □ cm",
+    "hinweis": "je eine ganze Zahl"
+   },
+   "w": "Breite und Höhe bleiben: 8 cm und 3 cm. Die Tiefe geht nach hinten: 6 cm · 0,5 = 3 cm.",
+   "o": {
+    "werte": [
+     8,
+     3,
+     3
+    ]
+   }
   }
  ],
  "offen": [

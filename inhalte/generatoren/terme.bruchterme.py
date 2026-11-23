@@ -1124,3 +1124,9 @@ if __name__ == '__main__':
          offen=['Bruch-Ergebnisse jetzt teils als Lücken (□/□, □/(□x), □x²/□); Ergebnisse mit Klammer-Faktoren (z. B. 5/(7(x + 1))) bleiben Auswahl, '
                 'weil die Lückenfelder nur ganze Zahlen aufnehmen.',
                 'Vorschlag aus der Prüfung (Anknüpfen an Zahlenbrüche aus Klasse 6) ist in der Regel der Karte „addieren“ umgesetzt.'])
+
+# ---- NT-D 3 (23.11., siehe _nt_2311.py): zuletzt, hängt nur Aufgaben an ----
+if __name__ == '__main__':
+    from _nt_2311 import nt_anhaengen as nt3_anhaengen
+    nt3_anhaengen('terme.bruchterme')
+# ---- NT-D 3 ENDE ----

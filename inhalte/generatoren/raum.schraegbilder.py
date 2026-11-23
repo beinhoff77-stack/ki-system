@@ -780,3 +780,9 @@ if __name__ == '__main__':
     from _nt_2211 import nt_anhaengen
     nt_anhaengen('raum.schraegbilder')
 # ---- NT ENDE ----
+
+# ---- NT-D 3 (23.11., siehe _nt_2311.py): zuletzt, hängt nur Aufgaben an ----
+if __name__ == '__main__':
+    from _nt_2311 import nt_anhaengen as nt3_anhaengen
+    nt3_anhaengen('raum.schraegbilder')
+# ---- NT-D 3 ENDE ----

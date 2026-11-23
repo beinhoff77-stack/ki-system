@@ -2,6 +2,76 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-23 – FERTIG: ZP-S
+
+Stand `lernen-app` 0ef5bdc übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code:
+- neu: `supabase/migrations/20261126_zp_s_zusatz_plan.sql`, `supabase/tests/zp_s_rauchtest.sql`
+- angepasst: `supabase/tests/tl_s_rauchtest.sql` (Teil 5), `supabase/tests/rd_s_rauchtest.sql`
+
+**Reihenfolge Einspielen:** LZ-S → ZP-S. ZP-S bricht ab, wenn LZ-S fehlt.
+
+**Vorab geprüft (lesend, echter Stand): Könnte route 485 heute fertig werden? – Nein, er bliebe für immer offen.**
+- **Ort:** `ort_stand` verlangt mindestens eine Pflicht-Etappe („ohne Pflicht kein Abschluss“). Damit markieren weder `plan_setzen` noch `test_abschliessen` den Ort je als fertig.
+- **Stempel:** `test_abschliessen` bucht den Erstabschluss nur mit einer Pflicht-Etappe. Kein Stempel, keine 100 Sterne.
+- **Stufe:** `thema_stufe` zählt 0 Etappen, also nie „wiederholung“ oder „komplett“. Nach der ersten Landung bliebe der Teil für immer „dran“.
+- **Abflugtafel:** Die Reiseoptionen nehmen je Kontinent den ersten nicht fertigen Ort. Sobald die Orte davor fertig sind, stünde der Teil dort dauerhaft als Afrika-Ziel und verdeckte die folgenden Afrika-Orte.
+
+**Umsetzung**
+- **Plan-Eintrag bleibt `art 'normal'`.**
+  - Die App 0.90 führt den Plan nur über `art 'normal'` (Plan-Liste, Reihenfolge, Abflugtafel).
+  - `art 'zusatz'` ist bisher den Entdecker-Orten des Systems vorbehalten und erscheint weder im Plan noch in den Reiseoptionen. Ein umgestellter Eintrag wäre aus dem Plan verschwunden.
+  - „Als Zusatz geführt“ heißt daher: das Kennzeichen `zusatz_eingeplant` nach der neuen Regel.
+- **route 485** braucht keine Datenänderung; der Eintrag fällt automatisch unter die Regel. `schule_plan_setzen` bleibt unverändert.
+- **„Alle einplanen“** gibt es nur in der App (ohne „auch Zusatz“ nimmt sie Zusatz nicht mit). Auf dem Server gibt es keine Sammelaktion.
+- **Regel `schule.zusatz_eingeplant(Kind, Thema)`:** Die Gruppe des Kindes steht in `thema.zusatz`, und es gibt einen Plan-Eintrag `art 'normal'`, der nicht entfernt ist, von den Eltern stammt oder schon fertig ist, und in dem das Thema nicht abgewählt ist.
+- **Fortschritt:** `thema_stufe` zählt beim eingeplanten Zusatz über alle Etappen statt über die leere Pflichtliste. Alle Etappen gelandet → „wiederholung“, ohne Zwangstest.
+- **Abschluss:**
+  - `ort_stand`: erledigt, sobald alle Etappen selbst gelandet sind (sitzt, nicht gesetzt).
+  - Auslöser bei der Landung: Der Ort wird „fertig“; `route_sterne` bucht die 100 Sterne (`sterne_ort_geschafft`) genau einmal.
+  - Auslöser beim „fertig“: Erstabschluss, also der Stempel, genau einmal.
+  - Wird der Teil erst nach dem Landen eingeplant, schließt `plan_setzen` den Ort über `ort_stand` ab.
+- **Kein Flug-Test, keine Nachtests – Vorschlag „wie ohne Test“:**
+  - `flug_ohne_test` gilt jetzt auch für eingeplanten Zusatz. Der Flug-Test meldet „nichts_zu_testen“, `nachtest_stand` gibt `grund` = `'zusatz'` zurück.
+  - Begründung: Ohne Pflicht-Etappe gibt es keinen Nachtest-Vorrat. Ohne diese Regel könnten die Karten nie „sicher“ werden, denn `karte_sicher` verlangt sonst einen bestandenen Nachtest – kein „golden“ möglich.
+  - Mit der Regel „ohne Test“ werden sie über Wiederholung (Stufe 4) und Mischkarte sicher, wie bei „Kann er – aber wiederholen“.
+- **Gruppenwechsel:**
+  - Wird der Teil Pflicht: Der Ort geht wieder auf „offen“, die normale Regel gilt (Flug-Test über die Pflicht-Etappen). Stempel und Sterne bleiben, nichts wird doppelt gebucht.
+  - Zurück zu Zusatz: wieder fertig, wenn alle Etappen gelandet sind.
+- **Nicht eingeplanter Zusatz:** unverändert freiwillig, ohne Stempel und ohne Ort-Sterne.
+- **Reiseoptionen, Visum und harte Voraussetzungen:** unverändert. Die Gruppe nennt Zusatz-Teile schon heute nirgends; der Rauchtest prüft das.
+
+**Felder für die App**
+- `thema_stufe` (damit auch die Matrix `lernstand[kind][thema]` und Plan `orte[].themen[].stufe`):
+  - `zusatz: true` und `zusatz_eingeplant: true`, nur in diesem Fall;
+  - `etappen` = Anzahl aller Etappen; `gelandet`/`sicher` über alle Etappen; Stufe wie sonst (kommt, dran, wiederholung, komplett).
+- `reise_karte`:
+  - je Flug `zusatz_eingeplant`;
+  - je Stadt `zaehlt: true` (nur in diesem Fall; Regel für die App: `zaehlt ?? pflicht`);
+  - der Flug darf `naechster_start` sein.
+- `nachtest_stand.grund` = `'zusatz'`; `einheit_lesen.ohne_test` und `schule_uebersicht` `stand[].ohne_test` sind `true`.
+
+**Tests**
+- `zp_s_rauchtest`:
+  - 0: Prüfung vorab.
+  - 1: Einspielen ändert keine Kinderdaten und keine Reiseoptionen; bestehende Einträge wie 485 werden als „Zusatz · eingeplant“ mit allen Etappen geführt.
+  - 2: einplanen über `plan_setzen_intern`, falls vorhanden.
+  - 3: landen, Fortschritt über alle Etappen, kein Flug-Test, kein Nachtest.
+  - 4: Ort fertig, ein Stempel, 100 Sterne genau einmal, auch nach erneuter Landung.
+  - 5: nichts dahinter gesperrt.
+  - 6: Matrix und Reisekarte.
+  - 7: nicht eingeplanter Zusatz ohne Stempel und Sterne.
+  - 8: Gruppenwechsel hin und zurück.
+  - 9: übrige Sterne unverändert.
+- `tl_s` Teil 5: Ein offener `normal`-Eintrag mit Zusatz-Teil ist erlaubt, wenn er als `zusatz_eingeplant` geführt wird. Auf dem echten Stand ist er nach dem Einspielen grün; vorher bleibt er rot wie gemeldet.
+- `rd_s`:
+  - Migration nur, wenn sie noch fehlt (sonst würde sie im Lauf `reise_karte` ohne ZP-S überschreiben).
+  - Die Zähler vergleicht der Test über `zaehlt ?? pflicht`.
+
+**Lokal geprüft** (Nachbau nach LZ-S; Teile mit anderen IDs; ohne `plan_setzen_intern`, Einplanen dort als direkter Eintrag wie `plan_setzen` ihn anlegt)
+- ZP-S läuft zweimal.
+- Auf dem Stand vor und nach dem Einspielen grün: `zp_s`, `rd_s`, `ex_s`, `lz_s`, `tl_s`, `nt_s`, `lk_s`.
+- Nicht lokal geprüft: der Weg über `plan_setzen_intern`. Der Rauchtest nutzt ihn auf dem echten Stand.
+
 ## 2026-11-23 – FERTIG: LZ-S
 
 Stand `lernen-app` e07976a übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code:

@@ -2,6 +2,53 @@
 
 Neueste oben.
 
+## 2026-11-23 – FERTIG: LW-3b (0.90.1) – Kopf der Kind-Seite schlank, Matrix groß, „Lehrplan von:“, Cache v167
+
+Auf `lernen-app` fb2fcfb (Nachtrag LW-3, Rückmeldung Sebastian zu 0.89.1). Nur App, Version in sechs Dateien, Tests, Info-Seite. Nichts in der Datenbank, keine Migration, kein Merge nach `main`.
+Bilder: `docs/previews/la/lw3b-1280.png` (1280 × 800), `lw3b-820.png`, `lw3b-400.png`.
+
+1. **Eine Kopfzeile** auf allen drei Reitern der Kind-Seite, im App-Kopf statt im Inhalt: ‹ Zurück · Kinder-Umschalter (ersetzt die Überschrift „Lehrplan ‹Kind›“; die Überschrift bleibt nur für Vorleser) · Reiter Überblick | Was wackelt (rote Zahl) | Lehrplan · rechts klein „Lernen starten ›“ (Eltern) bzw. „Lernreise ansehen ›“ (Lehrer), ⚙ (Einstellen), ⓘ (So funktioniert’s), Version bzw. Abmelden (Lernen-Seite). Die Bereichsleiste oben ist auf der Kind-Seite 52 statt 72 px hoch. **Gemessen 1280 × 800: Kopf 53 px.** Tablet: Reiter in einer zweiten Zeile; Handy: Umschalter + Knöpfe, darunter die Reiter. Auf anderen Seiten ist der Kopf wie bisher (Test).
+2. **Matrix und Fahrplan bis zum unteren Rand** (eigene Rollbereiche wie bisher). Die Legende steht jetzt in der zweiten Zeile der Leiste (kürzere Wörter: „fertig“, „gewählte Schule“, „Platz“), Stand und „↶ Rückgängig“ rechts daneben. **Gemessen 1280 × 800: Matrix 603 px sichtbar** (Test ≥ 600). 820: erste Karte bei 229 px (0.89.1: 366), 400: 314 px (0.89.1: 392).
+   **Expeditionen** des Kindes stehen im Überblick (unten), nicht mehr unter der Matrix.
+3. **„Lehrplan von:“** (Gymnasium | Realschule | IB MYP, auf allen Breiten ausgeschrieben) statt „Einordnen“, mit ⓘ: „Bestimmt nur, in welcher Klassen-Zeile ein Thema steht und welcher Ring groß ist. Es werden immer alle Themen gezeigt.“ Standard = Schulart des Kindes. Info-Seite angepasst. Unter Nachschlagen → Lehrplan (Matrix ohne Kind) heißt es weiter „Einordnen nach“ – dort nicht beauftragt.
+4. **Tests:** neu 2 (Kopf/Matrix/Lehrplan von/Expeditionen bei 1280, 820, 400; Info-Seite); W176-Test sieht die Expeditionen jetzt im Überblick. Lernen alle grün; Gesamtlauf sonst nur die bekannten Reise-Tests. **Nicht geprüft:** echte Geräte, echter Server.
+
+**Knapp:** 603 px ist nur 3 px über der Grenze. Wird die Leiste länger (z. B. „Noch nicht im Plan · 145“), kann die Legende in eine dritte Zeile rutschen – dann stünde sie besser hinter ⓘ wie auf Tablet/Handy (bitte entscheiden).
+
+## 2026-11-23 – FERTIG: LW-3 (0.90.0) – Kinder-Umschalter, Überblick-Karten mit Sprüngen, „Was wackelt“ als Arbeitsliste, Cache v166
+
+Auf `lernen-app` 6da3aec (Vorgabe Abschnitt 1a, Schnittstelle LW-S / LW-S 2). Nur App, Version in sechs Dateien, Tests, Info-Seite. Nichts in der Datenbank, keine Migration, kein Merge nach `main`.
+Bilder: `docs/previews/la/lw3-ueberblick-400.png`, `lw3-ueberblick-820.png`, `lw3-wackelt-400.png`, `lw3-wackelt-820.png`.
+
+**1 Kinder-Umschalter (1a)**
+- Im Kopf jeder Kind-Seite: `‹ [A Kind A · Gymnasium · Kl. 8] [B Kind B …] ›`; Klick auf ein Kind oder ‹ › wechselt das Kind, **der gewählte Reiter bleibt** (Adresse `#/kind/<id>-<reiter>`). Tastatur Alt+← / Alt+→. Buchstabe = Anfangsbuchstabe, bei gleichen Anfangsbuchstaben der letzte Teil des Namens.
+- Beim Wechsel wird die Seite neu aufgebaut: Schule und Klassen des neuen Kindes (Klassen je Kind gemerkt), Detail zu, Auswahl leer, Rückgängig verfällt (Test).
+- Handy: nur das aktive Kind ausgeschrieben, die anderen als Buchstabe. Im Reiter „Lehrplan“ auf dem Handy stehen Umschalter und Knöpfe in einer Zeile (ohne ‹ ›, „Einstellen“ als ⚙), damit die erste Karte weiter über 400 px bleibt (gemessen 392 px).
+- Nur mit mindestens zwei Kindern sichtbar.
+
+**2 Überblick-Karten mit Sprüngen**
+- **Gerade dran** (blau): Thema, Themengebiet, „Etappe 3 von 7“, Balken → **„Im Lehrplan öffnen“** (Reiter „Lehrplan“, Detail des Themas offen).
+- **Als Nächstes**: Plätze 2–4 wie im Fahrplan (Test: gleiche Titel und Nummern) → **„Fahrplan ändern“** (Reiter „Lehrplan“; Handy mit „Fahrplan“, Tablet mit offener Fahrplan-Schublade).
+- **Zu besprechen** (rötlich): Zahl und Themen aus `schule_wackelt_lesen` → **„Zu Was wackelt“**. Ohne Server-Aktion fehlt die Karte.
+- **Diese Woche**: Lerntage, Bordkarten, % richtig (aus `schule_lernstand.woche`).
+- **Stand Kl. n**: Ringe für Klasse −1, Klasse, +1 (groß gewählte Schule, klein die anderen) – dieselbe Rechnung wie im Reiter „Lehrplan“ (Test: gleiche Zahl); Antippen öffnet den Lehrplan an dieser Klasse.
+- Die bisherigen Karten (Lernt es? Wo hakt es? Wo steht es? Was kommt? Zuletzt geschafft) stehen unverändert darunter.
+
+**3 „Was wackelt“ als Arbeitsliste**
+- Drei Bereiche **Zu besprechen · Beobachten · Besprochen** (Zahl im Kopf), je Eintrag Thema, „Etappe: … · n Fehler · heute/gestern/vor n Tagen“, „wieder offen · n neu“ wenn der Server `wieder_offen` meldet. Knöpfe „✓ Besprochen“, „Beobachten“ (bei Beobachten stattdessen „Zu besprechen“), „Im Lehrplan“ (öffnet das Thema im Reiter „Lehrplan“). „Bordkarte und Antwort ▸“ klappt die letzten falschen Antworten je Etappe aus `schule_lernstand` auf (wie bisher, mit „Kurz gesagt“ und „Erklärung ansehen“).
+- Speichern über `schule_wackelt_setzen {lernender_id, thema_id, status[, einheit_id, lernziel]}` (Etappen-Einträge mit ihrem Bezug); der Eintrag aus der Antwort ersetzt den alten, die Gruppe wechselt sofort; 5 s „↶ Rückgängig“ setzt den vorigen Status (zweiter Aufruf).
+- **Rote Zahl am Reiter** „Was wackelt“ = `zu_besprechen` – auf allen drei Reitern, nach jedem Setzen sofort neu.
+- Neue Fehler → „Zu besprechen“: rechnet der Server beim Lesen; Test stellt das mit einem nachgestellten Server nach.
+- Die bisherige Tabelle je Etappe (mit „Besprochen ✓“ je Etappe, LA-3) steht zugeklappt darunter („Je Etappe: richtig / falsch, häufigster Fehler“), „Alle Etappen mit Stand“ wie bisher.
+- **Ohne `schule_wackelt_lesen`** (bis die Edge Function 0.9.2 live ist): Seite wie bisher, keine Zahl am Reiter (Test).
+
+**Prüfen**
+- 400/820/1280: Überblick und Was wackelt ohne Querrollen, nichts läuft über (Test, Bilder).
+- LW-1/LW-2 unverändert grün: Auswählen, Sammelaktion, Rückgängig, Konflikt „Neu laden“, Ziehen, Warnungen, „Alle einplanen“, Teile, Wieder in die Wiederholung.
+- **Annahme:** Das Testkind steht – wie in der Übersicht – im Umschalter mit; falls es dort nicht erscheinen soll, bitte sagen (dann filtern).
+
+**Getestet:** neu 6 (Arbeitsliste mit Setzen/Rückgängig/Zahl/„wieder offen“, alter Server, Umschalter mit Klick und Alt+←/→, Überblick-Karten mit Sprüngen und Ring-Vergleich, Abnahme 400/820/1280, Info-Seite). Lernen alle grün; Gesamtlauf sonst nur die bekannten Reise-Tests. **Nicht geprüft:** echter Server (Edge Function 0.9.2 noch nicht live), echte Geräte.
+
 ## 2026-11-23 – FERTIG: LW-2b (0.89.1) – Nachtrag zur Prüfung LW-2, Cache v165
 
 Auf `lernen-app` b2fe4d3 (Prüfung `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw2.md`). Nur App, Version in sechs Dateien, Tests. Nichts in der Datenbank, keine Migration, kein Merge nach `main`.

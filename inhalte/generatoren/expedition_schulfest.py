@@ -13,7 +13,7 @@ e = Fr(260 - 180, 2 - 1); k = 180 - e
 assert (k, e) == (100, 80) and k + 2 * e == 260
 assert 240 - 60 * Fr('3.5') == 30 and 240 - 60 * 4 == 0
 
-L, G, S, U = B('stochastik.grundbegriffe', 'laplace'), B('stochastik.grundbegriffe', 'grosse_zahlen'), B('gleichungen.lgs2', 'sachaufgabe'), B('gleichungen.ungleichungen', 'sachaufgabe')
+L, G, S, U = B('stochastik.grundbegriffe_teil2', 'laplace'), B('stochastik.grundbegriffe_teil2', 'grosse_zahlen'), B('gleichungen.lgs2', 'sachaufgabe'), B('gleichungen.ungleichungen', 'sachaufgabe')
 rad = {'typ': 'kreisdiagramm', 'zahlen': False, 'werte': [{'name': 'G' if i % 4 == 0 else 'N', 'wert': 30} for i in range(12)]}
 schreibe({
     'schluessel': '8-schulfest', 'titel': 'Schulfest',

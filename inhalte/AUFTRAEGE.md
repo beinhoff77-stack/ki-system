@@ -3015,3 +3015,80 @@ Freigabe Sebastian („Teilung in die Datenbank einspielen“), Prüfung Werksta
 - Neue Teile (Thema-ID): 276 Dreisatz T2, 277 Terme umformen T2, 278 Konstruktionen T2, 279/280 Kongruenzabbildungen T2/T3, 281 Zufall und Laplace T2, 282 Schrägbilder T2, 283 Prismen und Zylinder T2.
 - Offen für Sebastian (Liste je Kind): Kind 2 – „vom alten Thema gesetzt, jetzt offen“: 276, 279, 280; alle übrigen neuen Teile offen, nicht im Plan. Kind 1 – alle neuen Teile offen, nicht im Plan.
 - Visum-Übergang bleibt wie gebaut (dauerhaft); Sebastians ausdrückliche Bestätigung steht noch aus.
+
+## LIVE: App 0.89.1 (LW-2 + LW-2b) – 23.11., 00:35 Berlin
+
+`main` b8ffdd7 = `lernen-app` c941c33, Auslieferung erfolgreich. App-Tests 151 von 151. Prüfung Gestalter LW-2: 1 Muss (behoben in 0.89.1, eigener Test), nicht erneut vom Gestalter angesehen. Edge Function `lernen-api` bleibt 0.9.1.
+
+## Bau-Auftrag RD – Reise-Aufbau in die Datenbank (23.11., 00:40 Berlin) · an `bau-lehrer` (Datei, nicht einspielen)
+
+Schritt 4 der Reihenfolge aus „Bau-Auftrag RK“. Die Teilung ist eingespielt (TL-S 7, 105 Themen). Grundlage: `inhalte/reise/aufbau-vorschlag.json` und `.md` (Reise-Aufbau 4: 95 Flüge, 618 Städte, Prüfskript `inhalte/reise/aufbau_pruefen.py` ohne Fehler), Datenbedarf der Karte: `inhalte/pruefung/kind/karte/umsetzung.md`.
+
+**Liefern**
+1. `supabase/migrations/20261125_rd_s_reise.sql` – Tabellen und Funktionen:
+   - Kontinent (Themengebiet ↔ Reise), Land je Flug (Thema bzw. Teil): Name, ISO-Code, Region/Landesteil, Mittelpunkt, Hauptstadt (deutscher Name, Lage), Kennzeichen Kurzflug / Insel-Ausnahme / Nachbarteil.
+   - Stadt je Etappe (Einheit + Lernziel): Name, Breite, Länge, GeoNames-ID, Reihenfolge, Kür je Gruppe wie in der Pflichtliste.
+   - Reserve-Länder und Reserve-Städte, Antarktis-Stationen der Expeditionen.
+   - Regeln als Constraints: jedes Land genau einmal, jede Stadt genau einmal, je Etappe genau eine Stadt.
+   - Lesefunktion für die Karte je Kind: Kontinente → Flüge (Land, ISO, Mittelpunkt, Hauptstadt, Stufe, Stempel, golden = alles sitzt, im Plan, Zusatz) → Städte (Stand je Etappe: offen · begonnen · gelandet · sicher · wieder offen; Pflicht/Kür der Gruppe des Kindes) → nächster Start. Dazu Quellenangabe (GeoNames CC BY 4.0, Natural Earth) im Ergebnis.
+   - Aktion `api.schule_reise_karte` mit der üblichen Zugriffsprüfung; Eintrag in `supabase/functions/lernen-api/index.ts` (Version 0.9.3, nur Datei).
+2. `inhalte/reise/rd_einspiel_2311.sql` – die Daten, erzeugt aus `aufbau-vorschlag.json` durch ein Skript im Repo (`inhalte/reise/rd_bauen.py`). Themen der neuen Teile über `teil_stamm` + `teil_nr` auflösen, keine festen IDs. Wiederholbar, ohne DROP/DELETE.
+3. `supabase/tests/rd_s_rauchtest.sql` – u. a.: jede freigegebene Etappe jedes Mathe-Themas mit Flug hat genau eine Stadt; kein Land und keine Stadt doppelt; Karte für Testkind in jeder der fünf Gruppen; Stufe/Stempel der Karte = `thema_stufe`/Erstabschluss; Lernstand, Sterne, Reiseoptionen unverändert.
+
+**Nicht ändern:** bestehende Abflugtafel, Reiseoptionen, Visum, Stempel, Sterne – die Kinderseite 0.89.1 muss unverändert weiterlaufen. Die bisherigen Ortsnamen bleiben, bis RK-App live ist.
+**Melden:** Abweichungen zwischen JSON und Datenbank (Etappen ohne Stadt, Städte ohne Etappe, `noch_nicht_in_db`), Größe der Karten-Antwort je Kind. Keine Namen, keine Schlüssel. Meldung „FERTIG: RD-S“ mit Schnittstelle.
+
+## LW-3 kann starten (23.11.) · an `bau-motivation`
+
+LW-S 2 ist eingespielt (`schule_wackelt_lesen` / `schule_wackelt_setzen` in der Datenbank). Edge Function 0.9.2 rollt der Haupt-Chat zusammen mit dem Live von 0.90.0 aus. Auftrag wie „Bau-Auftrag LW“, LW-3; Schnittstelle laut `inhalte/postfach/bau-lehrer.md` (LW-S / LW-S 2).
+
+## Nachtrag LW-3: Kopf der Kind-Seite schlank, Matrix groß (23.11., 00:50 Berlin) · Rückmeldung Sebastian zu 0.89.1
+
+Sebastian (Rechner, Reiter „Lehrplan“): Seitenaufbau passt nicht – der Block mit Reitern und großer Überschrift „Lehrplan ‹Kind›“ ist zu dominant, die Matrix dadurch zu klein; es fehlt der Wechsel zwischen den Kindern; „Einordnen“ ist nicht selbsterklärend.
+
+Zusätzlich zu LW-3 an `bau-motivation`:
+1. **Eine Kopfzeile** statt Reiter-Block plus Überschrift: Zurück · Kinder-Umschalter (Name als Auswahl; ersetzt die Überschrift) · Reiter Überblick | Was wackelt | Lehrplan · rechts Version/Abmelden klein. Ziel Rechner 1280 × 800: Kopf höchstens etwa 60 px.
+2. **Matrix und Fahrplan füllen die Höhe des Fensters** (bis zum unteren Rand, eigene Rollbereiche wie bisher). Der Block „Expeditionen“ steht nicht mehr unter der Matrix, sondern als Link/aufklappbar oder im Überblick.
+3. **„Einordnen“ verständlich:** Beschriftung „Lehrplan von:“ (Gymnasium | Realschule | IB MYP) mit ⓘ-Hinweis „Bestimmt nur, in welcher Klassen-Zeile ein Thema steht und welcher Ring groß ist. Es werden immer alle Themen gezeigt.“ Standard = Schulart des Kindes.
+4. Messung im Test: sichtbare Matrix-Höhe bei 1280 × 800 mindestens 600 px; bei 820 und 400 nichts schlechter als 0.89.1.
+
+## Befund nach der Teilung: Expedition „8-schulfest“ zeigt auf das alte Thema (23.11.) · an `bau-lehrer`, mit RD-S liefern
+
+`schule.expedition.voraussetzungen` nennt Thema + Lernziel. Nach TL-S 7 liegen `laplace` und `grosse_zahlen` in „Zufall und Laplace – Teil 2 von 2“, die Expedition „8-schulfest“ verweist aber noch auf Thema 61 (Teil 1). Folge: Sie kann keinem Kind mehr angeboten werden. Alle anderen 20 Expeditionen passen (geprüft: jede Voraussetzung findet ihre Etappe im genannten Thema). Derzeit kein Kind betroffen.
+Verlangt: Korrektur als Datei (Voraussetzung über `teil_stamm` auf den Teil umstellen, der das Lernziel enthält – keine feste ID), `expedition_voraussetzungen_ok` so, dass eine künftige Teilung das nicht mehr bricht (Familie des Themas statt Thema), Rauchtest „jede Voraussetzung jeder Expedition findet ihre Etappe“.
+
+## Auftrag EX – Expeditionen dem Kind vor die Nase legen (23.11., 01:10 Berlin) · Sebastian: „ok“
+
+Sebastian: Wichtig ist, dass das Kind Lust auf die Expedition hat und sie ihm vor die Nase gelegt wird; „wenn da irgendwo freiwillig steht, machen sie es nie“. Lehrer muss sie nicht zuweisen. Stand heute: Überschrift „EXPEDITION · FREIWILLIG“, ein Eintrag auf der Abflugtafel, 50 Sterne (`sterne_expedition_geschafft`), noch keinem Kind angeboten.
+
+**Entschieden (Vorschlag Haupt-Chat, Sebastian „ok“):**
+1. Das Wort „freiwillig“ verschwindet aus der Kinderseite; stattdessen „Expedition freigeschaltet“. Regel bleibt: sperrt nichts, zählt nicht für „gelandet“.
+2. Freischalten als Ereignis: nach der Landung, die die letzte Voraussetzung erfüllt, eigene Ansicht mit großem „Jetzt starten“ und kleinem „Später“.
+3. Solange offen: oberste, größte Karte der Abflugtafel, vor dem nächsten Flug; nach „Später“ am nächsten Lerntag wieder vorn.
+4. Belohnung: 150 Sterne je Expedition, 200 bei fehlerfreiem Lösen (alle Teile im ersten Versuch ohne Tipp); Expeditions-Stempel als Sammlung mit Lücken („3 von 21 Stationen“).
+5. Mit der Reisekarte: Antarktis als Kontinent, gesperrte Stationen zeigen, was fehlt.
+Nicht: Pflicht vor dem nächsten Flug.
+
+**EX-G · an den Gestalter:** kurze Vorgabe `inhalte/pruefung/kind/expedition/umsetzung.md` zu 1–4 (Freischalt-Ansicht, Karte auf der Abflugtafel, Stempel-Sammlung, Texte; 400 und 820 px), passend zur Vorgabe Reisekarte (§ Antarktis).
+**EX-S · an `bau-lehrer` (Datei, mit RD-S):** Sterne 150/200 (Regelwerte, fehlerfrei = alle Teile erster Versuch ohne Tipp), Feld „seit wann angeboten“ und „später bis“ je Kind, Zahl der Stationen gesamt/geschafft in der Übersicht; schon gebuchte Expeditionen gibt es nicht (keine Nachbuchung nötig – im Rauchtest prüfen).
+**EX-App · an `bau-motivation`:** nach LW-3 und nach EX-G.
+
+## Probelauf RD-S + EX-S (23.11., 01:25 Berlin, echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` e75ddca. RD-Migration + Daten zweimal, EX-S zweimal: ohne Fehler. 123 Länder (95 Flug + 28 Reserve), 827 Städte (618 + 209), 21 Stationen, 0 Abweichungen. Kinderdaten (Karten, Sterne, Lernziel-Stände, Erstabschlüsse), alle Stufen, Reiseoptionen und Ortsnamen unverändert. Karten-Antwort Kind 2: rund 173 000 Zeichen. Nächster Start: Kind 1 Schweiz/Zürich (Thema 18), Kind 2 Sri Lanka/Galle (Thema 5).
+Tests: ex_s vor und nach grün; tl_s, nt_s, lk_s, wd_s, wd_s3, fp_s, lw_s grün.
+**Rot: `rd_s_rauchtest` Test 3** (vor und nach): „Stand je Etappe falsch: gelandet,gelandet,wieder_offen,begonnen,offen“ – erwartet war „sicher“ für die erste Karte (sitzt, wdh_stufe 3). Auf dem echten Stand gilt die Karte nur als „gelandet“. → Nachtrag RD-S 2: klären, was live „sicher“ ist (gleiche Regel wie `thema_stufe`.sicher), Funktion oder Test angleichen.
+**Fehlt:** Korrektur Expedition „8-schulfest“ samt Test (Befund vom 23.11.) ist in RD-S/EX-S nicht enthalten.
+
+## LW-3 (0.90.0) geliefert – ohne den Nachtrag „Kopf schlank, Matrix groß“
+
+`bau-motivation` hat auf 6da3aec gebaut; der Nachtrag (ed2ed15) ist nicht enthalten → LW-3b (0.90.1). Vorgabe EX des Gestalters liegt unter `inhalte/pruefung/kind/expedition/`.
+
+## Probelauf RD-S 2 + EX-F + EX-S (23.11., 01:35 Berlin, echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` 0d8717d. Reihenfolge: RD-S-Migration → rd_einspiel_2311 → ex_f (Familie des Themas) → ex_s; die ganze Kette zweimal ohne Fehler.
+- **Alle Tests grün:** rd_s und ex_s vor und nach dem Einspielen; tl_s, nt_s, lk_s, wd_s, wd_s3, fp_s, lw_s danach.
+- Kinderdaten (Karten, Sterne, Lernziel-Stände, Erstabschlüsse), alle Stufen, Reiseoptionen, Ortsnamen unverändert.
+- 123 Länder, 827 Städte, 0 Abweichungen. Expedition „8-schulfest“ zeigt auf den Teil 2 (Thema 281). Angebote nach dem Nachtragen: 0 (kein Kind hat eine Expedition freigeschaltet).
+- „sicher“ je Stadt = `schule.karte_sicher` (wie `thema_stufe`); falsch war der Test, nicht die Funktion.
+Prüfbitte an ChatGPT gestellt.

@@ -1,6 +1,7 @@
 // lernen-api (Werkstatt #150, Claude): Schnittstelle der App für „Lernen Schule“.
 // Gleiche Anmeldung wie app-api (Sitzungs-Token -> app.sitzung), ruft nur die api.schule_*-Funktionen als council_mcp auf.
 // Die Datenbank prüft Zugriff (schule.zugriff) und Sichtbarkeit (Entwürfe nur fürs Testkind) bei jeder Aktion.
+// v0.9.3: schule_reise_karte (RD-S, Reisekarte je Kind: Kontinente → Flüge → Städte, nächster Start, Quellen); schule_expedition_spaeter (EX-S, „Später“ bis zum nächsten Lerntag).
 // v0.9.2: schule_wackelt_lesen / schule_wackelt_setzen (LW-S, „Was wackelt“ mit gespeichertem Status).
 // v0.7.0: schule_lernstand (Lernstand je Lernkarte für Eltern/Lehrer).
 // v0.6.0: schule_lehrplan_uebersicht (alle Themen je Schulart/Klasse mit Inhaltsstand), schule_inhalt_lesen (Inhalte prüfen), schule_kind_setzen (Schulart/Klasse).
@@ -14,7 +15,7 @@ import { Hono } from 'npm:hono@^4.9.7'
 import postgres from 'npm:postgres@3.4.5'
 
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
-const VERSION = '0.9.2'
+const VERSION = '0.9.3'
 
 const AKTIONEN: Record<string, string[]> = {
   schule_uebersicht: [],
@@ -44,6 +45,8 @@ const AKTIONEN: Record<string, string[]> = {
   schule_landung_nachbuchung_gesehen: ['lernender_id'],
   schule_wackelt_lesen: ['lernender_id'],
   schule_wackelt_setzen: ['lernender_id', 'thema_id', 'status', 'einheit_id?', 'lernziel?'],
+  schule_reise_karte: ['lernender_id'],
+  schule_expedition_spaeter: ['lernender_id', 'expedition_id'],
   schule_lehrplan_uebersicht: [],
   schule_lehrplan_matrix: ['lernender_id?', 'mit_testkind?'],
   schule_lehrplan_thema: ['thema_id', 'lernender_id?'],

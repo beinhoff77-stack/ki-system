@@ -8,11 +8,11 @@
  "einleitung": "Beim Schulfest betreut deine Klasse ein Glücksrad und eine Losbude. Das Glücksrad hat 12 gleich große Felder; 3 davon sind Gewinnfelder (G), die anderen Nieten (N). Mit dem Geld aus beiden Ständen soll die Klassenkasse aufgefüllt werden.",
  "voraussetzungen": [
   {
-   "thema_schluessel": "stochastik.grundbegriffe",
+   "thema_schluessel": "stochastik.grundbegriffe_teil2",
    "lernziel": "laplace"
   },
   {
-   "thema_schluessel": "stochastik.grundbegriffe",
+   "thema_schluessel": "stochastik.grundbegriffe_teil2",
    "lernziel": "grosse_zahlen"
   },
   {
@@ -100,7 +100,7 @@
    "w": "Gegeben: 12 gleich wahrscheinliche Felder, 3 günstige. Gesucht: P(Gewinn). Ansatz: Laplace: günstige : mögliche. Rechnung: 3/12 = 1/4. Antwort: Die Wahrscheinlichkeit ist 1/4.",
    "h": "Sind alle Felder gleich groß? Dann zählen.",
    "bezug": {
-    "thema_schluessel": "stochastik.grundbegriffe",
+    "thema_schluessel": "stochastik.grundbegriffe_teil2",
     "lernziel": "laplace"
    }
   },
@@ -117,7 +117,7 @@
    "w": "Gegeben: P = 1/4, 240 Drehungen. Gesucht: erwartete Anzahl der Gewinne. Ansatz: Bei vielen Versuchen liegt die relative Häufigkeit nahe an der Wahrscheinlichkeit. Rechnung: 240 · 1/4 = 60. Antwort: Etwa 60 Gewinne.",
    "h": "Welcher Anteil der Drehungen gewinnt ungefähr?",
    "bezug": {
-    "thema_schluessel": "stochastik.grundbegriffe",
+    "thema_schluessel": "stochastik.grundbegriffe_teil2",
     "lernziel": "grosse_zahlen"
    }
   },

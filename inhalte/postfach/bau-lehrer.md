@@ -2,6 +2,186 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-23 – FERTIG: RD-S 2
+
+Stand `lernen-app` fb2fcfb übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code:
+- neu: `supabase/migrations/20261125_ex_f_expedition_familie.sql`
+- geändert: `supabase/migrations/20261125_ex_s_expedition.sql`, `supabase/tests/rd_s_rauchtest.sql`, `supabase/tests/ex_s_rauchtest.sql`
+- Inhaltsquelle angeglichen: `inhalte/expeditionen/8-schulfest.json`, `inhalte/generatoren/expedition_schulfest.py`
+
+**Reihenfolge Einspielen:** RD-S-Migration → `rd_einspiel_2311.sql` → `20261125_ex_f_expedition_familie.sql` → `20261125_ex_s_expedition.sql`. EX-S bricht ab, wenn `ex_f` fehlt.
+
+**1) „sicher“ (rd_s Test 3)**
+- Live gilt `schule.karte_sicher`: Die Karte sitzt, `wdh_stufe` ≥ 4, und es gibt einen Nachweis.
+  - Nachweis entweder: Mischkarte seit dem Landen und bestandener Nachtest mit richtiger Antwort zu dieser Etappe.
+  - Oder: bei „Kann er“ bzw. Flug ohne Test keine Mischkarte seit dem Setzen, bzw. eine bestandene.
+- Der Zähler `sicher` in `thema_stufe` nutzt genau diese Funktion.
+- Die Karten-Funktion (`reise_etappe_stand`) nutzt sie schon. Sie ist unverändert; falsch war der Test.
+  - Der alte Test setzte nur `wdh_stufe` 3 ohne Nachweis; das ist live „gelandet“.
+  - Der lokale Nachbau hatte eine vereinfachte `karte_sicher`.
+- Test 3 neu:
+  - Erste Karte sicher über „Kann er“: `wdh_stufe` 4, `gesetzt_am`, keine Mischkarte seitdem. Vorab prüft der Test, dass `karte_sicher` greift.
+  - Zweite Karte nur gelandet, danach wieder offen, begonnen, offen.
+  - Golden: alle Karten so sicher.
+- Test 4 neu je Kind und Flug:
+  - `sicher` = Anzahl Pflicht-Städte mit Stand „sicher“ = `thema_stufe.sicher`.
+  - `gelandet` = Anzahl Pflicht-Städte „gelandet“ oder „sicher“.
+  - `golden` = alle Etappen der Regel sicher.
+  - Damit nutzen Stand je Stadt und die Zähler je Flug dieselbe Regel.
+- Gegenprobe lokal mit der Live-Fassung von `karte_sicher`: Der alte Test schlägt mit genau der Meldung aus dem Probelauf fehl, der neue ist grün.
+
+**2) Expedition „8-schulfest“ und Familie des Themas (`ex_f`)**
+- Neu: `schule.thema_familie(thema)` (Stamm über `teil_stamm`) und `schule.lernziel_thema(thema, lernziel)` (das Thema der Familie, dessen aktuelle Einheit die Etappe hat; das genannte Thema zuerst).
+- `expedition_voraussetzungen_ok` und `expedition_etappe` suchen die Karte in der Familie des genannten Themas. Eine künftige Teilung bricht Expeditionen damit nicht mehr.
+- Der Auslöser aus EX-S (`expedition_angebot_pruefen`: Auswahl der Expedition und „seit“ = späteste Landung) nutzt dieselbe Familien-Regel.
+- Datenkorrektur ohne feste IDs:
+  - Voraussetzungen, deren Lernziel nicht im genannten Thema liegt, zeigen auf den Teil, der es enthält; `thema_schluessel` wird mitgeführt.
+  - Ebenso Thema und Einheit der Expeditions-Teile (Aufgaben).
+  - Live betrifft das „8-schulfest“: laplace und grosse_zahlen, je Voraussetzung und Teil, gehen nach „Zufall und Laplace – Teil 2 von 2“.
+  - Live gibt es keine Karten und keine Antworten dazu; kein Kind ist betroffen.
+- Inhaltsquelle: Die JSON und der Generator nennen jetzt `stochastik.grundbegriffe_teil2`. Sonst würde ein neuer Import die alte Zuordnung zurückholen.
+- `ex_s_rauchtest` Test 8:
+  - Jede Voraussetzung und jeder Teil jeder Expedition findet seine Etappe im genannten Thema; der Themen-Schlüssel passt zur ID.
+  - Eine Voraussetzung, die den Stamm nennt, deren Etappe aber in einem späteren Teil liegt, gilt als erfüllt. Der Auslöser legt das Angebot an, und `expedition_etappe` findet die Karte im Teil.
+
+**Lokal geprüft**
+- `ex_f` und EX-S liefen je zweimal (zweiter Lauf: 0 Änderungen).
+- Auf dem Stand vor und nach dem Einspielen grün:
+  - `ex_s_rauchtest` (Tests 0–8)
+  - `rd_s_rauchtest`, zusätzlich mit der Live-Fassung von `karte_sicher`
+  - `tl_s`, `nt_s`, `lk_s`
+
+## 2026-11-23 – FERTIG: EX-S
+
+Gehört zu RD-S. Stand `lernen-app` 759fa30 übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code:
+- `supabase/migrations/20261125_ex_s_expedition.sql`
+- `supabase/tests/ex_s_rauchtest.sql` (spielt die Migration selbst ein, Rollback)
+- `supabase/functions/lernen-api/index.ts` 0.9.3: zusätzlich `schule_expedition_spaeter`
+
+**1) Sterne**
+- `sterne_expedition_geschafft` steigt von 50 auf **150**.
+- Neu: `sterne_expedition_fehlerfrei` = **200**. Fehlerfrei heißt: Bei jedem Teil war der erste Versuch außerhalb von Tests richtig, ohne Tipp und im ersten Anlauf.
+- `expedition_buchen` bucht 200 oder 150, genau einmal je Kind und Expedition (eindeutiger Schlüssel Kind + Grund + Bezug).
+- Beide Werte stehen auch in `sterne_regeln`.
+- Live gibt es noch keine Expeditions-Sterne und keine Antworten auf Expeditionen, also ist keine Nachbuchung nötig. Rauchtest 0 prüft das und bricht sonst ab.
+- Beim Einspielen setzt die Migration beide Werte auf 150 und 200, auch wenn sie vorher anders standen.
+
+**2) Angebot und „Später“**
+- Neue Tabelle `schule.expedition_angebot` (Kind, Expedition, `angeboten_am`, `spaeter_am`, `spaeter_bis`).
+- Das Angebot entsteht, sobald die letzte Voraussetzung sitzt: Auslöser auf `karte_stand.sitzt`.
+  - `angeboten_am` = Zeit der spätesten Landung unter den Voraussetzungen.
+  - Bestehende Stände trägt die Migration nach; auf dem echten Stand ist eine solche Nachtragung noch nicht gelaufen.
+- „Später“ setzt `spaeter_bis` auf das heutige Ortsdatum des Kindes (Zeitzone wie bei `lerntag`).
+  - Ausgeblendet ist die Expedition, solange `spaeter_bis` ≥ heute ist; ab dem nächsten Lerntag ist sie wieder vorn.
+- Es wird nichts gesperrt und nichts am Lernstand geändert.
+
+**Schnittstelle**
+- `expeditionen_kind` je Expedition: wie bisher, dazu:
+  - `angeboten_am`, `spaeter_am`, `spaeter_bis`, `ausgeblendet`
+  - `sterne` (gebuchte Menge), `fehlerfrei`
+  - `sterne_geschafft` (150), `sterne_fehlerfrei` (200)
+- Reihenfolge der Liste: begonnen → angeboten (vorn) → angeboten (später) → geschafft.
+- `expeditionen_stand` (neu in `schule_konto` und je Kind in `schule_uebersicht`):
+  - `stationen_gesamt`, `stationen_geschafft` (für „3 von 21 Stationen“)
+  - `angeboten` (Anzahl angeboten + begonnen), `vorn` (davon nicht ausgeblendet)
+  - `oben_id` = die Expedition für die oberste Karte der Abflugtafel: begonnen vor angeboten, dann nach `angeboten_am`
+  - `heute`, `angebote[]`
+- Neue Aktion `api.schule_expedition_spaeter {lernender_id, expedition_id}` mit Zugriffsprüfung wie `schule_konto`.
+  - Antwort: `{ok, lernender_id, expedition_id, spaeter_bis, expeditionen_stand}`.
+  - Fehler „Expedition ist nicht angeboten“, wenn es kein Angebot gibt.
+- „Jetzt starten“ braucht keine eigene Aktion: Die Antworten laufen wie bisher über `schule_uebung_pruefen`.
+- `schule_konto`, `schule_uebersicht` und `sterne_regeln` sind über eindeutige Anker erweitert. Die Anker habe ich auf dem echten Stand gelesen: je genau einmal vorhanden.
+
+**Lokal geprüft**
+- Nachbau: Stand nach RD-S, dazu die Expeditions-Funktionen so, wie sie live gelesen wurden.
+- Migration zweimal, Rauchtest grün, sowohl ohne als auch mit vorher eingespieltem EX-S:
+  - 0: keine Nachbuchung nötig.
+  - 1: Regelwerte 150 / 200.
+  - 2: Einspielen ändert Lernstand, Sterne, Route und Reiseoptionen nicht.
+  - 3: Kein Angebot, solange eine Voraussetzung fehlt; nach der letzten Landung ein Angebot mit „seit“ = diese Landung.
+  - 4: Das Angebot sperrt nichts (Reiseoptionen, Stufen, Lernziel-Stände).
+  - 5: „Später“ blendet bis zum nächsten Lerntag aus; Zugriff wird geprüft.
+  - 6: Mit Tipp 150, fehlerfrei 200, erst falsch und dann richtig 150 – je genau einmal, auch bei erneuter Antwort. Übrige Sterne, Lernstand anderer Kinder und Reiseoptionen unverändert.
+  - 7: Ausgabe in `schule_konto` und `schule_uebersicht`.
+- `rd_s`, `tl_s` und `nt_s` bleiben grün.
+- Die Erweiterung von `schule_uebersicht` ließ sich lokal nicht ausführen (die Funktion fehlt im Nachbau); live ist nur der Anker geprüft.
+
+## 2026-11-23 – FERTIG: RD-S
+
+Stand `lernen-app` 6da3aec übernommen. Grundlage `inhalte/reise/aufbau-vorschlag.json` (Reise-Aufbau 4), Datenbank nur gelesen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code:
+- `supabase/migrations/20261125_rd_s_reise.sql` – Tabellen, Regeln, Lesefunktion, Aktion.
+- `inhalte/reise/rd_bauen.py` → `inhalte/reise/rd_einspiel_2311.sql` (Daten; Aufruf `python3 -I inhalte/reise/rd_bauen.py`, prüft die JSON vorab, Exit 1 bei Fehler).
+- `supabase/tests/rd_s_rauchtest.sql` – spielt Migration und Daten selbst ein (beide wiederholbar), alles mit Rollback.
+- `supabase/functions/lernen-api/index.ts` 0.9.3: Aktion `schule_reise_karte` (nur Datei, nicht ausgerollt).
+
+**Reihenfolge Einspielen:** Migration → `rd_einspiel_2311.sql` (ein DO-Block: ganz oder gar nicht) → Rauchtest. Edge Function 0.9.3 erst mit RK-App.
+
+**Tabellen (alle neu, RLS an, nur über security-definer-Funktionen)**
+- `reise_kontinent`: Kontinent ↔ Reise-Name. `kontinent.erdteil` bleibt unverändert (Kontinent 4 zeigt bis RK-App weiter „Antarktis“, die Reise heißt „Orient …“).
+- `reise_land`: Flug-Länder und Reserve-Länder in einer Tabelle.
+  - Felder: `thema_id` (eindeutig), `flug_schluessel` („29-2“), Name, ISO, Region, Mittelpunkt, Hauptstadt (deutscher Name + Lage + GeoNames-ID), `hauptort` (nur Landesteile), `kurzflug`, `insel_ausnahme`, `nachbarteil`, `nachbarschaft`, Reihenfolge.
+- `reise_stadt`: Etappen- und Reserve-Städte.
+  - Felder: Thema + Lernziel, Einheit beim Einspielen, Name, Breite, Länge, GeoNames-ID, Reihenfolge, `kuer_vorschlag`.
+  - `kuer_vorschlag` ist nur zum Abgleich da; maßgeblich ist die Pflichtliste der Einheit.
+- `reise_station` + `reise_station_expedition`: je Expedition eine Station.
+- `reise_quelle`: Quellenangaben.
+
+**Regeln**
+- Jedes Land genau einmal: eindeutig nach ISO + Region und nach Name, über Flug- und Reserve-Länder zusammen.
+- Jede Stadt genau einmal: eindeutige GeoNames-ID.
+- Je Etappe höchstens eine Stadt: eindeutig nach Thema + Lernziel.
+- Jede Stadt liegt im Land ihres Flugs (Fremdschlüssel Land + Thema).
+- „Mindestens eine Stadt je Etappe“ prüfen die Sicht `reise_abweichung` und das Einspielen. Es bricht ab bei: Etappe ohne Stadt, Stadt ohne Etappe, freigegebenes Thema ohne Land, Land ohne Freigabe.
+- Die Themen der Teile löst das Einspielen über `teil_stamm` + `teil_nr` auf. Lokal hatten die Teile andere IDs (1000–1007), live sind es 276–283; beide liefen durch.
+
+**Schnittstelle** `api.schule_reise_karte(schluessel, {lernender_id})`
+- Zugriffsprüfung wie `schule_konto` (`schule.zugriff`, Kind aktiv).
+- Antwort: `{ok, lernender_id, gruppe, kontinente[], naechster_start, antarktis, quellen[]}`.
+- `kontinente[]`:
+  - Felder je Kontinent: `id`, `schluessel`, `themengebiet`, `reise`, `zusatz`, `laender`, `geschafft`, `zusatz_laender`, `fluege[]`.
+  - `laender` und `geschafft` zählen ohne Zusatz.
+- `fluege[]`, je Flug:
+  - Thema und Teil: `thema_id`, `flug`, `titel`, `untertitel`, `teil`, `teil_von`, `teil_stamm`.
+  - Land: `land`, `iso`, `region`, `mitte{breite, laenge}`, `hauptstadt{name, breite, laenge}`, `hauptort`, `kurzflug`, `insel_ausnahme`, `nachbarteil`.
+  - Stand des Kindes: `stufe`, `zeichen`, `gesetzt` (aus `thema_stufe`), `stempel` und `stempel_am` (= `flug_erstabschluss`), `golden` (alle Etappen der Regel sicher), `im_plan`, `plan_platz`, `zusatz`, `etappen`, `gelandet`, `sicher`.
+  - `staedte[]`: `nr`, `name`, `breite`, `laenge`, `lernziel`, `titel`, `pflicht`, `stand`.
+- `stand` einer Stadt: `offen` · `begonnen` · `gelandet` · `sicher` · `wieder_offen` (gleiche Zählung wie `thema_stufe`).
+- `pflicht` richtet sich nach der Gruppe des Kindes (`pflicht_lernziele`, gleiche Etappen wie `stufe_etappen`).
+- `naechster_start`:
+  - Auswahl: zuerst ein Flug „dran“, sonst der nächste „kommt“ im Plan, ohne Zusatz.
+  - Inhalt: `thema_id`, `kontinent_id`, `land`, `iso`, `titel`, `grund`, `staedte` (Anzahl) und `stadt{nr, name, lernziel, pflicht}`; die Stadt ist die erste offene, Pflicht vor Kür.
+  - Der Startknopf führt wie heute; das Feld dient nur zum Anzeigen und Hinzoomen.
+- `antarktis.stationen[]`: `name`, `betreiber`, `breite`, `laenge`, `expeditionen[]`.
+- `quellen[]`: GeoNames (CC BY 4.0), Natural Earth (gemeinfrei), COMNAP.
+
+**Abweichungen JSON ↔ Datenbank** (JSON gegen den echten Stand gelesen; die Datenbank hat 95 freigegebene Einheiten)
+- Etappen ohne Stadt: **0**. Städte ohne Etappe: **0**. Reihenfolge anders: **0**. Themen ohne Flug: **0**.
+- `noch_nicht_in_db`: alle 12 so markierten Etappen sind inzwischen in der Datenbank (Teilung und LK-D 4 eingespielt). Das Kennzeichen in der JSON ist veraltet und wird nicht übernommen.
+- Kür:
+  - Die 22 Etappen, die die JSON als Kür markiert (`kuer_in` bzw. `kuer`), stimmen in jeder Gruppe mit der Pflichtliste der Datenbank überein.
+  - Weitere 39 Etappen alter Themen sind laut Pflichtliste der Datenbank in allen Gruppen Kür, in der JSON aber nicht markiert, z. B. 15 `dualsystem`, 63 `venn`. Die Karte nimmt die Datenbank.
+  - Diese Fälle zeigt die Sicht `reise_kuer_abweichung`; der Zähler in der Einspiel-Meldung zählt dabei je Gruppe.
+- Die Zeile `stand` in der JSON lautet noch „Reise-Aufbau 2“, der Inhalt ist aber Reise-Aufbau 4 (95 Flüge, 618 Städte).
+- Umfang: 8 Kontinente, 95 Flug-Länder, 618 Etappen-Städte, 28 Reserve-Länder, 209 Reserve-Städte, 21 Stationen.
+
+**Größe der Karten-Antwort je Kind:** etwa 150 KB als JSON ohne Leerzeichen, etwa 26 KB gepackt (gzip). Lokal gemessen mit kurzen Etappen-Titeln; live kommen die echten Titel dazu, also etwas mehr.
+
+**Lokal geprüft** – im Nachbau mit den echten Etappen aller 95 Einheiten (Live, nur gelesen), dem Stand nach TL-S 7 / NT-S 2 und Teilen mit anderen IDs:
+- Migration lief zweimal, Einspielen ebenfalls zweimal; die Daten sind danach gleich.
+- `rd_s_rauchtest` grün, sowohl auf dem Stand ohne RD als auch mit schon eingespieltem RD:
+  - Test 0: wiederholbar.
+  - Test 1: je Etappe genau eine Stadt.
+  - Test 2: nichts doppelt, Regeln greifen.
+  - Test 3: Karte in allen fünf Gruppen; alle fünf Stände je Etappe; golden.
+  - Test 4: Stufe, Stempel, Pflicht und Zusatz je Kind wie `thema_stufe`, Erstabschluss und `stufe_etappen`.
+  - Test 5: Zugriff wird geprüft.
+  - Test 6: Lernstand, Sterne, Stempel, Route, Ortsnamen und Reiseoptionen unverändert.
+- `tl_s`, `nt_s` und `lk_s` bleiben grün.
+
+**Offen für Sebastian / Haupt-Chat**
+- COMNAP-Daten (Stationen) laut JSON „frei für Bildung, nicht kommerziell“ – vor RK-App klären, wie in Bau-Auftrag RK vorgesehen.
+- Die bisherigen Ortsnamen (`block.stadt/land`) bleiben, bis die RK-App live ist; danach eigener Auftrag.
+
 ## 2026-11-22 – FERTIG: TL-S 7 / NT-S 2
 
 Stand `lernen-app` 00cd00e übernommen (Rückläufer Prüfung 951). Nur Dateien: `supabase/migrations/20261123_tl_s_teilung.sql`, `supabase/migrations/20261124_nt_s_nachtest_menge.sql`, `supabase/tests/tl_s_rauchtest.sql`, `supabase/tests/nt_s_rauchtest.sql`, `supabase/tests/lk_s_rauchtest.sql`. Nicht eingespielt, kein DROP/DELETE, kein App-Code.

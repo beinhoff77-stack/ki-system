@@ -5774,14 +5774,33 @@ body.rk-kopf-oben main.view .lr-menue-zeile { display: none; }
 .rk-menue { border: 1px solid var(--linieF); background: var(--karteF); color: var(--tx); border-radius: 12px; min-width: 44px; min-height: 44px; font-size: 20px; font-weight: 800; cursor: pointer; }
 .rk-kopf .lr-chip-stern { min-height: 40px; padding: 0 10px; }
 @media (max-width: 760px) {
-  .rk-kopf { gap: 6px; } .rk-kopf .rk-titel { display: none; } .rk-wort { display: none; }
-  .rk-kopf .rk-zumir, .rk-kopf .rk-tafel-knopf { min-width: 44px; min-height: 44px; padding: 0; display: inline-grid; place-items: center; }
-  .rk-kopf .rk-pfad-teil span { font-size: 13px; } .rk-kopf .lr-chip-stern { font-size: 13px; padding: 0 8px; }
+  /* M1 (Prüfung RK-App 2): rechts fest ▤ · ★ · ≡ (je ≥ 44 px, 4 px Abstand), „Zu mir“ in den Kartenknöpfen, der Pfad bekommt den Rest */
+  body.rk-kopf-oben header.top { gap: 6px; padding-left: max(10px, env(safe-area-inset-left)); padding-right: max(10px, env(safe-area-inset-right)); }
+  .rk-kopf { gap: 4px; } .rk-kopf .rk-titel { display: none; } .rk-wort { display: none; }
+  .rk-kopf .rk-zumir { display: none; }
+  .rk-kopf .rk-tafel-knopf, .rk-kopf .rk-menue { flex: none; width: 44px; min-width: 44px; min-height: 44px; padding: 0; display: inline-grid; place-items: center; }
+  .rk-kopf .lr-chip-stern { flex: none; font-size: 13px; padding: 0 8px; min-height: 44px; }
+  .rk-kopf .rk-pfad { flex: 1 1 auto; min-width: 0; overflow: hidden; justify-content: flex-start; gap: 3px; margin-right: 0; }
+  .rk-kopf .rk-pfad-teil { flex: 0 1 auto; min-width: 0; padding: 2px 1px; }
+  .rk-kopf .rk-pfad-teil.an { flex: 0 0 auto; }
+  .rk-kopf .rk-pfad-teil span { font-size: 13px; white-space: nowrap; }
   .rk-kopf .rk-pfad-teil:first-child:not(.an) .rk-pt-text { display: none; }
-  .rk-kopf .rk-pt-text { max-width: 6.5em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; vertical-align: bottom; }
-  .rk-kopf .rk-pfad-teil:not(.an) .rk-pt-text { max-width: 4.2em; }
-  .rk-kopf .rk-pfad > i { padding-bottom: 0; }
+  .rk-kopf .rk-pfad-teil:not(.an) .rk-pt-text { max-width: 4.2em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; vertical-align: bottom; }
+  .rk-kopf .rk-pfad-kurz { min-width: 32px; justify-content: center; font-weight: 800; }
+  .rk-kopf .rk-pfad > i { padding-bottom: 0; flex: none; }
+  .rk .rk-zoom .rk-zumir-k { display: block; }
 }
+@media (max-width: 380px) { .rk-kopf .rk-pfad-teil span { font-size: 12.5px; } .rk-kopf .rk-mini-flagge { width: 14px; height: 14px; } }
+.rk-zoom .rk-zumir-k { display: none; font-size: 18px; }
+/* K4: kleine Legende hinter ⓘ */
+.rk-zoom .rk-legende-knopf { font-size: 19px; }
+.rk-legende { position: absolute; right: 62px; top: 10px; z-index: 7; background: var(--karteF); color: var(--tx); border: 1px solid var(--linieF); border-radius: 14px; padding: 10px 12px; display: grid; gap: 4px; font-size: 13px; box-shadow: 0 8px 24px #0003; max-width: 250px; }
+.rk-legende[hidden] { display: none; }
+.rk-leg-zeile { display: flex; align-items: center; gap: 6px; }
+.rk-leg-z { font-style: normal; width: 20px; height: 20px; border-radius: 50%; display: inline-grid; place-items: center; font-size: 11px; font-weight: 900; color: #fff; background: #33413C; flex: none; }
+.rk-leg-dran { background: var(--dranR); } .rk-leg-plan { background: var(--planR); } .rk-leg-gesch { background: var(--geschR); } .rk-leg-gold { background: var(--goldR); } .rk-leg-wieder { background: #C8642B; } .rk-leg-wartet { background: #9AA19D; } .rk-leg-zusatz { background: #E8D7B0; color: #5A4520; }
+/* K1: Quellen-Zeile unten links (über der Schwebekarte) */
+.rk-quelle { top: auto; bottom: 8px; }
 /* S2: Expedition auf der Karte einzeilig */
 .rk-ex-zeile { display: flex; align-items: center; gap: 8px; background: color-mix(in srgb, var(--karteF) 94%, transparent); border: 1px solid var(--linieF); border-radius: 14px; padding: 4px 6px 4px 10px; box-shadow: 0 4px 14px #0002; }
 .rk-ex-mehr { flex: 1; min-width: 0; text-align: left; border: 0; background: none; color: var(--tx); font: inherit; font-size: 13.5px; min-height: 44px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -5802,3 +5821,26 @@ body.rk-kopf-oben main.view { padding-bottom: 0; }
 body.rk-kopf-oben .lr-inhalt:has(> .rk) { padding-bottom: 0; }
 body.rk-kopf-oben .lr.lr-abflug:has(.rk) { min-height: 0; }
 body.rk-kopf-oben:has(#tabs[hidden]) { padding-bottom: 0; }
+/* RK-App 3 (0.92.3) – RK-D: gesperrt / wartet / abgelegt (Prüfung RK-App 2, Abschnitt 3) */
+.rk-pin-gesperrt { opacity: .4; } .rk-pin-gesperrt .rk-nadel { fill: #9AA19D; }
+.rk-blass { filter: grayscale(1) opacity(.85); }
+.rk-pland.grau { fill: var(--leise); font-weight: 700; }
+.rk-n-wartet { fill: #8C918E; } .rk-n-gesperrt { fill: #9AA19D; }
+.rk-m-wartet { fill: #9AA19D; } .rk-m-schloss { fill: #fff; stroke: #9AA19D; } .rk-schloss-t { font-size: 8px; }
+.rk-z-gesperrt { fill: var(--offenF); opacity: .55; } .rk-z-wartet { fill: color-mix(in srgb, var(--offenF) 70%, #9AA19D); }
+.rk-grau-linie { stroke: #9AA19D; opacity: .9; }
+.rk-zn-wartet { background: #9AA19D; } .rk-zn-gesperrt { background: #C4C8C5; }
+.rk-zw-wartet, .rk-zw-gesperrt { background: var(--hgF); color: var(--leise); }
+.rk-grund { margin: 6px 0 2px; font-size: 14px; font-weight: 700; color: var(--tx); }
+.rk-grund-knopf { margin: 4px 0; min-height: 44px; border-radius: 12px; border: 1px solid var(--linieF); background: var(--karteF); color: var(--dranR); font: inherit; font-size: 15px; font-weight: 800; padding: 0 14px; cursor: pointer; }
+.rk-grund-karte { margin: 0 0 6px; background: var(--karteF); border: 1px solid var(--linieF); border-radius: 999px; padding: 8px 12px; font-size: 13px; box-shadow: 0 2px 8px #0002; }
+.rk-st-grau { fill: #EEF0EE; stroke: #9AA19D; stroke-width: 1.4; } .rk-st-grau + .rk-st-zahl { fill: #8C918E; }
+.lr-abflug-nacht .rk-st-grau { fill: #2A3440; } .lr-abflug-nacht .rk-st-grau + .rk-st-zahl { fill: #9AA7A1; }
+.rk-st-abgelegt { fill: var(--goldR); } .rk-st-abgelegt + .rk-st-zahl { fill: #fff; font-size: 12px; }
+.rk-zs-abgelegt { background: var(--goldR); } .rk-zs-grau { background: #C4C8C5; }
+/* S1: versetzte Haltestellen mit feiner Linie zum echten Ort; S2: Fächer der Pin-Köpfe */
+.rk-st-linie, .rk-faecher { stroke: var(--leise); stroke-width: 1; opacity: .8; }
+.rk-st-ort { fill: var(--tx); }
+.rk-start-zu { margin: 0; background: var(--hgF); color: var(--tx); box-shadow: none; cursor: default; }
+.rk-oben .rk-pin text { pointer-events: auto; } /* Schild antippen = Pin antippen */
+.kompakt .rk-start-zu { max-width: 230px; } .rk-start-zu b { font-size: 14px; }

@@ -137,19 +137,28 @@ create temp table sj_t on commit drop as
       order by x.thema_id limit 1) zus
   from schule.lernender l where l.ist_test and l.aktiv order by l.id limit 1;
 do $$
-declare t record; v0 jsonb; v1 jsonb; v_n int; v_b bigint;
+declare t record; v0 jsonb; v1 jsonb; v_n int; v_b bigint; v_ort int;
 begin
   select * into t from sj_t;
   if t.l is null or t.pfl is null then raise notice 'Test 3: kein Testkind oder kein offener Pflicht-Flug – übersprungen'; return; end if;
   v0 := (select k from jsonb_array_elements(schule.schuljahr_stand(t.l)->'klassen') k where (k->>'haupt')::boolean);
   select etappen into v_n from schule.schuljahr_fluege(t.l) where thema_id = t.pfl;
   select block_id into v_b from schule.block_thema where thema_id = t.pfl order by block_id limit 1;
-  insert into schule.route(lernender_id, block_id, position, art, status, kann_schon, geaendert_von)
-    values (t.l, v_b, (select coalesce(max(position), 0) + 1 from schule.route where lernender_id = t.l), 'normal', 'offen', true, 'eltern:Test');
+  -- „Kann er komplett“ für genau dieses Thema (kann_schon_themen); kann_schon der ganzen route gälte für alle Themen des Orts
+  insert into schule.route(lernender_id, block_id, position, art, status, kann_schon_themen, geaendert_von)
+    values (t.l, v_b, (select coalesce(max(position), 0) + 1 from schule.route where lernender_id = t.l), 'normal', 'offen', array[t.pfl], 'eltern:Test');
   v1 := (select k from jsonb_array_elements(schule.schuljahr_stand(t.l)->'klassen') k where (k->>'haupt')::boolean);
-  if (v1->'fluege'->>'fertig')::int <> (v0->'fluege'->>'fertig')::int + 1 or (v1->'ring'->>'kann')::int < (v0->'ring'->>'kann')::int + v_n
+  if not exists (select 1 from schule.schuljahr_fluege(t.l) x where x.thema_id = t.pfl and x.fertig and x.stufe = 'komplett' and x.gelandet = v_n and x.etappen = v_n) then
+    raise exception 'FEHLER 3: gesetztes Thema nicht mit allen % Etappen fertig', v_n; end if;
+  if (v1->'fluege'->>'fertig')::int <> (v0->'fluege'->>'fertig')::int + 1 or (v1->'ring'->>'kann')::int <> (v0->'ring'->>'kann')::int + v_n
      or (v1->'etappen'->>'gesamt') <> (v0->'etappen'->>'gesamt') then
     raise exception 'FEHLER 3: „kann er“ nicht mit allen Etappen: vorher %, nachher %', v0->'fluege', v1->'fluege'; end if;
+  -- ganzer Ort „kann er“: alle Pflicht-Themen des Orts in dieser Klasse werden fertig (Ort mit mehreren Themen)
+  update schule.route set kann_schon = true, kann_schon_themen = '{}' where lernender_id = t.l and block_id = v_b;
+  if exists (select 1 from schule.schuljahr_fluege(t.l) x join schule.block_thema bt on bt.thema_id = x.thema_id and bt.block_id = v_b
+              where x.pflicht and (not x.fertig or x.gelandet <> x.etappen)) then
+    raise exception 'FEHLER 3: Ort „kann er“ zählt nicht alle Themen des Orts'; end if;
+  select count(*) into v_ort from schule.block_thema where block_id = v_b;
   if pg_temp.sj_kurz(schule.schuljahr_stand(t.l)) is distinct from pg_temp.sj_ring(t.l) then raise exception 'FEHLER 3: Ring-Rechnung weicht ab'; end if;
   if t.zus is not null then
     select block_id into v_b from schule.block_thema where thema_id = t.zus order by block_id limit 1;
@@ -165,7 +174,7 @@ begin
   else
     raise notice 'Test 3: kein Zusatz-Teil für die Gruppe des Testkinds – Teil übersprungen';
   end if;
-  raise notice 'Test 3: „kann er komplett“ → +1 fertig, alle % Etappen gelandet; gleich der Ring-Rechnung: OK', v_n;
+  raise notice 'Test 3: „kann er komplett“ je Thema → +1 fertig, alle % Etappen; ganzer Ort → alle % Themen des Orts fertig; gleich der Ring-Rechnung: OK', v_n, v_ort;
 end $$;
 
 rollback;

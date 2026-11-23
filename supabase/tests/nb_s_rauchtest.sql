@@ -109,15 +109,34 @@ begin
 end $$;
 create temp table nb_rt_aufbau on commit drop as select pg_temp.nb_h((select l from nb_t)) h,
   (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = (select l from nb_t)) sterne_t,
+  (select coalesce(max(id), 0) from schule.sterne) sterne_max_id,
   (select count(*) from schule.flug_erstabschluss where lernender_id = (select l from nb_t)) stempel_t,
   (select md5(string_agg((r.id, r.block_id, r.position, r.art, r.status, r.ausgelassen, r.kann_schon_themen, r.kann_wdh_themen)::text, '|' order by r.id))
      from schule.route r where r.lernender_id = (select l from nb_t)) route_t;
 
+-- NB-S selbst bucht nichts: alle Lese-Stellen (Liste, Konto, Übersicht, Reisekarte) einmal aufrufen, alle Daten vorher = nachher
+create function pg_temp.nb_lesen(p_l bigint) returns void language plpgsql as $$
+declare v_h text := pg_temp.nb_h(null); v jsonb;
+begin
+  v := schule.nachbessern(p_l);
+  v := pg_temp.nb_konto('', jsonb_build_object('lernender_id', p_l));
+  v := pg_temp.nb_uebersicht('', null);
+  v := schule.reise_karte(p_l);
+  if pg_temp.nb_h(null) is distinct from v_h then raise exception 'FEHLER: Lesen von NB-S hat Daten verändert (Kind %)', p_l; end if;
+end $$;
+
 create function pg_temp.nb_eintrag() returns jsonb language sql as $$
   select x from nb_t t, jsonb_array_elements(schule.nachbessern(t.l)) x where (x->>'einheit_id')::bigint = t.e and x->>'lernziel' = t.lz;
 $$;
+-- wie der echte Weg über versuch: Trigger versuch_hilfe_merken setzt schule.antwort_hilfe, dann versuch_karte → karte_buchen
 create function pg_temp.nb_buche(p_richtig boolean, p_hilfe int) returns void language sql as $$
+  select set_config('schule.antwort_hilfe', p_hilfe::text, true);
   select schule.karte_buchen(t.l, t.aufg, p_richtig, p_hilfe::smallint, now()) from nb_t t;
+$$;
+-- „nächster Lerntag“: Etappe wieder fällig (nur Takt-Felder, wie nach Ablauf der Frist)
+create function pg_temp.nb_faellig() returns void language sql as $$
+  update schule.karte_stand k set faellig_am = now() - interval '1 minute', wdh_ab = null, wdh_lerntage = null
+    from nb_t t where k.lernender_id = t.l and k.einheit_id = t.e and k.lernziel = t.lz;
 $$;
 create function pg_temp.nb_karte() returns schule.karte_stand language sql as $$
   select k from schule.karte_stand k, nb_t t where k.lernender_id = t.l and k.einheit_id = t.e and k.lernziel = t.lz;
@@ -132,6 +151,11 @@ begin
   perform pg_temp.nb_buche(false, 0);
   if pg_temp.nb_eintrag() is not null then raise exception 'FEHLER 2: schon nach einem Fehler in der Liste'; end if;
   if not (pg_temp.nb_karte()).sitzt then raise exception 'FEHLER 2: nach einem Fehler nicht mehr gelandet'; end if;
+  -- nächster Lerntag: wieder fällig; richtig mit Tipp in der fälligen Wiederholung: kein Fortschritt, Fehler-Zähler bleibt (WD-S 3/4)
+  perform pg_temp.nb_faellig();
+  perform pg_temp.nb_buche(true, 1);
+  if pg_temp.nb_eintrag() is not null or (pg_temp.nb_karte()).wdh_fehler <> 1 then raise exception 'FEHLER 2: richtig mit Tipp hat den Fehler gelöscht oder geöffnet'; end if;
+  perform pg_temp.nb_faellig();
   perform pg_temp.nb_buche(false, 0);
   v := pg_temp.nb_eintrag();
   if v is null then raise exception 'FEHLER 2: nach zwei Fehlern kein Eintrag'; end if;
@@ -149,7 +173,8 @@ begin
   if not exists (select 1 from jsonb_array_elements(v_rk->'kontinente') k, jsonb_array_elements(k->'fluege') f, jsonb_array_elements(f->'staedte') s
                   where (f->>'thema_id')::bigint = t.thema and s->>'lernziel' = t.lz and s->>'stand' = 'wieder_offen') then
     raise exception 'FEHLER 2: Stadt nicht als wieder offen markiert'; end if;
-  raise notice 'Test 2: zwei Fehler → Eintrag (Folge 0 von 3, Ort fertig), Stufe %, wieder offen %, nächster Start nachbessern: OK', v_s->>'stufe', v_s->>'wieder_offen';
+  perform pg_temp.nb_lesen(t.l);
+  raise notice 'Test 2: Fehler – richtig mit Tipp – Fehler → Eintrag (Folge 0 von 3, Ort fertig), Stufe %, wieder offen %, nächster Start nachbessern: OK', v_s->>'stufe', v_s->>'wieder_offen';
 end $$;
 
 -- Test 3: richtig mit Tipp zählt nicht; drei eigene Lösungen in Folge → Eintrag weg, Wiederholung beginnt neu
@@ -174,6 +199,7 @@ begin
     raise exception 'FEHLER 3: Wiederholung beginnt nicht neu (sitzt %, Stufe %, fällig %)', k.sitzt, k.wdh_stufe, k.faellig_am; end if;
   if (schule.reise_karte(t.l)->'naechster_start'->>'grund') = 'nachbessern' and jsonb_array_length(schule.nachbessern(t.l)) = 0 then
     raise exception 'FEHLER 3: nächster Start bleibt nachbessern'; end if;
+  perform pg_temp.nb_lesen(t.l);
   raise notice 'Test 3: Tipp zählt nicht, Fehler setzt zurück, 3 eigene in Folge → weg, Wdh-Stufe 0, fällig in 1 Tag: OK';
 end $$;
 
@@ -185,32 +211,30 @@ begin
   update schule.route set kann_schon = true where lernender_id = t.l and block_id = t.block;
   update schule.karte_stand set gesetzt_am = now() - interval '5 days', faellig_am = now() - interval '1 day', wdh_ab = null, wdh_lerntage = null, wdh_fehler = 0, wdh_stufe = 3
    where lernender_id = t.l and einheit_id = t.e and lernziel = t.lz;
-  perform pg_temp.nb_buche(false, 0); perform pg_temp.nb_buche(false, 0);
+  perform pg_temp.nb_buche(false, 0); perform pg_temp.nb_faellig(); perform pg_temp.nb_buche(false, 0);
   v := pg_temp.nb_eintrag(); v_s := schule.thema_stufe(t.l, t.thema);
   if v is null or v->>'gesetzt' <> 'komplett' then raise exception 'FEHLER 4: kein Eintrag bei Setzung mit Rückfall: %', v; end if;
   if v_s->>'stufe' <> 'komplett' or v_s->>'hinweis' <> 'rueckfall' then raise exception 'FEHLER 4: Stufe %/% statt komplett/rueckfall', v_s->>'stufe', v_s->>'hinweis'; end if;
   if (schule.reise_karte(t.l)->'naechster_start'->>'grund') <> 'nachbessern' then raise exception 'FEHLER 4: nächster Start nicht nachbessern'; end if;
+  perform pg_temp.nb_lesen(t.l);
   perform pg_temp.nb_buche(true, 0); perform pg_temp.nb_buche(true, 0); perform pg_temp.nb_buche(true, 0);
   if pg_temp.nb_eintrag() is not null then raise exception 'FEHLER 4: nach drei eigenen Lösungen noch in der Liste'; end if;
   raise notice 'Test 4: Setzung „kann er komplett“ mit Rückfall → Eintrag, ◉ mit Hinweis Rückfall, nach 3 in Folge weg: OK';
 end $$;
 
--- Test 5: Fahrplan, Stempel, andere Kinder unverändert; Sterne des Testkinds gemeldet
+-- Test 5: Fahrplan, Stempel, andere Kinder unverändert. Sterne: NB-S bucht nichts (Test 1 und nb_lesen in Test 2–4);
+-- die im Test nachgestellten Antworten buchen nach den bisherigen Regeln (Übungs-Sterne, Landungs-Bonus) – nur gemeldet, nicht geprüft.
 do $$
-declare t record; v_st bigint;
+declare t record;
 begin
   select * into t from nb_t;
   if pg_temp.nb_h(t.l) is distinct from (select h from nb_rt_aufbau) then raise exception 'FEHLER 5: Daten anderer Kinder verändert'; end if;
   if (select md5(string_agg((r.id, r.block_id, r.position, r.art, r.status, r.ausgelassen, r.kann_schon_themen, r.kann_wdh_themen)::text, '|' order by r.id))
         from schule.route r where r.lernender_id = t.l) is distinct from (select route_t from nb_rt_aufbau) then raise exception 'FEHLER 5: Fahrplan des Testkinds verändert'; end if;
   if (select count(*) from schule.flug_erstabschluss where lernender_id = t.l) <> (select stempel_t from nb_rt_aufbau) then raise exception 'FEHLER 5: Stempel verändert'; end if;
-  select coalesce(sum(menge), 0) into v_st from schule.sterne where lernender_id = t.l;
-  -- erlaubt: nur der Landungs-Bonus dieser Etappe (bisherige Regel, je Etappe genau einmal – im Aufbau gab es noch keine Landung)
-  if exists (select 1 from schule.sterne s where s.lernender_id = t.l and not (s.grund = 'landung' and s.bezug = 'landung:' || t.e || ':' || t.lz))
-     or (select count(*) from schule.sterne s where s.lernender_id = t.l and s.grund = 'landung') > 1 then
-    raise exception 'FEHLER 5: unerwartete Sterne: %', (select string_agg(s.grund || ' ' || s.menge, ', ') from schule.sterne s where s.lernender_id = t.l); end if;
-  raise notice 'Test 5: Fahrplan (außer bewusster Setzung in Test 4) und Stempel unverändert, andere Kinder unverändert: OK; Sterne Testkind % → % (nur Landungs-Bonus der Etappe, je Etappe einmal – bisherige Regel)',
-    (select sterne_t from nb_rt_aufbau), v_st;
+  raise notice 'Test 5: Fahrplan (außer bewusster Setzung in Test 4), Stempel und andere Kinder unverändert: OK. Buchungen der nachgestellten Antworten (bisherige Regeln): %',
+    coalesce((select string_agg(x.grund || ' ' || x.menge || ' (' || x.n || '×)', ', ' order by x.grund, x.menge)
+                from (select s.grund, s.menge, count(*) n from schule.sterne s where s.lernender_id = t.l and s.id > (select sterne_max_id from nb_rt_aufbau) group by 1, 2) x), 'keine');
 end $$;
 
 rollback;

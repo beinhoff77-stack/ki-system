@@ -2,6 +2,52 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-23 – FERTIG: NB-S 3 / SJ-S 3
+
+Stand `lernen-app` 11e1544 übernommen. Nur Tests geändert, **Migrationen unverändert**; nichts eingespielt, kein DROP/DELETE, kein App-Code.
+- geändert: `supabase/tests/nb_s_rauchtest.sql`, `supabase/tests/sj_s_rauchtest.sql`, `supabase/tests/zp_s_rauchtest.sql` (Tests 12 und 13 neu).
+- Lesend auf dem echten Stand nachvollzogen: Funktionen (`karte_buchen` und `karte_wdh_ereignis` lokal md5-gleich mit echt), Auswahl der Test-Daten je Test, Sterne des Testkinds. Die Tests selbst schreiben (mit Rollback) und sind deshalb nur lokal gelaufen.
+
+**1. nb_s – „unerwartete Sterne“: Fehler im Test, nicht in NB-S**
+- Das Testkind hat auf dem echten Stand schon Sterne aus früheren Probeläufen (lesend gezählt: landung 80 ×5, landung 40 ×1, uebung 10 ×12).
+- Test 5 prüfte alle Sterne des Testkinds statt nur der neuen. Neu dazu kam im Test nur ein Landungs-Bonus (das 6. „landung 80“).
+- **Neu:**
+  - Test 1 prüft wie bisher, dass das Einspielen nichts ändert.
+  - `nb_lesen` prüft in Test 2–4, dass alle Lese-Stellen von NB-S (Liste, Konto, Übersicht, Reisekarte) nichts verändern.
+  - Die Buchungen der nachgestellten Antworten (bisherige Regeln) meldet Test 5 nur noch, ab dem Aufbau gezählt. Fahrplan, Stempel und andere Kinder bleiben geprüft.
+- **Berichtigung meiner Meldung NB-S („Tipp löscht den Fehler-Zähler“): falsch.**
+  - Auf dem echten Weg über `versuch` setzt `versuch_hilfe_merken` die Hilfe. `karte_wdh_ereignis` (WD-S 3/4) hält dann bei „richtig mit Tipp“ in der fälligen Wiederholung den Fehler-Zähler.
+  - „Fehler – (nächster Lerntag) richtig mit Tipp – Fehler“ öffnet also wieder.
+  - Den Zähler löscht nur eine richtige Antwort, solange die Etappe nicht fällig ist (am selben Tag nach dem Fehler).
+  - Der Test bildet das jetzt nach (Hilfe gesetzt wie über `versuch`, „nächster Lerntag“ = wieder fällig) und prüft genau diese Folge.
+- Auswahl auf dem echten Stand (lesend): Testkind, Einheit 3, Etappe mit 20 Übungsaufgaben, Ort mit 3 Themen. Bisher keine wieder offene Etappe beim Testkind.
+
+**2. sj_s – „kann er“ machte zwei Flüge fertig: Fehler im Test, `schuljahr_stand` zählt richtig**
+- **Ursache (lesend):** Der Test nahm das Pflicht-Thema mit den meisten Etappen. Auf dem echten Stand ist das Thema 98 am Ort 80, und dort liegen zwei Themen (98, 44).
+- Gesetzt hat der Test `route.kann_schon = true`. Das heißt „kann er“ für den **ganzen Ort** (`thema_kann_schon`: `kann_schon` oder Thema in `kann_schon_themen`). Also werden beide Flüge fertig, das ist richtig.
+- **Neu:**
+  - Erst „kann er“ nur für das Thema (`kann_schon_themen`): genau +1 fertig, das Thema mit allen Etappen.
+  - Dann der ganze Ort: alle Pflicht-Themen des Orts fertig mit allen Etappen.
+- Auf dem echten Stand läuft das mit dem Testkind Kl. 7 (Thema 98, 9 Etappen; Ort 80 mit 2 Themen). Lokal mit nur einem Thema am Ort geprüft.
+
+**3. ZP-S – neue Testfälle aus ChatGPT 966 (`zp_s` Test 12 und 13)**
+- **Test 12: zwei eingeplante Zusatz-Flüge am selben Ort.** Diesen Fall gibt es heute nicht (lesend: jeder Zusatz-Teil hat einen eigenen Ort: 233, 234, 235, 109, 237). Im Test nachgestellt: zwei Themen eines Orts für die Gruppe als Zusatz markiert. Verhalten:
+  - **Stempel je Teil** (`flug_erstabschluss` je Einheit): 2.
+  - **100 Sterne nur einmal je Ort**, nicht je Teil: Die Buchung hat den Schlüssel `ort` / `block:<Ort>` (eindeutig je Kind).
+  - Der Ort wird erst nach dem zweiten Teil fertig.
+  - **Ungenau:** `zusatz_geschafft.sterne` und damit `zusatz_plan[].sterne` zeigen bei **beiden** Teilen 100, gebucht ist nur einmal.
+  - **Gleiche Wirkung bei Ort mit Pflicht-Thema und eingeplantem Zusatz-Thema:** Die 100 des Orts gehen dann schon beim Zusatz weg, beim Abschluss der Pflicht kommt nichts mehr.
+  - Bitte entscheiden: 100 je Teil (Schlüssel je Thema) oder je Ort (so wie jetzt; dann das Feld auf die tatsächlich gebuchte Menge setzen). Beides bräuchte eine kleine Nach-Migration ZP-S 2; heute ohne Wirkung, weil es keinen solchen Ort gibt.
+- **Test 13: abgeschlossenen Zusatz-Flug aus dem Plan nehmen.**
+  - Die Route steht danach auf `entfernt`. Stempel, 100 Sterne und `zusatz_geschafft` bleiben, nichts wird zurückgebucht.
+  - Im `zusatz_plan` steht der Flug nicht mehr. Die Stufe fällt auf „nicht im Plan“, weil der Zusatz ohne Eintrag wieder freiwillig ist und keine Pflicht-Etappe hat.
+  - Wieder einplanen: Route wieder `fertig`, nichts doppelt.
+  - Hinweis für die App: Ein herausgenommener, geschaffter Zusatz zeigt im Lehrplan „nicht im Plan“ statt „geschafft“. Der Stempel bleibt im Reisepass.
+
+**Rauchtests** (lokal, Kopien wie echt): 50 Läufe grün.
+- Tests: `nb_s, sj_s, zp_s, tl_s, rd_s, ex_s, lz_s, nt_s, lk_s, fp_s`.
+- Stände: vor ZP-S, nach ZP-S, NB → SJ, SJ → NB, Testkind in Kl. 8.
+
 ## 2026-11-23 – FERTIG: NB-S 2 / SJ-S 2
 
 Stand `lernen-app` 31d5374 übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.

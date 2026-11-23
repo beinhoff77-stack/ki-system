@@ -157,3 +157,12 @@ Bericht `inhalte/pruefung/kind/expedition/nachpruefung_ex.md`, Bilder `expeditio
 
 ## 2026-11-23 – FERTIG: Prüfung RK-App (0.92.0) – 1 Muss
 Bericht `inhalte/pruefung/kind/karte/nachpruefung_rk.md`, Bilder `karte/nachpruefung/`. c41a3d5, RK- und EX-Tests grün. Muss M1: Stadt „wieder offen“ als ✓ + „heute wiederholen“ gezeigt. Soll: S1 Rechner-Karte klein, S2 Handy-Karte klein (Kopf/Expedition), S3 „4/13“ statt „3/6“, S4 Land-Ausschnitt/Namen, S5 Welt Handy, S6 Blatt bleibt offen, S7 Zusatz-Text ohne „freiwillig“. Kann K1–K5.
+
+## 2026-11-23 · Vorgabe JW (Jugendwörter in Geschafft-Ansichten)
+
+- `inhalte/pruefung/kind/jugendwoerter/umsetzung.md` – Recherche, Einbau (12 Anlässe, Platz, Aussehen), Dosis, Abwechslung, Stärke, 53 Sprüche wörtlich (11/14), Einstellungen Kind/Eltern/„Wort gefällt mir nicht“, Gerät vs. Server, Bauschritte JW-1a–d, JW-2.
+- `woerter.json` – 74 Wörter geprüft (32 im Einsatz, 42 ausgeschlossen mit Grund), Quelle/Link, Nebenbedeutung, Verfall; Dosis-Regeln; 53 Sprüche. 15 Wörter als Annahme markiert (ohne Quelle).
+- `entwurf/jugendwoerter.html` (Artefakt f41b44f0-…), `bilder/` 9 Ansichten × 400/820 × Tag/Nacht.
+- Offen für Bau: Feld „Tipp genutzt“ bei sauberer Landung fehlt im Code (Annahme) → sonst Stärke 2.
+
+FERTIG: Vorgabe JW – Jugendwort-Sticker (umsetzung.md, woerter.json, Entwurf, 36 Bilder)

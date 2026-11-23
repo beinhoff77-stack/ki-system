@@ -3119,3 +3119,31 @@ Vorgabe: `inhalte/pruefung/kind/karte/umsetzung.md` (inkl. § 11 Teile/Zusatz), 
 - Prüfen 400 / 820 / 1280, Finger und Maus; Start, Wiederholungsrunde, Test, Expedition müssen von der Karte aus erreichbar sein wie bisher von der Tafel. Meldung „FERTIG: RK-App (0.92.0)“.
 
 Jeweils: nur App, keine Datenbank, kein Merge nach `main`, keine Namen. Prüfung nach jedem Schritt durch den Gestalter.
+
+## Bau-Auftrag LZ – Ladezeit der Lehrer-Seiten (23.11., 02:20 Berlin) · Sebastian: „Ladezeiten der Lehrer-Seiten sind etwas lang“
+
+**Gemessen (Haupt-Chat, echte Datenbank und Funktions-Logs 23.11. 02:08–02:10):**
+- Einzelne Anfragen an `lernen-api` dauern 5–9 Sekunden (mehrfach 8,2–8,9 s), mehrere davon gleichzeitig.
+- `schule.lehrplan_matrix` für ein Kind: 1,9 s; `lehrplan_matrix_lk` dazu 0,5 s; Matrix ohne Kind (beide Kinder): 5,8 s, 207 000 Zeichen. `thema_stufe` für alle 105 Themen eines Kindes: 0,9 s. `reise_karte` je Kind: 1,7 s. `wackelt_liste` 55 ms, `reiseoptionen` 4 ms.
+- App: Reiter „Lehrplan“ ruft `schule_uebersicht` zweimal (in `viewKind` und in `viewKindLehrplan`), lädt die Matrix erst nach den anderen Antworten und gegebenenfalls ein zweites Mal mit Testkind; der Kinder-Wechsel lädt alles neu.
+
+**LZ-S · an `bau-lehrer` (Datei, nicht einspielen):** `lehrplan_matrix`, `lehrplan_matrix_lk`, `schule_uebersicht`, `schule_lernstand`, `schule_plan_lesen`, `reise_karte` beschleunigen – Ziel je Anfrage unter 1 Sekunde auf dem echten Stand. Ansatz: `thema_stufe` nicht je Thema einzeln (mengenweise je Kind rechnen), keine wiederholten Unterabfragen je Zeile, passende Indizes; Ergebnis **inhaltlich unverändert** (Test: md5 der Antwort vor/nach je Kind und für das Testkind in allen fünf Gruppen gleich). Messwerte vorher/nachher (lesend auf der echten Datenbank mit `explain analyze`) in die Meldung. Kein DROP von Tabellen, kein DELETE.
+**LZ-App · an `bau-motivation` (nach EX-App, vor RK-App):** `schule_uebersicht` und Matrix je Sitzung einmal laden und merken (nach Änderungen gezielt erneuern), alle Anfragen eines Reiters gleichzeitig starten, Kopf und Reiter sofort zeichnen und Inhalte nachladen, Kinder-Wechsel ohne erneutes Laden der kindunabhängigen Daten. Messung im Test: Zahl der Anfragen je Reiter-Aufruf.
+
+## Nachtrag LZ-App + Kopf (23.11., 02:25 Berlin) · Rückmeldung Sebastian zu 0.90.1 (Bild)
+
+Sebastian: „Die Kopfzeile ist jetzt etwas sehr klein und sie lässt sich auch nicht flüssig umschalten.“
+1. **Kopfzeile größer, ohne die Matrix wieder zu verdrängen:** Höhe etwa 68–72 px (statt 53), Kindernamen und Reiter mindestens 16–17 px, aktives Kind und aktiver Reiter deutlich (Kontrast, Fläche), Klick-/Tippflächen mindestens 44 px hoch, Zusatz „Gymnasium · Kl. 8“ bei allen Kindern klein sichtbar (Rechner). Dafür die Leiste darunter am Rechner auf höchstens zwei Zeilen (Legende hinter ⓘ, Empfehlung des Gestalters abwarten, falls sie vorliegt).
+2. **Umschalten flüssig:** Klick auf Kind oder Reiter wechselt die Markierung sofort (unter 100 ms), der alte Inhalt bleibt abgeblendet stehen, bis der neue da ist (kein leerer Ladebildschirm, kein Springen des Kopfs). Kindunabhängige Daten (Übersicht, Matrix-Gerüst) nicht neu laden; Daten je Kind nach dem ersten Laden merken und im Hintergrund auffrischen; das jeweils andere Kind vorab laden.
+3. Sonst wie „Bau-Auftrag LZ“, Teil LZ-App. Version 0.91.x nach EX-App, vor RK-App. Messung im Test: Zeit bis zur Markierung, Zahl der Anfragen je Wechsel.
+
+## Prüfung Gestalter LW-3 (0.90.1): 0 Muss, 4 Soll, 5 Kann → in den Zwischenschritt „LZ-App + Kopf“ (0.91.1)
+
+Datei `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw3.md`. Zusätzlich zu „Nachtrag LZ-App + Kopf“ bauen:
+- **S1** Leiste am Rechner fest zweizeilig: Farb-Legende hinter „ⓘ Farben“; „Gespeichert“ nur während des Speicherns oder bei Fehler; ⓘ-Hinweise als schwebendes Feld (Matrix springt nicht); Test Leiste ≤ 90 px bei 1280 × 800.
+- **S2** Überblick ohne Doppelungen: alte Karten „Lernt es?“, „Wo hakt es?“, „Wo steht es?“, „Was kommt?“ weg (teils widersprüchlich zu den neuen); „Zuletzt geschafft“ bleibt klein neben „Diese Woche“; Einstufung als eine Zeile in „Stand“. In „Was wackelt“ die Zeile „Diese Woche …“ und die doppelte Überschrift weg.
+- **S3** Matrix rollt beim Öffnen 30 px zu weit (Klassen-Kopf halb verdeckt) → Höhe der Spaltenzeile abziehen.
+- **S4** Handy-Kopf: eine Zeile ‹ · Kinder · ⋯, darunter die Reiter.
+- **K1** Hinweistext „Lehrplan von“ mit Beispiel. **K2** „Einstieg prüfen …“ → „Bereit für Klasse …?“. **K4** kürzere Knöpfe in „Was wackelt“ auf dem Handy.
+- Offen für Sebastian: **K3** Testkind im Kinder-Umschalter ausblenden oder ans Ende mit Marke „Test“.
+Hinweis: Der Gestalter hält den Kopf (53 px) für in Ordnung; Sebastians Rückmeldung („etwas sehr klein“) geht vor – Kopf 68–72 px.

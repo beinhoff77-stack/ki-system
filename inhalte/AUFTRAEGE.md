@@ -3350,3 +3350,9 @@ Fachregel: 31 gesperrte Flüge bei Kind 2 sind plausibel (28 harte Visa der Grup
 ## Probelauf RK-D 2 (23.11., 04:55 Berlin, echte Datenbank, alles zurückgerollt)
 
 Stand `lernen-app` d23b9fc, Datei `20261129_rk_d_karte_felder.sql` (a22f6b2d…). Zweimal ohne Fehler; Karten, Sterne, Plan, Reiseoptionen, Stufen unverändert; `naechster_start` aller Kinder vorher = nachher. Tests grün: rk_d (vor/nach, mit Mischstand-Test und strengem 3b), rd_s, nb_s. Karte Kind 2: 280 ms, 31 Flüge gesperrt. Nachprüfbitte an ChatGPT.
+
+## EINGESPIELT: WD-5 3 (Drosseln), Rundengröße A (Teiler 1), RK-D 2 (Kartenfelder) – 23.11., 05:00 Berlin
+
+Freigabe Sebastian („Drosseln, Rundengröße und Kartenfelder in die Datenbank einspielen“), Prüfung Werkstatt 972 und 974 (Freigaben), Werkstatt-Änderung 385. Kinder 125 bzw. 197 Minuten ohne Antwort, kein Test offen. In der Transaktion geprüft: außer den Fälligkeiten gesetzter Erst-Wiederholungen nichts verändert; `naechster_start` gleich; höchstens 3 gesetzte je Lerntag. Danach grün: wd5, wd_s, wd_s3, fp_s, rk_d, rd_s.
+Kind 2: fällig heute 16 (vorher 23), danach 8·8·9·3·6·4·3…; Kind 1: 0 fällig. Regeln: `wdh_gesetzt_je_lerntag` = 3, `wdh_runde_teiler` = 1.
+**Erprobung:** vier tatsächliche Lerntage; danach Rest nach der Runde, Dauer und Fehler bei Kind 2 ansehen (Haupt-Chat). Rückweg: Teiler 2 oder 5 (eine Einstellung); `schule.wdh_drosseln_zurueck()` nur, solange keine verschobene Etappe geübt wurde.

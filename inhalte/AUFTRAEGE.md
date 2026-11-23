@@ -3041,3 +3041,34 @@ Schritt 4 der Reihenfolge aus „Bau-Auftrag RK“. Die Teilung ist eingespielt 
 ## LW-3 kann starten (23.11.) · an `bau-motivation`
 
 LW-S 2 ist eingespielt (`schule_wackelt_lesen` / `schule_wackelt_setzen` in der Datenbank). Edge Function 0.9.2 rollt der Haupt-Chat zusammen mit dem Live von 0.90.0 aus. Auftrag wie „Bau-Auftrag LW“, LW-3; Schnittstelle laut `inhalte/postfach/bau-lehrer.md` (LW-S / LW-S 2).
+
+## Nachtrag LW-3: Kopf der Kind-Seite schlank, Matrix groß (23.11., 00:50 Berlin) · Rückmeldung Sebastian zu 0.89.1
+
+Sebastian (Rechner, Reiter „Lehrplan“): Seitenaufbau passt nicht – der Block mit Reitern und großer Überschrift „Lehrplan ‹Kind›“ ist zu dominant, die Matrix dadurch zu klein; es fehlt der Wechsel zwischen den Kindern; „Einordnen“ ist nicht selbsterklärend.
+
+Zusätzlich zu LW-3 an `bau-motivation`:
+1. **Eine Kopfzeile** statt Reiter-Block plus Überschrift: Zurück · Kinder-Umschalter (Name als Auswahl; ersetzt die Überschrift) · Reiter Überblick | Was wackelt | Lehrplan · rechts Version/Abmelden klein. Ziel Rechner 1280 × 800: Kopf höchstens etwa 60 px.
+2. **Matrix und Fahrplan füllen die Höhe des Fensters** (bis zum unteren Rand, eigene Rollbereiche wie bisher). Der Block „Expeditionen“ steht nicht mehr unter der Matrix, sondern als Link/aufklappbar oder im Überblick.
+3. **„Einordnen“ verständlich:** Beschriftung „Lehrplan von:“ (Gymnasium | Realschule | IB MYP) mit ⓘ-Hinweis „Bestimmt nur, in welcher Klassen-Zeile ein Thema steht und welcher Ring groß ist. Es werden immer alle Themen gezeigt.“ Standard = Schulart des Kindes.
+4. Messung im Test: sichtbare Matrix-Höhe bei 1280 × 800 mindestens 600 px; bei 820 und 400 nichts schlechter als 0.89.1.
+
+## Befund nach der Teilung: Expedition „8-schulfest“ zeigt auf das alte Thema (23.11.) · an `bau-lehrer`, mit RD-S liefern
+
+`schule.expedition.voraussetzungen` nennt Thema + Lernziel. Nach TL-S 7 liegen `laplace` und `grosse_zahlen` in „Zufall und Laplace – Teil 2 von 2“, die Expedition „8-schulfest“ verweist aber noch auf Thema 61 (Teil 1). Folge: Sie kann keinem Kind mehr angeboten werden. Alle anderen 20 Expeditionen passen (geprüft: jede Voraussetzung findet ihre Etappe im genannten Thema). Derzeit kein Kind betroffen.
+Verlangt: Korrektur als Datei (Voraussetzung über `teil_stamm` auf den Teil umstellen, der das Lernziel enthält – keine feste ID), `expedition_voraussetzungen_ok` so, dass eine künftige Teilung das nicht mehr bricht (Familie des Themas statt Thema), Rauchtest „jede Voraussetzung jeder Expedition findet ihre Etappe“.
+
+## Auftrag EX – Expeditionen dem Kind vor die Nase legen (23.11., 01:10 Berlin) · Sebastian: „ok“
+
+Sebastian: Wichtig ist, dass das Kind Lust auf die Expedition hat und sie ihm vor die Nase gelegt wird; „wenn da irgendwo freiwillig steht, machen sie es nie“. Lehrer muss sie nicht zuweisen. Stand heute: Überschrift „EXPEDITION · FREIWILLIG“, ein Eintrag auf der Abflugtafel, 50 Sterne (`sterne_expedition_geschafft`), noch keinem Kind angeboten.
+
+**Entschieden (Vorschlag Haupt-Chat, Sebastian „ok“):**
+1. Das Wort „freiwillig“ verschwindet aus der Kinderseite; stattdessen „Expedition freigeschaltet“. Regel bleibt: sperrt nichts, zählt nicht für „gelandet“.
+2. Freischalten als Ereignis: nach der Landung, die die letzte Voraussetzung erfüllt, eigene Ansicht mit großem „Jetzt starten“ und kleinem „Später“.
+3. Solange offen: oberste, größte Karte der Abflugtafel, vor dem nächsten Flug; nach „Später“ am nächsten Lerntag wieder vorn.
+4. Belohnung: 150 Sterne je Expedition, 200 bei fehlerfreiem Lösen (alle Teile im ersten Versuch ohne Tipp); Expeditions-Stempel als Sammlung mit Lücken („3 von 21 Stationen“).
+5. Mit der Reisekarte: Antarktis als Kontinent, gesperrte Stationen zeigen, was fehlt.
+Nicht: Pflicht vor dem nächsten Flug.
+
+**EX-G · an den Gestalter:** kurze Vorgabe `inhalte/pruefung/kind/expedition/umsetzung.md` zu 1–4 (Freischalt-Ansicht, Karte auf der Abflugtafel, Stempel-Sammlung, Texte; 400 und 820 px), passend zur Vorgabe Reisekarte (§ Antarktis).
+**EX-S · an `bau-lehrer` (Datei, mit RD-S):** Sterne 150/200 (Regelwerte, fehlerfrei = alle Teile erster Versuch ohne Tipp), Feld „seit wann angeboten“ und „später bis“ je Kind, Zahl der Stationen gesamt/geschafft in der Übersicht; schon gebuchte Expeditionen gibt es nicht (keine Nachbuchung nötig – im Rauchtest prüfen).
+**EX-App · an `bau-motivation`:** nach LW-3 und nach EX-G.

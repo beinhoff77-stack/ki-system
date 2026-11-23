@@ -3176,3 +3176,13 @@ Nicht eingeplante Zusatz-Teile bleiben wie bisher freiwillig und ohne Stempel.
 - Abschluss: alle Etappen des Teils gelandet → Flug fertig, Erstabschluss, Stempel, 100 Sterne; kein Flug-Test, keine Nachtests verlangt (oder Nachtests wie bei „ohne Test“ – begründen). Wechselt das Kind die Gruppe und der Teil wird Pflicht, gilt die normale Regel (Nachtrags-Test).
 - Stufe/Anzeige: `thema_stufe`, Matrix, Plan, Reisekarte zeigen „Zusatz · eingeplant“ mit Fortschritt über alle Etappen; Reiseoptionen/Visum unverändert.
 - Tests: einplanen, landen, Abschluss mit Stempel und 100 Sternen genau einmal; nichts dahinter gesperrt; nicht eingeplanter Zusatz ohne Stempel; `tl_s_rauchtest` Teil 5 auf dem echten Stand wieder grün (Test bei Bedarf an die neue Regel anpassen); alle übrigen Rauchtests grün. Baut auf LZ-S auf (LZ-S wird vorher eingespielt).
+
+## Rückläufer ChatGPT 963/964 (23.11., 02:40 Berlin)
+
+**LZ-S: Freigabe**, kein Muss. Hinweise: Index-Anlage sperrt Schreiben auf `zuordnung` kurz (ruhiges Zeitfenster); nach dem Einspielen echte Kinderseite kurz gegenprüfen; `lz_s_rauchtest` nur als Test ausführen.
+
+**ZP-S: Muss, eigener Auftrag – Nachtrag an `bau-lehrer` (ZP-S) und `bau-motivation` (ZP-App):**
+- Nur `route.art = 'zusatz'` setzen reicht nicht: Die Kinder-App nimmt Route-Einträge ohne Filter auf `art` in „jetzt“ und „nächster Flug“; `geschafft` = n > 0 und fertig ≥ n → ein Flug mit 0 Pflicht-Etappen bliebe für immer als nächster offener Flug stehen. Die Eltern-Planung verwirft Einträge mit `art <> 'normal'` (Arbeitskopie) → der Eintrag wäre unsichtbar und nicht mehr änderbar.
+- Verlangt: zwei getrennte Eigenschaften – Pflicht/Kür je Gruppe (unverändert) und „von den Eltern eingeplant“ mit eigenem Platz. Der eingeplante Zusatz-Flug bleibt in der Lehrer-Ansicht wählbar, abwählbar, sortierbar („Zusatz · eingeplant“), ist auf der Kinderseite anklickbar, zählt aber nicht als Pflicht-Weiterflug, nicht für Visum und nicht in die Lehrplan-Quote; der nächste Pflicht-Flug bleibt erreichbar. Fortschritt x/y über alle Etappen; nach der letzten Landung „Zusatz geschafft“.
+- Stempel und 100 Sterne: **von Sebastian entschieden (02:35): ja, genau einmal** – ChatGPT kannte die Entscheidung noch nicht. Buchung bewusst und getestet, nicht als Nebenwirkung von `route.status = 'fertig'`.
+- Bestehenden Eintrag (route 485) reparieren, Platz und Absicht erhalten; Karten und Sterne unverändert.

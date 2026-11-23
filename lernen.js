@@ -1013,25 +1013,29 @@ function lernKinderTabelle(u, kinder, lagen) {
 // LW-1: drei Reiter – „Lehrplan“ ersetzt „Stand“ und „Plan“ (alte Adressen -stand/-plan führen dorthin)
 const LERN_REITER = [['ueberblick', 'Überblick'], ['wackelt', 'Was wackelt'], ['lehrplan', 'Lehrplan']];
 // LW-3 (1a): Kinder-Umschalter im Kopf – Klick auf ein Kind oder ‹ › wechselt das Kind, der gewählte Reiter bleibt; Alt+← / Alt+→
+// 0.91.2: Ziel immer aus der Adresse lesen (Kind und Reiter), nie aus dem Kopf, der gerade gezeichnet ist – während eines Wechsels steht noch der
+// alte Kopf da; ein zweiter Klick (A → B → A) oder Alt+←/→ muss vom neuen Kind aus rechnen.
+const lernKindAktuell = () => { const m = location.hash.match(/^#\/kind\/(\d+)-([a-z]+)/); return m ? { id: Number(m[1]), reiter: m[2] } : null; };
 function lernKinderUmschalter(k, reiter, kinder) {
   if (!kinder || kinder.length < 2) return null;
-  const i = Math.max(0, kinder.findIndex((c) => c.id === k.id)); const n = kinder.length;
+  const n = kinder.length; const jetzt = () => lernKindAktuell() || { id: k.id, reiter };
+  const i0 = () => Math.max(0, kinder.findIndex((c) => c.id === jetzt().id));
   // LZ-App: Markierung sofort (vor dem Laden), alter Inhalt bleibt abgeblendet stehen
-  const geh = (c) => { if (!c || c.id === k.id) return;
+  const geh = (c) => { const a = jetzt(); if (!c || c.id === a.id) return;
     nav.querySelectorAll('.lw-k-chip').forEach((b) => { const an = b.dataset.id === String(c.id); b.classList.toggle('lw-k-aktiv', an); if (an) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
-    lernWechselStart(); route('kind', `${c.id}-${reiter}`); };
+    lernWechselStart(); route('kind', `${c.id}-${a.reiter}`); };
   const erste = kinder.map((c) => String(c.name || '?').trim().charAt(0).toUpperCase());
   const eindeutig = new Set(erste).size === erste.length;
   const buchst = (c, j) => (eindeutig ? erste[j] : String(c.name || '').trim().split(/\s+/).pop().charAt(0).toUpperCase() || 'ABCDEFGH'[j]);
   const nav = el('nav', { class: 'lw-kinder', 'aria-label': 'Kind wechseln' },
-    el('button', { type: 'button', class: 'lw-k-pfeil', 'aria-label': 'Vorheriges Kind (Alt+←)', onclick: () => geh(kinder[(i - 1 + n) % n]) }, '‹'),
+    el('button', { type: 'button', class: 'lw-k-pfeil', 'aria-label': 'Vorheriges Kind (Alt+←)', onclick: () => geh(kinder[(i0() - 1 + n) % n]) }, '‹'),
     ...kinder.map((c, j) => el('button', { type: 'button', class: 'lw-k-chip' + (c.id === k.id ? ' lw-k-aktiv' : ''), 'aria-current': c.id === k.id ? 'page' : null, 'data-id': String(c.id),
       'aria-label': `${c.name}${c.klasse ? ` · ${LERN_SCHULART[c.schulart || 'gym_by'] || 'Gymnasium'} · Klasse ${c.klasse}` : ''}`, onclick: () => geh(c) },
       el('span', { class: 'lw-k-buchst', 'aria-hidden': 'true' }, buchst(c, j)), el('b', { class: 'lw-k-name' }, c.name),
       c.klasse ? el('small', { class: 'lw-k-info' }, `${LERN_SCHULART[c.schulart || 'gym_by'] || 'Gymnasium'} · Kl. ${c.klasse}`) : null)),
-    el('button', { type: 'button', class: 'lw-k-pfeil', 'aria-label': 'Nächstes Kind (Alt+→)', onclick: () => geh(kinder[(i + 1) % n]) }, '›'));
+    el('button', { type: 'button', class: 'lw-k-pfeil', 'aria-label': 'Nächstes Kind (Alt+→)', onclick: () => geh(kinder[(i0() + 1) % n]) }, '›'));
   const taste = (ev) => { if (!document.body.contains(nav)) { removeEventListener('keydown', taste); return; }
-    if (!ev.altKey || (ev.key !== 'ArrowLeft' && ev.key !== 'ArrowRight')) return; ev.preventDefault(); geh(kinder[(i + (ev.key === 'ArrowLeft' ? -1 : 1) + n) % n]); };
+    if (!ev.altKey || (ev.key !== 'ArrowLeft' && ev.key !== 'ArrowRight')) return; ev.preventDefault(); geh(kinder[(i0() + (ev.key === 'ArrowLeft' ? -1 : 1) + n) % n]); };
   addEventListener('keydown', taste);
   return nav;
 }
@@ -1046,8 +1050,9 @@ function lernKindKopf(k, reiter, { kinder = null, zb = null } = {}) {
   return el('section', { class: 'lern-kind-kopf lw-schlank', 'aria-label': `Seite von ${k.name}` },
     lernKinderUmschalter(k, reiter, kinder) || el('div', { class: 'lw-k-einzel' }, el('b', {}, k.name), el('small', { class: 'lw-k-info' }, info)),
     el('nav', { class: 'lern-reiter', 'aria-label': 'Bereiche' }, ...LERN_REITER.map(([r, t]) => el('a', { href: `#/kind/${k.id}-${r}`, 'aria-current': r === reiter ? 'page' : null,
-      onclick: (ev) => { if (ev.metaKey || ev.ctrlKey || r === reiter) return; // LZ-App: Reiter sofort markieren, alter Inhalt abgeblendet
-        ev.currentTarget.parentElement.querySelectorAll('a').forEach((a) => a.removeAttribute('aria-current')); ev.currentTarget.setAttribute('aria-current', 'page'); lernWechselStart(); } }, t,
+      onclick: (ev) => { if (ev.metaKey || ev.ctrlKey) return; // LZ-App: Reiter sofort markieren, alter Inhalt abgeblendet
+        const a = lernKindAktuell() || { id: k.id, reiter }; ev.preventDefault(); if (r === a.reiter) return; // 0.91.2: Kind aus der Adresse (Wechsel läuft evtl. noch)
+        ev.currentTarget.parentElement.querySelectorAll('a').forEach((x) => x.removeAttribute('aria-current')); ev.currentTarget.setAttribute('aria-current', 'page'); lernWechselStart(); route('kind', `${a.id}-${r}`); } }, t,
       r === 'wackelt' && zb ? el('b', { class: 'lw-zb', 'aria-label': `${zb} zu besprechen` }, String(zb)) : null))),
     el('div', { class: 'lern-kind-kopf-knoepfe' },
       eltern ? el('a', { class: 'btn lern-start', href: `#/reise/${k.id}`, 'aria-label': `Lernen starten: ${k.name}` }, 'Lernen starten ›') : null,
@@ -1094,7 +1099,9 @@ async function viewKind(arg) {
   if (!id) { route('lernen'); return; }
   // LW-1: alte Reiter „Stand“ (mit Schulart) und „Plan“ → „Lehrplan“
   if (reiterRoh === 'stand' || reiterRoh === 'plan') { route('kind', [id, 'lehrplan', ...(reiterRoh === 'stand' && LERN_MX_SA[rest[0]] ? [rest[0]] : [])].join('-')); return; }
-  const live = viewGuard();
+  const geguard = viewGuard();
+  // 0.91.2: eine Antwort zeichnet nur die Ansicht, für die sie angefragt wurde (gleiche Adresse, gleiches Kind, gleicher Reiter); veraltete werden verworfen
+  const live = () => { const a = lernKindAktuell(); return geguard() && (!a || (a.id === id && (LERN_REITER.some(([r]) => r === a.reiter) ? a.reiter : 'ueberblick') === reiter)); };
   lernReiterVorladen(id, reiter); // LZ-App: alles gleichzeitig
   if (!main.classList.contains('lw-wechsel') && !document.querySelector('header.top > .lern-kind-kopf')) loading();
   const u = await lernCall('schule_uebersicht').catch(() => null);

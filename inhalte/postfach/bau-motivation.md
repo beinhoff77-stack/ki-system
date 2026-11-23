@@ -2,6 +2,41 @@
 
 Neueste oben.
 
+## 2026-11-23 – FERTIG: 0.91.2 abgesichert
+
+Stand `lernen-app` 83ada52 übernommen. Nur App: keine Datenbank, kein Merge nach `main`, keine Namen. Cache v170.
+
+**Ursache – beides, ein echter Wettlauf in der App und zeitabhängige Tests**
+
+1. **Echter Wettlauf (seit 0.91.1):**
+   - Seit der sofortigen Markierung bleibt beim Kinder-Wechsel der alte Kopf stehen, bis der neue gezeichnet ist.
+   - Dieser alte Kopf rechnete mit dem Kind, für das er gezeichnet worden war:
+     - Ein zweiter Klick A → B → A wurde als „schon gewählt“ verworfen; es blieb B.
+     - Alt+←/→ rechnete vom alten Kind aus.
+     - Ein Reiter-Klick während des Wechsels führte zum alten Kind zurück.
+   - Nachweis: Der neue Test „schneller Wechsel A → B → A“ ist mit 0.91.1 rot (die Ansicht bleibt bei Kind B) und mit 0.91.2 grün.
+   - Antworten an sich überschrieben nichts: Jede Ansicht prüft schon über `viewGuard` Zählerstand und Adresse, eine veraltete Antwort zeichnet nichts.
+2. **Zeitabhängige Tests:**
+   - LW-3 (1a) wartete nach dem Klick auf „Kind B markiert“ und „eine Karte da“. Beides ist seit 0.91.1 sofort wahr, weil der alte Inhalt abgeblendet stehen bleibt. Unter Last prüfte der Test deshalb noch den Inhalt von Kind A, z. B. das offene Detail.
+   - W176 T4 klickte den Expeditions-Link, bevor die Tafel fertig war, und hatte unter Last nur 5 s. In der App fand ich dort keinen Wettlauf: Die Expedition lädt eigenständig und prüft die Adresse.
+
+**Behoben**
+- Kinder-Umschalter, Pfeile, Alt+←/→ und Reiter lesen Kind und Reiter immer aus der Adresse, nicht aus dem gerade gezeichneten Kopf.
+- `viewKind` zeichnet eine Antwort nur, wenn Adresse, Kind und Reiter noch zur Anfrage passen. Sonst wird sie verworfen, einschließlich Kopf, Zahl „Zu besprechen“ und Abblenden.
+
+**Tests**
+- Beide Tests warten jetzt auf Zustände: Adresse, gewähltes Kind, Ende des Wechsels, Inhalt des neuen Kindes, Tafel fertig, offener Teil B.
+- Neu: „schneller Wechsel Kind A → B → A“. Er läuft mit normalem und mit langsamem Server (400 ms je Antwort) und prüft:
+  - Klick-Klick A → B → A
+  - B → Reiter → A
+  - Alt+→, Alt+←
+  - späte Antworten zeichnen nichts; es gibt genau einen Kopf.
+- Gedrosselte CPU im Test: `LERN_CPU=4` drosselt Chrome über DevTools. Die Wartezeiten wachsen mit, die Tests warten auf Zustände.
+- `tests/lernen.test.cjs` dreimal hintereinander:
+  - Lauf 1: **169/169**, 263 s
+  - Lauf 2: **169/169**
+  - Lauf 3 mit `LERN_CPU=4`: **169/169**, 519 s
+
 ## 2026-11-23 – FERTIG: LZ-App (0.91.1)
 
 Stand `lernen-app` 302d242 übernommen (Nachtrag LZ-App + Kopf, Prüfung LW-3). Nur App: keine Datenbank, keine Migration, kein Merge nach `main`, keine Namen. Cache v169.

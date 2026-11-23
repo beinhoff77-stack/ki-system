@@ -57,7 +57,10 @@ async function setup(t, opt = {}) {
   // Die bisherigen Tests prüfen das bisherige Design; das neue („Abflug“) hat eigene Tests (opt.gestaltung).
   await context.addInitScript((g) => { localStorage.setItem('lern.gestaltung', g); }, opt.gestaltung || 'alt');
   const appCalls = [];
-  const page = await context.newPage(); page.setDefaultTimeout(5000);
+  const page = await context.newPage();
+  // 0.91.2: Lauf unter Last – LERN_CPU=4 drosselt die CPU des Browsers (Chrome DevTools); Wartezeiten wachsen mit, die Tests warten auf Zustände
+  const drossel = Number(process.env.LERN_CPU) || 1; page.setDefaultTimeout(5000 * drossel);
+  if (drossel > 1) { const cdp = await context.newCDPSession(page); await cdp.send('Emulation.setCPUThrottlingRate', { rate: drossel }); }
   const errors = []; page.on('pageerror', (e) => errors.push(e.message)); t.after(() => assert.deepEqual(errors, []));
   await page.route('https://cdnjs.cloudflare.com/**', (r) => r.abort());
   await page.route('**/functions/v1/app-api/**', (r) => appCalls.push(r.request().url()) && r.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: {} }) }));
@@ -1484,12 +1487,17 @@ test('W176 T4: Expedition – Angebot auf der Abflugtafel, Teil falsch → 2. Ve
 test('W176 T4: Abbruch verliert nichts – erledigte Teile stehen da, es geht beim offenen Teil weiter; ohne Angebot keine Karte', async (t) => {
   const { page } = await setup(t, { gestaltung: 'nacht', anpassen: expKonto([601]) });
   await page.goto(origin + '/#/reise/1');
-  await page.locator('.lr-ex-karte').getByRole('link', { name: /Weiter mit Teil b/ }).click();
-  await page.getByText('TEIL B VON 3').waitFor();
+  // 0.91.2: auf Zustände warten – Tafel fertig gezeichnet, dann der Link der Expedition; danach die Expedition mit Teil B als offenem Teil
+  await page.locator('.lr-abflugtafel').waitFor();
+  const weiter = page.locator('.lr-ex-karte').getByRole('link', { name: /Weiter mit Teil b/ }); await weiter.waitFor();
+  assert.match(await weiter.getAttribute('href'), /#\/expedition\/1-7$/);
+  await weiter.click(); await page.waitForURL(/#\/expedition\/1-7$/);
+  await page.locator('.lr-exp-teil:not(.erledigt) .lr-bord-kopf', { hasText: 'TEIL B VON 3' }).waitFor();
+  await page.locator('.lr-exp-teil.erledigt').first().waitFor();
   assert.equal(await page.locator('.lr-exp-teil.erledigt').count(), 1);
   // ohne Expeditionen (Server bietet keine an, z. B. Voraussetzungen fehlen): keine Karte
   const { page: p2 } = await setup(t, { gestaltung: 'nacht' });
-  await p2.goto(origin + '/#/reise/1'); await p2.getByRole('heading', { name: /Abflüge/ }).waitFor();
+  await p2.goto(origin + '/#/reise/1'); await p2.getByRole('heading', { name: /Abflüge/ }).waitFor(); await p2.locator('.lr-abflugtafel').waitFor();
   assert.equal(await p2.locator('.lr-ex-karte').count(), 0);
   await p2.goto(origin + '/#/expedition/1-7'); await p2.getByText('Diese Expedition ist gerade nicht offen.').waitFor();
 });
@@ -3990,23 +3998,52 @@ test('LW-3: ohne schule_wackelt_lesen (alter Server) bleibt „Was wackelt“ wi
   await page.locator('section.ls-wackelt').waitFor(); assert.equal(await page.locator('.wk-liste').count(), 0); assert.equal(await page.locator('.lw-zb').count(), 0);
 });
 
+// 0.91.2: wartet auf Zustände (Adresse, Inhalt des neuen Kindes fertig gezeichnet), nicht auf Zeiten. Bei der sofortigen Markierung (LZ-App) steht der alte
+// Inhalt noch abgeblendet da – die Prüfung darf erst laufen, wenn das neue Kind gezeichnet ist.
+const lwFertig = (page, id, reiter) => page.waitForFunction(([i, r]) => location.hash === `#/kind/${i}-${r}` && !document.querySelector('main').classList.contains('lw-wechsel')
+  && document.querySelector('.lw-kinder [aria-current="page"]')?.dataset.id === String(i) && !!document.querySelector(r === 'lehrplan' ? 'main .lw-karte' : r === 'wackelt' ? 'main .wk-liste' : 'main .lw-ue'), [id, reiter]);
 test('LW-3 (1a): Kinder-Umschalter – Klick und Alt+←/→ wechseln das Kind, der Reiter bleibt; Lehrplan übernimmt Schule und Klassen des Kindes, Detail zu', async (t) => {
   const { page } = await lwOeffnen(t, 1280, { anpassen: wkServer(lmsAnpassen()) });
   const um = page.getByRole('navigation', { name: 'Kind wechseln' });
+  await lwFertig(page, 1, 'lehrplan');
   assert.equal(await um.locator('[aria-current="page"] .lw-k-name').innerText(), 'Kind A');
   assert.match(await um.innerText(), /Kind A[\s\S]*Gymnasium · Kl\. 8[\s\S]*Kind B/);
   await page.locator('.lw-karte.lw-dran').click(); await page.locator('.lw-drawer.lw-auf').waitFor();
-  await um.getByRole('button', { name: /^Kind B/ }).click(); await page.waitForURL(/#\/kind\/2-lehrplan$/);
-  await page.locator('.lw-kinder [aria-current="page"] .lw-k-name', { hasText: 'Kind B' }).waitFor(); await page.locator('.lw-karte').first().waitFor();
+  await um.getByRole('button', { name: /^Kind B/ }).click(); await lwFertig(page, 2, 'lehrplan');
+  await page.locator('.lw-drawer.lw-auf').waitFor({ state: 'detached' });
   assert.equal(await page.locator('.lw-drawer.lw-auf').count(), 0, 'Detail zu');
   assert.equal(await page.locator('.lern-reiter a[aria-current]').innerText(), 'Lehrplan');
   assert.equal(await page.getByRole('navigation', { name: 'Kind wechseln' }).locator('[aria-current="page"] .lw-k-name').innerText(), 'Kind B');
   assert.equal(await page.locator('.lw-rueck').isDisabled(), true, 'Rückgängig verfällt');
-  await page.keyboard.press('Alt+ArrowLeft'); await page.waitForURL(/#\/kind\/1-lehrplan$/);
-  await page.locator('.lw-karte').first().waitFor();
-  await page.getByRole('link', { name: /^Was wackelt/ }).click(); await page.waitForURL(/#\/kind\/1-wackelt$/); await page.locator('.wk-liste').waitFor();
-  await page.keyboard.press('Alt+ArrowRight'); await page.waitForURL(/#\/kind\/2-wackelt$/); await page.locator('.wk-liste').waitFor();
-  await page.getByRole('navigation', { name: 'Kind wechseln' }).getByRole('button', { name: /^Kind A/ }).click(); await page.waitForURL(/#\/kind\/1-wackelt$/);
+  await page.keyboard.press('Alt+ArrowLeft'); await lwFertig(page, 1, 'lehrplan');
+  await page.getByRole('link', { name: /^Was wackelt/ }).click(); await lwFertig(page, 1, 'wackelt');
+  await page.keyboard.press('Alt+ArrowRight'); await lwFertig(page, 2, 'wackelt');
+  await page.getByRole('navigation', { name: 'Kind wechseln' }).getByRole('button', { name: /^Kind A/ }).click(); await lwFertig(page, 1, 'wackelt');
+});
+
+test('0.91.2: schneller Wechsel Kind A → B → A (auch Reiter, auch Alt+→ während des Ladens) zeigt am Ende sicher Kind A – veraltete Antworten werden verworfen', async (t) => {
+  for (const verz of [0, 400]) {
+    const { page } = await setup(t, { anpassen: wkServer(lmsAnpassen()) }); await page.setViewportSize({ width: 1280, height: 800 });
+    if (verz) await lzLangsam(page, verz); // langsamer Server: die Antwort für B kommt, wenn A schon wieder gewählt ist
+    await page.goto(origin + '/#/kind/1-ueberblick'); await lwFertig(page, 1, 'ueberblick');
+    // A → B → A, ohne zu warten (zweiter Klick im noch alten Kopf)
+    await page.evaluate(() => { document.querySelector('.lw-k-chip[data-id="2"]').click(); document.querySelector('.lw-k-chip[data-id="1"]').click(); });
+    await lwFertig(page, 1, 'ueberblick');
+    await page.waitForTimeout(verz + 300); // späte Antworten für B dürfen nichts mehr zeichnen
+    assert.equal(await page.evaluate(() => location.hash), '#/kind/1-ueberblick');
+    assert.equal(await page.locator('.lw-kinder [aria-current="page"]').getAttribute('data-id'), '1');
+    assert.equal(await page.locator('header.top > .lern-kind-kopf').count(), 1, 'genau ein Kopf');
+    assert.equal(await page.evaluate(() => document.querySelector('main').classList.contains('lw-wechsel')), false);
+    // B wählen, Reiter wechseln, sofort zurück zu A: der Reiter-Klick rechnet vom gewählten Kind B aus, der letzte Klick gewinnt
+    await page.evaluate(() => { document.querySelector('.lw-k-chip[data-id="2"]').click(); [...document.querySelectorAll('.lern-reiter a')].find((a) => a.textContent.startsWith('Lehrplan')).click(); document.querySelector('.lw-k-chip[data-id="1"]').click(); });
+    await lwFertig(page, 1, 'lehrplan'); await page.waitForTimeout(verz + 300);
+    assert.equal(await page.evaluate(() => location.hash), '#/kind/1-lehrplan');
+    assert.equal(await page.locator('.lw-kinder [aria-current="page"]').getAttribute('data-id'), '1');
+    // Alt+→ zweimal schnell: von A über B zu (Testkind bzw. nächstem Kind) – gerechnet vom jeweils gewählten Kind, nicht vom alten Kopf
+    await page.keyboard.press('Alt+ArrowRight'); await page.keyboard.press('Alt+ArrowLeft');
+    await lwFertig(page, 1, 'lehrplan'); await page.waitForTimeout(verz + 300);
+    assert.equal(await page.evaluate(() => location.hash), '#/kind/1-lehrplan', 'Alt+→, Alt+← führt zurück zu A');
+  }
 });
 
 test('LW-3: Überblick-Karten – Gerade dran (→ Lehrplan mit Thema), Als Nächstes (→ Fahrplan), Zu besprechen (→ Was wackelt), Diese Woche, Ringe gleich wie im Lehrplan', async (t) => {

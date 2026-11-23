@@ -2878,7 +2878,14 @@ const lernHeuteSetzen = (kind, n, tag, bis) => { if (n === undefined || n === nu
 const lernHeuteGilt = (x) => !!x && (x.bis && !isNaN(Date.parse(x.bis)) ? Date.now() < Date.parse(x.bis) : x.server ? (x.geraet || x.tag) === lernGeraetTag() : x.tag === lernGeraetTag());
 const lernHeute = (kind) => { const x = lernHeuteLesen(kind); return lernHeuteGilt(x) ? Number(x.n) || 0 : 0; };
 // LB Teil 6 Punkt 6: „heute“ des Kindes – der Tag vom Server, solange er gilt (bis heute_bis); sonst der Kalendertag des Geräts.
-const lernHeuteTag = (kind) => { const x = lernHeuteLesen(kind); return x?.server && x.tag && lernHeuteGilt(x) ? String(x.tag).slice(0, 10) : lernGeraetTag(); };
+// 0.92.1: Ist heute_bis vorbei, hat beim Kind ein neuer Tag begonnen. Liegt das Gerät in einer Zeitzone hinter der des Kindes (Reise), zeigt sein Kalender
+// dann noch den alten Tag – „heute“ ist aber mindestens der Tag nach dem letzten Server-Tag (sonst gälte z. B. die Wiederholungsrunde noch als gemacht).
+const lernTagDanach = (tag) => { const d = new Date(String(tag).slice(0, 10) + 'T12:00:00Z'); d.setUTCDate(d.getUTCDate() + 1); return d.toISOString().slice(0, 10); };
+const lernHeuteTag = (kind) => { const x = lernHeuteLesen(kind); const g = lernGeraetTag();
+  if (!x?.server || !x.tag) return g;
+  const tag = String(x.tag).slice(0, 10); if (lernHeuteGilt(x)) return tag;
+  if (x.bis && !isNaN(Date.parse(x.bis))) return g > tag ? g : lernTagDanach(tag); // Tagesende des Kindes vorbei
+  return g; };
 const lernHeutePlus = (kind) => { const x = lernHeuteLesen(kind); lernHeuteSchreiben(kind, lernHeuteGilt(x) ? { ...x, n: (Number(x.n) || 0) + 1 } : { tag: lernGeraetTag(), n: 1, server: false, geraet: lernGeraetTag() }); };
 // Punkte für die Serie: ●●○○ (gefüllt = richtig in Folge), bei „sitzt“ alle gefüllt.
 function lernPunkte(e, { gross = false } = {}) {

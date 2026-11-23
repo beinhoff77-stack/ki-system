@@ -14,6 +14,10 @@ create temp table wd5_runde_vorher on commit drop as
   select r.lernender_id, r.einheit_id, r.lernziel from schule.wdh_runde_etappe r join schule.wdh_runde w on w.lernender_id = r.lernender_id and w.tag = r.tag and w.fertig_am is null
    where r.tag = schule.heute_tag(r.lernender_id);
 
+-- WD-5 2: Sicherungen vorher feldweise (ältere WD-4b-Zeilen); war WD-5 schon eingespielt, gilt der Vergleich über frueher (Test 4)
+create temp table wd5_sich_vorher on commit drop as select to_jsonb(s) - 'lauf' - 'frueher' j, s.lernender_id, s.einheit_id, s.lernziel from schule.wdh_staffel_sicherung s;
+create temp table wd5_schon on commit drop as select exists (select 1 from schule.wdh_staffel_sicherung s where to_jsonb(s)->>'lauf' = 'wd5') schon;
+
 \ir ../migrations/20261128_wd5_staffel_drosseln.sql
 \ir ../migrations/20261128_wd5_staffel_drosseln.sql
 
@@ -68,7 +72,18 @@ begin
   select count(*), count(*) filter (where frueher is not null) into v_soll, v_s4b from schule.wdh_staffel_sicherung where lauf = 'wd5' and zurueck_am is null;
   select string_agg(k.lernender_id || ':' || k.einheit_id || ':' || k.lernziel || ':' || coalesce(schule.karte_wdh_in(k), -1), '|' order by k.lernender_id, k.einheit_id, k.lernziel)
     into v_nach_1 from schule.karte_stand k;
+  -- WD-5 2: ältere WD-4b-Sicherungen vorab aufnehmen (in frueher aufbewahrt)
+  create temp table wd5_frueher on commit drop as select s.lernender_id, s.einheit_id, s.lernziel, s.frueher j from schule.wdh_staffel_sicherung s
+   where s.lauf = 'wd5' and s.zurueck_am is null and s.frueher is not null;
   v_n := schule.wdh_drosseln_zurueck(null);
+  -- feldweise: jede aufbewahrte Zeile steht wieder vollständig gleich da
+  if exists (select 1 from wd5_frueher f left join schule.wdh_staffel_sicherung s using (lernender_id, einheit_id, lernziel)
+              where s.lernender_id is null or (to_jsonb(s) - 'lernender_id' - 'einheit_id' - 'lernziel' - 'frueher') is distinct from f.j) then
+    raise exception 'FEHLER 4: ältere Sicherungszeilen nach dem Rückweg nicht feldweise gleich'; end if;
+  -- wurde WD-5 erst in diesem Test eingespielt: alle Sicherungszeilen von vorher feldweise wie vorher
+  if not (select schon from wd5_schon) and exists (select 1 from wd5_sich_vorher v left join schule.wdh_staffel_sicherung s using (lernender_id, einheit_id, lernziel)
+              where s.lernender_id is null or (to_jsonb(s) - 'lauf' - 'frueher') is distinct from v.j) then
+    raise exception 'FEHLER 4: Sicherungszeilen von vor WD-5 nach dem Rückweg nicht feldweise gleich'; end if;
   if v_n <> v_soll then raise exception 'FEHLER 4: % statt % zurück', v_n, v_soll; end if;
   if exists (select 1 from wd5_sich s join schule.karte_stand k using (lernender_id, einheit_id, lernziel)
               where (k.faellig_am, k.wdh_ab, k.wdh_lerntage) is distinct from (s.faellig_am, s.wdh_ab, s.wdh_lerntage))
@@ -84,7 +99,8 @@ begin
   select string_agg(k.lernender_id || ':' || k.einheit_id || ':' || k.lernziel || ':' || coalesce(schule.karte_wdh_in(k), -1), '|' order by k.lernender_id, k.einheit_id, k.lernziel)
     into v_nach_2 from schule.karte_stand k;
   if v_nach_2 is distinct from v_nach_1 then raise exception 'FEHLER 4: erneutes Drosseln gibt eine andere Verteilung'; end if;
-  raise notice 'Test 4: Rückweg echter Bestand – % Etappen zurück, % WD-4b-Sicherungen wiederhergestellt; erneut gedrosselt mit gleicher Verteilung: OK', v_n, v_s4b;
+  raise notice 'Test 4: Rückweg echter Bestand – % Etappen zurück, % ältere WD-4b-Sicherungen feldweise gleich wiederhergestellt%; erneut gedrosselt mit gleicher Verteilung: OK', v_n, v_s4b,
+    case when (select schon from wd5_schon) then '' else ', alle Sicherungen wie vor WD-5' end;
 end $$;
 
 -- Test 5 (Testkind): offene Runde unberührt, belegt heutige Plätze; 3 je Lerntag in Plan-Reihenfolge; nicht gesetzte und höhere Stufen bleiben;
@@ -140,6 +156,34 @@ begin
   if schule.wdh_staffel_zurueck(v_l) <> 0 then raise exception 'FEHLER 5: WD-4b-Rückweg fasst WD-5 an'; end if;
   raise notice 'Test 5: Testkind – offene Runde (2) bleibt und belegt heute, 3 je Lerntag in Plan-Reihenfolge, % verschoben, neu Gesetzte ab Lerntag 2, Rückweg nach Zwischenübung abgelehnt (%), sonst zurück: OK',
     v_n, left(v_fehler, 60);
+end $$;
+
+-- Test 6 (WD-5 2, ChatGPT 968): verschobene Etappe kommt in die Runde von heute → Rückweg vor der ersten Antwort abgelehnt, nichts verändert;
+-- Neuverteilung und Rückweg nehmen die Rundensperre, der Rundenstart ebenso
+do $$
+declare v_l bigint := (select id from schule.lernender where ist_test and aktiv order by id limit 1); v_n int; v_fehler text; v_e bigint; v_lz text; v_k text; v_s text; v_sperre boolean;
+begin
+  if v_l is null or (select count(*) from wd5_t) < 12 then raise notice 'Test 6: kein Testkind – übersprungen'; return; end if;
+  if position('wdh_runde_sperre' in pg_get_functiondef('schule.wdh_runde_holen(bigint, date)'::regprocedure)) = 0 then raise exception 'FEHLER 6: Rundenstart ohne Sperre'; end if;
+  update schule.wdh_staffel_sicherung set lauf = 'wd5_alt' where lernender_id = v_l and lauf = 'wd5';   -- Test 5 schon zurückgenommen: erneut drosseln erlauben
+  v_n := schule.wdh_staffel_drosseln(v_l);
+  select exists (select 1 from pg_locks lk where lk.locktype = 'advisory' and lk.pid = pg_backend_pid() and lk.objsubid = 2
+                  and lk.classid::bigint = (hashtext('schule.wdh_runde')::bigint + 4294967296) % 4294967296 and lk.objid::bigint = v_l) into v_sperre;
+  if not v_sperre then raise exception 'FEHLER 6: Neuverteilung ohne Rundensperre'; end if;
+  if v_n = 0 then raise exception 'FEHLER 6: nichts verschoben'; end if;
+  -- eine verschobene Etappe in die (offene) Runde von heute aufnehmen, noch keine Antwort
+  select s.einheit_id, s.lernziel into v_e, v_lz from schule.wdh_staffel_sicherung s where s.lernender_id = v_l and s.lauf = 'wd5' and s.zurueck_am is null order by s.einheit_id, s.lernziel limit 1;
+  insert into schule.wdh_runde (lernender_id, tag) values (v_l, schule.heute_tag(v_l)) on conflict do nothing;
+  update schule.wdh_runde set fertig_am = null where lernender_id = v_l and tag = schule.heute_tag(v_l);
+  insert into schule.wdh_runde_etappe (lernender_id, tag, nr, einheit_id, lernziel) values (v_l, schule.heute_tag(v_l), 950, v_e, v_lz) on conflict do nothing;
+  select string_agg((k.einheit_id, k.lernziel, k.faellig_am, k.wdh_ab, k.wdh_lerntage)::text, '|' order by k.einheit_id, k.lernziel) into v_k from schule.karte_stand k where k.lernender_id = v_l;
+  select string_agg(to_jsonb(s)::text, '|' order by s.einheit_id, s.lernziel) into v_s from schule.wdh_staffel_sicherung s where s.lernender_id = v_l;
+  begin perform schule.wdh_drosseln_zurueck(v_l); v_fehler := 'kein Fehler'; exception when others then v_fehler := sqlerrm; end;
+  if v_fehler = 'kein Fehler' or position('Runde' in v_fehler) = 0 then raise exception 'FEHLER 6: Rückweg trotz Etappe in der Runde (%)', v_fehler; end if;
+  if (select string_agg((k.einheit_id, k.lernziel, k.faellig_am, k.wdh_ab, k.wdh_lerntage)::text, '|' order by k.einheit_id, k.lernziel) from schule.karte_stand k where k.lernender_id = v_l) is distinct from v_k
+     or (select string_agg(to_jsonb(s)::text, '|' order by s.einheit_id, s.lernziel) from schule.wdh_staffel_sicherung s where s.lernender_id = v_l) is distinct from v_s then
+    raise exception 'FEHLER 6: abgelehnter Rückweg hat Fälligkeiten oder Sicherungen verändert'; end if;
+  raise notice 'Test 6: verschobene Etappe in der Runde von heute → Rückweg abgelehnt (%), Fälligkeiten und Sicherungen unverändert; Neuverteilung, Rückweg und Rundenstart mit Rundensperre: OK', left(v_fehler, 70);
 end $$;
 
 rollback;

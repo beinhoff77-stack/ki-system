@@ -2,6 +2,67 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-23 – FERTIG: LZ-S
+
+Stand `lernen-app` e07976a übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code:
+- `supabase/migrations/20261126_lz_s_ladezeit.sql`
+- `supabase/tests/lz_s_rauchtest.sql`
+
+**Die drei größten Posten** (lesend auf dem echten Stand gemessen, `explain analyze`)
+1. **`stufe_etappen` und `thema_stufe`:**
+   - Die Pflichtliste wird je Etappe neu berechnet. Der Planer bettet den CTE ein, dadurch wird `pflicht_lernziele` je Element von `unnest` erneut aufgerufen.
+   - `thema_stufe` ruft `stufe_etappen` zusätzlich je Karte im WHERE auf.
+   - Die Matrix ruft `thema_stufe` je Kind und Thema doppelt auf: Die Lateral-Unterabfrage wird hochgezogen, `s.st` wird zweimal verwendet.
+   - Messwerte: `stufe_etappen` 95× 409 ms (bei einmaliger Pflichtliste 53 ms); `thema_stufe` 105× 0,92 s, so wie es die Matrix aufruft 1,79 s je Kind.
+2. **`thema_klassen` je Thema:** Die Sicht `thema_lage_klasse` rechnet bei jedem Aufruf alle Themen. 105× mit `thema_teil_json` 741 ms; die Sicht einmal: 10 ms.
+3. **`thema_jahrgang` und „pflicht“ der Matrix:** Der Planer startet bei quelle → eintrag → zuordnung, mit 84 630 Schleifen auf 105 Themen. 105× 118–123 ms; mit den Zuordnungen des Themas zuerst 8,5 ms. Die Übersicht ruft `thema_jahrgang` 210× auf (rund 250 ms).
+
+Weitere Messwerte vorher, echter Stand:
+- `lehrplan_matrix` (zwei Kinder, Leitung): 3,76 s.
+- `pflicht_lernziele` 105×: 49 ms.
+- Expeditionsteil der Übersicht (drei Kinder): 164 ms.
+- Lernstand Kind 2 (Hauptabfrage): 376 ms.
+
+**Änderungen** (Ergebnisse unverändert)
+- `pflicht_lernziele` und `stufe_etappen` sind jetzt plpgsql: Die Bewertung wird einmal gelesen, die Pflichtliste einmal berechnet. Reihenfolge und Rückgabe (`null` bzw. `'{}'`) bleiben wie bisher.
+- `thema_stufe` per Anker: Die Etappen der Regel werden einmal je Aufruf berechnet statt je Karte. `thema_stufe` bleibt als Funktion erhalten.
+- `lehrplan_matrix` per Anker:
+  - „pflicht“ liest die Zuordnungen des Themas zuerst.
+  - `thema_stufe` läuft je Kind und Thema genau einmal (`offset 0`).
+- `thema_jahrgang`: Zuordnungen des Themas zuerst; neuer Index `zuordnung_thema_id_idx (thema_id, eintrag_id)`.
+- Neu `schule.thema_klassen_alle(schulart, zweig, kurz)`: gleicher Aufbau wie `thema_klassen`, für alle Themen in einem Durchgang. `lehrplan_matrix_lk` nutzt sie statt `thema_klassen` je Thema.
+- `schule_uebersicht`, `schule_lernstand`, `schule_plan_lesen` und `reise_karte` sind selbst unverändert; sie werden über die schnelleren Hilfsfunktionen schneller.
+
+**Rauchtest `lz_s_rauchtest`**
+- Ablauf: md5 der Antworten vor der Migration, Migration zweimal, md5 danach, Vergleich.
+- Umfang:
+  - je echtem Kind und für das Testkind in allen fünf Gruppen (Gruppenwechsel jeweils in einer Untertransaktion): Matrix (Kindsicht), Lernstand, Plan, Reisekarte, `thema_stufe` aller Themen;
+  - dazu Matrix ohne Kind (ohne und mit Testkind) und Übersicht (Leitung).
+- Die api-Funktionen laufen als pg_temp-Kopien ohne Schlüssel: Nur die Zugriffsprüfung ist ersetzt, und jeder Ersetzungs-Anker wird geprüft.
+- Der Test gibt die Laufzeiten vorher und nachher je Funktion aus. Im Probelauf auf der echten Datenbank liefert er damit die Messwerte nachher.
+- Gegenprobe: Mit absichtlich falscher Pflichtregel meldet der Test „Antwort verändert“.
+
+**Lokal geprüft** (Nachbau mit den echten Etappen und den live gelesenen Funktionen; kleinere Kinderdaten, die Zahlen sind daher nur relativ)
+- 48 Antworten vorher = nachher, vor und nach dem Einspielen.
+- `rd_s`, `ex_s`, `tl_s`, `nt_s`, `lk_s` bleiben grün.
+- Laufzeiten vorher → nachher:
+  - Matrix ohne Kind: 803 → 168 ms
+  - Matrix mit Testkind: 903 → 230 ms
+  - Matrix je Kind: 167–330 → 62–87 ms
+  - `thema_stufe` aller Themen: 55–91 → 19–29 ms
+  - Reisekarte: 104–159 → 59–81 ms (ein Ausreißer 125 → 161 ms)
+  - Plan: 120–159 → 80–101 ms
+  - Übersicht: 1 576 → 112 ms beim ersten Lauf, 192 → 145 ms warm
+
+**Nicht gemessen:** Die Werte nachher auf der echten Datenbank – dafür müsste die Migration eingespielt werden. Erwartung aus den Einzelmessungen (Annahme):
+- Matrix je Kind 1,9 s → ca. 0,3 s
+- Matrix ohne Kind 5,8 s → ca. 0,5 s
+- `thema_stufe` aller Themen 0,9 s → ca. 0,2 s
+- Reisekarte 1,7 s → ca. 0,4 s
+- Übersicht und Plan je unter 0,5 s
+
+Den Beleg liefert `lz_s_rauchtest` im Probelauf.
+
 ## 2026-11-23 – FERTIG: RD-S 2
 
 Stand `lernen-app` fb2fcfb übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code:

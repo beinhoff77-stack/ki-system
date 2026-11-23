@@ -2,6 +2,42 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-23 – FERTIG: WD-5 2
+
+Stand `lernen-app` 59bcd32 übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.
+- geändert: `supabase/migrations/20261128_wd5_staffel_drosseln.sql`, `supabase/tests/wd5_rauchtest.sql`
+- Vorwärtslauf unverändert, also gleiche Verteilung (Kind 2: 39 verschoben, 3 je Lerntag).
+
+**1. Gemeinsame Sperre gegen einen parallelen Rundenstart (Muss 1 und 2)**
+- **Neu:** `schule.wdh_runde_sperre(kind)`, eine Transaktions-Sperre je Kind (`pg_advisory_xact_lock`), die mit Commit/Rollback endet.
+- **Rundenstart:** `wdh_runde_holen` nimmt sie als ersten Schritt (Text-Patch, Anker geprüft; die Funktion ist md5-gleich mit echt). Das ist der einzige Ort, der Runden anlegt (lesend geprüft: einzige Funktion mit `insert into schule.wdh_runde`).
+- **Neuverteilung:** `wdh_staffel_drosseln` nimmt sie je Kind, bevor sie irgendetwas liest (auch beim Einspielen). Ein gleichzeitiger Rundenstart wartet und sieht danach die neuen Fälligkeiten; umgekehrt wartet die Neuverteilung auf eine laufende Runden-Anlage.
+- **Rückweg:** `wdh_drosseln_zurueck` nimmt sie je betroffenem Kind in fester Reihenfolge, dann die Sperren auf Karten und Sicherungen.
+- **Lokal mit zwei Sitzungen geprüft:** Ein Rundenstart (`wiederholung_intern`) wartet, solange eine Neuverteilung oder ein Rückweg offen ist (je rund 3 s bei 4 s Haltezeit), und läuft danach normal.
+
+**2. Rückweg mit Rundenausschluss (Muss 1)**
+- Steht eine betroffene Etappe in der Runde von heute (`wdh_runde_etappe`, Tag heute), lehnt `wdh_drosseln_zurueck` die Rücknahme **ganz** ab, ohne Änderung. Das gilt auch vor der ersten Antwort.
+- Die Prüfung läuft unter der Rundensperre, also kann keine Runde zwischen Prüfung und Schreiben dazukommen.
+- Bisherige Ablehnung „inzwischen geübt“ bleibt.
+
+**3. Tests (`wd5_rauchtest`)**
+- **Neu Test 6:** Testkind drosseln, dann prüfen, dass die Rundensperre gehalten wird (`pg_locks`) und der Rundenstart sie nimmt. Danach eine verschobene Etappe in die Runde von heute aufnehmen und den Rückweg vor der ersten Antwort versuchen. Ergebnis: abgelehnt, Fälligkeiten und Sicherungszeilen des Kinds vorher = nachher.
+- **Test 4 ergänzt:**
+  - Ältere WD-4b-Sicherungen (in `frueher` aufbewahrt) werden vorab aufgenommen und nach dem Rückweg **feldweise** verglichen: ganze Zeile gleich, inklusive `gesichert_am`, `wdh_ab_neu`, `zurueck_am`, `richtig/falsch`.
+  - Wird WD-5 erst im Test eingespielt, gilt zusätzlich: alle Sicherungszeilen von vorher feldweise wie vorher.
+  - Auf der Kopie mit den echten Daten: 39 zurück, 28 WD-4b-Zeilen feldweise gleich.
+
+**Gelaufen (lokal, Kopien wie echt; dazu eine Kopie mit den echten Karten, Lerntagen, Runden, Plänen und Sicherungen)**
+- `wd5`, `fp_s`, `nb_s`, `zp_s`, `lz_s` grün vor und nach dem Einspielen. `wd_s3` grün auf den Standard-Kopien vor und nach.
+- `wd_s` lokal schon vor WD-5 rot, `wd_s3` auf der Kopie mit echten Karten ebenso, beide vor und nach gleich. Ursache: fehlende Auszüge (Mischkarten-Verlauf), nicht WD-5. Auf dem echten Stand liefen beide laut Haupt-Chat bisher grün.
+- **Lesend auf dem echten Stand nachvollzogen:**
+  - `wdh_runde_holen`, `wiederholung_intern`, `karte_wdh_in` und `wdh_staffel_zurueck` sind md5-gleich mit den lokalen Kopien; damit greifen der Patch-Anker und die Tests dort genauso.
+  - Das Testkind hat heute keine Runde.
+  - Kind 2 hat eine offene Runde vom 22.11. Sie zählt nicht: Ausschluss und Prüfung gelten nur für die Runde von heute, wie im Vorwärtslauf.
+  - Die Tests schreiben (Rollback) und sind deshalb nur lokal gelaufen.
+
+**Hinweis:** `wdh_staffel_strecken` (WD-4b) nimmt die Rundensperre nicht. Sie wird nur einmalig und von Hand gebraucht; bei Bedarf in einem eigenen Nachtrag ergänzen.
+
 ## 2026-11-23 – FERTIG: WD-5
 
 Stand `lernen-app` e2a8fcd übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.

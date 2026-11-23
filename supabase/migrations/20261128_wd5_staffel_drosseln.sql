@@ -13,11 +13,13 @@
 --      Plan bleiben; das wird am Ende geprüft (sonst Abbruch).
 --   3. Alter Stand in schule.wdh_staffel_sicherung (lauf = 'wd5'). Stand dort für eine Etappe schon eine WD-4b-Sicherung, wird sie in der
 --      neuen Spalte frueher aufbewahrt (nichts geht verloren) und beim Rückweg wiederhergestellt.
---      Rückweg (nur solange keine dieser Etappen seitdem beantwortet wurde, sonst Ablehnung ohne Änderung):
+--      Rückweg (nur solange keine dieser Etappen seitdem beantwortet wurde und keine in der Runde von heute steht, sonst Ablehnung ohne Änderung):
 --        select schule.wdh_drosseln_zurueck();        -- alle Kinder, oder schule.wdh_drosseln_zurueck(<Kind>)
 --      Die Regel stellt der Rückweg nicht zurück (bei Bedarf: update schule.regel set wert = '6' where schluessel = 'wdh_gesetzt_je_lerntag').
 --      schule.wdh_staffel_zurueck (WD-4b) fasst ab jetzt nur noch WD-4b-Sicherungen an (lauf is null).
 --   Einmalig: Ein zweiter Lauf tut nichts (es gibt schon WD-5-Sicherungen). Ausgabe (NOTICE) je Kind nur mit Nummer.
+--   WD-5 2 (ChatGPT 968): Rundenstart (wdh_runde_holen), Neuverteilung und Rückweg nehmen dieselbe Sperre je Kind (schule.wdh_runde_sperre) –
+--   keine Runde startet während der Neuverteilung oder Rücknahme, und umgekehrt.
 -- Kein DROP, kein DELETE.
 
 do $$ begin
@@ -55,6 +57,27 @@ as $$
 $$;
 revoke all on function schule.wdh_gesetzt_erst(bigint) from public, anon, authenticated;
 
+-- WD-5 2 (ChatGPT 968): gemeinsame Sperre je Kind für Rundenstart, Neuverteilung und Rückweg (Transaktions-Sperre, endet mit Commit/Rollback).
+-- Der Rundenstart (wdh_runde_holen) wartet auf eine laufende Neuverteilung/Rücknahme und liest danach den neuen Stand – und umgekehrt.
+create or replace function schule.wdh_runde_sperre(p_l bigint)
+ returns void language sql volatile set search_path to ''
+as $$ select pg_advisory_xact_lock(hashtext('schule.wdh_runde'), p_l::int); $$;
+revoke all on function schule.wdh_runde_sperre(bigint) from public, anon, authenticated;
+
+do $$
+declare d text;
+  a text := $a$begin
+  if exists (select 1 from schule.wdh_runde where lernender_id = p_l and tag = p_tag) then return; end if;$a$;
+  n text := $a$begin
+  perform schule.wdh_runde_sperre(p_l);   -- WD-5 2: nicht gleichzeitig mit Neuverteilung/Rückweg der Staffel
+  if exists (select 1 from schule.wdh_runde where lernender_id = p_l and tag = p_tag) then return; end if;$a$;
+begin
+  d := pg_get_functiondef('schule.wdh_runde_holen(bigint, date)'::regprocedure);
+  if position('WD-5 2' in d) > 0 then raise notice 'wdh_runde_holen schon umgestellt'; return; end if;
+  if (length(d) - length(replace(d, a, ''))) / length(a) <> 1 then raise exception 'WD-5 2: Anker in wdh_runde_holen nicht genau einmal gefunden'; end if;
+  execute replace(d, a, n);
+end $$;
+
 -- 2. Neuverteilung (je Kind oder alle); liefert die Zahl verschobener Etappen
 create or replace function schule.wdh_staffel_drosseln(p_l bigint default null)
  returns integer language plpgsql set search_path to ''
@@ -62,6 +85,7 @@ as $function$
 declare v_je int := greatest(schule.wd_regel('wdh_gesetzt_je_lerntag', 3), 1); v_kind bigint; k record; v_frei int; v_tag int; v_n int := 0; v_alt record;
 begin
   for v_kind in select l.id from schule.lernender l where (p_l is null or l.id = p_l) order by l.id loop
+    perform schule.wdh_runde_sperre(v_kind);                                                                                       -- WD-5 2: kein Rundenstart gleichzeitig
     if exists (select 1 from schule.wdh_staffel_sicherung s where s.lernender_id = v_kind and s.lauf = 'wd5') then continue; end if;   -- einmalig
     perform 1 from schule.karte_stand x where x.lernender_id = v_kind order by x.einheit_id, x.lernziel for update;                 -- wie WD-S 4
     v_tag := 0;
@@ -99,10 +123,22 @@ revoke all on function schule.wdh_staffel_drosseln(bigint) from public, anon, au
 create or replace function schule.wdh_drosseln_zurueck(p_l bigint default null)
  returns integer language plpgsql set search_path to ''
 as $function$
-declare v_geuebt int; v_n int;
+declare v_geuebt int; v_n int; v_kind bigint; v_runde int;
 begin
+  -- WD-5 2: erst die Rundensperre je betroffenem Kind (feste Reihenfolge), dann Karten und Sicherungen sperren
+  for v_kind in select distinct s.lernender_id from schule.wdh_staffel_sicherung s
+                 where s.lauf = 'wd5' and s.zurueck_am is null and (p_l is null or s.lernender_id = p_l) order by 1 loop
+    perform schule.wdh_runde_sperre(v_kind);
+  end loop;
   perform 1 from schule.karte_stand k join schule.wdh_staffel_sicherung s on s.lernender_id = k.lernender_id and s.einheit_id = k.einheit_id and s.lernziel = k.lernziel
    where s.lauf = 'wd5' and s.zurueck_am is null and (p_l is null or s.lernender_id = p_l) order by k.lernender_id, k.einheit_id, k.lernziel for update of k, s;
+  -- WD-5 2: steht eine betroffene Etappe in der Runde von heute, wird die Rücknahme ganz abgelehnt (keine alte Fälligkeit mitten in die Runde)
+  select count(*) into v_runde from schule.wdh_staffel_sicherung s
+    join schule.wdh_runde_etappe r on r.lernender_id = s.lernender_id and r.einheit_id = s.einheit_id and r.lernziel = s.lernziel and r.tag = schule.heute_tag(s.lernender_id)
+   where s.lauf = 'wd5' and s.zurueck_am is null and (p_l is null or s.lernender_id = p_l);
+  if v_runde > 0 then
+    raise exception 'WD-5 Rückweg abgelehnt: % verschobene Etappen stehen in der Wiederholungs-Runde von heute', v_runde using errcode = 'P0001';
+  end if;
   select count(*) into v_geuebt from schule.wdh_staffel_sicherung s join schule.karte_stand k
       on k.lernender_id = s.lernender_id and k.einheit_id = s.einheit_id and k.lernziel = s.lernziel
    where s.lauf = 'wd5' and s.zurueck_am is null and (p_l is null or s.lernender_id = p_l)

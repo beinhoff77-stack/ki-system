@@ -3281,3 +3281,49 @@ Stand `lernen-app` 6b16f6b.
 - **Befund bau-lehrer (Hochrechnung):** 3 je Lerntag allein löst den Stau nicht auf (pendelt um 20–30), weil die Runde (Rückstau ÷ 5, mindestens 6) kaum über dem Zulauf liegt. Vorschlag: `wdh_runde_teiler` 5 → 1 (Runde = alle fälligen, höchstens 12; bis Kl. 6 höchstens 10) → mit WD-5 Stau nach etwa 4 Lerntagen weg, danach 0–4. Milder: Teiler 2 → nach 14 Lerntagen noch um 10. Entscheidung Sebastian.
 Prüfbitte an ChatGPT gestellt (beide Pakete).
 RK-App 0.92.0 (Reisekarte) von `bau-motivation` zusammengeführt; App-Tests laufen.
+
+## Wunsch Sebastian (23.11., 04:05 Berlin): Jugendwörter in den Geschafft- und Belohnungs-Ansichten · Auftrag JW (vorgemerkt)
+
+Sebastian: In den Geschafft-Bildern/Belohnungsfeldern nach einer Etappe „die neumodernen Jugendwörter einbauen (Digger …) – die müssen auch erst recherchiert werden“.
+Erste Recherche Haupt-Chat (Langenscheidt-Wahl): 2026 Platz 1 „Ragebait“, 2 „Peak“, 3 „Crashout“; Top 10 außerdem „67“, „Digga“, „Du bist gut genug“, „Gute Käse“, „Macker“, „Schere“, „Süper“. 2025: „Das crazy“ vor „goonen“ und „checkst du“.
+Vorschlag: gepflegte Wortliste (Wort, Bedeutung, wofür geeignet: Lob / Fehler / neutral, Quelle, Jahr, ungeeignet-Kennzeichen), ungeeignete Wörter ausgeschlossen (beleidigend, sexuell, abwertend), die Kinder wählen selbst aus und können es je Kind abschalten; Sprüche wechseln; Liste halbjährlich prüfen. Schritte: Recherche → Auswahl durch die Kinder → Texte (Gestalter) → App (`bau-motivation`).
+
+## Rückläufer ChatGPT 968 (23.11., 04:10 Berlin) zu NB-S 3 / SJ-S 3 / NT-D 3 und WD-5
+
+**Paket 1 (NB-S, SJ-S, nt_einspiel_2311): Freigabe** zum Einspielen in einer Transaktion. Hinweis: Rauchtests ersetzen die Zugriffskontrolle, sind kein Nachweis eines abgewiesenen Fremdzugriffs (Funktionen nutzen die bestehende Prüfung).
+**Muss für die gemeinsame Anzeige (App, nicht Datenbank):** Der Ring (`lernLwRing`, lernen.js) filtert nur Schulart/Klasse und zieht Zusatz der Gruppe nicht ab; `schuljahr_stand` zieht ihn ab. Für RS II/III und MYP Standard weichen die Zahlen ab (Gegenprobe: 60 % gegen 100 %). → SJ-App: Ring an `schuljahr_stand` anbinden bzw. dieselbe Auswahl; Test mit einem Gruppen-Zusatzfall. Betrifft heute kein Kind (beide Gymnasium).
+**Paket 2 (WD-5): Muss vor Freigabe** – Rückweg `wdh_drosseln_zurueck` (Zeilen 103–116): Eine verschobene Etappe, die nach der Migration in die offene Tagesrunde kommt, wird vor der ersten Antwort noch zurückgeschrieben (Rundenausschluss fehlt im Rückweg). Verlangt: Rücknahme ablehnen, wenn eine betroffene Etappe in einer offenen Runde steht, mit Sperre gegen parallelen Rundenstart; auch beim Einspielen parallelen Rundenstart ausschließen; Test (drosseln → Runde öffnen → Rückweg vor erster Antwort → nichts verändert); Test 4 ergänzen: ältere WD-4b-Sicherungen feldweise vor/nach dem Rückweg vergleichen.
+**Lernsicht:** Teiler 1 für zunächst vier tatsächliche Lerntage erproben (höchstens 12, bis Kl. 6 höchstens 10), danach Rest, Dauer und Fehler ansehen; Teiler 2, falls die längeren Runden neues Lernen verdrängen. Entscheidung Sebastian getrennt.
+- Nachtrag JW (23.11., 04:15): Sebastian will „unbedingt“ das Wort, das wie „Tschüsch“ klingt → gemeint ist sehr wahrscheinlich **„Çüş“ / „Cüs“** (gesprochen „Tschüüüsch“, aus dem Türkischen; Ausruf des Staunens wie „Krass!“, „Heftig!“; ursprünglich Halte-Ruf für Esel/Pferde, kann auch „mach mal halblang“ bedeuten). Für Lob nur eindeutig staunend verwenden („Çüüüş – 5 in Folge!“). Schreibweise und Einsatz von den Kindern bestätigen lassen.
+
+## Auftrag JW – Jugendwörter in Geschafft- und Belohnungs-Ansichten (23.11., 04:20 Berlin) · Sebastian: „macht euch Gedanken, wie man die cool einbauen kann, und setzt die ein“
+
+**JW-G · an den Gestalter (Recherche + Vorgabe):** `inhalte/pruefung/kind/jugendwoerter/umsetzung.md` + `woerter.json`.
+1. Recherche: 60–80 aktuelle deutsche Jugendwörter (Langenscheidt-Wahlen 2024–2026 und weitere Quellen), je Wort: Schreibweise(n), Bedeutung, Tonlage, Jahr, Quelle, geeignet für `lob_klein` / `lob_gross` / `staunen` / `fehler_mild` / `anrede` oder `ungeeignet` mit Grund. Fest dabei: „Çüş“ (Tschüsch), „Digga“, „Peak“, „Gute Käse“, „Süper“, „Das crazy“, „Schere“ (nur Fehler). Ausschluss: beleidigend, sexuell, abwertend, Wut/Provokation (z. B. „goonen“, „Ragebait“, „Crashout“, „sybau“).
+2. Einbau-Idee, die nicht peinlich wirkt: wo genau (Landung einer Etappe in den drei Fassungen, Knobel richtig, Serie, Wiederholung bestanden, Flug geschafft, Expedition, „Nachbessern“ geschafft, Fehler-Rückmeldung), wie oft (Dosis), wie (Ausruf groß als Stempel/Sticker statt ganzer Sätze im Slang; der erklärende Satz bleibt normales Deutsch), Abwechslung (kein Spruch zweimal hintereinander), passend zu Ergebnis (fehlerfrei ≠ mit Hilfe).
+3. 40–60 fertige Sprüche wörtlich, je Anlass und Stärke; getrennte Sätze für 11 und 14 Jahre, falls nötig.
+4. Einstellungen: je Kind an/aus und Dosis (Kind selbst und Eltern), „Wort gefällt mir nicht“ am Spruch (blendet das Wort für dieses Kind aus), Liste als Datei pflegbar (halbjährlich prüfen, Verfallsdatum je Wort).
+5. Entwurf und Bilder 400/820, Tag und Nacht.
+**JW-App · an `bau-motivation`:** nach RK-App und den Karten NB/SJ/ZP. **JW-S** nur, falls Einstellungen/ausgeblendete Wörter je Kind in der Datenbank liegen sollen (sonst erst auf dem Gerät).
+
+## EINGESPIELT: NB-S, SJ-S, NT-D 3 – 23.11., 04:22 Berlin
+
+Freigabe Sebastian („Nachbessern und Schuljahr in die Datenbank einspielen“), Prüfung Werkstatt 968 (Paket 1 Freigabe), Werkstatt-Änderung 384. Kinder 86 bzw. 157 Minuten ohne Antwort, kein Test offen. In der Transaktion geprüft: Karten, Sterne, Lernziel-Stände, Erstabschlüsse, Plan, Reiseoptionen, Stufen unverändert; Aufgaben 30162 → 30176. Danach grün: nb_s, sj_s, zp_s, tl_s, nt_s, lz_s. `schuljahr_stand` live: Kind 1 Kl. 5 13/15 Flüge, 83/112 Etappen offen (26 %); Kind 2 Kl. 7 7/12, 43/69 (38 %), Kl. 8 15/16, 93/102 (9 %), Kl. 9 14/14, 107/107.
+
+## Entscheidung Sebastian (23.11., 04:20 Berlin): Rundengröße „A“
+
+Wiederholungsrunde = alle fälligen, höchstens 12 (bis Kl. 6 höchstens 10): `wdh_runde_teiler` 5 → 1, zunächst für vier tatsächliche Lerntage zum Erproben; danach Rest, Dauer und Fehler ansehen (Haupt-Chat), bei Bedarf Teiler 2. Wird zusammen mit WD-5 eingespielt.
+
+## Probelauf WD-5 2 (23.11., 04:30 Berlin, echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` 330a6e3, Datei `20261128_wd5_staffel_drosseln.sql` (2983eacd…). Zweimal ohne Fehler; alles außer den Fälligkeiten gesetzter Erst-Wiederholungen unverändert; Kind 2 fällig je Lerntag vorher 23·11·11·12·6·9·3, nachher 16·8·8·9·3·6·4·3·3·3·3·3·3·3; gesetzte je Lerntag 3. Tests grün: wd5 (vor/nach, mit Rundensperre und Rückweg-Ablehnung), wd_s, wd_s3, fp_s.
+**Mit Teiler 1 (Entscheidung A) zusätzlich gesetzt:** `wd_s_rauchtest` „FEHLER 1 Rundengröße Klasse 8“ – der Test rechnet mit Teiler 5. → Nachtrag `bau-lehrer`: wd_s-Test setzt den Teiler im Test selbst (merken/wiederherstellen) und prüft zusätzlich Teiler 1 (alle fälligen, höchstens 12 bzw. 10 bis Kl. 6, mindestens-Regel).
+Prüfbitte an ChatGPT (WD-5 2 + Teiler 1).
+
+## Prüfung Gestalter RK-App (0.92.0): 1 Muss, 7 Soll, 5 Kann → Nachtrag RK-App 2 (0.92.1) an `bau-motivation`
+
+Datei `inhalte/pruefung/kind/karte/nachpruefung_rk.md`.
+- **M1** Stadt „wieder offen“ wird als ✓ gelandet gezeigt → eigener Zustand (orange, ↻, kein ✓), Text „Nachbessern“.
+- **S1** Rechner: Karte fensterfüllend, Kopf eine Zeile. **S2** Handy: eine Kopfzeile, schwebende Karte kompakter, Expeditions-Karte einzeilig. **S3** rechts „x/6 Bordkarten dieser Stadt“ statt „4/13“. **S4** Land-Ebene: Ausschnitt auf die Städte-Route, Städtenamen nach Vorrang, Überdeckungen auflösen. **S5** Welt auf dem Handy als Ausschnitt um den aktuellen Kontinent. **S6** Blatt beim Ebenenwechsel schließen. **S7** Zusatz-Text ohne „freiwillig“.
+- **K1–K3** nach Prüfung; **K4** Datenauftrag an `bau-lehrer`: „gesperrt“ (Visum/ab Klasse) und „abgelegt“ je Stadt in `schule_reise_karte`.
+- Dazu der wacklige Test „LB Teil 6 Punkt 6“ (Nachtrag vom 23.11.) und aus Prüfung EX: S1, S2 („freiwillig“ bei Knobel → „für Profis“), K1, K2.

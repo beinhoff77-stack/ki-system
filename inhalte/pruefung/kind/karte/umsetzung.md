@@ -44,7 +44,7 @@ Leitregel: Die Karte zeichnet alles **aus den Daten** – keine feste Zahl an Ko
 | geschafft | hellgrün | grün, Abzeichen ✓ – Legende „**✓ geschafft – noch in Wiederholung**“ |
 | golden | gold | gold, Abzeichen ★ – Legende „**★ golden – alles sitzt**“; Blatt: „Alle Städte sind abgelegt. Hier musst du nichts mehr wiederholen.“ |
 | „Kann er“ (Eltern gesetzt) | wie geschafft, ohne Stempel-Abzeichen | grün, Abzeichen ◉ |
-**Stadt** (Land-Ebene): ★ gold = abgelegt · ✓ grün = gelandet · ✓ grün + gelbes ↻ = heute wiederholen · blau groß mit Puls, Flugzeug, „Bologna · 3/6“ = hier bist du · weiß mit Nummer = kommt noch · gestrichelt = Kür.
+**Stadt** (Land-Ebene): ↻ orange, gestrichelter Ring, „wieder offen“ = nachbessern (siehe `kind/karten/umsetzung.md` §1) · ★ gold = abgelegt · ✓ grün = gelandet · ✓ grün + gelbes ↻ = heute wiederholen · blau groß mit Puls, Flugzeug, „Bologna · 3/6“ = hier bist du · weiß mit Nummer = kommt noch · gestrichelt = Kür.
 **Kontinent** (Welt): „3/13 Länder“; Kontinent des aktuellen Flugs mit Punkt.
 **Antarktis:** eigener Bereich unten in der Welt-Ebene, Stationen erst beim Antippen (eigene Ansicht später).
 

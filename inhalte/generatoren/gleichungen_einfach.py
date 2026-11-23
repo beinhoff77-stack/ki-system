@@ -815,3 +815,9 @@ if __name__ == '__main__':
     from _bereinigen import bereinigen_datei
     bereinigen_datei('gleichungen.einfach')
 # ---- BEREINIGEN ENDE ----
+
+# ---- NT-D 3 (23.11., siehe _nt_2311.py): zuletzt, hängt nur Aufgaben an ----
+if __name__ == '__main__':
+    from _nt_2311 import nt_anhaengen as nt3_anhaengen
+    nt3_anhaengen('gleichungen.einfach')
+# ---- NT-D 3 ENDE ----

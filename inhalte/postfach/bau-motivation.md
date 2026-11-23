@@ -2,6 +2,154 @@
 
 Neueste oben.
 
+## 2026-11-23 – FERTIG: 0.91.2 abgesichert
+
+Stand `lernen-app` 83ada52 übernommen. Nur App: keine Datenbank, kein Merge nach `main`, keine Namen. Cache v170.
+
+**Ursache – beides, ein echter Wettlauf in der App und zeitabhängige Tests**
+
+1. **Echter Wettlauf (seit 0.91.1):**
+   - Seit der sofortigen Markierung bleibt beim Kinder-Wechsel der alte Kopf stehen, bis der neue gezeichnet ist.
+   - Dieser alte Kopf rechnete mit dem Kind, für das er gezeichnet worden war:
+     - Ein zweiter Klick A → B → A wurde als „schon gewählt“ verworfen; es blieb B.
+     - Alt+←/→ rechnete vom alten Kind aus.
+     - Ein Reiter-Klick während des Wechsels führte zum alten Kind zurück.
+   - Nachweis: Der neue Test „schneller Wechsel A → B → A“ ist mit 0.91.1 rot (die Ansicht bleibt bei Kind B) und mit 0.91.2 grün.
+   - Antworten an sich überschrieben nichts: Jede Ansicht prüft schon über `viewGuard` Zählerstand und Adresse, eine veraltete Antwort zeichnet nichts.
+2. **Zeitabhängige Tests:**
+   - LW-3 (1a) wartete nach dem Klick auf „Kind B markiert“ und „eine Karte da“. Beides ist seit 0.91.1 sofort wahr, weil der alte Inhalt abgeblendet stehen bleibt. Unter Last prüfte der Test deshalb noch den Inhalt von Kind A, z. B. das offene Detail.
+   - W176 T4 klickte den Expeditions-Link, bevor die Tafel fertig war, und hatte unter Last nur 5 s. In der App fand ich dort keinen Wettlauf: Die Expedition lädt eigenständig und prüft die Adresse.
+
+**Behoben**
+- Kinder-Umschalter, Pfeile, Alt+←/→ und Reiter lesen Kind und Reiter immer aus der Adresse, nicht aus dem gerade gezeichneten Kopf.
+- `viewKind` zeichnet eine Antwort nur, wenn Adresse, Kind und Reiter noch zur Anfrage passen. Sonst wird sie verworfen, einschließlich Kopf, Zahl „Zu besprechen“ und Abblenden.
+
+**Tests**
+- Beide Tests warten jetzt auf Zustände: Adresse, gewähltes Kind, Ende des Wechsels, Inhalt des neuen Kindes, Tafel fertig, offener Teil B.
+- Neu: „schneller Wechsel Kind A → B → A“. Er läuft mit normalem und mit langsamem Server (400 ms je Antwort) und prüft:
+  - Klick-Klick A → B → A
+  - B → Reiter → A
+  - Alt+→, Alt+←
+  - späte Antworten zeichnen nichts; es gibt genau einen Kopf.
+- Gedrosselte CPU im Test: `LERN_CPU=4` drosselt Chrome über DevTools. Die Wartezeiten wachsen mit, die Tests warten auf Zustände.
+- `tests/lernen.test.cjs` dreimal hintereinander:
+  - Lauf 1: **169/169**, 263 s
+  - Lauf 2: **169/169**
+  - Lauf 3 mit `LERN_CPU=4`: **169/169**, 519 s
+
+## 2026-11-23 – FERTIG: LZ-App (0.91.1)
+
+Stand `lernen-app` 302d242 übernommen (Nachtrag LZ-App + Kopf, Prüfung LW-3). Nur App: keine Datenbank, keine Migration, kein Merge nach `main`, keine Namen. Cache v169.
+
+**1) Kopf größer (Rückmeldung Sebastian)**
+- Rechner 1280 × 800:
+  - Kopf 68 px (vorher 53).
+  - Kindernamen und Reiter 16,5 px.
+  - Alle Tippflächen ≥ 44 px (Kinder, Reiter, Zurück, Lernen starten, ⚙).
+  - Aktives Kind und aktiver Reiter: dunkelgrüne Fläche mit weißer Schrift.
+  - „Gymnasium · Kl. 8“ steht bei allen Kindern mit Klasse.
+  - Die Pfeile ‹ › entfallen, damit drei Kinder in eine Zeile passen; Alt+←/→ geht weiter.
+- Damit die Matrix nicht schrumpft:
+  - Bereichsleiste 46 statt 52 px.
+  - Leiste fest zweizeilig, 76 px.
+  - **Matrix 602 px.** Achtung: Das ist knapp über der Grenze von 600 px.
+- **S4:** Tablet und Handy haben eine Zeile ‹ · Kinder · ⋯. Hinter „⋯“ liegen Lernen starten, Einstellen und So funktioniert’s. Darunter stehen die Reiter.
+  - Kopf 820: 105 px, erste Karte 194 (vorher 229).
+  - Kopf 400: 103 px, erste Karte 266 (vorher 314).
+
+**2) Umschalten flüssig**
+- Ein Klick auf Kind oder Reiter markiert sofort: gemessen 0,4–1,2 ms bei 1280/820/400.
+- Der alte Inhalt bleibt abgeblendet stehen, bis der neue da ist. Kein „Lade …“.
+- Der Kopf bleibt stehen und wird ersetzt, statt neu aufgebaut zu werden. Getestet mit 250 ms Verzögerung je Antwort.
+
+**3) Laden**
+- `schule_uebersicht`, `schule_lehrplan_matrix`, `schule_lehrplan_uebersicht`, `schule_lernstand`, `schule_plan_lesen` und `schule_wackelt_lesen` werden je Sitzung gemerkt. Gleiche Anfragen, die gerade laufen, werden geteilt.
+- Gemerkte Antworten werden nach 10 s im Hintergrund aufgefrischt. Hat sich etwas geändert, zeichnen Überblick und Was wackelt still neu. Der Lehrplan wird nicht neu gezeichnet, solange dort gearbeitet wird.
+- Jede schreibende Aktion vergisst gezielt alles zu diesem Kind sowie Übersicht und Matrix (ohne Kind: alles).
+- Alle Anfragen eines Reiters starten gleichzeitig, auch die Matrix.
+- Das andere Kind wird 0,3 s nach dem Zeichnen vorgeladen (ohne Testkind).
+- Test: Nach „In den Plan: als Nächstes“ liest die App den Plan neu, und der Überblick zeigt das neue Thema auf Platz 2.
+
+**Anfragen je Wechsel** (Test „LZ-App: Anfragen“, Kind A/B, nachgestellter Server)
+
+| Schritt | vorher 0.91.0 | nachher 0.91.1 |
+|---|---|---|
+| Kind A Überblick (Start) | 6 | 9 (davon 3 Vorladen Kind B) |
+| → Lehrplan | 7 (Übersicht 2×) | 0 |
+| → Was wackelt | 3 | 0 |
+| → Kind B (Was wackelt) | 3 | 0 |
+| Kind B → Lehrplan | 7 | 0 |
+| → Kind A (Lehrplan) | 7 | 0 |
+| → Überblick | 6 | 0 |
+| **Summe** | **39** | **9** |
+
+- Übersicht und Matrix-Gerüst kommen nachher einmal je Sitzung.
+- Die Wartezeit je Anfrage auf dem echten Server (5–9 s) ändert sich dadurch nicht; das ist Teil von LZ-S. Der erste Aufruf dauert so lange wie die langsamste Anfrage, jeder weitere Wechsel kommt aus dem Speicher.
+
+**4) S1 Leiste**
+- Zeile 1: Lehrplan von · Zeigen · Klassen. Zeile 2: Bereit für Klasse …? · Suchen · Auswählen · ⓘ Farben · rechts ↶ Rückgängig.
+- ⓘ-Hinweis und Farben öffnen als schwebendes Feld. Test: Leiste ≤ 90 px, auch mit offenem ⓘ.
+- „Gespeichert“ steht nur noch für Vorleser; sichtbar sind „Speichere …“ und „Nicht gespeichert“.
+
+**5) S2 Überblick ohne Doppelungen**
+- „Lernt es?“, „Wo hakt es?“, „Wo steht es?“ und „Was kommt?“ sind weg.
+- „Diese Woche“ hat jetzt „zuletzt am …“ und die rot/gelb/grün-Färbung.
+- „Zuletzt geschafft“ ist eine kleine Karte.
+- „Einstufung: GYM Kl. 8 · RS Kl. 8 · IB MYP-Jahr 3“ steht als Zeile in „Stand“.
+- In „Was wackelt“ sind die Zeile „Diese Woche …“ und die zweite Überschrift weg.
+
+**6) S3 und Kann-Punkte**
+- S3: Beim Einrollen wird die Höhe der Spaltenzeile abgezogen.
+- K1: Hinweistext mit dem Beispiel Pythagoras.
+- K2: „Bereit für Klasse …?“ statt „Einstieg prüfen“, auch in den Optionen und im Hinweis.
+- K4: Auf dem Handy heißt der Knopf „→ Lehrplan“.
+- K3 (Testkind) ist nicht gebaut.
+- Die Info-Seite ist angepasst.
+
+**Tests**
+- Vier neue LZ-Tests: Anfragen, flüssiges Umschalten, Kopf-Maße, gemerkte Daten nach einer Plan-Änderung.
+- 16 bestehende Tests sind angepasst, z. B. „⋯“ auf schmalen Schirmen, die neuen Wörter und die entfallenen alten Karten.
+- Gesamtlauf 308/320 vor der letzten Testkorrektur. Danach ist auch „LW-3: Info-Seite“ grün. Rot sind nur die bekannten Reise/PWA-Tests: PWA-Hülle, Startkarte, W80 ×5, Review301, Woanders, W88.
+- Bilder: `docs/previews/la/lz-*.png` und `lw3b-*.png` (1280/820/400).
+
+## 2026-11-23 – FERTIG: EX-App (0.91.0)
+
+Stand `lernen-app` cfaf70a übernommen. Nur App, keine Datenbank, keine Migration, kein Merge nach `main`, keine Namen. Cache v168. Vorgabe `inhalte/pruefung/kind/expedition/umsetzung.md` §1–6, 8, 9 (§7 Antarktis auf der Karte folgt mit RK-App).
+
+**Gebaut**
+- Kein „freiwillig“ mehr bei Expeditionen auf der Kinderseite (Abflugtafel, Expedition, Abschluss). Farbe Polar, Zeichen ⛯. Eltern-/Lehrer-Seiten unverändert.
+- **Ansicht 1 „Expedition freigeschaltet“:**
+  - Nach der Landung, die das Angebot auslöst: Der große Knopf der Landungs-Ansicht führt zuerst hierher; „Später“ ruft `schule_expedition_spaeter` und führt dorthin, wohin der Knopf geführt hätte.
+  - Die App liest dafür nach der Landung einmal `schule_konto`, weil die Landungs-Antwort kein `expedition_frei` enthält.
+  - Ohne Landung freigeschaltet: beim nächsten Öffnen der Startseite, einmal.
+  - „Einmal“ wird auf dem Gerät gemerkt (der Server hat kein „gesehen“-Feld).
+  - Mehrere freigeschaltet: „+k weitere Expeditionen freigeschaltet“.
+- **Ansicht 2:** Die offene Expedition (`expeditionen_stand.oben_id`) ist die oberste und größte Karte der Abflugtafel, vor dem nächsten Flug.
+  - Inhalt: Titel, Station, Teile-Kästchen, ★ 150 / ★ 200 ohne Fehler, Knopf „Expedition starten“ bzw. „Weiter mit Teil b“, „NEU“ am Lerntag des Freischaltens, ✕ = Später.
+  - Der Einsteigen-Knopf bleibt sichtbar.
+- **2b:** Nach „Später“ steht nur der Chip „⛯ Expedition wartet: … ›“, bis `ausgeblendet` vom Server endet.
+- **Ansicht 3:** 3a „Expedition geschafft“ (★ +150) bzw. 3b „Fehlerfrei durchgekommen“ (★ +200 = 150 + 50, Stempel mit Band ★ FEHLERFREI).
+  - Sterne und „fehlerfrei“ kommen aus `schule_konto` nach dem letzten Teil; die App rechnet sie nicht.
+  - Dazu „k / 21 Stationen“, der gelbe Knopf „Weiter in {Stadt}“ und „Stempel-Sammlung ansehen“.
+  - Keine Fehlerzahl; die Zeile „2 von 3 selbst gelöst“ entfällt.
+- **Ansicht 4 Stempel-Sammlung** (`#/stationen/{kind}`): „k von 21 Stationen · f freigeschaltet“, Balken, Gruppen je Klasse, ein Platz je Station.
+  - Gesperrte Stationen: Antippen öffnet ein Blatt mit ✓/○ je Voraussetzung. Den Stand je Etappe liest die App aus `schule_reise_karte` (einmal je Sitzung gemerkt).
+  - Ist die Station erst in einer höheren Klasse dran: „Ab Klasse x“.
+  - Frei oder begonnen: Antippen öffnet Ansicht 1 ohne Bewegung.
+  - Reisepass: „⛯ Expeditionen: k von 21 Stationen ›“.
+- Info-Seite angepasst: Freischalten, Abflugtafel, 150/200, Sammlung, Quelle COMNAP.
+
+**Daten, die der Server nicht liefert**
+- Station, Nummer und Voraussetzungen: `expeditionen_kind` hat sie nicht.
+- Sie stehen statisch in `lernen.js`, erzeugt mit `tools/ex_stationen.py` aus `aufbau-vorschlag.json` (Reihenfolge = Nummer), `inhalte/expeditionen/*.json` und den Etappen-Titeln. Keine Lösungen.
+- Hinweis: In diesen Daten ist die Wetterstation Station 9. In den Bildern des Gestalters ist sie Station 4 (erfundene Reihenfolge).
+
+**Tests** (nachgestellter EX-S-Server, 400 und 820 px)
+- Fünf neue Tests: oberste Karte, Ansicht 1 mit Später und Chip, Landung → Ansicht 1, 3a/3b (400 × 780 ohne Scrollen), Sammlung mit Blatt.
+- Die drei W176-Tests sind angepasst.
+- Gesamtlauf 306/316. Rot sind nur die bekannten Reise/PWA-Tests (PWA-Hülle, Startkarte, W80 ×4, Review301, Woanders, W88).
+- Bilder: `docs/previews/la/ex-*.png`.
+
 ## 2026-11-23 – FERTIG: LW-3b (0.90.1) – Kopf der Kind-Seite schlank, Matrix groß, „Lehrplan von:“, Cache v167
 
 Auf `lernen-app` fb2fcfb (Nachtrag LW-3, Rückmeldung Sebastian zu 0.89.1). Nur App, Version in sechs Dateien, Tests, Info-Seite. Nichts in der Datenbank, keine Migration, kein Merge nach `main`.

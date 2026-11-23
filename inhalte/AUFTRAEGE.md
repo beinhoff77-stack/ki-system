@@ -3092,3 +3092,179 @@ Stand `lernen-app` 0d8717d. Reihenfolge: RD-S-Migration → rd_einspiel_2311 →
 - 123 Länder, 827 Städte, 0 Abweichungen. Expedition „8-schulfest“ zeigt auf den Teil 2 (Thema 281). Angebote nach dem Nachtragen: 0 (kein Kind hat eine Expedition freigeschaltet).
 - „sicher“ je Stadt = `schule.karte_sicher` (wie `thema_stufe`); falsch war der Test, nicht die Funktion.
 Prüfbitte an ChatGPT gestellt.
+
+## EINGESPIELT + LIVE: Routen (RD-S), EX-F, EX-S, lernen-api 0.9.3, App 0.90.1 – 23.11., 02:00–02:10 Berlin
+
+Freigaben Sebastian: „Routen in die Datenbank einspielen“, „live“, „Beide machen eine Pause, jetzt bitte einspielen“. Prüfung Werkstatt 961 (Freigabe). Werkstatt-Änderung 380.
+- Datenbank: Migration `rd_s_reise_ex_f_ex_s_einspielen` (RD-S → rd_einspiel_2311 → EX-F → EX-S), Stand der Dateien `lernen-app` 0d8717d. Vorher/Nachher gleich: Karten, Sterne, Lernziel-Stände, Erstabschlüsse, Stufen, Reiseoptionen, Ortsnamen, Versuche. 123 Länder, 827 Städte, 21 Stationen, 0 Abweichungen. Danach alle neun Rauchtests grün (Rollback). 0 Expeditions-Angebote; Regelwerte 150/200.
+- Edge Function `lernen-api` 0.9.3 (Version 11), `/hilfe` antwortet mit 0.9.3.
+- App 0.90.1: `main` 3934f2b, Auslieferung erfolgreich, App-Tests 159 von 159. Gestalter hat 0.90.0/0.90.1 nicht geprüft (offen).
+- Nachkontrolle erste Sitzung nach Teilung/fairen Punkten: Sterne-Buchungen passen (wdh 10, uebung 10, landung 80, Knobel 30).
+
+Offen: Legende hinter ⓘ (Rechner) – Entscheidung Sebastian; Prüfung Gestalter 0.90.1; EX-App und RK-App an `bau-motivation`; Lizenz COMNAP (Stationen) vor RK-App; Zuteilung der neuen Teile durch Sebastian.
+
+## Bau-Aufträge EX-App und RK-App (23.11., 02:15 Berlin) · an `bau-motivation`, in dieser Reihenfolge
+
+Sebastian: „Ich dachte, sie sehen schon was. Dann mach weiter.“ Server ist live: `lernen-api` 0.9.3 mit `schule_reise_karte` und `schule_expedition_spaeter`; `expeditionen_stand` in `schule_konto` und `schule_uebersicht`. Schnittstellen: `inhalte/postfach/bau-lehrer.md` (RD-S, RD-S 2, EX-S).
+
+### Schritt 1 – EX-App (0.91.0, klein, zuerst)
+Vorgabe: `inhalte/pruefung/kind/expedition/umsetzung.md` (Abschnitte 1–6, 8, 9), Entwurf und Bilder daneben. Kein „freiwillig“ mehr auf der Kinderseite; Ansicht „Expedition freigeschaltet“ nach der auslösenden Landung („Jetzt starten“ groß, „Später“ klein → `schule_expedition_spaeter`); offene Expedition als oberste, größte Karte der Abflugtafel (`expeditionen_stand.oben_id`); Ansicht nach geschaffter Expedition mit 150 bzw. 200 Sternen; Stempel-Sammlung „n von 21 Stationen“. Abschnitt 7 (Antarktis auf der Karte) gehört zu Schritt 2. Tests mit nachgestelltem Server, 400 und 820 px. Meldung „FERTIG: EX-App (0.91.0)“.
+
+### Schritt 2 – RK-App (0.92.0, groß)
+Vorgabe: `inhalte/pruefung/kind/karte/umsetzung.md` (inkl. § 11 Teile/Zusatz), Entwurf `karte/entwurf/reisekarte.html`, Bilder; „Bau-Auftrag RK“ oben. Die Reisekarte ersetzt die Anzeigetafel der Kinderseite: Ebenen Welt › Kontinent › Land aus `schule_reise_karte` (keine feste Anzahl), Land als Flaggen-Pin (Spitze = Hauptstadt), Städte als Etappen mit Stand, dezente gezeichnete Linie, Startknopf schwebend in der Karte (`naechster_start`), golden = alles sitzt, Zusatz/Teile nach § 11, Antarktis mit den Stationen der Expeditionen (EX-Vorgabe Abschnitt 7).
+- Technik: keine Kartenkacheln, kein Kartenserver, kein Google. Umrisse aus Natural Earth im Build vorrechnen (Skript im Repo, je Kontinent eine Datei), Flaggen erst beim Anzeigen laden. Alles statisch aus dem Repo.
+- Lizenzen (geklärt durch Haupt-Chat): Natural Earth gemeinfrei; GeoNames CC BY 4.0 → Quellenangabe auf der Info-Seite und klein an der Karte (`quellen` aus der Antwort); flag-icons, i18n-iso-countries, countries-list MIT (Lizenztext ins Repo); COMNAP-Stationen: nur private, nicht kommerzielle Bildungs-Nutzung, mit Quellenangabe.
+- Karten-Antwort ist rund 170 KB je Kind: einmal je Sitzung laden und merken; Ladezeit und Dateigrößen messen und melden.
+- Die alte Anzeigetafel bleibt hinter einem Schalter erreichbar, bis Sebastian die Karte freigibt (Rückweg).
+- Prüfen 400 / 820 / 1280, Finger und Maus; Start, Wiederholungsrunde, Test, Expedition müssen von der Karte aus erreichbar sein wie bisher von der Tafel. Meldung „FERTIG: RK-App (0.92.0)“.
+
+Jeweils: nur App, keine Datenbank, kein Merge nach `main`, keine Namen. Prüfung nach jedem Schritt durch den Gestalter.
+
+## Bau-Auftrag LZ – Ladezeit der Lehrer-Seiten (23.11., 02:20 Berlin) · Sebastian: „Ladezeiten der Lehrer-Seiten sind etwas lang“
+
+**Gemessen (Haupt-Chat, echte Datenbank und Funktions-Logs 23.11. 02:08–02:10):**
+- Einzelne Anfragen an `lernen-api` dauern 5–9 Sekunden (mehrfach 8,2–8,9 s), mehrere davon gleichzeitig.
+- `schule.lehrplan_matrix` für ein Kind: 1,9 s; `lehrplan_matrix_lk` dazu 0,5 s; Matrix ohne Kind (beide Kinder): 5,8 s, 207 000 Zeichen. `thema_stufe` für alle 105 Themen eines Kindes: 0,9 s. `reise_karte` je Kind: 1,7 s. `wackelt_liste` 55 ms, `reiseoptionen` 4 ms.
+- App: Reiter „Lehrplan“ ruft `schule_uebersicht` zweimal (in `viewKind` und in `viewKindLehrplan`), lädt die Matrix erst nach den anderen Antworten und gegebenenfalls ein zweites Mal mit Testkind; der Kinder-Wechsel lädt alles neu.
+
+**LZ-S · an `bau-lehrer` (Datei, nicht einspielen):** `lehrplan_matrix`, `lehrplan_matrix_lk`, `schule_uebersicht`, `schule_lernstand`, `schule_plan_lesen`, `reise_karte` beschleunigen – Ziel je Anfrage unter 1 Sekunde auf dem echten Stand. Ansatz: `thema_stufe` nicht je Thema einzeln (mengenweise je Kind rechnen), keine wiederholten Unterabfragen je Zeile, passende Indizes; Ergebnis **inhaltlich unverändert** (Test: md5 der Antwort vor/nach je Kind und für das Testkind in allen fünf Gruppen gleich). Messwerte vorher/nachher (lesend auf der echten Datenbank mit `explain analyze`) in die Meldung. Kein DROP von Tabellen, kein DELETE.
+**LZ-App · an `bau-motivation` (nach EX-App, vor RK-App):** `schule_uebersicht` und Matrix je Sitzung einmal laden und merken (nach Änderungen gezielt erneuern), alle Anfragen eines Reiters gleichzeitig starten, Kopf und Reiter sofort zeichnen und Inhalte nachladen, Kinder-Wechsel ohne erneutes Laden der kindunabhängigen Daten. Messung im Test: Zahl der Anfragen je Reiter-Aufruf.
+
+## Nachtrag LZ-App + Kopf (23.11., 02:25 Berlin) · Rückmeldung Sebastian zu 0.90.1 (Bild)
+
+Sebastian: „Die Kopfzeile ist jetzt etwas sehr klein und sie lässt sich auch nicht flüssig umschalten.“
+1. **Kopfzeile größer, ohne die Matrix wieder zu verdrängen:** Höhe etwa 68–72 px (statt 53), Kindernamen und Reiter mindestens 16–17 px, aktives Kind und aktiver Reiter deutlich (Kontrast, Fläche), Klick-/Tippflächen mindestens 44 px hoch, Zusatz „Gymnasium · Kl. 8“ bei allen Kindern klein sichtbar (Rechner). Dafür die Leiste darunter am Rechner auf höchstens zwei Zeilen (Legende hinter ⓘ, Empfehlung des Gestalters abwarten, falls sie vorliegt).
+2. **Umschalten flüssig:** Klick auf Kind oder Reiter wechselt die Markierung sofort (unter 100 ms), der alte Inhalt bleibt abgeblendet stehen, bis der neue da ist (kein leerer Ladebildschirm, kein Springen des Kopfs). Kindunabhängige Daten (Übersicht, Matrix-Gerüst) nicht neu laden; Daten je Kind nach dem ersten Laden merken und im Hintergrund auffrischen; das jeweils andere Kind vorab laden.
+3. Sonst wie „Bau-Auftrag LZ“, Teil LZ-App. Version 0.91.x nach EX-App, vor RK-App. Messung im Test: Zeit bis zur Markierung, Zahl der Anfragen je Wechsel.
+
+## Prüfung Gestalter LW-3 (0.90.1): 0 Muss, 4 Soll, 5 Kann → in den Zwischenschritt „LZ-App + Kopf“ (0.91.1)
+
+Datei `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw3.md`. Zusätzlich zu „Nachtrag LZ-App + Kopf“ bauen:
+- **S1** Leiste am Rechner fest zweizeilig: Farb-Legende hinter „ⓘ Farben“; „Gespeichert“ nur während des Speicherns oder bei Fehler; ⓘ-Hinweise als schwebendes Feld (Matrix springt nicht); Test Leiste ≤ 90 px bei 1280 × 800.
+- **S2** Überblick ohne Doppelungen: alte Karten „Lernt es?“, „Wo hakt es?“, „Wo steht es?“, „Was kommt?“ weg (teils widersprüchlich zu den neuen); „Zuletzt geschafft“ bleibt klein neben „Diese Woche“; Einstufung als eine Zeile in „Stand“. In „Was wackelt“ die Zeile „Diese Woche …“ und die doppelte Überschrift weg.
+- **S3** Matrix rollt beim Öffnen 30 px zu weit (Klassen-Kopf halb verdeckt) → Höhe der Spaltenzeile abziehen.
+- **S4** Handy-Kopf: eine Zeile ‹ · Kinder · ⋯, darunter die Reiter.
+- **K1** Hinweistext „Lehrplan von“ mit Beispiel. **K2** „Einstieg prüfen …“ → „Bereit für Klasse …?“. **K4** kürzere Knöpfe in „Was wackelt“ auf dem Handy.
+- Offen für Sebastian: **K3** Testkind im Kinder-Umschalter ausblenden oder ans Ende mit Marke „Test“.
+Hinweis: Der Gestalter hält den Kopf (53 px) für in Ordnung; Sebastians Rückmeldung („etwas sehr klein“) geht vor – Kopf 68–72 px.
+
+## Probelauf LZ-S (23.11., 02:30 Berlin, echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` 4994319. Migration `20261126_lz_s_ladezeit.sql` zweimal ohne Fehler.
+- **Ergebnis inhaltlich gleich** (eigener md5-Vergleich vorher/nachher: Matrix Kind 2, Matrix ohne Kind, Reisekarte und Reiseoptionen aller Kinder, `thema_stufe` aller Themen aller Kinder).
+- **Zeiten vorher → nachher:** Matrix je Kind 2532 → 186 ms · Matrix ohne Kind 4462 → 536 ms · Reisekarte 1037 → 219 ms · Stufen aller Themen (3 Kinder) 2537 → 244 ms.
+- Tests mit LZ: lz_s, rd_s, ex_s, nt_s, lk_s, wd_s, wd_s3, fp_s, lw_s grün. Ein erster Lauf von lz_s meldete „Antwort verändert“ bei Kind 2 – Ursache: Sebastian änderte in diesen Sekunden den Plan von Kind 2 (Plan-Änderung 02:30:44); Wiederholung ohne gleichzeitige Änderung grün.
+- **tl_s rot, unabhängig von LZ** (auch ohne LZ): „FEHLER 5: offener Zusatz-Teil als Pflicht im Plan“ – siehe nächster Abschnitt.
+Prüfbitte an ChatGPT gestellt.
+
+## Befund: Zusatz-Teil lässt sich als normaler Flug einplanen (23.11., 02:30 Berlin) · an `bau-lehrer`
+
+Sebastian hat über „Unser Lehrplan“ (App 0.90.1) für Kind 2 „Kongruenzabbildungen – Teil 2 von 3“ eingeplant (route.id 485, art `normal`, status `offen`, Platz 21). Der Teil ist im Gymnasium Zusatz (keine Pflicht-Etappe). `schule_plan_setzen` legt ihn trotzdem als `normal` an.
+Zu klären und als Datei zu liefern (ZP-S): Was passiert mit einem bewusst eingeplanten Zusatz-Teil? Vorschlag Haupt-Chat: Einplanen bleibt erlaubt (Entscheidung der Eltern), der Eintrag wird als Zusatz geführt (`art` passend), er sperrt nichts dahinter, gilt als erledigt, sobald alle seine Etappen gelandet sind (ohne Pflicht-Test; Stempel/100 Sterne: Entscheidung Sebastian), und die Lehrer-Ansicht zeigt ihn als „Zusatz · eingeplant“. Prüfen: Kann der Flug mit `art normal` und leerer Pflichtliste heute je „fertig“ werden, oder bleibt er für immer offen im Plan? Bestehenden Eintrag 485 mit umstellen. `tl_s_rauchtest` Teil 5 muss danach auf dem echten Stand grün sein. Entscheidung Sebastian zu Stempel/Sternen steht aus.
+
+## Entscheidung Sebastian (23.11., 02:35 Berlin): eingeplanter Zusatz-Teil · Bau-Auftrag ZP-S an `bau-lehrer`
+
+Sebastian: „Entscheidung ja“ zum Vorschlag des Haupt-Chats:
+1. Einen Zusatz-Teil einzuplanen bleibt erlaubt (Entscheidung der Eltern).
+2. Er wird im Plan als Zusatz geführt, nicht als normaler Pflicht-Flug, und sperrt nichts dahinter (kein Visum, keine harte Voraussetzung).
+3. Er gilt als erledigt, sobald alle seine Etappen selbst gelandet sind – ohne Pflicht-Test.
+4. Dafür gibt es Stempel und 100 Sterne (genau einmal).
+Nicht eingeplante Zusatz-Teile bleiben wie bisher freiwillig und ohne Stempel.
+
+**ZP-S (Datei, nicht einspielen):** `supabase/migrations/20261126_zp_s_zusatz_plan.sql` + `supabase/tests/zp_s_rauchtest.sql`.
+- `schule_plan_setzen` (und Sammelaktionen, „Alle einplanen“ nimmt Zusatz weiterhin nicht mit): Zusatz-Teil der Gruppe des Kindes → als Zusatz im Plan; bestehenden Eintrag (Kind 2, „Kongruenzabbildungen – Teil 2 von 3“, route 485) mit umstellen.
+- Abschluss: alle Etappen des Teils gelandet → Flug fertig, Erstabschluss, Stempel, 100 Sterne; kein Flug-Test, keine Nachtests verlangt (oder Nachtests wie bei „ohne Test“ – begründen). Wechselt das Kind die Gruppe und der Teil wird Pflicht, gilt die normale Regel (Nachtrags-Test).
+- Stufe/Anzeige: `thema_stufe`, Matrix, Plan, Reisekarte zeigen „Zusatz · eingeplant“ mit Fortschritt über alle Etappen; Reiseoptionen/Visum unverändert.
+- Tests: einplanen, landen, Abschluss mit Stempel und 100 Sternen genau einmal; nichts dahinter gesperrt; nicht eingeplanter Zusatz ohne Stempel; `tl_s_rauchtest` Teil 5 auf dem echten Stand wieder grün (Test bei Bedarf an die neue Regel anpassen); alle übrigen Rauchtests grün. Baut auf LZ-S auf (LZ-S wird vorher eingespielt).
+
+## Rückläufer ChatGPT 963/964 (23.11., 02:40 Berlin)
+
+**LZ-S: Freigabe**, kein Muss. Hinweise: Index-Anlage sperrt Schreiben auf `zuordnung` kurz (ruhiges Zeitfenster); nach dem Einspielen echte Kinderseite kurz gegenprüfen; `lz_s_rauchtest` nur als Test ausführen.
+
+**ZP-S: Muss, eigener Auftrag – Nachtrag an `bau-lehrer` (ZP-S) und `bau-motivation` (ZP-App):**
+- Nur `route.art = 'zusatz'` setzen reicht nicht: Die Kinder-App nimmt Route-Einträge ohne Filter auf `art` in „jetzt“ und „nächster Flug“; `geschafft` = n > 0 und fertig ≥ n → ein Flug mit 0 Pflicht-Etappen bliebe für immer als nächster offener Flug stehen. Die Eltern-Planung verwirft Einträge mit `art <> 'normal'` (Arbeitskopie) → der Eintrag wäre unsichtbar und nicht mehr änderbar.
+- Verlangt: zwei getrennte Eigenschaften – Pflicht/Kür je Gruppe (unverändert) und „von den Eltern eingeplant“ mit eigenem Platz. Der eingeplante Zusatz-Flug bleibt in der Lehrer-Ansicht wählbar, abwählbar, sortierbar („Zusatz · eingeplant“), ist auf der Kinderseite anklickbar, zählt aber nicht als Pflicht-Weiterflug, nicht für Visum und nicht in die Lehrplan-Quote; der nächste Pflicht-Flug bleibt erreichbar. Fortschritt x/y über alle Etappen; nach der letzten Landung „Zusatz geschafft“.
+- Stempel und 100 Sterne: **von Sebastian entschieden (02:35): ja, genau einmal** – ChatGPT kannte die Entscheidung noch nicht. Buchung bewusst und getestet, nicht als Nebenwirkung von `route.status = 'fertig'`.
+- Bestehenden Eintrag (route 485) reparieren, Platz und Absicht erhalten; Karten und Sterne unverändert.
+
+## Entscheidung Sebastian (23.11., 02:54 Berlin): wieder offene Etappe wird dem Kind zuerst vorgelegt · Auftrag NB
+
+Frage Sebastian: Was passiert, wenn ein Kind in der Wiederholung zwei Fehler hintereinander macht – geht die Etappe automatisch an Stelle 1 des Lehrplans?
+**Stand heute (gelesen in `karte_buchen`, `thema_stufe`, `lernReiseDaten`; bisher bei keinem Kind eingetreten):** 1. Fehler in der fälligen Wiederholung → bleibt gelandet, Stufe −1, nächster Lerntag wieder. 2. Fehler in Folge → Etappe „wieder offen“ (`sitzt = false`, Belege bleiben, es fehlen 3 eigene Lösungen in Folge; danach Wiederholung von vorn). Thema springt auf „dran / wieder offen“, erscheint in „Was wackelt“ und „Zu tun“. Der Fahrplan ändert sich nicht. Kinderseite: Ist der Ort noch offen, kommt der Flug über seinen Platz meist als nächster Start; **ist der Ort schon fertig, bleibt der Flug unter „Geschafft – zum Wiederholen“ und die Etappe ist nicht mehr in der Wiederholungsrunde – Lücke.**
+
+**Entschieden („ja“ zum Vorschlag des Haupt-Chats):** Eine wieder offene Etappe wird dem Kind immer zuerst vorgelegt, egal ob der Ort abgeschlossen ist – eigene Karte ganz oben („Nachbessern: ‹Etappe›, noch 3 richtige in Folge“), vor dem nächsten Flug und vor einer Expedition. Fahrplan, Stempel und Sterne bleiben unverändert.
+
+**NB-S · an `bau-lehrer` (Datei, mit ZP-S oder danach):** Liste „nachbessern“ je Kind (Thema, Einheit, Etappe, Titel, wieder offen seit, Folge x von 3) in `schule_konto`/`schule_uebersicht` und in `naechster_start` der Reisekarte (Grund `nachbessern` vor `dran`); gilt auch bei fertigem Ort und bei „Kann er“-Setzung mit Rückfall. Rauchtest: zwei Fehler in Folge → Eintrag; drei eigene Lösungen in Folge → Eintrag weg, Wiederholung beginnt neu; Lernstand sonst unverändert.
+**NB-App · an `bau-motivation` (nach LZ-App):** Karte „Nachbessern“ als oberste Karte der Abflugtafel bzw. der Reisekarte (Stadt als „wieder offen“ markiert), führt direkt in die Übung dieser Etappe; nach der dritten richtigen in Folge kurze Bestätigung.
+
+## Auftrag SJ – „Wie viel ist noch?“ je Schuljahr, für Eltern und Kinder (23.11., 03:10 Berlin)
+
+Sebastian (zum Ring „Gym Kl. 5 · 26 % · 2/15 Themen“): „Ich und die Kids wollen einen Überblick, wie viele Flüge sie noch haben und wie viele Etappen – in den Schuljahren. Bei Rosa immer in dem Jahr, wo sie gerade hauptsächlich ist, und ein Jahr weiter. Bei Leo hauptsächlich Klasse 8, aber auch 7 und 9.“ Frage: Wie wird der Prozentsatz gerechnet?
+**Heutige Rechnung (lernLwRing):** Prozent = gelandete Etappen ÷ alle Etappen der Pflicht-Flüge dieser Schulart in dieser Klasse; Flüge in Wiederholung oder „kann er“ zählen mit allen Etappen. „2/15 Themen“ = fertige Flüge von allen Pflicht-Flügen der Klasse. Zusatz-Teile zählen nicht.
+**Stand heute (Haupt-Chat, Gymnasium, ohne Zusatz):** Kind 1 Kl. 5: 15 Flüge, 2 fertig, 13 offen; 107 Etappen, 28 gelandet, 79 offen (26 %). Kl. 6: 11 Flüge, 78 Etappen, alles offen. Kind 2 Kl. 7: 12 Flüge, 5 fertig, 7 offen; 61 Etappen, 23 gelandet. Kl. 8: 16 Flüge, 1 fertig, 15 offen; 97 Etappen, 9 gelandet. Kl. 9: 14 Flüge, 87 Etappen, alles offen.
+
+**Gewünscht:**
+- Klarer Zahlen-Überblick statt nur Ring: je Klasse „noch x von y Flügen · noch a von b Etappen“ plus Prozent, mit Erklärung der Rechnung (ⓘ).
+- Klassen je Kind: Klasse des Kindes als Hauptklasse (groß), dazu Klasse −1 und +1, soweit es sie gibt (Kind in Kl. 5: 5 und 6; Kind in Kl. 8: 7, 8, 9). Schulart des Kindes.
+- Für Eltern/Lehrer (Überblick der Kind-Seite, Karte „Stand“) **und für die Kinder** (Kinderseite, eigene Karte „Mein Schuljahr“; später an der Reisekarte).
+**SJ-S · an `bau-lehrer` (Datei):** Feld `schuljahr_stand` je Kind in `schule_konto` und `schule_uebersicht`: je Klasse (−1, Haupt, +1) Flüge gesamt/fertig/offen, Etappen gesamt/gelandet/offen, Prozent – eine Rechnung für alle Stellen (gleich wie der Ring; Zusatz getrennt ausgewiesen). Rauchtest gegen `thema_stufe`.
+**SJ-App · an `bau-motivation`:** Karte „Stand“ im Überblick mit den Zahlen; Kinderseite Karte „Mein Schuljahr“ (kindgerecht: „Noch 13 Flüge und 79 Etappen bis Klasse 5 geschafft“), Ring im Lehrplan mit denselben Zahlen im ⓘ. Vorgabe des Gestalters für die Kinder-Karte erwünscht.
+
+## EINGESPIELT: LZ-S (Ladezeit) – 23.11., 03:10 Berlin
+
+Freigabe Sebastian („Ladezeit in die Datenbank einspielen“), Prüfung Werkstatt 963 (Freigabe), Werkstatt-Änderung 381. Abweichung von der 30-Minuten-Regel: letzte Antwort eines Kindes 13 Minuten vorher, keine offene Test-Sitzung; die Migration ändert nur Lese-Funktionen und legt einen Index auf `zuordnung` an.
+In der Transaktion geprüft: Antworten vorher = nachher. Zeiten danach: Matrix je Kind 208 ms (vorher rund 2,5 s), Matrix ohne Kind 551 ms (4,5 s), Reisekarte 240 ms (1,0 s). Tests danach grün: lz_s, ex_s, nt_s, lk_s, wd_s, fp_s, lw_s.
+
+## Probelauf ZP-S (23.11., 03:10 Berlin, echte Datenbank mit LZ-S, alles zurückgerollt)
+
+Stand `lernen-app` e646650, Datei `20261126_zp_s_zusatz_plan.sql` (f1cb90d0…). Zweimal ohne Fehler. Karten, Sterne, Lernziel-Stände, Erstabschlüsse und der Plan (route) unverändert; Reiseoptionen unverändert; Stufen ändern sich wie gewollt (eingeplanter Zusatz zählt über alle Etappen: Kind 2, „Kongruenzabbildungen – Teil 2 von 3“ → „kommt“, 0 von 3). Tests mit ZP grün: zp_s (vor und nach), tl_s (neue Fassung), rd_s, ex_s, nt_s, lk_s, wd_s, fp_s, lw_s, lz_s. Prüfbitte an ChatGPT gestellt.
+Laut bau-lehrer haben die Eltern inzwischen selbst Teile eingeplant: Kind 1 Dreisatz Teil 2; Kind 2 Dreisatz Teil 2, Kongruenzabbildungen Teil 2 und Teil 3.
+
+## App 0.91.1 (EX-App + LZ-App): 166 von 168, zwei Tests wackeln – Nachtrag „absichern“ (23.11., 03:15 Berlin)
+
+Gesamtlauf (Stand e646650): rot `W176 T4: Abbruch verliert nichts …` und `LW-3 (1a): Kinder-Umschalter – Klick und Alt+←/→ …`; beide einzeln wiederholt grün. Während des Gesamtlaufs liefen parallel Datenbank-Probeläufe (Last). Sebastian: „absichern“, erst danach live.
+An `bau-motivation`: Ursache klären (Zeitabhängigkeit des Tests oder echter Wettlauf beim Kinder-Wechsel mit gemerkten/vorgeladenen Daten – z. B. alte Antwort überschreibt neue Ansicht, Detail bleibt offen, Reiter springt), beheben, beide Tests so schreiben, dass sie auf Zustände warten statt auf Zeiten; Gesamtlauf dreimal hintereinander grün, einmal davon unter Last (gedrosselte CPU). Version 0.91.2.
+
+## Probelauf NB-S + SJ-S (23.11., 03:30 Berlin, echte Datenbank mit LZ-S, ZP-S im Probelauf; alles zurückgerollt)
+
+Stand `lernen-app` 74a4185. Beide Migrationen zweimal ohne Fehler; Karten, Sterne, Plan, Reiseoptionen, Stufen unverändert. `schuljahr_stand` liefert auf dem echten Stand die Zahlen aus der Meldung (Kind 1 Kl. 5: 15/2/13 Flüge, 112/29/83 Etappen, 26 %; Kind 2 Kl. 7: 12/5/7, 69/26/43, 38 %; Kl. 8: 16/1/15, 102/9/93, 9 %; Kl. 9: 14/0/14, 107/0/107). zp_s und tl_s danach grün.
+**Rot: `nb_s_rauchtest` und `sj_s_rauchtest`** auf dem echten Stand, vor und nach: „cannot insert a non-DEFAULT value into column "id"“ – die Tests fügen in eine Tabelle mit `generated always`-Spalte eine feste id ein (lokal offenbar anders angelegt). → Nachtrag: Tests ohne feste ids (oder `overriding system value`), auf dem echten Stand lauffähig.
+**Offene Fachfrage (Sebastian):** Der Ring und `schuljahr_stand` zählen **alle** Etappen der Pflicht-Flüge (auch Kür-Etappen); die Angabe des Haupt-Chats von 03:10 zählte nur die Pflicht-Etappen (107 statt 112 usw.). Für „wie viel ist noch?“ empfiehlt der Haupt-Chat: nur Pflicht-Etappen zählen, Kür getrennt ausweisen – dann auch den Ring umstellen.
+
+## EINGESPIELT: ZP-S (Zusatz im Plan) – 23.11., 03:32 Berlin
+
+Freigabe Sebastian („Zusatz-Plan in die Datenbank einspielen“), Prüfung Werkstatt 966 (Freigabe), Werkstatt-Änderung 382. Letzte Antwort eines Kindes 36 Minuten vorher, kein Test offen. In der Transaktion geprüft: Karten, Sterne, Lernziel-Stände, Erstabschlüsse, Plan und Reiseoptionen unverändert. Danach grün: zp_s, tl_s, rd_s, ex_s, nt_s, lk_s, wd_s, fp_s, lw_s, lz_s. Eingeplanter Zusatz heute: Kind 2, „Kongruenzabbildungen – Teil 2 von 3“ (kommt, 0 von 3).
+Offen: ZP-App (Anzeige „Zusatz · eingeplant“, Muss laut ChatGPT 966); Nachtrag `bau-lehrer`: zwei Testfälle (mehrere Zusatz-Flüge an einem Ort; Entfernen eines abgeschlossenen Zusatz-Flugs).
+Übernommen: Vorgabe „Karten“ des Gestalters (`inhalte/pruefung/kind/karten/`), NT-D 3 von `lehrplan-lb` (`nt_einspiel_2311.sql`, noch nicht geprüft/eingespielt).
+
+## Entscheidung Sebastian (23.11., 03:32 Berlin): „Wie viel ist noch?“ zählt alle Etappen
+
+„Mein Schuljahr“, Karte „Stand“ und der Ring zählen **alle Etappen der Pflicht-Flüge** der Klasse (wie heute der Ring und `schuljahr_stand.etappen`), nicht nur die Pflicht-Etappen. Die Vorgabe des Gestalters gilt damit unverändert. Die Zusatzfelder `etappen_pflicht`/`kuer` aus dem Nachtrag NB-S/SJ-S sind nicht nötig (dürfen bleiben, wenn schon gebaut; die App nutzt `etappen`).
+
+## Probelauf NB-S 2 / SJ-S 2 / NT-D 3 (23.11., 03:40 Berlin, echte Datenbank mit LZ-S und ZP-S live; alles zurückgerollt)
+
+Stand `lernen-app` 600609c. `nt_einspiel_2311.sql` zweimal ohne Fehler (30162 → 30176 Aufgaben); NB-S und SJ-S zweimal ohne Fehler; Karten, Sterne, Plan, Reiseoptionen, Stufen unverändert. Danach grün: zp_s, tl_s, nt_s, lz_s.
+**Weiter rot, jetzt mit fachlichen Meldungen (vor und nach dem Einspielen gleich):**
+- `nb_s_rauchtest`: „FEHLER 5: unerwartete Sterne: landung 80 (6×), landung 40, uebung 10 (12×)“ – die im Test nachgestellten Antworten buchen auf dem echten Stand Übungs- und Landungs-Sterne (faire Punkte, Landungs-Bonus); der Test erwartet keine.
+- `sj_s_rauchtest`: „FEHLER 3: ‚kann er‘ nicht mit allen Etappen: vorher 12/0/12, nachher 10 offen/2 fertig/12“ – das Setzen im Test macht auf dem echten Stand zwei Flüge fertig statt einen (vermutlich Ort mit zwei Themen oder Themen-Familie).
+→ Nachtrag NB-S 3 / SJ-S 3: Erwartungen der Tests an den echten Stand angleichen (lesend auf der echten Datenbank nachvollziehen), keine Änderung an den Migrationen, sofern die Funktionen richtig rechnen – sonst melden.
+
+App 0.91.2 (abgesichert): Ursache war ein echter Wettlauf beim Kinder-Wechsel (A → B → A blieb bei B) plus zeitabhängige Tests; behoben. Gesamtlauf läuft.
+
+## Entscheidung Sebastian (23.11., 03:37 Berlin): Zulauf gesetzter Etappen drosseln (6 → 3 je Lerntag) · Bau-Auftrag WD-5 an `bau-lehrer`
+
+**Befund Haupt-Chat (Kind 2, echte Daten 23.11.):** nach der Tagesrunde (6) noch 23 fällig; fällig werden 24.–26.11. je 11–12, danach 6, 9, 3. Davon „gesetzt, erste Wiederholung“ (wdh_gesetzt_am, Stufe 0): je 6 pro Tag bis 28.11., 2 am 29.11. (Staffel `wdh_gesetzt_je_lerntag` = 6). Rundengröße = Rückstau ÷ 5, mindestens 6, höchstens 12 → Stau pendelt um 30 statt sich in etwa 5 Lerntagen aufzulösen (Hochrechnung). Alle Wiederholungs-Aufgaben der heutigen Sitzung waren frisch (0 von 42 schon gesehen).
+**Entschieden:** gesetzte Etappen kommen nur noch mit 3 statt 6 je Lerntag neu in den Takt.
+**Berichtigung Haupt-Chat:** Das ist nicht nur eine Einstellung. `wdh_staffel_strecken` verschiebt nur schon fällige gesetzte Etappen; die bis 29.11. bereits mit 6 je Tag eingeplanten bleiben stehen.
+**WD-5 (Datei, nicht einspielen):** `supabase/migrations/20261128_wd5_staffel_drosseln.sql` + Rauchtest.
+- Regel `wdh_gesetzt_je_lerntag` = 3.
+- Einmalige Neuverteilung je Kind: alle gesetzten Etappen in erster Wiederholung (Stufe 0, kein Fehler) – fällige **und** schon eingeplante – in Plan-Reihenfolge mit höchstens 3 je Lerntag ab heute neu staffeln; Etappen der offenen Tagesrunde bleiben; alter Stand in `wdh_staffel_sicherung` (Rückweg wie WD-4b). Nicht gesetzte Etappen und höhere Stufen unverändert.
+- Meldung mit Vorher/Nachher je Kind (fällig je Tag für 14 Tage) und Hochrechnung des Rückstaus mit der Runden-Regel; Vorschlag, falls 3 je Tag nicht reicht.
+- Tests: höchstens 3 gesetzte Erst-Wiederholungen je Lerntag, Reihenfolge, offene Runde unberührt, Rückweg, Sterne/Lernstand sonst unverändert; wd_s, wd_s3, fp_s grün (wd_s3 setzt die Regel im Test selbst – an den neuen Standard anpassen).
+
+## App 0.91.2: Gesamtlauf 169 von 169; Prüfung Gestalter EX-App: 0 Muss, 2 Soll, 4 Kann (23.11., 03:40 Berlin)
+
+Datei `inhalte/pruefung/kind/expedition/nachpruefung_ex.md`. Für den nächsten App-Schritt (mit NB/SJ/ZP-Karten):
+- S1 Ansicht „Expedition freigeschaltet“ bei 360 × 640: Voraussetzungs-Chips verdeckt → höchstens 2 Chips + „+2 weitere“ oder Szene scrollt.
+- S2 „freiwillig“ steht noch bei den Knobel-Bordkarten (Knopf, Link, Info-Text). Sebastian (23.11.): „wenn da irgendwo freiwillig steht, machen sie es nie“ → auf der ganzen Kinderseite ersetzen („für Profis“), Eltern-/Lehrer-Seiten dürfen es behalten.
+- K1 begonnene Expedition: Kopf „EXPEDITION · TEIL B VON 3“. K2 Stand-Kacheln über der Expeditions-Karte nach unten bzw. in „Mein Schuljahr“. K3 „gesehen am“ vom Server (zweites Gerät) – EX-S-Nachtrag. K4 kein Bau.

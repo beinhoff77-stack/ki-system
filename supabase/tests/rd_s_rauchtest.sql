@@ -16,7 +16,11 @@ create temp table rd_rt_vorher on commit drop as
   union all select 'kontinent', md5(coalesce(string_agg(k::text, '|' order by k.id), '')) from schule.kontinent k
   union all select 'reiseoptionen_' || l.id, md5(schule.reiseoptionen(l.id)::text) from schule.lernender l where l.aktiv;
 
+-- Migration nur, wenn noch nicht eingespielt (sonst würde sie spätere Änderungen an reise_karte, z. B. ZP-S, in diesem Lauf überschreiben)
+select to_regclass('schule.reise_land') is null as rd_fehlt \gset
+\if :rd_fehlt
 \ir ../migrations/20261125_rd_s_reise.sql
+\endif
 \ir ../../inhalte/reise/rd_einspiel_2311.sql
 -- zweimal: wiederholbar, gleiche Zahlen
 create temp table rd_rt_zahl on commit drop as
@@ -85,15 +89,16 @@ begin
         raise exception 'Test 4: Stufe weicht ab (Kind %, Thema %)', v_x.id, v_f->>'thema_id'; end if;
       if (v_f->>'stempel')::boolean is distinct from exists (select 1 from schule.flug_erstabschluss fe where fe.lernender_id = v_x.id and fe.einheit_id = v_e) then
         raise exception 'Test 4: Stempel weicht ab (Kind %, Thema %)', v_x.id, v_f->>'thema_id'; end if;
-      if (select array_agg(s->>'lernziel' order by s->>'lernziel') from jsonb_array_elements(v_f->'staedte') s where (s->>'pflicht')::boolean)
+      if not coalesce((v_f->>'zusatz_eingeplant')::boolean, false)
+         and (select array_agg(s->>'lernziel' order by s->>'lernziel') from jsonb_array_elements(v_f->'staedte') s where (s->>'pflicht')::boolean)
          is distinct from (select array_agg(x order by x) from unnest(schule.stufe_etappen(v_x.id, v_e)) x) then
         raise exception 'Test 4: Pflicht/Kür weicht von stufe_etappen ab (Kind %, Thema %)', v_x.id, v_f->>'thema_id'; end if;
       if (v_f->>'zusatz')::boolean is distinct from coalesce((select schule.kind_gruppe(v_x.id) = any(t.zusatz) from schule.thema t where t.id = (v_f->>'thema_id')::bigint), false) then
         raise exception 'Test 4: Zusatz weicht ab (Kind %, Thema %)', v_x.id, v_f->>'thema_id'; end if;
       if (v_f->>'golden')::boolean and v_f->>'stufe' <> 'komplett' then raise exception 'Test 4: golden ohne komplett (Kind %, Thema %)', v_x.id, v_f->>'thema_id'; end if;
       -- RD-S 2: Stand je Stadt und Zähler je Flug nach derselben Regel (karte_sicher / sitzt), golden = alle Etappen der Regel sicher
-      if (v_f->>'sicher')::int is distinct from (select count(*)::int from jsonb_array_elements(v_f->'staedte') s where (s->>'pflicht')::boolean and s->>'stand' = 'sicher')
-         or (v_f->>'gelandet')::int is distinct from (select count(*)::int from jsonb_array_elements(v_f->'staedte') s where (s->>'pflicht')::boolean and s->>'stand' in ('gelandet', 'sicher'))
+      if (v_f->>'sicher')::int is distinct from (select count(*)::int from jsonb_array_elements(v_f->'staedte') s where coalesce((s->>'zaehlt')::boolean, (s->>'pflicht')::boolean) and s->>'stand' = 'sicher')
+         or (v_f->>'gelandet')::int is distinct from (select count(*)::int from jsonb_array_elements(v_f->'staedte') s where coalesce((s->>'zaehlt')::boolean, (s->>'pflicht')::boolean) and s->>'stand' in ('gelandet', 'sicher'))
          or (v_f->>'sicher')::int is distinct from (schule.thema_stufe(v_x.id, (v_f->>'thema_id')::bigint)->>'sicher')::int
          or (v_f->>'golden')::boolean is distinct from ((v_f->>'etappen')::int > 0 and (v_f->>'sicher')::int = (v_f->>'etappen')::int) then
         raise exception 'Test 4: Stand je Stadt und Zähler sicher/gelandet/golden passen nicht (Kind %, Thema %)', v_x.id, v_f->>'thema_id'; end if;
@@ -150,7 +155,8 @@ begin
       raise exception 'Test 3: Karte in Gruppe % unvollständig', v_g.gruppe; end if;
     for v_f in select f from jsonb_array_elements(v_k->'kontinente') k, jsonb_array_elements(k->'fluege') f loop
       v_e := schule.thema_einheit((v_f->>'thema_id')::bigint);
-      if (select array_agg(s->>'lernziel' order by s->>'lernziel') from jsonb_array_elements(v_f->'staedte') s where (s->>'pflicht')::boolean)
+      if not coalesce((v_f->>'zusatz_eingeplant')::boolean, false)
+         and (select array_agg(s->>'lernziel' order by s->>'lernziel') from jsonb_array_elements(v_f->'staedte') s where (s->>'pflicht')::boolean)
          is distinct from (select array_agg(x order by x) from unnest(schule.stufe_etappen(v_l, v_e)) x) then
         raise exception 'Test 3: Pflicht/Kür in Gruppe % weicht ab (Thema %)', v_g.gruppe, v_f->>'thema_id'; end if;
       if jsonb_array_length(v_f->'staedte') <> jsonb_array_length((select e.inhalt->'etappen' from schule.einheit e where e.id = v_e)) then

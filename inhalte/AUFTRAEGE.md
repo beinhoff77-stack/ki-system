@@ -3161,3 +3161,18 @@ Prüfbitte an ChatGPT gestellt.
 
 Sebastian hat über „Unser Lehrplan“ (App 0.90.1) für Kind 2 „Kongruenzabbildungen – Teil 2 von 3“ eingeplant (route.id 485, art `normal`, status `offen`, Platz 21). Der Teil ist im Gymnasium Zusatz (keine Pflicht-Etappe). `schule_plan_setzen` legt ihn trotzdem als `normal` an.
 Zu klären und als Datei zu liefern (ZP-S): Was passiert mit einem bewusst eingeplanten Zusatz-Teil? Vorschlag Haupt-Chat: Einplanen bleibt erlaubt (Entscheidung der Eltern), der Eintrag wird als Zusatz geführt (`art` passend), er sperrt nichts dahinter, gilt als erledigt, sobald alle seine Etappen gelandet sind (ohne Pflicht-Test; Stempel/100 Sterne: Entscheidung Sebastian), und die Lehrer-Ansicht zeigt ihn als „Zusatz · eingeplant“. Prüfen: Kann der Flug mit `art normal` und leerer Pflichtliste heute je „fertig“ werden, oder bleibt er für immer offen im Plan? Bestehenden Eintrag 485 mit umstellen. `tl_s_rauchtest` Teil 5 muss danach auf dem echten Stand grün sein. Entscheidung Sebastian zu Stempel/Sternen steht aus.
+
+## Entscheidung Sebastian (23.11., 02:35 Berlin): eingeplanter Zusatz-Teil · Bau-Auftrag ZP-S an `bau-lehrer`
+
+Sebastian: „Entscheidung ja“ zum Vorschlag des Haupt-Chats:
+1. Einen Zusatz-Teil einzuplanen bleibt erlaubt (Entscheidung der Eltern).
+2. Er wird im Plan als Zusatz geführt, nicht als normaler Pflicht-Flug, und sperrt nichts dahinter (kein Visum, keine harte Voraussetzung).
+3. Er gilt als erledigt, sobald alle seine Etappen selbst gelandet sind – ohne Pflicht-Test.
+4. Dafür gibt es Stempel und 100 Sterne (genau einmal).
+Nicht eingeplante Zusatz-Teile bleiben wie bisher freiwillig und ohne Stempel.
+
+**ZP-S (Datei, nicht einspielen):** `supabase/migrations/20261126_zp_s_zusatz_plan.sql` + `supabase/tests/zp_s_rauchtest.sql`.
+- `schule_plan_setzen` (und Sammelaktionen, „Alle einplanen“ nimmt Zusatz weiterhin nicht mit): Zusatz-Teil der Gruppe des Kindes → als Zusatz im Plan; bestehenden Eintrag (Kind 2, „Kongruenzabbildungen – Teil 2 von 3“, route 485) mit umstellen.
+- Abschluss: alle Etappen des Teils gelandet → Flug fertig, Erstabschluss, Stempel, 100 Sterne; kein Flug-Test, keine Nachtests verlangt (oder Nachtests wie bei „ohne Test“ – begründen). Wechselt das Kind die Gruppe und der Teil wird Pflicht, gilt die normale Regel (Nachtrags-Test).
+- Stufe/Anzeige: `thema_stufe`, Matrix, Plan, Reisekarte zeigen „Zusatz · eingeplant“ mit Fortschritt über alle Etappen; Reiseoptionen/Visum unverändert.
+- Tests: einplanen, landen, Abschluss mit Stempel und 100 Sternen genau einmal; nichts dahinter gesperrt; nicht eingeplanter Zusatz ohne Stempel; `tl_s_rauchtest` Teil 5 auf dem echten Stand wieder grün (Test bei Bedarf an die neue Regel anpassen); alle übrigen Rauchtests grün. Baut auf LZ-S auf (LZ-S wird vorher eingespielt).

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entwurf: Expedition freigeschaltet (Kinderansicht)</title>
+<style>
+:root{--seite:#EEF0EC;--text:#14202B;--leise:#55606B;--linie:#D9D4C7;
+  /* Expedition = Polar-Farben (Gold bleibt „abgelegt“ vorbehalten) */
+  --eis:#7FE3F0;--eis2:#BFF3F8;--polar:#0A2540;--polar2:#123A5E;--licht:#4BE3A6;--licht2:#2FB9D6;--stern:#8A6200;
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--seite);color:var(--text);font-size:16px;line-height:1.45}button{font:inherit;cursor:pointer}
+.huelle{max-width:1360px;margin:0 auto;padding:18px 14px 80px}
+.einl h1{font-size:25px;margin:0 0 6px}.einl p{margin:0 0 6px;color:var(--leise);max-width:940px}
+.steuer{position:sticky;top:0;z-index:50;background:#EEF0ECee;backdrop-filter:blur(6px);padding:10px 0;display:flex;flex-wrap:wrap;gap:14px;align-items:center;border-bottom:1px solid var(--linie);margin-bottom:8px}
+.gruppe{display:flex;gap:4px;align-items:center}.gruppe>span{font-size:13px;color:var(--leise);margin-right:4px}
+.gruppe button{border:1px solid var(--linie);background:#fff;border-radius:99px;padding:6px 12px;font-size:14px}.gruppe button.an{background:var(--text);color:#fff;border-color:var(--text)}
+.nav{display:flex;flex-wrap:wrap;gap:6px}.nav a{font-size:14px;padding:5px 10px;border-radius:99px;background:#fff;border:1px solid var(--linie);color:var(--text);text-decoration:none}
+section.fall{background:#fff;border-radius:20px;padding:18px;margin:20px 0;border:1px solid #dcdcd3;scroll-margin-top:70px}
+section.fall>h2{margin:0 0 4px;font-size:21px}section.fall>.wann{margin:0 0 12px;color:var(--leise);font-size:15px}
+.buehne{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start}
+.geraet{width:400px;max-width:100%;border-radius:30px;overflow:hidden;box-shadow:0 8px 30px #0003;border:8px solid #15191d;flex:none;position:relative;background:#F4F1E8}
+body.b820 .geraet{width:820px;border-width:12px}
+.notiz{flex:1;min-width:260px;font-size:14.5px;color:var(--leise)}.notiz h4{margin:0 0 4px;color:var(--text);font-size:15px}.notiz ul{margin:0 0 10px;padding-left:18px}
+.nochmal{border:1px solid var(--linie);background:#fff;border-radius:10px;padding:6px 12px;font-size:14px;margin-top:8px}
+
+/* Grundfläche */
+.app{position:relative;height:780px;overflow:hidden;display:flex;flex-direction:column;background:#F4F1E8;color:#0B3B52}
+body.b820 .app{height:900px}
+body.nacht .app{background:#0F1A24;color:#E4EEF5}
+
+/* ---------- Polar-Szene (Freischalten, Geschafft) ---------- */
+.szene{position:relative;flex:1 1 auto;min-height:330px;overflow:hidden;padding:22px 22px 0;display:flex;flex-direction:column;color:#EAF8FB;
+  background:radial-gradient(120% 70% at 70% 0%,#1B4F7A 0,#0A2540 55%,#061629 100%)}
+body.b820 .szene{padding:36px 44px 0}
+.szene .oben{font-size:12px;font-weight:800;letter-spacing:.14em;opacity:.9;position:relative;z-index:3;display:flex;gap:10px}
+.szene .oben .weg{margin-left:auto;font-weight:600;letter-spacing:0;text-decoration:underline;opacity:.85}
+.szene .titel{font-size:38px;font-weight:900;line-height:.98;margin:12px 0 6px;position:relative;z-index:3;text-transform:uppercase;max-width:330px}
+body.b820 .szene .titel{font-size:62px;max-width:620px}
+.szene .unter{font-size:16px;opacity:.95;position:relative;z-index:3;max-width:340px}
+body.b820 .szene .unter{font-size:19px;max-width:560px}
+.polarlicht{position:absolute;inset:-20% -10% auto -10%;height:70%;z-index:1;filter:blur(18px);opacity:.75;
+  background:conic-gradient(from 200deg at 40% 120%,transparent 0 40deg,#4BE3A688 60deg,#2FB9D666 85deg,transparent 110deg 360deg)}
+.bewegt .polarlicht{animation:wehen 1.8s ease-out both}
+@keyframes wehen{from{transform:translateX(-12%) skewX(8deg);opacity:0}to{transform:none;opacity:.75}}
+.eisberg{position:absolute;left:0;right:0;bottom:0;height:120px;z-index:2}
+.station{position:absolute;right:26px;bottom:62px;z-index:3;width:120px}
+body.b820 .station{right:60px;width:170px;bottom:70px}
+.schnee{position:absolute;inset:0;z-index:2;background-image:radial-gradient(#fff 1px,transparent 1.5px),radial-gradient(#fff9 1px,transparent 1.5px);background-size:46px 46px,29px 29px;background-position:0 0,13px 17px;opacity:.35}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0;position:relative;z-index:3;max-width:360px}
+body.b820 .chips{max-width:620px}
+.chip{background:#ffffff1f;border:1px solid #ffffff3d;border-radius:99px;padding:3px 10px;font-size:13px;font-weight:700}
+.chip.ok::before{content:"✓ ";color:var(--licht)}
+
+/* Blatt unten (wie Abschluss-Ansichten) */
+.blatt{--blatt:#fff;--btx:#0B3B52;--ble:#4E6B78;--bli:#E5DFCF;background:var(--blatt);color:var(--btx);border-radius:26px 26px 0 0;padding:18px 20px 20px;position:relative;z-index:4;margin-top:-22px}
+body.nacht .blatt{--blatt:#121F2C;--btx:#E4EEF5;--ble:#9DB2C2;--bli:#29425A}
+body.b820 .blatt{padding:24px 44px 26px}
+.bewegt .blatt{animation:hoch .45s 1.2s ease-out both}
+@keyframes hoch{from{transform:translateY(40%);opacity:.2}to{transform:none;opacity:1}}
+.blatt .leise{color:var(--ble);font-size:14.5px;margin:6px 0 0}
+.lohn{display:flex;gap:10px;align-items:stretch;margin:2px 0 12px}
+.lohn .k{flex:1;border:1px solid var(--bli);border-radius:16px;padding:10px 12px}
+.lohn .zahl{font-size:26px;font-weight:900;color:var(--stern)}body.nacht .lohn .zahl{color:#FFD23F}
+.lohn .was{font-size:13.5px;color:var(--ble);line-height:1.25}
+.lohn .stempelchen{display:flex;align-items:center;gap:10px}
+.knopf{display:flex;justify-content:space-between;align-items:center;width:100%;min-height:60px;border:0;border-radius:18px;background:linear-gradient(90deg,#7FE3F0,#4BE3A6);color:#062033;font-weight:900;font-size:19px;padding:10px 18px;text-decoration:none}
+.knopf small{display:block;font-weight:600;font-size:13px;opacity:.8}
+.textlink{display:block;text-align:center;margin-top:10px;color:var(--ble);text-decoration:underline;font-size:14px;background:none;border:0;width:100%}
+
+/* Expeditions-Stempel (rund, Eisblau – Ort-Stempel sind rot, Gold = abgelegt) */
+.xst{--g:96px;width:var(--g);height:var(--g);border-radius:50%;border:3px solid #1D6E8C;outline:2px solid #1D6E8C;outline-offset:3px;color:#1D6E8C;display:grid;place-items:center;text-align:center;flex:none;background:#E9FAFC;transform:rotate(-8deg);position:relative}
+.xst b{display:block;font-size:10.5px;letter-spacing:.08em;line-height:1.05;max-width:78%;margin:0 auto}
+.xst .gr{font-size:9px;letter-spacing:.14em;font-weight:800}
+.xst .nr{font-size:9px;font-weight:800;opacity:.8}
+.xst.klein{--g:54px;outline-offset:2px;border-width:2px;outline-width:1px}
+.xst.klein b{font-size:7px}.xst.klein .gr,.xst.klein .nr{font-size:6px}
+.xst.ff::after{content:"★ FEHLERFREI";position:absolute;bottom:-9px;left:50%;transform:translateX(-50%) rotate(8deg);background:#1D6E8C;color:#fff;font-size:8.5px;font-weight:900;letter-spacing:.08em;border-radius:99px;padding:2px 7px;white-space:nowrap}
+.xst.gross{--g:150px;border-width:4px;outline-width:3px;outline-offset:5px}
+.xst.gross b{font-size:16px}.xst.gross .gr,.xst.gross .nr{font-size:11px}
+body.b820 .xst.gross{--g:190px}body.b820 .xst.gross b{font-size:20px}
+.bewegt .xst.knall{animation:knall .5s 1s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes knall{from{transform:scale(2.2) rotate(-20deg);opacity:0}to{transform:rotate(-8deg) scale(1);opacity:1}}
+.xst.leer{background:transparent;border-style:dashed;outline-style:dashed;color:#8AA3AF;border-color:#A9BCC5;outline-color:#A9BCC5;transform:none}
+.xst.frei{border-style:dashed;outline-style:dashed;background:#F0FFFB;color:#0E7A5A;border-color:#2FB98A;outline-color:#2FB98A;transform:none}
+.bewegt .xst.frei{animation:puls 1.8s ease-in-out 1}
+@keyframes puls{50%{box-shadow:0 0 0 8px #4BE3A633}}
+body.nacht .xst{background:#0E2A38;color:#7FE3F0;border-color:#4FB3C8;outline-color:#4FB3C8}body.nacht .xst.leer{background:transparent;color:#6F8796;border-color:#3D5568;outline-color:#3D5568}body.nacht .szene .xst{background:#E9FAFC;color:#1D6E8C;border-color:#1D6E8C;outline-color:#1D6E8C}
+
+/* ---------- Abflugtafel / Reisekarte ---------- */
+.karte-bg{position:absolute;inset:0;background:#CFE4EF}
+body.nacht .karte-bg{background:#0F2233}
+.karte-bg svg{width:100%;height:100%}
+.kopfleiste{position:relative;z-index:3;display:flex;align-items:center;gap:8px;padding:14px 16px 6px;font-weight:900;font-size:20px}
+.kopfleiste .sterne{margin-left:auto;background:#fff;border:1px solid #E5DFCF;border-radius:99px;padding:3px 10px;color:#8A6200;font-size:15px;font-weight:800}
+.pfad{position:relative;z-index:3;margin:0 16px;font-size:13px;color:#33515F;background:#ffffffcc;border-radius:99px;padding:4px 10px;display:inline-block}
+body.nacht .pfad{background:#0F2233cc;color:#BFD3E0}
+.schwebe{position:absolute;left:12px;right:12px;bottom:12px;z-index:5;display:flex;flex-direction:column;gap:8px}
+body.b820 .schwebe{left:auto;right:16px;width:440px}
+.xkarte{border-radius:22px;overflow:hidden;box-shadow:0 14px 34px #0006;color:#EAF8FB;background:radial-gradient(130% 120% at 85% 0%,#1B4F7A 0,#0A2540 60%,#061629 100%);position:relative}
+.xkarte .polarlicht{height:110%;inset:-30% -10% auto 30%;opacity:.6}
+.xkarte .in{position:relative;z-index:2;padding:14px 16px 14px}
+.xkarte .ueber{font-size:11.5px;font-weight:900;letter-spacing:.14em;color:var(--licht);display:flex;gap:8px;align-items:center}
+.xkarte .ueber .neu{background:var(--licht);color:#062033;border-radius:99px;padding:1px 7px;letter-spacing:.06em}
+.xkarte h3{margin:4px 0 2px;font-size:24px;line-height:1.1;font-weight:900}
+.xkarte .ort{font-size:13.5px;opacity:.85}
+.xkarte .reihe{display:flex;gap:10px;align-items:center;margin:10px 0 10px}
+.xkarte .teile{display:flex;gap:5px}
+.xkarte .teile i{width:26px;height:26px;border-radius:8px;border:2px solid #ffffff66;display:grid;place-items:center;font-style:normal;font-weight:900;font-size:13px}
+.xkarte .teile i.ok{background:var(--licht);border-color:var(--licht);color:#062033}
+.xkarte .teile i.jetzt{border-color:var(--eis);box-shadow:0 0 0 3px #7FE3F033}
+.xkarte .lohnz{margin-left:auto;text-align:right;font-weight:900;font-size:18px;color:#FFD23F;line-height:1.1}
+.xkarte .lohnz small{display:block;font-size:11.5px;font-weight:700;color:#CFE7EE}
+.xkarte .knopf{min-height:54px;font-size:18px}
+.dran{background:#ffffffee;border-radius:18px;padding:10px 14px;box-shadow:0 8px 20px #0002;display:flex;align-items:center;gap:10px;color:#0B3B52}
+body.nacht .dran{background:#14273Aee;color:#E4EEF5}
+.dran .w{font-size:13px;line-height:1.25}.dran .w b{font-size:14.5px}
+.dran a{margin-left:auto;background:#FFD23F;color:#1B0C3A;border-radius:12px;padding:8px 12px;font-weight:900;font-size:14px;text-decoration:none;white-space:nowrap}
+.chipwart{align-self:flex-start;background:#0A2540;color:#EAF8FB;border-radius:99px;padding:6px 12px;font-size:13.5px;font-weight:800;box-shadow:0 6px 16px #0004}
+.chipwart b{color:var(--licht)}
+
+/* ---------- Reisepass: Stempel-Sammlung ---------- */
+.pass-kopf{padding:18px 18px 6px}
+.pass-kopf .ueber{font-size:12px;font-weight:900;letter-spacing:.14em;color:#1D6E8C}
+.pass-kopf h2{margin:2px 0 4px;font-size:26px;font-weight:900}
+.pass-kopf .z{font-size:15px;color:#4E6B78}
+body.nacht .pass-kopf .z{color:#9DB2C2}
+.balken{height:10px;border-radius:99px;background:#E3E8EA;overflow:hidden;margin:8px 0 0}
+.balken i{display:block;height:100%;background:linear-gradient(90deg,#7FE3F0,#4BE3A6)}
+body.nacht .balken{background:#20384C}
+.gitter{padding:6px 18px 18px;overflow:auto}
+.gruppe-kl{font-size:12px;font-weight:900;letter-spacing:.12em;color:#4E6B78;margin:14px 0 6px}
+.raster{display:grid;grid-template-columns:repeat(5,1fr);gap:16px 6px}
+body.b820 .raster{grid-template-columns:repeat(8,1fr)}
+.zelle{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center;font-size:10.5px;line-height:1.15;color:#4E6B78;padding:4px 0;border-radius:12px;border:0;background:none}
+body.nacht .zelle{color:#9DB2C2}
+.zelle.sel{background:#E5F6F9}body.nacht .zelle.sel{background:#173246}
+.zelle .s{font-weight:800;color:#0B3B52}body.nacht .zelle .s{color:#E4EEF5}
+.schloss{font-size:13px}
+.blattinfo{position:sticky;bottom:10px;box-shadow:0 -6px 24px #0B3B5226;margin:0 18px 18px;border:1px solid #D8E6EA;border-radius:18px;padding:12px 14px;background:#fff}
+body.nacht .blattinfo{background:#121F2C;border-color:#29425A}
+.blattinfo .ueber{font-size:11.5px;font-weight:900;letter-spacing:.12em;color:#4E6B78}
+.blattinfo h4{margin:2px 0 6px;font-size:18px}
+.blattinfo ul{margin:6px 0 0;padding-left:18px;font-size:14px}
+.blattinfo li.ok{list-style:"✓  ";color:#0E7A5A}
+.blattinfo li.fehlt{list-style:"○  "}
+</style>
+</head>
+<body class="b400">
+<div class="huelle">
+<div class="einl">
+  <h1>Entwurf: Expedition freigeschaltet</h1>
+  <p>Vorgabe: <code>../umsetzung.md</code>. Beispiel erfunden: Kind A, Klasse 5, Expedition „Die Wetterstation“ (4 Teile a–d) an der Neumayer-Station III, Antarktis; 3 von 21 Stationen geschafft. Keine Kinderdaten.</p>
+  <p>Farbe der Expedition: Polar (Eisblau, Polarlicht-Grün). Gold bleibt „abgelegt“, Rot bleibt Ort-Stempel.</p>
+</div>
+<div class="steuer">
+  <div class="gruppe"><span>Breite</span><button data-b="b400" class="an">Handy 400</button><button data-b="b820">Tablet 820</button></div>
+  <div class="gruppe"><span>Gestaltung</span><button data-g="hell" class="an">hell</button><button data-g="nacht">nacht</button></div>
+  <div class="gruppe"><span>Bewegung</span><button data-m="an" class="an">an</button><button data-m="aus">aus</button></div>
+  <nav class="nav"><a href="#f1">1 Freigeschaltet</a><a href="#f2">2 Abflugtafel</a><a href="#f2b">2b Später</a><a href="#f3a">3a Geschafft</a><a href="#f3b">3b Fehlerfrei</a><a href="#f4">4 Stempel-Sammlung</a></nav>
+</div>
+
+<!-- 1 Freischalt-Ansicht -->
+<section class="fall" id="f1"><h2>1 · Expedition freigeschaltet</h2>
+<p class="wann">Direkt nach der Landung, die die letzte Voraussetzung erfüllt: zuerst die Landungs-Ansicht (1a/1b/1c wie gehabt), deren Knopf führt hierher. Einmal je Kind und Expedition.</p>
+<div class="buehne"><div class="geraet" data-shot="1-freigeschaltet"><div class="app bewegt">
+  <div class="szene">
+    <div class="polarlicht"></div><div class="schnee"></div>
+    <div class="oben"><span>ANTARKTIS · STATION 4 VON 21</span></div>
+    <div class="titel">Expedition freigeschaltet</div>
+    <div class="unter"><b>Die Wetterstation</b> an der Neumayer-Station III. 4 Teile, a bis d – alles, was du dafür brauchst, hast du gelandet.</div>
+    <div class="chips"><span class="chip ok">Welche Zahl ist kleiner?</span><span class="chip ok">Negative Zahlen im Alltag rechnen</span><span class="chip ok">Ganze Zahlen dividieren</span><span class="chip ok">Mit Zeit rechnen</span></div>
+    <svg class="station" viewBox="0 0 120 80" aria-hidden="true"><rect x="16" y="34" width="78" height="26" rx="3" fill="#E8F4F7"/><rect x="16" y="34" width="78" height="7" fill="#E5484D"/><rect x="26" y="45" width="9" height="7" fill="#2FB9D6"/><rect x="42" y="45" width="9" height="7" fill="#2FB9D6"/><rect x="58" y="45" width="9" height="7" fill="#2FB9D6"/><g stroke="#C9DCE2" stroke-width="3"><line x1="24" y1="60" x2="24" y2="72"/><line x1="86" y1="60" x2="86" y2="72"/></g><line x1="100" y1="10" x2="100" y2="60" stroke="#EAF8FB" stroke-width="2"/><circle cx="100" cy="10" r="4" fill="#4BE3A6"/><path d="M100 18 l12 4 -12 4z" fill="#EAF8FB"/></svg>
+    <svg class="eisberg" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70 L60 40 L110 62 L170 30 L240 58 L300 36 L400 66 L400 120 L0 120Z" fill="#DDEFF4"/><path d="M0 90 L90 72 L200 88 L310 70 L400 86 L400 120 L0 120Z" fill="#F4FBFD"/></svg>
+  </div>
+  <div class="blatt">
+    <div class="lohn">
+      <div class="k"><div class="zahl">★ 150</div><div class="was">für die Expedition<br><b>★ 200</b>, wenn alle Teile im ersten Versuch ohne Tipp klappen</div></div>
+      <div class="k stempelchen"><div class="xst klein"><span><span class="gr">ANTARKTIS</span><b>NEUMAYER III</b><span class="nr">4/21</span></span></div><div class="was">Neuer Stempel für deine Sammlung</div></div>
+    </div>
+    <a class="knopf" href="#"><span>Jetzt starten<small>Teil a von 4 · etwa 15 Minuten</small></span><span>›</span></a>
+    <button class="textlink">Später</button>
+  </div>
+</div></div>
+<div class="notiz"><h4>Texte (wörtlich)</h4><ul>
+<li>Oben: <code>ANTARKTIS · STATION {nr} VON {gesamt}</code></li>
+<li>Titel: <code>EXPEDITION FREIGESCHALTET</code></li>
+<li>Satz: <code>{Titel} an der {Station}. {n} Teile, a bis {letzter} – alles, was du dafür brauchst, hast du gelandet.</code></li>
+<li>Chips je Voraussetzung (Etappen-Titel, mit ✓)</li>
+<li>Lohn: <code>★ 150</code> / <code>für die Expedition</code> / <code>★ 200, wenn alle Teile im ersten Versuch ohne Tipp klappen</code>; daneben Stempel-Vorschau + <code>Neuer Stempel für deine Sammlung</code></li>
+<li>Knopf: <code>Jetzt starten</code> / klein <code>Teil a von {n} · etwa {min} Minuten</code></li>
+<li>Textlink: <code>Später</code> → dahin, wohin der Landungs-Knopf geführt hätte</li>
+<li>Mehrere zugleich frei: eine zeigen (kleinste Stationsnummer), Zeile <code>+{k} weitere Expedition(en) freigeschaltet</code> unter dem Lohn</li>
+</ul><button class="nochmal" data-n="f1">↺ Bewegung nochmal</button></div></div>
+</section>
+
+<!-- 2 Abflugtafel -->
+<section class="fall" id="f2"><h2>2 · Karte auf der Abflugtafel (Startseite „Meine Reise“)</h2>
+<p class="wann">Solange offen (angeboten oder begonnen): oberste und größte Karte, vor „Gerade dran“. Der nächste Flug bleibt mit einem Tipp erreichbar – die Expedition sperrt nichts.</p>
+<div class="buehne"><div class="geraet" data-shot="2-abflugtafel"><div class="app bewegt">
+  <div class="karte-bg"><svg viewBox="0 0 400 780" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M30 120 C90 90 150 110 190 150 S300 180 340 140 L380 210 C340 260 300 300 240 300 S120 330 80 290 Z" fill="#FBF9F4" stroke="#8F8775" stroke-width="1.2"/><path d="M60 360 C120 330 200 350 260 380 L300 440 C240 470 160 470 110 440 Z" fill="#E3DED1" stroke="#8F8775" stroke-width="1.2"/><circle cx="200" cy="210" r="7" fill="#2E7BD6"/><circle cx="200" cy="210" r="14" fill="none" stroke="#2E7BD6" stroke-width="2" opacity=".4"/></svg></div>
+  <div class="kopfleiste">Meine Reise <span class="sterne">★ 1 240</span></div>
+  <div><span class="pfad">🌍 Welt › Europa › 🇮🇹 Italien 📍</span></div>
+  <div class="schwebe">
+    <div class="xkarte"><div class="polarlicht"></div><div class="in">
+      <div class="ueber">⛯ EXPEDITION FREIGESCHALTET <span class="neu">NEU</span></div>
+      <h3>Die Wetterstation</h3>
+      <div class="ort">Neumayer-Station III · Antarktis · Station 4 von 21</div>
+      <div class="reihe"><div class="teile"><i class="jetzt">a</i><i>b</i><i>c</i><i>d</i></div><div class="lohnz">★ 150<small>★ 200 ohne Fehler</small></div></div>
+      <a class="knopf" href="#"><span>Expedition starten<small>Teil a von 4 · etwa 15 Minuten</small></span><span>›</span></a>
+    </div></div>
+    <div class="dran"><div class="w">GERADE DRAN · <b>Bologna</b> in Italien<br>Natürliche Zahlen · 3/6</div><a href="#">Weiter in Bologna ›</a></div>
+  </div>
+</div></div>
+<div class="notiz"><h4>Texte (wörtlich)</h4><ul>
+<li>Oben: <code>⛯ EXPEDITION FREIGESCHALTET</code> + Marke <code>NEU</code> (nur am ersten Lerntag)</li>
+<li>Titel der Expedition, darunter <code>{Station} · Antarktis · Station {nr} von {gesamt}</code></li>
+<li>Teile-Kästchen a…e (gelandet grün, aktuelles mit Ring); rechts <code>★ 150</code> / klein <code>★ 200 ohne Fehler</code></li>
+<li>Knopf: angeboten <code>Expedition starten</code>, begonnen <code>Weiter mit Teil {k}</code>; klein <code>Teil {k} von {n} · etwa {min} Minuten</code></li>
+<li>Darunter unverändert, nur schmaler: <code>GERADE DRAN · {Stadt} in {Land}</code> / <code>{Flug} · {a}/{b}</code> + gelber Knopf <code>Weiter in {Stadt} ›</code></li>
+<li>Rechner ab 1100 px: Expeditions-Karte oben in der rechten Spalte, „Gerade dran“ darunter.</li>
+<li>Mehrere offen: die begonnene, sonst kleinste Stationsnummer; Zeile <code>+{k} weitere warten im Reisepass</code>.</li>
+</ul></div></div>
+</section>
+
+<!-- 2b Später -->
+<section class="fall" id="f2b"><h2>2b · Nach „Später“ (bis zum nächsten Lerntag)</h2>
+<p class="wann">„Später“ (Freischalt-Ansicht oder ✕ an der Karte) klappt die Karte für den Rest des Lerntags zu einem Chip zusammen. Am nächsten Lerntag ist sie wieder groß und oben.</p>
+<div class="buehne"><div class="geraet" data-shot="2b-spaeter"><div class="app">
+  <div class="karte-bg"><svg viewBox="0 0 400 780" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M30 120 C90 90 150 110 190 150 S300 180 340 140 L380 210 C340 260 300 300 240 300 S120 330 80 290 Z" fill="#FBF9F4" stroke="#8F8775" stroke-width="1.2"/><circle cx="200" cy="210" r="7" fill="#2E7BD6"/></svg></div>
+  <div class="kopfleiste">Meine Reise <span class="sterne">★ 1 240</span></div>
+  <div><span class="pfad">🌍 Welt › Europa › 🇮🇹 Italien 📍</span></div>
+  <div class="schwebe">
+    <a class="chipwart" href="#">⛯ <b>Expedition wartet:</b> Die Wetterstation ›</a>
+    <div class="dran" style="padding:14px"><div class="w">GERADE DRAN · <b>Bologna</b> in Italien<br>Natürliche Zahlen · 3/6</div><a href="#">Weiter in Bologna ›</a></div>
+  </div>
+</div></div>
+<div class="notiz"><h4>Texte (wörtlich)</h4><ul>
+<li>Chip: <code>⛯ Expedition wartet: {Titel} ›</code> (öffnet Ansicht 1 ohne Bewegung)</li>
+<li>„Gerade dran“ wieder in normaler Größe.</li>
+<li>Kein Zähler, keine Erinnerung, kein Hinweis „verpasst“.</li>
+</ul></div></div>
+</section>
+
+<!-- 3a Geschafft mit Fehlern -->
+<section class="fall" id="f3a"><h2>3a · Expedition geschafft (150 ★)</h2>
+<p class="wann">Nach dem letzten Teil, wenn mindestens ein Teil einen Fehler, einen zweiten Versuch oder einen Tipp hatte.</p>
+<div class="buehne"><div class="geraet" data-shot="3a-geschafft"><div class="app bewegt">
+  <div class="szene">
+    <div class="polarlicht"></div><div class="schnee"></div>
+    <div class="oben"><span>ANTARKTIS · STATION 4 VON 21</span><span class="weg">Überspringen ›</span></div>
+    <div class="titel">Expedition geschafft</div>
+    <div class="unter"><b>Die Wetterstation</b> – alle 4 Teile gelöst.</div>
+    <div style="position:relative;z-index:3;margin:22px auto 10px"><div class="xst gross knall"><span><span class="gr">ANTARKTIS</span><b>NEUMAYER-STATION III</b><span class="nr">STATION 4/21 · 23.11.</span></span></div></div>
+    <svg class="eisberg" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90 L90 72 L200 88 L310 70 L400 86 L400 120 L0 120Z" fill="#F4FBFD"/></svg>
+  </div>
+  <div class="blatt">
+    <div class="lohn"><div class="k"><div class="zahl">★ +150</div><div class="was">für die Expedition</div></div>
+      <div class="k"><div class="zahl" style="color:#1D6E8C">4 / 21</div><div class="was">Stationen in deiner Sammlung</div></div></div>
+    <p class="leise" style="margin:0 0 12px">Bei der nächsten Expedition gibt es <b>★ 200</b>, wenn alle Teile im ersten Versuch ohne Tipp klappen.</p>
+    <a class="knopf" href="#" style="background:#FFD23F"><span>Weiter in Bologna<small>Natürliche Zahlen · Etappe 4 von 6</small></span><span>›</span></a>
+    <button class="textlink">Stempel-Sammlung ansehen</button>
+  </div>
+</div></div>
+<div class="notiz"><h4>Texte (wörtlich)</h4><ul>
+<li>Oben: <code>ANTARKTIS · STATION {nr} VON {gesamt}</code>, rechts <code>Überspringen ›</code></li>
+<li>Titel: <code>EXPEDITION GESCHAFFT</code>; Satz: <code>{Titel} – alle {n} Teile gelöst.</code></li>
+<li>Stempel knallt auf (0,5 s): <code>ANTARKTIS</code> / <code>{STATION}</code> / <code>STATION {nr}/{gesamt} · {Datum}</code></li>
+<li>Blatt: <code>★ +150</code> / <code>für die Expedition</code>; <code>{k} / {gesamt}</code> / <code>Stationen in deiner Sammlung</code></li>
+<li>Satz: <code>Bei der nächsten Expedition gibt es ★ 200, wenn alle Teile im ersten Versuch ohne Tipp klappen.</code> – nur, wenn noch eine Expedition offen oder gesperrt ist; nennt keine Fehlerzahl.</li>
+<li>Knopf (Farbe des Flugs, gelb): <code>Weiter in {Stadt}</code> / klein <code>{Flug} · Etappe {i} von {m}</code>; ist der Flug-Test dran: <code>Weiter: Flug-Test</code></li>
+<li>Textlink: <code>Stempel-Sammlung ansehen</code></li>
+</ul><button class="nochmal" data-n="f3a">↺ Bewegung nochmal</button></div></div>
+</section>
+
+<!-- 3b Fehlerfrei -->
+<section class="fall" id="f3b"><h2>3b · Expedition fehlerfrei (200 ★)</h2>
+<p class="wann">Alle Teile im ersten Versuch richtig, kein Tipp. Eigene Szene: Polarlicht über den ganzen Himmel, Stempel mit Band.</p>
+<div class="buehne"><div class="geraet" data-shot="3b-fehlerfrei"><div class="app bewegt">
+  <div class="szene" style="background:radial-gradient(120% 80% at 50% 0%,#1E6B6A 0,#0A2540 58%,#061629 100%)">
+    <div class="polarlicht" style="opacity:1;height:85%;filter:blur(14px)"></div><div class="schnee"></div>
+    <div class="oben"><span>ANTARKTIS · STATION 4 VON 21</span><span class="weg">Überspringen ›</span></div>
+    <div class="titel">Fehlerfrei durch&shy;gekommen</div>
+    <div class="unter"><b>Die Wetterstation</b> – alle 4 Teile im ersten Versuch, ohne Tipp.</div>
+    <div style="position:relative;z-index:3;margin:22px auto 16px"><div class="xst gross knall ff"><span><span class="gr">ANTARKTIS</span><b>NEUMAYER-STATION III</b><span class="nr">STATION 4/21 · 23.11.</span></span></div></div>
+    <svg class="eisberg" viewBox="0 0 400 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90 L90 72 L200 88 L310 70 L400 86 L400 120 L0 120Z" fill="#F4FBFD"/></svg>
+  </div>
+  <div class="blatt">
+    <div class="lohn"><div class="k"><div class="zahl">★ +200</div><div class="was">150 für die Expedition<br>+ 50 fürs fehlerfreie Lösen</div></div>
+      <div class="k"><div class="zahl" style="color:#1D6E8C">4 / 21</div><div class="was">Stationen in deiner Sammlung</div></div></div>
+    <a class="knopf" href="#" style="background:#FFD23F"><span>Weiter in Bologna<small>Natürliche Zahlen · Etappe 4 von 6</small></span><span>›</span></a>
+    <button class="textlink">Stempel-Sammlung ansehen</button>
+  </div>
+</div></div>
+<div class="notiz"><h4>Texte (wörtlich)</h4><ul>
+<li>Titel: <code>FEHLERFREI DURCHGEKOMMEN</code>; Satz: <code>{Titel} – alle {n} Teile im ersten Versuch, ohne Tipp.</code></li>
+<li>Stempel wie 3a, zusätzlich Band <code>★ FEHLERFREI</code> (bleibt in der Sammlung)</li>
+<li>Blatt: <code>★ +200</code> / <code>150 für die Expedition</code> / <code>+ 50 fürs fehlerfreie Lösen</code>; Sammlung wie 3a</li>
+<li>Knopf und Textlink wie 3a.</li>
+</ul><button class="nochmal" data-n="f3b">↺ Bewegung nochmal</button></div></div>
+</section>
+
+<!-- 4 Stempel-Sammlung -->
+<section class="fall" id="f4"><h2>4 · Stempel-Sammlung im Reisepass</h2>
+<p class="wann">Reisepass, eigener Abschnitt „Antarktis“ (auch über „Stempel-Sammlung ansehen“ und über die Antarktis in der Welt-Ebene der Reisekarte). Jede Station hat einen Platz – auch die gesperrten; Antippen zeigt, was fehlt.</p>
+<div class="buehne"><div class="geraet" data-shot="4-sammlung"><div class="app" style="overflow:auto">
+  <div class="pass-kopf"><div class="ueber">REISEPASS · EXPEDITIONEN</div><h2>Antarktis</h2><div class="z"><b>3 von 21 Stationen</b> · 1 freigeschaltet</div><div class="balken"><i style="width:14.3%"></i></div></div>
+  <div class="gitter">
+    <div class="gruppe-kl">KLASSE 5 · 10 STATIONEN</div>
+    <div class="raster" id="r5"></div>
+    <div class="gruppe-kl">KLASSE 8 · 11 STATIONEN</div>
+    <div class="raster" id="r8"></div>
+  </div>
+  <div class="blattinfo"><div class="ueber">STATION 6 VON 21 · GESPERRT</div><h4>Esperanza-Station: Die Schatzsuche</h4>
+    <div style="font-size:14px">Noch 2 Etappen, dann ist sie frei:</div>
+    <ul><li class="ok">Punkte im Koordinatensystem</li><li class="ok">Drehungen und Himmelsrichtungen</li><li class="fehlt"><b>Reihenfolgen ohne Wiederholung</b> · Zählen</li><li class="fehlt"><b>Teilbar durch 9</b> · Teilbarkeit</li><li class="ok">Mit Zeit rechnen</li></ul>
+    <div class="leise" style="font-size:13px;margin-top:6px">Die Etappen kommen in deinem Plan. ★ 150 · ★ 200 ohne Fehler</div></div>
+</div></div>
+<div class="notiz"><h4>Texte (wörtlich)</h4><ul>
+<li>Kopf: <code>REISEPASS · EXPEDITIONEN</code> / <code>Antarktis</code> / <code>{k} von {gesamt} Stationen</code> + <code>· {f} freigeschaltet</code> (wenn &gt; 0), Fortschritts-Balken</li>
+<li>Gruppen nach Klasse: <code>KLASSE {x} · {n} STATIONEN</code></li>
+<li>Platz je Station mit Kurzname: geschafft = Stempel (mit Band <code>★ FEHLERFREI</code>, wenn so geschafft); freigeschaltet = gestrichelt grün <code>frei</code>; begonnen = gestrichelt grün <code>Teil {k}/{n}</code>; gesperrt = gestrichelte Lücke mit Nummer + 🔒</li>
+<li>Antippen gesperrt: <code>STATION {nr} VON {gesamt} · GESPERRT</code> / <code>{Station}: {Titel}</code> / <code>Noch {k} Etappe(n), dann ist sie frei:</code> / Liste <code>{Etappe} · {Flug}</code> (✓ gelandet, ○ fehlt, fehlende fett) / <code>Die Etappen kommen in deinem Plan.</code> bzw. <code>Diese Etappen sind noch nicht in deinem Plan.</code> / <code>★ 150 · ★ 200 ohne Fehler</code></li>
+<li>Gesperrt durch Klasse: <code>Ab Klasse {x}</code> statt der Etappenliste.</li>
+<li>Antippen frei/begonnen: Ansicht 1 (ohne Bewegung); geschafft: Stempel groß + <code>Geschafft am {Datum}{ · fehlerfrei}</code> + Textlink <code>Expedition ansehen</code>.</li>
+</ul></div></div>
+</section>
+</div>
+<script>
+const ST5=[['Palmer','x'],['McMurdo','x'],['Amundsen-Scott','xff'],['Neumayer III','frei'],['Princess Elisabeth','g'],['Esperanza','g'],['Maitri','g'],['Mario Zucchelli','g'],['Halley VI','g'],['Kohnen','g']];
+const ST8=['Troll','Rothera','Wostok','Dumont d’Urville','Davis','Casey','Mawson','Syowa','Zhongshan','Arctowski','Scott Base'];
+function zelle(name,art,nr){
+  const b=document.createElement('button');b.className='zelle'+(nr===6?' sel':'');
+  let st;
+  if(art==='x'||art==='xff'){st=`<div class="xst klein${art==='xff'?' ff':''}"><span><span class="gr">ANTARKTIS</span><b style="font-size:15px">${nr}</b><span class="nr">✓</span></span></div>`;}
+  else if(art==='frei'){st=`<div class="xst klein frei"><span><b>${nr}</b><span class="nr">frei</span></span></div>`;}
+  else{st=`<div class="xst klein leer"><span><b>${nr}</b><span class="schloss">🔒</span></span></div>`;}
+  b.innerHTML=st+`<span class="${art==='g'?'':'s'}">${name}</span>`;return b;}
+const r5=document.getElementById('r5'),r8=document.getElementById('r8');
+ST5.forEach(([n,a],i)=>r5.appendChild(zelle(n,a,i+1)));
+ST8.forEach((n,i)=>r8.appendChild(zelle(n,'g',i+11)));
+document.querySelectorAll('.steuer button').forEach(k=>k.addEventListener('click',()=>{
+  const grp=k.parentElement;grp.querySelectorAll('button').forEach(x=>x.classList.remove('an'));k.classList.add('an');
+  if(k.dataset.b){document.body.classList.remove('b400','b820');document.body.classList.add(k.dataset.b);}
+  if(k.dataset.g){document.body.classList.toggle('nacht',k.dataset.g==='nacht');}
+  if(k.dataset.m){document.querySelectorAll('.app').forEach(a=>a.classList.toggle('bewegt',k.dataset.m==='an'&&a.dataset.still!=='1'));}
+}));
+document.querySelectorAll('.nochmal').forEach(k=>k.addEventListener('click',()=>{const a=document.querySelector('#'+k.dataset.n+' .app');a.classList.remove('bewegt');void a.offsetWidth;a.classList.add('bewegt');}));
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)document.querySelectorAll('.app').forEach(a=>a.classList.remove('bewegt'));
+</script>
+</body>
+</html>

@@ -3281,3 +3281,9 @@ Stand `lernen-app` 6b16f6b.
 - **Befund bau-lehrer (Hochrechnung):** 3 je Lerntag allein löst den Stau nicht auf (pendelt um 20–30), weil die Runde (Rückstau ÷ 5, mindestens 6) kaum über dem Zulauf liegt. Vorschlag: `wdh_runde_teiler` 5 → 1 (Runde = alle fälligen, höchstens 12; bis Kl. 6 höchstens 10) → mit WD-5 Stau nach etwa 4 Lerntagen weg, danach 0–4. Milder: Teiler 2 → nach 14 Lerntagen noch um 10. Entscheidung Sebastian.
 Prüfbitte an ChatGPT gestellt (beide Pakete).
 RK-App 0.92.0 (Reisekarte) von `bau-motivation` zusammengeführt; App-Tests laufen.
+
+## Wunsch Sebastian (23.11., 04:05 Berlin): Jugendwörter in den Geschafft- und Belohnungs-Ansichten · Auftrag JW (vorgemerkt)
+
+Sebastian: In den Geschafft-Bildern/Belohnungsfeldern nach einer Etappe „die neumodernen Jugendwörter einbauen (Digger …) – die müssen auch erst recherchiert werden“.
+Erste Recherche Haupt-Chat (Langenscheidt-Wahl): 2026 Platz 1 „Ragebait“, 2 „Peak“, 3 „Crashout“; Top 10 außerdem „67“, „Digga“, „Du bist gut genug“, „Gute Käse“, „Macker“, „Schere“, „Süper“. 2025: „Das crazy“ vor „goonen“ und „checkst du“.
+Vorschlag: gepflegte Wortliste (Wort, Bedeutung, wofür geeignet: Lob / Fehler / neutral, Quelle, Jahr, ungeeignet-Kennzeichen), ungeeignete Wörter ausgeschlossen (beleidigend, sexuell, abwertend), die Kinder wählen selbst aus und können es je Kind abschalten; Sprüche wechseln; Liste halbjährlich prüfen. Schritte: Recherche → Auswahl durch die Kinder → Texte (Gestalter) → App (`bau-motivation`).

@@ -3327,3 +3327,13 @@ Datei `inhalte/pruefung/kind/karte/nachpruefung_rk.md`.
 - **S1** Rechner: Karte fensterfüllend, Kopf eine Zeile. **S2** Handy: eine Kopfzeile, schwebende Karte kompakter, Expeditions-Karte einzeilig. **S3** rechts „x/6 Bordkarten dieser Stadt“ statt „4/13“. **S4** Land-Ebene: Ausschnitt auf die Städte-Route, Städtenamen nach Vorrang, Überdeckungen auflösen. **S5** Welt auf dem Handy als Ausschnitt um den aktuellen Kontinent. **S6** Blatt beim Ebenenwechsel schließen. **S7** Zusatz-Text ohne „freiwillig“.
 - **K1–K3** nach Prüfung; **K4** Datenauftrag an `bau-lehrer`: „gesperrt“ (Visum/ab Klasse) und „abgelegt“ je Stadt in `schule_reise_karte`.
 - Dazu der wacklige Test „LB Teil 6 Punkt 6“ (Nachtrag vom 23.11.) und aus Prüfung EX: S1, S2 („freiwillig“ bei Knobel → „für Profis“), K1, K2.
+
+## Rückläufer ChatGPT 970 und Probelauf WD-5 3 + RK-D (23.11., 04:45 Berlin, echte Datenbank, alles zurückgerollt)
+
+**ChatGPT 970:** Muss-Punkte aus 968 an WD-5 2 behoben. Einzige Bedingung vor gemeinsamer Freigabe von WD-5 + Teiler 1: `wd_s_rauchtest` Teil 1 für den neuen Teiler korrigieren und im gemeinsamen Rollback-Lauf grün nachweisen; danach kein weiterer Muss-Einwand.
+**Probelauf (Stand `lernen-app` 410cc6b):** WD-5 3 (b6432679…, setzt `wdh_gesetzt_je_lerntag` = 3 und `wdh_runde_teiler` = 1) und RK-D (ddb5d738…) je zweimal ohne Fehler. Alles außer den Fälligkeiten gesetzter Erst-Wiederholungen unverändert (Karten sonst, Sterne, Plan, Reiseoptionen; Kind 1 ganz). Tests grün vor und nach: wd5, wd_s (Teiler 5 und 1), wd_s3, fp_s, rk_d. Kind 2 nachher fällig je Lerntag 16·8·8·9·3·6·4·3·3·3·3·3·3·3, Runde heute 12. Reisekarte Kind 2 mit RK-D: 282 ms, 31 Flüge „gesperrt“, 0 Städte „abgelegt“.
+→ Bedingung aus 970 erfüllt: WD-5 3 einspielbar nach Sebastians Satz. RK-D: Prüfbitte an ChatGPT.
+
+## Vorgabe JW (Jugendwörter) vom Gestalter, Fassung 2 – laut Vorgabe von Sebastian so festgelegt
+
+`inhalte/pruefung/kind/jugendwoerter/` (umsetzung.md, woerter.json, Entwurf, Bilder). Ein Sticker je Geschafft-Ansicht, Satz bleibt normales Deutsch; **keine Einstellungen, keine Auswahl, keine Altersstufen, Anrede „Digga“**; 74 Wörter geprüft, 30 im Einsatz, 52 Sprüche; Antippen zeigt die Bedeutung. Überholt die Punkte „je Kind abschaltbar / Wort gefällt mir nicht“ aus dem Auftrag JW. → JW-App an `bau-motivation` nach RK-App 2.

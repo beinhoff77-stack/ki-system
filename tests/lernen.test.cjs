@@ -3714,14 +3714,14 @@ test('LW-2 Nacharbeit: S2 „Plätze · Themen“ und 3a/3b, K1 Etappenliste pas
   assert.match(await page.locator('.lw-karte.lw-dran .lw-st').innerText(), /▶ Etappe 3\/\d+/);
   const w = await et.locator('small').allInnerTexts(); assert.deepEqual(w.slice(0, 3).map((x) => x.replace(/ \(.*\)$/, '')), ['gelandet', 'gelandet', 'gerade dran']);
   // K2: Kopf „Klasse 8“ und Standard-Klassen 8–10
-  assert.match(await page.locator('.lern-kind-kopf small').first().innerText(), /Klasse 8/);
+  assert.match(await page.locator('.lern-kind-kopf-zeile small').first().innerText(), /Klasse 8/);
   assert.deepEqual(await page.getByRole('group', { name: 'Klassen' }).locator('button[aria-pressed="true"]').allInnerTexts(), ['8', '9', '10']);
 });
 
 test('LW-2 K2: widersprechen sich Übersicht und Plan, gilt die Klasse aus dem Kopf (Übersicht)', async (t) => {
   const basis = lmsAnpassen(); const f = (aktion, e, d) => { const r = basis(aktion, e, d); if (aktion === 'schule_uebersicht' && r) r.lernende.forEach((c) => { if (c.id === 1) c.klasse = 9; }); return r; }; f.neueAktionen = true;
   const { page } = await lwOeffnen(t, 1280, { anpassen: f });
-  assert.match(await page.locator('.lern-kind-kopf small').first().innerText(), /Klasse 9/);
+  assert.match(await page.locator('.lern-kind-kopf-zeile small').first().innerText(), /Klasse 9/);
   assert.deepEqual(await page.getByRole('group', { name: 'Klassen' }).locator('button[aria-pressed="true"]').allInnerTexts(), ['9', '10']);
 });
 
@@ -3919,4 +3919,134 @@ test('LW-2b K2 (820): beim Zurückziehen ist die laufende Meldung weg, „Hier l
   assert.match(await page.locator('.lw-mw').getAttribute('class'), /lw-raus-ziel/);
   await page.screenshot({ path: 'test-results/lw2b-820-zurueck.png' });
   await page.mouse.move(g.x + 4, g.y + 6, { steps: 4 }); await page.mouse.up();
+});
+
+// ---------- Bau-Auftrag LW, LW-3 (0.90.0): Kinder-Umschalter, Überblick-Karten mit Sprüngen, „Was wackelt“ als Arbeitsliste (LW-S / LW-S 2) ----------
+// Erfundene Einträge (Testkind-artig, keine echten Kinderdaten). Der Server rechnet „wieder offen“ beim Lesen – hier nachgestellt.
+const wkServer = (basis = null) => {
+  const heute = new Date().toISOString(); const gestern = new Date(Date.now() - 864e5).toISOString();
+  const et = (lz, titel, fehler, am) => ({ einheit_id: 1, lernziel: lz, titel, fehler, letzter_fehler_am: am, wackelt: fehler >= 3, sitzt: false, besprochen_am: null });
+  const st = { eintraege: [
+    { thema_id: 1, titel: 'Natürliche Zahlen', einheit_id: null, lernziel: null, status: 'zu_besprechen', quelle: 'vorgabe', wieder_offen: false, fehler: 5, fehler_neu: 0, letzter_fehler_am: heute, etappe: et('runden', 'Runden', 5, heute), etappen: [et('runden', 'Runden', 5, heute)] },
+    { thema_id: 2, titel: 'Teilbarkeit und Primzahlen', einheit_id: null, lernziel: null, status: 'zu_besprechen', quelle: 'vorgabe', wieder_offen: false, fehler: 2, fehler_neu: 0, letzter_fehler_am: gestern, etappe: et('teilbar3', 'Teilbar durch 3', 2, gestern), etappen: [et('teilbar3', 'Teilbar durch 3', 2, gestern)] },
+    { thema_id: 3, titel: 'Brüche addieren', einheit_id: null, lernziel: null, status: 'beobachten', quelle: 'gespeichert', wieder_offen: false, fehler: 1, fehler_neu: 0, letzter_fehler_am: gestern, etappe: et('gleichnamig', 'Gleichnamig machen', 1, gestern), etappen: [et('gleichnamig', 'Gleichnamig machen', 1, gestern)] },
+    { thema_id: 4, titel: 'Potenzen', einheit_id: null, lernziel: null, status: 'besprochen', quelle: 'gespeichert', wieder_offen: false, fehler: 1, fehler_neu: 0, letzter_fehler_am: gestern, etappe: et('quadrat', 'Quadratzahlen', 1, gestern), etappen: [et('quadrat', 'Quadratzahlen', 1, gestern)] }],
+  gesetzt: [], neuerFehler: null };
+  const zahl = () => st.eintraege.filter((e) => e.status === 'zu_besprechen').length;
+  const ordnen = () => { const r = { zu_besprechen: 0, beobachten: 1, besprochen: 2 }; st.eintraege.sort((a, b) => r[a.status] - r[b.status] || String(b.letzter_fehler_am).localeCompare(String(a.letzter_fehler_am))); };
+  const f = (aktion, e, d = {}) => {
+    if (aktion === 'schule_wackelt_lesen') { if (st.neuerFehler) { const x = st.eintraege.find((y) => y.thema_id === st.neuerFehler); Object.assign(x, { status: 'zu_besprechen', wieder_offen: true, fehler_neu: 1, fehler: x.fehler + 1, letzter_fehler_am: new Date().toISOString() }); st.neuerFehler = null; }
+      ordnen(); return { ok: true, lernender_id: d.lernender_id, zu_besprechen: zahl(), eintraege: structuredClone(st.eintraege) }; }
+    if (aktion === 'schule_wackelt_setzen') { st.gesetzt.push(d); const x = st.eintraege.find((y) => y.thema_id === d.thema_id); Object.assign(x, { status: d.status, quelle: 'gespeichert', wieder_offen: false, fehler_neu: 0, status_am: new Date().toISOString() });
+      return { ok: true, eintrag: structuredClone(x), zu_besprechen: zahl() }; }
+    return basis ? basis(aktion, e, d) : null; };
+  f.neueAktionen = true; f.st = st; return f;
+};
+
+test('LW-3: „Was wackelt“ als Arbeitsliste – drei Bereiche, Status speichern, Zahl am Reiter, Rückgängig, neue Fehler holen zurück; Aufgabe und Antwort aufklappbar', async (t) => {
+  const srv = wkServer(); const { page, calls } = await setup(t, { anpassen: srv });
+  await page.setViewportSize({ width: 1280, height: 900 }); await page.goto(origin + '/#/kind/1-wackelt');
+  const liste = page.locator('.wk-liste'); await liste.waitFor();
+  assert.deepEqual(await liste.locator('.wk-gh').allInnerTexts(), ['ZU BESPRECHEN · 2', 'BEOBACHTEN · 1', 'BESPROCHEN · 1']);
+  const zb = page.locator('.lern-reiter .lw-zb'); assert.equal(await zb.innerText(), '2');
+  assert.equal(await zb.getAttribute('aria-label'), '2 zu besprechen');
+  const e1 = liste.locator('.wk-eintrag[data-thema="1"]');
+  assert.match(await e1.innerText(), /Natürliche Zahlen[\s\S]*Etappe: Runden · 5 Fehler · heute/);
+  // Aufgabe und Antwort wie bisher (aus schule_lernstand)
+  await e1.getByRole('button', { name: /Bordkarte und Antwort/ }).click();
+  assert.match(await e1.locator('.wk-detail').innerText(), /Runde 929.773 auf Tausender[\s\S]*Antwort: 929.000/);
+  // ✓ Besprochen → Bereich wechselt, Zahl am Reiter 1
+  await e1.getByRole('button', { name: 'Natürliche Zahlen: ✓ Besprochen' }).click();
+  await page.locator('.wk-gruppe-besprochen .wk-eintrag[data-thema="1"]').waitFor();
+  assert.deepEqual(srv.st.gesetzt.at(-1), { lernender_id: 1, thema_id: 1, status: 'besprochen' });
+  assert.equal(await zb.innerText(), '1');
+  assert.match(await page.locator('.wk-liste .lw-toast').innerText(), /„Natürliche Zahlen“: besprochen[\s\S]*↶ Rückgängig/);
+  // Rückgängig setzt den vorigen Status
+  await page.locator('.wk-liste .lw-toast').getByRole('button', { name: '↶ Rückgängig' }).click();
+  await page.locator('.wk-gruppe-zu_besprechen .wk-eintrag[data-thema="1"]').waitFor();
+  assert.equal(srv.st.gesetzt.at(-1).status, 'zu_besprechen'); assert.equal(await zb.innerText(), '2');
+  // Beobachten / zurück zu besprechen
+  await page.locator('.wk-eintrag[data-thema="2"]').getByRole('button', { name: /: Beobachten$/ }).click();
+  await page.locator('.wk-gruppe-beobachten .wk-eintrag[data-thema="2"]').waitFor();
+  await page.locator('.wk-eintrag[data-thema="2"]').getByRole('button', { name: /: Zu besprechen$/ }).click();
+  await page.locator('.wk-gruppe-zu_besprechen .wk-eintrag[data-thema="2"]').waitFor();
+  // Neuer Fehler im besprochenen Thema → nach dem Neuladen wieder „Zu besprechen“ (Server)
+  srv.st.neuerFehler = 4; await page.reload(); await page.locator('.wk-liste').waitFor();
+  const e4 = page.locator('.wk-gruppe-zu_besprechen .wk-eintrag[data-thema="4"]'); await e4.waitFor();
+  assert.match(await e4.innerText(), /wieder offen · 1 neu/); assert.equal(await page.locator('.lern-reiter .lw-zb').innerText(), '3');
+  // Im Lehrplan → Reiter „Lehrplan“ mit dem Thema
+  await e4.getByRole('link', { name: 'Im Lehrplan' }).click(); await page.waitForURL(/#\/kind\/1-lehrplan$/);
+  assert.equal(await page.locator('.lern-reiter .lw-zb').innerText(), '3', 'Zahl auch auf den anderen Reitern');
+  // Tabelle je Etappe (LA-3) bleibt erreichbar
+  await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ls-je-etappe').waitFor();
+  await page.locator('.ls-je-etappe > summary').click(); await page.locator('.ls-je-etappe .ls-tabelle, .ls-je-etappe .ls-karten').first().waitFor({ state: 'attached' });
+  assert.ok(calls.some((c) => c.aktion === 'schule_wackelt_lesen'));
+});
+
+test('LW-3: ohne schule_wackelt_lesen (alter Server) bleibt „Was wackelt“ wie bisher, keine Zahl am Reiter', async (t) => {
+  const { page } = await setup(t); await page.goto(origin + '/#/kind/1-wackelt');
+  await page.locator('section.ls-wackelt').waitFor(); assert.equal(await page.locator('.wk-liste').count(), 0); assert.equal(await page.locator('.lw-zb').count(), 0);
+});
+
+test('LW-3 (1a): Kinder-Umschalter – Klick und Alt+←/→ wechseln das Kind, der Reiter bleibt; Lehrplan übernimmt Schule und Klassen des Kindes, Detail zu', async (t) => {
+  const { page } = await lwOeffnen(t, 1280, { anpassen: wkServer(lmsAnpassen()) });
+  const um = page.getByRole('navigation', { name: 'Kind wechseln' });
+  assert.equal(await um.locator('[aria-current="page"] .lw-k-name').innerText(), 'Kind A');
+  assert.match(await um.innerText(), /Kind A[\s\S]*Gymnasium · Kl\. 8[\s\S]*Kind B/);
+  await page.locator('.lw-karte.lw-dran').click(); await page.locator('.lw-drawer.lw-auf').waitFor();
+  await um.getByRole('button', { name: /^Kind B/ }).click(); await page.waitForURL(/#\/kind\/2-lehrplan$/);
+  await page.locator('.lw-kinder [aria-current="page"] .lw-k-name', { hasText: 'Kind B' }).waitFor(); await page.locator('.lw-karte').first().waitFor();
+  assert.equal(await page.locator('.lw-drawer.lw-auf').count(), 0, 'Detail zu');
+  assert.equal(await page.locator('.lern-reiter a[aria-current]').innerText(), 'Lehrplan');
+  assert.equal(await page.getByRole('navigation', { name: 'Kind wechseln' }).locator('[aria-current="page"] .lw-k-name').innerText(), 'Kind B');
+  assert.equal(await page.locator('.lw-rueck').isDisabled(), true, 'Rückgängig verfällt');
+  await page.keyboard.press('Alt+ArrowLeft'); await page.waitForURL(/#\/kind\/1-lehrplan$/);
+  await page.locator('.lw-karte').first().waitFor();
+  await page.getByRole('link', { name: /^Was wackelt/ }).click(); await page.waitForURL(/#\/kind\/1-wackelt$/); await page.locator('.wk-liste').waitFor();
+  await page.keyboard.press('Alt+ArrowRight'); await page.waitForURL(/#\/kind\/2-wackelt$/); await page.locator('.wk-liste').waitFor();
+  await page.getByRole('navigation', { name: 'Kind wechseln' }).getByRole('button', { name: /^Kind A/ }).click(); await page.waitForURL(/#\/kind\/1-wackelt$/);
+});
+
+test('LW-3: Überblick-Karten – Gerade dran (→ Lehrplan mit Thema), Als Nächstes (→ Fahrplan), Zu besprechen (→ Was wackelt), Diese Woche, Ringe gleich wie im Lehrplan', async (t) => {
+  const { page } = await lwOeffnen(t, 1280, { anpassen: wkServer(lmsAnpassen()) });
+  const dranTitel = await page.locator('.lw-karte.lw-dran .lw-t').innerText(); const ring8 = await page.locator('.lw-kz-zelle[data-kl="8"] .lw-ring-gross b').innerText();
+  const fp = await page.locator('.lw-rail .lw-fp .lw-fp-text b').allInnerTexts();
+  await page.goto(origin + '/#/kind/1-ueberblick'); const ue = page.locator('.lw-ue'); await ue.waitFor();
+  assert.equal(await ue.locator('.lw-ue-dran .lw-ue-titel').innerText(), dranTitel);
+  assert.match(await ue.locator('.lw-ue-dran').innerText(), /Etappe 3 von \d+/);
+  assert.deepEqual(await ue.locator('.lw-ue-liste li span:last-child').allInnerTexts(), fp.slice(1, 4), 'Plätze 2–4 wie im Fahrplan');
+  assert.deepEqual(await ue.locator('.lw-ue-liste .lw-nr').allInnerTexts(), ['2', '3', '4']);
+  assert.match(await ue.locator('.lw-ue-warn').innerText(), /ZU BESPRECHEN\s*2\s*Natürliche Zahlen · Teilbarkeit und Primzahlen/);
+  assert.match(await ue.locator('.lw-ue-woche').innerText(), /DIESE WOCHE[\s\S]*Lerntage?[\s\S]*30[\s\S]*Bordkarten[\s\S]*%/);
+  assert.equal(await ue.locator('.lw-ue-ring').nth(1).locator('.lw-ring-gross b').innerText(), ring8, 'Ring Kl. 8 gleich');
+  await page.getByRole('heading', { name: 'Lernt es?' }).waitFor(); // bisheriger Inhalt darunter
+  assert.equal(await page.locator('.lern-reiter .lw-zb').innerText(), '2');
+  await ue.getByRole('button', { name: 'Im Lehrplan öffnen' }).click(); await page.waitForURL(/#\/kind\/1-lehrplan$/);
+  assert.equal(await page.locator('.lw-drawer.lw-auf h2').innerText(), dranTitel);
+  await page.goto(origin + '/#/kind/1-ueberblick'); await page.locator('.lw-ue').getByRole('button', { name: 'Zu Was wackelt' }).click(); await page.waitForURL(/#\/kind\/1-wackelt$/);
+});
+
+test('LW-3 Abnahme 400 / 820 / 1280: Umschalter (Handy nur aktives Kind ausgeschrieben), Überblick, Was wackelt; „Fahrplan ändern“ öffnet auf dem Handy den Fahrplan; kein Querrollen', async (t) => {
+  for (const breite of [400, 820, 1280]) {
+    const { page } = await setup(t, { anpassen: wkServer(lmsAnpassen()) }); await page.setViewportSize({ width: breite, height: breite < 760 ? 860 : 900 });
+    await page.goto(origin + '/#/kind/1-ueberblick'); await page.locator('.lw-ue').waitFor();
+    const um = page.getByRole('navigation', { name: 'Kind wechseln' });
+    if (breite < 760) { assert.equal(await um.locator('.lw-k-chip:not(.lw-k-aktiv) .lw-k-name').first().isVisible(), false); assert.equal(await um.locator('.lw-k-aktiv .lw-k-name').isVisible(), true); }
+    assert.ok(await ohneQuerrollen(page), `${breite}: Überblick ohne Querrollen`);
+    assert.deepEqual(await ueberlaeuft(page.locator('.lw-ue-karte, .lw-kinder')), [], `${breite}: läuft über`);
+    await page.screenshot({ path: `test-results/lw3-ueberblick-${breite}.png`, fullPage: true });
+    if (breite === 400) { await page.locator('.lw-ue').getByRole('button', { name: 'Fahrplan ändern' }).click(); await page.waitForURL(/#\/kind\/1-lehrplan$/); await page.locator('.lw-rail').waitFor();
+      assert.ok(await page.locator('.lw-rail').isVisible(), 'Fahrplan sichtbar'); assert.equal(await page.getByRole('group', { name: 'Ansicht' }).locator('[aria-pressed="true"]').innerText().then((x) => /^Fahrplan/.test(x)), true); }
+    await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.wk-liste').waitFor();
+    assert.ok(await ohneQuerrollen(page), `${breite}: Was wackelt ohne Querrollen`);
+    assert.deepEqual(await ueberlaeuft(page.locator('.wk-eintrag')), [], `${breite}: Einträge laufen über`);
+    await page.screenshot({ path: `test-results/lw3-wackelt-${breite}.png`, fullPage: true });
+  }
+});
+
+test('LW-3: Info-Seite nennt Arbeitsliste, Überblick-Karten und Kinder-Umschalter', async (t) => {
+  const { page } = await setup(t); await page.goto(origin + '/#/info'); await page.locator('main').getByText('Arbeitsliste in drei Bereichen', { exact: false }).first().waitFor({ state: 'attached' });
+  const txt = await page.locator('main').evaluate((m) => m.textContent);
+  for (const s of ['eine Arbeitsliste in drei Bereichen – Zu besprechen · Beobachten · Besprochen', 'Die rote Zahl am Reiter zählt „Zu besprechen“', 'Kinder-Umschalter im Kopf der Kind-Seite', 'Gerade dran → „Im Lehrplan öffnen“'])
+    assert.ok(txt.includes(s), s);
 });

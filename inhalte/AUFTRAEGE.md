@@ -3224,3 +3224,9 @@ Laut bau-lehrer haben die Eltern inzwischen selbst Teile eingeplant: Kind 1 Drei
 
 Gesamtlauf (Stand e646650): rot `W176 T4: Abbruch verliert nichts …` und `LW-3 (1a): Kinder-Umschalter – Klick und Alt+←/→ …`; beide einzeln wiederholt grün. Während des Gesamtlaufs liefen parallel Datenbank-Probeläufe (Last). Sebastian: „absichern“, erst danach live.
 An `bau-motivation`: Ursache klären (Zeitabhängigkeit des Tests oder echter Wettlauf beim Kinder-Wechsel mit gemerkten/vorgeladenen Daten – z. B. alte Antwort überschreibt neue Ansicht, Detail bleibt offen, Reiter springt), beheben, beide Tests so schreiben, dass sie auf Zustände warten statt auf Zeiten; Gesamtlauf dreimal hintereinander grün, einmal davon unter Last (gedrosselte CPU). Version 0.91.2.
+
+## Probelauf NB-S + SJ-S (23.11., 03:30 Berlin, echte Datenbank mit LZ-S, ZP-S im Probelauf; alles zurückgerollt)
+
+Stand `lernen-app` 74a4185. Beide Migrationen zweimal ohne Fehler; Karten, Sterne, Plan, Reiseoptionen, Stufen unverändert. `schuljahr_stand` liefert auf dem echten Stand die Zahlen aus der Meldung (Kind 1 Kl. 5: 15/2/13 Flüge, 112/29/83 Etappen, 26 %; Kind 2 Kl. 7: 12/5/7, 69/26/43, 38 %; Kl. 8: 16/1/15, 102/9/93, 9 %; Kl. 9: 14/0/14, 107/0/107). zp_s und tl_s danach grün.
+**Rot: `nb_s_rauchtest` und `sj_s_rauchtest`** auf dem echten Stand, vor und nach: „cannot insert a non-DEFAULT value into column "id"“ – die Tests fügen in eine Tabelle mit `generated always`-Spalte eine feste id ein (lokal offenbar anders angelegt). → Nachtrag: Tests ohne feste ids (oder `overriding system value`), auf dem echten Stand lauffähig.
+**Offene Fachfrage (Sebastian):** Der Ring und `schuljahr_stand` zählen **alle** Etappen der Pflicht-Flüge (auch Kür-Etappen); die Angabe des Haupt-Chats von 03:10 zählte nur die Pflicht-Etappen (107 statt 112 usw.). Für „wie viel ist noch?“ empfiehlt der Haupt-Chat: nur Pflicht-Etappen zählen, Kür getrennt ausweisen – dann auch den Ring umstellen.

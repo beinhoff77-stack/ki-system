@@ -3305,3 +3305,11 @@ Vorschlag: gepflegte Wortliste (Wort, Bedeutung, wofür geeignet: Lob / Fehler /
 4. Einstellungen: je Kind an/aus und Dosis (Kind selbst und Eltern), „Wort gefällt mir nicht“ am Spruch (blendet das Wort für dieses Kind aus), Liste als Datei pflegbar (halbjährlich prüfen, Verfallsdatum je Wort).
 5. Entwurf und Bilder 400/820, Tag und Nacht.
 **JW-App · an `bau-motivation`:** nach RK-App und den Karten NB/SJ/ZP. **JW-S** nur, falls Einstellungen/ausgeblendete Wörter je Kind in der Datenbank liegen sollen (sonst erst auf dem Gerät).
+
+## EINGESPIELT: NB-S, SJ-S, NT-D 3 – 23.11., 04:22 Berlin
+
+Freigabe Sebastian („Nachbessern und Schuljahr in die Datenbank einspielen“), Prüfung Werkstatt 968 (Paket 1 Freigabe), Werkstatt-Änderung 384. Kinder 86 bzw. 157 Minuten ohne Antwort, kein Test offen. In der Transaktion geprüft: Karten, Sterne, Lernziel-Stände, Erstabschlüsse, Plan, Reiseoptionen, Stufen unverändert; Aufgaben 30162 → 30176. Danach grün: nb_s, sj_s, zp_s, tl_s, nt_s, lz_s. `schuljahr_stand` live: Kind 1 Kl. 5 13/15 Flüge, 83/112 Etappen offen (26 %); Kind 2 Kl. 7 7/12, 43/69 (38 %), Kl. 8 15/16, 93/102 (9 %), Kl. 9 14/14, 107/107.
+
+## Entscheidung Sebastian (23.11., 04:20 Berlin): Rundengröße „A“
+
+Wiederholungsrunde = alle fälligen, höchstens 12 (bis Kl. 6 höchstens 10): `wdh_runde_teiler` 5 → 1, zunächst für vier tatsächliche Lerntage zum Erproben; danach Rest, Dauer und Fehler ansehen (Haupt-Chat), bei Bedarf Teiler 2. Wird zusammen mit WD-5 eingespielt.

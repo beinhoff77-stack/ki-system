@@ -2,6 +2,81 @@
 
 Neueste oben.
 
+## 2026-11-23 – FERTIG: RK-App 2 (App 0.92.2)
+
+Stand `lernen-app` e0f3873 übernommen, vor dem Push nachgezogen bis 4596160. Dabei kamen keine App-Dateien hinzu. Nur App: keine Datenbank, keine Migration, kein Merge nach `main`, keine Namen; nur Testkind und erfundene Daten. Cache v173.
+
+**Versionsnummer:** Der Auftrag nennt 0.92.1, diese Nummer ist aber schon vergeben („0.92.x abgesichert“). Deshalb **0.92.2**.
+
+**Muss**
+- **M1 „wieder offen“** ist ein eigener Zustand:
+  - Haltestelle orange `#C8642B` mit ↻, kein ✓
+  - gestrichelter Ring, Unterzeile „wieder offen“
+  - Liste rechts und Vorlesetext: „wieder offen – nachbessern“
+  - Der Land-Pin trägt ein orangefarbenes ↻-Abzeichen.
+  - „wieder offen“ und „hier“ liegen über den Nachbar-Haltestellen; Neapel verdeckte vorher Pompei.
+
+**Soll**
+- **S1 Rechner:**
+  - Die Kopfzeile ist eine Zeile in der oberen Leiste: ‹ · Meine Reise · Pfad · Zu mir · Abflugtafel · ★ · ≡.
+  - Die Karte füllt das Fenster, die Seite rollt nicht. Das prüft der Test.
+- **S2 Handy:**
+  - Kopfzeile: ‹ · Pfad · 📍 · ▤ · ★ · ≡, nur Symbole, alle Tippflächen ≥ 44 px. Eine Stufe ohne Bezeichnung zeigt nur 🌍.
+  - Die Schwebekarte ist kompakt: Stadt, Land, x/6 und Knopf.
+  - Die Expedition steht als eine Zeile „⛯ Expedition freigeschaltet: … · Starten ›“; groß erst nach dem Antippen.
+- **S3:**
+  - Rechts stehen die Bordkarten der aktuellen Stadt (x/6), gelesen aus `etappen_stand` der Einheit (`schule_einheit_lesen`).
+  - Die Zahl der Städte steht nur im Text „Stadt 5 von 13“; die Haltestelle heißt „Bologna · 3/6“.
+- **S4:**
+  - Die Land-Ebene startet als Rahmen um die Stadtroute.
+  - Reihenfolge der Namen: hier, die nächsten drei, die gelandeten, der Rest.
+  - Bei Überdeckung wird ein Name versetzt (bis zu 14 Lagen) statt weggelassen.
+- **S5:**
+  - Die Welt startet auf dem Handy als Ausschnitt um den aktuellen Kontinent.
+  - „x/y Länder“ erscheint erst ab dem 1,4-fachen Zoom; am Rechner steht es immer.
+  - Kontinent-Namen, die sich berühren, rücken nach unten; das betrifft auch Orient.
+- **S6:** Beim Wechsel der Ebene schließt sich das Blatt.
+- **S7:** „Zusatz für Entdecker – muss nicht sein.“
+
+**Kann**
+- **K1:**
+  - Der Puls ist eine eigene Ebene unter dem Pin, ohne Treffer.
+  - Der Pin hat eine feste Trefferfläche von 44 px und steht still; echte Klicks gehen jetzt ohne `dispatchEvent`.
+- **K2:** Die Kette zwischen Teilen ist dünn und grau (0,5).
+- **K3:** Die eigene Hauptstadt erscheint in der Land-Ebene nur als ◉ und verdeckt die erste Haltestelle nicht.
+- **K4:** nicht gebaut.
+
+**EX-Nachprüfung**
+- **S1:** Bei Höhe < 700 px (360 × 640) höchstens 2 Chips plus „+n weitere“, ohne Scrollen.
+- **S2:** Auf der ganzen Kinderseite steht kein „freiwillig“ mehr; Knobel heißt „für Profis“.
+- **K1:** Nach dem Start heißt die Karte „EXPEDITION · TEIL B VON 3“, die Expedition „⛯ EXPEDITION“.
+- **K2:** Die Stand-Kacheln stehen unter der Abflugtafel.
+
+**LB Teil 6 Punkt 6, Ursache:** schon mit 0.92.1 geklärt und behoben.
+- Der Test klappte „blind“ und mit stillem `.catch` auf; dadurch hing er von Last und Zeit ab.
+- Dabei fiel ein echter Fehler auf: Nach `heute_bis` nahm „heute“ den Tag des Geräts, auch wenn das Gerät in einer Zeitzone hinter der des Kindes stand.
+- Der Test wartet jetzt auf Zustände; in allen Läufen unten war er grün.
+
+**Nachweis:** `tests/lernen.test.cjs` dreimal hintereinander:
+- Lauf 1: **179/179**, 286 s
+- Lauf 2: **179/179**, 288 s
+- Lauf 3 mit 4-fach gedrosselter CPU (`LERN_CPU=4`): **179/179**, 537 s
+- Neue Tests:
+  - RK-App 2: Kopf, Karte, K1, S5, S6
+  - RK-App 2: Bilder
+  - EX-Nachprüfung
+- Erweiterte Tests: M1, S3, S4, K3 im Land-Test; S7; Expeditionszeile.
+- Die übrigen Testdateien sind wie bisher rot: PWA-Hülle, Startkarte, W80 ×4, Review301, Woanders, W88. Diese Tests gehören zu Reise/PWA, nicht zur Lern-App.
+
+**Bilder** in `docs/previews/la/`:
+- `rk2-kontinent|land|weltbild-{400,820,1280}-{tag,nacht}.png`
+- `rk2-welt-400-nacht.png` (hineingezoomt), `rk2-welt-1280-tag.png`
+- `rk-expedition-zeile-400.png`, `ex-s1-360.png`, `ex-k1-tafel-400.png`
+
+**Offen:**
+- Am Rechner wird der Name „Australien und Ozeanien“ am rechten Kartenrand abgeschnitten.
+- Liegen Neapel und Pompei so nah wie hier, berühren sich die Haltestellen. Der Ring von „wieder offen“ bleibt sichtbar.
+
 ## 2026-11-23 – FERTIG: 0.92.x abgesichert (App 0.92.1)
 
 Stand `lernen-app` c41a3d5 übernommen. Nur App: keine Datenbank, kein Merge nach `main`, keine Namen. Cache v172.

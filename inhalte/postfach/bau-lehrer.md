@@ -2,6 +2,41 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-23 – FERTIG: RK-D 2
+
+Stand `lernen-app` dee070b übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.
+- geändert: `supabase/migrations/20261129_rk_d_karte_felder.sql`, `supabase/tests/rk_d_rauchtest.sql`
+- unverändert: `20261125_rd_s_reise.sql`
+
+**Muss 1 – Wiederholbarkeit ohne Mischstand**
+- Der Einbau steht jetzt in `schule.rk_d_einbau()`; die Migration ruft ihn nur auf.
+- Er zählt die **sechs** Zielblöcke einzeln, je vollständiger Text.
+  - Alle sechs je genau einmal → „schon eingebaut“.
+  - Keiner da und keine „RK-D“-Markierung → einbauen (alle sechs Anker je genau einmal geprüft).
+  - Alles andere bricht mit Fehler ab: teilweise da, Markierung ohne Blöcke, Block doppelt.
+- Auch die erste RK-D-Fassung (fünf Blöcke) wird als Mischstand erkannt; sie war nie echt eingespielt.
+- **Test 5:** Block 6 wird zurückgesetzt, die Markierung in den anderen Blöcken bleibt → `rk_d_einbau` meldet „Mischstand (5 von 6)“. Nach dem Wiederherstellen → „schon eingebaut“.
+
+**Muss 2 – Rückfall für `naechster_start.stadt`**
+- Als Teil von RK-D (Zielblock 6, Text-Patch in `reise_karte`) zieht der Rückfall auf die erste Stadt zusätzlich die fünf neuen Felder ab.
+- Damit bleibt das bisherige Feldset: `nr, name, lernziel, pflicht` und, falls da, `zaehlt` (ZP-S).
+- **Test 4 (vor dem Einspielen aufgebaut):**
+  - Testkind mit einem eingeplanten Flug, alle Etappen gelandet, Flug-Test offen → Stufe „dran“, keine offene Stadt. Geprüft wird, dass der Rückfall erreicht ist.
+  - `naechster_start` vorher = nachher (ganzes Objekt). Die Stadt hat nur die bisherigen Felder.
+  - Auf dem echten Stand trifft die Auswahl Thema 1 (5 Etappen, Pflichtliste 4, beim Testkind kein Flug-Test) – lesend geprüft.
+
+**Muss 3 – Test 3b**
+- Der Testflug muss ohne fehlendes Visum sein (geprüft).
+- Nach der Einplanung zuerst `im_plan = true` verlangt, sonst Fehler.
+- Danach gilt am Flug und an allen offenen Städten: `gesperrt = false`, Grund leer.
+
+**Gelaufen** (lokal, Kopien wie echt; `reise_karte` md5-gleich mit echt):
+- `rk_d` grün vor und nach dem Einspielen; Migration zweimal → „eingebaut“, dann „schon eingebaut“.
+- Weiter grün: `rd_s, nb_s, zp_s, lz_s, ex_s, sj_s, tl_s, nt_s, lk_s, fp_s, wd5`.
+- **Dauer:** unverändert zu RK-D (Block 6 ist nur ein Feldabzug beim Start). Lokal je Kind höchstens 110–157 ms über alle Tests (Messung mit anderer Last als in RK-D).
+- **Echt:** gemessen sind nur die neuen Abfragen (5 ms). Geschätzt rund 255 ms je Kind – Annahme, echt erst nach dem Einspielen messbar.
+- **Lesend auf dem echten Stand nachvollzogen:** Anker und Funktionskörper (md5), Testdaten-Auswahl für Test 3 und Test 4. Die Tests schreiben (Rollback) und liefen deshalb nur lokal.
+
 ## 2026-11-23 – FERTIG: WD-5 3 / RK-D
 
 Stand `lernen-app` e0f3873 übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.

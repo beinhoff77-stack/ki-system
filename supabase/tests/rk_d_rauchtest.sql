@@ -12,10 +12,53 @@ create function pg_temp.rk_ohne(p jsonb) returns jsonb language sql as $$
         from jsonb_array_elements(k->'fluege') with ordinality ff(f, fo)), '[]'::jsonb)) order by ko)
     from jsonb_array_elements(p->'kontinente') with ordinality kk(k, ko)), '[]'::jsonb));
 $$;
+-- RK-D 2 (ChatGPT 972, Muss 2): Startkandidat ohne offene Stadt am Testkind aufbauen (vor dem Einspielen), Start-Antwort merken
+create temp table rk_start on commit drop as select null::bigint l, null::bigint thema, null::jsonb vorher;
+do $$
+declare v_l bigint; v_t bigint; v_e bigint; v_b bigint;
+begin
+  select id into v_l from schule.lernender where ist_test and aktiv order by id limit 1;
+  if v_l is null then return; end if;
+  -- Flug mit Städten, Pflichtliste und eigener Einheit; kein Zusatz der Gruppe
+  select rl.thema_id, schule.thema_einheit(rl.thema_id) into v_t, v_e from schule.reise_land rl join schule.thema t on t.id = rl.thema_id
+   where rl.art = 'flug' and schule.thema_einheit(rl.thema_id) is not null
+     and exists (select 1 from schule.reise_stadt s where s.art = 'etappe' and s.thema_id = rl.thema_id)
+     and coalesce(cardinality(schule.pflicht_lernziele(v_l, schule.thema_einheit(rl.thema_id))), 1) > 0
+     and not coalesce(schule.kind_gruppe(v_l) = any(t.zusatz), false)
+   order by rl.thema_id limit 1;
+  select bt.block_id into v_b from schule.block_thema bt where bt.thema_id = v_t order by bt.block_id limit 1;
+  update schule.karte_stand set sitzt = false, sitzt_am = null where lernender_id = v_l;                       -- keine wieder offene Etappe (Nachbessern)
+  update schule.route set position = position + 1000 where lernender_id = v_l and status <> 'entfernt';
+  insert into schule.route (lernender_id, block_id, position, art, status, geaendert_von) values (v_l, v_b, 1, 'normal', 'offen', 'eltern:Test');
+  -- alle Etappen gelandet → keine offene Stadt; Flug-Test steht an → Stufe „dran“ → Startkandidat
+  insert into schule.karte_stand (lernender_id, einheit_id, lernziel, sitzt, sitzt_am, richtig)
+  select v_l, v_e, x->>'lernziel', true, now(), 3 from schule.einheit e, jsonb_array_elements(e.inhalt->'etappen') x where e.id = v_e
+  on conflict (lernender_id, einheit_id, lernziel) do update set sitzt = true, sitzt_am = now(), gesetzt_am = null;
+  update rk_start set l = v_l, thema = v_t, vorher = schule.reise_karte(v_l)->'naechster_start';
+end $$;
+
 create temp table rk_vorher on commit drop as select l.id, pg_temp.rk_ohne(schule.reise_karte(l.id)) j from schule.lernender l where l.aktiv;
 
 \ir ../migrations/20261129_rk_d_karte_felder.sql
 \ir ../migrations/20261129_rk_d_karte_felder.sql
+
+-- Test 4 (RK-D 2, Muss 2): Start ohne offene Stadt – Rückfall auf die erste Stadt behält das bisherige Feldset
+do $$
+declare r record; v_nach jsonb;
+begin
+  select * into r from rk_start;
+  if r.l is null then raise notice 'Test 4: kein Testkind – übersprungen'; return; end if;
+  if (r.vorher->>'thema_id')::bigint is distinct from r.thema then raise exception 'FEHLER 4: Aufbau – Startkandidat nicht der Testflug: %', r.vorher; end if;
+  v_nach := schule.reise_karte(r.l)->'naechster_start';
+  if exists (select 1 from jsonb_array_elements(schule.reise_karte(r.l)->'kontinente') k, jsonb_array_elements(k->'fluege') f, jsonb_array_elements(f->'staedte') c
+              where (f->>'thema_id')::bigint = r.thema and c->>'stand' not in ('gelandet', 'sicher')) then
+    raise exception 'FEHLER 4: Aufbau – Testflug hat noch eine offene Stadt (Rückfall nicht erreicht)'; end if;
+  if v_nach is distinct from r.vorher then raise exception 'FEHLER 4: Start-Antwort verändert: vorher %, nachher %', r.vorher, v_nach; end if;
+  if exists (select 1 from jsonb_object_keys(v_nach->'stadt') k where k not in ('nr', 'name', 'lernziel', 'pflicht', 'zaehlt')) then
+    raise exception 'FEHLER 4: neue Felder in naechster_start.stadt: %', v_nach->'stadt'; end if;
+  raise notice 'Test 4: Start ohne offene Stadt – vorher = nachher, Stadt-Felder %: OK', (select string_agg(k, ',' order by k) from jsonb_object_keys(v_nach->'stadt') k);
+end $$;
+
 
 -- api-Antwort ohne Schlüssel (nur Zugriffsprüfung ersetzt)
 do $$
@@ -108,11 +151,14 @@ begin
   if (v_f->>'ab_klasse')::int <= 5 or exists (select 1 from jsonb_array_elements(v_f->'staedte') c where c->>'stand' = 'offen' and c->>'gesperrt_grund' is distinct from 'klasse') then
     raise exception 'FEHLER 3: Klasse/Städte: %', v_f - 'mitte' - 'hauptstadt'; end if;
   select bt.block_id into v_b from schule.block_thema bt where bt.thema_id = v_t order by bt.block_id limit 1;
+  if jsonb_array_length(v_f->'visum_fehlt') > 0 then raise exception 'FEHLER 3: Testflug braucht ein Visum'; end if;
   insert into schule.route (lernender_id, block_id, position, art, status, geaendert_von)
     values (v_l, v_b, (select coalesce(max(position), 0) + 1 from schule.route where lernender_id = v_l), 'normal', 'offen', 'eltern:Test');
   v_f := pg_temp.rk_flug(v_l, v_t);
-  if (v_f->>'im_plan')::boolean and (v_f->>'gesperrt_grund' = 'klasse' or exists (select 1 from jsonb_array_elements(v_f->'staedte') c where c->>'gesperrt_grund' = 'klasse')) then
-    raise exception 'FEHLER 3: eingeplanter Flug noch „ab Klasse“ gesperrt'; end if;
+  if not coalesce((v_f->>'im_plan')::boolean, false) then raise exception 'FEHLER 3: Einplanung wirkungslos (im_plan falsch)'; end if;
+  if (v_f->>'gesperrt')::boolean or v_f->>'gesperrt_grund' is not null
+     or exists (select 1 from jsonb_array_elements(v_f->'staedte') c where c->>'stand' = 'offen' and ((c->>'gesperrt')::boolean or c->>'gesperrt_grund' is not null)) then
+    raise exception 'FEHLER 3: eingeplanter Flug oder offene Stadt noch gesperrt: %', v_f - 'mitte' - 'hauptstadt'; end if;
   raise notice 'Test 3b: Flug ab Klasse % bei Kl. 5 gesperrt (Städte auch), eingeplant → frei: OK', v_f->>'ab_klasse';
   -- abgelegt
   v_e := schule.thema_einheit(v_t); v_lz := (select c->>'lernziel' from jsonb_array_elements(v_f->'staedte') c order by (c->>'nr')::int limit 1);
@@ -124,6 +170,21 @@ begin
     raise exception 'FEHLER 3: abgelegt nicht richtig'; end if;
   raise notice 'Test 3c: Etappe und Flug abgelegt → Stadt (mit Datum) und Flug abgelegt, andere Städte nicht: OK';
   update schule.lernender set schulart = v_sa, zweig = v_zw, klasse = v_kl where id = v_l;
+end $$;
+
+-- Test 5 (RK-D 2, Muss 1): Mischstand wird erkannt – ein Zielblock fehlt, Markierung „RK-D“ bleibt → rk_d_einbau bricht ab; vollständig → „schon eingebaut“
+do $$
+declare d text := pg_get_functiondef('schule.reise_karte(bigint)'::regprocedure); v_fehler text; v_ziel text;
+  v_block text := $a$(v_st->0) - array['breite', 'laenge', 'titel', 'stand', 'gesperrt', 'gesperrt_grund', 'ab_klasse', 'abgelegt', 'abgelegt_am']) /* RK-D: bisheriges Feldset */$a$;
+begin
+  if schule.rk_d_einbau() <> 'schon eingebaut' then raise exception 'FEHLER 5: vollständiger Einbau nicht erkannt'; end if;
+  if position(v_block in d) = 0 then raise exception 'FEHLER 5: Zielblock 6 fehlt'; end if;
+  execute replace(d, v_block, $a$(v_st->0) - array['breite', 'laenge', 'titel', 'stand'])$a$);   -- Block 6 zurück, „RK-D“ bleibt in den anderen Blöcken
+  begin v_ziel := schule.rk_d_einbau(); v_fehler := 'kein Fehler: ' || v_ziel; exception when others then v_fehler := sqlerrm; end;
+  if position('Mischstand' in v_fehler) = 0 then raise exception 'FEHLER 5: Mischstand nicht erkannt (%)', v_fehler; end if;
+  execute d;   -- wieder vollständig
+  if schule.rk_d_einbau() <> 'schon eingebaut' then raise exception 'FEHLER 5: nach Wiederherstellen nicht vollständig'; end if;
+  raise notice 'Test 5: fehlender Zielblock bei erhaltener Markierung → %; vollständig → schon eingebaut: OK', left(v_fehler, 70);
 end $$;
 
 rollback;

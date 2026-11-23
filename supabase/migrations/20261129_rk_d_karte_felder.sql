@@ -54,9 +54,14 @@ begin
 end $$;
 revoke all on function schule.rk_d_basis(bigint) from public, anon, authenticated;
 
--- Einbau in schule.reise_karte: je Flug einmal Grund/Klasse/Visum bestimmen, Felder direkt an Stadt und Flug (keine zweite Runde über die Antwort)
-do $$
-declare d text;
+-- Einbau in schule.reise_karte: je Flug einmal Grund/Klasse/Visum bestimmen, Felder direkt an Stadt und Flug (keine zweite Runde über die Antwort).
+-- RK-D 2 (ChatGPT 972): Rückfall von naechster_start.stadt (keine offene Stadt) behält das bisherige Feldset (Block 6).
+-- schule.rk_d_einbau(): baut ein, wenn keiner der Zielblöcke da ist; meldet „schon eingebaut“ nur, wenn alle sechs Zielblöcke je genau einmal
+-- vollständig da sind; jeder Mischstand bricht mit Fehler ab.
+create or replace function schule.rk_d_einbau()
+ returns text language plpgsql set search_path to ''
+as $f$
+declare d text; i int; v_da int := 0; a text[]; n text[];
   a1 text := $a$v_offen jsonb; v_zp boolean; -- ZP-S$a$;
   n1 text := $a$v_offen jsonb; v_zp boolean; -- ZP-S
   v_rk jsonb; v_rk_vf jsonb; v_rk_ab int; v_rk_gr text; v_rk_fort boolean; -- RK-D$a$;
@@ -80,13 +85,25 @@ declare d text;
   a5 text := $a$        'staedte', v_st);$a$;
   n5 text := $a$        'staedte', v_st,
         'gesperrt', v_rk_gr is not null, 'gesperrt_grund', v_rk_gr, 'ab_klasse', v_rk_ab, 'visum_fehlt', v_rk_vf, 'abgelegt', v_rk->'abgelegt' ? ('flug:' || v_f.thema_id)); -- RK-D$a$;
+  a6 text := $a$(v_st->0) - array['breite', 'laenge', 'titel', 'stand'])$a$;
+  n6 text := $a$(v_st->0) - array['breite', 'laenge', 'titel', 'stand', 'gesperrt', 'gesperrt_grund', 'ab_klasse', 'abgelegt', 'abgelegt_am']) /* RK-D: bisheriges Feldset */$a$;
 begin
+  a := array[a1, a2, a3, a4, a5, a6]; n := array[n1, n2, n3, n4, n5, n6];
   d := pg_get_functiondef('schule.reise_karte(bigint)'::regprocedure);
-  if position('RK-D' in d) > 0 then raise notice 'reise_karte schon umgestellt'; return; end if;
-  if (length(d) - length(replace(d, a1, ''))) / length(a1) <> 1 then raise exception 'RK-D: Anker 1 in reise_karte nicht genau einmal gefunden'; end if;
-  if (length(d) - length(replace(d, a2, ''))) / length(a2) <> 1 then raise exception 'RK-D: Anker 2 in reise_karte nicht genau einmal gefunden'; end if;
-  if (length(d) - length(replace(d, a3, ''))) / length(a3) <> 1 then raise exception 'RK-D: Anker 3 in reise_karte nicht genau einmal gefunden'; end if;
-  if (length(d) - length(replace(d, a4, ''))) / length(a4) <> 1 then raise exception 'RK-D: Anker 4 in reise_karte nicht genau einmal gefunden'; end if;
-  if (length(d) - length(replace(d, a5, ''))) / length(a5) <> 1 then raise exception 'RK-D: Anker 5 in reise_karte nicht genau einmal gefunden'; end if;
-  execute replace(replace(replace(replace(replace(d, a1, n1), a2, n2), a3, n3), a4, n4), a5, n5);
-end $$;
+  for i in 1 .. 6 loop
+    if (length(d) - length(replace(d, n[i], ''))) / length(n[i]) = 1 then v_da := v_da + 1;
+    elsif position(n[i] in d) > 0 then raise exception 'RK-D: Zielblock % mehrfach in reise_karte', i; end if;
+  end loop;
+  if v_da = 6 then return 'schon eingebaut'; end if;
+  if v_da > 0 or position('RK-D' in d) > 0 then
+    raise exception 'RK-D: Mischstand in reise_karte (% von 6 Zielblöcken vollständig) – nicht weiter einbauen', v_da; end if;
+  for i in 1 .. 6 loop
+    if (length(d) - length(replace(d, a[i], ''))) / length(a[i]) <> 1 then raise exception 'RK-D: Anker % in reise_karte nicht genau einmal gefunden', i; end if;
+  end loop;
+  for i in 1 .. 6 loop d := replace(d, a[i], n[i]); end loop;
+  execute d;
+  return 'eingebaut';
+end $f$;
+revoke all on function schule.rk_d_einbau() from public, anon, authenticated;
+
+do $$ begin raise notice 'RK-D: reise_karte %', schule.rk_d_einbau(); end $$;

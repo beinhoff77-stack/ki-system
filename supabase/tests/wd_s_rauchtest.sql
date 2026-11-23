@@ -60,14 +60,31 @@ begin
   select v_l, 'Mathematik', v_heute - d, coalesce((select zeitzone from schule.lernender where id = v_l), 'UTC') from generate_series(1, 120) d on conflict do nothing;
   perform pg_temp.wd_zuruecksetzen(v_l);
 
-  -- 1 WD-1 Rundengröße (Regeln aus schule.regel)
+  -- 1 WD-1 Rundengröße: Regeln merken, im Test selbst setzen (Teiler 5 wie WD-1, dann Teiler 1 = Entscheidung „A“), danach wiederherstellen
+  create temp table if not exists wd_runde_regel_alt on commit drop as
+    select schluessel, wert from schule.regel where schluessel in ('wdh_runde_teiler', 'wdh_runde_min', 'wdh_runde_max', 'wdh_runde_max_bis_kl6');
+  update schule.regel set wert = '6' where schluessel = 'wdh_runde_min';
+  update schule.regel set wert = '12' where schluessel = 'wdh_runde_max';
+  update schule.regel set wert = '10' where schluessel = 'wdh_runde_max_bis_kl6';
+  update schule.regel set wert = '5' where schluessel = 'wdh_runde_teiler';
   if array[schule.wdh_runde_groesse(v_l, 0), schule.wdh_runde_groesse(v_l, 5), schule.wdh_runde_groesse(v_l, 6), schule.wdh_runde_groesse(v_l, 7),
            schule.wdh_runde_groesse(v_l, 20), schule.wdh_runde_groesse(v_l, 41), schule.wdh_runde_groesse(v_l, 60), schule.wdh_runde_groesse(v_l, 100)]
-     <> array[0, 5, 6, 6, 6, 9, 12, 12] then raise exception 'FEHLER 1 Rundengröße Klasse 8'; end if;
+     <> array[0, 5, 6, 6, 6, 9, 12, 12] then raise exception 'FEHLER 1 Rundengröße Klasse 8 (Teiler 5)'; end if;
   update schule.lernender set klasse = 6 where id = v_l;
-  if schule.wdh_runde_groesse(v_l, 60) <> 10 or schule.wdh_runde_groesse(v_l, 41) <> 9 then raise exception 'FEHLER 1 Rundengröße bis Klasse 6'; end if;
+  if schule.wdh_runde_groesse(v_l, 60) <> 10 or schule.wdh_runde_groesse(v_l, 41) <> 9 then raise exception 'FEHLER 1 Rundengröße bis Klasse 6 (Teiler 5)'; end if;
   update schule.lernender set klasse = 8 where id = v_l;
-  raise notice 'ok 1 Rundengröße (0/5/6/7/20/41/60/100 → 0/5/6/6/6/9/12/12; Kl. 6: 60 → 10)';
+  -- Teiler 1 (Entscheidung „A“): alle fälligen, höchstens 12 (bis Kl. 6 höchstens 10); bis zur Mindestgröße ohnehin alle
+  update schule.regel set wert = '1' where schluessel = 'wdh_runde_teiler';
+  if array[schule.wdh_runde_groesse(v_l, 0), schule.wdh_runde_groesse(v_l, 5), schule.wdh_runde_groesse(v_l, 6), schule.wdh_runde_groesse(v_l, 7),
+           schule.wdh_runde_groesse(v_l, 11), schule.wdh_runde_groesse(v_l, 12), schule.wdh_runde_groesse(v_l, 13), schule.wdh_runde_groesse(v_l, 41), schule.wdh_runde_groesse(v_l, 100)]
+     <> array[0, 5, 6, 7, 11, 12, 12, 12, 12] then raise exception 'FEHLER 1 Rundengröße Klasse 8 (Teiler 1)'; end if;
+  update schule.lernender set klasse = 6 where id = v_l;
+  if array[schule.wdh_runde_groesse(v_l, 6), schule.wdh_runde_groesse(v_l, 7), schule.wdh_runde_groesse(v_l, 10), schule.wdh_runde_groesse(v_l, 11), schule.wdh_runde_groesse(v_l, 60)]
+     <> array[6, 7, 10, 10, 10] then raise exception 'FEHLER 1 Rundengröße bis Klasse 6 (Teiler 1)'; end if;
+  update schule.lernender set klasse = 8 where id = v_l;
+  update schule.regel r set wert = a.wert from wd_runde_regel_alt a where a.schluessel = r.schluessel;   -- gemerkte Werte zurück
+  raise notice 'ok 1 Rundengröße – Teiler 5: 0/5/6/7/20/41/60/100 → 0/5/6/6/6/9/12/12, Kl. 6: 60 → 10; Teiler 1: 7/11/13/100 → 7/11/12/12, Kl. 6: 11/60 → 10; Regeln wiederhergestellt (Teiler %)',
+    (select wert from schule.regel where schluessel = 'wdh_runde_teiler');
 
   -- 2 Runde bei 20/41/60/100 fälligen (je ein eigener Tag): Größe, Pflicht zuerst, mindestens ein Drittel für die ältesten – auch wenn die Hälfte Fehler hat
   if (select count(*) from wd_pool) < 100 then raise exception 'FEHLER 2 Vorbereitung: weniger als 100 Etappen mit Aufgabe'; end if;

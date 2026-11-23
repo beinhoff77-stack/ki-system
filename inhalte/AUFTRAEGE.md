@@ -3386,3 +3386,10 @@ Urteil Gestalter zu Frage 8: „was als Nächstes kommt“ ja auf allen Größen
 - Vorher geprüft: letzte Übung beider Kinder über 3 Stunden her. Sebastian: „Live“ / „Live, sobald grün“.
 - Offen (kein Muss): gedämpfte Pins in dichten Gegenden eng; Stadtname auf 360 px gekürzt.
 - Nächster Schritt: bau-motivation baut KJ (0.93.0: Jugendwort-Sticker, Karten Nachbessern / Mein Schuljahr / Zusatz eingeplant, Ring an schuljahr_stand).
+
+## Prüfung Gestalter KJ (0.93.0): 2 Muss, 6 Soll, 8 Kann → Nachtrag KJ 2 (0.93.1) an `bau-motivation` (23.11.)
+
+Datei `inhalte/pruefung/kind/karten/nachpruefung_kj.md`, Bilder in `nachpruefung_kj/`. Gesamtlauf Haupt-Chat 0.93.0: 188/188.
+- **Muss:** M1 Knopf „Zur Reisekarte ›“ nachts unlesbar (weiß auf weiß; betrifft auch das live stehende 0.92.3). M2 alte Mini-Linien unter „Mein Schuljahr“ widersprechen den Zahlen → auf der Abflugtafel weglassen.
+- **Soll (mit in 0.93.1):** S1 Anrede-Sticker unter 600 px auf die Ecke der ersten Karte; S2 Fortschrittslinie direkt unter die Abflugtafel; S3 beim Nachbessern nur ein Zähler; S4 Nachbessern-/Zusatz-Karte nachts dunkel; S5 Lehrer (Fahrplan-Kopf, Detail-Satz, Zusatz-Marke in Gruppe); S6 schwebende Leiste erst, wenn die Tafel aus dem Bild ist.
+- **Kann (mit):** K2 Bedeutungs-Blatt nachts dunkel; `daten/jugendwoerter.json` neu aus `woerter.json` kopieren (Çüş ohne Doppelung). Übrige Kann später.

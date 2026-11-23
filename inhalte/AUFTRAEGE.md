@@ -3393,3 +3393,10 @@ Datei `inhalte/pruefung/kind/karten/nachpruefung_kj.md`, Bilder in `nachpruefung
 - **Muss:** M1 Knopf „Zur Reisekarte ›“ nachts unlesbar (weiß auf weiß; betrifft auch das live stehende 0.92.3). M2 alte Mini-Linien unter „Mein Schuljahr“ widersprechen den Zahlen → auf der Abflugtafel weglassen.
 - **Soll (mit in 0.93.1):** S1 Anrede-Sticker unter 600 px auf die Ecke der ersten Karte; S2 Fortschrittslinie direkt unter die Abflugtafel; S3 beim Nachbessern nur ein Zähler; S4 Nachbessern-/Zusatz-Karte nachts dunkel; S5 Lehrer (Fahrplan-Kopf, Detail-Satz, Zusatz-Marke in Gruppe); S6 schwebende Leiste erst, wenn die Tafel aus dem Bild ist.
 - **Kann (mit):** K2 Bedeutungs-Blatt nachts dunkel; `daten/jugendwoerter.json` neu aus `woerter.json` kopieren (Çüş ohne Doppelung). Übrige Kann später.
+
+## LIVE: App 0.93.1 – Jugendwörter und drei Karten (23.11., 08:15 Berlin)
+
+- `main` 67e387b = `lernen-app` mit bau-motivation a2e59f8 (KJ 2). Gesamttest 190/190, Auslieferung erfolgreich. Sebastian: „Live“.
+- Vorher geprüft: letzte Übung beider Kinder über 5 Stunden her.
+- Offen (später): K1, K3–K8 der Prüfung `nachpruefung_kj.md`; enge Pins auf der Reisekarte; „Zusatz geschafft“ einmal je Gerät.
+- Tageslauf 23.11.: keine neuen Lehrer-Aufträge, keine neue Werkstatt-Nachricht.

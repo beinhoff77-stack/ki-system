@@ -5320,3 +5320,67 @@ main.view:has(.lw-koerper) { max-width: 1440px; }
   .lw-toast.lw-warn .lw-rueck-k { font-size: 0; padding: 5px 10px; } .lw-toast.lw-warn .lw-rueck-k::before { content: "↶"; font-size: 16px; }
 }
 @media (max-width: 759px) { .lw-toast.lw-warn .lw-toast-x { position: absolute; top: 4px; right: 4px; } .lw-toast.lw-warn > span { padding-right: 22px; } .lw-toast.lw-warn:not([hidden]) { position: fixed; } }
+
+/* ---------- LW-3 (0.90.0): Kinder-Umschalter, Überblick-Karten, „Was wackelt“ als Arbeitsliste ---------- */
+.lw-kinder { display: flex; align-items: center; gap: 3px; background: #EFEBE1; border-radius: 12px; padding: 3px; margin-bottom: 8px; max-width: 100%; overflow-x: auto; }
+.lw-k-pfeil { border: 0; background: transparent; width: 30px; min-height: 34px; padding: 0; font: inherit; font-size: 18px; color: #4F5B56; cursor: pointer; flex: none; }
+.lw-k-chip { display: inline-flex; align-items: center; gap: 6px; border: 0; background: transparent; border-radius: 9px; padding: 4px 10px 4px 5px; font: inherit; font-size: 13px; color: #5F6B66; cursor: pointer; min-height: 34px; flex: none; white-space: nowrap; }
+.lw-k-chip.lw-k-aktiv { background: #fff; color: var(--text); box-shadow: 0 1px 2px #0002; }
+.lw-k-buchst { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: #DDD7C9; color: #4F5B56; font-weight: 800; font-size: 11.5px; flex: none; }
+.lw-k-aktiv .lw-k-buchst { background: #254D3E; color: #fff; }
+.lw-k-name { font-weight: 700; } .lw-k-info { font-size: 11px; color: #5F6B66; }
+@media (max-width: 759px) { .lw-k-chip:not(.lw-k-aktiv) .lw-k-name, .lw-k-chip:not(.lw-k-aktiv) .lw-k-info { display: none; } .lw-k-chip:not(.lw-k-aktiv) { padding: 4px; } .lw-k-info { display: none; } }
+.lern-reiter .lw-zb { display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 5px; margin-left: 6px; border-radius: 9px; background: #C0392B; color: #fff; font-size: 11px; font-weight: 800; vertical-align: 1px; }
+/* Überblick-Karten */
+.lw-ue { display: grid; grid-template-columns: 2fr 1.2fr 1.2fr; gap: 12px; margin: 8px 0 14px; }
+.lw-ue-karte { background: #fff; border: 1px solid #E4DED1; border-radius: 14px; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.lw-ue-h { margin: 0; font-size: 10.5px; font-weight: 800; letter-spacing: .07em; color: #5F6B66; }
+.lw-ue-dran { background: #DCEAFB; border-color: #7FA8DD; }
+.lw-ue-titel { font-size: 18px; color: #123B6B; line-height: 1.2; hyphens: auto; -webkit-hyphens: auto; }
+.lw-ue-bar { display: block; height: 5px; border-radius: 3px; background: #B9D0EE; overflow: hidden; } .lw-ue-bar i { display: block; height: 100%; background: #1F5FA8; }
+.lw-ue-knopf { align-self: flex-start; margin-top: auto; font-size: 12.5px; padding: 6px 10px; min-height: 0; }
+.lw-ue-liste { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; font-size: 13px; font-weight: 600; }
+.lw-ue-liste li { display: flex; align-items: flex-start; gap: 6px; } .lw-ue-liste .lw-nr { flex: none; }
+.lw-ue-warn { background: #FBEDEA; border-color: #E8B4AC; } .lw-ue-zahl { font-size: 28px; color: #7A1E14; line-height: 1; }
+.lw-ue-woche, .lw-ue-stand { grid-column: span 1; }
+.lw-ue-stand { grid-column: 1 / -1; }
+.lw-ue-werte { display: flex; gap: 22px; } .lw-ue-werte span { display: flex; flex-direction: column; } .lw-ue-werte b { font-size: 18px; } .lw-ue-werte small { font-size: 11.5px; color: #5F6B66; }
+.lw-ue-ringe { display: flex; flex-wrap: wrap; gap: 10px 24px; }
+.lw-ue-ring { display: flex; align-items: center; gap: 8px; border: 0; background: none; padding: 4px; border-radius: 10px; cursor: pointer; font: inherit; color: var(--text); min-height: 0; }
+.lw-ue-ring:hover { background: #F5F2EA; }
+@media (max-width: 1099px) { .lw-ue { grid-template-columns: 1fr 1fr; } .lw-ue-dran { grid-column: 1 / -1; } }
+@media (max-width: 559px) { .lw-ue { grid-template-columns: 1fr; } .lw-ue-ringe { gap: 6px 14px; } }
+/* Was wackelt als Arbeitsliste */
+.wk-karte .wk-titel { margin: 0 0 6px; }
+.wk-gruppe { margin-top: 10px; }
+.wk-gh { margin: 0 0 6px; font-size: 11px; font-weight: 800; letter-spacing: .07em; color: #5F6B66; }
+.wk-eintraege { display: flex; flex-direction: column; gap: 8px; }
+.wk-eintrag { border: 1px solid #E4DED1; border-left: 4px solid #C0392B; border-radius: 12px; background: #fff; padding: 10px 12px; }
+.wk-eintrag.wk-beobachten { border-left-color: #D9A400; }
+.wk-eintrag.wk-besprochen { border-left-color: #8BC34A; background: #FBFAF6; } .wk-eintrag.wk-besprochen .wk-text b { color: #5F6B66; }
+.wk-kopf { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: flex-start; justify-content: space-between; }
+.wk-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1 1 260px; } .wk-text b { font-size: 15px; } .wk-text small { color: #5F6B66; font-size: 12.5px; }
+.wk-text .ls-marke { align-self: flex-start; }
+.wk-knoepfe { display: flex; flex-wrap: wrap; gap: 6px; }
+.wk-knopf { font-size: 12.5px; padding: 5px 10px; min-height: 32px; }
+.wk-auf { border: 0; background: none; padding: 4px 0 0; font: inherit; font-size: 12.5px; color: #1F5FA8; cursor: pointer; min-height: 0; }
+.wk-detail { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; padding-top: 6px; border-top: 1px dashed #E4DED1; }
+.ls-je-etappe > summary { cursor: pointer; font-weight: 650; padding: 8px 0; }
+a.wk-knopf { display: inline-flex; align-items: center; border: 1px solid #E4DED1; background: #fff; border-radius: 9px; color: var(--text); text-decoration: none; font-weight: 650; }
+a.wk-knopf:hover { background: #F5F2EA; }
+/* LW-3: Handy im Reiter „Lehrplan“ – Kinder-Umschalter und Knöpfe in einer Zeile (erste Karte bleibt über 400 px) */
+@media (max-width: 759px) {
+  main.view:has(.lw-koerper) .lern-kind-kopf:has(.lw-kinder) { display: flex; flex-wrap: wrap; align-items: center; column-gap: 6px; }
+  main.view:has(.lw-koerper) .lern-kind-kopf:has(.lw-kinder) .lw-kinder { margin: 0; flex: 0 1 auto; padding: 2px; }
+  main.view:has(.lw-koerper) .lern-kind-kopf:has(.lw-kinder) .lw-k-pfeil { display: none; }
+  main.view:has(.lw-koerper) .lern-kind-kopf:has(.lw-kinder) .lw-k-chip { min-height: 30px; }
+  main.view:has(.lw-koerper) .lern-kind-kopf:has(.lw-kinder) .lern-kind-kopf-zeile { flex: 1 1 auto; justify-content: flex-end; }
+  main.view:has(.lw-koerper) .lern-kind-kopf:has(.lw-kinder) .lern-kind-kopf-zeile > div:first-child { display: none; }
+  main.view:has(.lw-koerper) .lern-kind-kopf:has(.lw-kinder) .lern-einstellen { font-size: 0; padding: 4px 8px; } main.view:has(.lw-koerper) .lern-kind-kopf:has(.lw-kinder) .lern-einstellen::before { content: "⚙"; font-size: 15px; }
+  main.view:has(.lw-koerper) .lern-kind-kopf:has(.lw-kinder) .lern-reiter { flex: 1 0 100%; }
+}
+@media (max-width: 759px) {
+  main.view:has(.lw-koerper) .lern-kind-kopf:has(.lw-kinder) .lern-kind-kopf-zeile { flex: 1 1 0; min-width: 0; width: auto; margin: 0; }
+  main.view:has(.lw-koerper) .lern-kind-kopf:has(.lw-kinder) .lern-kind-kopf-knoepfe { margin-left: auto; gap: 4px; }
+  main.view:has(.lw-koerper) .lern-kind-kopf:has(.lw-kinder) .lern-info-oben { margin: 0; }
+}

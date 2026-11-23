@@ -3092,3 +3092,13 @@ Stand `lernen-app` 0d8717d. Reihenfolge: RD-S-Migration → rd_einspiel_2311 →
 - 123 Länder, 827 Städte, 0 Abweichungen. Expedition „8-schulfest“ zeigt auf den Teil 2 (Thema 281). Angebote nach dem Nachtragen: 0 (kein Kind hat eine Expedition freigeschaltet).
 - „sicher“ je Stadt = `schule.karte_sicher` (wie `thema_stufe`); falsch war der Test, nicht die Funktion.
 Prüfbitte an ChatGPT gestellt.
+
+## EINGESPIELT + LIVE: Routen (RD-S), EX-F, EX-S, lernen-api 0.9.3, App 0.90.1 – 23.11., 02:00–02:10 Berlin
+
+Freigaben Sebastian: „Routen in die Datenbank einspielen“, „live“, „Beide machen eine Pause, jetzt bitte einspielen“. Prüfung Werkstatt 961 (Freigabe). Werkstatt-Änderung 380.
+- Datenbank: Migration `rd_s_reise_ex_f_ex_s_einspielen` (RD-S → rd_einspiel_2311 → EX-F → EX-S), Stand der Dateien `lernen-app` 0d8717d. Vorher/Nachher gleich: Karten, Sterne, Lernziel-Stände, Erstabschlüsse, Stufen, Reiseoptionen, Ortsnamen, Versuche. 123 Länder, 827 Städte, 21 Stationen, 0 Abweichungen. Danach alle neun Rauchtests grün (Rollback). 0 Expeditions-Angebote; Regelwerte 150/200.
+- Edge Function `lernen-api` 0.9.3 (Version 11), `/hilfe` antwortet mit 0.9.3.
+- App 0.90.1: `main` 3934f2b, Auslieferung erfolgreich, App-Tests 159 von 159. Gestalter hat 0.90.0/0.90.1 nicht geprüft (offen).
+- Nachkontrolle erste Sitzung nach Teilung/fairen Punkten: Sterne-Buchungen passen (wdh 10, uebung 10, landung 80, Knobel 30).
+
+Offen: Legende hinter ⓘ (Rechner) – Entscheidung Sebastian; Prüfung Gestalter 0.90.1; EX-App und RK-App an `bau-motivation`; Lizenz COMNAP (Stationen) vor RK-App; Zuteilung der neuen Teile durch Sebastian.

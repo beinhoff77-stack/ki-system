@@ -619,7 +619,7 @@ test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, L
   assert.deepEqual(await page.locator('.lr-blatt-liste a').allInnerTexts(), ['Abflugtafel', 'Mein Weg', 'Merkheft', 'Reisepass']); // K2: 4 Einträge
   await page.screenshot({ path: path.join(root, 'test-results/abflug-menue-390.png') });
   await page.getByRole('button', { name: 'Schließen' }).click();
-  await start.click();
+  await page.locator('.lr-flug-jetzt').click(); // KJ 2 S6: solange die Tafel zu sehen ist, startet man über ihre Zeile (die schwebende Leiste ist aus)
   // Neue Lernkarte: „Einsteigen“ zeigt zuerst die Erklärung, „Jetzt du“ führt zu den Aufgaben
   await page.waitForURL(/#\/lerneinheit\/1-1-erklaeren-1/);
   await page.getByRole('button', { name: 'Jetzt du ›' }).click();
@@ -1038,9 +1038,12 @@ const standAnpassen = ({ mitThemen = true, bisSitzt } = {}) => (aktion, e) => {
   return null;
 };
 
-test('K3: Abflugtafel mit Mini-Linien GYM · RS · IB; Mein Weg · Stand in drei Ebenen (Linienplan → Klasse → Kontinent)', async (t) => {
+test('K3: Mini-Linien GYM · RS · IB unter „Mein Weg · Stand“ (KJ 2 M2: nicht mehr auf der Abflugtafel); Stand in drei Ebenen (Linienplan → Klasse → Kontinent)', async (t) => {
   const { page } = await setup(t, { gestaltung: 'nacht', anpassen: standAnpassen() });
-  await page.goto(origin + '/#/reise/1');
+  await page.addInitScript(() => localStorage.setItem('lern.rk.1', 'tafel'));
+  await page.goto(origin + '/#/reise/1'); await page.locator('.lr-abflugtafel').waitFor();
+  assert.equal(await page.locator('.lr-mini3').count(), 0, 'M2: keine Mini-Linien auf der Abflugtafel');
+  await page.goto(origin + '/#/weg/1-stand');
   const mini = page.locator('.lr-mini3 .lr-mini');
   await mini.first().waitFor();
   // Rechenregel: GYM 5 = Rom (gelandet, 4/4 Etappen), Rom „Ganze Zahlen“ (offen), Athen (Ort fertig) → 2 von 3; RS Stufe 6 aus „stufen“ → Athen 1/1; IB: Klasse 5 steht vor MYP-Jahr 1 (MYP-Jahr = Klasse − 5) → 0/0
@@ -4270,8 +4273,7 @@ test('EX-Nachprüfung (0.92.2): 360 × 640 höchstens 2 Chips + „+n weitere“
   await page.setViewportSize({ width: 400, height: 860 }); await page.goto(origin + '/#/reise/1');
   const karte = page.locator('.lr-ex-karte'); await karte.waitFor();
   assert.equal((await karte.locator('.lr-ex-ueber').innerText()).replace(/\s+/g, ' ').trim(), '⛯ EXPEDITION · TEIL B VON 3');
-  const unten = await page.evaluate(() => { const tafel = document.querySelector('.lr-abflugtafel'), m = document.querySelector('.lr-mini3'); return !!(tafel && m && (tafel.compareDocumentPosition(m) & Node.DOCUMENT_POSITION_FOLLOWING)); });
-  assert.ok(unten, 'K2: Stand-Kacheln nach der Abflugtafel');
+  assert.equal(await page.locator('.lr-mini3').count(), 0, 'KJ 2 M2: keine Stand-Kacheln mehr auf der Abflugtafel (EX K2 damit erledigt)');
   await page.screenshot({ path: path.join(root, 'test-results/ex-k1-tafel-400.png') });
   await page.goto(origin + '/#/expedition/1-7'); await page.locator('.lr-ex-kopf .lr-ueber').waitFor();
   assert.equal((await page.locator('.lr-ex-kopf .lr-ueber').innerText()).trim(), '⛯ EXPEDITION');
@@ -4975,7 +4977,8 @@ test('JW: Sticker in der Landung (Szene unten rechts, verdeckt nichts), Antippen
     await page.screenshot({ path: path.join(root, `test-results/jw-landung-${b}-${g}.png`) });
     await st.click(); const bl = page.locator('.lr-jw-blatt'); await bl.waitFor();
     const wort = JW.woerter.find((w) => w.id === spruch.woerter[0]); assert.match(await bl.innerText(), new RegExp(wort.bedeutung.slice(0, 20).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
-    if (wort.gesprochen) assert.match(await bl.innerText(), /gesprochen/);
+    if (wort.gesprochen) assert.equal((await bl.innerText()).match(/gesprochen/g).length, 1, 'K2b: „gesprochen“ nur einmal');
+    assert.equal(await bl.locator('.lr-jw-blatt-innen').evaluate((e) => getComputedStyle(e).backgroundColor), g === 'nacht' ? 'rgb(18, 24, 49)' : 'rgb(255, 255, 255)', 'K2a: nachts dunkel');
     await page.screenshot({ path: path.join(root, `test-results/jw-bedeutung-${b}-${g}.png`) });
     await bl.getByRole('button', { name: 'Schließen' }).click(); assert.equal(await page.locator('.lr-jw-blatt').count(), 0);
     assert.equal(await page.locator('.lr-abschluss').count(), 1, 'Antippen schließt die Landung nicht');
@@ -5052,7 +5055,11 @@ test('KJ NB: Übung mit Leiste „↻ NACHBESSERN“ – Folge 1 → 2 → 0 (Fe
   server.neueAktionen = false;
   const { page } = await setup(t, { gestaltung: 'tag', anpassen: server }); await page.setViewportSize({ width: 400, height: 860 });
   await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); const leiste = page.locator('.lr-nb-leiste'); await leiste.waitFor();
-  assert.match(await leiste.innerText(), /↻ NACHBESSERN · Welchen Wert hat eine Ziffer\?[\s\S]*1 von 3 in Folge/);
+  assert.match(await leiste.innerText(), /↻ NACHBESSERN[\s\S]*1 von 3 in Folge/);
+  // KJ 2 S3: ein Zähler – die Nachbessern-Leiste steht in der Etappen-Leiste statt „x von 2 richtig“; Etappen-Name und Blättern bleiben
+  const kopf = page.locator('.lr-lk-kopf'); assert.equal(await kopf.locator('.lr-nb-leiste').count(), 1); assert.equal(await page.locator('.lr-nb-leiste').count(), 1);
+  assert.doesNotMatch(await kopf.innerText(), /von \d+ richtig|selbst gelöst/); assert.match(await kopf.innerText(), /Etappe 1\/\d+ · Welchen Wert hat eine Ziffer\?/);
+  assert.equal(await kopf.locator('.lr-pfeilknopf').count(), 2);
   await page.screenshot({ path: path.join(root, 'test-results/kj-nb-uebung-400.png') });
   const antworte = async () => { await page.locator('.lr-bordkarte input').first().fill('7'); await page.getByRole('button', { name: 'Prüfen' }).click(); };
   const weiter = () => page.locator('.lr-weiter').click();
@@ -5101,7 +5108,7 @@ test('KJ Lehrer: Ring ohne Zusatz-Teil der Gruppe (gleiche Auswahl wie schuljahr
   const karte = page.locator(`.lw-karte[data-id="${zpId}"]`); assert.match(await karte.getAttribute('class'), /lw-zp/);
   assert.match(await karte.innerText(), /Zusatz · eingeplant[\s\S]*2\/5 Etappen/);
   assert.match(await page.locator('.lw-rail .lw-fp-zp').first().innerText(), /ZUSATZ · EINGEPLANT 2 von 5 Etappen · ohne Flug-Test/);
-  assert.match(await page.locator('.lw-rk-zahl').innerText(), / · \+ 1 Zusatz$/);
+  assert.match(await page.locator('.lw-rk-zahl').innerText(), / · \+ 2 Zusatz$/, 'Zusatz-Platz und Zusatz-Teil in der Gruppe');
   await karte.click(); const dr = page.locator('.lw-drawer.lw-auf'); await dr.waitFor();
   assert.match(await dr.innerText(), /Zusatz · eingeplant – kein Pflichtstoff im Gymnasium[\s\S]*2 von 5 Etappen · fertig, sobald alle gelandet \(ohne Flug-Test\) · dann Stempel und ★ 100, einmal/);
   await page.screenshot({ path: path.join(root, 'test-results/kj-lehrer-lehrplan-1280.png') });
@@ -5122,4 +5129,64 @@ test('KJ Lehrer: Ring ohne Zusatz-Teil der Gruppe (gleiche Auswahl wie schuljahr
   await seite.setViewportSize({ width: 820, height: 1180 }); await seite.waitForTimeout(300); await seite.screenshot({ path: path.join(root, 'test-results/kj-lehrer-stand-820.png'), fullPage: true });
   await page.setViewportSize({ width: 820, height: 1180 }); await page.goto(origin + '/#/kind/1-lehrplan'); await page.locator('.lw-karte').first().waitFor(); await page.waitForTimeout(300);
   await page.screenshot({ path: path.join(root, 'test-results/kj-lehrer-lehrplan-820.png') });
+});
+
+test('KJ 2 (0.93.1): M1 „Zur Reisekarte ›“ nachts lesbar (Kontrast ≥ 4,5 : 1), M2 keine Mini-Linien, S1 Anrede auf der Ecke der ersten Karte (< 600 px), S2 Fortschritt vor Zusatz, S4 Nachtfarben, S6 Einsteigen-Leiste erst nach der Tafel (360/400/820, Tag und Nacht)', async (t) => {
+  const kontrast = (page) => page.locator('.rk-zur-karte').evaluate((e) => {
+    const rgb = (s) => (s.match(/[\d.]+/g) || []).map(Number); const lum = ([r, g, b]) => { const f = (c) => { c /= 255; return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; }; return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b); };
+    let x = e, bg = null; while (x) { const c = rgb(getComputedStyle(x).backgroundColor); if (c.length >= 3 && (c.length < 4 || c[3] > 0.5)) { bg = c.slice(0, 3); break; } x = x.parentElement; }
+    const fg = rgb(getComputedStyle(e).color).slice(0, 3); const [a, b] = [lum(fg), lum(bg || [255, 255, 255])]; return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05); });
+  for (const [b, h] of [[360, 740], [400, 860], [820, 1180]]) for (const g of ['tag', 'nacht']) {
+    const ex = exServer(); const { page } = await setup(t, { gestaltung: g, anpassen: kjServer({ basis: ex.anpassen }) });
+    await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); localStorage.setItem('lern.rk.1', 'tafel'); });
+    await page.setViewportSize({ width: b, height: h }); await page.goto(origin + '/#/reise/1'); await page.locator('.lr-abflugtafel').waitFor(); await page.waitForTimeout(600);
+    // M1
+    const k = await kontrast(page); assert.ok(k >= 4.5, `${b} ${g}: Kontrast „Zur Reisekarte“ ${k.toFixed(2)}`);
+    assert.equal(await page.locator('.rk-zur-karte').evaluate((e) => getComputedStyle(e).textDecorationLine), 'underline');
+    // M2
+    assert.equal(await page.locator('.lr-mini3').count(), 0);
+    // S1: Titel einzeilig; Anrede unter 600 px auf der Ecke der ersten Karte (Nachbessern), ab 600 px im Kopf
+    const titel = page.locator('.lr-tafelkopf .lr-titel'); const th = await titel.evaluate((e) => [e.getBoundingClientRect().height, parseFloat(getComputedStyle(e).lineHeight) || parseFloat(getComputedStyle(e).fontSize) * 1.3]);
+    assert.ok(th[0] < th[1] * 1.6, `${b}: Titel einzeilig (${th})`);
+    const st = page.locator('.lr-jw-sticker.lr-jw-anrede'); await st.waitFor();
+    if (b < 600) { const kb = await page.locator('.lr-nb-karte').boundingBox(); const sb = await st.boundingBox(); assert.equal(await page.locator('.lr-nb-karte .lr-jw-anrede').count(), 1);
+      assert.ok(sb.y < kb.y && sb.x + sb.width > kb.x + kb.width + 4, `Sticker ragt über die Ecke (${JSON.stringify(sb)} / ${JSON.stringify(kb)})`); }
+    else assert.equal(await page.locator('.lr-tafelkopf .lr-jw-anrede').count(), 1);
+    // S2: Fortschrittslinie von „Gerade dran“ vor der Zusatz-Karte
+    assert.ok(await page.evaluate(() => { const b0 = document.querySelector('.lr-band-box'), z = document.querySelector('.lr-zp-karte'); return !!(b0 && z && (b0.compareDocumentPosition(z) & Node.DOCUMENT_POSITION_FOLLOWING)); }), 'Fortschritt vor Zusatz');
+    // S4: Nachtfarben
+    const bgNb = await page.locator('.lr-nb-karte').evaluate((e) => getComputedStyle(e).backgroundColor); const bgZp = await page.locator('.lr-zp-karte').evaluate((e) => getComputedStyle(e).backgroundColor);
+    if (g === 'nacht') { assert.equal(bgNb, 'rgb(46, 29, 20)'); assert.equal(bgZp, 'rgb(39, 35, 26)'); assert.equal(await page.locator('.lr-nb-knopf').evaluate((e) => getComputedStyle(e).backgroundColor), 'rgb(200, 100, 43)'); }
+    else { assert.equal(bgNb, 'rgb(255, 241, 230)'); assert.equal(bgZp, 'rgb(246, 239, 226)'); }
+    // S6: Leiste erst, wenn die Tafel aus dem Bild ist
+    const dock = page.locator('.lr-dock-start');
+    const zustand = () => dock.evaluate((e) => [e.classList.contains('lr-dock-weg'), getComputedStyle(e).opacity]);
+    const tafelImBild = await page.locator('.lr-flug-jetzt').evaluate((e) => { const r = e.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; });
+    if (tafelImBild) { const z0 = await zustand(); assert.ok(z0[0], `${b} ${g}: Leiste aus, solange die Tafel zu sehen ist`); }
+    await page.screenshot({ path: path.join(root, `test-results/kj2-tafel-${b}-${g}.png`) });
+    await page.evaluate(() => { const r = document.querySelector('.lr-flug-jetzt').getBoundingClientRect(); window.scrollBy(0, r.bottom + 10); });
+    await page.waitForFunction(() => !document.querySelector('.lr-dock-start').classList.contains('lr-dock-weg')).catch(async () => { throw new Error(`${b} ${g}: ` + JSON.stringify(await page.evaluate(() => [scrollY, document.documentElement.scrollHeight, innerHeight, document.querySelector('.lr-abflugtafel').getBoundingClientRect().toJSON()]))); });
+    await page.waitForTimeout(300);
+    assert.equal((await zustand())[1], '1', 'Leiste da, sobald die Tafel aus dem Bild ist');
+    if (b === 360) { await page.screenshot({ path: path.join(root, `test-results/kj2-tafel-360-${g}-gescrollt.png`) }); }
+  }
+});
+
+test('KJ 2 S5: Lehrer 1280 – Fahrplan-Kopf ohne Umbruch im Wort, Stand-Satz im Detail bricht um, Zusatz-Teil in einer Gruppe mit Marke „+ 1 Zusatz“', async (t) => {
+  let zpId = null; let t8id = null;
+  const f0 = (() => { const basis = lmsAnpassen(); const f = (aktion, e, d) => { const r = basis(aktion, e, d);
+    if (aktion === 'schule_lehrplan_matrix' && r) { const st1 = (x) => r.lernstand[1][x.thema_id]?.stufe;
+      const t8 = r.themen.find((x) => x.jahrgang?.gym_by === 8 && !x.ohne_flug && st1(x) === 'kommt' && r.themen.filter((y) => y.block_id === x.block_id).length > 1); t8id = t8.thema_id; t8.teil = { nr: 2, von: 2, zusatz: ['gym_by'] };
+      const allein = (x) => r.themen.filter((y) => y.block_id === x.block_id).length === 1; const k = r.themen.find((x) => x !== t8 && st1(x) === 'kommt' && allein(x)); zpId = k.thema_id; Object.assign(r.lernstand[1][zpId], { zusatz_eingeplant: true, gelandet: 2, etappen: 5 }); }
+    return r; }; f.neueAktionen = true; return f; })();
+  const { page } = await lwOeffnen(t, 1280, { anpassen: f0 });
+  const rk = await page.locator('.lw-rk b').evaluate((e) => e.getBoundingClientRect().height); assert.ok(rk < 24, `„Fahrplan“ einzeilig (${rk})`);
+  assert.match(await page.locator('.lw-rk-zahl').innerText(), /\+ 2 Zusatz$/);
+  const gruppe = page.locator('.lw-rail .lw-fp', { has: page.locator('.lw-fp-zp-teil') }); assert.equal(await gruppe.count(), 1); assert.equal(await gruppe.locator('.lw-fp-zp-teil').innerText(), '+ 1 Zusatz');
+  await page.locator(`.lw-karte[data-id="${zpId}"]`).click(); const satz = page.locator('.lw-drawer.lw-auf .lw-zp-stand'); await satz.waitFor();
+  await page.waitForFunction(() => { const d = document.querySelector('.lw-drawer.lw-auf'); return d && d.getAnimations().length === 0 && getComputedStyle(d).transform === 'none'; }); // Blatt fertig eingeschoben
+  const mass = await satz.evaluate((e) => { const d = e.closest('.lw-drawer'); const p = d.parentElement; return { satz: e.getBoundingClientRect().right, drawer: d.getBoundingClientRect().right, dw: d.getBoundingClientRect().width, eltern: p.getBoundingClientRect().right, pc: p.className, vw: innerWidth, sw: e.scrollWidth, cw: e.clientWidth }; });
+  assert.ok(mass.sw <= mass.cw + 1 && mass.satz <= Math.min(mass.drawer, mass.eltern, mass.vw) + 1, 'Stand-Satz im Blatt ' + JSON.stringify(mass));
+  assert.match(await satz.innerText(), /fertig, sobald alle gelandet \(ohne Flug-Test\)/);
+  await page.screenshot({ path: path.join(root, 'test-results/kj2-lehrer-1280.png') });
 });

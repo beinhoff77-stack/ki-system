@@ -3240,3 +3240,13 @@ Offen: ZP-App (Anzeige „Zusatz · eingeplant“, Muss laut ChatGPT 966); Nacht
 ## Entscheidung Sebastian (23.11., 03:32 Berlin): „Wie viel ist noch?“ zählt alle Etappen
 
 „Mein Schuljahr“, Karte „Stand“ und der Ring zählen **alle Etappen der Pflicht-Flüge** der Klasse (wie heute der Ring und `schuljahr_stand.etappen`), nicht nur die Pflicht-Etappen. Die Vorgabe des Gestalters gilt damit unverändert. Die Zusatzfelder `etappen_pflicht`/`kuer` aus dem Nachtrag NB-S/SJ-S sind nicht nötig (dürfen bleiben, wenn schon gebaut; die App nutzt `etappen`).
+
+## Probelauf NB-S 2 / SJ-S 2 / NT-D 3 (23.11., 03:40 Berlin, echte Datenbank mit LZ-S und ZP-S live; alles zurückgerollt)
+
+Stand `lernen-app` 600609c. `nt_einspiel_2311.sql` zweimal ohne Fehler (30162 → 30176 Aufgaben); NB-S und SJ-S zweimal ohne Fehler; Karten, Sterne, Plan, Reiseoptionen, Stufen unverändert. Danach grün: zp_s, tl_s, nt_s, lz_s.
+**Weiter rot, jetzt mit fachlichen Meldungen (vor und nach dem Einspielen gleich):**
+- `nb_s_rauchtest`: „FEHLER 5: unerwartete Sterne: landung 80 (6×), landung 40, uebung 10 (12×)“ – die im Test nachgestellten Antworten buchen auf dem echten Stand Übungs- und Landungs-Sterne (faire Punkte, Landungs-Bonus); der Test erwartet keine.
+- `sj_s_rauchtest`: „FEHLER 3: ‚kann er‘ nicht mit allen Etappen: vorher 12/0/12, nachher 10 offen/2 fertig/12“ – das Setzen im Test macht auf dem echten Stand zwei Flüge fertig statt einen (vermutlich Ort mit zwei Themen oder Themen-Familie).
+→ Nachtrag NB-S 3 / SJ-S 3: Erwartungen der Tests an den echten Stand angleichen (lesend auf der echten Datenbank nachvollziehen), keine Änderung an den Migrationen, sofern die Funktionen richtig rechnen – sonst melden.
+
+App 0.91.2 (abgesichert): Ursache war ein echter Wettlauf beim Kinder-Wechsel (A → B → A blieb bei B) plus zeitabhängige Tests; behoben. Gesamtlauf läuft.

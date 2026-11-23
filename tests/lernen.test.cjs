@@ -2508,37 +2508,52 @@ test('AB-A 3: Ort geschafft → Reisepass-Stempel → Bordkarte VON → NACH; Ü
 
 // Punkt 6 (aus LB-3 Nachbesserung): Rückgängig nur für den jüngsten Schritt, Ablehnung verständlich; Rückfall-Hinweis; heute_bis
 test('LB Teil 6 Punkt 6: Rückfall-Hinweis bei „Kann er komplett“; „heute“ des Kindes aus heute_bis (Knobeln des Tages, Wiederholungsrunde)', async (t) => {
+  // 0.92.1: unabhängig von der Uhrzeit des Laufs – alle Tage relativ zum Gerätetag, heute_bis relativ zu „jetzt“ (± 6 h); Prüfung im selben Augenblick
   const { page } = await setup(t, { anpassen: echtAnpassen() });
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto(origin + '/#/kind/1-lehrplan'); await page.locator('.lw-koerper').waitFor();
   const r = await page.evaluate(() => {
     const z = (s) => lernStufeZusatz(s);
     const el2 = lernStufeWortEl({ stufe: 'komplett', gesetzt: 'komplett', hinweis: 'rueckfall', wieder_offen: 1 });
-    const zukunft = new Date(Date.now() + 3600e3).toISOString(), vorbei = new Date(Date.now() - 3600e3).toISOString();
-    localStorage.setItem('lern.heute.77', JSON.stringify({ tag: '2031-05-06', n: 2, server: true, geraet: '2031-05-05', bis: zukunft }));
-    const tagServer = lernHeuteTag(77); lernWdhHeute(77, true); const runde = localStorage.getItem('lern.wdhrunde.77');
-    localStorage.setItem('lern.heute.77', JSON.stringify({ tag: '2031-05-06', n: 2, server: true, geraet: '2031-05-05', bis: vorbei }));
+    const zukunft = new Date(Date.now() + 6 * 3600e3).toISOString(), vorbei = new Date(Date.now() - 6 * 3600e3).toISOString();
+    const g0 = lernGeraetTag(); const plus = (tag, n) => { const d = new Date(tag + 'T12:00:00Z'); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
+    const setze = (tag, bis) => localStorage.setItem('lern.heute.77', JSON.stringify({ tag, n: 2, server: true, geraet: g0, bis }));
+    setze(plus(g0, 1), zukunft); const tagServer = lernHeuteTag(77); lernWdhHeute(77, true); const runde = localStorage.getItem('lern.wdhrunde.77');
+    setze(plus(g0, -1), vorbei); const tagAbgelaufen = lernHeuteTag(77); // Gerät ist schon weiter → Kalendertag des Geräts
+    setze(g0, vorbei); const tagGleich = lernHeuteTag(77); // Gerät hinter dem Kind (Zeitzone) → der Tag danach, nicht der alte Tag
+    setze(plus(g0, 1), vorbei); const tagVorn = lernHeuteTag(77);
+    const g1 = lernGeraetTag();
     return { gesetzt: z({ stufe: 'komplett', gesetzt: 'komplett', hinweis: 'rueckfall', wieder_offen: 2 }), sicher: z({ stufe: 'komplett', hinweis: 'rueckfall', wieder_offen: 1 }), ohne: z({ stufe: 'komplett', gesetzt: 'komplett' }),
-      klasse: el2.className, text: el2.innerText || el2.textContent, tagServer, runde, tagAbgelaufen: lernHeuteTag(77), geraet: lernGeraetTag() };
+      klasse: el2.className, tagServer, runde, tagAbgelaufen, tagGleich, tagVorn, g0, g1, erwartet: { morgen: plus(g0, 1), uebermorgen: plus(g0, 2) } };
   });
   assert.equal(r.gesetzt, 'gesetzt · Rückfall: 2 Etappen wieder offen');
   assert.equal(r.sicher, 'alle Etappen sicher · Rückfall: 1 Etappe wieder offen');
   assert.equal(r.ohne, 'gesetzt');
   assert.match(r.klasse, /lern-st-rueckfall/);
-  assert.equal(r.tagServer, '2031-05-06', 'Tag des Kindes vom Server, solange heute_bis nicht vorbei ist');
-  assert.equal(r.runde, '2031-05-06', 'Wiederholungsrunde merkt den Tag des Kindes');
-  assert.equal(r.tagAbgelaufen, r.geraet, 'nach heute_bis: Kalendertag des Geräts');
+  if (r.g0 === r.g1) { // (läuft der Lauf genau über Mitternacht, gelten die Tages-Prüfungen nicht)
+    assert.equal(r.tagServer, r.erwartet.morgen, 'Tag des Kindes vom Server, solange heute_bis nicht vorbei ist');
+    assert.equal(r.runde, r.erwartet.morgen, 'Wiederholungsrunde merkt den Tag des Kindes');
+    assert.equal(r.tagAbgelaufen, r.g0, 'nach heute_bis: Kalendertag des Geräts, wenn er schon weiter ist');
+    assert.equal(r.tagGleich, r.erwartet.morgen, 'nach heute_bis: mindestens der Tag nach dem letzten Server-Tag (Gerät hinter der Zeitzone des Kindes)');
+    assert.equal(r.tagVorn, r.erwartet.uebermorgen);
+  }
   // in der Lehrer-Ansicht sichtbar: ein Flug „komplett“ mit Rückfall
   const { page: p2 } = await setup(t, { anpassen: (aktion, e) => { const x = echtAnpassen()(aktion, e); if (aktion !== 'schule_plan_lesen' || !x) return x;
     const t1 = x.orte.flatMap((o) => o.themen).find((q) => q.stufe?.stufe === 'komplett'); t1.stufe = { ...t1.stufe, gesetzt: 'komplett', hinweis: 'rueckfall', wieder_offen: 1 };
     const ort = x.orte.find((o) => o.themen.includes(t1)); const zeile = x.plan.find((q) => q.block_id === ort.block_id); if (zeile) zeile.kann_schon_themen = [t1.thema_id];
     return x; } });
-  await p2.setViewportSize({ width: 1280, height: 900 });
   const t1 = echtePlanDaten().ORTE.flatMap((o) => o.themen).find((q) => q.stufe?.stufe === 'komplett');
   await p2.setViewportSize({ width: 1280, height: 900 }); await p2.goto(origin + '/#/kind/1-lehrplan'); await p2.locator('.lw-koerper').waitFor();
-  const kl = p2.getByRole('group', { name: 'Klassen' }); for (const k of [5, 6]) { const kb = kl.getByRole('button', { name: new RegExp('^Klasse ' + k) }); if (await kb.getAttribute('aria-pressed') !== 'true') await kb.click(); }
-  await p2.locator('.lw-zu-reihe').first().click().catch(() => {}); await p2.locator('.lw-zu-reihe').first().click().catch(() => {});
-  await p2.locator(`.lw-karte[data-id="${t1.thema_id}"]`).click();
+  // 0.92.1: auf Zustände warten – Klassen 5 und 6 an (je Klick bis aria-pressed stimmt), dann eingeklappte Klassen aufklappen, bis die Karte da ist
+  const kl = p2.getByRole('group', { name: 'Klassen' });
+  for (const k of [5, 6]) { const kb = kl.getByRole('button', { name: new RegExp('^Klasse ' + k) }); if (await kb.getAttribute('aria-pressed') !== 'true') await kb.click();
+    await p2.waitForFunction((k2) => [...document.querySelectorAll('.lw-kseg button')].find((b) => b.textContent.startsWith(String(k2)))?.getAttribute('aria-pressed') === 'true', k); }
+  const karte = p2.locator(`.lw-karte[data-id="${t1.thema_id}"]`);
+  for (let i = 0; i < 6 && !(await karte.count()); i++) {
+    const n = await p2.locator('.lw-zu-reihe').count(); if (!n) break;
+    await p2.locator('.lw-zu-reihe').first().click(); await p2.waitForFunction((n0) => document.querySelectorAll('.lw-zu-reihe').length < n0, n);
+  }
+  await karte.click(); await p2.locator('.lw-drawer.lw-auf .lw-stpill').waitFor();
   assert.match(await p2.locator('.lw-drawer.lw-auf .lw-stpill').innerText(), /Rückfall: 1 Etappe wieder offen/, 'Rückfall-Hinweis in der Lehrer-Ansicht');
 });
 

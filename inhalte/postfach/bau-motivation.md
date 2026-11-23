@@ -2,6 +2,35 @@
 
 Neueste oben.
 
+## 2026-11-23 – FERTIG: 0.92.x abgesichert (App 0.92.1)
+
+Stand `lernen-app` c41a3d5 übernommen. Nur App: keine Datenbank, kein Merge nach `main`, keine Namen. Cache v172.
+
+**Ursache**
+1. **Der rote Lauf: der Test war last- und zeitabhängig, kein Fehler im gemerkten oder vorgeladenen Laden.**
+   - Teil 2 des Tests klappte „blind“ zweimal die erste eingeklappte Klasse auf, jeweils mit `.catch(() => {})`. Unter Last lief er auf die feste 5-s-Grenze, oder die Karte fehlte, weil das Aufklappen still scheiterte.
+   - Einzeln, mit 6-fach gedrosselter CPU und in anderer Zeitzone (`TZ=Pacific/Kiritimati`) bekam ich keinen roten Lauf. Den ursprünglichen Fehler konnte ich deshalb nicht nachstellen.
+   - Gemerkte Karten-Antwort, Vorladen und Hintergrund-Auffrischen zeichnen im Reiter „Lehrplan“ nichts neu; dort habe ich keinen Wettlauf gefunden.
+   - Teil 1 rechnete schon vorher relativ (Tag 2031, `heute_bis` = jetzt ± 1 h) und hing nicht von der Uhrzeit ab.
+2. **Beim Prüfen gefunden: ein echter Fehler in „heute“ des Kindes.**
+   - Ist `heute_bis` vorbei, nahm die App den Kalendertag des Geräts.
+   - Steht das Gerät in einer Zeitzone hinter der des Kindes (Reise), zeigt es dann noch den alten Tag. Die Wiederholungsrunde galt damit weiter als „heute gemacht“, ebenso das Knobeln des Tages.
+   - Neu: Nach `heute_bis` ist „heute“ mindestens der Tag nach dem letzten Server-Tag; ist der Gerätetag schon weiter, gilt der Gerätetag.
+   - Mit 0.92.0 ist der neue Teil des Tests rot, mit 0.92.1 grün.
+
+**Test**
+- Alle Tage stehen relativ zum Gerätetag, `heute_bis` = jetzt ± 6 h, geprüft im selben Augenblick. Läuft der Test genau über Mitternacht, werden die Tagesprüfungen übersprungen.
+- Neue Fälle: Gerät schon weiter, Gerät gleich, Gerät zurück.
+- Teil 2 wartet auf Zustände:
+  - Klasse an (`aria-pressed`)
+  - je Klick eine eingeklappte Reihe weniger, bis die Karte da ist
+  - dann das Detail mit dem Rückfall-Hinweis
+
+**Nachweis:** `tests/lernen.test.cjs` dreimal hintereinander:
+- Lauf 1: **176/176**, 272 s
+- Lauf 2: **176/176**, 267 s
+- Lauf 3 mit `LERN_CPU=4`: **176/176**, 534 s
+
 ## 2026-11-23 – FERTIG: RK-App (0.92.0)
 
 Auf 0.91.2 aufgesetzt. Nur App: keine Datenbank, keine Migration, kein Merge nach `main`, keine echten Kinderdaten, keine Namen. Cache v171. Vorgabe `inhalte/pruefung/kind/karte/umsetzung.md` (§1–11) und EX-Vorgabe §7.

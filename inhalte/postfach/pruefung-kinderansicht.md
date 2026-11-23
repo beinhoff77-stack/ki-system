@@ -145,3 +145,6 @@ Bericht `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw1.md`, Bilder `werksta
 
 ## 2026-11-22 – FERTIG: Prüfung LW-2 (0.89.0) – 1 Muss
 Bericht `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw2.md`, Bilder `werkstatt/lw2/`. 148/148 grün. Muss M1: Handy – Reihenfolge-Warnung liegt hinter dem Detail-Blatt (z-index 60 < 70). Soll: S1 Warnungstext ohne Untertitel/Vorspann (heute 281 px hoch), S2 Fall-2-Wortlaut „„B“ dahinter setzen“ bestätigt (Vorgabe 4a nachgezogen). Kann: K1 3d vor 3c, K2 Schild beim Zurückziehen verdeckt, K3 Teile-Abschnitt nach oben, K4 Rest 12.7 bei LK-App.
+
+## 2026-11-23 – FERTIG: Prüfung LW-3 (0.90.1) – 0 Muss
+Bericht `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw3.md`, Bilder `werkstatt/lw3/`. 159/159 grün. Soll: S1 Leiste Rechner fest 2 Zeilen – Empfehlung Legende hinter ⓘ, „Gespeichert“ still, ⓘ-Hinweise schwebend; S2 Überblick: alte Karten Lernt es?/Wo hakt es?/Wo steht es?/Was kommt? weg (Was kommt? widerspricht Gerade dran), Zuletzt geschafft neben Diese Woche; S3 Matrix rollt 30 px zu weit; S4 Handy-Kopf einzeilig. Kann K1–K5.

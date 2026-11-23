@@ -3209,3 +3209,13 @@ Sebastian (zum Ring „Gym Kl. 5 · 26 % · 2/15 Themen“): „Ich und die Kids
 - Für Eltern/Lehrer (Überblick der Kind-Seite, Karte „Stand“) **und für die Kinder** (Kinderseite, eigene Karte „Mein Schuljahr“; später an der Reisekarte).
 **SJ-S · an `bau-lehrer` (Datei):** Feld `schuljahr_stand` je Kind in `schule_konto` und `schule_uebersicht`: je Klasse (−1, Haupt, +1) Flüge gesamt/fertig/offen, Etappen gesamt/gelandet/offen, Prozent – eine Rechnung für alle Stellen (gleich wie der Ring; Zusatz getrennt ausgewiesen). Rauchtest gegen `thema_stufe`.
 **SJ-App · an `bau-motivation`:** Karte „Stand“ im Überblick mit den Zahlen; Kinderseite Karte „Mein Schuljahr“ (kindgerecht: „Noch 13 Flüge und 79 Etappen bis Klasse 5 geschafft“), Ring im Lehrplan mit denselben Zahlen im ⓘ. Vorgabe des Gestalters für die Kinder-Karte erwünscht.
+
+## EINGESPIELT: LZ-S (Ladezeit) – 23.11., 03:10 Berlin
+
+Freigabe Sebastian („Ladezeit in die Datenbank einspielen“), Prüfung Werkstatt 963 (Freigabe), Werkstatt-Änderung 381. Abweichung von der 30-Minuten-Regel: letzte Antwort eines Kindes 13 Minuten vorher, keine offene Test-Sitzung; die Migration ändert nur Lese-Funktionen und legt einen Index auf `zuordnung` an.
+In der Transaktion geprüft: Antworten vorher = nachher. Zeiten danach: Matrix je Kind 208 ms (vorher rund 2,5 s), Matrix ohne Kind 551 ms (4,5 s), Reisekarte 240 ms (1,0 s). Tests danach grün: lz_s, ex_s, nt_s, lk_s, wd_s, fp_s, lw_s.
+
+## Probelauf ZP-S (23.11., 03:10 Berlin, echte Datenbank mit LZ-S, alles zurückgerollt)
+
+Stand `lernen-app` e646650, Datei `20261126_zp_s_zusatz_plan.sql` (f1cb90d0…). Zweimal ohne Fehler. Karten, Sterne, Lernziel-Stände, Erstabschlüsse und der Plan (route) unverändert; Reiseoptionen unverändert; Stufen ändern sich wie gewollt (eingeplanter Zusatz zählt über alle Etappen: Kind 2, „Kongruenzabbildungen – Teil 2 von 3“ → „kommt“, 0 von 3). Tests mit ZP grün: zp_s (vor und nach), tl_s (neue Fassung), rd_s, ex_s, nt_s, lk_s, wd_s, fp_s, lw_s, lz_s. Prüfbitte an ChatGPT gestellt.
+Laut bau-lehrer haben die Eltern inzwischen selbst Teile eingeplant: Kind 1 Dreisatz Teil 2; Kind 2 Dreisatz Teil 2, Kongruenzabbildungen Teil 2 und Teil 3.

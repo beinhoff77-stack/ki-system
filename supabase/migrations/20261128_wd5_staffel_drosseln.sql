@@ -2,7 +2,7 @@
 -- NUR nach Probelauf und Sebastians Okay einspielen. Nach WD-S, WD-4b, WD-S 4 (alle live).
 --
 -- Was passiert – in Worten:
---   1. Regel wdh_gesetzt_je_lerntag = 3. Neu gesetzte Etappen („Kann er – aber wiederholen“) kommen damit nur noch zu 3 je Lerntag in den Takt
+--   1. Regel wdh_gesetzt_je_lerntag = 3; dazu wdh_runde_teiler = 1 (Rundengröße „A“, Rückweg siehe 1b). Neu gesetzte Etappen („Kann er – aber wiederholen“) kommen damit nur noch zu 3 je Lerntag in den Takt
 --      (schule.wdh_staffel_tag liest die Regel), ebenso wdh_staffel_strecken.
 --   2. Einmalige Neuverteilung je Kind (schule.wdh_staffel_drosseln): alle gesetzten Etappen in erster Wiederholung (wdh_gesetzt_am gesetzt, Stufe 0,
 --      kein Wiederholungs-Fehler, nicht abgelegt) – heute fällige UND schon für spätere Lerntage eingeplante – werden in Plan-Reihenfolge
@@ -39,6 +39,16 @@ update schule.regel set wert = '3'::jsonb, hinweis = 'WD-4/WD-5: gesetzte Etappe
 insert into schule.regel (schluessel, wert, hinweis)
 select 'wdh_gesetzt_je_lerntag', '3'::jsonb, 'WD-4/WD-5: gesetzte Etappen, die je Lerntag neu in den Takt kommen (WD-5: 3 statt 6)'
  where not exists (select 1 from schule.regel where schluessel = 'wdh_gesetzt_je_lerntag');
+
+-- 1b. Rundengröße „A“ (Entscheidung Sebastian 23.11. 04:20): Runde = alle fälligen, höchstens wdh_runde_max (12), bis Kl. 6 wdh_runde_max_bis_kl6 (10);
+--     bis wdh_runde_min (6) ohnehin alle. Zunächst für vier Lerntage erproben.
+--     Rückweg: update schule.regel set wert = '5' where schluessel = 'wdh_runde_teiler';   -- wie vorher (WD-1)
+--          oder: update schule.regel set wert = '2' where schluessel = 'wdh_runde_teiler';   -- mildere Stufe
+update schule.regel set wert = '1'::jsonb, hinweis = 'WD-1/WD-5: Runde = fällige / Teiler, aufgerundet (WD-5, Entscheidung A: 1 = alle fälligen bis zur Obergrenze; vorher 5)'
+ where schluessel = 'wdh_runde_teiler';
+insert into schule.regel (schluessel, wert, hinweis)
+select 'wdh_runde_teiler', '1'::jsonb, 'WD-1/WD-5: Runde = fällige / Teiler, aufgerundet (WD-5, Entscheidung A: 1 = alle fälligen bis zur Obergrenze; vorher 5)'
+ where not exists (select 1 from schule.regel where schluessel = 'wdh_runde_teiler');
 
 -- Gesetzte Erst-Wiederholungen eines Kindes mit Lerntag (0 = heute fällig) und Plan-Reihenfolge
 create or replace function schule.wdh_gesetzt_erst(p_l bigint)

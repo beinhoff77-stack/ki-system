@@ -230,6 +230,8 @@ begin
     update schule.karte_stand set sitzt = false, faellig_am = null, wdh_ab = null, wdh_lerntage = null, wdh_fehler = 0 where lernender_id = v_l;
     create temp table if not exists wd_regel_alt on commit drop as select wert from schule.regel where schluessel = 'wdh_gesetzt_je_lerntag';   -- WD-5: Standard merken (heute 3, vorher 6)
     update schule.regel set wert = '2' where schluessel = 'wdh_gesetzt_je_lerntag';
+    create temp table if not exists wd_teiler_alt on commit drop as select wert from schule.regel where schluessel = 'wdh_runde_teiler';   -- WD-5 3: Teiler merken
+    update schule.regel set wert = '5' where schluessel = 'wdh_runde_teiler';   -- Test rechnet mit kleiner Runde (6 von 8), damit gestreckt wird
     -- 8 gesetzte Etappen auf Stufe 0 heute fällig (Stau), 2 schon für den nächsten Lerntag geplant
     create temp table w3_gesetzt as select row_number() over (order by p.einheit_id, p.lz) nr, p.einheit_id, p.lz from (
       select distinct a.einheit_id, a.variante_gruppe lz from schule.aufgabe a join schule.einheit e on e.id = a.einheit_id and e.status = 'freigegeben' and e.id = schule.thema_einheit(e.thema_id)
@@ -263,6 +265,7 @@ begin
     if v_x <> v_n or exists (select 1 from schule.karte_stand k join w3_gesetzt g on g.einheit_id = k.einheit_id and g.lz = k.lernziel
                               where k.lernender_id = v_l and g.nr <= 8 and not schule.karte_faellig(k)) then raise exception 'FEHLER 7 Rückweg (% gestreckt, % zurück)', v_n, v_x; end if;
     update schule.regel set wert = (select wert from wd_regel_alt) where schluessel = 'wdh_gesetzt_je_lerntag';   -- WD-5: gemerkten Standard zurück
+    update schule.regel set wert = (select wert from wd_teiler_alt) where schluessel = 'wdh_runde_teiler';   -- WD-5 3: Teiler zurück
     raise notice 'ok 7 WD-4b: % gestreckt, offene Runde ausgenommen, Folgetag mitgezählt (2 je Lerntag), Rückweg nach Zwischenübung abgelehnt (%), sonst zurück', v_n, v_fehler;
   end if;
   raise notice 'WD-S 3 Rauchtest durchgelaufen';

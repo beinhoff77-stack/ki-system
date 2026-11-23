@@ -3196,3 +3196,16 @@ Frage Sebastian: Was passiert, wenn ein Kind in der Wiederholung zwei Fehler hin
 
 **NB-S · an `bau-lehrer` (Datei, mit ZP-S oder danach):** Liste „nachbessern“ je Kind (Thema, Einheit, Etappe, Titel, wieder offen seit, Folge x von 3) in `schule_konto`/`schule_uebersicht` und in `naechster_start` der Reisekarte (Grund `nachbessern` vor `dran`); gilt auch bei fertigem Ort und bei „Kann er“-Setzung mit Rückfall. Rauchtest: zwei Fehler in Folge → Eintrag; drei eigene Lösungen in Folge → Eintrag weg, Wiederholung beginnt neu; Lernstand sonst unverändert.
 **NB-App · an `bau-motivation` (nach LZ-App):** Karte „Nachbessern“ als oberste Karte der Abflugtafel bzw. der Reisekarte (Stadt als „wieder offen“ markiert), führt direkt in die Übung dieser Etappe; nach der dritten richtigen in Folge kurze Bestätigung.
+
+## Auftrag SJ – „Wie viel ist noch?“ je Schuljahr, für Eltern und Kinder (23.11., 03:10 Berlin)
+
+Sebastian (zum Ring „Gym Kl. 5 · 26 % · 2/15 Themen“): „Ich und die Kids wollen einen Überblick, wie viele Flüge sie noch haben und wie viele Etappen – in den Schuljahren. Bei Rosa immer in dem Jahr, wo sie gerade hauptsächlich ist, und ein Jahr weiter. Bei Leo hauptsächlich Klasse 8, aber auch 7 und 9.“ Frage: Wie wird der Prozentsatz gerechnet?
+**Heutige Rechnung (lernLwRing):** Prozent = gelandete Etappen ÷ alle Etappen der Pflicht-Flüge dieser Schulart in dieser Klasse; Flüge in Wiederholung oder „kann er“ zählen mit allen Etappen. „2/15 Themen“ = fertige Flüge von allen Pflicht-Flügen der Klasse. Zusatz-Teile zählen nicht.
+**Stand heute (Haupt-Chat, Gymnasium, ohne Zusatz):** Kind 1 Kl. 5: 15 Flüge, 2 fertig, 13 offen; 107 Etappen, 28 gelandet, 79 offen (26 %). Kl. 6: 11 Flüge, 78 Etappen, alles offen. Kind 2 Kl. 7: 12 Flüge, 5 fertig, 7 offen; 61 Etappen, 23 gelandet. Kl. 8: 16 Flüge, 1 fertig, 15 offen; 97 Etappen, 9 gelandet. Kl. 9: 14 Flüge, 87 Etappen, alles offen.
+
+**Gewünscht:**
+- Klarer Zahlen-Überblick statt nur Ring: je Klasse „noch x von y Flügen · noch a von b Etappen“ plus Prozent, mit Erklärung der Rechnung (ⓘ).
+- Klassen je Kind: Klasse des Kindes als Hauptklasse (groß), dazu Klasse −1 und +1, soweit es sie gibt (Kind in Kl. 5: 5 und 6; Kind in Kl. 8: 7, 8, 9). Schulart des Kindes.
+- Für Eltern/Lehrer (Überblick der Kind-Seite, Karte „Stand“) **und für die Kinder** (Kinderseite, eigene Karte „Mein Schuljahr“; später an der Reisekarte).
+**SJ-S · an `bau-lehrer` (Datei):** Feld `schuljahr_stand` je Kind in `schule_konto` und `schule_uebersicht`: je Klasse (−1, Haupt, +1) Flüge gesamt/fertig/offen, Etappen gesamt/gelandet/offen, Prozent – eine Rechnung für alle Stellen (gleich wie der Ring; Zusatz getrennt ausgewiesen). Rauchtest gegen `thema_stufe`.
+**SJ-App · an `bau-motivation`:** Karte „Stand“ im Überblick mit den Zahlen; Kinderseite Karte „Mein Schuljahr“ (kindgerecht: „Noch 13 Flüge und 79 Etappen bis Klasse 5 geschafft“), Ring im Lehrplan mit denselben Zahlen im ⓘ. Vorgabe des Gestalters für die Kinder-Karte erwünscht.

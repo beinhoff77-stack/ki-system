@@ -3219,3 +3219,8 @@ In der Transaktion geprüft: Antworten vorher = nachher. Zeiten danach: Matrix j
 
 Stand `lernen-app` e646650, Datei `20261126_zp_s_zusatz_plan.sql` (f1cb90d0…). Zweimal ohne Fehler. Karten, Sterne, Lernziel-Stände, Erstabschlüsse und der Plan (route) unverändert; Reiseoptionen unverändert; Stufen ändern sich wie gewollt (eingeplanter Zusatz zählt über alle Etappen: Kind 2, „Kongruenzabbildungen – Teil 2 von 3“ → „kommt“, 0 von 3). Tests mit ZP grün: zp_s (vor und nach), tl_s (neue Fassung), rd_s, ex_s, nt_s, lk_s, wd_s, fp_s, lw_s, lz_s. Prüfbitte an ChatGPT gestellt.
 Laut bau-lehrer haben die Eltern inzwischen selbst Teile eingeplant: Kind 1 Dreisatz Teil 2; Kind 2 Dreisatz Teil 2, Kongruenzabbildungen Teil 2 und Teil 3.
+
+## App 0.91.1 (EX-App + LZ-App): 166 von 168, zwei Tests wackeln – Nachtrag „absichern“ (23.11., 03:15 Berlin)
+
+Gesamtlauf (Stand e646650): rot `W176 T4: Abbruch verliert nichts …` und `LW-3 (1a): Kinder-Umschalter – Klick und Alt+←/→ …`; beide einzeln wiederholt grün. Während des Gesamtlaufs liefen parallel Datenbank-Probeläufe (Last). Sebastian: „absichern“, erst danach live.
+An `bau-motivation`: Ursache klären (Zeitabhängigkeit des Tests oder echter Wettlauf beim Kinder-Wechsel mit gemerkten/vorgeladenen Daten – z. B. alte Antwort überschreibt neue Ansicht, Detail bleibt offen, Reiter springt), beheben, beide Tests so schreiben, dass sie auf Zustände warten statt auf Zeiten; Gesamtlauf dreimal hintereinander grün, einmal davon unter Last (gedrosselte CPU). Version 0.91.2.

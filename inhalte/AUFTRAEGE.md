@@ -3360,3 +3360,12 @@ Kind 2: fällig heute 16 (vorher 23), danach 8·8·9·3·6·4·3…; Kind 1: 0 f
 ## App 0.92.2 (RK-App 2): Gesamtlauf 179 von 179; Sebastian: „Mach nochmal Prüfung“ (23.11., 05:20 Berlin)
 
 Kein Live vor der zweiten Prüfung des Gestalters. Eigene Datenprüfung Haupt-Chat (echte Karten-Antwort, lesend): je Kind 95 Flüge, kein Flug ohne Stadt, keine fehlende Lage. Kind 1: Start Schweiz/Chur (Stadt 5 von 14), 26 im Plan, **68 von 95 Flügen gesperrt**, davon 9 eingeplante (alle Grund Visum, u. a. Platz 3, 7, 8, 10), 2 Stempel. Kind 2: Start Nepal/Lalitpur (Stadt 2 von 5), 44 im Plan, 31 gesperrt, davon 2 eingeplante (Kongruenzabbildungen Teil 2 und 3), 5 Stempel. Für die Prüfung wichtig: Mit echten Daten trägt die Mehrheit der Länder ein Schloss; bekannte Überlappung der Länder-Schilder in Mitteleuropa auf dem Handy.
+
+## Zweite Prüfung Gestalter RK-App (0.92.2): live erst nach zwei Punkten → Nachtrag RK-App 3 (0.92.3) an `bau-motivation` (23.11., 05:30 Berlin)
+
+Datei `inhalte/pruefung/kind/karte/nachpruefung_rk2.md`. Erste Prüfung: M1, S1, S3, S5, S6, S7, K1–K3 erfüllt; S2 und S4 teilweise.
+**Muss vor dem Live:**
+- **M1 Kopfzeile Handy (400 px) überdeckt sich:** Pfad unter den Knöpfen, in der Land-Ebene „Zu mir“ nicht antippbar, Landesname abgeschnitten. → rechts fest ▤ · ★ · ≡ (je ≥ 44 px), „Zu mir“ in die Kartenknöpfe (unter ⤢), Pfad kürzt von links (`‹ … › 🇮🇹 Italien 📍`), aktuelle Stufe immer ganz. Test bei 360 und 400 px.
+- **Sperr-Anzeige (S3 der Prüfung, jetzt Muss, weil RK-D seit 05:00 eingespielt ist):** nach Abschnitt 3 der Prüfung – nicht im Plan und gesperrt = nur gedämpft, kein Schloss; im Plan und gesperrt = Platznummer grau + kleines 🔒, Route grau gepunktet; Grund beim Antippen („🔒 Erst ‹Land› schaffen“ mit Sprung-Knopf, „🔒 Ab Klasse 7 – kommt später.“); Land-Ebene eines gesperrten Flugs grau; „abgelegt“ = goldener ★ an der Stadt. Tests wie dort (Kl.-5-Lage Afrika 0 Schlösser; Europa Platz 3 genau ein 🔒).
+**Soll:** S1 Haltestellen-Kästchen entzerren (wie die Namen); S2 Länder-Schilder in dichten Gegenden nach Abschnitt 2 (Vorrang, vier Lagen, weglassen statt überdecken, Hauptstadt-Zeile nur für dran/nächste 3/angetippt, Fächer für Pin-Köpfe). **Kann:** K1 Quellen-Zeile, K2 Welt-Ausschnitt mit Nachbarn, K4 kleine Legende hinter ⓘ.
+Urteil Gestalter zu Frage 8: „was als Nächstes kommt“ ja auf allen Größen; „wo bin ich“ auf dem Handy erst mit M1.

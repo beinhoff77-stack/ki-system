@@ -93,13 +93,14 @@ begin
   select count(*) into v_n from schule.aufgabe a where a.einheit_id = t.e and a.variante_gruppe = t.lz and a.pool = 'uebung' and a.freigegeben;
   while v_n < 3 loop
     execute format('insert into schule.aufgabe(%s) select %s from schule.aufgabe where id = $1',
-      (select string_agg(quote_ident(attname), ', ' order by attnum) from pg_attribute where attrelid = 'schule.aufgabe'::regclass and attnum > 0 and not attisdropped and attgenerated = ''),
-      (select string_agg(case when attname = 'id' then '(select max(id) + 1 from schule.aufgabe)' else quote_ident(attname) end, ', ' order by attnum)
-         from pg_attribute where attrelid = 'schule.aufgabe'::regclass and attnum > 0 and not attisdropped and attgenerated = '')) using t.aufg;
+      (select string_agg(quote_ident(attname), ', ' order by attnum) from pg_attribute where attrelid = 'schule.aufgabe'::regclass and attnum > 0 and not attisdropped
+          and attgenerated = '' and attidentity = '' and attname <> 'id'),
+      (select string_agg(quote_ident(attname), ', ' order by attnum) from pg_attribute where attrelid = 'schule.aufgabe'::regclass and attnum > 0 and not attisdropped
+          and attgenerated = '' and attidentity = '' and attname <> 'id')) using t.aufg;
     v_n := v_n + 1;
   end loop;
-  insert into schule.route(id, lernender_id, block_id, position, art, status, geaendert_von)
-    values ((select coalesce(max(id), 0) + 1 from schule.route), t.l, t.block, (select coalesce(max(position), 0) + 1 from schule.route where lernender_id = t.l), 'normal', 'fertig', 'eltern:Test');
+  insert into schule.route(lernender_id, block_id, position, art, status, geaendert_von)
+    values (t.l, t.block, (select coalesce(max(position), 0) + 1 from schule.route where lernender_id = t.l), 'normal', 'fertig', 'eltern:Test');
   insert into schule.karte_stand(lernender_id, einheit_id, lernziel) values (t.l, t.e, t.lz);
   update schule.karte_stand set sitzt = true, sitzt_am = now() - interval '20 days', wdh_stufe = 2, faellig_am = now() - interval '1 day', wdh_ab = null, wdh_lerntage = null,
          wdh_fehler = 0, eigene_loesungen = schule.karte_ziel(t.e, t.lz), folge = 3, fehler_folge = 0, schwer_ok = true, richtig = 6, falsch = 0,

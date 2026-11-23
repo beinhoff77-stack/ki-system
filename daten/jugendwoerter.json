@@ -1,0 +1,1974 @@
+{
+ "stand": "2026-11-23",
+ "naechste_pruefung": "2027-05-15",
+ "pruefrhythmus": "halbjährlich (Mai, November, nach der Langenscheidt-Wahl)",
+ "hinweis": "Vorgabe JW – Daten für die App. Wörter mit verfall < heute oder einsatz „ungeeignet“ werden nie gezogen. Keine Einstellungen, keine Altersunterscheidung.",
+ "anlaesse": {
+  "landung_direkt": "Landung einer Etappe – Direktflug (kein Fehler, kein Tipp)",
+  "landung_sauber": "Landung – Saubere Landung ohne Tipp",
+  "landung_leicht": "Landung – Saubere Landung mit Tipp oder „Wieder gelandet“",
+  "landung_sturm": "Landung – Sturmflug gemeistert (Ausdauer)",
+  "knobel_richtig": "Knobel-Bordkarte im ersten Versuch richtig",
+  "serie_5": "Serie: 5 Bordkarten in Folge richtig",
+  "serie_10": "Serie: 10 Bordkarten in Folge richtig",
+  "wiederholung": "Wiederholung bestanden",
+  "flug_geschafft": "Flug geschafft",
+  "expedition_geschafft": "Expedition geschafft",
+  "expedition_fehlerfrei": "Expedition fehlerfrei",
+  "nachbessern": "„Nachbessern“ geschafft (wieder offene Stadt wieder abgelegt)",
+  "fehler": "Fehler-Rückmeldung (falsche Antwort)",
+  "anrede": "Begrüßung auf der Abflugtafel (Anrede Digga)"
+ },
+ "regeln": {
+  "erfolg": "jede Geschafft-Ansicht bekommt genau einen Sticker",
+  "fehler": "Sticker beim 1., 3., 5. … Fehler eines Lerntags; nie ab dem 2. Fehler in Folge",
+  "anrede": "einmal je Lerntag auf der Abflugtafel, immer „Digga“",
+  "nie_wiederholen_letzte": 1,
+  "wort_sperre_letzte_sticker": 4,
+  "einstellungen": "keine – festgelegt (Sebastian, 23.11.2026)"
+ },
+ "woerter": [
+  {
+   "id": "cues",
+   "wort": "Çüş",
+   "schreibweisen": [
+    "Çüş",
+    "Cüs",
+    "Cüüüs"
+   ],
+   "bedeutung": "Ausruf des Staunens: „boah“, „krass“, „oha“.",
+   "tonlage": "staunen",
+   "jahr": null,
+   "quelle": {
+    "titel": "QuillBot: Cüs – Bedeutung",
+    "link": "https://quillbot.com/de/blog/jugendsprache/cues/"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "staunen"
+   ],
+   "staerke": 3,
+   "nebenbedeutung": "Türkisch ursprünglich Halte-Ruf für Esel und Pferde; kann auch „mach mal halblang“ oder „igitt“ heißen (desired). Nur nach klar gutem Ergebnis, nie bei Fehlern.",
+   "verfall": "2028-05",
+   "gesprochen": "Tschüsch",
+   "quelle2": {
+    "titel": "desired: Çüş – richtige Verwendung",
+    "link": "https://www.desired.de/artikel/cues-alles-zur-richtigen-verwendung-des-trendwortes-gibt-s-hier--wpvgjf2hxf"
+   }
+  },
+  {
+   "id": "digga",
+   "wort": "Digga",
+   "schreibweisen": [
+    "Digga",
+    "Diggah",
+    "Digger"
+   ],
+   "bedeutung": "Kumpel, Bro; Anrede für jeden, auch Ausruf.",
+   "tonlage": "locker",
+   "jahr": 2021,
+   "quelle": {
+    "titel": "ZDFheute: Jugendwort 2026 – die Top Ten und was sie bedeuten",
+    "link": "https://www.zdfheute.de/panorama/jugendwort-2026-langenscheidt-100.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "anrede",
+    "lob_klein"
+   ],
+   "staerke": 2,
+   "nebenbedeutung": "Seit 2021 jedes Jahr in den Top 10. Festgelegte Anrede der App für beide Kinder (Entscheidung Sebastian 23.11.2026). Nie in Fehler-Sprüchen allein als Vorwurf, nur freundlich („Schere, Digga.“).",
+   "verfall": "2028-11"
+  },
+  {
+   "id": "peak",
+   "wort": "Peak",
+   "schreibweisen": [
+    "Peak",
+    "PEAK"
+   ],
+   "bedeutung": "Das Beste vom Besten, absoluter Höhepunkt.",
+   "tonlage": "lob",
+   "jahr": 2026,
+   "quelle": {
+    "titel": "ZDFheute: Jugendwort 2026 – die Top Ten und was sie bedeuten",
+    "link": "https://www.zdfheute.de/panorama/jugendwort-2026-langenscheidt-100.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "lob_gross"
+   ],
+   "staerke": 3,
+   "nebenbedeutung": "Wird auch ironisch gesteigert („peak cringe“). Nie mit einem negativen Wort kombinieren, nur bei wirklich bestem Ergebnis.",
+   "verfall": "2027-11"
+  },
+  {
+   "id": "gute_kaese",
+   "wort": "Gute Käse",
+   "schreibweisen": [
+    "Gute Käse",
+    "Gute Käses"
+   ],
+   "bedeutung": "Etwas ist richtig gut oder stabil; Lob oder Zustimmung, ohne wörtlichen Sinn.",
+   "tonlage": "lob",
+   "jahr": 2026,
+   "quelle": {
+    "titel": "ZDFheute: Jugendwort 2026 – die Top Ten und was sie bedeuten",
+    "link": "https://www.zdfheute.de/panorama/jugendwort-2026-langenscheidt-100.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "lob_klein"
+   ],
+   "staerke": 1,
+   "nebenbedeutung": "Absichtlich schiefe Grammatik – nie „verbessern“ in „Guter Käse“.",
+   "verfall": "2027-11"
+  },
+  {
+   "id": "sueper",
+   "wort": "Süper",
+   "schreibweisen": [
+    "Süper",
+    "Süpeeer"
+   ],
+   "bedeutung": "„Super“ auf Türkisch; bekannt durch das Video eines Ultramarathon-Läufers.",
+   "tonlage": "lob",
+   "jahr": 2026,
+   "quelle": {
+    "titel": "ZDFheute: Jugendwort 2026 – die Top Ten und was sie bedeuten",
+    "link": "https://www.zdfheute.de/panorama/jugendwort-2026-langenscheidt-100.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "lob_klein",
+    "lob_gross"
+   ],
+   "staerke": 2,
+   "nebenbedeutung": "Keine bekannt.",
+   "verfall": "2027-11"
+  },
+  {
+   "id": "das_crazy",
+   "wort": "Das crazy",
+   "schreibweisen": [
+    "Das crazy",
+    "Das crazy!"
+   ],
+   "bedeutung": "Antwort, wenn einem die Worte fehlen – Staunen, aber auch gelangweiltes „aha, okay“.",
+   "tonlage": "staunen",
+   "jahr": 2025,
+   "quelle": {
+    "titel": "SRF: Top 10 Jugendwörter 2025",
+    "link": "https://www.srf.ch/kultur/gesellschaft-religion/top-10-jugendwoerter-2025-wissen-sie-was-tuff-oder-sybau-bedeutet"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "staunen"
+   ],
+   "staerke": 2,
+   "nebenbedeutung": "Kann Desinteresse ausdrücken. Darum nur mit Ausrufezeichen und nur bei Staunens-Anlässen (Knobel richtig, Expedition), nie bei kleinem Lob.",
+   "verfall": "2027-05"
+  },
+  {
+   "id": "schere",
+   "wort": "Schere",
+   "schreibweisen": [
+    "Schere"
+   ],
+   "bedeutung": "„Mein Fehler!“ – digitaler Handschlag aus der Gaming-Szene, um einen dummen Fehler zuzugeben.",
+   "tonlage": "locker",
+   "jahr": 2024,
+   "quelle": {
+    "titel": "ZDFheute: Jugendwort 2026 – die Top Ten und was sie bedeuten",
+    "link": "https://www.zdfheute.de/panorama/jugendwort-2026-langenscheidt-100.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "fehler_mild"
+   ],
+   "staerke": 1,
+   "nebenbedeutung": "Wörtlich das Werkzeug. Ist ein Eingeständnis dessen, der spricht: die App spricht es als Stimme des Kindes („Schere – passiert“), nie als Vorwurf („deine Schere“). Für 11 beim ersten Mal die Bedeutung zeigen.",
+   "verfall": "2027-11"
+  },
+  {
+   "id": "tuff",
+   "wort": "tuff",
+   "schreibweisen": [
+    "tuff",
+    "Tuff",
+    "tough"
+   ],
+   "bedeutung": "Krass, cool – man ist beeindruckt.",
+   "tonlage": "lob",
+   "jahr": 2025,
+   "quelle": {
+    "titel": "SRF: Top 10 Jugendwörter 2025",
+    "link": "https://www.srf.ch/kultur/gesellschaft-religion/top-10-jugendwoerter-2025-wissen-sie-was-tuff-oder-sybau-bedeutet"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "lob_gross"
+   ],
+   "staerke": 2,
+   "nebenbedeutung": "Englisch „tough“ = hart, schwierig – passt deshalb doppelt beim Sturmflug.",
+   "verfall": "2027-05"
+  },
+  {
+   "id": "lowkey",
+   "wort": "lowkey",
+   "schreibweisen": [
+    "lowkey",
+    "low key"
+   ],
+   "bedeutung": "„Ein bisschen“, unauffällig, ohne Drama.",
+   "tonlage": "locker",
+   "jahr": 2025,
+   "quelle": {
+    "titel": "SRF: Top 10 Jugendwörter 2025",
+    "link": "https://www.srf.ch/kultur/gesellschaft-religion/top-10-jugendwoerter-2025-wissen-sie-was-tuff-oder-sybau-bedeutet"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "lob_klein"
+   ],
+   "staerke": 1,
+   "nebenbedeutung": "Auch „insgeheim“. Nur als Zusatz vor einem Lobwort („lowkey stark“), nie allein.",
+   "verfall": "2027-05"
+  },
+  {
+   "id": "rede",
+   "wort": "Rede!",
+   "schreibweisen": [
+    "Rede!",
+    "Rede"
+   ],
+   "bedeutung": "Sinngemäß „Lauter!“ – starke Zustimmung zu dem, was gerade gesagt wurde.",
+   "tonlage": "lob",
+   "jahr": 2025,
+   "quelle": {
+    "titel": "SRF: Top 10 Jugendwörter 2025",
+    "link": "https://www.srf.ch/kultur/gesellschaft-religion/top-10-jugendwoerter-2025-wissen-sie-was-tuff-oder-sybau-bedeutet"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "lob_klein"
+   ],
+   "staerke": 1,
+   "nebenbedeutung": "Wörtlich „Ansprache“. Braucht etwas, dem man zustimmt – darum zurzeit in keinem Spruch; Reserve, falls das Kind eigene Lösungswege eintippt.",
+   "verfall": "2027-05"
+  },
+  {
+   "id": "aura",
+   "wort": "Aura",
+   "schreibweisen": [
+    "Aura",
+    "+1000 Aura",
+    "Aura +1000"
+   ],
+   "bedeutung": "Ausstrahlung, Charisma, Status; oft scherzhaft mit Punkten („+1000 Aura“).",
+   "tonlage": "lob",
+   "jahr": 2024,
+   "quelle": {
+    "titel": "QuillBot: Jugendwort 2024 – Top 3 und Top 10",
+    "link": "https://quillbot.com/de/blog/jugendsprache/jugendwort-2024/"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "lob_gross"
+   ],
+   "staerke": 3,
+   "nebenbedeutung": "Esoterischer Ursprung; Spott-Form „minus Aura“ / „Aura-Verlust“ – nur die Plus-Form verwenden.",
+   "verfall": "2027-05"
+  },
+  {
+   "id": "yurr",
+   "wort": "Yurr",
+   "schreibweisen": [
+    "Yurr",
+    "Yurrr"
+   ],
+   "bedeutung": "Lockere Begrüßung wie „yo“, „hey“; auch Zustimmung.",
+   "tonlage": "locker",
+   "jahr": 2024,
+   "quelle": {
+    "titel": "QuillBot: Yurr – Bedeutung",
+    "link": "https://quillbot.com/de/blog/jugendsprache/yurr/"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "anrede"
+   ],
+   "staerke": 1,
+   "nebenbedeutung": "Keine bekannt; klingt schnell veraltet.",
+   "verfall": "2027-05"
+  },
+  {
+   "id": "sheesh",
+   "wort": "Sheesh",
+   "schreibweisen": [
+    "Sheesh",
+    "Sheeesh"
+   ],
+   "bedeutung": "Ausruf des Erstaunens: „wow“, „oha“.",
+   "tonlage": "staunen",
+   "jahr": 2021,
+   "quelle": {
+    "titel": "QuillBot: Jugendwort 2021",
+    "link": "https://quillbot.com/de/blog/jugendsprache/jugendwort-2021/"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "staunen"
+   ],
+   "staerke": 3,
+   "nebenbedeutung": "Kann auch Erschrecken oder Ärger ausdrücken (Stuttgarter Zeitung). Nur nach klar gutem Ergebnis.",
+   "verfall": "2027-05",
+   "quelle2": {
+    "titel": "Stuttgarter Zeitung: Sheesh – Bedeutung",
+    "link": "https://www.stuttgarter-zeitung.de/wissen/sheesh-bedeutung-und-verwendung-mhsd-79028244.html"
+   }
+  },
+  {
+   "id": "wild",
+   "wort": "wild",
+   "schreibweisen": [
+    "wild",
+    "wyld"
+   ],
+   "bedeutung": "Krass, beeindruckend.",
+   "tonlage": "staunen",
+   "jahr": 2021,
+   "quelle": {
+    "titel": "nau.ch: Jugendwort 2022 – Top 10",
+    "link": "https://www.nau.ch/news/europa/jugendwort-des-jahres-2022-bodenlos-smash-wild-und-gommemode-66239800"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "staunen"
+   ],
+   "staerke": 2,
+   "nebenbedeutung": "Auch „unkontrolliert“ – nur staunend verwenden.",
+   "verfall": "2027-05"
+  },
+  {
+   "id": "slay",
+   "wort": "Slay",
+   "schreibweisen": [
+    "Slay",
+    "slay"
+   ],
+   "bedeutung": "Ausdruck der Zustimmung: richtig stark gemacht.",
+   "tonlage": "lob",
+   "jahr": 2022,
+   "quelle": {
+    "titel": "Uni Zürich (Pressespiegel): Jugendwort 2023 – die Top 10",
+    "link": "https://www.ds.uzh.ch/apps/_files/uploads/presse/872.pdf"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "lob_gross"
+   ],
+   "staerke": 2,
+   "nebenbedeutung": "Englisch wörtlich „töten, erschlagen“ – deshalb nur für 14.",
+   "verfall": "2027-05"
+  },
+  {
+   "id": "macher",
+   "wort": "Macher",
+   "schreibweisen": [
+    "Macher",
+    "Macher-Modus"
+   ],
+   "bedeutung": "Jemand, der Dinge anpackt und umsetzt, ohne zu zögern.",
+   "tonlage": "lob",
+   "jahr": 2022,
+   "quelle": {
+    "titel": "Tagesspiegel: Jugendwort 2022 – die drei Kandidaten",
+    "link": "https://www.tagesspiegel.de/gesellschaft/jugendwort-des-jahres-2022-das-sind-die-drei-kandidaten-8662300.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "lob_gross"
+   ],
+   "staerke": 2,
+   "nebenbedeutung": "Männliche Form. Die App nutzt nur die neutrale Form „Macher-Modus“.",
+   "verfall": "2027-11"
+  },
+  {
+   "id": "gommemode",
+   "wort": "Gommemode",
+   "schreibweisen": [
+    "Gommemode",
+    "Gomme-Mode"
+   ],
+   "bedeutung": "Unendlich stark, unbesiegbar (nach einem Gaming-YouTuber).",
+   "tonlage": "lob",
+   "jahr": 2022,
+   "quelle": {
+    "titel": "nau.ch: Jugendwort 2022 – Top 10",
+    "link": "https://www.nau.ch/news/europa/jugendwort-des-jahres-2022-bodenlos-smash-wild-und-gommemode-66239800"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "lob_gross"
+   ],
+   "staerke": 3,
+   "nebenbedeutung": "Bezug auf eine reale Person (YouTuber). Älteres Wort – auf Probe, bei der Halbjahresprüfung als Erstes streichen.",
+   "verfall": "2027-05",
+   "probe": true
+  },
+  {
+   "id": "siu",
+   "wort": "SIU",
+   "schreibweisen": [
+    "SIU",
+    "SIUUU"
+   ],
+   "bedeutung": "Jubelruf, wenn etwas unfassbar Gutes passiert (Torjubel von Cristiano Ronaldo).",
+   "tonlage": "lob",
+   "jahr": 2022,
+   "quelle": {
+    "titel": "mein-mmo: Top 10 Jugendwort 2022 mit Bedeutungen",
+    "link": "https://mein-mmo.de/journalist-sich-mit-falscher-verwendung-des-jugendwort-des-jahres-2022/"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "lob_gross"
+   ],
+   "staerke": 3,
+   "nebenbedeutung": "Bezug auf einen Fußballer – nicht jedes Kind mag ihn; darum gut ausblendbar.",
+   "verfall": "2027-05"
+  },
+  {
+   "id": "auf_lock",
+   "wort": "Auf Lock",
+   "schreibweisen": [
+    "Auf Lock",
+    "auf lock"
+   ],
+   "bedeutung": "Abkürzung von „auf locker“: die Dinge entspannt angehen.",
+   "tonlage": "locker",
+   "jahr": 2023,
+   "quelle": {
+    "titel": "Uni Zürich (Pressespiegel): Jugendwort 2023 – die Top 10",
+    "link": "https://www.ds.uzh.ch/apps/_files/uploads/presse/872.pdf"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "fehler_mild"
+   ],
+   "staerke": 1,
+   "nebenbedeutung": "Keine bekannt.",
+   "verfall": "2027-05"
+  },
+  {
+   "id": "akkurat",
+   "wort": "Akkurat",
+   "schreibweisen": [
+    "Akkurat",
+    "akkurat"
+   ],
+   "bedeutung": "Ausdruck der Zustimmung: genau so.",
+   "tonlage": "lob",
+   "jahr": 2021,
+   "quelle": {
+    "titel": "QuillBot: Jugendwort 2021",
+    "link": "https://quillbot.com/de/blog/jugendsprache/jugendwort-2021/"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "lob_klein"
+   ],
+   "staerke": 1,
+   "nebenbedeutung": "Im Standarddeutsch „genau, sorgfältig“ – passt beim Rechnen doppelt.",
+   "verfall": "2027-05"
+  },
+  {
+   "id": "laeuft",
+   "wort": "Läuft bei dir",
+   "schreibweisen": [
+    "Läuft bei dir",
+    "Läuft"
+   ],
+   "bedeutung": "Du hast Erfolg, es klappt.",
+   "tonlage": "lob",
+   "jahr": 2014,
+   "quelle": {
+    "titel": "QuillBot: Jugendwörter der letzten Jahre (alle Gewinner seit 2008)",
+    "link": "https://quillbot.com/de/blog/jugendsprache/jugendwoerter/"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "lob_klein"
+   ],
+   "staerke": 1,
+   "nebenbedeutung": "Kann ironisch gemeint sein; für 14 wirkt es alt.",
+   "verfall": "2027-05"
+  },
+  {
+   "id": "ohne_witz",
+   "wort": "Ohne Witz",
+   "schreibweisen": [
+    "Ohne Witz",
+    "ohne Witz"
+   ],
+   "bedeutung": "Ernsthaft, wirklich (staunend).",
+   "tonlage": "staunen",
+   "jahr": null,
+   "quelle": null,
+   "beleg": "Annahme – kein Listenwort, Bedeutung nicht mit Quelle geprüft",
+   "einsatz": [
+    "staunen"
+   ],
+   "staerke": 2,
+   "nebenbedeutung": "Keine bekannt.",
+   "verfall": "2028-05"
+  },
+  {
+   "id": "w",
+   "wort": "W",
+   "schreibweisen": [
+    "W",
+    "Big W"
+   ],
+   "bedeutung": "Abkürzung für „Win“: ein Sieg, ein Erfolg.",
+   "tonlage": "lob",
+   "jahr": null,
+   "quelle": null,
+   "beleg": "Annahme – kein Listenwort, Bedeutung nicht mit Quelle geprüft",
+   "einsatz": [
+    "lob_klein"
+   ],
+   "staerke": 1,
+   "nebenbedeutung": "Gegenstück „L“ (Niederlage) wird zum Spotten benutzt – „L“ nie verwenden.",
+   "verfall": "2027-05"
+  },
+  {
+   "id": "goat",
+   "wort": "GOAT",
+   "schreibweisen": [
+    "GOAT",
+    "G.O.A.T."
+   ],
+   "bedeutung": "„Greatest of all time“ – der/die Beste überhaupt.",
+   "tonlage": "lob",
+   "jahr": null,
+   "quelle": null,
+   "beleg": "Annahme – kein Listenwort, Bedeutung nicht mit Quelle geprüft",
+   "einsatz": [
+    "lob_gross"
+   ],
+   "staerke": 3,
+   "nebenbedeutung": "Englisch „Ziege“ – für 11 mit kleiner Ziege witzig.",
+   "verfall": "2027-11"
+  },
+  {
+   "id": "locked_in",
+   "wort": "Locked in",
+   "schreibweisen": [
+    "Locked in",
+    "locked in"
+   ],
+   "bedeutung": "Voll konzentriert, im Tunnel.",
+   "tonlage": "lob",
+   "jahr": null,
+   "quelle": null,
+   "beleg": "Annahme – kein Listenwort, Bedeutung nicht mit Quelle geprüft",
+   "einsatz": [
+    "lob_gross"
+   ],
+   "staerke": 2,
+   "nebenbedeutung": "Wörtlich „eingesperrt“; nur in der Serie verwenden.",
+   "verfall": "2027-05"
+  },
+  {
+   "id": "nice",
+   "wort": "Nice",
+   "schreibweisen": [
+    "Nice",
+    "nice"
+   ],
+   "bedeutung": "Schön, gut gemacht.",
+   "tonlage": "lob",
+   "jahr": null,
+   "quelle": null,
+   "beleg": "Annahme – kein Listenwort, Bedeutung nicht mit Quelle geprüft",
+   "einsatz": [
+    "lob_klein"
+   ],
+   "staerke": 1,
+   "nebenbedeutung": "Keine; fast Standardsprache.",
+   "verfall": "2028-11"
+  },
+  {
+   "id": "krass",
+   "wort": "krass",
+   "schreibweisen": [
+    "krass",
+    "Krass"
+   ],
+   "bedeutung": "Beeindruckend, heftig.",
+   "tonlage": "staunen",
+   "jahr": null,
+   "quelle": null,
+   "beleg": "Annahme – kein Listenwort, Bedeutung nicht mit Quelle geprüft",
+   "einsatz": [
+    "staunen"
+   ],
+   "staerke": 2,
+   "nebenbedeutung": "Auch negativ („krass schlecht“) – nur positiv.",
+   "verfall": "2028-11"
+  },
+  {
+   "id": "stabil",
+   "wort": "stabil",
+   "schreibweisen": [
+    "stabil",
+    "Stabil"
+   ],
+   "bedeutung": "Gut, verlässlich, beeindruckend.",
+   "tonlage": "lob",
+   "jahr": null,
+   "quelle": null,
+   "beleg": "Annahme – kein Listenwort, Bedeutung nicht mit Quelle geprüft",
+   "einsatz": [
+    "lob_klein"
+   ],
+   "staerke": 1,
+   "nebenbedeutung": "Wörtlich „fest“ – passt zu „sitzt“ bei Wiederholungen.",
+   "verfall": "2027-11"
+  },
+  {
+   "id": "safe",
+   "wort": "safe",
+   "schreibweisen": [
+    "safe",
+    "Safe"
+   ],
+   "bedeutung": "Sicher, auf jeden Fall.",
+   "tonlage": "lob",
+   "jahr": null,
+   "quelle": null,
+   "beleg": "Annahme – kein Listenwort, Bedeutung nicht mit Quelle geprüft",
+   "einsatz": [
+    "lob_klein"
+   ],
+   "staerke": 1,
+   "nebenbedeutung": "Englisch „sicher“ – keine schlechte Nebenbedeutung.",
+   "verfall": "2027-05"
+  },
+  {
+   "id": "ehrenmann",
+   "wort": "Ehrenmann / Ehrenfrau",
+   "schreibweisen": [
+    "Ehrenmann",
+    "Ehrenfrau"
+   ],
+   "bedeutung": "Jemand, der sich anständig und vorbildlich verhält.",
+   "tonlage": "lob",
+   "jahr": 2018,
+   "quelle": {
+    "titel": "QuillBot: Jugendwörter der letzten Jahre (alle Gewinner seit 2008)",
+    "link": "https://quillbot.com/de/blog/jugendsprache/jugendwoerter/"
+   },
+   "beleg": "Quelle",
+   "einsatz": [
+    "lob_gross"
+   ],
+   "staerke": 2,
+   "nebenbedeutung": "Braucht die passende Form zum Kind. Zurzeit in keinem Spruch (keine Formwahl geplant) – Reserve.",
+   "verfall": "2027-05"
+  },
+  {
+   "id": "bro",
+   "wort": "Bro",
+   "schreibweisen": [
+    "Bro"
+   ],
+   "bedeutung": "Anrede für einen Freund.",
+   "tonlage": "ungeeignet",
+   "jahr": 2022,
+   "quelle": {
+    "titel": "nau.ch: Jugendwort 2022 – Top 10",
+    "link": "https://www.nau.ch/news/europa/jugendwort-des-jahres-2022-bodenlos-smash-wild-und-gommemode-66239800"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Nicht nötig: Anrede der App ist festgelegt auf „Digga“.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "du_bist_gut_genug",
+   "wort": "Du bist gut genug",
+   "schreibweisen": [
+    "Du bist gut genug"
+   ],
+   "bedeutung": "Refrain eines viralen Songs (Kitschkrieg mit Shirin David), viel parodiert.",
+   "tonlage": "ungeeignet",
+   "jahr": 2026,
+   "quelle": {
+    "titel": "ZDFheute: Jugendwort 2026 – die Top Ten und was sie bedeuten",
+    "link": "https://www.zdfheute.de/panorama/jugendwort-2026-langenscheidt-100.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Meme-Ironie: wirkt nach einem Fehler schnell spöttisch.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "ragebait",
+   "wort": "Ragebait",
+   "schreibweisen": [
+    "Ragebait"
+   ],
+   "bedeutung": "Inhalte, die absichtlich Wut provozieren, um Reichweite zu bekommen. Jugendwort 2026.",
+   "tonlage": "ungeeignet",
+   "jahr": 2026,
+   "quelle": {
+    "titel": "ZDFheute: Jugendwort 2026 – die Top Ten und was sie bedeuten",
+    "link": "https://www.zdfheute.de/panorama/jugendwort-2026-langenscheidt-100.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Wut und Provokation – laut Auftrag ausgeschlossen.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "crashout",
+   "wort": "Crashout",
+   "schreibweisen": [
+    "Crashout"
+   ],
+   "bedeutung": "Die Fassung verlieren, extrem emotional reagieren.",
+   "tonlage": "ungeeignet",
+   "jahr": 2026,
+   "quelle": {
+    "titel": "ZDFheute: Jugendwort 2026 – die Top Ten und was sie bedeuten",
+    "link": "https://www.zdfheute.de/panorama/jugendwort-2026-langenscheidt-100.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Wut und Kontrollverlust – laut Auftrag ausgeschlossen.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "goonen",
+   "wort": "goonen",
+   "schreibweisen": [
+    "goonen"
+   ],
+   "bedeutung": "Slang für Selbstbefriedigung.",
+   "tonlage": "ungeeignet",
+   "jahr": 2025,
+   "quelle": {
+    "titel": "SRF: Top 10 Jugendwörter 2025",
+    "link": "https://www.srf.ch/kultur/gesellschaft-religion/top-10-jugendwoerter-2025-wissen-sie-was-tuff-oder-sybau-bedeutet"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Sexuell – ausgeschlossen.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "sybau",
+   "wort": "sybau",
+   "schreibweisen": [
+    "sybau"
+   ],
+   "bedeutung": "Abkürzung für eine englische Beleidigung („halt die Klappe“).",
+   "tonlage": "ungeeignet",
+   "jahr": 2025,
+   "quelle": {
+    "titel": "SRF: Top 10 Jugendwörter 2025",
+    "link": "https://www.srf.ch/kultur/gesellschaft-religion/top-10-jugendwoerter-2025-wissen-sie-was-tuff-oder-sybau-bedeutet"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Beleidigend – ausgeschlossen.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "67",
+   "wort": "67",
+   "schreibweisen": [
+    "67"
+   ],
+   "bedeutung": "Insider ohne feste Bedeutung („six seven“), oft mit Handgeste.",
+   "tonlage": "ungeeignet",
+   "jahr": 2026,
+   "quelle": {
+    "titel": "ZDFheute: Jugendwort 2026 – die Top Ten und was sie bedeuten",
+    "link": "https://www.zdfheute.de/panorama/jugendwort-2026-langenscheidt-100.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Kein Sinn, den die App tragen kann; nervt schnell und verfällt schnell. Bei Ergebnis 67 % NICHT als Gag einsetzen (Annahme: wirkt bemüht).",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "macker",
+   "wort": "Macker",
+   "schreibweisen": [
+    "Macker"
+   ],
+   "bedeutung": "Freund, Kumpel oder Schwarm, oft ironisch.",
+   "tonlage": "ungeeignet",
+   "jahr": 2026,
+   "quelle": {
+    "titel": "ZDFheute: Jugendwort 2026 – die Top Ten und was sie bedeuten",
+    "link": "https://www.zdfheute.de/panorama/jugendwort-2026-langenscheidt-100.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Nebenbedeutung „Schwarm“ und älteres „Macho“ – passt nicht als Lob vom Lernprogramm.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "mehrzweckeier",
+   "wort": "Mehrzweckeier",
+   "schreibweisen": [
+    "Mehrzweckeier"
+   ],
+   "bedeutung": "Von der Langenscheidt-Jury 2026 ausgeschlossen; Bedeutung von mir nicht geprüft.",
+   "tonlage": "ungeeignet",
+   "jahr": 2026,
+   "quelle": {
+    "titel": "drohnen.de: Jugendwort 2026 – warum „Mehrzweckeier“ ausgeschlossen wurde",
+    "link": "https://www.drohnen.de/?p=87349"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Ausgeschlossen von der Jury, Bedeutung unklar – nicht prüfbar, also nicht verwenden.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "checkst_du",
+   "wort": "Checkst du",
+   "schreibweisen": [
+    "Checkst du"
+   ],
+   "bedeutung": "Nachfrage „Verstehst du?“, ob jemand wirklich zugehört hat.",
+   "tonlage": "ungeeignet",
+   "jahr": 2025,
+   "quelle": {
+    "titel": "SRF: Top 10 Jugendwörter 2025",
+    "link": "https://www.srf.ch/kultur/gesellschaft-religion/top-10-jugendwoerter-2025-wissen-sie-was-tuff-oder-sybau-bedeutet"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Klingt bei einer Rückmeldung wie „Hast du’s jetzt endlich kapiert?“ – belehrend.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "tot",
+   "wort": "tot",
+   "schreibweisen": [
+    "tot"
+   ],
+   "bedeutung": "Etwas ist daneben, lahm, peinlich.",
+   "tonlage": "ungeeignet",
+   "jahr": 2025,
+   "quelle": {
+    "titel": "SRF: Top 10 Jugendwörter 2025",
+    "link": "https://www.srf.ch/kultur/gesellschaft-religion/top-10-jugendwoerter-2025-wissen-sie-was-tuff-oder-sybau-bedeutet"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Abwertend; Wort „tot“ in einer Kinder-App unpassend.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "talahon",
+   "wort": "Talahon",
+   "schreibweisen": [
+    "Talahon"
+   ],
+   "bedeutung": "Bezeichnung für junge Männer mit bestimmtem Auftreten; oft abwertend.",
+   "tonlage": "ungeeignet",
+   "jahr": 2024,
+   "quelle": {
+    "titel": "ZDFheute: Was „Talahon“ und „Akh“ bedeuten",
+    "link": "https://www.zdfheute.de/panorama/jugendwort-des-jahres-2024-100.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Abwertend und klischeehaft gegenüber einer Gruppe – ausgeschlossen.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "akh",
+   "wort": "Akh",
+   "schreibweisen": [
+    "Akh"
+   ],
+   "bedeutung": "Arabisch „Bruder“, Anrede für Freunde.",
+   "tonlage": "ungeeignet",
+   "jahr": 2024,
+   "quelle": {
+    "titel": "ZDFheute: Was „Talahon“ und „Akh“ bedeuten",
+    "link": "https://www.zdfheute.de/panorama/jugendwort-des-jahres-2024-100.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Gruppen- und herkunftsbezogene Anrede; vom Lernprogramm gesprochen wirkt es aufgesetzt.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "hoelle_nein",
+   "wort": "Hölle nein",
+   "schreibweisen": [
+    "Hölle nein"
+   ],
+   "bedeutung": "Starke Ablehnung („hell no“).",
+   "tonlage": "ungeeignet",
+   "jahr": 2024,
+   "quelle": {
+    "titel": "QuillBot: Jugendwort 2024 – Top 3 und Top 10",
+    "link": "https://quillbot.com/de/blog/jugendsprache/jugendwort-2024/"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Ablehnung – es gibt keinen Anlass in der App, bei dem die App „nein“ ruft.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "nein_pascal",
+   "wort": "Nein Pascal, ich denke nicht",
+   "schreibweisen": [
+    "Nein Pascal, ich denke nicht"
+   ],
+   "bedeutung": "Ablehnung, Meme.",
+   "tonlage": "ungeeignet",
+   "jahr": 2024,
+   "quelle": {
+    "titel": "web.de: Top 10 zum Jugendwort 2024",
+    "link": "https://web.de/magazine/unterhaltung/tv-shows/tagesschau-sprecherin-susanne-daubner-hoert-jugendwort-jahres-39949050"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Ablehnung mit Namensbezug – Kinder mit diesem Namen werden gehänselt.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "pyrotechnik",
+   "wort": "Pyrotechnik ist doch kein Verbrechen",
+   "schreibweisen": [
+    "Pyrotechnik ist doch kein Verbrechen"
+   ],
+   "bedeutung": "Fan-Spruch aus Fußballstadien.",
+   "tonlage": "ungeeignet",
+   "jahr": 2024,
+   "quelle": {
+    "titel": "web.de: Top 10 zum Jugendwort 2024",
+    "link": "https://web.de/magazine/unterhaltung/tv-shows/tagesschau-sprecherin-susanne-daubner-hoert-jugendwort-jahres-39949050"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Bezug zu verbotenem Feuerwerk im Stadion – kein Anlass, falsches Signal.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "yolo",
+   "wort": "Yolo",
+   "schreibweisen": [
+    "Yolo"
+   ],
+   "bedeutung": "„You only live once“ – Chancen nutzen, Risiken eingehen.",
+   "tonlage": "ungeeignet",
+   "jahr": 2012,
+   "quelle": {
+    "titel": "Uni Zürich (Pressespiegel): Jugendwort 2023 – die Top 10",
+    "link": "https://www.ds.uzh.ch/apps/_files/uploads/presse/872.pdf"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Risiko-Botschaft passt nicht zum sorgfältigen Rechnen; zudem alt.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "smash",
+   "wort": "Smash",
+   "schreibweisen": [
+    "Smash"
+   ],
+   "bedeutung": "Man findet jemanden attraktiv und würde gern etwas mit ihm anfangen.",
+   "tonlage": "ungeeignet",
+   "jahr": 2022,
+   "quelle": {
+    "titel": "QuillBot: Jugendwort 2022",
+    "link": "https://quillbot.com/de/blog/jugendsprache/jugendwort-2022/"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Sexuelle Bedeutung – ausgeschlossen.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "bodenlos",
+   "wort": "bodenlos",
+   "schreibweisen": [
+    "bodenlos"
+   ],
+   "bedeutung": "Schlecht, mies, unglaublich.",
+   "tonlage": "ungeeignet",
+   "jahr": 2022,
+   "quelle": {
+    "titel": "Tagesspiegel: Jugendwort 2022 – die drei Kandidaten",
+    "link": "https://www.tagesspiegel.de/gesellschaft/jugendwort-des-jahres-2022-das-sind-die-drei-kandidaten-8662300.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Abwertend.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "sus",
+   "wort": "sus",
+   "schreibweisen": [
+    "sus"
+   ],
+   "bedeutung": "Verdächtig, suspekt.",
+   "tonlage": "ungeeignet",
+   "jahr": 2021,
+   "quelle": {
+    "titel": "QuillBot: Jugendwort 2021",
+    "link": "https://quillbot.com/de/blog/jugendsprache/jugendwort-2021/"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Misstrauen/Vorwurf – bei Fehlern verletzend („deine Antwort ist sus“).",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "cringe",
+   "wort": "cringe",
+   "schreibweisen": [
+    "cringe"
+   ],
+   "bedeutung": "Extrem peinlich, Fremdscham.",
+   "tonlage": "ungeeignet",
+   "jahr": 2021,
+   "quelle": {
+    "titel": "QuillBot: Jugendwort 2021",
+    "link": "https://quillbot.com/de/blog/jugendsprache/jugendwort-2021/"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Als Rückmeldung beschämend.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "goofy",
+   "wort": "goofy",
+   "schreibweisen": [
+    "goofy"
+   ],
+   "bedeutung": "Albern, tollpatschig, dämlich.",
+   "tonlage": "ungeeignet",
+   "jahr": 2023,
+   "quelle": {
+    "titel": "QuillBot: Jugendwort 2023",
+    "link": "https://quillbot.com/de/blog/jugendsprache/jugendwort-2023/"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Abwertend über eine Person – bei Fehlern verletzend.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "npc",
+   "wort": "NPC",
+   "schreibweisen": [
+    "NPC"
+   ],
+   "bedeutung": "Person, die nur passiv am Geschehen teilnimmt.",
+   "tonlage": "ungeeignet",
+   "jahr": 2023,
+   "quelle": {
+    "titel": "QuillBot: Jugendwörter der letzten Jahre (alle Gewinner seit 2008)",
+    "link": "https://quillbot.com/de/blog/jugendsprache/jugendwoerter/"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Abwertend.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "side_eye",
+   "wort": "Side eye",
+   "schreibweisen": [
+    "Side eye"
+   ],
+   "bedeutung": "Seitenblick, drückt Verachtung oder Missbilligung aus.",
+   "tonlage": "ungeeignet",
+   "jahr": 2023,
+   "quelle": {
+    "titel": "QuillBot: Jugendwort 2023",
+    "link": "https://quillbot.com/de/blog/jugendsprache/jugendwort-2023/"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Verachtung.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "rizz",
+   "wort": "Rizz",
+   "schreibweisen": [
+    "Rizz"
+   ],
+   "bedeutung": "Charisma, Charme – meist beim Flirten.",
+   "tonlage": "ungeeignet",
+   "jahr": 2023,
+   "quelle": {
+    "titel": "QuillBot: Jugendwörter der letzten Jahre (alle Gewinner seit 2008)",
+    "link": "https://quillbot.com/de/blog/jugendsprache/jugendwoerter/"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Flirt-Bezug.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "lost",
+   "wort": "lost",
+   "schreibweisen": [
+    "lost"
+   ],
+   "bedeutung": "Ahnungslos, nicht mitkommen. Jugendwort 2020.",
+   "tonlage": "ungeeignet",
+   "jahr": 2020,
+   "quelle": {
+    "titel": "QuillBot: Jugendwörter der letzten Jahre (alle Gewinner seit 2008)",
+    "link": "https://quillbot.com/de/blog/jugendsprache/jugendwoerter/"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Bei Fehlern abwertend („du bist lost“).",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "geringverdiener",
+   "wort": "Geringverdiener",
+   "schreibweisen": [
+    "Geringverdiener"
+   ],
+   "bedeutung": "Spott über jemanden, der wenig hat oder kann.",
+   "tonlage": "ungeeignet",
+   "jahr": 2021,
+   "quelle": {
+    "titel": "mein-mmo: Jugendwort 2021 – Top 10",
+    "link": "https://mein-mmo.de/was-bedeutet-sus-jugendwort-2021/"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Abwertend (Einkommen).",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "mittwoch",
+   "wort": "Mittwoch (meine Kerle)",
+   "schreibweisen": [
+    "Mittwoch (meine Kerle)"
+   ],
+   "bedeutung": "Frosch-Meme zum Wochentag.",
+   "tonlage": "ungeeignet",
+   "jahr": 2021,
+   "quelle": {
+    "titel": "mein-mmo: Jugendwort 2021 – Top 10",
+    "link": "https://mein-mmo.de/was-bedeutet-sus-jugendwort-2021/"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Meme ohne Lern-Anlass; veraltet.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "papatastisch",
+   "wort": "papatastisch",
+   "schreibweisen": [
+    "papatastisch"
+   ],
+   "bedeutung": "Kaum bekanntes Kunstwort aus der Top 10 2021.",
+   "tonlage": "ungeeignet",
+   "jahr": 2021,
+   "quelle": {
+    "titel": "mein-mmo: Jugendwort 2021 – Top 10",
+    "link": "https://mein-mmo.de/was-bedeutet-sus-jugendwort-2021/"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Kaum bekannt, Bedeutung nicht geprüft.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "same",
+   "wort": "same",
+   "schreibweisen": [
+    "same"
+   ],
+   "bedeutung": "Geht mir genauso.",
+   "tonlage": "ungeeignet",
+   "jahr": 2021,
+   "quelle": {
+    "titel": "mein-mmo: Jugendwort 2021 – Top 10",
+    "link": "https://mein-mmo.de/was-bedeutet-sus-jugendwort-2021/"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Kein Anlass in der App.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "kerl_in",
+   "wort": "Kerl*in",
+   "schreibweisen": [
+    "Kerl*in"
+   ],
+   "bedeutung": "Anrede für einen Freund, meist nur in männlicher Form.",
+   "tonlage": "ungeeignet",
+   "jahr": 2023,
+   "quelle": {
+    "titel": "Uni Zürich (Pressespiegel): Jugendwort 2023 – die Top 10",
+    "link": "https://www.ds.uzh.ch/apps/_files/uploads/presse/872.pdf"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Kaum noch gebraucht; Genderstern wirkt bemüht.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "i_bims",
+   "wort": "I bims",
+   "schreibweisen": [
+    "I bims"
+   ],
+   "bedeutung": "„Ich bin’s“ in verdrehter Schreibweise. Jugendwort 2017.",
+   "tonlage": "ungeeignet",
+   "jahr": 2017,
+   "quelle": {
+    "titel": "QuillBot: Jugendwörter der letzten Jahre (alle Gewinner seit 2008)",
+    "link": "https://quillbot.com/de/blog/jugendsprache/jugendwoerter/"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Veraltet – wirkt peinlich.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "fly",
+   "wort": "fly",
+   "schreibweisen": [
+    "fly"
+   ],
+   "bedeutung": "Abgehoben, besonders. Jugendwort 2016.",
+   "tonlage": "ungeeignet",
+   "jahr": 2016,
+   "quelle": {
+    "titel": "QuillBot: Jugendwörter der letzten Jahre (alle Gewinner seit 2008)",
+    "link": "https://quillbot.com/de/blog/jugendsprache/jugendwoerter/"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Veraltet.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "delulu",
+   "wort": "delulu",
+   "schreibweisen": [
+    "delulu"
+   ],
+   "bedeutung": "Von „delusional“: wahnhaft, realitätsfern.",
+   "tonlage": "ungeeignet",
+   "jahr": null,
+   "quelle": {
+    "titel": "PC-Welt: Jugendwörter (u. a. Delulu)",
+    "link": "https://www.pcwelt.de/?p=2692026"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Abwertend.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "amk",
+   "wort": "AMK",
+   "schreibweisen": [
+    "AMK"
+   ],
+   "bedeutung": "Vulgäre türkische Abkürzung.",
+   "tonlage": "ungeeignet",
+   "jahr": null,
+   "quelle": {
+    "titel": "netzwelt: Çüş, AMK, Alman",
+    "link": "https://www.netzwelt.de/abkuerzung/177769-bedeutet-ue-bedeutung-verwendung.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Vulgär und beleidigend – ausgeschlossen.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "alman",
+   "wort": "Alman",
+   "schreibweisen": [
+    "Alman"
+   ],
+   "bedeutung": "Bezeichnung für Deutsche, oft spöttisch.",
+   "tonlage": "ungeeignet",
+   "jahr": null,
+   "quelle": {
+    "titel": "netzwelt: Çüş, AMK, Alman",
+    "link": "https://www.netzwelt.de/abkuerzung/177769-bedeutet-ue-bedeutung-verwendung.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Spott über eine Gruppe.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "hawk_tuah",
+   "wort": "Hawk Tuah",
+   "schreibweisen": [
+    "Hawk Tuah"
+   ],
+   "bedeutung": "Anzügliches Meme.",
+   "tonlage": "ungeeignet",
+   "jahr": null,
+   "quelle": {
+    "titel": "GIGA: Netz- und Gamingbegriffe (u. a. „Hawk Tuah“)",
+    "link": "https://www.giga.de/themen/netz-und-gamingbegriffe/?page=6"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Sexuell – ausgeschlossen.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "sigma",
+   "wort": "Sigma",
+   "schreibweisen": [
+    "Sigma"
+   ],
+   "bedeutung": "Meme-Wort für den „einsamen, überlegenen“ Mann (Alpha/Sigma).",
+   "tonlage": "ungeeignet",
+   "jahr": null,
+   "quelle": null,
+   "beleg": "Annahme – kein Listenwort, Bedeutung nicht mit Quelle geprüft",
+   "einsatz": "ungeeignet",
+   "grund": "Männlichkeits-Kult-Meme; Nebenbedeutung problematisch.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "skibidi",
+   "wort": "Skibidi",
+   "schreibweisen": [
+    "Skibidi"
+   ],
+   "bedeutung": "Meme ohne feste Bedeutung (Toiletten-Videos).",
+   "tonlage": "ungeeignet",
+   "jahr": null,
+   "quelle": null,
+   "beleg": "Annahme – kein Listenwort, Bedeutung nicht mit Quelle geprüft",
+   "einsatz": "ungeeignet",
+   "grund": "Kein Sinn, wirkt kindisch bzw. bemüht; verfällt schnell.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "brainrot",
+   "wort": "Brainrot",
+   "schreibweisen": [
+    "Brainrot"
+   ],
+   "bedeutung": "Hirnverrottung durch sinnlose Inhalte.",
+   "tonlage": "ungeeignet",
+   "jahr": null,
+   "quelle": null,
+   "beleg": "Annahme – kein Listenwort, Bedeutung nicht mit Quelle geprüft",
+   "einsatz": "ungeeignet",
+   "grund": "Abwertend.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "cooked",
+   "wort": "cooked",
+   "schreibweisen": [
+    "cooked"
+   ],
+   "bedeutung": "„Erledigt“, keine Chance mehr.",
+   "tonlage": "ungeeignet",
+   "jahr": null,
+   "quelle": null,
+   "beleg": "Annahme – kein Listenwort, Bedeutung nicht mit Quelle geprüft",
+   "einsatz": "ungeeignet",
+   "grund": "Entmutigend – bei Fehlern das Gegenteil von dem, was die App will.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "l",
+   "wort": "L",
+   "schreibweisen": [
+    "L"
+   ],
+   "bedeutung": "Niederlage, Verlust; wird zum Spotten benutzt.",
+   "tonlage": "ungeeignet",
+   "jahr": null,
+   "quelle": null,
+   "beleg": "Annahme – kein Listenwort, Bedeutung nicht mit Quelle geprüft",
+   "einsatz": "ungeeignet",
+   "grund": "Spott – nie bei Fehlern.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "vallah",
+   "wort": "Vallah / Wallah",
+   "schreibweisen": [
+    "Vallah / Wallah"
+   ],
+   "bedeutung": "Arabisch „bei Gott“, Beteuerung.",
+   "tonlage": "ungeeignet",
+   "jahr": null,
+   "quelle": null,
+   "beleg": "Annahme – kein Listenwort, Bedeutung nicht mit Quelle geprüft",
+   "einsatz": "ungeeignet",
+   "grund": "Religiöse Formel – nicht vom Lernprogramm.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "mashallah",
+   "wort": "Mashallah",
+   "schreibweisen": [
+    "Mashallah"
+   ],
+   "bedeutung": "Arabisch, Ausdruck der Bewunderung mit religiösem Bezug.",
+   "tonlage": "ungeeignet",
+   "jahr": null,
+   "quelle": null,
+   "beleg": "Annahme – kein Listenwort, Bedeutung nicht mit Quelle geprüft",
+   "einsatz": "ungeeignet",
+   "grund": "Religiöse Formel – nicht vom Lernprogramm.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  }
+ ],
+ "sprueche": [
+  {
+   "id": "J01",
+   "anlass": "landung_direkt",
+   "staerke": 3,
+   "sticker": "PEAK",
+   "woerter": [
+    "peak"
+   ]
+  },
+  {
+   "id": "J02",
+   "anlass": "landung_direkt",
+   "staerke": 3,
+   "sticker": "Das war Peak.",
+   "woerter": [
+    "peak"
+   ]
+  },
+  {
+   "id": "J03",
+   "anlass": "landung_direkt",
+   "staerke": 3,
+   "sticker": "GOAT",
+   "woerter": [
+    "goat"
+   ]
+  },
+  {
+   "id": "J04",
+   "anlass": "landung_direkt",
+   "staerke": 3,
+   "sticker": "+1000 Aura",
+   "woerter": [
+    "aura"
+   ]
+  },
+  {
+   "id": "J05",
+   "anlass": "landung_direkt",
+   "staerke": 3,
+   "sticker": "SIUUU!",
+   "woerter": [
+    "siu"
+   ]
+  },
+  {
+   "id": "J06",
+   "anlass": "landung_direkt",
+   "staerke": 3,
+   "sticker": "Çüş – auf Anhieb!",
+   "woerter": [
+    "cues"
+   ]
+  },
+  {
+   "id": "J07",
+   "anlass": "landung_sauber",
+   "staerke": 2,
+   "sticker": "Tuff.",
+   "woerter": [
+    "tuff"
+   ]
+  },
+  {
+   "id": "J08",
+   "anlass": "landung_sauber",
+   "staerke": 2,
+   "sticker": "Süper!",
+   "woerter": [
+    "sueper"
+   ]
+  },
+  {
+   "id": "J09",
+   "anlass": "landung_sauber",
+   "staerke": 2,
+   "sticker": "Slay.",
+   "woerter": [
+    "slay"
+   ]
+  },
+  {
+   "id": "J10",
+   "anlass": "landung_sauber",
+   "staerke": 2,
+   "sticker": "Gute Käse",
+   "woerter": [
+    "gute_kaese"
+   ]
+  },
+  {
+   "id": "J11",
+   "anlass": "landung_sauber",
+   "staerke": 2,
+   "sticker": "Sauber, Digga.",
+   "woerter": [
+    "digga"
+   ]
+  },
+  {
+   "id": "J12",
+   "anlass": "landung_sauber",
+   "staerke": 2,
+   "sticker": "Nice gelandet!",
+   "woerter": [
+    "nice"
+   ]
+  },
+  {
+   "id": "J13",
+   "anlass": "landung_leicht",
+   "staerke": 1,
+   "sticker": "Lowkey stark.",
+   "woerter": [
+    "lowkey"
+   ]
+  },
+  {
+   "id": "J14",
+   "anlass": "landung_leicht",
+   "staerke": 1,
+   "sticker": "Akkurat.",
+   "woerter": [
+    "akkurat"
+   ]
+  },
+  {
+   "id": "J15",
+   "anlass": "landung_leicht",
+   "staerke": 1,
+   "sticker": "W",
+   "woerter": [
+    "w"
+   ]
+  },
+  {
+   "id": "J16",
+   "anlass": "landung_leicht",
+   "staerke": 1,
+   "sticker": "Läuft, Digga.",
+   "woerter": [
+    "laeuft",
+    "digga"
+   ]
+  },
+  {
+   "id": "J17",
+   "anlass": "landung_sturm",
+   "staerke": 2,
+   "sticker": "Tuff durchgezogen.",
+   "woerter": [
+    "tuff"
+   ]
+  },
+  {
+   "id": "J18",
+   "anlass": "landung_sturm",
+   "staerke": 2,
+   "sticker": "Macher-Modus",
+   "woerter": [
+    "macher"
+   ]
+  },
+  {
+   "id": "J19",
+   "anlass": "landung_sturm",
+   "staerke": 2,
+   "sticker": "Locked in.",
+   "woerter": [
+    "locked_in"
+   ]
+  },
+  {
+   "id": "J20",
+   "anlass": "landung_sturm",
+   "staerke": 2,
+   "sticker": "Stabil durchgehalten.",
+   "woerter": [
+    "stabil"
+   ]
+  },
+  {
+   "id": "J21",
+   "anlass": "knobel_richtig",
+   "staerke": 3,
+   "sticker": "Çüş!",
+   "woerter": [
+    "cues"
+   ]
+  },
+  {
+   "id": "J22",
+   "anlass": "knobel_richtig",
+   "staerke": 3,
+   "sticker": "Sheesh!",
+   "woerter": [
+    "sheesh"
+   ]
+  },
+  {
+   "id": "J23",
+   "anlass": "knobel_richtig",
+   "staerke": 3,
+   "sticker": "Das crazy!",
+   "woerter": [
+    "das_crazy"
+   ]
+  },
+  {
+   "id": "J24",
+   "anlass": "knobel_richtig",
+   "staerke": 3,
+   "sticker": "Wild.",
+   "woerter": [
+    "wild"
+   ]
+  },
+  {
+   "id": "J25",
+   "anlass": "knobel_richtig",
+   "staerke": 3,
+   "sticker": "Ohne Witz – geknackt.",
+   "woerter": [
+    "ohne_witz"
+   ]
+  },
+  {
+   "id": "J26",
+   "anlass": "serie_5",
+   "staerke": 2,
+   "sticker": "5 in Folge – locked in",
+   "woerter": [
+    "locked_in"
+   ]
+  },
+  {
+   "id": "J27",
+   "anlass": "serie_5",
+   "staerke": 2,
+   "sticker": "5 am Stück, Digga.",
+   "woerter": [
+    "digga"
+   ]
+  },
+  {
+   "id": "J28",
+   "anlass": "serie_10",
+   "staerke": 3,
+   "sticker": "Gommemode",
+   "woerter": [
+    "gommemode"
+   ]
+  },
+  {
+   "id": "J29",
+   "anlass": "serie_10",
+   "staerke": 3,
+   "sticker": "Krass – 10 am Stück",
+   "woerter": [
+    "krass"
+   ]
+  },
+  {
+   "id": "J30",
+   "anlass": "wiederholung",
+   "staerke": 1,
+   "sticker": "Hält stabil.",
+   "woerter": [
+    "stabil"
+   ]
+  },
+  {
+   "id": "J31",
+   "anlass": "wiederholung",
+   "staerke": 1,
+   "sticker": "Safe gekonnt.",
+   "woerter": [
+    "safe"
+   ]
+  },
+  {
+   "id": "J32",
+   "anlass": "wiederholung",
+   "staerke": 1,
+   "sticker": "Noch drin. Nice.",
+   "woerter": [
+    "nice"
+   ]
+  },
+  {
+   "id": "J33",
+   "anlass": "wiederholung",
+   "staerke": 1,
+   "sticker": "Süper – noch gewusst.",
+   "woerter": [
+    "sueper"
+   ]
+  },
+  {
+   "id": "J34",
+   "anlass": "flug_geschafft",
+   "staerke": 3,
+   "sticker": "Peak-Flug",
+   "woerter": [
+    "peak"
+   ]
+  },
+  {
+   "id": "J35",
+   "anlass": "flug_geschafft",
+   "staerke": 3,
+   "sticker": "GOAT-Flug",
+   "woerter": [
+    "goat"
+   ]
+  },
+  {
+   "id": "J36",
+   "anlass": "flug_geschafft",
+   "staerke": 3,
+   "sticker": "SIUUU!",
+   "woerter": [
+    "siu"
+   ]
+  },
+  {
+   "id": "J37",
+   "anlass": "flug_geschafft",
+   "staerke": 3,
+   "sticker": "Aura +1000",
+   "woerter": [
+    "aura"
+   ]
+  },
+  {
+   "id": "J38",
+   "anlass": "expedition_geschafft",
+   "staerke": 2,
+   "sticker": "Çüş, Expedition!",
+   "woerter": [
+    "cues"
+   ]
+  },
+  {
+   "id": "J39",
+   "anlass": "expedition_geschafft",
+   "staerke": 2,
+   "sticker": "Tuff, Polarprofi.",
+   "woerter": [
+    "tuff"
+   ]
+  },
+  {
+   "id": "J40",
+   "anlass": "expedition_fehlerfrei",
+   "staerke": 3,
+   "sticker": "GOAT der Antarktis",
+   "woerter": [
+    "goat"
+   ]
+  },
+  {
+   "id": "J41",
+   "anlass": "expedition_fehlerfrei",
+   "staerke": 3,
+   "sticker": "Peak. Null Fehler.",
+   "woerter": [
+    "peak"
+   ]
+  },
+  {
+   "id": "J42",
+   "anlass": "nachbessern",
+   "staerke": 2,
+   "sticker": "Macher-Modus: repariert",
+   "woerter": [
+    "macher"
+   ]
+  },
+  {
+   "id": "J43",
+   "anlass": "nachbessern",
+   "staerke": 2,
+   "sticker": "Süper repariert!",
+   "woerter": [
+    "sueper"
+   ]
+  },
+  {
+   "id": "J44",
+   "anlass": "nachbessern",
+   "staerke": 2,
+   "sticker": "Stabil zurück.",
+   "woerter": [
+    "stabil"
+   ]
+  },
+  {
+   "id": "J45",
+   "anlass": "nachbessern",
+   "staerke": 2,
+   "sticker": "Wieder drin – nice.",
+   "woerter": [
+    "nice"
+   ]
+  },
+  {
+   "id": "J46",
+   "anlass": "fehler",
+   "staerke": 1,
+   "sticker": "Schere.",
+   "woerter": [
+    "schere"
+   ]
+  },
+  {
+   "id": "J47",
+   "anlass": "fehler",
+   "staerke": 1,
+   "sticker": "Kleine Schere – passiert.",
+   "woerter": [
+    "schere"
+   ]
+  },
+  {
+   "id": "J48",
+   "anlass": "fehler",
+   "staerke": 1,
+   "sticker": "Auf Lock. Nächste.",
+   "woerter": [
+    "auf_lock"
+   ]
+  },
+  {
+   "id": "J49",
+   "anlass": "fehler",
+   "staerke": 1,
+   "sticker": "Schere, Digga. Nächste.",
+   "woerter": [
+    "schere",
+    "digga"
+   ]
+  },
+  {
+   "id": "J50",
+   "anlass": "anrede",
+   "staerke": 1,
+   "sticker": "Yo Digga!",
+   "woerter": [
+    "digga"
+   ],
+   "zeile": "{Ansage der Abflugtafel, unverändert}"
+  },
+  {
+   "id": "J51",
+   "anlass": "anrede",
+   "staerke": 1,
+   "sticker": "Yurr, Digga!",
+   "woerter": [
+    "yurr",
+    "digga"
+   ],
+   "zeile": "{Ansage der Abflugtafel, unverändert}"
+  },
+  {
+   "id": "J52",
+   "anlass": "anrede",
+   "staerke": 1,
+   "sticker": "Digga, los geht’s.",
+   "woerter": [
+    "digga"
+   ],
+   "zeile": "{Ansage der Abflugtafel, unverändert}"
+  }
+ ]
+}

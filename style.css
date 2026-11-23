@@ -5844,3 +5844,109 @@ body.rk-kopf-oben:has(#tabs[hidden]) { padding-bottom: 0; }
 .rk-start-zu { margin: 0; background: var(--hgF); color: var(--tx); box-shadow: none; cursor: default; }
 .rk-oben .rk-pin text { pointer-events: auto; } /* Schild antippen = Pin antippen */
 .kompakt .rk-start-zu { max-width: 230px; } .rk-start-zu b { font-size: 14px; }
+/* ---------- KJ (0.93.0) ---------- */
+/* JW: Jugendwort-Sticker – schräg, weißer Rand, kräftige Schrift, „?“ als Hinweis „antippbar“; Farbe nach Stärke */
+.lr-jw-sticker { position: relative; display: inline-flex; align-items: center; justify-content: center; max-width: 220px; border: 3px solid #fff; border-radius: 14px; padding: 8px 16px 9px;
+  font: 900 20px/1.1 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; letter-spacing: .01em; color: #1B0C3A; transform: rotate(-7deg); box-shadow: 0 4px 10px #0004; cursor: pointer; text-align: center; min-height: 44px; }
+.lr-jw-sticker.lr-jw-lang { font-size: 16px; }
+.lr-jw-s3 { background: #FFD23F; } .lr-jw-s2 { background: #7EF0C2; } .lr-jw-s1 { background: #C9C2FF; }
+.lr-jw-sf { background: #E4E6EA; color: #3E4450; font-size: 13px; transform: rotate(-3deg); border-width: 2px; padding: 5px 12px; box-shadow: 0 2px 5px #0002; min-height: 36px; }
+.lr-jw-frage { position: absolute; right: -9px; bottom: -9px; width: 20px; height: 20px; border-radius: 50%; background: #1B0C3A; color: #fff; font: 800 12px/20px system-ui, sans-serif; font-style: normal; text-align: center; border: 2px solid #fff; }
+.lr-jw-text { overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.lr-jw-mit { padding-bottom: 86px !important; }
+.lr-jw-szene { position: absolute; right: 18px; bottom: 18px; z-index: 4; }
+.lr-jw-box, .lr-jw-fehler { margin: 10px 0 2px 6px; align-self: flex-start; }
+.lr-jw-anrede { margin-left: 10px; font-size: 14px; padding: 5px 12px; min-height: 36px; vertical-align: middle; }
+@media (prefers-reduced-motion: no-preference) { .lr-abschluss:not(.lr-ab-fertig) .lr-jw-szene, .lr-jw-box, .lr-jw-anrede { animation: lrJwPlopp .4s .35s both cubic-bezier(.2, 1.6, .4, 1); } @keyframes lrJwPlopp { from { transform: rotate(-7deg) scale(.2); opacity: 0; } to { transform: rotate(-7deg) scale(1); opacity: 1; } } }
+.lr-jw-blatt { position: fixed; inset: 0; z-index: 1000; background: #0006; display: flex; align-items: flex-end; justify-content: center; }
+.lr-jw-blatt-innen { background: #fff; color: #1B0C3A; width: 100%; max-width: 460px; border-radius: 20px 20px 0 0; padding: 18px 20px 22px; display: grid; gap: 10px; }
+.lr-jw-blatt-sticker { margin: 0; font: 900 22px/1.2 system-ui, sans-serif; }
+.lr-jw-wort b { font-size: 17px; } .lr-jw-wort small { color: #5C6170; } .lr-jw-wort p { margin: 4px 0 0; font-size: 15px; }
+/* NB: Nachbessern – Orange auf Hell-Apricot */
+.lr-nb-karte { background: #FFF1E6; border: 1.5px solid #F0B48C; border-radius: var(--lr-radius, 18px); padding: 14px 16px; display: grid; gap: 6px; color: #4A2A14; }
+.lr-nb-kopf { color: #C8642B !important; margin: 0; } .lr-nb-titel { margin: 0; font-size: 20px; } .lr-nb-wo { margin: 0; font-size: 13px; color: #7A5236; } .lr-nb-satz { margin: 2px 0; font-size: 14.5px; }
+.lr-nb-stand { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+.lr-nb-kreise { display: inline-flex; gap: 5px; vertical-align: middle; } .lr-nb-kreise i { width: 20px; height: 20px; border-radius: 50%; border: 2px solid #E3A37A; background: #fff; display: inline-grid; place-items: center; font-style: normal; font-size: 12px; font-weight: 900; color: #fff; }
+.lr-nb-kreise i.an { background: #2E9D5B; border-color: #2E9D5B; }
+.lr-nb-knopf { display: flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 14px; background: #C8642B; color: #fff; font-weight: 800; font-size: 17px; text-decoration: none; box-shadow: 0 3px 0 #9C4A1D; }
+.lr-nb-klein, .lr-nb-weitere { margin: 0; font-size: 12.5px; }
+.lr-nb-kompakt { grid-template-columns: minmax(0, 1fr) auto; align-items: center; padding: 6px 8px 6px 12px; border-radius: 14px; gap: 8px; }
+.lr-nb-kompakt .lr-nb-zeile { font-size: 13.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .lr-nb-kompakt .lr-nb-kreise i { width: 14px; height: 14px; font-size: 9px; }
+.lr-nb-kompakt .lr-nb-knopf { min-height: 44px; padding: 0 12px; font-size: 14px; }
+.lr-nb-leiste { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; background: #FFF1E6; border: 1.5px solid #F0B48C; color: #7A3A10; border-radius: 14px; padding: 8px 12px; font-size: 13.5px; }
+.lr-nb-leiste b { color: #C8642B; letter-spacing: .04em; }
+.lr-nb-rueck { margin-bottom: 8px; } .lr-nb-rueck p { margin: 2px 0 0; }
+.lr-nb-szene { background: linear-gradient(170deg, #FFB37A 0, #E3743A 55%, #9C4A1D 100%); color: #fff; align-items: center; text-align: center; }
+.lr-nb-haken { display: flex; gap: 12px; margin: 18px 0 6px; } .lr-nb-haken i { width: 46px; height: 46px; border-radius: 50%; background: #2E9D5B; border: 3px solid #fff; display: grid; place-items: center; font-style: normal; font-size: 24px; font-weight: 900; }
+@media (prefers-reduced-motion: no-preference) { .lr-abschluss:not(.lr-ab-fertig) .lr-nb-haken i { animation: lrJwPlopp2 .35s both; } .lr-abschluss:not(.lr-ab-fertig) .lr-nb-haken i:nth-child(2) { animation-delay: .2s; } .lr-abschluss:not(.lr-ab-fertig) .lr-nb-haken i:nth-child(3) { animation-delay: .4s; } @keyframes lrJwPlopp2 { from { transform: scale(.2); opacity: 0; } to { transform: scale(1); opacity: 1; } } }
+.lr-ex-chip-nb { display: block; text-decoration: none; }
+/* SJ: Mein Schuljahr */
+.lr-sj-karte { gap: 8px; }
+.lr-sj-haupt { display: flex; align-items: center; gap: 14px; }
+.lr-sj-ring { position: relative; display: inline-grid; place-items: center; flex: none; } .lr-sj-ring b { position: absolute; font-size: 15px; }
+.lr-sj-text p { margin: 2px 0; font-size: 14px; } .lr-sj-kl { font-size: 19px; }
+.lr-sj-ziel { margin: 0; background: #E6F0FB; color: #1F5FA8; border-radius: 12px; padding: 8px 12px; font-weight: 800; font-size: 14.5px; }
+.lr-nacht .lr-sj-ziel, .lr-abflug-nacht .lr-sj-ziel { background: #1E3A5F; color: #CFE3FF; }
+.lr-sj-nachbar { display: grid; grid-template-columns: minmax(0, 1fr) 70px auto; align-items: center; gap: 8px; font-size: 12.5px; color: var(--lr-leise, #6B726E); }
+.lr-sj-balken { height: 6px; }
+/* ZP: Zusatz · eingeplant – gestrichelt sand */
+.lr-zp-karte { background: #F6EFE2; border: 2px dashed #CDB894; border-radius: var(--lr-radius, 18px); padding: 14px 16px; display: grid; gap: 6px; color: #4A3A1E; }
+.lr-zp-kopf { color: #8A6A3A !important; margin: 0; } .lr-zp-titel { margin: 0; display: grid; } .lr-zp-titel small { font-size: 12.5px; color: #7A6544; }
+.lr-zp-balken { display: flex; gap: 3px; } .lr-zp-balken i { flex: 1; height: 8px; border-radius: 4px; background: #E4D7BE; } .lr-zp-balken i.voll { background: #A8834A; }
+.lr-zp-text { margin: 0; font-size: 13.5px; }
+.lr-zp-knopf { display: flex; align-items: center; justify-content: center; min-height: 46px; border-radius: 14px; background: #fff; color: #4A3A1E; border: 1.5px solid #CDB894; font-weight: 800; text-decoration: none; }
+.lr-zp-klein { margin: 0; font-size: 12.5px; }
+.lr-zp-kompakt { grid-template-columns: minmax(0, 1fr) auto; align-items: center; padding: 6px 8px 6px 12px; border-radius: 14px; font-size: 13.5px; }
+.lr-zp-kompakt > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .lr-zp-kompakt .lr-zp-knopf { min-height: 44px; padding: 0 12px; font-size: 14px; }
+.lr-zp-szene { background: linear-gradient(170deg, #F6E7C4 0, #E2C07A 55%, #A8834A 100%); color: #3A2A10; align-items: center; text-align: center; }
+.lr-zp-stempel { margin-top: 14px; width: 130px; height: 130px; border-radius: 50%; border: 4px double #8A6A3A; display: grid; place-items: center; align-content: center; gap: 4px; transform: rotate(-8deg); background: #FFF8EA; }
+.lr-zp-stempel img { width: 40px; height: 28px; object-fit: cover; border-radius: 4px; } .lr-zp-stempel small { letter-spacing: .2em; font-weight: 900; color: #8A6A3A; }
+.lr-zp-lohn { justify-content: space-between; }
+/* Reisekarte: Karten in der schwebenden Zone */
+.rk-schwebe .lr-nb-karte, .rk-schwebe .lr-zp-karte { margin: 0; box-shadow: 0 6px 18px #0002; }
+.rk-schwebe .lr-ex-wartet { justify-self: start; }
+/* Lehrer: Karte „Stand“ – Tabelle je Klasse, eingeplanter Zusatz */
+.lw-sj-liste { list-style: none; margin: 8px 0 4px; padding: 0; display: grid; gap: 4px; font-size: 13px; }
+.lw-sj-zeile { padding: 4px 8px; border-radius: 8px; } .lw-sj-haupt { background: #EEF3EC; }
+.lw-sj-zus { margin: 4px 0; } .lw-sj-i { border: 0; background: none; cursor: pointer; font-size: 15px; min-width: 32px; min-height: 32px; }
+.lw-sj-rechnung { display: block; font-size: 12px; color: #555; margin-top: 4px; }
+.lw-zp-marke { background: #F6EFE2 !important; color: #8A6A3A !important; border: 1px dashed #CDB894; }
+.lw-karte.lw-zp { border-style: dashed !important; border-color: #CDB894 !important; background: #FBF7EF; }
+.lw-karte.lw-zp .lw-pl { background: #8A6A3A; }
+.lw-fp-zp { border: 1.5px dashed #CDB894; background: #FBF7EF; } .lw-fp-zp .lw-nr { background: #8A6A3A; color: #fff; }
+.lw-fp-zp-zeile { display: block; margin-top: 3px; }
+.lw-zp-stand { margin: 4px 0; }
+.lr-jw-szene { bottom: 44px; }
+.lr-jw-blatt .lr-jw-zu { background: #1B0C3A; color: #fff; border: 0; border-radius: 12px; min-height: 46px; font: 800 16px system-ui, sans-serif; cursor: pointer; }
+@media (max-width: 380px) { .rk-schwebe-karte.kompakt { grid-template-columns: 1fr; } .rk-schwebe-karte.kompakt .rk-start { justify-content: center; } } /* 360 px: Stadtname nicht gekürzt */
+/* ---------- KJ 2 (0.93.1) ---------- */
+/* M1: „Zur Reisekarte ›“ wie die übrigen Textlinks – durchsichtig, ohne Rand, unterstrichen (nachts lesbar) */
+.rk-zur-karte { background: transparent; border: 0; padding: 4px 8px; color: var(--lr-text, inherit); font: inherit; font-size: 14px; font-weight: 700; text-decoration: underline; cursor: pointer; min-height: 44px; }
+/* S1: Anrede-Sticker unter 600 px schräg auf der rechten oberen Ecke der ersten Karte (ragt ~12 px über den Rand) */
+.lr-jw-ecke-traeger { position: relative; overflow: visible; }
+.lr-jw-ecke { position: absolute; top: -14px; right: -12px; z-index: 3; margin: 0; }
+.lr-abflugtafel.lr-jw-ecke-traeger { overflow: visible; }
+.lr-tafelkopf .lr-titel { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* S4: Nacht – Nachbessern und Zusatz dunkel */
+.lr-abflug-nacht .lr-nb-karte, .lr-nacht .lr-nb-karte { background: #2E1D14; border-color: #8A4A26; color: #F6E3D6; }
+.lr-abflug-nacht .lr-nb-wo, .lr-nacht .lr-nb-wo, .lr-abflug-nacht .lr-nb-karte .lr-leise, .lr-nacht .lr-nb-karte .lr-leise { color: #E0C3AE; }
+.lr-abflug-nacht .lr-nb-kreise i, .lr-nacht .lr-nb-kreise i { background: #2E1D14; border-color: #C8642B; }
+.lr-abflug-nacht .lr-nb-kreise i.an, .lr-nacht .lr-nb-kreise i.an { background: #2E9D5B; border-color: #2E9D5B; }
+.lr-abflug-nacht .lr-nb-leiste, .lr-nacht .lr-nb-leiste { background: #2E1D14; border-color: #8A4A26; color: #F6E3D6; }
+.lr-abflug-nacht .lr-zp-karte, .lr-nacht .lr-zp-karte { background: #27231A; border-color: #8C7A55; color: #EDE3CF; }
+.lr-abflug-nacht .lr-zp-kopf, .lr-nacht .lr-zp-kopf { color: #D9BE86 !important; }
+.lr-abflug-nacht .lr-zp-titel small, .lr-nacht .lr-zp-titel small, .lr-abflug-nacht .lr-zp-karte .lr-leise, .lr-nacht .lr-zp-karte .lr-leise { color: #CDBF9F; }
+.lr-abflug-nacht .lr-zp-balken i, .lr-nacht .lr-zp-balken i { background: #4A4231; } .lr-abflug-nacht .lr-zp-balken i.voll, .lr-nacht .lr-zp-balken i.voll { background: #D9BE86; }
+.lr-abflug-nacht .lr-zp-knopf, .lr-nacht .lr-zp-knopf { background: #1B1812; color: #EDE3CF; border-color: #EDE3CF; }
+/* S5: Lehrer – Fahrplan-Kopf ohne Umbruch im Wort, Zahl-Zeile darunter; Stand-Satz im Detail bricht um */
+.lw-rk { flex-wrap: wrap; row-gap: 0; } .lw-rk b { white-space: nowrap; } .lw-rk .lw-rk-zahl { flex: 1 1 100%; order: 2; }
+.lw-zp-stand, .lw-dkopf .lw-zp-marke { display: block; white-space: normal; overflow-wrap: anywhere; max-width: 100%; box-sizing: border-box; }
+.lw-fp-zp-teil { margin-left: 4px; }
+/* S6: Einsteigen-Leiste erst nach der Abflugtafel */
+.lr-dock-start { transition: opacity .2s, transform .2s; }
+.lr-dock-start.lr-dock-weg { opacity: 0; pointer-events: none; transform: translateY(12px); }
+@media (prefers-reduced-motion: reduce) { .lr-dock-start { transition: none; } }
+/* K2a: Bedeutungs-Blatt nachts dunkel */
+.lr-jw-blatt-nacht .lr-jw-blatt-innen { background: #121831; color: #E8ECF8; } .lr-jw-blatt-nacht .lr-jw-wort small { color: #A9B3D1; }
+.lr-jw-blatt-nacht .lr-jw-zu { background: #C9F26B; color: #0D1226; }
+.lr-jw-ecke { right: -8px; } .lr-jw-ecke .lr-jw-frage { right: -6px; }

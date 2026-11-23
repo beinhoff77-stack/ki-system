@@ -2,6 +2,86 @@
 
 Neueste oben.
 
+## 2026-11-23 – FERTIG: RK-App 3 (App 0.92.3)
+
+Stand `lernen-app` 5349917 übernommen; vor dem Push bis 845a737 nachgezogen, dabei kamen keine App-Dateien hinzu. Nur App: keine Datenbank, kein Merge nach `main`, keine Namen; nur Testkind und erfundene Daten. Cache v174.
+
+**MUSS 1 – Handy-Kopf (360/400 px)**
+- Rechts stehen fest ▤ · ★ · ≡: je ≥ 44 px, 4 px Abstand.
+- „📍 Zu mir“ steht unter ⤢ in den Kartenknöpfen, in gleicher Form. Ab 761 px bleibt es zusätzlich im Kopf.
+- Der Pfad bekommt den Rest der Breite und kürzt von links:
+  - Kontinent-Ebene: `🌍 › Europa 📍`
+  - Land-Ebene: `… › 🇮🇹 Italien 📍`; „…“ ist antippbar und führt zum Kontinent.
+- Die aktuelle Stufe steht immer ganz.
+- Test bei 360 und 400 px, Tag und Nacht, Kontinent- und Land-Ebene:
+  - Kästen von ‹, Pfad, ▤, ★ und ≡ ohne Überdeckung
+  - Maße und Abstände geprüft
+  - aktuelle Stufe nicht abgeschnitten
+  - „Zu mir“ per echtem Klick
+- Schild antippen öffnet jetzt das Land wie der Pin.
+
+**MUSS 2 – Sperr-Anzeige (RK-D, Abschnitt 3 der Prüfung)**
+- Gelesen werden `gesperrt`, `gesperrt_grund`, `ab_klasse`, `visum_fehlt`, `abgelegt` je Flug und Stadt.
+- **Gesperrt und nicht im Plan:** Pin 40 %, Flagge grau, Schild grau ohne Hauptstadt-Zeile, Fläche 55 %. Kein Schloss, kein „Städte ansehen“.
+- **Gesperrt und im Plan:** Platznummer grau, kleines 🔒 unten links am Kopf, Route dorthin grau gepunktet. Die rechte Liste zeigt „🔒 wartet“. Freie Plätze bleiben gelb.
+- **Grund beim Antippen:**
+  - „🔒 Erst ‹Land› schaffen“ mit Knopf „Zu ‹Land› ›“. Bei zwei Ländern stehen beide da, ab drei „…, … und n weitere Länder“.
+  - Klasse: „🔒 Ab Klasse 7 – kommt später.“
+  - Vorlesetext: „…, wartet – erst ‹Land› schaffen, Platz 3 im Plan“ bzw. „…, ab Klasse 7“.
+  - **Annahme:** `visum_fehlt` nennt Orte (Blöcke), nicht Länder. Die App sucht die Länder über `schule_uebersicht.themen` (block_id → Flüge der Karte, nur noch nicht geschaffte). Findet sie keinen Flug, nennt sie den Namen des Ortes.
+- **Land-Ebene eines gesperrten Flugs:** Haltestellen grau, Route grau gepunktet, oben der Grund. Keine Schlösser an den Städten.
+- **abgelegt:** Stadt-Kästchen golden mit ★ statt ✓; in der Liste „abgelegt ★“.
+- **Startknopf:**
+  - `naechster_start` auf einen gesperrten Flug wird nicht genommen.
+  - Gehört die Einheit des Startknopfs zu einem gesperrten Flug, führt er zum Flug, der auf der Karte dran ist, sonst zum nächsten freien „jetzt“.
+  - Gibt es keinen freien Flug, steht „🔒 Gerade wartet alles auf ein anderes Land“ ohne Link.
+- **Tests (Lagen aus der Prüfung nachgestellt):**
+  - Kl.-5-Lage Afrika: 0 Schlösser, alles gedämpft; Europa: genau 1 🔒.
+  - Europa mit Platz 3 (Slowenien) gesperrt bei 400 und 1280 px:
+    - genau ein 🔒, an Platz 3, Nummer grau, Schweiz (Platz 2) gelb
+    - Route grau
+    - Antippen (echter Klick) zeigt „🔒 Erst Schweiz schaffen“; „Zu Schweiz ›“ springt zur Schweiz
+    - Land-Ebene grau
+    - Rom abgelegt ★
+    - Startknopf nicht auf dem gesperrten Flug
+  - Kl.-8-Lage: zwei wartende im Plan (Slowenien, Deutschland).
+
+**SOLL**
+- **S1 – Haltestellen:**
+  - Die Kästchen werden nach Vorrang gesetzt: hier, wieder offen, nächste 3, gelandet, Rest.
+  - Überdeckt eines ein schon gesetztes, rückt es bis 16 px weg, im Notfall bis 24 px. Dazu kommen eine feine Linie und ein Punkt am echten Ort.
+  - Test 400 und 1280 px: 13 Kästchen ohne Überdeckung.
+- **S2 – Länder-Schilder:**
+  - Vorrang wie Abschnitt 2: dran, nächste 3, wieder offen, geschafft, Plan, Zusatz, offen, gesperrt, ohne Flug.
+  - Vier Lagen (rechts, links, oben, unten). „Frei“ heißt: kein Schild, kein Kopf, keine Kartenknöpfe und keine Quellen-Zeile darunter.
+  - Kein Platz → Schild weglassen, Pin bleibt. Länder ohne Flug kommen erst nach allen Flug-Schildern.
+  - Hauptstadt-Zeile auf dem Handy nur für dran, die nächsten 3 und das angetippte Land.
+  - Fächer: Köpfe, die sich zu mehr als einem Drittel überdecken, rücken bis 14 px schräg weg; die Spitze bleibt.
+  - Test bei 360 und 400 px in Europa, Afrika und Asien: Schild/Schild und Schild/Kopf ohne Überdeckung; IT, CH, SI und DE beschriftet.
+
+**KANN**
+- **K1:** Quellen-Zeile unten links, auf dem Handy über der Schwebekarte.
+- **K2:** Die Welt startet auf Handy und Tablet mit den zwei nächsten Nachbarn samt Namen im Bild (Test 400/820).
+- **K4:** ⓘ in den Kartenknöpfen öffnet die kleine Legende: ✈ · Platz · ✓ · ★ · ↻ · 🔒 · +.
+
+**Nachweis:** `tests/lernen.test.cjs` dreimal:
+- Lauf 1: **183/183**, 350 s
+- Lauf 2: **183/183**, 359 s
+- Lauf 3 mit 4-fach gedrosselter CPU (`LERN_CPU=4`): **183/183**, 756 s
+- Die übrigen Testdateien (Reise/PWA) habe ich diesmal nicht laufen lassen.
+
+**Bilder** in `docs/previews/la/`:
+- `rk3-kl5-europa|kl8-europa-{400,820,1280}-{tag,nacht}.png`
+- `rk3-kl5-afrika-{400,820,1280}-{tag,nacht}.png`
+- `rk3-kopf-land-360-*`
+- `rk3-eu3-*`, `rk3-grund-*`, `rk3-land-gesperrt-*`
+- `rk3-schilder-{europa,afrika,asien}-{360,400}`
+- `rk3-welt-legende-{400,820}`
+
+**Offen:**
+- In Ostafrika (Kl.-5-Lage) liegen gedämpfte Pins weiter dicht. Die Fächer gelten nur für Pins mit Flug, die Schilder überdecken sich nicht.
+- Auf 360 px kürzt die Schwebekarte den Stadtnamen („Bologn…“).
+
 ## 2026-11-23 – FERTIG: RK-App 2 (App 0.92.2)
 
 Stand `lernen-app` e0f3873 übernommen, vor dem Push nachgezogen bis 4596160. Dabei kamen keine App-Dateien hinzu. Nur App: keine Datenbank, keine Migration, kein Merge nach `main`, keine Namen; nur Testkind und erfundene Daten. Cache v173.

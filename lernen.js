@@ -19,7 +19,46 @@ const LERN_ERDTEIL = { zahlen: 'EU', algebra: 'AS', geld: 'NA', geometrie: 'AF',
 const LERN_WELTEN = [['Ozean', 'Ozean'], ['Nacht', 'Nacht'], ['Dschungel', 'Dschungel'], ['Wüste', 'Wüste']];
 const LERN_STILE = [['entdecker', 'Entdecker', 'verspielt, große Knöpfe'], ['studio', 'Studio', 'klar und sachlich']];
 
+// LZ-App (0.91.1): Lese-Anfragen der Lehrer-Seiten je Sitzung merken (gleiche Anfrage = gleiche Antwort, auch während sie noch läuft);
+// eine gemerkte Antwort wird sofort geliefert und nach 10 s im Hintergrund aufgefrischt (Ereignis „lern-frisch“, wenn sie sich geändert hat).
+// Jede schreibende Aktion vergisst gezielt: alles zu diesem Kind und alle kindunabhängigen Antworten (Übersicht, Matrix-Gerüst); ohne Kind alles.
+const LERN_MERKEN = new Set(['schule_uebersicht', 'schule_lehrplan_matrix', 'schule_lehrplan_uebersicht', 'schule_lernstand', 'schule_plan_lesen', 'schule_wackelt_lesen']);
+const LERN_NUR_LESEN = /^schule_(ich|konto|eltern|zugaenge|merkheft|wiederholung|reise_karte|lehrplan_thema|einheit_lesen|inhalt_lesen|schulstand|lehrplan_lesen)$|_lesen$/;
+const lernSpeicher = new Map(); // Schlüssel → { p, wert, t, kind, frisch }
+const lernSpeicherSchl = (a, d) => a + '|' + JSON.stringify(d || {});
+const lernKopie = (w) => (w && typeof w === 'object' ? structuredClone(w) : w);
+function lernVergessen(kindId) {
+  for (const [s, e] of lernSpeicher) if (kindId === undefined || kindId === null || e.kind === null || e.kind === Number(kindId)) lernSpeicher.delete(s);
+}
+function lernMerkeAuf(s, aktion, daten, p) {
+  const e = { p, t: Date.now(), kind: daten?.lernender_id !== undefined ? Number(daten.lernender_id) : null };
+  lernSpeicher.set(s, e);
+  p.then((w) => { if (lernSpeicher.get(s) === e) e.wert = w; }, () => { if (lernSpeicher.get(s) === e) lernSpeicher.delete(s); });
+  return e;
+}
+function lernAuffrischen(s, aktion, daten, alt) {
+  if (alt.frisch) return; alt.frisch = true;
+  lernCallNetz(aktion, daten).then((w) => {
+    if (lernSpeicher.get(s) !== alt) return; // inzwischen vergessen (Änderung) – nichts überschreiben
+    const anders = JSON.stringify(w) !== JSON.stringify(alt.wert);
+    const e = lernMerkeAuf(s, aktion, daten, Promise.resolve(w)); e.wert = w;
+    if (anders) dispatchEvent(new CustomEvent('lern-frisch', { detail: { aktion, daten } }));
+  }, () => { alt.frisch = false; });
+}
 async function lernCall(aktion, daten = {}) {
+  if (LERN_MERKEN.has(aktion)) {
+    const s = lernSpeicherSchl(aktion, daten); let e = lernSpeicher.get(s);
+    if (e && e.wert !== undefined && Date.now() - e.t > 10000) lernAuffrischen(s, aktion, daten, e);
+    if (!e) e = lernMerkeAuf(s, aktion, daten, lernCallNetz(aktion, daten));
+    return lernKopie(await e.p); // Kopie: Aufrufer dürfen die Antwort verändern
+  }
+  const schreibt = !LERN_NUR_LESEN.test(aktion);
+  if (schreibt) lernVergessen(daten?.lernender_id);
+  try { return await lernCallNetz(aktion, daten); } finally { if (schreibt) lernVergessen(daten?.lernender_id); }
+}
+// Hintergrund: Anfragen vorab starten (Ergebnis landet im Speicher); Fehler still
+const lernVorladen = (aktion, daten = {}) => { lernCall(aktion, daten).catch(() => { /* still */ }); };
+async function lernCallNetz(aktion, daten = {}) {
   const headers = { 'Content-Type': 'application/json' };
   if (store.token) headers.Authorization = 'Bearer ' + store.token;
   const r = await fetch(mitRegion(lernApi() + '/aktion'), { method: 'POST', headers, body: JSON.stringify({ aktion, daten }) });
@@ -977,13 +1016,16 @@ const LERN_REITER = [['ueberblick', 'Überblick'], ['wackelt', 'Was wackelt'], [
 function lernKinderUmschalter(k, reiter, kinder) {
   if (!kinder || kinder.length < 2) return null;
   const i = Math.max(0, kinder.findIndex((c) => c.id === k.id)); const n = kinder.length;
-  const geh = (c) => { if (c && c.id !== k.id) route('kind', `${c.id}-${reiter}`); };
+  // LZ-App: Markierung sofort (vor dem Laden), alter Inhalt bleibt abgeblendet stehen
+  const geh = (c) => { if (!c || c.id === k.id) return;
+    nav.querySelectorAll('.lw-k-chip').forEach((b) => { const an = b.dataset.id === String(c.id); b.classList.toggle('lw-k-aktiv', an); if (an) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
+    lernWechselStart(); route('kind', `${c.id}-${reiter}`); };
   const erste = kinder.map((c) => String(c.name || '?').trim().charAt(0).toUpperCase());
   const eindeutig = new Set(erste).size === erste.length;
   const buchst = (c, j) => (eindeutig ? erste[j] : String(c.name || '').trim().split(/\s+/).pop().charAt(0).toUpperCase() || 'ABCDEFGH'[j]);
   const nav = el('nav', { class: 'lw-kinder', 'aria-label': 'Kind wechseln' },
     el('button', { type: 'button', class: 'lw-k-pfeil', 'aria-label': 'Vorheriges Kind (Alt+←)', onclick: () => geh(kinder[(i - 1 + n) % n]) }, '‹'),
-    ...kinder.map((c, j) => el('button', { type: 'button', class: 'lw-k-chip' + (c.id === k.id ? ' lw-k-aktiv' : ''), 'aria-current': c.id === k.id ? 'page' : null,
+    ...kinder.map((c, j) => el('button', { type: 'button', class: 'lw-k-chip' + (c.id === k.id ? ' lw-k-aktiv' : ''), 'aria-current': c.id === k.id ? 'page' : null, 'data-id': String(c.id),
       'aria-label': `${c.name}${c.klasse ? ` · ${LERN_SCHULART[c.schulart || 'gym_by'] || 'Gymnasium'} · Klasse ${c.klasse}` : ''}`, onclick: () => geh(c) },
       el('span', { class: 'lw-k-buchst', 'aria-hidden': 'true' }, buchst(c, j)), el('b', { class: 'lw-k-name' }, c.name),
       c.klasse ? el('small', { class: 'lw-k-info' }, `${LERN_SCHULART[c.schulart || 'gym_by'] || 'Gymnasium'} · Kl. ${c.klasse}`) : null)),
@@ -1003,13 +1045,27 @@ function lernKindKopf(k, reiter, { kinder = null, zb = null } = {}) {
   const eltern = lernRolle() === 'eltern'; const info = k.klasse ? `${LERN_SCHULART[k.schulart || 'gym_by'] || 'Gymnasium'} · Klasse ${k.klasse}` : 'Klasse nicht gesetzt';
   return el('section', { class: 'lern-kind-kopf lw-schlank', 'aria-label': `Seite von ${k.name}` },
     lernKinderUmschalter(k, reiter, kinder) || el('div', { class: 'lw-k-einzel' }, el('b', {}, k.name), el('small', { class: 'lw-k-info' }, info)),
-    el('nav', { class: 'lern-reiter', 'aria-label': 'Bereiche' }, ...LERN_REITER.map(([r, t]) => el('a', { href: `#/kind/${k.id}-${r}`, 'aria-current': r === reiter ? 'page' : null }, t,
+    el('nav', { class: 'lern-reiter', 'aria-label': 'Bereiche' }, ...LERN_REITER.map(([r, t]) => el('a', { href: `#/kind/${k.id}-${r}`, 'aria-current': r === reiter ? 'page' : null,
+      onclick: (ev) => { if (ev.metaKey || ev.ctrlKey || r === reiter) return; // LZ-App: Reiter sofort markieren, alter Inhalt abgeblendet
+        ev.currentTarget.parentElement.querySelectorAll('a').forEach((a) => a.removeAttribute('aria-current')); ev.currentTarget.setAttribute('aria-current', 'page'); lernWechselStart(); } }, t,
       r === 'wackelt' && zb ? el('b', { class: 'lw-zb', 'aria-label': `${zb} zu besprechen` }, String(zb)) : null))),
     el('div', { class: 'lern-kind-kopf-knoepfe' },
       eltern ? el('a', { class: 'btn lern-start', href: `#/reise/${k.id}`, 'aria-label': `Lernen starten: ${k.name}` }, 'Lernen starten ›') : null,
       eltern ? null : el('a', { class: 'small lern-reise-ansehen', href: `#/reise/${k.id}` }, 'Lernreise ansehen ›'),
       el('button', { type: 'button', class: 'lern-einstellen', 'aria-label': `${k.name} einstellen`, title: 'Einstellen', onclick: () => lernEinstellenBlatt(k.id) }, '⚙'),
-      el('span', { class: 'lern-info-oben' }, el('a', { class: 'lern-info-link', href: '#/info', title: 'So funktioniert’s' }, 'ⓘ', el('span', { class: 'lw-vh' }, ' So funktioniert’s')))));
+      el('span', { class: 'lern-info-oben' }, el('a', { class: 'lern-info-link', href: '#/info', title: 'So funktioniert’s' }, 'ⓘ', el('span', { class: 'lw-vh' }, ' So funktioniert’s')))),
+    lernKopfMehr(k, eltern));
+}
+// LZ-App S4: Handy – eine Zeile ‹ · Kinder · ⋯; „⋯“ öffnet Lernen starten, Einstellen, So funktioniert’s
+function lernKopfMehr(k, eltern) {
+  const menue = el('div', { class: 'lw-mehr-menue', role: 'group', 'aria-label': 'Mehr', hidden: true },
+    el('a', { href: `#/reise/${k.id}`, 'aria-label': eltern ? `Lernen starten: ${k.name}` : 'Lernreise ansehen ›' }, eltern ? 'Lernen starten ›' : 'Lernreise ansehen ›'),
+    el('button', { type: 'button', 'aria-label': `${k.name} einstellen`, onclick: () => { menue.hidden = true; lernEinstellenBlatt(k.id); } }, '⚙ Einstellen'),
+    el('a', { href: '#/info' }, 'ⓘ So funktioniert’s'));
+  const knopf = el('button', { type: 'button', class: 'lw-mehr', 'aria-label': 'Mehr', 'aria-expanded': 'false',
+    onclick: (ev) => { ev.stopPropagation(); menue.hidden = !menue.hidden; knopf.setAttribute('aria-expanded', String(!menue.hidden));
+      if (!menue.hidden) addEventListener('click', function zu(e) { if (!menue.contains(e.target)) { menue.hidden = true; knopf.setAttribute('aria-expanded', 'false'); } removeEventListener('click', zu); }); } }, '⋯');
+  return el('span', { class: 'lw-mehr-ort' }, knopf, menue);
 }
 // Kopf in den App-Kopf setzen (statt der Überschrift); beim nächsten Seitenwechsel wieder heraus
 function lernKopfEinsetzen(kopf) {
@@ -1017,7 +1073,20 @@ function lernKopfEinsetzen(kopf) {
   h.querySelectorAll(':scope > .lern-kind-kopf').forEach((x) => x.remove());
   const t = h.querySelector('#title'); if (t) t.after(kopf); else h.prepend(kopf);
   document.body.classList.add('lw-kopf-schlank');
-  addEventListener('hashchange', () => { kopf.remove(); if (!document.querySelector('header.top > .lern-kind-kopf')) document.body.classList.remove('lw-kopf-schlank'); }, { once: true });
+  lernWechselFertig();
+  // LZ-App: Beim Wechsel zu einem anderen Kind/Reiter bleibt der Kopf stehen (kein Springen); der neue ersetzt ihn. Sonst heraus.
+  const weg = () => { if (/^#\/kind\//.test(location.hash) && document.body.contains(kopf)) { addEventListener('hashchange', weg, { once: true }); return; }
+    kopf.remove(); lernWechselFertig(); if (!document.querySelector('header.top > .lern-kind-kopf')) document.body.classList.remove('lw-kopf-schlank'); };
+  addEventListener('hashchange', weg, { once: true });
+}
+const lernWechselStart = () => { main.classList.add('lw-wechsel'); main.setAttribute('aria-busy', 'true'); };
+const lernWechselFertig = () => { main.classList.remove('lw-wechsel'); main.removeAttribute('aria-busy'); };
+// Kind-Seite: kein leerer Ladebildschirm, wenn schon Inhalt da ist (Wechsel) – sonst wie bisher
+const lernLaden = () => { if (!main.classList.contains('lw-wechsel') || !main.children.length) loading(); };
+// LZ-App: alle Anfragen eines Reiters gleichzeitig starten (die Ansicht holt sie dann aus dem Speicher)
+function lernReiterVorladen(id, reiter) {
+  lernVorladen('schule_uebersicht'); lernVorladen('schule_lernstand', { lernender_id: id }); lernVorladen('schule_wackelt_lesen', { lernender_id: id });
+  if (reiter !== 'wackelt') { lernVorladen('schule_plan_lesen', { lernender_id: id }); lernVorladen('schule_lehrplan_matrix'); lernVorladen('schule_lehrplan_uebersicht'); }
 }
 async function viewKind(arg) {
   const [idRoh, reiterRoh, ...rest] = String(arg || '').split('-');
@@ -1026,52 +1095,49 @@ async function viewKind(arg) {
   // LW-1: alte Reiter „Stand“ (mit Schulart) und „Plan“ → „Lehrplan“
   if (reiterRoh === 'stand' || reiterRoh === 'plan') { route('kind', [id, 'lehrplan', ...(reiterRoh === 'stand' && LERN_MX_SA[rest[0]] ? [rest[0]] : [])].join('-')); return; }
   const live = viewGuard();
-  if (reiter === 'ueberblick') { await viewKindUeberblick(id); return; }
-  const [u, wk] = await Promise.all([lernCall('schule_uebersicht').catch(() => null), reiter === 'wackelt' ? Promise.resolve(null) : lernWackeltLesen(id)]);
-  const k = (u?.lernende || []).find((x) => x.id === id) || null;
+  lernReiterVorladen(id, reiter); // LZ-App: alles gleichzeitig
+  if (!main.classList.contains('lw-wechsel') && !document.querySelector('header.top > .lern-kind-kopf')) loading();
+  const u = await lernCall('schule_uebersicht').catch(() => null);
   if (!live()) return;
-  if (reiter === 'wackelt') await viewWackelt([id, ...rest].join('-'));
-  else await viewKindLehrplan(id, rest);
-  if (!live() || !k) return;
-  // gleich nach dem Zeichnen (ohne Warten): Kopf mit Reitern davor; „So funktioniert’s“ steht dann im Kopf statt in einer eigenen Zeile
-  main.querySelector(':scope > .lern-info-oben')?.remove();
-  lernKopfEinsetzen(lernKindKopf(k, reiter, { kinder: u.lernende, zb: reiter === 'wackelt' ? lernWackeltZahl : wk?.zu_besprechen }));
+  const k = (u?.lernende || []).find((x) => x.id === id) || null;
+  // Kopf zuerst (aus der gemerkten Übersicht), die Zahl „Zu besprechen“ kommt nach
+  if (k) { main.querySelector(':scope > .lern-info-oben')?.remove();
+    const kopf = lernKindKopf(k, reiter, { kinder: u.lernende, zb: lernWackeltZahl?.kind === id ? lernWackeltZahl.n : null });
+    lernKopfEinsetzen(kopf); lernWechselStart(); main.classList.toggle('lw-wechsel', main.children.length > 0 && !main.querySelector(':scope > .spinner')); }
+  if (reiter !== 'wackelt') lernWackeltLesen(id).then((w) => { if (live() && w) { lernWackeltZahl = { kind: id, n: Number(w.zu_besprechen) || 0 }; lernZbSetzen(lernWackeltZahl.n); } });
+  try {
+    if (reiter === 'ueberblick') await viewKindUeberblick(id, u);
+    else if (reiter === 'wackelt') await viewWackelt([id, ...rest].join('-'));
+    else await viewKindLehrplan(id, rest);
+  } finally { if (live()) lernWechselFertig(); }
+  if (!live()) return;
+  if (!k) { route('lernen'); return; }
+  // Hintergrund: gemerkte Daten hat sich geändert → Überblick/Was wackelt still neu zeichnen (Lehrplan nicht – dort wird gerade gearbeitet)
+  const frisch = () => { if (!live()) { removeEventListener('lern-frisch', frisch); return; } if (reiter !== 'lehrplan') render(); };
+  addEventListener('lern-frisch', frisch);
+  // das andere Kind (bzw. die anderen) vorab laden – ohne Testkind
+  setTimeout(() => { if (live()) (u.lernende || []).filter((c) => c.id !== id && !c.ist_test).forEach((c) => lernReiterVorladen(c.id, reiter)); }, 300);
 }
 async function viewKindUeberblick(id) {
   setChrome('Überblick', { back: true, showTabs: false });
   const live = viewGuard();
-  loading();
+  lernLaden();
   const [u, ls, wk, p, mx] = await Promise.all([lernCall('schule_uebersicht'), lernCall('schule_lernstand', { lernender_id: id }).catch(() => null), lernWackeltLesen(id),
     lernCall('schule_plan_lesen', { lernender_id: id }).catch(() => null), lernMxLaden().then((d) => (d.matrix && !(d.kinder || []).some((c) => c.id === id) ? lernMxLaden(true) : d)).catch(() => null)]);
   if (!live()) return;
   const k = (u.lernende || []).find((x) => x.id === id); if (!k) { route('lernen'); return; }
   $('#title').textContent = k.name;
-  const l = lernKindLage(u, k, ls); const w = l.w; const n = lernReiseDaten(u, k.id)?.naechste;
-  const frage = (titel, ampel, inhalt, link) => el('section', { class: 'card lern-frage' + (ampel ? ' amp-' + ampel : '') }, el('h3', {}, titel), ...inhalt, link);
+  // LZ-App S2: keine doppelten Karten mehr („Lernt es?“, „Wo hakt es?“, „Wo steht es?“, „Was kommt?“ sind in den neuen Karten aufgegangen)
+  const l = lernKindLage(u, k, ls);
   const geschafft = lernGeschaffteFluege(u, k, ls).slice(0, 3);
-  lernKopfEinsetzen(lernKindKopf(k, 'ueberblick', { kinder: u.lernende, zb: wk?.zu_besprechen }));
   lernErsetze(main,
-    lernUeberblickKarten(k, { u, ls, wk, p, mx }),
-    el('div', { class: 'lern-fragen' },
-      frage('Lernt es?', lernLerntAmpel(l), [el('p', {}, lernLerntText(l)), el('p', { class: 'small muted' }, `Letzte 7 Tage: ${w.aufgaben || 0} `, lernErklaert('Bordkarten', 'bordkarte'), `, ${w.richtig || 0} richtig` + (w.mit_tipp ? `, ${w.mit_tipp}-mal mit Tipp` : ''))], null),
-      frage('Wo hakt es?', l.rueck.length ? 'rot' : l.offen.length ? 'gelb' : 'gruen', [
-        l.wackelt.length ? el('ul', { class: 'lern-kurzliste' }, ...l.wackelt.slice(0, 3).map((x) => el('li', {}, el('b', {}, x.titel), el('small', { class: 'muted' }, ` · ${x.ort || x.thema}`))))
-          : el('p', {}, 'Keine ', lernErklaert('Etappe', 'etappe'), ' wackelt', ...l.rueck.map((o) => ` · Rückreise ${o} offen`)), // I-6: kein „Nichts wackelt.“ über einer Rückreise
-        ...(l.rueck.length ? [el('p', { class: 'small' }, l.wackelt.length ? `Rückreise ${l.rueck.join(', ')} offen` : '', el('small', { class: 'lern-wort-erkl' }, `${l.wackelt.length ? ' ' : ''}(Rückreise = ${LERN_WORT.rueckreise})`))] : [])],
-        el('a', { class: 'small', href: `#/kind/${k.id}-wackelt` }, 'Was wackelt ›')),
-      frage('Wo steht es?', null, [el('div', { class: 'lern-frage-stand' }, ...lernStandZellen(u, k).map((z) => el('a', { href: `#/kind/${k.id}-lehrplan-${z.sa}`, class: 'lern-st-link' },
-        el('small', {}, z.y.name), el('span', { class: 'lern-st-zelle' }, el('b', {}, z.text), z.lang ? null : el('small', {}, z.pz === null ? '–' : `${z.pz} %`)))))], el('a', { class: 'small', href: `#/kind/${k.id}-lehrplan` }, 'Lehrplan ›')),
-      frage('Was kommt?', null, [n ? el('p', {}, 'Jetzt: ', lernErklaert('Flug', 'flug'), ` ${n.stadt || n.ort_titel} · ${n.titel} (${n.fertig}/${n.n} Etappen)`) : el('p', {}, 'Gerade nichts offen.')], el('a', { class: 'small', href: `#/kind/${k.id}-lehrplan` }, 'Fahrplan ›'))),
-    el('section', { class: 'card lern-geschafft-kurz' }, el('h3', {}, 'Zuletzt geschafft'),
-      geschafft.length ? el('ul', { class: 'lern-kurzliste lern-geschafft-stufen' }, ...geschafft.map((g) => el('li', {}, lernStufeZeichenEl(g.stufe), ' ', el('b', {}, g.titel),
-        el('small', { class: 'muted' }, ` · ${LERN_STUFE[g.stufe.stufe]?.wort || ''} · ${g.ort}${g.am ? ' · ' + lernTag(g.am) : ''}${g.kannSchon ? ' · kann schon' : ''}`))))
-        : el('p', { class: 'muted small' }, 'Noch kein Flug geschafft.')),
+    lernUeberblickKarten(k, { u, ls, wk, p, mx, l, geschafft }),
     lernExpeditionenKind(u, k)); // LW-3b: Expeditionen stehen im Überblick (nicht mehr unter der Matrix)
 }
 // LW-3 (1a): Überblick-Karten mit Sprüngen – Gerade dran (→ Lehrplan mit dem Thema), Als Nächstes (→ Fahrplan), Zu besprechen (→ Was wackelt),
 // Diese Woche, Stand um die Klasse des Kindes (Ringe wie im Reiter „Lehrplan“). Die bisherigen vier Fragen stehen darunter.
 let lernLwStart = null; // { kind, fahrplan: true } – „Fahrplan ändern“ öffnet im Reiter „Lehrplan“ den Fahrplan (Handy/Tablet)
-function lernUeberblickKarten(k, { u, ls, wk, p, mx }) {
+function lernUeberblickKarten(k, { u, ls, wk, p, mx, l = null, geschafft = [] }) {
   const M = mx && (mx.themen || []).length ? lernMxDaten(mx) : null; const sa = LERN_MX_SA[k.schulart] ? k.schulart : 'gym_by';
   const st = (x) => lernMxStufe(x, k);
   const lehrplan = (thema) => { if (thema) lernPlanZiel = { kind: k.id, thema }; route('kind', `${k.id}-lehrplan`); };
@@ -1106,16 +1172,23 @@ function lernUeberblickKarten(k, { u, ls, wk, p, mx }) {
       el('b', { class: 'lw-ue-zahl' }, String(Number(wk.zu_besprechen) || zb.length)),
       el('small', {}, zb.length ? zb.slice(0, 3).map((e) => e.titel).join(' · ') + (zb.length > 3 ? ' …' : '') : 'alles besprochen'),
       knopf('Zu Was wackelt', () => route('kind', `${k.id}-wackelt`))) : null,
-    el('section', { class: 'lw-ue-karte lw-ue-woche' }, el('h3', { class: 'lw-ue-h' }, 'DIESE WOCHE'),
+    // S2: „Diese Woche“ mit „zuletzt …“ und der Färbung aus „Lernt es?“; „Zuletzt geschafft“ klein daneben
+    el('section', { class: 'lw-ue-karte lw-ue-woche' + (l ? ' amp-' + lernLerntAmpel(l) : '') }, el('h3', { class: 'lw-ue-h' }, 'DIESE WOCHE'),
       el('div', { class: 'lw-ue-werte' }, el('span', {}, el('b', {}, String(tage)), el('small', {}, tage === 1 ? 'Lerntag' : 'Lerntage')),
         el('span', {}, el('b', {}, String(w.aufgaben || 0)), el('small', {}, 'Bordkarten')),
-        el('span', {}, el('b', {}, w.aufgaben ? `${lernPz(w.richtig || 0, w.aufgaben)} %` : '–'), el('small', {}, 'richtig')))),
+        el('span', {}, el('b', {}, w.aufgaben ? `${lernPz(w.richtig || 0, w.aufgaben)} %` : '–'), el('small', {}, 'richtig'))),
+      l ? el('small', { class: 'lw-ue-zuletzt' }, l.pause ? lernLerntText(l) : l.seit === null ? 'kein Lerntag in 4 Wochen' : `zuletzt ${l.seit === 0 ? 'heute' : l.seit === 1 ? 'gestern' : 'am ' + lernTag(l.zuletzt)}`) : null),
+    el('section', { class: 'lw-ue-karte lw-ue-geschafft' }, el('h3', { class: 'lw-ue-h' }, 'ZULETZT GESCHAFFT'),
+      geschafft.length ? el('ul', { class: 'lw-ue-gliste' }, ...geschafft.map((g) => el('li', {}, lernStufeZeichenEl(g.stufe), ' ', el('b', {}, g.titel),
+        el('small', { class: 'muted' }, `${g.am ? ' · ' + lernTag(g.am) : ''}${g.kannSchon ? ' · kann schon' : ''}`)))) : el('p', { class: 'muted small' }, 'Noch kein Flug geschafft.')),
     M && ringKl.length ? el('section', { class: 'lw-ue-karte lw-ue-stand' }, el('h3', { class: 'lw-ue-h' }, `STAND ${sa === 'ib_myp' ? 'MYP-JAHR ' + (kl - 5) : 'KL. ' + kl}`),
       el('div', { class: 'lw-ue-ringe' }, ...ringKl.map((kk) => { const r = lernLwRing(M.themen, st, sa, kk);
         return el('button', { type: 'button', class: 'lw-ue-ring', 'aria-label': `${r.text} – im Lehrplan ansehen`, onclick: () => { lernLwStart = { kind: k.id, klasse: kk }; lehrplan(null); } },
           el('span', { class: 'lw-kb' + (kk === 9 ? ' lw-hell' : ''), style: `background:${LERN_KL_FARBE[kk] || '#888'}` }, sa === 'ib_myp' ? `MYP ${kk - 5}` : `Kl. ${kk}`),
           lernLwRingEl(r, true), el('small', { class: 'lw-kn' }, `${r.fertig}/${r.themen} Themen`),
-          el('span', { class: 'lw-rk2' }, ...Object.keys(LERN_MX_SA).filter((s2) => s2 !== sa).map((s2) => lernLwRingEl(lernLwRing(M.themen, st, s2, kk), false)))); }))) : null);
+          el('span', { class: 'lw-rk2' }, ...Object.keys(LERN_MX_SA).filter((s2) => s2 !== sa).map((s2) => lernLwRingEl(lernLwRing(M.themen, st, s2, kk), false)))); })),
+      // S2: Einstufung je Schulart als eine Zeile (vorher Karte „Wo steht es?“)
+      el('p', { class: 'small lw-ue-einst' }, 'Einstufung: ', lernStandZellen(u, k).map((z) => `${z.y.kurz} ${z.lang || z.text}`).join(' · '))) : null);
 }
 // Geschaffte Flüge: alle Etappen gelandet (Datum = letzte Landung); LA-5 ergänzt „kann schon“ je Flug
 function lernGeschaffteFluege(u, k, ls) {
@@ -3909,9 +3982,9 @@ const LERN_INFO_FRAGEN = [
     'Ein neuer Flug ist zuerst „in Prüfung“: Nur das Testkind sieht ihn. Nach der Freigabe ist er „fertig“ und für alle Kinder da. Der Lehrplan (Nachschlagen auf der Startseite) zeigt alle Flüge als Übersicht: Zeilen Klasse 5–10, Spalten die Themengebiete, eingeordnet nach Gymnasium, Realschule oder IB, in der Reihenfolge des Lehrplans. Der Filter „Inhalt“ zeigt, was fertig ist (●), was in Prüfung ist (◐) und was noch fehlt (○). Ein Thema antippen: was gefordert ist, was es vorher braucht, worauf es aufbaut, Lernbereich und „Inhalte ansehen“. Mit „Lernstand“ steht bei jedem Thema die Stufe eines Kindes (◉ ↻ ▶ ○ +) – ist ein Kind gewählt, lässt sich der Plan dort direkt ändern.',
     'Jeder Inhalt ist mit allen Lösungen einsehbar („Inhalte ansehen“). In einem fertigen Flug sind Bordkarten, die ersetzt wurden oder überzählig sind, „aussortiert“: Sie werden nie ausgegeben, zählen nicht mit und stehen zugeklappt am Ende der Etappe.']],
   ['Was kann ich selbst ändern?', [
-    ['Lehrplan je Kind', ' (Reiter „Lehrplan“ auf der Seite des Kindes – ersetzt „Stand“ und „Plan“): oben die Leiste „Lehrplan von:“ (Gymnasium | Realschule | IB MYP; Standard = Schulart des Kindes; ⓘ: bestimmt nur, in welcher Klassen-Zeile ein Thema steht und welcher Ring groß ist – es werden immer alle Themen gezeigt), „Zeigen“ (Alle Themen | Noch nicht im Plan · n | Im Plan · n – hebt hervor, nichts verschwindet), „Klassen“ 5–10 zum An- und Abschalten (Standard: Klasse des Kindes bis 10, je Kind auf dem Gerät gemerkt; ein blauer Punkt zeigt Themen aus dem Fahrplan), „Einstieg prüfen“ (Orientierung, keine Einstufung durch eine Schule), Suchen und „Auswählen“. Links der Fahrplan: ▶ Gerade dran mit Fortschritt, darunter ○ Kommt noch nummeriert (am Griff ⋮⋮ ziehen oder ↑ ↓), unten zugeklappt ↻ In Wiederholung und ✓ Fertig (kann er) mit „Wieder in die Wiederholung“. Rechts die Matrix: Spalten = Themengebiete, Zeilen = Klassen; links je Klasse drei Ringe (groß die gewählte Schule, klein die beiden anderen): gelandete Etappen von allen Etappen der Pflichtthemen dieser Schule in dieser Klasse (IB: MYP-Jahr = Klasse − 5). Ganz gekonnte Klassen stehen eingeklappt als eine Zeile. Farben der Karten: blau = gerade dran, hellgelb mit Platznummer = im Plan, hellgrün = Wiederholung, durchsichtig = fertig, weiß = Lehrplan der gewählten Schule, grau = nur andere Schule. Ein Thema antippen öffnet rechts die Schublade (auf dem Handy ein Blatt von unten): Stand mit jeder Etappe, Planen („In den Plan: als Nächstes ▾“ mit „… ans Ende“ und „… nach Lehrplan einsortieren“; im Plan „Als Nächstes“, „Ans Ende“, „Aus dem Plan“), Stufe (Lernen | Kann er – wiederholen | Kann er komplett; bei ◉ „Wieder in die Wiederholung“), Lehrstoff und Zusammenhang. „Kann er – aber wiederholen“: keine Übung, nur die Wiederholungen; zwei Fehler hintereinander → wieder offen; je Lerntag kommen höchstens 6 solche Etappen neu in den Takt. Für so gesetzte Flüge gibt es keinen Flug-Test und keine Nachtests. Ist die Wiederholung nach 14 Lerntagen bestanden (und eine Mischkarte richtig, falls eine kam), steht der Flug auf ◉. „Wieder in die Wiederholung“ holt einen ◉-Flug zurück; die Wiederholungen beginnen dann wieder nach 1 Lerntag. „Auswählen“: Karten antippen setzt Häkchen; oben dann die Knöpfe für alle ausgewählten auf einmal (ein Schritt, ein „Rückgängig“). Jede Änderung wird sofort gespeichert; unten erscheint 5 Sekunden „↶ Rückgängig“ (oben rechts dauerhaft, nur für den letzten Schritt). Hat jemand anderes den Plan inzwischen geändert, meldet die App das und überschreibt nichts – dann „Neu laden“. Ziehen: eine Karte aus der Matrix in den Fahrplan ziehen plant sie an dieser Stelle ein (blaue Linie); einen Eintrag aus dem Fahrplan zurück in die Matrix ziehen nimmt ihn aus dem Plan (Matrix rot gestrichelt). Bei „Noch nicht im Plan“ steht oben im Fahrplan „Alle n einplanen (nach Klasse und Lehrplan)“ – nur für die gewählten Klassen, ohne Zusatz-Teile. Reihenfolge-Warnung (keine Sperre): Steht ein Thema vor seiner harten Voraussetzung, ist die Voraussetzung weder gekonnt noch im Plan oder wird sie hinter ein darauf aufbauendes Thema geschoben, erscheint unten eine dunkelrote Meldung mit Knopf zum Reparieren („… davor setzen“, „… davor einplanen“, „… dahinter setzen“); solange der Konflikt besteht, hat der Eintrag im Fahrplan einen roten Rand mit „braucht … – kommt erst auf Platz n“ bzw. „– nicht gelernt, nicht im Plan“. Empfohlene Voraussetzungen warnen nicht. Bis zum Reise-Aufbau ist ein Platz ein Ort; mehrere Themen eines Orts heißen „3a, 3b …“. Geteilte Themen: jeder Teil ist ein eigenes Thema („Terme umformen – Teil 2 von 3“, auf der Karte „2/3“); Teil 2 baut auf Teil 1 auf. „Zusatz“ = Teil ohne Lehrplan-Punkt in der gewählten Schulart: gestrichelt, zählt nicht im Ring und nicht bei „Noch nicht im Plan“. Die Seite des Kindes hat eine Kopfzeile: Zurück · Kinder-Umschalter · Reiter Überblick | Was wackelt | Lehrplan · ⚙ Einstellen und ⓘ klein rechts; Matrix und Fahrplan füllen das Fenster bis unten. Kinder-Umschalter im Kopf der Kind-Seite: ‹ [Kind A] [Kind B] › (auch Alt+← / Alt+→) wechselt das Kind, der gewählte Reiter bleibt; Schule und Klassen übernehmen die Werte des Kindes, Detail und Auswahl schließen, „Rückgängig“ verfällt. Auf dem Handy ist nur das aktive Kind ausgeschrieben. Tablet: Fahrplan über den Knopf „Fahrplan · n“; Tablet und Handy: „Lehrplan von“, Zeigen, Klassen, Einstieg, Suchen und Auswählen im Blatt „Filter ▾“, Farben hinter ⓘ; Handy: Umschalter „Fahrplan | Alle Themen“.'],
+    ['Lehrplan je Kind', ' (Reiter „Lehrplan“ auf der Seite des Kindes – ersetzt „Stand“ und „Plan“): oben die Leiste „Lehrplan von:“ (Gymnasium | Realschule | IB MYP; Standard = Schulart des Kindes; ⓘ: nach welchem Lehrplan die Themen den Klassen zugeordnet werden – z. B. steht „Satz des Pythagoras“ im Gymnasium in Kl. 8, in der Realschule in Kl. 9; gezeigt werden immer alle Themen), „Zeigen“ (Alle Themen | Noch nicht im Plan · n | Im Plan · n – hebt hervor, nichts verschwindet), „Klassen“ 5–10 zum An- und Abschalten (Standard: Klasse des Kindes bis 10, je Kind auf dem Gerät gemerkt; ein blauer Punkt zeigt Themen aus dem Fahrplan), „Bereit für Klasse …?“ (hebt hervor, was bis zu dieser Klasse fehlt – Orientierung, keine Einstufung durch eine Schule), Suchen, „Auswählen“ und „ⓘ Farben“. Am Rechner steht das in zwei festen Zeilen; Hinweise und Farben öffnen als schwebendes Feld, die Matrix springt nicht. „Gespeichert“ erscheint nicht mehr, nur „Speichere …“ oder „Nicht gespeichert“. Links der Fahrplan: ▶ Gerade dran mit Fortschritt, darunter ○ Kommt noch nummeriert (am Griff ⋮⋮ ziehen oder ↑ ↓), unten zugeklappt ↻ In Wiederholung und ✓ Fertig (kann er) mit „Wieder in die Wiederholung“. Rechts die Matrix: Spalten = Themengebiete, Zeilen = Klassen; links je Klasse drei Ringe (groß die gewählte Schule, klein die beiden anderen): gelandete Etappen von allen Etappen der Pflichtthemen dieser Schule in dieser Klasse (IB: MYP-Jahr = Klasse − 5). Ganz gekonnte Klassen stehen eingeklappt als eine Zeile. Farben der Karten: blau = gerade dran, hellgelb mit Platznummer = im Plan, hellgrün = Wiederholung, durchsichtig = fertig, weiß = Lehrplan der gewählten Schule, grau = nur andere Schule. Ein Thema antippen öffnet rechts die Schublade (auf dem Handy ein Blatt von unten): Stand mit jeder Etappe, Planen („In den Plan: als Nächstes ▾“ mit „… ans Ende“ und „… nach Lehrplan einsortieren“; im Plan „Als Nächstes“, „Ans Ende“, „Aus dem Plan“), Stufe (Lernen | Kann er – wiederholen | Kann er komplett; bei ◉ „Wieder in die Wiederholung“), Lehrstoff und Zusammenhang. „Kann er – aber wiederholen“: keine Übung, nur die Wiederholungen; zwei Fehler hintereinander → wieder offen; je Lerntag kommen höchstens 6 solche Etappen neu in den Takt. Für so gesetzte Flüge gibt es keinen Flug-Test und keine Nachtests. Ist die Wiederholung nach 14 Lerntagen bestanden (und eine Mischkarte richtig, falls eine kam), steht der Flug auf ◉. „Wieder in die Wiederholung“ holt einen ◉-Flug zurück; die Wiederholungen beginnen dann wieder nach 1 Lerntag. „Auswählen“: Karten antippen setzt Häkchen; oben dann die Knöpfe für alle ausgewählten auf einmal (ein Schritt, ein „Rückgängig“). Jede Änderung wird sofort gespeichert; unten erscheint 5 Sekunden „↶ Rückgängig“ (oben rechts dauerhaft, nur für den letzten Schritt). Hat jemand anderes den Plan inzwischen geändert, meldet die App das und überschreibt nichts – dann „Neu laden“. Ziehen: eine Karte aus der Matrix in den Fahrplan ziehen plant sie an dieser Stelle ein (blaue Linie); einen Eintrag aus dem Fahrplan zurück in die Matrix ziehen nimmt ihn aus dem Plan (Matrix rot gestrichelt). Bei „Noch nicht im Plan“ steht oben im Fahrplan „Alle n einplanen (nach Klasse und Lehrplan)“ – nur für die gewählten Klassen, ohne Zusatz-Teile. Reihenfolge-Warnung (keine Sperre): Steht ein Thema vor seiner harten Voraussetzung, ist die Voraussetzung weder gekonnt noch im Plan oder wird sie hinter ein darauf aufbauendes Thema geschoben, erscheint unten eine dunkelrote Meldung mit Knopf zum Reparieren („… davor setzen“, „… davor einplanen“, „… dahinter setzen“); solange der Konflikt besteht, hat der Eintrag im Fahrplan einen roten Rand mit „braucht … – kommt erst auf Platz n“ bzw. „– nicht gelernt, nicht im Plan“. Empfohlene Voraussetzungen warnen nicht. Bis zum Reise-Aufbau ist ein Platz ein Ort; mehrere Themen eines Orts heißen „3a, 3b …“. Geteilte Themen: jeder Teil ist ein eigenes Thema („Terme umformen – Teil 2 von 3“, auf der Karte „2/3“); Teil 2 baut auf Teil 1 auf. „Zusatz“ = Teil ohne Lehrplan-Punkt in der gewählten Schulart: gestrichelt, zählt nicht im Ring und nicht bei „Noch nicht im Plan“. Die Seite des Kindes hat eine Kopfzeile: Zurück · Kinder-Umschalter (am Rechner mit „Schulart · Klasse“ bei jedem Kind) · Reiter Überblick | Was wackelt | Lehrplan · Lernen starten, ⚙ Einstellen und ⓘ rechts; auf Tablet und Handy eine Zeile ‹ · Kinder · ⋯ (Lernen starten, Einstellen, So funktioniert’s), darunter die Reiter. Matrix und Fahrplan füllen das Fenster bis unten. Kinder-Umschalter: ein Klick auf ein Kind (am Rechner auch Alt+← / Alt+→) wechselt das Kind, der gewählte Reiter bleibt; die Markierung wechselt sofort, der bisherige Inhalt bleibt abgeblendet stehen, bis der neue da ist. Die App merkt sich je Sitzung Übersicht, Lehrplan und die Daten je Kind und lädt das andere Kind schon vorab; nach jeder Änderung liest sie gezielt neu, im Hintergrund frischt sie alle 10 Sekunden auf; Schule und Klassen übernehmen die Werte des Kindes, Detail und Auswahl schließen, „Rückgängig“ verfällt. Auf dem Handy ist nur das aktive Kind ausgeschrieben. Tablet: Fahrplan über den Knopf „Fahrplan · n“; Tablet und Handy: „Lehrplan von“, Zeigen, Klassen, Einstieg, Suchen und Auswählen im Blatt „Filter ▾“, Farben hinter ⓘ; Handy: Umschalter „Fahrplan | Alle Themen“.'],
 
-    ['Was wackelt', ' (Reiter auf der Seite des Kindes): eine Arbeitsliste in drei Bereichen – Zu besprechen · Beobachten · Besprochen. Je Eintrag (ein Thema, oder eine Etappe mit eigenem Status) Etappe, Anzahl Fehler und wann; Knöpfe „✓ Besprochen“, „Beobachten“ (bzw. „Zu besprechen“) und „Im Lehrplan“ (öffnet den Reiter „Lehrplan“ mit dem Thema). „Bordkarte und Antwort“ klappt die letzten falschen Antworten auf. Der Status wird gespeichert (5 Sekunden „↶ Rückgängig“); neue Fehler im selben Thema holen einen Eintrag von selbst zurück nach „Zu besprechen“ („wieder offen“). Die rote Zahl am Reiter zählt „Zu besprechen“. Darunter zugeklappt wie bisher'],
+    ['Was wackelt', ' (Reiter auf der Seite des Kindes): eine Arbeitsliste in drei Bereichen – Zu besprechen · Beobachten · Besprochen. Je Eintrag (ein Thema, oder eine Etappe mit eigenem Status) Etappe, Anzahl Fehler und wann; Knöpfe „✓ Besprochen“, „Beobachten“ (bzw. „Zu besprechen“) und „Im Lehrplan“ (öffnet den Reiter „Lehrplan“ mit dem Thema; auf dem Handy kurz „→ Lehrplan“). Die Wochenzahlen stehen im Überblick. „Bordkarte und Antwort“ klappt die letzten falschen Antworten auf. Der Status wird gespeichert (5 Sekunden „↶ Rückgängig“); neue Fehler im selben Thema holen einen Eintrag von selbst zurück nach „Zu besprechen“ („wieder offen“). Die rote Zahl am Reiter zählt „Zu besprechen“. Darunter zugeklappt wie bisher'],
     ['Was wackelt – je Etappe', ': eine Tabelle aller Etappen mit falschen Antworten – wackelnde zuerst – mit „richtig / falsch“, dem häufigsten Fehler (Vorzeichen, Komma, vertauscht, gerundet, Einheit; nur wenn er mindestens zweimal vorkam) und seit wann. Antippen zeigt die letzten 3 falschen Antworten, „Kurz gesagt“ der Etappe und „Erklärung ansehen“. „Besprochen ✓“ merkt Datum und Person und nimmt die Etappe aus „Zu tun“ – bis wieder eine Antwort endgültig falsch ist.'],
     ['⚙ Einstellen', ' (in der Zeile des Kindes auf der Startseite und oben auf seiner Seite): Hauptschulart und Klasse („bestimmt seine Klasse in Lernreise und Plan“), Stand messen gegen … (Stufe je Schulart, nur für „Wo steht es?“), Notizen und Verlauf, Neuer Plan aus Lehrplan-Vorlage (mit Rückfrage und „↶ Rückgängig“). Alles speichert sofort.'],
     'Inhalte werden nicht direkt geändert, sondern beauftragt (nächste Frage). Belohnungen und Zugänge verwalten nur Eltern.']],
@@ -3943,12 +4016,12 @@ async function viewInfo(arg) {
       el('p', {}, 'Die Lernreise in Kürze: erst die vier wichtigsten Schritte, darunter Antworten auf die häufigsten Fragen.'),
       el('p', {}, el('b', {}, 'Startseite: '), 'Oben „Zu tun“ – rot: seit 3 Tagen kein Lerntag oder eine Rückreise (Nachtest nicht bestanden); gelb: eine Etappe wackelt und ist noch nicht besprochen; blau: ein Wunsch eines Kindes, eine Belohnung einzulösen (Bestätigen oder Ablehnen direkt im Eintrag), oder eine neue Antwort auf einen Auftrag. Darunter je Kind eine Zeile: Lernt (Lerntage diese Woche, zuletzt), Wackelt, Stand in Gymnasium, Realschule und IB MYP (Prozent der Flüge der Klasse, die gelandet sind) und was jetzt dran ist. Auf dem Handy steht statt der Tabelle je Kind eine Karte.'),
       el('p', {}, el('b', {}, 'Reisetage und Pausen: '), 'Über „+ Reisetag eintragen“ in „Zu tun“ oder im „⚙ Einstellen“ des Kindes lassen sich Tage ohne Lernen eintragen (für ein Kind oder alle); sie zählen nicht für „Lernt“ und „kein Lerntag seit …“, dort steht dann „Pause bis …“. Ein Pausentag gilt für den ganzen Kalendertag am Ort des Kindes (Ortszeit, nicht die Uhr der Eltern). Lernregeln, Wiederholungen und Nachtests ändern sich dadurch nicht.'),
-      el('p', {}, el('b', {}, 'Seite des Kindes: '), 'Eine Zeile antippen öffnet sie, mit drei Reitern: Überblick (oben Karten mit Sprüngen: Gerade dran → „Im Lehrplan öffnen“, Als Nächstes → „Fahrplan ändern“, Zu besprechen → „Zu Was wackelt“, Diese Woche, Stand mit Ringen um die Klasse des Kindes; darunter Lernt es? Wo hakt es? Wo steht es? Was kommt?), Was wackelt und Lehrplan. „⚙ Einstellen“ in der Zeile und oben auf der Seite des Kindes: Schulart, Klasse, Stufen, Notizen.'),
+      el('p', {}, el('b', {}, 'Seite des Kindes: '), 'Eine Zeile antippen öffnet sie, mit drei Reitern: Überblick (oben Karten mit Sprüngen: Gerade dran → „Im Lehrplan öffnen“, Als Nächstes → „Fahrplan ändern“, Zu besprechen → „Zu Was wackelt“, Diese Woche mit „zuletzt am …“ und Farbe, Zuletzt geschafft, Stand mit Ringen um die Klasse des Kindes und der Einstufung je Schulart in einer Zeile), Was wackelt und Lehrplan. „⚙ Einstellen“ in der Zeile und oben auf der Seite des Kindes: Schulart, Klasse, Stufen, Notizen.'),
       el('p', {}, el('b', {}, 'Lernen starten: '), 'Im Eltern-Zugang hat jede Zeile und die Seite des Kindes den Knopf „Lernen starten“ – er öffnet die Abflugtafel des Kindes. Im Lehrer-Zugang steht dort klein „Lernreise ansehen“.')),
     el('h3', {}, 'Erste Schritte'),
     el('div', { class: 'lern-info-schritte' },
       schritt(1, 'Lehrplan und Fahrplan', 'Reiter „Lehrplan“ auf der Seite des Kindes – das ist dein Arbeitsplatz: links der Fahrplan (▶ Gerade dran · ○ Kommt noch; ziehen oder ↑ ↓), rechts alle Themen als Matrix (Themengebiete × Klassen) mit Ringen je Klasse. Thema antippen: Stand, Planen, Stufe, Lehrstoff. Viele auf einmal: „Auswählen“. Jede Änderung wird sofort gespeichert.', jeKind('lehrplan', 'Lehrplan')),
-      schritt(2, 'Lernstand lesen', 'Im Reiter „Lehrplan“ zeigen Karten und Ringe, wo das Kind steht; „Einstieg prüfen“ hebt hervor, was bis zu einer Klasse fehlt (Orientierung, keine Einstufung durch eine Schule). Reiter „Was wackelt“: je Etappe, was sitzt und was wackelt, mit den echten falschen Antworten. Alle Kinder nebeneinander: die Tabelle auf der Startseite.', jeKind('wackelt', 'Was wackelt')),
+      schritt(2, 'Lernstand lesen', 'Im Reiter „Lehrplan“ zeigen Karten und Ringe, wo das Kind steht; „Bereit für Klasse …?“ hebt hervor, was bis zu einer Klasse fehlt (Orientierung, keine Einstufung durch eine Schule). Reiter „Was wackelt“: je Etappe, was sitzt und was wackelt, mit den echten falschen Antworten. Alle Kinder nebeneinander: die Tabelle auf der Startseite.', jeKind('wackelt', 'Was wackelt')),
       schritt(3, 'Inhalte ansehen', 'Im Lehrplan ein Thema antippen, dann „Inhalte ansehen“: jede Etappe mit ihrer Erklärung und alle Bordkarten mit Lösung.', el('a', { href: '#/lehrplan' }, 'Lehrplan ›')),
       schritt(4, 'Ändern lassen', 'Fehlt etwas oder stimmt etwas nicht? Mit „✎ Ändern lassen“ direkt an der Stelle beauftragen; Status und Antwort stehen unter „Meine Aufträge“.', el('a', { href: '#/lernauftraege' }, 'Meine Aufträge ›'))),
     el('h3', {}, 'Fragen'),
@@ -4335,7 +4408,7 @@ async function viewLehrplan(arg) {
 // Vorgabe inhalte/pruefung/lehrer/werkstatt/umsetzung.md (ersetzt die Reiter „Stand“ und „Plan“). Daten: schule_lehrplan_matrix (Raster, Lernstand),
 // schule_plan_lesen/schule_plan_setzen (Fahrplan mit Revision und Rückgängig wie bisher), schule_lernstand (Etappen im Detail).
 const LERN_LW_SA = { gym_by: 'Gym', rs_by: 'RS', ib_myp: 'IB' };
-const LERN_LW_SA_HILFE = 'Bestimmt nur, in welcher Klassen-Zeile ein Thema steht und welcher Ring groß ist. Es werden immer alle Themen gezeigt.';
+const LERN_LW_SA_HILFE = 'Nach welchem Lehrplan die Themen den Klassen zugeordnet werden – z. B. steht „Satz des Pythagoras“ im Gymnasium in Kl. 8, in der Realschule in Kl. 9. Gezeigt werden immer alle Themen.'; // K1
 const lernLwEtappen = (x, s) => Number(x.roh.etappen_anzahl) || Number(s?.etappen) || x.etappen.length || 1;
 // Ring je Schule und Klasse: gelandete Etappen / alle Etappen der Pflichtthemen dieser Schule in dieser Klasse (IB: MYP-Jahr = Klasse − 5),
 // unabhängig von der Zeile. Gelandet = Etappe gelandet (auch in Wiederholung); gesetzte Themen zählen mit allen Etappen; aufgelöste Themen zählen nicht.
@@ -4366,10 +4439,11 @@ const lernLwRingEl = (r, gross) => el('span', { class: 'lw-ring' + (gross ? ' lw
 async function viewKindLehrplan(id, rest = []) {
   setChrome('Lehrplan', { back: true, showTabs: false });
   const live = viewGuard();
-  loading();
-  let [p, ls, u] = await Promise.all([lernCall('schule_plan_lesen', { lernender_id: id }), lernCall('schule_lernstand', { lernender_id: id }).catch(() => null), lernCall('schule_uebersicht').catch(() => null)]);
+  lernLaden();
+  // LZ-App: Matrix gleichzeitig mit Plan, Lernstand und Übersicht
+  let [p, ls, u, d] = await Promise.all([lernCall('schule_plan_lesen', { lernender_id: id }), lernCall('schule_lernstand', { lernender_id: id }).catch(() => null), lernCall('schule_uebersicht').catch(() => null),
+    lernMxLaden().catch(() => ({ themen: [] }))]);
   let mitTest = false;
-  let d = await lernMxLaden().catch(() => ({ themen: [] }));
   if (d.matrix && !(d.kinder || []).some((c) => c.id === id)) { mitTest = true; d = await lernMxLaden(true).catch(() => d); }
   if (!live()) return;
   const kind = { ...((u?.lernende || []).find((c) => c.id === id) || {}), ...((d.kinder || []).find((c) => c.id === id) || {}), ...(p.kind || {}) };
@@ -4426,7 +4500,7 @@ async function viewKindLehrplan(id, rest = []) {
     return { nr: j + 1, pos: (j + 1) * 100 + k, text: ts.length > 1 ? `${j + 1}${'abcdefghijklmnopqrstuvwxyz'[k] || ''}` : String(j + 1) }; };
   const platz = (x) => platzInfo(x)?.text ?? null;
 
-  const stand = el('span', { class: 'lern-plan-stand lw-stand', role: 'status', 'aria-live': 'polite' }, plan.length ? 'Gespeichert' : '');
+  const stand = el('span', { class: 'lern-plan-stand lw-stand lw-still', role: 'status', 'aria-live': 'polite' }, plan.length ? 'Gespeichert' : '');
   const rueckKnopf = el('button', { type: 'button', class: 'lern-plan-rueck lw-rueck', disabled: true, onclick: () => zuruecknehmen() }, '↶ Rückgängig');
   const meldung = el('div', { class: 'lern-plan-meldung lw-meldung', role: 'alert', hidden: true });
   const melde = (...kids) => { meldung.hidden = !kids.length; lernErsetze(meldung, ...kids); };
@@ -4437,7 +4511,7 @@ async function viewKindLehrplan(id, rest = []) {
   const speichere = () => {
     if (gesperrt) return Promise.resolve();
     if (laeuft) { nochmal = true; return laeuft; }
-    stand.textContent = 'Speichere …';
+    stand.textContent = 'Speichere …'; stand.classList.remove('lw-still');
     laeuft = (async () => {
       try {
         do {
@@ -4447,10 +4521,10 @@ async function viewKindLehrplan(id, rest = []) {
           if (!rs && r?.schritt_id) vorher.forEach((v) => { if (v.schritt === undefined) v.schritt = r.schritt_id; });
           if (rs) vorher.length = 0; // der Server nimmt Rückgängig nur für den jüngsten Schritt an
         } while (nochmal);
-        stand.textContent = rueckgaengig ? 'Rückgängig gemacht · Gespeichert' : 'Gespeichert'; melde();
+        stand.textContent = rueckgaengig ? 'Rückgängig gemacht · Gespeichert' : 'Gespeichert'; stand.classList.add('lw-still'); melde(); // S1: „Gespeichert“ still (nur für Vorleser)
         neuLaden();
       } catch (err) {
-        stand.textContent = 'Nicht gespeichert'; tosteWeg();
+        stand.textContent = 'Nicht gespeichert'; stand.classList.remove('lw-still'); tosteWeg();
         if (/inzwischen wurde etwas anderes geändert/i.test(err.message)) { vorher.length = 0;
           melde(el('span', {}, 'Rückgängig geht nur für die letzte Änderung. Inzwischen wurde etwas anderes geändert.'), el('button', { type: 'button', class: 'primary', onclick: () => render() }, 'Neu laden'));
         } else if (/inzwischen geändert/i.test(err.message)) { gesperrt = true; koerper.inert = true; koerper.classList.add('lw-gesperrt');
@@ -4859,8 +4933,9 @@ async function viewKindLehrplan(id, rest = []) {
   const zahlen = () => { const ts = M.themen.filter(inKlassen); return { raus: ts.filter((x) => stufeVon(x).stufe === 'nicht_im_plan' && !zusatz(x)).length, drin: ts.filter((x) => ['dran', 'kommt'].includes(stufeVon(x).stufe)).length }; };
   const zeichneLeiste = () => {
     const z = zahlen(); const imFp = new Set(sichtbar.flatMap((i) => themenImOrt(plan[i].block_id).filter((y) => !plan[i].ausgelassen.includes(y.id)).map((y) => lernMxZeile(y, sa))));
-    const einstieg = el('select', { class: 'lw-einstieg', 'aria-label': 'Einstieg prüfen', onchange: (ev) => { zst.einstieg = Number(ev.target.value) || null; zeichneAlles(); } },
-      el('option', { value: '' }, 'Einstieg prüfen …'), ...[6, 7, 8, 9, 10].map((k) => el('option', { value: String(k), selected: zst.einstieg === k ? true : null }, sa === 'ib_myp' ? `MYP-Jahr ${k - 5}` : `Kl. ${k}`)));
+    // K2: „Bereit für Klasse …?“ (vorher „Einstieg prüfen“) – zeigt, was bis zu einer Klasse fehlt
+    const einstieg = el('select', { class: 'lw-einstieg', 'aria-label': 'Bereit für Klasse …?', onchange: (ev) => { zst.einstieg = Number(ev.target.value) || null; zeichneAlles(); } },
+      el('option', { value: '' }, 'Bereit für Klasse …?'), ...[6, 7, 8, 9, 10].map((k) => el('option', { value: String(k), selected: zst.einstieg === k ? true : null }, sa === 'ib_myp' ? `Bereit für MYP-Jahr ${k - 5}?` : `Bereit für Kl. ${k}?`)));
     const m = modus();
     const auswahlKnopf = el('button', { type: 'button', class: 'lw-ik', 'aria-pressed': String(!!zst.auswahl), onclick: () => { zst.auswahl = zst.auswahl ? null : new Set(); zst.filterAuf = false; zeichneAlles(); } }, zst.auswahl ? 'Auswahl beenden' : 'Auswählen');
     const gruppen = [
@@ -4868,7 +4943,7 @@ async function viewKindLehrplan(id, rest = []) {
       el('span', { class: 'lw-lbl' }, 'Lehrplan von:'),
       seg('Lehrplan von', Object.entries(LERN_MX_SA).map(([s2, [nm]]) => [s2, nm]), () => sa, (w) => { sa = w; zst.einstieg = null; }),
       el('button', { type: 'button', class: 'lw-hilfe', 'aria-label': 'Was heißt „Lehrplan von“?', title: LERN_LW_SA_HILFE, 'aria-expanded': String(!!zst.saHilfe), onclick: () => { zst.saHilfe = !zst.saHilfe; zeichneLeiste(); } }, 'ⓘ'),
-      zst.saHilfe ? el('p', { class: 'lw-sa-hilfe', role: 'note' }, LERN_LW_SA_HILFE) : null,
+      zst.saHilfe ? el('p', { class: 'lw-sa-hilfe lw-schwebt', role: 'note' }, LERN_LW_SA_HILFE) : null, // S1: schwebendes Feld (Matrix springt nicht)
       el('span', { class: 'lw-lbl' }, 'Zeigen'),
       seg('Zeigen', [['alle', 'Alle Themen'], ['raus', `Noch nicht im Plan · ${z.raus}`], ['drin', `Im Plan · ${z.drin}`]], () => zst.zeigen, (w) => { zst.zeigen = w; }),
       el('span', { class: 'lw-lbl' }, 'Klassen'),
@@ -4877,8 +4952,14 @@ async function viewKindLehrplan(id, rest = []) {
         onclick: () => { if (klassen.has(k)) { if (klassen.size > 1) klassen.delete(k); } else klassen.add(k); klMerken(); zeichneAlles(); } }, String(k), imFp.has(k) ? el('i', { 'aria-hidden': 'true' }) : null))),
     ];
     // LW-3b: zwei Zeilen – oben Lehrplan von · Zeigen · Klassen, darunter Einstieg · Suche · Auswählen · Farben · Stand · Rückgängig (keine eigene Legendenzeile mehr)
-    if (m === 'rechner') { legende.hidden = false; lernErsetze(leiste, ...gruppen, el('div', { class: 'lw-zeile2' }, einstieg, suche, auswahlKnopf, legende, el('span', { class: 'lw-rechts' }, stand, rueckKnopf))); }
-    else {
+    // LZ-App S1: fest zweizeilig – Zeile 1 Lehrplan von · Zeigen · Klassen; Zeile 2 Bereit für … · Suchen · Auswählen · ⓘ Farben · rechts ↶ Rückgängig
+    if (m === 'rechner') {
+      const farben = el('button', { type: 'button', class: 'lw-ik lw-leg-knopf', 'aria-expanded': String(!!zst.legende), onclick: () => { zst.legende = !zst.legende; zeichneLeiste(); } }, 'ⓘ Farben');
+      legende.hidden = !zst.legende; legende.classList.add('lw-schwebt');
+      lernErsetze(leiste, el('div', { class: 'lw-zeile1' }, ...gruppen),
+        el('div', { class: 'lw-zeile2' }, einstieg, suche, auswahlKnopf, el('span', { class: 'lw-leg-ort' }, farben, legende), el('span', { class: 'lw-rechts' }, stand, rueckKnopf)));
+    } else {
+      legende.classList.remove('lw-schwebt'); if (legende.parentElement !== kopf2) kopf2.append(legende);
       // LW-2 S1: Tablet/Handy – eine Zeile; Einordnen, Zeigen, Klassen, Einstieg, Suchen, Auswählen im Blatt „Filter ▾“, Legende hinter ⓘ
       const aktiv = (sa !== kindSa ? 1 : 0) + (zst.zeigen !== 'alle' ? 1 : 0) + (zst.einstieg ? 1 : 0) + (zst.q ? 1 : 0) + (zst.auswahl ? 1 : 0);
       lernErsetze(leiste,
@@ -4895,7 +4976,7 @@ async function viewKindLehrplan(id, rest = []) {
     const e = einstiegListe();
     if (e) { const p2 = lernPz(e.ts.length - e.fehlt.length, e.ts.length);
       lernErsetze(hinweis, el('div', { class: 'lern-ampel ' + (p2 >= 90 ? 'gruen' : p2 >= 70 ? 'gelb' : 'rot'), role: 'status' }, el('b', {}, p2 + ' %'),
-        el('span', {}, `Einstieg ${sa === 'ib_myp' ? 'MYP-Jahr ' + (zst.einstieg - 5) : 'Kl. ' + zst.einstieg}: ${e.ts.length - e.fehlt.length} von ${e.ts.length} Themen davor gekonnt. ${p2 >= 90 ? 'Bereit – kleine Lücken.' : p2 >= 70 ? 'Fast – gezielt nacharbeiten.' : 'Noch deutliche Lücken.'} Hervorgehoben: was fehlt. `,
+        el('span', {}, `Bereit für ${sa === 'ib_myp' ? 'MYP-Jahr ' + (zst.einstieg - 5) : 'Kl. ' + zst.einstieg}? ${e.ts.length - e.fehlt.length} von ${e.ts.length} Themen davor gekonnt. ${p2 >= 90 ? 'Bereit – kleine Lücken.' : p2 >= 70 ? 'Fast – gezielt nacharbeiten.' : 'Noch deutliche Lücken.'} Hervorgehoben: was fehlt. `,
           el('small', {}, LERN_ORIENTIERUNG)))); }
     else lernErsetze(hinweis);
     // Sammelleiste (ein Schritt, ein Rückgängig)
@@ -4913,6 +4994,7 @@ async function viewKindLehrplan(id, rest = []) {
 
   // ---------- Aufbau ----------
   const umschalter = el('div', { class: 'lw-seg lw-handy-um', role: 'group', 'aria-label': 'Ansicht' });
+  const kopf2 = el('div', { class: 'lw-kopf2' }, umschalter, legende);
   const koerper = el('div', { class: 'lw-koerper' }, rail, matrixWrap, drawer);
   function zeichneAlles() {
     if (!live()) return;
@@ -4922,16 +5004,16 @@ async function viewKindLehrplan(id, rest = []) {
     ordne(); zeichneLeiste(); zeichneRail(); zeichneMatrix(); zeichneDetail();
     lernErsetze(umschalter, ...[['fahrplan', `Fahrplan · ${sichtbar.length}`], ['alle', 'Alle Themen']].map(([w, t]) =>
       el('button', { type: 'button', 'aria-pressed': String(zst.handy === w), onclick: () => { zst.handy = w; zeichneAlles(); } }, t)));
-    umschalter.hidden = m !== 'handy'; koerper.dataset.handy = zst.handy; legende.hidden = m !== 'rechner' && !zst.legende;
+    umschalter.hidden = m !== 'handy'; koerper.dataset.handy = zst.handy; legende.hidden = !zst.legende;
     hoehe();
   }
-  const hoehe = () => { if (modus() === 'handy') { koerper.style.height = ''; return; } const top = koerper.getBoundingClientRect().top + scrollY; koerper.style.height = `${Math.max(460, innerHeight - top - 4)}px`; };
+  const hoehe = () => { if (modus() === 'handy') { koerper.style.height = ''; return; } const top = koerper.getBoundingClientRect().top + scrollY; koerper.style.height = `${Math.max(460, innerHeight - top - 2)}px`; };
   let warModus = modus();
   const groesse = () => { if (!live()) { removeEventListener('resize', groesse); removeEventListener('keydown', taste); return; } if (modus() !== warModus) { warModus = modus(); zeichneAlles(); } else hoehe(); };
   const taste = (ev) => { if (!live()) return; if (ev.key === 'Escape' && zst.sel) { zst.sel = null; zeichneAlles(); } };
   addEventListener('resize', groesse); addEventListener('keydown', taste);
   const uKind = (u?.lernende || []).find((c) => c.id === id);
-  lernErsetze(main, leiste, el('div', { class: 'lw-kopf2' }, umschalter, legende), hinweis, sammel, meldung, koerper, toast);
+  lernErsetze(main, leiste, kopf2, hinweis, sammel, meldung, koerper, toast);
   // „Für ‹Kind› planen ›“ aus Nachschlagen → Lehrplan: Thema geöffnet
   const ziel = lernPlanZiel?.kind === id ? lernPlanZiel.thema : null; lernPlanZiel = null;
   // LW-3: Sprünge aus dem Überblick – „Fahrplan ändern“ zeigt den Fahrplan, ein Ring die Klasse
@@ -4943,7 +5025,9 @@ async function viewKindLehrplan(id, rest = []) {
   // zur Klasse des Kindes (bzw. zum geöffneten Thema) scrollen
   requestAnimationFrame(() => { if (!live()) return; hoehe();
     const z = (zst.sel && matrixWrap.querySelector(`.lw-karte[data-id="${zst.sel}"]`)) || (zst.scrollKl && matrixWrap.querySelector(`[data-kl="${zst.scrollKl}"]`)) || matrixWrap.querySelector('.lw-karte.lw-dran') || matrixWrap.querySelector(`[data-kl="${kindKl}"]`);
-    if (z && modus() !== 'handy') { const w = matrixWrap.getBoundingClientRect(), r = z.getBoundingClientRect(); matrixWrap.scrollTop += r.top - w.top - 90; } });
+    // S3: Höhe der klebenden Spaltenzeile abziehen – Klassen-Kopf und erste Kartenreihe ganz sichtbar
+    if (z && modus() !== 'handy') { const w = matrixWrap.getBoundingClientRect(), r = (z.closest('[data-kl]') && !z.matches('[data-kl]') ? z : z).getBoundingClientRect();
+      const gh = matrixWrap.querySelector('.lw-gh')?.getBoundingClientRect().height || 0; matrixWrap.scrollTop += r.top - w.top - gh - 8; } });
 }
 
 // ---------- Eltern/Lehrer: Inhalte einer Einheit prüfen (Erklärungen, Fehler, alle Aufgaben mit Lösung) ----------
@@ -5036,7 +5120,7 @@ function lernWackeltListe(kindId, wk, alleKarten, antwortZeile) {
       const neu = r?.eintrag ? { ...e, ...r.eintrag } : { ...e, status, quelle: 'gespeichert', wieder_offen: false, fehler_neu: 0 };
       eintraege = eintraege.map((x) => (schl(x) === schl(e) ? neu : x));
       zahl = typeof r?.zu_besprechen === 'number' ? r.zu_besprechen : eintraege.filter((x) => x.status === 'zu_besprechen').length;
-      lernWackeltZahl = zahl; lernZbSetzen(zahl); zeichne();
+      lernWackeltZahl = { kind: kindId, n: zahl }; lernZbSetzen(zahl); zeichne();
       if (!zurueck) { clearTimeout(uhr); toast.hidden = false;
         lernErsetze(toast, el('span', {}, `„${e.titel}“: ${{ zu_besprechen: 'zu besprechen', beobachten: 'beobachten', besprochen: 'besprochen' }[status]}`),
           el('button', { type: 'button', onclick: () => { toast.hidden = true; setzen(neu, vorher, true); } }, '↶ Rückgängig'));
@@ -5055,7 +5139,7 @@ function lernWackeltListe(kindId, wk, alleKarten, antwortZeile) {
           e.status !== 'besprochen' ? knopf('besprochen', '✓ Besprochen') : null,
           e.status === 'zu_besprechen' || e.status === 'besprochen' ? knopf('beobachten', 'Beobachten') : null,
           e.status === 'beobachten' ? knopf('zu_besprechen', 'Zu besprechen') : null,
-          el('a', { class: 'btn secondary wk-knopf', href: `#/kind/${kindId}-lehrplan`, onclick: () => { lernPlanZiel = { kind: kindId, thema: e.thema_id }; } }, 'Im Lehrplan'))),
+          el('a', { class: 'btn secondary wk-knopf', 'aria-label': 'Im Lehrplan', href: `#/kind/${kindId}-lehrplan`, onclick: () => { lernPlanZiel = { kind: kindId, thema: e.thema_id }; } }, el('span', { class: 'wk-lang' }, 'Im Lehrplan'), el('span', { class: 'wk-kurz', 'aria-hidden': 'true' }, '→ Lehrplan')))),
       el('button', { type: 'button', class: 'wk-auf', 'aria-expanded': String(auf), onclick: () => { if (auf) offen.delete(schl(e)); else offen.add(schl(e)); zeichne(); } },
         auf ? 'Bordkarte und Antwort ▾' : 'Bordkarte und Antwort ▸'),
       auf ? el('div', { class: 'wk-detail' }, ...karten(e).map(({ et: x, k }) => el('div', {}, el('b', { class: 'small' }, `${x.titel || lernZielName(x.lernziel)} · ${x.fehler || 0} Fehler`),
@@ -5071,7 +5155,7 @@ function lernWackeltListe(kindId, wk, alleKarten, antwortZeile) {
       eintraege.length ? null : el('p', { class: 'muted' }, 'Im Moment nichts: Kein Thema hat falsche Antworten.'), toast);
   }
   zeichne();
-  return el('section', { class: 'card wk-karte' }, el('h3', { class: 'wk-titel' }, 'Was wackelt?'), box,
+  return el('section', { class: 'card wk-karte', 'aria-label': 'Was wackelt' }, box, // S2: keine zweite Überschrift (steht am Reiter)
     el('p', { class: 'small muted' }, 'Neue Fehler im selben Thema (bzw. in der Etappe) holen einen Eintrag von selbst zurück nach „Zu besprechen“. Die Zahl am Reiter zählt „Zu besprechen“.'));
 }
 async function viewWackelt(arg) {
@@ -5080,10 +5164,10 @@ async function viewWackelt(arg) {
   const [idRoh, aufRoh] = String(arg || '').split('-');
   const kindId = Number(idRoh);
   if (!kindId) { route('lernen'); return; }
-  loading();
+  lernLaden();
   const [d, wk] = await Promise.all([lernCall('schule_lernstand', { lernender_id: kindId }), lernWackeltLesen(kindId)]);
   if (!live()) return;
-  lernWackeltZahl = wk ? Number(wk.zu_besprechen) || 0 : null;
+  lernWackeltZahl = wk ? { kind: kindId, n: Number(wk.zu_besprechen) || 0 } : null; if (lernWackeltZahl) lernZbSetzen(lernWackeltZahl.n);
   $('#title').textContent = 'Was wackelt? · ' + d.kind.name;
   const zustand = (k) => k.faellig ? ['wiederholen', 'wdh'] : k.sicher ? ['sicher', 'ok'] : k.sitzt ? [k.eigene_loesungen !== undefined ? 'gelandet' : 'sitzt', 'ok']
     : k.wieder_offen ? ['wieder offen', 'wackelt'] // H1: zwei Fehler in der Wiederholung – es fehlen 3 eigene Lösungen in Folge
@@ -5164,7 +5248,7 @@ async function viewWackelt(arg) {
       el('p', { class: 'small muted' }, '„Wackelt“: mindestens 3 falsche und mehr falsche als richtige Antworten. Ein Gespräch über genau diese eine Regel hilft meist mehr als weitere Bordkarten. „Besprochen ✓“ nimmt die Etappe aus „Zu tun“, bis wieder eine Antwort falsch ist.'));
   const alleEtappen = proEinheit.length ? el('details', { class: 'ls-alle' }, el('summary', {}, `Alle Etappen mit Stand (${alle.length})`), ...proEinheit) : el('p', { class: 'card muted' }, 'Noch nichts gelernt.');
   // Mit Arbeitsliste: die Tabelle je Etappe (mit „Besprochen ✓“ je Etappe, LA-3) steht zugeklappt darunter
-  lernErsetze(main, woche, liste,
+  lernErsetze(main, liste ? null : woche, liste, // S2: „Diese Woche …“ steht im Überblick
     liste ? el('details', { class: 'ls-je-etappe' }, el('summary', {}, `Je Etappe: richtig / falsch, häufigster Fehler (${mitFehlern.length})`), tabelle) : tabelle,
     alleEtappen);
 }

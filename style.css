@@ -5520,3 +5520,108 @@ body.lw-kopf-schlank .lern-abmelden { min-height: 30px; font-size: 12px; padding
 .lr-ex-vor li.ok { color: #0E7A55; } .lr-nacht .lr-ex-vor li.ok { color: #4BE3A6; } .lr-ex-vor-z { display: inline-block; width: 1.5em; text-indent: 0; }
 .lr-ex-info-stempel { display: flex; justify-content: center; margin: 14px 0; }
 .lr-ex-kopf .lr-ueber { color: #1D6E8C; } .lr-nacht .lr-ex-kopf .lr-ueber { color: #7FE3F0; }
+
+/* ---------- LZ-App + Kopf (0.91.1) ---------- */
+/* Umschalten: alter Inhalt bleibt abgeblendet stehen, bis der neue da ist */
+main.view.lw-wechsel { opacity: .45; pointer-events: none; transition: opacity .12s ease-out; }
+/* 1) Kopf größer: ~70 px, Namen und Reiter 16–17 px, Tippflächen ≥ 44 px, aktives Kind/aktiver Reiter deutlich */
+body.lw-kopf-schlank header.top { padding-top: calc(6px + env(safe-area-inset-top)); padding-bottom: 6px; min-height: 70px; align-items: center; }
+body.lw-kopf-schlank header.top #btn-back { width: 44px; height: 44px; font-size: 22px; }
+.lw-schlank .lw-kinder { padding: 3px; gap: 4px; border-radius: 14px; }
+.lw-schlank .lw-k-chip { min-height: 44px; font-size: 16.5px; padding: 4px 14px 4px 6px; gap: 8px; border-radius: 11px; color: #4F5B56; }
+.lw-schlank .lw-k-chip .lw-k-name { font-size: 16.5px; }
+.lw-schlank .lw-k-chip .lw-k-info { font-size: 12px; display: block; line-height: 1.1; }
+.lw-schlank .lw-k-chip > .lw-k-name, .lw-schlank .lw-k-chip > .lw-k-info { grid-column: 2; }
+.lw-schlank .lw-k-chip { display: inline-grid; grid-template-columns: auto auto; grid-template-rows: auto auto; column-gap: 8px; text-align: left; }
+.lw-schlank .lw-k-chip .lw-k-buchst { grid-row: 1 / span 2; width: 28px; height: 28px; font-size: 13px; }
+.lw-schlank .lw-k-chip.lw-k-aktiv { background: #254D3E; color: #fff; box-shadow: 0 2px 6px #254D3E55; }
+.lw-schlank .lw-k-chip.lw-k-aktiv .lw-k-info { color: #D7E7DE; }
+.lw-schlank .lw-k-chip.lw-k-aktiv .lw-k-buchst { background: #fff; color: #254D3E; }
+.lw-schlank .lw-k-chip:not(.lw-k-aktiv):hover { background: #fff8; }
+.lw-schlank .lw-k-pfeil { min-height: 44px; width: 32px; font-size: 20px; }
+.lw-schlank .lern-reiter { display: flex; gap: 4px; }
+.lw-schlank .lern-reiter a { min-height: 44px; display: inline-flex; align-items: center; gap: 6px; font-size: 16.5px; font-weight: 600; padding: 0 14px; border-radius: 11px; border: 0; color: #4F5B56; text-decoration: none; }
+.lw-schlank .lern-reiter a[aria-current="page"] { background: #254D3E; color: #fff; box-shadow: none; }
+.lw-schlank .lern-reiter a[aria-current="page"] .lw-zb { background: #fff; color: #A0281C; }
+.lw-schlank .lern-reiter a:not([aria-current]):hover { background: #EFEBE1; }
+.lw-schlank .lern-start { min-height: 44px; display: inline-flex; align-items: center; font-size: 14px; padding: 0 14px; }
+.lw-schlank .lern-einstellen { min-height: 44px; min-width: 44px; font-size: 18px; }
+.lw-schlank .lern-info-link { min-height: 44px; min-width: 32px; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; }
+.lw-mehr-ort { position: relative; display: none; }
+.lw-mehr { min-width: 44px; min-height: 44px; border: 1px solid var(--line, #DDD7C9); background: #fff; border-radius: 11px; font: inherit; font-size: 22px; line-height: 1; cursor: pointer; }
+.lw-mehr-menue { position: absolute; right: 0; top: calc(100% + 6px); z-index: 60; background: #fff; border-radius: 14px; box-shadow: 0 10px 30px #0003; padding: 6px; min-width: 220px; display: flex; flex-direction: column; }
+.lw-mehr-menue[hidden] { display: none; }
+.lw-mehr-menue a, .lw-mehr-menue button { min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 10px; border: 0; background: none; font: inherit; font-size: 16px; color: var(--text); text-decoration: none; text-align: left; cursor: pointer; }
+.lw-mehr-menue a:hover, .lw-mehr-menue button:hover { background: #F2EFE7; }
+@media (min-width: 1100px) {
+  header.top > .lern-kind-kopf.lw-schlank { flex-wrap: nowrap; gap: 6px 16px; }
+  .lw-schlank .lw-k-chip:not(.lw-k-aktiv) .lw-k-info { display: block; } /* „Schulart · Klasse“ bei allen Kindern */
+}
+/* S4: Handy – eine Zeile ‹ · Kinder · ⋯, darunter die Reiter */
+@media (max-width: 759px) {
+  .lw-mehr-ort { display: inline-block; margin-left: auto; }
+  .lw-schlank .lern-kind-kopf-knoepfe { display: none; }
+  body.lw-kopf-schlank header.top .notification-bell, body.lw-kopf-schlank header.top .lern-abmelden { display: none; }
+  header.top > .lern-kind-kopf.lw-schlank { flex-wrap: wrap; }
+  .lw-schlank .lw-kinder { order: 1; flex: 1 1 0; min-width: 0; }
+  .lw-schlank .lw-mehr-ort { order: 2; }
+  .lw-schlank .lern-reiter { order: 3; flex: 1 0 100%; }
+  .lw-schlank .lern-reiter a { flex: 1 1 0; justify-content: center; padding: 0 6px; font-size: 16px; }
+  .lw-schlank .lw-k-chip { padding: 4px 10px 4px 5px; }
+  .lw-schlank .lw-k-chip:not(.lw-k-aktiv) { padding: 4px; }
+  body.lw-kopf-schlank header.top { gap: 6px 8px; }
+}
+@media (min-width: 760px) and (max-width: 1099px) { .lw-mehr-ort { display: none; } }
+/* S1: Leiste am Rechner fest zweizeilig, ⓘ-Hinweise und Farben schwebend */
+.lw-zeile1 { display: flex; align-items: center; gap: 6px 8px; flex-wrap: nowrap; min-width: 0; position: relative; }
+.lw-leiste:has(.lw-zeile1) { display: flex; flex-direction: column; align-items: stretch; gap: 6px; flex-wrap: nowrap; position: relative; }
+.lw-leiste:has(.lw-zeile1) .lw-zeile2 { display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; position: relative; margin: 0; width: 100%; }
+.lw-zeile1 .lw-seg button, .lw-zeile2 > * { white-space: nowrap; }
+.lw-zeile2 .lw-rechts { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.lw-schwebt { position: absolute; z-index: 40; top: calc(100% + 6px); left: 0; background: #fff; border: 1px solid #E4DED1; border-radius: 12px; box-shadow: 0 10px 28px #0002; padding: 10px 12px; margin: 0; max-width: 460px; font-size: 13.5px; line-height: 1.4; }
+.lw-schwebt[hidden] { display: none; }
+.lw-leg-ort { position: relative; display: inline-flex; }
+.lw-leg-ort .lw-legende.lw-schwebt { display: flex; flex-wrap: wrap; gap: 6px 12px; width: 420px; }
+.lw-leg-ort .lw-legende.lw-schwebt[hidden] { display: none; }
+.lw-stand.lw-still { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+/* K4: kürzere Knöpfe in „Was wackelt“ auf dem Handy */
+.wk-kurz { display: none; }
+@media (max-width: 599px) { .wk-knopf .wk-lang { display: none; } .wk-knopf .wk-kurz { display: inline; } }
+/* S2: Überblick – „zuletzt …“, Einstufung, „Zuletzt geschafft“ klein */
+.lw-ue-zuletzt { display: block; margin-top: 6px; color: #5F6B66; }
+.lw-ue-woche.amp-rot .lw-ue-zuletzt { color: #A0281C; font-weight: 700; } .lw-ue-woche.amp-gruen .lw-ue-zuletzt { color: #0E7A55; font-weight: 700; }
+.lw-ue-woche.amp-rot { box-shadow: inset 4px 0 0 #D9482A; } .lw-ue-woche.amp-gruen { box-shadow: inset 4px 0 0 #0E9F6E; } .lw-ue-woche.amp-gelb { box-shadow: inset 4px 0 0 #E0A800; }
+.lw-ue-gliste { list-style: none; padding: 0; margin: 4px 0 0; font-size: 13.5px; } .lw-ue-gliste li { padding: 2px 0; }
+.lw-ue-einst { margin: 8px 0 0; color: #5F6B66; }
+/* LZ-App: Platz für den größeren Kopf – Bereichsleiste 46 px, Leiste knapp (Matrix ≥ 600 px bei 1280 × 800) */
+body.lw-kopf-schlank[data-area]:not([data-area="login"]) { padding-top: 46px; }
+body.lw-kopf-schlank .area-nav { height: 46px; }
+body.lw-kopf-schlank[data-area]:not([data-area="login"]) header.top { top: 46px; }
+body.lw-kopf-schlank header.top { padding-top: calc(3px + env(safe-area-inset-top)); padding-bottom: 3px; min-height: 68px; }
+.lw-schlank .lw-k-chip { padding-top: 2px; padding-bottom: 2px; line-height: 1.15; }
+.lw-schlank .lw-kinder { padding: 2px; }
+.lw-leiste:has(.lw-zeile1) { gap: 4px; padding: 4px 0 2px; }
+.lw-zeile1 .lw-seg button, .lw-zeile1 .lw-kseg button { min-height: 32px; }
+.lw-zeile1 { min-height: 0; } .lw-zeile1 > .lw-seg, .lw-zeile1 > .lw-kseg { padding-top: 1px; padding-bottom: 1px; } .lw-zeile1 button { min-height: 30px; padding-top: 2px; padding-bottom: 2px; }
+/* Tablet und Handy: Kopf ‹ · Kinder · ⋯, darunter die Reiter; bei nicht gewählten Kindern nur der Buchstabe (Handy) bzw. Name (Tablet) */
+@media (max-width: 1099px) {
+  .lw-mehr-ort { display: inline-block; margin-left: auto; order: 2; }
+  .lw-schlank .lern-kind-kopf-knoepfe { display: none; }
+  body.lw-kopf-schlank header.top .notification-bell, body.lw-kopf-schlank header.top .lern-abmelden, body.lw-kopf-schlank header.top .ver { display: none; }
+  header.top > .lern-kind-kopf.lw-schlank { flex-wrap: wrap; }
+  .lw-schlank .lw-kinder { order: 1; flex: 0 1 auto; min-width: 0; }
+  .lw-schlank .lern-reiter { order: 3; flex: 1 0 100%; }
+  .lw-schlank .lw-k-pfeil { display: none; }
+  .lw-schlank .lw-k-chip:not(.lw-k-aktiv) .lw-k-info { display: none; }
+}
+@media (max-width: 759px) {
+  .lw-schlank .lw-k-chip:not(.lw-k-aktiv) .lw-k-name { display: none; }
+  .lw-schlank .lw-k-chip:not(.lw-k-aktiv) { display: inline-flex; }
+}
+.lw-schlank .lern-start { white-space: nowrap; }
+/* 1280: drei Kinder mit „Schulart · Klasse“ + Reiter + Knöpfe in einer Zeile – Pfeile entfallen (Alt+←/→ bleibt) */
+.lw-schlank .lw-k-pfeil { display: none; }
+@media (min-width: 1100px) { .lw-schlank .lern-reiter a { padding: 0 12px; } .lw-schlank .lw-k-chip { padding-right: 12px; } header.top > .lern-kind-kopf.lw-schlank { gap: 6px 12px; } }
+header.top .lw-schlank .lern-kind-kopf-knoepfe .lern-einstellen { height: 44px; min-height: 44px; min-width: 44px; box-sizing: border-box; }
+header.top .lw-schlank .btn.lern-start { min-height: 44px; }
+@media (max-width: 1099px) { body.lw-kopf-schlank header.top { align-items: flex-start; } }

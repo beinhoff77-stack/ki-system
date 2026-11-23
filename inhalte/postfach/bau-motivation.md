@@ -2,6 +2,81 @@
 
 Neueste oben.
 
+## 2026-11-23 – FERTIG: LZ-App (0.91.1)
+
+Stand `lernen-app` 302d242 übernommen (Nachtrag LZ-App + Kopf, Prüfung LW-3). Nur App: keine Datenbank, keine Migration, kein Merge nach `main`, keine Namen. Cache v169.
+
+**1) Kopf größer (Rückmeldung Sebastian)**
+- Rechner 1280 × 800:
+  - Kopf 68 px (vorher 53).
+  - Kindernamen und Reiter 16,5 px.
+  - Alle Tippflächen ≥ 44 px (Kinder, Reiter, Zurück, Lernen starten, ⚙).
+  - Aktives Kind und aktiver Reiter: dunkelgrüne Fläche mit weißer Schrift.
+  - „Gymnasium · Kl. 8“ steht bei allen Kindern mit Klasse.
+  - Die Pfeile ‹ › entfallen, damit drei Kinder in eine Zeile passen; Alt+←/→ geht weiter.
+- Damit die Matrix nicht schrumpft:
+  - Bereichsleiste 46 statt 52 px.
+  - Leiste fest zweizeilig, 76 px.
+  - **Matrix 602 px.** Achtung: Das ist knapp über der Grenze von 600 px.
+- **S4:** Tablet und Handy haben eine Zeile ‹ · Kinder · ⋯. Hinter „⋯“ liegen Lernen starten, Einstellen und So funktioniert’s. Darunter stehen die Reiter.
+  - Kopf 820: 105 px, erste Karte 194 (vorher 229).
+  - Kopf 400: 103 px, erste Karte 266 (vorher 314).
+
+**2) Umschalten flüssig**
+- Ein Klick auf Kind oder Reiter markiert sofort: gemessen 0,4–1,2 ms bei 1280/820/400.
+- Der alte Inhalt bleibt abgeblendet stehen, bis der neue da ist. Kein „Lade …“.
+- Der Kopf bleibt stehen und wird ersetzt, statt neu aufgebaut zu werden. Getestet mit 250 ms Verzögerung je Antwort.
+
+**3) Laden**
+- `schule_uebersicht`, `schule_lehrplan_matrix`, `schule_lehrplan_uebersicht`, `schule_lernstand`, `schule_plan_lesen` und `schule_wackelt_lesen` werden je Sitzung gemerkt. Gleiche Anfragen, die gerade laufen, werden geteilt.
+- Gemerkte Antworten werden nach 10 s im Hintergrund aufgefrischt. Hat sich etwas geändert, zeichnen Überblick und Was wackelt still neu. Der Lehrplan wird nicht neu gezeichnet, solange dort gearbeitet wird.
+- Jede schreibende Aktion vergisst gezielt alles zu diesem Kind sowie Übersicht und Matrix (ohne Kind: alles).
+- Alle Anfragen eines Reiters starten gleichzeitig, auch die Matrix.
+- Das andere Kind wird 0,3 s nach dem Zeichnen vorgeladen (ohne Testkind).
+- Test: Nach „In den Plan: als Nächstes“ liest die App den Plan neu, und der Überblick zeigt das neue Thema auf Platz 2.
+
+**Anfragen je Wechsel** (Test „LZ-App: Anfragen“, Kind A/B, nachgestellter Server)
+
+| Schritt | vorher 0.91.0 | nachher 0.91.1 |
+|---|---|---|
+| Kind A Überblick (Start) | 6 | 9 (davon 3 Vorladen Kind B) |
+| → Lehrplan | 7 (Übersicht 2×) | 0 |
+| → Was wackelt | 3 | 0 |
+| → Kind B (Was wackelt) | 3 | 0 |
+| Kind B → Lehrplan | 7 | 0 |
+| → Kind A (Lehrplan) | 7 | 0 |
+| → Überblick | 6 | 0 |
+| **Summe** | **39** | **9** |
+
+- Übersicht und Matrix-Gerüst kommen nachher einmal je Sitzung.
+- Die Wartezeit je Anfrage auf dem echten Server (5–9 s) ändert sich dadurch nicht; das ist Teil von LZ-S. Der erste Aufruf dauert so lange wie die langsamste Anfrage, jeder weitere Wechsel kommt aus dem Speicher.
+
+**4) S1 Leiste**
+- Zeile 1: Lehrplan von · Zeigen · Klassen. Zeile 2: Bereit für Klasse …? · Suchen · Auswählen · ⓘ Farben · rechts ↶ Rückgängig.
+- ⓘ-Hinweis und Farben öffnen als schwebendes Feld. Test: Leiste ≤ 90 px, auch mit offenem ⓘ.
+- „Gespeichert“ steht nur noch für Vorleser; sichtbar sind „Speichere …“ und „Nicht gespeichert“.
+
+**5) S2 Überblick ohne Doppelungen**
+- „Lernt es?“, „Wo hakt es?“, „Wo steht es?“ und „Was kommt?“ sind weg.
+- „Diese Woche“ hat jetzt „zuletzt am …“ und die rot/gelb/grün-Färbung.
+- „Zuletzt geschafft“ ist eine kleine Karte.
+- „Einstufung: GYM Kl. 8 · RS Kl. 8 · IB MYP-Jahr 3“ steht als Zeile in „Stand“.
+- In „Was wackelt“ sind die Zeile „Diese Woche …“ und die zweite Überschrift weg.
+
+**6) S3 und Kann-Punkte**
+- S3: Beim Einrollen wird die Höhe der Spaltenzeile abgezogen.
+- K1: Hinweistext mit dem Beispiel Pythagoras.
+- K2: „Bereit für Klasse …?“ statt „Einstieg prüfen“, auch in den Optionen und im Hinweis.
+- K4: Auf dem Handy heißt der Knopf „→ Lehrplan“.
+- K3 (Testkind) ist nicht gebaut.
+- Die Info-Seite ist angepasst.
+
+**Tests**
+- Vier neue LZ-Tests: Anfragen, flüssiges Umschalten, Kopf-Maße, gemerkte Daten nach einer Plan-Änderung.
+- 16 bestehende Tests sind angepasst, z. B. „⋯“ auf schmalen Schirmen, die neuen Wörter und die entfallenen alten Karten.
+- Gesamtlauf 308/320 vor der letzten Testkorrektur. Danach ist auch „LW-3: Info-Seite“ grün. Rot sind nur die bekannten Reise/PWA-Tests: PWA-Hülle, Startkarte, W80 ×5, Review301, Woanders, W88.
+- Bilder: `docs/previews/la/lz-*.png` und `lw3b-*.png` (1280/820/400).
+
 ## 2026-11-23 – FERTIG: EX-App (0.91.0)
 
 Stand `lernen-app` cfaf70a übernommen. Nur App, keine Datenbank, keine Migration, kein Merge nach `main`, keine Namen. Cache v168. Vorgabe `inhalte/pruefung/kind/expedition/umsetzung.md` §1–6, 8, 9 (§7 Antarktis auf der Karte folgt mit RK-App).

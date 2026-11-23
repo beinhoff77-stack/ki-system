@@ -2,15 +2,15 @@
 
 Stand 23.11.2026 · Grundlage `lernen-app` c98fffd (`lernAbschlussEtappe`, `lernAbschlussFlug`, `lernExGeschafftAnsicht`, Knobel- und Bordkarten-Rückmeldung) · Daten: `woerter.json` · Entwurf: `entwurf/jugendwoerter.html` · Bilder: `bilder/*_400|820_tag|nacht.png` · Entwurf online: Artefakt f41b44f0-f8fc-460f-85ef-2e3df5760deb
 
-Kein App-Code, keine Datenbank, keine Namen. Alles hier ist Vorschlag für den Bau.
+Kein App-Code, keine Datenbank, keine Namen. **Fassung 2 (23.11.2026, Sebastian):** keine Einstellungen, keine Auswahl, keine Unterscheidung 11/14, Anrede „Digga“, Wörter werden wirklich verwendet. Alles ist festgelegt.
 
 ## 0. Kurzfassung
 
 - **Ein Sticker, nie ein Satz in Slang.** Das Jugendwort klebt groß als schräger Sticker in der Szene. Titel („Direktflug“), Zahlen und der erklärende Satz bleiben unverändert normales Deutsch.
-- **Selten und verdient.** Höchstens ein Sticker je Ansicht, Zufall nach Dosis, Tagesgrenze, kein Spruch zweimal hintereinander, kein Wort aus den letzten 4 Stickern.
-- **Stärke folgt dem Ergebnis.** „PEAK“, „GOAT“, „+1000 Aura“ nur für Direktflug, Flug geschafft, fehlerfrei. Mit Tipp gibt es höchstens „Akkurat.“.
-- **Das Kind entscheidet.** Erst nach einem Ja des Kindes an (Standard aus). Eltern können sperren. Jeder Sticker lässt sich antippen: Bedeutung + „Wort gefällt mir nicht“.
-- **Wortliste:** 74 Wörter geprüft, 32 im Einsatz, 42 ausgeschlossen mit Grund; 53 fertige Sprüche. Halbjährliche Prüfung, Wörter mit abgelaufenem Verfallsdatum werden automatisch nicht mehr gezogen.
+- **Immer, aber stylisch.** Jede Geschafft-Ansicht bekommt genau einen Sticker. Kein Spruch zweimal hintereinander, kein Wort aus den letzten 4 Stickern.
+- **Stärke folgt dem Ergebnis.** „PEAK“, „GOAT“, „+1000 Aura“ nur für Direktflug, Flug geschafft, Knobel, fehlerfrei. Mit Tipp gibt es „Akkurat.“, „W“, „Lowkey stark.“.
+- **Festgelegt für beide Kinder.** Keine Einstellungen, keine Altersstufen, Anrede „Digga“. Antippen des Stickers zeigt nur die Bedeutung (hilft beim Mitreden, z. B. „Çüş“ → gesprochen Tschüsch).
+- **Wortliste:** 74 Wörter geprüft, 30 im Einsatz, 44 ausgeschlossen mit Grund; 52 fertige Sprüche. Halbjährliche Prüfung, Wörter mit abgelaufenem Verfallsdatum werden automatisch nicht mehr gezogen.
 
 ## 1. Recherche
 
@@ -25,11 +25,11 @@ Kein App-Code, keine Datenbank, keine Namen. Alles hier ist Vorschlag für den B
 
 **Nicht geprüft:** Bedeutung von „Mehrzweckeier“ (2026 von der Jury ausgeschlossen) → ungeeignet.
 
-**Pflichtwörter laut Auftrag – alle drin:** Çüş (staunen), Digga (Anrede, nur 14 und nur wenn gewählt), Peak (lob_gross), Gute Käse (lob_klein), Süper (lob), Das crazy (staunen), Schere (nur fehler_mild).
+**Pflichtwörter laut Auftrag – alle drin:** Çüş (staunen), Digga (feste Anrede), Peak (lob_gross), Gute Käse (lob_klein), Süper (lob), Das crazy (staunen), Schere (nur fehler_mild).
 
 **Ausgeschlossen laut Auftrag und Prüfung** (Auszug, alle mit Grund in der Datei): Ragebait, Crashout, goonen, sybau, Talahon, smash, Hawk Tuah, AMK (Wut/Provokation, sexuell, beleidigend, abwertend) · cringe, sus, goofy, lost, NPC, side eye, L, cooked, bodenlos, tot (beschämen bei Fehlern) · checkst du (belehrend) · 67, Skibidi, Mittwoch (kein Sinn) · Akh, Vallah, Mashallah (religiöse/gruppenbezogene Formeln) · Yolo, Pyrotechnik (falsches Signal) · I bims, fly, Kerl*in (veraltet).
 
-**Nebenbedeutungen, die den Einsatz begrenzen:** Çüş, Sheesh, wild, krass, Das crazy (können negativ/gelangweilt sein → nur nach klar gutem Ergebnis, nie bei Fehlern) · Slay („töten“ → nur 14) · Aura (nur „+1000“, nie Minus) · Peak (nie mit negativem Wort) · Macher (nur neutral „Macher-Modus“) · Bro/Digga (nur wenn das Kind es als Anrede wählt) · SIU/Gommemode (Bezug auf reale Personen → gut ausblendbar).
+**Nebenbedeutungen, die den Einsatz begrenzen:** Çüş, Sheesh, wild, krass, Das crazy (können negativ/gelangweilt sein → nur nach klar gutem Ergebnis, nie bei Fehlern) · Slay (wörtlich „töten“ – im Slang längst nur Lob, darum drin) · Aura (nur „+1000“, nie Minus) · Peak (nie mit negativem Wort) · Macher (nur neutral „Macher-Modus“) · Digga (nie als Vorwurf, nur freundlich) · SIU/Gommemode (Bezug auf reale Personen; bei der Halbjahresprüfung als Erste prüfen).
 
 ## 2. Einbau – wo, wie, wie oft
 
@@ -61,18 +61,11 @@ Fester Punkt: **Der Sticker verdeckt nie Titel, Zahl, Lösung oder Knopf.** In B
 - Vorlesen: `aria-label="Sticker: PEAK. Tippen für die Bedeutung."`; Zeichen wie Ç bleiben (Schriftart prüfen, siehe 6).
 - Tag/Nacht: Sticker-Farben gleich (sie sitzen auf der farbigen Szene); die Boxen folgen der Ansicht.
 
-### 2.3 Wie oft (Dosis)
+### 2.3 Wie oft (festgelegt)
 
-| Einstellung | Wahrscheinlichkeit je Anlass | höchstens je Lerntag |
-|---|---|---|
-| Aus | 0 | 0 |
-| Selten | 25 % | 3 |
-| Normal | 50 % | 6 |
-| Oft | 80 % | 10 |
-
-- Große Anlässe (Direktflug, Flug geschafft, Expedition fehlerfrei, Knobel richtig) × 1,5 – sie sind seltener und sollen öfter einen Sticker bekommen.
-- Fehler × 0,5, höchstens 2 Fehler-Sticker je Lerntag, nie zwei Fehler hintereinander, **kein Fehler-Sticker ab dem 2. Fehler in Folge** (dann nur der normale Text – Frust nicht mit Witz übertünchen).
-- Anrede höchstens 1× je Lerntag.
+- **Erfolg:** jede Geschafft-Ansicht aus 2.1 bekommt genau einen Sticker.
+- **Fehler:** Sticker beim 1., 3., 5. … Fehler eines Lerntags; **nie ab dem 2. Fehler in Folge** (dann nur der normale Text – Frust nicht mit Witz übertünchen).
+- **Anrede:** einmal je Lerntag auf der Abflugtafel („Yo Digga!“, „Yurr, Digga!“, „Digga, los geht’s.“); dazu „Digga“ in einzelnen Sprüchen.
 - Lerntag = derselbe Tag wie bei den übrigen Lerntag-Zählern.
 
 ### 2.4 Abwechslung
@@ -80,7 +73,7 @@ Fester Punkt: **Der Sticker verdeckt nie Titel, Zahl, Lösung oder Knopf.** In B
 - Je Anlass ein „Sack“: Sprüche werden ohne Zurücklegen gezogen, bis der Sack leer ist.
 - Nie derselbe Spruch wie der letzte Sticker (auch über Anlässe hinweg).
 - Kein Wort aus den letzten 4 Stickern, solange ein anderer passender Spruch da ist.
-- Wenn wegen Alter/Ausblenden kein Spruch passt: kein Sticker (nie ein Ersatzwort aus einem anderen Anlass).
+- Ist der Sack leer, wird er neu gefüllt; „Digga“ zählt nicht zur Wort-Sperre (Anrede).
 
 ### 2.5 Stärke passend zum Ergebnis
 
@@ -91,11 +84,10 @@ Fester Punkt: **Der Sticker verdeckt nie Titel, Zahl, Lösung oder Knopf.** In B
 
 ### 2.6 Was es nicht peinlich macht (Meinung, begründet)
 
-1. Opt-in durch das Kind: Ein Erwachsenen-Programm, das ungefragt Slang spricht, ist der Klassiker für „cringe“. Erste Frage kommt nach der ersten Landung mit Stärke ≥ 2 (Bild `erstes_mal_*`).
-2. Nur Ausrufe, keine Sätze im Slang; nie zwei Jugendwörter in einem Spruch.
-3. Nie erklären, warum die App „cool“ ist; nie Emojis um den Sticker.
-4. Kein Wort, das älter als ~3 Jahre aussieht, für 14 (Läuft bei dir, SIU nur 11).
-5. Jedes Wort kann das Kind mit einem Tipp loswerden.
+1. Nur Ausrufe als Sticker, keine Sätze im Slang; der erklärende Satz bleibt Deutsch.
+2. Nie erklären, warum die App „cool“ ist; keine Emojis um den Sticker.
+3. Stärke ehrlich: kein „Peak“ für einen Wackel-Erfolg.
+4. Veraltete und spöttische Wörter sind raus (Abschnitt 1); die Liste wird halbjährlich erneuert.
 
 ### 2.7 Passung zu den bestehenden Vorgaben
 
@@ -106,183 +98,164 @@ Fester Punkt: **Der Sticker verdeckt nie Titel, Zahl, Lösung oder Knopf.** In B
 
 ## 3. Sprüche (wörtlich)
 
-„Alter“: beide = 11 und 14. Probe = standardmäßig aus. Wörter-IDs siehe `woerter.json`.
+Gleich für beide Kinder. Wörter-IDs siehe `woerter.json`.
 
 
 **Landung einer Etappe – Direktflug (kein Fehler, kein Tipp)** (`landung_direkt`)
 
-| Nr | Sticker | Stärke | Alter | Wort |
-|---|---|---|---|---|
-| J01 | **PEAK** | 3 | beide | Peak |
-| J02 | **Das war Peak.** | 3 | 14 | Peak |
-| J03 | **GOAT** | 3 | beide | GOAT |
-| J04 | **+1000 Aura** | 3 | beide | Aura |
-| J05 | **SIUUU!** | 3 | 11 | SIU |
-| J06 | **Çüş – auf Anhieb!** | 3 | beide | Çüş |
+| Nr | Sticker | Stärke | Wort |
+|---|---|---|---|
+| J01 | **PEAK** | 3 | Peak |
+| J02 | **Das war Peak.** | 3 | Peak |
+| J03 | **GOAT** | 3 | GOAT |
+| J04 | **+1000 Aura** | 3 | Aura |
+| J05 | **SIUUU!** | 3 | SIU |
+| J06 | **Çüş – auf Anhieb!** | 3 | Çüş |
 
 **Landung – Saubere Landung ohne Tipp** (`landung_sauber`)
 
-| Nr | Sticker | Stärke | Alter | Wort |
-|---|---|---|---|---|
-| J07 | **Tuff.** | 2 | 14 | tuff |
-| J08 | **Süper!** | 2 | beide | Süper |
-| J09 | **Slay.** | 2 | 14 | Slay |
-| J10 | **Gute Käse** | 2 | beide | Gute Käse |
-| J11 | **Sauber, Digga.** | 2 | 14 · nur mit Anrede digga | Digga |
-| J12 | **Nice gelandet!** | 2 | 11 | Nice |
+| Nr | Sticker | Stärke | Wort |
+|---|---|---|---|
+| J07 | **Tuff.** | 2 | tuff |
+| J08 | **Süper!** | 2 | Süper |
+| J09 | **Slay.** | 2 | Slay |
+| J10 | **Gute Käse** | 2 | Gute Käse |
+| J11 | **Sauber, Digga.** | 2 | Digga |
+| J12 | **Nice gelandet!** | 2 | Nice |
 
 **Landung – Saubere Landung mit Tipp oder „Wieder gelandet“** (`landung_leicht`)
 
-| Nr | Sticker | Stärke | Alter | Wort |
-|---|---|---|---|---|
-| J13 | **Läuft bei dir.** | 1 | 11 | Läuft bei dir |
-| J14 | **Lowkey stark.** | 1 | 14 | lowkey |
-| J15 | **Akkurat.** | 1 | beide | Akkurat |
-| J16 | **W** | 1 | 14 | W |
+| Nr | Sticker | Stärke | Wort |
+|---|---|---|---|
+| J13 | **Lowkey stark.** | 1 | lowkey |
+| J14 | **Akkurat.** | 1 | Akkurat |
+| J15 | **W** | 1 | W |
+| J16 | **Läuft, Digga.** | 1 | Läuft bei dir, Digga |
 
 **Landung – Sturmflug gemeistert (Ausdauer)** (`landung_sturm`)
 
-| Nr | Sticker | Stärke | Alter | Wort |
-|---|---|---|---|---|
-| J17 | **Tuff durchgezogen.** | 2 | 14 | tuff |
-| J18 | **Macher-Modus** | 2 | beide | Macher |
-| J19 | **Locked in.** | 2 | 14 | Locked in |
-| J20 | **Stabil durchgehalten.** | 2 | beide | stabil |
+| Nr | Sticker | Stärke | Wort |
+|---|---|---|---|
+| J17 | **Tuff durchgezogen.** | 2 | tuff |
+| J18 | **Macher-Modus** | 2 | Macher |
+| J19 | **Locked in.** | 2 | Locked in |
+| J20 | **Stabil durchgehalten.** | 2 | stabil |
 
 **Knobel-Bordkarte im ersten Versuch richtig** (`knobel_richtig`)
 
-| Nr | Sticker | Stärke | Alter | Wort |
-|---|---|---|---|---|
-| J21 | **Çüş!** | 3 | beide | Çüş |
-| J22 | **Sheesh!** | 3 | beide | Sheesh |
-| J23 | **Das crazy!** | 3 | beide | Das crazy |
-| J24 | **Wild.** | 3 | 14 | wild |
-| J25 | **Ohne Witz – geknackt.** | 3 | beide | Ohne Witz |
+| Nr | Sticker | Stärke | Wort |
+|---|---|---|---|
+| J21 | **Çüş!** | 3 | Çüş |
+| J22 | **Sheesh!** | 3 | Sheesh |
+| J23 | **Das crazy!** | 3 | Das crazy |
+| J24 | **Wild.** | 3 | wild |
+| J25 | **Ohne Witz – geknackt.** | 3 | Ohne Witz |
 
 **Serie: 5 Bordkarten in Folge richtig** (`serie_5`)
 
-| Nr | Sticker | Stärke | Alter | Wort |
-|---|---|---|---|---|
-| J26 | **5 in Folge – locked in** | 2 | 14 | Locked in |
-| J27 | **Läuft. 5 in Folge.** | 2 | 11 | Läuft bei dir |
+| Nr | Sticker | Stärke | Wort |
+|---|---|---|---|
+| J26 | **5 in Folge – locked in** | 2 | Locked in |
+| J27 | **5 am Stück, Digga.** | 2 | Digga |
 
 **Serie: 10 Bordkarten in Folge richtig** (`serie_10`)
 
-| Nr | Sticker | Stärke | Alter | Wort |
-|---|---|---|---|---|
-| J28 | **Gommemode** | 3 | beide | Gommemode |
-| J29 | **Krass – 10 am Stück** | 3 | beide | krass |
+| Nr | Sticker | Stärke | Wort |
+|---|---|---|---|
+| J28 | **Gommemode** | 3 | Gommemode |
+| J29 | **Krass – 10 am Stück** | 3 | krass |
 
 **Wiederholung bestanden** (`wiederholung`)
 
-| Nr | Sticker | Stärke | Alter | Wort |
-|---|---|---|---|---|
-| J30 | **Hält stabil.** | 1 | beide | stabil |
-| J31 | **Safe gekonnt.** | 1 | 14 | safe |
-| J32 | **Noch drin. Nice.** | 1 | 11 | Nice |
-| J33 | **Süper – noch gewusst.** | 1 | beide | Süper |
+| Nr | Sticker | Stärke | Wort |
+|---|---|---|---|
+| J30 | **Hält stabil.** | 1 | stabil |
+| J31 | **Safe gekonnt.** | 1 | safe |
+| J32 | **Noch drin. Nice.** | 1 | Nice |
+| J33 | **Süper – noch gewusst.** | 1 | Süper |
 
 **Flug geschafft** (`flug_geschafft`)
 
-| Nr | Sticker | Stärke | Alter | Wort |
-|---|---|---|---|---|
-| J34 | **Peak-Flug** | 3 | beide | Peak |
-| J35 | **GOAT-Flug** | 3 | 14 | GOAT |
-| J36 | **SIUUU!** | 3 | 11 | SIU |
-| J37 | **Aura +1000** | 3 | beide | Aura |
+| Nr | Sticker | Stärke | Wort |
+|---|---|---|---|
+| J34 | **Peak-Flug** | 3 | Peak |
+| J35 | **GOAT-Flug** | 3 | GOAT |
+| J36 | **SIUUU!** | 3 | SIU |
+| J37 | **Aura +1000** | 3 | Aura |
 
 **Expedition geschafft** (`expedition_geschafft`)
 
-| Nr | Sticker | Stärke | Alter | Wort |
-|---|---|---|---|---|
-| J38 | **Çüş, Expedition!** | 2 | beide | Çüş |
-| J39 | **Tuff, Polarprofi.** | 2 | 14 | tuff |
+| Nr | Sticker | Stärke | Wort |
+|---|---|---|---|
+| J38 | **Çüş, Expedition!** | 2 | Çüş |
+| J39 | **Tuff, Polarprofi.** | 2 | tuff |
 
 **Expedition fehlerfrei** (`expedition_fehlerfrei`)
 
-| Nr | Sticker | Stärke | Alter | Wort |
-|---|---|---|---|---|
-| J40 | **GOAT der Antarktis** | 3 | beide | GOAT |
-| J41 | **Peak. Null Fehler.** | 3 | beide | Peak |
+| Nr | Sticker | Stärke | Wort |
+|---|---|---|---|
+| J40 | **GOAT der Antarktis** | 3 | GOAT |
+| J41 | **Peak. Null Fehler.** | 3 | Peak |
 
 **„Nachbessern“ geschafft (wieder offene Stadt wieder abgelegt)** (`nachbessern`)
 
-| Nr | Sticker | Stärke | Alter | Wort |
-|---|---|---|---|---|
-| J42 | **Macher-Modus: repariert** | 2 | beide | Macher |
-| J43 | **Süper repariert!** | 2 | beide | Süper |
-| J44 | **Stabil zurück.** | 2 | 14 | stabil |
-| J45 | **Wieder drin – nice.** | 2 | 11 | Nice |
-| J46 | **Du bist gut genug.** | 2 | 14 · Probe | Du bist gut genug |
+| Nr | Sticker | Stärke | Wort |
+|---|---|---|---|
+| J42 | **Macher-Modus: repariert** | 2 | Macher |
+| J43 | **Süper repariert!** | 2 | Süper |
+| J44 | **Stabil zurück.** | 2 | stabil |
+| J45 | **Wieder drin – nice.** | 2 | Nice |
 
 **Fehler-Rückmeldung (falsche Antwort)** (`fehler`)
 
-| Nr | Sticker | Stärke | Alter | Wort |
-|---|---|---|---|---|
-| J47 | **Schere.** | 1 | beide | Schere |
-| J48 | **Kleine Schere – passiert.** | 1 | beide | Schere |
-| J49 | **Auf Lock. Nächste.** | 1 | beide | Auf Lock |
-| J50 | **Schere. Nächste Runde.** | 1 | 14 | Schere |
+| Nr | Sticker | Stärke | Wort |
+|---|---|---|---|
+| J46 | **Schere.** | 1 | Schere |
+| J47 | **Kleine Schere – passiert.** | 1 | Schere |
+| J48 | **Auf Lock. Nächste.** | 1 | Auf Lock |
+| J49 | **Schere, Digga. Nächste.** | 1 | Schere, Digga |
 
-**Begrüßung auf der Abflugtafel (nur mit gewählter Anrede)** (`anrede`)
+**Begrüßung auf der Abflugtafel (Anrede Digga)** (`anrede`)
 
-| Nr | Sticker | Stärke | Alter | Wort |
-|---|---|---|---|---|
-| J51 | **Yurr!** | 1 | 14 · nur mit Anrede yurr | Yurr |
-| J52 | **Digga!** | 1 | 14 · nur mit Anrede digga | Digga |
-| J53 | **Bro!** | 1 | 14 · nur mit Anrede bro | Bro |
+| Nr | Sticker | Stärke | Wort |
+|---|---|---|---|
+| J50 | **Yo Digga!** | 1 | Digga |
+| J51 | **Yurr, Digga!** | 1 | Yurr, Digga |
+| J52 | **Digga, los geht’s.** | 1 | Digga |
 
-Hinweis Anrede: J51–J53 setzen den Sticker über die unveränderte Ansage der Abflugtafel. Nur, wenn das Kind genau diese Anrede gewählt hat.
+Hinweis Anrede: J50–J52 setzen den Sticker auf die unveränderte Ansage der Abflugtafel, einmal je Lerntag.
 
 ## 4. Einstellungen
 
-**Kind** (im Menü „Ansicht“, dort wo „Helle/Dunkle Ansicht“ sitzt – Bild `landung_direkt_820_*`):
-- Jugendwörter: Aus · Selten · Normal · Oft (mit Satz, was das heißt).
-- „Wie soll die App dich nennen?“ Gar nicht · Digga · Bro · Yurr (Standard: gar nicht).
-- Ausgeblendete Wörter mit „wieder zeigen“.
+**Keine.** Festgelegt von Sebastian am 23.11.2026: kein Ein/Aus, keine Dosis, keine Auswahl der Anrede, kein Ausblenden, keine Altersstufen.
 
-**Am Sticker** (Bild `bedeutung_*`): Antippen → Blatt mit Wort, „gesprochen …“ (bei Çüş), Bedeutung in einem Satz, Jahr · Knöpfe „„Peak“ gefällt mir nicht“, „Jugendwörter einstellen ›“, „Schließen“. Nach dem Ausblenden kurzer Hinweis „„Peak“ kommt nicht mehr. Rückgängig“. Ausblenden gilt für alle Sprüche mit diesem Wort, nur für dieses Kind.
-
-**Eltern** (im Elternbereich je Kind – Bild `eltern_*`):
-- Gleiche Stufen Aus … Oft.
-- „Darf das Kind selbst ändern?“ Ja · Nein, festlegen. Bei Nein sieht das Kind die Stufe mit 🔒 „Von deinen Eltern festgelegt.“; Ausblenden einzelner Wörter darf das Kind trotzdem.
-- Liste der vom Kind ausgeblendeten Wörter (nur lesen – Eltern holen ein Wort nicht gegen den Willen des Kindes zurück; Meinung).
-- Zeile „Wortliste Stand … · nächste Prüfung …“.
-
-**Startwert:** Aus, bis das Kind Ja sagt (Karte „Neu: Jugendwort-Sticker“). Haben die Eltern vorher „Aus, festlegen“ gewählt, kommt die Frage nicht.
-
-**Halbjährliche Prüfung:** `woerter.json` hat `stand`, `naechste_pruefung` (15.05.2027) und je Wort `verfall`. Die App zieht kein Wort mit `verfall` < aktueller Monat. Prüfung jeweils Mai und November (nach der Langenscheidt-Wahl im Oktober) als Auftrag an mich: neue Liste, Verfall verschieben oder streichen, Annahmen belegen. Wenn die Prüfung ausfällt, verschwinden alte Wörter von allein – lieber zu wenig als peinlich.
+Was bleibt:
+- **Antippen des Stickers** → kleines Blatt mit Wort, „gesprochen …“ (bei Çüş), Bedeutung in einem Satz, „Schließen“ (Bild `bedeutung_*`). Kein Ausblenden.
+- **Halbjährliche Prüfung:** `woerter.json` hat `stand`, `naechste_pruefung` (15.05.2027) und je Wort `verfall`. Die App zieht kein Wort mit abgelaufenem `verfall`. Prüfung jeweils Mai und November (nach der Langenscheidt-Wahl im Oktober) als Auftrag an mich. Fällt sie aus, verschwinden alte Wörter von allein.
 
 ## 5. Was geht ohne Datenbank, was braucht den Server
 
-| Teil | Ohne Datenbank (auf dem Gerät) | Server nötig? |
-|---|---|---|
-| Wortliste und Sprüche | `woerter.json` als feste Datei in der App | nein |
-| Auswahl, Zufall, Säcke, letzte Sticker, Tageszähler | `localStorage` je Kind, Schlüssel z. B. `lern.jw.<kind-id>` (wie `lern.gestaltung.<kind-id>`) | nein |
-| Stufe und Anrede, vom Kind gewählt | `localStorage` je Kind | nein (Stufe 1) |
-| Ausgeblendete Wörter des Kindes | `localStorage` je Kind | nein (Stufe 1) |
-| Erstes-Mal-Frage schon gestellt | `localStorage` | nein |
-| Anlass-Daten (Direkt/Sauber/Sturm, Tipp, wieder, Serie, Knobel, fehlerfrei) | kommen schon vom Server bzw. stehen in der App | **prüfen:** „Tipp genutzt“ bei sauberer Landung – im Code sehe ich `landung.landung_art`, `wieder_gelandet`, `bordkarten`, `eigene_loesungen`, kein Tipp-Feld (Annahme: fehlt). Ohne Feld: „sauber“ immer als Stärke 2 behandeln, oder die App merkt sich Tipps der Etappe selbst. |
-| Eltern-Stufe und „festlegen“, auf allen Geräten gültig | geht nicht sicher: auf dem Gerät kann das Kind den Speicher löschen; Eltern-Einstellung am eigenen Handy erreicht das Kind-Gerät nicht | **ja** – ein Feld in den Kind-Einstellungen, z. B. `jugendwoerter: {stufe, kind_darf, anrede, aus: [ids]}` |
-| Ausblenden auf allen Geräten des Kindes | nur pro Gerät | ja (gleiches Feld) |
-| Auswertung „welche Wörter werden ausgeblendet“ für die Halbjahresprüfung | nein | optional, nur Zählung, keine Namen |
+**Alles geht ohne Datenbank.**
 
-**Vorschlag zur Reihenfolge:** JW-1 nur Gerät (Kind-Einstellung, Ausblenden, Dosis) – kann sofort, ohne Datenbank. JW-2 Server-Feld für Eltern-Sperre und geräteübergreifendes Ausblenden (Werkstatt-Wunsch mit Sperre nach W1–W7).
+| Teil | Wo |
+|---|---|
+| Wortliste und Sprüche | `woerter.json` als feste Datei in der App |
+| Säcke, letzte 4 Sticker, Fehler-Zähler des Lerntags, „Anrede heute schon gezeigt“ | `localStorage` je Kind, z. B. `lern.jw.<kind-id>` (wie `lern.gestaltung.<kind-id>`); geht der Speicher verloren, startet die Abwechslung einfach neu |
+| Anlass-Daten (Direkt/Sauber/Sturm, wieder, Serie, Knobel, fehlerfrei) | kommen schon vom Server bzw. stehen in der App |
+
+Server nur nötig, falls gewünscht: Feld „Tipp genutzt“ bei sauberer Landung. Im Code sehe ich `landung_art`, `wieder_gelandet`, `bordkarten`, `eigene_loesungen`, kein Tipp-Feld (Annahme: fehlt). Ohne Feld wird jede saubere Landung als Stärke 2 behandelt – das reicht.
 
 ## 6. Offene Punkte / Risiken
 
-- Schrift: „Çüş“ braucht Ç und ş in der Sticker-Schrift (im Entwurf Systemschrift, korrekt dargestellt). Bei eigener Schrift prüfen.
+- Schrift: „Çüş“ braucht Ç und ş in der Sticker-Schrift (im Entwurf Systemschrift, korrekt). Bei eigener Schrift prüfen.
 - „Das crazy“ wirkt ohne Ausrufezeichen gelangweilt – Zeichen nicht weglassen.
-- „Du bist gut genug“ (J46) ist Probe und standardmäßig aus: Meme-Ironie möglich.
 - Annahme-Wörter (siehe 1) bis zur ersten Prüfung belegen.
-- Kein Test in echten Kinderdaten; Entwurf nur mit Testkind-Texten.
+- Entwurf nur mit Testkind-Texten, keine echten Kinderdaten.
 
 ## 7. Bauschritte (Vorschlag)
 
-1. JW-1a Daten: `woerter.json` übernehmen (ohne Änderung der Inhalte), Lader mit Verfalls-Filter.
-2. JW-1b Auswahl: Dosis, Säcke, Sperren, Tageszähler, Frust-Bremse (2.3–2.5) im Gerät.
-3. JW-1c Sticker in den 12 Anlässen (2.1), Platzregeln, Animation, Vorlesen.
-4. JW-1d Bedeutungs-Blatt, Ausblenden + Rückgängig, Einstellungen Kind, Erstes-Mal-Karte.
-5. JW-2 Server-Feld + Elternbereich + Sperre.
+1. JW-1a Daten: `woerter.json` übernehmen, Lader mit Verfalls-Filter.
+2. JW-1b Auswahl: Säcke, Sperren, Fehler-Regel, Anrede einmal je Lerntag (2.3–2.5), alles im Gerät.
+3. JW-1c Sticker in den 14 Anlässen (2.1), Platzregeln, Animation, Vorlesen, Bedeutungs-Blatt.
 
-Prüfpunkte für meine Nachprüfung: Sticker verdeckt nichts (400 und 820, Tag und Nacht) · keine Wiederholung in 20 Zügen · Fehler-Sticker nie ab 2. Fehler in Folge · Stärke passt · Ausblenden wirkt sofort · Aus = wirklich nichts.
+Prüfpunkte für meine Nachprüfung: jede Geschafft-Ansicht hat einen Sticker · Sticker verdeckt nichts (400 und 820, Tag und Nacht) · keine Wiederholung in 20 Zügen · Fehler-Sticker nie ab 2. Fehler in Folge · Stärke passt · Anrede höchstens einmal je Lerntag.

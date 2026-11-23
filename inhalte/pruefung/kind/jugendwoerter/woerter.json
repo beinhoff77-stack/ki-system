@@ -2,7 +2,7 @@
  "stand": "2026-11-23",
  "naechste_pruefung": "2027-05-15",
  "pruefrhythmus": "halbjährlich (Mai, November, nach der Langenscheidt-Wahl)",
- "hinweis": "Vorgabe JW – Daten für die App. Wörter mit verfall < heute oder einsatz „ungeeignet“ werden nie gezogen. Sprüche mit probe:true sind standardmäßig aus.",
+ "hinweis": "Vorgabe JW – Daten für die App. Wörter mit verfall < heute oder einsatz „ungeeignet“ werden nie gezogen. Keine Einstellungen, keine Altersunterscheidung.",
  "anlaesse": {
   "landung_direkt": "Landung einer Etappe – Direktflug (kein Fehler, kein Tipp)",
   "landung_sauber": "Landung – Saubere Landung ohne Tipp",
@@ -17,24 +17,15 @@
   "expedition_fehlerfrei": "Expedition fehlerfrei",
   "nachbessern": "„Nachbessern“ geschafft (wieder offene Stadt wieder abgelegt)",
   "fehler": "Fehler-Rückmeldung (falsche Antwort)",
-  "anrede": "Begrüßung auf der Abflugtafel (nur mit gewählter Anrede)"
+  "anrede": "Begrüßung auf der Abflugtafel (Anrede Digga)"
  },
- "dosis": {
-  "aus": 0,
-  "selten": 0.25,
-  "normal": 0.5,
-  "oft": 0.8,
-  "faktor_gross": 1.5,
-  "faktor_fehler": 0.5,
-  "max_je_lerntag": {
-   "selten": 3,
-   "normal": 6,
-   "oft": 10
-  },
-  "max_fehler_je_lerntag": 2,
-  "max_anrede_je_lerntag": 1,
+ "regeln": {
+  "erfolg": "jede Geschafft-Ansicht bekommt genau einen Sticker",
+  "fehler": "Sticker beim 1., 3., 5. … Fehler eines Lerntags; nie ab dem 2. Fehler in Folge",
+  "anrede": "einmal je Lerntag auf der Abflugtafel, immer „Digga“",
   "nie_wiederholen_letzte": 1,
-  "wort_sperre_letzte_sticker": 4
+  "wort_sperre_letzte_sticker": 4,
+  "einstellungen": "keine – festgelegt (Sebastian, 23.11.2026)"
  },
  "woerter": [
   {
@@ -57,9 +48,6 @@
     "staunen"
    ],
    "staerke": 3,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Türkisch ursprünglich Halte-Ruf für Esel und Pferde; kann auch „mach mal halblang“ oder „igitt“ heißen (desired). Nur nach klar gutem Ergebnis, nie bei Fehlern.",
    "verfall": "2028-05",
    "gesprochen": "Tschüsch",
@@ -86,13 +74,10 @@
    "beleg": "Quelle",
    "einsatz": [
     "anrede",
-    "staunen"
+    "lob_klein"
    ],
    "staerke": 2,
-   "alter": [
-    "14"
-   ],
-   "nebenbedeutung": "Seit 2021 jedes Jahr in den Top 10. Manche Erwachsene empfinden es als frech; von der App nur, wenn das Kind „Digga“ als Anrede gewählt hat.",
+   "nebenbedeutung": "Seit 2021 jedes Jahr in den Top 10. Festgelegte Anrede der App für beide Kinder (Entscheidung Sebastian 23.11.2026). Nie in Fehler-Sprüchen allein als Vorwurf, nur freundlich („Schere, Digga.“).",
    "verfall": "2028-11"
   },
   {
@@ -114,9 +99,6 @@
     "lob_gross"
    ],
    "staerke": 3,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Wird auch ironisch gesteigert („peak cringe“). Nie mit einem negativen Wort kombinieren, nur bei wirklich bestem Ergebnis.",
    "verfall": "2027-11"
   },
@@ -139,9 +121,6 @@
     "lob_klein"
    ],
    "staerke": 1,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Absichtlich schiefe Grammatik – nie „verbessern“ in „Guter Käse“.",
    "verfall": "2027-11"
   },
@@ -165,9 +144,6 @@
     "lob_gross"
    ],
    "staerke": 2,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Keine bekannt.",
    "verfall": "2027-11"
   },
@@ -190,9 +166,6 @@
     "staunen"
    ],
    "staerke": 2,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Kann Desinteresse ausdrücken. Darum nur mit Ausrufezeichen und nur bei Staunens-Anlässen (Knobel richtig, Expedition), nie bei kleinem Lob.",
    "verfall": "2027-05"
   },
@@ -214,9 +187,6 @@
     "fehler_mild"
    ],
    "staerke": 1,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Wörtlich das Werkzeug. Ist ein Eingeständnis dessen, der spricht: die App spricht es als Stimme des Kindes („Schere – passiert“), nie als Vorwurf („deine Schere“). Für 11 beim ersten Mal die Bedeutung zeigen.",
    "verfall": "2027-11"
   },
@@ -240,9 +210,6 @@
     "lob_gross"
    ],
    "staerke": 2,
-   "alter": [
-    "14"
-   ],
    "nebenbedeutung": "Englisch „tough“ = hart, schwierig – passt deshalb doppelt beim Sturmflug.",
    "verfall": "2027-05"
   },
@@ -265,9 +232,6 @@
     "lob_klein"
    ],
    "staerke": 1,
-   "alter": [
-    "14"
-   ],
    "nebenbedeutung": "Auch „insgeheim“. Nur als Zusatz vor einem Lobwort („lowkey stark“), nie allein.",
    "verfall": "2027-05"
   },
@@ -290,9 +254,6 @@
     "lob_klein"
    ],
    "staerke": 1,
-   "alter": [
-    "14"
-   ],
    "nebenbedeutung": "Wörtlich „Ansprache“. Braucht etwas, dem man zustimmt – darum zurzeit in keinem Spruch; Reserve, falls das Kind eigene Lösungswege eintippt.",
    "verfall": "2027-05"
   },
@@ -316,9 +277,6 @@
     "lob_gross"
    ],
    "staerke": 3,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Esoterischer Ursprung; Spott-Form „minus Aura“ / „Aura-Verlust“ – nur die Plus-Form verwenden.",
    "verfall": "2027-05"
   },
@@ -341,9 +299,6 @@
     "anrede"
    ],
    "staerke": 1,
-   "alter": [
-    "14"
-   ],
    "nebenbedeutung": "Keine bekannt; klingt schnell veraltet.",
    "verfall": "2027-05"
   },
@@ -366,9 +321,6 @@
     "staunen"
    ],
    "staerke": 3,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Kann auch Erschrecken oder Ärger ausdrücken (Stuttgarter Zeitung). Nur nach klar gutem Ergebnis.",
    "verfall": "2027-05",
    "quelle2": {
@@ -395,9 +347,6 @@
     "staunen"
    ],
    "staerke": 2,
-   "alter": [
-    "14"
-   ],
    "nebenbedeutung": "Auch „unkontrolliert“ – nur staunend verwenden.",
    "verfall": "2027-05"
   },
@@ -420,9 +369,6 @@
     "lob_gross"
    ],
    "staerke": 2,
-   "alter": [
-    "14"
-   ],
    "nebenbedeutung": "Englisch wörtlich „töten, erschlagen“ – deshalb nur für 14.",
    "verfall": "2027-05"
   },
@@ -445,9 +391,6 @@
     "lob_gross"
    ],
    "staerke": 2,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Männliche Form. Die App nutzt nur die neutrale Form „Macher-Modus“.",
    "verfall": "2027-11"
   },
@@ -470,9 +413,6 @@
     "lob_gross"
    ],
    "staerke": 3,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Bezug auf eine reale Person (YouTuber). Älteres Wort – auf Probe, bei der Halbjahresprüfung als Erstes streichen.",
    "verfall": "2027-05",
    "probe": true
@@ -496,36 +436,8 @@
     "lob_gross"
    ],
    "staerke": 3,
-   "alter": [
-    "11"
-   ],
    "nebenbedeutung": "Bezug auf einen Fußballer – nicht jedes Kind mag ihn; darum gut ausblendbar.",
    "verfall": "2027-05"
-  },
-  {
-   "id": "bro",
-   "wort": "Bro",
-   "schreibweisen": [
-    "Bro",
-    "Bruder"
-   ],
-   "bedeutung": "Anrede für einen Freund.",
-   "tonlage": "locker",
-   "jahr": 2022,
-   "quelle": {
-    "titel": "nau.ch: Jugendwort 2022 – Top 10",
-    "link": "https://www.nau.ch/news/europa/jugendwort-des-jahres-2022-bodenlos-smash-wild-und-gommemode-66239800"
-   },
-   "beleg": "Quelle",
-   "einsatz": [
-    "anrede"
-   ],
-   "staerke": 1,
-   "alter": [
-    "14"
-   ],
-   "nebenbedeutung": "Männlich gemeint – nur wenn das Kind „Bro“ selbst als Anrede wählt.",
-   "verfall": "2028-05"
   },
   {
    "id": "auf_lock",
@@ -546,9 +458,6 @@
     "fehler_mild"
    ],
    "staerke": 1,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Keine bekannt.",
    "verfall": "2027-05"
   },
@@ -571,9 +480,6 @@
     "lob_klein"
    ],
    "staerke": 1,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Im Standarddeutsch „genau, sorgfältig“ – passt beim Rechnen doppelt.",
    "verfall": "2027-05"
   },
@@ -596,9 +502,6 @@
     "lob_klein"
    ],
    "staerke": 1,
-   "alter": [
-    "11"
-   ],
    "nebenbedeutung": "Kann ironisch gemeint sein; für 14 wirkt es alt.",
    "verfall": "2027-05"
   },
@@ -618,9 +521,6 @@
     "staunen"
    ],
    "staerke": 2,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Keine bekannt.",
    "verfall": "2028-05"
   },
@@ -640,9 +540,6 @@
     "lob_klein"
    ],
    "staerke": 1,
-   "alter": [
-    "14"
-   ],
    "nebenbedeutung": "Gegenstück „L“ (Niederlage) wird zum Spotten benutzt – „L“ nie verwenden.",
    "verfall": "2027-05"
   },
@@ -662,9 +559,6 @@
     "lob_gross"
    ],
    "staerke": 3,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Englisch „Ziege“ – für 11 mit kleiner Ziege witzig.",
    "verfall": "2027-11"
   },
@@ -684,9 +578,6 @@
     "lob_gross"
    ],
    "staerke": 2,
-   "alter": [
-    "14"
-   ],
    "nebenbedeutung": "Wörtlich „eingesperrt“; nur in der Serie verwenden.",
    "verfall": "2027-05"
   },
@@ -706,9 +597,6 @@
     "lob_klein"
    ],
    "staerke": 1,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Keine; fast Standardsprache.",
    "verfall": "2028-11"
   },
@@ -728,9 +616,6 @@
     "staunen"
    ],
    "staerke": 2,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Auch negativ („krass schlecht“) – nur positiv.",
    "verfall": "2028-11"
   },
@@ -750,9 +635,6 @@
     "lob_klein"
    ],
    "staerke": 1,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Wörtlich „fest“ – passt zu „sitzt“ bei Wiederholungen.",
    "verfall": "2027-11"
   },
@@ -772,37 +654,8 @@
     "lob_klein"
    ],
    "staerke": 1,
-   "alter": [
-    "14"
-   ],
    "nebenbedeutung": "Englisch „sicher“ – keine schlechte Nebenbedeutung.",
    "verfall": "2027-05"
-  },
-  {
-   "id": "du_bist_gut_genug",
-   "wort": "Du bist gut genug",
-   "schreibweisen": [
-    "Du bist gut genug",
-    "Du bist gut genuuug"
-   ],
-   "bedeutung": "Refrain eines viralen Songs (Kitschkrieg mit Shirin David); Vorlage für viele Memes und Parodien.",
-   "tonlage": "ironisch",
-   "jahr": 2026,
-   "quelle": {
-    "titel": "ZDFheute: Jugendwort 2026 – die Top Ten und was sie bedeuten",
-    "link": "https://www.zdfheute.de/panorama/jugendwort-2026-langenscheidt-100.html"
-   },
-   "beleg": "Quelle",
-   "einsatz": [
-    "fehler_mild"
-   ],
-   "staerke": 1,
-   "alter": [
-    "14"
-   ],
-   "nebenbedeutung": "Wird oft parodiert und kann ironisch wirken; Song-Zitat. Auf Probe, Standard aus – nur beim Nachbessern, nie direkt nach einem Fehler.",
-   "verfall": "2027-05",
-   "probe": true
   },
   {
    "id": "ehrenmann",
@@ -823,11 +676,46 @@
     "lob_gross"
    ],
    "staerke": 2,
-   "alter": [
-    "beide"
-   ],
    "nebenbedeutung": "Braucht die passende Form zum Kind. Zurzeit in keinem Spruch (keine Formwahl geplant) – Reserve.",
    "verfall": "2027-05"
+  },
+  {
+   "id": "bro",
+   "wort": "Bro",
+   "schreibweisen": [
+    "Bro"
+   ],
+   "bedeutung": "Anrede für einen Freund.",
+   "tonlage": "ungeeignet",
+   "jahr": 2022,
+   "quelle": {
+    "titel": "nau.ch: Jugendwort 2022 – Top 10",
+    "link": "https://www.nau.ch/news/europa/jugendwort-des-jahres-2022-bodenlos-smash-wild-und-gommemode-66239800"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Nicht nötig: Anrede der App ist festgelegt auf „Digga“.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
+  },
+  {
+   "id": "du_bist_gut_genug",
+   "wort": "Du bist gut genug",
+   "schreibweisen": [
+    "Du bist gut genug"
+   ],
+   "bedeutung": "Refrain eines viralen Songs (Kitschkrieg mit Shirin David), viel parodiert.",
+   "tonlage": "ungeeignet",
+   "jahr": 2026,
+   "quelle": {
+    "titel": "ZDFheute: Jugendwort 2026 – die Top Ten und was sie bedeuten",
+    "link": "https://www.zdfheute.de/panorama/jugendwort-2026-langenscheidt-100.html"
+   },
+   "beleg": "Quelle",
+   "einsatz": "ungeeignet",
+   "grund": "Meme-Ironie: wirkt nach einem Fehler schnell spöttisch.",
+   "nebenbedeutung": "—",
+   "verfall": "—"
   },
   {
    "id": "ragebait",
@@ -1615,9 +1503,6 @@
    "sticker": "PEAK",
    "woerter": [
     "peak"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -1627,9 +1512,6 @@
    "sticker": "Das war Peak.",
    "woerter": [
     "peak"
-   ],
-   "alter": [
-    "14"
    ]
   },
   {
@@ -1639,9 +1521,6 @@
    "sticker": "GOAT",
    "woerter": [
     "goat"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -1651,9 +1530,6 @@
    "sticker": "+1000 Aura",
    "woerter": [
     "aura"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -1663,9 +1539,6 @@
    "sticker": "SIUUU!",
    "woerter": [
     "siu"
-   ],
-   "alter": [
-    "11"
    ]
   },
   {
@@ -1675,9 +1548,6 @@
    "sticker": "Çüş – auf Anhieb!",
    "woerter": [
     "cues"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -1687,9 +1557,6 @@
    "sticker": "Tuff.",
    "woerter": [
     "tuff"
-   ],
-   "alter": [
-    "14"
    ]
   },
   {
@@ -1699,9 +1566,6 @@
    "sticker": "Süper!",
    "woerter": [
     "sueper"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -1711,9 +1575,6 @@
    "sticker": "Slay.",
    "woerter": [
     "slay"
-   ],
-   "alter": [
-    "14"
    ]
   },
   {
@@ -1723,9 +1584,6 @@
    "sticker": "Gute Käse",
    "woerter": [
     "gute_kaese"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -1735,11 +1593,7 @@
    "sticker": "Sauber, Digga.",
    "woerter": [
     "digga"
-   ],
-   "alter": [
-    "14"
-   ],
-   "nur_mit_anrede": "digga"
+   ]
   },
   {
    "id": "J12",
@@ -1748,57 +1602,43 @@
    "sticker": "Nice gelandet!",
    "woerter": [
     "nice"
-   ],
-   "alter": [
-    "11"
    ]
   },
   {
    "id": "J13",
    "anlass": "landung_leicht",
    "staerke": 1,
-   "sticker": "Läuft bei dir.",
+   "sticker": "Lowkey stark.",
    "woerter": [
-    "laeuft"
-   ],
-   "alter": [
-    "11"
+    "lowkey"
    ]
   },
   {
    "id": "J14",
    "anlass": "landung_leicht",
    "staerke": 1,
-   "sticker": "Lowkey stark.",
+   "sticker": "Akkurat.",
    "woerter": [
-    "lowkey"
-   ],
-   "alter": [
-    "14"
+    "akkurat"
    ]
   },
   {
    "id": "J15",
    "anlass": "landung_leicht",
    "staerke": 1,
-   "sticker": "Akkurat.",
+   "sticker": "W",
    "woerter": [
-    "akkurat"
-   ],
-   "alter": [
-    "beide"
+    "w"
    ]
   },
   {
    "id": "J16",
    "anlass": "landung_leicht",
    "staerke": 1,
-   "sticker": "W",
+   "sticker": "Läuft, Digga.",
    "woerter": [
-    "w"
-   ],
-   "alter": [
-    "14"
+    "laeuft",
+    "digga"
    ]
   },
   {
@@ -1808,9 +1648,6 @@
    "sticker": "Tuff durchgezogen.",
    "woerter": [
     "tuff"
-   ],
-   "alter": [
-    "14"
    ]
   },
   {
@@ -1820,9 +1657,6 @@
    "sticker": "Macher-Modus",
    "woerter": [
     "macher"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -1832,9 +1666,6 @@
    "sticker": "Locked in.",
    "woerter": [
     "locked_in"
-   ],
-   "alter": [
-    "14"
    ]
   },
   {
@@ -1844,9 +1675,6 @@
    "sticker": "Stabil durchgehalten.",
    "woerter": [
     "stabil"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -1856,9 +1684,6 @@
    "sticker": "Çüş!",
    "woerter": [
     "cues"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -1868,9 +1693,6 @@
    "sticker": "Sheesh!",
    "woerter": [
     "sheesh"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -1880,9 +1702,6 @@
    "sticker": "Das crazy!",
    "woerter": [
     "das_crazy"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -1892,9 +1711,6 @@
    "sticker": "Wild.",
    "woerter": [
     "wild"
-   ],
-   "alter": [
-    "14"
    ]
   },
   {
@@ -1904,9 +1720,6 @@
    "sticker": "Ohne Witz – geknackt.",
    "woerter": [
     "ohne_witz"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -1916,21 +1729,15 @@
    "sticker": "5 in Folge – locked in",
    "woerter": [
     "locked_in"
-   ],
-   "alter": [
-    "14"
    ]
   },
   {
    "id": "J27",
    "anlass": "serie_5",
    "staerke": 2,
-   "sticker": "Läuft. 5 in Folge.",
+   "sticker": "5 am Stück, Digga.",
    "woerter": [
-    "laeuft"
-   ],
-   "alter": [
-    "11"
+    "digga"
    ]
   },
   {
@@ -1940,9 +1747,6 @@
    "sticker": "Gommemode",
    "woerter": [
     "gommemode"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -1952,9 +1756,6 @@
    "sticker": "Krass – 10 am Stück",
    "woerter": [
     "krass"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -1964,9 +1765,6 @@
    "sticker": "Hält stabil.",
    "woerter": [
     "stabil"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -1976,9 +1774,6 @@
    "sticker": "Safe gekonnt.",
    "woerter": [
     "safe"
-   ],
-   "alter": [
-    "14"
    ]
   },
   {
@@ -1988,9 +1783,6 @@
    "sticker": "Noch drin. Nice.",
    "woerter": [
     "nice"
-   ],
-   "alter": [
-    "11"
    ]
   },
   {
@@ -2000,9 +1792,6 @@
    "sticker": "Süper – noch gewusst.",
    "woerter": [
     "sueper"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -2012,9 +1801,6 @@
    "sticker": "Peak-Flug",
    "woerter": [
     "peak"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -2024,9 +1810,6 @@
    "sticker": "GOAT-Flug",
    "woerter": [
     "goat"
-   ],
-   "alter": [
-    "14"
    ]
   },
   {
@@ -2036,9 +1819,6 @@
    "sticker": "SIUUU!",
    "woerter": [
     "siu"
-   ],
-   "alter": [
-    "11"
    ]
   },
   {
@@ -2048,9 +1828,6 @@
    "sticker": "Aura +1000",
    "woerter": [
     "aura"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -2060,9 +1837,6 @@
    "sticker": "Çüş, Expedition!",
    "woerter": [
     "cues"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -2072,9 +1846,6 @@
    "sticker": "Tuff, Polarprofi.",
    "woerter": [
     "tuff"
-   ],
-   "alter": [
-    "14"
    ]
   },
   {
@@ -2084,9 +1855,6 @@
    "sticker": "GOAT der Antarktis",
    "woerter": [
     "goat"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -2096,9 +1864,6 @@
    "sticker": "Peak. Null Fehler.",
    "woerter": [
     "peak"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -2108,9 +1873,6 @@
    "sticker": "Macher-Modus: repariert",
    "woerter": [
     "macher"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -2120,9 +1882,6 @@
    "sticker": "Süper repariert!",
    "woerter": [
     "sueper"
-   ],
-   "alter": [
-    "beide"
    ]
   },
   {
@@ -2132,9 +1891,6 @@
    "sticker": "Stabil zurück.",
    "woerter": [
     "stabil"
-   ],
-   "alter": [
-    "14"
    ]
   },
   {
@@ -2144,113 +1900,75 @@
    "sticker": "Wieder drin – nice.",
    "woerter": [
     "nice"
-   ],
-   "alter": [
-    "11"
    ]
   },
   {
    "id": "J46",
-   "anlass": "nachbessern",
-   "staerke": 2,
-   "sticker": "Du bist gut genug.",
-   "woerter": [
-    "du_bist_gut_genug"
-   ],
-   "alter": [
-    "14"
-   ],
-   "probe": true
-  },
-  {
-   "id": "J47",
    "anlass": "fehler",
    "staerke": 1,
    "sticker": "Schere.",
    "woerter": [
     "schere"
-   ],
-   "alter": [
-    "beide"
+   ]
+  },
+  {
+   "id": "J47",
+   "anlass": "fehler",
+   "staerke": 1,
+   "sticker": "Kleine Schere – passiert.",
+   "woerter": [
+    "schere"
    ]
   },
   {
    "id": "J48",
    "anlass": "fehler",
    "staerke": 1,
-   "sticker": "Kleine Schere – passiert.",
+   "sticker": "Auf Lock. Nächste.",
    "woerter": [
-    "schere"
-   ],
-   "alter": [
-    "beide"
+    "auf_lock"
    ]
   },
   {
    "id": "J49",
    "anlass": "fehler",
    "staerke": 1,
-   "sticker": "Auf Lock. Nächste.",
+   "sticker": "Schere, Digga. Nächste.",
    "woerter": [
-    "auf_lock"
-   ],
-   "alter": [
-    "beide"
+    "schere",
+    "digga"
    ]
   },
   {
    "id": "J50",
-   "anlass": "fehler",
+   "anlass": "anrede",
    "staerke": 1,
-   "sticker": "Schere. Nächste Runde.",
+   "sticker": "Yo Digga!",
    "woerter": [
-    "schere"
+    "digga"
    ],
-   "alter": [
-    "14"
-   ]
+   "zeile": "{Ansage der Abflugtafel, unverändert}"
   },
   {
    "id": "J51",
    "anlass": "anrede",
    "staerke": 1,
-   "sticker": "Yurr!",
+   "sticker": "Yurr, Digga!",
    "woerter": [
-    "yurr"
+    "yurr",
+    "digga"
    ],
-   "alter": [
-    "14"
-   ],
-   "zeile": "{Ansage der Abflugtafel, unverändert}",
-   "nur_mit_anrede": "yurr"
+   "zeile": "{Ansage der Abflugtafel, unverändert}"
   },
   {
    "id": "J52",
    "anlass": "anrede",
    "staerke": 1,
-   "sticker": "Digga!",
+   "sticker": "Digga, los geht’s.",
    "woerter": [
     "digga"
    ],
-   "alter": [
-    "14"
-   ],
-   "zeile": "{Ansage der Abflugtafel, unverändert}",
-   "nur_mit_anrede": "digga"
-  },
-  {
-   "id": "J53",
-   "anlass": "anrede",
-   "staerke": 1,
-   "sticker": "Bro!",
-   "woerter": [
-    "bro"
-   ],
-   "alter": [
-    "14"
-   ],
-   "zeile": "{Ansage der Abflugtafel, unverändert}",
-   "nur_mit_anrede": "bro"
+   "zeile": "{Ansage der Abflugtafel, unverändert}"
   }
  ]
 }

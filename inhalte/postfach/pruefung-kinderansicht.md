@@ -166,3 +166,12 @@ Bericht `inhalte/pruefung/kind/karte/nachpruefung_rk.md`, Bilder `karte/nachprue
 - Offen für Bau: Feld „Tipp genutzt“ bei sauberer Landung fehlt im Code (Annahme) → sonst Stärke 2.
 
 FERTIG: Vorgabe JW – Jugendwort-Sticker (umsetzung.md, woerter.json, Entwurf, 36 Bilder)
+
+## 2026-11-23 · Vorgabe JW – Fassung 2 (Sebastian: alles festgelegt)
+
+- Keine Einstellungen, kein Ausblenden, keine Altersstufen 11/14, Anrede „Digga“.
+- Jede Geschafft-Ansicht bekommt genau einen Sticker; Fehler: jeder 2. Fehler, nie ab 2. in Folge; Anrede einmal je Lerntag.
+- Alles ohne Datenbank (nur localStorage für Abwechslung). Bauschritte JW-1a–c, JW-2 entfällt.
+- woerter.json: 74 Wörter (30 im Einsatz), 52 Sprüche; Entwurf und 40 Bilder neu.
+
+FERTIG: Vorgabe JW (Fassung 2) – festgelegt, ohne Einstellungen, Anrede Digga

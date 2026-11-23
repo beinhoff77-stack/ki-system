@@ -3236,3 +3236,7 @@ Stand `lernen-app` 74a4185. Beide Migrationen zweimal ohne Fehler; Karten, Stern
 Freigabe Sebastian („Zusatz-Plan in die Datenbank einspielen“), Prüfung Werkstatt 966 (Freigabe), Werkstatt-Änderung 382. Letzte Antwort eines Kindes 36 Minuten vorher, kein Test offen. In der Transaktion geprüft: Karten, Sterne, Lernziel-Stände, Erstabschlüsse, Plan und Reiseoptionen unverändert. Danach grün: zp_s, tl_s, rd_s, ex_s, nt_s, lk_s, wd_s, fp_s, lw_s, lz_s. Eingeplanter Zusatz heute: Kind 2, „Kongruenzabbildungen – Teil 2 von 3“ (kommt, 0 von 3).
 Offen: ZP-App (Anzeige „Zusatz · eingeplant“, Muss laut ChatGPT 966); Nachtrag `bau-lehrer`: zwei Testfälle (mehrere Zusatz-Flüge an einem Ort; Entfernen eines abgeschlossenen Zusatz-Flugs).
 Übernommen: Vorgabe „Karten“ des Gestalters (`inhalte/pruefung/kind/karten/`), NT-D 3 von `lehrplan-lb` (`nt_einspiel_2311.sql`, noch nicht geprüft/eingespielt).
+
+## Entscheidung Sebastian (23.11., 03:32 Berlin): „Wie viel ist noch?“ zählt alle Etappen
+
+„Mein Schuljahr“, Karte „Stand“ und der Ring zählen **alle Etappen der Pflicht-Flüge** der Klasse (wie heute der Ring und `schuljahr_stand.etappen`), nicht nur die Pflicht-Etappen. Die Vorgabe des Gestalters gilt damit unverändert. Die Zusatzfelder `etappen_pflicht`/`kuer` aus dem Nachtrag NB-S/SJ-S sind nicht nötig (dürfen bleiben, wenn schon gebaut; die App nutzt `etappen`).

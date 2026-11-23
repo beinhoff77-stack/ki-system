@@ -5665,7 +5665,7 @@ header.top .lw-schlank .btn.lern-start { min-height: 44px; }
 .rk-k-dran { stroke: var(--dranR); stroke-width: 1.8; }
 .rk-route { fill: none; stroke-linecap: round; opacity: .85; } .rk-war { stroke: var(--geschR); } .rk-kommt { stroke: var(--planR); opacity: .8; }
 .rk-kuer-linie { stroke: #9AA19D; }
-.rk-kettenlinie { stroke: #8C918E; opacity: .7; }
+.rk-kettenlinie { stroke: #8C918E; opacity: .5; } /* K2: dünn und grau */
 .rk-oben text { pointer-events: none; }
 .rk-klick { cursor: pointer; } .rk-klick text { pointer-events: auto; }
 .rk-kname { font-size: 15px; font-weight: 900; letter-spacing: .16em; text-anchor: middle; fill: var(--tx); paint-order: stroke; stroke: var(--meer); stroke-width: 4px; stroke-linejoin: round; }
@@ -5687,7 +5687,7 @@ header.top .lw-schlank .btn.lern-start { min-height: 44px; }
 .rk-hier { fill: var(--dranR); stroke: #fff; stroke-width: 2; }
 .rk-station { stroke: #fff; stroke-width: 1.5; } .rk-station-gesch { fill: #1D6E8C; } .rk-station-frei { fill: #4BE3A6; } .rk-station-zu { fill: #9AA19D; }
 .rk-stadt { stroke: #fff; stroke-width: 2; filter: drop-shadow(0 1px 2px #0004); }
-.rk-st-offen { fill: #fff; stroke: #33413C; stroke-width: 1.6; } .rk-st-begonnen { fill: #E6F0FB; stroke: var(--dranR); stroke-width: 1.6; } .rk-st-gelandet, .rk-st-sicher, .rk-st-wieder_offen { fill: var(--geschR); } .rk-st-gold { fill: var(--goldR); } .rk-st-hier { fill: var(--dranR); }
+.rk-st-offen { fill: #fff; stroke: #33413C; stroke-width: 1.6; } .rk-st-begonnen { fill: #E6F0FB; stroke: var(--dranR); stroke-width: 1.6; } .rk-st-gelandet, .rk-st-sicher { fill: var(--geschR); } .rk-st-wieder_offen { fill: #C8642B; } .rk-st-gold { fill: var(--goldR); } .rk-st-hier { fill: var(--dranR); }
 .rk-st-kuer { fill: #fff; stroke: #9AA19D; stroke-dasharray: 3 2; stroke-width: 1.6; }
 .rk-st-zahl { font-size: 11px; font-weight: 900; text-anchor: middle; dominant-baseline: central; fill: #33413C; } .rk-st-zahl.gross { font-size: 14px; fill: #fff; }
 .rk-st-gelandet + .rk-st-zahl, .rk-st-sicher + .rk-st-zahl, .rk-st-wieder_offen + .rk-st-zahl, .rk-st-gold + .rk-st-zahl { fill: #fff; }
@@ -5743,7 +5743,62 @@ header.top .lw-schlank .btn.lern-start { min-height: 44px; }
 .rk-lzeile { display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 5px 0; border: 0; background: none; font-family: inherit; color: var(--tx); text-align: left; width: 100%; cursor: pointer; min-height: 36px; }
 .rk-nr { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 800; color: #fff; flex: none; background: #33413C; }
 .rk-zn-dran { background: var(--dranR); } .rk-zn-plan { background: var(--planR); } .rk-zn-gesch, .rk-zn-kann { background: var(--geschR); } .rk-zn-gold { background: var(--goldR); }
-.rk-zs-gelandet, .rk-zs-sicher, .rk-zs-wieder_offen { background: var(--geschR); } .rk-zs-begonnen { background: var(--dranR); } .rk-zs-offen { background: #fff; color: #33413C; box-shadow: inset 0 0 0 1.5px #33413C; } .rk-nr.kuer { background: #fff; color: #6B726E; box-shadow: inset 0 0 0 1.5px #9AA19D; }
+.rk-zs-gelandet, .rk-zs-sicher { background: var(--geschR); } .rk-zs-wieder_offen { background: #C8642B; } .rk-zs-begonnen { background: var(--dranR); } .rk-zs-offen { background: #fff; color: #33413C; box-shadow: inset 0 0 0 1.5px #33413C; } .rk-nr.kuer { background: #fff; color: #6B726E; box-shadow: inset 0 0 0 1.5px #9AA19D; }
 .rk-zur-karte { display: block; margin: 8px auto; }
 @media (max-width: 1099px) { .rk-karte { height: calc(100dvh - 150px); } }
 @media (max-height: 700px) { .rk-karte { min-height: 420px; } }
+
+/* RK-App 2 (0.92.2) */
+/* M1: „wieder offen“ – eigene Haltestelle: orange, ↻, gestrichelter Ring, Unterzeile */
+.rk-st-ring { fill: none; stroke: #C8642B; stroke-width: 1.6; stroke-dasharray: 3 2.5; }
+.rk-st-unter { font-size: 11.5px; font-weight: 800; fill: #C8642B; paint-order: stroke; stroke: var(--hgF); stroke-width: 4px; stroke-linejoin: round; }
+.rk-m-wieder { fill: #C8642B; }
+/* K1: feste Trefferfläche, Puls ohne Treffer */
+.rk-treffer { fill: transparent; stroke: none; pointer-events: all; } .rk-puls { pointer-events: none; }
+/* K3: eigene Hauptstadt in der Land-Ebene nur als ◉ */
+.rk-hs-ring { fill: var(--karteF); stroke: var(--tx); stroke-width: 1.5; } .rk-hs-punkt { fill: var(--tx); }
+/* S1/S2: Kopf einzeilig in der oberen Leiste, Karte füllt das Fenster */
+.rk-kopf { --karteF: #fff; --linieF: #E2DCCD; --tx: #1E2A26; --leise: #6B726E; --dranR: #1F5FA8; flex: 1; min-width: 0; color: var(--tx); }
+.rk-kopf.lr-abflug-nacht { --karteF: #16212C; --linieF: #253545; --tx: #EEF2F0; --leise: #9AA7A1; --dranR: #6EB0FF; }
+body.rk-kopf-oben header.top { padding-top: calc(8px + env(safe-area-inset-top)); padding-bottom: 8px; gap: 8px; }
+body.rk-kopf-oben header.top #title { display: none; }
+body.rk-kopf-oben header.top .ver { display: none; }
+body.rk-kopf-oben main.view { max-width: none; padding-top: 8px; padding-bottom: 8px; }
+body.rk-kopf-oben main.view .lr-menue-zeile { display: none; }
+.rk-kopf .rk-titel { font-size: 17px; white-space: nowrap; }
+.rk-kopf .rk-pfad { flex-wrap: nowrap; min-width: 0; align-items: center; }
+.rk-kopf .rk-pfad-teil small { display: none; }
+.rk-kopf .rk-pfad-teil { min-height: 44px; justify-content: center; white-space: nowrap; }
+.rk-kopf .rk-zumir, .rk-kopf .rk-tafel-knopf { margin-left: 0; min-height: 40px; white-space: nowrap; }
+.rk-kopf .rk-pfad { margin-right: auto; }
+.rk-menue { border: 1px solid var(--linieF); background: var(--karteF); color: var(--tx); border-radius: 12px; min-width: 44px; min-height: 44px; font-size: 20px; font-weight: 800; cursor: pointer; }
+.rk-kopf .lr-chip-stern { min-height: 40px; padding: 0 10px; }
+@media (max-width: 760px) {
+  .rk-kopf { gap: 6px; } .rk-kopf .rk-titel { display: none; } .rk-wort { display: none; }
+  .rk-kopf .rk-zumir, .rk-kopf .rk-tafel-knopf { min-width: 44px; min-height: 44px; padding: 0; display: inline-grid; place-items: center; }
+  .rk-kopf .rk-pfad-teil span { font-size: 13px; } .rk-kopf .lr-chip-stern { font-size: 13px; padding: 0 8px; }
+  .rk-kopf .rk-pfad-teil:first-child:not(.an) .rk-pt-text { display: none; }
+  .rk-kopf .rk-pt-text { max-width: 6.5em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; vertical-align: bottom; }
+  .rk-kopf .rk-pfad-teil:not(.an) .rk-pt-text { max-width: 4.2em; }
+  .rk-kopf .rk-pfad > i { padding-bottom: 0; }
+}
+/* S2: Expedition auf der Karte einzeilig */
+.rk-ex-zeile { display: flex; align-items: center; gap: 8px; background: color-mix(in srgb, var(--karteF) 94%, transparent); border: 1px solid var(--linieF); border-radius: 14px; padding: 4px 6px 4px 10px; box-shadow: 0 4px 14px #0002; }
+.rk-ex-mehr { flex: 1; min-width: 0; text-align: left; border: 0; background: none; color: var(--tx); font: inherit; font-size: 13.5px; min-height: 44px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rk-ex-start { flex: none; font-weight: 800; font-size: 14px; color: var(--dranR); text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; padding: 0 8px; }
+/* S2: schwebende Karte auf dem Handy kompakter */
+.rk-schwebe-karte.kompakt { grid-template-columns: minmax(0, 1fr) auto; gap: 8px; border-radius: 16px; }
+.kompakt .rk-dran { gap: 8px; min-width: 0; }
+.kompakt .rk-dran-text { flex: 1; min-width: 0; }
+.kompakt .rk-dran-text b { font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.kompakt .rk-dran-text b span { display: block; font-size: 12px; overflow: hidden; text-overflow: ellipsis; }
+.kompakt .rk-dran-stand { margin-left: 0; gap: 2px; } .kompakt .rk-dran-stand b { font-size: 14px; }
+.kompakt .rk-striche i { width: 5px; height: 5px; }
+@media (max-width: 420px) { .kompakt .rk-dran-flagge { display: none; } .kompakt .rk-start { padding: 8px 12px; } }
+body.rk-kopf-oben .lr-inhalt:has(> .rk) { max-width: none; padding: 8px 12px 12px; }
+@media (min-width: 1100px) { body.rk-kopf-oben .lr-inhalt:has(> .rk) { padding: 12px 20px 16px; } }
+body.rk-kopf-oben { padding-bottom: 0; }
+body.rk-kopf-oben main.view { padding-bottom: 0; }
+body.rk-kopf-oben .lr-inhalt:has(> .rk) { padding-bottom: 0; }
+body.rk-kopf-oben .lr.lr-abflug:has(.rk) { min-height: 0; }
+body.rk-kopf-oben:has(#tabs[hidden]) { padding-bottom: 0; }

@@ -5625,3 +5625,125 @@ body.lw-kopf-schlank header.top { padding-top: calc(3px + env(safe-area-inset-to
 header.top .lw-schlank .lern-kind-kopf-knoepfe .lern-einstellen { height: 44px; min-height: 44px; min-width: 44px; box-sizing: border-box; }
 header.top .lw-schlank .btn.lern-start { min-height: 44px; }
 @media (max-width: 1099px) { body.lw-kopf-schlank header.top { align-items: flex-start; } }
+
+/* ---------- RK-App (0.92.0): Reisekarte (Vorgabe inhalte/pruefung/kind/karte/umsetzung.md) ---------- */
+.rk { --meer: #CFE4EF; --gitter: #B5D2E2; --fremd: #E3DED1; --offenF: #FBF9F4; --grenzeD: #8F8775; --gesch: #CDE7C1; --geschR: #5E9E4A; --gold: #F3D57A; --goldR: #C99600; --dran: #BFD8F7; --dranR: #1F5FA8;
+  --plan: #FFF0B5; --planR: #D9A400; --kann: #CDE7C1; --kannR: #2E7D4F; --zus: #F2E8D5; --zusR: #A88A55; --karteF: #fff; --linieF: #E2DCCD; --tx: #1E2A26; --leise: #6B726E; --hgF: #F6F3EC; --label: #2C3A35;
+  display: flex; flex-direction: column; gap: 6px; color: var(--tx); }
+.lr-abflug-nacht .rk { --meer: #0F2233; --gitter: #183049; --fremd: #151F29; --offenF: #243444; --grenzeD: #5D738A; --gesch: #24543A; --geschR: #5FCB86; --gold: #7A6420; --goldR: #F1C64A; --dran: #1E4B80; --dranR: #6EB0FF;
+  --plan: #5A4A14; --planR: #F1C64A; --kann: #24543A; --kannR: #5FCB86; --zus: #2D2A22; --zusR: #C9AE7A; --karteF: #16212C; --linieF: #253545; --tx: #EEF2F0; --leise: #9AA7A1; --hgF: #0D141C; --label: #D9E3DE; }
+.rk-kopf { display: flex; align-items: center; gap: 10px; }
+.rk-kopf .lr-titel { margin: 0; font-size: 22px; }
+.rk-tafel-knopf { margin-left: auto; border: 1px solid var(--linieF); background: var(--karteF); color: var(--tx); border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 13px; font-weight: 700; min-height: 36px; cursor: pointer; }
+.rk-kopf .lr-chip-stern { margin-left: 0; }
+.rk-pfad { display: flex; align-items: flex-end; gap: 6px; flex-wrap: wrap; }
+.rk-pfad > i { font-style: normal; opacity: .5; padding-bottom: 4px; }
+.rk-pfad-teil { display: flex; flex-direction: column; gap: 1px; border: 0; background: none; padding: 2px 2px; font: inherit; color: var(--leise); cursor: pointer; text-align: left; min-height: 36px; justify-content: flex-end; }
+.rk-pfad-teil small { font-size: 9px; letter-spacing: .1em; font-weight: 800; opacity: .75; }
+.rk-pfad-teil span { font-size: 14px; font-weight: 800; display: inline-flex; align-items: center; gap: 4px; }
+.rk-pfad-teil.an { color: var(--tx); }
+.rk-mich { font-size: 11px; }
+.rk-zumir { margin-left: auto; align-self: center; border: 1px solid var(--linieF); border-radius: 999px; padding: 6px 12px; background: var(--karteF); color: var(--tx); font: inherit; font-size: 13px; font-weight: 700; min-height: 36px; cursor: pointer; }
+.rk-mini-flagge { width: 16px; height: 16px; border-radius: 50%; object-fit: cover; vertical-align: -3px; box-shadow: 0 0 0 1px #0002; }
+.rk-koerper { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.rk-karte { position: relative; border-radius: 18px; overflow: hidden; background: var(--meer); height: calc(100dvh - 190px); min-height: 460px; }
+.rk-rahmen { position: absolute; inset: 0; touch-action: none; cursor: grab; }
+.rk-rahmen:active { cursor: grabbing; }
+.rk-svg { width: 100%; height: 100%; display: block; user-select: none; -webkit-user-select: none; }
+.rk-laedt .rk-svg { opacity: .55; transition: opacity .15s; }
+.rk-meer { fill: var(--meer); } .rk-gitter { fill: none; stroke: var(--gitter); stroke-width: .6; vector-effect: non-scaling-stroke; }
+.rk-land { stroke: var(--grenzeD); stroke-width: 1.15; stroke-linejoin: round; vector-effect: non-scaling-stroke; fill: var(--fremd); cursor: pointer; transition: fill .2s; }
+.rk-fremd { fill: var(--fremd); cursor: default; } .rk-eigen { fill: var(--offenF); }
+.rk-z-offen { fill: var(--offenF); } .rk-z-gesch, .rk-z-kann { fill: var(--gesch); } .rk-z-gold { fill: var(--gold); } .rk-z-dran { fill: var(--dran); } .rk-z-plan { fill: var(--plan); }
+.rk-z-zusatz { fill: var(--offenF); stroke-dasharray: 4 3; }
+.rk-gedaempft { opacity: .55; } .rk-auf { fill: var(--offenF); }
+.rk-umriss { fill: none; stroke: var(--dranR); stroke-width: 2.6; vector-effect: non-scaling-stroke; pointer-events: none; }
+.rk-sel { stroke: var(--tx); stroke-width: 2.4; }
+.rk-ant { fill: #fff; cursor: pointer; } .lr-abflug-nacht .rk-ant { fill: #DDE8EF; }
+.rk-k1 { fill: #F2D7A6; } .rk-k2 { fill: #E9C2B8; } .rk-k3 { fill: #CFE3B2; } .rk-k4 { fill: #EED0A0; } .rk-k5 { fill: #F0DA8E; } .rk-k6 { fill: #BFE0D0; } .rk-k7 { fill: #D9CBEB; } .rk-k8 { fill: #BBD9EE; }
+.lr-abflug-nacht .rk-k { filter: brightness(.55) saturate(.9); }
+.rk-k-dran { stroke: var(--dranR); stroke-width: 1.8; }
+.rk-route { fill: none; stroke-linecap: round; opacity: .85; } .rk-war { stroke: var(--geschR); } .rk-kommt { stroke: var(--planR); opacity: .8; }
+.rk-kuer-linie { stroke: #9AA19D; }
+.rk-kettenlinie { stroke: #8C918E; opacity: .7; }
+.rk-oben text { pointer-events: none; }
+.rk-klick { cursor: pointer; } .rk-klick text { pointer-events: auto; }
+.rk-kname { font-size: 15px; font-weight: 900; letter-spacing: .16em; text-anchor: middle; fill: var(--tx); paint-order: stroke; stroke: var(--meer); stroke-width: 4px; stroke-linejoin: round; }
+.rk-kzahl { font-size: 11.5px; font-weight: 700; text-anchor: middle; fill: var(--leise); paint-order: stroke; stroke: var(--meer); stroke-width: 4px; stroke-linejoin: round; }
+.rk-nadel { stroke: #fff; stroke-width: 1.5; filter: drop-shadow(0 1.5px 2px #0005); }
+.rk-n-ohne { fill: #9AA19D; } .rk-n-offen { fill: #33413C; } .rk-n-dran { fill: var(--dranR); } .rk-n-plan { fill: var(--planR); } .rk-n-gesch, .rk-n-kann { fill: var(--geschR); } .rk-n-gold { fill: var(--goldR); } .rk-n-zusatz { fill: var(--zusR); }
+.lr-abflug-nacht .rk-n-offen { fill: #C9D3CF; }
+.rk-kopfring { fill: none; stroke: #fff; stroke-width: 2; }
+.rk-spitze { fill: #fff; stroke: #33413C; stroke-width: 1; }
+.rk-blass { filter: grayscale(.5) opacity(.8); }
+.rk-marke { stroke: #fff; stroke-width: 1.5; } .rk-m-gesch, .rk-m-kann { fill: var(--geschR); } .rk-m-gold { fill: var(--goldR); } .rk-m-plan { fill: var(--planR); } .rk-m-dran { fill: var(--dranR); } .rk-m-zusatz { fill: #E8D7B0; }
+.rk-marke-t { font-size: 9.5px; font-weight: 900; fill: #fff; text-anchor: middle; dominant-baseline: central; } .rk-m-zusatz + .rk-marke-t { fill: #5A4520; }
+.rk-teil { fill: #fff; stroke: #8C918E; stroke-width: 1; } .rk-teil-t { font-size: 8.5px; font-weight: 800; fill: #33413C; text-anchor: middle; dominant-baseline: central; }
+.rk-pland { font-size: 11px; font-weight: 850; letter-spacing: .1em; fill: var(--tx); paint-order: stroke; stroke: var(--hgF); stroke-width: 3.5px; stroke-linejoin: round; } .rk-pland.k { font-size: 9.5px; fill: var(--label); }
+.rk-phs { font-size: 10.5px; font-style: italic; font-weight: 500; fill: var(--leise); paint-order: stroke; stroke: var(--hgF); stroke-width: 3.5px; stroke-linejoin: round; }
+.rk-pin { cursor: pointer; outline: none; } .rk-pin:focus-visible .rk-kopfring { stroke: #FFD23F; stroke-width: 3.5; }
+.rk-puls { fill: var(--dranR); opacity: .5; } .rk-puls-gruen { fill: #4BE3A6; }
+@media (prefers-reduced-motion: no-preference) { .rk-puls { animation: rkPuls 1.8s ease-out infinite; transform-box: fill-box; transform-origin: center; } @keyframes rkPuls { from { transform: scale(.6); opacity: .6; } to { transform: scale(2.2); opacity: 0; } } }
+.rk-hier { fill: var(--dranR); stroke: #fff; stroke-width: 2; }
+.rk-station { stroke: #fff; stroke-width: 1.5; } .rk-station-gesch { fill: #1D6E8C; } .rk-station-frei { fill: #4BE3A6; } .rk-station-zu { fill: #9AA19D; }
+.rk-stadt { stroke: #fff; stroke-width: 2; filter: drop-shadow(0 1px 2px #0004); }
+.rk-st-offen { fill: #fff; stroke: #33413C; stroke-width: 1.6; } .rk-st-begonnen { fill: #E6F0FB; stroke: var(--dranR); stroke-width: 1.6; } .rk-st-gelandet, .rk-st-sicher, .rk-st-wieder_offen { fill: var(--geschR); } .rk-st-gold { fill: var(--goldR); } .rk-st-hier { fill: var(--dranR); }
+.rk-st-kuer { fill: #fff; stroke: #9AA19D; stroke-dasharray: 3 2; stroke-width: 1.6; }
+.rk-st-zahl { font-size: 11px; font-weight: 900; text-anchor: middle; dominant-baseline: central; fill: #33413C; } .rk-st-zahl.gross { font-size: 14px; fill: #fff; }
+.rk-st-gelandet + .rk-st-zahl, .rk-st-sicher + .rk-st-zahl, .rk-st-wieder_offen + .rk-st-zahl, .rk-st-gold + .rk-st-zahl { fill: #fff; }
+.rk-st-wdh { fill: #F1C64A; stroke: #fff; stroke-width: 1.2; } .rk-st-wdh-t { font-size: 9px; font-weight: 900; text-anchor: middle; dominant-baseline: central; fill: #5A4520; }
+.rk-st-name { font-size: 14.5px; font-weight: 700; fill: var(--tx); paint-order: stroke; stroke: var(--hgF); stroke-width: 4px; stroke-linejoin: round; } .rk-st-name.leise { fill: var(--leise); font-weight: 600; }
+.rk-zoom { position: absolute; right: 10px; top: 10px; display: flex; flex-direction: column; gap: 6px; z-index: 5; }
+.rk-zoom button { width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--linieF); background: var(--karteF); color: var(--tx); font-size: 20px; font-weight: 800; cursor: pointer; }
+.rk-quelle { position: absolute; left: 8px; top: 6px; margin: 0; font-size: 10px; color: var(--leise); background: color-mix(in srgb, var(--karteF) 75%, transparent); padding: 2px 6px; border-radius: 6px; z-index: 4; pointer-events: none; }
+.rk-hinweis { position: absolute; left: 12px; top: 30px; z-index: 5; }
+.rk-weiter-hinweis { border: 1px solid var(--linieF); background: var(--karteF); color: var(--tx); border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 13px; font-weight: 700; min-height: 40px; cursor: pointer; }
+/* schwebende Karte unten (Startknopf in der Karte, §1) */
+.rk-schwebe { position: absolute; left: 12px; right: 12px; bottom: 12px; z-index: 6; display: grid; gap: 8px; pointer-events: none; }
+.rk-schwebe > * { pointer-events: auto; }
+.rk-schwebe .lr-ex-karte { margin: 0; }
+.rk-schwebe-karte { background: color-mix(in srgb, var(--karteF) 94%, transparent); border: 1px solid var(--linieF); border-radius: 18px; padding: 12px; display: grid; gap: 10px; box-shadow: 0 8px 24px #0003; }
+.rk-schwebe-karte.kompakt { grid-template-columns: 1fr auto; align-items: center; padding: 8px 10px; }
+.rk-dran { display: flex; align-items: center; gap: 12px; }
+.rk-dran-flagge { width: 44px; height: 44px; border-radius: 12px; object-fit: cover; flex: none; box-shadow: 0 0 0 1px #0002; }
+.kompakt .rk-dran-flagge { width: 30px; height: 30px; border-radius: 8px; }
+.rk-dran-text { display: flex; flex-direction: column; min-width: 0; }
+.rk-dran-text small { font-size: 11px; font-weight: 800; letter-spacing: .07em; color: var(--leise); }
+.rk-dran-text b { font-size: 17px; font-weight: 800; } .rk-dran-text b span { font-weight: 500; font-size: 14px; color: var(--leise); }
+.rk-dran-sub { font-size: 12.5px; color: var(--leise); }
+.rk-dran-stand { margin-left: auto; text-align: right; display: grid; gap: 4px; justify-items: end; } .rk-dran-stand b { font-size: 17px; }
+.rk-striche { display: flex; gap: 3px; } .rk-striche i { width: 7px; height: 6px; border-radius: 3px; background: var(--linieF); } .rk-striche i.g { background: var(--dranR); }
+.rk-start { display: flex; justify-content: space-between; align-items: center; border-radius: 16px; background: #FFD23F; color: #1B0C3A; padding: 12px 18px; min-height: 58px; text-decoration: none; box-shadow: 0 4px 0 #C9A21C; }
+.rk-start b { display: block; font-size: 19px; font-weight: 900; } .rk-start small { display: block; font-size: 12.5px; font-weight: 700; opacity: .75; }
+.kompakt .rk-start { min-height: 46px; padding: 8px 14px; } .kompakt .rk-start b { font-size: 16px; } .kompakt .rk-start small { display: none; }
+.rk-ansage { margin: 0; }
+/* Blatt (Handy: von unten über der Karte) */
+.rk-blatt { position: absolute; left: 0; right: 0; bottom: 0; z-index: 8; background: var(--karteF); color: var(--tx); border-radius: 20px 20px 0 0; border-top: 1px solid var(--linieF); padding: 14px 16px 18px; box-shadow: 0 -10px 30px #0003; max-height: 70%; overflow: auto; }
+.rk-blatt[hidden] { display: none; }
+.rk-x { position: absolute; right: 12px; top: 10px; border: 0; background: var(--hgF); color: var(--tx); width: 40px; height: 40px; border-radius: 50%; font-size: 15px; cursor: pointer; }
+.rk-cap { margin: 0; font-size: 10px; letter-spacing: .12em; font-weight: 800; color: var(--leise); }
+.rk-bname { margin: 2px 0; font-size: 20px; display: flex; align-items: center; gap: 8px; }
+.rk-plakette { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px #fff, 0 1px 3px #0004; }
+.rk-sub { margin: 2px 0; font-size: 13.5px; color: var(--leise); } .rk-flug { margin: 8px 0 2px; font-size: 14.5px; }
+.rk-zustand { margin: 6px 0; font-size: 13.5px; font-weight: 700; display: inline-block; border-radius: 999px; padding: 3px 10px; background: var(--hgF); }
+.rk-zw-dran { background: var(--dran); } .rk-zw-plan { background: var(--plan); } .rk-zw-gesch, .rk-zw-kann { background: var(--gesch); } .rk-zw-gold { background: var(--gold); } .rk-zw-zusatz { background: var(--zus); }
+.rk-teile { font-size: 13px; margin: 6px 0; } .rk-teil-link { border: 0; background: none; font: inherit; color: var(--dranR); text-decoration: underline; cursor: pointer; padding: 4px 0; min-height: 32px; }
+.rk-staedte-knopf { width: 100%; margin-top: 8px; min-height: 48px; border-radius: 14px; border: 0; background: var(--dranR); color: #fff; font: inherit; font-size: 16px; font-weight: 800; cursor: pointer; }
+/* Rechner ab 1100 px: Karte links, Spalte 360 px rechts */
+.rk-seite { display: none; }
+@media (min-width: 1100px) {
+  .rk-koerper { grid-template-columns: 1fr 360px; align-items: start; }
+  .rk-karte { height: calc(100dvh - 170px); }
+  .rk-seite { display: flex; flex-direction: column; gap: 12px; max-height: calc(100dvh - 170px); overflow: auto; }
+  .rk-seite-karte { background: var(--karteF); border: 1px solid var(--linieF); border-radius: 14px; padding: 12px 14px; display: grid; gap: 10px; position: relative; }
+  .rk-seite-karte h4 { margin: 0; font-size: 11px; letter-spacing: .07em; color: var(--leise); }
+  .rk-seite-karte .lr-ex-karte { margin: 0; }
+  .rk-seite-blatt .rk-x { top: 8px; right: 8px; }
+}
+.rk-lzeile { display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 5px 0; border: 0; background: none; font-family: inherit; color: var(--tx); text-align: left; width: 100%; cursor: pointer; min-height: 36px; }
+.rk-nr { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 800; color: #fff; flex: none; background: #33413C; }
+.rk-zn-dran { background: var(--dranR); } .rk-zn-plan { background: var(--planR); } .rk-zn-gesch, .rk-zn-kann { background: var(--geschR); } .rk-zn-gold { background: var(--goldR); }
+.rk-zs-gelandet, .rk-zs-sicher, .rk-zs-wieder_offen { background: var(--geschR); } .rk-zs-begonnen { background: var(--dranR); } .rk-zs-offen { background: #fff; color: #33413C; box-shadow: inset 0 0 0 1.5px #33413C; } .rk-nr.kuer { background: #fff; color: #6B726E; box-shadow: inset 0 0 0 1.5px #9AA19D; }
+.rk-zur-karte { display: block; margin: 8px auto; }
+@media (max-width: 1099px) { .rk-karte { height: calc(100dvh - 150px); } }
+@media (max-height: 700px) { .rk-karte { min-height: 420px; } }

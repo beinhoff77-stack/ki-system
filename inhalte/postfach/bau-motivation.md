@@ -2,6 +2,90 @@
 
 Neueste oben.
 
+## 2026-11-23 – FERTIG: RK-App (0.92.0)
+
+Auf 0.91.2 aufgesetzt. Nur App: keine Datenbank, keine Migration, kein Merge nach `main`, keine echten Kinderdaten, keine Namen. Cache v171. Vorgabe `inhalte/pruefung/kind/karte/umsetzung.md` (§1–11) und EX-Vorgabe §7.
+
+**Gebaut**
+- **Reisekarte statt Anzeigetafel.** Sie erscheint nur, wenn `schule_reise_karte` Flüge liefert; ein alter Server bekommt die Tafel.
+  - Der Schalter „Abflugtafel“ oben zeigt die alte Tafel. Dort führt „Zur Reisekarte ›“ zurück. Die Wahl wird je Kind auf dem Gerät gemerkt.
+- **Ebenen Welt › Kontinent › Land**, alles aus der Antwort; es gibt keine feste Anzahl.
+  - Start: der Kontinent des aktuellen Flugs, eingezoomt auf die Route; Platz für die schwebende Karte ist eingerechnet.
+  - Pfad-Zeile mit Ebenen-Beschriftung, 📍 und „📍 Zu mir“.
+- **Welt:** Kontinente in eigener Farbe, Name, Themengebiet, „3/13 Länder · +1 Zusatz“, Punkt „hier bist du“.
+  - Antarktis mit „Expeditionen · k von 21 Stationen“ bzw. „⛯ 1 Expedition freigeschaltet“.
+  - Die Stationen stehen nach Breite/Länge: geschafft blau, frei grün mit Puls, gesperrt grau. Antippen öffnet die Stempel-Sammlung.
+- **Kontinent:** alle Länder mit Grenzen; Länder mit Flug sind farbig nach Zustand (§4).
+  - Flaggen-Pin: Kopf = runde Flagge, Spitze = Hauptstadt (bei Landesteilen der Hauptort).
+  - Abzeichen ✓ / ★ / ◉ / Platznummer / ✈ / „+“; Schild LAND + *Hauptstadt*.
+  - Länder ohne Flug haben eine graue Nadel.
+  - Route als Bögen in Plan-Reihenfolge: geflogen grün, kommt gelb gepunktet.
+  - Beschriftung nach Zoom; Schilder, die etwas berühren, fallen weg (Länder mit Flug immer).
+- **Land:** das Land mit blauem Rand, Nachbarn gedämpft.
+  - Die Städte sind nummerierte Haltestellen mit Stand: offen, begonnen, ✓ gelandet/sicher, ↻ heute wiederholen, ★ golden, blau mit Puls = hier bist du („Bologna · 4/13“), Kür gestrichelt.
+  - Dezente Bögen zwischen den Städten, keine Straßen.
+- **§11 Teile und Zusatz:**
+  - Teile: Abzeichen „1/2“, feine graue Kette; im Blatt „Teil 2 von 2“, Untertitel und Teil-Links („Teil 1: 🇰🇿 Kasachstan ✓ · Teil 2: … (hier)“, antippbar), „Erst Teil 1 in …“; in der Land-Ebene „Teil 2 geht weiter in … ›“.
+  - Zusatz: „+“-Abzeichen, gestrichelter Rand, zählt nicht in „x/y Länder“.
+- **Startknopf schwebend in der Karte:** „GERADE DRAN · Bologna in Italien · Thema · Stadt 5 von 13“, Striche und „Weiter in Bologna ›“.
+  - Auf dem Rechner steht er in der Spalte rechts (360 px), mit angetipptem Land und „Meine Route · Länder“ bzw. „Städte in …“.
+  - Er führt wie die Tafel: erst Check-in (Ansage darüber), dann das Thema, „Zum Flug-Test“, „Test weitermachen“.
+  - Eine offene Expedition steht darüber; „Gerade dran“ ist dann schmal.
+- **Bedienung:** Finger und Maus zum Ziehen, Zoomen mit zwei Fingern, Mausrad und + / − / ⤢. Die Schrift bleibt beim Zoomen gleich groß; Pins sind Knöpfe mit Text.
+  - Tag und Nacht; „weniger Bewegung“ schaltet Puls und weiches Zoomen ab.
+- **Daten:**
+  - Die Karten-Antwort wird je Sitzung einmal geladen und gemerkt.
+  - Nach einer Änderung für das Kind (Landung, Antwort, Plan) gilt sie als alt: Die Karte zeigt sofort die alte und holt die neue im Hintergrund.
+
+**Technik und Lizenzen**
+- Keine Kacheln, kein Kartenserver, kein Google.
+- `tools/karte/bauen.mjs` (mit `package.json` und Lock) rechnet die Umrisse im Build vor:
+  - Natural Earth 1:110 m für die Welt, 1:50 m je Kontinent.
+  - Landesteile (AU nach Bundesstaaten, NZ Nord/Süd, BR Großregionen, Hawaii) aus Admin-1 1:10 m, vereinfacht.
+  - Hauptstädte aus dem Reise-Aufbau, sonst Natural Earth.
+- Die Projektion der App (Natural Earth 1 bzw. gedrehte Mercator) prüft das Skript gegen d3 (Abweichung < 0,6 px).
+- Flaggen: `karte/flaggen/*.svg` (flag-icons 1:1, nur die gebrauchten), erst beim Anzeigen geladen. Der Service Worker legt Kartendateien zusätzlich ab (Netz zuerst).
+- Quellenangabe klein an der Karte und auf der Info-Seite: GeoNames CC BY 4.0, Natural Earth gemeinfrei, COMNAP nur privat/nicht kommerziell/Bildung.
+- `karte/LIZENZEN.md` enthält die MIT-Texte von flag-icons, i18n-iso-countries und countries-list.
+
+**Größen und Ladezeit**
+
+| Datei | Größe | gepackt (gzip) |
+|---|---|---|
+| welt.json | 156 KB | 56 KB |
+| kontinent-1 Europa | 189 KB | 72 KB |
+| kontinent-2 Nordamerika | 200 KB | 75 KB |
+| kontinent-3 Asien | 335 KB | 124 KB |
+| kontinent-4 Orient | 108 KB | 42 KB |
+| kontinent-5 Afrika | 351 KB | 130 KB |
+| kontinent-6 Südamerika | 115 KB | 45 KB |
+| kontinent-7 Australien | 142 KB | 55 KB |
+| kontinent-8 Pazifik | 11 KB | 4 KB |
+| flaggen/ | 229 Dateien, zusammen 1,5 MB | 0,5 MB |
+
+- Die meisten Flaggen sind 1–5 KB, einige wenige sehr groß (Serbien 181 KB, Bolivien 105 KB, Spanien 82 KB). Es lädt nur, was auf dem Bildschirm steht.
+- Lokal gemessen: Kontinent-Datei 20–140 ms.
+- Die Karten-Antwort des Servers ist rund 170 KB je Kind; die 1,7 s stammen aus der Messung des Haupt-Chats, LZ-S lag da noch nicht vor.
+- Mit dem echten Server habe ich nicht gemessen. Die Seite misst selbst mit (`lernKarteMessung`, `_ladezeit` an der Antwort).
+
+**Tests**
+- Sieben neue RK-Tests mit erfundenem Stand auf den Daten des Reise-Aufbaus, alle Länder und Städte aus den Daten:
+  - Kontinent-Ebene und Startknopf bei 400/820/1280
+  - Land antippen → Blatt → Städte → Pfad → Welt mit Antarktis
+  - Teile und Zusatz
+  - Ziehen, Rad, Knöpfe, Zwei-Finger-Zoom (Zeiger-Ereignisse) für Maus und Finger
+  - Schalter Abflugtafel mit gleichen Zielen, Expedition in der Karte, Karte nur einmal je Sitzung, alter Server zeigt die Tafel
+  - Flug-Test-Ziel und „Karte alt“ nach einer Änderung
+  - Info-Seite und Lizenzen
+- Gesamtlauf 318/328. Rot sind nur die bekannten Reise/PWA-Tests: PWA-Hülle, Startkarte, W80 ×4, Review301, Woanders, W88.
+- Bilder: `docs/previews/la/rk-*.png` (Kontinent, Land, Welt, Teile, Expedition; 400/820/1280).
+
+**Offen / bitte entscheiden**
+1. **Zusatz-Text:** Im Blatt steht wörtlich nach §11 „Zusatz – freiwillig, für Entdecker. Muss nicht sein.“ Der Gestalter schlägt in EX §7 „Zusatz für Entdecker“ ohne „freiwillig“ vor, wegen deines Satzes zu den Expeditionen. Am Pin und als Zustand steht schon „Zusatz für Entdecker“.
+2. **Nicht in den Daten:** „gesperrt“ (Visum fehlt, ab Klasse) und „abgelegt“ je Stadt. Die Karte zeigt deshalb kein 🔒 und ★ nur bei golden.
+3. **Ausschnitt:** Pazifik und Asien liegen am Kartenrand der Welt (Datumsgrenze). In der Kontinent-Ebene sind sie richtig zentriert.
+4. **Nicht geprüft:** echte Geräte und das Ziehen mit echtem Finger (nur nachgestellt) sowie der echte Server.
+
 ## 2026-11-23 – FERTIG: 0.91.2 abgesichert
 
 Stand `lernen-app` 83ada52 übernommen. Nur App: keine Datenbank, kein Merge nach `main`, keine Namen. Cache v170.

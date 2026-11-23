@@ -1,7 +1,7 @@
 // Service Worker: hält nur die App-Hülle vor (Dateien dieser Seite). Daten kommen immer live von app-api.
 const CACHE_PREFIX = 'ki-system:' + self.registration.scope + ':';
-const CACHE = CACHE_PREFIX + 'v170';
-const HUELLE = ['./', './index.html', './stay-compare.js?v=0.91.2', './stay-refresh.js?v=0.91.2', './stay-workplace.js?v=0.91.2', './stay-notifications.js?v=0.91.2', './stay-photos.js?v=0.91.2', './stay-trips.js?v=0.91.2', './stay-review.js?v=0.91.2', './stay-desk.js?v=0.91.2', './app.js?v=0.91.2', './highlights.js?v=0.91.2', './roadbook.js?v=0.91.2', './lernen-welt.js?v=0.91.2', './lernen.js?v=0.91.2', './stay-tools.js?v=0.91.2', './stay-research.js?v=0.91.2', './stay-form.js?v=0.91.2', './stay-details.js?v=0.91.2', './stay-districts.js?v=0.91.2', './vendor/leaflet-1.9.4/leaflet.js', './vendor/leaflet-1.9.4/leaflet.css', './style.css?v=0.91.2', './vendor/schriften/space-grotesk.woff2', './vendor/schriften/jetbrains-mono.woff2', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-512.png'];
+const CACHE = CACHE_PREFIX + 'v171';
+const HUELLE = ['./', './index.html', './stay-compare.js?v=0.92.0', './stay-refresh.js?v=0.92.0', './stay-workplace.js?v=0.92.0', './stay-notifications.js?v=0.92.0', './stay-photos.js?v=0.92.0', './stay-trips.js?v=0.92.0', './stay-review.js?v=0.92.0', './stay-desk.js?v=0.92.0', './app.js?v=0.92.0', './highlights.js?v=0.92.0', './roadbook.js?v=0.92.0', './lernen-welt.js?v=0.92.0', './lernen.js?v=0.92.0', './stay-tools.js?v=0.92.0', './stay-research.js?v=0.92.0', './stay-form.js?v=0.92.0', './stay-details.js?v=0.92.0', './stay-districts.js?v=0.92.0', './vendor/leaflet-1.9.4/leaflet.js', './vendor/leaflet-1.9.4/leaflet.css', './style.css?v=0.92.0', './vendor/schriften/space-grotesk.woff2', './vendor/schriften/jetbrains-mono.woff2', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-512.png'];
 const HUELLE_URLS = new Set(HUELLE.map(path => new URL(path, self.registration.scope).href));
 
 self.addEventListener('install', (e) => {
@@ -13,7 +13,9 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   const url = new URL(e.request.url);
   url.hash = ''; // Hash-Routen gehören zur gleichen App-Hülle.
-  if (e.request.method !== 'GET' || !HUELLE_URLS.has(url.href)) return; // Nur die explizite App-Hülle speichern.
+  // RK-App: Kartendateien (karte/*.json, karte/flaggen/*.svg) zusätzlich zwischenspeichern – Netz zuerst, bei schwachem Netz aus dem Cache
+  const karte = e.request.method === 'GET' && url.origin === new URL(self.registration.scope).origin && url.pathname.startsWith(new URL('karte/', self.registration.scope).pathname);
+  if (e.request.method !== 'GET' || (!HUELLE_URLS.has(url.href) && !karte)) return; // Nur die App-Hülle und die Kartendateien speichern.
   // Netz zuerst, bei Ausfall aus dem Cache (so kommen neue Versionen sofort an).
   e.respondWith(
     fetch(e.request, { cache: 'no-cache' }).then((r) => {

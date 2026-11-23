@@ -3072,3 +3072,14 @@ Nicht: Pflicht vor dem nächsten Flug.
 **EX-G · an den Gestalter:** kurze Vorgabe `inhalte/pruefung/kind/expedition/umsetzung.md` zu 1–4 (Freischalt-Ansicht, Karte auf der Abflugtafel, Stempel-Sammlung, Texte; 400 und 820 px), passend zur Vorgabe Reisekarte (§ Antarktis).
 **EX-S · an `bau-lehrer` (Datei, mit RD-S):** Sterne 150/200 (Regelwerte, fehlerfrei = alle Teile erster Versuch ohne Tipp), Feld „seit wann angeboten“ und „später bis“ je Kind, Zahl der Stationen gesamt/geschafft in der Übersicht; schon gebuchte Expeditionen gibt es nicht (keine Nachbuchung nötig – im Rauchtest prüfen).
 **EX-App · an `bau-motivation`:** nach LW-3 und nach EX-G.
+
+## Probelauf RD-S + EX-S (23.11., 01:25 Berlin, echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` e75ddca. RD-Migration + Daten zweimal, EX-S zweimal: ohne Fehler. 123 Länder (95 Flug + 28 Reserve), 827 Städte (618 + 209), 21 Stationen, 0 Abweichungen. Kinderdaten (Karten, Sterne, Lernziel-Stände, Erstabschlüsse), alle Stufen, Reiseoptionen und Ortsnamen unverändert. Karten-Antwort Kind 2: rund 173 000 Zeichen. Nächster Start: Kind 1 Schweiz/Zürich (Thema 18), Kind 2 Sri Lanka/Galle (Thema 5).
+Tests: ex_s vor und nach grün; tl_s, nt_s, lk_s, wd_s, wd_s3, fp_s, lw_s grün.
+**Rot: `rd_s_rauchtest` Test 3** (vor und nach): „Stand je Etappe falsch: gelandet,gelandet,wieder_offen,begonnen,offen“ – erwartet war „sicher“ für die erste Karte (sitzt, wdh_stufe 3). Auf dem echten Stand gilt die Karte nur als „gelandet“. → Nachtrag RD-S 2: klären, was live „sicher“ ist (gleiche Regel wie `thema_stufe`.sicher), Funktion oder Test angleichen.
+**Fehlt:** Korrektur Expedition „8-schulfest“ samt Test (Befund vom 23.11.) ist in RD-S/EX-S nicht enthalten.
+
+## LW-3 (0.90.0) geliefert – ohne den Nachtrag „Kopf schlank, Matrix groß“
+
+`bau-motivation` hat auf 6da3aec gebaut; der Nachtrag (ed2ed15) ist nicht enthalten → LW-3b (0.90.1). Vorgabe EX des Gestalters liegt unter `inhalte/pruefung/kind/expedition/`.

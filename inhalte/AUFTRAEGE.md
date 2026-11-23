@@ -3102,3 +3102,20 @@ Freigaben Sebastian: „Routen in die Datenbank einspielen“, „live“, „Be
 - Nachkontrolle erste Sitzung nach Teilung/fairen Punkten: Sterne-Buchungen passen (wdh 10, uebung 10, landung 80, Knobel 30).
 
 Offen: Legende hinter ⓘ (Rechner) – Entscheidung Sebastian; Prüfung Gestalter 0.90.1; EX-App und RK-App an `bau-motivation`; Lizenz COMNAP (Stationen) vor RK-App; Zuteilung der neuen Teile durch Sebastian.
+
+## Bau-Aufträge EX-App und RK-App (23.11., 02:15 Berlin) · an `bau-motivation`, in dieser Reihenfolge
+
+Sebastian: „Ich dachte, sie sehen schon was. Dann mach weiter.“ Server ist live: `lernen-api` 0.9.3 mit `schule_reise_karte` und `schule_expedition_spaeter`; `expeditionen_stand` in `schule_konto` und `schule_uebersicht`. Schnittstellen: `inhalte/postfach/bau-lehrer.md` (RD-S, RD-S 2, EX-S).
+
+### Schritt 1 – EX-App (0.91.0, klein, zuerst)
+Vorgabe: `inhalte/pruefung/kind/expedition/umsetzung.md` (Abschnitte 1–6, 8, 9), Entwurf und Bilder daneben. Kein „freiwillig“ mehr auf der Kinderseite; Ansicht „Expedition freigeschaltet“ nach der auslösenden Landung („Jetzt starten“ groß, „Später“ klein → `schule_expedition_spaeter`); offene Expedition als oberste, größte Karte der Abflugtafel (`expeditionen_stand.oben_id`); Ansicht nach geschaffter Expedition mit 150 bzw. 200 Sternen; Stempel-Sammlung „n von 21 Stationen“. Abschnitt 7 (Antarktis auf der Karte) gehört zu Schritt 2. Tests mit nachgestelltem Server, 400 und 820 px. Meldung „FERTIG: EX-App (0.91.0)“.
+
+### Schritt 2 – RK-App (0.92.0, groß)
+Vorgabe: `inhalte/pruefung/kind/karte/umsetzung.md` (inkl. § 11 Teile/Zusatz), Entwurf `karte/entwurf/reisekarte.html`, Bilder; „Bau-Auftrag RK“ oben. Die Reisekarte ersetzt die Anzeigetafel der Kinderseite: Ebenen Welt › Kontinent › Land aus `schule_reise_karte` (keine feste Anzahl), Land als Flaggen-Pin (Spitze = Hauptstadt), Städte als Etappen mit Stand, dezente gezeichnete Linie, Startknopf schwebend in der Karte (`naechster_start`), golden = alles sitzt, Zusatz/Teile nach § 11, Antarktis mit den Stationen der Expeditionen (EX-Vorgabe Abschnitt 7).
+- Technik: keine Kartenkacheln, kein Kartenserver, kein Google. Umrisse aus Natural Earth im Build vorrechnen (Skript im Repo, je Kontinent eine Datei), Flaggen erst beim Anzeigen laden. Alles statisch aus dem Repo.
+- Lizenzen (geklärt durch Haupt-Chat): Natural Earth gemeinfrei; GeoNames CC BY 4.0 → Quellenangabe auf der Info-Seite und klein an der Karte (`quellen` aus der Antwort); flag-icons, i18n-iso-countries, countries-list MIT (Lizenztext ins Repo); COMNAP-Stationen: nur private, nicht kommerzielle Bildungs-Nutzung, mit Quellenangabe.
+- Karten-Antwort ist rund 170 KB je Kind: einmal je Sitzung laden und merken; Ladezeit und Dateigrößen messen und melden.
+- Die alte Anzeigetafel bleibt hinter einem Schalter erreichbar, bis Sebastian die Karte freigibt (Rückweg).
+- Prüfen 400 / 820 / 1280, Finger und Maus; Start, Wiederholungsrunde, Test, Expedition müssen von der Karte aus erreichbar sein wie bisher von der Tafel. Meldung „FERTIG: RK-App (0.92.0)“.
+
+Jeweils: nur App, keine Datenbank, kein Merge nach `main`, keine Namen. Prüfung nach jedem Schritt durch den Gestalter.

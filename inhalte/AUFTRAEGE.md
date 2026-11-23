@@ -3313,3 +3313,17 @@ Freigabe Sebastian („Nachbessern und Schuljahr in die Datenbank einspielen“)
 ## Entscheidung Sebastian (23.11., 04:20 Berlin): Rundengröße „A“
 
 Wiederholungsrunde = alle fälligen, höchstens 12 (bis Kl. 6 höchstens 10): `wdh_runde_teiler` 5 → 1, zunächst für vier tatsächliche Lerntage zum Erproben; danach Rest, Dauer und Fehler ansehen (Haupt-Chat), bei Bedarf Teiler 2. Wird zusammen mit WD-5 eingespielt.
+
+## Probelauf WD-5 2 (23.11., 04:30 Berlin, echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` 330a6e3, Datei `20261128_wd5_staffel_drosseln.sql` (2983eacd…). Zweimal ohne Fehler; alles außer den Fälligkeiten gesetzter Erst-Wiederholungen unverändert; Kind 2 fällig je Lerntag vorher 23·11·11·12·6·9·3, nachher 16·8·8·9·3·6·4·3·3·3·3·3·3·3; gesetzte je Lerntag 3. Tests grün: wd5 (vor/nach, mit Rundensperre und Rückweg-Ablehnung), wd_s, wd_s3, fp_s.
+**Mit Teiler 1 (Entscheidung A) zusätzlich gesetzt:** `wd_s_rauchtest` „FEHLER 1 Rundengröße Klasse 8“ – der Test rechnet mit Teiler 5. → Nachtrag `bau-lehrer`: wd_s-Test setzt den Teiler im Test selbst (merken/wiederherstellen) und prüft zusätzlich Teiler 1 (alle fälligen, höchstens 12 bzw. 10 bis Kl. 6, mindestens-Regel).
+Prüfbitte an ChatGPT (WD-5 2 + Teiler 1).
+
+## Prüfung Gestalter RK-App (0.92.0): 1 Muss, 7 Soll, 5 Kann → Nachtrag RK-App 2 (0.92.1) an `bau-motivation`
+
+Datei `inhalte/pruefung/kind/karte/nachpruefung_rk.md`.
+- **M1** Stadt „wieder offen“ wird als ✓ gelandet gezeigt → eigener Zustand (orange, ↻, kein ✓), Text „Nachbessern“.
+- **S1** Rechner: Karte fensterfüllend, Kopf eine Zeile. **S2** Handy: eine Kopfzeile, schwebende Karte kompakter, Expeditions-Karte einzeilig. **S3** rechts „x/6 Bordkarten dieser Stadt“ statt „4/13“. **S4** Land-Ebene: Ausschnitt auf die Städte-Route, Städtenamen nach Vorrang, Überdeckungen auflösen. **S5** Welt auf dem Handy als Ausschnitt um den aktuellen Kontinent. **S6** Blatt beim Ebenenwechsel schließen. **S7** Zusatz-Text ohne „freiwillig“.
+- **K1–K3** nach Prüfung; **K4** Datenauftrag an `bau-lehrer`: „gesperrt“ (Visum/ab Klasse) und „abgelegt“ je Stadt in `schule_reise_karte`.
+- Dazu der wacklige Test „LB Teil 6 Punkt 6“ (Nachtrag vom 23.11.) und aus Prüfung EX: S1, S2 („freiwillig“ bei Knobel → „für Profis“), K1, K2.

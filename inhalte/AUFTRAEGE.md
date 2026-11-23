@@ -3119,3 +3119,13 @@ Vorgabe: `inhalte/pruefung/kind/karte/umsetzung.md` (inkl. § 11 Teile/Zusatz), 
 - Prüfen 400 / 820 / 1280, Finger und Maus; Start, Wiederholungsrunde, Test, Expedition müssen von der Karte aus erreichbar sein wie bisher von der Tafel. Meldung „FERTIG: RK-App (0.92.0)“.
 
 Jeweils: nur App, keine Datenbank, kein Merge nach `main`, keine Namen. Prüfung nach jedem Schritt durch den Gestalter.
+
+## Bau-Auftrag LZ – Ladezeit der Lehrer-Seiten (23.11., 02:20 Berlin) · Sebastian: „Ladezeiten der Lehrer-Seiten sind etwas lang“
+
+**Gemessen (Haupt-Chat, echte Datenbank und Funktions-Logs 23.11. 02:08–02:10):**
+- Einzelne Anfragen an `lernen-api` dauern 5–9 Sekunden (mehrfach 8,2–8,9 s), mehrere davon gleichzeitig.
+- `schule.lehrplan_matrix` für ein Kind: 1,9 s; `lehrplan_matrix_lk` dazu 0,5 s; Matrix ohne Kind (beide Kinder): 5,8 s, 207 000 Zeichen. `thema_stufe` für alle 105 Themen eines Kindes: 0,9 s. `reise_karte` je Kind: 1,7 s. `wackelt_liste` 55 ms, `reiseoptionen` 4 ms.
+- App: Reiter „Lehrplan“ ruft `schule_uebersicht` zweimal (in `viewKind` und in `viewKindLehrplan`), lädt die Matrix erst nach den anderen Antworten und gegebenenfalls ein zweites Mal mit Testkind; der Kinder-Wechsel lädt alles neu.
+
+**LZ-S · an `bau-lehrer` (Datei, nicht einspielen):** `lehrplan_matrix`, `lehrplan_matrix_lk`, `schule_uebersicht`, `schule_lernstand`, `schule_plan_lesen`, `reise_karte` beschleunigen – Ziel je Anfrage unter 1 Sekunde auf dem echten Stand. Ansatz: `thema_stufe` nicht je Thema einzeln (mengenweise je Kind rechnen), keine wiederholten Unterabfragen je Zeile, passende Indizes; Ergebnis **inhaltlich unverändert** (Test: md5 der Antwort vor/nach je Kind und für das Testkind in allen fünf Gruppen gleich). Messwerte vorher/nachher (lesend auf der echten Datenbank mit `explain analyze`) in die Meldung. Kein DROP von Tabellen, kein DELETE.
+**LZ-App · an `bau-motivation` (nach EX-App, vor RK-App):** `schule_uebersicht` und Matrix je Sitzung einmal laden und merken (nach Änderungen gezielt erneuern), alle Anfragen eines Reiters gleichzeitig starten, Kopf und Reiter sofort zeichnen und Inhalte nachladen, Kinder-Wechsel ohne erneutes Laden der kindunabhängigen Daten. Messung im Test: Zahl der Anfragen je Reiter-Aufruf.

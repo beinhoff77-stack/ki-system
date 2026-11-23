@@ -2,6 +2,263 @@
 
 Neueste oben. Zweig `bau-lehrer` von `lernen-app` (b8f910e). Kein Merge.
 
+## 2026-11-23 – FERTIG: RK-D 2
+
+Stand `lernen-app` dee070b übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.
+- geändert: `supabase/migrations/20261129_rk_d_karte_felder.sql`, `supabase/tests/rk_d_rauchtest.sql`
+- unverändert: `20261125_rd_s_reise.sql`
+
+**Muss 1 – Wiederholbarkeit ohne Mischstand**
+- Der Einbau steht jetzt in `schule.rk_d_einbau()`; die Migration ruft ihn nur auf.
+- Er zählt die **sechs** Zielblöcke einzeln, je vollständiger Text.
+  - Alle sechs je genau einmal → „schon eingebaut“.
+  - Keiner da und keine „RK-D“-Markierung → einbauen (alle sechs Anker je genau einmal geprüft).
+  - Alles andere bricht mit Fehler ab: teilweise da, Markierung ohne Blöcke, Block doppelt.
+- Auch die erste RK-D-Fassung (fünf Blöcke) wird als Mischstand erkannt; sie war nie echt eingespielt.
+- **Test 5:** Block 6 wird zurückgesetzt, die Markierung in den anderen Blöcken bleibt → `rk_d_einbau` meldet „Mischstand (5 von 6)“. Nach dem Wiederherstellen → „schon eingebaut“.
+
+**Muss 2 – Rückfall für `naechster_start.stadt`**
+- Als Teil von RK-D (Zielblock 6, Text-Patch in `reise_karte`) zieht der Rückfall auf die erste Stadt zusätzlich die fünf neuen Felder ab.
+- Damit bleibt das bisherige Feldset: `nr, name, lernziel, pflicht` und, falls da, `zaehlt` (ZP-S).
+- **Test 4 (vor dem Einspielen aufgebaut):**
+  - Testkind mit einem eingeplanten Flug, alle Etappen gelandet, Flug-Test offen → Stufe „dran“, keine offene Stadt. Geprüft wird, dass der Rückfall erreicht ist.
+  - `naechster_start` vorher = nachher (ganzes Objekt). Die Stadt hat nur die bisherigen Felder.
+  - Auf dem echten Stand trifft die Auswahl Thema 1 (5 Etappen, Pflichtliste 4, beim Testkind kein Flug-Test) – lesend geprüft.
+
+**Muss 3 – Test 3b**
+- Der Testflug muss ohne fehlendes Visum sein (geprüft).
+- Nach der Einplanung zuerst `im_plan = true` verlangt, sonst Fehler.
+- Danach gilt am Flug und an allen offenen Städten: `gesperrt = false`, Grund leer.
+
+**Gelaufen** (lokal, Kopien wie echt; `reise_karte` md5-gleich mit echt):
+- `rk_d` grün vor und nach dem Einspielen; Migration zweimal → „eingebaut“, dann „schon eingebaut“.
+- Weiter grün: `rd_s, nb_s, zp_s, lz_s, ex_s, sj_s, tl_s, nt_s, lk_s, fp_s, wd5`.
+- **Dauer:** unverändert zu RK-D (Block 6 ist nur ein Feldabzug beim Start). Lokal je Kind höchstens 110–157 ms über alle Tests (Messung mit anderer Last als in RK-D).
+- **Echt:** gemessen sind nur die neuen Abfragen (5 ms). Geschätzt rund 255 ms je Kind – Annahme, echt erst nach dem Einspielen messbar.
+- **Lesend auf dem echten Stand nachvollzogen:** Anker und Funktionskörper (md5), Testdaten-Auswahl für Test 3 und Test 4. Die Tests schreiben (Rollback) und liefen deshalb nur lokal.
+
+## 2026-11-23 – FERTIG: WD-5 3 / RK-D
+
+Stand `lernen-app` e0f3873 übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.
+- geändert: `supabase/migrations/20261128_wd5_staffel_drosseln.sql` (Teiler), `supabase/tests/wd_s_rauchtest.sql`, `supabase/tests/wd_s3_rauchtest.sql`, `supabase/tests/wd5_rauchtest.sql`
+- neu: `supabase/migrations/20261129_rk_d_karte_felder.sql`, `supabase/tests/rk_d_rauchtest.sql`
+
+### 1. Rundengröße „A“ (Teiler 1)
+
+- **WD-5-Migration** setzt jetzt auch `wdh_runde_teiler = 1` (Abschnitt 1b; legt die Regel an, falls sie fehlt). Runde = alle fälligen, höchstens 12, bis Kl. 6 höchstens 10.
+- **Rückweg** (im Kopf der Datei):
+  - `update schule.regel set wert = '5' where schluessel = 'wdh_runde_teiler';` – wie vorher.
+  - `… wert = '2' …` – mildere Stufe.
+- **`wd_s` Teil 1:**
+  - Merkt sich Teiler, Mindest- und Höchstwerte und setzt sie im Test selbst.
+  - Prüft Teiler 5 wie bisher (0/5/6/7/20/41/60/100 → 0/5/6/6/6/9/12/12; Kl. 6: 60 → 10, 41 → 9).
+  - Prüft zusätzlich Teiler 1: 7/11/12/13/41/100 → 7/11/12/12/12/12; bis 6 alle; Kl. 6: 7/10/11/60 → 7/10/10/10.
+  - Stellt die gemerkten Werte wieder her.
+- **Weitere Stelle mit festem Teiler gefunden: `wd_s3` Teil 7 (WD-4b-Strecken).**
+  - Der Teil braucht eine Runde kleiner als die fälligen Etappen (6 von 8), sonst wird nichts gestreckt. Mit Teiler 1 war er rot: „FEHLER 7 Rückweg trotz Zwischenübung“.
+  - Jetzt setzt er Teiler 5 im Test und stellt ihn wieder her (wie schon die Staffel-Regel).
+- **`wd5_rauchtest`** prüft zusätzlich, dass Teiler 1 gesetzt ist.
+- **Lesend auf dem echten Stand geprüft:**
+  - Nur `wdh_runde_groesse` liest den Teiler, und nur `wdh_runde_holen` nutzt `wdh_runde_groesse`.
+  - Andere Tests mit Runden (`ab_s`, `i2`, `lb3`) rechnen keine Rundengröße nach.
+- **Lokal:**
+  - `wd5`, `wd_s3` und `fp_s` sind grün vor und nach dem Einspielen (Teiler 5 bzw. 1).
+  - `wd_s` Teil 1 ist mit beiden Teilern grün.
+  - `wd_s` Teil 2 ist lokal schon vorher rot („Pflicht zuerst, 5 statt 6“ bzw. mit Teiler 1 „11 statt 12“): In den lokalen Auszügen fehlt für eine Etappe eine freie Aufgabe. Der Test rechnet die Soll-Größe mit der Regel und passt auf dem echten Stand (dort laut Haupt-Chat grün).
+
+### 2. RK-D – Reisekarte: gesperrt und abgelegt
+
+- **Einbau:** direkt in `schule.reise_karte` (Text-Patch mit 5 geprüften Ankern, auf dem echten Stand md5-gleich mit lokal).
+  - Einmal je Aufruf `schule.rk_d_basis` (Visum je Flug, Klasse je Flug, abgelegt).
+  - Die Felder entstehen beim Aufbau von Flug und Stadt.
+  - `api.schule_reise_karte` bleibt unverändert.
+- **Neue Felder:**
+  - **Flug:** `gesperrt`, `gesperrt_grund` (`'visum'` | `'klasse'` | null), `ab_klasse`, `visum_fehlt` [{block_id, ort, kontinent}], `abgelegt`.
+  - **Stadt:** `gesperrt`, `gesperrt_grund`, `ab_klasse`, `abgelegt`, `abgelegt_am`.
+- **Festlegungen (bitte prüfen):**
+  - **Visum:** wie `reiseoptionen`. Der Ort des Flugs hat eine harte Voraussetzung der Gruppe des Kindes, deren Ort nicht fertig oder „kann schon“ ist und keinen Visum-Übergang hat.
+  - **ab Klasse:** Klasse des Themas in der Schulart des Kindes (gleiche Quelle wie `thema_jahrgang`, Matrix, `schuljahr_stand`; IB +5).
+    - Die Städte erben sie.
+    - Klassen je Etappe aus `thema_lage` wären genauer, kosten aber rund 30 ms je Aufruf (gemessen, echter Stand). Das hätte die 0,3 s gesprengt.
+  - **Flug gesperrt nur ohne eigenen Fortschritt** (kein Stempel, nicht golden, nicht gesetzt, Stufe nicht dran/wiederholung/komplett):
+    - Visum vor Klasse.
+    - Klasse nur, wenn nicht im Plan.
+    - Visum gilt auch im Plan.
+  - **Stadt gesperrt** nur bei Stand `offen`, mit dem Grund des Flugs.
+  - **abgelegt:** Stadt aus `schule.abgelegt` (Etappe, mit Datum), Flug aus dem Flug-Eintrag.
+- **Echter Stand (lesend nachgerechnet):**
+  - Kind 1 (Kl. 5): 95 Flüge, gesperrt 57 Visum + 11 Klasse; davon 9 im Plan mit fehlendem Visum.
+  - Kind 2 (Kl. 8): 28 Visum + 3 Klasse; davon 2 im Plan mit fehlendem Visum.
+  - Abgelegt: heute nichts (Tabelle leer).
+  - **Frage:** Sollen eingeplante Flüge mit fehlendem Visum 🔒 zeigen? Heute ja, wie die Abflugtafel „Visum fehlt“ zeigt.
+- **Dauer:**
+  - Lokal +15 bis +18 ms je Kind (Bestwert 93 → 110 ms, 20 Läufe).
+  - Echt gemessen nur die neuen Abfragen (`rk_d_basis`-Teil): 5 ms.
+  - **Annahme:** Mit dem Aufbau der Felder rund +25 ms, die Reisekarte geht von heute rund 230 ms auf rund 255 ms je Kind, also unter 0,3 s. Echt nicht gemessen (Funktion nicht eingespielt).
+- **Rauchtest `rk_d`** (Rollback, Testkind):
+  1. Übrige Felder md5-gleich mit der Antwort vor dem Einspielen; alle Flüge/Städte haben die neuen Felder; Dauer gemeldet.
+  2. Unabhängige Nachrechnung:
+     - Grund nur ohne Fortschritt.
+     - Visum mit Liste.
+     - Klasse nur außerhalb des Plans und über der Klasse des Kindes.
+     - `ab_klasse` = `thema_jahrgang`.
+     - Städte wie Flug, nur bei `offen`.
+  3. Testkind:
+     - Visum fehlt → gesperrt mit dem fehlenden Ort; Voraussetzung erledigt → frei.
+     - Kl. 5: Flug ab Kl. 8 gesperrt (Städte auch); eingeplant → frei.
+     - Etappe und Flug abgelegt → Stadt mit Datum und Flug abgelegt, andere Städte nicht.
+  - **Grün lokal** vor und nach dem Einspielen; dazu `rd_s, nb_s, zp_s, lz_s, ex_s, sj_s, tl_s, nt_s, lk_s, fp_s` grün.
+  - Lokal kein echtes Kind mit Klasse-Sperre ohne Visum; der Fall läuft über das Testkind.
+
+## 2026-11-23 – FERTIG: WD-5 2
+
+Stand `lernen-app` 59bcd32 übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.
+- geändert: `supabase/migrations/20261128_wd5_staffel_drosseln.sql`, `supabase/tests/wd5_rauchtest.sql`
+- Vorwärtslauf unverändert, also gleiche Verteilung (Kind 2: 39 verschoben, 3 je Lerntag).
+
+**1. Gemeinsame Sperre gegen einen parallelen Rundenstart (Muss 1 und 2)**
+- **Neu:** `schule.wdh_runde_sperre(kind)`, eine Transaktions-Sperre je Kind (`pg_advisory_xact_lock`), die mit Commit/Rollback endet.
+- **Rundenstart:** `wdh_runde_holen` nimmt sie als ersten Schritt (Text-Patch, Anker geprüft; die Funktion ist md5-gleich mit echt). Das ist der einzige Ort, der Runden anlegt (lesend geprüft: einzige Funktion mit `insert into schule.wdh_runde`).
+- **Neuverteilung:** `wdh_staffel_drosseln` nimmt sie je Kind, bevor sie irgendetwas liest (auch beim Einspielen). Ein gleichzeitiger Rundenstart wartet und sieht danach die neuen Fälligkeiten; umgekehrt wartet die Neuverteilung auf eine laufende Runden-Anlage.
+- **Rückweg:** `wdh_drosseln_zurueck` nimmt sie je betroffenem Kind in fester Reihenfolge, dann die Sperren auf Karten und Sicherungen.
+- **Lokal mit zwei Sitzungen geprüft:** Ein Rundenstart (`wiederholung_intern`) wartet, solange eine Neuverteilung oder ein Rückweg offen ist (je rund 3 s bei 4 s Haltezeit), und läuft danach normal.
+
+**2. Rückweg mit Rundenausschluss (Muss 1)**
+- Steht eine betroffene Etappe in der Runde von heute (`wdh_runde_etappe`, Tag heute), lehnt `wdh_drosseln_zurueck` die Rücknahme **ganz** ab, ohne Änderung. Das gilt auch vor der ersten Antwort.
+- Die Prüfung läuft unter der Rundensperre, also kann keine Runde zwischen Prüfung und Schreiben dazukommen.
+- Bisherige Ablehnung „inzwischen geübt“ bleibt.
+
+**3. Tests (`wd5_rauchtest`)**
+- **Neu Test 6:** Testkind drosseln, dann prüfen, dass die Rundensperre gehalten wird (`pg_locks`) und der Rundenstart sie nimmt. Danach eine verschobene Etappe in die Runde von heute aufnehmen und den Rückweg vor der ersten Antwort versuchen. Ergebnis: abgelehnt, Fälligkeiten und Sicherungszeilen des Kinds vorher = nachher.
+- **Test 4 ergänzt:**
+  - Ältere WD-4b-Sicherungen (in `frueher` aufbewahrt) werden vorab aufgenommen und nach dem Rückweg **feldweise** verglichen: ganze Zeile gleich, inklusive `gesichert_am`, `wdh_ab_neu`, `zurueck_am`, `richtig/falsch`.
+  - Wird WD-5 erst im Test eingespielt, gilt zusätzlich: alle Sicherungszeilen von vorher feldweise wie vorher.
+  - Auf der Kopie mit den echten Daten: 39 zurück, 28 WD-4b-Zeilen feldweise gleich.
+
+**Gelaufen (lokal, Kopien wie echt; dazu eine Kopie mit den echten Karten, Lerntagen, Runden, Plänen und Sicherungen)**
+- `wd5`, `fp_s`, `nb_s`, `zp_s`, `lz_s` grün vor und nach dem Einspielen. `wd_s3` grün auf den Standard-Kopien vor und nach.
+- `wd_s` lokal schon vor WD-5 rot, `wd_s3` auf der Kopie mit echten Karten ebenso, beide vor und nach gleich. Ursache: fehlende Auszüge (Mischkarten-Verlauf), nicht WD-5. Auf dem echten Stand liefen beide laut Haupt-Chat bisher grün.
+- **Lesend auf dem echten Stand nachvollzogen:**
+  - `wdh_runde_holen`, `wiederholung_intern`, `karte_wdh_in` und `wdh_staffel_zurueck` sind md5-gleich mit den lokalen Kopien; damit greifen der Patch-Anker und die Tests dort genauso.
+  - Das Testkind hat heute keine Runde.
+  - Kind 2 hat eine offene Runde vom 22.11. Sie zählt nicht: Ausschluss und Prüfung gelten nur für die Runde von heute, wie im Vorwärtslauf.
+  - Die Tests schreiben (Rollback) und sind deshalb nur lokal gelaufen.
+
+**Hinweis:** `wdh_staffel_strecken` (WD-4b) nimmt die Rundensperre nicht. Sie wird nur einmalig und von Hand gebraucht; bei Bedarf in einem eigenen Nachtrag ergänzen.
+
+## 2026-11-23 – FERTIG: WD-5
+
+Stand `lernen-app` e2a8fcd übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.
+- neu: `supabase/migrations/20261128_wd5_staffel_drosseln.sql`, `supabase/tests/wd5_rauchtest.sql`
+- angepasst: `supabase/tests/wd_s_rauchtest.sql`, `supabase/tests/wd_s3_rauchtest.sql`. Beide merken sich den Regelwert und stellen ihn wieder her, statt fest „6“ zu setzen.
+- **Einspielen:** nach WD-S, WD-4b, WD-S 4 (alle echt vorhanden). Einmalig: Ein zweiter Lauf tut nichts.
+
+**Umsetzung**
+1. **Regel:** `wdh_gesetzt_je_lerntag` = 3. Neu gesetzte Etappen kommen damit zu 3 je Lerntag (`wdh_staffel_tag` liest die Regel), ebenso `wdh_staffel_strecken`.
+2. **Neuverteilung `schule.wdh_staffel_drosseln`:**
+   - **Betroffen:** alle gesetzten Etappen in erster Wiederholung (`wdh_gesetzt_am` gesetzt, Stufe 0, kein Fehler, nicht abgelegt), heute fällige und schon eingeplante.
+   - **Reihenfolge:** Plan-Reihenfolge (Platz, Einheit, Etappe), höchstens 3 je Lerntag ab heute.
+   - **Offene Runde von heute:** bleibt und belegt heutige Plätze.
+   - **Geändert:** nur `faellig_am`, `wdh_ab`, `wdh_lerntage`, und nur bei geändertem Lerntag. Alles andere wird am Ende geprüft, sonst Abbruch.
+3. **Sicherung:** in `schule.wdh_staffel_sicherung` mit neuer Spalte `lauf = 'wd5'`.
+   - Für 28 der verschobenen Etappen steht dort schon eine WD-4b-Sicherung. Sie wird in der neuen Spalte `frueher` aufbewahrt und beim Rückweg wiederhergestellt.
+   - **Rückweg:** `select schule.wdh_drosseln_zurueck();` (oder je Kind). Abgelehnt, sobald eine verschobene Etappe geübt wurde; die Regel bleibt dann 3.
+   - `wdh_staffel_zurueck` (WD-4b) fasst nur noch WD-4b-Sicherungen an.
+   - **Auf dem echten Stand gilt:** Die 28 WD-4b-Sicherungen sind noch unberührt (lesend geprüft).
+
+**Vorher/Nachher (echter Stand 23.11. lesend; Lauf der Migration auf einer lokalen Kopie dieser Daten – gleiche Zahlen)**
+- **Kind 1:** keine gesetzten Erst-Wiederholungen, unverändert. Fällig je Lerntag 0–13: 0 6 4 6 6 4 2 0 0 0 0 0 0 0.
+- **Kind 2:** 42 gesetzte Erst-Wiederholungen, keine offene Runde heute (die heutige ist fertig). 39 werden verschoben, 3 bleiben heute fällig.
+
+| Lerntag | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| vorher fällig | 23 | 11 | 11 | 12 | 6 | 9 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| davon gesetzt | 10 | 6 | 6 | 6 | 6 | 6 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| nachher fällig | 16 | 8 | 8 | 9 | 3 | 6 | 4 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
+| davon gesetzt | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
+
+**Hochrechnung Rückstau (fällig nach der Runde) je Lerntag, Kind 2**
+- **Annahmen:** eine Runde je Lerntag, alle richtig im ersten Versuch, älteste zuerst, keine neuen Landungen oder Setzungen. Bestanden heißt nächste Stufe nach 3/7/14/30 Lerntagen. Lerntag 0: Runde schon gemacht.
+
+| Lerntag | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 12 | 14 | 20 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| heute (6/Tag, Runde ÷5) | 23 | 27 | 30 | 33 | 32 | 36 | 37 | 33 | 35 | 34 | 33 | 33 | 27 | 18 |
+| WD-5 (3/Tag, Runde ÷5) | 16 | 18 | 20 | 23 | 21 | 23 | 24 | 24 | 28 | 30 | 29 | 29 | 30 | 21 |
+| WD-5 + Runde bis 12 | 16 | 12 | 8 | 5 | **0** | 2 | 0 | 0 | 3 | 1 | 2 | 0 | 0 | 0 |
+| nur Runde bis 12 (6/Tag) | 23 | 22 | 21 | 21 | 18 | 26 | 24 | 18 | 21 | 17 | 15 | 5 | 0 | 0 |
+
+- **Befund:** 3 je Lerntag allein löst den Stau **nicht** auf (er pendelt um 20–30). Grund: Die Runde (Rückstau ÷ 5, mindestens 6) ist meist 6. Das ist kaum mehr als der Zulauf aus 3 neuen und den zurückkommenden Wiederholungen.
+- **Vorschlag (nur Regelwert, kein Code):** `wdh_runde_teiler` 5 → 1. Die Runde ist dann alle fälligen, höchstens 12 (bis Kl. 6 höchstens 10).
+  - Mit WD-5 ist der Stau nach etwa 4 Lerntagen weg und bleibt danach bei 0–4.
+  - Ohne WD-5 dauert es etwa 13 Lerntage.
+  - **Preis:** bis zu 12 Wiederholungen je Lerntag statt 6, also etwa doppelte Wiederholungszeit, bis der Stau weg ist.
+  - **Milder:** Teiler 2 – Rückstau 16 → 12 → 10 → 9 → 7 → 9 → 9 → 7, auch nach 14 Lerntagen noch um 10; erst nach rund 20 Lerntagen bei 0.
+  - Entscheidung Sebastian. `update schule.regel set wert = '1' where schluessel = 'wdh_runde_teiler'` ginge jederzeit und ohne Migration.
+
+**Rauchtest `wd5`** (Transaktion, Rollback; spielt WD-5 zweimal ein)
+1. Regel 3, höchstens 3 gesetzte Erst-Wiederholungen je Lerntag.
+2. Reihenfolge nach Plan.
+3. Nur die Fälligkeit gesetzter Erst-Wiederholungen ist geändert. Offene Runde, übrige Etappen, höhere Stufen, Lernstände, Plan und Sterne sind unverändert.
+4. Rückweg echter Bestand: alles zurück, WD-4b-Sicherungen wieder da. Erneut drosseln ergibt die gleiche Verteilung.
+5. Testkind:
+   - 2 Etappen in der offenen Runde bleiben und belegen heute; 1 weitere bleibt heute, dann 3 / 2.
+   - Höhere Stufe und nicht gesetzte Etappe bleiben.
+   - Neu Gesetzte (`wdh_staffel_tag`) kommen ab Lerntag 2.
+   - Rückweg nach Zwischenübung abgelehnt, sonst zurück. WD-4b-Rückweg fasst WD-5 nicht an.
+
+**Lokal gelaufen** (Kopien wie echt; zusätzlich Kopie mit den echten Karten, Lerntagen, Runden, Plänen und Sicherungen der Kinder):
+- `wd5` grün vor und nach dem Einspielen. `wd_s3` und `fp_s` grün vor und nach (Regel jetzt 3).
+- `wd_s` lokal schon vor WD-5 rot (fehlende Auszüge, FEHLER 2), Ergebnis vor und nach gleich.
+- `wd_s3` auf der Kopie mit echten Karten rot bei FEHLER 3, ebenfalls vor und nach gleich (Mischkarten-Verlauf nicht mitkopiert).
+- `nb_s, zp_s` weiter grün.
+- **Lesend auf dem echten Stand nachvollzogen:** Funktionen (`karte_wdh_in`, `wdh_staffel_zurueck` md5-gleich mit lokal), Regeln, Runden, Sicherungen, Verteilung. Das Testkind hat heute keine Runde. Die Tests selbst schreiben (Rollback) und sind deshalb nur lokal gelaufen.
+
+## 2026-11-23 – FERTIG: NB-S 3 / SJ-S 3
+
+Stand `lernen-app` 11e1544 übernommen. Nur Tests geändert, **Migrationen unverändert**; nichts eingespielt, kein DROP/DELETE, kein App-Code.
+- geändert: `supabase/tests/nb_s_rauchtest.sql`, `supabase/tests/sj_s_rauchtest.sql`, `supabase/tests/zp_s_rauchtest.sql` (Tests 12 und 13 neu).
+- Lesend auf dem echten Stand nachvollzogen: Funktionen (`karte_buchen` und `karte_wdh_ereignis` lokal md5-gleich mit echt), Auswahl der Test-Daten je Test, Sterne des Testkinds. Die Tests selbst schreiben (mit Rollback) und sind deshalb nur lokal gelaufen.
+
+**1. nb_s – „unerwartete Sterne“: Fehler im Test, nicht in NB-S**
+- Das Testkind hat auf dem echten Stand schon Sterne aus früheren Probeläufen (lesend gezählt: landung 80 ×5, landung 40 ×1, uebung 10 ×12).
+- Test 5 prüfte alle Sterne des Testkinds statt nur der neuen. Neu dazu kam im Test nur ein Landungs-Bonus (das 6. „landung 80“).
+- **Neu:**
+  - Test 1 prüft wie bisher, dass das Einspielen nichts ändert.
+  - `nb_lesen` prüft in Test 2–4, dass alle Lese-Stellen von NB-S (Liste, Konto, Übersicht, Reisekarte) nichts verändern.
+  - Die Buchungen der nachgestellten Antworten (bisherige Regeln) meldet Test 5 nur noch, ab dem Aufbau gezählt. Fahrplan, Stempel und andere Kinder bleiben geprüft.
+- **Berichtigung meiner Meldung NB-S („Tipp löscht den Fehler-Zähler“): falsch.**
+  - Auf dem echten Weg über `versuch` setzt `versuch_hilfe_merken` die Hilfe. `karte_wdh_ereignis` (WD-S 3/4) hält dann bei „richtig mit Tipp“ in der fälligen Wiederholung den Fehler-Zähler.
+  - „Fehler – (nächster Lerntag) richtig mit Tipp – Fehler“ öffnet also wieder.
+  - Den Zähler löscht nur eine richtige Antwort, solange die Etappe nicht fällig ist (am selben Tag nach dem Fehler).
+  - Der Test bildet das jetzt nach (Hilfe gesetzt wie über `versuch`, „nächster Lerntag“ = wieder fällig) und prüft genau diese Folge.
+- Auswahl auf dem echten Stand (lesend): Testkind, Einheit 3, Etappe mit 20 Übungsaufgaben, Ort mit 3 Themen. Bisher keine wieder offene Etappe beim Testkind.
+
+**2. sj_s – „kann er“ machte zwei Flüge fertig: Fehler im Test, `schuljahr_stand` zählt richtig**
+- **Ursache (lesend):** Der Test nahm das Pflicht-Thema mit den meisten Etappen. Auf dem echten Stand ist das Thema 98 am Ort 80, und dort liegen zwei Themen (98, 44).
+- Gesetzt hat der Test `route.kann_schon = true`. Das heißt „kann er“ für den **ganzen Ort** (`thema_kann_schon`: `kann_schon` oder Thema in `kann_schon_themen`). Also werden beide Flüge fertig, das ist richtig.
+- **Neu:**
+  - Erst „kann er“ nur für das Thema (`kann_schon_themen`): genau +1 fertig, das Thema mit allen Etappen.
+  - Dann der ganze Ort: alle Pflicht-Themen des Orts fertig mit allen Etappen.
+- Auf dem echten Stand läuft das mit dem Testkind Kl. 7 (Thema 98, 9 Etappen; Ort 80 mit 2 Themen). Lokal mit nur einem Thema am Ort geprüft.
+
+**3. ZP-S – neue Testfälle aus ChatGPT 966 (`zp_s` Test 12 und 13)**
+- **Test 12: zwei eingeplante Zusatz-Flüge am selben Ort.** Diesen Fall gibt es heute nicht (lesend: jeder Zusatz-Teil hat einen eigenen Ort: 233, 234, 235, 109, 237). Im Test nachgestellt: zwei Themen eines Orts für die Gruppe als Zusatz markiert. Verhalten:
+  - **Stempel je Teil** (`flug_erstabschluss` je Einheit): 2.
+  - **100 Sterne nur einmal je Ort**, nicht je Teil: Die Buchung hat den Schlüssel `ort` / `block:<Ort>` (eindeutig je Kind).
+  - Der Ort wird erst nach dem zweiten Teil fertig.
+  - **Ungenau:** `zusatz_geschafft.sterne` und damit `zusatz_plan[].sterne` zeigen bei **beiden** Teilen 100, gebucht ist nur einmal.
+  - **Gleiche Wirkung bei Ort mit Pflicht-Thema und eingeplantem Zusatz-Thema:** Die 100 des Orts gehen dann schon beim Zusatz weg, beim Abschluss der Pflicht kommt nichts mehr.
+  - Bitte entscheiden: 100 je Teil (Schlüssel je Thema) oder je Ort (so wie jetzt; dann das Feld auf die tatsächlich gebuchte Menge setzen). Beides bräuchte eine kleine Nach-Migration ZP-S 2; heute ohne Wirkung, weil es keinen solchen Ort gibt.
+- **Test 13: abgeschlossenen Zusatz-Flug aus dem Plan nehmen.**
+  - Die Route steht danach auf `entfernt`. Stempel, 100 Sterne und `zusatz_geschafft` bleiben, nichts wird zurückgebucht.
+  - Im `zusatz_plan` steht der Flug nicht mehr. Die Stufe fällt auf „nicht im Plan“, weil der Zusatz ohne Eintrag wieder freiwillig ist und keine Pflicht-Etappe hat.
+  - Wieder einplanen: Route wieder `fertig`, nichts doppelt.
+  - Hinweis für die App: Ein herausgenommener, geschaffter Zusatz zeigt im Lehrplan „nicht im Plan“ statt „geschafft“. Der Stempel bleibt im Reisepass.
+
+**Rauchtests** (lokal, Kopien wie echt): 50 Läufe grün.
+- Tests: `nb_s, sj_s, zp_s, tl_s, rd_s, ex_s, lz_s, nt_s, lk_s, fp_s`.
+- Stände: vor ZP-S, nach ZP-S, NB → SJ, SJ → NB, Testkind in Kl. 8.
+
 ## 2026-11-23 – FERTIG: NB-S 2 / SJ-S 2
 
 Stand `lernen-app` 31d5374 übernommen. Nur Dateien, nichts eingespielt, kein DROP/DELETE, kein App-Code.

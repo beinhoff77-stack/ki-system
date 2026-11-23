@@ -3268,3 +3268,114 @@ Datei `inhalte/pruefung/kind/expedition/nachpruefung_ex.md`. Für den nächsten 
 - S1 Ansicht „Expedition freigeschaltet“ bei 360 × 640: Voraussetzungs-Chips verdeckt → höchstens 2 Chips + „+2 weitere“ oder Szene scrollt.
 - S2 „freiwillig“ steht noch bei den Knobel-Bordkarten (Knopf, Link, Info-Text). Sebastian (23.11.): „wenn da irgendwo freiwillig steht, machen sie es nie“ → auf der ganzen Kinderseite ersetzen („für Profis“), Eltern-/Lehrer-Seiten dürfen es behalten.
 - K1 begonnene Expedition: Kopf „EXPEDITION · TEIL B VON 3“. K2 Stand-Kacheln über der Expeditions-Karte nach unten bzw. in „Mein Schuljahr“. K3 „gesehen am“ vom Server (zweites Gerät) – EX-S-Nachtrag. K4 kein Bau.
+
+## LIVE: App 0.91.2 – 23.11., 03:45 Berlin
+
+`main` b2be237 = `lernen-app` 1cc66d0, Auslieferung erfolgreich. App-Tests 169 von 169, Prüfung Gestalter EX-App ohne Muss. Enthält EX-App (0.91.0), LZ-App + Kopf (0.91.1), Absicherung Kinder-Wechsel (0.91.2). Server unverändert (`lernen-api` 0.9.3).
+
+## Probeläufe NB-S 3 / SJ-S 3 / NT-D 3 und WD-5 (23.11., 04:00 Berlin, echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` 6b16f6b.
+- **NB-S + SJ-S + nt_einspiel_2311:** zweimal ohne Fehler; Karten, Sterne, Plan, Reiseoptionen, Stufen unverändert. Tests grün: nb_s, sj_s, zp_s (mit neuen Fällen 12/13) vor und nach; tl_s, nt_s, lz_s nach.
+- **WD-5:** zweimal ohne Fehler; Regel 3; alles außer den Fälligkeiten gesetzter Erst-Wiederholungen unverändert (Kind 1 ganz unverändert, Sterne, Plan). Kind 2 fällig je Tag vorher 23·11·11·12·6·9·3, nachher 16·8·8·9·3·6·4·3·3·3·3·3·3·3; gesetzte je Lerntag 3. Tests grün: wd5 (vor und nach), wd_s, wd_s3, fp_s.
+- **Befund bau-lehrer (Hochrechnung):** 3 je Lerntag allein löst den Stau nicht auf (pendelt um 20–30), weil die Runde (Rückstau ÷ 5, mindestens 6) kaum über dem Zulauf liegt. Vorschlag: `wdh_runde_teiler` 5 → 1 (Runde = alle fälligen, höchstens 12; bis Kl. 6 höchstens 10) → mit WD-5 Stau nach etwa 4 Lerntagen weg, danach 0–4. Milder: Teiler 2 → nach 14 Lerntagen noch um 10. Entscheidung Sebastian.
+Prüfbitte an ChatGPT gestellt (beide Pakete).
+RK-App 0.92.0 (Reisekarte) von `bau-motivation` zusammengeführt; App-Tests laufen.
+
+## Wunsch Sebastian (23.11., 04:05 Berlin): Jugendwörter in den Geschafft- und Belohnungs-Ansichten · Auftrag JW (vorgemerkt)
+
+Sebastian: In den Geschafft-Bildern/Belohnungsfeldern nach einer Etappe „die neumodernen Jugendwörter einbauen (Digger …) – die müssen auch erst recherchiert werden“.
+Erste Recherche Haupt-Chat (Langenscheidt-Wahl): 2026 Platz 1 „Ragebait“, 2 „Peak“, 3 „Crashout“; Top 10 außerdem „67“, „Digga“, „Du bist gut genug“, „Gute Käse“, „Macker“, „Schere“, „Süper“. 2025: „Das crazy“ vor „goonen“ und „checkst du“.
+Vorschlag: gepflegte Wortliste (Wort, Bedeutung, wofür geeignet: Lob / Fehler / neutral, Quelle, Jahr, ungeeignet-Kennzeichen), ungeeignete Wörter ausgeschlossen (beleidigend, sexuell, abwertend), die Kinder wählen selbst aus und können es je Kind abschalten; Sprüche wechseln; Liste halbjährlich prüfen. Schritte: Recherche → Auswahl durch die Kinder → Texte (Gestalter) → App (`bau-motivation`).
+
+## Rückläufer ChatGPT 968 (23.11., 04:10 Berlin) zu NB-S 3 / SJ-S 3 / NT-D 3 und WD-5
+
+**Paket 1 (NB-S, SJ-S, nt_einspiel_2311): Freigabe** zum Einspielen in einer Transaktion. Hinweis: Rauchtests ersetzen die Zugriffskontrolle, sind kein Nachweis eines abgewiesenen Fremdzugriffs (Funktionen nutzen die bestehende Prüfung).
+**Muss für die gemeinsame Anzeige (App, nicht Datenbank):** Der Ring (`lernLwRing`, lernen.js) filtert nur Schulart/Klasse und zieht Zusatz der Gruppe nicht ab; `schuljahr_stand` zieht ihn ab. Für RS II/III und MYP Standard weichen die Zahlen ab (Gegenprobe: 60 % gegen 100 %). → SJ-App: Ring an `schuljahr_stand` anbinden bzw. dieselbe Auswahl; Test mit einem Gruppen-Zusatzfall. Betrifft heute kein Kind (beide Gymnasium).
+**Paket 2 (WD-5): Muss vor Freigabe** – Rückweg `wdh_drosseln_zurueck` (Zeilen 103–116): Eine verschobene Etappe, die nach der Migration in die offene Tagesrunde kommt, wird vor der ersten Antwort noch zurückgeschrieben (Rundenausschluss fehlt im Rückweg). Verlangt: Rücknahme ablehnen, wenn eine betroffene Etappe in einer offenen Runde steht, mit Sperre gegen parallelen Rundenstart; auch beim Einspielen parallelen Rundenstart ausschließen; Test (drosseln → Runde öffnen → Rückweg vor erster Antwort → nichts verändert); Test 4 ergänzen: ältere WD-4b-Sicherungen feldweise vor/nach dem Rückweg vergleichen.
+**Lernsicht:** Teiler 1 für zunächst vier tatsächliche Lerntage erproben (höchstens 12, bis Kl. 6 höchstens 10), danach Rest, Dauer und Fehler ansehen; Teiler 2, falls die längeren Runden neues Lernen verdrängen. Entscheidung Sebastian getrennt.
+- Nachtrag JW (23.11., 04:15): Sebastian will „unbedingt“ das Wort, das wie „Tschüsch“ klingt → gemeint ist sehr wahrscheinlich **„Çüş“ / „Cüs“** (gesprochen „Tschüüüsch“, aus dem Türkischen; Ausruf des Staunens wie „Krass!“, „Heftig!“; ursprünglich Halte-Ruf für Esel/Pferde, kann auch „mach mal halblang“ bedeuten). Für Lob nur eindeutig staunend verwenden („Çüüüş – 5 in Folge!“). Schreibweise und Einsatz von den Kindern bestätigen lassen.
+
+## Auftrag JW – Jugendwörter in Geschafft- und Belohnungs-Ansichten (23.11., 04:20 Berlin) · Sebastian: „macht euch Gedanken, wie man die cool einbauen kann, und setzt die ein“
+
+**JW-G · an den Gestalter (Recherche + Vorgabe):** `inhalte/pruefung/kind/jugendwoerter/umsetzung.md` + `woerter.json`.
+1. Recherche: 60–80 aktuelle deutsche Jugendwörter (Langenscheidt-Wahlen 2024–2026 und weitere Quellen), je Wort: Schreibweise(n), Bedeutung, Tonlage, Jahr, Quelle, geeignet für `lob_klein` / `lob_gross` / `staunen` / `fehler_mild` / `anrede` oder `ungeeignet` mit Grund. Fest dabei: „Çüş“ (Tschüsch), „Digga“, „Peak“, „Gute Käse“, „Süper“, „Das crazy“, „Schere“ (nur Fehler). Ausschluss: beleidigend, sexuell, abwertend, Wut/Provokation (z. B. „goonen“, „Ragebait“, „Crashout“, „sybau“).
+2. Einbau-Idee, die nicht peinlich wirkt: wo genau (Landung einer Etappe in den drei Fassungen, Knobel richtig, Serie, Wiederholung bestanden, Flug geschafft, Expedition, „Nachbessern“ geschafft, Fehler-Rückmeldung), wie oft (Dosis), wie (Ausruf groß als Stempel/Sticker statt ganzer Sätze im Slang; der erklärende Satz bleibt normales Deutsch), Abwechslung (kein Spruch zweimal hintereinander), passend zu Ergebnis (fehlerfrei ≠ mit Hilfe).
+3. 40–60 fertige Sprüche wörtlich, je Anlass und Stärke; getrennte Sätze für 11 und 14 Jahre, falls nötig.
+4. Einstellungen: je Kind an/aus und Dosis (Kind selbst und Eltern), „Wort gefällt mir nicht“ am Spruch (blendet das Wort für dieses Kind aus), Liste als Datei pflegbar (halbjährlich prüfen, Verfallsdatum je Wort).
+5. Entwurf und Bilder 400/820, Tag und Nacht.
+**JW-App · an `bau-motivation`:** nach RK-App und den Karten NB/SJ/ZP. **JW-S** nur, falls Einstellungen/ausgeblendete Wörter je Kind in der Datenbank liegen sollen (sonst erst auf dem Gerät).
+
+## EINGESPIELT: NB-S, SJ-S, NT-D 3 – 23.11., 04:22 Berlin
+
+Freigabe Sebastian („Nachbessern und Schuljahr in die Datenbank einspielen“), Prüfung Werkstatt 968 (Paket 1 Freigabe), Werkstatt-Änderung 384. Kinder 86 bzw. 157 Minuten ohne Antwort, kein Test offen. In der Transaktion geprüft: Karten, Sterne, Lernziel-Stände, Erstabschlüsse, Plan, Reiseoptionen, Stufen unverändert; Aufgaben 30162 → 30176. Danach grün: nb_s, sj_s, zp_s, tl_s, nt_s, lz_s. `schuljahr_stand` live: Kind 1 Kl. 5 13/15 Flüge, 83/112 Etappen offen (26 %); Kind 2 Kl. 7 7/12, 43/69 (38 %), Kl. 8 15/16, 93/102 (9 %), Kl. 9 14/14, 107/107.
+
+## Entscheidung Sebastian (23.11., 04:20 Berlin): Rundengröße „A“
+
+Wiederholungsrunde = alle fälligen, höchstens 12 (bis Kl. 6 höchstens 10): `wdh_runde_teiler` 5 → 1, zunächst für vier tatsächliche Lerntage zum Erproben; danach Rest, Dauer und Fehler ansehen (Haupt-Chat), bei Bedarf Teiler 2. Wird zusammen mit WD-5 eingespielt.
+
+## Probelauf WD-5 2 (23.11., 04:30 Berlin, echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` 330a6e3, Datei `20261128_wd5_staffel_drosseln.sql` (2983eacd…). Zweimal ohne Fehler; alles außer den Fälligkeiten gesetzter Erst-Wiederholungen unverändert; Kind 2 fällig je Lerntag vorher 23·11·11·12·6·9·3, nachher 16·8·8·9·3·6·4·3·3·3·3·3·3·3; gesetzte je Lerntag 3. Tests grün: wd5 (vor/nach, mit Rundensperre und Rückweg-Ablehnung), wd_s, wd_s3, fp_s.
+**Mit Teiler 1 (Entscheidung A) zusätzlich gesetzt:** `wd_s_rauchtest` „FEHLER 1 Rundengröße Klasse 8“ – der Test rechnet mit Teiler 5. → Nachtrag `bau-lehrer`: wd_s-Test setzt den Teiler im Test selbst (merken/wiederherstellen) und prüft zusätzlich Teiler 1 (alle fälligen, höchstens 12 bzw. 10 bis Kl. 6, mindestens-Regel).
+Prüfbitte an ChatGPT (WD-5 2 + Teiler 1).
+
+## Prüfung Gestalter RK-App (0.92.0): 1 Muss, 7 Soll, 5 Kann → Nachtrag RK-App 2 (0.92.1) an `bau-motivation`
+
+Datei `inhalte/pruefung/kind/karte/nachpruefung_rk.md`.
+- **M1** Stadt „wieder offen“ wird als ✓ gelandet gezeigt → eigener Zustand (orange, ↻, kein ✓), Text „Nachbessern“.
+- **S1** Rechner: Karte fensterfüllend, Kopf eine Zeile. **S2** Handy: eine Kopfzeile, schwebende Karte kompakter, Expeditions-Karte einzeilig. **S3** rechts „x/6 Bordkarten dieser Stadt“ statt „4/13“. **S4** Land-Ebene: Ausschnitt auf die Städte-Route, Städtenamen nach Vorrang, Überdeckungen auflösen. **S5** Welt auf dem Handy als Ausschnitt um den aktuellen Kontinent. **S6** Blatt beim Ebenenwechsel schließen. **S7** Zusatz-Text ohne „freiwillig“.
+- **K1–K3** nach Prüfung; **K4** Datenauftrag an `bau-lehrer`: „gesperrt“ (Visum/ab Klasse) und „abgelegt“ je Stadt in `schule_reise_karte`.
+- Dazu der wacklige Test „LB Teil 6 Punkt 6“ (Nachtrag vom 23.11.) und aus Prüfung EX: S1, S2 („freiwillig“ bei Knobel → „für Profis“), K1, K2.
+
+## Rückläufer ChatGPT 970 und Probelauf WD-5 3 + RK-D (23.11., 04:45 Berlin, echte Datenbank, alles zurückgerollt)
+
+**ChatGPT 970:** Muss-Punkte aus 968 an WD-5 2 behoben. Einzige Bedingung vor gemeinsamer Freigabe von WD-5 + Teiler 1: `wd_s_rauchtest` Teil 1 für den neuen Teiler korrigieren und im gemeinsamen Rollback-Lauf grün nachweisen; danach kein weiterer Muss-Einwand.
+**Probelauf (Stand `lernen-app` 410cc6b):** WD-5 3 (b6432679…, setzt `wdh_gesetzt_je_lerntag` = 3 und `wdh_runde_teiler` = 1) und RK-D (ddb5d738…) je zweimal ohne Fehler. Alles außer den Fälligkeiten gesetzter Erst-Wiederholungen unverändert (Karten sonst, Sterne, Plan, Reiseoptionen; Kind 1 ganz). Tests grün vor und nach: wd5, wd_s (Teiler 5 und 1), wd_s3, fp_s, rk_d. Kind 2 nachher fällig je Lerntag 16·8·8·9·3·6·4·3·3·3·3·3·3·3, Runde heute 12. Reisekarte Kind 2 mit RK-D: 282 ms, 31 Flüge „gesperrt“, 0 Städte „abgelegt“.
+→ Bedingung aus 970 erfüllt: WD-5 3 einspielbar nach Sebastians Satz. RK-D: Prüfbitte an ChatGPT.
+
+## Vorgabe JW (Jugendwörter) vom Gestalter, Fassung 2 – laut Vorgabe von Sebastian so festgelegt
+
+`inhalte/pruefung/kind/jugendwoerter/` (umsetzung.md, woerter.json, Entwurf, Bilder). Ein Sticker je Geschafft-Ansicht, Satz bleibt normales Deutsch; **keine Einstellungen, keine Auswahl, keine Altersstufen, Anrede „Digga“**; 74 Wörter geprüft, 30 im Einsatz, 52 Sprüche; Antippen zeigt die Bedeutung. Überholt die Punkte „je Kind abschaltbar / Wort gefällt mir nicht“ aus dem Auftrag JW. → JW-App an `bau-motivation` nach RK-App 2.
+
+## Rückläufer ChatGPT 972 (23.11., 04:50 Berlin)
+
+**WD-5 3 mit `wdh_runde_teiler` = 1: Freigabe.** Bedingung aus 970 erfüllt.
+**RK-D: Muss vor dem Einspielen** – an `bau-lehrer` (RK-D 2):
+1. `20261129_rk_d_karte_felder.sql` Zeile 85: Beim Wiederholen genügt der Text „RK-D“ irgendwo für „schon eingespielt“; ein teilweise zurückgeänderter Funktionskörper würde akzeptiert. → Rückkehr nur, wenn alle fünf Zielblöcke je genau einmal vollständig vorhanden sind; Mischstand bricht mit Fehler ab; Test mit einem fehlenden Zielblock bei erhaltener Markierung.
+2. `20261125_rd_s_reise.sql` Zeile 194 (Rückfall für `naechster_start.stadt`, wenn keine offene Stadt): übernimmt die erste Stadt bis auf vier Felder → mit RK-D gelangen die fünf neuen Stadtfelder in die Start-Antwort. → Rückfall auf das bisherige Feldset begrenzen (einschließlich optionalem `zaehlt`); Vorher/Nachher-Vergleich für einen Startkandidaten ohne offene Stadt.
+3. `rk_d_rauchtest.sql` Zeilen 114–116: Test 3b meldet Erfolg auch bei wirkungsloser Einplanung → erst `im_plan` wahr verlangen, dann `gesperrt` falsch und Grund leer am Flug und seinen offenen Städten (Testflug ohne fehlendes Visum).
+Fachregel: 31 gesperrte Flüge bei Kind 2 sind plausibel (28 harte Visa der Gruppe, 3 Klassenstufe außerhalb des Plans; zwei der 28 sind eingeplant – ein Planplatz überstimmt die Klassengrenze, nicht ein fehlendes hartes Visum).
+
+## Probelauf RK-D 2 (23.11., 04:55 Berlin, echte Datenbank, alles zurückgerollt)
+
+Stand `lernen-app` d23b9fc, Datei `20261129_rk_d_karte_felder.sql` (a22f6b2d…). Zweimal ohne Fehler; Karten, Sterne, Plan, Reiseoptionen, Stufen unverändert; `naechster_start` aller Kinder vorher = nachher. Tests grün: rk_d (vor/nach, mit Mischstand-Test und strengem 3b), rd_s, nb_s. Karte Kind 2: 280 ms, 31 Flüge gesperrt. Nachprüfbitte an ChatGPT.
+
+## EINGESPIELT: WD-5 3 (Drosseln), Rundengröße A (Teiler 1), RK-D 2 (Kartenfelder) – 23.11., 05:00 Berlin
+
+Freigabe Sebastian („Drosseln, Rundengröße und Kartenfelder in die Datenbank einspielen“), Prüfung Werkstatt 972 und 974 (Freigaben), Werkstatt-Änderung 385. Kinder 125 bzw. 197 Minuten ohne Antwort, kein Test offen. In der Transaktion geprüft: außer den Fälligkeiten gesetzter Erst-Wiederholungen nichts verändert; `naechster_start` gleich; höchstens 3 gesetzte je Lerntag. Danach grün: wd5, wd_s, wd_s3, fp_s, rk_d, rd_s.
+Kind 2: fällig heute 16 (vorher 23), danach 8·8·9·3·6·4·3…; Kind 1: 0 fällig. Regeln: `wdh_gesetzt_je_lerntag` = 3, `wdh_runde_teiler` = 1.
+**Erprobung:** vier tatsächliche Lerntage; danach Rest nach der Runde, Dauer und Fehler bei Kind 2 ansehen (Haupt-Chat). Rückweg: Teiler 2 oder 5 (eine Einstellung); `schule.wdh_drosseln_zurueck()` nur, solange keine verschobene Etappe geübt wurde.
+
+## App 0.92.2 (RK-App 2): Gesamtlauf 179 von 179; Sebastian: „Mach nochmal Prüfung“ (23.11., 05:20 Berlin)
+
+Kein Live vor der zweiten Prüfung des Gestalters. Eigene Datenprüfung Haupt-Chat (echte Karten-Antwort, lesend): je Kind 95 Flüge, kein Flug ohne Stadt, keine fehlende Lage. Kind 1: Start Schweiz/Chur (Stadt 5 von 14), 26 im Plan, **68 von 95 Flügen gesperrt**, davon 9 eingeplante (alle Grund Visum, u. a. Platz 3, 7, 8, 10), 2 Stempel. Kind 2: Start Nepal/Lalitpur (Stadt 2 von 5), 44 im Plan, 31 gesperrt, davon 2 eingeplante (Kongruenzabbildungen Teil 2 und 3), 5 Stempel. Für die Prüfung wichtig: Mit echten Daten trägt die Mehrheit der Länder ein Schloss; bekannte Überlappung der Länder-Schilder in Mitteleuropa auf dem Handy.
+
+## Zweite Prüfung Gestalter RK-App (0.92.2): live erst nach zwei Punkten → Nachtrag RK-App 3 (0.92.3) an `bau-motivation` (23.11., 05:30 Berlin)
+
+Datei `inhalte/pruefung/kind/karte/nachpruefung_rk2.md`. Erste Prüfung: M1, S1, S3, S5, S6, S7, K1–K3 erfüllt; S2 und S4 teilweise.
+**Muss vor dem Live:**
+- **M1 Kopfzeile Handy (400 px) überdeckt sich:** Pfad unter den Knöpfen, in der Land-Ebene „Zu mir“ nicht antippbar, Landesname abgeschnitten. → rechts fest ▤ · ★ · ≡ (je ≥ 44 px), „Zu mir“ in die Kartenknöpfe (unter ⤢), Pfad kürzt von links (`‹ … › 🇮🇹 Italien 📍`), aktuelle Stufe immer ganz. Test bei 360 und 400 px.
+- **Sperr-Anzeige (S3 der Prüfung, jetzt Muss, weil RK-D seit 05:00 eingespielt ist):** nach Abschnitt 3 der Prüfung – nicht im Plan und gesperrt = nur gedämpft, kein Schloss; im Plan und gesperrt = Platznummer grau + kleines 🔒, Route grau gepunktet; Grund beim Antippen („🔒 Erst ‹Land› schaffen“ mit Sprung-Knopf, „🔒 Ab Klasse 7 – kommt später.“); Land-Ebene eines gesperrten Flugs grau; „abgelegt“ = goldener ★ an der Stadt. Tests wie dort (Kl.-5-Lage Afrika 0 Schlösser; Europa Platz 3 genau ein 🔒).
+**Soll:** S1 Haltestellen-Kästchen entzerren (wie die Namen); S2 Länder-Schilder in dichten Gegenden nach Abschnitt 2 (Vorrang, vier Lagen, weglassen statt überdecken, Hauptstadt-Zeile nur für dran/nächste 3/angetippt, Fächer für Pin-Köpfe). **Kann:** K1 Quellen-Zeile, K2 Welt-Ausschnitt mit Nachbarn, K4 kleine Legende hinter ⓘ.
+Urteil Gestalter zu Frage 8: „was als Nächstes kommt“ ja auf allen Größen; „wo bin ich“ auf dem Handy erst mit M1.
+
+## Reihenfolge App (Entscheidung Sebastian 23.11., 05:50 Berlin: „getrennt“) · Bau-Auftrag KJ (0.93.0) an `bau-motivation`
+
+1. **RK-App 3 (0.92.3)** – Reisekarte live (läuft).
+2. **KJ (0.93.0), direkt danach, ein Schritt:**
+   - **JW-App – Jugendwort-Sticker:** Vorgabe `inhalte/pruefung/kind/jugendwoerter/umsetzung.md` (Fassung 2: ein Sticker je Geschafft-Ansicht, Satz bleibt normales Deutsch, keine Einstellungen, Anrede „Digga“, Antippen zeigt die Bedeutung), Daten `woerter.json` (als Datei in der App, mit Verfallsdatum; abgelaufene Wörter werden nicht gezogen), kein Wort aus den letzten 4 Stickern, Stärke nach Ergebnis.
+   - **NB-App / SJ-App / ZP-App:** Vorgabe `inhalte/pruefung/kind/karten/umsetzung.md`; Felder: `nachbessern[]` und `schuljahr_stand` in `schule_konto`/`schule_uebersicht`, `naechster_start.grund = nachbessern`, `zusatz_plan[]`, `zusatz_eingeplant`/`zusatz_geschafft` (Meldungen NB-S, SJ-S, ZP-S in `bau-lehrer.md`).
+   - **Muss aus ChatGPT 968:** Ring der Lehrer-Ansicht (`lernLwRing`) an `schuljahr_stand` anbinden bzw. dieselbe Themen-Auswahl (Zusatz der Gruppe abziehen); Test mit einem Gruppen-Zusatzfall.
+   - **Muss aus ChatGPT 966:** eingeplanter Zusatz in Lehrer-Ansicht („Zusatz · eingeplant“, Fortschritt x/y) und Kinderseite sichtbar.
+   - Karte „Stand“ im Überblick der Lehrer-Seite mit den Zahlen „noch x von y Flügen · noch a von b Etappen“.

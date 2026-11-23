@@ -1,0 +1,16 @@
+{
+  "name": "karte-bauen",
+  "private": true,
+  "description": "RK-App: Umrisse der Reisekarte im Build vorrechnen (nur Werkzeug, nicht in der App). Aufruf: npm ci && node bauen.mjs",
+  "type": "module",
+  "dependencies": {
+    "countries-list": "3.4.1",
+    "d3-geo": "3.1.2",
+    "flag-icons": "7.6.0",
+    "i18n-iso-countries": "7.14.0",
+    "topojson-client": "3.1.0",
+    "topojson-server": "3.0.1",
+    "topojson-simplify": "3.0.3",
+    "world-atlas": "2.0.2"
+  }
+}

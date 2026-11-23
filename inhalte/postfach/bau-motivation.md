@@ -2,6 +2,274 @@
 
 Neueste oben.
 
+## 2026-11-23 – FERTIG: RK-App 3 (App 0.92.3)
+
+Stand `lernen-app` 5349917 übernommen; vor dem Push bis 845a737 nachgezogen, dabei kamen keine App-Dateien hinzu. Nur App: keine Datenbank, kein Merge nach `main`, keine Namen; nur Testkind und erfundene Daten. Cache v174.
+
+**MUSS 1 – Handy-Kopf (360/400 px)**
+- Rechts stehen fest ▤ · ★ · ≡: je ≥ 44 px, 4 px Abstand.
+- „📍 Zu mir“ steht unter ⤢ in den Kartenknöpfen, in gleicher Form. Ab 761 px bleibt es zusätzlich im Kopf.
+- Der Pfad bekommt den Rest der Breite und kürzt von links:
+  - Kontinent-Ebene: `🌍 › Europa 📍`
+  - Land-Ebene: `… › 🇮🇹 Italien 📍`; „…“ ist antippbar und führt zum Kontinent.
+- Die aktuelle Stufe steht immer ganz.
+- Test bei 360 und 400 px, Tag und Nacht, Kontinent- und Land-Ebene:
+  - Kästen von ‹, Pfad, ▤, ★ und ≡ ohne Überdeckung
+  - Maße und Abstände geprüft
+  - aktuelle Stufe nicht abgeschnitten
+  - „Zu mir“ per echtem Klick
+- Schild antippen öffnet jetzt das Land wie der Pin.
+
+**MUSS 2 – Sperr-Anzeige (RK-D, Abschnitt 3 der Prüfung)**
+- Gelesen werden `gesperrt`, `gesperrt_grund`, `ab_klasse`, `visum_fehlt`, `abgelegt` je Flug und Stadt.
+- **Gesperrt und nicht im Plan:** Pin 40 %, Flagge grau, Schild grau ohne Hauptstadt-Zeile, Fläche 55 %. Kein Schloss, kein „Städte ansehen“.
+- **Gesperrt und im Plan:** Platznummer grau, kleines 🔒 unten links am Kopf, Route dorthin grau gepunktet. Die rechte Liste zeigt „🔒 wartet“. Freie Plätze bleiben gelb.
+- **Grund beim Antippen:**
+  - „🔒 Erst ‹Land› schaffen“ mit Knopf „Zu ‹Land› ›“. Bei zwei Ländern stehen beide da, ab drei „…, … und n weitere Länder“.
+  - Klasse: „🔒 Ab Klasse 7 – kommt später.“
+  - Vorlesetext: „…, wartet – erst ‹Land› schaffen, Platz 3 im Plan“ bzw. „…, ab Klasse 7“.
+  - **Annahme:** `visum_fehlt` nennt Orte (Blöcke), nicht Länder. Die App sucht die Länder über `schule_uebersicht.themen` (block_id → Flüge der Karte, nur noch nicht geschaffte). Findet sie keinen Flug, nennt sie den Namen des Ortes.
+- **Land-Ebene eines gesperrten Flugs:** Haltestellen grau, Route grau gepunktet, oben der Grund. Keine Schlösser an den Städten.
+- **abgelegt:** Stadt-Kästchen golden mit ★ statt ✓; in der Liste „abgelegt ★“.
+- **Startknopf:**
+  - `naechster_start` auf einen gesperrten Flug wird nicht genommen.
+  - Gehört die Einheit des Startknopfs zu einem gesperrten Flug, führt er zum Flug, der auf der Karte dran ist, sonst zum nächsten freien „jetzt“.
+  - Gibt es keinen freien Flug, steht „🔒 Gerade wartet alles auf ein anderes Land“ ohne Link.
+- **Tests (Lagen aus der Prüfung nachgestellt):**
+  - Kl.-5-Lage Afrika: 0 Schlösser, alles gedämpft; Europa: genau 1 🔒.
+  - Europa mit Platz 3 (Slowenien) gesperrt bei 400 und 1280 px:
+    - genau ein 🔒, an Platz 3, Nummer grau, Schweiz (Platz 2) gelb
+    - Route grau
+    - Antippen (echter Klick) zeigt „🔒 Erst Schweiz schaffen“; „Zu Schweiz ›“ springt zur Schweiz
+    - Land-Ebene grau
+    - Rom abgelegt ★
+    - Startknopf nicht auf dem gesperrten Flug
+  - Kl.-8-Lage: zwei wartende im Plan (Slowenien, Deutschland).
+
+**SOLL**
+- **S1 – Haltestellen:**
+  - Die Kästchen werden nach Vorrang gesetzt: hier, wieder offen, nächste 3, gelandet, Rest.
+  - Überdeckt eines ein schon gesetztes, rückt es bis 16 px weg, im Notfall bis 24 px. Dazu kommen eine feine Linie und ein Punkt am echten Ort.
+  - Test 400 und 1280 px: 13 Kästchen ohne Überdeckung.
+- **S2 – Länder-Schilder:**
+  - Vorrang wie Abschnitt 2: dran, nächste 3, wieder offen, geschafft, Plan, Zusatz, offen, gesperrt, ohne Flug.
+  - Vier Lagen (rechts, links, oben, unten). „Frei“ heißt: kein Schild, kein Kopf, keine Kartenknöpfe und keine Quellen-Zeile darunter.
+  - Kein Platz → Schild weglassen, Pin bleibt. Länder ohne Flug kommen erst nach allen Flug-Schildern.
+  - Hauptstadt-Zeile auf dem Handy nur für dran, die nächsten 3 und das angetippte Land.
+  - Fächer: Köpfe, die sich zu mehr als einem Drittel überdecken, rücken bis 14 px schräg weg; die Spitze bleibt.
+  - Test bei 360 und 400 px in Europa, Afrika und Asien: Schild/Schild und Schild/Kopf ohne Überdeckung; IT, CH, SI und DE beschriftet.
+
+**KANN**
+- **K1:** Quellen-Zeile unten links, auf dem Handy über der Schwebekarte.
+- **K2:** Die Welt startet auf Handy und Tablet mit den zwei nächsten Nachbarn samt Namen im Bild (Test 400/820).
+- **K4:** ⓘ in den Kartenknöpfen öffnet die kleine Legende: ✈ · Platz · ✓ · ★ · ↻ · 🔒 · +.
+
+**Nachweis:** `tests/lernen.test.cjs` dreimal:
+- Lauf 1: **183/183**, 350 s
+- Lauf 2: **183/183**, 359 s
+- Lauf 3 mit 4-fach gedrosselter CPU (`LERN_CPU=4`): **183/183**, 756 s
+- Die übrigen Testdateien (Reise/PWA) habe ich diesmal nicht laufen lassen.
+
+**Bilder** in `docs/previews/la/`:
+- `rk3-kl5-europa|kl8-europa-{400,820,1280}-{tag,nacht}.png`
+- `rk3-kl5-afrika-{400,820,1280}-{tag,nacht}.png`
+- `rk3-kopf-land-360-*`
+- `rk3-eu3-*`, `rk3-grund-*`, `rk3-land-gesperrt-*`
+- `rk3-schilder-{europa,afrika,asien}-{360,400}`
+- `rk3-welt-legende-{400,820}`
+
+**Offen:**
+- In Ostafrika (Kl.-5-Lage) liegen gedämpfte Pins weiter dicht. Die Fächer gelten nur für Pins mit Flug, die Schilder überdecken sich nicht.
+- Auf 360 px kürzt die Schwebekarte den Stadtnamen („Bologn…“).
+
+## 2026-11-23 – FERTIG: RK-App 2 (App 0.92.2)
+
+Stand `lernen-app` e0f3873 übernommen, vor dem Push nachgezogen bis 4596160. Dabei kamen keine App-Dateien hinzu. Nur App: keine Datenbank, keine Migration, kein Merge nach `main`, keine Namen; nur Testkind und erfundene Daten. Cache v173.
+
+**Versionsnummer:** Der Auftrag nennt 0.92.1, diese Nummer ist aber schon vergeben („0.92.x abgesichert“). Deshalb **0.92.2**.
+
+**Muss**
+- **M1 „wieder offen“** ist ein eigener Zustand:
+  - Haltestelle orange `#C8642B` mit ↻, kein ✓
+  - gestrichelter Ring, Unterzeile „wieder offen“
+  - Liste rechts und Vorlesetext: „wieder offen – nachbessern“
+  - Der Land-Pin trägt ein orangefarbenes ↻-Abzeichen.
+  - „wieder offen“ und „hier“ liegen über den Nachbar-Haltestellen; Neapel verdeckte vorher Pompei.
+
+**Soll**
+- **S1 Rechner:**
+  - Die Kopfzeile ist eine Zeile in der oberen Leiste: ‹ · Meine Reise · Pfad · Zu mir · Abflugtafel · ★ · ≡.
+  - Die Karte füllt das Fenster, die Seite rollt nicht. Das prüft der Test.
+- **S2 Handy:**
+  - Kopfzeile: ‹ · Pfad · 📍 · ▤ · ★ · ≡, nur Symbole, alle Tippflächen ≥ 44 px. Eine Stufe ohne Bezeichnung zeigt nur 🌍.
+  - Die Schwebekarte ist kompakt: Stadt, Land, x/6 und Knopf.
+  - Die Expedition steht als eine Zeile „⛯ Expedition freigeschaltet: … · Starten ›“; groß erst nach dem Antippen.
+- **S3:**
+  - Rechts stehen die Bordkarten der aktuellen Stadt (x/6), gelesen aus `etappen_stand` der Einheit (`schule_einheit_lesen`).
+  - Die Zahl der Städte steht nur im Text „Stadt 5 von 13“; die Haltestelle heißt „Bologna · 3/6“.
+- **S4:**
+  - Die Land-Ebene startet als Rahmen um die Stadtroute.
+  - Reihenfolge der Namen: hier, die nächsten drei, die gelandeten, der Rest.
+  - Bei Überdeckung wird ein Name versetzt (bis zu 14 Lagen) statt weggelassen.
+- **S5:**
+  - Die Welt startet auf dem Handy als Ausschnitt um den aktuellen Kontinent.
+  - „x/y Länder“ erscheint erst ab dem 1,4-fachen Zoom; am Rechner steht es immer.
+  - Kontinent-Namen, die sich berühren, rücken nach unten; das betrifft auch Orient.
+- **S6:** Beim Wechsel der Ebene schließt sich das Blatt.
+- **S7:** „Zusatz für Entdecker – muss nicht sein.“
+
+**Kann**
+- **K1:**
+  - Der Puls ist eine eigene Ebene unter dem Pin, ohne Treffer.
+  - Der Pin hat eine feste Trefferfläche von 44 px und steht still; echte Klicks gehen jetzt ohne `dispatchEvent`.
+- **K2:** Die Kette zwischen Teilen ist dünn und grau (0,5).
+- **K3:** Die eigene Hauptstadt erscheint in der Land-Ebene nur als ◉ und verdeckt die erste Haltestelle nicht.
+- **K4:** nicht gebaut.
+
+**EX-Nachprüfung**
+- **S1:** Bei Höhe < 700 px (360 × 640) höchstens 2 Chips plus „+n weitere“, ohne Scrollen.
+- **S2:** Auf der ganzen Kinderseite steht kein „freiwillig“ mehr; Knobel heißt „für Profis“.
+- **K1:** Nach dem Start heißt die Karte „EXPEDITION · TEIL B VON 3“, die Expedition „⛯ EXPEDITION“.
+- **K2:** Die Stand-Kacheln stehen unter der Abflugtafel.
+
+**LB Teil 6 Punkt 6, Ursache:** schon mit 0.92.1 geklärt und behoben.
+- Der Test klappte „blind“ und mit stillem `.catch` auf; dadurch hing er von Last und Zeit ab.
+- Dabei fiel ein echter Fehler auf: Nach `heute_bis` nahm „heute“ den Tag des Geräts, auch wenn das Gerät in einer Zeitzone hinter der des Kindes stand.
+- Der Test wartet jetzt auf Zustände; in allen Läufen unten war er grün.
+
+**Nachweis:** `tests/lernen.test.cjs` dreimal hintereinander:
+- Lauf 1: **179/179**, 286 s
+- Lauf 2: **179/179**, 288 s
+- Lauf 3 mit 4-fach gedrosselter CPU (`LERN_CPU=4`): **179/179**, 537 s
+- Neue Tests:
+  - RK-App 2: Kopf, Karte, K1, S5, S6
+  - RK-App 2: Bilder
+  - EX-Nachprüfung
+- Erweiterte Tests: M1, S3, S4, K3 im Land-Test; S7; Expeditionszeile.
+- Die übrigen Testdateien sind wie bisher rot: PWA-Hülle, Startkarte, W80 ×4, Review301, Woanders, W88. Diese Tests gehören zu Reise/PWA, nicht zur Lern-App.
+
+**Bilder** in `docs/previews/la/`:
+- `rk2-kontinent|land|weltbild-{400,820,1280}-{tag,nacht}.png`
+- `rk2-welt-400-nacht.png` (hineingezoomt), `rk2-welt-1280-tag.png`
+- `rk-expedition-zeile-400.png`, `ex-s1-360.png`, `ex-k1-tafel-400.png`
+
+**Offen:**
+- Am Rechner wird der Name „Australien und Ozeanien“ am rechten Kartenrand abgeschnitten.
+- Liegen Neapel und Pompei so nah wie hier, berühren sich die Haltestellen. Der Ring von „wieder offen“ bleibt sichtbar.
+
+## 2026-11-23 – FERTIG: 0.92.x abgesichert (App 0.92.1)
+
+Stand `lernen-app` c41a3d5 übernommen. Nur App: keine Datenbank, kein Merge nach `main`, keine Namen. Cache v172.
+
+**Ursache**
+1. **Der rote Lauf: der Test war last- und zeitabhängig, kein Fehler im gemerkten oder vorgeladenen Laden.**
+   - Teil 2 des Tests klappte „blind“ zweimal die erste eingeklappte Klasse auf, jeweils mit `.catch(() => {})`. Unter Last lief er auf die feste 5-s-Grenze, oder die Karte fehlte, weil das Aufklappen still scheiterte.
+   - Einzeln, mit 6-fach gedrosselter CPU und in anderer Zeitzone (`TZ=Pacific/Kiritimati`) bekam ich keinen roten Lauf. Den ursprünglichen Fehler konnte ich deshalb nicht nachstellen.
+   - Gemerkte Karten-Antwort, Vorladen und Hintergrund-Auffrischen zeichnen im Reiter „Lehrplan“ nichts neu; dort habe ich keinen Wettlauf gefunden.
+   - Teil 1 rechnete schon vorher relativ (Tag 2031, `heute_bis` = jetzt ± 1 h) und hing nicht von der Uhrzeit ab.
+2. **Beim Prüfen gefunden: ein echter Fehler in „heute“ des Kindes.**
+   - Ist `heute_bis` vorbei, nahm die App den Kalendertag des Geräts.
+   - Steht das Gerät in einer Zeitzone hinter der des Kindes (Reise), zeigt es dann noch den alten Tag. Die Wiederholungsrunde galt damit weiter als „heute gemacht“, ebenso das Knobeln des Tages.
+   - Neu: Nach `heute_bis` ist „heute“ mindestens der Tag nach dem letzten Server-Tag; ist der Gerätetag schon weiter, gilt der Gerätetag.
+   - Mit 0.92.0 ist der neue Teil des Tests rot, mit 0.92.1 grün.
+
+**Test**
+- Alle Tage stehen relativ zum Gerätetag, `heute_bis` = jetzt ± 6 h, geprüft im selben Augenblick. Läuft der Test genau über Mitternacht, werden die Tagesprüfungen übersprungen.
+- Neue Fälle: Gerät schon weiter, Gerät gleich, Gerät zurück.
+- Teil 2 wartet auf Zustände:
+  - Klasse an (`aria-pressed`)
+  - je Klick eine eingeklappte Reihe weniger, bis die Karte da ist
+  - dann das Detail mit dem Rückfall-Hinweis
+
+**Nachweis:** `tests/lernen.test.cjs` dreimal hintereinander:
+- Lauf 1: **176/176**, 272 s
+- Lauf 2: **176/176**, 267 s
+- Lauf 3 mit `LERN_CPU=4`: **176/176**, 534 s
+
+## 2026-11-23 – FERTIG: RK-App (0.92.0)
+
+Auf 0.91.2 aufgesetzt. Nur App: keine Datenbank, keine Migration, kein Merge nach `main`, keine echten Kinderdaten, keine Namen. Cache v171. Vorgabe `inhalte/pruefung/kind/karte/umsetzung.md` (§1–11) und EX-Vorgabe §7.
+
+**Gebaut**
+- **Reisekarte statt Anzeigetafel.** Sie erscheint nur, wenn `schule_reise_karte` Flüge liefert; ein alter Server bekommt die Tafel.
+  - Der Schalter „Abflugtafel“ oben zeigt die alte Tafel. Dort führt „Zur Reisekarte ›“ zurück. Die Wahl wird je Kind auf dem Gerät gemerkt.
+- **Ebenen Welt › Kontinent › Land**, alles aus der Antwort; es gibt keine feste Anzahl.
+  - Start: der Kontinent des aktuellen Flugs, eingezoomt auf die Route; Platz für die schwebende Karte ist eingerechnet.
+  - Pfad-Zeile mit Ebenen-Beschriftung, 📍 und „📍 Zu mir“.
+- **Welt:** Kontinente in eigener Farbe, Name, Themengebiet, „3/13 Länder · +1 Zusatz“, Punkt „hier bist du“.
+  - Antarktis mit „Expeditionen · k von 21 Stationen“ bzw. „⛯ 1 Expedition freigeschaltet“.
+  - Die Stationen stehen nach Breite/Länge: geschafft blau, frei grün mit Puls, gesperrt grau. Antippen öffnet die Stempel-Sammlung.
+- **Kontinent:** alle Länder mit Grenzen; Länder mit Flug sind farbig nach Zustand (§4).
+  - Flaggen-Pin: Kopf = runde Flagge, Spitze = Hauptstadt (bei Landesteilen der Hauptort).
+  - Abzeichen ✓ / ★ / ◉ / Platznummer / ✈ / „+“; Schild LAND + *Hauptstadt*.
+  - Länder ohne Flug haben eine graue Nadel.
+  - Route als Bögen in Plan-Reihenfolge: geflogen grün, kommt gelb gepunktet.
+  - Beschriftung nach Zoom; Schilder, die etwas berühren, fallen weg (Länder mit Flug immer).
+- **Land:** das Land mit blauem Rand, Nachbarn gedämpft.
+  - Die Städte sind nummerierte Haltestellen mit Stand: offen, begonnen, ✓ gelandet/sicher, ↻ heute wiederholen, ★ golden, blau mit Puls = hier bist du („Bologna · 4/13“), Kür gestrichelt.
+  - Dezente Bögen zwischen den Städten, keine Straßen.
+- **§11 Teile und Zusatz:**
+  - Teile: Abzeichen „1/2“, feine graue Kette; im Blatt „Teil 2 von 2“, Untertitel und Teil-Links („Teil 1: 🇰🇿 Kasachstan ✓ · Teil 2: … (hier)“, antippbar), „Erst Teil 1 in …“; in der Land-Ebene „Teil 2 geht weiter in … ›“.
+  - Zusatz: „+“-Abzeichen, gestrichelter Rand, zählt nicht in „x/y Länder“.
+- **Startknopf schwebend in der Karte:** „GERADE DRAN · Bologna in Italien · Thema · Stadt 5 von 13“, Striche und „Weiter in Bologna ›“.
+  - Auf dem Rechner steht er in der Spalte rechts (360 px), mit angetipptem Land und „Meine Route · Länder“ bzw. „Städte in …“.
+  - Er führt wie die Tafel: erst Check-in (Ansage darüber), dann das Thema, „Zum Flug-Test“, „Test weitermachen“.
+  - Eine offene Expedition steht darüber; „Gerade dran“ ist dann schmal.
+- **Bedienung:** Finger und Maus zum Ziehen, Zoomen mit zwei Fingern, Mausrad und + / − / ⤢. Die Schrift bleibt beim Zoomen gleich groß; Pins sind Knöpfe mit Text.
+  - Tag und Nacht; „weniger Bewegung“ schaltet Puls und weiches Zoomen ab.
+- **Daten:**
+  - Die Karten-Antwort wird je Sitzung einmal geladen und gemerkt.
+  - Nach einer Änderung für das Kind (Landung, Antwort, Plan) gilt sie als alt: Die Karte zeigt sofort die alte und holt die neue im Hintergrund.
+
+**Technik und Lizenzen**
+- Keine Kacheln, kein Kartenserver, kein Google.
+- `tools/karte/bauen.mjs` (mit `package.json` und Lock) rechnet die Umrisse im Build vor:
+  - Natural Earth 1:110 m für die Welt, 1:50 m je Kontinent.
+  - Landesteile (AU nach Bundesstaaten, NZ Nord/Süd, BR Großregionen, Hawaii) aus Admin-1 1:10 m, vereinfacht.
+  - Hauptstädte aus dem Reise-Aufbau, sonst Natural Earth.
+- Die Projektion der App (Natural Earth 1 bzw. gedrehte Mercator) prüft das Skript gegen d3 (Abweichung < 0,6 px).
+- Flaggen: `karte/flaggen/*.svg` (flag-icons 1:1, nur die gebrauchten), erst beim Anzeigen geladen. Der Service Worker legt Kartendateien zusätzlich ab (Netz zuerst).
+- Quellenangabe klein an der Karte und auf der Info-Seite: GeoNames CC BY 4.0, Natural Earth gemeinfrei, COMNAP nur privat/nicht kommerziell/Bildung.
+- `karte/LIZENZEN.md` enthält die MIT-Texte von flag-icons, i18n-iso-countries und countries-list.
+
+**Größen und Ladezeit**
+
+| Datei | Größe | gepackt (gzip) |
+|---|---|---|
+| welt.json | 156 KB | 56 KB |
+| kontinent-1 Europa | 189 KB | 72 KB |
+| kontinent-2 Nordamerika | 200 KB | 75 KB |
+| kontinent-3 Asien | 335 KB | 124 KB |
+| kontinent-4 Orient | 108 KB | 42 KB |
+| kontinent-5 Afrika | 351 KB | 130 KB |
+| kontinent-6 Südamerika | 115 KB | 45 KB |
+| kontinent-7 Australien | 142 KB | 55 KB |
+| kontinent-8 Pazifik | 11 KB | 4 KB |
+| flaggen/ | 229 Dateien, zusammen 1,5 MB | 0,5 MB |
+
+- Die meisten Flaggen sind 1–5 KB, einige wenige sehr groß (Serbien 181 KB, Bolivien 105 KB, Spanien 82 KB). Es lädt nur, was auf dem Bildschirm steht.
+- Lokal gemessen: Kontinent-Datei 20–140 ms.
+- Die Karten-Antwort des Servers ist rund 170 KB je Kind; die 1,7 s stammen aus der Messung des Haupt-Chats, LZ-S lag da noch nicht vor.
+- Mit dem echten Server habe ich nicht gemessen. Die Seite misst selbst mit (`lernKarteMessung`, `_ladezeit` an der Antwort).
+
+**Tests**
+- Sieben neue RK-Tests mit erfundenem Stand auf den Daten des Reise-Aufbaus, alle Länder und Städte aus den Daten:
+  - Kontinent-Ebene und Startknopf bei 400/820/1280
+  - Land antippen → Blatt → Städte → Pfad → Welt mit Antarktis
+  - Teile und Zusatz
+  - Ziehen, Rad, Knöpfe, Zwei-Finger-Zoom (Zeiger-Ereignisse) für Maus und Finger
+  - Schalter Abflugtafel mit gleichen Zielen, Expedition in der Karte, Karte nur einmal je Sitzung, alter Server zeigt die Tafel
+  - Flug-Test-Ziel und „Karte alt“ nach einer Änderung
+  - Info-Seite und Lizenzen
+- Gesamtlauf 318/328. Rot sind nur die bekannten Reise/PWA-Tests: PWA-Hülle, Startkarte, W80 ×4, Review301, Woanders, W88.
+- Bilder: `docs/previews/la/rk-*.png` (Kontinent, Land, Welt, Teile, Expedition; 400/820/1280).
+
+**Offen / bitte entscheiden**
+1. **Zusatz-Text:** Im Blatt steht wörtlich nach §11 „Zusatz – freiwillig, für Entdecker. Muss nicht sein.“ Der Gestalter schlägt in EX §7 „Zusatz für Entdecker“ ohne „freiwillig“ vor, wegen deines Satzes zu den Expeditionen. Am Pin und als Zustand steht schon „Zusatz für Entdecker“.
+2. **Nicht in den Daten:** „gesperrt“ (Visum fehlt, ab Klasse) und „abgelegt“ je Stadt. Die Karte zeigt deshalb kein 🔒 und ★ nur bei golden.
+3. **Ausschnitt:** Pazifik und Asien liegen am Kartenrand der Welt (Datumsgrenze). In der Kontinent-Ebene sind sie richtig zentriert.
+4. **Nicht geprüft:** echte Geräte und das Ziehen mit echtem Finger (nur nachgestellt) sowie der echte Server.
+
 ## 2026-11-23 – FERTIG: 0.91.2 abgesichert
 
 Stand `lernen-app` 83ada52 übernommen. Nur App: keine Datenbank, kein Merge nach `main`, keine Namen. Cache v170.

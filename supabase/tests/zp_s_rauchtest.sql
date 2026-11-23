@@ -225,6 +225,73 @@ begin
   -- Test 10: Sterne des Testkinds – nur die 100 für A dazu (Karten direkt gesetzt, keine Übungs-Sterne)
   if (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l) <> v_s0 + schule.sterne_regel('sterne_ort_geschafft') then raise exception 'Test 10: Sterne verändert'; end if;
   raise notice 'Test 10 ok: übrige Sterne unverändert';
+
+  -- Test 13 (ChatGPT 966): abgeschlossenen Zusatz-Flug A aus dem Plan nehmen – nichts wird zurückgebucht; wieder einplanen bucht nichts doppelt
+  select coalesce(jsonb_agg(jsonb_build_object('block_id', r.block_id) order by r.position), '[]') into v_plan
+    from schule.route r where r.lernender_id = v_l and schule.ist_plan(r) and r.block_id <> v_a.b;
+  perform schule.plan_setzen_intern(v_l, jsonb_build_object('eintraege', v_plan), 'eltern:Rauchtest');
+  v_st := schule.thema_stufe(v_l, v_a.id);
+  if (select count(*) from schule.zusatz_geschafft where lernender_id = v_l and thema_id = v_a.id) <> 1
+     or (select count(*) from schule.flug_erstabschluss where lernender_id = v_l and einheit_id = v_a.e) <> 1
+     or (select count(*) from schule.sterne where lernender_id = v_l and grund = 'ort' and bezug = 'block:' || v_a.b) <> 1
+     or (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l) <> v_s0 + schule.sterne_regel('sterne_ort_geschafft') then
+    raise exception 'Test 13: Herausnehmen hat Stempel/Sterne/Abschluss verändert'; end if;
+  if exists (select 1 from jsonb_array_elements(schule.zusatz_plan_json(v_l)) z where (z->>'thema_id')::bigint = v_a.id and z->>'status' <> 'fertig') then
+    raise exception 'Test 13: herausgenommener Zusatz-Flug noch offen im zusatz_plan'; end if;
+  raise notice 'Test 13 ok: abgeschlossener Zusatz herausgenommen – route %, Stufe %, zusatz_eingeplant %, im zusatz_plan %; Stempel, % Sterne und zusatz_geschafft bleiben',
+    (select status from schule.route where id = v_r.id), v_st->>'stufe', coalesce(v_st->>'zusatz_eingeplant', 'false'),
+    exists (select 1 from jsonb_array_elements(schule.zusatz_plan_json(v_l)) z where (z->>'thema_id')::bigint = v_a.id), schule.sterne_regel('sterne_ort_geschafft');
+  perform schule.plan_setzen_intern(v_l, jsonb_build_object('eintraege', v_plan || jsonb_build_array(jsonb_build_object('block_id', v_a.b))), 'eltern:Rauchtest');
+  perform schule.zusatz_geschafft_buchen(v_l, v_a.id);
+  if (select count(*) from schule.flug_erstabschluss where lernender_id = v_l and einheit_id = v_a.e) <> 1
+     or (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l) <> v_s0 + schule.sterne_regel('sterne_ort_geschafft') then
+    raise exception 'Test 13: wieder einplanen bucht doppelt'; end if;
+  raise notice 'Test 13 ok: wieder eingeplant – route %, nichts doppelt', (select status from schule.route where id = v_r.id);
+  update schule.lernender set schulart = v_sa, zweig = v_zw where id = v_l;
+end $$;
+
+-- Test 12 (ChatGPT 966): zwei eingeplante Zusatz-Flüge am selben Ort (heute gibt es keinen solchen Ort – im Test nachgestellt:
+-- zwei Themen eines Orts für die Gruppe als Zusatz markiert). Verhalten: je Teil eigener Stempel; 100 Sterne je Ort (bezug block:…) nur einmal.
+do $$
+declare v_l bigint; v_sa text; v_zw text; v_b bigint; v_t bigint[]; v_e bigint[]; v_plan jsonb; v_s0 int; v_ort int := schule.sterne_regel('sterne_ort_geschafft');
+begin
+  select id, schulart, zweig into v_l, v_sa, v_zw from schule.lernender where ist_test and aktiv order by id limit 1;
+  update schule.lernender set schulart = 'gym_by', zweig = null where id = v_l;
+  select bt.block_id, array_agg(bt.thema_id order by bt.reihenfolge), array_agg(schule.thema_einheit(bt.thema_id) order by bt.reihenfolge) into v_b, v_t, v_e
+    from schule.block_thema bt
+   where schule.thema_einheit(bt.thema_id) is not null
+     and not exists (select 1 from schule.block_thema b2 where b2.thema_id = bt.thema_id and b2.block_id <> bt.block_id)
+     and not exists (select 1 from schule.flug_erstabschluss f where f.lernender_id = v_l and f.einheit_id = schule.thema_einheit(bt.thema_id))
+     and not exists (select 1 from schule.sterne s where s.lernender_id = v_l and s.grund = 'ort' and s.bezug = 'block:' || bt.block_id)
+   group by bt.block_id having count(*) = 2 and count(*) = (select count(*) from schule.block_thema b3 where b3.block_id = bt.block_id)
+   order by bt.block_id limit 1;
+  if v_b is null then raise notice 'Test 12: kein Ort mit zwei Themen frei – übersprungen'; return; end if;
+  update schule.thema set zusatz = array(select distinct x from unnest(coalesce(zusatz, '{}') || array['gym_by']) x) where id = any(v_t);
+  update schule.karte_stand set sitzt = false, sitzt_am = null, gesetzt_am = null where lernender_id = v_l and einheit_id = any(v_e);
+  update schule.route set status = 'entfernt' where lernender_id = v_l and block_id = v_b and status <> 'entfernt';
+  select coalesce(jsonb_agg(jsonb_build_object('block_id', r.block_id) order by r.position), '[]') into v_plan from schule.route r where r.lernender_id = v_l and schule.ist_plan(r);
+  perform schule.plan_setzen_intern(v_l, jsonb_build_object('eintraege', v_plan || jsonb_build_array(jsonb_build_object('block_id', v_b))), 'eltern:Rauchtest');
+  if not (schule.zusatz_eingeplant(v_l, v_t[1]) and schule.zusatz_eingeplant(v_l, v_t[2])) then raise exception 'Test 12: nicht beide eingeplant'; end if;
+  v_s0 := (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l);
+  -- Teil 1 ganz landen
+  insert into schule.karte_stand (lernender_id, einheit_id, lernziel, sitzt, sitzt_am, richtig) select v_l, v_e[1], x, true, now(), 3 from unnest(schule.etappen_alle(v_e[1])) x
+  on conflict (lernender_id, einheit_id, lernziel) do update set sitzt = true, sitzt_am = now(), gesetzt_am = null;
+  if not exists (select 1 from schule.zusatz_geschafft where lernender_id = v_l and thema_id = v_t[1])
+     or not exists (select 1 from schule.flug_erstabschluss where lernender_id = v_l and einheit_id = v_e[1])
+     or (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l) <> v_s0 + v_ort then raise exception 'Test 12: Teil 1 nicht gebucht'; end if;
+  if (select status from schule.route where lernender_id = v_l and block_id = v_b and status <> 'entfernt' order by id desc limit 1) = 'fertig' then
+    raise exception 'Test 12: Ort fertig, obwohl Teil 2 offen'; end if;
+  -- Teil 2 ganz landen
+  insert into schule.karte_stand (lernender_id, einheit_id, lernziel, sitzt, sitzt_am, richtig) select v_l, v_e[2], x, true, now(), 3 from unnest(schule.etappen_alle(v_e[2])) x
+  on conflict (lernender_id, einheit_id, lernziel) do update set sitzt = true, sitzt_am = now(), gesetzt_am = null;
+  if not exists (select 1 from schule.zusatz_geschafft where lernender_id = v_l and thema_id = v_t[2])
+     or not exists (select 1 from schule.flug_erstabschluss where lernender_id = v_l and einheit_id = v_e[2]) then raise exception 'Test 12: Teil 2 ohne Abschluss/Stempel'; end if;
+  if (select count(*) from schule.sterne where lernender_id = v_l and grund = 'ort' and bezug = 'block:' || v_b) <> 1
+     or (select coalesce(sum(menge), 0) from schule.sterne where lernender_id = v_l) <> v_s0 + v_ort then raise exception 'Test 12: Ort-Sterne nicht genau einmal'; end if;
+  if (select status from schule.route where lernender_id = v_l and block_id = v_b and status <> 'entfernt' order by id desc limit 1) <> 'fertig' then
+    raise exception 'Test 12: Ort nach beiden Teilen nicht fertig'; end if;
+  raise notice 'Test 12 ok: zwei Zusatz-Teile am selben Ort – je Teil ein Stempel (2), Ort-Sterne % genau einmal (nicht je Teil), Ort fertig nach dem zweiten; zusatz_geschafft.sterne: Teil 1 %, Teil 2 % (Feld zeigt den Regelwert, gebucht wurde nur einmal)',
+    v_ort, (select sterne from schule.zusatz_geschafft where lernender_id = v_l and thema_id = v_t[1]), (select sterne from schule.zusatz_geschafft where lernender_id = v_l and thema_id = v_t[2]);
   update schule.lernender set schulart = v_sa, zweig = v_zw where id = v_l;
 end $$;
 

@@ -3440,3 +3440,11 @@ Meldung Sebastian mit zwei Bildern (Reisekarte: „Bhaktapur · Stadt 1 von 5“
 - Nach jedem Abschluss (Landung, Test bestanden, Nachbessern) geht es mit einem Knopf direkt weiter, ohne Umweg über Karte oder Übersicht.
 - Gelerntes ansehen bleibt freiwillig erreichbar (Karte antippen, Erklären, „Trotzdem weiterüben“), drängt sich aber nie vor.
 - RS (0.93.3) ist von bau-motivation schon geliefert (98c2b09), noch nicht zusammengeführt; WK 2 baut darauf auf → 0.93.4.
+
+## LIVE: App 0.93.4 – ein Hauptknopf, automatisch weiter (24.11., 08:35 Berlin)
+
+- `main` ab67ff4 = `lernen-app` 8b0b83b (WK 2 + RS). Auslieferung erfolgreich. Sebastian: „Live“. Kinder über 3 Stunden ohne Übung.
+- Gesamttest: 1. Lauf 201/202 – „KJ §0: Kinderseite – Nachbessern zuerst …“ rot, Fehlermeldung nicht erfasst; einzeln 3× grün; 2. Lauf 202/202. **Offen: Ursache des wackligen Tests** (Verdacht: Hauptknopf wird nachträglich gefüllt, Test liest zu früh oder Knopf zeigt kurz das alte Ziel) → an `bau-motivation`.
+- Tageslauf 24.11.: keine neuen Lehrer-Aufträge; Test-Eintrag 2 auf „erledigt“ (Sebastian: ja). Gestalter-Vorgabe FX (Spezialeffekte) liegt vor; Sebastian: warten.
+- Neuer Chat `mathe-profi` geplant (Kopiertext bei Sebastian): bewertet Inhalte, liefert Erklärungen, Aufgaben, neue Aufgabenformen unter `inhalte/mathe-profi/`, Zweig `mathe-profi`.
+- Offen für `bau-lehrer`: `reise_karte.naechster_start` ohne offene Stadt → `stadt = null`, `grund = 'test'`.

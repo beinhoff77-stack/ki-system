@@ -2,6 +2,104 @@
 
 Neueste oben.
 
+## 2026-11-24 – FERTIG: WK (App 0.93.2)
+
+Stand `lernen-app` d2f66cc übernommen. Nur App: keine Datenbank, nichts eingespielt, kein Merge nach `main`, keine Namen. Cache v177. Kein neues Server-Feld nötig.
+
+**F1 – Knöpfe führen zur genannten Stadt (Muss)**
+- Ursache: Alle Knöpfe zeigten auf `…-ueben` ohne Nummer. `empfohlen()` nahm dann zuerst eine fällige Etappe. Der Knopf nannte aber die Stadt der nächsten offenen Etappe, deshalb landete das Kind woanders als angesagt.
+- Neu: Jede Einheit bekommt `etappeNr`. Quelle ist die erste offene Pflicht-Etappe laut Merkheft, sonst die erste offene Stadt der Reisekarte.
+- Alle Knöpfe, die eine Stadt nennen, führen jetzt nach `…-ueben-<nr>-start`. Betroffen sind:
+  - Reisekarte-Start, Abflugtafel, alter Start
+  - Zusatz, ZP, Expedition
+  - „Weiter nach …“ nach dem Check-in, „Weiter in …“ nach dem Nachbessern
+- `-start` heißt: Ist die Etappe neu, kommt zuerst ihre Erklärung (wie bisher beim Einsteigen). `…-ueben-<nr>` ohne `-start` öffnet weiter direkt die Bordkarte.
+- `empfohlen()` ohne Nummer: erst die nächste offene Pflicht-Etappe, dann eine offene, erst danach eine fällige. Fällige Wiederholungen laufen über Check-in und #/wiederholen.
+- Test: Etappe 1 und 2 gelandet, 2 fällig, 3 offen. Der Knopf zeigt Stadt 3 und führt zu `-ueben-3-start`. Nach „Jetzt du“ erscheinen „Etappe 3/3 · ‹Stadt 3› · Binomische Formeln“ und eine Aufgabe von Etappe 3.
+
+**F2 – Ende bei fälliger Etappe (Muss)**
+- Nach der Antwort zählt der Stand des Servers (`r.karte`): Sitzt die Etappe weiter, ist sie nicht mehr fällig. Dann erscheint sofort „Hier bist du fertig ✓ · Wiederholung geschafft.“ mit dem großen Knopf „Nächste Etappe: … ›“ (sonst Test bzw. nächster Flug) und „Trotzdem weiterüben“.
+- Solange die Etappe fällig ist, sagt die Leiste: „heute wiederholen: 1 Bordkarte, dann bist du hier fertig“.
+- Nebenfund behoben: Der Kasten war zuerst in die Rückmeldung gesetzt, und die Rückmeldung hat ihn gleich wieder ersetzt. Jetzt steht er darunter.
+- Test: fällige Etappe, eine richtige Antwort → Kasten mit „Nächste Etappe: … ›“.
+
+**F3 – Namen der Reisekarte (Muss, mit Ergänzung)**
+- Kinderseite:
+  - Titel = Land.
+  - Leiste „Etappe n/m · ‹Stadt› · ‹Titel›“, Erklär-Kopf „n · ‹Stadt› · ‹Titel›“, Bordkarten-Kopf mit Stadt.
+  - Abflugtafel und Reisekarte-Start („Weiter in ‹Stadt›“), „Sitzt wieder!“.
+  - Flug-Abschluss VON/NACH mit Land.
+  - Check-in-Kopf und „aus ‹Stadt›“, Mischkarte „Das war: … – ‹Stadt›“, Knobeln des Tages.
+- Lehrer- und Eltern-Seite (Namen aus der Reisekarte des Kindes, Land; bei Etappen „Land · Stadt“):
+  - Überblick „Gerade dran“ (Land).
+  - Eltern-Start „Jetzt: …“ und Kindertabelle.
+  - Lernstand (Ort je Einheit).
+  - „Was wackelt“: Kopf je Einheit = Land, Zeile je Bordkarte = „Land · Stadt“.
+  - Fahrplan-Eintrag: Land, bei „dran“ mit Stadt der aktuellen Etappe.
+  - Detail-Blatt: Land vor dem Gebiet.
+  - Die Karte wird dafür je Kind einmal geladen, gleichzeitig mit der Übersicht.
+- Test: Kopf der Übung = Name am Knopf. Kinderseite, Überblick „Gerade dran“ und „Was wackelt“ zeigen dasselbe Land.
+- **Alte Ortsnamen, die bleiben:**
+  1. „Was wackelt“ → Rückreise-Hinweis („Rückreise ‹Ort›“): Er hängt am Block der Route, nicht an einem Flug. Die Karte liefert keinen Namen je Block.
+  2. Matrix ohne Kind (allgemeiner Lehrplan, „Ort: …“ im Detail) und Vorlagen-Liste: Es gibt kein Kind und damit keine Reisekarte.
+  3. Inhalte-Ansicht (`#/inhalte/…`, Eyebrow): Auch sie ist nicht kindbezogen.
+  4. Alte Gestaltung „Meine Route 5–10“: Sie ist nur noch Rückfall ohne Reisekarte.
+  5. Überall, wo die Karte fehlt: Server liefert keine Karte, Flug ohne `thema_id`, Karte nicht ladbar. Dann bleibt der alte Name stehen, so wie verlangt.
+  6. Mischkarte, wenn die Ausgabe weder Einheit noch Lernziel trägt: Dann steht dort weiter `misch.stadt` vom Server.
+
+**F4 – leere Übungsfläche (prüfen)**
+- Nachgestellt bei 1280 × 680, Nacht, gelandet und fällig, Zahl-Aufgabe mit Tastenfeld.
+- Die Bordkarte war da, aber ganz verdeckt: Das klebende Tastenfeld (`.lr-dock`, sticky) lag bei niedrigem Fenster über der Aufgabe.
+- Einordnung: **Anzeigefehler.** Kein Ladezustand, keine Aufgabe ohne Text.
+- Behoben: Ab 900 px Breite steht das Tastenfeld unter der Bordkarte und klebt nicht mehr.
+- Test: Die Frage ist bei 1280 × 680 nachts sichtbar und nicht verdeckt. Ohne den Fix schlägt der Test fehl, geprüft.
+
+**F5 – Rückweg Aufgabe → Übersicht (messen, dann verbessern)**
+- Messung im Test, nach einer Antwort zurück zur Reisekarte. Nachgestellter Server mit 200 ms je Antwort:
+
+| Stand | Abrufe | Runden nacheinander | Erstes Bild | Aktueller Stand |
+|---|---|---|---|---|
+| vorher (0.93.1) | 10 | 5 | ca. 1 330 ms | ca. 1 360 ms |
+| jetzt (0.93.2) | 6 | 2 | ca. 40–60 ms (letzte Ansicht) | ca. 250–275 ms |
+
+- Vorher liefen 10 Abrufe in 5 Runden nacheinander:
+  1. schule_uebersicht, schule_konto und schule_reise_karte
+  2. schule_merkheft und schule_wiederholung
+  3. schule_einheit_lesen (Bordkarten der Stadt rechts). Gezeichnet wurde mit der alten Karte.
+  4. Als die neue Karte da war, alles noch einmal: konto, merkheft und wiederholung
+  5. einheit_lesen
+- Jetzt laufen 6 Abrufe in 2 Runden:
+  1. uebersicht, konto, reise_karte, merkheft und wiederholung gleichzeitig
+  2. einheit_lesen
+- Kein zweites Zeichnen mehr.
+- Sofortbild: Die letzte Reise-Ansicht des Kindes kommt aus dem Speicher. Sie ist gedimmt und nicht antippbar, bis der frische Stand da ist.
+- Sterne, „Gerade dran“, Start- und Einsteigen-Knopf, Check-in-Ansage und Band bleiben im Sofortbild leer. So steht nie ein veralteter Wert da.
+- Neu geladen wird nur, was sich mit einer Antwort ändern kann. Die Übersicht und die Karte kommen nach dem Vergessen-Signal der Antwort frisch.
+- **Nicht gemessen: echte Serverzeiten.** Die Messung hier nutzt einen nachgestellten Server mit fester Verzögerung. Gemessen sind also Zahl und Reihenfolge der Abrufe, nicht die Dauer von `schule_reise_karte` & Co. auf dem echten Server.
+  - Falls der Rückweg auf dem Gerät weiter langsam ist, liegt es an der Dauer der einzelnen Abrufe. Sie ist dann auf dem Server zu messen (für bau-lehrer).
+  - Hilfe dafür: `lernReiseKarte` misst ihre Dauer schon mit `performance.now()`.
+
+**Nebenfund (behoben)**
+- Der Anrede-Sticker verlor die Klasse `lr-jw-ecke`, wenn die Wortliste erst nach dem Zeichnen kam: Der Platzhalter wurde ohne Klassen ersetzt.
+- Dadurch schlug der KJ-2-Test einmal fehl. Ursache: Die Reise-Ansicht wartet jetzt auf die Karte, dadurch kam der Sticker öfter zu spät.
+- Behoben: Die Klassen werden beim Ersetzen übernommen.
+
+**Tests**
+- `tests/lernen.test.cjs` voll: 195/195 grün.
+- Neu: WK F1+F3, F2, F3 Kind/Lehrer, F4, F5 (Messung).
+- Angepasst wegen der Nummer im Ziel:
+  - Ziel-Prüfungen in „Lernreise: Heute dran“, RK-App, RK-App 3 und KJ §0 („Hauptknopf nicht beim Zusatz“ prüft jetzt die Einheit, nicht „-3-“).
+  - „Gestaltung Abflug“: Merkheft-Mock passend zur Einheit.
+- `tests/search.test.cjs`: 9 Fehler, alle schon auf dem Stand vor WK (dort 10). Betroffen sind W80-Reisen, PWA-Icon und der Start „Mathe 7/8“. Teils fehlen Kartenkacheln im Netz der Prüfumgebung. Nicht Teil dieses Auftrags.
+
+**Bilder:** `docs/previews/la/wk-f1-etappe3.png`, `wk-f2-fertig.png`, `wk-f4-nacht-1280x680.png`
+
+**Offen / nicht geprüft**
+- Echter Fall (Einheit 112, Nepal) nicht live geprüft. Er ist nur mit erfundenen Daten auf dem echten Reise-Aufbau nachgestellt (Italien, Thema 15).
+- Echte Serverzeiten (siehe F5).
+- Die Etappen-Nummer kommt aus dem Merkheft (Lernziele). Weicht dort die Reihenfolge der Etappen von der Reihenfolge in `inhalt.etappen` ab, stimmt die Nummer nicht. Im Code passt beides zusammen. Mit echten Daten nicht geprüft.
+- Lehrer-Seite: Bei „Gerade dran“ im Überblick steht nur das Land, keine Stadt. Für die Stadt bräuchte der Überblick das Merkheft des Kindes, einen Abruf mehr. Wenn gewünscht: bitte ansagen.
+
 ## 2026-11-23 – FERTIG: KJ 2 (App 0.93.1)
 
 Stand `lernen-app` bee3475 übernommen. Nur App: keine Datenbank, nichts eingespielt, kein Merge nach `main`, keine Namen. Cache v176.

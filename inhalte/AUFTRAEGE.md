@@ -3393,3 +3393,26 @@ Datei `inhalte/pruefung/kind/karten/nachpruefung_kj.md`, Bilder in `nachpruefung
 - **Muss:** M1 Knopf „Zur Reisekarte ›“ nachts unlesbar (weiß auf weiß; betrifft auch das live stehende 0.92.3). M2 alte Mini-Linien unter „Mein Schuljahr“ widersprechen den Zahlen → auf der Abflugtafel weglassen.
 - **Soll (mit in 0.93.1):** S1 Anrede-Sticker unter 600 px auf die Ecke der ersten Karte; S2 Fortschrittslinie direkt unter die Abflugtafel; S3 beim Nachbessern nur ein Zähler; S4 Nachbessern-/Zusatz-Karte nachts dunkel; S5 Lehrer (Fahrplan-Kopf, Detail-Satz, Zusatz-Marke in Gruppe); S6 schwebende Leiste erst, wenn die Tafel aus dem Bild ist.
 - **Kann (mit):** K2 Bedeutungs-Blatt nachts dunkel; `daten/jugendwoerter.json` neu aus `woerter.json` kopieren (Çüş ohne Doppelung). Übrige Kann später.
+
+## LIVE: App 0.93.1 – Jugendwörter und drei Karten (23.11., 08:15 Berlin)
+
+- `main` 67e387b = `lernen-app` mit bau-motivation a2e59f8 (KJ 2). Gesamttest 190/190, Auslieferung erfolgreich. Sebastian: „Live“.
+- Vorher geprüft: letzte Übung beider Kinder über 5 Stunden her.
+- Offen (später): K1, K3–K8 der Prüfung `nachpruefung_kj.md`; enge Pins auf der Reisekarte; „Zusatz geschafft“ einmal je Gerät.
+- Tageslauf 23.11.: keine neuen Lehrer-Aufträge, keine neue Werkstatt-Nachricht.
+
+## Fehler Kind 2 (24.11., 02:30 Berlin): „Weiter in Kathmandu“ führt in schon gelandete Etappe, Kopf zeigt alten Ortsnamen · Bau-Auftrag WK (0.93.2) an `bau-motivation`
+
+Meldung Sebastian mit zwei Bildern (Übung `#/lerneinheit/2-112-ueben-2`, Reisekarte Asien) und: Rückweg von der Aufgabe zur Übersicht lädt lange.
+**Befund (Daten + Code gelesen):**
+- Einheit 112 = Flug Nepal (Städte: Bhaktapur, Lalitpur, Kathmandu, Pokhara, Bharatpur). Etappe 1 und 2 gelandet, Etappe 3 (Kathmandu) noch ohne Karten-Stand. Etappe 2 ist heute zur Wiederholung fällig; Etappe 1 war es bis zur ersten Antwort heute.
+- **F1:** Der Knopf „Weiter in ‹Stadt›“ (Reisekarte und Abflugtafel) verlinkt auf `…-ueben` ohne Etappen-Nummer. `empfohlen()` (lernen.js ~3637) nimmt zuerst eine fällige Etappe, erst danach die nächste offene. Folge: statt Stadt 3 öffnet sich Etappe 1 bzw. 2.
+- **F2:** Eine fällige, gelandete Etappe hat in der Flug-Übung kein Ende: `fertigHier` gilt nur ohne `faellig`, der Stand wird nach der Antwort nicht nachgezogen. Kind 2 hat heute 10 Bordkarten in Etappe 1 gelöst, ohne dass etwas passiert.
+- **F3:** Kopf der Lerneinheit zeigt `ort.stadt` aus `schule_uebersicht` (alter Block-Ort „Mumbai“), die Karte nennt Land Nepal und Stadt je Etappe. Zwei Namen für denselben Flug.
+- **F4 (offen):** Im ersten Bild steht unter der Etappen-Leiste nur das Zahlenfeld, keine Aufgabe. Ob Ladezustand oder Fehler, ist nicht geklärt.
+- **F5:** Rückweg Aufgabe → Übersicht langsam (Angabe Sebastian, nicht gemessen).
+
+## App 0.93.2 (WK) geliefert, Korrektur Gestalter zu JW/KJ (24.11., 03:25 Berlin) · Nachtrag RS (0.93.3) an `bau-motivation`
+
+- WK zusammengeführt (bau-motivation 789079f): F1 Knöpfe führen zur genannten Etappe, F2 Ende bei fälliger Etappe, F3 Namen der Reisekarte (Kind und Lehrer; Liste der verbleibenden alten Namen in der Meldung), F4 Ursache: klebendes Tastenfeld verdeckte die Bordkarte bei niedrigem Fenster – behoben, F5 Rückweg 10 Abrufe/5 Runden → 6/2, Sofortbild aus dem Speicher. Echte Serverzeiten nicht gemessen.
+- **Korrektur Gestalter (von Sebastian übermittelt):** 1) Abflugtafel ist nur noch Nebenansicht; Anrede „Digga“ gehört als Sticker auf die Ecke der Startkarte „Weiter in …“ der Reisekarte (Handy: Karte unten über der Landkarte, Rechner: rechte Spalte); auf der Abflugtafel darf sie bleiben, zählt aber mit (höchstens einmal je Lerntag insgesamt). 2) M1/M2 der Prüfung KJ zu Soll herabgestuft (beide sind seit 0.93.1 ohnehin erledigt). 3) Neues Soll: „Mein Schuljahr“ auf Handy/Tablet als Zeile „Klasse 5 · 26 % ›“ in der schwebenden Startkarte, Antippen öffnet die Karte.

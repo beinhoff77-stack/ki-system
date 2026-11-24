@@ -5950,3 +5950,11 @@ body.rk-kopf-oben:has(#tabs[hidden]) { padding-bottom: 0; }
 .lr-jw-blatt-nacht .lr-jw-blatt-innen { background: #121831; color: #E8ECF8; } .lr-jw-blatt-nacht .lr-jw-wort small { color: #A9B3D1; }
 .lr-jw-blatt-nacht .lr-jw-zu { background: #C9F26B; color: #0D1226; }
 .lr-jw-ecke { right: -8px; } .lr-jw-ecke .lr-jw-frage { right: -6px; }
+/* ---------- WK (0.93.2) ---------- */
+/* F4: Am Rechner (breit) klebt das Tastenfeld nicht über der Bordkarte – bei niedrigem Fenster verdeckte es die ganze Aufgabe. Es steht unter der Karte im Ablauf. */
+@media (min-width: 900px) { .lr-dock:has(.lr-tastenfeld) { position: static; background: none; } }
+.lr-wdh-fertig { margin-top: 10px; display: grid; gap: 8px; }
+/* F5: letzte Reise-Ansicht sofort, gedimmt und nicht antippbar, bis der frische Stand da ist (kein veralteter Stand bei Sternen und „Gerade dran“ antippbar) */
+.lr-veraltet { opacity: .55; pointer-events: none; filter: saturate(.6); transition: opacity .15s; }
+/* F5: was sich mit der letzten Antwort ändern kann (Sterne, „Gerade dran“, Start/Einsteigen, Check-in), bleibt bis zum frischen Stand leer – kein veralteter Wert */
+.lr-veraltet :is(.lr-chip-stern, .rk-dran, .rk-start, .rk-dran-stand, .lr-flug-jetzt, .lr-einsteigen-knopf, .lr-dock-start, .lr-checkin-ansage, .lr-band, .lr-ab-sterne) { visibility: hidden; }

@@ -187,6 +187,7 @@ async function setup(t, opt = {}) {
     }
     if (opt.anpassen && e) e = opt.anpassen(b.aktion, e, d) || e; // Schritt D: Antwort nach einer Migration nachbilden
     else if (opt.anpassen?.neueAktionen) e = opt.anpassen(b.aktion, null, d) || e; // Aktionen, die der Standard-Mock nicht kennt (LM-S)
+    if (opt.verzoegerung) await new Promise((r) => setTimeout(r, opt.verzoegerung)); // WK F5: Serverzeit nachstellen
     await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) });
   });
   return { page, calls, appCalls };
@@ -222,7 +223,7 @@ test('Lernreise: Heute dran auf der echten Karte, Weltkarte und Reisepass', asyn
   // Der Startknopf steht ganz oben, ist beim Öffnen sichtbar und führt direkt ins Üben.
   const start = page.getByRole('link', { name: /Weiter geht’s|Los geht’s/ });
   const kasten = await start.boundingBox(); assert.ok(kasten.y + kasten.height < 844 - 80, 'Startknopf über der unteren Leiste: ' + Math.round(kasten.y));
-  assert.match(await start.getAttribute('href'), /#\/lerneinheit\/1-1-ueben$/);
+  assert.match(await start.getAttribute('href'), /#\/lerneinheit\/1-1-ueben(-\d+-start)?$/); // WK F1: mit der Etappe der genannten Stadt
   assert.equal(await page.locator('.notification-bell').isVisible(), false);
   await page.getByText('MEIN STAND · GYMNASIUM KLASSE 5').waitFor();
   await page.getByText('1 von 14 Flügen').waitFor();
@@ -604,7 +605,8 @@ test('Lernreise mit Themenplan: nur Orte aus dem Plan sind dran', async (t) => {
 });
 
 test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, Landung', async (t) => {
-  const { page } = await setup(t, { gestaltung: 'nacht' });
+  // Merkheft passend zur Einheit (dort ist noch keine Etappe gelandet) – sonst führt „Einsteigen“ seit WK zur ersten offenen Etappe laut Merkheft
+  const { page } = await setup(t, { gestaltung: 'nacht', anpassen: (a, e) => (a === 'schule_merkheft' && e ? { ...e, einheiten: e.einheiten.map((x) => (x.einheit_id === 1 ? { ...x, stand: {} } : x)) } : e) });
   await page.goto(origin + '/#/reise/1');
   await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
   assert.equal(await page.locator('.lr.lr-abflug.lr-abflug-nacht').count(), 1);
@@ -4568,7 +4570,7 @@ test('RK-App: Reisekarte ersetzt die Anzeigetafel – Kontinent des aktuellen Fl
     await page.locator(`${ort} .rk-dran-stand`).waitFor(); assert.equal(await page.locator(`${ort} .rk-dran-stand b`).innerText(), '3/6');
     assert.equal(await page.locator(`${ort} .rk-striche i`).count(), 6);
     const ziel = await st.getAttribute('href');
-    assert.ok(/^#\/(lerneinheit\/1-1-(ueben|test)|wiederholen\/1)$/.test(ziel), ziel);
+    assert.ok(/^#\/(lerneinheit\/1-1-(ueben(-\d+(-start)?)?|test)|wiederholen\/1)$/.test(ziel), ziel); // WK F1: mit Etappe der genannten Stadt
     if (b < 1100) { const kb = await page.locator('.rk-karte').boundingBox(); const sb = await st.boundingBox(); assert.ok(sb.y + sb.height <= kb.y + kb.height && sb.y > kb.y + kb.height / 2, 'Startknopf unten in der Karte'); }
     // Flaggen erst beim Anzeigen: nur Länder, deren Pin gezeichnet ist
     const sichtbar = await page.locator('.rk-pin image').count(); assert.ok(flaggen.length > 0 && flaggen.length <= sichtbar + 2, `Flaggen ${flaggen.length} ≤ Pins ${sichtbar}`);
@@ -4742,7 +4744,7 @@ test('RK-App 3 Sperre (RK-D): ohne Plan nur gedämpft, kein Schloss (Kl.-5-Lage 
     assert.match(await page.locator('.rk-pin[data-id="SI"]').getAttribute('aria-label'), /wartet – erst Schweiz schaffen, Platz 3 im Plan/);
     // Startknopf führt nie auf den gesperrten Flug (Einheit 1 gehört hier zum gesperrten Slowenien)
     const st = page.locator(b >= 1100 ? '.rk-seite .rk-start' : '.rk-schwebe .rk-start'); await st.waitFor();
-    assert.equal(await st.getAttribute('href'), '#/lerneinheit/1-2-ueben', 'Ersatz: der Flug, der auf der Karte dran ist');
+    assert.match(await st.getAttribute('href'), /^#\/lerneinheit\/1-2-ueben(-\d+-start)?$/, 'Ersatz: der Flug, der auf der Karte dran ist');
     await page.screenshot({ path: path.join(root, `test-results/rk3-eu3-${b}.png`) });
     await page.locator('.rk-pin[data-id="SI"] .rk-treffer').click({ timeout: 3000 });
     const bl = page.locator(b >= 1100 ? '.rk-seite-blatt' : '.rk-blatt:not([hidden])'); await bl.waitFor();
@@ -5028,7 +5030,7 @@ test('KJ §0: Kinderseite – Nachbessern zuerst (Expedition als Chip), Gerade d
     const zp = page.locator('.lr-zp-karte');
     assert.match(await zp.innerText(), /\+ ZUSATZ · EINGEPLANT[\s\S]*Terme umformen[\s\S]*2 von 5 Etappen · Extra-Flug, von deinen Eltern eingeplant[\s\S]*Weiter in Samarkand ›[\s\S]*Ganz fertig: Stempel und ★ 100\. Dein nächster Flug wartet trotzdem\./);
     assert.equal(await zp.locator('.lr-zp-balken i').count(), 5); assert.equal(await zp.locator('.lr-zp-balken i.voll').count(), 2);
-    assert.doesNotMatch(await page.locator('.lr-einsteigen-knopf').getAttribute('href'), /-3-/, 'Hauptknopf nicht beim Zusatz');
+    assert.doesNotMatch(await page.locator('.lr-einsteigen-knopf').getAttribute('href'), /^#\/lerneinheit\/\d+-3-/, 'Hauptknopf nicht beim Zusatz'); // Einheit 3 (seit WK steht die Etappe im Ziel, z. B. „-ueben-3-start“)
     // Mein Schuljahr – gleich schuljahr_stand
     const sj = page.locator('.lr-sj-karte');
     assert.match(await sj.innerText(), /MEIN SCHULJAHR · GYMNASIUM[\s\S]*26 %[\s\S]*Klasse 5[\s\S]*Schon geschafft: 2 von 15 Flügen · 29 von 112 Etappen[\s\S]*Noch 13 Flüge und 83 Etappen bis Klasse 5 geschafft[\s\S]*Nächstes Ziel: 30 % – nur noch 5 Etappen![\s\S]*Danach Klasse 6: 11 Flüge · 82 Etappen/);
@@ -5189,4 +5191,93 @@ test('KJ 2 S5: Lehrer 1280 – Fahrplan-Kopf ohne Umbruch im Wort, Stand-Satz im
   assert.ok(mass.sw <= mass.cw + 1 && mass.satz <= Math.min(mass.drawer, mass.eltern, mass.vw) + 1, 'Stand-Satz im Blatt ' + JSON.stringify(mass));
   assert.match(await satz.innerText(), /fertig, sobald alle gelandet \(ohne Flug-Test\)/);
   await page.screenshot({ path: path.join(root, 'test-results/kj2-lehrer-1280.png') });
+});
+
+// ---------- WK (0.93.2): Kind hängt fest – Knöpfe führen zur genannten Etappe, Ende bei fälligen Etappen, Namen der Reisekarte ----------
+// Lage (erfunden, wie der Fehlerfall): Etappe 1 und 2 gelandet, 2 fällig, 3 offen; Flug = Italien (Thema 15) auf der Reisekarte.
+function wk93Server({ faellig = true, faelligLz = 'strahl' } = {}) {
+  const srv = rkServer({ basis: (aktion, e, d) => {
+    if (!e) return e;
+    if (aktion === 'schule_uebersicht') return { ...e, einheiten: (e.einheiten || []).map((x) => (x.id === 1 ? { ...x, thema_id: 15 } : x)) };
+    if (aktion === 'schule_einheit_lesen' && Number(d.einheit_id) === 1) return { ...e, etappen_stand: { stellenwert: { fertig: true, sitzt: true, faellig: faellig && faelligLz === 'stellenwert', ziel: 2, serie: 2 }, strahl: { fertig: true, sitzt: true, faellig: faellig && faelligLz === 'strahl', ziel: 2, serie: 2 }, binomisch: { fertig: false, ziel: 2 } },
+      stand: ETAPPEN.map((x) => ({ lernziel: x.lernziel, pflicht: true, status: x.lernziel === 'binomisch' ? 'offen' : 'gelandet' })) };
+    if (aktion === 'schule_uebung_pruefen' && e.karte && d.aufgabe_id === 12) return { ...e, karte: { ...e.karte, sitzt: true, fertig: true, serie: 2, ziel: 2, neu_sitzt: false } }; // wie karte_buchen: sitzt weiter, nicht mehr fällig
+    return e; } });
+  const it = srv.daten.kontinente.flatMap((k) => k.fluege).find((f) => f.thema_id === 15);
+  return { ...srv, stadt: (nr) => it.staedte.find((c) => c.nr === nr).name, land: it.land };
+}
+
+test('WK F1+F3: „Weiter in ‹Stadt 3›“ führt zu Etappe 3 (nicht zur fälligen 2); Kopf, Leiste und Bordkarte tragen die Namen der Reisekarte', async (t) => {
+  const srv = wk93Server(); const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen });
+  await page.setViewportSize({ width: 1280, height: 800 }); await page.goto(origin + '/#/reise/1');
+  const st = page.locator('.rk-seite .rk-start'); await st.waitFor();
+  assert.equal(await st.getAttribute('href'), '#/lerneinheit/1-1-ueben-3-start', 'Knopf führt zur Etappe der genannten Stadt');
+  const knopfText = await page.locator('.rk-seite .rk-dran').innerText();
+  assert.ok(knopfText.includes(srv.stadt(3)), `Stadt 3 am Start: ${knopfText}`);
+  await st.click();
+  await page.getByRole('button', { name: 'Jetzt du ›' }).click(); // neue Etappe: erst ihre Erklärung (wie beim Einsteigen), dann die Aufgabe
+  await page.getByText('Multipliziere aus: (x + 1)²').first().waitFor();
+  const leiste = page.locator('.lr-lk-mitte small.lr-leise'); await leiste.waitFor();
+  assert.equal((await leiste.innerText()).trim(), `Etappe 3/3 · ${srv.stadt(3)} · Binomische Formeln`);
+  const kopf = await page.locator('body').innerText();
+  assert.ok(kopf.includes(srv.land), 'Land als Titel'); assert.ok(!/\bRom\b/.test(kopf), 'kein alter Ortsname für das Kind: ' + kopf.slice(0, 300));
+  assert.match(await page.locator('.lr-bord-kopf').first().innerText(), new RegExp(`BORDKARTE \\d+ · ${srv.stadt(3).toUpperCase()}`));
+  await page.screenshot({ path: path.join(root, 'test-results/wk-f1-etappe3.png') });
+});
+
+test('WK F2: fällige, gelandete Etappe – nach einer richtigen Antwort „Hier bist du fertig ✓“ mit „Nächste Etappe: … ›“', async (t) => {
+  const srv = wk93Server(); const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen });
+  await page.setViewportSize({ width: 400, height: 860 }); await page.goto(origin + '/#/lerneinheit/1-1-ueben-2');
+  await page.getByText('Tippe die Markierung an, an der 20 000 liegt.').first().waitFor();
+  assert.match(await page.locator('main').innerText(), /heute wiederholen: 1 Bordkarte, dann bist du hier fertig/, 'sagt, wie viele Aufgaben noch nötig sind');
+  await page.getByRole('button', { name: 'Markierung 4' }).click(); await page.getByRole('button', { name: 'Prüfen' }).click();
+  const box = page.locator('.lr-wdh-fertig'); await box.waitFor();
+  assert.match(await box.innerText(), /Hier bist du fertig ✓/);
+  await box.getByRole('button', { name: /^Nächste Etappe: .+ ›$/ }).or(box.getByRole('link', { name: /^Nächste Etappe: .+ ›$/ })).first().waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/wk-f2-fertig.png') });
+});
+
+test('WK F3: derselbe Name auf Kinder- und Lehrer-Seite (Land der Reisekarte statt alter Ortsname)', async (t) => {
+  const srv = wk93Server(); const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen });
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-3'); await page.locator('.lr-lk-mitte small.lr-leise').waitFor();
+  const kind = await page.locator('body').innerText(); assert.ok(kind.includes(srv.land), 'Kind: Land als Titel');
+  await page.goto(origin + '/#/kind/1-ueberblick'); const dran = page.locator('.lw-ue-dran small').first(); await dran.waitFor();
+  assert.match(await dran.innerText(), new RegExp(`^${srv.land} · `), 'Gerade dran: Land wie auf der Reisekarte');
+  await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.lern-einheit-kopf h3').first().waitFor({ state: 'attached' });
+  assert.ok((await page.locator('.lern-einheit-kopf h3').first().textContent()).startsWith(srv.land + ': '), 'Was wackelt: Land');
+});
+
+test('WK F4: Rechner, Nacht, niedriges Fenster – Aufgabe der fälligen Etappe steht sichtbar über dem Tastenfeld', async (t) => {
+  const srv = wk93Server({ faelligLz: 'stellenwert' }); const { page } = await setup(t, { gestaltung: 'nacht', anpassen: srv.anpassen });
+  await page.setViewportSize({ width: 1280, height: 680 }); await page.goto(origin + '/#/lerneinheit/1-1-ueben-1');
+  const frage = page.getByText('Welchen Wert hat die Ziffer 2 in 182 887?').first(); await frage.waitFor();
+  await page.locator('.lr-tastenfeld').waitFor();
+  const lage = await page.evaluate(() => { const f = [...document.querySelectorAll('.lr-aufgabe, .lr-bordkarte, main *')].find((x) => x.children.length === 0 && x.textContent.trim().startsWith('Welchen Wert hat die Ziffer 2'));
+    const r = f.getBoundingClientRect(); const pt = document.elementFromPoint(r.left + 5, r.top + r.height / 2); return { verdeckt: !f.contains(pt) && !pt.contains(f), top: r.top }; });
+  assert.ok(!lage.verdeckt, 'Frage nicht vom Tastenfeld verdeckt ' + JSON.stringify(lage));
+  await page.screenshot({ path: path.join(root, 'test-results/wk-f4-nacht-1280x680.png') });
+});
+
+// WK F5: Rückweg Aufgabe → Übersicht messen (Mock-Server: jede Antwort 200 ms). Zahlen gehen in die Meldung.
+async function wkRueckweg(t, ms = 200) {
+  const srv = wk93Server(); const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen, verzoegerung: ms });
+  await page.setViewportSize({ width: 1280, height: 800 }); await page.goto(origin + '/#/reise/1'); await page.locator('.rk-seite .rk-start').waitFor();
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-2'); await page.getByRole('button', { name: 'Markierung 4' }).click(); await page.getByRole('button', { name: 'Prüfen' }).click(); // eine Antwort wie beim Kind
+  await page.locator('.lr-rueck').first().waitFor(); await page.waitForTimeout(ms * 3);
+  const log = []; const t0 = Date.now();
+  page.on('request', (r) => { if (/lernen-api/.test(r.url())) { const x = { aktion: JSON.parse(r.postData() || '{}').aktion, von: Date.now() - t0, bis: null }; log.push(x); r.response().then(() => { x.bis = Date.now() - t0; }).catch(() => {}); } });
+  await page.evaluate(() => { location.hash = '#/reise/1'; });
+  await page.locator('.rk, .lr-abflugtafel').first().waitFor(); const erstesBild = Date.now() - t0;
+  const veraltet = await page.locator('.lr-veraltet').count();
+  await page.locator('.rk-seite .rk-start').waitFor(); await page.waitForFunction(() => !document.querySelector('.lr-veraltet')); const frisch = Date.now() - t0;
+  await page.waitForTimeout(ms * 2);
+  // Runden: ein Abruf, der erst nach dem Ende eines anderen startet, gehört zur nächsten Runde
+  const s = log.slice().sort((a, b) => a.von - b.von); let runden = 0, ende = -1; for (const x of s) { if (x.von >= ende) { runden++; ende = x.bis ?? x.von; } else ende = Math.max(ende, x.bis ?? x.von); }
+  return { erstesBild, frisch, veraltet, runden, abrufe: s.map((x) => `${x.aktion} ${x.von}–${x.bis}`) };
+}
+test('WK F5: Rückweg von der Aufgabe – letzte Ansicht sofort (gedimmt), frischer Stand in höchstens zwei Abruf-Runden', async (t) => {
+  const m = await wkRueckweg(t); console.log('WK F5 Messung', JSON.stringify(m));
+  assert.equal(m.veraltet, 1, 'letzte Ansicht sofort, als veraltet markiert'); assert.ok(m.erstesBild < 150, `erstes Bild nach ${m.erstesBild} ms`);
+  assert.ok(m.runden <= 2, `Abruf-Runden: ${m.runden} – ${m.abrufe.join(', ')}`);
 });

@@ -3416,3 +3416,9 @@ Meldung Sebastian mit zwei Bildern (Übung `#/lerneinheit/2-112-ueben-2`, Reisek
 
 - WK zusammengeführt (bau-motivation 789079f): F1 Knöpfe führen zur genannten Etappe, F2 Ende bei fälliger Etappe, F3 Namen der Reisekarte (Kind und Lehrer; Liste der verbleibenden alten Namen in der Meldung), F4 Ursache: klebendes Tastenfeld verdeckte die Bordkarte bei niedrigem Fenster – behoben, F5 Rückweg 10 Abrufe/5 Runden → 6/2, Sofortbild aus dem Speicher. Echte Serverzeiten nicht gemessen.
 - **Korrektur Gestalter (von Sebastian übermittelt):** 1) Abflugtafel ist nur noch Nebenansicht; Anrede „Digga“ gehört als Sticker auf die Ecke der Startkarte „Weiter in …“ der Reisekarte (Handy: Karte unten über der Landkarte, Rechner: rechte Spalte); auf der Abflugtafel darf sie bleiben, zählt aber mit (höchstens einmal je Lerntag insgesamt). 2) M1/M2 der Prüfung KJ zu Soll herabgestuft (beide sind seit 0.93.1 ohnehin erledigt). 3) Neues Soll: „Mein Schuljahr“ auf Handy/Tablet als Zeile „Klasse 5 · 26 % ›“ in der schwebenden Startkarte, Antippen öffnet die Karte.
+
+## LIVE: App 0.93.2 – Fehlerbehebung WK (24.11., 03:55 Berlin)
+
+- `main` 93a2c69 = `lernen-app` 73b5664. Gesamttest 195/195, Auslieferung erfolgreich.
+- Beide Kinder übten kurz vorher; Sebastian: „Machen Pause also live“.
+- Offen: echte Serverzeiten des Rückwegs nicht gemessen; Nachtrag RS (0.93.3: Anrede auf der Reisekarte, „Mein Schuljahr“ auf Handy/Tablet) liegt als Kopiertext bei Sebastian.

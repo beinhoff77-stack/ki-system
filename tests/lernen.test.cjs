@@ -2182,7 +2182,7 @@ test('Teil 4 Punkt 5e: nach der letzten Pflicht-Etappe nur „Jetzt zum Test“;
   await landeEtappe1(page);
   const l = page.locator('.lr-abschluss-etappe'); await l.waitFor(); // AB-A: Abschluss-Ansicht, ein großer Knopf zum Flug-Test
   assert.equal(await l.locator('.lr-ab-gross').count(), 1, 'nur ein großer Knopf');
-  assert.match((await l.locator('.lr-ab-gross').innerText()).replace(/\s+/g, ' '), /^Weiter: Flug-Test 3 Bordkarten, eine je Etappe, ohne Tipps ›$/);
+  assert.match((await l.locator('.lr-ab-gross').innerText()).replace(/\s+/g, ' '), /^Jetzt zum Flug-Test 3 Bordkarten, eine je Etappe, ohne Tipps ›$/);
   assert.equal(await l.getByText('Anschlussflug', { exact: false }).count(), 0);
   await l.getByRole('link', { name: 'Pause – zur Abflugtafel' }).waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/teil4-test-folgt-390.png') });
@@ -4903,7 +4903,7 @@ test('RK-App: Startknopf zeigt Check-in und Flug-Test wie die Tafel; nach einer 
   const txt = await st.innerText(); const href = await st.getAttribute('href');
   await page.getByRole('button', { name: 'Abflugtafel' }).click(); await page.locator('.lr-abflugtafel').waitFor();
   assert.equal(await page.locator('.lr-einsteigen-knopf').getAttribute('href'), href);
-  if (/test$/.test(href)) assert.match(txt, /Zum Flug-Test/);
+  if (/test$/.test(href)) assert.match(txt, /Flug-Test/);
   await page.getByRole('button', { name: 'Zur Reisekarte ›' }).click(); await page.locator('.rk-schwebe .rk-start').waitFor();
   // Änderung (Antwort) → Karte gilt als alt → beim nächsten Öffnen sofort die alte, dann die neue
   const n0 = (await page.evaluate(() => lernReiseKarteSpeicher.size));
@@ -5204,6 +5204,7 @@ function wk93Server({ faellig = true, faelligLz = 'strahl' } = {}) {
     if (aktion === 'schule_uebung_pruefen' && e.karte && d.aufgabe_id === 12) return { ...e, karte: { ...e.karte, sitzt: true, fertig: true, serie: 2, ziel: 2, neu_sitzt: false } }; // wie karte_buchen: sitzt weiter, nicht mehr fällig
     return e; } });
   const it = srv.daten.kontinente.flatMap((k) => k.fluege).find((f) => f.thema_id === 15);
+  for (const c of it.staedte) c.stand = c.nr <= 2 ? 'gelandet' : 'offen'; // Karte passend zum Merkheft (WK 2: der Hauptknopf folgt den Ständen der Karte)
   return { ...srv, stadt: (nr) => it.staedte.find((c) => c.nr === nr).name, land: it.land };
 }
 
@@ -5280,4 +5281,149 @@ test('WK F5: Rückweg von der Aufgabe – letzte Ansicht sofort (gedimmt), frisc
   const m = await wkRueckweg(t); console.log('WK F5 Messung', JSON.stringify(m));
   assert.equal(m.veraltet, 1, 'letzte Ansicht sofort, als veraltet markiert'); assert.ok(m.erstesBild < 150, `erstes Bild nach ${m.erstesBild} ms`);
   assert.ok(m.runden <= 2, `Abruf-Runden: ${m.runden} – ${m.abrufe.join(', ')}`);
+});
+
+// ---------- RS (0.93.3): Anrede auf der Reisekarte, „Mein Schuljahr“ auf Handy/Tablet ----------
+const rsOeffnen = async (t, b, h, g, { tafel = false } = {}) => {
+  const srv = rkServer({ basis: kjServer({ nb: [] }) }); const { page } = await setup(t, { gestaltung: g, anpassen: srv.anpassen });
+  if (tafel) await page.addInitScript(() => { if (!sessionStorage.getItem('rs.einmal')) { sessionStorage.setItem('rs.einmal', '1'); localStorage.setItem('lern.rk.1', 'tafel'); } });
+  await page.setViewportSize({ width: b, height: h }); await page.goto(origin + '/#/reise/1'); return page;
+};
+// Startkarte steht fest: Bordkarten der Stadt (x/6) und Wortliste geladen – danach wird sie nicht mehr neu gezeichnet
+const rsRuhig = async (page) => { await page.locator('.rk-dran-stand').first().waitFor(); await page.waitForFunction(() => !document.querySelector('.lr-jw-platz')); await page.waitForTimeout(250); };
+// Rechteck des Textes selbst (nicht der ganzen Zeile)
+const rsText = (page, sel) => page.locator(sel).first().evaluate((e) => { const w = document.createTreeWalker(e, NodeFilter.SHOW_TEXT); let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  for (let n = w.nextNode(); n; n = w.nextNode()) { if (!n.textContent.trim()) continue; const r = document.createRange(); r.selectNodeContents(n); for (const q of r.getClientRects()) { x0 = Math.min(x0, q.left); y0 = Math.min(y0, q.top); x1 = Math.max(x1, q.right); y1 = Math.max(y1, q.bottom); } }
+  return { x: x0, y: y0, width: x1 - x0, height: y1 - y0 }; });
+const rsGroessen = [[360, 740], [400, 860], [820, 1180], [1280, 800]];
+const rsKasten = (page, sel) => page.locator(sel).first().boundingBox();
+const rsUeber = (a, b) => a && b && a.x < b.x + b.width - 1 && b.x < a.x + a.width - 1 && a.y < b.y + b.height - 1 && b.y < a.y + a.height - 1;
+
+test('RS 1: Anrede auf der Ecke der Startkarte der Reisekarte – danach keine auf der Abflugtafel (360/400/820/1280, Tag und Nacht)', async (t) => {
+  for (const [b, h] of rsGroessen) for (const g of ['tag', 'nacht']) {
+    const page = await rsOeffnen(t, b, h, g);
+    const ort = b >= 1100 ? '.rk-seite' : '.rk-schwebe';
+    const st = page.locator(`${ort} .rk-schwebe-karte .lr-jw-sticker.lr-jw-anrede.lr-jw-ecke`); await st.waitFor(); await rsRuhig(page);
+    await st.evaluate((e) => Promise.all(e.getAnimations({ subtree: true }).map((x) => x.finished.catch(() => null)))); // Sticker fertig „aufgeklebt“
+    const sb = await st.boundingBox(); const kb = await rsKasten(page, `${ort} .rk-schwebe-karte`);
+    assert.ok(sb.y < kb.y && sb.x + sb.width > kb.x + kb.width - 2, `${b} ${g}: Sticker auf der Ecke ${JSON.stringify([sb, kb])}`);
+    const nb0 = await rsText(page, `${ort} .rk-dran-text b`); assert.ok(!rsUeber(sb, nb0), `${b} ${g}: Stadtname frei ${JSON.stringify([sb, nb0])}`);
+    const kn0 = await rsKasten(page, `${ort} .rk-start`); assert.ok(!rsUeber(sb, kn0), `${b} ${g}: Knopf frei ${JSON.stringify([sb, kn0])}`);
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `${b} ${g}: kein Querrollen`);
+    const sichtbar = await st.evaluate((e) => { const r = e.getBoundingClientRect(); const p = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2); return e.contains(p); });
+    assert.ok(sichtbar, `${b} ${g}: Sticker nicht abgeschnitten/verdeckt`);
+    if (b === 400 || b === 1280) await page.screenshot({ path: path.join(root, `test-results/rs-anrede-reisekarte-${b}-${g}.png`) });
+    await st.click(); await page.locator('.lr-jw-blatt').waitFor(); await page.locator('.lr-jw-blatt .lr-jw-zu').click();
+    // danach die Abflugtafel: keine zweite Anrede an diesem Lerntag
+    await page.locator('.rk-tafel-knopf').click(); await page.locator('.lr-abflugtafel').waitFor(); await page.waitForTimeout(300);
+    assert.equal(await page.locator('.lr-jw-anrede').count(), 0, `${b} ${g}: Tafel ohne zweite Anrede`);
+  }
+});
+
+test('RS 1: Abflugtafel zuerst – Anrede dort, danach auf der Reisekarte keine (360/400/820/1280, Tag und Nacht)', async (t) => {
+  for (const [b, h] of rsGroessen) for (const g of ['tag', 'nacht']) {
+    const page = await rsOeffnen(t, b, h, g, { tafel: true });
+    await page.locator('.lr-abflugtafel').waitFor(); await page.locator('.lr-jw-anrede').first().waitFor();
+    await page.locator('.rk-zur-karte').click(); await page.locator('.rk-start').first().waitFor(); await page.waitForTimeout(300);
+    assert.equal(await page.locator('.lr-jw-anrede').count(), 0, `${b} ${g}: Reisekarte ohne zweite Anrede`);
+  }
+});
+
+test('RS 2: „Mein Schuljahr“ als Zeile in der Startkarte (360/400/820) – Antippen öffnet die Karte mit denselben Zahlen wie am Rechner', async (t) => {
+  const pr = await rsOeffnen(t, 1280, 800, 'tag'); const rechner = pr.locator('.rk-seite .lr-sj-karte'); await rechner.waitFor(); await rsRuhig(pr);
+  const zahlen = (await rechner.innerText()).replace(/\s+/g, ' ').trim();
+  assert.equal(await pr.locator('.rk-sj-zeile').count(), 0, 'am Rechner keine Zeile (Karte steht rechts)');
+  for (const [b, h] of [[360, 740], [400, 860], [820, 1180]]) for (const g of ['tag', 'nacht']) {
+    const page = await rsOeffnen(t, b, h, g);
+    const z = page.locator('.rk-schwebe .rk-sj-zeile'); await z.waitFor(); await rsRuhig(page);
+    const m = (await z.innerText()).replace(/\s+/g, ' ').trim(); assert.match(m, /^Klasse 5 · \d+ % ›$/);
+    assert.ok(zahlen.includes(m.replace(/^Klasse 5 · /, '').replace(' ›', '')), `Prozent wie am Rechner: ${m} / ${zahlen}`);
+    const zb = await z.boundingBox(); assert.ok(zb.height >= 44, `${b}: Tippfläche ${zb.height}`);
+    const kb = await rsKasten(page, '.rk-schwebe .rk-start'); assert.ok(kb.height >= 44 && !rsUeber(zb, kb), `${b}: Knopf bleibt`);
+    const karte = await rsKasten(page, '.rk-schwebe-karte'); const rahmen = await rsKasten(page, '.rk-rahmen'); assert.ok(karte.height < rahmen.height * 0.5, `${b}: Startkarte nicht zu hoch (${karte.height} von ${rahmen.height})`);
+    if (b === 400 && g === 'tag') await page.screenshot({ path: path.join(root, 'test-results/rs-sj-zeile-400.png') });
+    await z.click(); const blatt = page.locator('.lr-sj-blatt'); await blatt.waitFor();
+    await page.locator('.lr-sj-blatt-innen').evaluate((e) => Promise.all(e.getAnimations().map((x) => x.finished.catch(() => null))));
+    assert.equal((await blatt.locator('.lr-sj-karte').innerText()).replace(/\s+/g, ' ').trim(), zahlen, `${b} ${g}: dieselben Zahlen wie am Rechner`);
+    const bb = await rsKasten(page, '.lr-sj-blatt-innen'); assert.ok(Math.abs(bb.y + bb.height - h) < 2 && bb.x >= 0 && bb.x + bb.width <= b + 1, `${b}: Blatt von unten ${JSON.stringify(bb)}`);
+    if (b === 400 && g === 'tag') await page.screenshot({ path: path.join(root, 'test-results/rs-sj-blatt-400.png') });
+    await blatt.getByRole('button', { name: 'Schließen' }).click(); assert.equal(await page.locator('.lr-sj-blatt').count(), 0);
+  }
+});
+
+// ---------- WK 2 (0.93.4): ein Hauptknopf, immer der richtige nächste Schritt ----------
+// Lage wie der echte Fall (erfunden, auf dem echten Reise-Aufbau): Flug Italien (Thema 15) – alle Städte gelandet, „dran“, kein Stempel, Test fehlt;
+// zweiter Flug Schweiz (Thema 18) auf demselben Plan-Platz ebenfalls „dran“ mit gelandeter Stadt 1 und angefangener Stadt 2. naechster_start.stadt = Stadt 5 (gelandet).
+function wk2Server(fall = 'test', basisF = null) {
+  const srv = rkServer({ basis: (a, e, d) => { const r = (basisF && basisF(a, e, d)) || e; if (!r) return r;
+    if (a === 'schule_uebersicht') return { ...r, einheiten: (r.einheiten || []).map((x) => (x.id === 1 ? { ...x, thema_id: 15 } : x.id === 2 ? { ...x, thema_id: 18 } : x)) };
+    if (fall === 'test' && a === 'schule_einheit_lesen' && Number(d.einheit_id) === 1) return { ...r, blocktest_fertig: false, laufender_test: null,
+      etappen_stand: Object.fromEntries(ETAPPEN.map((x) => [x.lernziel, { fertig: true, sitzt: true, ziel: 2, serie: 2 }])), stand: ETAPPEN.map((x) => ({ lernziel: x.lernziel, pflicht: true, status: 'gelandet' })) };
+    if (fall === 'test' && a === 'schule_merkheft') return { ...r, einheiten: r.einheiten.map((x) => (x.einheit_id === 1 ? { ...x, stand: Object.fromEntries(x.etappen.map((y) => [y.lernziel, { fertig: true }])) } : x)) };
+    return r; } });
+  const fl = srv.daten.kontinente.flatMap((k) => k.fluege); const it = fl.find((f) => f.thema_id === 15); const ch = fl.find((f) => f.thema_id === 18);
+  for (const c of it.staedte) c.stand = 'gelandet'; it.gelandet = it.etappen; it.stufe = 'dran'; it.stempel = false;
+  const ps = ch.staedte.filter((c) => c.pflicht).sort((a, b) => a.nr - b.nr); for (const c of ch.staedte) c.stand = 'offen'; ps[0].stand = 'gelandet'; ps[1].stand = 'begonnen';
+  Object.assign(ch, { stufe: 'dran', im_plan: true, plan_platz: it.plan_platz, gelandet: 1 });
+  if (fall === 'bestanden') Object.assign(it, { stempel: true, stufe: 'wiederholung' });
+  return { ...srv, it, ch, nrCh: ps[1].nr, nItalien: it.staedte.filter((c) => c.pflicht).length };
+}
+
+test('WK 2 A1: echter Fall – alle Städte gelandet, Test fehlt → „Flug-Test Italien“ nach …-test, nirgends „Stadt n von m“ (Reisekarte 400/1280, Abflugtafel)', async (t) => {
+  for (const [b, h] of [[400, 860], [1280, 800]]) {
+    const srv = wk2Server('test'); const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen });
+    await page.setViewportSize({ width: b, height: h }); await page.goto(origin + '/#/reise/1');
+    const ort = b >= 1100 ? '.rk-seite' : '.rk-schwebe'; const st = page.locator(`${ort} .rk-start`); await st.waitFor();
+    assert.equal(await st.getAttribute('href'), '#/lerneinheit/1-1-test');
+    assert.match((await st.innerText()).replace(/\s+/g, ' '), /^Flug-Test Italien/);
+    assert.match(await page.locator(`${ort} .rk-ansage`).innerText(), new RegExp(`^Alle ${srv.nItalien} Städte gelandet – jetzt der Test$`));
+    assert.match(await page.locator(`${ort} .rk-dran`).innerText(), /Italien/);
+    assert.doesNotMatch(await page.locator('body').innerText(), /Stadt \d+ von \d+/, 'keine gelandete Stadt als „Gerade dran“');
+    assert.equal(await page.locator('.rk-auch, .lr-auch-dran').count(), 0, 'kein „Auch dran“');
+    await page.waitForTimeout(300); await page.screenshot({ path: path.join(root, `test-results/wk2-reisekarte-flugtest-${b}.png`) });
+    // Abflugtafel: derselbe Schritt
+    await page.locator('.rk-tafel-knopf').click(); const k = page.locator('.lr-einsteigen-knopf'); await k.waitFor({ state: 'attached' });
+    assert.equal(await k.getAttribute('href'), '#/lerneinheit/1-1-test'); assert.match(await k.textContent(), /Flug-Test Italien/);
+    assert.equal(await page.locator('.lr-flug-jetzt').getAttribute('href'), '#/lerneinheit/1-1-test');
+    await page.close();
+  }
+});
+
+test('WK 2 A3: …-ueben-1-start bei gelandeter Etappe und fälligem Test → Test-Aufforderung groß, „Trotzdem weiterüben“ klein', async (t) => {
+  const srv = wk2Server('test'); const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen });
+  await page.setViewportSize({ width: 400, height: 860 }); await page.goto(origin + '/#/lerneinheit/1-1-ueben-1-start');
+  await page.getByText('Alle Etappen sind gelandet ✓').waitFor(); await page.getByRole('button', { name: 'Test starten' }).waitFor();
+  const tz = page.getByRole('link', { name: 'Trotzdem weiterüben' }); assert.equal(await tz.getAttribute('href'), '#/lerneinheit/1-1-1');
+  assert.equal(await page.locator('.lr-bordkarte').count(), 0, 'kein stilles Weiterüben');
+  await tz.click(); await page.locator('.lr-lk-mitte small.lr-leise', { hasText: /^Etappe 1\/3/ }).waitFor(); // freiwillig erreichbar: Etappe 1 zum Ansehen/Üben
+});
+
+test('WK 2 A2: Test bestanden – zweiter Flug desselben Plan-Platzes mit angefangener Etappe → Knopf führt genau in diese Etappe', async (t) => {
+  const srv = wk2Server('bestanden', abFlug({})); const { page } = await setup(t, { gestaltung: 'nacht', anpassen: srv.anpassen });
+  await page.emulateMedia({ reducedMotion: 'reduce' }); await page.setViewportSize({ width: 400, height: 780 });
+  await page.goto(origin + '/#/lerneinheit/1-1-test'); await page.getByRole('button', { name: 'Test starten' }).click();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click(); await page.getByRole('button', { name: 'Weiter ›' }).click();
+  await page.getByRole('button', { name: 'Markierung 2' }).click(); await page.getByRole('button', { name: 'Abgeben' }).click();
+  await page.locator('.lr-abschluss-flug').getByRole('button', { name: /Weiter zum nächsten Thema/ }).click();
+  const b = page.locator('.lr-abschluss-bordkarte .lr-ab-gross'); await b.waitFor();
+  await page.waitForFunction(() => !document.querySelector('.lr-schritt-knopf[aria-busy]'));
+  assert.equal(await b.getAttribute('href'), `#/lerneinheit/1-2-ueben-${srv.nrCh}-start`);
+  assert.match((await b.innerText()).replace(/\s+/g, ' '), new RegExp(`^Weiter in ${srv.ch.staedte.find((c) => c.nr === srv.nrCh).name}`));
+  await page.screenshot({ path: path.join(root, 'test-results/wk2-abschluss-test-bestanden-400.png') });
+  // dieselbe Lage auf der Reisekarte
+  await page.goto(origin + '/#/reise/1'); const st = page.locator('.rk-schwebe .rk-start'); await st.waitFor();
+  assert.equal(await st.getAttribute('href'), `#/lerneinheit/1-2-ueben-${srv.nrCh}-start`);
+});
+
+test('WK 2 A2: Nachbessern offen hat Vorrang – auch der Knopf nach dem Test führt zuerst zum Nachbessern', async (t) => {
+  const srv = wk2Server('bestanden', kjServer({ basis: (a, e, d) => abFlug({})(a, e, d) || e, zp: [] })); const { page } = await setup(t, { gestaltung: 'nacht', anpassen: srv.anpassen });
+  await page.emulateMedia({ reducedMotion: 'reduce' }); await page.setViewportSize({ width: 400, height: 780 });
+  await page.goto(origin + '/#/lerneinheit/1-1-test'); await page.getByRole('button', { name: 'Test starten' }).click();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click(); await page.getByRole('button', { name: 'Weiter ›' }).click();
+  await page.getByRole('button', { name: 'Markierung 2' }).click(); await page.getByRole('button', { name: 'Abgeben' }).click();
+  await page.locator('.lr-abschluss-flug').getByRole('button', { name: /Weiter zum nächsten Thema/ }).click();
+  const b = page.locator('.lr-abschluss-bordkarte .lr-ab-gross'); await b.waitFor(); await page.waitForFunction(() => !document.querySelector('.lr-schritt-knopf[aria-busy]'));
+  assert.equal(await b.getAttribute('href'), '#/lerneinheit/1-1-ueben-1'); assert.match(await b.innerText(), /^Jetzt nachbessern/);
+  await page.goto(origin + '/#/reise/1'); const nb = page.locator('.rk-schwebe .lr-nb-karte'); await nb.waitFor(); await page.locator('.rk-schwebe .rk-start').waitFor(); await page.waitForTimeout(600);
+  assert.ok((await nb.boundingBox()).y < (await page.locator('.rk-schwebe .rk-start').boundingBox()).y, 'Nachbessern zuerst');
 });

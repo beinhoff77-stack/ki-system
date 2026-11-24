@@ -2,6 +2,115 @@
 
 Neueste oben.
 
+## 2026-11-24 – FERTIG: WK 2 (App 0.93.4)
+
+Stand `lernen-app` 3b2225a mit RS (0.93.3, 98c2b09) zusammengeführt. Nur App: keine Datenbank, nichts eingespielt, kein Merge nach `main`, keine Namen. Cache v179. Die App verlässt sich nicht auf die spätere Server-Änderung (`grund = 'test'`, `stadt = null`).
+
+**A1 – ein Hauptknopf, immer der richtige nächste Schritt**
+- Neu: `lernSchritt(d, karte)`. Der Schritt kommt aus den Ständen der Reisekarte (`fluege[].staedte[].stand`, `stempel`, `gesperrt`, `zusatz`, `stufe`, `plan_platz`) und dem laufenden Test der Einheit, nicht aus `naechster_start.stadt`. Reihenfolge:
+  1. Nachbessern: eigene Karte, zuerst, wie bisher.
+  2. Laufender Test → „Test weitermachen“.
+  3. Flug „dran“ mit offener Pflicht-Stadt → „Weiter in ‹Stadt›“ → `…-ueben-<nr>-start`.
+  4. Flug „dran“, alle Pflicht-Städte gelandet, Test fehlt → „Flug-Test ‹Land›“ → `…-test`, Ansage „Alle n Städte gelandet – jetzt der Test“.
+  5. Sonst der nächste Flug laut Plan, auch der zweite Flug desselben Plan-Platzes.
+- Bei gleichem Plan-Platz kommt zuerst der Flug, den der Server in `naechster_start` nennt (im echten Fall Nepal vor Sri Lanka), dann die Reihenfolge der Karte.
+- Ein Flug „dran“ wird je Flug geprüft: offene Stadt → dorthin, sonst Test, sonst nächster Flug.
+- Ohne Karte oder ohne Zuordnung Flug → Einheit bleibt es wie bisher (`naechste`, Merkheft).
+- Nie eine gelandete Stadt als „Gerade dran“: Auch der Rückfall über `naechster_start.stadt` zeigt eine Stadt nur, wenn sie nicht gelandet ist. Beim Flug-Test steht keine Stadt da, nur das Land, mit „Flug-Test · ‹Thema›“.
+- Kein „Auch dran“, keine Auswahl-Zeilen.
+- **Wo der Hauptknopf jetzt sitzt** (alle aus demselben Schritt):
+  - Reisekarte: schwebende Startkarte (Handy/Tablet) und „Gerade dran“ in der rechten Spalte (Rechner).
+  - Abflugtafel: oberste Zeile, „Einsteigen“-Leiste unten mit Ansage.
+  - Alter Startbildschirm (Rückfall ohne neue Gestaltung).
+
+**A2 – nach jedem Abschluss direkt weiter**
+- Etappe gelandet: Sind alle Pflicht-Etappen gelandet, kommt direkt „Jetzt zum Flug-Test ›“, auch wenn noch eine Extra-Etappe offen ist. Sonst folgt die nächste Etappe, sonst der nächste Schritt der Reise. „Zur Abflugtafel“ als Hauptknopf gibt es nicht mehr.
+- Test bestanden (Bordkarte „Neues Thema“):
+  - Der Knopf füllt sich mit dem frischen Schritt, also der ersten offenen Etappe des nächsten Flugs. Das gilt auch für den zweiten Flug desselben Platzes, z. B. „Weiter in ‹Stadt 2›“ → `…-ueben-2-start`.
+  - Ohne nächsten Flug laut Server prüft die App trotzdem, ob noch etwas ansteht.
+- Test-Ergebnis: Mit Fehlern bleibt es bei „Erst üben: ‹Etappe›“ und „Gleich verbessern“. Bei „geschafft“ oder ohne Fehlerliste führt der Knopf direkt zum nächsten Schritt statt zur Tafel.
+- „Hier bist du fertig ✓“: offene Pflicht-Etappe → Flug-Test → nächster Schritt der Reise. Extra-Etappen nie als Hauptknopf.
+- „Sitzt wieder!“: weiteres Nachbessern, sonst der nächste Schritt.
+- „Eingecheckt!“ und das Ende der Wiederholung: der nächste Schritt, nie zurück in den Check-in.
+- Technik: `lernSchrittKnopf`.
+  - Er steht sofort da, mit dem Ziel des Servers bzw. „Weiter“.
+  - Er lädt Übersicht, Konto, Karte, Merkheft und Wiederholungen gleichzeitig und setzt dann Ziel und Text.
+  - Ohne Stände der Karte bleibt das Ziel des Servers stehen.
+  - Nachbessern hat Vorrang („Jetzt nachbessern“).
+
+**A3 – Link mit Etappen-Nummer bei fälligem Test**
+- `…-ueben-<nr>` bzw. `…-ueben-<nr>-start` zu einer gelandeten Etappe öffnet bei fälligem Test die Test-Ansicht mit „Alle Etappen sind gelandet ✓“ und „Test starten“.
+- Klein darunter steht „Trotzdem weiterüben“ (→ `…-<nr>`). Kein stilles Weiterüben.
+
+**A4 – freiwilliges Ansehen**
+- Karte antippen, Erklären, „Trotzdem weiterüben“ und Merkheft bleiben unverändert erreichbar.
+- Keiner davon ändert den Schritt, der kommt nur aus den Ständen.
+
+**Tests** (`tests/lernen.test.cjs` voll: 202/202 grün, keine wackligen)
+- Neu:
+  - Echter Fall bei 400 und 1280 px: „Flug-Test Italien“ → `…-test`, Ansage, nirgends „Stadt n von m“, kein „Auch dran“. Abflugtafel derselbe Schritt.
+  - A3: Test-Aufforderung und „Trotzdem weiterüben“.
+  - Test bestanden: zweiter Flug des Platzes mit angefangener Etappe 2, Knopf führt nach `…-ueben-2-start`, Reisekarte gleich.
+  - Nachbessern hat Vorrang (Knopf nach dem Test und Reisekarte).
+- Angepasst:
+  - „Letzte Etappe landet“ erwartet jetzt „Jetzt zum Flug-Test ›“.
+  - RK-App-Startknopf: „Flug-Test“ statt „Zum Flug-Test“.
+  - WK F1: Karten-Stände passend zum Merkheft. Der Hauptknopf folgt jetzt der Karte; vorher standen Karte und Merkheft im Mock gegeneinander.
+
+**Bilder** (`docs/previews/la/`)
+- `wk2-reisekarte-flugtest-400.png`, `wk2-reisekarte-flugtest-1280.png`
+- `wk2-abschluss-letzte-etappe-390.png`, `wk2-abschluss-test-bestanden-400.png`
+
+**Offen / nicht geprüft**
+- Bordkarte nach bestandenem Test: Name und Felder der Karte kommen weiter vom Server (`naechster_flug`). Führt der Schritt in einen anderen Flug als den dort genannten, passt die Beschriftung der Karte nicht zum Knopf. Im echten Betrieb sollten beide übereinstimmen, geprüft ist das nicht.
+- Mit echten Daten nicht geprüft (Nepal/Sri Lanka). Nachgestellt ist der Fall auf dem echten Reise-Aufbau mit Italien und Schweiz.
+- Server-Seite (`naechster_start.stadt = null`, `grund = 'test'`) bleibt für bau-lehrer. Die App kommt mit beidem zurecht. Mit echtem Server-Feld ist das nicht getestet.
+- Check-in steht wie bisher vor dem nächsten Schritt, aber nach laufendem Test bzw. Flug-Test. Die Vorgabe A1 nennt den Check-in nicht, das ist eine Annahme.
+
+## 2026-11-24 – FERTIG: RS (App 0.93.3)
+
+Stand `lernen-app` b2b4305 übernommen (enthält 73b5664). Nur App: keine Datenbank, nichts eingespielt, kein Merge nach `main`, keine Namen. Cache v178.
+
+**1) Anrede auf der Reisekarte**
+- Der Sticker sitzt auf der Ecke der Startkarte „Weiter in …“:
+  - Handy und Tablet: schwebende Karte unten.
+  - Rechner (ab 1100 px): Karte „Gerade dran“ in der rechten Spalte.
+- Aussehen wie der Eck-Sticker der Abflugtafel: schräg, ragt oben rechts über den Rand. Antippen zeigt die Bedeutung.
+- Damit Stadtname, Stand (x/6) und Knopf frei bleiben:
+  - Die Karte hat oben 30 px Luft, aber nur, wenn ein Sticker draufsitzt.
+  - Eine Karte darüber (Expedition, Nachbessern) bekommt 24 px Abstand.
+  - Am Rechner hat die rechte Spalte oben Platz, damit der Sticker nicht abgeschnitten wird.
+- Zählung gemeinsam mit der Abflugtafel über denselben Tagesstand (`lernJwAnrede`): höchstens einmal je Lerntag, egal welche Ansicht zuerst kommt. Auf der Abflugtafel bleibt die Anrede wie bisher.
+- Tests bei 360, 400, 820 und 1280 px, Tag und Nacht:
+  - Reisekarte zuerst: Sticker auf der Ecke. Er verdeckt weder den Stadtnamen (Textfläche) noch den Knopf, nichts rollt quer, er ist nicht abgeschnitten. Antippen öffnet die Bedeutung. Danach hat die Abflugtafel keine Anrede.
+  - Abflugtafel zuerst: Anrede dort. Danach hat die Reisekarte keine.
+
+**2) „Mein Schuljahr“ auf Handy und Tablet**
+- In der schwebenden Startkarte unter dem Knopf steht eine Zeile „Klasse 5 · 26 % ›“ mit kleinem Ring. Klasse und Prozent kommen aus `schuljahr_stand`, Hauptklasse; bei IB „MYP-Jahr …“.
+- Tippfläche 44 px, volle Breite. Der Knopf „Weiter in …“ bleibt, wo er ist.
+- Antippen öffnet die Karte „Mein Schuljahr“ als Blatt von unten, mit „Schließen“ (auch Esc oder Tippen daneben). Es ist dieselbe Karte wie am Rechner.
+- Am Rechner gibt es keine Zeile, dort steht die Karte rechts.
+- Test bei 360, 400 und 820 px, Tag und Nacht:
+  - Die Zeile ist sichtbar und mindestens 44 px hoch und überdeckt den Knopf nicht.
+  - Die Startkarte ist niedriger als die halbe Karte.
+  - Das Blatt kommt von unten. Sein Text ist gleich der Karte am Rechner (1280 px).
+
+**Tests:** `tests/lernen.test.cjs` voll: 198/198 grün, keine wackligen Tests.
+- Beim Bauen gab es zwei Mess-Wackler im neuen Test, beide sind am Test behoben:
+  - Der Sticker wurde vermessen, während seine „Aufkleben“-Bewegung noch lief.
+  - Die Startkarte wurde einmal neu gezeichnet (Bordkarten-Stand x/6 kam nach). Gemessen wird jetzt erst, wenn der Stand da ist.
+- Kein Fehler der App.
+
+**Bilder** (`docs/previews/la/`):
+- `rs-anrede-reisekarte-400-tag.png`, `rs-anrede-reisekarte-400-nacht.png`, `rs-anrede-reisekarte-1280-tag.png`
+- `rs-sj-zeile-400.png`, `rs-sj-blatt-400.png`
+
+**Offen / nicht geprüft**
+- Die Startkarte ist mit Sticker 30 px höher, sonst würde der Sticker bei 400–820 px den Knopf „Weiter in …“ verdecken. Diese Lösung sollte der Gestalter ansehen; die andere Möglichkeit wäre ein kleinerer Sticker.
+- Wird die Reisekarte am selben Tag ein zweites Mal gezeichnet (Zurück, Wechsel zur Tafel und zurück), erscheint keine Anrede mehr. So verlangt es „einmal je Lerntag“, wie bisher auf der Tafel.
+- Das Blatt „Mein Schuljahr“ ist nachts nur über die Farbvariablen geprüft (Test bei Nacht grün), nicht per Bild.
+- Nicht auf echten Geräten geprüft, nur im Test-Browser.
+
 ## 2026-11-24 – FERTIG: WK (App 0.93.2)
 
 Stand `lernen-app` d2f66cc übernommen. Nur App: keine Datenbank, nichts eingespielt, kein Merge nach `main`, keine Namen. Cache v177. Kein neues Server-Feld nötig.

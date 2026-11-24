@@ -5958,3 +5958,25 @@ body.rk-kopf-oben:has(#tabs[hidden]) { padding-bottom: 0; }
 .lr-veraltet { opacity: .55; pointer-events: none; filter: saturate(.6); transition: opacity .15s; }
 /* F5: was sich mit der letzten Antwort ändern kann (Sterne, „Gerade dran“, Start/Einsteigen, Check-in), bleibt bis zum frischen Stand leer – kein veralteter Wert */
 .lr-veraltet :is(.lr-chip-stern, .rk-dran, .rk-start, .rk-dran-stand, .lr-flug-jetzt, .lr-einsteigen-knopf, .lr-dock-start, .lr-checkin-ansage, .lr-band, .lr-ab-sterne) { visibility: hidden; }
+/* ---------- RS (0.93.3) ---------- */
+/* 1: Anrede auf der Ecke der Startkarte der Reisekarte (Handy/Tablet schwebend, Rechner rechte Spalte) */
+.rk-schwebe-karte.lr-jw-ecke-traeger { position: relative; }
+.rk-schwebe-karte .lr-jw-ecke { top: -30px; right: -6px; }
+.rk-schwebe-karte.lr-jw-ecke-traeger { padding-top: 30px; } /* Platz unter dem Sticker: Stadtname, Stand und Knopf bleiben frei */
+.rk-schwebe > .lr-jw-ecke-traeger:not(:first-child) { margin-top: 24px; } /* verdeckt die Karte darüber nicht */
+@media (min-width: 1100px) { .rk-seite:has(.lr-jw-ecke) { padding-top: 32px; padding-right: 6px; } .rk-seite-karte:has(.lr-jw-ecke) { overflow: visible; } }
+/* 2: Mein Schuljahr als Zeile in der Startkarte (Handy/Tablet) und als Blatt von unten */
+.rk-sj-zeile { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; min-height: 44px; margin: -4px 0 -6px; padding: 0 4px; border: 0; border-top: 1px solid var(--linieF); background: none; color: inherit; font: inherit; font-size: 14px; font-weight: 700; text-align: left; cursor: pointer; }
+.rk-sj-zeile i { margin-left: auto; font-style: normal; color: var(--leise); }
+.rk-sj-ring { width: 14px; height: 14px; border-radius: 50%; border: 3px solid #2E7D4F; box-sizing: border-box; flex: none; }
+.lr-sj-blatt { position: fixed; inset: 0; z-index: 60; background: #0006; display: flex; align-items: flex-end; justify-content: center; }
+.lr-sj-blatt-innen { width: 100%; max-width: 560px; max-height: 85dvh; overflow: auto; box-sizing: border-box; background: var(--lr-bg, #F5F1E8); color: var(--lr-text, #1F2A24); border-radius: 20px 20px 0 0; padding: 16px 16px calc(16px + env(safe-area-inset-bottom)); display: grid; gap: 12px; animation: lr-sj-hoch .2s ease-out; }
+.lr-sj-blatt-innen .lr-sj-karte { margin: 0; }
+.lr-sj-zu { justify-self: stretch; min-height: 44px; }
+@keyframes lr-sj-hoch { from { transform: translateY(30px); opacity: .4; } }
+@media (prefers-reduced-motion: reduce) { .lr-sj-blatt-innen { animation: none; } }
+/* ---------- WK 2 (0.93.4) ---------- */
+/* Ansage über die ganze Breite der kompakten Startkarte, unter Stadt und Knopf („Alle 5 Städte gelandet – jetzt der Test“, Check-in) */
+.rk-schwebe-karte.kompakt .rk-ansage { grid-column: 1 / -1; order: 1; text-align: left; font-size: 13px; }
+.rk-schwebe-karte.kompakt .rk-sj-zeile { order: 2; }
+.lr-trotzdem-ueben { display: inline-block; margin-top: 6px; }

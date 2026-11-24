@@ -5975,3 +5975,8 @@ body.rk-kopf-oben:has(#tabs[hidden]) { padding-bottom: 0; }
 .lr-sj-zu { justify-self: stretch; min-height: 44px; }
 @keyframes lr-sj-hoch { from { transform: translateY(30px); opacity: .4; } }
 @media (prefers-reduced-motion: reduce) { .lr-sj-blatt-innen { animation: none; } }
+/* ---------- WK 2 (0.93.4) ---------- */
+/* Ansage über die ganze Breite der kompakten Startkarte, unter Stadt und Knopf („Alle 5 Städte gelandet – jetzt der Test“, Check-in) */
+.rk-schwebe-karte.kompakt .rk-ansage { grid-column: 1 / -1; order: 1; text-align: left; font-size: 13px; }
+.rk-schwebe-karte.kompakt .rk-sj-zeile { order: 2; }
+.lr-trotzdem-ueben { display: inline-block; margin-top: 6px; }

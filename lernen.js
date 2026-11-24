@@ -258,13 +258,13 @@ function lernStats(konto, ex = null) {
       el('p', {}, el('b', {}, 'Lerntage: '), 'Tage, an denen du geübt hast.'),
       konto?.knobel_sterne ? el('p', {}, el('b', {}, 'Knobel-Sterne: '), 'Knobel-Bordkarten sind richtig schwer – für Profis. Löst du eine beim ersten Versuch, gibt es 30 Sterne und einen Knobel-Stern.') : null));
 }
-async function lernLadeKind(arg) {
+async function lernLadeKind(arg, { still = false } = {}) {
   const kindId = Number(arg); lernJwLaden(); // JW: Wortliste früh holen (Sticker erscheinen dann ohne Verzögerung)
-  if (!kindId) { route('lernen'); return null; }
+  if (!kindId) { if (!still) route('lernen'); return null; }
   const [u, k] = await Promise.all([lernCall('schule_uebersicht'), lernCall('schule_konto', { lernender_id: kindId }).catch(() => null)]);
   lernEinheitThemenMerken(u); // WK F3: Einheit → Thema (für die Namen der Reisekarte)
   const d = lernReiseDaten(u, kindId);
-  if (!d) { route('lernen'); return null; }
+  if (!d) { if (!still) route('lernen'); return null; }
   if (k?.look) Object.assign(d.kind, k.look);
   d.konto = k?.konto || null; d.belohnungen = k?.belohnungen || []; d.einloesungen = k?.einloesungen || [];
   d.regeln = k?.regeln || null; d.landungNachbuchung = k?.landung_nachbuchung || null; // FP-S: Sterne-Regeln und einmaliger Hinweis nach der Nachbuchung
@@ -700,6 +700,75 @@ function lernNamenSetzen(d) {
     const o = lernFlugOrt(d.kind.id, { ...e, stadt: e.ortAlt }, (d.merk || []).find((m) => Number(m.einheit_id) === Number(e.id)) || null);
     e.etappeNr = o.nr; if (o.ausKarte) { e.stadt = o.nr ? o.stadt : o.land || e.ortAlt; e.land = o.land || e.land; } }
   return d;
+}
+// ---------- WK 2 (0.93.4): ein Hauptknopf, immer der richtige nächste Schritt ----------
+// Reihenfolge: (Nachbessern – eigene Karte, zuerst) · laufender Test · Flug „dran“ mit offener Pflicht-Etappe · Flug „dran“, alles gelandet, Test fehlt
+// · nächster Flug laut Plan (auch der zweite Flug desselben Plan-Platzes). Abgeleitet aus den Ständen der Reisekarte (staedte[].stand, stempel),
+// nicht aus naechster_start.stadt (fällt beim Server ohne offene Stadt auf Stadt 1 zurück). Ohne Karte bzw. ohne Zuordnung Flug → Einheit: null (wie bisher).
+const lernStadtGelandet = (c) => !!c && (c.abgelegt || ['gelandet', 'sicher', 'wieder_offen'].includes(c.stand));
+function lernSchritt(d, karte) {
+  const mit = d?.mit || [];
+  const lauf = mit.find((e) => e.laeuft);
+  if (lauf) return { art: 'laeuft', e: lauf, f: lernRkFlugVon(d.kind.id, lauf.thema_id) || null };
+  const fl = (karte?.kontinente || []).flatMap((k) => (k.fluege || []).map((f) => ({ ...f, kontinent_id: k.id })));
+  const eVon = (f) => mit.find((e) => e.thema_id && Number(e.thema_id) === Number(f.thema_id)) || null;
+  const nstThema = karte?.naechster_start?.grund === 'nachbessern' ? null : Number(karte?.naechster_start?.thema_id) || null;
+  const kand = fl.map((f, i) => ({ f, i })).filter(({ f }) => !f.gesperrt && !f.zusatz && !f.stempel && !f.golden && (f.stufe === 'dran' || f.im_plan) && eVon(f))
+    .sort((a, b) => (a.f.stufe === 'dran' ? 0 : 1) - (b.f.stufe === 'dran' ? 0 : 1) || (Number(a.f.plan_platz) || 999) - (Number(b.f.plan_platz) || 999)
+      || (Number(a.f.thema_id) === nstThema ? 0 : 1) - (Number(b.f.thema_id) === nstThema ? 0 : 1) || a.i - b.i).map((x) => x.f); // gleicher Plan-Platz: zuerst der Flug, den der Server nennt
+  for (const f of kand) {
+    const e = eVon(f); const ps = (f.staedte || []).filter((c) => c.pflicht !== false).sort((a, b) => Number(a.nr) - Number(b.nr));
+    const c = ps.find((x) => !lernStadtGelandet(x));
+    if (c) return { art: f.stufe === 'dran' ? 'etappe' : 'flug', e, f, nr: Number(c.nr), stadt: c };
+    if (ps.length && !e.ohneTest) return { art: 'test', e, f, n: ps.length };
+  }
+  return null;
+}
+// Schritt auf die Daten der Reise legen: n = Einheit des Schritts, et = Etappen-Stand (beim Test: alles gelandet)
+function lernSchrittSetzen(d, karte, merk) {
+  const s = lernSchritt(d, karte); d.schritt = s; if (!s) return null;
+  const n = s.e; n.testJetzt = s.art === 'test'; if (s.nr) n.etappeNr = s.nr;
+  if (s.f?.land) n.land = s.f.land;
+  if (s.stadt?.name) n.stadt = s.stadt.name; else if (s.art === 'test' && s.f?.land) n.stadt = s.f.land;
+  const m = (merk || []).find((x) => Number(x.einheit_id) === Number(n.id));
+  const et = s.art === 'test' ? { n: s.n, f: s.n } : m ? lernEtappenZahl(m) : { n: n.n || 0, f: Math.min(n.fertig || 0, n.n || 0) };
+  return { n, et };
+}
+// Test als nächster Schritt? (Schritt bekannt → der zählt; sonst wie bisher aus dem Merkheft)
+const lernTestDran = (n, et) => (n.testJetzt !== undefined ? n.testJetzt && !n.laeuft : !n.laeuft && !n.ohneTest && et.n > 0 && et.f >= et.n);
+// Ziel und Text des nächsten Schritts (für alle Knöpfe gleich): Nachbessern zuerst, dann wie der Startknopf der Reise
+function lernSchrittZiel(d, karte, merk, ws) {
+  const nb = (d.nachbessern || [])[0];
+  if (nb) return { art: 'nb', ziel: lernNbZiel(d.kind.id, nb), text: 'Jetzt nachbessern', klein: nb.etappe || nb.titel || null };
+  const g = lernSchrittSetzen(d, karte, merk);
+  const n = g?.n || d.naechste; if (!n) return { art: 'nichts', ziel: `#/reise/${d.kind.id}`, text: 'Zur Reisekarte', klein: 'Gerade ist nichts offen' };
+  const et = g?.et || lernEtappenZahl((merk || []).find((m) => Number(m.einheit_id) === Number(n.id))) || { n: 0, f: 0 };
+  const st = lernRkStart(d, { n, et, nWdh: ws?.pflicht || 0, ws, wdhFertig: !!ws?.gemacht });
+  return { art: d.schritt?.art || 'alt', ziel: st.ziel, text: st.text, klein: st.ansage || null };
+}
+// Frisch vom Server (nach einem Abschluss): Übersicht, Konto, Karte, Merkheft, Wiederholungen – alles gleichzeitig
+async function lernSchrittLaden(kindId) {
+  const k = Number(kindId); if (!k) return null;
+  const [d, karte, merk, wdh] = await Promise.all([lernLadeKind(k, { still: true }).catch(() => null), lernReiseKarte(k).catch(() => null),
+    lernCall('schule_merkheft', { lernender_id: k }).then((r) => r?.einheiten || []).catch(() => []), lernWdhLaden(k).catch(() => null)]);
+  if (!d) return null;
+  d.merk = merk; lernNamenSetzen(d);
+  return lernSchrittZiel(d, karte, merk, lernWdhStand(wdh, k));
+}
+// Großer Knopf „nächster Schritt“: steht sofort (zur Reise), füllt sich mit Ziel und Text, sobald der frische Stand da ist
+function lernSchrittKnopf(kindId, { gross = true, klasse = '', ohne = null, vorher = null } = {}) {
+  const v = vorher || { text: 'Weiter', klein: null, ziel: `#/reise/${kindId}` };
+  const a = gross ? lernGrossKnopf(v.text, v.klein, { href: v.ziel, class: 'lr-schritt-knopf ' + klasse })
+    : el('a', { class: 'lr-knopf lr-schritt-knopf ' + klasse, href: v.ziel }, v.text + ' ›');
+  a.setAttribute('aria-busy', 'true');
+  lernSchrittLaden(kindId).then((s) => {
+    a.removeAttribute('aria-busy'); if (!s || (ohne && ohne(s))) return;
+    if (vorher && ['alt', 'nichts'].includes(s.art)) return; // ohne Stände der Karte: das Ziel vom Server (vorher) ist besser als der alte Rückfall
+    a.setAttribute('href', s.ziel); a.dataset.schritt = s.art;
+    if (gross) { a.querySelector('.lr-ab-gross-text').textContent = s.text; const k0 = a.querySelector('small'); if (s.klein) { if (k0) k0.textContent = s.klein; else a.querySelector('.lr-ab-gross-text').after(el('small', {}, s.klein)); } else k0?.remove(); }
+    else a.textContent = s.text + ' ›';
+  }).catch(() => a.removeAttribute('aria-busy'));
+  return a;
 }
 // Lehrer/Eltern (WK F3, Ergänzung): Name eines Flugs wie auf der Reisekarte des Kindes – Land, bei einer Etappe „Land · Stadt“;
 // alt (alter Ortsname) nur, wenn die Karte keinen Namen liefert. Einheit → Thema aus schule_uebersicht (gemerkt).
@@ -1495,16 +1564,16 @@ async function viewReise(arg) {
   const [merk, wdh] = await Promise.all([merkP ? merkP.then((x) => x ?? lernMerkDaten(d).catch(() => [])) : lernMerkDaten(d).catch(() => []), wdhP || lernWdhLaden(d.kind.id).catch(() => null)]);
   if (!live()) return;
   d.merk = merk; lernNamenSetzen(d); // WK F1/F3: nächste offene Etappe je Einheit, Namen der Reisekarte
-  const { kind, naechste: n } = d;
+  const { kind } = d; let n = d.naechste;
   $('#title').textContent = 'Lernreise ' + kind.name;
   const ortStand = (blockId) => (d.konto?.orte || []).find((o) => o.block_id === blockId);
-  const et = n ? lernEtappenZahl(merk.find((m) => m.einheit_id === n.id)) : { n: 0, f: 0 };
+  let et = n ? lernEtappenZahl(merk.find((m) => m.einheit_id === n.id)) : { n: 0, f: 0 };
   // Runde heute schon gemacht → Start führt ins Thema, der Rest wird nur angeboten (WD: Größe und „gemacht“ vom Server, sonst wie bisher)
   const ws = lernWdhStand(wdh, kind.id); const wdhGemacht = ws.gemacht, nWdh = ws.pflicht, wdhRest = ws.rest;
   // K1/U1: Den Stempel gibt es erst, wenn alle Flüge des Ortes geschafft sind – das Band zählt deshalb alle Etappen des Ortes.
-  const ortFluege = n ? d.mit.filter((e) => e.block_id === n.block_id) : [];
-  const ort = ortFluege.reduce((z, e) => { const m = merk.find((x) => x.einheit_id === e.id); const q = m ? lernEtappenZahl(m) : { n: e.n, f: e.fertig }; return { n: z.n + q.n, f: z.f + Math.min(q.f, q.n), fluege: z.fluege + 1 }; }, { n: 0, f: 0, fluege: 0 });
-  if (lernNeu(kind) && n) {
+  const ortVon = (n) => (n ? d.mit.filter((e) => e.block_id === n.block_id) : []).reduce((z, e) => { const m = merk.find((x) => x.einheit_id === e.id); const q = m ? lernEtappenZahl(m) : { n: e.n, f: e.fertig }; return { n: z.n + q.n, f: z.f + Math.min(q.f, q.n), fluege: z.fluege + 1 }; }, { n: 0, f: 0, fluege: 0 });
+  let ort = ortVon(n);
+  neuGest: if (lernNeu(kind) && (n || kartePromise)) {
     // RK-App: Reisekarte statt Anzeigetafel (nur wenn der Server die Karte liefert; Schalter „Abflugtafel“ führt zurück)
     let karte = null;
     // WK F5: Steht die letzte Ansicht schon (gedimmt) da, auf die frische Karte warten (kommt gleichzeitig mit der Übersicht) – statt mit der alten zu zeichnen und danach alles ein zweites Mal zu laden
@@ -1512,6 +1581,10 @@ async function viewReise(arg) {
     if (!live()) return;
     lernNamenSetzen(d); // WK: jetzt mit den Namen der Karte
     const mitKarte = Array.isArray(karte?.kontinente) && karte.kontinente.some((k) => (k.fluege || []).length);
+    // WK 2 (A1): Hauptknopf aus den Ständen der Karte – auch ein Flug, dessen Etappen alle gelandet sind (Test fehlt), und der zweite Flug des Plan-Platzes
+    const sch = mitKarte ? lernSchrittSetzen(d, karte, merk) : null;
+    if (sch) { n = sch.n; et = sch.et; ort = ortVon(n); }
+    if (!n) break neuGest; // nichts offen: wie bisher die schlichte Ansicht
     if (mitKarte && lernRkAnsicht(kind.id) === 'karte') {
       lernErsetze(main, lernRahmen(kind, 'reise', lernReisekarte(d, karte, lernRkStart(d, { n, et, nWdh, ws, wdhFertig: wdhGemacht }))));
       lernReiseLetzte.set(kind.id, main.firstElementChild);
@@ -1530,7 +1603,7 @@ async function viewReise(arg) {
     const kont = d.orte.filter((o) => o.kontinent === (d.orte.find((x) => x.block_id === n.block_id)?.kontinent));
     const ortN = d.orte.find((o) => o.block_id === n.block_id) || {};
     // Ein einziger Startknopf: erst die fälligen Wiederholungen, dann direkt ins Üben des Themas.
-    const testDran = !n.laeuft && !n.ohneTest && et.n > 0 && et.f >= et.n; // alle Etappen sitzen → als Nächstes der Test, nicht wieder üben (LB-3: gesetzte Flüge ohne Test)
+    const testDran = lernTestDran(n, et); // alle Etappen sitzen → als Nächstes der Test, nicht wieder üben (LB-3: gesetzte Flüge ohne Test)
     const ziel = n.laeuft || testDran ? `#/lerneinheit/${kind.id}-${n.id}-test` : nWdh ? `#/wiederholen/${kind.id}` : lernUebenZiel(kind.id, n);
     teile.push(el('section', { class: 'lr-karte-box lr-haupt' },
       el('p', { class: 'lr-ueber' }, `JETZT DRAN · ${(n.stadt || '').toUpperCase()}`),
@@ -1632,7 +1705,7 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort =
   const zeile = (e, status, klasse = '') => el('a', { class: 'lr-flug' + klasse, href: `#/lerneinheit/${kind.id}-${e.id}` },
     el('span', { class: 'lr-flug-ort' }, el('b', {}, code(e)), el('small', {}, e.titel)),
     el('span', { class: 'lr-flug-status' }, el('b', {}, status), kl(e) ? el('small', {}, `Klasse ${kl(e)}`) : null));
-  const testDran = !n.laeuft && !n.ohneTest && et.n > 0 && et.f >= et.n; // alle Etappen sitzen → als Nächstes der Test, nicht wieder üben
+  const testDran = lernTestDran(n, et); // alle Etappen sitzen → als Nächstes der Test, nicht wieder üben (WK 2: aus dem Schritt der Karte)
   const ziel = n.laeuft || testDran ? `#/lerneinheit/${kind.id}-${n.id}-test` : nWdh ? `#/wiederholen/${kind.id}` : lernUebenZiel(kind.id, n);
   const weitere = d.jetzt.filter((e) => e !== n);
   const maxZ = kind.klasse && kind.klasse <= 6 ? 3 : 6;
@@ -1701,10 +1774,11 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort =
         el('b', {}, `${jg.geschafft} von ${jg.themen} Flügen`))) : null,
     el('div', { class: 'lr-dock lr-dock-start' },
       // 0.87.2 S1: eine Zeile über dem festen Knopf – das Kind weiß vor dem Tippen, dass erst der Check-in kommt (Zahl aus dem Serverwert)
-      nWdh && !n.laeuft && !testDran && ws?.neu && ws.offen ? el('p', { class: 'lr-dock-ansage' }, `${ws.erledigt ? 'Noch' : 'Erst'} ${ws.offen} ${ws.offen === 1 ? 'Bordkarte' : 'Bordkarten'} Check-in · ca. ${Math.max(1, Math.ceil(ws.offen * 0.5))} Min.`) : null,
+      nWdh && !n.laeuft && !testDran && ws?.neu && ws.offen ? el('p', { class: 'lr-dock-ansage' }, `${ws.erledigt ? 'Noch' : 'Erst'} ${ws.offen} ${ws.offen === 1 ? 'Bordkarte' : 'Bordkarten'} Check-in · ca. ${Math.max(1, Math.ceil(ws.offen * 0.5))} Min.`)
+        : testDran && !n.laeuft && et.n ? el('p', { class: 'lr-dock-ansage' }, `Alle ${et.n} ${et.n === 1 ? 'Stadt' : 'Städte'} gelandet – jetzt der Test`) : null,
       el('a', { class: 'lr-knopf lr-einsteigen-knopf', href: ziel },
       // N4: Die Wiederholung kann aus einem anderen Ort stammen – der Knopf nennt deshalb die Anzahl, nicht das Ziel.
-      ...(n.laeuft || testDran ? [el('span', {}, n.laeuft ? 'Test weitermachen' : 'Zum Test'), el('span', { class: 'lr-mono' }, code(n).slice(0, 14) + ' ›')]
+      ...(n.laeuft || testDran ? [el('span', {}, n.laeuft ? 'Test weitermachen' : n.land ? `Flug-Test ${n.land}` : 'Zum Test'), el('span', { class: 'lr-mono' }, code(n).slice(0, 14) + ' ›')]
         : nWdh ? [el('span', {}, ws?.neu ? 'Weiter geht’s ›' : `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'} ›`)] // Vorgabe „abgelegt“ 1: Startknopf bleibt „Weiter geht’s“
         : wdhFertig ? [el('span', {}, `Weiter nach ${n.stadt || n.ort_titel || n.titel} ›`)]
         : [el('span', {}, 'Einsteigen'), el('span', { class: 'lr-mono' }, code(n).slice(0, 14) + ' ›')]))),
@@ -1881,12 +1955,14 @@ const LERN_RK_STADT = { abgelegt: 'abgelegt ★', offen: 'kommt noch', begonnen:
 // Startknopf (wie die Abflugtafel): Test läuft / Test bereit / erst Check-in / Thema
 function lernRkStart(d, { n, et, nWdh, ws, wdhFertig }) {
   const kind = d.kind;
-  const testDran = !n.laeuft && !n.ohneTest && et.n > 0 && et.f >= et.n;
+  const testDran = lernTestDran(n, et); // WK 2: aus dem Schritt (Karte), sonst aus dem Merkheft
   const ziel = n.laeuft || testDran ? `#/lerneinheit/${kind.id}-${n.id}-test` : nWdh ? `#/wiederholen/${kind.id}` : lernUebenZiel(kind.id, n);
-  const stadt = n.stadt || n.ort_titel || n.titel;
-  const text = n.laeuft ? 'Test weitermachen' : testDran ? 'Zum Flug-Test' : nWdh ? (ws?.neu ? 'Weiter geht’s' : `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'}`) : wdhFertig ? `Weiter nach ${stadt}` : `Weiter in ${stadt}`;
-  const ansage = nWdh && !n.laeuft && !testDran && ws?.neu && ws.offen ? `${ws.erledigt ? 'Noch' : 'Erst'} ${ws.offen} ${ws.offen === 1 ? 'Bordkarte' : 'Bordkarten'} Check-in · ca. ${Math.max(1, Math.ceil(ws.offen * 0.5))} Min.` : null;
-  return { ziel, text, testDran, ansage, wdh: nWdh, einheit: n.id };
+  const stadt = n.stadt || n.ort_titel || n.titel; const land = n.land || d.schritt?.f?.land || null;
+  const text = n.laeuft ? 'Test weitermachen' : testDran ? (land ? `Flug-Test ${land}` : 'Zum Flug-Test') : nWdh ? (ws?.neu ? 'Weiter geht’s' : `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'}`) : wdhFertig ? `Weiter nach ${stadt}` : `Weiter in ${stadt}`;
+  const ansage = nWdh && !n.laeuft && !testDran && ws?.neu && ws.offen ? `${ws.erledigt ? 'Noch' : 'Erst'} ${ws.offen} ${ws.offen === 1 ? 'Bordkarte' : 'Bordkarten'} Check-in · ca. ${Math.max(1, Math.ceil(ws.offen * 0.5))} Min.`
+    : testDran && et.n ? `Alle ${et.n} ${et.n === 1 ? 'Stadt' : 'Städte'} gelandet – jetzt der Test` : null;
+  const s = d.schritt && d.schritt.e === n ? d.schritt : null;
+  return { ziel, text, testDran, ansage, wdh: nWdh, einheit: n.id, flugThema: s?.f ? Number(s.f.thema_id) : null, nr: testDran ? null : s?.nr || n.etappeNr || null };
 }
 
 function lernRkGrundText(f, laender) {
@@ -1908,7 +1984,8 @@ function lernReisekarte(d, karte, start) {
   const nbStart = karte.naechster_start?.grund === 'nachbessern' ? karte.naechster_start : null;
   const nbFlug = nbStart ? alleFluege.find((f) => Number(f.thema_id) === Number(nbStart.thema_id)) || null : null;
   const nst = karte.naechster_start && !nbStart && !gesperrtThema.has(Number(karte.naechster_start.thema_id)) ? karte.naechster_start : null;
-  const dranFlug0 = alleFluege.find((f) => nst && Number(f.thema_id) === Number(nst.thema_id)) || alleFluege.find((f) => f.stufe === 'dran' && !f.gesperrt) || null;
+  // WK 2: „Gerade dran“ ist der Flug des Hauptknopfs (Schritt aus den Ständen), sonst wie bisher
+  const dranFlug0 = (start?.flugThema && alleFluege.find((f) => Number(f.thema_id) === start.flugThema)) || alleFluege.find((f) => nst && Number(f.thema_id) === Number(nst.thema_id)) || alleFluege.find((f) => f.stufe === 'dran' && !f.gesperrt) || null;
   if (start && !start.wdh && start.einheit) {
     const e0 = (d.mit || []).find((e) => e.id === start.einheit);
     if (e0 && gesperrtThema.has(Number(e0.thema_id)) && !e0.laeuft) { // Ersatz: der Flug, der auf der Karte dran ist, sonst der nächste freie im Plan
@@ -1931,8 +2008,11 @@ function lernReisekarte(d, karte, start) {
   const grundVon = (f) => lernRkGrundText(f, visumLaender(f));
   // WK F1: „Gerade dran“ nennt die Stadt der Etappe, in die der Knopf führt (nächste offene Pflicht-Etappe der Einheit), nicht eine fällige
   const startE = start?.einheit ? (d.mit || []).find((e) => Number(e.id) === Number(start.einheit)) : null;
-  const startStadt = dranFlug && startE?.etappeNr && Number(startE.thema_id) === Number(dranFlug.thema_id) ? (dranFlug.staedte || []).find((s) => Number(s.nr) === Number(startE.etappeNr)) : null;
-  const dranStadt = startStadt ? startStadt : dranFlug && nst?.stadt ? (dranFlug.staedte || []).find((s) => Number(s.nr) === Number(nst.stadt.nr))
+  const startNr = start?.nr || startE?.etappeNr || null;
+  const startStadt = dranFlug && startNr && (start?.flugThema === Number(dranFlug.thema_id) || (startE && Number(startE.thema_id) === Number(dranFlug.thema_id))) ? (dranFlug.staedte || []).find((s) => Number(s.nr) === Number(startNr)) : null;
+  // WK 2: nie eine gelandete Stadt als „Gerade dran“ – auch nicht über naechster_start.stadt (Server-Rückfall Stadt 1); beim Flug-Test keine Stadt
+  const offeneStadt = (s) => (s && !lernStadtGelandet(s) ? s : null);
+  const dranStadt = start?.testDran ? null : startStadt ? startStadt : dranFlug && nst?.stadt ? offeneStadt((dranFlug.staedte || []).find((s) => Number(s.nr) === Number(nst.stadt.nr)))
     : dranFlug && nbStart ? (dranFlug.staedte || []).slice().sort((a, b) => Number(a.nr) - Number(b.nr)).find((s) => s.pflicht !== false && !['gelandet', 'sicher'].includes(s.stand)) || null : null;
   const handy = () => innerWidth < 1100;
   const rechner = () => !handy();
@@ -2010,8 +2090,8 @@ function lernReisekarte(d, karte, start) {
       ss.y <= 12 ? el('span', { class: 'rk-striche' }, ...Array.from({ length: ss.y }, (_, i) => el('i', { class: i < ss.x ? 'g' : '' }))) : null) : null;
     const zeile = f ? el('div', { class: 'rk-dran' },
       f.iso ? el('img', { class: 'rk-dran-flagge', src: lernRkFlagge(f.iso), alt: '', loading: 'lazy' }) : null,
-      el('div', { class: 'rk-dran-text' }, kompakt ? null : el('small', {}, 'GERADE DRAN'), el('b', {}, st?.name || f.land, el('span', {}, ` in ${f.land}`)),
-        kompakt ? null : el('span', { class: 'rk-dran-sub' }, `${f.titel}${teil}${st ? ` · Stadt ${st.nr} von ${(f.staedte || []).length}` : ''}`)),
+      el('div', { class: 'rk-dran-text' }, kompakt ? null : el('small', {}, 'GERADE DRAN'), el('b', {}, st?.name || f.land, st ? el('span', {}, ` in ${f.land}`) : null),
+        kompakt ? null : el('span', { class: 'rk-dran-sub' }, start.testDran ? `Flug-Test · ${f.titel}${teil}` : `${f.titel}${teil}${st ? ` · Stadt ${st.nr} von ${(f.staedte || []).length}` : ''}`)),
       stand) : null;
     const text = st && !start.testDran && !start.wdh && !/Test/.test(start.text) ? `Weiter in ${st.name}` : start.text; // Name der Stadt aus der Karte (Reise-Aufbau)
     const knopf = !start.ziel ? el('p', { class: 'rk-start rk-start-zu' }, el('span', {}, el('b', {}, '🔒 ' + start.text), el('small', {}, 'Frag Mama oder Papa nach dem Plan'))) : el('a', { class: 'rk-start', href: start.ziel }, el('span', {}, el('b', {}, text + ' ›'), st && !start.testDran && !start.wdh ? el('small', {}, `Stadt ${st.nr} · ${st.titel || ''}`) : start.wdh ? el('small', {}, 'Zuerst ein paar Bordkarten von früher') : null));
@@ -3327,6 +3407,9 @@ async function viewLernEinheit(arg) {
   // Teil 4 Punkt 5e: Flug öffnen, wenn alle Pflicht-Etappen gelandet sind und nur der Test fehlt → zuerst die Test-Aufforderung, nicht die Übungen
   // (nur beim Öffnen ohne Ziel bzw. „üben“ ohne Etappe; „-erklaeren“ und eine gewählte Etappe bleiben erreichbar)
   if ((!teil || (teil === 'ueben' && !String(arg).split('-')[3])) && lernTestFaellig(daten, etappen)) { lernEinheitTest(ctx, lernTestFaellig(daten, etappen)); return; }
+  // WK 2 (A3): Link mit Etappen-Nummer zu einer gelandeten Etappe bei fälligem Test → Test-Aufforderung groß, „Trotzdem weiterüben“ klein (kein stilles Weiterüben)
+  { const nrU = teil === 'ueben' ? Number(String(arg).split('-')[3]) || 0 : 0; const tfU = nrU && etappen[nrU - 1]?.fertig ? lernTestFaellig(daten, etappen) : null;
+    if (tfU) { lernEinheitTest(ctx, { ...tfU, trotzdem: `${ctx.basis}-${nrU}` }); return; } }
   // #/lerneinheit/k-e[-erklaeren|-ueben[-n]|-fehler|-n]
   const rest = String(arg).split('-').slice(3);
   const n = Number(teil);
@@ -3651,7 +3734,7 @@ function lernAbschlussBordkarte({ ctx, r }) {
     el('div', { class: 'lr-ab-pass' }, el('div', { class: 'lr-ab-pass-kopf' }, el('span', {}, 'BORDKARTE'), el('span', {}, kindName)),
       el('div', { class: 'lr-ab-flugname' }, el('small', {}, 'FLUG'), el('b', {}, 'Kein Ziel')),
       el('p', { class: 'lr-ab-satz' }, 'Alles geschafft, was im Plan steht. Deine Eltern legen fest, wie es weitergeht.')),
-    lernGrossKnopf('Zur Abflugtafel', null, { href: `#/reise/${ctx.kind}` }));
+    lernSchrittKnopf(ctx.kind, { vorher: { text: 'Zur Reisekarte', klein: null, ziel: `#/reise/${ctx.kind}` } })); // WK 2: steht doch noch etwas an (z. B. zweiter Flug des Platzes) → dorthin
   const nachName = n ? lernFlugName(ctx.kind, { thema_id: n.thema_id || null, einheit_id: n.einheit_id ?? n.id ?? null }, n.ort || '') : ''; // WK F3: Land der Reisekarte
   const wechsel = r.ort_wechsel === true || (r.ort_wechsel !== false && alt.ort && n.ort && alt.ort !== n.ort);
   const ziel = `#/lerneinheit/${ctx.kind}-${n.einheit_id}-erklaeren-1`; // „Boarding“: Erklärung der ersten Etappe
@@ -3668,7 +3751,8 @@ function lernAbschlussBordkarte({ ctx, r }) {
       el('div', { class: 'lr-ab-felder' }, el('div', {}, el('small', {}, 'ETAPPEN'), el('b', {}, String(n.etappen ?? '–'))), el('div', {}, el('small', {}, 'GEBIET'), el('b', {}, n.gebiet || '–')),
         el('div', {}, el('small', {}, 'FLUG'), el('b', {}, `${n.flug?.nr ?? '–'} von ${n.flug?.von ?? '–'}`))),
       el('div', { class: 'lr-ab-riss', 'aria-hidden': 'true' }), el('div', { class: 'lr-ab-pass-unten' }, el('div', { class: 'lr-ab-strich', 'aria-hidden': 'true' }), el('b', {}, 'GATE: ERKLÄRUNG'))),
-    lernGrossKnopf(wechsel ? `Abflug nach ${n.ort}` : `Boarding: ${n.titel}`, 'Zuerst kommt die Erklärung', { href: ziel }),
+    // WK 2 (A2): der Knopf führt in die erste offene Etappe des nächsten Flugs laut Ständen (auch der zweite Flug desselben Plan-Platzes)
+    lernSchrittKnopf(ctx.kind, { vorher: { text: wechsel ? `Abflug nach ${nachName || n.ort}` : `Boarding: ${n.titel}`, klein: 'Zuerst kommt die Erklärung', ziel } }),
     el('a', { class: 'lr-ab-pause', href: `#/reise/${ctx.kind}` }, 'Später – zur Abflugtafel'));
 }
 // Ablauf nach bestandenem Flug-Test: Flug → (Ort) → Bordkarte
@@ -3840,11 +3924,12 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
     // „Trotzdem weiterüben“ ist klein, und der Weiter-Knopf bleibt über jeder weiteren Bordkarte stehen.
     const nochOffen = etappen.find((x) => x !== e && !x.fertig && x.aufgaben.length && !x.extra) || etappen.find((x) => x !== e && !x.fertig && x.aufgaben.length);
     const fertigHier = (e.sitzt || e.fertig) && !e.faellig;
-    const schrittKnopf = () => { const tf = nochOffen ? null : lernTestFaellig(ctx.daten, etappen); const testOffen = !!tf;
-      return nochOffen
-        ? el('button', { type: 'button', class: 'lr-knopf lr-weiter-schritt', onclick: () => { if (neuKarte(nochOffen)) { erstErklaeren(nochOffen); return; } aktKarte = nochOffen; stufe = 0; weiterueben = false; zeichneUeben(); window.scrollTo(0, 0); } }, `Nächste Etappe: ${nochOffen.titel} ›`)
+    // WK 2 (A1/A2): offene Pflicht-Etappe → Flug-Test → nächster Schritt der Reise (Extra-Etappen nur freiwillig, nie als Hauptknopf)
+    const schrittKnopf = () => { const nochP = etappen.find((x) => x !== e && !x.fertig && x.aufgaben.length && !x.extra) || null; const tf = nochP ? null : lernTestFaellig(ctx.daten, etappen); const testOffen = !!tf;
+      return nochP
+        ? el('button', { type: 'button', class: 'lr-knopf lr-weiter-schritt', onclick: () => { if (neuKarte(nochP)) { erstErklaeren(nochP); return; } aktKarte = nochP; stufe = 0; weiterueben = false; zeichneUeben(); window.scrollTo(0, 0); } }, `Nächste Etappe: ${nochP.titel} ›`)
         : testOffen ? el('a', { class: 'lr-knopf lr-weiter-schritt', href: `${ctx.basis}-test` }, tf.art === 'laeuft' ? 'Angefangenen Test weitermachen ›' : tf.art === 'nachtrag' ? 'Test zu den neuen Etappen ›' : 'Jetzt zum Test ›')
-          : el('a', { class: 'lr-knopf lr-weiter-schritt', href: `#/reise/${ctx.kind}` }, 'Weiter zum nächsten Flug ›'); };
+          : lernSchrittKnopf(ctx.kind, { gross: false, klasse: 'lr-weiter-schritt' }); }; // WK 2 (A2): direkt in den nächsten Schritt der Reise, nicht zur Karte
     if (fertigHier) {
       const weiterKnopf = schrittKnopf();
       panels.ueben.prepend(el('div', { class: 'lr-karte-box lr-fertig-hier' + (weiterueben ? ' lr-fertig-klein' : '') },
@@ -3862,8 +3947,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
       const rest = (ctx.konto?.nachbessern || []).filter((x) => x !== nbE); if (ctx.konto) ctx.konto.nachbessern = rest; lernVergessen(ctx.kind);
       const nf = ctx.u ? lernNamenSetzen(lernReiseDaten(ctx.u, ctx.kind))?.naechste : null;
       const knopf = rest.length ? lernGrossKnopf(`Weiter nachbessern: ${rest[0].etappe || rest[0].titel}`, null, { href: lernNbZiel(ctx.kind, rest[0]), onclick: () => lernAbschlussZu() })
-        : nf ? lernGrossKnopf(`Weiter in ${nf.stadt || nf.ort_titel || nf.titel}`, null, { href: lernUebenZiel(ctx.kind, nf), onclick: () => lernAbschlussZu() })
-          : lernGrossKnopf('Zur Reise', null, { href: `#/reise/${ctx.kind}`, onclick: () => lernAbschlussZu() });
+        : lernSchrittKnopf(ctx.kind, { vorher: nf ? { text: `Weiter in ${nf.stadt || nf.ort_titel || nf.titel}`, klein: null, ziel: lernUebenZiel(ctx.kind, nf) } : { text: 'Weiter', klein: null, ziel: `#/reise/${ctx.kind}` } }); // WK 2 (A2): Schritt 1–5
       try { history.replaceState(history.state, '', `${ctx.basis}-erklaeren`); } catch { /* egal */ }
       lernAbschlussZeigen(ctx.kindObj, el('div', { class: 'lr-ab-app lr-nb-fertig lr-ab-anim' },
         el('div', { class: 'lr-ab-szene lr-nb-szene lr-jw-mit' },
@@ -4019,11 +4103,11 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
             const landung = r.landung || null; const art = lernLandungArt(landung, ctx.daten, e.lernziel);
             const nrNaechste = naechsteKarte ? etappen.indexOf(naechsteKarte) + 1 : 0;
             // genau ein großer Knopf zum nächsten Schritt (umsetzung.md 1): nächste Etappe · Flug-Test · Abflugtafel
-            const knopf = () => naechsteKarte
-              ? lernGrossKnopf(`Weiter: ${naechsteKarte.titel}`, `Etappe ${nrNaechste} von ${etappen.length}`, { onclick: () => { lernAbschlussZu(); if (neuKarte(naechsteKarte)) { erstErklaeren(naechsteKarte); return; } aktKarte = naechsteKarte; stufe = 0; weiterueben = false; zeichneUeben(); window.scrollTo(0, 0); } })
-              : tf ? lernGrossKnopf(tf.art === 'nachtrag' ? 'Weiter: Test zu den neuen Etappen' : tf.art === 'laeuft' ? 'Weiter: angefangener Test' : 'Weiter: Flug-Test',
+            // WK 2 (A2): Pflicht fertig → direkt der Flug-Test (auch wenn noch eine Extra-Etappe offen ist); sonst nächste Etappe; sonst nächster Schritt der Reise
+            const knopf = () => tf ? lernGrossKnopf(tf.art === 'nachtrag' ? 'Weiter: Test zu den neuen Etappen' : tf.art === 'laeuft' ? 'Weiter: angefangener Test' : 'Jetzt zum Flug-Test',
                   `${tf.n} ${tf.n === 1 ? 'Bordkarte' : 'Bordkarten'}, eine je Etappe, ohne Tipps`, { href: `${ctx.basis}-test` })
-                : lernGrossKnopf('Zur Abflugtafel', null, { href: `#/reise/${ctx.kind}` });
+              : naechsteKarte ? lernGrossKnopf(`Weiter: ${naechsteKarte.titel}`, `Etappe ${nrNaechste} von ${etappen.length}`, { onclick: () => { lernAbschlussZu(); if (neuKarte(naechsteKarte)) { erstErklaeren(naechsteKarte); return; } aktKarte = naechsteKarte; stufe = 0; weiterueben = false; zeichneUeben(); window.scrollTo(0, 0); } })
+                : lernSchrittKnopf(ctx.kind);
             const knobel = (e.bonus || []).find((k) => !k.versuche);
             const exFrei = lernExNachLandung(ctx); // EX-App: hat diese Landung eine Expedition freigeschaltet? (Ansicht 1 vor dem nächsten Schritt)
             const zeigeLandung = () => {
@@ -4122,7 +4206,8 @@ function lernEinheitTest(ctx, tf = null) {
   const body = el('div', { class: 'lern-body' });
   if (tf && tf.art !== 'laeuft') lernAnhaengen(body, el('div', { class: 'card lr-test-hinweis' }, el('b', {}, 'Alle Etappen sind gelandet ✓'),
     el('p', { class: 'small' }, tf.art === 'nachtrag' ? `Jetzt der Test zu den neuen Etappen: ${tf.n} ${tf.n === 1 ? 'Bordkarte' : 'Bordkarten'}, ohne Tipps.` : `Jetzt kommt der Test: ${tf.n} ${tf.n === 1 ? 'Bordkarte' : 'Bordkarten'}, ohne Tipps. Bestehst du ihn, ist der Flug geschafft.`),
-    lernStempelRest(ctx) ? el('p', { class: 'small' }, lernStempelRest(ctx)) : null));
+    lernStempelRest(ctx) ? el('p', { class: 'small' }, lernStempelRest(ctx)) : null,
+    tf.trotzdem ? el('a', { class: 'lr-textlink lr-trotzdem-ueben small', href: tf.trotzdem }, 'Trotzdem weiterüben') : null)); // WK 2 A3/A4: freiwillig, klein
   lernErsetze(main, lernRahmen(ctx.kindObj, 'weg',
     el('header', { class: 'lr-kopf' }, el('p', { class: 'lr-ueber' }, 'TEST'), el('h1', { class: 'lr-titel' }, ctx.ort?.stadt ? `${ctx.ort.stadt} · ${ctx.titelKurz}` : ctx.titel)), // N6: „Ort · Flug“ wie im Erklären-Reiter
     el('a', { class: 'lr-zurueck', href: `${ctx.basis}-erklaeren` }, '‹ Zu den Etappen'), body));
@@ -4565,7 +4650,7 @@ function lernTestKnoepfe(ctx, r, geschafft = lernFlugGeschafft(ctx, r)) {
   const etappen = ctx.daten?.inhalt?.etappen || [];
   const erste = geschafft ? null : lernTestFehler(ctx, r)[0]; const nr = erste ? etappen.findIndex((e) => e.lernziel === erste.lernziel) + 1 : 0;
   if (!erste) return el('div', { class: 'lr-knopfzeile lr-test-knoepfe' },
-    el('a', { class: 'lr-knopf', href: `#/reise/${ctx.kind}` }, geschafft ? 'Weiter zum nächsten Flug ›' : 'Zur Abflugtafel ›'),
+    lernSchrittKnopf(ctx.kind, { gross: false, vorher: { text: geschafft ? 'Weiter zum nächsten Flug' : 'Weiter', ziel: `#/reise/${ctx.kind}` } }), // WK 2 (A2): direkt der nächste Schritt
     el('a', { class: 'lr-textlink', href: `${basis}-erklaeren` }, 'Zum Flug'));
   const verbessern = el('button', { type: 'button', class: 'lr-knopf-zweit lr-gleich-verbessern', onclick: () => { if (ctx.testStarten) { window.scrollTo(0, 0); ctx.testStarten('korrektur'); } else render(); } }, 'Gleich verbessern ›');
   return el('div', { class: 'lr-knopfzeile lr-test-knoepfe' },
@@ -6424,7 +6509,8 @@ async function viewWiederholen(arg) {
             el('h1', { class: 'lr-titel' }, checkin ? 'Eingecheckt!' : 'Geschafft!'), lernKoffer(zustand.length, zustand),
             el('p', { class: 'lr-checkin-ergebnis' }, el('b', {}, `${richtig} von ${liste.length} richtig`), sterne ? [' · ', el('b', { class: 'lr-gold-text' }, `+${lernZahl(sterne)} ★`)] : null),
             el('p', { class: 'lr-leise' }, falsch ? `${falsch === 1 ? 'Eine Bordkarte kommt' : `${falsch} Bordkarten kommen`} beim nächsten Mal wieder.` : checkin ? 'Alles richtig – super eingecheckt!' : 'Alles richtig!'),
-            n ? el('a', { class: 'lr-knopf', href: lernUebenZiel(kind.id, n) }, `Weiter nach ${nach} ›`) : el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Zur Abflugtafel ›'),
+            // WK 2 (A2): direkt in den nächsten Schritt (Schritt 1–5), nie zurück in den Check-in
+            lernSchrittKnopf(kind.id, { gross: false, ohne: (s) => /^#\/wiederholen\//.test(s.ziel), vorher: n ? { text: `Weiter nach ${nach}`, ziel: lernUebenZiel(kind.id, n) } : { text: 'Weiter', ziel: `#/reise/${kind.id}` } }),
             nochExtra ? el('a', { class: 'lr-textlink lr-extra-link', href: `#/wiederholen/${kind.id}-extra`, onclick: () => setTimeout(render, 0) }, `Noch 3 Extra-Bordkarten?${ws.sterne ? ` Je richtig ★ ${ws.sterne}` : ''}`)
               : keineFrische ? el('p', { class: 'lr-leise lr-keine-frische' }, LERN_KEINE_FRISCHE) : null),
           lernWdhErklaert(true));

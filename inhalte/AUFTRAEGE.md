@@ -3422,3 +3422,21 @@ Meldung Sebastian mit zwei Bildern (Übung `#/lerneinheit/2-112-ueben-2`, Reisek
 - `main` 93a2c69 = `lernen-app` 73b5664. Gesamttest 195/195, Auslieferung erfolgreich.
 - Beide Kinder übten kurz vorher; Sebastian: „Machen Pause also live“.
 - Offen: echte Serverzeiten des Rückwegs nicht gemessen; Nachtrag RS (0.93.3: Anrede auf der Reisekarte, „Mein Schuljahr“ auf Handy/Tablet) liegt als Kopiertext bei Sebastian.
+
+## Fehler Kind 2 (24.11., 04:10 Berlin): „Gerade dran“ zeigt Stadt 1, obwohl alle Städte gelandet sind · Nachtrag WK 2 an `bau-motivation` (mit in 0.93.3)
+
+Meldung Sebastian mit zwei Bildern (Reisekarte: „Bhaktapur · Stadt 1 von 5“; Übung Sri Lanka Etappe 2/7).
+**Befund (Datenbank gelesen):**
+- Flug Nepal (Thema 103, Einheit 112): alle 5 Städte „gelandet“ (heute), Stufe „dran“, kein Stempel → als Nächstes fehlt der Flug-Test.
+- `schule.reise_karte` baut `naechster_start.stadt` als `coalesce(v_offen, v_st->0)`: ohne offene Stadt fällt sie auf Stadt 1 zurück. Die App zeigt deshalb „Weiter in ‹Stadt 1›“.
+- Seit 0.93.2 führt der Knopf nach `…-ueben-1-start`; die Test-Aufforderung greift nur bei `…-ueben` ohne Nummer. Der Weg zum Test ist damit eine Stufe länger als vorher (Rückschritt durch 0.93.2).
+- Nepal und Sri Lanka (Thema 5) stehen beide auf Plan-Platz 2 und sind beide „dran“. Die Karte „Gerade dran“ zeigt nur den ersten Flug des Platzes.
+**Auftrag:** App: sind alle Pflicht-Städte des Flugs gelandet → „Flug-Test ‹Land›“ mit Knopf zum Test, nie Stadt 1 als Rückfall; Links mit Nummer zeigen bei gelandeter Etappe und fälligem Test die Test-Aufforderung; mehrere Flüge auf einem Platz sichtbar machen. Server (später, `bau-lehrer`): `naechster_start.stadt` = null und `grund = 'test'`, wenn keine Stadt offen ist.
+
+## Entscheidung Sebastian (24.11., 04:50 Berlin): Ablauf läuft automatisch · WK 2 neu gefasst als App 0.93.4
+
+„Eigentlich soll fast alles automatisch laufen, außer er will Gelerntes sich nochmal anschauen.“
+- Ein Hauptknopf führt immer zum richtigen nächsten Schritt: offene Etappe → Flug-Test → nächster Flug (auch der zweite Flug desselben Plan-Platzes). Keine Auswahl-Zeilen („Auch dran“ entfällt).
+- Nach jedem Abschluss (Landung, Test bestanden, Nachbessern) geht es mit einem Knopf direkt weiter, ohne Umweg über Karte oder Übersicht.
+- Gelerntes ansehen bleibt freiwillig erreichbar (Karte antippen, Erklären, „Trotzdem weiterüben“), drängt sich aber nie vor.
+- RS (0.93.3) ist von bau-motivation schon geliefert (98c2b09), noch nicht zusammengeführt; WK 2 baut darauf auf → 0.93.4.

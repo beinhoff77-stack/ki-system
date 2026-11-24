@@ -193,3 +193,9 @@ Stil umgestellt auf Gaming/Stream (dunkel, Neon, Glitch, Bass). 11 große, 10 kl
 
 ## 2026-11-24 – FERTIG: Vorgabe FX Fassung 4 (Vorrat + Saison)
 15 große, 15 kleine ganzjährig, 8 Saison (Advent täglich, Nikolaus, Weihnachten, Silvester, Fasching, Eiersuche, Ostern, Halloween), 4 Reserve. Auswahl gewichtet nach „lange nicht gesehen“, Saison ×4; Tagesereignisse und „sicher einmal im Zeitraum“. Ostern/Fasching berechnet. Entwurf mit Datumswahl und 21-Tage-Simulator. `inhalte/pruefung/kind/effekte/`.
+
+## 24.11.2026 – Effekt-Test W180 ausgewertet
+
+Blindvergleich Opa (4) und Horror-Clown (5), Reihenfolge Sebastian: Opa Fable > Kimi > GPT > Muse; Clown Kimi > Fable > GPT > GLM > Muse. Punkte: Fable 8, Kimi 8, GPT 5, GLM 2, Muse 2. Gemini 4 Neon/Grok 4.7 ausgefallen (Motor-Abbruch, Wunsch 181). Dateien: inhalte/pruefung/kind/effekt-test/ (ergebnis.md, einreichungen/, vergleich/).
+
+FERTIG: Effekt-Test W180 – Blindvergleich ausgewertet (Fable und Kimi gleichauf vorn)

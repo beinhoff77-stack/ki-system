@@ -3400,3 +3400,14 @@ Datei `inhalte/pruefung/kind/karten/nachpruefung_kj.md`, Bilder in `nachpruefung
 - Vorher geprüft: letzte Übung beider Kinder über 5 Stunden her.
 - Offen (später): K1, K3–K8 der Prüfung `nachpruefung_kj.md`; enge Pins auf der Reisekarte; „Zusatz geschafft“ einmal je Gerät.
 - Tageslauf 23.11.: keine neuen Lehrer-Aufträge, keine neue Werkstatt-Nachricht.
+
+## Fehler Kind 2 (24.11., 02:30 Berlin): „Weiter in Kathmandu“ führt in schon gelandete Etappe, Kopf zeigt alten Ortsnamen · Bau-Auftrag WK (0.93.2) an `bau-motivation`
+
+Meldung Sebastian mit zwei Bildern (Übung `#/lerneinheit/2-112-ueben-2`, Reisekarte Asien) und: Rückweg von der Aufgabe zur Übersicht lädt lange.
+**Befund (Daten + Code gelesen):**
+- Einheit 112 = Flug Nepal (Städte: Bhaktapur, Lalitpur, Kathmandu, Pokhara, Bharatpur). Etappe 1 und 2 gelandet, Etappe 3 (Kathmandu) noch ohne Karten-Stand. Etappe 2 ist heute zur Wiederholung fällig; Etappe 1 war es bis zur ersten Antwort heute.
+- **F1:** Der Knopf „Weiter in ‹Stadt›“ (Reisekarte und Abflugtafel) verlinkt auf `…-ueben` ohne Etappen-Nummer. `empfohlen()` (lernen.js ~3637) nimmt zuerst eine fällige Etappe, erst danach die nächste offene. Folge: statt Stadt 3 öffnet sich Etappe 1 bzw. 2.
+- **F2:** Eine fällige, gelandete Etappe hat in der Flug-Übung kein Ende: `fertigHier` gilt nur ohne `faellig`, der Stand wird nach der Antwort nicht nachgezogen. Kind 2 hat heute 10 Bordkarten in Etappe 1 gelöst, ohne dass etwas passiert.
+- **F3:** Kopf der Lerneinheit zeigt `ort.stadt` aus `schule_uebersicht` (alter Block-Ort „Mumbai“), die Karte nennt Land Nepal und Stadt je Etappe. Zwei Namen für denselben Flug.
+- **F4 (offen):** Im ersten Bild steht unter der Etappen-Leiste nur das Zahlenfeld, keine Aufgabe. Ob Ladezustand oder Fehler, ist nicht geklärt.
+- **F5:** Rückweg Aufgabe → Übersicht langsam (Angabe Sebastian, nicht gemessen).

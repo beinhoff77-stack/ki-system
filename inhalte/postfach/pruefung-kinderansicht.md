@@ -184,3 +184,6 @@ Bericht `inhalte/pruefung/kind/karten/nachpruefung_kj.md`, Bilder `karten/nachpr
 
 ## 2026-11-24 – FERTIG: Vorgabe FX (11 Spezialeffekte)
 `inhalte/pruefung/kind/effekte/umsetzung.md`, `effekte.json`, `entwurf/effekte.html` (Artefakt 0ceb2a4f-…), `bilder/` (38). Immer: „Für immer“ (Etappe endgültig sicher) und „Koffer aufgeplatzt“ (Wiederholung öffnet Etappe wieder). Zufall (≈1/6, max. 1 je Lerntag, Sicherheitsnetz 3 Lerntage): Gehackt!, Fehler 404, Sterne-Glitch, Glückstaube, Möwe, Turbulenzen, Comeback, Kaffee, Gewitter. Alles auf dem Gerät, keine Sterne. Zu prüfen: ob die App „jetzt sicher“ / „wieder offen“ im Wiederholungs-Ergebnis kennt. Bauschritte FX-1 bis FX-3.
+
+## 2026-11-24 – FERTIG: Vorgabe FX Fassung 2 (10 große, 10 kleine, Horror)
+`inhalte/pruefung/kind/effekte/umsetzung.md`, `effekte.json` (24 Effekte: 10 groß, 10 klein, 4 Reserve), `entwurf/effekte.html` (Artefakt 0ceb2a4f-…, mit Ton und Regel-Simulator), `bilder/` (Bildfolgen). Immer: Für immer (Raketenstart ins Sternbild), Koffer-Chaos. Horror: Clown, Stromausfall, Riesenkrake, Knochenhand, Spinne – Schock ≤ 1 s, dann Pointe, kein Blut, max. 2/Woche, nur nach Erfolg. Zufall 20 %, max. 2 je Lerntag (≤ 1 groß). Bauschritte FX-1 bis FX-3.

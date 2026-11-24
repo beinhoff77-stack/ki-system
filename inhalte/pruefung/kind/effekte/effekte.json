@@ -2,11 +2,10 @@
  "stand": "2026-11-24",
  "hinweis": "Vorgabe FX – Spezialeffekte nach bestimmten Ereignissen. Alles auf dem Gerät, keine Sterne, kein Server. Texte wörtlich übernehmen.",
  "regeln": {
-  "wahrscheinlichkeit": 0.17,
-  "max_je_lerntag": 1,
+  "wahrscheinlichkeit": 0.2,
+  "max_je_lerntag": 2,
   "nie_derselbe_zweimal_hintereinander": true,
   "sicherheitsnetz_lerntage": 3,
-  "sicherheitsnetz": "Kam an 3 Lerntagen mit mindestens einem passenden Anlass kein Effekt, kommt er beim nächsten passenden Anlass sicher.",
   "nie": [
    "Flug-Test",
    "ab dem 2. Fehler in Folge",
@@ -18,65 +17,307 @@
   "ruhig": "Bei „Bewegung reduzieren“ (prefers-reduced-motion): kein Flackern, kein Wackeln, keine fliegenden Teile – nur Text-Tafel 1,5 s und Sticker.",
   "flackern": "höchstens 3 Hell-Dunkel-Wechsel pro Sekunde, keine roten Vollbild-Blitze",
   "sticker": "Der Effekt-Sticker ersetzt in dieser Ansicht den gezogenen Jugendwort-Sticker (höchstens ein Sticker je Ansicht). Er zählt für die Wort-Sperre wie ein normaler Sticker.",
-  "ton": "nur wenn der Ton der App an ist; sonst stumm",
+  "ton": "nur wenn der Ton der App an ist; Klänge im Entwurf mit Web Audio erzeugt (Piep, Grollen, Sirene, Tippen) – keine Tondateien nötig",
   "speicher": "localStorage lern.fx.<kind-id>: {tag, heute, letzter, ohne_effekt_lerntage, koffer_gesehen:[etappen]}",
-  "immer": "Zwei Ereignisse bekommen ihren Effekt immer (kein Zufall, nicht im Tageslimit): Etappe endgültig sicher (Tresor) und Etappe durch Wiederholungsfehler wieder offen (Koffer). Danach kommt am selben Lerntag kein Zufalls-Effekt mehr direkt hinterher (frühestens nach 2 weiteren Anlässen). Kommen mehrere Etappen gleichzeitig dran, läuft der Effekt einmal mit Zahl („3 Etappen“)."
+  "immer": "Zwei Ereignisse bekommen ihren Effekt immer (kein Zufall, nicht im Tageslimit): Etappe endgültig sicher (Tresor) und Etappe durch Wiederholungsfehler wieder offen (Koffer). Danach kommt am selben Lerntag kein Zufalls-Effekt mehr direkt hinterher (frühestens nach 2 weiteren Anlässen). Kommen mehrere Etappen gleichzeitig dran, läuft der Effekt einmal mit Zahl („3 Etappen“).",
+  "lang": "Große Effekte (4–7,5 s) haben einen Knopf „Überspringen ›“ oben rechts; kleine (2–3,6 s): Antippen überspringt.",
+  "varianten": "Hat ein Anlass zwei Effekte, kommt nie dieselbe Variante wie beim letzten Mal für diesen Anlass (und nie derselbe Effekt wie zuletzt überhaupt).",
+  "max_gross_je_lerntag": 1,
+  "horror_max_je_woche": 2,
+  "horror": "Horror (Clown, Stromausfall, Krake, Knochenhand, Spinne): nur nach Erfolg, nie bei Fehlern; höchstens 2 je Woche und 1 je Lerntag; Schock höchstens 1 s, dann sofort die Pointe (Lachen, Schild, Konfetti). Kein Blut, keine Verletzung, keine Schreie. Vorschlag: nicht nach 20 Uhr (Schlaf).",
+  "reserve": "Reserve-Effekte (Kampfjet, Applaus, Rückspulen, Gewitter) sind gebaut, aber nicht im Einsatz – zum Austauschen, wenn ein Effekt langweilig wird.",
+  "sicherheitsnetz": "Gab es an 3 Lerntagen passende Anlässe, aber keinen Effekt, kommt beim nächsten passenden Anlass sicher einer."
  },
  "effekte": [
   {
    "id": "tresor",
-   "name": "Für immer",
+   "name": "Für immer – Raketenstart",
    "art": "positiv",
    "anlass": "etappe_sicher",
    "immer": true,
    "bedingung": "Etappe endgültig sicher – letzte Wiederholung bestanden, muss nie wieder geübt werden (Wunsch Sebastian 24.11.)",
    "ort": "Ergebnis der Wiederholung, die die Etappe sicher macht; wird dadurch der ganze Flug golden, zusätzlich die Zeile „Flug golden!“",
-   "dauer_ms": 2800,
+   "dauer_ms": 7500,
    "aufwand": "mittel",
    "ablauf": [
-    "Bildschirm dunkelt ab",
-    "goldener Stempel „FÜR IMMER“ knallt von groß auf normal (Ruck 200 ms, Druckwelle als Ring)",
-    "Goldfunken sprühen",
+    "Nachthimmel blendet ein, Sterne funkeln; oben das eigene Sternbild (alle schon sicheren Etappen als Sterne, gestrichelt verbunden)",
+    "Rakete mit Schild „{ETAPPE}“ steht auf der Rampe",
+    "Countdown 3 – 2 – 1 groß in Gold (je 650 ms, Piep)",
+    "„START!“ – Flamme, Rauchwolken, Bildschirm bebt 1,2 s, Rakete steigt beschleunigt aus dem Bild (Grollen)",
+    "oben rechts explodiert sie in Goldfunken zu einem neuen Stern; eine goldene Linie verbindet ihn mit dem Sternbild (Glockenton)",
     "Text erscheint",
-    "Stempel fliegt klein nach oben rechts Richtung Reisepass",
     "Sticker"
    ],
    "zeilen": [
+    "3",
+    "2",
+    "1",
+    "START!",
     "FÜR IMMER",
-    "{etappe} sitzt.",
-    "Muss nie wieder geübt werden."
+    "{Etappe} sitzt – und leuchtet jetzt in deinem Sternbild.",
+    "Muss nie wieder geübt werden.",
+    "★ {n} Etappen für immer"
    ],
    "sticker": "+1000 Aura",
    "woerter": [
     "aura"
    ],
-   "staerke": 3
+   "staerke": 3,
+   "lang": true,
+   "hinweis": "Das Sternbild zeigt alle sicheren Etappen des Kindes (Zahl n). Später als eigene Ansicht im Reisepass denkbar („Mein Sternbild“).",
+   "groesse": "gross"
+  },
+  {
+   "id": "koffer",
+   "name": "Koffer – Gepäck-Chaos",
+   "art": "negativ",
+   "anlass": "wieder_offen",
+   "bedingung": "Wiederholung mit 2 Fehlern – die Etappe ist wieder offen und muss nachgebessert werden (Wunsch Sebastian 24.11.)",
+   "dauer_ms": 6500,
+   "aufwand": "mittel",
+   "ablauf": [
+    "Gepäckhalle dunkel, orange Rundumleuchte dreht, Warnband „⚠ STÖRUNG · GEPÄCKBAND 3 ⚠“, Sirene",
+    "Band läuft, drei Koffer fahren ein; der mittlere hat den Anhänger „{ETAPPE}“",
+    "der mittlere wackelt und bläht sich auf (Pieptöne steigen)",
+    "KABUMM: kurzer heller Blitz (110 ms), Bildschirm bebt, Deckel fliegt wirbelnd davon, Socken, T-Shirt, Gummiente und Ziffern fliegen heraus und hüpfen auf dem Boden",
+    "eine riesige Socke klatscht an die Scheibe und rutscht langsam ab",
+    "Sprechblase",
+    "alle Teile fliegen in drei leere Kreise (= 3 in Folge), die Kreise leuchten nacheinander auf",
+    "Nachbessern-Karte schiebt sich ins Bild"
+   ],
+   "zeilen": [
+    "⚠ STÖRUNG · GEPÄCKBAND 3 ⚠",
+    "Dein Koffer ist aufgegangen!",
+    "Sammeln wir’s wieder ein.",
+    "3 richtige in Folge – dann ist alles wieder drin."
+   ],
+   "sticker": null,
+   "woerter": [],
+   "staerke": 1,
+   "hinweis": "Immer, je Etappe einmal. Ton: Missgeschick, keine Strafe. Danach schiebt sich die Nachbessern-Karte ins Bild.",
+   "immer": true,
+   "ort": "am Ende der Wiederholung (Ergebnis-Ansicht), nicht mitten in der Bordkarte. Gibt es dort keine Ansicht: beim ersten Erscheinen der Nachbessern-Karte.",
+   "lang": true,
+   "groesse": "gross"
   },
   {
    "id": "hacker",
-   "name": "Gehackt!",
+   "name": "Gehackt! (Matrix)",
    "art": "positiv",
    "anlass": "serie_10",
    "bedingung": "10 Bordkarten in Folge richtig (Übung, nicht Test)",
-   "dauer_ms": 2600,
-   "aufwand": "klein",
+   "dauer_ms": 6000,
+   "aufwand": "mittel",
    "ablauf": [
-    "Bildschirm wird in 150 ms schwarz",
-    "grüne Zeilen tippen sich (je Zeile 350 ms)",
-    "Sticker ploppt in die Mitte",
-    "Ausblenden 300 ms, zurück zur Rückmeldung"
+    "App-Bild verzerrt sich kurz (Farbe kippt, Versatz, 380 ms)",
+    "schwarz, grüner Zeichenregen aus Ziffern und Rechenzeichen",
+    "Terminal tippt drei Zeilen, Fortschrittsbalken 0–100 %",
+    "Warnbalken „⚠ FIREWALL DURCHBROCHEN“ (Bernstein, zweimal Piep, leichtes Beben)",
+    "Balken wird grün: „ZUGRIFF GEWÄHRT“",
+    "zwei Zeilen lösen auf",
+    "Sticker"
    ],
    "zeilen": [
-    "> EINDRINGLING ERKANNT …",
-    "> ZUGRIFF AUF MATHE-ZENTRALE …",
-    "> 10 VON 10 RICHTIG …",
-    "> QUELLE: DU"
+    "> VERBINDE MIT MATHE-ZENTRALE …",
+    "> UMGEHE FIREWALL … OK",
+    "> ENTSCHLÜSSELE BRÜCHE … OK",
+    "[████████████████████] 100%",
+    "⚠ FIREWALL DURCHBROCHEN",
+    "ZUGRIFF GEWÄHRT",
+    "> HACKER IDENTIFIZIERT: DU",
+    "> GRUND: 10 VON 10 RICHTIG"
    ],
    "sticker": "Gommemode aktiviert",
    "woerter": [
     "gommemode"
    ],
-   "staerke": 3
+   "staerke": 3,
+   "lang": true,
+   "groesse": "gross"
+  },
+  {
+   "id": "clown",
+   "name": "Der Clown",
+   "art": "positiv",
+   "horror": true,
+   "anlass": "landung_direkt",
+   "bedingung": "Direktflug",
+   "dauer_ms": 6500,
+   "aufwand": "mittel",
+   "ablauf": [
+    "Licht geht aus, dunkler Vorhang mit violettem Schein; leise, leicht verstimmte Spieluhr",
+    "roter Luftballon steigt langsam aus dem Dunkel",
+    "Schrift: „Psst … ganz ohne Fehler?“",
+    "Stille – einmal kurz komplett schwarz",
+    "SCHOCK: Clown-Gesicht (Zylinder, violette Rauten-Schminke, gelbe Pupillen, breites Grinsen) springt bildschirmfüllend herein, „BUH!“, Rauschen, Bildschirm bebt",
+    "Pointe: Clown schrumpft, lacht „HAHAHA“, drückt zweimal die Nase (Hupe)",
+    "Schild: „Direktflug? Respekt. 🎩“, Konfetti",
+    "Sticker"
+   ],
+   "zeilen": [
+    "Psst … ganz ohne Fehler?",
+    "BUH!",
+    "HAHAHA",
+    "Direktflug? Respekt. 🎩"
+   ],
+   "sticker": "PEAK",
+   "woerter": [
+    "peak"
+   ],
+   "staerke": 3,
+   "groesse": "gross"
+  },
+  {
+   "id": "stromausfall",
+   "name": "Stromausfall",
+   "art": "positiv",
+   "horror": true,
+   "anlass": "flug_geschafft",
+   "bedingung": "Flug geschafft",
+   "dauer_ms": 5800,
+   "aufwand": "mittel",
+   "ablauf": [
+    "Licht flackert (höchstens 3 Wechsel/s) und geht aus (Brummen bricht ab)",
+    "Taschenlampen-Kegel wandert durchs Dunkel – folgt auch dem Finger",
+    "in der Ecke blinken zwei gelbe Augen",
+    "SCHOCK: Geist springt groß ins Bild, „BUUUH!“, Bildschirm bebt",
+    "Licht an, Geist kichert verlegen, Sprechblase, Konfetti",
+    "Sticker"
+   ],
+   "zeilen": [
+    "BUUUH!",
+    "👻 Hihi – erschrocken? Glückwunsch zum Flug!"
+   ],
+   "sticker": null,
+   "woerter": [],
+   "staerke": 3,
+   "hinweis": "Normaler Flug-Sticker danach.",
+   "groesse": "gross"
+  },
+  {
+   "id": "feuerwerk",
+   "name": "Feuerwerk",
+   "art": "positiv",
+   "anlass": "flug_geschafft",
+   "bedingung": "Flug geschafft (2. Variante)",
+   "dauer_ms": 4500,
+   "aufwand": "mittel",
+   "ablauf": [
+    "5 Raketen steigen nacheinander auf (Pfeifen)",
+    "jede explodiert in einer anderen Farbe (Knall)",
+    "Sticker"
+   ],
+   "zeilen": [],
+   "sticker": null,
+   "woerter": [],
+   "staerke": 3,
+   "hinweis": "Normaler Flug-Sticker danach.",
+   "groesse": "gross",
+   "lang": true
+  },
+  {
+   "id": "gehirn",
+   "name": "Big Brain",
+   "art": "positiv",
+   "anlass": "knobel_richtig",
+   "bedingung": "Knobel richtig (2. Variante)",
+   "dauer_ms": 3600,
+   "aufwand": "mittel",
+   "ablauf": [
+    "Hintergrund violett",
+    "Gehirn erscheint und wächst in 6 Pulsen, Blitze zucken (Ton steigt)",
+    "heller Blitz (100 ms), Gehirn platzt in Konfetti",
+    "Schrift",
+    "Sticker"
+   ],
+   "zeilen": [
+    "BIG BRAIN"
+   ],
+   "sticker": "Çüş!",
+   "woerter": [
+    "cues"
+   ],
+   "staerke": 3,
+   "groesse": "gross",
+   "lang": true
+  },
+  {
+   "id": "phoenix",
+   "name": "Phönix",
+   "art": "positiv",
+   "anlass": "comeback",
+   "bedingung": "Comeback (2. Variante)",
+   "dauer_ms": 3500,
+   "aufwand": "mittel",
+   "ablauf": [
+    "Glut von unten, Flammen steigen",
+    "Feuervogel steigt aus den Flammen nach oben und wird größer (Fanfare)",
+    "Schrift",
+    "Sticker"
+   ],
+   "zeilen": [
+    "AUFERSTANDEN"
+   ],
+   "sticker": "Comeback.",
+   "woerter": [],
+   "staerke": 2,
+   "groesse": "gross",
+   "lang": true
+  },
+  {
+   "id": "tornado",
+   "name": "Tornado",
+   "art": "negativ",
+   "anlass": "landung_sturm",
+   "bedingung": "Sturmflug gemeistert (2. Variante)",
+   "dauer_ms": 3600,
+   "aufwand": "mittel",
+   "ablauf": [
+    "Himmel dunkelt",
+    "Wirbelsturm dreht in der Mitte, Kuh, Koffer, Geodreieck, Kaktus, Stuhl und Huhn fliegen im Kreis",
+    "Bildschirm bebt leicht",
+    "alles fliegt hinaus, es klart auf",
+    "Schrift",
+    "Sticker"
+   ],
+   "zeilen": [
+    "DURCHGEZOGEN"
+   ],
+   "sticker": "Macher-Modus",
+   "woerter": [
+    "macher"
+   ],
+   "staerke": 2,
+   "groesse": "gross",
+   "lang": true
+  },
+  {
+   "id": "krake",
+   "name": "Riesenkrake",
+   "art": "positiv",
+   "horror": true,
+   "anlass": "expedition_geschafft",
+   "bedingung": "Expedition geschafft",
+   "dauer_ms": 5600,
+   "aufwand": "mittel",
+   "ablauf": [
+    "Eiswasser steigt von unten ins Bild (tiefer Ton)",
+    "vier violette Fangarme mit Saugnäpfen schießen hoch und schwingen",
+    "SCHOCK: ein Arm klatscht quer an die Scheibe, „KLATSCH!“, Bildschirm bebt",
+    "Arm rutscht ab, Krakenkopf mit gelben Augen taucht auf, Schild",
+    "alles taucht ab, Wasser läuft ab",
+    "Sticker"
+   ],
+   "zeilen": [
+    "KLATSCH!",
+    "🐙 Respekt, Polarprofi. Ich tauche wieder ab."
+   ],
+   "sticker": "Tuff, Polarprofi.",
+   "woerter": [
+    "tuff"
+   ],
+   "staerke": 2,
+   "groesse": "gross"
   },
   {
    "id": "f404",
@@ -99,7 +340,8 @@
    "woerter": [
     "cues"
    ],
-   "staerke": 3
+   "staerke": 3,
+   "groesse": "klein"
   },
   {
    "id": "glitch",
@@ -121,7 +363,8 @@
    "sticker": null,
    "woerter": [],
    "staerke": 3,
-   "hinweis": "Normaler Flug-Sticker (Peak-Flug …) danach wie üblich."
+   "hinweis": "Normaler Flug-Sticker (Peak-Flug …) danach wie üblich.",
+   "groesse": "klein"
   },
   {
    "id": "taube",
@@ -144,7 +387,35 @@
    "woerter": [
     "w"
    ],
-   "staerke": 2
+   "staerke": 2,
+   "groesse": "klein"
+  },
+  {
+   "id": "knochenhand",
+   "name": "Knochenhand",
+   "art": "positiv",
+   "horror": true,
+   "anlass": "landung_sauber",
+   "bedingung": "saubere Landung",
+   "dauer_ms": 2800,
+   "aufwand": "klein",
+   "ablauf": [
+    "Boden reißt auf (Grollen, leichtes Beben)",
+    "Skeletthand schießt nach oben",
+    "winkt/wackelt",
+    "Sprechblase",
+    "sinkt zurück",
+    "Sticker"
+   ],
+   "zeilen": [
+    "💀 Saubere Landung? Knochenstark."
+   ],
+   "sticker": "Süper!",
+   "woerter": [
+    "sueper"
+   ],
+   "staerke": 2,
+   "groesse": "klein"
   },
   {
    "id": "moewe",
@@ -165,7 +436,8 @@
    "woerter": [
     "sheesh"
    ],
-   "staerke": 3
+   "staerke": 3,
+   "groesse": "klein"
   },
   {
    "id": "turbulenz",
@@ -188,28 +460,59 @@
    "woerter": [
     "locked_in"
    ],
-   "staerke": 2
+   "staerke": 2,
+   "groesse": "klein"
   },
   {
-   "id": "comeback",
-   "name": "Comeback",
+   "id": "nitro",
+   "name": "Nitro-Combo",
    "art": "positiv",
-   "anlass": "comeback",
-   "bedingung": "nach einem Fehler 3 richtige in Folge in derselben Etappe (neuer Anlass)",
-   "dauer_ms": 1600,
-   "aufwand": "klein",
+   "anlass": "serie_5",
+   "bedingung": "5 in Folge (2. Variante)",
+   "dauer_ms": 2900,
+   "aufwand": "klein-mittel",
    "ablauf": [
-    "Videokassetten-Rückspulen: Streifen, leichtes Verziehen, ◀◀ oben links",
-    "Standbild",
+    "Speed-Linien strahlen aus der Mitte, Bild zoomt kurz",
+    "„5× COMBO“ rast von rechts herein (drei steigende Töne)",
+    "Flammenschweif zieht von links durchs Bild",
     "Sticker"
    ],
    "zeilen": [
-    "◀◀ REWIND"
+    "5×",
+    "COMBO"
    ],
-   "sticker": "Comeback.",
-   "woerter": [],
+   "sticker": "Locked in.",
+   "woerter": [
+    "locked_in"
+   ],
    "staerke": 2,
-   "hinweis": "„Comeback.“ ist kein Wort aus der Jugendwort-Liste, sondern ein Effekt-Sticker."
+   "groesse": "klein"
+  },
+  {
+   "id": "spinne",
+   "name": "Spinne",
+   "art": "positiv",
+   "horror": true,
+   "anlass": "wiederholung",
+   "bedingung": "Wiederholung bestanden",
+   "dauer_ms": 2800,
+   "aufwand": "klein",
+   "ablauf": [
+    "Spinnennetz in der Ecke",
+    "Spinne saust am Faden bis zur Mitte herunter (kurzer Ton)",
+    "zappelt mit den Beinen, hält ein Schild",
+    "klettert wieder hoch",
+    "Sticker"
+   ],
+   "zeilen": [
+    "🕸️ Sitzt noch!"
+   ],
+   "sticker": "Hält stabil.",
+   "woerter": [
+    "stabil"
+   ],
+   "staerke": 1,
+   "groesse": "klein"
   },
   {
    "id": "kaffee",
@@ -231,31 +534,81 @@
    "sticker": null,
    "woerter": [],
    "staerke": 1,
-   "hinweis": "Ersetzt an diesem Fehler den Schere-Sticker. Die Lösung bleibt immer lesbar."
+   "hinweis": "Ersetzt an diesem Fehler den Schere-Sticker. Die Lösung bleibt immer lesbar.",
+   "groesse": "klein"
   },
   {
-   "id": "koffer",
-   "name": "Koffer aufgeplatzt",
+   "id": "niesen",
+   "name": "Kapitän niest",
    "art": "negativ",
-   "anlass": "wieder_offen",
-   "bedingung": "Wiederholung mit 2 Fehlern – die Etappe ist wieder offen und muss nachgebessert werden (Wunsch Sebastian 24.11.)",
-   "dauer_ms": 2200,
-   "aufwand": "mittel",
+   "anlass": "fehler",
+   "bedingung": "erster Fehler eines Lerntags (2. Variante)",
+   "dauer_ms": 2900,
+   "aufwand": "klein-mittel",
    "ablauf": [
-    "Koffer fährt auf dem Gepäckband ins Bild",
-    "fällt, Deckel springt auf",
-    "Ziffern fliegen heraus und verteilen sich",
-    "Text, dann schiebt sich die Nachbessern-Karte ins Bild"
+    "Sprechblase „Haaa… haaaa…“",
+    "„TSCHI!“ – kurzes Beben, Tröpfchen auf der Bordkarte (nie auf der Lösung lesbar störend: nur 60 px oben)",
+    "Scheibenwischer wischt einmal hin und her, Tropfen weg",
+    "Sprechblase wechselt"
    ],
    "zeilen": [
-    "Dein Koffer ist aufgegangen – sammeln wir’s wieder ein."
+    "Haaa… haaaa…",
+    "TSCHI!",
+    "Gesundheit! Daran lag’s. Nächste!"
    ],
    "sticker": null,
    "woerter": [],
    "staerke": 1,
-   "hinweis": "Immer, je Etappe einmal. Ton: Missgeschick, keine Strafe. Danach schiebt sich die Nachbessern-Karte ins Bild.",
-   "immer": true,
-   "ort": "am Ende der Wiederholung (Ergebnis-Ansicht), nicht mitten in der Bordkarte. Gibt es dort keine Ansicht: beim ersten Erscheinen der Nachbessern-Karte."
+   "groesse": "klein"
+  },
+  {
+   "id": "jet",
+   "name": "Kampfjet-Überflug",
+   "art": "positiv",
+   "anlass": "landung_direkt",
+   "bedingung": "Direktflug (2. Variante)",
+   "dauer_ms": 2900,
+   "aufwand": "mittel",
+   "ablauf": [
+    "zwei Jets schießen schräg mit Kondensstreifen durchs Bild (Düsenlärm)",
+    "Überschallknall: weißer Ring breitet sich aus, Bildschirm bebt 0,5 s",
+    "Schrift knallt herein",
+    "Sticker"
+   ],
+   "zeilen": [
+    "ÜBERSCHALL!"
+   ],
+   "sticker": "PEAK",
+   "woerter": [
+    "peak"
+   ],
+   "staerke": 3,
+   "groesse": "reserve"
+  },
+  {
+   "id": "applaus",
+   "name": "Applaus an Bord",
+   "art": "positiv",
+   "anlass": "landung_sauber",
+   "bedingung": "saubere Landung (2. Variante)",
+   "dauer_ms": 3300,
+   "aufwand": "klein-mittel",
+   "ablauf": [
+    "Passagier-Gesichter fahren von unten ins Bild",
+    "Konfetti-Kanonen links und rechts unten",
+    "klatschende Hände ploppen überall auf (Klatsch-Geräusch)",
+    "Sprechblase",
+    "Sticker"
+   ],
+   "zeilen": [
+    "Die Passagiere klatschen!"
+   ],
+   "sticker": "Süper!",
+   "woerter": [
+    "sueper"
+   ],
+   "staerke": 2,
+   "groesse": "reserve"
   },
   {
    "id": "gewitter",
@@ -277,7 +630,45 @@
    "woerter": [
     "tuff"
    ],
-   "staerke": 2
+   "staerke": 2,
+   "groesse": "reserve"
+  },
+  {
+   "id": "comeback",
+   "name": "Comeback",
+   "art": "positiv",
+   "anlass": "comeback",
+   "bedingung": "nach einem Fehler 3 richtige in Folge in derselben Etappe (neuer Anlass)",
+   "dauer_ms": 1600,
+   "aufwand": "klein",
+   "ablauf": [
+    "Videokassetten-Rückspulen: Streifen, leichtes Verziehen, ◀◀ oben links",
+    "Standbild",
+    "Sticker"
+   ],
+   "zeilen": [
+    "◀◀ REWIND"
+   ],
+   "sticker": "Comeback.",
+   "woerter": [],
+   "staerke": 2,
+   "hinweis": "„Comeback.“ ist kein Wort aus der Jugendwort-Liste, sondern ein Effekt-Sticker.",
+   "groesse": "reserve"
   }
- ]
+ ],
+ "anlass_namen": {
+  "etappe_sicher": "Etappe für immer sicher · IMMER",
+  "wieder_offen": "Etappe wieder offen · IMMER",
+  "landung_direkt": "Direktflug",
+  "landung_sauber": "Saubere Landung",
+  "landung_sturm": "Sturmflug gemeistert",
+  "flug_geschafft": "Flug geschafft",
+  "knobel_richtig": "Knobel richtig",
+  "serie_5": "5 in Folge",
+  "serie_10": "10 in Folge",
+  "comeback": "Comeback nach Fehler",
+  "fehler": "Erster Fehler des Tages",
+  "wiederholung": "Wiederholung bestanden",
+  "expedition_geschafft": "Expedition geschafft"
+ }
 }

@@ -181,3 +181,6 @@ Bericht `inhalte/pruefung/kind/karte/nachpruefung_rk2.md`, Bilder `karte/nachpru
 
 ## 2026-11-23 – FERTIG: Prüfung KJ (App 0.93.0) – 2 Muss
 Bericht `inhalte/pruefung/kind/karten/nachpruefung_kj.md`, Bilder `karten/nachpruefung_kj/`. lernen-app 7fec897. Muss: M1 „Zur Reisekarte ›“ nachts unlesbar (weiß auf weiß), M2 alte Mini-Linien („GYM 5 · 0/1 gelandet“) widersprechen „Mein Schuljahr“ → auf der Abflugtafel weglassen. Soll S1–S6 (Anrede-Sticker auf Kartenecke statt Titelzeile, Fortschrittslinie unter die Tafel, ein Zähler beim Nachbessern, Nachtfarben NB/ZP, Lehrer-Kleinigkeiten, Einsteigen-Leiste erst nach der Tafel). Kann K1–K8. woerter.json: Çüş-Bedeutung ohne doppeltes „gesprochen“ → `daten/jugendwoerter.json` neu kopieren. Live erst nach M1 und M2.
+
+## 2026-11-24 – FERTIG: Vorgabe FX (11 Spezialeffekte)
+`inhalte/pruefung/kind/effekte/umsetzung.md`, `effekte.json`, `entwurf/effekte.html` (Artefakt 0ceb2a4f-…), `bilder/` (38). Immer: „Für immer“ (Etappe endgültig sicher) und „Koffer aufgeplatzt“ (Wiederholung öffnet Etappe wieder). Zufall (≈1/6, max. 1 je Lerntag, Sicherheitsnetz 3 Lerntage): Gehackt!, Fehler 404, Sterne-Glitch, Glückstaube, Möwe, Turbulenzen, Comeback, Kaffee, Gewitter. Alles auf dem Gerät, keine Sterne. Zu prüfen: ob die App „jetzt sicher“ / „wieder offen“ im Wiederholungs-Ergebnis kennt. Bauschritte FX-1 bis FX-3.

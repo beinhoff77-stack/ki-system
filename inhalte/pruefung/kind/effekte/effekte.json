@@ -1,0 +1,283 @@
+{
+ "stand": "2026-11-24",
+ "hinweis": "Vorgabe FX – Spezialeffekte nach bestimmten Ereignissen. Alles auf dem Gerät, keine Sterne, kein Server. Texte wörtlich übernehmen.",
+ "regeln": {
+  "wahrscheinlichkeit": 0.17,
+  "max_je_lerntag": 1,
+  "nie_derselbe_zweimal_hintereinander": true,
+  "sicherheitsnetz_lerntage": 3,
+  "sicherheitsnetz": "Kam an 3 Lerntagen mit mindestens einem passenden Anlass kein Effekt, kommt er beim nächsten passenden Anlass sicher.",
+  "nie": [
+   "Flug-Test",
+   "ab dem 2. Fehler in Folge",
+   "zwei Effekte direkt nacheinander",
+   "Wiederholungs-Abfrage vor dem Start",
+   "Lehrer- und Elternansicht"
+  ],
+  "ueberspringen": "Antippen irgendwo beendet den Effekt sofort und zeigt den Endzustand.",
+  "ruhig": "Bei „Bewegung reduzieren“ (prefers-reduced-motion): kein Flackern, kein Wackeln, keine fliegenden Teile – nur Text-Tafel 1,5 s und Sticker.",
+  "flackern": "höchstens 3 Hell-Dunkel-Wechsel pro Sekunde, keine roten Vollbild-Blitze",
+  "sticker": "Der Effekt-Sticker ersetzt in dieser Ansicht den gezogenen Jugendwort-Sticker (höchstens ein Sticker je Ansicht). Er zählt für die Wort-Sperre wie ein normaler Sticker.",
+  "ton": "nur wenn der Ton der App an ist; sonst stumm",
+  "speicher": "localStorage lern.fx.<kind-id>: {tag, heute, letzter, ohne_effekt_lerntage, koffer_gesehen:[etappen]}",
+  "immer": "Zwei Ereignisse bekommen ihren Effekt immer (kein Zufall, nicht im Tageslimit): Etappe endgültig sicher (Tresor) und Etappe durch Wiederholungsfehler wieder offen (Koffer). Danach kommt am selben Lerntag kein Zufalls-Effekt mehr direkt hinterher (frühestens nach 2 weiteren Anlässen). Kommen mehrere Etappen gleichzeitig dran, läuft der Effekt einmal mit Zahl („3 Etappen“)."
+ },
+ "effekte": [
+  {
+   "id": "tresor",
+   "name": "Für immer",
+   "art": "positiv",
+   "anlass": "etappe_sicher",
+   "immer": true,
+   "bedingung": "Etappe endgültig sicher – letzte Wiederholung bestanden, muss nie wieder geübt werden (Wunsch Sebastian 24.11.)",
+   "ort": "Ergebnis der Wiederholung, die die Etappe sicher macht; wird dadurch der ganze Flug golden, zusätzlich die Zeile „Flug golden!“",
+   "dauer_ms": 2800,
+   "aufwand": "mittel",
+   "ablauf": [
+    "Bildschirm dunkelt ab",
+    "goldener Stempel „FÜR IMMER“ knallt von groß auf normal (Ruck 200 ms, Druckwelle als Ring)",
+    "Goldfunken sprühen",
+    "Text erscheint",
+    "Stempel fliegt klein nach oben rechts Richtung Reisepass",
+    "Sticker"
+   ],
+   "zeilen": [
+    "FÜR IMMER",
+    "{etappe} sitzt.",
+    "Muss nie wieder geübt werden."
+   ],
+   "sticker": "+1000 Aura",
+   "woerter": [
+    "aura"
+   ],
+   "staerke": 3
+  },
+  {
+   "id": "hacker",
+   "name": "Gehackt!",
+   "art": "positiv",
+   "anlass": "serie_10",
+   "bedingung": "10 Bordkarten in Folge richtig (Übung, nicht Test)",
+   "dauer_ms": 2600,
+   "aufwand": "klein",
+   "ablauf": [
+    "Bildschirm wird in 150 ms schwarz",
+    "grüne Zeilen tippen sich (je Zeile 350 ms)",
+    "Sticker ploppt in die Mitte",
+    "Ausblenden 300 ms, zurück zur Rückmeldung"
+   ],
+   "zeilen": [
+    "> EINDRINGLING ERKANNT …",
+    "> ZUGRIFF AUF MATHE-ZENTRALE …",
+    "> 10 VON 10 RICHTIG …",
+    "> QUELLE: DU"
+   ],
+   "sticker": "Gommemode aktiviert",
+   "woerter": [
+    "gommemode"
+   ],
+   "staerke": 3
+  },
+  {
+   "id": "f404",
+   "name": "Fehler 404",
+   "art": "positiv",
+   "anlass": "landung_direkt",
+   "bedingung": "Direktflug (kein Fehler, kein Tipp)",
+   "dauer_ms": 2200,
+   "aufwand": "klein",
+   "ablauf": [
+    "2 Flacker-Wechsel in 700 ms",
+    "dunkle Tafel mit 404 (leichter Pixel-Versatz)",
+    "Tafel bricht weg, Landung erscheint"
+   ],
+   "zeilen": [
+    "404",
+    "FEHLER NICHT GEFUNDEN"
+   ],
+   "sticker": "Çüş – null Fehler.",
+   "woerter": [
+    "cues"
+   ],
+   "staerke": 3
+  },
+  {
+   "id": "glitch",
+   "name": "Sterne-Glitch",
+   "art": "positiv",
+   "anlass": "flug_geschafft",
+   "bedingung": "Flug geschafft",
+   "dauer_ms": 2400,
+   "aufwand": "klein",
+   "ablauf": [
+    "Sternzahl rattert über das Ziel hinaus bis 4.000.000 ★ (Farbversatz rot/blau)",
+    "Zeile darunter erscheint",
+    "Zahl fällt auf den echten Wert zurück"
+   ],
+   "zeilen": [
+    "4.000.000 ★",
+    "Moment … {sterne} ★. Sorry, war aufgeregt."
+   ],
+   "sticker": null,
+   "woerter": [],
+   "staerke": 3,
+   "hinweis": "Normaler Flug-Sticker (Peak-Flug …) danach wie üblich."
+  },
+  {
+   "id": "taube",
+   "name": "Glückstaube",
+   "art": "positiv",
+   "anlass": "landung_sauber",
+   "bedingung": "saubere Landung",
+   "dauer_ms": 4000,
+   "aufwand": "klein-mittel",
+   "ablauf": [
+    "Klecks fällt von oben aufs Glas (Platsch, Spritzer)",
+    "Sprechblase erscheint",
+    "Wischen (Finger oder Maus) macht ihn blasser; nach 60 % weg oder nach 4 s verschwindet er",
+    "Sticker ploppt"
+   ],
+   "zeilen": [
+    "Bringt Glück! Wegwischen."
+   ],
+   "sticker": "W",
+   "woerter": [
+    "w"
+   ],
+   "staerke": 2
+  },
+  {
+   "id": "moewe",
+   "name": "Möwe gegen die Scheibe",
+   "art": "positiv",
+   "anlass": "knobel_richtig",
+   "bedingung": "Knobel-Bordkarte im 1. Versuch richtig",
+   "dauer_ms": 2200,
+   "aufwand": "klein-mittel",
+   "ablauf": [
+    "Möwe fliegt von rechts hinten groß ins Bild",
+    "Aufprall: plattgedrückt, Federn fliegen",
+    "rutscht langsam nach unten aus dem Bild",
+    "Sticker"
+   ],
+   "zeilen": [],
+   "sticker": "Sheesh!",
+   "woerter": [
+    "sheesh"
+   ],
+   "staerke": 3
+  },
+  {
+   "id": "turbulenz",
+   "name": "Turbulenzen",
+   "art": "positiv",
+   "anlass": "serie_5",
+   "bedingung": "5 Bordkarten in Folge richtig",
+   "dauer_ms": 2400,
+   "aufwand": "mittel",
+   "ablauf": [
+    "Bildschirm wackelt 800 ms (höchstens 6 px)",
+    "drei Sauerstoffmasken fallen an Schnüren und pendeln",
+    "Kapitäns-Sprechblase",
+    "Masken ziehen sich hoch"
+   ],
+   "zeilen": [
+    "Hier spricht euer Kapitän: Ihr rechnet zu schnell – wir müssen bremsen."
+   ],
+   "sticker": "Locked in.",
+   "woerter": [
+    "locked_in"
+   ],
+   "staerke": 2
+  },
+  {
+   "id": "comeback",
+   "name": "Comeback",
+   "art": "positiv",
+   "anlass": "comeback",
+   "bedingung": "nach einem Fehler 3 richtige in Folge in derselben Etappe (neuer Anlass)",
+   "dauer_ms": 1600,
+   "aufwand": "klein",
+   "ablauf": [
+    "Videokassetten-Rückspulen: Streifen, leichtes Verziehen, ◀◀ oben links",
+    "Standbild",
+    "Sticker"
+   ],
+   "zeilen": [
+    "◀◀ REWIND"
+   ],
+   "sticker": "Comeback.",
+   "woerter": [],
+   "staerke": 2,
+   "hinweis": "„Comeback.“ ist kein Wort aus der Jugendwort-Liste, sondern ein Effekt-Sticker."
+  },
+  {
+   "id": "kaffee",
+   "name": "Kaffee verschüttet",
+   "art": "negativ",
+   "anlass": "fehler",
+   "bedingung": "erster Fehler eines Lerntags",
+   "dauer_ms": 1800,
+   "aufwand": "klein",
+   "ablauf": [
+    "Becher kippt am oberen Rand der Bordkarte",
+    "Fleck läuft über die Ecke der Bordkarte (nie über Antwort oder Lösung)",
+    "Kapitäns-Sprechblase",
+    "Fleck trocknet weg"
+   ],
+   "zeilen": [
+    "Ups – mein Kaffee. Daran lag’s. Nächste!"
+   ],
+   "sticker": null,
+   "woerter": [],
+   "staerke": 1,
+   "hinweis": "Ersetzt an diesem Fehler den Schere-Sticker. Die Lösung bleibt immer lesbar."
+  },
+  {
+   "id": "koffer",
+   "name": "Koffer aufgeplatzt",
+   "art": "negativ",
+   "anlass": "wieder_offen",
+   "bedingung": "Wiederholung mit 2 Fehlern – die Etappe ist wieder offen und muss nachgebessert werden (Wunsch Sebastian 24.11.)",
+   "dauer_ms": 2200,
+   "aufwand": "mittel",
+   "ablauf": [
+    "Koffer fährt auf dem Gepäckband ins Bild",
+    "fällt, Deckel springt auf",
+    "Ziffern fliegen heraus und verteilen sich",
+    "Text, dann schiebt sich die Nachbessern-Karte ins Bild"
+   ],
+   "zeilen": [
+    "Dein Koffer ist aufgegangen – sammeln wir’s wieder ein."
+   ],
+   "sticker": null,
+   "woerter": [],
+   "staerke": 1,
+   "hinweis": "Immer, je Etappe einmal. Ton: Missgeschick, keine Strafe. Danach schiebt sich die Nachbessern-Karte ins Bild.",
+   "immer": true,
+   "ort": "am Ende der Wiederholung (Ergebnis-Ansicht), nicht mitten in der Bordkarte. Gibt es dort keine Ansicht: beim ersten Erscheinen der Nachbessern-Karte."
+  },
+  {
+   "id": "gewitter",
+   "name": "Gewitter",
+   "art": "negativ",
+   "anlass": "landung_sturm",
+   "bedingung": "Sturmflug gemeistert",
+   "dauer_ms": 2600,
+   "aufwand": "mittel",
+   "ablauf": [
+    "Himmel dunkelt ab",
+    "2 Blitze (weiß, je 120 ms)",
+    "Regen läuft schräg über das Glas",
+    "Wolken reißen auf, Sonne",
+    "Sticker"
+   ],
+   "zeilen": [],
+   "sticker": "Tuff durchgezogen.",
+   "woerter": [
+    "tuff"
+   ],
+   "staerke": 2
+  }
+ ]
+}

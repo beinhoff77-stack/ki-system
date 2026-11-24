@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entwurf FX – Spezialeffekte</title>
+<style>
+:root{--bg:#F4F1EA;--karte:#fff;--text:#14213D;--leise:#5B6B82;--linie:#DCD6C8;--blau:#2563EB;--gelb:#FFD23F}
+.nacht{--bg:#0F1424;--karte:#1A2136;--text:#E8EDF7;--leise:#9AA7BD;--linie:#2C3652;--blau:#7AA2FF}
+*{box-sizing:border-box}body{margin:0;font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text)}
+.steuer{padding:10px 12px;border-bottom:1px solid var(--linie);background:var(--karte);display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:13px}
+.steuer b{font-size:12px;color:var(--leise);letter-spacing:.05em}
+.steuer button,.steuer label{font:inherit;padding:5px 9px;border-radius:8px;border:1px solid var(--linie);background:var(--bg);color:var(--text);cursor:pointer}
+.steuer .an{background:var(--blau);color:#fff;border-color:var(--blau)}
+.haupt{display:grid;gap:14px;padding:12px;grid-template-columns:1fr}
+@media(min-width:760px){.haupt{grid-template-columns:420px minmax(0,1fr);align-items:start}}
+.app{position:relative;overflow:hidden;border-radius:18px;background:var(--karte);box-shadow:0 2px 14px #0002;min-height:560px;isolation:isolate}
+.szene{position:relative;padding:18px 18px 70px;color:#fff;min-height:250px}
+.s-direkt{background:linear-gradient(160deg,#2A1260,#1B0C3A)}.s-sauber{background:linear-gradient(180deg,#3B82F6,#1E40AF)}.s-sturm{background:linear-gradient(180deg,#221C44,#0E0B22)}
+.s-flug{background:linear-gradient(170deg,#1E1B4B,#312E81 60%,#1E1B4B);text-align:center}
+.oben{font-size:11px;font-weight:800;letter-spacing:.08em;opacity:.85}.titel{font-size:30px;font-weight:900;margin:6px 0 4px;line-height:1.05}
+.riesig{font-size:54px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}.riesig small{display:block;font-size:12px;letter-spacing:.1em;opacity:.8}
+.unter{margin:8px 0 0;opacity:.92}
+.blatt{padding:16px 18px}.kann{border-left:4px solid var(--blau);padding:3px 10px;margin-bottom:8px}.kann b{display:block;font-size:11px;color:var(--leise)}
+.knopf{display:block;width:100%;padding:13px;border-radius:12px;border:0;background:var(--gelb);color:#1B1B1B;font-weight:800;font-size:16px;margin-top:12px}
+.leise{color:var(--leise);font-size:13px}
+.bk{margin:14px;border:1px solid var(--linie);border-radius:14px;background:var(--karte);position:relative;overflow:hidden}
+.bk-kopf{padding:10px 14px;border-bottom:1px solid var(--linie);font:700 12px ui-monospace,monospace;letter-spacing:.12em;color:var(--leise)}
+.bk-inhalt{padding:14px}.aufg{font-size:22px;font-weight:700;margin:2px 0 6px}
+.rueck{border-radius:12px;padding:12px 14px;margin-top:10px;position:relative}
+.ok{background:#DCFCE7;color:#14532D}.nacht .ok{background:#123A26;color:#BBF7D0}
+.falsch{background:#FEF3C7;color:#78350F}.nacht .falsch{background:#3A2A0C;color:#FDE68A}
+.nb{margin:14px;border:1.5px solid #F2B48A;border-radius:16px;background:#FFF1E6;color:#4A2A14;padding:14px}.nacht .nb{background:#2E1D14;border-color:#8A4A26;color:#F6E3D6}
+.nb .ueber{font:800 12px ui-monospace,monospace;letter-spacing:.12em;color:#C2410C}.nb h3{margin:4px 0 2px;font-size:19px}
+.nb .k{display:block;width:100%;margin-top:10px;padding:12px;border:0;border-radius:12px;background:#C8622A;color:#fff;font-weight:800;font-size:16px}
+.tafel{margin:14px;border-radius:16px;background:#111827;color:#E5E7EB;padding:14px;font:700 15px ui-monospace,monospace}
+.tafel .stadt{font-size:26px;letter-spacing:.3em;color:var(--gelb)}
+/* Sticker */
+.sticker{position:absolute;z-index:30;border:0;transform:rotate(-7deg);padding:8px 14px 9px;border-radius:12px;font:900 24px/1.05 system-ui;box-shadow:0 4px 0 #0003,0 6px 18px #0005;outline:3px solid #fff;outline-offset:-1px;animation:pop .42s cubic-bezier(.2,1.6,.4,1) both}
+.st3{background:var(--gelb);color:#1B0C3A}.st2{background:#7EF0C2;color:#052E16;font-size:20px}.st1{background:#E0E7FF;color:#1E1B4B;font-size:17px}
+@keyframes pop{0%{transform:scale(.3) rotate(-25deg);opacity:0}100%{transform:rotate(-7deg);opacity:1}}
+/* Effekt-Schicht */
+.fx{position:absolute;inset:0;z-index:20;pointer-events:auto}
+.fx-schwarz{background:#000;animation:ein .15s both}
+@keyframes ein{from{opacity:0}to{opacity:1}}@keyframes aus{to{opacity:0}}
+.term{position:absolute;left:18px;right:18px;top:26%;font:700 15px/1.7 ui-monospace,Menlo,monospace;color:#22FF88;text-shadow:0 0 8px #22FF8899}
+.term .cursor{display:inline-block;width:9px;height:16px;background:#22FF88;vertical-align:-2px;animation:blink .5s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.scan{position:absolute;inset:0;background:repeating-linear-gradient(0deg,#ffffff08 0 2px,transparent 2px 4px);pointer-events:none}
+.blitz{position:absolute;inset:0;background:#fff;opacity:0}
+.b404{position:absolute;inset:0;background:#0B1020;color:#E5E7EB;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-family:ui-monospace,monospace}
+.b404 .zahl{font-size:96px;font-weight:900;position:relative;letter-spacing:.05em}
+.b404 .zahl::before,.b404 .zahl::after{content:"404";position:absolute;left:0;top:0;mix-blend-mode:screen}
+.b404 .zahl::before{color:#FF2D55;transform:translate(-3px,1px);animation:zit .25s steps(2) infinite}.b404 .zahl::after{color:#00E5FF;transform:translate(3px,-1px);animation:zit .3s steps(2) infinite reverse}
+@keyframes zit{50%{transform:translate(2px,-2px)}}
+.b404 .t{font-size:16px;letter-spacing:.2em}
+.bricht{animation:bricht .35s ease-in forwards}@keyframes bricht{to{clip-path:inset(48% 0 48% 0);opacity:0}}
+.glitch{font-size:40px!important;animation:gl .12s steps(2) infinite;text-shadow:-3px 0 #FF2D55,3px 0 #00E5FF}@keyframes gl{50%{transform:translate(-2px,1px) skewX(-6deg)}}
+.zeile{font-size:15px;margin-top:10px;opacity:0;animation:ein .3s forwards}
+.blase{position:absolute;z-index:25;left:16px;right:16px;background:#fff;color:#111;border-radius:14px;padding:10px 12px;font-weight:700;box-shadow:0 6px 20px #0004;animation:pop2 .3s both}
+.blase::before{content:"👨‍✈️ ";}.blase.ohne::before{content:""}
+@keyframes pop2{from{transform:translateY(8px);opacity:0}}
+.klecks{position:absolute;z-index:22;left:50%;top:34%;width:130px;height:120px;margin-left:-65px;animation:platsch .35s cubic-bezier(.3,1.5,.5,1) both;touch-action:none;cursor:grab}
+@keyframes platsch{0%{transform:translateY(-320px) scale(.3)}100%{transform:none}}
+.wackel{animation:wackel .8s ease-in-out}
+@keyframes wackel{10%,50%,90%{transform:translate(-5px,2px) rotate(-.6deg)}30%,70%{transform:translate(6px,-3px) rotate(.6deg)}}
+.maske{position:absolute;top:-130px;z-index:22;width:2px;height:120px;background:#94A3B8;animation:fall .5s cubic-bezier(.3,1.4,.5,1) forwards}
+.maske::after{content:"";position:absolute;left:-17px;bottom:-24px;width:36px;height:28px;border-radius:6px 6px 18px 18px;background:#FDE047;box-shadow:inset 0 -6px #EAB308}
+@keyframes fall{to{transform:translateY(200px)}}
+.maske.pendel{animation:pendel 1s ease-in-out infinite alternate!important;transform-origin:top}@keyframes pendel{from{rotate:-7deg}to{rotate:7deg}}
+.hoch{transition:transform .4s ease-in;transform:translateY(-140px)!important}
+.vhs{position:absolute;inset:0;z-index:21;background:repeating-linear-gradient(0deg,#fff2 0 3px,transparent 3px 22px);animation:vhs .18s linear infinite;mix-blend-mode:overlay}
+@keyframes vhs{to{background-position:0 44px}}
+.verzieh{animation:verzieh .9s steps(6)}@keyframes verzieh{20%{transform:skewX(4deg) translateX(-6px);filter:saturate(2) hue-rotate(15deg)}60%{transform:skewX(-3deg) translateX(5px)}}
+.rew{position:absolute;left:14px;top:12px;z-index:23;font:900 20px ui-monospace,monospace;color:#fff;text-shadow:0 0 6px #000,2px 0 #FF2D55,-2px 0 #00E5FF}
+.fleck{position:absolute;z-index:22;right:-10px;top:-10px;width:150px;height:120px;transform-origin:85% 10%;animation:fleck .7s ease-out both}
+@keyframes fleck{from{transform:scale(.1)}}
+.becher{position:absolute;z-index:23;right:16px;top:-6px;font-size:34px;animation:kipp .4s ease-in both}@keyframes kipp{from{transform:rotate(0) translateY(-40px)}to{transform:rotate(-115deg)}}
+.trocknet{transition:opacity .6s;opacity:0}
+.band{position:absolute;left:0;right:0;top:58%;height:14px;z-index:21;background:repeating-linear-gradient(90deg,#334155 0 18px,#475569 18px 22px);animation:band .4s linear infinite}
+@keyframes band{to{background-position:22px 0}}
+.koffer{position:absolute;z-index:22;top:calc(58% - 70px);left:-120px;width:96px;height:70px}
+.ziffer{position:absolute;z-index:23;font:900 26px system-ui;color:var(--gelb);text-shadow:0 2px 0 #0006}
+.regen{position:absolute;inset:0;z-index:21;background:repeating-linear-gradient(105deg,#ffffff00 0 14px,#ffffff55 14px 15px,#ffffff00 15px 30px);background-size:120px 120px;animation:regen .35s linear infinite;opacity:.8}
+@keyframes regen{to{background-position:-30px 120px}}
+.dunkel{position:absolute;inset:0;z-index:20;background:#05070Fcc;animation:ein .3s both}
+.ruhig{position:absolute;inset:auto 16px 40% 16px;z-index:25;background:#111827;color:#fff;border-radius:14px;padding:14px;font-weight:700;text-align:center}
+.stempel{position:absolute;z-index:24;left:50%;top:30%;width:190px;height:190px;margin-left:-95px;border-radius:50%;border:8px double #B45309;background:radial-gradient(circle,#FFE58A,#F5B915 70%);color:#7C2D12;display:flex;flex-direction:column;align-items:center;justify-content:center;font:900 26px/1 system-ui;letter-spacing:.06em;transform:rotate(-12deg);box-shadow:0 0 0 6px #FDE68A55,0 10px 40px #0008;animation:knall .32s cubic-bezier(.5,0,.8,.4) both}
+.stempel small{font-size:12px;letter-spacing:.2em;margin-top:6px}
+@keyframes knall{0%{transform:scale(3.2) rotate(-30deg);opacity:0}80%{opacity:1}100%{transform:scale(1) rotate(-12deg)}}
+.welle{position:absolute;z-index:23;left:50%;top:calc(30% + 95px);width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;border:4px solid #FDE68A;animation:welle .6s ease-out forwards}
+@keyframes welle{to{transform:scale(22);opacity:0}}
+.funke{position:absolute;z-index:23;width:7px;height:7px;border-radius:50%;background:#FFD23F;box-shadow:0 0 8px #FFD23F;transition:all .9s cubic-bezier(.1,.8,.3,1)}
+.tresor-text{position:absolute;z-index:24;left:16px;right:16px;top:calc(30% + 210px);text-align:center;color:#fff;animation:pop2 .4s both}
+.tresor-text b{display:block;font-size:22px}.tresor-text span{opacity:.85}
+.fxk .immer{display:inline-block;margin-left:4px;font-size:10px;font-weight:800;color:#B45309;letter-spacing:.06em}
+/* Panel */
+.panel{background:var(--karte);border-radius:16px;padding:14px 16px;box-shadow:0 2px 12px #0001}
+.panel h2{font-size:15px;margin:0 0 8px}
+.fxliste{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
+.fxk{border:1px solid var(--linie);border-radius:12px;padding:10px;background:var(--bg);cursor:pointer;text-align:left;color:var(--text);font:inherit}
+.fxk b{display:block}.fxk span{font-size:12px;color:var(--leise)}.fxk.neg{border-style:dashed}
+.fxk.an{outline:2px solid var(--blau)}
+table{border-collapse:collapse;width:100%;font-size:13px;margin-top:8px}td,th{border-bottom:1px solid var(--linie);padding:5px 4px;text-align:left;vertical-align:top}
+.hinweis{font-size:12px;color:var(--leise);margin-top:8px}
+</style></head><body>
+<div class="steuer" id="steuer"></div>
+<div class="haupt"><div><div class="app" id="app"></div><p class="hinweis" id="info"></p></div><div class="panel" id="panel"></div></div>
+<script>
+const D = {"stand":"2026-11-24","hinweis":"Vorgabe FX – Spezialeffekte nach bestimmten Ereignissen. Alles auf dem Gerät, keine Sterne, kein Server. Texte wörtlich übernehmen.","regeln":{"wahrscheinlichkeit":0.17,"max_je_lerntag":1,"nie_derselbe_zweimal_hintereinander":true,"sicherheitsnetz_lerntage":3,"sicherheitsnetz":"Kam an 3 Lerntagen mit mindestens einem passenden Anlass kein Effekt, kommt er beim nächsten passenden Anlass sicher.","nie":["Flug-Test","ab dem 2. Fehler in Folge","zwei Effekte direkt nacheinander","Wiederholungs-Abfrage vor dem Start","Lehrer- und Elternansicht"],"ueberspringen":"Antippen irgendwo beendet den Effekt sofort und zeigt den Endzustand.","ruhig":"Bei „Bewegung reduzieren“ (prefers-reduced-motion): kein Flackern, kein Wackeln, keine fliegenden Teile – nur Text-Tafel 1,5 s und Sticker.","flackern":"höchstens 3 Hell-Dunkel-Wechsel pro Sekunde, keine roten Vollbild-Blitze","sticker":"Der Effekt-Sticker ersetzt in dieser Ansicht den gezogenen Jugendwort-Sticker (höchstens ein Sticker je Ansicht). Er zählt für die Wort-Sperre wie ein normaler Sticker.","ton":"nur wenn der Ton der App an ist; sonst stumm","speicher":"localStorage lern.fx.<kind-id>: {tag, heute, letzter, ohne_effekt_lerntage, koffer_gesehen:[etappen]}","immer":"Zwei Ereignisse bekommen ihren Effekt immer (kein Zufall, nicht im Tageslimit): Etappe endgültig sicher (Tresor) und Etappe durch Wiederholungsfehler wieder offen (Koffer). Danach kommt am selben Lerntag kein Zufalls-Effekt mehr direkt hinterher (frühestens nach 2 weiteren Anlässen). Kommen mehrere Etappen gleichzeitig dran, läuft der Effekt einmal mit Zahl („3 Etappen“)."},"effekte":[{"id":"tresor","name":"Für immer","art":"positiv","anlass":"etappe_sicher","immer":true,"bedingung":"Etappe endgültig sicher – letzte Wiederholung bestanden, muss nie wieder geübt werden (Wunsch Sebastian 24.11.)","ort":"Ergebnis der Wiederholung, die die Etappe sicher macht; wird dadurch der ganze Flug golden, zusätzlich die Zeile „Flug golden!“","dauer_ms":2800,"aufwand":"mittel","ablauf":["Bildschirm dunkelt ab","goldener Stempel „FÜR IMMER“ knallt von groß auf normal (Ruck 200 ms, Druckwelle als Ring)","Goldfunken sprühen","Text erscheint","Stempel fliegt klein nach oben rechts Richtung Reisepass","Sticker"],"zeilen":["FÜR IMMER","{etappe} sitzt.","Muss nie wieder geübt werden."],"sticker":"+1000 Aura","woerter":["aura"],"staerke":3},{"id":"hacker","name":"Gehackt!","art":"positiv","anlass":"serie_10","bedingung":"10 Bordkarten in Folge richtig (Übung, nicht Test)","dauer_ms":2600,"aufwand":"klein","ablauf":["Bildschirm wird in 150 ms schwarz","grüne Zeilen tippen sich (je Zeile 350 ms)","Sticker ploppt in die Mitte","Ausblenden 300 ms, zurück zur Rückmeldung"],"zeilen":["> EINDRINGLING ERKANNT …","> ZUGRIFF AUF MATHE-ZENTRALE …","> 10 VON 10 RICHTIG …","> QUELLE: DU"],"sticker":"Gommemode aktiviert","woerter":["gommemode"],"staerke":3},{"id":"f404","name":"Fehler 404","art":"positiv","anlass":"landung_direkt","bedingung":"Direktflug (kein Fehler, kein Tipp)","dauer_ms":2200,"aufwand":"klein","ablauf":["2 Flacker-Wechsel in 700 ms","dunkle Tafel mit 404 (leichter Pixel-Versatz)","Tafel bricht weg, Landung erscheint"],"zeilen":["404","FEHLER NICHT GEFUNDEN"],"sticker":"Çüş – null Fehler.","woerter":["cues"],"staerke":3},{"id":"glitch","name":"Sterne-Glitch","art":"positiv","anlass":"flug_geschafft","bedingung":"Flug geschafft","dauer_ms":2400,"aufwand":"klein","ablauf":["Sternzahl rattert über das Ziel hinaus bis 4.000.000 ★ (Farbversatz rot/blau)","Zeile darunter erscheint","Zahl fällt auf den echten Wert zurück"],"zeilen":["4.000.000 ★","Moment … {sterne} ★. Sorry, war aufgeregt."],"sticker":null,"woerter":[],"staerke":3,"hinweis":"Normaler Flug-Sticker (Peak-Flug …) danach wie üblich."},{"id":"taube","name":"Glückstaube","art":"positiv","anlass":"landung_sauber","bedingung":"saubere Landung","dauer_ms":4000,"aufwand":"klein-mittel","ablauf":["Klecks fällt von oben aufs Glas (Platsch, Spritzer)","Sprechblase erscheint","Wischen (Finger oder Maus) macht ihn blasser; nach 60 % weg oder nach 4 s verschwindet er","Sticker ploppt"],"zeilen":["Bringt Glück! Wegwischen."],"sticker":"W","woerter":["w"],"staerke":2},{"id":"moewe","name":"Möwe gegen die Scheibe","art":"positiv","anlass":"knobel_richtig","bedingung":"Knobel-Bordkarte im 1. Versuch richtig","dauer_ms":2200,"aufwand":"klein-mittel","ablauf":["Möwe fliegt von rechts hinten groß ins Bild","Aufprall: plattgedrückt, Federn fliegen","rutscht langsam nach unten aus dem Bild","Sticker"],"zeilen":[],"sticker":"Sheesh!","woerter":["sheesh"],"staerke":3},{"id":"turbulenz","name":"Turbulenzen","art":"positiv","anlass":"serie_5","bedingung":"5 Bordkarten in Folge richtig","dauer_ms":2400,"aufwand":"mittel","ablauf":["Bildschirm wackelt 800 ms (höchstens 6 px)","drei Sauerstoffmasken fallen an Schnüren und pendeln","Kapitäns-Sprechblase","Masken ziehen sich hoch"],"zeilen":["Hier spricht euer Kapitän: Ihr rechnet zu schnell – wir müssen bremsen."],"sticker":"Locked in.","woerter":["locked_in"],"staerke":2},{"id":"comeback","name":"Comeback","art":"positiv","anlass":"comeback","bedingung":"nach einem Fehler 3 richtige in Folge in derselben Etappe (neuer Anlass)","dauer_ms":1600,"aufwand":"klein","ablauf":["Videokassetten-Rückspulen: Streifen, leichtes Verziehen, ◀◀ oben links","Standbild","Sticker"],"zeilen":["◀◀ REWIND"],"sticker":"Comeback.","woerter":[],"staerke":2,"hinweis":"„Comeback.“ ist kein Wort aus der Jugendwort-Liste, sondern ein Effekt-Sticker."},{"id":"kaffee","name":"Kaffee verschüttet","art":"negativ","anlass":"fehler","bedingung":"erster Fehler eines Lerntags","dauer_ms":1800,"aufwand":"klein","ablauf":["Becher kippt am oberen Rand der Bordkarte","Fleck läuft über die Ecke der Bordkarte (nie über Antwort oder Lösung)","Kapitäns-Sprechblase","Fleck trocknet weg"],"zeilen":["Ups – mein Kaffee. Daran lag’s. Nächste!"],"sticker":null,"woerter":[],"staerke":1,"hinweis":"Ersetzt an diesem Fehler den Schere-Sticker. Die Lösung bleibt immer lesbar."},{"id":"koffer","name":"Koffer aufgeplatzt","art":"negativ","anlass":"wieder_offen","bedingung":"Wiederholung mit 2 Fehlern – die Etappe ist wieder offen und muss nachgebessert werden (Wunsch Sebastian 24.11.)","dauer_ms":2200,"aufwand":"mittel","ablauf":["Koffer fährt auf dem Gepäckband ins Bild","fällt, Deckel springt auf","Ziffern fliegen heraus und verteilen sich","Text, dann schiebt sich die Nachbessern-Karte ins Bild"],"zeilen":["Dein Koffer ist aufgegangen – sammeln wir’s wieder ein."],"sticker":null,"woerter":[],"staerke":1,"hinweis":"Immer, je Etappe einmal. Ton: Missgeschick, keine Strafe. Danach schiebt sich die Nachbessern-Karte ins Bild.","immer":true,"ort":"am Ende der Wiederholung (Ergebnis-Ansicht), nicht mitten in der Bordkarte. Gibt es dort keine Ansicht: beim ersten Erscheinen der Nachbessern-Karte."},{"id":"gewitter","name":"Gewitter","art":"negativ","anlass":"landung_sturm","bedingung":"Sturmflug gemeistert","dauer_ms":2600,"aufwand":"mittel","ablauf":["Himmel dunkelt ab","2 Blitze (weiß, je 120 ms)","Regen läuft schräg über das Glas","Wolken reißen auf, Sonne","Sticker"],"zeilen":[],"sticker":"Tuff durchgezogen.","woerter":["tuff"],"staerke":2}]};
+const Q = new URLSearchParams(location.search);
+const S = { fx: Q.get('fx') || 'tresor', nacht: Q.get('nacht') === '1', ruhig: Q.get('ruhig') === '1', lauf: 0 };
+const E = Object.fromEntries(D.effekte.map((e) => [e.id, e]));
+const h = (tag, a = {}, ...k) => { const e = document.createElement(tag); for (const [n, v] of Object.entries(a)) { if (n.startsWith('on')) e[n] = v; else if (n === 'style') e.style.cssText = v; else if (v != null && v !== false) e.setAttribute(n, v === true ? '' : v); } for (const x of k.flat()) if (x != null && x !== false) e.append(x.nodeType ? x : String(x)); return e; };
+const svg = (s) => { const d = document.createElement('div'); d.innerHTML = s.trim(); return d.firstChild; };
+let abbruch = false; const warte = (ms) => new Promise((r) => { const t0 = performance.now(); const f = () => (abbruch || performance.now() - t0 >= ms) ? r() : requestAnimationFrame(f); f(); });
+const app = () => document.getElementById('app');
+function sticker(text, st, pos = 'right:16px;bottom:16px') { if (!text) return; app().querySelector('.sticker')?.remove(); app().append(h('div', { class: 'sticker st' + st, style: pos }, text)); }
+// ---------- Grund-Szenen ----------
+function uebung(art, extra) {
+  return [h('div', { class: 'tafel', style: 'margin-bottom:0' }, h('span', { class: 'stadt' }, 'ROM'), h('div', { style: 'font-size:13px;margin-top:4px' }, 'Natürliche Zahlen · Etappe 3 von 5')),
+    h('div', { class: 'bk' }, h('div', { class: 'bk-kopf' }, 'BORDKARTE 7 · ROM'), h('div', { class: 'bk-inhalt' }, h('p', { class: 'aufg' }, '1/4 + 2/4 = ?'), h('p', { class: 'leise' }, 'Deine Antwort: ' + (art === 'falsch' ? '3/8' : '3/4')),
+      art === 'falsch' ? h('div', { class: 'rueck falsch' }, h('b', {}, 'Noch nicht. Richtig ist: 3/4'), h('p', { style: 'margin:4px 0 0' }, 'Gleicher Nenner: nur die Zähler addieren.'))
+        : h('div', { class: 'rueck ok' }, h('b', {}, '✓ An Bord · +10 ★'), h('p', { style: 'margin:4px 0 0' }, extra)), h('button', { class: 'knopf' }, 'Nächste Bordkarte')))];
+}
+function landung(art) {
+  const T = { direkt: ['s-direkt', 'Direktflug', h('div', { class: 'riesig' }, '6/6', h('small', {}, 'AUF ANHIEB')), 'Kein Fehler, kein Tipp, kein Umweg.'], sauber: ['s-sauber', 'Saubere Landung', h('div', { class: 'riesig', style: 'font-size:40px' }, '8 Bordkarten'), 'Ohne Tipp gelandet.'], sturm: ['s-sturm', 'Sturmflug gemeistert', null, '14 Bordkarten – und nicht abgedreht. Am Ende 3 in Folge richtig.'] }[art];
+  return [h('div', { class: 'szene ' + T[0] }, h('div', { class: 'oben' }, 'ETAPPE 3 VON 5 · RUNDEN'), h('div', { class: 'titel' }, T[1]), T[2], h('p', { class: 'unter' }, T[3])),
+    h('div', { class: 'blatt' }, h('div', { class: 'kann' }, h('b', {}, 'DU KANNST JETZT'), 'Runden'), h('b', {}, '★ +60'), h('button', { class: 'knopf' }, 'Weiter: Zahlenstrahl ›'))];
+}
+function flug() { return [h('div', { class: 'szene s-flug', style: 'min-height:330px' }, h('div', { class: 'oben' }, 'ROM · NATÜRLICHE ZAHLEN'), h('div', { class: 'titel', style: 'color:#FFD23F;font-size:40px' }, 'FLUG GESCHAFFT'), h('div', { class: 'riesig', id: 'zahl', style: 'margin-top:26px' }, '400 ★'), h('p', { class: 'unter', id: 'zzeile' }, 'Sterne in diesem Flug · Test 4 von 4')), h('div', { class: 'blatt' }, h('button', { class: 'knopf' }, 'Weiter ›'))]; }
+function abflug(mitNb) { return [h('div', { style: 'padding:14px 16px 0' }, h('h2', { style: 'margin:0' }, 'Abflüge')), mitNb ? h('div', { class: 'nb', id: 'nbk' }, h('div', { class: 'ueber' }, '↻ NACHBESSERN'), h('h3', {}, 'Welchen Wert hat eine Ziffer?'), h('p', { class: 'leise', style: 'margin:0;color:inherit;opacity:.8' }, 'in Rom · Italien · Natürliche Zahlen'), h('p', {}, 'Die Etappe ist ein bisschen eingerostet. Mit 3 richtigen in Folge sitzt sie wieder.'), h('button', { class: 'k' }, 'Nachbessern ›')) : null,
+  h('div', { class: 'tafel' }, h('span', { class: 'stadt' }, 'ROM'), h('div', { style: 'font-size:13px;margin-top:4px' }, 'Natürliche Zahlen'), h('button', { class: 'knopf', style: 'margin-top:10px' }, 'EINSTEIGEN'))]; }
+function wdh(art) { return [h('div', { class: 'tafel', style: 'margin-bottom:0' }, h('span', { class: 'stadt' }, 'ROM'), h('div', { style: 'font-size:13px;margin-top:4px' }, 'Wiederholung · Runden')),
+  h('div', { class: 'bk' }, h('div', { class: 'bk-kopf' }, 'WIEDERHOLUNG · ERGEBNIS'), h('div', { class: 'bk-inhalt' }, art === 'ok'
+    ? h('div', { class: 'rueck ok' }, h('b', {}, '✓ Wiederholung bestanden'), h('p', { style: 'margin:4px 0 0' }, 'Runden ist jetzt sicher.'))
+    : h('div', { class: 'rueck falsch' }, h('b', {}, 'Zwei Fehler in der Wiederholung'), h('p', { style: 'margin:4px 0 0' }, 'Runden ist wieder offen.')), h('button', { class: 'knopf' }, 'Weiter ›')))]; }
+function grund(id) {
+  return { tresor: () => wdh('ok'), hacker: () => uebung('ok', '10 richtig in Folge.'), f404: () => landung('direkt'), glitch: flug, taube: () => landung('sauber'), moewe: () => uebung('ok', 'Knobel-Bordkarte im 1. Versuch.'), turbulenz: () => uebung('ok', '5 richtig in Folge.'), comeback: () => uebung('ok', '3 richtig in Folge nach dem Fehler.'), kaffee: () => uebung('falsch'), koffer: () => wdh('falsch'), gewitter: () => landung('sturm') }[id]();
+}
+// ---------- Effekte ----------
+const FX = {
+  async tresor(e) { const a = app(); const d = h('div', { class: 'dunkel' }); a.append(d); await warte(300);
+    const st = h('div', { class: 'stempel' }, e.zeilen[0], h('small', {}, 'RUNDEN · ROM')); a.append(st); await warte(300);
+    a.classList.add('wackel'); a.append(h('div', { class: 'welle' })); for (let i = 0; i < 22; i++) { const f = h('div', { class: 'funke', style: 'left:50%;top:calc(30% + 95px)' }); a.append(f); requestAnimationFrame(() => Object.assign(f.style, { transform: `translate(${(Math.random() - .5) * 360}px,${(Math.random() - .5) * 360}px)`, opacity: 0 })); }
+    await warte(250); a.classList.remove('wackel'); const t = h('div', { class: 'tresor-text' }, h('b', {}, e.zeilen[1].replace('{etappe}', 'Runden')), h('span', {}, e.zeilen[2])); a.append(t); await warte(1300);
+    st.style.transition = 'all .5s cubic-bezier(.6,0,.4,1)'; Object.assign(st.style, { left: '92%', top: '-4%', transform: 'scale(.18) rotate(0)' }); t.style.animation = 'aus .4s forwards'; d.style.animation = 'aus .5s forwards'; await warte(550);
+    a.querySelectorAll('.funke,.welle').forEach((x) => x.remove()); st.remove(); t.remove(); d.remove(); sticker(e.sticker, 3); },
+  async hacker(e) { const s = h('div', { class: 'fx fx-schwarz' }, h('div', { class: 'scan' })); const t = h('div', { class: 'term' }); s.append(t); app().append(s); await warte(150);
+    for (const z of e.zeilen) { const d = h('div'); t.append(d); for (const c of z) { d.textContent += c; await warte(14); } await warte(200); }
+    t.append(h('span', { class: 'cursor' })); sticker(e.sticker, 3, 'left:50%;top:62%;translate:-50% 0'); await warte(1000); s.style.animation = 'aus .3s forwards'; await warte(300); s.remove(); sticker(e.sticker, 3, 'right:20px;bottom:150px'); },
+  async f404(e) { const b = h('div', { class: 'fx' }, h('div', { class: 'blitz' })); app().append(b); const bl = b.firstChild;
+    for (let i = 0; i < 2; i++) { bl.style.opacity = .9; await warte(120); bl.style.opacity = 0; await warte(230); }
+    const t = h('div', { class: 'b404' }, h('div', { class: 'zahl' }, '404'), h('div', { class: 't' }, e.zeilen[1]), h('div', { class: 'scan' })); b.append(t); await warte(1100); t.classList.add('bricht'); await warte(350); b.remove(); sticker(e.sticker, 3); },
+  async glitch(e) { const z = document.getElementById('zahl'), zz = document.getElementById('zzeile'); z.classList.add('glitch'); const ziel = 4000000; const t0 = performance.now();
+    while (!abbruch && performance.now() - t0 < 1100) { const p = (performance.now() - t0) / 1100; z.textContent = Math.round(400 + (ziel - 400) * p * p).toLocaleString('de-DE') + ' ★'; await warte(40); }
+    z.textContent = '4.000.000 ★'; await warte(350); zz.textContent = e.zeilen[1].replace('{sterne}', '400'); zz.style.color = '#FFD23F'; zz.style.fontWeight = 800; await warte(600); z.classList.remove('glitch'); z.textContent = '400 ★'; await warte(200); sticker('Peak-Flug', 3); },
+  async taube(e) { const k = svg(`<svg class="klecks" viewBox="0 0 130 120"><path fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2" d="M60 18c14-6 30 2 34 16 14-2 26 10 22 24 10 8 8 24-4 28 2 14-12 22-24 16-8 10-26 10-32 0-14 6-28-4-24-18-12-6-12-24 2-28-4-14 8-26 22-22 0-6 2-12 4-16z"/><circle cx="26" cy="104" r="5" fill="#F8FAFC" stroke="#CBD5E1"/><circle cx="112" cy="16" r="4" fill="#F8FAFC" stroke="#CBD5E1"/><path d="M58 52c4 4 14 4 18 0" stroke="#94A3B8" stroke-width="3" fill="none"/></svg>`);
+    app().append(k); await warte(350); const bl = h('div', { class: 'blase ohne', style: 'top:18%;text-align:center' }, '🕊️ ' + e.zeilen[0]); app().append(bl);
+    let weg = 0; const wisch = (ev) => { if (ev.buttons === 0 && ev.pointerType === 'mouse') return; weg += 0.06; k.style.opacity = String(Math.max(0, 1 - weg)); if (weg >= .6) abbruch = true; };
+    k.addEventListener('pointermove', wisch); k.addEventListener('pointerdown', (ev) => { k.setPointerCapture(ev.pointerId); });
+    await warte(3200); k.style.transition = 'opacity .3s'; k.style.opacity = 0; bl.remove(); await warte(300); k.remove(); sticker(e.sticker, 2); },
+  async moewe(e) { const m = svg(`<svg viewBox="0 0 120 80" style="position:absolute;z-index:22;width:60px;right:-70px;top:10%;transition:all .55s cubic-bezier(.5,0,.9,.6)"><path d="M10 40 Q35 10 60 38 Q85 10 110 40 Q85 28 60 50 Q35 28 10 40Z" fill="#fff" stroke="#334155" stroke-width="3"/><circle cx="60" cy="44" r="9" fill="#fff" stroke="#334155" stroke-width="3"/><path d="M60 50 l10 4 -10 3z" fill="#F59E0B"/><circle cx="57" cy="42" r="2" fill="#111"/></svg>`);
+    app().append(m); await warte(30); Object.assign(m.style, { right: '25%', top: '22%', width: '240px' }); await warte(560);
+    m.style.transition = 'transform .12s'; m.style.transform = 'scale(1.25,.6)'; for (let i = 0; i < 9; i++) { const f = h('div', { style: `position:absolute;z-index:23;left:50%;top:30%;font-size:20px;transition:all .9s ease-out` }, '🪶'); app().append(f); requestAnimationFrame(() => Object.assign(f.style, { transform: `translate(${(Math.random() - .5) * 260}px,${Math.random() * 220 - 60}px) rotate(${Math.random() * 360}deg)`, opacity: 0 })); setTimeout(() => f.remove(), 1000); }
+    await warte(300); m.style.transition = 'top 1.1s ease-in, transform 1.1s'; m.style.top = '110%'; m.style.transform = 'scale(1.25,.6) rotate(-8deg)'; await warte(700); sticker(e.sticker, 3); await warte(400); m.remove(); },
+  async turbulenz(e) { const a = app(); a.classList.add('wackel'); const ms = [22, 50, 78].map((x, i) => h('div', { class: 'maske', style: `left:${x}%;animation-delay:${i * 90}ms` })); a.append(...ms); await warte(600); ms.forEach((m) => { m.style.transform = 'translateY(200px)'; m.style.animation = 'none'; m.classList.add('pendel'); });
+    const bl = h('div', { class: 'blase', style: 'bottom:22%' }, e.zeilen[0]); a.append(bl); await warte(1300); a.classList.remove('wackel'); ms.forEach((m) => { m.classList.remove('pendel'); m.classList.add('hoch'); }); bl.remove(); await warte(400); ms.forEach((m) => m.remove()); sticker(e.sticker, 2); },
+  async comeback(e) { const a = app(); const v = h('div', { class: 'vhs' }), r = h('div', { class: 'rew' }, e.zeilen[0]); a.append(v, r); [...a.children].forEach((c) => c.classList?.contains('bk') && c.classList.add('verzieh')); await warte(950); v.remove(); r.remove(); a.querySelectorAll('.verzieh').forEach((c) => c.classList.remove('verzieh')); await warte(100); sticker(e.sticker, 2); },
+  async kaffee(e) { const bk = app().querySelector('.bk'); const b = h('div', { class: 'becher' }, '☕'); const f = svg(`<svg class="fleck" viewBox="0 0 150 120"><path fill="#7C4A21" fill-opacity=".72" d="M150 0 L150 70 C132 64 128 92 112 84 C98 78 104 104 86 98 C70 92 80 70 62 66 C44 62 52 40 70 36 C88 32 82 12 100 8 C112 6 116 0 120 0Z"/><circle cx="56" cy="88" r="6" fill="#7C4A21" fill-opacity=".7"/><circle cx="40" cy="58" r="4" fill="#7C4A21" fill-opacity=".7"/></svg>`);
+    bk.append(b, f); await warte(450); const bl = h('div', { class: 'blase', style: 'top:8px' }, e.zeilen[0]); app().append(bl); await warte(1100); f.classList.add('trocknet'); b.classList.add('trocknet'); bl.remove(); await warte(600); f.remove(); b.remove(); },
+  async koffer(e) { const a = app(); const band = h('div', { class: 'band' }); const k = svg(`<svg class="koffer" viewBox="0 0 96 70"><rect x="34" y="2" width="28" height="10" rx="4" fill="none" stroke="#7C2D12" stroke-width="4"/><rect x="2" y="10" width="92" height="58" rx="8" fill="#EA580C" stroke="#7C2D12" stroke-width="3"/><rect class="deckel" x="2" y="10" width="92" height="20" rx="8" fill="#F97316" stroke="#7C2D12" stroke-width="3" style="transform-origin:4px 20px;transition:transform .25s"/><rect x="20" y="10" width="8" height="58" fill="#FED7AA"/><rect x="68" y="10" width="8" height="58" fill="#FED7AA"/></svg>`);
+    a.append(band, k); k.style.transition = 'left .7s linear'; await warte(30); k.style.left = 'calc(50% - 48px)'; await warte(720); k.style.transition = 'transform .35s cubic-bezier(.5,0,1,.5)'; k.style.transform = 'translateY(90px) rotate(18deg)'; await warte(360);
+    k.querySelector('.deckel').style.transform = 'rotate(-70deg)'; for (let i = 0; i < 10; i++) { const z = h('div', { class: 'ziffer', style: 'left:48%;top:66%;transition:all .8s cubic-bezier(.2,.8,.3,1)' }, String(i)); a.append(z); requestAnimationFrame(() => Object.assign(z.style, { transform: `translate(${(Math.random() - .5) * 300}px,${-Math.random() * 260}px) rotate(${(Math.random() - .5) * 90}deg)` })); }
+    const bl = h('div', { class: 'blase ohne', style: 'bottom:12px;text-align:center' }, '🧳 ' + e.zeilen[0]); a.append(bl); await warte(1300);
+    a.querySelectorAll('.ziffer').forEach((z) => z.remove()); band.remove(); k.remove(); bl.remove(); const nb = abflug(true)[1]; nb.style.animation = 'pop2 .4s both'; a.children[0].after(nb); },
+  async gewitter(e) { const a = app(); const d = h('div', { class: 'dunkel' }), bl = h('div', { class: 'blitz', style: 'z-index:24' }), r = h('div', { class: 'regen' }); a.append(d, r, bl);
+    await warte(350); for (let i = 0; i < 2; i++) { bl.style.opacity = .85; await warte(120); bl.style.opacity = 0; await warte(260); } await warte(800); d.style.animation = 'aus .6s forwards'; r.style.animation += ',aus .6s forwards'; await warte(600); d.remove(); r.remove(); bl.remove(); sticker(e.sticker, 2); },
+};
+async function ruhig(e) { const t = h('div', { class: 'ruhig' }, { tresor: 'FÜR IMMER – Runden sitzt.', hacker: 'Hacker erkannt: du. 10 in Folge.', f404: 'Fehler 404 – Fehler nicht gefunden.', glitch: '4.000.000 ★ … Moment: 400 ★. Sorry, war aufgeregt.', taube: '🕊️ Bringt Glück!', moewe: '🪶 Eine Möwe ist gegen die Scheibe geflogen.', turbulenz: e.zeilen[0], comeback: '◀◀ Comeback nach dem Fehler.', kaffee: e.zeilen[0], koffer: e.zeilen[0], gewitter: '⛈️ Gewitter überstanden.' }[e.id]);
+  app().append(t); await warte(1500); t.remove(); if (e.id === 'koffer') app().children[0].after(abflug(true)[1]); sticker(e.sticker || (e.id === 'glitch' ? 'Peak-Flug' : null), e.staerke >= 3 ? 3 : 2); }
+async function abspielen(id, mitEffekt = true) {
+  abbruch = false; const lauf = ++S.lauf; const a = app(); a.innerHTML = ''; a.className = 'app'; a.append(...grund(id).filter(Boolean)); if (!mitEffekt) return;
+  const e = E[id]; a.onclick = () => { abbruch = true; }; await warte(500); if (lauf !== S.lauf) return;
+  if (S.ruhig || matchMedia('(prefers-reduced-motion: reduce)').matches && !Q.has('bewegung')) await ruhig(e); else await FX[id](e);
+  a.onclick = null; document.getElementById('info').textContent = `${e.name}: ${e.bedingung}. Dauer ca. ${(e.dauer_ms / 1000).toLocaleString('de-DE')} s · Aufwand ${e.aufwand}. Antippen überspringt.`;
+}
+// ---------- Regel-Simulator ----------
+function simulieren(seed = 7) {
+  let x = seed; const zuf = () => (x = (x * 1103515245 + 12345) % 2147483648) / 2147483648;
+  const anl = ['landung_direkt', 'landung_sauber', 'landung_sturm', 'flug_geschafft', 'knobel_richtig', 'serie_5', 'serie_10', 'comeback', 'fehler'];
+  const proAnlass = Object.fromEntries(D.effekte.map((e) => [e.anlass, e.id])); let letzter = null, ohne = 0; const zeilen = [];
+  for (let tag = 1; tag <= 14; tag++) { const n = 4 + Math.floor(zuf() * 7); let heute = null, grundTxt = '', fehlerFolge = 0, ersterFehler = true, passend = 0;
+    for (let i = 0; i < n; i++) { const a = anl[Math.floor(zuf() * anl.length)]; if (a === 'fehler') fehlerFolge++; else fehlerFolge = 0;
+      if (heute) continue; const id = proAnlass[a]; if (!id || id === letzter) continue; if (a === 'fehler' && (!ersterFehler || fehlerFolge > 1)) continue; if (a === 'fehler') ersterFehler = false; passend++;
+      if (ohne >= D.regeln.sicherheitsnetz_lerntage) { heute = id; grundTxt = 'Sicherheitsnetz'; } else if (zuf() < D.regeln.wahrscheinlichkeit) { heute = id; grundTxt = 'Zufall'; } }
+    if (heute) { letzter = heute; ohne = 0; } else if (passend) ohne++; zeilen.push([tag, n, passend, heute ? E[heute].name : '–', grundTxt]); }
+  return zeilen;
+}
+function panel() {
+  const p = document.getElementById('panel'); p.innerHTML = '';
+  p.append(h('h2', {}, D.effekte.length + ' Effekte – antippen zum Abspielen'), h('div', { class: 'fxliste' }, ...D.effekte.map((e) => h('button', { class: 'fxk' + (e.art === 'negativ' ? ' neg' : '') + (e.id === S.fx ? ' an' : ''), onclick: () => { S.fx = e.id; malen(true); } }, h('b', {}, (e.art === 'negativ' ? '😬 ' : '✨ ') + e.name, e.immer ? h('span', { class: 'immer' }, 'IMMER') : null), h('span', {}, e.bedingung)))));
+  const sim = simulieren(Number(Q.get('seed') || 7));
+  p.append(h('h2', { style: 'margin-top:16px' }, 'Regel-Simulator: 14 Lerntage'), h('p', { class: 'hinweis', style: 'margin:0' }, `≈ jeder 6. passende Anlass · höchstens 1 je Lerntag · nie derselbe zweimal hintereinander · Sicherheitsnetz nach ${D.regeln.sicherheitsnetz_lerntage} Lerntagen ohne Effekt. „Für immer“ und „Koffer“ kommen zusätzlich immer.`),
+    h('table', {}, h('tr', {}, h('th', {}, 'Tag'), h('th', {}, 'Anlässe'), h('th', {}, 'passend'), h('th', {}, 'Effekt'), h('th', {}, 'warum')), ...sim.map((z) => h('tr', {}, ...z.map((c) => h('td', {}, String(c)))))),
+    h('button', { class: 'fxk', style: 'margin-top:8px', onclick: () => { Q.set('seed', String(Math.floor(Math.random() * 1e6))); panel(); } }, h('b', {}, '↻ andere Lerntage würfeln')));
+}
+function steuer() {
+  const s = document.getElementById('steuer'); s.innerHTML = '';
+  s.append(h('b', {}, 'ENTWURF FX'), h('button', { onclick: () => malen(true) }, '▶ nochmal'), h('button', { class: S.nacht ? 'an' : null, onclick: () => { S.nacht = !S.nacht; malen(false); } }, S.nacht ? 'Dunkle Ansicht' : 'Helle Ansicht'),
+    h('button', { class: S.ruhig ? 'an' : null, onclick: () => { S.ruhig = !S.ruhig; malen(true); } }, 'Bewegung reduzieren'));
+}
+function malen(spiel) { document.body.classList.toggle('nacht', S.nacht); steuer(); panel(); abspielen(S.fx, spiel !== false); }
+malen(true);
+</script></body></html>

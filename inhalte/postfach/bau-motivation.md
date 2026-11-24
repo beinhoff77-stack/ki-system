@@ -2,6 +2,50 @@
 
 Neueste oben.
 
+## 2026-11-24 – FERTIG: RS (App 0.93.3)
+
+Stand `lernen-app` b2b4305 übernommen (enthält 73b5664). Nur App: keine Datenbank, nichts eingespielt, kein Merge nach `main`, keine Namen. Cache v178.
+
+**1) Anrede auf der Reisekarte**
+- Der Sticker sitzt auf der Ecke der Startkarte „Weiter in …“:
+  - Handy und Tablet: schwebende Karte unten.
+  - Rechner (ab 1100 px): Karte „Gerade dran“ in der rechten Spalte.
+- Aussehen wie der Eck-Sticker der Abflugtafel: schräg, ragt oben rechts über den Rand. Antippen zeigt die Bedeutung.
+- Damit Stadtname, Stand (x/6) und Knopf frei bleiben:
+  - Die Karte hat oben 30 px Luft, aber nur, wenn ein Sticker draufsitzt.
+  - Eine Karte darüber (Expedition, Nachbessern) bekommt 24 px Abstand.
+  - Am Rechner hat die rechte Spalte oben Platz, damit der Sticker nicht abgeschnitten wird.
+- Zählung gemeinsam mit der Abflugtafel über denselben Tagesstand (`lernJwAnrede`): höchstens einmal je Lerntag, egal welche Ansicht zuerst kommt. Auf der Abflugtafel bleibt die Anrede wie bisher.
+- Tests bei 360, 400, 820 und 1280 px, Tag und Nacht:
+  - Reisekarte zuerst: Sticker auf der Ecke. Er verdeckt weder den Stadtnamen (Textfläche) noch den Knopf, nichts rollt quer, er ist nicht abgeschnitten. Antippen öffnet die Bedeutung. Danach hat die Abflugtafel keine Anrede.
+  - Abflugtafel zuerst: Anrede dort. Danach hat die Reisekarte keine.
+
+**2) „Mein Schuljahr“ auf Handy und Tablet**
+- In der schwebenden Startkarte unter dem Knopf steht eine Zeile „Klasse 5 · 26 % ›“ mit kleinem Ring. Klasse und Prozent kommen aus `schuljahr_stand`, Hauptklasse; bei IB „MYP-Jahr …“.
+- Tippfläche 44 px, volle Breite. Der Knopf „Weiter in …“ bleibt, wo er ist.
+- Antippen öffnet die Karte „Mein Schuljahr“ als Blatt von unten, mit „Schließen“ (auch Esc oder Tippen daneben). Es ist dieselbe Karte wie am Rechner.
+- Am Rechner gibt es keine Zeile, dort steht die Karte rechts.
+- Test bei 360, 400 und 820 px, Tag und Nacht:
+  - Die Zeile ist sichtbar und mindestens 44 px hoch und überdeckt den Knopf nicht.
+  - Die Startkarte ist niedriger als die halbe Karte.
+  - Das Blatt kommt von unten. Sein Text ist gleich der Karte am Rechner (1280 px).
+
+**Tests:** `tests/lernen.test.cjs` voll: 198/198 grün, keine wackligen Tests.
+- Beim Bauen gab es zwei Mess-Wackler im neuen Test, beide sind am Test behoben:
+  - Der Sticker wurde vermessen, während seine „Aufkleben“-Bewegung noch lief.
+  - Die Startkarte wurde einmal neu gezeichnet (Bordkarten-Stand x/6 kam nach). Gemessen wird jetzt erst, wenn der Stand da ist.
+- Kein Fehler der App.
+
+**Bilder** (`docs/previews/la/`):
+- `rs-anrede-reisekarte-400-tag.png`, `rs-anrede-reisekarte-400-nacht.png`, `rs-anrede-reisekarte-1280-tag.png`
+- `rs-sj-zeile-400.png`, `rs-sj-blatt-400.png`
+
+**Offen / nicht geprüft**
+- Die Startkarte ist mit Sticker 30 px höher, sonst würde der Sticker bei 400–820 px den Knopf „Weiter in …“ verdecken. Diese Lösung sollte der Gestalter ansehen; die andere Möglichkeit wäre ein kleinerer Sticker.
+- Wird die Reisekarte am selben Tag ein zweites Mal gezeichnet (Zurück, Wechsel zur Tafel und zurück), erscheint keine Anrede mehr. So verlangt es „einmal je Lerntag“, wie bisher auf der Tafel.
+- Das Blatt „Mein Schuljahr“ ist nachts nur über die Farbvariablen geprüft (Test bei Nacht grün), nicht per Bild.
+- Nicht auf echten Geräten geprüft, nur im Test-Browser.
+
 ## 2026-11-24 – FERTIG: WK (App 0.93.2)
 
 Stand `lernen-app` d2f66cc übernommen. Nur App: keine Datenbank, nichts eingespielt, kein Merge nach `main`, keine Namen. Cache v177. Kein neues Server-Feld nötig.

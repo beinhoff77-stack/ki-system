@@ -1754,6 +1754,20 @@ function lernSjZiel(alle, gelandet) {
   for (let p = Math.floor(pz / 10) * 10 + 10; p <= 100; p += 10) { const k = Math.ceil((alle * p) / 100) - gelandet; if (k > 0) return { p, k }; }
   return null;
 }
+// RS 2: Kurzform „Klasse 5 · 26 %“ (Hauptklasse aus schuljahr_stand) und Blatt mit der vollen Karte
+function lernSjKurz(d) {
+  const sj = d.schuljahr; const h = (Array.isArray(sj?.klassen) ? sj.klassen : []).find((x) => x.haupt); if (!h) return null;
+  const sa = sj.schulart || d.kind.schulart || 'gym_by'; return `${sa === 'ib_myp' && h.myp_jahr ? `MYP-Jahr ${h.myp_jahr}` : `Klasse ${h.klasse}`} · ${Number(h.prozent) || 0} %`;
+}
+function lernSjBlatt(d, vorher, wo) {
+  document.querySelectorAll('.lr-sj-blatt').forEach((x) => x.remove());
+  const zu = () => { blatt.remove(); vorher?.focus?.({ preventScroll: true }); };
+  const blatt = el('div', { class: 'lr-sj-blatt', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Mein Schuljahr', onclick: (ev) => { if (ev.target === blatt) zu(); } },
+    el('div', { class: 'lr-sj-blatt-innen' }, lernSjKarte(d), el('button', { type: 'button', class: 'lr-knopf lr-knopf-klein lr-sj-zu', onclick: zu }, 'Schließen')));
+  blatt.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') zu(); });
+  (wo || document.body).append(blatt); blatt.querySelector('.lr-sj-zu').focus({ preventScroll: true });
+  addEventListener('hashchange', zu, { once: true });
+}
 function lernSjKarte(d) {
   const sj = d.schuljahr; const ks = Array.isArray(sj?.klassen) ? sj.klassen : []; const h = ks.find((x) => x.haupt) || null; if (!h) return null;
   const sa = sj.schulart || d.kind.schulart || 'gym_by'; const klName = (x) => (sa === 'ib_myp' && x.myp_jahr ? `MYP-Jahr ${x.myp_jahr}` : `Klasse ${x.klasse}`);
@@ -1978,6 +1992,14 @@ function lernReisekarte(d, karte, start) {
     return el('div', { class: 'rk-ex-zeile' }, el('button', { type: 'button', class: 'rk-ex-mehr', 'aria-expanded': 'false', onclick: () => { exGross = true; lernErsetze(schwebe, ...(handy() ? geradeDran() : [])); zeichneSeite(); } },
       el('span', { 'aria-hidden': 'true' }, '⛯ '), x.zustand === 'begonnen' ? 'Expedition: ' : 'Expedition freigeschaltet: ', el('b', {}, x.titel)),
       el('a', { class: 'rk-ex-start', href: `#/expedition/${kind.id}-${x.id}` }, x.zustand === 'begonnen' ? `Teil ${lernExBuchstabe(lernExTeilK(x))} ›` : 'Starten ›')); };
+  // RS 1: Anrede „Digga“ (einmal je Lerntag, gezählt mit der Abflugtafel) als Sticker auf der Ecke der Startkarte – einmal je Ansicht gezogen
+  let anredeEl;
+  const anredeHolen = () => { if (anredeEl === undefined && lernJwDaten) { anredeEl = lernJwStickerEl(lernJwAnrede(kind.id), 'anrede') || null; anredeEl?.classList.add('lr-jw-ecke'); } return anredeEl || null; };
+  if (!lernJwDaten) lernJwLaden().then(() => { if (document.body.contains(wurzel) && anredeHolen()) { lernErsetze(schwebe, ...(handy() ? geradeDran() : [])); zeichneSeite(); } });
+  // RS 2: „Mein Schuljahr“ auf Handy/Tablet als Zeile in der Startkarte, Antippen öffnet die Karte als Blatt von unten
+  const sjZeile = () => { const k = lernSjKurz(d); if (!k) return null;
+    return el('button', { type: 'button', class: 'rk-sj-zeile', 'aria-haspopup': 'dialog', 'aria-label': `Mein Schuljahr: ${k}`, onclick: (ev) => lernSjBlatt(d, ev.currentTarget, wurzel) },
+      el('span', { class: 'rk-sj-ring', 'aria-hidden': 'true' }), el('span', {}, k), el('i', { 'aria-hidden': 'true' }, ' ›')); };
   const geradeDran = () => {
     const kompakt = handy(); const nb = (d.nachbessern || []).length;
     const ex = nb ? lernExChip(d) : exZeile(); // KJ §0: Nachbessern zuerst, Expedition dann nur als Chip
@@ -1993,7 +2015,9 @@ function lernReisekarte(d, karte, start) {
       stand) : null;
     const text = st && !start.testDran && !start.wdh && !/Test/.test(start.text) ? `Weiter in ${st.name}` : start.text; // Name der Stadt aus der Karte (Reise-Aufbau)
     const knopf = !start.ziel ? el('p', { class: 'rk-start rk-start-zu' }, el('span', {}, el('b', {}, '🔒 ' + start.text), el('small', {}, 'Frag Mama oder Papa nach dem Plan'))) : el('a', { class: 'rk-start', href: start.ziel }, el('span', {}, el('b', {}, text + ' ›'), st && !start.testDran && !start.wdh ? el('small', {}, `Stadt ${st.nr} · ${st.titel || ''}`) : start.wdh ? el('small', {}, 'Zuerst ein paar Bordkarten von früher') : null));
-    return [nb ? lernNbKarte(d, { kompakt }) : null, ex, el('div', { class: 'rk-schwebe-karte' + (kompakt ? ' kompakt' : '') }, zeile, start.ansage ? el('p', { class: 'lr-dock-ansage rk-ansage' }, start.ansage) : null, knopf),
+    const anr = anredeHolen();
+    const karteEl = el('div', { class: 'rk-schwebe-karte' + (kompakt ? ' kompakt' : '') + (anr ? ' lr-jw-ecke-traeger' : '') }, zeile, start.ansage ? el('p', { class: 'lr-dock-ansage rk-ansage' }, start.ansage) : null, knopf, kompakt ? sjZeile() : null, anr);
+    return [nb ? lernNbKarte(d, { kompakt }) : null, ex, karteEl,
       lernZpKarte(d, { kompakt })]; // KJ §0.4: Zusatz · eingeplant unter „Gerade dran“
   };
 

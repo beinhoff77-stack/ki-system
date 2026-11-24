@@ -190,3 +190,6 @@ Bericht `inhalte/pruefung/kind/karten/nachpruefung_kj.md`, Bilder `karten/nachpr
 
 ## 2026-11-24 – FERTIG: Vorgabe FX Fassung 3 (Teen-Stil, Streiche, Opa)
 Stil umgestellt auf Gaming/Stream (dunkel, Neon, Glitch, Bass). 11 große, 10 kleine, 4 Reserve. Immer: Legendary Drop (Etappe sicher), Checkpoint verloren → Respawn (wieder offen). Streiche: Absturz, Account übernommen (≈ 10–11 s, kein Überspringen-Knopf, 1 s halten beendet; kein Systembildschirm, kein „gelöscht“, max. 1/Woche). Horror: REC 03:13, Schatten im Flur, Unter dem Eis, Unbekannt tippt. Klein: u. a. Opa (5 in Folge). Dateien: `inhalte/pruefung/kind/effekte/` (umsetzung.md, effekte.json, entwurf/effekte.html = Artefakt 0ceb2a4f-…, bilder/).
+
+## 2026-11-24 – FERTIG: Vorgabe FX Fassung 4 (Vorrat + Saison)
+15 große, 15 kleine ganzjährig, 8 Saison (Advent täglich, Nikolaus, Weihnachten, Silvester, Fasching, Eiersuche, Ostern, Halloween), 4 Reserve. Auswahl gewichtet nach „lange nicht gesehen“, Saison ×4; Tagesereignisse und „sicher einmal im Zeitraum“. Ostern/Fasching berechnet. Entwurf mit Datumswahl und 21-Tage-Simulator. `inhalte/pruefung/kind/effekte/`.

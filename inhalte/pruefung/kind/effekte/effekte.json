@@ -29,7 +29,10 @@
   "sicherheitsnetz": "Gab es an 3 Lerntagen passende Anlässe, aber keinen Effekt, kommt beim nächsten passenden Anlass sicher einer.",
   "streich": "Streiche (Absturz, Account übernommen): sollen 6–8 s echt wirken. Kein sichtbarer Überspringen-Knopf; 1 s gedrückt halten beendet. Grenzen: nur das eigene Erscheinungsbild der App (kein iPhone-/Android-/Windows-Bildschirm nachgebaut), keine Behauptung „Daten gelöscht“, Auflösung spätestens nach 10 s, danach sind Sterne und Stand sichtbar unverändert. Höchstens 1 Streich je Woche.",
   "streich_max_je_woche": 1,
-  "stil": "Teen-Stil: dunkel, Neon (Cyan, Magenta, Neongrün, Gold), Glitch/Farbversatz, Scanlines, Kinobalken, kursive Blockschrift in Großbuchstaben, Bass/Riser/Herzschlag statt Piepsen. Keine Emojis in Effekten, keine Comic-Tiere, kein buntes Konfetti (Ausnahme: der Opa ist absichtlich albern)."
+  "stil": "Teen-Stil: dunkel, Neon (Cyan, Magenta, Neongrün, Gold), Glitch/Farbversatz, Scanlines, Kinobalken, kursive Blockschrift in Großbuchstaben, Bass/Riser/Herzschlag statt Piepsen. Keine Emojis in Effekten, keine Comic-Tiere, kein buntes Konfetti (Ausnahme: der Opa ist absichtlich albern).",
+  "auswahl": "Gewichtete Auswahl aus dem ganzen Vorrat des Anlasses: Gewicht = 1 / (1 + wie oft schon gesehen); kam der Effekt in den letzten 14 Tagen, Gewicht × 0,3. So tauchen alle Effekte nach und nach auf, Neues zuerst, nichts nutzt sich ab. Nie derselbe wie zuletzt, nie dieselbe Variante wie beim letzten Mal für diesen Anlass.",
+  "saison": "Saison-Effekte sind nur in ihrem Zeitraum im Vorrat, dann mit Gewicht × 4. Tagesereignisse (Adventskalender, Nikolaus, Silvester) kommen in ihrem Zeitraum immer, je eines beim ersten, zweiten … Erfolg des Tages (am 6.12. also Adventstür und Nikolaus) und zählen nicht zum Tageslimit. Ostern und Fasching werden aus dem Osterdatum berechnet. Datum = Gerätedatum (Ortszeit). Weihnachten bleibt Weihnachten, auch im australischen Sommer. Weihnachten, Ostern und Halloween kommen sicher einmal im Zeitraum, beim ersten passenden großen Erfolg (zählen als großer Effekt des Tages).",
+  "geburtstag": "Optional später: Geburtstags-Effekt – braucht das Geburtsdatum im Elternbereich; nicht Teil dieser Vorgabe."
  },
  "effekte": [
   {
@@ -687,6 +690,477 @@
    "staerke": 3,
    "groesse": "reserve",
    "ruhig": "Fehler 404"
+  },
+  {
+   "id": "boss",
+   "name": "Boss besiegt",
+   "groesse": "gross",
+   "anlass": "flug_geschafft",
+   "bedingung": "Flug geschafft (auch Expedition)",
+   "dauer_ms": 5000,
+   "ablauf": [
+    "Kinobalken, dunkel",
+    "Boss-Leiste „BOSS · {Thema}“ mit Lebensbalken",
+    "5 Treffer mit Schadenszahlen, Balken leert sich",
+    "„BOSS BESIEGT“, Funken, Beute-Meldung"
+   ],
+   "zeilen": [
+    "BOSS · {Thema}",
+    "-666 … -925",
+    "BOSS BESIEGT",
+    "BEUTE · +{sterne} ★ · Stempel {Stadt}"
+   ],
+   "sticker": null,
+   "woerter": [],
+   "staerke": 3,
+   "ruhig": "Boss besiegt.",
+   "art": "positiv",
+   "anlaesse": [
+    "expedition_geschafft"
+   ]
+  },
+  {
+   "id": "rang",
+   "name": "Rang auf",
+   "groesse": "gross",
+   "anlass": "flug_geschafft",
+   "bedingung": "Flug geschafft",
+   "dauer_ms": 4500,
+   "ablauf": [
+    "Rang-Abzeichen erscheint als Silber",
+    "wird Gold, dann Platin (jeweils Bass)",
+    "Funken, „RANG AUF“"
+   ],
+   "zeilen": [
+    "SILBER",
+    "GOLD",
+    "PLATIN",
+    "RANG AUF"
+   ],
+   "sticker": null,
+   "woerter": [],
+   "staerke": 3,
+   "ruhig": "Rang auf: Platin.",
+   "art": "positiv"
+  },
+  {
+   "id": "replay",
+   "name": "Replay",
+   "groesse": "gross",
+   "anlass": "landung_direkt",
+   "bedingung": "Direktflug",
+   "dauer_ms": 5000,
+   "ablauf": [
+    "Kinobalken, „▶▶ REPLAY · 0,25×“",
+    "die Bordkarten der Etappe fliegen in Zeitlupe als Liste ein, alle ✓ mit Zeit",
+    "„PERFEKTER LAUF“"
+   ],
+   "zeilen": [
+    "▶▶ REPLAY · 0,25×",
+    "Bordkarte {n} ✓ {zeit}",
+    "PERFEKTER LAUF"
+   ],
+   "sticker": "GOAT",
+   "woerter": [
+    "goat"
+   ],
+   "staerke": 3,
+   "ruhig": "Replay: perfekter Lauf.",
+   "art": "positiv",
+   "hinweis": "Zeiten echt aus der Etappe, wenn vorhanden; sonst ohne Zeit."
+  },
+  {
+   "id": "klopfen",
+   "name": "Etwas klopft",
+   "groesse": "gross",
+   "anlass": "knobel_richtig",
+   "bedingung": "Knobel richtig",
+   "dauer_ms": 5500,
+   "ablauf": [
+    "dunkel",
+    "dreimal Klopfen (Bass), bei jedem Klopfen Risse im Glas von innen",
+    "eine blasse Hand drückt von innen gegen die Scheibe",
+    "„…darf ich mitrechnen?“ → „nö. knobel geknackt.“"
+   ],
+   "zeilen": [
+    "…darf ich mitrechnen?",
+    "nö. knobel geknackt."
+   ],
+   "sticker": "Çüş!",
+   "woerter": [
+    "cues"
+   ],
+   "staerke": 3,
+   "ruhig": "Klopf, klopf … nö.",
+   "art": "positiv",
+   "horror": true
+  },
+  {
+   "id": "streamchat",
+   "name": "Stream-Chat",
+   "groesse": "klein",
+   "anlass": "knobel_richtig",
+   "bedingung": "Knobel richtig (auch 5 in Folge)",
+   "dauer_ms": 3000,
+   "ablauf": [
+    "Chatfenster rechts, Nachrichten rauschen durch"
+   ],
+   "zeilen": [
+    "W",
+    "GOAT",
+    "clip that",
+    "Çüş",
+    "wie??",
+    "PEAK",
+    "W W W",
+    "kein tipp?!",
+    "lowkey krank",
+    "sheesh"
+   ],
+   "sticker": "Sheesh!",
+   "woerter": [
+    "sheesh"
+   ],
+   "staerke": 3,
+   "ruhig": "Chat: W W W.",
+   "art": "positiv",
+   "anlaesse": [
+    "serie_5"
+   ],
+   "hinweis": "Nutzernamen erfunden (kz_77, n1ght, brrrt, matheGOD, zzz_)."
+  },
+  {
+   "id": "levelup",
+   "name": "Level up",
+   "groesse": "klein",
+   "anlass": "landung_sauber",
+   "bedingung": "saubere Landung",
+   "dauer_ms": 2800,
+   "ablauf": [
+    "XP-Balken füllt sich",
+    "„LEVEL UP“"
+   ],
+   "zeilen": [
+    "LVL 23",
+    "840 / 1000 XP",
+    "LEVEL UP",
+    "LVL 24"
+   ],
+   "sticker": "Süper!",
+   "woerter": [
+    "sueper"
+   ],
+   "staerke": 2,
+   "ruhig": "Level up.",
+   "art": "positiv",
+   "hinweis": "Level und XP sind Deko, keine neue Währung."
+  },
+  {
+   "id": "clip",
+   "name": "Clip gespeichert",
+   "groesse": "klein",
+   "anlass": "comeback",
+   "bedingung": "Comeback",
+   "dauer_ms": 2200,
+   "ablauf": [
+    "kurzer weißer Auslöser-Blitz (80 ms)",
+    "Meldung „● CLIP GESPEICHERT“"
+   ],
+   "zeilen": [
+    "● CLIP GESPEICHERT",
+    "Comeback · letzte 30 s"
+   ],
+   "sticker": "Comeback.",
+   "woerter": [],
+   "staerke": 2,
+   "ruhig": "Clip gespeichert.",
+   "art": "positiv"
+  },
+  {
+   "id": "slice",
+   "name": "Slice",
+   "groesse": "klein",
+   "anlass": "landung_sauber",
+   "bedingung": "saubere Landung",
+   "dauer_ms": 2000,
+   "ablauf": [
+    "Klingen-Strich quer durchs Bild (Zisch)",
+    "Bild ruckt kurz",
+    "„Sauber zerlegt.“"
+   ],
+   "zeilen": [
+    "Sauber zerlegt."
+   ],
+   "sticker": "Slay.",
+   "woerter": [
+    "slay"
+   ],
+   "staerke": 2,
+   "ruhig": "Sauber zerlegt.",
+   "art": "positiv"
+  },
+  {
+   "id": "spiegel",
+   "name": "Spiegel",
+   "groesse": "klein",
+   "anlass": "wiederholung",
+   "bedingung": "Wiederholung bestanden",
+   "dauer_ms": 2600,
+   "ablauf": [
+    "ganze Ansicht springt gespiegelt, am Rand steht eine dunkle Gestalt (0,6 s)",
+    "zurück, Gestalt weg",
+    "„hast du das gesehen?“"
+   ],
+   "zeilen": [
+    "hast du das gesehen?"
+   ],
+   "sticker": "Hält stabil.",
+   "woerter": [
+    "stabil"
+   ],
+   "staerke": 1,
+   "ruhig": "Hast du das gesehen?",
+   "art": "positiv",
+   "horror": true
+  },
+  {
+   "id": "advent",
+   "name": "Adventskalender",
+   "groesse": "klein",
+   "anlass": "erfolg",
+   "bedingung": "1.–24.12., jeden Tag beim ersten Erfolg",
+   "dauer_ms": 3000,
+   "ablauf": [
+    "grüne Tür mit der Tageszahl",
+    "öffnet sich, goldenes Licht, Funken",
+    "„TÜR {Tag}“"
+   ],
+   "zeilen": [
+    "TÜR {Tag}",
+    "+1000 Aura"
+   ],
+   "sticker": "+1000 Aura",
+   "woerter": [
+    "aura"
+   ],
+   "staerke": 3,
+   "ruhig": "Adventskalender: Tür auf.",
+   "art": "positiv",
+   "saison": "1.–24. Dezember",
+   "tagesereignis": true
+  },
+  {
+   "id": "nikolaus",
+   "name": "Nikolaus",
+   "groesse": "klein",
+   "anlass": "erfolg",
+   "bedingung": "6.12., beim ersten Erfolg",
+   "dauer_ms": 3000,
+   "ablauf": [
+    "Stiefel springt ins Bild",
+    "Goldstücke fallen hinein",
+    "„NIKOLAUS WAR DA“"
+   ],
+   "zeilen": [
+    "NIKOLAUS WAR DA",
+    "6. DEZEMBER · Stiefel voll · +Respekt"
+   ],
+   "sticker": "Süper!",
+   "woerter": [
+    "sueper"
+   ],
+   "staerke": 2,
+   "ruhig": "Nikolaus war da.",
+   "art": "positiv",
+   "saison": "6. Dezember",
+   "tagesereignis": true
+  },
+  {
+   "id": "weihnachten",
+   "name": "Geschenk-Drop",
+   "groesse": "gross",
+   "anlass": "flug_geschafft",
+   "bedingung": "24.–26.12., großer Erfolg",
+   "dauer_ms": 6000,
+   "ablauf": [
+    "dunkel, Schnee fällt",
+    "Geschenk steigt in Seltenheit (blau, lila, gold)",
+    "Deckel fliegt, Blitz, Funken",
+    "„FROHE WEIHNACHTEN“"
+   ],
+   "zeilen": [
+    "FROHE",
+    "WEIHNACHTEN",
+    "GESCHENK · Legendär · +1000 Aura"
+   ],
+   "sticker": "+1000 Aura",
+   "woerter": [
+    "aura"
+   ],
+   "staerke": 3,
+   "ruhig": "Frohe Weihnachten.",
+   "art": "positiv",
+   "saison": "24.–26. Dezember",
+   "anlaesse": [
+    "landung_direkt",
+    "knobel_richtig",
+    "serie_10",
+    "expedition_geschafft"
+   ],
+   "einmal_im_zeitraum": true
+  },
+  {
+   "id": "silvester",
+   "name": "Countdown",
+   "groesse": "gross",
+   "anlass": "erfolg",
+   "bedingung": "31.12. und 1.1., beim ersten Erfolg",
+   "dauer_ms": 6000,
+   "ablauf": [
+    "Kinobalken, dunkel",
+    "Countdown 10 → 1 (letzte drei gold, langsamer)",
+    "Blitz, Beben, Jahreszahl riesig, vier Feuerwerks-Funken",
+    "„NEUES JAHR · GLEICHER GOAT“"
+   ],
+   "zeilen": [
+    "10 … 1",
+    "{Jahr}",
+    "NEUES JAHR · GLEICHER GOAT"
+   ],
+   "sticker": "GOAT",
+   "woerter": [
+    "goat"
+   ],
+   "staerke": 3,
+   "ruhig": "Frohes neues Jahr.",
+   "art": "positiv",
+   "saison": "31. Dezember – 1. Januar",
+   "tagesereignis": true
+  },
+  {
+   "id": "ostern",
+   "name": "Legendäres Ei",
+   "groesse": "gross",
+   "anlass": "flug_geschafft",
+   "bedingung": "Karfreitag bis Ostermontag, großer Erfolg",
+   "dauer_ms": 5000,
+   "ablauf": [
+    "dunkles Ei",
+    "wackelt, Seltenheit steigt, Risse",
+    "Blitz, wird golden, Funken",
+    "„LEGENDÄRES EI“, „FROHE OSTERN“"
+   ],
+   "zeilen": [
+    "LEGENDÄRES EI",
+    "FROHE OSTERN · +1000 Aura"
+   ],
+   "sticker": "+1000 Aura",
+   "woerter": [
+    "aura"
+   ],
+   "staerke": 3,
+   "ruhig": "Frohe Ostern.",
+   "art": "positiv",
+   "saison": "Karfreitag – Ostermontag (Datum berechnet)",
+   "anlaesse": [
+    "landung_direkt",
+    "knobel_richtig",
+    "serie_10",
+    "expedition_geschafft"
+   ],
+   "einmal_im_zeitraum": true
+  },
+  {
+   "id": "eiersuche",
+   "name": "Eiersuche",
+   "groesse": "klein",
+   "anlass": "landung_sauber",
+   "bedingung": "Woche vor Ostern bis Ostermontag, Erfolg",
+   "dauer_ms": 4500,
+   "ablauf": [
+    "drei Neon-Eier tauchen verteilt auf",
+    "antippen zum Einsammeln (Zähler)",
+    "alle 3 → „GOAT“, sonst „Süper!“"
+   ],
+   "zeilen": [
+    "EIERSUCHE",
+    "{n} / 3 gefunden"
+   ],
+   "sticker": "GOAT / Süper!",
+   "woerter": [
+    "goat",
+    "sueper"
+   ],
+   "staerke": 2,
+   "ruhig": "Eiersuche!",
+   "art": "positiv",
+   "saison": "9 Tage vor Ostern – Ostermontag",
+   "anlaesse": [
+    "wiederholung",
+    "serie_5"
+   ]
+  },
+  {
+   "id": "halloween",
+   "name": "Süßes oder Saures",
+   "groesse": "gross",
+   "anlass": "landung_direkt",
+   "bedingung": "24.–31.10., großer Erfolg",
+   "dauer_ms": 5500,
+   "ablauf": [
+    "schwarz, Kürbis mit flackerndem Gesicht",
+    "„süßes oder saures?“",
+    "SCHOCK: Kürbis rast heran, „SAURES.“, Bass, Beben",
+    "„…war Spaß.“, Meldung"
+   ],
+   "zeilen": [
+    "süßes oder saures?",
+    "SAURES.",
+    "…war Spaß.",
+    "HALLOWEEN · Süßes · +Respekt"
+   ],
+   "sticker": "Çüş!",
+   "woerter": [
+    "cues"
+   ],
+   "staerke": 3,
+   "ruhig": "Süßes oder Saures? … war Spaß.",
+   "art": "positiv",
+   "horror": true,
+   "saison": "24.–31. Oktober",
+   "anlaesse": [
+    "flug_geschafft",
+    "knobel_richtig"
+   ],
+   "einmal_im_zeitraum": true
+  },
+  {
+   "id": "fasching",
+   "name": "Fasching",
+   "groesse": "klein",
+   "anlass": "serie_5",
+   "bedingung": "Weiberfastnacht bis Aschermittwoch",
+   "dauer_ms": 2500,
+   "ablauf": [
+    "Neon-Splitter von drei Seiten",
+    "Farben kippen stufenweise durch",
+    "„HELAU. ALAAF. EGAL.“"
+   ],
+   "zeilen": [
+    "HELAU. ALAAF. EGAL."
+   ],
+   "sticker": "Peak",
+   "woerter": [
+    "peak"
+   ],
+   "staerke": 3,
+   "ruhig": "Helau. Alaaf. Egal.",
+   "art": "positiv",
+   "saison": "Weiberfastnacht – Aschermittwoch (berechnet)",
+   "anlaesse": [
+    "landung_sauber",
+    "knobel_richtig"
+   ]
   }
  ],
  "anlass_namen": {
@@ -702,6 +1176,7 @@
   "comeback": "Comeback nach Fehler",
   "fehler": "Erster Fehler des Tages",
   "wiederholung": "Wiederholung bestanden",
-  "expedition_geschafft": "Expedition geschafft"
+  "expedition_geschafft": "Expedition geschafft",
+  "erfolg": "jeder Erfolg (Tagesereignis)"
  }
 }

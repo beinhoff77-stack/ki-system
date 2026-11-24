@@ -187,3 +187,6 @@ Bericht `inhalte/pruefung/kind/karten/nachpruefung_kj.md`, Bilder `karten/nachpr
 
 ## 2026-11-24 – FERTIG: Vorgabe FX Fassung 2 (10 große, 10 kleine, Horror)
 `inhalte/pruefung/kind/effekte/umsetzung.md`, `effekte.json` (24 Effekte: 10 groß, 10 klein, 4 Reserve), `entwurf/effekte.html` (Artefakt 0ceb2a4f-…, mit Ton und Regel-Simulator), `bilder/` (Bildfolgen). Immer: Für immer (Raketenstart ins Sternbild), Koffer-Chaos. Horror: Clown, Stromausfall, Riesenkrake, Knochenhand, Spinne – Schock ≤ 1 s, dann Pointe, kein Blut, max. 2/Woche, nur nach Erfolg. Zufall 20 %, max. 2 je Lerntag (≤ 1 groß). Bauschritte FX-1 bis FX-3.
+
+## 2026-11-24 – FERTIG: Vorgabe FX Fassung 3 (Teen-Stil, Streiche, Opa)
+Stil umgestellt auf Gaming/Stream (dunkel, Neon, Glitch, Bass). 11 große, 10 kleine, 4 Reserve. Immer: Legendary Drop (Etappe sicher), Checkpoint verloren → Respawn (wieder offen). Streiche: Absturz, Account übernommen (≈ 10–11 s, kein Überspringen-Knopf, 1 s halten beendet; kein Systembildschirm, kein „gelöscht“, max. 1/Woche). Horror: REC 03:13, Schatten im Flur, Unter dem Eis, Unbekannt tippt. Klein: u. a. Opa (5 in Folge). Dateien: `inhalte/pruefung/kind/effekte/` (umsetzung.md, effekte.json, entwurf/effekte.html = Artefakt 0ceb2a4f-…, bilder/).

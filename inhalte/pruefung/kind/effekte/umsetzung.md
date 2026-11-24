@@ -1,128 +1,128 @@
-# Vorgabe FX – Spezialeffekte: 10 große, 10 kleine (mit Horror)
+# Vorgabe FX – Spezialeffekte im Teen-Stil (11 große, 10 kleine)
 
-Stand 24.11.2026 (Fassung 2: spektakulärer, länger, mit Horror – Wünsche Sebastian) · Daten: `effekte.json` · Entwurf zum Anklicken: `entwurf/effekte.html` (Artefakt 0ceb2a4f-cdef-4a72-a3f0-4dcb90cfe1c4) · Bilder: `bilder/<effekt>-400-tag|nacht.png` (Bildfolge über die Zeit), `bilder/<clown|tresor|hacker>-820-tag.png`, `bilder/uebersicht-1280.png`, `bilder/clown-400-ruhig.png`
+Stand 24.11.2026 · **Fassung 3** (Sebastian: „zu kindlich – es sind Teenager“, dazu Opa-Gag und glaubhafte Absturz-/Hacker-Streiche) · Daten: `effekte.json` · Entwurf: `entwurf/effekte.html` (Artefakt 0ceb2a4f-cdef-4a72-a3f0-4dcb90cfe1c4) · Bilder: `bilder/<id>-400-tag|nacht.png` als Bildfolge über die Zeit, `bilder/<legendary|absturz|rec>-820-tag.png`, `bilder/uebersicht-1280.png`, `bilder/rec-400-ruhig.png`
 
 Kein App-Code, keine Datenbank, keine Namen. Alles läuft auf dem Gerät. Kein Effekt vergibt Sterne.
 
 ## 0. Kurzfassung
 
-- **10 große Effekte:** kleine Filme von 4–7,5 s mit Ton, Beben, Teilchen und einer Pointe; Knopf „Überspringen ›“.
-- **10 kleine Effekte:** 2–3,6 s; Antippen überspringt.
+- **Stil:** Gaming und Stream statt Kinderfernsehen. Dunkel, Neon (Cyan, Magenta, Neongrün, Gold), Glitch und Farbversatz, Scanlines, Kinobalken, kursive Blockschrift in Großbuchstaben. Ton: Bass, Riser, Herzschlag statt Piepsen. Keine Emojis, keine Comic-Tiere, kein buntes Konfetti. Einzige Ausnahme ist der Opa, der absichtlich albern ist.
 - **Zwei Effekte kommen immer:**
-  - **Für immer:** Raketenstart ins eigene Sternbild, wenn eine Etappe endgültig sicher ist.
-  - **Koffer-Chaos:** wenn die Wiederholung eine Etappe wieder öffnet.
-- **Alle anderen kommen per Zufall:**
-  - etwa jeder 5. passende Anlass, höchstens 2 am Lerntag, davon höchstens 1 großer;
-  - je Anlass wechseln die Varianten, nie dieselbe zweimal hintereinander;
-  - Sicherheitsnetz nach 3 Lerntagen ohne Effekt.
-- **Horror:** Der Clown, Stromausfall mit Geist und die Riesenkrake (groß), Knochenhand und Spinne (klein).
-  - Schock höchstens 1 s, dann sofort die Pointe (Lachen, Schild, Konfetti).
+  - **Legendary Drop:** Eine Etappe ist endgültig sicher; Karten-Ziehung, die bis LEGENDÄR steigt.
+  - **Checkpoint verloren → Respawn:** Die Wiederholung öffnet eine Etappe wieder.
+- **Zwei Streiche, die echt wirken sollen:**
+  - **Absturz:** App ruckelt, friert ein, Absturz-Protokoll, „App musste beendet werden“, Neustart, dann „Reingelegt.“
+  - **Account übernommen:** Fremder schreibt, Sterne laufen auf 0, dann stellt sich heraus: Der Hacker bist du.
+  - Beide etwa 10–11 s, ohne sichtbaren Überspringen-Knopf (1 s gedrückt halten beendet).
+- **Horror:** REC 03:13 (Analog-Horror-Maske), Schatten im Flur, Unter dem Eis (Auge unter dem Eis), Unbekannt tippt … (klein).
+  - Schock ≤ 1 s, dann die Auflösung.
   - Kein Blut.
-  - Höchstens 2 je Woche, nur nach Erfolg.
-- **4 Reserve-Effekte** sind gebaut, aber aus: Kampfjet, Applaus, Rückspulen, Gewitter. Sie sind zum Austauschen da.
+- **Zufall:** etwa jeder 5. passende Anlass, höchstens 2 am Lerntag (davon ≤ 1 groß), Varianten wechseln, Sicherheitsnetz nach 3 Lerntagen. Horror höchstens 2 pro Woche, Streiche höchstens 1 pro Woche.
 
-## 1. Die 10 großen Effekte
+## 1. Die 11 großen Effekte
 
-| # | Effekt | Anlass | Ablauf (Kurz) | Texte wörtlich | Sticker | Dauer |
-|---|---|---|---|---|---|---|
-| G1 | **Für immer – Raketenstart** · IMMER | Etappe endgültig sicher | Nachthimmel mit dem eigenen Sternbild (alle sicheren Etappen) → Rakete „{ETAPPE}“ auf der Rampe → Countdown 3-2-1 → START: Flamme, Rauch, Beben, Aufstieg → Explosion zu einem neuen Stern, goldene Linie ins Sternbild → Text | `3` `2` `1` `START!` · `FÜR IMMER` · `{Etappe} sitzt – und leuchtet jetzt in deinem Sternbild.` · `Muss nie wieder geübt werden.` · `★ {n} Etappen für immer` | +1000 Aura | 7,5 s |
-| G2 | **Koffer-Chaos** · IMMER | Wiederholung mit 2 Fehlern → Etappe wieder offen | Rundumleuchte, Warnband, Sirene → 3 Koffer auf dem Band, der mit „{ETAPPE}“ wackelt und bläht sich auf → KABUMM (Blitz 110 ms, Beben): Deckel fliegt, Socken, T-Shirt, Gummiente und Ziffern fliegen → Riesensocke klatscht an die Scheibe und rutscht ab → Teile fliegen in 3 leere Kreise → Nachbessern-Karte | `⚠ STÖRUNG · GEPÄCKBAND 3 ⚠` · `Dein Koffer ist aufgegangen!` · `Sammeln wir’s wieder ein.` · `3 richtige in Folge – dann ist alles wieder drin.` | – | 6,5 s |
-| G3 | **Gehackt! (Matrix)** | 10 in Folge richtig | App-Bild verzerrt → schwarz, grüner Zeichenregen → Terminal tippt, Balken 0–100 % → Warnbalken bernstein → wird grün → Auflösung | `> VERBINDE MIT MATHE-ZENTRALE …` · `> UMGEHE FIREWALL … OK` · `> ENTSCHLÜSSELE BRÜCHE … OK` · `⚠ FIREWALL DURCHBROCHEN` · `ZUGRIFF GEWÄHRT` · `> HACKER IDENTIFIZIERT: DU` · `> GRUND: 10 VON 10 RICHTIG` | Gommemode aktiviert | 6 s |
-| G4 | **Der Clown** 👁 Horror | Direktflug | Licht aus, verstimmte Spieluhr → roter Luftballon steigt → Schrift → Stille, einmal schwarz → **SCHOCK:** Clown-Gesicht bildschirmfüllend, „BUH!“, Beben → Clown schrumpft, lacht, hupt mit der Nase → Schild, Konfetti | `Psst … ganz ohne Fehler?` · `BUH!` · `HAHAHA` · `Direktflug? Respekt. 🎩` | PEAK | 6,5 s |
-| G5 | **Stromausfall** 👁 Horror | Flug geschafft | Licht flackert und geht aus → Taschenlampen-Kegel (folgt auch dem Finger) → zwei gelbe Augen blinken → **SCHOCK:** Geist springt ins Bild, „BUUUH!“ → Licht an, Geist kichert, Konfetti | `BUUUH!` · `👻 Hihi – erschrocken? Glückwunsch zum Flug!` | Flug-Sticker | 5,8 s |
-| G6 | **Feuerwerk** | Flug geschafft | Himmel dunkelt → 5 Raketen pfeifen hoch und explodieren in 5 Farben | – | Flug-Sticker | 4,5 s |
-| G7 | **Big Brain** | Knobel richtig | violetter Schein → Gehirn wächst in 6 Pulsen, Blitze zucken → Blitz, Gehirn platzt in Konfetti | `BIG BRAIN` | Çüş! | 3,6 s |
-| G8 | **Phönix** | Comeback (nach Fehler 3 in Folge richtig) | Glut, Flammen steigen → Feuervogel steigt groß auf (Fanfare) | `AUFERSTANDEN` | Comeback. | 3,5 s |
-| G9 | **Tornado** | Sturmflug gemeistert | Himmel dunkelt → Wirbelsturm mit Kuh, Koffer, Geodreieck, Kaktus, Stuhl, Huhn → alles fliegt raus, klart auf | `DURCHGEZOGEN` | Macher-Modus | 3,6 s |
-| G10 | **Riesenkrake** 👁 Horror | Expedition geschafft | Eiswasser steigt → 4 Fangarme schießen hoch → **SCHOCK:** Arm klatscht an die Scheibe, „KLATSCH!“ → Kopf taucht auf mit Schild → alles taucht ab | `KLATSCH!` · `🐙 Respekt, Polarprofi. Ich tauche wieder ab.` | Tuff, Polarprofi. | 5,6 s |
+| Effekt | Anlass | Ablauf | Texte wörtlich | Sticker | Dauer |
+|---|---|---|---|---|---|
+| **Legendary Drop** · IMMER | Etappe für immer sicher · IMMER | Schwarz, Kinobalken, Scanlines → Karte mit „?“ schwebt herein, Lichtstrahlen drehen sich → Seltenheit steigt mit Bass-Schlägen: GEWÖHNLICH grau → SELTEN blau → EPISCH lila → LEGENDÄR gold → Karte dreht sich um: goldene Etappen-Karte „{ETAPPE} · FÜR IMMER“ mit Holo-Glanz, heller Blitz 110 ms, Beben, goldene Funken → Überschrift „FÜR IMMER“, Zeile, Sammlungs-Meldung | `GEWÖHNLICH` · `SELTEN` · `EPISCH` · `LEGENDÄR` · `FÜR IMMER` · `{ETAPPE} SITZT · NIE WIEDER ÜBEN` … | +1000 Aura | 7.5 s |
+| **Checkpoint verloren · Respawn** · IMMER | Etappe wieder offen · IMMER | Bild wird grau, Herzschlag → Sechseck-Abzeichen „{ETAPPE} · CHECKPOINT“ → Risse laufen über das Abzeichen → es zerspringt in Zeitlupe in Scherben (Bass, Beben) → „CHECKPOINT VERLOREN“ in Bernstein → Farbe kehrt zurück: „RESPAWN“ in Cyan, drei Balken leuchten nacheinander → Nachbessern-Karte schiebt sich ins Bild | `CHECKPOINT VERLOREN` · `RESPAWN` · `3 RICHTIG IN FOLGE → CHECKPOINT ZURÜCK` | – | 6.5 s |
+| **Account übernommen** · STREICH | 10 in Folge | Chat-Nachricht „UNBEKANNT“: „nice serie.“ → „wär schade um deine sterne.“ (Herzschlag) → App verzerrt sich, schwarz, Zeichenregen → „ACCOUNT ÜBERNOMMEN“, Sternzahl läuft auf 0, Balken „ÜBERTRAGE STERNE AN: x_sh4dow_x“ → Sterne rot auf 0, Herzschlag → Terminal: Rückverfolgung … Hacker identifiziert: DU → Sterne zählen zurück hoch → „ZUGRIFF GEWÄHRT“, Sticker | `nice serie.` · `wär schade um deine sterne.` · `ACCOUNT ÜBERNOMMEN` · `ÜBERTRAGE STERNE AN: x_sh4dow_x` · `> RÜCKVERFOLGUNG …` · `> QUELLE GEFUNDEN` … | Gommemode aktiviert | 11.0 s |
+| **Absturz** · STREICH | Direktflug | Buchstaben verrutschen, Knöpfe zittern (1,5 s) → App friert ein: Ladekreis, „Reagiert nicht …“, Tippen zeigt nur Kreise → schwarzes Absturz-Protokoll mit Fehlerzeilen und Hex-Kolonnen → Tafel „Die App musste beendet werden.“ mit Countdown 3–2–1 → schwarz, Neustart mit Logo und Ladebalken → Auflösung: „Reingelegt.“ und „Nichts kaputt. Nur ein Direktflug.“ | `Reagiert nicht …` · `FATAL lernen.js:404 Bordkarte 7: unerwarteter Zustand` · `fehler === 0 (erwartet: ≥ 1)` · `Die App musste beendet werden.` · `Ursache: Bordkarte 7 – unerwarteter Zustand (0 Fehler).` · `Neustart in 3 …` … | PEAK | 10.0 s |
+| **REC 03:13** · HORROR | Direktflug | Videoband: Bildrauschen, „● REC 03:13 AM“, Rauschen → Untertitel: „ES HAT KEINEN FEHLER GEMACHT.“ – „NICHT EINEN.“ → zweimal blitzt für 90 ms eine weiße Maske im Rauschen auf → Schwarz, Stille → SCHOCK: Maske bildschirmfüllend, „WIR SEHEN DICH.“, Bass, Beben → „⏏ BAND AUSGEWORFEN“ → „lol. Direktflug.“ + Meldung RESPEKT | `● REC` · `03:13 AM` · `ES HAT KEINEN FEHLER GEMACHT.` · `NICHT EINEN.` · `WIR SEHEN DICH.` · `⏏ BAND AUSGEWORFEN` … | PEAK | 8.5 s |
+| **Schatten im Flur** · HORROR | Flug geschafft | Licht flackert (≤ 3/s) und geht aus → dunkler Flur, Taschenlampe (folgt auch dem Finger), Herzschlag → am Ende des Flurs steht plötzlich eine Gestalt → „war da was?“ → SCHOCK: Schatten mit zwei hellen Augen rast auf den Bildschirm zu, Bass → Licht an: „MISSION COMPLETE“, Meldung | `war da was?` · `MISSION COMPLETE` · `FLUG · {Thema} · {sterne} ★` | – | 7.0 s |
+| **Mission Complete** | Flug geschafft | Kinobalken, Bild zoomt langsam, Riser → „MISSION“ weiß und „COMPLETE“ gold rasen herein (Bass) → Glanz läuft über die Schrift → Werte zählen ein: Genauigkeit, Sterne, Respekt | `MISSION` · `COMPLETE` · `GENAUIGKEIT {x} %` · `STERNE +{sterne}` · `RESPEKT +1` | – | 5.5 s |
+| **Big Brain Move** | Knobel richtig | dunkel violett, Scanlines → IQ-Anzeige, Nadel steigt, Zahl rattert von 100 auf 1000 → Anzeige platzt: Blitz, Bass, Funken, „IQ ∞“ → „BIG BRAIN MOVE“ | `IQ 100` · `IQ ∞` · `BIG BRAIN MOVE` | Çüş! | 4.5 s |
+| **Clutch** | Comeback nach Fehler | Bild grau, Zeitlupe, Herzschlag, Kinobalken → „1 vs 3“ → drei Treffer: ✕ ✕ ✕, rechts oben „DU ⟶ FEHLER / ZWEIFEL / DRUCK“ → Farbe zurück: „CLUTCH“ in Neongrün, Bass, Funken | `1 vs 3` · `DU ⟶ FEHLER` · `DU ⟶ ZWEIFEL` · `DU ⟶ DRUCK` · `CLUTCH` | Comeback. | 4.5 s |
+| **Survived** | Sturmflug gemeistert | Kinobalken, dunkler Sturm, Regen → Anzeige „STURM · STUFE 4“ mit Lebensbalken → drei Blitze, Balken fällt auf 62 %, 31 %, 9 % (grün → bernstein → rot) → Herzschlag, Regen hört auf → „SURVIVED“ in Neongrün | `STURM · STUFE 4` · `SURVIVED` · `{n} BORDKARTEN · NICHT ABGEDREHT` | Macher-Modus | 5.0 s |
+| **Unter dem Eis** · HORROR | Expedition geschafft | dunkles Wasser, Sonar „TIEFE 412 M“, drei Pings → beim dritten: „KONTAKT · GROSS“ (Bernstein) → Eis reißt → SCHOCK: riesiges Auge öffnet sich bildschirmbreit, Bass, Beben → Auge schließt sich → „Es hat dich gesehen.“ – „Und lässt dich gehen.“ → Meldung EXPEDITION | `SONAR · TIEFE 412 M` · `SONAR · KONTAKT · GROSS` · `Es hat dich gesehen.` · `Und lässt dich gehen.` · `EXPEDITION · {Station} · geschafft` | Tuff, Polarprofi. | 6.5 s |
 
 ## 2. Die 10 kleinen Effekte
 
-| # | Effekt | Anlass | Ablauf | Texte wörtlich | Sticker | Dauer |
-|---|---|---|---|---|---|---|
-| K1 | Fehler 404 | Direktflug | 2 Flacker-Wechsel → Tafel „404“ mit Farbversatz → bricht weg | `404` · `FEHLER NICHT GEFUNDEN` | Çüş – null Fehler. | 2,2 s |
-| K2 | Sterne-Glitch | Flug geschafft | Sterne rattern bis 4.000.000 ★ → fallen zurück | `Moment … {sterne} ★. Sorry, war aufgeregt.` | Flug-Sticker | 2,4 s |
-| K3 | Glückstaube | saubere Landung | Klecks aufs Glas, wegwischen | `Bringt Glück! Wegwischen.` | W | bis 4 s |
-| K4 | Knochenhand 👁 | saubere Landung | Boden reißt, Skeletthand schießt hoch, winkt, sinkt | `💀 Saubere Landung? Knochenstark.` | Süper! | 2,8 s |
-| K5 | Möwe | Knobel richtig | Möwe klatscht an die Scheibe, Federn, rutscht ab | – | Sheesh! | 2,2 s |
-| K6 | Turbulenzen | 5 in Folge | Beben, Sauerstoffmasken, Kapitän | `Hier spricht euer Kapitän: Ihr rechnet zu schnell – wir müssen bremsen.` | Locked in. | 2,4 s |
-| K7 | Nitro-Combo | 5 in Folge | Speed-Linien, „5× COMBO“ rast herein, Flammenschweif | `5×` · `COMBO` | Locked in. | 2,9 s |
-| K8 | Spinne 👁 | Wiederholung bestanden | Spinne saust am Faden herunter, Schild, klettert hoch | `🕸️ Sitzt noch!` | Hält stabil. | 2,8 s |
-| K9 | Kaffee verschüttet | erster Fehler des Tages | Fleck an der Ecke der Bordkarte, Kapitän | `Ups – mein Kaffee. Daran lag’s. Nächste!` | – | 1,8 s |
-| K10 | Kapitän niest | erster Fehler des Tages | „Haaa… TSCHI!“, Tröpfchen, Scheibenwischer | `Haaa… haaaa…` · `TSCHI!` · `Gesundheit! Daran lag’s. Nächste!` | – | 2,9 s |
+| Effekt | Anlass | Ablauf | Texte wörtlich | Sticker | Dauer |
+|---|---|---|---|---|---|
+| **Sterne-Glitch** | Flug geschafft | Sternzahl rattert über das Ziel hinaus bis 4.000.000 ★ (Farbversatz rot/blau) → Zeile darunter erscheint → Zahl fällt auf den echten Wert zurück | `4.000.000 ★` · `Moment … {sterne} ★. Sorry, war aufgeregt.` | – | 2.4 s |
+| **Erfolg freigeschaltet** | Saubere Landung | Meldung gleitet oben rechts herein (zwei Töne) | `ERFOLG FREIGESCHALTET` · `Saubere Landung · +20` | W | 2.5 s |
+| **Hitmarker** | Saubere Landung | Fadenkreuz schwenkt ins Bild → gelber Treffer-Marker ✕ mit Klick → Feed oben rechts: „DU ⟶ LANDUNG · SAUBER“ | `DU ⟶ LANDUNG · SAUBER` | Süper! | 2.4 s |
+| **Kritischer Treffer** | Knobel richtig | „KRIT 999“ springt groß heraus und steigt auf, Funken, kurzes Beben | `KRIT 999` | Sheesh! | 1.8 s |
+| **Speedrun-Split** | 5 in Folge | Split-Anzeige gleitet links oben herein: SPLIT 5/5 · −0:12 · PERSÖNLICHE BESTZEIT | `SPLIT` · `5 / 5` · `−0:12` · `PERSÖNLICHE BESTZEIT` | Locked in. | 2.5 s |
+| **Combo** | 5 in Folge | Speed-Linien, „5× COMBO“ rast herein | `5× COMBO` | Locked in. | 2.7 s |
+| **Opa** | 5 in Folge | Opa mit Hut und Stock schlurft von links herein → bleibt stehen, dreht sich um, Popo (Hose an) Richtung Bildschirm → wackelt kurz – PUPS (Ton), Bildschirm wackelt, grüne Wolke breitet sich aus, Bild kurz grünstichig → „Pffrrrt“ → Sprechblase → Opa schlurft rechts raus | `Pffrrrt` · `„’tschuldigung. 5 in Folge – da musste was raus.“` | Locked in. | 5.0 s |
+| **Unbekannt tippt …** · HORROR | Wiederholung bestanden | Chat-Nachricht von „UNBEKANNT“ gleitet herein → „…“ → „ich seh dir beim rechnen zu.“ (Herzschlag) → „sitzt immer noch. respekt.“ | `UNBEKANNT · jetzt` · `ich seh dir beim rechnen zu.` · `sitzt immer noch. respekt.` | Hält stabil. | 3.3 s |
+| **Lag** | Erster Fehler des Tages | Bordkarte ruckelt und verfärbt sich kurz → „● 999 ms“ oben rechts → Zeile unten | `● 999 ms` · `Lag. Lag. Nicht du. Nächste.` | – | 2.2 s |
+| **Controller-Drift** | Erster Fehler des Tages | Bordkarte driftet langsam nach rechts und zurück → Meldung | `CONTROLLER-DRIFT ERKANNT` · `Nicht deine Schuld. Nächste.` | – | 2.4 s |
 
-**Reserve (gebaut, aus):** Kampfjet-Überflug (Direktflug), Applaus an Bord (saubere Landung), Rückspulen (Comeback), Gewitter (Sturmflug). Halbjährlich kann ein abgenutzter Effekt gegen einen aus der Reserve getauscht werden.
+**Reserve (gebaut, aus):** Kampfjet-Überflug, Gewitter, Comeback, Fehler 404.
 
-**Abwechslung je Anlass:**
+**Varianten je Anlass:**
 
 | Anlass | Varianten |
 |---|---|
-| Direktflug | Clown · 404 |
-| saubere Landung | Taube · Knochenhand |
-| Sturmflug | Tornado |
-| Flug geschafft | Stromausfall · Feuerwerk · Glitch |
-| Knobel richtig | Big Brain · Möwe |
-| 5 in Folge | Turbulenzen · Nitro |
-| 10 in Folge | Gehackt! |
-| Comeback | Phönix |
-| Wiederholung bestanden | Spinne |
-| Expedition geschafft | Krake |
-| erster Fehler | Kaffee · Niesen |
+| Etappe für immer sicher · IMMER | Legendary Drop |
+| Etappe wieder offen · IMMER | Checkpoint verloren · Respawn |
+| 10 in Folge | Account übernommen |
+| Direktflug | Absturz · REC 03:13 |
+| Flug geschafft | Schatten im Flur · Mission Complete · Sterne-Glitch |
+| Knobel richtig | Big Brain Move · Kritischer Treffer |
+| Comeback nach Fehler | Clutch |
+| Sturmflug gemeistert | Survived |
+| Expedition geschafft | Unter dem Eis |
+| Saubere Landung | Erfolg freigeschaltet · Hitmarker |
+| 5 in Folge | Speedrun-Split · Combo · Opa |
+| Wiederholung bestanden | Unbekannt tippt … |
+| Erster Fehler des Tages | Lag · Controller-Drift |
 
 ## 3. Regeln (fest)
 
-1. **Zufall:** Bei einem passenden Anlass kommt mit 20 % ein Effekt; welche Variante, entscheidet der Zufall. Nie dieselbe Variante wie beim letzten Mal für diesen Anlass, nie derselbe Effekt wie zuletzt.
+1. **Zufall:** Bei einem passenden Anlass kommt mit 20 % ein Effekt; die Variante entscheidet der Zufall. Nie dieselbe Variante wie beim letzten Mal für diesen Anlass, nie derselbe Effekt wie zuletzt.
 2. **Höchstens 2 Zufalls-Effekte je Lerntag, davon höchstens 1 großer.**
-3. **Sicherheitsnetz:** Gab es an 3 Lerntagen passende Anlässe, aber keinen Effekt, kommt beim nächsten passenden Anlass sicher einer.
-4. **Immer:** „Für immer“ und „Koffer“ – je Etappe einmal, nicht im Tageslimit. Mehrere Etappen auf einmal: ein Durchlauf mit Zahl (`3 Etappen sitzen.` / `2 Koffer sind aufgegangen – sammeln wir’s wieder ein.`). Wird der Flug dadurch golden: zusätzlich `Flug golden! {Land} ist komplett.`
-5. **Horror:**
-   - Nur nach Erfolg, nie bei Fehlern; höchstens 2 je Woche, höchstens 1 je Lerntag.
-   - Schock höchstens 1 s, danach sofort die Pointe.
-   - Kein Blut, keine Verletzung, keine Schreie. Der Clown ist schick und gruselig, nicht verstümmelt.
-   - Vorschlag (Meinung): nicht nach 20 Uhr, damit niemand damit ins Bett geht.
-6. **Nie:** im Flug-Test, ab dem 2. Fehler in Folge, zwei Effekte direkt hintereinander, Lehrer- und Elternansicht.
-7. **Überspringen:**
-   - Große Effekte: Knopf „Überspringen ›“ oben rechts. Antippen anderswo bricht nicht ab, damit ein Kind nicht aus Versehen den Clown wegtippt.
-   - Kleine Effekte: Antippen irgendwo.
-8. **Flackern und Blitze:**
-   - Höchstens 3 Hell-Dunkel-Wechsel pro Sekunde, keine roten Vollbild-Blitze (Anfallsrisiko).
-   - Beben höchstens 10 px.
-9. **Ruhige Fassung** (Gerät auf „Bewegung reduzieren“): Text-Tafel 1,5 s und Sticker, kein Schock, kein Flackern (Bild `clown-400-ruhig.png`).
-10. **Ton:** nur wenn der Ton der App an ist.
-    - Im Entwurf erzeugt mit Web Audio (Piep, Grollen, Sirene, Spieluhr, Hupe); keine Tondateien nötig.
-    - Ohne Ton funktionieren alle Effekte.
-11. **Sticker:** Der Effekt-Sticker ersetzt in dieser Ansicht den gezogenen Jugendwort-Sticker (höchstens einer je Ansicht).
-12. **Keine Systemfenster nachbauen:** Hacker und 404 sehen nach Spiel aus, nicht nach Windows oder iPhone. Kein „Virus“, kein „Daten gelöscht“.
+3. **Sicherheitsnetz:** 3 Lerntage mit passenden Anlässen ohne Effekt → beim nächsten passenden Anlass sicher einer.
+4. **Immer:** Legendary Drop und Respawn – je Etappe einmal, nicht im Tageslimit. Mehrere Etappen auf einmal: ein Durchlauf mit Zahl („3 Etappen legendär“). Wird der Flug dadurch golden: zusätzlich `FLUG GOLDEN · {Land} komplett`.
+5. **Horror:** nur nach Erfolg, nie bei Fehlern; höchstens 2 je Woche, 1 je Lerntag. Schock ≤ 1 s, dann Auflösung. Kein Blut, keine Verletzung, keine Schreie. Vorschlag (Meinung): nicht nach 20 Uhr.
+6. **Streiche (Absturz, Account übernommen):**
+   - Höchstens 1 je Woche, nie zwei Wochen hintereinander derselbe.
+   - Sie sollen 6–8 s glaubhaft sein, deshalb kein Überspringen-Knopf; 1 s gedrückt halten beendet.
+   - Grenzen, bewusst gesetzt:
+     - Nur das eigene Aussehen der App; kein nachgebauter iPhone-, Android- oder Windows-Bildschirm. Sonst drückt das Kind womöglich Geräte-Knöpfe oder setzt das Handy zurück.
+     - Nie „Daten gelöscht“ oder „Lernstand weg“.
+     - Die Sterne dürfen im Hacker-Streich auf 0 laufen, kommen aber im selben Effekt sichtbar zurück.
+     - Auflösung spätestens nach 11 s.
+7. **Nie:** im Flug-Test, ab dem 2. Fehler in Folge, zwei Effekte direkt hintereinander, Lehrer- und Elternansicht.
+8. **Überspringen:**
+   - Große Effekte: Knopf „Überspringen ›“ unten rechts (außer bei Streichen).
+   - Kleine Effekte: Antippen.
+9. **Flackern und Blitze:** höchstens 3 Hell-Dunkel-Wechsel pro Sekunde, Blitze ≤ 120 ms, keine roten Vollbild-Blitze. Beben ≤ 10 px.
+10. **Ruhige Fassung** (Gerät auf „Bewegung reduzieren“): Text-Tafel 1,5 s und Sticker; kein Schock, kein Streich (Bild `rec-400-ruhig.png`).
+11. **Ton:** nur wenn der Ton der App an ist. Im Entwurf mit Web Audio erzeugt (Bass, Riser, Herzschlag, Rauschen, Pups) – keine Dateien nötig.
+12. **Sticker:** Der Effekt-Sticker ersetzt in dieser Ansicht den gezogenen Jugendwort-Sticker (höchstens einer je Ansicht).
 
 ## 4. Speicher (ohne Datenbank)
 
 `localStorage` je Kind, Schlüssel `lern.fx.<kind-id>`:
 ```
-{ "tag": "2026-11-24", "heute": ["clown"], "letzter": "clown", "letzte_variante": {"landung_direkt": "clown"},
-  "ohne_effekt_lerntage": 0, "horror_woche": {"kw": "2026-48", "n": 1},
-  "fuer_immer": [etappen-ids], "koffer": [etappen-ids], "sternbild_n": 12 }
+{ "tag": "2026-11-24", "heute": ["rec"], "letzter": "rec", "letzte_variante": {"landung_direkt": "rec"},
+  "ohne_effekt_lerntage": 0, "horror_woche": {"kw": "2026-48", "n": 1}, "streich_woche": {"kw": "2026-48", "id": "absturz"},
+  "legendaer": [etappen-ids], "respawn": [etappen-ids] }
 ```
 
 **Zu prüfen:**
-- Kennt die App im Wiederholungs-Ergebnis die Angaben „Etappe jetzt sicher“ und „Etappe wieder offen“? Wenn nicht, muss der Server sie mitliefern.
-- Für die Zahl im Sternbild (`{n}`) braucht die App die Anzahl der sicheren Etappen. Die ist vermutlich aus dem Reise-Stand ablesbar (Annahme).
+- Liefert das Wiederholungs-Ergebnis die Angaben „Etappe jetzt sicher“ und „Etappe wieder offen“? Wenn nicht, muss der Server sie mitliefern.
+- Die Zahl `{n}` legendäre Etappen kommt aus dem Reise-Stand (Annahme).
+- Der Hacker-Streich zeigt die echte Sternzahl des Kindes.
 
 ## 5. Bauschritte (Vorschlag)
 
-1. **FX-1 Motor und die zwei festen Effekte:** Auswahl (Zufall, Varianten, Tageslimit, groß/klein, Horror-Wochenlimit, Sicherheitsnetz), Speicher, Überspringen, ruhige Fassung, Ton-Schalter, Einhängen vor dem Sticker. Dazu Für immer und Koffer-Chaos.
-2. **FX-2 Die 10 kleinen Effekte.**
-3. **FX-3 Die übrigen 8 großen Effekte:** Gehackt!, Clown, Stromausfall, Feuerwerk, Big Brain, Phönix, Tornado, Krake.
+1. **FX-1 Motor + Legendary Drop + Respawn:** Auswahl (Zufall, Varianten, Limits für Tag, groß, Horror und Streich, Sicherheitsnetz), Speicher, Überspringen und Halten, ruhige Fassung, Ton, Einhängen vor dem Sticker.
+2. **FX-2 die 10 kleinen.**
+3. **FX-3 die übrigen 9 großen**, Streiche zuletzt.
 
-Der Entwurf enthält für jeden Effekt lauffähiges JS/CSS/SVG als Vorlage. Übernehmen darf der Bau gerne, im Stil der App und ohne die Steuerleiste. Clown, Geist, Krake, Rakete und Koffer sind eigene SVG-Zeichnungen, keine fremden Figuren.
+Der Entwurf enthält für jeden Effekt lauffähiges JS/CSS/SVG als Vorlage. Maske, Opa, Karte und Anzeigen sind eigene Zeichnungen, keine fremden Figuren oder Marken. Meldungen wie „Erfolg freigeschaltet“ sind allgemein gehalten, nicht im Look einer Konsole.
 
-**Aufwand (Annahme):** FX-1 etwa die Größe des Jugendwort-Auftrags; FX-2 klein; FX-3 der größte Brocken, weil acht Filme mit Ablauf, Ton und Teilchen.
+**Aufwand (Annahme):** FX-1 etwa die Größe des Jugendwort-Auftrags, FX-2 klein, FX-3 der größte Teil.
 
 ## 6. Prüfpunkte für meine Nachprüfung
 
-- „Für immer“ und „Koffer“ kommen bei jeder betroffenen Etappe genau einmal.
-- Simulierte 14 Lerntage: höchstens 2 Effekte je Tag, höchstens 1 großer, Horror höchstens 2 je Woche, nie dieselbe Variante zweimal hintereinander.
+- Legendary und Respawn bei jeder betroffenen Etappe genau einmal.
+- 14 simulierte Lerntage: ≤ 2 Effekte je Tag, ≤ 1 groß, Horror ≤ 2 und Streich ≤ 1 je Woche, nie dieselbe Variante zweimal hintereinander.
+- Streiche: kein Systembildschirm, kein „gelöscht“, Sterne am Ende unverändert, Auflösung ≤ 11 s, 1 s Halten beendet.
 - Nichts im Flug-Test, nichts ab dem 2. Fehler in Folge, kein Horror bei Fehlern.
-- „Überspringen ›“ beendet jeden großen Effekt sofort; Antippen jeden kleinen.
-- Flackern höchstens 3 Wechsel pro Sekunde; ruhige Fassung ohne Schock.
-- Kaffee und Niesen verdecken nie die Lösung.
+- Flackern ≤ 3/s; ruhige Fassung ohne Schock und ohne Streich.
 - 360, 400 und 820 px, Tag und Nacht: Texte lesbar, nichts abgeschnitten.

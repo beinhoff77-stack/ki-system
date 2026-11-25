@@ -1,5 +1,30 @@
 # Postfach mathe-profi
 
+## 2026-11-25 10:41 (Berlin) – FERTIG: Denkpapier Methoden (Denkauftrag 4) – Auftragstext kam abgeschnitten an
+Zweig `mathe-profi`, Stand `lernen-app` dc9673c. Abgelegt mit Commit 07d72328.
+
+**Vorbehalt:** Der Text von Denkauftrag 4 endet bei mir mitten in Frage 6 („Reihenfolge innerhalb eines Themas: Ansatz, d“). Weitere Fragen und die Angaben zur Lieferung fehlen. Ich habe Frage 6 nach meiner Lesart beantwortet, Dateiname und Umfang wie bei Denkauftrag 3 gewählt. Bitte den Rest nachreichen, ich ergänze.
+
+**Geliefert** unter `inhalte/mathe-profi/`:
+- `denkpapier-methoden.md` – vier Seiten (A4 bei 10 pt), Fragen 1–6, gesichert / Annahme / Meinung getrennt.
+- `methoden_probe.py` – Rechnungen zu den drei Stufen (Gleichungssystem, Term Klasse 5, Geradengleichung Klasse 8), Referenz der Stichprobe „gleichwertige Zeile“. Lauf „OK“.
+
+**Kernaussagen**
+1. Die drei Stufen tragen für Verfahren mit mindestens drei Zeilen und einer **Wegmarke, an der jeder richtige Weg vorbeikommt** (beim Gleichungssystem: Gleichung mit einer Unbekannten – alle drei Verfahren kommen dort vorbei). Sie brechen bei Begriffen, Begründen, Konstruieren, offenen Sachaufgaben und Einzeilern.
+2. Einwände: „I − II“ ist nicht falsch, nur nutzlos – „ungeschickt“ und „falsch“ trennen. Stufe 1 hat mit zweitem Versuch 2/3 Rate-Chance je Schritt. Die Stichprobe lässt sich fälschen (wer x = 4 hat, tippt 2 · x = 8) und kleine ganze Lösungen lassen sich erraten.
+3. Vorschlag: **Stufe 3 zuerst** – eine Heft-Aufgabe als Einstieg; Stufe 1 und 2 nur für den Teil, an dem es hakt.
+4. Zwei Themen ausgebaut, je Zeile mit typischen Fehlern und Regel: Klasse 5 „18 − 3 · (4 − 9)“ (drei Denkfehler liefern dasselbe Ergebnis 3 – die Stichprobe „Wert des Teilterms“ trennt sie); Klasse 8 „Gerade durch zwei Punkte“ (keine Stichprobe nötig, m und t sind die Wegmarken).
+5. Wertvollste fünf: Ansatz aufstellen · Bedingung statt Musterlösung (Aufgabe erfinden, Datensatz bauen) · Fehler-Detektiv mit Berichtigen · zwei Wege vergleichen · Heft-Kette (späte Stichprobe, Foto, Schema). Überschätzt: „App rechnet“ (Scheinverständnis), Werkzeug nach jeder Zeile (Bedienlast), Balkenmodell in Klasse 8, „Welche passt nicht?“ mit eigenem Grund, neun Bildschirme Erklärung.
+6. Abgleich mit meinen Papieren: das meiste doppelt; hier besser ist die Stichprobe (gleichwertige Zeile, Lösung zurückweisen, vor/nach) und die Vielfachen-Regel bei „Aufgabe erfinden“; neu und gut sind strukturierte Päckchen, ein Bild – viele Terme, Diagramm-Lügendetektor. Bei mir weiter: Fehlbild-Rechnung, Trennaufgaben, Vorgabe `punkte`, Bedingungs-Prüfung.
+7. Es fehlen: Verfahren wählen, Sonderfälle, Probe als Pflichtzeile, Darstellung, Sachaufgabe bis zum Antwortsatz, Voraussetzungs-Check, Wiederholung über Wochen, Bedienlast, Rolle des Erwachsenen.
+8. Reihenfolge im Thema: Einstiegstest · kleine Sachlage ohne Verfahren · Verfahren (Stufe 1, 2) · Heft · prüfen und vergleichen · Ansatz selbst · umkehren und erfinden · mischen. Der Ansatz kommt zweimal: klein am Anfang, ganz am Ende.
+
+**Offen:** Rest des Auftragstexts; Befunde der vier Helfer aus Denkauftrag 3.
+
+**Nicht geprüft:** die 61 Muster und 30 Reise-Aufgaben des Helfers (nur die genannte Spitze); der Bericht „Erklären“; Bedien-Aufwand; Bau-Aufwand der Kachel-Eingabe.
+
+**Annahmen:** typische Fehler je Zeile (Fachwissen, keine Lerndaten); Selbstbewertung zu milde; Fehlerbeispiele erst nach erstem Können.
+
 ## 2026-11-25 09:11 (Berlin) – FERTIG: Denkpapier Maßstab (Denkauftrag 3 + Ergänzung, Fragen 1–14)
 Zweig `mathe-profi`, Stand `lernen-app` dc9673c. Abgelegt mit Commit ead16b5b.
 

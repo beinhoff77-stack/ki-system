@@ -1,5 +1,34 @@
 # Postfach mathe-profi
 
+## 2026-11-25 06:56 (Berlin) – FERTIG: Denkpapier Grundregeln
+Zweig `mathe-profi`, vorher mit `lernen-app` dc9673c zusammengeführt. Abgelegt mit Commit 630836d4.
+
+**Vorbehalt:** Der Text von Denkauftrag 2 (Fragen 1–7) hat den Mathe-Profi-Chat nicht erreicht – nur die Ergänzung mit den Fragen 8–10. Grundlage für den Rest ist der Protokoll-Eintrag „Grundregeln schweben über den Themen“ in `inhalte/AUFTRAEGE.md`. Falls die Fragen 1–7 anderes verlangen: bitte nachreichen, ich ergänze.
+
+**Geliefert** unter `inhalte/mathe-profi/`:
+- `denkpapier-grundregeln.md` – drei Seiten (A4 bei 10 pt), gesichert / Annahme / Meinung getrennt; eine Regel („Minus vor der Klammer“) durchgehend von Klasse 5 bis 8.
+- `grundregeln_probe.py` – Zählung im Aufgabentext je Klasse und die Rechnungen der Brücke. Lauf „OK“.
+
+**Kernaussagen**
+1. Die Regeln sind dieselben; der Schritt liegt nicht beim Buchstaben (Klasse 5 rechnet im Flug „Einfache Gleichungen“ schon mit x). Er hat drei Teile: Am Ende bleibt ein Ausdruck stehen; die Unbekannte kommt mehrfach vor, Rückwärtsrechnen geht nicht mehr; „=“ heißt „gleich viel wert“. Dazu fällt das Nachrechnen weg, Ersatz ist die Zahlenprobe.
+2. Brücke: „Zahl, aber nicht ausrechnen“, in sechs Stufen. Im Bestand fehlt sie: Minus vor Klammer an Zahlen 8 Aufgaben in Klasse 5, 0 in Klasse 6, dann 38 mit Buchstaben in Klasse 7; Faktor vor Klammer 14 / 0 / 128.
+3. Korrektur am Beispielpaar: 9 − (−5) trägt das Vorzeichen; das Fundament der Minusklammer ist „eine Differenz abziehen“, 20 − (8 − 3).
+4. 13 Grundregeln für Klasse 5 und 6, jede mit ihrer Grenze („gilt nicht bei …“). „Fest genug“ nach sechs Merkmalen (erster Versuch, gemischt, verteilt, Brückenform, ohne Regel-Fehlbild, auf Papier); der Stand kann wieder fallen.
+5. Älteres Kind erklärt: als fester Baustein nein, als freiwilliges Angebot ja – Erklär-Karte an Zahlen, Gegenrolle „Zahlenprüfer“ für das jüngere Kind, Hinweis an den Erwachsenen für den passenden Moment.
+
+**Mögliche Folgearbeit (Meinung, kein Auftrag):** Brücken-Aufgaben der Stufe 3 für Klasse 5 und 6 mit den vorhandenen Formen (Muster M2 und M3 aus `auftrag3.md`); Regel-Etikett am Aufgabenmuster im Generator.
+
+**Offen:** Text von Denkauftrag 2; Entscheidung des Nutzers, ob Regeln für die Kinder sichtbar werden.
+
+**Nicht geprüft**
+- LehrplanPLUS je Regel; Vollständigkeit der Regel-Liste.
+- Ob Klasse 6 im Unterricht die Klammerregeln an Brüchen übt.
+- Die Zählung liest nur den Aufgabentext, nicht den Rechenweg.
+
+**Annahmen**
+- Welche Fehler typisch sind (Fachwissen, nicht aus Lerndaten).
+- Zuordnung der Regeln zu Klassen nach dem Bestand.
+
 ## 2026-11-25 05:15 (Berlin) – FERTIG: Denkpapier Diagnose
 Zweig `mathe-profi`, vorher mit `lernen-app` edb6b86 zusammengeführt (enthält d00cf04). Abgelegt mit Commit 5bedf8a.
 

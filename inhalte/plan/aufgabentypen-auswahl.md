@@ -32,7 +32,7 @@ Stand: Entscheidung getroffen, **noch kein Bau, keine Einspielung**. Vorschlag d
 
 ## Idee des Nutzers zu Typ 1
 
-Unterwegs können die Kinder schlecht schreiben. Beim Start der App wählt das Kind „nur Handy“; dann kommt der Rechenweg zum Zusammenbauen oder Abtippen statt ins Heft. Offene Frage des Projektleiters: Mindestzahl an Tisch-Sitzungen je Woche, damit Papier der Maßstab bleibt – Zahl legt der Nutzer fest.
+Unterwegs können die Kinder schlecht schreiben. Beim Start der App wählt das Kind „nur Handy“; dann kommt der Rechenweg zum Zusammenbauen oder Abtippen statt ins Heft. **Entscheidung des Nutzers (26.11.):** Die App verlangt je Woche mindestens **drei Sitzungen am Tisch mit Heft**, damit Papier der Maßstab bleibt.
 
 ## Vorschlag Pakete (Projektleiter, Meinung)
 

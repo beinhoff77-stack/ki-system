@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mathe-Profi: Entwurf neue Aufgabenformen</title>
+<style>
+/* Nur Mechanik. Farben/Schrift macht der Gestalter-Chat. */
+:root { --fg:#1d2430; --bg:#f6f7f9; --karte:#fff; --rand:#c9ced6; --an:#1f6feb; --ok:#1a7f37; --nein:#c2410c; --leise:#6b7280; }
+@media (prefers-color-scheme: dark) { :root { --fg:#e6e8eb; --bg:#14171c; --karte:#1d2128; --rand:#3a414c; --an:#5b9bff; --ok:#3fb950; --nein:#f0883e; --leise:#9aa3ae; } }
+* { box-sizing:border-box; }
+body { margin:0; font:16px/1.45 system-ui, sans-serif; color:var(--fg); background:var(--bg); }
+main { max-width:820px; margin:0 auto; padding:12px; }
+h1 { font-size:20px; margin:8px 0 4px; }
+.hinweis { color:var(--leise); font-size:14px; margin:0 0 12px; }
+.bordkarte { background:var(--karte); border:1px solid var(--rand); border-radius:12px; padding:14px; margin:0 0 16px; }
+.kopf { font-size:12px; letter-spacing:.08em; color:var(--leise); text-transform:uppercase; }
+.frage { margin:6px 0 12px; }
+.reihe { display:flex; flex-wrap:wrap; gap:8px; }
+button { font:inherit; color:inherit; min-height:44px; min-width:44px; padding:8px 14px; border-radius:10px; border:1px solid var(--rand); background:var(--karte); cursor:pointer; }
+button.an { border-color:var(--an); outline:2px solid var(--an); }
+button.weg { opacity:.35; }
+.op { align-self:center; padding:0 2px; }
+.pruefen { margin-top:12px; border-color:var(--an); }
+.rueck { min-height:24px; margin-top:8px; font-weight:600; }
+.rueck.ok { color:var(--ok); } .rueck.nein { color:var(--nein); }
+svg { display:block; width:100%; height:auto; touch-action:none; user-select:none; }
+.zuo { display:grid; grid-template-columns:1fr; gap:8px; }
+.zuo .links button { width:100%; text-align:left; }
+.platz { min-height:44px; min-width:88px; border:1px dashed var(--rand); border-radius:10px; display:flex; align-items:center; justify-content:center; padding:0 10px; }
+@media (min-width:600px) { .zuo { grid-template-columns:3fr 2fr; } }
+small { color:var(--leise); }
+</style>
+</head>
+<body>
+<main>
+<h1>Neue Aufgabenformen – Entwurf zum Anklicken</h1>
+<p class="hinweis">Entwurf ohne echte Daten. Die Prüfung hier läuft nur zur Vorschau im Browser; in der App prüft der Server mit denselben Regeln (siehe auftrag1.md, Teil D). Alles geht mit Antippen; Ziehen ist nicht nötig.</p>
+
+<!-- D1 markieren -->
+<section class="bordkarte" id="d1">
+  <div class="kopf">Bordkarte · Felder antippen</div>
+  <p class="frage">Rechne 4 · 17 · 25 · 3 geschickt. Tippe die zwei Faktoren an, die du zuerst malnimmst.</p>
+  <div class="reihe" id="d1f"></div>
+  <button class="pruefen" id="d1p">Prüfen</button>
+  <div class="rueck" id="d1r"></div>
+</section>
+
+<!-- D2 schieber: Zahlenstrahl -->
+<section class="bordkarte" id="d2">
+  <div class="kopf">Bordkarte · Schätzen am Zahlenstrahl</div>
+  <p class="frage">Ohne genau zu rechnen: Wo liegt 487 · 21? Tippe auf den Strahl oder nimm − / +.</p>
+  <svg id="d2s" viewBox="0 0 340 80" aria-label="Zahlenstrahl von 0 bis 20 000"></svg>
+  <div class="reihe"><button id="d2m" aria-label="kleiner">−</button><button id="d2pl" aria-label="größer">+</button><span class="op" id="d2w">noch kein Pfeil</span></div>
+  <button class="pruefen" id="d2p">Prüfen</button>
+  <div class="rueck" id="d2r"></div>
+</section>
+
+<!-- D2 schieber: Parameter -->
+<section class="bordkarte" id="d2b">
+  <div class="kopf">Bordkarte · Parameter einstellen</div>
+  <p class="frage">Alle Geraden y = k · x + 1 gehen durch (0 | 1). Stell k so ein, dass die Gerade durch P(4 | −1) geht.</p>
+  <svg id="d2bs" viewBox="0 0 340 300" aria-label="Koordinatensystem"></svg>
+  <div class="reihe"><button id="d2bm">k −</button><button id="d2bpl">k +</button><span class="op" id="d2bw"></span></div>
+  <button class="pruefen" id="d2bp">Prüfen</button>
+  <div class="rueck" id="d2br"></div>
+</section>
+
+<!-- D3 punkte -->
+<section class="bordkarte" id="d3">
+  <div class="kopf">Bordkarte · Punkte setzen</div>
+  <p class="frage">Zeichne die Gerade y = −(2/3)x + 2. Setze dazu zwei Punkte auf Gitterpunkte. <small>Nochmals antippen entfernt einen Punkt.</small></p>
+  <svg id="d3s" viewBox="0 0 340 300" aria-label="Koordinatengitter zum Punkte-Setzen"></svg>
+  <button class="pruefen" id="d3p">Prüfen</button>
+  <div class="rueck" id="d3r"></div>
+</section>
+
+<!-- D4 zuordnung -->
+<section class="bordkarte" id="d4">
+  <div class="kopf">Bordkarte · Zuordnen</div>
+  <p class="frage">Ordne jedem Geradenpaar zu, wie die Geraden liegen. <small>Erst links antippen, dann rechts. Ziele dürfen mehrfach vorkommen.</small></p>
+  <div class="zuo"><div class="links" id="d4l"></div><div class="reihe" id="d4z" style="align-content:flex-start"></div></div>
+  <button class="pruefen" id="d4p">Prüfen</button>
+  <div class="rueck" id="d4r"></div>
+</section>
+
+<!-- D5 reihenfolge -->
+<section class="bordkarte" id="d5">
+  <div class="kopf">Bordkarte · Rechenweg legen</div>
+  <p class="frage">Eine Zahl wird mit 4 malgenommen, dann wird 30 abgezogen, dann durch 2 geteilt. Es kommt 25 heraus. Leg die Schritte zum Rückwärtsrechnen der Reihe nach. Zwei Bausteine brauchst du nicht. <small>Gelegten Baustein antippen nimmt ihn zurück.</small></p>
+  <div class="reihe" id="d5plaetze"><span class="op">25</span></div>
+  <p></p>
+  <div class="reihe" id="d5b"></div>
+  <button class="pruefen" id="d5p">Prüfen</button>
+  <div class="rueck" id="d5r"></div>
+</section>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const NS = 'http://www.w3.org/2000/svg';
+const s = (tag, at, txt) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); if (txt !== undefined) e.textContent = txt; return e; };
+const knopf = (txt, fn) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = txt; b.onclick = fn; return b; };
+const meld = (id, ok, txt) => { const r = $(id); r.className = 'rueck ' + (ok === null ? '' : ok ? 'ok' : 'nein'); r.textContent = txt; };
+const fmt = (z) => String(z).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ').replace('-', '−');
+
+// D1 markieren: gespeichert {menge:[...]}, Vergleich Mengengleichheit
+(() => {
+  const felder = ['4', '17', '25', '3'], wahl = new Set(), max = 2;
+  const ks = felder.map((f, i) => knopf(f, () => { if (wahl.has(i)) wahl.delete(i); else if (wahl.size < max) wahl.add(i); ks.forEach((k, j) => k.classList.toggle('an', wahl.has(j))); }));
+  ks.forEach((k, i) => { $('d1f').append(k); if (i < 3) { const o = document.createElement('span'); o.className = 'op'; o.textContent = '·'; $('d1f').append(o); } });
+  $('d1p').onclick = () => {
+    const a = { menge: [...wahl].sort() };
+    if (!a.menge.length) return meld('d1r', null, 'Tippe zwei Zahlen an.');
+    const ok = JSON.stringify(a.menge) === '[0,2]';
+    meld('d1r', ok, ok ? 'Richtig: 4 · 25 = 100, dann 100 · 51 = 5 100.' : 'Noch nicht. Welche zwei ergeben eine Zahl mit Nullen am Ende?');
+  };
+})();
+
+// D2 schieber Zahlenstrahl: gespeichert {wert}, Vergleich von ≤ wert ≤ bis
+(() => {
+  const svg = $('d2s'), x0 = 20, x1 = 320, A = 0, E = 20000, schritt = 500; let wert = null;
+  const px = (w) => x0 + (w - A) / (E - A) * (x1 - x0);
+  svg.append(s('line', { x1: x0, y1: 50, x2: x1, y2: 50, stroke: 'currentColor', 'stroke-width': 2 }));
+  for (let i = 0; i <= 10; i++) { const x = px(A + i * (E - A) / 10); svg.append(s('line', { x1: x, y1: 44, x2: x, y2: 56, stroke: 'currentColor' })); }
+  svg.append(s('text', { x: x0, y: 74, 'text-anchor': 'middle', 'font-size': 14, fill: 'currentColor' }, '0'));
+  svg.append(s('text', { x: x1 + 4, y: 74, 'text-anchor': 'end', 'font-size': 14, fill: 'currentColor' }, '20 000'));
+  const pfeil = s('path', { d: '', fill: 'var(--an)' }); svg.append(pfeil);
+  const zeig = () => { if (wert === null) return; const x = px(wert); pfeil.setAttribute('d', `M${x} 44 l-9 -18 h18 z`); $('d2w').textContent = '≈ ' + fmt(wert); };
+  svg.addEventListener('pointerdown', (ev) => { const r = svg.getBoundingClientRect(); const x = (ev.clientX - r.left) / r.width * 340; wert = Math.min(E, Math.max(A, Math.round(((x - x0) / (x1 - x0) * (E - A)) / schritt) * schritt)); zeig(); });
+  $('d2m').onclick = () => { wert = Math.max(A, (wert ?? 10000) - schritt); zeig(); };
+  $('d2pl').onclick = () => { wert = Math.min(E, (wert ?? 10000) + schritt); zeig(); };
+  $('d2p').onclick = () => {
+    if (wert === null) return meld('d2r', null, 'Setz den Pfeil an eine Stelle.');
+    const ok = wert >= 8000 && wert <= 12000;
+    meld('d2r', ok, ok ? 'Gut geschätzt. 500 · 20 = 10 000, genau sind es 10 227.' : 'Zu weit weg. Runde 487 und 21 und rechne im Kopf.');
+  };
+})();
+
+// Koordinatensystem-Helfer (Raster 1, y nach oben)
+function gitter(svg, xa, xb, ya, yb) {
+  const W = 340, H = 300, rand = 16, k = Math.min((W - 2 * rand) / (xb - xa), (H - 2 * rand) / (yb - ya));
+  const X = (x) => rand + (x - xa) * k, Y = (y) => H - rand - (y - ya) * k;
+  for (let x = xa; x <= xb; x++) svg.append(s('line', { x1: X(x), y1: Y(ya), x2: X(x), y2: Y(yb), stroke: 'var(--rand)', 'stroke-width': x === 0 ? 2 : 1 }));
+  for (let y = ya; y <= yb; y++) svg.append(s('line', { x1: X(xa), y1: Y(y), x2: X(xb), y2: Y(y), stroke: 'var(--rand)', 'stroke-width': y === 0 ? 2 : 1 }));
+  svg.append(s('line', { x1: X(xa), y1: Y(0), x2: X(xb), y2: Y(0), stroke: 'currentColor' }), s('line', { x1: X(0), y1: Y(ya), x2: X(0), y2: Y(yb), stroke: 'currentColor' }));
+  svg.append(s('text', { x: X(1), y: Y(0) + 14, 'font-size': 12, 'text-anchor': 'middle', fill: 'currentColor' }, '1'), s('text', { x: X(0) - 8, y: Y(1) + 4, 'font-size': 12, 'text-anchor': 'middle', fill: 'currentColor' }, '1'));
+  return { X, Y, k, inv: (px, py) => [xa + (px - rand) / k, ya + (H - rand - py) / k] };
+}
+const gerade = (g, m, t, xa, xb) => s('line', { x1: g.X(xa), y1: g.Y(m * xa + t), x2: g.X(xb), y2: g.Y(m * xb + t), stroke: 'var(--an)', 'stroke-width': 3 });
+
+// D2b Parameter-Schieber: gespeichert {wert}, Vergleich |wert − soll| ≤ toleranz. Einzige Bewegung: die Gerade dreht sich.
+(() => {
+  const svg = $('d2bs'), g = gitter(svg, -2, 6, -4, 5); let k = 1;
+  svg.append(s('clipPath', { id: 'd2bc' })); svg.lastChild.append(s('rect', { x: g.X(-2), y: g.Y(5), width: g.X(6) - g.X(-2), height: g.Y(-4) - g.Y(5) }));
+  const l = gerade(g, k, 1, -2, 6); l.setAttribute('clip-path', 'url(#d2bc)'); svg.append(l);
+  svg.append(s('circle', { cx: g.X(4), cy: g.Y(-1), r: 6, fill: 'currentColor' }), s('text', { x: g.X(4) + 10, y: g.Y(-1) - 8, 'font-size': 14, fill: 'currentColor' }, 'P'));
+  const zeig = () => { l.setAttribute('y1', g.Y(k * -2 + 1)); l.setAttribute('y2', g.Y(k * 6 + 1)); $('d2bw').textContent = 'k = ' + fmt(k); };
+  $('d2bm').onclick = () => { k = Math.max(-3, k - 0.25); zeig(); }; $('d2bpl').onclick = () => { k = Math.min(3, k + 0.25); zeig(); }; zeig();
+  $('d2bp').onclick = () => { const ok = Math.abs(k + 0.5) <= 0.125; meld('d2br', ok, ok ? 'Richtig: k = −0,5. 4 nach rechts, 2 nach unten.' : 'Noch nicht. Die Gerade muss genau durch P gehen.'); };
+})();
+
+// D3 punkte: gespeichert {punkte:[[x,y],[x,y]]}, Regel auf_gerade: |m·x + t − y| ≤ 0,25 und Punkte verschieden
+(() => {
+  const svg = $('d3s'), xa = -5, xb = 6, ya = -4, yb = 5, g = gitter(svg, xa, xb, ya, yb), pkt = [], ebene = s('g', {}); svg.append(ebene);
+  const zeichne = () => {
+    ebene.replaceChildren();
+    if (pkt.length === 2 && pkt[0][0] !== pkt[1][0]) { const m = (pkt[1][1] - pkt[0][1]) / (pkt[1][0] - pkt[0][0]), t = pkt[0][1] - m * pkt[0][0]; ebene.append(gerade(g, m, t, xa, xb)); }
+    pkt.forEach(([x, y]) => ebene.append(s('circle', { cx: g.X(x), cy: g.Y(y), r: 8, fill: 'var(--an)' })));
+  };
+  svg.addEventListener('pointerdown', (ev) => {
+    const r = svg.getBoundingClientRect(); let [x, y] = g.inv((ev.clientX - r.left) / r.width * 340, (ev.clientY - r.top) / r.height * 300);
+    x = Math.round(x); y = Math.round(y); if (x < xa || x > xb || y < ya || y > yb) return;
+    const i = pkt.findIndex((p) => p[0] === x && p[1] === y);
+    if (i >= 0) pkt.splice(i, 1); else if (pkt.length < 2) pkt.push([x, y]); else { pkt.shift(); pkt.push([x, y]); }
+    zeichne();
+  });
+  $('d3p').onclick = () => {
+    if (pkt.length < 2) return meld('d3r', null, 'Setze zwei Punkte.');
+    const ok = pkt.every(([x, y]) => Math.abs(-2 / 3 * x + 2 - y) <= 0.25);
+    meld('d3r', ok, ok ? 'Richtig. Jeder Gitterpunkt der Geraden zählt, z. B. (0 | 2) und (3 | 0).' : 'Noch nicht. Start bei t auf der y-Achse, dann 3 nach rechts und 2 nach unten.');
+  };
+})();
+
+// D4 zuordnung: gespeichert {paare:[j...]}, Vergleich exakt
+(() => {
+  const links = ['y = 3x + 1 und y = 3x − 2', 'y = 3x + 1 und y = −(1/3)x', 'y = 2x + 4 und 2y = 4x + 8', 'y = x + 1 und y = 2x + 1', 'y = −2x + 3 und y = 0,5x − 1'];
+  const ziele = ['parallel', 'senkrecht', 'identisch', 'schneiden sich, nicht senkrecht'], soll = [0, 1, 2, 3, 1];
+  const paar = links.map(() => null); let akt = null;
+  const lk = links.map((t, i) => knopf(t, () => { akt = i; zeig(); }));
+  const zk = ziele.map((t, j) => knopf(t, () => { if (akt === null) return; paar[akt] = j; akt = paar.indexOf(null) >= 0 ? paar.indexOf(null) : null; zeig(); }));
+  const zeig = () => { lk.forEach((k, i) => { k.classList.toggle('an', i === akt); k.textContent = links[i] + (paar[i] === null ? '' : '  →  ' + ziele[paar[i]]); }); };
+  lk.forEach((k) => $('d4l').append(k)); zk.forEach((k) => $('d4z').append(k)); akt = 0; zeig();
+  $('d4p').onclick = () => {
+    if (paar.includes(null)) return meld('d4r', null, 'Ordne alle Paare zu.');
+    const n = paar.filter((p, i) => p === soll[i]).length;
+    meld('d4r', n === soll.length, n === soll.length ? 'Alles richtig.' : `${n} von ${soll.length} stimmen. Vergleiche zuerst die Steigungen.`);
+  };
+})();
+
+// D5 reihenfolge: gespeichert {folge:[ids]}, Vergleich exakt
+(() => {
+  const bs = [['plus30', '+ 30'], ['mal2', '· 2'], ['durch4', ': 4'], ['minus30', '− 30'], ['durch2', ': 2']], folge = [], n = 3;
+  const plaetze = [...Array(n)].map(() => { const p = document.createElement('div'); p.className = 'platz'; $('d5plaetze').append(p); return p; });
+  const ks = bs.map(([id, t]) => knopf(t, () => { if (folge.includes(id) || folge.length >= n) return; folge.push(id); zeig(); }));
+  const zeig = () => {
+    plaetze.forEach((p, i) => { p.replaceChildren(); if (folge[i]) p.append(knopf(bs.find((b) => b[0] === folge[i])[1], () => { folge.splice(i, 1); zeig(); })); });
+    ks.forEach((k, i) => k.classList.toggle('weg', folge.includes(bs[i][0])));
+  };
+  ks.forEach((k) => $('d5b').append(k)); zeig();
+  $('d5p').onclick = () => {
+    if (folge.length < n) return meld('d5r', null, `Lege ${n} Bausteine.`);
+    const ok = folge.join() === 'mal2,plus30,durch4';
+    meld('d5r', ok, ok ? 'Richtig: 25 · 2 = 50, + 30 = 80, : 4 = 20.' : 'Noch nicht. Den letzten Schritt machst du zuerst rückgängig.');
+  };
+})();
+</script>
+</body>
+</html>

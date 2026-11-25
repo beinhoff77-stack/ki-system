@@ -1,0 +1,1182 @@
+{
+ "stand": "2026-11-24",
+ "hinweis": "Vorgabe FX – Spezialeffekte nach bestimmten Ereignissen. Alles auf dem Gerät, keine Sterne, kein Server. Texte wörtlich übernehmen.",
+ "regeln": {
+  "wahrscheinlichkeit": 0.2,
+  "max_je_lerntag": 2,
+  "nie_derselbe_zweimal_hintereinander": true,
+  "sicherheitsnetz_lerntage": 3,
+  "nie": [
+   "Flug-Test",
+   "ab dem 2. Fehler in Folge",
+   "zwei Effekte direkt nacheinander",
+   "Wiederholungs-Abfrage vor dem Start",
+   "Lehrer- und Elternansicht"
+  ],
+  "ueberspringen": "Antippen irgendwo beendet den Effekt sofort und zeigt den Endzustand.",
+  "ruhig": "Bei „Bewegung reduzieren“ (prefers-reduced-motion): kein Flackern, kein Wackeln, keine fliegenden Teile – nur Text-Tafel 1,5 s und Sticker.",
+  "flackern": "höchstens 3 Hell-Dunkel-Wechsel pro Sekunde, keine roten Vollbild-Blitze",
+  "sticker": "Der Effekt-Sticker ersetzt in dieser Ansicht den gezogenen Jugendwort-Sticker (höchstens ein Sticker je Ansicht). Er zählt für die Wort-Sperre wie ein normaler Sticker.",
+  "ton": "nur wenn der Ton der App an ist; Klänge im Entwurf mit Web Audio erzeugt (Piep, Grollen, Sirene, Tippen) – keine Tondateien nötig",
+  "speicher": "localStorage lern.fx.<kind-id>: {tag, heute, letzter, ohne_effekt_lerntage, koffer_gesehen:[etappen]}",
+  "immer": "Zwei Ereignisse bekommen ihren Effekt immer (kein Zufall, nicht im Tageslimit): Etappe endgültig sicher (Tresor) und Etappe durch Wiederholungsfehler wieder offen (Koffer). Danach kommt am selben Lerntag kein Zufalls-Effekt mehr direkt hinterher (frühestens nach 2 weiteren Anlässen). Kommen mehrere Etappen gleichzeitig dran, läuft der Effekt einmal mit Zahl („3 Etappen“).",
+  "lang": "Große Effekte (4,5–11 s): Knopf „Überspringen ›“ unten rechts (außer Streiche). Kleine (1,8–5 s): Antippen überspringt.",
+  "varianten": "Hat ein Anlass zwei Effekte, kommt nie dieselbe Variante wie beim letzten Mal für diesen Anlass (und nie derselbe Effekt wie zuletzt überhaupt).",
+  "max_gross_je_lerntag": 1,
+  "horror_max_je_woche": 2,
+  "horror": "Horror (Clown, Stromausfall, Krake, Knochenhand, Spinne): nur nach Erfolg, nie bei Fehlern; höchstens 2 je Woche und 1 je Lerntag; Schock höchstens 1 s, dann sofort die Pointe (Lachen, Schild, Konfetti). Kein Blut, keine Verletzung, keine Schreie. Vorschlag: nicht nach 20 Uhr (Schlaf).",
+  "reserve": "Reserve: Kampfjet, Gewitter, Rückspulen, Fehler 404 (kurz) – gebaut, aus.",
+  "sicherheitsnetz": "Gab es an 3 Lerntagen passende Anlässe, aber keinen Effekt, kommt beim nächsten passenden Anlass sicher einer.",
+  "streich": "Streiche (Absturz, Account übernommen): sollen 6–8 s echt wirken. Kein sichtbarer Überspringen-Knopf; 1 s gedrückt halten beendet. Grenzen: nur das eigene Erscheinungsbild der App (kein iPhone-/Android-/Windows-Bildschirm nachgebaut), keine Behauptung „Daten gelöscht“, Auflösung spätestens nach 10 s, danach sind Sterne und Stand sichtbar unverändert. Höchstens 1 Streich je Woche.",
+  "streich_max_je_woche": 1,
+  "stil": "Teen-Stil: dunkel, Neon (Cyan, Magenta, Neongrün, Gold), Glitch/Farbversatz, Scanlines, Kinobalken, kursive Blockschrift in Großbuchstaben, Bass/Riser/Herzschlag statt Piepsen. Keine Emojis in Effekten, keine Comic-Tiere, kein buntes Konfetti (Ausnahme: der Opa ist absichtlich albern).",
+  "auswahl": "Gewichtete Auswahl aus dem ganzen Vorrat des Anlasses: Gewicht = 1 / (1 + wie oft schon gesehen); kam der Effekt in den letzten 14 Tagen, Gewicht × 0,3. So tauchen alle Effekte nach und nach auf, Neues zuerst, nichts nutzt sich ab. Nie derselbe wie zuletzt, nie dieselbe Variante wie beim letzten Mal für diesen Anlass.",
+  "saison": "Saison-Effekte sind nur in ihrem Zeitraum im Vorrat, dann mit Gewicht × 4. Tagesereignisse (Adventskalender, Nikolaus, Silvester) kommen in ihrem Zeitraum immer, je eines beim ersten, zweiten … Erfolg des Tages (am 6.12. also Adventstür und Nikolaus) und zählen nicht zum Tageslimit. Ostern und Fasching werden aus dem Osterdatum berechnet. Datum = Gerätedatum (Ortszeit). Weihnachten bleibt Weihnachten, auch im australischen Sommer. Weihnachten, Ostern und Halloween kommen sicher einmal im Zeitraum, beim ersten passenden großen Erfolg (zählen als großer Effekt des Tages).",
+  "geburtstag": "Optional später: Geburtstags-Effekt – braucht das Geburtsdatum im Elternbereich; nicht Teil dieser Vorgabe."
+ },
+ "effekte": [
+  {
+   "id": "legendary",
+   "name": "Legendary Drop",
+   "groesse": "gross",
+   "anlass": "etappe_sicher",
+   "bedingung": "Etappe endgültig sicher – IMMER",
+   "dauer_ms": 7500,
+   "ablauf": [
+    "Schwarz, Kinobalken, Scanlines",
+    "Karte mit „?“ schwebt herein, Lichtstrahlen drehen sich",
+    "Seltenheit steigt mit Bass-Schlägen: GEWÖHNLICH grau → SELTEN blau → EPISCH lila → LEGENDÄR gold",
+    "Karte dreht sich um: goldene Etappen-Karte „{ETAPPE} · FÜR IMMER“ mit Holo-Glanz, heller Blitz 110 ms, Beben, goldene Funken",
+    "Überschrift „FÜR IMMER“, Zeile, Sammlungs-Meldung"
+   ],
+   "zeilen": [
+    "GEWÖHNLICH",
+    "SELTEN",
+    "EPISCH",
+    "LEGENDÄR",
+    "FÜR IMMER",
+    "{ETAPPE} SITZT · NIE WIEDER ÜBEN",
+    "SAMMLUNG · {n} Etappen legendär"
+   ],
+   "sticker": "+1000 Aura",
+   "woerter": [
+    "aura"
+   ],
+   "staerke": 3,
+   "ruhig": "LEGENDÄR – {Etappe} sitzt für immer.",
+   "art": "positiv",
+   "immer": true
+  },
+  {
+   "id": "respawn",
+   "name": "Checkpoint verloren · Respawn",
+   "groesse": "gross",
+   "anlass": "wieder_offen",
+   "bedingung": "Wiederholung mit 2 Fehlern → Etappe wieder offen – IMMER",
+   "dauer_ms": 6500,
+   "ablauf": [
+    "Bild wird grau, Herzschlag",
+    "Sechseck-Abzeichen „{ETAPPE} · CHECKPOINT“",
+    "Risse laufen über das Abzeichen",
+    "es zerspringt in Zeitlupe in Scherben (Bass, Beben)",
+    "„CHECKPOINT VERLOREN“ in Bernstein",
+    "Farbe kehrt zurück: „RESPAWN“ in Cyan, drei Balken leuchten nacheinander",
+    "Nachbessern-Karte schiebt sich ins Bild"
+   ],
+   "zeilen": [
+    "CHECKPOINT VERLOREN",
+    "RESPAWN",
+    "3 RICHTIG IN FOLGE → CHECKPOINT ZURÜCK"
+   ],
+   "sticker": null,
+   "woerter": [],
+   "staerke": 1,
+   "ruhig": "Checkpoint verloren – Respawn: 3 richtig in Folge.",
+   "art": "negativ",
+   "immer": true
+  },
+  {
+   "id": "hacker",
+   "name": "Account übernommen",
+   "groesse": "gross",
+   "anlass": "serie_10",
+   "bedingung": "10 in Folge richtig",
+   "dauer_ms": 11000,
+   "ablauf": [
+    "Chat-Nachricht „UNBEKANNT“: „nice serie.“ → „wär schade um deine sterne.“ (Herzschlag)",
+    "App verzerrt sich, schwarz, Zeichenregen",
+    "„ACCOUNT ÜBERNOMMEN“, Sternzahl läuft auf 0, Balken „ÜBERTRAGE STERNE AN: x_sh4dow_x“",
+    "Sterne rot auf 0, Herzschlag",
+    "Terminal: Rückverfolgung … Hacker identifiziert: DU",
+    "Sterne zählen zurück hoch",
+    "„ZUGRIFF GEWÄHRT“, Sticker"
+   ],
+   "zeilen": [
+    "nice serie.",
+    "wär schade um deine sterne.",
+    "ACCOUNT ÜBERNOMMEN",
+    "ÜBERTRAGE STERNE AN: x_sh4dow_x",
+    "> RÜCKVERFOLGUNG …",
+    "> QUELLE GEFUNDEN",
+    "> HACKER IDENTIFIZIERT: DU",
+    "> GRUND: 10 VON 10 RICHTIG",
+    "ZUGRIFF GEWÄHRT"
+   ],
+   "sticker": "Gommemode aktiviert",
+   "woerter": [
+    "gommemode"
+   ],
+   "staerke": 3,
+   "ruhig": "Gehackt? Nein – der Hacker bist du. 10 in Folge.",
+   "art": "positiv",
+   "streich": true
+  },
+  {
+   "id": "absturz",
+   "name": "Absturz",
+   "groesse": "gross",
+   "anlass": "landung_direkt",
+   "bedingung": "Direktflug",
+   "dauer_ms": 10000,
+   "ablauf": [
+    "Buchstaben verrutschen, Knöpfe zittern (1,5 s)",
+    "App friert ein: Ladekreis, „Reagiert nicht …“, Tippen zeigt nur Kreise",
+    "schwarzes Absturz-Protokoll mit Fehlerzeilen und Hex-Kolonnen",
+    "Tafel „Die App musste beendet werden.“ mit Countdown 3–2–1",
+    "schwarz, Neustart mit Logo und Ladebalken",
+    "Auflösung: „Reingelegt.“ und „Nichts kaputt. Nur ein Direktflug.“"
+   ],
+   "zeilen": [
+    "Reagiert nicht …",
+    "FATAL lernen.js:404 Bordkarte 7: unerwarteter Zustand",
+    "fehler === 0 (erwartet: ≥ 1)",
+    "Die App musste beendet werden.",
+    "Ursache: Bordkarte 7 – unerwarteter Zustand (0 Fehler).",
+    "Neustart in 3 …",
+    "LERNREISE",
+    "Reingelegt.",
+    "ALLES HEIL · Nichts kaputt. Nur ein Direktflug."
+   ],
+   "sticker": "PEAK",
+   "woerter": [
+    "peak"
+   ],
+   "staerke": 3,
+   "ruhig": "Absturz? Nein – reingelegt. Direktflug.",
+   "art": "positiv",
+   "streich": true
+  },
+  {
+   "id": "rec",
+   "name": "REC 03:13",
+   "groesse": "gross",
+   "anlass": "landung_direkt",
+   "bedingung": "Direktflug",
+   "dauer_ms": 8500,
+   "ablauf": [
+    "Videoband: Bildrauschen, „● REC 03:13 AM“, Rauschen",
+    "Untertitel: „ES HAT KEINEN FEHLER GEMACHT.“ – „NICHT EINEN.“",
+    "zweimal blitzt für 90 ms eine weiße Maske im Rauschen auf",
+    "Schwarz, Stille",
+    "SCHOCK: Maske bildschirmfüllend, „WIR SEHEN DICH.“, Bass, Beben",
+    "„⏏ BAND AUSGEWORFEN“",
+    "„lol. Direktflug.“ + Meldung RESPEKT"
+   ],
+   "zeilen": [
+    "● REC",
+    "03:13 AM",
+    "ES HAT KEINEN FEHLER GEMACHT.",
+    "NICHT EINEN.",
+    "WIR SEHEN DICH.",
+    "⏏ BAND AUSGEWORFEN",
+    "lol. Direktflug.",
+    "RESPEKT · Kein Fehler · kein Tipp"
+   ],
+   "sticker": "PEAK",
+   "woerter": [
+    "peak"
+   ],
+   "staerke": 3,
+   "ruhig": "REC 03:13 – lol. Direktflug.",
+   "art": "positiv",
+   "horror": true
+  },
+  {
+   "id": "schatten",
+   "name": "Schatten im Flur",
+   "groesse": "gross",
+   "anlass": "flug_geschafft",
+   "bedingung": "Flug geschafft",
+   "dauer_ms": 7000,
+   "ablauf": [
+    "Licht flackert (≤ 3/s) und geht aus",
+    "dunkler Flur, Taschenlampe (folgt auch dem Finger), Herzschlag",
+    "am Ende des Flurs steht plötzlich eine Gestalt",
+    "„war da was?“",
+    "SCHOCK: Schatten mit zwei hellen Augen rast auf den Bildschirm zu, Bass",
+    "Licht an: „MISSION COMPLETE“, Meldung"
+   ],
+   "zeilen": [
+    "war da was?",
+    "MISSION COMPLETE",
+    "FLUG · {Thema} · {sterne} ★"
+   ],
+   "sticker": null,
+   "woerter": [],
+   "staerke": 3,
+   "ruhig": "Stromausfall … Schatten … Mission complete.",
+   "art": "positiv",
+   "horror": true
+  },
+  {
+   "id": "mission",
+   "name": "Mission Complete",
+   "groesse": "gross",
+   "anlass": "flug_geschafft",
+   "bedingung": "Flug geschafft",
+   "dauer_ms": 5500,
+   "ablauf": [
+    "Kinobalken, Bild zoomt langsam, Riser",
+    "„MISSION“ weiß und „COMPLETE“ gold rasen herein (Bass)",
+    "Glanz läuft über die Schrift",
+    "Werte zählen ein: Genauigkeit, Sterne, Respekt"
+   ],
+   "zeilen": [
+    "MISSION",
+    "COMPLETE",
+    "GENAUIGKEIT {x} %",
+    "STERNE +{sterne}",
+    "RESPEKT +1"
+   ],
+   "sticker": null,
+   "woerter": [],
+   "staerke": 3,
+   "ruhig": "MISSION COMPLETE",
+   "art": "positiv"
+  },
+  {
+   "id": "iq",
+   "name": "Big Brain Move",
+   "groesse": "gross",
+   "anlass": "knobel_richtig",
+   "bedingung": "Knobel richtig",
+   "dauer_ms": 4500,
+   "ablauf": [
+    "dunkel violett, Scanlines",
+    "IQ-Anzeige, Nadel steigt, Zahl rattert von 100 auf 1000",
+    "Anzeige platzt: Blitz, Bass, Funken, „IQ ∞“",
+    "„BIG BRAIN MOVE“"
+   ],
+   "zeilen": [
+    "IQ 100",
+    "IQ ∞",
+    "BIG BRAIN MOVE"
+   ],
+   "sticker": "Çüş!",
+   "woerter": [
+    "cues"
+   ],
+   "staerke": 3,
+   "ruhig": "IQ ∞ – Big Brain Move.",
+   "art": "positiv"
+  },
+  {
+   "id": "clutch",
+   "name": "Clutch",
+   "groesse": "gross",
+   "anlass": "comeback",
+   "bedingung": "Comeback: nach einem Fehler 3 richtig in Folge",
+   "dauer_ms": 4500,
+   "ablauf": [
+    "Bild grau, Zeitlupe, Herzschlag, Kinobalken",
+    "„1 vs 3“",
+    "drei Treffer: ✕ ✕ ✕, rechts oben „DU ⟶ FEHLER / ZWEIFEL / DRUCK“",
+    "Farbe zurück: „CLUTCH“ in Neongrün, Bass, Funken"
+   ],
+   "zeilen": [
+    "1 vs 3",
+    "DU ⟶ FEHLER",
+    "DU ⟶ ZWEIFEL",
+    "DU ⟶ DRUCK",
+    "CLUTCH"
+   ],
+   "sticker": "Comeback.",
+   "woerter": [],
+   "staerke": 2,
+   "ruhig": "1 vs 3 – Clutch.",
+   "art": "positiv"
+  },
+  {
+   "id": "survived",
+   "name": "Survived",
+   "groesse": "gross",
+   "anlass": "landung_sturm",
+   "bedingung": "Sturmflug gemeistert",
+   "dauer_ms": 5000,
+   "ablauf": [
+    "Kinobalken, dunkler Sturm, Regen",
+    "Anzeige „STURM · STUFE 4“ mit Lebensbalken",
+    "drei Blitze, Balken fällt auf 62 %, 31 %, 9 % (grün → bernstein → rot)",
+    "Herzschlag, Regen hört auf",
+    "„SURVIVED“ in Neongrün"
+   ],
+   "zeilen": [
+    "STURM · STUFE 4",
+    "SURVIVED",
+    "{n} BORDKARTEN · NICHT ABGEDREHT"
+   ],
+   "sticker": "Macher-Modus",
+   "woerter": [
+    "macher"
+   ],
+   "staerke": 2,
+   "ruhig": "Sturm überlebt.",
+   "art": "positiv"
+  },
+  {
+   "id": "eis",
+   "name": "Unter dem Eis",
+   "groesse": "gross",
+   "anlass": "expedition_geschafft",
+   "bedingung": "Expedition geschafft",
+   "dauer_ms": 6500,
+   "ablauf": [
+    "dunkles Wasser, Sonar „TIEFE 412 M“, drei Pings",
+    "beim dritten: „KONTAKT · GROSS“ (Bernstein)",
+    "Eis reißt",
+    "SCHOCK: riesiges Auge öffnet sich bildschirmbreit, Bass, Beben",
+    "Auge schließt sich",
+    "„Es hat dich gesehen.“ – „Und lässt dich gehen.“",
+    "Meldung EXPEDITION"
+   ],
+   "zeilen": [
+    "SONAR · TIEFE 412 M",
+    "SONAR · KONTAKT · GROSS",
+    "Es hat dich gesehen.",
+    "Und lässt dich gehen.",
+    "EXPEDITION · {Station} · geschafft"
+   ],
+   "sticker": "Tuff, Polarprofi.",
+   "woerter": [
+    "tuff"
+   ],
+   "staerke": 2,
+   "ruhig": "Sonar: Kontakt … es lässt dich gehen.",
+   "art": "positiv",
+   "horror": true
+  },
+  {
+   "id": "glitch",
+   "name": "Sterne-Glitch",
+   "groesse": "klein",
+   "anlass": "flug_geschafft",
+   "bedingung": "Flug geschafft",
+   "dauer_ms": 2400,
+   "ablauf": [
+    "Sternzahl rattert über das Ziel hinaus bis 4.000.000 ★ (Farbversatz rot/blau)",
+    "Zeile darunter erscheint",
+    "Zahl fällt auf den echten Wert zurück"
+   ],
+   "zeilen": [
+    "4.000.000 ★",
+    "Moment … {sterne} ★. Sorry, war aufgeregt."
+   ],
+   "sticker": null,
+   "woerter": [],
+   "staerke": 3,
+   "ruhig": "4.000.000 ★ … Moment: {sterne} ★.",
+   "art": "positiv"
+  },
+  {
+   "id": "achievement",
+   "name": "Erfolg freigeschaltet",
+   "groesse": "klein",
+   "anlass": "landung_sauber",
+   "bedingung": "saubere Landung",
+   "dauer_ms": 2500,
+   "ablauf": [
+    "Meldung gleitet oben rechts herein (zwei Töne)"
+   ],
+   "zeilen": [
+    "ERFOLG FREIGESCHALTET",
+    "Saubere Landung · +20"
+   ],
+   "sticker": "W",
+   "woerter": [
+    "w"
+   ],
+   "staerke": 2,
+   "ruhig": "Erfolg freigeschaltet: Saubere Landung.",
+   "art": "positiv"
+  },
+  {
+   "id": "hitmarker",
+   "name": "Hitmarker",
+   "groesse": "klein",
+   "anlass": "landung_sauber",
+   "bedingung": "saubere Landung",
+   "dauer_ms": 2400,
+   "ablauf": [
+    "Fadenkreuz schwenkt ins Bild",
+    "gelber Treffer-Marker ✕ mit Klick",
+    "Feed oben rechts: „DU ⟶ LANDUNG · SAUBER“"
+   ],
+   "zeilen": [
+    "DU ⟶ LANDUNG · SAUBER"
+   ],
+   "sticker": "Süper!",
+   "woerter": [
+    "sueper"
+   ],
+   "staerke": 2,
+   "ruhig": "Treffer: Landung sauber.",
+   "art": "positiv"
+  },
+  {
+   "id": "krit",
+   "name": "Kritischer Treffer",
+   "groesse": "klein",
+   "anlass": "knobel_richtig",
+   "bedingung": "Knobel richtig",
+   "dauer_ms": 1800,
+   "ablauf": [
+    "„KRIT 999“ springt groß heraus und steigt auf, Funken, kurzes Beben"
+   ],
+   "zeilen": [
+    "KRIT 999"
+   ],
+   "sticker": "Sheesh!",
+   "woerter": [
+    "sheesh"
+   ],
+   "staerke": 3,
+   "ruhig": "KRIT 999",
+   "art": "positiv"
+  },
+  {
+   "id": "split",
+   "name": "Speedrun-Split",
+   "groesse": "klein",
+   "anlass": "serie_5",
+   "bedingung": "5 in Folge",
+   "dauer_ms": 2500,
+   "ablauf": [
+    "Split-Anzeige gleitet links oben herein: SPLIT 5/5 · −0:12 · PERSÖNLICHE BESTZEIT"
+   ],
+   "zeilen": [
+    "SPLIT",
+    "5 / 5",
+    "−0:12",
+    "PERSÖNLICHE BESTZEIT"
+   ],
+   "sticker": "Locked in.",
+   "woerter": [
+    "locked_in"
+   ],
+   "staerke": 2,
+   "ruhig": "Split 5/5 – Bestzeit.",
+   "art": "positiv",
+   "hinweis": "Die Zeitangabe ist Deko, nicht gemessen; „−0:12“ fest oder weglassen."
+  },
+  {
+   "id": "nitro",
+   "name": "Combo",
+   "groesse": "klein",
+   "anlass": "serie_5",
+   "bedingung": "5 in Folge",
+   "dauer_ms": 2700,
+   "ablauf": [
+    "Speed-Linien, „5× COMBO“ rast herein"
+   ],
+   "zeilen": [
+    "5× COMBO"
+   ],
+   "sticker": "Locked in.",
+   "woerter": [
+    "locked_in"
+   ],
+   "staerke": 2,
+   "ruhig": "5× Combo",
+   "art": "positiv"
+  },
+  {
+   "id": "opa",
+   "name": "Opa",
+   "groesse": "klein",
+   "anlass": "serie_5",
+   "bedingung": "5 in Folge",
+   "dauer_ms": 5000,
+   "ablauf": [
+    "Opa mit Hut und Stock schlurft von links herein",
+    "bleibt stehen, dreht sich um, Popo (Hose an) Richtung Bildschirm",
+    "wackelt kurz – PUPS (Ton), Bildschirm wackelt, grüne Wolke breitet sich aus, Bild kurz grünstichig",
+    "„Pffrrrt“",
+    "Sprechblase",
+    "Opa schlurft rechts raus"
+   ],
+   "zeilen": [
+    "Pffrrrt",
+    "„’tschuldigung. 5 in Folge – da musste was raus.“"
+   ],
+   "sticker": "Locked in.",
+   "woerter": [
+    "locked_in"
+   ],
+   "staerke": 2,
+   "ruhig": "Ein Opa läuft vorbei … Pffrrrt.",
+   "art": "positiv"
+  },
+  {
+   "id": "unbekannt",
+   "name": "Unbekannt tippt …",
+   "groesse": "klein",
+   "anlass": "wiederholung",
+   "bedingung": "Wiederholung bestanden",
+   "dauer_ms": 3300,
+   "ablauf": [
+    "Chat-Nachricht von „UNBEKANNT“ gleitet herein",
+    "„…“ → „ich seh dir beim rechnen zu.“ (Herzschlag) → „sitzt immer noch. respekt.“"
+   ],
+   "zeilen": [
+    "UNBEKANNT · jetzt",
+    "ich seh dir beim rechnen zu.",
+    "sitzt immer noch. respekt."
+   ],
+   "sticker": "Hält stabil.",
+   "woerter": [
+    "stabil"
+   ],
+   "staerke": 1,
+   "ruhig": "Unbekannt: sitzt immer noch. respekt.",
+   "art": "positiv",
+   "horror": true
+  },
+  {
+   "id": "lag",
+   "name": "Lag",
+   "groesse": "klein",
+   "anlass": "fehler",
+   "bedingung": "erster Fehler des Tages",
+   "dauer_ms": 2200,
+   "ablauf": [
+    "Bordkarte ruckelt und verfärbt sich kurz",
+    "„● 999 ms“ oben rechts",
+    "Zeile unten"
+   ],
+   "zeilen": [
+    "● 999 ms",
+    "Lag. Lag. Nicht du. Nächste."
+   ],
+   "sticker": null,
+   "woerter": [],
+   "staerke": 1,
+   "ruhig": "Lag. Nicht du.",
+   "art": "negativ"
+  },
+  {
+   "id": "drift",
+   "name": "Controller-Drift",
+   "groesse": "klein",
+   "anlass": "fehler",
+   "bedingung": "erster Fehler des Tages",
+   "dauer_ms": 2400,
+   "ablauf": [
+    "Bordkarte driftet langsam nach rechts und zurück",
+    "Meldung"
+   ],
+   "zeilen": [
+    "CONTROLLER-DRIFT ERKANNT",
+    "Nicht deine Schuld. Nächste."
+   ],
+   "sticker": null,
+   "woerter": [],
+   "staerke": 1,
+   "ruhig": "Controller-Drift. Nicht deine Schuld.",
+   "art": "negativ"
+  },
+  {
+   "id": "jet",
+   "name": "Kampfjet-Überflug",
+   "art": "positiv",
+   "anlass": "landung_direkt",
+   "bedingung": "Direktflug (2. Variante)",
+   "dauer_ms": 2900,
+   "aufwand": "mittel",
+   "ablauf": [
+    "zwei Jets schießen schräg mit Kondensstreifen durchs Bild (Düsenlärm)",
+    "Überschallknall: weißer Ring breitet sich aus, Bildschirm bebt 0,5 s",
+    "Schrift knallt herein",
+    "Sticker"
+   ],
+   "zeilen": [
+    "ÜBERSCHALL!"
+   ],
+   "sticker": "PEAK",
+   "woerter": [
+    "peak"
+   ],
+   "staerke": 3,
+   "groesse": "reserve",
+   "ruhig": "Kampfjet-Überflug"
+  },
+  {
+   "id": "gewitter",
+   "name": "Gewitter",
+   "art": "negativ",
+   "anlass": "landung_sturm",
+   "bedingung": "Sturmflug gemeistert",
+   "dauer_ms": 2600,
+   "aufwand": "mittel",
+   "ablauf": [
+    "Himmel dunkelt ab",
+    "2 Blitze (weiß, je 120 ms)",
+    "Regen läuft schräg über das Glas",
+    "Wolken reißen auf, Sonne",
+    "Sticker"
+   ],
+   "zeilen": [],
+   "sticker": "Tuff durchgezogen.",
+   "woerter": [
+    "tuff"
+   ],
+   "staerke": 2,
+   "groesse": "reserve",
+   "ruhig": "Gewitter"
+  },
+  {
+   "id": "comeback",
+   "name": "Comeback",
+   "art": "positiv",
+   "anlass": "comeback",
+   "bedingung": "nach einem Fehler 3 richtige in Folge in derselben Etappe (neuer Anlass)",
+   "dauer_ms": 1600,
+   "aufwand": "klein",
+   "ablauf": [
+    "Videokassetten-Rückspulen: Streifen, leichtes Verziehen, ◀◀ oben links",
+    "Standbild",
+    "Sticker"
+   ],
+   "zeilen": [
+    "◀◀ REWIND"
+   ],
+   "sticker": "Comeback.",
+   "woerter": [],
+   "staerke": 2,
+   "hinweis": "„Comeback.“ ist kein Wort aus der Jugendwort-Liste, sondern ein Effekt-Sticker.",
+   "groesse": "reserve",
+   "ruhig": "Comeback"
+  },
+  {
+   "id": "f404",
+   "name": "Fehler 404",
+   "art": "positiv",
+   "anlass": "landung_direkt",
+   "bedingung": "Direktflug (kein Fehler, kein Tipp)",
+   "dauer_ms": 2200,
+   "aufwand": "klein",
+   "ablauf": [
+    "2 Flacker-Wechsel in 700 ms",
+    "dunkle Tafel mit 404 (leichter Pixel-Versatz)",
+    "Tafel bricht weg, Landung erscheint"
+   ],
+   "zeilen": [
+    "404",
+    "FEHLER NICHT GEFUNDEN"
+   ],
+   "sticker": "Çüş – null Fehler.",
+   "woerter": [
+    "cues"
+   ],
+   "staerke": 3,
+   "groesse": "reserve",
+   "ruhig": "Fehler 404"
+  },
+  {
+   "id": "boss",
+   "name": "Boss besiegt",
+   "groesse": "gross",
+   "anlass": "flug_geschafft",
+   "bedingung": "Flug geschafft (auch Expedition)",
+   "dauer_ms": 5000,
+   "ablauf": [
+    "Kinobalken, dunkel",
+    "Boss-Leiste „BOSS · {Thema}“ mit Lebensbalken",
+    "5 Treffer mit Schadenszahlen, Balken leert sich",
+    "„BOSS BESIEGT“, Funken, Beute-Meldung"
+   ],
+   "zeilen": [
+    "BOSS · {Thema}",
+    "-666 … -925",
+    "BOSS BESIEGT",
+    "BEUTE · +{sterne} ★ · Stempel {Stadt}"
+   ],
+   "sticker": null,
+   "woerter": [],
+   "staerke": 3,
+   "ruhig": "Boss besiegt.",
+   "art": "positiv",
+   "anlaesse": [
+    "expedition_geschafft"
+   ]
+  },
+  {
+   "id": "rang",
+   "name": "Rang auf",
+   "groesse": "gross",
+   "anlass": "flug_geschafft",
+   "bedingung": "Flug geschafft",
+   "dauer_ms": 4500,
+   "ablauf": [
+    "Rang-Abzeichen erscheint als Silber",
+    "wird Gold, dann Platin (jeweils Bass)",
+    "Funken, „RANG AUF“"
+   ],
+   "zeilen": [
+    "SILBER",
+    "GOLD",
+    "PLATIN",
+    "RANG AUF"
+   ],
+   "sticker": null,
+   "woerter": [],
+   "staerke": 3,
+   "ruhig": "Rang auf: Platin.",
+   "art": "positiv"
+  },
+  {
+   "id": "replay",
+   "name": "Replay",
+   "groesse": "gross",
+   "anlass": "landung_direkt",
+   "bedingung": "Direktflug",
+   "dauer_ms": 5000,
+   "ablauf": [
+    "Kinobalken, „▶▶ REPLAY · 0,25×“",
+    "die Bordkarten der Etappe fliegen in Zeitlupe als Liste ein, alle ✓ mit Zeit",
+    "„PERFEKTER LAUF“"
+   ],
+   "zeilen": [
+    "▶▶ REPLAY · 0,25×",
+    "Bordkarte {n} ✓ {zeit}",
+    "PERFEKTER LAUF"
+   ],
+   "sticker": "GOAT",
+   "woerter": [
+    "goat"
+   ],
+   "staerke": 3,
+   "ruhig": "Replay: perfekter Lauf.",
+   "art": "positiv",
+   "hinweis": "Zeiten echt aus der Etappe, wenn vorhanden; sonst ohne Zeit."
+  },
+  {
+   "id": "klopfen",
+   "name": "Etwas klopft",
+   "groesse": "gross",
+   "anlass": "knobel_richtig",
+   "bedingung": "Knobel richtig",
+   "dauer_ms": 5500,
+   "ablauf": [
+    "dunkel",
+    "dreimal Klopfen (Bass), bei jedem Klopfen Risse im Glas von innen",
+    "eine blasse Hand drückt von innen gegen die Scheibe",
+    "„…darf ich mitrechnen?“ → „nö. knobel geknackt.“"
+   ],
+   "zeilen": [
+    "…darf ich mitrechnen?",
+    "nö. knobel geknackt."
+   ],
+   "sticker": "Çüş!",
+   "woerter": [
+    "cues"
+   ],
+   "staerke": 3,
+   "ruhig": "Klopf, klopf … nö.",
+   "art": "positiv",
+   "horror": true
+  },
+  {
+   "id": "streamchat",
+   "name": "Stream-Chat",
+   "groesse": "klein",
+   "anlass": "knobel_richtig",
+   "bedingung": "Knobel richtig (auch 5 in Folge)",
+   "dauer_ms": 3000,
+   "ablauf": [
+    "Chatfenster rechts, Nachrichten rauschen durch"
+   ],
+   "zeilen": [
+    "W",
+    "GOAT",
+    "clip that",
+    "Çüş",
+    "wie??",
+    "PEAK",
+    "W W W",
+    "kein tipp?!",
+    "lowkey krank",
+    "sheesh"
+   ],
+   "sticker": "Sheesh!",
+   "woerter": [
+    "sheesh"
+   ],
+   "staerke": 3,
+   "ruhig": "Chat: W W W.",
+   "art": "positiv",
+   "anlaesse": [
+    "serie_5"
+   ],
+   "hinweis": "Nutzernamen erfunden (kz_77, n1ght, brrrt, matheGOD, zzz_)."
+  },
+  {
+   "id": "levelup",
+   "name": "Level up",
+   "groesse": "klein",
+   "anlass": "landung_sauber",
+   "bedingung": "saubere Landung",
+   "dauer_ms": 2800,
+   "ablauf": [
+    "XP-Balken füllt sich",
+    "„LEVEL UP“"
+   ],
+   "zeilen": [
+    "LVL 23",
+    "840 / 1000 XP",
+    "LEVEL UP",
+    "LVL 24"
+   ],
+   "sticker": "Süper!",
+   "woerter": [
+    "sueper"
+   ],
+   "staerke": 2,
+   "ruhig": "Level up.",
+   "art": "positiv",
+   "hinweis": "Level und XP sind Deko, keine neue Währung."
+  },
+  {
+   "id": "clip",
+   "name": "Clip gespeichert",
+   "groesse": "klein",
+   "anlass": "comeback",
+   "bedingung": "Comeback",
+   "dauer_ms": 2200,
+   "ablauf": [
+    "kurzer weißer Auslöser-Blitz (80 ms)",
+    "Meldung „● CLIP GESPEICHERT“"
+   ],
+   "zeilen": [
+    "● CLIP GESPEICHERT",
+    "Comeback · letzte 30 s"
+   ],
+   "sticker": "Comeback.",
+   "woerter": [],
+   "staerke": 2,
+   "ruhig": "Clip gespeichert.",
+   "art": "positiv"
+  },
+  {
+   "id": "slice",
+   "name": "Slice",
+   "groesse": "klein",
+   "anlass": "landung_sauber",
+   "bedingung": "saubere Landung",
+   "dauer_ms": 2000,
+   "ablauf": [
+    "Klingen-Strich quer durchs Bild (Zisch)",
+    "Bild ruckt kurz",
+    "„Sauber zerlegt.“"
+   ],
+   "zeilen": [
+    "Sauber zerlegt."
+   ],
+   "sticker": "Slay.",
+   "woerter": [
+    "slay"
+   ],
+   "staerke": 2,
+   "ruhig": "Sauber zerlegt.",
+   "art": "positiv"
+  },
+  {
+   "id": "spiegel",
+   "name": "Spiegel",
+   "groesse": "klein",
+   "anlass": "wiederholung",
+   "bedingung": "Wiederholung bestanden",
+   "dauer_ms": 2600,
+   "ablauf": [
+    "ganze Ansicht springt gespiegelt, am Rand steht eine dunkle Gestalt (0,6 s)",
+    "zurück, Gestalt weg",
+    "„hast du das gesehen?“"
+   ],
+   "zeilen": [
+    "hast du das gesehen?"
+   ],
+   "sticker": "Hält stabil.",
+   "woerter": [
+    "stabil"
+   ],
+   "staerke": 1,
+   "ruhig": "Hast du das gesehen?",
+   "art": "positiv",
+   "horror": true
+  },
+  {
+   "id": "advent",
+   "name": "Adventskalender",
+   "groesse": "klein",
+   "anlass": "erfolg",
+   "bedingung": "1.–24.12., jeden Tag beim ersten Erfolg",
+   "dauer_ms": 3000,
+   "ablauf": [
+    "grüne Tür mit der Tageszahl",
+    "öffnet sich, goldenes Licht, Funken",
+    "„TÜR {Tag}“"
+   ],
+   "zeilen": [
+    "TÜR {Tag}",
+    "+1000 Aura"
+   ],
+   "sticker": "+1000 Aura",
+   "woerter": [
+    "aura"
+   ],
+   "staerke": 3,
+   "ruhig": "Adventskalender: Tür auf.",
+   "art": "positiv",
+   "saison": "1.–24. Dezember",
+   "tagesereignis": true
+  },
+  {
+   "id": "nikolaus",
+   "name": "Nikolaus",
+   "groesse": "klein",
+   "anlass": "erfolg",
+   "bedingung": "6.12., beim ersten Erfolg",
+   "dauer_ms": 3000,
+   "ablauf": [
+    "Stiefel springt ins Bild",
+    "Goldstücke fallen hinein",
+    "„NIKOLAUS WAR DA“"
+   ],
+   "zeilen": [
+    "NIKOLAUS WAR DA",
+    "6. DEZEMBER · Stiefel voll · +Respekt"
+   ],
+   "sticker": "Süper!",
+   "woerter": [
+    "sueper"
+   ],
+   "staerke": 2,
+   "ruhig": "Nikolaus war da.",
+   "art": "positiv",
+   "saison": "6. Dezember",
+   "tagesereignis": true
+  },
+  {
+   "id": "weihnachten",
+   "name": "Geschenk-Drop",
+   "groesse": "gross",
+   "anlass": "flug_geschafft",
+   "bedingung": "24.–26.12., großer Erfolg",
+   "dauer_ms": 6000,
+   "ablauf": [
+    "dunkel, Schnee fällt",
+    "Geschenk steigt in Seltenheit (blau, lila, gold)",
+    "Deckel fliegt, Blitz, Funken",
+    "„FROHE WEIHNACHTEN“"
+   ],
+   "zeilen": [
+    "FROHE",
+    "WEIHNACHTEN",
+    "GESCHENK · Legendär · +1000 Aura"
+   ],
+   "sticker": "+1000 Aura",
+   "woerter": [
+    "aura"
+   ],
+   "staerke": 3,
+   "ruhig": "Frohe Weihnachten.",
+   "art": "positiv",
+   "saison": "24.–26. Dezember",
+   "anlaesse": [
+    "landung_direkt",
+    "knobel_richtig",
+    "serie_10",
+    "expedition_geschafft"
+   ],
+   "einmal_im_zeitraum": true
+  },
+  {
+   "id": "silvester",
+   "name": "Countdown",
+   "groesse": "gross",
+   "anlass": "erfolg",
+   "bedingung": "31.12. und 1.1., beim ersten Erfolg",
+   "dauer_ms": 6000,
+   "ablauf": [
+    "Kinobalken, dunkel",
+    "Countdown 10 → 1 (letzte drei gold, langsamer)",
+    "Blitz, Beben, Jahreszahl riesig, vier Feuerwerks-Funken",
+    "„NEUES JAHR · GLEICHER GOAT“"
+   ],
+   "zeilen": [
+    "10 … 1",
+    "{Jahr}",
+    "NEUES JAHR · GLEICHER GOAT"
+   ],
+   "sticker": "GOAT",
+   "woerter": [
+    "goat"
+   ],
+   "staerke": 3,
+   "ruhig": "Frohes neues Jahr.",
+   "art": "positiv",
+   "saison": "31. Dezember – 1. Januar",
+   "tagesereignis": true
+  },
+  {
+   "id": "ostern",
+   "name": "Legendäres Ei",
+   "groesse": "gross",
+   "anlass": "flug_geschafft",
+   "bedingung": "Karfreitag bis Ostermontag, großer Erfolg",
+   "dauer_ms": 5000,
+   "ablauf": [
+    "dunkles Ei",
+    "wackelt, Seltenheit steigt, Risse",
+    "Blitz, wird golden, Funken",
+    "„LEGENDÄRES EI“, „FROHE OSTERN“"
+   ],
+   "zeilen": [
+    "LEGENDÄRES EI",
+    "FROHE OSTERN · +1000 Aura"
+   ],
+   "sticker": "+1000 Aura",
+   "woerter": [
+    "aura"
+   ],
+   "staerke": 3,
+   "ruhig": "Frohe Ostern.",
+   "art": "positiv",
+   "saison": "Karfreitag – Ostermontag (Datum berechnet)",
+   "anlaesse": [
+    "landung_direkt",
+    "knobel_richtig",
+    "serie_10",
+    "expedition_geschafft"
+   ],
+   "einmal_im_zeitraum": true
+  },
+  {
+   "id": "eiersuche",
+   "name": "Eiersuche",
+   "groesse": "klein",
+   "anlass": "landung_sauber",
+   "bedingung": "Woche vor Ostern bis Ostermontag, Erfolg",
+   "dauer_ms": 4500,
+   "ablauf": [
+    "drei Neon-Eier tauchen verteilt auf",
+    "antippen zum Einsammeln (Zähler)",
+    "alle 3 → „GOAT“, sonst „Süper!“"
+   ],
+   "zeilen": [
+    "EIERSUCHE",
+    "{n} / 3 gefunden"
+   ],
+   "sticker": "GOAT / Süper!",
+   "woerter": [
+    "goat",
+    "sueper"
+   ],
+   "staerke": 2,
+   "ruhig": "Eiersuche!",
+   "art": "positiv",
+   "saison": "9 Tage vor Ostern – Ostermontag",
+   "anlaesse": [
+    "wiederholung",
+    "serie_5"
+   ]
+  },
+  {
+   "id": "halloween",
+   "name": "Süßes oder Saures",
+   "groesse": "gross",
+   "anlass": "landung_direkt",
+   "bedingung": "24.–31.10., großer Erfolg",
+   "dauer_ms": 5500,
+   "ablauf": [
+    "schwarz, Kürbis mit flackerndem Gesicht",
+    "„süßes oder saures?“",
+    "SCHOCK: Kürbis rast heran, „SAURES.“, Bass, Beben",
+    "„…war Spaß.“, Meldung"
+   ],
+   "zeilen": [
+    "süßes oder saures?",
+    "SAURES.",
+    "…war Spaß.",
+    "HALLOWEEN · Süßes · +Respekt"
+   ],
+   "sticker": "Çüş!",
+   "woerter": [
+    "cues"
+   ],
+   "staerke": 3,
+   "ruhig": "Süßes oder Saures? … war Spaß.",
+   "art": "positiv",
+   "horror": true,
+   "saison": "24.–31. Oktober",
+   "anlaesse": [
+    "flug_geschafft",
+    "knobel_richtig"
+   ],
+   "einmal_im_zeitraum": true
+  },
+  {
+   "id": "fasching",
+   "name": "Fasching",
+   "groesse": "klein",
+   "anlass": "serie_5",
+   "bedingung": "Weiberfastnacht bis Aschermittwoch",
+   "dauer_ms": 2500,
+   "ablauf": [
+    "Neon-Splitter von drei Seiten",
+    "Farben kippen stufenweise durch",
+    "„HELAU. ALAAF. EGAL.“"
+   ],
+   "zeilen": [
+    "HELAU. ALAAF. EGAL."
+   ],
+   "sticker": "Peak",
+   "woerter": [
+    "peak"
+   ],
+   "staerke": 3,
+   "ruhig": "Helau. Alaaf. Egal.",
+   "art": "positiv",
+   "saison": "Weiberfastnacht – Aschermittwoch (berechnet)",
+   "anlaesse": [
+    "landung_sauber",
+    "knobel_richtig"
+   ]
+  }
+ ],
+ "anlass_namen": {
+  "etappe_sicher": "Etappe für immer sicher · IMMER",
+  "wieder_offen": "Etappe wieder offen · IMMER",
+  "landung_direkt": "Direktflug",
+  "landung_sauber": "Saubere Landung",
+  "landung_sturm": "Sturmflug gemeistert",
+  "flug_geschafft": "Flug geschafft",
+  "knobel_richtig": "Knobel richtig",
+  "serie_5": "5 in Folge",
+  "serie_10": "10 in Folge",
+  "comeback": "Comeback nach Fehler",
+  "fehler": "Erster Fehler des Tages",
+  "wiederholung": "Wiederholung bestanden",
+  "expedition_geschafft": "Expedition geschafft",
+  "erfolg": "jeder Erfolg (Tagesereignis)"
+ }
+}

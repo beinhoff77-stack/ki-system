@@ -1,0 +1,85 @@
+# Nachprüfung lernen-app 0.74.5 (2026-11-17)
+
+Stand geprüft: `origin/main` = `origin/lernen-app` = `e842c07`, App 0.74.5. Datenbank-Migrationen bis `w150_e3_auftraege_bezug` eingespielt.
+Annahme: GitHub Pages zeigt `main` – die Live-Seite selbst konnte ich von hier nicht abrufen (Netz gesperrt). Geprüft mit Playwright gegen den Stand von `main` und Testdaten (Mock), nicht mit echten Kinderdaten.
+
+Ergänzt `NACHPRUEFUNG-2026-11-17-N1-N8.md` (Schritt A, 0.74.2, anderer Chat); dessen Nacharbeit A2 ist laut Commit in 0.74.4 gebaut – die 593-Etappen-Zählung habe ich für 0.74.4 nicht wiederholt.
+
+Skripte: `nach-0745/kind-rundgang.test.cjs`, `nach-0745/eltern-rundgang.test.cjs`, `nach/nachstellen-v074.test.cjs`, `rueckmeldung/nachstellen.test.cjs`. Bilder: `nach-0745/bilder/`.
+
+## 1. Umgesetzt (nachgestellt)
+
+| Punkt | Ergebnis |
+|---|---|
+| A1–A12 Erklärungen | umgesetzt (0.74.0), A2-Nachtrag „Kurz gesagt“ ein Satz (0.74.4) |
+| R1–R3 Rückmeldung/zweiter Versuch, 6-Punkte-Regel, Wiederholung | umgesetzt |
+| N6 Test-Kopf | „Rom · Natürliche Zahlen“ |
+| N7 Testende | „Erst üben: … ›“, „Verbessern ›“, ✓-Marker, „Zum Flug \| Zur Abflugtafel“ |
+| N5 Detektiv-Hinweise | wie beauftragt; bei Auswahlaufgaben ohne Fehlermuster weiter allgemeiner Hinweis (siehe M6) |
+| K1/K2 Menü + Mein Weg | Menü 4 Einträge (Abflugtafel · Mein Weg · Merkheft · Reisepass), Mein Weg mit Reitern Stand · Kontinente · Karte, Merkheft nur Geschafftes |
+| D2 Klassen | Kind A Karte „Klasse 5: 1 von 10 Orten“, Alexandria/Timbuktu stehen auf Gym 5 |
+| E-1 Info-Seite | „So funktioniert’s“: 4 erste Schritte + 7 Fragen, von jeder Elternseite oben rechts erreichbar |
+| E-1 Flugplan speichert sofort | „Gespeichert“ nach Ziehen, kein Speichern-Knopf mehr, „↶ Rückgängig“ |
+| E-2 Startseite je Kind | Karte je Kind mit GYM/RS/IB-Zeilen, „Jetzt: …“, Lernstand · Flugplan · Lernreise ansehen |
+| E-2 Flugplan zwei Spalten | links Plan (Griff ⠿, ↑ ↓), rechts Lehrplan nach Schulart/Klasse mit Suche und „+“; auf dem Rechner nebeneinander |
+| E-2 Flüge abwählbar | Ort aufklappen → Häkchen je Flug; Kind sieht abgewählte Flüge nicht |
+| E-3 Ändern lassen + Meine Aufträge | „✎ Ändern lassen“ im Plan, Startseite zeigt „Neue Antworten auf eure Aufträge“, Liste unter `#/lernauftraege` |
+
+Noch offen laut Plan (kein Fehler): K3 Linienplan/Stand über drei Schularten im Kinder-Reiter „Stand“, K4/K5, E-4.
+
+## 2. Neue Befunde
+
+Fakten = im Test nachgestellt. Vermutung = so gekennzeichnet.
+
+**M1 „Gerade dran“ widerspricht sich (Fakt, Kind A).** Mein Weg · Stand zeigt oben „2 gelandet · 1 unterwegs · 11 warten“, direkt darunter die Kachel „12 gerade dran“ und eine Liste „GERADE DRAN“ mit 12 Orten, darunter Klasse 6 und Cusco Kl. 8 mit „Etappe 1 von 7“ (nicht begonnen). „Gerade dran“ zählt alles Offene im Plan (`dran` in `lernen.js` ~Z.1711).
+Vorschlag: „Gerade dran“ = nur der aktuelle Ort (+ höchstens der nächste); Rest unter „Kommt noch“. Kacheln dann z. B. „1 kann ich · 1 gerade dran · 12 kommen noch“.
+
+**M2 Klasse wird noch mit „Speichern“ gesetzt (Fakt).** Im Flugplan steht „Jede Änderung wird sofort gespeichert“, das Feld „Klasse“ darunter hat aber einen eigenen Knopf „Speichern“ (Z.2285). Auf einer Seite zwei Regeln.
+Vorschlag: Klasse als Auswahl, speichert sofort wie der Plan.
+
+**M3 Aufgeklappter Ort: Häkchen steht vom Flug getrennt (Fakt, Tablet 820 px).** Beim Aufklappen von Rom steht jedes Häkchen in einer eigenen Zeile über dem Flugnamen; 5 Flüge brauchen ~450 px. Man sieht nicht sicher, welches Häkchen zu welchem Flug gehört.
+Vorschlag: Häkchen links in derselben Zeile wie der Flugname, eine Zeile je Flug.
+
+**M4 Klasse-8-Ort im Klasse-5-Plan (Fakt in den Testdaten, Ursache Vermutung).** Kind A (Gym 5) hat „Cusco – Körper und Netze · Gym 8“ an Platz 8 und „Adelaide · Gym 6“ im Plan; im Kinder-Weg stehen sie unter „Gerade dran“. Vermutung: Folge der D2-Umsortierung – die Orte blieben im Plan, obwohl ihre Flüge jetzt höheren Klassen zugeordnet sind.
+Vorschlag: Im Flugplan Orte, deren Flüge alle über der Klasse des Kindes liegen, sichtbar markieren („Klasse 8 – über seiner Klasse“) und beim Kind unter „Später“ einsortieren, solange Eltern sie nicht bewusst vorziehen. Mit echten Daten prüfen.
+
+**M5 Abflugtafel: Zielangabe zu groß (Fakt).** „Noch 29 Etappen bis zum Stempel von Rom (5 Flüge)“. Bei 9–14 Bordkarten je Etappe (Schätzung aus der 6-Punkte-Regel) sind das mehrere Wochen – für ein Kind kein greifbares Ziel.
+Vorschlag: nächstes Zwischenziel zeigen: „Noch 3 Etappen bis ›Ganze Zahlen‹ gelandet“; Ort-Stempel nur im Reisepass.
+
+**M6 Detektiv-Hinweis bei Auswahlaufgaben (Fakt, aus N5).** Ohne hinterlegtes Fehlermuster erscheint ein allgemeiner Hinweis, der nicht zur gewählten Antwort passt (z. B. R6). Vorschlag: bei Auswahl ohne Muster „Schau dir deine Wahl und die Frage noch einmal an“ statt eines Musters, das nicht zutrifft – und die Inhalts-Chats ergänzen Muster je falscher Option.
+
+**M7 Erklärung: erstes Bild doppelt (Fakt, schwach).** „Worum geht’s“ zeigt das Thermometer ohne Markierung, Schritt 1 direkt danach dasselbe mit −3 °C. Die dritte Darstellung (3 °C gegen −3 °C bei „Pass auf“) ist sinnvoll. Vorschlag: bei „Worum geht’s“ kein Bild, wenn Schritt 1 dasselbe Bild hat.
+
+**M8 Schwebender Menüknopf ≡ verdeckt Inhalt (Vermutung).** Auf den Ganzseiten-Bildern liegt ≡ über „Etappe 1 von …“ und über „Abflug, wann es dir passt“. Ob das beim Scrollen am Gerät stört, ist aus Ganzseiten-Bildern nicht sicher. Am Tablet kurz prüfen.
+
+**M9 „Für deine Klasse ist alles verteilt.“ (Fakt, Text).** Unter „Kommt noch · Klasse 5“ unverständlich für ein Kind. Vorschlag: „Alles aus Klasse 5 steht schon in deinem Plan.“
+
+Nicht nachgestellt / Testartefakt möglich:
+- Startseite Eltern: GYM/RS/IB-Balken zeigen „–“. Wahrscheinlich, weil meine Testdaten kein `jahrgang` je Flug liefern. Mit echten Daten anschauen.
+- Ziehen im Flugplan klappte im Test auf dem Tablet (Melbourne an Platz 2, „Gespeichert“), auf Handy und Rechner nicht. Vermutlich mein Testskript (langer Zug mit Scrollen), kein App-Fehler belegt. Mit dem Finger am Handy kurz prüfen.
+
+## 3. Wer macht was
+
+| Punkt | Wer |
+|---|---|
+| M1, M2, M3, M5, M7, M8, M9 | Haupt-Chat (App) |
+| M4 | Haupt-Chat (Markierung/Einsortierung) + der Nutzer (Plan der Kinder ansehen) |
+| M6 | Haupt-Chat (Fallback-Text) + Inhalts-Chats (Fehlermuster je Auswahl-Option) |
+
+## 4. Eltern-/Lehrerseite gegen die Auswahl vom 16.11. (Nachtrag nach des Nutzers Rückfrage)
+
+Vergleich: gebaute Seite 0.74.5 ↔ gewählter Entwurf (Artifact „Eltern- und Lehrerseite“, Vorschläge 1A, 2B, 3B, 5A, 6B) und `eltern/umsetzung.md`.
+
+| Punkt | Gewählt | Gebaut | Urteil |
+|---|---|---|---|
+| Plan zwei Spalten | Tablet **und** Rechner zwei Spalten, nur Handy untereinander | Zwei Spalten erst ab 1000 px Breite (`style.css` `.lern-plan-spalten`). Tablet hochkant (820 px): Lehrplan steht unter 12 Orten, erst nach Scrollen sichtbar | **weicht ab** |
+| Lehrplan-Spalte | Alle Orte der Klasse; was schon im Plan ist, mit ✓; Zeile „Klasse 5: 13 von 14 Flügen im Plan“; Hinweis „Klasse prüfen“ | Nur Orte, die noch **nicht** im Plan sind (bei Kind A nur Rio). Keine Abdeckung, kein ✓, kein Hinweis | **weicht ab** (im Entwurf gezeigt, in `umsetzung.md` von mir nicht ausdrücklich verlangt) |
+| Schulart/Klasse wählen | Reiter Gymnasium · Realschule · IB und Klassen-Knöpfe 4–10 | Zwei Auswahllisten | weicht ab (klein) |
+| Kopf des Plans | „Gymnasium Klasse 5 · 12 Orte · 2 geschafft“ | „Flugplan Kind A · Alles gespeichert“ ohne Zusammenfassung | weicht ab (klein) |
+| Flüge im Ort | Eine Zeile je Flug mit Häkchen, Klasse, Stand | Häkchen in eigener Zeile über dem Flug, ~90 px je Flug (M3) | **weicht ab** |
+| Ort aus anderer Klasse | Hinweis am Ort („andere Klasse dabei“ / „Klasse prüfen“) | Kein Hinweis; Cusco Gym 8 im Gym-5-Plan unmarkiert (M4) | **fehlt** |
+| Klasse des Kindes | Teil von „Plan anlegen“ (E-4), sonst speichert alles sofort | Eigenes Feld unten mit „Speichern“ (M2) | weicht ab |
+| Startseite je Kind | Karte je Kind mit drei Mini-Balken + Prozent | Karte je Kind gebaut; Balken im Test leer „–“ (vermutlich Testdaten, mit echten Daten prüfen) | gebaut, Balken offen |
+| Ändern lassen + Meine Aufträge | überall + Liste | an Flug, Erklärung, Etappe, Bordkarte, Plan; Liste vorhanden | erfüllt |
+| Info-Seite | 4 Karten + 7 Fragen | 4 Karten + 7 Fragen, 6-Punkte-Regel enthalten | erfüllt |
+| Sofort speichern, Rückgängig | ja | ja | erfüllt |

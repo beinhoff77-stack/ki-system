@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070d16">
+  <title>Direktflug – Überraschungseffekt</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #070d16;
+      --panel: #101b29;
+      --line: #26374a;
+      --text: #f3f6f2;
+      --muted: #91a0af;
+      --lime: #baf45a;
+      --cyan: #61d9d0;
+      --danger: #8d3538;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow: hidden;
+    }
+
+    button {
+      border: 0;
+      font: inherit;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:focus-visible {
+      outline: 3px solid #ffffff;
+      outline-offset: 3px;
+    }
+
+    .app {
+      position: relative;
+      width: 100%;
+      max-width: 540px;
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0 auto;
+      padding: 22px 18px 30px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 5%, rgba(52, 125, 126, .2), transparent 32%),
+        radial-gradient(circle at 0% 60%, rgba(81, 98, 157, .14), transparent 35%),
+        var(--bg);
+    }
+
+    .app-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .14em;
+    }
+
+    .brand small {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border: 1px solid #385365;
+      border-radius: 14px;
+      background: #122333;
+      color: var(--cyan);
+      font-size: 21px;
+      transform: rotate(-8deg);
+    }
+
+    .streak {
+      padding: 8px 11px;
+      border: 1px solid #334151;
+      border-radius: 999px;
+      color: #dbe5e8;
+      background: rgba(18, 29, 42, .8);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .route-card {
+      position: relative;
+      padding: 22px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: linear-gradient(145deg, rgba(22, 37, 53, .98), rgba(12, 22, 34, .98));
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .25);
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .route-card h1 {
+      margin: 9px 0 7px;
+      font-size: clamp(25px, 7vw, 34px);
+      line-height: 1.05;
+      letter-spacing: -.04em;
+    }
+
+    .route-meta {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .route-map {
+      display: block;
+      width: 100%;
+      height: 150px;
+      margin: 12px 0 2px;
+    }
+
+    .route-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .route-stats div {
+      padding: 11px 8px;
+      border: 1px solid #26384a;
+      border-radius: 14px;
+      background: rgba(5, 12, 20, .35);
+      text-align: center;
+    }
+
+    .route-stats strong,
+    .route-stats span {
+      display: block;
+    }
+
+    .route-stats strong {
+      font-size: 17px;
+    }
+
+    .route-stats span {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .ticket {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 14px;
+      padding: 17px 18px;
+      border: 1px dashed #3b5261;
+      border-radius: 19px;
+      background: #0e1925;
+    }
+
+    .ticket small,
+    .ticket strong {
+      display: block;
+    }
+
+    .ticket small {
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .13em;
+    }
+
+    .ticket strong {
+      font-size: 15px;
+    }
+
+    .ticket-status {
+      color: var(--lime);
+      font-size: 11px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .app-nav {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 24px;
+      color: #728292;
+      font-size: 10px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .app-nav span {
+      padding: 13px 6px;
+      border-radius: 14px;
+    }
+
+    .app-nav .active {
+      color: var(--text);
+      background: #132131;
+    }
+
+    .intro {
+      position: fixed;
+      z-index: 90;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      background: rgba(3, 8, 14, .7);
+      backdrop-filter: blur(8px);
+    }
+
+    .intro-card {
+      width: min(100%, 360px);
+      padding: 30px 25px 24px;
+      border: 1px solid #324557;
+      border-radius: 28px;
+      background: linear-gradient(155deg, #152535, #0b141f);
+      box-shadow: 0 30px 100px rgba(0, 0, 0, .55);
+      text-align: center;
+    }
+
+    .intro-icon {
+      display: grid;
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 19px;
+      place-items: center;
+      border: 1px solid #4d6c70;
+      border-radius: 22px;
+      background: #173137;
+      color: var(--lime);
+      font-size: 29px;
+      transform: rotate(-5deg);
+    }
+
+    .intro-card h2 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      line-height: 1.08;
+      letter-spacing: -.04em;
+    }
+
+    .intro-card p {
+      margin: 0 0 23px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .primary-button {
+      min-height: 54px;
+      padding: 0 25px;
+      border-radius: 16px;
+      background: var(--lime);
+      color: #10190d;
+      box-shadow: 0 9px 28px rgba(186, 244, 90, .15);
+      font-weight: 950;
+    }
+
+    .intro-card .primary-button {
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .sound-hint {
+      display: block;
+      margin-top: 14px;
+      color: #758797;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .effect {
+      position: fixed;
+      z-index: 40;
+      inset: 0;
+      overflow: hidden;
+      background: transparent;
+      isolation: isolate;
+    }
+
+    .layer {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .calm {
+      z-index: 2;
+      padding: 22px;
+      background: rgba(3, 8, 15, .64);
+      backdrop-filter: blur(6px);
+    }
+
+    .is-calm .calm,
+    .is-blackout .calm {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .success-card {
+      width: min(100%, 350px);
+      padding: 27px 24px 24px;
+      border: 1px solid #385246;
+      border-radius: 27px;
+      background: linear-gradient(150deg, #172a2b, #101c27 70%);
+      box-shadow: 0 24px 90px rgba(0, 0, 0, .45);
+      text-align: center;
+    }
+
+    .is-calm .success-card {
+      animation: cardIn .45s cubic-bezier(.2, .8, .2, 1) both;
+    }
+
+    .success-kicker {
+      color: var(--cyan);
+      font-size: 9px;
+      font-weight: 950;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .check {
+      display: grid;
+      width: 66px;
+      height: 66px;
+      margin: 19px auto 16px;
+      place-items: center;
+      border: 2px solid var(--lime);
+      border-radius: 50%;
+      background: rgba(186, 244, 90, .08);
+      color: var(--lime);
+      box-shadow: 0 0 35px rgba(186, 244, 90, .12);
+      font-size: 31px;
+      font-weight: 900;
+    }
+
+    .success-card h2 {
+      margin: 0;
+      font-size: 31px;
+      letter-spacing: -.045em;
+    }
+
+    .success-card p {
+      margin: 8px 0 0;
+      color: #b4c0c8;
+      font-size: 14px;
+    }
+
+    .calm-route {
+      display: inline-block;
+      margin-top: 19px;
+      padding: 8px 12px;
+      border: 1px solid #334758;
+      border-radius: 999px;
+      color: #8fa4b2;
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .blackout {
+      position: absolute;
+      z-index: 3;
+      inset: 0;
+      background: #000;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .is-blackout .blackout {
+      animation: lightsOut 1.05s linear both;
+    }
+
+    .is-blackout .success-card {
+      animation: cardJolt 1.05s linear both;
+    }
+
+    .scene {
+      z-index: 4;
+      overflow: hidden;
+      background: #010204;
+    }
+
+    .is-reveal .scene,
+    .is-scare .scene,
+    .is-release .scene {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .scene::before {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 43%, rgba(146, 165, 153, .13), transparent 40%),
+        linear-gradient(180deg, #020507, #000);
+      content: "";
+    }
+
+    .scene::after {
+      position: absolute;
+      z-index: 8;
+      inset: 0;
+      box-shadow: inset 0 0 130px 45px rgba(0, 0, 0, .93);
+      content: "";
+      pointer-events: none;
+    }
+
+    .curtain {
+      position: absolute;
+      z-index: 1;
+      top: -5%;
+      bottom: -5%;
+      width: 37%;
+      opacity: .28;
+      background: repeating-linear-gradient(90deg, #16090d 0 24px, #3c171d 25px 48px, #090608 49px 69px);
+      filter: brightness(.55);
+    }
+
+    .curtain.left {
+      left: -9%;
+      clip-path: polygon(0 0, 100% 0, 67% 50%, 100% 100%, 0 100%);
+    }
+
+    .curtain.right {
+      right: -9%;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 33% 50%);
+    }
+
+    .spotlight {
+      position: absolute;
+      z-index: 1;
+      top: -10%;
+      left: 50%;
+      width: min(100vw, 600px);
+      height: 115%;
+      background: linear-gradient(180deg, rgba(192, 211, 192, .1), rgba(122, 148, 135, .015) 70%, transparent);
+      clip-path: polygon(44% 0, 56% 0, 91% 100%, 9% 100%);
+      filter: blur(8px);
+      transform: translateX(-50%);
+    }
+
+    .floor {
+      position: absolute;
+      z-index: 1;
+      right: -20%;
+      bottom: -15%;
+      left: -20%;
+      height: 43%;
+      opacity: .16;
+      background:
+        repeating-conic-gradient(from 45deg, #849087 0 25%, #121918 0 50%) 0 0 / 74px 74px;
+      transform: perspective(300px) rotateX(62deg);
+      transform-origin: center bottom;
+    }
+
+    .dust {
+      position: absolute;
+      z-index: 2;
+      top: 19%;
+      left: 20%;
+      width: 2px;
+      height: 2px;
+      border-radius: 50%;
+      background: #c7d1c6;
+      box-shadow:
+        48px 73px 0 rgba(199, 209, 198, .35),
+        190px 21px 0 rgba(199, 209, 198, .3),
+        231px 157px 0 rgba(199, 209, 198, .2),
+        13px 242px 0 rgba(199, 209, 198, .25),
+        154px 295px 0 rgba(199, 209, 198, .2),
+        276px 338px 0 rgba(199, 209, 198, .25),
+        84px 388px 0 rgba(199, 209, 198, .18);
+      opacity: .55;
+    }
+
+    .clown-wrap {
+      position: absolute;
+      z-index: 3;
+      top: 52%;
+      left: 50%;
+      width: min(79vw, 360px);
+      opacity: 0;
+      transform: translate(-50%, -43%) scale(.8);
+      transform-origin: 50% 43%;
+      will-change: transform, opacity, filter;
+    }
+
+    .clown {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .is-reveal .clown-wrap {
+      animation: revealClown 4.7s cubic-bezier(.2, .58, .25, 1) both;
+    }
+
+    .pupil {
+      fill: #70827c;
+    }
+
+    .mouth-scare {
+      display: none;
+    }
+
+    .whisper {
+      position: absolute;
+      z-index: 10;
+      right: 22px;
+      bottom: max(14%, 82px);
+      left: 22px;
+      color: #c5cec5;
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: clamp(12px, 3.5vw, 16px);
+      font-weight: 700;
+      letter-spacing: .14em;
+      line-height: 1.5;
+      text-align: center;
+      text-shadow: 0 2px 18px #000;
+      opacity: 0;
+      transform: translateY(7px);
+      transition: opacity .35s ease, transform .35s ease;
+    }
+
+    .whisper.show {
+      opacity: .9;
+      transform: translateY(0);
+    }
+
+    .is-scare .whisper,
+    .is-release .whisper {
+      opacity: 0;
+    }
+
+    .is-scare .scene {
+      animation: scareShake .58s linear both;
+    }
+
+    .is-scare .scene::after {
+      box-shadow: inset 0 0 145px 38px rgba(72, 8, 14, .88);
+    }
+
+    .is-scare .clown-wrap {
+      animation: scareIn .76s cubic-bezier(.12, .75, .18, 1) both;
+    }
+
+    .is-scare .pupil {
+      fill: #f3ffd5;
+    }
+
+    .is-scare .mouth-normal {
+      display: none;
+    }
+
+    .is-scare .mouth-scare {
+      display: block;
+    }
+
+    .scare-ring {
+      position: absolute;
+      z-index: 6;
+      top: 50%;
+      left: 50%;
+      width: 28vmin;
+      height: 28vmin;
+      border: 2px solid rgba(215, 229, 211, .45);
+      border-radius: 50%;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .is-scare .scare-ring {
+      animation: ringOut .68s ease-out both;
+    }
+
+    .release-copy {
+      position: absolute;
+      z-index: 11;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      padding: 30px;
+      opacity: 0;
+      text-align: center;
+    }
+
+    .release-copy span {
+      margin-bottom: 13px;
+      color: var(--cyan);
+      font-size: 10px;
+      font-weight: 950;
+      letter-spacing: .18em;
+    }
+
+    .release-copy h2 {
+      margin: 0;
+      font-size: clamp(38px, 11vw, 62px);
+      line-height: .98;
+      letter-spacing: -.06em;
+    }
+
+    .release-copy p {
+      max-width: 300px;
+      margin: 18px 0 0;
+      color: #a8b8bd;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .is-release .scene {
+      background: radial-gradient(circle at 50% 38%, #173137, #070e17 65%);
+    }
+
+    .is-release .clown-wrap {
+      animation: clownExit .5s ease-in both;
+    }
+
+    .is-release .release-copy {
+      animation: releaseIn .45s .16s ease-out both;
+    }
+
+    .final {
+      z-index: 12;
+      padding: 22px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 15%, rgba(53, 126, 116, .26), transparent 42%),
+        rgba(4, 10, 17, .94);
+      backdrop-filter: blur(8px);
+    }
+
+    .is-final .final {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .final-card {
+      position: relative;
+      z-index: 3;
+      width: min(100%, 360px);
+      padding: 27px 24px 23px;
+      border: 1px solid #496451;
+      border-radius: 29px;
+      background: linear-gradient(155deg, #19302f, #101c28 68%);
+      box-shadow: 0 28px 100px rgba(0, 0, 0, .55), 0 0 50px rgba(186, 244, 90, .05);
+      text-align: center;
+    }
+
+    .is-final .final-card {
+      animation: finalIn .5s cubic-bezier(.16, .85, .25, 1) both;
+    }
+
+    .final-card .check {
+      width: 70px;
+      height: 70px;
+      margin-top: 18px;
+    }
+
+    .final-card h2 {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: -.05em;
+    }
+
+    .final-card .result {
+      margin: 8px 0 17px;
+      color: #b8c5c9;
+      font-size: 14px;
+    }
+
+    .points {
+      margin: 0 -4px;
+      padding: 15px 12px;
+      border: 1px solid rgba(186, 244, 90, .34);
+      border-radius: 18px;
+      background: rgba(186, 244, 90, .09);
+      color: var(--lime);
+      font-size: 29px;
+      font-weight: 950;
+      letter-spacing: -.035em;
+    }
+
+    .final-card .tagline {
+      margin: 15px 0 20px;
+      color: #91a4ad;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .final-card .primary-button {
+      width: 100%;
+    }
+
+    .confetti {
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .confetti span {
+      position: absolute;
+      top: -35px;
+      left: var(--x);
+      width: 8px;
+      height: 17px;
+      border-radius: 2px;
+      background: var(--c);
+      opacity: 0;
+    }
+
+    .is-final .confetti span {
+      animation: confettiDrop 1.8s var(--d) cubic-bezier(.15, .65, .35, 1) both;
+    }
+
+    .skip {
+      position: fixed;
+      z-index: 70;
+      right: max(15px, env(safe-area-inset-right));
+      bottom: max(15px, env(safe-area-inset-bottom));
+      min-width: 142px;
+      min-height: 46px;
+      padding: 0 17px;
+      border: 1px solid rgba(203, 216, 218, .25);
+      border-radius: 999px;
+      background: rgba(10, 17, 23, .76);
+      color: #d4dfe0;
+      backdrop-filter: blur(8px);
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .skip span {
+      margin-left: 5px;
+      font-size: 19px;
+      vertical-align: -1px;
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(14px) scale(.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes lightsOut {
+      0%, 16% { opacity: 0; }
+      30% { opacity: .76; }
+      42%, 58% { opacity: .12; }
+      72% { opacity: .86; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes cardJolt {
+      0%, 16% { transform: translateX(0); }
+      30% { transform: translateX(-2px); }
+      42%, 58% { transform: translateX(2px); }
+      72% { transform: translateX(-1px); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes revealClown {
+      0% {
+        opacity: 0;
+        filter: brightness(.18) blur(8px);
+        transform: translate(-50%, -39%) scale(.78);
+      }
+      35% {
+        opacity: .28;
+        filter: brightness(.28) blur(5px);
+      }
+      72% {
+        opacity: .7;
+        filter: brightness(.5) blur(2px);
+      }
+      100% {
+        opacity: .98;
+        filter: brightness(.82) blur(0);
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    @keyframes scareIn {
+      0% {
+        opacity: 1;
+        filter: brightness(.82);
+        transform: translate(-50%, -50%) scale(1);
+      }
+      18% {
+        opacity: 1;
+        filter: brightness(1.25) contrast(1.2);
+        transform: translate(-50%, -42%) scale(2.45);
+      }
+      35% {
+        transform: translate(calc(-50% - 7px), -42%) scale(2.3) rotate(-1deg);
+      }
+      52% {
+        transform: translate(calc(-50% + 6px), -42%) scale(2.38) rotate(1deg);
+      }
+      72%, 100% {
+        opacity: 1;
+        filter: brightness(1.14) contrast(1.15);
+        transform: translate(-50%, -42%) scale(2.35);
+      }
+    }
+
+    @keyframes scareShake {
+      0%, 100% { transform: translate(0, 0); }
+      18% { transform: translate(-5px, 3px); }
+      32% { transform: translate(5px, -3px); }
+      46% { transform: translate(-3px, -2px); }
+      60% { transform: translate(3px, 2px); }
+      76% { transform: translate(-1px, 1px); }
+    }
+
+    @keyframes ringOut {
+      0% { opacity: .65; transform: translate(-50%, -50%) scale(.4); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(4); }
+    }
+
+    @keyframes clownExit {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -42%) scale(2.35);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -80%) scale(.3) rotate(7deg);
+      }
+    }
+
+    @keyframes releaseIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes finalIn {
+      from { opacity: 0; transform: translateY(20px) scale(.96); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes confettiDrop {
+      0% { opacity: 1; transform: translate3d(0, -10px, 0) rotate(0); }
+      80% { opacity: 1; }
+      100% { opacity: 0; transform: translate3d(20px, 110vh, 0) rotate(var(--r)); }
+    }
+
+    @media (min-width: 700px) {
+      .app {
+        padding-top: 30px;
+      }
+
+      .clown-wrap {
+        width: 370px;
+      }
+    }
+
+    @media (max-height: 620px) {
+      .final-card {
+        padding-top: 20px;
+        padding-bottom: 18px;
+      }
+
+      .final-card .check {
+        width: 54px;
+        height: 54px;
+        margin: 12px auto;
+      }
+
+      .final-card .tagline {
+        margin: 10px 0 13px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-delay: 0ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .confetti {
+        display: none;
+      }
+
+      .is-reveal .clown-wrap {
+        opacity: .86;
+        filter: brightness(.72);
+        transform: translate(-50%, -50%) scale(.94);
+        animation: none !important;
+      }
+
+      .is-release .clown-wrap {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app" aria-label="Mathe-Weltreise">
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">✈</span>
+        <div>
+          WELTREISE
+          <small>MATHE UNTERWEGS</small>
+        </div>
+      </div>
+      <div class="streak">7er-Serie</div>
+    </header>
+
+    <section class="route-card">
+      <div class="eyebrow">Nächste Etappe</div>
+      <h1>Flug 12 · Bruchrechnen</h1>
+      <div class="route-meta">10 Aufgaben · Direktflug möglich</div>
+
+      <svg class="route-map" viewBox="0 0 440 150" aria-hidden="true">
+        <path d="M25 107 C100 18, 171 138, 242 65 S362 24, 414 52" fill="none" stroke="#334c5c" stroke-width="3" stroke-dasharray="5 9" stroke-linecap="round"/>
+        <path d="M25 107 C100 18, 171 138, 242 65 S362 24, 414 52" fill="none" stroke="#61d9d0" stroke-width="3" stroke-linecap="round" stroke-dasharray="480" stroke-dashoffset="76"/>
+        <circle cx="25" cy="107" r="10" fill="#baf45a"/>
+        <circle cx="25" cy="107" r="4" fill="#142018"/>
+        <circle cx="242" cy="65" r="7" fill="#142838" stroke="#61d9d0" stroke-width="3"/>
+        <circle cx="414" cy="52" r="11" fill="#142838" stroke="#baf45a" stroke-width="3"/>
+        <path d="M397 33 l28 8 -20 7 -5 14 -5 -14 -14 -5z" fill="#eef5ed" transform="rotate(9 405 45)"/>
+        <text x="18" y="134" fill="#8297a5" font-size="10" font-family="system-ui">START</text>
+        <text x="374" y="84" fill="#baf45a" font-size="10" font-family="system-ui">ZIEL</text>
+      </svg>
+
+      <div class="route-stats">
+        <div><strong>10/10</strong><span>Bordkarten</span></div>
+        <div><strong>0</strong><span>Fehler</span></div>
+        <div><strong>+20</strong><span>Punkte</span></div>
+      </div>
+    </section>
+
+    <section class="ticket">
+      <div>
+        <small>BORDKARTE 10/10</small>
+        <strong>Brüche gekürzt. Sitzplatz sicher.</strong>
+      </div>
+      <span class="ticket-status">BEREIT ✓</span>
+    </section>
+
+    <nav class="app-nav" aria-label="App-Bereiche">
+      <span class="active">Flug</span>
+      <span>Karte</span>
+      <span>Logbuch</span>
+    </nav>
+  </main>
+
+  <section class="intro" id="intro" aria-label="Effekt starten">
+    <div class="intro-card">
+      <div class="intro-icon" aria-hidden="true">✈</div>
+      <h2>Bereit für den<br>Direktflug?</h2>
+      <p>Kurzer Überraschungseffekt nach 10/10 richtigen Antworten. Nicht weggucken, Digga.</p>
+      <button class="primary-button" id="play" type="button">▶ Abspielen</button>
+      <span class="sound-hint">Ca. 11 Sekunden · am besten mit Ton</span>
+    </div>
+  </section>
+
+  <section class="effect" id="effect" hidden aria-label="Horror-Clown-Überraschung">
+    <div class="layer calm">
+      <div class="success-card">
+        <div class="success-kicker">Flug 12 abgeschlossen</div>
+        <div class="check" aria-hidden="true">✓</div>
+        <h2>Direktflug ✓</h2>
+        <p>10/10 richtig · 0 Fehler</p>
+        <span class="calm-route">Bruchrechnen · Bordkarte komplett</span>
+      </div>
+    </div>
+
+    <div class="blackout" aria-hidden="true"></div>
+
+    <div class="layer scene">
+      <div class="curtain left" aria-hidden="true"></div>
+      <div class="curtain right" aria-hidden="true"></div>
+      <div class="spotlight" aria-hidden="true"></div>
+      <div class="floor" aria-hidden="true"></div>
+      <div class="dust" aria-hidden="true"></div>
+
+      <div class="clown-wrap" aria-hidden="true">
+        <svg class="clown" viewBox="0 0 360 460">
+          <defs>
+            <radialGradient id="facePaint" cx="48%" cy="30%" r="72%">
+              <stop offset="0" stop-color="#d9dacb"/>
+              <stop offset=".48" stop-color="#a6afa3"/>
+              <stop offset=".82" stop-color="#59645e"/>
+              <stop offset="1" stop-color="#252e2d"/>
+            </radialGradient>
+            <linearGradient id="hairPaint" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#9c4840"/>
+              <stop offset=".52" stop-color="#592728"/>
+              <stop offset="1" stop-color="#1e171b"/>
+            </linearGradient>
+            <linearGradient id="nosePaint" x1=".25" y1=".15" x2=".8" y2=".9">
+              <stop offset="0" stop-color="#b76558"/>
+              <stop offset=".5" stop-color="#773733"/>
+              <stop offset="1" stop-color="#321c20"/>
+            </linearGradient>
+            <linearGradient id="collarPaint" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#8e9b90"/>
+              <stop offset="1" stop-color="#252e30"/>
+            </linearGradient>
+          </defs>
+
+          <path d="M108 111 55 67 65 119 20 110 51 157 11 175 60 197 28 237 80 229 65 282 119 246 139 139Z" fill="url(#hairPaint)"/>
+          <path d="M108 111 55 67 65 119 20 110 51 157 11 175 60 197 28 237 80 229 65 282 119 246 139 139Z" fill="url(#hairPaint)" transform="translate(360 0) scale(-1 1)"/>
+          <path d="M71 160 36 139 48 180 22 196 66 207M289 160l35-21-12 41 26 16-44 11" fill="none" stroke="#b05a4a" stroke-width="5" stroke-linecap="round" opacity=".35"/>
+
+          <path d="M123 335 86 414 48 449h264l-38-35-37-79Z" fill="#111a1d"/>
+          <path d="m93 360 35-25 20 36 32-45 32 45 21-36 34 25-22 60H115Z" fill="url(#collarPaint)" stroke="#151c1e" stroke-width="4"/>
+          <path d="m98 369 30-18 18 34 34-42 34 42 18-34 29 18" fill="none" stroke="#bbc0ae" stroke-width="5" opacity=".4"/>
+
+          <ellipse cx="84" cy="215" rx="25" ry="39" fill="#657168"/>
+          <ellipse cx="276" cy="215" rx="25" ry="39" fill="#657168"/>
+          <path d="M180 38C113 38 83 95 86 181c3 94 31 183 94 202 63-19 91-108 94-202 3-86-27-143-94-143Z" fill="url(#facePaint)" stroke="#202827" stroke-width="4"/>
+          <path d="M180 42c55 24 67 92 60 168-8 83-27 138-60 169 63-19 91-108 94-202 3-82-24-137-84-135Z" fill="#172321" opacity=".28"/>
+          <path d="M135 59c16-12 74-13 92 2-30-7-60-6-92-2Z" fill="#eef0dc" opacity=".22"/>
+
+          <path d="m96 156 56-19-10 87-37-12-18-29Z" fill="#172022"/>
+          <path d="m264 156-56-19 10 87 37-12 18-29Z" fill="#172022"/>
+          <path d="m101 149 45-25M259 149l-45-25" fill="none" stroke="#313c38" stroke-width="8" stroke-linecap="round"/>
+
+          <path d="M103 180q21-22 43-2-20 25-41 12Z" fill="#aeb9aa" class="eye-white"/>
+          <path d="M257 180q-21-22-43-2 20 25 41 12Z" fill="#aeb9aa" class="eye-white"/>
+          <ellipse class="pupil" cx="127" cy="182" rx="6" ry="10"/>
+          <ellipse class="pupil" cx="233" cy="182" rx="6" ry="10"/>
+          <circle cx="129" cy="179" r="1.7" fill="#101716"/>
+          <circle cx="231" cy="179" r="1.7" fill="#101716"/>
+
+          <path d="m114 229-22 46 37-17M246 229l22 46-37-17" fill="#52605a" opacity=".65"/>
+          <path d="M180 174c-8 22-11 39-10 52" fill="none" stroke="#657168" stroke-width="4" stroke-linecap="round" opacity=".6"/>
+
+          <circle cx="180" cy="239" r="27" fill="url(#nosePaint)" stroke="#3d2526" stroke-width="3"/>
+          <ellipse cx="171" cy="229" rx="8" ry="6" fill="#d18b75" opacity=".35"/>
+
+          <g class="mouth-normal">
+            <path d="M102 282q78 70 156 0-76 43-156 0Z" fill="#111719"/>
+            <path d="M111 287q69 31 138 0" fill="none" stroke="#c4c7b5" stroke-width="10" stroke-linecap="round"/>
+            <path d="m132 294-2 10m25-5-1 11m26-8v11m26-12 1 11m25-17 2 10" stroke="#333c39" stroke-width="3"/>
+            <path d="M101 281q79 72 158 0" fill="none" stroke="#623333" stroke-width="5" stroke-linecap="round"/>
+            <path d="m100 280-13-17m172 17 13-17" stroke="#623333" stroke-width="5" stroke-linecap="round"/>
+          </g>
+
+          <g class="mouth-scare">
+            <path d="M108 274q72-35 144 0l-15 73q-57 63-114 0Z" fill="#050708" stroke="#49282b" stroke-width="6"/>
+            <path d="m119 283 16 30 15-37 17 35 14-40 15 40 16-35 15 37 15-30-8 40H126Z" fill="#d5d5bd"/>
+            <path d="m132 354 15-29 16 35 17-31 17 31 16-35 15 29-26 22h-44Z" fill="#bfc2ae"/>
+            <path d="M180 319v29" stroke="#111716" stroke-width="8"/>
+          </g>
+
+          <path d="M120 116q60-31 120 0" fill="none" stroke="#e0e2cf" stroke-width="3" opacity=".2"/>
+          <path d="M105 251q9 72 46 105M255 251q-9 72-46 105" fill="none" stroke="#cad0be" stroke-width="2" opacity=".13"/>
+        </svg>
+      </div>
+
+      <div class="scare-ring" aria-hidden="true"></div>
+      <div class="whisper" id="whisper"></div>
+
+      <div class="release-copy">
+        <span>OKAY, KLEINER SCHOCK.</span>
+        <h2>Nur ein Scherz,<br>Digga.</h2>
+        <p>Dein Direktflug ist trotzdem krass.</p>
+      </div>
+    </div>
+
+    <div class="layer final" aria-live="polite">
+      <div class="confetti" aria-hidden="true">
+        <span style="--x:7%;--d:.02s;--r:420deg;--c:#baf45a"></span>
+        <span style="--x:16%;--d:.19s;--r:-330deg;--c:#61d9d0"></span>
+        <span style="--x:27%;--d:.06s;--r:510deg;--c:#f1e6b2"></span>
+        <span style="--x:37%;--d:.27s;--r:-440deg;--c:#baf45a"></span>
+        <span style="--x:47%;--d:.12s;--r:390deg;--c:#61d9d0"></span>
+        <span style="--x:58%;--d:.31s;--r:-520deg;--c:#f1e6b2"></span>
+        <span style="--x:67%;--d:.04s;--r:470deg;--c:#baf45a"></span>
+        <span style="--x:76%;--d:.22s;--r:-370deg;--c:#61d9d0"></span>
+        <span style="--x:85%;--d:.09s;--r:540deg;--c:#f1e6b2"></span>
+        <span style="--x:93%;--d:.28s;--r:-460deg;--c:#baf45a"></span>
+      </div>
+
+      <div class="final-card">
+        <div class="success-kicker">Flug 12 · Bruchrechnen</div>
+        <div class="check" aria-hidden="true">✓</div>
+        <h2>Direktflug ✓</h2>
+        <div class="result">10/10 richtig · 0 Fehler</div>
+        <div class="points">+20 Punkte</div>
+        <p class="tagline">Kein Fehler. Nur kurz Herzrasen.<br>Nächster Flug wartet, Digga.</p>
+        <button class="primary-button" id="replay" type="button">↻ Nochmal</button>
+      </div>
+    </div>
+  </section>
+
+  <button class="skip" id="skip" type="button" hidden>Überspringen <span>›</span></button>
+
+  <script>
+    (() => {
+      const intro = document.getElementById('intro');
+      const effect = document.getElementById('effect');
+      const playButton = document.getElementById('play');
+      const replayButton = document.getElementById('replay');
+      const skipButton = document.getElementById('skip');
+      const whisper = document.getElementById('whisper');
+      const reduceQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const phases = ['is-calm', 'is-blackout', 'is-reveal', 'is-scare', 'is-release', 'is-final'];
+
+      let timers = [];
+      let audioCtx = null;
+      let master = null;
+      let sources = new Set();
+
+      function later(callback, delay) {
+        const timer = window.setTimeout(callback, delay);
+        timers.push(timer);
+      }
+
+      function clearTimers() {
+        timers.forEach(window.clearTimeout);
+        timers = [];
+      }
+
+      function phase(name) {
+        effect.classList.remove(...phases);
+        effect.classList.add(name);
+      }
+
+      function resetVisual() {
+        clearTimers();
+        stopSounds();
+        effect.className = 'effect';
+        whisper.classList.remove('show');
+        whisper.textContent = '';
+        void effect.offsetWidth;
+      }
+
+      function showWhisper(text) {
+        whisper.classList.remove('show');
+        whisper.textContent = text;
+        void whisper.offsetWidth;
+        whisper.classList.add('show');
+      }
+
+      function initAudio() {
+        if (!audioCtx) {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContextClass) return;
+
+          audioCtx = new AudioContextClass();
+          master = audioCtx.createGain();
+          master.gain.value = .55;
+
+          const compressor = audioCtx.createDynamicsCompressor();
+          compressor.threshold.value = -20;
+          compressor.knee.value = 14;
+          compressor.ratio.value = 9;
+          compressor.attack.value = .003;
+          compressor.release.value = .24;
+
+          master.connect(compressor);
+          compressor.connect(audioCtx.destination);
+        }
+
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume().catch(() => {});
+        }
+      }
+
+      function track(source) {
+        sources.add(source);
+        source.addEventListener('ended', () => sources.delete(source), { once: true });
+        return source;
+      }
+
+      function stopSounds() {
+        sources.forEach(source => {
+          try {
+            source.stop();
+          } catch (_) {}
+        });
+        sources.clear();
+      }
+
+      function now() {
+        return audioCtx ? audioCtx.currentTime : 0;
+      }
+
+      function tone(frequency, when, duration, volume = .06, type = 'sine', endFrequency = 0, attack = .02) {
+        if (!audioCtx || !master) return;
+
+        const oscillator = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        const attackEnd = when + Math.min(attack, duration * .45);
+
+        oscillator.type = type;
+        oscillator.frequency.setValueAtTime(frequency, when);
+        if (endFrequency > 0) {
+          oscillator.frequency.exponentialRampToValueAtTime(endFrequency, when + duration);
+        }
+
+        gain.gain.setValueAtTime(.0001, when);
+        gain.gain.exponentialRampToValueAtTime(Math.max(.0002, volume), attackEnd);
+        gain.gain.exponentialRampToValueAtTime(.0001, when + duration);
+
+        oscillator.connect(gain);
+        gain.connect(master);
+        oscillator.start(when);
+        oscillator.stop(when + duration + .03);
+        track(oscillator);
+      }
+
+      function noise(when, duration, volume = .03, cutoff = 1200, attack = .01) {
+        if (!audioCtx || !master) return;
+
+        const length = Math.max(1, Math.floor(audioCtx.sampleRate * duration));
+        const buffer = audioCtx.createBuffer(1, length, audioCtx.sampleRate);
+        const data = buffer.getChannelData(0);
+
+        for (let i = 0; i < length; i++) {
+          data[i] = Math.random() * 2 - 1;
+        }
+
+        const source = audioCtx.createBufferSource();
+        const filter = audioCtx.createBiquadFilter();
+        const gain = audioCtx.createGain();
+
+        source.buffer = buffer;
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(cutoff, when);
+        filter.Q.value = .8;
+
+        gain.gain.setValueAtTime(.0001, when);
+        gain.gain.exponentialRampToValueAtTime(
+          Math.max(.0002, volume),
+          when + Math.min(attack, duration * .4)
+        );
+        gain.gain.exponentialRampToValueAtTime(.0001, when + duration);
+
+        source.connect(filter);
+        filter.connect(gain);
+        gain.connect(master);
+        source.start(when);
+        source.stop(when + duration + .02);
+        track(source);
+      }
+
+      function playCalmChime() {
+        if (!audioCtx) return;
+        const start = now() + .03;
+        [523.25, 659.25, 783.99].forEach((frequency, index) => {
+          tone(frequency, start + index * .1, .4, .05, 'sine');
+        });
+        tone(1046.5, start + .3, .4, .022, 'triangle');
+      }
+
+      function playPowerDown() {
+        if (!audioCtx) return;
+        const start = now();
+        tone(135, start, .76, .045, 'sawtooth', 31, .01);
+        noise(start, .26, .018, 520, .005);
+      }
+
+      function playDrone() {
+        if (!audioCtx) return;
+        const start = now();
+        tone(43, start, 4.15, .052, 'sine', 38, 1.2);
+        tone(44.2, start, 4.15, .025, 'triangle', 41, 1.5);
+        noise(start, 4.1, .012, 720, 1.1);
+      }
+
+      function playHeartbeat() {
+        if (!audioCtx) return;
+        const start = now();
+        tone(72, start, .17, .16, 'sine', 37, .008);
+        tone(61, start + .21, .19, .11, 'sine', 34, .008);
+      }
+
+      function playScare() {
+        if (!audioCtx) return;
+        const start = now();
+        noise(start, .72, .28, 1800, .004);
+        tone(92, start, .78, .21, 'sawtooth', 40, .004);
+        tone(97, start, .72, .12, 'square', 43, .004);
+        tone(760, start, .42, .075, 'sawtooth', 135, .004);
+        tone(46, start + .02, .9, .25, 'sine', 31, .004);
+      }
+
+      function playRelease() {
+        if (!audioCtx) return;
+        const start = now();
+
+        if (reduceQuery.matches) {
+          tone(180, start, .45, .026, 'sine', 140, .05);
+          return;
+        }
+
+        tone(310, start, .14, .043, 'square', 245, .008);
+        tone(260, start + .17, .22, .038, 'square', 180, .008);
+        tone(196, start + .52, .28, .028, 'triangle', 220, .02);
+      }
+
+      function playFinalChime() {
+        if (!audioCtx) return;
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume().catch(() => {});
+        }
+
+        const start = now() + .025;
+        [392, 523.25, 659.25, 783.99].forEach((frequency, index) => {
+          tone(frequency, start + index * .105, .58, .05, 'sine');
+        });
+        tone(1046.5, start + .46, .65, .028, 'triangle');
+      }
+
+      function scare() {
+        stopSounds();
+        phase('is-scare');
+        playScare();
+      }
+
+      function release() {
+        stopSounds();
+        phase('is-release');
+        playRelease();
+      }
+
+      function finish() {
+        clearTimers();
+        stopSounds();
+        phase('is-final');
+        skipButton.hidden = true;
+        playFinalChime();
+      }
+
+      function start() {
+        resetVisual();
+        intro.hidden = true;
+        effect.hidden = false;
+        skipButton.hidden = false;
+        initAudio();
+        playCalmChime();
+        phase('is-calm');
+
+        if (reduceQuery.matches) {
+          later(() => {
+            stopSounds();
+            phase('is-reveal');
+            tone(110, now(), 1.1, .017, 'sine', 82, .25);
+          }, 2500);
+          later(() => showWhisper('Psst … Digga.'), 3600);
+          later(() => showWhisper('Zehn richtig. Null Fehler.'), 5500);
+          later(release, 7200);
+          later(finish, 10000);
+          return;
+        }
+
+        later(() => {
+          phase('is-blackout');
+          playPowerDown();
+        }, 2200);
+
+        later(() => phase('is-reveal'), 3250);
+        later(playDrone, 3900);
+        later(() => showWhisper('Psst … Digga.'), 4050);
+        later(playHeartbeat, 5400);
+        later(() => showWhisper('Zehn richtig. Null Fehler.'), 5700);
+        later(playHeartbeat, 6900);
+        later(() => showWhisper('Das ist fast unheimlich.'), 7100);
+        later(scare, 8000);
+        later(release, 8850);
+        later(finish, 11200);
+      }
+
+      playButton.addEventListener('click', start);
+      replayButton.addEventListener('click', start);
+      skipButton.addEventListener('click', finish);
+
+      document.addEventListener('keydown', event => {
+        if (
+          event.key === 'Escape' &&
+          !effect.hidden &&
+          !effect.classList.contains('is-final')
+        ) {
+          finish();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

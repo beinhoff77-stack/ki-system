@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><title>Mathe an Bord · Flug 12</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#081824;color:#ecf2da;font-family:system-ui,sans-serif}main{min-height:100svh;display:grid;place-items:center;background:radial-gradient(ellipse at 18% 22%,#244759,transparent 55%),repeating-linear-gradient(0deg,transparent 0 49px,#31536444 50px),repeating-linear-gradient(90deg,transparent 0 49px,#31536444 50px),#10232e;padding:56px 18px}header{position:absolute;top:21px;left:6%;letter-spacing:.14em;font:700 12px monospace}.ticket{width:min(100%,390px);background:#10232b;border:1px solid #647c7f;border-radius:18px;padding:26px;box-shadow:0 20px 50px #0006}.label{font:700 11px monospace;letter-spacing:.14em;color:#c7e4c9}.route{display:block;width:100%;height:68px;margin:12px 0}.data{display:flex;justify-content:space-between;align-items:center;border-top:1px dashed #658285;padding-top:14px;font:700 13px monospace}h1,h2{margin:12px 0;font-weight:850;letter-spacing:-.055em;line-height:1.05;font-size:clamp(32px,7vw,43px)}button{font:750 16px system-ui;min-height:46px;cursor:pointer;border-radius:9px;padding:10px 20px;border:1px solid #b5daac;background:#c4f0a5;color:#132621}button:focus-visible{outline:3px solid #ffcc6a;outline-offset:3px}#stage,#result{position:fixed;inset:0;display:grid;place-items:center;overflow:hidden}#stage{background:radial-gradient(ellipse,#d4b8a0,#a29a91 58%,#6c7780)}#glass{width:min(100vw, calc(80svh * 1.11),750px);height:auto;image-rendering:pixelated;display:block}.meter{position:absolute;top:max(6%,18px);left:7%;font:700 11px monospace;letter-spacing:.12em;color:#e1e8d2}.quote{position:absolute;bottom:max(15%,84px);left:5%;right:5%;text-align:center}.quote span:not(:empty){display:inline-block;padding:9px 14px;background:#091823;color:#fff6cd;border:1px solid #91a794;font-size:clamp(18px,4vw,27px);font-weight:800;letter-spacing:-.035em;box-shadow:4px 4px 0 #0005}#skip{position:absolute;right:max(15px,env(safe-area-inset-right));bottom:max(15px,env(safe-area-inset-bottom));background:#15252a;color:#f8f5dc;border-color:#939e92;font-size:14px}#result,#ordinary{background:#07151edc;padding:18px}#ordinary{position:absolute;inset:0;display:grid;place-items:center}#result .ticket,#ordinary .ticket{border-top:5px solid #b4e99f}.award{font-size:24px;font-weight:850;color:#c9f9a9}#result button{margin-top:22px;width:100%}[hidden]{display:none!important}
+</style></head><body><main id="app"><header>↗ MATHE AN BORD</header><article class="ticket"><div class="label">BORDKARTE &nbsp; / &nbsp; FLUG 12</div><h1>Bruchrechnen</h1><svg class="route" aria-hidden="true" viewBox="0 0 300 65"><path d="M7 56Q125 -20 290 28" stroke="#98c9b3" stroke-width="2" fill="none" stroke-dasharray="3 5"/><circle cx="8" cy="56" r="5" fill="#c5eda1"/><circle cx="290" cy="28" r="5" fill="#e6ad63"/><path d="m157 9 6 1-5-9 3 0 10 10 10 1 3 2-3 2-10-1-9 7-3-1 5-8-8-1-3-4 2 0z" fill="#ebf8d2"/></svg><div class="data"><span>5/5 richtig ✓</span><button id="play">▶ Abspielen</button></div></article></main>
+<section id="stage" hidden><div class="meter">ABFLUGHALLE · WINDMESSER 05</div><canvas id="glass" width="320" height="288" aria-hidden="true"></canvas><div class="quote"><span id="caption"></span></div><button id="skip">Überspringen ›</button></section>
+<section id="result" hidden aria-live="polite"><article class="ticket"><div class="label">FLUG 12 &nbsp; / &nbsp; BESTÄTIGT</div><h2>5 in Folge richtig ✓</h2><div class="award">+5 Punkte</div><button id="again">Nochmal</button></article></section>
+<script>
+'use strict';
+const by=id=>document.getElementById(id),g=by('glass').getContext('2d'),motion=matchMedia('(prefers-reduced-motion: reduce)');
+const clamp=n=>Math.max(0,Math.min(1,n)),ramp=(t,a,b)=>{let u=clamp((t-a)/(b-a));return u*u*(3-2*u)};
+function rect(x,y,w,h,color){g.fillStyle=color;g.fillRect(x,y,w,h)}
+const paths=new Map();
+function path(d,color,stroke,width=1){let p=paths.get(d);if(!p){p=new Path2D(d);paths.set(d,p)}if(color){g.fillStyle=color;g.fill(p)}if(stroke){g.strokeStyle=stroke;g.lineWidth=width;g.stroke(p)}}
+function oval(x,y,rx,ry,color){g.beginPath();g.ellipse(x,y,rx,ry,0,0,Math.PI*2);g.fillStyle=color;g.fill()}
+function label(s){if(by('caption').textContent!==s)by('caption').textContent=s}
+let audio,output,frame,epoch,next;
+function note(hz,to,len,vol,type='sine',delay=0){if(!output)return;const start=audio.currentTime+delay,osc=audio.createOscillator(),amp=audio.createGain();osc.type=type;osc.frequency.setValueAtTime(hz,start);osc.frequency.exponentialRampToValueAtTime(to,start+len);amp.gain.setValueAtTime(.0001,start);amp.gain.exponentialRampToValueAtTime(vol,start+.012);amp.gain.exponentialRampToValueAtTime(.0001,start+len);osc.connect(amp).connect(output);osc.start(start);osc.stop(start+len+.02);osc.onended=()=>{osc.disconnect();amp.disconnect()}}
+const duration=10.9,ink='#352f39',skin='#ebb088',wool='#db975e';
+function tap(){note(560,185,.062,.095,'triangle')}
+function motor(){for(let i=0;i<11;i++){const f=88-3*i+7*Math.sin(i);note(f,f*.52,.115,.20,'sawtooth',i*.049)}note(63,36,.59,.23);note(141,72,.13,.12,'triangle',.78)}
+const cues=[[.52,tap],[1.08,tap],[1.64,tap],[2.2,tap],[3.4,()=>note(670,810,.09,.055,'sine')],[5.08,motor],[7.95,tap],[8.51,tap],[9.07,tap],[9.63,tap],[10.19,tap]];
+function terminal(t,quiet){
+ rect(8,37,304,169,'#33465a');rect(12,41,296,160,'#e8bd91');
+ const sky=g.createLinearGradient(0,40,0,174);sky.addColorStop(0,'#6c91a2');sky.addColorStop(.58,'#edc6a4');sky.addColorStop(1,'#d58773');rect(16,45,288,133,sky);
+ oval(240,99,18,18,'#ffe4b3');path('M16 149l36-26 18 11 32-38 46 38 25-18 22 18 38-28 28 20 18-12 25 19v30H16Z','#9c8384');path('M16 158l55-19 28 8 43-17 32 14 31-8 31 12 32-11 36 12v29H16Z','#657f81');
+ rect(16,162,288,16,'#748c8c');for(let i=0;i<4;i++)rect(16+i*92,45,4,133,'#445565');
+ rect(12,179,296,22,'#b29d88');rect(0,203,320,4,'#6c6667');path('M7 244h306l-12 15H18Z','#3d4146');
+ rect(32,61,65,19,ink);g.fillStyle='#ffdb94';g.font='bold 10px monospace';g.fillText('TOR 05 ↗',39,74);
+ rect(253,191,3,40,'#55545a');const wind=quiet?0:ramp(t,5.08,5.32)*(1-ramp(t,6.08,6.95));g.save();g.translate(254,192);g.rotate(-wind*1.43);path('M0 0l7 0-1 23-5 5Z','#cd6749',ink);rect(1,7,5,4,'#ffe4b4');rect(1,15,4,3,'#ffe4b4');g.restore()
+}
+function grandpa(x,y,t,quiet){
+ const walking=t<2.7||t>7.72,step=walking&&!quiet?Math.sin(t*11.22):0;
+ const turn=ramp(t,4.32,4.92)-ramp(t,6.32,6.77),back=turn>.5;
+ g.save();g.translate(x,y);oval(0,0,35,5,'#30343855');g.translate(0,-Math.abs(step)*1.5);
+ for(const side of [-1,1]){g.save();g.translate(side*8,-42);g.rotate(side*step*.15);
+ path('M-7 -1l14 1-1 37-10 2Z',side<0?'#586169':'#737978',ink,2);
+ path('M-7 32l12-1 4 5 10 2 2 6-27 1-4-4Z','#a25544',ink,2);rect(-6,35,9,3,'#e9b88c');g.restore()}
+ g.scale(1-.26*Math.sin(Math.PI*turn),1);
+ path('M-24 -80q-2-27 16-37 23-10 35 14l1 53q-18 10-46 1Z',wool,ink,2.8);
+ for(let i=-15;i<22;i+=9)path('M'+i+' -85l4 5-4 5-4-5Z','#aa644f');
+ if(back){path('M-23 -57q-4 13-1 21 13 6 25 0 11 8 23 0l-1-21Z','#657376',ink,2);path('M0 -53q-3 10 0 15m-17-12 10 2m13-1 10-2',null,'#424951',2)}
+ else{path('M-5 -113l12 22 10-22M7 -91l1 36',null,ink,2);for(let i=0;i<3;i++)oval(11,-85+i*10,1.6,1.6,ink)}
+ g.save();g.translate(2,-129);const look=ramp(t,2.93,3.26)-ramp(t,3.72,4.05);
+ if(!back)g.scale(1-2*look,1);
+ path('M-20 -9q2-20 21-20 19-1 22 20l-1 10 8 4q4 6-6 8-4 15-20 15-21 0-26-15Z',skin,ink,2.3);
+ path('M-25 5q-8-22 8-30 7-11 24-9 18 0 23 13l4 6-14 4q-17-8-33 6l-2 15-9-2Z','#dedad0',ink,2);
+ if(back){path('M-24 -12q25-12 47-1l-2 17-9 10-6-4-9 5-11-6-6 2Z','#c1c6b8');path('M-14 -3l5-5m9 9 6-7',null,'#969f97',2)}
+ else{path('M-22 -1l14 5m0-4 14-1 1 10-12 1Zm16-2 5-2m0-7 11-1 1 9-11 2Z','#e6dcb9',ink,2);rect(1,2,3,4,ink);rect(18,0,2,4,ink);path('M6 15q9-8 19-2l-1 5-9-1-8 3Z','#efebe2',ink,1);rect(12,21,8,1,ink)}
+ g.restore();path('M24 -77q9-6 12 0l-2 73',null,ink,4);path('M-16 -92q-7 20 1 26l23-2 3-9-16-3 3-11',wool,ink,2);if(!back){path('M8 -78q6-7 14-1l8-3 6 3-2 6-24 5Z',skin,ink,1.5)}g.restore()
+}
+function draw(t,quiet){
+ const jolt=quiet?0:Math.sin((t-5.08)*51)*4*ramp(t,5.07,5.1)*(1-ramp(t,5.1,5.58));
+ by('stage').style.transform='translateX('+jolt+'px)';terminal(t,quiet);
+ const x=quiet?160:-42+202*ramp(t,0,2.7)+207*ramp(t,7.72,10.58);
+ g.save();g.globalAlpha=quiet?ramp(t,0,.45)*(1-ramp(t,9.65,10.5)):1;grandpa(x,239,t,quiet);g.restore();
+ const puff=ramp(t,5.08,5.63),fade=1-ramp(t,6.02,7.15);
+ if(puff*fade>0){g.save();g.globalAlpha=puff*fade*.92;g.translate(154,195);g.scale(quiet?1:puff,quiet?1:puff);const spread=quiet?0:8*(1-fade);
+ for(let i=0;i<11;i++){const dx=i*5.7+spread*i/10,dy=Math.sin(i*1.72)*(2+i*.78)-i*.75;
+ oval(-dx,dy,4+i*1.04,3+i*.87,'#749a54');oval(-dx,dy-2,3+i*.9,2+i*.7,i%2?'#bbd878':'#a5d073')}
+ g.restore()}
+ label(t>6.66&&t<9.57?'Rückenwind. Steht so im Flugplan.':'')
+}
+
+function finish(){cancelAnimationFrame(frame);if(output){output.disconnect();output=null}by('stage').hidden=true;by('result').hidden=false;by('again').focus({preventScroll:true})}
+function tick(now){const t=(now-epoch)/1000;if(t>=duration){finish();return}
+ while(next<cues.length&&cues[next][0]<=t){const [at,sound]=cues[next++];if(t-at<.22)sound()}
+ g.resetTransform();g.clearRect(0,0,320,288);draw(t,motion.matches);frame=requestAnimationFrame(tick)}
+function start(){try{audio??=new(window.AudioContext||window.webkitAudioContext)();audio.resume().catch(()=>{});output=audio.createGain();output.gain.value=.52;output.connect(audio.destination)}catch{output=null}
+ by('app').inert=true;by('result').hidden=true;by('stage').hidden=false;by('skip').focus({preventScroll:true});next=0;epoch=performance.now();tick(epoch)}
+by('play').onclick=by('again').onclick=start;by('skip').onclick=finish;
+</script></body></html>

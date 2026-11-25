@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Highlight</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0e1526;color:#eef2f8;overflow:hidden;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+/* Platzhalter-App im Hintergrund */
+#app{position:fixed;inset:0;background:linear-gradient(180deg,#15264a,#0e1a30 55%,#0a1120);display:flex;flex-direction:column;gap:14px;padding:calc(env(safe-area-inset-top) + 14px) 16px 16px}
+#app .top{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:700}
+#app .streak{background:rgba(255,255,255,.08);padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600}
+#app .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:18px}
+#app .route{font-size:13px;color:#9fb3d9}
+#app .big{font-size:30px;font-weight:800;margin:6px 0 10px}
+#app .bar{height:8px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden}
+#app .bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#37d67a,#2bb6f6)}
+#app .sub{margin-top:8px;font-size:12px;color:#9fb3d9}
+#app .hint{font-size:13px;color:#7f93b8;text-align:center;margin-top:auto}
+/* Effekt-Ebenen */
+#fx{position:fixed;inset:0;z-index:20;pointer-events:none}
+#dim{position:absolute;inset:0;background:#02040a;opacity:0}
+#flash{position:absolute;inset:0;background:#fff;opacity:0}
+#clownbox{position:absolute;left:50%;top:52%;width:min(56vmin,290px);transform:translate(-50%,-50%);opacity:0;transition:opacity 3.4s ease}
+#clownbox.in{opacity:1}
+#clownbox.zoom{opacity:1;transition:opacity .06s,transform .14s cubic-bezier(.7,0,1,1);transform:translate(-50%,-49%) scale(7)}
+#clownSvg{width:100%;height:auto;transform-origin:50% 60%;filter:drop-shadow(0 0 18px rgba(120,0,0,.25))}
+.pupil{transition:fill .8s}
+#clownbox.lit .pupil{fill:#ff2f26}
+#whisper{position:absolute;left:0;right:0;top:17%;text-align:center;font-size:clamp(15px,4.4vw,20px);color:#8fa7c9;font-style:italic;opacity:0;transition:opacity .9s;text-shadow:0 0 12px #000}
+#whisper.show{opacity:1}
+#msg{position:absolute;left:50%;top:34%;transform:translate(-50%,-50%) scale(.7);opacity:0;transition:transform .5s,opacity .5s;text-align:center;width:86%}
+#msg.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
+#msg h1,#final h1{font-size:clamp(26px,8vw,40px)}
+#msg p,#final .note{color:#b9c8e2}
+.check{width:54px;height:54px;border-radius:50%;background:#37d67a;color:#06281a;font-size:30px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 10px}
+#line{position:absolute;left:0;right:0;bottom:15%;text-align:center;font-size:clamp(14px,4vw,17px);color:#cdd9ee;opacity:0;transition:opacity .6s;padding:0 24px}
+#line.show{opacity:1}
+#final{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:rgba(6,10,20,.9);opacity:0;visibility:hidden;transition:opacity .6s;pointer-events:none;text-align:center;padding:20px}
+#final.show{opacity:1;visibility:visible;pointer-events:auto}
+#pts{font-size:26px;font-weight:800;color:#ffd166}
+/* Knöpfe */
+button{font:inherit;cursor:pointer;border:0;border-radius:999px}
+#startWrap{position:fixed;inset:0;z-index:50;background:rgba(4,8,16,.55);display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center}
+#startWrap p{font-size:13px;color:#b9c8e2}
+#start{background:linear-gradient(90deg,#37d67a,#2bb6f6);color:#04131f;font-weight:800;font-size:18px;padding:14px 30px;box-shadow:0 8px 24px rgba(43,182,246,.35)}
+#skip{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:40;background:rgba(255,255,255,.14);color:#fff;font-size:13px;padding:9px 14px;display:none}
+#again{margin-top:16px;background:transparent;border:2px solid #37d67a;color:#37d67a;font-weight:800;padding:12px 34px}
+@keyframes shk{0%,100%{transform:translate(0,0)}20%{transform:translate(-8px,5px)}40%{transform:translate(6px,-5px)}60%{transform:translate(-4px,3px)}80%{transform:translate(4px,-3px)}}
+#fx.shake{animation:shk .5s linear}
+@keyframes sway{from{transform:rotate(-1.6deg)}to{transform:rotate(1.6deg)}}
+body:not(.rm) #clownbox.in #clownSvg{animation:sway 3.4s ease-in-out infinite alternate}
+body.rm #clownbox.zoom{transition:opacity .4s,transform .4s;transform:translate(-50%,-50%) scale(1.08)}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="top"><span class="logo">✈ Mathe-Weltreise</span><span class="streak">🔥 Serie: 3</span></div>
+  <div class="card">
+    <div class="route">Flug 12 · Bruchrechnen</div>
+    <div class="big">10/10 richtig</div>
+    <div class="bar"><i></i></div>
+    <div class="sub">Bordkarten 10/10 · Fehler 0 · Direktflug</div>
+  </div>
+  <div class="hint">Nächster Stopp: Prozente in Kairo</div>
+</div>
+<div id="fx">
+  <div id="dim"></div>
+  <div id="clownbox">
+    <svg id="clownSvg" viewBox="0 0 200 250" aria-hidden="true">
+      <g transform="rotate(-4 100 130)">
+        <g fill="#7e1d16">
+          <circle cx="34" cy="88" r="24"/><circle cx="56" cy="54" r="27"/><circle cx="100" cy="40" r="30"/><circle cx="144" cy="54" r="27"/><circle cx="166" cy="88" r="24"/>
+        </g>
+        <ellipse cx="100" cy="128" rx="60" ry="64" fill="#eee6d8"/>
+        <path d="M58 104 Q72 92 86 103 Q72 112 58 104 Z" fill="#2e0a3b" opacity=".85"/>
+        <path d="M114 103 Q128 92 142 104 Q128 112 114 103 Z" fill="#2e0a3b" opacity=".85"/>
+        <g transform="translate(72,121)"><ellipse rx="12.5" ry="13.5" fill="#fff"/><circle class="pupil" r="5.6" fill="#7a1016"/><circle cx="2.2" cy="-2.5" r="1.5" fill="#fff" opacity=".85"/></g>
+        <g transform="translate(128,121)"><ellipse rx="12.5" ry="13.5" fill="#fff"/><circle class="pupil" r="5.6" fill="#7a1016"/><circle cx="2.2" cy="-2.5" r="1.5" fill="#fff" opacity=".85"/></g>
+        <circle cx="100" cy="146" r="10" fill="#c1121f" stroke="#6d0a10" stroke-width="2.5"/>
+        <path d="M50 149 Q100 216 150 149 Q100 175 50 149 Z" fill="#150509"/>
+        <path d="M58 152 Q100 188 142 152 Q100 170 58 152 Z" fill="#f6f1e3"/>
+        <path d="M71 155 l0 12 M86 158 l0 15 M100 159 l0 16 M114 158 l0 15 M129 155 l0 12" stroke="#150509" stroke-width="2.4" fill="none"/>
+      </g>
+    </svg>
+  </div>
+  <div id="flash"></div>
+  <div id="whisper">„…zehn von zehn… wer fliegt denn so gut…?“</div>
+  <div id="msg"><div class="check">✓</div><h1>Direktflug ✓</h1><p>10/10 richtig – null Fehler, Digga!</p></div>
+  <div id="line">Gänsehaut-Level: Profi. Selbst der Horror-Clown zollt Respekt, Digga.</div>
+  <div id="final">
+    <div class="check">✓</div>
+    <h1>Direktflug ✓</h1>
+    <p id="pts">+0 Punkte</p>
+    <p class="note">Der Clown ist weg – die Punkte bleiben. Flug bereit, Digga!</p>
+    <button id="again">Nochmal</button>
+  </div>
+</div>
+<div id="startWrap">
+  <button id="start">▶ Abspielen</button>
+  <p>Ton an – es wird kurz gruselig.</p>
+</div>
+<button id="skip">Überspringen ›</button>
+<script>
+(function(){
+"use strict";
+function $(s){return document.querySelector(s)}
+var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(RM) document.body.classList.add('rm');
+var timers=[], ctx=null, master=null, drone=null, noiseSrc=null, heartTimer=null, finished=false;
+var dim=$('#dim'), clown=$('#clownbox'), whisper=$('#whisper'), msg=$('#msg'), line=$('#line'),
+    final=$('#final'), flash=$('#flash'), fx=$('#fx'), skip=$('#skip');
+var pupils=[].slice.call(document.querySelectorAll('.pupil'));
+function T(ms,fn){var id=setTimeout(fn,ms);timers.push(id);}
+function setDim(v,ms){dim.style.transition='opacity '+ms+'ms ease';dim.style.opacity=v;}
+function initAudio(){try{var AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;ctx=new AC();master=ctx.createGain();master.gain.value=0.4;master.connect(ctx.destination);}catch(e){ctx=null;}}
+function note(f,at,dur,type,vol){if(!ctx)return;var o=ctx.createOscillator(),g=ctx.createGain(),t=ctx.currentTime+(at||0);o.type=type||'sine';o.frequency.value=f;g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(vol||0.2,t+0.03);g.gain.exponentialRampToValueAtTime(0.0001,t+dur);o.connect(g);g.connect(master);o.start(t);o.stop(t+dur+0.05);}
+function chime(){note(523,0,.4,'triangle',.22);note(659,.1,.4,'triangle',.22);note(784,.2,.5,'triangle',.22);note(1047,.32,.7,'triangle',.24);}
+function startDrone(){if(!ctx)return;var o1=ctx.createOscillator(),o2=ctx.createOscillator(),g=ctx.createGain(),f=ctx.createBiquadFilter();o1.type='sawtooth';o2.type='sawtooth';o1.frequency.value=54;o2.frequency.value=54.7;f.type='lowpass';f.frequency.value=210;var t=ctx.currentTime;g.gain.setValueAtTime(0.0001,t);g.gain.linearRampToValueAtTime(0.16,t+2.2);o1.connect(f);o2.connect(f);f.connect(g);g.connect(master);o1.start();o2.start();drone=[o1,o2,g];}
+function stopDrone(fast){if(!drone)return;var t=ctx.currentTime;drone[2].gain.cancelScheduledValues(t);drone[2].gain.setValueAtTime(Math.max(drone[2].gain.value,0.0001),t);drone[2].gain.exponentialRampToValueAtTime(0.0001,t+(fast?0.05:0.5));try{drone[0].stop(t+0.6);drone[1].stop(t+0.6);}catch(e){}drone=null;}
+function whisperNoise(){if(!ctx)return;var t=ctx.currentTime,dur=2.6,buf=ctx.createBuffer(1,ctx.sampleRate*dur|0,ctx.sampleRate),d=buf.getChannelData(0),i;for(i=0;i<d.length;i++)d[i]=Math.random()*2-1;var src=ctx.createBufferSource();src.buffer=buf;var bp=ctx.createBiquadFilter();bp.type='bandpass';bp.frequency.value=950;bp.Q.value=.7;var g=ctx.createGain();g.gain.setValueAtTime(0.0001,t);g.gain.linearRampToValueAtTime(0.05,t+0.7);g.gain.linearRampToValueAtTime(0.0001,t+dur);src.connect(bp);bp.connect(g);g.connect(master);src.start();noiseSrc=src;}
+function thump(t0,f){var o=ctx.createOscillator(),g=ctx.createGain();o.type='sine';o.frequency.setValueAtTime(f,t0);o.frequency.exponentialRampToValueAtTime(f*0.55,t0+0.12);g.gain.setValueAtTime(0.0001,t0);g.gain.exponentialRampToValueAtTime(0.5,t0+0.015);g.gain.exponentialRampToValueAtTime(0.0001,t0+0.22);o.connect(g);g.connect(master);o.start(t0);o.stop(t0+0.25);}
+function startHeart(){if(!ctx||heartTimer)return;heartTimer=setInterval(function(){thump(ctx.currentTime,58);thump(ctx.currentTime+0.16,50);},950);}
+function stopHeart(){if(heartTimer){clearInterval(heartTimer);heartTimer=null;}}
+function scare(level){if(!ctx)return;var t=ctx.currentTime,dur=0.45,buf=ctx.createBuffer(1,ctx.sampleRate*dur|0,ctx.sampleRate),d=buf.getChannelData(0),i;for(i=0;i<d.length;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/d.length,1.4);var src=ctx.createBufferSource();src.buffer=buf;var hp=ctx.createBiquadFilter();hp.type='highpass';hp.frequency.value=250;var g=ctx.createGain();g.gain.value=0.9*level;src.connect(hp);hp.connect(g);g.connect(master);src.start(t);[98,104,208,415].forEach(function(f){var o=ctx.createOscillator(),gg=ctx.createGain();o.type='sawtooth';o.frequency.setValueAtTime(f,t);o.frequency.exponentialRampToValueAtTime(f*0.78,t+0.5);gg.gain.setValueAtTime(0.0001,t);gg.gain.exponentialRampToValueAtTime(0.11*level,t+0.02);gg.gain.exponentialRampToValueAtTime(0.0001,t+0.55);o.connect(gg);gg.connect(master);o.start(t);o.stop(t+0.6);});var o=ctx.createOscillator(),g2=ctx.createGain();o.type='square';o.frequency.setValueAtTime(1400,t);o.frequency.exponentialRampToValueAtTime(300,t+0.5);g2.gain.setValueAtTime(0.0001,t);g2.gain.exponentialRampToValueAtTime(0.07*level,t+0.03);g2.gain.exponentialRampToValueAtTime(0.0001,t+0.5);o.connect(g2);g2.connect(master);o.start(t);o.stop(t+0.55);}
+function endJingle(){note(523,0,.3,'triangle',.2);note(784,.12,.4,'triangle',.2);}
+function flashPulse(){flash.style.transition='none';flash.style.opacity='0.85';requestAnimationFrame(function(){requestAnimationFrame(function(){flash.style.transition='opacity .3s';flash.style.opacity='0';});});}
+function dip(){dim.style.transition='opacity .12s';dim.style.opacity='0.32';setTimeout(function(){dim.style.opacity='0.55';},150);}
+function countUp(){var el=$('#pts'),n=0;if(RM){el.textContent='+20 Punkte';return;}var iv=setInterval(function(){n++;el.textContent='+'+n+' Punkte';if(n>=20)clearInterval(iv);},30);}
+function showFinal(){if(finished)return;finished=true;timers.forEach(clearTimeout);timers=[];stopDrone(true);stopHeart();if(noiseSrc){try{noiseSrc.stop();}catch(e){}}setDim(0,300);clown.classList.remove('in','zoom','lit');clown.style.display='none';whisper.classList.remove('show');msg.classList.remove('show');line.classList.remove('show');final.classList.add('show');skip.style.display='none';countUp();}
+function run(){
+  if(ctx&&ctx.state==='suspended')ctx.resume();
+  chime();msg.classList.add('show');
+  T(3000,function(){startDrone();setDim(0.55,1400);});
+  if(!RM)T(3700,dip);
+  T(4300,function(){setDim(0.94,1600);msg.classList.remove('show');whisper.classList.add('show');whisperNoise();});
+  T(4700,startHeart);
+  T(5100,function(){clown.classList.add('in');});
+  T(6400,function(){clown.classList.add('lit');});
+  T(8500,stopHeart);
+  T(8800,function(){whisper.classList.remove('show');});
+  T(9300,function(){stopDrone(true);if(RM){setDim(0.6,300);clown.classList.add('zoom');scare(0.4);}else{clown.classList.add('zoom');flashPulse();fx.classList.add('shake');scare(1);if(navigator.vibrate)navigator.vibrate(180);}});
+  T(10050,function(){setDim(0.08,600);line.classList.add('show');endJingle();});
+  T(10800,showFinal);
+}
+$('#start').addEventListener('click',function(){$('#startWrap').style.display='none';initAudio();if(ctx&&ctx.state==='suspended')ctx.resume();skip.style.display='block';run();});
+skip.addEventListener('click',showFinal);
+$('#again').addEventListener('click',function(){location.reload();});
+addEventListener('pointermove',function(e){var cx=innerWidth/2,cy=innerHeight*0.52;var x=Math.max(-1,Math.min(1,(e.clientX-cx)/cx));var y=Math.max(-1,Math.min(1,(e.clientY-cy)/cy));pupils.forEach(function(p){p.setAttribute('transform','translate('+(x*4).toFixed(1)+' '+(y*3).toFixed(1)+')');});});
+})();
+</script>
+</body>
+</html>

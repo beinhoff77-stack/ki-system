@@ -1,0 +1,5 @@
+{
+  "hinweis": "Nur für Claude. Nicht veröffentlichen, bis Sebastian seine Reihenfolge abgegeben hat.",
+  "opa": {"A": "kimi-k3-1-pro", "B": "fable-5-2", "C": "muse-spark-1-3", "D": "gpt-6"},
+  "clown": {"A": "gpt-6", "B": "glm-5-3", "C": "fable-5-2", "D": "kimi-k3-1-pro", "E": "muse-spark-1-3"}
+}

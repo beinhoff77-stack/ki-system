@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><title>Mathe an Bord · Flug 12</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#081824;color:#ecf2da;font-family:system-ui,sans-serif}main{min-height:100svh;display:grid;place-items:center;background:radial-gradient(ellipse at 18% 22%,#244759,transparent 55%),repeating-linear-gradient(0deg,transparent 0 49px,#31536444 50px),repeating-linear-gradient(90deg,transparent 0 49px,#31536444 50px),#10232e;padding:56px 18px}header{position:absolute;top:21px;left:6%;letter-spacing:.14em;font:700 12px monospace}.ticket{width:min(100%,390px);background:#10232b;border:1px solid #647c7f;border-radius:18px;padding:26px;box-shadow:0 20px 50px #0006}.label{font:700 11px monospace;letter-spacing:.14em;color:#c7e4c9}.route{display:block;width:100%;height:68px;margin:12px 0}.data{display:flex;justify-content:space-between;align-items:center;border-top:1px dashed #658285;padding-top:14px;font:700 13px monospace}h1,h2{margin:12px 0;font-weight:850;letter-spacing:-.055em;line-height:1.05;font-size:clamp(32px,7vw,43px)}button{font:750 16px system-ui;min-height:46px;cursor:pointer;border-radius:9px;padding:10px 20px;border:1px solid #b5daac;background:#c4f0a5;color:#132621}button:focus-visible{outline:3px solid #ffcc6a;outline-offset:3px}#stage,#result{position:fixed;inset:0;display:grid;place-items:center;overflow:hidden}#stage{background:radial-gradient(ellipse,#22303a,#0b141c 58%,#060e14)}#glass{width:min(100vw, calc(80svh * 1.11),750px);height:auto;image-rendering:pixelated;display:block}.meter{position:absolute;top:max(6%,18px);left:7%;font:700 11px monospace;letter-spacing:.12em;color:#e1e8d2}.quote{position:absolute;bottom:max(15%,84px);left:5%;right:5%;text-align:center}.quote span:not(:empty){display:inline-block;padding:9px 14px;background:#091823;color:#fff6cd;border:1px solid #91a794;font-size:clamp(18px,4vw,27px);font-weight:800;letter-spacing:-.035em;box-shadow:4px 4px 0 #0005}#skip{position:absolute;right:max(15px,env(safe-area-inset-right));bottom:max(15px,env(safe-area-inset-bottom));background:#15252a;color:#f8f5dc;border-color:#939e92;font-size:14px}#result,#ordinary{background:#07151edc;padding:18px}#ordinary{position:absolute;inset:0;display:grid;place-items:center}#result .ticket,#ordinary .ticket{border-top:5px solid #b4e99f}.award{font-size:24px;font-weight:850;color:#c9f9a9}#result button{margin-top:22px;width:100%}[hidden]{display:none!important}
+</style></head><body><main id="app"><header>↗ MATHE AN BORD</header><article class="ticket"><div class="label">BORDKARTE &nbsp; / &nbsp; FLUG 12</div><h1>Bruchrechnen</h1><svg class="route" aria-hidden="true" viewBox="0 0 300 65"><path d="M7 56Q125 -20 290 28" stroke="#98c9b3" stroke-width="2" fill="none" stroke-dasharray="3 5"/><circle cx="8" cy="56" r="5" fill="#c5eda1"/><circle cx="290" cy="28" r="5" fill="#e6ad63"/><path d="m157 9 6 1-5-9 3 0 10 10 10 1 3 2-3 2-10-1-9 7-3-1 5-8-8-1-3-4 2 0z" fill="#ebf8d2"/></svg><div class="data"><span>10/10 richtig ✓</span><button id="play">▶ Abspielen</button></div></article></main>
+<section id="stage" hidden><div class="meter">NACHTFLUG · SICHTFENSTER 12</div><canvas id="glass" width="320" height="288" aria-hidden="true"></canvas><div id="ordinary"><article class="ticket"><div class="label">FLUG 12 · BRUCHRECHNEN</div><h2>Direktflug ✓</h2><strong class="award">10/10 richtig</strong></article></div><div class="quote"><span id="caption"></span></div><button id="skip">Überspringen ›</button></section>
+<section id="result" hidden aria-live="polite"><article class="ticket"><div class="label">FLUG 12 &nbsp; / &nbsp; BESTÄTIGT</div><h2>Direktflug ✓</h2><div class="award">+20 Punkte</div><button id="again">Nochmal</button></article></section>
+<script>
+'use strict';
+const by=id=>document.getElementById(id),g=by('glass').getContext('2d'),motion=matchMedia('(prefers-reduced-motion: reduce)');
+const clamp=n=>Math.max(0,Math.min(1,n)),ramp=(t,a,b)=>{let u=clamp((t-a)/(b-a));return u*u*(3-2*u)};
+function rect(x,y,w,h,color){g.fillStyle=color;g.fillRect(x,y,w,h)}
+const paths=new Map();
+function path(d,color,stroke,width=1){let p=paths.get(d);if(!p){p=new Path2D(d);paths.set(d,p)}if(color){g.fillStyle=color;g.fill(p)}if(stroke){g.strokeStyle=stroke;g.lineWidth=width;g.stroke(p)}}
+function oval(x,y,rx,ry,color){g.beginPath();g.ellipse(x,y,rx,ry,0,0,Math.PI*2);g.fillStyle=color;g.fill()}
+function label(s){if(by('caption').textContent!==s)by('caption').textContent=s}
+let audio,output,frame,epoch,next;
+function note(hz,to,len,vol,type='sine',delay=0){if(!output)return;const start=audio.currentTime+delay,osc=audio.createOscillator(),amp=audio.createGain();osc.type=type;osc.frequency.setValueAtTime(hz,start);osc.frequency.exponentialRampToValueAtTime(to,start+len);amp.gain.setValueAtTime(.0001,start);amp.gain.exponentialRampToValueAtTime(vol,start+.012);amp.gain.exponentialRampToValueAtTime(.0001,start+len);osc.connect(amp).connect(output);osc.start(start);osc.stop(start+len+.02);osc.onended=()=>{osc.disconnect();amp.disconnect()}}
+const duration=12.9;
+function scare(){note(174,41,.52,.27,'sawtooth');note(346,174,.25,.13,'triangle');note(509,319,.28,.09,'square');note(70,31,.78,.24);note(943,702,.16,.045,'sine',.025)}
+const cues=[[.08,()=>note(523,523,.23,.12)],[.30,()=>note(784,784,.29,.10)],[2.2,()=>note(130,43,.24,.12,'triangle')],[6.25,()=>note(43,62,1.1,.14)],[8.08,scare],[10,()=>note(196,262,.14,.12,'triangle')],[10.19,()=>note(392,523,.29,.10,'triangle')]];
+function portal(t,quiet){
+ const glow=quiet?.1:.15+.12*Math.cos((t-2.2)*Math.PI*1.8)*(1-ramp(t,3.6,4.5));
+ const ring=g.createRadialGradient(160,138,26,160,138,137);ring.addColorStop(0,'#10151d');ring.addColorStop(.72,'#14232b');ring.addColorStop(.96,'#38434a');ring.addColorStop(1,'#16242b');
+ oval(160,146,113,129,'#050d13');oval(160,142,108,124,ring);oval(160,142,96,111,'#071319');
+ g.save();g.globalAlpha=glow;path('M70 119q36-106 100-81l-40 106-48 59Z','#6d998d');g.restore();
+ for(let i=0;i<8;i++){const a=i*Math.PI/4+.18,x=160+102*Math.cos(a),y=142+117*Math.sin(a);oval(x,y,2.4,2.4,'#89918a');rect(x-1.5,y,3,1,'#29353b')}
+}
+function mask(jaw,gaze){
+ const outline='#172027',ivory='#d8d2ac';g.save();
+ path('M-69 147q7-36 32-44l30-12 40 4q35 11 43 52Z','#32454c',outline,3);
+ path('M-65 92l18 2-5-15 25 6 7-14 19 9 19-10 8 12 25-6-2 17 18-4-10 20-11-1-9 11-13-4-10 11-15-8-12 7-11-11-15 1-6-10Z','#a3b4a8',outline,2.5);
+ path('M-56 95l22 14-8-20 23 23-4-24 18 27 4-26 9 25 12-28-1 22 22-22-10 21 22-14',null,'#586e70',2.4);
+ for(const side of [-1,1]){g.save();g.scale(side,1);path('M39 16q7-26 24-25-6 8-1 13 17-6 17 5-1 8-8 13 13 2 4 12-7 6-16 6 5 9-9 15l-18-7Z','#874d58',outline,2.4);path('M49 18q5-9 15-11m-12 22 13-7',null,'#be7973',2);g.restore()}
+ const ceramic=g.createLinearGradient(-45,-12,47,53);ceramic.addColorStop(0,'#92a69f');ceramic.addColorStop(.36,ivory);ceramic.addColorStop(.69,'#c4bfa7');ceramic.addColorStop(1,'#6e8681');
+ path('M-42 4q-1-30 22-40 25-12 47 2 22 13 22 41l-3 37q-5 28-37 49-7 5-13 0-33-16-38-43Z',ceramic,outline,2.7);
+ path('M-39 -8q4-21 25-29l-6 8-9 7 4 5-8 14Z','#e9ddba');path('M31 -24q17 17 13 52l-9 27-3-27 7-10Z','#87958a');
+ for(const side of [-1,1]){g.save();g.scale(side,1);path('M8 4q12-17 27-10l4 7Q20-4 8 10Z','#364048');
+ path('M10 19l11-26 3 16 12 7-10 5-5 22-6-20-7-3Z','#795768');path('M7 18q15-17 32-7-7 16-30 12Z','#132029');
+ oval(22+gaze,16,2.8,3.4,'#e2ebbb');rect(21+gaze,14,1.3,1.3,'#fff4cf');g.restore()}
+ oval(1,32,9,8,'#8f4651');oval(-1,29,3,2,'#e4a18a');
+ g.save();g.translate(0,45);g.scale(1,1+jaw*.59);
+ path('M-35 -9q11 15 33 14 23 0 38-20-6 33-34 38-22 1-37-32Z','#a06166');
+ path('M-30 -5q29 26 61-4-11 26-32 27-16 0-29-23Z','#182126');
+ path('M-25 1q26 18 52-5-6 12-24 15-16 1-28-10Z','#ede1bb');
+ for(let i=0;i<6;i++){const x=-17+i*7;rect(x,6-Math.abs(x)*.13,1,3,'#929589')}g.restore();
+ path('M-39 -26l9-22 53-5 14 13-12 11-49 11Z','#293941',outline,2);path('M-30 -48l20-18 31 3 4 12Z','#536671',outline,2);path('M-29 -33l52-12-6 7-42 10Z','#cca16c');oval(-1,-46,4,4,'#e1c28b');g.restore()
+}
+function draw(t,quiet){
+ const dark=ramp(t,1.8,3.55);by('ordinary').style.opacity=1-dark;by('ordinary').style.visibility=t>=3.55?'hidden':'visible';portal(t,quiet);
+ g.save();g.beginPath();g.ellipse(160,142,94,108,0,0,Math.PI*2);g.clip();
+ const appear=ramp(t,4.02,7.35),hit=ramp(t,8.08,8.21),release=ramp(t,8.94,10.05);
+ const size=quiet?.91:.36+.48*appear+1.57*hit-1.36*release;
+ g.globalAlpha=(.62*appear+.38*hit)*(1-ramp(t,12.14,12.89));g.translate(quiet?160:143+17*appear,quiet?132:149-18*appear-9*hit);g.scale(size,size);
+ g.rotate(quiet?0:-.19+.13*appear+.13*hit-.16*release);mask(hit*(1-release),quiet?0:1.6*Math.sin(t*1.4));g.restore();
+ label(t>9.8&&t<12.35?'Digga. Ich such hier seit zehn Aufgaben deinen Fehler.':'')
+}
+
+function finish(){cancelAnimationFrame(frame);if(output){output.disconnect();output=null}by('stage').hidden=true;by('result').hidden=false;by('again').focus({preventScroll:true})}
+function tick(now){const t=(now-epoch)/1000;if(t>=duration){finish();return}
+ while(next<cues.length&&cues[next][0]<=t){const [at,sound]=cues[next++];if(t-at<.22)sound()}
+ g.resetTransform();g.clearRect(0,0,320,288);draw(t,motion.matches);frame=requestAnimationFrame(tick)}
+function start(){try{audio??=new(window.AudioContext||window.webkitAudioContext)();audio.resume().catch(()=>{});output=audio.createGain();output.gain.value=.52;output.connect(audio.destination)}catch{output=null}
+ by('app').inert=true;by('result').hidden=true;by('stage').hidden=false;by('skip').focus({preventScroll:true});next=0;epoch=performance.now();tick(epoch)}
+by('play').onclick=by('again').onclick=start;by('skip').onclick=finish;
+</script></body></html>

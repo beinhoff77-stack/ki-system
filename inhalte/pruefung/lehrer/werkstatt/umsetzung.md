@@ -1,14 +1,14 @@
 # Vorgabe „Unser Lehrplan“ – Matrix, Fahrplan und Detail auf einer Seite (Eltern/Lehrer)
 
 Stand 22.11.2026. Klickbarer Prototyp: `entwurf/unser-lehrplan.html` (Breite 400 / 820 / 1280 oben umschaltbar; Themen, Klassen, Etappen, Verbindungen echt; Lernstand und Plan von „Kind B“ erfunden). Bilder: `bilder/`.
-Nur Vorgabe, kein App-Code. Ziel (Sebastian): eigenen Lehrplan machen – sehen, was es gibt, auswählen, Stufe setzen, Reihenfolge festlegen, Lehrstoff ansehen und genau sehen, wo das Kind steht – **an einer Stelle**, platzsparend und schön.
+Nur Vorgabe, kein App-Code. Ziel (der Nutzer): eigenen Lehrplan machen – sehen, was es gibt, auswählen, Stufe setzen, Reihenfolge festlegen, Lehrstoff ansehen und genau sehen, wo das Kind steht – **an einer Stelle**, platzsparend und schön.
 
 ## 1 Einordnung in die Kind-Seite
 - Reiter der Kind-Seite: **Überblick · Was wackelt · Lehrplan** (3 statt 4). „Lehrplan“ ersetzt **„Stand“ und „Plan“**. Alte Links `#/kind/<id>-stand` und `-plan` führen auf den neuen Reiter.
 - Nachschlagen → Lehrplan (LM, alle Kinder, „Beide vergleichen“) bleibt die Übersicht ohne Bearbeiten; im Detail dort zusätzlich „Für ‹Kind› planen ›“ → dieser Reiter mit dem Thema geöffnet.
 - Die Stufen-Knöpfe gibt es danach **nur noch hier** (heute drei Stellen).
 
-### 1a Kopf: Kinder durchklicken, Reiter verknüpft (Sebastian 22.11.)
+### 1a Kopf: Kinder durchklicken, Reiter verknüpft (der Nutzer 22.11.)
 - Statt nur „Kind B“: **Kinder-Umschalter** im Kopf: `‹ [A Kind A · Realschule · Kl. 6] [B Kind B · Gymnasium · Kl. 8] ›`. Klick auf ein Kind oder ‹ › wechselt das Kind, **der gewählte Reiter bleibt** (man vergleicht z. B. Lehrplan A und B direkt). Tastatur Alt+← / Alt+→. Handy: nur das aktive Kind ausgeschrieben, andere als Buchstabe.
 - Beim Wechsel: Schule und Klassen-Filter übernehmen die Werte des Kindes, Detail zu, Auswahl leer, Rückgängig verfällt.
 - Reiter „Was wackelt“ zeigt eine **rote Zahl** = Einträge „Zu besprechen“.
@@ -30,14 +30,14 @@ Nur Vorgabe, kein App-Code. Ziel (Sebastian): eigenen Lehrplan machen – sehen,
 ```
 - **Detail als Schublade über der Matrix**, nicht als feste Spalte – so bleibt die volle Breite für die Matrix (löst N1 der Nachprüfung Matrix: zu schmale Spalten bei 1280).
 - **Fertige Klassen eingeklappt:** Klassen, in denen alles „kann er“/„Wiederholung“ ist, stehen als eine Zeile „Gym Kl. 5 · ✓ Alles gekonnt · 14 Themen · davon 3 in Wiederholung · aufklappen ▾“. Beim Öffnen scrollt die Seite zur Klasse des Kindes.
-- Klassen-Kasten links: Schulart + Klasse in Klassenfarbe (LA-8), darunter **drei Ringe** (Sebastian 22.11.): groß die gewählte Schule, klein darunter die beiden anderen („RS 8 25 %“, „MYP 3 53 %“).
+- Klassen-Kasten links: Schulart + Klasse in Klassenfarbe (LA-8), darunter **drei Ringe** (der Nutzer 22.11.): groß die gewählte Schule, klein darunter die beiden anderen („RS 8 25 %“, „MYP 3 53 %“).
 - **Rechnung je Ring:** gelandete Etappen / alle Etappen der Pflichtthemen dieser Schule in dieser Klasse (IB: MYP-Jahr = Klasse − 5), unabhängig davon, in welcher Zeile die Themen stehen. Gelandet = Etappe gelandet (auch in Wiederholung); gesetzte Themen („Kann er …“) zählen mit allen Etappen. Farben im Ring: grün kann er, hellgrün Wiederholung, gelb angefangene Themen. Unter dem großen Ring „9/10 Themen“ (ganz fertige Themen). Aufgelöste Themen zählen nicht. Darüberfahren: „Gym 8: 12 von 101 Etappen gelandet · 1/15 Themen fertig“.
 
 ## 3 Die Karte (ein Thema in der Matrix)
 - Zeile 1: Titel (höchstens 2 Zeilen, Silbentrennung, dann „…“).
 - Zeile 2 links: Stand – `◉ kann er` / `◉ gesetzt` / `↻ Wdh 2/5` / `▶ Etappe 3/7` / `Platz 4` / `2/7 begonnen` / leer.
 - Zeile 2 rechts: **Schul-Kennzeichen** `Gym 8 · RS 7 · IB 4` (gewählte Schulart dunkel, fehlende durchgestrichen, „Gym –“ orange). Tablet/Handy kurz: `G8 R7 I4`.
-- **Farben (Sebastian 22.11.: „blau, wo er gerade dran ist, hellgelb, was schon in seinem Plan liegt“):**
+- **Farben (der Nutzer 22.11.: „blau, wo er gerade dran ist, hellgelb, was schon in seinem Plan liegt“):**
   - **▶ gerade dran:** **blau** – Fläche #DCEAFB, blauer Ring #3F7FD0, Titel fett dunkelblau, Platznummer blau. Das Auffälligste auf der Seite. Im Fahrplan derselbe blaue Eintrag mit blauem Fortschrittsbalken.
   - **im Plan (kommt noch):** **hellgelb** – Fläche #FFF4CF, gelber Strich links, „Platz 4“, Platznummer goldgelb (#C99600). Im Fahrplan alle „kommt noch“-Einträge hellgelb.
   - **↻ in Wiederholung:** hellgrün (#F0F7E8), hellgrüner Strich, „↻ Wdh 2/5“.
@@ -56,11 +56,11 @@ Nur Vorgabe, kein App-Code. Ziel (Sebastian): eigenen Lehrplan machen – sehen,
 - Unten zugeklappt: „↻ In Wiederholung (n) ›“, „✓ Fertig (kann er) (n) ›“ (öffnet die Liste; dort „Wieder in die Wiederholung“).
 - Darüberfahren über einen Fahrplan-Eintrag hebt die Karte in der Matrix hervor.
 
-### 4a Rausziehen und Reihenfolge-Warnung (Sebastian 22.11.)
+### 4a Rausziehen und Reihenfolge-Warnung (der Nutzer 22.11.)
 - **Aus dem Plan ziehen:** Eintrag aus dem Fahrplan zurück in die Matrix ziehen = aus dem Plan genommen. Beim Ziehen über die Matrix wird sie rot gestrichelt mit „Hier loslassen = aus dem Plan nehmen“. Danach Einblendung mit „↶ Rückgängig“. Baut ein Thema im Plan darauf auf, steht das mit ⚠ in derselben Einblendung.
 - **Warnung, keine Sperre:** Nur harte Voraussetzungen (`schule.voraussetzung`, hart) lösen sie aus, empfohlene nicht. Prüfung nach jedem Einplanen, Ziehen, ↑/↓, „Als Nächstes“ und „Ans Ende“:
   1. Thema steht **vor** seiner Voraussetzung → „⚠ „B“ baut auf „A“ auf – das kommt erst auf Platz 4“, Knopf **„„A“ davor setzen“**.
-  2. Voraussetzung wird **hinter** ein Thema geschoben, das darauf aufbaut → „⚠ „B“ baut hierauf auf und steht schon auf Platz 2“, Knopf **„hinter „B“ setzen“**.
+  2. Voraussetzung wird **hinter** ein Thema geschoben, das darauf aufbaut → „⚠ „B“ baut hierauf auf und steht schon auf Platz 2“, Knopf **„„B“ dahinter setzen“** (B rückt hinter die Voraussetzung – die Absicht, A nach hinten zu schieben, bleibt; Wortlaut nach Prüfung LW-2).
   3. Voraussetzung ist **weder gekonnt noch im Plan** → „⚠ … das kann er noch nicht und es ist nicht im Plan“, Knopf **„„A“ davor einplanen“**.
   Die Einblendung ist dunkelrot, Rückgängig bleibt daneben. Der Lehrer darf es trotzdem so lassen.
 - **Dauerhaft im Fahrplan:** betroffener Eintrag mit rotem Rand und Zeile „braucht A – kommt erst auf Platz 4“ bzw. „braucht A – nicht gelernt, nicht im Plan“, solange der Konflikt besteht.
@@ -75,11 +75,11 @@ Nur Vorgabe, kein App-Code. Ziel (Sebastian): eigenen Lehrplan machen – sehen,
 6. **Zusammenhang:** „Braucht vorher“ als kleine Karten mit Stand (✓ / Platz n / fehlt), „Darauf baut auf“; antippen öffnet dieses Thema.
 - Jede Änderung speichert sofort; unten erscheint eine Meldung „‹Thema› als Nächstes eingeplant · ↶ Rückgängig“ (5 s; Rückgängig nur für den letzten Schritt wie heute).
 
-## 6 Werkzeuge der Leiste (vereinfacht nach Sebastians Rückmeldung 22.11.: „ich will alles in unseren Lehrplan aufnehmen“)
+## 6 Werkzeuge der Leiste (vereinfacht nach des Nutzers Rückmeldung 22.11.: „ich will alles in unseren Lehrplan aufnehmen“)
 - **Immer alle Themen sichtbar** (alle Schularten, Entdecker-Inseln; nur aufgelöste Themen ohne Flug fehlen). Kein Filter, der Themen ausblendet.
 - **„Klassen nach“ Gymnasium | Realschule | IB:** bestimmt nur, **in welcher Zeile** ein Thema steht (Klasse dieser Schule). Standard = Schulart des Kindes. Themen, die diese Schule nicht hat, stehen gestrichelt in der Klasse der anderen Schule.
 - **„Zeigen“ Alle Themen | Noch nicht im Plan · n | Im Plan · n:** hebt hervor, alles andere wird blass (nichts verschwindet).
-- **„Klassen 5 6 7 8 9 10“ – Mehrfachauswahl** (Sebastian 22.11.: „wenn Leo in der 9 ist, brauche ich 5–8 nicht mehr sehen“): Knöpfe in Klassenfarbe zum An-/Abschalten; abgeschaltete Klassen verschwinden ganz aus der Matrix (der Fahrplan zeigt weiter alles). **Standard: Klasse des Kindes bis 10**, je Kind gemerkt (Gerät). Ein blauer Punkt am Knopf zeigt, dass die Klasse Themen aus dem Fahrplan enthält – auch wenn sie ausgeblendet ist. Mindestens eine Klasse bleibt an. „Noch nicht im Plan“ und „Alle n einplanen“ gelten nur für die gewählten Klassen.
+- **„Klassen 5 6 7 8 9 10“ – Mehrfachauswahl** (der Nutzer 22.11.: „wenn Kind 2 in der 9 ist, brauche ich 5–8 nicht mehr sehen“): Knöpfe in Klassenfarbe zum An-/Abschalten; abgeschaltete Klassen verschwinden ganz aus der Matrix (der Fahrplan zeigt weiter alles). **Standard: Klasse des Kindes bis 10**, je Kind gemerkt (Gerät). Ein blauer Punkt am Knopf zeigt, dass die Klasse Themen aus dem Fahrplan enthält – auch wenn sie ausgeblendet ist. Mindestens eine Klasse bleibt an. „Noch nicht im Plan“ und „Alle n einplanen“ gelten nur für die gewählten Klassen.
 - Bei „Noch nicht im Plan“ oben im Fahrplan: „n Themen (bis Kl. X) noch nicht im Plan · [Alle n einplanen (nach Klasse und Lehrplan)]“ – damit kommt mit einem Klick alles in den Plan.
 - **Suchen**, **Auswählen** (Sammelleiste) wie beschrieben.
 - Kleine % je Schulart stehen im Überblick-Reiter.

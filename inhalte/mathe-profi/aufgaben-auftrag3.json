@@ -1,0 +1,696 @@
+[
+ {
+  "nr": "W1",
+  "muster": "M1",
+  "l": "vorteil",
+  "t": "vorteil",
+  "p": "uebung",
+  "s": 1,
+  "g": "erkennen",
+  "y": "auswahl",
+  "f": {
+   "text": "Du rechnest 2 · 19 · 50 geschickt. Welche zwei Zahlen ergeben malgenommen eine glatte Zahl?"
+  },
+  "a": [
+   "2 und 19",
+   "19 und 50",
+   "2 und 50"
+  ],
+  "o": {
+   "index": 2
+  },
+  "h": "Eine glatte Zahl ist 10, 100 oder 1 000. Probier die Paare im Kopf.",
+  "w": "2 · 50 = 100. Dann ist 2 · 19 · 50 = 100 · 19 = 1 900. Die anderen Paare ergeben 38 und 950.",
+  "weg": true,
+  "probe": {
+   "weg1": "Produkte der drei Paare: 38, 950, 100 – nur 2 · 50 ist glatt.",
+   "weg2": "Repo-Rechner: 2 · 19 = 38, 19 · 50 = 950, 2 · 50 = 100; 2 · 19 · 50 = 1 900."
+  },
+  "falsch": "„2 und 19“ – rechnet von links, sucht kein Paar"
+ },
+ {
+  "nr": "W2",
+  "muster": "M2",
+  "l": "vorteil",
+  "t": "vorteil",
+  "p": "uebung",
+  "s": 2,
+  "g": "umkehr",
+  "y": "luecken",
+  "f": {
+   "text": "Rechne faul: Fasse zuerst die zwei Zahlen zusammen, die eine glatte Zahl ergeben.",
+   "schablone": "5 · 43 · 20 = □ · 43 = □",
+   "hinweis": "Je Kästchen eine ganze Zahl."
+  },
+  "o": {
+   "werte": [
+    100,
+    4300
+   ]
+  },
+  "c": [
+   "5 * 20",
+   "5 * 43 * 20"
+  ],
+  "h": "Welche zwei der drei Zahlen passen gut zusammen?",
+  "w": "5 · 20 = 100. Also 5 · 43 · 20 = 100 · 43 = 4 300.",
+  "weg": true,
+  "probe": {
+   "weg1": "5 · 20 = 100, 100 · 43 = 4 300.",
+   "weg2": "Repo-Rechner: 5 · 43 · 20 = 4 300 = 100 · 43; von links: 215 · 20 = 4 300."
+  },
+  "falsch": "215 und 4 300 – rechnet von links und trägt das Zwischenergebnis ein"
+ },
+ {
+  "nr": "W3",
+  "muster": "M4",
+  "l": "vorteil",
+  "t": "vorteil",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "auswahl",
+  "f": {
+   "text": "Jemand rechnet 25 · 16 · 4 geschickt – und macht einen Fehler. In welcher Zeile?",
+   "grafik": {
+    "typ": "tabelle",
+    "kopf": [
+     "",
+     "Rechnung"
+    ],
+    "zeilen": [
+     [
+      "Zeile 1",
+      "25 · 16 · 4 = 25 · 4 · 16"
+     ],
+     [
+      "Zeile 2",
+      "= 100 · 16"
+     ],
+     [
+      "Zeile 3",
+      "= 116"
+     ]
+    ]
+   }
+  },
+  "a": [
+   "Zeile 1",
+   "Zeile 2",
+   "Zeile 3",
+   "Alles richtig."
+  ],
+  "o": {
+   "index": 2
+  },
+  "h": "Prüfe jede Zeile für sich: Ist sie gleich viel wert wie die Zeile davor?",
+  "w": "Zeile 1 tauscht nur (erlaubt bei mal). Zeile 2: 25 · 4 = 100, stimmt. Zeile 3: 100 · 16 ist 1 600, nicht 116 – dort wurde plus gerechnet.",
+  "weg": true,
+  "probe": {
+   "weg1": "25 · 4 = 100; 100 · 16 = 1 600; 100 + 16 = 116.",
+   "weg2": "Repo-Rechner: Zeile 1 links und rechts 1 600, Zeile 2 1 600, Zeile 3 behauptet 116."
+  },
+  "falsch": "„Zeile 1“ – hält das Tauschen für den Fehler"
+ },
+ {
+  "nr": "D1",
+  "muster": "M3",
+  "l": "differenz_summe",
+  "t": "differenz_summe",
+  "p": "uebung",
+  "s": 3,
+  "g": "begruenden",
+  "y": "auswahl",
+  "f": {
+   "text": "83 − 27 − 13 soll geschickt gerechnet werden. Nur eine Umformung hat denselben Wert. Welche?"
+  },
+  "a": [
+   "83 − (27 + 13)",
+   "83 − (27 − 13)",
+   "(83 − 13) + 27",
+   "27 − 83 − 13"
+  ],
+  "o": {
+   "index": 0
+  },
+  "h": "Zweimal abziehen ist dasselbe wie einmal die Summe abziehen.",
+  "w": "27 und 13 werden beide abgezogen, zusammen 40: 83 − (27 + 13) = 83 − 40 = 43. Die anderen ergeben 69, 97 und −69.",
+  "weg": true,
+  "probe": {
+   "weg1": "83 − 27 − 13 = 43; Optionen: 43, 69, 97, −69.",
+   "weg2": "Repo-Rechner wertet alle vier Terme aus: nur der erste ergibt 43."
+  },
+  "falsch": "„83 − (27 − 13)“ – setzt die Klammer, ohne das Rechenzeichen in der Klammer zu ändern"
+ },
+ {
+  "nr": "V1",
+  "muster": "M2",
+  "l": "verteilen",
+  "t": "verteilen",
+  "p": "uebung",
+  "s": 2,
+  "g": "umkehr",
+  "y": "luecken",
+  "f": {
+   "text": "Rechne 6 · 18 so, als wären es 6 · 20.",
+   "schablone": "6 · 18 = 6 · 20 − 6 · □ = □",
+   "hinweis": "Je Kästchen eine ganze Zahl."
+  },
+  "o": {
+   "werte": [
+    2,
+    108
+   ]
+  },
+  "c": [
+   "20 - 18",
+   "6 * 18"
+  ],
+  "h": "Um wie viel ist 20 größer als 18? Das hast du in jeder der 6 Reihen zu viel.",
+  "w": "18 = 20 − 2. Also 6 · 18 = 6 · 20 − 6 · 2 = 120 − 12 = 108.",
+  "weg": true,
+  "probe": {
+   "weg1": "120 − 12 = 108 = 6 · 18.",
+   "weg2": "Repo-Rechner: 6 · 20 − 6 · 2 = 108 = 6 · 18."
+  },
+  "falsch": "2 und 118 – zieht nur 2 ab statt 6 · 2"
+ },
+ {
+  "nr": "V2",
+  "muster": "M2",
+  "l": "verteilen",
+  "t": "verteilen",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "luecken",
+  "f": {
+   "text": "Klammere den gemeinsamen Faktor aus.",
+   "schablone": "13 · 47 + 13 · 53 = 13 · □ = □",
+   "hinweis": "Je Kästchen eine ganze Zahl."
+  },
+  "o": {
+   "werte": [
+    100,
+    1300
+   ]
+  },
+  "c": [
+   "47 + 53",
+   "13 * 47 + 13 * 53"
+  ],
+  "h": "Beide Produkte haben die 13. Was bleibt in der Klammer?",
+  "w": "13 · 47 + 13 · 53 = 13 · (47 + 53) = 13 · 100 = 1 300.",
+  "weg": true,
+  "probe": {
+   "weg1": "47 + 53 = 100; 13 · 100 = 1 300.",
+   "weg2": "Repo-Rechner, stur: 611 + 689 = 1 300."
+  },
+  "falsch": "100 und 2 600 – zählt die beiden 13 zusammen"
+ },
+ {
+  "nr": "V3",
+  "muster": "M3",
+  "l": "verteilen",
+  "t": "verteilen",
+  "p": "uebung",
+  "s": 3,
+  "g": "begruenden",
+  "y": "auswahl",
+  "f": {
+   "text": "8 · 99 soll im Kopf gerechnet werden. Nur ein Weg stimmt. Welcher?"
+  },
+  "a": [
+   "8 · 100 − 1",
+   "8 · 100 − 8",
+   "8 · 90 + 9",
+   "800 − 99"
+  ],
+  "o": {
+   "index": 1
+  },
+  "h": "99 ist 100 − 1. Wie oft wird die 1 abgezogen?",
+  "w": "8 · 99 = 8 · 100 − 8 · 1 = 800 − 8 = 792. Die 1 fehlt in jedem der 8 Hunderter.",
+  "weg": true,
+  "probe": {
+   "weg1": "8 · 99 = 792; Optionen: 799, 792, 729, 701.",
+   "weg2": "Repo-Rechner wertet alle vier Terme aus: nur „8 · 100 − 8“ ergibt 792."
+  },
+  "falsch": "„8 · 100 − 1“ – zieht die 1 nur einmal ab"
+ },
+ {
+  "nr": "V4",
+  "muster": "M4",
+  "l": "verteilen",
+  "t": "verteilen",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "auswahl",
+  "f": {
+   "text": "Jemand rechnet 6 · 29 in drei Zeilen. In welcher Zeile entsteht der Fehler?",
+   "grafik": {
+    "typ": "tabelle",
+    "kopf": [
+     "",
+     "Rechnung"
+    ],
+    "zeilen": [
+     [
+      "Zeile 1",
+      "6 · 29 = 6 · 30 − 6 · 1"
+     ],
+     [
+      "Zeile 2",
+      "= 180 − 1"
+     ],
+     [
+      "Zeile 3",
+      "= 179"
+     ]
+    ]
+   }
+  },
+  "a": [
+   "Zeile 1",
+   "Zeile 2",
+   "Zeile 3",
+   "Alles richtig."
+  ],
+  "o": {
+   "index": 1
+  },
+  "h": "Rechne die beiden Teile der ersten Zeile einzeln aus und vergleiche mit der nächsten Zeile.",
+  "w": "Zeile 1 stimmt. In Zeile 2 müsste 180 − 6 stehen, denn 6 · 1 = 6. Zeile 3 rechnet nur mit dem falschen Wert weiter. Richtig: 174.",
+  "weg": true,
+  "probe": {
+   "weg1": "6 · 30 = 180, 6 · 1 = 6, 180 − 6 = 174.",
+   "weg2": "Repo-Rechner: Zeile 1 beide Seiten 174; Zeile 2 ergibt 179."
+  },
+  "falsch": "„Zeile 3“ – sucht den Fehler dort, wo er sichtbar wird, nicht wo er entsteht"
+ },
+ {
+  "nr": "P1",
+  "muster": "M2",
+  "l": "kopfrechnen",
+  "t": "kopfrechnen",
+  "p": "uebung",
+  "s": 2,
+  "g": "umkehr",
+  "y": "luecken",
+  "f": {
+   "text": "Verdopple die eine Zahl und halbiere die andere.",
+   "schablone": "15 · 24 = 30 · □ = □",
+   "hinweis": "Je Kästchen eine ganze Zahl."
+  },
+  "o": {
+   "werte": [
+    12,
+    360
+   ]
+  },
+  "c": [
+   "24 / 2",
+   "15 * 24"
+  ],
+  "h": "Aus 15 wurde 30. Was muss dann mit der 24 passieren, damit das Ergebnis gleich bleibt?",
+  "w": "15 verdoppelt ist 30, also 24 halbieren: 12. 30 · 12 = 360.",
+  "weg": true,
+  "probe": {
+   "weg1": "30 · 12 = 360.",
+   "weg2": "Repo-Rechner: 15 · 24 = 360."
+  },
+  "falsch": "24 und 720 – verdoppelt, ohne zu halbieren"
+ },
+ {
+  "nr": "P2",
+  "muster": "M2",
+  "l": "kopfrechnen",
+  "t": "kopfrechnen",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "luecken",
+  "f": {
+   "text": "Mal 5 geht leicht über mal 10. Fülle die Lücken.",
+   "schablone": "5 · 68 = 10 · □ = □",
+   "hinweis": "Je Kästchen eine ganze Zahl."
+  },
+  "o": {
+   "werte": [
+    34,
+    340
+   ]
+  },
+  "c": [
+   "68 / 2",
+   "5 * 68"
+  ],
+  "h": "5 ist die Hälfte von 10. Wovon nimmst du dann die Hälfte?",
+  "w": "5 · 68 = 10 · 34, denn 68 : 2 = 34. Das sind 340.",
+  "weg": true,
+  "probe": {
+   "weg1": "68 : 2 = 34; 10 · 34 = 340.",
+   "weg2": "Repo-Rechner: 5 · 68 = 340."
+  },
+  "falsch": "68 und 680 – nimmt mal 10 und vergisst zu halbieren"
+ },
+ {
+  "nr": "P3",
+  "muster": "M3",
+  "l": "kopfrechnen",
+  "t": "kopfrechnen",
+  "p": "uebung",
+  "s": 3,
+  "g": "begruenden",
+  "y": "auswahl",
+  "f": {
+   "text": "25 · 28 soll im Kopf gerechnet werden. Nur ein Weg stimmt. Welcher?"
+  },
+  "a": [
+   "25 · 4 + 7",
+   "100 · 28",
+   "100 · 7",
+   "25 · 20 + 8"
+  ],
+  "o": {
+   "index": 2
+  },
+  "h": "Zerlege 28 in zwei Faktoren. Einer davon passt gut zur 25.",
+  "w": "25 · 28 = 25 · 4 · 7 = 100 · 7 = 700.",
+  "weg": true,
+  "probe": {
+   "weg1": "25 · 28 = 700; Optionen: 107, 2 800, 700, 508.",
+   "weg2": "Repo-Rechner wertet alle vier Terme aus: nur „100 · 7“ ergibt 700."
+  },
+  "falsch": "„25 · 20 + 8“ – zerlegt die 28, nimmt aber die 8 nicht mal 25"
+ },
+ {
+  "nr": "P4",
+  "muster": "M3",
+  "l": "kopfrechnen",
+  "t": "kopfrechnen",
+  "p": "uebung",
+  "s": 1,
+  "g": "erkennen",
+  "y": "auswahl",
+  "f": {
+   "text": "Welche Rechnung hat denselben Wert wie 6 · 49?"
+  },
+  "a": [
+   "6 · 50 − 1",
+   "6 · 40 + 9",
+   "6 · 50 − 6"
+  ],
+  "o": {
+   "index": 2
+  },
+  "h": "49 ist eins weniger als 50 – und zwar in jedem der 6 Päckchen.",
+  "w": "6 · 49 = 6 · 50 − 6 · 1 = 300 − 6 = 294.",
+  "weg": true,
+  "probe": {
+   "weg1": "6 · 49 = 294; Optionen: 299, 249, 294.",
+   "weg2": "Repo-Rechner wertet alle drei Terme aus: nur „6 · 50 − 6“ ergibt 294."
+  },
+  "falsch": "„6 · 50 − 1“ – zieht die 1 nur einmal ab"
+ },
+ {
+  "nr": "U1",
+  "muster": "M5",
+  "l": "ueberschlag",
+  "t": "ueberschlag",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "markierung",
+  "f": {
+   "text": "Ohne genau zu rechnen: Tippe den Strich an, der am nächsten an 312 · 29 liegt.",
+   "grafik": {
+    "typ": "zahlenstrahl",
+    "start": 0,
+    "ende": 15000,
+    "abschnitte": 10,
+    "beschriftet": "anfang_ende"
+   }
+  },
+  "o": {
+   "index": 6
+  },
+  "h": "Runde beide Zahlen so, dass du im Kopf malnehmen kannst. Was ist ein Abschnitt wert?",
+  "w": "312 ≈ 300 und 29 ≈ 30: etwa 9 000. Ein Abschnitt ist 1 500 wert, 9 000 ist der 6. Strich nach der 0. Genau: 9 048.",
+  "weg": true,
+  "probe": {
+   "weg1": "300 · 30 = 9 000; Strichwerte 0, 1 500, …; 9 000 = 6 · 1 500.",
+   "weg2": "Repo-Rechner: 312 · 29 = 9 048, Abstand zum 6. Strich 48 (von 1 500). Auch 9 360, 8 700 und 9 300 liegen am 6. Strich."
+  },
+  "falsch": "Strich 1 oder Strich 0 (Ergebnis 900 oder 341) – Stelle verloren oder plus statt mal gerechnet"
+ },
+ {
+  "nr": "U2",
+  "muster": "M5",
+  "l": "ueberschlag",
+  "t": "ueberschlag",
+  "p": "uebung",
+  "s": 2,
+  "g": "einkleidung",
+  "y": "markierung",
+  "f": {
+   "text": "5 580 Flaschen werden auf 18 Lastwagen verteilt. Tippe den Strich an, der am nächsten an der Zahl je Lastwagen liegt.",
+   "grafik": {
+    "typ": "zahlenstrahl",
+    "start": 0,
+    "ende": 1000,
+    "abschnitte": 10,
+    "beschriftet": "anfang_ende"
+   }
+  },
+  "o": {
+   "index": 3
+  },
+  "h": "Runde beide Zahlen so, dass das Teilen im Kopf geht. Was ist ein Abschnitt wert?",
+  "w": "6 000 : 20 = 300. Ein Abschnitt ist 100 wert, 300 ist der 3. Strich nach der 0. Genau: 5 580 : 18 = 310.",
+  "weg": true,
+  "probe": {
+   "weg1": "6 000 : 20 = 300; 5 400 : 18 = 300.",
+   "weg2": "Repo-Rechner: 5 580 : 18 = 310, Abstand zum 3. Strich 10 (von 100)."
+  },
+  "falsch": "Strich bei 0 (31) – eine Stelle verloren"
+ },
+ {
+  "nr": "U3",
+  "muster": "M6",
+  "l": "ueberschlag",
+  "t": "ueberschlag",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "zahl",
+  "f": {
+   "text": "Ein Stadionblock hat 38 Reihen mit je 52 Plätzen. Wie viele Plätze sind das ungefähr? Überschlage im Kopf – jede vernünftige Schätzung zählt."
+  },
+  "o": {
+   "wert": 1976,
+   "toleranz": 300
+  },
+  "c": "38 * 52",
+  "h": "Runde beide Zahlen auf Zehner.",
+  "w": "38 ≈ 40 und 52 ≈ 50: etwa 40 · 50 = 2 000 Plätze. Genau sind es 1 976. Alles von 1 676 bis 2 276 zählt.",
+  "weg": true,
+  "probe": {
+   "weg1": "40 · 50 = 2 000, liegt 24 neben dem genauen Wert.",
+   "weg2": "Repo-Rechner: 38 · 52 = 1 976. In der Toleranz: 2 000, 1 900, 2 080, 2 200. Außerhalb: 200, 20 000, 90, 1 500, 2 400."
+  },
+  "falsch": "200 – eine Null vergessen (40 · 50 als 4 · 50)"
+ },
+ {
+  "nr": "U4",
+  "muster": "M3",
+  "l": "ueberschlag",
+  "t": "ueberschlag",
+  "p": "uebung",
+  "s": 3,
+  "g": "begruenden",
+  "y": "auswahl",
+  "f": {
+   "text": "45 · 65 soll überschlagen werden. Welche Rechnung liegt am nächsten am genauen Ergebnis?"
+  },
+  "a": [
+   "50 · 70",
+   "50 · 60",
+   "40 · 60"
+  ],
+  "o": {
+   "index": 1
+  },
+  "h": "Wenn du beide Zahlen aufrundest, wird das Ergebnis zu groß. Was passiert, wenn du eine auf- und eine abrundest?",
+  "w": "Genau sind es 2 925. 50 · 60 = 3 000 liegt nur 75 daneben: eine Zahl rauf, eine runter, die Fehler gleichen sich aus. 50 · 70 = 3 500 und 40 · 60 = 2 400 liegen über 500 daneben.",
+  "weg": true,
+  "probe": {
+   "weg1": "Abstände zu 2 925: 575, 75, 525.",
+   "weg2": "Repo-Rechner: 50 · 70 = 3 500, 50 · 60 = 3 000, 40 · 60 = 2 400."
+  },
+  "falsch": "„50 · 70“ – rundet beide nach der Schulregel auf"
+ },
+ {
+  "nr": "S1",
+  "muster": "M4",
+  "l": "schriftlich_geteilt",
+  "t": "schriftlich_geteilt",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "auswahl",
+  "f": {
+   "text": "Jemand rechnet 3 888 : 16 schriftlich und erhält 241 Rest 12. In welcher Zeile entsteht der Fehler?",
+   "grafik": {
+    "typ": "tabelle",
+    "kopf": [
+     "",
+     "Rechnung"
+    ],
+    "zeilen": [
+     [
+      "Zeile 1",
+      "38 : 16 = 2, 2 · 16 = 32, Rest 6"
+     ],
+     [
+      "Zeile 2",
+      "68 : 16 = 4, 4 · 16 = 64, Rest 2"
+     ],
+     [
+      "Zeile 3",
+      "28 : 16 = 1, 1 · 16 = 16, Rest 12"
+     ]
+    ]
+   }
+  },
+  "a": [
+   "Zeile 1",
+   "Zeile 2",
+   "Zeile 3",
+   "Alles richtig."
+  ],
+  "o": {
+   "index": 1
+  },
+  "h": "Prüfe in jeder Zeile die Minus-Rechnung: Zahl minus Produkt gleich Rest?",
+  "w": "Zeile 2: 68 − 64 = 4, nicht 2. Richtig geht es mit 48 : 16 = 3 weiter, Ergebnis 243. Probe: 243 · 16 = 3 888.",
+  "weg": true,
+  "probe": {
+   "weg1": "Schritt für Schritt: 38 : 16 = 2 Rest 6; 68 : 16 = 4 Rest 4; 48 : 16 = 3 Rest 0 → 243.",
+   "weg2": "Repo-Rechner, Probe: 243 · 16 = 3 888; die falsche Lösung ergibt 241 · 16 + 12 = 3 868."
+  },
+  "falsch": "„Zeile 3“ – dort sieht die Rechnung fremd aus (28 statt 48), der Fehler entsteht aber davor"
+ },
+ {
+  "nr": "S2",
+  "muster": "M4",
+  "l": "schriftlich_geteilt",
+  "t": "schriftlich_geteilt",
+  "p": "uebung",
+  "s": 3,
+  "g": "begruenden",
+  "y": "auswahl",
+  "f": {
+   "text": "Jemand rechnet 3 264 : 16 = 24. Was ist schiefgegangen?",
+   "grafik": {
+    "typ": "tabelle",
+    "kopf": [
+     "",
+     "Rechnung"
+    ],
+    "zeilen": [
+     [
+      "Zeile 1",
+      "32 : 16 = 2, Rest 0"
+     ],
+     [
+      "Zeile 2",
+      "6 herunterholen: 6 : 16 geht nicht, also gleich die 4 dazuholen"
+     ],
+     [
+      "Zeile 3",
+      "64 : 16 = 4, Rest 0"
+     ],
+     [
+      "Zeile 4",
+      "Ergebnis: 24"
+     ]
+    ]
+   }
+  },
+  "a": [
+   "In Zeile 1: 32 : 16 ist nicht 2.",
+   "In Zeile 2: Für „geht nicht“ fehlt eine 0 im Ergebnis.",
+   "In Zeile 3: 64 : 16 ist nicht 4.",
+   "Nichts, 24 stimmt."
+  ],
+  "o": {
+   "index": 1
+  },
+  "h": "Mach die Probe im Kopf: Ist 24 · 16 ungefähr 3 000?",
+  "w": "Jede heruntergeholte Ziffer gibt eine Ziffer im Ergebnis. 6 : 16 = 0, diese 0 fehlt. Richtig: 204. Probe: 204 · 16 = 3 264, aber 24 · 16 = 384.",
+  "weg": true,
+  "probe": {
+   "weg1": "Schritt für Schritt: 32 : 16 = 2; 6 : 16 = 0 Rest 6; 64 : 16 = 4 → 204.",
+   "weg2": "Repo-Rechner, Probe: 204 · 16 = 3 264; 24 · 16 = 384."
+  },
+  "falsch": "„Nichts, 24 stimmt.“ – jede Zeile sieht für sich richtig aus"
+ },
+ {
+  "nr": "S3",
+  "muster": "M5",
+  "l": "schriftlich_geteilt",
+  "t": "schriftlich_geteilt",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "markierung",
+  "f": {
+   "text": "Bevor du schriftlich teilst: Tippe den Strich an, der am nächsten an 8 190 : 39 liegt.",
+   "grafik": {
+    "typ": "zahlenstrahl",
+    "start": 0,
+    "ende": 500,
+    "abschnitte": 10,
+    "beschriftet": "anfang_ende"
+   }
+  },
+  "o": {
+   "index": 4
+  },
+  "h": "Runde beide Zahlen so, dass eine Aufgabe aus dem Einmaleins entsteht.",
+  "w": "8 000 : 40 = 200. Ein Abschnitt ist 50 wert, 200 ist der 4. Strich nach der 0. Genau: 210. So weißt du vorher: Das Ergebnis hat drei Stellen.",
+  "weg": true,
+  "probe": {
+   "weg1": "8 000 : 40 = 200 = 4 · 50.",
+   "weg2": "Repo-Rechner: 8 190 : 39 = 210, Abstand zum 4. Strich 10 (von 50)."
+  },
+  "falsch": "Strich bei 0 (21) – eine Stelle verloren"
+ },
+ {
+  "nr": "S4",
+  "muster": "M6",
+  "l": "schriftlich_geteilt",
+  "t": "schriftlich_geteilt",
+  "p": "uebung",
+  "s": 2,
+  "g": "umkehr",
+  "y": "zahl",
+  "f": {
+   "text": "Ohne zu teilen: Wie viele Stellen hat das Ergebnis von 7 344 : 24?"
+  },
+  "o": {
+   "wert": 3
+  },
+  "c": "3",
+  "h": "Vergleiche 7 344 mit 24 · 100 und mit 24 · 1 000.",
+  "w": "24 · 100 = 2 400 ist kleiner als 7 344, 24 · 1 000 = 24 000 ist größer. Das Ergebnis liegt zwischen 100 und 1 000: drei Stellen. (Genau: 306.)",
+  "weg": true,
+  "probe": {
+   "weg1": "7 344 : 24 = 306, drei Stellen.",
+   "weg2": "Schranken: 2 400 ≤ 7 344 < 24 000, also 100 ≤ Ergebnis < 1 000."
+  },
+  "falsch": "2 – zählt die Stellen von 7 344 minus die Stellen von 24"
+ }
+]

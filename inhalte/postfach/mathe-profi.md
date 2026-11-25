@@ -1,5 +1,28 @@
 # Postfach mathe-profi
 
+## 2026-11-26 (Berlin) – FERTIG: Auftrag 6 (Gegenprüfung der Auswahl)
+Zweig `mathe-profi`, auf Stand `lernen-app` b2e51cd0 gebracht. Abgelegt mit Commit c82d6f19.
+
+**Geliefert** unter `inhalte/mathe-profi/`:
+- `gegenpruefung-auswahl.md` – sechs Fragen, Angriff auf Pakete A–F mit Gegenvorschlag, Prüfregel für Paket A mit 20 Musteraufgaben, Typ 3 mit Prüfregel und drei Musteraufgaben.
+- `gegenpruefung_probe.py` – `pruefe2` (Erweiterung von `pruefe`), `pruefe_weg` (Typ 3), alle 23 Aufgaben mit guten und schlechten Antworten. Lauf „OK“.
+
+**Kernaussagen**
+1. **Widerspruch zur Entscheidung des Nutzers vom 25.11.:** Dort war `punkte` Bau 1 und Mehrfach-Auswahl Bau 2. Der Paket-Vorschlag stellt `punkte` ans Ende (F) und nennt die Mehrfach-Auswahl nicht. Bitte dem Nutzer vorlegen.
+2. **Drei Bausteine fehlen im Plan:** Term-Rechner am Server (gebraucht von 6, 7, 8, 15, 10, 12, 3, 2, 11), zwei Antworten in einer Karte (12, 13, 15, 19 – meine Frage aus Auftrag 2 dazu ist offen), Mehrfach-Auswahl (9, 16).
+3. **Paket A ist nicht „klein“:** Bedingungen müssen als Daten in der Aufgabe stehen, nicht als Programm. `pruefe` trägt 6, 7, 8 unverändert; 15 braucht die Feldart Wahl, 9 die Feldart Menge mit Grundmenge und Obergrenze. Typ 9 gehört zu 16, nicht zu A.
+4. **Typ 3:** Falsche Karten reichen nicht. Regel: je Stufe eine Karte, jede Karte mit Lücke, jede Karte kann richtig oder falsch werden, Gleichwertigkeit wird gerechnet, mindestens zwei Wege.
+5. **Reihenfolge (Meinung):** Papier-Test · Typen ohne Bau (4, 14, 17, einfache 12/13) · Fundament (Term-Rechner, Doppel-Karte) · 6, 7, 8, 15 · Typ 2 · `punkte` mit 18, 19 · Mehrfach-Auswahl mit 9, 16 · 10, 3, Schalter 1 · 11, 20, 21.
+6. **Typ 1:** Handy-Modus ersetzt das Heft bei mehrschrittigen Rechnungen nicht. Vorschlag: zwei Tisch-Sitzungen je Woche und „gelandet“ bei Rechenweg-Etappen nur mit einem bestandenen Heft-Beleg.
+
+**Offen**
+- Entscheidung des Nutzers zu Punkt 1 und zur Zahl der Tisch-Sitzungen.
+- Antwort des Projektleiters: Aufwand „zwei Antworten in einer Karte“; ob Typ 21 die vorhandene Wiederholung ersetzt oder ergänzt; ob Diagramme erzeugt werden können.
+- Auftrag 5 (Papier-Test) ist fertig abgelegt und wartet auf das Startwort des Nutzers.
+
+**Nicht geprüft:** Lehrplan-Stellen für Variable, Mittelwert, Median in Klasse 5; Bedienung am Handy; Bau-Aufwand nur aus den mir bekannten Teilen des Codes beurteilt; Musteraufgaben nicht mit `tools/inhalt_pruefen.py`.
+**Annahmen:** „naheliegend falsche“ Zahlen aus Fehlbildern, nicht aus Versuchsdaten; „zwei Tisch-Sitzungen“ ohne Beleg.
+
 ## 2026-11-25 12:20 (Berlin) – AUFTRAG 6 vom Projektleiter: Gegenprüfung der Auswahl des Nutzers
 Der Nutzer hat 20 von 21 Aufgabentypen gewählt („Schritt antippen“ zurückgestellt) und eine eigene Idee ergänzt: Schalter „am Tisch / nur Handy“. Alles steht in `inhalte/plan/aufgabentypen-auswahl.md` (Zweig `lernen-app`).
 

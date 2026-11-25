@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Opa-Effekt</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:#0b1530;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#fff;overflow:hidden}
+#wrap{max-width:480px;height:100dvh;margin:0 auto;position:relative;background:linear-gradient(180deg,#16265c 0%,#0b1530 70%);overflow:hidden;display:flex;flex-direction:column}
+#appbar{padding:14px 16px;display:flex;justify-content:space-between;align-items:center;z-index:1}
+#appbar .logo{font-weight:900;letter-spacing:.5px;font-size:15px}
+#appbar .logo span{color:#3df08a}
+#card{margin:6px 16px;background:#1c2f6e;border:2px solid #2e4a9e;border-radius:18px;padding:14px;z-index:1;opacity:.95}
+#card h1{font-size:17px}
+#card p{font-size:13px;opacity:.8;margin-top:4px}
+#dots{display:flex;gap:6px;margin-top:10px}
+#dots i{width:26px;height:10px;border-radius:99px;background:#3df08a;display:block}
+#dots i:last-child{background:#3df08a;box-shadow:0 0 10px #3df08a}
+#stage{flex:1;position:relative;overflow:hidden}
+#overlay{position:absolute;inset:0;z-index:5;display:flex;align-items:center;justify-content:center}
+#effect{position:absolute;inset:0;overflow:hidden}
+#floor{position:absolute;left:0;right:0;bottom:0;height:110px;background:#0e1a42;border-top:3px solid #263d85}
+#opa{position:absolute;bottom:70px;left:-170px;width:150px;height:220px;transition:none;will-change:transform,left}
+#bubble{position:absolute;left:50%;transform:translateX(-50%);bottom:300px;max-width:86%;background:#fff;color:#111;font-weight:800;font-size:15px;padding:10px 14px;border-radius:14px;opacity:0;transition:opacity .25s;z-index:8;text-align:center}
+#bubble::after{content:"";position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);border:10px solid transparent;border-top-color:#fff;border-bottom:0}
+#cloud{position:absolute;width:40px;height:40px;opacity:0;z-index:7;pointer-events:none}
+#cloud i{position:absolute;border-radius:50%;background:#7ee787;opacity:.95}
+#flash{position:absolute;inset:0;background:#c6ff6b;opacity:0;pointer-events:none}
+#shake{position:absolute;inset:0;will-change:transform}
+#playBtn,#againBtn{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);z-index:20;background:#3df08a;color:#06130b;font-weight:900;font-size:19px;border:0;border-radius:99px;padding:16px 30px;cursor:pointer;box-shadow:0 8px 30px rgba(61,240,138,.45)}
+#againBtn{top:auto;bottom:96px;display:none;font-size:17px;padding:13px 26px}
+#skip{position:absolute;right:12px;bottom:12px;z-index:20;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:99px;padding:8px 14px;font-size:13px;display:none;cursor:pointer}
+#success{position:absolute;inset:0;z-index:15;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;background:radial-gradient(circle at 50% 40%,rgba(61,240,138,.25),transparent 60%),rgba(5,10,25,.72);padding:20px}
+#success .box{background:#101f4f;border:2px solid #3df08a;border-radius:20px;padding:24px 22px;max-width:320px;animation:pop .4s ease}
+@keyframes pop{from{transform:scale(.8)}to{transform:scale(1)}}
+#success h2{font-size:24px}
+#success .pts{display:inline-block;margin:12px 0;background:#3df08a;color:#06130b;font-weight:900;border-radius:99px;padding:8px 18px;font-size:18px}
+#success p{font-size:14px;opacity:.9}
+#tag{position:absolute;top:10px;left:50%;transform:translateX(-50%);background:#ffde59;color:#111;font-weight:900;font-size:12px;padding:6px 12px;border-radius:99px;z-index:9;display:none}
+.shakeAnim{animation:shk .45s linear}
+@keyframes shk{0%{transform:translate(0,0)}20%{transform:translate(-9px,4px)}40%{transform:translate(8px,-5px)}60%{transform:translate(-6px,-3px)}80%{transform:translate(5px,3px)}100%{transform:translate(0,0)}}
+@media (prefers-reduced-motion:reduce){.shakeAnim{animation:none}#success .box{animation:none}}
+</style>
+</head>
+<body>
+<div id="wrap">
+<div id="appbar"><div class="logo">WORLD<span>GRIND</span> 🌍</div><div style="font-size:13px;opacity:.8">Digga, weiter geht's</div></div>
+<div id="card"><h1>Flug 12 · Bruchrechnen · 5/5</h1><p>Direktflug fast geschafft – Bordkarten sammeln!</p><div id="dots"><i></i><i></i><i></i><i></i><i></i></div></div>
+<div id="stage">
+<div id="shake">
+<div id="effect">
+<div id="floor"></div>
+<div id="tag">⚠️ OPA-ALARM ⚠️</div>
+<div id="opa">
+<svg viewBox="0 0 150 220" width="150" height="220" aria-label="Opa">
+<!-- Beine + Hausschuhe -->
+<ellipse cx="55" cy="205" rx="22" ry="9" fill="#7a4a21"/>
+<ellipse cx="105" cy="205" rx="22" ry="9" fill="#7a4a21"/>
+<rect x="38" y="150" width="20" height="50" rx="8" fill="#3b4a6b"/>
+<rect x="92" y="150" width="20" height="50" rx="8" fill="#3b4a6b"/>
+<!-- Bauch / Strickjacke -->
+<ellipse cx="75" cy="125" rx="48" ry="52" fill="#8a6f4d"/>
+<rect x="68" y="80" width="14" height="95" fill="#6b543a"/>
+<circle cx="75" cy="110" r="4" fill="#3a2d1d"/><circle cx="75" cy="130" r="4" fill="#3a2d1d"/><circle cx="75" cy="150" r="4" fill="#3a2d1d"/>
+<!-- Kopf -->
+<circle cx="75" cy="55" r="32" fill="#f2c49b"/>
+<!-- graue Haare seitlich -->
+<circle cx="47" cy="55" r="10" fill="#ddd"/><circle cx="103" cy="55" r="10" fill="#ddd"/>
+<!-- Brille + Augen -->
+<circle id="eyeL" cx="65" cy="55" r="8" fill="#fff" stroke="#111" stroke-width="3"/>
+<circle id="eyeR" cx="87" cy="55" r="8" fill="#fff" stroke="#111" stroke-width="3"/>
+<circle id="pupL" cx="65" cy="56" r="3" fill="#111"/><circle id="pupR" cx="87" cy="56" r="3" fill="#111"/>
+<path d="M62 74 Q75 80 88 74" stroke="#7a3b2e" stroke-width="3" fill="none" stroke-linecap="round"/>
+<!-- Stock -->
+<rect id="stock" x="125" y="95" width="7" height="105" rx="3" fill="#a67c3a"/>
+<path d="M125 95 Q125 82 138 82" stroke="#a67c3a" stroke-width="7" fill="none" stroke-linecap="round"/>
+<g id="poBack" style="display:none"><ellipse cx="75" cy="130" rx="52" ry="50" fill="#7a6146"/><path d="M55 115 Q75 125 95 115" stroke="#4a3a28" stroke-width="4" fill="none"/></g>
+</svg>
+</div>
+<div id="cloud"><i style="left:0;top:8px;width:28px;height:28px"></i><i style="left:18px;top:0;width:34px;height:34px;background:#4ade80"></i><i style="left:40px;top:10px;width:26px;height:26px"></i><i style="left:20px;top:20px;width:30px;height:22px;background:#22c55e"></i></div>
+<div id="flash"></div>
+</div>
+</div>
+<div id="bubble"></div>
+<div id="overlay"></div>
+<button id="playBtn">▶ Abspielen</button>
+<button id="againBtn">↻ Nochmal</button>
+<button id="skip">Überspringen ›</button>
+<div id="success"><div class="box"><div style="font-size:40px">🧓💨🏆</div><h2>5 in Folge richtig ✓</h2><div class="pts">+5 Punkte</div><p>Digga, Direktflug-Modus! Opa ist stolz – mach weiter, nächster Effekt wartet.</p></div></div>
+</div>
+</div>
+<script>
+(function(){
+var play=document.getElementById('playBtn'),skip=document.getElementById('skip'),again=document.getElementById('againBtn'),
+opa=document.getElementById('opa'),bubble=document.getElementById('bubble'),cloud=document.getElementById('cloud'),
+flash=document.getElementById('flash'),success=document.getElementById('success'),shake=document.getElementById('shake'),
+tag=document.getElementById('tag'),pupL=document.getElementById('pupL'),pupR=document.getElementById('pupR');
+var reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var AC=null,timers=[];
+function later(fn,ms){var t=setTimeout(fn,ms);timers.push(t);return t;}
+function clearAll(){timers.forEach(clearTimeout);timers=[];}
+function audio(){if(!AC){try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(e){}}if(AC&&AC.state==='suspended')AC.resume();return AC;}
+function beep(f,d,type,g){try{var ac=audio();if(!ac)return;var o=ac.createOscillator(),gn=ac.createGain();o.type=type||'sine';o.frequency.value=f;gn.gain.setValueAtTime(g||.15,ac.currentTime);gn.gain.exponentialRampToValueAtTime(.001,ac.currentTime+d);o.connect(gn);gn.connect(ac.destination);o.start();o.stop(ac.currentTime+d);}catch(e){}}
+function schlurf(){beep(180,.12,'triangle',.08);setTimeout(function(){beep(140,.12,'triangle',.08);},160);}
+function fart(){try{var ac=audio();if(!ac)return;var dur=1.1;var o=ac.createOscillator(),g=ac.createGain();o.type='sawtooth';o.frequency.setValueAtTime(120,ac.currentTime);o.frequency.linearRampToValueAtTime(35,ac.currentTime+dur);g.gain.setValueAtTime(.35,ac.currentTime);g.gain.exponentialRampToValueAtTime(.001,ac.currentTime+dur);var lfo=ac.createOscillator(),lg=ac.createGain();lfo.frequency.value=22;lg.gain.value=25;lfo.connect(lg);lg.connect(o.frequency);o.connect(g);g.connect(ac.destination);o.start();lfo.start();o.stop(ac.currentTime+dur);lfo.stop(ac.currentTime+dur);}catch(e){}}
+function fanfare(){[523,659,784,1046].forEach(function(f,i){setTimeout(function(){beep(f,.25,'square',.1);},i*130);});}
+function say(t,ms){bubble.textContent=t;bubble.style.opacity=1;if(ms)later(function(){bubble.style.opacity=0;},ms);}
+function showSuccess(){success.style.display='flex';again.style.display='block';skip.style.display='none';fanfare();}
+function finish(){clearAll();opa.style.left='50%';opa.style.transform='translateX(-50%)';cloud.style.opacity=0;flash.style.opacity=0;bubble.style.opacity=0;showSuccess();}
+function run(){
+clearAll();success.style.display='none';again.style.display='none';skip.style.display='block';audio();
+var walkInt;
+opa.style.transform='scaleX(1)';document.getElementById('poBack').style.display='none';
+opa.style.left='-170px';opa.style.bottom='70px';cloud.style.opacity=0;
+tag.style.display='block';say('🚶 *schlurf schlurf* … Digga, wer hat hier Mathe gelöst?',1800);
+beep(300,.3,'sine',.12);
+var x=-170;walkInt=setInterval(function(){x+=8;opa.style.left=x+'px';opa.style.bottom=(70+Math.sin(x/18)*5)+'px';if(x%40<8)schlurf();if(x>=115){clearInterval(walkInt);arrived();}},90);
+function arrived(){
+tag.style.display='none';
+say('👀 Hm? … Riecht hier nach … Streber?',1700);
+later(function(){pupL.setAttribute('cx',60);pupR.setAttribute('cx',92);beep(500,.15,'sine',.12);},900);
+later(function(){ // umdrehen
+opa.style.transform='scaleX(-1)';say('Dreht euch mal weg, ihr Gören…',1400);beep(200,.4,'sawtooth',.08);
+},1900);
+later(function(){
+document.getElementById('poBack').style.display='block';
+fart();
+cloud.style.left='44%';cloud.style.top='52%';cloud.style.opacity=1;
+cloud.style.transition='all 1s';cloud.style.width='140px';cloud.style.height='100px';
+if(!reduced){shake.classList.remove('shakeAnim');void shake.offsetWidth;shake.classList.add('shakeAnim');flash.style.opacity=.55;setTimeout(function(){flash.style.opacity=0;},220);}
+say('💨 PUUUURPS! Der Turbo-Opa!',1600);
+},3500);
+later(function(){cloud.style.left='55%';cloud.style.top='40%';cloud.style.opacity=0;say('„War nicht ich. War der Stock." 😌',2000);beep(160,.5,'triangle',.1);},5000);
+later(function(){ // raus schlurfen
+say('Ich hol mir jetzt nen Pudding. Weitermachen, Digga!',2000);
+var x2=115;var out=setInterval(function(){x2+=9;opa.style.left=x2+'px';opa.style.bottom=(70+Math.sin(x2/15)*5)+'px';if(x2%50<9)schlurf();if(x2>480){clearInterval(out);showSuccess();}},90);
+},7200);
+later(showSuccess,10500);
+}
+}
+play.onclick=function(){play.style.display='none';run();};
+again.onclick=function(){again.style.display='none';success.style.display='none';run();};
+skip.onclick=finish;
+})();
+</script>
+</body>
+</html>

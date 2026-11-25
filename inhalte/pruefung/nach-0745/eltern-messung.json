@@ -1,0 +1,113 @@
+{
+ "tablet": {
+  "start": {
+   "url": "/lernen",
+   "hoehe": 1607,
+   "text": "ⓘ So funktioniert’s\n\nLERNREISE\n\nDie Kinder\nKind A\nGymnasium · Klasse 5\nGYM 5\n–\nRS 5\n–\nIB 1\n–\n\nJetzt: Rom · Natürliche Zahlen (2/4)\n\nLernstand\nFlugplan\nLernreise ansehen\nKind B\nGymnasium · Klasse 7\nGYM 7\n–\nRS 7\n–\nIB 3\n–\n\nJetzt: New York · Einfache Zinsen (0/6)\n\nLernstand\nFlugplan\nLernreise ansehen\nNeue Antworten auf eure Aufträge\n\nRom – Natürliche Zahlen: 6 neue Aufgaben ergänzt.\n\nMeine Aufträge ›\n\nFÜR ALLE KINDER\n\nLehrplan-Übersicht\n\nAlle Flüge je Schulart und Klasse: was fertig ist, was in Prüfung ist, was noch fehlt – mit Inhalten zum Ansehen.\n\nÖffnen ›\nMeine Aufträge\n\nWas ihr ändern lassen wollt – mit Status und Antwort\n\nÖffnen ›\nSo funktioniert’s\n\nErste Schritte und Antworten auf die häufigsten Fragen\n\nLesen ›\nTestkind\n\nSieht alle Flüge, auch die in Prüfung – zum Ausprobieren und für „✎ Ändern lassen“ an Bordkarten.\n\nLernreise öffnen ›"
+  },
+  "plan": {
+   "hoehe": 2397,
+   "zeilen": 12,
+   "zeileHoehe": 58,
+   "speichernKnopf": false
+  },
+  "ziehen": {
+   "vorher": [
+    "Rom – Natürliche und ganze Zahlen",
+    "Toronto – Größen und Einheiten",
+    "Athen – Teilbarkeit"
+   ],
+   "nachher": [
+    "Rom – Natürliche und ganze Zahlen",
+    "Melbourne – Zählen",
+    "Toronto – Größen und Einheiten"
+   ],
+   "gespeichert": 1,
+   "toast": [
+    "Gespeichert",
+    "",
+    "",
+    ""
+   ]
+  },
+  "abwaehlbar": 5,
+  "info": {
+   "hoehe": 1981,
+   "text": "FÜR ELTERN UND LEHRER\n\nSo funktioniert’s\n\nDie Lernreise in Kürze: erst die vier wichtigsten Schritte, darunter Antworten auf die häufigsten Fragen.\n\nErste Schritte\n1\nFlugplan prüfen\n\nLege fest, welche Orte das Kind in welcher Reihenfolge bereist (ziehen oder ↑ ↓), wähle Flüge ab, die nicht dran sind, und hake ab, was es schon kann. Jede Änderung wird sofort gespeichert.\n\nFlugplan Kind A ›\nFlugplan Kind B ›\n2\nLernstand lesen\n\nWas sitzt, was wackelt – je Etappe mit den echten falschen Antworten.\n\nLernstand Kind A ›\nLernstand Kind B ›\n3\nInhalte ansehen\n\nIn der Lehrplan-Übersicht unter „Inhalte ansehen“: jede Etappe mit ihrer Erklärung und alle Bordkarten mit Lösung.\n\nLehrplan-Übersicht ›\n4\nÄndern lassen\n\nFehlt etwas oder stimmt etwas nicht? Mit „✎ Ändern lassen“ direkt an der Stelle beauftragen; Status und Antwort stehen unter „Meine Aufträge“.\n\nMeine Aufträge ›\nFragen\nWorauf baut die App auf?\nWie ist die Lernreise aufgebaut?\nWie wird gelernt?\nWie entstehen die Inhalte, und wer prüft sie?\nWas kann ich selbst ändern?\nWie beauftrage ich eine Änderung?\nWer hat Zugang, und wie steht es um den Datenschutz?"
+  }
+ },
+ "handy": {
+  "start": {
+   "url": "/lernen",
+   "hoehe": 1918,
+   "text": "ⓘ So funktioniert’s\n\nLERNREISE\n\nDie Kinder\nKind A\nGymnasium · Klasse 5\nGYM 5\n–\nRS 5\n–\nIB 1\n–\n\nJetzt: Rom · Natürliche Zahlen (2/4)\n\nLernstand\nFlugplan\nLernreise ansehen\nKind B\nGymnasium · Klasse 7\nGYM 7\n–\nRS 7\n–\nIB 3\n–\n\nJetzt: New York · Einfache Zinsen (0/6)\n\nLernstand\nFlugplan\nLernreise ansehen\nNeue Antworten auf eure Aufträge\n\nRom – Natürliche Zahlen: 6 neue Aufgaben ergänzt.\n\nMeine Aufträge ›\n\nFÜR ALLE KINDER\n\nLehrplan-Übersicht\n\nAlle Flüge je Schulart und Klasse: was fertig ist, was in Prüfung ist, was noch fehlt – mit Inhalten zum Ansehen.\n\nÖffnen ›\nMeine Aufträge\n\nWas ihr ändern lassen wollt – mit Status und Antwort\n\nÖffnen ›\nSo funktioniert’s\n\nErste Schritte und Antworten auf die häufigsten Fragen\n\nLesen ›\nTestkind\n\nSieht alle Flüge, auch die in Prüfung – zum Ausprobieren und für „✎ Ändern lassen“ an Bordkarten.\n\nLernreise öffnen ›"
+  },
+  "plan": {
+   "hoehe": 2476,
+   "zeilen": 12,
+   "zeileHoehe": 58,
+   "speichernKnopf": false
+  },
+  "ziehen": {
+   "vorher": [
+    "Rom – Natürliche und ganze Zahlen",
+    "Toronto – Größen und Einheiten",
+    "Athen – Teilbarkeit"
+   ],
+   "nachher": [
+    "Rom – Natürliche und ganze Zahlen",
+    "Toronto – Größen und Einheiten",
+    "Athen – Teilbarkeit"
+   ],
+   "gespeichert": 0,
+   "toast": [
+    "Alles gespeichert",
+    "",
+    "",
+    ""
+   ]
+  },
+  "abwaehlbar": 5,
+  "info": {
+   "hoehe": 2427,
+   "text": "FÜR ELTERN UND LEHRER\n\nSo funktioniert’s\n\nDie Lernreise in Kürze: erst die vier wichtigsten Schritte, darunter Antworten auf die häufigsten Fragen.\n\nErste Schritte\n1\nFlugplan prüfen\n\nLege fest, welche Orte das Kind in welcher Reihenfolge bereist (ziehen oder ↑ ↓), wähle Flüge ab, die nicht dran sind, und hake ab, was es schon kann. Jede Änderung wird sofort gespeichert.\n\nFlugplan Kind A ›\nFlugplan Kind B ›\n2\nLernstand lesen\n\nWas sitzt, was wackelt – je Etappe mit den echten falschen Antworten.\n\nLernstand Kind A ›\nLernstand Kind B ›\n3\nInhalte ansehen\n\nIn der Lehrplan-Übersicht unter „Inhalte ansehen“: jede Etappe mit ihrer Erklärung und alle Bordkarten mit Lösung.\n\nLehrplan-Übersicht ›\n4\nÄndern lassen\n\nFehlt etwas oder stimmt etwas nicht? Mit „✎ Ändern lassen“ direkt an der Stelle beauftragen; Status und Antwort stehen unter „Meine Aufträge“.\n\nMeine Aufträge ›\nFragen\nWorauf baut die App auf?\nWie ist die Lernreise aufgebaut?\nWie wird gelernt?\nWie entstehen die Inhalte, und wer prüft sie?\nWas kann ich selbst ändern?\nWie beauftrage ich eine Änderung?\nWer hat Zugang, und wie steht es um den Datenschutz?"
+  }
+ },
+ "rechner": {
+  "start": {
+   "url": "/lernen",
+   "hoehe": 1651,
+   "text": "ⓘ So funktioniert’s\n\nLERNREISE\n\nDie Kinder\nKind A\nGymnasium · Klasse 5\nGYM 5\n–\nRS 5\n–\nIB 1\n–\n\nJetzt: Rom · Natürliche Zahlen (2/4)\n\nLernstand\nFlugplan\nLernreise ansehen\nKind B\nGymnasium · Klasse 7\nGYM 7\n–\nRS 7\n–\nIB 3\n–\n\nJetzt: New York · Einfache Zinsen (0/6)\n\nLernstand\nFlugplan\nLernreise ansehen\nNeue Antworten auf eure Aufträge\n\nRom – Natürliche Zahlen: 6 neue Aufgaben ergänzt.\n\nMeine Aufträge ›\n\nFÜR ALLE KINDER\n\nLehrplan-Übersicht\n\nAlle Flüge je Schulart und Klasse: was fertig ist, was in Prüfung ist, was noch fehlt – mit Inhalten zum Ansehen.\n\nÖffnen ›\nMeine Aufträge\n\nWas ihr ändern lassen wollt – mit Status und Antwort\n\nÖffnen ›\nSo funktioniert’s\n\nErste Schritte und Antworten auf die häufigsten Fragen\n\nLesen ›\nTestkind\n\nSieht alle Flüge, auch die in Prüfung – zum Ausprobieren und für „✎ Ändern lassen“ an Bordkarten.\n\nLernreise öffnen ›"
+  },
+  "plan": {
+   "hoehe": 1950,
+   "zeilen": 12,
+   "zeileHoehe": 58,
+   "speichernKnopf": false
+  },
+  "ziehen": {
+   "vorher": [
+    "Rom – Natürliche und ganze Zahlen",
+    "Toronto – Größen und Einheiten",
+    "Athen – Teilbarkeit"
+   ],
+   "nachher": [
+    "Rom – Natürliche und ganze Zahlen",
+    "Toronto – Größen und Einheiten",
+    "Athen – Teilbarkeit"
+   ],
+   "gespeichert": 0,
+   "toast": [
+    "Alles gespeichert",
+    "",
+    "",
+    ""
+   ]
+  },
+  "abwaehlbar": 5,
+  "info": {
+   "hoehe": 1831,
+   "text": "FÜR ELTERN UND LEHRER\n\nSo funktioniert’s\n\nDie Lernreise in Kürze: erst die vier wichtigsten Schritte, darunter Antworten auf die häufigsten Fragen.\n\nErste Schritte\n1\nFlugplan prüfen\n\nLege fest, welche Orte das Kind in welcher Reihenfolge bereist (ziehen oder ↑ ↓), wähle Flüge ab, die nicht dran sind, und hake ab, was es schon kann. Jede Änderung wird sofort gespeichert.\n\nFlugplan Kind A ›\nFlugplan Kind B ›\n2\nLernstand lesen\n\nWas sitzt, was wackelt – je Etappe mit den echten falschen Antworten.\n\nLernstand Kind A ›\nLernstand Kind B ›\n3\nInhalte ansehen\n\nIn der Lehrplan-Übersicht unter „Inhalte ansehen“: jede Etappe mit ihrer Erklärung und alle Bordkarten mit Lösung.\n\nLehrplan-Übersicht ›\n4\nÄndern lassen\n\nFehlt etwas oder stimmt etwas nicht? Mit „✎ Ändern lassen“ direkt an der Stelle beauftragen; Status und Antwort stehen unter „Meine Aufträge“.\n\nMeine Aufträge ›\nFragen\nWorauf baut die App auf?\nWie ist die Lernreise aufgebaut?\nWie wird gelernt?\nWie entstehen die Inhalte, und wer prüft sie?\nWas kann ich selbst ändern?\nWie beauftrage ich eine Änderung?\nWer hat Zugang, und wie steht es um den Datenschutz?"
+  }
+ }
+}

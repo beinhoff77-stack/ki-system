@@ -1,0 +1,146 @@
+// Prüfrunde Aufbau: Rundgang durch die Kinderansichten mit echter Orte-Struktur (orte.json) und echten Lernkarten (inhalte/themen).
+// Anmeldung wie ein Kind auf der Lernen-Seite (/lernen/, Lern-Code). setup() aus tests/lernen.test.cjs unverändert;
+// überschrieben werden nur die Antworten der lernen-api (Testdaten unten, keine echten Kinderdaten).
+// Start: PW_TEST_EXECUTABLE=/pfad/chrome node --test inhalte/pruefung/kinderansicht/rundgang.test.cjs
+'use strict';
+const { test } = require('node:test');
+const Module = require('node:module'); const fs = require('node:fs'); const path = require('node:path');
+const root = path.resolve(__dirname, '../../..');
+const quelle = path.join(root, 'tests/lernen.test.cjs'); const text = fs.readFileSync(quelle, 'utf8');
+const m = new Module(quelle, module); m.filename = quelle; m.paths = Module._nodeModulePaths(path.dirname(quelle));
+m._compile(text.slice(0, text.indexOf("\ntest('")) + '\nmodule.exports = { setup, get origin() { return origin; } };', quelle);
+const H = m.exports;
+const AUS = path.join(__dirname, 'bilder'); fs.mkdirSync(AUS, { recursive: true });
+const MESS = {};
+
+// ---------- Testdaten ----------
+const O = JSON.parse(fs.readFileSync(path.join(__dirname, 'orte.json'), 'utf8'));
+const TL = JSON.parse(fs.readFileSync(path.join(root, 'inhalte/themenliste.json'), 'utf8'));
+const thema = new Map(TL.map((t) => [t.thema_id, t]));
+// Zwei ältere Einheiten stehen nicht in der themenliste: Titel/Klasse aus der App-Testdatei, Lernkarten stellvertretend aus einem Nachbarthema.
+thema.set(15, { titel: 'Natürliche Zahlen und Stellenwertsysteme', klasse: { gym_by: 5, rs_by: 5, ib_myp: 1 }, datei: 'inhalte/themen/zahlen.rechengesetze.json', ersatz: true });
+thema.set(17, { titel: 'Teilbarkeit und Primzahlen', klasse: { gym_by: 5, rs_by: 5, ib_myp: 1 }, datei: 'inhalte/themen/zahlen.ganz.json', ersatz: true });
+const orte = O.orte.map(([block_id, titel, ziel_klasse, stadt, land, lat, lon, kontinent, einheiten]) => ({ block_id, titel, ziel_klasse, stadt, land, lat, lon, kontinent,
+  kontinent_titel: O.kontinente[kontinent][0], erdteil: O.kontinente[kontinent][1], einheiten }));
+const einheiten = orte.flatMap((o) => o.einheiten.map(([id, tid, status, karten]) => {
+  const t = thema.get(tid) || {};
+  return { id, thema_id: tid, status, block_id: o.block_id, ort: o.stadt, stadt: o.stadt, land: o.land, lat: o.lat, lon: o.lon, kontinent: o.kontinent_titel, erdteil: o.erdteil,
+    ort_titel: o.titel, titel: t.titel || o.titel, ziel: t.umfang || '', pflicht_anzahl: karten, ziel_klasse: t.klasse?.gym_by ?? o.ziel_klasse, jahrgang: t.klasse || {}, datei: t.datei };
+}));
+const E = new Map(einheiten.map((e) => [e.id, e]));
+const inhalt = (eid) => { const e = E.get(eid); try { return JSON.parse(fs.readFileSync(path.join(root, e.datei), 'utf8')); } catch { return null; } };
+
+const KINDER = {
+  1: { name: 'Kind A', klasse: 5, gestaltung: 'tag',
+    route: [[49, 1, 'offen'], [55, 2, 'fertig'], [48, 3, 'offen'], [83, 4, 'offen'], [54, 5, 'offen'], [87, 6, 'offen'], [64, 7, 'offen'], [86, 8, 'offen'], [96, 9, 'offen'], [95, 10, 'offen']],
+    stand: { 44: { fertig: 10, blocktest: true }, 39: { fertig: 3 }, 50: { fertig: 8, blocktest: true } },
+    konto: { sterne: 860, stempel: 1, lerntage: 14, jahrgang: { schulart: 'gym_by', klasse: 5, themen: 14, mit_inhalt: 14, geschafft: 2 },
+      orte: [{ block_id: 49, themen: 5, erledigt: 1, abgeschlossen: false }, { block_id: 55, themen: 1, erledigt: 1, abgeschlossen: true }] },
+    wdh: [44] },
+  2: { name: 'Kind B', klasse: 8, gestaltung: 'nacht',
+    route: [[61, 0, 'offen', 'rueckreise'], [73, 1, 'fertig'], [72, 2, 'offen'], [60, 3, 'offen'], [59, 4, 'offen'], [71, 5, 'offen'], [84, 6, 'offen'], [92, 7, 'offen']],
+    stand: { 16: { fertig: 8, blocktest: true }, 17: { fertig: 2 }, 27: { fertig: 7, fehler: 2, blocktest: true } },
+    konto: { sterne: 420, stempel: 1, lerntage: 9, jahrgang: { schulart: 'gym_by', klasse: 8, themen: 15, mit_inhalt: 13, geschafft: 1 },
+      orte: [{ block_id: 73, themen: 1, erledigt: 1, abgeschlossen: true }, { block_id: 61, themen: 3, erledigt: 0, abgeschlossen: false }] },
+    wdh: [16] },
+};
+
+function antworten(kid) {
+  const K = KINDER[kid];
+  const lernende = Object.entries(KINDER).map(([id, k]) => ({ id: Number(id), name: k.name, klasse: k.klasse, schulart: 'gym_by', ist_test: false, stil: 'entdecker', welt: 'Ozean',
+    route: k.route.map(([block_id, position, status, art]) => ({ block_id, position, status, art: art || 'normal', kann_schon: false })),
+    stand: Object.entries(k.stand).map(([eid, s]) => ({ einheit_id: Number(eid), fertig: s.fertig || 0, fehler: s.fehler || 0, gesichert: 0, blocktest: !!s.blocktest, laeuft: false })) }));
+  const etStand = (eid) => { const d = inhalt(eid); const n = Number(K.stand[eid]?.fertig || 0);
+    return Object.fromEntries((d?.inhalt?.etappen || []).map((x, i) => [x.lernziel, { fertig: i < n, sitzt: i < n, serie: i < n ? 4 : 0, ziel: 4, faellig: false }])); };
+  const sichtbar = einheiten.filter((e) => K.route.some(([b]) => b === e.block_id) && e.status !== 'entwurf');
+  return {
+    schule_ich: { ok: true, rolle: 'kind', name: K.name, lernender_id: Number(kid), app: false },
+    schule_uebersicht: { ok: true, leitung: false, einheiten: einheiten.map(({ datei, ...e }) => e), lernende: lernende.filter((l) => l.id === Number(kid)),
+      orte: orte.map(({ einheiten: es, ...o }) => ({ ...o, ort: o.stadt, hat_einheit: es.some((x) => x[2] !== 'entwurf') })) },
+    schule_konto: { ok: true, konto: K.konto, look: { stil: 'entdecker', welt: 'Ozean' },
+      belohnungen: [{ id: 5, titel: 'Eis essen', kosten_sterne: 300, kosten_stempel: 0 }, { id: 6, titel: 'Kinoabend', kosten_sterne: 0, kosten_stempel: 3 }], einloesungen: [] },
+    schule_merkheft: { ok: true, einheiten: sichtbar.map((e) => ({ einheit_id: e.id, block_id: e.block_id, stadt: e.stadt, ort_titel: e.ort_titel, kontinent: e.kontinent,
+      etappen: inhalt(e.id)?.inhalt?.etappen || [], abschnitte: inhalt(e.id)?.inhalt?.abschnitte, stand: etStand(e.id), blocktest_fertig: !!K.stand[e.id]?.blocktest,
+      nachtest: K.stand[e.id]?.blocktest ? { grund: 'noch_nicht_faellig', lerntage_noetig: 10, lerntage_seit: 4 } : { grund: 'einheit_offen' } })) },
+    schule_wiederholung: { ok: true, faellig: K.wdh.length, aufgaben: K.wdh.map((eid, i) => { const d = inhalt(eid); const a = d.aufgaben.find((x) => x.p === 'uebung');
+      return { id: 5000 + i, lernziel: a.l, antworttyp: a.y, frage: a.f, antworten: a.a, einheit_id: eid, stadt: E.get(eid).stadt, etappe: d.inhalt.etappen.find((x) => x.lernziel === a.l)?.titel }; }) },
+    einheit: (eid) => { const d = inhalt(eid); const st = etStand(eid);
+      return { ok: true, einheit_id: eid, status: 'freigegeben', inhalt: d.inhalt,
+        uebungen: d.aufgaben.filter((a) => a.p === 'uebung').slice(0, 60).map((a, i) => ({ id: 9000 + i, lernziel: a.l, stufe: a.s, antworttyp: a.y, frage: a.f, antworten: a.a, tipp: a.h, versuche: 0, geloest: false })),
+        stand: d.inhalt.etappen.map((x) => ({ lernziel: x.lernziel, pflicht: true, status: K.stand[eid]?.blocktest ? (K.stand[eid]?.fehler && x === d.inhalt.etappen[0] ? 'fehler' : 'nachgewiesen') : 'offen' })),
+        etappen_stand: st, blocktest_fertig: !!K.stand[eid]?.blocktest, laufender_test: null,
+        nachtest: K.stand[eid]?.blocktest ? { grund: 'noch_nicht_faellig', lerntage_noetig: 10, lerntage_seit: 4, art: 'runde', runde: 1 } : { grund: 'einheit_offen' } }; },
+  };
+}
+
+async function einrichten(page, kid) {
+  const A = antworten(kid);
+  await page.route('**/functions/v1/lernen-api/**', async (route) => {
+    const req = route.request(); const pfad = new URL(req.url()).pathname; const b = JSON.parse(req.postData() || '{}');
+    const ok = (e) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) });
+    if (pfad.endsWith('/anmelden')) return ok({ token: 't'.repeat(64), rolle: 'kind', name: KINDER[kid].name, lernender_id: Number(kid) });
+    if (b.aktion === 'schule_einheit_lesen') return ok(A.einheit(b.daten.einheit_id));
+    if (A[b.aktion]) return ok(A[b.aktion]);
+    return route.fallback();
+  });
+}
+
+// ---------- Rundgang ----------
+const warte = async (p, ms = 400) => { await p.waitForFunction(() => !document.querySelector('#main .spinner'), null, { timeout: 6000 }).catch(() => {}); await p.waitForTimeout(ms); };
+const bild = (p, name, ganz = true) => p.screenshot({ path: path.join(AUS, name + '.png'), fullPage: ganz });
+const sichtbarerText = (p) => p.evaluate(() => document.querySelector('#main')?.innerText.replace(/\n{2,}/g, '\n').slice(0, 3000));
+async function anmelden(p, kid) {
+  await p.goto(H.origin + '/lernen/'); await p.getByLabel('Lern-Code').fill('ABCD-EFGH-JKLM');
+  await p.getByRole('button', { name: 'Anmelden' }).click(); await p.waitForURL(new RegExp('#/reise/' + kid + '$')); await warte(p);
+}
+async function menue(p) { const k = p.getByRole('button', { name: 'Menü' }); if (await k.count()) { await k.click(); await p.waitForTimeout(250); return true; } return false; }
+
+for (const kid of ['1', '2']) {
+  for (const [geraet, w, h] of [['handy', 390, 844], ['tablet', 820, 1180]]) {
+    test(`Rundgang ${KINDER[kid].name} ${geraet}`, async () => {
+      const nach = []; const { page: p } = await H.setup({ after: (f) => nach.push(f) }, { lernSeite: true, rolle: 'kind', gestaltung: KINDER[kid].gestaltung });
+      const r = MESS[`${kid}-${geraet}`] = {};
+      try {
+        await p.setViewportSize({ width: w, height: h }); await p.emulateMedia({ reducedMotion: 'reduce' });
+        await einrichten(p, kid); await anmelden(p, kid);
+        const n = `k${kid}-${geraet}`;
+        // 1 Abflugtafel
+        await bild(p, `${n}-1-abflugtafel`); await bild(p, `${n}-1-abflugtafel-erster-blick`, false);
+        r.abflug = { hoehe: await p.evaluate(() => document.documentElement.scrollHeight), text: await sichtbarerText(p),
+          menueKnopf: await p.getByRole('button', { name: 'Menü' }).boundingBox().catch(() => null) };
+        // 2 Menü
+        if (await menue(p)) { await bild(p, `${n}-2-menue`, false); r.menue = await p.locator('.lr-blatt-liste').innerText(); await p.getByRole('button', { name: 'Schließen' }).click(); }
+        // 3–6 Ansichten über das Menü
+        for (const [ziel, datei] of [['Mein Weg', '3-mein-weg'], ['Weltkarte', '4-weltkarte'], ['Reisepass', '5-reisepass'], ['Merkheft', '6-merkheft']]) {
+          await menue(p); await p.locator('.lr-blatt-liste').getByRole('link', { name: ziel }).click(); await warte(p);
+          await bild(p, `${n}-${datei}`);
+          r[ziel] = { url: p.url().split('#')[1], hoehe: await p.evaluate(() => document.documentElement.scrollHeight), text: await sichtbarerText(p) };
+          if (await menue(p)) { r[ziel].menueAktiv = await p.locator('.lr-blatt-liste [aria-current="page"]').innerText().catch(() => '(keiner)'); await p.getByRole('button', { name: 'Schließen' }).click(); }
+        }
+        // Weltkarte: anderen Kontinent wählen (Kind B: Funktionen/Antarktis)
+        await p.goto(H.origin + `/lernen/#/weltkarte/${kid}`); await warte(p);
+        const chip = p.locator('.lr-chips button', { hasText: kid === '2' ? 'Funktionen' : 'Geld' }).first();
+        if (await chip.count()) { await chip.click(); await p.waitForTimeout(300); await bild(p, `${n}-4b-weltkarte-kontinent`); r.kontinentKarte = await p.locator('.lr-karte-box .lr-kartenbild').count(); }
+        // Merkheft: suchen
+        await p.goto(H.origin + `/lernen/#/merkheft/${kid}`); await warte(p);
+        const s = p.getByRole('searchbox'); if (await s.count()) { await s.fill(kid === '1' ? 'runden' : 'Steigung'); await p.waitForTimeout(300); await bild(p, `${n}-6b-merkheft-suche`); r.merkSuche = await sichtbarerText(p); }
+        // 7 Thema (gerade dran) – Erklären-Seite, oberer Teil und Ende (Test-Bereich)
+        const thema = kid === '1' ? 39 : 17;
+        await p.goto(H.origin + `/lernen/#/lerneinheit/${kid}-${thema}`); await warte(p);
+        await bild(p, `${n}-7-thema-erster-blick`, false);
+        r.thema = { hoehe: await p.evaluate(() => document.documentElement.scrollHeight), kopf: await p.evaluate(() => document.querySelector('.lr-thema header, .lr-flugkopf, .lr-kopf')?.innerText),
+          weg: await p.evaluate(() => [...document.querySelectorAll('a,button')].filter((x) => x.offsetParent && /Zurück|‹|✕|Abflug|Heute/.test(x.innerText + (x.getAttribute('aria-label') || ''))).map((x) => (x.innerText || x.getAttribute('aria-label')).trim()).slice(0, 6)) };
+        // geschafftes Thema (zum Wiederholen)
+        const fertig = kid === '1' ? 44 : 16;
+        await p.goto(H.origin + `/lernen/#/lerneinheit/${kid}-${fertig}`); await warte(p);
+        await bild(p, `${n}-8-thema-geschafft-erster-blick`, false);
+        r.themaGeschafft = await p.evaluate(() => document.querySelector('#main')?.innerText.slice(0, 600));
+        // 9 Wiederholen
+        await p.goto(H.origin + `/lernen/#/wiederholen/${kid}`); await warte(p);
+        await bild(p, `${n}-9-wiederholen`, false);
+      } finally { for (const f of nach.reverse()) { try { await f(); } catch { /* Seitenfehler hier nicht bewertet */ } } }
+    });
+  }
+}
+
+test('Messung schreiben', () => fs.writeFileSync(path.join(__dirname, 'messung.json'), JSON.stringify(MESS, null, 1)));

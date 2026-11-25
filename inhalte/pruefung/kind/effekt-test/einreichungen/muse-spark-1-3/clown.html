@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Direktflug – Highlight</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#0b1020;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#fff}
+.wrap{max-width:480px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;position:relative;background:linear-gradient(180deg,#13265a,#0b1020)}
+.app-head{padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:900;letter-spacing:.5px}
+.logo span{color:#38e1ff}
+.pills{display:flex;gap:6px}
+.pill{font-size:12px;background:#1d2f66;border:1px solid #35508f;padding:4px 8px;border-radius:20px}
+.map{margin:6px 12px;background:#16295e;border:1px solid #2d4a9a;border-radius:16px;padding:14px;position:relative;overflow:hidden}
+.map h2{font-size:15px}
+.route{display:flex;align-items:center;gap:8px;margin:12px 0}
+.dot{width:12px;height:12px;border-radius:50%;background:#38e1ff}
+.line{flex:1;height:3px;background:repeating-linear-gradient(90deg,#38e1ff 0 8px,transparent 8px 14px)}
+.card{background:#fff;color:#111;border-radius:14px;padding:12px;margin-top:8px}
+.card b{font-size:15px}
+.progress{height:10px;background:#e5e7eb;border-radius:10px;margin-top:8px;overflow:hidden}
+.progress i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#22c55e,#a3e635)}
+.center{padding:18px;text-align:center}
+.play{background:#ff2e63;border:0;color:#fff;font-weight:900;font-size:18px;padding:14px 28px;border-radius:14px;cursor:pointer;box-shadow:0 6px 0 #a3133a}
+.play:active{transform:translateY(3px);box-shadow:0 2px 0 #a3133a}
+.hint{opacity:.7;font-size:13px;margin-top:10px}
+/* overlay */
+#fx{position:fixed;inset:0;display:none;justify-content:center;align-items:center;background:#f5f6f8;z-index:50}
+#fx.on{display:flex}
+#stage{width:min(100vw,480px);height:min(100dvh,800px);height:min(100vh,800px);position:relative;overflow:hidden;background:#eef1f6;color:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;transition:background .4s}
+#stage.dark{background:#05060a;color:#e8eaf0}
+.msg{background:#fff;color:#111;border-radius:16px;padding:18px 18px;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:82%}
+.msg.darkm{background:#0f1320;color:#fff;border:1px solid #2a3350}
+.badge{display:inline-block;background:#22c55e;color:#fff;font-weight:900;padding:4px 10px;border-radius:20px;margin-bottom:8px}
+.big{font-size:22px;font-weight:900}
+.sub{opacity:.75;margin-top:6px}
+#clown{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%) scale(.4);opacity:0;transition:opacity 1.2s,transform 1.2s;pointer-events:none;filter:drop-shadow(0 0 30px #000)}
+#stage.dark #clown{opacity:.95;transform:translate(-50%,-50%) scale(1)}
+#stage.scary #clown{opacity:1;transform:translate(-50%,-50%) scale(2.15) rotate(-2deg);transition:transform .18s,opacity .18s}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+#vign{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,.85) 100%);opacity:0;transition:opacity .5s}
+#stage.dark #vign{opacity:1}
+#cap{position:absolute;bottom:58px;left:0;right:0;text-align:center;font-weight:800;letter-spacing:.5px;font-size:15px;opacity:.9}
+#end{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 30%,#1c2a5e,#070a18 70%);padding:20px}
+#end.on{display:flex}
+#end h1{font-size:26px}
+.points{font-size:20px;font-weight:900;color:#facc15;margin:8px 0}
+.cool{background:#0ea5e9;border-radius:12px;padding:10px 14px;font-weight:800;margin:8px 0}
+#again{margin-top:12px;background:#fff;color:#111;border:0;font-weight:900;padding:12px 22px;border-radius:12px;cursor:pointer}
+#skip{position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,.55);color:#fff;border:1px solid rgba(255,255,255,.4);padding:8px 12px;border-radius:10px;font-size:14px;cursor:pointer;z-index:5}
+#shake{position:absolute;inset:0}
+.shake #shake{animation:sh .35s 2}
+@keyframes sh{0%{transform:translate(0,0)}25%{transform:translate(-8px,5px)}50%{transform:translate(7px,-6px)}75%{transform:translate(-5px,-4px)}100%{transform:translate(0,0)}}
+.flick{animation:flick 1s 2}
+@keyframes flick{0%,100%{filter:brightness(1)}50%{filter:brightness(.35)}}
+@media (prefers-reduced-motion:reduce){.shake #shake,.flick{animation:none!important}#clown{transition:opacity .5s!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="app-head"><div class="logo">WORLD<span>GRIND</span> ✈️</div><div class="pills"><div class="pill">🔥 12</div><div class="pill">⭐ 940</div></div></div>
+<div class="map"><h2>Flug 12 · Bruchrechnen · 10/10</h2><div class="route"><div class="dot"></div><div class="line"></div><div style="font-size:24px">✈️</div><div class="line"></div><div class="dot"></div></div><div class="card"><b>Direktflug ✓ – 10/10 richtig</b><div class="progress"><i></i></div><div style="margin-top:6px;font-size:13px">Bordkarte gesichert, Digga!</div></div></div>
+<div class="center"><button class="play" id="playBtn">▶ Abspielen</button><div class="hint">Ton an, Digga – 12 Sekunden Horror-Highlight 🎪</div></div>
+</div>
+<div id="fx"><div id="stage">
+<div id="shake"></div>
+<div id="vign"></div>
+<div id="flash"></div>
+<div class="msg" id="msg"><div class="badge">Direktflug ✓</div><div class="big">10/10 richtig – sauber, Digga!</div><div class="sub">Highlight wird geladen …</div></div>
+<svg id="clown" width="260" height="300" viewBox="0 0 260 300" aria-label="Gruselclown">
+<ellipse cx="130" cy="70" rx="70" ry="28" fill="#7a0e1a"/>
+<circle cx="65" cy="110" r="26" fill="#e11d48"/><circle cx="195" cy="110" r="26" fill="#e11d48"/>
+<ellipse cx="130" cy="150" rx="78" ry="92" fill="#f1f5f9" stroke="#0f172a" stroke-width="4"/>
+<path d="M55 150 Q60 40 130 35 Q200 40 205 150 Q190 90 130 85 Q70 90 55 150" fill="#1e1b4b"/>
+<circle cx="130" cy="58" r="18" fill="#e11d48"/>
+<ellipse cx="102" cy="145" rx="16" ry="22" fill="#fff" stroke="#111" stroke-width="3"/><ellipse cx="158" cy="145" rx="16" ry="22" fill="#fff" stroke="#111" stroke-width="3"/>
+<circle id="pupL" cx="102" cy="148" r="6" fill="#111"/><circle id="pupR" cx="158" cy="148" r="6" fill="#111"/>
+<circle cx="102" cy="145" r="2" fill="#fff"/><circle cx="158" cy="145" r="2" fill="#fff"/>
+<path d="M88 135 Q102 128 116 135" stroke="#111" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M144 135 Q158 128 172 135" stroke="#111" stroke-width="4" fill="none" stroke-linecap="round"/>
+<circle cx="130" cy="175" r="16" fill="#e11d48" stroke="#7a0e1a" stroke-width="3"/>
+<path id="mouth" d="M90 205 Q130 235 170 205 Q130 255 90 205" fill="#5b0a14" stroke="#111" stroke-width="3"/>
+<path d="M90 205 Q130 225 170 205" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/>
+</svg>
+<div id="cap"></div>
+<div id="end"><h1>Direktflug ✓</h1><div style="font-size:48px;margin:6px">🤡✈️</div><div class="cool">Der Clown hat Schiss vor dir, Digga – du hast ihn eiskalt weggeklickt!</div><div class="points">+20 Punkte · 10/10 fehlerfrei</div><div style="opacity:.8">Nächstes Land ist ready. Zeig das deinem Bruder!</div><button id="again">Nochmal</button></div>
+<button id="skip">Überspringen ›</button>
+</div></div>
+<script>
+let ctx=null,timers=[],reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function audio(){if(!ctx)ctx=new (window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')ctx.resume();return ctx;}
+function tone(f,d,type,g,t){try{const c=audio(),o=c.createOscillator(),gn=c.createGain();o.type=type||'sine';o.frequency.value=f;gn.gain.setValueAtTime(0.0001,c.currentTime+t);gn.gain.exponentialRampToValueAtTime(g||.2,c.currentTime+t+.02);gn.gain.exponentialRampToValueAtTime(.0001,c.currentTime+t+d);o.connect(gn).connect(c.destination);o.start(c.currentTime+t);o.stop(c.currentTime+t+d+.05);}catch(e){}}
+function noise(d,g,t){try{const c=audio(),b=c.createBuffer(1,c.sampleRate*d,c.sampleRate),da=b.getChannelData(0);for(let i=0;i<da.length;i++)da[i]=(Math.random()*2-1)*(1-i/da.length);const s=c.createBufferSource(),gn=c.createGain();s.buffer=b;gn.gain.value=g||.5;s.connect(gn).connect(c.destination);s.start(c.currentTime+t);}catch(e){}}
+function later(fn,ms){timers.push(setTimeout(fn,ms));}
+function clearAll(){timers.forEach(clearTimeout);timers=[];}
+const fx=document.getElementById('fx'),stage=document.getElementById('stage'),msg=document.getElementById('msg'),cap=document.getElementById('cap'),end=document.getElementById('end'),flash=document.getElementById('flash');
+function finish(){clearAll();stage.classList.remove('dark','scary','flick','shake');msg.style.display='none';cap.textContent='';document.getElementById('clown').style.display='none';end.classList.add('on');tone(523,.25,'sine',.25,0);tone(659,.25,'sine',.25,.2);tone(784,.5,'sine',.3,.4);}
+function play(){
+clearAll();end.classList.remove('on');fx.classList.add('on');
+document.getElementById('clown').style.display='block';msg.style.display='block';
+stage.classList.remove('dark','scary');msg.classList.remove('darkm');cap.textContent='';flash.style.opacity=0;
+tone(440,.2,'sine',.2,0);tone(660,.3,'sine',.2,.2);
+if(reduced){
+cap.textContent='Alles ruhig, Digga … da kommt was …';
+later(()=>{stage.classList.add('dark');msg.classList.add('darkm');msg.innerHTML='<div class="big">Psst … hörst du das?</div><div class="sub">Licht flackert leicht · bleib dran</div>';tone(180,1.2,'sine',.12,0);},2000);
+later(()=>{cap.textContent='Kein Stress – du hast das im Griff';},4500);
+later(()=>{noise(.6,.4,0);tone(150,.6,'sawtooth',.3,0);},6500);
+later(finish,8000);return;
+}
+later(()=>{stage.classList.add('dark');msg.classList.add('darkm');msg.innerHTML='<div class="big">Hä? Licht weg …</div><div class="sub">Signal verloren · bleib dran, Digga</div>';cap.textContent='Es wird still …';stage.classList.add('flick');tone(110,2,'sine',.15,0);tone(220,.8,'triangle',.1,.3);},2200);
+later(()=>{cap.textContent='Da ist wer im Dunkeln … 👀';document.getElementById('pupL').setAttribute('r','8');},4500);
+later(()=>{stage.classList.add('shake');cap.textContent='NICHT WEGGUCKEN!';flash.style.opacity=.9;setTimeout(()=>flash.style.opacity=0,180);noise(.7,.7,0);tone(90,.8,'sawtooth',.5,0);tone(1400,.5,'square',.15,0);stage.classList.add('scary');stage.classList.remove('flick');},6800);
+later(()=>{flash.style.opacity=.5;setTimeout(()=>flash.style.opacity=0,150);stage.classList.remove('shake','scary');stage.style.background='#070a18';},7600);
+later(finish,9200);
+}
+document.getElementById('playBtn').onclick=()=>{audio();play();};
+document.getElementById('again').onclick=()=>{audio();play();};
+document.getElementById('skip').onclick=()=>finish();
+</script>
+</body>
+</html>

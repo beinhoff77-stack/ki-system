@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Opa – Highlight-Effekt</title>
+<style>
+:root{
+  color-scheme:dark;
+  --lime:#d9ff63;
+  --green:#78ed78;
+  --violet:#8f78ff;
+  --ink:#17182b;
+  --paper:#f7f7ef;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{width:100%;height:100%;margin:0;overflow:hidden}
+body{
+  background:#090b18;
+  color:#fff;
+  font-family:ui-rounded,"Arial Rounded MT Bold",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  -webkit-tap-highlight-color:transparent;
+}
+button{font:inherit}
+button:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.app{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  padding:calc(20px + env(safe-area-inset-top)) 18px calc(18px + env(safe-area-inset-bottom));
+  background:
+    radial-gradient(circle at 85% 5%,rgba(116,92,255,.32),transparent 35%),
+    radial-gradient(circle at 0% 75%,rgba(45,203,183,.14),transparent 35%),
+    linear-gradient(155deg,#161932,#090b18 70%);
+}
+.app::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:.15;
+  background-image:radial-gradient(circle,#fff 1px,transparent 1.5px);
+  background-size:31px 31px;
+}
+.app-inner{position:relative;width:min(100%,760px);margin:auto}
+.app-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.app-logo{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:950;letter-spacing:1.5px}
+.logo-orbit{
+  width:37px;height:37px;border:2px solid var(--lime);border-radius:50%;position:relative;
+  box-shadow:inset 0 0 0 7px rgba(217,255,99,.08);
+}
+.logo-orbit::before{content:"";position:absolute;width:47px;height:13px;border:2px solid var(--lime);border-radius:50%;left:-7px;top:10px;transform:rotate(-25deg)}
+.logo-orbit::after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:var(--lime);right:-4px;top:4px}
+.streak{padding:9px 12px;border:1px solid #ffffff24;border-radius:99px;background:#ffffff0c;font-size:12px;font-weight:850}
+.route-card,.task-card{
+  border:1px solid #ffffff1c;
+  background:linear-gradient(145deg,#242846e8,#171a30e8);
+  box-shadow:0 22px 60px #0005;
+  border-radius:25px;
+}
+.route-card{padding:22px;margin-bottom:16px}
+.route-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.eyebrow{font-size:11px;font-weight:950;letter-spacing:1.8px;color:#b7bad8;text-transform:uppercase}
+.route-card h1{font-size:clamp(24px,6vw,36px);line-height:1.05;margin:9px 0 18px}
+.flight-chip{background:var(--lime);color:#1b2412;padding:7px 11px;border-radius:10px;font-size:12px;font-weight:950;transform:rotate(2deg)}
+.route-line{display:flex;align-items:center;gap:7px;margin:8px 0 12px}
+.route-line i{height:3px;flex:1;background:#ffffff16;border-radius:9px;position:relative}
+.route-line i.done{background:var(--green)}
+.route-line i.done::after{content:"✓";position:absolute;right:-2px;top:-11px;width:21px;height:21px;display:grid;place-items:center;border-radius:50%;background:var(--green);color:#142218;font-size:12px;font-style:normal;font-weight:1000}
+.route-line b{font-size:21px;transform:rotate(8deg)}
+.route-meta{display:flex;justify-content:space-between;color:#b7bad8;font-size:12px;font-weight:750}
+.task-card{padding:22px}
+.task-number{color:var(--lime);font-size:12px;font-weight:900;letter-spacing:1px}
+.math-task{font-size:clamp(30px,8vw,45px);font-weight:900;text-align:center;margin:24px 0}
+.answer-row{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.answer{padding:13px 5px;text-align:center;border:1px solid #ffffff1c;background:#ffffff09;border-radius:13px;font-weight:850;color:#c8cbe2}
+.answer.correct{border-color:#78ed7880;background:#78ed7818;color:var(--green)}
+.app-note{text-align:center;color:#777c9e;font-size:11px;margin-top:18px}
+.start-screen{
+  position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:22px;
+  background:#070914a8;backdrop-filter:blur(9px);
+  transition:opacity .25s,visibility .25s;
+}
+.start-screen.hide{opacity:0;visibility:hidden;pointer-events:none}
+.start-card{
+  width:min(100%,390px);padding:30px 25px 25px;text-align:center;border-radius:29px;
+  border:1px solid #ffffff24;
+  background:linear-gradient(150deg,#292d4df5,#141629f8);
+  box-shadow:0 30px 100px #0009,inset 0 1px #ffffff1f;
+}
+.start-icon{
+  width:76px;height:76px;margin:0 auto 18px;display:grid;place-items:center;border-radius:24px;
+  background:var(--lime);color:var(--ink);font-size:37px;transform:rotate(-5deg);
+  box-shadow:7px 8px 0 #8f78ff;
+}
+.start-card h2{font-size:29px;line-height:1.05;margin:10px 0 12px;letter-spacing:-1px}
+.start-card p{color:#bdc0d7;line-height:1.5;font-size:14px;margin:0 auto 22px;max-width:290px}
+.primary-button{
+  width:100%;min-height:56px;border:0;border-radius:17px;background:var(--lime);color:#182012;
+  font-weight:1000;font-size:17px;cursor:pointer;box-shadow:0 6px 0 #8aa839;
+  transition:transform .15s,box-shadow .15s;
+}
+.primary-button:hover{transform:translateY(-2px);box-shadow:0 8px 0 #8aa839}
+.primary-button:active{transform:translateY(4px);box-shadow:0 2px 0 #8aa839}
+.start-card small{display:block;color:#858aaa;font-size:11px;margin-top:17px}
+.effect{
+  position:fixed;inset:0;z-index:20;overflow:hidden;opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .25s,visibility .25s;
+}
+.effect.running{opacity:1;visibility:visible}
+.scene-shake{
+  position:absolute;inset:0;overflow:hidden;
+  background:
+    radial-gradient(ellipse at 50% 38%,#30345dcc 0%,#121526f2 52%,#070812fa 100%);
+  transition:opacity .35s;
+}
+.effect.done .scene-shake{opacity:0}
+.scene-shake::before{
+  content:"";position:absolute;left:-10%;right:-10%;bottom:-9%;height:36%;
+  background:linear-gradient(#242943,#111424);
+  border-top:2px solid #ffffff17;transform:perspective(400px) rotateX(12deg);
+}
+.scene-shake::after{
+  content:"";position:absolute;left:50%;bottom:5%;width:min(90vw,600px);height:70px;
+  transform:translateX(-50%);border-radius:50%;background:#0008;filter:blur(18px);
+}
+.stage-light{
+  position:absolute;left:50%;top:-18%;width:min(110vw,700px);height:95%;transform:translateX(-50%);
+  background:conic-gradient(from 165deg at 50% 0%,transparent 0deg,#b9b1ff16 22deg,#e5e1ff24 45deg,#b9b1ff16 68deg,transparent 90deg);
+  clip-path:polygon(42% 0,58% 0,100% 100%,0 100%);
+}
+.top-tag{
+  position:absolute;z-index:9;top:calc(17px + env(safe-area-inset-top));left:50%;transform:translateX(-50%);
+  white-space:nowrap;padding:9px 14px;border-radius:99px;background:#0b0d19b8;border:1px solid #ffffff25;
+  color:#d6d8ec;font-size:10px;font-weight:950;letter-spacing:1.5px;
+}
+.top-tag::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--lime);margin-right:8px}
+.speech{
+  position:absolute;z-index:10;left:50%;top:11%;transform:translate(-50%,-8px) scale(.92);
+  width:max-content;max-width:min(84vw,350px);padding:14px 18px;border-radius:18px 18px 18px 5px;
+  background:var(--paper);color:var(--ink);border:3px solid var(--ink);box-shadow:6px 7px 0 #8f78ff;
+  font-size:clamp(16px,4.5vw,21px);font-weight:950;line-height:1.2;text-align:center;white-space:pre-line;
+  opacity:0;transition:opacity .18s,transform .18s;
+}
+.speech::after{content:"";position:absolute;left:27px;bottom:-13px;width:18px;height:18px;background:var(--paper);border-right:3px solid var(--ink);border-bottom:3px solid var(--ink);transform:rotate(45deg)}
+.speech.show{opacity:1;transform:translate(-50%,0) scale(1)}
+.grandpa-move{
+  position:absolute;z-index:5;left:50%;bottom:8%;width:clamp(190px,49vw,280px);aspect-ratio:260/360;
+  opacity:0;transform:translateX(calc(-50% - 115vw));filter:drop-shadow(0 15px 10px #0006);
+}
+.running .grandpa-move{opacity:1}
+.phase-enter .grandpa-move{animation:opaEnter 2.2s cubic-bezier(.2,.72,.24,1) both}
+.phase-exit .grandpa-move{animation:opaExit 1.95s cubic-bezier(.45,.05,.75,.45) both}
+@keyframes opaEnter{
+  0%{transform:translateX(calc(-50% - 115vw)) rotate(-5deg)}
+  65%{transform:translateX(calc(-50% + 13px)) rotate(2deg)}
+  82%{transform:translateX(calc(-50% - 5px)) rotate(-1deg)}
+  100%{transform:translateX(-50%) rotate(0)}
+}
+@keyframes opaExit{
+  0%{transform:translateX(-50%) rotate(0)}
+  15%{transform:translateX(calc(-50% - 9px)) rotate(-2deg)}
+  100%{transform:translateX(calc(-50% + 120vw)) rotate(5deg)}
+}
+.opa{width:100%;height:100%;transform-origin:50% 100%}
+.opa svg{display:block;width:100%;height:100%;overflow:visible}
+.opa.walking{animation:walkBob .34s ease-in-out infinite alternate}
+@keyframes walkBob{from{transform:translateY(0) rotate(-1deg)}to{transform:translateY(-7px) rotate(1deg)}}
+.front-view,.back-view{transform-box:fill-box;transform-origin:center;transition:opacity .16s,transform .28s}
+.back-view{opacity:0;transform:scaleX(.2)}
+.opa.turned .front-view{opacity:0;transform:scaleX(.2)}
+.opa.turned .back-view{opacity:1;transform:scaleX(1)}
+.head{transform-box:fill-box;transform-origin:50% 85%}
+.pupils{transform-box:fill-box;transform-origin:center}
+.opa.looking .head{animation:lookAround 1.15s ease-in-out both}
+.opa.looking .pupils{animation:eyesAround 1.15s ease-in-out both}
+@keyframes lookAround{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}65%{transform:rotate(9deg)}82%{transform:rotate(3deg)}}
+@keyframes eyesAround{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}65%{transform:translateX(4px)}82%{transform:translateX(2px)}}
+.walking .leg-l,.walking .leg-r{transform-box:fill-box;transform-origin:50% 5%}
+.walking .leg-l{animation:legStep .68s ease-in-out infinite alternate}
+.walking .leg-r{animation:legStep .68s ease-in-out infinite alternate-reverse}
+@keyframes legStep{from{transform:rotate(-3deg)}to{transform:rotate(4deg)}}
+.walking .cane{transform-box:fill-box;transform-origin:50% 10%;animation:caneTap .68s ease-in-out infinite alternate}
+@keyframes caneTap{from{transform:rotate(-3deg)}to{transform:rotate(4deg)}}
+.opa.blast-react{animation:opaJolt .48s ease-out}
+@keyframes opaJolt{0%{transform:translateY(0) scale(1)}20%{transform:translateY(8px) scale(1.04,.96)}45%{transform:translateY(-14px) scale(.97,1.04) rotate(-2deg)}100%{transform:translateY(0) scale(1)}}
+.fart-cloud{
+  position:absolute;z-index:7;left:50%;bottom:18%;width:190px;height:160px;opacity:0;
+  transform:translate(-50%,25%) scale(.1);pointer-events:none;
+}
+.fart-cloud i{
+  position:absolute;left:50%;top:50%;width:var(--s);height:var(--s);border-radius:50%;
+  transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y)));
+  background:radial-gradient(circle at 35% 30%,#e3ff87e8 0%,#8cef68d9 35%,#3d9e54b8 72%,transparent 74%);
+  box-shadow:inset -8px -10px 20px #174f4755,0 0 22px #9dff6540;
+}
+.fart-cloud::after{
+  content:"";position:absolute;inset:25px;border:5px solid #cfff6c;border-radius:50%;opacity:.55;
+}
+.blast .fart-cloud{animation:cloudBoom 2.15s cubic-bezier(.15,.65,.25,1) both}
+@keyframes cloudBoom{
+  0%{opacity:0;transform:translate(-50%,25%) scale(.08) rotate(0)}
+  9%{opacity:1;transform:translate(-50%,15%) scale(.48) rotate(-5deg)}
+  30%{opacity:.95;transform:translate(-50%,0) scale(1.05) rotate(4deg)}
+  65%{opacity:.65;transform:translate(-50%,-20%) scale(1.5) rotate(-4deg)}
+  100%{opacity:0;transform:translate(-50%,-48%) scale(1.85) rotate(5deg)}
+}
+.fart-word{
+  position:absolute;z-index:8;left:50%;top:35%;opacity:0;white-space:nowrap;
+  color:var(--lime);font-size:clamp(39px,12vw,82px);font-weight:1000;letter-spacing:-4px;
+  -webkit-text-stroke:2px #243017;text-shadow:5px 7px 0 #6a45b9,0 0 30px #baff6460;
+  transform:translate(-50%,-50%) scale(.2) rotate(-10deg);pointer-events:none;
+}
+.blast .fart-word{animation:wordPop .95s cubic-bezier(.15,.8,.2,1) both}
+@keyframes wordPop{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.15) rotate(-15deg)}
+  18%{opacity:1;transform:translate(-50%,-50%) scale(1.16) rotate(-5deg)}
+  35%{transform:translate(-50%,-50%) scale(1) rotate(-8deg)}
+  72%{opacity:1;transform:translate(-50%,-58%) scale(1) rotate(-8deg)}
+  100%{opacity:0;transform:translate(-50%,-80%) scale(.92) rotate(-5deg)}
+}
+.caption{
+  position:absolute;z-index:11;left:50%;bottom:calc(75px + env(safe-area-inset-bottom));transform:translateX(-50%);
+  width:max-content;max-width:88vw;min-height:35px;padding:9px 14px;border-radius:12px;
+  background:#080a15a6;color:#d7d9eb;text-align:center;font-size:12px;font-weight:750;line-height:1.35;
+}
+.skip{
+  position:fixed;z-index:70;right:16px;bottom:calc(15px + env(safe-area-inset-bottom));
+  min-width:124px;min-height:46px;padding:10px 15px;border-radius:14px;border:1px solid #ffffff35;
+  background:#111426e8;color:#fff;font-size:13px;font-weight:900;cursor:pointer;backdrop-filter:blur(8px);
+}
+.skip:hover{background:#292e4b}
+.app.rumble{animation:appRumble .48s linear}
+.scene-shake.shake{animation:sceneRumble .48s linear}
+@keyframes appRumble{0%,100%{transform:translate(0) rotate(0)}15%{transform:translate(-5px,2px) rotate(-.35deg)}30%{transform:translate(5px,-2px) rotate(.35deg)}45%{transform:translate(-4px,-1px) rotate(-.25deg)}60%{transform:translate(4px,2px) rotate(.2deg)}75%{transform:translate(-2px,1px)}}
+@keyframes sceneRumble{0%,100%{transform:translate(0)}15%{transform:translate(-6px,3px)}30%{transform:translate(6px,-3px)}45%{transform:translate(-4px,-2px)}60%{transform:translate(4px,2px)}75%{transform:translate(-2px,1px)}}
+.success{
+  position:fixed;inset:0;z-index:40;display:grid;place-items:center;padding:22px;overflow:hidden;
+  opacity:0;visibility:hidden;pointer-events:none;
+  background:radial-gradient(circle at 50% 30%,#35462ef5,#111427fa 55%,#080914 100%);
+  transition:opacity .28s,visibility .28s;
+}
+.success.show{opacity:1;visibility:visible;pointer-events:auto}
+.success-card{
+  position:relative;z-index:2;width:min(92vw,430px);padding:22px 22px 24px;text-align:center;border-radius:28px;
+  color:var(--ink);background:linear-gradient(155deg,#fffff7,#e9eedf);border:3px solid #fff;
+  box-shadow:0 28px 90px #000a,9px 10px 0 #8f78ff;
+  transform:translateY(24px) scale(.94);transition:transform .36s cubic-bezier(.2,.85,.25,1.15);
+  overflow:hidden;
+}
+.success.show .success-card{transform:translateY(0) scale(1)}
+.success-card::before{content:"";position:absolute;left:0;right:0;top:0;height:8px;background:linear-gradient(90deg,var(--violet),var(--lime),var(--green))}
+.pass-top{display:flex;justify-content:space-between;gap:8px;padding-bottom:14px;border-bottom:2px dashed #bdc4b4;color:#616857;font-size:10px;font-weight:1000;letter-spacing:1px}
+.check-badge{
+  width:68px;height:68px;margin:19px auto 10px;display:grid;place-items:center;border-radius:22px;
+  background:#203022;color:var(--lime);font-size:42px;font-weight:1000;transform:rotate(-7deg);
+  box-shadow:5px 5px 0 #a5d34c;
+}
+.success.show .check-badge{animation:stamp .45s .1s cubic-bezier(.2,.85,.25,1.3) both}
+@keyframes stamp{from{transform:scale(1.8) rotate(-20deg);opacity:0}to{transform:scale(1) rotate(-7deg);opacity:1}}
+.success-kicker{margin:13px 0 5px;color:#686e60;font-size:11px;font-weight:1000;letter-spacing:1.8px}
+.success-card h2{margin:4px 0 12px;font-size:clamp(25px,7vw,36px);line-height:1.08;letter-spacing:-1.2px}
+.success-card h2 span{color:#37974e}
+.points{
+  display:inline-block;padding:10px 19px;border-radius:99px;background:var(--lime);border:2px solid var(--ink);
+  font-size:22px;font-weight:1000;transform:rotate(2deg);box-shadow:3px 4px 0 var(--ink);
+}
+.five-checks{display:flex;align-items:center;justify-content:center;gap:7px;margin:22px 0 20px}
+.five-checks i{width:27px;height:27px;display:grid;place-items:center;border-radius:50%;background:#d8e5ce;color:#2b743d;font-size:14px;font-style:normal;font-weight:1000}
+.five-checks b{font-size:19px;color:#7257cc;transform:rotate(8deg)}
+.replay-button{box-shadow:0 5px 0 #8aa839}
+.success-note{margin:15px 0 0;color:#737968;font-size:11px;font-weight:700}
+.confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.confetti span{position:absolute;top:0;left:var(--x);width:8px;height:15px;border-radius:3px;background:var(--c);opacity:0}
+.success.show .confetti span{animation:confettiFall 2.8s var(--d) cubic-bezier(.2,.6,.35,1) both}
+@keyframes confettiFall{
+  0%{opacity:0;transform:translateY(-15vh) rotate(0)}
+  10%{opacity:1}
+  100%{opacity:0;transform:translateY(108vh) rotate(620deg)}
+}
+@media (min-width:800px){
+  .grandpa-move{bottom:5%}
+  .speech{top:10%}
+  .route-card,.task-card{padding:27px}
+}
+@media (max-height:620px){
+  .grandpa-move{width:170px;bottom:4%}
+  .speech{top:10%;font-size:15px;padding:10px 14px}
+  .caption{bottom:65px}
+  .success-card{padding:17px 20px}
+  .check-badge{width:52px;height:52px;font-size:32px;margin-top:12px}
+  .five-checks{margin:14px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .grandpa-move{opacity:1;transform:translateX(-50%)!important}
+  .phase-exit .grandpa-move{opacity:0}
+  .blast .fart-cloud{opacity:.78;transform:translate(-50%,0) scale(1.15)}
+  .blast .fart-word{opacity:1;transform:translate(-50%,-50%) rotate(-7deg)}
+  .confetti{display:none}
+}
+</style>
+</head>
+<body>
+<div class="app" id="app" aria-hidden="true">
+  <div class="app-inner">
+    <header class="app-header">
+      <div class="app-logo"><span class="logo-orbit"></span>MATHE // WELTREISE</div>
+      <div class="streak">🔥 5er-Serie</div>
+    </header>
+    <section class="route-card">
+      <div class="route-top">
+        <div>
+          <div class="eyebrow">Etappe 07 · Unterwegs</div>
+          <h1>Flug 12 · Bruchrechnen</h1>
+        </div>
+        <span class="flight-chip">5/5</span>
+      </div>
+      <div class="route-line">
+        <i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><i class="done"></i><b>✈</b>
+      </div>
+      <div class="route-meta"><span>5 Bordkarten</span><strong>Direktflug läuft!</strong></div>
+    </section>
+    <section class="task-card">
+      <div class="task-number">NÄCHSTE BORDKARTE</div>
+      <div class="math-task">¾ + ⅛ = ?</div>
+      <div class="answer-row">
+        <div class="answer">⅞</div>
+        <div class="answer correct">✓ Richtig</div>
+        <div class="answer">⁴⁄₁₂</div>
+      </div>
+    </section>
+    <div class="app-note">Weiterüben. Nächste Etappe wartet.</div>
+  </div>
+</div>
+
+<section class="start-screen" id="startScreen">
+  <div class="start-card">
+    <div class="start-icon">✈</div>
+    <div class="eyebrow">Zufalls-Highlight bereit</div>
+    <h2>Opa. Mehr gibt’s nicht zu erklären.</h2>
+    <p>5 Bordkarten geschafft. Jetzt betritt ein sehr verdächtiger Opa die Gangway.</p>
+    <button class="primary-button" id="playButton" type="button">▶ Abspielen</button>
+    <small>Mit Ton abspielen · dauert etwa 10 Sekunden</small>
+  </div>
+</section>
+
+<div class="effect" id="effect">
+  <div class="scene-shake" id="sceneShake">
+    <div class="stage-light"></div>
+    <div class="top-tag">ZUFALLS-HIGHLIGHT · GANGWAY 05</div>
+    <div class="speech" id="speech"><span id="speechText"></span></div>
+
+    <div class="grandpa-move">
+      <div class="opa" id="opa">
+        <svg viewBox="0 0 260 360" role="img" aria-label="Opa mit Stock, Hausschuhen und Strickjacke" stroke="#19182b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+          <defs>
+            <linearGradient id="cardiganFront" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ffc85c"/>
+              <stop offset="1" stop-color="#dd8d3f"/>
+            </linearGradient>
+            <linearGradient id="cardiganBack" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#f4b652"/>
+              <stop offset="1" stop-color="#c97838"/>
+            </linearGradient>
+          </defs>
+          <ellipse cx="130" cy="337" rx="74" ry="12" fill="#050610" opacity=".48" stroke="none"/>
+
+          <g class="front-view">
+            <g class="leg leg-l">
+              <path d="M82 224 L119 224 L113 307 L84 307 Z" fill="#586ca8"/>
+              <path d="M80 301 Q99 294 116 306 L116 325 Q91 337 67 325 Q64 313 80 301 Z" fill="#a77be8"/>
+              <path d="M72 319 Q93 325 115 316" fill="none" stroke="#d9baff" stroke-width="4"/>
+            </g>
+            <g class="leg leg-r">
+              <path d="M137 224 L174 224 L177 307 L145 307 Z" fill="#4b5d96"/>
+              <path d="M143 303 Q162 294 180 306 Q195 313 190 325 Q165 336 141 325 Z" fill="#a77be8"/>
+              <path d="M144 317 Q165 325 185 318" fill="none" stroke="#d9baff" stroke-width="4"/>
+            </g>
+
+            <path d="M76 158 Q65 174 63 218 Q62 237 78 241 Q91 239 91 223 L94 176" fill="url(#cardiganFront)"/>
+            <path d="M181 158 Q198 176 196 211 Q194 230 181 229 Q168 225 172 209 L168 178" fill="url(#cardiganFront)"/>
+            <path d="M91 139 Q129 124 169 140 Q183 166 177 236 Q130 253 80 235 Q76 175 91 139 Z" fill="url(#cardiganFront)"/>
+            <path d="M112 137 L129 163 L147 137 L153 225 L105 225 Z" fill="#eef1da"/>
+            <path d="M111 139 L94 153 L106 174 L126 158 M147 139 L164 153 L152 174 L132 158" fill="#f6d179"/>
+            <path d="M129 163 V231" fill="none" stroke="#8c542d" stroke-width="3"/>
+            <circle cx="139" cy="181" r="3.5" fill="#3d3040" stroke="none"/>
+            <circle cx="139" cy="202" r="3.5" fill="#3d3040" stroke="none"/>
+            <circle cx="139" cy="222" r="3.5" fill="#3d3040" stroke="none"/>
+            <path d="M89 198 Q100 202 107 198 M153 198 Q163 202 173 197" fill="none" stroke="#a96535" stroke-width="3"/>
+            <path d="M72 225 Q69 238 79 244 Q91 244 94 232" fill="#f0b184"/>
+
+            <g class="cane">
+              <path d="M195 177 Q214 164 218 181 Q218 191 207 192 L201 320" fill="none" stroke="#734b38" stroke-width="8"/>
+              <path d="M193 321 L210 321" fill="none" stroke="#272333" stroke-width="8"/>
+              <path d="M177 185 Q190 177 199 187 Q199 201 184 203 Q174 199 177 185 Z" fill="#f0b184"/>
+            </g>
+
+            <g class="head">
+              <circle cx="82" cy="103" r="16" fill="#eeb083"/>
+              <circle cx="177" cy="103" r="16" fill="#eeb083"/>
+              <path d="M88 62 Q99 38 128 39 Q163 38 174 67 L174 105 Q166 142 130 147 Q93 141 85 106 Z" fill="#f2b88c"/>
+              <path d="M88 79 Q74 60 91 47 Q98 38 109 41 M171 79 Q187 62 172 47 Q164 39 153 43" fill="#d9d8d2"/>
+              <path d="M92 57 Q79 70 88 91 M168 57 Q181 72 172 92" fill="none" stroke="#f0efe8" stroke-width="10"/>
+              <path d="M106 42 Q128 32 151 43" fill="none" stroke="#f7c39c" stroke-width="5"/>
+              <path d="M96 82 Q108 73 119 81 M141 80 Q153 72 164 81" fill="none" stroke="#e5e3dc" stroke-width="7"/>
+              <g fill="#e9fbff" fill-opacity=".55">
+                <circle cx="108" cy="96" r="20"/>
+                <circle cx="151" cy="96" r="20"/>
+              </g>
+              <path d="M128 94 L132 94 M87 91 L78 87 M172 91 L180 86" fill="none"/>
+              <g class="pupils" fill="#22243a" stroke="none">
+                <circle cx="111" cy="98" r="4"/>
+                <circle cx="148" cy="98" r="4"/>
+              </g>
+              <path d="M130 97 Q122 113 132 116 Q139 116 141 111" fill="none" stroke="#bc7d61" stroke-width="3"/>
+              <path d="M105 124 Q115 112 130 124 Q144 111 156 124 Q146 137 130 128 Q115 137 105 124 Z" fill="#eeeeea"/>
+              <path d="M122 137 Q131 141 140 136" fill="none" stroke="#9c6258" stroke-width="3"/>
+              <path d="M96 114 L90 118 M163 115 L170 119" fill="none" stroke="#d38e70" stroke-width="3"/>
+            </g>
+          </g>
+
+          <g class="back-view">
+            <g class="leg leg-l">
+              <path d="M80 223 L120 223 L113 307 L83 307 Z" fill="#53659c"/>
+              <path d="M79 302 Q99 294 116 306 L116 325 Q91 336 67 325 Q64 313 79 302 Z" fill="#a77be8"/>
+            </g>
+            <g class="leg leg-r">
+              <path d="M139 223 L177 223 L178 307 L145 307 Z" fill="#495a8d"/>
+              <path d="M143 303 Q164 294 180 306 Q195 314 190 325 Q165 336 141 325 Z" fill="#a77be8"/>
+            </g>
+            <path d="M80 214 Q128 199 178 214 L174 256 Q153 265 130 248 Q106 265 82 254 Z" fill="#5b6da5"/>
+            <path d="M130 225 V249 M91 231 Q105 238 116 232 M145 232 Q158 238 169 230" fill="none" stroke="#354573" stroke-width="3"/>
+            <path d="M76 157 Q62 178 65 221 Q67 238 81 238 Q94 233 90 217 L94 174" fill="url(#cardiganBack)"/>
+            <path d="M181 156 Q198 179 195 218 Q193 234 180 232 Q168 227 172 211 L167 174" fill="url(#cardiganBack)"/>
+            <path class="cardigan-back" d="M91 139 Q129 125 169 140 Q184 169 177 224 Q131 240 80 224 Q76 172 91 139 Z" fill="url(#cardiganBack)"/>
+            <path d="M93 151 Q129 168 167 151 M86 210 Q130 223 174 209" fill="none" stroke="#b76e37" stroke-width="3"/>
+            <path d="M121 145 L129 156 L139 145" fill="none" stroke="#f6d179" stroke-width="4"/>
+            <path d="M77 224 Q73 239 83 243 Q94 240 94 229 M177 219 Q173 233 183 237 Q194 233 193 220" fill="#f0b184"/>
+
+            <g class="cane">
+              <path d="M197 177 Q215 165 219 181 Q219 191 208 192 L202 320" fill="none" stroke="#734b38" stroke-width="8"/>
+              <path d="M194 321 L211 321" fill="none" stroke="#272333" stroke-width="8"/>
+            </g>
+
+            <g class="head">
+              <circle cx="83" cy="102" r="15" fill="#eeb083"/>
+              <circle cx="176" cy="102" r="15" fill="#eeb083"/>
+              <path d="M88 64 Q99 39 129 39 Q162 39 173 65 L174 106 Q163 140 130 145 Q95 140 85 106 Z" fill="#efb388"/>
+              <path d="M88 81 Q75 64 90 47 Q99 37 110 42 M171 80 Q185 62 171 47 Q162 38 151 43" fill="#d9d8d2"/>
+              <path d="M91 55 Q81 71 87 96 M169 55 Q179 72 172 97" fill="none" stroke="#f0efe8" stroke-width="11"/>
+              <path d="M103 43 Q129 32 155 45" fill="none" stroke="#f7c39c" stroke-width="5"/>
+              <path d="M96 121 Q129 137 164 120" fill="none" stroke="#d48f6e" stroke-width="3"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="fart-cloud" aria-hidden="true">
+      <i style="--x:-48px;--y:12px;--s:94px"></i>
+      <i style="--x:30px;--y:20px;--s:112px"></i>
+      <i style="--x:-4px;--y:-30px;--s:104px"></i>
+      <i style="--x:69px;--y:-24px;--s:74px"></i>
+      <i style="--x:-76px;--y:-31px;--s:68px"></i>
+      <i style="--x:8px;--y:57px;--s:82px"></i>
+      <i style="--x:-20px;--y:5px;--s:128px"></i>
+    </div>
+    <div class="fart-word" aria-hidden="true">PRRRRRT!</div>
+    <div class="caption" id="caption" aria-live="polite"></div>
+  </div>
+</div>
+
+<section class="success" id="success" aria-hidden="true" aria-live="polite">
+  <div class="confetti" aria-hidden="true">
+    <span style="--x:7%;--c:#d9ff63;--d:0s"></span>
+    <span style="--x:16%;--c:#8f78ff;--d:.25s"></span>
+    <span style="--x:27%;--c:#78ed78;--d:.05s"></span>
+    <span style="--x:38%;--c:#ffc85c;--d:.4s"></span>
+    <span style="--x:49%;--c:#d9ff63;--d:.15s"></span>
+    <span style="--x:59%;--c:#8f78ff;--d:.48s"></span>
+    <span style="--x:68%;--c:#78ed78;--d:.08s"></span>
+    <span style="--x:78%;--c:#ffc85c;--d:.32s"></span>
+    <span style="--x:88%;--c:#d9ff63;--d:.18s"></span>
+    <span style="--x:95%;--c:#8f78ff;--d:.52s"></span>
+  </div>
+  <div class="success-card">
+    <div class="pass-top"><span>FLUG 12 · BONUS-LANDUNG</span><span>✈ DIREKTFLUG</span></div>
+    <div class="check-badge">✓</div>
+    <div class="success-kicker">SAUBER, DIGGA!</div>
+    <h2>5 in Folge richtig <span>✓</span></h2>
+    <div class="points">+5 Punkte</div>
+    <div class="five-checks" aria-label="Fünf Bordkarten">
+      <i>✓</i><i>✓</i><i>✓</i><i>✓</i><i>✓</i><b>✈</b>
+    </div>
+    <button class="primary-button replay-button" id="replayButton" type="button">↻ Nochmal</button>
+    <p class="success-note">Opas Rückenwind. Deine Punkte.</p>
+  </div>
+</section>
+
+<button class="skip" id="skipButton" type="button" hidden>Überspringen ›</button>
+
+<script>
+(() => {
+  const effect = document.getElementById('effect');
+  const sceneShake = document.getElementById('sceneShake');
+  const opa = document.getElementById('opa');
+  const app = document.getElementById('app');
+  const caption = document.getElementById('caption');
+  const speech = document.getElementById('speech');
+  const speechText = document.getElementById('speechText');
+  const success = document.getElementById('success');
+  const startScreen = document.getElementById('startScreen');
+  const playButton = document.getElementById('playButton');
+  const replayButton = document.getElementById('replayButton');
+  const skipButton = document.getElementById('skipButton');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let timers = [];
+  let audioContext = null;
+  let master = null;
+  let noiseBuffer = null;
+  const activeSources = new Set();
+
+  function later(milliseconds, action) {
+    timers.push(window.setTimeout(action, milliseconds));
+  }
+
+  function clearTimers() {
+    timers.forEach(window.clearTimeout);
+    timers = [];
+  }
+
+  function setSpeech(text) {
+    speechText.textContent = text;
+    speech.classList.toggle('show', Boolean(text));
+  }
+
+  function setCaption(text) {
+    caption.textContent = text;
+  }
+
+  function initAudio() {
+    const AudioEngine = window.AudioContext || window.webkitAudioContext;
+    if (!AudioEngine) return;
+    if (!audioContext) {
+      audioContext = new AudioEngine();
+      master = audioContext.createGain();
+      master.gain.value = 0.55;
+      master.connect(audioContext.destination);
+      const length = audioContext.sampleRate * 2;
+      noiseBuffer = audioContext.createBuffer(1, length, audioContext.sampleRate);
+      const data = noiseBuffer.getChannelData(0);
+      for (let i = 0; i < length; i++) data[i] = Math.random() * 2 - 1;
+    }
+    if (audioContext.state === 'suspended') audioContext.resume();
+  }
+
+  function registerSource(source) {
+    activeSources.add(source);
+    source.onended = () => activeSources.delete(source);
+  }
+
+  function stopSounds() {
+    [...activeSources].forEach(source => {
+      try { source.stop(); } catch (_) {}
+    });
+    activeSources.clear();
+  }
+
+  function tone(frequency, duration, volume, type = 'sine', delay = 0, endFrequency = 0) {
+    if (!audioContext || !master) return;
+    const start = audioContext.currentTime + delay;
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    oscillator.type = type;
+    oscillator.frequency.setValueAtTime(frequency, start);
+    if (endFrequency) oscillator.frequency.exponentialRampToValueAtTime(endFrequency, start + duration);
+    gain.gain.setValueAtTime(0.0001, start);
+    gain.gain.exponentialRampToValueAtTime(volume, start + 0.012);
+    gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+    oscillator.connect(gain);
+    gain.connect(master);
+    oscillator.start(start);
+    oscillator.stop(start + duration + 0.03);
+    registerSource(oscillator);
+  }
+
+  function noise(duration, volume, frequency, delay = 0) {
+    if (!audioContext || !master || !noiseBuffer) return;
+    const start = audioContext.currentTime + delay;
+    const source = audioContext.createBufferSource();
+    const filter = audioContext.createBiquadFilter();
+    const gain = audioContext.createGain();
+    source.buffer = noiseBuffer;
+    filter.type = 'bandpass';
+    filter.frequency.value = frequency;
+    filter.Q.value = 0.8;
+    gain.gain.setValueAtTime(0.0001, start);
+    gain.gain.exponentialRampToValueAtTime(volume, start + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+    source.connect(filter);
+    filter.connect(gain);
+    gain.connect(master);
+    source.start(start, Math.random());
+    source.stop(start + duration + 0.02);
+    registerSource(source);
+  }
+
+  function footstep() {
+    tone(88, 0.1, 0.07, 'triangle', 0, 46);
+    noise(0.07, 0.025, 240);
+  }
+
+  function suspiciousSound() {
+    tone(392, 0.16, 0.035, 'triangle');
+    tone(311, 0.24, 0.04, 'triangle', 0.42);
+  }
+
+  function turnSound() {
+    noise(0.28, 0.045, 950);
+    tone(190, 0.25, 0.025, 'sine', 0, 110);
+  }
+
+  function fartSound() {
+    if (!audioContext || !master) return;
+    const start = audioContext.currentTime;
+    const duration = 0.95;
+    const carrier = audioContext.createOscillator();
+    const wobble = audioContext.createOscillator();
+    const modulation = audioContext.createGain();
+    const amplitude = audioContext.createGain();
+    const filter = audioContext.createBiquadFilter();
+
+    carrier.type = 'sawtooth';
+    carrier.frequency.setValueAtTime(96, start);
+    carrier.frequency.exponentialRampToValueAtTime(72, start + 0.28);
+    carrier.frequency.exponentialRampToValueAtTime(47, start + duration);
+
+    wobble.type = 'square';
+    wobble.frequency.setValueAtTime(27, start);
+    wobble.frequency.exponentialRampToValueAtTime(14, start + duration);
+    modulation.gain.setValueAtTime(0.052, start);
+    modulation.gain.linearRampToValueAtTime(0, start + 0.9);
+
+    amplitude.gain.setValueAtTime(0.055, start);
+    amplitude.gain.linearRampToValueAtTime(0.073, start + 0.08);
+    amplitude.gain.setValueAtTime(0.06, start + 0.68);
+    amplitude.gain.linearRampToValueAtTime(0.0001, start + duration);
+
+    filter.type = 'lowpass';
+    filter.frequency.value = 650;
+    filter.Q.value = 1.2;
+
+    wobble.connect(modulation);
+    modulation.connect(amplitude.gain);
+    carrier.connect(filter);
+    filter.connect(amplitude);
+    amplitude.connect(master);
+
+    carrier.start(start);
+    wobble.start(start);
+    carrier.stop(start + duration);
+    wobble.stop(start + duration);
+    registerSource(carrier);
+    registerSource(wobble);
+
+    tone(49, 0.82, 0.075, 'sine', 0, 34);
+    noise(0.13, 0.055, 290);
+    noise(0.2, 0.035, 220, 0.54);
+  }
+
+  function successSound() {
+    tone(523.25, 0.22, 0.055, 'triangle');
+    tone(659.25, 0.22, 0.055, 'triangle', 0.09);
+    tone(783.99, 0.28, 0.06, 'triangle', 0.18);
+    tone(1046.5, 0.52, 0.055, 'sine', 0.34);
+    tone(523.25, 0.5, 0.025, 'sine', 0.34);
+  }
+
+  function blast() {
+    effect.classList.add('blast');
+    opa.classList.add('blast-react');
+    setCaption('');
+    fartSound();
+    if (!reducedMotion) {
+      app.classList.remove('rumble');
+      sceneShake.classList.remove('shake');
+      void app.offsetWidth;
+      app.classList.add('rumble');
+      sceneShake.classList.add('shake');
+    }
+  }
+
+  function finish() {
+    clearTimers();
+    stopSounds();
+    app.classList.remove('rumble');
+    sceneShake.classList.remove('shake');
+    effect.classList.add('done');
+    skipButton.hidden = true;
+    success.classList.add('show');
+    success.setAttribute('aria-hidden', 'false');
+    successSound();
+    window.setTimeout(() => replayButton.focus({preventScroll:true}), 120);
+  }
+
+  function startShow() {
+    clearTimers();
+    stopSounds();
+    initAudio();
+
+    success.classList.remove('show');
+    success.setAttribute('aria-hidden', 'true');
+    startScreen.classList.add('hide');
+    skipButton.hidden = false;
+    app.classList.remove('rumble');
+    sceneShake.classList.remove('shake');
+    effect.className = 'effect';
+    opa.className = 'opa';
+    setSpeech('');
+    setCaption('');
+
+    void effect.offsetWidth;
+    effect.classList.add('running', 'phase-enter');
+    opa.classList.add('walking');
+    setCaption('Eine Störung auf der Gangway …');
+
+    [300, 850, 1400, 1950].forEach(time => later(time, footstep));
+
+    later(2200, () => {
+      opa.classList.remove('walking');
+      setCaption('Opa bleibt stehen.');
+    });
+
+    later(2350, () => {
+      opa.classList.add('looking');
+      setSpeech('Alles safe hier?');
+      setCaption('Er schaut sich verdächtig um …');
+      suspiciousSound();
+    });
+
+    later(3600, () => {
+      opa.classList.remove('looking');
+      opa.classList.add('turned');
+      setSpeech('');
+      setCaption('Opa prüft den Rückenwind …');
+      turnSound();
+    });
+
+    later(4750, blast);
+
+    later(5300, () => {
+      app.classList.remove('rumble');
+      sceneShake.classList.remove('shake');
+    });
+
+    later(5750, () => {
+      setSpeech('Direktflug.\nOhne Zwischenstopp.');
+      setCaption('Opa nickt nur. Keine weitere Erklärung.');
+    });
+
+    later(6900, () => {
+      effect.classList.remove('blast');
+      opa.classList.remove('blast-react');
+      setCaption('');
+    });
+
+    later(7250, () => {
+      setSpeech('');
+      opa.classList.remove('turned');
+      opa.classList.add('walking');
+      effect.classList.add('phase-exit');
+      setCaption('Opa schlurft einfach weiter …');
+    });
+
+    [7500, 8100, 8700].forEach(time => later(time, footstep));
+    later(9350, finish);
+  }
+
+  playButton.addEventListener('click', startShow);
+  replayButton.addEventListener('click', startShow);
+  skipButton.addEventListener('click', finish);
+})();
+</script>
+</body>
+</html>

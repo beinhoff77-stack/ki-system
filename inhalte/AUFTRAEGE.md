@@ -3460,3 +3460,10 @@ Entscheidung Sebastian: Der Projektleiter steuert die Rollen künftig selbst als
 - 4. Liegt es nur am Test → Test auf den fertigen Zustand warten lassen und begründen, warum die App richtig ist.
 - 5. Neuer Test: verzögerte Karte, verzögerte Übersicht, Wechsel des Kindes während des Ladens – nie ein falsches oder antippbares Zwischenziel.
 - Version 0.93.5, Cache-Nummer erhöhen; Gesamtlauf am Ende zweimal hintereinander grün.
+
+## Ablage Mathe-Profi übernommen; Rollen Mathe-Profi und Designer als Datei (25.11., 01:55 Berlin)
+
+- Aus `origin/mathe-profi` 39545b4 übernommen: `inhalte/mathe-profi/` (rolle.md, auftrag1.md, ideen.md mit 22 Ideen, entwurf-formen.html, nachrechnen.py) und Postfach. `nachrechnen.py` hier gelaufen: „OK: 12 Aufgaben, alle zweifach nachgerechnet“. Ein Name im Postfach durch „dem Nutzer“ ersetzt.
+- Zahlen des Mathe-Profis in der Datenbank nachgeprüft: zahl 54,3 %, auswahl 31,1 %, luecken 14,0 %, markierung 0,5 %, text 0,1 %; 3 314 von 30 176 Aufgaben mit Bild.
+- Entscheidung Sebastian: Team mit drei Chats bei ihm (Projektleiter, Mathe-Profi auf Fable, Designer auf Fable), übrige Rollen als Helfer. Neuer Mathe-Profi-Chat nimmt die Ablage auf und denkt sie neu durch. Rollen-Dateien: `inhalte/rollen/README.md`, `mathe-profi.md`, `designer.md`, `bau-app.md`.
+- Noch nicht inhaltlich geprüft durch den Projektleiter: `auftrag1.md`, `ideen.md`.

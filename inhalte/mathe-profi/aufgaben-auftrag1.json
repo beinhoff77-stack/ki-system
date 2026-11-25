@@ -1,0 +1,486 @@
+[
+ {
+  "nr": "R1",
+  "l": "vorteil",
+  "p": "uebung",
+  "s": 1,
+  "g": "erkennen",
+  "y": "markieren",
+  "f": {
+   "text": "Rechne 4 · 17 · 25 · 3 geschickt. Tippe die zwei Faktoren an, die du zuerst malnimmst.",
+   "felder": [
+    "4",
+    "17",
+    "25",
+    "3"
+   ],
+   "anzahl": 2,
+   "anzeige": "term"
+  },
+  "o": {
+   "menge": [
+    0,
+    2
+   ]
+  },
+  "h": "Welche zwei Zahlen ergeben zusammen eine Zahl mit Nullen am Ende?",
+  "w": "4 · 25 = 100. Dann 100 · 17 · 3 = 100 · 51 = 5 100.",
+  "c": "4 * 25",
+  "probe": {
+   "weg1": 5100,
+   "weg2": 5100
+  }
+ },
+ {
+  "nr": "R2",
+  "l": "verteilen",
+  "p": "uebung",
+  "s": 2,
+  "g": "umkehr",
+  "y": "luecken",
+  "f": {
+   "text": "Rechne faul: Klammere die 17 aus.",
+   "schablone": "17 · 23 + 17 · 77 = 17 · □ = □",
+   "hinweis": "Je Kästchen eine ganze Zahl."
+  },
+  "o": {
+   "werte": [
+    100,
+    1700
+   ]
+  },
+  "h": "Beide Produkte haben einen Faktor gemeinsam. Was bleibt in der Klammer?",
+  "w": "17 · 23 + 17 · 77 = 17 · (23 + 77) = 17 · 100 = 1 700.",
+  "c": [
+   "23 + 77",
+   "17 * (23 + 77)"
+  ],
+  "probe": {
+   "weg1": 1700,
+   "weg2": 1700
+  }
+ },
+ {
+  "nr": "R3",
+  "l": "klammern",
+  "p": "uebung",
+  "s": 3,
+  "g": "parameter",
+  "y": "auswahl",
+  "f": {
+   "text": "Wo muss die Klammer hin, damit 33 herauskommt?  3 + 4 · 5 − 2"
+  },
+  "a": [
+   "3 + 4 · (5 − 2)",
+   "(3 + 4) · 5 − 2",
+   "3 + (4 · 5 − 2)",
+   "Ohne Klammer kommt schon 33 heraus."
+  ],
+  "o": {
+   "index": 1
+  },
+  "h": "Rechne rückwärts: Was muss vor dem „− 2“ stehen?",
+  "w": "(3 + 4) · 5 − 2 = 7 · 5 − 2 = 35 − 2 = 33. Rückwärts: 33 + 2 = 35 = 7 · 5, und 7 = 3 + 4.",
+  "probe": {
+   "werte": {
+    "(3 + 4) · 5 − 2": 33,
+    "3 + 4 · (5 − 2)": 15,
+    "3 + (4 · 5 − 2)": 21,
+    "3 + 4 · 5 − 2": 21
+   }
+  }
+ },
+ {
+  "nr": "R4",
+  "l": "ueberschlag",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "schieber",
+  "f": {
+   "text": "Ohne genau zu rechnen: Wo liegt 487 · 21? Schieb den Pfeil an die Stelle.",
+   "grafik": {
+    "typ": "zahlenstrahl",
+    "start": 0,
+    "ende": 20000,
+    "abschnitte": 10,
+    "beschriftet": "anfang_ende"
+   },
+   "schieber": {
+    "start": 0,
+    "ende": 20000,
+    "schritt": 100,
+    "anfang": null
+   }
+  },
+  "o": {
+   "von": 8000,
+   "bis": 12000,
+   "wert": 10227
+  },
+  "h": "Runde beide Zahlen so, dass du im Kopf malnehmen kannst.",
+  "w": "487 ≈ 500 und 21 ≈ 20, also etwa 500 · 20 = 10 000. Genau: 487 · 20 + 487 = 9 740 + 487 = 10 227.",
+  "c": "487 * 21",
+  "probe": {
+   "genau": 10227,
+   "ueberschlag": 10000
+  }
+ },
+ {
+  "nr": "R5",
+  "l": "sach",
+  "p": "uebung",
+  "s": 3,
+  "g": "rueckwaerts",
+  "y": "reihenfolge",
+  "f": {
+   "text": "Eine Zahl wird mit 4 malgenommen, dann wird 30 abgezogen, dann durch 2 geteilt. Es kommt 25 heraus. Leg die Schritte zum Rückwärtsrechnen in die richtige Reihenfolge. Zwei Bausteine brauchst du nicht.",
+   "bausteine": [
+    {
+     "id": "plus30",
+     "text": "+ 30"
+    },
+    {
+     "id": "mal2",
+     "text": "· 2"
+    },
+    {
+     "id": "durch4",
+     "text": ": 4"
+    },
+    {
+     "id": "minus30",
+     "text": "− 30"
+    },
+    {
+     "id": "durch2",
+     "text": ": 2"
+    }
+   ],
+   "plaetze": 3,
+   "start_text": "25"
+  },
+  "o": {
+   "folge": [
+    "mal2",
+    "plus30",
+    "durch4"
+   ]
+  },
+  "h": "Den letzten Schritt machst du zuerst rückgängig.",
+  "w": "25 · 2 = 50, 50 + 30 = 80, 80 : 4 = 20. Probe: 20 · 4 = 80, 80 − 30 = 50, 50 : 2 = 25.",
+  "probe": {
+   "ergebnis": 20
+  }
+ },
+ {
+  "nr": "R6",
+  "l": "schriftlich_geteilt",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "auswahl",
+  "f": {
+   "text": "Jemand rechnet 2 976 : 12 und erhält 246 Rest 4. In welcher Zeile steckt der Fehler?",
+   "grafik": {
+    "typ": "tabelle",
+    "kopf": [
+     "",
+     "teilen",
+     "mal",
+     "Rest"
+    ],
+    "zeilen": [
+     [
+      "Zeile 1",
+      "29 : 12 = 2",
+      "2 · 12 = 24",
+      "5"
+     ],
+     [
+      "Zeile 2",
+      "57 : 12 = 4",
+      "4 · 12 = 48",
+      "7"
+     ],
+     [
+      "Zeile 3",
+      "76 : 12 = 6",
+      "6 · 12 = 72",
+      "4"
+     ]
+    ]
+   }
+  },
+  "a": [
+   "Zeile 1",
+   "Zeile 2",
+   "Zeile 3",
+   "Alles richtig, 246 Rest 4 stimmt."
+  ],
+  "o": {
+   "index": 1
+  },
+  "h": "Prüfe in jeder Zeile die Minus-Rechnung.",
+  "w": "Zeile 2: 57 − 48 = 9, nicht 7. Richtig geht es mit 96 : 12 = 8 weiter: 248. Probe: 248 · 12 = 2 976.",
+  "probe": {
+   "richtig": 248
+  }
+ },
+ {
+  "nr": "L1",
+  "l": "graph_ablesen",
+  "p": "uebung",
+  "s": 1,
+  "g": "direkt",
+  "y": "punkte",
+  "f": {
+   "text": "Zeichne die Gerade y = −(2/3)x + 2. Setze dazu zwei Punkte auf Gitterpunkte.",
+   "grafik": {
+    "typ": "koordinaten",
+    "x": [
+     -5,
+     6
+    ],
+    "y": [
+     -4,
+     5
+    ]
+   },
+   "setzen": {
+    "anzahl": 2,
+    "raster": 1,
+    "linie": "gerade"
+   }
+  },
+  "o": {
+   "regel": "auf_gerade",
+   "m": [
+    -2,
+    3
+   ],
+   "t": [
+    2,
+    1
+   ],
+   "verschieden": true,
+   "toleranz": 0.25
+  },
+  "h": "Starte bei t auf der y-Achse. m = −2/3 heißt: 3 nach rechts, 2 nach unten.",
+  "w": "Start (0 | 2). 3 nach rechts, 2 nach unten: (3 | 0). Gültig sind alle Gitterpunkte der Geraden: (−3 | 4), (0 | 2), (3 | 0), (6 | −2).",
+  "probe": {
+   "gitterpunkte": [
+    [
+     -3,
+     4
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     6,
+     -2
+    ]
+   ]
+  }
+ },
+ {
+  "nr": "L2",
+  "l": "wirkung",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "schieber",
+  "f": {
+   "text": "Alle Geraden y = k · x + 1 gehen durch (0 | 1). Stell k so ein, dass die Gerade durch P(4 | −1) geht.",
+   "grafik": {
+    "typ": "koordinaten",
+    "x": [
+     -2,
+     6
+    ],
+    "y": [
+     -4,
+     5
+    ],
+    "punkte": [
+     {
+      "x": 4,
+      "y": -1,
+      "name": "P"
+     }
+    ],
+    "graphen": [
+     {
+      "art": "linear",
+      "m": "k",
+      "t": 1
+     }
+    ]
+   },
+   "schieber": {
+    "name": "k",
+    "start": -3,
+    "ende": 3,
+    "schritt": 0.25,
+    "anfang": 1
+   }
+  },
+  "o": {
+   "wert": -0.5,
+   "toleranz": 0.125
+  },
+  "h": "Von (0 | 1) nach P: wie weit nach rechts, wie weit nach unten?",
+  "w": "Von (0 | 1) nach (4 | −1): 4 nach rechts, 2 nach unten. k = −2 : 4 = −0,5. Probe: −0,5 · 4 + 1 = −1.",
+  "c": "(-1 - 1) / 4",
+  "probe": {
+   "weg1": "-1/2",
+   "weg2": "-1/2"
+  }
+ },
+ {
+  "nr": "L3",
+  "l": "zwei_punkte",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "luecken",
+  "f": {
+   "text": "Die Tabelle gehört zu einer Geraden. Gib ihre Steigung als gekürzten Bruch an.",
+   "grafik": {
+    "typ": "tabelle",
+    "kopf": [
+     "x",
+     "0",
+     "3",
+     "6",
+     "9"
+    ],
+    "zeilen": [
+     [
+      "y",
+      "7",
+      "5",
+      "3",
+      "1"
+     ]
+    ]
+   },
+   "schablone": "m = □/□",
+   "hinweis": "Minus gehört in den Zähler."
+  },
+  "o": {
+   "werte": [
+    -2,
+    3
+   ]
+  },
+  "h": "Schau nur auf einen Schritt der Tabelle: um wie viel ändert sich x, um wie viel y?",
+  "w": "Ein Schritt: x + 3, y − 2. Also m = −2/3. Ganze Tabelle: (1 − 7) : (9 − 0) = −6/9 = −2/3.",
+  "c": [
+   "-2",
+   "3"
+  ],
+  "probe": {
+   "weg1": "-2/3",
+   "weg2": "-2/3"
+  }
+ },
+ {
+  "nr": "L4",
+  "l": "schnittpunkte",
+  "p": "uebung",
+  "s": 3,
+  "g": "transfer",
+  "y": "zahl",
+  "f": {
+   "text": "Tarif A: 8 € im Monat plus 0,10 € pro Minute. Tarif B: 2 € im Monat plus 0,25 € pro Minute. Bei wie vielen Minuten kosten beide gleich viel?"
+  },
+  "o": {
+   "wert": 40,
+   "einheit": "min"
+  },
+  "h": "B ist am Anfang 6 € billiger. Wie viel holt A pro Minute auf?",
+  "w": "Faul: B startet 6 € billiger, A holt pro Minute 0,15 € auf. 6 : 0,15 = 40. Probe: 8 + 4 = 12 und 2 + 10 = 12.",
+  "c": "(8 - 2) / (0.25 - 0.10)",
+  "probe": {
+   "weg1": "40",
+   "weg2": "40"
+  }
+ },
+ {
+  "nr": "L5",
+  "l": "lage",
+  "p": "uebung",
+  "s": 2,
+  "g": "erkennen",
+  "y": "zuordnung",
+  "f": {
+   "text": "Ordne jedem Geradenpaar zu, wie die Geraden liegen.",
+   "links": [
+    "y = 3x + 1  und  y = 3x − 2",
+    "y = 3x + 1  und  y = −(1/3)x",
+    "y = 2x + 4  und  2y = 4x + 8",
+    "y = x + 1  und  y = 2x + 1",
+    "y = −2x + 3  und  y = 0,5x − 1"
+   ],
+   "rechts": [
+    "parallel",
+    "senkrecht",
+    "identisch",
+    "schneiden sich, nicht senkrecht"
+   ],
+   "mehrfach": true
+  },
+  "o": {
+   "paare": [
+    0,
+    1,
+    2,
+    3,
+    1
+   ]
+  },
+  "h": "Vergleiche zuerst die Steigungen. Bei 2y = … erst nach y auflösen.",
+  "w": "3 = 3, t verschieden: parallel. 3 · (−1/3) = −1: senkrecht. 2y = 4x + 8 heißt y = 2x + 4: identisch. 1 · 2 = 2: schneiden sich, nicht senkrecht. (−2) · 0,5 = −1: senkrecht.",
+  "probe": {
+   "soll": [
+    0,
+    1,
+    2,
+    3,
+    1
+   ]
+  }
+ },
+ {
+  "nr": "L6",
+  "l": "schnittpunkte",
+  "p": "uebung",
+  "s": 3,
+  "g": "verknuepfen",
+  "y": "zahl",
+  "f": {
+   "text": "g: y = x − 1 und h: y = −x + 5 schneiden sich im Punkt S. Für welches t geht y = 0,5x + t durch S?"
+  },
+  "o": {
+   "wert": 0.5
+  },
+  "h": "Erst S bestimmen, dann S einsetzen.",
+  "w": "x − 1 = −x + 5 ⇒ x = 3, y = 2, also S(3 | 2). 2 = 0,5 · 3 + t ⇒ t = 0,5.",
+  "c": "2 - 0.5 * 3",
+  "probe": {
+   "S": [
+    3,
+    2
+   ],
+   "weg1": "1/2",
+   "weg2": "1/2"
+  }
+ }
+]

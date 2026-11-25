@@ -1,5 +1,34 @@
 # Postfach mathe-profi
 
+## 2026-11-25 (Berlin) – FERTIG: Nachtrag Denkaufträge 3 und 4 (nach Lektüre der Recherche-Berichte)
+Zweig `mathe-profi`, auf Stand `lernen-app` e8a373f gebracht. Abgelegt mit Commit b9271b7a.
+
+**Geliefert** unter `inhalte/mathe-profi/`:
+- `denkpapier-massstab.md` – neuer Abschnitt „Nachtrag“ am Ende (jetzt fünf Seiten bei 10 pt).
+- `denkpapier-methoden.md` – neuer Abschnitt „Nachtrag“ am Ende (jetzt fünf Seiten).
+- `recherche_stichprobe.py` – Erfolgsquoten 2023–2025 nach meiner Zuordnung, zwölf Helfer-Beispiele nachgerechnet, Kästchengröße im Gitter. Lauf „OK“.
+
+**Kernaussagen**
+- Erfolgsquoten je Teilaufgabe aus `tief-5` ergeben genau die Gesamtquoten der drei Jahre. Über drei Jahre: nur Regeln 54 %, mit Geometrie-Formel 43 %, Übertragen 33 %, Begründen 37 % (Geometrie 34 %). Meine 16 % für Übertragen galten nur für 2025 – berichtigt.
+- Vier-Wochen-Fassung: erste und letzte Papier-Runde des älteren Kindes als ganzer amtlicher Test (Eich-Plan `tief-5`, 7a).
+- „Erst knobeln“ für das jüngere Kind gestrichen (`tief-8`).
+- Stichprobe aus Stufe 3 in zwei Bauarten geteilt: Heft-Beleg (nur nach richtiger Lösung, Aufgabe verdeckt) und Fehlersuche (nur nach falscher Lösung).
+- Neue Zwischenstufe: nach falscher Lösung Zeilen eintippen, Prüfer „erste falsche Zeile“ (`tief-4`).
+- „Verfahren wählen“ rückt in meine Top fünf.
+
+**Zweifel an Helfer-Befunden**
+- `tief-8` „Schritt-Systeme 0,76 gegen 0,31 als wichtigster Befund“ – steht gegen die in `tief-7` berichtete Studie mit schrittweiser Eingabe ohne inhaltliche Rückmeldung (nie besser, im Behaltenstest schlechter).
+- `tief-10` „34 px je Kästchen“ – im vorhandenen Bild 26 Einheiten, am Handy 23 px.
+- `tief-10` Umfang der Erklärung (10–18 Eingaben) – Belege großteils nicht aus der Altersgruppe (meine Annahme).
+- `tief-7` Kontrollzahl als Auswahl aus vier Werten – zeigt die falschen Werte und lässt raten.
+- `tief-3` „15–30 Stunden Etikettieren“ – Schätzung ohne Probe.
+- `tief-12` Rangliste gewichtet Reiz höher als Nutzen für den Maßstab; „Welche passt nicht?“ ist nicht prüfbar.
+- Die Prüfskripte der Helfer liegen nicht im Repo.
+
+**Offen:** Volltext von Denkauftrag 4 ab Frage 6. Entscheidungen des Nutzers zu den übrigen Methoden.
+**Nicht geprüft:** Quellen der Berichte nicht an der Quelle nachgeschlagen; Berichte nur in den Kernteilen gelesen, nicht jede Zeile; `sucher-a` bis `-d`, `tief-1`, `-9`, `-11` nicht gelesen; von den 61 Mustern nur Übersicht, Bau-Formate und Rangliste.
+**Annahmen:** Die Quoten in `tief-5` sind richtig abgelesen (gestützt durch die passenden Gesamtquoten, nicht durch eigenen Blick in die Berichte).
+
 ## 2026-11-25 10:41 (Berlin) – FERTIG: Denkpapier Methoden (Denkauftrag 4) – Auftragstext kam abgeschnitten an
 Zweig `mathe-profi`, Stand `lernen-app` dc9673c. Abgelegt mit Commit 07d72328.
 

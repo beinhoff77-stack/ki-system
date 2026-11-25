@@ -1,5 +1,33 @@
 # Postfach mathe-profi
 
+## 2026-11-25 02:40 (Berlin) – FERTIG: Auftrag 3 (Musterstapel Weg-Aufgaben)
+Zweig `mathe-profi`, vorher mit `lernen-app` 205ba5c2 zusammengeführt.
+
+**Entscheidungen des Nutzers (25.11., 02:10):** Reihenfolge aus Auftrag 2 bestätigt (vorab Weg-Aufgaben ohne Bau · Bau 1 `punkte` · Bau 2 `markieren` als Mehrfach-Auswahl · Bau 3 falsche Antwort als Bild). `punkte` zuerst nur in Übungen, nicht im Flug-Test, bis die Fehltipp-Quote mit dem Testkind gemessen ist. Mathe-Profi darf die Versuchsdaten lesen (nur Summen, ohne Namen). Der Vorname in `inhalte/AUFTRAEGE.md` soll vom Projektleiter bereinigt werden.
+
+**Geliefert** unter `inhalte/mathe-profi/`:
+- `auftrag3.md`: 6 Muster für Weg-Aufgaben mit Prüfregeln (M1 Erster Schritt, M2 Lücke im faulen Weg, M3 Welcher Weg stimmt, M4 Fehlerzeile, M5 Nächster Strich, M6 Freier Überschlag), Mengen- und Regelvorschlag, 20 Musteraufgaben für `zahlen.rechengesetze` (Etappen `vorteil`, `differenz_summe`, `verteilen`, `kopfrechnen`, `ueberschlag`, `schriftlich_geteilt`).
+- `nachrechnen3.py`: jede Aufgabe auf zwei Wegen (im Skript und mit `rechne` aus `tools/inhalt_pruefen.py`), Musterregeln, Antwortform mit `pruefe_antwort` – Lauf „OK“, 0 Fehler, 0 Hinweise. Erzeugt `aufgaben-auftrag3.json`.
+- Nur vorhandene Antwortformen: 10 `auswahl` (4 mit `tabelle`), 5 `luecken`, 3 `markierung`, 2 `zahl` (1 mit `toleranz`). Kein Bau nötig.
+
+**Auftrag an den Aufgaben-Ersteller (über den Projektleiter):** nach den Mustern in `auftrag3.md` Abschnitt 1 je Etappe auf 6 Weg-Aufgaben auffüllen (16 fehlen), dafür gleich viele gleich gebaute „Rechne geschickt“-Zahlkarten streichen. Ich prüfe eine Stichprobe von 8.
+
+**App-Wunsch (klein):** „gelandet“ in diesen sechs Etappen erst, wenn mindestens eine Weg-Aufgabe im ersten Versuch richtig war. Braucht ein Kennzeichen an der Aufgabe; Vorschlag Feld `weg: true` (steht in den Datensätzen). Form des Kennzeichens entscheidet der Projektleiter.
+
+**Offen**
+- Vornamen-Bereinigung in `inhalte/AUFTRAEGE.md` (Projektleiter).
+- Frage aus Auftrag 2 an den Projektleiter: Aufwand für verkettete Karten und für quadratische Kästchen in `lernKoordinaten` mit Graphen.
+- Die Aufgaben sind nicht in `zahlen.rechengesetze.json` eingebaut.
+
+**Nicht geprüft**
+- Ganze Themen-Datei mit `tools/inhalt_pruefen.py` (erst nach dem Einbau möglich).
+- Umbruch der Tabellen mit langen Zeilen (S1, S2) am Handy.
+- Ob die App bei `zahl` mit `toleranz` nach richtiger Schätzung den genauen Wert zeigt.
+
+**Annahmen**
+- Alle „häufigsten falschen Antworten“; 15 % Toleranz (M6) und 30-%-Grenze (M5) von mir gesetzt.
+- Versuchsdaten gesichtet; Ergebnisse stehen nach Teamregel nicht im Repo und gingen direkt an den Nutzer.
+
 ## 2026-11-25 02:05 (Berlin) – FERTIG: Auftrag 2
 Neuer Mathe-Profi-Chat (Nachfolger). Zweig `mathe-profi`, vorher mit `lernen-app` 4351182 zusammengeführt.
 

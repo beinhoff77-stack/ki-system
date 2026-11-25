@@ -3440,3 +3440,30 @@ Meldung Sebastian mit zwei Bildern (Reisekarte: „Bhaktapur · Stadt 1 von 5“
 - Nach jedem Abschluss (Landung, Test bestanden, Nachbessern) geht es mit einem Knopf direkt weiter, ohne Umweg über Karte oder Übersicht.
 - Gelerntes ansehen bleibt freiwillig erreichbar (Karte antippen, Erklären, „Trotzdem weiterüben“), drängt sich aber nie vor.
 - RS (0.93.3) ist von bau-motivation schon geliefert (98c2b09), noch nicht zusammengeführt; WK 2 baut darauf auf → 0.93.4.
+
+## LIVE: App 0.93.4 – ein Hauptknopf, automatisch weiter (24.11., 08:35 Berlin)
+
+- `main` ab67ff4 = `lernen-app` 8b0b83b (WK 2 + RS). Auslieferung erfolgreich. Sebastian: „Live“. Kinder über 3 Stunden ohne Übung.
+- Gesamttest: 1. Lauf 201/202 – „KJ §0: Kinderseite – Nachbessern zuerst …“ rot, Fehlermeldung nicht erfasst; einzeln 3× grün; 2. Lauf 202/202. **Offen: Ursache des wackligen Tests** (Verdacht: Hauptknopf wird nachträglich gefüllt, Test liest zu früh oder Knopf zeigt kurz das alte Ziel) → an `bau-motivation`.
+- Tageslauf 24.11.: keine neuen Lehrer-Aufträge; Test-Eintrag 2 auf „erledigt“ (Sebastian: ja). Gestalter-Vorgabe FX (Spezialeffekte) liegt vor; Sebastian: warten.
+- Neuer Chat `mathe-profi` geplant (Kopiertext bei Sebastian): bewertet Inhalte, liefert Erklärungen, Aufgaben, neue Aufgabenformen unter `inhalte/mathe-profi/`, Zweig `mathe-profi`.
+- Offen für `bau-lehrer`: `reise_karte.naechster_start` ohne offene Stadt → `stadt = null`, `grund = 'test'`.
+
+## Umstellung: Helfer statt Kopiertexte – Probelauf mit Auftrag WT (25.11., 01:30 Berlin)
+
+Entscheidung Sebastian: Der Projektleiter steuert die Rollen künftig selbst als Helfer an; Kopieren zwischen Chats entfällt. Rollenbeschreibungen liegen unter `inhalte/rollen/`. Einspielen in die Datenbank und Live bleiben beim Projektleiter und brauchen weiter Sebastians ausdrückliches Wort.
+**Probelauf – Auftrag WT (App 0.93.5) an Rolle `bau-app`, Zweig `bau-app`:**
+- Befund: Gesamtlauf auf 8b0b83b: 1. Lauf 201/202, rot „KJ §0: Kinderseite – Nachbessern zuerst (Expedition als Chip), Gerade dran, Zusatz · eingeplant, Mein Schuljahr; Zahlen aus schuljahr_stand; gelber Knopf nie Zusatz (400/820, Tag und Nacht)“, Meldung nicht erfasst; einzeln 3× grün; 2. Lauf 202/202.
+- 1. Ursache finden, nicht nur den Test beruhigen: Gesamtlauf wiederholen, bis der Fehler wieder auftritt (höchstens 4 Läufe), Meldung im Wortlaut festhalten; zusätzlich den Test mit künstlich verzögerten Antworten des nachgestellten Servers laufen lassen (Karte 800 ms nach Übersicht und umgekehrt).
+- 2. Verdacht prüfen: `lernSchrittKnopf` steht sofort da und bekommt Ziel und Text erst nach dem Laden. Kann der Hauptknopf solange ein falsches Ziel zeigen oder antippbar sein? Kann eine ältere Antwort eine neuere überschreiben (Wechsel des Kindes, schneller Rückweg)?
+- 3. Echter Wettlauf → beheben: Hauptknopf erst antippbar, wenn sein Ziel feststeht (bis dahin sichtbar, gesperrt, ohne Stadtname); nie ein Ziel gegen die Reihenfolge; Antworten älterer Abrufe verwerfen.
+- 4. Liegt es nur am Test → Test auf den fertigen Zustand warten lassen und begründen, warum die App richtig ist.
+- 5. Neuer Test: verzögerte Karte, verzögerte Übersicht, Wechsel des Kindes während des Ladens – nie ein falsches oder antippbares Zwischenziel.
+- Version 0.93.5, Cache-Nummer erhöhen; Gesamtlauf am Ende zweimal hintereinander grün.
+
+## Ablage Mathe-Profi übernommen; Rollen Mathe-Profi und Designer als Datei (25.11., 01:55 Berlin)
+
+- Aus `origin/mathe-profi` 39545b4 übernommen: `inhalte/mathe-profi/` (rolle.md, auftrag1.md, ideen.md mit 22 Ideen, entwurf-formen.html, nachrechnen.py) und Postfach. `nachrechnen.py` hier gelaufen: „OK: 12 Aufgaben, alle zweifach nachgerechnet“. Ein Name im Postfach durch „dem Nutzer“ ersetzt.
+- Zahlen des Mathe-Profis in der Datenbank nachgeprüft: zahl 54,3 %, auswahl 31,1 %, luecken 14,0 %, markierung 0,5 %, text 0,1 %; 3 314 von 30 176 Aufgaben mit Bild.
+- Entscheidung Sebastian: Team mit drei Chats bei ihm (Projektleiter, Mathe-Profi auf Fable, Designer auf Fable), übrige Rollen als Helfer. Neuer Mathe-Profi-Chat nimmt die Ablage auf und denkt sie neu durch. Rollen-Dateien: `inhalte/rollen/README.md`, `mathe-profi.md`, `designer.md`, `bau-app.md`.
+- Noch nicht inhaltlich geprüft durch den Projektleiter: `auftrag1.md`, `ideen.md`.

@@ -155,6 +155,31 @@ Meine Lesart: Kommt der Ansatz vor oder nach dem Verfahren? **Zweimal** – klei
 
 Fehlerbeispiele (Schritt 4) erst nach Schritt 3: Wer das Verfahren noch nicht kann, lernt aus fremden Fehlern wenig [A].
 
+## Nachtrag nach Lektüre der Recherche-Berichte (Stand `lernen-app` e8a373f)
+
+Gelesen: Kernteile von `tief-12`, `tief-10`, `tief-4`, `tief-8`, dazu `tief-7` zu Sparx. Der vollständige Text von Denkauftrag 4 liegt weiter nicht vor. Angaben der Berichte sind nicht von mir geprüft, außer wo [G] steht.
+
+**1. Stichprobe: zwei Zwecke, zwei Bauarten.** Der Sparx-Check prüft nur **richtig** gelöste Aufgaben, **ohne die Frage zu zeigen**, und seltener, wenn das Kind besteht (`tief-7`). Das ist ein Ehrlichkeits-Check. Die Stichprobe aus Stufe 3 steht direkt unter der Aufgabe – das Kind kann im Kopf nachrechnen. Daraus zwei getrennte Dinge [M]:
+- **Heft-Beleg:** nur nach richtigen Lösungen, später in der Sitzung, nur mit Aufgaben-Kürzel, freie Eingabe.
+- **Fehlersuche:** nur nach falschen Lösungen, sofort, mit sichtbarer Aufgabe – „Welche Gleichung mit einer Unbekannten stand bei dir?“.
+Damit entfällt auch mein Einwand, die Stichprobe lasse sich fälschen: Beim Heft-Beleg sieht das Kind die Aufgabe nicht, bei der Fehlersuche hat es keinen Grund zu fälschen.
+
+**2. Zwischen Stufe 2 und 3 fehlt eine Stufe.** `tief-4` beschreibt den Prüfer „erste falsche Zeile“: je Heft-Zeile zwei Zahlen (vor x, ohne x), Vergleich der Lösungsmengen, bei linearen Gleichungen exakt. Vorschlag [M]: **Stufe 3 bleibt Regelfall. Nach einer falschen Lösung tippt das Kind seine Zeilen ein**, die App zeigt die erste falsche. Das ist Rückmeldung je Schritt, aber nur wo nötig. Grenze laut `tief-4`: eine Variable je Aufgabe – für das Gleichungssystem reicht die Wegmarken-Frage.
+**3. Rückmeldung je Schritt ist kein Selbstläufer.** `tief-8` stellt Schritt- gegen Antwort-Systeme (0,76 gegen 0,31). `tief-7` nennt eine Studie mit schrittweiser Eingabe und reiner Richtig-falsch-Rückmeldung, die nie besser und im Behaltenstest schlechter war. Für Stufe 1 und 2 heißt das: Jede falsche Möglichkeit und jede falsche Lücke braucht eine **inhaltliche** Rückmeldung – sonst lieber weglassen.
+**4. „Erst knobeln“ nicht für das jüngere Kind** (`tief-8`: kein Vorteil in Klasse 2–5). In der Reihenfolge aus Abschnitt 6 ist Schritt 1 für Klasse 5 eine Vorhersage-Frage, kein Problem zum Selbstlösen. „Zwei Wege vergleichen“ erst mit Vorwissen – deckt sich mit Schritt 4.
+**5. „Verfahren wählen“ ist belegt die stärkste Lücke.** Gemischtes Üben wirkt laut `tief-8` vor allem, weil das Kind die Methode wählen muss. Das war Punkt 1 meiner Fehl-Liste; ich ziehe ihn in die Top fünf: Er ersetzt dort „zwei Wege vergleichen“, das bleibt als Mittel dazu.
+
+**6. Aus der vollen Ideensammlung (`tief-12`) zusätzlich gut** [M]
+- **„Gleichwertig oder zufällig gleich?“** – ein Beispiel beweist nichts, ein Gegenbeispiel genügt. Passt zur Zahlenprobe und zum Begründen.
+- **Fehler-Erfinder:** Das Kind baut eine falsche Rechnung mit einem typischen Fehler; der Server erkennt das Fehlbild. Nutzt den Fehler-Katalog rückwärts.
+- **Steckbrief mit Eindeutigkeits-Prüfung:** „passt auch auf 84“ ist Rückmeldung, die zum Denken zwingt.
+- **Maßstab bei Fläche und Volumen:** Die passende Testaufgabe lösten 2025 landesweit 13 %.
+- **„Wo darf der Punkt liegen?“** – braucht nur `punkte`.
+**Weiter überschätzt:** „Welche passt nicht?“ auf Rang 5 – „jede Antwort kann richtig sein“ heißt: nichts wird geprüft. Ziffernkarten-Ziel auf Rang 2 – hoher Reiz, wenig Bezug zum Maßstab. Reise-Aufgaben auf Rang 8 – die Weltzahlen nennt der Helfer selbst unbelegt. Die Rangliste gewichtet „macht Lust“ stärker als „schließt die Lücke“.
+
+**7. Bauplan der Erklärung (`tief-10`):** Einstiegstest, Tun vor Regel, Fehlerbeispiel zum Bearbeiten, Ausblenden, Schlussprüfung – einverstanden; „Nicht-Beispiele“ in jeder Aufgabenfolge entsprechen der „Grenze“ jeder Grundregel. Nicht einverstanden mit dem Umfang (10 bis 18 Eingaben, 6 bis 12 Minuten): Obergrenze sechs Bildschirme, Fehlerbeispiel erst **nach** den ersten eigenen Aufgaben.
+**8. Nachgerechnet:** zwölf Beispiele aus `tief-8`, `tief-10`, `tief-12` (`recherche_stichprobe.py`), alle richtig [G]. Die Prüfskripte der Helfer liegen nicht im Repo.
+
 ## Nicht geprüft
 
-Der abgeschnittene Teil des Auftrags; die 61 Muster und 30 Reise-Aufgaben des Helfers selbst (ich kenne nur die genannte Spitze); der Bericht „Erklären“; Bedien-Aufwand der einzelnen Methoden; ob die Kachel-Eingabe für Ansätze klein zu bauen ist.
+Der abgeschnittene Teil des Auftrags; von den 61 Mustern und 30 Reise-Aufgaben nur Übersicht, Bau-Formate und Rangliste gelesen, nicht jedes Muster; Quellen der Berichte nicht an der Quelle nachgeschlagen; Bedien-Aufwand der einzelnen Methoden; ob die Kachel-Eingabe für Ansätze klein zu bauen ist.

@@ -2,7 +2,7 @@
 
 Mathe-Profi, 25.11.2026. Kein Bau. Stand `lernen-app` dc9673c. Antwort auf Denkauftrag 3 (Fragen 1–8) und die Ergänzung (Fragen 9–14).
 **[G]** gesichert (selbst gelesen, gezählt, gerechnet; Forschung mit Quelle) · **[A]** Annahme · **[M]** Meinung · **[H]** Angabe der Helfer, von mir nicht geprüft. Zahlen: `massstab_probe.py` (nur Inhalte, keine Lerndaten).
-**Offen:** Die Befunde der vier weiteren Helfer (Lernforschung, Motivation, Erklären, Bedienung) lagen noch nicht vor. Die Ergebnisberichte 2023 und 2024 des Staatsinstituts konnte ich nicht abrufen; Erfolgsquoten habe ich nur für 2025.
+**Stand:** Hauptteil vor Eingang der Recherche-Berichte geschrieben; der **Nachtrag** am Ende arbeitet sie ein und berichtigt zwei Aussagen (Erfolgsquote „Übertragen“, erst knobeln).
 
 ## Kern
 
@@ -247,8 +247,42 @@ Für das, was die App nicht kann [M]:
 
 Nicht dafür: Verfahren erklären, die die App erklärt; Ergebnisse abhaken. Die App bereitet die Stunde vor: drei Heftstellen, zwei Aufgaben zum Erklären, eine reiche Aufgabe.
 
+## Nachtrag nach Lektüre der Recherche-Berichte (Stand `lernen-app` e8a373f)
+
+Gelesen: die Kernteile von `tief-5`, `tief-3`, `tief-2`, `tief-6`, `tief-7`, dazu `tief-8`, `tief-10`, `tief-4`, `tief-12` – nicht jede Zeile. Rechnungen: `recherche_stichprobe.py`. Alles aus den Berichten bleibt [H], soweit nicht anders vermerkt.
+
+**1. Erfolgsquoten jetzt für alle drei Jahrgänge.** `tief-5` nennt die Quote jeder Teilaufgabe. Die Einzelwerte ergeben genau die Gesamtquoten der Berichte (47,1 / 49,4 / 41,5 %) [G gerechnet]. Nach meiner Zuordnung:
+
+| Tätigkeit | BE | landesweit richtig 2023–2025 |
+|---|---|---|
+| Rechnen, nur die 15 Regeln | 20 | 54 % |
+| Rechnen mit Geometrie-Formel | 6 | 43 % |
+| Übertragen, Umkehren, Term aufstellen | 12 | **33 %** |
+| Begründen | 15 | 37 % – in Geometrie 34 % |
+| Zeichnen, Sehen | 4 | 53 % |
+| Ablesen, Datenbegriff | 4 | 71 % |
+
+Der Wert 16 % für „Übertragen“ in Abschnitt 1 galt nur für 2025. Über drei Jahre sind Übertragen und Begründen etwa gleich schwer. Die Reihenfolge der Hebel bleibt.
+**2. Rahmen des Tests**, bisher bei mir „nicht geprüft“: 40 Minuten, Geodreieck und Zirkel, kein Taschenrechner, keine Formelsammlung; etwa 30 % der BE als Lücke oder Ankreuzen [H, mit Verweis auf Eltern- und Lehrerinformation des Staatsinstituts]. „Keine Formelsammlung“ stützt den Formel-Koffer aus Abschnitt 2.
+**3. Zuordnung des Helfers neben meiner:** Wir unterscheiden uns bei acht Teilaufgaben, immer an derselben Grenze: Er bucht Aufgaben mit Flächen- oder Volumenformel als „Geometrie, keine Regel“, ich als „Regel plus Formel“. Seine 22 und meine 20 BE für „nur Regeln“ sind dieselbe Aussage.
+
+**4. Was ich an meinem Papier ändere**
+- **Frage 8, vier Wochen:** Die erste und die letzte Papier-Runde des älteren Kindes sollten **ein ganzer amtlicher Test** sein (Eich-Plan in `tief-5`, Abschnitt 7a): jetzt der Jahrgang 2025, nach vier bis sechs Wochen 2024, unter Originalbedingungen. Das gibt sofort eine Zahl gegen den Landesschnitt. Für das jüngere Kind gibt es nichts Gleichwertiges; am nächsten liegt der Realschul-Test der Jahrgangsstufe 6 – erst am Ende des Stoffs von Klasse 5 sinnvoll. Eigene Papier-Runden füllen die Wochen dazwischen.
+- **Frage 5, erst knobeln:** Laut `tief-8` zeigt die Sammelstudie den Vorteil nicht für jüngere Kinder (Klasse 2–5 eher umgekehrt). Für das jüngere Kind also nur die kurze Vorhersage-Frage, kein Knobeln am neuen Stoff.
+- **Frage 10, „gelandet“:** Mein „zweiter Tag“ deckt sich mit „vorläufig gelandet, fest erst nach bestandener erster Wiederholung“ aus `tief-3` und `tief-8`. Ich übernehme zwei Dinge: Abstände in **Kalendertagen**, und der Tipp zählt für die Folge wie ein Fehler.
+- **Frage 6, Katalog:** Der Helfer markiert selbst, welche Einträge nur aus Fachwissen stammen. Meine fünf Prüfungen bleiben; dazu: „richtige Antwort trotz Denkfehler“ je Eintrag ausschließen (Checkliste in `tief-2`, Abschnitt 4).
+- **Frage 13:** Was ich „aus eigener Kenntnis“ über Sparx schrieb, ist in `tief-7` belegt und genauer: Geprüft werden nur **richtig** gelöste Aufgaben, die Frage wird **nicht gezeigt**, die Häufigkeit sinkt bei Bestehen. Für die Wirkung des Checks selbst gibt es keinen Beleg.
+
+**5. Wo ich den Berichten widerspreche**
+- **„Schritt-Systeme 0,76 gegen Antwort-Systeme 0,31 – wichtigster Einzelbefund“ (`tief-8`):** überdehnt. `tief-7` berichtet eine niederländische Studie mit schrittweiser Eingabe und reiner Richtig-falsch-Rückmeldung: nie besser, im Behaltenstest schlechter. `tief-8` selbst nennt für Tutorsysteme in Schulmathematik Effekte nahe null. Schritte eintippen hilft nicht von selbst; es kommt auf die Rückmeldung je Schritt an. [H gegen H]
+- **„Gitter 10 × 10 auf 340 px, etwa 34 px Abstand“ (`tief-10`):** gilt nur ohne Rand. Im vorhandenen Bild bleiben 26 Einheiten, am Handy gemessen 23 px [G]. Die Pfeil-Knöpfe aus `auftrag2.md` bleiben Pflicht.
+- **Erklärung mit 10 bis 18 Eingaben in 6 bis 12 Minuten (`tief-10`):** Die Belege stammen aus Laborstudien, großteils mit Erwachsenen [A]. Ich bleibe bei höchstens sechs Bildschirmen. Dass die Funktionen-Erklärung „vermutlich“ deshalb nicht verstanden wurde, ist eine Vermutung des Helfers.
+- **Kontrollzahl als Auswahl aus vier Werten (`tief-7`, 10.4):** zeigt dem Kind die typischen falschen Werte und lässt raten. Freie Eingabe.
+- **„15 bis 30 Stunden Etikettieren“ (`tief-3`):** Schätzung ohne Probe. Erst an drei Flügen messen.
+- **Prüfskripte der Helfer liegen nicht im Repo** (laut `tief-12` in einem Zwischenordner). Zwölf Beispiele habe ich nachgerechnet, alle stimmen [G]. Für alles Übrige gilt „nachgerechnet“ nur auf Zusage.
+
 ## Nicht geprüft
 
-Arbeitszeit und Hilfsmittel des Tests; Erfolgsquoten 2023 und 2024; alle mit [H] markierten Befunde außer den zwei nachgeschlagenen; Lehrplan-Passung der zehn Umkehr-Muster; ob die Formen aus Abschnitt 11 wirklich klein zu bauen sind.
+Arbeitszeit, Hilfsmittel und Erfolgsquoten 2023 und 2024 nur über `tief-5`, nicht an der Quelle; alle mit [H] markierten Befunde außer den zwei nachgeschlagenen; die sieben Berichte, die nicht genannt waren (`sucher-a` bis `-d`, `tief-1`, `-9`, `-11`); Lehrplan-Passung der zehn Umkehr-Muster; ob die Formen aus Abschnitt 11 wirklich klein zu bauen sind.
 
 **Quellen:** (1) Staatsinstitut für Schulqualität und Bildungsforschung, Bayerischer Mathematik-Test Jahrgangsstufe 8, Aufgaben Gruppe A 2023–2025, Lösungshinweise und Ergebnisse 2025, https://www.isb.bayern.de/fileadmin/user_upload/Gymnasium/Leistungserhebungen/Jahrgangsstufenarbeiten/Mathematik/2025/BMT8_2025_Ergebnisse.pdf · (2) Bastani u. a. 2025, Generative AI without guardrails can harm learning, PNAS 122, https://papers.ssrn.com/abstract=4895486 · (3) Muralidharan, Singh & Ganimian, Disrupting Education?, Zusammenfassung J-PAL, https://www.povertyactionlab.org/print/pdf/node/2242?lang=en

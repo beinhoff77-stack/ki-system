@@ -21,7 +21,7 @@ Rechnungen: `gegenpruefung_probe.py` (Lauf „OK“). **[G]** gesichert (gerechn
 **3. Typ 1 – was ist im Handy-Modus gleichwertig?**
 - Gleichwertig, weil ohnehin kein Rechenweg geschrieben wird [M]: 6–9, 12–17, 20, 21, auch 18 und 19.
 - **Nicht gleichwertig:** 3 und 4 als Ersatz für das Heft. Sie geben die Gliederung des Wegs vor; genau die muss das Kind in der Prüfung selbst leisten. Typ 11 in der freien Stufe und jede mehrschrittige Rechnung ebenso.
-- Minimum [M, kein Beleg für eine Zahl]: **zwei Tisch-Sitzungen je Woche**, und unabhängig davon: Eine Etappe mit Rechenweg wird nur „gelandet“, wenn mindestens eine Aufgabe davon am Tisch mit bestandenem Heft-Beleg gelöst wurde. Die zweite Regel ist wichtiger als die Zahl, weil sie nicht vom Kalender abhängt.
+- Minimum: **Der Nutzer hat am 26.11. drei Tisch-Sitzungen je Woche festgelegt** [G, `aufgabentypen-auswahl.md` Stand 817e917f]; mein Vorschlag „zwei“ ist damit überholt. Unabhängig davon [M]: Eine Etappe mit Rechenweg wird nur „gelandet“, wenn mindestens eine Aufgabe davon am Tisch mit bestandenem Heft-Beleg gelöst wurde. Die zweite Regel ist wichtiger als die Zahl, weil sie nicht vom Kalender abhängt.
 
 **4. Was passt nicht zu welcher Klasse?**
 | Typ | Klasse 5 | Klasse 8 |
@@ -196,5 +196,5 @@ Geprüft je Aufgabe: zwei bis drei richtige Lösungen über verschiedene Wege, d
 
 ## Annahmen
 - Alle „naheliegend falschen“ Zahlen sind aus den Fehlbildern abgeleitet, nicht aus Versuchsdaten.
-- „Zwei Tisch-Sitzungen je Woche“ ist ein Startwert ohne Beleg.
+- Offen zur Drei-Sitzungen-Regel: Was geschieht in einer Woche mit weniger als drei Lerntagen oder ohne Tisch (Reisetag)? Vorschlag [M]: Die Regel sperrt nichts, sondern hält „gelandet“ für Rechenweg-Etappen zurück, bis der Heft-Beleg da ist.
 - Je Klasse lernt ein Kind; „laufende Themen“ nach den Versuchsdaten vom 25.11. (nichts davon im Repo).

@@ -13,15 +13,15 @@ Zweig `mathe-profi`, auf Stand `lernen-app` b2e51cd0 gebracht. Abgelegt mit Comm
 3. **Paket A ist nicht „klein“:** Bedingungen müssen als Daten in der Aufgabe stehen, nicht als Programm. `pruefe` trägt 6, 7, 8 unverändert; 15 braucht die Feldart Wahl, 9 die Feldart Menge mit Grundmenge und Obergrenze. Typ 9 gehört zu 16, nicht zu A.
 4. **Typ 3:** Falsche Karten reichen nicht. Regel: je Stufe eine Karte, jede Karte mit Lücke, jede Karte kann richtig oder falsch werden, Gleichwertigkeit wird gerechnet, mindestens zwei Wege.
 5. **Reihenfolge (Meinung):** Papier-Test · Typen ohne Bau (4, 14, 17, einfache 12/13) · Fundament (Term-Rechner, Doppel-Karte) · 6, 7, 8, 15 · Typ 2 · `punkte` mit 18, 19 · Mehrfach-Auswahl mit 9, 16 · 10, 3, Schalter 1 · 11, 20, 21.
-6. **Typ 1:** Handy-Modus ersetzt das Heft bei mehrschrittigen Rechnungen nicht. Vorschlag: zwei Tisch-Sitzungen je Woche und „gelandet“ bei Rechenweg-Etappen nur mit einem bestandenen Heft-Beleg.
+6. **Typ 1:** Handy-Modus ersetzt das Heft bei mehrschrittigen Rechnungen nicht. Der Nutzer hat am 26.11. drei Tisch-Sitzungen je Woche festgelegt (Stand 817e917f; mein Vorschlag „zwei“ ist überholt). Zusatz von mir: „gelandet“ bei Rechenweg-Etappen nur mit einem bestandenen Heft-Beleg; offen ist die Regel für Wochen ohne Tisch.
 
 **Offen**
-- Entscheidung des Nutzers zu Punkt 1 und zur Zahl der Tisch-Sitzungen.
+- Entscheidung des Nutzers zu Punkt 1.
 - Antwort des Projektleiters: Aufwand „zwei Antworten in einer Karte“; ob Typ 21 die vorhandene Wiederholung ersetzt oder ergänzt; ob Diagramme erzeugt werden können.
 - Auftrag 5 (Papier-Test) ist fertig abgelegt und wartet auf das Startwort des Nutzers.
 
 **Nicht geprüft:** Lehrplan-Stellen für Variable, Mittelwert, Median in Klasse 5; Bedienung am Handy; Bau-Aufwand nur aus den mir bekannten Teilen des Codes beurteilt; Musteraufgaben nicht mit `tools/inhalt_pruefen.py`.
-**Annahmen:** „naheliegend falsche“ Zahlen aus Fehlbildern, nicht aus Versuchsdaten; „zwei Tisch-Sitzungen“ ohne Beleg.
+**Annahmen:** „naheliegend falsche“ Zahlen aus Fehlbildern, nicht aus Versuchsdaten.
 
 ## 2026-11-25 12:20 (Berlin) – AUFTRAG 6 vom Projektleiter: Gegenprüfung der Auswahl des Nutzers
 Der Nutzer hat 20 von 21 Aufgabentypen gewählt („Schritt antippen“ zurückgestellt) und eine eigene Idee ergänzt: Schalter „am Tisch / nur Handy“. Alles steht in `inhalte/plan/aufgabentypen-auswahl.md` (Zweig `lernen-app`).

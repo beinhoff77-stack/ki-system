@@ -1,24 +1,24 @@
 # Postfach mathe-profi
 
-## 2026-11-25 11:20 (Berlin) – AUFTRAG 5 vom Projektleiter: Papier-Runde 1 für Kind 1 und Bewertungshilfe für Kind 2
-Der Nutzer hat Schritt 0 freigegeben („legen wir los“). Kein Bau, keine Einspielung. Stand `lernen-app` e8a373f.
+## 2026-11-25 11:25 (Berlin) – AUFTRAG 5 vom Projektleiter (Fassung 2): zugeschnittener Papier-Test für beide Kinder
+Fassung 1 von 11:20 ist ersetzt. Entscheidung des Nutzers: Der Test muss zu dem passen, was die Kinder zuletzt in der App gelernt haben, und darf 40 Minuten dauern. Der amtliche Test entfällt vorerst. Kein Bau, keine Einspielung.
 
-**Teil A – Papier-Runde 1 für Kind 1 (Klasse 5), bitte zuerst**
-1. Ein Blatt für 20 Minuten, sechs Aufgaben, ohne Tipp, ohne Taschenrechner: 3 Regel-Aufgaben, 1 Umkehr-Aufgabe, 1 Begründung, 1 Geometrie oder Daten (dein Vorschlag aus `denkpapier-massstab.md`, Abschnitt 8).
-2. Stoff: nur Themen, die Kind 1 in der App schon bearbeitet hat. Lies dazu die Versuchsdaten (nur Summen je Thema, keine Namen, nichts davon ins Repo).
-3. Eigene Aufgaben, nichts wörtlich aus Schulbüchern oder Tests. Zahlen so, dass man die Lösung nicht errät.
-4. Dazu ein Bewertungsschema für einen Erwachsenen ohne Mathe-Ausbildung: Punkte je Aufgabe, was als richtig gilt, was ein Folgefehler ist, zehn Minuten Aufwand. Am Ende eine Zeile je Aufgabe „Wenn falsch, dann vermutlich Regel …“.
-5. Ein Erfassungsbogen (eine Tabelle): Aufgabe, Punkte, Rechenweg sichtbar ja/nein, vermutete Regel, benötigte Zeit.
-6. Druckfertig: Blatt und Schema als je eine Seite (HTML oder Markdown, das sich sauber als PDF drucken lässt). Jede Aufgabe auf zwei Wegen nachgerechnet, Skript dazu.
+**Frage, die der Test beantworten soll:** Kann das Kind das, was es in der App geübt hat, auch auf Papier, in Zeit und ohne Tipp – und wie groß ist der Abstand zwischen „wie in der App“ und „umgedreht, begründet, selbst angesetzt“?
 
-**Teil B – Bewertungshilfe für Kind 2 (Klasse 8)**
-Kind 2 schreibt den amtlichen Test 2025, Gruppe A, 40 Minuten, ohne Taschenrechner und Formelsammlung, mit Geodreieck und Zirkel. Die amtlichen Lösungshinweise liegen vor (Links in `inhalte/recherche/tief-5-massstab-bayern.md`, Eich-Plan).
-1. Ein Erfassungsbogen je Teilaufgabe: Punkte, deine Tätigkeits-Gruppe (Regeln · Geometrie-Formeln · Übertragen/Umkehren · Ablesen/Zeichnen · Begründen), Landesquote.
-2. Eine Seite „So bewertest du“: die fünf Stellen, an denen ein Laie beim Bewerten am ehesten unsicher wird, mit Entscheidung. Keine Aufgabentexte abschreiben, nur Nummern.
-3. Auswertung vorbereitet: Aus dem ausgefüllten Bogen sollen Punkte je Tätigkeits-Gruppe und der Abstand zum Landeswert folgen.
+**Für jedes Kind ein eigenes Blatt (Kind 1 Klasse 5, Kind 2 Klasse 8)**
+1. **Stoff:** nur Themen, die das Kind in den letzten Wochen in der App bearbeitet hat. Lies dazu die Versuchsdaten (nur Summen je Thema, keine Namen, nichts davon ins Repo). Nenne im Schema die Themen-Kürzel, nicht die Quoten.
+2. **Umfang:** 40 Minuten, ohne Tipp, ohne Taschenrechner und Formelsammlung, Geodreieck und Zirkel erlaubt. Rund 20 Punkte, Rechenweg wird verlangt und bewertet.
+3. **Aufbau, je zur Hälfte der Punkte:**
+   - Teil 1 „wie in der App“: Aufgaben in der Art, die das Kind geübt hat, aber mit Rechenweg auf Papier.
+   - Teil 2 „weiter“: zum selben Stoff Umkehren, Begründen, Ansatz aus Text aufstellen, Fehler finden und berichtigen, Verfahren wählen. Dazu mindestens eine Aufgabe, die zwei der Themen mischt.
+4. Eigene Aufgaben, nichts wörtlich aus Schulbüchern oder Tests. Zahlen so, dass man die Lösung nicht errät. Für Kind 1 Sprache und Länge der Texte an Klasse 5 anpassen; prüfe selbst, ob 40 Minuten für Klasse 5 tragen, und sag es, wenn nicht.
+5. **Bewertungsschema** für einen Erwachsenen ohne Mathe-Ausbildung: Punkte je Teilaufgabe, was als richtig gilt, Folgefehler, höchstens 20 Minuten Aufwand. Je Teilaufgabe eine Zeile „Wenn falsch, dann vermutlich Regel …“.
+6. **Erfassungsbogen:** Teilaufgabe, Punkte, Teil 1 oder 2, Tätigkeits-Gruppe, Rechenweg sichtbar ja/nein, vermutete Regel.
+7. **Zwilling:** Baue zu jedem Blatt gleich ein zweites, gleich schweres Blatt B (gleiche Muster, andere Zahlen und Kontexte) für die Wiederholung in vier bis sechs Wochen. Blatt B bleibt bis dahin ungesehen.
+8. Druckfertig: Blatt, Schema und Bogen je als eigene Seiten (HTML oder Markdown, das sauber als PDF druckt). Jede Aufgabe auf zwei Wegen nachgerechnet, Skript dazu.
 
-**Ablage:** `inhalte/mathe-profi/papier-runde-1/` auf deinem Zweig. Rückmeldung hier im Postfach, mit „Nicht geprüft“ und „Annahmen“.
-**Regeln wie immer:** öffentliches Repo – keine Namen, keine Lerndaten, keine Ergebnisse der Kinder. Ergebnisse der Papier-Runden gehen nur direkt an den Nutzer.
+**Ablage:** `inhalte/mathe-profi/papier-test-1/` auf deinem Zweig. Rückmeldung hier im Postfach, mit „Nicht geprüft“ und „Annahmen“.
+**Regeln wie immer:** öffentliches Repo – keine Namen, keine Lerndaten, keine Ergebnisse der Kinder. Ergebnisse gehen nur direkt an den Nutzer.
 **Offen beim Nutzer:** wer bewertet (er selbst oder der Lehrer). Schreibe das Schema so, dass beide es können.
 
 ## 2026-11-25 02:40 (Berlin) – FERTIG: Auftrag 3 (Musterstapel Weg-Aufgaben)

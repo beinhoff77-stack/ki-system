@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entwurf: Gitterpunkte setzen (Mathe-Profi, Auftrag 2)</title>
+<!-- Entwurf zum Anklicken. Zeigt nur die Mechanik. Kein Netz, keine echten Daten, kein App-Code.
+     Die 20 Aufgaben unten schreibt nachrechnen2.py in den DATEN-Block (nicht von Hand ändern).
+     Im Entwurf prüft das Gerät – in der App prüft der Server mit derselben Regel. -->
+<style>
+:root { --bg:#f6f4ef; --karte:#fff; --text:#1d2430; --blass:#5d6675; --rand:#c9cdd6; --gitter:#dfe2e8; --achse:#1d2430;
+  --gegeben:#3a4658; --punkt:#0b63c5; --aktiv:#d9480f; --gut:#1b7f3b; --falsch:#c0262d; --fl:rgba(11,99,197,.10); }
+@media (prefers-color-scheme: dark) { :root { --bg:#12161c; --karte:#1b212a; --text:#e9edf3; --blass:#a3adbb; --rand:#3a4352; --gitter:#2a323e;
+  --achse:#e9edf3; --gegeben:#b9c3d1; --punkt:#6cb2ff; --aktiv:#ff9259; --gut:#56c97a; --falsch:#ff7b7f; --fl:rgba(108,178,255,.14); } }
+* { box-sizing:border-box; }
+body { margin:0; font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--text); }
+main { max-width:560px; margin:0 auto; padding:12px 16px 40px; }
+h1 { font-size:18px; margin:6px 0 2px; } .klein { font-size:13px; color:var(--blass); margin:0 0 10px; }
+.leiste { display:flex; gap:8px; align-items:center; margin:8px 0; flex-wrap:wrap; }
+button, select { font:inherit; color:inherit; min-height:44px; min-width:44px; padding:8px 12px; border-radius:10px; border:1px solid var(--rand); background:var(--karte); }
+button { cursor:pointer; } button:disabled { opacity:.4; cursor:default; }
+button.haupt { background:var(--punkt); color:#fff; border-color:var(--punkt); font-weight:600; flex:1; }
+@media (prefers-color-scheme: dark) { button.haupt { color:#0b1220; } }
+select { flex:1; min-width:0; }
+.karte { background:var(--karte); border:1px solid var(--rand); border-radius:14px; padding:14px; }
+.marke { font-size:12px; color:var(--blass); letter-spacing:.04em; text-transform:uppercase; margin:0 0 4px; }
+.frage { font-size:17px; margin:0 0 10px; }
+svg { display:block; width:100%; height:auto; touch-action:manipulation; user-select:none; -webkit-user-select:none; border-radius:8px; }
+svg:focus-visible { outline:2px solid var(--punkt); outline-offset:2px; }
+.gitter { stroke:var(--gitter); stroke-width:1; } .achse { stroke:var(--achse); stroke-width:1.6; } .spitze { fill:var(--achse); }
+.zahl { font-size:11px; fill:var(--blass); text-anchor:middle; } .zahl.r { text-anchor:end; } .name { font-size:13px; font-weight:600; fill:var(--gegeben); }
+.g-linie { stroke:var(--gegeben); stroke-width:2; fill:none; } .g-punkt { fill:var(--gegeben); }
+.k-linie { stroke:var(--punkt); stroke-width:2.5; fill:none; } .k-flaeche { fill:var(--fl); stroke:var(--punkt); stroke-width:2; }
+.k-punkt { fill:var(--punkt); stroke:var(--karte); stroke-width:2; } .k-punkt.aktiv { fill:var(--aktiv); }
+.k-ring { fill:none; stroke:var(--aktiv); stroke-width:2; } .k-name { font-size:13px; font-weight:700; fill:var(--punkt); }
+.l-linie { stroke:var(--gut); stroke-width:2.5; fill:none; stroke-dasharray:6 4; } .l-punkt { fill:var(--gut); stroke:var(--karte); stroke-width:2; } .l-name { font-size:12px; font-weight:700; fill:var(--gut); }
+.falsch .k-linie, .falsch .k-flaeche { stroke:var(--falsch); } .falsch .k-punkt { fill:var(--falsch); } .falsch .k-flaeche { fill:none; }
+.pfeile { display:grid; grid-template-columns:repeat(4,48px) 1fr; gap:6px; align-items:center; margin-top:10px; }
+.pfeile button { padding:0; height:48px; width:48px; font-size:20px; } .pfeile .weg { width:auto; padding:0 12px; font-size:15px; justify-self:end; }
+.stand { font-size:14px; color:var(--blass); margin:8px 0 0; min-height:21px; }
+.rueck { margin-top:12px; padding:10px 12px; border-radius:10px; border:1px solid var(--rand); }
+.rueck.gut { border-color:var(--gut); } .rueck.schlecht { border-color:var(--falsch); } .rueck p { margin:0 0 4px; } .rueck .kopf { font-weight:700; font-size:13px; letter-spacing:.04em; }
+details { margin-top:14px; font-size:13px; color:var(--blass); } pre { white-space:pre-wrap; word-break:break-word; font-size:12px; background:var(--bg); padding:8px; border-radius:8px; color:var(--text); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Entwurf: Gitterpunkte setzen</h1>
+  <p class="klein">Antworttyp <code>punkte</code> · 20 Musteraufgaben · nur Mechanik, Aussehen macht der Designer</p>
+  <div class="leiste">
+    <button id="zurueck" aria-label="vorige Aufgabe">‹</button>
+    <select id="wahl" aria-label="Aufgabe wählen"></select>
+    <button id="weiter" aria-label="nächste Aufgabe">›</button>
+  </div>
+  <div class="karte">
+    <p class="marke" id="marke"></p>
+    <p class="frage" id="frage"></p>
+    <div id="bild"></div>
+    <div class="pfeile" id="pfeile">
+      <button data-dx="-1" data-dy="0" aria-label="Punkt nach links">←</button>
+      <button data-dx="1" data-dy="0" aria-label="Punkt nach rechts">→</button>
+      <button data-dx="0" data-dy="1" aria-label="Punkt nach oben">↑</button>
+      <button data-dx="0" data-dy="-1" aria-label="Punkt nach unten">↓</button>
+      <button class="weg" id="weg">Punkt weg</button>
+    </div>
+    <p class="stand" id="stand" aria-live="polite"></p>
+    <div class="leiste">
+      <button id="tipp">Tipp</button>
+      <button class="haupt" id="pruefen">Prüfen</button>
+    </div>
+    <div id="rueck" aria-live="polite"></div>
+  </div>
+  <details><summary>Was an den Server geht (für den Bau-Chat)</summary>
+    <p>Antwort (wird gespeichert):</p><pre id="antwort"></pre>
+    <p>Lösung im Datensatz (<code>o</code>, kommt erst nach dem Prüfen zum Gerät):</p><pre id="loesung"></pre>
+  </details>
+</main>
+
+<!-- DATEN:ANFANG -->
+<script>const AUFGABEN = [{"nr": "K1", "klasse": 5, "l": "koordinaten", "s": 1, "g": "direkt", "f": {"text": "Trage den Punkt P(−3 | 2) ein.", "grafik": {"typ": "koordinaten", "x": [-5, 5], "y": [-5, 5]}, "setzen": {"anzahl": 1, "namen": ["P"]}}, "o": {"regel": "menge", "punkte": [[-3, 2]]}, "h": "Erste Zahl: nach links oder rechts. Zweite Zahl: nach oben oder unten.", "w": "−3 heißt 3 nach links, 2 heißt 2 nach oben. P liegt links oben."}, {"nr": "K2", "klasse": 5, "l": "koordinaten", "s": 1, "g": "erkennen", "f": {"text": "Ein Punkt liegt 4 Einheiten unter der x-Achse und 2 Einheiten links von der y-Achse. Setze ihn.", "grafik": {"typ": "koordinaten", "x": [-5, 5], "y": [-5, 5]}, "setzen": {"anzahl": 1}}, "o": {"regel": "menge", "punkte": [[-2, -4]]}, "h": "Links von der y-Achse: Die x-Koordinate ist negativ. Unter der x-Achse: Die y-Koordinate ist negativ.", "w": "2 nach links: x = −2. 4 nach unten: y = −4. Der Punkt ist (−2 | −4)."}, {"nr": "K3", "klasse": 5, "l": "koordinaten", "s": 2, "g": "einkleidung", "f": {"text": "Schatzkarte: Du startest bei S(−4 | 1). Geh 6 Kästchen nach Osten (rechts) und 3 nach Süden (unten). Setze das Kreuz dorthin.", "grafik": {"typ": "koordinaten", "x": [-5, 5], "y": [-5, 5], "punkte": [{"x": -4, "y": 1, "name": "S"}]}, "setzen": {"anzahl": 1, "namen": ["✕"]}}, "o": {"regel": "menge", "punkte": [[2, -2]]}, "h": "Rechts ändert nur die erste Zahl, unten nur die zweite.", "w": "x: −4 + 6 = 2. y: 1 − 3 = −2. Das Kreuz liegt bei (2 | −2)."}, {"nr": "K4", "klasse": 5, "l": "strecken", "s": 1, "g": "direkt", "f": {"text": "A(−1 | 2) ist gegeben. Setze B so, dass die Strecke [AB] waagrecht liegt und 3 Einheiten lang ist. Es gibt zwei passende Punkte, einer genügt.", "grafik": {"typ": "koordinaten", "x": [-5, 5], "y": [-5, 5], "punkte": [{"x": -1, "y": 2, "name": "A"}]}, "setzen": {"anzahl": 1, "namen": ["B"], "verbinden": "strecke", "mit": [[-1, 2]]}}, "o": {"regel": "menge", "mengen": [[[2, 2]], [[-4, 2]]]}, "h": "Waagrecht heißt: A und B haben dieselbe y-Koordinate.", "w": "Waagrecht: y bleibt 2. 3 nach rechts: B(2 | 2). 3 nach links geht auch: B(−4 | 2)."}, {"nr": "K5", "klasse": 5, "l": "strecken", "s": 2, "g": "mehrschritt", "f": {"text": "M(1 | −1) ist der Mittelpunkt der Strecke [AB]. A(−2 | −3) ist gegeben. Setze B.", "grafik": {"typ": "koordinaten", "x": [-5, 5], "y": [-5, 5], "punkte": [{"x": -2, "y": -3, "name": "A"}, {"x": 1, "y": -1, "name": "M"}]}, "setzen": {"anzahl": 1, "namen": ["B"]}}, "o": {"regel": "menge", "punkte": [[4, 1]]}, "h": "Wie kommst du von A nach M? Denselben Weg gehst du von M aus noch einmal.", "w": "Von A nach M: 3 nach rechts, 2 nach oben. Von M noch einmal: (1 + 3 | −1 + 2) = (4 | 1)."}, {"nr": "K6", "klasse": 5, "l": "lagebeziehungen", "s": 2, "g": "darstellung", "f": {"text": "g geht durch A(−4 | −1) und B(2 | 2). Zeichne die Parallele zu g durch P(−2 | 3): Setze zwei Gitterpunkte der Parallelen.", "grafik": {"typ": "koordinaten", "x": [-5, 5], "y": [-5, 5], "graphen": [{"art": "linear", "m": 0.5, "t": 1, "name": "g"}], "punkte": [{"x": -4, "y": -1, "name": "A"}, {"x": 2, "y": 2, "name": "B"}, {"x": -2, "y": 3, "name": "P"}]}, "setzen": {"anzahl": 2, "verbinden": "gerade"}}, "o": {"regel": "gerade", "durch": [[-2, 3], [0, 4]]}, "h": "Wie läuft g von Gitterpunkt zu Gitterpunkt? Dieselbe Treppe startest du bei P.", "w": "g läuft 2 nach rechts, 1 nach oben. Dieselbe Treppe ab P(−2 | 3): (0 | 4), (2 | 5) – oder rückwärts (−4 | 2)."}, {"nr": "K7", "klasse": 5, "l": "lagebeziehungen", "s": 3, "g": "verknuepfen", "f": {"text": "Fälle das Lot von P(−1 | 4) auf die Gerade g. Setze den Punkt, in dem das Lot g trifft.", "grafik": {"typ": "koordinaten", "x": [-5, 5], "y": [-5, 5], "graphen": [{"art": "linear", "m": 0.5, "t": -0.5, "name": "g"}], "punkte": [{"x": -1, "y": 4, "name": "P"}]}, "setzen": {"anzahl": 1, "namen": ["F"], "verbinden": "strecke", "mit": [[-1, 4]]}}, "o": {"regel": "menge", "punkte": [[1, 0]]}, "h": "g läuft 2 nach rechts, 1 nach oben. Dreh diese Treppe um eine Vierteldrehung: 1 nach rechts, 2 nach unten.", "w": "Senkrecht zu „2 rechts, 1 hoch“ ist „1 rechts, 2 runter“. Ab P: (0 | 2), dann (1 | 0) – der liegt auf g."}, {"nr": "K8", "klasse": 5, "l": "vierecke", "s": 2, "g": "umkehr", "f": {"text": "ABCD ist ein Parallelogramm mit A(−4 | −2), B(1 | −2) und C(3 | 2). Setze die Ecke D.", "grafik": {"typ": "koordinaten", "x": [-5, 5], "y": [-5, 5], "punkte": [{"x": -4, "y": -2, "name": "A"}, {"x": 1, "y": -2, "name": "B"}, {"x": 3, "y": 2, "name": "C"}], "strecken": [[-4, -2, 1, -2], [1, -2, 3, 2]]}, "setzen": {"anzahl": 1, "namen": ["D"], "verbinden": "vieleck", "mit": [[-4, -2], [1, -2], [3, 2]]}}, "o": {"regel": "menge", "punkte": [[-2, 2]]}, "h": "Wie kommst du von B nach C? Genauso kommst du von A nach D.", "w": "Von B nach C: 2 nach rechts, 4 nach oben. Von A genauso: (−4 + 2 | −2 + 4) = (−2 | 2)."}, {"nr": "K9", "klasse": 5, "l": "vierecke", "s": 3, "g": "transfer", "f": {"text": "A, B und C sind drei Ecken eines Quadrats ABCD. Setze die vierte Ecke D.", "grafik": {"typ": "koordinaten", "x": [-5, 5], "y": [-5, 5], "punkte": [{"x": 0, "y": -3, "name": "A"}, {"x": 3, "y": 0, "name": "B"}, {"x": 0, "y": 3, "name": "C"}], "strecken": [[0, -3, 3, 0], [3, 0, 0, 3]]}, "setzen": {"anzahl": 1, "namen": ["D"], "verbinden": "vieleck", "mit": [[0, -3], [3, 0], [0, 3]]}}, "o": {"regel": "menge", "punkte": [[-3, 0]]}, "h": "Das Quadrat steht auf der Spitze. Von B nach C geht es 3 nach links und 3 nach oben – genauso von A nach D.", "w": "Von B nach C: 3 nach links, 3 nach oben. Von A genauso: (0 − 3 | −3 + 3) = (−3 | 0). Alle vier Seiten sind gleich lang, die Diagonalen auch."}, {"nr": "K10", "klasse": 5, "l": "koordinaten", "s": 3, "g": "rueckwaerts", "f": {"text": "Ein Punkt wurde erst um 3 nach links und dann um 2 nach oben verschoben. Jetzt liegt er bei Q(−1 | 2). Setze den Punkt dorthin, wo er am Anfang lag.", "grafik": {"typ": "koordinaten", "x": [-5, 5], "y": [-5, 5], "punkte": [{"x": -1, "y": 2, "name": "Q"}]}, "setzen": {"anzahl": 1}}, "o": {"regel": "menge", "punkte": [[2, 0]]}, "h": "Geh den Weg von Q aus zurück: Aus links wird rechts, aus oben wird unten.", "w": "Zurück: 3 nach rechts, 2 nach unten. (−1 + 3 | 2 − 2) = (2 | 0). Probe: (2 − 3 | 0 + 2) = (−1 | 2)."}, {"nr": "G1", "klasse": 8, "l": "graph_ablesen", "s": 1, "g": "direkt", "f": {"text": "Zeichne die Gerade y = (1/2)x − 1. Setze zwei Gitterpunkte der Geraden.", "grafik": {"typ": "koordinaten", "x": [-4, 6], "y": [-5, 5]}, "setzen": {"anzahl": 2, "verbinden": "gerade"}}, "o": {"regel": "gerade", "durch": [[0, -1], [2, 0]]}, "h": "Starte bei t auf der y-Achse. m = 1/2 heißt: 2 nach rechts, 1 nach oben.", "w": "Start (0 | −1). 2 nach rechts, 1 nach oben: (2 | 0). Jeder weitere Schritt gibt wieder einen Gitterpunkt."}, {"nr": "G2", "klasse": 8, "l": "graph_ablesen", "s": 1, "g": "erkennen", "f": {"text": "Der Graph von f ist gezeichnet. Setze den Punkt des Graphen, der die y-Koordinate −3 hat.", "grafik": {"typ": "koordinaten", "x": [-4, 6], "y": [-5, 5], "graphen": [{"art": "linear", "m": -1.5, "t": 3, "name": "f"}]}, "setzen": {"anzahl": 1}}, "o": {"regel": "menge", "punkte": [[4, -3]]}, "h": "Such auf der y-Achse die −3 und geh waagrecht bis zum Graphen.", "w": "Auf Höhe −3 trifft die waagrechte Linie den Graphen bei x = 4: (4 | −3)."}, {"nr": "G3", "klasse": 8, "l": "graph_ablesen", "s": 2, "g": "mehrschritt", "f": {"text": "Zeichne die Gerade 3x + 2y = 8. Setze zwei Gitterpunkte der Geraden.", "grafik": {"typ": "koordinaten", "x": [-3, 7], "y": [-5, 5]}, "setzen": {"anzahl": 2, "verbinden": "gerade"}}, "o": {"regel": "gerade", "durch": [[0, 4], [2, 1]]}, "h": "Löse zuerst nach y auf. Oder such zwei Punkte, bei denen die Rechnung aufgeht, zum Beispiel x = 0.", "w": "2y = −3x + 8, also y = −1,5x + 4. Start (0 | 4), dann 2 nach rechts und 3 nach unten: (2 | 1), (4 | −2), (6 | −5)."}, {"nr": "G4", "klasse": 8, "l": "aufstellen", "s": 2, "g": "umkehr", "f": {"text": "Eine Gerade hat die Steigung 2 und geht durch P(2 | 3). Setze den Punkt, in dem sie die y-Achse schneidet.", "grafik": {"typ": "koordinaten", "x": [-5, 5], "y": [-3, 7], "punkte": [{"x": 2, "y": 3, "name": "P"}]}, "setzen": {"anzahl": 1, "verbinden": "gerade", "mit": [[2, 3]]}}, "o": {"regel": "menge", "punkte": [[0, -1]]}, "h": "Von P zur y-Achse sind es 2 Schritte nach links. Wie weit geht es dabei nach unten?", "w": "2 nach links, dabei 2 · 2 = 4 nach unten: 3 − 4 = −1. Die Gerade trifft die y-Achse in (0 | −1), also y = 2x − 1."}, {"nr": "G5", "klasse": 8, "l": "lage", "s": 2, "g": "darstellung", "f": {"text": "g: y = (1/2)x + 1 ist gezeichnet. Zeichne die Parallele zu g durch P(2 | −2): Setze zwei Gitterpunkte.", "grafik": {"typ": "koordinaten", "x": [-4, 6], "y": [-5, 5], "graphen": [{"art": "linear", "m": 0.5, "t": 1, "name": "g"}], "punkte": [{"x": 2, "y": -2, "name": "P"}]}, "setzen": {"anzahl": 2, "verbinden": "gerade"}}, "o": {"regel": "gerade", "durch": [[2, -2], [4, -1]]}, "h": "Parallel heißt: gleiche Steigung. Nimm das Steigungsdreieck von g und starte bei P.", "w": "Gleiche Steigung 1/2: ab P 2 nach rechts, 1 nach oben: (4 | −1), (6 | 0). Gleichung: y = 0,5x − 3."}, {"nr": "G6", "klasse": 8, "l": "deuten", "s": 2, "g": "einkleidung", "f": {"text": "Mia hat 9 € Guthaben. Jeden Tag werden 1,50 € abgebucht. Setze den Startpunkt und den Punkt, an dem das Guthaben aufgebraucht ist.", "grafik": {"typ": "koordinaten", "x": [0, 10], "y": [0, 10], "name_x": "Tage", "name_y": "€"}, "setzen": {"anzahl": 2, "verbinden": "strecke"}}, "o": {"regel": "menge", "punkte": [[0, 9], [6, 0]]}, "h": "Start: Tag 0. Aufgebraucht heißt: Guthaben 0 €. Nach wie vielen Tagen ist das?", "w": "Start (0 | 9). 9 : 1,5 = 6 Tage, also (6 | 0). Dazwischen fällt die Strecke gleichmäßig: y = −1,5x + 9."}, {"nr": "G7", "klasse": 8, "l": "lage", "s": 3, "g": "verknuepfen", "f": {"text": "g: y = 2x − 3 ist gezeichnet. Zeichne die Senkrechte zu g durch P(4 | 0): Setze zwei Gitterpunkte.", "grafik": {"typ": "koordinaten", "x": [-4, 6], "y": [-5, 5], "graphen": [{"art": "linear", "m": 2, "t": -3, "name": "g"}], "punkte": [{"x": 4, "y": 0, "name": "P"}]}, "setzen": {"anzahl": 2, "verbinden": "gerade"}}, "o": {"regel": "gerade", "durch": [[4, 0], [2, 1]]}, "h": "Senkrecht: Die Steigungen ergeben malgenommen −1. Oder: Dreh das Steigungsdreieck von g um eine Vierteldrehung.", "w": "m von g ist 2, also m = −1/2: 2 nach rechts, 1 nach unten. Ab P rückwärts: (2 | 1), (0 | 2). Gleichung: y = −0,5x + 2."}, {"nr": "G8", "klasse": 8, "l": "schnittpunkte", "s": 3, "g": "transfer", "f": {"text": "Roller A kostet 3 € Grundpreis und 0,50 € pro Kilometer. Roller B kostet 1 € Grundpreis und 1 € pro Kilometer. Setze den Punkt, bei dem beide gleich viel kosten.", "grafik": {"typ": "koordinaten", "x": [0, 10], "y": [0, 10], "name_x": "km", "name_y": "€"}, "setzen": {"anzahl": 1}}, "o": {"regel": "menge", "punkte": [[4, 5]]}, "h": "B ist am Anfang 2 € billiger. Um wie viel holt A pro Kilometer auf?", "w": "Vorsprung 2 €, A holt je km 0,50 € auf: 2 : 0,5 = 4 km. Preis: 3 + 2 = 5 € (und 1 + 4 = 5 €). Punkt (4 | 5)."}, {"nr": "G9", "klasse": 8, "l": "zwei_punkte", "s": 3, "g": "rueckwaerts", "f": {"text": "Eine Gerade schneidet die x-Achse bei x = 6 und hat die Steigung −1/2. Zeichne sie: Setze zwei Gitterpunkte.", "grafik": {"typ": "koordinaten", "x": [-3, 7], "y": [-3, 7]}, "setzen": {"anzahl": 2, "verbinden": "gerade"}}, "o": {"regel": "gerade", "durch": [[6, 0], [0, 3]]}, "h": "Starte bei (6 | 0). Geh rückwärts: 2 nach links – geht es dann nach oben oder nach unten?", "w": "Fallende Gerade: nach links geht es nach oben. Ab (6 | 0): (4 | 1), (2 | 2), (0 | 3). Also y = −0,5x + 3."}, {"nr": "G10", "klasse": 8, "l": "aufstellen", "s": 3, "g": "parameter", "f": {"text": "Für welches t geht die Gerade y = −x + t durch P(2 | 3)? Zeichne diese Gerade: Setze zwei Gitterpunkte.", "grafik": {"typ": "koordinaten", "x": [-3, 7], "y": [-3, 7], "punkte": [{"x": 2, "y": 3, "name": "P"}]}, "setzen": {"anzahl": 2, "verbinden": "gerade"}}, "o": {"regel": "gerade", "durch": [[0, 5], [5, 0]]}, "h": "Von P zur y-Achse: 2 nach links. Bei Steigung −1 geht es dabei 2 nach oben.", "w": "Zurück zur y-Achse: 3 + 2 = 5, also t = 5 und y = −x + 5. Punkte zum Beispiel (0 | 5) und (5 | 0)."}];</script>
+<!-- DATEN:ENDE -->
+
+<script>
+'use strict';
+const NS = 'http://www.w3.org/2000/svg', B = 340, R = 38;          // wie lernKoordinaten: Bildbreite 340, Rand 38
+const $ = (id) => document.getElementById(id);
+const txt = (v) => String(v).replace('-', '−').replace('.', ',');
+const pkt = (p) => `(${txt(p[0])} | ${txt(p[1])})`;
+let nr = 0, a = null, gesetzt = [], aktiv = -1, anlauf = 1, fertig = false, zeigeLoesung = false, falschBild = false;
+
+// ── Prüfregel (im Entwurf auf dem Gerät; in der App rechnet das der Server, Referenz: nachrechnen2.py) ──
+const kreuz = (p, q, r) => (q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0]);
+const schluessel = (m) => m.map((p) => p.join('|')).sort().join(';');
+function bewerte(aufg, antwort) {
+  const n = aufg.f.setzen.anzahl, o = aufg.o, P = antwort.punkte;
+  if (P.length < n) return { format_ok: false, hinweis: n - P.length === 1 ? 'Setze noch einen Punkt.' : `Setze noch ${n - P.length} Punkte.` };
+  if (o.regel === 'menge') {
+    const mengen = (o.mengen || [o.punkte]).map(schluessel), ist = schluessel(P);
+    if (mengen.includes(ist)) return { format_ok: true, richtig: true };
+    let grund;
+    if (mengen.includes(schluessel(P.map(([x, y]) => [y, x])))) grund = 'vertauscht';
+    else if ((o.mengen || [o.punkte]).some((m) => schluessel(m.map((p) => p.map(Math.abs))) === schluessel(P.map((p) => p.map(Math.abs))))) grund = 'vorzeichen';
+    return { format_ok: true, richtig: false, grund };
+  }
+  const [A, Bp] = o.durch, drauf = P.map((p) => kreuz(A, Bp, p) === 0);
+  if (drauf.every(Boolean)) return { format_ok: true, richtig: true };
+  let grund;
+  if (n === 2) { if (drauf.filter(Boolean).length === 1) grund = 'ein_punkt';
+    else if ((Bp[0] - A[0]) * (P[1][1] - P[0][1]) === (Bp[1] - A[1]) * (P[1][0] - P[0][0])) grund = 'verschoben'; }
+  return { format_ok: true, richtig: false, grund };
+}
+const GRUND = { vertauscht: 'Fast: x und y sind vertauscht. Die erste Zahl gehört zur x-Achse.',
+  vorzeichen: 'Fast: Schau auf die Vorzeichen. Minus heißt links oder unten.',
+  ein_punkt: 'Ein Punkt passt, der andere nicht. Prüf dein Steigungsdreieck.',
+  verschoben: 'Die Richtung stimmt. Aber die Gerade liegt an der falschen Stelle.' };
+
+// ── Zeichnen ──
+function zeichne() {
+  const g = a.f.grafik, sz = a.f.setzen, [x0, x1] = g.x, [y0, y1] = g.y, raster = sz.raster || 1;
+  const H = Math.round(2 * R + (B - 2 * R) * (y1 - y0) / (x1 - x0));                 // gleicher Maßstab auf beiden Achsen
+  const px = (x) => R + (B - 2 * R) * (x - x0) / (x1 - x0), py = (y) => H - R - (H - 2 * R) * (y - y0) / (y1 - y0);
+  const svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('viewBox', `0 0 ${B} ${H}`); svg.setAttribute('tabindex', '0'); svg.setAttribute('role', 'application');
+  svg.setAttribute('aria-label', `Gitter von x = ${x0} bis ${x1} und y = ${y0} bis ${y1}. Tippe auf einen Gitterpunkt. Pfeiltasten verschieben den gewählten Punkt.`);
+  if (falschBild) svg.classList.add('falsch');
+  const mk = (tag, at, t) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); if (t !== undefined) e.textContent = t; svg.append(e); return e; };
+  for (let x = x0; x <= x1; x++) mk('line', { x1: px(x), y1: py(y0), x2: px(x), y2: py(y1), class: 'gitter' });
+  for (let y = y0; y <= y1; y++) mk('line', { x1: px(x0), y1: py(y), x2: px(x1), y2: py(y), class: 'gitter' });
+  const ax = Math.min(Math.max(0, y0), y1), ay = Math.min(Math.max(0, x0), x1);
+  mk('line', { x1: px(x0) - 6, y1: py(ax), x2: px(x1) + 10, y2: py(ax), class: 'achse' }); mk('path', { d: `M${px(x1) + 14} ${py(ax)} l-8 -4 v8 z`, class: 'spitze' });
+  mk('line', { x1: px(ay), y1: py(y0) + 6, x2: px(ay), y2: py(y1) - 10, class: 'achse' }); mk('path', { d: `M${px(ay)} ${py(y1) - 14} l-4 8 h8 z`, class: 'spitze' });
+  mk('text', { x: px(x1) + 14, y: py(ax) + 20, class: 'zahl' }, g.name_x || 'x'); mk('text', { x: px(ay) + 16, y: py(y1) - 10, class: 'zahl' }, g.name_y || 'y');
+  for (let x = x0; x <= x1; x++) if (x !== 0 || y0 === 0) mk('text', { x: px(x), y: py(ax) + 15, class: 'zahl' }, txt(x));
+  for (let y = y0; y <= y1; y++) if (y !== 0) mk('text', { x: px(ay) - 6, y: py(y) + 4, class: 'zahl r' }, txt(y));
+  // Gerade durch zwei Punkte bis zum Bildrand
+  const gerade = (p, q, klasse) => { const dx = q[0] - p[0], dy = q[1] - p[1], ts = [];
+    if (dx) ts.push((x0 - p[0]) / dx, (x1 - p[0]) / dx); if (dy) ts.push((y0 - p[1]) / dy, (y1 - p[1]) / dy);
+    const drin = ts.filter((t) => { const x = p[0] + t * dx, y = p[1] + t * dy; return x >= x0 - 1e-9 && x <= x1 + 1e-9 && y >= y0 - 1e-9 && y <= y1 + 1e-9; }).sort((u, v) => u - v);
+    if (drin.length < 2) return; const t1 = drin[0], t2 = drin[drin.length - 1];
+    mk('line', { x1: px(p[0] + t1 * dx), y1: py(p[1] + t1 * dy), x2: px(p[0] + t2 * dx), y2: py(p[1] + t2 * dy), class: klasse }); };
+  // Gegebenes
+  for (const gr of g.graphen || []) { gerade([0, gr.t], [1, gr.m + gr.t], 'g-linie');
+    if (gr.name) { const xn = x1 - 0.6, yn = gr.m * xn + gr.t, xi = yn > y1 - 0.5 || yn < y0 + 0.5 ? (gr.m > 0 ? (y1 - 0.8 - gr.t) / gr.m : (y0 + 0.8 - gr.t) / gr.m) : xn;
+      mk('text', { x: px(xi) + 6, y: py(gr.m * xi + gr.t) - 6, class: 'name' }, gr.name); } }
+  for (const s of g.strecken || []) mk('line', { x1: px(s[0]), y1: py(s[1]), x2: px(s[2]), y2: py(s[3]), class: 'g-linie' });
+  // Verbindung der gesetzten Punkte (mit festen Punkten „mit“)
+  const alle = [...(sz.mit || []), ...gesetzt], voll = gesetzt.length === sz.anzahl;
+  if (sz.verbinden === 'gerade' && alle.length >= 2 && voll) gerade(alle[0], alle[alle.length - 1], 'k-linie');
+  if (sz.verbinden === 'strecke' && alle.length >= 2) mk('polyline', { points: alle.map((p) => `${px(p[0])},${py(p[1])}`).join(' '), class: 'k-linie' });
+  if (sz.verbinden === 'vieleck' && voll) mk('polygon', { points: alle.map((p) => `${px(p[0])},${py(p[1])}`).join(' '), class: 'k-flaeche' });
+  for (const p of g.punkte || []) { mk('circle', { cx: px(p.x), cy: py(p.y), r: 5, class: 'g-punkt' }); if (p.name) mk('text', { x: px(p.x) + 8, y: py(p.y) - 8, class: 'name' }, p.name); }
+  // Lösung (erst nach dem zweiten Fehlversuch oder nach „richtig“)
+  if (zeigeLoesung) { const o = a.o;
+    if (o.regel === 'gerade') { gerade(o.durch[0], o.durch[1], 'l-linie'); for (const p of o.durch) mk('circle', { cx: px(p[0]), cy: py(p[1]), r: 6, class: 'l-punkt' }); }
+    else for (const p of (o.mengen ? o.mengen.flat() : o.punkte)) { mk('circle', { cx: px(p[0]), cy: py(p[1]), r: 6, class: 'l-punkt' }); mk('text', { x: px(p[0]) + 9, y: py(p[1]) + 16, class: 'l-name' }, pkt(p)); } }
+  // Gesetzte Punkte
+  gesetzt.forEach((p, i) => { mk('circle', { cx: px(p[0]), cy: py(p[1]), r: 7, class: 'k-punkt' + (i === aktiv && !fertig ? ' aktiv' : '') });
+    if (i === aktiv && !fertig) mk('circle', { cx: px(p[0]), cy: py(p[1]), r: 13, class: 'k-ring' });
+    const name = (sz.namen || [])[i]; if (name) mk('text', { x: px(p[0]) - 16, y: py(p[1]) - 10, class: 'k-name' }, name); });
+  // Antippen: einrasten auf den nächsten Rasterpunkt im Bild
+  svg.addEventListener('pointerdown', (ev) => { if (fertig) return; ev.preventDefault();
+    const r = svg.getBoundingClientRect(), vx = (ev.clientX - r.left) / r.width * B, vy = (ev.clientY - r.top) / r.height * H;
+    const x = x0 + (vx - R) / (B - 2 * R) * (x1 - x0), y = y0 + (H - R - vy) / (H - 2 * R) * (y1 - y0);
+    if (x < x0 - 0.5 || x > x1 + 0.5 || y < y0 - 0.5 || y > y1 + 0.5) return;        // außerhalb: nichts tun
+    const q = [Math.min(x1, Math.max(x0, Math.round(x / raster) * raster)), Math.min(y1, Math.max(y0, Math.round(y / raster) * raster))];
+    const schon = gesetzt.findIndex((p) => p[0] === q[0] && p[1] === q[1]);
+    if (schon >= 0) aktiv = schon;                                                   // vorhandenen Punkt antippen: auswählen
+    else if (gesetzt.length < sz.anzahl) { gesetzt.push(q); aktiv = gesetzt.length - 1; }
+    else { if (aktiv < 0) aktiv = gesetzt.length - 1; gesetzt[aktiv] = q; }          // alle gesetzt: der gewählte Punkt springt
+    neu(); });
+  svg.addEventListener('keydown', (ev) => { const d = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, 1], ArrowDown: [0, -1] }[ev.key]; if (!d) return; ev.preventDefault(); schiebe(d[0], d[1]); svgFokus(); });
+  $('bild').replaceChildren(svg);
+}
+const svgFokus = () => $('bild').firstChild && $('bild').firstChild.focus();
+function schiebe(dx, dy) {
+  if (fertig) return; const g = a.f.grafik, sz = a.f.setzen, raster = sz.raster || 1;
+  if (aktiv < 0) { if (gesetzt.length >= sz.anzahl) return; gesetzt.push([Math.max(g.x[0], Math.min(g.x[1], 0)), Math.max(g.y[0], Math.min(g.y[1], 0))]); aktiv = gesetzt.length - 1; neu(); return; }
+  const q = [gesetzt[aktiv][0] + dx * raster, gesetzt[aktiv][1] + dy * raster];
+  if (q[0] < g.x[0] || q[0] > g.x[1] || q[1] < g.y[0] || q[1] > g.y[1]) return;      // am Rand: bleibt stehen
+  if (gesetzt.some((p, i) => i !== aktiv && p[0] === q[0] && p[1] === q[1])) return; // nie zwei Punkte auf einer Stelle
+  gesetzt[aktiv] = q; neu();
+}
+function neu() {
+  const n = a.f.setzen.anzahl; falschBild = false; zeichne();
+  $('stand').textContent = fertig ? '' : gesetzt.length === 0 ? `Tippe auf das Gitter: ${n === 1 ? 'ein Punkt' : n + ' Punkte'}.`
+    : gesetzt.length < n ? `${gesetzt.length} von ${n} Punkten gesetzt.` : 'Passt alles? Mit den Pfeilen rückst du den orangen Punkt zurecht.';
+  for (const b of $('pfeile').querySelectorAll('button')) b.disabled = fertig || aktiv < 0;
+  $('pruefen').disabled = fertig; $('antwort').textContent = JSON.stringify({ punkte: gesetzt });
+}
+function lade(i) {
+  nr = (i + AUFGABEN.length) % AUFGABEN.length; a = AUFGABEN[nr]; gesetzt = []; aktiv = -1; anlauf = 1; fertig = false; zeigeLoesung = false;
+  $('wahl').value = String(nr); $('marke').textContent = `${a.nr} · Klasse ${a.klasse} · ${a.l} · Stufe ${a.s} (${a.g})`;
+  $('frage').textContent = a.f.text; $('rueck').replaceChildren(); $('loesung').textContent = JSON.stringify(a.o); neu();
+}
+function melde(klasse, kopf, ...zeilen) {
+  const d = document.createElement('div'); d.className = 'rueck ' + klasse;
+  const k = document.createElement('p'); k.className = 'kopf'; k.textContent = kopf; d.append(k);
+  for (const z of zeilen.filter(Boolean)) { const p = document.createElement('p'); p.textContent = z; d.append(p); }
+  $('rueck').replaceChildren(d);
+}
+$('pruefen').addEventListener('click', () => {
+  const r = bewerte(a, { punkte: gesetzt });
+  if (!r.format_ok) { melde('', 'NOCH NICHT FERTIG', r.hinweis); return; }                // zählt nicht als Fehler
+  if (r.richtig) { fertig = true; zeigeLoesung = a.o.regel === 'menge' && !!a.o.mengen; neu(); melde('gut', anlauf === 1 ? 'RICHTIG' : 'RICHTIG IM 2. VERSUCH', a.w); return; }
+  if (anlauf === 1) { anlauf = 2; falschBild = true; zeichne(); melde('schlecht', r.grund ? 'FAST – KURSKORREKTUR' : 'NOCH NICHT', r.grund ? GRUND[r.grund] : 'Schau dir dein Bild und die Frage noch einmal an.', 'Du hast noch einen Versuch. Deine Punkte bleiben stehen.'); return; }
+  fertig = true; zeigeLoesung = true; neu(); falschBild = true; zeichne(); melde('schlecht', 'SO WÄRE ES RICHTIG', 'Grün gestrichelt: die Lösung. Rot: dein Bild.', a.w);
+});
+$('tipp').addEventListener('click', () => melde('', 'TIPP', a.h));
+$('weg').addEventListener('click', () => { if (aktiv < 0 || fertig) return; gesetzt.splice(aktiv, 1); aktiv = gesetzt.length - 1; neu(); });
+for (const b of $('pfeile').querySelectorAll('button[data-dx]')) b.addEventListener('click', () => schiebe(Number(b.dataset.dx), Number(b.dataset.dy)));
+$('zurueck').addEventListener('click', () => lade(nr - 1)); $('weiter').addEventListener('click', () => lade(nr + 1));
+$('wahl').addEventListener('change', (e) => lade(Number(e.target.value)));
+AUFGABEN.forEach((x, i) => { const o = document.createElement('option'); o.value = String(i); o.textContent = `${x.nr} · Kl. ${x.klasse} · ${x.l} · Stufe ${x.s}`; $('wahl').append(o); });
+if (AUFGABEN.length) lade(0); else $('frage').textContent = 'Keine Daten: zuerst nachrechnen2.py laufen lassen.';
+</script>
+</body>
+</html>

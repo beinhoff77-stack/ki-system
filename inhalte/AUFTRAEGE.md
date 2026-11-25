@@ -2554,7 +2554,7 @@ Meldung im Postfach: „FERTIG: FP-S 2“.
 2. **Zweite Quelle je Klasse und Gruppe:** mindestens ein Stoffverteilungsplan oder Inhaltsverzeichnis eines zugelassenen bayerischen Realschulbuchs (z. B. C.C. Buchner Mathe.Logo, Westermann Mathematik Realschule Bayern, Cornelsen) und, für 9/10, die Themen der Abschlussprüfung (ISB/Kultusministerium). Zweck: Gegenprobe, ob ein Thema in der Praxis in dieser Klasse unterrichtet wird. Quelle mit Link und Abrufdatum nennen; Widersprüche zum amtlichen Plan ausweisen (amtlich gilt).
 3. **Jeder Punkt braucht ein Zuhause:** Für jeden Kompetenz-/Inhaltspunkt entweder Thema (mit Bezug „neu“ oder „weitergeführt“) oder ausdrücklich „Lücke – kein Thema vorhanden“. Tabelle je Klasse/Gruppe: Lernbereich · Stunden · Punkte · zugeordnet · Lücken · Themen.
 4. **Klasse je Thema prüfen:** Für jedes Thema mit `klasse_fest.rs_by`: In welchen Klassen kommt es laut Original vor (erstmals / weitergeführt)? Liste der falsch eingeordneten Themen mit Beleg (Lernbereich-Nummer).
-5. **Gymnasium als Stichprobe:** Klasse 7 und 8 nach demselben Verfahren (Leo). Nur Bericht.
+5. **Gymnasium als Stichprobe:** Klasse 7 und 8 nach demselben Verfahren (Kind 2). Nur Bericht.
 6. **Vorschlag Datenmodell** (kurz, für `bau-lehrer`): wie ein Thema in mehreren Klassen geführt wird („neu“/„weitergeführt“) und wie die Matrix je Klasse die Abdeckung der Lernbereiche nach Stunden zeigt statt einer Themenzahl.
 
 **Lieferung:** `inhalte/pruefung/lehrplan/rs_pruefung_2211.md` (Bericht mit Tabellen und Quellenliste), `rs_pruefung_2211.json` (maschinenlesbar: Quelle, Lernbereich, Punkt, Thema, Bezug, Befund) und – getrennt – ein Korrektur-SQL als Datei (nur INSERT/UPDATE auf `schule.zuordnung`, `schule.eintrag`, `schule.thema`; kein DROP, kein DELETE), das der Haupt-Chat nach Probelauf einspielt. Trennen: gesichert (am Original belegt) / Annahme / offen. Meldung im Postfach: „FERTIG: LP-RS“.
@@ -2949,7 +2949,7 @@ Meldung: „FERTIG: TL-S 6“.
 
 ### Entscheidung Sebastian (22.11., 20:20 Berlin) – nach dem Teilen gilt nur selbst Geschafftes
 
-„Leo geschafft nur, wenn er es selber geschafft hat. Den Rest kannst du erstmal wieder rausnehmen – den teilen wir später zu oder markieren ihn als geschafft.“
+„Kind 2 geschafft nur, wenn er es selber geschafft hat. Den Rest kannst du erstmal wieder rausnehmen – den teilen wir später zu oder markieren ihn als geschafft.“
 **Regel (Lesart des Haupt-Chats, Sebastian vorgelegt):**
 1. Ein neuer Teil gilt nach dem Teilen nur dann als **geschafft** (Stempel, Erstabschluss, 100 Sterne), wenn das Kind **alle Pflicht-Etappen dieses Teils selbst gelandet** hat (Pflicht nach Schulart/Gruppe, Kür zählt nicht) und der frühere Flug-Test diese Etappen abgedeckt hat. Stufe, Stempel und Sterne müssen dabei übereinstimmen.
 2. **Alles andere wird nicht automatisch übertragen:** keine Vererbung von „Kann er komplett“ / „Kann er – aber wiederholen“ auf neue Teile, kein automatischer Plan-Platz für neue Teile, keine nachträglichen Stempel/Sterne ohne eigene Leistung. Teil 1 behält, was das alte Thema hatte.
@@ -3199,7 +3199,7 @@ Frage Sebastian: Was passiert, wenn ein Kind in der Wiederholung zwei Fehler hin
 
 ## Auftrag SJ – „Wie viel ist noch?“ je Schuljahr, für Eltern und Kinder (23.11., 03:10 Berlin)
 
-Sebastian (zum Ring „Gym Kl. 5 · 26 % · 2/15 Themen“): „Ich und die Kids wollen einen Überblick, wie viele Flüge sie noch haben und wie viele Etappen – in den Schuljahren. Bei Rosa immer in dem Jahr, wo sie gerade hauptsächlich ist, und ein Jahr weiter. Bei Leo hauptsächlich Klasse 8, aber auch 7 und 9.“ Frage: Wie wird der Prozentsatz gerechnet?
+Sebastian (zum Ring „Gym Kl. 5 · 26 % · 2/15 Themen“): „Ich und die Kids wollen einen Überblick, wie viele Flüge sie noch haben und wie viele Etappen – in den Schuljahren. Bei Kind 1 immer in dem Jahr, wo sie gerade hauptsächlich ist, und ein Jahr weiter. Bei Kind 2 hauptsächlich Klasse 8, aber auch 7 und 9.“ Frage: Wie wird der Prozentsatz gerechnet?
 **Heutige Rechnung (lernLwRing):** Prozent = gelandete Etappen ÷ alle Etappen der Pflicht-Flüge dieser Schulart in dieser Klasse; Flüge in Wiederholung oder „kann er“ zählen mit allen Etappen. „2/15 Themen“ = fertige Flüge von allen Pflicht-Flügen der Klasse. Zusatz-Teile zählen nicht.
 **Stand heute (Haupt-Chat, Gymnasium, ohne Zusatz):** Kind 1 Kl. 5: 15 Flüge, 2 fertig, 13 offen; 107 Etappen, 28 gelandet, 79 offen (26 %). Kl. 6: 11 Flüge, 78 Etappen, alles offen. Kind 2 Kl. 7: 12 Flüge, 5 fertig, 7 offen; 61 Etappen, 23 gelandet. Kl. 8: 16 Flüge, 1 fertig, 15 offen; 97 Etappen, 9 gelandet. Kl. 9: 14 Flüge, 87 Etappen, alles offen.
 

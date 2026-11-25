@@ -1,0 +1,68 @@
+{
+ "boarding": [
+  7,
+  18,
+  9,
+  3,
+  7,
+  3,
+  4,
+  4
+ ],
+ "texte": {
+  "direkt400": {
+   "text": "ETAPPE 1 VON 3 · WELCHEN WERT HAT EINE ZIFFER? DIREKTFLUG 2/2 AUF ANHIEB Kein Fehler, kein Tipp, kein Umweg. ⚡ DIREKT ABZEICHEN DU KANNST JETZT Ziffern nach ihrem Stellenwert lesen. ★ +10 Neues Abzeichen im Reisepass: Direktflug. In 1 Lerntag kommt die Etappe kurz zur Wiederholung. Weiter: Zahlenstrahl Etappe 2 von 3 › Pause – zur Abflugtafel",
+   "brueche": [],
+   "passt": {
+    "scroll": false,
+    "knopfUnten": 720,
+    "h": 780
+   }
+  },
+  "direkt360": {
+   "text": "ETAPPE 1 VON 3 · WELCHEN WERT HAT EINE ZIFFER? DIREKTFLUG 2/2 AUF ANHIEB Kein Fehler, kein Tipp, kein Umweg. ⚡ DIREKT ABZEICHEN DU KANNST JETZT Ziffern nach ihrem Stellenwert lesen. ★ +10 Neues Abzeichen im Reisepass: Direktflug. In 1 Lerntag kommt die Etappe kurz zur Wiederholung. Weiter: Zahlenstrahl Etappe 2 von 3 › Pause – zur Abflugtafel",
+   "brueche": [],
+   "passt": {
+    "scroll": false,
+    "knopfUnten": 580,
+    "h": 640
+   }
+  },
+  "sauber400": {
+   "text": "ETAPPE 1 VON 3 · WELCHEN WERT HAT EINE ZIFFER? SAUBERE LANDUNG 8 Bordkarten 6 selbst gelöst 2 in Folge SAUBER DU KANNST JETZT Ziffern nach ihrem Stellenwert lesen. ★ +10 In 1 Lerntag kommt die Etappe kurz zur Wiederholung. Weiter: Zahlenstrahl Etappe 2 von 3 › Pause – zur Abflugtafel",
+   "brueche": [],
+   "passt": {
+    "scroll": false,
+    "knopfUnten": 720,
+    "h": 780
+   }
+  },
+  "sauber360": {
+   "text": "ETAPPE 1 VON 3 · WELCHEN WERT HAT EINE ZIFFER? SAUBERE LANDUNG 8 Bordkarten 6 selbst gelöst 2 in Folge SAUBER DU KANNST JETZT Ziffern nach ihrem Stellenwert lesen. ★ +10 In 1 Lerntag kommt die Etappe kurz zur Wiederholung. Weiter: Zahlenstrahl Etappe 2 von 3 › Pause – zur Abflugtafel",
+   "brueche": [],
+   "passt": {
+    "scroll": false,
+    "knopfUnten": 580,
+    "h": 640
+   }
+  },
+  "sturm400": {
+   "text": "ETAPPE 1 VON 3 · WELCHEN WERT HAT EINE ZIFFER? STURMFLUG GEMEISTERT 15 Bordkarten, zweimal neu angesetzt – und nicht abgedreht. Am Ende 2 in Folge richtig. ⚡ AUSDAUER-ABZEICHEN DU KANNST JETZT Ziffern nach ihrem Stellenwert lesen. ★ +10 Das war die schwerste Strecke – und du bist angekommen. In 1 Lerntag kommt die Etappe kurz wieder. Weiter: Zahlenstrahl Etappe 2 von 3 › Pause – zur Abflugtafel",
+   "brueche": [],
+   "passt": {
+    "scroll": false,
+    "knopfUnten": 720,
+    "h": 780
+   }
+  },
+  "sturm360": {
+   "text": "ETAPPE 1 VON 3 · WELCHEN WERT HAT EINE ZIFFER? STURMFLUG GEMEISTERT 15 Bordkarten, zweimal neu angesetzt – und nicht abgedreht. Am Ende 2 in Folge richtig. ⚡ AUSDAUER-ABZEICHEN DU KANNST JETZT Ziffern nach ihrem Stellenwert lesen. ★ +10 Das war die schwerste Strecke – und du bist angekommen. In 1 Lerntag kommt die Etappe kurz wieder. Weiter: Zahlenstrahl Etappe 2 von 3 › Pause – zur Abflugtafel",
+   "brueche": [],
+   "passt": {
+    "scroll": false,
+    "knopfUnten": 580,
+    "h": 640
+   }
+  }
+ }
+}

@@ -3467,3 +3467,10 @@ Entscheidung Sebastian: Der Projektleiter steuert die Rollen künftig selbst als
 - Zahlen des Mathe-Profis in der Datenbank nachgeprüft: zahl 54,3 %, auswahl 31,1 %, luecken 14,0 %, markierung 0,5 %, text 0,1 %; 3 314 von 30 176 Aufgaben mit Bild.
 - Entscheidung Sebastian: Team mit drei Chats bei ihm (Projektleiter, Mathe-Profi auf Fable, Designer auf Fable), übrige Rollen als Helfer. Neuer Mathe-Profi-Chat nimmt die Ablage auf und denkt sie neu durch. Rollen-Dateien: `inhalte/rollen/README.md`, `mathe-profi.md`, `designer.md`, `bau-app.md`.
 - Noch nicht inhaltlich geprüft durch den Projektleiter: `auftrag1.md`, `ideen.md`.
+
+## Probelauf Helfer bestanden: App 0.93.5 in `lernen-app`; Übergabe Projektleiter (25.11., 03:00 Berlin)
+
+- Helfer „Bau App“ (Opus), Zweig `bau-app` 93221b2, 34 Minuten: Ursache des wackligen Tests = Querrollen bei 400 px durch die Anrede auf der Kartenecke (schwingt 2–3 px über den Rand); behoben (`transform-origin`). Zusätzlich echter Wettlauf: Hauptknopf war bei verzögerter Karte mit Server-Ziel antippbar → jetzt gesperrt bis das Ziel feststeht; ältere Karten-Antworten werden verworfen. Neuer Test „WT“. Gesamtlauf Helfer 2× 203/203, Projektleiter 203/203.
+- Geprüft: nur eigener Zweig geändert, keine Namen/Schlüssel. Meldung in `inhalte/postfach/bau-app.md`.
+- Nutzer: „live“ – nicht geschaltet, Kind 1 übte gerade. Live ist 0.93.4.
+- Übergabe-Datei für einen neuen Projektleiter-Chat: `inhalte/rollen/projektleiter.md`.

@@ -3480,3 +3480,9 @@ Entscheidung Sebastian: Der Projektleiter steuert die Rollen künftig selbst als
 - `main` dd36af0, Auslieferung erfolgreich, Werkstatt-Änderung 392. Seit dem Test (205ba5c) kamen nur Dateien unter `inhalte/` dazu. Nutzer: „live“, später „Sind fertig“; letzte Übung 25 bzw. 74 Minuten her.
 - Übernommen: `lehrplan-lb` b7a2705 („LETZTER STAND“), `pruefmaterial-gym` 092ad5f, `pruefmaterial-rs` bdeed21 → `inhalte/pruefmaterial/gym|rs/` (Kataloge, Auswertung, Quellen, Nachbauten mit Generatoren und Gegenrechnung; 7,5 MB). Nutzer: „Die brauchen wir aber.“
 - Offen: Stichprobe, dass die Nachbauten keine Aufgaben wörtlich aus Schulaufgaben enthalten (Auftrag für einen Helfer, bevor daraus Inhalte für die Kinder werden).
+
+## Übergabe an den neuen Projektleiter-Chat erledigt (25.11., 03:45 Berlin)
+
+- Nutzer: „Übergabe erledigt“. Der bisherige Haupt-Chat ändert ab jetzt nichts mehr am Repo, an der Datenbank oder an `main` und plant seinen Tageslauf nicht mehr neu.
+- Letzte Handlung: letzter Stand des alten Gestalters (`pruefung-kinderansicht` ab6a9fb, „Übersicht für den Designer“) als Textdateien übernommen; Bilder bleiben auf dem Zweig.
+- Live: App 0.93.5 (`main` dd36af0). Offene Punkte stehen in `inhalte/rollen/projektleiter.md`; dazu neu: Stichprobe Prüfmaterial (nichts wörtlich), Lieferungen `mathe-profi` (Auftrag 2 und 3) und `designer` (Bestandsaufnahme) lesen, Entscheidung des Nutzers zu Namen im Repo und zum Analysten.

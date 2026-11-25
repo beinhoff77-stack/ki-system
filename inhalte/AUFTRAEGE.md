@@ -3448,3 +3448,15 @@ Meldung Sebastian mit zwei Bildern (Reisekarte: „Bhaktapur · Stadt 1 von 5“
 - Tageslauf 24.11.: keine neuen Lehrer-Aufträge; Test-Eintrag 2 auf „erledigt“ (Sebastian: ja). Gestalter-Vorgabe FX (Spezialeffekte) liegt vor; Sebastian: warten.
 - Neuer Chat `mathe-profi` geplant (Kopiertext bei Sebastian): bewertet Inhalte, liefert Erklärungen, Aufgaben, neue Aufgabenformen unter `inhalte/mathe-profi/`, Zweig `mathe-profi`.
 - Offen für `bau-lehrer`: `reise_karte.naechster_start` ohne offene Stadt → `stadt = null`, `grund = 'test'`.
+
+## Umstellung: Helfer statt Kopiertexte – Probelauf mit Auftrag WT (25.11., 01:30 Berlin)
+
+Entscheidung Sebastian: Der Projektleiter steuert die Rollen künftig selbst als Helfer an; Kopieren zwischen Chats entfällt. Rollenbeschreibungen liegen unter `inhalte/rollen/`. Einspielen in die Datenbank und Live bleiben beim Projektleiter und brauchen weiter Sebastians ausdrückliches Wort.
+**Probelauf – Auftrag WT (App 0.93.5) an Rolle `bau-app`, Zweig `bau-app`:**
+- Befund: Gesamtlauf auf 8b0b83b: 1. Lauf 201/202, rot „KJ §0: Kinderseite – Nachbessern zuerst (Expedition als Chip), Gerade dran, Zusatz · eingeplant, Mein Schuljahr; Zahlen aus schuljahr_stand; gelber Knopf nie Zusatz (400/820, Tag und Nacht)“, Meldung nicht erfasst; einzeln 3× grün; 2. Lauf 202/202.
+- 1. Ursache finden, nicht nur den Test beruhigen: Gesamtlauf wiederholen, bis der Fehler wieder auftritt (höchstens 4 Läufe), Meldung im Wortlaut festhalten; zusätzlich den Test mit künstlich verzögerten Antworten des nachgestellten Servers laufen lassen (Karte 800 ms nach Übersicht und umgekehrt).
+- 2. Verdacht prüfen: `lernSchrittKnopf` steht sofort da und bekommt Ziel und Text erst nach dem Laden. Kann der Hauptknopf solange ein falsches Ziel zeigen oder antippbar sein? Kann eine ältere Antwort eine neuere überschreiben (Wechsel des Kindes, schneller Rückweg)?
+- 3. Echter Wettlauf → beheben: Hauptknopf erst antippbar, wenn sein Ziel feststeht (bis dahin sichtbar, gesperrt, ohne Stadtname); nie ein Ziel gegen die Reihenfolge; Antworten älterer Abrufe verwerfen.
+- 4. Liegt es nur am Test → Test auf den fertigen Zustand warten lassen und begründen, warum die App richtig ist.
+- 5. Neuer Test: verzögerte Karte, verzögerte Übersicht, Wechsel des Kindes während des Ladens – nie ein falsches oder antippbares Zwischenziel.
+- Version 0.93.5, Cache-Nummer erhöhen; Gesamtlauf am Ende zweimal hintereinander grün.

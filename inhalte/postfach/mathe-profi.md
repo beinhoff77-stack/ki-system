@@ -1,5 +1,34 @@
 # Postfach mathe-profi
 
+## 2026-11-25 05:15 (Berlin) – FERTIG: Denkpapier Diagnose
+Zweig `mathe-profi`, vorher mit `lernen-app` edb6b86 zusammengeführt (enthält d00cf04). Abgelegt mit Commit 5bedf8a.
+
+**Geliefert** unter `inhalte/mathe-profi/`:
+- `denkpapier-diagnose.md` – drei Seiten (A4 bei 10 pt), sechs Fragen, gesichert / Annahme / Meinung getrennt, je ein durchgespieltes Beispiel Klasse 5 und Klasse 8.
+- `fehlbild_probe.py` – Nachweis zu Frage 1 an den vorhandenen Aufgaben (nur Inhalte). Lauf „OK“.
+
+**Kernaussagen**
+1. Fehlbilder (das Ergebnis, das ein bestimmter Denkfehler liefert) lassen sich je Muster mitberechnen: Ganze Zahlen ± 49 von 59 Aufgaben mit eindeutigem Fehlbild, Prozent 93 von 93. 69 % aller Aufgaben haben schon `c`; es fehlt eine Liste `fehlbilder` je Muster.
+2. Ein Fehlbild ist noch keine Diagnose. Regel: dasselbe Fehlbild bei 2 von 3 Trennaufgaben.
+3. Rückfrage „Wie hast du gerechnet?“ taugt nur als zweites Mittel. Besser: Kontrollzahlen (Zwischenergebnis nach der Rechnung im Heft abfragen, mit der vorhandenen Lücken-Form).
+4. Erklär-Leiter in fünf Stufen; zurück zur Voraussetzung erst nach erneut 2 von 3 falschen Trennaufgaben, über einen Zeiger je Fehlbild auf eine Etappe.
+5. Beste Formen für den Übertrag auf Papier: Lückenweg mit abnehmender Hilfe, Heft mit Punkteschema plus Kontrollzahlen, Papier-Runde in Zeit.
+6. Dauer trennt „geraten“ von „versucht“ und „flüssig“ von „mühsam“, sagt aber nichts über Verstehen.
+7. Zu optimistisch ist die These bei: Fehler = Denkfehler, „einfacher erklären“ ohne Boden, 80/89 % als Maßstab, Darstellung in Schulaufgaben, Rückmeldung der Kinder, zwei Kinder als Datenbasis.
+
+**Vorgeschlagene Reihenfolge (Meinung):** Papier-Runde in Zeit · Fehlbilder mit Trennaufgaben für drei Flüge · Kontrollzahlen · Erklär-Leiter Stufen 0–2 · Dauer speichern.
+
+**Offen:** Entscheidung von Nutzer und Projektleiter, ob und in welcher Reihenfolge daraus Aufträge werden.
+
+**Nicht geprüft**
+- Bayerische Korrekturpraxis und Punkteschemata; das neue Prüfmaterial im Repo.
+- Vollständigkeit der Denkfehler-Listen.
+- Die Probe zählt „eindeutig“ nur unter den aufgeschriebenen Denkfehlern.
+
+**Annahmen**
+- Welche Denkfehler typisch sind (Fachwissen, nicht aus Lerndaten).
+- Abfall der Trefferquote auf Papier; milde Selbstbewertung; Grenzen der Handschrift-Auswertung ohne Netz.
+
 ## 2026-11-25 02:40 (Berlin) – FERTIG: Auftrag 3 (Musterstapel Weg-Aufgaben)
 Zweig `mathe-profi`, vorher mit `lernen-app` 205ba5c2 zusammengeführt.
 

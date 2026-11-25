@@ -188,6 +188,7 @@ async function setup(t, opt = {}) {
     if (opt.anpassen && e) e = opt.anpassen(b.aktion, e, d) || e; // Schritt D: Antwort nach einer Migration nachbilden
     else if (opt.anpassen?.neueAktionen) e = opt.anpassen(b.aktion, null, d) || e; // Aktionen, die der Standard-Mock nicht kennt (LM-S)
     if (opt.verzoegerung) await new Promise((r) => setTimeout(r, opt.verzoegerung)); // WK F5: Serverzeit nachstellen
+    { const ms = opt.verzoegerungJe?.(b.aktion, d); if (ms) await new Promise((r) => setTimeout(r, ms)); } // WT: einzelne Antworten gezielt verzögern (Wettläufe nachstellen)
     await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) });
   });
   return { page, calls, appCalls };
@@ -5426,4 +5427,68 @@ test('WK 2 A2: Nachbessern offen hat Vorrang – auch der Knopf nach dem Test f�
   assert.equal(await b.getAttribute('href'), '#/lerneinheit/1-1-ueben-1'); assert.match(await b.innerText(), /^Jetzt nachbessern/);
   await page.goto(origin + '/#/reise/1'); const nb = page.locator('.rk-schwebe .lr-nb-karte'); await nb.waitFor(); await page.locator('.rk-schwebe .rk-start').waitFor(); await page.waitForTimeout(600);
   assert.ok((await nb.boundingBox()).y < (await page.locator('.rk-schwebe .rk-start').boundingBox()).y, 'Nachbessern zuerst');
+});
+
+
+// ---------- WT (0.93.5): Hauptknopf nie mit falschem oder antippbarem Zwischenziel ----------
+// Beobachter im Browser: alle 15 ms jeden Hauptknopf prüfen. Erlaubt ist nur „wartet“ (gesperrt, ohne href, ohne Stadtname) oder das fertige Ziel.
+// Beim ersten wartenden Knopf wird er angetippt – das darf nichts tun.
+const WT_KNOEPFE = '.lr-schritt-knopf, .rk-start, .lr-einsteigen-knopf, .lr-flug-jetzt';
+const wtBeobachten = (page) => page.evaluate((sel) => { window.__wt = { proben: [], getippt: null, hashVorher: null };
+  const t0 = performance.now(); const iv = setInterval(() => { for (const k of document.querySelectorAll(sel)) {
+    if (!k.isConnected || k.closest('.lr-veraltet')) continue; // gedimmte letzte Ansicht: nicht antippbar (WK F5)
+    const wartet = k.classList.contains('lr-schritt-wartet') || !!k.closest('.lr-ziel-offen');
+    window.__wt.proben.push({ ms: Math.round(performance.now() - t0), kl: k.className.split(' ')[0], wartet, href: k.getAttribute('href'), dis: k.getAttribute('aria-disabled'), text: (k.innerText || k.textContent || '').replace(/\s+/g, ' ').trim(),
+      zeiger: getComputedStyle(k).pointerEvents });
+    if (wartet && !window.__wt.getippt) { window.__wt.hashVorher = location.hash; window.__wt.getippt = k.className.split(' ')[0]; k.click(); setTimeout(() => { window.__wt.hashNachher = location.hash; }, 0); } }
+    if (performance.now() - t0 > 6000) clearInterval(iv); }, 15); }, WT_KNOEPFE);
+const wtProben = (page) => page.evaluate(() => window.__wt);
+function wtPruefen(w, { ziel, kind = 1, fall }) {
+  assert.ok(w.proben.length > 0, `${fall}: keine Proben`);
+  for (const p of w.proben) {
+    if (p.wartet) { assert.ok(!p.href || p.kl !== 'lr-schritt-knopf', `${fall}: wartender Knopf mit Ziel ${p.href} (${p.ms} ms)`); assert.equal(p.zeiger, 'none', `${fall}: wartender Knopf antippbar (${p.ms} ms)`);
+      if (p.kl === 'lr-schritt-knopf') { assert.equal(p.dis, 'true'); assert.match(p.text, /^Weiter\s*›?$/, `${fall}: wartender Knopf ohne Stadtname (${p.text})`); } }
+    else if (p.href) { assert.match(p.href, new RegExp(`^#/(lerneinheit|wiederholen|reise)/${kind}\\b`), `${fall}: Ziel eines anderen Kindes ${p.href}`); if (ziel && p.kl !== 'lr-flug-jetzt') assert.equal(p.href, ziel, `${fall}: Zwischenziel ${p.href} statt ${ziel} (${p.ms} ms, ${p.kl})`); }
+  }
+  if (w.getippt) assert.equal(w.hashNachher ?? w.hashVorher, w.hashVorher, `${fall}: Antippen des wartenden Knopfs hat navigiert`);
+}
+
+test('WT: Hauptknopf erst antippbar, wenn sein Ziel feststeht – verzögerte Karte, verzögerte Übersicht (Knopf nach dem Test, Reisekarte), Wechsel des Kindes während des Laden', async (t) => {
+  for (const [fall, langsam] of [['Karte 800 ms', 'schule_reise_karte'], ['Übersicht 800 ms', 'schule_uebersicht']]) {
+    const verz = { an: false }; const srv = wk2Server('bestanden', abFlug({}));
+    const { page } = await setup(t, { gestaltung: 'nacht', anpassen: srv.anpassen, verzoegerungJe: (a) => (verz.an && a === langsam ? 800 : 0) });
+    await page.emulateMedia({ reducedMotion: 'reduce' }); await page.setViewportSize({ width: 400, height: 780 });
+    await page.goto(origin + '/#/lerneinheit/1-1-test'); await page.getByRole('button', { name: 'Test starten' }).click();
+    await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click(); await page.getByRole('button', { name: 'Weiter ›' }).click();
+    await page.getByRole('button', { name: 'Markierung 2' }).click(); await page.getByRole('button', { name: 'Abgeben' }).click();
+    const ziel = `#/lerneinheit/1-2-ueben-${srv.nrCh}-start`;
+    verz.an = true; await wtBeobachten(page);
+    await page.locator('.lr-abschluss-flug').getByRole('button', { name: /Weiter zum nächsten Thema/ }).click();
+    const b = page.locator('.lr-abschluss-bordkarte .lr-ab-gross'); await b.waitFor();
+    assert.equal(await b.getAttribute('aria-disabled'), 'true', `${fall}: Knopf wartet zuerst`);
+    await page.waitForFunction(() => !document.querySelector('.lr-schritt-knopf[aria-busy]'), null, { timeout: 8000 });
+    assert.equal(await b.getAttribute('href'), ziel); assert.equal(await b.getAttribute('aria-disabled'), null);
+    let w = await wtProben(page); wtPruefen(w, { ziel, fall: `${fall} · Bordkarte` }); assert.ok(w.getippt, `${fall}: wartender Knopf gesehen und angetippt`);
+    assert.ok(w.proben.some((p) => p.wartet) && w.proben.some((p) => !p.wartet && p.href === ziel), `${fall}: erst gesperrt, dann Ziel`);
+    // Reisekarte nach dem Abschluss (Karte gilt als alt): Hauptknopf nie mit falschem antippbarem Ziel
+    await wtBeobachten(page); await page.evaluate(() => { location.hash = '#/reise/1'; });
+    const st = page.locator('.rk-schwebe .rk-start'); await st.waitFor(); await page.waitForFunction(() => !document.querySelector('.lr-ziel-offen, .lr-veraltet'), null, { timeout: 8000 }); await page.waitForTimeout(900);
+    assert.equal(await st.getAttribute('href'), ziel);
+    w = await wtProben(page); wtPruefen(w, { ziel, fall: `${fall} · Reisekarte` });
+    await page.close(); verz.an = false;
+  }
+  // Wechsel des Kindes während des Ladens: Kind 1 langsam (Karte 900 ms), sofort zu Kind 2 – nie ein Ziel von Kind 1, Kopf von Kind 2
+  for (const ansicht of ['karte', 'tafel']) {
+    const srv = wk2Server('test');
+    const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen, verzoegerungJe: (a, d) => (Number(d.lernender_id) === 1 && ['schule_reise_karte', 'schule_konto'].includes(a) ? 900 : 0) });
+    if (ansicht === 'tafel') await page.addInitScript(() => { localStorage.setItem('lern.rk.1', 'tafel'); localStorage.setItem('lern.rk.2', 'tafel'); });
+    await page.setViewportSize({ width: 400, height: 860 }); await page.goto(origin + '/#/lernen'); await page.waitForTimeout(300);
+    await page.evaluate(() => { location.hash = '#/reise/1'; }); await page.waitForTimeout(150); await wtBeobachten(page);
+    await page.evaluate(() => { location.hash = '#/reise/2'; });
+    await page.locator(ansicht === 'karte' ? '.rk-start, .lr-einsteigen-knopf' : '.lr-einsteigen-knopf').first().waitFor({ state: 'attached' }); await page.waitForTimeout(1500); // Antworten für Kind 1 kommen erst jetzt
+    assert.match(await page.locator('#title').textContent(), /Kind B/, `Wechsel (${ansicht}): Kopf von Kind 2`);
+    for (const h of await page.locator(WT_KNOEPFE).evaluateAll((xs) => xs.map((x) => x.getAttribute('href')).filter(Boolean))) assert.match(h, /^#\/(lerneinheit|wiederholen|reise)\/2\b/, `Wechsel (${ansicht}): ${h}`);
+    wtPruefen(await wtProben(page), { kind: 2, fall: `Wechsel (${ansicht})` });
+    await page.close();
+  }
 });

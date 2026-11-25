@@ -5950,6 +5950,8 @@ body.rk-kopf-oben:has(#tabs[hidden]) { padding-bottom: 0; }
 .lr-jw-blatt-nacht .lr-jw-blatt-innen { background: #121831; color: #E8ECF8; } .lr-jw-blatt-nacht .lr-jw-wort small { color: #A9B3D1; }
 .lr-jw-blatt-nacht .lr-jw-zu { background: #C9F26B; color: #0D1226; }
 .lr-jw-ecke { right: -8px; } .lr-jw-ecke .lr-jw-frage { right: -6px; }
+/* WT (0.93.5): Der „Plopp“ der Anrede schwingt über 100 % hinaus. Auf der Ecke (rechter Rand, < 600 px) wuchs der Sticker dabei kurz 2–3 px über den Bildschirm (Querrollen). Er wächst jetzt von seiner rechten unteren Ecke aus nach links. */
+.lr-jw-ecke { transform-origin: 100% 100%; }
 /* ---------- WK (0.93.2) ---------- */
 /* F4: Am Rechner (breit) klebt das Tastenfeld nicht über der Bordkarte – bei niedrigem Fenster verdeckte es die ganze Aufgabe. Es steht unter der Karte im Ablauf. */
 @media (min-width: 900px) { .lr-dock:has(.lr-tastenfeld) { position: static; background: none; } }
@@ -5980,3 +5982,8 @@ body.rk-kopf-oben:has(#tabs[hidden]) { padding-bottom: 0; }
 .rk-schwebe-karte.kompakt .rk-ansage { grid-column: 1 / -1; order: 1; text-align: left; font-size: 13px; }
 .rk-schwebe-karte.kompakt .rk-sj-zeile { order: 2; }
 .lr-trotzdem-ueben { display: inline-block; margin-top: 6px; }
+/* ---------- WT (0.93.5) ---------- */
+/* Hauptknopf erst antippbar, wenn sein Ziel feststeht: bis dahin sichtbar, gesperrt, ohne Stadtname (lernSchrittKnopf; Ansicht mit alter Karte) */
+.lr-schritt-wartet { opacity: .6; pointer-events: none; cursor: progress; }
+.lr-ziel-offen :is(.rk-start, .rk-dran, .lr-flug-jetzt, .lr-einsteigen-knopf) { opacity: .55; pointer-events: none; cursor: progress; }
+.lr-ziel-offen :is(.rk-start b, .rk-start small, .rk-dran-text, .rk-dran-stand, .lr-flug-jetzt .lr-flug-ort, .lr-flug-jetzt .lr-flug-status small, .lr-einsteigen-knopf span, .lr-dock-ansage) { visibility: hidden; }

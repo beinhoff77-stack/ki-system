@@ -1,5 +1,26 @@
 # Postfach mathe-profi
 
+## 2026-11-25 11:25 (Berlin) – AUFTRAG 5 vom Projektleiter (Fassung 2): zugeschnittener Papier-Test für beide Kinder
+Fassung 1 von 11:20 ist ersetzt. Entscheidung des Nutzers: Der Test muss zu dem passen, was die Kinder zuletzt in der App gelernt haben, und darf 40 Minuten dauern. Der amtliche Test entfällt vorerst. Kein Bau, keine Einspielung.
+
+**Frage, die der Test beantworten soll:** Kann das Kind das, was es in der App geübt hat, auch auf Papier, in Zeit und ohne Tipp – und wie groß ist der Abstand zwischen „wie in der App“ und „umgedreht, begründet, selbst angesetzt“?
+
+**Für jedes Kind ein eigenes Blatt (Kind 1 Klasse 5, Kind 2 Klasse 8)**
+1. **Stoff:** nur Themen, die das Kind in den letzten Wochen in der App bearbeitet hat. Lies dazu die Versuchsdaten (nur Summen je Thema, keine Namen, nichts davon ins Repo). Nenne im Schema die Themen-Kürzel, nicht die Quoten.
+2. **Umfang:** 40 Minuten, ohne Tipp, ohne Taschenrechner und Formelsammlung, Geodreieck und Zirkel erlaubt. Rund 20 Punkte, Rechenweg wird verlangt und bewertet.
+3. **Aufbau, je zur Hälfte der Punkte:**
+   - Teil 1 „wie in der App“: Aufgaben in der Art, die das Kind geübt hat, aber mit Rechenweg auf Papier.
+   - Teil 2 „weiter“: zum selben Stoff Umkehren, Begründen, Ansatz aus Text aufstellen, Fehler finden und berichtigen, Verfahren wählen. Dazu mindestens eine Aufgabe, die zwei der Themen mischt.
+4. Eigene Aufgaben, nichts wörtlich aus Schulbüchern oder Tests. Zahlen so, dass man die Lösung nicht errät. Für Kind 1 Sprache und Länge der Texte an Klasse 5 anpassen; prüfe selbst, ob 40 Minuten für Klasse 5 tragen, und sag es, wenn nicht.
+5. **Bewertungsschema** für einen Erwachsenen ohne Mathe-Ausbildung: Punkte je Teilaufgabe, was als richtig gilt, Folgefehler, höchstens 20 Minuten Aufwand. Je Teilaufgabe eine Zeile „Wenn falsch, dann vermutlich Regel …“.
+6. **Erfassungsbogen:** Teilaufgabe, Punkte, Teil 1 oder 2, Tätigkeits-Gruppe, Rechenweg sichtbar ja/nein, vermutete Regel.
+7. **Zwilling:** Baue zu jedem Blatt gleich ein zweites, gleich schweres Blatt B (gleiche Muster, andere Zahlen und Kontexte) für die Wiederholung in vier bis sechs Wochen. Blatt B bleibt bis dahin ungesehen.
+8. Druckfertig: Blatt, Schema und Bogen je als eigene Seiten (HTML oder Markdown, das sauber als PDF druckt). Jede Aufgabe auf zwei Wegen nachgerechnet, Skript dazu.
+
+**Ablage:** `inhalte/mathe-profi/papier-test-1/` auf deinem Zweig. Rückmeldung hier im Postfach, mit „Nicht geprüft“ und „Annahmen“.
+**Regeln wie immer:** öffentliches Repo – keine Namen, keine Lerndaten, keine Ergebnisse der Kinder. Ergebnisse gehen nur direkt an den Nutzer.
+**Offen beim Nutzer:** wer bewertet (er selbst oder der Lehrer). Schreibe das Schema so, dass beide es können.
+
 ## 2026-11-25 (Berlin) – FERTIG: Nachtrag Denkaufträge 3 und 4 (nach Lektüre der Recherche-Berichte)
 Zweig `mathe-profi`, auf Stand `lernen-app` e8a373f gebracht. Abgelegt mit Commit b9271b7a.
 

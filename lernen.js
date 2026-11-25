@@ -755,19 +755,27 @@ async function lernSchrittLaden(kindId) {
   d.merk = merk; lernNamenSetzen(d);
   return lernSchrittZiel(d, karte, merk, lernWdhStand(wdh, k));
 }
-// Großer Knopf „nächster Schritt“: steht sofort (zur Reise), füllt sich mit Ziel und Text, sobald der frische Stand da ist
+// Großer Knopf „nächster Schritt“: steht sofort da, aber gesperrt und ohne Stadtname (WT 0.93.5), bis Ziel und Text aus dem frischen Stand feststehen.
+// Vorher war er gleich mit dem Ziel des Servers (vorher) antippbar – ein Tippen in den ersten Millisekunden konnte am Schritt vorbeiführen.
+// Kommt kein brauchbarer Schritt (Fehler, ohne Stände der Karte, ausgeschlossen über ohne), gilt das Ziel vom Server bzw. „Weiter“ zur Reise.
 function lernSchrittKnopf(kindId, { gross = true, klasse = '', ohne = null, vorher = null } = {}) {
   const v = vorher || { text: 'Weiter', klein: null, ziel: `#/reise/${kindId}` };
-  const a = gross ? lernGrossKnopf(v.text, v.klein, { href: v.ziel, class: 'lr-schritt-knopf ' + klasse })
-    : el('a', { class: 'lr-knopf lr-schritt-knopf ' + klasse, href: v.ziel }, v.text + ' ›');
-  a.setAttribute('aria-busy', 'true');
+  const a = gross ? lernGrossKnopf('Weiter', null, { href: v.ziel, class: 'lr-schritt-knopf lr-schritt-wartet ' + klasse }) // als Link anlegen; href kommt erst mit dem Ziel
+    : el('a', { class: 'lr-knopf lr-schritt-knopf lr-schritt-wartet ' + klasse }, 'Weiter ›');
+  a.setAttribute('aria-busy', 'true'); a.setAttribute('aria-disabled', 'true'); a.removeAttribute('href');
+  const sperre = (ev) => { if (a.classList.contains('lr-schritt-wartet')) { ev.preventDefault(); ev.stopImmediatePropagation(); } };
+  a.addEventListener('click', sperre, true);
+  const setze = (z) => {
+    a.setAttribute('href', z.ziel); if (z.art) a.dataset.schritt = z.art;
+    if (gross) { a.querySelector('.lr-ab-gross-text').textContent = z.text; const k0 = a.querySelector('small'); if (z.klein) { if (k0) k0.textContent = z.klein; else a.querySelector('.lr-ab-gross-text').after(el('small', {}, z.klein)); } else k0?.remove(); }
+    else a.textContent = z.text + ' ›';
+    a.classList.remove('lr-schritt-wartet'); a.removeAttribute('aria-busy'); a.removeAttribute('aria-disabled');
+  };
   lernSchrittLaden(kindId).then((s) => {
-    a.removeAttribute('aria-busy'); if (!s || (ohne && ohne(s))) return;
-    if (vorher && ['alt', 'nichts'].includes(s.art)) return; // ohne Stände der Karte: das Ziel vom Server (vorher) ist besser als der alte Rückfall
-    a.setAttribute('href', s.ziel); a.dataset.schritt = s.art;
-    if (gross) { a.querySelector('.lr-ab-gross-text').textContent = s.text; const k0 = a.querySelector('small'); if (s.klein) { if (k0) k0.textContent = s.klein; else a.querySelector('.lr-ab-gross-text').after(el('small', {}, s.klein)); } else k0?.remove(); }
-    else a.textContent = s.text + ' ›';
-  }).catch(() => a.removeAttribute('aria-busy'));
+    if (!s || (ohne && ohne(s))) return setze(v);
+    if (vorher && ['alt', 'nichts'].includes(s.art)) return setze(v); // ohne Stände der Karte: das Ziel vom Server (vorher) ist besser als der alte Rückfall
+    setze(s);
+  }).catch(() => setze(v));
   return a;
 }
 // Lehrer/Eltern (WK F3, Ergänzung): Name eines Flugs wie auf der Reisekarte des Kindes – Land, bei einer Etappe „Land · Stadt“;
@@ -787,16 +795,23 @@ const lernUebenZiel = (kindId, e, o = null) => { const nr = o ? o.nr : e?.etappe
 // Name einer Etappe (Nr. 1 …) bzw. des Flugs für Kinder: Stadt der Karte, sonst der alte Ortsname
 const lernEtappenStadt = (kindId, themaId, nr, alt = '') => { const f = lernRkFlugVon(kindId, themaId); return (f?.staedte || []).find((x) => Number(x.nr) === Number(nr))?.name || alt; };
 
+// WT (0.93.5): Antworten älterer Abrufe verwerfen. Jeder Abruf bekommt eine laufende Nummer je Kind; eine Antwort ersetzt die gemerkte Karte nur,
+// wenn seit ihrem Abruf nichts vergessen wurde (Landung, Plan …) und keine neuere Antwort schon da ist. Sonst konnte eine langsame alte Antwort
+// nach der neuen ankommen und Namen und Stände (lernRkFlugVon) auf den alten Stand zurücksetzen.
+const lernReiseKarteNr = new Map(); // Kind → { abruf, gemerkt, stand }
+const lernRkNr = (k) => { if (!lernReiseKarteNr.has(k)) lernReiseKarteNr.set(k, { abruf: 0, gemerkt: 0, stand: 0 }); return lernReiseKarteNr.get(k); };
 function lernReiseKarte(kindId) {
   if (!lernReiseKarteSpeicher.has(kindId)) {
-    const t0 = performance.now();
-    const p = lernCallNetz('schule_reise_karte', { lernender_id: kindId }).then((r) => { if (r) { r._ladezeit = Math.round(performance.now() - t0); lernReiseKarteAlt.set(kindId, r); } return r; })
-      .catch((e) => { lernReiseKarteSpeicher.delete(kindId); throw e; });
+    const t0 = performance.now(); const z = lernRkNr(kindId); const nr = ++z.abruf, stand = z.stand;
+    const p = lernCallNetz('schule_reise_karte', { lernender_id: kindId }).then((r) => {
+      if (r) { r._ladezeit = Math.round(performance.now() - t0); if (stand === z.stand && nr > z.gemerkt) { z.gemerkt = nr; lernReiseKarteAlt.set(kindId, r); } }
+      return r; })
+      .catch((e) => { if (lernReiseKarteSpeicher.get(kindId) === p) lernReiseKarteSpeicher.delete(kindId); throw e; });
     lernReiseKarteSpeicher.set(kindId, p);
   }
   return lernReiseKarteSpeicher.get(kindId);
 }
-const lernReiseKarteVergessen = (kindId) => { if (kindId === undefined || kindId === null) lernReiseKarteSpeicher.clear(); else lernReiseKarteSpeicher.delete(Number(kindId)); };
+const lernReiseKarteVergessen = (kindId) => { if (kindId === undefined || kindId === null) { lernReiseKarteSpeicher.clear(); lernReiseKarteNr.forEach((z) => { z.stand++; }); } else { lernReiseKarteSpeicher.delete(Number(kindId)); lernRkNr(Number(kindId)).stand++; } };
 function lernExFehlt(s, karte) {
   if (!karte) return null;
   const fluege = (karte.kontinente || []).flatMap((k) => k.fluege || []);
@@ -1544,6 +1559,18 @@ function lernBelohnungFormular(meldung) {
   return f;
 }
 
+// WT (0.93.5): Ist die Ansicht mit der gemerkten (alten) Karte gezeichnet, steht der Hauptknopf sichtbar, aber gesperrt und ohne Stadtname da,
+// bis die frische Karte kommt (dann neu zeichnen). Kommt keine, gilt die alte und der Knopf wird frei. Gilt für Startkarte, „Gerade dran“, Abflugtafel und Einsteigen.
+const LERN_ZIEL_KNOEPFE = '.rk-start, .rk-dran, .lr-flug-jetzt, .lr-einsteigen-knopf';
+function lernZielBisFrisch(wurzel, kartePromise, karteAlt, live) {
+  if (!wurzel || !kartePromise) return;
+  wurzel.classList.add('lr-ziel-offen');
+  const knoepfe = [...wurzel.querySelectorAll(LERN_ZIEL_KNOEPFE)]; knoepfe.forEach((k) => { k.setAttribute('aria-disabled', 'true'); k.setAttribute('tabindex', '-1'); });
+  const sperre = (ev) => { if (wurzel.classList.contains('lr-ziel-offen') && ev.target.closest?.(LERN_ZIEL_KNOEPFE)) { ev.preventDefault(); ev.stopImmediatePropagation(); } };
+  wurzel.addEventListener('click', sperre, true);
+  const frei = () => { wurzel.classList.remove('lr-ziel-offen'); knoepfe.forEach((k) => { k.removeAttribute('aria-disabled'); k.removeAttribute('tabindex'); }); };
+  kartePromise.then((k2) => { if (!live()) return; if (k2 && k2 !== karteAlt) render(); else frei(); }, () => { if (live()) frei(); });
+}
 // ---------- Kind: Heute dran ----------
 // WK F5: letzte Reise-Ansicht je Kind – beim Rückweg sofort zeigen (gedimmt, nicht antippbar), bis der frische Stand da ist
 const lernReiseLetzte = new Map();
@@ -1589,13 +1616,14 @@ async function viewReise(arg) {
       lernErsetze(main, lernRahmen(kind, 'reise', lernReisekarte(d, karte, lernRkStart(d, { n, et, nWdh, ws, wdhFertig: wdhGemacht }))));
       lernReiseLetzte.set(kind.id, main.firstElementChild);
       lernExFreiBeimStart(d); if (!document.querySelector('.lr-abschluss')) lernZpGeschafftZeigen(d);
-      if (karte === karteAlt) kartePromise?.then((k2) => { if (live() && k2 && k2 !== karteAlt) render(); }); // die neue Antwort ist da → neu zeichnen
+      if (karte === karteAlt) lernZielBisFrisch(main.firstElementChild, kartePromise, karteAlt, live); // WT: alte Karte → Hauptknopf gesperrt, bis die neue da ist
       return;
     }
     lernErsetze(main, lernRahmen(kind, 'reise', ...lernAbflugtafel(d, { n, et, nWdh, wdhRest, wdhFertig: wdhGemacht, ort, ws }),
       (mitKarte || lernRkAnsicht(kind.id) === 'tafel') ? el('button', { type: 'button', class: 'lr-textlink rk-zur-karte', onclick: () => { lernRkAnsicht(kind.id, 'karte'); render(); } }, 'Zur Reisekarte ›') : null));
     lernDockErstNachTafel(main); // KJ 2 S6
     lernReiseLetzte.set(kind.id, main.firstElementChild);
+    if (karte && karte === karteAlt) lernZielBisFrisch(main.firstElementChild, kartePromise, karteAlt, live); // WT: auch die Abflugtafel zeichnet mit der neuen Karte neu (vorher blieb der Schritt der alten stehen)
     lernExFreiBeimStart(d); if (!document.querySelector('.lr-abschluss')) lernZpGeschafftZeigen(d); return;
   }
   const teile = [el('header', { class: 'lr-kopf lr-kopf-kurz' }, el('p', { class: 'lr-gruss' }, `Hallo ${kind.name}!`)), lernExKarte(d), lernNachbuchungHinweis(d)].filter(Boolean);

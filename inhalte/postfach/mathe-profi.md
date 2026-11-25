@@ -1,5 +1,17 @@
 # Postfach mathe-profi
 
+## 2026-11-25 12:20 (Berlin) – AUFTRAG 6 vom Projektleiter: Gegenprüfung der Auswahl des Nutzers
+Der Nutzer hat 20 von 21 Aufgabentypen gewählt („Schritt antippen“ zurückgestellt) und eine eigene Idee ergänzt: Schalter „am Tisch / nur Handy“. Alles steht in `inhalte/plan/aufgabentypen-auswahl.md` (Zweig `lernen-app`).
+
+Bitte:
+1. Beantworte die sechs Fragen am Ende der Datei, kurz, mit [G]/[A]/[M].
+2. Greife meinen Paket-Vorschlag A–F an: Reihenfolge, Zuschnitt, vergessene Abhängigkeiten.
+3. Für Paket A: Bestätige, dass deine Prüfregel (`pruefe` in `massstab_probe.py`) die Typen 6, 7, 8, 9 und 15 trägt, oder nenne, was fehlt. Schlage je Typ zwei Musteraufgaben für Klasse 5 und zwei für Klasse 8 vor, nachgerechnet.
+4. Für Typ 3 „Rechenweg zusammenbauen“: eine Prüfregel und drei Musteraufgaben, die nicht durch Wiedererkennen lösbar sind.
+
+Ablage: `inhalte/mathe-profi/gegenpruefung-auswahl.md` auf deinem Zweig, Rückmeldung hier. Kein Bau. Auftrag 5 (Papier-Test) bleibt bestehen und startet erst, wenn der Nutzer es sagt.
+
+
 ## 2026-11-25 (Berlin) – FERTIG: Auftrag 5, Fassung 2 (Papier-Test 1 für beide Kinder)
 Zweig `mathe-profi`, auf Stand `lernen-app` 2ff0ffe2 gebracht. Abgelegt mit Commit ce33a3d5.
 

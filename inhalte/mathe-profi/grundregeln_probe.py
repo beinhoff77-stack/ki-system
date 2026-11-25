@@ -87,4 +87,53 @@ assert 5 * 5 - (3 * 5 - 2) == 12                                                
 assert -20 // 4 == -5 and -5 + 12 == 7 and 4 * (7 - 12) == -20
 # Kästchen zweimal: rückwärts geht nicht mehr – es gibt keine Kette von Umkehrschritten, erst umformen
 assert (12 - 2) / (5 - 3) == 5
+
+# ── Beispiele der Regel-Liste (Abschnitt 1 im Papier): Zahlen, x (an Stichproben), Brüche ──
+from fractions import Fraction as F
+import statistics
+X_WERTE = (2, 3, -4, F(1, 2))                                                     # nie 0 oder 1
+gleich = lambda f, g: all(f(x) == g(x) for x in X_WERTE)
+# 1 Richtung
+assert (-7) + 4 == -3 and 9 - (-5) == 14 and gleich(lambda x: 3 * x - 5 * x, lambda x: -2 * x) and F(1, 4) - F(3, 4) == F(-1, 2)
+# 2 Zeichen-Paar
+assert (-3) * (-4) == 12 and gleich(lambda x: (-2 * x) * (-3), lambda x: 6 * x) and F(-1, 2) * F(2, 3) == F(-1, 3) and (-5) + (-3) != 8
+# 3 Rangfolge
+assert 2 + 3 * 4 == 14 != 20 and not gleich(lambda x: 2 + 3 * x, lambda x: 5 * x) and F(1, 2) + F(1, 2) * F(1, 3) == F(2, 3)
+# 4 Verteilen
+assert 6 * 18 == 6 * 20 - 6 * 2 == 108 and gleich(lambda x: 3 * (x + 2), lambda x: 3 * x + 6) and gleich(lambda x: 6 * x + 9, lambda x: 3 * (2 * x + 3))
+assert F(1, 2) * (4 + F(2, 3)) == 2 + F(1, 3) and not gleich(lambda x: (x + 4) ** 2, lambda x: x ** 2 + 16)
+# 5 Minusklammer
+assert gleich(lambda x: 5 * x - (3 * x - 2), lambda x: 2 * x + 2) and 1 - (F(1, 2) - F(1, 4)) == 1 - F(1, 2) + F(1, 4) == F(3, 4)
+# 6 Tauschen und Bündeln
+assert 4 * 17 * 25 == 100 * 17 and gleich(lambda x: 3 * x + 5 + 2 * x, lambda x: 5 * x + 5) and not gleich(lambda x: 3 * x + 5 + 2 * x, lambda x: 10 * x)
+assert F(1, 3) + F(5, 7) + F(2, 3) == 1 + F(5, 7) and 8 - 3 != 3 - 8
+# 7 Waage
+assert -4 + 7 == 3 and 2 * 5 + 2 == 12 and F(3, 2) / 3 == F(1, 2)
+# 8 Umkehren
+assert 4 * (7 - 12) == -20 and 7 ** 2 == (-7) ** 2 == 49 and 6 * F(2, 3) == 4 == 4 / F(2, 3) * F(2, 3)
+# 9 Einsetzen und Probe
+assert 5 * 3 - (3 * 3 - 2) == 8 == 2 * 3 + 2 and 4 * F(1, 2) + 1 == 3
+# 10 Wert bleibt
+assert F(12, 18) == F(2, 3) == F(4, 6) and gleich(lambda x: F(6 * x) / (9 * x), lambda x: F(2, 3))
+assert gleich(lambda x: F(3 * x + 6) / 3, lambda x: x + 2) and not gleich(lambda x: F(3 * x + 6) / 3, lambda x: 3 * x + 2) and F(12 + 6, 3) == 6 != 4 + 6
+# 11 Bruchrechnen
+assert F(1, 2) + F(1, 3) == F(5, 6) and 6 / F(1, 2) == 12 and gleich(lambda x: F(1) / x + F(2) / x, lambda x: F(3) / x) and gleich(lambda x: F(x) / 2 + F(x) / 3, lambda x: F(5 * x, 6))
+# 12 Potenz
+assert 2 ** 3 * 2 ** 2 == 2 ** 5 == 32 and gleich(lambda x: x ** 2 * x ** 3, lambda x: x ** 5) and not gleich(lambda x: x * x, lambda x: 2 * x) and F(2, 3) ** 2 == F(4, 9)
+# 13 Stellenwert und Prozent
+assert F(15, 100) * 240 == 36 and gleich(lambda x: F(12, 10) * x, lambda x: x + F(20, 100) * x) and F(3, 4) == F(75, 100)
+# 14 Verhältnis
+assert F(750, 100) / 3 == F(5, 2) and F(2, 3) == F(8, 12)
+# 15 Nullprodukt
+assert all((x - 2) * (x + 3) == 0 for x in (2, -3)) and (F(1, 2) - F(1, 2)) * F(1, 2) == 0 and 3 * 4 == 12 != 0
+# Beispiel Klasse 8 (Abschnitt 3): aus Summen kürzen – an Zahlen nachrechenbar
+assert F(12 + 6, 3) == 6 and 12 // 3 + 6 == 10 and (3 * 2 + 6) // 3 == 4 == 2 + 2 and 2 + 6 == 8 and 3 * 2 + 2 == 8
+# Flug-Umfang (Abschnitt 6)
+et, ue = [], []
+for th in liste:
+    pfad = os.path.join(THEMEN, th["thema_schluessel"] + ".json")
+    if th["klasse"].get("gym_by") in (5, 6, 7, 8) and os.path.exists(pfad):
+        d = json.load(open(pfad, encoding="utf-8"))
+        et.append(len(d["inhalt"]["etappen"])); ue.append(sum(1 for a in d["aufgaben"] if a["p"] == "uebung"))
+print(f"Flüge Klasse 5–8: {len(et)}, Etappen je Flug im Median {statistics.median(et):.0f} ({min(et)}–{max(et)}), Übungen im Median {statistics.median(ue):.0f}")
 print("OK")

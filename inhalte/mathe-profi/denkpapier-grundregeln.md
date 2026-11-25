@@ -1,114 +1,138 @@
-# Denkpapier: Grundregeln – von der Zahl zum Ausdruck
+# Denkpapier: Grundregeln und rollendes System
 
-Mathe-Profi, 25.11.2026. Kein Bau. Stand `lernen-app` dc9673c. **[G]** gesichert (im Repo gezählt, gerechnet, gelesen; Forschung mit Quelle) · **[A]** Annahme · **[M]** Meinung. Zahlen: `grundregeln_probe.py` (nur Inhalte, keine Lerndaten).
-**Vorbehalt:** Der Text von Denkauftrag 2 (Fragen 1–7) hat mich nicht erreicht. Grundlage sind die Ergänzung (Fragen 8–10) und der Protokoll-Eintrag „Grundregeln schweben über den Themen“ in `inhalte/AUFTRAEGE.md`. Abschnitt 1 beantwortet dessen offene Punkte.
+Mathe-Profi, 25.11.2026. Kein Bau. Stand `lernen-app` dc9673c. Antwort auf Denkauftrag 2 (Fragen 1–7) und die Ergänzung (Fragen 8–10). Ersetzt die erste Fassung dieser Datei.
+**[G]** gesichert (im Repo gezählt, gerechnet, gelesen; Forschung mit Quelle) · **[A]** Annahme · **[M]** Meinung. Alle Beispiele und Zahlen: `grundregeln_probe.py` (nur Inhalte, keine Lerndaten).
 
 ## Kern
 
-1. Die Sicht stimmt zur Hälfte: Die Regeln sind dieselben. Der Schritt liegt aber **nicht** beim Buchstaben, sondern an drei anderen Stellen (Abschnitt 2). [G/M]
-2. Die Brücke heißt **„Zahl, aber nicht ausrechnen“**: dieselbe Regel an Zahlen, bei denen Ausrechnen sich nicht lohnt. Die fehlt im Bestand fast ganz, in Klasse 6 völlig. [G]
-3. Jede Grundregel braucht ihre **Grenze** („gilt nicht bei …“). Regeln als Merksatz ohne Grenze erzeugen genau die Fehler, die wir heilen wollen. [M]
-4. „Älteres Kind erklärt“ taugt als freiwilliges, kleines Angebot mit Gegenrolle für das jüngere – nicht als fester Baustein. [M]
+1. Die Idee trägt: 15 Regeln decken die Algebra von Klasse 5 bis 10; 7 von 9 Fehlbildern aus dem Diagnose-Papier zeigen auf eine Regel. [G/M]
+2. Jede Regel braucht ihre **Grenze** („gilt nicht bei …“). Zwei der neun Fehlbilder sind eine richtige Regel am falschen Ort. Regeln als Merksatz ohne Grenze erzeugen diese Fehler. [G/M]
+3. Der Schritt von der Zahl zum Ausdruck liegt nicht beim Buchstaben. Die Brücke heißt **„Zahl, aber nicht ausrechnen“** – und fehlt im Bestand. [G]
+4. Beide Ideen gehören zusammen: Was je Regel einmal geschrieben ist, muss nicht je Flug neu entstehen. Das rollende System beginnt je Flug **mit der Papier-Runde**, nicht mit den Aufgaben. [M]
 
-## 1. Trägt die Idee „Grundregeln über den Themen“?
+## 1. Die Liste (Frage 1, 9)
 
-**Ja, für Zahlen, Terme, Gleichungen, Prozent, Funktionen.** [M] In Geometrie und Daten sind es wiederkehrende Ideen (zerlegen, Verhältnis, Symmetrie), keine Rechenregeln; bei Sachaufgaben und Begründen hilft die Achse kaum.
+Höchstens 15, Klasse 5–10. „Fest ab“ = Klasse, ab der die Regel an Zahlen sitzen muss [M; nach dem Bestand, nicht gegen den Lehrplan geprüft]. Die Brüche-Spalte zeigt dieselbe Regel, nicht eigenen Stoff.
 
-**Der Bestand zeigt die Wiederkehr – und die Lücke** [G, grobe Textzählung, Gymnasium Bayern]:
+| # | Name für Kinder | Ein Satz – und die Grenze | Zahlen | mit x | Brüche | fest ab |
+|---|---|---|---|---|---|---|
+| 1 | Richtung | Plus geht nach rechts, Minus nach links; eine negative Zahl dreht die Richtung um. | (−7) + 4 = −3; 9 − (−5) = 14 | 3x − 5x = −2x | ¼ − ¾ = −½ | 5 |
+| 2 | Zeichen-Paar | Mal und geteilt: gleiche Zeichen plus, verschiedene minus. **Nicht beim Addieren.** | (−3) · (−4) = 12 | (−2x) · (−3) = 6x | (−½) · ⅔ = −⅓ | 5 |
+| 3 | Rangfolge | Klammer, Potenz, Punkt, Strich. Die letzte Rechnung gibt dem Term den Namen. | 2 + 3 · 4 = 14 | 2 + 3x ist eine Summe, nicht 5x | ½ + ½ · ⅓ = ⅔ | 5 |
+| 4 | Verteilen | Der Faktor trifft jeden in der Klammer; rückwärts: Gemeinsames herausziehen. **Nicht beim Quadrat.** | 6 · 18 = 6 · 20 − 6 · 2 | 3(x + 2) = 3x + 6; 6x + 9 = 3(2x + 3) | ½ · (4 + ⅔) = 2 + ⅓ | 5 |
+| 5 | Minusklammer | Minus vor der Klammer dreht jedes Zeichen darin. Plus davor dreht nichts. | 20 − (8 − 3) = 20 − 8 + 3 | 5x − (3x − 2) = 2x + 2 | 1 − (½ − ¼) = ¾ | 5 |
+| 6 | Tauschen und Bündeln | Bei plus und mal darf man tauschen und zusammenfassen – nur Gleiches mit Gleichem. **Nicht bei minus und geteilt.** | 4 · 17 · 25 = 100 · 17 | 3x + 5 + 2x = 5x + 5 | ⅓ + 5/7 + ⅔ = 1 + 5/7 | 5 |
+| 7 | Waage | Gleich heißt gleich viel. Auf beiden Seiten dasselbe tun. | □ + 7 = 3 → −4 | 2x + 2 = 12 → x = 5 | x : 3 = ½ → x = 3/2 | 5 |
+| 8 | Umkehren | Jede Rechnung hat eine Gegenrechnung: plus/minus, mal/geteilt, Quadrat/Wurzel. | 4 · (□ − 12) = −20 → 7 | x² = 49 → 7 oder −7 | □ · ⅔ = 4 → 6 | 5 |
+| 9 | Einsetzen und Probe | Zahl für den Buchstaben einsetzen prüft jede Umformung und jede Lösung. **Widerlegt, beweist nicht.** | 4 · (7 − 12) = −20 ✓ | x = 3: 5x − (3x − 2) und 2x + 2 geben 8 | x = ½: 4x + 1 = 3 | 5 |
+| 10 | Wert bleibt | Oben und unten mit demselben malnehmen oder teilen ändert nichts. **Kürzen nur Faktoren, nie aus Summen.** | 12/18 = ⅔ | (3x + 6) : 3 = x + 2 | ⅔ = 4/6 | 6 |
+| 11 | Bruchrechnen | Plus/minus: erst gleicher Nenner. Mal: oben mal oben, unten mal unten. Geteilt: mal Kehrwert. | 6 : ½ = 12 | x/2 + x/3 = 5x/6 | ½ + ⅓ = 5/6 | 6 |
+| 12 | Potenz | Wiederholtes Malnehmen; gleiche Basis: Hochzahlen addieren. **a · a ist a², nicht 2a.** | 2³ · 2² = 2⁵ | x² · x³ = x⁵ | (⅔)² = 4/9 | 6 |
+| 13 | Stellenwert | Mal 10 schiebt jede Ziffer eine Stelle. Prozent heißt Hundertstel. | 15 % von 240 = 0,15 · 240 = 36 | 1,2x = x + 20 % von x | ¾ = 0,75 = 75 % | 6 |
+| 14 | Verhältnis | Wert je Einheit: Wächst das eine, wächst das andere mit. **Nicht mit Grundgebühr.** | 3 kg kosten 7,50 € → 1 kg 2,50 € | y = 2,5 · x | ⅔ = x/12 → x = 8 | 6 |
+| 15 | Nullprodukt | Ist ein Produkt null, ist ein Faktor null. **Nur bei null.** | 0 · 7 = 0 | (x − 2)(x + 3) = 0 → 2 oder −3 | (x − ½) · x = 0 | 9 |
 
-| Im Aufgabentext | Kl. 5 | Kl. 6 | Kl. 7 | Kl. 8 |
-|---|---|---|---|---|
-| Minus vor negativer Zahl, a − (−b) | 25 | 2 | 0 | 3 |
-| Minus vor Klammer, a − (b ± c) | 8 | 0 | 39 | 8 |
-| … davon mit Buchstabe | 0 | 0 | 38 | 8 |
-| Faktor vor Klammer, a · (b ± c) | 14 | 0 | 128 | 81 |
-| … davon mit Buchstabe | 2 | 0 | 126 | 81 |
-| Gleichung, x kommt einmal vor | 99 | 0 | 46 | 263 |
-| Gleichung, x kommt mehrfach vor | (14)* | 0 | 116 | 129 |
+Bewusst keine eigenen Regeln [M]: binomische Formeln (zweimal Verteilen), Lösungsformel (Waage + Umkehren), Dreisatz und Prozentformeln (Verhältnis + Stellenwert). Regel 15 ist die einzige, die erst nach Klasse 8 kommt.
 
-*Probe-Aufgaben, in denen „x = 9“ zusätzlich im Satz steht; in der Gleichung selbst steht x einmal.
-Lesart: Die Klammerregeln werden in Klasse 5 an Zahlen kaum geübt (8 und 14 Aufgaben von 4 121), in Klasse 6 gar nicht, und stehen in Klasse 7 plötzlich mit Buchstaben da. Beide Beispiele des Nutzers stehen im Bestand.
+**„Fest genug“** [M] – alle sechs: (1) richtig im ersten Versuch ohne Tipp; (2) **gemischt**, ohne Etikett; (3) **verteilt** über mindestens drei Tage in drei Wochen, einmal nach zwei Wochen Pause; (4) in der **Brückenform** „nicht ausrechnen“ (Abschnitt 3); (5) kein Fehlbild dieser Regel in den letzten sechs Trennaufgaben; (6) **auf Papier**; für Regel 1–5 zusätzlich flüssig (braucht die Antwortzeit). Ein Regel-Fehlbild in einem späteren Flug setzt die Regel zurück auf „wackelt“.
 
-**Wie einbauen** [M]: Regel-Etikett am **Aufgabenmuster** im Generator, nicht an 30 000 Einzelaufgaben. Jedes Fehlbild (siehe `denkpapier-diagnose.md`) zeigt auf eine Regel und über sie auf die Etappe, in der sie mit Zahlen geübt wird. Stand je Regel und Kind lässt sich aus dem vorhandenen „sitzt“ je Etappe ableiten.
-**Sichtbar für die Kinder?** [M] Ja, sparsam: als Name in der Erklärung und nach einem Fehler („Werkzeug: Minus vor der Klammer“). An der Aufgabe selbst erst sichtbar, dann als Frage („Welches Werkzeug brauchst du?“), dann weg. In der Schulaufgabe steht kein Etikett; **erkennen, welche Regel dran ist, ist die eigentliche Leistung**.
+## 2. Trägt die Idee über Algebra hinaus? (Frage 2)
 
-## 2. Frage 8: Wo liegt der Schritt von der Zahl zum Ausdruck?
+Gebiete nach `themenliste.json` [G]. Zuordnung [M].
 
-**Nicht beim Zeichen.** Klasse 5 rechnet im Flug „Einfache Gleichungen“ schon mit x [G]. Kästchen oder Buchstabe ist für das Kind derselbe Platzhalter, solange er einmal vorkommt. Der Schritt hat drei Teile:
+| Gebiet | Wiederkehrende Werkzeuge | Trägt? |
+|---|---|---|
+| Zahlen | Regeln 1–6, 10–13 | voll |
+| Algebra | alle 15 | voll |
+| Geld und Verhältnisse | Stellenwert, Verhältnis, Umkehren (Grundwert), Potenz (Zinseszins) | voll |
+| Funktionen | Einsetzen (Wertetabelle), Verhältnis (Steigung), Waage (Schnittpunkt), Umkehren (x aus y); dazu **Darstellung wechseln** (Tabelle – Graph – Term) | gut |
+| Geometrie | Einsetzen in Formeln, Waage (Formel umstellen), Verhältnis (Maßstab, Ähnlichkeit); dazu **Zerlegen und Ergänzen**, **Hilfslinie**, **Skizze** | halb: Rechnen ja, Sehen und Konstruieren nein |
+| Fläche und Raum | Stellenwert (Einheiten, hoch 2 und hoch 3), Potenz, Zerlegen (Grundfläche mal Höhe) | halb |
+| Daten und Zufall | Stellenwert (Anteil = Bruch = Prozent), Verhältnis, Verteilen (Mittelwert); dazu **geordnet zählen** | halb |
 
-| | Klasse 5 | Klasse 8 | Folge |
+**Über mehrere Gebiete wirken:** Einsetzen und Probe (alle sieben), Umkehren, Verhältnis, Stellenwert – und Zerlegen, das beim Rechteck dasselbe ist wie Verteilen. **Keine Regel gibt es** für Sachaufgaben, Begründen und Konstruieren. Dort hilft ein Vorgehen: gegeben – gesucht – Skizze – Ansatz – Antwort.
+Vorschlag [M]: zwei Fächer im Koffer. **Regeln** (die 15) und **Arbeitsweisen** (Überschlag, Skizze, Probe, Einheiten prüfen, Zerlegen). Arbeitsweisen haben kein richtig/falsch im Ergebnis; sie zeigen sich nur im Heft.
+
+## 3. Wo überträgt sich die Regel nicht von selbst? (Frage 3, 8)
+
+**Nicht am Zeichen.** Klasse 5 rechnet im Flug „Einfache Gleichungen“ schon mit x, immer einmal je Gleichung [G]. Der Schritt hat vier Teile:
+
+| | Mit Zahlen | Mit Variablen | Folge |
 |---|---|---|---|
-| **A. Abschluss** | Am Ende steht eine Zahl. | 2x + 2 bleibt stehen. | Kinder erzwingen ein „Ergebnis“: 2x + 2 → 4x. Ein Ausdruck ist für sie eine unerledigte Rechnung, kein Ding. [A] |
-| **B. Unbekannte mehrfach** | 4 · (□ − 12) = −20: rückwärts rechnen (−20 : 4, dann + 12). | 5x − (3x − 2) = 12: Rückwärts geht nicht. Man muss **mit** der Unbekannten rechnen. | Hier liegt der in der Forschung beschriebene Bruch zwischen Rechnen und Algebra. [G, Quelle 1] |
-| **C. Gleichheitszeichen** | „ergibt“ | „ist gleich viel wert wie“ | Wer „=“ als „ergibt“ liest, löst Gleichungen schlechter. [G, Quelle 2] |
+| A Abschluss | Am Ende steht eine Zahl. | 2x + 2 bleibt stehen. | Kinder erzwingen ein Ergebnis: 2x + 2 → 4x. [A] |
+| B Mehrfach | 4 · (□ − 12) = −20: rückwärts rechnen. | 5x − (3x − 2) = 12: Rückwärts geht nicht, man muss **mit** der Unbekannten rechnen. | Hier liegt der in der Forschung beschriebene Bruch. [G, Quelle 1] |
+| C Gleichheitszeichen | „ergibt“ | „ist gleich viel wert wie“ | Wer „=“ als „ergibt“ liest, löst Gleichungen schlechter. [G, Quelle 2] |
+| D Kontrolle | nachrechnen | geht nicht | Ersatz ist die Zahlenprobe; sie muss gelernt werden wie eine Regel. |
 
-Dazu **D. Kontrolle:** Die Zahl kann man nachrechnen, den Ausdruck nicht. Ersatz ist die Zahlenprobe – sie muss gelernt werden wie eine Regel.
+Dazu drei Lesefallen [A]: −x sieht negativ aus; 3x heißt mal, 34 nicht; der Bruchstrich ist eine unsichtbare Klammer.
 
-**Zur Einschätzung des Projektleiters** [M]: „Klasse 5 ist das Fundament“ – ja. „Sitzen vor Tempo“ – ja in der Reihenfolge; die vier, fünf meistgebrauchten Regeln müssen am Ende aber auch flüssig sein, sonst fehlt in Klasse 8 der Kopf für die Struktur. „Fehler von Kind 2 als Vorschau“ – als Hinweisliste brauchbar, mehr nicht: ein Kind, eine Lerngeschichte. „Zurück zur Zahl hilft“ – ja, aber nur zur **unausgerechneten** Zahl. Wer 20 − (8 − 3) sofort zu 15 macht, sieht die Regel nicht.
-**Korrektur am Beispielpaar** [G]: 9 − (−5) ist das Fundament für das Vorzeichen (−(−2) = +2). Das Fundament für die **Minusklammer** ist ein anderes: eine Differenz abziehen, 20 − (8 − 3) = 20 − 8 + 3. Genau das fehlt.
+**Der Bestand übt die Brücke kaum** [G, grobe Textzählung]: Minus vor Klammer an Zahlen in Klasse 5 achtmal, in Klasse 6 nie, in Klasse 7 dann 38-mal mit Buchstaben. Faktor vor Klammer: 14 – 0 – 128.
 
-**Eine Regel durchgehend: „Minus vor der Klammer“** [G gerechnet, Stufung M]
+**So zeigt man die Gleichheit** [M]: (a) **Zwillingszeilen** – Zahlen-Zeile über x-Zeile, gleicher Aufbau, Zahlen **nicht ausgerechnet**. (b) **Wertetabelle** – ursprünglicher und umgeformter Term für 2, 3, 4. (c) **Rechteck** – ein Bild für 6 · 18, 3(x + 2) und (a + b)². (d) Zahlenprobe mit 2 oder 3, nie 0 oder 1: x = 0 übersieht 8x + 2, x = 1 übersieht x² statt x [G].
+Zur Sicht des Projektleiters [M]: „Fundament“ ja. „Sitzen vor Tempo“ ja in der Reihenfolge; Regel 1–5 müssen am Ende auch flüssig sein. „Fehler des älteren Kindes als Vorschau“ nur als Hinweisliste. „Zurück zur Zahl“ ja – zur unausgerechneten. Und: 9 − (−5) trägt die Regel Richtung; das Fundament der Minusklammer ist 20 − (8 − 3).
 
-| Stufe | Wo | Was das Kind tut | Beispiel |
-|---|---|---|---|
-| 1 | Kl. 5 | rechnen und vergleichen | 20 − (8 − 3) = 15; 20 − 8 − 3 = 9; 20 − 8 + 3 = 15. „3 € Rabatt: du zahlst weniger als 8.“ |
-| 2 | Kl. 5 | dieselbe Idee mit negativer Zahl | 9 − (−5) = 14: Schulden abziehen. |
-| 3 | Kl. 5–6 | **nicht ausrechnen**, Struktur sehen | 78 − (49 − 22) = 78 − 49 + □. Welche Terme sind gleich viel wert? In Kl. 6 mit Dezimalzahlen: 3,5 − (1,2 − 0,7). |
-| 4 | Kl. 6–7 | gedachte Zahl kommt zweimal vor; Tabelle | 5 · □ − (3 · □ − 2) für □ = 1, 2, 3 ergibt 4, 6, 8. Welche Kurzform passt: 2 · □ + 2 oder 2 · □ − 2? |
-| 5 | Kl. 7 | Buchstabe, mit Zahlenprobe | 5x − (3x − 2) = 2x + 2. Probe x = 3: 8 = 8. Das Fehlbild 2x − 2 gäbe 4. |
-| 6 | Kl. 8 | die Regel steckt in etwas Größerem | 5x − (3x − 2) = 12 → x = 5; Differenz zweier Funktionsterme; Zähler eines Bruchterms. |
+**Durchgespielt, Klasse 5 – Minusklammer an Zahlen.** (1) Rechnen und vergleichen: 20 − (8 − 3) = 15, 20 − 8 − 3 = 9, 20 − 8 + 3 = 15. „3 € Rabatt: Du zahlst weniger als 8.“ (2) Nicht ausrechnen: 78 − (49 − 22) = 78 − 49 + □. (3) Gedachte Zahl zweimal: 5 · □ − (3 · □ − 2) für 2, 3, 4 ergibt 6, 8, 10. Welche Kurzform passt, 2 · □ + 2 oder 2 · □ − 2? Stufe 2 und 3 gehen mit den Mustern M2 und M3 aus `auftrag3.md`, ohne Bau.
+**Durchgespielt, Klasse 8 – aus Summen kürzen.** Fehlbild: (3x + 6) : 3 → 3x + 2. Zurück zur Zahl: (12 + 6) : 3 ist 6; wer nur die 6 teilt, bekommt 14, wer nur die 12 teilt, 10. An der Zahl sieht das Kind den Fehler selbst. Zwillingszeile: (12 + 6) : 3 = 12 : 3 + 6 : 3 über (3x + 6) : 3 = 3x : 3 + 6 : 3 = x + 2. Probe mit x = 2: links 4, rechts 4; das Fehlbild gäbe 8. Regeln: Wert bleibt (10) und Verteilen (4) – der Bruchstrich ist die Klammer.
+Hängt ein Kind beim Ausdruck, geht es **eine** Stufe zurück, nicht bis zum Ausrechnen.
 
-Regeln zur Brücke: (a) Jeder neue Flug beginnt eine Stufe **unter** seinem Niveau („Das kennst du schon“). (b) Hängt das Kind in 5 oder 6, geht es eine Stufe zurück – nach 4 oder 3, nicht nach 1. (c) Zahlenprobe mit 2 oder 3, nie mit 0 oder 1: x = 0 übersieht 8x + 2, x = 1 übersieht x² statt x [G]. (d) Eine Probe widerlegt, sie beweist nicht.
-Stufe 3 passt zu den Mustern M2 und M3 aus `auftrag3.md` und braucht keinen Bau.
+## 4. Fehlbilder und Regeln (Frage 4)
 
-## 3. Frage 9: Welche Grundregeln müssen sitzen – und woran erkennt man es?
+| Fehlbild aus `denkpapier-diagnose.md` | Regel | Art |
+|---|---|---|
+| (−7) + 4 → −11 | 1 Richtung | Regel fehlt |
+| (−5) + (−3) → 8 | 2 Zeichen-Paar | **am falschen Ort** |
+| 5 − (−3) → 2 | 1 Richtung | Regel fehlt |
+| 3(x + 2) → 3x + 2 | 4 Verteilen | Regel fehlt |
+| 5x − (3x − 2) → 2x − 2 | 5 Minusklammer | Regel fehlt |
+| (x + 4)² → x² + 16 | 4 Verteilen | **am falschen Ort** |
+| 15 % von 240 → 16 | 13 Stellenwert | Regel fehlt |
+| 80 € − 25 % → 55 € | – | Bedeutung: Prozent wovon? |
+| 30 % sind 12 kg → 3,6 kg | – (danach 8 Umkehren) | Bedeutung: Was ist das Ganze? |
 
-Liste für Klasse 5 und 6 [M; Zuordnung zu Klassen nach dem Bestand, nicht gegen den Lehrplan geprüft]:
+**7 von 9 zeigen auf eine Regel** [G]. Übrig bleibt eine dritte Art: **Bedeutungsfehler** – das Kind rechnet richtig, aber das Falsche. Dafür hilft keine Regel, sondern die Frage vor dem Rechnen („Was ist hier das Ganze?“). Außerdem übrig: Lese- und Einmaleinsfehler.
+**Buchung** [M]: Ein erkanntes Fehlbild geht auf die Regel, nicht auf die Etappe. Die Etappe „Gleichungen“ wackelt erst, wenn die Waage (Regel 7) selbst falsch ist. Ohne erkanntes Fehlbild bleibt es bei der Etappe. Vorsicht: Das Ergebnis trennt nicht immer – bei 5x − (3x − 2) = 12 liefern Minusklammer und Waage beide x = 7. Dann entscheidet die Kontrollzahl.
 
-| # | Regel in Kinderworten | fest in | Klasse 8 baut darauf | Grenze (hier gilt sie nicht) |
-|---|---|---|---|---|
-| 1 | Plus und Minus mit negativen Zahlen: Richtung auf der Zahlengeraden | 5 | alles | – |
-| 2 | Minus vor der Klammer dreht jedes Zeichen darin | 5 | Terme, Gleichungen, Bruchterme | Plus vor der Klammer dreht nichts |
-| 3 | Mal und geteilt: gleiche Zeichen plus, verschiedene minus | 5 | Terme, Potenzen | **nicht beim Addieren**: (−5) + (−3) ist nicht 8 |
-| 4 | Klammer, dann Punkt, dann Strich; die letzte Rechnung gibt dem Term den Namen | 5 | Struktur sehen, Kürzen | – |
-| 5 | Verteilen: jeder in der Klammer wird malgenommen; rückwärts ausklammern | 5 | Ausmultiplizieren, Binome | nicht beim Quadrat: (a + b)² ≠ a² + b² |
-| 6 | Tauschen und Verbinden | 5 | Zusammenfassen | nur bei plus und mal |
-| 7 | Gleich heißt gleich viel; auf beiden Seiten dasselbe tun | 5 | Gleichungen, Formeln | nicht nur auf einer Seite; nicht durch 0 |
-| 8 | Einsetzen und Probe | 5 | Selbstkontrolle überall | eine Probe beweist nichts |
-| 9 | Erweitern und Kürzen ändern den Wert nicht | 6 | Bruchterme | nur Faktoren kürzen, nie aus Summen |
-| 10 | Brüche rechnen: gleicher Nenner bei ±, Kehrwert beim Teilen | 6 | Bruchterme, Bruchgleichungen | Nenner nicht addieren |
-| 11 | Potenz ist wiederholtes Malnehmen | 5–6 | Potenzgesetze | a² ist nicht 2a |
-| 12 | Komma und Stellenwert; Bruch, Dezimalzahl, Prozent sind dieselbe Zahl | 6 | Prozent, Funktionen | – |
-| 13 | Verhältnis: „je“ und Dreisatz | 5–6 | lineare Funktion, Steigung | nicht mit Grundgebühr |
+## 5. Sichtbar oder im Hintergrund? (Frage 5)
 
-Die Spalte „Grenze“ ist der wichtigste Teil. Der bekannte Fehler „Minus und Minus gibt Plus“ beim Addieren ist Regel 3 am falschen Ort [A]. Jede Regel also als Dreiklang: Satz, Zahlenbeispiel, Gegenfall.
+**Sichtbar, aber sparsam.** [M]
+- **Hilft:** Die Kinder sehen, dass es 15 Dinge sind und nicht 300. Ein Name macht einen Fehler besprechbar („Das war die Minusklammer“). Der Einstieg „Das kennst du schon“ braucht den Namen.
+- **Lenkt ab oder schadet:** Prozent-Balken je Werkzeug (Sammeln statt Rechnen); ein dauernd sichtbares „wackelt“ (Beschämung); das Etikett an jeder Aufgabe – in der Schulaufgabe steht keines, und **erkennen, welche Regel dran ist, ist die eigentliche Leistung**.
+- **Vorschlag:** Koffer auf Abruf, zwei Zustände („im Koffer“, „in Arbeit“), keine Zahlen. Etikett an der Aufgabe: erst sichtbar, dann als Frage ohne Wertung („Welches Werkzeug?“), dann weg. Nach einem Fehlbild ein Satz: „Hier hat die Minusklammer geklemmt.“
 
-**„Fest genug“** [M] – alle sechs, nicht eines:
-1. richtig im ersten Versuch, ohne Tipp;
-2. **gemischt**: zwischen anderen Regeln, ohne Etikett;
-3. **verteilt**: an mindestens drei Tagen über drei Wochen, einmal davon nach zwei Wochen Pause;
-4. **Brückenform**: richtig in der Fassung „nicht ausrechnen“ (Stufe 3) und rückwärts;
-5. **ohne Regel-Fehlbild** in den letzten sechs Trennaufgaben;
-6. **auf Papier** in einer Papier-Runde; für die Regeln 1–5 zusätzlich flüssig (braucht die Antwortzeit, die noch nicht gespeichert wird [G]).
+## 6. Rollendes System (Frage 6)
 
-„Fest“ ist kein Abzeichen für immer: Ein Regel-Fehlbild in einem späteren Flug setzt die Regel auf „wackelt“ zurück. Die App führt je Etappe schon „sitzt“ mit Wiederholungsstufen [G]; neu wären das Etikett je Muster und die Punkte 2, 4, 5.
+Ein Flug hat im Median 7 Etappen und 186 Übungen (50 Flüge, Klasse 5–8) [G]. Reihenfolge [M] – **vom Ziel her**:
 
-## 4. Frage 10: Das ältere Kind erklärt dem jüngeren
+1. **Papier-Runde** des Flugs in zwei Fassungen: 4–6 Aufgaben, Punkteschema, Kontrollzahlen. Sie legt fest, was der Flug leisten muss.
+2. **Regel-Etiketten** je Aufgabenmuster.
+3. **Fehlbilder** je Rechen-Muster, mit Programm auf Trennschärfe geprüft.
+4. **Trennaufgaben**, drei je Denkfehler (erzeugt).
+5. **Erklärung je Denkfehler:** Widerspruchs-Satz, Gegenüberstellung, Lückenweg in drei Stufen, Zeiger auf die Regel.
+6. **Einstieg „Das kennst du schon“:** Zwillingszeilen für jede Regel, die im Flug in neuem Gewand kommt.
+7. **Prüftor:** Programm, Stichprobe Mathe-Profi, Sprache, Freigabe.
 
-**Was die Forschung sagt** [G, Quelle 3]: Erklären nützt dem Erklärenden, im Mittel aber wenig – weil Erklärende meist nur wiedergeben, was sie wissen, statt neu zu durchdenken. Gewinn entsteht, wenn sie Beispiele selbst bauen und auf Rückfragen antworten müssen.
-**Urteil** [M]: als fester Baustein nein, als freiwilliges Angebot ja. Gründe gegen „fest“: Geschwister sind keine Lerngruppe; Pflicht macht aus Hilfe Last; das jüngere Kind erlebt sich als das schwächere; falsche Erklärungen wandern weiter; zwei Kinder liefern keinen Beleg, ob es wirkt.
+**Muss fertig sein, bevor ein Kind fliegt:** 1 bis 3 und das Prüftor. 4 bis 6 dürfen bis zur ersten Etappe nachkommen, in der der Denkfehler auftreten kann.
+**Aufwand** [A, nicht gemessen]: bei 7 Etappen 10–15 Denkfehler. Davon sind nach Abschnitt 4 etwa drei Viertel Regel-Fehler – deren Erklärung entsteht **einmal je Regel**, nicht je Flug. Je Flug bleiben: zwei Papier-Runden, Etiketten und Fehlbilder (ein Helfer-Auftrag), drei bis fünf flugeigene Erklärungen (ein Auftrag), Stichprobe (ein Auftrag). Der Engpass ist nicht das Schreiben, sondern das Prüftor und die Zeit des Nutzers für die Freigabe. Vorlauf: zwei Flüge je Kind; welche das sind, sagen Reihenfolge und Voraussetzungen [G].
+**Auf Vorrat lohnt genau eines:** das Regel-Paket (15 × Satz, Grenze, Zahlenbeispiel, Gegenfall, Brücke). Es ist die Hälfte der Arbeit aller Flüge.
+**Zweiter Durchgang – nüchtern:** Zwei Kinder liefern je Flug wenige falsche Antworten. Er zeigt vor allem, ob die vorhergesagten Fehlbilder überhaupt vorkamen. Das eicht die Annahmen des Mathe-Profis; neue Fehlbilder kommen selten heraus.
 
-**So könnte es aussehen**
-- **Erklär-Karte.** Das ältere Kind baut für eine Regel, die bei ihm fest ist, eine Karte an Zahlen: Beispiel wählen, drei Schritte füllen, einen typischen Fehler warnen. Die App prüft die Rechnung, der Erwachsene gibt frei, das jüngere Kind sieht die Karte bei dieser Regel als Tipp. Nutzen für das ältere: Es geht selbst zurück zur Zahl – genau Stufe 1 bis 3.
-- **Gegenrolle: Zahlenprüfer.** Das jüngere Kind bekommt gelegentlich eine Umformung des älteren Stoffs als Zahlenaufgabe: „Stimmt das für 3? 5 · 3 − (3 · 3 − 2) und 2 · 3 + 2“. Es prüft, das ältere braucht die Prüfung. So hat jedes eine Rolle, die das andere nicht hat.
-- **Am Tisch.** Die App meldet dem Erwachsenen nur den passenden Moment: Regel bei einem Kind fest, beim anderen gerade begonnen. Das Gespräch selbst gehört der Familie.
+## 7. Was noch fehlt (Frage 7)
 
-**Damit es keine Last wird:** freiwillig; höchstens einmal je Woche, fünf Minuten; nie ausgelöst durch einen Fehler des jüngeren Kindes; kein Kind sieht Stand oder Fehler des anderen; nur Regeln, die beim älteren fest sind; keine Punkte, die fehlen, wenn man ablehnt; zweimal abgelehnt heißt Pause. Vier Wochen ausprobieren, dann entscheiden die Kinder mit.
+1. **Eingangscheck Werkzeuge.** Je Regel drei Trennaufgaben, einmal für jedes Kind, vor allem für das ältere: Stand je Regel sofort, statt auf Fehler zu warten. 45 Aufgaben, vorhandene Formen.
+2. **Tägliche Fünf.** Fünf gemischte Aufgaben quer über die Regeln, ohne Etikett, am Anfang jeder Sitzung. Übt das Erkennen und hält fest, was sitzt – unabhängig vom Flug.
+3. **Strang Sachaufgaben.** Eigenes Vorgehen mit Teilpunkten je Schritt. Regeln helfen dort erst nach dem Ansatz.
+4. **Musterlösung im Heft-Format.** Zu jeder Papier-Aufgabe eine Lösung, wie sie in einer Schulaufgabe stehen soll. Das Kind vergleicht seine Seite damit.
+5. **Eichung von außen.** Zweimal im Jahr eine ganze Arbeit unter Prüfungsbedingungen aus den Nachbauten im Prüfmaterial, vom Erwachsenen nach Schema bewertet. Nur das misst den Maßstab wirklich.
+6. **Tischkarte.** Zehn Minuten je Woche für den Erwachsenen, von der App vorbereitet: ein Werkzeug, zwei Beispiele, eine Frage.
 
-## 5. Vorsicht
+## 8. Das ältere Kind erklärt dem jüngeren (Frage 10)
 
-- „Es ist immer dasselbe“ tröstet, stimmt aber nur für die Regel, nicht für die Schwierigkeit: Dieselbe Regel in neuer Verkleidung zu erkennen **ist** das Schwere. [M]
-- Die Zählung in Abschnitt 1 liest nur den Aufgabentext; Regeln, die im Rechenweg stecken, erfasst sie nicht. [G]
-- **Nicht geprüft:** LehrplanPLUS je Regel; Vollständigkeit der Liste; ob Klasse 6 die Klammerregeln im Schulbuch an Brüchen übt.
+Erklären nützt dem Erklärenden, im Mittel aber wenig, weil meist nur Wissen wiedergegeben wird [G, Quelle 3]. **Als fester Baustein nein, als freiwilliges Angebot ja** [M]: Geschwister sind keine Lerngruppe, Pflicht macht aus Hilfe Last, falsche Erklärungen wandern weiter.
+- **Erklär-Karte:** Das ältere Kind baut zu einer Regel, die bei ihm fest ist, eine Karte an Zahlen (Beispiel, drei Schritte, ein typischer Fehler). App prüft die Rechnung, der Erwachsene gibt frei. Sein Nutzen: Es geht selbst zurück zur Zahl.
+- **Gegenrolle Zahlenprüfer:** Das jüngere Kind prüft Umformungen des älteren Stoffs mit Zahlen. Jedes hat eine Rolle, die das andere nicht hat.
+- **Grenzen:** freiwillig; höchstens einmal je Woche; nie ausgelöst durch einen Fehler des jüngeren Kindes; kein Kind sieht den Stand des anderen; zweimal abgelehnt heißt Pause.
 
-**Quellen:** (1) Filloy & Rojano 1989, Solving Equations: the Transition from Arithmetic to Algebra, https://flm-journal.org/Articles/3DA2C5DE336DFD448BCF339B51168E.pdf · (2) Knuth, Stephens, McNeil & Alibali 2006, Does Understanding the Equal Sign Matter?, https://jwilson.coe.uga.edu/EMAT7050/articles/KnuthAndOthers.pdf · (3) Roscoe & Chi 2007, Understanding Tutor Learning, https://education.asu.edu/sites/default/files/lcl/rod_chi_rer_07_3.pdf
+**Vorsicht.** „Es ist immer dasselbe“ stimmt für die Regel, nicht für die Schwierigkeit: Die Regel im neuen Gewand zu erkennen **ist** das Schwere [M].
+**Nicht geprüft:** LehrplanPLUS je Regel und für Klasse 9 und 10; Vollständigkeit der Liste; ob Klasse 6 die Klammerregeln im Unterricht an Brüchen übt; der Aufwand je Flug.
+
+**Quellen:** (1) Filloy & Rojano 1989, https://flm-journal.org/Articles/3DA2C5DE336DFD448BCF339B51168E.pdf · (2) Knuth, Stephens, McNeil & Alibali 2006, https://jwilson.coe.uga.edu/EMAT7050/articles/KnuthAndOthers.pdf · (3) Roscoe & Chi 2007, https://education.asu.edu/sites/default/files/lcl/rod_chi_rer_07_3.pdf

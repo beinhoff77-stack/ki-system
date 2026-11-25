@@ -3474,3 +3474,9 @@ Entscheidung Sebastian: Der Projektleiter steuert die Rollen künftig selbst als
 - Geprüft: nur eigener Zweig geändert, keine Namen/Schlüssel. Meldung in `inhalte/postfach/bau-app.md`.
 - Nutzer: „live“ – nicht geschaltet, Kind 1 übte gerade. Live ist 0.93.4.
 - Übergabe-Datei für einen neuen Projektleiter-Chat: `inhalte/rollen/projektleiter.md`.
+
+## LIVE: App 0.93.5; Prüfmaterial und letzter Stand lehrplan-lb übernommen (25.11., 03:40 Berlin)
+
+- `main` dd36af0, Auslieferung erfolgreich, Werkstatt-Änderung 392. Seit dem Test (205ba5c) kamen nur Dateien unter `inhalte/` dazu. Nutzer: „live“, später „Sind fertig“; letzte Übung 25 bzw. 74 Minuten her.
+- Übernommen: `lehrplan-lb` b7a2705 („LETZTER STAND“), `pruefmaterial-gym` 092ad5f, `pruefmaterial-rs` bdeed21 → `inhalte/pruefmaterial/gym|rs/` (Kataloge, Auswertung, Quellen, Nachbauten mit Generatoren und Gegenrechnung; 7,5 MB). Nutzer: „Die brauchen wir aber.“
+- Offen: Stichprobe, dass die Nachbauten keine Aufgaben wörtlich aus Schulaufgaben enthalten (Auftrag für einen Helfer, bevor daraus Inhalte für die Kinder werden).

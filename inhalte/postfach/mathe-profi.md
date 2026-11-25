@@ -1,5 +1,37 @@
 # Postfach mathe-profi
 
+## 2026-11-25 (Berlin) – FERTIG: Auftrag 5, Fassung 2 (Papier-Test 1 für beide Kinder)
+Zweig `mathe-profi`, auf Stand `lernen-app` 2ff0ffe2 gebracht. Abgelegt mit Commit ce33a3d5.
+
+**Geliefert** unter `inhalte/mathe-profi/papier-test-1/`:
+- `k5-blatt-a.html`, `k5-blatt-b.html`, `k8-blatt-a.html`, `k8-blatt-b.html` – je Datei: Blatt (Seiten 1–2), Bewertungsschema (3–4), Erfassungsbogen (5). Druckt als A4 auf fünf Seiten (geprüft als PDF).
+- `bauen.py` – rechnet jede Aufgabe auf zwei Wegen nach, prüft Zwilling (gleiche Muster, Punkte, Tätigkeit; andere Zahlen) und schreibt die vier Dateien. Lauf „OK“.
+- `README.md` – Stoff, Aufbau, Durchführung, Druckhinweis.
+
+**Zuschnitt**
+- Klasse 5: `zahlen.ganz`, `zahlen.rechengesetze`, `zahlen.natuerlich` (nur Runden). 13 Teilaufgaben, 20 Punkte.
+- Klasse 8: `terme.umformen`, `gleichungen.linear`, `terme.bruchterme`, `gleichungen.bruch`, `terme.potenzgesetze_ganzzahlig`. 11 Teilaufgaben, 20 Punkte.
+- Je 10 Punkte Teil 1 (Rechnen mit Rechenweg) und Teil 2 (Umkehren, Fehler finden, Begründen, Ansatz aus Text, Verfahren wählen). Themen-Mischung: Klasse 5 Aufgabe 8, Klasse 8 Aufgabe 9.
+- Schema: Lösung, Punktevergabe, Folgefehler-Regel, je Teilaufgabe „Wenn falsch, dann vermutlich Regel …“. Für Nutzer oder Lehrer gleich nutzbar.
+
+**40 Minuten für Klasse 5:** nach meiner Einschätzung tragfähig, aber knapp (im Mittel drei Minuten je Teilaufgabe). Nicht verlängern; der Bogen erfasst, bis wohin das Kind kam.
+
+**Offen**
+- Wer bewertet (Nutzer oder Lehrer).
+- Blatt B liegt im öffentlichen Repo. Wer es vor der Wiederholung nicht sehen soll, darf den Ordner nicht öffnen; sonst Blatt B erst später ablegen (Entscheidung Projektleiter).
+
+**Nicht geprüft**
+- Bearbeitungszeit: nicht mit einem Kind gemessen.
+- Ob die Aufgaben von Teil 1 den zuletzt gesehenen App-Aufgaben in der Schwierigkeit genau entsprechen – abgeglichen mit den Etappen-Regeln der Themen, nicht mit einzelnen Aufgaben.
+- Ausdruck auf Papier (nur PDF am Bildschirm, Chrome).
+- Schema nicht von einer fachfremden Person erprobt.
+
+**Annahmen**
+- Je Klasse lernt genau ein Kind; die Summen je Thema habe ich je Klasse gelesen.
+- Themen mit nur einzelnen Versuchen gelten als „nicht gelernt“ und fehlen im Test.
+- Alle „typischen Fehler“ im Schema sind Vermutungen aus den Fehlbildern, nicht aus Versuchsdaten.
+- Versuchsdaten gesichtet; nichts davon steht im Repo.
+
 ## 2026-11-25 11:25 (Berlin) – AUFTRAG 5 vom Projektleiter (Fassung 2): zugeschnittener Papier-Test für beide Kinder
 Fassung 1 von 11:20 ist ersetzt. Entscheidung des Nutzers: Der Test muss zu dem passen, was die Kinder zuletzt in der App gelernt haben, und darf 40 Minuten dauern. Der amtliche Test entfällt vorerst. Kein Bau, keine Einspielung.
 

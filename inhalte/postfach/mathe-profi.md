@@ -1,5 +1,34 @@
 # Postfach mathe-profi
 
+## 2026-11-25 08:11 (Berlin) – FERTIG: Denkpapier Grundregeln, Fassung 2 (Denkauftrag 2 + Ergänzung)
+Zweig `mathe-profi`, Stand `lernen-app` dc9673c. Abgelegt mit Commit 26348b13. **Ersetzt die Fassung von 06:56** (die kannte nur die Ergänzung; der Vorbehalt dort ist damit erledigt).
+
+**Geliefert** unter `inhalte/mathe-profi/`:
+- `denkpapier-grundregeln.md` – vier Seiten (A4 bei 10 pt), Fragen 1–10 in einem Papier, gesichert / Annahme / Meinung getrennt, je ein durchgespieltes Beispiel Klasse 5 und Klasse 8.
+- `grundregeln_probe.py` – rechnet alle Beispiele der Regel-Liste nach (Zahlen, x an Stichproben, Brüche), zählt die Regeln im Aufgabentext je Klasse und den Umfang der Flüge. Lauf „OK“.
+
+**Antworten in Kürze**
+1. **Liste:** 15 Regeln für Klasse 5–10, jede mit Kindernamen, einem Satz, ihrer Grenze („gilt nicht bei …“) und Beispielen mit Zahlen, x und Brüchen: Richtung, Zeichen-Paar, Rangfolge, Verteilen, Minusklammer, Tauschen und Bündeln, Waage, Umkehren, Einsetzen und Probe, Wert bleibt, Bruchrechnen, Potenz, Stellenwert, Verhältnis, Nullprodukt. Binomische Formeln, Lösungsformel, Dreisatz sind bewusst keine eigenen Regeln.
+2. **Über Algebra hinaus:** voll bei Zahlen, Algebra, Geld; gut bei Funktionen; halb bei Geometrie, Raum, Daten (Rechnen ja, Sehen und Konstruieren nein); gar nicht bei Sachaufgaben und Begründen. Quer wirken Einsetzen und Probe, Umkehren, Verhältnis, Stellenwert, Zerlegen. Vorschlag: zwei Fächer – Regeln und Arbeitsweisen.
+3. **Übertrag Zahl → Variable:** Der Schritt liegt nicht beim Buchstaben, sondern bei Abschluss, mehrfacher Unbekannter, Gleichheitszeichen und Kontrolle. Zeigen mit Zwillingszeilen (Zahlen nicht ausgerechnet), Wertetabelle, Rechteck, Zahlenprobe. Im Bestand fehlt die Brücke (Minus vor Klammer an Zahlen: 8 / 0 Aufgaben in Klasse 5 / 6).
+4. **Fehlbilder ↔ Regeln:** 7 von 9 zeigen auf eine Regel, 2 davon als „richtige Regel am falschen Ort“. Übrig bleiben Bedeutungsfehler (Prozent wovon? Was ist das Ganze?). Buchung auf die Regel nur bei erkanntem Fehlbild.
+5. **Sichtbar:** ja, sparsam – Koffer auf Abruf mit zwei Zuständen, keine Zahlen; Etikett an der Aufgabe erst sichtbar, dann Frage, dann weg.
+6. **Rollendes System:** je Flug vom Ziel her – Papier-Runde, Regel-Etiketten, Fehlbilder, Trennaufgaben, Erklärungen, Einstieg „Das kennst du schon“, Prüftor. Vor dem Flug fertig: die ersten drei und das Prüftor. Auf Vorrat lohnt nur das Regel-Paket (einmal je Regel statt je Flug).
+7. **Was fehlt:** Eingangscheck Werkzeuge, tägliche Fünf (gemischt, ohne Etikett), Strang Sachaufgaben, Musterlösung im Heft-Format, Eichung von außen zweimal im Jahr, Tischkarte für den Erwachsenen.
+8.–10. wie in der ersten Fassung, gekürzt: Brücke „Zahl, aber nicht ausrechnen“; „fest genug“ nach sechs Merkmalen; älteres Kind erklärt nur als freiwilliges Angebot mit Gegenrolle.
+
+**Offen:** Entscheidungen von Nutzer und Projektleiter – Liste so übernehmen? Sichtbarkeit? Regel-Paket als erster Auftrag?
+
+**Nicht geprüft**
+- LehrplanPLUS je Regel, besonders Klasse 9 und 10; Vollständigkeit der Liste.
+- Aufwand je Flug (Schätzung, nicht gemessen).
+- Die Textzählung erfasst Regeln im Rechenweg nicht.
+- Ob die Bruch-Zeichen (½, ⅔) in der App sauber dargestellt würden – im Papier nur zur Kürze.
+
+**Annahmen**
+- Welche Fehler typisch sind; Anteil der Regel-Fehler (aus 9 Fehlbildern dreier Flüge hochgerechnet).
+- „Fest ab Klasse“ nach dem Bestand, nicht nach dem Lehrplan.
+
 ## 2026-11-25 06:56 (Berlin) – FERTIG: Denkpapier Grundregeln
 Zweig `mathe-profi`, vorher mit `lernen-app` dc9673c zusammengeführt. Abgelegt mit Commit 630836d4.
 

@@ -1,5 +1,40 @@
 # Postfach mathe-profi
 
+## 2026-11-25 09:11 (Berlin) – FERTIG: Denkpapier Maßstab (Denkauftrag 3 + Ergänzung, Fragen 1–14)
+Zweig `mathe-profi`, Stand `lernen-app` dc9673c. Abgelegt mit Commit ead16b5b.
+
+**Geliefert** unter `inhalte/mathe-profi/`:
+- `denkpapier-massstab.md` – vier Seiten (A4 bei 10 pt; erlaubt waren sechs), 14 Fragen, gesichert / Annahme / Meinung / Helfer-Angabe getrennt.
+- `massstab_probe.py` – eigene Zuordnung der 48 Teilaufgaben (63 BE) der Tests 2023–2025 nach Tätigkeit und Inhalt, Noten-Rechnung, Erfolgsquoten 2025; Referenz der Prüfregel für zehn offene Umkehr-Muster (45 Antworten, je 8 Unsinn-Eingaben); Stichprobe 3 × 20 Übungen. Lauf „OK“.
+
+**Kernaussagen**
+1. **Zuordnung:** nur die 15 Regeln 32 % der BE, Regel plus Geometrie-Formel 10 %, Übertragen/Umkehren 19 %, Begründen 24 % (9 von 15 BE in Geometrie), Zeichnen 6 %, Ablesen 6 %, Deuten 3 %. Inhalt: Zahlen/Algebra 37 %, Geometrie/Raum 33 %, Prozent/Verhältnis/Größen 17 %, Daten 13 %.
+2. **Noten:** nur Regeln → 6 / 8 / 6 BE = Note 5 / 4 / 5; mit Formeln Note 4; mit Übertragen Note 2 / 3 / 2. Erfolgsquote 2025: Regel-Aufgaben 49 %, Übertragen 16 %, Begründen 42 %.
+3. **Abweichung von den Helfern:** „49 % außerhalb“ überdehnt (10 % sind Regel plus Formel); Begründen größer (24 statt 19 %); „Regeln = Note 4“ nur mit Formeln und fehlerfrei.
+4. **Sechs Stränge** neben den Regeln: Formel-Koffer, Übertragen/Umkehren, Begründen, Zeichnen/Konstruieren, Daten lesen, Sachansatz. Tabellenkalkulation ist kein eigener Strang (Rangfolge und Einsetzen).
+5. **Offene Umkehraufgaben:** je fünf Muster Klasse 5 und 8 mit Bedingungs-Prüfung; kleiner Bau am Server, Eingabe mit `zahl`/`luecken`.
+6. **Fehler-Katalog:** fünf Prüfungen vor Übernahme; sinnvoll 55–85 Einträge statt 114.
+7. **Vier Wochen:** Papier-Runde je Woche, tägliche Fünf, Heft mit Stichprobe – mit Messgrößen.
+8. **Erklärungen:** zwei vorhandene (Flächeneinheiten Klasse 5, Laplace Klasse 8) umgeschrieben; es fehlen Frage vorab, Gegensatz, zweite Richtung, Probe, Mini-Aufgabe.
+9. **Üben:** „gelandet“ erst mit zweitem Tag; zwei Stufe-3-Aufgaben; bei Auswahl kein zweiter Versuch; Tipp in zwei Stufen.
+10. **Formen-Rangliste:** Gitterpunkte, Bedingung statt Lösung, Mehrfach-Antippen, Papier mit Kontrollzahl, Term aufstellen, im Diagramm handeln, Balken beschriften.
+11. **Qualität (60 Aufgaben):** Stufen, Vielfalt, Kontexte und Distraktoren gut; schwach sind Formen (95–100 % Zahl oder Auswahl), Tipps, die die Formel nennen (8 von 20 bei Kennwerten), 7 von 60 ohne Typ, nur ein Lösungsweg.
+
+**Hinweis an den Projektleiter (Stichprobe „nichts wörtlich“):** Im Flug `daten.kennwerte`, Etappe `mittelwert`, fragt eine Stufe-3-Auswahl-Übung nach der richtigen Rechnung für den Mittelwert zweier Zahlen und benutzt dieselben zwei Zahlen wie eine Teilaufgabe des Tests 2025. Bitte prüfen und Zahlen ändern.
+
+**Offen**
+- Befunde der vier weiteren Helfer (Lernforschung, Motivation, Erklären, Bedienung) lagen nicht vor; ich ergänze, wenn sie kommen.
+- Entscheidung: vier-Wochen-Fassung so starten? Papier-Runden würde ich als Nächstes schreiben.
+
+**Nicht geprüft**
+- Ergebnisberichte 2023 und 2024 (Abruf wurde nicht freigegeben, Nutzer war nicht erreichbar); Erfolgsquoten nur 2025, aus dem Diagramm gelesen, Summe stimmt mit dem Bericht.
+- Arbeitszeit, Hilfsmittel, Anteil Ankreuzen; alle Helfer-Befunde außer KI-Tutor-Studie und Lernzentrum-Studie.
+- Lehrplan-Passung der zehn Umkehr-Muster; Bau-Aufwand der Formen.
+
+**Annahmen**
+- Was andere Lehrwerke besser machen (eigene Kenntnis, nicht nachgeschlagen).
+- Zuordnung einzelner Teilaufgaben an Grenzen (z. B. Prozent mit Bedeutungswechsel als „Übertragen“).
+
 ## 2026-11-25 08:11 (Berlin) – FERTIG: Denkpapier Grundregeln, Fassung 2 (Denkauftrag 2 + Ergänzung)
 Zweig `mathe-profi`, Stand `lernen-app` dc9673c. Abgelegt mit Commit 26348b13. **Ersetzt die Fassung von 06:56** (die kannte nur die Ergänzung; der Vorbehalt dort ist damit erledigt).
 

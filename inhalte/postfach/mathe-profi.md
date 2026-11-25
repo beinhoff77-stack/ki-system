@@ -1,5 +1,26 @@
 # Postfach mathe-profi
 
+## 2026-11-25 11:20 (Berlin) – AUFTRAG 5 vom Projektleiter: Papier-Runde 1 für Kind 1 und Bewertungshilfe für Kind 2
+Der Nutzer hat Schritt 0 freigegeben („legen wir los“). Kein Bau, keine Einspielung. Stand `lernen-app` e8a373f.
+
+**Teil A – Papier-Runde 1 für Kind 1 (Klasse 5), bitte zuerst**
+1. Ein Blatt für 20 Minuten, sechs Aufgaben, ohne Tipp, ohne Taschenrechner: 3 Regel-Aufgaben, 1 Umkehr-Aufgabe, 1 Begründung, 1 Geometrie oder Daten (dein Vorschlag aus `denkpapier-massstab.md`, Abschnitt 8).
+2. Stoff: nur Themen, die Kind 1 in der App schon bearbeitet hat. Lies dazu die Versuchsdaten (nur Summen je Thema, keine Namen, nichts davon ins Repo).
+3. Eigene Aufgaben, nichts wörtlich aus Schulbüchern oder Tests. Zahlen so, dass man die Lösung nicht errät.
+4. Dazu ein Bewertungsschema für einen Erwachsenen ohne Mathe-Ausbildung: Punkte je Aufgabe, was als richtig gilt, was ein Folgefehler ist, zehn Minuten Aufwand. Am Ende eine Zeile je Aufgabe „Wenn falsch, dann vermutlich Regel …“.
+5. Ein Erfassungsbogen (eine Tabelle): Aufgabe, Punkte, Rechenweg sichtbar ja/nein, vermutete Regel, benötigte Zeit.
+6. Druckfertig: Blatt und Schema als je eine Seite (HTML oder Markdown, das sich sauber als PDF drucken lässt). Jede Aufgabe auf zwei Wegen nachgerechnet, Skript dazu.
+
+**Teil B – Bewertungshilfe für Kind 2 (Klasse 8)**
+Kind 2 schreibt den amtlichen Test 2025, Gruppe A, 40 Minuten, ohne Taschenrechner und Formelsammlung, mit Geodreieck und Zirkel. Die amtlichen Lösungshinweise liegen vor (Links in `inhalte/recherche/tief-5-massstab-bayern.md`, Eich-Plan).
+1. Ein Erfassungsbogen je Teilaufgabe: Punkte, deine Tätigkeits-Gruppe (Regeln · Geometrie-Formeln · Übertragen/Umkehren · Ablesen/Zeichnen · Begründen), Landesquote.
+2. Eine Seite „So bewertest du“: die fünf Stellen, an denen ein Laie beim Bewerten am ehesten unsicher wird, mit Entscheidung. Keine Aufgabentexte abschreiben, nur Nummern.
+3. Auswertung vorbereitet: Aus dem ausgefüllten Bogen sollen Punkte je Tätigkeits-Gruppe und der Abstand zum Landeswert folgen.
+
+**Ablage:** `inhalte/mathe-profi/papier-runde-1/` auf deinem Zweig. Rückmeldung hier im Postfach, mit „Nicht geprüft“ und „Annahmen“.
+**Regeln wie immer:** öffentliches Repo – keine Namen, keine Lerndaten, keine Ergebnisse der Kinder. Ergebnisse der Papier-Runden gehen nur direkt an den Nutzer.
+**Offen beim Nutzer:** wer bewertet (er selbst oder der Lehrer). Schreibe das Schema so, dass beide es können.
+
 ## 2026-11-25 02:40 (Berlin) – FERTIG: Auftrag 3 (Musterstapel Weg-Aufgaben)
 Zweig `mathe-profi`, vorher mit `lernen-app` 205ba5c2 zusammengeführt.
 

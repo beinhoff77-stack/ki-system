@@ -2,7 +2,8 @@
 
 Aufruf: python3 -I inhalte/mathe-profi/regeln-uebersicht/bauen.py
 Hält Regeln, Merksätze, Beispiele je Klasse, Sätze der Gebiete und Arbeitsweisen als Daten,
-rechnet jedes Beispiel nach, prüft die Klasse jedes Beispiels gegen inhalte/themenliste.json (Gymnasium) und schreibt inhalt.md.
+rechnet jedes Beispiel nach, prüft die Klasse jedes Beispiels gegen inhalte/themenliste.json (Gymnasium) und schreibt sonne.md.
+Das vollständige Inhaltsverzeichnis des Gesetzbuchs (inhalt.md) erzeugt gesetzbuch.py.
 Nur Inhalte.
 """
 import json
@@ -291,20 +292,13 @@ merkliste = "\n".join(f"{i}. **{r['name']}:** {r['merk']}" for i, r in enumerate
 nummern = " · ".join(f"{i} = Etikett {r['nr']}" for i, r in enumerate(R, 1))
 n_bsp = sum(len(r["bsp"]) for r in R)
 
-open(os.path.join(HIER, "inhalt.md"), "w", encoding="utf-8").write(f"""# Übersicht der Grundregeln – Inhalt (Schritt 1 von 5)
+open(os.path.join(HIER, "sonne.md"), "w", encoding="utf-8").write(f"""# Gesetzbuch · Die Sonne: die {len(R)} Rechenregeln – ausgearbeitet
 
 Mathe-Profi, 26.11.2026. Erzeugt von `bauen.py`; jedes Beispiel ist nachgerechnet ({n_bsp} Beispiele, Lauf „OK“).
-Für ChatGPT zum Angreifen und für den Designer als Stoff. Noch keine Darstellung.
+Die Sonne ist die Mitte des Gesetzbuchs: Diese Regeln gelten von Klasse 5 bis 10 unverändert, nur das Gewand wechselt (Zahl, Bruch, Buchstabe, Bruchterm, Wurzel). Das ganze Gesetzbuch mit allen Gebieten steht in `inhalt.md`.
 **[G]** gesichert · **[A]** Annahme · **[M]** Meinung.
 
-## Die Antwort in einer Minute
-
-- **Nein, es gibt nicht nur 15 Regeln.** Die 15 waren nur die Regeln fürs Rechnen mit Zahlen und Buchstaben. Ehrlich gezählt sind es drei Schichten:
-  - **{len(R)} Rechenregeln** – sie gelten von Klasse 5 bis 10 unverändert, nur das Gewand wechselt (Zahl, Bruch, Buchstabe, Bruchterm, Wurzel).
-  - **{len(S)} Sätze und Formeln der Gebiete** – Geometrie, Funktionen, Daten und Zufall, dazu die Formeln, die aus den Rechenregeln folgen. Sie kommen Jahr für Jahr dazu.
-  - **{len(A)} Arbeitsweisen** – wie man vorgeht: Probe, Überschlag, Skizze, Ansatz, Begründen, Ablesen, Formel umstellen.
-- Zusammen **{len(R) + len(S) + len(A)} Dinge**, nicht 15. Aber: Die {len(R)} Rechenregeln sind der Teil, der sich nie ändert – wer sie sicher hat, muss in jedem neuen Jahr nur das neue Gewand lernen.
-- **Aus 15 werden {len(R)}:** „Einsetzen und Probe“ ist keine Rechenregel, sondern eine Arbeitsweise, und steht jetzt dort. [M]
+**Aus 15 werden {len(R)}:** „Einsetzen und Probe“ ist keine Rechenregel, sondern eine Arbeitsweise, und steht jetzt dort. [M]
 
 ## Die {len(R)} Merksätze
 
@@ -332,16 +326,15 @@ Die einzelnen Abhängigkeiten:
 
 {kanten}
 
-Vorschlag für die Darstellung [M]: **ein Haus mit vier Etagen** für den Aufbau und daneben **ein Band je Regel von Klasse 5 bis 10**, auf dem in jedem Jahr das Beispiel steht. Das Haus zeigt „aufeinander aufbauend“, die Bänder zeigen „für viele Klassen dasselbe“. Auf dem Dach stehen die Sätze der Gebiete, neben dem Haus der Werkzeugkasten mit den Arbeitsweisen.
-Verworfen: Baum (Äste suggerieren Trennung, die Regeln greifen aber ineinander) · Sonnensystem (kein Unten und Oben, also kein Aufbau) · reine Tabelle (zeigt die Jahre, nicht den Aufbau).
+Vorschlag für die Darstellung [M]: **ein Haus mit vier Etagen** für den Aufbau und daneben **ein Band je Regel von Klasse 5 bis 10**, auf dem in jedem Jahr das Beispiel steht. Das Haus zeigt „aufeinander aufbauend“, die Bänder zeigen „für viele Klassen dasselbe“. Nach der Klarstellung des Nutzers ist das Sonnensystem gesetzt: Dann sind die vier Etagen **vier Schichten der Sonne von innen nach außen** (Kern: Zahlen; darüber Klammern und Potenzen; darüber Brüche und Verhältnis; außen Gleichungen), und die Bänder bleiben als Strahlen von Klasse 5 bis 10.
 
 ## Die Regeln einzeln
 
 {(chr(10) + chr(10)).join(regel_text(i, r) for i, r in enumerate(R, 1))}
 
-## Gibt es wirklich nur diese Regeln? – die ehrliche Liste
+## Fehlt beim Rechnen etwas?
 
-**1. Fehlt beim Rechnen etwas?** Keine eigene Regel, aber fünf Dinge, die bisher nicht ausdrücklich dastanden. Sie sind jetzt eingeordnet:
+Keine eigene Regel, aber fünf Dinge, die bisher nicht ausdrücklich dastanden. Sie sind jetzt eingeordnet:
 
 | Was | Wo es jetzt steht | Warum keine eigene Regel |
 |---|---|---|
@@ -351,26 +344,7 @@ Verworfen: Baum (Äste suggerieren Trennung, die Regeln greifen aber ineinander)
 | Ungleichung umdrehen | Regel 3 Vorzeichen und Regel 13 Waage | Folge aus „mal Minus“ |
 | Wurzel und Logarithmus | Regel 12 Gegenrechnung (als Paare), ihre Gesetze unter „Sätze und Formeln“ | Gegenrechnungen zu Quadrat und Hoch; die Gesetze folgen aus den Potenzen |
 
-**2. Die Sätze und Formeln der Gebiete** – das ist die zweite Schicht. Sie sind keine Rechenregeln: Man muss sie wissen, und man wendet sie mit den Rechenregeln an.
-{chr(10).join(saetze)}
-
-Die Liste nennt die tragenden Sätze, nicht jede Formel des Lehrplans (zum Beispiel fehlen Kreisbogen, Mantelflächen, Vierfeldertafel). Die Zahl {len(S)} ist deshalb eine Untergrenze. [M]
-
-**3. Die Arbeitsweisen** – die dritte Schicht, für alles, was nicht Rechnen ist:
-
-| Arbeitsweise | Merksatz | Wozu |
-|---|---|---|
-{chr(10).join(f"| {n} | **{m}** | {w} |" for n, m, w in A)}
-
-**4. Die ganze Landkarte**
-
-| Schicht | Zahl | ändert sich über die Jahre? | Was ein Kind damit tut |
-|---|---|---|---|
-| Rechenregeln | {len(R)} | nein – nur das Gewand | sicher können, im neuen Stoff wiedererkennen |
-| Sätze und Formeln der Gebiete | mindestens {len(S)} | ja – jedes Jahr kommen neue dazu | wissen (Formel-Koffer) und richtig auswählen |
-| Arbeitsweisen | {len(A)} | nein | bei jeder Aufgabe anwenden |
-
-Für Geometrie, Daten und Sachaufgaben heißt das: Dort trägt nicht eine Rechenregel, sondern **Satz plus Arbeitsweise** – „Winkelsumme im Dreieck“ und „Nenne den Satz, dann wende ihn an“. Auf der Übersicht gehören sie deshalb sichtbar dazu: die Sätze als Dach nach Gebieten und Klassen, die Arbeitsweisen als Werkzeugkasten daneben. [M]
+Alles Weitere – die Gesetze der Gebiete und die Arbeitsweisen – steht in `inhalt.md`.
 
 ## Für die Technik
 
@@ -383,7 +357,6 @@ Nummern der Übersicht und Nummern in den Aufgaben-Etiketten (`schritt1/etikette
 - Realschule und IB: Die Beispiele folgen den Gymnasium-Klassen. Bei der Realschule liegen einige Themen ein Jahr früher oder später.
 - Ob ein Kind der Klasse 5 die Merksätze versteht und behält – nicht erprobt.
 - Die Bilder sind beschrieben, nicht gezeichnet.
-- Die Liste der Sätze und Formeln ist aus meiner Kenntnis und den Themen der App zusammengestellt, nicht aus dem Lehrplan abgeschrieben.
 
 ## Annahmen
 
@@ -391,5 +364,5 @@ Nummern der Übersicht und Nummern in den Aufgaben-Etiketten (`schritt1/etikette
 - „Professionell“ heißt: fachlich richtig, mit Grund und Grenze, in üblichen Schulwörtern.
 - {len(R)} statt 15 ist ein Vorschlag; die alte Zählung lässt sich ohne Verlust wiederherstellen.
 """)
-print(f"{len(R)} Regeln, {n_bsp} Beispiele, {len(S)} Sätze und Formeln, {len(A)} Arbeitsweisen")
+print(f"{len(R)} Regeln, {n_bsp} Beispiele")
 print("OK")

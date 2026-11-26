@@ -1,19 +1,47 @@
-# Übersicht der Grundregeln – Inhalt (Schritt 1 von 5)
+# Gesetzbuch der Mathematik, Klasse 5 bis 10 – Landkarte und vollständiges Inhaltsverzeichnis
 
-Mathe-Profi, 26.11.2026. Erzeugt von `bauen.py`; jedes Beispiel ist nachgerechnet (71 Beispiele, Lauf „OK“).
+Mathe-Profi, 26.11.2026 (Auftrag 10, nach der Klarstellung „Gesetzbuch“). Erzeugt von `gesetzbuch.py`.
 Für ChatGPT zum Angreifen und für den Designer als Stoff. Noch keine Darstellung.
 **[G]** gesichert · **[A]** Annahme · **[M]** Meinung.
 
+| Datei | Inhalt | Stand |
+|---|---|---|
+| `inhalt.md` (diese Datei) | Landkarte, ehrliche Gesamtzahl, alle Gesetze je Gebiet mit Klasse und Schulart | vollständig |
+| `sonne.md` | die 14 Rechenregeln, ausgearbeitet | Muster 1 |
+| `planet-flaeche-und-raum.md` | ein Planet, ausgearbeitet | Muster 2 |
+| `gesetzbuch.py`, `bauen.py` | Daten, Prüfungen, Erzeugung | Lauf „OK“ |
+
 ## Die Antwort in einer Minute
 
-- **Nein, es gibt nicht nur 15 Regeln.** Die 15 waren nur die Regeln fürs Rechnen mit Zahlen und Buchstaben. Ehrlich gezählt sind es drei Schichten:
-  - **14 Rechenregeln** – sie gelten von Klasse 5 bis 10 unverändert, nur das Gewand wechselt (Zahl, Bruch, Buchstabe, Bruchterm, Wurzel).
-  - **37 Sätze und Formeln der Gebiete** – Geometrie, Funktionen, Daten und Zufall, dazu die Formeln, die aus den Rechenregeln folgen. Sie kommen Jahr für Jahr dazu.
-  - **7 Arbeitsweisen** – wie man vorgeht: Probe, Überschlag, Skizze, Ansatz, Begründen, Ablesen, Formel umstellen.
-- Zusammen **58 Dinge**, nicht 15. Aber: Die 14 Rechenregeln sind der Teil, der sich nie ändert – wer sie sicher hat, muss in jedem neuen Jahr nur das neue Gewand lernen.
-- **Aus 15 werden 14:** „Einsetzen und Probe“ ist keine Rechenregel, sondern eine Arbeitsweise, und steht jetzt dort. [M]
+- **Das Gesetzbuch hat 174 Einträge:** 14 Rechenregeln (die Sonne), 152 Gesetze in sieben Gebieten und auf den Entdecker-Inseln (die Planeten), 8 Arbeitsweisen (eigener Ort).
+- **Die Sonne** sind die Rechenregeln, weil sie in jedem Gebiet wiederkehren: 80 der 152 Gesetze brauchen mindestens eine von ihnen ([G], gezählt).
+- **Die Planeten sind die Gebiete der App.** Der Schnitt trägt – mit einer Einschränkung, siehe unten.
+- Jedes der 97 Themen der App ist von mindestens einem Gesetz oder einer Rechenregel erfasst ([G], `gesetzbuch.py` prüft es).
+- **Ehrlich zur Zahl:** 152 ist die Zahl der Gesetze, wie ich sie geschnitten habe. Manche Einträge bündeln mehrere Formeln (die drei binomischen Formeln, die drei Potenzgesetze, vier Kongruenzsätze). Zählt man jede Formel einzeln, sind es deutlich mehr. Wer feiner oder gröber schneidet, kommt auf eine andere Zahl; an der Größenordnung ändert das nichts.
 
-## Die 14 Merksätze
+## Die Landkarte
+
+| Ort | Gesetze | Lage | Abschnitte |
+|---|---|---|---|
+| **Sonne: Rechenregeln** | 14 | Mitte | Zahlen · Klammern und Potenzen · Brüche und Verhältnis · Gleichungen |
+| Zahlen | 24 | innerster Planet | Zahlen schreiben und ordnen, Teilbarkeit, Brüche und Dezimalzahlen, Potenzen, Wurzeln, Logarithmen |
+| Algebra | 23 | zweiter Planet | Terme, Gleichungen ersten Grades, Gleichungen höheren Grades |
+| Geld und Verhältnisse | 11 | dritter Planet | Größen, Proportionalität, Prozent und Zins |
+| Geometrie | 30 | vierter Planet | Lage und Winkel, Figuren und Konstruktion, Abbilden, Ähnlichkeit und rechtwinkliges Dreieck |
+| Fläche und Raum | 19 | fünfter Planet | Flächen, Körper |
+| Funktionen | 20 | sechster Planet | Grundbegriffe, Funktionsarten |
+| Daten und Zufall | 20 | siebter Planet | Daten, Zählen und Zufall |
+| Entdecker-Inseln | 5 | Kleinplaneten am Rand | Nur IB – Kür |
+| **Arbeitsweisen** | 8 | eigener Ort – Vorschlag: die Raumstation, die jeden Planeten anfliegt | – |
+
+**Trägt der Schnitt „Planet = Gebiet der App“?** Ja, mit drei Anmerkungen:
+1. **Zahlen und Algebra liegen der Sonne am nächsten.** Viele ihrer Gesetze sind Rechenregeln in einem bestimmten Gewand oder folgen aus ihnen (Spalte „braucht aus der Sonne“). Das ist kein Fehler des Schnitts, sondern der Grund für die Reihenfolge der Planeten: von innen (nah am Rechnen) nach außen (eigene Sätze).
+2. **Die Grenzen sind an wenigen Stellen unscharf.** 1 Gesetz steht bei mir auf einem anderen Planeten als alle seine Themen in der App ([G], Liste unten); weitere 14 Gesetze greifen auf Themen aus zwei Gebieten zu (zum Beispiel die Hyperbel: Funktionen und Verhältnisse). Ich habe nach dem Inhalt geordnet, nicht nach dem Flug.
+3. **Die Entdecker-Inseln** sind kein Gebiet, sondern fünf einzelne IB-Themen. Im Gesetzbuch sind sie Kleinplaneten am Rand, ausdrücklich Kür.
+
+Wann die Gesetze dazukommen (Gymnasium, erste Klasse, in der das Gesetz vorkommt) [G]: Klasse 5: 30 · Klasse 6: 19 · Klasse 7: 21 · Klasse 8: 28 · Klasse 9: 26 · Klasse 10: 12 · ohne Gymnasium-Zuordnung (nur Realschule oder IB): 16.
+
+## Die Sonne: 14 Rechenregeln
 
 1. **Stellenwert und Prozent:** Mal 10 schiebt jede Ziffer eine Stelle nach links, geteilt durch 10 eine nach rechts. Prozent heißt Hundertstel.
 2. **Plus und Minus mit negativen Zahlen:** Plus geht nach rechts, Minus nach links. Ein Minus in der Klammer dreht die Richtung um.
@@ -30,457 +58,268 @@ Für ChatGPT zum Angreifen und für den Designer als Stoff. Noch keine Darstellu
 13. **Gleichung als Waage:** Eine Gleichung ist eine Waage: Was du links tust, musst du auch rechts tun.
 14. **Nullprodukt:** Ein Produkt ist null, wenn ein Faktor null ist – und nur dann.
 
-Namen sind die üblichen Schulwörter. „Zeichen-Paar“, „Wert bleibt“, „Richtung“ und „Verteilen“ aus den früheren Papieren kommen nicht mehr vor.
+Ausgearbeitet in `sonne.md`: je Regel Merksatz, Warum, Wo es nicht gilt, ein Beispiel je Klasse, Aufbau, Bild.
 
-## Dieselbe Regel in vielen Klassen
+## Das vollständige Inhaltsverzeichnis
 
-Jeder Punkt ist ein nachgerechnetes Beispiel aus einem Thema dieser Klasse (Abschnitt „Die Regeln einzeln“).
+Spalten **G / R / I**: Klasse, in der das Gesetz laut App vorkommt – Gymnasium Bayern / Realschule Bayern (Wahlpflichtfächergruppe I) / IB-MYP-Jahr. „5–8“ heißt: Es kommt in mehreren Themen von Klasse 5 bis 8 vor. „–“ heißt: in dieser Schulart nicht zugeordnet.
+Die Zahlen in der letzten Spalte sind die Nummern der Rechenregeln.
 
-| Regel | Kl. 5 | Kl. 6 | Kl. 7 | Kl. 8 | Kl. 9 | Kl. 10 |
+### Zahlen – 24 Gesetze (innerster Planet)
+
+| Nr. | Gesetz | In einem Satz | G | R | I | braucht aus der Sonne |
 |---|---|---|---|---|---|---|
-| 1 Stellenwert und Prozent | ● | ● | ● | ● |  | ● |
-| 2 Plus und Minus mit negativen Zahlen | ● | ● | ● | ● | ● |  |
-| 3 Vorzeichen bei Mal und Geteilt | ● | ● | ● | ● | ● | ● |
-| 4 Reihenfolge beim Rechnen | ● | ● | ● | ● | ● | ● |
-| 5 Tauschen und Zusammenfassen | ● | ● | ● | ● | ● |  |
-| 6 Ausmultiplizieren und Ausklammern | ● | ● | ● | ● | ● | ● |
-| 7 Minus vor der Klammer | ● |  | ● | ● | ● |  |
-| 8 Potenzen | ● | ● | ● | ● | ● | ● |
-| 9 Erweitern und Kürzen |  | ● | ● | ● | ● |  |
-| 10 Rechnen mit Brüchen |  | ● | ● | ● |  | ● |
-| 11 Verhältnis (Dreisatz) | ● | ● | ● | ● | ● |  |
-| 12 Gegenrechnung | ● | ● | ● | ● | ● | ● |
-| 13 Gleichung als Waage | ● |  | ● | ● | ● | ● |
-| 14 Nullprodukt | ● |  |  | ● | ● | ● |
+| | *Zahlen schreiben und ordnen* | | | | | |
+| Z1 | **Stellenwertsystem** | Jede Stelle ist zehnmal so viel wert wie die Stelle rechts daneben – auch hinter dem Komma. | 5–6 | 5–6 | 1 | 1 |
+| Z2 | **Runden** | Die Ziffer rechts von der Rundungsstelle entscheidet: 0 bis 4 abrunden, 5 bis 9 aufrunden. | 5–6 | 5–6 | 1 | 1 |
+| Z3 | **Andere Zahlschriften** | Römische Zahlen reihen Zeichen aneinander; das Zweiersystem bündelt in Zweiern statt in Zehnern. | 5 | 5 | 1 | – |
+| Z4 | **Ordnung auf der Zahlengeraden** | Was weiter links liegt, ist kleiner – auch bei negativen Zahlen und Brüchen. | 5–6 | 5–6 | 1–2 | 2 |
+| Z5 | **Betrag und Gegenzahl** | Der Betrag ist der Abstand zur Null. Die Gegenzahl liegt gleich weit auf der anderen Seite. | 5 | 5 | 2–5 | 2 |
+| | *Teilbarkeit* | | | | | |
+| Z6 | **Teiler und Vielfache** | a ist Teiler von b, wenn b geteilt durch a ohne Rest aufgeht. | 5 | 5 | 1 | – |
+| Z7 | **Teilbarkeitsregeln** | Durch 2, 5 und 10: letzte Ziffer ansehen. Durch 3 und 9: Quersumme ansehen. | 5 | 5 | 1 | 1 |
+| Z8 | **Primzahlen und Primfaktoren** | Jede Zahl größer als 1 lässt sich auf genau eine Weise in Primzahlen zerlegen. | 5 | 5 | 1 | – |
+| Z9 | **ggT und kgV** | Der größte gemeinsame Teiler kürzt vollständig, das kleinste gemeinsame Vielfache ist der Hauptnenner. | 6 | 6 | 1 | 9 |
+| | *Brüche und Dezimalzahlen* | | | | | |
+| Z10 | **Bruch als Anteil** | Der Nenner teilt, der Zähler zählt. Anteil = Teil durch Ganzes. | 6 | 6 | 1 | – |
+| Z11 | **Brüche vergleichen** | Bei gleichem Nenner ist der Bruch mit dem größeren Zähler größer; sonst erst gleichnamig machen. | 6 | 6 | 1 | 9 |
+| Z12 | **Drei Schreibweisen einer Zahl** | Bruch, Dezimalzahl und Prozent sagen dasselbe: ½ = 0,5 = 50 %. | 6 | 6 | 1 | 1 |
+| Z13 | **Periodische Dezimalzahlen** | Jeder Bruch wird als Dezimalzahl endlich oder periodisch – nie etwas anderes. | 6 | 6 | 1 | – |
+| Z14 | **Rechnen mit Komma** | Mal: Nachkommastellen zusammenzählen. Geteilt: das Komma in beiden Zahlen gleich weit verschieben. | 6 | 6 | 2 | 1 |
+| | *Potenzen, Wurzeln, Logarithmen* | | | | | |
+| Z15 | **Quadratzahlen** | Hoch 2 heißt Zahl mal sich selbst; die Quadratzahlen bis 20² weiß man auswendig. | 5 | 5 | 1 | 8 |
+| Z16 | **Potenz mit negativer Basis** | Gerade Hochzahl: Ergebnis positiv. Ungerade Hochzahl: Ergebnis negativ. | 5 | 5 | 1 | 3, 8 |
+| Z17 | **Hoch null und negative Hochzahl** | a⁰ = 1. Eine negative Hochzahl heißt Kehrwert: a⁻ⁿ = 1 : aⁿ. | 6–8 | 7 | 3–4 | 8 |
+| Z18 | **Zehnerpotenzen** | 10ⁿ ist eine 1 mit n Nullen, 10⁻ⁿ hat n Stellen hinter dem Komma. Kilo, Mega, Milli, Mikro sind Zehnerpotenzen. | 5–6 | 5–7 | 1–4 | 1, 8 |
+| Z19 | **Potenzgesetze** | Gleiche Basis: Hochzahlen addieren. Gleiche Hochzahl: Basen malnehmen. Potenz der Potenz: Hochzahlen malnehmen. | 7–9 | 7–10 | 3–5 | 8 |
+| Z20 | **Quadratwurzel** | Die Wurzel aus a ist die Zahl ab null, deren Quadrat a ist. Aus negativen Zahlen gibt es keine. | 9 | 9 | 1 | 12 |
+| Z21 | **Wurzelgesetze** | Wurzel mal Wurzel ist Wurzel aus dem Produkt, Wurzel durch Wurzel ist Wurzel aus dem Quotienten – nicht bei Plus und Minus. | 9 | 9 | 4 | 8 |
+| Z22 | **Irrationale und reelle Zahlen** | Manche Zahlen sind kein Bruch, zum Beispiel √2. Brüche und diese Zahlen zusammen heißen reelle Zahlen. | 9 | 9 | 4 | – |
+| Z23 | **n-te Wurzel und Bruch als Hochzahl** | a hoch 1/n ist die n-te Wurzel aus a. | 9 | 10 | 5 | 8, 12 |
+| Z24 | **Logarithmus** | Der Logarithmus ist die gesuchte Hochzahl. Aus Mal wird Plus, aus Hoch wird Mal. | 10 | 10 | 5 | 8, 12 |
 
-12 der 14 Regeln beginnen in Klasse 5, die übrigen 2 in Klasse 6 mit den Brüchen. Jede reicht mindestens bis Klasse 9. [G, gezählt aus den Beispielen]
+### Algebra – 23 Gesetze (zweiter Planet)
 
-## Der Aufbau: Was setzt was voraus
+| Nr. | Gesetz | In einem Satz | G | R | I | braucht aus der Sonne |
+|---|---|---|---|---|---|---|
+| | *Terme* | | | | | |
+| A1 | **Term und Variable** | Ein Buchstabe steht für eine Zahl. Die zuletzt ausgeführte Rechnung gibt dem Term seinen Namen. | 7 | 6 | 1 | 4 |
+| A2 | **Gleichwertige Terme** | Zwei Terme sind gleichwertig, wenn sie für jede eingesetzte Zahl denselben Wert haben. | 7 | 7 | 3 | – |
+| A3 | **Summe mal Summe** | Jedes Glied der ersten Klammer mal jedes Glied der zweiten. | 7 | 7 | 3 | 6 |
+| A4 | **Binomische Formeln** | (a + b)² = a² + 2ab + b² · (a − b)² = a² − 2ab + b² · (a + b)(a − b) = a² − b² | 7 | 7–8 | 3 | 6 |
+| A5 | **Definitionsmenge** | Ein Nenner darf nie null sein. Diese Zahlen werden vorher ausgeschlossen. | 8 | 8 | 4 | 14 |
+| A6 | **Bruchterme** | Mit Bruchtermen rechnet man wie mit Brüchen: erst faktorisieren, dann kürzen. | 8 | 8 | 4 | 9, 10 |
+| A7 | **Kleinster und größter Wert** | (x − d)² + e ist nie kleiner als e und wird es genau bei x = d. | – | 8 | – | 6 |
+| | *Gleichungen ersten Grades* | | | | | |
+| A8 | **Äquivalenzumformung** | Dieselbe Rechnung auf beiden Seiten ändert die Lösung nicht – außer mal null und geteilt durch null. | 5–7 | 6–7 | 1–2 | 13 |
+| A9 | **Wie viele Lösungen?** | Eine lineare Gleichung hat genau eine Lösung, keine oder jede Zahl als Lösung. | 5–7 | 6–7 | 1–2 | – |
+| A10 | **Ungleichungen** | Mal oder geteilt durch eine negative Zahl dreht das Ungleichheitszeichen um. | 8 | 7 | 4 | 3, 13 |
+| A11 | **Intervalle** | Eckige Klammer: Die Grenze gehört dazu. Nach außen gedrehte oder runde Klammer: Sie gehört nicht dazu. | 8 | 7 | 4 | – |
+| A12 | **Bruchgleichungen** | Mit dem Hauptnenner malnehmen; die Lösung muss in der Definitionsmenge liegen. Bruch gleich Bruch: über Kreuz. | 8 | 8 | 4 | 10, 13 |
+| A13 | **Formeln umstellen** | Eine Formel ist eine Gleichung mit mehreren Buchstaben: nach dem gesuchten auflösen. | 8 | – | 4 | 12, 13 |
+| A14 | **Gleichungssystem mit zwei Unbekannten** | Gesucht ist das Zahlenpaar, das beide Gleichungen erfüllt: einsetzen, gleichsetzen oder addieren. Zwei Geraden schneiden sich, sind parallel oder gleich. | 8 | 9 | 4 | 13 |
+| A15 | **Gleichungssystem mit drei Unbekannten** | Erst eine Unbekannte entfernen, dann von unten nach oben einsetzen. | 9 | – | – | 13 |
+| | *Gleichungen höheren Grades* | | | | | |
+| A16 | **x² = a** | Zwei Lösungen, wenn a positiv ist (Wurzel und Gegenzahl), eine bei a = 0, keine bei negativem a. | 9 | 9 | 4 | 12 |
+| A17 | **Faktorisieren** | Alles auf eine Seite, ausklammern, dann jeden Faktor gleich null setzen. | 9–10 | 9 | 4 | 6, 14 |
+| A18 | **Quadratische Ergänzung** | Zum Binom ergänzen, was fehlt – und es gleich wieder abziehen. | 9 | 8–9 | 4 | 6 |
+| A19 | **Lösungsformel** | Die Lösungsformel löst jede quadratische Gleichung. Der Ausdruck unter der Wurzel entscheidet: positiv zwei Lösungen, null eine, negativ keine. | 9 | 9 | 4 | 12 |
+| A20 | **Wurzelgleichungen** | Quadrieren kann falsche Lösungen erzeugen. Die Probe ist Pflicht. | – | 9 | – | 12 |
+| A21 | **Potenzgleichungen** | xⁿ = c: bei gerader Hochzahl zwei Lösungen oder keine, bei ungerader genau eine. | 9 | 10 | 4 | 3, 12 |
+| A22 | **Exponentialgleichungen** | Gleiche Basis: Hochzahlen gleichsetzen. Sonst hilft der Logarithmus. | 10 | 10 | 5 | 12 |
+| A23 | **Polynomgleichungen** | Ausklammern oder x² ersetzen. Eine doppelte Lösung berührt die Achse nur. | 10 | – | – | 6, 14 |
 
-Vier Etagen, von unten nach oben zu lesen. Eine Regel steht nie unter einer Regel, die sie braucht ([G], `bauen.py` prüft es).
+### Geld und Verhältnisse – 11 Gesetze (dritter Planet)
 
-| Etage | Regeln |
+| Nr. | Gesetz | In einem Satz | G | R | I | braucht aus der Sonne |
+|---|---|---|---|---|---|---|
+| | *Größen* | | | | | |
+| V1 | **Größe und Einheit** | Eine Größe ist Zahl mal Einheit. Umrechnungszahlen: Längen 10 (und 1 000 bis km), Massen 1 000, Zeit 60. | 5 | 5 | 2 | 1 |
+| V2 | **Maßstab** | 1 : n heißt: 1 cm im Plan sind n cm in Wirklichkeit. | 5 | 5 | 2 | 11 |
+| | *Proportionalität* | | | | | |
+| V3 | **Direkte Proportionalität** | Doppelt so viel von dem einen, doppelt so viel von dem anderen. Der Quotient bleibt gleich. | 5–8 | 6–8 | 2–3 | 11 |
+| V4 | **Dreisatz** | Erst auf eins, dann auf viele. | 5 | 6 | 2 | 11 |
+| V5 | **Verhältnisse** | a : b lässt sich kürzen wie ein Bruch. Aufteilen im Verhältnis: erst die Teile zusammenzählen. | 6 | 6 | 1 | 9 |
+| V6 | **Indirekte Proportionalität** | Doppelt so viel von dem einen, halb so viel von dem anderen. Das Produkt bleibt gleich. | 8 | 7 | 4 | 11 |
+| V7 | **Änderungsrate** | Änderung je Einheit: Unterschied der Werte durch Unterschied der Schritte. | 5 | 6 | 2 | 11 |
+| | *Prozent und Zins* | | | | | |
+| V8 | **Grundgleichung der Prozentrechnung** | Prozentwert = Prozentsatz mal Grundwert. Zwei der drei Größen bestimmen die dritte. | 6 | 6 | 1 | 1, 12 |
+| V9 | **Wachstumsfaktor** | Plus p % heißt mal (1 + p/100), minus p % heißt mal (1 − p/100). Erst plus 10 %, dann minus 10 % ist nicht wieder der Anfang. | 7 | 7 | 3 | 1 |
+| V10 | **Zinsen** | Jahreszinsen = Kapital mal Zinssatz. Für Monate nimmt man den Anteil am Jahr. | 6 | 7 | 4 | 1 |
+| V11 | **Zinseszins** | Kapital nach n Jahren = Anfangskapital mal Wachstumsfaktor hoch n. | 7 | 7 | 3 | 8 |
+
+### Geometrie – 30 Gesetze (vierter Planet)
+
+| Nr. | Gesetz | In einem Satz | G | R | I | braucht aus der Sonne |
+|---|---|---|---|---|---|---|
+| | *Lage und Winkel* | | | | | |
+| G1 | **Koordinatensystem** | Punkt (x | y): erst nach rechts oder links, dann nach oben oder unten. | 5 | 5 | 1 | – |
+| G2 | **Parallel, senkrecht, Abstand** | Der Abstand ist die kürzeste Verbindung – sie steht senkrecht. | 5 | 5 | 1 | – |
+| G3 | **Winkelarten** | Voller Winkel 360°, gestreckter 180°, rechter 90°. | 5 | 5 | 1 | – |
+| G4 | **Scheitel- und Nebenwinkel** | Scheitelwinkel sind gleich groß. Nebenwinkel ergeben zusammen 180°. | 5–7 | 5–7 | 1–2 | – |
+| G5 | **Stufen- und Wechselwinkel** | An parallelen Geraden sind Stufenwinkel und Wechselwinkel gleich groß – und umgekehrt. | 7 | 7 | 2 | – |
+| G6 | **Winkelsumme** | Im Dreieck 180°, im Viereck 360°, im n-Eck (n − 2) mal 180°. Ein Außenwinkel ist so groß wie die beiden anderen Innenwinkel zusammen. | 7 | 7 | 2 | – |
+| | *Figuren und Konstruktion* | | | | | |
+| G7 | **Besondere Vierecke** | Quadrat, Rechteck, Raute, Parallelogramm, Trapez, Drachenviereck: Jedes hat seine festen Eigenschaften. | 5–7 | 5–7 | 1–3 | – |
+| G8 | **Ortslinien** | Kreis: gleich weit von einem Punkt. Mittelsenkrechte: gleich weit von zwei Punkten. Winkelhalbierende: gleich weit von zwei Schenkeln. | 5–7 | 6–7 | 3 | – |
+| G9 | **Gleichschenkliges Dreieck** | Gleiche Schenkel, gleiche Basiswinkel – und umgekehrt. Gleichseitig: dreimal 60°. | 7 | 7 | 3 | – |
+| G10 | **Kongruenzsätze** | Drei passende Angaben legen ein Dreieck fest: SSS, SWS, WSW, SsW. Zwei Seiten sind zusammen immer länger als die dritte. | 7 | 7 | 3 | – |
+| G11 | **Satz und Kehrsatz** | Die Umkehrung eines Satzes ist ein neuer Satz und muss eigens begründet werden. | 7 | 7 | 3–4 | – |
+| G12 | **Satz des Thales** | Liegt die Ecke auf dem Halbkreis über einer Seite, hat das Dreieck dort einen rechten Winkel – und umgekehrt. | 7 | 7 | 4 | – |
+| G13 | **Tangente** | Die Tangente steht senkrecht auf dem Radius zum Berührpunkt. | 7 | 7 | 4 | – |
+| G14 | **Umkreis und Inkreis** | Umkreis-Mittelpunkt: Schnitt der Mittelsenkrechten. Inkreis-Mittelpunkt: Schnitt der Winkelhalbierenden. | 7 | 7 | 4 | – |
+| | *Abbilden* | | | | | |
+| G15 | **Spiegeln, Verschieben, Drehen** | Diese Abbildungen ändern weder Längen noch Winkel: Bild und Original sind deckungsgleich. | 7 | 6 | 3 | – |
+| G16 | **Symmetrie** | Achsensymmetrisch: Spiegeln an der Achse ändert nichts. Punktsymmetrisch: halbe Drehung ändert nichts. | 7 | 6 | 3 | – |
+| G17 | **Vektoren** | Ein Vektor ist eine Verschiebung: Spitze minus Fuß. Der Gegenvektor führt zurück. | 7 | 6 | 3 | 2 |
+| G18 | **Fläche mit Determinante** | Zwei Vektoren spannen ein Parallelogramm auf; seine Fläche ist der Betrag von a·d − b·c. | – | 7 | – | – |
+| G19 | **Matrizen und Skalarprodukt** | Eine Matrix beschreibt eine Abbildung. Skalarprodukt null heißt senkrecht. | – | 10 | 5 | – |
+| | *Ähnlichkeit und rechtwinkliges Dreieck* | | | | | |
+| G20 | **Ähnlichkeit** | Ähnliche Figuren haben gleiche Winkel und alle Seiten im selben Verhältnis. | 9 | 9 | 3 | 11 |
+| G21 | **Strahlensätze** | Schneiden Parallelen zwei Strahlen, stehen die Abschnitte im selben Verhältnis. | 9 | 9 | 3 | 11 |
+| G22 | **Vergrößern mit Faktor k** | Längen mal k, Flächen mal k², Volumen mal k³. | 8–9 | 9 | 3 | 8 |
+| G23 | **Schwerpunkt** | Die Seitenhalbierenden schneiden sich im Schwerpunkt; er teilt sie im Verhältnis 2 : 1. | 9 | 9 | 3 | 11 |
+| G24 | **Satz des Pythagoras** | Im rechtwinkligen Dreieck gilt a² + b² = c² – und nur dort. | 9 | 9 | 3 | 12 |
+| G25 | **Sinus, Kosinus, Tangens** | Sinus = Gegenkathete durch Hypotenuse, Kosinus = Ankathete durch Hypotenuse, Tangens = Gegenkathete durch Ankathete. | 9 | 9 | 4 | 11 |
+| G26 | **Zusammenhänge der Winkelfunktionen** | sin² + cos² = 1 und tan = sin : cos. | 9 | 9 | 4 | – |
+| G27 | **Einheitskreis** | Am Kreis mit Radius 1 sind Kosinus und Sinus die Koordinaten des Punktes – für jeden Winkel. | 9 | 10 | 4 | – |
+| G28 | **Sinussatz und Kosinussatz** | In jedem Dreieck: Seite durch Sinus des Gegenwinkels ist für alle drei gleich. Der Kosinussatz ist Pythagoras mit Korrektur. | 9 | 10 | 4 | – |
+| G29 | **Additionstheoreme** | Der Sinus einer Summe ist nicht die Summe der Sinus: sin(α + β) = sin α · cos β + cos α · sin β. | 9 | 10 | 4 | – |
+| G30 | **Winkel aus Sinus oder Kosinus** | Zu einem Wert gehören in einer vollen Drehung meist zwei Winkel. | 9 | 10 | 5 | 12 |
+
+### Fläche und Raum – 19 Gesetze (fünfter Planet)
+
+| Nr. | Gesetz | In einem Satz | G | R | I | braucht aus der Sonne |
+|---|---|---|---|---|---|---|
+| | *Flächen* | | | | | |
+| F1 | **Fläche messen** | Flächeninhalt heißt: Wie viele Einheitsquadrate passen hinein? Umrechnungszahl 100. | 5 | 5 | 1 | 1 |
+| F2 | **Rechteck** | Fläche = Länge mal Breite. Umfang = einmal außen herum. | 5 | 5 | 1 | – |
+| F3 | **Fläche ist nicht Umfang** | Gleicher Umfang heißt nicht gleiche Fläche. | 5 | 5–8 | 1 | – |
+| F4 | **Zerlegen und Ergänzen** | Zerschneiden und neu zusammenlegen ändert die Fläche nicht. | 5–6 | 5–6 | 1 | – |
+| F5 | **Parallelogramm** | Fläche = Grundseite mal Höhe. Die Höhe steht senkrecht. | 6 | 6 | – | – |
+| F6 | **Dreieck** | Fläche = Grundseite mal Höhe, geteilt durch 2. | 6–8 | 6 | 4 | – |
+| F7 | **Trapez** | Fläche = Mittelwert der beiden parallelen Seiten mal Höhe. | 6–8 | 6 | 4 | – |
+| F8 | **Drachenviereck und Raute** | Fläche = Diagonale mal Diagonale, geteilt durch 2. | 6 | 6 | – | – |
+| F9 | **Kreis** | Umfang = 2 · π · r. Fläche = π · r². π ist etwas mehr als 3. | 8 | 9 | 3 | – |
+| F10 | **Kreisausschnitt** | Der Anteil am vollen Winkel ist der Anteil an Umfang und Fläche. | 8 | 9 | 3 | 11 |
+| | *Körper* | | | | | |
+| F11 | **Volumen messen** | Volumen heißt: Wie viele Einheitswürfel passen hinein? Umrechnungszahl 1 000. 1 Liter = 1 dm³. | 6 | 6 | – | 1 |
+| F12 | **Quader** | Volumen = Länge mal Breite mal Höhe. | 6 | 6 | – | – |
+| F13 | **Oberfläche** | Die Oberfläche ist die Summe aller Flächen des Netzes. Quader: sechs Rechtecke, je zwei gleich. | 5–6 | 6 | 1 | – |
+| F14 | **Netz und Schrägbild** | Das Netz ist der aufgeklappte Körper. Im Schrägbild werden Kanten nach hinten schräg und verkürzt gezeichnet. | 8–10 | 5–7 | 3–4 | – |
+| F15 | **Prisma und Zylinder** | Volumen = Grundfläche mal Höhe. Oberfläche = zwei Grundflächen plus Mantel. | 8 | 9 | – | – |
+| F16 | **Satz von Cavalieri** | Gleiche Höhe und auf jeder Höhe gleich große Schnittfläche: gleiches Volumen. | 8 | 9 | – | – |
+| F17 | **Pyramide und Kegel** | Volumen = ein Drittel von Grundfläche mal Höhe. | 10 | 9 | 3 | – |
+| F18 | **Kugel** | Volumen = 4/3 · π · r³. Oberfläche = 4 · π · r². | 10 | 9 | 3 | – |
+| F19 | **Lage im Raum** | Zwei Geraden im Raum sind parallel, schneiden sich oder laufen windschief aneinander vorbei. | 10 | 7 | 4 | – |
+
+### Funktionen – 20 Gesetze (sechster Planet)
+
+| Nr. | Gesetz | In einem Satz | G | R | I | braucht aus der Sonne |
+|---|---|---|---|---|---|---|
+| | *Grundbegriffe* | | | | | |
+| U1 | **Funktion** | Zu jedem x gehört genau ein y. | 8 | 8 | 3 | – |
+| U2 | **Punktprobe** | Ein Punkt liegt auf dem Graphen, wenn seine Koordinaten die Gleichung erfüllen. | 8–9 | 8–9 | 3–4 | – |
+| U3 | **Nullstelle und Achsenabschnitt** | Nullstelle: y = 0. Schnitt mit der y-Achse: x = 0. | 8 | 8 | 3–4 | 13 |
+| U4 | **Schnittpunkt** | Im Schnittpunkt haben beide Funktionen denselben Wert: gleichsetzen. | 8–9 | 8–9 | 3–4 | 13 |
+| U5 | **Graphen verschieben und strecken** | Plus e schiebt nach oben, (x − d) schiebt nach rechts, mal a streckt, ein Minus davor spiegelt. | 8–10 | 9–10 | 4–5 | – |
+| U6 | **Umkehrfunktion** | x und y tauschen; der Graph wird an der Geraden y = x gespiegelt. Geht nur, wenn zu jedem y genau ein x gehört. | 9 | 10 | 4 | 12 |
+| | *Funktionsarten* | | | | | |
+| U7 | **Lineare Funktion** | y = m · x + t: m ist die Steigung (Höhenunterschied durch Längenunterschied), t der Abschnitt auf der y-Achse. | 8 | 8 | 3 | 11 |
+| U8 | **Ursprungsgerade** | Proportional heißt: Gerade durch den Ursprung. | 8 | 8 | 3 | 11 |
+| U9 | **Parallel und senkrecht** | Parallele Geraden haben dieselbe Steigung. Senkrechte: Die Steigungen ergeben malgenommen −1. | 8 | 8 | 3 | – |
+| U10 | **Geradenscharen** | Ein Parameter in m dreht die Gerade, ein Parameter in t verschiebt sie. | 8 | 8 | 3 | – |
+| U11 | **Hyperbel** | y = a : x: doppeltes x, halbes y. Der Graph kommt den Asymptoten beliebig nahe, erreicht sie aber nie. | 8 | 7 | 4 | 11 |
+| U12 | **Parabel** | y = a · (x − d)² + e hat den Scheitel (d | e). a entscheidet über Öffnung und Breite. | 9 | 9 | 4 | 6 |
+| U13 | **Potenzfunktionen** | Gerade Hochzahl: symmetrisch zur y-Achse. Ungerade Hochzahl: symmetrisch zum Ursprung. | 9 | 10 | 4 | 8 |
+| U14 | **Exponentialfunktion** | Exponentiell: In gleichen Schritten wird mit derselben Zahl malgenommen. Linear: Es kommt dieselbe Zahl dazu. | 10 | 10 | 5 | 8 |
+| U15 | **Logarithmusfunktion** | Sie ist die Umkehrung der Exponentialfunktion. | 10 | 10 | 5 | 12 |
+| U16 | **Sinus- und Kosinusfunktion** | Sie wiederholen sich nach 360° (im Bogenmaß 2π). Die Amplitude ist die größte Auslenkung. 180° entsprechen π. | 10 | 10 | 5 | – |
+| U17 | **Ganzrationale Funktionen** | Die höchste Hochzahl bestimmt, wohin der Graph außen läuft. Die Produktform zeigt die Nullstellen. | 10 | – | 5 | 14 |
+| U18 | **Betragsfunktion** | Der Graph hat einen Knick. |x| = a hat die Lösungen a und −a. | – | – | 5 | 2 |
+| U19 | **Folgen** | Arithmetisch: immer dieselbe Zahl dazu. Geometrisch: immer mit derselben Zahl mal. | – | – | 5 | – |
+| U20 | **Reihen** | Arithmetische Reihe: Anzahl mal Mittelwert aus erstem und letztem Glied. Für die geometrische gibt es eine eigene Summenformel. | – | – | 5 | – |
+
+### Daten und Zufall – 20 Gesetze (siebter Planet)
+
+| Nr. | Gesetz | In einem Satz | G | R | I | braucht aus der Sonne |
+|---|---|---|---|---|---|---|
+| | *Daten* | | | | | |
+| D1 | **Häufigkeit** | Absolute Häufigkeit: wie oft. Relative Häufigkeit: Anzahl durch Gesamtzahl. | 6–8 | 5–9 | 1–2 | 11 |
+| D2 | **Diagramme lesen** | Im Kreisdiagramm gehört zu jedem Anteil derselbe Anteil von 360°. Eine Achse, die nicht bei 0 beginnt, übertreibt Unterschiede. | 6 | 5 | 1 | 11 |
+| D3 | **Mittelwert** | Alle Werte addieren, durch die Anzahl teilen. | 6 | 7 | 2 | – |
+| D4 | **Median, Modalwert, Spannweite** | Median: der Wert in der Mitte der geordneten Liste. Modalwert: der häufigste. Spannweite: größter minus kleinster. | 7 | 7 | 4 | – |
+| D5 | **Mittelwert oder Median** | Ein Ausreißer zieht den Mittelwert mit, den Median nicht. | 7 | 7 | 4 | – |
+| D6 | **Quartile und Boxplot** | Die Box enthält die mittlere Hälfte der Werte. | 7 | 7 | 4 | – |
+| D7 | **Stichprobe** | Eine Stichprobe taugt nur, wenn sie zufällig gezogen und groß genug ist. | – | 7 | 2 | 11 |
+| D8 | **Zusammenhang ist nicht Ursache** | Zwei Größen können zusammen steigen, ohne dass die eine die andere bewirkt. | – | – | 5 | – |
+| D9 | **Streuung** | Die Standardabweichung misst, wie weit die Werte im Mittel vom Mittelwert entfernt liegen. | – | – | 5 | 12 |
+| D10 | **Normalverteilung** | Etwa 68 % der Werte liegen höchstens eine Standardabweichung vom Mittelwert entfernt, 95 % höchstens zwei. | – | – | 5 | – |
+| | *Zählen und Zufall* | | | | | |
+| D11 | **Zählprinzip** | Die Möglichkeiten der einzelnen Stufen werden malgenommen. | 5 | 5 | 2 | – |
+| D12 | **Ergebnis und Ereignis** | Ein Ereignis ist eine Menge von Ergebnissen. | 8 | 9 | 2 | – |
+| D13 | **Laplace-Wahrscheinlichkeit** | Günstige durch mögliche Ergebnisse – nur wenn alle gleich wahrscheinlich sind. | 8 | 9 | 2 | 11 |
+| D14 | **Gegenereignis** | Jede Wahrscheinlichkeit liegt zwischen 0 und 1. Gegenereignis: 1 minus die Wahrscheinlichkeit. | 8–10 | 9–10 | 2–4 | – |
+| D15 | **Gesetz der großen Zahlen** | Bei sehr vielen Versuchen nähert sich die relative Häufigkeit der Wahrscheinlichkeit. | 8–10 | 9 | 2 | – |
+| D16 | **Additionssatz** | Entweder-oder: Wahrscheinlichkeiten addieren und das doppelt Gezählte abziehen. | 9 | 9 | 4 | – |
+| D17 | **Vierfeldertafel** | Zeilen und Spalten ergeben die Randsummen; ein Feld folgt aus den anderen. | 9 | 9 | 4 | – |
+| D18 | **Bedingte Wahrscheinlichkeit** | Unter der Bedingung B zählt nur noch, was in B liegt. Unabhängig heißt: Die Bedingung ändert nichts. | 9 | 9 | 4 | 11 |
+| D19 | **Pfadregeln** | Entlang eines Pfades malnehmen, mehrere Pfade addieren. | 10 | 10 | 4 | 10 |
+| D20 | **Simulation** | Ein Zufallsversuch lässt sich mit Zufallszahlen nachspielen; viele Durchgänge ergeben einen Schätzwert. | 10 | 9 | 2 | – |
+
+### Entdecker-Inseln – 5 Gesetze (Kleinplaneten am Rand)
+
+| Nr. | Gesetz | In einem Satz | G | R | I | braucht aus der Sonne |
+|---|---|---|---|---|---|---|
+| | *Nur IB – Kür* | | | | | |
+| E1 | **Mengen** | Schnittmenge: in beiden. Vereinigungsmenge: in mindestens einer. | – | – | – | – |
+| E2 | **Aussagenlogik** | „Und“ ist nur wahr, wenn beide wahr sind. „Wenn A, dann B“ ist nur falsch, wenn A wahr und B falsch ist. | – | – | 4 | – |
+| E3 | **Graphen** | Jede Kante zählt an zwei Knoten. Ein Rundweg über alle Kanten geht nur, wenn jeder Knoten gerade viele Kanten hat. | – | – | 4 | – |
+| E4 | **Lineare Optimierung** | Der beste Wert liegt in einer Ecke des erlaubten Bereichs. | – | – | 5 | – |
+| E5 | **Schranken** | Ein gerundeter Messwert kann eine halbe Einheit größer oder kleiner sein. | – | – | 5 | 1 |
+
+## Die Arbeitsweisen – eigener Ort
+
+| Arbeitsweise | Merksatz |
 |---|---|
-| **4 · Gleichungen** | 12 Gegenrechnung · 13 Gleichung als Waage · 14 Nullprodukt |
-| **3 · Brüche und Verhältnis** | 9 Erweitern und Kürzen · 10 Rechnen mit Brüchen · 11 Verhältnis (Dreisatz) |
-| **2 · Klammern und Potenzen** | 5 Tauschen und Zusammenfassen · 6 Ausmultiplizieren und Ausklammern · 7 Minus vor der Klammer · 8 Potenzen |
-| **1 · Zahlen** | 1 Stellenwert und Prozent · 2 Plus und Minus mit negativen Zahlen · 3 Vorzeichen bei Mal und Geteilt · 4 Reihenfolge beim Rechnen |
+| Probe | **Setz ein und rechne nach.** |
+| Überschlag | **Erst grob, dann genau.** |
+| Einheiten | **Rechne mit Einheiten – die Einheit des Ergebnisses prüft die Rechnung.** |
+| Skizze | **Zeichne, was du weißt.** |
+| Ansatz | **Gegeben, gesucht, Rechnung, Antwort.** |
+| Begründen | **Nenne den Satz, dann wende ihn an. Für „stimmt nicht“ genügt ein Gegenbeispiel.** |
+| Ablesen und Darstellen | **Erst Achsen und Einheiten lesen, dann die Werte.** |
+| Formel anwenden | **Formel hinschreiben, einsetzen, auflösen.** |
 
-Die einzelnen Abhängigkeiten:
+Sie sind keine Gesetze, sondern Vorgehen, und gelten auf jedem Planeten. „Einheiten“ ist neu dabei, wie im Auftrag genannt.
 
-- **3 Vorzeichen bei Mal und Geteilt** braucht: 2 Plus und Minus mit negativen Zahlen
-- **5 Tauschen und Zusammenfassen** braucht: 2 Plus und Minus mit negativen Zahlen
-- **6 Ausmultiplizieren und Ausklammern** braucht: 4 Reihenfolge beim Rechnen
-- **7 Minus vor der Klammer** braucht: 6 Ausmultiplizieren und Ausklammern, 3 Vorzeichen bei Mal und Geteilt
-- **8 Potenzen** braucht: 4 Reihenfolge beim Rechnen, 3 Vorzeichen bei Mal und Geteilt
-- **9 Erweitern und Kürzen** braucht: 1 Stellenwert und Prozent
-- **10 Rechnen mit Brüchen** braucht: 9 Erweitern und Kürzen
-- **11 Verhältnis (Dreisatz)** braucht: 9 Erweitern und Kürzen, 1 Stellenwert und Prozent
-- **12 Gegenrechnung** braucht: 4 Reihenfolge beim Rechnen
-- **13 Gleichung als Waage** braucht: 12 Gegenrechnung, 6 Ausmultiplizieren und Ausklammern
-- **14 Nullprodukt** braucht: 6 Ausmultiplizieren und Ausklammern, 13 Gleichung als Waage
+## Was bewusst nicht im Gesetzbuch steht
 
-Vorschlag für die Darstellung [M]: **ein Haus mit vier Etagen** für den Aufbau und daneben **ein Band je Regel von Klasse 5 bis 10**, auf dem in jedem Jahr das Beispiel steht. Das Haus zeigt „aufeinander aufbauend“, die Bänder zeigen „für viele Klassen dasselbe“. Auf dem Dach stehen die Sätze der Gebiete, neben dem Haus der Werkzeugkasten mit den Arbeitsweisen.
-Verworfen: Baum (Äste suggerieren Trennung, die Regeln greifen aber ineinander) · Sonnensystem (kein Unten und Oben, also kein Aufbau) · reine Tabelle (zeigt die Jahre, nicht den Aufbau).
+- **Rechenverfahren** (schriftliches Malnehmen und Teilen, Heron-Verfahren, Konstruktionsschritte): Das sind Abläufe, keine Gesetze. Sie gehören in die Lernreise.
+- **Reine Begriffe** (Was ist ein Trapez, was ist ein Ereignis): nur dort aufgenommen, wo aus dem Begriff eine Regel folgt.
+- **Einzelne Formeln ohne eigene Idee** (Kreisring, Kreisabschnitt, Mantel der Pyramide): Sie entstehen aus den aufgeführten Gesetzen durch Zerlegen.
 
-## Die Regeln einzeln
+## Gesetze, die auf einem anderen Planeten stehen als ihr Thema in der App
 
-### 1. Stellenwert und Prozent
-
-> **Mal 10 schiebt jede Ziffer eine Stelle nach links, geteilt durch 10 eine nach rechts. Prozent heißt Hundertstel.**
-
-**Warum das gilt:** Unser Zahlensystem zählt in Zehnerbündeln: Jede Stelle ist zehnmal so viel wert wie die Stelle rechts von ihr. Deshalb verschiebt Malnehmen mit 10 alle Ziffern, ohne sie zu ändern. Das Komma trennt nur Ganze von Zehnteln; „Prozent“ ist ein anderes Wort für Hundertstel.
-
-**Wo es nicht gilt:** Es wird nicht „eine Null angehängt“: 2,5 · 10 ist 25, nicht 2,50. Beim Runden entscheidet die Ziffer rechts von der Rundungsstelle (ab 5 aufrunden).
-
-| Klasse | Dieselbe Regel in diesem Jahr | Thema in der App |
+| Planet im Gesetzbuch | Gesetz | Gebiet des Themas in der App |
 |---|---|---|
-| 5 | 3 400 m = 3,4 km | `groessen.einheiten` |
-| 6 | 15 % von 240 = 0,15 · 240 = 36 | `bruch.prozent` |
-| 7 | 20 % mehr heißt mal 1,2: aus 50 € werden 60 € | `bruch.prozent_grundwert` |
-| 8 | 3 · 10⁻⁴ = 0,0003 | `terme.potenzgesetze_ganzzahlig` |
-| 10 | Jedes Jahr 5 % mehr heißt jedes Jahr mal 1,05 | `funktionen.exponential_log` |
+| Zahlen | Logarithmus | Algebra, Funktionen |
 
-**Baut auf:** nichts – Fundament
-**Bild (gewählt):** Stellenwerttafel, in der die Ziffern 2 und 5 beim Malnehmen mit 10 gemeinsam ein Fach nach links rutschen – das Komma bleibt stehen.
-**Verworfen:** „Null anhängen“ (falsch bei Kommazahlen); wanderndes Komma (zeigt die Wirkung, nicht den Grund).
+## Vorschlag für die weitere Ausarbeitung
 
-### 2. Plus und Minus mit negativen Zahlen
-
-> **Plus geht nach rechts, Minus nach links. Ein Minus in der Klammer dreht die Richtung um.**
-
-**Warum das gilt:** Auf der Zahlengeraden ist Addieren ein Schritt nach rechts und Subtrahieren ein Schritt nach links. Eine negative Zahl ist ein Schritt in die Gegenrichtung. Wer eine negative Zahl abzieht, dreht also zweimal um und geht nach rechts: 9 − (−5) = 9 + 5.
-
-**Wo es nicht gilt:** Die Regel sagt nichts über die Größe: −30 ist kleiner als −10, obwohl 30 größer ist als 10. Der Betrag ist der Abstand zur Null und nie negativ.
-
-| Klasse | Dieselbe Regel in diesem Jahr | Thema in der App |
-|---|---|---|
-| 5 | (−7) + 4 = −3 · 9 − (−5) = 14 | `zahlen.ganz` |
-| 6 | −½ − ¾ = −1¼ | `bruch.rechnen` |
-| 7 | 3x − 5x = −2x | `terme.umformen` |
-| 8 | x + 5 < 2, also x < −3 | `gleichungen.ungleichungen` |
-| 9 | Die Wurzel aus x² ist der Betrag von x: aus (−3)² wird 3 | `zahlen.reell` |
-
-**Baut auf:** nichts – Fundament
-**Bild (gewählt):** Zahlengerade mit einer Figur: Sie steht auf der 9, schaut nach links (Minus), dreht sich wegen der (−5) um und geht fünf Schritte nach rechts.
-**Verworfen:** Schulden und Guthaben (trägt beim Abziehen von Schulden schlecht); Thermometer (gut für das Vergleichen, schwach für „minus minus“).
-
-### 3. Vorzeichen bei Mal und Geteilt
-
-> **Minus mal Minus gibt Plus. Plus mal Minus gibt Minus.**
-
-**Warum das gilt:** Setzt man die Reihe 3 · (−2) = −6, 2 · (−2) = −4, 1 · (−2) = −2, 0 · (−2) = 0 fort, wächst das Ergebnis jedes Mal um 2. Also muss (−1) · (−2) = 2 sein. Nur so bleiben alle anderen Rechengesetze gültig. Für Geteilt gilt dasselbe, weil Teilen die Gegenrechnung zum Malnehmen ist.
-
-**Wo es nicht gilt:** Gilt nur bei Mal und Geteilt, nicht bei Plus: (−3) + (−4) ist −7, nicht +7. Bei Ungleichungen dreht Malnehmen mit einer negativen Zahl das Ungleichheitszeichen um.
-
-| Klasse | Dieselbe Regel in diesem Jahr | Thema in der App |
-|---|---|---|
-| 5 | (−3) · (−4) = 12 | `zahlen.rechengesetze` |
-| 6 | (−⅔) · ¾ = −½ | `bruch.rechnen` |
-| 7 | (−2x) · (−3) = 6x | `terme.umformen` |
-| 8 | −2x < 6, also x > −3 | `gleichungen.ungleichungen` |
-| 9 | x² = 25 hat zwei Lösungen: 5 und −5 | `gleichungen.quadratisch` |
-| 10 | (−2)³ = −8: Eine ungerade Hochzahl behält das Minus | `funktionen.ganzrational` |
-
-**Baut auf:** Plus und Minus mit negativen Zahlen
-**Bild (gewählt):** Die Musterreihe als Treppe: vier Stufen abwärts von −6 bis 0 – und die nächste Stufe landet zwingend bei +2.
-**Verworfen:** Vierfeldertafel der Zeichen (richtig, aber erklärt nichts); „Feind meines Feindes“ (merkbar, aber kein Grund).
-
-### 4. Reihenfolge beim Rechnen
-
-> **Klammer zuerst, dann Hoch, dann Punkt, dann Strich.**
-
-**Warum das gilt:** Die Reihenfolge ist eine Vereinbarung, damit jeder dieselbe Rechnung gleich liest. Sie folgt dem Aufbau: Hoch ist wiederholtes Malnehmen, Mal ist wiederholtes Addieren – die „stärkere“ Rechnung bindet enger. Klammern sind das Mittel, die Reihenfolge zu ändern.
-
-**Wo es nicht gilt:** Die zuletzt ausgeführte Rechnung gibt dem Term seinen Namen: 2 + 3x ist eine Summe. Deshalb darf man 2 + 3x nicht zu 5x zusammenziehen.
-
-| Klasse | Dieselbe Regel in diesem Jahr | Thema in der App |
-|---|---|---|
-| 5 | 2 + 3 · 4 = 14, nicht 20 | `zahlen.rechengesetze` |
-| 6 | ½ + ½ · ½ = ¾ | `bruch.rechnen` |
-| 7 | 2 + 3x ist eine Summe, nicht 5x | `terme.umformen` |
-| 8 | 3 · 2⁻² = ¾, nicht 6⁻² | `terme.potenzgesetze_ganzzahlig` |
-| 9 | −3² = −9, aber (−3)² = 9 | `gleichungen.quadratisch` |
-| 10 | 2 · 3² = 18, nicht 6² = 36: Hoch kommt vor Mal | `gleichungen.exponential` |
-
-**Baut auf:** nichts – Fundament
-**Bild (gewählt):** Vier Treppenstufen von oben nach unten: Klammer, Hoch, Punkt, Strich. Daneben 2 + 3 · 4 mit einem Rahmen um 3 · 4.
-**Verworfen:** Kunstwort aus Anfangsbuchstaben (merkt sich, erklärt nichts); Ampel (keine Rangfolge erkennbar).
-
-### 5. Tauschen und Zusammenfassen
-
-> **Bei Plus und Mal darfst du tauschen, bei Minus und Geteilt nicht. Zusammenfassen darfst du nur Gleiches.**
-
-**Warum das gilt:** Bei einer Summe und bei einem Produkt kommt es nicht auf die Reihenfolge an: 3 + 5 und 5 + 3 sind dieselbe Menge. Beim Abziehen und Teilen schon: 5 − 3 ist nicht 3 − 5. Wer jede Zahl mit ihrem Rechenzeichen zusammen verschiebt, darf trotzdem umstellen. Zusammenfassen heißt zählen: 3 Äpfel und 4 Äpfel sind 7 Äpfel – 3 Äpfel und 4 Birnen bleiben getrennt.
-
-**Wo es nicht gilt:** 3a + 4b lässt sich nicht zusammenfassen, 3a · 4b schon (12ab). a und a² sind nicht „Gleiches“.
-
-| Klasse | Dieselbe Regel in diesem Jahr | Thema in der App |
-|---|---|---|
-| 5 | 25 · 37 · 4 = 25 · 4 · 37 = 3 700 | `zahlen.rechengesetze` |
-| 6 | 0,5 · 7 · 2 = 0,5 · 2 · 7 = 7 | `bruch.dezimal` |
-| 7 | 3a + 2b + 4a = 7a + 2b | `terme.umformen` |
-| 8 | a³ · b · a⁻¹ = a² · b | `terme.potenzgesetze_ganzzahlig` |
-| 9 | 3 · √2 + 2 · √2 = 5 · √2 (nur gleiche Wurzeln) | `zahlen.reell` |
-
-**Baut auf:** Plus und Minus mit negativen Zahlen
-**Bild (gewählt):** Zwei Körbe: In einen wandern alle x, in den anderen alle Zahlen. Jedes Teil trägt sein Rechenzeichen wie ein Etikett mit.
-**Verworfen:** Äpfel und Birnen allein (zeigt das Zusammenfassen, nicht das Tauschen).
-
-### 6. Ausmultiplizieren und Ausklammern
-
-> **Der Faktor vor der Klammer trifft jeden in der Klammer.**
-
-**Warum das gilt:** Ein Rechteck mit den Seiten a und (b + c) hat dieselbe Fläche wie die zwei Teilrechtecke a · b und a · c zusammen. Rückwärts gelesen ist es das Ausklammern: Steckt in jedem Summanden derselbe Faktor, darf man ihn vor eine Klammer ziehen.
-
-**Wo es nicht gilt:** Gilt für Mal vor einer Summe, nicht für Hoch: (a + b)² ist nicht a² + b². Das Rechteckbild zeigt warum – es fehlen zwei Rechtecke a · b.
-
-| Klasse | Dieselbe Regel in diesem Jahr | Thema in der App |
-|---|---|---|
-| 5 | 6 · 98 = 6 · 100 − 6 · 2 = 588 | `zahlen.rechengesetze` |
-| 6 | 4 · 2,5 = 4 · 2 + 4 · 0,5 = 10 | `bruch.dezimal` |
-| 7 | 3 · (x + 2) = 3x + 6 · (a + b)² = a² + 2ab + b² | `terme.umformen` |
-| 8 | (3x + 6) : (x + 2) = 3 · (x + 2) : (x + 2) = 3 | `terme.bruchterme` |
-| 9 | x² + 5x = x · (x + 5) | `gleichungen.quadratisch` |
-| 10 | x³ − 4x = x · (x² − 4) | `gleichungen.polynom` |
-
-**Baut auf:** Reihenfolge beim Rechnen
-**Bild (gewählt):** Ein Rechteck, durch einen Strich in zwei Teile geteilt: Breite a, Längen b und c. Darunter dasselbe Bild für (a + b)² mit vier Feldern.
-**Verworfen:** Pfeile vom Faktor zu jedem Summanden (gut als Rechenhilfe, aber ohne Grund); Verteilen von Bonbons (trägt nicht bis zu Buchstaben).
-
-### 7. Minus vor der Klammer
-
-> **Minus vor der Klammer dreht jedes Zeichen in der Klammer um.**
-
-**Warum das gilt:** Ein Minus vor der Klammer heißt „mal (−1)“. Nach der Regel „der Faktor trifft jeden“ wird jeder Summand mit −1 malgenommen, also wechselt jedes Vorzeichen. Im Alltag: Wer 20 € hat und einen Einkauf von 8 € mit 3 € Rabatt bezahlt, hat 20 − 8 + 3 € übrig.
-
-**Wo es nicht gilt:** Ein Plus vor der Klammer ändert nichts. Die Regel ist keine neue Regel, sondern folgt aus den beiden Regeln davor – sie steht eigens da, weil hier die meisten Fehler entstehen.
-
-| Klasse | Dieselbe Regel in diesem Jahr | Thema in der App |
-|---|---|---|
-| 5 | 20 − (8 − 3) = 20 − 8 + 3 = 15 (in Klasse 5 nur zum Nachrechnen) | `zahlen.rechengesetze` |
-| 7 | 5x − (3x − 2) = 2x + 2 | `terme.umformen` |
-| 8 | 7 − 2 · (x − 3) = 7 − 2x + 6 | `gleichungen.bruch` |
-| 9 | (x + 1)² − (x² − 3) = 2x + 4 | `gleichungen.quadratisch` |
-
-**Baut auf:** Ausmultiplizieren und Ausklammern, Vorzeichen bei Mal und Geteilt
-**Bild (gewählt):** Kassenzettel: 20 € − (8 € − 3 € Rabatt). Der Rabatt in der Klammer wird beim Auflösen zu + 3 €.
-**Verworfen:** Vorzeichen-Wechsel als Schalter (zeigt nur das Was); Spiegel (führt in die Irre).
-
-### 8. Potenzen
-
-> **Hoch heißt: so oft mit sich selbst malnehmen. Gleiche Basis mal gleiche Basis: Hochzahlen addieren.**
-
-**Warum das gilt:** 2³ · 2² ist (2 · 2 · 2) · (2 · 2) – zusammen fünf Zweien, also 2⁵. Teilt man, fallen Faktoren weg; deshalb werden die Hochzahlen abgezogen. Setzt man das fort, ergibt sich 2⁰ = 1 und 2⁻¹ = ½: Eine negative Hochzahl heißt Kehrwert.
-
-**Wo es nicht gilt:** Gilt nur bei gleicher Basis und nur bei Mal: 2³ + 2² ist nicht 2⁵. Und a · a ist a², nicht 2a. Eine negative Hochzahl macht die Zahl nicht negativ.
-
-| Klasse | Dieselbe Regel in diesem Jahr | Thema in der App |
-|---|---|---|
-| 5 | 2⁵ = 2 · 2 · 2 · 2 · 2 = 32 | `zahlen.potenzen_basis` |
-| 6 | 10³ · 10² = 10⁵ | `terme.potenzgesetze` |
-| 7 | x² · x³ = x⁵ | `terme.potenzgesetze_natuerlich` |
-| 8 | a⁻² = 1 : a² | `terme.potenzgesetze_ganzzahlig` |
-| 9 | 9 hoch ½ ist die Wurzel aus 9, also 3 | `zahlen.rationale_exponenten` |
-| 10 | 2ˣ · 2³ = 2 hoch (x + 3) | `funktionen.exponential_log` |
-
-**Baut auf:** Reihenfolge beim Rechnen, Vorzeichen bei Mal und Geteilt
-**Bild (gewählt):** Faltblatt: einmal falten 2 Lagen, zweimal 4, dreimal 8. Darunter die Reihe 8, 4, 2, 1, ½, ¼ mit den Hochzahlen 3, 2, 1, 0, −1, −2.
-**Verworfen:** Turm aus Würfeln (zeigt Wachstum, nicht das Gesetz); Schachbrett mit Reiskörnern (schön, aber nur die Größe).
-
-### 9. Erweitern und Kürzen
-
-> **Zähler und Nenner mit derselben Zahl malnehmen oder durch dieselbe Zahl teilen: Der Bruch behält seinen Wert.**
-
-**Warum das gilt:** Der Nenner sagt, in wie viele gleiche Teile das Ganze geschnitten ist, der Zähler, wie viele davon gemeint sind. Schneidet man jedes Teil noch einmal durch, gibt es doppelt so viele Teile und man nimmt doppelt so viele – die Menge bleibt gleich: ½ = 2/4.
-
-**Wo es nicht gilt:** Kürzen darf man nur Faktoren, nie aus Summen: (x + 6) : (x + 2) ist nicht 3. Und Plus oder Minus in Zähler und Nenner ändert den Wert: 2/3 ist nicht 3/4.
-
-| Klasse | Dieselbe Regel in diesem Jahr | Thema in der App |
-|---|---|---|
-| 6 | 12/18 = 2/3 | `bruch.brueche` |
-| 7 | 6x : 9 = 2x : 3 | `terme.umformen` |
-| 8 | (3x + 6) : (x + 2) = 3, aber (x + 6) : (x + 2) lässt sich nicht kürzen | `terme.bruchterme` |
-| 9 | Seitenverhältnis 6 : 9 ist dasselbe wie 2 : 3 | `abbildungen.aehnlichkeit` |
-
-**Baut auf:** Stellenwert und Prozent
-**Bild (gewählt):** Dieselbe Pizza dreimal: in 2, in 4 und in 8 Stücke geschnitten – jedes Mal ist dieselbe Hälfte gefärbt.
-**Verworfen:** Bruchstreifen (genauso gut, aber weniger einprägsam); Formel a/b = ac/bc (richtig, aber kein Bild).
-
-### 10. Rechnen mit Brüchen
-
-> **Plus und Minus: erst gleicher Nenner. Mal: Zähler mal Zähler, Nenner mal Nenner. Geteilt: mal den Kehrbruch.**
-
-**Warum das gilt:** Addieren kann man nur gleich große Teile – Drittel und Halbe müssen erst in Sechstel umgerechnet werden. „Mal ½“ heißt „die Hälfte von“; deshalb werden beim Malnehmen die Teile feiner (Nenner mal Nenner). Teilen fragt „wie oft passt es hinein“: In 6 passt ½ zwölfmal – das ist dasselbe wie 6 mal 2.
-
-**Wo es nicht gilt:** Nie Zähler plus Zähler und Nenner plus Nenner: ½ + ⅓ ist nicht 2/5. Beim Malnehmen braucht man keinen gemeinsamen Nenner.
-
-| Klasse | Dieselbe Regel in diesem Jahr | Thema in der App |
-|---|---|---|
-| 6 | ½ + ⅓ = 3/6 + 2/6 = 5/6 · 6 : ½ = 12 | `bruch.rechnen` |
-| 7 | x/2 + x/3 = 5x/6 | `gleichungen.linear` |
-| 8 | 2/x + 3/(x + 1) = (5x + 2) : (x · (x + 1)) | `terme.bruchterme` |
-| 10 | Zweimal Kopf: ½ · ½ = ¼ | `stochastik.mehrstufig` |
-
-**Baut auf:** Erweitern und Kürzen
-**Bild (gewählt):** Zwei gleich lange Streifen: einer halbiert, einer gedrittelt. Darunter beide in Sechstel geteilt – drei Sechstel und zwei Sechstel liegen nebeneinander.
-**Verworfen:** Zwei Pizzen (unterschiedliche Stückgrößen sind schlecht zu sehen); Rechenregel als Kasten (kein Grund sichtbar).
-
-### 11. Verhältnis (Dreisatz)
-
-> **Erst auf eins, dann auf viele.**
-
-**Warum das gilt:** Wenn zwei Größen im selben Verhältnis wachsen, kostet jede Einheit gleich viel. Wer den Wert für eine Einheit kennt, kennt jeden anderen: 3 kg kosten 7,50 €, also 1 kg 2,50 €, also 5 kg 12,50 €. Dieselbe Idee steckt in Prozent (Wert je Hundertstel), in der Steigung einer Geraden (Höhe je Schritt nach rechts) und im Maßstab.
-
-**Wo es nicht gilt:** Gilt nur, wenn nichts Festes dazukommt: Mit Grundgebühr stimmt es nicht mehr. Und es gibt das Gegenstück: Bei „je mehr, desto weniger“ (doppelt so viele Helfer, halbe Zeit) bleibt das Produkt gleich, nicht das Verhältnis.
-
-| Klasse | Dieselbe Regel in diesem Jahr | Thema in der App |
-|---|---|---|
-| 5 | 3 kg kosten 7,50 €, 1 kg kostet 2,50 €, 5 kg kosten 12,50 € | `groessen.proportional` |
-| 6 | 15 von 60 sind 25 % | `bruch.prozent` |
-| 7 | 80 % sind 48 €, 1 % sind 0,60 €, 100 % sind 60 € | `bruch.prozent_grundwert` |
-| 8 | Steigung 1,5: je 2 nach rechts geht es 3 nach oben | `funktionen.linear` |
-| 9 | Strahlensatz: 2 : 3 = 4 : x, also x = 6 | `abbildungen.aehnlichkeit` |
-
-**Baut auf:** Erweitern und Kürzen, Stellenwert und Prozent
-**Bild (gewählt):** Drei Zeilen untereinander: 3 kg – 7,50 €, 1 kg – 2,50 €, 5 kg – 12,50 €, mit Pfeilen „geteilt durch 3“ und „mal 5“ auf beiden Seiten. Daneben ein Steigungsdreieck: 1 nach rechts, 2,5 nach oben.
-**Verworfen:** Kreuz-Schema „über Kreuz malnehmen“ (schnell, aber blind); Waage (schon vergeben).
-
-### 12. Gegenrechnung
-
-> **Jede Rechnung hat eine Gegenrechnung: Plus und Minus, Mal und Geteilt, Quadrat und Wurzel.**
-
-**Warum das gilt:** Die Gegenrechnung macht eine Rechnung rückgängig. Wer weiß, was mit einer Zahl gemacht wurde, findet sie, indem er rückwärts geht und jede Rechnung umkehrt – die letzte zuerst. In Klasse 10 kommt ein viertes Paar dazu: Hoch und Logarithmus.
-
-**Wo es nicht gilt:** Rückwärts in umgekehrter Reihenfolge: Was zuletzt gerechnet wurde, kommt zuerst weg. Beim Quadrat gibt es zwei Wege zurück: x² = 49 hat die Lösungen 7 und −7. Durch null teilen hat keine Gegenrechnung.
-
-| Klasse | Dieselbe Regel in diesem Jahr | Thema in der App |
-|---|---|---|
-| 5 | 4 · (□ − 12) = −20: erst : 4, dann + 12, also □ = 7 | `gleichungen.einfach` |
-| 6 | ¾ von einer Zahl sind 12: Die Zahl ist 12 : ¾ = 16 | `bruch.rechnen` |
-| 7 | Nach 20 % Aufschlag kostet es 60 €: vorher 60 : 1,2 = 50 € | `bruch.prozent_grundwert` |
-| 8 | A = g · h : 2 nach h: erst mal 2, dann durch g | `gleichungen.formeln` |
-| 9 | x² = 49, also x = 7 oder x = −7 | `gleichungen.quadratisch` |
-| 10 | 2ˣ = 8, also x = 3 (Logarithmus) | `gleichungen.exponential` |
-
-**Baut auf:** Reihenfolge beim Rechnen
-**Bild (gewählt):** Eine Zahl geht durch zwei Maschinen („− 12“, dann „· 4“) und kommt als −20 heraus. Darunter derselbe Weg rückwärts: „: 4“, dann „+ 12“.
-**Verworfen:** Hin- und Rückweg auf einer Straße (gleichwertig, weniger genau bei der Reihenfolge); Reißverschluss.
-
-### 13. Gleichung als Waage
-
-> **Eine Gleichung ist eine Waage: Was du links tust, musst du auch rechts tun.**
-
-**Warum das gilt:** Das Gleichheitszeichen sagt: Links und rechts steht gleich viel. Nimmt man auf beiden Seiten dasselbe weg oder verdoppelt beide Seiten, bleibt die Waage im Gleichgewicht – die Gleichung hat danach dieselbe Lösung. Welche Rechnung man wählt, sagt die Gegenrechnung.
-
-**Wo es nicht gilt:** „Auf beiden Seiten“ heißt: die ganze Seite. Beim Malnehmen und Teilen trifft es jeden Summanden. Mit null malnehmen oder durch einen Term teilen, der null sein kann, zerstört die Gleichung. Bei Ungleichungen dreht mal oder geteilt durch eine negative Zahl das Zeichen um.
-
-| Klasse | Dieselbe Regel in diesem Jahr | Thema in der App |
-|---|---|---|
-| 5 | □ + 7 = 3: auf beiden Seiten 7 abziehen, □ = −4 | `gleichungen.einfach` |
-| 7 | 2x + 2 = 12, also 2x = 10, also x = 5 | `gleichungen.linear` |
-| 8 | 3/x + ½ = 5/x: beide Seiten mal 2x, dann 6 + x = 10, x = 4 | `gleichungen.bruch` |
-| 9 | 2x² = 18, also x² = 9 | `gleichungen.quadratisch` |
-| 10 | 3 · 2ˣ = 24, also 2ˣ = 8 | `gleichungen.exponential` |
-
-**Baut auf:** Gegenrechnung, Ausmultiplizieren und Ausklammern
-**Bild (gewählt):** Balkenwaage: links zwei Säckchen x und zwei Kugeln, rechts zwölf Kugeln. Auf beiden Seiten werden zwei Kugeln weggenommen, dann beide Seiten halbiert.
-**Verworfen:** „Rüberbringen und Zeichen wechseln“ (führt zu Fehlern bei Mal und Geteilt); Wippe.
-
-### 14. Nullprodukt
-
-> **Ein Produkt ist null, wenn ein Faktor null ist – und nur dann.**
-
-**Warum das gilt:** Null mal irgendetwas ist null. Umgekehrt kann aus zwei Zahlen, die beide nicht null sind, beim Malnehmen nie null werden. Deshalb darf man eine Gleichung „Produkt = 0“ in mehrere einfache Gleichungen zerlegen: Jeder Faktor für sich kann null sein.
-
-**Wo es nicht gilt:** Gilt nur für null: Aus (x − 2) · (x + 3) = 6 folgt nicht x − 2 = 6. Erst alles auf eine Seite bringen, dann ausklammern.
-
-| Klasse | Dieselbe Regel in diesem Jahr | Thema in der App |
-|---|---|---|
-| 5 | 0 · 7 = 0 · und: durch 0 kann man nicht teilen | `zahlen.rechengesetze` |
-| 8 | Der Nenner x · (x − 4) ist null für x = 0 oder x = 4 | `terme.bruchterme` |
-| 9 | (x − 2) · (x + 3) = 0, also x = 2 oder x = −3 | `gleichungen.quadratisch` |
-| 10 | x³ − 4x = x · (x − 2) · (x + 2) = 0, also x = 0, 2 oder −2 | `gleichungen.polynom` |
-
-**Baut auf:** Ausmultiplizieren und Ausklammern, Gleichung als Waage
-**Bild (gewählt):** Eine Kette aus zwei Gliedern, die an der Null hängt: Reißt ein Glied (ist es null), fällt alles auf null.
-**Verworfen:** Lichtschalter in Reihe (passt, aber fremd für Klasse 5); Dominosteine.
-
-## Gibt es wirklich nur diese Regeln? – die ehrliche Liste
-
-**1. Fehlt beim Rechnen etwas?** Keine eigene Regel, aber fünf Dinge, die bisher nicht ausdrücklich dastanden. Sie sind jetzt eingeordnet:
-
-| Was | Wo es jetzt steht | Warum keine eigene Regel |
-|---|---|---|
-| Runden | Regel 1 Stellenwert (unter „Wo es nicht gilt“) | eine Vereinbarung über die Ziffer rechts daneben |
-| Überschlag | Arbeitsweise | ein Vorgehen, kein Gesetz |
-| Betrag | Regel 2 Plus und Minus | Abstand zur Null auf der Zahlengeraden |
-| Ungleichung umdrehen | Regel 3 Vorzeichen und Regel 13 Waage | Folge aus „mal Minus“ |
-| Wurzel und Logarithmus | Regel 12 Gegenrechnung (als Paare), ihre Gesetze unter „Sätze und Formeln“ | Gegenrechnungen zu Quadrat und Hoch; die Gesetze folgen aus den Potenzen |
-
-**2. Die Sätze und Formeln der Gebiete** – das ist die zweite Schicht. Sie sind keine Rechenregeln: Man muss sie wissen, und man wendet sie mit den Rechenregeln an.
-
-**Rechnen: Formeln, die aus den Regeln folgen** (7)
-
-| Klasse | Satz oder Formel | Thema in der App |
-|---|---|---|
-| 6 | Prozentwert = Prozentsatz mal Grundwert | `bruch.prozent` |
-| 6 | Jahreszinsen = Kapital mal Zinssatz | `finanzen.zinsen` |
-| 7 | Binomische Formeln: (a + b)² = a² + 2ab + b² · (a − b)² = a² − 2ab + b² · (a + b)(a − b) = a² − b² | `terme.umformen` |
-| 8 | Potenzgesetze: gleiche Basis – Hochzahlen addieren; gleiche Hochzahl – Basen malnehmen; Potenz der Potenz – Hochzahlen malnehmen | `terme.potenzgesetze_ganzzahlig` |
-| 9 | Wurzelgesetze: Wurzel aus a mal Wurzel aus b ist Wurzel aus a · b (nicht bei Plus) | `zahlen.reell` |
-| 9 | Lösungsformel der quadratischen Gleichung | `gleichungen.quadratisch` |
-| 10 | Logarithmusgesetze: Aus Mal wird Plus, aus Hoch wird Mal | `funktionen.exponential_log` |
-
-**Geometrie: Winkel und Figuren** (10)
-
-| Klasse | Satz oder Formel | Thema in der App |
-|---|---|---|
-| 5 | Scheitelwinkel sind gleich groß, Nebenwinkel ergänzen sich zu 180° | `geometrie.winkel` |
-| 7 | Stufen- und Wechselwinkel an Parallelen sind gleich groß | `geometrie.winkelsaetze` |
-| 7 | Winkelsumme: im Dreieck 180°, im Viereck 360° | `geometrie.winkelsaetze` |
-| 7 | Im gleichschenkligen Dreieck sind die Basiswinkel gleich groß | `geometrie.winkelsaetze` |
-| 7 | Satz des Thales: Jeder Winkel im Halbkreis ist ein rechter Winkel | `geometrie.kreis` |
-| 7 | Kongruenzsätze: Drei passende Angaben legen ein Dreieck fest (SSS, SWS, WSW, SsW) | `geometrie.konstruktion` |
-| 9 | Ähnlichkeit und Strahlensatz: Gleiche Winkel – gleiche Seitenverhältnisse | `abbildungen.aehnlichkeit` |
-| 9 | Satz des Pythagoras: Im rechtwinkligen Dreieck gilt a² + b² = c² | `trigo.pythagoras` |
-| 9 | Sinus, Kosinus, Tangens: Seitenverhältnisse im rechtwinkligen Dreieck | `trigo.rechtwinklig` |
-| 9 | Sinussatz und Kosinussatz für beliebige Dreiecke | `trigo.allgemein` |
-
-**Geometrie: Messen** (7)
-
-| Klasse | Satz oder Formel | Thema in der App |
-|---|---|---|
-| 5 | Rechteck: Fläche = Länge mal Breite, Umfang = zweimal (Länge plus Breite) | `messen.flaechen` |
-| 5 | Quader: Volumen = Länge mal Breite mal Höhe | `messen.koerper_berechnung` |
-| 6 | Parallelogramm: Grundseite mal Höhe · Dreieck: die Hälfte davon · Trapez: Mittel der parallelen Seiten mal Höhe | `messen.flaechen_vielecke` |
-| 8 | Kreis: Umfang = 2 · π · r, Fläche = π · r² | `messen.kreisberechnung` |
-| 8 | Prisma und Zylinder: Volumen = Grundfläche mal Höhe | `messen.prisma_zylinder` |
-| 9 | Vergrößern mit Faktor k: Längen mal k, Flächen mal k², Volumen mal k³ | `abbildungen.aehnlichkeit` |
-| 10 | Pyramide und Kegel: ein Drittel von Grundfläche mal Höhe · Kugel: Volumen = 4/3 · π · r³ | `raum.pyramide_kegel_kugel` |
-
-**Funktionen** (6)
-
-| Klasse | Satz oder Formel | Thema in der App |
-|---|---|---|
-| 8 | Gerade y = m · x + t: m ist die Steigung, t der Abschnitt auf der y-Achse | `funktionen.linear` |
-| 8 | Nullstelle: dort ist y = 0 · Schnittpunkt: dort sind beide Funktionswerte gleich | `funktionen.linear` |
-| 8 | Hyperbel y = a : x: doppeltes x, halbes y | `funktionen.gebrochen` |
-| 9 | Parabel y = a · (x − d)² + e: Scheitel bei (d | e) | `funktionen.quadratisch` |
-| 10 | Exponentielles Wachstum y = a · bˣ: In gleichen Schritten wird mit derselben Zahl malgenommen | `funktionen.exponential_log` |
-| 10 | Sinus und Kosinus als Funktionen: Sie wiederholen sich nach 360° | `funktionen.trig` |
-
-**Daten und Zufall** (7)
-
-| Klasse | Satz oder Formel | Thema in der App |
-|---|---|---|
-| 5 | Zählprinzip: Möglichkeiten der Stufen malnehmen | `stochastik.kombinatorik` |
-| 6 | Mittelwert: alle Werte addieren, durch die Anzahl teilen | `daten.kennwerte` |
-| 6 | Relative Häufigkeit: Anteil = Anzahl durch Gesamtzahl | `daten.darstellen` |
-| 7 | Median: der Wert in der Mitte der geordneten Liste | `daten.boxplot` |
-| 8 | Laplace: Wahrscheinlichkeit = günstige durch mögliche Ergebnisse (nur wenn alle gleich wahrscheinlich sind) | `stochastik.grundbegriffe` |
-| 8 | Gegenereignis: 1 minus die Wahrscheinlichkeit | `stochastik.grundbegriffe` |
-| 10 | Pfadregeln: entlang eines Pfades malnehmen, mehrere Pfade addieren | `stochastik.mehrstufig` |
-
-Die Liste nennt die tragenden Sätze, nicht jede Formel des Lehrplans (zum Beispiel fehlen Kreisbogen, Mantelflächen, Vierfeldertafel). Die Zahl 37 ist deshalb eine Untergrenze. [M]
-
-**3. Die Arbeitsweisen** – die dritte Schicht, für alles, was nicht Rechnen ist:
-
-| Arbeitsweise | Merksatz | Wozu |
-|---|---|---|
-| Probe | **Setz ein und rechne nach.** | Prüft jede Lösung und jede Umformung. Eine Probe kann einen Fehler zeigen, aber nichts beweisen. (In den Aufgaben-Etiketten bisher als Regel 9 geführt.) |
-| Überschlag | **Erst grob, dann genau.** | Mit gerundeten Zahlen die Größenordnung schätzen; fängt Komma- und Stellenfehler ab. |
-| Skizze | **Zeichne, was du weißt.** | Geometrie und Sachaufgaben: Gegebenes eintragen, Gesuchtes markieren. |
-| Ansatz | **Gegeben, gesucht, Rechnung, Antwort.** | Sachaufgaben: Text in eine Rechnung oder Gleichung übersetzen, am Ende ein Antwortsatz mit Einheit. |
-| Begründen | **Nenne den Satz, dann wende ihn an.** | Geometrie und Daten: nicht nur die Zahl, sondern der Grund – und für „stimmt nicht“ genügt ein Gegenbeispiel. |
-| Ablesen und Darstellen | **Erst Achsen und Einheiten lesen, dann die Werte.** | Diagramme, Tabellen, Graphen: lesen, ergänzen, auf Täuschungen prüfen. |
-| Formel umstellen | **Formel hinschreiben, einsetzen, auflösen.** | Verbindet die Sätze der Gebiete mit den Rechenregeln (Gegenrechnung, Waage). |
-
-**4. Die ganze Landkarte**
-
-| Schicht | Zahl | ändert sich über die Jahre? | Was ein Kind damit tut |
-|---|---|---|---|
-| Rechenregeln | 14 | nein – nur das Gewand | sicher können, im neuen Stoff wiedererkennen |
-| Sätze und Formeln der Gebiete | mindestens 37 | ja – jedes Jahr kommen neue dazu | wissen (Formel-Koffer) und richtig auswählen |
-| Arbeitsweisen | 7 | nein | bei jeder Aufgabe anwenden |
-
-Für Geometrie, Daten und Sachaufgaben heißt das: Dort trägt nicht eine Rechenregel, sondern **Satz plus Arbeitsweise** – „Winkelsumme im Dreieck“ und „Nenne den Satz, dann wende ihn an“. Auf der Übersicht gehören sie deshalb sichtbar dazu: die Sätze als Dach nach Gebieten und Klassen, die Arbeitsweisen als Werkzeugkasten daneben. [M]
-
-## Für die Technik
-
-Nummern der Übersicht und Nummern in den Aufgaben-Etiketten (`schritt1/etiketten.json`): 1 = Etikett 13 · 2 = Etikett 1 · 3 = Etikett 2 · 4 = Etikett 3 · 5 = Etikett 6 · 6 = Etikett 4 · 7 = Etikett 5 · 8 = Etikett 12 · 9 = Etikett 10 · 10 = Etikett 11 · 11 = Etikett 14 · 12 = Etikett 8 · 13 = Etikett 7 · 14 = Etikett 15. Etikett 9 „Einsetzen und Probe“ ist jetzt die Arbeitsweise „Probe“; die Etiketten bleiben gültig.
+1. Diese Datei, `sonne.md` und `planet-flaeche-und-raum.md` an ChatGPT (Schritt 2).
+2. Nach dem Einarbeiten die übrigen Planeten in dieser Reihenfolge [M]: Geometrie (dort sind beide Kinder als Nächstes), Geld und Verhältnisse, Daten und Zufall, Zahlen, Algebra, Funktionen, Entdecker-Inseln.
+3. Je Planet dasselbe Muster wie beim Muster-Planeten: Merksatz, Warum, Wo es nicht gilt, Beispiele je Klasse, baut auf, Bild.
 
 ## Nicht geprüft
 
-- **Lehrplan:** Die Klasse jedes Beispiels ist gegen `inhalte/themenliste.json` geprüft (Gymnasium Bayern, Zuordnung der App), **nicht gegen den Lehrplan an der Quelle**. Die vier Widersprüche zwischen Themenliste und App aus dem Lehrplan-Auftrag betreffen keines der Beispiele.
-- „Minus vor der Klammer“ in Klasse 5: Das Thema gehört zur Klasse, erklärt die Regel aber nicht; das Beispiel ist dort nur zum Nachrechnen gedacht.
-- Realschule und IB: Die Beispiele folgen den Gymnasium-Klassen. Bei der Realschule liegen einige Themen ein Jahr früher oder später.
-- Ob ein Kind der Klasse 5 die Merksätze versteht und behält – nicht erprobt.
-- Die Bilder sind beschrieben, nicht gezeichnet.
-- Die Liste der Sätze und Formeln ist aus meiner Kenntnis und den Themen der App zusammengestellt, nicht aus dem Lehrplan abgeschrieben.
+- **Lehrplan:** Klasse und Schulart stammen aus `inhalte/themenliste.json` (Zuordnung der App), **nicht aus den Lehrplänen an der Quelle**. Die bekannten Zweifel (vier Widersprüche zur App, mehrere Realschul-Zuordnungen) gelten hier weiter.
+- **Vollständigkeit gegen den Lehrplan:** Geprüft ist, dass jedes Thema der App erfasst ist. Ob in den Lehrplänen ein Gesetz steht, zu dem die App kein Thema hat, ist nicht geprüft.
+- Vollständigkeit innerhalb eines Themas: Ich habe die Titel aller Etappen gelesen, nicht jede Erklärung.
+- Merksätze und Bilder nicht mit einem Kind erprobt; Bilder nur beschrieben.
 
 ## Annahmen
 
-- Die Übersicht soll alle Klassen 5 bis 10 zeigen, auch wenn die Kinder erst in 5 und 8 sind.
-- „Professionell“ heißt: fachlich richtig, mit Grund und Grenze, in üblichen Schulwörtern.
-- 14 statt 15 ist ein Vorschlag; die alte Zählung lässt sich ohne Verlust wiederherstellen.
+- Sonne = Rechenregeln, Planeten = Gebiete der App (Lesart des Projektleiters, hier übernommen und geprüft).
+- Ein Gesetz ist, was fest gilt und was man wissen muss: Regel, Satz, Formel oder feste Vereinbarung.
+- Reihenfolge der Planeten von innen nach außen nach Nähe zum Rechnen – ein Vorschlag für den Designer.

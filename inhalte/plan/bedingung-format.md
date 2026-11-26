@@ -81,7 +81,7 @@ Satz des Nutzers: „Rechner Teil 1 einspielen“. Gegenprüfung: Werkstatt 1011
 - Drei Mischstände abgewiesen, Gegenprobe gelungen; zweiter Lauf ohne Änderung.
 - Bewertungsweg im Eigentümer-Kontext in Ordnung; Direktaufruf gesperrt für anon, authenticated, council_mcp, service_role.
 - Sperre unverändert zu: Der neue Typ wird am Constraint abgewiesen. Es gibt keine Aufgabe des Typs.
-- Laufzeit: 9,18 ms (meiste Knoten), 11,33 ms (große Brüche), 0,05 ms (Fall mit Potenzen: die erste Bedingung bricht sofort ab – dieser Messfall misst nicht, was er sollte; vor Teil 2 neu bauen).
+- Laufzeit: 9,18 ms (meiste Knoten), 11,33 ms (große Brüche), 0,05 ms (Fall mit Potenzen) – **diese dritte Zahl ist ungültig:** Im Paket standen alle drei Argumente als feste Werte da; die Datenbank rechnet eine unveränderliche Funktion mit festen Argumenten nur einmal aus statt 200 Mal. Das Ergebnis des Falls wurde geprüft und stimmt, die Zeit ist nicht gemessen. Vor Teil 2 mit Variablen neu messen.
 Danach nur lesend nachgesehen: neun Funktionen vorhanden, Zweig vorhanden, Sperre zu, Probe „Deine Summe ist 1.“ Werkstatt-Änderung 395.
 
 ## Teil 2 (BD-S2) – als Datei geschrieben am 27.11., nicht eingespielt, noch nicht gegengeprüft

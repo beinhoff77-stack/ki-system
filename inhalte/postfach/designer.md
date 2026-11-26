@@ -2,6 +2,44 @@
 
 Neueste oben.
 
+## 2026-11-26 02:40 (Berlin) – AUFTRAG vom Projektleiter: Regel-Übersicht „Sonnensystem“ und Regel-Karte
+
+**Wunsch des Nutzers, wörtlich im Kern:** „Wichtig ist mir eine tolle Übersichtsseite für die Regeln. Schön und übersichtlich, nicht einfach hingeklatscht.“ Die Idee des Sonnensystems stammt von ihm. Kein Bau, keine Einspielung – du lieferst Entwurf und Vorgabe.
+
+**Worum es geht**
+Über allen Themen stehen wenige Grundregeln, die immer wiederkehren („immer dasselbe, nur anders dargestellt“; Klasse 5 rechnet mit Zahlen, Klasse 8 mit x – dieselbe Regel). Die Kinder sollen diese Regeln jederzeit ansehen können und spüren: Es sind 15 Dinge, nicht 300 Themen.
+
+**Bildsprache**
+Die Reisewelt (Flug, Bordkarte, Stadt, Reisekarte) bleibt. Das Sonnensystem ist keine zweite Welt daneben, sondern der Blick nach oben: Die Reisewelt ist die Erde, die Regeln stehen am Himmel. Diese Erweiterung hat der Nutzer selbst gewollt; sie hebt den Satz „keine zweite Bildsprache erfinden“ für diesen Fall auf. Der Übergang Erde ↔ Himmel ist Teil deiner Aufgabe.
+
+**Inhalt, fachlich vorgegeben** (Quelle: `inhalte/mathe-profi/denkpapier-grundregeln.md` auf `origin/mathe-profi`, Abschnitte 1, 2 und 5 – bitte lesen)
+- 15 Regeln mit Namen für Kinder, je ein Satz, die Grenze („gilt nicht bei …“), Beispiel mit Zahlen, mit x, mit Brüchen.
+- Vorschlag des Projektleiters für die Gruppen (der Nutzer hat ihn gesehen, aber noch nicht bestätigt):
+  - Sonne: Übersicht, „15 Regeln“
+  - Erde: die Reisewelt
+  - Vorzeichen: Richtung, Zeichen-Paar
+  - Klammer: Rangfolge, Verteilen, Minusklammer, Tauschen und Bündeln
+  - Waage: Waage, Umkehren, Einsetzen und Probe, Nullprodukt
+  - Bruch: Wert bleibt, Bruchrechnen, Potenz
+  - Verhältnis: Stellenwert, Verhältnis
+  - Werkzeuge (Arbeitsweisen, ohne richtig/falsch): Skizze, Überschlag, Einheiten prüfen, Zerlegen und Ergänzen, Darstellung wechseln
+- Regeln des Mathe-Profis für die Anzeige: höchstens zwei Zustände je Regel („sitzt“ / „in Arbeit“), **keine Prozentbalken**, kein dauernd sichtbares „wackelt“ (Beschämung), Zustand nie nur über Farbe.
+
+**Was du lieferst**
+1. **Übersichtsseite** in zwei deutlich verschiedenen Fassungen zum Anklicken (je eine HTML-Datei): eine mit echtem Sonnensystem-Gefühl (Bahnen, Tiefe, Bewegung sparsam), eine ruhigere, die am Handy auf einen Blick lesbar ist. Sag, welche du empfiehlst und warum.
+2. **Regel-Karte** am Beispiel „Verteilen“ (Regel 4) und „Minusklammer“ (Regel 5): Satz, Bild, dieselbe Regel mit Zahlen / mit x / mit Brüchen, die Grenze, die Probe, „Diese Regel brauchst du in …“, Einstieg zu drei Aufgaben. Das Bild je Regel ist wichtig (bei Verteilen das Rechteck) – schlage für alle 15 Regeln ein Bildmotiv in je einer Zeile vor.
+3. **Die drei Wege zur Regel:** (a) von der Reisekarte nach oben, (b) nach einem Fehler in einer Aufgabe der Satz „Hier hat die Minusklammer geklemmt“ mit Sprung zur Karte und zurück zur Aufgabe, (c) beim Einstieg in ein neues Thema „Das kennst du schon“.
+4. Vorgabe so genau, dass ein Bau-Helfer sie ohne Rückfrage umsetzt: Maße, Farben hell und dunkel, Texte wörtlich, Verhalten bei 360 / 400 / 820 / 1280 px, Antippen, Laden, Fehler, Bewegung mit „weniger Bewegung“-Fassung. Dazu die Prüfliste (Muss / Soll / Kann).
+
+**Als Inhalts-Skizze, nicht als Aussehen:** Der Projektleiter hat dem Nutzer einen schnellen Rohentwurf gezeigt (dunkler Grund, Sonne oben, sechs Planeten als Karten, Regel-Karte „Verteilen“). Der Nutzer will es schöner. Nimm daraus nur, was inhaltlich auf die Seiten gehört.
+
+**Offene Entscheidungen des Nutzers – bitte je einen Vorschlag mitliefern**
+- Schnitt der Planeten: sechs wie oben oder anders.
+- Ob in der Sonne etwas zu tun ist (z. B. „gemischte Fünf“ quer über alle Regeln).
+- Ob die Kinder den Stand je Regel sehen oder nur der Erwachsene.
+
+**Regeln wie immer:** Zweig `designer`, vorher auf `origin/lernen-app` bringen. Öffentliches Repo: keine Namen, keine Lerndaten. Beispiel-Zustände in den Entwürfen sind erfunden und als erfunden gekennzeichnet. Ablage `inhalte/design/regeln-sonnensystem/`, Meldung hier mit „Nicht geprüft“ und „Annahmen“.
+
 ## 2026-11-25 02:00 – FERTIG: Bestandsaufnahme
 
 Zweig `designer`, ausgehend von `lernen-app` 4351182 (App 0.93.4). Vorgaben gelesen auf `pruefung-kinderansicht` ab6a9fb. Kein App-Code, keine Datenbank, keine Namen, nichts Neues entworfen.

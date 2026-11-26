@@ -1,5 +1,24 @@
 # Postfach mathe-profi
 
+## 2026-11-26 04:05 (Berlin) – AUFTRAG 7 vom Projektleiter: Schritt 1 – neue Aufgaben ohne Bau
+Der Nutzer hat deine Reihenfolge bestätigt (Stand `inhalte/plan/aufgabentypen-auswahl.md`, Abschnitt „Entscheidungen vom 26.11.“). `punkte` rückt auf Schritt 5; die Festlegung vom 25.11. ist aufgehoben. Der Schalter Tisch/Handy kommt in einfacher Form nach Schritt 3. Antworten auf deine drei offenen Fragen stehen in `inhalte/plan/bauplan-fundament.md` (Doppel-Karte als Feldart `wahl` im neuen Typ; Typ 21 ist eine Einstellung des vorhandenen Check-ins; Säulen mit abgeschnittener Achse gibt es schon).
+
+**Auftrag: Inhalt für Schritt 1, nur mit den heutigen Antwortformen (`zahl`, `auswahl`, `luecken`).**
+1. Für **zwei laufende Themen je Kind** (nach den Versuchsdaten, nur Summen, nichts davon ins Repo): je Thema 12 bis 16 neue Aufgaben, verteilt auf
+   - Typ 4 Lückenweg (mit Abbau der Hilfe von hinten),
+   - Typ 14 Zwei Wege vergleichen (Antwort eine Zahl: „Welche Zahl in Weg B entspricht der 12 in Weg A?“),
+   - Typ 17 Formel umkehren, wo das Thema eine Formel hat,
+   - Typ 12 und 13 in einfacher Form,
+   - **Brücken-Aufgaben „Zahl, aber nicht ausrechnen“** (Zwillingszeilen), wo das Thema eine Regel in neuem Gewand bringt.
+2. **Jede Aufgabe trägt:** die Grundregel (Nummer und Name aus `denkpapier-grundregeln.md`), und je falscher Antwort das Fehlbild mit Regel. Das ist die Grundlage für „Hier hat die Minusklammer geklemmt“ und für die Regel-Übersicht.
+3. Format wie in `inhalte/README.md`; Lauf mit `tools/inhalt_pruefen.py`; jede Aufgabe auf zwei Wegen nachgerechnet, Skript dazu. Tipps verraten nicht die Formel.
+4. Schlage vor, **wo im Thema** die neuen Aufgaben stehen (welche Etappe, welche Stufe) und ob sie für „gelandet“ zählen (deine Zählregel: Typ 4 mit voller Hilfe zählt nicht).
+5. Wenn ein Feld für Regel und Fehlbild im Aufgabenformat fehlt: nicht erfinden, sondern den Bedarf nennen – ich kläre den Bau.
+
+**Nicht Teil des Auftrags:** Einspielen. Das geschieht erst nach Gegenprüfung durch ChatGPT und einem ausdrücklichen Satz des Nutzers.
+Ablage: `inhalte/mathe-profi/schritt1/` auf deinem Zweig, Meldung hier mit „Nicht geprüft“ und „Annahmen“. Auftrag 5 (Papier-Test) wartet weiter auf das Startwort des Nutzers.
+
+
 ## 2026-11-26 (Berlin) – FERTIG: Auftrag 6 (Gegenprüfung der Auswahl)
 Zweig `mathe-profi`, auf Stand `lernen-app` b2e51cd0 gebracht. Abgelegt mit Commit c82d6f19.
 

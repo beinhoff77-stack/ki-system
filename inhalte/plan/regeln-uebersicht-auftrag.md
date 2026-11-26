@@ -38,3 +38,15 @@ Maßstab für alle: Würde ein Erwachsener, der Mathe seit 25 Jahren nicht gebra
   1. Sind die 15 die Rechenregeln für Zahlen und Terme der Klassen 5 bis 10, oder fehlt dort etwas (z. B. Runden und Überschlag, Wurzelgesetze, Logarithmus, Betrag, Ungleichung umdrehen)?
   2. Welche festen Sätze und Formeln tragen Geometrie (Winkelsumme, Flächen- und Volumenformeln, Pythagoras, Strahlensatz, Kongruenz), Funktionen (Steigung, Achsenabschnitt), Daten und Zufall (Mittelwert, Anteil, Wahrscheinlichkeit)?
   3. Wie sieht die ganze Landkarte aus: wenige Grundregeln, darüber die Sätze der Gebiete, daneben die Arbeitsweisen? Eine ehrliche Zahl nennen, auch wenn sie nicht 15 ist.
+
+## Klarstellung des Nutzers: das „Gesetzbuch“ (26.11., maßgeblich)
+Auf die Antwort „Nein, die 15 sind nur die Rechenregeln; Geometrie, Funktionen, Daten haben eigene Sätze und Formeln“ sagte der Nutzer: **„Das meinte ich aber! Das sollte dann in Planeten, und ich will auch die Regeln der anderen! Also wie ein separates Gesetzbuch daneben!“**
+
+Damit ist das Ziel:
+- **Ein Gesetzbuch der Mathematik**, als eigener Bereich neben der Lernreise, jederzeit aufschlagbar. Es enthält **alle** festen Regeln, Sätze und Formeln der Klassen 5 bis 10 – nicht nur die Rechenregeln.
+- **Planeten = Gebiete.** Jedes Gebiet hat seinen Planeten mit seinen Gesetzen (Geometrie, Fläche und Raum, Funktionen, Daten und Zufall, Geld und Verhältnisse …). Lesart des Projektleiters, zu prüfen: **die Sonne = die Grundregeln des Rechnens**, weil sie in jedem Gebiet wiederkehren; die Planeten = die Gesetze der einzelnen Gebiete. Die Gebiete der App (Kontinente) sind der naheliegende Schnitt – bitte prüfen, ob er trägt.
+- Je Gesetz: Merksatz oder Bild, das im Kopf bleibt; saubere Erklärung; dasselbe Gesetz in den Klassen, in denen es vorkommt; wo es nicht gilt; worauf es aufbaut.
+- Arbeitsweisen (Skizze, Überschlag, Probe, Einheiten) gehören hinein, an einem eigenen Ort.
+
+**Für den Mathe-Profi heißt das:** zuerst das vollständige Inhaltsverzeichnis des Gesetzbuchs (alle Gesetze je Gebiet, mit Klasse und Schulart, gegen die Lehrpläne der App geprüft, mit ehrlicher Gesamtzahl), dann die Ausarbeitung – beginnend mit der Sonne und einem Planeten als Muster, damit der Nutzer früh etwas sieht.
+**Für den Designer (Schritt 4):** Gesetzbuch und Sonnensystem sind jetzt eine Idee. Die frühere Fassung A darf als Ausgangspunkt dienen, aber die Gesetze selbst müssen lesbar im Mittelpunkt stehen.

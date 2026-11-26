@@ -1,5 +1,48 @@
 # Postfach mathe-profi
 
+## 2026-11-26 23:38 (Berlin) – FERTIG: Auftrag 15 – Klassenleitern für alle 42 Sätze, Zeichnungen geprüft, Klassen an der Lehrplan-Kopie geprüft
+
+Zweig `mathe-profi`, auf dem Stand von `lernen-app` f1e499d9. Nur Inhalte, nichts eingespielt; Datenbank nur gelesen. Sechs Läufe „OK“.
+
+**Geliefert**
+
+*Teil A – Rechenregeln* (`sonne.md`, `klassenleiter.md`, `klassenleiter.json`)
+- Für jede der 14 Regeln und jede Klasse 5 bis 10 genau eine Aussage: **77 Beispiele, 7 Mal ausdrücklich „kommt nicht vor“** (von 84 Feldern). Kein Feld leer, nichts erfunden. Jedes Beispiel nachgerechnet, mit Thema der App; die Klasse jedes Themas ist gegen die Themenliste geprüft.
+- **Wirkende Stelle zeichengenau:** in den Texten mit ⟦ ⟧, in der JSON-Datei als Zeichenpositionen.
+- **Gleich gebaut:** z. B. Regel 2 in allen sechs Klassen „a − (−b) = a + b“ – 3 − (−2), ½ − (−¼), 3x − (−2x), f(−2) für 3 − x, 3√2 − (−2√2), f(−1) für 3 − 2x³. Regel 13 in vier Klassen wörtlich dieselben zwei Schritte (− 2, dann : 2) an Gleichung, Ungleichung, quadratischer und Exponentialgleichung.
+- Die 7 Lücken: Stellenwert in 9 und 10; Kürzen und Bruchrechnen in 5; Waage in 6; Nullprodukt in 6 und 7.
+
+*Teil B – Ideen der Planeten*
+- 28 Leitern, 95 Beispiele, 75 Mal „kommt nicht vor“. **21 Ideen laufen über drei oder mehr Klassen.** Nur in einer Klasse: Stufen (10). In zwei Klassen: Höherer Grad, Ähnlich, Rechtwinkliges Dreieck (9, 10), Deckungsgleich (5, 7), Kennzahl (6, 7), Vom Teil aufs Ganze (8, 10).
+- Dein Beispiel „Aus dem Rechteck“ läuft von 5 bis 10 mit einer Lücke in 7: Rechteck, Parallelogramm und Dreieck, Kreis, gleichseitiges Dreieck, Pyramidenmantel – immer „Grundseite mal Höhe“ markiert.
+
+*Teil C – Zeichnungen* (Befund oben in `inhalte/postfach/designer.md`)
+- **Alle 42 geprüft** (die 35 verlangten und die 7 berichtigten): kein Rechenfehler, keine falsche Beschriftung, kein Maßfehler. Die Berichtigungen aus Auftrag 13 sind umgesetzt.
+- Drei kleine Punkte: Deckungsgleich mit zwei Maßstäben in drei Feldern; zwei Koordinatensysteme mit ungleichen Achsen trotz „ein Karo ist eine Einheit“; ein leeres Kästchen im Rückweg.
+
+*Teil D – Klassen am Lehrplan* (`lehrplan-pruefung.md`)
+- **Im Repo liegen keine Lehrplan-Dateien** – nur die Themenliste. Geprüft habe ich gegen die Lehrplan-Kopie in der Datenbank (nur gelesen, 434 Zeilen, als `lehrplan-kopie-zuordnung.txt` abgelegt).
+- **Gymnasium: alle 172 Beispiele bestehen** – jedes Thema steht in der Kopie in seiner Klasse, jede „Einführung“ ist dort als „neu“ geführt.
+- **33 Abweichungen Themenliste gegen Kopie**, davon 30 beim IB (oft zwei Jahre Unterschied oder kein Eintrag) und 3 bei der Realschule: `groessen.proportional` (Liste 6, Kopie 5), `stochastik.grundbegriffe` (Liste 9, Kopie 8), `stochastik.verknuepft` (Liste 9, Kopie ab 8).
+- Tabelle Einführung je Regel und Idee für Gymnasium, Realschule I, II/III und IB: An der Realschule liegen sieben in einer anderen Klasse als am Gymnasium (u. a. Gegenrechnung und Gleichung lösen 6 statt 5, Term 6 statt 7, Deckungsgleich 6 statt 7, Kennzahl 7 statt 6, Gleicher Abstand 7 statt 5).
+
+**Offen**
+- **Rückfrage des Nutzers während der Arbeit** (27.11., Bild der Treppe zu Regel 3: „Ist das die beste Erklärung dafür?“). Meine Antwort an ihn: Begründung richtig, Zeichnung nicht die beste. Vorschlag: Balken von der Null-Linie hängen lassen; als Hauptzeichnung „Mal (−1) heißt umdrehen“ an der Zahlengeraden, passend zu Regel 2; Treppe bleibt als „Warum“. **Nicht umgesetzt – braucht deine oder seine Entscheidung.**
+- Die Leitern gelten für das Gymnasium. Für Realschule und IB gibt es nur die Tabelle der Einführungsklassen, keine eigenen Leitern.
+- Die 30 IB-Abweichungen: Themenliste oder Kopie berichtigen – das kann ich nicht entscheiden.
+
+**Nicht geprüft**
+- LehrplanPLUS an der Quelle; ob die Kopie den Lehrplan richtig und vollständig wiedergibt.
+- **Vorwissen / Einführung / Anwendung auf der Ebene der Regel.** Die Kopie kennt nur Themen. Dass „Minus vor der Klammer“ in 5 und 6 Vorwissen ist, die Waage in 5 Vorwissen, das Nullprodukt in 5 und 8 Vorwissen, bleibt meine Einschätzung.
+- „Kommt nicht vor“ ist an den Themen der App entschieden, nicht am Unterricht.
+- Zeichnungen: nur die Fassung 1280 hell und ausgewählte Bauzeilen; nicht 400 px, nicht dunkel, nicht im Browser.
+- Ob ein Kind an den Leitern „es ist dasselbe“ wirklich sieht.
+
+**Annahmen**
+- „Kommt nicht vor – wird als bekannt benutzt“ (Stellenwert in 9 und 10, einige Ideen) ist ehrlicher als ein gesuchtes Beispiel; wenn du dort lieber ein Anwendungsbeispiel willst, liefere ich es nach.
+- In vier Leitern trägt eine Zeile einen Vorspann („f(x) = … an der Stelle …“), damit die Rechnung dahinter gleich gebaut bleibt.
+- Die Lehrplan-Kopie-Datei enthält nur Themen, Schularten, Jahre und Rollen – keine Lerndaten, keine Namen.
+
 ## 2026-11-26 23:30 (Berlin) – AUFTRAG 15 vom Projektleiter: Klassen-Beispiele vervollständigen, Zeichnungen prüfen
 Deine Lieferung zu Auftrag 14 und die dritte Runde des Designers sind in `lernen-app` übernommen. Der Nutzer hat die Bilder gesehen und fragt: „Habt ihr auch die Rechenbeispiele drin gelassen pro Jahrgangsstufe? Dass das Kind sieht, es ist dasselbe.“ Das ist sein Hauptwunsch. Bitte, nur Inhalte:
 

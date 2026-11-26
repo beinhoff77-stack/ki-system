@@ -6,10 +6,14 @@ Mathe-Profi, 26.11.2026 (Auftrag 11). Erzeugt von `planeten.py`; 45 Beispiele, j
 
 **Ebene 1 – 4 tragende Ideen:**
 
-1. **Messen heißt auslegen und zählen: Flächen mit Einheitsquadraten, Körper mit Einheitswürfeln.**
-2. **Aus dem Rechteck entsteht jede Fläche: zerschneiden, neu legen, halbieren.**
-3. **Aus dem Quader entsteht jeder Körper: Grundfläche mal Höhe – bei spitzen Körpern ein Drittel davon.**
-4. **Die Oberfläche ist die Haut des Körpers: Das Netz zeigt sie ausgebreitet, das Schrägbild zeigt den Körper im Raum.**
+1. **Messen heißt auslegen und zählen.**  
+   *Genau gesagt:* Messen heißt auslegen und zählen: Flächen mit Einheitsquadraten, Körper mit Einheitswürfeln.
+2. **Aus dem Rechteck entsteht jede Fläche.**  
+   *Genau gesagt:* Aus dem Rechteck entsteht jede Fläche: zerschneiden, neu legen, halbieren.
+3. **Grundfläche mal Höhe – bei Spitzen nur ein Drittel.**  
+   *Genau gesagt:* Aus dem Quader entsteht jeder Körper: Grundfläche mal Höhe – bei spitzen Körpern ein Drittel davon.
+4. **Aufklappen zeigt die ganze Haut des Körpers.**  
+   *Genau gesagt:* Die Oberfläche ist die Haut des Körpers: Das Netz zeigt sie ausgebreitet, das Schrägbild zeigt den Körper im Raum.
 
 **Ebene 2 – 19 Gesetze**, jedes genau einer Idee zugeordnet.
 
@@ -22,7 +26,9 @@ Mathe-Profi, 26.11.2026 (Auftrag 11). Erzeugt von `planeten.py`; 45 Beispiele, j
 
 ## Idee 1 · Auslegen und zählen
 
-> **Messen heißt auslegen und zählen: Flächen mit Einheitsquadraten, Körper mit Einheitswürfeln.**
+> **Messen heißt auslegen und zählen.**
+
+**Genau gesagt:** Messen heißt auslegen und zählen: Flächen mit Einheitsquadraten, Körper mit Einheitswürfeln.
 
 **Warum diese Idee trägt:** Eine Fläche misst man, indem man sie lückenlos mit gleich großen Quadraten auslegt und zählt; einen Körper füllt man mit gleich großen Würfeln. Jede Formel dieses Planeten ist eine Abkürzung für dieses Zählen: 4 Reihen zu je 6 Quadraten sind 6 · 4.
 
@@ -150,7 +156,9 @@ Gymnasium: 6 · Realschule Gruppe I: 6 · Realschule Gruppe II/III: 6 · IB (Pla
 
 ## Idee 2 · Aus dem Rechteck
 
-> **Aus dem Rechteck entsteht jede Fläche: zerschneiden, neu legen, halbieren.**
+> **Aus dem Rechteck entsteht jede Fläche.**
+
+**Genau gesagt:** Aus dem Rechteck entsteht jede Fläche: zerschneiden, neu legen, halbieren.
 
 **Warum diese Idee trägt:** Vom Rechteck weiß man die Fläche durch Zählen. Jede andere Figur wird so zerschnitten und neu gelegt, dass ein Rechteck entsteht – oder sie ist die Hälfte einer Figur, deren Fläche man schon kennt. Deshalb muss man die Formeln nicht einzeln lernen: Man kann sie herleiten.
 
@@ -314,7 +322,9 @@ Gymnasium: 8 (in der Lehrplan-Kopie nicht eigens genannt) · Realschule Gruppe I
 
 ## Idee 3 · Aus dem Quader
 
-> **Aus dem Quader entsteht jeder Körper: Grundfläche mal Höhe – bei spitzen Körpern ein Drittel davon.**
+> **Grundfläche mal Höhe – bei Spitzen nur ein Drittel.**
+
+**Genau gesagt:** Aus dem Quader entsteht jeder Körper: Grundfläche mal Höhe – bei spitzen Körpern ein Drittel davon.
 
 **Warum diese Idee trägt:** Ein Quader ist ein Stapel gleicher Schichten: Grundfläche mal Höhe. Das bleibt richtig, wenn die Grundfläche ein Dreieck oder ein Kreis ist (Prisma, Zylinder) und sogar, wenn der Stapel schief steht. Läuft der Körper spitz zu, bleibt genau ein Drittel übrig.
 
@@ -419,17 +429,19 @@ Gymnasium: 10 · Realschule Gruppe I: 9 · Realschule Gruppe II/III: 10 · IB (P
 
 ## Idee 4 · Haut des Körpers
 
-> **Die Oberfläche ist die Haut des Körpers: Das Netz zeigt sie ausgebreitet, das Schrägbild zeigt den Körper im Raum.**
+> **Aufklappen zeigt die ganze Haut des Körpers.**
+
+**Genau gesagt:** Die Oberfläche ist die Haut des Körpers: Das Netz zeigt sie ausgebreitet, das Schrägbild zeigt den Körper im Raum.
 
 **Warum diese Idee trägt:** Schneidet man einen Körper an seinen Kanten auf und klappt ihn flach, sieht man seine ganze Außenfläche auf einmal: das Netz. Die Oberfläche ist die Summe dieser Flächen. Das Schrägbild ist der umgekehrte Weg: ein flaches Bild, das den Körper räumlich zeigt.
 
 **Trägt 3 Gesetze:** F13 Oberfläche, F14 Netz und Schrägbild, F19 Lage im Raum
 
 **Zeichen-Vorgabe**
-- **Zu sehen:** Links ein Quader im Schrägbild. Rechts sein Netz: sechs Rechtecke in Kreuzform. Je zwei gleiche Rechtecke haben dieselbe Farbe – im Schrägbild und im Netz.
+- **Zu sehen:** Drei Bilder von links nach rechts: der Quader im Schrägbild; derselbe Quader halb aufgeklappt (Deckel und Seitenwände stehen schräg ab); sein Netz flach: sechs Rechtecke in Kreuzform. Je zwei gleiche Rechtecke haben in allen drei Bildern dieselbe Farbe.
 - **Maße:** Quader 5 cm mal 4 cm mal 3 cm. Im Schrägbild: Tiefenkanten unter 45° und halb so lang; verdeckte Kanten gestrichelt. Im Netz: alle Rechtecke maßstäblich.
 - **Beschriftung:** Im Netz in jedem Rechteck seine Fläche: 20 cm², 15 cm², 12 cm², jeweils zweimal. Darunter: „O = 2 · (20 + 15 + 12) cm² = 94 cm²“.
-- **Hervorgehoben:** Die drei Farbpaare.
+- **Hervorgehoben:** Das mittlere Bild – das Aufklappen – und die drei Farbpaare.
 - **Darf nicht falsch aussehen:** Das Netz muss sich wirklich falten lassen: Kanten, die zusammenstoßen, sind gleich lang. Es müssen genau sechs Flächen sein.
 - **Gleiche Zeichnung, andere Beschriftung:** Dieselbe Darstellung für das Dreiecksprisma (Dreieck 3 cm, 4 cm, 5 cm, Höhe 6 cm): drei Rechtecke nebeneinander, zusammen 12 cm breit – so breit wie der Umfang des Dreiecks; zusammenstoßende Kanten gleich markiert. Für den Zylinder: Rechteck mit Breite 2 · π · r und zwei Kreise.
 

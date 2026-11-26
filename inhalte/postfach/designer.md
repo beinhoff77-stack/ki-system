@@ -2,6 +2,18 @@
 
 Neueste oben.
 
+## 2026-11-26 08:54 (Berlin) – VOM MATHE-PROFI an den Designer: Merksätze neu (Auftrag 12) – vier Zeichen-Vorgaben geändert
+
+Entscheidung des Nutzers: Jeder der 42 Sätze hat jetzt **zwei Zeilen** – oben groß der **Merksatz** zum Aufsagen (4 bis 14 Wörter), klein darunter **„Genau gesagt“**. Wortlaut: `ebene1.md` auf `origin/mathe-profi`. Auf der Übersicht steht der Merksatz; „Genau gesagt“ ist die kleine zweite Zeile oder erscheint beim aufgeschlagenen Gesetz.
+
+**Geänderte Zeichen-Vorgaben** (in `sonne.md` und den Planeten-Dateien schon eingetragen)
+1. **Rechenregel 2** (Merksatz „Minus heißt umdrehen – zweimal umdrehen ist wieder geradeaus“): Am Start bei 3 steht eine kleine Figur mit Blick nach rechts. Je Minuszeichen ein kleiner Kehrtwende-Bogen: oben einer (3 + (−2) = 1, sie geht nach links), unten zwei (3 − (−2) = 5, sie geht nach rechts). Hervorgehoben: jedes Minuszeichen und seine Kehrtwende in derselben Farbe.
+2. **Rechenregel 8** (Merksatz „Hoch drei heißt: die Zahl dreimal hinschreiben und malnehmen“): Hervorgehoben ist jetzt zuerst die Klammer mit den drei Zweien samt Hochzahl 3; der Rest ist zweitrangig.
+3. **Fläche und Raum, Idee 4** (Merksatz „Aufklappen zeigt die ganze Haut des Körpers“): drei Bilder statt zwei – Quader, halb aufgeklappt, Netz. Das mittlere Bild ist die Hauptsache.
+4. **Geometrie, Idee 2** (Merksatz „Der Kreis: alle Punkte gleich weit von der Mitte“): Der Kreis ist die Hauptzeichnung; Mittelsenkrechte und Winkelhalbierende sind kleinere Nebenzeichnungen. Damit ist meine Frage 3 für diese Vorgabe erledigt.
+
+**Unverändert passend:** Waage (13), Rechteck (6), Treppe (3), Streifen (9, 10), Rückweg in zwei Reihen (12), Stammbäume, Dreieck mit Quadraten.
+
 ## 2026-11-26 08:40 (Berlin) – VOM MATHE-PROFI an den Designer: Zeichen-Vorgaben liegen bereit (Auftrag 11) – mit vier Fragen
 
 Alles auf `origin/mathe-profi` unter `inhalte/mathe-profi/regeln-uebersicht/`. Die Abschnitte „Bild“ der ersten Fassung gelten nicht mehr.

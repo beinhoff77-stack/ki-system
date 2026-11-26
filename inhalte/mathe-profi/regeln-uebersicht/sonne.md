@@ -1,4 +1,4 @@
-# Gesetzbuch · Die Sonne: die 14 Rechenregeln (zweite Fassung nach der Gegenprüfung)
+# Gesetzbuch · Die Sonne: die 14 Rechenregeln (dritte Fassung: Merksatz und „Genau gesagt“)
 
 Mathe-Profi, 26.11.2026. Erzeugt von `bauen.py`; 76 Beispiele, jedes nachgerechnet (Lauf „OK“).
 Die Sonne ist die Mitte des Gesetzbuchs: Diese Regeln bleiben von Klasse 5 bis 10 dieselben, nur das Gewand wechselt (Zahl, Bruch, Buchstabe, Bruchterm, Wurzel).
@@ -6,20 +6,36 @@ Die Sonne ist die Mitte des Gesetzbuchs: Diese Regeln bleiben von Klasse 5 bis 1
 
 ## Die 14 Merksätze
 
-1. **Stellenwert:** Mal 10 rückt jede Ziffer in die nächsthöhere Stelle, geteilt durch 10 in die nächstniedrigere.
-2. **Plus und Minus mit negativen Zahlen:** Beim Addieren zeigt das Vorzeichen der zweiten Zahl die Richtung. Beim Subtrahieren gehst du genau andersherum.
-3. **Vorzeichen bei Mal und Geteilt:** Bei Mal und Geteilt: Gleiche Vorzeichen ergeben Plus, verschiedene Minus.
-4. **Reihenfolge beim Rechnen:** Klammer zuerst, dann Hoch, dann Punkt, dann Strich – Gleichrangiges von links nach rechts.
-5. **Tauschen, Klammern, Zusammenfassen:** In einer Summe darfst du die Summanden tauschen und neu klammern, in einem Produkt die Faktoren. Zusammenfassen: gleicher Buchstabenteil – Vorzahlen addieren.
-6. **Ausmultiplizieren und Ausklammern:** Der Faktor vor der Klammer multipliziert jeden Summanden – vorwärts ausmultiplizieren, rückwärts ausklammern.
-7. **Minus vor der Klammer:** Löst du eine Minusklammer auf, wechselt jeder Summand in der Klammer sein Vorzeichen.
-8. **Potenzen:** Hoch n heißt: n gleiche Faktoren. Bei gleicher Basis gilt: Mal – Hochzahlen addieren.
-9. **Erweitern und Kürzen:** Ein gemeinsamer Faktor darf in Zähler und Nenner dazukommen oder wegfallen – der Wert des Bruchs bleibt.
-10. **Rechnen mit Brüchen:** Gleichnamige Brüche: Zähler addieren oder subtrahieren, Nenner behalten. Mal: Zähler mal Zähler, Nenner mal Nenner. Geteilt: mit dem Kehrwert malnehmen.
-11. **Verhältnis (Dreisatz):** Bei gleichem Preis je Einheit: erst auf eins, dann auf die gewünschte Menge.
-12. **Gegenrechnung:** Rechne den Weg rückwärts: Was zuletzt gerechnet wurde, machst du zuerst rückgängig.
-13. **Gleichung als Waage:** Dieselbe umkehrbare Rechnung auf beiden Seiten ändert die Lösungen nicht.
-14. **Nullprodukt:** Ein Produkt ist genau dann null, wenn mindestens ein Faktor null ist.
+Je Regel zwei Zeilen: oben der Merksatz zum Aufsagen, darunter der genaue Satz mit seiner Bedingung. Der Merksatz darf vereinfachen, behauptet aber nichts Falsches. Verworfene Kandidaten: Anhang von `ebene1.md`.
+
+1. **Mal zehn: Jede Ziffer rückt eins nach links.**  
+   *Stellenwert – genau gesagt:* Mal 10 rückt jede Ziffer in die nächsthöhere Stelle, geteilt durch 10 in die nächstniedrigere.
+2. **Minus heißt umdrehen – zweimal umdrehen ist wieder geradeaus.**  
+   *Plus und Minus mit negativen Zahlen – genau gesagt:* Beim Addieren zeigt das Vorzeichen der zweiten Zahl die Richtung. Beim Subtrahieren gehst du genau andersherum.
+3. **Minus mal Minus gibt Plus, Minus mal Plus gibt Minus.**  
+   *Vorzeichen bei Mal und Geteilt – genau gesagt:* Bei Mal und Geteilt mit zwei Zahlen ungleich null: Gleiche Vorzeichen ergeben Plus, verschiedene Minus.
+4. **Klammer zuerst, dann Hoch, dann Punkt vor Strich.**  
+   *Reihenfolge beim Rechnen – genau gesagt:* Klammer zuerst, dann Hoch, dann Punkt, dann Strich – Gleichrangiges von links nach rechts.
+5. **Tauschen bei Plus und Mal. Zusammenfassen: nur Gleiches zu Gleichem.**  
+   *Tauschen, Klammern, Zusammenfassen – genau gesagt:* In einer Summe darfst du die Summanden tauschen und neu klammern, in einem Produkt die Faktoren. Zusammenfassen: gleicher Buchstabenteil – Vorzahlen addieren.
+6. **Was vor der Klammer steht, nimmt jeden in der Klammer mal.**  
+   *Ausmultiplizieren und Ausklammern – genau gesagt:* Der Faktor vor der Klammer multipliziert jeden Summanden – vorwärts ausmultiplizieren, rückwärts ausklammern.
+7. **Minus vor der Klammer dreht alle Zeichen um.**  
+   *Minus vor der Klammer – genau gesagt:* Löst du eine Minusklammer auf, wechselt jeder Summand in der Klammer sein Vorzeichen.
+8. **Hoch drei heißt: die Zahl dreimal hinschreiben und malnehmen.**  
+   *Potenzen – genau gesagt:* Hoch n heißt: n gleiche Faktoren. Bei gleicher Basis gilt: Mal – Hochzahlen addieren.
+9. **Oben und unten dasselbe mal oder geteilt – der Bruch bleibt gleich.**  
+   *Erweitern und Kürzen – genau gesagt:* Ein gemeinsamer Faktor ungleich null darf in Zähler und Nenner dazukommen oder wegfallen – der Wert des Bruchs bleibt.
+10. **Plus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: Kehrwert.**  
+   *Rechnen mit Brüchen – genau gesagt:* Gleichnamige Brüche: Zähler addieren oder subtrahieren, Nenner behalten. Mal: Zähler mal Zähler, Nenner mal Nenner. Geteilt: mit dem Kehrwert malnehmen.
+11. **Erst auf eins, dann auf viele.**  
+   *Verhältnis (Dreisatz) – genau gesagt:* Bei gleichem Preis je Einheit: erst auf eins, dann auf die gewünschte Menge.
+12. **Rückwärts rechnen: Was zuletzt kam, geht zuerst.**  
+   *Gegenrechnung – genau gesagt:* Rechne den Weg rückwärts: Was zuletzt gerechnet wurde, machst du zuerst rückgängig.
+13. **Eine Gleichung ist eine Waage: Was du links tust, musst du auch rechts tun.**  
+   *Gleichung als Waage – genau gesagt:* Dieselbe umkehrbare Rechnung auf beiden Seiten ändert die Lösungen nicht.
+14. **Mal ergibt nur null, wenn eine der Zahlen null ist.**  
+   *Nullprodukt – genau gesagt:* Ein Produkt ist genau dann null, wenn mindestens ein Faktor null ist.
 
 ## Dieselbe Regel in vielen Klassen
 
@@ -59,7 +75,9 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 ### 1. Stellenwert
 
-> **Mal 10 rückt jede Ziffer in die nächsthöhere Stelle, geteilt durch 10 in die nächstniedrigere.**
+> **Mal zehn: Jede Ziffer rückt eins nach links.**
+
+**Genau gesagt:** Mal 10 rückt jede Ziffer in die nächsthöhere Stelle, geteilt durch 10 in die nächstniedrigere.
 
 **Warum das gilt:** Unser Zahlensystem bündelt in Zehnern: Jede Stelle ist zehnmal so viel wert wie die Stelle rechts von ihr. Beim Malnehmen mit 10 wird deshalb aus jedem Einer ein Zehner, aus jedem Zehntel ein Einer. Die Ziffern bleiben, nur ihre Plätze ändern sich. Das Komma markiert die Grenze zwischen Einern und Zehnteln.
 
@@ -89,7 +107,9 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 ### 2. Plus und Minus mit negativen Zahlen
 
-> **Beim Addieren zeigt das Vorzeichen der zweiten Zahl die Richtung. Beim Subtrahieren gehst du genau andersherum.**
+> **Minus heißt umdrehen – zweimal umdrehen ist wieder geradeaus.**
+
+**Genau gesagt:** Beim Addieren zeigt das Vorzeichen der zweiten Zahl die Richtung. Beim Subtrahieren gehst du genau andersherum.
 
 **Warum das gilt:** Auf der Zahlengeraden heißt „plus eine positive Zahl“ nach rechts gehen und „plus eine negative Zahl“ nach links. Subtrahieren ist das Gegenteil des Addierens, also läuft man jeweils in die andere Richtung. Deshalb ist 3 − (−2) dasselbe wie 3 + 2.
 
@@ -112,14 +132,16 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 **Zeichen-Vorgabe**
 - **Zu sehen:** Zwei Zahlengeraden untereinander von −1 bis 6. Oben: Startpunkt bei 3, ein Bogenpfeil zwei Einheiten nach links, Landung bei 1. Unten: Startpunkt bei 3, ein Bogenpfeil zwei Einheiten nach rechts, Landung bei 5.
 - **Maße:** Gleicher Maßstab auf beiden Geraden, Teilstriche an jeder ganzen Zahl; beide Starts genau übereinander bei 3.
-- **Beschriftung:** Über der oberen Geraden „3 + (−2) = 1“, über der unteren „3 − (−2) = 5“. Start mit vollem Punkt, Ziel mit Ring.
-- **Hervorgehoben:** Die Pfeilrichtung und das Zeichen, das sie bestimmt (das „−“ vor der 2 und das Rechenzeichen in derselben Farbe).
+- **Beschriftung:** Über der oberen Geraden „3 + (−2) = 1“ und „einmal umdrehen“, über der unteren „3 − (−2) = 5“ und „zweimal umdrehen“. Start mit vollem Punkt, Ziel mit Ring. Am Start steht eine kleine Figur mit Blick nach rechts; je Minuszeichen zeigt ein kleiner Bogenpfeil eine Kehrtwende.
+- **Hervorgehoben:** Jedes Minuszeichen und die zugehörige Kehrtwende in derselben Farbe: oben eine, unten zwei.
 - **Darf nicht falsch aussehen:** Beide Pfeile müssen genau zwei Einheiten lang sein. Der Start darf nicht bei 0 liegen. Die Null muss sichtbar sein.
 - **Gleiche Zeichnung, andere Beschriftung:** Dieselben zwei Geraden für −½ − ¾ (Teilstriche in Vierteln) und für 3x − 5x (Einheit „x“).
 
 ### 3. Vorzeichen bei Mal und Geteilt
 
-> **Bei Mal und Geteilt: Gleiche Vorzeichen ergeben Plus, verschiedene Minus.**
+> **Minus mal Minus gibt Plus, Minus mal Plus gibt Minus.**
+
+**Genau gesagt:** Bei Mal und Geteilt mit zwei Zahlen ungleich null: Gleiche Vorzeichen ergeben Plus, verschiedene Minus.
 
 **Warum das gilt:** In der Reihe 3 · (−2) = −6, 2 · (−2) = −4, 1 · (−2) = −2, 0 · (−2) = 0 wird das Ergebnis jedes Mal um 2 größer. Setzt man sie fort, muss (−1) · (−2) = 2 sein. Nur so bleiben die übrigen Rechengesetze gültig. Für Geteilt gilt dasselbe, weil Teilen die Gegenrechnung zum Malnehmen ist.
 
@@ -150,7 +172,9 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 ### 4. Reihenfolge beim Rechnen
 
-> **Klammer zuerst, dann Hoch, dann Punkt, dann Strich – Gleichrangiges von links nach rechts.**
+> **Klammer zuerst, dann Hoch, dann Punkt vor Strich.**
+
+**Genau gesagt:** Klammer zuerst, dann Hoch, dann Punkt, dann Strich – Gleichrangiges von links nach rechts.
 
 **Warum das gilt:** Die Reihenfolge ist eine Vereinbarung, damit jeder dieselbe Rechnung gleich liest. Sie folgt dem Aufbau der Rechenarten: Hoch ist wiederholtes Malnehmen, Mal ist wiederholtes Addieren – die „stärkere“ Rechnung bindet enger. Klammern sind das Mittel, die Reihenfolge zu ändern.
 
@@ -182,7 +206,9 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 ### 5. Tauschen, Klammern, Zusammenfassen
 
-> **In einer Summe darfst du die Summanden tauschen und neu klammern, in einem Produkt die Faktoren. Zusammenfassen: gleicher Buchstabenteil – Vorzahlen addieren.**
+> **Tauschen bei Plus und Mal. Zusammenfassen: nur Gleiches zu Gleichem.**
+
+**Genau gesagt:** In einer Summe darfst du die Summanden tauschen und neu klammern, in einem Produkt die Faktoren. Zusammenfassen: gleicher Buchstabenteil – Vorzahlen addieren.
 
 **Warum das gilt:** Bei einer Summe und bei einem Produkt kommt es nicht auf die Reihenfolge und nicht auf die Klammerung an (Vertauschungs- und Verbindungsgesetz). Zusammenfassen heißt zählen: 3 Stück a und 4 Stück a sind 7 Stück a.
 
@@ -212,7 +238,9 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 ### 6. Ausmultiplizieren und Ausklammern
 
-> **Der Faktor vor der Klammer multipliziert jeden Summanden – vorwärts ausmultiplizieren, rückwärts ausklammern.**
+> **Was vor der Klammer steht, nimmt jeden in der Klammer mal.**
+
+**Genau gesagt:** Der Faktor vor der Klammer multipliziert jeden Summanden – vorwärts ausmultiplizieren, rückwärts ausklammern.
 
 **Warum das gilt:** Ein Rechteck mit den Seiten a und (b + c) hat dieselbe Fläche wie die zwei Teilrechtecke a · b und a · c zusammen. Rückwärts gelesen ist es das Ausklammern: Steckt in jedem Summanden derselbe Faktor, darf man ihn vor eine Klammer ziehen.
 
@@ -244,7 +272,9 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 ### 7. Minus vor der Klammer
 
-> **Löst du eine Minusklammer auf, wechselt jeder Summand in der Klammer sein Vorzeichen.**
+> **Minus vor der Klammer dreht alle Zeichen um.**
+
+**Genau gesagt:** Löst du eine Minusklammer auf, wechselt jeder Summand in der Klammer sein Vorzeichen.
 
 **Warum das gilt:** Ein Minus vor der Klammer heißt „mal (−1)“. Der Faktor −1 multipliziert jeden Summanden, also wechselt jedes Vorzeichen. Im Alltag: Wer 20 € hat und einen Einkauf von 8 € mit 3 € Rabatt bezahlt, behält 20 − 8 + 3 €.
 
@@ -273,7 +303,9 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 ### 8. Potenzen
 
-> **Hoch n heißt: n gleiche Faktoren. Bei gleicher Basis gilt: Mal – Hochzahlen addieren.**
+> **Hoch drei heißt: die Zahl dreimal hinschreiben und malnehmen.**
+
+**Genau gesagt:** Hoch n heißt: n gleiche Faktoren. Bei gleicher Basis gilt: Mal – Hochzahlen addieren.
 
 **Warum das gilt:** 2³ · 2² ist (2 · 2 · 2) · (2 · 2) – zusammen fünf Zweien, also 2⁵. Teilt man, fallen Faktoren weg; deshalb werden die Hochzahlen abgezogen. Setzt man die Reihe 8, 4, 2 fort, ergibt sich 2⁰ = 1 und 2⁻¹ = ½: Eine negative Hochzahl heißt Kehrwert.
 
@@ -297,13 +329,15 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 - **Zu sehen:** Eine Zeile mit drei Zweien in einer Klammer und zwei Zweien in einer zweiten Klammer, dazwischen ein Malpunkt: (2 · 2 · 2) · (2 · 2). Unter der ersten Klammer „2³“, unter der zweiten „2²“, unter allen fünf zusammen eine lange Klammer mit „2⁵“. Darunter eine Zahlenreihe 8, 4, 2, 1, ½, ¼ mit den Hochzahlen 3, 2, 1, 0, −1, −2 darüber und „: 2“ zwischen den Gliedern.
 - **Maße:** Die fünf Zweien stehen in gleichen Abständen; die untere Reihe hat sechs gleich breite Felder.
 - **Beschriftung:** „2³ · 2² = 2⁵“ und „3 + 2 = 5“. In der Reihe: Hochzahl über jedem Wert.
-- **Hervorgehoben:** Die Hochzahlen 3, 2 und 5 in einer Farbe; in der Reihe das Feld 2⁰ = 1.
+- **Hervorgehoben:** Die erste Klammer: drei Zweien, hingeschrieben und malgenommen – dazu die Hochzahl 3 in derselben Farbe. Zweitrangig: die Hochzahlen 2 und 5; in der Reihe das Feld 2⁰ = 1.
 - **Darf nicht falsch aussehen:** Es müssen genau fünf Zweien sein. In der Reihe darf 2⁰ nicht 0 sein und 2⁻¹ nicht negativ.
 - **Gleiche Zeichnung, andere Beschriftung:** Dieselbe Zeile mit x statt 2: (x · x · x) · (x · x) = x⁵. Dieselbe Reihe mit 10: 1 000, 100, 10, 1, 0,1, 0,01.
 
 ### 9. Erweitern und Kürzen
 
-> **Ein gemeinsamer Faktor darf in Zähler und Nenner dazukommen oder wegfallen – der Wert des Bruchs bleibt.**
+> **Oben und unten dasselbe mal oder geteilt – der Bruch bleibt gleich.**
+
+**Genau gesagt:** Ein gemeinsamer Faktor ungleich null darf in Zähler und Nenner dazukommen oder wegfallen – der Wert des Bruchs bleibt.
 
 **Warum das gilt:** Der Nenner sagt, in wie viele gleiche Teile das Ganze geteilt ist, der Zähler, wie viele davon gemeint sind. Teilt man jedes Teil noch einmal, gibt es doppelt so viele Teile und man nimmt doppelt so viele: Die Menge bleibt gleich, nur die Einteilung wird feiner.
 
@@ -333,7 +367,9 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 ### 10. Rechnen mit Brüchen
 
-> **Gleichnamige Brüche: Zähler addieren oder subtrahieren, Nenner behalten. Mal: Zähler mal Zähler, Nenner mal Nenner. Geteilt: mit dem Kehrwert malnehmen.**
+> **Plus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: Kehrwert.**
+
+**Genau gesagt:** Gleichnamige Brüche: Zähler addieren oder subtrahieren, Nenner behalten. Mal: Zähler mal Zähler, Nenner mal Nenner. Geteilt: mit dem Kehrwert malnehmen.
 
 **Warum das gilt:** Addieren kann man nur gleich große Teile – Halbe und Drittel müssen erst in Sechstel umgerechnet werden. „Mal ½“ heißt „die Hälfte von“; deshalb werden beim Malnehmen die Teile feiner. Teilen fragt „wie oft passt es hinein“: In 6 passt ½ zwölfmal – das ist dasselbe wie 6 mal 2.
 
@@ -364,7 +400,9 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 ### 11. Verhältnis (Dreisatz)
 
-> **Bei gleichem Preis je Einheit: erst auf eins, dann auf die gewünschte Menge.**
+> **Erst auf eins, dann auf viele.**
+
+**Genau gesagt:** Bei gleichem Preis je Einheit: erst auf eins, dann auf die gewünschte Menge.
 
 **Warum das gilt:** Wenn zwei Größen im selben Verhältnis wachsen, gehört zu jeder Einheit derselbe Wert. Wer den Wert für eine Einheit kennt, kennt jeden anderen: 3 kg kosten 7,50 €, also 1 kg 2,50 €, also 5 kg 12,50 €. Allgemein: y = k · x, und k ist der Wert für eine Einheit.
 
@@ -394,7 +432,9 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 ### 12. Gegenrechnung
 
-> **Rechne den Weg rückwärts: Was zuletzt gerechnet wurde, machst du zuerst rückgängig.**
+> **Rückwärts rechnen: Was zuletzt kam, geht zuerst.**
+
+**Genau gesagt:** Rechne den Weg rückwärts: Was zuletzt gerechnet wurde, machst du zuerst rückgängig.
 
 **Warum das gilt:** Zu jeder umkehrbaren Rechnung gibt es eine Gegenrechnung: Plus und Minus, Mal und Geteilt, Quadrat und Wurzel, später Hoch und Logarithmus. Wer weiß, was mit einer Zahl nacheinander gemacht wurde, findet sie, indem er den Weg rückwärts geht – wie beim Anziehen und Ausziehen: Der Schuh kam zuletzt, also kommt er zuerst weg.
 
@@ -425,7 +465,9 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 ### 13. Gleichung als Waage
 
-> **Dieselbe umkehrbare Rechnung auf beiden Seiten ändert die Lösungen nicht.**
+> **Eine Gleichung ist eine Waage: Was du links tust, musst du auch rechts tun.**
+
+**Genau gesagt:** Dieselbe umkehrbare Rechnung auf beiden Seiten ändert die Lösungen nicht.
 
 **Warum das gilt:** Das Gleichheitszeichen sagt: Links und rechts steht gleich viel. Nimmt man auf beiden Seiten einer Waage dasselbe weg oder halbiert beide Seiten, bleibt sie im Gleichgewicht. Weil man jede solche Rechnung zurücknehmen kann, geht keine Lösung verloren und keine kommt dazu.
 
@@ -455,7 +497,9 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 ### 14. Nullprodukt
 
-> **Ein Produkt ist genau dann null, wenn mindestens ein Faktor null ist.**
+> **Mal ergibt nur null, wenn eine der Zahlen null ist.**
+
+**Genau gesagt:** Ein Produkt ist genau dann null, wenn mindestens ein Faktor null ist.
 
 **Warum das gilt:** Null mal irgendetwas ist null. Umgekehrt kann aus zwei Zahlen, die beide nicht null sind, beim Malnehmen nie null werden. Deshalb darf man eine Gleichung „Produkt = 0“ in mehrere einfache Gleichungen zerlegen: Jeder Faktor für sich kann null sein.
 

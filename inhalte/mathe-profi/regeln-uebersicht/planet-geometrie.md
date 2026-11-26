@@ -6,11 +6,16 @@ Mathe-Profi, 26.11.2026 (Auftrag 11). Erzeugt von `planeten.py`; 51 Beispiele, j
 
 **Ebene 1 – 5 tragende Ideen:**
 
-1. **An parallelen Geraden kehren dieselben Winkel wieder – deshalb ergeben die Winkel im Dreieck zusammen 180°.**
-2. **Alle Punkte mit gleichem Abstand bilden eine Linie: Kreis, Mittelsenkrechte, Winkelhalbierende.**
-3. **Spiegeln, Schieben und Drehen ändern weder Längen noch Winkel; drei passende Angaben legen ein Dreieck fest.**
-4. **Ähnliche Figuren haben gleiche Winkel und alle Längen im selben Verhältnis.**
-5. **Im rechtwinkligen Dreieck legen zwei Angaben alles fest: Pythagoras verbindet die Seiten, Sinus, Kosinus und Tangens verbinden Seiten und Winkel.**
+1. **Gleiche Winkel an Parallelen – darum im Dreieck immer 180 Grad.**  
+   *Genau gesagt:* An parallelen Geraden kehren dieselben Winkel wieder – deshalb ergeben die Winkel im Dreieck zusammen 180°.
+2. **Der Kreis: alle Punkte gleich weit von der Mitte.**  
+   *Genau gesagt:* Alle Punkte mit gleichem Abstand bilden eine Linie: Kreis, Mittelsenkrechte, Winkelhalbierende.
+3. **Spiegeln, schieben, drehen – Form und Größe bleiben gleich.**  
+   *Genau gesagt:* Spiegeln, Schieben und Drehen ändern weder Längen noch Winkel; drei passende Angaben legen ein Dreieck fest.
+4. **Gleiche Form, andere Größe: alle Längen mal dieselbe Zahl.**  
+   *Genau gesagt:* Ähnliche Figuren haben gleiche Winkel und alle Längen im selben Verhältnis.
+5. **Rechter Winkel im Dreieck: a² plus b² ist c².**  
+   *Genau gesagt:* Im rechtwinkligen Dreieck legen zwei Angaben alles fest: Pythagoras verbindet die Seiten, Sinus, Kosinus und Tangens verbinden Seiten und Winkel.
 
 **Ebene 2 – 30 Gesetze**, jedes genau einer Idee zugeordnet.
 
@@ -23,7 +28,9 @@ Mathe-Profi, 26.11.2026 (Auftrag 11). Erzeugt von `planeten.py`; 51 Beispiele, j
 
 ## Idee 1 · Winkel an Geraden
 
-> **An parallelen Geraden kehren dieselben Winkel wieder – deshalb ergeben die Winkel im Dreieck zusammen 180°.**
+> **Gleiche Winkel an Parallelen – darum im Dreieck immer 180 Grad.**
+
+**Genau gesagt:** An parallelen Geraden kehren dieselben Winkel wieder – deshalb ergeben die Winkel im Dreieck zusammen 180°.
 
 **Warum diese Idee trägt:** Schneidet eine Gerade zwei Parallelen, entstehen an beiden Kreuzungen dieselben Winkel. Zieht man durch die Spitze eines Dreiecks die Parallele zur gegenüberliegenden Seite, liegen dort alle drei Winkel des Dreiecks nebeneinander und füllen genau eine gerade Linie: 180°.
 
@@ -126,14 +133,16 @@ Gymnasium: 7 · Realschule Gruppe I: 7 · Realschule Gruppe II/III: 7 · IB (Pla
 
 ## Idee 2 · Gleicher Abstand
 
-> **Alle Punkte mit gleichem Abstand bilden eine Linie: Kreis, Mittelsenkrechte, Winkelhalbierende.**
+> **Der Kreis: alle Punkte gleich weit von der Mitte.**
+
+**Genau gesagt:** Alle Punkte mit gleichem Abstand bilden eine Linie: Kreis, Mittelsenkrechte, Winkelhalbierende.
 
 **Warum diese Idee trägt:** Viele Linien der Geometrie sind „alle Punkte mit einer Abstandseigenschaft“: gleich weit von einem Punkt (Kreis), von zwei Punkten (Mittelsenkrechte), von zwei Geraden (Winkelhalbierende). Darum findet man den Umkreismittelpunkt mit Mittelsenkrechten und den Inkreismittelpunkt mit Winkelhalbierenden.
 
 **Trägt 6 Gesetze:** G1 Koordinatensystem, G2 Parallel, senkrecht, Abstand, G8 Ortslinien, G12 Satz des Thales, G13 Tangente, G14 Umkreis und Inkreis
 
 **Zeichen-Vorgabe**
-- **Zu sehen:** Drei Felder nebeneinander. Feld 1: Kreis um M mit vier Punkten auf der Linie und ihren Radien. Feld 2: Strecke AB mit ihrer Mittelsenkrechten; ein Punkt P darauf ist mit A und B verbunden. Feld 3: ein Winkel mit seiner Winkelhalbierenden; von einem Punkt P darauf gehen zwei Lote zu den Schenkeln.
+- **Zu sehen:** Eine Hauptzeichnung und zwei kleinere Nebenzeichnungen. Hauptzeichnung (Feld 1, passt zum Merksatz): Kreis um M mit vier Punkten auf der Linie und ihren Radien. Nebenzeichnung Feld 2: Strecke AB mit ihrer Mittelsenkrechten; ein Punkt P darauf ist mit A und B verbunden. Nebenzeichnung Feld 3: ein Winkel mit seiner Winkelhalbierenden; von einem Punkt P darauf gehen zwei Lote zu den Schenkeln.
 - **Maße:** Radius 3 cm. Strecke AB 4 cm, P liegt 3 cm über der Mitte. Winkel 60°.
 - **Beschriftung:** Feld 1: „gleich weit von M“. Feld 2: „gleich weit von A und B“. Feld 3: „gleich weit von beiden Schenkeln“.
 - **Hervorgehoben:** Die gleich langen Strecken: in jedem Feld mit demselben Strich-Zeichen und derselben Farbe.
@@ -268,7 +277,9 @@ Gymnasium: 7 · Realschule Gruppe I: 7 · Realschule Gruppe II/III: 7 (nur Über
 
 ## Idee 3 · Deckungsgleich
 
-> **Spiegeln, Schieben und Drehen ändern weder Längen noch Winkel; drei passende Angaben legen ein Dreieck fest.**
+> **Spiegeln, schieben, drehen – Form und Größe bleiben gleich.**
+
+**Genau gesagt:** Spiegeln, Schieben und Drehen ändern weder Längen noch Winkel; drei passende Angaben legen ein Dreieck fest.
 
 **Warum diese Idee trägt:** Zwei Figuren sind deckungsgleich, wenn man die eine so auf die andere legen kann, dass sie genau passt. Spiegeln, Schieben und Drehen sind genau die Bewegungen, die dabei erlaubt sind. Bei Dreiecken genügen drei passende Angaben, damit nur noch eine Form möglich ist.
 
@@ -471,7 +482,9 @@ Gymnasium: – · Realschule Gruppe I: 10 (nur Gruppe I) · Realschule Gruppe II
 
 ## Idee 4 · Ähnlich
 
-> **Ähnliche Figuren haben gleiche Winkel und alle Längen im selben Verhältnis.**
+> **Gleiche Form, andere Größe: alle Längen mal dieselbe Zahl.**
+
+**Genau gesagt:** Ähnliche Figuren haben gleiche Winkel und alle Längen im selben Verhältnis.
 
 **Warum diese Idee trägt:** Vergrößert man eine Figur wie mit einem Kopierer, bleiben alle Winkel, und jede Länge wird mit demselben Faktor malgenommen. Deshalb sind in ähnlichen Figuren alle Längenverhältnisse gleich – das ist der Dreisatz der Geometrie.
 
@@ -570,7 +583,9 @@ Gymnasium: – · Realschule Gruppe I: 9 (Gruppe I, auch 7) · Realschule Gruppe
 
 ## Idee 5 · Rechtwinkliges Dreieck
 
-> **Im rechtwinkligen Dreieck legen zwei Angaben alles fest: Pythagoras verbindet die Seiten, Sinus, Kosinus und Tangens verbinden Seiten und Winkel.**
+> **Rechter Winkel im Dreieck: a² plus b² ist c².**
+
+**Genau gesagt:** Im rechtwinkligen Dreieck legen zwei Angaben alles fest: Pythagoras verbindet die Seiten, Sinus, Kosinus und Tangens verbinden Seiten und Winkel.
 
 **Warum diese Idee trägt:** Der rechte Winkel macht das Dreieck berechenbar. Kennt man zwei Seiten, liefert der Satz des Pythagoras die dritte. Kennt man eine Seite und einen spitzen Winkel, sind alle rechtwinkligen Dreiecke mit diesem Winkel ähnlich – ihre Seitenverhältnisse sind fest und heißen Sinus, Kosinus und Tangens.
 

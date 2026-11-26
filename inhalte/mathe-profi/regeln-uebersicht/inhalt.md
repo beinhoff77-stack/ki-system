@@ -25,10 +25,12 @@ Für die Suche: Fachnamen und Formeln, die keinen eigenen Eintrag haben. Die Lis
 | Assoziativgesetz (Verbindungsgesetz) | Rechenregel 5 |
 | Distributivgesetz | Rechenregel 6 |
 | Dreisatz | Rechenregel 11 |
+| GAGA (Eselsbrücke für Sinus, Kosinus, Tangens) | G25 |
 | Kegelmantel | F17 |
 | Kommutativgesetz (Vertauschungsgesetz) | Rechenregel 5 |
 | Kürzen | Rechenregel 9 |
 | Mantel von Prisma und Zylinder | F15 |
+| Minus mal Minus | Rechenregel 3 |
 | Minus vor der Klammer | Rechenregel 7 |
 | Neutrale Zahlen: 0 beim Addieren, 1 beim Malnehmen | Rechenregel 5 |
 | Probe | Arbeitsweise Probe |
@@ -38,6 +40,7 @@ Für die Suche: Fachnamen und Formeln, die keinen eigenen Eintrag haben. Die Lis
 | Runden | Z2 |
 | Waage | Rechenregel 13 |
 | Windschief | F19 |
+| Z-Winkel, F-Winkel | G5 |
 | Zinseszins | V11 |
 | abc-Formel, Mitternachtsformel | A19 |
 
@@ -56,11 +59,11 @@ Spalte **I**: IB-MYP-Jahr laut App. Das ist **Planung der App**, keine verbindli
 
 ### Zahlen – 24 Einträge
 
-1. *Zahlengerade:* Jede Zahl hat genau einen Platz auf der Zahlengeraden – links ist kleiner.
-2. *Bündeln in Zehnern:* Zehn von einer Sorte ergeben eins von der nächstgrößeren.
-3. *Bausteine:* Jede natürliche Zahl ab 2 ist aus Primzahlen gebaut.
-4. *Schreibweisen:* Bruch, Dezimalzahl und Prozent sind drei Schreibweisen derselben Zahl.
-5. *Hoch und zurück:* Potenz, Wurzel und Logarithmus gehören zusammen: Die eine rechnet hoch, die beiden anderen fragen zurück.
+1. **Links ist kleiner, rechts ist größer – auch unter null.** – genau gesagt: Jede Zahl hat genau einen Platz auf der Zahlengeraden – links ist kleiner.
+2. **Zehn Einer sind ein Zehner, zehn Zehntel sind ein Einer.** – genau gesagt: Zehn von einer Sorte ergeben eins von der nächstgrößeren.
+3. **Primzahlen sind die Bausteine: Jede Zahl ab zwei ist aus ihnen malgenommen.** – genau gesagt: Jede natürliche Zahl ab 2 ist aus Primzahlen gebaut.
+4. **Ein Halb, null Komma fünf, fünfzig Prozent: dreimal dieselbe Zahl.** – genau gesagt: Bruch, Dezimalzahl und Prozent sind drei Schreibweisen derselben Zahl.
+5. **Hoch rechnet hin, die Wurzel rechnet zurück.** – genau gesagt: Potenz, Wurzel und Logarithmus gehören zusammen: Die eine rechnet hoch, die beiden anderen fragen zurück.
 
 | Nr. | Gesetz | In einem Satz | Idee | G | R | I | Sonne | Hinweis |
 |---|---|---|---|---|---|---|---|---|
@@ -95,10 +98,10 @@ Spalte **I**: IB-MYP-Jahr laut App. Das ist **Planung der App**, keine verbindli
 
 ### Algebra – 23 Einträge
 
-1. *Term:* Ein Term ist eine Rechenvorschrift; gleichwertige Terme liefern für jede erlaubte Zahl dasselbe.
-2. *Erlaubte Zahlen:* Kläre zuerst, welche Zahlen du einsetzen darfst: Kein Nenner wird null, unter keiner Wurzel steht etwas Negatives.
-3. *Gleichung lösen:* Eine Gleichung lösen heißt: alle Zahlen finden, die sie wahr machen.
-4. *Höherer Grad:* Bei höherem Grad: alles auf eine Seite bringen und in Faktoren zerlegen – oder die Gegenrechnung nutzen.
+1. **Ein Term ist ein Rechenrezept: Zahl hinein, Ergebnis heraus.** – genau gesagt: Ein Term ist eine Rechenvorschrift; gleichwertige Terme liefern für jede erlaubte Zahl dasselbe.
+2. **Durch null teilen geht nie – prüfe das zuerst.** – genau gesagt: Kläre zuerst, welche Zahlen du einsetzen darfst: Kein Nenner wird null, unter keiner Wurzel steht etwas Negatives.
+3. **Lösen heißt: alle Zahlen finden, für die die Gleichung stimmt.** – genau gesagt: Eine Gleichung lösen heißt: alle Zahlen finden, die sie wahr machen.
+4. **Steht x im Quadrat: erst null auf eine Seite, dann zerlegen.** – genau gesagt: Bei höherem Grad: alles auf eine Seite bringen und in Faktoren zerlegen – oder die Gegenrechnung nutzen.
 
 | Nr. | Gesetz | In einem Satz | Idee | G | R | I | Sonne | Hinweis |
 |---|---|---|---|---|---|---|---|---|
@@ -131,9 +134,9 @@ Spalte **I**: IB-MYP-Jahr laut App. Das ist **Planung der App**, keine verbindli
 
 ### Geld und Verhältnisse – 11 Einträge
 
-1. *Größe:* Eine Größe ist Zahl mal Einheit – wechselt die Einheit, wechselt die Zahl.
-2. *Wert für eins:* Proportional heißt: Der Wert für eine Einheit bleibt immer gleich.
-3. *Prozent als Faktor:* Prozent heißt Hundertstel; um p Prozent verändern heißt mit einem Faktor malnehmen.
+1. **Kleinere Einheit, größere Zahl – größere Einheit, kleinere Zahl.** – genau gesagt: Eine Größe ist Zahl mal Einheit – wechselt die Einheit, wechselt die Zahl.
+2. **Doppelt so viel kostet doppelt so viel.** – genau gesagt: Proportional heißt: Der Wert für eine Einheit bleibt immer gleich.
+3. **Prozent heißt: von hundert.** – genau gesagt: Prozent heißt Hundertstel; um p Prozent verändern heißt mit einem Faktor malnehmen.
 
 | Nr. | Gesetz | In einem Satz | Idee | G | R | I | Sonne | Hinweis |
 |---|---|---|---|---|---|---|---|---|
@@ -154,11 +157,11 @@ Spalte **I**: IB-MYP-Jahr laut App. Das ist **Planung der App**, keine verbindli
 
 ### Geometrie – 30 Einträge
 
-1. *Winkel an Geraden:* An parallelen Geraden kehren dieselben Winkel wieder – deshalb ergeben die Winkel im Dreieck zusammen 180°.
-2. *Gleicher Abstand:* Alle Punkte mit gleichem Abstand bilden eine Linie: Kreis, Mittelsenkrechte, Winkelhalbierende.
-3. *Deckungsgleich:* Spiegeln, Schieben und Drehen ändern weder Längen noch Winkel; drei passende Angaben legen ein Dreieck fest.
-4. *Ähnlich:* Ähnliche Figuren haben gleiche Winkel und alle Längen im selben Verhältnis.
-5. *Rechtwinkliges Dreieck:* Im rechtwinkligen Dreieck legen zwei Angaben alles fest: Pythagoras verbindet die Seiten, Sinus, Kosinus und Tangens verbinden Seiten und Winkel.
+1. **Gleiche Winkel an Parallelen – darum im Dreieck immer 180 Grad.** – genau gesagt: An parallelen Geraden kehren dieselben Winkel wieder – deshalb ergeben die Winkel im Dreieck zusammen 180°.
+2. **Der Kreis: alle Punkte gleich weit von der Mitte.** – genau gesagt: Alle Punkte mit gleichem Abstand bilden eine Linie: Kreis, Mittelsenkrechte, Winkelhalbierende.
+3. **Spiegeln, schieben, drehen – Form und Größe bleiben gleich.** – genau gesagt: Spiegeln, Schieben und Drehen ändern weder Längen noch Winkel; drei passende Angaben legen ein Dreieck fest.
+4. **Gleiche Form, andere Größe: alle Längen mal dieselbe Zahl.** – genau gesagt: Ähnliche Figuren haben gleiche Winkel und alle Längen im selben Verhältnis.
+5. **Rechter Winkel im Dreieck: a² plus b² ist c².** – genau gesagt: Im rechtwinkligen Dreieck legen zwei Angaben alles fest: Pythagoras verbindet die Seiten, Sinus, Kosinus und Tangens verbinden Seiten und Winkel.
 
 | Nr. | Gesetz | In einem Satz | Idee | G | R | I | Sonne | Hinweis |
 |---|---|---|---|---|---|---|---|---|
@@ -199,10 +202,10 @@ Spalte **I**: IB-MYP-Jahr laut App. Das ist **Planung der App**, keine verbindli
 
 ### Fläche und Raum – 19 Einträge
 
-1. *Auslegen und zählen:* Messen heißt auslegen und zählen: Flächen mit Einheitsquadraten, Körper mit Einheitswürfeln.
-2. *Aus dem Rechteck:* Aus dem Rechteck entsteht jede Fläche: zerschneiden, neu legen, halbieren.
-3. *Aus dem Quader:* Aus dem Quader entsteht jeder Körper: Grundfläche mal Höhe – bei spitzen Körpern ein Drittel davon.
-4. *Haut des Körpers:* Die Oberfläche ist die Haut des Körpers: Das Netz zeigt sie ausgebreitet, das Schrägbild zeigt den Körper im Raum.
+1. **Messen heißt auslegen und zählen.** – genau gesagt: Messen heißt auslegen und zählen: Flächen mit Einheitsquadraten, Körper mit Einheitswürfeln.
+2. **Aus dem Rechteck entsteht jede Fläche.** – genau gesagt: Aus dem Rechteck entsteht jede Fläche: zerschneiden, neu legen, halbieren.
+3. **Grundfläche mal Höhe – bei Spitzen nur ein Drittel.** – genau gesagt: Aus dem Quader entsteht jeder Körper: Grundfläche mal Höhe – bei spitzen Körpern ein Drittel davon.
+4. **Aufklappen zeigt die ganze Haut des Körpers.** – genau gesagt: Die Oberfläche ist die Haut des Körpers: Das Netz zeigt sie ausgebreitet, das Schrägbild zeigt den Körper im Raum.
 
 | Nr. | Gesetz | In einem Satz | Idee | G | R | I | Sonne | Hinweis |
 |---|---|---|---|---|---|---|---|---|
@@ -230,9 +233,9 @@ Spalte **I**: IB-MYP-Jahr laut App. Das ist **Planung der App**, keine verbindli
 
 ### Funktionen – 20 Einträge
 
-1. *Zuordnung:* Eine Funktion ordnet jedem x genau ein y zu; Tabelle, Graph und Gleichung zeigen dasselbe.
-2. *Wachstum:* Linear wächst in gleichen Schritten um gleich viel, exponentiell um den gleichen Faktor.
-3. *Gleichung und Form:* Die Gleichung verrät die Form des Graphen – und jede Änderung der Gleichung verschiebt oder streckt ihn.
+1. **Zu jedem x gehört genau ein y.** – genau gesagt: Eine Funktion ordnet jedem x genau ein y zu; Tabelle, Graph und Gleichung zeigen dasselbe.
+2. **Plus gleich viel gibt eine Gerade, mal gleich viel eine steile Kurve.** – genau gesagt: Linear wächst in gleichen Schritten um gleich viel, exponentiell um den gleichen Faktor.
+3. **Die Gleichung verrät die Form: x gibt eine Gerade, x² eine Parabel.** – genau gesagt: Die Gleichung verrät die Form des Graphen – und jede Änderung der Gleichung verschiebt oder streckt ihn.
 
 | Nr. | Gesetz | In einem Satz | Idee | G | R | I | Sonne | Hinweis |
 |---|---|---|---|---|---|---|---|---|
@@ -261,10 +264,10 @@ Spalte **I**: IB-MYP-Jahr laut App. Das ist **Planung der App**, keine verbindli
 
 ### Daten und Zufall – 20 Einträge
 
-1. *Kennzahl:* Eine Kennzahl fasst viele Daten in einer Zahl zusammen – und verschweigt dabei immer etwas.
-2. *Vom Teil aufs Ganze:* Von wenigen auf alle schließen geht nur, wenn zufällig und oft genug gezogen wurde.
-3. *Anteil:* Sind alle Ergebnisse gleich wahrscheinlich, ist die Wahrscheinlichkeit ein Anteil: günstige durch mögliche.
-4. *Stufen:* Bei mehreren Stufen: entlang eines Pfades malnehmen, verschiedene Pfade addieren.
+1. **Eine Zahl für viele – und immer geht etwas verloren.** – genau gesagt: Eine Kennzahl fasst viele Daten in einer Zahl zusammen – und verschweigt dabei immer etwas.
+2. **Wenige sagen nur etwas über alle, wenn der Zufall sie auswählt.** – genau gesagt: Von wenigen auf alle schließen geht nur, wenn zufällig und oft genug gezogen wurde.
+3. **Wahrscheinlichkeit: günstige durch mögliche.** – genau gesagt: Sind alle Ergebnisse gleich wahrscheinlich, ist die Wahrscheinlichkeit ein Anteil: günstige durch mögliche.
+4. **Am Pfad entlang mal, Pfade zusammen plus.** – genau gesagt: Bei mehreren Stufen: entlang eines Pfades malnehmen, verschiedene Pfade addieren.
 
 | Nr. | Gesetz | In einem Satz | Idee | G | R | I | Sonne | Hinweis |
 |---|---|---|---|---|---|---|---|---|

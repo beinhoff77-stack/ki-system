@@ -65,10 +65,10 @@ IDEE_F = [
           "Die Höhe muss senkrecht auf der Grundfläche stehen, auch beim schiefen Körper – nie entlang einer schrägen Kante. Pyramide und umgebender Körper müssen dieselbe Grundfläche haben.",
           "Dieselben Körper mit Maßen: Zylinder r = 3 cm, h = 10 cm; Pyramide 6 cm mal 6 cm, h = 4 cm. Für den Satz von Cavalieri: ein gerader und ein schiefer Münzstapel gleicher Höhe.")),
  dict(warum="Schneidet man einen Körper an seinen Kanten auf und klappt ihn flach, sieht man seine ganze Außenfläche auf einmal: das Netz. Die Oberfläche ist die Summe dieser Flächen. Das Schrägbild ist der umgekehrte Weg: ein flaches Bild, das den Körper räumlich zeigt.",
-      z=Z("Links ein Quader im Schrägbild. Rechts sein Netz: sechs Rechtecke in Kreuzform. Je zwei gleiche Rechtecke haben dieselbe Farbe – im Schrägbild und im Netz.",
+      z=Z("Drei Bilder von links nach rechts: der Quader im Schrägbild; derselbe Quader halb aufgeklappt (Deckel und Seitenwände stehen schräg ab); sein Netz flach: sechs Rechtecke in Kreuzform. Je zwei gleiche Rechtecke haben in allen drei Bildern dieselbe Farbe.",
           "Quader 5 cm mal 4 cm mal 3 cm. Im Schrägbild: Tiefenkanten unter 45° und halb so lang; verdeckte Kanten gestrichelt. Im Netz: alle Rechtecke maßstäblich.",
           "Im Netz in jedem Rechteck seine Fläche: 20 cm², 15 cm², 12 cm², jeweils zweimal. Darunter: „O = 2 · (20 + 15 + 12) cm² = 94 cm²“.",
-          "Die drei Farbpaare.",
+          "Das mittlere Bild – das Aufklappen – und die drei Farbpaare.",
           "Das Netz muss sich wirklich falten lassen: Kanten, die zusammenstoßen, sind gleich lang. Es müssen genau sechs Flächen sein.",
           "Dieselbe Darstellung für das Dreiecksprisma (Dreieck 3 cm, 4 cm, 5 cm, Höhe 6 cm): drei Rechtecke nebeneinander, zusammen 12 cm breit – so breit wie der Umfang des Dreiecks; zusammenstoßende Kanten gleich markiert. Für den Zylinder: Rechteck mit Breite 2 · π · r und zwei Kreise.")),
 ]
@@ -208,7 +208,7 @@ IDEE_G = [
           "Die Gerade durch C muss parallel aussehen. Die drei Winkel bei C müssen die gerade Linie lückenlos füllen. Die Winkelgrößen müssen stimmen (kein gleichseitiges Dreieck zeichnen).",
           "Nur die zwei Parallelen mit der schneidenden Geraden: Stufen- und Wechselwinkel (70°). Nur eine Kreuzung: Scheitel- und Nebenwinkel (65° und 115°). Viereck, durch eine Diagonale in zwei Dreiecke geteilt: 360°.")),
  dict(warum="Viele Linien der Geometrie sind „alle Punkte mit einer Abstandseigenschaft“: gleich weit von einem Punkt (Kreis), von zwei Punkten (Mittelsenkrechte), von zwei Geraden (Winkelhalbierende). Darum findet man den Umkreismittelpunkt mit Mittelsenkrechten und den Inkreismittelpunkt mit Winkelhalbierenden.",
-      z=Z("Drei Felder nebeneinander. Feld 1: Kreis um M mit vier Punkten auf der Linie und ihren Radien. Feld 2: Strecke AB mit ihrer Mittelsenkrechten; ein Punkt P darauf ist mit A und B verbunden. Feld 3: ein Winkel mit seiner Winkelhalbierenden; von einem Punkt P darauf gehen zwei Lote zu den Schenkeln.",
+      z=Z("Eine Hauptzeichnung und zwei kleinere Nebenzeichnungen. Hauptzeichnung (Feld 1, passt zum Merksatz): Kreis um M mit vier Punkten auf der Linie und ihren Radien. Nebenzeichnung Feld 2: Strecke AB mit ihrer Mittelsenkrechten; ein Punkt P darauf ist mit A und B verbunden. Nebenzeichnung Feld 3: ein Winkel mit seiner Winkelhalbierenden; von einem Punkt P darauf gehen zwei Lote zu den Schenkeln.",
           "Radius 3 cm. Strecke AB 4 cm, P liegt 3 cm über der Mitte. Winkel 60°.",
           "Feld 1: „gleich weit von M“. Feld 2: „gleich weit von A und B“. Feld 3: „gleich weit von beiden Schenkeln“.",
           "Die gleich langen Strecken: in jedem Feld mit demselben Strich-Zeichen und derselben Farbe.",
@@ -471,7 +471,7 @@ for planet, datei, ideen_extra, gesetze in PLANETEN:
     n_bsp = sum(len(m["bsp"]) for m in gesetze)
     teile = []
     for nr, ((kurz, merk, ns), extra) in enumerate(zip(ideen, ideen_extra), 1):
-        teile += [f"## Idee {nr} · {kurz}", "", f"> **{merk}**", "", f"**Warum diese Idee trägt:** {extra['warum']}", "", f"**Trägt {len(ns)} Gesetze:** {', '.join(gb.NR[n] + ' ' + n for n in ns)}", "",
+        teile += [f"## Idee {nr} · {kurz}", "", f"> **{gb.IDEE_SPRUCH[kurz][0]}**", "", f"**Genau gesagt:** {merk}", "", f"**Warum diese Idee trägt:** {extra['warum']}", "", f"**Trägt {len(ns)} Gesetze:** {', '.join(gb.NR[n] + ' ' + n for n in ns)}", "",
                   "**Zeichen-Vorgabe**", zeichnung_text(extra["z"]), "", "### Die Gesetze dieser Idee (Ebene 2)", ""]
         teile += [gesetz_text(planet, von[n]) + "\n" for n in ns]
     open(os.path.join(HIER, datei), "w", encoding="utf-8").write(f"""# Gesetzbuch · Planet „{planet}“ – ausgearbeitet in zwei Ebenen
@@ -482,7 +482,7 @@ Mathe-Profi, 26.11.2026 (Auftrag 11). Erzeugt von `planeten.py`; {n_bsp} Beispie
 
 **Ebene 1 – {len(ideen)} tragende Ideen:**
 
-{chr(10).join(f"{i}. **{merk}**" for i, (_, merk, _) in enumerate(ideen, 1))}
+{chr(10).join(f"{i}. **{gb.IDEE_SPRUCH[kurz][0]}**  {chr(10)}   *Genau gesagt:* {merk}" for i, (kurz, merk, _) in enumerate(ideen, 1))}
 
 **Ebene 2 – {len(gesetze)} Gesetze**, jedes genau einer Idee zugeordnet.
 

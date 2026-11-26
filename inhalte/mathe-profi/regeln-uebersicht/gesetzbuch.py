@@ -359,6 +359,40 @@ IDEEN = {
    ["Vierfeldertafel", "Bedingte Wahrscheinlichkeit", "Pfadregeln"]),
  ],
 }
+# Auftrag 12: Merksatz je tragender Idee. Kurzname → (Merksatz, Herkunft, [(verworfen, Grund)]); der genaue Satz steht in IDEEN.
+IDEE_SPRUCH = {
+ "Zahlengerade": ("Links ist kleiner, rechts ist größer – auch unter null.", "eigen", [("Jede Zahl hat ihren Platz.", "sagt nichts zum Tun"), ("Minus zehn ist kleiner als minus eins.", "nur ein Beispiel")]),
+ "Bündeln in Zehnern": ("Zehn Einer sind ein Zehner, zehn Zehntel sind ein Einer.", "eigen", [("Immer zehn geben eins vom Nächsten.", "abstrakt"), ("Nach neun kommt die neue Stelle.", "ungenau hinter dem Komma")]),
+ "Bausteine": ("Primzahlen sind die Bausteine: Jede Zahl ab zwei ist aus ihnen malgenommen.", "eigen", [("Jede Zahl lässt sich zerlegen.", "worein, bleibt offen"), ("Prim ist, was genau zwei Teiler hat.", "Begriff, keine Idee")]),
+ "Schreibweisen": ("Ein Halb, null Komma fünf, fünfzig Prozent: dreimal dieselbe Zahl.", "eigen", [("Bruch, Komma, Prozent – alles dasselbe.", "zu pauschal"), ("Prozent heißt von hundert.", "steht bei Geld und Verhältnisse")]),
+ "Hoch und zurück": ("Hoch rechnet hin, die Wurzel rechnet zurück.", "eigen", [("Hoch rechnet hin, Wurzel und Logarithmus rechnen zurück.", "Fachwort erst in Klasse 10 – steht unter „Genau gesagt“"), ("Wurzel ist das Gegenteil von Quadrat.", "nur für hoch zwei")]),
+ "Term": ("Ein Term ist ein Rechenrezept: Zahl hinein, Ergebnis heraus.", "eigen", [("Buchstaben sind Platzhalter für Zahlen.", "überliefert, aber nur die Variable"), ("Gleichwertig heißt: immer dasselbe Ergebnis.", "Fachwort")]),
+ "Erlaubte Zahlen": ("Durch null teilen geht nie – prüfe das zuerst.", "überliefert, ergänzt", [("Erst schauen, was hinein darf.", "unbestimmt"), ("Nenner nie null, Wurzel nie negativ.", "zweiter Teil erst ab Klasse 9")]),
+ "Gleichung lösen": ("Lösen heißt: alle Zahlen finden, für die die Gleichung stimmt.", "eigen", [("x allein auf eine Seite.", "Rezept; versagt bei x²"), ("Was ist x?", "unterstellt genau eine Lösung")]),
+ "Höherer Grad": ("Steht x im Quadrat: erst null auf eine Seite, dann zerlegen.", "eigen", [("Die Mitternachtsformel hilft immer.", "nur Grad zwei; verdeckt die Idee"), ("Quadrat weg mit der Wurzel.", "verliert die zweite Lösung")]),
+ "Größe": ("Kleinere Einheit, größere Zahl – größere Einheit, kleinere Zahl.", "eigen", [("Ohne Einheit keine Größe.", "Verbot statt Idee"), ("Komma verschieben.", "Rezept ohne Richtung")]),
+ "Wert für eins": ("Doppelt so viel kostet doppelt so viel.", "eigen", [("Je mehr, desto mehr.", "gilt auch ohne Proportionalität"), ("Der Preis für eins bleibt gleich.", "richtig, aber ohne Tun – steht unter „Genau gesagt“")]),
+ "Prozent als Faktor": ("Prozent heißt: von hundert.", "überliefert", [("Plus zwanzig Prozent heißt mal eins Komma zwei.", "erst ab Klasse 7; steht unter „Genau gesagt“"), ("Prozent ist ein Bruch mit Nenner hundert.", "Fachklang")]),
+ "Winkel an Geraden": ("Gleiche Winkel an Parallelen – darum im Dreieck immer 180 Grad.", "eigen", [("Die Winkelsumme im Dreieck ist 180 Grad.", "Fachwort, ohne Grund"), ("Z-Winkel und F-Winkel sind gleich.", "überlieferte Eselsbrücke für ein einzelnes Gesetz – als Stichwort aufgenommen")]),
+ "Gleicher Abstand": ("Der Kreis: alle Punkte gleich weit von der Mitte.", "eigen", [("Gleich weit von zwei Punkten: Mittelsenkrechte.", "Fachwort erst in Klasse 7 – steht unter „Genau gesagt“"), ("Abstand misst man senkrecht.", "ein einzelnes Gesetz, nicht die Idee")]),
+ "Deckungsgleich": ("Spiegeln, schieben, drehen – Form und Größe bleiben gleich.", "eigen", [("Drei Angaben, ein Dreieck.", "falsch bei drei Winkeln"), ("Deckungsgleich heißt: passt genau aufeinander.", "Fachwort; bleibt in der Erklärung")]),
+ "Ähnlich": ("Gleiche Form, andere Größe: alle Längen mal dieselbe Zahl.", "eigen", [("Wie mit dem Kopierer vergrößert.", "Bild ohne Regel – bleibt in der Erklärung"), ("Gleiche Winkel, gleiche Verhältnisse.", "Fachwort")]),
+ "Rechtwinkliges Dreieck": ("Rechter Winkel im Dreieck: a² plus b² ist c².", "überliefert, mit Bedingung", [("a² plus b² gleich c².", "ohne den rechten Winkel falsch"), ("Zwei Angaben legen alles fest.", "richtig, aber nichts zum Aufsagen – steht unter „Genau gesagt“")]),
+ "Auslegen und zählen": ("Messen heißt auslegen und zählen.", "Vorschlag des Projektleiters", [("Länge mal Breite.", "Formel statt Idee"), ("Fläche in Quadraten, Raum in Würfeln.", "ohne Tun")]),
+ "Aus dem Rechteck": ("Aus dem Rechteck entsteht jede Fläche.", "Vorschlag des Projektleiters", [("Grundseite mal Höhe.", "nur das Parallelogramm"), ("Schneiden, schieben, fertig.", "ohne das Rechteck")]),
+ "Aus dem Quader": ("Grundfläche mal Höhe – bei Spitzen nur ein Drittel.", "eigen", [("Aus dem Quader entsteht jeder Körper.", "Pyramide und Kugel entstehen nicht sichtbar daraus"), ("Schicht auf Schicht.", "Bild ohne Formel – bleibt in der Erklärung")]),
+ "Haut des Körpers": ("Aufklappen zeigt die ganze Haut des Körpers.", "eigen", [("Die Oberfläche ist die Summe aller Flächen.", "Fachsatz"), ("Das Netz ist der Bastelbogen.", "„Netz“ muss erst erklärt sein")]),
+ "Zuordnung": ("Zu jedem x gehört genau ein y.", "überliefert", [("Eine Funktion ist eine Maschine.", "Bild ohne Regel"), ("Tabelle, Bild, Gleichung: dreimal dasselbe.", "zweite Hälfte der Idee – steht unter „Genau gesagt“")]),
+ "Wachstum": ("Plus gleich viel gibt eine Gerade, mal gleich viel eine steile Kurve.", "eigen", [("Linear: gleich viel dazu. Exponentiell: mal dieselbe Zahl.", "Fachwörter erst in Klasse 8 und 10"), ("Steigung ist hoch durch rechts.", "ein einzelnes Gesetz")]),
+ "Gleichung und Form": ("Die Gleichung verrät die Form: x gibt eine Gerade, x² eine Parabel.", "eigen", [("Jede Funktion hat ihr Gesicht.", "Bild ohne Inhalt"), ("Plus hinten schiebt hoch.", "nur das Verschieben")]),
+ "Kennzahl": ("Eine Zahl für viele – und immer geht etwas verloren.", "eigen", [("Durchschnitt: alles zusammen, durch die Anzahl.", "ein einzelnes Gesetz"), ("Traue keiner Zahl allein.", "Verbot ohne Inhalt")]),
+ "Vom Teil aufs Ganze": ("Wenige sagen nur etwas über alle, wenn der Zufall sie auswählt.", "eigen", [("Je mehr Versuche, desto genauer.", "nur die halbe Idee"), ("Zusammen heißt nicht weil.", "ein einzelnes Gesetz")]),
+ "Anteil": ("Wahrscheinlichkeit: günstige durch mögliche.", "überliefert", [("Chance ist ein Anteil.", "ohne Rechnung"), ("Beim Würfel eins zu sechs.", "nur ein Beispiel")]),
+ "Stufen": ("Am Pfad entlang mal, Pfade zusammen plus.", "überliefert", [("Und heißt mal, oder heißt plus.", "überliefert, aber falsch bei abhängigen oder überlappenden Ereignissen"), ("Erst den Baum zeichnen, dann rechnen.", "Vorgehen, kein Satz")]),
+}
+assert sorted(IDEE_SPRUCH) == sorted(k for v in IDEEN.values() for k, _, _ in v)
+for k, (sp, _, vw) in IDEE_SPRUCH.items():
+    assert sonne.woerter(sp) <= 13 and len(vw) == 2, (k, sonne.woerter(sp))
 IDEE_VON = {}
 for planet, ideen in IDEEN.items():
     assert 3 <= len(ideen) <= 5, planet
@@ -366,7 +400,7 @@ for planet, ideen in IDEEN.items():
     ist = [n for _, _, ns in ideen for n in ns]
     assert sorted(ist) == sorted(soll), (planet, set(soll) ^ set(ist), [n for n in ist if ist.count(n) > 1])   # jedes Gesetz genau einer Idee
     for nr, (kurz, merk, ns) in enumerate(ideen, 1):
-        assert len(merk) <= 170, (kurz, len(merk))
+        assert len(merk) <= 190, (kurz, len(merk))
         for n in ns:
             IDEE_VON[n] = (nr, kurz)
 N_IDEEN = sum(len(v) for v in IDEEN.values())
@@ -394,9 +428,9 @@ STICHWORT = [
  ("Abstand Punkt–Gerade, Lot", NR["Parallel, senkrecht, Abstand"]), ("Assoziativgesetz (Verbindungsgesetz)", "Rechenregel 5"), ("abc-Formel, Mitternachtsformel", NR["Lösungsformel"]),
  ("Distributivgesetz", "Rechenregel 6"), ("Dreisatz", "Rechenregel 11"), ("Kegelmantel", NR["Pyramide und Kegel"]), ("Kommutativgesetz (Vertauschungsgesetz)", "Rechenregel 5"),
  ("Kürzen", "Rechenregel 9"), ("Mantel von Prisma und Zylinder", NR["Prisma und Zylinder"]), ("Minus vor der Klammer", "Rechenregel 7"),
- ("Neutrale Zahlen: 0 beim Addieren, 1 beim Malnehmen", "Rechenregel 5"), ("Probe", "Arbeitsweise Probe"), ("Punkt vor Strich", "Rechenregel 4"),
+ ("Neutrale Zahlen: 0 beim Addieren, 1 beim Malnehmen", "Rechenregel 5"), ("Probe", "Arbeitsweise Probe"),
  ("Pyramidenmantel", NR["Pyramide und Kegel"]), ("Prozent", NR["Grundgleichung der Prozentrechnung"]), ("Runden", NR["Runden"]), ("Waage", "Rechenregel 13"),
- ("Windschief", NR["Lage im Raum"]), ("Zinseszins", NR["Zinseszins"]),
+ ("Windschief", NR["Lage im Raum"]), ("Z-Winkel, F-Winkel", NR["Stufen- und Wechselwinkel"]), ("GAGA (Eselsbrücke für Sinus, Kosinus, Tangens)", NR["Sinus, Kosinus, Tangens"]), ("Punkt vor Strich", "Rechenregel 4"), ("Minus mal Minus", "Rechenregel 3"), ("Zinseszins", NR["Zinseszins"]),
 ]
 
 
@@ -409,7 +443,7 @@ if __name__ == "__main__":
     for planet, abschnitte in P.items():
         verz.append(f"\n### {planet} – {zahl[planet]} Einträge\n")
         if planet in IDEEN:
-            verz += [f"{i}. *{kurz}:* {merk}" for i, (kurz, merk, _) in enumerate(IDEEN[planet], 1)] + [""]
+            verz += [f"{i}. **{IDEE_SPRUCH[kurz][0]}** – genau gesagt: {merk}" for i, (kurz, merk, _) in enumerate(IDEEN[planet], 1)] + [""]
         verz += ["| Nr. | Gesetz | In einem Satz | Idee | G | R | I | Sonne | Hinweis |", "|---|---|---|---|---|---|---|---|---|"]
         for abschnitt, gesetze in abschnitte:
             verz.append(f"| | *{abschnitt}* | | | | | | | |")
@@ -422,46 +456,84 @@ if __name__ == "__main__":
     for planet, ideen in IDEEN.items():
         ebene1.append(f"\n### {planet} – {len(ideen)} tragende Ideen\n")
         for i, (kurz, merk, ns) in enumerate(ideen, 1):
-            ebene1.append(f"{i}. **{merk}**  \n   *{kurz}* – trägt {len(ns)} Gesetze: {', '.join(NR[n] + ' ' + n for n in ns)}")
+            ebene1.append(f"{i}. **{IDEE_SPRUCH[kurz][0]}**  \n   *Genau gesagt:* {merk}  \n   <sub>{kurz} – trägt {len(ns)} Gesetze: {', '.join(NR[n] + ' ' + n for n in ns)}</sub>")
     zaehl = " · ".join(f"{p} {len(v)}" for p, v in IDEEN.items())
+    alle = [(f"Rechenregel {i}", r["spruch"], r["herkunft"], r["verworfen"]) for i, r in enumerate(sonne.R, 1)]
+    alle += [(f"{p}, Idee {i}", *IDEE_SPRUCH[k]) for p, v in IDEEN.items() for i, (k, _, _) in enumerate(v, 1)]
+    anhang = []
+    for ort, sp, her, vw in alle:
+        for n, (v, grund) in enumerate(vw):
+            anhang.append(f"| {ort if n == 0 else ''} | {sp if n == 0 else ''} | {her if n == 0 else ''} | {v} | {grund} |")
+    n_ueb = sum(1 for a in alle if a[2].startswith(("überliefert", "Vorschlag")))
+    laengen = sorted(sonne.woerter(a[1]) for a in alle)
     open(os.path.join(HIER, "ebene1.md"), "w", encoding="utf-8").write(f"""# Gesetzbuch · Ebene 1: alle Sätze zum Auswendigwissen
 
-Mathe-Profi, 26.11.2026 (Auftrag 11). Erzeugt von `gesetzbuch.py`.
+Mathe-Profi, 26.11.2026 (Aufträge 11 und 12). Erzeugt von `gesetzbuch.py`.
 
 **Ebene 1 hat {EBENE1} Sätze:** {len(SONNE)} Rechenregeln (Sonne) und {N_IDEEN} tragende Ideen ({zaehl}). [G, gezählt]
-Die Entdecker-Inseln haben keine tragende Idee; sie stehen nur in Ebene 2.
-Jedes der {GES - zahl['Entdecker-Inseln']} Gesetze der sieben Planeten ist genau einer Idee zugeordnet ([G], `gesetzbuch.py` prüft es).
+
+**Jeder Satz hat zwei Zeilen:**
+1. **Merksatz** – zum Aufsagen: kurz, mit Bild, Gegensatz oder Rhythmus. Er darf vereinfachen, behauptet aber nichts Falsches.
+2. *Genau gesagt* – der fachlich saubere Satz mit seiner Bedingung, klein darunter.
+
+Länge der Merksätze: {laengen[0]} bis {laengen[-1]} Wörter, im Mittel {sum(laengen) / len(laengen):.1f}; {sum(1 for x in laengen if x > 12)} liegen über zwölf ([G], gezählt). {n_ueb} der {len(alle)} Merksätze sind überlieferte Schulsprüche oder übernommene Vorschläge, die übrigen von mir neu gefasst.
 
 ## Die Sonne – {len(SONNE)} Rechenregeln
 
-{chr(10).join(f"{i}. **{r['merk']}**  {chr(10)}   *{r['name']}*" for i, r in enumerate(sonne.R, 1))}
+{chr(10).join(f"{i}. **{r['spruch']}**  {chr(10)}   *Genau gesagt:* {r['merk']}  {chr(10)}   <sub>{r['name']}</sub>" for i, r in enumerate(sonne.R, 1))}
 
 ## Die Planeten – {N_IDEEN} tragende Ideen
 {chr(10).join(ebene1)}
 
-## Was ich am Vorschlag des Projektleiters für Geometrie geändert habe
+Die Entdecker-Inseln haben keine tragende Idee; sie stehen nur in Ebene 2. Jedes der {GES - zahl['Entdecker-Inseln']} Gesetze der sieben Planeten ist genau einer Idee zugeordnet ([G], `gesetzbuch.py` prüft es).
+
+## Wo der Merksatz bewusst vereinfacht [M]
+
+| Merksatz | Was er weglässt | Wo es steht |
+|---|---|---|
+| Minus mal Minus gibt Plus … | Geteilt; die Null | Genau gesagt, Voraussetzung |
+| Hoch drei heißt: … dreimal hinschreiben und malnehmen | das Gesetz „Hochzahlen addieren“; hoch null und negative Hochzahlen | Genau gesagt, Voraussetzung |
+| Eine Gleichung ist eine Waage … | „umkehrbar“: mal null und Quadrieren sind auf beiden Seiten möglich und trotzdem keine sichere Umformung | Genau gesagt, häufiger Fehler |
+| Wahrscheinlichkeit: günstige durch mögliche | gilt nur bei gleich wahrscheinlichen Ergebnissen | Genau gesagt |
+| Aus dem Rechteck entsteht jede Fläche | beim Kreis nur näherungsweise (Tortenstücke) | Gesetz F9 |
+| Grundfläche mal Höhe – bei Spitzen nur ein Drittel | die Kugel | Gesetz F18 |
+| Der Kreis: alle Punkte gleich weit von der Mitte | Mittelsenkrechte und Winkelhalbierende | Genau gesagt |
+| Rechter Winkel im Dreieck: a² plus b² ist c² | Sinus, Kosinus, Tangens; c muss dem rechten Winkel gegenüberliegen | Genau gesagt |
+| Steht x im Quadrat: erst null auf eine Seite, dann zerlegen | der kurze Weg bei x² = 49 (Gegenrechnung) | Genau gesagt |
+| Durch null teilen geht nie | Wurzeln aus negativen Zahlen | Genau gesagt |
+
+## Was ich am Vorschlag des Projektleiters für Geometrie geändert habe (Auftrag 11)
 
 | Vorschlag | Urteil | Was daraus wurde |
 |---|---|---|
-| Winkelsumme 180° | trägt, aber ist selbst eine Folge | Idee 1 nennt die Ursache mit: gleiche Winkel an Parallelen – daraus folgt die Winkelsumme |
-| Drei passende Angaben legen ein Dreieck fest | trägt | mit dem nächsten zu **einer** Idee „Deckungsgleich“ vereint: Beides sagt, wann zwei Figuren in allen Längen und Winkeln übereinstimmen |
+| Winkelsumme 180° | trägt, aber ist selbst eine Folge | Idee 1 nennt die Ursache mit: gleiche Winkel an Parallelen |
+| Drei passende Angaben legen ein Dreieck fest | trägt | mit dem nächsten zu **einer** Idee „Deckungsgleich“ vereint |
 | Spiegeln, Schieben, Drehen ändert weder Längen noch Winkel | trägt | siehe oben |
 | Ähnliche Figuren | trägt | unverändert Idee 4 |
-| Pythagoras | zu eng: ein einzelner Satz, der Sinus, Kosinus und Tangens nicht trägt | erweitert zu „Rechtwinkliges Dreieck: zwei Angaben legen alles fest“ |
-| – (fehlte) | sechs Gesetze hatten keine Heimat: Abstand, Ortslinien, Thales, Tangente, Umkreis und Inkreis, Koordinatensystem | neue Idee 2 „Gleicher Abstand“ |
+| Pythagoras | zu eng: trägt Sinus, Kosinus und Tangens nicht | erweitert zu „Rechtwinkliges Dreieck“ |
+| – (fehlte) | sechs Gesetze hatten keine Heimat | neue Idee 2 „Gleicher Abstand“ |
 
-## Wo die Zuordnung nur lose passt [M]
+## Wo die Zuordnung eines Gesetzes zu seiner Idee nur lose passt [M]
 
 - **Fläche und Raum, Idee 4:** „Lage im Raum“ (windschief) hat mit der Oberfläche nichts zu tun; es steht dort, weil es wie das Schrägbild vom Sehen im Raum handelt.
-- **Geometrie, Idee 3:** „Fläche mit Determinante“ und „Matrizen und Skalarprodukt“ (nur Realschule) hängen nur über die Vektoren an der Idee. „Satz und Kehrsatz“ ist eher eine Denkweise als ein Geometrie-Gesetz.
-- **Geometrie, Idee 2:** „Koordinatensystem“ ist ein Werkzeug; es steht dort, weil Abstände und Kreise darin beschrieben werden.
-- **Geld und Verhältnisse, Idee 2:** Die indirekte Proportionalität ist das Gegenstück (das Produkt bleibt gleich), nicht ein Fall der Idee.
-- **Daten und Zufall, Idee 2:** „Zusammenhang ist nicht Ursache“ passt nur als zweite Vorsichtsregel beim Schließen aus Daten.
+- **Geometrie, Idee 3:** „Fläche mit Determinante“ und „Matrizen und Skalarprodukt“ (nur Realschule) hängen nur über die Vektoren an der Idee. „Satz und Kehrsatz“ ist eher eine Denkweise.
+- **Geometrie, Idee 2:** „Koordinatensystem“ ist ein Werkzeug.
+- **Geld und Verhältnisse, Idee 2:** Die indirekte Proportionalität ist das Gegenstück (das Produkt bleibt gleich), kein Fall der Idee.
+- **Daten und Zufall, Idee 2:** „Zusammenhang ist nicht Ursache“ passt nur als zweite Vorsichtsregel.
+
+## Anhang: verworfene Merksatz-Kandidaten
+
+Je Satz drei Kandidaten erprobt; gewählt ist der in Spalte 2.
+
+| Satz | Gewählt | Herkunft | Verworfen | Grund |
+|---|---|---|---|---|
+{chr(10).join(anhang)}
 
 ## Nicht geprüft
 
-- Ob die Sätze für ein Kind der Klasse 5 verständlich und merkbar sind – nicht erprobt.
-- Die fünf übrigen Planeten (Zahlen, Algebra, Geld und Verhältnisse, Funktionen, Daten und Zufall) haben Ideen und Zuordnung, aber noch keine Zeichen-Vorgabe und keine Ausarbeitung.
+- **Kein Merksatz ist mit einem Kind erprobt.** Ob ein Kind der Klasse 5 ihn nach zweimal Hören aufsagen kann, ist eine Annahme.
+- „Überliefert“ heißt: mir als gängiger Schulspruch bekannt; nicht an einem Schulbuch nachgeschlagen.
+- Die fünf übrigen Planeten haben Ideen, Merksätze und Zuordnung, aber noch keine Zeichen-Vorgabe und keine Ausarbeitung.
 """)
     open(os.path.join(HIER, "inhalt.md"), "w", encoding="utf-8").write(f"""# Gesetzbuch · Ebene 2: Nachschlagen – Stichwörter und alle Einträge
 

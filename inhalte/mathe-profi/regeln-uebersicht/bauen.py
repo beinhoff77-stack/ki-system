@@ -53,8 +53,8 @@ R = [
       weg=[],
       z=Z("Zwei Zahlengeraden untereinander von −1 bis 6. Oben: Startpunkt bei 3, ein Bogenpfeil zwei Einheiten nach links, Landung bei 1. Unten: Startpunkt bei 3, ein Bogenpfeil zwei Einheiten nach rechts, Landung bei 5.",
           "Gleicher Maßstab auf beiden Geraden, Teilstriche an jeder ganzen Zahl; beide Starts genau übereinander bei 3.",
-          "Über der oberen Geraden „3 + (−2) = 1“, über der unteren „3 − (−2) = 5“. Start mit vollem Punkt, Ziel mit Ring.",
-          "Die Pfeilrichtung und das Zeichen, das sie bestimmt (das „−“ vor der 2 und das Rechenzeichen in derselben Farbe).",
+          "Über der oberen Geraden „3 + (−2) = 1“ und „einmal umdrehen“, über der unteren „3 − (−2) = 5“ und „zweimal umdrehen“. Start mit vollem Punkt, Ziel mit Ring. Am Start steht eine kleine Figur mit Blick nach rechts; je Minuszeichen zeigt ein kleiner Bogenpfeil eine Kehrtwende.",
+          "Jedes Minuszeichen und die zugehörige Kehrtwende in derselben Farbe: oben eine, unten zwei.",
           "Beide Pfeile müssen genau zwei Einheiten lang sein. Der Start darf nicht bei 0 liegen. Die Null muss sichtbar sein.",
           "Dieselben zwei Geraden für −½ − ¾ (Teilstriche in Vierteln) und für 3x − 5x (Einheit „x“)."),
       bsp=[(5, "E", "zahlen.ganz", "3 + (−2) = 1", lambda: 3 + (-2) == 1),
@@ -63,7 +63,7 @@ R = [
            (7, "A", "terme.umformen", "3x − 5x = −2x", lambda: gleich(lambda x: 3 * x - 5 * x, lambda x: -2 * x)),
            (8, "A", "gleichungen.ungleichungen", "x + 5 < 2, also x < −3", lambda: all((x + 5 < 2) == (x < -3) for x in range(-9, 9)))]),
  dict(nr=2, name="Vorzeichen bei Mal und Geteilt", schicht=1,
-      merk="Bei Mal und Geteilt: Gleiche Vorzeichen ergeben Plus, verschiedene Minus.",
+      merk="Bei Mal und Geteilt mit zwei Zahlen ungleich null: Gleiche Vorzeichen ergeben Plus, verschiedene Minus.",
       warum="In der Reihe 3 · (−2) = −6, 2 · (−2) = −4, 1 · (−2) = −2, 0 · (−2) = 0 wird das Ergebnis jedes Mal um 2 größer. Setzt man sie fort, muss (−1) · (−2) = 2 sein. Nur so bleiben die übrigen Rechengesetze gültig. Für Geteilt gilt dasselbe, weil Teilen die Gegenrechnung zum Malnehmen ist.",
       gilt="Gilt für zwei Zahlen, die beide nicht null sind. Ist ein Faktor null, ist das Produkt null und hat kein Vorzeichen.",
       fehler="Die Regel auf Plus übertragen: (−3) + (−4) ist −7, nicht +7.",
@@ -166,7 +166,7 @@ R = [
       z=Z("Eine Zeile mit drei Zweien in einer Klammer und zwei Zweien in einer zweiten Klammer, dazwischen ein Malpunkt: (2 · 2 · 2) · (2 · 2). Unter der ersten Klammer „2³“, unter der zweiten „2²“, unter allen fünf zusammen eine lange Klammer mit „2⁵“. Darunter eine Zahlenreihe 8, 4, 2, 1, ½, ¼ mit den Hochzahlen 3, 2, 1, 0, −1, −2 darüber und „: 2“ zwischen den Gliedern.",
           "Die fünf Zweien stehen in gleichen Abständen; die untere Reihe hat sechs gleich breite Felder.",
           "„2³ · 2² = 2⁵“ und „3 + 2 = 5“. In der Reihe: Hochzahl über jedem Wert.",
-          "Die Hochzahlen 3, 2 und 5 in einer Farbe; in der Reihe das Feld 2⁰ = 1.",
+          "Die erste Klammer: drei Zweien, hingeschrieben und malgenommen – dazu die Hochzahl 3 in derselben Farbe. Zweitrangig: die Hochzahlen 2 und 5; in der Reihe das Feld 2⁰ = 1.",
           "Es müssen genau fünf Zweien sein. In der Reihe darf 2⁰ nicht 0 sein und 2⁻¹ nicht negativ.",
           "Dieselbe Zeile mit x statt 2: (x · x · x) · (x · x) = x⁵. Dieselbe Reihe mit 10: 1 000, 100, 10, 1, 0,1, 0,01."),
       bsp=[(5, "E", "zahlen.potenzen_basis", "2⁵ = 2 · 2 · 2 · 2 · 2 = 32", lambda: 2 ** 5 == 32),
@@ -175,7 +175,7 @@ R = [
            (8, "E", "terme.potenzgesetze_ganzzahlig", "a⁻² = 1 : a² für a ≠ 0", lambda: gleich(lambda a: a ** -2, lambda a: 1 / (a * a))),
            (10, "A", "funktionen.exponential_log", "2ˣ · 2³ = 2 hoch (x + 3)", lambda: all(2 ** x * 2 ** 3 == 2 ** (x + 3) for x in range(1, 6)))]),
  dict(nr=10, name="Erweitern und Kürzen", schicht=3,
-      merk="Ein gemeinsamer Faktor darf in Zähler und Nenner dazukommen oder wegfallen – der Wert des Bruchs bleibt.",
+      merk="Ein gemeinsamer Faktor ungleich null darf in Zähler und Nenner dazukommen oder wegfallen – der Wert des Bruchs bleibt.",
       warum="Der Nenner sagt, in wie viele gleiche Teile das Ganze geteilt ist, der Zähler, wie viele davon gemeint sind. Teilt man jedes Teil noch einmal, gibt es doppelt so viele Teile und man nimmt doppelt so viele: Die Menge bleibt gleich, nur die Einteilung wird feiner.",
       gilt="Der Faktor darf nicht null sein. Er muss den ganzen Zähler und den ganzen Nenner betreffen.",
       fehler="Aus Summen kürzen: (x + 6) : (x + 2) zu 3 machen. Erst ausklammern, dann kürzen.",
@@ -285,6 +285,49 @@ R = [
            (9, "E", "gleichungen.quadratisch", "(x − 2) · (x + 3) = 0, also x = 2 oder x = −3", lambda: [x for x in range(-9, 9) if (x - 2) * (x + 3) == 0] == [-3, 2]),
            (10, "A", "gleichungen.polynom", "x · (x − 2) · (x + 2) = 0, also x = 0, x = 2 oder x = −2", lambda: [x for x in range(-9, 9) if x * (x - 2) * (x + 2) == 0] == [-2, 0, 2])]),
 ]
+# Auftrag 12: je Regel ein einprägsamer Merksatz (höchstens etwa zwölf Wörter); der genaue Satz steht in "merk" („Genau gesagt“).
+# nr → (Merksatz, Herkunft, [(verworfener Kandidat, Grund)])
+SPRUCH = {
+ 13: ("Mal zehn: Jede Ziffer rückt eins nach links.", "eigen",
+      [("Mal zehn: Null dran.", "falsch bei Kommazahlen"), ("Mal zehn: Komma eins nach rechts.", "unsichtbar bei 340; in der Zeichnung steht das Komma fest")]),
+ 1: ("Minus heißt umdrehen – zweimal umdrehen ist wieder geradeaus.", "eigen",
+     [("Minus minus gibt plus.", "wird auf (−3) + (−4) übertragen"), ("Schulden abziehen heißt Geld bekommen.", "trägt nur einen der Fälle")]),
+ 2: ("Minus mal Minus gibt Plus, Minus mal Plus gibt Minus.", "überliefert",
+     [("Gleiche Zeichen plus, verschiedene minus.", "ohne „mal“ – wird aufs Addieren übertragen"), ("Der Feind meines Feindes ist mein Freund.", "Bild ohne Rechnung")]),
+ 3: ("Klammer zuerst, dann Hoch, dann Punkt vor Strich.", "überliefert, ergänzt",
+     [("Punkt vor Strich.", "allein unvollständig: Klammer und Hoch fehlen"), ("KlaPoPuStri.", "Kunstwort")]),
+ 6: ("Tauschen bei Plus und Mal. Zusammenfassen: nur Gleiches zu Gleichem.", "eigen",
+     [("Äpfel und Birnen kann man nicht addieren.", "macht aus a einen Gegenstand statt einer Zahl"), ("Die Reihenfolge ist egal.", "falsch bei Minus und Geteilt")]),
+ 4: ("Was vor der Klammer steht, nimmt jeden in der Klammer mal.", "eigen",
+     [("Jeder mit jedem.", "gehört zu Summe mal Summe"), ("Jeder kommt dran.", "ohne „mal“ unklar")]),
+ 5: ("Minus vor der Klammer dreht alle Zeichen um.", "überliefert",
+     [("Minus vor der Klammer: aus Plus wird Minus.", "nennt nur eine Richtung"), ("Minusklammer heißt Vorzeichenwechsel.", "Fachwörter")]),
+ 12: ("Hoch drei heißt: die Zahl dreimal hinschreiben und malnehmen.", "eigen",
+      [("Hoch ist Mal mit sich selbst.", "wie oft, bleibt offen"), ("Gleiche Basis: Hochzahlen plus.", "Fachwort; erst ab Klasse 7")]),
+ 10: ("Oben und unten dasselbe mal oder geteilt – der Bruch bleibt gleich.", "eigen",
+      [("Aus Summen kürzen nur die Dummen.", "überliefert, aber beschämend; nennt nur den Fehler"), ("Zähler und Nenner gleich behandeln.", "falsch bei Plus und Minus")]),
+ 11: ("Plus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: Kehrwert.", "überliefert, verdichtet",
+      [("Nur Gleiches lässt sich zusammenzählen.", "deckt Mal und Geteilt nicht"), ("Bruch durch Bruch: umdrehen und malnehmen.", "welchen umdrehen, bleibt offen")]),
+ 14: ("Erst auf eins, dann auf viele.", "überliefert",
+      [("Je mehr, desto mehr.", "gilt auch, wo kein Dreisatz gilt"), ("Über Kreuz malnehmen.", "Rezept ohne Sinn")]),
+ 8: ("Rückwärts rechnen: Was zuletzt kam, geht zuerst.", "eigen",
+     [("Plus und Minus heben sich auf.", "nur ein Paar"), ("Schuhe vor Socken ausziehen.", "Bild ohne Rechnung – bleibt in der Erklärung")]),
+ 7: ("Eine Gleichung ist eine Waage: Was du links tust, musst du auch rechts tun.", "überliefert; Wortlaut des Nutzers",
+     [("Auf beiden Seiten dasselbe.", "ohne Bild"), ("Rüberbringen und Zeichen wechseln.", "überliefert, erzeugt Fehler bei Mal und Geteilt")]),
+ 15: ("Mal ergibt nur null, wenn eine der Zahlen null ist.", "eigen",
+      [("Null mal irgendwas ist null.", "nur eine Richtung"), ("Ein Produkt ist genau dann null, wenn mindestens ein Faktor null ist.", "richtig, aber nicht aufsagbar – steht unter „Genau gesagt“")]),
+}
+
+
+def woerter(text):
+    return len([w for w in text.replace("–", " ").split() if any(c.isalnum() for c in w)])
+
+
+for r in R:
+    r["spruch"], r["herkunft"], r["verworfen"] = SPRUCH[r["nr"]]
+    assert woerter(r["spruch"]) <= 14 and 2 <= len(r["verworfen"]) <= 3, (r["name"], woerter(r["spruch"]))
+assert sorted(SPRUCH) == sorted(r["nr"] for r in R)
+
 SCHICHT = {1: "Zahlen", 2: "Klammern und Potenzen", 3: "Brüche und Verhältnis", 4: "Gleichungen"}
 
 # ── Prüfen ──
@@ -294,7 +337,7 @@ assert len(R) == 14 and sorted(NAME) == [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13,
 for r in R:
     assert all(w in NAMEN for w in r["weg"]), r["name"]
     assert all(r[k] for k in ("merk", "warum", "gilt", "fehler", "verwandt")) and all(r["z"][k] for k in r["z"]), r["name"]
-    assert len(r["merk"]) <= 190, (r["name"], len(r["merk"]))
+    assert len(r["merk"]) <= 200, (r["name"], len(r["merk"]))
     folge = [(k, "VEA".index(a)) for k, a, *_ in r["bsp"]]
     assert [k for k, _ in folge] == sorted(k for k, _ in folge), r["name"]
     assert any(a == "E" for _, a, *_ in r["bsp"]), r["name"]
@@ -318,7 +361,7 @@ def zeichnung_text(z):
 
 
 def regel_text(i, r):
-    z = [f"### {i}. {r['name']}", "", f"> **{r['merk']}**", "", f"**Warum das gilt:** {r['warum']}", "", f"**Voraussetzung:** {r['gilt']}", "", f"**Häufiger Fehler:** {r['fehler']}", "",
+    z = [f"### {i}. {r['name']}", "", f"> **{r['spruch']}**", "", f"**Genau gesagt:** {r['merk']}", "", f"**Warum das gilt:** {r['warum']}", "", f"**Voraussetzung:** {r['gilt']}", "", f"**Häufiger Fehler:** {r['fehler']}", "",
          f"**Verwandt:** {r['verwandt']}", "", "| Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |", "|---|---|---|---|"]
     z += [f"| {k} | {ART[a]} | {text} | `{thema}` |" for k, a, thema, text, _ in r["bsp"]]
     z += ["", f"**Möglicher Erklärweg über:** {', '.join(r['weg']) or '–'} (zum Erklären hilfreich, keine Lernvoraussetzung)", "", "**Zeichen-Vorgabe**", zeichnung_text(r["z"])]
@@ -330,15 +373,17 @@ if __name__ == "__main__" or True:
     for i, r in enumerate(R, 1):
         matrix.append(f"| {i} {r['name']} | " + " | ".join(zelle(r, k) for k in KL) + " |")
     schichten = "\n".join(f"| **{s} · {SCHICHT[s]}** | " + " · ".join(f"{NAMEN.index(r['name']) + 1} {r['name']}" for r in R if r["schicht"] == s) + " |" for s in sorted(SCHICHT))
-    merkliste = "\n".join(f"{i}. **{r['name']}:** {r['merk']}" for i, r in enumerate(R, 1))
+    merkliste = "\n".join(f"{i}. **{r['spruch']}**  \n   *{r['name']} – genau gesagt:* {r['merk']}" for i, r in enumerate(R, 1))
     nummern = " · ".join(f"{i} = Etikett {r['nr']}" for i, r in enumerate(R, 1))
-    open(os.path.join(HIER, "sonne.md"), "w", encoding="utf-8").write(f"""# Gesetzbuch · Die Sonne: die {len(R)} Rechenregeln (zweite Fassung nach der Gegenprüfung)
+    open(os.path.join(HIER, "sonne.md"), "w", encoding="utf-8").write(f"""# Gesetzbuch · Die Sonne: die {len(R)} Rechenregeln (dritte Fassung: Merksatz und „Genau gesagt“)
 
 Mathe-Profi, 26.11.2026. Erzeugt von `bauen.py`; {n_bsp} Beispiele, jedes nachgerechnet (Lauf „OK“).
 Die Sonne ist die Mitte des Gesetzbuchs: Diese Regeln bleiben von Klasse 5 bis 10 dieselben, nur das Gewand wechselt (Zahl, Bruch, Buchstabe, Bruchterm, Wurzel).
 **[G]** gesichert · **[A]** Annahme · **[M]** Meinung.
 
 ## Die {len(R)} Merksätze
+
+Je Regel zwei Zeilen: oben der Merksatz zum Aufsagen, darunter der genaue Satz mit seiner Bedingung. Der Merksatz darf vereinfachen, behauptet aber nichts Falsches. Verworfene Kandidaten: Anhang von `ebene1.md`.
 
 {merkliste}
 

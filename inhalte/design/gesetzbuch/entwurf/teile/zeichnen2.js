@@ -43,7 +43,7 @@ function zUmdrehen() {
     return s + zGl(160, ya - 100, teile) + zT(tx + bw + 8, ya - 64, wort, { g: 15, a: 'start', grotesk: true, w: 700 }); };
   const oben = gerade(130, 1, ['3 + (', ['−'], '2) = 1'], 'einmal umdrehen', 1), unten = gerade(296, 5, ['3 ', ['−'], ' (', ['−'], '2) = 5'], 'zweimal umdrehen', 2);
   return { name: 'Plus und Minus mit negativen Zahlen', felder: [
-    { svg: zBlatt(320, 330, oben + zL(X(3), 158, X(3), 180, { f: ZF.leise, b: 1.5, strich: '3 4' }) + unten, 'Zwei Zahlengeraden von minus 1 bis 6 untereinander. Am Start bei 3 steht eine Figur mit Blick nach rechts. Oben ein Minus, eine Kehrtwende: Pfeil zwei Einheiten nach links zur 1. Unten zwei Minus, zwei Kehrtwenden: Pfeil zwei Einheiten nach rechts zur 5'),
+    { svg: zBlatt(320, 330, oben + zL(X(3), 158, X(3), 174, { f: ZF.leise, b: 1.5, strich: '3 4' }) + unten, 'Zwei Zahlengeraden von minus 1 bis 6 untereinander. Am Start bei 3 steht eine Figur mit Blick nach rechts. Oben ein Minus, eine Kehrtwende: Pfeil zwei Einheiten nach links zur 1. Unten zwei Minus, zwei Kehrtwenden: Pfeil zwei Einheiten nach rechts zur 5'),
       mini: zBlatt(320, 164, oben, 'Zahlengerade: Figur bei 3, eine Kehrtwende, Pfeil zwei Einheiten nach links zur 1'), gl: '', satz: 'Die Figur steht bei 3 und schaut nach rechts. Jedes Minus ist eine Kehrtwende. Einmal umgedreht geht sie nach links, zweimal umgedreht wieder nach rechts. Beide Pfeile sind genau zwei Einheiten lang.' },
   ] };
 }

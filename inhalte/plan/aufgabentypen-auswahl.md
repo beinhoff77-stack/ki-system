@@ -87,3 +87,24 @@ Der Nutzer erwartet, dass neue Aufgaben laufend geschrieben werden und dass die 
 **Stufe 3 – später:** Der Lauf stößt eigene Helfer an, die die Aufgaben entwerfen; Mathe-Profi und ChatGPT prüfen; der Nutzer gibt frei. Einspielen bleibt an den ausdrücklichen Satz des Nutzers gebunden, solange er nichts anderes festlegt.
 
 **Abhängigkeit:** Die 78 Aufgaben aus Schritt 1 und alle weiteren warten mit der Regel-Zuordnung auf die fertige Liste des Regel-Universums.
+
+## Darstellung verbessern – als fester Teil des Plans (Erinnerung des Nutzers vom 26.11.)
+Die Verbesserungen an der Darstellung, die die Recherche schon gefunden hat (`inhalte/recherche/tief-11-bedienung-eltern.md`, Lieferung 2 und Lieferung 5), gehören in den Plan. Sie waren am 25.11. zurückgestellt („nicht der Kern“), sind aber nicht gestrichen.
+
+**Zusammen mit dem Fundament (derselbe Bildschirm wird ohnehin umgebaut):**
+1. Zahlenfeld verdeckt die Aufgabe nicht mehr: Aufgabe und Antwortfeld bleiben über der Tastatur sichtbar; Minus und Komma nur, wenn die Aufgabe sie braucht.
+2. Übungsbildschirm entrümpeln: Kopf auf eine Zeile, eine einzige Fortschrittsleiste statt mehrerer Zähler.
+3. Rückmeldung als Blatt unten: Symbol, Wort und Farbe zugleich; bei Fehlern eine Kurzregel; „arbeitet“-Zeichen nach einer Sekunde.
+
+**Eigener kleiner Bau danach:**
+4. Ein Hauptknopf je Bildschirm.
+5. Schwebender „Einsteigen“-Knopf liegt nicht mehr über Inhalt.
+6. Klares Ende der Sitzung („Fertig für heute“), schlanker Abschlussbildschirm.
+7. Bewegung abschaltbar, Ton standardmäßig aus, Ansprache je Kind einstellbar (sachlich für den Älteren).
+8. Eingabe geht bei Netzabbruch nicht verloren.
+
+**Eltern- und Lehrerseite:**
+9. „Was wackelt?“ am Handy als Karten statt Tabelle.
+10. Übersicht je Kind auf sieben Angaben kürzen.
+
+Vorgabe je Punkt durch den Designer, sobald er mit dem Regel-Universum durch ist; Punkte 1 bis 3 vorab als kurze Vorgabe, weil der Bau des Fundaments sie braucht. Aufwand-Angaben aus der Recherche sind Schätzungen, nichts davon ist an der App getestet.

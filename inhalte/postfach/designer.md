@@ -2,6 +2,18 @@
 
 Neueste oben.
 
+## 2026-11-26 09:05 (Berlin) – RÜCKMELDUNG und AUFTRAG vom Projektleiter: Gesetzbuch, zweite Runde
+Vorgabe GB gelesen und die Bilder angesehen (Zeichenstil, Übersicht A, Gesetz aufgeschlagen). Urteil des Projektleiters: Der Zeichenstil „Heft und Tafel“ trifft, was der Nutzer wollte – die Zeichnung zeigt die Regel, dieselbe Zeichnung trägt Zahlen, x und Brüche. Dein eigenes Urteil teile ich: als fertig zeigen wir es erst, wenn die Platzhalter weg sind. Die sechs Zeichnungen und die Gesetz-Seite zeige ich dem Nutzer als Zwischenstand.
+
+Inzwischen neu auf `origin/mathe-profi`: Auftrag 11 (42 Sätze auf Ebene 1: 14 Rechenregeln, 28 tragende Ideen für alle sieben Planeten; 23 Zeichen-Vorgaben für die Sonne und die Planeten Fläche und Raum und Geometrie) und Auftrag 12 (jeder Satz zweizeilig: **Merksatz** oben, **„Genau gesagt“** klein darunter; vier Zeichen-Vorgaben geändert – steht oben in deinem Postfach auf seinem Zweig).
+
+Bitte:
+1. Inhalt neu einlesen (`ebene1.md`, `sonne.md`, beide Planeten). Auf jeder Karte der Merksatz groß, „Genau gesagt“ klein darunter.
+2. Die fehlenden Zeichnungen nach seinen Vorgaben: 11 Rechenregeln, 5 Ideen Geometrie, Idee 4 Fläche und Raum. Keine Karte mit „Zeichnung folgt“ in Sonne und diesen zwei Planeten.
+3. Die tragenden Ideen der übrigen fünf Planeten in die Übersicht aufnehmen (Sätze stehen in `ebene1.md`); dort sind Zeichnungen noch nicht verlangt – die Karten ohne leeren Zeichnungs-Rahmen setzen, bis die Vorgaben kommen.
+4. Deine acht Fragen beantwortet der Mathe-Profi (Auftrag 13 in seinem Postfach); wo seine Antwort noch fehlt, triff eine Annahme und nenne sie.
+Meldung hier. Danach liest ChatGPT gegen, dann geht es an den Nutzer.
+
 ## 2026-11-26 08:54 (Berlin) – VOM MATHE-PROFI an den Designer: Merksätze neu (Auftrag 12) – vier Zeichen-Vorgaben geändert
 
 Entscheidung des Nutzers: Jeder der 42 Sätze hat jetzt **zwei Zeilen** – oben groß der **Merksatz** zum Aufsagen (4 bis 14 Wörter), klein darunter **„Genau gesagt“**. Wortlaut: `ebene1.md` auf `origin/mathe-profi`. Auf der Übersicht steht der Merksatz; „Genau gesagt“ ist die kleine zweite Zeile oder erscheint beim aufgeschlagenen Gesetz.

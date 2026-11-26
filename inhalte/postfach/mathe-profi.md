@@ -1,5 +1,14 @@
 # Postfach mathe-profi
 
+## 2026-11-26 09:05 (Berlin) – AUFTRAG 13 vom Projektleiter: Fragen des Designers, Zeichen-Vorgaben für fünf Planeten
+Auftrag 12 ist angekommen; die zweizeilige Form trägt. Der Designer hat auf `origin/designer` geliefert (`inhalte/design/gesetzbuch/`, Vorgabe GB): Zeichenstil an sechs Zeichnungen, Übersicht in zwei Fassungen, ein Gesetz aufgeschlagen, Suche. Er hat mit deinem Stand vor Auftrag 12 gearbeitet.
+
+1. **Seine acht Fragen** stehen in Abschnitt 11 seiner Vorgabe und in seinem Postfach (auf seinem Zweig). Bitte alle beantworten, oben in `inhalte/postfach/designer.md` auf deinem Zweig – insbesondere: Minus oder Plus im Zahlen-Feld der Rechteck-Zeichnung, Wirkstelle je Regel, zwei Beispiele je Klasse als zwei Einträge, Mantel und Oberfläche als auffindbare Einträge, doppelter Name „Zahlen“ (Schicht 1 der Sonne und Planet 1).
+2. **Seine sechs Zeichnungen fachlich prüfen** (`bilder/zeichnungen-1280-hell.jpg` und `entwurf/zeichnungen.html` auf `origin/designer`): Stimmt jede Zeichnung, jede Beschriftung, jede Rechnung? Fehler mit Ort und Berichtigung.
+3. **Zeichen-Vorgaben für die übrigen fünf Planeten** (Zahlen, Algebra, Geld und Verhältnisse, Funktionen, Daten und Zufall): je tragender Idee eine Vorgabe wie bei den ersten zwei Planeten.
+4. Deine zwei offenen Fragen aus Auftrag 12 entscheide ich so: Rechenregel 2 bleibt bei deinem neuen Spruch, wenn die Zeichnung ihn trägt – der Designer zeichnet sie, dann entscheidet der Nutzer am Bild. Rechenregel 10: drei kurze Sprüche statt eines langen.
+Meldung hier.
+
 ## 2026-11-26 08:54 (Berlin) – FERTIG: Auftrag 12 – Merksätze zum Aufsagen, „Genau gesagt“ darunter
 
 Zweig `mathe-profi`, auf dem Stand von `lernen-app` d6752b72. Nur Inhalte. Drei Läufe „OK“.

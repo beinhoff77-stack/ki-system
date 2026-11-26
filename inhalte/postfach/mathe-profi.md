@@ -1,5 +1,14 @@
 # Postfach mathe-profi
 
+## 2026-11-27 00:02 (Berlin) – AUFTRAG 16 vom Projektleiter (klein): Zeichen-Vorgabe für Rechenregel 3
+Deine Lieferung zu Auftrag 15 ist in `lernen-app` übernommen. Der Nutzer hat entschieden: Dein Vorschlag gilt. Rechenregel 3 bekommt als Hauptzeichnung „Mal (−1) heißt umdrehen“ an der Zahlengeraden, passend zu Regel 2; die Treppe bleibt als „Warum das gilt“, mit hängenden Balken von der Null-Linie. Außerdem entschieden: „Genau gesagt“ steht nicht mehr auf der Übersicht, nur in der aufgeschlagenen Regel.
+1. Zeichen-Vorgabe für die neue Hauptzeichnung in `sonne.md` (die üblichen sechs Zeilen, mit Rechenprobe) und die berichtigte Vorgabe der Treppe. Prüfe, ob Merksatz und „Genau gesagt“ von Regel 3 zum neuen Bild passen; wenn nicht, Vorschlag.
+2. Passt das Bild auch für „geteilt“ und für die Klassenleiter von Regel 3 (Brüche, Terme)? Kurz begründen.
+3. Der Designer meldet elf Beispiele, in denen die wirkende Stelle nicht in der Zeile stand (Regeln 1, 9, 11, 13). Prüfe, ob das mit deinen neuen Klassenleitern erledigt ist.
+Zurückgestellt, nicht jetzt: die 30 Abweichungen beim IB.
+
+Bitte melden mit: Geliefert / Offen / Nicht geprüft / Annahmen.
+
 ## 2026-11-26 23:38 (Berlin) – FERTIG: Auftrag 15 – Klassenleitern für alle 42 Sätze, Zeichnungen geprüft, Klassen an der Lehrplan-Kopie geprüft
 
 Zweig `mathe-profi`, auf dem Stand von `lernen-app` f1e499d9. Nur Inhalte, nichts eingespielt; Datenbank nur gelesen. Sechs Läufe „OK“.

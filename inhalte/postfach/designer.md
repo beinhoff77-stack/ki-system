@@ -9,7 +9,9 @@ Deine vierte Runde ist in `lernen-app` übernommen (26076037). Die Lieferung des
 3. Klassenleitern mit Rechenbeispielen für die 28 Ideen.
 4. Seine drei kleinen Punkte zu den Zeichnungen.
 5. Regeln 10 und 13 am Handy: bitte eine Lösung, bei der die Stelle auch dort übereinander steht (kürzere Zeile, kleinere Vorzeile oder Umbruch nach der Stelle).
-**Noch nicht ändern:** die Zeichnung zu Rechenregel 3 (Treppe). Der Mathe-Profi schlägt „Mal (−1) heißt umdrehen“ an der Zahlengeraden vor; der Nutzer entscheidet.
+**Zwei Entscheidungen des Nutzers (26.11., 23:58 Berlin), bitte in dieser Runde umsetzen:**
+6. **„Genau gesagt“ steht nicht mehr auf der Übersicht**, nur noch in der aufgeschlagenen Regel und im Blatt „Regel dahinter“. Auf der Übersicht bleibt der Merksatz mit Zeichnung und Klassenband.
+7. **Rechenregel 3 bekommt eine neue Hauptzeichnung: „Mal (−1) heißt umdrehen“ an der Zahlengeraden** (2 → −2 → 2), in derselben Bildsprache wie Regel 2 (Kehrtwende, gelbes Minus). Das Kind soll für Regel 2 und Regel 3 dasselbe Bild haben. Die Treppe bleibt als „Warum das gilt“, berichtigt nach dem Vorschlag des Mathe-Profis weiter unten in diesem Postfach: Balken hängen von der Null-Linie nach unten, bei 0 ist nichts, +2 ragt nach oben. Die genaue Zeichen-Vorgabe schreibt der Mathe-Profi (Auftrag 16); bis sie da ist, nach seinem Vorschlag zeichnen und als Annahme kennzeichnen.
 
 Bitte melden mit: Geliefert / Offen / Nicht geprüft / Annahmen.
 

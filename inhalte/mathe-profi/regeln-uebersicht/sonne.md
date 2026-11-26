@@ -1,4 +1,4 @@
-# Gesetzbuch · Die Sonne: die 14 Rechenregeln (dritte Fassung: Merksatz und „Genau gesagt“)
+# Gesetzbuch · Die Sonne: die 14 Rechenregeln (vierte Fassung: Merksatz, „Genau gesagt“, Wirkstelle)
 
 Mathe-Profi, 26.11.2026. Erzeugt von `bauen.py`; 76 Beispiele, jedes nachgerechnet (Lauf „OK“).
 Die Sonne ist die Mitte des Gesetzbuchs: Diese Regeln bleiben von Klasse 5 bis 10 dieselben, nur das Gewand wechselt (Zahl, Bruch, Buchstabe, Bruchterm, Wurzel).
@@ -26,7 +26,7 @@ Je Regel zwei Zeilen: oben der Merksatz zum Aufsagen, darunter der genaue Satz m
    *Potenzen – genau gesagt:* Hoch n heißt: n gleiche Faktoren. Bei gleicher Basis gilt: Mal – Hochzahlen addieren.
 9. **Oben und unten dasselbe mal oder geteilt – der Bruch bleibt gleich.**  
    *Erweitern und Kürzen – genau gesagt:* Ein gemeinsamer Faktor ungleich null darf in Zähler und Nenner dazukommen oder wegfallen – der Wert des Bruchs bleibt.
-10. **Plus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: Kehrwert.**  
+10. **Plus und Minus: erst gleiche Nenner.<br>Mal: oben mal oben, unten mal unten.<br>Geteilt: mit dem Kehrwert malnehmen.**  
    *Rechnen mit Brüchen – genau gesagt:* Gleichnamige Brüche: Zähler addieren oder subtrahieren, Nenner behalten. Mal: Zähler mal Zähler, Nenner mal Nenner. Geteilt: mit dem Kehrwert malnehmen.
 11. **Erst auf eins, dann auf viele.**  
    *Verhältnis (Dreisatz) – genau gesagt:* Bei gleichem Preis je Einheit: erst auf eins, dann auf die gewünschte Menge.
@@ -66,10 +66,10 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 | Schicht | Regeln |
 |---|---|
-| **1 · Zahlen** | 1 Stellenwert · 2 Plus und Minus mit negativen Zahlen · 3 Vorzeichen bei Mal und Geteilt · 4 Reihenfolge beim Rechnen |
-| **2 · Klammern und Potenzen** | 5 Tauschen, Klammern, Zusammenfassen · 6 Ausmultiplizieren und Ausklammern · 7 Minus vor der Klammer · 8 Potenzen |
-| **3 · Brüche und Verhältnis** | 9 Erweitern und Kürzen · 10 Rechnen mit Brüchen · 11 Verhältnis (Dreisatz) |
-| **4 · Gleichungen** | 12 Gegenrechnung · 13 Gleichung als Waage · 14 Nullprodukt |
+| **1 Grundrechnen** | 1 Stellenwert, 2 Plus und Minus mit negativen Zahlen, 3 Vorzeichen bei Mal und Geteilt, 4 Reihenfolge beim Rechnen |
+| **2 Klammern und Potenzen** | 5 Tauschen, Klammern, Zusammenfassen, 6 Ausmultiplizieren und Ausklammern, 7 Minus vor der Klammer, 8 Potenzen |
+| **3 Brüche und Verhältnis** | 9 Erweitern und Kürzen, 10 Rechnen mit Brüchen, 11 Verhältnis (Dreisatz) |
+| **4 Gleichungen** | 12 Gegenrechnung, 13 Gleichung als Waage, 14 Nullprodukt |
 
 ## Die Regeln einzeln
 
@@ -96,6 +96,8 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 | 8 | Anwendung | 3 · 10⁻⁴ = 0,0003 | `terme.potenzgesetze_ganzzahlig` |
 
 **Möglicher Erklärweg über:** – (zum Erklären hilfreich, keine Lernvoraussetzung)
+
+**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): Die Ziffern, die rücken (in der Zeichnung jede Ziffer mit ihrem Pfeil); in der Rechenzeile „· 10“ oder „: 10“.
 
 **Zeichen-Vorgabe**
 - **Zu sehen:** Eine Stellenwerttafel mit den Spalten H, Z, E, Komma-Strich, z, h. Zwei Zeilen: oben die Zahl 2,5 (2 in E, 5 in z), unten 25 (2 in Z, 5 in E). Von jeder Ziffer der oberen Zeile führt ein schräger Pfeil zu derselben Ziffer eine Spalte weiter links.
@@ -129,6 +131,8 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 **Möglicher Erklärweg über:** – (zum Erklären hilfreich, keine Lernvoraussetzung)
 
+**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): Jedes Minuszeichen – Rechenzeichen wie Vorzeichen. Ein Plus wird nicht markiert.
+
 **Zeichen-Vorgabe**
 - **Zu sehen:** Zwei Zahlengeraden untereinander von −1 bis 6. Oben: Startpunkt bei 3, ein Bogenpfeil zwei Einheiten nach links, Landung bei 1. Unten: Startpunkt bei 3, ein Bogenpfeil zwei Einheiten nach rechts, Landung bei 5.
 - **Maße:** Gleicher Maßstab auf beiden Geraden, Teilstriche an jeder ganzen Zahl; beide Starts genau übereinander bei 3.
@@ -161,6 +165,8 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 | 9 | Anwendung | x² = 25 hat die Lösungen 5 und −5 | `gleichungen.quadratisch` |
 
 **Möglicher Erklärweg über:** Plus und Minus mit negativen Zahlen (zum Erklären hilfreich, keine Lernvoraussetzung)
+
+**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): Die Vorzeichen der beiden Zahlen und das Vorzeichen des Ergebnisses.
 
 **Zeichen-Vorgabe**
 - **Zu sehen:** Eine Treppe aus fünf Stufen, die von links nach rechts ansteigt. Auf den Stufen stehen die Ergebnisse −6, −4, −2, 0, +2; unter jeder Stufe die Rechnung 3 · (−2), 2 · (−2), 1 · (−2), 0 · (−2), (−1) · (−2).
@@ -196,6 +202,8 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 **Möglicher Erklärweg über:** – (zum Erklären hilfreich, keine Lernvoraussetzung)
 
+**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): Der Teil, der zuerst gerechnet wird (Rahmen).
+
 **Zeichen-Vorgabe**
 - **Zu sehen:** Vier Treppenstufen von oben nach unten, beschriftet „Klammer“, „Hoch“, „Punkt · :“, „Strich + −“. Rechts daneben die Rechnung 2 + 3 · 4 in drei Zeilen: erst mit einem Rahmen um 3 · 4, dann 2 + 12, dann 14.
 - **Maße:** Stufen gleich breit und gleich hoch. Der Rahmen umschließt genau „3 · 4“.
@@ -227,6 +235,8 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 | 9 | Anwendung | 3 · √2 + 2 · √2 = 5 · √2 | `zahlen.reell` |
 
 **Möglicher Erklärweg über:** – (zum Erklären hilfreich, keine Lernvoraussetzung)
+
+**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): Beim Tauschen: das Rechenzeichen zusammen mit seiner Zahl. Beim Zusammenfassen: der gleiche Buchstabenteil.
 
 **Zeichen-Vorgabe**
 - **Zu sehen:** Oben: drei Kärtchen in einer Reihe „25“, „· 37“, „· 4“; darunter dieselben Kärtchen umgestellt „25“, „· 4“, „· 37“, die ersten beiden mit einer Klammer zusammengefasst und „100“ darunter. Unten: zwei Körbe; in den linken fallen die Kärtchen „+3a“ und „+4a“ (darunter „7a“), in den rechten „+2b“.
@@ -262,13 +272,15 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 **Möglicher Erklärweg über:** Reihenfolge beim Rechnen (zum Erklären hilfreich, keine Lernvoraussetzung)
 
+**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): Der Faktor vor der Klammer – an jeder Stelle, an der er auftritt.
+
 **Zeichen-Vorgabe**
 - **Zu sehen:** Ein Rechteck, durch einen senkrechten Strich in zwei Teilrechtecke geteilt. Linke Seite: Höhe 6. Obere Seite: zwei Abschnitte 20 und 2 (zusammen 22 – für das Minus-Beispiel siehe Varianten). In jedem Teilrechteck steht seine Fläche: 120 und 12.
 - **Maße:** Maßstäblich: Höhe 6 Einheiten, Breite 20 + 2 Einheiten; der Trennstrich steht bei 20. Für die Buchstaben-Fassung dasselbe Rechteck mit den Abschnitten x und 2 (x deutlich länger als 2, ohne Kästchen).
 - **Beschriftung:** Links außen der Faktor, oben über jedem Abschnitt der Summand, in jedem Feld das Teilprodukt. Darunter die Zeile „6 · (20 + 2) = 6 · 20 + 6 · 2“.
 - **Hervorgehoben:** Der Faktor links und die zwei Teilflächen – der Faktor in derselben Farbe wie die beiden Malzeichen in der Zeile darunter.
 - **Darf nicht falsch aussehen:** Beide Teilrechtecke müssen dieselbe Höhe haben. Es dürfen nicht zwei getrennte Rechtecke sein. Der Trennstrich darf nicht in der Mitte stehen, wenn die Summanden verschieden sind.
-- **Gleiche Zeichnung, andere Beschriftung:** **Dieselbe Zeichnung, vier Beschriftungen:** (1) 6 · (20 + 2), (2) 6 · (20 − 2): großes Rechteck Breite 20, rechts ein gestrichelt abgetrenntes Stück Breite 2, (3) 3 · (x + 2), (4) ½ · (4 + ⅔). Rückwärts gelesen (Ausklammern): 3x + 6 = 3 · (x + 2). Zusatzbild für den häufigen Fehler: Quadrat mit Seite a + b, in vier Felder a², ab, ab, b² geteilt.
+- **Gleiche Zeichnung, andere Beschriftung:** **Dieselbe Zeichnung, vier Beschriftungen:** (1) 6 · (20 + 2), (2) 6 · (20 − 2): großes Rechteck Breite 20, rechts ein gestrichelt abgetrenntes Stück Breite 2, (3) 3 · (x + 2), (4) 3/2 · (4 + ½) = 6 + ¾ – Höhe 1,5 und Breite 4,5, damit das Rechteck maßstäblich bleibt und trotzdem dieselbe Gestalt hat wie die anderen drei. Reihenfolge der Felder: Zahlen mit Plus, mit x, mit Brüchen, zuletzt Zahlen mit Minus. Im Minus-Feld stehen in den Flächen die Werte „108“ und „12“. Rückwärts gelesen (Ausklammern): 3x + 6 = 3 · (x + 2). Zusatzbild für den häufigen Fehler: Quadrat mit Seite a + b, in vier Felder a², ab, ab, b² geteilt.
 
 ### 7. Minus vor der Klammer
 
@@ -292,6 +304,8 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 | 9 | Anwendung | (x + 1)² − (x² − 3) = 2x + 4 | `gleichungen.quadratisch` |
 
 **Möglicher Erklärweg über:** Ausmultiplizieren und Ausklammern, Vorzeichen bei Mal und Geteilt (zum Erklären hilfreich, keine Lernvoraussetzung)
+
+**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): Das Minus vor der Klammer und jedes Vorzeichen, das wechselt (vorher und nachher als Paar).
 
 **Zeichen-Vorgabe**
 - **Zu sehen:** Ein Kassenzettel mit drei Zeilen: „Guthaben 20 €“, darunter eingerückt und mit einer Klammer zusammengefasst „Einkauf 8 €“ und „Rabatt −3 €“, darunter „bleibt 15 €“. Rechts daneben die Rechnung in zwei Zeilen: 20 − (8 − 3) und 20 − 8 + 3.
@@ -325,6 +339,8 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 **Möglicher Erklärweg über:** Reihenfolge beim Rechnen (zum Erklären hilfreich, keine Lernvoraussetzung)
 
+**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): Die Hochzahl und die gleich vielen Faktoren.
+
 **Zeichen-Vorgabe**
 - **Zu sehen:** Eine Zeile mit drei Zweien in einer Klammer und zwei Zweien in einer zweiten Klammer, dazwischen ein Malpunkt: (2 · 2 · 2) · (2 · 2). Unter der ersten Klammer „2³“, unter der zweiten „2²“, unter allen fünf zusammen eine lange Klammer mit „2⁵“. Darunter eine Zahlenreihe 8, 4, 2, 1, ½, ¼ mit den Hochzahlen 3, 2, 1, 0, −1, −2 darüber und „: 2“ zwischen den Gliedern.
 - **Maße:** Die fünf Zweien stehen in gleichen Abständen; die untere Reihe hat sechs gleich breite Felder.
@@ -357,6 +373,8 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 **Möglicher Erklärweg über:** – (zum Erklären hilfreich, keine Lernvoraussetzung)
 
+**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): Der gemeinsame Faktor in Zähler und Nenner.
+
 **Zeichen-Vorgabe**
 - **Zu sehen:** Zwei gleich lange Streifen genau untereinander. Der obere ist in 2 gleiche Teile geteilt, 1 Teil gefärbt. Der untere ist in 4 gleiche Teile geteilt, 2 Teile gefärbt. Die gefärbten Flächen enden an derselben senkrechten Linie.
 - **Maße:** Beide Streifen exakt gleich lang und gleich hoch; die Teilung des unteren halbiert jedes Teil des oberen.
@@ -367,7 +385,9 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 ### 10. Rechnen mit Brüchen
 
-> **Plus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: Kehrwert.**
+> **Plus und Minus: erst gleiche Nenner.**  
+> **Mal: oben mal oben, unten mal unten.**  
+> **Geteilt: mit dem Kehrwert malnehmen.**
 
 **Genau gesagt:** Gleichnamige Brüche: Zähler addieren oder subtrahieren, Nenner behalten. Mal: Zähler mal Zähler, Nenner mal Nenner. Geteilt: mit dem Kehrwert malnehmen.
 
@@ -390,13 +410,15 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 **Möglicher Erklärweg über:** Erweitern und Kürzen (zum Erklären hilfreich, keine Lernvoraussetzung)
 
+**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): Bei Plus und Minus: der gemeinsame Nenner. Bei Mal: Zähler mit Zähler. Bei Geteilt: der Kehrwert.
+
 **Zeichen-Vorgabe**
 - **Zu sehen:** Drei gleich lange Streifen untereinander. Der erste ist halbiert, eine Hälfte gefärbt. Der zweite ist gedrittelt, ein Drittel gefärbt (andere Farbe). Der dritte ist in sechs Teile geteilt: drei Teile in der ersten Farbe, direkt daneben zwei Teile in der zweiten Farbe.
 - **Maße:** Alle Streifen exakt gleich lang; die Sechstel-Teilung passt zu beiden oberen Teilungen (Hilfslinien dünn nach unten gezogen).
 - **Beschriftung:** Neben den Streifen „½“, „⅓“ und „3/6 + 2/6 = 5/6“.
 - **Hervorgehoben:** Die fünf gefärbten Sechstel im dritten Streifen.
 - **Darf nicht falsch aussehen:** Im dritten Streifen dürfen nicht 2 von 5 Feldern gefärbt sein. Die Farbfelder müssen lückenlos aneinanderliegen. Das sechste Feld bleibt leer.
-- **Gleiche Zeichnung, andere Beschriftung:** Dieselben Streifen für x/2 + x/3 = 5x/6 (ganzer Streifen = x).
+- **Gleiche Zeichnung, andere Beschriftung:** Dieselben Streifen für x/2 + x/3 = 5x/6 (ganzer Streifen = x). **Zwei Nebenfelder für die Sprüche zwei und drei:** Mal – ein Einheitsquadrat, waagerecht in Viertel und senkrecht in Drittel geteilt (12 Felder); drei Viertel sind hell gefärbt, davon zwei Drittel kräftig: 6 von 12 Feldern, „⅔ · ¾ = 6/12 = ½“. Geteilt – sechs ganze Streifen, jeder halbiert: 12 Hälften, „6 : ½ = 6 · 2 = 12“.
 
 ### 11. Verhältnis (Dreisatz)
 
@@ -421,6 +443,8 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 | 9 | Anwendung | Strahlensatz: 2 : 3 = 4 : x, also x = 6 | `abbildungen.aehnlichkeit` |
 
 **Möglicher Erklärweg über:** Erweitern und Kürzen (zum Erklären hilfreich, keine Lernvoraussetzung)
+
+**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): Der Wert für eins.
 
 **Zeichen-Vorgabe**
 - **Zu sehen:** Eine Tabelle mit zwei Spalten („kg“ und „€“) und drei Zeilen: 3 | 7,50, dann 1 | 2,50, dann 5 | 12,50. Links und rechts der Tabelle Bogenpfeile von Zeile 1 zu Zeile 2 mit „: 3“ und von Zeile 2 zu Zeile 3 mit „· 5“.
@@ -455,6 +479,8 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 **Möglicher Erklärweg über:** Reihenfolge beim Rechnen (zum Erklären hilfreich, keine Lernvoraussetzung)
 
+**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): Jede Rechnung zusammen mit ihrer Gegenrechnung (als Paar).
+
 **Zeichen-Vorgabe**
 - **Zu sehen:** Zwei Reihen untereinander. Oben von links nach rechts: ein leeres Kästchen □, ein Pfeil mit „− 12“, ein Zwischenkästchen, ein Pfeil mit „· 4“, das Kästchen −20. Unten von rechts nach links: −20, ein Pfeil mit „: 4“, das Zwischenkästchen −5, ein Pfeil mit „+ 12“, das Kästchen 7.
 - **Maße:** Die Kästchen der beiden Reihen stehen genau untereinander; die unteren Pfeile zeigen nach links.
@@ -486,6 +512,8 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 | 10 | Anwendung | 3 · 2ˣ = 24, also 2ˣ = 8 | `gleichungen.exponential` |
 
 **Möglicher Erklärweg über:** Gegenrechnung (zum Erklären hilfreich, keine Lernvoraussetzung)
+
+**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): Was auf beiden Seiten getan wird.
 
 **Zeichen-Vorgabe**
 - **Zu sehen:** Eine Balkenwaage im Gleichgewicht, dreimal nebeneinander. Bild 1: links zwei Säckchen (jedes mit „x“) und zwei Kugeln, rechts zwölf Kugeln. Bild 2: links zwei Säckchen, rechts zehn Kugeln (auf beiden Seiten sind zwei Kugeln durchgestrichen oder entfernt). Bild 3: links ein Säckchen, rechts fünf Kugeln.
@@ -519,6 +547,8 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 **Möglicher Erklärweg über:** – (zum Erklären hilfreich, keine Lernvoraussetzung)
 
+**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): Die Null und der Faktor, der null wird.
+
 **Zeichen-Vorgabe**
 - **Zu sehen:** Zwei Kästen nebeneinander, dazwischen ein Malpunkt, rechts „= 0“. Im ersten Kasten „x − 2“, im zweiten „x + 3“. Von jedem Kasten führt ein Pfeil nach unten zu einer eigenen kleinen Gleichung: „x − 2 = 0“ und „x + 3 = 0“, darunter „x = 2“ und „x = −3“. Zwischen den beiden unteren Spalten das Wort „oder“.
 - **Maße:** Beide Kästen gleich groß, die zwei Spalten darunter genau unter den Kästen.
@@ -542,7 +572,7 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 ## Für die Technik
 
-Nummern der Übersicht und Nummern in den Aufgaben-Etiketten (`schritt1/etiketten.json`): 1 = Etikett 13 · 2 = Etikett 1 · 3 = Etikett 2 · 4 = Etikett 3 · 5 = Etikett 6 · 6 = Etikett 4 · 7 = Etikett 5 · 8 = Etikett 12 · 9 = Etikett 10 · 10 = Etikett 11 · 11 = Etikett 14 · 12 = Etikett 8 · 13 = Etikett 7 · 14 = Etikett 15. Etikett 9 „Einsetzen und Probe“ ist die Arbeitsweise „Probe“.
+Nummern der Übersicht und Nummern in den Aufgaben-Etiketten (`schritt1/etiketten.json`): 1 = Etikett 13, 2 = Etikett 1, 3 = Etikett 2, 4 = Etikett 3, 5 = Etikett 6, 6 = Etikett 4, 7 = Etikett 5, 8 = Etikett 12, 9 = Etikett 10, 10 = Etikett 11, 11 = Etikett 14, 12 = Etikett 8, 13 = Etikett 7, 14 = Etikett 15. Etikett 9 „Einsetzen und Probe“ ist die Arbeitsweise „Probe“.
 
 ## Nicht geprüft
 

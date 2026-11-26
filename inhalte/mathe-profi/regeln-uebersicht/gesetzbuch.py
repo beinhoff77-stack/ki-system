@@ -426,12 +426,49 @@ LP_HINWEIS = {
 }
 STICHWORT = [
  ("Abstand Punkt–Gerade, Lot", NR["Parallel, senkrecht, Abstand"]), ("Assoziativgesetz (Verbindungsgesetz)", "Rechenregel 5"), ("abc-Formel, Mitternachtsformel", NR["Lösungsformel"]),
- ("Distributivgesetz", "Rechenregel 6"), ("Dreisatz", "Rechenregel 11"), ("Kegelmantel", NR["Pyramide und Kegel"]), ("Kommutativgesetz (Vertauschungsgesetz)", "Rechenregel 5"),
- ("Kürzen", "Rechenregel 9"), ("Mantel von Prisma und Zylinder", NR["Prisma und Zylinder"]), ("Minus vor der Klammer", "Rechenregel 7"),
+ ("Distributivgesetz", "Rechenregel 6"), ("Dreisatz", "Rechenregel 11"), ("Kommutativgesetz (Vertauschungsgesetz)", "Rechenregel 5"),
+ ("Kürzen", "Rechenregel 9"), ("Minus vor der Klammer", "Rechenregel 7"),
  ("Neutrale Zahlen: 0 beim Addieren, 1 beim Malnehmen", "Rechenregel 5"), ("Probe", "Arbeitsweise Probe"),
- ("Pyramidenmantel", NR["Pyramide und Kegel"]), ("Prozent", NR["Grundgleichung der Prozentrechnung"]), ("Runden", NR["Runden"]), ("Waage", "Rechenregel 13"),
+ ("Prozent", NR["Grundgleichung der Prozentrechnung"]), ("Runden", NR["Runden"]), ("Waage", "Rechenregel 13"),
  ("Windschief", NR["Lage im Raum"]), ("Z-Winkel, F-Winkel", NR["Stufen- und Wechselwinkel"]), ("GAGA (Eselsbrücke für Sinus, Kosinus, Tangens)", NR["Sinus, Kosinus, Tangens"]), ("Punkt vor Strich", "Rechenregel 4"), ("Minus mal Minus", "Rechenregel 3"), ("Zinseszins", NR["Zinseszins"]),
 ]
+
+# Auftrag 13: einzelne Formeln als auffindbare Unter-Einträge von Ebene 2 (Frage 5 des Designers). Sie zählen nicht als eigene Gesetze.
+# (Name, Formel, Bedingung, Gesetz, Probe)
+import math as _m
+_nah = lambda a, b: abs(a - b) < 0.05
+FORMELN = [
+ ("Rechteck – Fläche", "A = a · b", "", "Rechteck", lambda: 6 * 4 == 24),
+ ("Rechteck – Umfang", "u = 2 · (a + b)", "", "Rechteck", lambda: 2 * (6 + 4) == 20),
+ ("Quadrat – Fläche", "A = a²", "", "Rechteck", lambda: 5 ** 2 == 25),
+ ("Parallelogramm – Fläche", "A = g · h", "h senkrecht auf g", "Parallelogramm", lambda: 7 * 4 == 28),
+ ("Dreieck – Fläche", "A = g · h : 2", "h senkrecht auf g", "Dreieck", lambda: 8 * 5 / 2 == 20),
+ ("Trapez – Fläche", "A = (a + c) : 2 · h", "a und c parallel, h ihr Abstand", "Trapez", lambda: (9 + 5) / 2 * 4 == 28),
+ ("Drachenviereck und Raute – Fläche", "A = e · f : 2", "Diagonalen e und f senkrecht zueinander", "Drachenviereck und Raute", lambda: 8 * 5 / 2 == 20),
+ ("Kreis – Umfang", "u = 2 · π · r", "", "Kreis", lambda: _nah(2 * _m.pi * 5, 31.4)),
+ ("Kreis – Fläche", "A = π · r²", "", "Kreis", lambda: _nah(_m.pi * 25, 78.5)),
+ ("Kreisausschnitt – Bogenlänge", "b = α : 360° · 2 · π · r", "α Mittelpunktswinkel", "Kreisausschnitt", lambda: _nah(60 / 360 * 2 * _m.pi * 6, 6.3)),
+ ("Kreisausschnitt – Fläche", "A = α : 360° · π · r²", "α Mittelpunktswinkel", "Kreisausschnitt", lambda: _nah(60 / 360 * _m.pi * 36, 18.8)),
+ ("Quader – Volumen", "V = a · b · c", "", "Quader", lambda: 5 * 4 * 3 == 60),
+ ("Würfel – Volumen", "V = a³", "", "Quader", lambda: 4 ** 3 == 64),
+ ("Quader – Oberfläche", "O = 2 · (a · b + a · c + b · c)", "", "Oberfläche", lambda: 2 * (20 + 15 + 12) == 94),
+ ("Würfel – Oberfläche", "O = 6 · a²", "", "Oberfläche", lambda: 6 * 9 == 54),
+ ("Prisma – Volumen", "V = G · h", "h senkrecht auf G", "Prisma und Zylinder", lambda: 6 * 10 == 60),
+ ("Prisma – Mantel", "M = u · h", "gerades Prisma; u Umfang der Grundfläche", "Prisma und Zylinder", lambda: (3 + 4 + 5) * 6 == 72),
+ ("Prisma – Oberfläche", "O = 2 · G + M", "gerades Prisma", "Prisma und Zylinder", lambda: 2 * 6 + 72 == 84),
+ ("Zylinder – Volumen", "V = π · r² · h", "h senkrecht auf G", "Prisma und Zylinder", lambda: _nah(_m.pi * 9 * 10, 282.7)),
+ ("Zylinder – Mantel", "M = 2 · π · r · h", "gerader Zylinder", "Prisma und Zylinder", lambda: _nah(2 * _m.pi * 3 * 10, 188.5)),
+ ("Zylinder – Oberfläche", "O = 2 · π · r² + 2 · π · r · h", "gerader Zylinder", "Prisma und Zylinder", lambda: _nah(2 * _m.pi * 9 + 2 * _m.pi * 30, 245.0)),
+ ("Pyramide – Volumen", "V = G · h : 3", "h senkrecht auf G", "Pyramide und Kegel", lambda: 36 * 4 / 3 == 48),
+ ("Pyramide – Mantel (Pyramidenmantel)", "M = Summe der Seitendreiecke", "", "Pyramide und Kegel", lambda: 4 * (6 * 5 / 2) == 60),
+ ("Kegel – Volumen", "V = π · r² · h : 3", "h senkrecht auf G", "Pyramide und Kegel", lambda: _nah(_m.pi * 9 * 4 / 3, 37.7)),
+ ("Kegel – Mantel (Kegelmantel)", "M = π · r · s", "gerader Kreiskegel; s Mantellinie, s² = r² + h²", "Pyramide und Kegel", lambda: 3 ** 2 + 4 ** 2 == 5 ** 2 and _nah(_m.pi * 3 * 5, 47.1)),
+ ("Kegel – Oberfläche", "O = π · r² + π · r · s", "gerader Kreiskegel", "Pyramide und Kegel", lambda: _nah(_m.pi * 9 + _m.pi * 15, 75.4)),
+ ("Kugel – Volumen", "V = 4/3 · π · r³", "", "Kugel", lambda: _nah(4 / 3 * _m.pi * 8, 33.5)),
+ ("Kugel – Oberfläche", "O = 4 · π · r²", "", "Kugel", lambda: _nah(4 * _m.pi * 4, 50.3)),
+]
+for name, formel, bed, gesetz, probe in FORMELN:
+    assert gesetz in NR and probe() is True, name
 
 
 def tab(text):
@@ -457,7 +494,7 @@ if __name__ == "__main__":
         ebene1.append(f"\n### {planet} – {len(ideen)} tragende Ideen\n")
         for i, (kurz, merk, ns) in enumerate(ideen, 1):
             ebene1.append(f"{i}. **{IDEE_SPRUCH[kurz][0]}**  \n   *Genau gesagt:* {merk}  \n   <sub>{kurz} – trägt {len(ns)} Gesetze: {', '.join(NR[n] + ' ' + n for n in ns)}</sub>")
-    zaehl = " · ".join(f"{p} {len(v)}" for p, v in IDEEN.items())
+    zaehl = ", ".join(f"{p} {len(v)}" for p, v in IDEEN.items())
     alle = [(f"Rechenregel {i}", r["spruch"], r["herkunft"], r["verworfen"]) for i, r in enumerate(sonne.R, 1)]
     alle += [(f"{p}, Idee {i}", *IDEE_SPRUCH[k]) for p, v in IDEEN.items() for i, (k, _, _) in enumerate(v, 1)]
     anhang = []
@@ -476,7 +513,7 @@ Mathe-Profi, 26.11.2026 (Aufträge 11 und 12). Erzeugt von `gesetzbuch.py`.
 1. **Merksatz** – zum Aufsagen: kurz, mit Bild, Gegensatz oder Rhythmus. Er darf vereinfachen, behauptet aber nichts Falsches.
 2. *Genau gesagt* – der fachlich saubere Satz mit seiner Bedingung, klein darunter.
 
-Länge der Merksätze: {laengen[0]} bis {laengen[-1]} Wörter, im Mittel {sum(laengen) / len(laengen):.1f}; {sum(1 for x in laengen if x > 12)} liegen über zwölf ([G], gezählt). {n_ueb} der {len(alle)} Merksätze sind überlieferte Schulsprüche oder übernommene Vorschläge, die übrigen von mir neu gefasst.
+Länge der Merksätze: {laengen[0]} bis {laengen[-1]} Wörter, im Mittel {sum(laengen) / len(laengen):.1f}; {sum(1 for x in laengen if x > 12)} liegen über zwölf ([G], gezählt; Rechenregel 10 hat drei kurze Sprüche, gezählt ist der längste). {n_ueb} der {len(alle)} Merksätze sind überlieferte Schulsprüche oder übernommene Vorschläge, die übrigen von mir neu gefasst.
 
 ## Die Sonne – {len(SONNE)} Rechenregeln
 
@@ -533,7 +570,7 @@ Je Satz drei Kandidaten erprobt; gewählt ist der in Spalte 2.
 
 - **Kein Merksatz ist mit einem Kind erprobt.** Ob ein Kind der Klasse 5 ihn nach zweimal Hören aufsagen kann, ist eine Annahme.
 - „Überliefert“ heißt: mir als gängiger Schulspruch bekannt; nicht an einem Schulbuch nachgeschlagen.
-- Die fünf übrigen Planeten haben Ideen, Merksätze und Zuordnung, aber noch keine Zeichen-Vorgabe und keine Ausarbeitung.
+- Die fünf übrigen Planeten haben Ideen, Merksätze, Zuordnung und Zeichen-Vorgaben (`zeichen-vorgaben-fuenf-planeten.md`), aber noch keine Ausarbeitung der einzelnen Gesetze.
 """)
     open(os.path.join(HIER, "inhalt.md"), "w", encoding="utf-8").write(f"""# Gesetzbuch · Ebene 2: Nachschlagen – Stichwörter und alle Einträge
 
@@ -545,6 +582,7 @@ Mathe-Profi, 26.11.2026 (Auftrag 11, zweite Fassung nach der Gegenprüfung). Erz
 | `ebene1.md` | Ebene 1: die {EBENE1} Sätze zum Auswendigwissen ({len(SONNE)} Rechenregeln, {N_IDEEN} tragende Ideen) und die Zuordnung jedes Gesetzes |
 | `sonne.md` | die {len(SONNE)} Rechenregeln ausgearbeitet, je mit Zeichen-Vorgabe |
 | `planet-flaeche-und-raum.md`, `planet-geometrie.md` | zwei Planeten ausgearbeitet: Ideen mit Zeichen-Vorgabe, darunter jedes Gesetz |
+| `zeichen-vorgaben-fuenf-planeten.md` | Zeichen-Vorgaben für die 19 Ideen der übrigen fünf Planeten |
 | `inhalt.md` (diese Datei) | Ebene 2: Stichwörter und alle {GESAMT} Einträge |
 
 ## So ist Ebene 2 gedacht
@@ -559,6 +597,14 @@ Für die Suche: Fachnamen und Formeln, die keinen eigenen Eintrag haben. Die Lis
 | Suchwort | steht bei |
 |---|---|
 {chr(10).join(f"| {a} | {b} |" for a, b in sorted(STICHWORT))}
+
+## Formeln einzeln – Fläche und Raum
+
+Jede Formel ist ein eigener Treffer der Suche und führt zu ihrem Gesetz. Sie zählen nicht als eigene Gesetze. {len(FORMELN)} Formeln, jede mit den Zahlen aus den Beispielen nachgerechnet. Für die übrigen Planeten folgt diese Liste mit ihrer Ausarbeitung.
+
+| Formel für | Formel | Bedingung | steht bei |
+|---|---|---|---|
+{chr(10).join(f"| {n} | {f} | {b or '–'} | {NR[ge]} {ge} |" for n, f, b, ge, _ in FORMELN)}
 
 ## Die Zahl, ehrlich
 

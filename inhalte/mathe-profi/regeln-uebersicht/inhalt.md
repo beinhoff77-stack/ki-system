@@ -8,6 +8,7 @@ Mathe-Profi, 26.11.2026 (Auftrag 11, zweite Fassung nach der Gegenprüfung). Erz
 | `ebene1.md` | Ebene 1: die 42 Sätze zum Auswendigwissen (14 Rechenregeln, 28 tragende Ideen) und die Zuordnung jedes Gesetzes |
 | `sonne.md` | die 14 Rechenregeln ausgearbeitet, je mit Zeichen-Vorgabe |
 | `planet-flaeche-und-raum.md`, `planet-geometrie.md` | zwei Planeten ausgearbeitet: Ideen mit Zeichen-Vorgabe, darunter jedes Gesetz |
+| `zeichen-vorgaben-fuenf-planeten.md` | Zeichen-Vorgaben für die 19 Ideen der übrigen fünf Planeten |
 | `inhalt.md` (diese Datei) | Ebene 2: Stichwörter und alle 174 Einträge |
 
 ## So ist Ebene 2 gedacht
@@ -26,23 +27,55 @@ Für die Suche: Fachnamen und Formeln, die keinen eigenen Eintrag haben. Die Lis
 | Distributivgesetz | Rechenregel 6 |
 | Dreisatz | Rechenregel 11 |
 | GAGA (Eselsbrücke für Sinus, Kosinus, Tangens) | G25 |
-| Kegelmantel | F17 |
 | Kommutativgesetz (Vertauschungsgesetz) | Rechenregel 5 |
 | Kürzen | Rechenregel 9 |
-| Mantel von Prisma und Zylinder | F15 |
 | Minus mal Minus | Rechenregel 3 |
 | Minus vor der Klammer | Rechenregel 7 |
 | Neutrale Zahlen: 0 beim Addieren, 1 beim Malnehmen | Rechenregel 5 |
 | Probe | Arbeitsweise Probe |
 | Prozent | V8 |
 | Punkt vor Strich | Rechenregel 4 |
-| Pyramidenmantel | F17 |
 | Runden | Z2 |
 | Waage | Rechenregel 13 |
 | Windschief | F19 |
 | Z-Winkel, F-Winkel | G5 |
 | Zinseszins | V11 |
 | abc-Formel, Mitternachtsformel | A19 |
+
+## Formeln einzeln – Fläche und Raum
+
+Jede Formel ist ein eigener Treffer der Suche und führt zu ihrem Gesetz. Sie zählen nicht als eigene Gesetze. 28 Formeln, jede mit den Zahlen aus den Beispielen nachgerechnet. Für die übrigen Planeten folgt diese Liste mit ihrer Ausarbeitung.
+
+| Formel für | Formel | Bedingung | steht bei |
+|---|---|---|---|
+| Rechteck – Fläche | A = a · b | – | F2 Rechteck |
+| Rechteck – Umfang | u = 2 · (a + b) | – | F2 Rechteck |
+| Quadrat – Fläche | A = a² | – | F2 Rechteck |
+| Parallelogramm – Fläche | A = g · h | h senkrecht auf g | F5 Parallelogramm |
+| Dreieck – Fläche | A = g · h : 2 | h senkrecht auf g | F6 Dreieck |
+| Trapez – Fläche | A = (a + c) : 2 · h | a und c parallel, h ihr Abstand | F7 Trapez |
+| Drachenviereck und Raute – Fläche | A = e · f : 2 | Diagonalen e und f senkrecht zueinander | F8 Drachenviereck und Raute |
+| Kreis – Umfang | u = 2 · π · r | – | F9 Kreis |
+| Kreis – Fläche | A = π · r² | – | F9 Kreis |
+| Kreisausschnitt – Bogenlänge | b = α : 360° · 2 · π · r | α Mittelpunktswinkel | F10 Kreisausschnitt |
+| Kreisausschnitt – Fläche | A = α : 360° · π · r² | α Mittelpunktswinkel | F10 Kreisausschnitt |
+| Quader – Volumen | V = a · b · c | – | F12 Quader |
+| Würfel – Volumen | V = a³ | – | F12 Quader |
+| Quader – Oberfläche | O = 2 · (a · b + a · c + b · c) | – | F13 Oberfläche |
+| Würfel – Oberfläche | O = 6 · a² | – | F13 Oberfläche |
+| Prisma – Volumen | V = G · h | h senkrecht auf G | F15 Prisma und Zylinder |
+| Prisma – Mantel | M = u · h | gerades Prisma; u Umfang der Grundfläche | F15 Prisma und Zylinder |
+| Prisma – Oberfläche | O = 2 · G + M | gerades Prisma | F15 Prisma und Zylinder |
+| Zylinder – Volumen | V = π · r² · h | h senkrecht auf G | F15 Prisma und Zylinder |
+| Zylinder – Mantel | M = 2 · π · r · h | gerader Zylinder | F15 Prisma und Zylinder |
+| Zylinder – Oberfläche | O = 2 · π · r² + 2 · π · r · h | gerader Zylinder | F15 Prisma und Zylinder |
+| Pyramide – Volumen | V = G · h : 3 | h senkrecht auf G | F17 Pyramide und Kegel |
+| Pyramide – Mantel (Pyramidenmantel) | M = Summe der Seitendreiecke | – | F17 Pyramide und Kegel |
+| Kegel – Volumen | V = π · r² · h : 3 | h senkrecht auf G | F17 Pyramide und Kegel |
+| Kegel – Mantel (Kegelmantel) | M = π · r · s | gerader Kreiskegel; s Mantellinie, s² = r² + h² | F17 Pyramide und Kegel |
+| Kegel – Oberfläche | O = π · r² + π · r · s | gerader Kreiskegel | F17 Pyramide und Kegel |
+| Kugel – Volumen | V = 4/3 · π · r³ | – | F18 Kugel |
+| Kugel – Oberfläche | O = 4 · π · r² | – | F18 Kugel |
 
 ## Die Zahl, ehrlich
 

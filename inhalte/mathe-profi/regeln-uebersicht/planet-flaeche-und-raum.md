@@ -318,7 +318,7 @@ Gymnasium: 8 (in der Lehrplan-Kopie nicht eigens genannt) · Realschule Gruppe I
 | 8 | Einführung | r = 6 cm, 60°: Bogen = 1/6 · 2 · π · 6 cm = 2π cm ≈ 6,3 cm |
 | 8 | Einführung | r = 6 cm, 60°: A = 1/6 · π · 36 cm² = 6π cm² ≈ 18,8 cm² |
 
-**Möglicher Erklärweg über:** F9 Kreis · Rechenregel 11 Verhältnis (Dreisatz)
+**Möglicher Erklärweg über:** F9 Kreis, Rechenregel 11 Verhältnis (Dreisatz)
 
 ## Idee 3 · Aus dem Quader
 
@@ -360,7 +360,7 @@ Gymnasium: 8 · Realschule Gruppe I: 9 · Realschule Gruppe II/III: 10 · IB (Pl
 | 8 | Einführung | Zylinder mit r = 3 cm, h = 10 cm: V = π · 9 cm² · 10 cm = 90π cm³ ≈ 282,7 cm³ |
 | 8 | Einführung | Derselbe Zylinder: Mantel = 2 · π · 3 cm · 10 cm = 60π cm² ≈ 188,5 cm² |
 
-**Möglicher Erklärweg über:** F12 Quader · F9 Kreis
+**Möglicher Erklärweg über:** F12 Quader, F9 Kreis
 
 #### F16 · Satz von Cavalieri
 
@@ -403,7 +403,7 @@ Gymnasium: 10 · Realschule Gruppe I: 9 · Realschule Gruppe II/III: 10 · IB (P
 | 10 | Einführung | Kegel mit r = 3 cm, h = 4 cm: V = π · 9 cm² · 4 cm : 3 = 12π cm³ ≈ 37,7 cm³ |
 | 10 | Einführung | Derselbe Kegel: s = 5 cm, Mantel = π · 3 cm · 5 cm = 15π cm² ≈ 47,1 cm² |
 
-**Möglicher Erklärweg über:** F15 Prisma und Zylinder · F16 Satz von Cavalieri
+**Möglicher Erklärweg über:** F15 Prisma und Zylinder, F16 Satz von Cavalieri
 
 #### F18 · Kugel
 
@@ -425,7 +425,7 @@ Gymnasium: 10 · Realschule Gruppe I: 9 · Realschule Gruppe II/III: 10 · IB (P
 | 10 | Einführung | r = 2 cm: V = 4/3 · π · 8 cm³ = 32π/3 cm³ ≈ 33,5 cm³ |
 | 10 | Anwendung | Die Kugel mit r = 2 cm füllt ⅔ des Zylinders mit r = 2 cm, h = 4 cm |
 
-**Möglicher Erklärweg über:** F15 Prisma und Zylinder · F16 Satz von Cavalieri
+**Möglicher Erklärweg über:** F15 Prisma und Zylinder, F16 Satz von Cavalieri
 
 ## Idee 4 · Haut des Körpers
 

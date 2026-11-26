@@ -2,13 +2,13 @@
 
 Mathe-Profi, 26.11.2026 (Aufträge 11 und 12). Erzeugt von `gesetzbuch.py`.
 
-**Ebene 1 hat 42 Sätze:** 14 Rechenregeln (Sonne) und 28 tragende Ideen (Zahlen 5 · Algebra 4 · Geld und Verhältnisse 3 · Geometrie 5 · Fläche und Raum 4 · Funktionen 3 · Daten und Zufall 4). [G, gezählt]
+**Ebene 1 hat 42 Sätze:** 14 Rechenregeln (Sonne) und 28 tragende Ideen (Zahlen 5, Algebra 4, Geld und Verhältnisse 3, Geometrie 5, Fläche und Raum 4, Funktionen 3, Daten und Zufall 4). [G, gezählt]
 
 **Jeder Satz hat zwei Zeilen:**
 1. **Merksatz** – zum Aufsagen: kurz, mit Bild, Gegensatz oder Rhythmus. Er darf vereinfachen, behauptet aber nichts Falsches.
 2. *Genau gesagt* – der fachlich saubere Satz mit seiner Bedingung, klein darunter.
 
-Länge der Merksätze: 4 bis 14 Wörter, im Mittel 8.8; 2 liegen über zwölf ([G], gezählt). 14 der 42 Merksätze sind überlieferte Schulsprüche oder übernommene Vorschläge, die übrigen von mir neu gefasst.
+Länge der Merksätze: 4 bis 14 Wörter, im Mittel 8.7; 1 liegen über zwölf ([G], gezählt; Rechenregel 10 hat drei kurze Sprüche, gezählt ist der längste). 14 der 42 Merksätze sind überlieferte Schulsprüche oder übernommene Vorschläge, die übrigen von mir neu gefasst.
 
 ## Die Sonne – 14 Rechenregeln
 
@@ -39,7 +39,7 @@ Länge der Merksätze: 4 bis 14 Wörter, im Mittel 8.8; 2 liegen über zwölf ([
 9. **Oben und unten dasselbe mal oder geteilt – der Bruch bleibt gleich.**  
    *Genau gesagt:* Ein gemeinsamer Faktor ungleich null darf in Zähler und Nenner dazukommen oder wegfallen – der Wert des Bruchs bleibt.  
    <sub>Erweitern und Kürzen</sub>
-10. **Plus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: Kehrwert.**  
+10. **Plus und Minus: erst gleiche Nenner.<br>Mal: oben mal oben, unten mal unten.<br>Geteilt: mit dem Kehrwert malnehmen.**  
    *Genau gesagt:* Gleichnamige Brüche: Zähler addieren oder subtrahieren, Nenner behalten. Mal: Zähler mal Zähler, Nenner mal Nenner. Geteilt: mit dem Kehrwert malnehmen.  
    <sub>Rechnen mit Brüchen</sub>
 11. **Erst auf eins, dann auf viele.**  
@@ -222,7 +222,8 @@ Je Satz drei Kandidaten erprobt; gewählt ist der in Spalte 2.
 |  |  |  | Gleiche Basis: Hochzahlen plus. | Fachwort; erst ab Klasse 7 |
 | Rechenregel 9 | Oben und unten dasselbe mal oder geteilt – der Bruch bleibt gleich. | eigen | Aus Summen kürzen nur die Dummen. | überliefert, aber beschämend; nennt nur den Fehler |
 |  |  |  | Zähler und Nenner gleich behandeln. | falsch bei Plus und Minus |
-| Rechenregel 10 | Plus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: Kehrwert. | überliefert, verdichtet | Nur Gleiches lässt sich zusammenzählen. | deckt Mal und Geteilt nicht |
+| Rechenregel 10 | Plus und Minus: erst gleiche Nenner.<br>Mal: oben mal oben, unten mal unten.<br>Geteilt: mit dem Kehrwert malnehmen. | überliefert; drei Sprüche für drei Regeln (Entscheidung des Projektleiters) | Plus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: Kehrwert. | ein Spruch für drei Regeln – zu lang |
+|  |  |  | Nur Gleiches lässt sich zusammenzählen. | deckt Mal und Geteilt nicht |
 |  |  |  | Bruch durch Bruch: umdrehen und malnehmen. | welchen umdrehen, bleibt offen |
 | Rechenregel 11 | Erst auf eins, dann auf viele. | überliefert | Je mehr, desto mehr. | gilt auch, wo kein Dreisatz gilt |
 |  |  |  | Über Kreuz malnehmen. | Rezept ohne Sinn |
@@ -293,4 +294,4 @@ Je Satz drei Kandidaten erprobt; gewählt ist der in Spalte 2.
 
 - **Kein Merksatz ist mit einem Kind erprobt.** Ob ein Kind der Klasse 5 ihn nach zweimal Hören aufsagen kann, ist eine Annahme.
 - „Überliefert“ heißt: mir als gängiger Schulspruch bekannt; nicht an einem Schulbuch nachgeschlagen.
-- Die fünf übrigen Planeten haben Ideen, Merksätze und Zuordnung, aber noch keine Zeichen-Vorgabe und keine Ausarbeitung.
+- Die fünf übrigen Planeten haben Ideen, Merksätze, Zuordnung und Zeichen-Vorgaben (`zeichen-vorgaben-fuenf-planeten.md`), aber noch keine Ausarbeitung der einzelnen Gesetze.

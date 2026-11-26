@@ -232,7 +232,7 @@ Gymnasium: 7 · Realschule Gruppe I: – (in der Lehrplan-Kopie nicht genannt) �
 |---|---|---|
 | 7 | Einführung | A(−5 &#124; 0), B(5 &#124; 0), C(3 &#124; 4) auf dem Kreis um den Ursprung: Der Winkel bei C ist 90° |
 
-**Möglicher Erklärweg über:** G9 Gleichschenkliges Dreieck · G6 Winkelsumme
+**Möglicher Erklärweg über:** G9 Gleichschenkliges Dreieck, G6 Winkelsumme
 
 #### G13 · Tangente
 
@@ -335,7 +335,7 @@ Gymnasium: 7 · Realschule Gruppe I: 6 · Realschule Gruppe II/III: 6 · IB (Pla
 | 7 | Einführung | Winkel an der Spitze 40°: Basiswinkel je (180° − 40°) : 2 = 70° |
 | 7 | Einführung | Gleichseitiges Dreieck: 3 · 60° = 180° |
 
-**Möglicher Erklärweg über:** G6 Winkelsumme · G16 Symmetrie
+**Möglicher Erklärweg über:** G6 Winkelsumme, G16 Symmetrie
 
 #### G10 · Kongruenzsätze
 
@@ -438,7 +438,7 @@ Gymnasium: – · Realschule Gruppe I: 7 · Realschule Gruppe II/III: 7 · IB (P
 |---|---|---|
 | Realschule 7 | Einführung | A(1 &#124; 2), B(4 &#124; 6): Der Vektor von A nach B ist (3; 4), der Gegenvektor (−3; −4) |
 
-**Möglicher Erklärweg über:** G15 Spiegeln, Verschieben, Drehen · Rechenregel 2 Plus und Minus mit negativen Zahlen
+**Möglicher Erklärweg über:** G15 Spiegeln, Verschieben, Drehen, Rechenregel 2 Plus und Minus mit negativen Zahlen
 
 #### G18 · Fläche mit Determinante
 
@@ -538,7 +538,7 @@ Gymnasium: 9 · Realschule Gruppe I: 9 · Realschule Gruppe II/III: 9 (nur Über
 |---|---|---|
 | 9 | Einführung | Abschnitte vom Scheitel: 2 cm und 3 cm auf dem einen Strahl, 4 cm und x auf dem anderen: 2 : 3 = 4 : x, also x = 6 cm |
 
-**Möglicher Erklärweg über:** G20 Ähnlichkeit · Rechenregel 11 Verhältnis (Dreisatz)
+**Möglicher Erklärweg über:** G20 Ähnlichkeit, Rechenregel 11 Verhältnis (Dreisatz)
 
 #### G22 · Vergrößern mit Faktor k
 
@@ -559,7 +559,7 @@ Gymnasium: 9 · Realschule Gruppe I: 9 · Realschule Gruppe II/III: 9 (nur Über
 | 5 | Vorwissen | Maßstab 1 : 100: 1 cm im Plan ist 1 m in Wirklichkeit |
 | 9 | Einführung | k = 3: aus 2 cm werden 6 cm, aus 4 cm² werden 36 cm², aus 8 cm³ werden 216 cm³ |
 
-**Möglicher Erklärweg über:** G20 Ähnlichkeit · Rechenregel 8 Potenzen
+**Möglicher Erklärweg über:** G20 Ähnlichkeit, Rechenregel 8 Potenzen
 
 #### G23 · Schwerpunkt
 
@@ -579,7 +579,7 @@ Gymnasium: – · Realschule Gruppe I: 9 (Gruppe I, auch 7) · Realschule Gruppe
 |---|---|---|
 | Realschule 9 | Einführung | A(0 &#124; 0), B(6 &#124; 0), C(0 &#124; 9): Schwerpunkt (2 &#124; 3) |
 
-**Möglicher Erklärweg über:** G21 Strahlensätze · Rechenregel 11 Verhältnis (Dreisatz)
+**Möglicher Erklärweg über:** G21 Strahlensätze, Rechenregel 11 Verhältnis (Dreisatz)
 
 ## Idee 5 · Rechtwinkliges Dreieck
 
@@ -642,7 +642,7 @@ Gymnasium: 9 · Realschule Gruppe I: 9 · Realschule Gruppe II/III: 9 · IB (Pla
 | 9 | Einführung | Dreieck 3 cm, 4 cm, 5 cm, Winkel gegenüber der 3-cm-Seite: sin = 3/5, cos = 4/5, tan = 3/4 |
 | 9 | Anwendung | Leiter 5 m lang, 60° zum Boden: Sie reicht 5 m · sin 60° ≈ 4,33 m hoch |
 
-**Möglicher Erklärweg über:** G20 Ähnlichkeit · Rechenregel 11 Verhältnis (Dreisatz)
+**Möglicher Erklärweg über:** G20 Ähnlichkeit, Rechenregel 11 Verhältnis (Dreisatz)
 
 #### G26 · Zusammenhänge der Winkelfunktionen
 
@@ -663,7 +663,7 @@ Gymnasium: 9 · Realschule Gruppe I: 10 (Gruppe I) · Realschule Gruppe II/III: 
 | 9 | Einführung | (3/5)² + (4/5)² = 1 |
 | 9 | Einführung | (3/5) : (4/5) = 3/4 |
 
-**Möglicher Erklärweg über:** G25 Sinus, Kosinus, Tangens · G24 Satz des Pythagoras
+**Möglicher Erklärweg über:** G25 Sinus, Kosinus, Tangens, G24 Satz des Pythagoras
 
 #### G27 · Einheitskreis
 
@@ -705,7 +705,7 @@ Gymnasium: 9 · Realschule Gruppe I: 10 · Realschule Gruppe II/III: 10 · IB (P
 | 9 | Einführung | a = 5 cm, b = 7 cm, γ = 60°: c² = 25 + 49 − 2 · 5 · 7 · 0,5 = 39, also c ≈ 6,24 cm |
 | 9 | Einführung | γ = 90°: Wegen cos 90° = 0 bleibt c² = a² + b² |
 
-**Möglicher Erklärweg über:** G24 Satz des Pythagoras · G25 Sinus, Kosinus, Tangens
+**Möglicher Erklärweg über:** G24 Satz des Pythagoras, G25 Sinus, Kosinus, Tangens
 
 #### G29 · Additionstheoreme
 
@@ -745,7 +745,7 @@ Gymnasium: 9, 10 · Realschule Gruppe I: 10 (Gruppe I) · Realschule Gruppe II/I
 |---|---|---|
 | 9 | Einführung | sin α = 0,5 zwischen 0° und 360°: α = 30° oder α = 150° |
 
-**Möglicher Erklärweg über:** G27 Einheitskreis · Rechenregel 12 Gegenrechnung
+**Möglicher Erklärweg über:** G27 Einheitskreis, Rechenregel 12 Gegenrechnung
 
 ## Nicht geprüft
 

@@ -131,7 +131,7 @@ R = [
           "Links außen der Faktor, oben über jedem Abschnitt der Summand, in jedem Feld das Teilprodukt. Darunter die Zeile „6 · (20 + 2) = 6 · 20 + 6 · 2“.",
           "Der Faktor links und die zwei Teilflächen – der Faktor in derselben Farbe wie die beiden Malzeichen in der Zeile darunter.",
           "Beide Teilrechtecke müssen dieselbe Höhe haben. Es dürfen nicht zwei getrennte Rechtecke sein. Der Trennstrich darf nicht in der Mitte stehen, wenn die Summanden verschieden sind.",
-          "**Dieselbe Zeichnung, vier Beschriftungen:** (1) 6 · (20 + 2), (2) 6 · (20 − 2): großes Rechteck Breite 20, rechts ein gestrichelt abgetrenntes Stück Breite 2, (3) 3 · (x + 2), (4) ½ · (4 + ⅔). Rückwärts gelesen (Ausklammern): 3x + 6 = 3 · (x + 2). Zusatzbild für den häufigen Fehler: Quadrat mit Seite a + b, in vier Felder a², ab, ab, b² geteilt."),
+          "**Dieselbe Zeichnung, vier Beschriftungen:** (1) 6 · (20 + 2), (2) 6 · (20 − 2): großes Rechteck Breite 20, rechts ein gestrichelt abgetrenntes Stück Breite 2, (3) 3 · (x + 2), (4) 3/2 · (4 + ½) = 6 + ¾ – Höhe 1,5 und Breite 4,5, damit das Rechteck maßstäblich bleibt und trotzdem dieselbe Gestalt hat wie die anderen drei. Reihenfolge der Felder: Zahlen mit Plus, mit x, mit Brüchen, zuletzt Zahlen mit Minus. Im Minus-Feld stehen in den Flächen die Werte „108“ und „12“. Rückwärts gelesen (Ausklammern): 3x + 6 = 3 · (x + 2). Zusatzbild für den häufigen Fehler: Quadrat mit Seite a + b, in vier Felder a², ab, ab, b² geteilt."),
       bsp=[(5, "E", "zahlen.rechengesetze", "6 · 98 = 6 · 100 − 6 · 2 = 588", lambda: 6 * 98 == 6 * 100 - 6 * 2 == 588),
            (6, "A", "bruch.rechnen", "4 · 2,5 = 4 · 2 + 4 · 0,5 = 10", lambda: 4 * F(5, 2) == 4 * 2 + 4 * F(1, 2) == 10),
            (7, "E", "terme.umformen", "3 · (x + 2) = 3x + 6", lambda: gleich(lambda x: 3 * (x + 2), lambda x: 3 * x + 6)),
@@ -204,7 +204,7 @@ R = [
           "Neben den Streifen „½“, „⅓“ und „3/6 + 2/6 = 5/6“.",
           "Die fünf gefärbten Sechstel im dritten Streifen.",
           "Im dritten Streifen dürfen nicht 2 von 5 Feldern gefärbt sein. Die Farbfelder müssen lückenlos aneinanderliegen. Das sechste Feld bleibt leer.",
-          "Dieselben Streifen für x/2 + x/3 = 5x/6 (ganzer Streifen = x)."),
+          "Dieselben Streifen für x/2 + x/3 = 5x/6 (ganzer Streifen = x). **Zwei Nebenfelder für die Sprüche zwei und drei:** Mal – ein Einheitsquadrat, waagerecht in Viertel und senkrecht in Drittel geteilt (12 Felder); drei Viertel sind hell gefärbt, davon zwei Drittel kräftig: 6 von 12 Feldern, „⅔ · ¾ = 6/12 = ½“. Geteilt – sechs ganze Streifen, jeder halbiert: 12 Hälften, „6 : ½ = 6 · 2 = 12“."),
       bsp=[(6, "E", "bruch.rechnen", "½ + ⅓ = 3/6 + 2/6 = 5/6", lambda: F(1, 2) + F(1, 3) == F(5, 6)),
            (6, "E", "bruch.rechnen", "⅔ · ¾ = 6/12 = ½", lambda: F(2, 3) * F(3, 4) == F(1, 2)),
            (6, "E", "bruch.rechnen", "6 : ½ = 6 · 2 = 12", lambda: 6 / F(1, 2) == 12),
@@ -306,8 +306,8 @@ SPRUCH = {
       [("Hoch ist Mal mit sich selbst.", "wie oft, bleibt offen"), ("Gleiche Basis: Hochzahlen plus.", "Fachwort; erst ab Klasse 7")]),
  10: ("Oben und unten dasselbe mal oder geteilt – der Bruch bleibt gleich.", "eigen",
       [("Aus Summen kürzen nur die Dummen.", "überliefert, aber beschämend; nennt nur den Fehler"), ("Zähler und Nenner gleich behandeln.", "falsch bei Plus und Minus")]),
- 11: ("Plus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: Kehrwert.", "überliefert, verdichtet",
-      [("Nur Gleiches lässt sich zusammenzählen.", "deckt Mal und Geteilt nicht"), ("Bruch durch Bruch: umdrehen und malnehmen.", "welchen umdrehen, bleibt offen")]),
+ 11: ("Plus und Minus: erst gleiche Nenner.<br>Mal: oben mal oben, unten mal unten.<br>Geteilt: mit dem Kehrwert malnehmen.", "überliefert; drei Sprüche für drei Regeln (Entscheidung des Projektleiters)",
+      [("Plus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: Kehrwert.", "ein Spruch für drei Regeln – zu lang"), ("Nur Gleiches lässt sich zusammenzählen.", "deckt Mal und Geteilt nicht"), ("Bruch durch Bruch: umdrehen und malnehmen.", "welchen umdrehen, bleibt offen")]),
  14: ("Erst auf eins, dann auf viele.", "überliefert",
       [("Je mehr, desto mehr.", "gilt auch, wo kein Dreisatz gilt"), ("Über Kreuz malnehmen.", "Rezept ohne Sinn")]),
  8: ("Rückwärts rechnen: Was zuletzt kam, geht zuerst.", "eigen",
@@ -320,15 +320,21 @@ SPRUCH = {
 
 
 def woerter(text):
+    return max(_woerter(z) for z in text.split("<br>"))
+
+
+def _woerter(text):
     return len([w for w in text.replace("–", " ").split() if any(c.isalnum() for c in w)])
 
 
+WIRK = {13: 'Die Ziffern, die rücken (in der Zeichnung jede Ziffer mit ihrem Pfeil); in der Rechenzeile „· 10“ oder „: 10“.', 1: 'Jedes Minuszeichen – Rechenzeichen wie Vorzeichen. Ein Plus wird nicht markiert.', 2: 'Die Vorzeichen der beiden Zahlen und das Vorzeichen des Ergebnisses.', 3: 'Der Teil, der zuerst gerechnet wird (Rahmen).', 6: 'Beim Tauschen: das Rechenzeichen zusammen mit seiner Zahl. Beim Zusammenfassen: der gleiche Buchstabenteil.', 4: 'Der Faktor vor der Klammer – an jeder Stelle, an der er auftritt.', 5: 'Das Minus vor der Klammer und jedes Vorzeichen, das wechselt (vorher und nachher als Paar).', 12: 'Die Hochzahl und die gleich vielen Faktoren.', 10: 'Der gemeinsame Faktor in Zähler und Nenner.', 11: 'Bei Plus und Minus: der gemeinsame Nenner. Bei Mal: Zähler mit Zähler. Bei Geteilt: der Kehrwert.', 14: 'Der Wert für eins.', 8: 'Jede Rechnung zusammen mit ihrer Gegenrechnung (als Paar).', 7: 'Was auf beiden Seiten getan wird.', 15: 'Die Null und der Faktor, der null wird.'}
 for r in R:
+    r["wirk"] = WIRK[r["nr"]]
     r["spruch"], r["herkunft"], r["verworfen"] = SPRUCH[r["nr"]]
     assert woerter(r["spruch"]) <= 14 and 2 <= len(r["verworfen"]) <= 3, (r["name"], woerter(r["spruch"]))
 assert sorted(SPRUCH) == sorted(r["nr"] for r in R)
 
-SCHICHT = {1: "Zahlen", 2: "Klammern und Potenzen", 3: "Brüche und Verhältnis", 4: "Gleichungen"}
+SCHICHT = {1: "Grundrechnen", 2: "Klammern und Potenzen", 3: "Brüche und Verhältnis", 4: "Gleichungen"}
 
 # ── Prüfen ──
 NAME = {r["nr"]: r["name"] for r in R}
@@ -361,10 +367,10 @@ def zeichnung_text(z):
 
 
 def regel_text(i, r):
-    z = [f"### {i}. {r['name']}", "", f"> **{r['spruch']}**", "", f"**Genau gesagt:** {r['merk']}", "", f"**Warum das gilt:** {r['warum']}", "", f"**Voraussetzung:** {r['gilt']}", "", f"**Häufiger Fehler:** {r['fehler']}", "",
+    z = [f"### {i}. {r['name']}", "", "> **" + r['spruch'].replace("<br>", "**  \n> **") + "**", "", f"**Genau gesagt:** {r['merk']}", "", f"**Warum das gilt:** {r['warum']}", "", f"**Voraussetzung:** {r['gilt']}", "", f"**Häufiger Fehler:** {r['fehler']}", "",
          f"**Verwandt:** {r['verwandt']}", "", "| Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |", "|---|---|---|---|"]
     z += [f"| {k} | {ART[a]} | {text} | `{thema}` |" for k, a, thema, text, _ in r["bsp"]]
-    z += ["", f"**Möglicher Erklärweg über:** {', '.join(r['weg']) or '–'} (zum Erklären hilfreich, keine Lernvoraussetzung)", "", "**Zeichen-Vorgabe**", zeichnung_text(r["z"])]
+    z += ["", f"**Möglicher Erklärweg über:** {', '.join(r['weg']) or '–'} (zum Erklären hilfreich, keine Lernvoraussetzung)", "", f"**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): {r['wirk']}", "", "**Zeichen-Vorgabe**", zeichnung_text(r["z"])]
     return "\n".join(z)
 
 
@@ -372,10 +378,10 @@ if __name__ == "__main__" or True:
     matrix = ["| Regel | " + " | ".join(f"Kl. {k}" for k in KL) + " |", "|---|" + "---|" * len(KL)]
     for i, r in enumerate(R, 1):
         matrix.append(f"| {i} {r['name']} | " + " | ".join(zelle(r, k) for k in KL) + " |")
-    schichten = "\n".join(f"| **{s} · {SCHICHT[s]}** | " + " · ".join(f"{NAMEN.index(r['name']) + 1} {r['name']}" for r in R if r["schicht"] == s) + " |" for s in sorted(SCHICHT))
+    schichten = "\n".join(f"| **{s} {SCHICHT[s]}** | " + ", ".join(f"{NAMEN.index(r['name']) + 1} {r['name']}" for r in R if r["schicht"] == s) + " |" for s in sorted(SCHICHT))
     merkliste = "\n".join(f"{i}. **{r['spruch']}**  \n   *{r['name']} – genau gesagt:* {r['merk']}" for i, r in enumerate(R, 1))
-    nummern = " · ".join(f"{i} = Etikett {r['nr']}" for i, r in enumerate(R, 1))
-    open(os.path.join(HIER, "sonne.md"), "w", encoding="utf-8").write(f"""# Gesetzbuch · Die Sonne: die {len(R)} Rechenregeln (dritte Fassung: Merksatz und „Genau gesagt“)
+    nummern = ", ".join(f"{i} = Etikett {r['nr']}" for i, r in enumerate(R, 1))
+    open(os.path.join(HIER, "sonne.md"), "w", encoding="utf-8").write(f"""# Gesetzbuch · Die Sonne: die {len(R)} Rechenregeln (vierte Fassung: Merksatz, „Genau gesagt“, Wirkstelle)
 
 Mathe-Profi, 26.11.2026. Erzeugt von `bauen.py`; {n_bsp} Beispiele, jedes nachgerechnet (Lauf „OK“).
 Die Sonne ist die Mitte des Gesetzbuchs: Diese Regeln bleiben von Klasse 5 bis 10 dieselben, nur das Gewand wechselt (Zahl, Bruch, Buchstabe, Bruchterm, Wurzel).

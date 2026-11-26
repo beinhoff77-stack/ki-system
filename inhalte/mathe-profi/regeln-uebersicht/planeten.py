@@ -445,7 +445,7 @@ def gesetz_text(planet, m):
          "| Klasse | Art | Beispiel |", "|---|---|---|"]
     z += [f"| {k if isinstance(k, int) else 'Realschule ' + k[1:]} | {ART[a]} | {gb.tab(text)} |" for k, a, text, _ in m["bsp"]]
     sonne_r = [f"Rechenregel {s} {SONNE[s - 1]}" for s in satz[3]]
-    z += ["", f"**Möglicher Erklärweg über:** {' · '.join([gb.NR[w] + ' ' + w for w in m['weg']] + sonne_r) or '–'}"]
+    z += ["", f"**Möglicher Erklärweg über:** {', '.join([gb.NR[w] + ' ' + w for w in m['weg']] + sonne_r) or '–'}"]
     return "\n".join(z)
 
 

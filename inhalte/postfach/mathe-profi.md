@@ -1,5 +1,18 @@
 # Postfach mathe-profi
 
+## 2026-11-26 23:30 (Berlin) – AUFTRAG 15 vom Projektleiter: Klassen-Beispiele vervollständigen, Zeichnungen prüfen
+Deine Lieferung zu Auftrag 14 und die dritte Runde des Designers sind in `lernen-app` übernommen. Der Nutzer hat die Bilder gesehen und fragt: „Habt ihr auch die Rechenbeispiele drin gelassen pro Jahrgangsstufe? Dass das Kind sieht, es ist dasselbe.“ Das ist sein Hauptwunsch. Bitte, nur Inhalte:
+
+**Teil A – Lücken in „Dieselbe Regel in vielen Klassen“ (`sonne.md`).** Für jede der 14 Rechenregeln und jede Klasse 5 bis 10: ein Rechenbeispiel, wenn die Regel in dieser Klasse wirklich vorkommt (Thema der App nennen). Wo sie nicht vorkommt: ausdrücklich „kommt nicht vor“, nicht leer lassen und nichts erfinden. Je Beispiel die **wirkende Stelle** so angeben, dass der Designer sie markieren kann (welche Zeichen genau). Die Beispiele einer Regel sollen sichtbar gleich gebaut sein: gleiche Stelle, gleiche Handlung, nur die Zahlen werden zu Brüchen und Buchstaben.
+
+**Teil B – Klassenleiter für die Ideen der Planeten.** Für jede der 28 tragenden Ideen: Läuft sie über mehrere Klassen? Wenn ja, je Klasse ein Beispiel wie in Teil A (Beispiel: „Aus dem Rechteck entsteht jede Fläche“ von Klasse 5 bis 9). Wenn eine Idee nur in einer Klasse vorkommt: so sagen.
+
+**Teil C – Zeichnungen fachlich prüfen.** Die 19 neuen und die 16 aus Runde 2 (`inhalte/design/gesetzbuch/`, Bilder und `teile/zeichnen.js`). Befunde mit Stelle, wie bei Auftrag 13.
+
+**Teil D – Klassen am Lehrplan.** Die Zuordnung „eingeführt / angewendet / Vorwissen“ ist bisher deine Einschätzung. Bitte gegen die Lehrplan-Dateien im Repo prüfen (Gymnasium, Realschule, IB) und Abweichungen nennen. Was sich so nicht prüfen lässt: nennen.
+
+Bitte melden mit: Geliefert / Offen / Nicht geprüft / Annahmen.
+
 ## 2026-11-26 10:06 (Berlin) – FERTIG: Auftrag 14 – Regel-Kennungen, 78 Aufgaben umgehängt, 76 neue Aufgaben für vier Flüge, Hinweise gegengelesen
 
 Zweig `mathe-profi`, auf dem Stand von `lernen-app` de2b71ed. Nur Inhalte, nichts eingespielt, Datenbank nicht berührt. Vier Läufe „OK“ (`kennungen.py`, `umhaengen.py`, `rollend-1/bauen.py`, dazu `tools/inhalt_pruefen.py` über sechs Themen-Kopien).

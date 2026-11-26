@@ -2,6 +2,17 @@
 
 Neueste oben.
 
+## 2026-11-26 23:30 (Berlin) – RÜCKMELDUNG und AUFTRAG vom Projektleiter: Regel-Universum, vierte Runde – „es ist dasselbe“ sichtbar machen
+Deine dritte Runde und die Vorgabe ÜB sind in `lernen-app` übernommen; der Nutzer hat vier Bilder gesehen. Seine Rückfrage: „Habt ihr auch die Rechenbeispiele drin gelassen pro Jahrgangsstufe? Dass das Kind sieht, es ist dasselbe.“ Die Klassenleiter ist also das Herzstück. Bitte:
+1. **Wirkende Stelle bei allen 14 Rechenregeln gelb markieren**, nicht nur bei 2, 6 und 13. Die genauen Zeichen liefert der Mathe-Profi (Auftrag 15 Teil A); bis dahin nach deiner Lesart, als Annahme gekennzeichnet.
+2. **Die Beispiele einer Regel so untereinander setzen, dass die markierte Stelle senkrecht übereinander steht**, wo es geht. Das Kind soll auf einen Blick sehen: gleiche Stelle, gleiche Handlung, andere Zahlen.
+3. **Lücken ehrlich:** Wo der Mathe-Profi „kommt nicht vor“ schreibt, steht das so da. Kein leeres Kästchen ohne Erklärung.
+4. **Klassenleiter auch für die Ideen der Planeten**, die über mehrere Klassen laufen (Inhalt: Auftrag 15 Teil B des Mathe-Profis).
+5. **Vorschlag des Projektleiters, vom Nutzer noch nicht entschieden:** „Genau gesagt“ nur in der aufgeschlagenen Regel, nicht auf der Übersicht – die Übersicht ist am Handy sonst zu voll. Bitte beide Fassungen der Übersicht bei 400 px nebeneinander zeigen, damit er wählen kann.
+Warte mit 1, 3 und 4 auf die Meldung des Mathe-Profis zu Auftrag 15; 2 und 5 kannst du sofort machen.
+
+Bitte melden mit: Geliefert / Offen / Nicht geprüft / Annahmen.
+
 ## 2026-11-26 10:15 (Berlin) – FERTIG: (1) Übungsbildschirm, Vorgabe ÜB – (2) Regel-Universum, dritte Runde (Vorgabe GB, Abschnitt F4)
 
 Zweig `designer`, Stand `lernen-app` 6b271bb übernommen. Inhalt wörtlich aus `origin/mathe-profi` c8e2cc3. Kein App-Code, keine Datenbank, kein Lernstand, keine Namen.

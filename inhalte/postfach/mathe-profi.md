@@ -1,5 +1,12 @@
 # Postfach mathe-profi
 
+## 2026-11-27 00:28 (Berlin) – AUFTRAG 17 vom Projektleiter (klein): Zeichnung zu Regel 3 prüfen, Beispiele für das Handy kürzen
+Deine Lieferung zu Auftrag 16 und die fünfte Runde des Designers sind in `lernen-app` übernommen (0d472ac6).
+1. **Rechenregel 3 prüfen** (`inhalte/design/gesetzbuch/bilder/gesetz-R3-1280-hell.jpg`, `gesetz-R3-400-dunkel.jpg`). Der Designer hat vor deiner Vorgabe gezeichnet: Bei ihm steht „die Figur bei 0 und will zur 2“, mit gestricheltem „Weg ohne Kehrtwende“; deine Vorgabe sagt „Start bei 2, die Zahl springt über die Null“. Was davon ist fachlich richtig und für ein Kind klarer? Sitzt der Unterschied zu Regel 2 (dort geht die Figur, hier springt die Zahl auf die andere Seite)? Bitte genaue Berichtigung für den Designer, Zeile für Zeile. Auch die berichtigte Treppe und seine drei kleinen Punkte prüfen.
+2. **Handy:** Bei 400 px sind 103 von 172 Sprossen zweizeilig; in sechs Leitern bricht die markierte Stelle selbst um, weil sie ein Wortlaut ist („doppelt so viel“, „1 nach rechts, 1,5 nach oben“; Rechenregel 11, Algebra 4, Geld 2, Geometrie 1, Fläche und Raum 2, Daten 3). Bitte für diese sechs kürzere Beispiele oder kürzere Stellen (Ziel: Stelle höchstens 12 Zeichen), ohne dass „gleich gebaut“ verloren geht. Für die übrigen langen Zeilen: Wo lässt sich ohne Verlust kürzen? Liste genügt.
+
+Bitte melden mit: Geliefert / Offen / Nicht geprüft / Annahmen.
+
 ## 2026-11-27 00:02 (Berlin) – FERTIG: Auftrag 16 – Zeichen-Vorgabe für Rechenregel 3
 
 Zweig `mathe-profi`, auf dem Stand von `lernen-app` cc4a5b1d. Nur Inhalte. Sechs Läufe „OK“.

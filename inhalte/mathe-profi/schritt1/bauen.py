@@ -326,9 +326,143 @@ neu(T, "BG-13", "B", "verhaeltnis", "verhaeltnis", 2, "darstellung", 14, "ja",
     ["F(8, F(2,3))", "F(2*(3+9),3)"], {0: [("3+6", "oben plus 6 heißt nicht unten plus 6", 10), ("3*8", "über Kreuz gerechnet, aber nicht durch 2 geteilt", 8)], 1: [("2", "die 8 gehört zum x", 14)]},
     probe=lambda: F(2, 3) == F(8, 12) and 2 * (3 + 9) == 8 * 3)
 
+# ═════════ Nachtrag nach Auftrag 8: die ersten Flüge der neuen Routen ═════════
+# ═════════ Klasse 5 · zahlen.potenzen_basis ═════════
+T = "zahlen.potenzen_basis"
+neu(T, "PB-01", 4, "berechnen", "berechnen", 1, "direkt", 12, "nein",
+    luecken("Fülle den Rechenweg aus: 2⁵ = 2 · 2 · 2 · 2 · 2 = 4 · 2 · 2 · 2 = ① · 2 · 2 = ② · 2 = ③", K(3), [8, 16, 32], ["2 ** 3", "2 ** 4", "2 ** 5"],
+            "In jeder Zeile werden die ersten beiden Zahlen malgenommen.", "4 · 2 = 8, 8 · 2 = 16, 16 · 2 = 32. Die 2 steht fünfmal als Faktor da."),
+    ["4*2", "8*2", "16*2"], {0: [("2*3", "2 · 3 statt 2 · 2 · 2", 12)], 2: [("2*5", "Basis mal Hochzahl gerechnet", 12), ("5*5", "Basis und Hochzahl vertauscht", 12)]})
+neu(T, "PB-02", 4, "negativ", "negativ", 2, "mehrschritt", 2, "folge",
+    luecken("Der erste Schritt ist gemacht. Rechne zu Ende: (−3)⁴ = (−3) · (−3) · (−3) · (−3) = 9 · (−3) · (−3) = ① · (−3) = ②", K(2), [-27, 81], ["9 * (-3)", "(-3) ** 4"],
+            "Achte bei jedem Malnehmen auf das Zeichen.", "9 · (−3) = −27. Dann (−27) · (−3) = 81. Vier Minuszeichen ergeben plus."),
+    ["-(9*3)", "27*3"], {0: [("9*3", "plus mal minus ist minus", 2)], 1: [("-(27*3)", "minus mal minus ist plus", 2), ("-(3*4)", "Basis mal Hochzahl gerechnet", 12)]})
+neu(T, "PB-03", 4, "negativ", "negativ", 2, "mehrschritt", 2, "folge",
+    luecken("Rechne in zwei Zeilen: (−2)⁵ + 5² = ① + ② = ③", K(3), [-32, 25, -7], ["(-2) ** 5", "5 ** 2", "(-2) ** 5 + 5 ** 2"],
+            "Rechne jede Potenz für sich. Wie oft steht das Minus als Faktor da?", "(−2)⁵ = −32, weil fünf Minuszeichen minus ergeben. 5² = 25. Zusammen −32 + 25 = −7."),
+    ["-(2*2*2*2*2)", "5*5", "25-32"], {0: [("2*2*2*2*2", "ungerade Hochzahl: das Ergebnis bleibt negativ", 2), ("-(2*5)", "Basis mal Hochzahl gerechnet", 12)], 1: [("5*2", "5 · 2 statt 5 · 5", 12)], 2: [("32+25", "Zeichen von (−2)⁵ verloren", 2)]})
+neu(T, "PB-04", "B", "schreibweise", "begriff", 2, "darstellung", 12, "ja",
+    luecken(ZW + "Zeile 1: 5 · 5 · 5 = 5ᵏ. Zeile 2: 12 · 12 · 12 · 12 · 12 · 12 · 12 = 12ⁿ.", "k = □; n = □", [3, 7], ["3", "7"],
+            "Zähle die Faktoren, nicht die Malzeichen.", "Die Hochzahl sagt, wie oft die Basis als Faktor dasteht: dreimal die 5, siebenmal die 12."),
+    ["1+1+1", "1+1+1+1+1+1+1"], {0: [("5*3", "ausgerechnet statt gezählt – und mal statt hoch", 12), ("2", "Malzeichen gezählt statt Faktoren", 12)], 1: [("12*7", "Basis mal Anzahl gerechnet", 12), ("6", "Malzeichen gezählt statt Faktoren", 12)]})
+neu(T, "PB-05", "B", "zehner", "zehner", 2, "darstellung", 13, "ja",
+    luecken("Zwillingszeilen – nicht ausrechnen, nur die Hochzahl bestimmen. Zeile 1: 10 · 10 · 10 = 1 000 = 10ᵏ. Zeile 2: 4 000 000 = 4 · 10ⁿ.", "k = □; n = □", [3, 6], ["3", "6"],
+            "Vergleiche in Zeile 1 die Hochzahl mit der Zahl der Nullen.", "1 000 hat drei Nullen: 10³. 4 000 000 hat sechs Nullen: 4 · 10⁶."),
+    ["1+2", "2*3"], {0: [("4", "Stellen gezählt statt Nullen", 13)], 1: [("7", "Stellen gezählt statt Nullen", 13), ("5", "eine Null übersehen", 13)]},
+    probe=lambda: 10 ** 3 == 1000 and 4 * 10 ** 6 == 4000000)
+neu(T, "PB-06", 14, "quadrat", "berechnen", 2, "mehrschritt", 4, "ja",
+    zahl("Zwei Wege für 15². Weg A rechnet 15 · 15 schriftlich. Weg B zerlegt: 15 · 10 + 15 · 5 = 150 + ?. Welche Zahl fehlt in Weg B?", 75, "15 * 5",
+         "Womit wird die zweite 15 in Weg B malgenommen?", "15 · 5 = 75. Zusammen 150 + 75 = 225 – dasselbe wie 15 · 15."),
+    ["15*15-150"], [("5*5", "nur die 5 mal 5 genommen: Der Faktor trifft die ganze 15", 4), ("15*2", "Basis mal Hochzahl gerechnet", 12)])
+neu(T, "PB-07", 14, "vertauschen", "begriff", 2, "umkehr", 12, "ja",
+    zahl("Zwei Wege zum selben Wert: 4³ und 2ⁿ ergeben beide 64. Weg A rechnet 4 · 4 · 4. Weg B schreibt jede 4 als 2 · 2. Wie groß ist n?", 6, "3 * 2",
+         "Schreibe Weg B aus und zähle die Zweien.", "4 · 4 · 4 = (2 · 2) · (2 · 2) · (2 · 2). Das sind sechs Zweien: 2⁶ = 64."),
+    ["2+2+2"], [("3", "Hochzahl einfach übernommen", 12), ("2+3", "Hochzahlen addiert", 12)],
+    probe=lambda: 4 ** 3 == 2 ** 6 == 64)
+neu(T, "PB-08", 12, "berechnen", "berechnen", 3, "fehler", 12, "ja",
+    wahl("Jemand rechnet in drei Zeilen: (1) 2⁴ + 3² (2) = 8 + 6 (3) = 14. In welcher Zeile passiert der erste Fehler?",
+         ["Zeile 3: 8 + 6 ist nicht 14.", "Nirgends. 14 stimmt.", "Zeile 2: Es wurde Basis mal Hochzahl gerechnet. Richtig ist 16 + 9.", "Zeile 2: Nur 3² ist falsch, 2⁴ = 8 stimmt."], 2,
+         "Schreibe beide Potenzen lang aus.", "2⁴ = 2 · 2 · 2 · 2 = 16 und 3² = 3 · 3 = 9. Zusammen 25. In Zeile 2 wurde 2 · 4 und 3 · 2 gerechnet."),
+    None, {0: ("sucht einen Rechenfehler, wo ein Regelfehler ist", 12), 1: ("Basis mal Hochzahl für richtig gehalten", 12), 3: ("2⁴ mit 2 · 4 verwechselt", 12)},
+    probe=lambda: 2 ** 4 + 3 ** 2 == 25 and 2 * 4 + 3 * 2 == 14)
+neu(T, "PB-09", 12, "negativ", "negativ", 3, "fehler", 2, "ja",
+    zahl("Jemand rechnet (−5)² = −25. In der Rechnung steckt ein Fehler. Was kommt richtig heraus?", 25, "(-5) ** 2",
+         "Schreibe die Potenz als Malaufgabe mit beiden Klammern.", "(−5)² = (−5) · (−5) = 25. Minus mal minus ist plus."),
+    ["5*5"], [("-(5*5)", "Fehler übernommen: minus mal minus ist plus", 2), ("-(5*2)", "Basis mal Hochzahl gerechnet", 12), ("5*2", "Basis mal Hochzahl, Zeichen weggelassen", 12)])
+neu(T, "PB-10", 13, "sach", "anwenden", 1, "erkennen", 12, "ja",
+    wahl("Ein Blatt Papier wird 6-mal gefaltet. Jedes Falten verdoppelt die Zahl der Lagen. Mit welcher Rechnung findest du die Zahl der Lagen?", ["6 · 2", "2⁶", "6²", "2 + 6"], 1,
+         "Probiere es mit zweimal Falten: Wie viele Lagen sind es dann?", "Sechsmal verdoppeln heißt 2 · 2 · 2 · 2 · 2 · 2 = 2⁶ = 64 Lagen."),
+    None, {0: ("Verdoppeln sechsmal ist nicht mal 6", 12), 2: ("Basis und Hochzahl vertauscht", 12), 3: ("Verdoppeln ist Malnehmen, nicht Dazuzählen", 12)},
+    probe=lambda: 2 ** 6 == 64 and 2 ** 2 == 4)
+neu(T, "PB-11", 13, "vertauschen", "begriff", 1, "erkennen", 12, "ja",
+    wahl("Du willst wissen, welche Zahl größer ist: 3⁴ oder 4³. Welcher Weg führt sicher zum Ziel?",
+         ["Die größere Basis gewinnt.", "Die größere Hochzahl gewinnt.", "Beide ausrechnen und vergleichen.", "Sie sind gleich, weil dieselben Ziffern vorkommen."], 2,
+         "Gibt es eine Abkürzung, die immer stimmt? Teste sie an 2³ und 3².", "3⁴ = 81 und 4³ = 64. Keine Faustregel stimmt immer: Bei 2³ = 8 und 3² = 9 gewinnt die größere Basis, hier die größere Hochzahl."),
+    None, {0: ("Faustregel statt Rechnung", 12), 1: ("Faustregel statt Rechnung", 12), 3: ("Basis und Hochzahl darf man nicht vertauschen", 12)},
+    probe=lambda: 3 ** 4 == 81 > 4 ** 3 == 64 and 2 ** 3 < 3 ** 2)
+neu(T, "PB-12", 4, "zehner", "zehner", 1, "direkt", 13, "nein",
+    luecken("Fülle den Rechenweg aus: 6 · 10⁴ = 6 · 10 · 10 · 10 · 10 = 6 · ① = ②", K(2), [10000, 60000], ["10 ** 4", "6 * 10 ** 4"],
+            "Die Hochzahl sagt, wie viele Nullen hinter der 1 stehen.", "10⁴ = 10 000 (vier Nullen). 6 · 10 000 = 60 000."),
+    ["100*100", "6*100*100"], {0: [("10*4", "10 · 4 statt viermal die 10 als Faktor", 12), ("1000", "eine Null zu wenig", 13)], 1: [("6*10*4", "10 · 4 gerechnet", 12), ("6000", "eine Null zu wenig", 13)]})
+neu(T, "PB-13", "B", "negativ", "negativ", 3, "begruenden", 2, "ja",
+    wahl("Ohne auszurechnen: Ist (−7)¹⁵ positiv oder negativ?",
+         ["Positiv, weil 15 positiv ist.", "Negativ, weil die Hochzahl ungerade ist.", "Positiv, weil minus mal minus plus ergibt.", "Das kann man ohne Ausrechnen nicht sagen."], 1,
+         "Wie oft steht das Minus als Faktor da? Bilde Paare.", "15 Minuszeichen: Je zwei ergeben plus, sieben Paare, eines bleibt übrig. Das Ergebnis ist negativ."),
+    None, {0: ("Zeichen der Hochzahl mit dem Zeichen des Ergebnisses verwechselt", 12), 2: ("Paare gebildet, aber das übrige Minus vergessen", 2), 3: ("Zeichenregel nicht genutzt", 2)},
+    probe=lambda: (-7) ** 15 < 0)
+
+# ═════════ Klasse 8 · gleichungen.formeln ═════════
+T = "gleichungen.formeln"
+neu(T, "GF-01", 4, "geometrie", "geometrie", 1, "direkt", 8, "nein",
+    luecken("Fülle den Rechenweg aus: Trapez mit A = (a + c) · h : 2, A = 60, a = 9, c = 11. Eingesetzt: 60 = (9 + 11) · h : 2. Klammer: 60 = ① · h : 2. Mal 2: ② = ① · h. Ergebnis: h = ③.", K(3), [20, 120, 6],
+            ["9 + 11", "60 * 2", "60 * 2 / (9 + 11)"], "Was zuletzt gerechnet wurde, kommt zuerst weg: Zuletzt wurde durch 2 geteilt.", "9 + 11 = 20. Mal 2: 120 = 20 · h. Durch 20: h = 6. Probe: 20 · 6 : 2 = 60."),
+    ["20", "120", "F(120,20)"], {1: [("60/2", "durch 2 statt mal 2", 8)], 2: [("60/20", "das „: 2“ nicht rückgängig gemacht", 8)]},
+    probe=lambda: F((9 + 11) * 6, 2) == 60)
+neu(T, "GF-02", 4, "zwei_schritte", "zwei_schritte", 2, "mehrschritt", 8, "folge",
+    luecken("Der erste Schritt ist gemacht. K = G + n · p mit K = 86, G = 30, p = 7. Eingesetzt: 86 = 30 + n · 7. Minus 30: ① = n · 7. Durch 7: n = ②.", K(2), [56, 8], ["86 - 30", "(86 - 30) / 7"],
+            "Erst das Plus rückgängig machen, dann das Mal.", "86 − 30 = 56. 56 : 7 = 8. Probe: 30 + 8 · 7 = 86."),
+    ["56", "F(56,7)"], {0: [("86+30", "plus statt minus", 8)], 1: [("56*7", "mal statt geteilt", 8)]},
+    probe=lambda: 30 + 8 * 7 == 86)
+neu(T, "GF-03", 4, "einsetzen", "einsetzen", 2, "mehrschritt", 8, "folge",
+    luecken("Rechne zu Ende: V = G · h mit V = 240 und h = 15. Umgestellt: G = ① : ②. Ergebnis: G = ③.", K(3), [240, 15, 16], ["240", "15", "240 / 15"],
+            "Welche Rechnung macht „mal h“ rückgängig?", "G = V : h = 240 : 15 = 16. Probe: 16 · 15 = 240."),
+    ["16*15", "F(240,16)", "F(240,15)"], {0: [("15", "Zähler und Nenner vertauscht", 8)], 1: [("240", "Zähler und Nenner vertauscht", 8)], 2: [("240*15", "mal statt geteilt", 8)]},
+    probe=lambda: 16 * 15 == 240)
+neu(T, "GF-04", "B", "ein_schritt", "ein_schritt", 2, "darstellung", 8, "ja",
+    luecken("Zwillingszeilen. Zeile 1 mit Zahlen: 24 = 6 · 4, also 4 = 24 : ①. Zeile 2 mit Buchstaben: A = a · b, also b = A : a. Rechne mit Zeile 2 für A = 91 und a = 7: b = ②.", K(2), [6, 13], ["24 / 4", "91 / 7"],
+            "Zeile 1 kannst du nachrechnen. Zeile 2 ist genauso gebaut.", "24 : 6 = 4. Genauso: b = 91 : 7 = 13. Probe: 7 · 13 = 91."),
+    ["6", "13"], {0: [("4", "die gesuchte Zahl selbst eingetragen", 8)], 1: [("91*7", "mal statt geteilt", 8), ("91-7", "abgezogen statt geteilt", 8)]},
+    probe=lambda: 7 * 13 == 91)
+neu(T, "GF-05", "B", "zwei_schritte", "zwei_schritte", 2, "darstellung", 8, "ja",
+    luecken("Zwillingszeilen. Zeile 1 mit Zahlen: 23 = 5 + 3 · 6, also 6 = (23 − ①) : 3. Zeile 2 mit Buchstaben: K = G + n · p, also p = (K − G) : n. Rechne mit Zeile 2 für K = 50, G = 8, n = 6: p = ②.", K(2), [5, 7], ["23 - 3 * 6", "(50 - 8) / 6"],
+            "Was wurde in Zeile 1 zuletzt gerechnet? Das kommt zuerst weg.", "Zuletzt kam + 5 dazu, also zuerst 23 − 5 = 18, dann 18 : 3 = 6. Genauso: (50 − 8) : 6 = 7."),
+    ["5", "7"], {0: [("3", "zuerst geteilt statt zuerst abgezogen", 3)], 1: [("50-8", "nur abgezogen, nicht geteilt", 8), ("(50+8)*6", "plus und mal statt minus und geteilt", 8)]},
+    probe=lambda: 8 + 6 * 7 == 50 and 5 + 3 * 6 == 23)
+neu(T, "GF-06", 14, "zwei_schritte", "zwei_schritte", 2, "umkehr", 4, "ja",
+    zahl("Zwei Wege, um aus u = 2 · (a + b) die Seite b zu finden, mit u = 34 und a = 9. Weg A teilt zuerst durch 2: 17 = 9 + b. Weg B multipliziert zuerst aus: 34 = 18 + ?. Welche Zahl steht in Weg B für das Fragezeichen?", 16, "34 - 2 * 9",
+         "Wofür steht das Fragezeichen: für b oder für 2 · b?", "Ausmultipliziert: 34 = 18 + 2 · b. Das Fragezeichen ist 2 · b = 16, also b = 8 – wie in Weg A."),
+    ["2*(17-9)"], [("17-9", "b selbst statt 2 · b", 4), ("34-9", "die 9 nicht verdoppelt", 4)])
+neu(T, "GF-07", 14, "geometrie", "geometrie", 2, "mehrschritt", 8, "ja",
+    zahl("Zwei Wege für die Höhe eines Dreiecks mit A = g · h : 2, A = 42 und g = 12. Weg A nimmt zuerst mal 2: 84 = 12 · h. Weg B rechnet zuerst 12 : 2 aus: 42 = ? · h. Welche Zahl steht in Weg B vor dem h?", 6, "12 / 2",
+         "g · h : 2 darf man auch als (g : 2) · h lesen.", "12 : 2 = 6, also 42 = 6 · h und h = 7. Weg A: 84 : 12 = 7."),
+    ["F(42,7)"], [("12*2", "mal 2 statt durch 2", 8), ("12", "das „: 2“ weggelassen", 8)],
+    probe=lambda: F(12 * 7, 2) == 42)
+neu(T, "GF-08", 12, "zwei_schritte", "zwei_schritte", 3, "fehler", 7, "ja",
+    wahl("Jemand stellt in drei Zeilen um: (1) K = G + n · p (2) K : p = G + n (3) n = K : p − G. In welcher Zeile passiert der erste Fehler?",
+         ["Zeile 2: Beim Teilen durch p muss auch G geteilt werden.", "Zeile 3: G muss addiert werden.", "Nirgends. Die Umstellung stimmt.", "Zeile 2: Man hätte mit p malnehmen müssen."], 0,
+         "Prüfe mit erfundenen Zahlen, zum Beispiel G = 30, n = 8, p = 7.", "Teilen trifft die ganze Seite: K : p = G : p + n. Besser zuerst G abziehen: K − G = n · p, dann n = (K − G) : p. Mit Zahlen: 86 : 7 − 30 ist nicht 8."),
+    None, {1: ("sucht den Fehler eine Zeile zu spät", 7), 2: ("nicht mit Zahlen geprüft", 9), 3: ("Umkehrung von mal ist geteilt – das war nicht der Fehler", 8)},
+    probe=lambda: F(86, 7) - 30 != 8 and F(86 - 30, 7) == 8)
+neu(T, "GF-09", 12, "geometrie", "geometrie", 3, "fehler", 8, "ja",
+    zahl("Ein Dreieck hat A = 36 cm² und g = 9 cm. Jemand rechnet h = 36 : 9 = 4 cm. In der Rechnung steckt ein Fehler. Wie hoch ist das Dreieck wirklich?", 8, "2 * 36 / 9",
+         "Schreibe zuerst die Formel für die Dreiecksfläche auf.", "A = g · h : 2. Mal 2: 72 = 9 · h, also h = 8 cm. Probe: 9 · 8 : 2 = 36.", einheit="cm"),
+    ["F(36, F(9,2))"], [("36/9", "Fehler übernommen: das „: 2“ der Dreiecksformel fehlt", 8), ("36/9/2", "durch 2 statt mal 2", 8)],
+    probe=lambda: F(9 * 8, 2) == 36)
+neu(T, "GF-10", 13, "zwei_schritte", "zwei_schritte", 1, "erkennen", 3, "ja",
+    wahl("Du willst K = G + n · p nach n umstellen. Welcher Schritt kommt zuerst?", ["durch p teilen", "G abziehen", "n abziehen", "mit p malnehmen"], 1,
+         "Was wurde beim Ausrechnen von K zuletzt gerechnet?", "Zuletzt wurde G dazugezählt. Das kommt zuerst weg: K − G = n · p. Danach durch p teilen."),
+    None, {0: ("was zuletzt gerechnet wurde, kommt zuerst weg", 3), 2: ("n ist gesucht und bleibt stehen", 7), 3: ("mal p steht schon da – die Umkehrung ist geteilt", 8)},
+    probe=lambda: F(86 - 30, 7) == 8)
+neu(T, "GF-11", 13, "pruefen", "pruefen", 1, "erkennen", 9, "ja",
+    wahl("Du hast aus A = g · h : 2 die Umstellung h = 2 · A : g erhalten und bist unsicher. Wie prüfst du sie am besten?",
+         ["Zwei erfundene Zahlen für g und h nehmen, A ausrechnen und mit der Umstellung zurückrechnen.", "Mit g = 1 und h = 1 testen.", "Die Einheiten weglassen und noch einmal schauen.", "Noch einmal genauso umstellen."], 0,
+         "Eine gute Probe muss einen Fehler sichtbar machen können.", "Mit g = 4 und h = 5: A = 10. Zurück: 2 · 10 : 4 = 5 – stimmt. Mit 1 und 1 fielen viele Fehler nicht auf."),
+    None, {1: ("mit 1 fallen Fehler nicht auf", 9), 2: ("Einheiten helfen beim Prüfen, Weglassen prüft nichts", 9), 3: ("derselbe Weg wiederholt denselben Fehler", 9)},
+    probe=lambda: F(4 * 5, 2) == 10 and F(2 * 10, 4) == 5)
+neu(T, "GF-12", 17, "einsetzen", "einsetzen", 2, "umkehr", 8, "ja",
+    zahl("Für den Umfang eines Rechtecks gilt u = 2 · (a + b). Ein Rechteck hat den Umfang 46 cm und die Seite a = 14 cm. Wie lang ist b?", 9, "46 / 2 - 14",
+         "Was wurde beim Ausrechnen von u zuletzt gerechnet?", "Durch 2: 23 = 14 + b. Minus 14: b = 9 cm. Probe: 2 · (14 + 9) = 46.", einheit="cm"),
+    ["(46-28)/2"], [("46-14", "die 2 vergessen", 8), ("46-2*14", "abgezogen, aber nicht halbiert", 8)],
+    probe=lambda: 2 * (14 + 9) == 46)
+neu(T, "GF-13", 17, "ein_schritt", "ein_schritt", 2, "umkehr", 8, "ja",
+    zahl("Für die Zinsen eines Jahres gilt Z = K · p : 100. Ein Guthaben bringt bei p = 4 in einem Jahr 30 € Zinsen. Wie groß ist das Guthaben K?", 750, "30 * 100 / 4",
+         "Mache erst das „: 100“ rückgängig, dann das „· p“.", "Mal 100: 3 000 = K · 4. Durch 4: K = 750 €. Probe: 750 · 4 : 100 = 30.", einheit="€"),
+    ["F(30, F(4,100))"], [("30*4", "vorwärts gerechnet statt umgekehrt", 8), ("F(30*4,100)", "die Formel vorwärts benutzt", 8)],
+    probe=lambda: F(750 * 4, 100) == 30)
+
 # ═════════ Prüfen ═════════
-KLASSE = {"zahlen.rechengesetze": 5, "zahlen.ganz": 5, "terme.potenzgesetze_ganzzahlig": 8, "gleichungen.bruch": 8}
-assert len(A) == 52 and len({a["kenn"] for a in A}) == 52
+KLASSE = {"zahlen.rechengesetze": 5, "zahlen.ganz": 5, "terme.potenzgesetze_ganzzahlig": 8, "gleichungen.bruch": 8, "zahlen.potenzen_basis": 5, "gleichungen.formeln": 8}
+assert len(A) == 78 and len({a["kenn"] for a in A}) == 78
 etiketten, je_thema = [], {}
 for a in A:
     q, kenn = a["aufgabe"], a["kenn"]
@@ -423,5 +557,5 @@ with tempfile.TemporaryDirectory() as tmp:
         if code1 != 0 or code0 != 0:
             print(aus1[-1500:])
         assert code0 == 0 and code1 == 0, thema
-print("52 Aufgaben: zweifach nachgerechnet, Fehlbilder berechnet, inhalt_pruefen ohne Fehler")
+print(f"{len(A)} Aufgaben: zweifach nachgerechnet, Fehlbilder berechnet, inhalt_pruefen ohne Fehler")
 print("OK")

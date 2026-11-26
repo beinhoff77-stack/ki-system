@@ -1,31 +1,52 @@
 # Schritt 1: neue Aufgaben ohne Bau (Auftrag 7)
 
-Mathe-Profi, 26.11.2026. Stand `lernen-app` bd2b2391. **Nichts ist eingespielt.** Nur die heutigen Antwortformen `zahl`, `auswahl`, `luecken`.
+Mathe-Profi, 26.11.2026. Stand `lernen-app` 783cea47. Zweite Fassung nach Auftrag 8 (zwei Themen ergänzt). **Nichts ist eingespielt.** Nur die heutigen Antwortformen `zahl`, `auswahl`, `luecken`.
 **[G]** gesichert · **[A]** Annahme · **[M]** Meinung.
 
 ## Dateien
 
 | Datei | Inhalt |
 |---|---|
-| `zahlen.rechengesetze.neu.json`, `zahlen.ganz.neu.json`, `terme.potenzgesetze_ganzzahlig.neu.json`, `gleichungen.bruch.neu.json` | je 13 Aufgaben im Format von `inhalte/README.md`, ohne Zusatzfelder; zum Anhängen an `aufgaben` der Themen-Datei |
+| sechs Dateien `<thema>.neu.json`: `zahlen.potenzen_basis`, `zahlen.rechengesetze`, `zahlen.ganz`, `gleichungen.formeln`, `gleichungen.bruch`, `terme.potenzgesetze_ganzzahlig` | je 13 Aufgaben im Format von `inhalte/README.md`, ohne Zusatzfelder; zum Anhängen an `aufgaben` der Themen-Datei |
 | `etiketten.json` | je Aufgabe: Kennung, Typ der Auswahl, Grundregel (Nummer und Name), je falscher Antwort Fehlbild mit Regel, Zählvorschlag |
 | `bauen.py` | Quelle aller Aufgaben; rechnet nach, schreibt die Dateien, lässt `tools/inhalt_pruefen.py` laufen. Aufruf: `python3 -I inhalte/mathe-profi/schritt1/bauen.py` → „OK“ |
 
 ## Themenwahl
 
-Je Kind die zwei Themen mit den meisten Versuchen der letzten Lerntage (nur Summen gelesen, nichts davon hier):
-Klasse 5 `zahlen.rechengesetze` und `zahlen.ganz`; Klasse 8 `terme.potenzgesetze_ganzzahlig` und `gleichungen.bruch`.
+Nach Auftrag 8 gilt: „laufend“ sind die ersten Flüge der neuen Routen (`lehrplan-kinder/route.md`).
+
+- **Kind 1 (Klasse 5):** erster Flug `z1`. Offen sind dort vor allem `zahlen.potenzen_basis` und der Rest von `zahlen.rechengesetze` → dafür die neuen Aufgaben. `zahlen.ganz` ist im selben Flug schon weit; die Aufgaben dort dienen als Wiederholung in neuer Form.
+- **Kind 2 (Klasse 8):** erster Flug `a5`. Offen sind `gleichungen.formeln` und der Rest von `gleichungen.bruch` → dafür die neuen Aufgaben. `terme.potenzgesetze_ganzzahlig` ebenso als Wiederholung in neuer Form.
+- **Zweiter Flug der Routen ist Geometrie** (`ge1` und `ge4`). Dafür gibt es in Schritt 1 keine Aufgaben: Lückenweg, Zwei Wege und Formel umkehren setzen einen Rechenweg voraus. Geometrie braucht `punkte` (Schritt 5) und Begründungs-Bausteine (Schritt 6). Das ist eine Lücke des Schritts, kein Versehen.
 
 ## Was geprüft ist [G]
 
-- 52 Aufgaben, jede auf zwei Wegen nachgerechnet: Feld `c` mit dem Rechner aus `tools/inhalt_pruefen.py`, dazu ein zweiter, anders gebauter Ausdruck; bei Termen und Gleichungen zusätzlich eine Probe durch Einsetzen.
-- 145 Fehlbilder. Jedes ist als Rechnung hinterlegt; das Skript prüft, dass es eine andere Zahl ergibt als die Lösung und als die anderen Fehlbilder derselben Lücke.
+- 78 Aufgaben, jede auf zwei Wegen nachgerechnet: Feld `c` mit dem Rechner aus `tools/inhalt_pruefen.py`, dazu ein zweiter, anders gebauter Ausdruck; bei Termen und Gleichungen zusätzlich eine Probe durch Einsetzen.
+- 217 Fehlbilder. Jedes ist als Rechnung hinterlegt; das Skript prüft, dass es eine andere Zahl ergibt als die Lösung und als die anderen Fehlbilder derselben Lücke.
 - `tools/inhalt_pruefen.py` über jede Themen-Datei mit angehängten Aufgaben: Code 0, keine Fehler, „gleich gebaut hintereinander“ bleibt 0.
 - Kein Tipp enthält das Ergebnis (bei `zahl` vom Skript geprüft); kein Fragetext kommt im Thema schon vor; die richtige Auswahl-Antwort steht an wechselnder Stelle.
 
 ## Die Aufgaben
 
-**Klasse 5 · `zahlen.rechengesetze`**
+**Klasse 5 · `zahlen.potenzen_basis` – Flug z1, läuft (erster Flug der Route)**
+
+| Kennung | Typ | Lernkarte | Stufe · `g` | Form | Grundregel | Fehlbilder | zählt für „gelandet“ |
+|---|---|---|---|---|---|---|---|
+| PB-01 | Lückenweg | `berechnen` | 1 · `direkt` | `luecken` | 12 Potenz | 3 | **nein** |
+| PB-02 | Lückenweg | `negativ` | 2 · `mehrschritt` | `luecken` | 2 Zeichen-Paar | 3 | nur Folge |
+| PB-03 | Lückenweg | `negativ` | 2 · `mehrschritt` | `luecken` | 2 Zeichen-Paar | 4 | nur Folge |
+| PB-04 | Brücke: Zahl, aber nicht ausrechnen | `schreibweise` | 2 · `darstellung` | `luecken` | 12 Potenz | 4 | ja |
+| PB-05 | Brücke: Zahl, aber nicht ausrechnen | `zehner` | 2 · `darstellung` | `luecken` | 13 Stellenwert | 3 | ja |
+| PB-06 | Zwei Wege vergleichen | `quadrat` | 2 · `mehrschritt` | `zahl` | 4 Verteilen | 2 | ja |
+| PB-07 | Zwei Wege vergleichen | `vertauschen` | 2 · `umkehr` | `zahl` | 12 Potenz | 2 | ja |
+| PB-08 | Fehler-Detektiv (einfache Form) | `berechnen` | 3 · `fehler` | `auswahl` | 12 Potenz | 3 | ja |
+| PB-09 | Fehler-Detektiv (einfache Form) | `negativ` | 3 · `fehler` | `zahl` | 2 Zeichen-Paar | 3 | ja |
+| PB-10 | Verfahren wählen (einfache Form) | `sach` | 1 · `erkennen` | `auswahl` | 12 Potenz | 3 | ja |
+| PB-11 | Verfahren wählen (einfache Form) | `vertauschen` | 1 · `erkennen` | `auswahl` | 12 Potenz | 3 | ja |
+| PB-12 | Lückenweg | `zehner` | 1 · `direkt` | `luecken` | 13 Stellenwert | 4 | **nein** |
+| PB-13 | Brücke: Zahl, aber nicht ausrechnen | `negativ` | 3 · `begruenden` | `auswahl` | 2 Zeichen-Paar | 3 | ja |
+
+**Klasse 5 · `zahlen.rechengesetze` – Flug z1, läuft**
 
 | Kennung | Typ | Lernkarte | Stufe · `g` | Form | Grundregel | Fehlbilder | zählt für „gelandet“ |
 |---|---|---|---|---|---|---|---|
@@ -43,7 +64,7 @@ Klasse 5 `zahlen.rechengesetze` und `zahlen.ganz`; Klasse 8 `terme.potenzgesetze
 | RG-12 | Brücke: Zahl, aber nicht ausrechnen | `vorteil` | 2 · `darstellung` | `luecken` | 6 Tauschen und Bündeln | 3 | ja |
 | RG-13 | Lückenweg | `klammern` | 1 · `direkt` | `luecken` | 5 Minusklammer | 2 | **nein** |
 
-**Klasse 5 · `zahlen.ganz`**
+**Klasse 5 · `zahlen.ganz` – Flug z1, als Wiederholung**
 
 | Kennung | Typ | Lernkarte | Stufe · `g` | Form | Grundregel | Fehlbilder | zählt für „gelandet“ |
 |---|---|---|---|---|---|---|---|
@@ -61,25 +82,25 @@ Klasse 5 `zahlen.rechengesetze` und `zahlen.ganz`; Klasse 8 `terme.potenzgesetze
 | GZ-12 | Verfahren wählen (einfache Form) | `umkehraufgabe` | 1 · `erkennen` | `auswahl` | 8 Umkehren | 3 | ja |
 | GZ-13 | Brücke: Zahl, aber nicht ausrechnen | `verstehen` | 3 · `begruenden` | `auswahl` | 1 Richtung | 3 | ja |
 
-**Klasse 8 · `terme.potenzgesetze_ganzzahlig`**
+**Klasse 8 · `gleichungen.formeln` – Flug a5, läuft (erster Flug der Route)**
 
 | Kennung | Typ | Lernkarte | Stufe · `g` | Form | Grundregel | Fehlbilder | zählt für „gelandet“ |
 |---|---|---|---|---|---|---|---|
-| PG-01 | Brücke: Zahl, aber nicht ausrechnen | `gleiche_basis_ganz` | 2 · `darstellung` | `luecken` | 12 Potenz | 3 | ja |
-| PG-02 | Brücke: Zahl, aber nicht ausrechnen | `exponent_und_potenz` | 2 · `darstellung` | `luecken` | 12 Potenz | 3 | ja |
-| PG-03 | Lückenweg | `terme_vereinfachen` | 1 · `direkt` | `luecken` | 12 Potenz | 4 | **nein** |
-| PG-04 | Lückenweg | `terme_vereinfachen` | 2 · `mehrschritt` | `luecken` | 12 Potenz | 3 | nur Folge |
-| PG-05 | Lückenweg | `gleiche_basis_ganz` | 2 · `mehrschritt` | `luecken` | 12 Potenz | 3 | nur Folge |
-| PG-06 | Zwei Wege vergleichen | `gleiche_basis_ganz` | 2 · `umkehr` | `zahl` | 12 Potenz | 2 | ja |
-| PG-07 | Zwei Wege vergleichen | `exponent_und_potenz` | 2 · `mehrschritt` | `zahl` | 12 Potenz | 2 | ja |
-| PG-08 | Fehler-Detektiv (einfache Form) | `fehler_ganz` | 3 · `fehler` | `auswahl` | 12 Potenz | 3 | ja |
-| PG-09 | Fehler-Detektiv (einfache Form) | `fehler_ganz` | 3 · `fehler` | `zahl` | 12 Potenz | 2 | ja |
-| PG-10 | Verfahren wählen (einfache Form) | `gleiche_basis_ganz` | 1 · `erkennen` | `auswahl` | 12 Potenz | 3 | ja |
-| PG-11 | Verfahren wählen (einfache Form) | `exponent_und_potenz` | 1 · `erkennen` | `auswahl` | 12 Potenz | 3 | ja |
-| PG-12 | Lückenweg | `gleiche_basis_ganz` | 1 · `direkt` | `luecken` | 12 Potenz | 3 | **nein** |
-| PG-13 | Fehler-Detektiv (einfache Form) | `warum_gilt` | 3 · `fehler` | `zahl` | 12 Potenz | 3 | ja |
+| GF-01 | Lückenweg | `geometrie` | 1 · `direkt` | `luecken` | 8 Umkehren | 2 | **nein** |
+| GF-02 | Lückenweg | `zwei_schritte` | 2 · `mehrschritt` | `luecken` | 8 Umkehren | 2 | nur Folge |
+| GF-03 | Lückenweg | `einsetzen` | 2 · `mehrschritt` | `luecken` | 8 Umkehren | 3 | nur Folge |
+| GF-04 | Brücke: Zahl, aber nicht ausrechnen | `ein_schritt` | 2 · `darstellung` | `luecken` | 8 Umkehren | 3 | ja |
+| GF-05 | Brücke: Zahl, aber nicht ausrechnen | `zwei_schritte` | 2 · `darstellung` | `luecken` | 8 Umkehren | 3 | ja |
+| GF-06 | Zwei Wege vergleichen | `zwei_schritte` | 2 · `umkehr` | `zahl` | 4 Verteilen | 2 | ja |
+| GF-07 | Zwei Wege vergleichen | `geometrie` | 2 · `mehrschritt` | `zahl` | 8 Umkehren | 2 | ja |
+| GF-08 | Fehler-Detektiv (einfache Form) | `zwei_schritte` | 3 · `fehler` | `auswahl` | 7 Waage | 3 | ja |
+| GF-09 | Fehler-Detektiv (einfache Form) | `geometrie` | 3 · `fehler` | `zahl` | 8 Umkehren | 2 | ja |
+| GF-10 | Verfahren wählen (einfache Form) | `zwei_schritte` | 1 · `erkennen` | `auswahl` | 3 Rangfolge | 3 | ja |
+| GF-11 | Verfahren wählen (einfache Form) | `pruefen` | 1 · `erkennen` | `auswahl` | 9 Einsetzen und Probe | 3 | ja |
+| GF-12 | Formel umkehren | `einsetzen` | 2 · `umkehr` | `zahl` | 8 Umkehren | 2 | ja |
+| GF-13 | Formel umkehren | `ein_schritt` | 2 · `umkehr` | `zahl` | 8 Umkehren | 2 | ja |
 
-**Klasse 8 · `gleichungen.bruch`**
+**Klasse 8 · `gleichungen.bruch` – Flug a5, läuft**
 
 | Kennung | Typ | Lernkarte | Stufe · `g` | Form | Grundregel | Fehlbilder | zählt für „gelandet“ |
 |---|---|---|---|---|---|---|---|
@@ -97,20 +118,38 @@ Klasse 5 `zahlen.rechengesetze` und `zahlen.ganz`; Klasse 8 `terme.potenzgesetze
 | BG-12 | Formel umkehren | `verhaeltnis` | 2 · `umkehr` | `zahl` | 8 Umkehren | 2 | ja |
 | BG-13 | Brücke: Zahl, aber nicht ausrechnen | `verhaeltnis` | 2 · `darstellung` | `luecken` | 14 Verhältnis | 3 | ja |
 
+**Klasse 8 · `terme.potenzgesetze_ganzzahlig` – Flug a5, als Wiederholung**
+
+| Kennung | Typ | Lernkarte | Stufe · `g` | Form | Grundregel | Fehlbilder | zählt für „gelandet“ |
+|---|---|---|---|---|---|---|---|
+| PG-01 | Brücke: Zahl, aber nicht ausrechnen | `gleiche_basis_ganz` | 2 · `darstellung` | `luecken` | 12 Potenz | 3 | ja |
+| PG-02 | Brücke: Zahl, aber nicht ausrechnen | `exponent_und_potenz` | 2 · `darstellung` | `luecken` | 12 Potenz | 3 | ja |
+| PG-03 | Lückenweg | `terme_vereinfachen` | 1 · `direkt` | `luecken` | 12 Potenz | 4 | **nein** |
+| PG-04 | Lückenweg | `terme_vereinfachen` | 2 · `mehrschritt` | `luecken` | 12 Potenz | 3 | nur Folge |
+| PG-05 | Lückenweg | `gleiche_basis_ganz` | 2 · `mehrschritt` | `luecken` | 12 Potenz | 3 | nur Folge |
+| PG-06 | Zwei Wege vergleichen | `gleiche_basis_ganz` | 2 · `umkehr` | `zahl` | 12 Potenz | 2 | ja |
+| PG-07 | Zwei Wege vergleichen | `exponent_und_potenz` | 2 · `mehrschritt` | `zahl` | 12 Potenz | 2 | ja |
+| PG-08 | Fehler-Detektiv (einfache Form) | `fehler_ganz` | 3 · `fehler` | `auswahl` | 12 Potenz | 3 | ja |
+| PG-09 | Fehler-Detektiv (einfache Form) | `fehler_ganz` | 3 · `fehler` | `zahl` | 12 Potenz | 2 | ja |
+| PG-10 | Verfahren wählen (einfache Form) | `gleiche_basis_ganz` | 1 · `erkennen` | `auswahl` | 12 Potenz | 3 | ja |
+| PG-11 | Verfahren wählen (einfache Form) | `exponent_und_potenz` | 1 · `erkennen` | `auswahl` | 12 Potenz | 3 | ja |
+| PG-12 | Lückenweg | `gleiche_basis_ganz` | 1 · `direkt` | `luecken` | 12 Potenz | 3 | **nein** |
+| PG-13 | Fehler-Detektiv (einfache Form) | `warum_gilt` | 3 · `fehler` | `zahl` | 12 Potenz | 3 | ja |
+
 ## Typen in der einfachen Form
 
 - **Typ 4 Lückenweg**, je Thema drei Hilfestufen: *volle Hilfe* (jede Zeile vorgegeben, je eine Lücke; Stufe 1) · *halbe Hilfe* („Der erste Schritt ist gemacht. Rechne zu Ende“; Stufe 2) · *wenig Hilfe* (nur das Gerüst der letzten Zeilen; Stufe 2). Die Stufe ganz ohne Hilfe sind die vorhandenen Rechenaufgaben des Themas. Die Hilfe verschwindet also von hinten: Zuerst muss das Kind das Ende allein rechnen, dann immer mehr.
 - **Typ 14 Zwei Wege vergleichen:** Antwort ist immer eine Zahl aus Weg B, die man nur findet, wenn man beide Wege versteht. Als Fehlbild steht jeweils die Zahl, die man aus Weg A abschreiben würde.
 - **Typ 12 Fehler-Detektiv, einfache Form:** zwei getrennte Aufgaben statt einer Doppel-Karte – (a) erste falsche Zeile wählen, (b) „Was kommt richtig heraus?“ als Zahl.
 - **Typ 13 Verfahren wählen, einfache Form:** Auswahl des Wegs oder – umgekehrt – der Aufgabe, zu der ein Weg passt. Umständliche, aber richtige Wege sind als solche etikettiert („richtig, aber umständlich“), nicht als Fehler einer Regel.
-- **Typ 17 Formel umkehren:** nur in `gleichungen.bruch` (zwei Aufgaben). Die drei anderen Themen haben keine Formel.
+- **Typ 17 Formel umkehren:** in `gleichungen.formeln` und `gleichungen.bruch` (je zwei Aufgaben). Die anderen Themen haben keine Formel.
 - **Brücke „Zahl, aber nicht ausrechnen“:** Zwillingszeilen. Zeile 1 ist nachrechenbar, Zeile 2 hat dieselbe Bauart mit großen Zahlen oder Buchstaben.
 
 ## Wo die Aufgaben stehen und ob sie zählen (Vorschlag)
 
 - **Platz:** jeweils in der Lernkarte aus der Tabelle, als Pool `uebung`. Innerhalb der Lernkarte: Lückenweg mit voller Hilfe als **erste** Übung nach der Erklärung; halbe und wenig Hilfe vor den vorhandenen Stufe-2-Aufgaben; Brücke und „Zwei Wege“ in Stufe 2 gemischt; Fehler-Detektiv in Stufe 3.
-- **Zählregel** [M]: „ja“ = zählt wie jede Übung der Stufe. „nur Folge“ (halbe und wenig Hilfe) = zählt für „in Folge“, aber nicht als eigene Lösung. „nein“ (volle Hilfe, acht Aufgaben) = zählt gar nicht.
-- **Achtung:** Heute zählt jede Übung im Pool `uebung` [G, `inhalte/README.md`]. Würden die acht Aufgaben mit voller Hilfe so eingespielt, zählten sie als eigene Lösung auf Stufe 1. Bis es dafür eine Lösung gibt (siehe Bedarf 2), diese acht **nicht einspielen** – die übrigen 44 gehen ohne sie.
+- **Zählregel** [M]: „ja“ = zählt wie jede Übung der Stufe. „nur Folge“ (halbe und wenig Hilfe) = zählt für „in Folge“, aber nicht als eigene Lösung. „nein“ (volle Hilfe, 11 Aufgaben) = zählt gar nicht.
+- **Achtung:** Heute zählt jede Übung im Pool `uebung` [G, `inhalte/README.md`]. Würden die Aufgaben mit voller Hilfe so eingespielt, zählten sie als eigene Lösung auf Stufe 1. Bis es dafür eine Lösung gibt (siehe Bedarf 2), diese 11 **nicht einspielen** – die übrigen 67 gehen ohne sie.
 
 ## Bedarf – Felder, die im Format fehlen (nicht erfunden)
 
@@ -136,6 +175,6 @@ Klasse 5 `zahlen.rechengesetze` und `zahlen.ganz`; Klasse 8 `terme.potenzgesetze
 
 ## Annahmen
 
-- Je Klasse lernt ein Kind; „laufend“ heißt: meiste Versuche in den letzten drei Lerntagen.
+- Je Klasse lernt ein Kind; „laufend“ heißt: erster Flug der Route aus Auftrag 8.
 - Die Zuordnung der neuen Typen zu vorhandenen `g`-Werten ist eine Notlösung (Bedarf 3).
 - Halbe Hilfe auf Stufe 2 ist richtig eingestuft; mit dem Kind nicht erprobt.

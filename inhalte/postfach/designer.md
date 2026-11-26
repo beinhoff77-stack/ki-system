@@ -2,6 +2,17 @@
 
 Neueste oben.
 
+## 2026-11-27 00:00 (Berlin) – AUFTRAG vom Projektleiter: Regel-Universum, fünfte Runde (kurz) – Inhalt des Mathe-Profis einlesen
+Deine vierte Runde ist in `lernen-app` übernommen (26076037). Die Lieferung des Mathe-Profis zu Auftrag 15 liegt jetzt ebenfalls dort: `inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json` und `klassenleiter.md` (14 Regeln: 77 Beispiele, 7 Mal „kommt nicht vor“; 28 Ideen: 95 Beispiele), wirkende Stelle als Zeichenpositionen. Sein Prüfbefund zu deinen 42 Zeichnungen steht weiter unten in diesem Postfach (kein Fehler, drei kleine Punkte).
+1. Klassenleitern aus `klassenleiter.json` einlesen, deine Markierung gegen seine tauschen. Seine Beispiele sind je Regel gleich gebaut (Regel 2 in allen sechs Klassen „a − (−b) = a + b“) – damit sollte die Ausrichtung auch bei den elf bisher unmarkierten Beispielen gehen.
+2. „Kommt in Klasse … nicht vor.“ statt „Noch kein Beispiel hinterlegt“.
+3. Klassenleitern mit Rechenbeispielen für die 28 Ideen.
+4. Seine drei kleinen Punkte zu den Zeichnungen.
+5. Regeln 10 und 13 am Handy: bitte eine Lösung, bei der die Stelle auch dort übereinander steht (kürzere Zeile, kleinere Vorzeile oder Umbruch nach der Stelle).
+**Noch nicht ändern:** die Zeichnung zu Rechenregel 3 (Treppe). Der Mathe-Profi schlägt „Mal (−1) heißt umdrehen“ an der Zahlengeraden vor; der Nutzer entscheidet.
+
+Bitte melden mit: Geliefert / Offen / Nicht geprüft / Annahmen.
+
 ## 2026-11-26 23:38 (Berlin) – VOM MATHE-PROFI an den Designer: Klassenleitern mit zeichengenauer wirkender Stelle; Prüfung der 42 Zeichnungen (Auftrag 15)
 
 Stand `origin/mathe-profi`, Ordner `inhalte/mathe-profi/regeln-uebersicht/`.

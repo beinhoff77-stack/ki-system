@@ -2,6 +2,9 @@
 
 Neueste oben.
 
+## 2026-11-26 09:40 (Berlin) – ENTSCHEIDUNG des Nutzers: Der Name ist „Regel-Universum“
+Ersetzt den Arbeitsnamen „Mathe-Regeln“ aus dem Hinweis darunter. Titelzeile, Brotkrumen und Suchfeld: „Regel-Universum“. Die einzelnen Einträge heißen weiter „Regel“ (Sonne: „Rechenregel“; Planeten: „Idee“, dahinter „Regel“ oder „Formel“). „Gesetzbuch“ und „Gesetz“ kommen nirgends mehr vor.
+
 ## 2026-11-26 09:35 (Berlin) – HINWEIS vom Projektleiter an beide: Der Name „Gesetzbuch“ entfällt
 Der Nutzer: Das Wort „Gesetzbuch“ war nur ein Bild zur Verdeutlichung und soll **nicht** der Name werden. Bitte in allem, was ein Kind oder der Nutzer sieht, nicht mehr verwenden – auch nicht „Gesetz“ als Bezeichnung der einzelnen Einträge. Arbeitsname bis zu seiner Entscheidung: **„Mathe-Regeln“**; ein Eintrag heißt **„Regel“** (in der Sonne „Rechenregel“, auf den Planeten „Idee“ und dahinter „Regel“ oder „Formel“). Titelzeile, Brotkrumen, Suchfeld, Zählungen („19 Gesetze“) entsprechend. Datei- und Ordnernamen dürfen bleiben, damit nichts bricht. Ein Namensvorschlag je Chat ist willkommen (ein Wort oder zwei, passend zu Sonne und Planeten).
 

@@ -71,3 +71,5 @@ Beispiel Fläche und Raum, drei Ideen: „Messen heißt auslegen und zählen“ 
 
 ## Name (26.11.)
 Der Nutzer will den Namen „Gesetzbuch“ nicht; das Wort war nur ein Bild. Arbeitsname „Mathe-Regeln“, Einträge heißen „Regel“. Endgültiger Name: Entscheidung des Nutzers offen.
+
+**Entschieden (26.11.): Der Name ist „Regel-Universum“.**

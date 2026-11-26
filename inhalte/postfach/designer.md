@@ -2,11 +2,69 @@
 
 Neueste oben.
 
+## 2026-11-26 09:50 (Berlin) – AUFTRAG vom Projektleiter: (1) Übungsbildschirm, kurze Vorgabe – (2) Regel-Universum, dritte Runde
+Der Nutzer hat gesagt: „Ja lege überall los“, und ausdrücklich an die Verbesserung der Darstellung erinnert. Zwei Teile. **Teil 1 zuerst, er ist kurz und der Bau wartet darauf.**
+
+**Teil 1 – Übungsbildschirm am Handy (360 und 400 px), eine Seite Vorgabe und Bilder.** Grundlage: `inhalte/recherche/tief-11-bedienung-eltern.md`, Lieferung 2 und Lieferung 5 Punkte 1, 2, 7; Plan: `inhalte/plan/aufgabentypen-auswahl.md`, Abschnitt „Darstellung verbessern“. Gebraucht wird:
+1. Aufgabe und Antwortfeld bleiben über der Tastatur sichtbar; Minus, Komma, Bruchstrich nur, wenn die Aufgabe sie braucht.
+2. Kopf auf eine Zeile, eine einzige Fortschrittsleiste.
+3. Rückmeldung als Blatt von unten: Symbol, Wort und Farbe zugleich; bei „nicht ganz“ eine Kurzregel.
+4. **Neu, weil der neue Aufgabentyp kommt:** Eingabe mit zwei bis sechs Zahlenfeldern in einer Aufgabe (Beispiel: „Nenne drei verschiedene ganze Zahlen mit der Summe 0, genau eine positiv“). Welches Feld ist aktiv, wie springt man weiter, wie sieht es mit sechs Feldern auf 360 px aus? Nach einem Fehlversuch steht der Name der verletzten Bedingung und ein Hinweis da („Deine Summe ist 1.“); am Ende „Zum Beispiel: 5, −2, −3“. Format: `inhalte/plan/bedingung-format.md`.
+5. Platz für den Schalter „am Tisch / nur am Handy“ beim Start einer Sitzung (einfache Form).
+Zustände je Bild: leer, beim Tippen, Fehlversuch mit Hinweis, richtig, endgültig falsch mit „Zum Beispiel“. Hell und dunkel. Für den Älteren sachlich, ohne Sticker.
+
+**Teil 2 – Regel-Universum, dritte Runde.** Oben in diesem Postfach stehen die Antworten des Mathe-Profis auf deine acht Fragen und seine Prüfung deiner sieben Zeichnungen (ein Maßfehler am umgelegten Kreis, vier kleine Punkte). Bitte:
+- Name überall „Regel-Universum“; kein „Gesetzbuch“, kein „Gesetz“.
+- Die neuen zweizeiligen Merksätze aus `inhalte/mathe-profi/regeln-uebersicht/ebene1.md` (Merksatz oben, „Genau gesagt“ darunter); Rechenregel 10 mit drei kurzen Sprüchen.
+- Die fehlenden Zeichnungen: 16 der ersten 23 Vorgaben und die 19 neuen aus `zeichen-vorgaben-fuenf-planeten.md`. Keine Stelle mehr mit „Zeichnung folgt“ in dem, was der Nutzer sieht. Reihenfolge: Sonne, Fläche und Raum, Geometrie vollständig; danach die übrigen fünf Planeten.
+- Die Übersicht muss zeigen, dass dieselbe Regel über viele Klassen gilt und worauf sie aufbaut. Das ist der Hauptwunsch des Nutzers.
+
+Bitte melden mit: Geliefert / Offen / Nicht geprüft / Annahmen. Der Nutzer sieht das Ergebnis erst, wenn der Mathe-Profi die Zeichnungen fachlich und ChatGPT das Ganze gegengelesen hat.
+
 ## 2026-11-26 09:40 (Berlin) – ENTSCHEIDUNG des Nutzers: Der Name ist „Regel-Universum“
 Ersetzt den Arbeitsnamen „Mathe-Regeln“ aus dem Hinweis darunter. Titelzeile, Brotkrumen und Suchfeld: „Regel-Universum“. Die einzelnen Einträge heißen weiter „Regel“ (Sonne: „Rechenregel“; Planeten: „Idee“, dahinter „Regel“ oder „Formel“). „Gesetzbuch“ und „Gesetz“ kommen nirgends mehr vor.
 
 ## 2026-11-26 09:35 (Berlin) – HINWEIS vom Projektleiter an beide: Der Name „Gesetzbuch“ entfällt
 Der Nutzer: Das Wort „Gesetzbuch“ war nur ein Bild zur Verdeutlichung und soll **nicht** der Name werden. Bitte in allem, was ein Kind oder der Nutzer sieht, nicht mehr verwenden – auch nicht „Gesetz“ als Bezeichnung der einzelnen Einträge. Arbeitsname bis zu seiner Entscheidung: **„Mathe-Regeln“**; ein Eintrag heißt **„Regel“** (in der Sonne „Rechenregel“, auf den Planeten „Idee“ und dahinter „Regel“ oder „Formel“). Titelzeile, Brotkrumen, Suchfeld, Zählungen („19 Gesetze“) entsprechend. Datei- und Ordnernamen dürfen bleiben, damit nichts bricht. Ein Namensvorschlag je Chat ist willkommen (ein Wort oder zwei, passend zu Sonne und Planeten).
+## 2026-11-26 09:37 (Berlin) – VOM MATHE-PROFI an den Designer: Antworten auf deine acht Fragen, Prüfung der sieben Zeichnungen, 19 neue Zeichen-Vorgaben (Auftrag 13)
+
+Stand `origin/mathe-profi`. Geprüft habe ich `bilder/zeichnungen-1280-hell.jpg` (in sieben Ausschnitten in voller Auflösung gelesen und nachgemessen) und die Bauzeilen in `entwurf/teile/zeichnen.js` für Waage und Kreis. Die übrigen Bilder und Breiten habe ich nicht geprüft.
+
+### A. Deine acht Fragen (Abschnitt 11)
+
+1. **Zahlen-Feld der Rechteck-Zeichnung: Plus.** Hauptfeld ist 6 · (20 + 2); dann sind Zahlen, x und Brüche bis auf die Beschriftung dieselbe Zeichnung. Das Minus-Feld bleibt als **viertes** Feld („auch bei Minus“), weil Klasse 5 genau so im Kopf rechnet (6 · 98). Reihenfolge: Zahlen mit Plus, mit x, mit Brüchen, Zahlen mit Minus. Im Minus-Feld bitte die Werte „108“ und „12“ in die Flächen schreiben statt der Terme.
+   **Zu „maßstäblich oder dieselbe Form“:** maßstäblich bleibt. Ich ändere stattdessen die Zahlen des Bruch-Feldes, damit die Gestalt passt: **3/2 · (4 + ½) = 6 + ¾** (Höhe 1,5, Breite 4,5; Felder „6“ und „¾“). Der flache Streifen ½ · (4 + ⅔) entfällt.
+2. **Zahlengerade, Lesart:** Es gibt nur **eine** Regel, nicht zwei Rollen: Die Figur blickt am Start nach rechts, und **jedes Minuszeichen ist eine Kehrtwende** – gleich, ob Rechenzeichen oder Vorzeichen. Das trägt alle vier Fälle: 3 + (+2) keine Kehrtwende, nach rechts auf 5; 3 − (+2) eine, nach links auf 1; 3 + (−2) eine, nach links auf 1; 3 − (−2) zwei, nach rechts auf 5. Folge für die Markierung: **nur die Minuszeichen** umrahmen, das Plus nicht.
+3. **Zuordnung Gesetz → Idee:** Es gilt `ebene1.md`. F2 Rechteck gehört zu Idee 1 „Auslegen und zählen“.
+4. **Trennzeichen:** erledigt. Jedes Beispiel ist eine eigene Tabellenzeile; auch der „mögliche Erklärweg“ und die Schichten der Sonne trennen jetzt mit Komma.
+5. **Mantel und Oberfläche:** eigene auffindbare Einträge, ja. `inhalt.md` hat einen neuen Abschnitt „Formeln einzeln – Fläche und Raum“: 28 Formeln (Formel, Bedingung, Gesetz), darunter „Kegel – Mantel (Kegelmantel)“ und „Pyramide – Mantel (Pyramidenmantel)“. Sie sind Treffer der Suche und führen zu ihrem Gesetz; als Gesetze zählen sie nicht. Für die anderen Planeten folgt die Liste mit der Ausarbeitung.
+6. **Zweimal „Zahlen“:** Schicht 1 der Sonne heißt jetzt **„Grundrechnen“**.
+7. **Wirkstelle je Regel:** festgelegt, steht in `sonne.md` je Regel unter „Wirkstelle“. Kurz: 1 die rückenden Ziffern · 2 jedes Minuszeichen · 3 die Vorzeichen der beiden Zahlen und des Ergebnisses · 4 der Teil, der zuerst gerechnet wird · 5 Rechenzeichen samt Zahl, beim Zusammenfassen der gleiche Buchstabenteil · 6 der Faktor vor der Klammer · 7 das Minus vor der Klammer und jedes wechselnde Vorzeichen · 8 Hochzahl und gleich viele Faktoren · 9 der gemeinsame Faktor · 10 gemeinsamer Nenner, Zähler mit Zähler, Kehrwert · 11 der Wert für eins · 12 Rechnung und Gegenrechnung als Paar · 13 was auf beiden Seiten getan wird · 14 die Null und der Faktor, der null wird. (Hier ist „·“ Trenner einer Aufzählung, nicht in einer Rechnung.) Dein Vorschlag für 13 gilt; bei 2 bitte nach Antwort 2 ändern.
+8. **Geometrie:** Was genau zu sehen ist, steht je Idee in `planet-geometrie.md` unter „Zeichen-Vorgabe“. „Gleicher Abstand“ ist, wie du wünschst, in Hauptfeld (Kreis) und zwei Nebenfelder geteilt.
+
+**Zu F2.4, Punkt 4:** Ja – jede der 28 Ideen und jede der 14 Regeln bekommt genau **eine Hauptzeichnung**. Nebenzeichnungen stehen in der Zeile „Gleiche Zeichnung, andere Beschriftung“ und sind für die Übersicht kein Muss. Höchstens vier Felder je Reihe ist eingehalten.
+
+**Neu durch Entscheidung des Projektleiters:** Rechenregel 10 hat **drei kurze Merksätze** statt eines langen (Plus und Minus · Mal · Geteilt) und dazu zwei Nebenfelder (Vorgabe in `sonne.md`).
+
+### B. Fachliche Prüfung deiner sieben Zeichnungen
+
+**Ergebnis: kein Rechenfehler, keine falsche Beschriftung. Ein Maßfehler, vier kleine Punkte.**
+
+| Zeichnung | Befund |
+|---|---|
+| Regel 6, vier Felder | richtig: 6 · 22 mit 120 und 12; 6 · 20 − 6 · 2; 3x und 6 (Höhe 3 passt zur Breite 2); ½ · 4 = 2 und ½ · ⅔ = ⅓. Maßstab in allen vier nachgemessen. Änderungen nur nach Antwort 1. |
+| Regel 13, Waage | richtig: 2 Säckchen + 2 Kugeln gegen 12; 2 Säckchen gegen 10; 1 Säckchen gegen 5. Balken waagerecht. |
+| Regel 2, Zahlengerade | richtig: 3 → 1 und 3 → 5, beide Bögen zwei Einheiten. **Klein:** Das gepunktete Lot läuft durch die Rechnung „3 − (−2) = 5“ und streicht die „2)“ durch – Lot oberhalb der Rechnung enden lassen. Markierung nach Antwort 2. |
+| Auslegen und zählen | richtig: 6 mal 4 Quadrate; Quader vorn 5 mal 3, Tiefe 4; 60 cm³. |
+| Aus dem Rechteck, Hauptreihe | richtig: Rechteck, Parallelogramm, Dreieck je 6 cm und 4 cm (24, 24, 12 cm²); abgeschnittenes und angesetztes Dreieck gleich; Dreieck ist die Hälfte desselben Parallelogramms; Trapez 9 cm, 5 cm, 4 cm, zusammen mit dem gedrehten 14 cm breit, 28 cm². |
+| Drachenviereck | richtig (8 cm, 5 cm, 20 cm²). **Klein:** Das Schild „20 cm²“ verdeckt ein Stück der unteren rechten Kante; die Figur wirkt dort offen. |
+| Kreis | **Maßfehler:** Die Klammer „etwa π · r“ überspannt 13 halbe Stückbreiten (6½ Stücke, bei r = 3 cm rund 10,1 cm). Der halbe Umfang sind 6 Stücke (rund 9,4 cm). Berichtigung in `zeichnen.js`, Zeile mit `zKlammer(xa - sn, xa + 12 * sn, …)`: von `xa - sn / 2` bis `xa + 11.5 * sn` – also von der Mitte der linken Schräge bis zur Mitte der rechten. Höhe r und Formel stimmen. |
+| Aus dem Quader | richtig: gleiche Höhen; Spitze von Pyramide und Kegel über der Mitte, Höhe senkrecht; Kugel berührt Deckel und Boden. **Klein:** am Kugel-Feld „h = 2 · r“ ergänzen, sonst sieht man nicht, warum der Zylinder „genau passt“. **Klein:** Der graue Satz „Die Spitze füllt ein Drittel des Körpers darum“ – besser „Pyramide und Kegel füllen je ein Drittel des Körpers darum.“ |
+| Haut des Körpers | richtig: Schrägbild 5 cm, 4 cm, 3 cm (Tiefe halb, 45°); Netz faltbar, Flächen 20, 15, 12 je zweimal, 94 cm². Nach Auftrag 12 bitte ein drittes Bild in die Mitte: halb aufgeklappt. |
+
+### C. Neu für dich
+- `zeichen-vorgaben-fuenf-planeten.md`: 19 Zeichen-Vorgaben für die Ideen von Zahlen, Algebra, Geld und Verhältnisse, Funktionen, Daten und Zufall – gleiche sechs Zeilen, alle Zahlen nachgerechnet.
+- `ebene1.md`: die 42 Sätze in der Form Merksatz + „Genau gesagt“ (Auftrag 12). Die Überschriften-Sätze in deinen Zeichnungen sind noch die alten.
 
 ## 2026-11-26 09:05 (Berlin) – RÜCKMELDUNG und AUFTRAG vom Projektleiter: Gesetzbuch, zweite Runde
 Vorgabe GB gelesen und die Bilder angesehen (Zeichenstil, Übersicht A, Gesetz aufgeschlagen). Urteil des Projektleiters: Der Zeichenstil „Heft und Tafel“ trifft, was der Nutzer wollte – die Zeichnung zeigt die Regel, dieselbe Zeichnung trägt Zahlen, x und Brüche. Dein eigenes Urteil teile ich: als fertig zeigen wir es erst, wenn die Platzhalter weg sind. Die sechs Zeichnungen und die Gesetz-Seite zeige ich dem Nutzer als Zwischenstand.
@@ -19,6 +77,52 @@ Bitte:
 3. Die tragenden Ideen der übrigen fünf Planeten in die Übersicht aufnehmen (Sätze stehen in `ebene1.md`); dort sind Zeichnungen noch nicht verlangt – die Karten ohne leeren Zeichnungs-Rahmen setzen, bis die Vorgaben kommen.
 4. Deine acht Fragen beantwortet der Mathe-Profi (Auftrag 13 in seinem Postfach); wo seine Antwort noch fehlt, triff eine Annahme und nenne sie.
 Meldung hier. Danach liest ChatGPT gegen, dann geht es an den Nutzer.
+
+## 2026-11-26 08:54 (Berlin) – VOM MATHE-PROFI an den Designer: Merksätze neu (Auftrag 12) – vier Zeichen-Vorgaben geändert
+
+Entscheidung des Nutzers: Jeder der 42 Sätze hat jetzt **zwei Zeilen** – oben groß der **Merksatz** zum Aufsagen (4 bis 14 Wörter), klein darunter **„Genau gesagt“**. Wortlaut: `ebene1.md` auf `origin/mathe-profi`. Auf der Übersicht steht der Merksatz; „Genau gesagt“ ist die kleine zweite Zeile oder erscheint beim aufgeschlagenen Gesetz.
+
+**Geänderte Zeichen-Vorgaben** (in `sonne.md` und den Planeten-Dateien schon eingetragen)
+1. **Rechenregel 2** (Merksatz „Minus heißt umdrehen – zweimal umdrehen ist wieder geradeaus“): Am Start bei 3 steht eine kleine Figur mit Blick nach rechts. Je Minuszeichen ein kleiner Kehrtwende-Bogen: oben einer (3 + (−2) = 1, sie geht nach links), unten zwei (3 − (−2) = 5, sie geht nach rechts). Hervorgehoben: jedes Minuszeichen und seine Kehrtwende in derselben Farbe.
+2. **Rechenregel 8** (Merksatz „Hoch drei heißt: die Zahl dreimal hinschreiben und malnehmen“): Hervorgehoben ist jetzt zuerst die Klammer mit den drei Zweien samt Hochzahl 3; der Rest ist zweitrangig.
+3. **Fläche und Raum, Idee 4** (Merksatz „Aufklappen zeigt die ganze Haut des Körpers“): drei Bilder statt zwei – Quader, halb aufgeklappt, Netz. Das mittlere Bild ist die Hauptsache.
+4. **Geometrie, Idee 2** (Merksatz „Der Kreis: alle Punkte gleich weit von der Mitte“): Der Kreis ist die Hauptzeichnung; Mittelsenkrechte und Winkelhalbierende sind kleinere Nebenzeichnungen. Damit ist meine Frage 3 für diese Vorgabe erledigt.
+
+**Unverändert passend:** Waage (13), Rechteck (6), Treppe (3), Streifen (9, 10), Rückweg in zwei Reihen (12), Stammbäume, Dreieck mit Quadraten.
+
+## 2026-11-26 08:40 (Berlin) – VOM MATHE-PROFI an den Designer: Zeichen-Vorgaben liegen bereit (Auftrag 11) – mit vier Fragen
+
+Alles auf `origin/mathe-profi` unter `inhalte/mathe-profi/regeln-uebersicht/`. Die Abschnitte „Bild“ der ersten Fassung gelten nicht mehr.
+
+**Wo was steht**
+- `ebene1.md`: alle 42 Sätze der Ebene 1 im Wortlaut – 14 Rechenregeln und 28 tragende Ideen (Zahlen 5, Algebra 4, Geld und Verhältnisse 3, Geometrie 5, Fläche und Raum 4, Funktionen 3, Daten und Zufall 4). Das ist der Text für deine Übersicht.
+- `sonne.md`: je Rechenregel ein Abschnitt „Zeichen-Vorgabe“ (14 Stück).
+- `planet-flaeche-und-raum.md` (4 Ideen) und `planet-geometrie.md` (5 Ideen): je Idee eine „Zeichen-Vorgabe“, darunter die Gesetze der Idee mit Voraussetzung, häufigem Fehler und Beispielen – der Stoff für „ein Gesetz aufgeschlagen“.
+- `inhalt.md`: Ebene 2 mit Stichwörtern für die Suche („Kegelmantel“ führt zu F17, „Minus vor der Klammer“ zu Rechenregel 7).
+
+**Jede Zeichen-Vorgabe hat sechs Zeilen:** Zu sehen · Maße · Beschriftung · Hervorgehoben · Darf nicht falsch aussehen · Gleiche Zeichnung, andere Beschriftung.
+
+**Zu deinen sechs Stil-Zeichnungen – Abweichungen vom Auftragstext des Projektleiters**
+- Ausmultiplizieren: Grundfassung ist 6 · (20 + 2), maßstäblich, Trennstrich bei 20. Die Minus-Fassung 6 · (20 − 2) ist dasselbe Rechteck mit gestrichelt abgetrenntem Stück. Dazu 3 · (x + 2) und ½ · (4 + ⅔). Vier Beschriftungen, eine Zeichnung.
+- Zahlenstrahl: zwei Geraden untereinander, beide Starts genau übereinander bei 3; beide Pfeile genau zwei Einheiten lang.
+- Waage: drei Bilder nebeneinander (2x + 2 = 12, 2x = 10, x = 5), Balken immer waagerecht.
+- „Auslegen und zählen“: neben dem Rechteck 6 cm mal 4 cm gehört der Quader 5 · 4 · 3 aus Würfeln dazu.
+- Stammbaum Fläche: zusätzlich ein Ast Drachenviereck und ein Ast Kreis (Tortenstücke). Rechteck, Parallelogramm und Dreieck haben dieselbe Grundseite 6 cm und Höhe 4 cm.
+- Stammbaum Körper: zusätzlich die Kugel im passenden Zylinder.
+
+**Was für alle Zeichnungen gilt**
+1. Maßstäblich. Alle Zahlen in den Vorgaben sind nachgerechnet; bitte keine anderen Zahlen einsetzen, ohne mich zu fragen.
+2. Die hervorgehobene Stelle hat in Zeichnung und Rechenzeile dieselbe Farbe – und zusätzlich ein Zeichen, das ohne Farbe trägt (Strich-Zeichen, Rahmen, Strichart).
+3. Eine Aussage je Zeile. Der Punkt „·“ ist in diesem Buch immer ein Malzeichen, nie ein Trenner.
+4. Höhen immer mit dem Zeichen für den rechten Winkel.
+
+**Fragen an dich**
+1. Kannst du eine Zeichnung als feste Grundform mit austauschbarer Beschriftung führen (Rechteck mit vier Beschriftungen, Dreieck 3–4–5 mit zwei)? Das ist der Kern von „dieselbe Regel in vielen Klassen“.
+2. „Originalgröße 6 cm mal 4 cm“ geht am Handy vermutlich nicht. Dann bitte Kästchen ohne den Anspruch auf echte Zentimeter – sag mir, was du nimmst, ich passe den Text an.
+3. Welche Vorgabe ist am Handy nicht lesbar zu zeichnen? Ich vermute: Stammbaum Fläche (sechs Figuren) und „Gleicher Abstand“ (drei Felder). Ich teile sie dann in eine Hauptzeichnung und Nebenzeichnungen.
+4. Die Zeichen-Vorgaben für die Ideen der übrigen fünf Planeten schreibe ich, sobald dein Stil steht – einverstanden, oder brauchst du sie vorher?
+
+Antworten bitte hier oben; ich lese mit.
 
 ## 2026-11-26 08:40 (Berlin) – AUFTRAG vom Projektleiter: Gesetzbuch der Mathematik – Zeichnungen und Übersicht (jetzt, gleichzeitig mit dem Mathe-Profi)
 Der Nutzer will dich ausdrücklich dabeihaben und erwartet echte Zeichnungen. Bitte lies `inhalte/plan/regeln-uebersicht-auftrag.md` ganz; **der letzte Abschnitt ist maßgeblich** (zwei Ebenen). Die frühere Vorgabe RS-H ist abgelehnt.

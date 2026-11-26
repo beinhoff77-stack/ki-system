@@ -1,0 +1,302 @@
+[
+ {
+  "l": "mal_ganz",
+  "t": "ganz",
+  "p": "uebung",
+  "s": 1,
+  "g": "direkt",
+  "y": "luecken",
+  "f": {
+   "text": "Fülle den Rechenweg aus: 25 − 4 · (3 − 8) = 25 − 4 · (①) = 25 − (②) = 25 + ③ = ④",
+   "schablone": "① = □; ② = □; ③ = □; ④ = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    -5,
+    -20,
+    20,
+    45
+   ]
+  },
+  "c": [
+   "3 - 8",
+   "4 * (3 - 8)",
+   "0 - 4 * (3 - 8)",
+   "25 - 4 * (3 - 8)"
+  ],
+  "h": "Jede Zeile ändert nur eine Stelle. Vergleiche sie mit der Zeile davor.",
+  "w": "3 − 8 = −5. Dann 4 · (−5) = −20. Minus (−20) heißt plus 20: 25 + 20 = 45."
+ },
+ {
+  "l": "mal_ganz",
+  "t": "ganz",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "luecken",
+  "f": {
+   "text": "Der erste Schritt ist gemacht. Rechne zu Ende: 30 − 6 · (2 − 7) = 30 − 6 · (−5) = 30 + ① = ②",
+   "schablone": "① = □; ② = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    30,
+    60
+   ]
+  },
+  "c": [
+   "0 - 6 * (2 - 7)",
+   "30 - 6 * (2 - 7)"
+  ],
+  "h": "Welches Zeichen hat 6 · (−5)? Und was macht das Minus davor daraus?",
+  "w": "6 · (−5) = −30. Minus (−30) heißt plus 30: 30 + 30 = 60."
+ },
+ {
+  "l": "geteilt_ganz",
+  "t": "ganz",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "luecken",
+  "f": {
+   "text": "Rechne in zwei Zeilen: (−8) · 5 − 36 : (−4) = ① − (②) = ③",
+   "schablone": "① = □; ② = □; ③ = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    -40,
+    -9,
+    -31
+   ]
+  },
+  "c": [
+   "(-8) * 5",
+   "36 / (-4)",
+   "(-8) * 5 - 36 / (-4)"
+  ],
+  "h": "Rechne erst die beiden Punktrechnungen, jede mit ihrem Zeichen.",
+  "w": "(−8) · 5 = −40 und 36 : (−4) = −9. Dann −40 − (−9) = −40 + 9 = −31."
+ },
+ {
+  "l": "klammern",
+  "t": "vorrang",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "luecken",
+  "f": {
+   "text": "Zwillingszeilen – nicht ausrechnen, nur umschreiben. Zeile 1: 20 − (8 − 3) = 20 − 8 + ①. Zeile 2: 5 000 − (1 734 − 266) = 5 000 − 1 734 + ②.",
+   "schablone": "① = □; ② = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    3,
+    266
+   ]
+  },
+  "c": [
+   "20 - (8 - 3) - (20 - 8)",
+   "5000 - (1734 - 266) - (5000 - 1734)"
+  ],
+  "h": "Zeile 1 kannst du nachrechnen. Zeile 2 ist genauso gebaut.",
+  "w": "Minus vor der Klammer dreht das Zeichen in der Klammer: aus − 3 wird + 3, aus − 266 wird + 266. Probe Zeile 1: 20 − 5 = 15 und 20 − 8 + 3 = 15."
+ },
+ {
+  "l": "verteilen",
+  "t": "gesetze",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "luecken",
+  "f": {
+   "text": "Zwillingszeilen – nicht ausrechnen, nur umschreiben. Zeile 1: 7 · 96 = 7 · 100 − 7 · ①. Zeile 2: 7 · 9 996 = 7 · ② − 7 · 4.",
+   "schablone": "① = □; ② = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    4,
+    10000
+   ]
+  },
+  "c": [
+   "100 - 96",
+   "9996 + 4"
+  ],
+  "h": "Wie viel fehlt 96 bis zur nächsten glatten Zahl?",
+  "w": "96 = 100 − 4, also 7 · 96 = 7 · 100 − 7 · 4. Genauso 9 996 = 10 000 − 4."
+ },
+ {
+  "l": "verteilen",
+  "t": "gesetze",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "zahl",
+  "f": {
+   "text": "Zwei Wege für 7 · 38. Weg A: 7 · 30 + 7 · 8 = 210 + 56. Weg B: 7 · 40 − 7 · 2 = 280 − ?. Welche Zahl wird in Weg B abgezogen?"
+  },
+  "o": {
+   "wert": 14
+  },
+  "c": "7 * 40 - 7 * 38",
+  "h": "Was hat Weg B aus der 38 gemacht – und was muss deshalb wieder weg?",
+  "w": "Weg B rechnet 7 · (40 − 2). Abgezogen wird 7 · 2 = 14. Probe: 280 − 14 = 266 und 210 + 56 = 266."
+ },
+ {
+  "l": "klammern",
+  "t": "vorrang",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "zahl",
+  "f": {
+   "text": "Zwei Wege für 70 − (25 − 9). Weg A rechnet erst die Klammer: 70 − 16. Weg B löst die Klammer auf: 70 − 25 und dann noch eine Zahl. Welche Zahl kommt in Weg B dazu? (Wird sie abgezogen, tippe sie mit Minus.)"
+  },
+  "o": {
+   "wert": 9
+  },
+  "c": "(70 - (25 - 9)) - (70 - 25)",
+  "h": "Rechne beide Wege bis zum Ende. Sie müssen dasselbe ergeben.",
+  "w": "Weg A: 70 − 16 = 54. Weg B: 70 − 25 = 45, bis 54 fehlen + 9. Das Minus vor der Klammer dreht − 9 zu + 9."
+ },
+ {
+  "l": "klammern",
+  "t": "vorrang",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "auswahl",
+  "f": {
+   "text": "Jemand rechnet in vier Zeilen: (1) 40 − 5 · (6 − 2) (2) = 35 · (6 − 2) (3) = 35 · 4 (4) = 140. In welcher Zeile passiert der erste Fehler?"
+  },
+  "a": [
+   "Zeile 3: 6 − 2 ist nicht 4.",
+   "Zeile 2: 40 − 5 wurde zuerst gerechnet. Erst kommt die Klammer, dann Punkt vor Strich.",
+   "Zeile 4: 35 · 4 ist nicht 140.",
+   "Nirgends. 140 stimmt."
+  ],
+  "o": {
+   "index": 1
+  },
+  "h": "Rechne die Aufgabe selbst und vergleiche Zeile für Zeile.",
+  "w": "Richtig: 6 − 2 = 4, dann 5 · 4 = 20, dann 40 − 20 = 20. In Zeile 2 wurde 40 − 5 vorgezogen."
+ },
+ {
+  "l": "mal_ganz",
+  "t": "ganz",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "zahl",
+  "f": {
+   "text": "Jemand rechnet 24 − 4 · (5 − 8) = 24 − 4 · (−3) = 24 − 12 = 12. In der Rechnung steckt ein Fehler. Was kommt richtig heraus?"
+  },
+  "o": {
+   "wert": 36
+  },
+  "c": "24 - 4 * (5 - 8)",
+  "h": "Welches Zeichen hat 4 · (−3)?",
+  "w": "4 · (−3) = −12. Also 24 − (−12) = 24 + 12 = 36. Im Beispiel wurde aus −12 eine 12."
+ },
+ {
+  "l": "kopfrechnen",
+  "t": "gesetze",
+  "p": "uebung",
+  "s": 1,
+  "g": "erkennen",
+  "y": "auswahl",
+  "f": {
+   "text": "Du sollst 25 · 37 · 4 im Kopf rechnen. Welcher Weg ist am geschicktesten?"
+  },
+  "a": [
+   "Verteilen: 25 · 30 + 25 · 7, dann mal 4",
+   "Tauschen: erst 25 · 4, dann mal 37",
+   "Von links nach rechts: erst 25 · 37",
+   "Runden: 25 · 40 · 4 rechnen"
+  ],
+  "o": {
+   "index": 1
+  },
+  "h": "Welche zwei Zahlen ergeben zusammen eine glatte Zahl?",
+  "w": "25 · 4 = 100, dann 100 · 37 = 3 700. Die anderen Wege sind länger; Runden ändert sogar das Ergebnis."
+ },
+ {
+  "l": "verteilen",
+  "t": "gesetze",
+  "p": "uebung",
+  "s": 1,
+  "g": "erkennen",
+  "y": "auswahl",
+  "f": {
+   "text": "Bei welcher Rechnung hilft Verteilen am meisten?"
+  },
+  "a": [
+   "4 · 13 · 25",
+   "125 + 67 + 75",
+   "6 · 198",
+   "480 : 6"
+  ],
+  "o": {
+   "index": 2
+  },
+  "h": "Verteilen braucht eine Zahl, die knapp neben einer glatten Zahl liegt.",
+  "w": "6 · 198 = 6 · 200 − 6 · 2 = 1 200 − 12 = 1 188. Bei den ersten beiden hilft Tauschen, die letzte geht direkt."
+ },
+ {
+  "l": "vorteil",
+  "t": "gesetze",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "luecken",
+  "f": {
+   "text": "Zwillingszeilen – nicht ausrechnen, nur umstellen. Zeile 1: 37 + 86 + 63 = 86 + (37 + ①). Zeile 2: 3 700 + 8 615 + 6 300 = 8 615 + ②.",
+   "schablone": "① = □; ② = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    63,
+    10000
+   ]
+  },
+  "c": [
+   "37 + 86 + 63 - 86 - 37",
+   "3700 + 6300"
+  ],
+  "h": "Welche zwei Zahlen passen zusammen zu einer glatten Zahl?",
+  "w": "37 + 63 = 100, deshalb stellt man sie zusammen. Genauso 3 700 + 6 300 = 10 000."
+ },
+ {
+  "l": "klammern",
+  "t": "vorrang",
+  "p": "uebung",
+  "s": 1,
+  "g": "direkt",
+  "y": "luecken",
+  "f": {
+   "text": "Fülle den Rechenweg aus: 64 − (30 − 6) = 64 − 30 + ① = ② + ① = ③",
+   "schablone": "① = □; ② = □; ③ = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    6,
+    34,
+    40
+   ]
+  },
+  "c": [
+   "6",
+   "64 - 30",
+   "64 - (30 - 6)"
+  ],
+  "h": "Was macht das Minus vor der Klammer mit dem Minus in der Klammer?",
+  "w": "Aus − 6 wird + 6: 64 − 30 + 6 = 34 + 6 = 40. Probe: 64 − 24 = 40."
+ }
+]

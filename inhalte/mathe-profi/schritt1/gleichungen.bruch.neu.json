@@ -1,0 +1,294 @@
+[
+ {
+  "l": "ueber_kreuz",
+  "t": "ueber_kreuz",
+  "p": "uebung",
+  "s": 1,
+  "g": "direkt",
+  "y": "luecken",
+  "f": {
+   "text": "Fülle den Rechenweg aus: 5/(x + 3) = 2/(x − 3). Über Kreuz: 5 · (x − ①) = 2 · (x + ①). Ausmultipliziert: 5x − ② = 2x + ③. Geordnet: 3x = ④. Lösung: x = ⑤.",
+   "schablone": "① = □; ② = □; ③ = □; ④ = □; ⑤ = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    3,
+    15,
+    6,
+    21,
+    7
+   ]
+  },
+  "c": [
+   "3",
+   "5 * 3",
+   "2 * 3",
+   "5 * 3 + 2 * 3",
+   "(5 * 3 + 2 * 3) / (5 - 2)"
+  ],
+  "h": "Über Kreuz heißt: Jeder Zähler wird mit dem Nenner der anderen Seite malgenommen.",
+  "w": "5 · (x − 3) = 2 · (x + 3) → 5x − 15 = 2x + 6 → 3x = 21 → x = 7. Probe: 5/10 = 2/4."
+ },
+ {
+  "l": "ueber_kreuz",
+  "t": "ueber_kreuz",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "luecken",
+  "f": {
+   "text": "Der erste Schritt ist gemacht. Rechne zu Ende: 9/(x + 4) = 3/(x − 2). Über Kreuz: 9 · (x − 2) = 3 · (x + 4). Ausmultipliziert: 9x − ① = 3x + ②. Lösung: x = ③.",
+   "schablone": "① = □; ② = □; ③ = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    18,
+    12,
+    5
+   ]
+  },
+  "c": [
+   "9 * 2",
+   "3 * 4",
+   "(9 * 2 + 3 * 4) / (9 - 3)"
+  ],
+  "h": "Multipliziere beide Klammern aus. Bringe dann alle x auf eine Seite.",
+  "w": "9x − 18 = 3x + 12 → 6x = 30 → x = 5. Probe: 9/9 = 3/3."
+ },
+ {
+  "l": "hauptnenner",
+  "t": "hauptnenner",
+  "p": "uebung",
+  "s": 1,
+  "g": "direkt",
+  "y": "luecken",
+  "f": {
+   "text": "Fülle den Rechenweg aus: 3/x + 1/2 = 5/x. Mal 2x auf beiden Seiten: ① + x = ②. Lösung: x = ③.",
+   "schablone": "① = □; ② = □; ③ = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    6,
+    10,
+    4
+   ]
+  },
+  "c": [
+   "3 * 2",
+   "5 * 2",
+   "5 * 2 - 3 * 2"
+  ],
+  "h": "Jeder Summand wird mit 2x malgenommen. Was bleibt von 3/x übrig?",
+  "w": "3/x · 2x = 6, 1/2 · 2x = x, 5/x · 2x = 10. Also 6 + x = 10, x = 4. Probe: 3/4 + 2/4 = 5/4."
+ },
+ {
+  "l": "ein_bruch",
+  "t": "ein_bruch",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "luecken",
+  "f": {
+   "text": "Rechne zu Ende: 18/(x − 4) = 6. Mal (x − 4): 18 = ①x − ②. Geordnet: ③ = 6x. Lösung: x = ④.",
+   "schablone": "① = □; ② = □; ③ = □; ④ = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    6,
+    24,
+    42,
+    7
+   ]
+  },
+  "c": [
+   "6",
+   "6 * 4",
+   "18 + 6 * 4",
+   "(18 + 6 * 4) / 6"
+  ],
+  "h": "Rechts steht nach dem Malnehmen 6 · (x − 4). Multipliziere die Klammer aus.",
+  "w": "18 = 6x − 24 → 42 = 6x → x = 7. Probe: 18/3 = 6."
+ },
+ {
+  "l": "ueber_kreuz",
+  "t": "ueber_kreuz",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "zahl",
+  "f": {
+   "text": "Zwei Wege für 5/(x + 3) = 2/(x − 3). Weg A multipliziert über Kreuz: 5 · (x − 3) = 2 · (x + 3). Weg B bildet auf beiden Seiten den Kehrwert: (x + 3)/5 = (x − 3)/?. Welche Zahl steht in Weg B unter dem zweiten Bruchstrich?"
+  },
+  "o": {
+   "wert": 2
+  },
+  "c": "10 / 5",
+  "h": "Kehrwert heißt: oben und unten tauschen – auf jeder Seite für sich.",
+  "w": "Aus 2/(x − 3) wird (x − 3)/2. Probe mit der Lösung x = 7: 10/5 = 4/2."
+ },
+ {
+  "l": "hauptnenner",
+  "t": "hauptnenner",
+  "p": "uebung",
+  "s": 2,
+  "g": "umkehr",
+  "y": "zahl",
+  "f": {
+   "text": "Zwei Wege für 2/x + 1/3 = 4/x. Weg A multipliziert mit 3x: 6 + x = 12. Weg B bringt erst 2/x auf die rechte Seite: 1/3 = ?/x. Welche Zahl steht in Weg B über dem Bruchstrich?"
+  },
+  "o": {
+   "wert": 2
+  },
+  "c": "4 - 2",
+  "h": "Auf der rechten Seite stehen dann zwei Brüche mit demselben Nenner.",
+  "w": "4/x − 2/x = 2/x. Also 1/3 = 2/x, x = 6 – wie in Weg A."
+ },
+ {
+  "l": "hauptnenner",
+  "t": "hauptnenner",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "auswahl",
+  "f": {
+   "text": "Jemand löst in drei Zeilen: (1) 2/x + 3 = 8/x (2) 2 + 3 = 8 (3) Widerspruch, also keine Lösung. In welcher Zeile passiert der erste Fehler?"
+  },
+  "a": [
+   "Zeile 3: 5 = 8 ist kein Widerspruch.",
+   "Zeile 2: Beim Malnehmen mit x wurde die 3 vergessen.",
+   "Zeile 2: 2/x mal x ist 2x, nicht 2.",
+   "Nirgends. Die Gleichung hat keine Lösung."
+  ],
+  "o": {
+   "index": 1
+  },
+  "h": "Mal x auf beiden Seiten heißt: jeder Summand mal x.",
+  "w": "Richtig: 2 + 3x = 8, also x = 2. Probe: 2/2 + 3 = 4 und 8/2 = 4."
+ },
+ {
+  "l": "hauptnenner",
+  "t": "hauptnenner",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "zahl",
+  "f": {
+   "text": "Jemand löst 4/x + 2 = 10/x so: 4 + 2 = 10, also keine Lösung. In der Rechnung steckt ein Fehler. Welche Zahl ist die Lösung?"
+  },
+  "o": {
+   "wert": 3
+  },
+  "c": "(10 - 4) / 2",
+  "h": "Was wird aus der 2, wenn man beide Seiten mit x malnimmt?",
+  "w": "Richtig: 4 + 2x = 10 → 2x = 6 → x = 3. Probe: 4/3 + 2 = 10/3."
+ },
+ {
+  "l": "ueber_kreuz",
+  "t": "ueber_kreuz",
+  "p": "uebung",
+  "s": 1,
+  "g": "erkennen",
+  "y": "auswahl",
+  "f": {
+   "text": "Welche Gleichung löst du am schnellsten, indem du über Kreuz multiplizierst?"
+  },
+  "a": [
+   "7/(x + 1) + 2 = 3/(x − 2)",
+   "7/(x + 1) = 3",
+   "7/(x + 1) = 3/(x − 2)",
+   "x/7 + x/3 = 2"
+  ],
+  "o": {
+   "index": 2
+  },
+  "h": "Über Kreuz geht nur, wenn auf jeder Seite genau ein Bruch steht.",
+  "w": "Nur bei „Bruch = Bruch“ passt über Kreuz. Steht ein Summand daneben, braucht man den Hauptnenner."
+ },
+ {
+  "l": "scheinloesung",
+  "t": "scheinloesung",
+  "p": "uebung",
+  "s": 1,
+  "g": "erkennen",
+  "y": "auswahl",
+  "f": {
+   "text": "Du hast für x/(x − 2) = 2/(x − 2) den Wert x = 2 ausgerechnet. Was ist der nächste Schritt?"
+  },
+  "a": [
+   "Fertig: L = {2}.",
+   "Prüfen, ob 2 in der Definitionsmenge liegt.",
+   "Zur Sicherheit die Probe mit x = 0 machen.",
+   "Beide Seiten noch einmal mit (x − 2) malnehmen."
+  ],
+  "o": {
+   "index": 1
+  },
+  "h": "Was passiert mit dem Nenner, wenn du deinen Wert einsetzt?",
+  "w": "Für x = 2 wird der Nenner 0. Die 2 ist ausgeschlossen, also hat die Gleichung keine Lösung: L = { }."
+ },
+ {
+  "l": "ein_bruch",
+  "t": "ein_bruch",
+  "p": "uebung",
+  "s": 2,
+  "g": "umkehr",
+  "y": "zahl",
+  "f": {
+   "text": "Für die Durchschnittsgeschwindigkeit gilt: Geschwindigkeit = Strecke : Zeit. Ein Zug fährt 150 km mit durchschnittlich 60 km/h. Wie viele Stunden braucht er?"
+  },
+  "o": {
+   "wert": 2.5,
+   "einheit": "h"
+  },
+  "c": "150 / 60",
+  "h": "Setze die bekannten Zahlen ein. Die gesuchte Größe steht dann im Nenner.",
+  "w": "60 = 150 : t. Mal t: 60 · t = 150. Durch 60: t = 2,5 Stunden."
+ },
+ {
+  "l": "verhaeltnis",
+  "t": "verhaeltnis",
+  "p": "uebung",
+  "s": 2,
+  "g": "umkehr",
+  "y": "zahl",
+  "f": {
+   "text": "Es gilt: Preis je Kilogramm = Preis : Masse. Kirschen kosten 6,40 € je Kilogramm. Du zahlst 4,80 €. Wie viele Kilogramm hast du gekauft?"
+  },
+  "o": {
+   "wert": 0.75,
+   "einheit": "kg"
+  },
+  "c": "480 / 640",
+  "h": "Setze ein: Welche Größe steht im Nenner und ist gesucht?",
+  "w": "6,40 = 4,80 : m. Mal m und durch 6,40: m = 4,80 : 6,40 = 0,75 kg."
+ },
+ {
+  "l": "verhaeltnis",
+  "t": "verhaeltnis",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "luecken",
+  "f": {
+   "text": "Zwillingszeilen. Zeile 1 mit Zahlen: 2/3 = 8/①. Zeile 2 mit x – nicht lösen, nur über Kreuz schreiben: 2/x = 8/(x + 9) wird zu 2 · (x + 9) = ② · x.",
+   "schablone": "① = □; ② = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    12,
+    8
+   ]
+  },
+  "c": [
+   "3 * 8 / 2",
+   "8"
+  ],
+  "h": "In Zeile 1: Womit wurde der Zähler malgenommen?",
+  "w": "Zähler mal 4, also auch Nenner mal 4: 12. In Zeile 2 gehört jeder Zähler zum Nenner der anderen Seite: 2 · (x + 9) = 8 · x."
+ }
+]

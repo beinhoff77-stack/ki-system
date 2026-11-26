@@ -1,0 +1,3313 @@
+{
+ "hinweis": "Zusatzangaben je Aufgabe, für die das Aufgabenformat kein Feld hat. Reihenfolge wie in <thema>.neu.json.",
+ "aufgaben": [
+  {
+   "kennung": "RG-01",
+   "thema": "zahlen.rechengesetze",
+   "klasse": 5,
+   "lernkarte": "mal_ganz",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 1,
+   "g": "direkt",
+   "regel": {
+    "nr": 3,
+    "name": "Rangfolge"
+   },
+   "zaehlt": "nein",
+   "frage": "Fülle den Rechenweg aus: 25 − 4 · (3 − 8) = 25 − 4 · (①) = 25 − (②) = 25 + ③ = ④",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "fehlbild": "3 − 8 geht über die Null nach links",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 20,
+     "fehlbild": "plus mal minus ist minus",
+     "regel": {
+      "nr": 2,
+      "name": "Zeichen-Paar"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": -20,
+     "fehlbild": "minus eine negative Zahl heißt plus",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "luecke": 4,
+     "antwort": 5,
+     "fehlbild": "das Minus von −20 ist verloren gegangen",
+     "regel": {
+      "nr": 2,
+      "name": "Zeichen-Paar"
+     }
+    },
+    {
+     "luecke": 4,
+     "antwort": -105,
+     "fehlbild": "25 − 4 zuerst gerechnet",
+     "regel": {
+      "nr": 3,
+      "name": "Rangfolge"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "RG-02",
+   "thema": "zahlen.rechengesetze",
+   "klasse": 5,
+   "lernkarte": "mal_ganz",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 2,
+    "name": "Zeichen-Paar"
+   },
+   "zaehlt": "folge",
+   "frage": "Der erste Schritt ist gemacht. Rechne zu Ende: 30 − 6 · (2 − 7) = 30 − 6 · (−5) = 30 + ① = ②",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -30,
+     "fehlbild": "6 · (−5) ist −30, das Minus davor dreht es um",
+     "regel": {
+      "nr": 2,
+      "name": "Zeichen-Paar"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 0,
+     "fehlbild": "minus mal minus nicht beachtet",
+     "regel": {
+      "nr": 2,
+      "name": "Zeichen-Paar"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": -120,
+     "fehlbild": "30 − 6 zuerst gerechnet",
+     "regel": {
+      "nr": 3,
+      "name": "Rangfolge"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "RG-03",
+   "thema": "zahlen.rechengesetze",
+   "klasse": 5,
+   "lernkarte": "geteilt_ganz",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 2,
+    "name": "Zeichen-Paar"
+   },
+   "zaehlt": "folge",
+   "frage": "Rechne in zwei Zeilen: (−8) · 5 − 36 : (−4) = ① − (②) = ③",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 40,
+     "fehlbild": "minus mal plus ist minus",
+     "regel": {
+      "nr": 2,
+      "name": "Zeichen-Paar"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 9,
+     "fehlbild": "plus durch minus ist minus",
+     "regel": {
+      "nr": 2,
+      "name": "Zeichen-Paar"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": -49,
+     "fehlbild": "minus (−9) heißt plus 9",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "RG-04",
+   "thema": "zahlen.rechengesetze",
+   "klasse": 5,
+   "lernkarte": "klammern",
+   "typ": "Brücke: Zahl, aber nicht ausrechnen",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "darstellung",
+   "regel": {
+    "nr": 5,
+    "name": "Minusklammer"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwillingszeilen – nicht ausrechnen, nur umschreiben. Zeile 1: 20 − (8 − 3) = 20 − 8 + ①. Zeile 2: 5 000 − (1 734 − 266) = 5 000 − 1 734 + ②.",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -3,
+     "fehlbild": "das Minus in der Klammer dreht sich um",
+     "regel": {
+      "nr": 5,
+      "name": "Minusklammer"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": -266,
+     "fehlbild": "das Minus in der Klammer dreht sich um",
+     "regel": {
+      "nr": 5,
+      "name": "Minusklammer"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "RG-05",
+   "thema": "zahlen.rechengesetze",
+   "klasse": 5,
+   "lernkarte": "verteilen",
+   "typ": "Brücke: Zahl, aber nicht ausrechnen",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "darstellung",
+   "regel": {
+    "nr": 4,
+    "name": "Verteilen"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwillingszeilen – nicht ausrechnen, nur umschreiben. Zeile 1: 7 · 96 = 7 · 100 − 7 · ①. Zeile 2: 7 · 9 996 = 7 · ② − 7 · 4.",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 96,
+     "fehlbild": "die Klammer heißt (100 − 4), nicht (100 − 96)",
+     "regel": {
+      "nr": 4,
+      "name": "Verteilen"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 9996,
+     "fehlbild": "die glatte Zahl gehört in die Lücke",
+     "regel": {
+      "nr": 4,
+      "name": "Verteilen"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 1000,
+     "fehlbild": "eine Stelle zu wenig",
+     "regel": {
+      "nr": 13,
+      "name": "Stellenwert"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "RG-06",
+   "thema": "zahlen.rechengesetze",
+   "klasse": 5,
+   "lernkarte": "verteilen",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 4,
+    "name": "Verteilen"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwei Wege für 7 · 38. Weg A: 7 · 30 + 7 · 8 = 210 + 56. Weg B: 7 · 40 − 7 · 2 = 280 − ?. Welche Zahl wird in Weg B abgezogen?",
+   "fehlbilder": [
+    {
+     "antwort": 56,
+     "fehlbild": "Zahl aus Weg A übernommen – Weg B zerlegt die 38 anders",
+     "regel": {
+      "nr": 4,
+      "name": "Verteilen"
+     }
+    },
+    {
+     "antwort": 2,
+     "fehlbild": "der Faktor 7 trifft auch die 2",
+     "regel": {
+      "nr": 4,
+      "name": "Verteilen"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "RG-07",
+   "thema": "zahlen.rechengesetze",
+   "klasse": 5,
+   "lernkarte": "klammern",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 5,
+    "name": "Minusklammer"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwei Wege für 70 − (25 − 9). Weg A rechnet erst die Klammer: 70 − 16. Weg B löst die Klammer auf: 70 − 25 und dann noch eine Zahl. Welche Zahl kommt in Weg B dazu? (Wird sie abgezogen, tippe sie mit Minus.)",
+   "fehlbilder": [
+    {
+     "antwort": -9,
+     "fehlbild": "das Minus in der Klammer dreht sich um",
+     "regel": {
+      "nr": 5,
+      "name": "Minusklammer"
+     }
+    },
+    {
+     "antwort": 16,
+     "fehlbild": "Zwischenergebnis aus Weg A übernommen",
+     "regel": {
+      "nr": 5,
+      "name": "Minusklammer"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "RG-08",
+   "thema": "zahlen.rechengesetze",
+   "klasse": 5,
+   "lernkarte": "klammern",
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 3,
+   "g": "fehler",
+   "regel": {
+    "nr": 3,
+    "name": "Rangfolge"
+   },
+   "zaehlt": "ja",
+   "frage": "Jemand rechnet in vier Zeilen: (1) 40 − 5 · (6 − 2) (2) = 35 · (6 − 2) (3) = 35 · 4 (4) = 140. In welcher Zeile passiert der erste Fehler?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Zeile 3: 6 − 2 ist nicht 4.",
+     "fehlbild": "sucht einen Rechenfehler, wo ein Regelfehler ist",
+     "regel": {
+      "nr": 3,
+      "name": "Rangfolge"
+     }
+    },
+    {
+     "index": 2,
+     "antwort": "Zeile 4: 35 · 4 ist nicht 140.",
+     "fehlbild": "sucht einen Rechenfehler, wo ein Regelfehler ist",
+     "regel": {
+      "nr": 3,
+      "name": "Rangfolge"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "Nirgends. 140 stimmt.",
+     "fehlbild": "von links nach rechts gerechnet",
+     "regel": {
+      "nr": 3,
+      "name": "Rangfolge"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "RG-09",
+   "thema": "zahlen.rechengesetze",
+   "klasse": 5,
+   "lernkarte": "mal_ganz",
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "stufe": 3,
+   "g": "fehler",
+   "regel": {
+    "nr": 2,
+    "name": "Zeichen-Paar"
+   },
+   "zaehlt": "ja",
+   "frage": "Jemand rechnet 24 − 4 · (5 − 8) = 24 − 4 · (−3) = 24 − 12 = 12. In der Rechnung steckt ein Fehler. Was kommt richtig heraus?",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": "Fehler übernommen: 4 · (−3) ist −12",
+     "regel": {
+      "nr": 2,
+      "name": "Zeichen-Paar"
+     }
+    },
+    {
+     "antwort": -60,
+     "fehlbild": "24 − 4 zuerst gerechnet",
+     "regel": {
+      "nr": 3,
+      "name": "Rangfolge"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "RG-10",
+   "thema": "zahlen.rechengesetze",
+   "klasse": 5,
+   "lernkarte": "kopfrechnen",
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 1,
+   "g": "erkennen",
+   "regel": {
+    "nr": 6,
+    "name": "Tauschen und Bündeln"
+   },
+   "zaehlt": "ja",
+   "frage": "Du sollst 25 · 37 · 4 im Kopf rechnen. Welcher Weg ist am geschicktesten?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Verteilen: 25 · 30 + 25 · 7, dann mal 4",
+     "fehlbild": "richtig, aber umständlich: die glatte Zahl nicht gesehen",
+     "regel": {
+      "nr": 6,
+      "name": "Tauschen und Bündeln"
+     }
+    },
+    {
+     "index": 2,
+     "antwort": "Von links nach rechts: erst 25 · 37",
+     "fehlbild": "richtig, aber umständlich: die glatte Zahl nicht gesehen",
+     "regel": {
+      "nr": 6,
+      "name": "Tauschen und Bündeln"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "Runden: 25 · 40 · 4 rechnen",
+     "fehlbild": "Runden ändert das Ergebnis",
+     "regel": {
+      "nr": 13,
+      "name": "Stellenwert"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "RG-11",
+   "thema": "zahlen.rechengesetze",
+   "klasse": 5,
+   "lernkarte": "verteilen",
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 1,
+   "g": "erkennen",
+   "regel": {
+    "nr": 4,
+    "name": "Verteilen"
+   },
+   "zaehlt": "ja",
+   "frage": "Bei welcher Rechnung hilft Verteilen am meisten?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "4 · 13 · 25",
+     "fehlbild": "hier hilft Tauschen, nicht Verteilen",
+     "regel": {
+      "nr": 6,
+      "name": "Tauschen und Bündeln"
+     }
+    },
+    {
+     "index": 1,
+     "antwort": "125 + 67 + 75",
+     "fehlbild": "hier hilft Tauschen, nicht Verteilen",
+     "regel": {
+      "nr": 6,
+      "name": "Tauschen und Bündeln"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "480 : 6",
+     "fehlbild": "hier braucht es kein Gesetz",
+     "regel": {
+      "nr": 4,
+      "name": "Verteilen"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "RG-12",
+   "thema": "zahlen.rechengesetze",
+   "klasse": 5,
+   "lernkarte": "vorteil",
+   "typ": "Brücke: Zahl, aber nicht ausrechnen",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "darstellung",
+   "regel": {
+    "nr": 6,
+    "name": "Tauschen und Bündeln"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwillingszeilen – nicht ausrechnen, nur umstellen. Zeile 1: 37 + 86 + 63 = 86 + (37 + ①). Zeile 2: 3 700 + 8 615 + 6 300 = 8 615 + ②.",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 86,
+     "fehlbild": "86 steht schon vorn",
+     "regel": {
+      "nr": 6,
+      "name": "Tauschen und Bündeln"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 9000,
+     "fehlbild": "eine Stelle verrutscht",
+     "regel": {
+      "nr": 13,
+      "name": "Stellenwert"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 6300,
+     "fehlbild": "nur eine der beiden Zahlen eingetragen",
+     "regel": {
+      "nr": 6,
+      "name": "Tauschen und Bündeln"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "RG-13",
+   "thema": "zahlen.rechengesetze",
+   "klasse": 5,
+   "lernkarte": "klammern",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 1,
+   "g": "direkt",
+   "regel": {
+    "nr": 5,
+    "name": "Minusklammer"
+   },
+   "zaehlt": "nein",
+   "frage": "Fülle den Rechenweg aus: 64 − (30 − 6) = 64 − 30 + ① = ② + ① = ③",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -6,
+     "fehlbild": "das Minus in der Klammer dreht sich um",
+     "regel": {
+      "nr": 5,
+      "name": "Minusklammer"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": 28,
+     "fehlbild": "− 6 statt + 6 gerechnet",
+     "regel": {
+      "nr": 5,
+      "name": "Minusklammer"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GZ-01",
+   "thema": "zahlen.ganz",
+   "klasse": 5,
+   "lernkarte": "subtrahieren",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 1,
+   "g": "direkt",
+   "regel": {
+    "nr": 1,
+    "name": "Richtung"
+   },
+   "zaehlt": "nein",
+   "frage": "Fülle den Rechenweg aus: (−7) − (−12) = (−7) + ① = ②",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -12,
+     "fehlbild": "Abziehen einer negativen Zahl heißt Gegenzahl dazuzählen",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": -19,
+     "fehlbild": "(−12) abgezogen wie 12",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": -5,
+     "fehlbild": "von −7 aus zwölf nach rechts geht über die Null",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GZ-02",
+   "thema": "zahlen.ganz",
+   "klasse": 5,
+   "lernkarte": "ketten",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 1,
+   "g": "direkt",
+   "regel": {
+    "nr": 1,
+    "name": "Richtung"
+   },
+   "zaehlt": "nein",
+   "frage": "Fülle den Rechenweg aus: 15 − 23 − (−6) + (−9) = 15 − 23 + ① − ② = ③ − ④ = ⑤",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -6,
+     "fehlbild": "minus eine negative Zahl heißt plus",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": 15,
+     "fehlbild": "die 6 gehört zu den Plus-Zahlen",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "luecke": 5,
+     "antwort": 11,
+     "fehlbild": "kleinere minus größere Zahl ist negativ",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "luecke": 5,
+     "antwort": -23,
+     "fehlbild": "− (−6) als − 6 gerechnet",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GZ-03",
+   "thema": "zahlen.ganz",
+   "klasse": 5,
+   "lernkarte": "ketten",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 1,
+    "name": "Richtung"
+   },
+   "zaehlt": "folge",
+   "frage": "Der erste Schritt ist gemacht. Rechne zu Ende: (−14) + 9 − (−8) − 20 = (−14) + 9 + 8 − 20 = ① − ② = ③",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 20,
+     "fehlbild": "auch die 14 ist eine Minus-Zahl",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": 17,
+     "fehlbild": "kleinere minus größere Zahl ist negativ",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": -3,
+     "fehlbild": "die 14 vergessen",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GZ-04",
+   "thema": "zahlen.ganz",
+   "klasse": 5,
+   "lernkarte": "ketten",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 1,
+    "name": "Richtung"
+   },
+   "zaehlt": "folge",
+   "frage": "Fasse erst die Plus-Zahlen und die Minus-Zahlen zusammen: 30 − 45 + (−12) − (−7) = ① − ② = ③",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 30,
+     "fehlbild": "− (−7) gehört zu den Plus-Zahlen",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "luecke": 1,
+     "antwort": 42,
+     "fehlbild": "+ (−12) ist keine Plus-Zahl",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 64,
+     "fehlbild": "− (−7) ist keine Minus-Zahl",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": 20,
+     "fehlbild": "kleinere minus größere Zahl ist negativ",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GZ-05",
+   "thema": "zahlen.ganz",
+   "klasse": 5,
+   "lernkarte": "subtrahieren",
+   "typ": "Brücke: Zahl, aber nicht ausrechnen",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "darstellung",
+   "regel": {
+    "nr": 1,
+    "name": "Richtung"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwillingszeilen – nicht ausrechnen, nur umschreiben. Zeile 1: 9 − (−5) = 9 + ①. Zeile 2: 2 480 − (−1 520) = 2 480 + ②.",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -5,
+     "fehlbild": "Gegenzahl nicht gebildet",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": -1520,
+     "fehlbild": "Gegenzahl nicht gebildet",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GZ-06",
+   "thema": "zahlen.ganz",
+   "klasse": 5,
+   "lernkarte": "addieren",
+   "typ": "Brücke: Zahl, aber nicht ausrechnen",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "darstellung",
+   "regel": {
+    "nr": 1,
+    "name": "Richtung"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwillingszeilen – nicht ausrechnen, nur umschreiben. Zeile 1: (−8) + 3 = 3 − ①. Zeile 2: (−4 750) + 1 200 = 1 200 − ②.",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -8,
+     "fehlbild": "das Minus steht schon vor der Lücke",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": -4750,
+     "fehlbild": "das Minus steht schon vor der Lücke",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GZ-07",
+   "thema": "zahlen.ganz",
+   "klasse": 5,
+   "lernkarte": "ketten",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "stufe": 2,
+   "g": "umkehr",
+   "regel": {
+    "nr": 6,
+    "name": "Tauschen und Bündeln"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwei Wege für 12 − 30 + 18 − 5. Weg A rechnet von links nach rechts. Weg B sammelt erst alle Plus-Zahlen, dann alle Minus-Zahlen und rechnet ? − 35. Welche Zahl steht in Weg B vorn?",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": "nur die erste Zahl genommen",
+     "regel": {
+      "nr": 6,
+      "name": "Tauschen und Bündeln"
+     }
+    },
+    {
+     "antwort": 18,
+     "fehlbild": "die erste Zahl hat kein Zeichen, zählt aber als Plus",
+     "regel": {
+      "nr": 6,
+      "name": "Tauschen und Bündeln"
+     }
+    },
+    {
+     "antwort": 60,
+     "fehlbild": "die Minus-Zahl 30 mitgezählt",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GZ-08",
+   "thema": "zahlen.ganz",
+   "klasse": 5,
+   "lernkarte": "subtrahieren",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "stufe": 2,
+   "g": "darstellung",
+   "regel": {
+    "nr": 1,
+    "name": "Richtung"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwei Wege für (−6) − 9. Weg A geht auf der Zahlengeraden von −6 aus neun Schritte nach links. Weg B schreibt eine Plus-Aufgabe: (−6) + (?). Welche Zahl gehört in die Klammer?",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": "Gegenzahl nicht gebildet",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "antwort": -15,
+     "fehlbild": "Ergebnis statt Summand eingetragen",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GZ-09",
+   "thema": "zahlen.ganz",
+   "klasse": 5,
+   "lernkarte": "ketten",
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 3,
+   "g": "fehler",
+   "regel": {
+    "nr": 1,
+    "name": "Richtung"
+   },
+   "zaehlt": "ja",
+   "frage": "Jemand rechnet in vier Zeilen: (1) 8 − (−5) − 20 (2) = 8 − 5 − 20 (3) = 3 − 20 (4) = −17. In welcher Zeile passiert der erste Fehler?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Zeile 3: 8 − 5 ist nicht 3.",
+     "fehlbild": "sucht einen Rechenfehler, wo ein Regelfehler ist",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "index": 1,
+     "antwort": "Zeile 4: 3 − 20 ist nicht −17.",
+     "fehlbild": "sucht einen Rechenfehler, wo ein Regelfehler ist",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "Nirgends. −17 stimmt.",
+     "fehlbild": "− (−5) als − 5 gelesen",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GZ-10",
+   "thema": "zahlen.ganz",
+   "klasse": 5,
+   "lernkarte": "subtrahieren",
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "stufe": 3,
+   "g": "fehler",
+   "regel": {
+    "nr": 1,
+    "name": "Richtung"
+   },
+   "zaehlt": "ja",
+   "frage": "Jemand rechnet (−15) − (−9) + 4 = (−15) − 9 + 4 = −20. In der Rechnung steckt ein Fehler. Was kommt richtig heraus?",
+   "fehlbilder": [
+    {
+     "antwort": -20,
+     "fehlbild": "Fehler übernommen: − (−9) ist + 9",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "antwort": -10,
+     "fehlbild": "auch das + 4 umgedreht",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GZ-11",
+   "thema": "zahlen.ganz",
+   "klasse": 5,
+   "lernkarte": "ketten",
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 1,
+   "g": "erkennen",
+   "regel": {
+    "nr": 6,
+    "name": "Tauschen und Bündeln"
+   },
+   "zaehlt": "ja",
+   "frage": "Du sollst 47 − 82 + 53 − 18 geschickt rechnen. Welcher erste Schritt hilft am meisten?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Von links nach rechts: zuerst 47 − 82.",
+     "fehlbild": "richtig, aber umständlich: die glatten Zahlen nicht gesehen",
+     "regel": {
+      "nr": 6,
+      "name": "Tauschen und Bündeln"
+     }
+    },
+    {
+     "index": 1,
+     "antwort": "Erst 82 − 47 rechnen und am Ende das Zeichen umdrehen.",
+     "fehlbild": "das Zeichen gilt nicht für die ganze Kette",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "Alle vier Zahlen addieren und ein Minus davorsetzen.",
+     "fehlbild": "Plus-Zahlen werden nicht zu Minus-Zahlen",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GZ-12",
+   "thema": "zahlen.ganz",
+   "klasse": 5,
+   "lernkarte": "umkehraufgabe",
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 1,
+   "g": "erkennen",
+   "regel": {
+    "nr": 8,
+    "name": "Umkehren"
+   },
+   "zaehlt": "ja",
+   "frage": "Mit welcher Rechnung findest du die Zahl in □ − (−7) = −4?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "(−4) − (−7)",
+     "fehlbild": "Abziehen nicht umgekehrt",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "index": 2,
+     "antwort": "(−4) + 7",
+     "fehlbild": "umgekehrt, aber mit der Gegenzahl",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "7 − 4",
+     "fehlbild": "Zeichen der −4 verloren",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GZ-13",
+   "thema": "zahlen.ganz",
+   "klasse": 5,
+   "lernkarte": "verstehen",
+   "typ": "Brücke: Zahl, aber nicht ausrechnen",
+   "antwortform": "auswahl",
+   "stufe": 3,
+   "g": "begruenden",
+   "regel": {
+    "nr": 1,
+    "name": "Richtung"
+   },
+   "zaehlt": "ja",
+   "frage": "Ohne auszurechnen: Ist (−4 829) − (−4 830) positiv, negativ oder null?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Negativ, weil beide Zahlen negativ sind.",
+     "fehlbild": "Zeichen der Zahlen mit dem Zeichen des Ergebnisses verwechselt",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "index": 1,
+     "antwort": "Negativ, weil 4 829 kleiner ist als 4 830.",
+     "fehlbild": "mit den Beträgen gerechnet",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "index": 2,
+     "antwort": "Null, weil die Zahlen fast gleich sind.",
+     "fehlbild": "geschätzt statt die Richtung bestimmt",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PG-01",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "klasse": 8,
+   "lernkarte": "gleiche_basis_ganz",
+   "typ": "Brücke: Zahl, aber nicht ausrechnen",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "darstellung",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwillingszeilen – nicht ausrechnen, nur die Hochzahl bestimmen. Zeile 1: 2³ · 2⁻⁵ = 2ᵏ. Zeile 2: a⁴ · a⁻⁹ = aⁿ.",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -15,
+     "fehlbild": "Hochzahlen malgenommen statt addiert",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": "abgezogen statt addiert",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": -36,
+     "fehlbild": "Hochzahlen malgenommen statt addiert",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PG-02",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "klasse": 8,
+   "lernkarte": "exponent_und_potenz",
+   "typ": "Brücke: Zahl, aber nicht ausrechnen",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "darstellung",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwillingszeilen – nicht ausrechnen, nur die Hochzahl bestimmen. Zeile 1: (5⁻²)³ = 5ᵏ. Zeile 2: (x⁴)⁻² = xⁿ.",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "fehlbild": "Hochzahlen addiert statt malgenommen",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "fehlbild": "Hochzahlen addiert statt malgenommen",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "fehlbild": "Zeichen der Hochzahl verloren",
+     "regel": {
+      "nr": 2,
+      "name": "Zeichen-Paar"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PG-03",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "klasse": 8,
+   "lernkarte": "terme_vereinfachen",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 1,
+   "g": "direkt",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "nein",
+   "frage": "Fülle den Rechenweg aus: (2a⁻³)² · a⁴ = 2ᵏ · aᵐ · a⁴ = c · aⁿ",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": -1,
+     "fehlbild": "Hochzahlen addiert statt malgenommen",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "fehlbild": "die 2 wird auch quadriert",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 4,
+     "antwort": -10,
+     "fehlbild": "bei mal werden die Hochzahlen addiert",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 4,
+     "antwort": 3,
+     "fehlbild": "Folgefehler aus m",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PG-04",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "klasse": 8,
+   "lernkarte": "terme_vereinfachen",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "folge",
+   "frage": "Der erste Schritt ist gemacht. Rechne zu Ende: (3x²)⁻² · x⁵ = 3⁻² · x⁻⁴ · x⁵ = xⁿ : c",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -20,
+     "fehlbild": "Hochzahlen malgenommen statt addiert",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": "3² ist 3 · 3",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": -9,
+     "fehlbild": "eine negative Hochzahl macht den Wert nicht negativ",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PG-05",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "klasse": 8,
+   "lernkarte": "gleiche_basis_ganz",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "folge",
+   "frage": "Rechne in zwei Schritten: a⁻² · a⁵ : a⁻¹ = aᵏ : a⁻¹ = aⁿ",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -10,
+     "fehlbild": "Hochzahlen malgenommen statt addiert",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "fehlbild": "minus (−1) heißt plus 1",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": -3,
+     "fehlbild": "Hochzahlen malgenommen statt abgezogen",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PG-06",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "klasse": 8,
+   "lernkarte": "gleiche_basis_ganz",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "stufe": 2,
+   "g": "umkehr",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwei Wege für 6⁻² · 6⁵ : 6². Weg A rechnet mit den Hochzahlen: −2 + 5 − 2. Weg B schreibt einen Bruch: 6⁵ geteilt durch (6² · 6ᵏ). Welche Hochzahl k steht in Weg B?",
+   "fehlbilder": [
+    {
+     "antwort": -2,
+     "fehlbild": "unter dem Bruchstrich wird aus 6⁻² die Potenz 6²",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "antwort": 1,
+     "fehlbild": "Ergebnis-Hochzahl statt k eingetragen",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PG-07",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "klasse": 8,
+   "lernkarte": "exponent_und_potenz",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwei Wege für (2⁻³)². Weg A nimmt die Hochzahlen mal: 2⁻⁶ = 1/64. Weg B rechnet erst die Klammer aus: (1/?)² = 1/64. Welche Zahl steht in Weg B unter dem Bruchstrich?",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": "2³ ist 2 · 2 · 2, nicht 2 · 3",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "antwort": -8,
+     "fehlbild": "eine negative Hochzahl heißt Kehrwert, nicht negative Zahl",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PG-08",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "klasse": 8,
+   "lernkarte": "fehler_ganz",
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 3,
+   "g": "fehler",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "ja",
+   "frage": "Jemand vereinfacht in drei Zeilen: (1) (3a²)⁻² (2) = 3 · a⁻⁴ (3) = 3/a⁴. In welcher Zeile passiert der erste Fehler?",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Zeile 2: a² hoch −2 ist a⁰, nicht a⁻⁴.",
+     "fehlbild": "Hochzahlen addiert statt malgenommen",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "index": 2,
+     "antwort": "Zeile 3: a⁻⁴ gehört über den Bruchstrich.",
+     "fehlbild": "negative Hochzahl heißt unter den Bruchstrich",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "Nirgends. 3/a⁴ stimmt.",
+     "fehlbild": "die Hochzahl trifft jeden Faktor in der Klammer",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PG-09",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "klasse": 8,
+   "lernkarte": "fehler_ganz",
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "stufe": 3,
+   "g": "fehler",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "ja",
+   "frage": "Jemand rechnet 2⁻³ · 2⁵ = 2⁻¹⁵. In der Rechnung steckt ein Fehler. Welche Zahl kommt richtig heraus?",
+   "fehlbilder": [
+    {
+     "antwort": 0.25,
+     "fehlbild": "Zeichen der Hochzahl vertauscht",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "antwort": 2,
+     "fehlbild": "Hochzahl statt Wert angegeben",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PG-10",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "klasse": 8,
+   "lernkarte": "gleiche_basis_ganz",
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 1,
+   "g": "erkennen",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "ja",
+   "frage": "Welchen Term kannst du mit der Regel „gleiche Basis: Hochzahlen addieren“ vereinfachen?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "a³ + a⁻⁵",
+     "fehlbild": "das ist eine Summe, kein Produkt",
+     "regel": {
+      "nr": 3,
+      "name": "Rangfolge"
+     }
+    },
+    {
+     "index": 1,
+     "antwort": "a³ · b⁻⁵",
+     "fehlbild": "verschiedene Basen",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "index": 2,
+     "antwort": "(a³)⁻⁵",
+     "fehlbild": "Potenz einer Potenz: dort wird malgenommen",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PG-11",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "klasse": 8,
+   "lernkarte": "exponent_und_potenz",
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 1,
+   "g": "erkennen",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "ja",
+   "frage": "Du sollst 5⁻² · 2⁻² im Kopf rechnen. Welcher Weg ist richtig und am kürzesten?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Hochzahlen addieren: 10⁻⁴",
+     "fehlbild": "Hochzahlen addieren gilt nur bei gleicher Basis",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "index": 2,
+     "antwort": "Basen addieren: 7⁻²",
+     "fehlbild": "Basen werden malgenommen, nicht addiert",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "Einzeln: 1/25 · 1/4 und dann malnehmen",
+     "fehlbild": "richtig, aber umständlich: gleiche Hochzahl nicht gesehen",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PG-12",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "klasse": 8,
+   "lernkarte": "gleiche_basis_ganz",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 1,
+   "g": "direkt",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "nein",
+   "frage": "Fülle den Rechenweg aus: x⁴ : x⁻² = x hoch (4 − (k)) = xⁿ",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "fehlbild": "Zeichen der Hochzahl vergessen",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "fehlbild": "minus (−2) heißt plus 2",
+     "regel": {
+      "nr": 1,
+      "name": "Richtung"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": -8,
+     "fehlbild": "Hochzahlen malgenommen statt abgezogen",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PG-13",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "klasse": 8,
+   "lernkarte": "warum_gilt",
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "stufe": 3,
+   "g": "fehler",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "ja",
+   "frage": "Jemand sagt: „(−2)⁻² = −4, denn ein Minus in der Hochzahl macht das Ergebnis negativ.“ Das stimmt nicht. Welche Zahl kommt richtig heraus? (Dezimalzahl mit Komma)",
+   "fehlbilder": [
+    {
+     "antwort": -4,
+     "fehlbild": "Fehler übernommen: negative Hochzahl heißt Kehrwert",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "antwort": -0.25,
+     "fehlbild": "(−2)² ist + 4",
+     "regel": {
+      "nr": 2,
+      "name": "Zeichen-Paar"
+     }
+    },
+    {
+     "antwort": 4,
+     "fehlbild": "Kehrwert vergessen",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "BG-01",
+   "thema": "gleichungen.bruch",
+   "klasse": 8,
+   "lernkarte": "ueber_kreuz",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 1,
+   "g": "direkt",
+   "regel": {
+    "nr": 14,
+    "name": "Verhältnis"
+   },
+   "zaehlt": "nein",
+   "frage": "Fülle den Rechenweg aus: 5/(x + 3) = 2/(x − 3). Über Kreuz: 5 · (x − ①) = 2 · (x + ①). Ausmultipliziert: 5x − ② = 2x + ③. Geordnet: 3x = ④. Lösung: x = ⑤.",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": "die 5 trifft auch die 3",
+     "regel": {
+      "nr": 4,
+      "name": "Verteilen"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": 3,
+     "fehlbild": "die 2 trifft auch die 3",
+     "regel": {
+      "nr": 4,
+      "name": "Verteilen"
+     }
+    },
+    {
+     "luecke": 4,
+     "antwort": -9,
+     "fehlbild": "− 15 wird auf der anderen Seite zu + 15",
+     "regel": {
+      "nr": 7,
+      "name": "Waage"
+     }
+    },
+    {
+     "luecke": 5,
+     "antwort": -3,
+     "fehlbild": "Folgefehler aus 3x = −9",
+     "regel": {
+      "nr": 7,
+      "name": "Waage"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "BG-02",
+   "thema": "gleichungen.bruch",
+   "klasse": 8,
+   "lernkarte": "ueber_kreuz",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 14,
+    "name": "Verhältnis"
+   },
+   "zaehlt": "folge",
+   "frage": "Der erste Schritt ist gemacht. Rechne zu Ende: 9/(x + 4) = 3/(x − 2). Über Kreuz: 9 · (x − 2) = 3 · (x + 4). Ausmultipliziert: 9x − ① = 3x + ②. Lösung: x = ③.",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "fehlbild": "die 9 trifft auch die 2",
+     "regel": {
+      "nr": 4,
+      "name": "Verteilen"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": "die 3 trifft auch die 4",
+     "regel": {
+      "nr": 4,
+      "name": "Verteilen"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": -1,
+     "fehlbild": "− 18 wird auf der anderen Seite zu + 18",
+     "regel": {
+      "nr": 7,
+      "name": "Waage"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "BG-03",
+   "thema": "gleichungen.bruch",
+   "klasse": 8,
+   "lernkarte": "hauptnenner",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 1,
+   "g": "direkt",
+   "regel": {
+    "nr": 7,
+    "name": "Waage"
+   },
+   "zaehlt": "nein",
+   "frage": "Fülle den Rechenweg aus: 3/x + 1/2 = 5/x. Mal 2x auf beiden Seiten: ① + x = ②. Lösung: x = ③.",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": "auch der Faktor 2 bleibt stehen",
+     "regel": {
+      "nr": 7,
+      "name": "Waage"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "fehlbild": "auch der Faktor 2 bleibt stehen",
+     "regel": {
+      "nr": 7,
+      "name": "Waage"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "fehlbild": "Folgefehler aus 3 + x = 5",
+     "regel": {
+      "nr": 7,
+      "name": "Waage"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "BG-04",
+   "thema": "gleichungen.bruch",
+   "klasse": 8,
+   "lernkarte": "ein_bruch",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 7,
+    "name": "Waage"
+   },
+   "zaehlt": "folge",
+   "frage": "Rechne zu Ende: 18/(x − 4) = 6. Mal (x − 4): 18 = ①x − ②. Geordnet: ③ = 6x. Lösung: x = ④.",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": "die 6 trifft auch die 4",
+     "regel": {
+      "nr": 4,
+      "name": "Verteilen"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": -6,
+     "fehlbild": "− 24 wird auf der anderen Seite zu + 24",
+     "regel": {
+      "nr": 7,
+      "name": "Waage"
+     }
+    },
+    {
+     "luecke": 4,
+     "antwort": -1,
+     "fehlbild": "Folgefehler aus −6 = 6x",
+     "regel": {
+      "nr": 7,
+      "name": "Waage"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "BG-05",
+   "thema": "gleichungen.bruch",
+   "klasse": 8,
+   "lernkarte": "ueber_kreuz",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "stufe": 2,
+   "g": "darstellung",
+   "regel": {
+    "nr": 10,
+    "name": "Wert bleibt"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwei Wege für 5/(x + 3) = 2/(x − 3). Weg A multipliziert über Kreuz: 5 · (x − 3) = 2 · (x + 3). Weg B bildet auf beiden Seiten den Kehrwert: (x + 3)/5 = (x − 3)/?. Welche Zahl steht in Weg B unter dem zweiten Bruchstrich?",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": "jede Seite wird für sich umgedreht",
+     "regel": {
+      "nr": 10,
+      "name": "Wert bleibt"
+     }
+    },
+    {
+     "antwort": 3,
+     "fehlbild": "Zahl aus dem Nenner statt aus dem Zähler genommen",
+     "regel": {
+      "nr": 10,
+      "name": "Wert bleibt"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "BG-06",
+   "thema": "gleichungen.bruch",
+   "klasse": 8,
+   "lernkarte": "hauptnenner",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "stufe": 2,
+   "g": "umkehr",
+   "regel": {
+    "nr": 7,
+    "name": "Waage"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwei Wege für 2/x + 1/3 = 4/x. Weg A multipliziert mit 3x: 6 + x = 12. Weg B bringt erst 2/x auf die rechte Seite: 1/3 = ?/x. Welche Zahl steht in Weg B über dem Bruchstrich?",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": "Hinüberbringen heißt abziehen",
+     "regel": {
+      "nr": 7,
+      "name": "Waage"
+     }
+    },
+    {
+     "antwort": 4,
+     "fehlbild": "2/x nicht abgezogen",
+     "regel": {
+      "nr": 7,
+      "name": "Waage"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "BG-07",
+   "thema": "gleichungen.bruch",
+   "klasse": 8,
+   "lernkarte": "hauptnenner",
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 3,
+   "g": "fehler",
+   "regel": {
+    "nr": 7,
+    "name": "Waage"
+   },
+   "zaehlt": "ja",
+   "frage": "Jemand löst in drei Zeilen: (1) 2/x + 3 = 8/x (2) 2 + 3 = 8 (3) Widerspruch, also keine Lösung. In welcher Zeile passiert der erste Fehler?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Zeile 3: 5 = 8 ist kein Widerspruch.",
+     "fehlbild": "Widerspruch nicht erkannt",
+     "regel": {
+      "nr": 9,
+      "name": "Einsetzen und Probe"
+     }
+    },
+    {
+     "index": 2,
+     "antwort": "Zeile 2: 2/x mal x ist 2x, nicht 2.",
+     "fehlbild": "x im Nenner und x als Faktor heben sich auf",
+     "regel": {
+      "nr": 10,
+      "name": "Wert bleibt"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "Nirgends. Die Gleichung hat keine Lösung.",
+     "fehlbild": "nicht jeder Summand wurde malgenommen",
+     "regel": {
+      "nr": 7,
+      "name": "Waage"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "BG-08",
+   "thema": "gleichungen.bruch",
+   "klasse": 8,
+   "lernkarte": "hauptnenner",
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "stufe": 3,
+   "g": "fehler",
+   "regel": {
+    "nr": 7,
+    "name": "Waage"
+   },
+   "zaehlt": "ja",
+   "frage": "Jemand löst 4/x + 2 = 10/x so: 4 + 2 = 10, also keine Lösung. In der Rechnung steckt ein Fehler. Welche Zahl ist die Lösung?",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": "nicht durch 2 geteilt",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "antwort": 7,
+     "fehlbild": "4 auf die andere Seite addiert statt abgezogen",
+     "regel": {
+      "nr": 7,
+      "name": "Waage"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "BG-09",
+   "thema": "gleichungen.bruch",
+   "klasse": 8,
+   "lernkarte": "ueber_kreuz",
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 1,
+   "g": "erkennen",
+   "regel": {
+    "nr": 14,
+    "name": "Verhältnis"
+   },
+   "zaehlt": "ja",
+   "frage": "Welche Gleichung löst du am schnellsten, indem du über Kreuz multiplizierst?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "7/(x + 1) + 2 = 3/(x − 2)",
+     "fehlbild": "der Summand 2 stört: über Kreuz gilt nur für Bruch = Bruch",
+     "regel": {
+      "nr": 14,
+      "name": "Verhältnis"
+     }
+    },
+    {
+     "index": 1,
+     "antwort": "7/(x + 1) = 3",
+     "fehlbild": "ein Bruch: mal Nenner genügt",
+     "regel": {
+      "nr": 7,
+      "name": "Waage"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "x/7 + x/3 = 2",
+     "fehlbild": "zwei Brüche auf einer Seite: Hauptnenner",
+     "regel": {
+      "nr": 11,
+      "name": "Bruchrechnen"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "BG-10",
+   "thema": "gleichungen.bruch",
+   "klasse": 8,
+   "lernkarte": "scheinloesung",
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 1,
+   "g": "erkennen",
+   "regel": {
+    "nr": 9,
+    "name": "Einsetzen und Probe"
+   },
+   "zaehlt": "ja",
+   "frage": "Du hast für x/(x − 2) = 2/(x − 2) den Wert x = 2 ausgerechnet. Was ist der nächste Schritt?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Fertig: L = {2}.",
+     "fehlbild": "Definitionsmenge nicht geprüft",
+     "regel": {
+      "nr": 9,
+      "name": "Einsetzen und Probe"
+     }
+    },
+    {
+     "index": 2,
+     "antwort": "Zur Sicherheit die Probe mit x = 0 machen.",
+     "fehlbild": "Probe gehört an die gefundene Zahl, nicht an eine andere",
+     "regel": {
+      "nr": 9,
+      "name": "Einsetzen und Probe"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "Beide Seiten noch einmal mit (x − 2) malnehmen.",
+     "fehlbild": "Umformen ersetzt die Prüfung nicht",
+     "regel": {
+      "nr": 9,
+      "name": "Einsetzen und Probe"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "BG-11",
+   "thema": "gleichungen.bruch",
+   "klasse": 8,
+   "lernkarte": "ein_bruch",
+   "typ": "Formel umkehren",
+   "antwortform": "zahl",
+   "stufe": 2,
+   "g": "umkehr",
+   "regel": {
+    "nr": 8,
+    "name": "Umkehren"
+   },
+   "zaehlt": "ja",
+   "frage": "Für die Durchschnittsgeschwindigkeit gilt: Geschwindigkeit = Strecke : Zeit. Ein Zug fährt 150 km mit durchschnittlich 60 km/h. Wie viele Stunden braucht er?",
+   "fehlbilder": [
+    {
+     "antwort": 9000,
+     "fehlbild": "malgenommen statt geteilt",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "antwort": 0.4,
+     "fehlbild": "Strecke und Geschwindigkeit vertauscht",
+     "regel": {
+      "nr": 14,
+      "name": "Verhältnis"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "BG-12",
+   "thema": "gleichungen.bruch",
+   "klasse": 8,
+   "lernkarte": "verhaeltnis",
+   "typ": "Formel umkehren",
+   "antwortform": "zahl",
+   "stufe": 2,
+   "g": "umkehr",
+   "regel": {
+    "nr": 8,
+    "name": "Umkehren"
+   },
+   "zaehlt": "ja",
+   "frage": "Es gilt: Preis je Kilogramm = Preis : Masse. Kirschen kosten 6,40 € je Kilogramm. Du zahlst 4,80 €. Wie viele Kilogramm hast du gekauft?",
+   "fehlbilder": [
+    {
+     "antwort": 30.72,
+     "fehlbild": "malgenommen statt geteilt",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "antwort": 1.6,
+     "fehlbild": "abgezogen statt das Verhältnis gebildet",
+     "regel": {
+      "nr": 14,
+      "name": "Verhältnis"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "BG-13",
+   "thema": "gleichungen.bruch",
+   "klasse": 8,
+   "lernkarte": "verhaeltnis",
+   "typ": "Brücke: Zahl, aber nicht ausrechnen",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "darstellung",
+   "regel": {
+    "nr": 14,
+    "name": "Verhältnis"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwillingszeilen. Zeile 1 mit Zahlen: 2/3 = 8/①. Zeile 2 mit x – nicht lösen, nur über Kreuz schreiben: 2/x = 8/(x + 9) wird zu 2 · (x + 9) = ② · x.",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 9,
+     "fehlbild": "oben plus 6 heißt nicht unten plus 6",
+     "regel": {
+      "nr": 10,
+      "name": "Wert bleibt"
+     }
+    },
+    {
+     "luecke": 1,
+     "antwort": 24,
+     "fehlbild": "über Kreuz gerechnet, aber nicht durch 2 geteilt",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "fehlbild": "die 8 gehört zum x",
+     "regel": {
+      "nr": 14,
+      "name": "Verhältnis"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PB-01",
+   "thema": "zahlen.potenzen_basis",
+   "klasse": 5,
+   "lernkarte": "berechnen",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 1,
+   "g": "direkt",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "nein",
+   "frage": "Fülle den Rechenweg aus: 2⁵ = 2 · 2 · 2 · 2 · 2 = 4 · 2 · 2 · 2 = ① · 2 · 2 = ② · 2 = ③",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 6,
+     "fehlbild": "2 · 3 statt 2 · 2 · 2",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": 10,
+     "fehlbild": "Basis mal Hochzahl gerechnet",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": 25,
+     "fehlbild": "Basis und Hochzahl vertauscht",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PB-02",
+   "thema": "zahlen.potenzen_basis",
+   "klasse": 5,
+   "lernkarte": "negativ",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 2,
+    "name": "Zeichen-Paar"
+   },
+   "zaehlt": "folge",
+   "frage": "Der erste Schritt ist gemacht. Rechne zu Ende: (−3)⁴ = (−3) · (−3) · (−3) · (−3) = 9 · (−3) · (−3) = ① · (−3) = ②",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 27,
+     "fehlbild": "plus mal minus ist minus",
+     "regel": {
+      "nr": 2,
+      "name": "Zeichen-Paar"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": -81,
+     "fehlbild": "minus mal minus ist plus",
+     "regel": {
+      "nr": 2,
+      "name": "Zeichen-Paar"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": -12,
+     "fehlbild": "Basis mal Hochzahl gerechnet",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PB-03",
+   "thema": "zahlen.potenzen_basis",
+   "klasse": 5,
+   "lernkarte": "negativ",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 2,
+    "name": "Zeichen-Paar"
+   },
+   "zaehlt": "folge",
+   "frage": "Rechne in zwei Zeilen: (−2)⁵ + 5² = ① + ② = ③",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 32,
+     "fehlbild": "ungerade Hochzahl: das Ergebnis bleibt negativ",
+     "regel": {
+      "nr": 2,
+      "name": "Zeichen-Paar"
+     }
+    },
+    {
+     "luecke": 1,
+     "antwort": -10,
+     "fehlbild": "Basis mal Hochzahl gerechnet",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "fehlbild": "5 · 2 statt 5 · 5",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": 57,
+     "fehlbild": "Zeichen von (−2)⁵ verloren",
+     "regel": {
+      "nr": 2,
+      "name": "Zeichen-Paar"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PB-04",
+   "thema": "zahlen.potenzen_basis",
+   "klasse": 5,
+   "lernkarte": "schreibweise",
+   "typ": "Brücke: Zahl, aber nicht ausrechnen",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "darstellung",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwillingszeilen – nicht ausrechnen, nur umschreiben. Zeile 1: 5 · 5 · 5 = 5ᵏ. Zeile 2: 12 · 12 · 12 · 12 · 12 · 12 · 12 = 12ⁿ.",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 15,
+     "fehlbild": "ausgerechnet statt gezählt – und mal statt hoch",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "fehlbild": "Malzeichen gezählt statt Faktoren",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 84,
+     "fehlbild": "Basis mal Anzahl gerechnet",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": "Malzeichen gezählt statt Faktoren",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PB-05",
+   "thema": "zahlen.potenzen_basis",
+   "klasse": 5,
+   "lernkarte": "zehner",
+   "typ": "Brücke: Zahl, aber nicht ausrechnen",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "darstellung",
+   "regel": {
+    "nr": 13,
+    "name": "Stellenwert"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwillingszeilen – nicht ausrechnen, nur die Hochzahl bestimmen. Zeile 1: 10 · 10 · 10 = 1 000 = 10ᵏ. Zeile 2: 4 000 000 = 4 · 10ⁿ.",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "fehlbild": "Stellen gezählt statt Nullen",
+     "regel": {
+      "nr": 13,
+      "name": "Stellenwert"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "fehlbild": "Stellen gezählt statt Nullen",
+     "regel": {
+      "nr": 13,
+      "name": "Stellenwert"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "fehlbild": "eine Null übersehen",
+     "regel": {
+      "nr": 13,
+      "name": "Stellenwert"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PB-06",
+   "thema": "zahlen.potenzen_basis",
+   "klasse": 5,
+   "lernkarte": "quadrat",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 4,
+    "name": "Verteilen"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwei Wege für 15². Weg A rechnet 15 · 15 schriftlich. Weg B zerlegt: 15 · 10 + 15 · 5 = 150 + ?. Welche Zahl fehlt in Weg B?",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "fehlbild": "nur die 5 mal 5 genommen: Der Faktor trifft die ganze 15",
+     "regel": {
+      "nr": 4,
+      "name": "Verteilen"
+     }
+    },
+    {
+     "antwort": 30,
+     "fehlbild": "Basis mal Hochzahl gerechnet",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PB-07",
+   "thema": "zahlen.potenzen_basis",
+   "klasse": 5,
+   "lernkarte": "vertauschen",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "stufe": 2,
+   "g": "umkehr",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwei Wege zum selben Wert: 4³ und 2ⁿ ergeben beide 64. Weg A rechnet 4 · 4 · 4. Weg B schreibt jede 4 als 2 · 2. Wie groß ist n?",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": "Hochzahl einfach übernommen",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "antwort": 5,
+     "fehlbild": "Hochzahlen addiert",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PB-08",
+   "thema": "zahlen.potenzen_basis",
+   "klasse": 5,
+   "lernkarte": "berechnen",
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 3,
+   "g": "fehler",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "ja",
+   "frage": "Jemand rechnet in drei Zeilen: (1) 2⁴ + 3² (2) = 8 + 6 (3) = 14. In welcher Zeile passiert der erste Fehler?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Zeile 3: 8 + 6 ist nicht 14.",
+     "fehlbild": "sucht einen Rechenfehler, wo ein Regelfehler ist",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "index": 1,
+     "antwort": "Nirgends. 14 stimmt.",
+     "fehlbild": "Basis mal Hochzahl für richtig gehalten",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "Zeile 2: Nur 3² ist falsch, 2⁴ = 8 stimmt.",
+     "fehlbild": "2⁴ mit 2 · 4 verwechselt",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PB-09",
+   "thema": "zahlen.potenzen_basis",
+   "klasse": 5,
+   "lernkarte": "negativ",
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "stufe": 3,
+   "g": "fehler",
+   "regel": {
+    "nr": 2,
+    "name": "Zeichen-Paar"
+   },
+   "zaehlt": "ja",
+   "frage": "Jemand rechnet (−5)² = −25. In der Rechnung steckt ein Fehler. Was kommt richtig heraus?",
+   "fehlbilder": [
+    {
+     "antwort": -25,
+     "fehlbild": "Fehler übernommen: minus mal minus ist plus",
+     "regel": {
+      "nr": 2,
+      "name": "Zeichen-Paar"
+     }
+    },
+    {
+     "antwort": -10,
+     "fehlbild": "Basis mal Hochzahl gerechnet",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "antwort": 10,
+     "fehlbild": "Basis mal Hochzahl, Zeichen weggelassen",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PB-10",
+   "thema": "zahlen.potenzen_basis",
+   "klasse": 5,
+   "lernkarte": "sach",
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 1,
+   "g": "erkennen",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "ja",
+   "frage": "Ein Blatt Papier wird 6-mal gefaltet. Jedes Falten verdoppelt die Zahl der Lagen. Mit welcher Rechnung findest du die Zahl der Lagen?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "6 · 2",
+     "fehlbild": "Verdoppeln sechsmal ist nicht mal 6",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "index": 2,
+     "antwort": "6²",
+     "fehlbild": "Basis und Hochzahl vertauscht",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "2 + 6",
+     "fehlbild": "Verdoppeln ist Malnehmen, nicht Dazuzählen",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PB-11",
+   "thema": "zahlen.potenzen_basis",
+   "klasse": 5,
+   "lernkarte": "vertauschen",
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 1,
+   "g": "erkennen",
+   "regel": {
+    "nr": 12,
+    "name": "Potenz"
+   },
+   "zaehlt": "ja",
+   "frage": "Du willst wissen, welche Zahl größer ist: 3⁴ oder 4³. Welcher Weg führt sicher zum Ziel?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Die größere Basis gewinnt.",
+     "fehlbild": "Faustregel statt Rechnung",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "index": 1,
+     "antwort": "Die größere Hochzahl gewinnt.",
+     "fehlbild": "Faustregel statt Rechnung",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "Sie sind gleich, weil dieselben Ziffern vorkommen.",
+     "fehlbild": "Basis und Hochzahl darf man nicht vertauschen",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PB-12",
+   "thema": "zahlen.potenzen_basis",
+   "klasse": 5,
+   "lernkarte": "zehner",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 1,
+   "g": "direkt",
+   "regel": {
+    "nr": 13,
+    "name": "Stellenwert"
+   },
+   "zaehlt": "nein",
+   "frage": "Fülle den Rechenweg aus: 6 · 10⁴ = 6 · 10 · 10 · 10 · 10 = 6 · ① = ②",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 40,
+     "fehlbild": "10 · 4 statt viermal die 10 als Faktor",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 1,
+     "antwort": 1000,
+     "fehlbild": "eine Null zu wenig",
+     "regel": {
+      "nr": 13,
+      "name": "Stellenwert"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 240,
+     "fehlbild": "10 · 4 gerechnet",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 6000,
+     "fehlbild": "eine Null zu wenig",
+     "regel": {
+      "nr": 13,
+      "name": "Stellenwert"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "PB-13",
+   "thema": "zahlen.potenzen_basis",
+   "klasse": 5,
+   "lernkarte": "negativ",
+   "typ": "Brücke: Zahl, aber nicht ausrechnen",
+   "antwortform": "auswahl",
+   "stufe": 3,
+   "g": "begruenden",
+   "regel": {
+    "nr": 2,
+    "name": "Zeichen-Paar"
+   },
+   "zaehlt": "ja",
+   "frage": "Ohne auszurechnen: Ist (−7)¹⁵ positiv oder negativ?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Positiv, weil 15 positiv ist.",
+     "fehlbild": "Zeichen der Hochzahl mit dem Zeichen des Ergebnisses verwechselt",
+     "regel": {
+      "nr": 12,
+      "name": "Potenz"
+     }
+    },
+    {
+     "index": 2,
+     "antwort": "Positiv, weil minus mal minus plus ergibt.",
+     "fehlbild": "Paare gebildet, aber das übrige Minus vergessen",
+     "regel": {
+      "nr": 2,
+      "name": "Zeichen-Paar"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "Das kann man ohne Ausrechnen nicht sagen.",
+     "fehlbild": "Zeichenregel nicht genutzt",
+     "regel": {
+      "nr": 2,
+      "name": "Zeichen-Paar"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GF-01",
+   "thema": "gleichungen.formeln",
+   "klasse": 8,
+   "lernkarte": "geometrie",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 1,
+   "g": "direkt",
+   "regel": {
+    "nr": 8,
+    "name": "Umkehren"
+   },
+   "zaehlt": "nein",
+   "frage": "Fülle den Rechenweg aus: Trapez mit A = (a + c) · h : 2, A = 60, a = 9, c = 11. Eingesetzt: 60 = (9 + 11) · h : 2. Klammer: 60 = ① · h : 2. Mal 2: ② = ① · h. Ergebnis: h = ③.",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 30,
+     "fehlbild": "durch 2 statt mal 2",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": 3,
+     "fehlbild": "das „: 2“ nicht rückgängig gemacht",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GF-02",
+   "thema": "gleichungen.formeln",
+   "klasse": 8,
+   "lernkarte": "zwei_schritte",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 8,
+    "name": "Umkehren"
+   },
+   "zaehlt": "folge",
+   "frage": "Der erste Schritt ist gemacht. K = G + n · p mit K = 86, G = 30, p = 7. Eingesetzt: 86 = 30 + n · 7. Minus 30: ① = n · 7. Durch 7: n = ②.",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 116,
+     "fehlbild": "plus statt minus",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 392,
+     "fehlbild": "mal statt geteilt",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GF-03",
+   "thema": "gleichungen.formeln",
+   "klasse": 8,
+   "lernkarte": "einsetzen",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 8,
+    "name": "Umkehren"
+   },
+   "zaehlt": "folge",
+   "frage": "Rechne zu Ende: V = G · h mit V = 240 und h = 15. Umgestellt: G = ① : ②. Ergebnis: G = ③.",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 15,
+     "fehlbild": "Zähler und Nenner vertauscht",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 240,
+     "fehlbild": "Zähler und Nenner vertauscht",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "luecke": 3,
+     "antwort": 3600,
+     "fehlbild": "mal statt geteilt",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GF-04",
+   "thema": "gleichungen.formeln",
+   "klasse": 8,
+   "lernkarte": "ein_schritt",
+   "typ": "Brücke: Zahl, aber nicht ausrechnen",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "darstellung",
+   "regel": {
+    "nr": 8,
+    "name": "Umkehren"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwillingszeilen. Zeile 1 mit Zahlen: 24 = 6 · 4, also 4 = 24 : ①. Zeile 2 mit Buchstaben: A = a · b, also b = A : a. Rechne mit Zeile 2 für A = 91 und a = 7: b = ②.",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "fehlbild": "die gesuchte Zahl selbst eingetragen",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 637,
+     "fehlbild": "mal statt geteilt",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 84,
+     "fehlbild": "abgezogen statt geteilt",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GF-05",
+   "thema": "gleichungen.formeln",
+   "klasse": 8,
+   "lernkarte": "zwei_schritte",
+   "typ": "Brücke: Zahl, aber nicht ausrechnen",
+   "antwortform": "luecken",
+   "stufe": 2,
+   "g": "darstellung",
+   "regel": {
+    "nr": 8,
+    "name": "Umkehren"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwillingszeilen. Zeile 1 mit Zahlen: 23 = 5 + 3 · 6, also 6 = (23 − ①) : 3. Zeile 2 mit Buchstaben: K = G + n · p, also p = (K − G) : n. Rechne mit Zeile 2 für K = 50, G = 8, n = 6: p = ②.",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": "zuerst geteilt statt zuerst abgezogen",
+     "regel": {
+      "nr": 3,
+      "name": "Rangfolge"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 42,
+     "fehlbild": "nur abgezogen, nicht geteilt",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "luecke": 2,
+     "antwort": 348,
+     "fehlbild": "plus und mal statt minus und geteilt",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GF-06",
+   "thema": "gleichungen.formeln",
+   "klasse": 8,
+   "lernkarte": "zwei_schritte",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "stufe": 2,
+   "g": "umkehr",
+   "regel": {
+    "nr": 4,
+    "name": "Verteilen"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwei Wege, um aus u = 2 · (a + b) die Seite b zu finden, mit u = 34 und a = 9. Weg A teilt zuerst durch 2: 17 = 9 + b. Weg B multipliziert zuerst aus: 34 = 18 + ?. Welche Zahl steht in Weg B für das Fragezeichen?",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": "b selbst statt 2 · b",
+     "regel": {
+      "nr": 4,
+      "name": "Verteilen"
+     }
+    },
+    {
+     "antwort": 25,
+     "fehlbild": "die 9 nicht verdoppelt",
+     "regel": {
+      "nr": 4,
+      "name": "Verteilen"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GF-07",
+   "thema": "gleichungen.formeln",
+   "klasse": 8,
+   "lernkarte": "geometrie",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "stufe": 2,
+   "g": "mehrschritt",
+   "regel": {
+    "nr": 8,
+    "name": "Umkehren"
+   },
+   "zaehlt": "ja",
+   "frage": "Zwei Wege für die Höhe eines Dreiecks mit A = g · h : 2, A = 42 und g = 12. Weg A nimmt zuerst mal 2: 84 = 12 · h. Weg B rechnet zuerst 12 : 2 aus: 42 = ? · h. Welche Zahl steht in Weg B vor dem h?",
+   "fehlbilder": [
+    {
+     "antwort": 24,
+     "fehlbild": "mal 2 statt durch 2",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "antwort": 12,
+     "fehlbild": "das „: 2“ weggelassen",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GF-08",
+   "thema": "gleichungen.formeln",
+   "klasse": 8,
+   "lernkarte": "zwei_schritte",
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 3,
+   "g": "fehler",
+   "regel": {
+    "nr": 7,
+    "name": "Waage"
+   },
+   "zaehlt": "ja",
+   "frage": "Jemand stellt in drei Zeilen um: (1) K = G + n · p (2) K : p = G + n (3) n = K : p − G. In welcher Zeile passiert der erste Fehler?",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Zeile 3: G muss addiert werden.",
+     "fehlbild": "sucht den Fehler eine Zeile zu spät",
+     "regel": {
+      "nr": 7,
+      "name": "Waage"
+     }
+    },
+    {
+     "index": 2,
+     "antwort": "Nirgends. Die Umstellung stimmt.",
+     "fehlbild": "nicht mit Zahlen geprüft",
+     "regel": {
+      "nr": 9,
+      "name": "Einsetzen und Probe"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "Zeile 2: Man hätte mit p malnehmen müssen.",
+     "fehlbild": "Umkehrung von mal ist geteilt – das war nicht der Fehler",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GF-09",
+   "thema": "gleichungen.formeln",
+   "klasse": 8,
+   "lernkarte": "geometrie",
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "stufe": 3,
+   "g": "fehler",
+   "regel": {
+    "nr": 8,
+    "name": "Umkehren"
+   },
+   "zaehlt": "ja",
+   "frage": "Ein Dreieck hat A = 36 cm² und g = 9 cm. Jemand rechnet h = 36 : 9 = 4 cm. In der Rechnung steckt ein Fehler. Wie hoch ist das Dreieck wirklich?",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": "Fehler übernommen: das „: 2“ der Dreiecksformel fehlt",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "antwort": 2,
+     "fehlbild": "durch 2 statt mal 2",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GF-10",
+   "thema": "gleichungen.formeln",
+   "klasse": 8,
+   "lernkarte": "zwei_schritte",
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 1,
+   "g": "erkennen",
+   "regel": {
+    "nr": 3,
+    "name": "Rangfolge"
+   },
+   "zaehlt": "ja",
+   "frage": "Du willst K = G + n · p nach n umstellen. Welcher Schritt kommt zuerst?",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "durch p teilen",
+     "fehlbild": "was zuletzt gerechnet wurde, kommt zuerst weg",
+     "regel": {
+      "nr": 3,
+      "name": "Rangfolge"
+     }
+    },
+    {
+     "index": 2,
+     "antwort": "n abziehen",
+     "fehlbild": "n ist gesucht und bleibt stehen",
+     "regel": {
+      "nr": 7,
+      "name": "Waage"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "mit p malnehmen",
+     "fehlbild": "mal p steht schon da – die Umkehrung ist geteilt",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GF-11",
+   "thema": "gleichungen.formeln",
+   "klasse": 8,
+   "lernkarte": "pruefen",
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "stufe": 1,
+   "g": "erkennen",
+   "regel": {
+    "nr": 9,
+    "name": "Einsetzen und Probe"
+   },
+   "zaehlt": "ja",
+   "frage": "Du hast aus A = g · h : 2 die Umstellung h = 2 · A : g erhalten und bist unsicher. Wie prüfst du sie am besten?",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Mit g = 1 und h = 1 testen.",
+     "fehlbild": "mit 1 fallen Fehler nicht auf",
+     "regel": {
+      "nr": 9,
+      "name": "Einsetzen und Probe"
+     }
+    },
+    {
+     "index": 2,
+     "antwort": "Die Einheiten weglassen und noch einmal schauen.",
+     "fehlbild": "Einheiten helfen beim Prüfen, Weglassen prüft nichts",
+     "regel": {
+      "nr": 9,
+      "name": "Einsetzen und Probe"
+     }
+    },
+    {
+     "index": 3,
+     "antwort": "Noch einmal genauso umstellen.",
+     "fehlbild": "derselbe Weg wiederholt denselben Fehler",
+     "regel": {
+      "nr": 9,
+      "name": "Einsetzen und Probe"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GF-12",
+   "thema": "gleichungen.formeln",
+   "klasse": 8,
+   "lernkarte": "einsetzen",
+   "typ": "Formel umkehren",
+   "antwortform": "zahl",
+   "stufe": 2,
+   "g": "umkehr",
+   "regel": {
+    "nr": 8,
+    "name": "Umkehren"
+   },
+   "zaehlt": "ja",
+   "frage": "Für den Umfang eines Rechtecks gilt u = 2 · (a + b). Ein Rechteck hat den Umfang 46 cm und die Seite a = 14 cm. Wie lang ist b?",
+   "fehlbilder": [
+    {
+     "antwort": 32,
+     "fehlbild": "die 2 vergessen",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "antwort": 18,
+     "fehlbild": "abgezogen, aber nicht halbiert",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    }
+   ]
+  },
+  {
+   "kennung": "GF-13",
+   "thema": "gleichungen.formeln",
+   "klasse": 8,
+   "lernkarte": "ein_schritt",
+   "typ": "Formel umkehren",
+   "antwortform": "zahl",
+   "stufe": 2,
+   "g": "umkehr",
+   "regel": {
+    "nr": 8,
+    "name": "Umkehren"
+   },
+   "zaehlt": "ja",
+   "frage": "Für die Zinsen eines Jahres gilt Z = K · p : 100. Ein Guthaben bringt bei p = 4 in einem Jahr 30 € Zinsen. Wie groß ist das Guthaben K?",
+   "fehlbilder": [
+    {
+     "antwort": 120,
+     "fehlbild": "vorwärts gerechnet statt umgekehrt",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    },
+    {
+     "antwort": 1.2,
+     "fehlbild": "die Formel vorwärts benutzt",
+     "regel": {
+      "nr": 8,
+      "name": "Umkehren"
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -31,3 +31,10 @@ Die Zahl 15 ist nicht heilig. Wenn weniger Regeln das Ganze tragen oder zwei zus
 5. **Gegenlesen durch alle drei.** Erst danach geht es an den Nutzer, mit einem Satz je Beteiligtem: „Ich halte das für gut, weil …“ oder „Ich bin nicht einverstanden, weil …“.
 
 Maßstab für alle: Würde ein Erwachsener, der Mathe seit 25 Jahren nicht gebraucht hat, nach einer Minute sagen können, was die Seite ihm sagt?
+
+## Nachtrag des Nutzers (26.11., kurz danach)
+- „Oder spielt mit einprägsamen Bildern oder schönen Darstellungen! Lasst euch was einfallen.“ – Die Form ist ausdrücklich frei: Merksatz, Bild, Eselsbrücke, Figur, Geschichte, Plakat. Gesucht ist, was im Kopf bleibt. Bitte mehrere Wege je Regel ausprobieren und den besten wählen, nicht den ersten.
+- **„Gibt es wirklich nur diese 15 Regeln?“** – Bitte ehrlich und vollständig beantworten:
+  1. Sind die 15 die Rechenregeln für Zahlen und Terme der Klassen 5 bis 10, oder fehlt dort etwas (z. B. Runden und Überschlag, Wurzelgesetze, Logarithmus, Betrag, Ungleichung umdrehen)?
+  2. Welche festen Sätze und Formeln tragen Geometrie (Winkelsumme, Flächen- und Volumenformeln, Pythagoras, Strahlensatz, Kongruenz), Funktionen (Steigung, Achsenabschnitt), Daten und Zufall (Mittelwert, Anteil, Wahrscheinlichkeit)?
+  3. Wie sieht die ganze Landkarte aus: wenige Grundregeln, darüber die Sätze der Gebiete, daneben die Arbeitsweisen? Eine ehrliche Zahl nennen, auch wenn sie nicht 15 ist.

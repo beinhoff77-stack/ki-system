@@ -76,3 +76,35 @@ Jedes Paket zuerst nur für die zwei bis drei Themen, an denen die Kinder gerade
 | 8 | Typ 11 mit Kacheln, Typ 20 (Säulen ohne Bau), Typ 21 als Einstellung des Check-ins | mittel |
 
 Weiter offen: Regel-Übersicht (drei Fragen, Entscheidung am Entwurf des Designers); Startwort für den Papier-Test; Erklärungen und Tipps nach neuem Bauplan.
+
+## Rollendes System – als fester Teil des Plans (Nachfrage des Nutzers vom 26.11.)
+Der Nutzer erwartet, dass neue Aufgaben laufend geschrieben werden und dass die Erstellung für kommende Themen automatisch angestoßen wird. Das war bisher nur als Idee notiert und wird hiermit Teil des Plans.
+
+**Stufe 1 – sofort, ohne Bau:** Vor jedem Themenwechsel liest der Projektleiter aus der Route (lesend), welche zwei bis drei Flüge je Kind als Nächstes kommen, und legt dem Mathe-Profi den Auftrag ins Postfach: neue Aufgabentypen für genau diese Flüge, mit Regel-Kennung aus dem Regel-Universum. Stand nach dem Einstellen des Lehrplans: Kind 1 nach `z1` → `ge1`, `z2`; Kind 2 nach `a5` → `ge2`, `a4`.
+
+**Stufe 2 – täglicher Lauf:** Ein geplanter Lauf prüft einmal am Tag, wie weit die Kinder im laufenden Flug sind, und erzeugt die Vorbau-Liste und den Auftragstext von selbst, sobald ein Kind den laufenden Flug zu etwa zwei Dritteln geschafft hat und für den nächsten noch keine neuen Aufgaben vorliegen. Braucht: eine Kennzeichnung je Flug „neue Aufgabentypen vorhanden: ja/nein“.
+
+**Stufe 3 – später:** Der Lauf stößt eigene Helfer an, die die Aufgaben entwerfen; Mathe-Profi und ChatGPT prüfen; der Nutzer gibt frei. Einspielen bleibt an den ausdrücklichen Satz des Nutzers gebunden, solange er nichts anderes festlegt.
+
+**Abhängigkeit:** Die 78 Aufgaben aus Schritt 1 und alle weiteren warten mit der Regel-Zuordnung auf die fertige Liste des Regel-Universums.
+
+## Darstellung verbessern – als fester Teil des Plans (Erinnerung des Nutzers vom 26.11.)
+Die Verbesserungen an der Darstellung, die die Recherche schon gefunden hat (`inhalte/recherche/tief-11-bedienung-eltern.md`, Lieferung 2 und Lieferung 5), gehören in den Plan. Sie waren am 25.11. zurückgestellt („nicht der Kern“), sind aber nicht gestrichen.
+
+**Zusammen mit dem Fundament (derselbe Bildschirm wird ohnehin umgebaut):**
+1. Zahlenfeld verdeckt die Aufgabe nicht mehr: Aufgabe und Antwortfeld bleiben über der Tastatur sichtbar; Minus und Komma nur, wenn die Aufgabe sie braucht.
+2. Übungsbildschirm entrümpeln: Kopf auf eine Zeile, eine einzige Fortschrittsleiste statt mehrerer Zähler.
+3. Rückmeldung als Blatt unten: Symbol, Wort und Farbe zugleich; bei Fehlern eine Kurzregel; „arbeitet“-Zeichen nach einer Sekunde.
+
+**Eigener kleiner Bau danach:**
+4. Ein Hauptknopf je Bildschirm.
+5. Schwebender „Einsteigen“-Knopf liegt nicht mehr über Inhalt.
+6. Klares Ende der Sitzung („Fertig für heute“), schlanker Abschlussbildschirm.
+7. Bewegung abschaltbar, Ton standardmäßig aus, Ansprache je Kind einstellbar (sachlich für den Älteren).
+8. Eingabe geht bei Netzabbruch nicht verloren.
+
+**Eltern- und Lehrerseite:**
+9. „Was wackelt?“ am Handy als Karten statt Tabelle.
+10. Übersicht je Kind auf sieben Angaben kürzen.
+
+Vorgabe je Punkt durch den Designer, sobald er mit dem Regel-Universum durch ist; Punkte 1 bis 3 vorab als kurze Vorgabe, weil der Bau des Fundaments sie braucht. Aufwand-Angaben aus der Recherche sind Schätzungen, nichts davon ist an der App getestet.

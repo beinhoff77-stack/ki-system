@@ -68,3 +68,11 @@ Beispiel Fläche und Raum, drei Ideen: „Messen heißt auslegen und zählen“ 
 - Mathe-Profi und Designer arbeiten gleichzeitig und stimmen sich über ihre Postfächer ab.
 - Erste Lieferung an den Nutzer: die Sonne und zwei Planeten fertig (Fläche und Raum, Geometrie) – Sätze, Zeichnungen, Darstellung. Erst danach die übrigen Planeten.
 - Vor dem Zeigen liest ChatGPT gegen; alle drei geben ihr Urteil in einem Satz.
+
+## Name (26.11.)
+Der Nutzer will den Namen „Gesetzbuch“ nicht; das Wort war nur ein Bild. Arbeitsname „Mathe-Regeln“, Einträge heißen „Regel“. Endgültiger Name: Entscheidung des Nutzers offen.
+
+**Entschieden (26.11.): Der Name ist „Regel-Universum“.**
+
+## Nachtrag 26.11. – Verknüpfung mit Erklärungen und Aufgaben (vom Nutzer bestätigt: „Passt“)
+Das Regel-Universum ersetzt die Erklärungen nicht, es wird verlinkt. Jede Aufgabe trägt eine Regel-Kennung. In Anfangs-Erklärung, Lösungsweg und Fehler-Rückmeldung steht ein Feld „Regel dahinter“; ein Tipp öffnet die Regel als Blatt, Zurück führt an dieselbe Stelle. Im Regel-Universum steht je Regel, in welchen Themen sie vorkommt. Das Feld erscheint nur bei echtem Zusammenhang. Gebaut ist davon nichts; Gegenprüfung durch ChatGPT ist angefragt (Werkstatt, Nachricht 1004).

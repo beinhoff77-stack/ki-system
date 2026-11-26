@@ -1,0 +1,290 @@
+[
+ {
+  "l": "gleiche_basis_ganz",
+  "t": "gleiche_basis_ganz",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "luecken",
+  "f": {
+   "text": "Zwillingszeilen – nicht ausrechnen, nur die Hochzahl bestimmen. Zeile 1: 2³ · 2⁻⁵ = 2ᵏ. Zeile 2: a⁴ · a⁻⁹ = aⁿ.",
+   "schablone": "k = □; n = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    -2,
+    -5
+   ]
+  },
+  "c": [
+   "3 + (-5)",
+   "4 + (-9)"
+  ],
+  "h": "Schreibe 2³ · 2⁻⁵ als Bruch aus lauter Zweien und kürze.",
+  "w": "Gleiche Basis: Hochzahlen addieren. 3 + (−5) = −2 und 4 + (−9) = −5."
+ },
+ {
+  "l": "exponent_und_potenz",
+  "t": "exponent_und_potenz",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "luecken",
+  "f": {
+   "text": "Zwillingszeilen – nicht ausrechnen, nur die Hochzahl bestimmen. Zeile 1: (5⁻²)³ = 5ᵏ. Zeile 2: (x⁴)⁻² = xⁿ.",
+   "schablone": "k = □; n = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    -6,
+    -8
+   ]
+  },
+  "c": [
+   "(-2) * 3",
+   "4 * (-2)"
+  ],
+  "h": "(5⁻²)³ heißt: 5⁻² dreimal mit sich malnehmen.",
+  "w": "Potenz einer Potenz: Hochzahlen malnehmen. (−2) · 3 = −6 und 4 · (−2) = −8."
+ },
+ {
+  "l": "terme_vereinfachen",
+  "t": "terme_vereinfachen",
+  "p": "uebung",
+  "s": 1,
+  "g": "direkt",
+  "y": "luecken",
+  "f": {
+   "text": "Fülle den Rechenweg aus: (2a⁻³)² · a⁴ = 2ᵏ · aᵐ · a⁴ = c · aⁿ",
+   "schablone": "k = □; m = □; c = □; n = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    2,
+    -6,
+    4,
+    -2
+   ]
+  },
+  "c": [
+   "2",
+   "(-3) * 2",
+   "2 ** 2",
+   "(-3) * 2 + 4"
+  ],
+  "h": "Das Quadrat trifft jeden Faktor in der Klammer.",
+  "w": "(2a⁻³)² = 2² · a⁻⁶ = 4a⁻⁶. Dann a⁻⁶ · a⁴ = a⁻²."
+ },
+ {
+  "l": "terme_vereinfachen",
+  "t": "terme_vereinfachen",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "luecken",
+  "f": {
+   "text": "Der erste Schritt ist gemacht. Rechne zu Ende: (3x²)⁻² · x⁵ = 3⁻² · x⁻⁴ · x⁵ = xⁿ : c",
+   "schablone": "n = □; c = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    1,
+    9
+   ]
+  },
+  "c": [
+   "(-4) + 5",
+   "3 ** 2"
+  ],
+  "h": "Was bedeutet 3⁻² als Bruch?",
+  "w": "x⁻⁴ · x⁵ = x¹. 3⁻² = 1/9. Zusammen: x : 9."
+ },
+ {
+  "l": "gleiche_basis_ganz",
+  "t": "gleiche_basis_ganz",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "luecken",
+  "f": {
+   "text": "Rechne in zwei Schritten: a⁻² · a⁵ : a⁻¹ = aᵏ : a⁻¹ = aⁿ",
+   "schablone": "k = □; n = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    3,
+    4
+   ]
+  },
+  "c": [
+   "(-2) + 5",
+   "(-2) + 5 - (-1)"
+  ],
+  "h": "Mal: Hochzahlen addieren. Geteilt: Hochzahl abziehen – auch wenn sie negativ ist.",
+  "w": "−2 + 5 = 3. Dann 3 − (−1) = 4."
+ },
+ {
+  "l": "gleiche_basis_ganz",
+  "t": "gleiche_basis_ganz",
+  "p": "uebung",
+  "s": 2,
+  "g": "umkehr",
+  "y": "zahl",
+  "f": {
+   "text": "Zwei Wege für 6⁻² · 6⁵ : 6². Weg A rechnet mit den Hochzahlen: −2 + 5 − 2. Weg B schreibt einen Bruch: 6⁵ geteilt durch (6² · 6ᵏ). Welche Hochzahl k steht in Weg B?"
+  },
+  "o": {
+   "wert": 2
+  },
+  "c": "0 - (-2)",
+  "h": "Was wird aus 6⁻², wenn es unter den Bruchstrich wandert?",
+  "w": "6⁻² = 1/6². Im Nenner steht deshalb 6² · 6². Beide Wege ergeben 6¹ = 6."
+ },
+ {
+  "l": "exponent_und_potenz",
+  "t": "exponent_und_potenz",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "zahl",
+  "f": {
+   "text": "Zwei Wege für (2⁻³)². Weg A nimmt die Hochzahlen mal: 2⁻⁶ = 1/64. Weg B rechnet erst die Klammer aus: (1/?)² = 1/64. Welche Zahl steht in Weg B unter dem Bruchstrich?"
+  },
+  "o": {
+   "wert": 8
+  },
+  "c": "2 ** 3",
+  "h": "Was ist 2⁻³ als Bruch?",
+  "w": "2⁻³ = 1/2³ = 1/8. Und (1/8)² = 1/64 – dasselbe wie Weg A."
+ },
+ {
+  "l": "fehler_ganz",
+  "t": "fehler_ganz",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "auswahl",
+  "f": {
+   "text": "Jemand vereinfacht in drei Zeilen: (1) (3a²)⁻² (2) = 3 · a⁻⁴ (3) = 3/a⁴. In welcher Zeile passiert der erste Fehler?"
+  },
+  "a": [
+   "Zeile 2: Auch die 3 bekommt die Hochzahl −2.",
+   "Zeile 2: a² hoch −2 ist a⁰, nicht a⁻⁴.",
+   "Zeile 3: a⁻⁴ gehört über den Bruchstrich.",
+   "Nirgends. 3/a⁴ stimmt."
+  ],
+  "o": {
+   "index": 0
+  },
+  "h": "Setze a = 1 ein und rechne beide Seiten aus.",
+  "w": "Die Hochzahl trifft jeden Faktor: (3a²)⁻² = 3⁻² · a⁻⁴ = 1/(9a⁴). Mit a = 1: links 1/9, in Zeile 2 steht 3."
+ },
+ {
+  "l": "fehler_ganz",
+  "t": "fehler_ganz",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "zahl",
+  "f": {
+   "text": "Jemand rechnet 2⁻³ · 2⁵ = 2⁻¹⁵. In der Rechnung steckt ein Fehler. Welche Zahl kommt richtig heraus?"
+  },
+  "o": {
+   "wert": 4
+  },
+  "c": "2 ** (5 - 3)",
+  "h": "Was geschieht mit den Hochzahlen, wenn die Basis gleich ist und malgenommen wird?",
+  "w": "Hochzahlen addieren: −3 + 5 = 2. 2² = 4. Probe: 1/8 · 32 = 4."
+ },
+ {
+  "l": "gleiche_basis_ganz",
+  "t": "gleiche_basis_ganz",
+  "p": "uebung",
+  "s": 1,
+  "g": "erkennen",
+  "y": "auswahl",
+  "f": {
+   "text": "Welchen Term kannst du mit der Regel „gleiche Basis: Hochzahlen addieren“ vereinfachen?"
+  },
+  "a": [
+   "a³ + a⁻⁵",
+   "a³ · b⁻⁵",
+   "(a³)⁻⁵",
+   "a³ · a⁻⁵"
+  ],
+  "o": {
+   "index": 3
+  },
+  "h": "Die Regel braucht zwei Dinge: dieselbe Basis und ein Malzeichen.",
+  "w": "Nur a³ · a⁻⁵ ist ein Produkt mit gleicher Basis: a⁻². Eine Summe lässt sich so nicht zusammenfassen."
+ },
+ {
+  "l": "exponent_und_potenz",
+  "t": "exponent_und_potenz",
+  "p": "uebung",
+  "s": 1,
+  "g": "erkennen",
+  "y": "auswahl",
+  "f": {
+   "text": "Du sollst 5⁻² · 2⁻² im Kopf rechnen. Welcher Weg ist richtig und am kürzesten?"
+  },
+  "a": [
+   "Hochzahlen addieren: 10⁻⁴",
+   "Gleiche Hochzahl: (5 · 2)⁻² = 10⁻²",
+   "Basen addieren: 7⁻²",
+   "Einzeln: 1/25 · 1/4 und dann malnehmen"
+  ],
+  "o": {
+   "index": 1
+  },
+  "h": "Was haben die beiden Potenzen gemeinsam – die Basis oder die Hochzahl?",
+  "w": "Gleiche Hochzahl: Basen malnehmen. (5 · 2)⁻² = 10⁻² = 1/100. Einzeln rechnen stimmt auch, dauert aber länger."
+ },
+ {
+  "l": "gleiche_basis_ganz",
+  "t": "gleiche_basis_ganz",
+  "p": "uebung",
+  "s": 1,
+  "g": "direkt",
+  "y": "luecken",
+  "f": {
+   "text": "Fülle den Rechenweg aus: x⁴ : x⁻² = x hoch (4 − (k)) = xⁿ",
+   "schablone": "k = □; n = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    -2,
+    6
+   ]
+  },
+  "c": [
+   "0 - 2",
+   "4 - (-2)"
+  ],
+  "h": "Beim Teilen wird die untere Hochzahl abgezogen – mit ihrem Zeichen.",
+  "w": "4 − (−2) = 4 + 2 = 6. Also x⁶."
+ },
+ {
+  "l": "warum_gilt",
+  "t": "warum_gilt",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "zahl",
+  "f": {
+   "text": "Jemand sagt: „(−2)⁻² = −4, denn ein Minus in der Hochzahl macht das Ergebnis negativ.“ Das stimmt nicht. Welche Zahl kommt richtig heraus? (Dezimalzahl mit Komma)"
+  },
+  "o": {
+   "wert": 0.25
+  },
+  "c": "1 / ((-2) ** 2)",
+  "h": "Eine negative Hochzahl heißt: Kehrwert bilden.",
+  "w": "(−2)⁻² = 1/(−2)² = 1/4 = 0,25. Die Hochzahl −2 sagt „Kehrwert“, nicht „negativ“."
+ }
+]

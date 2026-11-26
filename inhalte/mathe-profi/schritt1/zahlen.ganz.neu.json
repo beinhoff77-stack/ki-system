@@ -1,0 +1,301 @@
+[
+ {
+  "l": "subtrahieren",
+  "t": "subtrahieren",
+  "p": "uebung",
+  "s": 1,
+  "g": "direkt",
+  "y": "luecken",
+  "f": {
+   "text": "Fülle den Rechenweg aus: (−7) − (−12) = (−7) + ① = ②",
+   "schablone": "① = □; ② = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    12,
+    5
+   ]
+  },
+  "c": [
+   "0 - (-12)",
+   "(-7) - (-12)"
+  ],
+  "h": "Eine negative Zahl abziehen heißt: ihre Gegenzahl dazuzählen.",
+  "w": "Minus (−12) heißt plus 12. (−7) + 12 = 5."
+ },
+ {
+  "l": "ketten",
+  "t": "verbinden",
+  "p": "uebung",
+  "s": 1,
+  "g": "direkt",
+  "y": "luecken",
+  "f": {
+   "text": "Fülle den Rechenweg aus: 15 − 23 − (−6) + (−9) = 15 − 23 + ① − ② = ③ − ④ = ⑤",
+   "schablone": "① = □; ② = □; ③ = □; ④ = □; ⑤ = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    6,
+    9,
+    21,
+    32,
+    -11
+   ]
+  },
+  "c": [
+   "0 - (-6)",
+   "0 - (-9)",
+   "15 + 6",
+   "23 + 9",
+   "15 - 23 - (-6) + (-9)"
+  ],
+  "h": "Erst die Klammern auflösen, dann alle Plus-Zahlen und alle Minus-Zahlen sammeln.",
+  "w": "Minus (−6) wird + 6, plus (−9) wird − 9. Plus-Zahlen: 15 + 6 = 21. Minus-Zahlen: 23 + 9 = 32. 21 − 32 = −11."
+ },
+ {
+  "l": "ketten",
+  "t": "verbinden",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "luecken",
+  "f": {
+   "text": "Der erste Schritt ist gemacht. Rechne zu Ende: (−14) + 9 − (−8) − 20 = (−14) + 9 + 8 − 20 = ① − ② = ③",
+   "schablone": "① = □; ② = □; ③ = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    17,
+    34,
+    -17
+   ]
+  },
+  "c": [
+   "9 + 8",
+   "14 + 20",
+   "(-14) + 9 - (-8) - 20"
+  ],
+  "h": "Sammle alle Plus-Zahlen in ① und alle Minus-Zahlen in ②.",
+  "w": "Plus-Zahlen: 9 + 8 = 17. Minus-Zahlen: 14 + 20 = 34. 17 − 34 = −17."
+ },
+ {
+  "l": "ketten",
+  "t": "verbinden",
+  "p": "uebung",
+  "s": 2,
+  "g": "mehrschritt",
+  "y": "luecken",
+  "f": {
+   "text": "Fasse erst die Plus-Zahlen und die Minus-Zahlen zusammen: 30 − 45 + (−12) − (−7) = ① − ② = ③",
+   "schablone": "① = □; ② = □; ③ = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    37,
+    57,
+    -20
+   ]
+  },
+  "c": [
+   "30 + 7",
+   "45 + 12",
+   "30 - 45 + (-12) - (-7)"
+  ],
+  "h": "Löse zuerst die beiden Klammern auf: Was wird aus + (−12) und aus − (−7)?",
+  "w": "+ (−12) wird − 12, − (−7) wird + 7. Plus-Zahlen: 30 + 7 = 37. Minus-Zahlen: 45 + 12 = 57. 37 − 57 = −20."
+ },
+ {
+  "l": "subtrahieren",
+  "t": "subtrahieren",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "luecken",
+  "f": {
+   "text": "Zwillingszeilen – nicht ausrechnen, nur umschreiben. Zeile 1: 9 − (−5) = 9 + ①. Zeile 2: 2 480 − (−1 520) = 2 480 + ②.",
+   "schablone": "① = □; ② = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    5,
+    1520
+   ]
+  },
+  "c": [
+   "0 - (-5)",
+   "0 - (-1520)"
+  ],
+  "h": "Zeile 1 kannst du auf der Zahlengeraden prüfen. Zeile 2 ist genauso gebaut.",
+  "w": "Eine negative Zahl abziehen heißt ihre Gegenzahl dazuzählen: 9 + 5 und 2 480 + 1 520."
+ },
+ {
+  "l": "addieren",
+  "t": "addieren",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "luecken",
+  "f": {
+   "text": "Zwillingszeilen – nicht ausrechnen, nur umschreiben. Zeile 1: (−8) + 3 = 3 − ①. Zeile 2: (−4 750) + 1 200 = 1 200 − ②.",
+   "schablone": "① = □; ② = □",
+   "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+  },
+  "o": {
+   "werte": [
+    8,
+    4750
+   ]
+  },
+  "c": [
+   "3 - ((-8) + 3)",
+   "1200 - ((-4750) + 1200)"
+  ],
+  "h": "Beim Addieren darfst du tauschen. Was wird dann aus + (−8)?",
+  "w": "Tauschen: 3 + (−8). Eine negative Zahl dazuzählen heißt ihren Betrag abziehen: 3 − 8 und 1 200 − 4 750."
+ },
+ {
+  "l": "ketten",
+  "t": "verbinden",
+  "p": "uebung",
+  "s": 2,
+  "g": "umkehr",
+  "y": "zahl",
+  "f": {
+   "text": "Zwei Wege für 12 − 30 + 18 − 5. Weg A rechnet von links nach rechts. Weg B sammelt erst alle Plus-Zahlen, dann alle Minus-Zahlen und rechnet ? − 35. Welche Zahl steht in Weg B vorn?"
+  },
+  "o": {
+   "wert": 30
+  },
+  "c": "12 + 18",
+  "h": "Welche Zahlen haben ein Plus vor sich? Die erste Zahl zählt dazu.",
+  "w": "Plus-Zahlen: 12 + 18 = 30. Minus-Zahlen: 30 + 5 = 35. Beide Wege ergeben −5."
+ },
+ {
+  "l": "subtrahieren",
+  "t": "subtrahieren",
+  "p": "uebung",
+  "s": 2,
+  "g": "darstellung",
+  "y": "zahl",
+  "f": {
+   "text": "Zwei Wege für (−6) − 9. Weg A geht auf der Zahlengeraden von −6 aus neun Schritte nach links. Weg B schreibt eine Plus-Aufgabe: (−6) + (?). Welche Zahl gehört in die Klammer?"
+  },
+  "o": {
+   "wert": -9
+  },
+  "c": "((-6) - 9) - (-6)",
+  "h": "Abziehen heißt: die Gegenzahl dazuzählen.",
+  "w": "9 abziehen ist dasselbe wie −9 dazuzählen: (−6) + (−9) = −15."
+ },
+ {
+  "l": "ketten",
+  "t": "verbinden",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "auswahl",
+  "f": {
+   "text": "Jemand rechnet in vier Zeilen: (1) 8 − (−5) − 20 (2) = 8 − 5 − 20 (3) = 3 − 20 (4) = −17. In welcher Zeile passiert der erste Fehler?"
+  },
+  "a": [
+   "Zeile 3: 8 − 5 ist nicht 3.",
+   "Zeile 4: 3 − 20 ist nicht −17.",
+   "Zeile 2: Aus − (−5) wird + 5, nicht − 5.",
+   "Nirgends. −17 stimmt."
+  ],
+  "o": {
+   "index": 2
+  },
+  "h": "Prüfe jede Zeile gegen die Zeile davor.",
+  "w": "Richtig: 8 + 5 − 20 = 13 − 20 = −7. In Zeile 2 wurde aus − (−5) ein − 5."
+ },
+ {
+  "l": "subtrahieren",
+  "t": "subtrahieren",
+  "p": "uebung",
+  "s": 3,
+  "g": "fehler",
+  "y": "zahl",
+  "f": {
+   "text": "Jemand rechnet (−15) − (−9) + 4 = (−15) − 9 + 4 = −20. In der Rechnung steckt ein Fehler. Was kommt richtig heraus?"
+  },
+  "o": {
+   "wert": -2
+  },
+  "c": "(-15) - (-9) + 4",
+  "h": "Was wird aus − (−9)?",
+  "w": "− (−9) wird + 9: (−15) + 9 + 4 = (−15) + 13 = −2."
+ },
+ {
+  "l": "ketten",
+  "t": "verbinden",
+  "p": "uebung",
+  "s": 1,
+  "g": "erkennen",
+  "y": "auswahl",
+  "f": {
+   "text": "Du sollst 47 − 82 + 53 − 18 geschickt rechnen. Welcher erste Schritt hilft am meisten?"
+  },
+  "a": [
+   "Von links nach rechts: zuerst 47 − 82.",
+   "Erst 82 − 47 rechnen und am Ende das Zeichen umdrehen.",
+   "Plus-Zahlen zusammen (47 + 53) und Minus-Zahlen zusammen (82 + 18).",
+   "Alle vier Zahlen addieren und ein Minus davorsetzen."
+  ],
+  "o": {
+   "index": 2
+  },
+  "h": "Welche Zahlen ergeben zusammen eine glatte Zahl?",
+  "w": "47 + 53 = 100 und 82 + 18 = 100. Also 100 − 100 = 0."
+ },
+ {
+  "l": "umkehraufgabe",
+  "t": "gleichungen",
+  "p": "uebung",
+  "s": 1,
+  "g": "erkennen",
+  "y": "auswahl",
+  "f": {
+   "text": "Mit welcher Rechnung findest du die Zahl in □ − (−7) = −4?"
+  },
+  "a": [
+   "(−4) − (−7)",
+   "(−4) + (−7)",
+   "(−4) + 7",
+   "7 − 4"
+  ],
+  "o": {
+   "index": 1
+  },
+  "h": "Welche Rechnung macht „minus (−7)“ rückgängig?",
+  "w": "Die Umkehrung von „(−7) abziehen“ ist „(−7) dazuzählen“: (−4) + (−7) = −11. Probe: (−11) − (−7) = −4."
+ },
+ {
+  "l": "verstehen",
+  "t": "begruenden",
+  "p": "uebung",
+  "s": 3,
+  "g": "begruenden",
+  "y": "auswahl",
+  "f": {
+   "text": "Ohne auszurechnen: Ist (−4 829) − (−4 830) positiv, negativ oder null?"
+  },
+  "a": [
+   "Negativ, weil beide Zahlen negativ sind.",
+   "Negativ, weil 4 829 kleiner ist als 4 830.",
+   "Null, weil die Zahlen fast gleich sind.",
+   "Positiv, weil die abgezogene Zahl weiter links liegt."
+  ],
+  "o": {
+   "index": 3
+  },
+  "h": "Probiere dieselbe Frage mit kleinen Zahlen: (−2) − (−3).",
+  "w": "Wer eine Zahl abzieht, die weiter links liegt, landet rechts von null. Mit kleinen Zahlen: (−2) − (−3) = (−2) + 3 = 1."
+ }
+]

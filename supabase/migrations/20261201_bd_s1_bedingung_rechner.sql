@@ -231,8 +231,11 @@ begin
     if jsonb_typeof(v_e) = 'null' then return v_leer;
     elsif jsonb_typeof(v_e) = 'string' then
       s := v_e#>>'{}';
-      if schule.bed_putzen(s) = '' then return v_leer; end if;
-      v_w := schule.bed_lesen(s, v_f->>'art');
+      -- Länge zuerst: Ein Text über 40 Zeichen wird gar nicht erst geputzt (auch 41 Leerzeichen sind „Format falsch“, nicht „leer“).
+      if length(s) <= 40 then
+        if schule.bed_putzen(s) = '' then return v_leer; end if;
+        v_w := schule.bed_lesen(s, v_f->>'art');
+      end if;
     elsif jsonb_typeof(v_e) = 'number' then
       z := (v_e#>>'{}')::numeric;
       if z = trunc(z) then v_w := schule.bed_lesen(trunc(z)::text, v_f->>'art'); end if;
@@ -348,9 +351,10 @@ begin
   if jsonb_typeof(v_beds) is distinct from 'array' or jsonb_array_length(v_beds) not between 1 and 8 then return 'bedingungen: 1 bis 8 nötig'; end if;
   for i in 0 .. jsonb_array_length(v_beds) - 1 loop
     v_b := v_beds->i;
-    v_name := case when jsonb_typeof(v_b) = 'object' then nullif(v_b->>'name', '') end;
-    if v_name is null or v_name = any (v_namen) then return 'Bedingung ohne eigenen Namen'; end if;
+    v_name := case when jsonb_typeof(v_b) = 'object' and jsonb_typeof(v_b->'name') = 'string' then nullif(v_b->>'name', '') end;
+    if v_name is null or v_name = any (v_namen) then return 'Bedingung ohne eigenen Namen (nichtleerer Text)'; end if;
     v_namen := v_namen || v_name;
+    if v_b ? 'hinweis' and jsonb_typeof(v_b->'hinweis') <> 'string' then return v_name || ': hinweis muss Text sein'; end if;
     begin
       v_r := schule.bed_baum(v_b->'pruefe', k, 1);
       if v_r->>'t' <> 'wahr' then return v_name || ': pruefe muss wahr oder falsch liefern'; end if;

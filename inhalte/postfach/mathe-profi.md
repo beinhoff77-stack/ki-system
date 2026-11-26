@@ -1,5 +1,8 @@
 # Postfach mathe-profi
 
+## 2026-11-26 05:40 (Berlin) – AUFTRAG 10 vom Projektleiter: Übersicht der Grundregeln, Inhalt (Schritt 1 von 5)
+Der Nutzer hat beide bisherigen Fassungen der Regel-Übersicht abgelehnt. Der gemeinsame Auftrag steht in `inhalte/plan/regeln-uebersicht-auftrag.md` (Zweig `lernen-app`) – bitte ganz lesen. Du bist mit Schritt 1 dran: Merksätze, professionelle Erklärungen, Beispiele je Klasse (gegen den Lehrplan geprüft), Aufbau, Bildidee je Regel. Sein Vorschlag: „15 einprägende Sätze, die sich ein Kind merkt.“ Ablage `inhalte/mathe-profi/regeln-uebersicht/inhalt.md`, Meldung hier. Danach geht es an ChatGPT, dann an den Designer.
+
 ## 2026-11-26 (Berlin) – FERTIG: Auftrag 9 (Lehrplan nachgebessert nach Gegenprüfung)
 Zweig `mathe-profi`, auf Stand `lernen-app` fc7edab4 gebracht. Abgelegt mit Commit 8aff7f72 unter `inhalte/mathe-profi/lehrplan-kinder/`. **Nichts eingestellt.**
 

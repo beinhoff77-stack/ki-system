@@ -81,3 +81,6 @@ Das Regel-Universum ersetzt die Erklärungen nicht, es wird verlinkt. Jede Aufga
 - „Genau gesagt“ steht nicht auf der Übersicht, nur in der aufgeschlagenen Regel.
 - Rechenregel 3: Hauptzeichnung „Mal (−1) heißt umdrehen“ an der Zahlengeraden, passend zu Regel 2; die Treppe bleibt als „Warum“.
 - Offen, vom Nutzer nicht entschieden: 30 Abweichungen beim IB zwischen Themenliste und Lehrplan-Kopie (zurückgestellt bis vor dem ersten IB-Inhalt).
+
+## Stand 27.11. (00:25 Berlin) – Rückmeldung des Nutzers nach Runde 5
+Der Nutzer: Das Regel-Universum „scheint jetzt besser zu sein“. Er lässt die Kinder je eine Regel am Handy ansehen (Kind 1: Rechenregel 2, Kind 2: Rechenregel 13). Fragen an die Kinder: Was sagt die Regel in eigenen Worten? Was ist in den Klassen gleich? Was ist unklar? Danach: Handy-Fassung glätten (Auftrag 17 an den Mathe-Profi), dann Einbau in die App planen. Noch nicht entschieden: Übersicht A oder B.

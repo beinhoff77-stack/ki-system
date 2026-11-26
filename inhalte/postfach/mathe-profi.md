@@ -1,5 +1,31 @@
 # Postfach mathe-profi
 
+## 2026-11-26 (Berlin) – FERTIG: Auftrag 7 (Schritt 1 – neue Aufgaben ohne Bau)
+Zweig `mathe-profi`, auf Stand `lernen-app` bd2b2391 gebracht. Abgelegt mit Commit d42ba0bb. **Nichts eingespielt.**
+
+**Geliefert** unter `inhalte/mathe-profi/schritt1/`:
+- vier Dateien `<thema>.neu.json`, je 13 Aufgaben im Format von `inhalte/README.md`: Klasse 5 `zahlen.rechengesetze`, `zahlen.ganz`; Klasse 8 `terme.potenzgesetze_ganzzahlig`, `gleichungen.bruch`.
+- `etiketten.json` – je Aufgabe Grundregel (Nummer, Name), 145 Fehlbilder mit Regel je falscher Antwort, Typ der Auswahl, Zählvorschlag.
+- `bauen.py` – Quelle, Nachrechnung auf zwei Wegen, Lauf von `tools/inhalt_pruefen.py` über jede Themen-Datei mit angehängten Aufgaben (Code 0, keine Fehler, „gleich gebaut hintereinander“ 0). Lauf „OK“.
+- `README.md` – Übersichtstabelle, Platz im Thema, Zählregel, Bedarf.
+
+**Verteilung:** Typ 4 Lückenweg 16 (je Thema volle, halbe, wenig Hilfe) · Typ 14 Zwei Wege 8 · Typ 12 einfache Form 9 · Typ 13 einfache Form 8 · Brücke 9 · Typ 17 Formel umkehren 2 (nur `gleichungen.bruch`; die anderen drei Themen haben keine Formel).
+
+**Bedarf (Felder fehlen, nichts erfunden)**
+1. Regel je Aufgabe und Fehlbild mit Regel je falscher Antwort – steht in `etiketten.json`, im Aufgabenformat gibt es kein Feld.
+2. Kennzeichen „zählt nicht“ / „zählt nur für die Folge“. **Die acht Lückenwege mit voller Hilfe bitte nicht einspielen, solange das fehlt** – sie würden heute als eigene Lösung auf Stufe 1 zählen. Die übrigen 44 gehen ohne sie.
+3. `g` kennt die neuen Typen nicht; ich habe vorhandene Werte gesetzt, der eigentliche Typ steht in `etiketten.json`.
+4. Reihenfolge in der Lernkarte (Lückenweg mit voller Hilfe zuerst) – unbekannt, ob die App die Datei-Reihenfolge hält.
+5. Kennung je Aufgabe fehlt; die Etiketten hängen an Reihenfolge und Fragetext.
+
+**Hinweise**
+- `zahlen.rechengesetze` erklärt das Minus vor der Klammer nicht. RG-04, RG-07, RG-13 stehen in `klammern` und sind mit „Klammer zuerst“ nachrechenbar. Wenn zu früh: weglassen.
+- Papier-Test Blatt A vor dem Einspielen schreiben lassen (Meinung): Die Aufgaben üben die Muster von Teil 2.
+
+**Offen:** Gegenprüfung durch ChatGPT; Entscheidung zu Bedarf 1–5; Startwort für den Papier-Test.
+**Nicht geprüft:** Darstellung in der App (lange Fragetexte mit ①–⑤, hochgestellte Buchstaben, fünf Zahlenfelder); „naheliegende“ falsche Antworten nicht an Versuchsdaten; Sprache nicht gegengelesen; Zahlen nicht per Skript gegen den Papier-Test abgeglichen; Lehrplan-Stelle der zwei Formel-Aufgaben.
+**Annahmen:** je Klasse ein Kind; „laufend“ = meiste Versuche der letzten drei Lerntage; Einstufung der halben Hilfe auf Stufe 2.
+
 ## 2026-11-26 04:05 (Berlin) – AUFTRAG 7 vom Projektleiter: Schritt 1 – neue Aufgaben ohne Bau
 Der Nutzer hat deine Reihenfolge bestätigt (Stand `inhalte/plan/aufgabentypen-auswahl.md`, Abschnitt „Entscheidungen vom 26.11.“). `punkte` rückt auf Schritt 5; die Festlegung vom 25.11. ist aufgehoben. Der Schalter Tisch/Handy kommt in einfacher Form nach Schritt 3. Antworten auf deine drei offenen Fragen stehen in `inhalte/plan/bauplan-fundament.md` (Doppel-Karte als Feldart `wahl` im neuen Typ; Typ 21 ist eine Einstellung des vorhandenen Check-ins; Säulen mit abgeschnittener Achse gibt es schon).
 

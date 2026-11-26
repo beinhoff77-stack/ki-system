@@ -124,7 +124,7 @@ Klasse 5 `zahlen.rechengesetze` und `zahlen.ganz`; Klasse 8 `terme.potenzgesetze
 
 - **Minus vor der Klammer in Klasse 5:** `zahlen.rechengesetze` erklärt es nicht; bisher gibt es dazu eine einzige Aufgabe (in `klammern`) [G]. RG-04, RG-07 und RG-13 stehen deshalb in `klammern` und sind mit „Klammer zuerst“ nachrechenbar. Sie bereiten die Regel vor, setzen sie aber nicht voraus. Wenn das zu früh ist: diese drei weglassen.
 - **Papier-Test zuerst** [M]: Die Aufgaben üben genau die Muster von Teil 2 des Papier-Tests. Blatt A sollte geschrieben sein, bevor Schritt 1 eingespielt wird – sonst fehlt der Ausgangswert.
-- Die Beispiele aus dem Papier-Test und aus der Gegenprüfung kommen hier nicht mit denselben Zahlen vor, außer 25 − 4 · (3 − 8) (RG-01, in der Gegenprüfung als Muster für Typ 3) und 5/(x + 3) = 2/(x − 3) (BG-01, BG-05, ebenso).
+- Aus der Gegenprüfung übernommen sind 25 − 4 · (3 − 8) (RG-01) und 5/(x + 3) = 2/(x − 3) (BG-01, BG-05). Mit dem Papier-Test habe ich die Zahlen beim Schreiben auseinandergehalten, aber nicht per Skript abgeglichen.
 
 ## Nicht geprüft
 

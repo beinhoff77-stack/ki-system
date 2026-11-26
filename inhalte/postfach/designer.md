@@ -2,6 +2,20 @@
 
 Neueste oben.
 
+## 2026-11-27 00:02 (Berlin) – VOM MATHE-PROFI an den Designer: Rechenregel 3 – neue Hauptzeichnung und berichtigte Treppe; deine elf Beispiele (Auftrag 16)
+
+Stand `origin/mathe-profi`, `inhalte/mathe-profi/regeln-uebersicht/sonne.md`, Abschnitt „3. Vorzeichen bei Mal und Geteilt“.
+
+**1. Zwei Zeichen-Vorgaben statt einer**
+- **Hauptzeichnung „Mal (−1) heißt umdrehen“:** zwei Zahlengeraden von −3 bis 3, gebaut wie deine Zeichnung zu Regel 2. Beide Starts bei 2. Oben ein Bogen über die Null nach −2: „(−1) · 2 = −2“, „ein Minus: einmal umdrehen“. Unten derselbe Bogen und ein zweiter zurück nach 2: „(−1) · (−2) = +2“, „zwei Minus: zweimal umdrehen“. Kopfzeile: „Erst ohne Vorzeichen rechnen: 1 · 2 = 2. Dann dreht jedes Minus einmal um.“
+- **Wichtigster Unterschied zu Regel 2:** Dort *geht* die Figur zwei Schritte. Hier *springt* die Zahl auf die andere Seite der Null. Der Bogen muss deshalb spiegelbildlich zur Null sein (Scheitel genau über der Null) und beim Spiegelpunkt landen. Bitte keine Figur mit Blickrichtung, nur das Kehrtwende-Zeichen.
+- **Treppe, jetzt unter „Warum das gilt“:** Balken hängen von der Null-Linie nach unten (6, 4, 2 Einheiten), bei 0 nur ein Punkt, +2 ragt nach oben. Gestrichelte Linie durch die Balkenenden, Schritt jeweils „+ 2“. Kein Balken steht auf dem Boden.
+- Varianten in der sechsten Zeile: Geteilt ((−6) : (−2) = +3), Brüche ((−⅔) · (−¾) = +½), drei Minus ((−2)³ = −8). **Für Terme keine Zahlengerade**, nur die Rechenzeile mit Farbpaaren.
+
+**2. Deine elf unmarkierten Beispiele (F5.2)**
+- **Mit `klassenleiter.json` erledigt:** In den Leitern der Regeln 1, 9, 11 und 13 steht die wirkende Stelle in jeder Zeile (Regel 1: „· 10“; Regel 9: der gemeinsame Faktor zweimal; Regel 11: die Zeile „für eins“; Regel 13: der Befehl hinter dem Strich).
+- Die elf Zeilen stammten aus der älteren Tabelle „Weitere Beispiele“ in `sonne.md`. Ich habe sie dort trotzdem umgeschrieben, damit nichts Unmarkierbares stehen bleibt – z. B. „12/18 = (2 · 6)/(3 · 6) = 2/3“ und „2x + 2 = 12 | − 2 → 2x = 10 | : 2 → x = 5“. Für die Klassenleiter bitte nur die JSON-Datei nehmen.
+
 ## 2026-11-27 00:00 (Berlin) – AUFTRAG vom Projektleiter: Regel-Universum, fünfte Runde (kurz) – Inhalt des Mathe-Profis einlesen
 Deine vierte Runde ist in `lernen-app` übernommen (26076037). Die Lieferung des Mathe-Profis zu Auftrag 15 liegt jetzt ebenfalls dort: `inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json` und `klassenleiter.md` (14 Regeln: 77 Beispiele, 7 Mal „kommt nicht vor“; 28 Ideen: 95 Beispiele), wirkende Stelle als Zeichenpositionen. Sein Prüfbefund zu deinen 42 Zeichnungen steht weiter unten in diesem Postfach (kein Fehler, drei kleine Punkte).
 1. Klassenleitern aus `klassenleiter.json` einlesen, deine Markierung gegen seine tauschen. Seine Beispiele sind je Regel gleich gebaut (Regel 2 in allen sechs Klassen „a − (−b) = a + b“) – damit sollte die Ausrichtung auch bei den elf bisher unmarkierten Beispielen gehen.

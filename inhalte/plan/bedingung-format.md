@@ -91,7 +91,8 @@ Danach nur lesend nachgesehen: neun Funktionen vorhanden, Zweig vorhanden, Sperr
 - **Übung:** `verletzt` und `hinweis` gehen beim ersten Fehlversuch, bei wiederholter Übertragung und am Ende an die App. Im laufenden Test bleibt es beim Formatstatus (dort war nichts zu ändern).
 - **Versionen:** Felder, Bedingungen und Beispiel sind fest, sobald es einen Versuch gibt (eigener Trigger; gilt auch für Expeditionen).
 - **Constraint:** Antworttyp `bedingung` zugelassen; zweiter Constraint prüft jede solche Aufgabe mit `schule.bed_gueltig`.
-- **Offen:** Einspiel-Paket für Teil 2 (wie bei Teil 1, mit Probe der tatsächlichen Antwortobjekte je Weg und Rolle); Gegenprüfung durch ChatGPT; App (Eingabe mit mehreren Feldern, Anzeige von Hinweis, Namen, „Zum Beispiel“); Feld für Regel-Kennung und Fehlbild; Eltern-Ansicht.
+- **Einspiel-Paket für Teil 2:** `tools/tests/bedingung_einspielen2.py` (27.11., nicht ausgeführt). Es übt mit dem Testkind an einer Aufgabe, die nur in einer zurückgerollten Untertransaktion existiert und deren Prüf-Baum eine Merkzahl enthält: Anzeige, erster Fehlversuch, wiederholte Übertragung, zweiter Fehlversuch, wiederholte endgültige Antwort, Formatfehler, richtig, Knobel. In keiner Antwort dürfen Merkzahl, `pruefe`, `zeige`, `gut` oder `gegenbeispiele` stehen. Dazu: alter Typ antwortet Zeichen für Zeichen wie vorher; Mischstand (auch halb umgestellte Funktion) wird abgewiesen; Versionsschutz; beide Constraints; Rechte; Laufzeit neu mit Variablen. Nur an der Definition geprüft, nicht im Lauf: Test-Auswertung, beide Expeditions-Ansichten, „Was wackelt“, Lehrer-Ansicht.
+- **Offen:** Gegenprüfung durch ChatGPT; App (Eingabe mit mehreren Feldern, Anzeige von Hinweis, Namen, „Zum Beispiel“); Feld für Regel-Kennung und Fehlbild; Eltern-Ansicht.
 - **Reihenfolge:** Teil 2 erst, wenn Teil 1 eingespielt ist und die App die neuen Felder anzeigen kann. Vorher gibt es keine Aufgabe des Typs.
 
 ## Was als Nächstes kommt

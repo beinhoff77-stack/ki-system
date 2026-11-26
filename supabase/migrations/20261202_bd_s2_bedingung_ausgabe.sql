@@ -39,10 +39,10 @@ revoke all on function schule.loesung_sicht(schule.aufgabe) from public, anon, a
 -- Text-Patches. Je Funktion eine Liste (alt, neu, erwartete Anzahl). Zustände je Eintrag:
 --   alt    = alt steht genau so oft da wie erwartet, neu gar nicht  -> ersetzen
 --   fertig = alt steht nicht mehr da, neu genau so oft wie erwartet -> nichts tun
---   sonst  -> Abbruch (nichts wird geändert)
+--   sonst  -> Abbruch (nichts wird geändert). Auch Abbruch, wenn in EINER Funktion manche Stellen alt und andere fertig sind.
 do $$
 declare
-  f record; e jsonb; d text; d0 text; n_alt int; n_neu int; soll int;
+  f record; e jsonb; d text; d0 text; n_alt int; n_neu int; soll int; z_alt int; z_fertig int;
   zaehle constant text := 'select (length($1) - length(replace($1, $2, ''''))) / length($2)';
   plan constant jsonb := jsonb_build_array(
     jsonb_build_object('f', 'schule.uebung_pruefen_intern(bigint, jsonb)', 'p', jsonb_build_array(
@@ -67,16 +67,18 @@ declare
 begin
   for f in select x->>'f' as name, x->'p' as p from jsonb_array_elements(plan) x loop
     if to_regprocedure(f.name) is null then raise exception 'BD-S2: Funktion % fehlt', f.name; end if;
-    d0 := pg_get_functiondef(to_regprocedure(f.name)); d := d0;
+    d0 := pg_get_functiondef(to_regprocedure(f.name)); d := d0; z_alt := 0; z_fertig := 0;
     for e in select * from jsonb_array_elements(f.p) loop
       soll := (e->>2)::int;
       execute zaehle into n_alt using d, e->>0;
       execute zaehle into n_neu using d, e->>1;
-      if n_alt = soll and n_neu = 0 then d := replace(d, e->>0, e->>1);
-      elsif n_alt = 0 and n_neu = soll then null;
+      if n_alt = soll and n_neu = 0 then d := replace(d, e->>0, e->>1); z_alt := z_alt + 1;
+      elsif n_alt = 0 and n_neu = soll then z_fertig := z_fertig + 1;
       else raise exception 'BD-S2: % ist weder im alten noch im fertigen Zustand (Stelle „%…“: alt %, neu %, erwartet %)', f.name, left(e->>0, 40), n_alt, n_neu, soll;
       end if;
     end loop;
+    -- eine Funktion ist ganz alt oder ganz fertig; halb umgestellt ist ein Mischstand
+    if z_alt > 0 and z_fertig > 0 then raise exception 'BD-S2: % ist halb umgestellt (% Stellen alt, % fertig)', f.name, z_alt, z_fertig; end if;
     -- danach darf die rohe Lösung in dieser Funktion nicht mehr gesendet werden
     execute zaehle into n_alt using d, '''loesung'', a.loesung';
     if n_alt <> 0 then raise exception 'BD-S2: in % wird a.loesung noch % Mal gesendet', f.name, n_alt; end if;

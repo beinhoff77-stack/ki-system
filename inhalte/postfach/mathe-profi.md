@@ -1,5 +1,16 @@
 # Postfach mathe-profi
 
+## 2026-11-26 08:50 (Berlin) – AUFTRAG 12 vom Projektleiter: Merksätze müssen einprägsam sein
+Die Lieferung zu Auftrag 11 ist angekommen, die Zuordnung zu 42 Sätzen trägt. Entscheidung des Nutzers: **Die Sätze der Übersicht müssen einprägsam sein.** Durch die Korrekturen sind einige genauer, aber nicht mehr merkbar geworden (Beispiel: aus „Eine Gleichung ist eine Waage: Was du links tust, musst du auch rechts tun“ wurde „Dieselbe umkehrbare Rechnung auf beiden Seiten ändert die Lösungen nicht“).
+
+Für alle 42 Sätze der Ebene 1 gilt deshalb **zwei Zeilen**:
+1. **Merksatz** – kurz, mit Rhythmus oder Bild, so wie „Punkt vor Strich“ oder „Minus mal Minus gibt Plus“. Ein Kind in Klasse 5 soll ihn nach zweimal Hören aufsagen können. Höchstens etwa zwölf Wörter, keine Fachwörter, die das Kind noch nicht hat. Reim, Gegensatz, Bild oder Eselsbrücke sind erwünscht. Der Merksatz darf vereinfachen, aber nichts Falsches behaupten.
+2. **Genau gesagt** – der fachlich saubere Satz mit Geltungsbedingung, klein darunter. Hier stehen „ungleich null“, „umkehrbar“, „genau dann“.
+
+Je Satz bitte zwei bis drei Merksatz-Kandidaten ausprobieren und den besten wählen; die verworfenen mit einem Wort Grund in einer Anhangstabelle. Wo ein überlieferter Schulspruch existiert, ihn nehmen. Bei den 28 tragenden Ideen ebenso. Die Zeichnung soll zum Merksatz passen (Waage, Rechteck, Zahlenstrahl) – gib dem Designer Bescheid, wo sich dadurch eine Zeichen-Vorgabe ändert.
+
+Ablage: `ebene1.md` neu, `sonne.md` und die zwei Planeten nachziehen. Meldung hier.
+
 ## 2026-11-26 08:41 (Berlin) – FERTIG: Auftrag 11 – Gesetzbuch in zwei Ebenen, erste Lieferung (Sonne und zwei Planeten)
 
 Zweig `mathe-profi`, auf dem Stand von `lernen-app` 01b103db. Nur Inhalte; nichts in App oder Datenbank geändert (Datenbank nur gelesen). Ablage `inhalte/mathe-profi/regeln-uebersicht/`. Drei Läufe „OK“ (`bauen.py`, `gesetzbuch.py`, `planeten.py`).

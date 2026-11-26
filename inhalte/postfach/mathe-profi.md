@@ -1,5 +1,31 @@
 # Postfach mathe-profi
 
+## 2026-11-26 08:40 (Berlin) – AUFTRAG 11 vom Projektleiter: Gesetzbuch in zwei Ebenen, mit Zeichnungen, zusammen mit dem Designer
+Deine Lieferung zu Auftrag 10 war inhaltlich ein großer Schritt. Als Übersicht sind 174 Einträge zu viel; der Nutzer hat „zwei Ebenen“ angenommen und will Zeichnungen. Maßgeblich ist der letzte Abschnitt von `inhalte/plan/regeln-uebersicht-auftrag.md`.
+
+1. **Tragende Ideen:** Lege je Planet 3 bis 5 tragende Ideen fest (ein Merksatz je Idee) und ordne jedes Gebiets-Gesetz genau einer Idee zu. Zuerst Fläche und Raum und Geometrie, dann die übrigen fünf. Meinen Vorschlag für Geometrie prüfen und ersetzen, wo er nicht trägt. Nenne die Gesamtzahl der Sätze auf Ebene 1.
+2. **Gegenprüfung einarbeiten:** Die beiden Prüfergebnisse von ChatGPT zum Gesetzbuch stehen in der Werkstatt (Wunsch 176); bitte dort im Wortlaut lesen und alle Muss-Punkte einarbeiten: Merksätze, Geltungsbedingungen, Klassenzuordnung gegen LehrplanPLUS an der Quelle, Kennzeichnung Realschul-Zweig und IB, Trennung von Voraussetzung / häufigem Fehler / verwandter Regel, „Baut auf“ als Erklärweg statt Sperre, Beispielzeilen einzeln, je Feld Vorwissen / Einführung / spätere Anwendung.
+3. **Zeichnung je Satz:** Für jede Rechenregel und jede tragende Idee eine Zeichen-Vorgabe für den Designer: was genau zu sehen ist, Maße, Beschriftung, hervorgehobene Stelle, was auf keinen Fall falsch aussehen darf. Wo dieselbe Zeichnung über mehrere Klassen bleibt und nur die Beschriftung wechselt (Rechteck bei 6 · 18 und bei 3(x + 2)), das ausdrücklich nutzen.
+4. **Abstimmung:** Der Designer arbeitet gleichzeitig. Fragen und Antworten an ihn oben in `inhalte/postfach/designer.md` ablegen und dort mitlesen.
+
+Erste Lieferung: Sonne und zwei Planeten fertig. Ablage wie bisher unter `inhalte/mathe-profi/regeln-uebersicht/`, Meldung hier.
+
+## 2026-11-26 05:40 (Berlin) – AUFTRAG 10 vom Projektleiter: Übersicht der Grundregeln, Inhalt (Schritt 1 von 5)
+Der Nutzer hat beide bisherigen Fassungen der Regel-Übersicht abgelehnt. Der gemeinsame Auftrag steht in `inhalte/plan/regeln-uebersicht-auftrag.md` (Zweig `lernen-app`) – bitte ganz lesen. Du bist mit Schritt 1 dran: Merksätze, professionelle Erklärungen, Beispiele je Klasse (gegen den Lehrplan geprüft), Aufbau, Bildidee je Regel. Sein Vorschlag: „15 einprägende Sätze, die sich ein Kind merkt.“ Ablage `inhalte/mathe-profi/regeln-uebersicht/inhalt.md`, Meldung hier. Danach geht es an ChatGPT, dann an den Designer.
+
+## 2026-11-26 05:15 (Berlin) – AUFTRAG 9 vom Projektleiter: Lehrplan nachbessern nach Gegenprüfung
+Der Nutzer hat deinen Lehrplan angenommen (alle fünf Punkte, siehe `inhalte/plan/lehrplan-kinder-entscheidung.md`). ChatGPT hat gegen die Live-Tabellen `voraussetzung` und `voraussetzung_schulart` geprüft (Werkstatt-Nachricht 998): pädagogisch tragfähig, **aber noch keine Freigabe zum Einstellen**. Bitte nachbessern:
+
+1. **Kind 2, `g7` braucht laut App zwingend `g2-teil2`.** Der steht außerhalb deiner Route und ist in der App offen, ohne „kann schon“; `plan.py` behandelt ihn als gekonnt. Entscheide fachlich: vorher einplanen oder begründet als gekonnt setzen.
+2. **Kind 2, `ge3` (Winkel)** ist offen; die App empfiehlt Winkel für `ge4` und Spiegeln (`ge2`, bei dir Platz 17) für Konstruktion. Der Nutzer hat die Eingangsdiagnose (amtlicher Test Klasse 8) beschlossen. Lege fest, was bis zum Ergebnis gilt und was je Ergebnis geschieht, so dass ich ohne Rückfrage einstellen kann.
+3. **Auslassungen stimmen bei drei Flügen nicht mit der App überein:** `ge9` (App: Determinanten ausgelassen, Plan: Vektoren), `f4` (App: quadratische Funktion ausgelassen, Plan: Transformation – „Parabeln“ muss im sichtbaren Inhalt ankommen), `a7` (App: allgemeine quadratische Gleichung ausgelassen, Liste nennt bedingt die reinquadratische, Route zählt beide). Lege je Flug ausdrücklich fest, welche Themen drin sind.
+4. **Vollständige Soll-Liste je Kind statt Änderungsliste:** Die Plan-Funktion der App ersetzt die ganze normale Route; weggelassene Einträge werden entfernt, und bei `z6`, `g3`, `d1`, `d3`, `r7`, `g4` von Kind 2 würden gesetzte Wiederholungen zurückgenommen. Liefere je Kind die vollständige Liste aller Einträge, die nach dem Einstellen in der Route stehen sollen, mit Art (normal / Kür / kann schon / kann – wiederholen) und ausgelassenen Themen.
+5. Prüfe die Route gegen die Tabellen `voraussetzung` und `voraussetzung_schulart` der App (lesend), nicht nur aus eigener Kenntnis, und lass `plan.py` das mitprüfen.
+6. „Kür“ und „Klasse 9 erst nach Abschluss Klasse 8“ kann die Plan-Funktion nicht als Feld setzen. Schlage vor, wie das mit den vorhandenen Mitteln abgebildet wird (z. B. Abschnitt 5 erst später einstellen).
+
+Ablage wie bisher unter `inhalte/mathe-profi/lehrplan-kinder/`, Meldung hier. Kein Einstellen. Danach mache ich den Probelauf mit Rollback.
+
+
 ## 2026-11-26 04:15 (Berlin) – AUFTRAG 8 vom Projektleiter: individueller Lehrplan für beide Kinder – **vor Auftrag 7**
 Der Lehrer ist derzeit nicht erreichbar. Der Nutzer will für beide Kinder einen sinnvollen Lehrplan und überlässt dir die Gestaltung: „Wie der individuelle Lehrplan bezüglich Klassen aussieht, bin ich flexibel. Er soll ihn so gestalten, dass es sinnvoll ist.“ Der Projektleiter stellt den Plan danach in der App ein (erst nach Gegenprüfung und ausdrücklichem Satz des Nutzers).
 

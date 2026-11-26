@@ -50,3 +50,21 @@ Damit ist das Ziel:
 
 **Für den Mathe-Profi heißt das:** zuerst das vollständige Inhaltsverzeichnis des Gesetzbuchs (alle Gesetze je Gebiet, mit Klasse und Schulart, gegen die Lehrpläne der App geprüft, mit ehrlicher Gesamtzahl), dann die Ausarbeitung – beginnend mit der Sonne und einem Planeten als Muster, damit der Nutzer früh etwas sieht.
 **Für den Designer (Schritt 4):** Gesetzbuch und Sonnensystem sind jetzt eine Idee. Die frühere Fassung A darf als Ausgangspunkt dienen, aber die Gesetze selbst müssen lesbar im Mittelpunkt stehen.
+
+## Entscheidung des Nutzers nach dem ersten Inhalt (26.11.) – jetzt maßgeblich
+Die Zahl 174 ist als Übersicht unbrauchbar. Der Nutzer hat den Vorschlag „zwei Ebenen“ an Beispielen gesehen und beauftragt: ausarbeiten, zusammen mit dem Designer, mit echten Zeichnungen.
+
+**Zwei Ebenen**
+1. **Die Übersicht:** die Sonne mit den 14 Rechenregeln und je Planet 3 bis 5 tragende Ideen. Zusammen rund 35 bis 45 Sätze, auf einen Blick erfassbar.
+2. **Zum Nachschlagen:** hinter jeder tragenden Idee die einzelnen Gesetze und Formeln, die aus ihr folgen. Über eine Suche erreichbar, ohne den Planeten kennen zu müssen.
+
+Beispiel Fläche und Raum, drei Ideen: „Messen heißt auslegen und zählen“ · „Aus dem Rechteck entsteht jede Fläche“ · „Aus dem Quader entsteht jeder Körper“. Für Geometrie Vorschlag des Projektleiters, zu prüfen: Winkelsumme 180° · drei passende Angaben legen ein Dreieck fest · Spiegeln, Schieben, Drehen ändert weder Längen noch Winkel · ähnliche Figuren · Pythagoras.
+
+**Zeichnungen sind Pflicht:** zu jeder Rechenregel und jeder tragenden Idee eine echte Zeichnung, die die Idee zeigt. Der Designer zeichnet; der Mathe-Profi legt fest, was mathematisch genau zu sehen sein muss.
+
+**Gegenprüfung zum ersten Inhalt:** liegt in der Werkstatt vor (zwei Nachrichten von ChatGPT zu Wunsch 176, direkt nach der Prüfbitte zum Gesetzbuch). Urteil: Sonne und sieben Gebietsplaneten als Einstieg beibehalten; Muss-Korrekturen an Merksätzen, Geltungsbedingungen und Klassenzuordnungen; Suche nötig; kein Punktgitter über alle Einträge als Startseite. Einzuarbeiten.
+
+**Neuer Ablauf**
+- Mathe-Profi und Designer arbeiten gleichzeitig und stimmen sich über ihre Postfächer ab.
+- Erste Lieferung an den Nutzer: die Sonne und zwei Planeten fertig (Fläche und Raum, Geometrie) – Sätze, Zeichnungen, Darstellung. Erst danach die übrigen Planeten.
+- Vor dem Zeigen liest ChatGPT gegen; alle drei geben ihr Urteil in einem Satz.

@@ -76,3 +76,14 @@ Jedes Paket zuerst nur für die zwei bis drei Themen, an denen die Kinder gerade
 | 8 | Typ 11 mit Kacheln, Typ 20 (Säulen ohne Bau), Typ 21 als Einstellung des Check-ins | mittel |
 
 Weiter offen: Regel-Übersicht (drei Fragen, Entscheidung am Entwurf des Designers); Startwort für den Papier-Test; Erklärungen und Tipps nach neuem Bauplan.
+
+## Rollendes System – als fester Teil des Plans (Nachfrage des Nutzers vom 26.11.)
+Der Nutzer erwartet, dass neue Aufgaben laufend geschrieben werden und dass die Erstellung für kommende Themen automatisch angestoßen wird. Das war bisher nur als Idee notiert und wird hiermit Teil des Plans.
+
+**Stufe 1 – sofort, ohne Bau:** Vor jedem Themenwechsel liest der Projektleiter aus der Route (lesend), welche zwei bis drei Flüge je Kind als Nächstes kommen, und legt dem Mathe-Profi den Auftrag ins Postfach: neue Aufgabentypen für genau diese Flüge, mit Regel-Kennung aus dem Regel-Universum. Stand nach dem Einstellen des Lehrplans: Kind 1 nach `z1` → `ge1`, `z2`; Kind 2 nach `a5` → `ge2`, `a4`.
+
+**Stufe 2 – täglicher Lauf:** Ein geplanter Lauf prüft einmal am Tag, wie weit die Kinder im laufenden Flug sind, und erzeugt die Vorbau-Liste und den Auftragstext von selbst, sobald ein Kind den laufenden Flug zu etwa zwei Dritteln geschafft hat und für den nächsten noch keine neuen Aufgaben vorliegen. Braucht: eine Kennzeichnung je Flug „neue Aufgabentypen vorhanden: ja/nein“.
+
+**Stufe 3 – später:** Der Lauf stößt eigene Helfer an, die die Aufgaben entwerfen; Mathe-Profi und ChatGPT prüfen; der Nutzer gibt frei. Einspielen bleibt an den ausdrücklichen Satz des Nutzers gebunden, solange er nichts anderes festlegt.
+
+**Abhängigkeit:** Die 78 Aufgaben aus Schritt 1 und alle weiteren warten mit der Regel-Zuordnung auf die fertige Liste des Regel-Universums.

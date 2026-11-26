@@ -22,11 +22,13 @@ MAX_EXPONENT = 6
 MAX_ZAHL = 10 ** 30       # Zähler und Nenner jedes Zwischenwerts
 FELD_MIN, FELD_MAX = -999999, 999999
 ARTEN = ('ganz', 'rational')
+MAX_ROH = 40             # Zeichen einer rohen Eingabe, vor dem Putzen
 
 # Bewusst [0-9] und eine feste Leerraum-Liste: Die Datenbank-Fassung muss Zeichen für Zeichen dasselbe annehmen.
-GANZ = re.compile(r'^-?[0-9]{1,6}$')
-KOMMA = re.compile(r'^-?[0-9]{1,6}(,[0-9]{1,3})?$')
-BRUCH = re.compile(r'^(-?[0-9]{1,6})/([0-9]{1,6})$')
+# Genau ein freiwilliges Vorzeichen: „+3“ und „-3“ gelten, „+-3“ und „--3“ nicht.
+GANZ = re.compile(r'^[+-]?[0-9]{1,6}$')
+KOMMA = re.compile(r'^[+-]?[0-9]{1,6}(,[0-9]{1,3})?$')
+BRUCH = re.compile(r'^([+-]?[0-9]{1,6})/([0-9]{1,6})$')
 LEER = re.compile('[ \t\n\r\f\v\u00a0\u202f]')
 
 
@@ -43,13 +45,28 @@ class ZuGross(Exception):
     """Ein Zwischenwert überschreitet die Lastgrenze: Die Eingabe wird abgewiesen, nichts wird gewertet."""
 
 
+def ganzwert(v):
+    """JSON-Zahl mit ganzem Wert -> int, sonst None. Es zählt der Wert, nicht die Schreibweise (5, 5.0 und 5e0 sind dasselbe)."""
+    if isinstance(v, bool):
+        return None
+    if isinstance(v, int):
+        return v
+    if isinstance(v, float) and v == v and abs(v) != float('inf') and v.is_integer():
+        return int(v)
+    return None
+
+
 def eingabe(roh, art):
-    """Liest ein Antwortfeld. Rückgabe Fraction oder None (Format falsch)."""
-    if isinstance(roh, bool) or roh is None:
+    """Liest ein Antwortfeld oder eine Konstante. Rückgabe Fraction oder None (Format falsch).
+    Erlaubt sind Text und JSON-Zahlen mit ganzem Wert; alles andere (Wahrheitswert, Liste, Kommazahl als JSON-Zahl) ist Format falsch."""
+    if isinstance(roh, (int, float)) and not isinstance(roh, bool):
+        g = ganzwert(roh)
+        if g is None:
+            return None
+        roh = str(g)
+    if not isinstance(roh, str) or len(roh) > MAX_ROH:
         return None
     s = putzen(roh)
-    if s.startswith('+'):
-        s = s[1:]
     if len(s) > 14:
         return None
     if GANZ.match(s):
@@ -152,10 +169,31 @@ OPS = {
     '<=': (2, 2, lambda a, b: _zahl(a) <= _zahl(b)),
     '>': (2, 2, lambda a, b: _zahl(a) > _zahl(b)),
     '>=': (2, 2, lambda a, b: _zahl(a) >= _zahl(b)),
-    'und': (2, 6, lambda *a: all(_wahr(x) for x in a)),
-    'oder': (2, 6, lambda *a: any(_wahr(x) for x in a)),
+    'und': (2, 6, lambda *a: all([_wahr(x) for x in a])),      # Liste, nicht Generator: jeder Operand wird geprüft
+    'oder': (2, 6, lambda *a: any([_wahr(x) for x in a])),
     'nicht': (1, 1, lambda a: not _wahr(a)),
 }
+
+
+# Typen: Name -> (Typ der Argumente, Typ des Ergebnisses). 'zahl', 'wahr' oder 'liste'.
+TYP = {n: ('zahl', 'zahl') for n in ('+', '-', '*', '/', 'hoch', 'neg', 'betrag')}
+TYP.update({'liste': ('zahl', 'liste'), 'verschieden': ('liste', 'wahr'), 'ganzzahlig': ('zahl', 'wahr')})
+TYP.update({n: ('liste', 'zahl') for n in ('summe', 'produkt', 'min', 'max', 'median', 'mittelwert', 'anzahl', 'anzahl_positiv', 'anzahl_negativ')})
+TYP.update({n: ('zahl', 'wahr') for n in ('teilbar', '=', '!=', '<', '<=', '>', '>=')})
+TYP.update({n: ('wahr', 'wahr') for n in ('und', 'oder', 'nicht')})
+
+
+def typ(baum):
+    """Typ eines (schon von knoten() geprüften) Baums. ValueError, wenn ein Operand den falschen Typ hat – in jedem Ast."""
+    if isinstance(baum, (int, float)):
+        return 'zahl'
+    if isinstance(baum, str):
+        return 'liste' if baum == '$alle' else 'zahl'
+    soll, ergebnis = TYP[baum[0]]
+    for a in baum[1:]:
+        if typ(a) != soll:
+            raise ValueError(f'{baum[0]}: Operand muss {soll} sein')
+    return ergebnis
 
 
 def _produkt(xs):
@@ -171,16 +209,18 @@ def knoten(baum, tiefe=1, felder=MAX_FELDER):
         raise ValueError('Baum zu tief')
     if isinstance(baum, bool):
         raise ValueError('Wahrheitswerte stehen nicht als Konstante im Baum')
-    if isinstance(baum, int):
-        if abs(baum) > FELD_MAX:
-            raise ValueError('Konstante zu groß')
+    if isinstance(baum, (int, float)):
+        g = ganzwert(baum)
+        if g is None or abs(g) > FELD_MAX:
+            raise ValueError('Konstante muss eine ganze Zahl bis 999 999 sein')
         return 1
     if isinstance(baum, str):
         if re.fullmatch(r'\$[1-6]', baum):
             if int(baum[1:]) > felder:
                 raise ValueError(f'{baum}: so viele Felder gibt es nicht')
             return 1
-        if baum == '$alle' or BRUCH.match(baum) or KOMMA.match(baum):
+        m = BRUCH.match(baum)
+        if baum == '$alle' or KOMMA.match(baum) or (m and int(m.group(2)) != 0):
             return 1
         raise ValueError(f'unbekannter Name {baum!r}')
     if isinstance(baum, list) and baum and isinstance(baum[0], str) and baum[0] in OPS:
@@ -193,8 +233,8 @@ def knoten(baum, tiefe=1, felder=MAX_FELDER):
 
 def wert(baum, werte):
     """Rechnet einen Baum mit den Feldwerten aus. Ergebnis Fraction, bool oder Liste."""
-    if isinstance(baum, int):
-        return Fraction(baum)
+    if isinstance(baum, (int, float)):
+        return Fraction(ganzwert(baum))
     if isinstance(baum, str):
         if baum == '$alle':
             return list(werte)
@@ -216,12 +256,15 @@ def bewerte(aufgabe, antwort):
     """Wie schule.antwort_bewerten: {format_ok, richtig, verletzt?, hinweis?}.
     aufgabe = {'f': {'felder': [...]}, 'o': {'bedingungen': [...]}}, antwort = {'werte': [...]}."""
     felder = aufgabe['f']['felder']
+    beds = aufgabe['o']['bedingungen']
+    if not (isinstance(felder, list) and 1 <= len(felder) <= MAX_FELDER and isinstance(beds, list) and 1 <= len(beds) <= MAX_BEDINGUNGEN):
+        raise ValueError('Aufgabe ungültig: 1 bis 6 Felder und 1 bis 8 Bedingungen nötig')   # Inhaltsfehler, kein „richtig“
     roh = antwort.get('werte') if isinstance(antwort, dict) else None
     if not isinstance(roh, list) or len(roh) != len(felder):
         return {'format_ok': False, 'hinweis': 'Bitte fülle alle Felder aus.'}
     werte = []
     for r, feld in zip(roh, felder):
-        if r is None or putzen(r) == '':
+        if r is None or (isinstance(r, str) and putzen(r) == ''):
             return {'format_ok': False, 'hinweis': 'Bitte fülle alle Felder aus.'}
         w = eingabe(r, feld['art'])
         if w is None:
@@ -231,7 +274,7 @@ def bewerte(aufgabe, antwort):
             return {'format_ok': False, 'hinweis': 'Diese Zahl liegt außerhalb des erlaubten Bereichs.'}
         werte.append(w)
     zu_gross = {'format_ok': False, 'hinweis': 'Mit diesen Zahlen wird die Rechnung zu groß. Nimm kleinere Zahlen.'}
-    for bed in aufgabe['o']['bedingungen']:
+    for bed in beds:
         try:
             ok = _wahr(wert(bed['pruefe'], werte))
         except Grenze:
@@ -255,8 +298,10 @@ def bewerte(aufgabe, antwort):
     return {'format_ok': True, 'richtig': True}
 
 
-def pruefe_aufgabe(a):
-    """Prüft eine Aufgabe beim Einlesen der Inhalte. Rückgabe: Liste von Fehlertexten (leer = in Ordnung)."""
+def pruefe_aufgabe(a, nur_form=False):
+    """Prüft eine Aufgabe beim Einlesen der Inhalte. Rückgabe: Liste von Fehlertexten (leer = in Ordnung).
+    nur_form=True prüft genau das, was auch die Datenbank prüft (schule.bed_gueltig): Aufbau, Grenzen, Typen und das Beispiel –
+    ohne „gut“ und Gegenbeispiele. Beide müssen dabei für jede Aufgabe zum selben Urteil kommen."""
     fehler = []
     felder = (a.get('f') or {}).get('felder')
     o = a.get('o') or {}
@@ -266,6 +311,8 @@ def pruefe_aufgabe(a):
     for i, f in enumerate(felder, 1):
         if not isinstance(f, dict) or f.get('art') not in ARTEN:
             fehler.append(f'Feld {i}: art muss {" oder ".join(ARTEN)} sein')
+        elif ganzwert(f.get('min', FELD_MIN)) is None or ganzwert(f.get('max', FELD_MAX)) is None:
+            fehler.append(f'Feld {i}: min/max müssen ganze Zahlen sein')
         elif not FELD_MIN <= f.get('min', FELD_MIN) <= f.get('max', FELD_MAX) <= FELD_MAX:
             fehler.append(f'Feld {i}: min/max außerhalb der Grenzen')
     if not isinstance(beds, list) or not 1 <= len(beds) <= MAX_BEDINGUNGEN:
@@ -279,8 +326,12 @@ def pruefe_aufgabe(a):
         namen.add(name)
         try:
             n = knoten(b.get('pruefe'), 1, len(felder))
+            if typ(b.get('pruefe')) != 'wahr':
+                raise ValueError('pruefe muss wahr oder falsch liefern')
             if '{}' in (b.get('hinweis') or ''):
                 n += knoten(b.get('zeige'), 1, len(felder))
+                if typ(b.get('zeige')) != 'zahl':
+                    raise ValueError('zeige muss eine Zahl liefern')
             elif 'zeige' in b:
                 fehler.append(f'{name}: zeige ohne {{}} im hinweis')
             if n > MAX_KNOTEN:
@@ -297,7 +348,7 @@ def pruefe_aufgabe(a):
             fehler.append(f'{was} {werte}: {e}')
             return None
 
-    gut = [o.get('beispiel')] + list(o.get('gut') or [])
+    gut = [o.get('beispiel')] + ([] if nur_form else list(o.get('gut') or []))
     if not isinstance(o.get('beispiel'), list):
         fehler.append('beispiel fehlt (eine richtige Antwort, die dem Kind als „Zum Beispiel“ gezeigt wird)')
         gut = gut[1:]
@@ -305,6 +356,8 @@ def pruefe_aufgabe(a):
         r = lauf(g, 'beispiel')
         if r is not None and not (r['format_ok'] and r.get('richtig')):
             fehler.append(f'beispiel {g} besteht nicht: {r}')
+    if nur_form:
+        return fehler
     gegen = o.get('gegenbeispiele') or []
     if not gegen:
         fehler.append('gegenbeispiele fehlen (mindestens eine falsche Antwort mit der Bedingung, an der sie scheitert)')

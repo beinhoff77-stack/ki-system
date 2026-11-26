@@ -35,7 +35,7 @@ end $$;
 
 create or replace function schule.bed_putzen(p text)
  returns text language sql immutable set search_path to ''
-as $$ select replace(replace(regexp_replace(p, E'[ \\t\\n\\r\\f\\v  ]', '', 'g'), '−', '-'), '–', '-') $$;
+as $$ select replace(replace(regexp_replace(p, E'[ \\t\\n\\r\\f\\v\u00a0\u202f]', '', 'g'), '−', '-'), '–', '-') $$;
 
 -- Liest ein Antwortfeld oder eine Konstante. null = Format falsch.
 create or replace function schule.bed_lesen(p_roh text, p_art text)
@@ -43,16 +43,16 @@ create or replace function schule.bed_lesen(p_roh text, p_art text)
 as $$
 declare s text; m text[];
 begin
-  if p_roh is null then return null; end if;
+  if p_roh is null or length(p_roh) > 40 then return null; end if;   -- 40: Obergrenze der rohen Eingabe, vor dem Putzen
   s := schule.bed_putzen(p_roh);
-  if left(s, 1) = '+' then s := substr(s, 2); end if;
   if length(s) > 14 then return null; end if;
-  if s ~ '^-?[0-9]{1,6}$' then return jsonb_build_object('z', s::numeric, 'n', 1); end if;
+  -- genau ein freiwilliges Vorzeichen: „+3“ und „-3“ gelten, „+-3“ nicht
+  if s ~ '^[+-]?[0-9]{1,6}$' then return jsonb_build_object('z', s::numeric, 'n', 1); end if;
   if p_art is distinct from 'rational' then return null; end if;
-  if s ~ '^-?[0-9]{1,6}(,[0-9]{1,3})?$' then
+  if s ~ '^[+-]?[0-9]{1,6}(,[0-9]{1,3})?$' then
     return schule.bed_bruch(replace(s, ',', '')::numeric, ('1' || repeat('0', length(split_part(s, ',', 2))))::numeric);
   end if;
-  m := regexp_match(s, '^(-?[0-9]{1,6})/([0-9]{1,6})$');
+  m := regexp_match(s, '^([+-]?[0-9]{1,6})/([0-9]{1,6})$');
   if m is not null and m[2]::numeric <> 0 then return schule.bed_bruch(m[1]::numeric, m[2]::numeric); end if;
   return null;
 end $$;
@@ -212,18 +212,31 @@ end $$;
 create or replace function schule.bed_bewerten(p_felder jsonb, p_bedingungen jsonb, p_antwort jsonb)
  returns jsonb language plpgsql immutable set search_path to ''
 as $$
-declare v_roh jsonb; v_f jsonb; v_b jsonb; v_w jsonb; v_werte jsonb := '[]'; v_r jsonb; v_ok boolean; v_text text; v_aus jsonb; i int; s text;
+declare v_roh jsonb; v_f jsonb; v_b jsonb; v_w jsonb; v_e jsonb; v_werte jsonb := '[]'; v_r jsonb; v_ok boolean; v_text text; v_aus jsonb; i int; s text; z numeric;
   v_gross constant jsonb := jsonb_build_object('format_ok', false, 'hinweis', 'Mit diesen Zahlen wird die Rechnung zu groß. Nimm kleinere Zahlen.');
   v_leer constant jsonb := jsonb_build_object('format_ok', false, 'hinweis', 'Bitte fülle alle Felder aus.');
 begin
+  -- Inhaltsfehler, kein „richtig“: Eine Aufgabe ohne Felder oder ohne Bedingungen wird nicht bewertet.
+  if jsonb_typeof(p_felder) is distinct from 'array' or jsonb_array_length(p_felder) not between 1 and 6
+     or jsonb_typeof(p_bedingungen) is distinct from 'array' or jsonb_array_length(p_bedingungen) not between 1 and 8 then
+    raise exception 'bedingung: Aufgabe ungültig (1 bis 6 Felder und 1 bis 8 Bedingungen nötig)';
+  end if;
   if jsonb_typeof(p_antwort) is distinct from 'object' then return v_leer; end if;
   v_roh := p_antwort->'werte';
   if jsonb_typeof(v_roh) is distinct from 'array' or jsonb_array_length(v_roh) <> jsonb_array_length(p_felder) then return v_leer; end if;
   for i in 0 .. jsonb_array_length(p_felder) - 1 loop
     v_f := p_felder->i;
-    s := v_roh->>i;
-    if s is null or schule.bed_putzen(s) = '' then return v_leer; end if;
-    v_w := case when jsonb_typeof(v_roh->i) = 'boolean' then null else schule.bed_lesen(s, v_f->>'art') end;
+    -- Erlaubt: Text und JSON-Zahl mit ganzem Wert (es zählt der Wert, nicht die Schreibweise). Alles andere ist Format falsch.
+    v_e := v_roh->i; v_w := null;
+    if jsonb_typeof(v_e) = 'null' then return v_leer;
+    elsif jsonb_typeof(v_e) = 'string' then
+      s := v_e#>>'{}';
+      if schule.bed_putzen(s) = '' then return v_leer; end if;
+      v_w := schule.bed_lesen(s, v_f->>'art');
+    elsif jsonb_typeof(v_e) = 'number' then
+      z := (v_e#>>'{}')::numeric;
+      if z = trunc(z) then v_w := schule.bed_lesen(trunc(z)::text, v_f->>'art'); end if;
+    end if;
     if v_w is null then
       return jsonb_build_object('format_ok', false, 'hinweis', case when v_f->>'art' = 'ganz'
         then 'In dieses Feld gehört eine ganze Zahl, zum Beispiel −3.' else 'Bitte gib eine Zahl ein, zum Beispiel −3, 2,5 oder 3/4.' end);
@@ -260,16 +273,123 @@ begin
   return jsonb_build_object('format_ok', true, 'richtig', true);
 end $$;
 
--- Zweig in schule.antwort_bewerten (Text-Patch; Anker muss genau einmal vorkommen)
+-- Prüft einen Baum, ohne ihn auszurechnen: Namen, Argumentzahl, Tiefe, Feldnummern, Konstanten und die Typen in JEDEM Ast.
+-- Rückgabe {"n": Knoten, "t": 'zahl' | 'wahr' | 'liste'}. Fehler: SQLSTATE BG003 mit Text.
+create or replace function schule.bed_baum(p_baum jsonb, p_felder int, p_tiefe int)
+ returns jsonb language plpgsql immutable set search_path to ''
+as $$
+declare t text := jsonb_typeof(p_baum); s text; op text; c int; lo int; hi int; soll text; erg text; n int := 1; r jsonb; z numeric; m text[]; i int;
+begin
+  if p_tiefe > 8 then raise exception 'Baum zu tief' using errcode = 'BG003'; end if;
+  if t = 'number' then
+    z := (p_baum#>>'{}')::numeric;
+    if z <> trunc(z) or abs(z) > 999999 then raise exception 'Konstante muss eine ganze Zahl bis 999 999 sein' using errcode = 'BG003'; end if;
+    return jsonb_build_object('n', 1, 't', 'zahl');
+  elsif t = 'string' then
+    s := p_baum#>>'{}';
+    if s = '$alle' then return jsonb_build_object('n', 1, 't', 'liste'); end if;
+    if s ~ '^\$[1-6]$' then
+      if substr(s, 2)::int > p_felder then raise exception '%: so viele Felder gibt es nicht', s using errcode = 'BG003'; end if;
+      return jsonb_build_object('n', 1, 't', 'zahl');
+    end if;
+    if s ~ '^[+-]?[0-9]{1,6}(,[0-9]{1,3})?$' then return jsonb_build_object('n', 1, 't', 'zahl'); end if;
+    m := regexp_match(s, '^([+-]?[0-9]{1,6})/([0-9]{1,6})$');
+    if m is not null and m[2]::numeric <> 0 then return jsonb_build_object('n', 1, 't', 'zahl'); end if;
+    raise exception 'unbekannter Name' using errcode = 'BG003';
+  elsif t is distinct from 'array' or jsonb_array_length(p_baum) = 0 or jsonb_typeof(p_baum->0) <> 'string' then
+    raise exception 'nicht erlaubt' using errcode = 'BG003';
+  end if;
+  op := p_baum->>0; c := jsonb_array_length(p_baum) - 1;
+  if op in ('+', '*') then lo := 2; hi := 6; soll := 'zahl'; erg := 'zahl';
+  elsif op in ('-', '/', 'hoch') then lo := 2; hi := 2; soll := 'zahl'; erg := 'zahl';
+  elsif op in ('neg', 'betrag') then lo := 1; hi := 1; soll := 'zahl'; erg := 'zahl';
+  elsif op = 'liste' then lo := 1; hi := 6; soll := 'zahl'; erg := 'liste';
+  elsif op in ('summe','produkt','min','max','median','mittelwert','anzahl','anzahl_positiv','anzahl_negativ') then lo := 1; hi := 1; soll := 'liste'; erg := 'zahl';
+  elsif op = 'verschieden' then lo := 1; hi := 1; soll := 'liste'; erg := 'wahr';
+  elsif op = 'ganzzahlig' then lo := 1; hi := 1; soll := 'zahl'; erg := 'wahr';
+  elsif op in ('teilbar', '=', '!=', '<', '<=', '>', '>=') then lo := 2; hi := 2; soll := 'zahl'; erg := 'wahr';
+  elsif op in ('und', 'oder') then lo := 2; hi := 6; soll := 'wahr'; erg := 'wahr';
+  elsif op = 'nicht' then lo := 1; hi := 1; soll := 'wahr'; erg := 'wahr';
+  else raise exception 'unbekannte Operation' using errcode = 'BG003';
+  end if;
+  if c < lo or c > hi then raise exception '%: falsche Zahl von Argumenten', op using errcode = 'BG003'; end if;
+  for i in 1 .. c loop
+    r := schule.bed_baum(p_baum->i, p_felder, p_tiefe + 1);
+    if r->>'t' <> soll then raise exception '%: Operand muss % sein', op, soll using errcode = 'BG003'; end if;
+    n := n + (r->>'n')::int;
+  end loop;
+  return jsonb_build_object('n', n, 't', erg);
+end $$;
+
+-- Ist die Aufgabe zulässig? null = ja, sonst der Grund. Dasselbe Urteil wie tools/bedingung.py: pruefe_aufgabe(a, nur_form=True).
+-- Teil 2 hängt diese Prüfung als Constraint an schule.aufgabe; damit gilt sie für jeden Schreibweg, nicht nur für den Python-Prüfer.
+create or replace function schule.bed_gueltig(p_frage jsonb, p_loesung jsonb)
+ returns text language plpgsql immutable set search_path to ''
+as $$
+declare v_felder jsonb := p_frage->'felder'; v_beds jsonb := p_loesung->'bedingungen'; v_f jsonb; v_b jsonb; v_r jsonb;
+  v_namen text[] := '{}'; v_name text; i int; k int; n int; mn numeric; mx numeric;
+begin
+  if jsonb_typeof(v_felder) is distinct from 'array' or jsonb_array_length(v_felder) not between 1 and 6 then return 'felder: 1 bis 6 Felder nötig'; end if;
+  k := jsonb_array_length(v_felder);
+  for i in 0 .. k - 1 loop
+    v_f := v_felder->i;
+    if jsonb_typeof(v_f) <> 'object' or coalesce(v_f->>'art', '') not in ('ganz', 'rational') or jsonb_typeof(v_f->'art') <> 'string' then return 'Feld ' || (i + 1) || ': art muss ganz oder rational sein'; end if;
+    mn := -999999; mx := 999999;
+    if v_f ? 'min' then
+      if jsonb_typeof(v_f->'min') <> 'number' or (v_f->>'min')::numeric <> trunc((v_f->>'min')::numeric) then return 'Feld ' || (i + 1) || ': min/max müssen ganze Zahlen sein'; end if;
+      mn := (v_f->>'min')::numeric;
+    end if;
+    if v_f ? 'max' then
+      if jsonb_typeof(v_f->'max') <> 'number' or (v_f->>'max')::numeric <> trunc((v_f->>'max')::numeric) then return 'Feld ' || (i + 1) || ': min/max müssen ganze Zahlen sein'; end if;
+      mx := (v_f->>'max')::numeric;
+    end if;
+    if not (-999999 <= mn and mn <= mx and mx <= 999999) then return 'Feld ' || (i + 1) || ': min/max außerhalb der Grenzen'; end if;
+  end loop;
+  if jsonb_typeof(v_beds) is distinct from 'array' or jsonb_array_length(v_beds) not between 1 and 8 then return 'bedingungen: 1 bis 8 nötig'; end if;
+  for i in 0 .. jsonb_array_length(v_beds) - 1 loop
+    v_b := v_beds->i;
+    v_name := case when jsonb_typeof(v_b) = 'object' then nullif(v_b->>'name', '') end;
+    if v_name is null or v_name = any (v_namen) then return 'Bedingung ohne eigenen Namen'; end if;
+    v_namen := v_namen || v_name;
+    begin
+      v_r := schule.bed_baum(v_b->'pruefe', k, 1);
+      if v_r->>'t' <> 'wahr' then return v_name || ': pruefe muss wahr oder falsch liefern'; end if;
+      n := (v_r->>'n')::int;
+      if position('{}' in coalesce(v_b->>'hinweis', '')) > 0 then
+        v_r := schule.bed_baum(v_b->'zeige', k, 1);
+        if v_r->>'t' <> 'zahl' then return v_name || ': zeige muss eine Zahl liefern'; end if;
+        n := n + (v_r->>'n')::int;
+      elsif v_b ? 'zeige' then return v_name || ': zeige ohne {} im hinweis';
+      end if;
+      if n > 60 then return v_name || ': mehr als 60 Knoten'; end if;
+    exception when sqlstate 'BG003' then return v_name || ': ' || sqlerrm;
+    end;
+  end loop;
+  if jsonb_typeof(p_loesung->'beispiel') is distinct from 'array' then return 'beispiel fehlt'; end if;
+  v_r := schule.bed_bewerten(v_felder, v_beds, jsonb_build_object('werte', p_loesung->'beispiel'));
+  if not ((v_r->>'format_ok')::boolean and coalesce((v_r->>'richtig')::boolean, false)) then return 'beispiel besteht nicht'; end if;
+  return null;
+end $$;
+
+-- Zweig in schule.antwort_bewerten (Text-Patch). Drei Zustände, sonst Abbruch:
+--   fertig     = der vollständige neue Zweig steht genau einmal da und bed_bewerten kommt sonst nicht vor -> nichts tun
+--   alt        = der alte Anfang steht genau einmal da und bed_bewerten kommt nicht vor               -> einbauen
+--   Mischstand = alles andere                                                                       -> Abbruch
 do $$
-declare d text; anker constant text := E'begin\n  if p_aufgabe.antworttyp = ''luecken'' then';
+declare d text;
+  anker constant text := E'begin\n  if p_aufgabe.antworttyp = ''luecken'' then';
+  neu constant text := E'begin\n  if p_aufgabe.antworttyp = ''bedingung'' then\n    return schule.bed_bewerten(p_aufgabe.frage->''felder'', p_aufgabe.loesung->''bedingungen'', p_antwort);\n  end if;\n  if p_aufgabe.antworttyp = ''luecken'' then';
+  n_alt int; n_neu int; n_wort int;
 begin
   d := pg_get_functiondef('schule.antwort_bewerten(schule.aufgabe, jsonb)'::regprocedure);
-  if position('schule.bed_bewerten' in d) > 0 then return; end if;
-  if (length(d) - length(replace(d, anker, ''))) / length(anker) <> 1 then raise exception 'BD-S1: Anker in antwort_bewerten nicht genau einmal gefunden'; end if;
-  d := replace(d, anker, E'begin\n  if p_aufgabe.antworttyp = ''bedingung'' then\n    return schule.bed_bewerten(p_aufgabe.frage->''felder'', p_aufgabe.loesung->''bedingungen'', p_antwort);\n  end if;\n  if p_aufgabe.antworttyp = ''luecken'' then');
-  execute d;
+  n_alt := (length(d) - length(replace(d, anker, ''))) / length(anker);
+  n_neu := (length(d) - length(replace(d, neu, ''))) / length(neu);
+  n_wort := (length(d) - length(replace(d, 'bed_bewerten', ''))) / length('bed_bewerten');
+  if n_neu = 1 and n_wort = 1 and n_alt = 0 then return; end if;
+  if not (n_alt = 1 and n_wort = 0) then raise exception 'BD-S1: antwort_bewerten ist weder im alten noch im fertigen Zustand (alt %, neu %, bed_bewerten %)', n_alt, n_neu, n_wort; end if;
+  execute replace(d, anker, neu);
 end $$;
 
 revoke all on function schule.bed_bruch(numeric, numeric), schule.bed_z(jsonb), schule.bed_putzen(text), schule.bed_lesen(text, text),
-  schule.bed_deutsch(jsonb), schule.bed_wert(jsonb, jsonb), schule.bed_bewerten(jsonb, jsonb, jsonb) from public, anon, authenticated;
+  schule.bed_deutsch(jsonb), schule.bed_wert(jsonb, jsonb), schule.bed_bewerten(jsonb, jsonb, jsonb),
+  schule.bed_baum(jsonb, int, int), schule.bed_gueltig(jsonb, jsonb) from public, anon, authenticated;

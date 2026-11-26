@@ -11,6 +11,7 @@ Format und Grenzen: inhalte/plan/bedingung-format.md
 import json
 import re
 import sys
+from decimal import Decimal
 from fractions import Fraction
 from pathlib import Path
 
@@ -45,21 +46,54 @@ class ZuGross(Exception):
     """Ein Zwischenwert überschreitet die Lastgrenze: Die Eingabe wird abgewiesen, nichts wird gewertet."""
 
 
+class Kommazahl(float):
+    """JSON-Zahl mit Komma oder Exponent, gelesen mit lade_json(): rechnet überall wie float, merkt sich aber ihre Schreibweise.
+    So urteilt die Referenz exakt wie die Datenbank (1.00000000000000001 ist nicht 1), ohne dass anderer Code etwas merkt."""
+    def __new__(cls, roh):
+        o = super().__new__(cls, roh)
+        o.roh = roh
+        return o
+
+
 def ganzwert(v):
-    """JSON-Zahl mit ganzem Wert -> int, sonst None. Es zählt der Wert, nicht die Schreibweise (5, 5.0 und 5e0 sind dasselbe)."""
+    """JSON-Zahl mit ganzem Wert -> int, sonst None. Es zählt der Wert, nicht die Schreibweise (5, 5.0 und 5e0 sind dasselbe).
+    Wer Antworten oder Aufgaben aus JSON liest und exakt wie die Datenbank urteilen will, liest mit lade_json(): Dann kommen
+    Kommazahlen als Decimal an und 1.00000000000000001 wird nicht still zu 1 gerundet."""
     if isinstance(v, bool):
         return None
     if isinstance(v, int):
         return v
+    if isinstance(v, Kommazahl):
+        v = Decimal(v.roh)
+    if isinstance(v, Decimal):
+        return int(v) if v.is_finite() and v == v.to_integral_value() else None
     if isinstance(v, float) and v == v and abs(v) != float('inf') and v.is_integer():
         return int(v)
     return None
 
 
+def lade_json(text):
+    """JSON lesen wie die Datenbank: Zahlen mit Komma oder Exponent behalten ihre Schreibweise (Kommazahl)."""
+    return json.loads(text, parse_float=Kommazahl)
+
+
+def schreibe_json(v):
+    """JSON schreiben ohne Verlust: Kommazahl und Decimal in ihrer Schreibweise. Für die Weitergabe an die Datenbank."""
+    if isinstance(v, dict):
+        return '{' + ','.join(json.dumps(str(k), ensure_ascii=False) + ':' + schreibe_json(x) for k, x in v.items()) + '}'
+    if isinstance(v, (list, tuple)):
+        return '[' + ','.join(schreibe_json(x) for x in v) + ']'
+    if isinstance(v, Kommazahl):
+        return v.roh
+    if isinstance(v, Decimal):
+        return str(v)
+    return json.dumps(v, ensure_ascii=False)
+
+
 def eingabe(roh, art):
     """Liest ein Antwortfeld oder eine Konstante. Rückgabe Fraction oder None (Format falsch).
     Erlaubt sind Text und JSON-Zahlen mit ganzem Wert; alles andere (Wahrheitswert, Liste, Kommazahl als JSON-Zahl) ist Format falsch."""
-    if isinstance(roh, (int, float)) and not isinstance(roh, bool):
+    if isinstance(roh, (int, float, Decimal)) and not isinstance(roh, bool):
         g = ganzwert(roh)
         if g is None:
             return None
@@ -185,7 +219,7 @@ TYP.update({n: ('wahr', 'wahr') for n in ('und', 'oder', 'nicht')})
 
 def typ(baum):
     """Typ eines (schon von knoten() geprüften) Baums. ValueError, wenn ein Operand den falschen Typ hat – in jedem Ast."""
-    if isinstance(baum, (int, float)):
+    if isinstance(baum, (int, float, Decimal)):
         return 'zahl'
     if isinstance(baum, str):
         return 'liste' if baum == '$alle' else 'zahl'
@@ -209,7 +243,7 @@ def knoten(baum, tiefe=1, felder=MAX_FELDER):
         raise ValueError('Baum zu tief')
     if isinstance(baum, bool):
         raise ValueError('Wahrheitswerte stehen nicht als Konstante im Baum')
-    if isinstance(baum, (int, float)):
+    if isinstance(baum, (int, float, Decimal)):
         g = ganzwert(baum)
         if g is None or abs(g) > FELD_MAX:
             raise ValueError('Konstante muss eine ganze Zahl bis 999 999 sein')
@@ -233,7 +267,7 @@ def knoten(baum, tiefe=1, felder=MAX_FELDER):
 
 def wert(baum, werte):
     """Rechnet einen Baum mit den Feldwerten aus. Ergebnis Fraction, bool oder Liste."""
-    if isinstance(baum, (int, float)):
+    if isinstance(baum, (int, float, Decimal)):
         return Fraction(ganzwert(baum))
     if isinstance(baum, str):
         if baum == '$alle':
@@ -264,7 +298,10 @@ def bewerte(aufgabe, antwort):
         return {'format_ok': False, 'hinweis': 'Bitte fülle alle Felder aus.'}
     werte = []
     for r, feld in zip(roh, felder):
-        if r is None or (isinstance(r, str) and putzen(r) == ''):
+        if r is None:
+            return {'format_ok': False, 'hinweis': 'Bitte fülle alle Felder aus.'}
+        # Länge zuerst: Ein Text über 40 Zeichen wird gar nicht erst geputzt (auch 41 Leerzeichen sind „Format falsch“, nicht „leer“).
+        if isinstance(r, str) and len(r) <= MAX_ROH and putzen(r) == '':
             return {'format_ok': False, 'hinweis': 'Bitte fülle alle Felder aus.'}
         w = eingabe(r, feld['art'])
         if w is None:
@@ -320,10 +357,13 @@ def pruefe_aufgabe(a, nur_form=False):
     namen = set()
     for b in beds:
         name = b.get('name') if isinstance(b, dict) else None
-        if not name or name in namen:
-            fehler.append(f'Bedingung ohne eigenen Namen: {name!r}')
+        if not isinstance(name, str) or not name or name in namen:
+            fehler.append(f'Bedingung ohne eigenen Namen (nichtleerer Text): {str(name)[:40]!r}')
             continue
         namen.add(name)
+        if 'hinweis' in b and not isinstance(b['hinweis'], str):
+            fehler.append(f'{name}: hinweis muss Text sein')
+            continue
         try:
             n = knoten(b.get('pruefe'), 1, len(felder))
             if typ(b.get('pruefe')) != 'wahr':
@@ -373,7 +413,7 @@ def pruefe_aufgabe(a, nur_form=False):
 
 def haupt():
     datei = Path(__file__).resolve().parent / 'tests' / 'bedingung_faelle.json'
-    daten = json.loads(datei.read_text(encoding='utf-8'))
+    daten = lade_json(datei.read_text(encoding='utf-8'))
     fehler, n = [], 0
     for a in daten['aufgaben']:
         for f in pruefe_aufgabe(a):

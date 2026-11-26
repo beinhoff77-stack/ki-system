@@ -81,7 +81,7 @@ def pruefe(pfad):
     F = lambda m: fehler.append(m)
     W = lambda m: warn.append(m)
     try:
-        d = json.loads(Path(pfad).read_text(encoding='utf-8'))
+        d = bedingung.lade_json(Path(pfad).read_text(encoding='utf-8'))   # exakt: Kommazahlen behalten ihre Schreibweise
     except Exception as e:  # noqa: BLE001
         return [f'JSON nicht lesbar: {e}'], [], {}
 
@@ -354,7 +354,7 @@ def pruefe_antwort(wo, a, F, W):
 def pruefe_expedition(pfad):
     fehler, warn = [], []
     F, W = fehler.append, warn.append
-    try: d = json.loads(Path(pfad).read_text(encoding='utf-8'))
+    try: d = bedingung.lade_json(Path(pfad).read_text(encoding='utf-8'))
     except Exception as e: return [f'JSON nicht lesbar: {e}'], [], {}  # noqa: BLE001
     for k in EXP_FELDER:
         if k not in d: F(f'Feld "{k}" fehlt')

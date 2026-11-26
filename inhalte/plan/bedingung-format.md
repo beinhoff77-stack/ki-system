@@ -9,7 +9,7 @@ Aufgaben mit vielen richtigen Antworten: „Nenne drei verschiedene ganze Zahlen
 
 ```json
 {"y": "bedingung",
- "f": {"text": "…", "felder": [{"art": "ganz"}, {"art": "ganz", "min": -100, "max": 100}]},
+ "f": {"text": "…", "felder": [{"art": "ganz"}, {"art": "ganz"}, {"art": "ganz", "min": -100, "max": 100}]},
  "o": {"bedingungen": [
         {"name": "Summe ist 0", "pruefe": ["=", ["summe", "$alle"], 0],
          "zeige": ["summe", "$alle"], "hinweis": "Deine Summe ist {}."}],
@@ -19,7 +19,7 @@ Aufgaben mit vielen richtigen Antworten: „Nenne drei verschiedene ganze Zahlen
 ```
 
 - **Felder:** 1 bis 6. Art `ganz` oder `rational`. `min`/`max` je Feld, **nur ganze Zahlen**, sonst −999 999 bis 999 999.
-- **Bedingungen:** 1 bis 8, jede mit eigenem `name`. Geprüft wird der Reihe nach; die erste verletzte bestimmt die Rückmeldung. `hinweis` ist frei; steht `{}` darin, muss `zeige` angeben, welche Zahl eingesetzt wird.
+- **Bedingungen:** 1 bis 8, jede mit eigenem `name` (nichtleerer Text); `hinweis`, wenn vorhanden, ist Text. Geprüft wird der Reihe nach; die erste verletzte bestimmt die Rückmeldung. `hinweis` ist frei; steht `{}` darin, muss `zeige` angeben, welche Zahl eingesetzt wird.
 - **`beispiel`** (Pflicht): eine richtige Antwort. Sie ist das Einzige aus der Lösung, das das Kind am Ende sieht („Zum Beispiel: …“).
 - **`gut`** (freiwillig): weitere richtige Antworten als Probe.
 - **`gegenbeispiele`** (Pflicht): zu jeder Bedingung mindestens eine falsche Antwort, die genau an ihr scheitert.
@@ -42,7 +42,7 @@ Gerechnet wird exakt mit Brüchen. `pruefe` muss wahr oder falsch liefern.
 ## Festlegungen nach der Gegenprüfung
 1. **Was das Kind erfährt.** Nach einem Fehlversuch: Name der verletzten Bedingung und Hinweis. Nach der endgültigen Antwort zusätzlich `beispiel` und die Namen aller Bedingungen. **Die Prüf-Bäume verlassen den Server nie**, auch nicht bei wiederholter Übertragung, Bonus oder Rückblick. Im laufenden Test: nur „Format in Ordnung“ oder nicht.
 2. **Versionen.** Felder, Bedingungen und Beispiel einer freigegebenen Aufgabe werden nicht geändert. Eine inhaltliche Änderung ist eine neue Aufgabe mit neuer Kennung; alte Versuche bleiben so bewertet, wie sie waren.
-3. **Grenzen gegen Überlast.** Höchstens 6 Felder, 8 Bedingungen, 60 Knoten je Bedingung (Prüfung und Anzeige zusammen), Tiefe 8, Exponent zwischen −6 und 6, jeder Zwischenwert höchstens 10³⁰ in Zähler und Nenner. Eingabe je Feld höchstens 14 Zeichen. Wird ein Zwischenwert zu groß, wird die Eingabe abgewiesen („Nimm kleinere Zahlen“), nicht als falsch gewertet. **Noch nicht gemessen:** Laufzeit der teuersten zulässigen Aufgabe in der Datenbank.
+3. **Grenzen gegen Überlast.** Höchstens 6 Felder, 8 Bedingungen, 60 Knoten je Bedingung (Prüfung und Anzeige zusammen), Tiefe 8, Exponent zwischen −6 und 6, jeder Zwischenwert höchstens 10³⁰ in Zähler und Nenner. Eingabe je Feld höchstens 14 Zeichen. Wird ein Zwischenwert zu groß, wird die Eingabe abgewiesen („Nimm kleinere Zahlen“), nicht als falsch gewertet. Gemessen: 9 ms je Bewertung im Fall mit den meisten Knoten (480 Knoten, Mittel aus 200 Bewertungen). Das ist nicht zwingend der teuerste Fall überhaupt; große Brüche, Potenzen und Ausnahmewege werden beim Einspielen zusätzlich gemessen.
 4. **Nicht definiert.** Division durch null und unerlaubter Exponent machen die Bedingung falsch (kein Absturz). Deshalb gehört „Term ist definiert“ als eigene Bedingung davor.
 5. **Doppelte Übertragung** wird als eigene, getrennt prüfbare Änderung behandelt (nicht Teil dieses Formats).
 6. **Sitzungsbezug.** Für freies Üben genügt die heutige Prüfung (Aufgabe gehört zu einer für das Kind sichtbaren Einheit). Keine allgemeine Ausgabe-Tabelle in Schritt 2.
@@ -59,12 +59,18 @@ Gerechnet wird exakt mit Brüchen. `pruefe` muss wahr oder falsch liefern.
 
 **Laufzeit:** teuerste zulässige Aufgabe (6 Felder, 8 Bedingungen mit je 60 Knoten, alle durchlaufen, Hinweis am Ende): **9 ms je Bewertung** (Mittel aus 200 Läufen, eine Messung).
 
-**Noch nicht geprüft – geht nur mit der echten Migration, also erst beim Einspielen oder in einer Kopie der Datenbank:**
-- die vollständige Migration zweimal hintereinander; Abbruch bei Mischstand;
-- der Zweig in `schule.antwort_bewerten` mit einem gebauten Aufgaben-Datensatz; unveränderte Ergebnisse der fünf alten Antworttypen;
-- die Rechte der App-Rollen; der weiter geschlossene Constraint.
-Im kurzen Lauf weggelassen (gleiche Operationen wie andere): vier Muster-Aufgaben und 19 der 20 neuen Aufgaben des Mathe-Profis; der Lauf „alles“ ist vorbereitet, aber zu groß für einen Aufruf über das Werkzeug.
-Eine Zahl in Exponentialschreibweise als JSON-Zahl lässt sich in der Datenbank nicht von der ausgeschriebenen unterscheiden; deshalb zählt auf beiden Seiten der Wert.
+**Dritte Gegenprüfung (Werkstatt, Nachricht 1007): bedingte Freigabe für Teil 1.** Bedingung: Einspielen in einer Sitzung und einer Transaktion, die sich selbst prüft; bei jeder Abweichung Rollback. Dafür gibt es `tools/tests/bedingung_einspielen.py`. Das Paket hält den Vorher-Stand fest, führt die Migration zweimal aus und prüft: zweiter Lauf ändert nichts; drei Mischstände werden abgewiesen, die Gegenprobe gelingt; der Zweig in `schule.antwort_bewerten` liefert für alle Prüf-Fälle dieselben Prüfsummen wie die Referenz; die fünf alten Antworttypen liefern für bis zu 500 echte gespeicherte Antworten je Typ und für gebaute Fehl-Eingaben dasselbe wie vorher; Rechte; Constraint unverändert und zu; Laufzeit in zwei Fällen. Nachgemessen (harmlos): Mehrere Befehle in einem Aufruf des Werkzeugs laufen als eine Transaktion.
+
+**Seine vier Restpunkte, eingearbeitet am 27.11. (nach seiner Prüfung, von ihm noch nicht gesehen):** Längengrenze greift vor dem Putzen (41 Leerzeichen sind „Format falsch“, 40 sind „leer“); `name` muss nichtleerer Text sein, `hinweis` Text; die Referenz kann JSON exakt lesen (`lade_json`, Kommazahlen als Decimal), damit 1,00000000000000001 nicht still zu 1 wird; Dokument berichtigt, zweite Zeitmessung mit großen Brüchen im Paket.
+
+**Vierte Gegenprüfung (Werkstatt, Nachricht 1009): „Nein“ zum Paket, drei fehlende Prüfungen – eingearbeitet am 27.11.:**
+- Sperre: Probe jetzt per Einfügen (vor Änderungen steht ein Schutz-Trigger); jeder andere Ausgang als der Abbruch an `aufgabe_antworttyp_check` ist ein Fehler.
+- Rechte in beide Richtungen: Der Bewertungsweg wird im Kontext der Eigentümer der SECURITY-DEFINER-Einstiege (Schema `api`) wirklich ausgeführt und muss „richtig“ liefern; jede App-Rolle wird wirklich angenommen, der direkte Aufruf muss an fehlendem Recht scheitern.
+- Altvergleich: je Typ zusätzlich gebaute richtige und falsche Antworten für 40 Aufgaben; das Paket bricht ab, wenn bei einem Typ richtig, falsch oder Formatfehler fehlt.
+- Exakter Leseweg durchgängig: `lade_json` (Kommazahlen behalten ihre Schreibweise, rechnen sonst wie bisher), `schreibe_json` für die verlustfreie Weitergabe; auch `tools/inhalt_pruefen.py` und der Vergleichstest lesen so. Regressionsfall 1.00000000000000001 in den Prüf-Fällen.
+- Dritter Messfall mit Potenzen, Divisionen, Betrag und dem Weg „nicht definiert“ in Prüfung und Hinweis.
+
+**Stand der Prüfung dieser letzten Änderungen:** nur gegen die Python-Referenz („OK – 17 Aufgaben, 178 Prüfungen“). Der Vergleich mit der Datenbank für genau diesen Stand findet im Einspiel-Paket statt, vor dem Gültigwerden. Der frühere Vergleich (6 200 Antworten) galt dem Stand davor.
 
 **Offen aus dem Gegenlesen des Mathe-Profis:** In der Muster-Aufgabe 6-K8-1 verraten die Namen der Bedingungen den Lösungsgedanken; Namen werden nach dem ersten Fehlversuch gezeigt. Regel für Autoren: Der Name nennt die Forderung aus dem Aufgabentext, nicht den Weg.
 

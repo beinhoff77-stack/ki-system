@@ -310,7 +310,7 @@ function lernKnobel(ziel, a, ctx, { ortCode = '', zurueck, titel = 'KNOBEL-BORDK
   const auf = lernAufgabe(a, null, { tasten: false }); const cid = lernCid();
   const meldung = el('div', { role: 'status', 'aria-live': 'polite' });
   const hilfeBox = el('div', { class: 'lr-hilfebox' });
-  const tipp = a.tipp ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { tipp.remove(); lernAnhaengen(hilfeBox, el('p', { class: 'lr-tipp' }, el('b', {}, 'Tipp: '), lernText(a.tipp))); } }, 'Tipp') : null;
+  const tipp = a.tipp ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { tipp.remove(); lernAnhaengen(hilfeBox, el('p', { class: 'lr-tipp' }, el('b', {}, 'Tipp: '), lernMathe(a.tipp))); } }, 'Tipp') : null;
   const pruefen = el('button', { type: 'button', class: 'lr-knopf' }, 'Prüfen');
   const weiter = zurueck ? el('button', { type: 'button', class: 'lr-knopf-zweit lr-knobel-zurueck', onclick: zurueck }, zurueckText) : null;
   pruefen.addEventListener('click', async () => {
@@ -324,10 +324,10 @@ function lernKnobel(ziel, a, ctx, { ortCode = '', zurueck, titel = 'KNOBEL-BORDK
       auf.zeigeLoesung?.(r.loesung); pruefen.remove(); tipp?.remove(); nachPruefen?.(weiter);
       lernErsetze(meldung, r.richtig
         ? el('div', { class: 'lr-rueck lr-rueck-ok lr-knobel-ok' }, el('b', {}, '★ Geknackt!'), r.sterne ? el('p', { class: 'lr-sterne-neu' }, `+${r.sterne} Sterne · ein Knobel-Stern`) : null,
-          r.knobel_sterne ? el('p', { class: 'lr-leise' }, `Knobel-Sterne: ${r.knobel_sterne}`) : null, r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null,
+          r.knobel_sterne ? el('p', { class: 'lr-leise' }, `Knobel-Sterne: ${r.knobel_sterne}`) : null, r.loesungsweg ? el('p', {}, lernMathe(r.loesungsweg)) : null,
           a.versuche === 1 ? lernJwPlatz(ctx.kind, 'knobel_richtig', 'box') : null) // JW: im ersten Versuch richtig → Staunen
-        : el('div', { class: 'lr-rueck lr-knobel-falsch' }, el('b', {}, 'Diesmal nicht – das war eine harte Nuss.'), el('p', {}, 'Richtig ist: ' + lernLoesungText({ ...a, loesung: r.loesung })),
-          r.loesungsweg ? el('p', {}, el('b', {}, 'So geht’s: '), lernText(r.loesungsweg)) : null, el('p', { class: 'lr-leise' }, 'Knobeln kostet nichts – dein Stand bleibt.')));
+        : el('div', { class: 'lr-rueck lr-knobel-falsch' }, el('b', {}, 'Diesmal nicht – das war eine harte Nuss.'), el('p', {}, 'Richtig ist: ', lernMathe(lernLoesungText({ ...a, loesung: r.loesung }))),
+          r.loesungsweg ? el('p', {}, el('b', {}, 'So geht’s: '), lernMathe(r.loesungsweg)) : null, el('p', { class: 'lr-leise' }, 'Knobeln kostet nichts – dein Stand bleibt.')));
     } catch (err) { if (lernGesperrt(err)) { if (zurueck) zurueck(); else render(); return; } lernErsetze(meldung, el('p', { class: 'err-text' }, err.message)); pruefen.disabled = false; }
   });
   lernErsetze(ziel, el('section', { class: 'lr-karte-box lr-aufgabe lr-bordkarte lr-knobel' },
@@ -603,8 +603,8 @@ async function viewExpedition(arg) {
   const erledigtZeile = (t) => el('div', { class: 'lr-exp-teil erledigt' },
     el('p', { class: 'lr-ueber' }, `TEIL ${String(t.k || '').toUpperCase()}`, t.richtig_erst ? ' ✓' : ''),
     el('p', {}, ...lernMarkiert(t.frage?.text || '')),
-    t.loesung ? el('p', {}, el('b', {}, 'Lösung: '), lernLoesungText(t)) : null,
-    t.loesungsweg ? el('p', { class: 'lr-leise' }, lernText(t.loesungsweg)) : null);
+    t.loesung ? el('p', {}, el('b', {}, 'Lösung: '), lernMathe(lernLoesungText(t))) : null,
+    t.loesungsweg ? el('p', { class: 'lr-leise' }, lernMathe(t.loesungsweg)) : null);
   // Ansicht 3 einmal je Kind und Expedition: Sterne und „fehlerfrei“ aus dem Server (schule_konto), sonst aus der Antwort des letzten Teils
   const abschluss = async () => {
     let xs = x, dd = d;
@@ -628,7 +628,7 @@ async function viewExpedition(arg) {
     const t = teile[i]; const auf = lernAufgabe(t, null, { tasten: false }); const cid = lernCid();
     let anlauf = 1, hilfe = 0; const zweiteChance = !(t.antworttyp === 'auswahl' && (t.antworten || []).length <= 2);
     const meldung = el('div', { role: 'status', 'aria-live': 'polite' }); const hilfeBox = el('div', { class: 'lr-hilfebox' });
-    const tipp = t.tipp ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { hilfe = 1; tipp.remove(); lernAnhaengen(hilfeBox, el('p', { class: 'lr-tipp' }, el('b', {}, 'Tipp: '), lernText(t.tipp))); } }, 'Tipp') : null;
+    const tipp = t.tipp ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { hilfe = 1; tipp.remove(); lernAnhaengen(hilfeBox, el('p', { class: 'lr-tipp' }, el('b', {}, 'Tipp: '), lernMathe(t.tipp))); } }, 'Tipp') : null;
     const pruefen = el('button', { type: 'button', class: 'lr-knopf' }, 'Prüfen');
     pruefen.addEventListener('click', async () => {
       const w = auf.antwort();
@@ -645,8 +645,8 @@ async function viewExpedition(arg) {
         const naechster = (x.teile || []).find((y) => !y.erledigt);
         lernErsetze(meldung, el('div', { class: 'lr-rueck' + (r.richtig ? ' lr-rueck-ok' : '') },
           el('b', {}, r.richtig ? 'Richtig!' : 'Diesmal nicht – so geht’s:'),
-          !r.richtig ? el('p', {}, 'Richtig ist: ' + lernLoesungText(t)) : null,
-          r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null,
+          !r.richtig ? el('p', {}, 'Richtig ist: ', lernMathe(lernLoesungText(t))) : null,
+          r.loesungsweg ? el('p', {}, lernMathe(r.loesungsweg)) : null,
           !r.richtig ? el('p', { class: 'lr-leise' }, 'Keine Abzüge – im nächsten Teil geht es mit den richtigen Zahlen weiter.') : null,
           el('button', { type: 'button', class: 'lr-knopf', onclick: () => { zeichne(); window.scrollTo?.(0, 0); if (!naechster) abschluss(); } }, naechster ? `Weiter mit Teil ${String(naechster.k || '').toUpperCase()} ›` : 'Zum Abschluss ›')));
       } catch (err) { if (lernGesperrt(err)) { render(); return; } lernErsetze(meldung, el('p', { class: 'err-text' }, err.message)); pruefen.disabled = false; }
@@ -2740,7 +2740,7 @@ function lernVorlageFuellen(schablone, werte) {
 function lernAufgabe(a, vorher, opts = {}) {
   const f = a.frage || {};
   let wert = vorher ?? null; let fehler = null; let stellenTipp = null, stellenNeu = null; const optionen = [];
-  const teile = [el('p', { class: 'lern-frage' }, lernText(f.text))];
+  const teile = [el('p', { class: 'lern-frage' }, lernMathe(f.text))];
   if (f.hinweis && a.antworttyp !== 'luecken') teile.push(el('p', { class: 'small muted' }, f.hinweis));
   const felder = [];
   if (a.antworttyp === 'markierung') {
@@ -2755,7 +2755,7 @@ function lernAufgabe(a, vorher, opts = {}) {
       if (wert?.index === i) inp.checked = true;
       inp.addEventListener('change', () => { wert = { index: i }; });
       felder.push(inp);
-      const lab = el('label', { class: 'lern-option' }, inp, el('span', {}, t)); optionen.push(lab); return lab;
+      const lab = el('label', { class: 'lern-option' }, inp, el('span', {}, lernMathe(t))); optionen.push(lab); return lab;
     })));
   } else if (a.antworttyp === 'zahl' || a.antworttyp === 'text') {
     const inp = el('input', { type: 'text', autocomplete: 'off', autocapitalize: a.antworttyp === 'text' ? 'characters' : 'off',
@@ -2930,17 +2930,61 @@ function lernAntwortText(a, w) {
 // Text mit ⟦markierten⟧ Stellen als Knoten (markierte Teile hervorgehoben).
 // Zusätzlich (Vorgabe Erklärungen 16.11.): Brüche a/b gestapelt; mit wctx werden neue Wörter beim ersten Vorkommen antippbar.
 const LERN_BUCHST = 'A-Za-zÄÖÜäöüß';
-function lernBruchKnoten(s) {
-  const out = []; let last = 0; let m;
-  const re = new RegExp(`(?<![\\d/.,:${LERN_BUCHST}])(\\d{1,3})/(\\d{1,3})(?![\\d/${LERN_BUCHST}]|[.,:]\\d)`, 'g'); // nicht: Daten, Uhrzeiten, km/h, Adressen
-  while ((m = re.exec(s))) {
-    if (m.index > last) out.push(lernText(s.slice(last, m.index)));
-    out.push(el('span', { class: 'lern-bruch-text', role: 'img', 'aria-label': `${m[1]} durch ${m[2]}` }, el('span', {}, m[1]), el('span', {}, m[2])));
-    last = re.lastIndex;
+// Brüche im Fließtext erkennen (Wunsch eines Kindes, 27.11.: „als normalen Bruch darstellen, nicht 3/4“).
+// Ergebnis: Liste aus Textstücken und { z, n } (Zähler, Nenner als Text). Reine Textfunktion, ohne Bildschirm prüfbar.
+// Erkannt: 3/4 · 2,5/3 · x/2 · 2x/27 · 11π/6 · 1/b² · 1/√2 · (x + 1)/(x − 2) · 1/(2x) – die Klammern fallen weg, der Bruchstrich fasst zusammen.
+// Nicht erkannt (bleibt Text): km/h, m/s, ja/nein, und/oder · Daten und Ketten wie 3/4/2026, 68/95/99,7 · Hochzahlen wie x^(1/2) ·
+// f(x)/2, √(…)/2, 2(x + 1)/3 (Zähler nicht eindeutig) · 1/2x (zweideutig) · x/y-Ebene.
+const LERN_EINHEIT = new Set(['m', 'km', 'cm', 'mm', 'dm', 's', 'h', 'g', 'l']);
+const LERN_BRUCH_TERM = '(?:\\d{1,4}(?:,\\d{1,3})?)?(?:√\\d{1,4}|[a-zA-Zα-ω])?[²³⁴⁵⁶⁷⁸⁹ⁿ]?°?';
+const LERN_BRUCH_LINKS = new RegExp(`(${LERN_BRUCH_TERM})$`);
+const LERN_BRUCH_RECHTS = new RegExp(`^(${LERN_BRUCH_TERM})`);
+function lernBruchTeile(text) {
+  const s = String(text ?? ''); const aus = []; let last = 0;
+  const klammerOk = (t) => t.length > 0 && t.length <= 30 && !/[/()]/.test(t) && !new RegExp(`[${LERN_BUCHST}]{3,}`).test(t);
+  const kern = (t) => /[\dA-Za-zα-ω√]/.test(t);
+  for (let i = s.indexOf('/'); i !== -1; i = s.indexOf('/', i + 1)) {
+    if (i < last || i === 0) continue;
+    let a0; let z;
+    if (s[i - 1] === ')') {
+      const p = s.lastIndexOf('(', i - 1); if (p < last) continue;
+      z = s.slice(p + 1, i - 1); a0 = p;
+      if (!klammerOk(z) || (p > 0 && new RegExp(`[\\d${LERN_BUCHST}α-ω√^⁻¹²³⁴⁵⁶⁷⁸⁹ⁿ]`).test(s[p - 1]))) continue; // f(x)/2, √(…)/2, 2(x+1)/3
+    } else {
+      const m = LERN_BRUCH_LINKS.exec(s.slice(Math.max(last, i - 14), i)); if (!m || !kern(m[1])) continue;
+      z = m[1]; a0 = i - z.length;
+      if (a0 > 0 && new RegExp(`[\\d/.,:${LERN_BUCHST}α-ω√²³⁴⁵⁶⁷⁸⁹ⁿ°]`).test(s[a0 - 1])) continue; // km/h, 3/4/2026, 1.5/2
+    }
+    const davor = s.slice(Math.max(0, a0 - 3), a0);
+    if (/\^\($/.test(davor) || /\^\([−-]$/.test(davor)) continue; // Hochzahl x^(1/2) bleibt, wie sie ist
+    let b1; let n;
+    if (s[i + 1] === '(') {
+      const q = s.indexOf(')', i + 2); if (q === -1) continue;
+      n = s.slice(i + 2, q); b1 = q + 1;
+      if (!klammerOk(n) || /[²³⁴⁵⁶⁷⁸⁹ⁿ^]/.test(s[b1] || '')) continue;
+    } else {
+      const m = LERN_BRUCH_RECHTS.exec(s.slice(i + 1, i + 15)); if (!m || !kern(m[1])) continue;
+      n = m[1]; b1 = i + 1 + n.length;
+      if (/^\d.*[a-zA-Zα-ω]/.test(n)) continue; // 1/2x ist zweideutig (½ · x oder 1 durch 2x): bleibt Text; eindeutig ist 1/(2x)
+      const nach = s.slice(b1, b1 + 2);
+      if (new RegExp(`^[\\d/(√α-ω${LERN_BUCHST}]`).test(nach) || /^[.,:]\d/.test(nach) || new RegExp(`^-[${LERN_BUCHST}]`).test(nach)) continue; // 3/4/2026, 1/2x, x/y-Ebene
+    }
+    if (LERN_EINHEIT.has(z) && LERN_EINHEIT.has(n)) continue; // m/s, g/l
+    let vor = s.slice(last, a0);
+    if (/^\d+$/.test(z) && /^\d+$/.test(n) && Number(z) < Number(n)) vor = vor.replace(/(^|[^\d,.])(\d{1,3}) $/, '$1$2 '); // gemischte Zahl 1 1/4: nicht umbrechen
+    if (vor) aus.push(vor);
+    aus.push({ z, n });
+    last = b1;
   }
-  if (last < s.length) out.push(lernText(s.slice(last)));
-  return out;
+  if (last < s.length) aus.push(s.slice(last));
+  return aus;
 }
+function lernBruchKnoten(s) {
+  return lernBruchTeile(s).map((t) => (typeof t === 'string' ? lernText(t)
+    : el('span', { class: 'lern-bruch-text', role: 'img', 'aria-label': `${t.z} durch ${t.n}` }, el('span', {}, lernText(t.z)), el('span', {}, lernText(t.n)))));
+}
+// Aufgabentext, Tipp, Lösung, Lösungsweg: Text mit gestapelten Brüchen (Liste von Knoten; el() und lernAnhaengen() nehmen Listen an).
+const lernMathe = (t) => lernBruchKnoten(String(t ?? ''));
 function lernWortListe(woerter) {
   const esc = (x) => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   return (woerter || []).filter((w) => Array.isArray(w) && w[0] && w[1]).map(([wort, text]) => {
@@ -3255,8 +3299,8 @@ function lernBaum(b) {
 }
 function lernTabelle(b) {
   return el('table', { class: 'lr-tafel' },
-    b.kopf ? el('thead', {}, el('tr', {}, ...b.kopf.map((k) => el('th', {}, lernText(k))))) : null,
-    el('tbody', {}, ...(b.zeilen || []).map((z, r) => el('tr', {}, ...z.map((c, i) => el(i === 0 && b.erste_spalte_kopf !== false ? 'th' : 'td', b._neu?.zellen?.has(`${r},${i}`) ? { class: 'neu' } : {}, lernText(c)))))));
+    b.kopf ? el('thead', {}, el('tr', {}, ...b.kopf.map((k) => el('th', {}, lernMathe(k))))) : null,
+    el('tbody', {}, ...(b.zeilen || []).map((z, r) => el('tr', {}, ...z.map((c, i) => el(i === 0 && b.erste_spalte_kopf !== false ? 'th' : 'td', b._neu?.zellen?.has(`${r},${i}`) ? { class: 'neu' } : {}, lernMathe(c)))))));
 }
 // Erklärung einer Etappe: Regel, vorgerechnetes Beispiel Schritt für Schritt, Probe, typischer Fehler.
 function lernSchrittBild(zustand, b) {
@@ -3324,7 +3368,7 @@ function lernErklaerung(e, { kurz = false, kurzGesagt = false } = {}) {
   const probe = e.probe ? el('p', { class: 'lr-probe' }, 'Probe: ', ...M(e.probe)) : null;
   const merke = e.regel ? el('div', { class: 'lr-merke' }, el('p', { class: 'lr-ueber' }, 'MERKE'), el('p', { class: 'lr-regel' }, ...M(e.regel))) : null;
   return el('div', { class: 'lr-erklaert lr-erklaert-klar' },
-    kurzGesagt && e.regel ? el('p', { class: 'lr-kurzgesagt' }, el('b', {}, 'Kurz gesagt: '), lernText(lernKurzGesagt(e.regel))) : null,
+    kurzGesagt && e.regel ? el('p', { class: 'lr-kurzgesagt' }, el('b', {}, 'Kurz gesagt: '), lernMathe(lernKurzGesagt(e.regel))) : null,
     // M7: Ergänzt Schritt 1 das Kartenbild, steht das Bild nur dort (sonst zweimal fast dasselbe Bild direkt hintereinander)
     einstieg, e.bild && li[0]?.classList.contains('mit-bild') ? null : lernBild(e.bild),
     li.length ? el('div', { class: 'lr-sogehts' }, el('p', { class: 'lr-ueber' }, 'BEISPIEL – SCHRITT FÜR SCHRITT'), el('ol', {}, ...li)) : null,
@@ -3886,7 +3930,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
         el('div', { class: 'lr-kacheln' }, ...b.karten.map((k) => el('button', { type: 'button', class: 'lr-karte-box lr-kachel' + (k === empfohlen() ? ' jetzt' : ''),
           onclick: () => { offeneKarte = k; adresse(k, true); zeichneErklaeren(); window.scrollTo(0, 0); } },
           el('span', { class: 'lr-kachel-kopf' }, el('b', {}, `${k.nr} · ${k.titel}`), el('span', { class: 'lr-lk-status' }, lernPunkte(k), el('small', {}, lernKartenStatus(k)))),
-          k.regel ? el('span', { class: 'lr-kachel-kurz' }, el('small', {}, 'Kurz gesagt: '), lernText(lernKurzGesagt(k.regel))) : null))))),
+          k.regel ? el('span', { class: 'lr-kachel-kurz' }, el('small', {}, 'Kurz gesagt: '), lernMathe(lernKurzGesagt(k.regel))) : null))))),
         lernTestTeil(ctx, etappen),
         ctx.leitung ? lernAendern({ einheit_id: ctx.einheit, lernender_id: ctx.kind }, { bezug: 'flug', wo: `Flug „${ctx.titelKurz}“` }) : null);
       return;
@@ -3911,7 +3955,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
       el('h3', {}, `${e.nr} · ${ctx.stadtVon?.(e) ? ctx.stadtVon?.(e) + ' · ' : ''}${e.titel}`), el('div', { class: 'lr-fehler' }, el('b', {}, 'Achtung: '), ...lernMarkiert(e.fehler)),
       el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { offeneKarte = e; zeichneErklaeren(); zeige('erklaeren'); adresse(e, false); } }, 'Erklärung ansehen'))) : [el('p', { class: 'lr-leise' }, 'Für diesen Flug sind noch keine typischen Fehler eingetragen.')]),
     versucht.length ? el('section', { class: 'lr-karte-box' }, el('h3', {}, `Hat bei dir noch nicht geklappt (${versucht.length})`),
-      el('ul', { class: 'lr-meinefehler' }, ...versucht.slice(0, 8).map(({ e, a }) => el('li', {}, el('span', {}, lernText(a.frage?.text || '')),
+      el('ul', { class: 'lr-meinefehler' }, ...versucht.slice(0, 8).map(({ e, a }) => el('li', {}, el('span', {}, lernMathe(a.frage?.text || '')),
         el('button', { type: 'button', class: 'lr-knopf-zweit lr-knopf-klein', onclick: () => zeige('ueben', { karte: e }) }, 'Üben'))))) : null);
 
   // --- Üben: eine Lernkarte, Aufgaben nacheinander; Erklärung klappt an der Aufgabe auf
@@ -4015,7 +4059,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
       let anlauf = 1; const zweiteChance = !(a.antworttyp === 'auswahl' && (a.antworten || []).length <= 2);
       const meldung = el('div', { role: 'status', 'aria-live': 'polite' });
       const hilfeBox = el('div', { class: 'lr-hilfebox' });
-      const tipp = a.tipp ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { hilfe = 1; tipp.remove(); lernAnhaengen(hilfeBox, el('p', { class: 'lr-tipp' }, el('b', {}, 'Tipp: '), lernText(a.tipp), el('small', {}, ' (zählt nicht als eigene Lösung; unterbricht deine Folge nicht)'))); } }, 'Tipp') : null;
+      const tipp = a.tipp ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { hilfe = 1; tipp.remove(); lernAnhaengen(hilfeBox, el('p', { class: 'lr-tipp' }, el('b', {}, 'Tipp: '), lernMathe(a.tipp), el('small', {}, ' (zählt nicht als eigene Lösung; unterbricht deine Folge nicht)'))); } }, 'Tipp') : null;
       // Vorgabe 16.11.: Beim Üben steht nur die Aufgabe. Darüber ein gut sichtbarer Link „Erklärung ansehen“ (am Rechner klappt sie links daneben auf).
       const breit = neu && !!e.regel && !!window.matchMedia?.('(min-width: 900px)').matches;
       const erkl = e.regel && !a.misch ? el('button', { type: 'button', class: 'lr-erkl-link', 'aria-expanded': 'false', onclick: () => {
@@ -4040,7 +4084,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
           if (r.nochmal) { // 1. Fehler: keine Lösung, nur ein Hinweis – die Eingabe bleibt änderbar
             anlauf = 2; cid = lernCid(); pruefen.disabled = false;
             lernErsetze(meldung, el('div', { class: 'lr-rueck lr-rueck-nochmal' }, el('b', {}, 'Noch nicht – du hast einen zweiten Versuch.'),
-              el('p', {}, LERN_GRUND[r.grund] || (a.tipp ? 'Tipp: ' + lernText(a.tipp) : 'Lies die Bordkarte noch einmal genau und prüfe deine Rechnung.'))));
+              el('p', {}, LERN_GRUND[r.grund] || (a.tipp ? ['Tipp: ', ...lernMathe(a.tipp)] : 'Lies die Bordkarte noch einmal genau und prüfe deine Rechnung.'))));
             if (!LERN_GRUND[r.grund] && a.tipp) tipp?.remove();
             meldung.scrollIntoView?.({ block: 'nearest', behavior: 'smooth' });
             return;
@@ -4091,18 +4135,18 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
                 a.misch && mischGueltig && r.wiederholung?.bestanden === false ? el('p', { class: 'lr-misch-wdh lr-wdh-hilfe' }, 'Richtig – morgen noch einmal ohne Hilfe.') : null,
                 !a.misch ? lernFuenfHinweis(ctx, e, sterne - sterneVor, { hilfe: !!hilfe, zweiter: anlauf === 2 }) : null,
                 !a.misch && !warSitzt && !hilfe && anlauf !== 2 && r.karte?.neu_gezaehlt === false ? el('p', { class: 'lr-kennst' }, 'Die kennst du schon – gut wiederholt.') : null, // H3
-                r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null, jwSticker)
+                r.loesungsweg ? el('p', {}, lernMathe(r.loesungsweg)) : null, jwSticker)
             : neu ? el('div', { class: 'lr-rueck lr-rueck-falsch lr-kursbox' }, el('p', { class: 'lr-ueber' }, a.antworttyp === 'zahl' && r.grund ? 'FAST – KURSKORREKTUR' : 'NOCH NICHT'), lernKurs(a, w),
-              el('b', {}, 'Richtig ist: ' + lernLoesungText(a)),
+              el('b', {}, 'Richtig ist: ', lernMathe(lernLoesungText(a))),
               a.antworttyp === 'luecken' && lernIstTermVorlage(a.frage?.schablone) && lernGleichwertigAusgeklammert(a.frage?.schablone, w.werte, r.loesung?.werte)
                 ? el('p', {}, 'Dein Term ist gleichwertig, aber noch nicht vollständig ausgeklammert: Vor die Klammer gehört der größte gemeinsame Faktor.') : null,
-              r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null,
+              r.loesungsweg ? el('p', {}, lernMathe(r.loesungsweg)) : null,
               lernDetektiv(a, a.misch ? {} : e, r, 'IST DIR DAS PASSIERT?'),
               el('p', { class: 'lr-leise lr-naechste-voll' }, 'Die nächste zählt wieder voll.'), jwSticker)
-            : el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, 'Noch nicht. Richtig ist: ' + lernLoesungText(a)),
+            : el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, 'Noch nicht. Richtig ist: ', lernMathe(lernLoesungText(a))),
               a.antworttyp === 'luecken' && lernIstTermVorlage(a.frage?.schablone) && lernGleichwertigAusgeklammert(a.frage?.schablone, w.werte, r.loesung?.werte)
                 ? el('p', {}, 'Dein Term ist gleichwertig, aber noch nicht vollständig ausgeklammert: Vor die Klammer gehört der größte gemeinsame Faktor.') : null,
-              r.loesungsweg ? el('p', {}, el('b', {}, 'So geht’s: '), lernText(r.loesungsweg)) : null,
+              r.loesungsweg ? el('p', {}, el('b', {}, 'So geht’s: '), lernMathe(r.loesungsweg)) : null,
               lernDetektiv(a, a.misch ? {} : e, r, 'FEHLER-DETEKTIV: IST DIR DAS PASSIERT?'),
               el('p', { class: 'lr-leise' }, 'Die nächste zählt wieder voll. Die Erklärung findest du über der Bordkarte.'), jwSticker));
           if (dasWar) meldung.prepend(dasWar); // W176: nach der Mischkarte die Etappe nennen
@@ -4662,11 +4706,11 @@ function lernTestErgebnis(ctx, box, r) {
         // Teil 4 Punkt 5f: großes ✓/✗ mit Wort – nicht nur Farbe
         el('p', { class: 'lern-rk-kopf' }, el('span', { class: 'lern-rk-zeichen', 'aria-hidden': 'true' }, x.richtig ? '✓' : '✗'),
           el('b', { class: 'lern-rk-wort' }, x.richtig ? 'richtig' : 'falsch'), el('span', { class: 'lern-rk-etappe' }, ' · ' + lernZielName(x.lernziel))),
-        el('p', { class: 'lern-frage' }, lernText(x.frage?.text)),
+        el('p', { class: 'lern-frage' }, lernMathe(x.frage?.text)),
         x.frage?.grafik ? (x.frage.grafik.typ && x.frage.grafik.typ !== 'zahlenstrahl' ? lernBild(x.frage.grafik)
           : lernZahlenstrahl(a.antworttyp === 'markierung' ? { ...x.frage.grafik, _richtig: x.loesung?.index, _gewaehlt: x.antwort?.index } : x.frage.grafik, false)) : null,
-        el('p', { class: 'small' }, 'Deine Antwort: ', el('b', {}, lernAntwortText(a, x.antwort))),
-        x.richtig ? null : el('p', { class: 'small' }, 'Richtig: ', el('b', {}, lernLoesungText(a))),
+        el('p', { class: 'small' }, 'Deine Antwort: ', el('b', {}, lernMathe(lernAntwortText(a, x.antwort)))),
+        x.richtig ? null : el('p', { class: 'small' }, 'Richtig: ', el('b', {}, lernMathe(lernLoesungText(a)))),
         x.loesungsweg && !x.richtig ? el('p', { class: 'small muted' }, x.loesungsweg) : null);
     }),
     lernTestKnoepfe(ctx, r, geschafft));
@@ -5018,7 +5062,7 @@ async function viewExpeditionen() {
       el('ol', { class: 'lern-exp-teile', type: 'a' }, ...(x.teile || []).map((t) => el('li', {},
         el('p', {}, ...lernMarkiert(t.frage?.text || '')), t.frage?.grafik ? lernBild(t.frage.grafik) : null,
         t.antworten ? el('p', { class: 'small' }, 'Antworten: ' + t.antworten.join(' · ')) : null,
-        el('p', {}, el('b', {}, 'Lösung: '), lernLoesungText(t)), t.loesungsweg ? el('p', { class: 'small muted' }, lernText(t.loesungsweg)) : null,
+        el('p', {}, el('b', {}, 'Lösung: '), lernMathe(lernLoesungText(t))), t.loesungsweg ? el('p', { class: 'small muted' }, lernMathe(t.loesungsweg)) : null,
         el('p', { class: 'small muted' }, `Bezug: Lernkarte „${t.lernziel}“`))))))) 
       : el('p', { class: 'muted' }, Array.isArray(u.expeditionen) ? 'Noch keine Expeditionen eingespielt.' : 'Noch keine Expeditionen da.'));
 }
@@ -6176,9 +6220,9 @@ async function viewInhalte(arg) {
     el('thead', {}, el('tr', {}, el('th', {}, 'Stufe'), el('th', {}, 'Bordkarte'), el('th', {}, 'Lösung'), el('th', {}, 'Lösungsweg'), el('th', {}, 'Status'))),
     el('tbody', {}, ...as.map((a) => el('tr', {},
       el('td', {}, stufeText(a)),
-      el('td', {}, lernText(a.frage?.text || a.frage?.schablone || ''), a.antworttyp === 'auswahl' ? el('small', { class: 'muted' }, ' (' + (a.antworten || []).join(' | ') + ')') : null),
-      el('td', { class: 'lp-loesung' }, lernLoesungText(a)),
-      el('td', { class: 'muted' }, lernText(a.loesungsweg || '')),
+      el('td', {}, lernMathe(a.frage?.text || a.frage?.schablone || ''), a.antworttyp === 'auswahl' ? el('small', { class: 'muted' }, ' (' + (a.antworten || []).join(' | ') + ')') : null),
+      el('td', { class: 'lp-loesung' }, lernMathe(lernLoesungText(a))),
+      el('td', { class: 'muted' }, lernMathe(a.loesungsweg || '')),
       el('td', {}, statusWort(a)))))));
   const karten = etappen.map((e) => {
     const alle = aufgaben.filter((a) => a.lernziel === e.lernziel);
@@ -6262,7 +6306,7 @@ function lernWackeltListe(kindId, wk, alleKarten, antwortZeile) {
         auf ? 'Bordkarte und Antwort ▾' : 'Bordkarte und Antwort ▸'),
       auf ? el('div', { class: 'wk-detail' }, ...karten(e).map(({ et: x, k }) => el('div', {}, el('b', { class: 'small' }, `${x.titel || lernZielName(x.lernziel)} · ${x.fehler || 0} Fehler`),
         (k?.fehler || []).length ? el('ul', { class: 'ls-antworten' }, ...k.fehler.slice(0, 3).map(antwortZeile)) : el('p', { class: 'small muted' }, 'Keine falschen Antworten gespeichert.'),
-        k?.regel ? el('p', { class: 'ls-kurz' }, el('b', {}, 'Kurz gesagt: '), lernText(k.regel)) : null,
+        k?.regel ? el('p', { class: 'ls-kurz' }, el('b', {}, 'Kurz gesagt: '), lernMathe(k.regel)) : null,
         x.einheit_id ? el('a', { class: 'small', href: `#/inhalte/${x.einheit_id}` }, 'Erklärung ansehen ›') : null))) : null);
   };
   function zeichne() {
@@ -6303,8 +6347,8 @@ async function viewWackelt(arg) {
       k.knobel_gesamt ? el('small', { class: 'muted ls-knobel' }, `Knobel: ${k.knobel_geloest || 0} von ${k.knobel_gesamt}`) : null); // F
   };
   const antwortZeile = (f) => { const a = { antworttyp: f.antworttyp, antworten: f.antworten, loesung: f.loesung, frage: { text: f.frage, schablone: f.schablone, grafik: f.grafik } };
-    return el('li', { class: 'small' }, el('span', {}, lernText(f.frage || '')), el('br'), el('span', { class: 'ls-falsch' }, 'Antwort: ' + (lernAntwortText(a, f.antwort || {}) || '–')),
-      ' · ', el('span', { class: 'ls-richtig' }, 'richtig: ' + lernLoesungText(a))); };
+    return el('li', { class: 'small' }, el('span', {}, lernMathe(f.frage || '')), el('br'), el('span', { class: 'ls-falsch' }, 'Antwort: ', lernMathe(lernAntwortText(a, f.antwort || {}) || '–')),
+      ' · ', el('span', { class: 'ls-richtig' }, 'richtig: ', lernMathe(lernLoesungText(a)))); };
   const alle = (d.einheiten || []).flatMap((e) => (e.karten || []).map((k) => ({ ...k, einheit_id: e.einheit_id, ort: lernFlugName(kindId, { einheit_id: e.einheit_id, lernziel: k.lernziel }, e.ort), thema: e.titel })));
   const seit = (k) => (k.fehler || []).map((f) => f.am).filter(Boolean).sort()[0] || k.zuletzt || null; // älteste der letzten falschen Antworten
   const mitFehlern = alle.filter((k) => k.falsch > 0).sort((a, b) => (lernKarteWackelt(b) - lernKarteWackelt(a)) || String(seit(b) || '').localeCompare(String(seit(a) || '')));
@@ -6325,7 +6369,7 @@ async function viewWackelt(arg) {
       k.besprochen_am ? 'Erneut besprochen ✓' : 'Besprochen ✓');
     return [(k.fehler || []).length ? el('div', {}, el('b', { class: 'small' }, `Letzte falsche Antworten (${k.fehler.length})`), el('ul', { class: 'ls-antworten' }, ...k.fehler.slice(0, 3).map(antwortZeile)))
         : el('p', { class: 'small muted' }, 'Keine falschen Antworten gespeichert.'),
-      k.regel ? el('p', { class: 'ls-kurz' }, el('b', {}, 'Kurz gesagt: '), lernText(k.regel)) : null,
+      k.regel ? el('p', { class: 'ls-kurz' }, el('b', {}, 'Kurz gesagt: '), lernMathe(k.regel)) : null,
       el('div', { class: 'row' }, el('a', { class: 'small', href: `#/inhalte/${k.einheit_id}` }, 'Erklärung ansehen ›'), besprochen, meldung)];
   };
   const zeichne = () => {
@@ -6576,7 +6620,7 @@ async function viewWiederholen(arg) {
         if (x.richtig) lernJwRichtig(kind.id); // JW: Wiederholung bestanden (ohne Hilfe) → Sticker Stärke 1; Fehler nach der Fehler-Regel
         lernErsetze(meldung, x.richtig ? el('div', { class: 'lr-rueck lr-rueck-ok' }, el('b', {}, mitHilfe ? 'Richtig – morgen noch einmal ohne Hilfe.' : 'Richtig!'), plus ? el('span', { class: 'lr-plus-stern' }, `+${plus} ★`) : null,
             mitHilfe ? null : lernJwPlatz(kind.id, 'wiederholung', 'box'))
-          : el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, 'Noch nicht. Richtig ist: ' + lernLoesungText(a)), x.loesungsweg ? el('p', {}, lernText(x.loesungsweg)) : null,
+          : el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, 'Noch nicht. Richtig ist: ', lernMathe(lernLoesungText(a))), x.loesungsweg ? el('p', {}, lernMathe(x.loesungsweg)) : null,
             ws.neu ? el('p', { class: 'lr-leise' }, 'Kein Problem – diese Bordkarte kommt beim nächsten Mal wieder.') : null,
             el('a', { class: 'lr-klein-link', href: `#/lerneinheit/${kind.id}-${a.einheit_id}` }, 'Zur Etappe'), lernJwPlatz(kind.id, 'fehler', 'fehler', () => lernJwFehler(kind.id))));
         i++;

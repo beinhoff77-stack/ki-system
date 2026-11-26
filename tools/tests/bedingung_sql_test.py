@@ -65,11 +65,11 @@ def teuer():
 
 
 def aufgaben(alles):
-    daten = json.loads((HIER / 'bedingung_faelle.json').read_text(encoding='utf-8'))
+    daten = bedingung.lade_json((HIER / 'bedingung_faelle.json').read_text(encoding='utf-8'))   # exakt, wie die Datenbank
     auf = [{'id': a['id'], 'f': {'felder': a['f']['felder']}, 'o': a['o']} for a in daten['aufgaben'] if alles or a['id'] not in OHNE]
     da = set().union(*[ops(a) for a in auf])
     for datei in sorted((WURZEL / 'inhalte/mathe-profi/rollend-1').glob('*.json')):
-        for i, x in enumerate(json.loads(datei.read_text(encoding='utf-8'))['aufgaben']):
+        for i, x in enumerate(bedingung.lade_json(datei.read_text(encoding='utf-8'))['aufgaben']):
             a = x['aufgabe']
             if a.get('y') == 'bedingung' and (alles or ops(a) - da):
                 da |= ops(a)
@@ -123,7 +123,7 @@ def main():
     funk = '\n'.join(z for z in funk.replace('schule.bed_', 'pg_temp.bed_').split('\n') if not z.lstrip().startswith('--'))
     assert 'schule.' not in funk
     klein = [{'id': a['id'], 'felder': a['f']['felder'], 'bed': a['o']['bedingungen'], 'bsp': a['o']['beispiel'], 'fest': fest(a), 'extra': extra.get(a['id'], [])} for a in auf]
-    lit = lambda v: "'" + json.dumps(v, ensure_ascii=False, separators=(',', ':')).replace("'", "''") + "'::jsonb"
+    lit = lambda v: "'" + bedingung.schreibe_json(v).replace("'", "''") + "'::jsonb"   # ohne Verlust (Kommazahlen in ihrer Schreibweise)
     print(funk)
     print(f"""create or replace function pg_temp.messen(p_f jsonb, p_b jsonb, p_a jsonb) returns numeric language plpgsql as $$
 declare t0 timestamptz := clock_timestamp(); i int; r jsonb;

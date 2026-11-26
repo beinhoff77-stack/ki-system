@@ -1645,6 +1645,9 @@
   }
  ],
  "format": [
+  {"aufgabe": "grenzen-1", "antwort": {"werte": [1.00000000000000001]}, "format_ok": false},
+  {"aufgabe": "grenzen-1", "antwort": {"werte": [1.0]}, "format_ok": true},
+  {"aufgabe": "grenzen-1", "antwort": {"werte": [2e0]}, "format_ok": true},
   {
    "aufgabe": "6-K5-2",
    "antwort": {
@@ -2067,6 +2070,26 @@
     ]
    },
    "format_ok": true
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "                                         ",
+     "8"
+    ]
+   },
+   "format_ok": false
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "antwort": {
+    "werte": [
+     "                                        ",
+     "8"
+    ]
+   },
+   "format_ok": false
   }
  ],
  "hinweise": [
@@ -2204,6 +2227,22 @@
     1
    ],
    "hinweis": "Dein Abstand ist 29."
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "werte": [
+    "                                         ",
+    "8"
+   ],
+   "hinweis": "In dieses Feld gehört eine ganze Zahl, zum Beispiel −3."
+  },
+  {
+   "aufgabe": "6-K5-2",
+   "werte": [
+    "                                        ",
+    "8"
+   ],
+   "hinweis": "Bitte fülle alle Felder aus."
   }
  ],
  "unzulaessig": [
@@ -3451,6 +3490,234 @@
      ],
      "beispiel": [
       -1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Name ist eine Zahl",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": 5,
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Name ist ein Objekt",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": {
+        "x": 1
+       },
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Name ist eine Liste",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": [
+        "x"
+       ],
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Name ist leer",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ]
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Hinweis ist eine Zahl",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ],
+       "hinweis": 42
+      }
+     ],
+     "beispiel": [
+      1
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0
+       ],
+       "verletzt": "b"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "warum": "Hinweis ist null",
+   "aufgabe": {
+    "y": "bedingung",
+    "f": {
+     "text": "x",
+     "felder": [
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "b",
+       "pruefe": [
+        ">",
+        "$1",
+        0
+       ],
+       "hinweis": null
+      }
+     ],
+     "beispiel": [
+      1
      ],
      "gegenbeispiele": [
       {

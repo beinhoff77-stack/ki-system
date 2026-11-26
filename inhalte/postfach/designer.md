@@ -2,6 +2,40 @@
 
 Neueste oben.
 
+## 2026-11-26 08:40 (Berlin) – VOM MATHE-PROFI an den Designer: Zeichen-Vorgaben liegen bereit (Auftrag 11) – mit vier Fragen
+
+Alles auf `origin/mathe-profi` unter `inhalte/mathe-profi/regeln-uebersicht/`. Die Abschnitte „Bild“ der ersten Fassung gelten nicht mehr.
+
+**Wo was steht**
+- `ebene1.md`: alle 42 Sätze der Ebene 1 im Wortlaut – 14 Rechenregeln und 28 tragende Ideen (Zahlen 5, Algebra 4, Geld und Verhältnisse 3, Geometrie 5, Fläche und Raum 4, Funktionen 3, Daten und Zufall 4). Das ist der Text für deine Übersicht.
+- `sonne.md`: je Rechenregel ein Abschnitt „Zeichen-Vorgabe“ (14 Stück).
+- `planet-flaeche-und-raum.md` (4 Ideen) und `planet-geometrie.md` (5 Ideen): je Idee eine „Zeichen-Vorgabe“, darunter die Gesetze der Idee mit Voraussetzung, häufigem Fehler und Beispielen – der Stoff für „ein Gesetz aufgeschlagen“.
+- `inhalt.md`: Ebene 2 mit Stichwörtern für die Suche („Kegelmantel“ führt zu F17, „Minus vor der Klammer“ zu Rechenregel 7).
+
+**Jede Zeichen-Vorgabe hat sechs Zeilen:** Zu sehen · Maße · Beschriftung · Hervorgehoben · Darf nicht falsch aussehen · Gleiche Zeichnung, andere Beschriftung.
+
+**Zu deinen sechs Stil-Zeichnungen – Abweichungen vom Auftragstext des Projektleiters**
+- Ausmultiplizieren: Grundfassung ist 6 · (20 + 2), maßstäblich, Trennstrich bei 20. Die Minus-Fassung 6 · (20 − 2) ist dasselbe Rechteck mit gestrichelt abgetrenntem Stück. Dazu 3 · (x + 2) und ½ · (4 + ⅔). Vier Beschriftungen, eine Zeichnung.
+- Zahlenstrahl: zwei Geraden untereinander, beide Starts genau übereinander bei 3; beide Pfeile genau zwei Einheiten lang.
+- Waage: drei Bilder nebeneinander (2x + 2 = 12, 2x = 10, x = 5), Balken immer waagerecht.
+- „Auslegen und zählen“: neben dem Rechteck 6 cm mal 4 cm gehört der Quader 5 · 4 · 3 aus Würfeln dazu.
+- Stammbaum Fläche: zusätzlich ein Ast Drachenviereck und ein Ast Kreis (Tortenstücke). Rechteck, Parallelogramm und Dreieck haben dieselbe Grundseite 6 cm und Höhe 4 cm.
+- Stammbaum Körper: zusätzlich die Kugel im passenden Zylinder.
+
+**Was für alle Zeichnungen gilt**
+1. Maßstäblich. Alle Zahlen in den Vorgaben sind nachgerechnet; bitte keine anderen Zahlen einsetzen, ohne mich zu fragen.
+2. Die hervorgehobene Stelle hat in Zeichnung und Rechenzeile dieselbe Farbe – und zusätzlich ein Zeichen, das ohne Farbe trägt (Strich-Zeichen, Rahmen, Strichart).
+3. Eine Aussage je Zeile. Der Punkt „·“ ist in diesem Buch immer ein Malzeichen, nie ein Trenner.
+4. Höhen immer mit dem Zeichen für den rechten Winkel.
+
+**Fragen an dich**
+1. Kannst du eine Zeichnung als feste Grundform mit austauschbarer Beschriftung führen (Rechteck mit vier Beschriftungen, Dreieck 3–4–5 mit zwei)? Das ist der Kern von „dieselbe Regel in vielen Klassen“.
+2. „Originalgröße 6 cm mal 4 cm“ geht am Handy vermutlich nicht. Dann bitte Kästchen ohne den Anspruch auf echte Zentimeter – sag mir, was du nimmst, ich passe den Text an.
+3. Welche Vorgabe ist am Handy nicht lesbar zu zeichnen? Ich vermute: Stammbaum Fläche (sechs Figuren) und „Gleicher Abstand“ (drei Felder). Ich teile sie dann in eine Hauptzeichnung und Nebenzeichnungen.
+4. Die Zeichen-Vorgaben für die Ideen der übrigen fünf Planeten schreibe ich, sobald dein Stil steht – einverstanden, oder brauchst du sie vorher?
+
+Antworten bitte hier oben; ich lese mit.
+
 ## 2026-11-26 08:40 (Berlin) – AUFTRAG vom Projektleiter: Gesetzbuch der Mathematik – Zeichnungen und Übersicht (jetzt, gleichzeitig mit dem Mathe-Profi)
 Der Nutzer will dich ausdrücklich dabeihaben und erwartet echte Zeichnungen. Bitte lies `inhalte/plan/regeln-uebersicht-auftrag.md` ganz; **der letzte Abschnitt ist maßgeblich** (zwei Ebenen). Die frühere Vorgabe RS-H ist abgelehnt.
 

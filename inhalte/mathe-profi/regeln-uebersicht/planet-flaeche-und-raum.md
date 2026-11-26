@@ -1,389 +1,505 @@
-# Gesetzbuch · Planet „Fläche und Raum“ – ausgearbeitet als Muster
+# Gesetzbuch · Planet „Fläche und Raum“ – ausgearbeitet in zwei Ebenen
 
-Mathe-Profi, 26.11.2026. Erzeugt von `gesetzbuch.py`; 44 Beispiele, alle mit Zahlen nachgerechnet (Lauf „OK“).
-So soll jeder Planet aussehen: je Gesetz Merksatz, Warum, Wo es nicht gilt, dasselbe Gesetz in mehreren Klassen, worauf es aufbaut, ein Bild.
+Mathe-Profi, 26.11.2026 (Auftrag 11). Erzeugt von `planeten.py`; 45 Beispiele, jedes nachgerechnet (Lauf „OK“).
 
 ## Der Planet in einer Minute
 
-- **19 Gesetze:** zehn für Flächen, neun für Körper.
-- **Eine Idee trägt alle:** *Messen heißt auslegen und zählen* – Flächen mit Einheitsquadraten, Körper mit Einheitswürfeln. Jede Formel ist eine Abkürzung für dieses Zählen.
-- **Ein Gesetz erzeugt die anderen:** Aus dem Rechteck entstehen durch Zerlegen Parallelogramm, Dreieck, Trapez, Drachen und Kreis. Aus dem Quader entstehen durch Stapeln Prisma und Zylinder, daraus durch „ein Drittel“ Pyramide und Kegel.
-- Der Planet begleitet die Kinder von Klasse 5 (Rechteck) bis Klasse 10 (Kugel).
+**Ebene 1 – 4 tragende Ideen:**
 
-## Aufbau
+1. **Messen heißt auslegen und zählen: Flächen mit Einheitsquadraten, Körper mit Einheitswürfeln.**
+2. **Aus dem Rechteck entsteht jede Fläche: zerschneiden, neu legen, halbieren.**
+3. **Aus dem Quader entsteht jeder Körper: Grundfläche mal Höhe – bei spitzen Körpern ein Drittel davon.**
+4. **Die Oberfläche ist die Haut des Körpers: Das Netz zeigt sie ausgebreitet, das Schrägbild zeigt den Körper im Raum.**
 
-- **F2 Rechteck** braucht: F1 Fläche messen
-- **F3 Fläche ist nicht Umfang** braucht: F2 Rechteck
-- **F4 Zerlegen und Ergänzen** braucht: F2 Rechteck
-- **F5 Parallelogramm** braucht: F4 Zerlegen und Ergänzen
-- **F6 Dreieck** braucht: F5 Parallelogramm
-- **F7 Trapez** braucht: F5 Parallelogramm
-- **F8 Drachenviereck und Raute** braucht: F6 Dreieck
-- **F9 Kreis** braucht: F2 Rechteck, F4 Zerlegen und Ergänzen
-- **F10 Kreisausschnitt** braucht: F9 Kreis
-- **F11 Volumen messen** braucht: F1 Fläche messen
-- **F12 Quader** braucht: F11 Volumen messen, F2 Rechteck
-- **F13 Oberfläche** braucht: F2 Rechteck
-- **F15 Prisma und Zylinder** braucht: F12 Quader, F6 Dreieck, F9 Kreis
-- **F16 Satz von Cavalieri** braucht: F15 Prisma und Zylinder
-- **F17 Pyramide und Kegel** braucht: F15 Prisma und Zylinder, F16 Satz von Cavalieri
-- **F18 Kugel** braucht: F9 Kreis, F17 Pyramide und Kegel
-- **F19 Lage im Raum** braucht: F14 Netz und Schrägbild
+**Ebene 2 – 19 Gesetze**, jedes genau einer Idee zugeordnet.
 
-Vorschlag für das Bild des Planeten [M]: **zwei Stammbäume nebeneinander** – links wächst aus dem Rechteck jede Flächenformel, rechts aus dem Quader jede Volumenformel; an jedem Ast steht, was getan wurde („abschneiden und ansetzen“, „halbieren“, „stapeln“, „ein Drittel“).
+## Wie die Angaben zu lesen sind
 
-## Die Gesetze
+- **Klassen:** aus der Lehrplan-Kopie, die in der App liegt (Gymnasium, Realschule Wahlpflichtfächergruppe I und II/III getrennt). **Nicht an LehrplanPLUS selbst geprüft** – der Abruf war in dieser Sitzung nicht möglich. „nicht genannt“ heißt: In der Kopie steht dazu kein Eintrag; es heißt nicht sicher, dass es im Lehrplan fehlt. „nur Überschrift“: Die Kopie enthält für diese Gruppe nur die Überschrift des Lernbereichs.
+- **IB:** Jahr laut Planung der App. Das IB schreibt keine verbindliche Jahresfolge vor.
+- **Art der Beispiele:** Vorwissen (kommt vor, bevor das Gesetz gelehrt wird) · Einführung · Anwendung (später). Klassen der Beispiele: Gymnasium; wo das Gymnasium das Gesetz nicht hat, Realschule.
+- **Möglicher Erklärweg:** worüber man das Gesetz erklären kann. Das ist **keine Lernvoraussetzung und keine Sperre**.
 
-### F1 · Fläche messen
+## Idee 1 · Auslegen und zählen
 
-> **Flächeninhalt heißt: Wie viele Einheitsquadrate passen hinein? Umrechnungszahl 100.**
+> **Messen heißt auslegen und zählen: Flächen mit Einheitsquadraten, Körper mit Einheitswürfeln.**
 
-Gymnasium Klasse 5 · Realschule Klasse 5 · IB-Jahr 1
+**Warum diese Idee trägt:** Eine Fläche misst man, indem man sie lückenlos mit gleich großen Quadraten auslegt und zählt; einen Körper füllt man mit gleich großen Würfeln. Jede Formel dieses Planeten ist eine Abkürzung für dieses Zählen: 4 Reihen zu je 6 Quadraten sind 6 · 4.
 
-**Warum das gilt:** Eine Fläche misst man, indem man sie mit gleich großen Quadraten auslegt und zählt. Ein Quadratdezimeter ist 10 cm lang und 10 cm breit, also passen 10 mal 10 = 100 Quadratzentimeter hinein. Deshalb ist die Umrechnungszahl bei Flächen 100 und nicht 10.
+**Trägt 5 Gesetze:** F1 Fläche messen, F2 Rechteck, F3 Fläche ist nicht Umfang, F11 Volumen messen, F12 Quader
 
-**Wo es nicht gilt:** Bei Längen ist die Umrechnungszahl 10, bei Flächen 100, bei Volumen 1 000 – wer sie verwechselt, liegt um das Zehn- oder Hundertfache daneben. Von m² zu a und ha ist sie ebenfalls 100.
+**Zeichen-Vorgabe**
+- **Zu sehen:** Links ein Rechteck, vollständig mit Einheitsquadraten ausgelegt; die unterste Reihe ist gefärbt. Rechts ein Quader aus Einheitswürfeln im Schrägbild; die unterste Schicht ist gefärbt.
+- **Maße:** Rechteck 6 cm mal 4 cm in Originalgröße (24 Quadrate zu 1 cm²). Quader 5 mal 4 mal 3 Würfel.
+- **Beschriftung:** Am Rechteck: „6 cm“, „4 cm“, „4 Reihen zu je 6 = 24 cm²“. Am Quader: „3 Schichten zu je 5 · 4 = 60 cm³“. Ein einzelnes Quadrat trägt „1 cm²“, ein einzelner Würfel „1 cm³“.
+- **Hervorgehoben:** Die eine Reihe und die eine Schicht – das, was beim Zählen wiederholt wird.
+- **Darf nicht falsch aussehen:** Die Quadrate müssen wirklich quadratisch und gleich groß sein und genau aufgehen. Am Quader müssen die Würfel an allen sichtbaren Seiten abzählbar sein (5, 4, 3).
+- **Gleiche Zeichnung, andere Beschriftung:** Seiten „x“ und „x + 4“ ohne Gitter (Klasse 7); ein Quadratdezimeter mit 10 mal 10 Gitter für die Umrechnungszahl 100. Für „Fläche ist nicht Umfang“: daneben ein Rechteck 9 cm mal 1 cm mit gleich langem Rand.
 
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 5 | 3 m² = 300 dm² |
-| 5 | 2,5 dm² = 250 cm² |
-| 8 | 5 000 cm² = 0,5 m² |
+### Die Gesetze dieser Idee (Ebene 2)
 
-**Baut auf:** Rechenregel 1 Stellenwert und Prozent
-**Bild:** Ein Quadratdezimeter in Originalgröße, in 10 mal 10 Kästchen geteilt; eines davon ist gefärbt: 1 cm².
+#### F1 · Fläche messen
 
-### F2 · Rechteck
+> **Flächeninhalt heißt: Wie viele Einheitsquadrate passen hinein? Wird die Längeneinheit zehnmal kleiner, braucht man 100-mal so viele.**
+
+Gymnasium: 5 · Realschule Gruppe I: 5 · Realschule Gruppe II/III: 5 · IB (Planung der App): Jahr 1
+
+**Warum das gilt:** Ein Quadratdezimeter ist 10 cm lang und 10 cm breit. Es passen also 10 Reihen zu je 10 Quadratzentimetern hinein: 100.
+
+**Voraussetzung:** Gilt zwischen benachbarten Einheiten mm², cm², dm², m² und weiter m², a, ha, km².
+
+**Häufiger Fehler:** Mit 10 umrechnen wie bei Längen: 3 m² = 30 dm².
+
+**Verwandt:** Längen: Umrechnungszahl 10. Volumen: 1 000. Stellenwert (Rechenregel 1).
+
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 5 | Einführung | 3 m² = 300 dm² |
+| 5 | Einführung | 1 m² = 10 000 cm² |
+| 8 | Anwendung | 5 000 cm² = 0,5 m² |
+
+**Möglicher Erklärweg über:** Rechenregel 1 Stellenwert
+
+#### F2 · Rechteck
 
 > **Fläche = Länge mal Breite. Umfang = einmal außen herum.**
 
-Gymnasium Klasse 5 · Realschule Klasse 5 · IB-Jahr 1
+Gymnasium: 5 · Realschule Gruppe I: 5 · Realschule Gruppe II/III: 5 · IB (Planung der App): Jahr 1
 
-**Warum das gilt:** In ein Rechteck mit 6 cm Länge und 4 cm Breite passen 4 Reihen mit je 6 Einheitsquadraten. Das sind 6 mal 4. Der Umfang ist der Weg einmal außen herum: zweimal die Länge und zweimal die Breite.
+**Warum das gilt:** In ein Rechteck mit 6 cm Länge und 4 cm Breite passen 4 Reihen zu je 6 Einheitsquadraten.
 
-**Wo es nicht gilt:** Beide Seiten müssen in derselben Einheit stehen. Fläche und Umfang sind verschiedene Größen: Die Fläche hat cm², der Umfang cm.
+**Voraussetzung:** Beide Seiten in derselben Einheit.
 
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 5 | 6 cm lang, 4 cm breit: Fläche 24 cm², Umfang 20 cm |
-| 7 | Seiten x und x + 4: Fläche x · (x + 4) = x² + 4x |
-| 8 | Grundfläche eines Quaders oder Prismas |
-| 9 | Fläche 60, eine Seite 4 länger als die andere: x² + 4x = 60, also x = 6 |
+**Häufiger Fehler:** Fläche und Umfang verwechseln; cm statt cm² schreiben.
 
-**Baut auf:** F1 Fläche messen
-**Bild:** Rechteck 6 mal 4 mit Kästchengitter; daneben dasselbe Rechteck nur als Rand, mit einem Pfeil, der außen herumläuft.
+**Verwandt:** Quadrat: Seite mal Seite. Ausmultiplizieren am Rechteck (Rechenregel 6).
 
-### F3 · Fläche ist nicht Umfang
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 5 | Einführung | 6 cm lang, 4 cm breit: A = 6 cm · 4 cm = 24 cm² |
+| 5 | Einführung | Dasselbe Rechteck: u = 2 · (6 cm + 4 cm) = 20 cm |
+| 7 | Anwendung | Seiten x und x + 4: A = x · (x + 4) = x² + 4x |
 
-> **Gleicher Umfang heißt nicht gleiche Fläche.**
+**Möglicher Erklärweg über:** F1 Fläche messen
 
-Gymnasium Klasse 5 · Realschule Klasse 5–8 · IB-Jahr 1
+#### F3 · Fläche ist nicht Umfang
 
-**Warum das gilt:** Der Umfang zählt den Rand, die Fläche das Innere. Ein langes, schmales Rechteck hat viel Rand und wenig Inneres. Unter allen Rechtecken mit gleichem Umfang hat das Quadrat die größte Fläche.
+> **Derselbe Rand kann verschieden viel Fläche einschließen.**
 
-**Wo es nicht gilt:** Umgekehrt gilt es genauso: Gleiche Fläche heißt nicht gleicher Umfang.
+Gymnasium: 5 · Realschule Gruppe I: 5 · Realschule Gruppe II/III: 5 · IB (Planung der App): Jahr 1
 
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 5 | 5 · 5 und 8 · 2: beide Umfang 20, Flächen 25 und 16 |
-| 8 | Umfang 20: Fläche x · (10 − x) ist am größten bei x = 5 (Realschule) |
+**Warum das gilt:** Der Umfang misst den Rand (eine Länge), die Fläche das Innere. Ein langes, schmales Rechteck hat viel Rand und wenig Inneres.
 
-**Baut auf:** F2 Rechteck
-**Bild:** Zwei Rechtecke aus derselben Schnur gelegt: 5 mal 5 und 8 mal 2. Beide haben den Umfang 20, die Flächen 25 und 16.
+**Voraussetzung:** Gilt für alle Figuren.
 
-### F4 · Zerlegen und Ergänzen
+**Häufiger Fehler:** Aus „gleicher Umfang“ auf „gleiche Fläche“ schließen – oder umgekehrt.
 
-> **Zerschneiden und neu zusammenlegen ändert die Fläche nicht.**
+**Verwandt:** Größter Flächeninhalt bei festem Umfang: das Quadrat (Kleinster und größter Wert, Planet Algebra).
 
-Gymnasium Klasse 5–6 · Realschule Klasse 5–6 · IB-Jahr 1
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 5 | Einführung | Rechteck 6 cm mal 4 cm: u = 20 cm, A = 24 cm² |
+| 5 | Einführung | Rechteck 9 cm mal 1 cm: u = 20 cm, A = 9 cm² |
+| 9 | Anwendung | Umfang 20 cm: Die größte Fläche hat das Quadrat mit 25 cm² |
 
-**Warum das gilt:** Beim Zerschneiden geht nichts verloren und kommt nichts dazu. Deshalb darf man eine unbekannte Figur in bekannte Stücke zerlegen oder zu einer bekannten ergänzen und das Zuviel abziehen. Alle Flächenformeln dieses Planeten entstehen so aus dem Rechteck.
+**Möglicher Erklärweg über:** F2 Rechteck
 
-**Wo es nicht gilt:** Der Umfang ändert sich beim Zerlegen sehr wohl.
+#### F11 · Volumen messen
 
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 5 | L-Form: 6 · 4 minus die Ecke 2 · 2 ergibt 20 |
-| 6 | Parallelogramm: Dreieck links abschneiden, rechts ansetzen – es entsteht ein Rechteck |
-| 9 | Pythagoras lässt sich durch Zerlegen zweier gleich großer Quadrate begründen |
+> **Volumen heißt: Wie viele Einheitswürfel passen hinein? Wird die Längeneinheit zehnmal kleiner, braucht man 1 000-mal so viele. 1 Liter = 1 dm³.**
 
-**Baut auf:** F2 Rechteck
-**Bild:** Eine L-Form: einmal in zwei Rechtecke zerschnitten, einmal zum großen Rechteck ergänzt, mit dem fehlenden Eck gestrichelt.
+Gymnasium: 6 · Realschule Gruppe I: 6 · Realschule Gruppe II/III: 6 · IB (Planung der App): –
 
-### F5 · Parallelogramm
+**Warum das gilt:** Ein Kubikdezimeter ist 10 cm lang, breit und hoch: 10 Schichten zu je 10 mal 10 Würfeln, also 1 000 Kubikzentimeter.
 
-> **Fläche = Grundseite mal Höhe. Die Höhe steht senkrecht.**
+**Voraussetzung:** Gilt zwischen benachbarten Einheiten mm³, cm³, dm³, m³. 1 l = 1 dm³, 1 ml = 1 cm³.
 
-Gymnasium Klasse 6 · Realschule Klasse 6 · IB-Jahr –
+**Häufiger Fehler:** Mit 10 oder 100 umrechnen.
 
-**Warum das gilt:** Schneidet man an einer Seite ein Dreieck ab und setzt es an der anderen wieder an, entsteht ein Rechteck mit derselben Grundseite und derselben Höhe.
+**Verwandt:** Flächen: Umrechnungszahl 100. Stellenwert (Rechenregel 1).
 
-**Wo es nicht gilt:** Gemeint ist die Höhe senkrecht zur Grundseite, nicht die schräge Seite. Die schräge Seite braucht man nur für den Umfang.
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 6 | Einführung | 2 dm³ = 2 000 cm³ |
+| 6 | Einführung | 1,5 l = 1,5 dm³ = 1 500 cm³ |
+| 6 | Einführung | 1 m³ = 1 000 dm³ = 1 000 l |
 
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 6 | Grundseite 8 cm, Höhe 5 cm: 40 cm² – egal, wie lang die schräge Seite ist |
-| 8 | Fläche 40 und Grundseite 8: Höhe 40 : 8 = 5 |
+**Möglicher Erklärweg über:** Rechenregel 1 Stellenwert
 
-**Baut auf:** F4 Zerlegen und Ergänzen
-**Bild:** Parallelogramm mit gestrichelter Höhe; das abgeschnittene Dreieck wandert mit einem Pfeil auf die andere Seite.
-
-### F6 · Dreieck
-
-> **Fläche = Grundseite mal Höhe, geteilt durch 2.**
-
-Gymnasium Klasse 6–8 · Realschule Klasse 6 · IB-Jahr 4
-
-**Warum das gilt:** Zwei gleiche Dreiecke lassen sich immer zu einem Parallelogramm zusammenlegen. Ein Dreieck ist also ein halbes Parallelogramm mit derselben Grundseite und Höhe.
-
-**Wo es nicht gilt:** Das „geteilt durch 2“ wird am häufigsten vergessen. Bei stumpfen Dreiecken liegt die Höhe außerhalb – die Formel gilt trotzdem.
-
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 6 | Grundseite 14 cm, Höhe 15 cm: 14 · 15 : 2 = 105 cm² |
-| 8 | Fläche 36 und Grundseite 9: erst mal 2, dann durch 9, Höhe 8 |
-| 9 | Rechtwinklig mit den Katheten 6 und 8: 24 – die Katheten sind Grundseite und Höhe |
-
-**Baut auf:** F5 Parallelogramm
-**Bild:** Ein Dreieck und sein gedrehter Zwilling ergeben ein Parallelogramm; eines der beiden ist gefärbt.
-
-### F7 · Trapez
-
-> **Fläche = Mittelwert der beiden parallelen Seiten mal Höhe.**
-
-Gymnasium Klasse 6–8 · Realschule Klasse 6 · IB-Jahr 4
-
-**Warum das gilt:** Zwei gleiche Trapeze ergeben zusammen ein Parallelogramm mit der Grundseite a + c. Ein Trapez ist die Hälfte davon. Anders gesagt: Man rechnet mit einem Rechteck, das so breit ist wie der Mittelwert der beiden parallelen Seiten.
-
-**Wo es nicht gilt:** a und c sind die parallelen Seiten, nicht irgendwelche. Die Klammer um a + c ist nötig.
-
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 6 | a = 7, c = 11, h = 6: (7 + 11) · 6 : 2 = 54 |
-| 8 | Fläche 60, a = 9, c = 11: Höhe 2 · 60 : 20 = 6 |
-
-**Baut auf:** F5 Parallelogramm · Rechenregel 4 Reihenfolge beim Rechnen
-**Bild:** Trapez und gedrehter Zwilling als Parallelogramm; darunter das gleich große Rechteck mit der mittleren Breite.
-
-### F8 · Drachenviereck und Raute
-
-> **Fläche = Diagonale mal Diagonale, geteilt durch 2.**
-
-Gymnasium Klasse 6 · Realschule Klasse 6 · IB-Jahr –
-
-**Warum das gilt:** Die Diagonalen stehen senkrecht aufeinander. Das umschließende Rechteck hat die Seiten e und f und ist genau doppelt so groß wie das Viereck.
-
-**Wo es nicht gilt:** Gilt nur, wenn die Diagonalen senkrecht aufeinander stehen – also nicht für jedes Viereck.
-
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 6 | Diagonalen 8 cm und 5 cm: 8 · 5 : 2 = 20 cm² |
-
-**Baut auf:** F6 Dreieck
-**Bild:** Drachen im Rechteck: Die vier Ecken-Dreiecke außen sind genauso groß wie die vier innen.
-
-### F9 · Kreis
-
-> **Umfang = 2 · π · r. Fläche = π · r². π ist etwas mehr als 3.**
-
-Gymnasium Klasse 8 · Realschule Klasse 9 · IB-Jahr 3
-
-**Warum das gilt:** Bei jedem Kreis ist der Umfang gleich oft so lang wie der Durchmesser: etwa 3,14-mal. Diese Zahl heißt π. Schneidet man den Kreis in viele Tortenstücke und legt sie abwechselnd nebeneinander, entsteht fast ein Rechteck: so hoch wie der Radius, so breit wie der halbe Umfang – also π · r mal r.
-
-**Wo es nicht gilt:** r ist der Radius, nicht der Durchmesser. Doppelter Radius: doppelter Umfang, aber vierfache Fläche. π ist kein Bruch; 3,14 ist gerundet.
-
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 8 | r = 5 cm: Umfang 10 · π ≈ 31,4 cm, Fläche 25 · π ≈ 78,5 cm² |
-| 8 | Radius von 3 auf 6: Fläche von 9 · π auf 36 · π – das Vierfache |
-| 10 | Grundfläche von Zylinder und Kegel |
-
-**Baut auf:** F2 Rechteck · F4 Zerlegen und Ergänzen · Rechenregel 8 Potenzen
-**Bild:** Kreis in zwölf Tortenstücke geschnitten und zum „Rechteck“ umgelegt; an den Seiten stehen r und π · r.
-
-### F10 · Kreisausschnitt
-
-> **Der Anteil am vollen Winkel ist der Anteil an Umfang und Fläche.**
-
-Gymnasium Klasse 8 · Realschule Klasse 9 · IB-Jahr 3
-
-**Warum das gilt:** Ein Viertelkreis hat ein Viertel des Umfangs und ein Viertel der Fläche. Für jeden anderen Winkel gilt dasselbe mit dem Anteil am vollen Winkel von 360°.
-
-**Wo es nicht gilt:** Der Bogen ist nur der gekrümmte Teil; zum Umfang des Ausschnitts kommen zwei Radien dazu.
-
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 8 | 90° bei r = 4: Bogen 2 · π, Fläche 4 · π |
-
-**Baut auf:** F9 Kreis · Rechenregel 11 Verhältnis (Dreisatz)
-**Bild:** Pizza mit einem herausgezogenen Stück; am Stück stehen der Winkel 90° und „ein Viertel“.
-
-### F11 · Volumen messen
-
-> **Volumen heißt: Wie viele Einheitswürfel passen hinein? Umrechnungszahl 1 000. 1 Liter = 1 dm³.**
-
-Gymnasium Klasse 6 · Realschule Klasse 6 · IB-Jahr –
-
-**Warum das gilt:** Ein Volumen misst man mit gleich großen Würfeln. In einen Würfel mit 1 dm Kantenlänge passen 10 mal 10 mal 10 = 1 000 Zentimeterwürfel. Ein Liter ist genau so ein Dezimeterwürfel.
-
-**Wo es nicht gilt:** Umrechnungszahl 1 000, nicht 10 und nicht 100. Milliliter und cm³ sind dasselbe.
-
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 6 | 2 dm³ = 2 000 cm³ = 2 Liter |
-| 6 | 750 ml = 0,75 l = 750 cm³ |
-| 8 | 1 m³ = 1 000 Liter |
-
-**Baut auf:** F1 Fläche messen · Rechenregel 1 Stellenwert und Prozent
-**Bild:** Dezimeterwürfel aus 1 000 kleinen Würfeln, eine Schicht (100 Stück) herausgezogen; daneben eine Literflasche.
-
-### F12 · Quader
+#### F12 · Quader
 
 > **Volumen = Länge mal Breite mal Höhe.**
 
-Gymnasium Klasse 6 · Realschule Klasse 6 · IB-Jahr –
+Gymnasium: 6 · Realschule Gruppe I: 6 · Realschule Gruppe II/III: 6 · IB (Planung der App): –
 
-**Warum das gilt:** Auf dem Boden liegen Länge mal Breite Würfel. Davon stapelt man so viele Schichten, wie der Quader hoch ist.
+**Warum das gilt:** Die unterste Schicht hat Länge mal Breite Würfel; die Höhe sagt, wie viele Schichten es sind.
 
-**Wo es nicht gilt:** Alle drei Kanten in derselben Einheit. Für den Würfel wird daraus a · a · a.
+**Voraussetzung:** Alle drei Kanten in derselben Einheit.
 
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 5 | Oberfläche und Kanten eines Quaders 5 · 4 · 3 (das Volumen kommt in Klasse 6) |
-| 6 | 5 cm · 4 cm · 3 cm = 60 cm³ |
-| 6 | 60 Liter in ein Becken mit 50 cm mal 40 cm Boden: 30 cm hoch |
+**Häufiger Fehler:** Die drei Kantenlängen addieren statt malnehmen.
 
-**Baut auf:** F11 Volumen messen · F2 Rechteck
-**Bild:** Quader aus Schichten: unten eine Lage 5 mal 4 Würfel, darüber zwei weitere Lagen leicht angehoben.
+**Verwandt:** Würfel: Kante hoch 3. Prisma: Grundfläche mal Höhe.
 
-### F13 · Oberfläche
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 5 | Vorwissen | Schachtel mit 3 Schichten zu je 5 mal 4 Würfeln: 60 Würfel |
+| 6 | Einführung | 5 cm · 4 cm · 3 cm = 60 cm³ |
+| 6 | Einführung | Würfel mit Kante 4 cm: 64 cm³ |
 
-> **Die Oberfläche ist die Summe aller Flächen des Netzes. Quader: sechs Rechtecke, je zwei gleich.**
+**Möglicher Erklärweg über:** F11 Volumen messen
 
-Gymnasium Klasse 5–6 · Realschule Klasse 6 · IB-Jahr 1
+## Idee 2 · Aus dem Rechteck
 
-**Warum das gilt:** Klappt man einen Körper auf, liegen alle seine Flächen nebeneinander: das Netz. Die Oberfläche ist deren Summe. Beim Quader sind es drei Paare gleicher Rechtecke.
+> **Aus dem Rechteck entsteht jede Fläche: zerschneiden, neu legen, halbieren.**
 
-**Wo es nicht gilt:** Oberfläche ist eine Fläche (cm²), Volumen ein Rauminhalt (cm³). Bei offenen Gefäßen fehlt der Deckel.
+**Warum diese Idee trägt:** Vom Rechteck weiß man die Fläche durch Zählen. Jede andere Figur wird so zerschnitten und neu gelegt, dass ein Rechteck entsteht – oder sie ist die Hälfte einer Figur, deren Fläche man schon kennt. Deshalb muss man die Formeln nicht einzeln lernen: Man kann sie herleiten.
 
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 5 | Quader 5 · 4 · 3: 2 · (20 + 15 + 12) = 94 cm² |
-| 8 | Zylinder: zwei Kreise und ein Rechteck als Mantel |
+**Trägt 7 Gesetze:** F4 Zerlegen und Ergänzen, F5 Parallelogramm, F6 Dreieck, F7 Trapez, F8 Drachenviereck und Raute, F9 Kreis, F10 Kreisausschnitt
 
-**Baut auf:** F2 Rechteck · Rechenregel 4 Reihenfolge beim Rechnen
-**Bild:** Quader und daneben sein aufgeklapptes Netz, die drei Paare in drei Farben.
+**Zeichen-Vorgabe**
+- **Zu sehen:** Ein Stammbaum von links nach rechts. Rechteck → Parallelogramm (links ein Dreieck abgeschnitten, rechts angesetzt) → Dreieck (das Parallelogramm entlang einer Diagonale halbiert) → Trapez (zwei gleiche Trapeze ergeben ein Parallelogramm). Eigener Ast: Rechteck → Drachenviereck (im umschriebenen Rechteck, das doppelt so groß ist). Eigener Ast: Kreis in 12 Tortenstücke geschnitten und abwechselnd umgelegt zu einem „Fast-Rechteck“.
+- **Maße:** Rechteck, Parallelogramm und Dreieck mit derselben Grundseite 6 cm und derselben Höhe 4 cm. Kreis: Radius 3 cm; das Fast-Rechteck ist π · r breit und r hoch.
+- **Beschriftung:** An jedem Pfeil, was getan wurde: „abschneiden und ansetzen“, „halbieren“, „verdoppeln“. In jeder Figur die Fläche: 24 cm², 24 cm², 12 cm².
+- **Hervorgehoben:** Die Höhe h: in jeder Figur dieselbe Farbe, gestrichelt, mit Zeichen für den rechten Winkel – und dieselbe Farbe für h in der Formel daneben.
+- **Darf nicht falsch aussehen:** Die Höhe darf nie auf der schrägen Seite liegen. Das abgeschnittene und das angesetzte Dreieck müssen gleich aussehen. Beim Dreieck muss erkennbar sein, dass es genau die Hälfte ist.
+- **Gleiche Zeichnung, andere Beschriftung:** Dieselben Figuren mit Buchstaben g und h statt Zahlen (ab Klasse 7). Beim Dreieck eine zweite Fassung mit stumpfem Winkel: Die Höhe liegt außerhalb, an der verlängerten Grundseite.
 
-### F14 · Netz und Schrägbild
+### Die Gesetze dieser Idee (Ebene 2)
 
-> **Das Netz ist der aufgeklappte Körper. Im Schrägbild werden Kanten nach hinten schräg und verkürzt gezeichnet.**
+#### F4 · Zerlegen und Ergänzen
 
-Gymnasium Klasse 8–10 · Realschule Klasse 5–7 · IB-Jahr 3–4
+> **Lückenlos und ohne Überlappung neu legen: Der Flächeninhalt bleibt, der Umfang kann sich ändern.**
 
-**Warum das gilt:** Ein Körper hat drei Ausdehnungen, das Papier nur zwei. Das Netz zeigt alle Flächen in wahrer Größe, aber nicht den Zusammenhang. Das Schrägbild zeigt den Zusammenhang, aber verkürzt die Kanten nach hinten. Für das Schrägbild gibt es eine feste Vereinbarung (meist 45° und halbe Länge).
+Gymnasium: 5 · Realschule Gruppe I: 5 · Realschule Gruppe II/III: 5 · IB (Planung der App): Jahr 1
 
-**Wo es nicht gilt:** Im Schrägbild darf man nach hinten laufende Längen und Winkel nicht abmessen.
+**Warum das gilt:** Beim Zerschneiden und Umlegen geht kein Stück verloren und keines kommt dazu.
 
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 5 | Ein Würfelnetz besteht aus 6 Quadraten (Realschule Klasse 5) |
-| 8 | Quader: 8 Ecken, 12 Kanten, 6 Flächen – 8 − 12 + 6 = 2 |
-| 10 | Im Schrägbild einer Pyramide erscheint die Höhe unverkürzt, die Grundkante nach hinten halb |
+**Voraussetzung:** Die Teile müssen lückenlos und ohne Überlappung liegen.
 
-**Baut auf:** nichts – Anfang
-**Bild:** Würfel dreimal: als Körper, als Netz (Kreuzform) und als Schrägbild mit gestrichelten verdeckten Kanten.
+**Häufiger Fehler:** Glauben, dass beim Umlegen auch der Umfang gleich bleibt.
 
-### F15 · Prisma und Zylinder
+**Verwandt:** Alle Flächenformeln dieses Planeten entstehen so.
 
-> **Volumen = Grundfläche mal Höhe. Oberfläche = zwei Grundflächen plus Mantel.**
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 5 | Einführung | L-Form, zerlegt: 6 cm · 2 cm + 2 cm · 3 cm = 18 cm² |
+| 5 | Einführung | Dieselbe L-Form, ergänzt: 6 cm · 5 cm − 4 cm · 3 cm = 18 cm² |
 
-Gymnasium Klasse 8 · Realschule Klasse 9 · IB-Jahr –
+**Möglicher Erklärweg über:** F2 Rechteck
 
-**Warum das gilt:** Wie beim Quader: Auf der Grundfläche liegt eine Schicht, und davon stapelt man so viele, wie der Körper hoch ist. Welche Form die Grundfläche hat, ist dafür gleichgültig. Der Mantel ist abgerollt ein Rechteck: Umfang der Grundfläche mal Höhe.
+#### F5 · Parallelogramm
 
-**Wo es nicht gilt:** Die Höhe steht senkrecht auf der Grundfläche. Die Grundfläche ist die Fläche, die oben und unten gleich ist – sie muss nicht unten liegen.
+> **Fläche = Grundseite mal zugehörige Höhe. Zu jeder gewählten Grundseite gehört ihre senkrechte Höhe.**
 
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 6 | Quader ist der einfachste Fall: Grundfläche 20 cm², Höhe 3 cm, 60 cm³ |
-| 8 | Dreiecksprisma: Grundfläche 24 cm², Höhe 10 cm, Volumen 240 cm³ |
-| 8 | Zylinder r = 3, h = 10: Volumen 90 · π, Mantel 60 · π |
+Gymnasium: 6 · Realschule Gruppe I: 6 · Realschule Gruppe II/III: 6 · IB (Planung der App): –
 
-**Baut auf:** F12 Quader · F6 Dreieck · F9 Kreis
-**Bild:** Münzstapel als Zylinder und ein Stapel dreieckiger Bierdeckel als Prisma; daneben das abgerollte Etikett einer Dose.
+**Warum das gilt:** Schneidet man an einer Seite ein Dreieck ab und setzt es an der anderen an, entsteht ein Rechteck mit derselben Grundseite und derselben Höhe.
 
-### F16 · Satz von Cavalieri
+**Voraussetzung:** Die Höhe steht senkrecht auf der gewählten Grundseite.
 
-> **Gleiche Höhe und auf jeder Höhe gleich große Schnittfläche: gleiches Volumen.**
+**Häufiger Fehler:** Die schräge Seite statt der Höhe nehmen.
 
-Gymnasium Klasse 8 · Realschule Klasse 9 · IB-Jahr –
+**Verwandt:** Rechteck als Sonderfall. Fläche mit Determinante (Planet Geometrie, Realschule).
 
-**Warum das gilt:** Verschiebt man in einem Münzstapel die Münzen gegeneinander, wird der Stapel schief – aber es bleiben dieselben Münzen. Zwei Körper, die auf jeder Höhe gleich große Schnittflächen haben, haben deshalb dasselbe Volumen.
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 6 | Einführung | g = 7 cm, h = 4 cm: A = 28 cm² |
+| 6 | Einführung | Dasselbe Parallelogramm, Grundseite 5 cm: zugehörige Höhe 28 cm² : 5 cm = 5,6 cm |
 
-**Wo es nicht gilt:** Die Schnittflächen müssen auf jeder Höhe gleich groß sein, nicht nur unten und oben. Die Oberfläche ändert sich beim Schiefstellen.
+**Möglicher Erklärweg über:** F4 Zerlegen und Ergänzen
 
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 8 | Ein schiefes Prisma mit Grundfläche 24 cm² und Höhe 10 cm hat ebenfalls 240 cm³ |
+#### F6 · Dreieck
 
-**Baut auf:** F15 Prisma und Zylinder
-**Bild:** Ein gerader und ein schiefer Münzstapel aus denselben Münzen.
+> **Fläche = Grundseite mal zugehörige Höhe, geteilt durch 2.**
 
-### F17 · Pyramide und Kegel
+Gymnasium: 6 · Realschule Gruppe I: 6 · Realschule Gruppe II/III: 6 · IB (Planung der App): Jahr 4
 
-> **Volumen = ein Drittel von Grundfläche mal Höhe.**
+**Warum das gilt:** Zwei gleiche Dreiecke lassen sich zu einem Parallelogramm zusammenlegen. Das Dreieck ist die Hälfte.
 
-Gymnasium Klasse 10 · Realschule Klasse 9 · IB-Jahr 3
+**Voraussetzung:** Die Höhe gehört zur gewählten Grundseite und steht senkrecht auf ihr. Im stumpfwinkligen Dreieck liegen zwei der drei Höhen außerhalb.
 
-**Warum das gilt:** Ein Würfel lässt sich in drei gleiche Pyramiden zerlegen, deren Spitzen in einer Ecke zusammenlaufen. Jede füllt also ein Drittel. Mit Cavalieri gilt das für jede Pyramide und jeden Kegel: ein Drittel des Prismas oder Zylinders mit gleicher Grundfläche und Höhe.
+**Häufiger Fehler:** Das „geteilt durch 2“ vergessen. Eine Seite als Höhe nehmen, die nicht senkrecht steht.
 
-**Wo es nicht gilt:** Die Höhe geht senkrecht von der Spitze zur Grundfläche – nicht entlang der schrägen Seitenkante oder Mantellinie.
+**Verwandt:** Rechtwinkliges Dreieck: halbes Rechteck aus den beiden Katheten. Formeln umstellen (Planet Algebra).
 
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 10 | Pyramide: Grundfläche 36 cm², Höhe 10 cm, Volumen 120 cm³ (Realschule Klasse 9) |
-| 10 | Kegel r = 3, h = 4: Volumen 12 · π; Mantellinie 5 (Pythagoras), Mantel 15 · π |
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 6 | Einführung | g = 8 cm, h = 5 cm: A = 8 cm · 5 cm : 2 = 20 cm² |
+| 8 | Anwendung | A = 20 cm², g = 8 cm: h = 2 · 20 cm² : 8 cm = 5 cm |
 
-**Baut auf:** F15 Prisma und Zylinder · F16 Satz von Cavalieri · Rechenregel 10 Rechnen mit Brüchen
-**Bild:** Ein Kegel wird dreimal mit Wasser gefüllt und in einen Zylinder mit gleicher Grundfläche und Höhe gegossen: genau voll.
+**Möglicher Erklärweg über:** F5 Parallelogramm
 
-### F18 · Kugel
+#### F7 · Trapez
 
-> **Volumen = 4/3 · π · r³. Oberfläche = 4 · π · r².**
+> **Fläche = Mittelwert der beiden parallelen Seiten mal Höhe.**
 
-Gymnasium Klasse 10 · Realschule Klasse 9 · IB-Jahr 3
+Gymnasium: 6 · Realschule Gruppe I: 6 · Realschule Gruppe II/III: 6 · IB (Planung der App): Jahr 4
 
-**Warum das gilt:** Eine Halbkugel hat dasselbe Volumen wie ein Zylinder gleicher Höhe, aus dem ein Kegel herausgebohrt ist – das zeigt Cavalieri. Daraus folgen zwei Drittel des umschließenden Zylinders für die ganze Kugel. Die Oberfläche ist genau viermal so groß wie der größte Kreis durch die Kugel.
+**Warum das gilt:** Zwei gleiche Trapeze ergeben ein Parallelogramm mit der Grundseite a + c. Das Trapez ist die Hälfte.
 
-**Wo es nicht gilt:** Hoch 3 beim Volumen, hoch 2 bei der Oberfläche. Doppelter Radius: achtfaches Volumen.
+**Voraussetzung:** a und c sind die beiden parallelen Seiten; h ist ihr Abstand.
 
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 10 | r = 3: Volumen 36 · π, Oberfläche 36 · π (Realschule Klasse 9) |
-| 10 | Radius verdoppelt: Volumen mal 8 |
+**Häufiger Fehler:** Die Schenkel statt der parallelen Seiten mitteln.
 
-**Baut auf:** F9 Kreis · F17 Pyramide und Kegel · Rechenregel 8 Potenzen
-**Bild:** Kugel in einem genau passenden Zylinder: Sie füllt zwei Drittel davon.
+**Verwandt:** Parallelogramm (a = c) und Dreieck (c = 0) sind Sonderfälle.
 
-### F19 · Lage im Raum
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 6 | Einführung | a = 9 cm, c = 5 cm, h = 4 cm: A = (9 cm + 5 cm) : 2 · 4 cm = 28 cm² |
 
-> **Zwei Geraden im Raum sind parallel, schneiden sich oder laufen windschief aneinander vorbei.**
+**Möglicher Erklärweg über:** F5 Parallelogramm
 
-Gymnasium Klasse 10 · Realschule Klasse 7 · IB-Jahr 4
+#### F8 · Drachenviereck und Raute
 
-**Warum das gilt:** In der Ebene schneiden sich zwei Geraden oder sie sind parallel. Im Raum gibt es eine dritte Möglichkeit: Sie laufen aneinander vorbei, ohne parallel zu sein. Am Quader sieht man alle drei Fälle an den Kanten.
+> **Bei senkrechten Diagonalen ist die Fläche ihr halbes Produkt.**
 
-**Wo es nicht gilt:** Windschief gibt es nur im Raum. Im Schrägbild können sich windschiefe Geraden scheinbar schneiden.
+Gymnasium: 6 (in der Lehrplan-Kopie nicht eigens genannt) · Realschule Gruppe I: 6 · Realschule Gruppe II/III: 6 · IB (Planung der App): –
 
-| Klasse | Dasselbe Gesetz in diesem Jahr |
-|---|---|
-| 10 | Am Quader: Eine Bodenkante und die Deckenkante quer darüber sind windschief (Realschule Klasse 7) |
+**Warum das gilt:** Das Rechteck, das man um die beiden Diagonalen legt, ist genau doppelt so groß wie das Viereck.
 
-**Baut auf:** F14 Netz und Schrägbild
-**Bild:** Quader mit drei Kantenpaaren in drei Farben: parallel, schneidend, windschief.
+**Voraussetzung:** Die Diagonalen stehen senkrecht aufeinander – das ist bei Drachenviereck, Raute und Quadrat so.
+
+**Häufiger Fehler:** Die Formel auf Vierecke anwenden, deren Diagonalen nicht senkrecht stehen.
+
+**Verwandt:** Quadrat: halbes Diagonalenquadrat.
+
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 6 | Einführung | e = 8 cm, f = 5 cm: A = 8 cm · 5 cm : 2 = 20 cm² |
+
+**Möglicher Erklärweg über:** F4 Zerlegen und Ergänzen
+
+#### F9 · Kreis
+
+> **Der Umfang misst π Durchmesser: u = 2 · π · r. Die Fläche ist π mal Radius zum Quadrat: A = π · r².**
+
+Gymnasium: 8 · Realschule Gruppe I: 9 · Realschule Gruppe II/III: 9 · IB (Planung der App): Jahr 3
+
+**Warum das gilt:** Der Umfang ist bei jedem Kreis dasselbe Vielfache des Durchmessers: π, etwas mehr als 3. Schneidet man den Kreis in Tortenstücke und legt sie abwechselnd um, entsteht fast ein Rechteck: halber Umfang breit, r hoch.
+
+**Voraussetzung:** r ist der Radius, nicht der Durchmesser.
+
+**Häufiger Fehler:** Durchmesser statt Radius einsetzen. Meinen, doppelter Radius gebe doppelte Fläche.
+
+**Verwandt:** π ist irrational (Planet Zahlen). Vergrößern mit Faktor k (Planet Geometrie).
+
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 8 | Einführung | r = 5 cm: u = 2 · π · 5 cm ≈ 31,4 cm |
+| 8 | Einführung | r = 5 cm: A = π · 25 cm² ≈ 78,5 cm² |
+| 8 | Anwendung | r = 10 cm statt 5 cm: Umfang doppelt, Fläche vierfach |
+
+**Möglicher Erklärweg über:** F4 Zerlegen und Ergänzen
+
+#### F10 · Kreisausschnitt
+
+> **Der Winkelanteil bestimmt den Anteil am Kreisbogen und an der Kreisfläche.**
+
+Gymnasium: 8 (in der Lehrplan-Kopie nicht eigens genannt) · Realschule Gruppe I: 9 · Realschule Gruppe II/III: 9 (nur Überschrift „Kreise“) · IB (Planung der App): Jahr 3
+
+**Warum das gilt:** Ein Ausschnitt mit 60° ist ein Sechstel des vollen Kreises – also auch ein Sechstel des Umfangs und ein Sechstel der Fläche.
+
+**Voraussetzung:** Der Winkel ist der Mittelpunktswinkel.
+
+**Häufiger Fehler:** Den Winkel nicht durch 360° teilen.
+
+**Verwandt:** Verhältnis (Rechenregel 11). Kegelmantel: ein Kreisausschnitt.
+
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 8 | Einführung | r = 6 cm, 60°: Bogen = 1/6 · 2 · π · 6 cm = 2π cm ≈ 6,3 cm |
+| 8 | Einführung | r = 6 cm, 60°: A = 1/6 · π · 36 cm² = 6π cm² ≈ 18,8 cm² |
+
+**Möglicher Erklärweg über:** F9 Kreis · Rechenregel 11 Verhältnis (Dreisatz)
+
+## Idee 3 · Aus dem Quader
+
+> **Aus dem Quader entsteht jeder Körper: Grundfläche mal Höhe – bei spitzen Körpern ein Drittel davon.**
+
+**Warum diese Idee trägt:** Ein Quader ist ein Stapel gleicher Schichten: Grundfläche mal Höhe. Das bleibt richtig, wenn die Grundfläche ein Dreieck oder ein Kreis ist (Prisma, Zylinder) und sogar, wenn der Stapel schief steht. Läuft der Körper spitz zu, bleibt genau ein Drittel übrig.
+
+**Trägt 4 Gesetze:** F15 Prisma und Zylinder, F16 Satz von Cavalieri, F17 Pyramide und Kegel, F18 Kugel
+
+**Zeichen-Vorgabe**
+- **Zu sehen:** Ein Stammbaum. Quader → Prisma mit dreieckiger Grundfläche → Zylinder (alle drei als Stapel dünner Schichten angedeutet). Darunter: Pyramide, eingezeichnet in den Quader mit derselben Grundfläche und Höhe, daneben Kegel im Zylinder. Abseits: Kugel im genau passenden Zylinder.
+- **Maße:** Alle Körper gleich hoch. Pyramide und Kegel füllen sichtbar denselben Umriss wie ihr umgebender Körper.
+- **Beschriftung:** An den oberen drei: „V = G · h“. An Pyramide und Kegel: „⅓ · G · h“. An der Kugel: „⅔ des Zylinders“.
+- **Hervorgehoben:** Die Grundfläche G (gefärbt) und die Höhe h (gestrichelt, senkrecht, mit Zeichen für den rechten Winkel) – in jedem Körper dieselben zwei Farben.
+- **Darf nicht falsch aussehen:** Die Höhe muss senkrecht auf der Grundfläche stehen, auch beim schiefen Körper – nie entlang einer schrägen Kante. Pyramide und umgebender Körper müssen dieselbe Grundfläche haben.
+- **Gleiche Zeichnung, andere Beschriftung:** Dieselben Körper mit Maßen: Zylinder r = 3 cm, h = 10 cm; Pyramide 6 cm mal 6 cm, h = 4 cm. Für den Satz von Cavalieri: ein gerader und ein schiefer Münzstapel gleicher Höhe.
+
+### Die Gesetze dieser Idee (Ebene 2)
+
+#### F15 · Prisma und Zylinder
+
+> **Bei Prisma und Zylinder gilt V = G · h mit senkrechter Höhe. Beim geraden Körper ist der Mantel: Umfang der Grundfläche mal Höhe.**
+
+Gymnasium: 8 · Realschule Gruppe I: 9 · Realschule Gruppe II/III: 10 · IB (Planung der App): –
+
+**Warum das gilt:** Der Körper ist ein Stapel gleicher Schichten mit der Form der Grundfläche. Der Mantel, abgerollt, ist ein Rechteck: so breit wie der Umfang der Grundfläche, so hoch wie der Körper.
+
+**Voraussetzung:** V = G · h gilt mit der senkrechten Höhe, auch beim schiefen Körper. Die Mantelformel gilt nur beim geraden Körper.
+
+**Häufiger Fehler:** Beim Zylinder den Durchmesser statt des Radius einsetzen. Bei der Oberfläche die zweite Grundfläche vergessen.
+
+**Verwandt:** Quader ist ein Prisma. Satz von Cavalieri für schiefe Körper.
+
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 8 | Einführung | Dreiecksprisma mit G = 6 cm², h = 10 cm: V = 60 cm³ |
+| 8 | Einführung | Zylinder mit r = 3 cm, h = 10 cm: V = π · 9 cm² · 10 cm = 90π cm³ ≈ 282,7 cm³ |
+| 8 | Einführung | Derselbe Zylinder: Mantel = 2 · π · 3 cm · 10 cm = 60π cm² ≈ 188,5 cm² |
+
+**Möglicher Erklärweg über:** F12 Quader · F9 Kreis
+
+#### F16 · Satz von Cavalieri
+
+> **Haben zwei Körper gleiche Höhe und in jeder Höhe gleich große parallele Schnittflächen, haben sie gleiches Volumen.**
+
+Gymnasium: 10 · Realschule Gruppe I: 9 · Realschule Gruppe II/III: 10 · IB (Planung der App): –
+
+**Warum das gilt:** Ein Stapel Münzen hat dasselbe Volumen, ob er gerade steht oder schief geschoben ist: Jede Schicht ist gleich geblieben.
+
+**Voraussetzung:** Die Schnitte liegen parallel zur Grundfläche und werden auf gleicher Höhe verglichen.
+
+**Häufiger Fehler:** Daraus auch gleiche Oberfläche folgern – darüber sagt der Satz nichts.
+
+**Verwandt:** Schiefes Prisma. Begründung der Formeln für Pyramide und Kugel.
+
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 10 | Einführung | Schiefes Prisma mit G = 12 cm² und senkrechter Höhe 5 cm: V = 60 cm³ – wie das gerade |
+
+**Möglicher Erklärweg über:** F15 Prisma und Zylinder
+
+#### F17 · Pyramide und Kegel
+
+> **Volumen = ein Drittel von Grundfläche mal Höhe. Mantel des geraden Kreiskegels: π · r · s (s = Mantellinie). Mantel der Pyramide: Summe der Seitendreiecke.**
+
+Gymnasium: 10 · Realschule Gruppe I: 9 · Realschule Gruppe II/III: 10 · IB (Planung der App): Jahr 3
+
+**Warum das gilt:** Die Schnittfläche schrumpft zur Spitze hin mit dem Quadrat des Abstands von der Spitze; zusammengezählt bleibt genau ein Drittel des Prismas. Zum Anfassen: Ein Würfel zerfällt in drei gleiche Pyramiden.
+
+**Voraussetzung:** h ist die senkrechte Höhe, nicht die Seitenkante. Die Mantelformel π · r · s gilt nur für den geraden Kreiskegel.
+
+**Häufiger Fehler:** Das Drittel vergessen. Die Mantellinie s als Höhe einsetzen.
+
+**Verwandt:** Mantellinie und Seitenhöhe berechnet man mit dem Satz des Pythagoras (Planet Geometrie). Kegelmantel: ein Kreisausschnitt.
+
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 10 | Einführung | Pyramide, Grundfläche 6 cm mal 6 cm, h = 4 cm: V = 36 cm² · 4 cm : 3 = 48 cm³ |
+| 10 | Einführung | Dieselbe Pyramide: Seitenhöhe 5 cm, Mantel = 4 · (6 cm · 5 cm : 2) = 60 cm² |
+| 10 | Einführung | Kegel mit r = 3 cm, h = 4 cm: V = π · 9 cm² · 4 cm : 3 = 12π cm³ ≈ 37,7 cm³ |
+| 10 | Einführung | Derselbe Kegel: s = 5 cm, Mantel = π · 3 cm · 5 cm = 15π cm² ≈ 47,1 cm² |
+
+**Möglicher Erklärweg über:** F15 Prisma und Zylinder · F16 Satz von Cavalieri
+
+#### F18 · Kugel
+
+> **Die Kugelhaut hat die Fläche von vier Großkreisen: O = 4 · π · r². Volumen: V = 4/3 · π · r³.**
+
+Gymnasium: 10 · Realschule Gruppe I: 9 · Realschule Gruppe II/III: 10 · IB (Planung der App): Jahr 3
+
+**Warum das gilt:** Die Kugel füllt genau zwei Drittel des Zylinders, in den sie gerade hineinpasst. Ihre Oberfläche ist so groß wie der Mantel dieses Zylinders.
+
+**Voraussetzung:** r ist der Radius.
+
+**Häufiger Fehler:** Die beiden Formeln verwechseln: r² gehört zur Fläche, r³ zum Volumen.
+
+**Verwandt:** Kreis. Halbkugel: die Hälfte – bei der Oberfläche kommt die Schnittfläche dazu.
+
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 10 | Einführung | r = 2 cm: O = 4 · π · 4 cm² = 16π cm² ≈ 50,3 cm² |
+| 10 | Einführung | r = 2 cm: V = 4/3 · π · 8 cm³ = 32π/3 cm³ ≈ 33,5 cm³ |
+| 10 | Anwendung | Die Kugel mit r = 2 cm füllt ⅔ des Zylinders mit r = 2 cm, h = 4 cm |
+
+**Möglicher Erklärweg über:** F15 Prisma und Zylinder · F16 Satz von Cavalieri
+
+## Idee 4 · Haut des Körpers
+
+> **Die Oberfläche ist die Haut des Körpers: Das Netz zeigt sie ausgebreitet, das Schrägbild zeigt den Körper im Raum.**
+
+**Warum diese Idee trägt:** Schneidet man einen Körper an seinen Kanten auf und klappt ihn flach, sieht man seine ganze Außenfläche auf einmal: das Netz. Die Oberfläche ist die Summe dieser Flächen. Das Schrägbild ist der umgekehrte Weg: ein flaches Bild, das den Körper räumlich zeigt.
+
+**Trägt 3 Gesetze:** F13 Oberfläche, F14 Netz und Schrägbild, F19 Lage im Raum
+
+**Zeichen-Vorgabe**
+- **Zu sehen:** Links ein Quader im Schrägbild. Rechts sein Netz: sechs Rechtecke in Kreuzform. Je zwei gleiche Rechtecke haben dieselbe Farbe – im Schrägbild und im Netz.
+- **Maße:** Quader 5 cm mal 4 cm mal 3 cm. Im Schrägbild: Tiefenkanten unter 45° und halb so lang; verdeckte Kanten gestrichelt. Im Netz: alle Rechtecke maßstäblich.
+- **Beschriftung:** Im Netz in jedem Rechteck seine Fläche: 20 cm², 15 cm², 12 cm², jeweils zweimal. Darunter: „O = 2 · (20 + 15 + 12) cm² = 94 cm²“.
+- **Hervorgehoben:** Die drei Farbpaare.
+- **Darf nicht falsch aussehen:** Das Netz muss sich wirklich falten lassen: Kanten, die zusammenstoßen, sind gleich lang. Es müssen genau sechs Flächen sein.
+- **Gleiche Zeichnung, andere Beschriftung:** Dieselbe Darstellung für das Dreiecksprisma (Dreieck 3 cm, 4 cm, 5 cm, Höhe 6 cm): drei Rechtecke nebeneinander, zusammen 12 cm breit – so breit wie der Umfang des Dreiecks; zusammenstoßende Kanten gleich markiert. Für den Zylinder: Rechteck mit Breite 2 · π · r und zwei Kreise.
+
+### Die Gesetze dieser Idee (Ebene 2)
+
+#### F13 · Oberfläche
+
+> **Die Oberfläche misst die gesamte Außenfläche. Beim Quader addierst du die sechs Rechtecksflächen.**
+
+Gymnasium: 5 (Quader), 6 (einfache Körper) · Realschule Gruppe I: 6 · Realschule Gruppe II/III: 6 · IB (Planung der App): Jahr 1
+
+**Warum das gilt:** Die Oberfläche ist das, was man anmalen müsste. Beim Quader liegen sich je zwei gleiche Rechtecke gegenüber.
+
+**Voraussetzung:** Jede Fläche genau einmal zählen.
+
+**Häufiger Fehler:** Nur drei statt sechs Flächen nehmen. Oberfläche (cm²) und Volumen (cm³) verwechseln.
+
+**Verwandt:** Netz. Mantel von Prisma, Zylinder, Pyramide, Kegel.
+
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 5 | Einführung | Quader 5 cm, 4 cm, 3 cm: O = 2 · (20 + 15 + 12) cm² = 94 cm² |
+| 5 | Einführung | Würfel mit Kante 3 cm: O = 6 · 9 cm² = 54 cm² |
+
+**Möglicher Erklärweg über:** F2 Rechteck
+
+#### F14 · Netz und Schrägbild
+
+> **Das Netz zeigt die aufgefaltete Oberfläche; das Schrägbild zeigt den Körper räumlich.**
+
+Gymnasium: 8 (Prisma, Zylinder), 10 (Pyramide, Kegel) · Realschule Gruppe I: 5 (Würfel, Quader), 7 (Prisma, Pyramide) · Realschule Gruppe II/III: 5 (Würfel, Quader), 8 (Prisma, Pyramide) · IB (Planung der App): Jahr 3–4
+
+**Warum das gilt:** Das Netz entsteht durch Aufschneiden und Aufklappen. Im Schrägbild bleibt die Vorderseite unverzerrt; Kanten nach hinten werden schräg und verkürzt gezeichnet.
+
+**Voraussetzung:** Im Netz sind Kanten, die zusammengehören, gleich lang. Im Schrägbild kann man nur an unverzerrten Flächen messen.
+
+**Häufiger Fehler:** Ein Netz zeichnen, das sich nicht falten lässt. Im Schrägbild schräge Kanten in voller Länge zeichnen.
+
+**Verwandt:** Oberfläche. Lage im Raum.
+
+| Klasse | Art | Beispiel |
+|---|---|---|
+| 5 | Vorwissen | Ein Würfelnetz hat 6 Quadrate |
+| 8 | Einführung | Dreiecksprisma (3 cm, 4 cm, 5 cm; Höhe 6 cm): Das Netz hat 2 Dreiecke und 3 Rechtecke; die Rechtecke sind zusammen 12 cm breit |
+| 8 | Einführung | Zylinder mit r = 3 cm: Das Mantel-Rechteck ist 2 · π · 3 cm ≈ 18,8 cm breit |
+
+**Möglicher Erklärweg über:** F13 Oberfläche
+
+#### F19 · Lage im Raum
+
+> **Zwei verschiedene Geraden im Raum sind parallel, schneiden sich oder sind windschief.**
+
+Gymnasium: – (in der Lehrplan-Kopie nicht genannt) · Realschule Gruppe I: 7 · Realschule Gruppe II/III: – (nicht genannt) · IB (Planung der App): Jahr 4
+
+**Warum das gilt:** In der Ebene sind zwei verschiedene Geraden parallel oder schneiden sich. Im Raum gibt es eine dritte Möglichkeit: Sie laufen aneinander vorbei, ohne parallel zu sein.
+
+**Voraussetzung:** Gilt für zwei verschiedene Geraden.
+
+**Häufiger Fehler:** Im Schrägbild zwei Kanten für schneidend halten, weil sich ihre Bilder kreuzen.
+
+**Verwandt:** Parallel und senkrecht (Planet Geometrie). Schrägbild.
+
+| Klasse | Art | Beispiel |
+|---|---|---|
+| Realschule 7 | Einführung | Im Würfel ABCDEFGH sind die Kanten AB und CG windschief: nicht parallel und ohne gemeinsamen Punkt |
+
+**Möglicher Erklärweg über:** F14 Netz und Schrägbild
 
 ## Nicht geprüft
 
-- Klassen aus `inhalte/themenliste.json`, nicht aus dem Lehrplan an der Quelle. Die Zuordnung von Netzen und Schrägbildern (Realschule 5 und 7, Gymnasium 8 und 10) gehört zu den Zuordnungen, an denen ich zweifle.
-- Die Begründungen sind Schul-Begründungen, keine Beweise (Kreisfläche über Tortenstücke, Pyramide über den Würfel, Kugel über Cavalieri).
-- Bilder nur beschrieben. Merksätze nicht mit einem Kind erprobt.
+- Klassen nicht an LehrplanPLUS selbst (siehe oben).
+- Die Begründungen sind Schul-Begründungen, keine Beweise.
+- Zeichnungen nur in Worten vorgegeben, nichts gezeichnet oder nachgemessen. Merksätze nicht mit einem Kind erprobt.

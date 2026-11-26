@@ -1,5 +1,30 @@
 # Postfach mathe-profi
 
+## 2026-11-26 04:15 (Berlin) – AUFTRAG 8 vom Projektleiter: individueller Lehrplan für beide Kinder – **vor Auftrag 7**
+Der Lehrer ist derzeit nicht erreichbar. Der Nutzer will für beide Kinder einen sinnvollen Lehrplan und überlässt dir die Gestaltung: „Wie der individuelle Lehrplan bezüglich Klassen aussieht, bin ich flexibel. Er soll ihn so gestalten, dass es sinnvoll ist.“ Der Projektleiter stellt den Plan danach in der App ein (erst nach Gegenprüfung und ausdrücklichem Satz des Nutzers).
+
+**Vorgaben des Nutzers**
+- Kind 1 ist in Klasse 5. Kind 2 ist in Klasse 8 und hat eventuell noch Stoff aus Klasse 7 nachzuholen.
+- **Beide lernen den Stoff aller drei Schulen:** Gymnasium, Realschule (Wahlpflichtfächergruppe I), IB. Frühere Festlegungen dazu gelten weiter: Gymnasium ist die Basis; hat die Realschule ein Thema früher, kommt es früher; IB läuft nebenbei, sinnvoll verteilt; nach Klasse 8 sollen die Kinder den Stand aller drei haben. Zielschule offen.
+- Keine Zeitvorgaben in Wochen: Auf Reisen wird manche Woche viel, manche gar nicht gelernt. Jahrgang ist Maßstab für Schwierigkeit und Mindeststand, nicht Fahrplan; Vorgriff ist erlaubt.
+- Kind 2 hat mit dem Lehrer zuletzt in dieser Reihenfolge gearbeitet: Terme vereinfachen, binomische Formeln, Bruchterme, Textgleichungen. Die Anfangs-Flüge der Klasse 5 holt Kind 2 nicht nach.
+- Der Nutzer will den Überblick: wie viele Flüge und Etappen je Schuljahr offen sind (Kind 1: aktuelles Jahr und eines weiter; Kind 2: vor allem Klasse 8, dazu 7 und 9).
+
+**Was du lieferst**
+1. **Je Kind eine geordnete Route** (Flüge in Reihenfolge, mit Themen-Kürzel aus `themenliste.json`), gegliedert in Abschnitte von je vier bis sechs Flügen. Je Flug: warum an dieser Stelle (Voraussetzung, Regel, Lücke), welche Schulart ihn verlangt, Pflicht oder Kür.
+2. **Kind 2, Klasse 7:** Was davon ist echte Lücke und kommt vor den Klasse-8-Stoff, was läuft als „kann er – wiederholen“ nebenher, was kann warten? Nutze den Stand in der App (lesend) – im Repo nur das Ergebnis der Einordnung, keine Quoten.
+3. **Grundsatz der Reihenfolge**, begründet: am Stück durch ein Gebiet oder im Wechsel? Bedenke Voraussetzungen (was baut aufeinander auf), die 15 Grundregeln (Regel an Zahlen vor Regel mit x; wo liegt die Brücke), Abwechslung zwischen Rechnen und Geometrie/Daten, und dass Wiederholungen schon mitlaufen.
+4. **Kreuzungen beider Kinder:** Stellen, an denen beide dieselbe Regel in verschiedenem Gewand haben – für die gemeinsame Tischzeit.
+5. **Prüfpunkte:** nach welchem Abschnitt ein Papier-Test sinnvoll ist (Blatt B aus Auftrag 5 einplanen).
+6. **Umfang ehrlich:** Zahl der Flüge und Etappen je Abschnitt und je Schuljahr; eine Einschätzung in Lerntagen statt Wochen, mit Annahme zur Menge je Lerntag.
+7. **Eine Seite für den Nutzer** in einfacher Sprache: der Plan je Kind als Liste, drei Sätze Begründung, was er entscheiden muss.
+8. **Einstell-Liste für den Projektleiter:** je Kind die Flüge mit Status (neu im Plan / bleibt / herausnehmen / „kann – wiederholen“), so dass ich sie ohne Rückfrage einstellen kann. Was sich gegenüber dem heutigen Plan ändert, eigens markiert.
+
+**Zusammenhang mit Auftrag 7:** Die „laufenden Themen“ für die neuen Aufgaben sind danach die ersten zwei Flüge dieser Route je Kind. Deshalb zuerst Auftrag 8, dann 7.
+
+**Regeln wie immer:** öffentliches Repo – keine Namen, keine Lerndaten, keine Ergebnisse. Lehrplan-Zuordnungen, an denen du zweifelst (der Nutzer misstraut vor allem den Realschul-Zuordnungen), nenne ausdrücklich. Ablage `inhalte/mathe-profi/lehrplan-kinder/`, Meldung hier mit „Nicht geprüft“ und „Annahmen“.
+
+
 ## 2026-11-26 (Berlin) – FERTIG: Auftrag 7 (Schritt 1 – neue Aufgaben ohne Bau)
 Zweig `mathe-profi`, auf Stand `lernen-app` bd2b2391 gebracht. Abgelegt mit Commit d42ba0bb. **Nichts eingespielt.**
 

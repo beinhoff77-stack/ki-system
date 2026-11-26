@@ -26,7 +26,7 @@ Manche Einträge bündeln mehrere Formeln (drei binomische Formeln, drei Potenzg
 
 **Geprüft**
 - Jedes der 97 Themen der App ist von mindestens einem Gesetz oder einer Rechenregel erfasst.
-- Die Lesart „Sonne = Rechenregeln, Planeten = Gebiete der App“ trägt: Der größere Teil der Gesetze braucht mindestens eine Rechenregel (Spalte im Verzeichnis). Unscharf ist die Grenze bei 15 Gesetzen, die auf Themen aus zwei Gebieten zugreifen; eines (Logarithmus) steht ganz auf einem anderen Planeten als seine Themen.
+- Die Lesart „Sonne = Rechenregeln, Planeten = Gebiete der App“ trägt: 80 der 152 Gebiets-Gesetze brauchen mindestens eine Rechenregel (Spalte im Verzeichnis). Unscharf ist die Grenze bei 14 Gesetzen, die auf Themen aus zwei Gebieten zugreifen; eines davon (Logarithmus) steht ganz auf einem anderen Planeten als seine Themen.
 - Im Muster-Planeten steht kein Gesetz vor einem Gesetz, das es braucht; alle Beispiele sind gerechnet.
 
 **Für den Designer (Schritt 4) schon jetzt**

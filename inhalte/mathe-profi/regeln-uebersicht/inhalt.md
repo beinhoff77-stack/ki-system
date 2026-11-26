@@ -36,7 +36,7 @@ Für ChatGPT zum Angreifen und für den Designer als Stoff. Noch keine Darstellu
 
 **Trägt der Schnitt „Planet = Gebiet der App“?** Ja, mit drei Anmerkungen:
 1. **Zahlen und Algebra liegen der Sonne am nächsten.** Viele ihrer Gesetze sind Rechenregeln in einem bestimmten Gewand oder folgen aus ihnen (Spalte „braucht aus der Sonne“). Das ist kein Fehler des Schnitts, sondern der Grund für die Reihenfolge der Planeten: von innen (nah am Rechnen) nach außen (eigene Sätze).
-2. **Die Grenzen sind an wenigen Stellen unscharf.** 1 Gesetz steht bei mir auf einem anderen Planeten als alle seine Themen in der App ([G], Liste unten); weitere 14 Gesetze greifen auf Themen aus zwei Gebieten zu (zum Beispiel die Hyperbel: Funktionen und Verhältnisse). Ich habe nach dem Inhalt geordnet, nicht nach dem Flug.
+2. **Die Grenzen sind an wenigen Stellen unscharf.** 1 Gesetz steht bei mir auf einem anderen Planeten als alle seine Themen in der App ([G], Liste unten); weitere 13 Gesetze greifen auf Themen aus zwei Gebieten zu (zum Beispiel die Hyperbel: Funktionen und Verhältnisse). Ich habe nach dem Inhalt geordnet, nicht nach dem Flug.
 3. **Die Entdecker-Inseln** sind kein Gebiet, sondern fünf einzelne IB-Themen. Im Gesetzbuch sind sie Kleinplaneten am Rand, ausdrücklich Kür.
 
 Wann die Gesetze dazukommen (Gymnasium, erste Klasse, in der das Gesetz vorkommt) [G]: Klasse 5: 30 · Klasse 6: 19 · Klasse 7: 21 · Klasse 8: 28 · Klasse 9: 26 · Klasse 10: 12 · ohne Gymnasium-Zuordnung (nur Realschule oder IB): 16.

@@ -1,5 +1,45 @@
 # Postfach mathe-profi
 
+## 2026-11-26 (Berlin) – FERTIG: Auftrag 10, zweite Fassung nach der Klarstellung „Gesetzbuch“
+Zweig `mathe-profi`, auf Stand `lernen-app` f692aa1d gebracht. Abgelegt mit Commit c041bb3d unter `inhalte/mathe-profi/regeln-uebersicht/`. Die Meldung darunter (erste Fassung) ist damit überholt.
+
+**Geliefert**
+- `inhalt.md` – Landkarte und **vollständiges Inhaltsverzeichnis**: jedes Gesetz mit einem Satz, Klasse je Schulart (G / R / I aus `themenliste.json`) und den Rechenregeln, die es braucht.
+- `sonne.md` – die 14 Rechenregeln, ausgearbeitet (Merksatz, Warum, Wo es nicht gilt, Beispiel je Klasse, Aufbau, Bild) – **Muster 1**.
+- `planet-flaeche-und-raum.md` – ein Planet, ausgearbeitet: 19 Gesetze, 44 nachgerechnete Beispiele, Aufbau, Bild je Gesetz – **Muster 2**.
+- `gesetzbuch.py`, `bauen.py` – Daten, Prüfungen, Erzeugung. Lauf „OK“.
+
+**Die ehrliche Gesamtzahl: 174 Einträge**
+| Ort | Zahl |
+|---|---|
+| Sonne: Rechenregeln | 14 |
+| Zahlen | 24 |
+| Algebra | 23 |
+| Geld und Verhältnisse | 11 |
+| Geometrie | 30 |
+| Fläche und Raum | 19 |
+| Funktionen | 20 |
+| Daten und Zufall | 20 |
+| Entdecker-Inseln (nur IB, Kür) | 5 |
+| Arbeitsweisen (eigener Ort) | 8 |
+Manche Einträge bündeln mehrere Formeln (drei binomische Formeln, drei Potenzgesetze, vier Kongruenzsätze); einzeln gezählt wären es mehr.
+
+**Geprüft**
+- Jedes der 97 Themen der App ist von mindestens einem Gesetz oder einer Rechenregel erfasst.
+- Die Lesart „Sonne = Rechenregeln, Planeten = Gebiete der App“ trägt: Der größere Teil der Gesetze braucht mindestens eine Rechenregel (Spalte im Verzeichnis). Unscharf ist die Grenze bei 15 Gesetzen, die auf Themen aus zwei Gebieten zugreifen; eines (Logarithmus) steht ganz auf einem anderen Planeten als seine Themen.
+- Im Muster-Planeten steht kein Gesetz vor einem Gesetz, das es braucht; alle Beispiele sind gerechnet.
+
+**Für den Designer (Schritt 4) schon jetzt**
+- Planeten von innen nach außen nach Nähe zum Rechnen: Zahlen, Algebra, Geld und Verhältnisse, Geometrie, Fläche und Raum, Funktionen, Daten und Zufall; Entdecker-Inseln als Kleinplaneten am Rand; Arbeitsweisen als Raumstation.
+- Die vier Etagen der Rechenregeln werden zu vier Schichten der Sonne.
+- Bild des Muster-Planeten: zwei Stammbäume (aus dem Rechteck jede Flächenformel, aus dem Quader jede Volumenformel).
+
+**Nicht im Gesetzbuch (mit Grund in `inhalt.md`):** Rechenverfahren, reine Begriffe, Einzelformeln ohne eigene Idee.
+
+**Offen:** Schritt 2 (ChatGPT). Danach die übrigen sechs Planeten und die Inseln nach demselben Muster; mein Vorschlag für die Reihenfolge: Geometrie zuerst.
+**Nicht geprüft:** Klasse und Schulart nur aus `themenliste.json`, nicht aus den Lehrplänen an der Quelle; ob die Lehrpläne Gesetze enthalten, zu denen die App kein Thema hat; innerhalb der Themen nur die Etappen-Titel gelesen, nicht jede Erklärung; Merksätze und Bilder nicht erprobt, Bilder nur beschrieben.
+**Annahmen:** Ein Gesetz ist, was fest gilt und was man wissen muss (Regel, Satz, Formel, feste Vereinbarung); der Schnitt in 152 Gebiets-Gesetze ist meiner – feiner oder gröber ist möglich.
+
 ## 2026-11-26 (Berlin) – FERTIG: Auftrag 10 (Übersicht der Grundregeln, Inhalt – Schritt 1 von 5)
 Zweig `mathe-profi`, auf Stand `lernen-app` 3e701e8d gebracht. Abgelegt mit Commit 8a82a9ce unter `inhalte/mathe-profi/regeln-uebersicht/`.
 

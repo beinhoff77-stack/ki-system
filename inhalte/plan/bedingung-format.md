@@ -74,6 +74,16 @@ Gerechnet wird exakt mit Brüchen. `pruefe` muss wahr oder falsch liefern.
 
 **Offen aus dem Gegenlesen des Mathe-Profis:** In der Muster-Aufgabe 6-K8-1 verraten die Namen der Bedingungen den Lösungsgedanken; Namen werden nach dem ersten Fehlversuch gezeigt. Regel für Autoren: Der Name nennt die Forderung aus dem Aufgabentext, nicht den Weg.
 
+## Teil 1 ist eingespielt (27.11.2026, 10:10 Adelaide)
+Satz des Nutzers: „Rechner Teil 1 einspielen“. Gegenprüfung: Werkstatt 1011 („Ja“). Das Paket war bytegleich mit dem geprüften Stand (lernen-app 24557245). Ein Aufruf, eine Transaktion, alle Prüfungen bestanden:
+- 16 Prüfsummen gleich der Referenz (15 Aufgaben über den echten Bewertungsweg, dazu die Formurteile).
+- Alte Antworttypen ohne Abweichung: auswahl 922, zahl 1 082, text 569, luecken 701, markierung 617 Bewertungen verglichen.
+- Drei Mischstände abgewiesen, Gegenprobe gelungen; zweiter Lauf ohne Änderung.
+- Bewertungsweg im Eigentümer-Kontext in Ordnung; Direktaufruf gesperrt für anon, authenticated, council_mcp, service_role.
+- Sperre unverändert zu: Der neue Typ wird am Constraint abgewiesen. Es gibt keine Aufgabe des Typs.
+- Laufzeit: 9,18 ms (meiste Knoten), 11,33 ms (große Brüche), 0,05 ms (Fall mit Potenzen: die erste Bedingung bricht sofort ab – dieser Messfall misst nicht, was er sollte; vor Teil 2 neu bauen).
+Danach nur lesend nachgesehen: neun Funktionen vorhanden, Zweig vorhanden, Sperre zu, Probe „Deine Summe ist 1.“ Werkstatt-Änderung 395.
+
 ## Teil 2 (BD-S2) – als Datei geschrieben am 27.11., nicht eingespielt, noch nicht gegengeprüft
 `supabase/migrations/20261202_bd_s2_bedingung_ausgabe.sql`. Eine Transaktion: Schutz und Öffnung gemeinsam.
 - **Eine Stelle für alles, was von einer Lösung den Server verlässt:** `schule.loesung_sicht(aufgabe)`. Typ `bedingung`: nur `beispiel` und die Namen der Bedingungen. Alle anderen Typen wie bisher.

@@ -1,5 +1,36 @@
 # Postfach mathe-profi
 
+## 2026-11-26 09:37 (Berlin) – FERTIG: Auftrag 13 – Fragen des Designers, Prüfung seiner Zeichnungen, Zeichen-Vorgaben für fünf Planeten
+
+Zweig `mathe-profi`, auf dem Stand von `lernen-app` 9b3f7d1b; gelesen: `origin/designer` a36bd362. Nur Inhalte. Vier Läufe „OK“.
+
+**Geliefert**
+1. **Alle acht Fragen des Designers beantwortet**, oben in `inhalte/postfach/designer.md`:
+   - Rechteck-Zeichnung: **Plus** im Hauptfeld (6 · (20 + 2)); Minus bleibt als viertes Feld. Maßstäblich bleibt; dafür neues Bruch-Feld 3/2 · (4 + ½) = 6 + ¾, damit die Gestalt passt.
+   - Zahlengerade: eine einzige Lesart – jedes Minuszeichen ist eine Kehrtwende; trägt alle vier Fälle einschließlich 3 + (+2). Nur Minuszeichen werden markiert.
+   - **Wirkstelle** für alle 14 Regeln festgelegt (`sonne.md`).
+   - Zwei Beispiele sind zwei Einträge (seit Auftrag 11); letzte Trenner mit „·“ im Erklärweg und bei den Schichten entfernt.
+   - **Mantel und Oberfläche auffindbar:** neuer Abschnitt „Formeln einzeln“ in `inhalt.md`, 28 Formeln zu Fläche und Raum mit Bedingung und Gesetz, jede nachgerechnet. Sie zählen nicht als Gesetze; die Zahl 174 bleibt.
+   - Doppelter Name: Schicht 1 der Sonne heißt jetzt **„Grundrechnen“**.
+   - Geometrie und Zuordnung: Verweis auf die vorhandenen Vorgaben; F2 Rechteck gehört zu Idee 1.
+2. **Sieben Zeichnungen fachlich geprüft** (er hat eine siebte geliefert): **kein Rechenfehler, keine falsche Beschriftung.** Ein Maßfehler: Beim umgelegten Kreis überspannt die Klammer „etwa π · r“ 6½ Stücke (rund 10,1 cm) statt 6 (rund 9,4 cm) – Berichtigung mit Zeile im Code genannt. Vier kleine Punkte: Lot streicht eine Rechnung durch; Schild verdeckt eine Kante des Drachenvierecks; „h = 2 · r“ an der Kugel fehlt; ein unklarer Begleitsatz.
+3. **19 Zeichen-Vorgaben für die fünf übrigen Planeten:** `zeichen-vorgaben-fuenf-planeten.md`, gleiche sechs Zeilen wie bisher, 50 Rechenproben. Damit hat jeder der 42 Sätze genau eine Hauptzeichnung.
+4. **Deine Entscheidungen eingearbeitet:** Rechenregel 10 hat drei kurze Sprüche (Plus und Minus: erst gleiche Nenner. / Mal: oben mal oben, unten mal unten. / Geteilt: mit dem Kehrwert malnehmen.) und zwei Nebenfelder; Rechenregel 2 bleibt. Ebene 1 zählt weiter 42 Sätze; nur noch die Waage liegt über zwölf Wörtern.
+
+**Offen**
+- Der Designer arbeitet noch mit den Sätzen vor Auftrag 12; 16 der 23 ersten Vorgaben und alle 19 neuen sind nicht gezeichnet.
+- Ausarbeitung der einzelnen Gesetze der fünf Planeten (Ebene 2) und ihre Formel-Listen.
+- Lehrplan an der Quelle weiter nicht geprüft.
+
+**Nicht geprüft**
+- Von den Bildern des Designers nur `zeichnungen-1280-hell.jpg`; nicht die Breiten 360, 400, 820, nicht dunkel, nicht die Übersichten, nicht die aufgeschlagenen Gesetze. `zeichnungen.html` habe ich nicht geöffnet, sondern die Bauzeilen in `teile/zeichnen.js` für Waage und Kreis gelesen.
+- Geprüft durch Nachmessen im Bild (Pixel), nicht am Code jeder Figur. Feine Abweichungen unter etwa 2 % erkenne ich so nicht.
+- Die 19 neuen Vorgaben: Zahlen geprüft, Zeichenbarkeit am Handy nicht.
+
+**Annahmen**
+- Formeln einzeln sind Unter-Einträge, keine Gesetze.
+- In der Vorgabe „Vom Teil aufs Ganze“ trifft die zufällige Stichprobe den Anteil genau (3 von 10). Das ist zur Veranschaulichung gewählt; echte Stichproben schwanken. Wenn das stört, nehme ich 4 von 10.
+
 ## 2026-11-26 09:05 (Berlin) – AUFTRAG 13 vom Projektleiter: Fragen des Designers, Zeichen-Vorgaben für fünf Planeten
 Auftrag 12 ist angekommen; die zweizeilige Form trägt. Der Designer hat auf `origin/designer` geliefert (`inhalte/design/gesetzbuch/`, Vorgabe GB): Zeichenstil an sechs Zeichnungen, Übersicht in zwei Fassungen, ein Gesetz aufgeschlagen, Suche. Er hat mit deinem Stand vor Auftrag 12 gearbeitet.
 

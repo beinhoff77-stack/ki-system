@@ -1,0 +1,1816 @@
+{
+ "stand": "2026-11-26",
+ "hinweis": "Stabile Kennungen des Regel-Universums. Eine Kennung wird nie geändert und nie neu vergeben; kommt eine Regel dazu, bekommt sie eine neue. Merksatz, Name und Nummer in der Übersicht dürfen sich ändern, die Kennung nicht. Klassen stammen aus inhalte/themenliste.json, nicht aus dem Lehrplan an der Quelle. Fehlbilder: nur solche, die an einer Antwort sicher erkennbar sind; eine leere Liste ist Absicht.",
+ "ohne_kennung": {
+  "Arbeitsweisen": "Probe, Überschlag, Einheiten, Skizze, Ansatz, Begründen, Ablesen und Darstellen, Formel anwenden – keine Regeln, deshalb hier ohne Kennung. Das alte Etikett 9 „Einsetzen und Probe“ gehört hierher."
+ },
+ "kennungen": [
+  {
+   "kennung": "rr.stellenwert",
+   "art": "rechenregel",
+   "ort": "Sonne",
+   "name": "Stellenwert",
+   "nr_in_der_uebersicht": 1,
+   "etikett_alt": 13,
+   "merksatz": "Mal zehn: Jede Ziffer rückt eins nach links.",
+   "genau": "Mal 10 rückt jede Ziffer in die nächsthöhere Stelle, geteilt durch 10 in die nächstniedrigere.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6,
+     8
+    ],
+    "rs_by": [
+     5,
+     6,
+     7
+    ],
+    "ib_myp": [
+     1,
+     2,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der Beispiele in sonne.md",
+   "themen": [
+    "bruch.dezimal",
+    "bruch.prozent",
+    "groessen.einheiten",
+    "terme.potenzgesetze_ganzzahlig",
+    "zahlen.natuerlich"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.stellenwert.null_angehaengt",
+     "beschreibung": "Bei mal 10 wird eine Null angehängt, auch wenn ein Komma da ist (2,5 · 10 = 2,50)."
+    },
+    {
+     "kennung": "fb.stellenwert.eine_stelle_daneben",
+     "beschreibung": "Die Ziffern stimmen, das Ergebnis ist aber zehnmal zu groß oder zu klein."
+    }
+   ]
+  },
+  {
+   "kennung": "rr.plusminus",
+   "art": "rechenregel",
+   "ort": "Sonne",
+   "name": "Plus und Minus mit negativen Zahlen",
+   "nr_in_der_uebersicht": 2,
+   "etikett_alt": 1,
+   "merksatz": "Minus heißt umdrehen – zweimal umdrehen ist wieder geradeaus.",
+   "genau": "Beim Addieren zeigt das Vorzeichen der zweiten Zahl die Richtung. Beim Subtrahieren gehst du genau andersherum.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6,
+     7,
+     8
+    ],
+    "rs_by": [
+     5,
+     6,
+     7
+    ],
+    "ib_myp": [
+     2,
+     3,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der Beispiele in sonne.md",
+   "themen": [
+    "bruch.rechnen",
+    "gleichungen.ungleichungen",
+    "terme.umformen",
+    "zahlen.ganz"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.plusminus.doppelminus_uebersehen",
+     "beschreibung": "a − (−b) wird wie a − b gerechnet."
+    },
+    {
+     "kennung": "fb.plusminus.zeichen_des_ergebnisses",
+     "beschreibung": "Der Betrag stimmt, das Vorzeichen des Ergebnisses ist falsch (3 − 8 = 5)."
+    }
+   ]
+  },
+  {
+   "kennung": "rr.vorzeichen",
+   "art": "rechenregel",
+   "ort": "Sonne",
+   "name": "Vorzeichen bei Mal und Geteilt",
+   "nr_in_der_uebersicht": 3,
+   "etikett_alt": 2,
+   "merksatz": "Minus mal Minus gibt Plus, Minus mal Plus gibt Minus.",
+   "genau": "Bei Mal und Geteilt mit zwei Zahlen ungleich null: Gleiche Vorzeichen ergeben Plus, verschiedene Minus.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "rs_by": [
+     5,
+     6,
+     7,
+     9
+    ],
+    "ib_myp": [
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der Beispiele in sonne.md",
+   "themen": [
+    "bruch.rechnen",
+    "gleichungen.quadratisch",
+    "gleichungen.ungleichungen",
+    "terme.umformen",
+    "zahlen.rechengesetze"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.vorzeichen.falsches_zeichen",
+     "beschreibung": "Bei Mal oder Geteilt stimmt der Betrag, das Vorzeichen ist falsch."
+    }
+   ]
+  },
+  {
+   "kennung": "rr.reihenfolge",
+   "art": "rechenregel",
+   "ort": "Sonne",
+   "name": "Reihenfolge beim Rechnen",
+   "nr_in_der_uebersicht": 4,
+   "etikett_alt": 3,
+   "merksatz": "Klammer zuerst, dann Hoch, dann Punkt vor Strich.",
+   "genau": "Klammer zuerst, dann Hoch, dann Punkt, dann Strich – Gleichrangiges von links nach rechts.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6,
+     7,
+     8,
+     9,
+     10
+    ],
+    "rs_by": [
+     5,
+     6,
+     7,
+     9,
+     10
+    ],
+    "ib_myp": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   "klassen_grundlage": "Themen der Beispiele in sonne.md",
+   "themen": [
+    "bruch.rechnen",
+    "gleichungen.exponential",
+    "gleichungen.quadratisch",
+    "terme.potenzgesetze_ganzzahlig",
+    "terme.umformen",
+    "zahlen.rechengesetze"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.reihenfolge.links_nach_rechts",
+     "beschreibung": "Strich wird vor Punkt gerechnet, weil er weiter links steht (2 + 3 · 4 = 20)."
+    },
+    {
+     "kennung": "fb.reihenfolge.mal_vor_hoch",
+     "beschreibung": "Mal wird vor Hoch gerechnet (2 · 3² = 36)."
+    },
+    {
+     "kennung": "fb.reihenfolge.minus_ins_quadrat",
+     "beschreibung": "Das Minus vor einer Potenz wird mitquadriert (−3² = 9)."
+    }
+   ]
+  },
+  {
+   "kennung": "rr.tauschen",
+   "art": "rechenregel",
+   "ort": "Sonne",
+   "name": "Tauschen, Klammern, Zusammenfassen",
+   "nr_in_der_uebersicht": 5,
+   "etikett_alt": 6,
+   "merksatz": "Tauschen bei Plus und Mal. Zusammenfassen: nur Gleiches zu Gleichem.",
+   "genau": "In einer Summe darfst du die Summanden tauschen und neu klammern, in einem Produkt die Faktoren. Zusammenfassen: gleicher Buchstabenteil – Vorzahlen addieren.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6,
+     7,
+     9
+    ],
+    "rs_by": [
+     5,
+     6,
+     7,
+     9
+    ],
+    "ib_myp": [
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der Beispiele in sonne.md",
+   "themen": [
+    "bruch.rechnen",
+    "terme.umformen",
+    "zahlen.ganz",
+    "zahlen.rechengesetze",
+    "zahlen.reell"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.tauschen.minus_getauscht",
+     "beschreibung": "Bei Minus oder Geteilt werden die Zahlen vertauscht (3 − 8 gerechnet als 8 − 3, ohne das Zeichen mitzunehmen)."
+    },
+    {
+     "kennung": "fb.tauschen.ungleiches_zusammengefasst",
+     "beschreibung": "Verschiedene Buchstabenteile werden zusammengefasst (3a + 4b = 7ab)."
+    }
+   ]
+  },
+  {
+   "kennung": "rr.ausmultiplizieren",
+   "art": "rechenregel",
+   "ort": "Sonne",
+   "name": "Ausmultiplizieren und Ausklammern",
+   "nr_in_der_uebersicht": 6,
+   "etikett_alt": 4,
+   "merksatz": "Was vor der Klammer steht, nimmt jeden in der Klammer mal.",
+   "genau": "Der Faktor vor der Klammer multipliziert jeden Summanden – vorwärts ausmultiplizieren, rückwärts ausklammern.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6,
+     7,
+     8,
+     9,
+     10
+    ],
+    "rs_by": [
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "ib_myp": [
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der Beispiele in sonne.md",
+   "themen": [
+    "bruch.rechnen",
+    "gleichungen.polynom",
+    "gleichungen.quadratisch",
+    "terme.bruchterme",
+    "terme.umformen",
+    "zahlen.rechengesetze"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.ausmultiplizieren.nur_erster_summand",
+     "beschreibung": "Der Faktor trifft nur den ersten Summanden (3 · (x + 2) = 3x + 2)."
+    },
+    {
+     "kennung": "fb.ausmultiplizieren.hoch_verteilt",
+     "beschreibung": "Das Quadrat wird auf die Summanden verteilt ((a + b)² = a² + b²)."
+    }
+   ]
+  },
+  {
+   "kennung": "rr.minusklammer",
+   "art": "rechenregel",
+   "ort": "Sonne",
+   "name": "Minus vor der Klammer",
+   "nr_in_der_uebersicht": 7,
+   "etikett_alt": 5,
+   "merksatz": "Minus vor der Klammer dreht alle Zeichen um.",
+   "genau": "Löst du eine Minusklammer auf, wechselt jeder Summand in der Klammer sein Vorzeichen.",
+   "klassen": {
+    "gym_by": [
+     5,
+     7,
+     8,
+     9
+    ],
+    "rs_by": [
+     5,
+     7,
+     8,
+     9
+    ],
+    "ib_myp": [
+     1,
+     3,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der Beispiele in sonne.md",
+   "themen": [
+    "gleichungen.bruch",
+    "gleichungen.quadratisch",
+    "terme.umformen",
+    "zahlen.rechengesetze"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.minusklammer.nur_erstes_zeichen",
+     "beschreibung": "Nur das erste Vorzeichen in der Klammer wechselt (a − (b − c) = a − b − c)."
+    }
+   ]
+  },
+  {
+   "kennung": "rr.potenz",
+   "art": "rechenregel",
+   "ort": "Sonne",
+   "name": "Potenzen",
+   "nr_in_der_uebersicht": 8,
+   "etikett_alt": 12,
+   "merksatz": "Hoch drei heißt: die Zahl dreimal hinschreiben und malnehmen.",
+   "genau": "Hoch n heißt: n gleiche Faktoren. Bei gleicher Basis gilt: Mal – Hochzahlen addieren.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6,
+     7,
+     8,
+     10
+    ],
+    "rs_by": [
+     5,
+     7,
+     10
+    ],
+    "ib_myp": [
+     1,
+     3,
+     4,
+     5
+    ]
+   },
+   "klassen_grundlage": "Themen der Beispiele in sonne.md",
+   "themen": [
+    "funktionen.exponential_log",
+    "terme.potenzgesetze_ganzzahlig",
+    "terme.potenzgesetze_natuerlich",
+    "zahlen.potenzen_basis",
+    "zahlen.potenzen_zehner"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.potenz.basis_mal_hochzahl",
+     "beschreibung": "Basis und Hochzahl werden malgenommen (2³ = 6)."
+    },
+    {
+     "kennung": "fb.potenz.hochzahlen_malgenommen",
+     "beschreibung": "Beim Malnehmen gleicher Basen werden die Hochzahlen malgenommen statt addiert (x² · x³ = x⁶)."
+    },
+    {
+     "kennung": "fb.potenz.negative_hochzahl_als_minus",
+     "beschreibung": "Eine negative Hochzahl wird als negatives Ergebnis gelesen (2⁻¹ = −2)."
+    }
+   ]
+  },
+  {
+   "kennung": "rr.kuerzen",
+   "art": "rechenregel",
+   "ort": "Sonne",
+   "name": "Erweitern und Kürzen",
+   "nr_in_der_uebersicht": 9,
+   "etikett_alt": 10,
+   "merksatz": "Oben und unten dasselbe mal oder geteilt – der Bruch bleibt gleich.",
+   "genau": "Ein gemeinsamer Faktor ungleich null darf in Zähler und Nenner dazukommen oder wegfallen – der Wert des Bruchs bleibt.",
+   "klassen": {
+    "gym_by": [
+     6,
+     7,
+     8,
+     9
+    ],
+    "rs_by": [
+     6,
+     7,
+     8,
+     9
+    ],
+    "ib_myp": [
+     1,
+     3,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der Beispiele in sonne.md",
+   "themen": [
+    "abbildungen.aehnlichkeit",
+    "bruch.brueche",
+    "terme.bruchterme",
+    "terme.umformen"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.kuerzen.aus_summe",
+     "beschreibung": "Aus einer Summe wird gekürzt ((x + 6) : (x + 2) = 3)."
+    },
+    {
+     "kennung": "fb.kuerzen.nur_zaehler_oder_nenner",
+     "beschreibung": "Nur der Zähler oder nur der Nenner wird malgenommen oder geteilt."
+    }
+   ]
+  },
+  {
+   "kennung": "rr.bruchrechnen",
+   "art": "rechenregel",
+   "ort": "Sonne",
+   "name": "Rechnen mit Brüchen",
+   "nr_in_der_uebersicht": 10,
+   "etikett_alt": 11,
+   "merksatz": "Plus und Minus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: mit dem Kehrwert malnehmen.",
+   "genau": "Gleichnamige Brüche: Zähler addieren oder subtrahieren, Nenner behalten. Mal: Zähler mal Zähler, Nenner mal Nenner. Geteilt: mit dem Kehrwert malnehmen.",
+   "klassen": {
+    "gym_by": [
+     6,
+     7,
+     8,
+     10
+    ],
+    "rs_by": [
+     6,
+     7,
+     8,
+     10
+    ],
+    "ib_myp": [
+     2,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der Beispiele in sonne.md",
+   "themen": [
+    "bruch.rechnen",
+    "gleichungen.linear",
+    "stochastik.mehrstufig",
+    "terme.bruchterme"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.bruchrechnen.zaehler_und_nenner_addiert",
+     "beschreibung": "Beim Addieren werden Zähler und Nenner je für sich addiert (½ + ⅓ = 2/5)."
+    },
+    {
+     "kennung": "fb.bruchrechnen.falscher_kehrwert",
+     "beschreibung": "Beim Teilen wird der erste statt des zweiten Bruchs umgedreht oder gar keiner."
+    }
+   ]
+  },
+  {
+   "kennung": "rr.verhaeltnis",
+   "art": "rechenregel",
+   "ort": "Sonne",
+   "name": "Verhältnis (Dreisatz)",
+   "nr_in_der_uebersicht": 11,
+   "etikett_alt": 14,
+   "merksatz": "Erst auf eins, dann auf viele.",
+   "genau": "Bei gleichem Preis je Einheit: erst auf eins, dann auf die gewünschte Menge.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    "rs_by": [
+     6,
+     7,
+     8,
+     9
+    ],
+    "ib_myp": [
+     1,
+     2,
+     3
+    ]
+   },
+   "klassen_grundlage": "Themen der Beispiele in sonne.md",
+   "themen": [
+    "abbildungen.aehnlichkeit",
+    "bruch.prozent",
+    "bruch.prozent_grundwert",
+    "funktionen.linear",
+    "groessen.proportional"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "beschreibung": "Statt mit dem Wert für eins zu rechnen, wird ein fester Betrag dazugezählt."
+    },
+    {
+     "kennung": "fb.verhaeltnis.falsche_richtung",
+     "beschreibung": "Es wird malgenommen, wo geteilt werden muss, oder umgekehrt."
+    }
+   ]
+  },
+  {
+   "kennung": "rr.gegenrechnung",
+   "art": "rechenregel",
+   "ort": "Sonne",
+   "name": "Gegenrechnung",
+   "nr_in_der_uebersicht": 12,
+   "etikett_alt": 8,
+   "merksatz": "Rückwärts rechnen: Was zuletzt kam, geht zuerst.",
+   "genau": "Rechne den Weg rückwärts: Was zuletzt gerechnet wurde, machst du zuerst rückgängig.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6,
+     7,
+     8,
+     9,
+     10
+    ],
+    "rs_by": [
+     6,
+     7,
+     9,
+     10
+    ],
+    "ib_myp": [
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   },
+   "klassen_grundlage": "Themen der Beispiele in sonne.md",
+   "themen": [
+    "bruch.prozent_grundwert",
+    "bruch.rechnen",
+    "gleichungen.einfach",
+    "gleichungen.exponential",
+    "gleichungen.formeln",
+    "gleichungen.quadratisch"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.gegenrechnung.gleiche_rechnung",
+     "beschreibung": "Statt der Gegenrechnung wird dieselbe Rechnung noch einmal gemacht (□ + 7 = 3, also □ = 10)."
+    },
+    {
+     "kennung": "fb.gegenrechnung.reihenfolge_nicht_umgekehrt",
+     "beschreibung": "Die Schritte werden in derselben statt in umgekehrter Reihenfolge zurückgenommen."
+    },
+    {
+     "kennung": "fb.gegenrechnung.zweite_loesung_fehlt",
+     "beschreibung": "Bei x² = a wird nur die positive Lösung genannt."
+    }
+   ]
+  },
+  {
+   "kennung": "rr.waage",
+   "art": "rechenregel",
+   "ort": "Sonne",
+   "name": "Gleichung als Waage",
+   "nr_in_der_uebersicht": 13,
+   "etikett_alt": 7,
+   "merksatz": "Eine Gleichung ist eine Waage: Was du links tust, musst du auch rechts tun.",
+   "genau": "Dieselbe umkehrbare Rechnung auf beiden Seiten ändert die Lösungen nicht.",
+   "klassen": {
+    "gym_by": [
+     5,
+     7,
+     8,
+     9,
+     10
+    ],
+    "rs_by": [
+     6,
+     7,
+     8,
+     9,
+     10
+    ],
+    "ib_myp": [
+     1,
+     2,
+     4,
+     5
+    ]
+   },
+   "klassen_grundlage": "Themen der Beispiele in sonne.md",
+   "themen": [
+    "gleichungen.bruch",
+    "gleichungen.einfach",
+    "gleichungen.exponential",
+    "gleichungen.linear",
+    "gleichungen.quadratisch"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.waage.nur_ein_summand",
+     "beschreibung": "Beim Malnehmen oder Teilen einer Seite wird nur ein Summand verändert."
+    },
+    {
+     "kennung": "fb.waage.zeichen_nicht_gedreht",
+     "beschreibung": "Bei einer Ungleichung wird mit einer negativen Zahl malgenommen oder geteilt, ohne das Zeichen umzudrehen."
+    },
+    {
+     "kennung": "fb.waage.nur_eine_seite",
+     "beschreibung": "Die Rechnung wird nur auf einer Seite ausgeführt."
+    }
+   ]
+  },
+  {
+   "kennung": "rr.nullprodukt",
+   "art": "rechenregel",
+   "ort": "Sonne",
+   "name": "Nullprodukt",
+   "nr_in_der_uebersicht": 14,
+   "etikett_alt": 15,
+   "merksatz": "Mal ergibt nur null, wenn eine der Zahlen null ist.",
+   "genau": "Ein Produkt ist genau dann null, wenn mindestens ein Faktor null ist.",
+   "klassen": {
+    "gym_by": [
+     5,
+     8,
+     9,
+     10
+    ],
+    "rs_by": [
+     5,
+     6,
+     8,
+     9
+    ],
+    "ib_myp": [
+     1,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der Beispiele in sonne.md",
+   "themen": [
+    "gleichungen.einfach",
+    "gleichungen.polynom",
+    "gleichungen.quadratisch",
+    "terme.bruchterme",
+    "zahlen.rechengesetze"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.nullprodukt.andere_zahl",
+     "beschreibung": "Die Regel wird angewendet, obwohl rechts nicht null steht."
+    },
+    {
+     "kennung": "fb.nullprodukt.vorzeichen_der_loesung",
+     "beschreibung": "Aus x − 2 = 0 wird x = −2 gemacht."
+    }
+   ]
+  },
+  {
+   "kennung": "id.zahlen.zahlengerade",
+   "art": "idee",
+   "ort": "Zahlen",
+   "name": "Zahlengerade",
+   "nr_in_der_uebersicht": 1,
+   "etikett_alt": null,
+   "merksatz": "Links ist kleiner, rechts ist größer – auch unter null.",
+   "genau": "Jede Zahl hat genau einen Platz auf der Zahlengeraden – links ist kleiner.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6,
+     9
+    ],
+    "rs_by": [
+     5,
+     6,
+     9
+    ],
+    "ib_myp": [
+     1,
+     2,
+     4,
+     5
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "bruch.brueche",
+    "funktionen.betrag",
+    "zahlen.ganz",
+    "zahlen.reell"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.zahlengerade.nach_betrag_geordnet",
+     "beschreibung": "Negative Zahlen werden nach ihrem Betrag geordnet (−30 größer als −10)."
+    }
+   ]
+  },
+  {
+   "kennung": "id.zahlen.buendeln",
+   "art": "idee",
+   "ort": "Zahlen",
+   "name": "Bündeln in Zehnern",
+   "nr_in_der_uebersicht": 2,
+   "etikett_alt": null,
+   "merksatz": "Zehn Einer sind ein Zehner, zehn Zehntel sind ein Einer.",
+   "genau": "Zehn von einer Sorte ergeben eins von der nächstgrößeren.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6
+    ],
+    "rs_by": [
+     5,
+     6,
+     7
+    ],
+    "ib_myp": [
+     1,
+     2,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "bruch.dezimal",
+    "bruch.rechnen",
+    "zahlen.natuerlich",
+    "zahlen.potenzen_basis",
+    "zahlen.potenzen_zehner"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.buendeln.abgeschnitten_statt_gerundet",
+     "beschreibung": "Beim Runden wird immer abgerundet."
+    }
+   ]
+  },
+  {
+   "kennung": "id.zahlen.bausteine",
+   "art": "idee",
+   "ort": "Zahlen",
+   "name": "Bausteine",
+   "nr_in_der_uebersicht": 3,
+   "etikett_alt": null,
+   "merksatz": "Primzahlen sind die Bausteine: Jede Zahl ab zwei ist aus ihnen malgenommen.",
+   "genau": "Jede natürliche Zahl ab 2 ist aus Primzahlen gebaut.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6
+    ],
+    "rs_by": [
+     5,
+     6
+    ],
+    "ib_myp": [
+     1
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "bruch.brueche",
+    "zahlen.teilbarkeit"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.bausteine.eins_als_primzahl",
+     "beschreibung": "Die 1 wird als Primzahl gezählt."
+    },
+    {
+     "kennung": "fb.bausteine.nicht_zu_ende_zerlegt",
+     "beschreibung": "In der Zerlegung bleibt ein Faktor stehen, der keine Primzahl ist."
+    },
+    {
+     "kennung": "fb.bausteine.endziffer_statt_quersumme",
+     "beschreibung": "Die Teilbarkeit durch 3 oder 9 wird an der Endziffer abgelesen."
+    },
+    {
+     "kennung": "fb.bausteine.aus_drei_folgt_neun",
+     "beschreibung": "Aus „durch 3 teilbar“ wird „durch 9 teilbar“ gefolgert."
+    }
+   ]
+  },
+  {
+   "kennung": "id.zahlen.schreibweisen",
+   "art": "idee",
+   "ort": "Zahlen",
+   "name": "Schreibweisen",
+   "nr_in_der_uebersicht": 4,
+   "etikett_alt": null,
+   "merksatz": "Ein Halb, null Komma fünf, fünfzig Prozent: dreimal dieselbe Zahl.",
+   "genau": "Bruch, Dezimalzahl und Prozent sind drei Schreibweisen derselben Zahl.",
+   "klassen": {
+    "gym_by": [
+     6
+    ],
+    "rs_by": [
+     6
+    ],
+    "ib_myp": [
+     1
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "bruch.brueche",
+    "bruch.dezimal",
+    "bruch.prozent"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.schreibweisen.zaehler_komma_nenner",
+     "beschreibung": "Zähler und Nenner werden als Kommazahl geschrieben (¼ = 1,4 oder 0,4)."
+    }
+   ]
+  },
+  {
+   "kennung": "id.zahlen.hoch_zurueck",
+   "art": "idee",
+   "ort": "Zahlen",
+   "name": "Hoch und zurück",
+   "nr_in_der_uebersicht": 5,
+   "etikett_alt": null,
+   "merksatz": "Hoch rechnet hin, die Wurzel rechnet zurück.",
+   "genau": "Potenz, Wurzel und Logarithmus gehören zusammen: Die eine rechnet hoch, die beiden anderen fragen zurück.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6,
+     7,
+     8,
+     9,
+     10
+    ],
+    "rs_by": [
+     5,
+     7,
+     9,
+     10
+    ],
+    "ib_myp": [
+     1,
+     3,
+     4,
+     5
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "funktionen.exponential_log",
+    "gleichungen.exponential",
+    "terme.potenzgesetze",
+    "terme.potenzgesetze_ganzzahlig",
+    "terme.potenzgesetze_natuerlich",
+    "zahlen.potenzen_basis",
+    "zahlen.rationale_exponenten",
+    "zahlen.reell",
+    "zahlen.wurzeln_basis"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.hoch_zurueck.wurzel_halbiert",
+     "beschreibung": "Die Wurzel wird wie „geteilt durch 2“ gerechnet (√16 = 8)."
+    }
+   ]
+  },
+  {
+   "kennung": "id.algebra.term",
+   "art": "idee",
+   "ort": "Algebra",
+   "name": "Term",
+   "nr_in_der_uebersicht": 1,
+   "etikett_alt": null,
+   "merksatz": "Ein Term ist ein Rechenrezept: Zahl hinein, Ergebnis heraus.",
+   "genau": "Ein Term ist eine Rechenvorschrift; gleichwertige Terme liefern für jede erlaubte Zahl dasselbe.",
+   "klassen": {
+    "gym_by": [
+     7
+    ],
+    "rs_by": [
+     6,
+     7,
+     8
+    ],
+    "ib_myp": [
+     1,
+     3
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "terme.aufstellen",
+    "terme.quadratische_extreme",
+    "terme.umformen"
+   ],
+   "fehlbilder": []
+  },
+  {
+   "kennung": "id.algebra.erlaubte_zahlen",
+   "art": "idee",
+   "ort": "Algebra",
+   "name": "Erlaubte Zahlen",
+   "nr_in_der_uebersicht": 2,
+   "etikett_alt": null,
+   "merksatz": "Durch null teilen geht nie – prüfe das zuerst.",
+   "genau": "Kläre zuerst, welche Zahlen du einsetzen darfst: Kein Nenner wird null, unter keiner Wurzel steht etwas Negatives.",
+   "klassen": {
+    "gym_by": [
+     8
+    ],
+    "rs_by": [
+     8,
+     9
+    ],
+    "ib_myp": [
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "funktionen.gebrochen",
+    "gleichungen.bruch",
+    "gleichungen.wurzel",
+    "terme.bruchterme"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.erlaubte_zahlen.nullstelle_des_nenners_als_loesung",
+     "beschreibung": "Eine Zahl, die den Nenner null macht, wird als Lösung genannt."
+    }
+   ]
+  },
+  {
+   "kennung": "id.algebra.gleichung_loesen",
+   "art": "idee",
+   "ort": "Algebra",
+   "name": "Gleichung lösen",
+   "nr_in_der_uebersicht": 3,
+   "etikett_alt": null,
+   "merksatz": "Lösen heißt: alle Zahlen finden, für die die Gleichung stimmt.",
+   "genau": "Eine Gleichung lösen heißt: alle Zahlen finden, die sie wahr machen.",
+   "klassen": {
+    "gym_by": [
+     5,
+     7,
+     8,
+     9
+    ],
+    "rs_by": [
+     6,
+     7,
+     9
+    ],
+    "ib_myp": [
+     1,
+     2,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "gleichungen.einfach",
+    "gleichungen.formeln",
+    "gleichungen.lgs2",
+    "gleichungen.lgs3",
+    "gleichungen.linear",
+    "gleichungen.ungleichungen",
+    "zahlen.intervalle"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.gleichung_loesen.grenze_mitgezaehlt",
+     "beschreibung": "Bei < oder > wird die Grenze selbst als Lösung genannt oder mitgezählt."
+    },
+    {
+     "kennung": "fb.gleichung_loesen.klammer_falsch_herum",
+     "beschreibung": "Die Intervallklammer zeigt bei ≤ oder ≥ von der Zahl weg oder bei < oder > zur Zahl hin."
+    }
+   ]
+  },
+  {
+   "kennung": "id.algebra.hoeherer_grad",
+   "art": "idee",
+   "ort": "Algebra",
+   "name": "Höherer Grad",
+   "nr_in_der_uebersicht": 4,
+   "etikett_alt": null,
+   "merksatz": "Steht x im Quadrat: erst null auf eine Seite, dann zerlegen.",
+   "genau": "Bei höherem Grad: alles auf eine Seite bringen und in Faktoren zerlegen – oder die Gegenrechnung nutzen.",
+   "klassen": {
+    "gym_by": [
+     9,
+     10
+    ],
+    "rs_by": [
+     8,
+     9,
+     10
+    ],
+    "ib_myp": [
+     4,
+     5
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "gleichungen.exponential",
+    "gleichungen.polynom",
+    "gleichungen.potenz",
+    "gleichungen.quadratisch",
+    "gleichungen.reinquadratisch",
+    "terme.quadratische_extreme"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.hoeherer_grad.durch_x_geteilt",
+     "beschreibung": "Es wird durch x geteilt; die Lösung 0 geht verloren."
+    }
+   ]
+  },
+  {
+   "kennung": "id.verhaeltnisse.groesse",
+   "art": "idee",
+   "ort": "Geld und Verhältnisse",
+   "name": "Größe",
+   "nr_in_der_uebersicht": 1,
+   "etikett_alt": null,
+   "merksatz": "Kleinere Einheit, größere Zahl – größere Einheit, kleinere Zahl.",
+   "genau": "Eine Größe ist Zahl mal Einheit – wechselt die Einheit, wechselt die Zahl.",
+   "klassen": {
+    "gym_by": [
+     5
+    ],
+    "rs_by": [
+     5
+    ],
+    "ib_myp": [
+     2
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "groessen.einheiten"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.groesse.flaeche_mit_zehn",
+     "beschreibung": "Flächeneinheiten werden mit 10 und Raumeinheiten mit 10 oder 100 umgerechnet."
+    },
+    {
+     "kennung": "fb.groesse.falsche_richtung",
+     "beschreibung": "Beim Wechsel in die kleinere Einheit wird geteilt statt malgenommen."
+    }
+   ]
+  },
+  {
+   "kennung": "id.verhaeltnisse.wert_fuer_eins",
+   "art": "idee",
+   "ort": "Geld und Verhältnisse",
+   "name": "Wert für eins",
+   "nr_in_der_uebersicht": 2,
+   "etikett_alt": null,
+   "merksatz": "Doppelt so viel kostet doppelt so viel.",
+   "genau": "Proportional heißt: Der Wert für eine Einheit bleibt immer gleich.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6,
+     8
+    ],
+    "rs_by": [
+     6,
+     7,
+     8
+    ],
+    "ib_myp": [
+     1,
+     2,
+     3,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "bruch.brueche",
+    "funktionen.linear",
+    "groessen.indirekt",
+    "groessen.proportional",
+    "groessen.verhaeltnisse"
+   ],
+   "fehlbilder": []
+  },
+  {
+   "kennung": "id.verhaeltnisse.prozent",
+   "art": "idee",
+   "ort": "Geld und Verhältnisse",
+   "name": "Prozent als Faktor",
+   "nr_in_der_uebersicht": 3,
+   "etikett_alt": null,
+   "merksatz": "Prozent heißt: von hundert.",
+   "genau": "Prozent heißt Hundertstel; um p Prozent verändern heißt mit einem Faktor malnehmen.",
+   "klassen": {
+    "gym_by": [
+     6,
+     7
+    ],
+    "rs_by": [
+     6,
+     7
+    ],
+    "ib_myp": [
+     1,
+     3,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "bruch.prozent",
+    "bruch.prozent_grundwert",
+    "finanzen.zinsen",
+    "finanzen.zinseszins"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.prozent.falscher_grundwert",
+     "beschreibung": "Der Prozentsatz wird auf den neuen statt auf den alten Wert bezogen."
+    },
+    {
+     "kennung": "fb.prozent.prozente_addiert",
+     "beschreibung": "Aufeinanderfolgende Änderungen werden addiert (plus 20 % und minus 20 % ergeben 0 %)."
+    }
+   ]
+  },
+  {
+   "kennung": "id.geometrie.winkel",
+   "art": "idee",
+   "ort": "Geometrie",
+   "name": "Winkel an Geraden",
+   "nr_in_der_uebersicht": 1,
+   "etikett_alt": null,
+   "merksatz": "Gleiche Winkel an Parallelen – darum im Dreieck immer 180 Grad.",
+   "genau": "An parallelen Geraden kehren dieselben Winkel wieder – deshalb ergeben die Winkel im Dreieck zusammen 180°.",
+   "klassen": {
+    "gym_by": [
+     5,
+     7
+    ],
+    "rs_by": [
+     5,
+     7
+    ],
+    "ib_myp": [
+     1,
+     2
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "geometrie.grundbegriffe",
+    "geometrie.winkel",
+    "geometrie.winkelsaetze"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.winkel.neben_statt_scheitel",
+     "beschreibung": "Nebenwinkel und Scheitelwinkel werden verwechselt (α statt 180° − α oder umgekehrt)."
+    },
+    {
+     "kennung": "fb.winkel.teil_der_drehung",
+     "beschreibung": "Der falsche Teil der vollen Drehung wird genommen (360° − α statt α)."
+    }
+   ]
+  },
+  {
+   "kennung": "id.geometrie.abstand",
+   "art": "idee",
+   "ort": "Geometrie",
+   "name": "Gleicher Abstand",
+   "nr_in_der_uebersicht": 2,
+   "etikett_alt": null,
+   "merksatz": "Der Kreis: alle Punkte gleich weit von der Mitte.",
+   "genau": "Alle Punkte mit gleichem Abstand bilden eine Linie: Kreis, Mittelsenkrechte, Winkelhalbierende.",
+   "klassen": {
+    "gym_by": [
+     5,
+     7
+    ],
+    "rs_by": [
+     5,
+     6,
+     7
+    ],
+    "ib_myp": [
+     1,
+     3,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "abbildungen.kongruenz",
+    "geometrie.grundbegriffe",
+    "geometrie.kreis",
+    "geometrie.ortslinien"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.abstand.koordinaten_vertauscht",
+     "beschreibung": "x- und y-Koordinate werden vertauscht."
+    },
+    {
+     "kennung": "fb.abstand.nur_eine_seite",
+     "beschreibung": "Bei einem festen Abstand wird nur eine der beiden Seiten gefunden."
+    },
+    {
+     "kennung": "fb.abstand.halbe_laenge_statt_mitte",
+     "beschreibung": "Statt der Mitte zwischen zwei Punkten wird die halbe Streckenlänge genannt."
+    }
+   ]
+  },
+  {
+   "kennung": "id.geometrie.deckungsgleich",
+   "art": "idee",
+   "ort": "Geometrie",
+   "name": "Deckungsgleich",
+   "nr_in_der_uebersicht": 3,
+   "etikett_alt": null,
+   "merksatz": "Spiegeln, schieben, drehen – Form und Größe bleiben gleich.",
+   "genau": "Spiegeln, Schieben und Drehen ändern weder Längen noch Winkel; drei passende Angaben legen ein Dreieck fest.",
+   "klassen": {
+    "gym_by": [
+     5,
+     7
+    ],
+    "rs_by": [
+     5,
+     6,
+     7,
+     10
+    ],
+    "ib_myp": [
+     1,
+     3,
+     4,
+     5
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "abbildungen.determinanten2",
+    "abbildungen.kongruenz",
+    "abbildungen.matrizen",
+    "abbildungen.vektoren",
+    "geometrie.grundbegriffe",
+    "geometrie.konstruktion",
+    "geometrie.kreis"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.deckungsgleich.falsche_koordinate_gespiegelt",
+     "beschreibung": "Beim Spiegeln wird das Vorzeichen der falschen Koordinate geändert."
+    },
+    {
+     "kennung": "fb.deckungsgleich.an_koordinatenachse_gespiegelt",
+     "beschreibung": "Es wird an der x- oder y-Achse gespiegelt statt an der genannten Achse."
+    },
+    {
+     "kennung": "fb.deckungsgleich.drehrichtung",
+     "beschreibung": "Es wird in die falsche Richtung gedreht."
+    },
+    {
+     "kennung": "fb.deckungsgleich.diagonale_als_achse",
+     "beschreibung": "Die Diagonalen eines Rechtecks oder Parallelogramms werden als Symmetrieachsen gezählt."
+    }
+   ]
+  },
+  {
+   "kennung": "id.geometrie.aehnlich",
+   "art": "idee",
+   "ort": "Geometrie",
+   "name": "Ähnlich",
+   "nr_in_der_uebersicht": 4,
+   "etikett_alt": null,
+   "merksatz": "Gleiche Form, andere Größe: alle Längen mal dieselbe Zahl.",
+   "genau": "Ähnliche Figuren haben gleiche Winkel und alle Längen im selben Verhältnis.",
+   "klassen": {
+    "gym_by": [
+     8,
+     9
+    ],
+    "rs_by": [
+     9
+    ],
+    "ib_myp": [
+     3
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "abbildungen.aehnlichkeit",
+    "messen.kreisberechnung"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.aehnlich.flaeche_mit_k",
+     "beschreibung": "Die Fläche wird mit k statt mit k² vergrößert."
+    }
+   ]
+  },
+  {
+   "kennung": "id.geometrie.rechtwinklig",
+   "art": "idee",
+   "ort": "Geometrie",
+   "name": "Rechtwinkliges Dreieck",
+   "nr_in_der_uebersicht": 5,
+   "etikett_alt": null,
+   "merksatz": "Rechter Winkel im Dreieck: a² plus b² ist c².",
+   "genau": "Im rechtwinkligen Dreieck legen zwei Angaben alles fest: Pythagoras verbindet die Seiten, Sinus, Kosinus und Tangens verbinden Seiten und Winkel.",
+   "klassen": {
+    "gym_by": [
+     9
+    ],
+    "rs_by": [
+     9,
+     10
+    ],
+    "ib_myp": [
+     3,
+     4,
+     5
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "gleichungen.trig",
+    "trigo.allgemein",
+    "trigo.pythagoras",
+    "trigo.rechtwinklig"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.rechtwinklig.ohne_quadrate",
+     "beschreibung": "Die Seitenlängen werden addiert statt ihre Quadrate (a + b = c)."
+    },
+    {
+     "kennung": "fb.rechtwinklig.kathete_als_hypotenuse",
+     "beschreibung": "Eine Kathete wird wie die Hypotenuse behandelt."
+    }
+   ]
+  },
+  {
+   "kennung": "id.flaeche_raum.auslegen",
+   "art": "idee",
+   "ort": "Fläche und Raum",
+   "name": "Auslegen und zählen",
+   "nr_in_der_uebersicht": 1,
+   "etikett_alt": null,
+   "merksatz": "Messen heißt auslegen und zählen.",
+   "genau": "Messen heißt auslegen und zählen: Flächen mit Einheitsquadraten, Körper mit Einheitswürfeln.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6
+    ],
+    "rs_by": [
+     5,
+     6,
+     8
+    ],
+    "ib_myp": [
+     1
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "messen.flaechen",
+    "messen.volumen",
+    "terme.quadratische_extreme"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.auslegen.umfang_statt_flaeche",
+     "beschreibung": "Statt der Fläche wird der Umfang berechnet oder umgekehrt."
+    }
+   ]
+  },
+  {
+   "kennung": "id.flaeche_raum.aus_dem_rechteck",
+   "art": "idee",
+   "ort": "Fläche und Raum",
+   "name": "Aus dem Rechteck",
+   "nr_in_der_uebersicht": 2,
+   "etikett_alt": null,
+   "merksatz": "Aus dem Rechteck entsteht jede Fläche.",
+   "genau": "Aus dem Rechteck entsteht jede Fläche: zerschneiden, neu legen, halbieren.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6,
+     8
+    ],
+    "rs_by": [
+     5,
+     6,
+     9
+    ],
+    "ib_myp": [
+     1,
+     3,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "gleichungen.formeln",
+    "messen.flaechen",
+    "messen.flaechen_vielecke",
+    "messen.kreisberechnung"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.aus_dem_rechteck.halbieren_vergessen",
+     "beschreibung": "Beim Dreieck fehlt das „geteilt durch 2“."
+    },
+    {
+     "kennung": "fb.aus_dem_rechteck.durchmesser_statt_radius",
+     "beschreibung": "In die Kreisformel wird der Durchmesser statt des Radius eingesetzt."
+    }
+   ]
+  },
+  {
+   "kennung": "id.flaeche_raum.aus_dem_quader",
+   "art": "idee",
+   "ort": "Fläche und Raum",
+   "name": "Aus dem Quader",
+   "nr_in_der_uebersicht": 3,
+   "etikett_alt": null,
+   "merksatz": "Grundfläche mal Höhe – bei Spitzen nur ein Drittel.",
+   "genau": "Aus dem Quader entsteht jeder Körper: Grundfläche mal Höhe – bei spitzen Körpern ein Drittel davon.",
+   "klassen": {
+    "gym_by": [
+     8,
+     10
+    ],
+    "rs_by": [
+     9
+    ],
+    "ib_myp": [
+     3
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "messen.prisma_zylinder",
+    "raum.pyramide_kegel_kugel"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.aus_dem_quader.drittel_vergessen",
+     "beschreibung": "Bei Pyramide oder Kegel fehlt das Drittel."
+    }
+   ]
+  },
+  {
+   "kennung": "id.flaeche_raum.haut",
+   "art": "idee",
+   "ort": "Fläche und Raum",
+   "name": "Haut des Körpers",
+   "nr_in_der_uebersicht": 4,
+   "etikett_alt": null,
+   "merksatz": "Aufklappen zeigt die ganze Haut des Körpers.",
+   "genau": "Die Oberfläche ist die Haut des Körpers: Das Netz zeigt sie ausgebreitet, das Schrägbild zeigt den Körper im Raum.",
+   "klassen": {
+    "gym_by": [
+     5,
+     6,
+     8,
+     10
+    ],
+    "rs_by": [
+     5,
+     6,
+     7
+    ],
+    "ib_myp": [
+     1,
+     3,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "messen.flaechen_vielecke",
+    "messen.koerper_berechnung",
+    "messen.koerper_darstellung",
+    "raum.schraegbilder"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.haut.nur_drei_flaechen",
+     "beschreibung": "Bei der Oberfläche des Quaders werden nur drei statt sechs Flächen gezählt."
+    }
+   ]
+  },
+  {
+   "kennung": "id.funktionen.zuordnung",
+   "art": "idee",
+   "ort": "Funktionen",
+   "name": "Zuordnung",
+   "nr_in_der_uebersicht": 1,
+   "etikett_alt": null,
+   "merksatz": "Zu jedem x gehört genau ein y.",
+   "genau": "Eine Funktion ordnet jedem x genau ein y zu; Tabelle, Graph und Gleichung zeigen dasselbe.",
+   "klassen": {
+    "gym_by": [
+     8,
+     9
+    ],
+    "rs_by": [
+     8,
+     9,
+     10
+    ],
+    "ib_myp": [
+     3,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "funktionen.gebrochen",
+    "funktionen.grundbegriffe",
+    "funktionen.linear",
+    "funktionen.potenz",
+    "funktionen.quadratisch",
+    "funktionen.umkehr"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.zuordnung.x_und_y_vertauscht",
+     "beschreibung": "Beim Ablesen oder Einsetzen werden x und y vertauscht."
+    }
+   ]
+  },
+  {
+   "kennung": "id.funktionen.wachstum",
+   "art": "idee",
+   "ort": "Funktionen",
+   "name": "Wachstum",
+   "nr_in_der_uebersicht": 2,
+   "etikett_alt": null,
+   "merksatz": "Plus gleich viel gibt eine Gerade, mal gleich viel eine steile Kurve.",
+   "genau": "Linear wächst in gleichen Schritten um gleich viel, exponentiell um den gleichen Faktor.",
+   "klassen": {
+    "gym_by": [
+     8,
+     10
+    ],
+    "rs_by": [
+     8,
+     10
+    ],
+    "ib_myp": [
+     3,
+     5
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "funktionen.exponential_log",
+    "funktionen.folgen",
+    "funktionen.linear",
+    "funktionen.reihen",
+    "funktionen.scharen",
+    "funktionen.umkehr"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.wachstum.plus_statt_mal",
+     "beschreibung": "Bei exponentiellem Wachstum wird in jedem Schritt derselbe Betrag addiert."
+    }
+   ]
+  },
+  {
+   "kennung": "id.funktionen.gleichung_form",
+   "art": "idee",
+   "ort": "Funktionen",
+   "name": "Gleichung und Form",
+   "nr_in_der_uebersicht": 3,
+   "etikett_alt": null,
+   "merksatz": "Die Gleichung verrät die Form: x gibt eine Gerade, x² eine Parabel.",
+   "genau": "Die Gleichung verrät die Form des Graphen – und jede Änderung der Gleichung verschiebt oder streckt ihn.",
+   "klassen": {
+    "gym_by": [
+     8,
+     9,
+     10
+    ],
+    "rs_by": [
+     7,
+     9,
+     10
+    ],
+    "ib_myp": [
+     4,
+     5
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "funktionen.betrag",
+    "funktionen.ganzrational",
+    "funktionen.gebrochen",
+    "funktionen.potenz",
+    "funktionen.quadratisch",
+    "funktionen.transformation",
+    "funktionen.trig",
+    "groessen.indirekt"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.gleichung_form.falsche_richtung_verschoben",
+     "beschreibung": "y = (x − 3)² wird als Verschiebung nach links gelesen."
+    }
+   ]
+  },
+  {
+   "kennung": "id.daten.kennzahl",
+   "art": "idee",
+   "ort": "Daten und Zufall",
+   "name": "Kennzahl",
+   "nr_in_der_uebersicht": 1,
+   "etikett_alt": null,
+   "merksatz": "Eine Zahl für viele – und immer geht etwas verloren.",
+   "genau": "Eine Kennzahl fasst viele Daten in einer Zahl zusammen – und verschweigt dabei immer etwas.",
+   "klassen": {
+    "gym_by": [
+     6,
+     7,
+     8
+    ],
+    "rs_by": [
+     5,
+     7,
+     9
+    ],
+    "ib_myp": [
+     1,
+     2,
+     4,
+     5
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "daten.boxplot",
+    "daten.darstellen",
+    "daten.kennwerte",
+    "daten.normalverteilung",
+    "daten.standardabweichung",
+    "stochastik.grundbegriffe"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.kennzahl.median_ungeordnet",
+     "beschreibung": "Der Median wird aus der ungeordneten Liste abgelesen."
+    }
+   ]
+  },
+  {
+   "kennung": "id.daten.teil_ganzes",
+   "art": "idee",
+   "ort": "Daten und Zufall",
+   "name": "Vom Teil aufs Ganze",
+   "nr_in_der_uebersicht": 2,
+   "etikett_alt": null,
+   "merksatz": "Wenige sagen nur etwas über alle, wenn der Zufall sie auswählt.",
+   "genau": "Von wenigen auf alle schließen geht nur, wenn zufällig und oft genug gezogen wurde.",
+   "klassen": {
+    "gym_by": [
+     8,
+     10
+    ],
+    "rs_by": [
+     7,
+     9
+    ],
+    "ib_myp": [
+     2,
+     5
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "daten.stichproben",
+    "daten.zweidimensional",
+    "stochastik.grundbegriffe",
+    "stochastik.simulation"
+   ],
+   "fehlbilder": []
+  },
+  {
+   "kennung": "id.daten.anteil",
+   "art": "idee",
+   "ort": "Daten und Zufall",
+   "name": "Anteil",
+   "nr_in_der_uebersicht": 3,
+   "etikett_alt": null,
+   "merksatz": "Wahrscheinlichkeit: günstige durch mögliche.",
+   "genau": "Sind alle Ergebnisse gleich wahrscheinlich, ist die Wahrscheinlichkeit ein Anteil: günstige durch mögliche.",
+   "klassen": {
+    "gym_by": [
+     5,
+     8,
+     9,
+     10
+    ],
+    "rs_by": [
+     5,
+     9,
+     10
+    ],
+    "ib_myp": [
+     2,
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "mengen.grundbegriffe",
+    "stochastik.grundbegriffe",
+    "stochastik.kombinatorik",
+    "stochastik.mehrstufig",
+    "stochastik.verknuepft"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.anteil.guenstig_durch_unguenstig",
+     "beschreibung": "Günstige werden durch ungünstige statt durch alle möglichen Ergebnisse geteilt."
+    }
+   ]
+  },
+  {
+   "kennung": "id.daten.stufen",
+   "art": "idee",
+   "ort": "Daten und Zufall",
+   "name": "Stufen",
+   "nr_in_der_uebersicht": 4,
+   "etikett_alt": null,
+   "merksatz": "Am Pfad entlang mal, Pfade zusammen plus.",
+   "genau": "Bei mehreren Stufen: entlang eines Pfades malnehmen, verschiedene Pfade addieren.",
+   "klassen": {
+    "gym_by": [
+     9,
+     10
+    ],
+    "rs_by": [
+     9,
+     10
+    ],
+    "ib_myp": [
+     4
+    ]
+   },
+   "klassen_grundlage": "Themen der zugeordneten Regeln",
+   "themen": [
+    "stochastik.bedingt",
+    "stochastik.mehrstufig",
+    "stochastik.verknuepft"
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.stufen.addiert_statt_malgenommen",
+     "beschreibung": "Entlang eines Pfades wird addiert statt malgenommen."
+    },
+    {
+     "kennung": "fb.stufen.ohne_zuruecklegen_uebersehen",
+     "beschreibung": "Beim Ziehen ohne Zurücklegen bleibt die zweite Stufe unverändert."
+    }
+   ]
+  }
+ ]
+}

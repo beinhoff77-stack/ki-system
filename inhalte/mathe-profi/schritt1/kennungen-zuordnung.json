@@ -1,0 +1,2400 @@
+{
+ "stand": "2026-11-26",
+ "hinweis": "Zuordnung der 78 Aufgaben aus Schritt 1 zu den Kennungen aus regeln-uebersicht/kennungen.json. Reihenfolge wie etiketten.json. „regel“ ist die Kennung; null heißt: passt zu keiner Kennung (Grund steht dabei). Bei den Fehlbildern ist nur die Regel umgehängt; „fehlbild“ (Fehlbild-Kennung) bleibt null, bis die Beschreibungen einzeln gegen die Fehlbild-Liste gelesen sind.",
+ "ohne_kennung": [
+  "GF-11"
+ ],
+ "aufgaben": [
+  {
+   "kennung_aufgabe": "RG-01",
+   "thema": "zahlen.rechengesetze",
+   "regel_alt": 3,
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "beschreibung": "3 − 8 geht über die Null nach links",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 20,
+     "beschreibung": "plus mal minus ist minus",
+     "regel_alt": 2,
+     "regel": "rr.vorzeichen",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": -20,
+     "beschreibung": "minus eine negative Zahl heißt plus",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "luecke": 4,
+     "antwort": 5,
+     "beschreibung": "das Minus von −20 ist verloren gegangen",
+     "regel_alt": 2,
+     "regel": "rr.vorzeichen",
+     "fehlbild": null
+    },
+    {
+     "luecke": 4,
+     "antwort": -105,
+     "beschreibung": "25 − 4 zuerst gerechnet",
+     "regel_alt": 3,
+     "regel": "rr.reihenfolge",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "RG-02",
+   "thema": "zahlen.rechengesetze",
+   "regel_alt": 2,
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -30,
+     "beschreibung": "6 · (−5) ist −30, das Minus davor dreht es um",
+     "regel_alt": 2,
+     "regel": "rr.vorzeichen",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 0,
+     "beschreibung": "minus mal minus nicht beachtet",
+     "regel_alt": 2,
+     "regel": "rr.vorzeichen",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -120,
+     "beschreibung": "30 − 6 zuerst gerechnet",
+     "regel_alt": 3,
+     "regel": "rr.reihenfolge",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "RG-03",
+   "thema": "zahlen.rechengesetze",
+   "regel_alt": 2,
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 40,
+     "beschreibung": "minus mal plus ist minus",
+     "regel_alt": 2,
+     "regel": "rr.vorzeichen",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 9,
+     "beschreibung": "plus durch minus ist minus",
+     "regel_alt": 2,
+     "regel": "rr.vorzeichen",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": -49,
+     "beschreibung": "minus (−9) heißt plus 9",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "RG-04",
+   "thema": "zahlen.rechengesetze",
+   "regel_alt": 5,
+   "regel": "rr.minusklammer",
+   "regel_name": "Minus vor der Klammer",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -3,
+     "beschreibung": "das Minus in der Klammer dreht sich um",
+     "regel_alt": 5,
+     "regel": "rr.minusklammer",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -266,
+     "beschreibung": "das Minus in der Klammer dreht sich um",
+     "regel_alt": 5,
+     "regel": "rr.minusklammer",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "RG-05",
+   "thema": "zahlen.rechengesetze",
+   "regel_alt": 4,
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 96,
+     "beschreibung": "die Klammer heißt (100 − 4), nicht (100 − 96)",
+     "regel_alt": 4,
+     "regel": "rr.ausmultiplizieren",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 9996,
+     "beschreibung": "die glatte Zahl gehört in die Lücke",
+     "regel_alt": 4,
+     "regel": "rr.ausmultiplizieren",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 1000,
+     "beschreibung": "eine Stelle zu wenig",
+     "regel_alt": 13,
+     "regel": "rr.stellenwert",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "RG-06",
+   "thema": "zahlen.rechengesetze",
+   "regel_alt": 4,
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "fehlbilder": [
+    {
+     "antwort": 56,
+     "beschreibung": "Zahl aus Weg A übernommen – Weg B zerlegt die 38 anders",
+     "regel_alt": 4,
+     "regel": "rr.ausmultiplizieren",
+     "fehlbild": null
+    },
+    {
+     "antwort": 2,
+     "beschreibung": "der Faktor 7 trifft auch die 2",
+     "regel_alt": 4,
+     "regel": "rr.ausmultiplizieren",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "RG-07",
+   "thema": "zahlen.rechengesetze",
+   "regel_alt": 5,
+   "regel": "rr.minusklammer",
+   "regel_name": "Minus vor der Klammer",
+   "fehlbilder": [
+    {
+     "antwort": -9,
+     "beschreibung": "das Minus in der Klammer dreht sich um",
+     "regel_alt": 5,
+     "regel": "rr.minusklammer",
+     "fehlbild": null
+    },
+    {
+     "antwort": 16,
+     "beschreibung": "Zwischenergebnis aus Weg A übernommen",
+     "regel_alt": 5,
+     "regel": "rr.minusklammer",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "RG-08",
+   "thema": "zahlen.rechengesetze",
+   "regel_alt": 3,
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Zeile 3: 6 − 2 ist nicht 4.",
+     "beschreibung": "sucht einen Rechenfehler, wo ein Regelfehler ist",
+     "regel_alt": 3,
+     "regel": "rr.reihenfolge",
+     "fehlbild": null
+    },
+    {
+     "index": 2,
+     "antwort": "Zeile 4: 35 · 4 ist nicht 140.",
+     "beschreibung": "sucht einen Rechenfehler, wo ein Regelfehler ist",
+     "regel_alt": 3,
+     "regel": "rr.reihenfolge",
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "Nirgends. 140 stimmt.",
+     "beschreibung": "von links nach rechts gerechnet",
+     "regel_alt": 3,
+     "regel": "rr.reihenfolge",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "RG-09",
+   "thema": "zahlen.rechengesetze",
+   "regel_alt": 2,
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "beschreibung": "Fehler übernommen: 4 · (−3) ist −12",
+     "regel_alt": 2,
+     "regel": "rr.vorzeichen",
+     "fehlbild": null
+    },
+    {
+     "antwort": -60,
+     "beschreibung": "24 − 4 zuerst gerechnet",
+     "regel_alt": 3,
+     "regel": "rr.reihenfolge",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "RG-10",
+   "thema": "zahlen.rechengesetze",
+   "regel_alt": 6,
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Verteilen: 25 · 30 + 25 · 7, dann mal 4",
+     "beschreibung": "richtig, aber umständlich: die glatte Zahl nicht gesehen",
+     "regel_alt": 6,
+     "regel": "rr.tauschen",
+     "fehlbild": null
+    },
+    {
+     "index": 2,
+     "antwort": "Von links nach rechts: erst 25 · 37",
+     "beschreibung": "richtig, aber umständlich: die glatte Zahl nicht gesehen",
+     "regel_alt": 6,
+     "regel": "rr.tauschen",
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "Runden: 25 · 40 · 4 rechnen",
+     "beschreibung": "Runden ändert das Ergebnis",
+     "regel_alt": 13,
+     "regel": "rr.stellenwert",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "RG-11",
+   "thema": "zahlen.rechengesetze",
+   "regel_alt": 4,
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "4 · 13 · 25",
+     "beschreibung": "hier hilft Tauschen, nicht Verteilen",
+     "regel_alt": 6,
+     "regel": "rr.tauschen",
+     "fehlbild": null
+    },
+    {
+     "index": 1,
+     "antwort": "125 + 67 + 75",
+     "beschreibung": "hier hilft Tauschen, nicht Verteilen",
+     "regel_alt": 6,
+     "regel": "rr.tauschen",
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "480 : 6",
+     "beschreibung": "hier braucht es kein Gesetz",
+     "regel_alt": 4,
+     "regel": "rr.ausmultiplizieren",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "RG-12",
+   "thema": "zahlen.rechengesetze",
+   "regel_alt": 6,
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 86,
+     "beschreibung": "86 steht schon vorn",
+     "regel_alt": 6,
+     "regel": "rr.tauschen",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 9000,
+     "beschreibung": "eine Stelle verrutscht",
+     "regel_alt": 13,
+     "regel": "rr.stellenwert",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 6300,
+     "beschreibung": "nur eine der beiden Zahlen eingetragen",
+     "regel_alt": 6,
+     "regel": "rr.tauschen",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "RG-13",
+   "thema": "zahlen.rechengesetze",
+   "regel_alt": 5,
+   "regel": "rr.minusklammer",
+   "regel_name": "Minus vor der Klammer",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -6,
+     "beschreibung": "das Minus in der Klammer dreht sich um",
+     "regel_alt": 5,
+     "regel": "rr.minusklammer",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 28,
+     "beschreibung": "− 6 statt + 6 gerechnet",
+     "regel_alt": 5,
+     "regel": "rr.minusklammer",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GZ-01",
+   "thema": "zahlen.ganz",
+   "regel_alt": 1,
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -12,
+     "beschreibung": "Abziehen einer negativen Zahl heißt Gegenzahl dazuzählen",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -19,
+     "beschreibung": "(−12) abgezogen wie 12",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -5,
+     "beschreibung": "von −7 aus zwölf nach rechts geht über die Null",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GZ-02",
+   "thema": "zahlen.ganz",
+   "regel_alt": 1,
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -6,
+     "beschreibung": "minus eine negative Zahl heißt plus",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 15,
+     "beschreibung": "die 6 gehört zu den Plus-Zahlen",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "luecke": 5,
+     "antwort": 11,
+     "beschreibung": "kleinere minus größere Zahl ist negativ",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "luecke": 5,
+     "antwort": -23,
+     "beschreibung": "− (−6) als − 6 gerechnet",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GZ-03",
+   "thema": "zahlen.ganz",
+   "regel_alt": 1,
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 20,
+     "beschreibung": "auch die 14 ist eine Minus-Zahl",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 17,
+     "beschreibung": "kleinere minus größere Zahl ist negativ",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": -3,
+     "beschreibung": "die 14 vergessen",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GZ-04",
+   "thema": "zahlen.ganz",
+   "regel_alt": 1,
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 30,
+     "beschreibung": "− (−7) gehört zu den Plus-Zahlen",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 42,
+     "beschreibung": "+ (−12) ist keine Plus-Zahl",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 64,
+     "beschreibung": "− (−7) ist keine Minus-Zahl",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 20,
+     "beschreibung": "kleinere minus größere Zahl ist negativ",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GZ-05",
+   "thema": "zahlen.ganz",
+   "regel_alt": 1,
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -5,
+     "beschreibung": "Gegenzahl nicht gebildet",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -1520,
+     "beschreibung": "Gegenzahl nicht gebildet",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GZ-06",
+   "thema": "zahlen.ganz",
+   "regel_alt": 1,
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -8,
+     "beschreibung": "das Minus steht schon vor der Lücke",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -4750,
+     "beschreibung": "das Minus steht schon vor der Lücke",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GZ-07",
+   "thema": "zahlen.ganz",
+   "regel_alt": 6,
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "beschreibung": "nur die erste Zahl genommen",
+     "regel_alt": 6,
+     "regel": "rr.tauschen",
+     "fehlbild": null
+    },
+    {
+     "antwort": 18,
+     "beschreibung": "die erste Zahl hat kein Zeichen, zählt aber als Plus",
+     "regel_alt": 6,
+     "regel": "rr.tauschen",
+     "fehlbild": null
+    },
+    {
+     "antwort": 60,
+     "beschreibung": "die Minus-Zahl 30 mitgezählt",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GZ-08",
+   "thema": "zahlen.ganz",
+   "regel_alt": 1,
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "beschreibung": "Gegenzahl nicht gebildet",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "antwort": -15,
+     "beschreibung": "Ergebnis statt Summand eingetragen",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GZ-09",
+   "thema": "zahlen.ganz",
+   "regel_alt": 1,
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Zeile 3: 8 − 5 ist nicht 3.",
+     "beschreibung": "sucht einen Rechenfehler, wo ein Regelfehler ist",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "index": 1,
+     "antwort": "Zeile 4: 3 − 20 ist nicht −17.",
+     "beschreibung": "sucht einen Rechenfehler, wo ein Regelfehler ist",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "Nirgends. −17 stimmt.",
+     "beschreibung": "− (−5) als − 5 gelesen",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GZ-10",
+   "thema": "zahlen.ganz",
+   "regel_alt": 1,
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "fehlbilder": [
+    {
+     "antwort": -20,
+     "beschreibung": "Fehler übernommen: − (−9) ist + 9",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "antwort": -10,
+     "beschreibung": "auch das + 4 umgedreht",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GZ-11",
+   "thema": "zahlen.ganz",
+   "regel_alt": 6,
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Von links nach rechts: zuerst 47 − 82.",
+     "beschreibung": "richtig, aber umständlich: die glatten Zahlen nicht gesehen",
+     "regel_alt": 6,
+     "regel": "rr.tauschen",
+     "fehlbild": null
+    },
+    {
+     "index": 1,
+     "antwort": "Erst 82 − 47 rechnen und am Ende das Zeichen umdrehen.",
+     "beschreibung": "das Zeichen gilt nicht für die ganze Kette",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "Alle vier Zahlen addieren und ein Minus davorsetzen.",
+     "beschreibung": "Plus-Zahlen werden nicht zu Minus-Zahlen",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GZ-12",
+   "thema": "zahlen.ganz",
+   "regel_alt": 8,
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "(−4) − (−7)",
+     "beschreibung": "Abziehen nicht umgekehrt",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "index": 2,
+     "antwort": "(−4) + 7",
+     "beschreibung": "umgekehrt, aber mit der Gegenzahl",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "7 − 4",
+     "beschreibung": "Zeichen der −4 verloren",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GZ-13",
+   "thema": "zahlen.ganz",
+   "regel_alt": 1,
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Negativ, weil beide Zahlen negativ sind.",
+     "beschreibung": "Zeichen der Zahlen mit dem Zeichen des Ergebnisses verwechselt",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "index": 1,
+     "antwort": "Negativ, weil 4 829 kleiner ist als 4 830.",
+     "beschreibung": "mit den Beträgen gerechnet",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "index": 2,
+     "antwort": "Null, weil die Zahlen fast gleich sind.",
+     "beschreibung": "geschätzt statt die Richtung bestimmt",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PG-01",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -15,
+     "beschreibung": "Hochzahlen malgenommen statt addiert",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "beschreibung": "abgezogen statt addiert",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -36,
+     "beschreibung": "Hochzahlen malgenommen statt addiert",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PG-02",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "beschreibung": "Hochzahlen addiert statt malgenommen",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "beschreibung": "Hochzahlen addiert statt malgenommen",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "beschreibung": "Zeichen der Hochzahl verloren",
+     "regel_alt": 2,
+     "regel": "rr.vorzeichen",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PG-03",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": -1,
+     "beschreibung": "Hochzahlen addiert statt malgenommen",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "beschreibung": "die 2 wird auch quadriert",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 4,
+     "antwort": -10,
+     "beschreibung": "bei mal werden die Hochzahlen addiert",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 4,
+     "antwort": 3,
+     "beschreibung": "Folgefehler aus m",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PG-04",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -20,
+     "beschreibung": "Hochzahlen malgenommen statt addiert",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "beschreibung": "3² ist 3 · 3",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -9,
+     "beschreibung": "eine negative Hochzahl macht den Wert nicht negativ",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PG-05",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -10,
+     "beschreibung": "Hochzahlen malgenommen statt addiert",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "beschreibung": "minus (−1) heißt plus 1",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -3,
+     "beschreibung": "Hochzahlen malgenommen statt abgezogen",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PG-06",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": -2,
+     "beschreibung": "unter dem Bruchstrich wird aus 6⁻² die Potenz 6²",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "antwort": 1,
+     "beschreibung": "Ergebnis-Hochzahl statt k eingetragen",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PG-07",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "beschreibung": "2³ ist 2 · 2 · 2, nicht 2 · 3",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "antwort": -8,
+     "beschreibung": "eine negative Hochzahl heißt Kehrwert, nicht negative Zahl",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PG-08",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Zeile 2: a² hoch −2 ist a⁰, nicht a⁻⁴.",
+     "beschreibung": "Hochzahlen addiert statt malgenommen",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "index": 2,
+     "antwort": "Zeile 3: a⁻⁴ gehört über den Bruchstrich.",
+     "beschreibung": "negative Hochzahl heißt unter den Bruchstrich",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "Nirgends. 3/a⁴ stimmt.",
+     "beschreibung": "die Hochzahl trifft jeden Faktor in der Klammer",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PG-09",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": 0.25,
+     "beschreibung": "Zeichen der Hochzahl vertauscht",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "antwort": 2,
+     "beschreibung": "Hochzahl statt Wert angegeben",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PG-10",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "a³ + a⁻⁵",
+     "beschreibung": "das ist eine Summe, kein Produkt",
+     "regel_alt": 3,
+     "regel": "rr.reihenfolge",
+     "fehlbild": null
+    },
+    {
+     "index": 1,
+     "antwort": "a³ · b⁻⁵",
+     "beschreibung": "verschiedene Basen",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "index": 2,
+     "antwort": "(a³)⁻⁵",
+     "beschreibung": "Potenz einer Potenz: dort wird malgenommen",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PG-11",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Hochzahlen addieren: 10⁻⁴",
+     "beschreibung": "Hochzahlen addieren gilt nur bei gleicher Basis",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "index": 2,
+     "antwort": "Basen addieren: 7⁻²",
+     "beschreibung": "Basen werden malgenommen, nicht addiert",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "Einzeln: 1/25 · 1/4 und dann malnehmen",
+     "beschreibung": "richtig, aber umständlich: gleiche Hochzahl nicht gesehen",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PG-12",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "beschreibung": "Zeichen der Hochzahl vergessen",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "beschreibung": "minus (−2) heißt plus 2",
+     "regel_alt": 1,
+     "regel": "rr.plusminus",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -8,
+     "beschreibung": "Hochzahlen malgenommen statt abgezogen",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PG-13",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": -4,
+     "beschreibung": "Fehler übernommen: negative Hochzahl heißt Kehrwert",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "antwort": -0.25,
+     "beschreibung": "(−2)² ist + 4",
+     "regel_alt": 2,
+     "regel": "rr.vorzeichen",
+     "fehlbild": null
+    },
+    {
+     "antwort": 4,
+     "beschreibung": "Kehrwert vergessen",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "BG-01",
+   "thema": "gleichungen.bruch",
+   "regel_alt": 14,
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "beschreibung": "die 5 trifft auch die 3",
+     "regel_alt": 4,
+     "regel": "rr.ausmultiplizieren",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 3,
+     "beschreibung": "die 2 trifft auch die 3",
+     "regel_alt": 4,
+     "regel": "rr.ausmultiplizieren",
+     "fehlbild": null
+    },
+    {
+     "luecke": 4,
+     "antwort": -9,
+     "beschreibung": "− 15 wird auf der anderen Seite zu + 15",
+     "regel_alt": 7,
+     "regel": "rr.waage",
+     "fehlbild": null
+    },
+    {
+     "luecke": 5,
+     "antwort": -3,
+     "beschreibung": "Folgefehler aus 3x = −9",
+     "regel_alt": 7,
+     "regel": "rr.waage",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "BG-02",
+   "thema": "gleichungen.bruch",
+   "regel_alt": 14,
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "beschreibung": "die 9 trifft auch die 2",
+     "regel_alt": 4,
+     "regel": "rr.ausmultiplizieren",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "beschreibung": "die 3 trifft auch die 4",
+     "regel_alt": 4,
+     "regel": "rr.ausmultiplizieren",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": -1,
+     "beschreibung": "− 18 wird auf der anderen Seite zu + 18",
+     "regel_alt": 7,
+     "regel": "rr.waage",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "BG-03",
+   "thema": "gleichungen.bruch",
+   "regel_alt": 7,
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "beschreibung": "auch der Faktor 2 bleibt stehen",
+     "regel_alt": 7,
+     "regel": "rr.waage",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "beschreibung": "auch der Faktor 2 bleibt stehen",
+     "regel_alt": 7,
+     "regel": "rr.waage",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "beschreibung": "Folgefehler aus 3 + x = 5",
+     "regel_alt": 7,
+     "regel": "rr.waage",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "BG-04",
+   "thema": "gleichungen.bruch",
+   "regel_alt": 7,
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "beschreibung": "die 6 trifft auch die 4",
+     "regel_alt": 4,
+     "regel": "rr.ausmultiplizieren",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": -6,
+     "beschreibung": "− 24 wird auf der anderen Seite zu + 24",
+     "regel_alt": 7,
+     "regel": "rr.waage",
+     "fehlbild": null
+    },
+    {
+     "luecke": 4,
+     "antwort": -1,
+     "beschreibung": "Folgefehler aus −6 = 6x",
+     "regel_alt": 7,
+     "regel": "rr.waage",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "BG-05",
+   "thema": "gleichungen.bruch",
+   "regel_alt": 10,
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "beschreibung": "jede Seite wird für sich umgedreht",
+     "regel_alt": 10,
+     "regel": "rr.kuerzen",
+     "fehlbild": null
+    },
+    {
+     "antwort": 3,
+     "beschreibung": "Zahl aus dem Nenner statt aus dem Zähler genommen",
+     "regel_alt": 10,
+     "regel": "rr.kuerzen",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "BG-06",
+   "thema": "gleichungen.bruch",
+   "regel_alt": 7,
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "beschreibung": "Hinüberbringen heißt abziehen",
+     "regel_alt": 7,
+     "regel": "rr.waage",
+     "fehlbild": null
+    },
+    {
+     "antwort": 4,
+     "beschreibung": "2/x nicht abgezogen",
+     "regel_alt": 7,
+     "regel": "rr.waage",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "BG-07",
+   "thema": "gleichungen.bruch",
+   "regel_alt": 7,
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Zeile 3: 5 = 8 ist kein Widerspruch.",
+     "beschreibung": "Widerspruch nicht erkannt",
+     "regel_alt": 9,
+     "regel": null,
+     "fehlbild": null
+    },
+    {
+     "index": 2,
+     "antwort": "Zeile 2: 2/x mal x ist 2x, nicht 2.",
+     "beschreibung": "x im Nenner und x als Faktor heben sich auf",
+     "regel_alt": 10,
+     "regel": "rr.kuerzen",
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "Nirgends. Die Gleichung hat keine Lösung.",
+     "beschreibung": "nicht jeder Summand wurde malgenommen",
+     "regel_alt": 7,
+     "regel": "rr.waage",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "BG-08",
+   "thema": "gleichungen.bruch",
+   "regel_alt": 7,
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "beschreibung": "nicht durch 2 geteilt",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "antwort": 7,
+     "beschreibung": "4 auf die andere Seite addiert statt abgezogen",
+     "regel_alt": 7,
+     "regel": "rr.waage",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "BG-09",
+   "thema": "gleichungen.bruch",
+   "regel_alt": 14,
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "7/(x + 1) + 2 = 3/(x − 2)",
+     "beschreibung": "der Summand 2 stört: über Kreuz gilt nur für Bruch = Bruch",
+     "regel_alt": 14,
+     "regel": "rr.verhaeltnis",
+     "fehlbild": null
+    },
+    {
+     "index": 1,
+     "antwort": "7/(x + 1) = 3",
+     "beschreibung": "ein Bruch: mal Nenner genügt",
+     "regel_alt": 7,
+     "regel": "rr.waage",
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "x/7 + x/3 = 2",
+     "beschreibung": "zwei Brüche auf einer Seite: Hauptnenner",
+     "regel_alt": 11,
+     "regel": "rr.bruchrechnen",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "BG-10",
+   "thema": "gleichungen.bruch",
+   "regel_alt": 9,
+   "regel": "id.algebra.erlaubte_zahlen",
+   "regel_name": "Erlaubte Zahlen",
+   "bemerkung": "Alt Etikett 9. Die Aufgabe fragt nach dem Prüfen der Definitionsmenge (x = 2 macht den Nenner null) – das ist die Idee „Erlaubte Zahlen“, die es bei den 15 Nummern nicht gab.",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Fertig: L = {2}.",
+     "beschreibung": "Definitionsmenge nicht geprüft",
+     "regel_alt": 9,
+     "regel": null,
+     "fehlbild": null
+    },
+    {
+     "index": 2,
+     "antwort": "Zur Sicherheit die Probe mit x = 0 machen.",
+     "beschreibung": "Probe gehört an die gefundene Zahl, nicht an eine andere",
+     "regel_alt": 9,
+     "regel": null,
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "Beide Seiten noch einmal mit (x − 2) malnehmen.",
+     "beschreibung": "Umformen ersetzt die Prüfung nicht",
+     "regel_alt": 9,
+     "regel": null,
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "BG-11",
+   "thema": "gleichungen.bruch",
+   "regel_alt": 8,
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "fehlbilder": [
+    {
+     "antwort": 9000,
+     "beschreibung": "malgenommen statt geteilt",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "antwort": 0.4,
+     "beschreibung": "Strecke und Geschwindigkeit vertauscht",
+     "regel_alt": 14,
+     "regel": "rr.verhaeltnis",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "BG-12",
+   "thema": "gleichungen.bruch",
+   "regel_alt": 8,
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "fehlbilder": [
+    {
+     "antwort": 30.72,
+     "beschreibung": "malgenommen statt geteilt",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "antwort": 1.6,
+     "beschreibung": "abgezogen statt das Verhältnis gebildet",
+     "regel_alt": 14,
+     "regel": "rr.verhaeltnis",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "BG-13",
+   "thema": "gleichungen.bruch",
+   "regel_alt": 14,
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 9,
+     "beschreibung": "oben plus 6 heißt nicht unten plus 6",
+     "regel_alt": 10,
+     "regel": "rr.kuerzen",
+     "fehlbild": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 24,
+     "beschreibung": "über Kreuz gerechnet, aber nicht durch 2 geteilt",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "beschreibung": "die 8 gehört zum x",
+     "regel_alt": 14,
+     "regel": "rr.verhaeltnis",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PB-01",
+   "thema": "zahlen.potenzen_basis",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 6,
+     "beschreibung": "2 · 3 statt 2 · 2 · 2",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 10,
+     "beschreibung": "Basis mal Hochzahl gerechnet",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 25,
+     "beschreibung": "Basis und Hochzahl vertauscht",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PB-02",
+   "thema": "zahlen.potenzen_basis",
+   "regel_alt": 2,
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 27,
+     "beschreibung": "plus mal minus ist minus",
+     "regel_alt": 2,
+     "regel": "rr.vorzeichen",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -81,
+     "beschreibung": "minus mal minus ist plus",
+     "regel_alt": 2,
+     "regel": "rr.vorzeichen",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": -12,
+     "beschreibung": "Basis mal Hochzahl gerechnet",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PB-03",
+   "thema": "zahlen.potenzen_basis",
+   "regel_alt": 2,
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 32,
+     "beschreibung": "ungerade Hochzahl: das Ergebnis bleibt negativ",
+     "regel_alt": 2,
+     "regel": "rr.vorzeichen",
+     "fehlbild": null
+    },
+    {
+     "luecke": 1,
+     "antwort": -10,
+     "beschreibung": "Basis mal Hochzahl gerechnet",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "beschreibung": "5 · 2 statt 5 · 5",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 57,
+     "beschreibung": "Zeichen von (−2)⁵ verloren",
+     "regel_alt": 2,
+     "regel": "rr.vorzeichen",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PB-04",
+   "thema": "zahlen.potenzen_basis",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 15,
+     "beschreibung": "ausgerechnet statt gezählt – und mal statt hoch",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "beschreibung": "Malzeichen gezählt statt Faktoren",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 84,
+     "beschreibung": "Basis mal Anzahl gerechnet",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "beschreibung": "Malzeichen gezählt statt Faktoren",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PB-05",
+   "thema": "zahlen.potenzen_basis",
+   "regel_alt": 13,
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "beschreibung": "Stellen gezählt statt Nullen",
+     "regel_alt": 13,
+     "regel": "rr.stellenwert",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "beschreibung": "Stellen gezählt statt Nullen",
+     "regel_alt": 13,
+     "regel": "rr.stellenwert",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "beschreibung": "eine Null übersehen",
+     "regel_alt": 13,
+     "regel": "rr.stellenwert",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PB-06",
+   "thema": "zahlen.potenzen_basis",
+   "regel_alt": 4,
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "beschreibung": "nur die 5 mal 5 genommen: Der Faktor trifft die ganze 15",
+     "regel_alt": 4,
+     "regel": "rr.ausmultiplizieren",
+     "fehlbild": null
+    },
+    {
+     "antwort": 30,
+     "beschreibung": "Basis mal Hochzahl gerechnet",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PB-07",
+   "thema": "zahlen.potenzen_basis",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "beschreibung": "Hochzahl einfach übernommen",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "antwort": 5,
+     "beschreibung": "Hochzahlen addiert",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PB-08",
+   "thema": "zahlen.potenzen_basis",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Zeile 3: 8 + 6 ist nicht 14.",
+     "beschreibung": "sucht einen Rechenfehler, wo ein Regelfehler ist",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "index": 1,
+     "antwort": "Nirgends. 14 stimmt.",
+     "beschreibung": "Basis mal Hochzahl für richtig gehalten",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "Zeile 2: Nur 3² ist falsch, 2⁴ = 8 stimmt.",
+     "beschreibung": "2⁴ mit 2 · 4 verwechselt",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PB-09",
+   "thema": "zahlen.potenzen_basis",
+   "regel_alt": 2,
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "fehlbilder": [
+    {
+     "antwort": -25,
+     "beschreibung": "Fehler übernommen: minus mal minus ist plus",
+     "regel_alt": 2,
+     "regel": "rr.vorzeichen",
+     "fehlbild": null
+    },
+    {
+     "antwort": -10,
+     "beschreibung": "Basis mal Hochzahl gerechnet",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "antwort": 10,
+     "beschreibung": "Basis mal Hochzahl, Zeichen weggelassen",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PB-10",
+   "thema": "zahlen.potenzen_basis",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "6 · 2",
+     "beschreibung": "Verdoppeln sechsmal ist nicht mal 6",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "index": 2,
+     "antwort": "6²",
+     "beschreibung": "Basis und Hochzahl vertauscht",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "2 + 6",
+     "beschreibung": "Verdoppeln ist Malnehmen, nicht Dazuzählen",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PB-11",
+   "thema": "zahlen.potenzen_basis",
+   "regel_alt": 12,
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Die größere Basis gewinnt.",
+     "beschreibung": "Faustregel statt Rechnung",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "index": 1,
+     "antwort": "Die größere Hochzahl gewinnt.",
+     "beschreibung": "Faustregel statt Rechnung",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "Sie sind gleich, weil dieselben Ziffern vorkommen.",
+     "beschreibung": "Basis und Hochzahl darf man nicht vertauschen",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PB-12",
+   "thema": "zahlen.potenzen_basis",
+   "regel_alt": 13,
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 40,
+     "beschreibung": "10 · 4 statt viermal die 10 als Faktor",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 1,
+     "antwort": 1000,
+     "beschreibung": "eine Null zu wenig",
+     "regel_alt": 13,
+     "regel": "rr.stellenwert",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 240,
+     "beschreibung": "10 · 4 gerechnet",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 6000,
+     "beschreibung": "eine Null zu wenig",
+     "regel_alt": 13,
+     "regel": "rr.stellenwert",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "PB-13",
+   "thema": "zahlen.potenzen_basis",
+   "regel_alt": 2,
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Positiv, weil 15 positiv ist.",
+     "beschreibung": "Zeichen der Hochzahl mit dem Zeichen des Ergebnisses verwechselt",
+     "regel_alt": 12,
+     "regel": "rr.potenz",
+     "fehlbild": null
+    },
+    {
+     "index": 2,
+     "antwort": "Positiv, weil minus mal minus plus ergibt.",
+     "beschreibung": "Paare gebildet, aber das übrige Minus vergessen",
+     "regel_alt": 2,
+     "regel": "rr.vorzeichen",
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "Das kann man ohne Ausrechnen nicht sagen.",
+     "beschreibung": "Zeichenregel nicht genutzt",
+     "regel_alt": 2,
+     "regel": "rr.vorzeichen",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GF-01",
+   "thema": "gleichungen.formeln",
+   "regel_alt": 8,
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 30,
+     "beschreibung": "durch 2 statt mal 2",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 3,
+     "beschreibung": "das „: 2“ nicht rückgängig gemacht",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GF-02",
+   "thema": "gleichungen.formeln",
+   "regel_alt": 8,
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 116,
+     "beschreibung": "plus statt minus",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 392,
+     "beschreibung": "mal statt geteilt",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GF-03",
+   "thema": "gleichungen.formeln",
+   "regel_alt": 8,
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 15,
+     "beschreibung": "Zähler und Nenner vertauscht",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 240,
+     "beschreibung": "Zähler und Nenner vertauscht",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 3600,
+     "beschreibung": "mal statt geteilt",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GF-04",
+   "thema": "gleichungen.formeln",
+   "regel_alt": 8,
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "beschreibung": "die gesuchte Zahl selbst eingetragen",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 637,
+     "beschreibung": "mal statt geteilt",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 84,
+     "beschreibung": "abgezogen statt geteilt",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GF-05",
+   "thema": "gleichungen.formeln",
+   "regel_alt": 8,
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "beschreibung": "zuerst geteilt statt zuerst abgezogen",
+     "regel_alt": 3,
+     "regel": "rr.reihenfolge",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 42,
+     "beschreibung": "nur abgezogen, nicht geteilt",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 348,
+     "beschreibung": "plus und mal statt minus und geteilt",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GF-06",
+   "thema": "gleichungen.formeln",
+   "regel_alt": 4,
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "beschreibung": "b selbst statt 2 · b",
+     "regel_alt": 4,
+     "regel": "rr.ausmultiplizieren",
+     "fehlbild": null
+    },
+    {
+     "antwort": 25,
+     "beschreibung": "die 9 nicht verdoppelt",
+     "regel_alt": 4,
+     "regel": "rr.ausmultiplizieren",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GF-07",
+   "thema": "gleichungen.formeln",
+   "regel_alt": 8,
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "fehlbilder": [
+    {
+     "antwort": 24,
+     "beschreibung": "mal 2 statt durch 2",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "antwort": 12,
+     "beschreibung": "das „: 2“ weggelassen",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GF-08",
+   "thema": "gleichungen.formeln",
+   "regel_alt": 7,
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Zeile 3: G muss addiert werden.",
+     "beschreibung": "sucht den Fehler eine Zeile zu spät",
+     "regel_alt": 7,
+     "regel": "rr.waage",
+     "fehlbild": null
+    },
+    {
+     "index": 2,
+     "antwort": "Nirgends. Die Umstellung stimmt.",
+     "beschreibung": "nicht mit Zahlen geprüft",
+     "regel_alt": 9,
+     "regel": null,
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "Zeile 2: Man hätte mit p malnehmen müssen.",
+     "beschreibung": "Umkehrung von mal ist geteilt – das war nicht der Fehler",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GF-09",
+   "thema": "gleichungen.formeln",
+   "regel_alt": 8,
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "beschreibung": "Fehler übernommen: das „: 2“ der Dreiecksformel fehlt",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "antwort": 2,
+     "beschreibung": "durch 2 statt mal 2",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GF-10",
+   "thema": "gleichungen.formeln",
+   "regel_alt": 3,
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "durch p teilen",
+     "beschreibung": "was zuletzt gerechnet wurde, kommt zuerst weg",
+     "regel_alt": 3,
+     "regel": "rr.reihenfolge",
+     "fehlbild": null
+    },
+    {
+     "index": 2,
+     "antwort": "n abziehen",
+     "beschreibung": "n ist gesucht und bleibt stehen",
+     "regel_alt": 7,
+     "regel": "rr.waage",
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "mit p malnehmen",
+     "beschreibung": "mal p steht schon da – die Umkehrung ist geteilt",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GF-11",
+   "thema": "gleichungen.formeln",
+   "regel_alt": 9,
+   "regel": null,
+   "regel_name": null,
+   "grund": "Etikett 9 „Einsetzen und Probe“ ist eine Arbeitsweise, keine Regel; Arbeitsweisen haben keine Kennung.",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Mit g = 1 und h = 1 testen.",
+     "beschreibung": "mit 1 fallen Fehler nicht auf",
+     "regel_alt": 9,
+     "regel": null,
+     "fehlbild": null
+    },
+    {
+     "index": 2,
+     "antwort": "Die Einheiten weglassen und noch einmal schauen.",
+     "beschreibung": "Einheiten helfen beim Prüfen, Weglassen prüft nichts",
+     "regel_alt": 9,
+     "regel": null,
+     "fehlbild": null
+    },
+    {
+     "index": 3,
+     "antwort": "Noch einmal genauso umstellen.",
+     "beschreibung": "derselbe Weg wiederholt denselben Fehler",
+     "regel_alt": 9,
+     "regel": null,
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GF-12",
+   "thema": "gleichungen.formeln",
+   "regel_alt": 8,
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "fehlbilder": [
+    {
+     "antwort": 32,
+     "beschreibung": "die 2 vergessen",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "antwort": 18,
+     "beschreibung": "abgezogen, aber nicht halbiert",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    }
+   ]
+  },
+  {
+   "kennung_aufgabe": "GF-13",
+   "thema": "gleichungen.formeln",
+   "regel_alt": 8,
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "fehlbilder": [
+    {
+     "antwort": 120,
+     "beschreibung": "vorwärts gerechnet statt umgekehrt",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    },
+    {
+     "antwort": 1.2,
+     "beschreibung": "die Formel vorwärts benutzt",
+     "regel_alt": 8,
+     "regel": "rr.gegenrechnung",
+     "fehlbild": null
+    }
+   ]
+  }
+ ]
+}

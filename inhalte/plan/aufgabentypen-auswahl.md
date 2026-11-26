@@ -108,3 +108,11 @@ Die Verbesserungen an der Darstellung, die die Recherche schon gefunden hat (`in
 10. Übersicht je Kind auf sieben Angaben kürzen.
 
 Vorgabe je Punkt durch den Designer, sobald er mit dem Regel-Universum durch ist; Punkte 1 bis 3 vorab als kurze Vorgabe, weil der Bau des Fundaments sie braucht. Aufwand-Angaben aus der Recherche sind Schätzungen, nichts davon ist an der App getestet.
+
+## Brüche in Aufgaben als echter Bruch (Wunsch von Kind 2, 27.11.) – gebaut im Arbeitsstand, nicht live
+In den Erklärungen standen Brüche schon gestapelt, in den Aufgaben als „3/4“. Jetzt gilt dieselbe Darstellung für Frage, Auswahl-Antworten, Tipp, Lösung, Lösungsweg, Rückmeldung, eigene Antwort im Rückblick, „Meine Fehler“ und die Lehrer-Listen (`lernen.js`: `lernBruchTeile`, `lernMathe`; `style.css`: eine Zeile).
+- **Erkannt:** 3/4 · 2,5/3 · x/2 · 2x/27 · 11π/6 · α/2 · 1/b² · 1/√2 · (x + 1)/(x − 2) · 1/(2x) – Klammern um Zähler und Nenner fallen weg. Gemischte Zahlen (1 1/4) werden nicht getrennt.
+- **Bleibt Text:** km/h, m/s, ja/nein · Daten und Ketten (3/4/2026, 68/95/99,7) · Hochzahlen wie x^(1/2) · f(x)/2, √(…)/2, 2(x + 1)/3 · 1/2x (zweideutig) · verschachtelte Klammern.
+- **Geprüft:** `tests/lernen-bruch.test.cjs` (6 Tests, ohne Browser). Lauf über alle Aufgabentexte im Repo (130 Dateien): 13 798 Brüche erkannt; die nicht erkannten Formen durchgesehen (Einheiten, Wortpaare, Hochzahlen, Lücken-Schablonen).
+- **Nicht geprüft:** das Bild im Browser und die vorhandenen Browser-Tests (in dieser Umgebung nicht lauffähig); echte Geräte; die Aufgabentexte in der Datenbank (nur die Formen wurden dort gezählt: über 2 000 Aufgaben mit Zahlenbrüchen).
+- **Offen:** Hochzahlen mit Bruch (x^(1/2)) hochgestellt setzen – betrifft Klasse 9 und 10.

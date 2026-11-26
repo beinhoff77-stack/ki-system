@@ -3847,6 +3847,7 @@ body:has(.lr-abflug) header.top h1 { font-size: 1.15rem; font-weight: 600; }
 .lern-bruch-text { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; line-height: 1.05; font-size: .82em; margin: 0 .12em; font-variant-numeric: tabular-nums; }
 .lern-bruch-text > span:first-child { border-bottom: .09em solid currentColor; padding: 0 .22em .04em; }
 .lern-bruch-text > span:last-child { padding: .04em .22em 0; }
+.lern-bruch-text > span { white-space: nowrap; } /* Zähler und Nenner mit Rechenzeichen (x + 1) nicht umbrechen */
 /* A5: neue Wörter antippen */
 .lr-wort { all: unset; cursor: pointer; text-decoration: underline dotted; text-decoration-thickness: 2px; text-underline-offset: 4px; font: inherit; color: inherit; }
 .lr-wort:focus-visible { outline: 3px solid var(--lr-akzent, #FFD23F); outline-offset: 2px; border-radius: 4px; }

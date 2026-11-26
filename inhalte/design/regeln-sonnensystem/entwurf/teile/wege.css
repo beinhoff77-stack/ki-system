@@ -1,0 +1,41 @@
+.wege-wahl { display: flex; gap: 6px; padding: 8px; background: #1f2937; font: 13px system-ui, sans-serif; position: sticky; top: 0; z-index: 5; align-items: center; flex-wrap: wrap; }
+.wege-wahl span { color: #cbd5e1; margin-right: 4px; }
+.wege-wahl button { border: 1px solid #fff3; background: transparent; color: #fff; border-radius: 999px; padding: 6px 12px; font: inherit; }
+.wege-wahl button[aria-pressed="true"] { background: #FFD23F; color: #11161D; border-color: #FFD23F; font-weight: 700; }
+body.bild .wege-wahl { display: none; }
+.bild-schirm { max-width: 640px; margin: 0 auto; padding: 0 16px 28px; }
+.bild-schirm h1 { font-size: 22px; margin: 4px 0 12px; }
+.platzhalter { font-family: system-ui, sans-serif; font-size: 12.5px; color: var(--leise); margin: 10px 0 0; }
+/* a: Reisekarte (Platzhalter) */
+.karte { position: relative; height: min(62dvh, 520px); border-radius: 22px; overflow: hidden; background: #070A0E; border: 1.5px solid var(--linie); transform-origin: 30% 55%; }
+body[data-g="hell"] .karte { background: #DCE6EA; }
+.karte svg { width: 100%; height: 100%; display: block; }
+.sonnen-knopf { position: absolute; right: 12px; top: 12px; z-index: 2; display: inline-flex; align-items: center; gap: 8px; min-height: 48px; border-radius: 999px; border: 1.5px solid var(--linie); background: var(--flaeche); color: var(--text); padding: 6px 16px 6px 8px; font-weight: 700; font-size: 16px; box-shadow: 0 4px 14px rgba(0, 0, 0, .25); }
+.sonnen-knopf i { width: 32px; height: 32px; border-radius: 50%; background: var(--sonne); box-shadow: 0 0 0 5px var(--sonne-schein); display: inline-flex; align-items: center; justify-content: center; font-style: normal; font-size: 14px; color: #11161D; font-weight: 700; }
+.schwebe { position: absolute; left: 12px; right: 12px; bottom: 12px; background: var(--flaeche); border-radius: 18px; padding: 12px; box-shadow: var(--schatten); }
+.schwebe p { margin: 0 0 8px; font-size: 16px; color: var(--leise); }
+.aufstieg { position: fixed; inset: 0; z-index: 40; background: linear-gradient(var(--himmel-oben), var(--himmel-unten)); opacity: 0; pointer-events: none; transition: opacity .5s ease .15s; }
+body.steigt .aufstieg { opacity: 1; }
+body.steigt .karte { transition: transform .65s cubic-bezier(.5, 0, .3, 1), border-radius .65s; transform: scale(.09); border-radius: 50%; position: relative; z-index: 41; }
+body[data-ruhe="1"].steigt .karte { transition: none; transform: none; }
+body[data-ruhe="1"] .aufstieg { transition: opacity .15s linear; }
+/* b: nach einem Fehler */
+.bord { background: var(--flaeche); border: 1.5px solid var(--linie); border-radius: 18px; padding: 14px; }
+.bord .frage { font-size: 20px; font-weight: 700; margin: 6px 0 12px; }
+.dz { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.dz div { border-radius: 12px; padding: 8px 10px; background: var(--flaeche2); }
+.dz small { display: block; font-family: var(--mono); font-size: 13px; letter-spacing: .12em; color: var(--leise); }
+.dz strong { font-family: var(--mono); font-size: 20px; }
+.geklemmt { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; margin-top: 10px; border: 1.5px solid var(--kurs); background: var(--kurs-bg); color: var(--text); border-radius: 14px; padding: 10px 12px; min-height: 64px; }
+.geklemmt b { display: block; font-size: 17px; line-height: 1.25; }
+.geklemmt span.mehr { font-size: 16px; text-decoration: underline; text-underline-offset: 3px; }
+.geklemmt .txt { flex: 1; }
+/* c: neues Thema */
+.kennst { border: 1.5px solid var(--linie); border-radius: 18px; background: var(--flaeche); padding: 14px; margin-bottom: 14px; }
+.kennst h2 { font-size: 20px; margin: 2px 0 10px; }
+.zwilling { border-radius: 12px; background: var(--flaeche2); padding: 8px 12px; margin-top: 6px; overflow-x: auto; }
+.zwilling small { display: block; font-size: 16px; color: var(--leise); }
+.zwilling .rechnung { font-size: 15px; }
+@media (min-width: 420px) { .zwilling .rechnung { font-size: 17px; } }
+.regel-link { display: inline-flex; align-items: center; gap: 10px; margin-top: 12px; min-height: 48px; border: 1.5px solid var(--linie); background: var(--flaeche); color: var(--text); border-radius: 999px; padding: 4px 16px 4px 6px; font-weight: 700; font-size: 16px; }
+.mini-planet { width: 34px; height: 34px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 800; font-size: 13px; color: #11161D; flex: none; background: linear-gradient(160deg, #A99BFF 55%, #5B4CC4 56%); }

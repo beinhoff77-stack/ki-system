@@ -1,0 +1,125 @@
+/* Seiten: Übersicht A und B, Gesetz, Idee, Suche, Zeichenblatt */
+.schmal { max-width: 860px; }
+.einstieg { padding-top: 26px; padding-bottom: 26px; display: grid; gap: 22px; }
+.einstieg h1 { font-size: 30px; line-height: 1.1; font-weight: 700; }
+.einstieg .lead { font-size: 19px; line-height: 1.45; margin-top: 12px; max-width: 34em; }
+.einstieg .lead b { font-weight: 700; }
+.wegweiser { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 8px; font-size: 17px; }
+.wegweiser li { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center; }
+.wegweiser i { width: 30px; height: 30px; border-radius: 50%; display: block; }
+.beweis { background: var(--flaeche); border: 1.5px solid var(--linie); border-radius: 18px; padding: 14px 16px 16px; align-self: start; }
+.beweis h2 { font-size: 19px; font-weight: 700; margin: 2px 0 2px; } .beweis > p.leise { font-size: 16px; margin-bottom: 4px; }
+@media (min-width: 980px) { .einstieg { grid-template-columns: 1fr minmax(380px, 470px); gap: 36px; padding-top: 38px; } .einstieg h1 { font-size: 40px; } }
+
+/* Klassenleiter: dieselbe Regel in jeder Klasse */
+.leiter { list-style: none; margin: 10px 0 0; padding: 0; position: relative; }
+.leiter::before { content: ""; position: absolute; left: 16px; top: 16px; bottom: 16px; width: 4px; border-radius: 2px; background: var(--marke); }
+.leiter li { position: relative; display: grid; grid-template-columns: 36px 1fr; gap: 12px; align-items: start; padding: 6px 0; }
+.leiter .stufe { width: 36px; height: 36px; border-radius: 50%; background: var(--text); color: var(--bg); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 700; font-size: 16px; position: relative; }
+.leiter .rechnung { font-size: 16px; line-height: 1.75; overflow-wrap: anywhere; }
+.leiter .kl { white-space: normal; font-family: var(--grotesk); font-size: 15px; }
+.leiter li > div { padding-top: 4px; min-width: 0; }
+
+/* A: Schnitt durch die Sonne */
+.sonne { color: var(--auf-sonne); position: relative; }
+.band { position: relative; padding: 26px 0 64px; margin-bottom: -40px; border-bottom-left-radius: 50% 44px; border-bottom-right-radius: 50% 44px; }
+.band.s1 { background: var(--s1); z-index: 4; padding-top: 30px; } .band.s2 { background: var(--s2); z-index: 3; padding-top: 62px; } .band.s3 { background: var(--s3); z-index: 2; padding-top: 62px; }
+.band.s4 { background: var(--s4); z-index: 1; padding-top: 62px; box-shadow: 0 0 70px 26px rgba(255, 210, 63, .30); margin-bottom: 0; }
+.sonne-kopf { display: flex; gap: 18px; align-items: center; margin-bottom: 20px; }
+.sonne-kopf h2 { font-size: 26px; font-weight: 700; line-height: 1.15; } .sonne-kopf p { font-size: 17px; margin-top: 4px; max-width: 36em; }
+.sonne-kopf svg { flex: none; width: 92px; height: 92px; }
+.band-titel { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-bottom: 12px; }
+.band-titel .schicht { font-family: var(--mono); font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; background: #11161D; color: #FFD23F; border-radius: 999px; padding: 3px 11px; }
+.band-titel h3 { font-size: 21px; font-weight: 700; } .band-titel span.baut { font-size: 16px; opacity: .8; }
+.regeln { display: grid; gap: 10px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .regeln { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1100px) { .regeln { grid-template-columns: repeat(4, 1fr); } .regeln.drei { grid-template-columns: repeat(3, 1fr); } }
+.regel { background: var(--flaeche); color: var(--text); border: 0; border-radius: 16px; padding: 12px 14px 12px; display: flex; flex-direction: column; gap: 6px; text-decoration: none; box-shadow: 0 2px 0 rgba(17, 22, 29, .22); min-height: 100%; }
+.regel:hover { box-shadow: 0 0 0 3px #11161D; }
+.regel .z-mini, .idee .z-mini { margin-bottom: 2px; aspect-ratio: 320 / 150; overflow: hidden; display: flex; align-items: center; justify-content: center; } .regel .z-mini svg, .idee .z-mini svg { height: 100%; width: auto; max-width: 100%; }
+.regel .kopfz { display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.regel .name { font-size: 16px; font-weight: 600; color: var(--leise); }
+.regel .satz { font-size: 18px; font-weight: 700; line-height: 1.3; }
+.regel .fuss { margin-top: auto; padding-top: 4px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.raum { padding: 54px 0 20px; }
+.raum-kopf h2, .station h2 { font-size: 26px; font-weight: 700; } .raum-kopf p, .station > .breite > p { font-size: 17px; color: var(--leise); margin-top: 4px; max-width: 40em; }
+.bahnen { list-style: none; margin: 22px 0 0; padding: 0; }
+.bahn { border-bottom: 1.5px solid var(--linie); border-bottom-left-radius: 50% 30px; border-bottom-right-radius: 50% 30px; padding: 20px 0 40px; margin-bottom: -6px; }
+.bahn:last-child { border-bottom: 0; }
+.bahn-innen { display: grid; gap: 12px 28px; align-items: start; }
+@media (min-width: 900px) { .bahn-innen { grid-template-columns: 250px 1fr; } }
+.planet-kopf { display: grid; grid-template-columns: 52px 1fr; gap: 12px; align-items: center; }
+.planet-kopf h3 { font-size: 22px; font-weight: 700; line-height: 1.15; } .planet-kopf p { font-size: 16px; color: var(--leise); margin-top: 2px; }
+.ideen { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .ideen { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1100px) { .ideen.n3, .ideen.n5 { grid-template-columns: repeat(3, 1fr); } .ideen.n4 { grid-template-columns: repeat(4, 1fr); } }
+.idee { display: flex; flex-direction: column; gap: 6px; text-decoration: none; border: 1.5px solid var(--linie); border-radius: 16px; padding: 10px 12px 12px; background: var(--flaeche); min-height: 100%; }
+.idee:hover { border-color: var(--text); }
+.idee b { font-size: 18px; font-weight: 700; line-height: 1.28; } .idee span.mehr { font-size: 16px; color: var(--leise); margin-top: auto; padding-top: 2px; }
+.bahn .offen { font-size: 16px; color: var(--leise); align-self: center; max-width: 44em; }
+.z-platz { display: flex; align-items: center; justify-content: center; min-height: 40px; border: 1.5px dashed var(--linie); border-radius: 12px; font-size: 14px; color: var(--leise); }
+@media (min-width: 640px) { .z-platz { aspect-ratio: 320 / 150; } }
+.z-mini .anm { display: none; }
+.station { padding: 34px 0 70px; }
+.weisen { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 8px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .weisen { grid-template-columns: 1fr 1fr; } } @media (min-width: 1100px) { .weisen { grid-template-columns: repeat(4, 1fr); } }
+.weisen li { border: 1.5px dashed var(--linie); border-radius: 14px; padding: 10px 14px; } .weisen span { display: block; font-size: 16px; color: var(--leise); } .weisen b { font-size: 17px; font-weight: 700; line-height: 1.3; }
+
+/* B: durch die Klassen */
+.tafel-wrap { overflow-x: auto; margin-top: 8px; }
+.tafel { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 1100px; }
+.tafel th, .tafel td { text-align: left; vertical-align: top; padding: 8px 10px; font-size: 15px; border-bottom: 1px solid var(--linie); }
+.tafel thead th { background: var(--bg); font-family: var(--mono); font-size: 14px; letter-spacing: .06em; border-bottom: 2px solid var(--text); }
+.tafel th.r { width: 300px; } .tafel td.z { font-family: var(--mono); font-weight: 600; font-size: 14.5px; line-height: 1.55; overflow-wrap: anywhere; }
+.tafel td.z.voll { background: linear-gradient(var(--strahl), var(--strahl)) left 0 top 0 / 100% 5px no-repeat; }
+.tafel tr.schicht th { background: var(--sf); color: #11161D; font-size: 16px; font-weight: 700; padding: 7px 10px; border-bottom: 0; }
+.tafel th.r a { text-decoration: none; display: block; } .tafel th.r .satz { font-size: 16px; font-weight: 700; line-height: 1.3; display: block; } .tafel th.r .name { font-size: 15px; color: var(--leise); font-weight: 600; }
+body[data-g="nacht"] { --strahl: #FFD23F; } body[data-g="hell"] { --strahl: #E0A800; }
+.b-karten { display: grid; gap: 10px; margin-top: 12px; }
+.b-karte { padding: 12px 14px 12px; } .b-karte .satz { font-size: 18px; font-weight: 700; line-height: 1.3; margin: 2px 0 8px; display: block; }
+.streifen { display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; margin-bottom: 8px; }
+.streifen i { font-style: normal; font-family: var(--mono); font-size: 13px; font-weight: 700; text-align: center; border-radius: 6px; padding: 3px 0; border: 1.5px solid var(--linie); color: var(--leise); }
+.streifen i.an { background: var(--marke); border-color: var(--marke); color: #11161D; }
+.b-karte ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; } .b-karte li { display: grid; grid-template-columns: 44px 1fr; gap: 6px; font-family: var(--mono); font-size: 14.5px; font-weight: 600; line-height: 1.5; } .b-karte li span { color: var(--leise); }
+.b-schicht { font-size: 19px; font-weight: 700; border-radius: 12px; padding: 8px 14px; color: #11161D; margin-top: 18px; }
+
+/* Gesetz aufgeschlagen, Idee */
+.gesetz { padding-bottom: 80px; }
+.g-kopf { padding: 6px 0 4px; } .g-kopf h1 { font-size: 22px; font-weight: 700; color: var(--leise); margin-top: 4px; }
+.merksatz { font-size: 30px; font-weight: 700; line-height: 1.18; margin: 6px 0 4px; max-width: 24em; text-wrap: balance; color: var(--text); }
+.g-kopf h1.merksatz.gross { font-size: 32px; color: var(--text); margin-bottom: 8px; } .merksatz.klein-m { font-size: 20px; margin-bottom: 12px; }
+@media (min-width: 900px) { .merksatz { font-size: 40px; } .g-kopf h1.merksatz.gross { font-size: 42px; } .merksatz.klein-m { font-size: 22px; } }
+.gesetz section { margin-top: 26px; } .gesetz section > h2.ueber { margin-bottom: 10px; }
+.g-spalten { display: grid; gap: 0 40px; }
+@media (min-width: 1040px) { .g-spalten { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); } .g-links .z-reihe { flex-direction: column; align-items: stretch; gap: 0; } .g-links .z-teil { flex: none; max-width: 520px; width: 100%; }
+  .g-links .z-pfeil { flex: 0 0 22px; width: 2px; height: 22px; margin: 3px 0 5px 60px; align-self: flex-start; } .g-links .z-pfeil::after { right: -5px; top: auto; bottom: -4px; border: 6px solid transparent; border-top: 9px solid var(--text); border-bottom: 0; } .g-links .z-pfeil.leer { flex-basis: 10px; } }
+.fliess { font-size: 18px; line-height: 1.5; max-width: 38em; } .klein { font-size: 16px; }
+.fehler { border: 1.5px dashed var(--fehler-rand); background: var(--fehler-bg); border-radius: 16px; padding: 12px 16px 14px; } .fehler h2.ueber { color: var(--fehler-text); margin-bottom: 6px; } .fehler p { font-size: 18px; line-height: 1.45; }
+.verweise { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.verweis { display: inline-flex; align-items: baseline; gap: 8px; min-height: 44px; padding: 9px 14px; border-radius: 12px; border: 1.5px solid var(--linie); background: var(--flaeche); text-decoration: none; font-weight: 700; font-size: 16px; }
+.verweis:hover { border-color: var(--text); }
+.folge { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+@media (min-width: 900px) { .folge { grid-template-columns: 1fr 1fr; } }
+.folge .karte { display: grid; gap: 3px; padding: 12px 14px; min-height: 100%; }
+.folge .f-name { font-size: 18px; font-weight: 700; } .folge .f-name .nr { margin-right: 6px; } .folge .f-satz { font-size: 16.5px; line-height: 1.4; }
+.z-blatt { border-top: 1px solid var(--linie); padding-top: 22px; } .z-blatt h2 { font-size: 24px; font-weight: 700; margin: 2px 0 12px; }
+.stil { list-style: none; padding: 0; margin: 14px 0 0; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 16px; }
+.stil li { display: inline-flex; gap: 8px; align-items: center; } .stil i { width: 22px; height: 22px; border-radius: 6px; display: inline-block; }
+.stil i.karo { background: var(--z-papier); border: 1.5px solid var(--linie); background-image: linear-gradient(var(--z-karo) 1px, transparent 1px), linear-gradient(90deg, var(--z-karo) 1px, transparent 1px); background-size: 7px 7px; }
+
+/* Suche */
+.s-titel { font-size: 24px; font-weight: 700; margin-top: 6px; }
+.treffer { list-style: none; margin: 16px 0 80px; padding: 0; display: grid; gap: 8px; }
+.treffer .karte { display: grid; gap: 2px; padding: 12px 16px 12px; }
+.t-ort { font-size: 15px; color: var(--leise); } .t-name { font-size: 19px; font-weight: 700; } .t-name .nr { margin-right: 6px; } .t-satz { font-size: 16px; line-height: 1.4; }
+.i-kurz { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--leise); font-weight: 600; }
+.t-stich { display: inline-block; align-self: flex-start; font-size: 15px; font-weight: 700; background: var(--marke); color: #11161D; border-radius: 6px; padding: 1px 7px; box-shadow: inset 0 0 0 1.5px #11161D; }
+.stil i.rahmen { background: var(--z-gelb); border: 2px solid var(--z-tinte); } .stil i.winkel { background: none; border: 0; border-left: 2.5px dashed var(--z-tinte); border-bottom: 2.5px solid var(--z-tinte); border-radius: 0; }
+.regel .z-mini svg, .idee .z-mini svg { max-height: 100%; }
+.stil i.sf { background: repeating-linear-gradient(45deg, transparent 0 3px, var(--z-leise) 3px 5px); border: 1.5px solid var(--z-leise); }
+.band6 { display: inline-flex; gap: 3px; vertical-align: middle; } .band6 i { font-style: normal; font-family: var(--mono); font-size: 13px; font-weight: 700; width: 24px; height: 22px; border-radius: 5px; display: grid; place-items: center; border: 1.5px solid var(--linie); color: var(--leise); }
+.band6 i.E { background: var(--text); color: var(--flaeche); border-color: var(--text); } .band6 i.A { background: linear-gradient(to top, var(--text) 0 5px, transparent 5px); border-color: var(--text); color: var(--text); } .band6 i.V { border: 1.5px dashed var(--text); color: var(--text); }
+.band-legende { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; font-size: 14px; margin-top: 8px; } .band-legende .band6 { margin-right: -4px; } .sonne-kopf .band-legende { color: #11161D; }
+.sonne-kopf .band6 i { border-color: #11161D; color: #11161D; } .sonne-kopf .band6 i.E { background: #11161D; color: #FFD23F; } .sonne-kopf .band6 i.A { background: linear-gradient(to top, #11161D 0 5px, transparent 5px); }
+.band-zeile { margin: 2px 0 0; } .zurueck-leiste { display: block; background: var(--akzent); color: #11161D; font-weight: 700; padding: 10px 16px; text-decoration: none; font-size: 17px; }
+.regel .fuss { align-items: center; }

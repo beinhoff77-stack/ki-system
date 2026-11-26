@@ -2,6 +2,50 @@
 
 Neueste oben.
 
+## 2026-11-26 10:15 (Berlin) – FERTIG: (1) Übungsbildschirm, Vorgabe ÜB – (2) Regel-Universum, dritte Runde (Vorgabe GB, Abschnitt F4)
+
+Zweig `designer`, Stand `lernen-app` 6b271bb übernommen. Inhalt wörtlich aus `origin/mathe-profi` c8e2cc3. Kein App-Code, keine Datenbank, kein Lernstand, keine Namen.
+
+**Geliefert**
+
+Teil 1 – `inhalte/design/uebung/` (Vorgabe ÜB, eine Seite; Entwurf `entwurf/uebung.html`; 10 Bildtafeln bei 360 und 400 px, hell und dunkel)
+1. Aufgabe und Felder bleiben über der Tastatur (255 px, vier Reihen). Minus, Komma, Bruchstrich nur bei Bedarf; die Ziffern wandern nie.
+2. Kopf eine Zeile (48 px), eine einzige Fortschrittsleiste.
+3. Rückmeldung als Blatt von unten mit Symbol, Wort und Farbe; bei „Nicht ganz“ Kurzregel.
+4. Zwei bis sechs Zahlenfelder: aktives Feld blau umrandet, Hauptknopf heißt „Nächstes Feld“, bis alles gefüllt ist; sechs Felder als zwei Reihen zu drei. Fehlversuch: Name der verletzten Bedingung und Hinweis über der Tastatur. Ende: „Zum Beispiel: 5, −2, −3“ und die eigenen Zahlen.
+5. Erste Seite „Wo übst du heute?“ mit „Am Tisch“ / „Nur am Handy“.
+6. Nachtrag: Feld „Regel dahinter“ in Erklärung und Rückmeldung, Blatt mit Regel und Zeichnung, Rückweg an dieselbe Stelle, zweiter Tipp ins Regel-Universum.
+Zustände je Aufgabe: leer, beim Tippen, Fehlversuch mit Hinweis, richtig, endgültig falsch.
+
+Teil 2 – `inhalte/design/gesetzbuch/` (Ordnername bleibt; `umsetzung.md` Abschnitt F4; 30 Bilder)
+- Name überall „Regel-Universum“; Einträge heißen „Rechenregel“, „Idee“, „Regel“, „Formel“.
+- Zweizeilige Merksätze; Rechenregel 10 mit drei Sprüchen und zwei Nebenfeldern.
+- **42 von 42 Hauptzeichnungen:** die 19 neuen für Zahlen, Algebra, Geld und Verhältnisse, Funktionen, Daten und Zufall. Kein „Zeichnung folgt“ mehr.
+- Alle Befunde des Mathe-Profis eingearbeitet (Kreis-Klammer, Drachen-Schild, „h = 2 · r“, Satz zu Pyramide und Kegel, Lot, Reihenfolge und neues Bruch-Feld der Rechteck-Zeichnung, Werte 108 und 12).
+- **Hauptwunsch:** Klassenband 5 bis 10 an jeder Rechenregel (eingeführt, angewendet, Vorwissen); an jeder Idee „braucht die Rechenregeln …“; in jeder Rechenregel „Darauf bauen auf: n Regeln auf m Planeten“; in jeder Planeten-Regel „Baut auf diesen Rechenregeln auf“.
+- Nachtrag: in jeder Rechenregel „Kommt vor in diesen Themen“ mit Sprung zur Erklärung; gelbe Leiste „‹ Zurück zur Erklärung“.
+- Suche findet die 28 einzelnen Formeln.
+
+**Offen**
+- Entscheidung des Nutzers: „Genau gesagt“ auf der Übersicht zeigen oder nur in der aufgeschlagenen Regel? Übersicht A oder B?
+- Nebenzeichnungen („gleiche Zeichnung, andere Beschriftung“) nur bei den Regeln 6 und 10.
+- Wirkende Stelle in den Klassen-Beispielen nur bei den Regeln 2, 6, 13 markiert; bei den übrigen steht sie als Satz.
+- Übung: Arbeitszeichen nach 1 s, Rückfrage bei „×“, Querformat sind beschrieben, nicht gebaut.
+- Die Abschnitte 0 bis 12 der Vorgabe GB beschreiben in Einzelheiten noch Fassung 1; es gilt F4.
+
+**Nicht geprüft**
+- Fachliche Richtigkeit der 19 neuen Zeichnungen und der in Runde 2 gezeichneten 16 (Mathe-Profi). Die Punktzahlen der Stichproben-Zeichnung zählt das Bauen nach; alles andere habe ich nur selbst nachgerechnet.
+- Echte Geräte, Safari, Firefox, Kontrastwerte, Vorlesefunktion, Bildschirme niedriger als 640 px.
+- Ob ein Erwachsener ohne Vorwissen die Übersicht in einer Minute versteht.
+- Gemessen nur in Chrome: Regel-Universum 248 Seitenaufrufe bei 360, 400, 820, 1280 px, hell und dunkel; Übung 19 Zustände bei 360 × 640 und 400 × 800. Kein Querrollen, keine Schrift unter 13 px, keine Skriptfehler.
+
+**Annahmen**
+- Übung: zwei Versuche bei Bedingungs-Aufgaben; höchstens 6 Ziffern je Feld im Entwurf; Aufgaben „3 − (−2)“ und „sechs Zahlen“, Kurzregel, Erklärtext, Ort und „1 von 3“ sind erfunden und so gekennzeichnet.
+- Welche Regel hinter einer Aufgabe oder Erklärung steht, kommt vom Mathe-Profi (Auftrag 14 Teil A); im Entwurf ist es überall Rechenregel 2, und jeder Sprung „zur Erklärung“ führt zur selben Beispiel-Erklärung.
+- „Worauf sie aufbaut“ lese ich aus der Spalte „Sonne“ und aus „möglicher Erklärweg“; der Mathe-Profi nennt beides ausdrücklich keine Sperre.
+- Die Fachnamen „Potenzgesetze“ und „Gesetz der großen Zahlen“ bleiben.
+- Wachstum: Die Gerade ist blau, die Kurve in Tinte, damit „+2“ und „·2“ unterscheidbar sind.
+
 ## 2026-11-26 09:57 (Berlin) – NACHTRAG vom Projektleiter (vom Nutzer bestätigt): Hin und zurück zwischen Erklärung und Regel-Universum
 Gehört zu Teil 2 des Auftrags darunter, betrifft auch den Übungsbildschirm aus Teil 1.
 - In der Anfangs-Erklärung eines Themas, im Lösungsweg und in der Rückmeldung nach einem Fehler steht an passender Stelle ein kleines Feld „Regel dahinter“ mit dem Merksatz.
@@ -30,11 +74,41 @@ Zustände je Bild: leer, beim Tippen, Fehlversuch mit Hinweis, richtig, endgült
 
 Bitte melden mit: Geliefert / Offen / Nicht geprüft / Annahmen. Der Nutzer sieht das Ergebnis erst, wenn der Mathe-Profi die Zeichnungen fachlich und ChatGPT das Ganze gegengelesen hat.
 
+## 2026-11-26 09:45 (Berlin) – FERTIG: Gesetzbuch, zweite Runde (Vorgabe GB, Abschnitt F3)
+
+Zweig `designer`, Stand `lernen-app` 9b3f7d1 übernommen. Inhalt wörtlich aus `origin/mathe-profi` 9e0bedf (Aufträge 11 und 12). Kein App-Code, keine Datenbank, kein Lernstand, keine Namen.
+
+**Geliefert** (alles unter `inhalte/design/gesetzbuch/`)
+1. **Inhalt neu eingelesen.** Auf jeder Karte der Merksatz groß, „Genau gesagt:“ klein darunter – alle 42 Sätze, in beiden Übersichten, im aufgeschlagenen Gesetz, auf der Ideen-Seite.
+2. **Alle 23 Zeichnungen** nach den Zeichen-Vorgaben: 14 Rechenregeln, 5 Ideen Geometrie, 4 Ideen Fläche und Raum. Neu gezeichnet: Regeln 1, 3, 4, 5, 7, 8, 9, 10, 11, 12, 14 und Geometrie 1 bis 5. Nach Auftrag 12 neu gefasst: Regel 2 (Figur am Start, je Minus eine Kehrtwende) und „Haut des Körpers“ (drei Bilder: Quader, halb aufgeklappt, Netz). Regel 8 hebt die Klammer mit den drei Zweien hervor; Geometrie 2 hat den Kreis als Hauptzeichnung. In Sonne und diesen zwei Planeten gibt es kein „Zeichnung folgt“ mehr (geprüft für 14 Regeln, 49 Gesetze, 9 Ideen).
+3. **Die fünf übrigen Planeten** zeigen ihre tragenden Ideen als Karten ohne Zeichnungs-Rahmen.
+4. `umsetzung.md`, neuer Abschnitt **F3** oben: Aufbau jeder neuen Zeichnung, zweite und dritte Markierung (Blau mit Rahmen, Schraffur), Annahmen zu den acht Fragen. 26 Bilder in `bilder/`. Entwürfe: `entwurf/zeichnungen.html` (alle 23), `uebersicht-a.html`, `uebersicht-b.html`, `gesetz.html`.
+
+**Annahmen, weil die Antworten des Mathe-Profis (Auftrag 13) noch nicht auf seinem Zweig liegen**
+- Wirkstelle in den Klassen-Beispielen nur bei den Regeln 2, 6 und 13 markiert; bei den anderen elf stehen die Beispiele ohne Markierung.
+- Doppelter Name „Zahlen“ bleibt; die Schicht heißt in der Anzeige „Schicht 1 · Zahlen“.
+- Mantel und Oberfläche gelten als auffindbar über seine Stichwörter.
+- Regel 2: Ein und dieselbe Markierung (Gelb mit Rahmen) für jedes Minus und jede Kehrtwende, nicht je Minus eine eigene Farbe.
+- Regel 7: Das zweite Paar ist blau umrahmt statt in einer zweiten Leuchtfarbe.
+- Halb aufgeklappter Quader: Die Vorderwand liegt schon flach, Seitenwände und Rückwand stehen schräg, der Deckel hängt an der Rückwand. Die Vorgabe sagt nur „Deckel und Seitenwände stehen schräg ab“.
+
+**Offen**
+- Die Varianten „gleiche Zeichnung, andere Beschriftung“ sind nur bei Regel 6 gebaut.
+- „Genau gesagt“ macht die Übersicht am Handy lang. Meine Meinung: auf der Übersicht weglassen, nur im aufgeschlagenen Gesetz zeigen. Entscheidung beim Nutzer.
+- Regel 10: drei kurze Sprüche statt eines langen kommen erst mit der nächsten Lieferung des Mathe-Profis.
+- Die Abschnitte 1, 2, 5, 9, 11 der `umsetzung.md` beschreiben in Einzelheiten noch Fassung 1; es gelten F3 und F2.
+
+**Nicht geprüft**
+- Fachliche Richtigkeit der 23 Zeichnungen durch den Mathe-Profi (Auftrag 13, Punkt 2). Selbst konstruiert und nur von mir nachgerechnet: Winkel 50°/60°/70°, Strahlensatz-Figur, Quadrat über der Hypotenuse, Drehung um 90°, Kreis-Umlegung, Schrägbilder.
+- Ob ein Erwachsener ohne Vorwissen die Seite in einer Minute versteht.
+- Echte Geräte, Safari, Firefox, Kontrastwerte. Gemessen nur in Chrome bei 360, 400, 820, 1280 px, hell und dunkel: 152 Seitenaufrufe, kein Querrollen, keine Schrift unter 13 px, keine Skriptfehler.
+
 ## 2026-11-26 09:40 (Berlin) – ENTSCHEIDUNG des Nutzers: Der Name ist „Regel-Universum“
 Ersetzt den Arbeitsnamen „Mathe-Regeln“ aus dem Hinweis darunter. Titelzeile, Brotkrumen und Suchfeld: „Regel-Universum“. Die einzelnen Einträge heißen weiter „Regel“ (Sonne: „Rechenregel“; Planeten: „Idee“, dahinter „Regel“ oder „Formel“). „Gesetzbuch“ und „Gesetz“ kommen nirgends mehr vor.
 
 ## 2026-11-26 09:35 (Berlin) – HINWEIS vom Projektleiter an beide: Der Name „Gesetzbuch“ entfällt
 Der Nutzer: Das Wort „Gesetzbuch“ war nur ein Bild zur Verdeutlichung und soll **nicht** der Name werden. Bitte in allem, was ein Kind oder der Nutzer sieht, nicht mehr verwenden – auch nicht „Gesetz“ als Bezeichnung der einzelnen Einträge. Arbeitsname bis zu seiner Entscheidung: **„Mathe-Regeln“**; ein Eintrag heißt **„Regel“** (in der Sonne „Rechenregel“, auf den Planeten „Idee“ und dahinter „Regel“ oder „Formel“). Titelzeile, Brotkrumen, Suchfeld, Zählungen („19 Gesetze“) entsprechend. Datei- und Ordnernamen dürfen bleiben, damit nichts bricht. Ein Namensvorschlag je Chat ist willkommen (ein Wort oder zwei, passend zu Sonne und Planeten).
+
 ## 2026-11-26 09:37 (Berlin) – VOM MATHE-PROFI an den Designer: Antworten auf deine acht Fragen, Prüfung der sieben Zeichnungen, 19 neue Zeichen-Vorgaben (Auftrag 13)
 
 Stand `origin/mathe-profi`. Geprüft habe ich `bilder/zeichnungen-1280-hell.jpg` (in sieben Ausschnitten in voller Auflösung gelesen und nachgemessen) und die Bauzeilen in `entwurf/teile/zeichnen.js` für Waage und Kreis. Die übrigen Bilder und Breiten habe ich nicht geprüft.
@@ -87,6 +161,40 @@ Bitte:
 4. Deine acht Fragen beantwortet der Mathe-Profi (Auftrag 13 in seinem Postfach); wo seine Antwort noch fehlt, triff eine Annahme und nenne sie.
 Meldung hier. Danach liest ChatGPT gegen, dann geht es an den Nutzer.
 
+## 2026-11-26 09:05 (Berlin) – FERTIG: Gesetzbuch, Fassung 2 nach den Zeichen-Vorgaben des Mathe-Profis (Vorgabe GB)
+
+Zweig `designer`, Stand `lernen-app` d6752b7 übernommen. Inhalt wörtlich aus `origin/mathe-profi` dc6817d. Kein App-Code, keine Datenbank, kein Lernstand, keine Namen.
+
+**Geliefert** (alles unter `inhalte/design/gesetzbuch/`)
+- `umsetzung.md`, neuer Abschnitt **F2** oben: was sich geändert hat, Regeln für alle Zeichnungen, Maße jeder Zeichnung, Antworten an den Mathe-Profi.
+- Die sechs Zeichnungen neu nach den Zeichen-Vorgaben: Ausmultiplizieren maßstäblich mit vier Beschriftungen (6 · (20 + 2), 6 · (20 − 2), 3 · (x + 2), ½ · (4 + ⅔)); Waage dreimal mit waagerechtem Balken; zwei Zahlengeraden untereinander, Starts bei 3 übereinander; Auslegen mit Rechteck und Würfel-Quader 5 · 4 · 3; Stammbaum Fläche mit Ästen Drachenviereck und Kreis; Stammbaum Körper mit Kugel im Zylinder. Zusätzlich eine siebte: Quader und Netz („Haut des Körpers“).
+- Hervorhebung überall Gelb **mit Rahmen**, dieselbe Markierung in der Rechenzeile; jede Höhe mit Zeichen für den rechten Winkel.
+- Beide Übersichten mit den 42 Sätzen aus `ebene1.md`: alle sieben Planeten zeigen ihre tragenden Ideen (28). Zuordnung Gesetz → Idee vom Mathe-Profi.
+- Gesetz aufgeschlagen: Voraussetzung, häufiger Fehler, Verwandt, möglicher Erklärweg („keine Sperre“) aus den neuen Dateien. Suche mit den Stichwörtern des Mathe-Profis.
+- `entwurf/inhalt_lesen.py` liest das neue Format; `bauen.py` prüft, dass markierte Beispiele wörtlich die des Mathe-Profis sind. 22 Bilder in `bilder/`.
+
+**Antworten an den Mathe-Profi** (ausführlich in `umsetzung.md` F2.4; in seinen Zweig darf ich nicht schreiben)
+1. Feste Grundform mit austauschbarer Beschriftung: ja, so gebaut. Aber „dieselbe Form“ und „maßstäblich“ schließen sich bei anderen Zahlen aus – ich habe maßstäblich gewählt. Bitte entscheiden.
+2. Originalgröße geht am Bildschirm nicht. Ein Karo steht für 1 cm.
+3. Am Handy ist alles lesbar, weil die Felder untereinander stehen. Bitte höchstens vier Felder je Reihe, Nebenzeichnungen als eigene Reihe; „Gleicher Abstand“ als drei getrennte Felder.
+4. Vorgaben für die anderen fünf Planeten: später ist recht.
+
+**Offen**
+- Entscheidung des Nutzers: Trägt der Zeichenstil? Übersicht A oder B?
+- 7 von 23 Zeichen-Vorgaben sind gezeichnet. Es fehlen 11 Rechenregeln und 5 Ideen der Geometrie; dort steht „Zeichnung folgt“ mit dem Text der Vorgabe.
+- Auftrag 12 (Merksatz + „Genau gesagt“) ist noch nicht geliefert. Der Entwurf zeigt die zweite Zeile, sobald sie da ist; die Sätze ändern sich also noch.
+- Einige Varianten aus den Vorgaben fehlen (Liste in F2.5). Die Abschnitte 1, 2, 5, 9, 11 der `umsetzung.md` beschreiben in Einzelheiten noch Fassung 1.
+
+**Nicht geprüft**
+- Ob ein Erwachsener ohne Vorwissen die Seite in einer Minute versteht – das kann nur der Nutzer sagen.
+- Echte Geräte, Safari, Firefox. Gemessen nur in Chrome bei 360, 400, 820, 1280 px, hell und dunkel: 112 Seitenaufrufe, kein Querrollen, keine Schrift unter 13 px, keine Skriptfehler.
+- Kontrastwerte nicht nachgerechnet. Mathematische Richtigkeit der Zeichnungen nicht vom Mathe-Profi gegengelesen (Kreis-Umlegung, Schrägbilder, Kugel im Zylinder sind von mir konstruiert).
+
+**Annahmen**
+- Trapez und Drachenviereck tragen die Zahlen aus den Beispielen F7 und F8, weil die Zeichen-Vorgabe keine nennt.
+- Die grauen Sätze unter den Bildern sind von mir.
+- Bei 3 · (x + 2) ist x viermal so lang wie 2 gezeichnet.
+
 ## 2026-11-26 08:54 (Berlin) – VOM MATHE-PROFI an den Designer: Merksätze neu (Auftrag 12) – vier Zeichen-Vorgaben geändert
 
 Entscheidung des Nutzers: Jeder der 42 Sätze hat jetzt **zwei Zeilen** – oben groß der **Merksatz** zum Aufsagen (4 bis 14 Wörter), klein darunter **„Genau gesagt“**. Wortlaut: `ebene1.md` auf `origin/mathe-profi`. Auf der Übersicht steht der Merksatz; „Genau gesagt“ ist die kleine zweite Zeile oder erscheint beim aufgeschlagenen Gesetz.
@@ -98,6 +206,41 @@ Entscheidung des Nutzers: Jeder der 42 Sätze hat jetzt **zwei Zeilen** – oben
 4. **Geometrie, Idee 2** (Merksatz „Der Kreis: alle Punkte gleich weit von der Mitte“): Der Kreis ist die Hauptzeichnung; Mittelsenkrechte und Winkelhalbierende sind kleinere Nebenzeichnungen. Damit ist meine Frage 3 für diese Vorgabe erledigt.
 
 **Unverändert passend:** Waage (13), Rechteck (6), Treppe (3), Streifen (9, 10), Rückweg in zwei Reihen (12), Stammbäume, Dreieck mit Quadraten.
+
+## 2026-11-26 08:50 (Berlin) – FERTIG: Gesetzbuch der Mathematik – Zeichenstil, Übersicht, ein Gesetz aufgeschlagen (Vorgabe GB)
+
+Zweig `designer`, ausgehend von `lernen-app` 01b103d. Kein App-Code, keine Datenbank, kein Lernstand, keine Namen. Mathe-Inhalt wörtlich aus `origin/mathe-profi` df14ade; der Designer hat keinen Mathe-Inhalt erfunden.
+
+**Geliefert** (alles unter `inhalte/design/gesetzbuch/`)
+- `umsetzung.md`: Vorgabe mit Zeichenstil, Maßen je Breite, Farben hell und dunkel, Texten, Verhalten, Prüfliste (14 Muss, 5 Soll, 3 Kann).
+- `entwurf/zeichnungen.html`: Zeichenstil „Heft und Tafel“ an den sechs verlangten Zeichnungen (Ausmultiplizieren mit drei Beschriftungen, Waage, Zahlenstrahl, Auslegen und Zählen, Rechteck → Parallelogramm → Dreieck → Trapez, Quader → Prisma und Zylinder → Pyramide und Kegel).
+- `entwurf/uebersicht-a.html`: Übersicht A „Schnitt von innen nach außen“ – die Sonne als vier Schichten mit allen 14 Merksätzen, darunter die sieben Planeten mit ihren tragenden Ideen, dann die acht Arbeitsweisen.
+- `entwurf/uebersicht-b.html`: Übersicht B „Durch die Klassen“ – jede Regel als Zeile von Klasse 5 bis 10 mit ihrem Beispiel in jeder Klasse.
+- `entwurf/gesetz.html`: ein Gesetz aufgeschlagen (Regel 6): Merksatz, Zeichnung, dieselbe Regel in sechs Klassen mit gelber Wirkstelle, wo es nicht gilt, Voraussetzung. Dazu der Weg Idee → Gesetze dahinter und die Suche über alle 174 Einträge („Kegelmantel“ → „Pyramide und Kegel“).
+- `bilder/`: 20 Bilder bei 360, 400, 820, 1280 px, hell und dunkel. Quellen in `entwurf/teile/`; `inhalt_lesen.py` liest den Inhalt des Mathe-Profis, `bauen.py` setzt die Seiten zusammen.
+
+**Empfehlung:** Übersicht A als Seite; die Tabelle aus B als zweite Ansicht am Rechner. Begründung in Abschnitt 3.3.
+
+**Mein Urteil in einem Satz:** Ich halte Zeichenstil, Übersicht A und die Gesetz-Seite für gut, weil die Merksätze selbst groß dastehen, der Aufbau eine einzige Leserichtung hat und „dieselbe Regel in vielen Klassen“ an echten Rechnungen zu sehen ist – ich bin aber nicht einverstanden, es dem Nutzer als fertig zu zeigen, solange 11 von 14 Regeln und die fünf Geometrie-Ideen „Zeichnung folgt“ zeigen.
+
+**Offen**
+- Für die erste Lieferung fehlen noch: Zeichnungen zu den fünf Geometrie-Ideen und zu 11 Rechenregeln; tragende Ideen für fünf Planeten (Zahlen, Algebra, Geld und Verhältnisse, Funktionen, Daten und Zufall). Im Entwurf steht an diesen Stellen „folgt“.
+- Entscheidung des Nutzers: A oder B.
+- **An den Mathe-Profi – acht Fragen in Abschnitt 11 der Vorgabe**, die wichtigsten: (1) Zahlen-Feld der Zeichnung 1 mit Minus wie im Auftrag oder mit Plus, damit alle drei Felder gleich sind? (3) Zuordnung der Gesetze zu den Ideen bestätigen. (4) Zwei Beispiele je Klasse bitte als zwei Einträge, nicht mit „ · “ getrennt. (5) Mantel und Oberfläche als eigene Einträge, wenn die Suche Formeln finden soll. (6) Schicht 1 und Planet 1 heißen beide „Zahlen“. (7) Wirkstelle je Regel festlegen. (8) Was genau die fünf Geometrie-Zeichnungen zeigen müssen.
+
+**Nicht geprüft**
+- Der Maßstab „ein Erwachsener versteht es in einer Minute“: mit niemandem erprobt.
+- Fachliche Richtigkeit der Zeichnungen durch den Mathe-Profi; seine genauen Vorgaben je Zeichnung lagen noch nicht vor.
+- Echte Geräte, Finger, Safari und Firefox; Vorleser nur als Text gesetzt; Kontrast nicht gemessen.
+- Gegenlesen durch ChatGPT.
+
+**Geprüft:** alle vier Entwürfe in Chrome bei 360 × 640, 400 × 860, 820 × 1180, 1280 × 800, hell und dunkel: keine Skriptfehler, 14 Regeln und 7 Planeten auf beiden Übersichten, Klickfolgen durch Gesetz, Idee und Suche, sieben Suchwörter, nichts ragt seitlich hinaus, keine Tippfläche unter 44 px. Alle Zahlen in den Zeichnungen nachgerechnet.
+
+**Annahmen**
+- Welche Gesetze hinter welcher Idee stehen, habe ich zugeordnet (Fläche und Raum: 3 / 8 / 8; Geometrie nach den vier Abschnitten).
+- Die fünf Geometrie-Sätze sind der Vorschlag des Projektleiters, formuliert mit den Sätzen der Gesetze G6, G10, G15, G20, G24.
+- Der Inhalt wird als feste Datei mit der App ausgeliefert; dann braucht die Seite keinen Ladezustand.
+- Die Vorgabe RS-H ist als abgelehnt gekennzeichnet; ihre Dateien bleiben nur zum Nachlesen im Zweig `designer`.
 
 ## 2026-11-26 08:40 (Berlin) – VOM MATHE-PROFI an den Designer: Zeichen-Vorgaben liegen bereit (Auftrag 11) – mit vier Fragen
 
@@ -157,6 +300,45 @@ Der Nutzer will dich ausdrücklich dabeihaben und erwartet echte Zeichnungen. Bi
 
 ## 2026-11-26 05:40 (Berlin) – RÜCKMELDUNG und neuer AUFTRAG vom Projektleiter: Regel-Übersicht
 Der Nutzer hat die Vorgabe RS-H abgelehnt („Katastrophal. Verstehe nicht einmal ich, was ihr mir sagen wollt“) und ebenso meinen eigenen Gegenentwurf. Die Ursache liegt vor allem im Inhalt, den ich dir gegeben habe (erfundene Namen, Lernstand im Mittelpunkt), nicht in deinem Handwerk. Der gemeinsame Auftrag steht in `inhalte/plan/regeln-uebersicht-auftrag.md` – bitte ganz lesen. **Du bist erst in Schritt 4 dran**, wenn Mathe-Profi und ChatGPT den Inhalt abgestimmt haben; ich melde mich dann hier. Bis dahin nichts bauen. Wenn du vorab Bedenken oder Ideen zur Darstellung „dieselbe Regel in vielen Klassen, aufeinander aufbauend“ hast: kurz hier notieren.
+
+## 2026-11-26 04:30 (Berlin) – FERTIG: Regel-Übersicht „Sonnensystem“ und Regel-Karte (Vorgabe RS-H)
+
+Zweig `designer`, ausgehend von `lernen-app` 9c2d316. Kein App-Code, keine Datenbank, keine Namen, alle Zustände und Orte in den Entwürfen erfunden und so gekennzeichnet.
+
+**Geliefert** (alles unter `inhalte/design/regeln-sonnensystem/`)
+- `umsetzung.md`: Vorgabe mit Maßen je Breite, Farben hell und dunkel, Texten wörtlich, Antippen, Laden, Fehler, Bewegung mit „weniger Bewegung“, Daten-Bedarf, Prüfliste (15 Muss, 7 Soll, 4 Kann).
+- `entwurf/uebersicht-a.html` – Fassung A „Sonnensystem“: Sonne am Rand, Bahnen, Planeten mit einem Mond je Regel, Werkzeug-Gürtel außen.
+- `entwurf/uebersicht-b.html` – Fassung B „Planetenreihe“: Sonne und Planeten an einer Linie, alle Regel-Namen sofort lesbar.
+- `entwurf/regel-karte.html` – Karten „Verteilen“ und „Minusklammer“ ganz: Satz, Bild, drei Gewänder, Grenze, Probe zum Antippen, Orte, Hauptknopf.
+- `entwurf/wege.html` – die drei Wege (Reisekarte nach oben, nach einem Fehler, neues Thema).
+- `bilder/`: 25 Bilder bei 360, 400, 820, 1280 px, hell und dunkel. Quellen der Entwürfe in `entwurf/teile/`, zusammengesetzt mit `entwurf/bauen.py`.
+- Bildmotiv für alle 15 Regeln (Abschnitt 6.4).
+
+**Empfehlung:** Fassung A als Seite; die Liste aus B steckt in A hinter der Sonne. Begründung in Abschnitt 1.
+
+**Vorschläge zu den offenen Entscheidungen des Nutzers** (Abschnitt 2)
+- Schnitt: fünf Regel-Planeten wie vorgeschlagen, dazu die Erde; die Werkzeuge als „Werkzeug-Gürtel“ statt als sechster Planet.
+- Sonne: öffnet die Liste aller 15; darunter freiwillig „Gemischte Fünf“.
+- Stand: Kinder sehen ihn, in zwei Zuständen („sitzt“, „in Arbeit“) plus neutral „kommt später“; als Mond-Form, ohne Zahl und Balken.
+
+**Offen**
+- Entscheidung des Nutzers: A oder B, und die drei Punkte oben.
+- An den Mathe-Profi: (1) „Potenz“ im Planeten „Bruch“ lassen oder zu „Verhältnis“? (2) Ist „kommt später“ als drittes Zeichen in Ordnung? (3) Bitte prüfen: umgestellte Beispiel-Zeilen der Regeln 4 und 5 (gleiche Zahlen, gleicher Aufbau in allen drei Zeilen), Sätze der fünf Arbeitsweisen, Planeten-Sätze, die 15 Sätze „Hier hat … geklemmt“.
+- Karten für die übrigen 13 Regeln: Aufbau steht, Inhalte und Bilder fehlen.
+- Abschnitt 10 nennt, was der Server neu liefern müsste (Zustand je Regel, Regel zum Fehler, Zwillingszeilen zur Etappe). Das gibt es heute nicht.
+
+**Nicht geprüft**
+- Echte Geräte, Finger, Safari und Firefox; Vorleser nur als Text gesetzt.
+- Bewegung nur im Code festgelegt, nicht als Film angesehen; Rechenlast auf alten Geräten nicht gemessen.
+- Platz des Knopfs „Regeln“ auf der echten Reisekarte (im Entwurf ein Platzhalter).
+- Kontrast für Text gerechnet (ab 6,2 : 1), nicht am Bildschirm gemessen.
+
+**Geprüft:** alle vier Entwürfe in Chrome bei 360 × 640, 400 × 860, 820 × 1180, 1280 × 800, hell und dunkel: keine Skriptfehler, Klickfolgen durch alle Blätter und Wege, kein Ziel unter 44 px, keine Rechnung läuft über den Rand.
+
+**Annahmen**
+- Drei Aufgaben je Regel und die Gemischte Fünf lassen sich mit vorhandenen Aufgabenformen bauen.
+- Die Orte in „Diese Regel brauchst du in …“ kommen aus den Regel-Etiketten des Mathe-Profis.
+- Kürzel RS-H gewählt, weil „RS“ im Repo schon belegt ist.
 
 ## 2026-11-26 02:40 (Berlin) – AUFTRAG vom Projektleiter: Regel-Übersicht „Sonnensystem“ und Regel-Karte
 
@@ -225,3 +407,4 @@ Zweig `designer`, ausgehend von `lernen-app` 4351182 (App 0.93.4). Vorgaben gele
 - Werkstatt-Regeln W1–W7 nicht im Council nachgelesen: nur eigene Dateien auf eigenem Zweig.
 
 **App-Wunsch (für später, nicht Teil dieser Meldung):** keiner. Die Befunde aus 3.1 und 3.2 der Bestandsaufnahme kommen als Vorgabe, sobald der Nutzer die Reihenfolge festlegt.
+

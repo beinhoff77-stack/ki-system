@@ -2,6 +2,50 @@
 
 Neueste oben.
 
+## 2026-11-26 10:15 (Berlin) – FERTIG: (1) Übungsbildschirm, Vorgabe ÜB – (2) Regel-Universum, dritte Runde (Vorgabe GB, Abschnitt F4)
+
+Zweig `designer`, Stand `lernen-app` 6b271bb übernommen. Inhalt wörtlich aus `origin/mathe-profi` c8e2cc3. Kein App-Code, keine Datenbank, kein Lernstand, keine Namen.
+
+**Geliefert**
+
+Teil 1 – `inhalte/design/uebung/` (Vorgabe ÜB, eine Seite; Entwurf `entwurf/uebung.html`; 10 Bildtafeln bei 360 und 400 px, hell und dunkel)
+1. Aufgabe und Felder bleiben über der Tastatur (255 px, vier Reihen). Minus, Komma, Bruchstrich nur bei Bedarf; die Ziffern wandern nie.
+2. Kopf eine Zeile (48 px), eine einzige Fortschrittsleiste.
+3. Rückmeldung als Blatt von unten mit Symbol, Wort und Farbe; bei „Nicht ganz“ Kurzregel.
+4. Zwei bis sechs Zahlenfelder: aktives Feld blau umrandet, Hauptknopf heißt „Nächstes Feld“, bis alles gefüllt ist; sechs Felder als zwei Reihen zu drei. Fehlversuch: Name der verletzten Bedingung und Hinweis über der Tastatur. Ende: „Zum Beispiel: 5, −2, −3“ und die eigenen Zahlen.
+5. Erste Seite „Wo übst du heute?“ mit „Am Tisch“ / „Nur am Handy“.
+6. Nachtrag: Feld „Regel dahinter“ in Erklärung und Rückmeldung, Blatt mit Regel und Zeichnung, Rückweg an dieselbe Stelle, zweiter Tipp ins Regel-Universum.
+Zustände je Aufgabe: leer, beim Tippen, Fehlversuch mit Hinweis, richtig, endgültig falsch.
+
+Teil 2 – `inhalte/design/gesetzbuch/` (Ordnername bleibt; `umsetzung.md` Abschnitt F4; 30 Bilder)
+- Name überall „Regel-Universum“; Einträge heißen „Rechenregel“, „Idee“, „Regel“, „Formel“.
+- Zweizeilige Merksätze; Rechenregel 10 mit drei Sprüchen und zwei Nebenfeldern.
+- **42 von 42 Hauptzeichnungen:** die 19 neuen für Zahlen, Algebra, Geld und Verhältnisse, Funktionen, Daten und Zufall. Kein „Zeichnung folgt“ mehr.
+- Alle Befunde des Mathe-Profis eingearbeitet (Kreis-Klammer, Drachen-Schild, „h = 2 · r“, Satz zu Pyramide und Kegel, Lot, Reihenfolge und neues Bruch-Feld der Rechteck-Zeichnung, Werte 108 und 12).
+- **Hauptwunsch:** Klassenband 5 bis 10 an jeder Rechenregel (eingeführt, angewendet, Vorwissen); an jeder Idee „braucht die Rechenregeln …“; in jeder Rechenregel „Darauf bauen auf: n Regeln auf m Planeten“; in jeder Planeten-Regel „Baut auf diesen Rechenregeln auf“.
+- Nachtrag: in jeder Rechenregel „Kommt vor in diesen Themen“ mit Sprung zur Erklärung; gelbe Leiste „‹ Zurück zur Erklärung“.
+- Suche findet die 28 einzelnen Formeln.
+
+**Offen**
+- Entscheidung des Nutzers: „Genau gesagt“ auf der Übersicht zeigen oder nur in der aufgeschlagenen Regel? Übersicht A oder B?
+- Nebenzeichnungen („gleiche Zeichnung, andere Beschriftung“) nur bei den Regeln 6 und 10.
+- Wirkende Stelle in den Klassen-Beispielen nur bei den Regeln 2, 6, 13 markiert; bei den übrigen steht sie als Satz.
+- Übung: Arbeitszeichen nach 1 s, Rückfrage bei „×“, Querformat sind beschrieben, nicht gebaut.
+- Die Abschnitte 0 bis 12 der Vorgabe GB beschreiben in Einzelheiten noch Fassung 1; es gilt F4.
+
+**Nicht geprüft**
+- Fachliche Richtigkeit der 19 neuen Zeichnungen und der in Runde 2 gezeichneten 16 (Mathe-Profi). Die Punktzahlen der Stichproben-Zeichnung zählt das Bauen nach; alles andere habe ich nur selbst nachgerechnet.
+- Echte Geräte, Safari, Firefox, Kontrastwerte, Vorlesefunktion, Bildschirme niedriger als 640 px.
+- Ob ein Erwachsener ohne Vorwissen die Übersicht in einer Minute versteht.
+- Gemessen nur in Chrome: Regel-Universum 248 Seitenaufrufe bei 360, 400, 820, 1280 px, hell und dunkel; Übung 19 Zustände bei 360 × 640 und 400 × 800. Kein Querrollen, keine Schrift unter 13 px, keine Skriptfehler.
+
+**Annahmen**
+- Übung: zwei Versuche bei Bedingungs-Aufgaben; höchstens 6 Ziffern je Feld im Entwurf; Aufgaben „3 − (−2)“ und „sechs Zahlen“, Kurzregel, Erklärtext, Ort und „1 von 3“ sind erfunden und so gekennzeichnet.
+- Welche Regel hinter einer Aufgabe oder Erklärung steht, kommt vom Mathe-Profi (Auftrag 14 Teil A); im Entwurf ist es überall Rechenregel 2, und jeder Sprung „zur Erklärung“ führt zur selben Beispiel-Erklärung.
+- „Worauf sie aufbaut“ lese ich aus der Spalte „Sonne“ und aus „möglicher Erklärweg“; der Mathe-Profi nennt beides ausdrücklich keine Sperre.
+- Die Fachnamen „Potenzgesetze“ und „Gesetz der großen Zahlen“ bleiben.
+- Wachstum: Die Gerade ist blau, die Kurve in Tinte, damit „+2“ und „·2“ unterscheidbar sind.
+
 ## 2026-11-26 09:57 (Berlin) – NACHTRAG vom Projektleiter (vom Nutzer bestätigt): Hin und zurück zwischen Erklärung und Regel-Universum
 Gehört zu Teil 2 des Auftrags darunter, betrifft auch den Übungsbildschirm aus Teil 1.
 - In der Anfangs-Erklärung eines Themas, im Lösungsweg und in der Rückmeldung nach einem Fehler steht an passender Stelle ein kleines Feld „Regel dahinter“ mit dem Merksatz.

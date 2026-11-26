@@ -2,7 +2,7 @@
 const VARIANTE = 'b';
 const SF = { 1: 'var(--s1)', 2: 'var(--s2)', 3: 'var(--s3)', 4: 'var(--s4)' };
 function einstiegB() {
-  return `<section class="breite" style="padding-top:30px;padding-bottom:6px"><h1 style="font-size:34px;line-height:1.1">Gesetzbuch der Mathematik</h1>
+  return `<section class="breite" style="padding-top:30px;padding-bottom:6px"><h1 style="font-size:34px;line-height:1.1">Regel-Universum</h1>
     <p style="font-size:19px;line-height:1.45;margin-top:12px;max-width:44em">Mathe von Klasse 5 bis 10 steht auf <b>14 Rechenregeln</b>. Jede Zeile ist eine Regel, jede Spalte eine Klasse: In jeder Klasse steht <b>dieselbe Regel</b> in neuem Gewand. Darunter die <b>sieben Gebiete</b> mit ihren 28 tragenden Ideen.</p></section>`;
 }
 function tafel() {
@@ -23,7 +23,7 @@ function karten() {
 function UEBERSICHT() {
   const breit = innerWidth >= 900;
   return `${einstiegB()}<section class="breite" style="padding-bottom:10px">${breit ? tafel() : '<h2 style="font-size:24px;margin-top:14px">Die Sonne: 14 Rechenregeln</h2>' + karten()}</section>
-    <section class="raum" style="padding-top:34px"><div class="breite"><div class="raum-kopf"><h2>Sieben Planeten: die Gebiete</h2><p>Zusammen 28 tragende Ideen. Aus ihnen folgen die einzelnen Gesetze und Formeln – zusammen ${INHALT.gesetze.length}.</p></div></div><ol class="bahnen">${PLANETEN.map(planetKarte).join('')}</ol></section>
-    <section class="station"><div class="breite"><h2>Acht Arbeitsweisen</h2><p>Keine Gesetze, sondern Vorgehen. Sie gelten auf jedem Planeten.</p><ul class="weisen">${INHALT.arbeitsweisen.map((a) => `<li><span>${esc(a.name)}</span><b>${a.satz}</b></li>`).join('')}</ul></div></section>`;
+    <section class="raum" style="padding-top:34px"><div class="breite"><div class="raum-kopf"><h2>Sieben Planeten: die Gebiete</h2><p>Zusammen 28 tragende Ideen. Aus ihnen folgen die einzelnen Regeln und Formeln – zusammen ${INHALT.gesetze.length}.</p></div></div><ol class="bahnen">${PLANETEN.map(planetKarte).join('')}</ol></section>
+    <section class="station"><div class="breite"><h2>Acht Arbeitsweisen</h2><p>Keine Regeln, sondern Vorgehen. Sie gelten auf jedem Planeten.</p><ul class="weisen">${INHALT.arbeitsweisen.map((a) => `<li><span>${esc(a.name)}</span><b>${a.satz}</b></li>`).join('')}</ul></div></section>`;
 }
 let bT; addEventListener('resize', () => { clearTimeout(bT); bT = setTimeout(() => { if (!location.hash || location.hash === '#/') zeige(); }, 150); });

@@ -19,7 +19,7 @@ seiten = {'uebersicht-a': ('a', ''), 'uebersicht-b': ('b', ''), 'gesetz': ('a', 
 for datei, (ueb, start) in seiten.items():
     html = f'''<!doctype html>
 <html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Entwurf: Gesetzbuch der Mathematik</title>
+<title>Entwurf: Regel-Universum</title>
 <!-- ENTWURF des Designers, nicht die App. Gebaut aus entwurf/teile/ mit bauen.py – bitte dort ändern.
      Mathe-Inhalt wörtlich vom Mathe-Profi (origin/mathe-profi {inhalt['stand']}), gelesen mit inhalt_lesen.py. -->
 <style>
@@ -35,6 +35,7 @@ const WIRKSTELLE = {json.dumps(wirk, ensure_ascii=False, separators=(',', ':'))}
 {lies('ideen.js')}
 {lies('zeichnen.js')}
 {lies('zeichnen2.js')}
+{lies('zeichnen3.js')}
 {lies(ueb + '.js')}
 {lies('gemeinsam.js')}
 zeige();

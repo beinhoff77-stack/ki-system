@@ -1,10 +1,69 @@
-# Vorgabe GB: Gesetzbuch der Mathematik – Zeichenstil, Übersicht, ein Gesetz aufgeschlagen
+# Vorgabe GB: Regel-Universum – Zeichenstil, Übersicht, eine Regel aufgeschlagen
 
-Designer, 26.11.2026, **Fassung 3 (zweite Runde)**. Stand `lernen-app` 9b3f7d1. Kein App-Code, keine Datenbank, kein Lernstand.
-Mathe-Inhalt wörtlich vom Mathe-Profi (`origin/mathe-profi` 9e0bedf: `ebene1.md`, `sonne.md`, `planet-flaeche-und-raum.md`, `planet-geometrie.md`, `inhalt.md`), eingelesen mit `entwurf/inhalt_lesen.py`.
+Designer, 26.11.2026, **Fassung 4 (dritte Runde)**. Stand `lernen-app` 6b271bb. Der Ordner heißt weiter `gesetzbuch/`, damit nichts bricht; sichtbar heißt alles „Regel-Universum“. Kein App-Code, keine Datenbank, kein Lernstand.
+Mathe-Inhalt wörtlich vom Mathe-Profi (`origin/mathe-profi` c8e2cc3: `ebene1.md`, `sonne.md`, `planet-flaeche-und-raum.md`, `planet-geometrie.md`, `inhalt.md`), eingelesen mit `entwurf/inhalt_lesen.py`.
 **[G]** gesichert (im Entwurf gebaut und gemessen) · **[A]** Annahme · **[M]** Meinung.
 
 Die frühere Vorgabe RS-H (`inhalte/design/regeln-sonnensystem/`) ist abgelehnt und gilt nicht mehr.
+
+## F4 Dritte Runde – was jetzt gilt (gilt vor F3, F2 und den Abschnitten 0 bis 12)
+
+Anlass: Auftrag des Projektleiters 26.11., 09:50 Teil 2, Nachtrag 09:57; Antworten und Prüfung des Mathe-Profis (Auftrag 13).
+
+### F4.1 Name [G]
+Titelzeile, Brotkrumen, Suchfeld, Seitentitel: **„Regel-Universum“**. Einträge: „Rechenregel“ (Sonne), „Idee“ (Planeten), dahinter „Regel F17“ oder „Formel“. „Gesetzbuch“ und „Gesetz“ kommen in der Anzeige nicht mehr vor – außer in zwei Fachnamen des Mathe-Profis („Potenzgesetze“, „Gesetz der großen Zahlen“). [A] Diese bleiben.
+
+### F4.2 Der Hauptwunsch: dieselbe Regel in vielen Klassen, und worauf sie aufbaut [G]
+- **Klassenband** an jeder der 14 Rechenregeln (Übersicht A und aufgeschlagene Regel): sechs Kästchen 5 bis 10, 24 × 22 px, Schrift 13 px. **voll** = eingeführt · **Balken unten** = angewendet · **gestrichelt** = Vorwissen · **leer** = kein Beispiel hinterlegt. Legende einmal im Kopf der Sonne und einmal über der Klassenleiter. Quelle: Tabelle „Dieselbe Regel in vielen Klassen“ in `sonne.md` (Einschätzung des Mathe-Profis, nicht am Lehrplan geprüft).
+- **Kasten oben rechts** „Dieselbe Regel in 6 Klassen“ bleibt (Regel 6 von Klasse 5 bis 10).
+- **Aufbauen, von der Sonne nach außen:** Jede Ideen-Karte nennt „braucht die Rechenregeln 9, 11“. Jede Regel eines Planeten hat den Abschnitt „Baut auf diesen Rechenregeln auf“ mit Sprung. Jede Rechenregel hat den Abschnitt „Darauf bauen auf: 7 Regeln auf 2 Planeten“ mit den Ideen als Sprung. Quelle: Spalte „Sonne“ in `inhalt.md`.
+- **Innerhalb der Sonne:** „erklärbar über Regel 4“ auf der Karte, „Lässt sich erklären über“ in der Regel – mit dem Satz „keine Lernvoraussetzung und keine Sperre“.
+- Schicht 1 heißt „Grundrechnen“ (Antwort 6).
+
+### F4.3 Hin und zurück zur Erklärung (Nachtrag) [G]
+- In der aufgeschlagenen Rechenregel: Abschnitt „Kommt vor in diesen Themen“, je Thema ein Feld „Rom · Grundrechenarten … · zur Erklärung ›“. Quelle: Spalte „Thema in der App“ der Beispiele.
+- Kommt man aus einer Erklärung (`?von=uebung`), steht über dem Kopf eine gelbe Leiste „‹ Zurück zur Erklärung“ (17 px fett, 44 px hoch). Bild `rueckweg-aus-erklaerung-400-hell`.
+- Feld „Regel dahinter“, Blatt und Rückweg in der Erklärung und in der Übung: Vorgabe ÜB, `inhalte/design/uebung/umsetzung.md` Abschnitt 5.
+
+### F4.4 Inhalt und Suche [G]
+- Zweizeilige Sätze aus `ebene1.md`; Rechenregel 10 mit drei kurzen Sprüchen untereinander.
+- „Die wirkende Stelle“ steht je Rechenregel als Satz über der Klassenleiter (Antwort 7). In den Beispielen markiert ist sie nur bei den Regeln 2, 6 und 13.
+- Suche findet zusätzlich die 28 einzelnen Formeln („Kegel – Mantel (Kegelmantel)“ ist erster Treffer und führt zu F17).
+
+### F4.5 Zeichnungen: 42 von 42 [G]
+Jede der 14 Rechenregeln und jede der 28 Ideen hat ihre Hauptzeichnung; nirgends steht mehr „Zeichnung folgt“ (geprüft: 14 Rechenregeln, 147 Regeln, 28 Ideen).
+
+**Berichtigt nach der Prüfung des Mathe-Profis:** Rechteck-Zeichnung in der Reihenfolge Zahlen mit Plus, mit x, mit Brüchen (neu 3/2 · (4 + ½) = 6 + ¾, Höhe 1,5, Breite 4,5), zuletzt „auch bei Minus“ mit den Werten 108 und 12 · Kreis: Klammer „etwa π · r“ jetzt über 6 Stückbreiten · Drachenviereck: Schild verdeckt keine Kante mehr · Kugel: „h = 2 · r“ · Satz „Pyramide und Kegel füllen je ein Drittel des Körpers darum“ · Zahlengerade: Lot endet über der Rechnung, nur die Minuszeichen sind umrahmt.
+
+**Neu:** zwei Nebenfelder zu Rechenregel 10 (Quadrat mit 12 Feldern für ⅔ · ¾; sechs halbierte Streifen für 6 : ½) und 19 Zeichnungen:
+
+| Planet | Idee | Felder | Was zu sehen ist |
+|---|---|---|---|
+| Zahlen | Zahlengerade | 1 | −3 bis 3, Punkte −2,5 und −1 gelb umringt, Pfeil „nach rechts wird es größer“ |
+| | Bündeln in Zehnern | 2 | zehn Würfel → Zehnerstange; ein Einer → zehn Zehntel; Tauschpfeil mit gelber „10“ |
+| | Bausteine | 1 | zwei Bäume für 60, Primzahlen in gelben Kreisen |
+| | Schreibweisen | 2 | Streifen über Zahlengerade mit gemeinsamer gelber Linie bei 0,5; Hunderterfeld mit 50 Feldern |
+| | Hoch und zurück | 1 | Quadrat 3 × 3, Pfeile „hoch 2“ und „Wurzel“ als Paar |
+| Algebra | Term | 2 | zwei Rechenketten; Tabelle mit den zwei gleichen Ausgabe-Spalten gelb umrahmt |
+| | Erlaubte Zahlen | 1 | kräftige Gerade mit offenem Ring bei 2, Tabelle „geht nicht“ |
+| | Gleichung lösen | 1 | Gerade 2 bis 7, darunter 8, 10, 12, 14 mit Kreuz oder Haken |
+| | Höherer Grad | 2 | drei Rechenzeilen mit gelber Null und zwei Kästen; Parabel mit den Schnittpunkten −3 und 2 |
+| Geld und Verhältnisse | Größe | 1 | Balken mit Maßband in m (3) und dm (30) |
+| | Wert für eins | 1 | doppelte Zahlengerade kg / €, Paar 1 kg – 2,50 € gelb, zwei Bögen „· 2“ |
+| | Prozent als Faktor | 2 | Hunderterfeld mit 25 Feldern; Streifen mit Prozent- und Euro-Skala, 80 % – 48 € |
+| Funktionen | Zuordnung | 3 | Tabelle, Graph, Gleichung; Wertepaar (2 \| 5) in allen drei gelb |
+| | Wachstum | 1 | Gerade (blau, „+2“) und Kurve (Tinte, „·2“ gelb) mit Stufen |
+| | Gleichung und Form | 4 | Gerade, Parabel, Hyperbel, Knick; in der Gleichung die formgebende Stelle gelb |
+| Daten und Zufall | Kennzahl | 1 | zwei Punktreihen, Dreieck bei Mittelwert 5 genau untereinander |
+| | Vom Teil aufs Ganze | 1 | 100 Punkte, 30 gefüllt; zehn zufällige gelb umringt (3 gefüllt), zehn in der Ecke blau gerahmt (8 gefüllt) – beim Bauen nachgezählt |
+| | Anteil | 1 | sechs Würfelflächen, 2, 4, 6 gelb mit dickem Rahmen und Haken |
+| | Stufen | 1 | Baum für zwei Münzwürfe; ein Pfad gelb hinterlegt, zwei Enden blau gerahmt |
+
+### F4.6 Offen
+- Nebenzeichnungen aus der Zeile „Gleiche Zeichnung, andere Beschriftung“ fehlen bis auf Regel 6 und Regel 10 (laut Mathe-Profi kein Muss für die Übersicht).
+- „Genau gesagt“ steht auf jeder Karte der Übersicht; dadurch ist die Seite am Handy sehr lang. Vorschlag unverändert: auf der Übersicht weglassen.
+- „Darauf bauen auf“ zählt nur, was die Spalte „Sonne“ nennt. Bei manchen Rechenregeln ist die Zahl klein (Regel 6: 7 Regeln); das liegt an den Daten, nicht an der Anzeige.
+- Die Abschnitte 0 bis 12 unten beschreiben in Einzelheiten noch Fassung 1.
 
 ## F3 Zweite Runde – was jetzt gilt (gilt vor F2 und vor den Abschnitten 0 bis 12)
 

@@ -117,3 +117,9 @@ body[data-g="nacht"] { --strahl: #FFD23F; } body[data-g="hell"] { --strahl: #E0A
 .stil i.rahmen { background: var(--z-gelb); border: 2px solid var(--z-tinte); } .stil i.winkel { background: none; border: 0; border-left: 2.5px dashed var(--z-tinte); border-bottom: 2.5px solid var(--z-tinte); border-radius: 0; }
 .regel .z-mini svg, .idee .z-mini svg { max-height: 100%; }
 .stil i.sf { background: repeating-linear-gradient(45deg, transparent 0 3px, var(--z-leise) 3px 5px); border: 1.5px solid var(--z-leise); }
+.band6 { display: inline-flex; gap: 3px; vertical-align: middle; } .band6 i { font-style: normal; font-family: var(--mono); font-size: 13px; font-weight: 700; width: 24px; height: 22px; border-radius: 5px; display: grid; place-items: center; border: 1.5px solid var(--linie); color: var(--leise); }
+.band6 i.E { background: var(--text); color: var(--flaeche); border-color: var(--text); } .band6 i.A { background: linear-gradient(to top, var(--text) 0 5px, transparent 5px); border-color: var(--text); color: var(--text); } .band6 i.V { border: 1.5px dashed var(--text); color: var(--text); }
+.band-legende { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: center; font-size: 14px; margin-top: 8px; } .band-legende .band6 { margin-right: -4px; } .sonne-kopf .band-legende { color: #11161D; }
+.sonne-kopf .band6 i { border-color: #11161D; color: #11161D; } .sonne-kopf .band6 i.E { background: #11161D; color: #FFD23F; } .sonne-kopf .band6 i.A { background: linear-gradient(to top, #11161D 0 5px, transparent 5px); }
+.band-zeile { margin: 2px 0 0; } .zurueck-leiste { display: block; background: var(--akzent); color: #11161D; font-weight: 700; padding: 10px 16px; text-decoration: none; font-size: 17px; }
+.regel .fuss { align-items: center; }

@@ -1,5 +1,3461 @@
 {
- "stand": "4bd08be",
+ "stand": "5a70763",
+ "leitern": {
+  "R1": {
+   "kennung": "rr.stellenwert",
+   "markiert": "Das „· 10“ (oder „· 100“, „· 10⁻⁴“) – die Ziffern bleiben, sie rücken nur.",
+   "klassen": [
+    5,
+    6,
+    7,
+    8
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.natuerlich",
+     "text": "34 · 10 = 340",
+     "pos": [
+      [
+       3,
+       7
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "bruch.dezimal",
+     "text": "2,5 · 10 = 25",
+     "pos": [
+      [
+       4,
+       8
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "bruch.prozent_grundwert",
+     "text": "0,15 · 100 = 15, also 0,15 = 15 %",
+     "pos": [
+      [
+       5,
+       10
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "terme.potenzgesetze_ganzzahlig",
+     "text": "3 · 10⁻⁴ = 0,0003",
+     "pos": [
+      [
+       2,
+       8
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "grund": "kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt"
+    },
+    {
+     "klasse": 10,
+     "grund": "kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt"
+    }
+   ]
+  },
+  "R2": {
+   "kennung": "rr.plusminus",
+   "markiert": "Die zwei Minuszeichen nebeneinander: Rechenzeichen und Vorzeichen.",
+   "klassen": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.ganz",
+     "text": "3 − (−2) = 3 + 2 = 5",
+     "pos": [
+      [
+       2,
+       3
+      ],
+      [
+       5,
+       6
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "text": "½ − (−¼) = ½ + ¼ = ¾",
+     "pos": [
+      [
+       2,
+       3
+      ],
+      [
+       5,
+       6
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "terme.umformen",
+     "text": "3x − (−2x) = 3x + 2x = 5x",
+     "pos": [
+      [
+       3,
+       4
+      ],
+      [
+       6,
+       7
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "funktionen.linear",
+     "text": "f(x) = 3 − x an der Stelle −2: 3 − (−2) = 3 + 2 = 5",
+     "pos": [
+      [
+       33,
+       34
+      ],
+      [
+       36,
+       37
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "zahlen.reell",
+     "text": "3√2 − (−2√2) = 3√2 + 2√2 = 5√2",
+     "pos": [
+      [
+       4,
+       5
+      ],
+      [
+       7,
+       8
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.ganzrational",
+     "text": "f(x) = 3 − 2x³ an der Stelle −1: 3 − (−2) = 3 + 2 = 5",
+     "pos": [
+      [
+       35,
+       36
+      ],
+      [
+       38,
+       39
+      ]
+     ]
+    }
+   ]
+  },
+  "R3": {
+   "kennung": "rr.vorzeichen",
+   "markiert": "Die Vorzeichen der beiden Zahlen und das Vorzeichen des Ergebnisses.",
+   "klassen": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.rechengesetze",
+     "text": "(−3) · (−4) = +12",
+     "pos": [
+      [
+       1,
+       2
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       14,
+       15
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "text": "(−⅔) · (−¾) = +½",
+     "pos": [
+      [
+       1,
+       2
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       14,
+       15
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "terme.umformen",
+     "text": "(−3x) · (−4) = +12x",
+     "pos": [
+      [
+       1,
+       2
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       15,
+       16
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "funktionen.linear",
+     "text": "Steigung aus zwei Punkten: (−6) : (−2) = +3",
+     "pos": [
+      [
+       28,
+       29
+      ],
+      [
+       35,
+       36
+      ],
+      [
+       41,
+       42
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "gleichungen.quadratisch",
+     "text": "(−5)² = (−5) · (−5) = +25",
+     "pos": [
+      [
+       1,
+       2
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       16,
+       17
+      ],
+      [
+       22,
+       23
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.ganzrational",
+     "text": "(−2)³ = (−2) · (−2) · (−2) = −8 – drei Minus: einmal umdrehen bleibt übrig",
+     "pos": [
+      [
+       1,
+       2
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       16,
+       17
+      ],
+      [
+       23,
+       24
+      ],
+      [
+       29,
+       30
+      ]
+     ]
+    }
+   ]
+  },
+  "R4": {
+   "kennung": "rr.reihenfolge",
+   "markiert": "Der Teil, der zuerst gerechnet wird – in jeder Zeile der Punkt-Teil hinter dem Plus.",
+   "klassen": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.rechengesetze",
+     "text": "2 + 3 · 4 = 2 + 12 = 14",
+     "pos": [
+      [
+       4,
+       9
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "text": "½ + ½ · ½ = ½ + ¼ = ¾",
+     "pos": [
+      [
+       4,
+       9
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "terme.umformen",
+     "text": "2 + 3 · x bleibt 2 + 3x – nicht 5x",
+     "pos": [
+      [
+       4,
+       9
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "funktionen.linear",
+     "text": "f(x) = 2 + 3x an der Stelle 4: 2 + 3 · 4 = 2 + 12 = 14",
+     "pos": [
+      [
+       35,
+       40
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "funktionen.quadratisch",
+     "text": "f(x) = 2 + 3x² an der Stelle 2: 2 + 3 · 2² = 2 + 3 · 4 = 14 – im Punkt-Teil zuerst das Hoch",
+     "pos": [
+      [
+       36,
+       42
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.exponential_log",
+     "text": "f(x) = 2 + 3 · 2ˣ an der Stelle 2: 2 + 3 · 2² = 2 + 3 · 4 = 14",
+     "pos": [
+      [
+       39,
+       45
+      ]
+     ]
+    }
+   ]
+  },
+  "R5": {
+   "kennung": "rr.tauschen",
+   "markiert": "Der Summand, der wandert – immer zusammen mit seinem Rechenzeichen.",
+   "klassen": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.ganz",
+     "text": "12 − 30 + 18 = 12 + 18 − 30 = 0",
+     "pos": [
+      [
+       8,
+       12
+      ],
+      [
+       18,
+       22
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "text": "¼ − ½ + ¾ = ¼ + ¾ − ½ = ½",
+     "pos": [
+      [
+       6,
+       9
+      ],
+      [
+       14,
+       17
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "terme.umformen",
+     "text": "3a + 2b + 4a = 3a + 4a + 2b = 7a + 2b",
+     "pos": [
+      [
+       8,
+       12
+      ],
+      [
+       18,
+       22
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "gleichungen.lgs2",
+     "text": "Zwei Gleichungen addieren: 2x + 3y − 2x + y = 2x − 2x + 3y + y = 4y",
+     "pos": [
+      [
+       35,
+       39
+      ],
+      [
+       49,
+       53
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "zahlen.reell",
+     "text": "3√2 + 5 + 2√2 = 3√2 + 2√2 + 5 = 5√2 + 5",
+     "pos": [
+      [
+       8,
+       13
+      ],
+      [
+       20,
+       25
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.ganzrational",
+     "text": "3x³ + 2x + 4x³ = 3x³ + 4x³ + 2x = 7x³ + 2x",
+     "pos": [
+      [
+       9,
+       14
+      ],
+      [
+       21,
+       26
+      ]
+     ]
+    }
+   ]
+  },
+  "R6": {
+   "kennung": "rr.ausmultiplizieren",
+   "markiert": "Der Faktor vor der Klammer – an allen drei Stellen, an denen er steht.",
+   "klassen": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.rechengesetze",
+     "text": "6 · (20 + 2) = 6 · 20 + 6 · 2 = 132",
+     "pos": [
+      [
+       0,
+       1
+      ],
+      [
+       15,
+       16
+      ],
+      [
+       24,
+       25
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "text": "4 · (2 + ½) = 4 · 2 + 4 · ½ = 10",
+     "pos": [
+      [
+       0,
+       1
+      ],
+      [
+       14,
+       15
+      ],
+      [
+       22,
+       23
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "terme.umformen",
+     "text": "3 · (x + 2) = 3 · x + 3 · 2 = 3x + 6",
+     "pos": [
+      [
+       0,
+       1
+      ],
+      [
+       14,
+       15
+      ],
+      [
+       22,
+       23
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "gleichungen.bruch",
+     "text": "x · (3/x + ½) = x · 3/x + x · ½ = 3 + x/2, für x ≠ 0",
+     "pos": [
+      [
+       0,
+       1
+      ],
+      [
+       16,
+       17
+      ],
+      [
+       26,
+       27
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "zahlen.reell",
+     "text": "√2 · (√2 + 3) = √2 · √2 + √2 · 3 = 2 + 3√2",
+     "pos": [
+      [
+       0,
+       2
+      ],
+      [
+       16,
+       18
+      ],
+      [
+       26,
+       28
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "gleichungen.polynom",
+     "text": "x · (x² − 4) = x · x² − x · 4 = x³ − 4x",
+     "pos": [
+      [
+       0,
+       1
+      ],
+      [
+       15,
+       16
+      ],
+      [
+       24,
+       25
+      ]
+     ]
+    }
+   ]
+  },
+  "R7": {
+   "kennung": "rr.minusklammer",
+   "markiert": "Das Minus vor der Klammer und das Zeichen in der Klammer, das wechselt.",
+   "klassen": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Vorwissen",
+     "thema": "zahlen.rechengesetze",
+     "text": "20 − (8 − 3) = 20 − 8 + 3 = 15",
+     "pos": [
+      [
+       3,
+       4
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       18,
+       19
+      ],
+      [
+       22,
+       23
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Vorwissen",
+     "thema": "bruch.rechnen",
+     "text": "2 − (¾ − ¼) = 2 − ¾ + ¼ = 1½",
+     "pos": [
+      [
+       2,
+       3
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       16,
+       17
+      ],
+      [
+       20,
+       21
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "terme.umformen",
+     "text": "5x − (3x − 2) = 5x − 3x + 2 = 2x + 2",
+     "pos": [
+      [
+       3,
+       4
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       19,
+       20
+      ],
+      [
+       24,
+       25
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "gleichungen.ungleichungen",
+     "text": "7 − (2x − 6) = 7 − 2x + 6 = 13 − 2x",
+     "pos": [
+      [
+       2,
+       3
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       17,
+       18
+      ],
+      [
+       22,
+       23
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "gleichungen.quadratisch",
+     "text": "(x + 1)² − (x² − 3) = x² + 2x + 1 − x² + 3 = 2x + 4",
+     "pos": [
+      [
+       9,
+       10
+      ],
+      [
+       15,
+       16
+      ],
+      [
+       34,
+       35
+      ],
+      [
+       39,
+       40
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "gleichungen.polynom",
+     "text": "x³ − (x³ − 4x) = x³ − x³ + 4x = 4x",
+     "pos": [
+      [
+       3,
+       4
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       20,
+       21
+      ],
+      [
+       25,
+       26
+      ]
+     ]
+    }
+   ]
+  },
+  "R8": {
+   "kennung": "rr.potenz",
+   "markiert": "Die Hochzahlen: Sie zählen die Faktoren und werden beim Malnehmen addiert.",
+   "klassen": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.potenzen_basis",
+     "text": "2³ · 2² = (2 · 2 · 2) · (2 · 2) = 2⁵ = 32",
+     "pos": [
+      [
+       1,
+       2
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       35,
+       36
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "zahlen.potenzen_zehner",
+     "text": "10³ · 10² = 10⁵ = 100 000",
+     "pos": [
+      [
+       2,
+       3
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       14,
+       15
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "terme.potenzgesetze_natuerlich",
+     "text": "x³ · x² = (x · x · x) · (x · x) = x⁵",
+     "pos": [
+      [
+       1,
+       2
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       35,
+       36
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Einführung",
+     "thema": "terme.potenzgesetze_ganzzahlig",
+     "text": "x³ · x⁻² = x¹ = x, für x ≠ 0",
+     "pos": [
+      [
+       1,
+       2
+      ],
+      [
+       6,
+       8
+      ],
+      [
+       12,
+       13
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Einführung",
+     "thema": "zahlen.rationale_exponenten",
+     "text": "x^½ · x^½ = x¹ = x, für x ≥ 0 – also ist x^½ die Wurzel aus x",
+     "pos": [
+      [
+       2,
+       3
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       13,
+       14
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.exponential_log",
+     "text": "2ˣ · 2³ = 2 hoch x + 3",
+     "pos": [
+      [
+       1,
+       2
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       17,
+       22
+      ]
+     ]
+    }
+   ]
+  },
+  "R9": {
+   "kennung": "rr.kuerzen",
+   "markiert": "Der gemeinsame Faktor – einmal im Zähler, einmal im Nenner.",
+   "klassen": [
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "grund": "der Stoff dafür beginnt später (Brüche ab Klasse 6)"
+    },
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "bruch.brueche",
+     "text": "12/18 = (2 · 6) / (3 · 6) = 2/3",
+     "pos": [
+      [
+       13,
+       14
+      ],
+      [
+       23,
+       24
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "gleichungen.linear",
+     "text": "6x/9 = (2x · 3) / (3 · 3) = 2x/3",
+     "pos": [
+      [
+       13,
+       14
+      ],
+      [
+       23,
+       24
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "terme.bruchterme",
+     "text": "(3x + 6) / (x + 2) = (3 · (x + 2)) / (1 · (x + 2)) = 3, für x ≠ −2",
+     "pos": [
+      [
+       26,
+       33
+      ],
+      [
+       42,
+       49
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "abbildungen.aehnlichkeit",
+     "text": "Seitenverhältnis 6 cm : 9 cm = (2 · 3) : (3 · 3) = 2 : 3",
+     "pos": [
+      [
+       36,
+       37
+      ],
+      [
+       46,
+       47
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "stochastik.mehrstufig",
+     "text": "Zweiter Zug aus der Urne: 2/4 = (1 · 2) / (2 · 2) = ½",
+     "pos": [
+      [
+       37,
+       38
+      ],
+      [
+       47,
+       48
+      ]
+     ]
+    }
+   ]
+  },
+  "R10": {
+   "kennung": "rr.bruchrechnen",
+   "markiert": "Der gemeinsame Nenner – in jedem der drei Brüche.",
+   "klassen": [
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "grund": "der Stoff dafür beginnt später (Brüche ab Klasse 6)"
+    },
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "bruch.rechnen",
+     "text": "1/2 + 1/3 = 3/6 + 2/6 = 5/6",
+     "pos": [
+      [
+       14,
+       15
+      ],
+      [
+       20,
+       21
+      ],
+      [
+       26,
+       27
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "gleichungen.linear",
+     "text": "x/2 + x/3 = 3x/6 + 2x/6 = 5x/6",
+     "pos": [
+      [
+       15,
+       16
+      ],
+      [
+       22,
+       23
+      ],
+      [
+       29,
+       30
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "terme.bruchterme",
+     "text": "1/x + 1/(2x) = 2/2x + 1/2x = 3/2x, für x ≠ 0",
+     "pos": [
+      [
+       17,
+       19
+      ],
+      [
+       24,
+       26
+      ],
+      [
+       31,
+       33
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "stochastik.verknuepft",
+     "text": "Additionssatz: 1/2 + 1/3 − 1/6 = 3/6 + 2/6 − 1/6 = 4/6 = ⅔",
+     "pos": [
+      [
+       35,
+       36
+      ],
+      [
+       41,
+       42
+      ],
+      [
+       47,
+       48
+      ],
+      [
+       53,
+       54
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "stochastik.mehrstufig",
+     "text": "Zwei Pfade addieren: 1/6 + 1/3 = 1/6 + 2/6 = 3/6 = ½",
+     "pos": [
+      [
+       35,
+       36
+      ],
+      [
+       41,
+       42
+      ],
+      [
+       47,
+       48
+      ]
+     ]
+    }
+   ]
+  },
+  "R11": {
+   "kennung": "rr.verhaeltnis",
+   "markiert": "Die mittlere Zeile: der Wert für eins.",
+   "klassen": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "groessen.proportional",
+     "text": "3 kg kosten 7,50 € → 1 kg kostet 2,50 € → 5 kg kosten 12,50 €",
+     "pos": [
+      [
+       21,
+       39
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "bruch.prozent",
+     "text": "100 % sind 60 € → 1 % sind 0,60 € → 25 % sind 15 €",
+     "pos": [
+      [
+       18,
+       33
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "bruch.prozent_grundwert",
+     "text": "80 % sind 48 € → 1 % sind 0,60 € → 100 % sind 60 €",
+     "pos": [
+      [
+       17,
+       32
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "funktionen.linear",
+     "text": "2 nach rechts, 3 nach oben → 1 nach rechts, 1,5 nach oben → 4 nach rechts, 6 nach oben (Steigung 1,5)",
+     "pos": [
+      [
+       29,
+       57
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "abbildungen.aehnlichkeit",
+     "text": "2 cm gehören zu 3 cm → 1 cm gehört zu 1,5 cm → 4 cm gehören zu 6 cm (Strahlensatz)",
+     "pos": [
+      [
+       23,
+       44
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.trig",
+     "text": "360° sind 2π → 1° ist π/180 → 90° sind π/2 (Bogenmaß)",
+     "pos": [
+      [
+       15,
+       27
+      ]
+     ]
+    }
+   ]
+  },
+  "R12": {
+   "kennung": "rr.gegenrechnung",
+   "markiert": "Die Rechnung und ihre Gegenrechnung – als Paar.",
+   "klassen": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "gleichungen.einfach",
+     "text": "□ + 7 = 3, also □ = 3 − 7 = −4",
+     "pos": [
+      [
+       2,
+       5
+      ],
+      [
+       22,
+       25
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "text": "□ · ¾ = 12, also □ = 12 : ¾ = 16",
+     "pos": [
+      [
+       2,
+       5
+      ],
+      [
+       24,
+       27
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "bruch.prozent_grundwert",
+     "text": "G · 1,2 = 60 €, also G = 60 € : 1,2 = 50 €",
+     "pos": [
+      [
+       2,
+       7
+      ],
+      [
+       30,
+       35
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "gleichungen.formeln",
+     "text": "A = g · h, also g = A : h – mit A = 42 und h = 7 ist g = 6",
+     "pos": [
+      [
+       6,
+       9
+      ],
+      [
+       22,
+       25
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Einführung",
+     "thema": "gleichungen.quadratisch",
+     "text": "x hoch 2 = 49, also x = ±√49: x = 7 oder x = −7",
+     "pos": [
+      [
+       2,
+       8
+      ],
+      [
+       24,
+       26
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Einführung",
+     "thema": "gleichungen.exponential",
+     "text": "2 hoch x = 8, also x = log₂ 8 = 3",
+     "pos": [
+      [
+       2,
+       8
+      ],
+      [
+       23,
+       27
+      ]
+     ]
+    }
+   ]
+  },
+  "R13": {
+   "kennung": "rr.waage",
+   "markiert": "Was auf beiden Seiten getan wird – der Befehl hinter dem Strich.",
+   "klassen": [
+    5,
+    7,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Vorwissen",
+     "thema": "gleichungen.einfach",
+     "text": "□ + 7 = 3 | − 7 → □ = −4",
+     "pos": [
+      [
+       12,
+       15
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "grund": "kein Thema der App in dieser Klasse (keine Gleichungen in Klasse 6)"
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "gleichungen.linear",
+     "text": "2x + 2 = 12 | − 2 → 2x = 10 | : 2 → x = 5",
+     "pos": [
+      [
+       14,
+       17
+      ],
+      [
+       30,
+       33
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "gleichungen.ungleichungen",
+     "text": "2x + 2 < 12 | − 2 → 2x < 10 | : 2 → x < 5",
+     "pos": [
+      [
+       14,
+       17
+      ],
+      [
+       30,
+       33
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "gleichungen.quadratisch",
+     "text": "2x² + 2 = 20 | − 2 → 2x² = 18 | : 2 → x² = 9",
+     "pos": [
+      [
+       15,
+       18
+      ],
+      [
+       32,
+       35
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "gleichungen.exponential",
+     "text": "2 · 2ˣ + 2 = 18 | − 2 → 2 · 2ˣ = 16 | : 2 → 2ˣ = 8",
+     "pos": [
+      [
+       18,
+       21
+      ],
+      [
+       38,
+       41
+      ]
+     ]
+    }
+   ]
+  },
+  "R14": {
+   "kennung": "rr.nullprodukt",
+   "markiert": "Die Null rechts und der Faktor, der null wird.",
+   "klassen": [
+    5,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Vorwissen",
+     "thema": "gleichungen.einfach",
+     "text": "□ · 7 = 0, also □ = 0",
+     "pos": [
+      [
+       0,
+       1
+      ],
+      [
+       8,
+       9
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 7,
+     "grund": "kein Thema der App in dieser Klasse (Gleichungen mit x² erst ab Klasse 9)"
+    },
+    {
+     "klasse": 8,
+     "art": "Vorwissen",
+     "thema": "terme.bruchterme",
+     "text": "Der Nenner x · (x − 4) wird 0 für x = 0 oder x = 4 – diese Zahlen sind nicht erlaubt",
+     "pos": [
+      [
+       11,
+       12
+      ],
+      [
+       15,
+       22
+      ],
+      [
+       28,
+       29
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Einführung",
+     "thema": "gleichungen.quadratisch",
+     "text": "(x − 2) · (x + 3) = 0, also x = 2 oder x = −3",
+     "pos": [
+      [
+       0,
+       7
+      ],
+      [
+       10,
+       17
+      ],
+      [
+       20,
+       21
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "gleichungen.polynom",
+     "text": "x · (x − 2) · (x + 2) = 0, also x = 0, x = 2 oder x = −2",
+     "pos": [
+      [
+       0,
+       1
+      ],
+      [
+       4,
+       11
+      ],
+      [
+       14,
+       21
+      ],
+      [
+       24,
+       25
+      ]
+     ]
+    }
+   ]
+  },
+  "I-zahlen-1": {
+   "kennung": "id.zahlen.zahlengerade",
+   "markiert": "Das Kleiner-Zeichen: Links steht, was auf der Zahlengeraden weiter links liegt.",
+   "klassen": [
+    5,
+    6,
+    8,
+    9
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.ganz",
+     "text": "−3 < 2 – die −3 liegt links von der 2",
+     "pos": [
+      [
+       3,
+       4
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "text": "−½ < ¼",
+     "pos": [
+      [
+       3,
+       4
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "zahlen.intervalle",
+     "text": "Im Intervall ]−3; 2] liegen alle Zahlen mit −3 < x ≤ 2",
+     "pos": [
+      [
+       47,
+       48
+      ],
+      [
+       51,
+       52
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "zahlen.reell",
+     "text": "1 < √2 < 2 – auch √2 ≈ 1,41 hat ihren Platz",
+     "pos": [
+      [
+       2,
+       3
+      ],
+      [
+       7,
+       8
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "grund": "kein Thema der App in dieser Klasse"
+    }
+   ]
+  },
+  "I-zahlen-2": {
+   "kennung": "id.zahlen.buendeln",
+   "markiert": "Die Zehn, die getauscht wird.",
+   "klassen": [
+    5,
+    6,
+    8
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.natuerlich",
+     "text": "10 Einer = 1 Zehner: 347 liegt zwischen 340 und 350",
+     "pos": [
+      [
+       0,
+       2
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "bruch.dezimal",
+     "text": "10 Zehntel = 1 Einer: 0,9 + 0,1 = 1,0",
+     "pos": [
+      [
+       0,
+       2
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "terme.potenzgesetze_ganzzahlig",
+     "text": "10 Tausendstel = 1 Hundertstel: 10 · 10⁻³ = 10⁻²",
+     "pos": [
+      [
+       0,
+       2
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 10,
+     "grund": "kein Thema der App in dieser Klasse"
+    }
+   ]
+  },
+  "I-zahlen-3": {
+   "kennung": "id.zahlen.bausteine",
+   "markiert": "Die Primfaktoren.",
+   "klassen": [
+    5,
+    6,
+    9
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.teilbarkeit",
+     "text": "60 = 2 · 2 · 3 · 5",
+     "pos": [
+      [
+       5,
+       18
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.brueche",
+     "text": "12/18 = (2 · 2 · 3) / (2 · 3 · 3) = 2/3 – gemeinsame Bausteine 2 und 3 kürzen",
+     "pos": [
+      [
+       9,
+       18
+      ],
+      [
+       23,
+       32
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 8,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "zahlen.wurzeln_basis",
+     "text": "√12 = √(2 · 2 · 3) = 2 · √3",
+     "pos": [
+      [
+       8,
+       17
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "grund": "kein Thema der App in dieser Klasse"
+    }
+   ]
+  },
+  "I-zahlen-4": {
+   "kennung": "id.zahlen.schreibweisen",
+   "markiert": "Die Gleichheitszeichen zwischen den drei Schreibweisen.",
+   "klassen": [
+    6,
+    7,
+    8,
+    9
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "grund": "der Stoff dafür beginnt später (Brüche ab Klasse 6)"
+    },
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "bruch.prozent",
+     "text": "½ = 0,5 = 50 %",
+     "pos": [
+      [
+       2,
+       3
+      ],
+      [
+       8,
+       9
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "bruch.prozent_grundwert",
+     "text": "⅕ = 0,2 = 20 %",
+     "pos": [
+      [
+       2,
+       3
+      ],
+      [
+       8,
+       9
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "stochastik.grundbegriffe",
+     "text": "Wahrscheinlichkeit ¼ = 0,25 = 25 %",
+     "pos": [
+      [
+       21,
+       22
+      ],
+      [
+       28,
+       29
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "zahlen.reell",
+     "text": "⅓ = 0,333… – eine Kommazahl, die nie endet, aber sich wiederholt",
+     "pos": [
+      [
+       2,
+       3
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "grund": "kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt"
+    }
+   ]
+  },
+  "I-zahlen-5": {
+   "kennung": "id.zahlen.hoch_zurueck",
+   "markiert": "Das Hoch – und ab Klasse 9 die Rechnung, die zurückfragt.",
+   "klassen": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.potenzen_basis",
+     "text": "3 hoch 2 = 9",
+     "pos": [
+      [
+       2,
+       8
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "zahlen.potenzen_zehner",
+     "text": "10 hoch 3 = 1 000",
+     "pos": [
+      [
+       3,
+       9
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "terme.potenzgesetze_natuerlich",
+     "text": "x hoch 2 · x = x³",
+     "pos": [
+      [
+       2,
+       8
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "terme.potenzgesetze_ganzzahlig",
+     "text": "2 hoch −3 = ⅛",
+     "pos": [
+      [
+       2,
+       9
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Einführung",
+     "thema": "zahlen.wurzeln_basis",
+     "text": "3 hoch 2 = 9 und zurück: √9 = 3",
+     "pos": [
+      [
+       2,
+       8
+      ],
+      [
+       25,
+       26
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Einführung",
+     "thema": "funktionen.exponential_log",
+     "text": "2 hoch 3 = 8 und zurück: log₂ 8 = 3",
+     "pos": [
+      [
+       2,
+       8
+      ],
+      [
+       25,
+       29
+      ]
+     ]
+    }
+   ]
+  },
+  "I-algebra-1": {
+   "kennung": "id.algebra.term",
+   "markiert": "Die Zahl, die eingesetzt wird – in jeder Zeile die 5.",
+   "klassen": [
+    5,
+    7,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Vorwissen",
+     "thema": "zahlen.rechengesetze",
+     "text": "2 · 5 + 3 = 13",
+     "pos": [
+      [
+       4,
+       5
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "terme.aufstellen",
+     "text": "T(x) = 2 · x + 3; T(5) = 2 · 5 + 3 = 13",
+     "pos": [
+      [
+       20,
+       21
+      ],
+      [
+       29,
+       30
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "funktionen.grundbegriffe",
+     "text": "f(x) = 2 · x + 3; f(5) = 2 · 5 + 3 = 13",
+     "pos": [
+      [
+       20,
+       21
+      ],
+      [
+       29,
+       30
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "funktionen.quadratisch",
+     "text": "f(x) = 2 · x² + 3; f(5) = 2 · 5² + 3 = 53",
+     "pos": [
+      [
+       21,
+       22
+      ],
+      [
+       30,
+       31
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.exponential_log",
+     "text": "f(x) = 2 · 3ˣ + 3; f(2) = 2 · 3² + 3 = 21 – hier die 2, weil 3⁵ unhandlich wird",
+     "pos": [
+      [
+       21,
+       22
+      ]
+     ]
+    }
+   ]
+  },
+  "I-algebra-2": {
+   "kennung": "id.algebra.erlaubte_zahlen",
+   "markiert": "Die Zahl, die nicht eingesetzt werden darf.",
+   "klassen": [
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 6,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 7,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 8,
+     "art": "Einführung",
+     "thema": "terme.bruchterme",
+     "text": "1 : (x − 2): nicht erlaubt ist x = 2, denn der Nenner wäre 0",
+     "pos": [
+      [
+       31,
+       36
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "zahlen.wurzeln_basis",
+     "text": "√(x − 2): erlaubt ist nur x ≥ 2, denn unter der Wurzel darf nichts Negatives stehen",
+     "pos": [
+      [
+       26,
+       31
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.exponential_log",
+     "text": "log₂(x − 2): erlaubt ist nur x > 2",
+     "pos": [
+      [
+       29,
+       34
+      ]
+     ]
+    }
+   ]
+  },
+  "I-algebra-3": {
+   "kennung": "id.algebra.gleichung_loesen",
+   "markiert": "Die Lösung – jede Zahl, für die die Zeile stimmt.",
+   "klassen": [
+    5,
+    7,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "gleichungen.einfach",
+     "text": "□ + 7 = 3 stimmt für □ = −4",
+     "pos": [
+      [
+       21,
+       27
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "gleichungen.linear",
+     "text": "2x + 2 = 12 stimmt für x = 5",
+     "pos": [
+      [
+       23,
+       28
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Einführung",
+     "thema": "gleichungen.ungleichungen",
+     "text": "x + 5 < 2 stimmt für alle x < −3",
+     "pos": [
+      [
+       21,
+       32
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Einführung",
+     "thema": "gleichungen.quadratisch",
+     "text": "x² = 9 stimmt für x = 3 und für x = −3",
+     "pos": [
+      [
+       18,
+       23
+      ],
+      [
+       32,
+       38
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "gleichungen.exponential",
+     "text": "2ˣ = 8 stimmt für x = 3",
+     "pos": [
+      [
+       18,
+       23
+      ]
+     ]
+    }
+   ]
+  },
+  "I-algebra-4": {
+   "kennung": "id.algebra.hoeherer_grad",
+   "markiert": "Die Null auf der einen Seite und die Faktoren auf der anderen.",
+   "klassen": [
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 6,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 7,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 8,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 9,
+     "art": "Einführung",
+     "thema": "gleichungen.quadratisch",
+     "text": "x² + x = 6 → x² + x − 6 = 0 → (x − 2) · (x + 3) = 0 → x = 2 oder x = −3",
+     "pos": [
+      [
+       26,
+       27
+      ],
+      [
+       30,
+       47
+      ],
+      [
+       50,
+       51
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "gleichungen.polynom",
+     "text": "x³ = 4x → x³ − 4x = 0 → x · (x − 2) · (x + 2) = 0 → x = 0, x = 2 oder x = −2",
+     "pos": [
+      [
+       20,
+       21
+      ],
+      [
+       24,
+       45
+      ],
+      [
+       48,
+       49
+      ]
+     ]
+    }
+   ]
+  },
+  "I-geld-1": {
+   "kennung": "id.verhaeltnisse.groesse",
+   "markiert": "Die beiden Zahlen an derselben Größe.",
+   "klassen": [
+    5,
+    6,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "groessen.einheiten",
+     "text": "3 m = 30 dm",
+     "pos": [
+      [
+       0,
+       1
+      ],
+      [
+       6,
+       8
+      ]
+     ]
+    },
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "messen.flaechen",
+     "text": "3 m² = 300 dm²",
+     "pos": [
+      [
+       0,
+       1
+      ],
+      [
+       7,
+       10
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "messen.volumen",
+     "text": "3 m³ = 3 000 dm³",
+     "pos": [
+      [
+       0,
+       1
+      ],
+      [
+       7,
+       12
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "grund": "kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt"
+    },
+    {
+     "klasse": 8,
+     "grund": "kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt"
+    },
+    {
+     "klasse": 9,
+     "grund": "kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.trig",
+     "text": "180° = π im Bogenmaß – andere Einheit, andere Zahl",
+     "pos": [
+      [
+       0,
+       3
+      ],
+      [
+       7,
+       8
+      ]
+     ]
+    }
+   ]
+  },
+  "I-geld-2": {
+   "kennung": "id.verhaeltnisse.wert_fuer_eins",
+   "markiert": "Das „· 2“ auf beiden Seiten.",
+   "klassen": [
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "groessen.proportional",
+     "text": "3 kg kosten 7,50 €; doppelt so viel: 6 kg kosten doppelt so viel: 15 €",
+     "pos": [
+      [
+       20,
+       35
+      ],
+      [
+       49,
+       64
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.prozent",
+     "text": "25 % sind 15 €; doppelt so viel: 50 % sind doppelt so viel: 30 €",
+     "pos": [
+      [
+       16,
+       31
+      ],
+      [
+       43,
+       58
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "bruch.prozent_grundwert",
+     "text": "40 % sind 24 €; doppelt so viel: 80 % sind doppelt so viel: 48 €",
+     "pos": [
+      [
+       16,
+       31
+      ],
+      [
+       43,
+       58
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "funktionen.linear",
+     "text": "y = 2,5 · x: zu x = 3 gehört 7,5; zu doppeltem x = 6 gehört das Doppelte: 15",
+     "pos": [
+      [
+       37,
+       46
+      ],
+      [
+       64,
+       72
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "abbildungen.aehnlichkeit",
+     "text": "Im Bild mit Faktor 2 ist jede Länge doppelt so lang: aus 3 cm werden 6 cm, aus 4 cm werden 8 cm",
+     "pos": [
+      [
+       36,
+       51
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "grund": "kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt"
+    }
+   ]
+  },
+  "I-geld-3": {
+   "kennung": "id.verhaeltnisse.prozent",
+   "markiert": "Der Faktor, der aus dem Prozentsatz wird.",
+   "klassen": [
+    6,
+    7,
+    8,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "grund": "der Stoff dafür beginnt später (Prozent ab Klasse 6)"
+    },
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "bruch.prozent",
+     "text": "25 % von 60 € = 0,25 · 60 € = 15 €",
+     "pos": [
+      [
+       16,
+       20
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "bruch.prozent_grundwert",
+     "text": "50 € plus 20 % = 1,2 · 50 € = 60 €",
+     "pos": [
+      [
+       17,
+       20
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "stochastik.grundbegriffe",
+     "text": "12 von 48 Würfen: 12 : 48 = 0,25 = 25 %",
+     "pos": [
+      [
+       28,
+       32
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "grund": "kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.exponential_log",
+     "text": "1 000 € zwei Jahre lang plus 5 %: 1,05 · 1,05 · 1 000 € = 1 102,50 €",
+     "pos": [
+      [
+       34,
+       38
+      ],
+      [
+       41,
+       45
+      ]
+     ]
+    }
+   ]
+  },
+  "I-geo-1": {
+   "kennung": "id.geometrie.winkel",
+   "markiert": "Die Winkel, die zusammen eine feste Summe ergeben.",
+   "klassen": [
+    5,
+    7,
+    9
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "geometrie.grundbegriffe",
+     "text": "Volle Drehung: 90° + 90° + 90° + 90° = 360°",
+     "pos": [
+      [
+       15,
+       36
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "geometrie.winkelsaetze",
+     "text": "Dreieck: 50° + 60° + 70° = 180°",
+     "pos": [
+      [
+       9,
+       24
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "trigo.rechtwinklig",
+     "text": "Rechtwinkliges Dreieck: 90° + 30° + 60° = 180° – die zwei spitzen Winkel ergeben 90°",
+     "pos": [
+      [
+       24,
+       39
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "grund": "kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt"
+    }
+   ]
+  },
+  "I-geo-2": {
+   "kennung": "id.geometrie.abstand",
+   "markiert": "Der gleiche Abstand.",
+   "klassen": [
+    5,
+    7,
+    9
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "geometrie.ortslinien",
+     "text": "Alle Punkte, die von M 3 cm entfernt sind: Kreis um M mit Radius 3 cm",
+     "pos": [
+      [
+       23,
+       27
+      ],
+      [
+       65,
+       69
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "geometrie.konstruktion",
+     "text": "A(0 | 0), B(4 | 0): Der Punkt (2 | 3) ist von A und von B gleich weit entfernt – er liegt auf der Mittelsenkrechten",
+     "pos": [
+      [
+       58,
+       69
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "trigo.pythagoras",
+     "text": "Der Punkt (3 | 4) ist vom Ursprung 5 entfernt, denn 3² + 4² = 5²",
+     "pos": [
+      [
+       35,
+       36
+      ],
+      [
+       62,
+       63
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "grund": "kein Thema der App in dieser Klasse"
+    }
+   ]
+  },
+  "I-geo-3": {
+   "kennung": "id.geometrie.deckungsgleich",
+   "markiert": "Die Länge, die vorher und nachher gleich ist.",
+   "klassen": [
+    5,
+    7
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Vorwissen",
+     "thema": "geometrie.grundbegriffe",
+     "text": "Im Rechteck sind gegenüberliegende Seiten gleich lang",
+     "pos": [
+      [
+       42,
+       53
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "abbildungen.kongruenz",
+     "text": "Spiegeln an der y-Achse: A(2 | 1) → A′(−2 | 1), B(5 | 1) → B′(−5 | 1); die Strecke ist vorher 3 lang und nachher 3",
+     "pos": [
+      [
+       94,
+       95
+      ],
+      [
+       113,
+       114
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 9,
+     "grund": "kein Thema der App in dieser Klasse (dort beginnt „Ähnlich“)"
+    },
+    {
+     "klasse": 10,
+     "grund": "kein Thema der App in dieser Klasse"
+    }
+   ]
+  },
+  "I-geo-4": {
+   "kennung": "id.geometrie.aehnlich",
+   "markiert": "Der Faktor, mit dem jede Länge malgenommen wird.",
+   "klassen": [
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 6,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 7,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 8,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 9,
+     "art": "Einführung",
+     "thema": "abbildungen.aehnlichkeit",
+     "text": "Dreieck 3 cm, 4 cm, 5 cm · 2 → 6 cm, 8 cm, 10 cm; alle Winkel bleiben",
+     "pos": [
+      [
+       25,
+       28
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "raum.pyramide_kegel_kugel",
+     "text": "Schneidet man eine Pyramide auf halber Höhe ab, ist die kleine Pyramide ähnlich: Kanten · ½, Volumen · ⅛",
+     "pos": [
+      [
+       88,
+       91
+      ]
+     ]
+    }
+   ]
+  },
+  "I-geo-5": {
+   "kennung": "id.geometrie.rechtwinklig",
+   "markiert": "Die Quadrate der drei Seiten.",
+   "klassen": [
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 6,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 7,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 8,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 9,
+     "art": "Einführung",
+     "thema": "trigo.pythagoras",
+     "text": "Katheten 3 cm und 4 cm: 3² + 4² = 5², die Hypotenuse ist 5 cm lang",
+     "pos": [
+      [
+       24,
+       36
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "raum.pyramide_kegel_kugel",
+     "text": "Kegel mit r = 3 cm und h = 4 cm: 3² + 4² = 5², die Mantellinie ist 5 cm lang",
+     "pos": [
+      [
+       33,
+       45
+      ]
+     ]
+    }
+   ]
+  },
+  "I-fur-1": {
+   "kennung": "id.flaeche_raum.auslegen",
+   "markiert": "Das Zählen in Reihen und Schichten.",
+   "klassen": [
+    5,
+    6,
+    7
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "messen.flaechen",
+     "text": "Rechteck 6 cm mal 4 cm: 4 Reihen zu je 6 = 24 cm²",
+     "pos": [
+      [
+       24,
+       40
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "messen.volumen",
+     "text": "Quader 5 cm, 4 cm, 3 cm: 3 Schichten zu je 20 = 60 cm³",
+     "pos": [
+      [
+       25,
+       45
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "terme.aufstellen",
+     "text": "Rechteck mit den Seiten x und 4: 4 Reihen zu je x = 4x",
+     "pos": [
+      [
+       33,
+       49
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "grund": "kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt"
+    },
+    {
+     "klasse": 9,
+     "grund": "kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt"
+    },
+    {
+     "klasse": 10,
+     "grund": "kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt"
+    }
+   ]
+  },
+  "I-fur-2": {
+   "kennung": "id.flaeche_raum.aus_dem_rechteck",
+   "markiert": "Die Grundseite mal die Höhe – das Rechteck, das in jeder Formel steckt.",
+   "klassen": [
+    5,
+    6,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "messen.flaechen",
+     "text": "Rechteck: 6 cm · 4 cm = 24 cm²",
+     "pos": [
+      [
+       10,
+       21
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "messen.flaechen_vielecke",
+     "text": "Parallelogramm: 6 cm · 4 cm = 24 cm². Dreieck: 6 cm · 4 cm : 2 = 12 cm²",
+     "pos": [
+      [
+       16,
+       27
+      ],
+      [
+       47,
+       58
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 8,
+     "art": "Einführung",
+     "thema": "messen.kreisberechnung",
+     "text": "Kreis mit r = 3 cm, umgelegt zu einem Fast-Rechteck: π · 3 cm · 3 cm ≈ 28,3 cm²",
+     "pos": [
+      [
+       53,
+       68
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "trigo.pythagoras",
+     "text": "Gleichseitiges Dreieck mit Seite 6 cm: Höhe √27 cm ≈ 5,2 cm, also 6 cm · 5,2 cm : 2 ≈ 15,6 cm²",
+     "pos": [
+      [
+       66,
+       79
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "raum.pyramide_kegel_kugel",
+     "text": "Mantel der Pyramide (Grundkante 6 cm, Seitenhöhe 5 cm): vier Dreiecke, je 6 cm · 5 cm : 2 = 15 cm², zusammen 60 cm²",
+     "pos": [
+      [
+       74,
+       85
+      ]
+     ]
+    }
+   ]
+  },
+  "I-fur-3": {
+   "kennung": "id.flaeche_raum.aus_dem_quader",
+   "markiert": "Grundfläche mal Höhe.",
+   "klassen": [
+    6,
+    8,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "grund": "der Stoff dafür beginnt später (Volumen ab Klasse 6)"
+    },
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "messen.volumen",
+     "text": "Quader: 20 cm² · 3 cm = 60 cm³",
+     "pos": [
+      [
+       8,
+       21
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 8,
+     "art": "Einführung",
+     "thema": "messen.prisma_zylinder",
+     "text": "Prisma mit dreieckiger Grundfläche: 6 cm² · 10 cm = 60 cm³",
+     "pos": [
+      [
+       36,
+       49
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 10,
+     "art": "Einführung",
+     "thema": "raum.pyramide_kegel_kugel",
+     "text": "Pyramide: 36 cm² · 4 cm : 3 = 48 cm³",
+     "pos": [
+      [
+       10,
+       23
+      ]
+     ]
+    }
+   ]
+  },
+  "I-fur-4": {
+   "kennung": "id.flaeche_raum.haut",
+   "markiert": "Die Flächen, die zusammengezählt werden.",
+   "klassen": [
+    5,
+    8,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "messen.koerper_berechnung",
+     "text": "Quader 5 cm, 4 cm, 3 cm: 2 · 20 + 2 · 15 + 2 · 12 = 94 cm²",
+     "pos": [
+      [
+       25,
+       49
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 7,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 8,
+     "art": "Einführung",
+     "thema": "messen.prisma_zylinder",
+     "text": "Prisma (Dreieck 3 cm, 4 cm, 5 cm; Höhe 6 cm): 2 · 6 + 18 + 24 + 30 = 84 cm²",
+     "pos": [
+      [
+       46,
+       66
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 10,
+     "art": "Einführung",
+     "thema": "raum.pyramide_kegel_kugel",
+     "text": "Pyramide (Grundkante 6 cm, Seitenhöhe 5 cm): 36 + 4 · 15 = 96 cm²",
+     "pos": [
+      [
+       45,
+       56
+      ]
+     ]
+    }
+   ]
+  },
+  "I-funktionen-1": {
+   "kennung": "id.funktionen.zuordnung",
+   "markiert": "Das Paar: zu diesem x genau dieses y.",
+   "klassen": [
+    5,
+    7,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Vorwissen",
+     "thema": "groessen.proportional",
+     "text": "Zu 3 kg gehört genau ein Preis: 7,50 €",
+     "pos": [
+      [
+       3,
+       7
+      ],
+      [
+       32,
+       38
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 7,
+     "art": "Vorwissen",
+     "thema": "terme.aufstellen",
+     "text": "T(x) = 2x + 1: zu x = 3 gehört 7",
+     "pos": [
+      [
+       18,
+       23
+      ],
+      [
+       31,
+       32
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Einführung",
+     "thema": "funktionen.grundbegriffe",
+     "text": "y = 2x + 1: zu x = 3 gehört y = 7",
+     "pos": [
+      [
+       15,
+       20
+      ],
+      [
+       28,
+       33
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "funktionen.quadratisch",
+     "text": "y = x²: zu x = 3 gehört y = 9",
+     "pos": [
+      [
+       11,
+       16
+      ],
+      [
+       24,
+       29
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.exponential_log",
+     "text": "y = 2ˣ: zu x = 3 gehört y = 8",
+     "pos": [
+      [
+       11,
+       16
+      ],
+      [
+       24,
+       29
+      ]
+     ]
+    }
+   ]
+  },
+  "I-funktionen-2": {
+   "kennung": "id.funktionen.wachstum",
+   "markiert": "Der Schritt von einem Wert zum nächsten.",
+   "klassen": [
+    5,
+    8,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Vorwissen",
+     "thema": "groessen.proportional",
+     "text": "Je Kilogramm + 2,50 €: 2,50 €; 5 €; 7,50 €",
+     "pos": [
+      [
+       13,
+       21
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 7,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 8,
+     "art": "Einführung",
+     "thema": "funktionen.linear",
+     "text": "y = 1 + 2x: von Schritt zu Schritt + 2: 1; 3; 5; 7; 9",
+     "pos": [
+      [
+       35,
+       38
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "grund": "kein Thema der App in dieser Klasse (quadratisch wächst weder in gleichen Schritten noch mit gleichem Faktor)"
+    },
+    {
+     "klasse": 10,
+     "art": "Einführung",
+     "thema": "funktionen.exponential_log",
+     "text": "y = 2ˣ: von Schritt zu Schritt · 2: 1; 2; 4; 8; 16",
+     "pos": [
+      [
+       31,
+       34
+      ]
+     ]
+    }
+   ]
+  },
+  "I-funktionen-3": {
+   "kennung": "id.funktionen.gleichung_form",
+   "markiert": "Die Stelle in der Gleichung, die die Form bestimmt.",
+   "klassen": [
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 6,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 7,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 8,
+     "art": "Einführung",
+     "thema": "funktionen.linear",
+     "text": "y = 2 · x + 1: Gerade",
+     "pos": [
+      [
+       8,
+       9
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "art": "Einführung",
+     "thema": "funktionen.gebrochen",
+     "text": "y = 1 : x: Hyperbel",
+     "pos": [
+      [
+       8,
+       9
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Einführung",
+     "thema": "funktionen.quadratisch",
+     "text": "y = x²: Parabel. y = (x − 3)²: dieselbe Parabel, 3 nach rechts",
+     "pos": [
+      [
+       4,
+       6
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Einführung",
+     "thema": "funktionen.ganzrational",
+     "text": "y = x³ − 4x: Kurve mit drei Nullstellen −2, 0, 2",
+     "pos": [
+      [
+       4,
+       6
+      ]
+     ]
+    }
+   ]
+  },
+  "I-daten-1": {
+   "kennung": "id.daten.kennzahl",
+   "markiert": "Die eine Zahl, die für alle steht.",
+   "klassen": [
+    6,
+    7
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "daten.kennwerte",
+     "text": "4, 5, 5, 6: Mittelwert 5. Und 1, 2, 8, 9: Mittelwert auch 5",
+     "pos": [
+      [
+       23,
+       24
+      ],
+      [
+       58,
+       59
+      ]
+     ]
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "daten.boxplot",
+     "text": "2, 3, 3, 4, 18: Median 3, Mittelwert 6 – der Ausreißer zieht nur den Mittelwert mit",
+     "pos": [
+      [
+       23,
+       24
+      ]
+     ]
+    },
+    {
+     "klasse": 8,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 9,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 10,
+     "grund": "kein Thema der App in dieser Klasse"
+    }
+   ]
+  },
+  "I-daten-2": {
+   "kennung": "id.daten.teil_ganzes",
+   "markiert": "Der Anteil in der Stichprobe.",
+   "klassen": [
+    8,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 6,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 7,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 8,
+     "art": "Einführung",
+     "thema": "stochastik.grundbegriffe",
+     "text": "Von 100 zufällig gezogenen Kugeln sind 30 rot: geschätzter Anteil 30 %",
+     "pos": [
+      [
+       66,
+       70
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "stochastik.simulation",
+     "text": "Ein Versuch wird sehr oft nachgespielt; der Anteil der Treffer schätzt die Wahrscheinlichkeit",
+     "pos": [
+      [
+       44,
+       62
+      ]
+     ]
+    }
+   ]
+  },
+  "I-daten-3": {
+   "kennung": "id.daten.anteil",
+   "markiert": "Günstige durch mögliche.",
+   "klassen": [
+    5,
+    8,
+    9,
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "art": "Vorwissen",
+     "thema": "stochastik.kombinatorik",
+     "text": "3 Hosen und 2 Hemden: 3 · 2 = 6 Möglichkeiten",
+     "pos": [
+      [
+       30,
+       45
+      ]
+     ]
+    },
+    {
+     "klasse": 6,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 7,
+     "grund": "kein Thema der App in dieser Klasse"
+    },
+    {
+     "klasse": 8,
+     "art": "Einführung",
+     "thema": "stochastik.grundbegriffe",
+     "text": "Würfel, gerade Zahl: 3 von 6 = ½",
+     "pos": [
+      [
+       21,
+       28
+      ]
+     ]
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "stochastik.verknuepft",
+     "text": "Würfel, „gerade oder größer als 4“: günstig sind 2, 4, 5, 6 – 4 von 6 = ⅔",
+     "pos": [
+      [
+       62,
+       69
+      ]
+     ]
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "stochastik.mehrstufig",
+     "text": "Zwei Münzwürfe, zweimal Kopf: 1 von 4 = ¼",
+     "pos": [
+      [
+       30,
+       37
+      ]
+     ]
+    }
+   ]
+  },
+  "I-daten-4": {
+   "kennung": "id.daten.stufen",
+   "markiert": "Das Mal entlang des Pfades.",
+   "klassen": [
+    10
+   ],
+   "stufen": [
+    {
+     "klasse": 5,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 6,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 7,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 8,
+     "grund": "der Stoff dafür beginnt später"
+    },
+    {
+     "klasse": 9,
+     "grund": "der Stoff dafür beginnt später (Klasse 9 arbeitet mit der Vierfeldertafel, noch ohne Pfade)"
+    },
+    {
+     "klasse": 10,
+     "art": "Einführung",
+     "thema": "stochastik.mehrstufig",
+     "text": "Zwei Münzwürfe, erst Kopf, dann Zahl: ½ · ½ = ¼. Genau einmal Kopf: ¼ + ¼ = ½",
+     "pos": [
+      [
+       40,
+       41
+      ],
+      [
+       70,
+       71
+      ]
+     ]
+    }
+   ]
+  }
+ },
  "etagen": [
   {
    "nr": 1,
@@ -71,11 +3527,6 @@
     "Hervorgehoben": "Die beiden Pfeile (gleiche Farbe, gleiche Länge, gleiche Richtung).",
     "Darf nicht falsch aussehen": "Das Komma darf nicht wandern. Es darf keine Null erscheinen. Beide Ziffern müssen gleich weit rücken.",
     "Gleiche Zeichnung, andere Beschriftung": "Dieselbe Tafel für 3 400 m = 3,4 km (geteilt durch 1 000: drei Spalten nach rechts) und für 0,0003 = 3 · 10⁻⁴."
-   },
-   "stufen": {
-    "5": "E",
-    "6": "E",
-    "8": "A"
    }
   },
   {
@@ -130,12 +3581,6 @@
     "Hervorgehoben": "Jedes Minuszeichen und die zugehörige Kehrtwende in derselben Farbe: oben eine, unten zwei.",
     "Darf nicht falsch aussehen": "Beide Pfeile müssen genau zwei Einheiten lang sein. Der Start darf nicht bei 0 liegen. Die Null muss sichtbar sein.",
     "Gleiche Zeichnung, andere Beschriftung": "Dieselben zwei Geraden für −½ − ¾ (Teilstriche in Vierteln) und für 3x − 5x (Einheit „x“)."
-   },
-   "stufen": {
-    "5": "E",
-    "6": "A",
-    "7": "A",
-    "8": "A"
    }
   },
   {
@@ -196,13 +3641,6 @@
     "Hervorgehoben": "Die letzte Stufe (−1) · (−2) = +2, über der Null-Linie.",
     "Darf nicht falsch aussehen": "Die Treppe muss steigen, nicht fallen. Die Stufen müssen gleich hoch sein. Die +2 muss oberhalb der Null-Linie liegen.",
     "Gleiche Zeichnung, andere Beschriftung": "Keine – diese Zeichnung bleibt bei Zahlen. Für (−2x) · (−3) = 6x wird nur das Ergebnis darunter geschrieben."
-   },
-   "stufen": {
-    "5": "E",
-    "6": "A",
-    "7": "A",
-    "8": "A",
-    "9": "A"
    }
   },
   {
@@ -269,14 +3707,6 @@
     "Hervorgehoben": "Der Rahmen um 3 · 4 in der Farbe der Stufe „Punkt“.",
     "Darf nicht falsch aussehen": "Die oberste Stufe muss die erste sein (Klammer). Punkt und Strich dürfen nicht auf einer Höhe stehen. · und : stehen zusammen auf einer Stufe.",
     "Gleiche Zeichnung, andere Beschriftung": "Dieselbe Treppe mit ½ + ½ · ½, mit 2 + 3x und mit 2 · 3² – immer wird der Teil eingerahmt, der zuerst kommt."
-   },
-   "stufen": {
-    "5": "E",
-    "6": "A",
-    "7": "A",
-    "8": "A",
-    "9": "A",
-    "10": "A"
    }
   },
   {
@@ -331,12 +3761,6 @@
     "Hervorgehoben": "Das Zeichen auf jedem Kärtchen (es wandert mit).",
     "Darf nicht falsch aussehen": "Kein Kärtchen ohne Zeichen außer dem ersten. Im linken Korb dürfen nur a-Kärtchen liegen. a und b dürfen nicht in einem Korb landen.",
     "Gleiche Zeichnung, andere Beschriftung": "Dieselben Kärtchen für 12 − 30 + 18 − 5 (Kärtchen „+12“, „−30“, „+18“, „−5“)."
-   },
-   "stufen": {
-    "5": "E",
-    "6": "A",
-    "7": "E",
-    "9": "A"
    }
   },
   {
@@ -403,14 +3827,6 @@
     "Hervorgehoben": "Der Faktor links und die zwei Teilflächen – der Faktor in derselben Farbe wie die beiden Malzeichen in der Zeile darunter.",
     "Darf nicht falsch aussehen": "Beide Teilrechtecke müssen dieselbe Höhe haben. Es dürfen nicht zwei getrennte Rechtecke sein. Der Trennstrich darf nicht in der Mitte stehen, wenn die Summanden verschieden sind.",
     "Gleiche Zeichnung, andere Beschriftung": "**Dieselbe Zeichnung, vier Beschriftungen:** (1) 6 · (20 + 2), (2) 6 · (20 − 2): großes Rechteck Breite 20, rechts ein gestrichelt abgetrenntes Stück Breite 2, (3) 3 · (x + 2), (4) 3/2 · (4 + ½) = 6 + ¾ – Höhe 1,5 und Breite 4,5, damit das Rechteck maßstäblich bleibt und trotzdem dieselbe Gestalt hat wie die anderen drei. Reihenfolge der Felder: Zahlen mit Plus, mit x, mit Brüchen, zuletzt Zahlen mit Minus. Im Minus-Feld stehen in den Flächen die Werte „108“ und „12“. Rückwärts gelesen (Ausklammern): 3x + 6 = 3 · (x + 2). Zusatzbild für den häufigen Fehler: Quadrat mit Seite a + b, in vier Felder a², ab, ab, b² geteilt."
-   },
-   "stufen": {
-    "5": "E",
-    "6": "A",
-    "7": "E",
-    "8": "A",
-    "9": "A",
-    "10": "A"
    }
   },
   {
@@ -459,12 +3875,6 @@
     "Hervorgehoben": "Die beiden Summanden in der Klammer und ihre neuen Vorzeichen, paarweise in derselben Farbe; das „20“ bleibt neutral.",
     "Darf nicht falsch aussehen": "Beide Vorzeichen müssen als gewechselt erkennbar sein (aus „8“ wird „− 8“, aus „− 3“ wird „+ 3“). Das Ergebnis 15 muss stimmen.",
     "Gleiche Zeichnung, andere Beschriftung": "Dieselbe Paar-Markierung für 5x − (3x − 2) = 5x − 3x + 2 (ohne Zettel, nur die zwei Rechenzeilen)."
-   },
-   "stufen": {
-    "5": "V",
-    "7": "E",
-    "8": "A",
-    "9": "A"
    }
   },
   {
@@ -519,13 +3929,6 @@
     "Hervorgehoben": "Die erste Klammer: drei Zweien, hingeschrieben und malgenommen – dazu die Hochzahl 3 in derselben Farbe. Zweitrangig: die Hochzahlen 2 und 5; in der Reihe das Feld 2⁰ = 1.",
     "Darf nicht falsch aussehen": "Es müssen genau fünf Zweien sein. In der Reihe darf 2⁰ nicht 0 sein und 2⁻¹ nicht negativ.",
     "Gleiche Zeichnung, andere Beschriftung": "Dieselbe Zeile mit x statt 2: (x · x · x) · (x · x) = x⁵. Dieselbe Reihe mit 10: 1 000, 100, 10, 1, 0,1, 0,01."
-   },
-   "stufen": {
-    "5": "E",
-    "6": "A",
-    "7": "E",
-    "8": "E",
-    "10": "A"
    }
   },
   {
@@ -580,12 +3983,6 @@
     "Hervorgehoben": "Die gemeinsame Endlinie der gefärbten Flächen.",
     "Darf nicht falsch aussehen": "Die gefärbten Längen müssen genau gleich sein. Die Teile eines Streifens müssen gleich groß sein.",
     "Gleiche Zeichnung, andere Beschriftung": "Dieselben zwei Streifen für 12/18 = 2/3 (18 und 3 Teile) und – ohne Streifen, nur als Rechenzeile mit gleich gefärbtem Faktor – für (3 · (x + 2)) : (1 · (x + 2)) = 3."
-   },
-   "stufen": {
-    "6": "E",
-    "7": "A",
-    "8": "A",
-    "9": "A"
    }
   },
   {
@@ -646,12 +4043,6 @@
     "Hervorgehoben": "Die fünf gefärbten Sechstel im dritten Streifen.",
     "Darf nicht falsch aussehen": "Im dritten Streifen dürfen nicht 2 von 5 Feldern gefärbt sein. Die Farbfelder müssen lückenlos aneinanderliegen. Das sechste Feld bleibt leer.",
     "Gleiche Zeichnung, andere Beschriftung": "Dieselben Streifen für x/2 + x/3 = 5x/6 (ganzer Streifen = x). **Zwei Nebenfelder für die Sprüche zwei und drei:** Mal – ein Einheitsquadrat, waagerecht in Viertel und senkrecht in Drittel geteilt (12 Felder); drei Viertel sind hell gefärbt, davon zwei Drittel kräftig: 6 von 12 Feldern, „⅔ · ¾ = 6/12 = ½“. Geteilt – sechs ganze Streifen, jeder halbiert: 12 Hälften, „6 : ½ = 6 · 2 = 12“."
-   },
-   "stufen": {
-    "6": "E",
-    "7": "A",
-    "8": "A",
-    "10": "A"
    }
   },
   {
@@ -706,13 +4097,6 @@
     "Hervorgehoben": "Die mittlere Zeile (1 kg – 2,50 €) und die vier Pfeilbeschriftungen, links und rechts gleichfarbig.",
     "Darf nicht falsch aussehen": "Links und rechts muss dieselbe Rechnung stehen. Die mittlere Zeile muss die Einheit 1 zeigen. Kein Kreuz-Schema.",
     "Gleiche Zeichnung, andere Beschriftung": "Dieselbe Tabelle für Prozent (80 % | 48 €, 1 % | 0,60 €, 100 % | 60 €) und für die Steigung (2 nach rechts | 3 nach oben, 1 nach rechts | 1,5 nach oben) – dort zusätzlich ein Steigungsdreieck."
-   },
-   "stufen": {
-    "5": "E",
-    "6": "A",
-    "7": "A",
-    "8": "A",
-    "9": "A"
    }
   },
   {
@@ -773,14 +4157,6 @@
     "Hervorgehoben": "Die Pfeilpaare: „· 4“ und „: 4“ in einer Farbe, „− 12“ und „+ 12“ in einer zweiten.",
     "Darf nicht falsch aussehen": "Die untere Reihe muss rechts beginnen. „: 4“ muss unter „· 4“ stehen, nicht unter „− 12“. Zwischenwert −5 muss stimmen.",
     "Gleiche Zeichnung, andere Beschriftung": "Dieselben zwei Reihen für das Formel-Umstellen (h → „· g“ → „: 2“ → A und zurück) und für x → „hoch 2“ → 49 (zurück: zwei Pfeile zu 7 und −7)."
-   },
-   "stufen": {
-    "5": "E",
-    "6": "A",
-    "7": "A",
-    "8": "A",
-    "9": "E",
-    "10": "E"
    }
   },
   {
@@ -835,13 +4211,6 @@
     "Hervorgehoben": "Was auf beiden Seiten weggenommen wird (in Bild 1 die je zwei Kugeln, gleich markiert).",
     "Darf nicht falsch aussehen": "Der Balken darf nie schief stehen. Die Kugelzahlen müssen stimmen (12, 10, 5). Links und rechts muss sichtbar dasselbe geschehen.",
     "Gleiche Zeichnung, andere Beschriftung": "Dieselbe Waage mit Zahlen statt Säckchen für Klasse 5 (□ + 7 = 3 geht mit Kugeln nicht – dort nur die Rechenzeilen mit gleicher Markierung)."
-   },
-   "stufen": {
-    "5": "E",
-    "7": "E",
-    "8": "A",
-    "9": "A",
-    "10": "A"
    }
   },
   {
@@ -896,12 +4265,6 @@
     "Hervorgehoben": "Die Null rechts und die beiden Kästen.",
     "Darf nicht falsch aussehen": "Rechts muss 0 stehen, keine andere Zahl. Zwischen den Lösungen muss „oder“ stehen, nicht „und“.",
     "Gleiche Zeichnung, andere Beschriftung": "Dieselben Kästen mit „□“ und „7“ für Klasse 5 (□ · 7 = 0, also □ = 0) und mit drei Kästen x, x − 2, x + 2 für Klasse 10."
-   },
-   "stufen": {
-    "5": "V",
-    "8": "A",
-    "9": "E",
-    "10": "A"
    }
   }
  ],
@@ -4607,114 +7970,6 @@
   }
  ],
  "themen": {
-  "bruch.prozent": {
-   "titel": "Prozent- und Zinsrechnung",
-   "ort": "Mexiko-Stadt"
-  },
-  "terme.potenzgesetze_natuerlich": {
-   "titel": "Potenzgesetze",
-   "ort": "Samarkand"
-  },
-  "abbildungen.aehnlichkeit": {
-   "titel": "Ähnlichkeit und Strahlensätze",
-   "ort": "Nairobi"
-  },
-  "gleichungen.formeln": {
-   "titel": "Formeln umstellen",
-   "ort": "Mumbai"
-  },
-  "terme.potenzgesetze_ganzzahlig": {
-   "titel": "Potenzgesetze mit ganzzahligen Exponenten",
-   "ort": "Mumbai"
-  },
-  "zahlen.natuerlich": {
-   "titel": "Natürliche Zahlen",
-   "ort": "Rom"
-  },
-  "bruch.brueche": {
-   "titel": "Brüche und Anteile",
-   "ort": "Pisa"
-  },
-  "gleichungen.einfach": {
-   "titel": "Einfache Gleichungen",
-   "ort": "Bagdad"
-  },
-  "zahlen.potenzen_basis": {
-   "titel": "Potenzen als Schreibweise",
-   "ort": "Rom"
-  },
-  "stochastik.mehrstufig": {
-   "titel": "Mehrstufige Zufallsexperimente",
-   "ort": "Darwin"
-  },
-  "funktionen.linear": {
-   "titel": "Lineare Funktionen",
-   "ort": "Neumayer-Station III"
-  },
-  "gleichungen.bruch": {
-   "titel": "Bruch- und Verhältnisgleichungen",
-   "ort": "Mumbai"
-  },
-  "zahlen.ganz": {
-   "titel": "Ganze Zahlen",
-   "ort": "Rom"
-  },
-  "gleichungen.linear": {
-   "titel": "Lineare Gleichungen",
-   "ort": "Samarkand"
-  },
-  "bruch.dezimal": {
-   "titel": "Dezimalzahlen",
-   "ort": "Brügge"
-  },
-  "gleichungen.polynom": {
-   "titel": "Polynomgleichungen",
-   "ort": "Bangkok"
-  },
-  "zahlen.reell": {
-   "titel": "Wurzeln und reelle Zahlen",
-   "ort": "Göttingen"
-  },
-  "groessen.einheiten": {
-   "titel": "Größen und Einheiten",
-   "ort": "Toronto"
-  },
-  "groessen.proportional": {
-   "titel": "Direkte Proportionalität und Dreisatz",
-   "ort": "Chicago"
-  },
-  "gleichungen.quadratisch": {
-   "titel": "Quadratische Gleichungen (allgemein)",
-   "ort": "Seoul"
-  },
-  "gleichungen.exponential": {
-   "titel": "Exponentialgleichungen",
-   "ort": "Bangkok"
-  },
-  "bruch.prozent_grundwert": {
-   "titel": "Vermehrter und verminderter Grundwert",
-   "ort": "Los Angeles"
-  },
-  "funktionen.exponential_log": {
-   "titel": "Exponential- und Logarithmusfunktionen",
-   "ort": "Halley-Station"
-  },
-  "gleichungen.ungleichungen": {
-   "titel": "Lineare Ungleichungen",
-   "ort": "Delhi"
-  },
-  "bruch.rechnen": {
-   "titel": "Rechnen mit rationalen Zahlen",
-   "ort": "Florenz"
-  },
-  "terme.bruchterme": {
-   "titel": "Bruchterme",
-   "ort": "Mumbai"
-  },
-  "zahlen.rechengesetze": {
-   "titel": "Grundrechenarten und Rechengesetze",
-   "ort": "Rom"
-  },
   "terme.umformen": {
    "titel": "Terme umformen",
    "ort": "Samarkand"
@@ -4722,6 +7977,238 @@
   "zahlen.potenzen_zehner": {
    "titel": "Zehnerpotenzen und wissenschaftliche Schreibweise",
    "ort": "Paris"
+  },
+  "groessen.proportional": {
+   "titel": "Direkte Proportionalität und Dreisatz",
+   "ort": "Chicago"
+  },
+  "funktionen.grundbegriffe": {
+   "titel": "Zuordnung und Funktion",
+   "ort": "McMurdo-Station"
+  },
+  "geometrie.ortslinien": {
+   "titel": "Ortslinien und Ortsbereiche",
+   "ort": "Kairo"
+  },
+  "messen.prisma_zylinder": {
+   "titel": "Prismen und Zylinder",
+   "ort": "Cusco"
+  },
+  "daten.boxplot": {
+   "titel": "Median, Quartile, Boxplot",
+   "ort": "Brisbane"
+  },
+  "messen.volumen": {
+   "titel": "Volumen",
+   "ort": "Quito"
+  },
+  "funktionen.trig": {
+   "titel": "Sinus- und Kosinusfunktion",
+   "ort": "Concordia-Station"
+  },
+  "bruch.dezimal": {
+   "titel": "Dezimalzahlen",
+   "ort": "Brügge"
+  },
+  "zahlen.rationale_exponenten": {
+   "titel": "Rationale Exponenten und n-te Wurzel",
+   "ort": "Edinburgh"
+  },
+  "zahlen.potenzen_basis": {
+   "titel": "Potenzen als Schreibweise",
+   "ort": "Rom"
+  },
+  "geometrie.konstruktion": {
+   "titel": "Konstruktionen, Kongruenz und Beweise",
+   "ort": "Addis Abeba"
+  },
+  "zahlen.reell": {
+   "titel": "Wurzeln und reelle Zahlen",
+   "ort": "Göttingen"
+  },
+  "gleichungen.exponential": {
+   "titel": "Exponentialgleichungen",
+   "ort": "Bangkok"
+  },
+  "messen.koerper_berechnung": {
+   "titel": "Volumen und Oberfläche",
+   "ort": "Rio de Janeiro"
+  },
+  "messen.flaechen": {
+   "titel": "Umfang und Flächeninhalt",
+   "ort": "Lima"
+  },
+  "funktionen.exponential_log": {
+   "titel": "Exponential- und Logarithmusfunktionen",
+   "ort": "Halley-Station"
+  },
+  "gleichungen.linear": {
+   "titel": "Lineare Gleichungen",
+   "ort": "Samarkand"
+  },
+  "funktionen.linear": {
+   "titel": "Lineare Funktionen",
+   "ort": "Neumayer-Station III"
+  },
+  "zahlen.teilbarkeit": {
+   "titel": "Teilbarkeit",
+   "ort": "Athen"
+  },
+  "stochastik.grundbegriffe": {
+   "titel": "Zufall und Laplace",
+   "ort": "Auckland"
+  },
+  "gleichungen.formeln": {
+   "titel": "Formeln umstellen",
+   "ort": "Mumbai"
+  },
+  "zahlen.wurzeln_basis": {
+   "titel": "Elementare Wurzeln",
+   "ort": "Göttingen"
+  },
+  "bruch.prozent_grundwert": {
+   "titel": "Vermehrter und verminderter Grundwert",
+   "ort": "Los Angeles"
+  },
+  "bruch.brueche": {
+   "titel": "Brüche und Anteile",
+   "ort": "Pisa"
+  },
+  "gleichungen.lgs2": {
+   "titel": "Gleichungssysteme mit 2 Unbekannten",
+   "ort": "Peking"
+  },
+  "messen.kreisberechnung": {
+   "titel": "Kreisberechnungen",
+   "ort": "Buenos Aires"
+  },
+  "abbildungen.aehnlichkeit": {
+   "titel": "Ähnlichkeit und Strahlensätze",
+   "ort": "Nairobi"
+  },
+  "terme.potenzgesetze_natuerlich": {
+   "titel": "Potenzgesetze",
+   "ort": "Samarkand"
+  },
+  "terme.aufstellen": {
+   "titel": "Terme aufstellen und deuten",
+   "ort": "Teheran"
+  },
+  "zahlen.intervalle": {
+   "titel": "Intervalle",
+   "ort": "Delhi"
+  },
+  "stochastik.mehrstufig": {
+   "titel": "Mehrstufige Zufallsexperimente",
+   "ort": "Darwin"
+  },
+  "abbildungen.kongruenz": {
+   "titel": "Kongruenzabbildungen",
+   "ort": "Marrakesch"
+  },
+  "messen.flaechen_vielecke": {
+   "titel": "Flächen von Parallelogramm, Dreieck und Trapez",
+   "ort": "Quito"
+  },
+  "stochastik.simulation": {
+   "titel": "Simulation",
+   "ort": "Darwin"
+  },
+  "zahlen.rechengesetze": {
+   "titel": "Grundrechenarten und Rechengesetze",
+   "ort": "Rom"
+  },
+  "gleichungen.einfach": {
+   "titel": "Einfache Gleichungen",
+   "ort": "Bagdad"
+  },
+  "stochastik.verknuepft": {
+   "titel": "Verknüpfte Ereignisse",
+   "ort": "Wellington"
+  },
+  "trigo.rechtwinklig": {
+   "titel": "Trigonometrie im rechtwinkligen Dreieck",
+   "ort": "Sansibar"
+  },
+  "bruch.rechnen": {
+   "titel": "Rechnen mit rationalen Zahlen",
+   "ort": "Florenz"
+  },
+  "groessen.einheiten": {
+   "titel": "Größen und Einheiten",
+   "ort": "Toronto"
+  },
+  "geometrie.winkelsaetze": {
+   "titel": "Winkelsätze",
+   "ort": "Addis Abeba"
+  },
+  "gleichungen.polynom": {
+   "titel": "Polynomgleichungen",
+   "ort": "Bangkok"
+  },
+  "daten.kennwerte": {
+   "titel": "Mittelwert und Häufigkeiten",
+   "ort": "Sydney"
+  },
+  "funktionen.ganzrational": {
+   "titel": "Ganzrationale Funktionen",
+   "ort": "Casey-Station"
+  },
+  "funktionen.gebrochen": {
+   "titel": "Gebrochen-rationale Funktionen",
+   "ort": "Amundsen-Scott-Südpolstation"
+  },
+  "stochastik.kombinatorik": {
+   "titel": "Zählen und Kombinatorik",
+   "ort": "Melbourne"
+  },
+  "geometrie.grundbegriffe": {
+   "titel": "Grundbegriffe und Figuren",
+   "ort": "Kairo"
+  },
+  "terme.potenzgesetze_ganzzahlig": {
+   "titel": "Potenzgesetze mit ganzzahligen Exponenten",
+   "ort": "Mumbai"
+  },
+  "terme.bruchterme": {
+   "titel": "Bruchterme",
+   "ort": "Mumbai"
+  },
+  "funktionen.quadratisch": {
+   "titel": "Quadratische Funktionen",
+   "ort": "Wostok-Station"
+  },
+  "gleichungen.ungleichungen": {
+   "titel": "Lineare Ungleichungen",
+   "ort": "Delhi"
+  },
+  "trigo.pythagoras": {
+   "titel": "Satz des Pythagoras",
+   "ort": "Kapstadt"
+  },
+  "zahlen.natuerlich": {
+   "titel": "Natürliche Zahlen",
+   "ort": "Rom"
+  },
+  "gleichungen.quadratisch": {
+   "titel": "Quadratische Gleichungen (allgemein)",
+   "ort": "Seoul"
+  },
+  "zahlen.ganz": {
+   "titel": "Ganze Zahlen",
+   "ort": "Rom"
+  },
+  "raum.pyramide_kegel_kugel": {
+   "titel": "Pyramide, Kegel, Kugel",
+   "ort": "Santiago de Chile"
+  },
+  "bruch.prozent": {
+   "titel": "Prozent- und Zinsrechnung",
+   "ort": "Mexiko-Stadt"
+  },
+  "gleichungen.bruch": {
+   "titel": "Bruch- und Verhältnisgleichungen",
+   "ort": "Mumbai"
   }
  }
 }

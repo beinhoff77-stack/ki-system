@@ -1,10 +1,77 @@
 # Vorgabe GB: Regel-Universum – Zeichenstil, Übersicht, eine Regel aufgeschlagen
 
-Designer, 26.11.2026, **Fassung 5 (vierte Runde)**. Stand `lernen-app` f1e499d. Der Ordner heißt weiter `gesetzbuch/`, damit nichts bricht; sichtbar heißt alles „Regel-Universum“. Kein App-Code, keine Datenbank, kein Lernstand.
-Mathe-Inhalt wörtlich vom Mathe-Profi (`origin/mathe-profi` 4bd08be – die Lieferung zu Auftrag 15 liegt dort noch nicht: `ebene1.md`, `sonne.md`, `planet-flaeche-und-raum.md`, `planet-geometrie.md`, `inhalt.md`), eingelesen mit `entwurf/inhalt_lesen.py`.
+Designer, 27.11.2026, **Fassung 6 (fünfte Runde)**. Stand `lernen-app` cc4a5b1. Der Ordner heißt weiter `gesetzbuch/`, damit nichts bricht; sichtbar heißt alles „Regel-Universum“. Kein App-Code, keine Datenbank, kein Lernstand.
+Mathe-Inhalt wörtlich vom Mathe-Profi: Texte aus `origin/mathe-profi` 5a70763, Klassenleitern aus `inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json` (Stand 27.11.), eingelesen mit `entwurf/inhalt_lesen.py`.
 **[G]** gesichert (im Entwurf gebaut und gemessen) · **[A]** Annahme · **[M]** Meinung.
 
 Die frühere Vorgabe RS-H (`inhalte/design/regeln-sonnensystem/`) ist abgelehnt und gilt nicht mehr.
+
+## F6 Fünfte Runde – Klassenleitern des Mathe-Profis, Ideen-Leitern, Handy (gilt vor F5 bis F2 und den Abschnitten 0 bis 12)
+
+Anlass: Auftrag des Projektleiters 27.11., 00:00, sieben Punkte. F5.1 (Spalten der Leiter), F5.2 (meine Markierung) und der Handy-Satz aus F5.1 sind damit ersetzt.
+
+### F6.1 Woher die Leiter kommt [G]
+- Quelle ist allein `klassenleiter.json`: 42 Leitern (14 Rechenregeln, 28 Ideen), 172 Beispiele, 82 Mal „kommt nicht vor“. Meine Datei `wirkstelle.json` ist gelöscht.
+- Gelb umrahmt wird genau `wirkende_stelle_positionen` (Zeichen von–bis). `inhalt_lesen.py` bricht ab, wenn Text und Stelle nicht zusammenpassen oder die Reihenfolge der Namen nicht stimmt.
+- Hat eine Klasse zwei Beispiele (2 Leitern), stehen beide als eigene Sprosse mit derselben Klassenzahl.
+- Über der Leiter steht der Satz des Mathe-Profis: „Gelb umrahmt, in jeder Klasse an derselben Stelle: …“ (Feld `in_jeder_zeile_markiert`).
+
+### F6.2 Aufbau einer Sprosse [G]
+| Spalte | Breite | Inhalt |
+|---|---|---|
+| 1 | 36 px | Klasse im schwarzen Kreis; bei „kommt nicht vor“ gestrichelter Kreis, graue Zahl |
+| 2 | so breit wie der längste Text vor der ersten markierten Stelle | rechtsbündig |
+| 3 | Rest | beginnt mit der ersten markierten Stelle, danach der Rest der Rechnung; weitere markierte Stellen stehen darin an ihrem Platz |
+
+- Ausgerichtet wird an der **ersten** markierten Stelle. Hinter ihr läuft ein blasses gelbes Band (1,5 Zeichen breit) durch alle Sprossen.
+- **Vorzeile:** Wäre der Text vor der Stelle länger als die Grenze (höchstens 14 Zeichen, weniger bei langer Stelle: 30 minus längste Stelle), steht der vordere Teil grau in einer eigenen Zeile darüber. Getrennt wird bevorzugt nach „: “, sonst nach „ = “, „ → “, „ | “, sonst an einem Leerzeichen.
+- Schrift der Rechnung: Festbreite 17 px, Handy 16 px. Darunter klein: Einführung, Anwendung oder Vorwissen · Ort · Thema.
+- **Sprosse ohne Beispiel:** „Kommt in Klasse 6 nicht vor: <Grund des Mathe-Profis>.“ – der Grund wörtlich aus `grund`, ohne das vorangestellte „kommt nicht vor –“. Der Text „Noch kein Beispiel hinterlegt“ entfällt überall.
+
+### F6.3 Handy: die Stelle steht auch bei Regel 10 und 13 übereinander [G gemessen, Aussehen M]
+Lösung: **Umbruch in der dritten Spalte.** Passt eine Zeile nicht, bricht der Teil ab der Stelle um; jede Folgezeile beginnt wieder genau unter der Stelle. Dazu die Vorzeile aus F6.2. Kein Abschalten der Ausrichtung mehr.
+- Markierte Stellen bis 12 Zeichen brechen nie in sich um; längere dürfen umbrechen und bekommen dann je Zeile einen eigenen Rahmen.
+- Gemessen (Chrome): bei 360, 400, 820 und 1280 px steht in allen 42 Leitern jede erste Stelle auf derselben senkrechten Linie, nichts läuft über den Rand.
+- **Preis:** Am Handy sind viele Sprossen zweizeilig (400 px: 103 von 172, 360 px: 119 von 172; 820 px: 13). In sich geteilt ist die Stelle bei 400 px in 2 Leitern (Ideen „Algebra 4“ und „Geld 2“), bei 360 px in 6 (zusätzlich Rechenregel 11, Geo 1, Fläche und Raum 2, Daten 3). Das sind die Leitern mit Wort-Stellen wie „doppelt so viel“. Bilder: `gesetz-R10-400-hell.jpg`, `gesetz-R13-400-hell.jpg`, `gesetz-R11-360-hell.jpg`.
+
+### F6.4 Die 28 Ideen bekommen eine Leiter [G]
+Seite einer Idee, über der Liste ihrer Regeln:
+- Überschrift je nach Zahl der Klassen: „Läuft von Klasse 5 bis 9“ · „Kommt in Klasse 9 und 10 vor“ · „Kommt nur in Klasse 10 vor“.
+- Band mit sechs Klassen, dann die Leiter. **Bei einer Idee mit nur einer oder zwei Klassen stehen nur diese Sprossen**, keine sechs; die leeren Klassen zeigt allein das Band (hell, „kommt nicht vor“).
+- Bei Ideen über drei und mehr Klassen stehen auch die Sprossen „Kommt in Klasse … nicht vor: …“.
+- Die Karten der Ideen in der Übersicht tragen dasselbe Band.
+
+### F6.5 Band der sechs Klassen: vierter Zustand [G]
+Schwarz gefüllt = eingeführt · Rahmen = angewendet · gestrichelt = Vorwissen · **hellgrau ohne Rahmen = kommt nicht vor.** Die Legende steht unter dem Band.
+
+### F6.6 „Genau gesagt“ [G – Entscheidung des Nutzers 26.11.]
+Steht **nicht mehr auf der Übersicht** (weder A noch B, auch nicht in den Treffern der Suche). Es steht nur noch in der aufgeschlagenen Regel unter dem Merksatz und im Blatt „Regel dahinter“ des Übungsbildschirms (Vorgabe ÜB). Der Umschalter im Entwurf ist entfernt.
+
+### F6.7 Rechenregel 3: neue Hauptzeichnung [A – nach dem Vorschlag des Mathe-Profis, seine genaue Vorgabe (Auftrag 16) steht aus]
+- **Hauptzeichnung „Mal (−1) heißt umdrehen“:** zwei Zahlengeraden von −3 bis 3, die Figur steht bei 0. Oben „2 · (−1) = −2“, ein Kehrtwende-Zeichen, „einmal umdrehen“, gelber Bogen von der 0 zur −2; gestrichelt grau der Weg, den sie ohne Kehrtwende gegangen wäre. Unten „2 · (−1) · (−1) = 2“, zwei Kehrtwende-Zeichen, „zweimal umdrehen“, Bogen zur 2. Jedes Minus gelb mit Rahmen, wie bei Regel 2.
+- **Darunter „Warum das gilt“: die Treppe, berichtigt.** Null-Linie oben beschriftet; die Balken für 3 · (−2), 2 · (−2), 1 · (−2) **hängen von der Null-Linie nach unten** (−6, −4, −2), bei 0 · (−2) steht nichts, (−1) · (−2) ragt als gelber Balken **nach oben** (+2). Zwischen den Stufen je ein Pfeil „+2“.
+- Die kleine Zeichnung in der Übersicht zeigt die erste Zahlengerade.
+
+### F6.8 Drei kleine Punkte des Mathe-Profis [G]
+1. **Deckungsgleich:** alle drei Felder im selben Maßstab (24 px je cm), auch das gespiegelte Dreieck.
+2. **Höherer Grad** und **Wachstum:** kein Karo-Raster im Koordinatenfeld, weil die Einheiten auf beiden Achsen verschieden sind; Achsen und Marken bleiben.
+3. **Rechenregel 12:** im gestrichelten Zwischenkästchen steht „?“.
+
+### F6.9 Prüfliste für die fünfte Runde
+**Muss**
+- [ ] Leitern kommen aus `klassenleiter.json`; markiert ist genau die gelieferte Stelle.
+- [ ] Die erste Stelle steht in jeder Leiter bei 360, 400, 820 und 1280 px übereinander; nichts läuft über den Rand.
+- [ ] „Kommt in Klasse … nicht vor: …“ mit dem Grund; nirgends „Noch kein Beispiel hinterlegt“.
+- [ ] Jede der 28 Ideen zeigt Ort und Leiter; Ideen mit 1–2 Klassen ohne leere Sprossen.
+- [ ] Übersicht ohne „Genau gesagt“.
+- [ ] Rechenregel 3: Zahlengerade als Hauptzeichnung, Treppe hängt von der Null-Linie.
+
+**Soll**
+- [ ] Stellen bis 12 Zeichen brechen nicht in sich um.
+- [ ] Band mit viertem Zustand und Legende.
+
+**Kann**
+- [ ] Am Handy lange Wort-Stellen kürzer fassen (braucht kürzere Beispiele vom Mathe-Profi).
 
 ## F5 Vierte Runde – „es ist dasselbe“ sichtbar machen (gilt vor F4 bis F2 und den Abschnitten 0 bis 12)
 

@@ -7,7 +7,7 @@ function zStrahl(x0, y, a, b, e, o = {}) { const X = (v) => x0 + (v - a) * e; le
   return { s, X }; }
 // Koordinatensystem mit Gitter; liefert X, Y und die Zeichnung der Achsen
 function zKoord(x0, y0, ex, ey, xa, xb, ya, yb, o = {}) { const X = (v) => x0 + (v - xa) * ex, Y = (v) => y0 - (v - ya) * ey; let s = '';
-  for (let v = xa; v <= xb; v += o.sx || 1) s += zL(X(v), Y(ya), X(v), Y(yb), { b: 0.75, f: ZF.karo }); for (let v = ya; v <= yb; v += o.sy || 1) s += zL(X(xa), Y(v), X(xb), Y(v), { b: 0.75, f: ZF.karo });
+  if (!o.ohneKaro) { for (let v = xa; v <= xb; v += o.sx || 1) s += zL(X(v), Y(ya), X(v), Y(yb), { b: 0.75, f: ZF.karo }); for (let v = ya; v <= yb; v += o.sy || 1) s += zL(X(xa), Y(v), X(xb), Y(v), { b: 0.75, f: ZF.karo }); }
   s += zPfeil(X(xa), Y(0), X(xb) + 12, Y(0), { b: 2, kopf: 8 }) + zPfeil(X(0), Y(ya), X(0), Y(yb) - 12, { b: 2, kopf: 8 }) + zT(X(xb) + 10, Y(0) + 18, 'x', { g: 14, w: 700 }) + zT(X(0) - 12, Y(yb) - 6, 'y', { g: 14, w: 700 });
   for (const v of o.zx || []) s += zL(X(v), Y(0) - 4, X(v), Y(0) + 4, { b: 1.75 }) + zT(X(v), Y(0) + 19, String(v).replace('-', '−'), { g: 14, f: ZF.leise });
   for (const v of o.zy || []) s += zL(X(0) - 4, Y(v), X(0) + 4, Y(v), { b: 1.75 }) + zT(X(0) - 9, Y(v) + 5, String(v).replace('-', '−'), { g: 14, a: 'end', f: ZF.leise });
@@ -99,7 +99,7 @@ function zHoeherGrad() {
   a += zT(148, 88, 'x² + x − 6 =', { g: 18, w: 800 }) + null0(232, 88) + zPfeil(160, 98, 160, 120, { b: 2, kopf: 8 }) + zT(170, 114, 'zerlegen', { g: 14, a: 'start', grotesk: true, w: 700 });
   a += zKasten(34, 130, 92, 38, { fl: ZF.blauFl, rx: 8 }) + zT(80, 155, 'x − 2', { g: 17, w: 800 }) + zT(139, 156, '·', { g: 20, w: 800 }) + zKasten(152, 130, 92, 38, { fl: ZF.blauFl, rx: 8 }) + zT(198, 155, 'x + 3', { g: 17, w: 800 }) + zT(260, 155, '=', { g: 18, w: 800 }) + null0(288, 155);
   a += zPfeil(80, 172, 80, 190, { b: 1.75, kopf: 7 }) + zPfeil(198, 172, 198, 190, { b: 1.75, kopf: 7 }) + zT(80, 214, 'x = 2', { g: 18, w: 800 }) + zT(139, 213, 'oder', { g: 15, grotesk: true, w: 700 }) + zT(204, 214, 'x = −3', { g: 18, w: 800 });
-  const K = zKoord(34, 204, 37, 17, -4, 3, -7, 4, { zx: [-2, -1, 1], zy: [-6, -4, -2, 2] }); const f = (x) => x * x + x - 6;
+  const K = zKoord(34, 204, 37, 17, -4, 3, -7, 4, { zx: [-2, -1, 1], zy: [-6, -4, -2, 2], ohneKaro: 1 }); const f = (x) => x * x + x - 6;
   let b = K.s + zKurve(K, f, -3.7, 2.7) + zPunkt(K.X(-3), K.Y(0), { gelb: 1 }) + zPunkt(K.X(2), K.Y(0), { gelb: 1 }) + zSchild(K.X(-3) + 22, K.Y(0) - 14, '−3', { g: 16, w: 800 }) + zSchild(K.X(2) - 18, K.Y(0) - 14, '2', { g: 16, w: 800 }) + zPunkt(K.X(-0.5), K.Y(-6.25), { r: 3.5 });
   return { name: 'Höherer Grad', felder: [
     { svg: zBlatt(320, 228, a, 'Drei Rechenzeilen: x Quadrat plus x gleich 6; minus 6 auf beiden Seiten; x Quadrat plus x minus 6 gleich 0; zerlegen in die Kästen x minus 2 mal x plus 3 gleich 0. Darunter x gleich 2 oder x gleich minus 3'), kopf: 'Null auf eine Seite, dann zerlegen', gl: `(x − 2) · (x + 3) = ${W('0')}`, satz: 'Erst steht rechts die Null. Dann liefert jeder Kasten eine Lösung – die eine oder die andere.' },
@@ -151,7 +151,7 @@ function zZuordnung() {
 }
 // ---------- Funktionen 2 · Wachstum: immer plus 2, immer mal 2 ----------
 function zWachstum() {
-  const K = zKoord(44, 250, 58, 13.5, 0, 4, 0, 16, { sy: 2, zx: [1, 2, 3, 4], zy: [4, 8, 12, 16] }), lin = (x) => 2 * x + 1, ex = (x) => 2 ** x; let s = K.s;
+  const K = zKoord(44, 250, 58, 13.5, 0, 4, 0, 16, { sy: 2, zx: [1, 2, 3, 4], zy: [4, 8, 12, 16], ohneKaro: 1 }), lin = (x) => 2 * x + 1, ex = (x) => 2 ** x; let s = K.s;
   for (let x = 0; x < 4; x++) { s += zPfad(`M${K.X(x)} ${K.Y(lin(x))}H${K.X(x + 1)}V${K.Y(lin(x + 1))}`, { b: 1.5, f: ZF.blau, strich: '4 3' }) + zPfad(`M${K.X(x)} ${K.Y(ex(x))}H${K.X(x + 1)}V${K.Y(ex(x + 1))}`, { b: 1.5, strich: '4 3' }); }
   s += zKurve(K, lin, 0, 4, { f: ZF.blau }) + zKurve(K, ex, 0, 4);
   for (let x = 0; x <= 4; x++) s += `<circle cx="${K.X(x)}" cy="${K.Y(lin(x))}" r="5" fill="${ZF.blau}" stroke="${ZF.papier}" stroke-width="1.5"/>` + zPunkt(K.X(x), K.Y(ex(x)));

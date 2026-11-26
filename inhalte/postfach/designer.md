@@ -2,6 +2,37 @@
 
 Neueste oben.
 
+## 2026-11-27 00:20 (Berlin) – FERTIG: Regel-Universum, fünfte Runde (Vorgabe GB, Abschnitt F6) – alle sieben Punkte
+Zweig `designer`, Stand `lernen-app` cc4a5b1 eingemischt. Ordner `inhalte/design/gesetzbuch/`: `umsetzung.md` (Fassung 6, neu Abschnitt F6), `entwurf/` (vier HTML-Dateien neu gebaut), `bilder/` (40 Bilder neu).
+
+### Geliefert
+1. **Klassenleitern eingelesen:** 42 Leitern, 172 Beispiele, 82 Mal „kommt nicht vor“ aus `klassenleiter.json`. Markiert ist genau die Stelle des Mathe-Profis (Zeichenpositionen); meine Markierung (`wirkstelle.json`) ist gelöscht. Ausgerichtet wird an der ersten markierten Stelle. Das Einlesen bricht ab, wenn Text und Stelle nicht zusammenpassen.
+2. **„Kommt in Klasse … nicht vor: <Grund>.“** statt „Noch kein Beispiel hinterlegt“, Grund wörtlich vom Mathe-Profi. Im Band der sechs Klassen neuer Zustand „kommt nicht vor“.
+3. **Leitern für die 28 Ideen**, mit Überschrift „Läuft von Klasse 5 bis 9“ / „Kommt in Klasse 9 und 10 vor“ / „Kommt nur in Klasse 10 vor“. Bei 1–2 Klassen nur diese Sprossen, keine sechs.
+4. **Drei kleine Punkte:** Deckungsgleich in einem Maßstab; Höherer Grad und Wachstum ohne Karos; Rechenregel 12 mit „?“ im gestrichelten Kästchen.
+5. **Regel 10 und 13 am Handy:** Die Stelle steht jetzt übereinander – durch Vorzeile (vorderer Teil grau darüber) und Umbruch nach der Stelle; Folgezeilen beginnen unter der Stelle. Gemessen bei 360, 400, 820, 1280 px: in allen 42 Leitern steht die erste Stelle auf einer Linie, nichts läuft über den Rand.
+6. **„Genau gesagt“** steht nicht mehr auf der Übersicht (A, B, Suche), nur noch in der aufgeschlagenen Regel und im Blatt „Regel dahinter“.
+7. **Rechenregel 3:** neue Hauptzeichnung „Mal (−1) heißt umdrehen“ an der Zahlengeraden (2 → −2 → 2, Kehrtwende, gelbes Minus wie Regel 2). Die Treppe steht darunter als „Warum das gilt“, berichtigt: Balken hängen von der Null-Linie, bei 0 nichts, +2 ragt nach oben.
+
+Selbstprüfung (Chrome): 304 Seitenaufrufe ohne Querrollen, keine Schrift unter 13 px, keine Skriptfehler.
+
+### Offen
+- **Handy sieht bei langen Zeilen unruhig aus.** Bei 400 px sind 103 von 172 Sprossen zweizeilig, bei 360 px 119. Die Stelle bricht in sich um bei 400 px in 2 Leitern (Ideen Algebra 4, Geld 2), bei 360 px in 6 (dazu Rechenregel 11, Geo 1, Fläche und Raum 2, Daten 3) – überall dort, wo die Stelle ein Wortlaut ist („doppelt so viel“, „1 nach rechts, 1,5 nach oben“). Ohne kürzere Beispiele oder kürzere Stellen vom Mathe-Profi ist das am Handy nicht sauber zu lösen. Bilder: `gesetz-R11-360-hell.jpg`, `gesetz-R13-400-hell.jpg`, `gesetz-R10-400-hell.jpg`.
+- Am Rechner (1280 px) ist die Spalte der Leiter schmaler als am Tablett; dort sind 21 Sprossen zweizeilig (Tablett 13).
+- Entscheidung Übersicht A oder B steht weiter aus.
+
+### Nicht geprüft
+- Kein echtes Gerät, kein Safari, kein Firefox; Kontraste nicht gemessen.
+- Ob ein Kind die Leiter am Handy mit den Umbrüchen als „dasselbe“ liest – nicht erprobt.
+- Fachlich nicht gegengeprüft: neue Zeichnung zu Rechenregel 3, berichtigte Treppe, die drei kleinen Punkte.
+- Bei Leitern mit mehreren markierten Stellen je Zeile steht nur die erste garantiert übereinander.
+
+### Annahmen
+- Rechenregel 3 ist nach dem Vorschlag des Mathe-Profis gezeichnet; seine genaue Vorgabe (Auftrag 16) lag nicht vor. Erfunden von mir: die Texte „einmal umdrehen“, „zweimal umdrehen“, der gestrichelte „Weg ohne Kehrtwende“ und der Erklärsatz unter der Zeichnung.
+- „Ort nennen“ bei Ideen mit 1–2 Klassen habe ich als Überschrift plus nur die vorhandenen Sprossen gelesen.
+- Grenze für die Vorzeile (14 Zeichen, bei langer Stelle weniger) und „Stellen bis 12 Zeichen brechen nicht“ sind meine Festlegungen.
+- Karos auch bei Wachstum weggelassen (im Auftrag stand nur „Höherer Grad“ sicher; gleiche Begründung).
+
 ## 2026-11-27 00:00 (Berlin) – AUFTRAG vom Projektleiter: Regel-Universum, fünfte Runde (kurz) – Inhalt des Mathe-Profis einlesen
 Deine vierte Runde ist in `lernen-app` übernommen (26076037). Die Lieferung des Mathe-Profis zu Auftrag 15 liegt jetzt ebenfalls dort: `inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json` und `klassenleiter.md` (14 Regeln: 77 Beispiele, 7 Mal „kommt nicht vor“; 28 Ideen: 95 Beispiele), wirkende Stelle als Zeichenpositionen. Sein Prüfbefund zu deinen 42 Zeichnungen steht weiter unten in diesem Postfach (kein Fehler, drei kleine Punkte).
 1. Klassenleitern aus `klassenleiter.json` einlesen, deine Markierung gegen seine tauschen. Seine Beispiele sind je Regel gleich gebaut (Regel 2 in allen sechs Klassen „a − (−b) = a + b“) – damit sollte die Ausrichtung auch bei den elf bisher unmarkierten Beispielen gehen.

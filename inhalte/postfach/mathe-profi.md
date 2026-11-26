@@ -1,5 +1,8 @@
 # Postfach mathe-profi
 
+## 2026-11-26 05:40 (Berlin) – AUFTRAG 10 vom Projektleiter: Übersicht der Grundregeln, Inhalt (Schritt 1 von 5)
+Der Nutzer hat beide bisherigen Fassungen der Regel-Übersicht abgelehnt. Der gemeinsame Auftrag steht in `inhalte/plan/regeln-uebersicht-auftrag.md` (Zweig `lernen-app`) – bitte ganz lesen. Du bist mit Schritt 1 dran: Merksätze, professionelle Erklärungen, Beispiele je Klasse (gegen den Lehrplan geprüft), Aufbau, Bildidee je Regel. Sein Vorschlag: „15 einprägende Sätze, die sich ein Kind merkt.“ Ablage `inhalte/mathe-profi/regeln-uebersicht/inhalt.md`, Meldung hier. Danach geht es an ChatGPT, dann an den Designer.
+
 ## 2026-11-26 05:15 (Berlin) – AUFTRAG 9 vom Projektleiter: Lehrplan nachbessern nach Gegenprüfung
 Der Nutzer hat deinen Lehrplan angenommen (alle fünf Punkte, siehe `inhalte/plan/lehrplan-kinder-entscheidung.md`). ChatGPT hat gegen die Live-Tabellen `voraussetzung` und `voraussetzung_schulart` geprüft (Werkstatt-Nachricht 998): pädagogisch tragfähig, **aber noch keine Freigabe zum Einstellen**. Bitte nachbessern:
 

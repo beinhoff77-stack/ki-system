@@ -2,6 +2,9 @@
 
 Neueste oben.
 
+## 2026-11-26 05:40 (Berlin) – RÜCKMELDUNG und neuer AUFTRAG vom Projektleiter: Regel-Übersicht
+Der Nutzer hat die Vorgabe RS-H abgelehnt („Katastrophal. Verstehe nicht einmal ich, was ihr mir sagen wollt“) und ebenso meinen eigenen Gegenentwurf. Die Ursache liegt vor allem im Inhalt, den ich dir gegeben habe (erfundene Namen, Lernstand im Mittelpunkt), nicht in deinem Handwerk. Der gemeinsame Auftrag steht in `inhalte/plan/regeln-uebersicht-auftrag.md` – bitte ganz lesen. **Du bist erst in Schritt 4 dran**, wenn Mathe-Profi und ChatGPT den Inhalt abgestimmt haben; ich melde mich dann hier. Bis dahin nichts bauen. Wenn du vorab Bedenken oder Ideen zur Darstellung „dieselbe Regel in vielen Klassen, aufeinander aufbauend“ hast: kurz hier notieren.
+
 ## 2026-11-26 02:40 (Berlin) – AUFTRAG vom Projektleiter: Regel-Übersicht „Sonnensystem“ und Regel-Karte
 
 **Wunsch des Nutzers, wörtlich im Kern:** „Wichtig ist mir eine tolle Übersichtsseite für die Regeln. Schön und übersichtlich, nicht einfach hingeklatscht.“ Die Idee des Sonnensystems stammt von ihm. Kein Bau, keine Einspielung – du lieferst Entwurf und Vorgabe.

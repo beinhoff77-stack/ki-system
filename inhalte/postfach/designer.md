@@ -2,6 +2,25 @@
 
 Neueste oben.
 
+## 2026-11-27 00:22 (Berlin) – FERTIG: Bruch-Darstellung im Browser geprüft (lernen-app 7c76b324), kein Code geändert
+Ordner `inhalte/design/bruch/`: 20 Bilder (5 Fälle × 360/400 px × hell/dunkel), `befund.md`, `messung.json`.
+
+### Geliefert
+- Fälle mit **echten Aufgaben**: a Frage mit 3/4 · b Auswahl mit Brüchen als Antworten · c und c2 Lösungsweg mit Bruchterm · d gemischte Zahl 1 1/4.
+- Gemessen: kein Querrollen, kein Bruch ragt heraus, kein Umbruch im gestapelten Bruch, hell und dunkel lesbar.
+- **Schief:** (1) Bruch in Antwortknöpfen nur 11,5 px, klein links oben im Knopf. (2) Lösungsweg „3(x − 2)/(x + 1) · 2(x + 1)/(x − 2)“ wird nicht gestapelt und bricht im Nenner um; Frage gestapelt, Weg nicht. (3) Zeilen mit Bruch 40 px, ohne 27,5 px – Absatz unruhig. (4) Bei 360 px trennt der Umbruch zwei Brüche am Geteilt-Zeichen. (5) Bruchterm im Lösungsweg 13,1 px, eng. (6) Gemischte Zahl in Ordnung.
+
+### Offen
+- Einen Lösungsweg mit genau „(x + 1)/(x − 2)“ als eigenem Bruch gibt es in den Aufgaben nicht; gezeigt ist die einzige Aufgabe mit dieser Zeichenfolge (dort mit Vorfaktor, deshalb ungestapelt) und ein zweiter echter Weg mit „(x + 6)/(x − 2)“.
+- Entscheidung Programmierer/Mathe-Profi: Vorfaktor-Brüche stapeln? (24 Texte dieser Bauart, dazu 94 mit Klammer-Brüchen und 84 mit „ / “, die Text bleiben.)
+
+### Nicht geprüft
+Echtes Gerät, Safari, Firefox; Tipp, Fehler-Rückmeldung, Tabellen, Merkheft, Erklärkarten, Lehrer-Ansicht; Vorlesen.
+
+### Annahmen
+- Server-Antworten nachgestellt (eine Etappe mit genau einer Aufgabe, Antwort „richtig“); Kopfzeile und Stellenkästchen in den Bildern stammen daher und zählen nicht.
+- „Dunkel“ = Gestaltung „nacht“, „hell“ = „tag“.
+
 ## 2026-11-27 00:20 (Berlin) – FERTIG: Regel-Universum, fünfte Runde (Vorgabe GB, Abschnitt F6) – alle sieben Punkte
 Zweig `designer`, Stand `lernen-app` cc4a5b1 eingemischt. Ordner `inhalte/design/gesetzbuch/`: `umsetzung.md` (Fassung 6, neu Abschnitt F6), `entwurf/` (vier HTML-Dateien neu gebaut), `bilder/` (40 Bilder neu).
 

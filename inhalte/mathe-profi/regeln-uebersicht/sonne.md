@@ -1,4 +1,4 @@
-# Gesetzbuch · Die Sonne: die 14 Rechenregeln (vierte Fassung: Merksatz, „Genau gesagt“, Wirkstelle)
+# Gesetzbuch · Die Sonne: die 14 Rechenregeln (fünfte Fassung: mit Klassenleiter je Regel)
 
 Mathe-Profi, 26.11.2026. Erzeugt von `bauen.py`; 76 Beispiele, jedes nachgerechnet (Lauf „OK“).
 Die Sonne ist die Mitte des Gesetzbuchs: Diese Regeln bleiben von Klasse 5 bis 10 dieselben, nur das Gewand wechselt (Zahl, Bruch, Buchstabe, Bruchterm, Wurzel).
@@ -39,26 +39,26 @@ Je Regel zwei Zeilen: oben der Merksatz zum Aufsagen, darunter der genaue Satz m
 
 ## Dieselbe Regel in vielen Klassen
 
-**V** = Vorwissen (kommt vor, wird aber noch nicht als Regel gelehrt) · **E** = Einführung · **A** = spätere Anwendung · leer = kein Beispiel hinterlegt (heißt nicht: kommt nicht vor).
+**V** = Vorwissen (kommt vor, wird aber noch nicht als Regel gelehrt), **E** = Einführung, **A** = spätere Anwendung, **–** = kommt in dieser Klasse nicht vor (Grund steht in der Klassenleiter der Regel). Kein Feld ist leer. Alle Leitern zusammen und die Leitern der 28 Ideen: `klassenleiter.md`.
 
 | Regel | Kl. 5 | Kl. 6 | Kl. 7 | Kl. 8 | Kl. 9 | Kl. 10 |
 |---|---|---|---|---|---|---|
-| 1 Stellenwert | E | E |  | A |  |  |
-| 2 Plus und Minus mit negativen Zahlen | E | A | A | A |  |  |
-| 3 Vorzeichen bei Mal und Geteilt | E | A | A | A | A |  |
+| 1 Stellenwert | E | E | A | A | – | – |
+| 2 Plus und Minus mit negativen Zahlen | E | A | A | A | A | A |
+| 3 Vorzeichen bei Mal und Geteilt | E | A | A | A | A | A |
 | 4 Reihenfolge beim Rechnen | E | A | A | A | A | A |
-| 5 Tauschen, Klammern, Zusammenfassen | E | A | E |  | A |  |
+| 5 Tauschen, Klammern, Zusammenfassen | E | A | E | A | A | A |
 | 6 Ausmultiplizieren und Ausklammern | E | A | E | A | A | A |
-| 7 Minus vor der Klammer | V |  | E | A | A |  |
-| 8 Potenzen | E | A | E | E |  | A |
-| 9 Erweitern und Kürzen |  | E | A | A | A |  |
-| 10 Rechnen mit Brüchen |  | E | A | A |  | A |
-| 11 Verhältnis (Dreisatz) | E | A | A | A | A |  |
+| 7 Minus vor der Klammer | V | V | E | A | A | A |
+| 8 Potenzen | E | A | E | E | E | A |
+| 9 Erweitern und Kürzen | – | E | A | A | A | A |
+| 10 Rechnen mit Brüchen | – | E | A | A | A | A |
+| 11 Verhältnis (Dreisatz) | E | E | A | A | A | A |
 | 12 Gegenrechnung | E | A | A | A | E | E |
-| 13 Gleichung als Waage | E |  | E | A | A | A |
-| 14 Nullprodukt | V |  |  | A | E | A |
+| 13 Gleichung als Waage | V | – | E | A | A | A |
+| 14 Nullprodukt | V | – | – | V | E | A |
 
-Die Einordnung V / E / A habe ich nach den Themen der App eingeschätzt; sie ist **nicht** Etappe für Etappe belegt und **nicht** an LehrplanPLUS geprüft. [A]
+Die Einordnung V / E / A ist gegen die Lehrplan-Kopie der App geprüft, soweit das auf der Ebene der Themen geht; Ergebnis und Abweichungen: `lehrplan-pruefung.md`. Nicht geprüft an LehrplanPLUS selbst. [A]
 
 ## Die vier Schichten der Sonne
 
@@ -86,6 +86,21 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 **Häufiger Fehler:** „Eine Null anhängen“: 2,5 · 10 ist 25, nicht 2,50.
 
 **Verwandt:** Runden ist eine eigene Vereinbarung (Planet Zahlen). Prozent heißt Hundertstel (Planet Geld und Verhältnisse). Flächen- und Raumeinheiten: Umrechnungszahl 100 und 1 000 (Planet Fläche und Raum).
+
+**Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
+
+In jeder Zeile markiert: Das „· 10“ (oder „· 100“, „· 10⁻⁴“) – die Ziffern bleiben, sie rücken nur.
+
+| Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
+|---|---|---|---|
+| 5 | 34 ⟦· 10⟧ = 340 | Einführung | `zahlen.natuerlich` |
+| 6 | 2,5 ⟦· 10⟧ = 25 | Einführung | `bruch.dezimal` |
+| 7 | 0,15 ⟦· 100⟧ = 15, also 0,15 = 15 % | Anwendung | `bruch.prozent_grundwert` |
+| 8 | 3 ⟦· 10⁻⁴⟧ = 0,0003 | Anwendung | `terme.potenzgesetze_ganzzahlig` |
+| 9 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
+| 10 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
+
+**Weitere Beispiele**
 
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
@@ -121,6 +136,21 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 **Verwandt:** Betrag und Gegenzahl (Planet Zahlen). Bei Mal und Geteilt gilt eine andere Regel: die Vorzeichenregel.
 
+**Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
+
+In jeder Zeile markiert: Die zwei Minuszeichen nebeneinander: Rechenzeichen und Vorzeichen.
+
+| Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
+|---|---|---|---|
+| 5 | 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Einführung | `zahlen.ganz` |
+| 6 | ½ ⟦−⟧ (⟦−⟧¼) = ½ + ¼ = ¾ | Anwendung | `bruch.rechnen` |
+| 7 | 3x ⟦−⟧ (⟦−⟧2x) = 3x + 2x = 5x | Anwendung | `terme.umformen` |
+| 8 | f(x) = 3 − x an der Stelle −2: 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Anwendung | `funktionen.linear` |
+| 9 | 3√2 ⟦−⟧ (⟦−⟧2√2) = 3√2 + 2√2 = 5√2 | Anwendung | `zahlen.reell` |
+| 10 | f(x) = 3 − 2x³ an der Stelle −1: 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Anwendung | `funktionen.ganzrational` |
+
+**Weitere Beispiele**
+
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
 | 5 | Einführung | 3 + (−2) = 1 | `zahlen.ganz` |
@@ -154,6 +184,21 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 **Häufiger Fehler:** Die Regel auf Plus übertragen: (−3) + (−4) ist −7, nicht +7.
 
 **Verwandt:** Ungleichungen: Mal oder geteilt durch eine negative Zahl dreht das Ungleichheitszeichen um (Planet Algebra). Potenzen mit negativer Basis (Planet Zahlen).
+
+**Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
+
+In jeder Zeile markiert: Die Vorzeichen der beiden Zahlen und das Vorzeichen des Ergebnisses.
+
+| Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
+|---|---|---|---|
+| 5 | (⟦−⟧3) · (⟦−⟧4) = ⟦+⟧12 | Einführung | `zahlen.rechengesetze` |
+| 6 | (⟦−⟧⅔) · (⟦−⟧¾) = ⟦+⟧½ | Anwendung | `bruch.rechnen` |
+| 7 | (⟦−⟧3x) · (⟦−⟧4) = ⟦+⟧12x | Anwendung | `terme.umformen` |
+| 8 | Steigung aus zwei Punkten: (⟦−⟧6) : (⟦−⟧2) = ⟦+⟧3 | Anwendung | `funktionen.linear` |
+| 9 | (⟦−⟧5)² = (⟦−⟧5) · (⟦−⟧5) = ⟦+⟧25 | Anwendung | `gleichungen.quadratisch` |
+| 10 | (⟦−⟧2)³ = (⟦−⟧2) · (⟦−⟧2) · (⟦−⟧2) = ⟦−⟧8 – drei Minus: einmal umdrehen bleibt übrig | Anwendung | `funktionen.ganzrational` |
+
+**Weitere Beispiele**
 
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
@@ -189,6 +234,21 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 **Häufiger Fehler:** Von links nach rechts durchrechnen: 2 + 3 · 4 = 20. Und: 2 + 3x zu 5x zusammenziehen.
 
 **Verwandt:** Die zuletzt ausgeführte Rechnung gibt dem Term seinen Namen: 2 + 3x ist eine Summe (Planet Algebra).
+
+**Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
+
+In jeder Zeile markiert: Der Teil, der zuerst gerechnet wird – in jeder Zeile der Punkt-Teil hinter dem Plus.
+
+| Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
+|---|---|---|---|
+| 5 | 2 + ⟦3 · 4⟧ = 2 + 12 = 14 | Einführung | `zahlen.rechengesetze` |
+| 6 | ½ + ⟦½ · ½⟧ = ½ + ¼ = ¾ | Anwendung | `bruch.rechnen` |
+| 7 | 2 + ⟦3 · x⟧ bleibt 2 + 3x – nicht 5x | Anwendung | `terme.umformen` |
+| 8 | f(x) = 2 + 3x an der Stelle 4: 2 + ⟦3 · 4⟧ = 2 + 12 = 14 | Anwendung | `funktionen.linear` |
+| 9 | f(x) = 2 + 3x² an der Stelle 2: 2 + ⟦3 · 2²⟧ = 2 + 3 · 4 = 14 – im Punkt-Teil zuerst das Hoch | Anwendung | `funktionen.quadratisch` |
+| 10 | f(x) = 2 + 3 · 2ˣ an der Stelle 2: 2 + ⟦3 · 2²⟧ = 2 + 3 · 4 = 14 | Anwendung | `funktionen.exponential_log` |
+
+**Weitere Beispiele**
 
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
@@ -226,6 +286,21 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 **Verwandt:** Vertauschungsgesetz (Kommutativgesetz) und Verbindungsgesetz (Assoziativgesetz) sind die Fachnamen. 0 ändert beim Addieren nichts, 1 ändert beim Malnehmen nichts.
 
+**Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
+
+In jeder Zeile markiert: Der Summand, der wandert – immer zusammen mit seinem Rechenzeichen.
+
+| Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
+|---|---|---|---|
+| 5 | 12 − 30 ⟦+ 18⟧ = 12 ⟦+ 18⟧ − 30 = 0 | Einführung | `zahlen.ganz` |
+| 6 | ¼ − ½ ⟦+ ¾⟧ = ¼ ⟦+ ¾⟧ − ½ = ½ | Anwendung | `bruch.rechnen` |
+| 7 | 3a + 2b ⟦+ 4a⟧ = 3a ⟦+ 4a⟧ + 2b = 7a + 2b | Einführung | `terme.umformen` |
+| 8 | Zwei Gleichungen addieren: 2x + 3y ⟦− 2x⟧ + y = 2x ⟦− 2x⟧ + 3y + y = 4y | Anwendung | `gleichungen.lgs2` |
+| 9 | 3√2 + 5 ⟦+ 2√2⟧ = 3√2 ⟦+ 2√2⟧ + 5 = 5√2 + 5 | Anwendung | `zahlen.reell` |
+| 10 | 3x³ + 2x ⟦+ 4x³⟧ = 3x³ ⟦+ 4x³⟧ + 2x = 7x³ + 2x | Anwendung | `funktionen.ganzrational` |
+
+**Weitere Beispiele**
+
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
 | 5 | Einführung | 25 · 37 · 4 = 25 · 4 · 37 = 3 700 | `zahlen.rechengesetze` |
@@ -259,6 +334,21 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 **Häufiger Fehler:** Nur den ersten Summanden malnehmen: 3 · (x + 2) = 3x + 2. Und: die Regel auf Hoch übertragen – (a + b)² ist nicht a² + b².
 
 **Verwandt:** Summe mal Summe und binomische Formeln (Planet Algebra). Kürzen von Bruchtermen braucht vorher das Ausklammern.
+
+**Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
+
+In jeder Zeile markiert: Der Faktor vor der Klammer – an allen drei Stellen, an denen er steht.
+
+| Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
+|---|---|---|---|
+| 5 | ⟦6⟧ · (20 + 2) = ⟦6⟧ · 20 + ⟦6⟧ · 2 = 132 | Einführung | `zahlen.rechengesetze` |
+| 6 | ⟦4⟧ · (2 + ½) = ⟦4⟧ · 2 + ⟦4⟧ · ½ = 10 | Anwendung | `bruch.rechnen` |
+| 7 | ⟦3⟧ · (x + 2) = ⟦3⟧ · x + ⟦3⟧ · 2 = 3x + 6 | Einführung | `terme.umformen` |
+| 8 | ⟦x⟧ · (3/x + ½) = ⟦x⟧ · 3/x + ⟦x⟧ · ½ = 3 + x/2, für x ≠ 0 | Anwendung | `gleichungen.bruch` |
+| 9 | ⟦√2⟧ · (√2 + 3) = ⟦√2⟧ · √2 + ⟦√2⟧ · 3 = 2 + 3√2 | Anwendung | `zahlen.reell` |
+| 10 | ⟦x⟧ · (x² − 4) = ⟦x⟧ · x² − ⟦x⟧ · 4 = x³ − 4x | Anwendung | `gleichungen.polynom` |
+
+**Weitere Beispiele**
 
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
@@ -296,6 +386,21 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 **Verwandt:** Folgt aus dem Ausmultiplizieren und der Vorzeichenregel; steht eigens da, weil hier besonders viele Fehler entstehen. Ein Plus vor der Klammer ändert nichts.
 
+**Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
+
+In jeder Zeile markiert: Das Minus vor der Klammer und das Zeichen in der Klammer, das wechselt.
+
+| Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
+|---|---|---|---|
+| 5 | 20 ⟦−⟧ (8 ⟦−⟧ 3) = 20 ⟦−⟧ 8 ⟦+⟧ 3 = 15 | Vorwissen | `zahlen.rechengesetze` |
+| 6 | 2 ⟦−⟧ (¾ ⟦−⟧ ¼) = 2 ⟦−⟧ ¾ ⟦+⟧ ¼ = 1½ | Vorwissen | `bruch.rechnen` |
+| 7 | 5x ⟦−⟧ (3x ⟦−⟧ 2) = 5x ⟦−⟧ 3x ⟦+⟧ 2 = 2x + 2 | Einführung | `terme.umformen` |
+| 8 | 7 ⟦−⟧ (2x ⟦−⟧ 6) = 7 ⟦−⟧ 2x ⟦+⟧ 6 = 13 − 2x | Anwendung | `gleichungen.ungleichungen` |
+| 9 | (x + 1)² ⟦−⟧ (x² ⟦−⟧ 3) = x² + 2x + 1 ⟦−⟧ x² ⟦+⟧ 3 = 2x + 4 | Anwendung | `gleichungen.quadratisch` |
+| 10 | x³ ⟦−⟧ (x³ ⟦−⟧ 4x) = x³ ⟦−⟧ x³ ⟦+⟧ 4x = 4x | Anwendung | `gleichungen.polynom` |
+
+**Weitere Beispiele**
+
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
 | 5 | Vorwissen | 20 − (8 − 3) = 20 − 8 + 3 = 15 | `zahlen.rechengesetze` |
@@ -328,6 +433,21 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 **Häufiger Fehler:** Basis mal Hochzahl rechnen: 2³ = 6. Und: 2³ + 2² zu 2⁵ machen – das Gesetz gilt nur bei Mal.
 
 **Verwandt:** Die weiteren Potenzgesetze, Wurzeln und Logarithmen (Planet Zahlen). a · a ist a², aber a + a ist 2a.
+
+**Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
+
+In jeder Zeile markiert: Die Hochzahlen: Sie zählen die Faktoren und werden beim Malnehmen addiert.
+
+| Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
+|---|---|---|---|
+| 5 | 2⟦³⟧ · 2⟦²⟧ = (2 · 2 · 2) · (2 · 2) = 2⟦⁵⟧ = 32 | Einführung | `zahlen.potenzen_basis` |
+| 6 | 10⟦³⟧ · 10⟦²⟧ = 10⟦⁵⟧ = 100 000 | Anwendung | `zahlen.potenzen_zehner` |
+| 7 | x⟦³⟧ · x⟦²⟧ = (x · x · x) · (x · x) = x⟦⁵⟧ | Einführung | `terme.potenzgesetze_natuerlich` |
+| 8 | x⟦³⟧ · x⟦⁻²⟧ = x⟦¹⟧ = x, für x ≠ 0 | Einführung | `terme.potenzgesetze_ganzzahlig` |
+| 9 | x^⟦½⟧ · x^⟦½⟧ = x⟦¹⟧ = x, für x ≥ 0 – also ist x^½ die Wurzel aus x | Einführung | `zahlen.rationale_exponenten` |
+| 10 | 2⟦ˣ⟧ · 2⟦³⟧ = 2 hoch ⟦x + 3⟧ | Anwendung | `funktionen.exponential_log` |
+
+**Weitere Beispiele**
 
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
@@ -362,6 +482,21 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 **Häufiger Fehler:** Aus Summen kürzen: (x + 6) : (x + 2) zu 3 machen. Erst ausklammern, dann kürzen.
 
 **Verwandt:** ggT zum vollständigen Kürzen, kgV als Hauptnenner (Planet Zahlen). Dasselbe bei Verhältnissen und Bruchtermen.
+
+**Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
+
+In jeder Zeile markiert: Der gemeinsame Faktor – einmal im Zähler, einmal im Nenner.
+
+| Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
+|---|---|---|---|
+| 5 | *kommt nicht vor – der Stoff dafür beginnt später (Brüche ab Klasse 6)* | – | – |
+| 6 | 12/18 = (2 · ⟦6⟧) / (3 · ⟦6⟧) = 2/3 | Einführung | `bruch.brueche` |
+| 7 | 6x/9 = (2x · ⟦3⟧) / (3 · ⟦3⟧) = 2x/3 | Anwendung | `gleichungen.linear` |
+| 8 | (3x + 6) / (x + 2) = (3 · ⟦(x + 2)⟧) / (1 · ⟦(x + 2)⟧) = 3, für x ≠ −2 | Anwendung | `terme.bruchterme` |
+| 9 | Seitenverhältnis 6 cm : 9 cm = (2 · ⟦3⟧) : (3 · ⟦3⟧) = 2 : 3 | Anwendung | `abbildungen.aehnlichkeit` |
+| 10 | Zweiter Zug aus der Urne: 2/4 = (1 · ⟦2⟧) / (2 · ⟦2⟧) = ½ | Anwendung | `stochastik.mehrstufig` |
+
+**Weitere Beispiele**
 
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
@@ -399,6 +534,21 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 **Verwandt:** Bruchterme und Bruchgleichungen (Planet Algebra). Pfadregeln bei Wahrscheinlichkeiten (Planet Daten und Zufall).
 
+**Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
+
+In jeder Zeile markiert: Der gemeinsame Nenner – in jedem der drei Brüche.
+
+| Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
+|---|---|---|---|
+| 5 | *kommt nicht vor – der Stoff dafür beginnt später (Brüche ab Klasse 6)* | – | – |
+| 6 | 1/2 + 1/3 = 3/⟦6⟧ + 2/⟦6⟧ = 5/⟦6⟧ | Einführung | `bruch.rechnen` |
+| 7 | x/2 + x/3 = 3x/⟦6⟧ + 2x/⟦6⟧ = 5x/⟦6⟧ | Anwendung | `gleichungen.linear` |
+| 8 | 1/x + 1/(2x) = 2/⟦2x⟧ + 1/⟦2x⟧ = 3/⟦2x⟧, für x ≠ 0 | Anwendung | `terme.bruchterme` |
+| 9 | Additionssatz: 1/2 + 1/3 − 1/6 = 3/⟦6⟧ + 2/⟦6⟧ − 1/⟦6⟧ = 4/⟦6⟧ = ⅔ | Anwendung | `stochastik.verknuepft` |
+| 10 | Zwei Pfade addieren: 1/6 + 1/3 = 1/⟦6⟧ + 2/⟦6⟧ = 3/⟦6⟧ = ½ | Anwendung | `stochastik.mehrstufig` |
+
+**Weitere Beispiele**
+
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
 | 6 | Einführung | ½ + ⅓ = 3/6 + 2/6 = 5/6 | `bruch.rechnen` |
@@ -434,6 +584,21 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 **Verwandt:** Umgekehrte Proportionalität: Das Produkt bleibt gleich (x · y = k). Prozent, Maßstab, Steigung einer Geraden, Strahlensatz und Sinus sind dieselbe Idee.
 
+**Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
+
+In jeder Zeile markiert: Die mittlere Zeile: der Wert für eins.
+
+| Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
+|---|---|---|---|
+| 5 | 3 kg kosten 7,50 € → ⟦1 kg kostet 2,50 €⟧ → 5 kg kosten 12,50 € | Einführung | `groessen.proportional` |
+| 6 | 100 % sind 60 € → ⟦1 % sind 0,60 €⟧ → 25 % sind 15 € | Einführung | `bruch.prozent` |
+| 7 | 80 % sind 48 € → ⟦1 % sind 0,60 €⟧ → 100 % sind 60 € | Anwendung | `bruch.prozent_grundwert` |
+| 8 | 2 nach rechts, 3 nach oben → ⟦1 nach rechts, 1,5 nach oben⟧ → 4 nach rechts, 6 nach oben (Steigung 1,5) | Anwendung | `funktionen.linear` |
+| 9 | 2 cm gehören zu 3 cm → ⟦1 cm gehört zu 1,5 cm⟧ → 4 cm gehören zu 6 cm (Strahlensatz) | Anwendung | `abbildungen.aehnlichkeit` |
+| 10 | 360° sind 2π → ⟦1° ist π/180⟧ → 90° sind π/2 (Bogenmaß) | Anwendung | `funktionen.trig` |
+
+**Weitere Beispiele**
+
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
 | 5 | Einführung | 3 kg kosten 7,50 €, also kostet 1 kg 2,50 € und 5 kg kosten 12,50 € | `groessen.proportional` |
@@ -467,6 +632,21 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 **Häufiger Fehler:** In derselben Reihenfolge zurückrechnen statt in umgekehrter. Und beim Quadrat nur eine Lösung nennen: x² = 49 hat die Lösungen 7 und −7.
 
 **Verwandt:** Die Wurzel aus x² ist der Betrag von x. Formeln umstellen (Planet Algebra). Umkehrfunktion (Planet Funktionen).
+
+**Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
+
+In jeder Zeile markiert: Die Rechnung und ihre Gegenrechnung – als Paar.
+
+| Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
+|---|---|---|---|
+| 5 | □ ⟦+ 7⟧ = 3, also □ = 3 ⟦− 7⟧ = −4 | Einführung | `gleichungen.einfach` |
+| 6 | □ ⟦· ¾⟧ = 12, also □ = 12 ⟦: ¾⟧ = 16 | Anwendung | `bruch.rechnen` |
+| 7 | G ⟦· 1,2⟧ = 60 €, also G = 60 € ⟦: 1,2⟧ = 50 € | Anwendung | `bruch.prozent_grundwert` |
+| 8 | A = g ⟦· h⟧, also g = A ⟦: h⟧ – mit A = 42 und h = 7 ist g = 6 | Anwendung | `gleichungen.formeln` |
+| 9 | x ⟦hoch 2⟧ = 49, also x = ⟦±√⟧49: x = 7 oder x = −7 | Einführung | `gleichungen.quadratisch` |
+| 10 | 2 ⟦hoch x⟧ = 8, also x = ⟦log₂⟧ 8 = 3 | Einführung | `gleichungen.exponential` |
+
+**Weitere Beispiele**
 
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
@@ -503,6 +683,21 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 
 **Verwandt:** Äquivalenzumformung ist der Fachname (Planet Algebra). Bei Ungleichungen dreht mal oder geteilt durch eine negative Zahl das Zeichen um.
 
+**Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
+
+In jeder Zeile markiert: Was auf beiden Seiten getan wird – der Befehl hinter dem Strich.
+
+| Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
+|---|---|---|---|
+| 5 | □ + 7 = 3 &#124; ⟦− 7⟧ → □ = −4 | Vorwissen | `gleichungen.einfach` |
+| 6 | *kommt nicht vor – kein Thema der App in dieser Klasse (keine Gleichungen in Klasse 6)* | – | – |
+| 7 | 2x + 2 = 12 &#124; ⟦− 2⟧ → 2x = 10 &#124; ⟦: 2⟧ → x = 5 | Einführung | `gleichungen.linear` |
+| 8 | 2x + 2 < 12 &#124; ⟦− 2⟧ → 2x < 10 &#124; ⟦: 2⟧ → x < 5 | Anwendung | `gleichungen.ungleichungen` |
+| 9 | 2x² + 2 = 20 &#124; ⟦− 2⟧ → 2x² = 18 &#124; ⟦: 2⟧ → x² = 9 | Anwendung | `gleichungen.quadratisch` |
+| 10 | 2 · 2ˣ + 2 = 18 &#124; ⟦− 2⟧ → 2 · 2ˣ = 16 &#124; ⟦: 2⟧ → 2ˣ = 8 | Anwendung | `gleichungen.exponential` |
+
+**Weitere Beispiele**
+
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
 | 5 | Einführung | □ + 7 = 3: auf beiden Seiten 7 abziehen, also □ = −4 | `gleichungen.einfach` |
@@ -536,6 +731,21 @@ Von innen nach außen. Das ist eine Ordnung zum Überblicken, **keine Sperre**: 
 **Häufiger Fehler:** Die Regel bei einer anderen Zahl anwenden: Aus (x − 2) · (x + 3) = 6 folgt nicht x − 2 = 6.
 
 **Verwandt:** Faktorisieren – durch Ausklammern oder mit einer binomischen Formel – bringt eine Gleichung in diese Form (Planet Algebra). Ein Nenner darf nicht null sein (Definitionsmenge).
+
+**Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
+
+In jeder Zeile markiert: Die Null rechts und der Faktor, der null wird.
+
+| Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
+|---|---|---|---|
+| 5 | ⟦□⟧ · 7 = ⟦0⟧, also □ = 0 | Vorwissen | `gleichungen.einfach` |
+| 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
+| 7 | *kommt nicht vor – kein Thema der App in dieser Klasse (Gleichungen mit x² erst ab Klasse 9)* | – | – |
+| 8 | Der Nenner ⟦x⟧ · ⟦(x − 4)⟧ wird ⟦0⟧ für x = 0 oder x = 4 – diese Zahlen sind nicht erlaubt | Vorwissen | `terme.bruchterme` |
+| 9 | ⟦(x − 2)⟧ · ⟦(x + 3)⟧ = ⟦0⟧, also x = 2 oder x = −3 | Einführung | `gleichungen.quadratisch` |
+| 10 | ⟦x⟧ · ⟦(x − 2)⟧ · ⟦(x + 2)⟧ = ⟦0⟧, also x = 0, x = 2 oder x = −2 | Anwendung | `gleichungen.polynom` |
+
+**Weitere Beispiele**
 
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|

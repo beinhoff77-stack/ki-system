@@ -10,6 +10,10 @@ import os
 from fractions import Fraction as F
 
 HIER = os.path.dirname(os.path.abspath(__file__))
+import sys
+sys.dont_write_bytecode = True
+sys.path.insert(0, HIER)
+import leiter_daten as LD      # noqa: E402  (Auftrag 15: Klassenleitern)
 WURZEL = os.path.abspath(os.path.join(HIER, "..", "..", ".."))
 LISTE = {t["thema_schluessel"]: t for t in json.load(open(os.path.join(WURZEL, "inhalte", "themenliste.json"), encoding="utf-8"))}
 ART = {"V": "Vorwissen", "E": "Einführung", "A": "Anwendung"}
@@ -357,8 +361,8 @@ KL = (5, 6, 7, 8, 9, 10)
 
 
 def zelle(r, k):
-    arten = [a for kk, a, *_ in r["bsp"] if kk == k]
-    return "" if not arten else ("E" if "E" in arten else "A" if "A" in arten else "V")
+    arten = [z[1] for z in LD.LEITER_R[LD.ETIKETT[r["nr"]]][1] if z[0] == k]
+    return "–" if arten == [None] else ("E" if "E" in arten else "A" if "A" in arten else "V")
 
 
 def zeichnung_text(z):
@@ -368,7 +372,8 @@ def zeichnung_text(z):
 
 def regel_text(i, r):
     z = [f"### {i}. {r['name']}", "", "> **" + r['spruch'].replace("<br>", "**  \n> **") + "**", "", f"**Genau gesagt:** {r['merk']}", "", f"**Warum das gilt:** {r['warum']}", "", f"**Voraussetzung:** {r['gilt']}", "", f"**Häufiger Fehler:** {r['fehler']}", "",
-         f"**Verwandt:** {r['verwandt']}", "", "| Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |", "|---|---|---|---|"]
+         f"**Verwandt:** {r['verwandt']}", "", "**Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**", "", f"In jeder Zeile markiert: {LD.LEITER_R[LD.ETIKETT[r['nr']]][0]}", "", LD.leiter_tabelle(LD.LEITER_R[LD.ETIKETT[r['nr']]][1]), "",
+         "**Weitere Beispiele**", "", "| Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |", "|---|---|---|---|"]
     z += [f"| {k} | {ART[a]} | {text} | `{thema}` |" for k, a, thema, text, _ in r["bsp"]]
     z += ["", f"**Möglicher Erklärweg über:** {', '.join(r['weg']) or '–'} (zum Erklären hilfreich, keine Lernvoraussetzung)", "", f"**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): {r['wirk']}", "", "**Zeichen-Vorgabe**", zeichnung_text(r["z"])]
     return "\n".join(z)
@@ -381,7 +386,7 @@ if __name__ == "__main__" or True:
     schichten = "\n".join(f"| **{s} {SCHICHT[s]}** | " + ", ".join(f"{NAMEN.index(r['name']) + 1} {r['name']}" for r in R if r["schicht"] == s) + " |" for s in sorted(SCHICHT))
     merkliste = "\n".join(f"{i}. **{r['spruch']}**  \n   *{r['name']} – genau gesagt:* {r['merk']}" for i, r in enumerate(R, 1))
     nummern = ", ".join(f"{i} = Etikett {r['nr']}" for i, r in enumerate(R, 1))
-    open(os.path.join(HIER, "sonne.md"), "w", encoding="utf-8").write(f"""# Gesetzbuch · Die Sonne: die {len(R)} Rechenregeln (vierte Fassung: Merksatz, „Genau gesagt“, Wirkstelle)
+    open(os.path.join(HIER, "sonne.md"), "w", encoding="utf-8").write(f"""# Gesetzbuch · Die Sonne: die {len(R)} Rechenregeln (fünfte Fassung: mit Klassenleiter je Regel)
 
 Mathe-Profi, 26.11.2026. Erzeugt von `bauen.py`; {n_bsp} Beispiele, jedes nachgerechnet (Lauf „OK“).
 Die Sonne ist die Mitte des Gesetzbuchs: Diese Regeln bleiben von Klasse 5 bis 10 dieselben, nur das Gewand wechselt (Zahl, Bruch, Buchstabe, Bruchterm, Wurzel).
@@ -395,11 +400,11 @@ Je Regel zwei Zeilen: oben der Merksatz zum Aufsagen, darunter der genaue Satz m
 
 ## Dieselbe Regel in vielen Klassen
 
-**V** = Vorwissen (kommt vor, wird aber noch nicht als Regel gelehrt) · **E** = Einführung · **A** = spätere Anwendung · leer = kein Beispiel hinterlegt (heißt nicht: kommt nicht vor).
+**V** = Vorwissen (kommt vor, wird aber noch nicht als Regel gelehrt), **E** = Einführung, **A** = spätere Anwendung, **–** = kommt in dieser Klasse nicht vor (Grund steht in der Klassenleiter der Regel). Kein Feld ist leer. Alle Leitern zusammen und die Leitern der 28 Ideen: `klassenleiter.md`.
 
 {chr(10).join(matrix)}
 
-Die Einordnung V / E / A habe ich nach den Themen der App eingeschätzt; sie ist **nicht** Etappe für Etappe belegt und **nicht** an LehrplanPLUS geprüft. [A]
+Die Einordnung V / E / A ist gegen die Lehrplan-Kopie der App geprüft, soweit das auf der Ebene der Themen geht; Ergebnis und Abweichungen: `lehrplan-pruefung.md`. Nicht geprüft an LehrplanPLUS selbst. [A]
 
 ## Die vier Schichten der Sonne
 

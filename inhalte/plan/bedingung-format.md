@@ -48,9 +48,15 @@ Gerechnet wird exakt mit Brüchen. `pruefe` muss wahr oder falsch liefern.
 6. **Sitzungsbezug.** Für freies Üben genügt die heutige Prüfung (Aufgabe gehört zu einer für das Kind sichtbaren Einheit). Keine allgemeine Ausgabe-Tabelle in Schritt 2.
 7. **Regel und Fehlbild.** Jede Aufgabe bekommt eine stabile Regel-Kennung, jedes erkennbare Fehlermuster eine Fehlbild-Kennung. **Offen:** Die Kennungen hängen an der Regel-Liste des „Regel-Universums“, die noch in Arbeit ist. Das Feld wird vorgesehen, gefüllt wird es erst, wenn die Liste steht. Aus einer verletzten Bedingung allein folgt kein Fehlbild.
 
+## Stand des Baus (26.11.2026, abends)
+- **Fertig im Arbeitsstand:** Python-Referenz; Anbindung an `tools/inhalt_pruefen.py` (Typ `bedingung` wird beim Prüfen der Inhalte mitgeprüft); Datenbank-Fassung als Datei `supabase/migrations/20261201_bd_s1_bedingung_rechner.sql` (Rechner, Bewertung, Zweig in `schule.antwort_bewerten`). **Nicht eingespielt.**
+- **Vergleich Referenz gegen Datenbank:** `tools/tests/bedingung_sql_test.py`. Die Funktionen wurden dafür nur vorübergehend (pg_temp) angelegt, nichts ist in der Datenbank geblieben. 11 Aufgaben, 6 746 Antworten (alle Prüf-Fälle, dazu je Aufgabe 600 Antworten aus einem festen Vorrat einschließlich unsinniger Eingaben): **alle elf Prüfsummen gleich.**
+- **Vom Vergleich nicht erfasst:** `und`, `oder`, `nicht`, `teilbar`, `ganzzahlig`, `betrag`, `neg`, `liste`, `anzahl`, `anzahl_negativ`, negativer Exponent – sie kommen in den elf Muster-Aufgaben nicht vor. Die Laufzeit einer einzelnen teuren Aufgabe ist nicht gemessen. Eine Zahl in Exponentialschreibweise als JSON-Zahl (nicht als Text) liest die Datenbank als ganze Zahl, die Referenz lehnt sie ab; die App sendet Text.
+- **Teil 1 ist ohne Wirkung, solange keine Aufgabe des Typs existiert.** Der Constraint wird erst in Teil 2 geöffnet.
+
 ## Was als Nächstes kommt
-- Anbindung an `tools/inhalt_pruefen.py` (Typ in `TYPEN`, Aufruf von `pruefe_aufgabe`).
-- Migration als Datei: Bruch-Hilfen, Rechner und Prüfung in plpgsql, Zweig in `schule.antwort_bewerten`, Constraint, Hinweis bei „falsch“ durchreichen. Rauchtest mit Rollback gegen dieselben Prüf-Fälle. **Nicht eingespielt ohne ausdrücklichen Satz des Nutzers.**
+- Prüf-Fälle für die oben genannten, noch nicht verglichenen Operationen ergänzen.
+- **Teil 2 der Migration (BD-S2):** Constraint öffnen; `hinweis` und `verletzt` beim ersten Fehlversuch durchreichen; überall, wo `loesung` den Server verlässt, beim Typ `bedingung` nur `beispiel` und die Namen der Bedingungen senden. Betroffen (in der Datenbank gelesen): `uebung_pruefen_intern`, `test_abschliessen_intern`, `aufgabe_anzeige`, `api.schule_lernstand`, `api.schule_inhalt_lesen`, `expeditionen_kind`, `expeditionen_alle`, `einheit_abgleichen`. Feld für Regel-Kennung und Fehlbild. **Nicht eingespielt ohne ausdrücklichen Satz des Nutzers.**
 - App: Eingabe mit mehreren Zahlenfeldern, Hinweis, „Zum Beispiel“. Tests.
 - Spätere Feldarten `wahl` und `menge`.
 

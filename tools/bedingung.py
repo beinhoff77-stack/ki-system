@@ -23,9 +23,16 @@ MAX_ZAHL = 10 ** 30       # Zähler und Nenner jedes Zwischenwerts
 FELD_MIN, FELD_MAX = -999999, 999999
 ARTEN = ('ganz', 'rational')
 
-GANZ = re.compile(r'^-?\d{1,6}$')
-KOMMA = re.compile(r'^-?\d{1,6}(,\d{1,3})?$')
-BRUCH = re.compile(r'^(-?\d{1,6})/(\d{1,6})$')
+# Bewusst [0-9] und eine feste Leerraum-Liste: Die Datenbank-Fassung muss Zeichen für Zeichen dasselbe annehmen.
+GANZ = re.compile(r'^-?[0-9]{1,6}$')
+KOMMA = re.compile(r'^-?[0-9]{1,6}(,[0-9]{1,3})?$')
+BRUCH = re.compile(r'^(-?[0-9]{1,6})/([0-9]{1,6})$')
+LEER = re.compile('[ \t\n\r\f\v\u00a0\u202f]')
+
+
+def putzen(roh):
+    """Leerraum weg, typografisches Minus zu Minus. Für die Leer-Prüfung und das Lesen."""
+    return LEER.sub('', str(roh)).replace('−', '-').replace('–', '-')
 
 
 class Grenze(Exception):
@@ -40,7 +47,7 @@ def eingabe(roh, art):
     """Liest ein Antwortfeld. Rückgabe Fraction oder None (Format falsch)."""
     if isinstance(roh, bool) or roh is None:
         return None
-    s = re.sub(r'[\s  ]', '', str(roh)).replace('−', '-').replace('–', '-')
+    s = putzen(roh)
     if s.startswith('+'):
         s = s[1:]
     if len(s) > 14:
@@ -64,7 +71,8 @@ def deutsch(w):
     if w.denominator == 1:
         s = str(abs(w.numerator))
     elif 1000 % w.denominator == 0:
-        s = f'{abs(float(w)):.3f}'.rstrip('0').rstrip('.').replace('.', ',')
+        t = abs(w.numerator) * (1000 // w.denominator)   # exakt, ohne Gleitkomma
+        s = f'{t // 1000},{t % 1000:03d}'.rstrip('0')
     else:
         s = f'{abs(w.numerator)}/{w.denominator}'
     return ('−' if w < 0 else '') + s
@@ -213,7 +221,7 @@ def bewerte(aufgabe, antwort):
         return {'format_ok': False, 'hinweis': 'Bitte fülle alle Felder aus.'}
     werte = []
     for r, feld in zip(roh, felder):
-        if r is None or str(r).strip() == '':
+        if r is None or putzen(r) == '':
             return {'format_ok': False, 'hinweis': 'Bitte fülle alle Felder aus.'}
         w = eingabe(r, feld['art'])
         if w is None:

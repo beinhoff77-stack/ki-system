@@ -17,9 +17,12 @@ import sys
 from fractions import Fraction
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import bedingung  # noqa: E402  (Antworttyp „bedingung“: Form und Probe-Antworten)
+
 WURZEL = Path(__file__).resolve().parent.parent
 POOLS = ('uebung', 'test', 'korrektur', 'sicherung', 'bonus')
-TYPEN = ('zahl', 'auswahl', 'text', 'luecken', 'markierung')
+TYPEN = ('zahl', 'auswahl', 'text', 'luecken', 'markierung', 'bedingung')
 MIN = {'uebung': 12, 'test': 1, 'korrektur': 3, 'sicherung': 6, 'bonus': 0}
 MAX_BONUS = 3               # Knobel-Bordkarten je Lernkarte (freiwillig, zählen weder für „sitzt“ noch für den Test)
 # Bau-Auftrag F: Aufgabentyp „g“ (der Gedanke einer Bordkarte). Die Stufe folgt aus dem Typ, nicht aus der Größe der Zahlen.
@@ -214,6 +217,8 @@ def pruefe(pfad):
         elif y == 'text':
             if not str(o.get('text', '')).strip(): F(f'{wo}: o.text fehlt')
             if len(str(o.get('text', ''))) > 20: W(f'{wo}: Textantwort lang – Tippfehler-Risiko, lieber auswahl')
+        elif y == 'bedingung':
+            for m in bedingung.pruefe_aufgabe(a): F(f'{wo}: {m}')
         elif y == 'luecken':
             s = f.get('schablone', '')
             if not s or 'werte' not in o: F(f'{wo}: f.schablone und o.werte nötig'); continue
@@ -317,6 +322,8 @@ def pruefe_antwort(wo, a, F, W):
         if not isinstance(o.get('index'), int) or not 0 <= o['index'] < len(opts): F(f'{wo}: o.index ungültig')
     elif y == 'text':
         if not str(o.get('text', '')).strip(): F(f'{wo}: o.text fehlt')
+    elif y == 'bedingung':
+        for m in bedingung.pruefe_aufgabe(a): F(f'{wo}: {m}')
     elif y == 'luecken':
         sch = f.get('schablone', '')
         if not sch or 'werte' not in o: F(f'{wo}: f.schablone und o.werte nötig'); return

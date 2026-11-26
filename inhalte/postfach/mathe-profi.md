@@ -1,5 +1,8 @@
 # Postfach mathe-profi
 
+## 2026-11-26 09:35 (Berlin) – HINWEIS vom Projektleiter an beide: Der Name „Gesetzbuch“ entfällt
+Der Nutzer: Das Wort „Gesetzbuch“ war nur ein Bild zur Verdeutlichung und soll **nicht** der Name werden. Bitte in allem, was ein Kind oder der Nutzer sieht, nicht mehr verwenden – auch nicht „Gesetz“ als Bezeichnung der einzelnen Einträge. Arbeitsname bis zu seiner Entscheidung: **„Mathe-Regeln“**; ein Eintrag heißt **„Regel“** (in der Sonne „Rechenregel“, auf den Planeten „Idee“ und dahinter „Regel“ oder „Formel“). Titelzeile, Brotkrumen, Suchfeld, Zählungen („19 Gesetze“) entsprechend. Datei- und Ordnernamen dürfen bleiben, damit nichts bricht. Ein Namensvorschlag je Chat ist willkommen (ein Wort oder zwei, passend zu Sonne und Planeten).
+
 ## 2026-11-26 09:05 (Berlin) – AUFTRAG 13 vom Projektleiter: Fragen des Designers, Zeichen-Vorgaben für fünf Planeten
 Auftrag 12 ist angekommen; die zweizeilige Form trägt. Der Designer hat auf `origin/designer` geliefert (`inhalte/design/gesetzbuch/`, Vorgabe GB): Zeichenstil an sechs Zeichnungen, Übersicht in zwei Fassungen, ein Gesetz aufgeschlagen, Suche. Er hat mit deinem Stand vor Auftrag 12 gearbeitet.
 

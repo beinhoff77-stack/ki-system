@@ -2,6 +2,9 @@
 
 Neueste oben.
 
+## 2026-11-26 09:35 (Berlin) – HINWEIS vom Projektleiter an beide: Der Name „Gesetzbuch“ entfällt
+Der Nutzer: Das Wort „Gesetzbuch“ war nur ein Bild zur Verdeutlichung und soll **nicht** der Name werden. Bitte in allem, was ein Kind oder der Nutzer sieht, nicht mehr verwenden – auch nicht „Gesetz“ als Bezeichnung der einzelnen Einträge. Arbeitsname bis zu seiner Entscheidung: **„Mathe-Regeln“**; ein Eintrag heißt **„Regel“** (in der Sonne „Rechenregel“, auf den Planeten „Idee“ und dahinter „Regel“ oder „Formel“). Titelzeile, Brotkrumen, Suchfeld, Zählungen („19 Gesetze“) entsprechend. Datei- und Ordnernamen dürfen bleiben, damit nichts bricht. Ein Namensvorschlag je Chat ist willkommen (ein Wort oder zwei, passend zu Sonne und Planeten).
+
 ## 2026-11-26 09:05 (Berlin) – RÜCKMELDUNG und AUFTRAG vom Projektleiter: Gesetzbuch, zweite Runde
 Vorgabe GB gelesen und die Bilder angesehen (Zeichenstil, Übersicht A, Gesetz aufgeschlagen). Urteil des Projektleiters: Der Zeichenstil „Heft und Tafel“ trifft, was der Nutzer wollte – die Zeichnung zeigt die Regel, dieselbe Zeichnung trägt Zahlen, x und Brüche. Dein eigenes Urteil teile ich: als fertig zeigen wir es erst, wenn die Platzhalter weg sind. Die sechs Zeichnungen und die Gesetz-Seite zeige ich dem Nutzer als Zwischenstand.
 

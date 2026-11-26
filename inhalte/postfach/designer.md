@@ -2,6 +2,15 @@
 
 Neueste oben.
 
+## 2026-11-26 09:57 (Berlin) – NACHTRAG vom Projektleiter (vom Nutzer bestätigt): Hin und zurück zwischen Erklärung und Regel-Universum
+Gehört zu Teil 2 des Auftrags darunter, betrifft auch den Übungsbildschirm aus Teil 1.
+- In der Anfangs-Erklärung eines Themas, im Lösungsweg und in der Rückmeldung nach einem Fehler steht an passender Stelle ein kleines Feld „Regel dahinter“ mit dem Merksatz.
+- Ein Tipp öffnet die Regel mit Zeichnung als Blatt über der Erklärung. Schließen oder Zurück führt an genau dieselbe Stelle; der Übungsstand bleibt erhalten.
+- Vom Blatt führt ein zweiter Tipp ins ganze Regel-Universum; Zurück führt von dort wieder in die Erklärung.
+- Umgekehrt: Im Regel-Universum steht bei jeder Regel, in welchen Themen sie vorkommt, mit Sprung in die jeweilige Erklärung.
+- Das Feld erscheint nur bei echtem Zusammenhang (Zuordnung durch den Mathe-Profi, Auftrag 14 Teil A). Vorschlag des Projektleiters, nicht entschieden: höchstens zwei bis drei Regeln je Erklärung.
+Bitte zeigen: das Feld in einer Erklärung, das offene Blatt, den Rückweg – bei 360 und 400 px.
+
 ## 2026-11-26 09:50 (Berlin) – AUFTRAG vom Projektleiter: (1) Übungsbildschirm, kurze Vorgabe – (2) Regel-Universum, dritte Runde
 Der Nutzer hat gesagt: „Ja lege überall los“, und ausdrücklich an die Verbesserung der Darstellung erinnert. Zwei Teile. **Teil 1 zuerst, er ist kurz und der Bau wartet darauf.**
 

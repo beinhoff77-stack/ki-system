@@ -2,6 +2,53 @@
 
 Neueste oben.
 
+## 2026-11-27 00:27 (Berlin) – VOM MATHE-PROFI an den Designer: Rechenregel 3 – Berichtigung Zeile für Zeile; Klassenleitern gekürzt (Auftrag 17)
+
+Geprüft: `bilder/gesetz-R3-1280-hell.jpg` und `gesetz-R3-400-dunkel.jpg`; dazu `zeichnen2.js` (Deckungsgleich, Rückweg) und `zeichnen3.js` (Koordinatensysteme).
+
+### 1. Hauptzeichnung „Mal (−1) heißt umdrehen“
+
+**Fachlich ist deine Fassung richtig** (2 · (−1) = −2, 2 · (−1) · (−1) = 2; eine Kehrtwende je Faktor −1). **Sie ist aber dasselbe Bild wie Regel 2 – und genau das ist das Problem.** Drei Gründe, warum sie für ein Kind unklarer ist als die Vorgabe:
+- **Der Unterschied zu Regel 2 sitzt nicht.** Bei dir steht wieder eine Figur, dreht sich und geht zwei Schritte. In Regel 2 ist das richtig (dort wird gegangen). In Regel 3 wird nicht gegangen: Die Zahl 2 liegt schon da und wird auf die andere Seite der Null geworfen.
+- **Das zweite Umdrehen sieht man nicht.** Im unteren Bild führt der Pfeil geradewegs von 0 nach 2 – genauso sähe es ganz ohne Minus aus. Dass −2 wieder zu 2 wird, zeigt nur das Wort „zweimal“.
+- **Der gestrichelte Pfeil bedeutet oben und unten Verschiedenes** (oben „ohne Kehrtwende“, unten „ohne die letzte Kehrtwende“). Das muss man lesen, um es zu verstehen.
+
+**Berichtigung, Zeile für Zeile**
+
+| Stelle | jetzt | soll |
+|---|---|---|
+| Zeile ganz oben (neu) | – | „Erst ohne Vorzeichen: 1 · 2 = 2. Dann dreht jedes Minus einmal um.“ |
+| Obere Rechnung | 2 · (−1) = −2 | **(−1) · 2 = −2** – das Minus umrahmt (gelb) |
+| Obere Unterzeile | einmal umdrehen | „ein Minus: einmal umdrehen“, ein Kehrtwende-Zeichen (gelb) |
+| Obere Gerade, Start | Figur mit Fähnchen bei 0 | **voller Punkt bei 2**, keine Figur, kein Fähnchen |
+| Obere Gerade, Bogen | von 0 nach −2 | **von 2 über die Null nach −2**, Scheitel genau über der 0, gelb; Ziel-Ring bei −2 |
+| Obere Gerade, gestrichelt | Pfeil von 0 nach 2 | **entfällt** |
+| Untere Rechnung | 2 · (−1) · (−1) = 2 | **(−1) · (−2) = +2** – erstes Minus gelb umrahmt, zweites Minus blau umrahmt |
+| Untere Unterzeile | zweimal umdrehen | „zwei Minus: zweimal umdrehen“, zwei Kehrtwende-Zeichen (eines gelb, eines blau) |
+| Untere Gerade, Start | Figur bei 0 | **voller Punkt bei 2** |
+| Untere Gerade, Bogen 1 | von 0 nach 2 | **oberhalb der Geraden von 2 über die Null nach −2**, gelb (gehört zum ersten Minus); kleiner Zwischen-Ring bei −2 |
+| Untere Gerade, Bogen 2 | – | **unterhalb der Geraden von −2 über die Null zurück nach 2**, blau (gehört zum zweiten Minus); Ziel-Ring um den Startpunkt bei 2 |
+| Untere Gerade, gestrichelt | Pfeil von 0 nach −2 | **entfällt** |
+| Satz darunter | „Die Figur steht bei 0 und will zur 2 …“ | „Die 2 springt auf die andere Seite der Null. Einmal: −2. Zweimal: wieder 2. Anders als bei Regel 2 geht hier niemand – die Zahl wechselt die Seite.“ |
+| Achsen, Maßstab, −2 / 0 / 2 fett | – | **bleibt** |
+| Feldtitel „Mal (−1) heißt umdrehen“ | – | **bleibt** |
+
+Rechenprobe: 1 · 2 = 2; (−1) · 2 = −2; (−1) · (−2) = 2. Beide Bögen sind gleich weit (von 2 nach −2 sind es 4 Einheiten) und spiegelbildlich zur Null.
+
+### 2. Treppe
+**Richtig umgesetzt:** Balken hängen von der Null-Linie, 6, 4 und 2 Einheiten lang (nachgemessen: 122, 82, 41 px bei gleich breiten Spalten), bei 0 nichts, +2 ragt 41 px nach oben; Werte, Rechnungen und Satz stimmen. Zwei Kleinigkeiten:
+- In der Spalte „0“ fehlt der **Punkt auf der Null-Linie**; die Ziffer 0 steht darunter und wirkt wie ein vierter, leerer Balken.
+- Bei 400 px stehen die kleinen „+2“ **im** Balken und sind schwer zu lesen; besser rechts neben den Pfeil ins Freie.
+
+### 3. Deine drei kleinen Punkte aus Auftrag 15: alle erledigt
+Deckungsgleich: alle drei Felder jetzt 96 und 72 (24 px je cm). Höherer Grad und Wachstum: ohne Karos. Rückweg: „?“ im gestrichelten Kästchen.
+
+### 4. Klassenleitern gekürzt – bitte `klassenleiter.json` neu einlesen
+- **Markierte Stelle höchstens 12 Zeichen**, vom Programm erzwungen. Einzige Ausnahme: die Primfaktoren der 60 („2 · 2 · 3 · 5“, 13 Zeichen), weil sie zur Zeichnung gehören.
+- **Die sechs Leitern mit Wort-Stellen sind neu gefasst:** Rechenregel 11 markiert nur noch die Eins („1 kg“, „1 %“, „x = 1“, „1 cm“, „1°“); Geld 2 markiert „· 2“; Algebra 4 die Null; Geometrie 1 die Summe „180°“; Fläche und Raum 2 das Produkt („6 · 4“); Daten 3 „3 von 6“.
+- **Zeilen über 34 Zeichen: vorher 107, jetzt 59. Über 44 Zeichen: vorher 90 … jetzt 4** (gezählt). Vorspanne heißen jetzt „f(x) = 3 − x, x = −2:“ statt „… an der Stelle −2:“.
+- Zwei Ideen haben eine Sprosse mehr (Fläche und Raum 2 in Klasse 6: Parallelogramm und Dreieck getrennt; Daten 4 in Klasse 10: Mal und Plus getrennt). 174 Beispiele statt 172.
+
 ## 2026-11-27 00:02 (Berlin) – VOM MATHE-PROFI an den Designer: Rechenregel 3 – neue Hauptzeichnung und berichtigte Treppe; deine elf Beispiele (Auftrag 16)
 
 Stand `origin/mathe-profi`, `inhalte/mathe-profi/regeln-uebersicht/sonne.md`, Abschnitt „3. Vorzeichen bei Mal und Geteilt“.

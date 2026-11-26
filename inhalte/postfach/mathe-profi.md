@@ -1,5 +1,38 @@
 # Postfach mathe-profi
 
+## 2026-11-27 00:27 (Berlin) – FERTIG: Auftrag 17 – Zeichnung zu Regel 3 geprüft, Klassenleitern fürs Handy gekürzt
+
+Zweig `mathe-profi`, auf dem Stand von `lernen-app` ea941036. Nur Inhalte. Sechs Läufe „OK“.
+
+**Geliefert**
+
+*1. Rechenregel 3* (Berichtigung Zeile für Zeile oben in `inhalte/postfach/designer.md`, 15 Zeilen)
+- **Beides ist fachlich richtig.** Die Fassung des Designers (Figur bei 0, eine Kehrtwende je Faktor −1, dann zwei Schritte) rechnet korrekt.
+- **Für ein Kind klarer ist die Vorgabe „Start bei 2, die Zahl springt über die Null“**, aus drei Gründen: (a) Beim Designer ist es dasselbe Bild wie Regel 2 – der Unterschied sitzt nicht. (b) Das zweite Umdrehen ist bei ihm nicht zu sehen: Der Pfeil führt von 0 nach 2, genau wie ganz ohne Minus. (c) Der gestrichelte Pfeil bedeutet oben und unten Verschiedenes.
+- Was ich zugestehe: Seine Fassung hat den Vorteil, dass Regel 2 und Regel 3 mit einer Figur auskommen. Das wiegt die drei Punkte nicht auf.
+- **Treppe: richtig umgesetzt** (Balken 6, 4, 2 Einheiten nach unten, +2 nach oben, nachgemessen). Zwei Kleinigkeiten: Punkt auf der Null-Linie fehlt; die „+2“ stehen bei 400 px im Balken.
+- **Seine drei kleinen Punkte aus Auftrag 15: alle erledigt** (im Code nachgesehen).
+
+*2. Handy* (`leiter_daten.py`, `klassenleiter.json`, `klassenleiter.md`, `sonne.md`)
+- **Markierte Stelle höchstens 12 Zeichen – vom Programm erzwungen.** Eine Ausnahme mit 13 Zeichen (Primfaktoren der 60).
+- **Die sechs Leitern neu gefasst**, „gleich gebaut“ bleibt: Rechenregel 11 markiert die Eins in der Mitte (3 kg: 7,50 € → ⟦1 kg⟧: 2,50 € → 5 kg: 12,50 €); Geld 2 das „· 2“; Algebra 4 die Null; Geometrie 1 die Summe 180°; Fläche und Raum 2 das Produkt 6 · 4; Daten 3 „3 von 6“.
+- **Übrige lange Zeilen: nicht nur Liste, sondern gekürzt.** Über 34 Zeichen: 107 → 59. Über 44 Zeichen: 90 → 4. Die vier verbliebenen: Zinseszins (Klasse 10), Waage mit 2ˣ (Klasse 10), Pyramide halbiert (Klasse 10), Kürzen im Bruchterm (Klasse 8).
+- Jedes Beispiel weiter nachgerechnet; alle 174 bestehen die Prüfung gegen die Lehrplan-Kopie.
+
+**Offen**
+- **Was beim Kürzen weggefallen ist** (Entscheidung, ob das recht ist): Begründungs-Halbsätze in den Sprossen („denn der Nenner wäre 0“, „der Ausreißer zieht nur den Mittelwert mit“, „3 nach rechts“ bei der verschobenen Parabel) und einige Endergebnisse (z. B. „= 3 + x/2“). Sie stehen weiter in der Regel selbst, nur nicht mehr in der Leiter.
+- Ob bei 400 px jetzt weniger als die Hälfte der Sprossen zweizeilig ist, zeigt erst der nächste Lauf des Designers; ich habe Zeichen gezählt, nicht Pixel.
+- Die neue Hauptzeichnung von Regel 3 ist noch nicht gezeichnet.
+
+**Nicht geprüft**
+- Von den Bildern nur die zwei genannten zu Regel 3; nicht die übrigen Seiten der fünften Runde.
+- Umbruch am Handy nicht im Browser; Grenze 34 Zeichen ist meine Schätzung für 400 px.
+- Kein Kind hat eine der beiden Fassungen von Regel 3 gesehen.
+
+**Annahmen**
+- In den Leitern „Aus dem Rechteck“ und „Aus dem Quader“ stehen die Einheiten nur noch am Ergebnis (⟦6 · 4⟧ = 24 cm²); der Satz über der Leiter nennt „Längen in cm“.
+- Zwei Leitern haben in einer Klasse zwei Sprossen; ich nehme an, dass der Designer das darstellen kann (bei „Größe“ war es schon so).
+
 ## 2026-11-27 00:28 (Berlin) – AUFTRAG 17 vom Projektleiter (klein): Zeichnung zu Regel 3 prüfen, Beispiele für das Handy kürzen
 Deine Lieferung zu Auftrag 16 und die fünfte Runde des Designers sind in `lernen-app` übernommen (0d472ac6).
 1. **Rechenregel 3 prüfen** (`inhalte/design/gesetzbuch/bilder/gesetz-R3-1280-hell.jpg`, `gesetz-R3-400-dunkel.jpg`). Der Designer hat vor deiner Vorgabe gezeichnet: Bei ihm steht „die Figur bei 0 und will zur 2“, mit gestricheltem „Weg ohne Kehrtwende“; deine Vorgabe sagt „Start bei 2, die Zahl springt über die Null“. Was davon ist fachlich richtig und für ein Kind klarer? Sitzt der Unterschied zu Regel 2 (dort geht die Figur, hier springt die Zahl auf die andere Seite)? Bitte genaue Berichtigung für den Designer, Zeile für Zeile. Auch die berichtigte Treppe und seine drei kleinen Punkte prüfen.

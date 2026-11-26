@@ -42,7 +42,7 @@ Die Sonne ist die Mitte des Gesetzbuchs: Diese Regeln bleiben von Klasse 5 bis 1
 | 13 Gleichung als Waage | E |  | E | A | A | A |
 | 14 Nullprodukt | V |  |  | A | E | A |
 
-Die Einordnung V / E / A folgt den Etappen der Themen in der App und ist **nicht** an LehrplanPLUS geprüft. [A]
+Die Einordnung V / E / A habe ich nach den Themen der App eingeschätzt; sie ist **nicht** Etappe für Etappe belegt und **nicht** an LehrplanPLUS geprüft. [A]
 
 ## Die vier Schichten der Sonne
 
@@ -502,11 +502,11 @@ Nummern der Übersicht und Nummern in den Aufgaben-Etiketten (`schritt1/etikette
 
 ## Nicht geprüft
 
-- **Lehrplan an der Quelle:** Der Abruf von LehrplanPLUS war in dieser Sitzung nicht möglich (keine Freigabe). Die Klasse jedes Beispiels ist gegen `inhalte/themenliste.json` geprüft; die Art (V / E / A) habe ich aus den Etappen der App gesetzt.
+- **Lehrplan an der Quelle:** Der Abruf von LehrplanPLUS war in dieser Sitzung nicht möglich (keine Freigabe). Die Klasse jedes Beispiels ist gegen `inhalte/themenliste.json` geprüft; die Art (V / E / A) ist meine Einschätzung.
 - Ob ein Kind der Klasse 5 die Merksätze versteht und behält – nicht erprobt.
 - Die Zeichnungen sind Vorgaben in Worten; gezeichnet und nachgemessen ist nichts.
 
 ## Annahmen
 
 - Realschule und IB folgen bei den Rechenregeln denselben Schritten, zum Teil ein Jahr versetzt; die Tabelle zeigt nur das Gymnasium.
-- „Einführung“ heißt: In dieser Klasse hat die App eine eigene Etappe zu dieser Regel.
+- „Einführung“ heißt: In dieser Klasse wird die Regel nach meiner Einschätzung erstmals als Regel gelehrt.

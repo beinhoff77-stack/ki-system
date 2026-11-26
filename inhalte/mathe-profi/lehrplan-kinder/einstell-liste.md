@@ -1,110 +1,101 @@
-# Einstell-Liste für den Projektleiter (Auftrag 8)
+# Vollständige Soll-Liste je Kind (Auftrag 9)
 
-Erzeugt von `plan.py`. **Fett** = Änderung gegenüber dem heutigen Plan in der App (gelesen am 26.11.2026). Einstellen erst nach Gegenprüfung und ausdrücklichem Satz des Nutzers.
-Flug-Kürzel wie in der App (`block.schluessel`).
+Erzeugt von `plan.py`. **Das ist die ganze normale Route nach dem Einstellen** – nicht nur die Änderungen. Was hier nicht steht, soll aus der normalen Route verschwinden (Status „entfernt“).
+Flug-Kürzel = `block.schluessel`. **Fett** = Änderung gegenüber dem Plan in der App vom 26.11.2026. Einstellen erst nach Gegenprüfung, Probelauf und ausdrücklichem Satz des Nutzers.
+Die Reihenfolge der Themen in einem Flug bleibt die der App.
 
-## Kind 1 (Klasse 5)
+## Kind 1 (Klasse 5) – 23 Einträge in der normalen Route
 
-| Platz neu | Flug | Art | heute | Änderung | Hinweis zum Einstellen |
-|---|---|---|---|---|---|
-| | *Abschnitt 1 · Rechnen festmachen, Geometrie beginnen* | | | | |
-| 1 | z1 | Pflicht | läuft | bleibt |  |
-| 2 | ge1 | Pflicht | Platz 4 | **vorgezogen** |  |
-| 3 | z2 | Pflicht | Platz 2 | bleibt |  |
-| 4 | a1 | Pflicht | Platz 3 | bleibt |  |
-| 5 | d1 | Pflicht | Platz 17 | **vorgezogen** |  |
-| | *Abschnitt 2 · Messen und Verhältnis* | | | | |
-| 6 | g1 | Pflicht | Platz 6 | bleibt |  |
-| 7 | ge3 | Pflicht | Platz 5 | bleibt |  |
-| 8 | r1 | Pflicht | Platz 9 | **vorgezogen** |  |
-| 9 | g2 | Pflicht | Platz 7 | bleibt |  |
-| 10 | g2-teil2 | Pflicht | Platz 8 | bleibt |  |
-| 11 | d2 | Pflicht | Platz 11 | bleibt |  |
-| | *Abschnitt 3 · Abschluss Klasse 5 und Vorgriff* | | | | |
-| 12 | r3 | Pflicht | Platz 10 | bleibt |  |
-| 13 | r2 | Pflicht | nicht im Plan | **neu im Plan** | `messen.prisma_zylinder` auslassen |
-| 14 | a2 | Pflicht | nicht im Plan | **neu im Plan** |  |
-| 15 | e1 | Kür | Zusatz | bleibt Kür |  |
-| | *Abschnitt 4 · Klasse 6: Brüche* | | | | |
-| 16 | z3 | Pflicht | Platz 12 | bleibt |  |
-| 17 | z4 | Pflicht | Platz 13 | bleibt |  |
-| 18 | d3 | Pflicht | Platz 18 | **vorgezogen** |  |
-| 19 | z5 | Pflicht | Platz 14 | bleibt |  |
-| 20 | ge2 | Pflicht | nicht im Plan | **neu im Plan** |  |
-| | *Abschnitt 5 · Klasse 6: Anwenden* | | | | |
-| 21 | g3 | Pflicht | Platz 19 | bleibt |  |
-| 22 | r7 | Pflicht | Platz 16 | bleibt |  |
-| 23 | z6 | Pflicht | Platz 15 | bleibt |  |
-| 24 | g5 | Kür | Zusatz | bleibt Kür |  |
-| 25 | g4 | Kür | Platz 20 | **wird Kür** |  |
+| Platz | Flug | Art | Themen im Flug | ausgelassen | heute | Änderung |
+|---|---|---|---|---|---|---|
+| 1 | z1 | normal | `zahlen.natuerlich`, `zahlen.ganz`, `zahlen.rechengesetze`, `zahlen.potenzen_basis` | – | läuft | bleibt |
+| 2 | ge1 | normal | `geometrie.grundbegriffe`, `geometrie.ortslinien` | – | Platz 4 | **vorgezogen** |
+| 3 | z2 | normal | `zahlen.teilbarkeit` | – | Platz 2 | bleibt |
+| 4 | a1 | normal | `gleichungen.einfach` | – | Platz 3 | bleibt |
+| 5 | d1 | normal | `daten.darstellen` | – | Platz 17 | **vorgezogen** |
+| 6 | g1 | normal | `groessen.einheiten` | – | Platz 6 | bleibt |
+| 7 | ge3 | normal | `geometrie.winkel` | – | Platz 5 | bleibt |
+| 8 | r1 | normal | `messen.flaechen` | – | Platz 9 | **vorgezogen** |
+| 9 | g2 | normal | `groessen.proportional` | – | Platz 7 | bleibt |
+| 10 | g2-teil2 | normal | `groessen.proportional_teil2` | – | Platz 8 | bleibt |
+| 11 | d2 | normal | `stochastik.kombinatorik` | – | Platz 11 | bleibt |
+| 12 | r3 | normal | `messen.koerper_berechnung` | – | Platz 10 | bleibt |
+| 13 | r2 | normal | `messen.koerper_darstellung` | `messen.prisma_zylinder` | entfernt | **neu im Plan** |
+| 14 | a2 | normal | `terme.aufstellen` | – | entfernt | **neu im Plan** |
+| 15 | z3 | normal | `bruch.brueche` | – | Platz 12 | bleibt |
+| 16 | z4 | normal | `bruch.dezimal` | – | Platz 13 | bleibt |
+| 17 | d3 | normal | `daten.kennwerte` | – | Platz 18 | **vorgezogen** |
+| 18 | z5 | normal | `bruch.rechnen` | – | Platz 14 | bleibt |
+| 19 | ge2 | normal | `abbildungen.kongruenz` | – | entfernt | **neu im Plan** |
+| 20 | g3 | normal | `bruch.prozent` | – | Platz 19 | bleibt |
+| 21 | r7 | normal | `messen.flaechen_vielecke`, `messen.volumen` | – | Platz 16 | bleibt |
+| 22 | z6 | normal | `zahlen.potenzen_zehner`, `terme.potenzgesetze` | – | Platz 15 | bleibt |
+| 23 | g4 | normal (gilt als Kür: steht hinter allen Pflicht-Flügen) | `finanzen.zinsen` | – | Platz 20 | **bleibt letzter Platz, gilt als Kür** |
 
-Alles, was heute bei Kind 1 „entfernt“ ist (Klasse 7 bis 10) und hier nicht steht, bleibt entfernt. Zusatz-Flüge, die hier nicht stehen (g6, f9, ge9, ge10, d8, d9, e2, e3), bleiben Zusatz.
+**Zusatz-Flüge bleiben unverändert** (Art `zusatz`, heutige Plätze): `g5`, `g6`, `f9`, `ge9`, `ge10`, `d8`, `d9`, `e1`, `e2`, `e3`. Davon sind `e1` und `g5` die Kür der Abschnitte 3 und 5.
+Alle übrigen Flüge der Klassen 7 bis 10 bleiben „entfernt“.
 
-## Kind 2 (Klasse 8)
+## Kind 2 (Klasse 8) – 45 Einträge in der normalen Route
 
-| Platz neu | Flug | Art | heute | Änderung | Hinweis zum Einstellen |
-|---|---|---|---|---|---|
-| | *Abschnitt 1 · Klasse-8-Algebra abschließen, Geometrie öffnen* | | | | |
-| 1 | a5 | Pflicht | läuft | bleibt |  |
-| 2 | ge4 | Pflicht | herausgenommen | **wieder im Plan** |  |
-| 3 | a4 | Pflicht | Platz 3 | bleibt |  |
-| 4 | g8 | Pflicht | Platz 23 | **vorgezogen** |  |
-| 5 | f1 | Pflicht | Platz 26 | **vorgezogen** |  |
-| | *Abschnitt 2 · Funktionen* | | | | |
-| 6 | f2 | Pflicht | Platz 27 | **vorgezogen** | `funktionen.scharen` bleibt ausgelassen |
-| 7 | ge5 | Pflicht | herausgenommen | **wieder im Plan** |  |
-| 8 | a6 | Pflicht | Platz 4 | **nach hinten** |  |
-| 9 | g7 | Pflicht | Platz 25 | bleibt |  |
-| 10 | f3 | Pflicht | Platz 28 | bleibt |  |
-| 11 | d5 | Pflicht | herausgenommen | **wieder im Plan** |  |
-| | *Abschnitt 3 · Raum, Kreis und Abschluss Klasse 8* | | | | |
-| 12 | d5-teil2 | Pflicht | nicht im Plan | **neu im Plan** |  |
-| 13 | r4 | Pflicht | herausgenommen | **wieder im Plan** |  |
-| 14 | r2 | Pflicht | herausgenommen | **wieder im Plan** |  |
-| 15 | a10 | Pflicht | Platz 5 | **nach hinten** |  |
-| 16 | d10 | Pflicht | herausgenommen | **wieder im Plan** |  |
-| 17 | ge2 | Pflicht | Platz 20 | bleibt |  |
-| | *Abschnitt 4 · Ergänzung Realschule und IB* | | | | |
-| 18 | ge4-teil2 | Pflicht | nicht im Plan | **neu im Plan** |  |
-| 19 | ge2-teil2 | Pflicht | Platz 21 | **nach hinten** |  |
-| 20 | ge2-teil3 | Pflicht | Platz 22 | **nach hinten** |  |
-| 21 | ge9 | Kür | Platz 6 | **nach hinten, wird Kür** | `abbildungen.vektoren` bleibt ausgelassen |
-| 22 | r2-teil2 | Kür | nicht im Plan | **neu als Kür** |  |
-| 23 | d4 | Kür | herausgenommen | **wieder im Plan als Kür** |  |
-| | *Abschnitt 5 · Vorgriff Klasse 9* | | | | |
-| 24 | z7 | Pflicht | herausgenommen | **wieder im Plan** |  |
-| 25 | ge7 | Pflicht | herausgenommen | **wieder im Plan** |  |
-| 26 | a7 | Pflicht | herausgenommen | **wieder im Plan** | `gleichungen.reinquadratisch` bleibt ausgelassen, falls so eingestellt |
-| 27 | f4 | Pflicht | herausgenommen | **wieder im Plan** | `funktionen.transformation` bleibt ausgelassen |
-| 28 | ge6 | Pflicht | herausgenommen | **wieder im Plan** |  |
-| 29 | d6 | Pflicht | herausgenommen | **wieder im Plan** |  |
-| – | a3 | – | – | erledigt – läuft in den Wiederholungen mit | |
-| – | a3-teil2 | – | – | erledigt – läuft in den Wiederholungen mit | |
-| – | a2 | – | – | kann schon – nicht nachholen | |
-| – | z6 | – | – | kann – wiederholen | |
-| – | g3 | – | – | kann – wiederholen | |
-| – | d1 | – | – | kann – wiederholen | |
-| – | d3 | – | – | kann – wiederholen | |
-| – | r7 | – | – | kann – wiederholen | |
-| – | g4 | – | – | kann – wiederholen | |
-| – | z1 | – | – | kann schon – nicht nachholen | |
-| – | z2 | – | – | kann schon – nicht nachholen | |
-| – | z3 | – | – | kann schon – nicht nachholen | |
-| – | z4 | – | – | kann schon – nicht nachholen | |
-| – | z5 | – | – | kann schon – nicht nachholen | |
-| – | g1 | – | – | kann schon – nicht nachholen | |
-| – | g2 | – | – | kann schon – nicht nachholen | |
-| – | a1 | – | – | kann schon – nicht nachholen | |
-| – | ge1 | – | – | kann schon – nicht nachholen | |
-| – | r1 | – | – | kann schon – nicht nachholen | |
-| – | r3 | – | – | kann schon – nicht nachholen | |
-| – | d2 | – | – | kann schon – nicht nachholen | |
-| – | ge3 | – | – | heute offen im Plan – auf „kann schon“ setzen, wenn die Eingangsdiagnose bei Winkeln nichts zeigt; sonst vor ge4 | |
-| – | g2-teil2 | – | – | heute offen im Plan – auf „kann schon“ setzen (Dreisatz gilt als gekonnt) | |
+| Platz | Flug | Art | Themen im Flug | ausgelassen | heute | Änderung |
+|---|---|---|---|---|---|---|
+| 1 | a5 | normal | `terme.bruchterme`, `terme.potenzgesetze_ganzzahlig`, `gleichungen.bruch`, `gleichungen.formeln` | – | läuft | bleibt |
+| 2 | ge2 | normal | `abbildungen.kongruenz` | – | Platz 20 | **vorgezogen** |
+| 3 | a4 | normal | `gleichungen.ungleichungen`, `zahlen.intervalle` | – | Platz 3 | bleibt |
+| 4 | g8 | normal | `bruch.prozent_grundwert` | – | Platz 23 | **vorgezogen** |
+| 5 | g2-teil2 | normal | `groessen.proportional_teil2` | – | Platz 24 | **vorgezogen** |
+| 6 | f1 | normal | `funktionen.grundbegriffe` | – | Platz 26 | **vorgezogen** |
+| 7 | ge4 | normal | `geometrie.winkelsaetze`, `geometrie.konstruktion` | – | entfernt | **wieder im Plan** |
+| 8 | f2 | normal | `funktionen.linear` | `funktionen.scharen` | Platz 27 | bleibt hinter f1 |
+| 9 | a6 | normal | `gleichungen.lgs2` | – | Platz 4 | **nach hinten** |
+| 10 | g7 | normal | `groessen.indirekt` | – | Platz 25 | bleibt |
+| 11 | f3 | normal | `funktionen.gebrochen` | – | Platz 28 | bleibt |
+| 12 | d5 | normal | `stochastik.grundbegriffe` | – | entfernt | **wieder im Plan** |
+| 13 | ge5 | normal | `geometrie.kreis` | – | entfernt | **wieder im Plan** |
+| 14 | d5-teil2 | normal | `stochastik.grundbegriffe_teil2` | – | entfernt | **neu im Plan** |
+| 15 | r4 | normal | `messen.kreisberechnung` | – | entfernt | **wieder im Plan** |
+| 16 | r2 | normal | `messen.koerper_darstellung`, `messen.prisma_zylinder` | – | entfernt | **wieder im Plan** |
+| 17 | a10 | normal | `terme.quadratische_extreme` | – | Platz 5 | **nach hinten** |
+| 18 | d10 | normal | `daten.boxplot` | – | entfernt | **wieder im Plan** |
+| 19 | ge4-teil2 | normal | `geometrie.konstruktion_teil2` | – | entfernt | **neu im Plan** |
+| 20 | ge2-teil2 | normal | `abbildungen.kongruenz_teil2` | – | Platz 21 | **nach hinten** |
+| 21 | ge2-teil3 | normal | `abbildungen.kongruenz_teil3` | – | Platz 22 | **nach hinten** |
+| 22 | a3 | erledigt | `terme.potenzgesetze_natuerlich`, `terme.umformen`, `gleichungen.linear` | – | im Plan | bleibt |
+| 23 | a3-teil2 | erledigt | `terme.umformen_teil2` | – | im Plan | bleibt |
+| 24 | a2 | kann schon | `terme.aufstellen` | – | im Plan | bleibt |
+| 25 | z6 | kann – wiederholen | `zahlen.potenzen_zehner`, `terme.potenzgesetze` | – | im Plan | bleibt – Wiederholung gesetzt für beide Themen |
+| 26 | g3 | kann – wiederholen | `bruch.prozent` | – | im Plan | bleibt – Wiederholung gesetzt |
+| 27 | d1 | kann – wiederholen | `daten.darstellen` | – | im Plan | bleibt – Wiederholung gesetzt |
+| 28 | d3 | kann – wiederholen | `daten.kennwerte` | – | im Plan | bleibt – Wiederholung gesetzt |
+| 29 | r7 | kann – wiederholen | `messen.flaechen_vielecke`, `messen.volumen` | – | im Plan | bleibt – Wiederholung gesetzt für beide Themen |
+| 30 | g4 | kann – wiederholen | `finanzen.zinsen` | – | im Plan | bleibt – Wiederholung gesetzt |
+| 31 | z1 | kann schon | `zahlen.natuerlich`, `zahlen.ganz`, `zahlen.rechengesetze`, `zahlen.potenzen_basis` | – | im Plan | bleibt |
+| 32 | z2 | kann schon | `zahlen.teilbarkeit` | – | im Plan | bleibt |
+| 33 | z3 | kann schon | `bruch.brueche` | – | im Plan | bleibt |
+| 34 | z4 | kann schon | `bruch.dezimal` | – | im Plan | bleibt |
+| 35 | z5 | kann schon | `bruch.rechnen` | – | im Plan | bleibt |
+| 36 | g1 | kann schon | `groessen.einheiten` | – | im Plan | bleibt |
+| 37 | g2 | kann schon | `groessen.proportional` | – | im Plan | bleibt |
+| 38 | a1 | kann schon | `gleichungen.einfach` | – | im Plan | bleibt |
+| 39 | ge1 | kann schon | `geometrie.grundbegriffe`, `geometrie.ortslinien` | – | im Plan | bleibt |
+| 40 | r1 | kann schon | `messen.flaechen` | – | im Plan | bleibt |
+| 41 | r3 | kann schon | `messen.koerper_berechnung` | – | im Plan | bleibt |
+| 42 | d2 | kann schon | `stochastik.kombinatorik` | – | im Plan | bleibt |
+| 43 | ge3 | kann – wiederholen | `geometrie.winkel` | – | im Plan | **neu: von „offen“ auf „kann – wiederholen“** – gilt bis zum Ergebnis der Diagnose, siehe diagnose-regel.md |
+| 44 | r2-teil2 | normal (gilt als Kür: steht hinter allen Pflicht-Flügen) | `messen.prisma_zylinder_teil2` | – | entfernt | **neu, gilt als Kür** |
+| 45 | d4 | normal (gilt als Kür: steht hinter allen Pflicht-Flügen) | `daten.stichproben` | – | entfernt | **wieder im Plan, gilt als Kür** |
 
-Alles, was heute bei Kind 2 „entfernt“ ist und hier nicht steht (übrige Flüge der Klassen 9 und 10), bleibt entfernt. Zusatz-Flüge, die hier nicht stehen (g5, g6, f9, ge10, d8, d9, e1, e2, e3), bleiben Zusatz.
+**Zusatz-Flüge bleiben unverändert** (Art `zusatz`): `g5`, `g6`, `f9`, `ge9`, `ge10`, `d8`, `d9`, `e1`, `e2`, `e3`.
+**`ge9` verschwindet aus der normalen Route** (heute Platz 6, dort mit ausgelassenem `abbildungen.determinanten2`) und bleibt nur als Zusatz – das ist die Kür aus Abschnitt 4. Fachlich sollen im Zusatz-Eintrag `abbildungen.vektoren` drin und `abbildungen.determinanten2` ausgelassen sein; der heutige Zusatz-Eintrag lässt nichts aus. Kann die Plan-Funktion Zusatz-Einträge nicht ändern, bleibt er, wie er ist – dann kommen die Determinanten nach den Vektoren, was die Reihenfolge der App ohnehin vorgibt.
+**`g2-teil2` steht jetzt als normaler Flug auf Platz 5** und nicht mehr unter „kann schon“.
+**Abschnitt 5 (Klasse 9: `z7`, `ge7`, `a7`, `f4`, `ge6`, `d6`) wird jetzt nicht eingestellt** und bleibt „entfernt“. Beim späteren Einstellen: `a7` mit beiden Themen (heute ist `gleichungen.quadratisch` ausgelassen – das muss weg), `f4` mit `funktionen.quadratisch` und ausgelassenem `funktionen.transformation` (heute ist es umgekehrt).
+Alle übrigen Flüge der Klassen 9 und 10 bleiben „entfernt“.
 
-## Zusammenfassung der Änderungen
+## Wie „Kür“ und „Klasse 9 später“ ohne eigenes Feld abgebildet werden
 
-- **Kind 1:** 8 von 25 Flügen ändern Platz oder Status; neu im Plan: r2 (nur Körper darstellen), a2, ge2.
-- **Kind 2:** 24 von 29 Flügen ändern Platz oder Status; wieder im Plan aus „entfernt“: ge4, ge5, d5, r4, r2, d10, d4 und sechs Flüge der Klasse 9; neu: d5-teil2, ge4-teil2, r2-teil2.
+| Wunsch | Abbildung mit den vorhandenen Mitteln |
+|---|---|
+| Kür, für die es schon einen Zusatz-Eintrag gibt (`e1`, `g5`, `ge9`) | nicht in die normale Route aufnehmen; der Zusatz-Eintrag bleibt |
+| Kür ohne Zusatz-Eintrag (Kind 1: `g4`; Kind 2: `r2-teil2`, `d4`) | als normaler Flug **hinter den letzten Pflicht-Flug** setzen. Die App bietet ihn dann erst an, wenn alles andere erledigt ist. |
+| Klasse 9 erst nach Abschluss Klasse 8 | Abschnitt 5 **jetzt nicht einstellen**. Zweites Einstellen nach der Abschluss-Arbeit, wieder über die Plan-Funktion, mit der Liste aus `route.md`. |
+| Regel bis zur Diagnose (Kind 2, `ge3`) | „kann – wiederholen“. Nach dem Ergebnis nach `diagnose-regel.md` umstellen. |

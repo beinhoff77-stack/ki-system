@@ -12,11 +12,13 @@
 
 ## Kind 2 (Klasse 8)
 
-1. **Algebra abschließen, Geometrie öffnen:** Bruchgleichungen und Formeln zu Ende · Dreiecke, Vierecke, Konstruktion (Klasse 7) · Ungleichungen · Prozent mit verändertem Grundwert (Klasse 7) · Funktionsbegriff
-2. **Funktionen:** Lineare Funktionen · Kreis (Klasse 7) · Gleichungssysteme · Indirekte Proportionalität · Hyperbeln · Zufall und Laplace
-3. **Raum, Kreis, Abschluss Klasse 8:** Laplace Teil 2 · Kreis und Zylinder · Körper und Netze · Quadratische Terme · Boxplot · Spiegeln und Symmetrie
-4. **Ergänzung Realschule und IB:** restliche Teile von Konstruktion und Spiegeln · Kür: Determinanten, Stichproben
-5. **Vorgriff Klasse 9:** Wurzeln · Pythagoras · Quadratische Gleichungen · Parabeln · Ähnlichkeit · Verknüpfte Ereignisse
+1. **Algebra abschließen, Geometrie öffnen:** Bruchgleichungen und Formeln zu Ende · Spiegeln und Symmetrie (Klasse 7) · Ungleichungen · Prozent mit verändertem Grundwert (Klasse 7) · Dreisatz Teil 2 (kurz) · Funktionsbegriff
+2. **Funktionen und Dreiecke:** Dreiecke, Vierecke, Konstruktion (Klasse 7) · Lineare Funktionen · Gleichungssysteme · Indirekte Proportionalität · Hyperbeln · Zufall und Laplace
+3. **Kreis, Raum, Abschluss Klasse 8:** Kreis (Klasse 7) · Laplace Teil 2 · Kreis und Zylinder · Körper und Netze · Quadratische Terme · Boxplot
+4. **Ergänzung Realschule und IB:** restliche Teile von Konstruktion und Spiegeln · Kür: Stichproben, Vektoren
+5. **Vorgriff Klasse 9 – wird erst nach dem Abschluss von Klasse 8 eingestellt:** Wurzeln · Pythagoras · Quadratische Gleichungen · Parabeln · Ähnlichkeit · Verknüpfte Ereignisse
+
+**Geändert nach der Gegenprüfung:** „Spiegeln“ steht jetzt vor „Dreiecke und Konstruktion“, weil die App es als Grundlage nennt. „Dreisatz Teil 2“ kommt dazu, weil die indirekte Proportionalität ihn zwingend braucht. „Winkel“ gilt vorläufig als gekonnt und läuft in den Wiederholungen mit; der amtliche Test entscheidet, ob er nachgeholt wird.
 
 ## Warum so
 
@@ -24,10 +26,6 @@
 - **Nichts steht vor seiner Voraussetzung:** Einheiten vor Fläche, Teilbarkeit vor Brüchen, lineare Funktionen vor Gleichungssystemen.
 - **Was die Realschule früher verlangt, kommt früher;** IB läuft als Kür an passenden Stellen mit.
 
-## Was Sie entscheiden müssen
+## Was entschieden ist und was noch offen ist
 
-1. **Eingangsdiagnose für Kind 2:** Soll es jetzt einen ganzen amtlichen Jahrgangsstufentest der Klasse 8 auf Papier schreiben? Er prüft Klasse 5 bis 7 und zeigt, wo wirklich Lücken sind. Die App kann das nicht zeigen, weil die Klasse-7-Geometrie dort nie bearbeitet wurde.
-2. **Herausgenommene Flüge bei Kind 2:** Im heutigen Plan fehlen Kreis und Zylinder, Körper und Netze, Laplace (alle Klasse 8) sowie Dreiecke/Konstruktion, Kreis, Boxplot (Klasse 7). Sollen sie zurück in den Plan, wie ich vorschlage?
-3. **Kind 1 – Vorgriff:** Sollen „Körper und Netze“, „Terme aufstellen“ und „Daten darstellen“ schon in Klasse 5 kommen, weil die Realschule sie früher hat?
-4. **Klasse 9 für Kind 2:** Abschnitt 5 als Vorgriff freigeben oder erst nach der Abschluss-Arbeit Klasse 8?
-5. **Zinsen bei Kind 1:** Der Flug wird Kür, weil er laut App kein Gymnasium-Stoff der Klasse 6 ist. Einverstanden?
+Sie haben alle fünf Punkte angenommen (26.11.). Offen ist nur noch Ihr ausdrücklicher Satz zum Einstellen – nach dem Probelauf des Projektleiters.

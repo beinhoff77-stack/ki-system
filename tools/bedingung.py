@@ -46,6 +46,15 @@ class ZuGross(Exception):
     """Ein Zwischenwert überschreitet die Lastgrenze: Die Eingabe wird abgewiesen, nichts wird gewertet."""
 
 
+class Kommazahl(float):
+    """JSON-Zahl mit Komma oder Exponent, gelesen mit lade_json(): rechnet überall wie float, merkt sich aber ihre Schreibweise.
+    So urteilt die Referenz exakt wie die Datenbank (1.00000000000000001 ist nicht 1), ohne dass anderer Code etwas merkt."""
+    def __new__(cls, roh):
+        o = super().__new__(cls, roh)
+        o.roh = roh
+        return o
+
+
 def ganzwert(v):
     """JSON-Zahl mit ganzem Wert -> int, sonst None. Es zählt der Wert, nicht die Schreibweise (5, 5.0 und 5e0 sind dasselbe).
     Wer Antworten oder Aufgaben aus JSON liest und exakt wie die Datenbank urteilen will, liest mit lade_json(): Dann kommen
@@ -54,6 +63,8 @@ def ganzwert(v):
         return None
     if isinstance(v, int):
         return v
+    if isinstance(v, Kommazahl):
+        v = Decimal(v.roh)
     if isinstance(v, Decimal):
         return int(v) if v.is_finite() and v == v.to_integral_value() else None
     if isinstance(v, float) and v == v and abs(v) != float('inf') and v.is_integer():
@@ -62,8 +73,21 @@ def ganzwert(v):
 
 
 def lade_json(text):
-    """JSON lesen wie die Datenbank: Zahlen mit Komma oder Exponent exakt (Decimal), nicht als Gleitkomma."""
-    return json.loads(text, parse_float=Decimal)
+    """JSON lesen wie die Datenbank: Zahlen mit Komma oder Exponent behalten ihre Schreibweise (Kommazahl)."""
+    return json.loads(text, parse_float=Kommazahl)
+
+
+def schreibe_json(v):
+    """JSON schreiben ohne Verlust: Kommazahl und Decimal in ihrer Schreibweise. Für die Weitergabe an die Datenbank."""
+    if isinstance(v, dict):
+        return '{' + ','.join(json.dumps(str(k), ensure_ascii=False) + ':' + schreibe_json(x) for k, x in v.items()) + '}'
+    if isinstance(v, (list, tuple)):
+        return '[' + ','.join(schreibe_json(x) for x in v) + ']'
+    if isinstance(v, Kommazahl):
+        return v.roh
+    if isinstance(v, Decimal):
+        return str(v)
+    return json.dumps(v, ensure_ascii=False)
 
 
 def eingabe(roh, art):

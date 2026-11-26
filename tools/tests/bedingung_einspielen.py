@@ -27,6 +27,24 @@ import bedingung_sql_test as T  # noqa: E402
 
 MIG = HIER.parent.parent / 'supabase/migrations/20261201_bd_s1_bedingung_rechner.sql'
 GROSS = ["999983/999979", "-999961/999959", "999,999", "-999953/7", "999931/11", "13/999907"]   # große Brüche: Lastgrenze oder teure Rechnung
+POTENZ = ["7/3", "-5/2", "9/4", "3/7", "2", "-3"]   # Antwort für den dritten Messfall
+
+
+def teuer_potenz():
+    """Dritter Messfall: Potenzen (auch negative), Divisionen und Betrag in sieben Bedingungen; die achte läuft in „nicht definiert“
+    (Division durch null) – in pruefe und noch einmal im Hinweis. Alle acht Bedingungen werden durchlaufen."""
+    a = ["+", ["hoch", ["/", "$1", "$2"], 6], ["hoch", ["/", "$3", "$4"], -6], ["hoch", "$5", 5], ["betrag", ["hoch", "$6", 3]]]   # 17 Knoten
+    beds = [{"name": f"p{i}", "pruefe": [">", ["+", a, a, a, 1], -999999]} for i in range(1, 8)]
+    null = ["/", "$1", ["-", "$5", "$5"]]
+    beds.append({"name": "p8", "pruefe": [">", null, 0], "zeige": null, "hinweis": "Bei dir kommt {} heraus."})
+    aufgabe = {"id": "teuer-potenz", "f": {"felder": [{"art": "rational"}] * 6}, "o": {"bedingungen": beds[:7], "beispiel": [1, 1, 1, 1, 1, 1]}}
+    assert not bedingung.pruefe_aufgabe(aufgabe, nur_form=True), bedingung.pruefe_aufgabe(aufgabe, nur_form=True)
+    aufgabe["o"]["bedingungen"] = beds          # mit p8 besteht kein Beispiel mehr: p8 ist nie erfüllt – gewollt, nur für die Messung
+    r = bedingung.bewerte(aufgabe, {"werte": POTENZ})
+    assert r == {"format_ok": True, "richtig": False, "verletzt": "p8"}, r
+    return aufgabe
+
+
 ALT = ['{}', '{"wert":"abc"}', '{"wert":"1.5"}', '{"wert":"-3"}', '{"wert":""}', '{"wert":"12 €"}', '{"index":"x"}', '{"index":0}',
        '{"index":99}', '{"werte":[]}', '{"werte":["1","2"]}', '{"werte":["a"]}', 'null']
 
@@ -46,7 +64,9 @@ def main():
     assert urteil[:len(auf)] == ['1'] * len(auf) and urteil.count('0') >= 20, urteil
     soll.append(f"form {len(urteil)} {hashlib.md5(''.join(urteil).encode()).hexdigest()}")
     klein = [{'id': a['id'], 'felder': a['f']['felder'], 'bed': a['o']['bedingungen'], 'bsp': a['o']['beispiel'], 'fest': T.fest(a), 'extra': extra.get(a['id'], [])} for a in auf]
-    lit = lambda v: "'" + json.dumps(v, ensure_ascii=False, separators=(',', ':')).replace("'", "''") + "'::jsonb"
+    lit = lambda v: "'" + bedingung.schreibe_json(v).replace("'", "''") + "'::jsonb"
+    tp = teuer_potenz()
+    erste = auf[0]
     alt = ', '.join(f"('{x}'::jsonb)" for x in ALT)
     print(f"""-- BD-S1 Einspiel-Paket (erzeugt von tools/tests/bedingung_einspielen.py). Ein Aufruf, eine Transaktion. Fehler = alles zurück.
 select set_config('lock_timeout', '3s', true), set_config('statement_timeout', '120s', true);
@@ -58,10 +78,20 @@ create temp table bd_vor on commit drop as select
 create temp table bd_fall on commit drop as
   with v as (select v.aufgabe_id, v.antwort, row_number() over (partition by a.antworttyp order by v.id desc) as rn
                from schule.versuch v join schule.aufgabe a on a.id = v.aufgabe_id where v.antwort is not null),
-       s as (select id, row_number() over (partition by antworttyp order by id) as rn from schule.aufgabe where antworttyp in ('auswahl', 'zahl', 'text', 'markierung', 'luecken'))
+       s as (select id, antworttyp, loesung, row_number() over (partition by antworttyp order by id) as rn from schule.aufgabe where antworttyp in ('auswahl', 'zahl', 'text', 'markierung', 'luecken'))
   select row_number() over () as nr, q.* from (
     select aufgabe_id, antwort from v where rn <= 500
-    union all select s.id, x.a from s cross join (values {alt}) x(a) where s.rn <= 40) q;
+    union all select s.id, x.a from s cross join (values {alt}) x(a) where s.rn <= 40
+    -- gebaut richtig: aus der Lösung
+    union all select s.id, case s.antworttyp when 'zahl' then jsonb_build_object('wert', replace(s.loesung->>'wert', '.', ','))
+                                             when 'text' then jsonb_build_object('wert', s.loesung->>'text')
+                                             when 'luecken' then jsonb_build_object('werte', (select jsonb_agg(x) from jsonb_array_elements_text(s.loesung->'werte') x))
+                                             else jsonb_build_object('index', s.loesung->'index') end from s where s.rn <= 40
+    -- gebaut falsch
+    union all select s.id, case s.antworttyp when 'zahl' then '{{"wert":"987654"}}'::jsonb
+                                             when 'text' then '{{"wert":"qqq"}}'::jsonb
+                                             when 'luecken' then jsonb_build_object('werte', (select jsonb_agg('98765'::text) from jsonb_array_elements(s.loesung->'werte')))
+                                             else jsonb_build_object('index', case when (s.loesung->>'index')::int = 0 then 1 else 0 end) end from s where s.rn <= 40) q;
 create temp table bd_alt on commit drop as
   select f.nr, a.antworttyp, schule.antwort_bewerten(a, f.antwort) as r from bd_fall f join schule.aufgabe a on a.id = f.aufgabe_id;
 do $$ begin execute (select sql from bd_mig); end $$;
@@ -104,7 +134,8 @@ do $pruef$
 declare
   fehler text[] := '{{}}'; v_vor record; v_n1 record; v_def text; v_acl text; v_con text; v_txt text; v_c text; m int; i int; n int;
   v_soll text[] := array(select jsonb_array_elements_text({lit(soll)}));
-  v_ist text[]; v_f jsonb; v_b jsonb; v_r jsonb; t0 timestamptz; ms1 numeric; ms2 numeric; v_alt jsonb; v_rolle text; v_fn text; v_misch text[] := '{{}}';
+  v_ist text[]; v_f jsonb; v_b jsonb; v_r jsonb; t0 timestamptz; ms1 numeric; ms2 numeric; v_alt jsonb; v_rolle text; v_fn text; v_misch text[] := '{{}}'; v_weg text[] := '{{}}'; v_gesperrt text[] := '{{}}'; ms3 numeric; v_r2 jsonb;
+  v_e1 constant jsonb := {lit({'felder': erste['f']['felder'], 'bed': erste['o']['bedingungen'], 'bsp': erste['o']['beispiel']})};
   anker constant text := E'begin\\n  if p_aufgabe.antworttyp = ''luecken'' then';
   v_patch text := (select patch from bd_mig);
 begin
@@ -151,7 +182,12 @@ begin
   select count(*) into n from bd_alt o join bd_fall f using (nr) join schule.aufgabe a on a.id = f.aufgabe_id
    where schule.antwort_bewerten(a, f.antwort) is distinct from o.r;
   if n <> 0 then fehler := fehler || (n || ' alte Bewertungen weichen ab')::text; end if;
-  if (select count(distinct antworttyp) from bd_alt) <> 5 then fehler := fehler || 'nicht alle fünf alten Antworttypen im Vergleich'::text; end if;
+  -- Abdeckung: je Typ müssen richtige, falsche und im Format abgewiesene Antworten im Vergleich sein
+  select string_agg(t, ', ') into v_txt from unnest(array['auswahl', 'zahl', 'text', 'markierung', 'luecken']) t
+   where not exists (select 1 from bd_alt o where o.antworttyp = t and o.r->>'richtig' = 'true')
+      or not exists (select 1 from bd_alt o where o.antworttyp = t and o.r->>'richtig' = 'false')
+      or not exists (select 1 from bd_alt o where o.antworttyp = t and o.r->>'format_ok' = 'false');
+  if v_txt is not null then fehler := fehler || ('Altvergleich ohne richtig/falsch/Formatfehler bei: ' || v_txt)::text; end if;
 
   -- 5. Rechte: App-Rollen dürfen die neuen Funktionen nicht aufrufen; der Eigentümer der Bewertung darf es
   for v_fn in select p.oid::regprocedure::text from pg_proc p join pg_namespace s on s.oid = p.pronamespace where s.nspname = 'schule' and p.proname like 'bed\\_%' loop
@@ -162,18 +198,54 @@ begin
     if not has_function_privilege('postgres', v_fn, 'execute') then fehler := fehler || ('postgres darf ' || v_fn || ' nicht aufrufen')::text; end if;
   end loop;
   if (select count(*) from pg_proc p join pg_namespace s on s.oid = p.pronamespace where s.nspname = 'schule' and p.proname like 'bed\\_%') <> 9 then fehler := fehler || 'nicht genau neun bed_-Funktionen'::text; end if;
+  -- Der Bewertungsweg der App läuft über SECURITY-DEFINER-Einstiege im Schema api. Positiver Nachweis: Im Kontext jedes ihrer
+  -- Eigentümer liefert antwort_bewerten für eine gebaute Aufgabe des neuen Typs „richtig“. Die neuen Funktionen gehören demselben Eigentümer.
+  n := 0;
+  for v_rolle in select distinct pg_get_userbyid(p.proowner) from pg_proc p join pg_namespace s on s.oid = p.pronamespace where s.nspname = 'api' and p.prosecdef loop
+    n := n + 1;
+    begin
+      execute format('set local role %I', v_rolle);
+      execute 'select schule.antwort_bewerten(jsonb_populate_record(null::schule.aufgabe, $1), $2)' into v_r
+        using jsonb_build_object('antworttyp', 'bedingung', 'frage', jsonb_build_object('felder', v_e1->'felder'), 'loesung', jsonb_build_object('bedingungen', v_e1->'bed')),
+              jsonb_build_object('werte', v_e1->'bsp');
+      execute 'reset role';
+      if v_r is distinct from '{{"format_ok":true,"richtig":true}}'::jsonb then fehler := fehler || ('Bewertungsweg als ' || v_rolle || ' liefert ' || coalesce(v_r::text, 'null'))::text; end if;
+      v_weg := v_weg || v_rolle;
+    exception when others then fehler := fehler || ('Bewertungsweg als ' || v_rolle || ' scheitert: ' || sqlerrm)::text;
+    end;
+    if exists (select 1 from pg_proc p join pg_namespace s on s.oid = p.pronamespace where s.nspname = 'schule' and (p.proname like 'bed\\_%' or p.proname = 'antwort_bewerten') and pg_get_userbyid(p.proowner) <> v_rolle)
+      then fehler := fehler || ('Eigentümer der Bewertungsfunktionen ist nicht ' || v_rolle)::text; end if;
+  end loop;
+  if n = 0 then fehler := fehler || 'kein SECURITY-DEFINER-Einstieg in api gefunden'::text; end if;
+  -- Negativer Nachweis: Jede App-Rolle wird wirklich angenommen; der direkte Aufruf muss an fehlendem Recht scheitern.
+  for v_rolle in select rolname from pg_roles where rolname in ('anon', 'authenticated', 'council_mcp', 'service_role') loop
+    begin
+      execute format('set local role %I', v_rolle);
+      execute 'select schule.bed_bewerten($1, $2, $3)' into v_r using v_e1->'felder', v_e1->'bed', jsonb_build_object('werte', v_e1->'bsp');
+      raise exception using errcode = 'BD999', message = 'darf';
+    exception
+      when insufficient_privilege then v_gesperrt := v_gesperrt || v_rolle;
+      when sqlstate 'BD999' then fehler := fehler || (v_rolle || ' kann schule.bed_bewerten direkt aufrufen')::text;
+      when others then fehler := fehler || ('Rechteprobe als ' || v_rolle || ' unerwartet: ' || sqlerrm)::text;
+    end;
+  end loop;
 
   -- 6. Constraint unverändert und zu
   if v_con is distinct from v_vor.con or v_con like '%bedingung%' then fehler := fehler || 'Constraint geändert oder schon offen'::text; end if;
   begin
-    update schule.aufgabe set antworttyp = 'bedingung' where id = (select min(id) from schule.aufgabe);
+    insert into schule.aufgabe (einheit_id, thema_id, teilfaehigkeit, art, stufe, variante_gruppe, antworttyp, frage, antworten, loesung, tipp, loesungsweg,
+                                punkte_max, reihenfolge, pool, freigegeben, typ, expedition_id, teil)
+    select einheit_id, thema_id, teilfaehigkeit, art, stufe, variante_gruppe, 'bedingung', frage, antworten, loesung, tipp, loesungsweg,
+           punkte_max, reihenfolge, pool, false, typ, expedition_id, teil from schule.aufgabe order by id limit 1;
     raise exception using errcode = 'BD999', message = 'offen';
   exception
     when check_violation then get stacked diagnostics v_c = constraint_name;
       if v_c <> 'aufgabe_antworttyp_check' then fehler := fehler || ('neuer Typ scheitert an ' || v_c || ' statt am Antworttyp-Constraint')::text; else v_c := 'abgewiesen'; end if;
     when sqlstate 'BD999' then fehler := fehler || 'Constraint lässt den neuen Typ zu'::text;
-    when others then v_c := 'nicht prüfbar: ' || sqlerrm;
+    when others then fehler := fehler || ('Constraint-Probe unerwartet: ' || sqlerrm)::text;   -- kein Erfolg ohne nachgewiesenen Abbruch
   end;
+  if v_c is distinct from 'abgewiesen' and not ('Constraint lässt den neuen Typ zu' = any (fehler)) and not exists (select 1 from unnest(fehler) f where f like 'neuer Typ scheitert%' or f like 'Constraint-Probe%')
+    then fehler := fehler || 'Constraint-Probe ohne Ergebnis'::text; end if;
 
   -- 7. Laufzeit (Mittel aus 200): Fall mit den meisten Knoten und Fall mit großen Brüchen
   select split_part(z, chr(1), 1)::jsonb, split_part(z, chr(1), 2)::jsonb into v_f, v_b from bd_ist where o = 2000;
@@ -181,12 +253,17 @@ begin
   ms1 := round((extract(epoch from clock_timestamp() - t0) * 5)::numeric, 2);
   t0 := clock_timestamp(); for i in 1 .. 200 loop v_r := schule.bed_bewerten(v_f, v_b, {lit({'werte': GROSS})}); end loop;
   ms2 := round((extract(epoch from clock_timestamp() - t0) * 5)::numeric, 2);
-  if ms1 > 200 or ms2 > 200 then fehler := fehler || ('zu langsam: ' || ms1 || ' / ' || ms2 || ' ms')::text; end if;
+  v_r2 := v_r;
+  t0 := clock_timestamp(); for i in 1 .. 200 loop v_r := schule.bed_bewerten({lit(tp['f']['felder'])}, {lit(tp['o']['bedingungen'])}, {lit({'werte': POTENZ})}); end loop;
+  ms3 := round((extract(epoch from clock_timestamp() - t0) * 5)::numeric, 2);
+  if v_r is distinct from '{{"format_ok":true,"richtig":false,"verletzt":"p8"}}'::jsonb then fehler := fehler || ('Messfall Potenz liefert ' || v_r::text)::text; end if;
+  if ms1 > 200 or ms2 > 200 or ms3 > 200 then fehler := fehler || ('zu langsam: ' || ms1 || ' / ' || ms2 || ' / ' || ms3 || ' ms')::text; end if;
 
   if array_length(fehler, 1) > 0 then raise exception 'BD-S1 ABBRUCH, alles zurückgerollt: %', array_to_string(fehler, ' | '); end if;
   insert into bd_bericht select jsonb_build_object('ergebnis', 'BD-S1 eingespielt, alle Prüfungen bestanden',
     'referenz_zeilen_gleich', array_length(v_ist, 1), 'alte_bewertungen_verglichen', (select jsonb_object_agg(antworttyp, c) from (select antworttyp, count(*) c from bd_alt group by 1) q),
-    'mischstaende', v_misch, 'constraint', v_c, 'ms_meiste_knoten', ms1, 'ms_grosse_brueche', ms2, 'antwort_grosse_brueche', v_r);
+    'mischstaende', v_misch, 'constraint', v_c, 'bewertungsweg_als', v_weg, 'direktaufruf_gesperrt_fuer', v_gesperrt,
+    'ms_meiste_knoten', ms1, 'ms_grosse_brueche', ms2, 'ms_potenzen_und_ausnahme', ms3, 'antwort_grosse_brueche', v_r2);
 end $pruef$;
 select b from bd_bericht;""")
 

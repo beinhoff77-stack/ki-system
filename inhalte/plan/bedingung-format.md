@@ -63,6 +63,13 @@ Gerechnet wird exakt mit Brüchen. `pruefe` muss wahr oder falsch liefern.
 
 **Seine vier Restpunkte, eingearbeitet am 27.11. (nach seiner Prüfung, von ihm noch nicht gesehen):** Längengrenze greift vor dem Putzen (41 Leerzeichen sind „Format falsch“, 40 sind „leer“); `name` muss nichtleerer Text sein, `hinweis` Text; die Referenz kann JSON exakt lesen (`lade_json`, Kommazahlen als Decimal), damit 1,00000000000000001 nicht still zu 1 wird; Dokument berichtigt, zweite Zeitmessung mit großen Brüchen im Paket.
 
+**Vierte Gegenprüfung (Werkstatt, Nachricht 1009): „Nein“ zum Paket, drei fehlende Prüfungen – eingearbeitet am 27.11.:**
+- Sperre: Probe jetzt per Einfügen (vor Änderungen steht ein Schutz-Trigger); jeder andere Ausgang als der Abbruch an `aufgabe_antworttyp_check` ist ein Fehler.
+- Rechte in beide Richtungen: Der Bewertungsweg wird im Kontext der Eigentümer der SECURITY-DEFINER-Einstiege (Schema `api`) wirklich ausgeführt und muss „richtig“ liefern; jede App-Rolle wird wirklich angenommen, der direkte Aufruf muss an fehlendem Recht scheitern.
+- Altvergleich: je Typ zusätzlich gebaute richtige und falsche Antworten für 40 Aufgaben; das Paket bricht ab, wenn bei einem Typ richtig, falsch oder Formatfehler fehlt.
+- Exakter Leseweg durchgängig: `lade_json` (Kommazahlen behalten ihre Schreibweise, rechnen sonst wie bisher), `schreibe_json` für die verlustfreie Weitergabe; auch `tools/inhalt_pruefen.py` und der Vergleichstest lesen so. Regressionsfall 1.00000000000000001 in den Prüf-Fällen.
+- Dritter Messfall mit Potenzen, Divisionen, Betrag und dem Weg „nicht definiert“ in Prüfung und Hinweis.
+
 **Stand der Prüfung dieser letzten Änderungen:** nur gegen die Python-Referenz („OK – 17 Aufgaben, 178 Prüfungen“). Der Vergleich mit der Datenbank für genau diesen Stand findet im Einspiel-Paket statt, vor dem Gültigwerden. Der frühere Vergleich (6 200 Antworten) galt dem Stand davor.
 
 **Offen aus dem Gegenlesen des Mathe-Profis:** In der Muster-Aufgabe 6-K8-1 verraten die Namen der Bedingungen den Lösungsgedanken; Namen werden nach dem ersten Fehlversuch gezeigt. Regel für Autoren: Der Name nennt die Forderung aus dem Aufgabentext, nicht den Weg.

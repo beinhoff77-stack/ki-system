@@ -1645,6 +1645,9 @@
   }
  ],
  "format": [
+  {"aufgabe": "grenzen-1", "antwort": {"werte": [1.00000000000000001]}, "format_ok": false},
+  {"aufgabe": "grenzen-1", "antwort": {"werte": [1.0]}, "format_ok": true},
+  {"aufgabe": "grenzen-1", "antwort": {"werte": [2e0]}, "format_ok": true},
   {
    "aufgabe": "6-K5-2",
    "antwort": {

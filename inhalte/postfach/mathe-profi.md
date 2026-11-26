@@ -1,5 +1,37 @@
 # Postfach mathe-profi
 
+## 2026-11-26 08:41 (Berlin) – FERTIG: Auftrag 11 – Gesetzbuch in zwei Ebenen, erste Lieferung (Sonne und zwei Planeten)
+
+Zweig `mathe-profi`, auf dem Stand von `lernen-app` 01b103db. Nur Inhalte; nichts in App oder Datenbank geändert (Datenbank nur gelesen). Ablage `inhalte/mathe-profi/regeln-uebersicht/`. Drei Läufe „OK“ (`bauen.py`, `gesetzbuch.py`, `planeten.py`).
+
+**Geliefert**
+- **Ebene 1 hat 42 Sätze:** 14 Rechenregeln und 28 tragende Ideen (Zahlen 5, Algebra 4, Geld und Verhältnisse 3, Geometrie 5, Fläche und Raum 4, Funktionen 3, Daten und Zufall 4). Wortlaut in `ebene1.md`. Jedes der 147 Gesetze der sieben Planeten ist genau einer Idee zugeordnet; das Programm prüft es.
+- **Geometrie, dein Vorschlag geprüft:** zwei deiner fünf Sätze zu einem vereint („Deckungsgleich“), „Pythagoras“ erweitert zu „Rechtwinkliges Dreieck“ (sonst hätten Sinus, Kosinus, Tangens keine Heimat), „Winkelsumme“ um ihre Ursache ergänzt, und eine Idee neu: „Gleicher Abstand“ – ohne sie hatten sechs Gesetze (Ortslinien, Thales, Tangente, Umkreis …) keine Idee. Tabelle in `ebene1.md`.
+- **Fläche und Raum:** deine drei Ideen übernommen, eine vierte dazu („Haut des Körpers“ für Oberfläche, Netz, Schrägbild).
+- **`sonne.md`, zweite Fassung:** alle Muss-Punkte der Gegenprüfung zur Sonne eingearbeitet – Merksätze, Geltungsbedingungen, getrennt Voraussetzung / häufiger Fehler / verwandt, „Möglicher Erklärweg“ statt „baut auf“ (ausdrücklich keine Sperre), jedes Beispiel in eigener Zeile, je Beispiel Vorwissen / Einführung / Anwendung. 76 Beispiele nachgerechnet.
+- **`planet-flaeche-und-raum.md` und `planet-geometrie.md`:** je Idee Begründung und Zeichen-Vorgabe, darunter jedes Gesetz (19 und 30) mit Voraussetzung, häufigem Fehler, Verwandtem, Klasse getrennt nach Gymnasium / Realschule Gruppe I / Gruppe II/III / IB als Planung der App, Beispielen mit Einheiten. 96 Beispiele, davon 86 nachgerechnet und 10 reine Aussagen ohne Rechnung.
+- **Zeichen-Vorgaben:** 23 Stück (14 Rechenregeln, 9 Ideen der zwei Planeten), jede mit: Zu sehen, Maße, Beschriftung, Hervorgehoben, Darf nicht falsch aussehen, Gleiche Zeichnung mit anderer Beschriftung.
+- **`inhalt.md` (Ebene 2):** 45 Sätze nach der Gegenprüfung berichtigt; Stichwörter für die Suche (Kegelmantel, Assoziativgesetz, Mitternachtsformel …); doppelte Inhalte mit Haupteintrag und Verweis; drei Einträge als „Thema/Verfahren“ gekennzeichnet.
+- **Designer:** Vorgaben, Abweichungen von deinem Auftragstext und vier Fragen oben in `inhalte/postfach/designer.md`. Auf seinem Zweig liegt zum Gesetzbuch noch nichts.
+
+**Offen**
+- Zeichen-Vorgaben und Ausarbeitung für die übrigen fünf Planeten (Ideen und Zuordnung stehen).
+- Antworten des Designers (austauschbare Beschriftung, Maße am Handy).
+- Deine Entscheidung: Fehlende Fachnamen und Formeln (Assoziativgesetz, neutrale Zahlen, Kegelmantel, Pyramidenmantel) sind als **Stichwort** auffindbar bzw. im Satz ihres Gesetzes genannt, nicht als eigene Einträge. Die Zahl 174 bleibt dadurch gleich.
+
+**Nicht geprüft**
+- **Klassenzuordnung gegen LehrplanPLUS an der Quelle: nicht erfolgt.** Der Abruf brauchte eine Freigabe, die in der Sitzung nicht kam. Ersatz: Für die zwei Planeten habe ich die Lehrplan-Kopie in der App gelesen (329 Zuordnungen, nur lesend) – daraus stammen die Klassen je Schulart und Gruppe. Für die Sonne und die übrigen fünf Planeten gilt weiter die Themenliste.
+- Ob die Lehrplan-Kopie der App vollständig ist. Wo sie zu einem Gesetz nichts enthält, steht „nicht genannt“ – das heißt nicht sicher, dass es im Lehrplan fehlt (Beispiele: Thales in der Realschule, Kreisausschnitt am Gymnasium, Realschule II/III oft nur Überschriften).
+- Die Einordnung Vorwissen / Einführung / Anwendung in `sonne.md` ist meine Einschätzung, nicht Etappe für Etappe belegt.
+- Von der Werkstatt, Wunsch 176, habe ich nur die Nachrichten 1000 bis 1003 gelesen (Auftrag und Gegenprüfung), nicht den ganzen Verlauf.
+- Die Muss-Punkte zum Verzeichnis habe ich einzeln abgearbeitet; eine zweite Durchsicht aller 174 Sätze steht aus.
+- Kein Satz und keine Zeichnung mit einem Kind erprobt; gezeichnet ist nichts.
+
+**Annahmen**
+- Die Entdecker-Inseln haben keine tragende Idee (nur Ebene 2).
+- Wo die Zuordnung eines Gesetzes zu einer Idee nur lose passt, steht es offen in `ebene1.md` (fünf Stellen).
+- Abweichungen der Lehrplan-Kopie von der Themenliste, im Verzeichnis als Hinweis vermerkt: Cavalieri Gymnasium 10 statt 8; bedingte Wahrscheinlichkeit am Gymnasium in 5 bis 10 ohne Eintrag; Vektoren Realschule 7; Mengen ohne Klasse.
+
 ## 2026-11-26 08:40 (Berlin) – AUFTRAG 11 vom Projektleiter: Gesetzbuch in zwei Ebenen, mit Zeichnungen, zusammen mit dem Designer
 Deine Lieferung zu Auftrag 10 war inhaltlich ein großer Schritt. Als Übersicht sind 174 Einträge zu viel; der Nutzer hat „zwei Ebenen“ angenommen und will Zeichnungen. Maßgeblich ist der letzte Abschnitt von `inhalte/plan/regeln-uebersicht-auftrag.md`.
 

@@ -1,0 +1,2906 @@
+{
+ "stand": "df14ade",
+ "etagen": [
+  {
+   "nr": 4,
+   "name": "Gleichungen"
+  },
+  {
+   "nr": 3,
+   "name": "Brüche und Verhältnis"
+  },
+  {
+   "nr": 2,
+   "name": "Klammern und Potenzen"
+  },
+  {
+   "nr": 1,
+   "name": "Zahlen"
+  }
+ ],
+ "regeln": [
+  {
+   "id": "R1",
+   "nr": 1,
+   "name": "Stellenwert und Prozent",
+   "etage": 1,
+   "braucht": [],
+   "merksatz": "Mal 10 schiebt jede Ziffer eine Stelle nach links, geteilt durch 10 eine nach rechts. Prozent heißt Hundertstel.",
+   "warum": "Unser Zahlensystem zählt in Zehnerbündeln: Jede Stelle ist zehnmal so viel wert wie die Stelle rechts von ihr. Deshalb verschiebt Malnehmen mit 10 alle Ziffern, ohne sie zu ändern. Das Komma trennt nur Ganze von Zehnteln; „Prozent“ ist ein anderes Wort für Hundertstel.",
+   "nicht": "Es wird nicht „eine Null angehängt“: 2,5 · 10 ist 25, nicht 2,50. Beim Runden entscheidet die Ziffer rechts von der Rundungsstelle (ab 5 aufrunden).",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "3 400 m = 3,4 km",
+     "thema": "groessen.einheiten"
+    },
+    {
+     "klasse": 6,
+     "text": "15 % von 240 = 0,15 · 240 = 36",
+     "thema": "bruch.prozent"
+    },
+    {
+     "klasse": 7,
+     "text": "20 % mehr heißt mal 1,2: aus 50 € werden 60 €",
+     "thema": "bruch.prozent_grundwert"
+    },
+    {
+     "klasse": 8,
+     "text": "3 · 10⁻⁴ = 0,0003",
+     "thema": "terme.potenzgesetze_ganzzahlig"
+    },
+    {
+     "klasse": 10,
+     "text": "Jedes Jahr 5 % mehr heißt jedes Jahr mal 1,05",
+     "thema": "funktionen.exponential_log"
+    }
+   ],
+   "bild": "Stellenwerttafel, in der die Ziffern 2 und 5 beim Malnehmen mit 10 gemeinsam ein Fach nach links rutschen – das Komma bleibt stehen."
+  },
+  {
+   "id": "R2",
+   "nr": 2,
+   "name": "Plus und Minus mit negativen Zahlen",
+   "etage": 1,
+   "braucht": [],
+   "merksatz": "Plus geht nach rechts, Minus nach links. Ein Minus in der Klammer dreht die Richtung um.",
+   "warum": "Auf der Zahlengeraden ist Addieren ein Schritt nach rechts und Subtrahieren ein Schritt nach links. Eine negative Zahl ist ein Schritt in die Gegenrichtung. Wer eine negative Zahl abzieht, dreht also zweimal um und geht nach rechts: 9 − (−5) = 9 + 5.",
+   "nicht": "Die Regel sagt nichts über die Größe: −30 ist kleiner als −10, obwohl 30 größer ist als 10. Der Betrag ist der Abstand zur Null und nie negativ.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "(−7) + 4 = −3 · 9 − (−5) = 14",
+     "thema": "zahlen.ganz"
+    },
+    {
+     "klasse": 6,
+     "text": "−½ − ¾ = −1¼",
+     "thema": "bruch.rechnen"
+    },
+    {
+     "klasse": 7,
+     "text": "3x − 5x = −2x",
+     "thema": "terme.umformen"
+    },
+    {
+     "klasse": 8,
+     "text": "x + 5 < 2, also x < −3",
+     "thema": "gleichungen.ungleichungen"
+    },
+    {
+     "klasse": 9,
+     "text": "Die Wurzel aus x² ist der Betrag von x: aus (−3)² wird 3",
+     "thema": "zahlen.reell"
+    }
+   ],
+   "bild": "Zahlengerade mit einer Figur: Sie steht auf der 9, schaut nach links (Minus), dreht sich wegen der (−5) um und geht fünf Schritte nach rechts."
+  },
+  {
+   "id": "R3",
+   "nr": 3,
+   "name": "Vorzeichen bei Mal und Geteilt",
+   "etage": 1,
+   "braucht": [
+    "R2"
+   ],
+   "merksatz": "Minus mal Minus gibt Plus. Plus mal Minus gibt Minus.",
+   "warum": "Setzt man die Reihe 3 · (−2) = −6, 2 · (−2) = −4, 1 · (−2) = −2, 0 · (−2) = 0 fort, wächst das Ergebnis jedes Mal um 2. Also muss (−1) · (−2) = 2 sein. Nur so bleiben alle anderen Rechengesetze gültig. Für Geteilt gilt dasselbe, weil Teilen die Gegenrechnung zum Malnehmen ist.",
+   "nicht": "Gilt nur bei Mal und Geteilt, nicht bei Plus: (−3) + (−4) ist −7, nicht +7. Bei Ungleichungen dreht Malnehmen mit einer negativen Zahl das Ungleichheitszeichen um.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "(−3) · (−4) = 12",
+     "thema": "zahlen.rechengesetze"
+    },
+    {
+     "klasse": 6,
+     "text": "(−⅔) · ¾ = −½",
+     "thema": "bruch.rechnen"
+    },
+    {
+     "klasse": 7,
+     "text": "(−2x) · (−3) = 6x",
+     "thema": "terme.umformen"
+    },
+    {
+     "klasse": 8,
+     "text": "−2x < 6, also x > −3",
+     "thema": "gleichungen.ungleichungen"
+    },
+    {
+     "klasse": 9,
+     "text": "x² = 25 hat zwei Lösungen: 5 und −5",
+     "thema": "gleichungen.quadratisch"
+    },
+    {
+     "klasse": 10,
+     "text": "(−2)³ = −8: Eine ungerade Hochzahl behält das Minus",
+     "thema": "funktionen.ganzrational"
+    }
+   ],
+   "bild": "Die Musterreihe als Treppe: vier Stufen abwärts von −6 bis 0 – und die nächste Stufe landet zwingend bei +2."
+  },
+  {
+   "id": "R4",
+   "nr": 4,
+   "name": "Reihenfolge beim Rechnen",
+   "etage": 1,
+   "braucht": [],
+   "merksatz": "Klammer zuerst, dann Hoch, dann Punkt, dann Strich.",
+   "warum": "Die Reihenfolge ist eine Vereinbarung, damit jeder dieselbe Rechnung gleich liest. Sie folgt dem Aufbau: Hoch ist wiederholtes Malnehmen, Mal ist wiederholtes Addieren – die „stärkere“ Rechnung bindet enger. Klammern sind das Mittel, die Reihenfolge zu ändern.",
+   "nicht": "Die zuletzt ausgeführte Rechnung gibt dem Term seinen Namen: 2 + 3x ist eine Summe. Deshalb darf man 2 + 3x nicht zu 5x zusammenziehen.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "2 + 3 · 4 = 14, nicht 20",
+     "thema": "zahlen.rechengesetze"
+    },
+    {
+     "klasse": 6,
+     "text": "½ + ½ · ½ = ¾",
+     "thema": "bruch.rechnen"
+    },
+    {
+     "klasse": 7,
+     "text": "2 + 3x ist eine Summe, nicht 5x",
+     "thema": "terme.umformen"
+    },
+    {
+     "klasse": 8,
+     "text": "3 · 2⁻² = ¾, nicht 6⁻²",
+     "thema": "terme.potenzgesetze_ganzzahlig"
+    },
+    {
+     "klasse": 9,
+     "text": "−3² = −9, aber (−3)² = 9",
+     "thema": "gleichungen.quadratisch"
+    },
+    {
+     "klasse": 10,
+     "text": "2 · 3² = 18, nicht 6² = 36: Hoch kommt vor Mal",
+     "thema": "gleichungen.exponential"
+    }
+   ],
+   "bild": "Vier Treppenstufen von oben nach unten: Klammer, Hoch, Punkt, Strich. Daneben 2 + 3 · 4 mit einem Rahmen um 3 · 4."
+  },
+  {
+   "id": "R5",
+   "nr": 5,
+   "name": "Tauschen und Zusammenfassen",
+   "etage": 2,
+   "braucht": [
+    "R2"
+   ],
+   "merksatz": "Bei Plus und Mal darfst du tauschen, bei Minus und Geteilt nicht. Zusammenfassen darfst du nur Gleiches.",
+   "warum": "Bei einer Summe und bei einem Produkt kommt es nicht auf die Reihenfolge an: 3 + 5 und 5 + 3 sind dieselbe Menge. Beim Abziehen und Teilen schon: 5 − 3 ist nicht 3 − 5. Wer jede Zahl mit ihrem Rechenzeichen zusammen verschiebt, darf trotzdem umstellen. Zusammenfassen heißt zählen: 3 Äpfel und 4 Äpfel sind 7 Äpfel – 3 Äpfel und 4 Birnen bleiben getrennt.",
+   "nicht": "3a + 4b lässt sich nicht zusammenfassen, 3a · 4b schon (12ab). a und a² sind nicht „Gleiches“.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "25 · 37 · 4 = 25 · 4 · 37 = 3 700",
+     "thema": "zahlen.rechengesetze"
+    },
+    {
+     "klasse": 6,
+     "text": "0,5 · 7 · 2 = 0,5 · 2 · 7 = 7",
+     "thema": "bruch.dezimal"
+    },
+    {
+     "klasse": 7,
+     "text": "3a + 2b + 4a = 7a + 2b",
+     "thema": "terme.umformen"
+    },
+    {
+     "klasse": 8,
+     "text": "a³ · b · a⁻¹ = a² · b",
+     "thema": "terme.potenzgesetze_ganzzahlig"
+    },
+    {
+     "klasse": 9,
+     "text": "3 · √2 + 2 · √2 = 5 · √2 (nur gleiche Wurzeln)",
+     "thema": "zahlen.reell"
+    }
+   ],
+   "bild": "Zwei Körbe: In einen wandern alle x, in den anderen alle Zahlen. Jedes Teil trägt sein Rechenzeichen wie ein Etikett mit."
+  },
+  {
+   "id": "R6",
+   "nr": 6,
+   "name": "Ausmultiplizieren und Ausklammern",
+   "etage": 2,
+   "braucht": [
+    "R4"
+   ],
+   "merksatz": "Der Faktor vor der Klammer trifft jeden in der Klammer.",
+   "warum": "Ein Rechteck mit den Seiten a und (b + c) hat dieselbe Fläche wie die zwei Teilrechtecke a · b und a · c zusammen. Rückwärts gelesen ist es das Ausklammern: Steckt in jedem Summanden derselbe Faktor, darf man ihn vor eine Klammer ziehen.",
+   "nicht": "Gilt für Mal vor einer Summe, nicht für Hoch: (a + b)² ist nicht a² + b². Das Rechteckbild zeigt warum – es fehlen zwei Rechtecke a · b.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "6 · 98 = 6 · 100 − 6 · 2 = 588",
+     "thema": "zahlen.rechengesetze"
+    },
+    {
+     "klasse": 6,
+     "text": "4 · 2,5 = 4 · 2 + 4 · 0,5 = 10",
+     "thema": "bruch.dezimal"
+    },
+    {
+     "klasse": 7,
+     "text": "3 · (x + 2) = 3x + 6 · (a + b)² = a² + 2ab + b²",
+     "thema": "terme.umformen"
+    },
+    {
+     "klasse": 8,
+     "text": "(3x + 6) : (x + 2) = 3 · (x + 2) : (x + 2) = 3",
+     "thema": "terme.bruchterme"
+    },
+    {
+     "klasse": 9,
+     "text": "x² + 5x = x · (x + 5)",
+     "thema": "gleichungen.quadratisch"
+    },
+    {
+     "klasse": 10,
+     "text": "x³ − 4x = x · (x² − 4)",
+     "thema": "gleichungen.polynom"
+    }
+   ],
+   "bild": "Ein Rechteck, durch einen Strich in zwei Teile geteilt: Breite a, Längen b und c. Darunter dasselbe Bild für (a + b)² mit vier Feldern."
+  },
+  {
+   "id": "R7",
+   "nr": 7,
+   "name": "Minus vor der Klammer",
+   "etage": 2,
+   "braucht": [
+    "R6",
+    "R3"
+   ],
+   "merksatz": "Minus vor der Klammer dreht jedes Zeichen in der Klammer um.",
+   "warum": "Ein Minus vor der Klammer heißt „mal (−1)“. Nach der Regel „der Faktor trifft jeden“ wird jeder Summand mit −1 malgenommen, also wechselt jedes Vorzeichen. Im Alltag: Wer 20 € hat und einen Einkauf von 8 € mit 3 € Rabatt bezahlt, hat 20 − 8 + 3 € übrig.",
+   "nicht": "Ein Plus vor der Klammer ändert nichts. Die Regel ist keine neue Regel, sondern folgt aus den beiden Regeln davor – sie steht eigens da, weil hier die meisten Fehler entstehen.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "20 − (8 − 3) = 20 − 8 + 3 = 15 (in Klasse 5 nur zum Nachrechnen)",
+     "thema": "zahlen.rechengesetze"
+    },
+    {
+     "klasse": 7,
+     "text": "5x − (3x − 2) = 2x + 2",
+     "thema": "terme.umformen"
+    },
+    {
+     "klasse": 8,
+     "text": "7 − 2 · (x − 3) = 7 − 2x + 6",
+     "thema": "gleichungen.bruch"
+    },
+    {
+     "klasse": 9,
+     "text": "(x + 1)² − (x² − 3) = 2x + 4",
+     "thema": "gleichungen.quadratisch"
+    }
+   ],
+   "bild": "Kassenzettel: 20 € − (8 € − 3 € Rabatt). Der Rabatt in der Klammer wird beim Auflösen zu + 3 €."
+  },
+  {
+   "id": "R8",
+   "nr": 8,
+   "name": "Potenzen",
+   "etage": 2,
+   "braucht": [
+    "R4",
+    "R3"
+   ],
+   "merksatz": "Hoch heißt: so oft mit sich selbst malnehmen. Gleiche Basis mal gleiche Basis: Hochzahlen addieren.",
+   "warum": "2³ · 2² ist (2 · 2 · 2) · (2 · 2) – zusammen fünf Zweien, also 2⁵. Teilt man, fallen Faktoren weg; deshalb werden die Hochzahlen abgezogen. Setzt man das fort, ergibt sich 2⁰ = 1 und 2⁻¹ = ½: Eine negative Hochzahl heißt Kehrwert.",
+   "nicht": "Gilt nur bei gleicher Basis und nur bei Mal: 2³ + 2² ist nicht 2⁵. Und a · a ist a², nicht 2a. Eine negative Hochzahl macht die Zahl nicht negativ.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "2⁵ = 2 · 2 · 2 · 2 · 2 = 32",
+     "thema": "zahlen.potenzen_basis"
+    },
+    {
+     "klasse": 6,
+     "text": "10³ · 10² = 10⁵",
+     "thema": "terme.potenzgesetze"
+    },
+    {
+     "klasse": 7,
+     "text": "x² · x³ = x⁵",
+     "thema": "terme.potenzgesetze_natuerlich"
+    },
+    {
+     "klasse": 8,
+     "text": "a⁻² = 1 : a²",
+     "thema": "terme.potenzgesetze_ganzzahlig"
+    },
+    {
+     "klasse": 9,
+     "text": "9 hoch ½ ist die Wurzel aus 9, also 3",
+     "thema": "zahlen.rationale_exponenten"
+    },
+    {
+     "klasse": 10,
+     "text": "2ˣ · 2³ = 2 hoch (x + 3)",
+     "thema": "funktionen.exponential_log"
+    }
+   ],
+   "bild": "Faltblatt: einmal falten 2 Lagen, zweimal 4, dreimal 8. Darunter die Reihe 8, 4, 2, 1, ½, ¼ mit den Hochzahlen 3, 2, 1, 0, −1, −2."
+  },
+  {
+   "id": "R9",
+   "nr": 9,
+   "name": "Erweitern und Kürzen",
+   "etage": 3,
+   "braucht": [
+    "R1"
+   ],
+   "merksatz": "Zähler und Nenner mit derselben Zahl malnehmen oder durch dieselbe Zahl teilen: Der Bruch behält seinen Wert.",
+   "warum": "Der Nenner sagt, in wie viele gleiche Teile das Ganze geschnitten ist, der Zähler, wie viele davon gemeint sind. Schneidet man jedes Teil noch einmal durch, gibt es doppelt so viele Teile und man nimmt doppelt so viele – die Menge bleibt gleich: ½ = 2/4.",
+   "nicht": "Kürzen darf man nur Faktoren, nie aus Summen: (x + 6) : (x + 2) ist nicht 3. Und Plus oder Minus in Zähler und Nenner ändert den Wert: 2/3 ist nicht 3/4.",
+   "klassen": [
+    {
+     "klasse": 6,
+     "text": "12/18 = 2/3",
+     "thema": "bruch.brueche"
+    },
+    {
+     "klasse": 7,
+     "text": "6x : 9 = 2x : 3",
+     "thema": "terme.umformen"
+    },
+    {
+     "klasse": 8,
+     "text": "(3x + 6) : (x + 2) = 3, aber (x + 6) : (x + 2) lässt sich nicht kürzen",
+     "thema": "terme.bruchterme"
+    },
+    {
+     "klasse": 9,
+     "text": "Seitenverhältnis 6 : 9 ist dasselbe wie 2 : 3",
+     "thema": "abbildungen.aehnlichkeit"
+    }
+   ],
+   "bild": "Dieselbe Pizza dreimal: in 2, in 4 und in 8 Stücke geschnitten – jedes Mal ist dieselbe Hälfte gefärbt."
+  },
+  {
+   "id": "R10",
+   "nr": 10,
+   "name": "Rechnen mit Brüchen",
+   "etage": 3,
+   "braucht": [
+    "R9"
+   ],
+   "merksatz": "Plus und Minus: erst gleicher Nenner. Mal: Zähler mal Zähler, Nenner mal Nenner. Geteilt: mal den Kehrbruch.",
+   "warum": "Addieren kann man nur gleich große Teile – Drittel und Halbe müssen erst in Sechstel umgerechnet werden. „Mal ½“ heißt „die Hälfte von“; deshalb werden beim Malnehmen die Teile feiner (Nenner mal Nenner). Teilen fragt „wie oft passt es hinein“: In 6 passt ½ zwölfmal – das ist dasselbe wie 6 mal 2.",
+   "nicht": "Nie Zähler plus Zähler und Nenner plus Nenner: ½ + ⅓ ist nicht 2/5. Beim Malnehmen braucht man keinen gemeinsamen Nenner.",
+   "klassen": [
+    {
+     "klasse": 6,
+     "text": "½ + ⅓ = 3/6 + 2/6 = 5/6 · 6 : ½ = 12",
+     "thema": "bruch.rechnen"
+    },
+    {
+     "klasse": 7,
+     "text": "x/2 + x/3 = 5x/6",
+     "thema": "gleichungen.linear"
+    },
+    {
+     "klasse": 8,
+     "text": "2/x + 3/(x + 1) = (5x + 2) : (x · (x + 1))",
+     "thema": "terme.bruchterme"
+    },
+    {
+     "klasse": 10,
+     "text": "Zweimal Kopf: ½ · ½ = ¼",
+     "thema": "stochastik.mehrstufig"
+    }
+   ],
+   "bild": "Zwei gleich lange Streifen: einer halbiert, einer gedrittelt. Darunter beide in Sechstel geteilt – drei Sechstel und zwei Sechstel liegen nebeneinander."
+  },
+  {
+   "id": "R11",
+   "nr": 11,
+   "name": "Verhältnis (Dreisatz)",
+   "etage": 3,
+   "braucht": [
+    "R9",
+    "R1"
+   ],
+   "merksatz": "Erst auf eins, dann auf viele.",
+   "warum": "Wenn zwei Größen im selben Verhältnis wachsen, kostet jede Einheit gleich viel. Wer den Wert für eine Einheit kennt, kennt jeden anderen: 3 kg kosten 7,50 €, also 1 kg 2,50 €, also 5 kg 12,50 €. Dieselbe Idee steckt in Prozent (Wert je Hundertstel), in der Steigung einer Geraden (Höhe je Schritt nach rechts) und im Maßstab.",
+   "nicht": "Gilt nur, wenn nichts Festes dazukommt: Mit Grundgebühr stimmt es nicht mehr. Und es gibt das Gegenstück: Bei „je mehr, desto weniger“ (doppelt so viele Helfer, halbe Zeit) bleibt das Produkt gleich, nicht das Verhältnis.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "3 kg kosten 7,50 €, 1 kg kostet 2,50 €, 5 kg kosten 12,50 €",
+     "thema": "groessen.proportional"
+    },
+    {
+     "klasse": 6,
+     "text": "15 von 60 sind 25 %",
+     "thema": "bruch.prozent"
+    },
+    {
+     "klasse": 7,
+     "text": "80 % sind 48 €, 1 % sind 0,60 €, 100 % sind 60 €",
+     "thema": "bruch.prozent_grundwert"
+    },
+    {
+     "klasse": 8,
+     "text": "Steigung 1,5: je 2 nach rechts geht es 3 nach oben",
+     "thema": "funktionen.linear"
+    },
+    {
+     "klasse": 9,
+     "text": "Strahlensatz: 2 : 3 = 4 : x, also x = 6",
+     "thema": "abbildungen.aehnlichkeit"
+    }
+   ],
+   "bild": "Drei Zeilen untereinander: 3 kg – 7,50 €, 1 kg – 2,50 €, 5 kg – 12,50 €, mit Pfeilen „geteilt durch 3“ und „mal 5“ auf beiden Seiten. Daneben ein Steigungsdreieck: 1 nach rechts, 2,5 nach oben."
+  },
+  {
+   "id": "R12",
+   "nr": 12,
+   "name": "Gegenrechnung",
+   "etage": 4,
+   "braucht": [
+    "R4"
+   ],
+   "merksatz": "Jede Rechnung hat eine Gegenrechnung: Plus und Minus, Mal und Geteilt, Quadrat und Wurzel.",
+   "warum": "Die Gegenrechnung macht eine Rechnung rückgängig. Wer weiß, was mit einer Zahl gemacht wurde, findet sie, indem er rückwärts geht und jede Rechnung umkehrt – die letzte zuerst. In Klasse 10 kommt ein viertes Paar dazu: Hoch und Logarithmus.",
+   "nicht": "Rückwärts in umgekehrter Reihenfolge: Was zuletzt gerechnet wurde, kommt zuerst weg. Beim Quadrat gibt es zwei Wege zurück: x² = 49 hat die Lösungen 7 und −7. Durch null teilen hat keine Gegenrechnung.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "4 · (□ − 12) = −20: erst : 4, dann + 12, also □ = 7",
+     "thema": "gleichungen.einfach"
+    },
+    {
+     "klasse": 6,
+     "text": "¾ von einer Zahl sind 12: Die Zahl ist 12 : ¾ = 16",
+     "thema": "bruch.rechnen"
+    },
+    {
+     "klasse": 7,
+     "text": "Nach 20 % Aufschlag kostet es 60 €: vorher 60 : 1,2 = 50 €",
+     "thema": "bruch.prozent_grundwert"
+    },
+    {
+     "klasse": 8,
+     "text": "A = g · h : 2 nach h: erst mal 2, dann durch g",
+     "thema": "gleichungen.formeln"
+    },
+    {
+     "klasse": 9,
+     "text": "x² = 49, also x = 7 oder x = −7",
+     "thema": "gleichungen.quadratisch"
+    },
+    {
+     "klasse": 10,
+     "text": "2ˣ = 8, also x = 3 (Logarithmus)",
+     "thema": "gleichungen.exponential"
+    }
+   ],
+   "bild": "Eine Zahl geht durch zwei Maschinen („− 12“, dann „· 4“) und kommt als −20 heraus. Darunter derselbe Weg rückwärts: „: 4“, dann „+ 12“."
+  },
+  {
+   "id": "R13",
+   "nr": 13,
+   "name": "Gleichung als Waage",
+   "etage": 4,
+   "braucht": [
+    "R12",
+    "R6"
+   ],
+   "merksatz": "Eine Gleichung ist eine Waage: Was du links tust, musst du auch rechts tun.",
+   "warum": "Das Gleichheitszeichen sagt: Links und rechts steht gleich viel. Nimmt man auf beiden Seiten dasselbe weg oder verdoppelt beide Seiten, bleibt die Waage im Gleichgewicht – die Gleichung hat danach dieselbe Lösung. Welche Rechnung man wählt, sagt die Gegenrechnung.",
+   "nicht": "„Auf beiden Seiten“ heißt: die ganze Seite. Beim Malnehmen und Teilen trifft es jeden Summanden. Mit null malnehmen oder durch einen Term teilen, der null sein kann, zerstört die Gleichung. Bei Ungleichungen dreht mal oder geteilt durch eine negative Zahl das Zeichen um.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "□ + 7 = 3: auf beiden Seiten 7 abziehen, □ = −4",
+     "thema": "gleichungen.einfach"
+    },
+    {
+     "klasse": 7,
+     "text": "2x + 2 = 12, also 2x = 10, also x = 5",
+     "thema": "gleichungen.linear"
+    },
+    {
+     "klasse": 8,
+     "text": "3/x + ½ = 5/x: beide Seiten mal 2x, dann 6 + x = 10, x = 4",
+     "thema": "gleichungen.bruch"
+    },
+    {
+     "klasse": 9,
+     "text": "2x² = 18, also x² = 9",
+     "thema": "gleichungen.quadratisch"
+    },
+    {
+     "klasse": 10,
+     "text": "3 · 2ˣ = 24, also 2ˣ = 8",
+     "thema": "gleichungen.exponential"
+    }
+   ],
+   "bild": "Balkenwaage: links zwei Säckchen x und zwei Kugeln, rechts zwölf Kugeln. Auf beiden Seiten werden zwei Kugeln weggenommen, dann beide Seiten halbiert."
+  },
+  {
+   "id": "R14",
+   "nr": 14,
+   "name": "Nullprodukt",
+   "etage": 4,
+   "braucht": [
+    "R6",
+    "R13"
+   ],
+   "merksatz": "Ein Produkt ist null, wenn ein Faktor null ist – und nur dann.",
+   "warum": "Null mal irgendetwas ist null. Umgekehrt kann aus zwei Zahlen, die beide nicht null sind, beim Malnehmen nie null werden. Deshalb darf man eine Gleichung „Produkt = 0“ in mehrere einfache Gleichungen zerlegen: Jeder Faktor für sich kann null sein.",
+   "nicht": "Gilt nur für null: Aus (x − 2) · (x + 3) = 6 folgt nicht x − 2 = 6. Erst alles auf eine Seite bringen, dann ausklammern.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "0 · 7 = 0 · und: durch 0 kann man nicht teilen",
+     "thema": "zahlen.rechengesetze"
+    },
+    {
+     "klasse": 8,
+     "text": "Der Nenner x · (x − 4) ist null für x = 0 oder x = 4",
+     "thema": "terme.bruchterme"
+    },
+    {
+     "klasse": 9,
+     "text": "(x − 2) · (x + 3) = 0, also x = 2 oder x = −3",
+     "thema": "gleichungen.quadratisch"
+    },
+    {
+     "klasse": 10,
+     "text": "x³ − 4x = x · (x − 2) · (x + 2) = 0, also x = 0, 2 oder −2",
+     "thema": "gleichungen.polynom"
+    }
+   ],
+   "bild": "Eine Kette aus zwei Gliedern, die an der Null hängt: Reißt ein Glied (ist es null), fällt alles auf null."
+  }
+ ],
+ "planeten": [
+  {
+   "name": "Zahlen",
+   "zahl": 24,
+   "lage": "innerster Planet",
+   "abschnitte": [
+    "Zahlen schreiben und ordnen",
+    "Teilbarkeit",
+    "Brüche und Dezimalzahlen",
+    "Potenzen, Wurzeln, Logarithmen"
+   ],
+   "gezaehlt": 24
+  },
+  {
+   "name": "Algebra",
+   "zahl": 23,
+   "lage": "zweiter Planet",
+   "abschnitte": [
+    "Terme",
+    "Gleichungen ersten Grades",
+    "Gleichungen höheren Grades"
+   ],
+   "gezaehlt": 23
+  },
+  {
+   "name": "Geld und Verhältnisse",
+   "zahl": 11,
+   "lage": "dritter Planet",
+   "abschnitte": [
+    "Größen",
+    "Proportionalität",
+    "Prozent und Zins"
+   ],
+   "gezaehlt": 11
+  },
+  {
+   "name": "Geometrie",
+   "zahl": 30,
+   "lage": "vierter Planet",
+   "abschnitte": [
+    "Lage und Winkel",
+    "Figuren und Konstruktion",
+    "Abbilden",
+    "Ähnlichkeit und rechtwinkliges Dreieck"
+   ],
+   "gezaehlt": 30
+  },
+  {
+   "name": "Fläche und Raum",
+   "zahl": 19,
+   "lage": "fünfter Planet",
+   "abschnitte": [
+    "Flächen",
+    "Körper"
+   ],
+   "gezaehlt": 19
+  },
+  {
+   "name": "Funktionen",
+   "zahl": 20,
+   "lage": "sechster Planet",
+   "abschnitte": [
+    "Grundbegriffe",
+    "Funktionsarten"
+   ],
+   "gezaehlt": 20
+  },
+  {
+   "name": "Daten und Zufall",
+   "zahl": 20,
+   "lage": "siebter Planet",
+   "abschnitte": [
+    "Daten",
+    "Zählen und Zufall"
+   ],
+   "gezaehlt": 20
+  },
+  {
+   "name": "Entdecker-Inseln",
+   "zahl": 5,
+   "lage": "Kleinplaneten am Rand",
+   "abschnitte": [
+    "Nur IB – Kür"
+   ],
+   "gezaehlt": 5
+  }
+ ],
+ "gesetze": [
+  {
+   "id": "Z1",
+   "name": "Stellenwertsystem",
+   "satz": "Jede Stelle ist zehnmal so viel wert wie die Stelle rechts daneben – auch hinter dem Komma.",
+   "gym": "5–6",
+   "rs": "5–6",
+   "ib": "1",
+   "sonne": "1",
+   "planet": "Zahlen",
+   "abschnitt": "Zahlen schreiben und ordnen"
+  },
+  {
+   "id": "Z2",
+   "name": "Runden",
+   "satz": "Die Ziffer rechts von der Rundungsstelle entscheidet: 0 bis 4 abrunden, 5 bis 9 aufrunden.",
+   "gym": "5–6",
+   "rs": "5–6",
+   "ib": "1",
+   "sonne": "1",
+   "planet": "Zahlen",
+   "abschnitt": "Zahlen schreiben und ordnen"
+  },
+  {
+   "id": "Z3",
+   "name": "Andere Zahlschriften",
+   "satz": "Römische Zahlen reihen Zeichen aneinander; das Zweiersystem bündelt in Zweiern statt in Zehnern.",
+   "gym": "5",
+   "rs": "5",
+   "ib": "1",
+   "sonne": "–",
+   "planet": "Zahlen",
+   "abschnitt": "Zahlen schreiben und ordnen"
+  },
+  {
+   "id": "Z4",
+   "name": "Ordnung auf der Zahlengeraden",
+   "satz": "Was weiter links liegt, ist kleiner – auch bei negativen Zahlen und Brüchen.",
+   "gym": "5–6",
+   "rs": "5–6",
+   "ib": "1–2",
+   "sonne": "2",
+   "planet": "Zahlen",
+   "abschnitt": "Zahlen schreiben und ordnen"
+  },
+  {
+   "id": "Z5",
+   "name": "Betrag und Gegenzahl",
+   "satz": "Der Betrag ist der Abstand zur Null. Die Gegenzahl liegt gleich weit auf der anderen Seite.",
+   "gym": "5",
+   "rs": "5",
+   "ib": "2–5",
+   "sonne": "2",
+   "planet": "Zahlen",
+   "abschnitt": "Zahlen schreiben und ordnen"
+  },
+  {
+   "id": "Z6",
+   "name": "Teiler und Vielfache",
+   "satz": "a ist Teiler von b, wenn b geteilt durch a ohne Rest aufgeht.",
+   "gym": "5",
+   "rs": "5",
+   "ib": "1",
+   "sonne": "–",
+   "planet": "Zahlen",
+   "abschnitt": "Teilbarkeit"
+  },
+  {
+   "id": "Z7",
+   "name": "Teilbarkeitsregeln",
+   "satz": "Durch 2, 5 und 10: letzte Ziffer ansehen. Durch 3 und 9: Quersumme ansehen.",
+   "gym": "5",
+   "rs": "5",
+   "ib": "1",
+   "sonne": "1",
+   "planet": "Zahlen",
+   "abschnitt": "Teilbarkeit"
+  },
+  {
+   "id": "Z8",
+   "name": "Primzahlen und Primfaktoren",
+   "satz": "Jede Zahl größer als 1 lässt sich auf genau eine Weise in Primzahlen zerlegen.",
+   "gym": "5",
+   "rs": "5",
+   "ib": "1",
+   "sonne": "–",
+   "planet": "Zahlen",
+   "abschnitt": "Teilbarkeit"
+  },
+  {
+   "id": "Z9",
+   "name": "ggT und kgV",
+   "satz": "Der größte gemeinsame Teiler kürzt vollständig, das kleinste gemeinsame Vielfache ist der Hauptnenner.",
+   "gym": "6",
+   "rs": "6",
+   "ib": "1",
+   "sonne": "9",
+   "planet": "Zahlen",
+   "abschnitt": "Teilbarkeit"
+  },
+  {
+   "id": "Z10",
+   "name": "Bruch als Anteil",
+   "satz": "Der Nenner teilt, der Zähler zählt. Anteil = Teil durch Ganzes.",
+   "gym": "6",
+   "rs": "6",
+   "ib": "1",
+   "sonne": "–",
+   "planet": "Zahlen",
+   "abschnitt": "Brüche und Dezimalzahlen"
+  },
+  {
+   "id": "Z11",
+   "name": "Brüche vergleichen",
+   "satz": "Bei gleichem Nenner ist der Bruch mit dem größeren Zähler größer; sonst erst gleichnamig machen.",
+   "gym": "6",
+   "rs": "6",
+   "ib": "1",
+   "sonne": "9",
+   "planet": "Zahlen",
+   "abschnitt": "Brüche und Dezimalzahlen"
+  },
+  {
+   "id": "Z12",
+   "name": "Drei Schreibweisen einer Zahl",
+   "satz": "Bruch, Dezimalzahl und Prozent sagen dasselbe: ½ = 0,5 = 50 %.",
+   "gym": "6",
+   "rs": "6",
+   "ib": "1",
+   "sonne": "1",
+   "planet": "Zahlen",
+   "abschnitt": "Brüche und Dezimalzahlen"
+  },
+  {
+   "id": "Z13",
+   "name": "Periodische Dezimalzahlen",
+   "satz": "Jeder Bruch wird als Dezimalzahl endlich oder periodisch – nie etwas anderes.",
+   "gym": "6",
+   "rs": "6",
+   "ib": "1",
+   "sonne": "–",
+   "planet": "Zahlen",
+   "abschnitt": "Brüche und Dezimalzahlen"
+  },
+  {
+   "id": "Z14",
+   "name": "Rechnen mit Komma",
+   "satz": "Mal: Nachkommastellen zusammenzählen. Geteilt: das Komma in beiden Zahlen gleich weit verschieben.",
+   "gym": "6",
+   "rs": "6",
+   "ib": "2",
+   "sonne": "1",
+   "planet": "Zahlen",
+   "abschnitt": "Brüche und Dezimalzahlen"
+  },
+  {
+   "id": "Z15",
+   "name": "Quadratzahlen",
+   "satz": "Hoch 2 heißt Zahl mal sich selbst; die Quadratzahlen bis 20² weiß man auswendig.",
+   "gym": "5",
+   "rs": "5",
+   "ib": "1",
+   "sonne": "8",
+   "planet": "Zahlen",
+   "abschnitt": "Potenzen, Wurzeln, Logarithmen"
+  },
+  {
+   "id": "Z16",
+   "name": "Potenz mit negativer Basis",
+   "satz": "Gerade Hochzahl: Ergebnis positiv. Ungerade Hochzahl: Ergebnis negativ.",
+   "gym": "5",
+   "rs": "5",
+   "ib": "1",
+   "sonne": "3, 8",
+   "planet": "Zahlen",
+   "abschnitt": "Potenzen, Wurzeln, Logarithmen"
+  },
+  {
+   "id": "Z17",
+   "name": "Hoch null und negative Hochzahl",
+   "satz": "a⁰ = 1. Eine negative Hochzahl heißt Kehrwert: a⁻ⁿ = 1 : aⁿ.",
+   "gym": "6–8",
+   "rs": "7",
+   "ib": "3–4",
+   "sonne": "8",
+   "planet": "Zahlen",
+   "abschnitt": "Potenzen, Wurzeln, Logarithmen"
+  },
+  {
+   "id": "Z18",
+   "name": "Zehnerpotenzen",
+   "satz": "10ⁿ ist eine 1 mit n Nullen, 10⁻ⁿ hat n Stellen hinter dem Komma. Kilo, Mega, Milli, Mikro sind Zehnerpotenzen.",
+   "gym": "5–6",
+   "rs": "5–7",
+   "ib": "1–4",
+   "sonne": "1, 8",
+   "planet": "Zahlen",
+   "abschnitt": "Potenzen, Wurzeln, Logarithmen"
+  },
+  {
+   "id": "Z19",
+   "name": "Potenzgesetze",
+   "satz": "Gleiche Basis: Hochzahlen addieren. Gleiche Hochzahl: Basen malnehmen. Potenz der Potenz: Hochzahlen malnehmen.",
+   "gym": "7–9",
+   "rs": "7–10",
+   "ib": "3–5",
+   "sonne": "8",
+   "planet": "Zahlen",
+   "abschnitt": "Potenzen, Wurzeln, Logarithmen"
+  },
+  {
+   "id": "Z20",
+   "name": "Quadratwurzel",
+   "satz": "Die Wurzel aus a ist die Zahl ab null, deren Quadrat a ist. Aus negativen Zahlen gibt es keine.",
+   "gym": "9",
+   "rs": "9",
+   "ib": "1",
+   "sonne": "12",
+   "planet": "Zahlen",
+   "abschnitt": "Potenzen, Wurzeln, Logarithmen"
+  },
+  {
+   "id": "Z21",
+   "name": "Wurzelgesetze",
+   "satz": "Wurzel mal Wurzel ist Wurzel aus dem Produkt, Wurzel durch Wurzel ist Wurzel aus dem Quotienten – nicht bei Plus und Minus.",
+   "gym": "9",
+   "rs": "9",
+   "ib": "4",
+   "sonne": "8",
+   "planet": "Zahlen",
+   "abschnitt": "Potenzen, Wurzeln, Logarithmen"
+  },
+  {
+   "id": "Z22",
+   "name": "Irrationale und reelle Zahlen",
+   "satz": "Manche Zahlen sind kein Bruch, zum Beispiel √2. Brüche und diese Zahlen zusammen heißen reelle Zahlen.",
+   "gym": "9",
+   "rs": "9",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Zahlen",
+   "abschnitt": "Potenzen, Wurzeln, Logarithmen"
+  },
+  {
+   "id": "Z23",
+   "name": "n-te Wurzel und Bruch als Hochzahl",
+   "satz": "a hoch 1/n ist die n-te Wurzel aus a.",
+   "gym": "9",
+   "rs": "10",
+   "ib": "5",
+   "sonne": "8, 12",
+   "planet": "Zahlen",
+   "abschnitt": "Potenzen, Wurzeln, Logarithmen"
+  },
+  {
+   "id": "Z24",
+   "name": "Logarithmus",
+   "satz": "Der Logarithmus ist die gesuchte Hochzahl. Aus Mal wird Plus, aus Hoch wird Mal.",
+   "gym": "10",
+   "rs": "10",
+   "ib": "5",
+   "sonne": "8, 12",
+   "planet": "Zahlen",
+   "abschnitt": "Potenzen, Wurzeln, Logarithmen"
+  },
+  {
+   "id": "A1",
+   "name": "Term und Variable",
+   "satz": "Ein Buchstabe steht für eine Zahl. Die zuletzt ausgeführte Rechnung gibt dem Term seinen Namen.",
+   "gym": "7",
+   "rs": "6",
+   "ib": "1",
+   "sonne": "4",
+   "planet": "Algebra",
+   "abschnitt": "Terme"
+  },
+  {
+   "id": "A2",
+   "name": "Gleichwertige Terme",
+   "satz": "Zwei Terme sind gleichwertig, wenn sie für jede eingesetzte Zahl denselben Wert haben.",
+   "gym": "7",
+   "rs": "7",
+   "ib": "3",
+   "sonne": "–",
+   "planet": "Algebra",
+   "abschnitt": "Terme"
+  },
+  {
+   "id": "A3",
+   "name": "Summe mal Summe",
+   "satz": "Jedes Glied der ersten Klammer mal jedes Glied der zweiten.",
+   "gym": "7",
+   "rs": "7",
+   "ib": "3",
+   "sonne": "6",
+   "planet": "Algebra",
+   "abschnitt": "Terme"
+  },
+  {
+   "id": "A4",
+   "name": "Binomische Formeln",
+   "satz": "(a + b)² = a² + 2ab + b² · (a − b)² = a² − 2ab + b² · (a + b)(a − b) = a² − b²",
+   "gym": "7",
+   "rs": "7–8",
+   "ib": "3",
+   "sonne": "6",
+   "planet": "Algebra",
+   "abschnitt": "Terme"
+  },
+  {
+   "id": "A5",
+   "name": "Definitionsmenge",
+   "satz": "Ein Nenner darf nie null sein. Diese Zahlen werden vorher ausgeschlossen.",
+   "gym": "8",
+   "rs": "8",
+   "ib": "4",
+   "sonne": "14",
+   "planet": "Algebra",
+   "abschnitt": "Terme"
+  },
+  {
+   "id": "A6",
+   "name": "Bruchterme",
+   "satz": "Mit Bruchtermen rechnet man wie mit Brüchen: erst faktorisieren, dann kürzen.",
+   "gym": "8",
+   "rs": "8",
+   "ib": "4",
+   "sonne": "9, 10",
+   "planet": "Algebra",
+   "abschnitt": "Terme"
+  },
+  {
+   "id": "A7",
+   "name": "Kleinster und größter Wert",
+   "satz": "(x − d)² + e ist nie kleiner als e und wird es genau bei x = d.",
+   "gym": "–",
+   "rs": "8",
+   "ib": "–",
+   "sonne": "6",
+   "planet": "Algebra",
+   "abschnitt": "Terme"
+  },
+  {
+   "id": "A8",
+   "name": "Äquivalenzumformung",
+   "satz": "Dieselbe Rechnung auf beiden Seiten ändert die Lösung nicht – außer mal null und geteilt durch null.",
+   "gym": "5–7",
+   "rs": "6–7",
+   "ib": "1–2",
+   "sonne": "13",
+   "planet": "Algebra",
+   "abschnitt": "Gleichungen ersten Grades"
+  },
+  {
+   "id": "A9",
+   "name": "Wie viele Lösungen?",
+   "satz": "Eine lineare Gleichung hat genau eine Lösung, keine oder jede Zahl als Lösung.",
+   "gym": "5–7",
+   "rs": "6–7",
+   "ib": "1–2",
+   "sonne": "–",
+   "planet": "Algebra",
+   "abschnitt": "Gleichungen ersten Grades"
+  },
+  {
+   "id": "A10",
+   "name": "Ungleichungen",
+   "satz": "Mal oder geteilt durch eine negative Zahl dreht das Ungleichheitszeichen um.",
+   "gym": "8",
+   "rs": "7",
+   "ib": "4",
+   "sonne": "3, 13",
+   "planet": "Algebra",
+   "abschnitt": "Gleichungen ersten Grades"
+  },
+  {
+   "id": "A11",
+   "name": "Intervalle",
+   "satz": "Eckige Klammer: Die Grenze gehört dazu. Nach außen gedrehte oder runde Klammer: Sie gehört nicht dazu.",
+   "gym": "8",
+   "rs": "7",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Algebra",
+   "abschnitt": "Gleichungen ersten Grades"
+  },
+  {
+   "id": "A12",
+   "name": "Bruchgleichungen",
+   "satz": "Mit dem Hauptnenner malnehmen; die Lösung muss in der Definitionsmenge liegen. Bruch gleich Bruch: über Kreuz.",
+   "gym": "8",
+   "rs": "8",
+   "ib": "4",
+   "sonne": "10, 13",
+   "planet": "Algebra",
+   "abschnitt": "Gleichungen ersten Grades"
+  },
+  {
+   "id": "A13",
+   "name": "Formeln umstellen",
+   "satz": "Eine Formel ist eine Gleichung mit mehreren Buchstaben: nach dem gesuchten auflösen.",
+   "gym": "8",
+   "rs": "–",
+   "ib": "4",
+   "sonne": "12, 13",
+   "planet": "Algebra",
+   "abschnitt": "Gleichungen ersten Grades"
+  },
+  {
+   "id": "A14",
+   "name": "Gleichungssystem mit zwei Unbekannten",
+   "satz": "Gesucht ist das Zahlenpaar, das beide Gleichungen erfüllt: einsetzen, gleichsetzen oder addieren. Zwei Geraden schneiden sich, sind parallel oder gleich.",
+   "gym": "8",
+   "rs": "9",
+   "ib": "4",
+   "sonne": "13",
+   "planet": "Algebra",
+   "abschnitt": "Gleichungen ersten Grades"
+  },
+  {
+   "id": "A15",
+   "name": "Gleichungssystem mit drei Unbekannten",
+   "satz": "Erst eine Unbekannte entfernen, dann von unten nach oben einsetzen.",
+   "gym": "9",
+   "rs": "–",
+   "ib": "–",
+   "sonne": "13",
+   "planet": "Algebra",
+   "abschnitt": "Gleichungen ersten Grades"
+  },
+  {
+   "id": "A16",
+   "name": "x² = a",
+   "satz": "Zwei Lösungen, wenn a positiv ist (Wurzel und Gegenzahl), eine bei a = 0, keine bei negativem a.",
+   "gym": "9",
+   "rs": "9",
+   "ib": "4",
+   "sonne": "12",
+   "planet": "Algebra",
+   "abschnitt": "Gleichungen höheren Grades"
+  },
+  {
+   "id": "A17",
+   "name": "Faktorisieren",
+   "satz": "Alles auf eine Seite, ausklammern, dann jeden Faktor gleich null setzen.",
+   "gym": "9–10",
+   "rs": "9",
+   "ib": "4",
+   "sonne": "6, 14",
+   "planet": "Algebra",
+   "abschnitt": "Gleichungen höheren Grades"
+  },
+  {
+   "id": "A18",
+   "name": "Quadratische Ergänzung",
+   "satz": "Zum Binom ergänzen, was fehlt – und es gleich wieder abziehen.",
+   "gym": "9",
+   "rs": "8–9",
+   "ib": "4",
+   "sonne": "6",
+   "planet": "Algebra",
+   "abschnitt": "Gleichungen höheren Grades"
+  },
+  {
+   "id": "A19",
+   "name": "Lösungsformel",
+   "satz": "Die Lösungsformel löst jede quadratische Gleichung. Der Ausdruck unter der Wurzel entscheidet: positiv zwei Lösungen, null eine, negativ keine.",
+   "gym": "9",
+   "rs": "9",
+   "ib": "4",
+   "sonne": "12",
+   "planet": "Algebra",
+   "abschnitt": "Gleichungen höheren Grades"
+  },
+  {
+   "id": "A20",
+   "name": "Wurzelgleichungen",
+   "satz": "Quadrieren kann falsche Lösungen erzeugen. Die Probe ist Pflicht.",
+   "gym": "–",
+   "rs": "9",
+   "ib": "–",
+   "sonne": "12",
+   "planet": "Algebra",
+   "abschnitt": "Gleichungen höheren Grades"
+  },
+  {
+   "id": "A21",
+   "name": "Potenzgleichungen",
+   "satz": "xⁿ = c: bei gerader Hochzahl zwei Lösungen oder keine, bei ungerader genau eine.",
+   "gym": "9",
+   "rs": "10",
+   "ib": "4",
+   "sonne": "3, 12",
+   "planet": "Algebra",
+   "abschnitt": "Gleichungen höheren Grades"
+  },
+  {
+   "id": "A22",
+   "name": "Exponentialgleichungen",
+   "satz": "Gleiche Basis: Hochzahlen gleichsetzen. Sonst hilft der Logarithmus.",
+   "gym": "10",
+   "rs": "10",
+   "ib": "5",
+   "sonne": "12",
+   "planet": "Algebra",
+   "abschnitt": "Gleichungen höheren Grades"
+  },
+  {
+   "id": "A23",
+   "name": "Polynomgleichungen",
+   "satz": "Ausklammern oder x² ersetzen. Eine doppelte Lösung berührt die Achse nur.",
+   "gym": "10",
+   "rs": "–",
+   "ib": "–",
+   "sonne": "6, 14",
+   "planet": "Algebra",
+   "abschnitt": "Gleichungen höheren Grades"
+  },
+  {
+   "id": "V1",
+   "name": "Größe und Einheit",
+   "satz": "Eine Größe ist Zahl mal Einheit. Umrechnungszahlen: Längen 10 (und 1 000 bis km), Massen 1 000, Zeit 60.",
+   "gym": "5",
+   "rs": "5",
+   "ib": "2",
+   "sonne": "1",
+   "planet": "Geld und Verhältnisse",
+   "abschnitt": "Größen"
+  },
+  {
+   "id": "V2",
+   "name": "Maßstab",
+   "satz": "1 : n heißt: 1 cm im Plan sind n cm in Wirklichkeit.",
+   "gym": "5",
+   "rs": "5",
+   "ib": "2",
+   "sonne": "11",
+   "planet": "Geld und Verhältnisse",
+   "abschnitt": "Größen"
+  },
+  {
+   "id": "V3",
+   "name": "Direkte Proportionalität",
+   "satz": "Doppelt so viel von dem einen, doppelt so viel von dem anderen. Der Quotient bleibt gleich.",
+   "gym": "5–8",
+   "rs": "6–8",
+   "ib": "2–3",
+   "sonne": "11",
+   "planet": "Geld und Verhältnisse",
+   "abschnitt": "Proportionalität"
+  },
+  {
+   "id": "V4",
+   "name": "Dreisatz",
+   "satz": "Erst auf eins, dann auf viele.",
+   "gym": "5",
+   "rs": "6",
+   "ib": "2",
+   "sonne": "11",
+   "planet": "Geld und Verhältnisse",
+   "abschnitt": "Proportionalität"
+  },
+  {
+   "id": "V5",
+   "name": "Verhältnisse",
+   "satz": "a : b lässt sich kürzen wie ein Bruch. Aufteilen im Verhältnis: erst die Teile zusammenzählen.",
+   "gym": "6",
+   "rs": "6",
+   "ib": "1",
+   "sonne": "9",
+   "planet": "Geld und Verhältnisse",
+   "abschnitt": "Proportionalität"
+  },
+  {
+   "id": "V6",
+   "name": "Indirekte Proportionalität",
+   "satz": "Doppelt so viel von dem einen, halb so viel von dem anderen. Das Produkt bleibt gleich.",
+   "gym": "8",
+   "rs": "7",
+   "ib": "4",
+   "sonne": "11",
+   "planet": "Geld und Verhältnisse",
+   "abschnitt": "Proportionalität"
+  },
+  {
+   "id": "V7",
+   "name": "Änderungsrate",
+   "satz": "Änderung je Einheit: Unterschied der Werte durch Unterschied der Schritte.",
+   "gym": "5",
+   "rs": "6",
+   "ib": "2",
+   "sonne": "11",
+   "planet": "Geld und Verhältnisse",
+   "abschnitt": "Proportionalität"
+  },
+  {
+   "id": "V8",
+   "name": "Grundgleichung der Prozentrechnung",
+   "satz": "Prozentwert = Prozentsatz mal Grundwert. Zwei der drei Größen bestimmen die dritte.",
+   "gym": "6",
+   "rs": "6",
+   "ib": "1",
+   "sonne": "1, 12",
+   "planet": "Geld und Verhältnisse",
+   "abschnitt": "Prozent und Zins"
+  },
+  {
+   "id": "V9",
+   "name": "Wachstumsfaktor",
+   "satz": "Plus p % heißt mal (1 + p/100), minus p % heißt mal (1 − p/100). Erst plus 10 %, dann minus 10 % ist nicht wieder der Anfang.",
+   "gym": "7",
+   "rs": "7",
+   "ib": "3",
+   "sonne": "1",
+   "planet": "Geld und Verhältnisse",
+   "abschnitt": "Prozent und Zins"
+  },
+  {
+   "id": "V10",
+   "name": "Zinsen",
+   "satz": "Jahreszinsen = Kapital mal Zinssatz. Für Monate nimmt man den Anteil am Jahr.",
+   "gym": "6",
+   "rs": "7",
+   "ib": "4",
+   "sonne": "1",
+   "planet": "Geld und Verhältnisse",
+   "abschnitt": "Prozent und Zins"
+  },
+  {
+   "id": "V11",
+   "name": "Zinseszins",
+   "satz": "Kapital nach n Jahren = Anfangskapital mal Wachstumsfaktor hoch n.",
+   "gym": "7",
+   "rs": "7",
+   "ib": "3",
+   "sonne": "8",
+   "planet": "Geld und Verhältnisse",
+   "abschnitt": "Prozent und Zins"
+  },
+  {
+   "id": "G1",
+   "name": "Koordinatensystem",
+   "satz": "Punkt (x | y): erst nach rechts oder links, dann nach oben oder unten.",
+   "gym": "5",
+   "rs": "5",
+   "ib": "1",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Lage und Winkel"
+  },
+  {
+   "id": "G2",
+   "name": "Parallel, senkrecht, Abstand",
+   "satz": "Der Abstand ist die kürzeste Verbindung – sie steht senkrecht.",
+   "gym": "5",
+   "rs": "5",
+   "ib": "1",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Lage und Winkel"
+  },
+  {
+   "id": "G3",
+   "name": "Winkelarten",
+   "satz": "Voller Winkel 360°, gestreckter 180°, rechter 90°.",
+   "gym": "5",
+   "rs": "5",
+   "ib": "1",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Lage und Winkel"
+  },
+  {
+   "id": "G4",
+   "name": "Scheitel- und Nebenwinkel",
+   "satz": "Scheitelwinkel sind gleich groß. Nebenwinkel ergeben zusammen 180°.",
+   "gym": "5–7",
+   "rs": "5–7",
+   "ib": "1–2",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Lage und Winkel"
+  },
+  {
+   "id": "G5",
+   "name": "Stufen- und Wechselwinkel",
+   "satz": "An parallelen Geraden sind Stufenwinkel und Wechselwinkel gleich groß – und umgekehrt.",
+   "gym": "7",
+   "rs": "7",
+   "ib": "2",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Lage und Winkel"
+  },
+  {
+   "id": "G6",
+   "name": "Winkelsumme",
+   "satz": "Im Dreieck 180°, im Viereck 360°, im n-Eck (n − 2) mal 180°. Ein Außenwinkel ist so groß wie die beiden anderen Innenwinkel zusammen.",
+   "gym": "7",
+   "rs": "7",
+   "ib": "2",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Lage und Winkel"
+  },
+  {
+   "id": "G7",
+   "name": "Besondere Vierecke",
+   "satz": "Quadrat, Rechteck, Raute, Parallelogramm, Trapez, Drachenviereck: Jedes hat seine festen Eigenschaften.",
+   "gym": "5–7",
+   "rs": "5–7",
+   "ib": "1–3",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Figuren und Konstruktion"
+  },
+  {
+   "id": "G8",
+   "name": "Ortslinien",
+   "satz": "Kreis: gleich weit von einem Punkt. Mittelsenkrechte: gleich weit von zwei Punkten. Winkelhalbierende: gleich weit von zwei Schenkeln.",
+   "gym": "5–7",
+   "rs": "6–7",
+   "ib": "3",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Figuren und Konstruktion"
+  },
+  {
+   "id": "G9",
+   "name": "Gleichschenkliges Dreieck",
+   "satz": "Gleiche Schenkel, gleiche Basiswinkel – und umgekehrt. Gleichseitig: dreimal 60°.",
+   "gym": "7",
+   "rs": "7",
+   "ib": "3",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Figuren und Konstruktion"
+  },
+  {
+   "id": "G10",
+   "name": "Kongruenzsätze",
+   "satz": "Drei passende Angaben legen ein Dreieck fest: SSS, SWS, WSW, SsW. Zwei Seiten sind zusammen immer länger als die dritte.",
+   "gym": "7",
+   "rs": "7",
+   "ib": "3",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Figuren und Konstruktion"
+  },
+  {
+   "id": "G11",
+   "name": "Satz und Kehrsatz",
+   "satz": "Die Umkehrung eines Satzes ist ein neuer Satz und muss eigens begründet werden.",
+   "gym": "7",
+   "rs": "7",
+   "ib": "3–4",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Figuren und Konstruktion"
+  },
+  {
+   "id": "G12",
+   "name": "Satz des Thales",
+   "satz": "Liegt die Ecke auf dem Halbkreis über einer Seite, hat das Dreieck dort einen rechten Winkel – und umgekehrt.",
+   "gym": "7",
+   "rs": "7",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Figuren und Konstruktion"
+  },
+  {
+   "id": "G13",
+   "name": "Tangente",
+   "satz": "Die Tangente steht senkrecht auf dem Radius zum Berührpunkt.",
+   "gym": "7",
+   "rs": "7",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Figuren und Konstruktion"
+  },
+  {
+   "id": "G14",
+   "name": "Umkreis und Inkreis",
+   "satz": "Umkreis-Mittelpunkt: Schnitt der Mittelsenkrechten. Inkreis-Mittelpunkt: Schnitt der Winkelhalbierenden.",
+   "gym": "7",
+   "rs": "7",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Figuren und Konstruktion"
+  },
+  {
+   "id": "G15",
+   "name": "Spiegeln, Verschieben, Drehen",
+   "satz": "Diese Abbildungen ändern weder Längen noch Winkel: Bild und Original sind deckungsgleich.",
+   "gym": "7",
+   "rs": "6",
+   "ib": "3",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Abbilden"
+  },
+  {
+   "id": "G16",
+   "name": "Symmetrie",
+   "satz": "Achsensymmetrisch: Spiegeln an der Achse ändert nichts. Punktsymmetrisch: halbe Drehung ändert nichts.",
+   "gym": "7",
+   "rs": "6",
+   "ib": "3",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Abbilden"
+  },
+  {
+   "id": "G17",
+   "name": "Vektoren",
+   "satz": "Ein Vektor ist eine Verschiebung: Spitze minus Fuß. Der Gegenvektor führt zurück.",
+   "gym": "7",
+   "rs": "6",
+   "ib": "3",
+   "sonne": "2",
+   "planet": "Geometrie",
+   "abschnitt": "Abbilden"
+  },
+  {
+   "id": "G18",
+   "name": "Fläche mit Determinante",
+   "satz": "Zwei Vektoren spannen ein Parallelogramm auf; seine Fläche ist der Betrag von a·d − b·c.",
+   "gym": "–",
+   "rs": "7",
+   "ib": "–",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Abbilden"
+  },
+  {
+   "id": "G19",
+   "name": "Matrizen und Skalarprodukt",
+   "satz": "Eine Matrix beschreibt eine Abbildung. Skalarprodukt null heißt senkrecht.",
+   "gym": "–",
+   "rs": "10",
+   "ib": "5",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Abbilden"
+  },
+  {
+   "id": "G20",
+   "name": "Ähnlichkeit",
+   "satz": "Ähnliche Figuren haben gleiche Winkel und alle Seiten im selben Verhältnis.",
+   "gym": "9",
+   "rs": "9",
+   "ib": "3",
+   "sonne": "11",
+   "planet": "Geometrie",
+   "abschnitt": "Ähnlichkeit und rechtwinkliges Dreieck"
+  },
+  {
+   "id": "G21",
+   "name": "Strahlensätze",
+   "satz": "Schneiden Parallelen zwei Strahlen, stehen die Abschnitte im selben Verhältnis.",
+   "gym": "9",
+   "rs": "9",
+   "ib": "3",
+   "sonne": "11",
+   "planet": "Geometrie",
+   "abschnitt": "Ähnlichkeit und rechtwinkliges Dreieck"
+  },
+  {
+   "id": "G22",
+   "name": "Vergrößern mit Faktor k",
+   "satz": "Längen mal k, Flächen mal k², Volumen mal k³.",
+   "gym": "8–9",
+   "rs": "9",
+   "ib": "3",
+   "sonne": "8",
+   "planet": "Geometrie",
+   "abschnitt": "Ähnlichkeit und rechtwinkliges Dreieck"
+  },
+  {
+   "id": "G23",
+   "name": "Schwerpunkt",
+   "satz": "Die Seitenhalbierenden schneiden sich im Schwerpunkt; er teilt sie im Verhältnis 2 : 1.",
+   "gym": "9",
+   "rs": "9",
+   "ib": "3",
+   "sonne": "11",
+   "planet": "Geometrie",
+   "abschnitt": "Ähnlichkeit und rechtwinkliges Dreieck"
+  },
+  {
+   "id": "G24",
+   "name": "Satz des Pythagoras",
+   "satz": "Im rechtwinkligen Dreieck gilt a² + b² = c² – und nur dort.",
+   "gym": "9",
+   "rs": "9",
+   "ib": "3",
+   "sonne": "12",
+   "planet": "Geometrie",
+   "abschnitt": "Ähnlichkeit und rechtwinkliges Dreieck"
+  },
+  {
+   "id": "G25",
+   "name": "Sinus, Kosinus, Tangens",
+   "satz": "Sinus = Gegenkathete durch Hypotenuse, Kosinus = Ankathete durch Hypotenuse, Tangens = Gegenkathete durch Ankathete.",
+   "gym": "9",
+   "rs": "9",
+   "ib": "4",
+   "sonne": "11",
+   "planet": "Geometrie",
+   "abschnitt": "Ähnlichkeit und rechtwinkliges Dreieck"
+  },
+  {
+   "id": "G26",
+   "name": "Zusammenhänge der Winkelfunktionen",
+   "satz": "sin² + cos² = 1 und tan = sin : cos.",
+   "gym": "9",
+   "rs": "9",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Ähnlichkeit und rechtwinkliges Dreieck"
+  },
+  {
+   "id": "G27",
+   "name": "Einheitskreis",
+   "satz": "Am Kreis mit Radius 1 sind Kosinus und Sinus die Koordinaten des Punktes – für jeden Winkel.",
+   "gym": "9",
+   "rs": "10",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Ähnlichkeit und rechtwinkliges Dreieck"
+  },
+  {
+   "id": "G28",
+   "name": "Sinussatz und Kosinussatz",
+   "satz": "In jedem Dreieck: Seite durch Sinus des Gegenwinkels ist für alle drei gleich. Der Kosinussatz ist Pythagoras mit Korrektur.",
+   "gym": "9",
+   "rs": "10",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Ähnlichkeit und rechtwinkliges Dreieck"
+  },
+  {
+   "id": "G29",
+   "name": "Additionstheoreme",
+   "satz": "Der Sinus einer Summe ist nicht die Summe der Sinus: sin(α + β) = sin α · cos β + cos α · sin β.",
+   "gym": "9",
+   "rs": "10",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Geometrie",
+   "abschnitt": "Ähnlichkeit und rechtwinkliges Dreieck"
+  },
+  {
+   "id": "G30",
+   "name": "Winkel aus Sinus oder Kosinus",
+   "satz": "Zu einem Wert gehören in einer vollen Drehung meist zwei Winkel.",
+   "gym": "9",
+   "rs": "10",
+   "ib": "5",
+   "sonne": "12",
+   "planet": "Geometrie",
+   "abschnitt": "Ähnlichkeit und rechtwinkliges Dreieck"
+  },
+  {
+   "id": "F1",
+   "name": "Fläche messen",
+   "satz": "Flächeninhalt heißt: Wie viele Einheitsquadrate passen hinein? Umrechnungszahl 100.",
+   "gym": "5",
+   "rs": "5",
+   "ib": "1",
+   "sonne": "1",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Flächen",
+   "merksatz": "Flächeninhalt heißt: Wie viele Einheitsquadrate passen hinein? Umrechnungszahl 100.",
+   "warum": "Eine Fläche misst man, indem man sie mit gleich großen Quadraten auslegt und zählt. Ein Quadratdezimeter ist 10 cm lang und 10 cm breit, also passen 10 mal 10 = 100 Quadratzentimeter hinein. Deshalb ist die Umrechnungszahl bei Flächen 100 und nicht 10.",
+   "nicht": "Bei Längen ist die Umrechnungszahl 10, bei Flächen 100, bei Volumen 1 000 – wer sie verwechselt, liegt um das Zehn- oder Hundertfache daneben. Von m² zu a und ha ist sie ebenfalls 100.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "3 m² = 300 dm²",
+     "thema": null
+    },
+    {
+     "klasse": 5,
+     "text": "2,5 dm² = 250 cm²",
+     "thema": null
+    },
+    {
+     "klasse": 8,
+     "text": "5 000 cm² = 0,5 m²",
+     "thema": null
+    }
+   ],
+   "bild": "Ein Quadratdezimeter in Originalgröße, in 10 mal 10 Kästchen geteilt; eines davon ist gefärbt: 1 cm².",
+   "baut": "Rechenregel 1 Stellenwert und Prozent",
+   "schulart": "Gymnasium Klasse 5 · Realschule Klasse 5 · IB-Jahr 1"
+  },
+  {
+   "id": "F2",
+   "name": "Rechteck",
+   "satz": "Fläche = Länge mal Breite. Umfang = einmal außen herum.",
+   "gym": "5",
+   "rs": "5",
+   "ib": "1",
+   "sonne": "–",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Flächen",
+   "merksatz": "Fläche = Länge mal Breite. Umfang = einmal außen herum.",
+   "warum": "In ein Rechteck mit 6 cm Länge und 4 cm Breite passen 4 Reihen mit je 6 Einheitsquadraten. Das sind 6 mal 4. Der Umfang ist der Weg einmal außen herum: zweimal die Länge und zweimal die Breite.",
+   "nicht": "Beide Seiten müssen in derselben Einheit stehen. Fläche und Umfang sind verschiedene Größen: Die Fläche hat cm², der Umfang cm.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "6 cm lang, 4 cm breit: Fläche 24 cm², Umfang 20 cm",
+     "thema": null
+    },
+    {
+     "klasse": 7,
+     "text": "Seiten x und x + 4: Fläche x · (x + 4) = x² + 4x",
+     "thema": null
+    },
+    {
+     "klasse": 8,
+     "text": "Grundfläche eines Quaders oder Prismas",
+     "thema": null
+    },
+    {
+     "klasse": 9,
+     "text": "Fläche 60, eine Seite 4 länger als die andere: x² + 4x = 60, also x = 6",
+     "thema": null
+    }
+   ],
+   "bild": "Rechteck 6 mal 4 mit Kästchengitter; daneben dasselbe Rechteck nur als Rand, mit einem Pfeil, der außen herumläuft.",
+   "baut": "F1 Fläche messen",
+   "schulart": "Gymnasium Klasse 5 · Realschule Klasse 5 · IB-Jahr 1"
+  },
+  {
+   "id": "F3",
+   "name": "Fläche ist nicht Umfang",
+   "satz": "Gleicher Umfang heißt nicht gleiche Fläche.",
+   "gym": "5",
+   "rs": "5–8",
+   "ib": "1",
+   "sonne": "–",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Flächen",
+   "merksatz": "Gleicher Umfang heißt nicht gleiche Fläche.",
+   "warum": "Der Umfang zählt den Rand, die Fläche das Innere. Ein langes, schmales Rechteck hat viel Rand und wenig Inneres. Unter allen Rechtecken mit gleichem Umfang hat das Quadrat die größte Fläche.",
+   "nicht": "Umgekehrt gilt es genauso: Gleiche Fläche heißt nicht gleicher Umfang.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "5 · 5 und 8 · 2: beide Umfang 20, Flächen 25 und 16",
+     "thema": null
+    },
+    {
+     "klasse": 8,
+     "text": "Umfang 20: Fläche x · (10 − x) ist am größten bei x = 5 (Realschule)",
+     "thema": null
+    }
+   ],
+   "bild": "Zwei Rechtecke aus derselben Schnur gelegt: 5 mal 5 und 8 mal 2. Beide haben den Umfang 20, die Flächen 25 und 16.",
+   "baut": "F2 Rechteck",
+   "schulart": "Gymnasium Klasse 5 · Realschule Klasse 5–8 · IB-Jahr 1"
+  },
+  {
+   "id": "F4",
+   "name": "Zerlegen und Ergänzen",
+   "satz": "Zerschneiden und neu zusammenlegen ändert die Fläche nicht.",
+   "gym": "5–6",
+   "rs": "5–6",
+   "ib": "1",
+   "sonne": "–",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Flächen",
+   "merksatz": "Zerschneiden und neu zusammenlegen ändert die Fläche nicht.",
+   "warum": "Beim Zerschneiden geht nichts verloren und kommt nichts dazu. Deshalb darf man eine unbekannte Figur in bekannte Stücke zerlegen oder zu einer bekannten ergänzen und das Zuviel abziehen. Alle Flächenformeln dieses Planeten entstehen so aus dem Rechteck.",
+   "nicht": "Der Umfang ändert sich beim Zerlegen sehr wohl.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "L-Form: 6 · 4 minus die Ecke 2 · 2 ergibt 20",
+     "thema": null
+    },
+    {
+     "klasse": 6,
+     "text": "Parallelogramm: Dreieck links abschneiden, rechts ansetzen – es entsteht ein Rechteck",
+     "thema": null
+    },
+    {
+     "klasse": 9,
+     "text": "Pythagoras lässt sich durch Zerlegen zweier gleich großer Quadrate begründen",
+     "thema": null
+    }
+   ],
+   "bild": "Eine L-Form: einmal in zwei Rechtecke zerschnitten, einmal zum großen Rechteck ergänzt, mit dem fehlenden Eck gestrichelt.",
+   "baut": "F2 Rechteck",
+   "schulart": "Gymnasium Klasse 5–6 · Realschule Klasse 5–6 · IB-Jahr 1"
+  },
+  {
+   "id": "F5",
+   "name": "Parallelogramm",
+   "satz": "Fläche = Grundseite mal Höhe. Die Höhe steht senkrecht.",
+   "gym": "6",
+   "rs": "6",
+   "ib": "–",
+   "sonne": "–",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Flächen",
+   "merksatz": "Fläche = Grundseite mal Höhe. Die Höhe steht senkrecht.",
+   "warum": "Schneidet man an einer Seite ein Dreieck ab und setzt es an der anderen wieder an, entsteht ein Rechteck mit derselben Grundseite und derselben Höhe.",
+   "nicht": "Gemeint ist die Höhe senkrecht zur Grundseite, nicht die schräge Seite. Die schräge Seite braucht man nur für den Umfang.",
+   "klassen": [
+    {
+     "klasse": 6,
+     "text": "Grundseite 8 cm, Höhe 5 cm: 40 cm² – egal, wie lang die schräge Seite ist",
+     "thema": null
+    },
+    {
+     "klasse": 8,
+     "text": "Fläche 40 und Grundseite 8: Höhe 40 : 8 = 5",
+     "thema": null
+    }
+   ],
+   "bild": "Parallelogramm mit gestrichelter Höhe; das abgeschnittene Dreieck wandert mit einem Pfeil auf die andere Seite.",
+   "baut": "F4 Zerlegen und Ergänzen",
+   "schulart": "Gymnasium Klasse 6 · Realschule Klasse 6 · IB-Jahr –"
+  },
+  {
+   "id": "F6",
+   "name": "Dreieck",
+   "satz": "Fläche = Grundseite mal Höhe, geteilt durch 2.",
+   "gym": "6–8",
+   "rs": "6",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Flächen",
+   "merksatz": "Fläche = Grundseite mal Höhe, geteilt durch 2.",
+   "warum": "Zwei gleiche Dreiecke lassen sich immer zu einem Parallelogramm zusammenlegen. Ein Dreieck ist also ein halbes Parallelogramm mit derselben Grundseite und Höhe.",
+   "nicht": "Das „geteilt durch 2“ wird am häufigsten vergessen. Bei stumpfen Dreiecken liegt die Höhe außerhalb – die Formel gilt trotzdem.",
+   "klassen": [
+    {
+     "klasse": 6,
+     "text": "Grundseite 14 cm, Höhe 15 cm: 14 · 15 : 2 = 105 cm²",
+     "thema": null
+    },
+    {
+     "klasse": 8,
+     "text": "Fläche 36 und Grundseite 9: erst mal 2, dann durch 9, Höhe 8",
+     "thema": null
+    },
+    {
+     "klasse": 9,
+     "text": "Rechtwinklig mit den Katheten 6 und 8: 24 – die Katheten sind Grundseite und Höhe",
+     "thema": null
+    }
+   ],
+   "bild": "Ein Dreieck und sein gedrehter Zwilling ergeben ein Parallelogramm; eines der beiden ist gefärbt.",
+   "baut": "F5 Parallelogramm",
+   "schulart": "Gymnasium Klasse 6–8 · Realschule Klasse 6 · IB-Jahr 4"
+  },
+  {
+   "id": "F7",
+   "name": "Trapez",
+   "satz": "Fläche = Mittelwert der beiden parallelen Seiten mal Höhe.",
+   "gym": "6–8",
+   "rs": "6",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Flächen",
+   "merksatz": "Fläche = Mittelwert der beiden parallelen Seiten mal Höhe.",
+   "warum": "Zwei gleiche Trapeze ergeben zusammen ein Parallelogramm mit der Grundseite a + c. Ein Trapez ist die Hälfte davon. Anders gesagt: Man rechnet mit einem Rechteck, das so breit ist wie der Mittelwert der beiden parallelen Seiten.",
+   "nicht": "a und c sind die parallelen Seiten, nicht irgendwelche. Die Klammer um a + c ist nötig.",
+   "klassen": [
+    {
+     "klasse": 6,
+     "text": "a = 7, c = 11, h = 6: (7 + 11) · 6 : 2 = 54",
+     "thema": null
+    },
+    {
+     "klasse": 8,
+     "text": "Fläche 60, a = 9, c = 11: Höhe 2 · 60 : 20 = 6",
+     "thema": null
+    }
+   ],
+   "bild": "Trapez und gedrehter Zwilling als Parallelogramm; darunter das gleich große Rechteck mit der mittleren Breite.",
+   "baut": "F5 Parallelogramm · Rechenregel 4 Reihenfolge beim Rechnen",
+   "schulart": "Gymnasium Klasse 6–8 · Realschule Klasse 6 · IB-Jahr 4"
+  },
+  {
+   "id": "F8",
+   "name": "Drachenviereck und Raute",
+   "satz": "Fläche = Diagonale mal Diagonale, geteilt durch 2.",
+   "gym": "6",
+   "rs": "6",
+   "ib": "–",
+   "sonne": "–",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Flächen",
+   "merksatz": "Fläche = Diagonale mal Diagonale, geteilt durch 2.",
+   "warum": "Die Diagonalen stehen senkrecht aufeinander. Das umschließende Rechteck hat die Seiten e und f und ist genau doppelt so groß wie das Viereck.",
+   "nicht": "Gilt nur, wenn die Diagonalen senkrecht aufeinander stehen – also nicht für jedes Viereck.",
+   "klassen": [
+    {
+     "klasse": 6,
+     "text": "Diagonalen 8 cm und 5 cm: 8 · 5 : 2 = 20 cm²",
+     "thema": null
+    }
+   ],
+   "bild": "Drachen im Rechteck: Die vier Ecken-Dreiecke außen sind genauso groß wie die vier innen.",
+   "baut": "F6 Dreieck",
+   "schulart": "Gymnasium Klasse 6 · Realschule Klasse 6 · IB-Jahr –"
+  },
+  {
+   "id": "F9",
+   "name": "Kreis",
+   "satz": "Umfang = 2 · π · r. Fläche = π · r². π ist etwas mehr als 3.",
+   "gym": "8",
+   "rs": "9",
+   "ib": "3",
+   "sonne": "–",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Flächen",
+   "merksatz": "Umfang = 2 · π · r. Fläche = π · r². π ist etwas mehr als 3.",
+   "warum": "Bei jedem Kreis ist der Umfang gleich oft so lang wie der Durchmesser: etwa 3,14-mal. Diese Zahl heißt π. Schneidet man den Kreis in viele Tortenstücke und legt sie abwechselnd nebeneinander, entsteht fast ein Rechteck: so hoch wie der Radius, so breit wie der halbe Umfang – also π · r mal r.",
+   "nicht": "r ist der Radius, nicht der Durchmesser. Doppelter Radius: doppelter Umfang, aber vierfache Fläche. π ist kein Bruch; 3,14 ist gerundet.",
+   "klassen": [
+    {
+     "klasse": 8,
+     "text": "r = 5 cm: Umfang 10 · π ≈ 31,4 cm, Fläche 25 · π ≈ 78,5 cm²",
+     "thema": null
+    },
+    {
+     "klasse": 8,
+     "text": "Radius von 3 auf 6: Fläche von 9 · π auf 36 · π – das Vierfache",
+     "thema": null
+    },
+    {
+     "klasse": 10,
+     "text": "Grundfläche von Zylinder und Kegel",
+     "thema": null
+    }
+   ],
+   "bild": "Kreis in zwölf Tortenstücke geschnitten und zum „Rechteck“ umgelegt; an den Seiten stehen r und π · r.",
+   "baut": "F2 Rechteck · F4 Zerlegen und Ergänzen · Rechenregel 8 Potenzen",
+   "schulart": "Gymnasium Klasse 8 · Realschule Klasse 9 · IB-Jahr 3"
+  },
+  {
+   "id": "F10",
+   "name": "Kreisausschnitt",
+   "satz": "Der Anteil am vollen Winkel ist der Anteil an Umfang und Fläche.",
+   "gym": "8",
+   "rs": "9",
+   "ib": "3",
+   "sonne": "11",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Flächen",
+   "merksatz": "Der Anteil am vollen Winkel ist der Anteil an Umfang und Fläche.",
+   "warum": "Ein Viertelkreis hat ein Viertel des Umfangs und ein Viertel der Fläche. Für jeden anderen Winkel gilt dasselbe mit dem Anteil am vollen Winkel von 360°.",
+   "nicht": "Der Bogen ist nur der gekrümmte Teil; zum Umfang des Ausschnitts kommen zwei Radien dazu.",
+   "klassen": [
+    {
+     "klasse": 8,
+     "text": "90° bei r = 4: Bogen 2 · π, Fläche 4 · π",
+     "thema": null
+    }
+   ],
+   "bild": "Pizza mit einem herausgezogenen Stück; am Stück stehen der Winkel 90° und „ein Viertel“.",
+   "baut": "F9 Kreis · Rechenregel 11 Verhältnis (Dreisatz)",
+   "schulart": "Gymnasium Klasse 8 · Realschule Klasse 9 · IB-Jahr 3"
+  },
+  {
+   "id": "F11",
+   "name": "Volumen messen",
+   "satz": "Volumen heißt: Wie viele Einheitswürfel passen hinein? Umrechnungszahl 1 000. 1 Liter = 1 dm³.",
+   "gym": "6",
+   "rs": "6",
+   "ib": "–",
+   "sonne": "1",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Körper",
+   "merksatz": "Volumen heißt: Wie viele Einheitswürfel passen hinein? Umrechnungszahl 1 000. 1 Liter = 1 dm³.",
+   "warum": "Ein Volumen misst man mit gleich großen Würfeln. In einen Würfel mit 1 dm Kantenlänge passen 10 mal 10 mal 10 = 1 000 Zentimeterwürfel. Ein Liter ist genau so ein Dezimeterwürfel.",
+   "nicht": "Umrechnungszahl 1 000, nicht 10 und nicht 100. Milliliter und cm³ sind dasselbe.",
+   "klassen": [
+    {
+     "klasse": 6,
+     "text": "2 dm³ = 2 000 cm³ = 2 Liter",
+     "thema": null
+    },
+    {
+     "klasse": 6,
+     "text": "750 ml = 0,75 l = 750 cm³",
+     "thema": null
+    },
+    {
+     "klasse": 8,
+     "text": "1 m³ = 1 000 Liter",
+     "thema": null
+    }
+   ],
+   "bild": "Dezimeterwürfel aus 1 000 kleinen Würfeln, eine Schicht (100 Stück) herausgezogen; daneben eine Literflasche.",
+   "baut": "F1 Fläche messen · Rechenregel 1 Stellenwert und Prozent",
+   "schulart": "Gymnasium Klasse 6 · Realschule Klasse 6 · IB-Jahr –"
+  },
+  {
+   "id": "F12",
+   "name": "Quader",
+   "satz": "Volumen = Länge mal Breite mal Höhe.",
+   "gym": "6",
+   "rs": "6",
+   "ib": "–",
+   "sonne": "–",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Körper",
+   "merksatz": "Volumen = Länge mal Breite mal Höhe.",
+   "warum": "Auf dem Boden liegen Länge mal Breite Würfel. Davon stapelt man so viele Schichten, wie der Quader hoch ist.",
+   "nicht": "Alle drei Kanten in derselben Einheit. Für den Würfel wird daraus a · a · a.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "Oberfläche und Kanten eines Quaders 5 · 4 · 3 (das Volumen kommt in Klasse 6)",
+     "thema": null
+    },
+    {
+     "klasse": 6,
+     "text": "5 cm · 4 cm · 3 cm = 60 cm³",
+     "thema": null
+    },
+    {
+     "klasse": 6,
+     "text": "60 Liter in ein Becken mit 50 cm mal 40 cm Boden: 30 cm hoch",
+     "thema": null
+    }
+   ],
+   "bild": "Quader aus Schichten: unten eine Lage 5 mal 4 Würfel, darüber zwei weitere Lagen leicht angehoben.",
+   "baut": "F11 Volumen messen · F2 Rechteck",
+   "schulart": "Gymnasium Klasse 6 · Realschule Klasse 6 · IB-Jahr –"
+  },
+  {
+   "id": "F13",
+   "name": "Oberfläche",
+   "satz": "Die Oberfläche ist die Summe aller Flächen des Netzes. Quader: sechs Rechtecke, je zwei gleich.",
+   "gym": "5–6",
+   "rs": "6",
+   "ib": "1",
+   "sonne": "–",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Körper",
+   "merksatz": "Die Oberfläche ist die Summe aller Flächen des Netzes. Quader: sechs Rechtecke, je zwei gleich.",
+   "warum": "Klappt man einen Körper auf, liegen alle seine Flächen nebeneinander: das Netz. Die Oberfläche ist deren Summe. Beim Quader sind es drei Paare gleicher Rechtecke.",
+   "nicht": "Oberfläche ist eine Fläche (cm²), Volumen ein Rauminhalt (cm³). Bei offenen Gefäßen fehlt der Deckel.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "Quader 5 · 4 · 3: 2 · (20 + 15 + 12) = 94 cm²",
+     "thema": null
+    },
+    {
+     "klasse": 8,
+     "text": "Zylinder: zwei Kreise und ein Rechteck als Mantel",
+     "thema": null
+    }
+   ],
+   "bild": "Quader und daneben sein aufgeklapptes Netz, die drei Paare in drei Farben.",
+   "baut": "F2 Rechteck · Rechenregel 4 Reihenfolge beim Rechnen",
+   "schulart": "Gymnasium Klasse 5–6 · Realschule Klasse 6 · IB-Jahr 1"
+  },
+  {
+   "id": "F14",
+   "name": "Netz und Schrägbild",
+   "satz": "Das Netz ist der aufgeklappte Körper. Im Schrägbild werden Kanten nach hinten schräg und verkürzt gezeichnet.",
+   "gym": "8–10",
+   "rs": "5–7",
+   "ib": "3–4",
+   "sonne": "–",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Körper",
+   "merksatz": "Das Netz ist der aufgeklappte Körper. Im Schrägbild werden Kanten nach hinten schräg und verkürzt gezeichnet.",
+   "warum": "Ein Körper hat drei Ausdehnungen, das Papier nur zwei. Das Netz zeigt alle Flächen in wahrer Größe, aber nicht den Zusammenhang. Das Schrägbild zeigt den Zusammenhang, aber verkürzt die Kanten nach hinten. Für das Schrägbild gibt es eine feste Vereinbarung (meist 45° und halbe Länge).",
+   "nicht": "Im Schrägbild darf man nach hinten laufende Längen und Winkel nicht abmessen.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "text": "Ein Würfelnetz besteht aus 6 Quadraten (Realschule Klasse 5)",
+     "thema": null
+    },
+    {
+     "klasse": 8,
+     "text": "Quader: 8 Ecken, 12 Kanten, 6 Flächen – 8 − 12 + 6 = 2",
+     "thema": null
+    },
+    {
+     "klasse": 10,
+     "text": "Im Schrägbild einer Pyramide erscheint die Höhe unverkürzt, die Grundkante nach hinten halb",
+     "thema": null
+    }
+   ],
+   "bild": "Würfel dreimal: als Körper, als Netz (Kreuzform) und als Schrägbild mit gestrichelten verdeckten Kanten.",
+   "baut": "nichts – Anfang",
+   "schulart": "Gymnasium Klasse 8–10 · Realschule Klasse 5–7 · IB-Jahr 3–4"
+  },
+  {
+   "id": "F15",
+   "name": "Prisma und Zylinder",
+   "satz": "Volumen = Grundfläche mal Höhe. Oberfläche = zwei Grundflächen plus Mantel.",
+   "gym": "8",
+   "rs": "9",
+   "ib": "–",
+   "sonne": "–",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Körper",
+   "merksatz": "Volumen = Grundfläche mal Höhe. Oberfläche = zwei Grundflächen plus Mantel.",
+   "warum": "Wie beim Quader: Auf der Grundfläche liegt eine Schicht, und davon stapelt man so viele, wie der Körper hoch ist. Welche Form die Grundfläche hat, ist dafür gleichgültig. Der Mantel ist abgerollt ein Rechteck: Umfang der Grundfläche mal Höhe.",
+   "nicht": "Die Höhe steht senkrecht auf der Grundfläche. Die Grundfläche ist die Fläche, die oben und unten gleich ist – sie muss nicht unten liegen.",
+   "klassen": [
+    {
+     "klasse": 6,
+     "text": "Quader ist der einfachste Fall: Grundfläche 20 cm², Höhe 3 cm, 60 cm³",
+     "thema": null
+    },
+    {
+     "klasse": 8,
+     "text": "Dreiecksprisma: Grundfläche 24 cm², Höhe 10 cm, Volumen 240 cm³",
+     "thema": null
+    },
+    {
+     "klasse": 8,
+     "text": "Zylinder r = 3, h = 10: Volumen 90 · π, Mantel 60 · π",
+     "thema": null
+    }
+   ],
+   "bild": "Münzstapel als Zylinder und ein Stapel dreieckiger Bierdeckel als Prisma; daneben das abgerollte Etikett einer Dose.",
+   "baut": "F12 Quader · F6 Dreieck · F9 Kreis",
+   "schulart": "Gymnasium Klasse 8 · Realschule Klasse 9 · IB-Jahr –"
+  },
+  {
+   "id": "F16",
+   "name": "Satz von Cavalieri",
+   "satz": "Gleiche Höhe und auf jeder Höhe gleich große Schnittfläche: gleiches Volumen.",
+   "gym": "8",
+   "rs": "9",
+   "ib": "–",
+   "sonne": "–",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Körper",
+   "merksatz": "Gleiche Höhe und auf jeder Höhe gleich große Schnittfläche: gleiches Volumen.",
+   "warum": "Verschiebt man in einem Münzstapel die Münzen gegeneinander, wird der Stapel schief – aber es bleiben dieselben Münzen. Zwei Körper, die auf jeder Höhe gleich große Schnittflächen haben, haben deshalb dasselbe Volumen.",
+   "nicht": "Die Schnittflächen müssen auf jeder Höhe gleich groß sein, nicht nur unten und oben. Die Oberfläche ändert sich beim Schiefstellen.",
+   "klassen": [
+    {
+     "klasse": 8,
+     "text": "Ein schiefes Prisma mit Grundfläche 24 cm² und Höhe 10 cm hat ebenfalls 240 cm³",
+     "thema": null
+    }
+   ],
+   "bild": "Ein gerader und ein schiefer Münzstapel aus denselben Münzen.",
+   "baut": "F15 Prisma und Zylinder",
+   "schulart": "Gymnasium Klasse 8 · Realschule Klasse 9 · IB-Jahr –"
+  },
+  {
+   "id": "F17",
+   "name": "Pyramide und Kegel",
+   "satz": "Volumen = ein Drittel von Grundfläche mal Höhe.",
+   "gym": "10",
+   "rs": "9",
+   "ib": "3",
+   "sonne": "–",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Körper",
+   "merksatz": "Volumen = ein Drittel von Grundfläche mal Höhe.",
+   "warum": "Ein Würfel lässt sich in drei gleiche Pyramiden zerlegen, deren Spitzen in einer Ecke zusammenlaufen. Jede füllt also ein Drittel. Mit Cavalieri gilt das für jede Pyramide und jeden Kegel: ein Drittel des Prismas oder Zylinders mit gleicher Grundfläche und Höhe.",
+   "nicht": "Die Höhe geht senkrecht von der Spitze zur Grundfläche – nicht entlang der schrägen Seitenkante oder Mantellinie.",
+   "klassen": [
+    {
+     "klasse": 10,
+     "text": "Pyramide: Grundfläche 36 cm², Höhe 10 cm, Volumen 120 cm³ (Realschule Klasse 9)",
+     "thema": null
+    },
+    {
+     "klasse": 10,
+     "text": "Kegel r = 3, h = 4: Volumen 12 · π; Mantellinie 5 (Pythagoras), Mantel 15 · π",
+     "thema": null
+    }
+   ],
+   "bild": "Ein Kegel wird dreimal mit Wasser gefüllt und in einen Zylinder mit gleicher Grundfläche und Höhe gegossen: genau voll.",
+   "baut": "F15 Prisma und Zylinder · F16 Satz von Cavalieri · Rechenregel 10 Rechnen mit Brüchen",
+   "schulart": "Gymnasium Klasse 10 · Realschule Klasse 9 · IB-Jahr 3"
+  },
+  {
+   "id": "F18",
+   "name": "Kugel",
+   "satz": "Volumen = 4/3 · π · r³. Oberfläche = 4 · π · r².",
+   "gym": "10",
+   "rs": "9",
+   "ib": "3",
+   "sonne": "–",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Körper",
+   "merksatz": "Volumen = 4/3 · π · r³. Oberfläche = 4 · π · r².",
+   "warum": "Eine Halbkugel hat dasselbe Volumen wie ein Zylinder gleicher Höhe, aus dem ein Kegel herausgebohrt ist – das zeigt Cavalieri. Daraus folgen zwei Drittel des umschließenden Zylinders für die ganze Kugel. Die Oberfläche ist genau viermal so groß wie der größte Kreis durch die Kugel.",
+   "nicht": "Hoch 3 beim Volumen, hoch 2 bei der Oberfläche. Doppelter Radius: achtfaches Volumen.",
+   "klassen": [
+    {
+     "klasse": 10,
+     "text": "r = 3: Volumen 36 · π, Oberfläche 36 · π (Realschule Klasse 9)",
+     "thema": null
+    },
+    {
+     "klasse": 10,
+     "text": "Radius verdoppelt: Volumen mal 8",
+     "thema": null
+    }
+   ],
+   "bild": "Kugel in einem genau passenden Zylinder: Sie füllt zwei Drittel davon.",
+   "baut": "F9 Kreis · F17 Pyramide und Kegel · Rechenregel 8 Potenzen",
+   "schulart": "Gymnasium Klasse 10 · Realschule Klasse 9 · IB-Jahr 3"
+  },
+  {
+   "id": "F19",
+   "name": "Lage im Raum",
+   "satz": "Zwei Geraden im Raum sind parallel, schneiden sich oder laufen windschief aneinander vorbei.",
+   "gym": "10",
+   "rs": "7",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Fläche und Raum",
+   "abschnitt": "Körper",
+   "merksatz": "Zwei Geraden im Raum sind parallel, schneiden sich oder laufen windschief aneinander vorbei.",
+   "warum": "In der Ebene schneiden sich zwei Geraden oder sie sind parallel. Im Raum gibt es eine dritte Möglichkeit: Sie laufen aneinander vorbei, ohne parallel zu sein. Am Quader sieht man alle drei Fälle an den Kanten.",
+   "nicht": "Windschief gibt es nur im Raum. Im Schrägbild können sich windschiefe Geraden scheinbar schneiden.",
+   "klassen": [
+    {
+     "klasse": 10,
+     "text": "Am Quader: Eine Bodenkante und die Deckenkante quer darüber sind windschief (Realschule Klasse 7)",
+     "thema": null
+    }
+   ],
+   "bild": "Quader mit drei Kantenpaaren in drei Farben: parallel, schneidend, windschief.",
+   "baut": "F14 Netz und Schrägbild",
+   "schulart": "Gymnasium Klasse 10 · Realschule Klasse 7 · IB-Jahr 4"
+  },
+  {
+   "id": "U1",
+   "name": "Funktion",
+   "satz": "Zu jedem x gehört genau ein y.",
+   "gym": "8",
+   "rs": "8",
+   "ib": "3",
+   "sonne": "–",
+   "planet": "Funktionen",
+   "abschnitt": "Grundbegriffe"
+  },
+  {
+   "id": "U2",
+   "name": "Punktprobe",
+   "satz": "Ein Punkt liegt auf dem Graphen, wenn seine Koordinaten die Gleichung erfüllen.",
+   "gym": "8–9",
+   "rs": "8–9",
+   "ib": "3–4",
+   "sonne": "–",
+   "planet": "Funktionen",
+   "abschnitt": "Grundbegriffe"
+  },
+  {
+   "id": "U3",
+   "name": "Nullstelle und Achsenabschnitt",
+   "satz": "Nullstelle: y = 0. Schnitt mit der y-Achse: x = 0.",
+   "gym": "8",
+   "rs": "8",
+   "ib": "3–4",
+   "sonne": "13",
+   "planet": "Funktionen",
+   "abschnitt": "Grundbegriffe"
+  },
+  {
+   "id": "U4",
+   "name": "Schnittpunkt",
+   "satz": "Im Schnittpunkt haben beide Funktionen denselben Wert: gleichsetzen.",
+   "gym": "8–9",
+   "rs": "8–9",
+   "ib": "3–4",
+   "sonne": "13",
+   "planet": "Funktionen",
+   "abschnitt": "Grundbegriffe"
+  },
+  {
+   "id": "U5",
+   "name": "Graphen verschieben und strecken",
+   "satz": "Plus e schiebt nach oben, (x − d) schiebt nach rechts, mal a streckt, ein Minus davor spiegelt.",
+   "gym": "8–10",
+   "rs": "9–10",
+   "ib": "4–5",
+   "sonne": "–",
+   "planet": "Funktionen",
+   "abschnitt": "Grundbegriffe"
+  },
+  {
+   "id": "U6",
+   "name": "Umkehrfunktion",
+   "satz": "x und y tauschen; der Graph wird an der Geraden y = x gespiegelt. Geht nur, wenn zu jedem y genau ein x gehört.",
+   "gym": "9",
+   "rs": "10",
+   "ib": "4",
+   "sonne": "12",
+   "planet": "Funktionen",
+   "abschnitt": "Grundbegriffe"
+  },
+  {
+   "id": "U7",
+   "name": "Lineare Funktion",
+   "satz": "y = m · x + t: m ist die Steigung (Höhenunterschied durch Längenunterschied), t der Abschnitt auf der y-Achse.",
+   "gym": "8",
+   "rs": "8",
+   "ib": "3",
+   "sonne": "11",
+   "planet": "Funktionen",
+   "abschnitt": "Funktionsarten"
+  },
+  {
+   "id": "U8",
+   "name": "Ursprungsgerade",
+   "satz": "Proportional heißt: Gerade durch den Ursprung.",
+   "gym": "8",
+   "rs": "8",
+   "ib": "3",
+   "sonne": "11",
+   "planet": "Funktionen",
+   "abschnitt": "Funktionsarten"
+  },
+  {
+   "id": "U9",
+   "name": "Parallel und senkrecht",
+   "satz": "Parallele Geraden haben dieselbe Steigung. Senkrechte: Die Steigungen ergeben malgenommen −1.",
+   "gym": "8",
+   "rs": "8",
+   "ib": "3",
+   "sonne": "–",
+   "planet": "Funktionen",
+   "abschnitt": "Funktionsarten"
+  },
+  {
+   "id": "U10",
+   "name": "Geradenscharen",
+   "satz": "Ein Parameter in m dreht die Gerade, ein Parameter in t verschiebt sie.",
+   "gym": "8",
+   "rs": "8",
+   "ib": "3",
+   "sonne": "–",
+   "planet": "Funktionen",
+   "abschnitt": "Funktionsarten"
+  },
+  {
+   "id": "U11",
+   "name": "Hyperbel",
+   "satz": "y = a : x: doppeltes x, halbes y. Der Graph kommt den Asymptoten beliebig nahe, erreicht sie aber nie.",
+   "gym": "8",
+   "rs": "7",
+   "ib": "4",
+   "sonne": "11",
+   "planet": "Funktionen",
+   "abschnitt": "Funktionsarten"
+  },
+  {
+   "id": "U12",
+   "name": "Parabel",
+   "satz": "y = a · (x − d)² + e hat den Scheitel (d | e). a entscheidet über Öffnung und Breite.",
+   "gym": "9",
+   "rs": "9",
+   "ib": "4",
+   "sonne": "6",
+   "planet": "Funktionen",
+   "abschnitt": "Funktionsarten"
+  },
+  {
+   "id": "U13",
+   "name": "Potenzfunktionen",
+   "satz": "Gerade Hochzahl: symmetrisch zur y-Achse. Ungerade Hochzahl: symmetrisch zum Ursprung.",
+   "gym": "9",
+   "rs": "10",
+   "ib": "4",
+   "sonne": "8",
+   "planet": "Funktionen",
+   "abschnitt": "Funktionsarten"
+  },
+  {
+   "id": "U14",
+   "name": "Exponentialfunktion",
+   "satz": "Exponentiell: In gleichen Schritten wird mit derselben Zahl malgenommen. Linear: Es kommt dieselbe Zahl dazu.",
+   "gym": "10",
+   "rs": "10",
+   "ib": "5",
+   "sonne": "8",
+   "planet": "Funktionen",
+   "abschnitt": "Funktionsarten"
+  },
+  {
+   "id": "U15",
+   "name": "Logarithmusfunktion",
+   "satz": "Sie ist die Umkehrung der Exponentialfunktion.",
+   "gym": "10",
+   "rs": "10",
+   "ib": "5",
+   "sonne": "12",
+   "planet": "Funktionen",
+   "abschnitt": "Funktionsarten"
+  },
+  {
+   "id": "U16",
+   "name": "Sinus- und Kosinusfunktion",
+   "satz": "Sie wiederholen sich nach 360° (im Bogenmaß 2π). Die Amplitude ist die größte Auslenkung. 180° entsprechen π.",
+   "gym": "10",
+   "rs": "10",
+   "ib": "5",
+   "sonne": "–",
+   "planet": "Funktionen",
+   "abschnitt": "Funktionsarten"
+  },
+  {
+   "id": "U17",
+   "name": "Ganzrationale Funktionen",
+   "satz": "Die höchste Hochzahl bestimmt, wohin der Graph außen läuft. Die Produktform zeigt die Nullstellen.",
+   "gym": "10",
+   "rs": "–",
+   "ib": "5",
+   "sonne": "14",
+   "planet": "Funktionen",
+   "abschnitt": "Funktionsarten"
+  },
+  {
+   "id": "U18",
+   "name": "Betragsfunktion",
+   "satz": "Der Graph hat einen Knick. |x| = a hat die Lösungen a und −a.",
+   "gym": "–",
+   "rs": "–",
+   "ib": "5",
+   "sonne": "2",
+   "planet": "Funktionen",
+   "abschnitt": "Funktionsarten"
+  },
+  {
+   "id": "U19",
+   "name": "Folgen",
+   "satz": "Arithmetisch: immer dieselbe Zahl dazu. Geometrisch: immer mit derselben Zahl mal.",
+   "gym": "–",
+   "rs": "–",
+   "ib": "5",
+   "sonne": "–",
+   "planet": "Funktionen",
+   "abschnitt": "Funktionsarten"
+  },
+  {
+   "id": "U20",
+   "name": "Reihen",
+   "satz": "Arithmetische Reihe: Anzahl mal Mittelwert aus erstem und letztem Glied. Für die geometrische gibt es eine eigene Summenformel.",
+   "gym": "–",
+   "rs": "–",
+   "ib": "5",
+   "sonne": "–",
+   "planet": "Funktionen",
+   "abschnitt": "Funktionsarten"
+  },
+  {
+   "id": "D1",
+   "name": "Häufigkeit",
+   "satz": "Absolute Häufigkeit: wie oft. Relative Häufigkeit: Anzahl durch Gesamtzahl.",
+   "gym": "6–8",
+   "rs": "5–9",
+   "ib": "1–2",
+   "sonne": "11",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Daten"
+  },
+  {
+   "id": "D2",
+   "name": "Diagramme lesen",
+   "satz": "Im Kreisdiagramm gehört zu jedem Anteil derselbe Anteil von 360°. Eine Achse, die nicht bei 0 beginnt, übertreibt Unterschiede.",
+   "gym": "6",
+   "rs": "5",
+   "ib": "1",
+   "sonne": "11",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Daten"
+  },
+  {
+   "id": "D3",
+   "name": "Mittelwert",
+   "satz": "Alle Werte addieren, durch die Anzahl teilen.",
+   "gym": "6",
+   "rs": "7",
+   "ib": "2",
+   "sonne": "–",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Daten"
+  },
+  {
+   "id": "D4",
+   "name": "Median, Modalwert, Spannweite",
+   "satz": "Median: der Wert in der Mitte der geordneten Liste. Modalwert: der häufigste. Spannweite: größter minus kleinster.",
+   "gym": "7",
+   "rs": "7",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Daten"
+  },
+  {
+   "id": "D5",
+   "name": "Mittelwert oder Median",
+   "satz": "Ein Ausreißer zieht den Mittelwert mit, den Median nicht.",
+   "gym": "7",
+   "rs": "7",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Daten"
+  },
+  {
+   "id": "D6",
+   "name": "Quartile und Boxplot",
+   "satz": "Die Box enthält die mittlere Hälfte der Werte.",
+   "gym": "7",
+   "rs": "7",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Daten"
+  },
+  {
+   "id": "D7",
+   "name": "Stichprobe",
+   "satz": "Eine Stichprobe taugt nur, wenn sie zufällig gezogen und groß genug ist.",
+   "gym": "–",
+   "rs": "7",
+   "ib": "2",
+   "sonne": "11",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Daten"
+  },
+  {
+   "id": "D8",
+   "name": "Zusammenhang ist nicht Ursache",
+   "satz": "Zwei Größen können zusammen steigen, ohne dass die eine die andere bewirkt.",
+   "gym": "–",
+   "rs": "–",
+   "ib": "5",
+   "sonne": "–",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Daten"
+  },
+  {
+   "id": "D9",
+   "name": "Streuung",
+   "satz": "Die Standardabweichung misst, wie weit die Werte im Mittel vom Mittelwert entfernt liegen.",
+   "gym": "–",
+   "rs": "–",
+   "ib": "5",
+   "sonne": "12",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Daten"
+  },
+  {
+   "id": "D10",
+   "name": "Normalverteilung",
+   "satz": "Etwa 68 % der Werte liegen höchstens eine Standardabweichung vom Mittelwert entfernt, 95 % höchstens zwei.",
+   "gym": "–",
+   "rs": "–",
+   "ib": "5",
+   "sonne": "–",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Daten"
+  },
+  {
+   "id": "D11",
+   "name": "Zählprinzip",
+   "satz": "Die Möglichkeiten der einzelnen Stufen werden malgenommen.",
+   "gym": "5",
+   "rs": "5",
+   "ib": "2",
+   "sonne": "–",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Zählen und Zufall"
+  },
+  {
+   "id": "D12",
+   "name": "Ergebnis und Ereignis",
+   "satz": "Ein Ereignis ist eine Menge von Ergebnissen.",
+   "gym": "8",
+   "rs": "9",
+   "ib": "2",
+   "sonne": "–",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Zählen und Zufall"
+  },
+  {
+   "id": "D13",
+   "name": "Laplace-Wahrscheinlichkeit",
+   "satz": "Günstige durch mögliche Ergebnisse – nur wenn alle gleich wahrscheinlich sind.",
+   "gym": "8",
+   "rs": "9",
+   "ib": "2",
+   "sonne": "11",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Zählen und Zufall"
+  },
+  {
+   "id": "D14",
+   "name": "Gegenereignis",
+   "satz": "Jede Wahrscheinlichkeit liegt zwischen 0 und 1. Gegenereignis: 1 minus die Wahrscheinlichkeit.",
+   "gym": "8–10",
+   "rs": "9–10",
+   "ib": "2–4",
+   "sonne": "–",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Zählen und Zufall"
+  },
+  {
+   "id": "D15",
+   "name": "Gesetz der großen Zahlen",
+   "satz": "Bei sehr vielen Versuchen nähert sich die relative Häufigkeit der Wahrscheinlichkeit.",
+   "gym": "8–10",
+   "rs": "9",
+   "ib": "2",
+   "sonne": "–",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Zählen und Zufall"
+  },
+  {
+   "id": "D16",
+   "name": "Additionssatz",
+   "satz": "Entweder-oder: Wahrscheinlichkeiten addieren und das doppelt Gezählte abziehen.",
+   "gym": "9",
+   "rs": "9",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Zählen und Zufall"
+  },
+  {
+   "id": "D17",
+   "name": "Vierfeldertafel",
+   "satz": "Zeilen und Spalten ergeben die Randsummen; ein Feld folgt aus den anderen.",
+   "gym": "9",
+   "rs": "9",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Zählen und Zufall"
+  },
+  {
+   "id": "D18",
+   "name": "Bedingte Wahrscheinlichkeit",
+   "satz": "Unter der Bedingung B zählt nur noch, was in B liegt. Unabhängig heißt: Die Bedingung ändert nichts.",
+   "gym": "9",
+   "rs": "9",
+   "ib": "4",
+   "sonne": "11",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Zählen und Zufall"
+  },
+  {
+   "id": "D19",
+   "name": "Pfadregeln",
+   "satz": "Entlang eines Pfades malnehmen, mehrere Pfade addieren.",
+   "gym": "10",
+   "rs": "10",
+   "ib": "4",
+   "sonne": "10",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Zählen und Zufall"
+  },
+  {
+   "id": "D20",
+   "name": "Simulation",
+   "satz": "Ein Zufallsversuch lässt sich mit Zufallszahlen nachspielen; viele Durchgänge ergeben einen Schätzwert.",
+   "gym": "10",
+   "rs": "9",
+   "ib": "2",
+   "sonne": "–",
+   "planet": "Daten und Zufall",
+   "abschnitt": "Zählen und Zufall"
+  },
+  {
+   "id": "E1",
+   "name": "Mengen",
+   "satz": "Schnittmenge: in beiden. Vereinigungsmenge: in mindestens einer.",
+   "gym": "–",
+   "rs": "–",
+   "ib": "–",
+   "sonne": "–",
+   "planet": "Entdecker-Inseln",
+   "abschnitt": "Nur IB – Kür"
+  },
+  {
+   "id": "E2",
+   "name": "Aussagenlogik",
+   "satz": "„Und“ ist nur wahr, wenn beide wahr sind. „Wenn A, dann B“ ist nur falsch, wenn A wahr und B falsch ist.",
+   "gym": "–",
+   "rs": "–",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Entdecker-Inseln",
+   "abschnitt": "Nur IB – Kür"
+  },
+  {
+   "id": "E3",
+   "name": "Graphen",
+   "satz": "Jede Kante zählt an zwei Knoten. Ein Rundweg über alle Kanten geht nur, wenn jeder Knoten gerade viele Kanten hat.",
+   "gym": "–",
+   "rs": "–",
+   "ib": "4",
+   "sonne": "–",
+   "planet": "Entdecker-Inseln",
+   "abschnitt": "Nur IB – Kür"
+  },
+  {
+   "id": "E4",
+   "name": "Lineare Optimierung",
+   "satz": "Der beste Wert liegt in einer Ecke des erlaubten Bereichs.",
+   "gym": "–",
+   "rs": "–",
+   "ib": "5",
+   "sonne": "–",
+   "planet": "Entdecker-Inseln",
+   "abschnitt": "Nur IB – Kür"
+  },
+  {
+   "id": "E5",
+   "name": "Schranken",
+   "satz": "Ein gerundeter Messwert kann eine halbe Einheit größer oder kleiner sein.",
+   "gym": "–",
+   "rs": "–",
+   "ib": "5",
+   "sonne": "1",
+   "planet": "Entdecker-Inseln",
+   "abschnitt": "Nur IB – Kür"
+  }
+ ],
+ "arbeitsweisen": [
+  {
+   "name": "Probe",
+   "satz": "Setz ein und rechne nach."
+  },
+  {
+   "name": "Überschlag",
+   "satz": "Erst grob, dann genau."
+  },
+  {
+   "name": "Einheiten",
+   "satz": "Rechne mit Einheiten – die Einheit des Ergebnisses prüft die Rechnung."
+  },
+  {
+   "name": "Skizze",
+   "satz": "Zeichne, was du weißt."
+  },
+  {
+   "name": "Ansatz",
+   "satz": "Gegeben, gesucht, Rechnung, Antwort."
+  },
+  {
+   "name": "Begründen",
+   "satz": "Nenne den Satz, dann wende ihn an. Für „stimmt nicht“ genügt ein Gegenbeispiel."
+  },
+  {
+   "name": "Ablesen und Darstellen",
+   "satz": "Erst Achsen und Einheiten lesen, dann die Werte."
+  },
+  {
+   "name": "Formel anwenden",
+   "satz": "Formel hinschreiben, einsetzen, auflösen."
+  }
+ ],
+ "themen": {
+  "zahlen.ganz": {
+   "titel": "Ganze Zahlen",
+   "ort": "Rom",
+   "gebiet": "Zahlen"
+  },
+  "zahlen.rechengesetze": {
+   "titel": "Grundrechenarten und Rechengesetze",
+   "ort": "Rom",
+   "gebiet": "Zahlen"
+  },
+  "zahlen.potenzen_basis": {
+   "titel": "Potenzen als Schreibweise",
+   "ort": "Rom",
+   "gebiet": "Zahlen"
+  },
+  "groessen.einheiten": {
+   "titel": "Größen und Einheiten",
+   "ort": "Toronto",
+   "gebiet": "Geld und Verhältnisse"
+  },
+  "groessen.proportional": {
+   "titel": "Direkte Proportionalität und Dreisatz",
+   "ort": "Chicago",
+   "gebiet": "Geld und Verhältnisse"
+  },
+  "bruch.brueche": {
+   "titel": "Brüche und Anteile",
+   "ort": "Pisa",
+   "gebiet": "Zahlen"
+  },
+  "bruch.dezimal": {
+   "titel": "Dezimalzahlen",
+   "ort": "Brügge",
+   "gebiet": "Zahlen"
+  },
+  "bruch.rechnen": {
+   "titel": "Rechnen mit rationalen Zahlen",
+   "ort": "Florenz",
+   "gebiet": "Zahlen"
+  },
+  "terme.potenzgesetze": {
+   "titel": "Potenzen und negative Exponenten",
+   "ort": "Paris",
+   "gebiet": "Zahlen"
+  },
+  "bruch.prozent": {
+   "titel": "Prozent- und Zinsrechnung",
+   "ort": "Mexiko-Stadt",
+   "gebiet": "Geld und Verhältnisse"
+  },
+  "gleichungen.ungleichungen": {
+   "titel": "Lineare Ungleichungen",
+   "ort": "Delhi",
+   "gebiet": "Algebra"
+  },
+  "terme.bruchterme": {
+   "titel": "Bruchterme",
+   "ort": "Mumbai",
+   "gebiet": "Algebra"
+  },
+  "terme.potenzgesetze_ganzzahlig": {
+   "titel": "Potenzgesetze mit ganzzahligen Exponenten",
+   "ort": "Mumbai",
+   "gebiet": "Algebra"
+  },
+  "gleichungen.formeln": {
+   "titel": "Formeln umstellen",
+   "ort": "Mumbai",
+   "gebiet": "Algebra"
+  },
+  "gleichungen.bruch": {
+   "titel": "Bruch- und Verhältnisgleichungen",
+   "ort": "Mumbai",
+   "gebiet": "Algebra"
+  },
+  "funktionen.linear": {
+   "titel": "Lineare Funktionen",
+   "ort": "Neumayer-Station III",
+   "gebiet": "Funktionen"
+  },
+  "zahlen.reell": {
+   "titel": "Wurzeln und reelle Zahlen",
+   "ort": "Göttingen",
+   "gebiet": "Zahlen"
+  },
+  "zahlen.rationale_exponenten": {
+   "titel": "Rationale Exponenten und n-te Wurzel",
+   "ort": "Edinburgh",
+   "gebiet": "Zahlen"
+  },
+  "gleichungen.quadratisch": {
+   "titel": "Quadratische Gleichungen (allgemein)",
+   "ort": "Seoul",
+   "gebiet": "Algebra"
+  },
+  "abbildungen.aehnlichkeit": {
+   "titel": "Ähnlichkeit und Strahlensätze",
+   "ort": "Nairobi",
+   "gebiet": "Geometrie"
+  },
+  "bruch.prozent_grundwert": {
+   "titel": "Vermehrter und verminderter Grundwert",
+   "ort": "Los Angeles",
+   "gebiet": "Geld und Verhältnisse"
+  },
+  "terme.potenzgesetze_natuerlich": {
+   "titel": "Potenzgesetze",
+   "ort": "Samarkand",
+   "gebiet": "Algebra"
+  },
+  "terme.umformen": {
+   "titel": "Terme umformen",
+   "ort": "Samarkand",
+   "gebiet": "Algebra"
+  },
+  "gleichungen.exponential": {
+   "titel": "Exponentialgleichungen",
+   "ort": "Bangkok",
+   "gebiet": "Algebra"
+  },
+  "gleichungen.polynom": {
+   "titel": "Polynomgleichungen",
+   "ort": "Bangkok",
+   "gebiet": "Algebra"
+  },
+  "funktionen.exponential_log": {
+   "titel": "Exponential- und Logarithmusfunktionen",
+   "ort": "Halley-Station",
+   "gebiet": "Funktionen"
+  },
+  "funktionen.ganzrational": {
+   "titel": "Ganzrationale Funktionen",
+   "ort": "Casey-Station",
+   "gebiet": "Funktionen"
+  },
+  "stochastik.mehrstufig": {
+   "titel": "Mehrstufige Zufallsexperimente",
+   "ort": "Darwin",
+   "gebiet": "Daten und Zufall"
+  },
+  "gleichungen.einfach": {
+   "titel": "Einfache Gleichungen",
+   "ort": "Bagdad",
+   "gebiet": "Algebra"
+  },
+  "gleichungen.linear": {
+   "titel": "Lineare Gleichungen",
+   "ort": "Samarkand",
+   "gebiet": "Algebra"
+  }
+ }
+}

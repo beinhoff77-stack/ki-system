@@ -2,6 +2,41 @@
 
 Neueste oben.
 
+## 2026-11-26 08:50 (Berlin) – FERTIG: Gesetzbuch der Mathematik – Zeichenstil, Übersicht, ein Gesetz aufgeschlagen (Vorgabe GB)
+
+Zweig `designer`, ausgehend von `lernen-app` 01b103d. Kein App-Code, keine Datenbank, kein Lernstand, keine Namen. Mathe-Inhalt wörtlich aus `origin/mathe-profi` df14ade; der Designer hat keinen Mathe-Inhalt erfunden.
+
+**Geliefert** (alles unter `inhalte/design/gesetzbuch/`)
+- `umsetzung.md`: Vorgabe mit Zeichenstil, Maßen je Breite, Farben hell und dunkel, Texten, Verhalten, Prüfliste (14 Muss, 5 Soll, 3 Kann).
+- `entwurf/zeichnungen.html`: Zeichenstil „Heft und Tafel“ an den sechs verlangten Zeichnungen (Ausmultiplizieren mit drei Beschriftungen, Waage, Zahlenstrahl, Auslegen und Zählen, Rechteck → Parallelogramm → Dreieck → Trapez, Quader → Prisma und Zylinder → Pyramide und Kegel).
+- `entwurf/uebersicht-a.html`: Übersicht A „Schnitt von innen nach außen“ – die Sonne als vier Schichten mit allen 14 Merksätzen, darunter die sieben Planeten mit ihren tragenden Ideen, dann die acht Arbeitsweisen.
+- `entwurf/uebersicht-b.html`: Übersicht B „Durch die Klassen“ – jede Regel als Zeile von Klasse 5 bis 10 mit ihrem Beispiel in jeder Klasse.
+- `entwurf/gesetz.html`: ein Gesetz aufgeschlagen (Regel 6): Merksatz, Zeichnung, dieselbe Regel in sechs Klassen mit gelber Wirkstelle, wo es nicht gilt, Voraussetzung. Dazu der Weg Idee → Gesetze dahinter und die Suche über alle 174 Einträge („Kegelmantel“ → „Pyramide und Kegel“).
+- `bilder/`: 20 Bilder bei 360, 400, 820, 1280 px, hell und dunkel. Quellen in `entwurf/teile/`; `inhalt_lesen.py` liest den Inhalt des Mathe-Profis, `bauen.py` setzt die Seiten zusammen.
+
+**Empfehlung:** Übersicht A als Seite; die Tabelle aus B als zweite Ansicht am Rechner. Begründung in Abschnitt 3.3.
+
+**Mein Urteil in einem Satz:** Ich halte Zeichenstil, Übersicht A und die Gesetz-Seite für gut, weil die Merksätze selbst groß dastehen, der Aufbau eine einzige Leserichtung hat und „dieselbe Regel in vielen Klassen“ an echten Rechnungen zu sehen ist – ich bin aber nicht einverstanden, es dem Nutzer als fertig zu zeigen, solange 11 von 14 Regeln und die fünf Geometrie-Ideen „Zeichnung folgt“ zeigen.
+
+**Offen**
+- Für die erste Lieferung fehlen noch: Zeichnungen zu den fünf Geometrie-Ideen und zu 11 Rechenregeln; tragende Ideen für fünf Planeten (Zahlen, Algebra, Geld und Verhältnisse, Funktionen, Daten und Zufall). Im Entwurf steht an diesen Stellen „folgt“.
+- Entscheidung des Nutzers: A oder B.
+- **An den Mathe-Profi – acht Fragen in Abschnitt 11 der Vorgabe**, die wichtigsten: (1) Zahlen-Feld der Zeichnung 1 mit Minus wie im Auftrag oder mit Plus, damit alle drei Felder gleich sind? (3) Zuordnung der Gesetze zu den Ideen bestätigen. (4) Zwei Beispiele je Klasse bitte als zwei Einträge, nicht mit „ · “ getrennt. (5) Mantel und Oberfläche als eigene Einträge, wenn die Suche Formeln finden soll. (6) Schicht 1 und Planet 1 heißen beide „Zahlen“. (7) Wirkstelle je Regel festlegen. (8) Was genau die fünf Geometrie-Zeichnungen zeigen müssen.
+
+**Nicht geprüft**
+- Der Maßstab „ein Erwachsener versteht es in einer Minute“: mit niemandem erprobt.
+- Fachliche Richtigkeit der Zeichnungen durch den Mathe-Profi; seine genauen Vorgaben je Zeichnung lagen noch nicht vor.
+- Echte Geräte, Finger, Safari und Firefox; Vorleser nur als Text gesetzt; Kontrast nicht gemessen.
+- Gegenlesen durch ChatGPT.
+
+**Geprüft:** alle vier Entwürfe in Chrome bei 360 × 640, 400 × 860, 820 × 1180, 1280 × 800, hell und dunkel: keine Skriptfehler, 14 Regeln und 7 Planeten auf beiden Übersichten, Klickfolgen durch Gesetz, Idee und Suche, sieben Suchwörter, nichts ragt seitlich hinaus, keine Tippfläche unter 44 px. Alle Zahlen in den Zeichnungen nachgerechnet.
+
+**Annahmen**
+- Welche Gesetze hinter welcher Idee stehen, habe ich zugeordnet (Fläche und Raum: 3 / 8 / 8; Geometrie nach den vier Abschnitten).
+- Die fünf Geometrie-Sätze sind der Vorschlag des Projektleiters, formuliert mit den Sätzen der Gesetze G6, G10, G15, G20, G24.
+- Der Inhalt wird als feste Datei mit der App ausgeliefert; dann braucht die Seite keinen Ladezustand.
+- Die Vorgabe RS-H ist als abgelehnt gekennzeichnet; ihre Dateien bleiben nur zum Nachlesen im Zweig `designer`.
+
 ## 2026-11-26 08:40 (Berlin) – AUFTRAG vom Projektleiter: Gesetzbuch der Mathematik – Zeichnungen und Übersicht (jetzt, gleichzeitig mit dem Mathe-Profi)
 Der Nutzer will dich ausdrücklich dabeihaben und erwartet echte Zeichnungen. Bitte lies `inhalte/plan/regeln-uebersicht-auftrag.md` ganz; **der letzte Abschnitt ist maßgeblich** (zwei Ebenen). Die frühere Vorgabe RS-H ist abgelehnt.
 

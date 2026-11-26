@@ -1,3 +1,5 @@
+> **ABGELEHNT am 26.11.2026.** Der Nutzer hat diese Vorgabe abgelehnt. Sie gilt nicht mehr und wird nicht gebaut. Nachfolger: `inhalte/design/gesetzbuch/umsetzung.md` (Vorgabe GB). Die Dateien bleiben nur zum Nachlesen.
+
 # Vorgabe RS-H: Regeln am Himmel – Übersicht „Sonnensystem“ und Regel-Karte
 
 Designer, 26.11.2026. Stand `lernen-app` 9c2d316 (App 0.93.4). Kein App-Code, keine Datenbank. Fachlicher Inhalt: `inhalte/mathe-profi/denkpapier-grundregeln.md` auf `origin/mathe-profi`, Abschnitte 1, 2 und 5.

@@ -1,0 +1,76 @@
+/* Gesetzbuch der Mathematik – Entwurf des Designers. Grundfarben = Gestaltung „Abflug hell / dunkel“ der App. */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; } html, body { margin: 0; }
+:root { --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace; --grotesk: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --s1: #F59E00; --s2: #FFB81F; --s3: #FFD23F; --s4: #FFE68C; --auf-sonne: #11161D; }
+body { font-family: var(--grotesk); font-size: 17px; font-weight: 500; line-height: 1.4; background: var(--bg); color: var(--text); -webkit-text-size-adjust: 100%; }
+body[data-g="nacht"] { color-scheme: dark; --bg: #0B0F14; --flaeche: #151B24; --flaeche2: #1D2530; --text: #F2F4F7; --leise: #A9B3C1; --linie: #2E3947; --akzent: #FFD23F; --akzent-tief: #C79E1C;
+  --z-papier: #10161E; --z-karo: #243140; --z-tinte: #F2F4F7; --z-leise: #9AA6B5; --z-gelb: #FFD23F; --z-gelb-fl: #6B5714; --z-blau: #7CB7FF; --z-blau-fl: #1B3A5F; --z-rot: #FF8A8A;
+  --marke: #FFD23F; --fehler-bg: #2A1A1C; --fehler-rand: #FF8A8A; --fehler-text: #FFC9C9; --schatten: 0 14px 40px rgba(0, 0, 0, .5); }
+body[data-g="hell"] { color-scheme: light; --bg: #F3F1EA; --flaeche: #FFFFFF; --flaeche2: #F6F4EE; --text: #11161D; --leise: #4A5563; --linie: #C9C4B6; --akzent: #FFD23F; --akzent-tief: #C79E1C;
+  --z-papier: #FFFEFA; --z-karo: #C7D8E8; --z-tinte: #11161D; --z-leise: #5B6675; --z-gelb: #FFD23F; --z-gelb-fl: #FFE88A; --z-blau: #1F5FBF; --z-blau-fl: #D9E8FB; --z-rot: #B3261E;
+  --marke: #FFD23F; --fehler-bg: #FFF0EE; --fehler-rand: #B3261E; --fehler-text: #7A1712; --schatten: 0 12px 34px rgba(17, 22, 29, .16); }
+button, input { font: inherit; color: inherit; } button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--text); outline-offset: 2px; border-radius: 6px; }
+.leise { color: var(--leise); }
+.ueber { font-family: var(--mono); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--leise); font-weight: 600; margin: 0; }
+h1, h2, h3, p { margin: 0; }
+.breite { max-width: 1240px; margin: 0 auto; padding-left: 16px; padding-right: 16px; }
+@media (min-width: 700px) { .breite { padding-left: 28px; padding-right: 28px; } }
+
+/* Kopf mit Suche: auf jeder Seite gleich */
+.kopf { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--linie); }
+.kopf .breite { display: flex; align-items: center; gap: 10px; min-height: 60px; }
+.kopf-marke { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 17px; min-height: 44px; white-space: nowrap; }
+.kopf-marke i { width: 26px; height: 26px; border-radius: 50%; background: var(--s3); box-shadow: 0 0 0 4px rgba(255, 210, 63, .28); flex: none; }
+.kopf-marke span.lang { display: none; } @media (min-width: 700px) { .kopf-marke span.lang { display: inline; } .kopf-marke span.kurz { display: none; } }
+.suche { flex: 1; display: flex; justify-content: flex-end; }
+.suche label { position: relative; display: block; width: 100%; max-width: 420px; }
+.suche input { width: 100%; height: 44px; border-radius: 12px; border: 1.5px solid var(--linie); background: var(--flaeche); padding: 0 14px 0 40px; font-size: 16px; }
+.suche input::placeholder { color: var(--leise); opacity: 1; }
+.suche svg { position: absolute; left: 12px; top: 12px; width: 20px; height: 20px; color: var(--leise); pointer-events: none; }
+
+/* Rechnungen und Wirkstelle */
+.rechnung, .z-gl { font-family: var(--mono); font-weight: 600; }
+b.w { background: var(--marke); color: #11161D; border-radius: 5px; padding: 1px 5px; font-weight: 700; }
+.br { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-size: .78em; line-height: 1.05; margin: 0 1px; }
+.br i { font-style: normal; padding: 0 2px; } .br i:first-child { border-bottom: 2px solid currentColor; }
+
+/* Zeichnungen */
+.zeichnung { margin: 0; }
+.z-reihe { display: flex; flex-wrap: wrap; align-items: stretch; gap: 10px 0; }
+.z-teil { flex: 1 1 250px; min-width: 0; max-width: 420px; background: var(--z-papier); border: 1.5px solid var(--linie); border-radius: 16px; padding: 10px 10px 12px; }
+.zeichnung[data-felder="1"] .z-teil { max-width: 460px; }
+.z-feld { display: block; width: 100%; height: auto; }
+.z-kopf { font-family: var(--mono); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--leise); font-weight: 600; padding: 0 4px 2px; }
+.z-gl { font-size: 17px; text-align: center; padding: 6px 2px 2px; line-height: 1.8; }
+.z-satz { font-size: 16px; color: var(--leise); text-align: center; padding: 0 6px; }
+.z-pfeil { flex: 0 0 26px; align-self: center; height: 2px; background: var(--text); position: relative; margin: 0 5px 0 3px; }
+.z-pfeil::after { content: ""; position: absolute; right: -4px; top: -5px; border: 6px solid transparent; border-left: 9px solid var(--text); border-right: 0; }
+.z-pfeil.leer { flex-basis: 10px; background: none; margin: 0; } .z-pfeil.leer::after { display: none; }
+.z-schritt { display: inline-block; font-size: 16px; font-weight: 700; background: var(--text); color: var(--bg); border-radius: 999px; padding: 3px 11px; margin: 0 0 6px 2px; }
+@media (max-width: 899px) { .z-reihe { flex-direction: column; align-items: center; gap: 0; } .z-teil { flex: none; width: 100%; max-width: 420px; }
+  .z-pfeil { flex: 0 0 22px; width: 2px; height: 22px; margin: 3px 0 5px; } .z-pfeil::after { right: -5px; top: auto; bottom: -4px; border: 6px solid transparent; border-top: 9px solid var(--text); border-bottom: 0; } .z-pfeil.leer { flex-basis: 10px; } }
+.z-mini { background: var(--z-papier); border: 1.5px solid var(--linie); border-radius: 12px; padding: 4px; }
+.z-folgt { border: 1.5px dashed var(--linie); border-radius: 16px; padding: 14px 16px; background: var(--flaeche2); }
+.z-folgt p { font-size: 16px; } .z-folgt .ueber { margin-bottom: 4px; }
+
+/* Karten und Listen */
+.karte { background: var(--flaeche); border: 1.5px solid var(--linie); border-radius: 18px; }
+a.karte, button.karte { display: block; text-decoration: none; text-align: left; width: 100%; }
+a.karte:hover, button.karte:hover { border-color: var(--text); }
+.nr { font-family: var(--mono); font-size: 13px; font-weight: 700; letter-spacing: .06em; color: var(--leise); }
+.kl { font-family: var(--mono); font-size: 13px; font-weight: 600; color: var(--leise); white-space: nowrap; }
+.pfad { display: flex; flex-wrap: wrap; gap: 0 6px; align-items: center; font-size: 16px; color: var(--leise); padding: 14px 0 4px; }
+.pfad a { text-decoration: underline; text-underline-offset: 3px; min-height: 44px; display: inline-flex; align-items: center; }
+.pfad span.t { opacity: .7; }
+
+/* Entwurfs-Schalter: gehört nicht zur App */
+.entwurf { position: fixed; left: 10px; bottom: 10px; z-index: 50; font-family: system-ui, sans-serif; font-size: 13px; }
+.entwurf > button { border: 1px solid #8884; background: #1f2937; color: #fff; border-radius: 999px; padding: 7px 12px; font: inherit; opacity: .9; }
+.entwurf-feld { position: absolute; left: 0; bottom: 40px; width: 250px; background: #1f2937; color: #fff; border-radius: 14px; padding: 12px; box-shadow: 0 10px 30px #0008; display: none; line-height: 1.5; }
+.entwurf.offen .entwurf-feld { display: block; }
+.entwurf-feld a { color: #FFD23F; display: block; padding: 3px 0; }
+.entwurf-feld button { font: inherit; margin-top: 8px; border-radius: 8px; border: 1px solid #fff5; background: transparent; color: #fff; padding: 6px 10px; }
+body.bild .entwurf { display: none; }

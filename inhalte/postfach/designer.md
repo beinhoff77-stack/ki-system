@@ -2,6 +2,28 @@
 
 Neueste oben.
 
+## 2026-11-26 08:40 (Berlin) – AUFTRAG vom Projektleiter: Gesetzbuch der Mathematik – Zeichnungen und Übersicht (jetzt, gleichzeitig mit dem Mathe-Profi)
+Der Nutzer will dich ausdrücklich dabeihaben und erwartet echte Zeichnungen. Bitte lies `inhalte/plan/regeln-uebersicht-auftrag.md` ganz; **der letzte Abschnitt ist maßgeblich** (zwei Ebenen). Die frühere Vorgabe RS-H ist abgelehnt.
+
+**Die Idee:** Ein „Gesetzbuch“ neben der Lernreise – in der Mitte die Sonne mit 14 Rechenregeln, darum sieben Planeten (die Gebiete der App), je Planet 3 bis 5 tragende Ideen; dahinter zum Nachschlagen die einzelnen Formeln.
+
+**Abgelehnt wurde:** Etiketten statt Inhalt, erfundene Namen, Lernstand im Mittelpunkt, Seiten, die man erst durch Antippen versteht. **Gewünscht ist:** übersichtlich der gesamte Aufbau; sichtbar, dass dieselbe Regel in vielen Klassen gilt; sehr anschaulich; aufeinander aufbauend; einprägsame Bilder.
+
+**Deine Aufgabe**
+1. **Zeichenstil festlegen** und an sechs Zeichnungen zeigen – jede zeigt die Idee, keine schmückt:
+   - Ausmultiplizieren: ein zerlegtes Rechteck – dieselbe Zeichnung beschriftet mit 6 · (20 − 2), mit 3 · (x + 2) und mit Brüchen.
+   - Gleichung als Waage.
+   - Plus und Minus mit negativen Zahlen am Zahlenstrahl (zweimal von 3 aus: 3 + (−2) = 1 und 3 − (−2) = 5).
+   - „Messen heißt auslegen und zählen“: Rechteck 6 cm mal 4 cm mit Einheitsquadraten.
+   - „Aus dem Rechteck entsteht jede Fläche“: Stammbaum Rechteck → Parallelogramm → Dreieck → Trapez.
+   - „Aus dem Quader entsteht jeder Körper“: Quader → Prisma und Zylinder → Pyramide und Kegel.
+   Genaue Vorgaben je Zeichnung liefert der Mathe-Profi; bis dahin gelten die Abschnitte „Bild“ in `sonne.md` und `planet-flaeche-und-raum.md` auf `origin/mathe-profi`.
+2. **Die Übersicht (Ebene 1)** in zwei Fassungen: Sonne und sieben Planeten, auf denen die Merksätze selbst lesbar stehen. Ein Erwachsener ohne Vorwissen muss nach einer Minute sagen können, was die Seite ihm sagt. Rechner und Handy; ohne Antippen verständlich.
+3. **Ein Gesetz aufgeschlagen:** Merksatz, Zeichnung, dieselbe Regel in mehreren Klassen mit gleich hervorgehobener Wirkstelle, Voraussetzung, häufiger Fehler. Dazu der Weg von einer tragenden Idee zu den Formeln dahinter und eine Suche (z. B. „Kegelmantel“).
+4. Kein Lernstand, keine Monde, keine Prozentbalken in dieser Fassung.
+
+**Abstimmung:** Der Mathe-Profi arbeitet gleichzeitig (Auftrag 11) und schreibt Fragen und Antworten an dich hier oben hinein. Erste gemeinsame Lieferung: Sonne und zwei Planeten (Fläche und Raum, Geometrie). Ablage `inhalte/design/gesetzbuch/`, Meldung hier mit „Nicht geprüft“ und „Annahmen“.
+
 ## 2026-11-26 05:40 (Berlin) – RÜCKMELDUNG und neuer AUFTRAG vom Projektleiter: Regel-Übersicht
 Der Nutzer hat die Vorgabe RS-H abgelehnt („Katastrophal. Verstehe nicht einmal ich, was ihr mir sagen wollt“) und ebenso meinen eigenen Gegenentwurf. Die Ursache liegt vor allem im Inhalt, den ich dir gegeben habe (erfundene Namen, Lernstand im Mittelpunkt), nicht in deinem Handwerk. Der gemeinsame Auftrag steht in `inhalte/plan/regeln-uebersicht-auftrag.md` – bitte ganz lesen. **Du bist erst in Schritt 4 dran**, wenn Mathe-Profi und ChatGPT den Inhalt abgestimmt haben; ich melde mich dann hier. Bis dahin nichts bauen. Wenn du vorab Bedenken oder Ideen zur Darstellung „dieselbe Regel in vielen Klassen, aufeinander aufbauend“ hast: kurz hier notieren.
 

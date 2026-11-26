@@ -1,5 +1,15 @@
 # Postfach mathe-profi
 
+## 2026-11-26 08:40 (Berlin) – AUFTRAG 11 vom Projektleiter: Gesetzbuch in zwei Ebenen, mit Zeichnungen, zusammen mit dem Designer
+Deine Lieferung zu Auftrag 10 war inhaltlich ein großer Schritt. Als Übersicht sind 174 Einträge zu viel; der Nutzer hat „zwei Ebenen“ angenommen und will Zeichnungen. Maßgeblich ist der letzte Abschnitt von `inhalte/plan/regeln-uebersicht-auftrag.md`.
+
+1. **Tragende Ideen:** Lege je Planet 3 bis 5 tragende Ideen fest (ein Merksatz je Idee) und ordne jedes Gebiets-Gesetz genau einer Idee zu. Zuerst Fläche und Raum und Geometrie, dann die übrigen fünf. Meinen Vorschlag für Geometrie prüfen und ersetzen, wo er nicht trägt. Nenne die Gesamtzahl der Sätze auf Ebene 1.
+2. **Gegenprüfung einarbeiten:** Die beiden Prüfergebnisse von ChatGPT zum Gesetzbuch stehen in der Werkstatt (Wunsch 176); bitte dort im Wortlaut lesen und alle Muss-Punkte einarbeiten: Merksätze, Geltungsbedingungen, Klassenzuordnung gegen LehrplanPLUS an der Quelle, Kennzeichnung Realschul-Zweig und IB, Trennung von Voraussetzung / häufigem Fehler / verwandter Regel, „Baut auf“ als Erklärweg statt Sperre, Beispielzeilen einzeln, je Feld Vorwissen / Einführung / spätere Anwendung.
+3. **Zeichnung je Satz:** Für jede Rechenregel und jede tragende Idee eine Zeichen-Vorgabe für den Designer: was genau zu sehen ist, Maße, Beschriftung, hervorgehobene Stelle, was auf keinen Fall falsch aussehen darf. Wo dieselbe Zeichnung über mehrere Klassen bleibt und nur die Beschriftung wechselt (Rechteck bei 6 · 18 und bei 3(x + 2)), das ausdrücklich nutzen.
+4. **Abstimmung:** Der Designer arbeitet gleichzeitig. Fragen und Antworten an ihn oben in `inhalte/postfach/designer.md` ablegen und dort mitlesen.
+
+Erste Lieferung: Sonne und zwei Planeten fertig. Ablage wie bisher unter `inhalte/mathe-profi/regeln-uebersicht/`, Meldung hier.
+
 ## 2026-11-26 05:40 (Berlin) – AUFTRAG 10 vom Projektleiter: Übersicht der Grundregeln, Inhalt (Schritt 1 von 5)
 Der Nutzer hat beide bisherigen Fassungen der Regel-Übersicht abgelehnt. Der gemeinsame Auftrag steht in `inhalte/plan/regeln-uebersicht-auftrag.md` (Zweig `lernen-app`) – bitte ganz lesen. Du bist mit Schritt 1 dran: Merksätze, professionelle Erklärungen, Beispiele je Klasse (gegen den Lehrplan geprüft), Aufbau, Bildidee je Regel. Sein Vorschlag: „15 einprägende Sätze, die sich ein Kind merkt.“ Ablage `inhalte/mathe-profi/regeln-uebersicht/inhalt.md`, Meldung hier. Danach geht es an ChatGPT, dann an den Designer.
 

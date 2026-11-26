@@ -1,5 +1,35 @@
 # Postfach mathe-profi
 
+## 2026-11-26 (Berlin) – FERTIG: Auftrag 8 (individueller Lehrplan) und Auftrag 7 in zweiter Fassung
+Zweig `mathe-profi`, auf Stand `lernen-app` 783cea47 gebracht. Abgelegt mit Commits 24ad0fd3 (Auftrag 8) und 1b691676 (Auftrag 7, zweite Fassung). **Nichts eingestellt, nichts eingespielt.**
+
+### Auftrag 8 – `inhalte/mathe-profi/lehrplan-kinder/`
+- `nutzer-seite.md` – eine Seite: Plan je Kind, Begründung, fünf Entscheidungen.
+- `route.md` – je Kind fünf Abschnitte mit vier bis sechs Flügen; je Flug Themen, Etappen, Schulart, Pflicht/Kür, Begründung; Umfang je Abschnitt und Jahrgang.
+- `einstell-liste.md` – je Kind Platz und Status jedes Flugs mit `block.schluessel`, Änderungen fett, Hinweise zu ausgelassenen Themen.
+- `README.md` – Grundsatz der Reihenfolge, Einordnung Klasse 7 für Kind 2, Kreuzungen, Prüfpunkte, Umfang, Zweifel an Zuordnungen.
+- `plan.py` – Routen als Daten; prüft Voraussetzungen und Abschnittsgrößen, zählt, schreibt `route.md` und `einstell-liste.md`. Lauf „OK“.
+
+**Kernaussagen**
+1. **Reihenfolge im Wechsel:** höchstens zwei Rechen-Flüge hintereinander, dann Geometrie, Größen oder Daten; nie gegen eine Voraussetzung.
+2. **Kind 1:** 25 Flüge, 223 Etappen (Klasse 5 und 6). Vorgezogen: `ge1`, `d1`, `r1`, `d3`. Neu im Plan wegen Realschule: `r2` (nur `messen.koerper_darstellung`), `a2`, `ge2`. `g4` Zinsen wird Kür.
+3. **Kind 2:** 29 Flüge, 230 Etappen (Klasse 7: 59, Klasse 8: 108, Klasse 9: 63). **Im heutigen Plan fehlen sechs Pflicht-Flüge** (herausgenommen): `r4`, `r2`, `d5` (Klasse 8) und `ge4`, `ge5`, `d10` (Klasse 7). Ich schlage vor, sie zurückzuholen.
+4. **Klasse 7 bei Kind 2:** Die App kann dort keine Lücke belegen – die Flüge wurden nie bearbeitet. Vorschlag: ein ganzer amtlicher Jahrgangsstufentest 8 als Eingangsdiagnose. Bis dahin: `ge4`, `g8`, `ge5` zwischen den Klasse-8-Stoff; `ge2`, `d10`, `d4`, `ge9` können warten.
+5. **Prüfpunkte:** Blatt A vor Abschnitt 1, Blatt B nach Abschnitt 1. Fünf weitere Papier-Tests sind noch zu bauen (Liste in `README.md`, Abschnitt 5).
+
+**Widersprüche zwischen `themenliste.json` und App (bitte klären):** `geometrie.winkel` (Gymnasium 5 gegen 7), `finanzen.zinsen` und `zahlen.intervalle` (in der App ohne Gymnasium), `stochastik.grundbegriffe` (Realschule 9 gegen 8).
+**Zweifel an Zuordnungen** (nicht an der Quelle geprüft): Realschule `abbildungen.determinanten2`, `terme.potenzgesetze_ganzzahlig`, `raum.schraegbilder`, `messen.koerper_darstellung`, `gleichungen.ungleichungen`, `groessen.indirekt`; Gymnasium `geometrie.ortslinien`, `trigo.allgemein`, `funktionen.potenz`; IB `zahlen.wurzeln_basis`.
+
+### Auftrag 7, zweite Fassung – `inhalte/mathe-profi/schritt1/`
+- Jetzt **78 Aufgaben in sechs Themen**, 217 Fehlbilder. Neu: `zahlen.potenzen_basis` (13) und `gleichungen.formeln` (13) – das sind die offenen Themen im ersten Flug jeder Route (`z1`, `a5`).
+- `zahlen.ganz` und `terme.potenzgesetze_ganzzahlig` bleiben als Wiederholung in neuer Form.
+- Für den zweiten Flug (Geometrie: `ge1`, `ge4`) gibt es in Schritt 1 nichts – die Typen brauchen einen Rechenweg. Geometrie wartet auf `punkte` und Bausteine.
+- Jetzt **elf** Lückenwege mit voller Hilfe: nicht einspielen, solange das Kennzeichen „zählt nicht“ fehlt. Bedarf 1 bis 5 aus der ersten Meldung gilt unverändert.
+
+**Offen:** Entscheidungen des Nutzers (fünf, auf `nutzer-seite.md`); Gegenprüfung; Klärung der Widersprüche; Startwort Papier-Test.
+**Nicht geprüft:** keine Lehrplan-Stelle an der Quelle; Voraussetzungen aus meiner Kenntnis, nicht aus der Tabelle `voraussetzung` der App; ob das Herausnehmen Absicht des Lehrers war; ob die App `r2` mit ausgelassenem Thema für Kind 1 sauber führt; Lerntage nur geschätzt; Darstellung der neuen Aufgaben in der App.
+**Annahmen:** je Klasse ein Kind; „kann schon“ und „fertig“ in der App stimmen; 1,5 neue Etappen je Lerntag; IB-Jahr 1 entspricht etwa Klasse 6.
+
 ## 2026-11-26 04:15 (Berlin) – AUFTRAG 8 vom Projektleiter: individueller Lehrplan für beide Kinder – **vor Auftrag 7**
 Der Lehrer ist derzeit nicht erreichbar. Der Nutzer will für beide Kinder einen sinnvollen Lehrplan und überlässt dir die Gestaltung: „Wie der individuelle Lehrplan bezüglich Klassen aussieht, bin ich flexibel. Er soll ihn so gestalten, dass es sinnvoll ist.“ Der Projektleiter stellt den Plan danach in der App ein (erst nach Gegenprüfung und ausdrücklichem Satz des Nutzers).
 

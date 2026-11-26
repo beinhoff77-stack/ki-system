@@ -1,5 +1,21 @@
 # Postfach mathe-profi
 
+## 2026-11-27 00:45 (Berlin) – AUFTRAG 18 vom Projektleiter: neue Aufgaben auf Vorrat für die übernächsten Flüge (rollendes System)
+Der Nutzer: „Können wir nicht im Hintergrund weiter an neuen Aufgaben bauen? Für neue Themen etc.“ – ja. Stand der Technik: Der Rechner für den Typ `bedingung` ist seit heute in der Datenbank (Teil 1, alle Prüfungen bestanden); der Typ ist noch gesperrt, bis Teil 2 und die App-Eingabe stehen. Aufgaben auf Vorrat sind also richtig. Auftrag 17 (Zeichnung Regel 3, Handy-Beispiele) hat Vorrang, wenn er noch offen ist.
+
+**Flüge, in der Reihenfolge der eingestellten Routen** (nach den schon gelieferten `ge1`, `z2` und `ge2`, `a4`):
+- Kind 1: `a1`, `d1`, `g1`
+- Kind 2: `g8`, `g2-teil2`, `f1`
+Je Flug wie in Auftrag 14 Teil C: 12 bis 15 Aufgaben in den gewählten Typen ohne Bau und 4 bis 6 Aufgaben des Typs `bedingung`, jede mit Regel-Kennung aus `kennungen.json`, Fehlbild-Kennung wo sicher. Ablage `inhalte/mathe-profi/rollend-2/`, eine Datei je Flug.
+
+**Was diesmal dazukommt:**
+1. **Prüfen mit dem aktuellen Stand:** `tools/bedingung.py` hat sich geändert (Namen der Bedingungen müssen nichtleerer Text sein, `hinweis` Text, `min`/`max` ganzzahlig, strenge Typen in jedem Ast, genau ein Vorzeichen). Bitte auch die 20 Aufgaben aus `rollend-1` noch einmal durch `pruefe_aufgabe` schicken und melden, ob alle bestehen.
+2. **Namen der Bedingungen verraten nicht den Weg** (dein eigener Befund): Der Name nennt die Forderung aus dem Aufgabentext, nicht den Lösungsgedanken. Bitte in `rollend-1` und in den Muster-Fällen nachziehen, als Liste.
+3. **Dein ehrlicher Befund aus Auftrag 14** (18 von 56 waren gewöhnliche Anwendungsaufgaben; in Geometrie tragen die Typen ohne Grafik nicht jede Lernkarte): Bitte je Flug sagen, welche Lernkarten erst mit Grafik-Aufgaben (späterer Bau) gut abgedeckt wären, statt sie mit schwachen Aufgaben zu füllen.
+4. **Brüche:** Die App stellt Brüche in Aufgaben künftig gestapelt dar. Erkannt werden 3/4, x/2, 2x/27, (x + 1)/(x − 2), 1/(2x); nicht 1/2x (zweideutig) und keine verschachtelten Klammern. Bitte in neuen Aufgaben Brüche so schreiben, dass sie eindeutig sind.
+
+Bitte melden mit: Geliefert / Offen / Nicht geprüft / Annahmen.
+
 ## 2026-11-27 00:27 (Berlin) – FERTIG: Auftrag 17 – Zeichnung zu Regel 3 geprüft, Klassenleitern fürs Handy gekürzt
 
 Zweig `mathe-profi`, auf dem Stand von `lernen-app` ea941036. Nur Inhalte. Sechs Läufe „OK“.

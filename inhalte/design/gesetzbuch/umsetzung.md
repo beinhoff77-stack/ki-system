@@ -1,10 +1,63 @@
 # Vorgabe GB: Gesetzbuch der Mathematik – Zeichenstil, Übersicht, ein Gesetz aufgeschlagen
 
-Designer, 26.11.2026, **Fassung 2**. Stand `lernen-app` d6752b7. Kein App-Code, keine Datenbank, kein Lernstand.
-Mathe-Inhalt wörtlich vom Mathe-Profi (`origin/mathe-profi` dc6817d: `ebene1.md`, `sonne.md`, `planet-flaeche-und-raum.md`, `planet-geometrie.md`, `inhalt.md`), eingelesen mit `entwurf/inhalt_lesen.py`.
+Designer, 26.11.2026, **Fassung 3 (zweite Runde)**. Stand `lernen-app` 9b3f7d1. Kein App-Code, keine Datenbank, kein Lernstand.
+Mathe-Inhalt wörtlich vom Mathe-Profi (`origin/mathe-profi` 9e0bedf: `ebene1.md`, `sonne.md`, `planet-flaeche-und-raum.md`, `planet-geometrie.md`, `inhalt.md`), eingelesen mit `entwurf/inhalt_lesen.py`.
 **[G]** gesichert (im Entwurf gebaut und gemessen) · **[A]** Annahme · **[M]** Meinung.
 
 Die frühere Vorgabe RS-H (`inhalte/design/regeln-sonnensystem/`) ist abgelehnt und gilt nicht mehr.
+
+## F3 Zweite Runde – was jetzt gilt (gilt vor F2 und vor den Abschnitten 0 bis 12)
+
+Anlass: Auftrag des Projektleiters vom 26.11., 09:05; Auftrag 12 des Mathe-Profis (Merksatz + „Genau gesagt“, vier geänderte Zeichen-Vorgaben).
+
+### F3.1 Zwei Zeilen je Satz [G]
+- Alle 42 Sätze stehen zweizeilig: **Merksatz** groß und fett (Übersicht 18 px, Gesetz-Seite groß wie bisher), darunter **„Genau gesagt:“** in 16 px, leise. So auf jeder Regel-Karte, jeder Ideen-Karte, im aufgeschlagenen Gesetz, auf der Ideen-Seite und im Zeichnungs-Blatt.
+- Einzelne Gesetze (F1 bis F19, G1 bis G30 …) haben nur einen Satz; dort steht keine zweite Zeile.
+- Folge: Die Karten der Übersicht sind höher geworden. [M] Am Rechner tragbar, am Handy wird die Seite lang (Bild `a-400-dunkel`). Wenn das stört: „Genau gesagt“ auf der Übersicht weglassen und nur im aufgeschlagenen Gesetz zeigen – der Mathe-Profi nennt das ausdrücklich als zweite Möglichkeit.
+
+### F3.2 Zeichnungen: 23 von 23 [G]
+In der Sonne und in den Planeten „Fläche und Raum“ und „Geometrie“ gibt es keine Karte und keine Seite mehr mit „Zeichnung folgt“ (geprüft: 14 Regeln, 49 Gesetze, 9 Ideen). Ein einzelnes Gesetz zeigt die Zeichnung seiner tragenden Idee.
+
+Neu gegenüber F2 (alles 320 Einheiten breit, kleinste Schrift bei 360 px Breite: 13 px):
+
+| Zeichnung | Felder | Wie gebaut |
+|---|---|---|
+| Regel 1 Stellenwert | 1 | Tafel H, Z, E, z, h mit festem, dickem Komma-Strich; 2,5 oben, 25 unten; zwei gleiche gelbe Pfeile mit Rahmen schräg nach links. |
+| Regel 2 Minus heißt umdrehen | 1 | **Neu nach Auftrag 12:** Figur am Start bei 3 mit Blick nach rechts. Je Minuszeichen ein Kehrtwende-Zeichen (gelbes Feld mit Rahmen und U-Pfeil): oben eines, „einmal umdrehen“, unten zwei, „zweimal umdrehen“. Jedes Minus in der Rechnung ist ebenso gelb umrahmt. Starts genau übereinander, Pfeile genau zwei Einheiten. |
+| Regel 3 Treppe | 1 | Fünf gleich hohe Stufen (eine Stufe = 2), Null-Linie durchgezogen und beschriftet, an jedem Tritt „+2“ mit Pfeil nach oben, letzte Stufe gelb mit Rahmen über der Null-Linie; darunter 3, 2, 1, 0, (−1) und jeweils „· (−2)“. |
+| Regel 4 Reihenfolge | 1 | Vier Stufen von oben nach unten (1 Klammer, 2 Hoch, 3 Punkt · :, 4 Strich + −); Stufe 3 gelb mit Rahmen; rechts 2 + 3 · 4 mit gelbem Rahmen genau um „3 · 4“, dann 2 + 12, dann 14. |
+| Regel 5 Kärtchen | 2 | Kärtchen mit dem Zeichen vorn im gelben Feld; Tauschen 25 · 37 · 4 → 25 · 4 · 37 mit Klammer „100“; zwei Körbe „für a“ (+3a, +4a → 7a) und „für b“ (+2b). |
+| Regel 7 Kassenzettel | 2 | Zettel mit Klammer um „Einkauf 8 €“ (gelb) und „Rabatt −3 €“ (blau); daneben zwei Rechenzeilen in festen Spalten: „− 8“ steht unter „8“, „+ 3“ unter „− 3“, Paare gleich markiert, Ergebnis 15. |
+| Regel 8 Potenzen | 2 | Fünf Zweien in gleichen Abständen; die erste Klammer mit drei Zweien und „2³“ gelb mit Rahmen (Hauptsache), „2²“ und „2⁵“ zweitrangig; Reihe 8, 4, 2, 1, ½, ¼ mit Hochzahlen darüber und „: 2“ dazwischen, Feld 2⁰ = 1 blau umrahmt. |
+| Regel 9 zwei Streifen | 1 | Gleich lang, genau untereinander, ½ und 2/4; die gemeinsame Endlinie gelb mit gestrichelter Linie; Pfeile „Zähler und Nenner · 2“ abwärts und „: 2“ aufwärts. |
+| Regel 10 drei Streifen | 1 | ½ blau, ⅓ schraffiert, im dritten 3 blaue und 2 schraffierte Sechstel lückenlos, die fünf dick umrahmt mit gelber Maßlinie „5 Sechstel“; Hilfslinien dünn nach unten. |
+| Regel 11 Dreisatz | 1 | Tabelle kg / €; mittlere Zeile gelb mit Rahmen, darunter „mittlere Zeile: für eins“; links und rechts dieselben Pfeile mit „: 3“ und „· 5“ in gelben Schildern. Kein Kreuz. |
+| Regel 12 Gegenrechnung | 1 | Zwei Reihen, Kästchen genau untereinander; oben nach rechts, unten nach links; „· 4“ und „: 4“ gelb, „− 12“ und „+ 12“ blau; Zwischenwert −5. |
+| Regel 14 Nullprodukt | 1 | Zwei gleich große gelbe Kästen, rechts „= 0“ mit gelber Null; darunter je eine eigene Gleichung und Lösung, dazwischen „oder“. |
+| Geometrie 1 Winkel an Geraden | 1 | Dreieck mit 50°, 60°, 70° maßstäblich; Parallele durch C mit Parallel-Zeichen; α gelb, β blau, γ schraffiert – bei C lückenlos nebeneinander. |
+| Geometrie 2 Gleicher Abstand | 1 + 2 | Hauptzeichnung Kreis (r = 3 cm, vier Radien); eigene Reihe mit Mittelsenkrechte (AB = 4 cm, P 3 cm über der Mitte) und Winkelhalbierende (60°, zwei Lote mit rechtem Winkel). Gleich lange Strecken: gelber Leuchtstift, ein Querstrich. |
+| Geometrie 3 Deckungsgleich | 3 | Dreieck 3 cm, 4 cm, 5 cm je einmal gespiegelt, verschoben, um 90° gedreht; Seiten mit einem, zwei, drei Querstrichen auf gelbem Punkt; gleiche Winkel gleiche Bögen; Ecken A, B, C und A′, B′, C′. |
+| Geometrie 4 Ähnlich | 1 | Strahlen von S, 2 cm / 4 cm und 3 cm / 6 cm, Parallelen 2,5 cm / 5 cm, maßstäblich; gleiche Winkel gelb; Schild „alles mal 2“. |
+| Geometrie 5 Rechtwinkliges Dreieck | 1 | 3 cm, 4 cm, 5 cm mit Quadraten aus 9, 16, 25 Feldern; rechter Winkel und Hypotenuse gelb mit Rahmen. |
+| Fläche und Raum 4 Aufklappen | 3 | **Neu nach Auftrag 12:** Quader, halb aufgeklappt, Netz. Gelb = 20 cm², blau = 15 cm², schraffiert = 12 cm² in allen drei Bildern. |
+
+Darstellungsregel ergänzt: Wo zwei oder drei Dinge paarweise zusammengehören, gibt es neben Gelb mit Rahmen eine zweite Markierung (Blau mit blauem Rahmen) und eine dritte (Schraffur). Jede ist auch ohne Farbe unterscheidbar.
+
+### F3.3 Übrige fünf Planeten [G]
+Zahlen, Algebra, Geld und Verhältnisse, Funktionen, Daten und Zufall zeigen ihre tragenden Ideen als Karten ohne Zeichnungs-Rahmen: Kurzname, Merksatz, „Genau gesagt“, „n Gesetze dahinter“.
+
+### F3.4 Meine acht Fragen – Antworten des Mathe-Profis fehlen noch (Auftrag 13), deshalb Annahmen [A]
+1. Minus oder Plus im Zahlen-Feld: beides, wie in seiner Zeichen-Vorgabe (Feld 1 Plus, Feld 2 Minus).
+2. Wirkstelle je Regel: nur bei den Regeln 2, 6 und 13 markiert (von mir gesetzt, `teile/wirkstelle.json`); bei den übrigen elf Regeln stehen die Beispiele ohne Markierung.
+3. Zwei Beispiele derselben Klasse: zwei eigene Zeilen (so liefert er sie inzwischen).
+4. Mantel und Oberfläche: über seine Stichwörter auffindbar („Kegelmantel“ → F17 als erster Treffer).
+5. Doppelter Name „Zahlen“ (Schicht 1 der Sonne und Planet 1): bleibt; die Schicht heißt in der Anzeige immer „Schicht 1 · Zahlen“.
+6. bis 8. (Geometrie-Sätze, Zuordnung Gesetz → Idee, Stichwörter): durch `ebene1.md` und `inhalt.md` erledigt.
+
+### F3.5 Offen
+- Varianten aus den Vorgaben („Gleiche Zeichnung, andere Beschriftung“) sind nur bei Regel 6 gebaut. Für alle anderen fehlen sie noch (zum Beispiel Stellenwerttafel für 3 400 m = 3,4 km, Treppe und Dreisatz für Prozent, Dreieck im Einheitskreis, Netz von Prisma und Zylinder).
+- Regel 10 soll laut Projektleiter drei kurze Sprüche statt eines langen bekommen; die Karte nimmt, was `ebene1.md` liefert.
+- Die Zeichnungen sind vom Mathe-Profi noch nicht fachlich geprüft (Teil von Auftrag 13).
 
 ## F2 Fassung 2 – was sich gegenüber Fassung 1 geändert hat (gilt vor den Abschnitten 0 bis 12)
 

@@ -2,6 +2,35 @@
 
 Neueste oben.
 
+## 2026-11-26 09:45 (Berlin) – FERTIG: Gesetzbuch, zweite Runde (Vorgabe GB, Abschnitt F3)
+
+Zweig `designer`, Stand `lernen-app` 9b3f7d1 übernommen. Inhalt wörtlich aus `origin/mathe-profi` 9e0bedf (Aufträge 11 und 12). Kein App-Code, keine Datenbank, kein Lernstand, keine Namen.
+
+**Geliefert** (alles unter `inhalte/design/gesetzbuch/`)
+1. **Inhalt neu eingelesen.** Auf jeder Karte der Merksatz groß, „Genau gesagt:“ klein darunter – alle 42 Sätze, in beiden Übersichten, im aufgeschlagenen Gesetz, auf der Ideen-Seite.
+2. **Alle 23 Zeichnungen** nach den Zeichen-Vorgaben: 14 Rechenregeln, 5 Ideen Geometrie, 4 Ideen Fläche und Raum. Neu gezeichnet: Regeln 1, 3, 4, 5, 7, 8, 9, 10, 11, 12, 14 und Geometrie 1 bis 5. Nach Auftrag 12 neu gefasst: Regel 2 (Figur am Start, je Minus eine Kehrtwende) und „Haut des Körpers“ (drei Bilder: Quader, halb aufgeklappt, Netz). Regel 8 hebt die Klammer mit den drei Zweien hervor; Geometrie 2 hat den Kreis als Hauptzeichnung. In Sonne und diesen zwei Planeten gibt es kein „Zeichnung folgt“ mehr (geprüft für 14 Regeln, 49 Gesetze, 9 Ideen).
+3. **Die fünf übrigen Planeten** zeigen ihre tragenden Ideen als Karten ohne Zeichnungs-Rahmen.
+4. `umsetzung.md`, neuer Abschnitt **F3** oben: Aufbau jeder neuen Zeichnung, zweite und dritte Markierung (Blau mit Rahmen, Schraffur), Annahmen zu den acht Fragen. 26 Bilder in `bilder/`. Entwürfe: `entwurf/zeichnungen.html` (alle 23), `uebersicht-a.html`, `uebersicht-b.html`, `gesetz.html`.
+
+**Annahmen, weil die Antworten des Mathe-Profis (Auftrag 13) noch nicht auf seinem Zweig liegen**
+- Wirkstelle in den Klassen-Beispielen nur bei den Regeln 2, 6 und 13 markiert; bei den anderen elf stehen die Beispiele ohne Markierung.
+- Doppelter Name „Zahlen“ bleibt; die Schicht heißt in der Anzeige „Schicht 1 · Zahlen“.
+- Mantel und Oberfläche gelten als auffindbar über seine Stichwörter.
+- Regel 2: Ein und dieselbe Markierung (Gelb mit Rahmen) für jedes Minus und jede Kehrtwende, nicht je Minus eine eigene Farbe.
+- Regel 7: Das zweite Paar ist blau umrahmt statt in einer zweiten Leuchtfarbe.
+- Halb aufgeklappter Quader: Die Vorderwand liegt schon flach, Seitenwände und Rückwand stehen schräg, der Deckel hängt an der Rückwand. Die Vorgabe sagt nur „Deckel und Seitenwände stehen schräg ab“.
+
+**Offen**
+- Die Varianten „gleiche Zeichnung, andere Beschriftung“ sind nur bei Regel 6 gebaut.
+- „Genau gesagt“ macht die Übersicht am Handy lang. Meine Meinung: auf der Übersicht weglassen, nur im aufgeschlagenen Gesetz zeigen. Entscheidung beim Nutzer.
+- Regel 10: drei kurze Sprüche statt eines langen kommen erst mit der nächsten Lieferung des Mathe-Profis.
+- Die Abschnitte 1, 2, 5, 9, 11 der `umsetzung.md` beschreiben in Einzelheiten noch Fassung 1; es gelten F3 und F2.
+
+**Nicht geprüft**
+- Fachliche Richtigkeit der 23 Zeichnungen durch den Mathe-Profi (Auftrag 13, Punkt 2). Selbst konstruiert und nur von mir nachgerechnet: Winkel 50°/60°/70°, Strahlensatz-Figur, Quadrat über der Hypotenuse, Drehung um 90°, Kreis-Umlegung, Schrägbilder.
+- Ob ein Erwachsener ohne Vorwissen die Seite in einer Minute versteht.
+- Echte Geräte, Safari, Firefox, Kontrastwerte. Gemessen nur in Chrome bei 360, 400, 820, 1280 px, hell und dunkel: 152 Seitenaufrufe, kein Querrollen, keine Schrift unter 13 px, keine Skriptfehler.
+
 ## 2026-11-26 09:05 (Berlin) – RÜCKMELDUNG und AUFTRAG vom Projektleiter: Gesetzbuch, zweite Runde
 Vorgabe GB gelesen und die Bilder angesehen (Zeichenstil, Übersicht A, Gesetz aufgeschlagen). Urteil des Projektleiters: Der Zeichenstil „Heft und Tafel“ trifft, was der Nutzer wollte – die Zeichnung zeigt die Regel, dieselbe Zeichnung trägt Zahlen, x und Brüche. Dein eigenes Urteil teile ich: als fertig zeigen wir es erst, wenn die Platzhalter weg sind. Die sechs Zeichnungen und die Gesetz-Seite zeige ich dem Nutzer als Zwischenstand.
 

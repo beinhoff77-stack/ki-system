@@ -1,5 +1,5 @@
 {
- "stand": "dc6817d",
+ "stand": "9e0bedf",
  "etagen": [
   {
    "nr": 1,
@@ -24,7 +24,8 @@
    "nr": 1,
    "name": "Stellenwert",
    "etage": 1,
-   "satz": "Mal 10 rückt jede Ziffer in die nächsthöhere Stelle, geteilt durch 10 in die nächstniedrigere.",
+   "satz": "Mal zehn: Jede Ziffer rückt eins nach links.",
+   "genau": "Mal 10 rückt jede Ziffer in die nächsthöhere Stelle, geteilt durch 10 in die nächstniedrigere.",
    "warum": "Unser Zahlensystem bündelt in Zehnern: Jede Stelle ist zehnmal so viel wert wie die Stelle rechts von ihr. Beim Malnehmen mit 10 wird deshalb aus jedem Einer ein Zehner, aus jedem Zehntel ein Einer. Die Ziffern bleiben, nur ihre Plätze ändern sich. Das Komma markiert die Grenze zwischen Einern und Zehnteln.",
    "voraus": "Gilt für jede Zahl im Zehnersystem, auch hinter dem Komma.",
    "fehler": "„Eine Null anhängen“: 2,5 · 10 ist 25, nicht 2,50.",
@@ -76,7 +77,8 @@
    "nr": 2,
    "name": "Plus und Minus mit negativen Zahlen",
    "etage": 1,
-   "satz": "Beim Addieren zeigt das Vorzeichen der zweiten Zahl die Richtung. Beim Subtrahieren gehst du genau andersherum.",
+   "satz": "Minus heißt umdrehen – zweimal umdrehen ist wieder geradeaus.",
+   "genau": "Beim Addieren zeigt das Vorzeichen der zweiten Zahl die Richtung. Beim Subtrahieren gehst du genau andersherum.",
    "warum": "Auf der Zahlengeraden heißt „plus eine positive Zahl“ nach rechts gehen und „plus eine negative Zahl“ nach links. Subtrahieren ist das Gegenteil des Addierens, also läuft man jeweils in die andere Richtung. Deshalb ist 3 − (−2) dasselbe wie 3 + 2.",
    "voraus": "Gilt für alle Zahlen: ganze Zahlen, Brüche, Dezimalzahlen und später Terme.",
    "fehler": "3 − (−2) = 1 statt 5: das zweite Minus übersehen. Und: −30 für größer halten als −10.",
@@ -117,8 +119,8 @@
    "zeichen": {
     "Zu sehen": "Zwei Zahlengeraden untereinander von −1 bis 6. Oben: Startpunkt bei 3, ein Bogenpfeil zwei Einheiten nach links, Landung bei 1. Unten: Startpunkt bei 3, ein Bogenpfeil zwei Einheiten nach rechts, Landung bei 5.",
     "Maße": "Gleicher Maßstab auf beiden Geraden, Teilstriche an jeder ganzen Zahl; beide Starts genau übereinander bei 3.",
-    "Beschriftung": "Über der oberen Geraden „3 + (−2) = 1“, über der unteren „3 − (−2) = 5“. Start mit vollem Punkt, Ziel mit Ring.",
-    "Hervorgehoben": "Die Pfeilrichtung und das Zeichen, das sie bestimmt (das „−“ vor der 2 und das Rechenzeichen in derselben Farbe).",
+    "Beschriftung": "Über der oberen Geraden „3 + (−2) = 1“ und „einmal umdrehen“, über der unteren „3 − (−2) = 5“ und „zweimal umdrehen“. Start mit vollem Punkt, Ziel mit Ring. Am Start steht eine kleine Figur mit Blick nach rechts; je Minuszeichen zeigt ein kleiner Bogenpfeil eine Kehrtwende.",
+    "Hervorgehoben": "Jedes Minuszeichen und die zugehörige Kehrtwende in derselben Farbe: oben eine, unten zwei.",
     "Darf nicht falsch aussehen": "Beide Pfeile müssen genau zwei Einheiten lang sein. Der Start darf nicht bei 0 liegen. Die Null muss sichtbar sein.",
     "Gleiche Zeichnung, andere Beschriftung": "Dieselben zwei Geraden für −½ − ¾ (Teilstriche in Vierteln) und für 3x − 5x (Einheit „x“)."
    }
@@ -128,7 +130,8 @@
    "nr": 3,
    "name": "Vorzeichen bei Mal und Geteilt",
    "etage": 1,
-   "satz": "Bei Mal und Geteilt: Gleiche Vorzeichen ergeben Plus, verschiedene Minus.",
+   "satz": "Minus mal Minus gibt Plus, Minus mal Plus gibt Minus.",
+   "genau": "Bei Mal und Geteilt mit zwei Zahlen ungleich null: Gleiche Vorzeichen ergeben Plus, verschiedene Minus.",
    "warum": "In der Reihe 3 · (−2) = −6, 2 · (−2) = −4, 1 · (−2) = −2, 0 · (−2) = 0 wird das Ergebnis jedes Mal um 2 größer. Setzt man sie fort, muss (−1) · (−2) = 2 sein. Nur so bleiben die übrigen Rechengesetze gültig. Für Geteilt gilt dasselbe, weil Teilen die Gegenrechnung zum Malnehmen ist.",
    "voraus": "Gilt für zwei Zahlen, die beide nicht null sind. Ist ein Faktor null, ist das Produkt null und hat kein Vorzeichen.",
    "fehler": "Die Regel auf Plus übertragen: (−3) + (−4) ist −7, nicht +7.",
@@ -186,7 +189,8 @@
    "nr": 4,
    "name": "Reihenfolge beim Rechnen",
    "etage": 1,
-   "satz": "Klammer zuerst, dann Hoch, dann Punkt, dann Strich – Gleichrangiges von links nach rechts.",
+   "satz": "Klammer zuerst, dann Hoch, dann Punkt vor Strich.",
+   "genau": "Klammer zuerst, dann Hoch, dann Punkt, dann Strich – Gleichrangiges von links nach rechts.",
    "warum": "Die Reihenfolge ist eine Vereinbarung, damit jeder dieselbe Rechnung gleich liest. Sie folgt dem Aufbau der Rechenarten: Hoch ist wiederholtes Malnehmen, Mal ist wiederholtes Addieren – die „stärkere“ Rechnung bindet enger. Klammern sind das Mittel, die Reihenfolge zu ändern.",
    "voraus": "Gilt für jeden Term. Mal und Geteilt sind gleichrangig, ebenso Plus und Minus: Dann wird von links nach rechts gerechnet, zum Beispiel 12 : 3 · 2 = 8.",
    "fehler": "Von links nach rechts durchrechnen: 2 + 3 · 4 = 20. Und: 2 + 3x zu 5x zusammenziehen.",
@@ -250,7 +254,8 @@
    "nr": 5,
    "name": "Tauschen, Klammern, Zusammenfassen",
    "etage": 2,
-   "satz": "In einer Summe darfst du die Summanden tauschen und neu klammern, in einem Produkt die Faktoren. Zusammenfassen: gleicher Buchstabenteil – Vorzahlen addieren.",
+   "satz": "Tauschen bei Plus und Mal. Zusammenfassen: nur Gleiches zu Gleichem.",
+   "genau": "In einer Summe darfst du die Summanden tauschen und neu klammern, in einem Produkt die Faktoren. Zusammenfassen: gleicher Buchstabenteil – Vorzahlen addieren.",
    "warum": "Bei einer Summe und bei einem Produkt kommt es nicht auf die Reihenfolge und nicht auf die Klammerung an (Vertauschungs- und Verbindungsgesetz). Zusammenfassen heißt zählen: 3 Stück a und 4 Stück a sind 7 Stück a.",
    "voraus": "Gilt für reine Summen und reine Produkte. Eine Differenz schreibt man vorher als Summe (5 − 3 = 5 + (−3)), dann wandert das Minus mit seiner Zahl mit.",
    "fehler": "Bei Minus oder Geteilt einfach tauschen: 5 − 3 ist nicht 3 − 5. Und: 3a + 4b zu 7ab zusammenfassen.",
@@ -302,7 +307,8 @@
    "nr": 6,
    "name": "Ausmultiplizieren und Ausklammern",
    "etage": 2,
-   "satz": "Der Faktor vor der Klammer multipliziert jeden Summanden – vorwärts ausmultiplizieren, rückwärts ausklammern.",
+   "satz": "Was vor der Klammer steht, nimmt jeden in der Klammer mal.",
+   "genau": "Der Faktor vor der Klammer multipliziert jeden Summanden – vorwärts ausmultiplizieren, rückwärts ausklammern.",
    "warum": "Ein Rechteck mit den Seiten a und (b + c) hat dieselbe Fläche wie die zwei Teilrechtecke a · b und a · c zusammen. Rückwärts gelesen ist es das Ausklammern: Steckt in jedem Summanden derselbe Faktor, darf man ihn vor eine Klammer ziehen.",
    "voraus": "Gilt für einen Faktor vor einer Summe oder Differenz – für Zahlen, Brüche und Terme.",
    "fehler": "Nur den ersten Summanden malnehmen: 3 · (x + 2) = 3x + 2. Und: die Regel auf Hoch übertragen – (a + b)² ist nicht a² + b².",
@@ -366,7 +372,8 @@
    "nr": 7,
    "name": "Minus vor der Klammer",
    "etage": 2,
-   "satz": "Löst du eine Minusklammer auf, wechselt jeder Summand in der Klammer sein Vorzeichen.",
+   "satz": "Minus vor der Klammer dreht alle Zeichen um.",
+   "genau": "Löst du eine Minusklammer auf, wechselt jeder Summand in der Klammer sein Vorzeichen.",
    "warum": "Ein Minus vor der Klammer heißt „mal (−1)“. Der Faktor −1 multipliziert jeden Summanden, also wechselt jedes Vorzeichen. Im Alltag: Wer 20 € hat und einen Einkauf von 8 € mit 3 € Rabatt bezahlt, behält 20 − 8 + 3 €.",
    "voraus": "Gilt für jede Klammer, vor der ein Minus steht. Malzeichen in der Klammer bleiben: −(2 · x − 3) = −2 · x + 3.",
    "fehler": "Nur das erste Vorzeichen wechseln: 5x − (3x − 2) = 5x − 3x − 2.",
@@ -412,7 +419,8 @@
    "nr": 8,
    "name": "Potenzen",
    "etage": 2,
-   "satz": "Hoch n heißt: n gleiche Faktoren. Bei gleicher Basis gilt: Mal – Hochzahlen addieren.",
+   "satz": "Hoch drei heißt: die Zahl dreimal hinschreiben und malnehmen.",
+   "genau": "Hoch n heißt: n gleiche Faktoren. Bei gleicher Basis gilt: Mal – Hochzahlen addieren.",
    "warum": "2³ · 2² ist (2 · 2 · 2) · (2 · 2) – zusammen fünf Zweien, also 2⁵. Teilt man, fallen Faktoren weg; deshalb werden die Hochzahlen abgezogen. Setzt man die Reihe 8, 4, 2 fort, ergibt sich 2⁰ = 1 und 2⁻¹ = ½: Eine negative Hochzahl heißt Kehrwert.",
    "voraus": "„n gleiche Faktoren“ gilt für n = 1, 2, 3 … Hoch 0 und negative Hochzahlen sind eigens festgelegt und verlangen eine Basis, die nicht null ist. Das Additionsgesetz verlangt dieselbe Basis.",
    "fehler": "Basis mal Hochzahl rechnen: 2³ = 6. Und: 2³ + 2² zu 2⁵ machen – das Gesetz gilt nur bei Mal.",
@@ -454,7 +462,7 @@
     "Zu sehen": "Eine Zeile mit drei Zweien in einer Klammer und zwei Zweien in einer zweiten Klammer, dazwischen ein Malpunkt: (2 · 2 · 2) · (2 · 2). Unter der ersten Klammer „2³“, unter der zweiten „2²“, unter allen fünf zusammen eine lange Klammer mit „2⁵“. Darunter eine Zahlenreihe 8, 4, 2, 1, ½, ¼ mit den Hochzahlen 3, 2, 1, 0, −1, −2 darüber und „: 2“ zwischen den Gliedern.",
     "Maße": "Die fünf Zweien stehen in gleichen Abständen; die untere Reihe hat sechs gleich breite Felder.",
     "Beschriftung": "„2³ · 2² = 2⁵“ und „3 + 2 = 5“. In der Reihe: Hochzahl über jedem Wert.",
-    "Hervorgehoben": "Die Hochzahlen 3, 2 und 5 in einer Farbe; in der Reihe das Feld 2⁰ = 1.",
+    "Hervorgehoben": "Die erste Klammer: drei Zweien, hingeschrieben und malgenommen – dazu die Hochzahl 3 in derselben Farbe. Zweitrangig: die Hochzahlen 2 und 5; in der Reihe das Feld 2⁰ = 1.",
     "Darf nicht falsch aussehen": "Es müssen genau fünf Zweien sein. In der Reihe darf 2⁰ nicht 0 sein und 2⁻¹ nicht negativ.",
     "Gleiche Zeichnung, andere Beschriftung": "Dieselbe Zeile mit x statt 2: (x · x · x) · (x · x) = x⁵. Dieselbe Reihe mit 10: 1 000, 100, 10, 1, 0,1, 0,01."
    }
@@ -464,7 +472,8 @@
    "nr": 9,
    "name": "Erweitern und Kürzen",
    "etage": 3,
-   "satz": "Ein gemeinsamer Faktor darf in Zähler und Nenner dazukommen oder wegfallen – der Wert des Bruchs bleibt.",
+   "satz": "Oben und unten dasselbe mal oder geteilt – der Bruch bleibt gleich.",
+   "genau": "Ein gemeinsamer Faktor ungleich null darf in Zähler und Nenner dazukommen oder wegfallen – der Wert des Bruchs bleibt.",
    "warum": "Der Nenner sagt, in wie viele gleiche Teile das Ganze geteilt ist, der Zähler, wie viele davon gemeint sind. Teilt man jedes Teil noch einmal, gibt es doppelt so viele Teile und man nimmt doppelt so viele: Die Menge bleibt gleich, nur die Einteilung wird feiner.",
    "voraus": "Der Faktor darf nicht null sein. Er muss den ganzen Zähler und den ganzen Nenner betreffen.",
    "fehler": "Aus Summen kürzen: (x + 6) : (x + 2) zu 3 machen. Erst ausklammern, dann kürzen.",
@@ -516,7 +525,8 @@
    "nr": 10,
    "name": "Rechnen mit Brüchen",
    "etage": 3,
-   "satz": "Gleichnamige Brüche: Zähler addieren oder subtrahieren, Nenner behalten. Mal: Zähler mal Zähler, Nenner mal Nenner. Geteilt: mit dem Kehrwert malnehmen.",
+   "satz": "Plus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: Kehrwert.",
+   "genau": "Gleichnamige Brüche: Zähler addieren oder subtrahieren, Nenner behalten. Mal: Zähler mal Zähler, Nenner mal Nenner. Geteilt: mit dem Kehrwert malnehmen.",
    "warum": "Addieren kann man nur gleich große Teile – Halbe und Drittel müssen erst in Sechstel umgerechnet werden. „Mal ½“ heißt „die Hälfte von“; deshalb werden beim Malnehmen die Teile feiner. Teilen fragt „wie oft passt es hinein“: In 6 passt ½ zwölfmal – das ist dasselbe wie 6 mal 2.",
    "voraus": "Nenner sind nie null; beim Teilen darf auch der Bruch, durch den geteilt wird, nicht null sein. Ungleichnamige Brüche erst gleichnamig machen.",
    "fehler": "Zähler plus Zähler und Nenner plus Nenner: ½ + ⅓ = 2/5.",
@@ -574,7 +584,8 @@
    "nr": 11,
    "name": "Verhältnis (Dreisatz)",
    "etage": 3,
-   "satz": "Bei gleichem Preis je Einheit: erst auf eins, dann auf die gewünschte Menge.",
+   "satz": "Erst auf eins, dann auf viele.",
+   "genau": "Bei gleichem Preis je Einheit: erst auf eins, dann auf die gewünschte Menge.",
    "warum": "Wenn zwei Größen im selben Verhältnis wachsen, gehört zu jeder Einheit derselbe Wert. Wer den Wert für eine Einheit kennt, kennt jeden anderen: 3 kg kosten 7,50 €, also 1 kg 2,50 €, also 5 kg 12,50 €. Allgemein: y = k · x, und k ist der Wert für eine Einheit.",
    "voraus": "Gilt nur bei direkter Proportionalität: doppelte Menge, doppelter Wert; zur Menge null gehört der Wert null.",
    "fehler": "Den Dreisatz anwenden, obwohl ein fester Betrag dazukommt (Grundgebühr) oder obwohl mehr von dem einen weniger von dem anderen bedeutet.",
@@ -626,7 +637,8 @@
    "nr": 12,
    "name": "Gegenrechnung",
    "etage": 4,
-   "satz": "Rechne den Weg rückwärts: Was zuletzt gerechnet wurde, machst du zuerst rückgängig.",
+   "satz": "Rückwärts rechnen: Was zuletzt kam, geht zuerst.",
+   "genau": "Rechne den Weg rückwärts: Was zuletzt gerechnet wurde, machst du zuerst rückgängig.",
    "warum": "Zu jeder umkehrbaren Rechnung gibt es eine Gegenrechnung: Plus und Minus, Mal und Geteilt, Quadrat und Wurzel, später Hoch und Logarithmus. Wer weiß, was mit einer Zahl nacheinander gemacht wurde, findet sie, indem er den Weg rückwärts geht – wie beim Anziehen und Ausziehen: Der Schuh kam zuletzt, also kommt er zuerst weg.",
    "voraus": "Die Rechnung muss umkehrbar sein. „Mal null“ löscht die Zahl, das lässt sich nicht rückgängig machen; durch null kann man nicht teilen.",
    "fehler": "In derselben Reihenfolge zurückrechnen statt in umgekehrter. Und beim Quadrat nur eine Lösung nennen: x² = 49 hat die Lösungen 7 und −7.",
@@ -684,7 +696,8 @@
    "nr": 13,
    "name": "Gleichung als Waage",
    "etage": 4,
-   "satz": "Dieselbe umkehrbare Rechnung auf beiden Seiten ändert die Lösungen nicht.",
+   "satz": "Eine Gleichung ist eine Waage: Was du links tust, musst du auch rechts tun.",
+   "genau": "Dieselbe umkehrbare Rechnung auf beiden Seiten ändert die Lösungen nicht.",
    "warum": "Das Gleichheitszeichen sagt: Links und rechts steht gleich viel. Nimmt man auf beiden Seiten einer Waage dasselbe weg oder halbiert beide Seiten, bleibt sie im Gleichgewicht. Weil man jede solche Rechnung zurücknehmen kann, geht keine Lösung verloren und keine kommt dazu.",
    "voraus": "Erlaubt: auf beiden Seiten dieselbe Zahl addieren oder subtrahieren; mit derselben Zahl ungleich null malnehmen oder durch sie teilen. Beim Malnehmen oder Teilen mit einem Term vorher klären, wo dieser Term null wird.",
    "fehler": "Nur einen Summanden malnehmen statt der ganzen Seite. Und: quadrieren und die neu entstandene Lösung nicht prüfen (aus x = 2 wird x² = 4 mit der zusätzlichen Lösung −2).",
@@ -736,7 +749,8 @@
    "nr": 14,
    "name": "Nullprodukt",
    "etage": 4,
-   "satz": "Ein Produkt ist genau dann null, wenn mindestens ein Faktor null ist.",
+   "satz": "Mal ergibt nur null, wenn eine der Zahlen null ist.",
+   "genau": "Ein Produkt ist genau dann null, wenn mindestens ein Faktor null ist.",
    "warum": "Null mal irgendetwas ist null. Umgekehrt kann aus zwei Zahlen, die beide nicht null sind, beim Malnehmen nie null werden. Deshalb darf man eine Gleichung „Produkt = 0“ in mehrere einfache Gleichungen zerlegen: Jeder Faktor für sich kann null sein.",
    "voraus": "Auf der einen Seite muss ein Produkt stehen, auf der anderen genau null.",
    "fehler": "Die Regel bei einer anderen Zahl anwenden: Aus (x − 2) · (x + 3) = 6 folgt nicht x − 2 = 6.",
@@ -791,7 +805,8 @@
    "ideen": [
     {
      "nr": 1,
-     "satz": "Jede Zahl hat genau einen Platz auf der Zahlengeraden – links ist kleiner.",
+     "satz": "Links ist kleiner, rechts ist größer – auch unter null.",
+     "genau": "Jede Zahl hat genau einen Platz auf der Zahlengeraden – links ist kleiner.",
      "kurz": "Zahlengerade",
      "gesetze": [
       "Z4",
@@ -802,7 +817,8 @@
     },
     {
      "nr": 2,
-     "satz": "Zehn von einer Sorte ergeben eins von der nächstgrößeren.",
+     "satz": "Zehn Einer sind ein Zehner, zehn Zehntel sind ein Einer.",
+     "genau": "Zehn von einer Sorte ergeben eins von der nächstgrößeren.",
      "kurz": "Bündeln in Zehnern",
      "gesetze": [
       "Z1",
@@ -814,7 +830,8 @@
     },
     {
      "nr": 3,
-     "satz": "Jede natürliche Zahl ab 2 ist aus Primzahlen gebaut.",
+     "satz": "Primzahlen sind die Bausteine: Jede Zahl ab zwei ist aus ihnen malgenommen.",
+     "genau": "Jede natürliche Zahl ab 2 ist aus Primzahlen gebaut.",
      "kurz": "Bausteine",
      "gesetze": [
       "Z6",
@@ -825,7 +842,8 @@
     },
     {
      "nr": 4,
-     "satz": "Bruch, Dezimalzahl und Prozent sind drei Schreibweisen derselben Zahl.",
+     "satz": "Ein Halb, null Komma fünf, fünfzig Prozent: dreimal dieselbe Zahl.",
+     "genau": "Bruch, Dezimalzahl und Prozent sind drei Schreibweisen derselben Zahl.",
      "kurz": "Schreibweisen",
      "gesetze": [
       "Z10",
@@ -835,7 +853,8 @@
     },
     {
      "nr": 5,
-     "satz": "Potenz, Wurzel und Logarithmus gehören zusammen: Die eine rechnet hoch, die beiden anderen fragen zurück.",
+     "satz": "Hoch rechnet hin, die Wurzel rechnet zurück.",
+     "genau": "Potenz, Wurzel und Logarithmus gehören zusammen: Die eine rechnet hoch, die beiden anderen fragen zurück.",
      "kurz": "Hoch und zurück",
      "gesetze": [
       "Z15",
@@ -856,7 +875,8 @@
    "ideen": [
     {
      "nr": 1,
-     "satz": "Ein Term ist eine Rechenvorschrift; gleichwertige Terme liefern für jede erlaubte Zahl dasselbe.",
+     "satz": "Ein Term ist ein Rechenrezept: Zahl hinein, Ergebnis heraus.",
+     "genau": "Ein Term ist eine Rechenvorschrift; gleichwertige Terme liefern für jede erlaubte Zahl dasselbe.",
      "kurz": "Term",
      "gesetze": [
       "A1",
@@ -868,7 +888,8 @@
     },
     {
      "nr": 2,
-     "satz": "Kläre zuerst, welche Zahlen du einsetzen darfst: Kein Nenner wird null, unter keiner Wurzel steht etwas Negatives.",
+     "satz": "Durch null teilen geht nie – prüfe das zuerst.",
+     "genau": "Kläre zuerst, welche Zahlen du einsetzen darfst: Kein Nenner wird null, unter keiner Wurzel steht etwas Negatives.",
      "kurz": "Erlaubte Zahlen",
      "gesetze": [
       "A5",
@@ -879,7 +900,8 @@
     },
     {
      "nr": 3,
-     "satz": "Eine Gleichung lösen heißt: alle Zahlen finden, die sie wahr machen.",
+     "satz": "Lösen heißt: alle Zahlen finden, für die die Gleichung stimmt.",
+     "genau": "Eine Gleichung lösen heißt: alle Zahlen finden, die sie wahr machen.",
      "kurz": "Gleichung lösen",
      "gesetze": [
       "A8",
@@ -893,7 +915,8 @@
     },
     {
      "nr": 4,
-     "satz": "Bei höherem Grad: alles auf eine Seite bringen und in Faktoren zerlegen – oder die Gegenrechnung nutzen.",
+     "satz": "Steht x im Quadrat: erst null auf eine Seite, dann zerlegen.",
+     "genau": "Bei höherem Grad: alles auf eine Seite bringen und in Faktoren zerlegen – oder die Gegenrechnung nutzen.",
      "kurz": "Höherer Grad",
      "gesetze": [
       "A16",
@@ -913,7 +936,8 @@
    "ideen": [
     {
      "nr": 1,
-     "satz": "Eine Größe ist Zahl mal Einheit – wechselt die Einheit, wechselt die Zahl.",
+     "satz": "Kleinere Einheit, größere Zahl – größere Einheit, kleinere Zahl.",
+     "genau": "Eine Größe ist Zahl mal Einheit – wechselt die Einheit, wechselt die Zahl.",
      "kurz": "Größe",
      "gesetze": [
       "V1",
@@ -922,7 +946,8 @@
     },
     {
      "nr": 2,
-     "satz": "Proportional heißt: Der Wert für eine Einheit bleibt immer gleich.",
+     "satz": "Doppelt so viel kostet doppelt so viel.",
+     "genau": "Proportional heißt: Der Wert für eine Einheit bleibt immer gleich.",
      "kurz": "Wert für eins",
      "gesetze": [
       "V3",
@@ -934,7 +959,8 @@
     },
     {
      "nr": 3,
-     "satz": "Prozent heißt Hundertstel; um p Prozent verändern heißt mit einem Faktor malnehmen.",
+     "satz": "Prozent heißt: von hundert.",
+     "genau": "Prozent heißt Hundertstel; um p Prozent verändern heißt mit einem Faktor malnehmen.",
      "kurz": "Prozent als Faktor",
      "gesetze": [
       "V8",
@@ -951,7 +977,8 @@
    "ideen": [
     {
      "nr": 1,
-     "satz": "An parallelen Geraden kehren dieselben Winkel wieder – deshalb ergeben die Winkel im Dreieck zusammen 180°.",
+     "satz": "Gleiche Winkel an Parallelen – darum im Dreieck immer 180 Grad.",
+     "genau": "An parallelen Geraden kehren dieselben Winkel wieder – deshalb ergeben die Winkel im Dreieck zusammen 180°.",
      "kurz": "Winkel an Geraden",
      "gesetze": [
       "G3",
@@ -971,7 +998,8 @@
     },
     {
      "nr": 2,
-     "satz": "Alle Punkte mit gleichem Abstand bilden eine Linie: Kreis, Mittelsenkrechte, Winkelhalbierende.",
+     "satz": "Der Kreis: alle Punkte gleich weit von der Mitte.",
+     "genau": "Alle Punkte mit gleichem Abstand bilden eine Linie: Kreis, Mittelsenkrechte, Winkelhalbierende.",
      "kurz": "Gleicher Abstand",
      "gesetze": [
       "G1",
@@ -983,7 +1011,7 @@
      ],
      "warum": "Viele Linien der Geometrie sind „alle Punkte mit einer Abstandseigenschaft“: gleich weit von einem Punkt (Kreis), von zwei Punkten (Mittelsenkrechte), von zwei Geraden (Winkelhalbierende). Darum findet man den Umkreismittelpunkt mit Mittelsenkrechten und den Inkreismittelpunkt mit Winkelhalbierenden.",
      "zeichen": {
-      "Zu sehen": "Drei Felder nebeneinander. Feld 1: Kreis um M mit vier Punkten auf der Linie und ihren Radien. Feld 2: Strecke AB mit ihrer Mittelsenkrechten; ein Punkt P darauf ist mit A und B verbunden. Feld 3: ein Winkel mit seiner Winkelhalbierenden; von einem Punkt P darauf gehen zwei Lote zu den Schenkeln.",
+      "Zu sehen": "Eine Hauptzeichnung und zwei kleinere Nebenzeichnungen. Hauptzeichnung (Feld 1, passt zum Merksatz): Kreis um M mit vier Punkten auf der Linie und ihren Radien. Nebenzeichnung Feld 2: Strecke AB mit ihrer Mittelsenkrechten; ein Punkt P darauf ist mit A und B verbunden. Nebenzeichnung Feld 3: ein Winkel mit seiner Winkelhalbierenden; von einem Punkt P darauf gehen zwei Lote zu den Schenkeln.",
       "Maße": "Radius 3 cm. Strecke AB 4 cm, P liegt 3 cm über der Mitte. Winkel 60°.",
       "Beschriftung": "Feld 1: „gleich weit von M“. Feld 2: „gleich weit von A und B“. Feld 3: „gleich weit von beiden Schenkeln“.",
       "Hervorgehoben": "Die gleich langen Strecken: in jedem Feld mit demselben Strich-Zeichen und derselben Farbe.",
@@ -993,7 +1021,8 @@
     },
     {
      "nr": 3,
-     "satz": "Spiegeln, Schieben und Drehen ändern weder Längen noch Winkel; drei passende Angaben legen ein Dreieck fest.",
+     "satz": "Spiegeln, schieben, drehen – Form und Größe bleiben gleich.",
+     "genau": "Spiegeln, Schieben und Drehen ändern weder Längen noch Winkel; drei passende Angaben legen ein Dreieck fest.",
      "kurz": "Deckungsgleich",
      "gesetze": [
       "G7",
@@ -1018,7 +1047,8 @@
     },
     {
      "nr": 4,
-     "satz": "Ähnliche Figuren haben gleiche Winkel und alle Längen im selben Verhältnis.",
+     "satz": "Gleiche Form, andere Größe: alle Längen mal dieselbe Zahl.",
+     "genau": "Ähnliche Figuren haben gleiche Winkel und alle Längen im selben Verhältnis.",
      "kurz": "Ähnlich",
      "gesetze": [
       "G20",
@@ -1038,7 +1068,8 @@
     },
     {
      "nr": 5,
-     "satz": "Im rechtwinkligen Dreieck legen zwei Angaben alles fest: Pythagoras verbindet die Seiten, Sinus, Kosinus und Tangens verbinden Seiten und Winkel.",
+     "satz": "Rechter Winkel im Dreieck: a² plus b² ist c².",
+     "genau": "Im rechtwinkligen Dreieck legen zwei Angaben alles fest: Pythagoras verbindet die Seiten, Sinus, Kosinus und Tangens verbinden Seiten und Winkel.",
      "kurz": "Rechtwinkliges Dreieck",
      "gesetze": [
       "G24",
@@ -1067,7 +1098,8 @@
    "ideen": [
     {
      "nr": 1,
-     "satz": "Messen heißt auslegen und zählen: Flächen mit Einheitsquadraten, Körper mit Einheitswürfeln.",
+     "satz": "Messen heißt auslegen und zählen.",
+     "genau": "Messen heißt auslegen und zählen: Flächen mit Einheitsquadraten, Körper mit Einheitswürfeln.",
      "kurz": "Auslegen und zählen",
      "gesetze": [
       "F1",
@@ -1088,7 +1120,8 @@
     },
     {
      "nr": 2,
-     "satz": "Aus dem Rechteck entsteht jede Fläche: zerschneiden, neu legen, halbieren.",
+     "satz": "Aus dem Rechteck entsteht jede Fläche.",
+     "genau": "Aus dem Rechteck entsteht jede Fläche: zerschneiden, neu legen, halbieren.",
      "kurz": "Aus dem Rechteck",
      "gesetze": [
       "F4",
@@ -1111,7 +1144,8 @@
     },
     {
      "nr": 3,
-     "satz": "Aus dem Quader entsteht jeder Körper: Grundfläche mal Höhe – bei spitzen Körpern ein Drittel davon.",
+     "satz": "Grundfläche mal Höhe – bei Spitzen nur ein Drittel.",
+     "genau": "Aus dem Quader entsteht jeder Körper: Grundfläche mal Höhe – bei spitzen Körpern ein Drittel davon.",
      "kurz": "Aus dem Quader",
      "gesetze": [
       "F15",
@@ -1131,7 +1165,8 @@
     },
     {
      "nr": 4,
-     "satz": "Die Oberfläche ist die Haut des Körpers: Das Netz zeigt sie ausgebreitet, das Schrägbild zeigt den Körper im Raum.",
+     "satz": "Aufklappen zeigt die ganze Haut des Körpers.",
+     "genau": "Die Oberfläche ist die Haut des Körpers: Das Netz zeigt sie ausgebreitet, das Schrägbild zeigt den Körper im Raum.",
      "kurz": "Haut des Körpers",
      "gesetze": [
       "F13",
@@ -1140,10 +1175,10 @@
      ],
      "warum": "Schneidet man einen Körper an seinen Kanten auf und klappt ihn flach, sieht man seine ganze Außenfläche auf einmal: das Netz. Die Oberfläche ist die Summe dieser Flächen. Das Schrägbild ist der umgekehrte Weg: ein flaches Bild, das den Körper räumlich zeigt.",
      "zeichen": {
-      "Zu sehen": "Links ein Quader im Schrägbild. Rechts sein Netz: sechs Rechtecke in Kreuzform. Je zwei gleiche Rechtecke haben dieselbe Farbe – im Schrägbild und im Netz.",
+      "Zu sehen": "Drei Bilder von links nach rechts: der Quader im Schrägbild; derselbe Quader halb aufgeklappt (Deckel und Seitenwände stehen schräg ab); sein Netz flach: sechs Rechtecke in Kreuzform. Je zwei gleiche Rechtecke haben in allen drei Bildern dieselbe Farbe.",
       "Maße": "Quader 5 cm mal 4 cm mal 3 cm. Im Schrägbild: Tiefenkanten unter 45° und halb so lang; verdeckte Kanten gestrichelt. Im Netz: alle Rechtecke maßstäblich.",
       "Beschriftung": "Im Netz in jedem Rechteck seine Fläche: 20 cm², 15 cm², 12 cm², jeweils zweimal. Darunter: „O = 2 · (20 + 15 + 12) cm² = 94 cm²“.",
-      "Hervorgehoben": "Die drei Farbpaare.",
+      "Hervorgehoben": "Das mittlere Bild – das Aufklappen – und die drei Farbpaare.",
       "Darf nicht falsch aussehen": "Das Netz muss sich wirklich falten lassen: Kanten, die zusammenstoßen, sind gleich lang. Es müssen genau sechs Flächen sein.",
       "Gleiche Zeichnung, andere Beschriftung": "Dieselbe Darstellung für das Dreiecksprisma (Dreieck 3 cm, 4 cm, 5 cm, Höhe 6 cm): drei Rechtecke nebeneinander, zusammen 12 cm breit – so breit wie der Umfang des Dreiecks; zusammenstoßende Kanten gleich markiert. Für den Zylinder: Rechteck mit Breite 2 · π · r und zwei Kreise."
      }
@@ -1156,7 +1191,8 @@
    "ideen": [
     {
      "nr": 1,
-     "satz": "Eine Funktion ordnet jedem x genau ein y zu; Tabelle, Graph und Gleichung zeigen dasselbe.",
+     "satz": "Zu jedem x gehört genau ein y.",
+     "genau": "Eine Funktion ordnet jedem x genau ein y zu; Tabelle, Graph und Gleichung zeigen dasselbe.",
      "kurz": "Zuordnung",
      "gesetze": [
       "U1",
@@ -1168,7 +1204,8 @@
     },
     {
      "nr": 2,
-     "satz": "Linear wächst in gleichen Schritten um gleich viel, exponentiell um den gleichen Faktor.",
+     "satz": "Plus gleich viel gibt eine Gerade, mal gleich viel eine steile Kurve.",
+     "genau": "Linear wächst in gleichen Schritten um gleich viel, exponentiell um den gleichen Faktor.",
      "kurz": "Wachstum",
      "gesetze": [
       "U7",
@@ -1183,7 +1220,8 @@
     },
     {
      "nr": 3,
-     "satz": "Die Gleichung verrät die Form des Graphen – und jede Änderung der Gleichung verschiebt oder streckt ihn.",
+     "satz": "Die Gleichung verrät die Form: x gibt eine Gerade, x² eine Parabel.",
+     "genau": "Die Gleichung verrät die Form des Graphen – und jede Änderung der Gleichung verschiebt oder streckt ihn.",
      "kurz": "Gleichung und Form",
      "gesetze": [
       "U5",
@@ -1203,7 +1241,8 @@
    "ideen": [
     {
      "nr": 1,
-     "satz": "Eine Kennzahl fasst viele Daten in einer Zahl zusammen – und verschweigt dabei immer etwas.",
+     "satz": "Eine Zahl für viele – und immer geht etwas verloren.",
+     "genau": "Eine Kennzahl fasst viele Daten in einer Zahl zusammen – und verschweigt dabei immer etwas.",
      "kurz": "Kennzahl",
      "gesetze": [
       "D1",
@@ -1218,7 +1257,8 @@
     },
     {
      "nr": 2,
-     "satz": "Von wenigen auf alle schließen geht nur, wenn zufällig und oft genug gezogen wurde.",
+     "satz": "Wenige sagen nur etwas über alle, wenn der Zufall sie auswählt.",
+     "genau": "Von wenigen auf alle schließen geht nur, wenn zufällig und oft genug gezogen wurde.",
      "kurz": "Vom Teil aufs Ganze",
      "gesetze": [
       "D7",
@@ -1229,7 +1269,8 @@
     },
     {
      "nr": 3,
-     "satz": "Sind alle Ergebnisse gleich wahrscheinlich, ist die Wahrscheinlichkeit ein Anteil: günstige durch mögliche.",
+     "satz": "Wahrscheinlichkeit: günstige durch mögliche.",
+     "genau": "Sind alle Ergebnisse gleich wahrscheinlich, ist die Wahrscheinlichkeit ein Anteil: günstige durch mögliche.",
      "kurz": "Anteil",
      "gesetze": [
       "D11",
@@ -1241,7 +1282,8 @@
     },
     {
      "nr": 4,
-     "satz": "Bei mehreren Stufen: entlang eines Pfades malnehmen, verschiedene Pfade addieren.",
+     "satz": "Am Pfad entlang mal, Pfade zusammen plus.",
+     "genau": "Bei mehreren Stufen: entlang eines Pfades malnehmen, verschiedene Pfade addieren.",
      "kurz": "Stufen",
      "gesetze": [
       "D17",
@@ -1906,6 +1948,7 @@
    "ib": "1",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Zwei Zahlengeraden, die sich bei null senkrecht kreuzen, geben jedem Punkt der Ebene eine Adresse aus zwei Zahlen.",
    "voraus": "Zuerst die x-Koordinate (waagerecht), dann die y-Koordinate (senkrecht).",
    "fehler": "x und y vertauschen.",
@@ -1938,6 +1981,7 @@
    "ib": "1",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Von allen Verbindungen eines Punktes zu einer Geraden ist das Lot die kürzeste; jede andere ist die längste Seite eines rechtwinkligen Dreiecks.",
    "voraus": "Der Abstand wird immer senkrecht gemessen.",
    "fehler": "Schräg messen.",
@@ -1970,6 +2014,7 @@
    "ib": "1",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Ein Winkel misst eine Drehung. Die volle Drehung ist in 360 gleiche Teile geteilt.",
    "voraus": "Gemessen wird am Scheitel, von einem Schenkel zum anderen.",
    "fehler": "Am Geodreieck die falsche Skala ablesen.",
@@ -2002,6 +2047,7 @@
    "ib": "1–2",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Nebenwinkel liegen nebeneinander auf einer Geraden, zusammen also 180°. Zwei Scheitelwinkel haben denselben Nebenwinkel, sind also gleich groß.",
    "voraus": "Zwei Geraden, die sich schneiden.",
    "fehler": "Scheitelwinkel und Nebenwinkel verwechseln.",
@@ -2028,6 +2074,7 @@
    "ib": "2",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Verschiebt man eine Kreuzung längs der schneidenden Geraden auf die andere Parallele, kommen die Winkel zur Deckung.",
    "voraus": "Gleich groß sind sie nur, wenn die beiden Geraden parallel sind. Umgekehrt: Sind sie gleich groß, sind die Geraden parallel.",
    "fehler": "Die Winkel für gleich halten, obwohl die Geraden nicht parallel sind.",
@@ -2060,6 +2107,7 @@
    "ib": "2",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Die Parallele durch eine Ecke legt alle drei Winkel nebeneinander auf eine Gerade. Ein n-Eck lässt sich von einer Ecke aus in n − 2 Dreiecke teilen.",
    "voraus": "Gilt für jedes Dreieck in der Ebene; die Vielecksformel für die Innenwinkel.",
    "fehler": "Beim n-Eck n · 180° rechnen.",
@@ -2104,6 +2152,7 @@
    "ib": "1–3",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Jede Sorte ist durch Eigenschaften festgelegt; wer mehr Eigenschaften hat, gehört auch zu den allgemeineren Sorten.",
    "voraus": "Die Eigenschaften gelten für die ganze Sorte, nicht nur für das gezeichnete Beispiel.",
    "fehler": "Meinen, ein Quadrat sei kein Rechteck.",
@@ -2136,6 +2185,7 @@
    "ib": "3",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Spiegelt man an der Mittelsenkrechten, tauschen A und B die Plätze; jeder Punkt auf der Achse bleibt liegen und ist deshalb von beiden gleich weit entfernt.",
    "voraus": "Alle Punkte der Linie haben die Eigenschaft – und kein anderer Punkt hat sie.",
    "fehler": "Nur einen Punkt einzeichnen statt der ganzen Linie.",
@@ -2168,6 +2218,7 @@
    "ib": "3",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Das Dreieck ist achsensymmetrisch; die Spiegelung an der Achse durch die Spitze legt die Basiswinkel aufeinander.",
    "voraus": "Zwei Seiten sind gleich lang. Umkehrung: Sind zwei Winkel gleich, sind es auch die gegenüberliegenden Seiten.",
    "fehler": "Den Winkel an der Spitze für einen Basiswinkel halten.",
@@ -2200,6 +2251,7 @@
    "ib": "3",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Konstruiert man mit drei passenden Angaben, bleibt beim Zeichnen keine Wahl: Es entsteht immer dasselbe Dreieck.",
    "voraus": "Bei SsW muss der Winkel der längeren der beiden Seiten gegenüberliegen. Drei Winkel reichen nicht.",
    "fehler": "WWW oder „zwei Seiten und irgendein Winkel“ für einen Kongruenzsatz halten.",
@@ -2238,6 +2290,7 @@
    "ib": "3–4",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "„Wenn A, dann B“ sagt nichts darüber, ob aus B auch A folgt.",
    "voraus": "Jede Umkehrung braucht eine eigene Begründung; ein Gegenbeispiel widerlegt sie.",
    "fehler": "Aus einem Satz stillschweigend seine Umkehrung machen.",
@@ -2264,6 +2317,7 @@
    "ib": "4",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Die Radien zu den drei Ecken sind gleich lang und teilen das Dreieck in zwei gleichschenklige. Deren Basiswinkel ergeben bei C zusammen die Hälfte von 180°.",
    "voraus": "Die Seite AB ist ein Durchmesser, C liegt auf dem Kreis und ist weder A noch B.",
    "fehler": "Den Satz bei einer Sehne anwenden, die kein Durchmesser ist.",
@@ -2290,6 +2344,7 @@
    "ib": "4",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Der Berührpunkt ist der Punkt der Tangente, der dem Mittelpunkt am nächsten liegt – und die kürzeste Verbindung steht senkrecht.",
    "voraus": "Die Gerade berührt den Kreis in genau einem Punkt.",
    "fehler": "Die Tangente „nach Augenmaß“ anlegen statt senkrecht zum Radius.",
@@ -2322,6 +2377,7 @@
    "ib": "4",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Ein Punkt auf zwei Mittelsenkrechten ist von allen drei Ecken gleich weit entfernt. Ein Punkt auf zwei Winkelhalbierenden ist von allen drei Seiten gleich weit entfernt.",
    "voraus": "Gilt für jedes Dreieck. Der Umkreismittelpunkt kann außerhalb liegen (stumpfwinkliges Dreieck).",
    "fehler": "Mittelsenkrechte und Winkelhalbierende vertauschen.",
@@ -2348,6 +2404,7 @@
    "ib": "3",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Die Figur wird als Ganzes bewegt, nicht verformt.",
    "voraus": "Nur diese Bewegungen und ihre Verkettungen. Vergrößern gehört nicht dazu.",
    "fehler": "Beim Spiegeln den Abstand zur Achse nicht senkrecht abtragen.",
@@ -2374,6 +2431,7 @@
    "ib": "3",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Eine Figur ist symmetrisch, wenn eine Bewegung sie auf sich selbst abbildet.",
    "voraus": "Achsensymmetrie: Spiegelung. Punktsymmetrie: Drehung um 180°.",
    "fehler": "Die Diagonale eines Rechtecks für eine Symmetrieachse halten.",
@@ -2406,6 +2464,7 @@
    "ib": "3",
    "sonne": "2",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Eine Verschiebung ist durch „wie weit nach rechts, wie weit nach oben“ vollständig beschrieben – gleich, wo sie ansetzt.",
    "voraus": "Koordinaten: Spitze minus Fuß.",
    "fehler": "Fuß minus Spitze rechnen.",
@@ -2425,6 +2484,7 @@
    "ib": "–",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Das Parallelogramm lässt sich in ein Rechteck einpassen; zieht man die überstehenden Dreiecke ab, bleibt a · d − b · c.",
    "voraus": "Die beiden Vektoren (a; b) und (c; d) setzen an derselben Ecke an. Für das Dreieck: die Hälfte.",
    "fehler": "Das Vorzeichen stehen lassen – eine Fläche ist nie negativ.",
@@ -2444,6 +2504,7 @@
    "ib": "5",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Das Skalarprodukt misst, wie sehr zwei Vektoren in dieselbe Richtung zeigen; stehen sie senkrecht, ist es null.",
    "voraus": "Skalarprodukt von (a; b) und (c; d): a · c + b · d. Beide Vektoren sind nicht der Nullvektor.",
    "fehler": "Skalarprodukt und Determinante verwechseln.",
@@ -2463,6 +2524,7 @@
    "ib": "3",
    "sonne": "11",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Eine zentrische Streckung nimmt jede Länge mit demselben Faktor mal und lässt jeden Winkel, wie er ist.",
    "voraus": "Für Dreiecke genügt: zwei Winkel stimmen überein. Für andere Vielecke braucht man Winkel und Seitenverhältnisse.",
    "fehler": "Gleiche Form mit gleicher Größe verwechseln; bei Vierecken nur die Winkel prüfen (Rechteck und Quadrat).",
@@ -2489,6 +2551,7 @@
    "ib": "3",
    "sonne": "11",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Die Parallelen schneiden aus den Strahlen ähnliche Dreiecke heraus.",
    "voraus": "Die schneidenden Geraden sind parallel. Wer die Parallelenstücke einbezieht, misst alle Strahlabschnitte vom Scheitel aus.",
    "fehler": "Beim Satz mit den Parallelenstücken Teilabschnitte statt der Abschnitte vom Scheitel nehmen.",
@@ -2515,6 +2578,7 @@
    "ib": "3",
    "sonne": "8",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Eine Fläche hat zwei Richtungen, in denen sie wächst, ein Körper drei.",
    "voraus": "Alle Längen werden mit demselben k > 0 malgenommen.",
    "fehler": "Meinen, doppelte Länge gebe doppelte Fläche.",
@@ -2547,6 +2611,7 @@
    "ib": "3",
    "sonne": "11",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Die Verbindung zweier Seitenmitten ist parallel zur dritten Seite und halb so lang; daraus folgt mit dem Strahlensatz das Verhältnis 2 : 1.",
    "voraus": "Gilt für jedes Dreieck. Das längere Stück liegt an der Ecke.",
    "fehler": "Seitenhalbierende und Winkelhalbierende verwechseln.",
@@ -2566,6 +2631,7 @@
    "ib": "3",
    "sonne": "12",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Vier gleiche rechtwinklige Dreiecke lassen sich auf zwei Arten in ein Quadrat mit der Seite a + b legen: Einmal bleibt c² frei, einmal a² und b².",
    "voraus": "Das Dreieck ist rechtwinklig; c liegt dem rechten Winkel gegenüber. Umkehrung: Gilt a² + b² = c², ist das Dreieck rechtwinklig.",
    "fehler": "a + b = c rechnen. Die Hypotenuse falsch wählen.",
@@ -2604,6 +2670,7 @@
    "ib": "4",
    "sonne": "11",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Alle rechtwinkligen Dreiecke mit demselben spitzen Winkel sind ähnlich; ihre Seitenverhältnisse hängen deshalb nur vom Winkel ab.",
    "voraus": "Rechtwinkliges Dreieck, spitzer Winkel. Gegenkathete und Ankathete richten sich nach dem betrachteten Winkel.",
    "fehler": "Gegenkathete und Ankathete vertauschen. Taschenrechner nicht auf Grad eingestellt.",
@@ -2636,6 +2703,7 @@
    "ib": "4",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Im rechtwinkligen Dreieck mit Hypotenuse 1 sind die Katheten sin α und cos α; der Satz des Pythagoras liefert sin² α + cos² α = 1.",
    "voraus": "tan α ist nur erklärt, wenn cos α nicht null ist.",
    "fehler": "sin² α als sin(α²) lesen.",
@@ -2668,6 +2736,7 @@
    "ib": "4",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Dreht man den Radius 1 um den Winkel α, hat seine Spitze die Koordinaten (cos α | sin α). So bekommen auch Winkel über 90° einen Sinus und Kosinus.",
    "voraus": "Radius 1; der Winkel wird von der positiven x-Achse aus gegen den Uhrzeigersinn gemessen.",
    "fehler": "Das Vorzeichen im zweiten bis vierten Viertel übersehen.",
@@ -2700,6 +2769,7 @@
    "ib": "4",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Eine Höhe teilt jedes Dreieck in zwei rechtwinklige; dort gelten Sinus, Kosinus und Pythagoras.",
    "voraus": "Jedes Dreieck. Kosinussatz: c² = a² + b² − 2 · a · b · cos γ, mit γ zwischen a und b.",
    "fehler": "Beim Sinussatz übersehen, dass zu einem Sinuswert zwei Winkel gehören können.",
@@ -2732,6 +2802,7 @@
    "ib": "4",
    "sonne": "–",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Zerlegt man die Drehung um α + β in zwei Drehungen nacheinander, ergeben sich die Formeln aus rechtwinkligen Dreiecken.",
    "voraus": "Gilt für alle Winkel.",
    "fehler": "sin(α + β) = sin α + sin β rechnen.",
@@ -2751,6 +2822,7 @@
    "ib": "5",
    "sonne": "12",
    "planet": "Geometrie",
+   "genau": "",
    "warum": "Am Einheitskreis liegen zu einer Höhe (Sinus) zwei Punkte, links und rechts; zu einer x-Koordinate (Kosinus) zwei Punkte, oben und unten.",
    "voraus": "Der Wert liegt zwischen −1 und 1. Bei genau 1 oder −1 gibt es in einer vollen Drehung nur einen Winkel.",
    "fehler": "Nur den Winkel nennen, den der Taschenrechner anzeigt.",
@@ -2777,6 +2849,7 @@
    "ib": "1",
    "sonne": "1",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Ein Quadratdezimeter ist 10 cm lang und 10 cm breit. Es passen also 10 Reihen zu je 10 Quadratzentimetern hinein: 100.",
    "voraus": "Gilt zwischen benachbarten Einheiten mm², cm², dm², m² und weiter m², a, ha, km².",
    "fehler": "Mit 10 umrechnen wie bei Längen: 3 m² = 30 dm².",
@@ -2815,6 +2888,7 @@
    "ib": "1",
    "sonne": "–",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "In ein Rechteck mit 6 cm Länge und 4 cm Breite passen 4 Reihen zu je 6 Einheitsquadraten.",
    "voraus": "Beide Seiten in derselben Einheit.",
    "fehler": "Fläche und Umfang verwechseln; cm statt cm² schreiben.",
@@ -2853,6 +2927,7 @@
    "ib": "1",
    "sonne": "–",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Der Umfang misst den Rand (eine Länge), die Fläche das Innere. Ein langes, schmales Rechteck hat viel Rand und wenig Inneres.",
    "voraus": "Gilt für alle Figuren.",
    "fehler": "Aus „gleicher Umfang“ auf „gleiche Fläche“ schließen – oder umgekehrt.",
@@ -2891,6 +2966,7 @@
    "ib": "1",
    "sonne": "–",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Beim Zerschneiden und Umlegen geht kein Stück verloren und keines kommt dazu.",
    "voraus": "Die Teile müssen lückenlos und ohne Überlappung liegen.",
    "fehler": "Glauben, dass beim Umlegen auch der Umfang gleich bleibt.",
@@ -2923,6 +2999,7 @@
    "ib": "–",
    "sonne": "–",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Schneidet man an einer Seite ein Dreieck ab und setzt es an der anderen an, entsteht ein Rechteck mit derselben Grundseite und derselben Höhe.",
    "voraus": "Die Höhe steht senkrecht auf der gewählten Grundseite.",
    "fehler": "Die schräge Seite statt der Höhe nehmen.",
@@ -2955,6 +3032,7 @@
    "ib": "4",
    "sonne": "–",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Zwei gleiche Dreiecke lassen sich zu einem Parallelogramm zusammenlegen. Das Dreieck ist die Hälfte.",
    "voraus": "Die Höhe gehört zur gewählten Grundseite und steht senkrecht auf ihr. Im stumpfwinkligen Dreieck liegen zwei der drei Höhen außerhalb.",
    "fehler": "Das „geteilt durch 2“ vergessen. Eine Seite als Höhe nehmen, die nicht senkrecht steht.",
@@ -2987,6 +3065,7 @@
    "ib": "4",
    "sonne": "–",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Zwei gleiche Trapeze ergeben ein Parallelogramm mit der Grundseite a + c. Das Trapez ist die Hälfte.",
    "voraus": "a und c sind die beiden parallelen Seiten; h ist ihr Abstand.",
    "fehler": "Die Schenkel statt der parallelen Seiten mitteln.",
@@ -3013,6 +3092,7 @@
    "ib": "–",
    "sonne": "–",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Das Rechteck, das man um die beiden Diagonalen legt, ist genau doppelt so groß wie das Viereck.",
    "voraus": "Die Diagonalen stehen senkrecht aufeinander – das ist bei Drachenviereck, Raute und Quadrat so.",
    "fehler": "Die Formel auf Vierecke anwenden, deren Diagonalen nicht senkrecht stehen.",
@@ -3039,6 +3119,7 @@
    "ib": "3",
    "sonne": "–",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Der Umfang ist bei jedem Kreis dasselbe Vielfache des Durchmessers: π, etwas mehr als 3. Schneidet man den Kreis in Tortenstücke und legt sie abwechselnd um, entsteht fast ein Rechteck: halber Umfang breit, r hoch.",
    "voraus": "r ist der Radius, nicht der Durchmesser.",
    "fehler": "Durchmesser statt Radius einsetzen. Meinen, doppelter Radius gebe doppelte Fläche.",
@@ -3077,6 +3158,7 @@
    "ib": "3",
    "sonne": "11",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Ein Ausschnitt mit 60° ist ein Sechstel des vollen Kreises – also auch ein Sechstel des Umfangs und ein Sechstel der Fläche.",
    "voraus": "Der Winkel ist der Mittelpunktswinkel.",
    "fehler": "Den Winkel nicht durch 360° teilen.",
@@ -3109,6 +3191,7 @@
    "ib": "–",
    "sonne": "1",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Ein Kubikdezimeter ist 10 cm lang, breit und hoch: 10 Schichten zu je 10 mal 10 Würfeln, also 1 000 Kubikzentimeter.",
    "voraus": "Gilt zwischen benachbarten Einheiten mm³, cm³, dm³, m³. 1 l = 1 dm³, 1 ml = 1 cm³.",
    "fehler": "Mit 10 oder 100 umrechnen.",
@@ -3147,6 +3230,7 @@
    "ib": "–",
    "sonne": "–",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Die unterste Schicht hat Länge mal Breite Würfel; die Höhe sagt, wie viele Schichten es sind.",
    "voraus": "Alle drei Kanten in derselben Einheit.",
    "fehler": "Die drei Kantenlängen addieren statt malnehmen.",
@@ -3185,6 +3269,7 @@
    "ib": "1",
    "sonne": "–",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Die Oberfläche ist das, was man anmalen müsste. Beim Quader liegen sich je zwei gleiche Rechtecke gegenüber.",
    "voraus": "Jede Fläche genau einmal zählen.",
    "fehler": "Nur drei statt sechs Flächen nehmen. Oberfläche (cm²) und Volumen (cm³) verwechseln.",
@@ -3217,6 +3302,7 @@
    "ib": "3–4",
    "sonne": "–",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Das Netz entsteht durch Aufschneiden und Aufklappen. Im Schrägbild bleibt die Vorderseite unverzerrt; Kanten nach hinten werden schräg und verkürzt gezeichnet.",
    "voraus": "Im Netz sind Kanten, die zusammengehören, gleich lang. Im Schrägbild kann man nur an unverzerrten Flächen messen.",
    "fehler": "Ein Netz zeichnen, das sich nicht falten lässt. Im Schrägbild schräge Kanten in voller Länge zeichnen.",
@@ -3255,6 +3341,7 @@
    "ib": "–",
    "sonne": "–",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Der Körper ist ein Stapel gleicher Schichten mit der Form der Grundfläche. Der Mantel, abgerollt, ist ein Rechteck: so breit wie der Umfang der Grundfläche, so hoch wie der Körper.",
    "voraus": "V = G · h gilt mit der senkrechten Höhe, auch beim schiefen Körper. Die Mantelformel gilt nur beim geraden Körper.",
    "fehler": "Beim Zylinder den Durchmesser statt des Radius einsetzen. Bei der Oberfläche die zweite Grundfläche vergessen.",
@@ -3293,6 +3380,7 @@
    "ib": "–",
    "sonne": "–",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Ein Stapel Münzen hat dasselbe Volumen, ob er gerade steht oder schief geschoben ist: Jede Schicht ist gleich geblieben.",
    "voraus": "Die Schnitte liegen parallel zur Grundfläche und werden auf gleicher Höhe verglichen.",
    "fehler": "Daraus auch gleiche Oberfläche folgern – darüber sagt der Satz nichts.",
@@ -3319,6 +3407,7 @@
    "ib": "3",
    "sonne": "–",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Die Schnittfläche schrumpft zur Spitze hin mit dem Quadrat des Abstands von der Spitze; zusammengezählt bleibt genau ein Drittel des Prismas. Zum Anfassen: Ein Würfel zerfällt in drei gleiche Pyramiden.",
    "voraus": "h ist die senkrechte Höhe, nicht die Seitenkante. Die Mantelformel π · r · s gilt nur für den geraden Kreiskegel.",
    "fehler": "Das Drittel vergessen. Die Mantellinie s als Höhe einsetzen.",
@@ -3363,6 +3452,7 @@
    "ib": "3",
    "sonne": "–",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "Die Kugel füllt genau zwei Drittel des Zylinders, in den sie gerade hineinpasst. Ihre Oberfläche ist so groß wie der Mantel dieses Zylinders.",
    "voraus": "r ist der Radius.",
    "fehler": "Die beiden Formeln verwechseln: r² gehört zur Fläche, r³ zum Volumen.",
@@ -3401,6 +3491,7 @@
    "ib": "4",
    "sonne": "–",
    "planet": "Fläche und Raum",
+   "genau": "",
    "warum": "In der Ebene sind zwei verschiedene Geraden parallel oder schneiden sich. Im Raum gibt es eine dritte Möglichkeit: Sie laufen aneinander vorbei, ohne parallel zu sein.",
    "voraus": "Gilt für zwei verschiedene Geraden.",
    "fehler": "Im Schrägbild zwei Kanten für schneidend halten, weil sich ihre Bilder kreuzen.",
@@ -3924,6 +4015,10 @@
    "ziel": "R11"
   },
   {
+   "wort": "GAGA (Eselsbrücke für Sinus, Kosinus, Tangens)",
+   "ziel": "G25"
+  },
+  {
    "wort": "Kegelmantel",
    "ziel": "F17"
   },
@@ -3938,6 +4033,10 @@
   {
    "wort": "Mantel von Prisma und Zylinder",
    "ziel": "F15"
+  },
+  {
+   "wort": "Minus mal Minus",
+   "ziel": "R3"
   },
   {
    "wort": "Minus vor der Klammer",
@@ -3974,6 +4073,10 @@
   {
    "wort": "Windschief",
    "ziel": "F19"
+  },
+  {
+   "wort": "Z-Winkel, F-Winkel",
+   "ziel": "G5"
   },
   {
    "wort": "Zinseszins",
@@ -4023,69 +4126,17 @@
    "titel": "Bruch- und Verhältnisgleichungen",
    "ort": "Mumbai"
   },
-  "bruch.brueche": {
-   "titel": "Brüche und Anteile",
-   "ort": "Pisa"
-  },
-  "terme.potenzgesetze_natuerlich": {
-   "titel": "Potenzgesetze",
-   "ort": "Samarkand"
-  },
-  "gleichungen.exponential": {
-   "titel": "Exponentialgleichungen",
-   "ort": "Bangkok"
-  },
-  "abbildungen.aehnlichkeit": {
-   "titel": "Ähnlichkeit und Strahlensätze",
-   "ort": "Nairobi"
-  },
-  "gleichungen.ungleichungen": {
-   "titel": "Lineare Ungleichungen",
-   "ort": "Delhi"
-  },
-  "bruch.dezimal": {
-   "titel": "Dezimalzahlen",
-   "ort": "Brügge"
-  },
   "terme.bruchterme": {
    "titel": "Bruchterme",
    "ort": "Mumbai"
   },
-  "terme.umformen": {
-   "titel": "Terme umformen",
-   "ort": "Samarkand"
+  "gleichungen.einfach": {
+   "titel": "Einfache Gleichungen",
+   "ort": "Bagdad"
   },
-  "funktionen.exponential_log": {
-   "titel": "Exponential- und Logarithmusfunktionen",
-   "ort": "Halley-Station"
-  },
-  "gleichungen.linear": {
-   "titel": "Lineare Gleichungen",
-   "ort": "Samarkand"
-  },
-  "gleichungen.quadratisch": {
-   "titel": "Quadratische Gleichungen (allgemein)",
-   "ort": "Seoul"
-  },
-  "funktionen.linear": {
-   "titel": "Lineare Funktionen",
-   "ort": "Neumayer-Station III"
-  },
-  "zahlen.potenzen_basis": {
-   "titel": "Potenzen als Schreibweise",
+  "zahlen.natuerlich": {
+   "titel": "Natürliche Zahlen",
    "ort": "Rom"
-  },
-  "zahlen.potenzen_zehner": {
-   "titel": "Zehnerpotenzen und wissenschaftliche Schreibweise",
-   "ort": "Paris"
-  },
-  "gleichungen.formeln": {
-   "titel": "Formeln umstellen",
-   "ort": "Mumbai"
-  },
-  "bruch.prozent_grundwert": {
-   "titel": "Vermehrter und verminderter Grundwert",
-   "ort": "Los Angeles"
   },
   "zahlen.reell": {
    "titel": "Wurzeln und reelle Zahlen",
@@ -4095,45 +4146,97 @@
    "titel": "Direkte Proportionalität und Dreisatz",
    "ort": "Chicago"
   },
-  "stochastik.mehrstufig": {
-   "titel": "Mehrstufige Zufallsexperimente",
-   "ort": "Darwin"
+  "gleichungen.polynom": {
+   "titel": "Polynomgleichungen",
+   "ort": "Bangkok"
+  },
+  "terme.potenzgesetze_natuerlich": {
+   "titel": "Potenzgesetze",
+   "ort": "Samarkand"
+  },
+  "gleichungen.quadratisch": {
+   "titel": "Quadratische Gleichungen (allgemein)",
+   "ort": "Seoul"
+  },
+  "gleichungen.exponential": {
+   "titel": "Exponentialgleichungen",
+   "ort": "Bangkok"
+  },
+  "groessen.einheiten": {
+   "titel": "Größen und Einheiten",
+   "ort": "Toronto"
+  },
+  "abbildungen.aehnlichkeit": {
+   "titel": "Ähnlichkeit und Strahlensätze",
+   "ort": "Nairobi"
+  },
+  "gleichungen.linear": {
+   "titel": "Lineare Gleichungen",
+   "ort": "Samarkand"
   },
   "bruch.rechnen": {
    "titel": "Rechnen mit rationalen Zahlen",
    "ort": "Florenz"
   },
-  "zahlen.rechengesetze": {
-   "titel": "Grundrechenarten und Rechengesetze",
+  "bruch.brueche": {
+   "titel": "Brüche und Anteile",
+   "ort": "Pisa"
+  },
+  "funktionen.linear": {
+   "titel": "Lineare Funktionen",
+   "ort": "Neumayer-Station III"
+  },
+  "zahlen.ganz": {
+   "titel": "Ganze Zahlen",
    "ort": "Rom"
   },
   "terme.potenzgesetze_ganzzahlig": {
    "titel": "Potenzgesetze mit ganzzahligen Exponenten",
    "ort": "Mumbai"
   },
-  "zahlen.natuerlich": {
-   "titel": "Natürliche Zahlen",
+  "zahlen.rechengesetze": {
+   "titel": "Grundrechenarten und Rechengesetze",
    "ort": "Rom"
   },
-  "groessen.einheiten": {
-   "titel": "Größen und Einheiten",
-   "ort": "Toronto"
+  "zahlen.potenzen_zehner": {
+   "titel": "Zehnerpotenzen und wissenschaftliche Schreibweise",
+   "ort": "Paris"
   },
-  "zahlen.ganz": {
-   "titel": "Ganze Zahlen",
+  "bruch.dezimal": {
+   "titel": "Dezimalzahlen",
+   "ort": "Brügge"
+  },
+  "zahlen.potenzen_basis": {
+   "titel": "Potenzen als Schreibweise",
    "ort": "Rom"
+  },
+  "funktionen.exponential_log": {
+   "titel": "Exponential- und Logarithmusfunktionen",
+   "ort": "Halley-Station"
+  },
+  "stochastik.mehrstufig": {
+   "titel": "Mehrstufige Zufallsexperimente",
+   "ort": "Darwin"
   },
   "bruch.prozent": {
    "titel": "Prozent- und Zinsrechnung",
    "ort": "Mexiko-Stadt"
   },
-  "gleichungen.einfach": {
-   "titel": "Einfache Gleichungen",
-   "ort": "Bagdad"
+  "bruch.prozent_grundwert": {
+   "titel": "Vermehrter und verminderter Grundwert",
+   "ort": "Los Angeles"
   },
-  "gleichungen.polynom": {
-   "titel": "Polynomgleichungen",
-   "ort": "Bangkok"
+  "gleichungen.formeln": {
+   "titel": "Formeln umstellen",
+   "ort": "Mumbai"
+  },
+  "gleichungen.ungleichungen": {
+   "titel": "Lineare Ungleichungen",
+   "ort": "Delhi"
+  },
+  "terme.umformen": {
+   "titel": "Terme umformen",
+   "ort": "Samarkand"
   }
  }
 }

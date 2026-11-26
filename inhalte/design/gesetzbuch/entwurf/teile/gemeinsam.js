@@ -92,11 +92,11 @@ function sichtIdee(id) {
 
 // ---------- Die Zeichnungen und der Stil ----------
 function sichtZeichnungen() {
-  const blatt = [['R6', 'Rechenregel 6'], ['R13', 'Rechenregel 13'], ['R2', 'Rechenregel 2'], ['I-fur-1', 'Fläche und Raum · Idee 1'], ['I-fur-2', 'Fläche und Raum · Idee 2'], ['I-fur-3', 'Fläche und Raum · Idee 3'], ['I-fur-4', 'Fläche und Raum · Idee 4 (zusätzlich)']];
+  const blatt = [...INHALT.regeln.map((r) => [r.id, 'Rechenregel ' + r.nr]), ...Object.values(IDEE).filter((i) => ZEICHNUNGEN[i.id]).map((i) => [i.id, `${i.planet} · Idee ${i.nr}`])];
   return `<div class="breite gesetz"><nav class="pfad"><a href="#/">Übersicht</a><span class="t">›</span><span>Zeichenstil</span></nav>
-    <header class="g-kopf"><p class="ueber">Zeichenstil „Heft und Tafel“ · zweite Fassung nach den Zeichen-Vorgaben des Mathe-Profis</p><h1>Sechs Zeichnungen und eine siebte, ein Stil</h1>
-      <ul class="stil"><li><i style="background:var(--z-tinte)"></i>Strich in Tinte, Hilfslinien gestrichelt</li><li><i class="rahmen"></i>Gelb mit Rahmen: hier wirkt das Gesetz – in der Zeichnung und in der Rechenzeile</li><li><i style="background:var(--z-blau-fl);border:2px solid var(--z-blau)"></i>Blau: die Fläche oder Größe, um die es geht</li><li><i class="karo"></i>Karos nur, wo gezählt wird – ein Karo ist eine Einheit</li><li><i class="winkel"></i>Höhen immer mit dem Zeichen für den rechten Winkel</li></ul></header>
-    ${blatt.map(([k, ueber]) => { const x = REGEL[k] || IDEE[k]; return `<section class="z-blatt"><p class="ueber">${ueber}</p><h2>${esc(x.name || x.kurz)}</h2><p class="merksatz klein-m">${x.satz}</p>${zeichnung(k)}</section>`; }).join('')}</div>`;
+    <header class="g-kopf"><p class="ueber">Zeichenstil „Heft und Tafel“ · zweite Fassung nach den Zeichen-Vorgaben des Mathe-Profis</p><h1>${blatt.length} Zeichnungen, ein Stil</h1>
+      <ul class="stil"><li><i style="background:var(--z-tinte)"></i>Strich in Tinte, Hilfslinien gestrichelt</li><li><i class="rahmen"></i>Gelb mit Rahmen: hier wirkt das Gesetz – in der Zeichnung und in der Rechenzeile</li><li><i style="background:var(--z-blau-fl);border:2px solid var(--z-blau)"></i>Blau: die Fläche oder Größe, um die es geht – und das zweite Paar, wenn zwei Dinge zusammengehören</li><li><i class="sf"></i>Schraffur: das dritte Paar</li><li><i class="karo"></i>Karos nur, wo gezählt wird – ein Karo ist eine Einheit</li><li><i class="winkel"></i>Höhen immer mit dem Zeichen für den rechten Winkel</li></ul></header>
+    ${blatt.map(([k, ueber]) => { const x = REGEL[k] || IDEE[k]; return `<section class="z-blatt"><p class="ueber">${ueber}</p><h2>${esc(x.name || x.kurz)}</h2><p class="merksatz klein-m">${x.satz}${genau(x)}</p>${zeichnung(k)}</section>`; }).join('')}</div>`;
 }
 
 // ---------- Planeten-Karte (Übersicht A und B) ----------

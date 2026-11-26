@@ -34,6 +34,7 @@ const START = {json.dumps(start)};
 const WIRKSTELLE = {json.dumps(wirk, ensure_ascii=False, separators=(',', ':'))};
 {lies('ideen.js')}
 {lies('zeichnen.js')}
+{lies('zeichnen2.js')}
 {lies(ueb + '.js')}
 {lies('gemeinsam.js')}
 zeige();

@@ -23,7 +23,7 @@ def beispiele(block):
     for z in re.findall(r'^\| (\d+) \| (\w+) \| (.*?) \|(?: `(.*?)` \|)?$', block, re.M): aus.append({'klasse': int(z[0]), 'art': z[1], 'text': z[2].strip(), 'thema': z[3] or None})
     return aus
 def eintrag(block):
-    return {'satz': re.search(r'^> \*\*(.*)\*\*', block, re.M).group(1), 'warum': feld(block, 'Warum'), 'voraus': feld(block, 'Voraussetzung'), 'fehler': feld(block, 'Häufiger Fehler'),
+    return {'satz': re.search(r'^> \*\*(.*)\*\*', block, re.M).group(1), 'genau': feld(block, 'Genau gesagt'), 'warum': feld(block, 'Warum'), 'voraus': feld(block, 'Voraussetzung'), 'fehler': feld(block, 'Häufiger Fehler'),
             'verwandt': feld(block, 'Verwandt'), 'weg': feld(block, 'Möglicher Erklärweg über'), 'klassen': beispiele(block), 'zeichen': zeichen(block)}
 
 # Sonne
@@ -41,21 +41,23 @@ ausf = {}; ideen_ausf = {}
 for datei, planet in (('planet-flaeche-und-raum.md', 'Fläche und Raum'), ('planet-geometrie.md', 'Geometrie')):
     t = zeig(R + datei)
     for m, block in bloecke(t, r'^## Idee (\d+) · (.*)$', r'^#{2,3} '):
-        ideen_ausf[(planet, int(m.group(1)))] = {'warum': feld(block, 'Warum diese Idee trägt'), 'zeichen': zeichen(block)}
+        ideen_ausf[(planet, int(m.group(1)))] = {'warum': feld(block, 'Warum diese Idee trägt'), 'zeichen': zeichen(block)}; assert zeichen(block)
     for m, block in bloecke(t, r'^#### ([A-Z]+\d+) · (.*)$', r'^#{2,4} '):
         e = eintrag(block); e['schulart'] = (re.search(r'^(Gymnasium: .*)$', block, re.M) or [None, ''])[1]; ausf[m.group(1)] = e
 assert len(ausf) == 49, len(ausf)
 
 # Ebene 1: die 42 Sätze
-e1 = zeig(R + 'ebene1.md'); sonnen_satz = {int(n): (s, k) for n, s, k in re.findall(r'^(\d+)\. \*\*(.*?)\*\*  \n   \*(.*?)\*$', e1[:e1.index('## Die Planeten')], re.M)}
+e1 = zeig(R + 'ebene1.md'); ZEILE = r'^(\d+)\. \*\*(.*?)\*\*  \n   \*Genau gesagt:\* (.*?)  \n   <sub>(.*?)</sub>$'
+sonnen_satz = {int(n): (s, g, k) for n, s, g, k in re.findall(ZEILE, e1[:e1.index('## Die Planeten')], re.M)}
 assert len(sonnen_satz) == 14
-for r in regeln: assert r['satz'] == sonnen_satz[r['nr']][0], (r['nr'], r['satz'], sonnen_satz[r['nr']][0])
+for r in regeln: assert (r['satz'], r['genau'], r['name']) == sonnen_satz[r['nr']], (r['nr'], r['satz'], sonnen_satz[r['nr']])
 ideen = {}
-for m, block in bloecke(e1[e1.index('## Die Planeten'):], r'^### (.*?) – (\d+) tragende Ideen$', r'^#{2,3} '):
+for m, block in bloecke(e1[e1.index('## Die Planeten'):e1.index('## Wo der Merksatz')], r'^### (.*?) – (\d+) tragende Ideen$', r'^#{2,3} '):
     liste = []
-    for n, satz, kurz, k, gs in re.findall(r'^(\d+)\. \*\*(.*?)\*\*  \n   \*(.*?)\* – trägt (\d+) Gesetze: (.*)$', block, re.M):
+    for n, satz, gen, sub in re.findall(ZEILE, block, re.M):
+        kurz, k, gs = re.fullmatch(r'(.*?) – trägt (\d+) Gesetze: (.*)', sub).groups()
         ids = re.findall(r'(?:^|, )([A-Z]+\d+) ', gs); assert len(ids) == int(k), (satz, ids)
-        liste.append({'nr': int(n), 'satz': satz, 'kurz': kurz, 'gesetze': ids, **ideen_ausf.get((m.group(1), int(n)), {})})
+        liste.append({'nr': int(n), 'satz': satz, 'genau': gen, 'kurz': kurz, 'gesetze': ids, **ideen_ausf.get((m.group(1), int(n)), {})})
     assert len(liste) == int(m.group(2)); ideen[m.group(1)] = liste
 assert sum(len(v) for v in ideen.values()) == 28
 

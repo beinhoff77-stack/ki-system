@@ -1,5 +1,56 @@
 # Postfach mathe-profi
 
+## 2026-11-26 10:06 (Berlin) – FERTIG: Auftrag 14 – Regel-Kennungen, 78 Aufgaben umgehängt, 76 neue Aufgaben für vier Flüge, Hinweise gegengelesen
+
+Zweig `mathe-profi`, auf dem Stand von `lernen-app` de2b71ed. Nur Inhalte, nichts eingespielt, Datenbank nicht berührt. Vier Läufe „OK“ (`kennungen.py`, `umhaengen.py`, `rollend-1/bauen.py`, dazu `tools/inhalt_pruefen.py` über sechs Themen-Kopien).
+
+**Geliefert**
+
+*Teil A – `regeln-uebersicht/kennungen.json`*
+- **42 Kennungen:** 14 Rechenregeln (`rr.…`, z. B. `rr.minusklammer`) und 28 tragende Ideen (`id.<planet>.…`, z. B. `id.geometrie.abstand`). Je Kennung: Name, Merksatz, „Genau gesagt“, Klassen je Schulart, Themen, alte Etikett-Nummer.
+- **Sprechende Schlüssel statt Nummern**, weil es schon zwei Nummernreihen gibt (alte Etiketten 1 bis 15, Übersicht 1 bis 14) und beide sich ändern dürfen. `kennungen.py` bricht ab, wenn eine einmal geschriebene Kennung fehlt oder ihren Namen wechselt – „nie ändern, nie neu vergeben“ ist damit erzwungen, nicht nur versprochen.
+- **70 Fehlbilder** mit eigener Kennung (`fb.<regel>.…`) und einem Satz; nur solche, die an einer Antwort sicher erkennbar sind. Drei Ideen haben bewusst keines (Term, Wert für eins, Vom Teil aufs Ganze).
+- Arbeitsweisen (Probe, Überschlag …) haben keine Kennung; das steht in der Datei.
+
+*Teil B – `schritt1/kennungen-zuordnung.json`*
+- **77 von 78 Aufgaben zugeordnet.** 76 über die alte Nummer; `BG-10` (alt „Einsetzen und Probe“) gehört inhaltlich zur Idee „Erlaubte Zahlen“ (Definitionsmenge prüfen), mit Bemerkung.
+- **Ohne Kennung: `GF-11`** („Wie prüfst du die umgestellte Formel?“) – das ist die Arbeitsweise Probe, keine Regel. Nicht passend gemacht.
+- Von den 217 Fehlbildern haben 8 keine Regel-Kennung (alle alt „Probe“). `etiketten.json` ist unverändert.
+
+*Teil C – `rollend-1/`, eine Datei je Flug*
+
+| Datei | Flug | für | ohne Bau | „bedingung“ |
+|---|---|---|---|---|
+| `ge1.json` | Formen und Grundbegriffe | Kind 1 | 14 | 5 |
+| `z2.json` | Teilbarkeit | Kind 1 | 14 | 5 |
+| `ge2.json` | Spiegeln und Symmetrie | Kind 2 | 14 | 5 |
+| `a4.json` | Lineare Ungleichungen | Kind 2 | 14 | 5 |
+
+- 76 Aufgaben, Stufe aufsteigend. 65 Rechnungen zweifach nachgerechnet; jede Auswahl mit Probe; `pruefe_aufgabe` für alle 20 „bedingung“-Aufgaben mit leerer Fehlerliste, Beispiel und Gegenbeispiele je Bedingung vorhanden; `inhalt_pruefen` ohne Fehler; kein Text doppelt zum Bestand.
+- Jede Aufgabe trägt eine Regel-Kennung. 144 Fehlbilder, davon 67 mit Fehlbild-Kennung; die übrigen sind beschrieben, passen aber zu keinem Fehlbild der Liste.
+
+*Teil D – Hinweistexte gegengelesen* (`rollend-1/README.md`, Tabelle)
+- Alle Hinweise fachlich richtig. **Vier Änderungsvorschläge**, davon zwei wichtig: In der Aufgabe „a · x + b = 3x − 6 hat keine Lösung“ verraten die **Namen** der Bedingungen („x fällt weg“, „es bleibt eine falsche Aussage“) den Lösungsgedanken – und Namen werden nach dem ersten Fehlversuch gezeigt.
+
+**Offen**
+- **Typen ehrlich:** Von den 56 Aufgaben ohne Bau sind 38 in den gewählten Typen (11 Lückenweg, 12 Fehler-Detektiv, 3 Verfahren wählen, 3 Zwei Wege, 9 Umkehren) und **18 gewöhnliche Anwendungsaufgaben**. In Geometrie und Teilbarkeit tragen die gewählten Typen ohne Grafik nicht jede Lernkarte. Auch „Fehler-Detektiv“ ist bei einigen Auswahl-Aufgaben großzügig vergeben (Aussage prüfen statt Fehler in einer Rechnung finden).
+- Fehlbild-Kennungen für die 217 Fehlbilder aus Schritt 1 (nur die Regel ist umgehängt).
+- Sieben Operationen der Rechensprache, die meine Aufgaben brauchen (`und`, `oder`, `nicht`, `teilbar`, `betrag`, `neg`, `anzahl_negativ`), sind laut Format-Datei im Vergleich mit der Datenbank noch nicht erfasst. Die 20 Aufgaben eignen sich dafür als Prüf-Fälle.
+- Wunsch an die Sprache: eine Prüfung „ist Primzahl“. `Z2-B5` behilft sich mit einer Liste der Primzahlen unter 30.
+- In ge2 fehlen die zwei Vektor-Lernkarten der Realschule; ge1 hat keine Aufgabe zur Lernkarte „verstehen“.
+
+**Nicht geprüft**
+- Keine Aufgabe von einem Kind gerechnet; Stufe, Zählvorschlag und Fehlbilder sind Einschätzungen.
+- „bedingung“ nur gegen die Python-Referenz, nicht gegen die Datenbank-Fassung.
+- Gleichheit mit dem Bestand nur am wörtlichen Text, nicht am Inhalt.
+- Klassen in `kennungen.json` aus der Themenliste, nicht aus dem Lehrplan an der Quelle.
+- Ob die 70 Fehlbilder in den echten Antworten vorkommen.
+
+**Annahmen**
+- Kennung als sprechender Schlüssel ist gewollt; wenn du Nummern brauchst, sag es **vor** der ersten Verwendung in der Datenbank – danach ist sie fest.
+- Flüge und Themen wie in `lehrplan-kinder/plan.py`. Aufgaben ohne Grafik, weil „ohne Bau“.
+- Vier „bedingung“-Aufgaben haben vier Felder; ich nehme an, dass die Eingabe das am Handy trägt.
+
 ## 2026-11-26 09:50 (Berlin) – AUFTRAG 14 vom Projektleiter: Regel-Kennungen festlegen, 78 Aufgaben umhängen, neue Aufgaben für die nächsten Flüge
 Der Nutzer hat gesagt: „Ja lege überall los.“ Deine Lieferung zu Auftrag 13 ist in `lernen-app` übernommen. Bitte in dieser Reihenfolge, nur Inhalte, nichts einspielen:
 

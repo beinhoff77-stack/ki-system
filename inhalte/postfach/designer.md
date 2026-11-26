@@ -30,6 +30,33 @@ Geprüft an `bilder/zeichnungen-1280-hell.jpg` (in 24 Ausschnitten in voller Auf
 Alle übrigen 38 ohne Befund, im Einzelnen nachgezählt oder nachgemessen: Stellenwerttafel (Komma fest, beide Ziffern eine Spalte), Kehrtwenden (3 → 1 und 3 → 5, je zwei Einheiten), Stufen 1 bis 4, Kärtchen und Körbe, vier Rechtecke (120 und 12; 3x und 6; 6 und ¾ bei Höhe 1,5 und Breite 4,5; 108 und 12), Kassenzettel, Potenzzeile und Reihe 8 bis ¼, Streifen ½ und 2/4, Streifen ½ + ⅓ = 5/6, Quadrat 6 von 12, sechs halbierte Streifen, Dreisatz, Waage, Nullprodukt, Zahlengerade (−2,5 und ½ genau mittig), Bündeln (je zehn), Bausteine, Schreibweisen (50 von 100), Hoch und zurück, Term (5, 7, 13), Erlaubte Zahlen, Einsetzen (8, 10, 12, 14), Größe, Doppelgerade, Prozent (25 Felder; 80 % über 48 €), Winkelsumme, Gleicher Abstand (Lote 62 und 61 px, P auf 30°), Ähnlich, Pythagoras (9, 16, 25), Auslegen, Stammbaum Fläche (Kreis-Klammer jetzt 6 Stückbreiten), Stammbaum Körper, Haut (Netz faltbar: Seitenflächen 3 breit und 4 hoch an der 5-mal-4-Fläche), Zuordnung, Wachstum (Kurve überholt zwischen 2 und 3), vier Formen, Kennzahl, Stichprobe (30, 3, 8 – dein eigener Zähltest im Code ist gut), Würfel, Baum.
 
 **Nicht geprüft:** die Fassungen 400 px und dunkel, die Übersichten und die aufgeschlagenen Regeln; `zeichnungen.html` nicht im Browser geöffnet.
+## 2026-11-26 23:45 (Berlin) – FERTIG mit Vorbehalt: Regel-Universum, vierte Runde (Vorgabe GB, Abschnitt F5)
+
+Zweig `designer`, Stand `lernen-app` f1e499d übernommen. **Wichtig:** Auf `origin/mathe-profi` (4bd08be) liegt die Lieferung zu Auftrag 15 **nicht** – der letzte Stand dort ist „FERTIG Auftrag 14“. Die Punkte 2 und 5 sind fertig; 1, 3 und 4 sind nach meiner Lesart gebaut und warten auf seinen Inhalt. Kein App-Code, keine Datenbank, kein Lernstand, keine Namen.
+
+**Geliefert** (`inhalte/design/gesetzbuch/`, `umsetzung.md` Abschnitt F5, 34 Bilder)
+1. **Wirkende Stelle bei allen 14 Rechenregeln gelb umrahmt** – 63 von 74 Beispielen, nach dem Satz „Wirkstelle“ des Mathe-Profis je Regel (Annahme, siehe unten).
+2. **Klassenleiter „gleich gebaut“:** Die gelbe Stelle steht in jeder Klasse senkrecht übereinander, mit einem blassen gelben Band durch die Spalte. Lange Vortexte stehen grau in einer eigenen Zeile darüber. Am Rechner bei allen 14 Regeln, am Handy (400 px) bei 12 von 14; bei den Regeln 10 und 13 sind die Zeilen dafür zu lang, dort bleibt die Stelle umrahmt, aber nicht ausgerichtet. Dieselbe Leiter steht oben in der Übersicht im Kasten „Dieselbe Regel in 6 Klassen“.
+3. **Lücken ehrlich:** Jede Klasse 5 bis 10 hat eine Zeile. Ohne Beispiel steht dort „Noch kein Beispiel hinterlegt. Ob die Regel in Klasse 9 vorkommt, klärt der Mathe-Profi.“
+4. **Ideen der Planeten, vorläufig:** „Diese Idee läuft von Klasse 5 bis 8“ und ihre Regeln nach Klasse geordnet (aus der Spalte „Gym“). Rechenbeispiele je Klasse fehlen noch.
+5. **Zwei Fassungen der Übersicht bei 400 px nebeneinander:** `bilder/vergleich-genau-gesagt-400.jpg`. Mit „Genau gesagt“ ist die Seite 20 697 px hoch, ohne 17 344 px (16 % kürzer). Zweite Fassung zum Anklicken: `entwurf/uebersicht-a.html?genau=0`.
+
+**Offen**
+- Mathe-Profi, Auftrag 15: Teil A (Beispiele je Klasse, „kommt nicht vor“, genaue Zeichen der wirkenden Stelle) und Teil B (Beispiele für die Ideen). Danach brauche ich eine kurze fünfte Runde: einlesen, meine Markierung gegen seine tauschen, „Kommt in Klasse 9 nicht vor.“ einsetzen.
+- **11 Beispiele ohne Markierung, weil die wirkende Stelle nicht in der Zeile steht** (Regel 1: zwei, Regel 9: vier, Regel 11: zwei, Regel 13: drei; Liste in F5.2). Bitte an den Mathe-Profi: so umschreiben, dass der gemeinsame Faktor, der Wert für eins und die Handlung auf beiden Seiten sichtbar dastehen.
+- Entscheidung des Nutzers zu „Genau gesagt“ auf der Übersicht. Meine Meinung: weglassen – die Karte wird ruhiger, auch wenn die Seite nur 16 % kürzer wird.
+
+**Nicht geprüft**
+- Ob meine Markierungen fachlich die richtigen Zeichen treffen (Mathe-Profi).
+- Ob ein Kind die Leiter als „dasselbe“ liest – das kann nur der Nutzer mit den Kindern sagen.
+- Echte Geräte, Safari, Firefox, Kontrastwerte. Die Leiter nutzt die Rastertechnik „subgrid“; in sehr alten Browsern stünde sie unausgerichtet da.
+- Gemessen nur in Chrome: 248 Seitenaufrufe bei 360, 400, 820, 1280 px, hell und dunkel – kein Querrollen, keine Schrift unter 13 px, keine Skriptfehler.
+
+**Annahmen**
+- Welche Zeichen die wirkende Stelle sind, habe ich aus seinem Satz je Regel abgeleitet. Bei mehreren Stellen in einer Zeile richtet die erste die Zeile aus (bei Regel 14 die Null).
+- Zerlegung langer Beispiele in „Vorsatz“ und Rechnung ist von mir; der Wortlaut bleibt unverändert (wird beim Bauen geprüft).
+- Wortlaut der Lücken-Zeile ist von mir.
+- Ideen-Leiter: geordnet nach der ersten Klasse am Gymnasium.
 
 ## 2026-11-26 23:30 (Berlin) – RÜCKMELDUNG und AUFTRAG vom Projektleiter: Regel-Universum, vierte Runde – „es ist dasselbe“ sichtbar machen
 Deine dritte Runde und die Vorgabe ÜB sind in `lernen-app` übernommen; der Nutzer hat vier Bilder gesehen. Seine Rückfrage: „Habt ihr auch die Rechenbeispiele drin gelassen pro Jahrgangsstufe? Dass das Kind sieht, es ist dasselbe.“ Die Klassenleiter ist also das Herzstück. Bitte:

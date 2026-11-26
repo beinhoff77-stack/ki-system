@@ -1,10 +1,44 @@
 # Vorgabe GB: Regel-Universum – Zeichenstil, Übersicht, eine Regel aufgeschlagen
 
-Designer, 26.11.2026, **Fassung 4 (dritte Runde)**. Stand `lernen-app` 6b271bb. Der Ordner heißt weiter `gesetzbuch/`, damit nichts bricht; sichtbar heißt alles „Regel-Universum“. Kein App-Code, keine Datenbank, kein Lernstand.
-Mathe-Inhalt wörtlich vom Mathe-Profi (`origin/mathe-profi` c8e2cc3: `ebene1.md`, `sonne.md`, `planet-flaeche-und-raum.md`, `planet-geometrie.md`, `inhalt.md`), eingelesen mit `entwurf/inhalt_lesen.py`.
+Designer, 26.11.2026, **Fassung 5 (vierte Runde)**. Stand `lernen-app` f1e499d. Der Ordner heißt weiter `gesetzbuch/`, damit nichts bricht; sichtbar heißt alles „Regel-Universum“. Kein App-Code, keine Datenbank, kein Lernstand.
+Mathe-Inhalt wörtlich vom Mathe-Profi (`origin/mathe-profi` 4bd08be – die Lieferung zu Auftrag 15 liegt dort noch nicht: `ebene1.md`, `sonne.md`, `planet-flaeche-und-raum.md`, `planet-geometrie.md`, `inhalt.md`), eingelesen mit `entwurf/inhalt_lesen.py`.
 **[G]** gesichert (im Entwurf gebaut und gemessen) · **[A]** Annahme · **[M]** Meinung.
 
 Die frühere Vorgabe RS-H (`inhalte/design/regeln-sonnensystem/`) ist abgelehnt und gilt nicht mehr.
+
+## F5 Vierte Runde – „es ist dasselbe“ sichtbar machen (gilt vor F4 bis F2 und den Abschnitten 0 bis 12)
+
+Anlass: Auftrag des Projektleiters 26.11., 23:30. **Die Lieferung des Mathe-Profis zu Auftrag 15 lag beim Bauen nicht auf seinem Zweig** (letzter Stand dort: Auftrag 14). Deshalb sind die Punkte 1, 3 und 4 nach meiner Lesart gebaut und als Annahme gekennzeichnet.
+
+### F5.1 Die Klassenleiter „gleich gebaut“ [G]
+Eine Regel, ihre Beispiele untereinander, eine Zeile je Beispiel, in Festbreitenschrift 17 px (Handy 16 px).
+
+| Spalte | Breite | Inhalt |
+|---|---|---|
+| 1 | 36 px | Klasse im schwarzen Kreis |
+| 2 | so breit wie der längste Text **vor** der wirkenden Stelle | rechtsbündig |
+| 3 | so breit wie die längste wirkende Stelle | **gelb mit Rahmen**; ist die Stelle höchstens 6 Zeichen lang, füllt sie die Spalte mittig, sonst linksbündig |
+| 4 | Rest | linksbündig, darf umbrechen |
+
+- Durch Spalte 3 läuft von oben nach unten ein blasses gelbes Band (26 % Gelb). So steht die wirkende Stelle in jeder Klasse an derselben Stelle.
+- Darunter je Zeile klein: Einführung, Anwendung oder Vorwissen und das Thema der App.
+- **Vorsatz:** Ist der Text vor der Stelle lang, steht er grau in einer eigenen Zeile über der Rechnung („4 · (□ − 12) = −20:“), und nur der Rest wird ausgerichtet.
+- **Handy, „wo es geht“:** Sind längster Vortext und längste Stelle zusammen über 20 Zeichen, wird unter 560 px nicht ausgerichtet; die Stelle bleibt gelb umrahmt. Gemessen bei 400 px: 12 von 14 Rechenregeln ausgerichtet, nicht ausgerichtet die Regeln 10 und 13.
+- Dieselbe Leiter steht im Kasten „Dieselbe Regel in 6 Klassen“ oben in der Übersicht.
+
+### F5.2 Wirkende Stelle bei allen 14 Rechenregeln [A – meine Lesart]
+Markiert sind **63 von 74 Beispielen**, nach dem Satz „Wirkstelle“ des Mathe-Profis je Regel. Die Auszeichnung steht in `entwurf/teile/wirkstelle.json`; `bauen.py` prüft, dass jeder Text wörtlich sein Beispiel ist.
+**Nicht markiert sind 11 Beispiele, weil die wirkende Stelle nicht in der Zeile steht** (im Entwurf steht das klein dabei): Regel 1 „3 400 m = 3,4 km“ und „15 % = 15 Hundertstel = 0,15“ · Regel 9 „½ = 2/4“, „12/18 = 2/3“, „6x : 9 = 2x : 3“, „Seitenverhältnis 6 : 9 …“ · Regel 11 „15 von 60 sind 25 %“ und „Strahlensatz …“ · Regel 13 „2x + 2 = 12, also …“, „2x² = 18 …“, „3 · 2ˣ = 24 …“. Bitte an den Mathe-Profi: diese Beispiele so schreiben, dass der gemeinsame Faktor, der Wert für eins und die Handlung auf beiden Seiten in der Zeile stehen.
+
+### F5.3 Lücken ehrlich [G, Wortlaut A]
+Jede Klasse 5 bis 10 hat in der Leiter eine Zeile. Gibt es kein Beispiel: gestrichelter Kreis und der Satz „Noch kein Beispiel hinterlegt. Ob die Regel in Klasse 9 vorkommt, klärt der Mathe-Profi.“ Sobald er „kommt nicht vor“ liefert, steht dort: „Kommt in Klasse 9 nicht vor.“ (Einlesen noch nicht gebaut, weil sein Format noch nicht vorliegt.)
+
+### F5.4 Klassenleiter für die Ideen der Planeten [vorläufig]
+Auf jeder Ideen-Seite: Überschrift „Diese Idee läuft von Klasse 5 bis 8“ und die Regeln der Idee nach der Klasse geordnet, in der sie am Gymnasium zuerst vorkommen (Quelle: Spalte „Gym“ in `inhalt.md`); Regeln nur für Realschule oder IB stehen unter „RS IB“. **Rechenbeispiele je Klasse fehlen**, bis Auftrag 15 Teil B geliefert ist.
+
+### F5.5 „Genau gesagt“ auf der Übersicht – zwei Fassungen zum Wählen [G]
+Bild `bilder/vergleich-genau-gesagt-400.jpg`: links mit, rechts ohne. Adresse der zweiten Fassung: `uebersicht-a.html?genau=0`. In der aufgeschlagenen Regel und Idee steht „Genau gesagt“ in beiden Fassungen.
+Gemessen bei 400 px: ganze Seite mit 20 697 px, ohne 17 344 px hoch – 16 % kürzer. [M] Der Gewinn ist kleiner als erwartet, weil die Zeichnungen die Höhe bestimmen. Ruhiger wird die Karte trotzdem: Bild, Name, ein Satz, Klassenband.
 
 ## F4 Dritte Runde – was jetzt gilt (gilt vor F3, F2 und den Abschnitten 0 bis 12)
 

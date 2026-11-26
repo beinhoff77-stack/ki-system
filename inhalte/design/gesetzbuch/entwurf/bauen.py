@@ -14,7 +14,7 @@ wirk = json.loads(lies('wirkstelle.json'))
 for rid, w in wirk.items():
     soll = [k['text'] for k in next(r for r in inhalt['regeln'] if r['id'] == rid)['klassen']]
     for roh, markiert in w['bsp'].items():
-        assert roh in soll and re.sub(r'<[^>]+>', '', markiert) == roh, f'Wirkstelle {rid} weicht ab: {roh}'
+        assert roh in soll and re.sub(r'\[\[!?|\]\]', '', markiert).replace('||', ' ') == roh, f'Wirkstelle {rid} weicht ab: {roh}'
 seiten = {'uebersicht-a': ('a', ''), 'uebersicht-b': ('b', ''), 'gesetz': ('a', 'regel/R6'), 'zeichnungen': ('a', 'zeichnungen')}
 for datei, (ueb, start) in seiten.items():
     html = f'''<!doctype html>

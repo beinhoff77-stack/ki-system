@@ -1,0 +1,36 @@
+body[data-g="nacht"] { --planet-rand: rgba(255, 255, 255, .16); }
+body[data-g="hell"] { --planet-rand: rgba(17, 22, 29, .5); }
+.reihe { position: relative; max-width: 640px; margin: 0 auto; padding: 0 8px 20px; }
+.reihe::before { content: ""; position: absolute; left: 43px; top: 40px; bottom: 96px; width: 2px; background: var(--linie); }
+.r-zeile { position: relative; display: grid; grid-template-columns: 56px 1fr auto; column-gap: 12px; align-items: center; width: 100%; min-height: 64px; text-align: left; border: 0; border-radius: 16px; background: transparent; padding: 7px 10px 7px 8px; }
+button.r-zeile:hover { background: var(--flaeche); }
+.r-zeile .scheibe { justify-self: center; display: block; }
+.r-zeile b { display: block; font-size: 18px; font-weight: 700; line-height: 1.2; }
+.r-zeile .namen { display: flex; flex-wrap: wrap; gap: 1px 12px; font-size: 16px; line-height: 1.35; margin-top: 1px; }
+.r-zeile .namen span.eins { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.r-zeile .pfeil { color: var(--leise); font-size: 22px; }
+.r-sonne b { font-size: 19px; line-height: 1.2; }
+.r-sonne .satz { font-size: 16px; color: var(--leise); display: block; }
+.r-erde { min-height: 48px; padding-top: 2px; padding-bottom: 2px; }
+.r-fuss { padding: 6px 16px 0 76px; }
+.stoerung { margin: 40px auto; width: min(340px, calc(100% - 32px)); background: var(--flaeche); border-radius: 18px; padding: 18px 16px 16px; text-align: center; border: 1.5px solid var(--linie); }
+.stoerung p { margin: 0 0 6px; } .stoerung .haupt { margin-top: 12px; }
+.grau { background: var(--linie); border-radius: 8px; color: transparent !important; }
+@media (min-width: 600px) { .reihe:not(.quer) { padding-top: 20px; max-width: 700px; } .reihe:not(.quer)::before { left: 59px; }
+  .reihe:not(.quer) .r-zeile { min-height: 92px; grid-template-columns: 86px 1fr auto; padding: 12px 14px 12px 8px; margin-top: 6px; } .reihe:not(.quer) .r-zeile b { font-size: 23px; } .reihe:not(.quer) .r-zeile .namen { font-size: 19px; gap: 3px 18px; margin-top: 4px; }
+  .reihe:not(.quer) .r-sonne b { font-size: 26px; } .reihe:not(.quer) .r-sonne .satz { font-size: 18px; } .reihe:not(.quer) .r-fuss { padding-left: 108px; } .reihe:not(.quer) .legende { font-size: 18px; } }
+/* quer: Planeten nebeneinander */
+.quer { max-width: 1240px; padding: 8px 20px 24px; display: grid; grid-template-columns: 190px repeat(6, minmax(0, 1fr)); column-gap: 10px; align-items: start; }
+.quer::before { left: 20px; right: 20px; top: 104px; bottom: auto; width: auto; height: 2px; }
+.quer .q-kopf { grid-column: 1 / -1; display: flex; align-items: baseline; gap: 16px; padding: 4px 4px 14px; }
+.quer .q-kopf h1 { font-size: 26px; margin: 0; } .quer .q-kopf p { margin: 0; color: var(--leise); font-size: 16px; }
+.q-spalte { position: relative; display: flex; flex-direction: column; align-items: stretch; min-width: 0; }
+.q-planet { display: flex; flex-direction: column; align-items: center; gap: 6px; border: 0; background: transparent; border-radius: 16px; padding: 6px 4px 8px; min-height: 124px; justify-content: flex-start; }
+.q-planet:hover { background: var(--flaeche); }
+.q-planet .platz { height: 76px; display: flex; align-items: center; justify-content: center; }
+.q-planet b { font-size: 18px; font-weight: 700; text-align: center; line-height: 1.15; }
+.q-regel { display: flex; align-items: flex-start; gap: 8px; width: 100%; min-height: 48px; border: 1.5px solid var(--linie); border-radius: 12px; background: var(--flaeche); padding: 10px 10px; margin-top: 6px; font-size: 16px; font-weight: 600; text-align: left; line-height: 1.25; overflow-wrap: anywhere; }
+.q-regel:hover { border-color: var(--leise); }
+.q-regel .mond { margin-top: 3px; }
+div.q-regel { cursor: default; font-weight: 500; border-style: dashed; }
+.quer .legende { grid-column: 1 / -1; margin-top: 18px; }

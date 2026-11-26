@@ -2,6 +2,45 @@
 
 Neueste oben.
 
+## 2026-11-26 04:30 (Berlin) – FERTIG: Regel-Übersicht „Sonnensystem“ und Regel-Karte (Vorgabe RS-H)
+
+Zweig `designer`, ausgehend von `lernen-app` 9c2d316. Kein App-Code, keine Datenbank, keine Namen, alle Zustände und Orte in den Entwürfen erfunden und so gekennzeichnet.
+
+**Geliefert** (alles unter `inhalte/design/regeln-sonnensystem/`)
+- `umsetzung.md`: Vorgabe mit Maßen je Breite, Farben hell und dunkel, Texten wörtlich, Antippen, Laden, Fehler, Bewegung mit „weniger Bewegung“, Daten-Bedarf, Prüfliste (15 Muss, 7 Soll, 4 Kann).
+- `entwurf/uebersicht-a.html` – Fassung A „Sonnensystem“: Sonne am Rand, Bahnen, Planeten mit einem Mond je Regel, Werkzeug-Gürtel außen.
+- `entwurf/uebersicht-b.html` – Fassung B „Planetenreihe“: Sonne und Planeten an einer Linie, alle Regel-Namen sofort lesbar.
+- `entwurf/regel-karte.html` – Karten „Verteilen“ und „Minusklammer“ ganz: Satz, Bild, drei Gewänder, Grenze, Probe zum Antippen, Orte, Hauptknopf.
+- `entwurf/wege.html` – die drei Wege (Reisekarte nach oben, nach einem Fehler, neues Thema).
+- `bilder/`: 25 Bilder bei 360, 400, 820, 1280 px, hell und dunkel. Quellen der Entwürfe in `entwurf/teile/`, zusammengesetzt mit `entwurf/bauen.py`.
+- Bildmotiv für alle 15 Regeln (Abschnitt 6.4).
+
+**Empfehlung:** Fassung A als Seite; die Liste aus B steckt in A hinter der Sonne. Begründung in Abschnitt 1.
+
+**Vorschläge zu den offenen Entscheidungen des Nutzers** (Abschnitt 2)
+- Schnitt: fünf Regel-Planeten wie vorgeschlagen, dazu die Erde; die Werkzeuge als „Werkzeug-Gürtel“ statt als sechster Planet.
+- Sonne: öffnet die Liste aller 15; darunter freiwillig „Gemischte Fünf“.
+- Stand: Kinder sehen ihn, in zwei Zuständen („sitzt“, „in Arbeit“) plus neutral „kommt später“; als Mond-Form, ohne Zahl und Balken.
+
+**Offen**
+- Entscheidung des Nutzers: A oder B, und die drei Punkte oben.
+- An den Mathe-Profi: (1) „Potenz“ im Planeten „Bruch“ lassen oder zu „Verhältnis“? (2) Ist „kommt später“ als drittes Zeichen in Ordnung? (3) Bitte prüfen: umgestellte Beispiel-Zeilen der Regeln 4 und 5 (gleiche Zahlen, gleicher Aufbau in allen drei Zeilen), Sätze der fünf Arbeitsweisen, Planeten-Sätze, die 15 Sätze „Hier hat … geklemmt“.
+- Karten für die übrigen 13 Regeln: Aufbau steht, Inhalte und Bilder fehlen.
+- Abschnitt 10 nennt, was der Server neu liefern müsste (Zustand je Regel, Regel zum Fehler, Zwillingszeilen zur Etappe). Das gibt es heute nicht.
+
+**Nicht geprüft**
+- Echte Geräte, Finger, Safari und Firefox; Vorleser nur als Text gesetzt.
+- Bewegung nur im Code festgelegt, nicht als Film angesehen; Rechenlast auf alten Geräten nicht gemessen.
+- Platz des Knopfs „Regeln“ auf der echten Reisekarte (im Entwurf ein Platzhalter).
+- Kontrast für Text gerechnet (ab 6,2 : 1), nicht am Bildschirm gemessen.
+
+**Geprüft:** alle vier Entwürfe in Chrome bei 360 × 640, 400 × 860, 820 × 1180, 1280 × 800, hell und dunkel: keine Skriptfehler, Klickfolgen durch alle Blätter und Wege, kein Ziel unter 44 px, keine Rechnung läuft über den Rand.
+
+**Annahmen**
+- Drei Aufgaben je Regel und die Gemischte Fünf lassen sich mit vorhandenen Aufgabenformen bauen.
+- Die Orte in „Diese Regel brauchst du in …“ kommen aus den Regel-Etiketten des Mathe-Profis.
+- Kürzel RS-H gewählt, weil „RS“ im Repo schon belegt ist.
+
 ## 2026-11-26 02:40 (Berlin) – AUFTRAG vom Projektleiter: Regel-Übersicht „Sonnensystem“ und Regel-Karte
 
 **Wunsch des Nutzers, wörtlich im Kern:** „Wichtig ist mir eine tolle Übersichtsseite für die Regeln. Schön und übersichtlich, nicht einfach hingeklatscht.“ Die Idee des Sonnensystems stammt von ihm. Kein Bau, keine Einspielung – du lieferst Entwurf und Vorgabe.

@@ -1,5 +1,29 @@
 # Postfach mathe-profi
 
+## 2026-11-26 (Berlin) – FERTIG: Auftrag 10 (Übersicht der Grundregeln, Inhalt – Schritt 1 von 5)
+Zweig `mathe-profi`, auf Stand `lernen-app` 3e701e8d gebracht. Abgelegt mit Commit 8a82a9ce unter `inhalte/mathe-profi/regeln-uebersicht/`.
+
+**Geliefert**
+- `inhalt.md` – Antwort in einer Minute · 14 Merksätze · Tabelle „dieselbe Regel in vielen Klassen“ · Aufbau in vier Etagen mit allen Abhängigkeiten · je Regel: Merksatz, Warum, Wo es nicht gilt, ein Beispiel je Klasse mit Thema, Bild (gewählt und verworfen) · ehrliche Liste zu „nur 15?“ · 37 Sätze und Formeln der Gebiete · 7 Arbeitsweisen · Landkarte.
+- `bauen.py` – hält alles als Daten, rechnet die 71 Beispiele nach, prüft die Klasse jedes Beispiels gegen `themenliste.json` (Gymnasium) und die Reihenfolge des Aufbaus, schreibt `inhalt.md`. Lauf „OK“.
+
+**Kernaussagen**
+1. **„Gibt es nur 15 Regeln?“ – Nein.** Drei Schichten: 14 Rechenregeln (ändern sich von Klasse 5 bis 10 nicht, nur das Gewand), mindestens 37 Sätze und Formeln der Gebiete (kommen Jahr für Jahr dazu), 7 Arbeitsweisen. Zusammen 58.
+2. **Aus 15 werden 14:** „Einsetzen und Probe“ ist eine Arbeitsweise, keine Rechenregel. Die Etikett-Nummern der Aufgaben bleiben gültig (Zuordnung steht in `inhalt.md`).
+3. **Keine erfundenen Namen mehr:** „Zeichen-Paar“, „Wert bleibt“, „Richtung“, „Verteilen“ sind ersetzt durch Schulwörter (Vorzeichen bei Mal und Geteilt, Erweitern und Kürzen, Plus und Minus mit negativen Zahlen, Ausmultiplizieren und Ausklammern).
+4. **Runden, Überschlag, Betrag, Ungleichung umdrehen, Wurzel, Logarithmus:** je eingeordnet, mit Grund, warum es keine eigene Regel ist.
+5. **Vorschlag für die Darstellung:** Haus mit vier Etagen (Aufbau) plus ein Band je Regel von Klasse 5 bis 10 (dasselbe in vielen Klassen); Sätze der Gebiete als Dach, Arbeitsweisen als Werkzeugkasten. Verworfen mit Grund: Baum, Sonnensystem, reine Tabelle.
+
+**An ChatGPT (Schritt 2), wo ich Angriff erwarte**
+- Merksatz 2 („Ein Minus in der Klammer dreht die Richtung um“) – trägt für 9 − (−5), ist aber der am wenigsten eingängige.
+- Merksatz 9 (Erweitern und Kürzen) ist lang, weil der Nutzer „oben und unten dasselbe tun“ zu Recht abgelehnt hat.
+- Regel 7 (Minus vor der Klammer) ist streng genommen eine Folge aus 6 und 3; ich führe sie eigens, weil dort die meisten Fehler liegen.
+- Ob „Stellenwert und Prozent“ eine Regel sein soll oder zwei.
+
+**Offen:** Schritt 2 (ChatGPT), dann Einarbeiten durch mich.
+**Nicht geprüft:** Lehrplan nur über `themenliste.json` (Gymnasium), nicht an der Quelle; Realschule und IB nicht je Beispiel; Merksätze nicht mit einem Kind erprobt; Bilder nur beschrieben; die Liste der Sätze und Formeln ist eine Untergrenze aus meiner Kenntnis.
+**Annahmen:** Übersicht zeigt Klasse 5 bis 10; „professionell“ heißt fachlich richtig mit Grund und Grenze in Schulwörtern.
+
 ## 2026-11-26 05:40 (Berlin) – AUFTRAG 10 vom Projektleiter: Übersicht der Grundregeln, Inhalt (Schritt 1 von 5)
 Der Nutzer hat beide bisherigen Fassungen der Regel-Übersicht abgelehnt. Der gemeinsame Auftrag steht in `inhalte/plan/regeln-uebersicht-auftrag.md` (Zweig `lernen-app`) – bitte ganz lesen. Du bist mit Schritt 1 dran: Merksätze, professionelle Erklärungen, Beispiele je Klasse (gegen den Lehrplan geprüft), Aufbau, Bildidee je Regel. Sein Vorschlag: „15 einprägende Sätze, die sich ein Kind merkt.“ Ablage `inhalte/mathe-profi/regeln-uebersicht/inhalt.md`, Meldung hier. Danach geht es an ChatGPT, dann an den Designer.
 

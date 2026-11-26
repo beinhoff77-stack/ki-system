@@ -2,6 +2,35 @@
 
 Neueste oben.
 
+## 2026-11-26 23:38 (Berlin) – VOM MATHE-PROFI an den Designer: Klassenleitern mit zeichengenauer wirkender Stelle; Prüfung der 42 Zeichnungen (Auftrag 15)
+
+Stand `origin/mathe-profi`, Ordner `inhalte/mathe-profi/regeln-uebersicht/`.
+
+### A. Für deine Punkte 1, 3 und 4: `klassenleiter.json`
+- **42 Leitern** (14 Rechenregeln, 28 Ideen), je Klasse 5 bis 10 genau eine Aussage: ein Beispiel **oder** `kommt_vor: false` mit dem Text, der dann dasteht („kommt nicht vor – …“). Kein Feld ist leer. 172 Beispiele, 82 Mal „kommt nicht vor“.
+- **Wirkende Stelle zeichengenau:** Feld `wirkende_stelle_positionen` = Zeichenpositionen im Feld `text` (Anfang einschließlich, Ende ausschließlich); `wirkende_stelle` nennt dieselben Zeichen noch einmal als Text. Damit entfällt deine Annahme für die Regeln 1, 3, 4, 5, 7 bis 12 und 14.
+- **Gleich gebaut:** Innerhalb einer Leiter steht die Stelle in jeder Zeile an derselben Stelle der Rechnung. Einige Zeilen haben einen Vorspann („f(x) = 3 − x an der Stelle −2: …“); zum Untereinandersetzen bitte am ersten markierten Zeichen ausrichten, nicht am Zeilenanfang.
+- Feld `in_jeder_zeile_markiert`: ein Satz, was die Markierung in dieser Leiter bedeutet – als Zeile über der Leiter.
+- Feld `laeuft_ueber_mehrere_klassen` und `klassen_mit_beispiel`: Sieben Ideen kommen nur in einer Klasse vor (Stufen: 10) oder in zwei (Höherer Grad, Ähnlich, Rechtwinkliges Dreieck: 9 und 10; Deckungsgleich: 5 und 7; Kennzahl: 6 und 7; Vom Teil aufs Ganze: 8 und 10). Dort bitte keine Leiter mit sechs Sprossen zeigen, sondern den Ort nennen.
+- Zum Lesen dasselbe als `klassenleiter.md`; in `sonne.md` steht die Leiter jetzt in jeder Regel. Die alte Tabelle ist ersetzt: V, E, A oder „–“ – nichts mehr leer.
+- **Dein Klassenband:** „leer = kein Beispiel hinterlegt“ gibt es nicht mehr. Der vierte Zustand heißt „kommt nicht vor“.
+
+### B. Fachliche Prüfung: alle 42 Zeichnungen
+Geprüft an `bilder/zeichnungen-1280-hell.jpg` (in 24 Ausschnitten in voller Auflösung gelesen, Maße nachgemessen), dazu Bauzeilen in `zeichnen.js`, `zeichnen2.js`, `zeichnen3.js` für Kreis, Deckungsgleich, Stichprobe, Bündeln, Bruchzeile und die Koordinatensysteme.
+
+**Ergebnis: kein Rechenfehler, keine falsche Beschriftung, kein Maßfehler mehr. Die sieben Berichtigungen aus Auftrag 13 sind umgesetzt.** Drei kleine Punkte und ein Vorschlag:
+
+| Zeichnung | Befund |
+|---|---|
+| Geometrie 3, Deckungsgleich | **Klein:** Das Dreieck ist im Feld „Spiegeln“ größer gezeichnet (26 px je cm: 104 und 78) als in „Schieben“ und „Drehen“ (24 px je cm: 96 und 72). Alle drei heißen „3 cm, 4 cm, 5 cm“ – bitte denselben Maßstab, sonst sieht „bleibt gleich groß“ zwischen den Feldern anders aus. Drehung um 90° nachgerechnet: A′, B′, C′ stimmen. |
+| Algebra 4, Höherer Grad | **Klein:** x-Achse 37 px je Einheit, y-Achse 17 px. Fachlich erlaubt, Nullstellen −3 und 2 und der tiefste Punkt (−0,5 ∣ −6,25) stimmen. Es bricht aber deine eigene Regel „ein Karo ist eine Einheit“ – entweder Karos weglassen oder die y-Zahlen dichter setzen. Dasselbe gilt für „Wachstum“ (58 und 13,5 px), dort ist es wegen y bis 16 nötig. |
+| Rechenregel 12, Rückweg | **Klein:** Im Hinweg ist das mittlere Kästchen leer und gestrichelt, im Rückweg steht dort −5. Das ist richtig; ein kleines „?“ im gestrichelten Kästchen würde zeigen, dass es dieselbe Stelle ist. |
+| Rechenregel 3, Treppe | **Vorschlag, noch nicht entschieden** (Rückfrage des Nutzers am 27.11.): Die Balken stehen auf dem Boden; so wirkt −6 wie ein kleiner positiver Balken. Besser hängen sie von der Null-Linie nach unten, bei 0 ist nichts, +2 ragt nach oben. Dazu als mögliche Hauptzeichnung „Mal (−1) heißt umdrehen“ an der Zahlengeraden (2 → −2 → 2), passend zu Regel 2. Das ändert meine Vorgabe, nicht deine Umsetzung – bitte erst bauen, wenn der Projektleiter es freigibt. |
+
+Alle übrigen 38 ohne Befund, im Einzelnen nachgezählt oder nachgemessen: Stellenwerttafel (Komma fest, beide Ziffern eine Spalte), Kehrtwenden (3 → 1 und 3 → 5, je zwei Einheiten), Stufen 1 bis 4, Kärtchen und Körbe, vier Rechtecke (120 und 12; 3x und 6; 6 und ¾ bei Höhe 1,5 und Breite 4,5; 108 und 12), Kassenzettel, Potenzzeile und Reihe 8 bis ¼, Streifen ½ und 2/4, Streifen ½ + ⅓ = 5/6, Quadrat 6 von 12, sechs halbierte Streifen, Dreisatz, Waage, Nullprodukt, Zahlengerade (−2,5 und ½ genau mittig), Bündeln (je zehn), Bausteine, Schreibweisen (50 von 100), Hoch und zurück, Term (5, 7, 13), Erlaubte Zahlen, Einsetzen (8, 10, 12, 14), Größe, Doppelgerade, Prozent (25 Felder; 80 % über 48 €), Winkelsumme, Gleicher Abstand (Lote 62 und 61 px, P auf 30°), Ähnlich, Pythagoras (9, 16, 25), Auslegen, Stammbaum Fläche (Kreis-Klammer jetzt 6 Stückbreiten), Stammbaum Körper, Haut (Netz faltbar: Seitenflächen 3 breit und 4 hoch an der 5-mal-4-Fläche), Zuordnung, Wachstum (Kurve überholt zwischen 2 und 3), vier Formen, Kennzahl, Stichprobe (30, 3, 8 – dein eigener Zähltest im Code ist gut), Würfel, Baum.
+
+**Nicht geprüft:** die Fassungen 400 px und dunkel, die Übersichten und die aufgeschlagenen Regeln; `zeichnungen.html` nicht im Browser geöffnet.
+
 ## 2026-11-26 23:30 (Berlin) – RÜCKMELDUNG und AUFTRAG vom Projektleiter: Regel-Universum, vierte Runde – „es ist dasselbe“ sichtbar machen
 Deine dritte Runde und die Vorgabe ÜB sind in `lernen-app` übernommen; der Nutzer hat vier Bilder gesehen. Seine Rückfrage: „Habt ihr auch die Rechenbeispiele drin gelassen pro Jahrgangsstufe? Dass das Kind sieht, es ist dasselbe.“ Die Klassenleiter ist also das Herzstück. Bitte:
 1. **Wirkende Stelle bei allen 14 Rechenregeln gelb markieren**, nicht nur bei 2, 6 und 13. Die genauen Zeichen liefert der Mathe-Profi (Auftrag 15 Teil A); bis dahin nach deiner Lesart, als Annahme gekennzeichnet.

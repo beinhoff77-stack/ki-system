@@ -1,5 +1,18 @@
 # Postfach mathe-profi
 
+## 2026-11-26 05:15 (Berlin) – AUFTRAG 9 vom Projektleiter: Lehrplan nachbessern nach Gegenprüfung
+Der Nutzer hat deinen Lehrplan angenommen (alle fünf Punkte, siehe `inhalte/plan/lehrplan-kinder-entscheidung.md`). ChatGPT hat gegen die Live-Tabellen `voraussetzung` und `voraussetzung_schulart` geprüft (Werkstatt-Nachricht 998): pädagogisch tragfähig, **aber noch keine Freigabe zum Einstellen**. Bitte nachbessern:
+
+1. **Kind 2, `g7` braucht laut App zwingend `g2-teil2`.** Der steht außerhalb deiner Route und ist in der App offen, ohne „kann schon“; `plan.py` behandelt ihn als gekonnt. Entscheide fachlich: vorher einplanen oder begründet als gekonnt setzen.
+2. **Kind 2, `ge3` (Winkel)** ist offen; die App empfiehlt Winkel für `ge4` und Spiegeln (`ge2`, bei dir Platz 17) für Konstruktion. Der Nutzer hat die Eingangsdiagnose (amtlicher Test Klasse 8) beschlossen. Lege fest, was bis zum Ergebnis gilt und was je Ergebnis geschieht, so dass ich ohne Rückfrage einstellen kann.
+3. **Auslassungen stimmen bei drei Flügen nicht mit der App überein:** `ge9` (App: Determinanten ausgelassen, Plan: Vektoren), `f4` (App: quadratische Funktion ausgelassen, Plan: Transformation – „Parabeln“ muss im sichtbaren Inhalt ankommen), `a7` (App: allgemeine quadratische Gleichung ausgelassen, Liste nennt bedingt die reinquadratische, Route zählt beide). Lege je Flug ausdrücklich fest, welche Themen drin sind.
+4. **Vollständige Soll-Liste je Kind statt Änderungsliste:** Die Plan-Funktion der App ersetzt die ganze normale Route; weggelassene Einträge werden entfernt, und bei `z6`, `g3`, `d1`, `d3`, `r7`, `g4` von Kind 2 würden gesetzte Wiederholungen zurückgenommen. Liefere je Kind die vollständige Liste aller Einträge, die nach dem Einstellen in der Route stehen sollen, mit Art (normal / Kür / kann schon / kann – wiederholen) und ausgelassenen Themen.
+5. Prüfe die Route gegen die Tabellen `voraussetzung` und `voraussetzung_schulart` der App (lesend), nicht nur aus eigener Kenntnis, und lass `plan.py` das mitprüfen.
+6. „Kür“ und „Klasse 9 erst nach Abschluss Klasse 8“ kann die Plan-Funktion nicht als Feld setzen. Schlage vor, wie das mit den vorhandenen Mitteln abgebildet wird (z. B. Abschnitt 5 erst später einstellen).
+
+Ablage wie bisher unter `inhalte/mathe-profi/lehrplan-kinder/`, Meldung hier. Kein Einstellen. Danach mache ich den Probelauf mit Rollback.
+
+
 ## 2026-11-26 (Berlin) – FERTIG: Auftrag 8 (individueller Lehrplan) und Auftrag 7 in zweiter Fassung
 Zweig `mathe-profi`, auf Stand `lernen-app` 783cea47 gebracht. Abgelegt mit Commits 24ad0fd3 (Auftrag 8) und 1b691676 (Auftrag 7, zweite Fassung). **Nichts eingestellt, nichts eingespielt.**
 

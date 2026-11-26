@@ -50,14 +50,33 @@ function zUmdrehen() {
 
 // ---------- Rechenregel 3 · Treppe: der erste Faktor zählt herunter, jede Stufe geht 2 hoch ----------
 function zTreppe() {
-  const bw = 58, x0 = 16, y0 = 66, e = 13, werte = [-6, -4, -2, 0, 2], fak = ['3', '2', '1', '0', '(−1)'], Y = (v) => y0 - v * e, grund = Y(-6) + 30; let s = '';
-  werte.forEach((v, i) => { s += `<rect x="${x0 + i * bw}" y="${Y(v)}" width="${bw}" height="${grund - Y(v)}" fill="${i === 4 ? ZF.gelb : ZF.blauFl}"/>`; });
-  let d = `M${x0} ${grund}V${Y(-6)}`; werte.forEach((v, i) => { d += `H${x0 + (i + 1) * bw}` + (i < 4 ? `V${Y(werte[i + 1])}` : `V${grund}`); }); s += zPfad(d + 'Z');
-  s += zL(6, y0, 314, y0, { b: 3 }) + zT(8, y0 - 8, 'Null-Linie', { g: 14, a: 'start', grotesk: true, w: 700 }) + `<rect x="${x0 + 4 * bw}" y="${Y(2)}" width="${bw}" height="${grund - Y(2)}" fill="none" stroke="${ZF.tinte}" stroke-width="4"/>`;
-  werte.forEach((v, i) => { const x = x0 + i * bw + bw / 2; s += zT(x, Y(v) + (i === 4 ? -8 : 21), v > 0 ? '+2' : v < 0 ? '−' + (-v) : '0', { g: 18, w: 800, f: i === 4 ? ZF.tinte : ZF.tinte });
-    if (i) s += zPfeil(x0 + i * bw - 9, Y(werte[i - 1]) - 3, x0 + i * bw - 9, Y(v) + 3, { b: 2, kopf: 8 }) + zT(x0 + i * bw - 17, Y(v) + e + 5, '+2', { g: 14, w: 700, a: 'end' });
-    s += zT(x, grund + 22, fak[i], { g: 17, w: 800 }) + zT(x, grund + 42, '· (−2)', { g: 14 }); });
-  return { name: 'Vorzeichen bei Mal und Geteilt', felder: [{ svg: zBlatt(320, 238, s, 'Treppe mit fünf gleich hohen Stufen, die nach rechts ansteigt: minus 6, minus 4, minus 2, 0, plus 2. Darunter die Rechnungen 3 mal minus 2 bis minus 1 mal minus 2. Die letzte Stufe liegt über der Null-Linie'), gl: W('(−1) · (−2) = +2'), satz: 'Der erste Faktor zählt herunter: 3, 2, 1, 0, −1. Jede Stufe geht 2 nach oben. Deshalb landet die letzte Stufe über der Null.' }] };
+  const bw = 58, x0 = 16, y0 = 62, e = 13, werte = [-6, -4, -2, 0, 2], fak = ['3', '2', '1', '0', '(−1)'], Y = (v) => y0 - v * e, unten = Y(-6) + 22; let s = '';
+  werte.forEach((v, i) => { if (!v) return; const x = x0 + i * bw + 7, oben = Math.min(Y(v), y0), h = Math.abs(Y(v) - y0);
+    s += `<rect x="${x}" y="${oben}" width="${bw - 14}" height="${h}" fill="${v > 0 ? ZF.gelb : ZF.blauFl}" stroke="${ZF.tinte}" stroke-width="${v > 0 ? 4 : 2.5}" stroke-linejoin="round"/>`; });
+  s += zL(6, y0, 314, y0, { b: 3 }) + zT(8, y0 - 8, 'Null-Linie', { g: 14, a: 'start', grotesk: true, w: 700 });
+  werte.forEach((v, i) => { const x = x0 + i * bw + bw / 2; s += zT(x, v > 0 ? Y(v) - 8 : v < 0 ? Y(v) + 19 : y0 + 19, v > 0 ? '+2' : v < 0 ? '−' + (-v) : '0', { g: 18, w: 800 });
+    if (i) s += zPfeil(x0 + i * bw, Y(werte[i - 1]) - (i === 4 ? 3 : 0), x0 + i * bw, Y(v) + 2, { b: 2, kopf: 8 }) + zT(x0 + i * bw - 5, (Y(v) + Y(werte[i - 1])) / 2 + 5, '+2', { g: 14, w: 700, a: 'end' });
+    s += zT(x, unten + 22, fak[i], { g: 17, w: 800 }) + zT(x, unten + 42, '· (−2)', { g: 14 }); });
+  return zBlatt(320, 240, s, 'Fünf Rechnungen nebeneinander: 3 mal minus 2 bis minus 1 mal minus 2. Die Balken hängen von der Null-Linie nach unten: minus 6, minus 4, minus 2. Bei 0 ist kein Balken. Der letzte Balken ragt nach oben: plus 2. Von Rechnung zu Rechnung geht es um 2 nach oben');
+}
+// Hauptzeichnung zu Regel 3: dieselbe Bildsprache wie Regel 2. Die Figur steht bei 0 und schaut zur 2; jedes „· (−1)“ ist eine Kehrtwende.
+function zVorzeichen() {
+  const X = (v) => 160 + v * 42;
+  const wende = (x, y) => `<rect x="${x - 13}" y="${y - 15}" width="26" height="26" rx="7" fill="${ZF.gelb}" stroke="${ZF.tinte}" stroke-width="1.5"/>` + zPfad(`M${x + 6} ${y + 6}V${y - 3}a6 6 0 0 0 -12 0V${y + 3}`, { b: 2.25, f: '#11161D' }) + `<polygon points="${x - 6},${y + 8} ${x - 10.5},${y + 1} ${x - 1.5},${y + 1}" fill="#11161D"/>`;
+  const gerade = (ya, ziel, teile, wort, n) => { let s = zL(22, ya, 290, ya, { b: 2 }) + zP([[300, ya], [289, ya - 5], [289, ya + 5]], { fl: ZF.tinte, b: 1 });
+    for (let v = -3; v <= 3; v++) s += zL(X(v), ya - 6, X(v), ya + 6, { b: v === 0 ? 3 : 1.75 }) + zT(X(v), ya + 24, v < 0 ? '−' + (-v) : v, { g: 15, w: v === 0 || Math.abs(v) === 2 ? 800 : 600, f: v === 0 || Math.abs(v) === 2 ? ZF.tinte : ZF.leise });
+    s += zBogenPfeil(X(0), ya - 40, X(-ziel), ya - 12, 30, { f: ZF.leise, b: 1.75, strich: '4 4' });
+    s += zBogenPfeil(X(0), ya - 40, X(ziel), ya - 10, 44, { f: ZF.gelb, b: 9 }) + zBogenPfeil(X(0), ya - 40, X(ziel), ya - 10, 44, { b: 2.5 });
+    s += `<circle cx="${X(ziel)}" cy="${ya}" r="7" fill="${ZF.papier}" stroke="${ZF.tinte}" stroke-width="2.5"/>`;
+    const d = ziel > 0 ? 1 : -1; s += zL(X(0), ya - 8, X(0), ya - 24, { b: 3 }) + `<circle cx="${X(0)}" cy="${ya - 30}" r="6" fill="${ZF.papier}" stroke="${ZF.tinte}" stroke-width="2.5"/>` + zPfad(`M${X(0) + d * 6} ${ya - 30}h${d * 7}`, { b: 2 }) + `<circle cx="${X(0) + d * 2.5}" cy="${ya - 31}" r="1.3" fill="${ZF.tinte}"/>`;
+    const bw = n * 30, tx = 160 - (bw + 8 + wort.length * 8.2) / 2; for (let i = 0; i < n; i++) s += wende(tx + 13 + i * 30, ya - 74);
+    return s + zGl(160, ya - 104, teile) + zT(tx + bw + 8, ya - 68, wort, { g: 15, a: 'start', grotesk: true, w: 700 }); };
+  const oben = gerade(134, -2, ['2 · (', ['−'], '1) = −2'], 'einmal umdrehen', 1), unten = gerade(304, 2, ['2 · (', ['−'], '1) · (', ['−'], '1) = 2'], 'zweimal umdrehen', 2);
+  return { name: 'Vorzeichen bei Mal und Geteilt', felder: [
+    { svg: zBlatt(320, 338, oben + unten, 'Zwei Zahlengeraden von minus 3 bis 3 untereinander. Die Figur steht bei 0. Oben: 2 mal minus 1, eine Kehrtwende, der Pfeil führt zur minus 2. Unten: 2 mal minus 1 mal minus 1, zwei Kehrtwenden, der Pfeil führt wieder zur 2'),
+      mini: zBlatt(320, 168, oben, 'Zahlengerade: Figur bei 0, eine Kehrtwende, der Pfeil führt zur minus 2'), kopf: 'Mal (−1) heißt umdrehen', gl: '', satz: 'Die Figur steht bei 0 und will zur 2. Jedes „mal (−1)“ ist eine Kehrtwende: einmal umgedreht landet sie bei −2, zweimal umgedreht wieder bei 2. Gestrichelt: wohin sie ohne die letzte Kehrtwende gegangen wäre.' },
+    { svg: zTreppe(), kopf: 'Die Treppe', gl: W('(−1) · (−2) = +2'), satz: 'Der erste Faktor zählt herunter: 3, 2, 1, 0, −1. Jedes Mal wird das Ergebnis um 2 größer: −6, −4, −2, 0 – und dann +2.', neu: 'Warum das gilt' },
+  ] };
 }
 
 // ---------- Rechenregel 4 · Reihenfolge: vier Stufen von oben nach unten ----------
@@ -158,7 +177,7 @@ function zDreisatz() {
 function zRueckweg() {
   const xs = [44, 160, 276], bw = 60, bh = 40, yo = 96, yu = 190; let s = zT(160, 28, '4 · (□ − 12) = −20', { g: 17, w: 700 });
   const box = (x, y, t, o = {}) => zKasten(x - bw / 2, y - bh / 2, bw, bh, { fl: ZF.papier, strich: o.leer ? '5 4' : null, b: o.fett ? 3.5 : 2.5 }) + zT(x, y + 7, t, { g: 19, w: 800 });
-  s += box(xs[0], yo, '□') + box(xs[1], yo, '', { leer: 1 }) + box(xs[2], yo, '−20') + box(xs[2], yu, '−20') + box(xs[1], yu, '−5') + box(xs[0], yu, '7', { fett: 1 });
+  s += box(xs[0], yo, '□') + box(xs[1], yo, '?', { leer: 1 }) + box(xs[2], yo, '−20') + box(xs[2], yu, '−20') + box(xs[1], yu, '−5') + box(xs[0], yu, '7', { fett: 1 });
   s += zPfeil(xs[0] + 34, yo, xs[1] - 34, yo, { b: 2.25, kopf: 9 }) + zPfeil(xs[1] + 34, yo, xs[2] - 34, yo, { b: 2.25, kopf: 9 }) + zPfeil(xs[2] - 34, yu, xs[1] + 34, yu, { b: 2.25, kopf: 9 }) + zPfeil(xs[1] - 34, yu, xs[0] + 34, yu, { b: 2.25, kopf: 9 });
   s += zMarkeB(102, yo - 26, '− 12', { breit: 52, g: 15 }) + zMarke(218, yo - 26, '· 4', { breit: 44, g: 15 }) + zMarke(218, yu + 30, ': 4', { breit: 44, g: 15 }) + zMarkeB(102, yu + 30, '+ 12', { breit: 52, g: 15 });
   s += zT(22, yo + 40, 'hin', { g: 14, grotesk: true, w: 700, a: 'start', f: ZF.leise }) + zT(xs[2] - 10, (yo + yu) / 2 + 5, 'zurück', { g: 14, grotesk: true, w: 700, a: 'end', f: ZF.leise }) + zPfeil(xs[2], yo + 24, xs[2], yu - 24, { b: 1.75, kopf: 8, f: ZF.leise, strich: '4 4' }) + zT(160, 256, '□ = 7', { g: 18, w: 800 });
@@ -208,7 +227,7 @@ function zDeckung() {
     const lab = Math.hypot(B[0] - A[0], B[1] - A[1]), lac = Math.hypot(C[0] - A[0], C[1] - A[1]), ua = [(B[0] - A[0]) / lab, (B[1] - A[1]) / lab], va = [(C[0] - A[0]) / lac, (C[1] - A[1]) / lac];
     return zP([A, B, C], { fl: ZF.blauFl }) + bogen(B, A, C, 26) + bogen(C, A, B, 16) + bogen(C, A, B, 21) + zRWd(...A, ...ua, ...va, 9) + zStrich(...A, ...C, 1) + zStrich(...A, ...B, 2) + zStrich(...B, ...C, 3)
       + [[A, 'A'], [B, 'B'], [C, 'C']].map(([p, t]) => (o.ohne || '').includes(t) ? '' : zT(...aus(p), t + n, { g: 15, w: 800 })).join(''); };
-  const sp = dreieck([28, 164], [132, 164], [28, 86], '') + dreieck([292, 164], [188, 164], [292, 86], '′') + zL(160, 36, 160, 186, { b: 2, strich: '8 4 2 4' }) + zT(160, 24, 'Spiegelachse', { g: 14, grotesk: true, w: 700 });
+  const sp = dreieck([34, 164], [130, 164], [34, 92], '') + dreieck([286, 164], [190, 164], [286, 92], '′') + zL(160, 36, 160, 186, { b: 2, strich: '8 4 2 4' }) + zT(160, 24, 'Spiegelachse', { g: 14, grotesk: true, w: 700 });
   const vs = dreieck([22, 176], [118, 176], [22, 104], '') + dreieck([172, 116], [268, 116], [172, 44], '′') + zPfeil(128, 172, 258, 124, { b: 2.5 }) + zT(214, 172, 'Verschiebung', { g: 14, grotesk: true, w: 700, a: 'start' });
   const D = [106, 178]; const dr = dreieck([162, 178], [258, 178], [162, 106], '') + dreieck([106, 122], [106, 26], [34, 122], '′', { ohne: 'A' }) + zT(120, 118, 'A′', { g: 15, w: 800 }) + zL(...D, 162, 178, { b: 1.5, strich: '4 4', f: ZF.leise }) + zL(...D, 106, 122, { b: 1.5, strich: '4 4', f: ZF.leise })
     + zPfad('M138 178A32 32 0 0 0 106 146', { b: 2 }) + `<polygon points="106,146 116,141 115,152" fill="${ZF.tinte}"/>` + `<circle cx="${D[0]}" cy="${D[1]}" r="5" fill="${ZF.tinte}"/>` + zT(D[0], D[1] + 22, 'Drehpunkt', { g: 14, grotesk: true, w: 700 }) + zT(144, 152, '90°', { g: 14, w: 700 });
@@ -268,6 +287,6 @@ function zAufklappen() {
   ] };
 }
 
-Object.assign(ZEICHNUNGEN, { R1: zStellen, R2: zUmdrehen, R3: zTreppe, R4: zReihenfolge, R5: zKaertchen, R7: zZettel, R8: zPotenz, R9: zStreifen2, R10: zStreifen3, R11: zDreisatz, R12: zRueckweg, R14: zNullprodukt,
+Object.assign(ZEICHNUNGEN, { R1: zStellen, R2: zUmdrehen, R3: zVorzeichen, R4: zReihenfolge, R5: zKaertchen, R7: zZettel, R8: zPotenz, R9: zStreifen2, R10: zStreifen3, R11: zDreisatz, R12: zRueckweg, R14: zNullprodukt,
   'I-geo-1': zWinkelsumme, 'I-geo-2': zAbstand, 'I-geo-3': zDeckung, 'I-geo-4': zAehnlich, 'I-geo-5': zPythagoras, 'I-fur-4': zAufklappen });
 Object.assign(MINI_FELD, { R7: 1, 'I-fur-4': 1 });

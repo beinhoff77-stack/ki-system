@@ -51,10 +51,6 @@ e1 = zeig(R + 'ebene1.md'); ZEILE = r'^(\d+)\. \*\*(.*?)\*\*  \n   \*Genau gesag
 sonnen_satz = {int(n): (s, g, k) for n, s, g, k in re.findall(ZEILE, e1[:e1.index('## Die Planeten')], re.M)}
 assert len(sonnen_satz) == 14
 for r in regeln: assert (r['satz'], r['genau'], r['name']) == sonnen_satz[r['nr']], (r['nr'], r['satz'], sonnen_satz[r['nr']])
-# Dieselbe Regel in vielen Klassen: V = Vorwissen, E = Einführung, A = Anwendung (Einschätzung des Mathe-Profis)
-for z in re.findall(r'^\| (\d+) [^|]*\|((?: [VEA]? \|){6})$', sonne, re.M):
-    REG = next(r for r in regeln if r['nr'] == int(z[0])); REG['stufen'] = {str(5 + i): s.strip() for i, s in enumerate(z[1].split('|')[:6]) if s.strip()}
-assert all(r.get('stufen') for r in regeln)
 # Zeichen-Vorgaben und „Warum“ der übrigen fünf Planeten
 fuenf = zeig(R + 'zeichen-vorgaben-fuenf-planeten.md')
 for m, block in bloecke(fuenf, r'^## (.*?), Idee (\d+): (.*)$', r'^#{1,2} '):
@@ -87,8 +83,27 @@ fo = inhalt[inhalt.index('## Formeln einzeln'):inhalt.index('## Die Zahl')]
 formeln = [{'fuer': a.strip(), 'formel': b.strip(), 'bedingung': c.strip(), 'ziel': d.split()[0]} for a, b, c, d in re.findall(r'^\| (?!Formel für|---)(.*?) \| (.*?) \| (.*?) \| (.*?) \|$', fo, re.M)]
 arbeit = [{'name': a, 'satz': b} for a, b in re.findall(r'^\| ([A-ZÄÖÜ][^|*]*?) \| \*\*(.*?)\*\* \|$', inhalt[inhalt.index('## Die Arbeitsweisen'):], re.M)]
 benutzt = {z['thema'] for r in regeln for z in r['klassen'] if z['thema']}
-aus = {'stand': stand, 'etagen': sorted(etagen, key=lambda e: e['nr']), 'regeln': regeln, 'planeten': planeten, 'gesetze': gesetze, 'stichwoerter': stichwoerter, 'formeln': formeln, 'arbeitsweisen': arbeit, 'themen': {k: themen[k] for k in benutzt if k in themen}}
+# Klassenleitern des Mathe-Profis (Auftrag 15): je Rechenregel und je Idee eine Aussage für jede Klasse 5 bis 10,
+# die wirkende Stelle als Zeichenpositionen. Die Datei liegt in lernen-app und damit im Arbeitsbaum dieses Zweigs.
+KUERZEL = {'Zahlen': 'zahlen', 'Algebra': 'algebra', 'Geld und Verhältnisse': 'geld', 'Geometrie': 'geo', 'Fläche und Raum': 'fur', 'Funktionen': 'funktionen', 'Daten und Zufall': 'daten'}
+kl = json.loads((repo / 'inhalte' / 'mathe-profi' / 'regeln-uebersicht' / 'klassenleiter.json').read_text(encoding='utf-8')); leitern = {}; nr = {}
+for L in kl['leitern']:
+    if L['art'] == 'rechenregel':
+        nr['R'] = nr.get('R', 0) + 1; kennung = 'R%d' % nr['R']; assert regeln[nr['R'] - 1]['name'] == L['name'], (kennung, L['name'])
+    else:
+        nr[L['ort']] = nr.get(L['ort'], 0) + 1; kennung = 'I-%s-%d' % (KUERZEL[L['ort']], nr[L['ort']]); assert ideen[L['ort']][nr[L['ort']] - 1]['kurz'] == L['name'], (kennung, L['name'])
+    stufen = []
+    for s in L['stufen']:
+        if s['kommt_vor']:
+            assert [s['text'][a:b] for a, b in s['wirkende_stelle_positionen']] == s['wirkende_stelle'], (kennung, s['klasse'])
+            stufen.append({'klasse': s['klasse'], 'art': s['art'], 'thema': s.get('thema'), 'text': s['text'], 'pos': s['wirkende_stelle_positionen']}); benutzt.add(s.get('thema'))
+        else: stufen.append({'klasse': s['klasse'], 'grund': re.sub(r'^kommt nicht vor – ', '', s['grund'])})
+    assert sorted({s['klasse'] for s in stufen}) == [5, 6, 7, 8, 9, 10] and [s['klasse'] for s in stufen] == sorted(s['klasse'] for s in stufen), kennung  # zwei Leitern haben zwei Beispiele in einer Klasse
+    leitern[kennung] = {'kennung': L['kennung'], 'markiert': L['in_jeder_zeile_markiert'], 'klassen': L['klassen_mit_beispiel'], 'stufen': stufen}
+assert len(leitern) == 42 and len(nr) == 8
+print('Leitern', len(leitern), '· Beispiele', sum(1 for l in leitern.values() for s in l['stufen'] if 'text' in s), '· kommt nicht vor', sum(1 for l in leitern.values() for s in l['stufen'] if 'grund' in s), '· Stand', kl['stand'])
+aus = {'stand': stand, 'leitern': leitern, 'etagen': sorted(etagen, key=lambda e: e['nr']), 'regeln': regeln, 'planeten': planeten, 'gesetze': gesetze, 'stichwoerter': stichwoerter, 'formeln': formeln, 'arbeitsweisen': arbeit, 'themen': {k: themen[k] for k in benutzt if k in themen}}
 (hier / 'teile' / 'inhalt.json').write_text(json.dumps(aus, ensure_ascii=False, indent=1), encoding='utf-8')
-print('Formeln', len(formeln), formeln[:1], regeln[9]['satz'], regeln[0]['stufen'], [e['name'] for e in aus['etagen']]); print('Stand', stand, '· Regeln', len(regeln), '· Ideen', sum(len(v) for v in ideen.values()), '· Gesetze', len(gesetze), '· ausgearbeitet', len(ausf), '· Stichwörter', len(stichwoerter), '· Arbeitsweisen', len(arbeit))
+print('Formeln', len(formeln), formeln[:1], regeln[9]['satz'], [e['name'] for e in aus['etagen']]); print('Stand', stand, '· Regeln', len(regeln), '· Ideen', sum(len(v) for v in ideen.values()), '· Gesetze', len(gesetze), '· ausgearbeitet', len(ausf), '· Stichwörter', len(stichwoerter), '· Arbeitsweisen', len(arbeit))
 print([ (p['name'], p['zahl'], len(p['ideen'])) for p in planeten]); print(regeln[5]['klassen'][2:4], regeln[5]['weg']); print([s for s in stichwoerter if 'Kegel' in s['wort'] or 'Minus' in s['wort']])
 g = next(x for x in gesetze if x['id'] == 'G24'); print(g['satz'][:80], '|', g.get('voraus', '')[:60], '|', len(g.get('klassen', [])), g.get('weg'))

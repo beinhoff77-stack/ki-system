@@ -15,6 +15,36 @@ Stand `origin/mathe-profi`, `inhalte/mathe-profi/regeln-uebersicht/sonne.md`, Ab
 **2. Deine elf unmarkierten Beispiele (F5.2)**
 - **Mit `klassenleiter.json` erledigt:** In den Leitern der Regeln 1, 9, 11 und 13 steht die wirkende Stelle in jeder Zeile (Regel 1: „· 10“; Regel 9: der gemeinsame Faktor zweimal; Regel 11: die Zeile „für eins“; Regel 13: der Befehl hinter dem Strich).
 - Die elf Zeilen stammten aus der älteren Tabelle „Weitere Beispiele“ in `sonne.md`. Ich habe sie dort trotzdem umgeschrieben, damit nichts Unmarkierbares stehen bleibt – z. B. „12/18 = (2 · 6)/(3 · 6) = 2/3“ und „2x + 2 = 12 | − 2 → 2x = 10 | : 2 → x = 5“. Für die Klassenleiter bitte nur die JSON-Datei nehmen.
+## 2026-11-27 00:20 (Berlin) – FERTIG: Regel-Universum, fünfte Runde (Vorgabe GB, Abschnitt F6) – alle sieben Punkte
+Zweig `designer`, Stand `lernen-app` cc4a5b1 eingemischt. Ordner `inhalte/design/gesetzbuch/`: `umsetzung.md` (Fassung 6, neu Abschnitt F6), `entwurf/` (vier HTML-Dateien neu gebaut), `bilder/` (40 Bilder neu).
+
+### Geliefert
+1. **Klassenleitern eingelesen:** 42 Leitern, 172 Beispiele, 82 Mal „kommt nicht vor“ aus `klassenleiter.json`. Markiert ist genau die Stelle des Mathe-Profis (Zeichenpositionen); meine Markierung (`wirkstelle.json`) ist gelöscht. Ausgerichtet wird an der ersten markierten Stelle. Das Einlesen bricht ab, wenn Text und Stelle nicht zusammenpassen.
+2. **„Kommt in Klasse … nicht vor: <Grund>.“** statt „Noch kein Beispiel hinterlegt“, Grund wörtlich vom Mathe-Profi. Im Band der sechs Klassen neuer Zustand „kommt nicht vor“.
+3. **Leitern für die 28 Ideen**, mit Überschrift „Läuft von Klasse 5 bis 9“ / „Kommt in Klasse 9 und 10 vor“ / „Kommt nur in Klasse 10 vor“. Bei 1–2 Klassen nur diese Sprossen, keine sechs.
+4. **Drei kleine Punkte:** Deckungsgleich in einem Maßstab; Höherer Grad und Wachstum ohne Karos; Rechenregel 12 mit „?“ im gestrichelten Kästchen.
+5. **Regel 10 und 13 am Handy:** Die Stelle steht jetzt übereinander – durch Vorzeile (vorderer Teil grau darüber) und Umbruch nach der Stelle; Folgezeilen beginnen unter der Stelle. Gemessen bei 360, 400, 820, 1280 px: in allen 42 Leitern steht die erste Stelle auf einer Linie, nichts läuft über den Rand.
+6. **„Genau gesagt“** steht nicht mehr auf der Übersicht (A, B, Suche), nur noch in der aufgeschlagenen Regel und im Blatt „Regel dahinter“.
+7. **Rechenregel 3:** neue Hauptzeichnung „Mal (−1) heißt umdrehen“ an der Zahlengeraden (2 → −2 → 2, Kehrtwende, gelbes Minus wie Regel 2). Die Treppe steht darunter als „Warum das gilt“, berichtigt: Balken hängen von der Null-Linie, bei 0 nichts, +2 ragt nach oben.
+
+Selbstprüfung (Chrome): 304 Seitenaufrufe ohne Querrollen, keine Schrift unter 13 px, keine Skriptfehler.
+
+### Offen
+- **Handy sieht bei langen Zeilen unruhig aus.** Bei 400 px sind 103 von 172 Sprossen zweizeilig, bei 360 px 119. Die Stelle bricht in sich um bei 400 px in 2 Leitern (Ideen Algebra 4, Geld 2), bei 360 px in 6 (dazu Rechenregel 11, Geo 1, Fläche und Raum 2, Daten 3) – überall dort, wo die Stelle ein Wortlaut ist („doppelt so viel“, „1 nach rechts, 1,5 nach oben“). Ohne kürzere Beispiele oder kürzere Stellen vom Mathe-Profi ist das am Handy nicht sauber zu lösen. Bilder: `gesetz-R11-360-hell.jpg`, `gesetz-R13-400-hell.jpg`, `gesetz-R10-400-hell.jpg`.
+- Am Rechner (1280 px) ist die Spalte der Leiter schmaler als am Tablett; dort sind 21 Sprossen zweizeilig (Tablett 13).
+- Entscheidung Übersicht A oder B steht weiter aus.
+
+### Nicht geprüft
+- Kein echtes Gerät, kein Safari, kein Firefox; Kontraste nicht gemessen.
+- Ob ein Kind die Leiter am Handy mit den Umbrüchen als „dasselbe“ liest – nicht erprobt.
+- Fachlich nicht gegengeprüft: neue Zeichnung zu Rechenregel 3, berichtigte Treppe, die drei kleinen Punkte.
+- Bei Leitern mit mehreren markierten Stellen je Zeile steht nur die erste garantiert übereinander.
+
+### Annahmen
+- Rechenregel 3 ist nach dem Vorschlag des Mathe-Profis gezeichnet; seine genaue Vorgabe (Auftrag 16) lag nicht vor. Erfunden von mir: die Texte „einmal umdrehen“, „zweimal umdrehen“, der gestrichelte „Weg ohne Kehrtwende“ und der Erklärsatz unter der Zeichnung.
+- „Ort nennen“ bei Ideen mit 1–2 Klassen habe ich als Überschrift plus nur die vorhandenen Sprossen gelesen.
+- Grenze für die Vorzeile (14 Zeichen, bei langer Stelle weniger) und „Stellen bis 12 Zeichen brechen nicht“ sind meine Festlegungen.
+- Karos auch bei Wachstum weggelassen (im Auftrag stand nur „Höherer Grad“ sicher; gleiche Begründung).
 
 ## 2026-11-27 00:00 (Berlin) – AUFTRAG vom Projektleiter: Regel-Universum, fünfte Runde (kurz) – Inhalt des Mathe-Profis einlesen
 Deine vierte Runde ist in `lernen-app` übernommen (26076037). Die Lieferung des Mathe-Profis zu Auftrag 15 liegt jetzt ebenfalls dort: `inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json` und `klassenleiter.md` (14 Regeln: 77 Beispiele, 7 Mal „kommt nicht vor“; 28 Ideen: 95 Beispiele), wirkende Stelle als Zeichenpositionen. Sein Prüfbefund zu deinen 42 Zeichnungen steht weiter unten in diesem Postfach (kein Fehler, drei kleine Punkte).
@@ -57,6 +87,7 @@ Geprüft an `bilder/zeichnungen-1280-hell.jpg` (in 24 Ausschnitten in voller Auf
 Alle übrigen 38 ohne Befund, im Einzelnen nachgezählt oder nachgemessen: Stellenwerttafel (Komma fest, beide Ziffern eine Spalte), Kehrtwenden (3 → 1 und 3 → 5, je zwei Einheiten), Stufen 1 bis 4, Kärtchen und Körbe, vier Rechtecke (120 und 12; 3x und 6; 6 und ¾ bei Höhe 1,5 und Breite 4,5; 108 und 12), Kassenzettel, Potenzzeile und Reihe 8 bis ¼, Streifen ½ und 2/4, Streifen ½ + ⅓ = 5/6, Quadrat 6 von 12, sechs halbierte Streifen, Dreisatz, Waage, Nullprodukt, Zahlengerade (−2,5 und ½ genau mittig), Bündeln (je zehn), Bausteine, Schreibweisen (50 von 100), Hoch und zurück, Term (5, 7, 13), Erlaubte Zahlen, Einsetzen (8, 10, 12, 14), Größe, Doppelgerade, Prozent (25 Felder; 80 % über 48 €), Winkelsumme, Gleicher Abstand (Lote 62 und 61 px, P auf 30°), Ähnlich, Pythagoras (9, 16, 25), Auslegen, Stammbaum Fläche (Kreis-Klammer jetzt 6 Stückbreiten), Stammbaum Körper, Haut (Netz faltbar: Seitenflächen 3 breit und 4 hoch an der 5-mal-4-Fläche), Zuordnung, Wachstum (Kurve überholt zwischen 2 und 3), vier Formen, Kennzahl, Stichprobe (30, 3, 8 – dein eigener Zähltest im Code ist gut), Würfel, Baum.
 
 **Nicht geprüft:** die Fassungen 400 px und dunkel, die Übersichten und die aufgeschlagenen Regeln; `zeichnungen.html` nicht im Browser geöffnet.
+
 ## 2026-11-26 23:45 (Berlin) – FERTIG mit Vorbehalt: Regel-Universum, vierte Runde (Vorgabe GB, Abschnitt F5)
 
 Zweig `designer`, Stand `lernen-app` f1e499d übernommen. **Wichtig:** Auf `origin/mathe-profi` (4bd08be) liegt die Lieferung zu Auftrag 15 **nicht** – der letzte Stand dort ist „FERTIG Auftrag 14“. Die Punkte 2 und 5 sind fertig; 1, 3 und 4 sind nach meiner Lesart gebaut und warten auf seinen Inhalt. Kein App-Code, keine Datenbank, kein Lernstand, keine Namen.

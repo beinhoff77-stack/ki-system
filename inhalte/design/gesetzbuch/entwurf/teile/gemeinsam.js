@@ -10,7 +10,7 @@ const PLANETEN = INHALT.planeten.filter((p) => PLANET_BILD[p.name]);
 const IDEE = {}; for (const p of PLANETEN) p.ideen.forEach((i) => { i.id = `I-${KUERZEL[p.name]}-${i.nr}`; i.planet = p.name; i.von = p.ideen.length; IDEE[i.id] = i; });
 const ideeVon = (gid) => Object.values(IDEE).find((i) => i.gesetze.includes(gid));
 const spanne = (zahlen) => { const a = Math.min(...zahlen), b = Math.max(...zahlen); return a === b ? 'Klasse ' + a : `Klasse ${a}–${b}`; };
-const regelSpanne = (r) => spanne(r.klassen.map((k) => k.klasse));
+const regelSpanne = (r) => spanne(INHALT.leitern[r.id].klassen);
 const gymZahlen = (g) => (g.gym.match(/\d+/g) || []).map(Number);
 const planetSpanne = (name) => { const z = INHALT.gesetze.filter((g) => g.planet === name).flatMap(gymZahlen); return z.length ? spanne(z) : ''; };
 const klasseVon = (g) => (g.gym && g.gym !== '–' ? 'Klasse ' + g.gym : 'Realschule oder IB');
@@ -20,22 +20,30 @@ const LUPE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
 const seite = document.getElementById('seite');
 // Zwei Zeilen je Satz (Auftrag 12 an den Mathe-Profi): Merksatz groß, „Genau gesagt“ klein darunter. Solange „genau“ fehlt, steht nur der Satz.
 const genau = (x) => (x.genau ? `<span class="genau"><i>Genau gesagt:</i> ${x.genau}</span>` : '');
-// Klassenleiter: die Beispiele einer Regel untereinander, die wirkende Stelle gelb umrahmt und senkrecht übereinander.
-// Auszeichnung in teile/wirkstelle.json: [[…]] = wirkende Stelle, [[!…]] = diese Stelle richtet die Zeile aus (sonst die erste),
-// || = davor steht ein Vorsatz, der in einer eigenen Zeile über der Rechnung läuft.
-const mk = (s) => esc(s).replace(/\[\[!?(.*?)\]\]/g, '<b class="w">$1</b>');
-function zeileTeile(id, text) { const m = WIRKSTELLE[id]?.bsp[text]; if (!m) return null; const [vorsatz, rest] = m.includes('||') ? m.split('||') : ['', m];
-  const a = rest.includes('[[!') ? rest.indexOf('[[!') : rest.indexOf('[['), e = rest.indexOf(']]', a); return { vorsatz: mk(vorsatz), vor: mk(rest.slice(0, a)), marke: esc(rest.slice(a, e).replace(/^\[\[!?/, '')), nach: mk(rest.slice(e + 2)), lang: rest.slice(0, a).replace(/\[\[!?|\]\]/g, '').length }; }
-function klassenLeiter(id, klassen, o = {}) {
-  const r = REGEL[id], zeilen = klassen.map((k) => ({ k, t: zeileTeile(id, k.text) })), lang = Math.max(0, ...zeilen.map((z) => (z.t ? z.t.lang : 0))) + Math.max(0, ...zeilen.map((z) => (z.t ? z.t.marke.length : 0))) > 20;
-  const luecken = r && !o.ohneLuecken ? [5, 6, 7, 8, 9, 10].filter((n) => !klassen.some((k) => k.klasse === n)).map((n) => ({ luecke: n })) : [];
-  const alle = [...zeilen, ...luecken].sort((a, b) => (a.luecke || a.k.klasse) - (b.luecke || b.k.klasse));
-  const breit = Math.max(0, ...zeilen.map((z) => (z.t ? z.t.marke.length : 0))) > 6;
-  return `<ol class="leiter gl${lang ? ' lang' : ''}${breit ? ' breit' : ''}">${alle.map((z) => { if (z.luecke) return `<li class="luecke"><span class="stufe">${z.luecke}</span><p class="ganz">Noch kein Beispiel hinterlegt. Ob die Regel in Klasse ${z.luecke} vorkommt, klärt der Mathe-Profi.</p></li>`;
-    const meta = o.ohneMeta ? '' : `<p class="kl ganz">${z.k.art}${z.k.thema && thema(z.k.thema) ? ' · ' + thema(z.k.thema) : ''}${r && !z.t ? ' · <i>wirkende Stelle steht nicht in dieser Zeile</i>' : ''}</p>`;
-    return `<li><span class="stufe">${z.k.klasse}</span>${z.t ? `${z.t.vorsatz ? `<p class="rechnung vorsatz ganz">${z.t.vorsatz}</p>` : ''}<span class="rechnung vor">${z.t.vor}</span><b class="w rechnung mk">${z.t.marke}</b><span class="rechnung nach">${z.t.nach}</span>` : `<p class="rechnung ganz">${esc(z.k.text)}</p>`}${meta}</li>`; }).join('')}</ol>`;
+// Klassenleiter (Inhalt: klassenleiter.json des Mathe-Profis). Je Klasse 5 bis 10 eine Zeile: ein Beispiel oder „Kommt in Klasse … nicht vor“.
+// Die wirkende Stelle kommt als Zeichenpositionen; die erste Stelle richtet die Zeile aus, alle Stellen sind gelb umrahmt.
+const LEITER = INHALT.leitern, ART_KURZ = { Einführung: 'E', Anwendung: 'A', Vorwissen: 'V' };
+for (const r of INHALT.regeln) { const L = LEITER[r.id]; r.klassen = L.stufen.filter((s) => s.text); r.stufen = Object.fromEntries(L.stufen.map((s) => [s.klasse, s.text ? ART_KURZ[s.art] : 'N'])); }
+const mkText = (text, pos, von, bis) => { let aus = '', p = von; for (const [a, e] of pos) { if (e <= von || a >= bis) continue; aus += esc(text.slice(p, a)) + `<b class="w${e - a <= 12 ? ' fest' : ''}">${esc(text.slice(a, e))}</b>`; p = e; } return aus + esc(text.slice(p, bis)); };
+// Teilt eine Zeile in Vorzeile (grau, darüber) · davor · Stelle · danach. „grenze“ = so viele Zeichen dürfen links der Stelle stehen.
+function zeileTeile(s, grenze) { const [a, e] = s.pos[0], vor = s.text.slice(0, a); let schnitt = 0;
+  if (vor.length > grenze) { const doppel = vor.lastIndexOf(': '); if (doppel >= 0 && vor.length - doppel - 2 <= grenze) schnitt = doppel + 2;
+    else { schnitt = -1; // lieber nach einem „=“, „→“ oder „|“ trennen als mitten in der Rechnung
+      for (const m of vor.matchAll(/ (=|→|\|) /g)) if (vor.length - m.index - m[0].length <= grenze) { schnitt = m.index + m[0].length; break; }
+      if (schnitt < 0) { schnitt = vor.length; for (let i = 0; i < vor.length; i++) if (vor[i] === ' ' && vor.length - i - 1 <= grenze) { schnitt = i + 1; break; } } } }
+  return { vorsatz: mkText(s.text, [], 0, schnitt).trim(), vor: mkText(s.text, [], schnitt, a), marke: esc(s.text.slice(a, e)), nach: mkText(s.text, s.pos.slice(1), e, s.text.length), n: a - schnitt + (e - a) + (s.text.length - e), nVor: a - schnitt }; }
+function klassenLeiter(id, o = {}) {
+  const L = LEITER[id]; if (!L) return ''; const wenige = !REGEL[id] && L.klassen.length <= 2, stufen = L.stufen.filter((s) => s.text || !(wenige || o.nurBeispiele));
+  const maxMarke = Math.max(...L.stufen.filter((s) => s.text).map((s) => s.pos[0][1] - s.pos[0][0])), grenze = Math.max(0, Math.min(14, 30 - maxMarke));
+  const fest = Math.max(...L.stufen.filter((s) => s.text).map((s) => zeileTeile(s, grenze).nVor)); // so viele Zeichen belegt die Spalte „davor“ in jeder Zeile
+  return `<ol class="leiter gl">${stufen.map((s) => { if (!s.text) return `<li class="luecke"><span class="stufe">${s.klasse}</span><p class="ganz">Kommt in Klasse ${s.klasse} nicht vor: ${esc(s.grund)}.</p></li>`;
+    const z = zeileTeile(s, grenze); z.n = fest + (s.text.length - s.pos[0][0]); const meta = o.ohneMeta ? '' : `<p class="kl ganz">${s.art}${s.thema && thema(s.thema) ? ' · ' + thema(s.thema) : ''}</p>`;
+    return `<li><span class="stufe">${s.klasse}</span>${z.vorsatz ? `<p class="rechnung vorsatz ganz">${z.vorsatz}</p>` : ''}<span class="rechnung vor">${z.vor}</span><span class="rechnung ab"><b class="w mk${s.pos[0][1] - s.pos[0][0] <= 12 ? ' fest' : ''}">${z.marke}</b><span class="nach">${z.nach}</span></span>${meta}</li>`; }).join('')}</ol>`;
 }
-const OHNE_GENAU = P.get('genau') === '0';
+const leiterOrt = (id) => { const k = LEITER[id].klassen; return k.length === 1 ? `Kommt nur in Klasse ${k[0]} vor` : k.length === 2 ? `Kommt in Klasse ${k[0]} und ${k[1]} vor` : `Läuft von Klasse ${k[0]} bis ${k[k.length - 1]}`; };
+// Einfache Liste für die Beispiele einer einzelnen Regel der Planeten (ohne Ausrichtung)
+const beispielListe = (klassen) => `<ol class="leiter">${klassen.map((k) => `<li><span class="stufe">${k.klasse}</span><div><p class="rechnung">${esc(k.text)}</p><p class="kl">${k.art}${k.thema && thema(k.thema) ? ' · ' + thema(k.thema) : ''}</p></div></li>`).join('')}</ol>`;
+
 
 // ---------- Kopf ----------
 document.getElementById('kopf').innerHTML = `<div class="breite"><a class="kopf-marke" href="#/"><i></i><span class="lang">Regel-Universum</span><span class="kurz">Regel-Universum</span></a>
@@ -49,7 +57,7 @@ const wort = (s) => s.toLowerCase().replace(/ä/g, 'ae').replace(/ö/g, 'oe').re
 const woerter = (s, ab) => wort(s).split(/[^a-z0-9]+/).filter((w) => w.length > ab);
 const STICH = {}; INHALT.stichwoerter.forEach((s) => { (STICH[s.ziel] ||= []).push(s.wort); });
 const SUCHBAR = [
-  ...INHALT.regeln.map((r) => ({ id: r.id, art: 'Rechenregel ' + r.nr, name: r.name, satz: r.satz, mehr: r.klassen.map((k) => k.text).join(' ') + ' ' + r.fehler, ort: ['Sonne', ETAGE[r.etage]], kl: regelSpanne(r), ziel: '#/regel/' + r.id })),
+  ...INHALT.regeln.map((r) => ({ id: r.id, art: 'Rechenregel ' + r.nr, name: r.name, satz: r.satz, mehr: INHALT.leitern[r.id].stufen.map((k) => k.text || '').join(' ') + ' ' + r.fehler, ort: ['Sonne', ETAGE[r.etage]], kl: regelSpanne(r), ziel: '#/regel/' + r.id })),
   ...INHALT.gesetze.map((g) => { const i = ideeVon(g.id); return { id: g.id, art: 'Regel ' + g.id, name: g.name, satz: g.satz, mehr: (g.klassen || []).map((k) => k.text).join(' ') + ' ' + (g.fehler || '') + ' ' + (g.warum || ''), ort: [g.planet, i ? i.kurz : ''], kl: klasseVon(g), ziel: '#/gesetz/' + g.id }; }),
   ...Object.values(IDEE).map((i) => ({ id: i.id, art: 'Tragende Idee', name: i.kurz, satz: i.satz, mehr: '', ort: [i.planet], kl: `${i.gesetze.length} Regeln`, ziel: '#/idee/' + i.id })),
   ...INHALT.formeln.map((f) => ({ id: 'formel ' + f.fuer, art: 'Formel', name: f.fuer, satz: f.formel + (f.bedingung && f.bedingung !== '–' ? ' <span class="leise">(' + f.bedingung + ')</span>' : ''), mehr: '', ort: [GESETZ[f.ziel].planet, 'steht bei ' + f.ziel + ' ' + GESETZ[f.ziel].name], kl: klasseVon(GESETZ[f.ziel]), ziel: '#/gesetz/' + f.ziel })),
@@ -76,9 +84,10 @@ function verweise(text) { // „F15 Prisma und Zylinder, Rechenregel 12 Gegenrec
   for (const r of INHALT.regeln) if (s.includes(r.name)) aus.push(r.id); return [...new Set(aus)].map((id) => ({ id, name: (GESETZ[id] || REGEL[id]).name }));
 }
 // Dieselbe Regel in vielen Klassen: sechs Kästchen 5 bis 10. E = eingeführt (voll), A = angewendet (halb), V = Vorwissen (gestrichelt).
-const STUFE_WORT = { E: 'eingeführt', A: 'angewendet', V: 'Vorwissen' };
-const klassenBand = (r) => `<span class="band6" role="img" aria-label="Klassen: ${[5, 6, 7, 8, 9, 10].filter((k) => r.stufen[k]).map((k) => `${k} ${STUFE_WORT[r.stufen[k]]}`).join(', ')}">${[5, 6, 7, 8, 9, 10].map((k) => `<i class="${r.stufen[k] || ''}">${k}</i>`).join('')}</span>`;
-const BAND_LEGENDE = '<span class="band-legende"><span class="band6"><i class="E">5</i></span> eingeführt <span class="band6"><i class="A">7</i></span> angewendet <span class="band6"><i class="V">5</i></span> Vorwissen <span class="band6"><i>9</i></span> kein Beispiel hinterlegt</span>';
+const STUFE_WORT = { E: 'eingeführt', A: 'angewendet', V: 'Vorwissen', N: 'kommt nicht vor' };
+const bandStufen = (id) => Object.fromEntries(LEITER[id].stufen.map((s) => [s.klasse, s.text ? ART_KURZ[s.art] : 'N']));
+const klassenBand = (x) => { const st = bandStufen(x.id); return `<span class="band6" role="img" aria-label="Klassen: ${[5, 6, 7, 8, 9, 10].map((k) => `${k} ${STUFE_WORT[st[k]]}`).join(', ')}">${[5, 6, 7, 8, 9, 10].map((k) => `<i class="${st[k]}">${k}</i>`).join('')}</span>`; };
+const BAND_LEGENDE = '<span class="band-legende"><span class="band6"><i class="E">5</i></span> eingeführt <span class="band6"><i class="A">7</i></span> angewendet <span class="band6"><i class="V">5</i></span> Vorwissen <span class="band6"><i class="N">9</i></span> kommt nicht vor</span>';
 // Worauf es aufbaut: Jede Regel der Planeten nennt die Rechenregeln der Sonne, die sie braucht (Spalte „Sonne“ des Mathe-Profis).
 const brauchtRegeln = (g) => (g.sonne.match(/\d+/g) || []).map((n) => 'R' + n).filter((id) => REGEL[id]);
 const ideeBraucht = (i) => [...new Set(i.gesetze.flatMap((gid) => brauchtRegeln(GESETZ[gid])))].sort((a, b) => a.slice(1) - b.slice(1));
@@ -88,7 +97,7 @@ const verweisKnopf = (v) => `<a class="verweis" href="#/${v.id[0] === 'R' && REG
 const vorgabe = (z, titel) => `<div class="z-folgt"><p class="ueber">${titel}</p>${z ? `<p><b>Zu sehen sein wird:</b> ${esc(z['Zu sehen'])}</p><p class="klein leise" style="margin-top:6px">Vorgabe des Mathe-Profis. Gezeichnet wird, sobald der Zeichenstil freigegeben ist.</p>` : '<p>Für diesen Planeten liegt noch keine Zeichen-Vorgabe des Mathe-Profis vor.</p>'}</div>`;
 function sichtGesetz(id) {
   const r = REGEL[id], g = r || GESETZ[id]; if (!g) return sichtSuche(id);
-  const idee = r ? null : ideeVon(id), ws = WIRKSTELLE[id], weg = verweise(g.weg), braucht = r ? [] : brauchtRegeln(g), traegt = r ? regelTraegt(id) : [], themen = r ? [...new Set(r.klassen.map((k) => k.thema).filter((k) => k && thema(k)))] : [], klassen = g.klassen || [], stufen = new Set(klassen.map((k) => k.klasse)).size;
+  const idee = r ? null : ideeVon(id), weg = verweise(g.weg), braucht = r ? [] : brauchtRegeln(g), traegt = r ? regelTraegt(id) : [], themen = r ? [...new Set(r.klassen.map((k) => k.thema).filter((k) => k && thema(k)))] : [], klassen = g.klassen || [], stufen = new Set(klassen.map((k) => k.klasse)).size;
   const pfad = r ? `<a href="#/">Übersicht</a><span class="t">›</span><span>Sonne</span><span class="t">›</span><span>Schicht ${r.etage}: ${ETAGE[r.etage]}</span>`
     : `<a href="#/">Übersicht</a><span class="t">›</span><span>${g.planet}</span>${idee ? `<span class="t">›</span><a href="#/idee/${idee.id}">${idee.kurz}</a>` : ''}`;
   const zeich = ZEICHNUNGEN[id] ? zeichnung(id) : idee && ZEICHNUNGEN[idee.id] ? `<p class="klein leise" style="margin-bottom:8px">Zeichnung der tragenden Idee „${idee.kurz}“, aus der diese Regel folgt</p>` + zeichnung(idee.id) : vorgabe(g.zeichen || (idee && idee.zeichen), 'Zeichnung folgt');
@@ -98,7 +107,8 @@ function sichtGesetz(id) {
       <section><h2 class="ueber">Die Zeichnung</h2>${zeich}</section>
       ${g.warum ? `<section><h2 class="ueber">Warum das gilt</h2><p class="fliess">${g.warum}</p></section>` : ''}
     </div><div class="g-rechts">
-      ${klassen.length ? `<section><h2 class="ueber">${r ? `Dieselbe Regel in ${stufen} Klassen` : 'Beispiele'}</h2>${r ? `<p class="band-zeile">${klassenBand(r)}</p>${BAND_LEGENDE}` : ''}${g.wirkstelle ? `<p class="leise klein" style="margin-top:8px"><b>Gelb umrahmt ist die wirkende Stelle:</b> ${g.wirkstelle} Sie steht in jeder Klasse an derselben Stelle untereinander.</p>` : ''}${klassenLeiter(id, klassen)}</section>` : '<section><div class="z-folgt"><p class="ueber">Ausarbeitung folgt</p><p>Für diese Regel liegen bisher Name, Satz und Klasse vor. Ausgearbeitet sind die Sonne und die Planeten „Fläche und Raum“ und „Geometrie“.</p></div></section>'}
+      ${r ? `<section><h2 class="ueber">Dieselbe Regel in ${LEITER[id].klassen.length} Klassen</h2><p class="band-zeile">${klassenBand(r)}</p>${BAND_LEGENDE}<p class="leise klein" style="margin-top:8px"><b>Gelb umrahmt, in jeder Klasse an derselben Stelle:</b> ${esc(LEITER[id].markiert)}</p>${klassenLeiter(id)}</section>`
+        : klassen.length ? `<section><h2 class="ueber">Beispiele</h2>${beispielListe(klassen)}</section>` : '<section><div class="z-folgt"><p class="ueber">Ausarbeitung folgt</p><p>Für diese Regel liegen bisher Name, Satz und Klasse vor. Ausgearbeitet sind die Sonne und die Planeten „Fläche und Raum“ und „Geometrie“.</p></div></section>'}
       ${g.voraus ? `<section><h2 class="ueber">Voraussetzung: wann es gilt</h2><p class="fliess">${g.voraus}</p></section>` : ''}
       ${g.fehler ? `<section><div class="fehler"><h2 class="ueber">Häufiger Fehler</h2><p>${g.fehler}</p></div></section>` : ''}
       ${braucht.length ? `<section><h2 class="ueber">Baut auf diesen Rechenregeln auf</h2><div class="verweise">${braucht.map((b) => verweisKnopf({ id: b, name: REGEL[b].name })).join('')}</div></section>` : ''}
@@ -116,10 +126,8 @@ function sichtIdee(id) {
     <header class="g-kopf"><p class="ueber">${i.planet} · tragende Idee ${i.nr} von ${i.von} · ${esc(i.kurz)}</p><h1 class="merksatz gross">${i.satz}${genau(i)}</h1>${i.warum ? `<p class="fliess" style="max-width:46em">${i.warum}</p>` : ''}</header>
     <section><h2 class="ueber">Die Zeichnung</h2>${ZEICHNUNGEN[id] ? zeichnung(id) : vorgabe(i.zeichen, 'Zeichnung folgt')}</section>
     ${ideeBraucht(i).length ? `<section><h2 class="ueber">Baut auf diesen Rechenregeln auf</h2><div class="verweise">${ideeBraucht(i).map((b) => verweisKnopf({ id: b, name: REGEL[b].name })).join('')}</div></section>` : ''}
-    ${(() => { const nach = {}; i.gesetze.forEach((gid) => { const k = gymZahlen(GESETZ[gid])[0] || 'RS / IB'; (nach[k] ||= []).push(gid); }); const kl = Object.keys(nach).filter((k) => +k).map(Number).sort((a, b) => a - b);
-      return `<section><h2 class="ueber">${kl.length > 1 ? `Diese Idee läuft von Klasse ${kl[0]} bis ${kl[kl.length - 1]}` : kl.length ? `Diese Idee kommt in Klasse ${kl[0]} vor` : 'Diese Idee'}: ${i.gesetze.length} Regeln und Formeln</h2>
-      <p class="leise klein" style="margin-bottom:10px">Geordnet nach der Klasse am Gymnasium, in der die Regel zuerst vorkommt. Ein Rechenbeispiel je Klasse folgt, sobald der Mathe-Profi es liefert.</p>
-      <ol class="leiter ideen-leiter">${[...kl, ...(nach['RS / IB'] ? ['RS / IB'] : [])].map((k) => `<li><span class="stufe${+k ? '' : ' breit'}">${+k ? k : 'RS IB'}</span><div class="folge">${nach[k].map((gid) => { const g = GESETZ[gid]; return `<a class="karte" href="#/gesetz/${gid}"><span class="f-name"><span class="nr">${gid}</span> ${esc(g.name)}</span><span class="f-satz">${g.satz}</span></a>`; }).join('')}</div></li>`).join('')}</ol></section>`; })()}</article>`;
+    <section><h2 class="ueber">${leiterOrt(id)}</h2><p class="band-zeile">${klassenBand(i)}</p>${BAND_LEGENDE}<p class="leise klein" style="margin-top:8px"><b>Gelb umrahmt${LEITER[id].klassen.length > 1 ? ', in jeder Klasse an derselben Stelle' : ''}:</b> ${esc(LEITER[id].markiert)}</p><div class="leiter-breite">${klassenLeiter(id)}</div></section>
+    <section><h2 class="ueber">${i.gesetze.length} Regeln und Formeln, die daraus folgen</h2><ol class="folge">${i.gesetze.map((gid) => { const g = GESETZ[gid]; return `<li><a class="karte" href="#/gesetz/${gid}"><span class="f-name"><span class="nr">${gid}</span> ${esc(g.name)}</span><span class="f-satz">${g.satz}</span><span class="kl">${klasseVon(g)}</span></a></li>`; }).join('')}</ol></section></article>`;
 }
 
 // ---------- Die Zeichnungen und der Stil ----------
@@ -135,21 +143,21 @@ function sichtZeichnungen() {
 function planetKarte(p, n) {
   const sp = planetSpanne(p.name), bild = p.ideen.some((i) => ZEICHNUNGEN[i.id]);
   return `<li class="bahn"><div class="breite bahn-innen"><div class="planet-kopf">${planetScheibe(p.name, 52)}<div><h3>${esc(p.name)}</h3><p>${n + 1}. Planet · ${p.ideen.length} tragende Ideen · ${p.zahl} Regeln${sp ? ' · ' + sp : ''}</p></div></div>
-    <ul class="ideen n${p.ideen.length}${bild ? ' mit-bild' : ''}">${p.ideen.map((i) => `<li><a class="idee" href="#/idee/${i.id}">${ZEICHNUNGEN[i.id] ? zeichnungKlein(i.id) : ''}<span class="i-kurz">${esc(i.kurz)}</span><b>${i.satz}</b>${genau(i)}<span class="mehr">${i.gesetze.length} Regeln dahinter${ideeBraucht(i).length ? ` · braucht ${ideeBraucht(i).length > 1 ? 'die Rechenregeln' : 'Rechenregel'} ${ideeBraucht(i).map((x) => x.slice(1)).join(', ')}` : ''}</span></a></li>`).join('')}</ul></div></li>`;
+    <ul class="ideen n${p.ideen.length}${bild ? ' mit-bild' : ''}">${p.ideen.map((i) => `<li><a class="idee" href="#/idee/${i.id}">${ZEICHNUNGEN[i.id] ? zeichnungKlein(i.id) : ''}<span class="i-kurz">${esc(i.kurz)}</span><b>${i.satz}</b>${genau(i)}<span class="fuss">${klassenBand(i)}</span><span class="mehr">${i.gesetze.length} Regeln dahinter${ideeBraucht(i).length ? ` · braucht ${ideeBraucht(i).length > 1 ? 'die Rechenregeln' : 'Rechenregel'} ${ideeBraucht(i).map((x) => x.slice(1)).join(', ')}` : ''}</span></a></li>`).join('')}</ul></div></li>`;
 }
 
 // ---------- Weiche ----------
 function zeige() {
   const h = decodeURIComponent(location.hash.replace(/^#\/?/, '')) || START, [art, ...rest] = h.split('/'), wert = rest.join('/');
   seite.innerHTML = art === 'regel' || art === 'gesetz' ? sichtGesetz(wert) : art === 'idee' ? sichtIdee(wert) : art === 'suche' ? sichtSuche(wert) : art === 'zeichnungen' ? sichtZeichnungen() : UEBERSICHT();
-  document.body.classList.toggle('ohne-genau', OHNE_GENAU && !['regel', 'gesetz', 'idee', 'suche', 'zeichnungen'].includes(art));
+  document.body.classList.toggle('ohne-genau', !['regel', 'gesetz', 'idee', 'zeichnungen'].includes(art)); // Entscheidung des Nutzers: „Genau gesagt“ nicht auf der Übersicht
   if (art !== 'suche') { suchfeld.value = ''; scrollTo(0, 0); }
   document.title = 'Entwurf: Regel-Universum';
 }
 addEventListener('hashchange', zeige);
 if (P.get('von') === 'uebung') { const z = document.createElement('a'); z.className = 'zurueck-leiste'; z.href = `../../uebung/entwurf/uebung.html?s=erkl-regel&g=${document.body.dataset.g}`; z.textContent = '‹ Zurück zur Erklärung'; document.body.prepend(z); }
 const e = document.createElement('div'); e.className = 'entwurf';
-e.innerHTML = `<button aria-expanded="false">Entwurf ⚙</button><div class="entwurf-feld"><b>Entwurf, nicht die App.</b><a href="../../uebung/entwurf/uebung.html">Übungsbildschirm</a><a href="uebersicht-a.html?${P}">Übersicht A „Schnitt“</a><a href="uebersicht-a.html?genau=0&g=${document.body.dataset.g}">Übersicht A ohne „Genau gesagt“</a><a href="uebersicht-b.html?${P}">Übersicht B „Durch die Klassen“</a><a href="gesetz.html?${P}">Eine Regel aufgeschlagen</a><a href="zeichnungen.html?${P}">Zeichnungen</a><button>hell / dunkel</button></div>`;
+e.innerHTML = `<button aria-expanded="false">Entwurf ⚙</button><div class="entwurf-feld"><b>Entwurf, nicht die App.</b><a href="../../uebung/entwurf/uebung.html">Übungsbildschirm</a><a href="uebersicht-a.html?${P}">Übersicht A „Schnitt“</a><a href="uebersicht-b.html?${P}">Übersicht B „Durch die Klassen“</a><a href="gesetz.html?${P}">Eine Regel aufgeschlagen</a><a href="zeichnungen.html?${P}">Zeichnungen</a><button>hell / dunkel</button></div>`;
 e.querySelector('button').addEventListener('click', () => e.classList.toggle('offen'));
 e.querySelector('.entwurf-feld button').addEventListener('click', () => { P.set('g', document.body.dataset.g === 'hell' ? 'nacht' : 'hell'); location.search = P.toString(); });
 document.body.append(e);

@@ -9,12 +9,6 @@ def schrift(name, datei, gewicht):
     return f'@font-face {{ font-family: "{name}"; src: url(data:font/woff2;base64,{b}) format("woff2"); font-weight: {gewicht}; font-display: block; }}\n'
 schriften = schrift('Space Grotesk', 'space-grotesk.woff2', '300 700') + schrift('JetBrains Mono', 'jetbrains-mono.woff2', '100 800')
 inhalt = json.loads(lies('inhalt.json'))
-# Prüfung: Die markierten Beispiele (Wirkstelle) sind wörtlich Beispiele des Mathe-Profis.
-wirk = json.loads(lies('wirkstelle.json'))
-for rid, w in wirk.items():
-    soll = [k['text'] for k in next(r for r in inhalt['regeln'] if r['id'] == rid)['klassen']]
-    for roh, markiert in w['bsp'].items():
-        assert roh in soll and re.sub(r'\[\[!?|\]\]', '', markiert).replace('||', ' ') == roh, f'Wirkstelle {rid} weicht ab: {roh}'
 seiten = {'uebersicht-a': ('a', ''), 'uebersicht-b': ('b', ''), 'gesetz': ('a', 'regel/R6'), 'zeichnungen': ('a', 'zeichnungen')}
 for datei, (ueb, start) in seiten.items():
     html = f'''<!doctype html>
@@ -31,7 +25,6 @@ for datei, (ueb, start) in seiten.items():
 <script>
 const INHALT = {json.dumps(inhalt, ensure_ascii=False, separators=(',', ':'))};
 const START = {json.dumps(start)};
-const WIRKSTELLE = {json.dumps(wirk, ensure_ascii=False, separators=(',', ':'))};
 {lies('ideen.js')}
 {lies('zeichnen.js')}
 {lies('zeichnen2.js')}

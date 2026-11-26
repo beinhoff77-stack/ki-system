@@ -3532,6 +3532,17 @@ body.lern-seite { padding-bottom: 32px; }
 .lp-gliederung { margin: 2px 0; padding-left: 1.4em; font-size: .88rem; columns: 2 220px; }
 /* W150: allgemeine Lücken (Bruch, Zahlenpaar, Punkt) */
 .lern-luecke { width: 4.2em; min-height: 44px; text-align: center; font: inherit; font-size: 1.1rem; padding: 4px 6px; border: 2px solid var(--lr-linie, var(--border)); border-radius: 10px; background: var(--lr-flaeche, var(--surface)); color: inherit; }
+/* Typ „bedingung“: ein bis sechs Zahlenfelder; ab vier Feldern zwei Reihen zu drei (Vorgabe ÜB des Designers) */
+.lern-zahlfelder { display: grid; grid-template-columns: repeat(auto-fit, minmax(84px, 1fr)); gap: 10px; margin: 10px 0; }
+.lern-zahlfelder.viele { grid-template-columns: repeat(3, 1fr); }
+.lern-zahlfeld-rahmen { position: relative; display: block; }
+.lern-zahlfeld-rahmen > small { position: absolute; top: 7px; left: 10px; font-size: 12px; line-height: 1; opacity: .7; pointer-events: none; }
+.lern-zahlfelder .lern-zahlfeld { width: 100%; min-width: 0; min-height: 56px; box-sizing: border-box; }
+.lr-bedingung { margin: 8px 0 4px; }
+.lr-bedingungen { list-style: none; margin: 8px 0; padding: 0; }
+.lr-bedingungen li { padding: 2px 0; }
+.lr-bedingungen li.offen { font-weight: 700; }
+.lr-nur-vorlesen { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .lern-lueckenzeile { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 1.1rem; font-weight: 600; }
 .lern-bruch { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; }
 .lern-bruchstrich { width: 100%; min-width: 4.6em; height: 3px; border-radius: 2px; background: currentColor; }
@@ -3847,7 +3858,8 @@ body:has(.lr-abflug) header.top h1 { font-size: 1.15rem; font-weight: 600; }
 .lern-bruch-text { display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; line-height: 1.05; font-size: .82em; margin: 0 .12em; font-variant-numeric: tabular-nums; }
 .lern-bruch-text > span:first-child { border-bottom: .09em solid currentColor; padding: 0 .22em .04em; }
 .lern-bruch-text > span:last-child { padding: .04em .22em 0; }
-.lern-bruch-text > span { white-space: nowrap; } /* Zähler und Nenner mit Rechenzeichen (x + 1) nicht umbrechen */
+.lern-bruch-text > span { white-space: nowrap; }
+.lern-bruch-text > span:first-child { align-self: stretch; text-align: center; } /* Bruchstrich so breit wie der längere Teil */ /* Zähler und Nenner mit Rechenzeichen (x + 1) nicht umbrechen */
 /* A5: neue Wörter antippen */
 .lr-wort { all: unset; cursor: pointer; text-decoration: underline dotted; text-decoration-thickness: 2px; text-underline-offset: 4px; font: inherit; color: inherit; }
 .lr-wort:focus-visible { outline: 3px solid var(--lr-akzent, #FFD23F); outline-offset: 2px; border-radius: 4px; }

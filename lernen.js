@@ -2788,6 +2788,21 @@ function lernAufgabe(a, vorher, opts = {}) {
       teile.push(st);
     }
     teile.push(el('div', { class: 'lern-zeile' }, inp, a.einheit ? el('span', { class: 'lern-einheit-zeichen' }, a.einheit) : null));
+  } else if (a.antworttyp === 'bedingung') {
+    // Fundament Schritt 2: Aufgaben mit vielen richtigen Antworten. Ein bis sechs Zahlenfelder; die Bedingungen stehen im Aufgabentext,
+    // geprüft wird nur auf dem Server (die App kennt die Prüfregeln nicht).
+    const n = Math.min(6, Math.max(1, (f.felder || []).length));
+    const eingaben = Array.from({ length: n }, (_, i) => el('input', { type: 'text', inputmode: 'text', autocomplete: 'off', class: 'lern-luecke lern-zahlfeld',
+      'aria-label': n > 1 ? `Zahl ${i + 1} von ${n}` : 'Zahl', value: wert?.werte?.[i] ?? '' }));
+    const lies = () => {
+      const w = eingaben.map((x) => x.value.trim());
+      wert = w.every((x) => x !== '') ? { werte: w } : null;
+      fehler = wert ? null : (n > 1 ? 'Bitte fülle alle Felder aus.' : 'Bitte erst antworten.');
+    };
+    eingaben.forEach((x) => { x.addEventListener('input', lies); felder.push(x); });
+    teile.push(el('div', { class: 'lern-zahlfelder' + (n > 3 ? ' viele' : ''), role: 'group', 'aria-label': 'Deine Zahlen' },
+      ...eingaben.map((x, i) => el('label', { class: 'lern-zahlfeld-rahmen' }, n > 1 ? el('small', { 'aria-hidden': 'true' }, String(i + 1)) : null, x))));
+    lies(); fehler = null;
   } else if (a.antworttyp === 'luecken' && !lernIstTermVorlage(f.schablone)) {
     // W150: allgemeine Lücken (Bruch □/□, Zahlenpaar x = □; y = □, Punkt S(□ | □) …): je Lücke ein kleines Zahlenfeld.
     const st = String(f.schablone || '□').split('□'); const n = st.length - 1;
@@ -2828,7 +2843,7 @@ function lernAufgabe(a, vorher, opts = {}) {
     if (wert?.werte) lies();
   }
   // W150 Abflug: Zahlenfelder bekommen ein eigenes Tastenfeld (keine Systemtastatur auf Tippgeräten).
-  const zahlFelder = opts.tasten && (a.antworttyp === 'zahl' || (a.antworttyp === 'luecken' && !lernIstTermVorlage(f.schablone))) ? felder.filter((x) => x.type === 'text') : [];
+  const zahlFelder = opts.tasten && (a.antworttyp === 'zahl' || a.antworttyp === 'bedingung' || (a.antworttyp === 'luecken' && !lernIstTermVorlage(f.schablone))) ? felder.filter((x) => x.type === 'text') : [];
   let aktiv = zahlFelder[0] || null;
   const grob = !window.matchMedia?.('(pointer: fine)').matches;
   zahlFelder.forEach((x) => { x.classList.add('lern-kachel'); if (grob) x.setAttribute('inputmode', 'none'); x.addEventListener('focus', () => { aktiv = x; zahlFelder.forEach((y) => y.classList.toggle('dran', y === x)); }); });
@@ -2905,8 +2920,10 @@ function lernDetektiv(a, e, r, titel) {
   if (a.antworttyp === 'auswahl') return el('div', { class: 'lr-fehler lr-detektiv' }, el('p', { class: 'lr-ueber' }, 'NOCH EINMAL HINSEHEN'), el('p', {}, 'Schau dir deine Wahl und die Frage noch einmal an.'));
   return e.fehler ? el('div', { class: 'lr-fehler lr-detektiv' }, el('p', { class: 'lr-ueber' }, titel), el('p', {}, ...lernMarkiert(e.fehler))) : null;
 }
+const lernZahlenReihe = (werte) => (werte || []).map((x) => String(x ?? '').trim().replace(/^-/, '−')).join(';\u00a0'); // geschütztes Leerzeichen: die Reihe bricht nicht mitten um
 function lernLoesungText(a) {
   const l = a.loesung || {};
+  if (a.antworttyp === 'bedingung') return Array.isArray(l.beispiel) ? 'zum Beispiel ' + lernZahlenReihe(l.beispiel) : ''; // viele Antworten sind richtig: gezeigt wird ein Beispiel
   if (a.antworttyp === 'auswahl') return (a.antworten || [])[l.index] ?? '';
   if (a.antworttyp === 'markierung') return lernStrichText(a.frage?.grafik, l.index);
   if (a.antworttyp === 'luecken') { const s = String(a.frage?.schablone || '').split('□'); return lernVorzeichenText(s.map((t, i) => t + (i < s.length - 1 ? String(l.werte?.[i] ?? '') : '')).join('')); }
@@ -2914,11 +2931,28 @@ function lernLoesungText(a) {
   return l.wert !== undefined ? lernZahl(l.wert) + (l.einheit ? ' ' + l.einheit : '') : '';
 }
 function lernAntwortText(a, w) {
+  if (a.antworttyp === 'bedingung' && w) return lernZahlenReihe(w.werte);
   if (!w) return '(keine Antwort)';
   if (a.antworttyp === 'auswahl') return (a.antworten || [])[w.index] ?? '';
   if (a.antworttyp === 'markierung') return lernStrichText(a.frage?.grafik, w.index);
   if (a.antworttyp === 'luecken') { const s = String(a.frage?.schablone || '').split('□'); return lernVorzeichenText(s.map((t, i) => t + (i < s.length - 1 ? (w.werte?.[i] ?? '') : '')).join('')); }
   return String(w.wert ?? '').replace(/^-/, '−');
+}
+
+// Typ „bedingung“: welche Bedingung nicht passt, mit der Zahl des Kindes („Deine Summe ist 1.“). Der Server nennt nur die erste.
+function lernBedingungRueck(r) {
+  if (!r?.verletzt) return null;
+  return el('p', { class: 'lr-bedingung' }, el('b', {}, lernMathe(r.verletzt), ': '), r.hinweis ? lernMathe(r.hinweis) : 'Das passt noch nicht.');
+}
+// Alle Bedingungen der Aufgabe als Liste: bei „richtig“ alle abgehakt, sonst die offene mit Pfeil (über die anderen weiß die App nichts).
+function lernBedingungListe(a, r) {
+  if (a.antworttyp !== 'bedingung') return null;
+  const namen = (r?.loesung?.bedingungen || a.loesung?.bedingungen || []).map((b) => (typeof b === 'string' ? b : b?.name)).filter(Boolean);
+  if (!namen.length) return null;
+  return el('ul', { class: 'lr-bedingungen', 'aria-label': 'Alle Bedingungen' }, ...namen.map((nm) => {
+    const offen = !r?.richtig && nm === r?.verletzt;
+    return el('li', { class: r?.richtig ? 'ok' : offen ? 'offen' : '' }, el('span', { 'aria-hidden': 'true' }, r?.richtig ? '✓' : offen ? '→' : '·'), ' ', lernMathe(nm), offen ? el('span', { class: 'lr-nur-vorlesen' }, ' (passt noch nicht)') : null);
+  }));
 }
 
 // ---------- Kind: Lerneinheit in Etappen ----------
@@ -2972,16 +3006,19 @@ function lernBruchTeile(text) {
     if (LERN_EINHEIT.has(z) && LERN_EINHEIT.has(n)) continue; // m/s, g/l
     let vor = s.slice(last, a0);
     if (/^\d+$/.test(z) && /^\d+$/.test(n) && Number(z) < Number(n)) vor = vor.replace(/(^|[^\d,.])(\d{1,3}) $/, '$1$2 '); // gemischte Zahl 1 1/4: nicht umbrechen
+    const vz = /[−-]$/.test(vor) ? vor.slice(-1) : ''; // Minus direkt davor: bleibt am Bruch (kein Zeilenumbruch dazwischen)
+    if (vz) vor = vor.slice(0, -1);
     if (vor) aus.push(vor);
-    aus.push({ z, n });
+    aus.push(vz ? { z, n, vz } : { z, n });
     last = b1;
   }
   if (last < s.length) aus.push(s.slice(last));
   return aus;
 }
 function lernBruchKnoten(s) {
-  return lernBruchTeile(s).map((t) => (typeof t === 'string' ? lernText(t)
-    : el('span', { class: 'lern-bruch-text', role: 'img', 'aria-label': `${t.z} durch ${t.n}` }, el('span', {}, lernText(t.z)), el('span', {}, lernText(t.n)))));
+  return lernBruchTeile(s).map((t) => { if (typeof t === 'string') return lernText(t);
+    const b = el('span', { class: 'lern-bruch-text', role: 'img', 'aria-label': `${t.z} durch ${t.n}` }, el('span', {}, lernText(t.z)), el('span', {}, lernText(t.n)));
+    return t.vz ? el('span', { class: 'lern-kein-umbruch' }, t.vz === '-' ? '−' : t.vz, b) : b; });
 }
 // Aufgabentext, Tipp, Lösung, Lösungsweg: Text mit gestapelten Brüchen (Liste von Knoten; el() und lernAnhaengen() nehmen Listen an).
 const lernMathe = (t) => lernBruchKnoten(String(t ?? ''));
@@ -4084,8 +4121,9 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
           if (r.nochmal) { // 1. Fehler: keine Lösung, nur ein Hinweis – die Eingabe bleibt änderbar
             anlauf = 2; cid = lernCid(); pruefen.disabled = false;
             lernErsetze(meldung, el('div', { class: 'lr-rueck lr-rueck-nochmal' }, el('b', {}, 'Noch nicht – du hast einen zweiten Versuch.'),
-              el('p', {}, LERN_GRUND[r.grund] || (a.tipp ? ['Tipp: ', ...lernMathe(a.tipp)] : 'Lies die Bordkarte noch einmal genau und prüfe deine Rechnung.'))));
-            if (!LERN_GRUND[r.grund] && a.tipp) tipp?.remove();
+              r.verletzt ? [lernBedingungRueck(r), el('p', {}, 'Ändere deine Zahlen.')]
+                : el('p', {}, LERN_GRUND[r.grund] || (a.tipp ? ['Tipp: ', ...lernMathe(a.tipp)] : 'Lies die Bordkarte noch einmal genau und prüfe deine Rechnung.'))));
+            if (!r.verletzt && !LERN_GRUND[r.grund] && a.tipp) tipp?.remove();
             meldung.scrollIntoView?.({ block: 'nearest', behavior: 'smooth' });
             return;
           }
@@ -4135,15 +4173,15 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
                 a.misch && mischGueltig && r.wiederholung?.bestanden === false ? el('p', { class: 'lr-misch-wdh lr-wdh-hilfe' }, 'Richtig – morgen noch einmal ohne Hilfe.') : null,
                 !a.misch ? lernFuenfHinweis(ctx, e, sterne - sterneVor, { hilfe: !!hilfe, zweiter: anlauf === 2 }) : null,
                 !a.misch && !warSitzt && !hilfe && anlauf !== 2 && r.karte?.neu_gezaehlt === false ? el('p', { class: 'lr-kennst' }, 'Die kennst du schon – gut wiederholt.') : null, // H3
-                r.loesungsweg ? el('p', {}, lernMathe(r.loesungsweg)) : null, jwSticker)
+                lernBedingungListe(a, r), r.loesungsweg ? el('p', {}, lernMathe(r.loesungsweg)) : null, jwSticker)
             : neu ? el('div', { class: 'lr-rueck lr-rueck-falsch lr-kursbox' }, el('p', { class: 'lr-ueber' }, a.antworttyp === 'zahl' && r.grund ? 'FAST – KURSKORREKTUR' : 'NOCH NICHT'), lernKurs(a, w),
-              el('b', {}, 'Richtig ist: ', lernMathe(lernLoesungText(a))),
+              el('b', {}, 'Richtig ist: ', lernMathe(lernLoesungText(a))), lernBedingungRueck(r), lernBedingungListe(a, r),
               a.antworttyp === 'luecken' && lernIstTermVorlage(a.frage?.schablone) && lernGleichwertigAusgeklammert(a.frage?.schablone, w.werte, r.loesung?.werte)
                 ? el('p', {}, 'Dein Term ist gleichwertig, aber noch nicht vollständig ausgeklammert: Vor die Klammer gehört der größte gemeinsame Faktor.') : null,
               r.loesungsweg ? el('p', {}, lernMathe(r.loesungsweg)) : null,
               lernDetektiv(a, a.misch ? {} : e, r, 'IST DIR DAS PASSIERT?'),
               el('p', { class: 'lr-leise lr-naechste-voll' }, 'Die nächste zählt wieder voll.'), jwSticker)
-            : el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, 'Noch nicht. Richtig ist: ', lernMathe(lernLoesungText(a))),
+            : el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, 'Noch nicht. Richtig ist: ', lernMathe(lernLoesungText(a))), lernBedingungRueck(r), lernBedingungListe(a, r),
               a.antworttyp === 'luecken' && lernIstTermVorlage(a.frage?.schablone) && lernGleichwertigAusgeklammert(a.frage?.schablone, w.werte, r.loesung?.werte)
                 ? el('p', {}, 'Dein Term ist gleichwertig, aber noch nicht vollständig ausgeklammert: Vor die Klammer gehört der größte gemeinsame Faktor.') : null,
               r.loesungsweg ? el('p', {}, el('b', {}, 'So geht’s: '), lernMathe(r.loesungsweg)) : null,

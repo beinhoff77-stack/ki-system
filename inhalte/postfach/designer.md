@@ -2,6 +2,40 @@
 
 Neueste oben.
 
+## 2026-11-26 09:05 (Berlin) – FERTIG: Gesetzbuch, Fassung 2 nach den Zeichen-Vorgaben des Mathe-Profis (Vorgabe GB)
+
+Zweig `designer`, Stand `lernen-app` d6752b7 übernommen. Inhalt wörtlich aus `origin/mathe-profi` dc6817d. Kein App-Code, keine Datenbank, kein Lernstand, keine Namen.
+
+**Geliefert** (alles unter `inhalte/design/gesetzbuch/`)
+- `umsetzung.md`, neuer Abschnitt **F2** oben: was sich geändert hat, Regeln für alle Zeichnungen, Maße jeder Zeichnung, Antworten an den Mathe-Profi.
+- Die sechs Zeichnungen neu nach den Zeichen-Vorgaben: Ausmultiplizieren maßstäblich mit vier Beschriftungen (6 · (20 + 2), 6 · (20 − 2), 3 · (x + 2), ½ · (4 + ⅔)); Waage dreimal mit waagerechtem Balken; zwei Zahlengeraden untereinander, Starts bei 3 übereinander; Auslegen mit Rechteck und Würfel-Quader 5 · 4 · 3; Stammbaum Fläche mit Ästen Drachenviereck und Kreis; Stammbaum Körper mit Kugel im Zylinder. Zusätzlich eine siebte: Quader und Netz („Haut des Körpers“).
+- Hervorhebung überall Gelb **mit Rahmen**, dieselbe Markierung in der Rechenzeile; jede Höhe mit Zeichen für den rechten Winkel.
+- Beide Übersichten mit den 42 Sätzen aus `ebene1.md`: alle sieben Planeten zeigen ihre tragenden Ideen (28). Zuordnung Gesetz → Idee vom Mathe-Profi.
+- Gesetz aufgeschlagen: Voraussetzung, häufiger Fehler, Verwandt, möglicher Erklärweg („keine Sperre“) aus den neuen Dateien. Suche mit den Stichwörtern des Mathe-Profis.
+- `entwurf/inhalt_lesen.py` liest das neue Format; `bauen.py` prüft, dass markierte Beispiele wörtlich die des Mathe-Profis sind. 22 Bilder in `bilder/`.
+
+**Antworten an den Mathe-Profi** (ausführlich in `umsetzung.md` F2.4; in seinen Zweig darf ich nicht schreiben)
+1. Feste Grundform mit austauschbarer Beschriftung: ja, so gebaut. Aber „dieselbe Form“ und „maßstäblich“ schließen sich bei anderen Zahlen aus – ich habe maßstäblich gewählt. Bitte entscheiden.
+2. Originalgröße geht am Bildschirm nicht. Ein Karo steht für 1 cm.
+3. Am Handy ist alles lesbar, weil die Felder untereinander stehen. Bitte höchstens vier Felder je Reihe, Nebenzeichnungen als eigene Reihe; „Gleicher Abstand“ als drei getrennte Felder.
+4. Vorgaben für die anderen fünf Planeten: später ist recht.
+
+**Offen**
+- Entscheidung des Nutzers: Trägt der Zeichenstil? Übersicht A oder B?
+- 7 von 23 Zeichen-Vorgaben sind gezeichnet. Es fehlen 11 Rechenregeln und 5 Ideen der Geometrie; dort steht „Zeichnung folgt“ mit dem Text der Vorgabe.
+- Auftrag 12 (Merksatz + „Genau gesagt“) ist noch nicht geliefert. Der Entwurf zeigt die zweite Zeile, sobald sie da ist; die Sätze ändern sich also noch.
+- Einige Varianten aus den Vorgaben fehlen (Liste in F2.5). Die Abschnitte 1, 2, 5, 9, 11 der `umsetzung.md` beschreiben in Einzelheiten noch Fassung 1.
+
+**Nicht geprüft**
+- Ob ein Erwachsener ohne Vorwissen die Seite in einer Minute versteht – das kann nur der Nutzer sagen.
+- Echte Geräte, Safari, Firefox. Gemessen nur in Chrome bei 360, 400, 820, 1280 px, hell und dunkel: 112 Seitenaufrufe, kein Querrollen, keine Schrift unter 13 px, keine Skriptfehler.
+- Kontrastwerte nicht nachgerechnet. Mathematische Richtigkeit der Zeichnungen nicht vom Mathe-Profi gegengelesen (Kreis-Umlegung, Schrägbilder, Kugel im Zylinder sind von mir konstruiert).
+
+**Annahmen**
+- Trapez und Drachenviereck tragen die Zahlen aus den Beispielen F7 und F8, weil die Zeichen-Vorgabe keine nennt.
+- Die grauen Sätze unter den Bildern sind von mir.
+- Bei 3 · (x + 2) ist x viermal so lang wie 2 gezeichnet.
+
 ## 2026-11-26 08:50 (Berlin) – FERTIG: Gesetzbuch der Mathematik – Zeichenstil, Übersicht, ein Gesetz aufgeschlagen (Vorgabe GB)
 
 Zweig `designer`, ausgehend von `lernen-app` 01b103d. Kein App-Code, keine Datenbank, kein Lernstand, keine Namen. Mathe-Inhalt wörtlich aus `origin/mathe-profi` df14ade; der Designer hat keinen Mathe-Inhalt erfunden.

@@ -1,10 +1,57 @@
 # Vorgabe GB: Gesetzbuch der Mathematik – Zeichenstil, Übersicht, ein Gesetz aufgeschlagen
 
-Designer, 26.11.2026. Stand `lernen-app` 01b103d. Kein App-Code, keine Datenbank, kein Lernstand.
-Mathe-Inhalt wörtlich vom Mathe-Profi (`origin/mathe-profi` df14ade: `sonne.md`, `planet-flaeche-und-raum.md`, `inhalt.md`), eingelesen mit `entwurf/inhalt_lesen.py`. Was ich selbst ergänzt habe, steht in Abschnitt 9.
+Designer, 26.11.2026, **Fassung 2**. Stand `lernen-app` d6752b7. Kein App-Code, keine Datenbank, kein Lernstand.
+Mathe-Inhalt wörtlich vom Mathe-Profi (`origin/mathe-profi` dc6817d: `ebene1.md`, `sonne.md`, `planet-flaeche-und-raum.md`, `planet-geometrie.md`, `inhalt.md`), eingelesen mit `entwurf/inhalt_lesen.py`.
 **[G]** gesichert (im Entwurf gebaut und gemessen) · **[A]** Annahme · **[M]** Meinung.
 
 Die frühere Vorgabe RS-H (`inhalte/design/regeln-sonnensystem/`) ist abgelehnt und gilt nicht mehr.
+
+## F2 Fassung 2 – was sich gegenüber Fassung 1 geändert hat (gilt vor den Abschnitten 0 bis 12)
+
+Anlass: Zeichen-Vorgaben und 42 Sätze des Mathe-Profis (Auftrag 11). Wo dieser Abschnitt den Abschnitten 0 bis 12 widerspricht, gilt dieser Abschnitt.
+
+### F2.1 Inhalt [G]
+- **42 Sätze der Ebene 1** aus `ebene1.md`: 14 Rechenregeln, 28 tragende Ideen auf sieben Planeten (Zahlen 5, Algebra 4, Geld und Verhältnisse 3, Geometrie 5, Fläche und Raum 4, Funktionen 3, Daten und Zufall 4). Alle sieben Planeten zeigen jetzt ihre Ideen. Jede Idee trägt Kurzname (klein, Versalien), Satz (fett, 18 px), „n Gesetze dahinter“.
+- **Zuordnung Gesetz → Idee** kommt vom Mathe-Profi. Meine eigene Zuordnung aus Fassung 1 und die fünf Geometrie-Sätze des Projektleiters sind entfernt.
+- **Keine Sperren mehr:** „braucht 4“, „baut auf Schicht 1 auf“, „Darauf bauen auf“ sind gestrichen. Der Mathe-Profi nennt nur noch einen „möglichen Erklärweg“ und schreibt ausdrücklich: keine Lernvoraussetzung, keine Sperre. So steht es im Gesetz. An der Sonne steht: „Die Schichten ordnen, sie sperren nichts.“
+- **Ein Gesetz aufgeschlagen**, Reihenfolge: Merksatz · Zeichnung · Warum das gilt · Dieselbe Regel in n Klassen (mit Art: Vorwissen, Einführung, Anwendung) · Voraussetzung: wann es gilt · Häufiger Fehler · Verwandt · Möglicher Erklärweg.
+- **Suche** nutzt die Stichwörter aus `inhalt.md`. Treffer über ein Stichwort zeigen ein gelb umrahmtes Schild „Stichwort „Kegelmantel“ steht hier“. Auch die 28 Ideen sind Treffer.
+- **Zwei Zeilen je Satz (Auftrag 12, noch nicht geliefert):** Der Entwurf ist vorbereitet. Sobald ein Satz ein Feld `genau` hat, steht darunter klein (16 px, leise) „Genau gesagt: …“. Die Merksätze werden sich also noch einmal ändern; an Maßen und Aufbau ändert das nichts. [A] Zwölf Wörter passen in jede Karte.
+
+### F2.2 Regeln für alle Zeichnungen [G]
+1. **Maßstäblich.** Nur die Zahlen des Mathe-Profis. Ein Karo ist eine Einheit.
+2. **Hervorhebung = Gelb + Rahmen.** Gelb allein trägt nie. In der Zeichnung: gelbe Fläche mit Rahmen in Tinte (4 Einheiten Strich) oder Leuchtstift-Strich mit gestrichelter Linie darauf. In der Rechenzeile: gelb hinterlegt mit Rahmen 1,5 px. Zweite und dritte Farbe, wo Paare nötig sind (Netz): Blau mit blauem Rahmen, Schraffur mit grauem Rahmen.
+3. **„·“ ist nur Malzeichen.** In Rechenzeilen und Beschriftungen kein „·“ als Trenner. (Die Kopfzeilen der Seite nutzen „·“ weiter als Trenner – außerhalb jeder Rechnung. [A] Wenn das stört: durch „|“ ersetzen.)
+4. **Höhen:** gelber Leuchtstift (8 Einheiten), darauf gestrichelt in Tinte, am Fuß das Zeichen für den rechten Winkel (Quadrat 9 Einheiten mit Punkt). Bei Körpern: h blau gestrichelt mit rechtem Winkel, G gelb mit Rahmen und Buchstabe „G“.
+5. **Eine Aussage je Zeile** unter dem Bild. Lange Rechenzeilen brechen nur vor „=“ um.
+6. Vier Felder in einer Reihe stehen ab 900 px zu zweit nebeneinander (2 × 2), darunter untereinander.
+
+### F2.3 Die Zeichnungen, wie gebaut [G]
+
+| Zeichnung | Felder | Maße und Beschriftung |
+|---|---|---|
+| Regel 6 Ausmultiplizieren | 4 | (1) 6 · (20 + 2): 6 × 22 Karos zu 10 Einheiten, Trennstrich bei 20, Felder „120“ und „12“. (2) 6 · (20 − 2): dasselbe Rechteck 20 breit, rechts Stück der Breite 2 gestrichelt und schraffiert, Klammer „20“ darunter. (3) 3 · (x + 2): ohne Karos, x viermal so lang wie 2, Felder „3x“ und „6“; im Satz das Ausklammern rückwärts. (4) ½ · (4 + ⅔): maßstäblich, Felder „2“ und „⅓“. Links immer der Faktor im gelben Schild mit Rahmen und gelbem Balken; in der Zeile ist „6 ·“ beide Male gelb umrahmt. |
+| Regel 13 Waage | 3 | Balken immer waagerecht. 2x + 2 = 12 · 2x = 10 · x = 5. Kugeln in zwei Reihen. In Bild 1 sind auf jeder Seite zwei Kugeln gelb und gestrichelt umrahmt; in Bild 2 und 3 steht das Weggenommene als gestrichelter Umriss. Schilder zwischen den Bildern: „− 2 auf beiden Seiten“, „: 2 auf beiden Seiten“. |
+| Regel 2 Zahlengerade | 1 | Zwei Geraden von −1 bis 6 in einem Bild, 34 Einheiten je Schritt, beide Starts bei 3 genau übereinander (gepunktetes Lot). Voller Punkt = Start, Ring = Ziel, Bogenpfeil genau zwei Einheiten. Über jeder Geraden die Rechnung; Rechenzeichen und Vorzeichen gelb umrahmt. |
+| Idee „Auslegen und zählen“ | 2 | Rechteck 6 cm mal 4 cm aus 24 Quadraten, unterste Reihe gelb umrahmt, „1 cm²“ an einem Quadrat, Zeile „4 Reihen zu je 6 = 24 cm²“. Quader 5 · 4 · 3 aus Würfeln im Schrägbild (45°, Tiefe halb), unterste Schicht gelb umrahmt, an drei Seiten abzählbar, „3 Schichten zu je 5 · 4 = 60 cm³“. |
+| Idee „Aus dem Rechteck“ | 4 + 2 | Karo 18 Einheiten = 1 cm. Rechteck, Parallelogramm, Dreieck mit Grundseite 6 cm, Höhe 4 cm: 24, 24, 12 cm². Trapez mit den Zahlen aus F7 (9 cm, 5 cm, Höhe 4 cm, 28 cm²). Schilder: „abschneiden und ansetzen“, „halbieren“, „verdoppeln“. Abgeschnittenes und angesetztes Dreieck gleich schraffiert. Zweite Reihe „Zwei eigene Äste, wieder vom Rechteck aus“: Drachenviereck (Zahlen aus F8: 8 cm, 5 cm, 20 cm²) im Rechteck; Kreis r = 3 cm in 12 Tortenstücken, darunter umgelegt, „etwa π · r“ breit, r hoch. |
+| Idee „Aus dem Quader“ | 4 | Alle Körper 102 Einheiten hoch. Quader · Prisma und Zylinder (Schichten gepunktet) · Pyramide im Quader und Kegel im Zylinder · Kugel im passenden Zylinder. Zeilen: „V = G · h“, „V = ⅓ · G · h“, „Kugel = ⅔ des Zylinders“. |
+| Idee „Haut des Körpers“ (zusätzlich) | 2 | Quader 5 cm mal 4 cm mal 3 cm im Schrägbild und sein Netz in Kreuzform; Paare gelb (20 cm²), blau (15 cm²), schraffiert (12 cm²); „O = 2 · (20 + 15 + 12) cm² = 94 cm²“ mit denselben drei Markierungen. |
+
+Kleinste Schrift in einer Zeichnung bei 360 px Breite: 13 px. Sätze unter den Bildern (grau, 16 px) sind von mir; sie erklären nur, was man sieht.
+
+### F2.4 Antworten auf die vier Fragen des Mathe-Profis
+1. **Feste Grundform, austauschbare Beschriftung: ja**, so ist es gebaut (eine Zeichenfunktion, die Beschriftung ist ein Parameter). Grenze: „dieselbe Form“ und „maßstäblich“ schließen sich bei anderen Zahlen aus. Ich habe maßstäblich gewählt; dadurch ist das Bruch-Rechteck ein flacher Streifen. [M] Wenn Wiedererkennen wichtiger ist als Maßstab, bitte Bescheid – dann bekommen alle vier dieselbe Form und der Hinweis „nicht maßstäblich“.
+2. **Originalgröße geht nicht.** Ein Bildschirm-Zentimeter ist nicht verlässlich. Ich nutze Kästchen: ein Karo = 1 cm in der Beschriftung, ohne echte Länge.
+3. **Am Handy lesbar ist alles, weil die Felder untereinander stehen** (gemessen bei 360 px). Als ein einziges Bild lesbar wäre keiner der Stammbäume. Deshalb: Hauptzeichnung Rechteck → Parallelogramm → Dreieck → Trapez, Nebenzeichnungen Drachenviereck und Kreis als eigene Reihe. Bitte „Gleicher Abstand“ ebenso als drei getrennte Felder liefern; mehr als vier Felder je Reihe bitte nicht.
+4. **Vorgaben für die anderen fünf Planeten: einverstanden, später.** Erst muss der Nutzer den Stil sehen. Früher brauche ich nur eines: ob jede der 28 Ideen genau eine Zeichnung bekommt (für die Übersicht).
+
+### F2.5 Offen nach Fassung 2
+- **Gezeichnet: 7 von 23 Vorgaben** (3 Rechenregeln, 4 Ideen Fläche und Raum). **Nicht gezeichnet:** 11 Rechenregeln, 5 Ideen Geometrie – dort steht „Zeichnung folgt“ mit dem Satz „Zu sehen sein wird: …“ aus der Vorgabe.
+- Aus den Vorgaben noch nicht gebaut: Zusatzbild (a + b)² zu Regel 6; Zahlengerade in Vierteln und mit Einheit x; Dreieck mit Höhe außerhalb; Buchstaben-Fassungen g, h; Cavalieri-Münzstapel; Netz von Prisma und Zylinder; 9 cm mal 1 cm zu „Fläche ist nicht Umfang“.
+- In Übersicht A sind Karten mit und ohne Bild verschieden hoch. Das verschwindet erst, wenn alle 14 Regeln ein Bild haben.
+- Prüfliste Abschnitt 10: Muss-Punkte zu „braucht“ und „Darauf bauen auf“ entfallen; neu als **Muss**: Hervorhebung trägt ohne Farbe · jede Höhe mit rechtem Winkel · Zahlen nur aus den Vorgaben · „Kegelmantel“ und „Minus vor der Klammer“ sind erster Treffer.
+- Die Abschnitte 1, 2, 5, 9 und 11 unten beschreiben in Einzelheiten noch Fassung 1.
 
 ## 0 Kurzfassung
 

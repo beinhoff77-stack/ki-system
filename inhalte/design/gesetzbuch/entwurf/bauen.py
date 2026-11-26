@@ -9,14 +9,12 @@ def schrift(name, datei, gewicht):
     return f'@font-face {{ font-family: "{name}"; src: url(data:font/woff2;base64,{b}) format("woff2"); font-weight: {gewicht}; font-display: block; }}\n'
 schriften = schrift('Space Grotesk', 'space-grotesk.woff2', '300 700') + schrift('JetBrains Mono', 'jetbrains-mono.woff2', '100 800')
 inhalt = json.loads(lies('inhalt.json'))
-# Prüfung: Die markierten Beispiele (Wirkstelle) sind wörtlich die Beispiele des Mathe-Profis.
-ideen = lies('ideen.js'); block = ideen[ideen.index('const WIRKSTELLE'):]
-for rid, rest in re.findall(r"^  (R\d+): \{(.*?)\},$", block, re.S | re.M):
-    regel = next(r for r in inhalt['regeln'] if r['id'] == rid)
-    for kl, text in re.findall(r"^\s+(\d+): '(.*)',?$", rest, re.M) + re.findall(r"\n\s+(\d+): '(.*?)' \}", ',\n' + rest + ' }'):
-        roh = re.sub(r'<br>', ' · ', text); roh = re.sub(r'<[^>]+>', '', roh)
-        soll = [k['text'] for k in regel['klassen'] if k['klasse'] == int(kl)]
-        assert roh in soll, f'Wirkstelle {rid} Klasse {kl} weicht ab:\n  {roh}\n  {soll}'
+# Prüfung: Die markierten Beispiele (Wirkstelle) sind wörtlich Beispiele des Mathe-Profis.
+wirk = json.loads(lies('wirkstelle.json'))
+for rid, w in wirk.items():
+    soll = [k['text'] for k in next(r for r in inhalt['regeln'] if r['id'] == rid)['klassen']]
+    for roh, markiert in w['bsp'].items():
+        assert roh in soll and re.sub(r'<[^>]+>', '', markiert) == roh, f'Wirkstelle {rid} weicht ab: {roh}'
 seiten = {'uebersicht-a': ('a', ''), 'uebersicht-b': ('b', ''), 'gesetz': ('a', 'regel/R6'), 'zeichnungen': ('a', 'zeichnungen')}
 for datei, (ueb, start) in seiten.items():
     html = f'''<!doctype html>
@@ -33,6 +31,7 @@ for datei, (ueb, start) in seiten.items():
 <script>
 const INHALT = {json.dumps(inhalt, ensure_ascii=False, separators=(',', ':'))};
 const START = {json.dumps(start)};
+const WIRKSTELLE = {json.dumps(wirk, ensure_ascii=False, separators=(',', ':'))};
 {lies('ideen.js')}
 {lies('zeichnen.js')}
 {lies(ueb + '.js')}

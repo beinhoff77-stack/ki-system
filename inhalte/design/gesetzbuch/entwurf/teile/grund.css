@@ -74,3 +74,13 @@ a.karte:hover, button.karte:hover { border-color: var(--text); }
 .entwurf-feld a { color: #FFD23F; display: block; padding: 3px 0; }
 .entwurf-feld button { font: inherit; margin-top: 8px; border-radius: 8px; border: 1px solid #fff5; background: transparent; color: #fff; padding: 6px 10px; }
 body.bild .entwurf { display: none; }
+/* Zweite Fassung: Hervorhebung trägt auch ohne Farbe (Rahmen), weitere Farbpaare, eigener Ast, „Genau gesagt“ */
+b.w { box-shadow: inset 0 0 0 1.5px #11161D, 0 0 0 1px var(--text); white-space: nowrap; }
+b.bl, b.sf { color: var(--text); border-radius: 5px; padding: 1px 5px; font-weight: 700; box-shadow: inset 0 0 0 1.5px var(--z-blau); white-space: nowrap; }
+b.bl { background: var(--z-blau-fl); } b.sf { background: repeating-linear-gradient(45deg, transparent 0 4px, var(--linie) 4px 6px); box-shadow: inset 0 0 0 1.5px var(--leise); }
+.z-ast { font-size: 17px; font-weight: 700; margin: 18px 0 8px; padding-top: 14px; border-top: 1.5px dashed var(--linie); }
+.zeichnung[data-felder="1"] .z-satz { padding-top: 6px; }
+.genau { display: block; font-size: 16px; font-weight: 500; line-height: 1.4; color: var(--leise); margin-top: 6px; } .genau i { font-style: normal; font-weight: 700; }
+.z-folgt p + p { margin-top: 4px; }
+.nb { display: inline-block; max-width: 100%; }
+@media (min-width: 900px) { .z-reihe[data-n="4"] .z-teil { flex: 1 1 40%; max-width: 520px; } .z-reihe[data-n="4"] .z-pfeil { display: none; } .z-reihe[data-n="4"] { gap: 12px; } }

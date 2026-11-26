@@ -112,3 +112,7 @@ body[data-g="nacht"] { --strahl: #FFD23F; } body[data-g="hell"] { --strahl: #E0A
 .treffer { list-style: none; margin: 16px 0 80px; padding: 0; display: grid; gap: 8px; }
 .treffer .karte { display: grid; gap: 2px; padding: 12px 16px 12px; }
 .t-ort { font-size: 15px; color: var(--leise); } .t-name { font-size: 19px; font-weight: 700; } .t-name .nr { margin-right: 6px; } .t-satz { font-size: 16px; line-height: 1.4; }
+.i-kurz { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--leise); font-weight: 600; }
+.t-stich { display: inline-block; align-self: flex-start; font-size: 15px; font-weight: 700; background: var(--marke); color: #11161D; border-radius: 6px; padding: 1px 7px; box-shadow: inset 0 0 0 1.5px #11161D; }
+.stil i.rahmen { background: var(--z-gelb); border: 2px solid var(--z-tinte); } .stil i.winkel { background: none; border: 0; border-left: 2.5px dashed var(--z-tinte); border-bottom: 2.5px solid var(--z-tinte); border-radius: 0; }
+.regel .z-mini svg, .idee .z-mini svg { max-height: 100%; }

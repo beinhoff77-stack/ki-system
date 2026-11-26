@@ -20,7 +20,22 @@ const LUPE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
 const seite = document.getElementById('seite');
 // Zwei Zeilen je Satz (Auftrag 12 an den Mathe-Profi): Merksatz groß, „Genau gesagt“ klein darunter. Solange „genau“ fehlt, steht nur der Satz.
 const genau = (x) => (x.genau ? `<span class="genau"><i>Genau gesagt:</i> ${x.genau}</span>` : '');
-const markiert = (id, text) => WIRKSTELLE[id]?.bsp[text] || esc(text);
+// Klassenleiter: die Beispiele einer Regel untereinander, die wirkende Stelle gelb umrahmt und senkrecht übereinander.
+// Auszeichnung in teile/wirkstelle.json: [[…]] = wirkende Stelle, [[!…]] = diese Stelle richtet die Zeile aus (sonst die erste),
+// || = davor steht ein Vorsatz, der in einer eigenen Zeile über der Rechnung läuft.
+const mk = (s) => esc(s).replace(/\[\[!?(.*?)\]\]/g, '<b class="w">$1</b>');
+function zeileTeile(id, text) { const m = WIRKSTELLE[id]?.bsp[text]; if (!m) return null; const [vorsatz, rest] = m.includes('||') ? m.split('||') : ['', m];
+  const a = rest.includes('[[!') ? rest.indexOf('[[!') : rest.indexOf('[['), e = rest.indexOf(']]', a); return { vorsatz: mk(vorsatz), vor: mk(rest.slice(0, a)), marke: esc(rest.slice(a, e).replace(/^\[\[!?/, '')), nach: mk(rest.slice(e + 2)), lang: rest.slice(0, a).replace(/\[\[!?|\]\]/g, '').length }; }
+function klassenLeiter(id, klassen, o = {}) {
+  const r = REGEL[id], zeilen = klassen.map((k) => ({ k, t: zeileTeile(id, k.text) })), lang = Math.max(0, ...zeilen.map((z) => (z.t ? z.t.lang : 0))) + Math.max(0, ...zeilen.map((z) => (z.t ? z.t.marke.length : 0))) > 20;
+  const luecken = r && !o.ohneLuecken ? [5, 6, 7, 8, 9, 10].filter((n) => !klassen.some((k) => k.klasse === n)).map((n) => ({ luecke: n })) : [];
+  const alle = [...zeilen, ...luecken].sort((a, b) => (a.luecke || a.k.klasse) - (b.luecke || b.k.klasse));
+  const breit = Math.max(0, ...zeilen.map((z) => (z.t ? z.t.marke.length : 0))) > 6;
+  return `<ol class="leiter gl${lang ? ' lang' : ''}${breit ? ' breit' : ''}">${alle.map((z) => { if (z.luecke) return `<li class="luecke"><span class="stufe">${z.luecke}</span><p class="ganz">Noch kein Beispiel hinterlegt. Ob die Regel in Klasse ${z.luecke} vorkommt, klärt der Mathe-Profi.</p></li>`;
+    const meta = o.ohneMeta ? '' : `<p class="kl ganz">${z.k.art}${z.k.thema && thema(z.k.thema) ? ' · ' + thema(z.k.thema) : ''}${r && !z.t ? ' · <i>wirkende Stelle steht nicht in dieser Zeile</i>' : ''}</p>`;
+    return `<li><span class="stufe">${z.k.klasse}</span>${z.t ? `${z.t.vorsatz ? `<p class="rechnung vorsatz ganz">${z.t.vorsatz}</p>` : ''}<span class="rechnung vor">${z.t.vor}</span><b class="w rechnung mk">${z.t.marke}</b><span class="rechnung nach">${z.t.nach}</span>` : `<p class="rechnung ganz">${esc(z.k.text)}</p>`}${meta}</li>`; }).join('')}</ol>`;
+}
+const OHNE_GENAU = P.get('genau') === '0';
 
 // ---------- Kopf ----------
 document.getElementById('kopf').innerHTML = `<div class="breite"><a class="kopf-marke" href="#/"><i></i><span class="lang">Regel-Universum</span><span class="kurz">Regel-Universum</span></a>
@@ -83,7 +98,7 @@ function sichtGesetz(id) {
       <section><h2 class="ueber">Die Zeichnung</h2>${zeich}</section>
       ${g.warum ? `<section><h2 class="ueber">Warum das gilt</h2><p class="fliess">${g.warum}</p></section>` : ''}
     </div><div class="g-rechts">
-      ${klassen.length ? `<section><h2 class="ueber">${r ? `Dieselbe Regel in ${stufen} Klassen` : 'Beispiele'}</h2>${r ? `<p class="band-zeile">${klassenBand(r)}</p>${BAND_LEGENDE}` : ''}${g.wirkstelle ? `<p class="leise klein" style="margin-top:8px"><b>Die wirkende Stelle:</b> ${g.wirkstelle}${ws ? ' Hier gelb umrahmt.' : ''}</p>` : ''}<ol class="leiter">${klassen.map((k) => `<li><span class="stufe">${k.klasse}</span><div><p class="rechnung">${markiert(id, k.text)}</p><p class="kl">${k.art}${k.thema && thema(k.thema) ? ' · ' + thema(k.thema) : ''}</p></div></li>`).join('')}</ol></section>` : '<section><div class="z-folgt"><p class="ueber">Ausarbeitung folgt</p><p>Für diese Regel liegen bisher Name, Satz und Klasse vor. Ausgearbeitet sind die Sonne und die Planeten „Fläche und Raum“ und „Geometrie“.</p></div></section>'}
+      ${klassen.length ? `<section><h2 class="ueber">${r ? `Dieselbe Regel in ${stufen} Klassen` : 'Beispiele'}</h2>${r ? `<p class="band-zeile">${klassenBand(r)}</p>${BAND_LEGENDE}` : ''}${g.wirkstelle ? `<p class="leise klein" style="margin-top:8px"><b>Gelb umrahmt ist die wirkende Stelle:</b> ${g.wirkstelle} Sie steht in jeder Klasse an derselben Stelle untereinander.</p>` : ''}${klassenLeiter(id, klassen)}</section>` : '<section><div class="z-folgt"><p class="ueber">Ausarbeitung folgt</p><p>Für diese Regel liegen bisher Name, Satz und Klasse vor. Ausgearbeitet sind die Sonne und die Planeten „Fläche und Raum“ und „Geometrie“.</p></div></section>'}
       ${g.voraus ? `<section><h2 class="ueber">Voraussetzung: wann es gilt</h2><p class="fliess">${g.voraus}</p></section>` : ''}
       ${g.fehler ? `<section><div class="fehler"><h2 class="ueber">Häufiger Fehler</h2><p>${g.fehler}</p></div></section>` : ''}
       ${braucht.length ? `<section><h2 class="ueber">Baut auf diesen Rechenregeln auf</h2><div class="verweise">${braucht.map((b) => verweisKnopf({ id: b, name: REGEL[b].name })).join('')}</div></section>` : ''}
@@ -101,7 +116,10 @@ function sichtIdee(id) {
     <header class="g-kopf"><p class="ueber">${i.planet} · tragende Idee ${i.nr} von ${i.von} · ${esc(i.kurz)}</p><h1 class="merksatz gross">${i.satz}${genau(i)}</h1>${i.warum ? `<p class="fliess" style="max-width:46em">${i.warum}</p>` : ''}</header>
     <section><h2 class="ueber">Die Zeichnung</h2>${ZEICHNUNGEN[id] ? zeichnung(id) : vorgabe(i.zeichen, 'Zeichnung folgt')}</section>
     ${ideeBraucht(i).length ? `<section><h2 class="ueber">Baut auf diesen Rechenregeln auf</h2><div class="verweise">${ideeBraucht(i).map((b) => verweisKnopf({ id: b, name: REGEL[b].name })).join('')}</div></section>` : ''}
-    <section><h2 class="ueber">${i.gesetze.length} Regeln und Formeln, die daraus folgen</h2><ol class="folge">${i.gesetze.map((gid) => { const g = GESETZ[gid]; return `<li><a class="karte" href="#/gesetz/${gid}"><span class="f-name"><span class="nr">${gid}</span> ${esc(g.name)}</span><span class="f-satz">${g.satz}</span><span class="kl">${klasseVon(g)}</span></a></li>`; }).join('')}</ol></section></article>`;
+    ${(() => { const nach = {}; i.gesetze.forEach((gid) => { const k = gymZahlen(GESETZ[gid])[0] || 'RS / IB'; (nach[k] ||= []).push(gid); }); const kl = Object.keys(nach).filter((k) => +k).map(Number).sort((a, b) => a - b);
+      return `<section><h2 class="ueber">${kl.length > 1 ? `Diese Idee läuft von Klasse ${kl[0]} bis ${kl[kl.length - 1]}` : kl.length ? `Diese Idee kommt in Klasse ${kl[0]} vor` : 'Diese Idee'}: ${i.gesetze.length} Regeln und Formeln</h2>
+      <p class="leise klein" style="margin-bottom:10px">Geordnet nach der Klasse am Gymnasium, in der die Regel zuerst vorkommt. Ein Rechenbeispiel je Klasse folgt, sobald der Mathe-Profi es liefert.</p>
+      <ol class="leiter ideen-leiter">${[...kl, ...(nach['RS / IB'] ? ['RS / IB'] : [])].map((k) => `<li><span class="stufe${+k ? '' : ' breit'}">${+k ? k : 'RS IB'}</span><div class="folge">${nach[k].map((gid) => { const g = GESETZ[gid]; return `<a class="karte" href="#/gesetz/${gid}"><span class="f-name"><span class="nr">${gid}</span> ${esc(g.name)}</span><span class="f-satz">${g.satz}</span></a>`; }).join('')}</div></li>`).join('')}</ol></section>`; })()}</article>`;
 }
 
 // ---------- Die Zeichnungen und der Stil ----------
@@ -124,13 +142,14 @@ function planetKarte(p, n) {
 function zeige() {
   const h = decodeURIComponent(location.hash.replace(/^#\/?/, '')) || START, [art, ...rest] = h.split('/'), wert = rest.join('/');
   seite.innerHTML = art === 'regel' || art === 'gesetz' ? sichtGesetz(wert) : art === 'idee' ? sichtIdee(wert) : art === 'suche' ? sichtSuche(wert) : art === 'zeichnungen' ? sichtZeichnungen() : UEBERSICHT();
+  document.body.classList.toggle('ohne-genau', OHNE_GENAU && !['regel', 'gesetz', 'idee', 'suche', 'zeichnungen'].includes(art));
   if (art !== 'suche') { suchfeld.value = ''; scrollTo(0, 0); }
   document.title = 'Entwurf: Regel-Universum';
 }
 addEventListener('hashchange', zeige);
 if (P.get('von') === 'uebung') { const z = document.createElement('a'); z.className = 'zurueck-leiste'; z.href = `../../uebung/entwurf/uebung.html?s=erkl-regel&g=${document.body.dataset.g}`; z.textContent = '‹ Zurück zur Erklärung'; document.body.prepend(z); }
 const e = document.createElement('div'); e.className = 'entwurf';
-e.innerHTML = `<button aria-expanded="false">Entwurf ⚙</button><div class="entwurf-feld"><b>Entwurf, nicht die App.</b><a href="../../uebung/entwurf/uebung.html">Übungsbildschirm</a><a href="uebersicht-a.html?${P}">Übersicht A „Schnitt“</a><a href="uebersicht-b.html?${P}">Übersicht B „Durch die Klassen“</a><a href="gesetz.html?${P}">Eine Regel aufgeschlagen</a><a href="zeichnungen.html?${P}">Zeichnungen</a><button>hell / dunkel</button></div>`;
+e.innerHTML = `<button aria-expanded="false">Entwurf ⚙</button><div class="entwurf-feld"><b>Entwurf, nicht die App.</b><a href="../../uebung/entwurf/uebung.html">Übungsbildschirm</a><a href="uebersicht-a.html?${P}">Übersicht A „Schnitt“</a><a href="uebersicht-a.html?genau=0&g=${document.body.dataset.g}">Übersicht A ohne „Genau gesagt“</a><a href="uebersicht-b.html?${P}">Übersicht B „Durch die Klassen“</a><a href="gesetz.html?${P}">Eine Regel aufgeschlagen</a><a href="zeichnungen.html?${P}">Zeichnungen</a><button>hell / dunkel</button></div>`;
 e.querySelector('button').addEventListener('click', () => e.classList.toggle('offen'));
 e.querySelector('.entwurf-feld button').addEventListener('click', () => { P.set('g', document.body.dataset.g === 'hell' ? 'nacht' : 'hell'); location.search = P.toString(); });
 document.body.append(e);

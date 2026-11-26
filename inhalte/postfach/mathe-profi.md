@@ -1,5 +1,34 @@
 # Postfach mathe-profi
 
+## 2026-11-26 08:54 (Berlin) – FERTIG: Auftrag 12 – Merksätze zum Aufsagen, „Genau gesagt“ darunter
+
+Zweig `mathe-profi`, auf dem Stand von `lernen-app` d6752b72. Nur Inhalte. Drei Läufe „OK“.
+
+**Geliefert**
+- **Alle 42 Sätze der Ebene 1 zweizeilig:** Merksatz, darunter „Genau gesagt“ mit der Bedingung (ungleich null, umkehrbar, genau dann). `ebene1.md` neu; `sonne.md`, `planet-flaeche-und-raum.md`, `planet-geometrie.md` und `inhalt.md` nachgezogen.
+- **Länge:** 4 bis 14 Wörter, im Mittel 8,8 (gezählt). **Zwei liegen über zwölf:** Rechnen mit Brüchen (13 – drei Regeln in einem Spruch) und die Waage (14 – Wortlaut des Nutzers, bewusst unverändert).
+- **Kandidaten:** je Satz drei erprobt, zwei verworfen; Anhangstabelle in `ebene1.md` mit Grund (84 Zeilen).
+- **Überliefert oder übernommen: 14 von 42** (Minus mal Minus, Punkt vor Strich mit Klammer und Hoch, Minus vor der Klammer, Erst auf eins, Waage, Prozent heißt von hundert, Zu jedem x genau ein y, günstige durch mögliche, Pfadregel, a² plus b², deine zwei Sätze zu Fläche und Raum …). 28 sind neu gefasst.
+- **Tabelle „Wo der Merksatz bewusst vereinfacht“** (zehn Stellen) in `ebene1.md`: was er weglässt und wo es steht.
+- **Designer:** vier Zeichen-Vorgaben geändert und oben in seinem Postfach gemeldet – Rechenregel 2 (Figur mit Kehrtwende), Rechenregel 8 (Hervorhebung), Fläche und Raum Idee 4 (drittes Bild: halb aufgeklappt), Geometrie Idee 2 (Kreis als Hauptzeichnung). Alle übrigen passen unverändert.
+
+**Bewusst nicht genommen, obwohl überliefert**
+- „Aus Summen kürzen nur die Dummen“ (beschämt, nennt nur den Fehler), „Rüberbringen und Zeichen wechseln“ (erzeugt Fehler bei Mal), „Und heißt mal, oder heißt plus“ (falsch bei abhängigen Ereignissen), „Äpfel und Birnen“ (macht aus a einen Gegenstand).
+- Z-Winkel/F-Winkel und GAGA sind als Suchwörter in Ebene 2 aufgenommen, nicht als Merksatz einer Idee.
+
+**Offen – deine oder des Nutzers Entscheidung**
+- Rechenregel 2: „Minus heißt umdrehen – zweimal umdrehen ist wieder geradeaus“ ist neu und trägt nur mit der Zeichnung (Figur blickt am Start nach rechts). Wenn das nicht überzeugt: Rückfall wäre „Plus eine Minuszahl: nach links. Minus eine Minuszahl: nach rechts.“
+- Rechenregel 10: ein Spruch für drei Regeln oder drei kurze Sprüche?
+- Unverändert offen aus Auftrag 11: fünf Planeten ohne Zeichen-Vorgabe; Lehrplan an der Quelle nicht geprüft.
+
+**Nicht geprüft**
+- **Kein Merksatz ist mit einem Kind erprobt.** „Nach zweimal Hören aufsagbar“ ist bei allen 42 eine Annahme.
+- „Überliefert“ heißt: mir als gängiger Schulspruch bekannt, nicht in einem Schulbuch nachgeschlagen.
+- Ob jeder Merksatz ohne die Zeile darunter nichts Falsches nahelegt, habe ich selbst geprüft, nicht gegenprüfen lassen. Die zehn Stellen mit Vereinfachung stehen in der Tabelle.
+
+**Annahmen**
+- Fachwörter, die ein Kind in Klasse 5 hat: Klammer, Bruch, Prozent, Term, Dreieck, Rechteck, Kreis. „Parabel“, „Primzahl“ und „Pfad“ stehen in drei Merksätzen von Ideen, die erst in späteren Klassen drankommen.
+
 ## 2026-11-26 08:50 (Berlin) – AUFTRAG 12 vom Projektleiter: Merksätze müssen einprägsam sein
 Die Lieferung zu Auftrag 11 ist angekommen, die Zuordnung zu 42 Sätzen trägt. Entscheidung des Nutzers: **Die Sätze der Übersicht müssen einprägsam sein.** Durch die Korrekturen sind einige genauer, aber nicht mehr merkbar geworden (Beispiel: aus „Eine Gleichung ist eine Waage: Was du links tust, musst du auch rechts tun“ wurde „Dieselbe umkehrbare Rechnung auf beiden Seiten ändert die Lösungen nicht“).
 

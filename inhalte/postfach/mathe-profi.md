@@ -1,5 +1,35 @@
 # Postfach mathe-profi
 
+## 2026-11-27 00:02 (Berlin) – FERTIG: Auftrag 16 – Zeichen-Vorgabe für Rechenregel 3
+
+Zweig `mathe-profi`, auf dem Stand von `lernen-app` cc4a5b1d. Nur Inhalte. Sechs Läufe „OK“.
+
+**Geliefert**
+1. **`sonne.md`, Rechenregel 3: zwei Zeichen-Vorgaben**, je die üblichen sechs Zeilen.
+   - **Hauptzeichnung „Mal (−1) heißt umdrehen“:** zwei Zahlengeraden wie bei Regel 2, Start bei 2. Oben ein Sprung über die Null: (−1) · 2 = −2. Unten zwei Sprünge: (−1) · (−2) = +2. Kopfzeile: „Erst ohne Vorzeichen rechnen. Dann dreht jedes Minus einmal um.“
+   - **Treppe für „Warum das gilt“:** Balken hängen von der Null-Linie (−6, −4, −2), bei 0 nichts, +2 nach oben.
+   - **Rechenproben im Programm:** „Betrag ausrechnen, je Minus einmal umdrehen“ stimmt für Mal und Geteilt an acht Zahlenpaaren (ganze Zahlen und Brüche), für (−2)³ = −8, für die fünf Werte der Treppe; die Null bleibt beim Umdrehen liegen.
+   - **Merksatz und „Genau gesagt“ passen, keine Änderung nötig:** Die obere Gerade zeigt „Minus mal Plus gibt Minus“, die untere „Minus mal Minus gibt Plus“. „Ungleich null“ passt ebenfalls: Die Null hat kein Gegenüber.
+2. **Geteilt, Brüche, Terme:**
+   - **Geteilt: ja.** Geteilt durch (−1) ist derselbe Sprung wie mal (−1). (−6) : (−2): 6 : 2 = 3, zwei Sprünge, +3.
+   - **Brüche: ja,** unverändert – die Zahlengerade trägt jede Zahl. (−⅔) · (−¾): Start bei ½, zwei Sprünge.
+   - **Klasse 9 und 10 der Leiter: ja.** (−5)² zwei Sprünge, (−2)³ drei Sprünge – das Bild trägt hier weiter als der Merksatz, der nur zwei Faktoren nennt.
+   - **Terme: nur eingeschränkt.** Bei (−3x) · (−4) = +12x gehört das Plus zur Vorzahl 12; ob 12x positiv ist, hängt von x ab. Deshalb dort keine Zahlengerade, nur die Rechenzeile mit denselben Farbpaaren.
+3. **Die elf Beispiele des Designers: erledigt.** In den neuen Klassenleitern der Regeln 1, 9, 11 und 13 steht die wirkende Stelle in jeder Zeile (das Programm verlangt mindestens eine Markierung je Beispiel). Die elf Zeilen kamen aus der älteren Tabelle „Weitere Beispiele“ in `sonne.md`; ich habe sie dort zusätzlich umgeschrieben. Bescheid oben im Postfach des Designers.
+
+**Offen**
+- Der Unterschied zu Regel 2 muss im Bild sitzen: dort geht die Figur, hier springt die Zahl auf die andere Seite der Null. Ob der Designer das klar trennen kann, zeigt erst seine Zeichnung.
+- Vorschlag, nicht umgesetzt: Die Kopfzeile „Erst ohne Vorzeichen rechnen. Dann dreht jedes Minus einmal um.“ wäre auch als Zusatz zu „Genau gesagt“ brauchbar, weil sie drei und mehr Faktoren abdeckt.
+- Zurückgestellt wie angeordnet: die 30 Abweichungen beim IB.
+
+**Nicht geprüft**
+- Die neue Zeichnung ist nicht gezeichnet und nicht mit einem Kind erprobt.
+- Ob zwei so ähnliche Bilder (Regel 2 und Regel 3) helfen oder verwechselt werden.
+
+**Annahmen**
+- Zahlen der Hauptzeichnung: 2 und −2 an einer Geraden von −3 bis 3, damit sie neben Regel 2 passt.
+- Die Treppe behält die Zahlen 3, 2, 1, 0, −1 mal (−2).
+
 ## 2026-11-27 00:02 (Berlin) – AUFTRAG 16 vom Projektleiter (klein): Zeichen-Vorgabe für Rechenregel 3
 Deine Lieferung zu Auftrag 15 ist in `lernen-app` übernommen. Der Nutzer hat entschieden: Dein Vorschlag gilt. Rechenregel 3 bekommt als Hauptzeichnung „Mal (−1) heißt umdrehen“ an der Zahlengeraden, passend zu Regel 2; die Treppe bleibt als „Warum das gilt“, mit hängenden Balken von der Null-Linie. Außerdem entschieden: „Genau gesagt“ steht nicht mehr auf der Übersicht, nur in der aufgeschlagenen Regel.
 1. Zeichen-Vorgabe für die neue Hauptzeichnung in `sonne.md` (die üblichen sechs Zeilen, mit Rechenprobe) und die berichtigte Vorgabe der Treppe. Prüfe, ob Merksatz und „Genau gesagt“ von Regel 3 zum neuen Bild passen; wenn nicht, Vorschlag.

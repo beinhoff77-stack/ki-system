@@ -44,9 +44,9 @@ R = [
           "Das Komma darf nicht wandern. Es darf keine Null erscheinen. Beide Ziffern müssen gleich weit rücken.",
           "Dieselbe Tafel für 3 400 m = 3,4 km (geteilt durch 1 000: drei Spalten nach rechts) und für 0,0003 = 3 · 10⁻⁴."),
       bsp=[(5, "E", "zahlen.natuerlich", "340 · 10 = 3 400", lambda: 340 * 10 == 3400),
-           (5, "A", "groessen.einheiten", "3 400 m = 3,4 km", lambda: F(3400, 1000) == F(34, 10)),
+           (5, "A", "groessen.einheiten", "3 400 m : 1 000 = 3,4 km", lambda: F(3400, 1000) == F(34, 10)),
            (6, "E", "bruch.dezimal", "2,5 · 10 = 25", lambda: F(5, 2) * 10 == 25),
-           (6, "A", "bruch.prozent", "15 % = 15 Hundertstel = 0,15", lambda: F(15, 100) == F(3, 20)),
+           (6, "A", "bruch.prozent", "15 % = 15 : 100 = 0,15", lambda: F(15, 100) == F(3, 20)),
            (8, "A", "terme.potenzgesetze_ganzzahlig", "3 · 10⁻⁴ = 0,0003", lambda: 3 * F(10) ** -4 == F(3, 10000))]),
  dict(nr=1, name="Plus und Minus mit negativen Zahlen", schicht=1,
       merk="Beim Addieren zeigt das Vorzeichen der zweiten Zahl die Richtung. Beim Subtrahieren gehst du genau andersherum.",
@@ -68,17 +68,23 @@ R = [
            (8, "A", "gleichungen.ungleichungen", "x + 5 < 2, also x < −3", lambda: all((x + 5 < 2) == (x < -3) for x in range(-9, 9)))]),
  dict(nr=2, name="Vorzeichen bei Mal und Geteilt", schicht=1,
       merk="Bei Mal und Geteilt mit zwei Zahlen ungleich null: Gleiche Vorzeichen ergeben Plus, verschiedene Minus.",
-      warum="In der Reihe 3 · (−2) = −6, 2 · (−2) = −4, 1 · (−2) = −2, 0 · (−2) = 0 wird das Ergebnis jedes Mal um 2 größer. Setzt man sie fort, muss (−1) · (−2) = 2 sein. Nur so bleiben die übrigen Rechengesetze gültig. Für Geteilt gilt dasselbe, weil Teilen die Gegenrechnung zum Malnehmen ist.",
+      warum="In der Reihe 3 · (−2) = −6, 2 · (−2) = −4, 1 · (−2) = −2, 0 · (−2) = 0 wird das Ergebnis jedes Mal um 2 größer. Setzt man sie fort, muss (−1) · (−2) = 2 sein. Nur so bleiben die übrigen Rechengesetze gültig. Für Geteilt gilt dasselbe, weil Teilen die Gegenrechnung zum Malnehmen ist. Als Bild: Mal (−1) wirft jede Zahl auf die andere Seite der Null; zweimal geworfen liegt sie wieder am alten Platz.",
       gilt="Gilt für zwei Zahlen, die beide nicht null sind. Ist ein Faktor null, ist das Produkt null und hat kein Vorzeichen.",
       fehler="Die Regel auf Plus übertragen: (−3) + (−4) ist −7, nicht +7.",
       verwandt="Ungleichungen: Mal oder geteilt durch eine negative Zahl dreht das Ungleichheitszeichen um (Planet Algebra). Potenzen mit negativer Basis (Planet Zahlen).",
       weg=["Plus und Minus mit negativen Zahlen"],
-      z=Z("Eine Treppe aus fünf Stufen, die von links nach rechts ansteigt. Auf den Stufen stehen die Ergebnisse −6, −4, −2, 0, +2; unter jeder Stufe die Rechnung 3 · (−2), 2 · (−2), 1 · (−2), 0 · (−2), (−1) · (−2).",
-          "Alle Stufen gleich hoch (eine Stufe = 2). Die Stufe mit 0 liegt auf einer durchgezogenen Null-Linie.",
-          "Zwischen den Stufen jeweils „+ 2“. Der erste Faktor zählt sichtbar herunter: 3, 2, 1, 0, −1.",
-          "Die letzte Stufe (−1) · (−2) = +2, über der Null-Linie.",
-          "Die Treppe muss steigen, nicht fallen. Die Stufen müssen gleich hoch sein. Die +2 muss oberhalb der Null-Linie liegen.",
-          "Keine – diese Zeichnung bleibt bei Zahlen. Für (−2x) · (−3) = 6x wird nur das Ergebnis darunter geschrieben."),
+      z=Z("Zwei Zahlengeraden untereinander, gebaut wie die Zeichnung zu Rechenregel 2. Auf beiden sitzt der Startpunkt bei 2. Oben: ein Bogen führt von 2 über die Null hinweg nach −2. Unten: derselbe Bogen von 2 nach −2 und ein zweiter Bogen unter der Geraden von −2 zurück nach 2.",
+          "Beide Geraden von −3 bis 3, gleicher Maßstab, Teilstriche an jeder ganzen Zahl, die Null kräftiger und auf beiden genau übereinander. Jeder Bogen ist spiegelbildlich zur Null: Sein Scheitel liegt genau über (oder unter) der Null, Anfang und Ende sind gleich weit von ihr entfernt.",
+          "Über der oberen Geraden „(−1) · 2 = −2“ und „ein Minus: einmal umdrehen“. Über der unteren „(−1) · (−2) = +2“ und „zwei Minus: zweimal umdrehen“. Ganz oben eine Zeile für beide: „Erst ohne Vorzeichen rechnen: 1 · 2 = 2. Dann dreht jedes Minus einmal um.“ Start mit vollem Punkt, Ziel mit Ring.",
+          "Jedes Minuszeichen und sein Bogen in derselben Farbe – oben ein Paar, unten zwei Paare. Dasselbe Zeichen für die Kehrtwende wie bei Rechenregel 2.",
+          "Der Bogen muss genau beim Spiegelpunkt landen (−2, nicht −1 oder −3) und über die Null hinweggehen. Unten muss der zweite Bogen genau bei 2 ankommen. Es darf nicht wie ein Weg von zwei Schritten aussehen: Hier geht niemand, die Zahl springt auf die andere Seite der Null – das ist der Unterschied zu Rechenregel 2. Die Null muss sichtbar sein.",
+          "Dieselben zwei Geraden für Geteilt: (−6) : (−2) = +3 – Start bei 3, zwei Bögen. Für Brüche: (−⅔) · (−¾) = +½ – Start bei ½, Geraden von −1 bis 1 in Vierteln. Für drei Minus (Klasse 10): (−2)³ = −8 – Gerade von −8 bis 8, Start bei 8, drei Bögen, Ende bei −8. Für Terme nur die Rechenzeile mit denselben Farbpaaren: (−3x) · (−4) = +12x – ohne Zahlengerade, weil 12x selbst nicht positiv sein muss; das Plus gehört zur Vorzahl 12."),
+      z2=Z("Eine waagerechte Null-Linie über die ganze Breite. Fünf gleich breite Spalten für 3 · (−2), 2 · (−2), 1 · (−2), 0 · (−2), (−1) · (−2). In den ersten drei Spalten hängt je ein Balken von der Null-Linie nach unten, in der vierten ist nichts (nur ein Punkt auf der Linie), in der fünften steht ein Balken von der Null-Linie nach oben. Eine gestrichelte Linie verbindet die Balkenenden; sie steigt von links nach rechts.",
+           "Eine Einheit ist in allen Spalten gleich hoch. Die Balken sind 6, 4 und 2 Einheiten lang nach unten, dann 0, dann 2 Einheiten nach oben. Jeder Schritt der gestrichelten Linie steigt um genau 2 Einheiten.",
+           "Am Ende jedes Balkens sein Wert: −6, −4, −2, 0, +2. Unter den Spalten die Rechnung. Zwischen den Balkenenden jeweils „+ 2“. Links an der Linie „Null-Linie“.",
+           "Der letzte Balken über der Null-Linie und die Zeile „(−1) · (−2) = +2“.",
+           "Kein Balken darf auf dem Boden stehen: Alle beginnen an der Null-Linie. −6 muss der längste nach unten sein. Die Schritte müssen gleich groß sein. Der letzte Balken muss sichtbar über der Linie liegen.",
+           "Keine – diese Zeichnung bleibt bei Zahlen und steht unter „Warum das gilt“, nicht als Hauptzeichnung."),
       bsp=[(5, "E", "zahlen.rechengesetze", "(−3) · (−4) = 12", lambda: (-3) * (-4) == 12),
            (5, "E", "zahlen.rechengesetze", "(−12) : 4 = −3", lambda: F(-12, 4) == -3),
            (6, "A", "bruch.rechnen", "(−⅔) · ¾ = −½", lambda: -F(2, 3) * F(3, 4) == -F(1, 2)),
@@ -191,11 +197,11 @@ R = [
           "Die gemeinsame Endlinie der gefärbten Flächen.",
           "Die gefärbten Längen müssen genau gleich sein. Die Teile eines Streifens müssen gleich groß sein.",
           "Dieselben zwei Streifen für 12/18 = 2/3 (18 und 3 Teile) und – ohne Streifen, nur als Rechenzeile mit gleich gefärbtem Faktor – für (3 · (x + 2)) : (1 · (x + 2)) = 3."),
-      bsp=[(6, "E", "bruch.brueche", "½ = 2/4", lambda: F(1, 2) == F(2, 4)),
-           (6, "E", "bruch.brueche", "12/18 = 2/3", lambda: F(12, 18) == F(2, 3)),
-           (7, "A", "terme.umformen", "6x : 9 = 2x : 3", lambda: gleich(lambda x: 6 * x / 9, lambda x: 2 * x / 3)),
+      bsp=[(6, "E", "bruch.brueche", "½ = (1 · 2)/(2 · 2) = 2/4", lambda: F(1, 2) == F(2, 4)),
+           (6, "E", "bruch.brueche", "12/18 = (2 · 6)/(3 · 6) = 2/3", lambda: F(12, 18) == F(2, 3)),
+           (7, "A", "terme.umformen", "6x : 9 = (2x · 3) : (3 · 3) = 2x : 3", lambda: gleich(lambda x: 6 * x / 9, lambda x: 2 * x / 3)),
            (8, "A", "terme.bruchterme", "(3x + 6) : (x + 2) = 3 · (x + 2) : (x + 2) = 3 für x ≠ −2", lambda: gleich(lambda x: (3 * x + 6) / (x + 2), lambda x: F(3), aus=(-2,))),
-           (9, "A", "abbildungen.aehnlichkeit", "Das Seitenverhältnis 6 : 9 ist dasselbe wie 2 : 3", lambda: F(6, 9) == F(2, 3))]),
+           (9, "A", "abbildungen.aehnlichkeit", "Seitenverhältnis 6 : 9 = (2 · 3) : (3 · 3) = 2 : 3", lambda: F(6, 9) == F(2, 3))]),
  dict(nr=11, name="Rechnen mit Brüchen", schicht=3,
       merk="Gleichnamige Brüche: Zähler addieren oder subtrahieren, Nenner behalten. Mal: Zähler mal Zähler, Nenner mal Nenner. Geteilt: mit dem Kehrwert malnehmen.",
       warum="Addieren kann man nur gleich große Teile – Halbe und Drittel müssen erst in Sechstel umgerechnet werden. „Mal ½“ heißt „die Hälfte von“; deshalb werden beim Malnehmen die Teile feiner. Teilen fragt „wie oft passt es hinein“: In 6 passt ½ zwölfmal – das ist dasselbe wie 6 mal 2.",
@@ -229,10 +235,10 @@ R = [
           "Links und rechts muss dieselbe Rechnung stehen. Die mittlere Zeile muss die Einheit 1 zeigen. Kein Kreuz-Schema.",
           "Dieselbe Tabelle für Prozent (80 % | 48 €, 1 % | 0,60 €, 100 % | 60 €) und für die Steigung (2 nach rechts | 3 nach oben, 1 nach rechts | 1,5 nach oben) – dort zusätzlich ein Steigungsdreieck."),
       bsp=[(5, "E", "groessen.proportional", "3 kg kosten 7,50 €, also kostet 1 kg 2,50 € und 5 kg kosten 12,50 €", lambda: F(750, 3) == 250 and 250 * 5 == 1250),
-           (6, "A", "bruch.prozent", "15 von 60 sind 25 %", lambda: F(15, 60) == F(25, 100)),
+           (6, "A", "bruch.prozent", "60 sind 100 %, also ist 0,6 gleich 1 % und 15 sind 25 %", lambda: F(15, 60) == F(25, 100)),
            (7, "A", "bruch.prozent_grundwert", "80 % sind 48 €, also ist 1 % 0,60 € und 100 % sind 60 €", lambda: F(48, 80) == F(6, 10) and F(6, 10) * 100 == 60),
            (8, "A", "funktionen.linear", "Steigung 1,5: je 2 nach rechts geht es 3 nach oben", lambda: F(3, 2) * 2 == 3),
-           (9, "A", "abbildungen.aehnlichkeit", "Strahlensatz: 2 : 3 = 4 : x, also x = 6", lambda: F(2, 3) == F(4, 6))]),
+           (9, "A", "abbildungen.aehnlichkeit", "Strahlensatz: zu 2 cm gehören 3 cm, also zu 1 cm 1,5 cm und zu 4 cm 6 cm", lambda: F(2, 3) == F(4, 6))]),
  dict(nr=8, name="Gegenrechnung", schicht=4,
       merk="Rechne den Weg rückwärts: Was zuletzt gerechnet wurde, machst du zuerst rückgängig.",
       warum="Zu jeder umkehrbaren Rechnung gibt es eine Gegenrechnung: Plus und Minus, Mal und Geteilt, Quadrat und Wurzel, später Hoch und Logarithmus. Wer weiß, was mit einer Zahl nacheinander gemacht wurde, findet sie, indem er den Weg rückwärts geht – wie beim Anziehen und Ausziehen: Der Schuh kam zuletzt, also kommt er zuerst weg.",
@@ -266,10 +272,10 @@ R = [
           "Der Balken darf nie schief stehen. Die Kugelzahlen müssen stimmen (12, 10, 5). Links und rechts muss sichtbar dasselbe geschehen.",
           "Dieselbe Waage mit Zahlen statt Säckchen für Klasse 5 (□ + 7 = 3 geht mit Kugeln nicht – dort nur die Rechenzeilen mit gleicher Markierung)."),
       bsp=[(5, "E", "gleichungen.einfach", "□ + 7 = 3: auf beiden Seiten 7 abziehen, also □ = −4", lambda: -4 + 7 == 3),
-           (7, "E", "gleichungen.linear", "2x + 2 = 12, also 2x = 10, also x = 5", lambda: 2 * 5 + 2 == 12),
+           (7, "E", "gleichungen.linear", "2x + 2 = 12 | − 2 → 2x = 10 | : 2 → x = 5", lambda: 2 * 5 + 2 == 12),
            (8, "A", "gleichungen.bruch", "3/x + ½ = 5/x mit x ≠ 0: beide Seiten mal 2x, dann 6 + x = 10, also x = 4", lambda: F(3, 4) + F(1, 2) == F(5, 4)),
-           (9, "A", "gleichungen.quadratisch", "2x² = 18, also x² = 9", lambda: 2 * 3 ** 2 == 18),
-           (10, "A", "gleichungen.exponential", "3 · 2ˣ = 24, also 2ˣ = 8", lambda: 3 * 2 ** 3 == 24)]),
+           (9, "A", "gleichungen.quadratisch", "2x² = 18 | : 2 → x² = 9", lambda: 2 * 3 ** 2 == 18),
+           (10, "A", "gleichungen.exponential", "3 · 2ˣ = 24 | : 3 → 2ˣ = 8", lambda: 3 * 2 ** 3 == 24)]),
  dict(nr=15, name="Nullprodukt", schicht=4,
       merk="Ein Produkt ist genau dann null, wenn mindestens ein Faktor null ist.",
       warum="Null mal irgendetwas ist null. Umgekehrt kann aus zwei Zahlen, die beide nicht null sind, beim Malnehmen nie null werden. Deshalb darf man eine Gleichung „Produkt = 0“ in mehrere einfache Gleichungen zerlegen: Jeder Faktor für sich kann null sein.",
@@ -340,6 +346,18 @@ assert sorted(SPRUCH) == sorted(r["nr"] for r in R)
 
 SCHICHT = {1: "Grundrechnen", 2: "Klammern und Potenzen", 3: "Brüche und Verhältnis", 4: "Gleichungen"}
 
+# Rechenproben zur Zeichen-Vorgabe von Rechenregel 3 (Auftrag 16): erst ohne Vorzeichen rechnen, dann dreht jedes Minus einmal um
+def _umdrehen(betrag, minus):
+    return betrag if minus % 2 == 0 else -betrag
+
+
+_faelle = [(F(-1), F(2)), (F(-1), F(-2)), (F(3), F(-2)), (F(-3), F(-4)), (F(-2, 3), F(-3, 4)), (F(5), F(7)), (F(-12), F(4))]
+assert all(a * b == _umdrehen(abs(a) * abs(b), (a < 0) + (b < 0)) for a, b in _faelle)
+assert all(a / b == _umdrehen(abs(a) / abs(b), (a < 0) + (b < 0)) for a, b in _faelle + [(F(-6), F(-2))])
+assert (-1) * 2 == -2 and (-1) * (-2) == 2 and F(-6) / F(-2) == 3 and F(-2, 3) * F(-3, 4) == F(1, 2) and (-2) ** 3 == _umdrehen(8, 3) == -8
+assert [k * (-2) for k in (3, 2, 1, 0, -1)] == [-6, -4, -2, 0, 2]            # Treppe: Balkenlängen und Schritt + 2
+assert all(_umdrehen(F(0), m) == 0 for m in (1, 2))                          # die Null bleibt beim Umdrehen liegen
+
 # ── Prüfen ──
 NAME = {r["nr"]: r["name"] for r in R}
 NAMEN = [r["name"] for r in R]
@@ -374,8 +392,10 @@ def regel_text(i, r):
     z = [f"### {i}. {r['name']}", "", "> **" + r['spruch'].replace("<br>", "**  \n> **") + "**", "", f"**Genau gesagt:** {r['merk']}", "", f"**Warum das gilt:** {r['warum']}", "", f"**Voraussetzung:** {r['gilt']}", "", f"**Häufiger Fehler:** {r['fehler']}", "",
          f"**Verwandt:** {r['verwandt']}", "", "**Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**", "", f"In jeder Zeile markiert: {LD.LEITER_R[LD.ETIKETT[r['nr']]][0]}", "", LD.leiter_tabelle(LD.LEITER_R[LD.ETIKETT[r['nr']]][1]), "",
          "**Weitere Beispiele**", "", "| Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |", "|---|---|---|---|"]
-    z += [f"| {k} | {ART[a]} | {text} | `{thema}` |" for k, a, thema, text, _ in r["bsp"]]
-    z += ["", f"**Möglicher Erklärweg über:** {', '.join(r['weg']) or '–'} (zum Erklären hilfreich, keine Lernvoraussetzung)", "", f"**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): {r['wirk']}", "", "**Zeichen-Vorgabe**", zeichnung_text(r["z"])]
+    z += [f"| {k} | {ART[a]} | {text.replace('|', '&#124;')} | `{thema}` |" for k, a, thema, text, _ in r["bsp"]]
+    z += ["", f"**Möglicher Erklärweg über:** {', '.join(r['weg']) or '–'} (zum Erklären hilfreich, keine Lernvoraussetzung)", "", f"**Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): {r['wirk']}", "", "**Zeichen-Vorgabe**" + (" **– Hauptzeichnung**" if "z2" in r else ""), zeichnung_text(r["z"])]
+    if "z2" in r:
+        z += ["", "**Zeichen-Vorgabe zu „Warum das gilt“ (Treppe mit hängenden Balken)**", zeichnung_text(r["z2"])]
     return "\n".join(z)
 
 
@@ -386,7 +406,7 @@ if __name__ == "__main__" or True:
     schichten = "\n".join(f"| **{s} {SCHICHT[s]}** | " + ", ".join(f"{NAMEN.index(r['name']) + 1} {r['name']}" for r in R if r["schicht"] == s) + " |" for s in sorted(SCHICHT))
     merkliste = "\n".join(f"{i}. **{r['spruch']}**  \n   *{r['name']} – genau gesagt:* {r['merk']}" for i, r in enumerate(R, 1))
     nummern = ", ".join(f"{i} = Etikett {r['nr']}" for i, r in enumerate(R, 1))
-    open(os.path.join(HIER, "sonne.md"), "w", encoding="utf-8").write(f"""# Gesetzbuch · Die Sonne: die {len(R)} Rechenregeln (fünfte Fassung: mit Klassenleiter je Regel)
+    open(os.path.join(HIER, "sonne.md"), "w", encoding="utf-8").write(f"""# Gesetzbuch · Die Sonne: die {len(R)} Rechenregeln (sechste Fassung: Rechenregel 3 mit neuer Hauptzeichnung)
 
 Mathe-Profi, 26.11.2026. Erzeugt von `bauen.py`; {n_bsp} Beispiele, jedes nachgerechnet (Lauf „OK“).
 Die Sonne ist die Mitte des Gesetzbuchs: Diese Regeln bleiben von Klasse 5 bis 10 dieselben, nur das Gewand wechselt (Zahl, Bruch, Buchstabe, Bruchterm, Wurzel).

@@ -76,3 +76,8 @@ Der Nutzer will den Namen „Gesetzbuch“ nicht; das Wort war nur ein Bild. Arb
 
 ## Nachtrag 26.11. – Verknüpfung mit Erklärungen und Aufgaben (vom Nutzer bestätigt: „Passt“)
 Das Regel-Universum ersetzt die Erklärungen nicht, es wird verlinkt. Jede Aufgabe trägt eine Regel-Kennung. In Anfangs-Erklärung, Lösungsweg und Fehler-Rückmeldung steht ein Feld „Regel dahinter“; ein Tipp öffnet die Regel als Blatt, Zurück führt an dieselbe Stelle. Im Regel-Universum steht je Regel, in welchen Themen sie vorkommt. Das Feld erscheint nur bei echtem Zusammenhang. Gebaut ist davon nichts; Gegenprüfung durch ChatGPT ist angefragt (Werkstatt, Nachricht 1004).
+
+## Entscheidungen des Nutzers vom 26.11. (23:58 Berlin)
+- „Genau gesagt“ steht nicht auf der Übersicht, nur in der aufgeschlagenen Regel.
+- Rechenregel 3: Hauptzeichnung „Mal (−1) heißt umdrehen“ an der Zahlengeraden, passend zu Regel 2; die Treppe bleibt als „Warum“.
+- Offen, vom Nutzer nicht entschieden: 30 Abweichungen beim IB zwischen Themenliste und Lehrplan-Kopie (zurückgestellt bis vor dem ersten IB-Inhalt).

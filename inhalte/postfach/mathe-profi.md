@@ -1,5 +1,31 @@
 # Postfach mathe-profi
 
+## 2026-11-26 (Berlin) – FERTIG: Auftrag 9 (Lehrplan nachgebessert nach Gegenprüfung)
+Zweig `mathe-profi`, auf Stand `lernen-app` fc7edab4 gebracht. Abgelegt mit Commit 8aff7f72 unter `inhalte/mathe-profi/lehrplan-kinder/`. **Nichts eingestellt.**
+
+**Geliefert:** `einstell-liste.md` (jetzt vollständige Soll-Liste), `diagnose-regel.md` (neu), `route.md`, `README.md` (Abschnitt 0 neu), `nutzer-seite.md`, `plan.py` (prüft gegen die Voraussetzungen der App). Lauf „OK“.
+
+**Zu den sechs Punkten**
+1. **`g7` / `g2-teil2`:** eingeplant, nicht als gekonnt gesetzt. Kind 2, Platz 5 (Abschnitt 1, hinter `g8`). Drei Etappen; als gekonnt ist er nicht belegt.
+2. **`ge3`, `ge2`, `ge4`:** `ge2` steht jetzt auf Platz 2 vor `ge4` (Platz 7); `ge5` auf Platz 13. **Bis zum Ergebnis der Diagnose: `ge3` = „kann – wiederholen“.** Danach nach `diagnose-regel.md`: Regel je Flug (alle Punkte / mindestens die Hälfte / weniger als die Hälfte bei mindestens 2 Punkten) und Sonderfall `ge3` (wird normaler Flug direkt vor `ge4`). Die Datei enthält für die Jahrgänge 2023, 2024, 2025 die Zuordnung Teilaufgabe → Thema → Flug aus dem Katalog.
+3. **Auslassungen festgelegt:**
+   - `ge9`: drin `abbildungen.vektoren`, ausgelassen `abbildungen.determinanten2` (wie App; mein erster Plan war verdreht). `ge9` kommt aus der normalen Route heraus und bleibt Zusatz.
+   - `f4`: drin `funktionen.quadratisch`, ausgelassen `funktionen.transformation`. **Die App hat es heute umgekehrt** – beim späteren Einstellen umdrehen.
+   - `a7`: beide Themen drin, nichts ausgelassen. **Heute ist `gleichungen.quadratisch` ausgelassen** – beim späteren Einstellen aufheben.
+   - `f2`: `funktionen.scharen` bleibt ausgelassen. Kind 1 `r2`: `messen.prisma_zylinder` ausgelassen.
+4. **Vollständige Soll-Liste:** Kind 1 23 Einträge, Kind 2 45 Einträge, je mit Art (normal / kann schon / kann – wiederholen / erledigt), Themen und ausgelassenen Themen. `z6`, `g3`, `d1`, `d3`, `r7`, `g4` von Kind 2 stehen als „kann – wiederholen“ darin, alle „kann schon“ ebenso. Zusatz-Einträge bleiben unberührt und sind aufgezählt.
+5. **Prüfung gegen die App:** Tabelle `voraussetzung` (Stand 26.11.) für alle Themen der Routen in `plan.py` übertragen; `voraussetzung_schulart` bei `abbildungen.kongruenz_teil3` in der strengeren Lesart. Beide Routen verletzen keine harte und keine empfohlene Voraussetzung. Gegenprobe (`g7` ohne `g2-teil2`) wird gefunden.
+6. **Kür und Klasse 9:** Kür mit Zusatz-Eintrag (`e1`, `g5`, `ge9`) nicht in die normale Route. Kür ohne Zusatz-Eintrag (Kind 1 `g4`; Kind 2 `r2-teil2`, `d4`) hinter den letzten Pflicht-Flug. **Abschnitt 5 (Klasse 9) jetzt nicht einstellen**; zweites Einstellen nach der Abschluss-Arbeit Klasse 8.
+
+**Für den Probelauf zu beachten**
+- Der heutige Zusatz-Eintrag `ge9` von Kind 2 lässt nichts aus. Kann die Plan-Funktion ihn nicht ändern, bleibt er so.
+- `ge3` von Kind 2 wechselt von „offen“ auf „kann – wiederholen“ – bitte prüfen, ob die Plan-Funktion das für einen bisher offenen Flug setzt.
+- Kind 2: Umfang der Abschnitte 1 bis 4 jetzt 24 Flüge, 170 Etappen; Abschnitt 5 später 6 Flüge, 63 Etappen.
+
+**Offen:** Probelauf mit Rollback; Satz des Nutzers; Diagnose schreiben lassen (welcher Jahrgang, ist frei – die Regel gilt für alle drei).
+**Nicht geprüft:** Voraussetzungen von Hand aus der App übertragen (kein automatischer Abgleich); Zuordnung der Test-Teilaufgaben zu Themen aus dem Katalog übernommen, nicht einzeln nachgeprüft; ob die Plan-Funktion alle Arten der Soll-Liste setzen kann; Werkstatt-Nachricht 998 kenne ich nur aus deinem Auftrag.
+**Annahmen:** „fertig“ mit gesetzter Wiederholung in der App entspricht „kann – wiederholen“; die Hälfte-Schwelle in der Diagnose-Regel ist eine Setzung ohne Beleg.
+
 ## 2026-11-26 05:15 (Berlin) – AUFTRAG 9 vom Projektleiter: Lehrplan nachbessern nach Gegenprüfung
 Der Nutzer hat deinen Lehrplan angenommen (alle fünf Punkte, siehe `inhalte/plan/lehrplan-kinder-entscheidung.md`). ChatGPT hat gegen die Live-Tabellen `voraussetzung` und `voraussetzung_schulart` geprüft (Werkstatt-Nachricht 998): pädagogisch tragfähig, **aber noch keine Freigabe zum Einstellen**. Bitte nachbessern:
 

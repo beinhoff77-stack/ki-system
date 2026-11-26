@@ -50,3 +50,18 @@ Schritte 3 und 4 gehen ohne Datenbank und ohne App. **Aufwand [A]:** 1–10 mitt
 - Bedienung am Handy mit fünf oder sechs Zahlenfeldern ist nicht erprobt.
 - Reihenfolge `punkte` (frühere Entscheidung des Nutzers: Bau 1) gegen diesen Plan: Entscheidung des Nutzers offen.
 - Nicht geprüft: Live-Stand der Datenbank, Lauf der Python-Skripte, `tools/inhalt_sql.py` im Detail.
+
+## Live-Stand gelesen (26.11.2026, Projektleiter, nur lesend)
+
+Schritt 1 ist erledigt. Gelesen: `schule.antwort_bewerten`, `schule.uebung_pruefen_intern`, `schule.test_antwort_intern`, die Constraints von `schule.aufgabe` und `schule.versuch`, alle Aufrufer von `antwort_bewerten`. **[G]** = in der Datenbank gelesen.
+
+- **[G]** `antwort_bewerten(schule.aufgabe, jsonb)` ist `IMMUTABLE`, `search_path ''`, kennt genau fünf Typen und liefert `{format_ok, richtig, grund?, hinweis?}`. Der neue Zweig muss ebenfalls rein rechnen (kein Tabellenzugriff), sonst passt `IMMUTABLE` nicht mehr.
+- **[G]** Vier Aufrufer: `uebung_pruefen_intern`, `test_antwort_intern`, `fehler_gruende`, `api.schule_lernstand`. Die zwei letzten rechnen gespeicherte Antworten nach. Der neue Typ muss dort ohne Sonderfall durchlaufen; eine Spalte `versuch.bewertung` ist deshalb nicht zwingend, spart aber Rechnen und hält die Rückmeldung fest.
+- **[G]** `uebung_pruefen_intern`: Beim ersten falschen Anlauf geht nur `nochmal` und `grund` zurück, kein `hinweis`. Für „Deine Summe ist −6“ muss `hinweis` (und der Name der verletzten Bedingung) dort und im Zweig „wiederholt“ durchgereicht werden. Am Ende geht `a.loesung` an den Client – beim neuen Typ wären das die Bedingungen samt Beispiel. Vorschlag: nach der endgültigen Antwort nur `beispiel` und die Namen der Bedingungen senden, nicht die Prüf-Bäume.
+- **[G]** Doppelte Übertragung: erst `select`, dann `insert`, ohne Sperre; `UNIQUE (lernender_id, client_id)` verhindert Doppelzählung, zwei gleichzeitige Anfragen enden aber mit einem Fehler statt mit `wiederholt`. Kein neuer Mangel, bei der Gelegenheit mit `on conflict` behebbar.
+- **[G]** `test_antwort_intern` nutzt `antwort_bewerten` und speichert je Testsitzung und Aufgabe eine Antwort. Der neue Typ läuft im Test ohne Hinweis mit, braucht dort aber die Format-Prüfung.
+- **[G]** `aufgabe_antworttyp_check` erlaubt `auswahl, zahl, text, markierung, luecken` – muss um `bedingung` erweitert werden.
+- **[G]** `aufgabe_typ_check` kennt schon die Aufgaben-Arten `umkehr`, `rueckwaerts`, `fehler`, `begruenden`, `darstellung`, `verknuepfen`, `transfer`. Die neuen Aufgabentypen der Auswahl lassen sich darauf abbilden; die Regel „verschiedene Typen für sitzt“ (`karte_typen_noetig`) greift dann von selbst.
+- **[G]** Ein Feld für Grundregel und Fehlbild je Aufgabe gibt es nicht (weder in `aufgabe` noch in `versuch`). Für „Hier hat die Minusklammer geklemmt“ und die Regel-Übersicht ist das ein eigener kleiner Bau: Vorschlag `aufgabe.regel` (Nummer) und in der Lösung je falscher Antwort ein Fehlbild mit Regel; `antwort_bewerten` gibt es als `fehlbild` zurück. Das gehört zu Schritt 2, nicht später.
+
+**Nicht gelesen:** `uebung_pruefen_wd`, `fehler_gruende`, `api.schule_lernstand` im Wortlaut; Trigger auf `versuch`; `misch_gueltig`.

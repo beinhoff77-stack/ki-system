@@ -55,3 +55,24 @@ Jedes Paket zuerst nur für die zwei bis drei Themen, an denen die Kinder gerade
 4. Welche der 20 Typen passen nicht zu Klasse 5, welche nicht zu Klasse 8?
 5. Wo ist meine Aufwand-Schätzung falsch?
 6. Was fehlt, damit ein Typ nicht zur Auswahl mit Umweg wird?
+
+## Entscheidungen des Nutzers vom 26.11.2026 (nach der Gegenprüfung)
+
+1. **Reihenfolge:** Es gilt der Gegenvorschlag des Mathe-Profis (`inhalte/mathe-profi/gegenpruefung-auswahl.md`, Abschnitt 2). Die frühere Festlegung „Bau 1 `punkte`, Bau 2 Mehrfach-Auswahl“ vom 25.11. ist damit aufgehoben; `punkte` kommt in Schritt 5. Der Paket-Vorschlag A–F oben ist überholt.
+2. **Schalter „am Tisch / nur Handy“:** kommt früh in einfacher Form, nach Schritt 3. Im Handy-Modus zeigt die App nur Typen, die am Handy vollwertig sind, und schiebt Heft-Aufgaben auf die nächste Tisch-Sitzung. „Rechenweg zusammenbauen“ (Typ 3) kommt in Schritt 7 dazu.
+3. **Mindestens drei Tisch-Sitzungen je Woche** (siehe oben).
+4. **Grundregeln** gehören in jeden Schritt, nicht als eigenes Paket am Ende: jede neue Aufgabe trägt Regel und Fehlbild; Übersicht als „Sonnensystem“ (Idee des Nutzers), Entwurf beim Designer (`inhalte/postfach/designer.md`).
+
+| Schritt | Inhalt | Bau |
+|---|---|---|
+| 1 | Typen 4, 14, 17 und 12/13 in einfacher Form, mit Regel-Zuordnung und Brücken-Aufgaben | keiner, nur Inhalt |
+| 2 | Fundament: Antworttyp `bedingung` mit Term-Rechner (Entwurf: `bauplan-fundament.md`) | mittel |
+| 3 | Typen 6, 7, 8, 15, dazu 12 und 13 in voller Form (Feldart `wahl`) | klein |
+| 3b | Schalter Tisch/Handy, einfache Form | klein bis mittel |
+| 4 | Typ 2 Heft mit Stichprobe | mittel |
+| 5 | `punkte`, dann 18, 19 | mittel |
+| 6 | Feldart `menge`, dann 9, 16 | klein bis mittel |
+| 7 | Typ 10, Typ 3, Schalter um Typ 3 erweitert | mittel |
+| 8 | Typ 11 mit Kacheln, Typ 20 (Säulen ohne Bau), Typ 21 als Einstellung des Check-ins | mittel |
+
+Weiter offen: Regel-Übersicht (drei Fragen, Entscheidung am Entwurf des Designers); Startwort für den Papier-Test; Erklärungen und Tipps nach neuem Bauplan.

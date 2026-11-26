@@ -1,5 +1,49 @@
 # Postfach mathe-profi
 
+## 2026-11-26 04:15 (Berlin) – AUFTRAG 8 vom Projektleiter: individueller Lehrplan für beide Kinder – **vor Auftrag 7**
+Der Lehrer ist derzeit nicht erreichbar. Der Nutzer will für beide Kinder einen sinnvollen Lehrplan und überlässt dir die Gestaltung: „Wie der individuelle Lehrplan bezüglich Klassen aussieht, bin ich flexibel. Er soll ihn so gestalten, dass es sinnvoll ist.“ Der Projektleiter stellt den Plan danach in der App ein (erst nach Gegenprüfung und ausdrücklichem Satz des Nutzers).
+
+**Vorgaben des Nutzers**
+- Kind 1 ist in Klasse 5. Kind 2 ist in Klasse 8 und hat eventuell noch Stoff aus Klasse 7 nachzuholen.
+- **Beide lernen den Stoff aller drei Schulen:** Gymnasium, Realschule (Wahlpflichtfächergruppe I), IB. Frühere Festlegungen dazu gelten weiter: Gymnasium ist die Basis; hat die Realschule ein Thema früher, kommt es früher; IB läuft nebenbei, sinnvoll verteilt; nach Klasse 8 sollen die Kinder den Stand aller drei haben. Zielschule offen.
+- Keine Zeitvorgaben in Wochen: Auf Reisen wird manche Woche viel, manche gar nicht gelernt. Jahrgang ist Maßstab für Schwierigkeit und Mindeststand, nicht Fahrplan; Vorgriff ist erlaubt.
+- Kind 2 hat mit dem Lehrer zuletzt in dieser Reihenfolge gearbeitet: Terme vereinfachen, binomische Formeln, Bruchterme, Textgleichungen. Die Anfangs-Flüge der Klasse 5 holt Kind 2 nicht nach.
+- Der Nutzer will den Überblick: wie viele Flüge und Etappen je Schuljahr offen sind (Kind 1: aktuelles Jahr und eines weiter; Kind 2: vor allem Klasse 8, dazu 7 und 9).
+
+**Was du lieferst**
+1. **Je Kind eine geordnete Route** (Flüge in Reihenfolge, mit Themen-Kürzel aus `themenliste.json`), gegliedert in Abschnitte von je vier bis sechs Flügen. Je Flug: warum an dieser Stelle (Voraussetzung, Regel, Lücke), welche Schulart ihn verlangt, Pflicht oder Kür.
+2. **Kind 2, Klasse 7:** Was davon ist echte Lücke und kommt vor den Klasse-8-Stoff, was läuft als „kann er – wiederholen“ nebenher, was kann warten? Nutze den Stand in der App (lesend) – im Repo nur das Ergebnis der Einordnung, keine Quoten.
+3. **Grundsatz der Reihenfolge**, begründet: am Stück durch ein Gebiet oder im Wechsel? Bedenke Voraussetzungen (was baut aufeinander auf), die 15 Grundregeln (Regel an Zahlen vor Regel mit x; wo liegt die Brücke), Abwechslung zwischen Rechnen und Geometrie/Daten, und dass Wiederholungen schon mitlaufen.
+4. **Kreuzungen beider Kinder:** Stellen, an denen beide dieselbe Regel in verschiedenem Gewand haben – für die gemeinsame Tischzeit.
+5. **Prüfpunkte:** nach welchem Abschnitt ein Papier-Test sinnvoll ist (Blatt B aus Auftrag 5 einplanen).
+6. **Umfang ehrlich:** Zahl der Flüge und Etappen je Abschnitt und je Schuljahr; eine Einschätzung in Lerntagen statt Wochen, mit Annahme zur Menge je Lerntag.
+7. **Eine Seite für den Nutzer** in einfacher Sprache: der Plan je Kind als Liste, drei Sätze Begründung, was er entscheiden muss.
+8. **Einstell-Liste für den Projektleiter:** je Kind die Flüge mit Status (neu im Plan / bleibt / herausnehmen / „kann – wiederholen“), so dass ich sie ohne Rückfrage einstellen kann. Was sich gegenüber dem heutigen Plan ändert, eigens markiert.
+
+**Zusammenhang mit Auftrag 7:** Die „laufenden Themen“ für die neuen Aufgaben sind danach die ersten zwei Flüge dieser Route je Kind. Deshalb zuerst Auftrag 8, dann 7.
+
+**Regeln wie immer:** öffentliches Repo – keine Namen, keine Lerndaten, keine Ergebnisse. Lehrplan-Zuordnungen, an denen du zweifelst (der Nutzer misstraut vor allem den Realschul-Zuordnungen), nenne ausdrücklich. Ablage `inhalte/mathe-profi/lehrplan-kinder/`, Meldung hier mit „Nicht geprüft“ und „Annahmen“.
+
+
+## 2026-11-26 04:05 (Berlin) – AUFTRAG 7 vom Projektleiter: Schritt 1 – neue Aufgaben ohne Bau
+Der Nutzer hat deine Reihenfolge bestätigt (Stand `inhalte/plan/aufgabentypen-auswahl.md`, Abschnitt „Entscheidungen vom 26.11.“). `punkte` rückt auf Schritt 5; die Festlegung vom 25.11. ist aufgehoben. Der Schalter Tisch/Handy kommt in einfacher Form nach Schritt 3. Antworten auf deine drei offenen Fragen stehen in `inhalte/plan/bauplan-fundament.md` (Doppel-Karte als Feldart `wahl` im neuen Typ; Typ 21 ist eine Einstellung des vorhandenen Check-ins; Säulen mit abgeschnittener Achse gibt es schon).
+
+**Auftrag: Inhalt für Schritt 1, nur mit den heutigen Antwortformen (`zahl`, `auswahl`, `luecken`).**
+1. Für **zwei laufende Themen je Kind** (nach den Versuchsdaten, nur Summen, nichts davon ins Repo): je Thema 12 bis 16 neue Aufgaben, verteilt auf
+   - Typ 4 Lückenweg (mit Abbau der Hilfe von hinten),
+   - Typ 14 Zwei Wege vergleichen (Antwort eine Zahl: „Welche Zahl in Weg B entspricht der 12 in Weg A?“),
+   - Typ 17 Formel umkehren, wo das Thema eine Formel hat,
+   - Typ 12 und 13 in einfacher Form,
+   - **Brücken-Aufgaben „Zahl, aber nicht ausrechnen“** (Zwillingszeilen), wo das Thema eine Regel in neuem Gewand bringt.
+2. **Jede Aufgabe trägt:** die Grundregel (Nummer und Name aus `denkpapier-grundregeln.md`), und je falscher Antwort das Fehlbild mit Regel. Das ist die Grundlage für „Hier hat die Minusklammer geklemmt“ und für die Regel-Übersicht.
+3. Format wie in `inhalte/README.md`; Lauf mit `tools/inhalt_pruefen.py`; jede Aufgabe auf zwei Wegen nachgerechnet, Skript dazu. Tipps verraten nicht die Formel.
+4. Schlage vor, **wo im Thema** die neuen Aufgaben stehen (welche Etappe, welche Stufe) und ob sie für „gelandet“ zählen (deine Zählregel: Typ 4 mit voller Hilfe zählt nicht).
+5. Wenn ein Feld für Regel und Fehlbild im Aufgabenformat fehlt: nicht erfinden, sondern den Bedarf nennen – ich kläre den Bau.
+
+**Nicht Teil des Auftrags:** Einspielen. Das geschieht erst nach Gegenprüfung durch ChatGPT und einem ausdrücklichen Satz des Nutzers.
+Ablage: `inhalte/mathe-profi/schritt1/` auf deinem Zweig, Meldung hier mit „Nicht geprüft“ und „Annahmen“. Auftrag 5 (Papier-Test) wartet weiter auf das Startwort des Nutzers.
+
+
 ## 2026-11-25 12:20 (Berlin) – AUFTRAG 6 vom Projektleiter: Gegenprüfung der Auswahl des Nutzers
 Der Nutzer hat 20 von 21 Aufgabentypen gewählt („Schritt antippen“ zurückgestellt) und eine eigene Idee ergänzt: Schalter „am Tisch / nur Handy“. Alles steht in `inhalte/plan/aufgabentypen-auswahl.md` (Zweig `lernen-app`).
 

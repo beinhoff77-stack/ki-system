@@ -16,7 +16,7 @@ Zweig `mathe-profi`, auf dem Stand von `lernen-app` ea941036. Nur Inhalte. Sechs
 *2. Handy* (`leiter_daten.py`, `klassenleiter.json`, `klassenleiter.md`, `sonne.md`)
 - **Markierte Stelle höchstens 12 Zeichen – vom Programm erzwungen.** Eine Ausnahme mit 13 Zeichen (Primfaktoren der 60).
 - **Die sechs Leitern neu gefasst**, „gleich gebaut“ bleibt: Rechenregel 11 markiert die Eins in der Mitte (3 kg: 7,50 € → ⟦1 kg⟧: 2,50 € → 5 kg: 12,50 €); Geld 2 das „· 2“; Algebra 4 die Null; Geometrie 1 die Summe 180°; Fläche und Raum 2 das Produkt 6 · 4; Daten 3 „3 von 6“.
-- **Übrige lange Zeilen: nicht nur Liste, sondern gekürzt.** Über 34 Zeichen: 107 → 59. Über 44 Zeichen: 90 → 4. Die vier verbliebenen: Zinseszins (Klasse 10), Waage mit 2ˣ (Klasse 10), Pyramide halbiert (Klasse 10), Kürzen im Bruchterm (Klasse 8).
+- **Übrige lange Zeilen: nicht nur Liste, sondern gekürzt.** Über 34 Zeichen: 107 → 59. Über 44 Zeichen: 76 → 4. Die vier verbliebenen: Zinseszins (Klasse 10), Waage mit 2ˣ (Klasse 10), Pyramide halbiert (Klasse 10), Kürzen im Bruchterm (Klasse 8).
 - Jedes Beispiel weiter nachgerechnet; alle 174 bestehen die Prüfung gegen die Lehrplan-Kopie.
 
 **Offen**

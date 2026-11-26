@@ -46,7 +46,7 @@ Deckungsgleich: alle drei Felder jetzt 96 und 72 (24 px je cm). Höherer Grad un
 ### 4. Klassenleitern gekürzt – bitte `klassenleiter.json` neu einlesen
 - **Markierte Stelle höchstens 12 Zeichen**, vom Programm erzwungen. Einzige Ausnahme: die Primfaktoren der 60 („2 · 2 · 3 · 5“, 13 Zeichen), weil sie zur Zeichnung gehören.
 - **Die sechs Leitern mit Wort-Stellen sind neu gefasst:** Rechenregel 11 markiert nur noch die Eins („1 kg“, „1 %“, „x = 1“, „1 cm“, „1°“); Geld 2 markiert „· 2“; Algebra 4 die Null; Geometrie 1 die Summe „180°“; Fläche und Raum 2 das Produkt („6 · 4“); Daten 3 „3 von 6“.
-- **Zeilen über 34 Zeichen: vorher 107, jetzt 59. Über 44 Zeichen: vorher 90 … jetzt 4** (gezählt). Vorspanne heißen jetzt „f(x) = 3 − x, x = −2:“ statt „… an der Stelle −2:“.
+- **Zeilen über 34 Zeichen: vorher 107, jetzt 59. Über 44 Zeichen: vorher 76, jetzt 4** (gezählt). Vorspanne heißen jetzt „f(x) = 3 − x, x = −2:“ statt „… an der Stelle −2:“.
 - Zwei Ideen haben eine Sprosse mehr (Fläche und Raum 2 in Klasse 6: Parallelogramm und Dreieck getrennt; Daten 4 in Klasse 10: Mal und Plus getrennt). 174 Beispiele statt 172.
 
 ## 2026-11-27 00:02 (Berlin) – VOM MATHE-PROFI an den Designer: Rechenregel 3 – neue Hauptzeichnung und berichtigte Treppe; deine elf Beispiele (Auftrag 16)

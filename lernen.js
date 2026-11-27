@@ -2972,8 +2972,13 @@ const LERN_BUCHST = 'A-Za-zÄÖÜäöüß';
 // 0.93.7 (Gegenprüfung): Tausendergruppen bleiben ganz (7/1 000 → 7 über 1 000; 11 880/20 736; sonst Text) ·
 // Hochzahlen ganz am Nenner (4/x⁻², 1/2ⁿ⁻¹), ^-Schreibweise (2/3^2, 3^2/4) bleibt Text · C/D, X/L (einzelne Großbuchstaben) bleiben Text ·
 // führende Null (03/04) und Jahr/Jahr (2026/27) bleiben Text.
+// 0.93.8: „2 125/128“ ist zweideutig (Tausendergruppe oder gemischte Zahl): ganz Text, außer der Nenner hat auch eine Tausendergruppe (11 880/20 736) ·
+// alle hochgestellten Zeichen gehören zur Basis (4/xᵏ) · Datum nach Datumswort („am 27/11“) und Auswahl-Kürzel (w/m, j/n, u/o) bleiben Text.
 const LERN_EINHEIT = new Set(['m', 'km', 'cm', 'mm', 'dm', 's', 'h', 'g', 'l']);
-const LERN_HOCH = '⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺ⁿ'; // hochgestellte Zeichen: gehören ganz zur Basis
+const LERN_HOCH = '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿⁱᵃᵇᶜᵈᵉᶠᵍʰʲᵏˡᵐᵒᵖʳˢᵗᵘᵛʷˣʸᶻ'; // alle hochgestellten Zeichen: gehören ganz zur Basis
+const LERN_AUSWAHL = new Set(['w/m', 'm/w', 'm/w/d', 'j/n', 'ja/nein', 'u/o']); // Auswahl-Kürzel: Text
+// Eng gefasst: „bis“ und „ab“ treffen echte Brüche im Bestand („von 1/3 bis 1/2“, „AB 2/4“), „den“ wäre zu riskant („den 3/4“).
+const LERN_DATUMSWORT = /(?:^|[^A-Za-zÄÖÜäöüß])(?:am|vom|zum|seit) $/i; // „am 27/11“, „bis zum 3/12“: Datum, Text
 const LERN_LZ = '[ \\u00a0\\u202f]'; // Trenner von Tausendergruppen (Leerzeichen, geschützt, schmal geschützt)
 const LERN_BRUCH_TERM = `(?:\\d{1,4}(?:,\\d{1,3})?)?(?:√\\d{1,4}|[a-zA-Zα-ω])?[${LERN_HOCH}]*°?`;
 const LERN_BRUCH_LINKS = new RegExp(`(${LERN_BRUCH_TERM})$`);
@@ -2984,7 +2989,7 @@ function lernBruchTeile(text) {
   const kern = (t) => /[\dA-Za-zα-ω√]/.test(t);
   for (let i = s.indexOf('/'); i !== -1; i = s.indexOf('/', i + 1)) {
     if (i < last || i === 0) continue;
-    let a0; let z;
+    let a0; let z; let zweideutig = false;
     if (s[i - 1] === ')') {
       const p = s.lastIndexOf('(', i - 1); if (p < last) continue;
       z = s.slice(p + 1, i - 1); a0 = p;
@@ -2995,6 +3000,7 @@ function lernBruchTeile(text) {
       if (a0 > 0 && new RegExp(`[\\d/.,:^${LERN_BUCHST}α-ω√${LERN_HOCH}°]`).test(s[a0 - 1])) continue; // km/h, 3/4/2026, 1.5/2, 3^2/4
       if (/^\d{3}(?!\d)/.test(z) && new RegExp(`\\d${LERN_LZ}$`).test(s.slice(0, a0))) { // Tausendergruppe: 1 200/x, 11 880/…
         const g = new RegExp(`(?:^|[^\\d,.])(\\d{1,3}(?:${LERN_LZ}\\d{3})*${LERN_LZ})$`).exec(s.slice(last, a0)); if (!g) continue; // nicht eindeutig: Text
+        if (/^\d{3}$/.test(z)) zweideutig = true; // 2 125/128: Tausendergruppe oder gemischte Zahl?
         z = g[1] + z; a0 -= g[1].length;
         if (a0 > 0 && new RegExp(`[\\d/.,:^${LERN_BUCHST}α-ω√${LERN_HOCH}°]`).test(s[a0 - 1])) continue;
       }
@@ -3010,12 +3016,15 @@ function lernBruchTeile(text) {
       const m = LERN_BRUCH_RECHTS.exec(s.slice(i + 1, i + 15)); if (!m || !kern(m[1])) continue;
       n = m[1]; b1 = i + 1 + n.length;
       const tg = new RegExp(`^(?:${LERN_LZ}\\d{3}(?!\\d))+`).exec(s.slice(b1)); // Tausendergruppen im Nenner: 7/1 000, 1/4 096
-      if (tg) { if (!/^\d{1,3}$/.test(n)) continue; n += tg[0]; b1 += tg[0].length; }
+      if (tg) { if (!/^\d{1,3}$/.test(n)) continue; n += tg[0]; b1 += tg[0].length; zweideutig = false; } // Gruppe auch im Nenner: eine Zahl
       if (/^\d.*[a-zA-Zα-ω]/.test(n)) continue; // 1/2x ist zweideutig (½ · x oder 1 durch 2x): bleibt Text; eindeutig ist 1/(2x)
       const nach = s.slice(b1, b1 + 2);
       if (new RegExp(`^[\\d/(√α-ω^${LERN_HOCH}${LERN_BUCHST}]`).test(nach) || /^[.,:]\d/.test(nach) || new RegExp(`^-[${LERN_BUCHST}]`).test(nach)) continue; // 3/4/2026, 1/2x, x/y-Ebene
     }
+    if (zweideutig) continue; // 2 125/128, 1 200/x: ganz Text, nie zerreißen, nie raten
     if (LERN_EINHEIT.has(z) && LERN_EINHEIT.has(n)) continue; // m/s, g/l
+    if (LERN_AUSWAHL.has(`${z}/${n}`)) continue; // w/m, j/n, u/o
+    if (/^\d{1,2}$/.test(z) && /^\d{1,2}$/.test(n) && +z >= 1 && +z <= 31 && +n >= 1 && +n <= 12 && LERN_DATUMSWORT.test(s.slice(0, a0))) continue; // am 27/11
     if (/^[A-ZÄÖÜ]$/.test(z) && /^[A-ZÄÖÜ]$/.test(n)) continue; // C/D, X/L, I/V (römische Zahlzeichen), Teil A/B: Text
     if (/^0\d/.test(z) || /^0\d/.test(n)) continue; // führende Null: Datum 03/04
     if (/^(?:1[89]|20)\d\d$/.test(z) && (Number(n) === Number(z) + 1 || (/^\d\d$/.test(n) && Number(n) === (Number(z) + 1) % 100))) continue; // Schuljahr 2026/27

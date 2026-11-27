@@ -13,7 +13,7 @@ neu(T, "summe_mal_summe", "zwei_wege", Z(
 assert gl("(x+3)*(x-2)", "x**2+x-6")
 neu(T, "summe_mal_summe", "bruecke", W(
     "Die Tabelle zerlegt ein Rechteck in vier Teilflächen. Oben stehen die beiden Teile der Länge, links die der Breite. Welches Produkt gibt die ganze Fläche?",
-    "(x + 5)(x + 2)", [("(x + 5)(x + 10)", "die Teilfläche 10 als Seitenlänge genommen"), ("(x + 7)(x + 3)", "Summen aus den Teilflächen gebildet"), ("x(x + 2) + 5", "nur ein Teil der Fläche")],
+    "(x + 5)(x + 2)", [("(x + 5)(x + 10)", "die Teilfläche 10 als Seitenlänge genommen"), ("(x + 7)(x + 3)", "die Seiten aus 2 + 5 und 5 − 2 gebildet"), ("x(x + 2) + 5", "nur ein Teil der Fläche")],
     "Länge mal Breite: Welche zwei Teile bilden die Länge, welche die Breite?",
     "Länge: x + 2. Breite: x + 5. Fläche: (x + 5)(x + 2) = x² + 2x + 5x + 10 = x² + 7x + 10.",
     lambda: gl("x*x+2*x+5*x+10", "(x+5)*(x+2)") and not gl("x*x+2*x+5*x+10", "(x+5)*(x+10)") and not gl("x*x+2*x+5*x+10", "(x+7)*(x+3)") and not gl("x*x+2*x+5*x+10", "x*(x+2)+5"),
@@ -41,7 +41,7 @@ neu(T, "binomisch", "lueckenweg", L(
     "Multipliziere mit der 2. binomischen Formel aus: (2a − 3)². Das Quadrat des ersten Gliedes: (2a)² = ①a². Das doppelte Produkt: 2 · 2a · 3 = ②a (mit Minus). Das Quadrat des zweiten Gliedes: 3² = ③.",
     KOMM(3), [4, 12, 9], ["2 ** 2", "2 * 2 * 3", "3 ** 2"], ["2 * 2", "12", "9"], "Die Zahl 2 in (2a)² wird mitquadriert.",
     "(2a)² = 4a². 2 · 2a · 3 = 12a. 3² = 9. Ergebnis: 4a² − 12a + 9.",
-    {0: [(2, "fb.potenz.basis_mal_hochzahl", "2 · 2 statt 2² gerechnet")], 2: [(6, "fb.potenz.basis_mal_hochzahl", "3 · 2 statt 3² gerechnet")]}), regel="rr.ausmultiplizieren")
+    {0: [(2, "fb.potenz.basis_mal_hochzahl", "die 2 in der Klammer nicht mitquadriert: 2a²")], 2: [(6, "fb.potenz.basis_mal_hochzahl", "3 · 2 statt 3² gerechnet")]}), regel="rr.ausmultiplizieren")
 assert gl("(2*a-3)**2", "4*a**2-12*a+9")
 neu(T, "binomisch", "umkehren", Z(
     "Für welche Zahl b gilt 9x² + bx + 25 = (3x + 5)²?",
@@ -64,7 +64,7 @@ neu(T, "gleichungen_binomisch", "fehler_detektiv", FD(
      ("x² auf beiden Seiten abziehen: 8x + 16 = 40", (8 * 3 + 16 == 40) and ((3 + 4) ** 2 == 3 ** 2 + 40)),
      ("8x = 40 + 16 = 56, also x = 7", (7 + 4) ** 2 == 7 ** 2 + 40)],
     "Wie bringst du die 16 auf die rechte Seite? Mach die Probe mit x = 7.",
-    "Die 16 muss abgezogen werden: 8x = 40 − 16 = 24, also x = 3. Probe: 7² = 49 und 9 + 40 = 49.", frage="In welcher Zeile steckt der Fehler?"), regel="rr.waage")
+    "Die 16 muss abgezogen werden: 8x = 40 − 16 = 24, also x = 3. Probe: 7² = 49 und 9 + 40 = 49."), regel="rr.waage")
 neu(T, "gleichungen_binomisch", "anwenden", Z(
     "Bei einem quadratischen Platz wird jede Seite um 3 m länger. Dadurch wächst die Fläche um 51 m². Wie lang war eine Seite vorher?",
     7, "(51 - 9) / 6", 7, "Die alte Seite ist a. Die neue Fläche ist (a + 3)². Die Zunahme ist (a + 3)² − a².",

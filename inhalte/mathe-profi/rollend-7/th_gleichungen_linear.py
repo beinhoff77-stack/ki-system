@@ -7,7 +7,7 @@ neu(T, "waage", "lueckenweg", L(
     {0: [(42, "fb.waage.zeichen_nicht_gedreht", "die 9 addiert statt abgezogen")], 1: [(20, None, "24 − 4 gerechnet statt 24 : 4")]}), regel="rr.waage")
 neu(T, "waage", "bruecke", W(
     "Eine Waage ist im Gleichgewicht. Links liegen 4 gleiche Dosen mit je x g Inhalt und ein Gewicht von 30 g. Rechts liegen 2 solche Dosen und ein Gewicht von 90 g. Welche Gleichung gehört zur Waage?",
-    "4x + 30 = 2x + 90", [("4x + 2x = 30 + 90", "alle Dosen auf eine Seite gelegt, aber die Gewichte nicht getauscht"), ("x + 30 = x + 90", "die Zahl der Dosen vergessen"), ("4x − 30 = 2x − 90", "Gewichte als Abzug gelesen")],
+    "4x + 30 = 2x + 90", [("4x + 2x = 30 + 90", "die Dosen beider Seiten addiert statt gleichgesetzt"), ("x + 30 = x + 90", "die Zahl der Dosen vergessen"), ("4x − 30 = 2x − 90", "Gewichte als Abzug gelesen")],
     "Auf jeder Seite stehen: Dosen mal x, plus das Gewicht.",
     "Links: 4x + 30. Rechts: 2x + 90. Gleichgewicht heißt: 4x + 30 = 2x + 90. Daraus folgt x = 30.",
     lambda: ist_loesung("4*x+30", "2*x+90", 30) and not ist_loesung("4*x+2*x", "30+90", 30) and not ist_loesung("x+30", "x+90", 30) and not ist_loesung("4*x-30", "2*x-90", 30)), regel="rr.waage")
@@ -42,9 +42,9 @@ neu(T, "klammern", "lueckenweg", L(
     {0: [(2, "fb.ausmultiplizieren.nur_erster_summand", "die 3 nur bei x gerechnet")], 2: [(1, "fb.waage.zeichen_nicht_gedreht", "8 − 6 statt 8 + 6 gerechnet: 2 : 2")]}), regel="rr.waage")
 neu(T, "klammern", "fehler_detektiv", FD(
     "Kim löst die Gleichung 2(x + 5) − 3(x − 1) = 4.",
-    [("2x + 10 − 3x − 3 = 4", gl("2*(x+5)-3*(x-1)", "2*x+10-3*x-3")), ("−x + 7 = 4", gl("2*x+10-3*x-3", "-x+7")), ("−x = −3, also x = 3", ist_loesung("-x+7", "4", 3))],
-    "Wie ändert das Minus vor der zweiten Klammer das Vorzeichen von −1 in (x − 1)?",
-    "−3 · (−1) = +3. Also: 2x + 10 − 3x + 3 = 4, das ergibt −x + 13 = 4 und x = 9. Probe: 28 − 24 = 4."), regel="rr.minusklammer")
+    [("Klammern auflösen: 2x + 10 − 3x + 3 = 4", gl("2*(x+5)-3*(x-1)", "2*x+10-3*x+3")), ("x-Glieder zusammenfassen: 2x − 3x = x, also x + 13 = 4", gl("2*x+10-3*x+3", "x+13")), ("13 abziehen: x = −9", ist_loesung("x+13", "4", -9))],
+    "Was ergibt 2x − 3x? Setze zur Probe x = 2 ein.",
+    "2x − 3x = −x, nicht x. Richtig: −x + 13 = 4, also −x = −9 und x = 9. Probe: 2 · 14 − 3 · 8 = 4."), regel="rr.tauschen")
 neu(T, "klammern", "zwei_wege", Z(
     "Löse 4(x − 3) = 2(x + 5) auf zwei Wegen. Weg A: beide Klammern gleich ausmultiplizieren. Weg B: erst beide Seiten durch 2 teilen, dann ausmultiplizieren. Wie groß ist x?",
     11, "(10 + 12) / 2", 11, "Beide Wege müssen dasselbe x ergeben.",
@@ -57,7 +57,7 @@ neu(T, "probe", "lueckenweg", L(
     "Prüfe, ob x = 4 die Gleichung 5x − 4 = 2x + 5 löst. Links: 5 · 4 − 4 = ①. Rechts: 2 · 4 + 5 = ②. Die beiden Seiten sind verschieden. Also ist x = 4 keine Lösung.",
     KOMM(2), [16, 13], ["5 * 4 - 4", "2 * 4 + 5"], ["20 - 4", "8 + 5"], "Setze für x überall die 4 ein. Rechne Punkt vor Strich.",
     "Links: 20 − 4 = 16. Rechts: 8 + 5 = 13. 16 ≠ 13. Die Lösung ist x = 3: 11 = 11.",
-    {0: [(5, None, "nur den Teil 5 − 4 gerechnet, ohne die 4 einzusetzen")], 1: [(18, None, "2 · (4 + 5) gerechnet, falsch geklammert")]}), regel="id.algebra.gleichung_loesen")
+    {0: [(20, None, "nur 5 · 4 gerechnet, das − 4 vergessen")], 1: [(18, None, "2 · (4 + 5) gerechnet, falsch geklammert")]}), regel="id.algebra.gleichung_loesen")
 neu(T, "probe", "bruecke", W(
     "Die Tabelle zeigt die Werte der beiden Seiten der Gleichung 3x − 2 = x + 6 für einige Zahlen x. Welche Zahl ist die Lösung?",
     "x = 4", [("x = 10", "den gemeinsamen Wert der Seiten als Lösung gelesen"), ("x = 2", "eine Spalte geraten, in der rechts mehr steht als links"), ("x = 5", "eine Spalte geraten, in der links mehr steht als rechts")],
@@ -79,15 +79,14 @@ neu(T, "sonderfaelle", "lueckenweg", L(
     {1: [(1, None, "eine Lösung genannt, obwohl x herausfällt")]}), regel="id.algebra.gleichung_loesen")
 neu(T, "sonderfaelle", "fehler_detektiv", FD(
     "Kim löst die Gleichung 3(x − 2) + 6 = 3x.",
-    [("3x − 6 + 6 = 3x", gl("3*(x-2)+6", "3*x-6+6")), ("3x = 3x, also 0 = 0", gl("3*x-6+6", "3*x")),
-     ("Das stimmt nur für x = 0. Die Gleichung hat genau eine Lösung.", not ist_loesung("3*(x-2)+6", "3*x", 5))],
-    "Setze zur Probe x = 5 ein. Was fällt auf?",
-    "Aus 0 = 0 folgt: Die Gleichung stimmt für jedes x. Sie hat unendlich viele Lösungen. Probe mit x = 5: 15 = 15."), regel="id.algebra.gleichung_loesen")
+    [("Klammer auflösen: 3x − 6 − 6 = 3x", gl("3*(x-2)+6", "3*x-6-6")), ("3x abziehen: −12 = 0. Das stimmt für kein x.", gl("3*x-6-6-3*x", "-12")), ("Also hat die Gleichung keine Lösung.", True)],
+    "Setze zur Probe x = 5 ein. Stimmt die Gleichung?",
+    "3(x − 2) = 3x − 6. Dann steht 3x − 6 + 6 = 3x, also 0 = 0. Die Gleichung stimmt für jedes x. Probe mit x = 5: 15 = 15."), regel="id.algebra.gleichung_loesen")
 neu(T, "sonderfaelle", "umkehren", Z(
     "Für welche Zahl a gilt die Gleichung 2(3x − 1) = 6x + a für jede Zahl x?",
     -2, "2 * (-1)", -2, "Multipliziere die linke Seite aus. Dann muss die Zahl ohne x auf beiden Seiten gleich sein.",
     "2(3x − 1) = 6x − 2. Damit beide Seiten gleich sind, muss a = −2 sein.",
-    [(2, "fb.vorzeichen.falsches_zeichen", "das Minus vergessen"), (-1, "fb.ausmultiplizieren.nur_erster_summand", "die 2 vor der Klammer vergessen")]), g="rueckwaerts", regel="id.algebra.gleichung_loesen")
+    [(2, "fb.vorzeichen.falsches_zeichen", "das Minus vergessen"), (-1, "fb.ausmultiplizieren.nur_erster_summand", "die 2 nur bei 3x gerechnet: 6x − 1")]), g="rueckwaerts", regel="id.algebra.gleichung_loesen")
 assert ist_loesung("2*(3*x-1)", "6*x-2", 5) and ist_loesung("2*(3*x-1)", "6*x-2", -3)
 
 # ───────── sach ─────────

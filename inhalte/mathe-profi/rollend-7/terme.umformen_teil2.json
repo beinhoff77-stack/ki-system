@@ -127,7 +127,7 @@
      "antwort": "(x + 7)(x + 3)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Summen aus den Teilflächen gebildet"
+     "beschreibung": "die Seiten aus 2 + 5 und 5 − 2 gebildet"
     },
     {
      "index": 2,
@@ -339,7 +339,7 @@
      "antwort": 2,
      "fehlbild": "fb.potenz.basis_mal_hochzahl",
      "regel_des_fehlbilds": "rr.potenz",
-     "beschreibung": "2 · 2 statt 2² gerechnet"
+     "beschreibung": "die 2 in der Klammer nicht mitquadriert: 2a²"
     },
     {
      "luecke": 3,
@@ -538,7 +538,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim löst die Gleichung (x + 4)² = x² + 40. Zeile 1: (x + 4)² = x² + 8x + 16, also x² + 8x + 16 = x² + 40 Zeile 2: x² auf beiden Seiten abziehen: 8x + 16 = 40 Zeile 3: 8x = 40 + 16 = 56, also x = 7 In welcher Zeile steckt der Fehler?"
+     "text": "Kim löst die Gleichung (x + 4)² = x² + 40. Zeile 1: (x + 4)² = x² + 8x + 16, also x² + 8x + 16 = x² + 40 Zeile 2: x² auf beiden Seiten abziehen: 8x + 16 = 40 Zeile 3: 8x = 40 + 16 = 56, also x = 7 In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",

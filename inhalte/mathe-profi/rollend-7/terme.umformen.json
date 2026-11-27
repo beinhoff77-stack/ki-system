@@ -84,10 +84,10 @@
      "beschreibung": "nur die halbe Rechnung: Länge plus Breite ohne Verdopplung"
     },
     {
-     "antwort": 66,
+     "antwort": 54,
      "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
      "regel_des_fehlbilds": "rr.ausmultiplizieren",
-     "beschreibung": "die 2 nur bei den x-Gliedern gerechnet: 2·(3·6) + 4 + 2·6 + 2"
+     "beschreibung": "die 2 nur bei den x-Gliedern gerechnet: 2 · 3 · 6 + 4 + 2 · 6 + 2"
     }
    ],
    "aufgabe": {
@@ -129,8 +129,8 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
@@ -144,7 +144,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim fasst 3x² + 5x − x² + 2x zusammen. Zeile 1: 3x² − x² = 2x² Zeile 2: 5x + 2x = 7x Zeile 3: Ergebnis: 2x² + 7x = 9x³ In welcher Zeile steckt der Fehler?"
+     "text": "Kim fasst 3x² + 5x − x² + 2x zusammen. Zeile 1: Sortieren: 3x² + 5x − x² + 2x = 3x² − x² + 5x + 2x Zeile 2: Gleichartige Glieder zusammenfassen: 3x² − x² = 2x² und 5x + 2x = 7x² Zeile 3: Ergebnis: 2x² + 7x² = 9x² In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -152,10 +152,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "Darf man x² und x zusammenzählen? Prüfe mit x = 2.",
-    "w": "x² und x sind nicht gleichartig. Das Ergebnis bleibt 2x² + 7x. Probe mit x = 2: 2 · 4 + 14 = 22, aber 9 · 8 = 72."
+    "h": "Welche Glieder sind wirklich gleichartig? Prüfe mit x = 2.",
+    "w": "5x + 2x = 7x, nicht 7x². Beim Zusammenfassen ändert sich die Hochzahl nicht. Richtig: 2x² + 7x. Probe mit x = 2: 8 + 14 = 22, aber 2x² + 7x² = 36 ist etwas anderes."
    }
   },
   {
@@ -231,7 +231,7 @@
      "antwort": -24,
      "fehlbild": "fb.potenz.basis_mal_hochzahl",
      "regel_des_fehlbilds": "rr.potenz",
-     "beschreibung": "x² als 2x gerechnet: −6 · 4"
+     "beschreibung": "x² als x gerechnet: −6 · 4"
     }
    ],
    "aufgabe": {
@@ -432,7 +432,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim löst die Klammern auf: 6x − (2x + 5) − (x − 3). Zeile 1: 6x − (2x + 5) − (x − 3) = 6x − 2x − 5 − x − 3 Zeile 2: = (6x − 2x − x) + (−5 − 3) Zeile 3: = 3x − 8 In welcher Zeile steckt der erste Fehler?"
+     "text": "Kim löst die Klammern auf und fasst zusammen: 6x − (2x + 5) − (x − 3). Zeile 1: 6x − (2x + 5) − (x − 3) = 6x − 2x − 5 − x − 3 Zeile 2: = (6x − 2x − x) + (−5 − 3) Zeile 3: = 3x − 8 In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",

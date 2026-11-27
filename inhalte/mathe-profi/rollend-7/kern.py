@@ -50,8 +50,8 @@ def werte_von(s):
 
 def gl(a, b):
     """Zwei Terme (Python-Schreibweise, Variablen x y a b n) stimmen an sechs Prüfpunkten überein (und sind überall definiert, wo einer es ist)."""
-    wa, wb = werte_von(a), werte_von(b)
-    return sum(1 for u in wa if u is not None) >= 4 and wa == wb
+    paare = [(u, v) for u, v in zip(werte_von(a), werte_von(b)) if u is not None and v is not None]
+    return len(paare) >= 4 and all(u == v for u, v in paare)
 
 
 def z2(ausdruck):
@@ -93,7 +93,7 @@ def W(text, richtig, falsch, h, w, probe, grafik=None):
     return mit({"y": "auswahl", "f": {"text": text}, "a": antworten, "o": {"index": p}, "h": h, "w": w}, grafik), probe, fb
 
 
-def FD(einleitung, zeilen, h, w, frage="In welcher Zeile steckt der Fehler?", grafik=None):
+def FD(einleitung, zeilen, h, w, frage="In welcher Zeile passiert der erste Fehler?", grafik=None):
     """Fehler-Detektiv. zeilen: [(Text, stimmt)] – stimmt wird im Programm berechnet; genau eine Zeile darf nicht stimmen."""
     falsche = [i for i, (_, ok) in enumerate(zeilen) if not ok]
     assert len(falsche) == 1 and 3 <= len(zeilen) <= 4, (einleitung, falsche)
@@ -120,3 +120,20 @@ def ist_loesung(links, rechts, wert, var="x"):
     env = {"x": F(0), "y": F(0), "a": F(0), "b": F(0), "n": F(0)}
     env[var] = F(str(wert)) if not isinstance(wert, F) else wert
     return _ev(links, env) == _ev(rechts, env)
+
+
+def undef(s, wert, var="x"):
+    """True, wenn der Term s für var = wert nicht definiert ist (Nenner 0)."""
+    env = {"x": F(1), "y": F(1), "a": F(1), "b": F(1), "n": F(1)}
+    env[var] = F(str(wert))
+    try:
+        _ev(s, env)
+        return False
+    except ZeroDivisionError:
+        return True
+
+
+def wert_an(s, wert, var="x"):
+    env = {"x": F(1), "y": F(1), "a": F(1), "b": F(1), "n": F(1)}
+    env[var] = F(str(wert))
+    return _ev(s, env)

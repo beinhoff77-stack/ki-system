@@ -7,14 +7,16 @@ neu(T, "zusammenfassen", "lueckenweg", L(
     {0: [(30, None, "die Zahlen malgenommen statt addiert")], 1: [(12, "fb.tauschen.ungleiches_zusammengefasst", "auch die a-Glieder dazugezählt")]}), regel="rr.tauschen")
 neu(T, "zusammenfassen", "fehler_detektiv", FD(
     "Kim fasst 3x² + 5x − x² + 2x zusammen.",
-    [("3x² − x² = 2x²", gl("3*x**2-x**2", "2*x**2")), ("5x + 2x = 7x", gl("5*x+2*x", "7*x")), ("Ergebnis: 2x² + 7x = 9x³", gl("2*x**2+7*x", "9*x**3"))],
-    "Darf man x² und x zusammenzählen? Prüfe mit x = 2.",
-    "x² und x sind nicht gleichartig. Das Ergebnis bleibt 2x² + 7x. Probe mit x = 2: 2 · 4 + 14 = 22, aber 9 · 8 = 72."), regel="rr.tauschen")
+    [("Sortieren: 3x² + 5x − x² + 2x = 3x² − x² + 5x + 2x", gl("3*x**2+5*x-x**2+2*x", "3*x**2-x**2+5*x+2*x")),
+     ("Gleichartige Glieder zusammenfassen: 3x² − x² = 2x² und 5x + 2x = 7x²", gl("5*x+2*x", "7*x**2")),
+     ("Ergebnis: 2x² + 7x² = 9x²", gl("2*x**2+7*x**2", "9*x**2"))],
+    "Welche Glieder sind wirklich gleichartig? Prüfe mit x = 2.",
+    "5x + 2x = 7x, nicht 7x². Beim Zusammenfassen ändert sich die Hochzahl nicht. Richtig: 2x² + 7x. Probe mit x = 2: 8 + 14 = 22, aber 2x² + 7x² = 36 ist etwas anderes."), regel="rr.tauschen")
 neu(T, "zusammenfassen", "anwenden", Z(
     "Ein Rechteck ist (3x + 4) cm lang und (x + 2) cm breit. Fasse den Umfang als Term zusammen. Wie groß ist der Umfang für x = 6?",
     60, "2 * (3 * 6 + 4) + 2 * (6 + 2)", "8 * 6 + 12", "Der Umfang ist 2 · Länge + 2 · Breite. Fasse die x-Glieder und die Zahlen getrennt zusammen.",
     "U = 2(3x + 4) + 2(x + 2) = 6x + 8 + 2x + 4 = 8x + 12. Für x = 6: 8 · 6 + 12 = 60 cm.",
-    [(30, None, "nur die halbe Rechnung: Länge plus Breite ohne Verdopplung"), (66, "fb.ausmultiplizieren.nur_erster_summand", "die 2 nur bei den x-Gliedern gerechnet: 2·(3·6) + 4 + 2·6 + 2")], "cm"),
+    [(30, None, "nur die halbe Rechnung: Länge plus Breite ohne Verdopplung"), (54, "fb.ausmultiplizieren.nur_erster_summand", "die 2 nur bei den x-Gliedern gerechnet: 2 · 3 · 6 + 4 + 2 · 6 + 2")], "cm"),
     regel="rr.tauschen")
 assert gl("2*(3*x+4)+2*(x+2)", "8*x+12")
 
@@ -28,7 +30,7 @@ neu(T, "produkte", "zwei_wege", Z(
     "Berechne (−2x) · (3x) für x = 4 auf zwei Wegen. Weg A: erst vereinfachen, dann x = 4 einsetzen. Weg B: erst x = 4 einsetzen, dann malnehmen. Welchen Wert erhältst du?",
     -96, "(-2 * 4) * (3 * 4)", "-6 * 4 ** 2", "Beide Wege müssen dasselbe ergeben. Beachte das Vorzeichen.",
     "Weg A: (−2x) · (3x) = −6x². Für x = 4: −6 · 16 = −96. Weg B: (−8) · 12 = −96.",
-    [(96, "fb.vorzeichen.falsches_zeichen", "das Minus vergessen"), (-24, "fb.potenz.basis_mal_hochzahl", "x² als 2x gerechnet: −6 · 4")]), regel="rr.vorzeichen")
+    [(96, "fb.vorzeichen.falsches_zeichen", "das Minus vergessen"), (-24, "fb.potenz.basis_mal_hochzahl", "x² als x gerechnet: −6 · 4")]), regel="rr.vorzeichen")
 neu(T, "produkte", "umkehren", Z(
     "Für welche Zahl a gilt (−4x) · (a · x²) = 20x³?",
     -5, "20 / (-4)", -5, "Vergleiche die Zahlen vor x³. Was mal −4 ergibt 20?",
@@ -44,11 +46,11 @@ neu(T, "minusklammer", "lueckenweg", L(
     {0: [(-7, "fb.minusklammer.nur_erstes_zeichen", "nur das erste Vorzeichen umgedreht")], 1: [(13, None, "9 + 4 gerechnet")]}), regel="rr.minusklammer")
 assert gl("9*x-(4*x-7)", "5*x+7")
 neu(T, "minusklammer", "fehler_detektiv", FD(
-    "Kim löst die Klammern auf: 6x − (2x + 5) − (x − 3).",
+    "Kim löst die Klammern auf und fasst zusammen: 6x − (2x + 5) − (x − 3).",
     [("6x − (2x + 5) − (x − 3) = 6x − 2x − 5 − x − 3", gl("6*x-(2*x+5)-(x-3)", "6*x-2*x-5-x-3")),
      ("= (6x − 2x − x) + (−5 − 3)", gl("6*x-2*x-5-x-3", "(6*x-2*x-x)+(-5-3)")), ("= 3x − 8", gl("(6*x-2*x-x)+(-5-3)", "3*x-8"))],
     "Wie ändert das Minus vor der zweiten Klammer das Vorzeichen von −3?",
-    "Vor (x − 3) steht ein Minus. Dann wird aus −3 ein +3: 6x − 2x − 5 − x + 3 = 3x − 2.", frage="In welcher Zeile steckt der erste Fehler?"), regel="rr.minusklammer")
+    "Vor (x − 3) steht ein Minus. Dann wird aus −3 ein +3: 6x − 2x − 5 − x + 3 = 3x − 2."), regel="rr.minusklammer")
 neu(T, "minusklammer", "zwei_wege", Z(
     "Berechne den Term 8x − (3x − 5) für x = 4 auf zwei Wegen. Weg A: erst die Klammer auflösen und zusammenfassen, dann x = 4 einsetzen. Weg B: erst x = 4 einsetzen, dann rechnen. Welchen Wert hat der Term?",
     25, "8 * 4 - (3 * 4 - 5)", "5 * 4 + 5", "Beide Wege müssen denselben Wert ergeben. Bei Weg A wird aus − (3x − 5) zuerst −3x + 5.",

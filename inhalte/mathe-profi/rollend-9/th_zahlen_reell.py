@@ -165,7 +165,7 @@ neu(T, "irrational_beweis", "fehler_detektiv", FD(
      ("Quadrieren: p² = 3q².", all(abs((q * math.sqrt(3)) ** 2 - 3 * q * q) < 1e-9 for q in (1, 5, 7)), None),
      ("Dann ist p² durch 3 teilbar, also ist p durch 9 teilbar.", (6 ** 2 % 3 != 0) or (6 % 9 == 0), None),
      ("Mit p = 9r folgt 81r² = 3q², also q² = 27r². Dann ist auch q durch 3 teilbar.", False, all(81 * r * r // 3 == 27 * r * r for r in (1, 2, 5)) and all((27 * r * r) % 3 == 0 for r in (1, 2, 5)))],
-    "Wenn p² durch 3 teilbar ist: Durch welche Zahl muss p dann teilbar sein? Suche selbst eine Zahl p, die durch 3 teilbar ist, aber nicht durch 9, und prüfe, ob p² durch 3 teilbar ist.",
+    "Teste die Teilbarkeitsaussagen mit einem selbst gewählten ganzzahligen Beispiel.",
     "Zeile 1 und 2 stimmen. In Zeile 3 steht der Fehler: Aus „p² ist durch 3 teilbar“ folgt nur „p ist durch 3 teilbar“ (zum Beispiel p = 6, aber 6 ist nicht durch 9 teilbar). Richtig: p = 3r. Zeile 4 rechnet mit p = 9r richtig weiter."), regel=HZ)
 neu(T, "irrational_beweis", "umkehren", W(
     "Ein Beweis endet so: „Weil p² das Dreifache von q² ist, ist p durch 3 teilbar. Dann ist auch q durch 3 teilbar. Das widerspricht der Kürzung.“ Dabei war p/q ein vollständig gekürzter Bruch. Für welche Zahl wurde bewiesen, dass sie irrational ist?",

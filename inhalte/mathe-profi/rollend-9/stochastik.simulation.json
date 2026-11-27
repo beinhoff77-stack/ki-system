@@ -941,8 +941,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {

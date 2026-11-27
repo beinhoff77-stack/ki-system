@@ -125,7 +125,7 @@ neu(T, "monte_carlo", "umkehren", Z(
     150, "500 * 300 / (40 * 25)", lambda: F(500) * F(300, 1000),
     "Welchen Anteil der Rechteckfläche nimmt der Teich ein? Dieser Anteil der Punkte liegt erwartungsgemäß im Teich.",
     "Das Rechteck hat 40 · 25 = 1 000 m². Der Teich hat den Anteil 300 : 1 000 = 0,3. Von 500 Punkten liegen etwa 0,3 · 500 = 150 im Teich.",
-    [(300, None, "die Fläche des Teichs als Zahl der Punkte genommen", "300"), (30, None, "den Anteil in Prozent statt der Zahl der Punkte angegeben", "300 * 100 / 1000"), (250, None, "die Hälfte der Punkte genommen", "500 / 2")]), g="rueckwaerts", regel=TG)
+    [(300, None, "die Fläche des Teichs als Zahl der Punkte genommen", "300"), (30, None, "den Anteil in Prozent statt der Zahl der Punkte angegeben", "300 * 100 / 1000"), (250, None, "die Hälfte der Punkte genommen", "500 / 2")]), g="rueckwaerts", regel=None)
 
 # ───────── beurteilen ─────────
 neu(T, "beurteilen", "verfahren_waehlen", W(

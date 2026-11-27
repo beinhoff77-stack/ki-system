@@ -1412,7 +1412,7 @@
     "o": {
      "index": 2
     },
-    "h": "Wenn p² durch 3 teilbar ist: Durch welche Zahl muss p dann teilbar sein? Suche selbst eine Zahl p, die durch 3 teilbar ist, aber nicht durch 9, und prüfe, ob p² durch 3 teilbar ist.",
+    "h": "Teste die Teilbarkeitsaussagen mit einem selbst gewählten ganzzahligen Beispiel.",
     "w": "Zeile 1 und 2 stimmen. In Zeile 3 steht der Fehler: Aus „p² ist durch 3 teilbar“ folgt nur „p ist durch 3 teilbar“ (zum Beispiel p = 6, aber 6 ist nicht durch 9 teilbar). Richtig: p = 3r. Zeile 4 rechnet mit p = 9r richtig weiter."
    }
   }

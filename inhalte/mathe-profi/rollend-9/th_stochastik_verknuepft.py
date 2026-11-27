@@ -203,7 +203,7 @@ neu(T, "tafel_wkeit", "zwei_wege", Z(
 
 # ───────── bedingt ─────────
 neu(T, "bedingt", "lueckenweg", L(
-    "In einer Klasse mit 20 Kindern haben 12 ein Haustier (A). Von den zwölf Kindern mit Haustier sind drei Jungen. Insgesamt sind 15 Kinder Mädchen (B). Unter den Kindern mit Haustier sind ① Mädchen. Also ist P_A(B) = ② %. Dann ist P_B(A) = ③ %.",
+    "In einer Klasse mit 20 Kindern haben 12 ein Haustier (A). Von den zwölf Kindern mit Haustier sind drei Jungen. Insgesamt sind 15 Kinder Mädchen (B). Ein Kind der Klasse wird zufällig ausgewählt. Jedes Kind hat dieselbe Wahrscheinlichkeit. Unter den Kindern mit Haustier sind ① Mädchen. Also ist P_A(B) = ② %. Dann ist P_B(A) = ③ %.",
     KOMM(3), [9, 75, 60], ["12 - 3", "{1} * 100 / 12", "{1} * 100 / 15"],
     ["12 - 3", "9 / 12 * 100", "9 / 15 * 100"],
     "Die Mädchen mit Haustier gehören zu A und zu B. P_A(B) betrachtet nur die Kinder mit Haustier. P_B(A) betrachtet nur die Mädchen.",
@@ -219,7 +219,7 @@ neu(T, "bedingt", "bruecke", Z(
     [(0.6, None, "P_A(B) statt P_B(A) abgelesen", "0.6"), (0.3, None, "nur P(A ∩ B) angegeben", "0.5 * 0.6"), (0.5, None, "P(A) angegeben", "0.5")],
     grafik={"typ": "baum", "aeste": [{"text": "A", "p": "0,5", "aeste": [{"text": "B", "p": "0,6"}, {"text": "B̄", "p": "0,4"}]}, {"text": "Ā", "p": "0,5", "aeste": [{"text": "B", "p": "0,2"}, {"text": "B̄", "p": "0,8"}]}]}), g="darstellung", regel=ST)
 neu(T, "bedingt", "fehler_detektiv", FD(
-    "Die Tafel zeigt 200 Personen. Tom bestimmt P_A(B).",
+    "Die Tafel zeigt 200 Personen. Eine der 200 Personen wird zufällig ausgewählt, jede mit derselben Wahrscheinlichkeit. Tom bestimmt P_A(B).",
     [("Die Bedingung ist B, also zählen nur die Personen mit B.", False, None),
      ("Das sind 80 Personen, davon haben 30 auch A.", True, True),
      ("P_A(B) = 30 : 80 = 0,375.", False, True)],
@@ -259,7 +259,7 @@ neu(T, "verstehen", "verfahren_waehlen", W(
      ("Annehmen, dass A und B keine gemeinsamen Ergebnisse haben: P(A ∩ B) = 0.", "die Summe 0,6 + 0,7 = 1,3 über 1 nicht beachtet: dann müssen sich A und B überschneiden", None, lambda: F(6, 10) + F(7, 10) > 1),
      ("P(A) und P(B) addieren: P(A ∩ B) = 0,6 + 0,7 = 1,3.", "Schnitt und Vereinigung verwechselt: eine Wahrscheinlichkeit über 1 ist unmöglich", None, lambda: F(13, 10) > 1)],
     "P(A ∪ B) darf nicht größer als 1 sein. Was folgt daraus für den Schnitt? Und der Schnitt kann nie größer sein als jede der beiden Mengen.",
-    "Aus P(A ∪ B) = 0,6 + 0,7 − P(A ∩ B) ≤ 1 folgt P(A ∩ B) ≥ 0,3. Außerdem liegt A ∩ B in A und in B, also ist P(A ∩ B) ≤ 0,6. Genaueres weißt du nicht, die Ereignisse könnten auch abhängig sein.",
+    "Aus P(A ∪ B) = 0,6 + 0,7 − P(A ∩ B) ≤ 1 folgt P(A ∩ B) ≥ 0,3. Außerdem liegt A ∩ B in A und in B, also ist P(A ∩ B) ≤ 0,6. Also 0,3 ≤ P(A ∩ B) ≤ 0,6. Der genaue Wert ist offen.",
     lambda: F(6, 10) + F(7, 10) - 1 == F(3, 10) and min(F(6, 10), F(7, 10)) == F(6, 10)), g="erkennen", regel=None)
 neu(T, "verstehen", "zwei_wege", Z(
     "Ein fairer Würfel wird zweimal unabhängig geworfen, alle 36 Zahlenpaare sind gleich wahrscheinlich. Wie viele der 36 möglichen Zahlenpaare haben die Augensumme mindestens 10? Weg A: Schreibe die passenden Paare auf. Weg B: Nimm das Gegenereignis „Augensumme höchstens 9“.",

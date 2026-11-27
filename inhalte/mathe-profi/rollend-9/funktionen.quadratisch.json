@@ -65,7 +65,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Gegeben ist f(x) = x² − 8x + 3. Die x-Koordinate des Scheitels ist ①. Dann ist der y-Wert des Scheitels ②. Die andere Stelle x ≠ 1 mit demselben Funktionswert ist ③.",
+     "text": "Gegeben ist f(x) = x² − 8x + 3. Die x-Koordinate des Scheitels ist ①. Dann ist der y-Wert des Scheitels ②. Die von 1 verschiedene Stelle x mit f(x) = f(1) ist ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -1139,7 +1139,7 @@
     "o": {
      "index": 0
     },
-    "h": "Prüfe, wie Zeile 1 aus f(x) = x² − 2x − 1 durch Einsetzen von x = −3 entsteht.",
+    "h": "Setze den Punkt selbst ein und vergleiche deine Rechnung Zeile für Zeile.",
     "w": "Zeile 1 enthält den Fehler: (−3)² = 9, aber −3² = −9. Richtig: f(−3) = 9 + 6 − 1 = 14. Also liegt P auf der Parabel. Die Zeilen 2 und 3 rechnen mit dem falschen Wert richtig weiter."
    }
   },
@@ -1734,7 +1734,7 @@
     "o": {
      "index": 2
     },
-    "h": "Prüfe die Aussage in Zeile 3 an einigen Werten von A(x), zum Beispiel A(5), A(9) und A(13).",
+    "h": "Prüfe die Aussagen zur Fläche mit selbst gewählten Seitenlängen.",
     "w": "Die Zeilen 1 und 2 stimmen. In Zeile 3 steht der Fehler: Die Zahl vor x² ist −1, die Parabel ist nach unten geöffnet. Der Scheitel ist der höchste Punkt, also die größte Fläche. Zeile 4 rechnet richtig mit A(9) = 81 weiter. Richtig: Die größte Fläche ist 81 m²."
    }
   }

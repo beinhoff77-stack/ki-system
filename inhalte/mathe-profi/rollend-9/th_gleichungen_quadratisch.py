@@ -30,12 +30,12 @@ neu(T, "ausklammern", "lueckenweg", L(
     "Beide Summanden enthalten den Faktor 2x. Ein Produkt ist 0, wenn einer der Faktoren 0 ist.",
     "2x² + 12x = 2x · (x + 6). Ein Faktor 2x = 0 gibt x = 0, der andere x + 6 = 0 gibt x = −6. Die Mitte von 0 und −6 ist −3.",
     {0: [(24, None, "12 mit 2 malgenommen: 12 · 2", "12 * 2")], 1: [(6, "fb.nullprodukt.vorzeichen_der_loesung", "aus x + 6 = 0 die Lösung x = 6 gemacht statt x = −6", "{1}")], 2: [(-6, None, "die Lösung statt der Mitte angegeben", "{2}")]}), regel=NP)
-neu(T, "ausklammern", "zwei_wege", Z(
-    "Löse x² = 6x über ℝ auf zwei Wegen. Weg A: Zeichne die Graphen von y = x² und y = 6x (oder lege eine Wertetabelle an) und lies die Schnittstellen ab. Weg B: Bringe alles auf eine Seite und klammere x aus. Die Gleichung hat n Lösungen, die größte davon sei g. Wie groß ist n + g?",
-    8, "(1 + 1) + 6", lambda: len([x for x in range(-50, 50) if x * x == 6 * x]) + max(x for x in range(-50, 50) if x * x == 6 * x),
+neu(T, "ausklammern", "zwei_wege", L(
+    "Löse x² = 6x über ℝ auf zwei Wegen. Weg A: Zeichne die Graphen von y = x² und y = 6x (oder lege eine Wertetabelle an) und lies die Schnittstellen ab. Weg B: Bringe alles auf eine Seite und klammere x aus. Beide Wege müssen dieselben Lösungen ergeben. Die kleinere Lösung ist ①. Die größere Lösung ist ②.",
+    KOMM(2), [0, 6], ["0", "6"], [lambda: min(x for x in range(-50, 50) if x * x == 6 * x), lambda: max(x for x in range(-50, 50) if x * x == 6 * x)],
     "Beide Wege müssen dieselben Lösungen ergeben.",
-    "Weg B: x² − 6x = 0 gibt x · (x − 6) = 0, also x = 0 oder x = 6. Weg A: Die Parabel und die Gerade schneiden sich bei x = 0 und bei x = 6. Es gibt 2 Lösungen, die Schnittstellen 0 und 6, also n = 2 und g = 6 und n + g = 8.",
-    [(7, "fb.hoeherer_grad.durch_x_geteilt", "durch x geteilt und dabei die Lösung x = 0 verloren: n = 1 und g = 6, also 1 + 6", "1 + 6"), (9, None, "x = −6 als dritte Lösung dazugezählt, weil x² = 36 zwei Lösungen hat: n = 3 und g = 6, also 3 + 6", "3 + 6")]), regel=HG)
+    "Weg B: x² − 6x = 0 gibt x · (x − 6) = 0, also x = 0 oder x = 6. Weg A: Die Parabel und die Gerade schneiden sich bei x = 0 und bei x = 6. Die kleinere Lösung ist 0, die größere 6.",
+    {0: [(6, "fb.hoeherer_grad.durch_x_geteilt", "durch x geteilt und dabei die Lösung x = 0 verloren: nur x = 6 blieb übrig", "6")], 1: [(-6, None, "aus x − 6 = 0 die Lösung x = −6 gemacht", "-6")]}), regel=HG)
 neu(T, "ausklammern", "fehler_detektiv", FD(
     "Kim löst x² − 9x = 0 über ℝ.",
     [("Umstellen: x² = 9x", all((x * x - 9 * x == 0) == (x * x == 9 * x) for x in range(-3, 12)), None),

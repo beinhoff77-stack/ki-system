@@ -5,7 +5,7 @@ ZU = "id.funktionen.zuordnung"
 fq = lambda a, b, c: (lambda x: a * x * x + b * x + c)
 # ───────── scheitel ─────────
 neu(T, "scheitel", "lueckenweg", L(
-    "Gegeben ist f(x) = x² − 8x + 3. Die x-Koordinate des Scheitels ist ①. Dann ist der y-Wert des Scheitels ②. Die andere Stelle x ≠ 1 mit demselben Funktionswert ist ③.",
+    "Gegeben ist f(x) = x² − 8x + 3. Die x-Koordinate des Scheitels ist ①. Dann ist der y-Wert des Scheitels ②. Die von 1 verschiedene Stelle x mit f(x) = f(1) ist ③.",
     KOMM(3), [4, -13, 7], ["8 // 2", "{1} ** 2 - 8 * {1} + 3", "2 * {1} - 1"],
     [lambda: min(range(-50, 50), key=fq(1, -8, 3)), lambda: min(fq(1, -8, 3)(x) for x in range(-50, 50)), lambda: next(x for x in range(-50, 50) if x != 1 and fq(1, -8, 3)(x) == fq(1, -8, 3)(1))],
     "Der Scheitel liegt in der Mitte zwischen den beiden Stellen mit gleichem y-Wert. Die x-Koordinate ist −b : (2a) mit den Zahlen b und a aus f(x) = ax² + bx + c.",
@@ -131,7 +131,7 @@ neu(T, "punkte", "fehler_detektiv", FD(
     [("Einsetzen: f(−3) = −3² − 2 · (−3) − 1.", fq(1, -2, -1)(-3) == -(3 ** 2) - 2 * (-3) - 1, None),
      ("= −9 + 6 − 1 = −4", False, -9 + 6 - 1 == -4),
      ("Wegen −4 ≠ 14 liegt P nicht auf der Parabel.", False, -4 != 14)],
-    "Prüfe, wie Zeile 1 aus f(x) = x² − 2x − 1 durch Einsetzen von x = −3 entsteht.",
+    "Setze den Punkt selbst ein und vergleiche deine Rechnung Zeile für Zeile.",
     "Zeile 1 enthält den Fehler: (−3)² = 9, aber −3² = −9. Richtig: f(−3) = 9 + 6 − 1 = 14. Also liegt P auf der Parabel. Die Zeilen 2 und 3 rechnen mit dem falschen Wert richtig weiter."), g="fehler", regel=ZU)
 
 # ───────── bestimmen ─────────
@@ -195,5 +195,5 @@ neu(T, "extremwert", "fehler_detektiv", FD(
      ("Die Fläche ist A(x) = x · (18 − x) = −x² + 18x.", all(x * (18 - x) == -x * x + 18 * x for x in range(0, 19)), None),
      ("Die Parabel ist nach oben geöffnet, also ist ihr Scheitel der tiefste Punkt und damit die kleinste Fläche.", False, None),
      ("Die kleinste Fläche ist 81 m² bei x = 9.", False, 9 * (18 - 9) == 81)],
-    "Prüfe die Aussage in Zeile 3 an einigen Werten von A(x), zum Beispiel A(5), A(9) und A(13).",
+    "Prüfe die Aussagen zur Fläche mit selbst gewählten Seitenlängen.",
     "Die Zeilen 1 und 2 stimmen. In Zeile 3 steht der Fehler: Die Zahl vor x² ist −1, die Parabel ist nach unten geöffnet. Der Scheitel ist der höchste Punkt, also die größte Fläche. Zeile 4 rechnet richtig mit A(9) = 81 weiter. Richtig: Die größte Fläche ist 81 m²."), g="fehler", regel=GF)

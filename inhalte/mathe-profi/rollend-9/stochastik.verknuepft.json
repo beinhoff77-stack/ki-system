@@ -1652,7 +1652,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "In einer Klasse mit 20 Kindern haben 12 ein Haustier (A). Von den zwölf Kindern mit Haustier sind drei Jungen. Insgesamt sind 15 Kinder Mädchen (B). Unter den Kindern mit Haustier sind ① Mädchen. Also ist P_A(B) = ② %. Dann ist P_B(A) = ③ %.",
+     "text": "In einer Klasse mit 20 Kindern haben 12 ein Haustier (A). Von den zwölf Kindern mit Haustier sind drei Jungen. Insgesamt sind 15 Kinder Mädchen (B). Ein Kind der Klasse wird zufällig ausgewählt. Jedes Kind hat dieselbe Wahrscheinlichkeit. Unter den Kindern mit Haustier sind ① Mädchen. Also ist P_A(B) = ② %. Dann ist P_B(A) = ③ %.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -1794,7 +1794,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Die Tafel zeigt 200 Personen. Tom bestimmt P_A(B). Zeile 1: Die Bedingung ist B, also zählen nur die Personen mit B. Zeile 2: Das sind 80 Personen, davon haben 30 auch A. Zeile 3: P_A(B) = 30 : 80 = 0,375. In welcher Zeile passiert der erste Fehler?",
+     "text": "Die Tafel zeigt 200 Personen. Eine der 200 Personen wird zufällig ausgewählt, jede mit derselben Wahrscheinlichkeit. Tom bestimmt P_A(B). Zeile 1: Die Bedingung ist B, also zählen nur die Personen mit B. Zeile 2: Das sind 80 Personen, davon haben 30 auch A. Zeile 3: P_A(B) = 30 : 80 = 0,375. In welcher Zeile passiert der erste Fehler?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -2088,7 +2088,7 @@
      "index": 3
     },
     "h": "P(A ∪ B) darf nicht größer als 1 sein. Was folgt daraus für den Schnitt? Und der Schnitt kann nie größer sein als jede der beiden Mengen.",
-    "w": "Aus P(A ∪ B) = 0,6 + 0,7 − P(A ∩ B) ≤ 1 folgt P(A ∩ B) ≥ 0,3. Außerdem liegt A ∩ B in A und in B, also ist P(A ∩ B) ≤ 0,6. Genaueres weißt du nicht, die Ereignisse könnten auch abhängig sein."
+    "w": "Aus P(A ∪ B) = 0,6 + 0,7 − P(A ∩ B) ≤ 1 folgt P(A ∩ B) ≥ 0,3. Außerdem liegt A ∩ B in A und in B, also ist P(A ∩ B) ≤ 0,6. Also 0,3 ≤ P(A ∩ B) ≤ 0,6. Der genaue Wert ist offen."
    }
   },
   {

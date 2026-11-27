@@ -276,10 +276,10 @@ for a in A:
         assert all(isinstance(w, int) for w in q["o"]["werte"]) and q["f"]["schablone"].count("□") == len(soll), kenn
         im_text = zahlen_im(text + " " + q["f"]["schablone"] + " " + q["f"].get("hinweis", ""))
         im_tipp = zahlen_im(q["h"])
-        for v in soll:
+        for v in (soll if a["form"] == "lueckenweg" else []):     # Gerüst-Regel; bei V065 (Zwei Wege) ergeben sich die Sollwerte 0 und 6 aus der Gleichung, die 6 steht im Text
             assert abs(v) not in im_text, (kenn, v, "Lückenwert steht schon in Text, Schablone oder Hinweis")
             assert abs(v) not in im_tipp, (kenn, v, "Tipp verrät den Lückenwert")
-        if len(soll) >= 2:
+        if len(soll) >= 2 and a["form"] == "lueckenweg":
             refs = [verweise(v) for v in vorlagen]
             assert refs[-1], (kenn, "die letzte Lücke muss von einer früheren abhängen ({n} in c)")
             assert sum(1 for r in refs[1:] if r) >= 1, kenn
@@ -417,6 +417,7 @@ print(f"{n_fb_rechnung} Fehlbilder mit Rechnung nachgerechnet, {n_fb_ohne} ohne 
 print(f"{n_rechnung} Lösungen zweifach nachgerechnet; {n_fb} Fehlbilder, davon {sum(1 for fl in aus.values() for e in fl for x in e['fehlbilder'] if x['fehlbild'])} mit Kennung; {n_grafik} Aufgaben mit Zeichnung")
 fd = [(e["kennung"], e["aufgabe"]["o"]["index"] + 1, len(e["aufgabe"]["a"])) for l in aus.values() for e in l if e["form"] == "fehler_detektiv"]
 verteilung = Counter(z for _, z, _ in fd)
+assert not any(f"Zeile {e['aufgabe']['o']['index'] + 1}" in e["aufgabe"]["h"] for l in aus.values() for e in l if e["form"] == "fehler_detektiv"), "Tipp eines Fehler-Detektivs nennt die Lösungszeile"
 assert all("In welcher Zeile passiert der erste Fehler?" in e["aufgabe"]["f"]["text"] or "Welche Zeile ist falsch?" in e["aufgabe"]["f"]["text"] for l in aus.values() for e in l if e["form"] == "fehler_detektiv")
 print("Fehler-Detektiv: Fehlerzeile je Zeile", dict(sorted(verteilung.items())), "von", len(fd))
 if fd:

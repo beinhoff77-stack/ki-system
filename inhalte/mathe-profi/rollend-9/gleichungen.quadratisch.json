@@ -293,24 +293,26 @@
    "stufe": 2,
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
-   "antwortform": "zahl",
+   "antwortform": "luecken",
    "regel": "id.algebra.hoeherer_grad",
    "regel_name": "Höherer Grad",
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 7,
+     "luecke": 1,
+     "antwort": 6,
      "fehlbild": "fb.hoeherer_grad.durch_x_geteilt",
      "regel_des_fehlbilds": "id.algebra.hoeherer_grad",
-     "beschreibung": "durch x geteilt und dabei die Lösung x = 0 verloren: n = 1 und g = 6, also 1 + 6",
-     "c": "1 + 6"
+     "beschreibung": "durch x geteilt und dabei die Lösung x = 0 verloren: nur x = 6 blieb übrig",
+     "c": "6"
     },
     {
-     "antwort": 9,
+     "luecke": 2,
+     "antwort": -6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "x = −6 als dritte Lösung dazugezählt, weil x² = 36 zwei Lösungen hat: n = 3 und g = 6, also 3 + 6",
-     "c": "3 + 6"
+     "beschreibung": "aus x − 6 = 0 die Lösung x = −6 gemacht",
+     "c": "-6"
     }
    ],
    "aufgabe": {
@@ -319,16 +321,24 @@
     "p": "uebung",
     "s": 2,
     "g": "mehrschritt",
-    "y": "zahl",
+    "y": "luecken",
     "f": {
-     "text": "Löse x² = 6x über ℝ auf zwei Wegen. Weg A: Zeichne die Graphen von y = x² und y = 6x (oder lege eine Wertetabelle an) und lies die Schnittstellen ab. Weg B: Bringe alles auf eine Seite und klammere x aus. Die Gleichung hat n Lösungen, die größte davon sei g. Wie groß ist n + g?"
+     "text": "Löse x² = 6x über ℝ auf zwei Wegen. Weg A: Zeichne die Graphen von y = x² und y = 6x (oder lege eine Wertetabelle an) und lies die Schnittstellen ab. Weg B: Bringe alles auf eine Seite und klammere x aus. Beide Wege müssen dieselben Lösungen ergeben. Die kleinere Lösung ist ①. Die größere Lösung ist ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
-     "wert": 8
+     "werte": [
+      0,
+      6
+     ]
     },
-    "c": "(1 + 1) + 6",
+    "c": [
+     "0",
+     "6"
+    ],
     "h": "Beide Wege müssen dieselben Lösungen ergeben.",
-    "w": "Weg B: x² − 6x = 0 gibt x · (x − 6) = 0, also x = 0 oder x = 6. Weg A: Die Parabel und die Gerade schneiden sich bei x = 0 und bei x = 6. Es gibt 2 Lösungen, die Schnittstellen 0 und 6, also n = 2 und g = 6 und n + g = 8."
+    "w": "Weg B: x² − 6x = 0 gibt x · (x − 6) = 0, also x = 0 oder x = 6. Weg A: Die Parabel und die Gerade schneiden sich bei x = 0 und bei x = 6. Die kleinere Lösung ist 0, die größere 6."
    }
   },
   {

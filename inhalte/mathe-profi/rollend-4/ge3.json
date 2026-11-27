@@ -460,7 +460,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Zwei Geraden schneiden sich. Ein Winkel hat 50°. Kim berechnet die anderen. Zeile 1: Der gegenüberliegende Winkel hat 180° − 50° = 130°. Zeile 2: Die beiden Nachbarwinkel dieses Winkels haben je 180° − 130° = 50°. Zeile 3: Alle vier Winkel zusammen: 50° + 130° + 50° + 130° = 360°. In welcher Zeile passiert der erste Fehler?"
+     "text": "Zwei Geraden schneiden sich. Ein Winkel hat 50°. Kim berechnet die anderen. Zeile 1: Der gegenüberliegende Winkel hat 180° − 50° = 130°. Zeile 2: Die beiden Nachbarwinkel dieses Winkels haben je 180° − 130° = 50°. Zeile 3: Alle vier Winkel zusammen: 50° + 130° + 50° + 50° = 280°. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -471,7 +471,7 @@
      "index": 0
     },
     "h": "Welche Winkel sind bei sich schneidenden Geraden gleich groß: gegenüberliegende oder benachbarte?",
-    "w": "Gegenüberliegende Winkel (Scheitelwinkel) sind gleich groß: Der gegenüberliegende Winkel hat auch 50°. Die Nachbarwinkel haben 180° − 50° = 130°."
+    "w": "Gegenüberliegende Winkel (Scheitelwinkel) sind gleich groß: Der gegenüberliegende Winkel hat auch 50°. Die Nachbarwinkel haben 180° − 50° = 130°. Die Zeilen 2 und 3 folgen aus dem Fehler in Zeile 1."
    }
   },
   {
@@ -674,24 +674,24 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "spitz",
+     "antwort": "45°",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "spitze Winkel sind kleiner als 90°"
+     "beschreibung": "45° ist ein spitzer Winkel (kleiner als 90°)"
     },
     {
      "index": 1,
-     "antwort": "stumpf",
+     "antwort": "120°",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "stumpfe Winkel liegen zwischen 90° und 180°"
+     "beschreibung": "120° ist ein stumpfer Winkel (zwischen 90° und 180°)"
     },
     {
      "index": 2,
-     "antwort": "gestreckt",
+     "antwort": "180°",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "gestreckt ist genau 180°"
+     "beschreibung": "180° ist ein gestreckter Winkel, kein überstumpfer"
     }
    ],
    "aufgabe": {
@@ -701,20 +701,20 @@
     "s": 1,
     "g": "erkennen",
     "f": {
-     "text": "Wie heißt ein Winkel mit 200°?"
+     "text": "Ein überstumpfer Winkel ist größer als ein gestreckter Winkel und kleiner als ein Vollwinkel. Welche Größe kann ein überstumpfer Winkel haben?"
     },
     "y": "auswahl",
     "a": [
-     "spitz",
-     "stumpf",
-     "gestreckt",
-     "überstumpf"
+     "45°",
+     "120°",
+     "180°",
+     "250°"
     ],
     "o": {
      "index": 3
     },
-    "h": "Vergleiche mit dem gestreckten Winkel von 180°.",
-    "w": "Ein Winkel mit mehr als 180° und weniger als 360° heißt überstumpf. 200° ist größer als 180°, also ist er überstumpf."
+    "h": "Ein gestreckter Winkel hat 180°, ein Vollwinkel 360°.",
+    "w": "Überstumpf heißt: mehr als 180° und weniger als 360°. Nur 250° liegt in diesem Bereich. 45° ist spitz, 120° stumpf, 180° gestreckt."
    }
   }
  ]

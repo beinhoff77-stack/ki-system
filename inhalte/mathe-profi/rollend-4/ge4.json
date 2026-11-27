@@ -84,7 +84,7 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 305,
+     "antwort": 235,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "360° statt 180° genommen"
@@ -102,6 +102,13 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "mit 180° statt 360° gerechnet"
+    },
+    {
+     "luecke": 4,
+     "antwort": 135,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt abgezogen"
     }
    ],
    "aufgabe": {
@@ -112,24 +119,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Im Dreieck ist α = 48° und β = 77°. Dann ist γ = 180° − 48° − 77° = ①°. Das sind ① − 48° = ②° mehr als α. Ein Viereck hat die Winkel 95°, 100° und 85°. Der vierte Winkel ist 360° − 95° − 100° − 85° = ③°.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Im Dreieck ist α = 48° und β = 77°. Dann ist γ = 180° − 48° − 77° = ①°. Das sind ① − 48° = ②° mehr als α. Ein Viereck hat die Winkel 95°, 100° und 85°. Der vierte Winkel ist 360° − 95° − 100° − 85° = ③°. Er ist um ③° − ①° = ④° größer als γ.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       55,
       7,
-      80
+      80,
+      25
      ]
     },
     "c": [
      "180-48-77",
      "180-48-77-48",
-     "360-95-100-85"
+     "360-95-100-85",
+     "(360-95-100-85)-(180-48-77)"
     ],
     "h": "Im Dreieck sind es 180°, im Viereck 360°.",
-    "w": "180 − 48 − 77 = 55. 55 − 48 = 7. 360 − 280 = 80."
+    "w": "180 − 48 − 77 = 55. 55 − 48 = 7. 360 − 95 − 100 − 85 = 80. 80 − 55 = 25."
    }
   },
   {
@@ -515,10 +524,10 @@
     },
     {
      "luecke": 3,
-     "antwort": 295,
+     "antwort": 245,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur einen Winkel β gezählt"
+     "beschreibung": "nur einen Winkel β gezählt: 2 · 65° + 115°"
     }
    ],
    "aufgabe": {
@@ -1642,7 +1651,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein gleichschenkliges Dreieck hat die Basiswinkel 55°. Kim berechnet den Winkel an der Spitze. Zeile 1: Die beiden Basiswinkel sind gleich groß. Zeile 2: Die Winkelsumme ist 180°. Davon ein Basiswinkel abgezogen: 180° − 55° = 125°. Zeile 3: Der Winkel an der Spitze hat also 125°. In welcher Zeile passiert der erste Fehler?"
+     "text": "Ein gleichschenkliges Dreieck hat die Basiswinkel 55°. Kim berechnet den Winkel an der Spitze. Zeile 1: Die beiden Basiswinkel sind gleich groß. Zeile 2: Die Winkelsumme ist 180°. Davon ein Basiswinkel abgezogen: 180° − 55° = 125°. Das ist der Winkel an der Spitze. Zeile 3: Der Winkel an der Spitze hat also 125°. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1652,8 +1661,8 @@
     "o": {
      "index": 1
     },
-    "h": "Wie viele Winkel müssen von der Winkelsumme abgehen?",
-    "w": "Beide Basiswinkel gehören zur Summe: 180° − 55° − 55° = 70°. Zeile 3 folgt richtig aus der falschen Zeile 2."
+    "h": "Wie viele Winkel müssen von der Winkelsumme abgehen, damit nur der Winkel an der Spitze übrig bleibt?",
+    "w": "Beide Basiswinkel gehören zur Summe: 180° − 55° − 55° = 70°. Schon in Zeile 2 fehlt ein Basiswinkel; Zeile 3 übernimmt nur das falsche Ergebnis."
    }
   },
   {

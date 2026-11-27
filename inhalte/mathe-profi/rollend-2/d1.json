@@ -37,7 +37,7 @@
      "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Zahlen gezählt, die einmal vorkommen"
+     "beschreibung": "die vier Dreier nicht mitgezählt: nur die übrigen sechs Würfe"
     },
     {
      "luecke": 4,

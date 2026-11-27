@@ -37,14 +37,14 @@
      "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch 4 geteilt"
+     "beschreibung": "durch 4 statt durch 2 geteilt"
     },
     {
      "luecke": 4,
      "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Preis halbiert und nochmal halbiert"
+     "beschreibung": "6 € durch 3 statt durch 2 geteilt"
     }
    ],
    "aufgabe": {
@@ -55,7 +55,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "4 Hefte kosten 6 €. 12 Hefte sind ①-mal so viele; sie kosten 6 € · ① = ② €. Die Hälfte von 4 Heften kostet 6 € : ③ = ④ €.",
+     "text": "4 Hefte kosten 6 €, jedes Heft kostet gleich viel. 12 Hefte sind ①-mal so viele; sie kosten 6 € · ① = ② €. Die Hälfte von 4 Heften kostet 6 € : ③ = ④ €.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
@@ -90,17 +90,17 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 10,
+     "antwort": 100,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch 5 geteilt"
+     "beschreibung": "durch 5 statt durch 2 geteilt"
     },
     {
      "luecke": 3,
      "antwort": 24,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "in Euro statt in Cent gerechnet"
+     "beschreibung": "den Preis in Euro statt den Kilopreis in Cent genommen"
     },
     {
      "luecke": 4,
@@ -193,7 +193,7 @@
      "index": 2
     },
     "h": "Prüfe: Gehört zur doppelten Menge der doppelte Wert?",
-    "w": "Bei festem Stückpreis kosten doppelt so viele Brötchen doppelt so viel. Gäbe es Mengenrabatt, wäre auch das nicht proportional. Bei den anderen drei stimmt es nie."
+    "w": "Bei festem Stückpreis kosten doppelt so viele Brötchen doppelt so viel. Gäbe es Mengenrabatt, wäre auch das nicht proportional. Bei den anderen drei stimmt es nicht immer."
    }
   },
   {

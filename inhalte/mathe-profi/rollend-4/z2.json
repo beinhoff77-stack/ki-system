@@ -83,31 +83,45 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 4,
+     "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die erste Ziffer genommen"
     },
     {
      "luecke": 2,
-     "antwort": 47,
+     "antwort": 73,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "eine Stelle zu wenig gestrichen"
     },
     {
      "luecke": 3,
-     "antwort": 4,
+     "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die erste Ziffer genommen"
+     "beschreibung": "die erste Ziffer von 736 genommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die mittlere Ziffer von 736 genommen"
     },
     {
      "luecke": 4,
-     "antwort": 1184,
+     "antwort": 184,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "durch 4 geteilt"
+    },
+    {
+     "luecke": 4,
+     "antwort": 736,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht geteilt"
     }
    ],
    "aufgabe": {
@@ -118,26 +132,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Zahl 4 730 hat die Endziffer ①. Weil ① die Endziffer ist, ist sie durch 10 teilbar: 4 730 : 10 = ②. Die Zahl 4 736 hat die Endziffer ③. Sie ist durch 2 teilbar: 4 736 : 2 = ④.",
+     "text": "Die Zahl 7 360 endet auf die Ziffer ①. Sie ist durch 10 teilbar: 7 360 : 10 = ②. Die Endziffer von ② ist ③. Deshalb ist ② durch 2 teilbar: ② : 2 = ④.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       0,
-      473,
+      736,
       6,
-      2368
+      368
      ]
     },
     "c": [
-     "4730%10",
-     "4730//10",
-     "4736%10",
-     "4736//2"
+     "7360%10",
+     "7360//10",
+     "(7360//10)%10",
+     "7360//10//2"
     ],
-    "h": "Die Endziffer ist die letzte Ziffer der Zahl.",
-    "w": "Endziffer 0: durch 10 teilbar, 4 730 : 10 = 473. 4 736 endet auf 6 (gerade): 4 736 : 2 = 2 368."
+    "h": "Die Endziffer ist die letzte Ziffer der Zahl. Beim Teilen durch 10 fällt sie weg.",
+    "w": "7 360 endet auf 0, also ist sie durch 10 teilbar: 7 360 : 10 = 736. Die Endziffer von 736 ist 6, eine gerade Ziffer, also ist 736 durch 2 teilbar: 736 : 2 = 368."
    }
   },
   {
@@ -156,7 +170,7 @@
      "antwort": 69,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "bei 54 : 9 die Null vergessen"
+     "beschreibung": "den Quotienten ohne die Null in der Mitte geschrieben"
     }
    ],
    "aufgabe": {
@@ -211,6 +225,20 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "einen Partner vergessen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Teilerzahl von 39 statt des Unterschieds genommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 + 2 gerechnet"
     }
    ],
    "aufgabe": {
@@ -221,7 +249,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Prüfe, ob 39 eine Primzahl ist. 39 : 3 = ①. Neben 1, 3 und 39 ist auch ① ein Teiler. 39 hat also genau ② Teiler. Eine Primzahl hat nur ③ Teiler.",
+     "text": "Prüfe, ob 39 eine Primzahl ist. 39 : 3 = ①. Zu den Teilern 1, 3 und 39 kommt noch ① hinzu. Das sind genau ② Teiler. Eine Primzahl hat nur die Teiler 1 und sich selbst. Also hat 39 ③ Teiler mehr als eine Primzahl, und 39 ist keine Primzahl.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -235,7 +263,7 @@
     "c": [
      "39 // 3",
      "4",
-     "2"
+     "4 - 2"
     ],
     "h": "Zähle alle Teiler von 39 mit ihren Partnern.",
     "w": "39 : 3 = 13. Teiler: 1, 3, 13, 39. Das sind vier, also keine Primzahl. Eine Primzahl hat genau zwei Teiler."
@@ -801,7 +829,7 @@
     "s": 2,
     "g": "darstellung",
     "f": {
-     "text": "Eine dieser vier Zahlen lässt sich nicht als Produkt kleinerer Zahlen schreiben. Welche?"
+     "text": "Eine dieser vier Zahlen lässt sich nicht als Produkt zweier natürlicher Zahlen schreiben, die beide größer als 1 und kleiner als die Zahl selbst sind. Welche?"
     },
     "y": "auswahl",
     "a": [

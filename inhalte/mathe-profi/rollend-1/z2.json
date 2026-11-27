@@ -19,17 +19,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 22,
+     "antwort": 46,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "48 − 2 gerechnet"
     },
     {
      "luecke": 2,
-     "antwort": 15,
+     "antwort": 45,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "48 − 3 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 44,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "48 − 4 gerechnet"
     },
     {
      "luecke": 4,
@@ -40,10 +47,17 @@
     },
     {
      "luecke": 5,
-     "antwort": 5,
+     "antwort": 48,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "jedes Paar nur einmal gezählt"
+     "beschreibung": "mal statt plus gerechnet"
+    },
+    {
+     "luecke": 5,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 + 6 gerechnet"
     }
    ],
    "aufgabe": {
@@ -54,9 +68,9 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Teilerpaare von 48 sind 1 · 48 und vier weitere: 2 · ①, 3 · ②, 4 · ③, 6 · ④. Jedes Paar liefert zwei Teiler. Insgesamt hat 48 also 5 · 2 = ⑤ Teiler.",
+     "text": "Die Teilerpaare von 48 sind 1 · 48 und weitere: 2 · ①, 3 · ②, 4 · ③, 6 · ④. Das Paar mit den am nächsten beieinander liegenden Faktoren ist 6 · ④. Die Summe dieser beiden Faktoren ist 6 + ④ = ⑤.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □; ⑤ = □",
-     "hinweis": "Je Lücke eine Zahl."
+     "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
@@ -64,7 +78,7 @@
       16,
       12,
       8,
-      10
+      14
      ]
     },
     "c": [
@@ -72,10 +86,10 @@
      "48//3",
      "48//4",
      "48//6",
-     "5*2"
+     "6+48//6"
     ],
-    "h": "Teile die Zahl der Reihe nach durch 2, 3, 4 und 6.",
-    "w": "48 = 1 · 48 = 2 · 24 = 3 · 16 = 4 · 12 = 6 · 8. Das sind 5 Paare, also 10 Teiler."
+    "h": "Teile 48 der Reihe nach durch 2, 3, 4 und 6.",
+    "w": "48 = 2 · 24 = 3 · 16 = 4 · 12 = 6 · 8. Das Paar 6 · 8 liegt am engsten beieinander, 6 + 8 = 14."
    }
   },
   {
@@ -149,7 +163,29 @@
    "regel": "id.zahlen.bausteine",
    "regel_name": "Bausteine",
    "zaehlt": "nein",
-   "fehlbilder": [],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 82,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "84 − 2 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "42 − 2 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "21 − 3 gerechnet"
+    }
+   ],
    "aufgabe": {
     "l": "primfaktoren",
     "t": "primfaktoren",

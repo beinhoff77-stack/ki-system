@@ -1115,7 +1115,7 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Beweis der Winkelsumme im Dreieck ABC: Durch C wird die Parallele p zu AB gezeichnet. D ist ein Punkt auf p, der auf derselben Seite von C liegt wie A. Welcher Satz begründet, dass der Winkel ∠DCA so groß ist wie α = ∠CAB?"
+     "text": "Beweis der Winkelsumme im Dreieck ABC: Durch C wird die Parallele p zu AB gezeichnet. D ist der Punkt auf p, für den der Strahl CD parallel und gleichgerichtet zum Strahl BA verläuft. Welcher Satz begründet, dass der Winkel ∠DCA so groß ist wie α = ∠CAB?"
     },
     "a": [
      "Wechselwinkel an Parallelen sind gleich groß.",
@@ -1127,7 +1127,7 @@
      "index": 0
     },
     "h": "Welche zwei Geraden sind parallel, und welche Gerade schneidet beide?",
-    "w": "AB und p sind parallel, die Gerade AC schneidet beide. ∠CAB und ∠DCA liegen auf verschiedenen Seiten von AC und bei verschiedenen Parallelen: Es sind Wechselwinkel."
+    "w": "AB und p sind parallel, die Gerade AC schneidet beide. Der Strahl CD zeigt in dieselbe Richtung wie BA, also liegen ∠CAB und ∠DCA auf verschiedenen Seiten von AC und bei verschiedenen Parallelen: Es sind Wechselwinkel."
    }
   },
   {

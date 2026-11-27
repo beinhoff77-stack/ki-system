@@ -171,7 +171,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Preis von 200 € steigt erst um 10 % und dann noch einmal um 10 %. 10 % von 200 € sind ① €. Nach dem ersten Mal kostet es ② €. 10 % von ② € sind ③ €. Nach dem zweiten Mal kostet es ④ €.",
+     "text": "Ein Preis von 200 € steigt erst um 10 % und dann noch einmal um 10 %. 10 % von 200 € sind ① €. Nach dem ersten Mal kostet es ② €. 10 % von ② € sind ③ €. Nach dem zweiten Mal kostet es ② € + ③ € = ④ €.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },

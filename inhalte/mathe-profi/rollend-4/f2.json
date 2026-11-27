@@ -25,7 +25,7 @@
      "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die rechte Seite von y = nicht geteilt"
+     "beschreibung": "die Seite nicht durch 2 geteilt"
     },
     {
      "luecke": 2,
@@ -33,6 +33,20 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur 6x geteilt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit den ungeteilten Zahlen gerechnet: 6 · 2 + 8 − 4"
+    },
+    {
+     "luecke": 3,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ① · 2 + ② mit ② = 8 gerechnet: 3 · 2 + 8"
     }
    ],
    "aufgabe": {
@@ -43,22 +57,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Gleichung 2y = 6x + 8 wird durch 2 geteilt. Dann ist y = ①x + ②. Die Steigung ist ① und der Achsenabschnitt ist ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Die Gleichung 2y = 6x + 8 wird durch 2 geteilt. Dann ist y = ①x + ②. Die Steigung ist ① und der Achsenabschnitt ist ②. Für x = 2 gehört dann der Wert y = ① · 2 + ② = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       3,
-      4
+      4,
+      10
      ]
     },
     "c": [
      "6 // 2",
-     "8 // 2"
+     "8 // 2",
+     "6//2*2+8//2"
     ],
-    "h": "Teile beide Zahlen rechts durch 2, nicht nur eine.",
-    "w": "6x : 2 = 3x und 8 : 2 = 4. Also y = 3x + 4."
+    "h": "Teile beide Zahlen rechts durch 2.",
+    "w": "6x : 2 = 3x und 8 : 2 = 4. Also y = 3x + 4. Für x = 2 ist y = 3 · 2 + 4 = 10."
    }
   },
   {
@@ -72,6 +88,20 @@
    "regel_name": "Gleichung und Form",
    "zaehlt": "nein",
    "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 · 2 + 5 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 · 4 + 5 gerechnet"
+    },
     {
      "luecke": 3,
      "antwort": 2,
@@ -194,7 +224,7 @@
      "2 * 3",
      "11 - 2 * 3"
     ],
-    "h": "Rechne erst 2 · 3 aus.",
+    "h": "Setze die Koordinaten von P in y = 2x + t ein.",
     "w": "2 · 3 = 6. t = 11 − 6 = 5. Die Gerade ist y = 2x + 5."
    }
   },
@@ -221,7 +251,7 @@
      "antwort": -1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "dieselbe Steigung wie g genommen (parallel)"
+     "beschreibung": "Kehrwert gebildet, aber das Vorzeichen nicht gewechselt"
     },
     {
      "luecke": 3,
@@ -239,9 +269,9 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Gerade g hat die Gleichung y = −x + 3. Ihre Steigung ist ①. Für eine Gerade h senkrecht zu g gilt: Steigung von g mal Steigung von h ist minus eins. Also ist die Steigung von h gleich ②. Die Summe beider Steigungen ist ① + ② = ③.",
+     "text": "Die Gerade g hat die Gleichung y = −x + 3. Ihre Steigung ist ①. Eine Gerade h senkrecht zu g hat als Steigung den negativen Kehrwert der Steigung von g, also ②. Die Summe beider Steigungen ist ① + ② = ③.",
      "schablone": "① = □; ② = □; ③ = □",
-     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+     "hinweis": "Je Lücke eine ganze Zahl, wenn nötig mit Minus."
     },
     "o": {
      "werte": [
@@ -256,7 +286,7 @@
      "-1+1"
     ],
     "h": "Die Steigung ist die Zahl vor dem x. Wie lautet sie bei −x?",
-    "w": "g hat die Steigung −1. Aus (−1) · m = −1 folgt m = 1. Die Summe ist 0."
+    "w": "g hat die Steigung −1. Der Kehrwert von −1 ist −1, der negative Kehrwert ist 1. Die Summe ist −1 + 1 = 0."
    }
   },
   {
@@ -458,7 +488,7 @@
      "antwort": 60,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "3 · 5 addiert statt abgezogen"
+     "beschreibung": "45 + 3 · 5 gerechnet statt 45 − 3 · 5"
     },
     {
      "luecke": 2,
@@ -473,6 +503,13 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "45 · 3 gerechnet"
+    },
+    {
+     "luecke": 4,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "③ + 5 statt ③ − 5 gerechnet"
     }
    ],
    "aufgabe": {
@@ -483,24 +520,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Behälter enthält am Anfang 45 l Wasser. Jede Minute fließen 3 l ab. Nach 5 Minuten sind es noch 45 − 3 · 5 = ① l. In dieser Zeit sind 45 − ① = ② l abgeflossen. Leer ist der Behälter, wenn 3 · t = 45 gilt, also nach ③ Minuten.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Ein Behälter enthält am Anfang 45 l Wasser. Jede Minute fließen 3 l ab. Nach 5 Minuten sind es noch 45 − 3 · 5 = ① l. In dieser Zeit sind 45 − ① = ② l abgeflossen. Leer ist der Behälter, wenn 3 · t = 45 gilt, also nach ③ Minuten. Es dauert dann noch ③ − 5 = ④ Minuten.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       30,
       15,
-      15
+      15,
+      10
      ]
     },
     "c": [
      "45-3*5",
      "45-(45-3*5)",
-     "45//3"
+     "45//3",
+     "45//3-5"
     ],
     "h": "Die Rate ist negativ: Es wird weniger.",
-    "w": "45 − 15 = 30 l sind noch drin. 15 l sind abgeflossen. 3 · t = 45 ergibt t = 15 Minuten."
+    "w": "45 − 15 = 30 l sind noch drin. 15 l sind abgeflossen. 3 · t = 45 ergibt t = 15 Minuten, das sind 15 − 5 = 10 Minuten mehr."
    }
   },
   {

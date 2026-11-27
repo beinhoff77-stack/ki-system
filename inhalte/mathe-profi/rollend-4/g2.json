@@ -281,7 +281,7 @@
     "s": 1,
     "g": "direkt",
     "f": {
-     "text": "3 kg Äpfel kosten 9 €. Weg A: erst den Preis für 1 kg bestimmen, dann mit 5 multiplizieren. Weg B: 9 · 5 : 3 rechnen. Wie viel kosten 5 kg?"
+     "text": "3 kg Äpfel kosten 9 €. Der Preis je Kilogramm ist immer gleich. Weg A: erst den Preis für 1 kg bestimmen, dann mit 5 multiplizieren. Weg B: 9 · 5 : 3 rechnen. Wie viel kosten 5 kg?"
     },
     "y": "zahl",
     "o": {

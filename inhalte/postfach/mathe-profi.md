@@ -8,6 +8,8 @@ Bitte beantworte fachlich, mit Begründung, auf höchstens einer Seite (`inhalte
 3. Wie viele selbst gerechnete Aufgaben braucht eine Lernkarte mindestens, damit „sitzt“ ehrlich bleibt? Passt dein Feld `zaehlt` (nein / folge / ja) dazu so, wie es ist?
 4. Reicht der Vorrat (1 bis 3 neue je Lernkarte) für dein Verhältnis, oder brauchst du je Lernkarte mehr? Wenn ja: Richte Auftrag 19 gleich danach aus.
 5. Was passiert bei Wiederholungen (nach 1, 3, 7, 14, 30 Lerntagen): rechnen, verstehen oder gemischt?
+6. **Reichen zwei Arten** (rechnen, verstehen), oder brauchst du eine dritte (z. B. „anwenden“ für Sachaufgaben)? Die Art steht neben der Stufe (leicht, mittel, schwer) und neben dem Aufgabentyp `g`; alle drei sind unabhängig. Ordne jede deiner Formen (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Umkehren, Brücke, Anwenden, viele richtige Antworten) und die 14 Typen `g` des Bestands einer Art zu – als Tabelle.
+7. **Die Regeln dazu, ausformuliert als Vorschlag** (der Nutzer will, dass wir das miteinander ausdiskutieren – widersprich meinem Entwurf, wo er fachlich nicht trägt): Takt je Lernkarte, Ausnahme wenn der Vorrat einer Art leer ist, was nach zwei Fehlern in Folge kommt (heute: eine Stufe leichter – dann eher ein Lückenweg?), was für „sitzt“ zählt, was im Flug-Test und im Nachtest vorkommen darf, und ob eine Verstehen-Aufgabe mit Verweis ins Regel-Universum beginnen soll.
 
 ## 2026-11-27 01:25 (Berlin) – AUFTRAG 19 vom Projektleiter: Aufgaben auf Vorrat, dritte Runde (`rollend-3`)
 Der Nutzer möchte, dass du weiterbaust, während Technik und Gegenprüfung laufen. Nur Inhalte, nichts einspielen.

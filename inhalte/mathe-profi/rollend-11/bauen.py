@@ -165,7 +165,10 @@ for nr, a in enumerate(A, 1):
             assert len(a["werte"]) == len(ant) and len({F(str(v)) for v in a["werte"]}) == len(ant), (kenn, "zwei Antworten mit gleichem Wert")
         for i, (beschr, rech) in sorted(a["fb"].items()):
             assert beschr and len(beschr) > 5, (kenn, "Beschreibung")
-            if rech is not None:
+            if callable(rech):
+                assert rech() is True, (kenn, "Fehlbild", i, "die beschriebene Rechnung ergibt nicht diese Antwort")
+                n_fb_rechnung += 1
+            elif rech is not None:
                 assert a["werte"] is not None, (kenn, "Rechnung ohne werte")
                 assert ip.rechne(rech) == ip.zahlwert(a["werte"][i]), (kenn, "Fehlbild", i, rech, "ergibt", float(ip.rechne(rech)), "nicht", a["werte"][i])
                 n_fb_rechnung += 1

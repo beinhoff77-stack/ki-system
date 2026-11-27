@@ -26,27 +26,43 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 19,
+     "antwort": 8,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "addiert statt malgenommen",
-     "c": "15 + 4"
+     "beschreibung": "die Ecken statt der Kanten gezählt",
+     "c": "8"
+    },
+    {
+     "luecke": 1,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Flächen statt der Kanten gezählt",
+     "c": "6"
     },
     {
      "luecke": 2,
-     "antwort": 25,
+     "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "alle Maße addiert",
-     "c": "15 + 4 + 6"
+     "beschreibung": "12 durch 6 geteilt",
+     "c": "(12) / 6"
     },
     {
      "luecke": 3,
-     "antwort": 364,
+     "antwort": 26,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Breite addiert statt verdoppelt",
-     "c": "(360) + 4"
+     "beschreibung": "nur eine Kante je Sorte gezählt: 15 + 5 + 6",
+     "c": "15 + 5 + 6"
+    },
+    {
+     "luecke": 4,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine der längsten Kanten gezählt",
+     "c": "15"
     }
    ],
    "aufgabe": {
@@ -57,24 +73,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Quader ist 15 cm lang, 4 cm breit und 6 cm hoch. Seine Grundfläche ist ① cm². Sein Volumen ist ② cm³. Wird die Breite verdoppelt, ist das Volumen ③ cm³.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Ein Quader ist 15 cm lang, 5 cm breit und 6 cm hoch. Er hat ① Kanten, und zwar je ② gleich lange Kanten in drei Sorten (Länge, Breite, Höhe). Alle Kanten zusammen sind ③ cm lang. Die längsten Kanten zusammen sind ④ cm lang.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
-      60,
-      360,
-      720
+      12,
+      4,
+      104,
+      60
      ]
     },
     "c": [
-     "15 * 4",
-     "(60) * 6",
-     "(360) * 2"
+     "12",
+     "(12) / 3",
+     "(4) * (15 + 5 + 6)",
+     "(4) * 15"
     ],
-    "h": "Volumen = Grundfläche mal Höhe.",
-    "w": "Grundfläche: 15 · 4 = 60 cm². Volumen: 60 · 6 = 360 cm³. Bei doppelter Breite verdoppelt sich das Volumen: 720 cm³."
+    "h": "Wie viele Kanten laufen in jede Richtung (Länge, Breite, Höhe)?",
+    "w": "Ein Quader hat 12 Kanten, je 4 in den drei Richtungen. Alle Kanten zusammen: 4 · (15 + 5 + 6) = 4 · 26 = 104 cm. Die vier längsten Kanten sind zusammen 4 · 15 = 60 cm lang."
    }
   },
   {
@@ -143,18 +161,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 8,
+     "antwort": 36,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Höhe eines Quaders angegeben",
-     "c": "200 / 25"
+     "beschreibung": "die Höhe als Summe der vier Höhenkanten genommen: 76 − 8 · 5",
+     "c": "76 - 8 * 5"
     },
     {
-     "antwort": 80,
+     "antwort": 14,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch die Seitenlänge 5 statt durch die Grundfläche geteilt, dann verdoppelt",
-     "c": "2 * 200 / 5"
+     "beschreibung": "nur vier statt acht Grundkanten abgezogen: (76 − 4 · 5) : 4",
+     "c": "(76 - 4 * 5) / 4"
     }
    ],
    "aufgabe": {
@@ -165,15 +183,15 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Quader mit quadratischer Grundfläche (Seitenlänge 5 cm) hat das Volumen 200 cm³. Zwei solche Quader werden aufeinandergestellt. Wie hoch ist der Turm in Zentimetern?"
+     "text": "Ein Quader hat eine quadratische Grundfläche mit der Seitenlänge 5 cm. Alle zwölf Kanten zusammen sind 76 cm lang. Wie hoch ist der Quader in Zentimetern?"
     },
     "o": {
-     "wert": 16,
+     "wert": 9,
      "einheit": "cm"
     },
-    "c": "2 * 200 / (5 * 5)",
-    "h": "Berechne zuerst die Höhe eines Quaders.",
-    "w": "Ein Quader: 5 · 5 · h = 200, also h = 200 : 25 = 8 cm. Zwei Quader: 2 · 8 cm = 16 cm."
+    "c": "(76 - 8 * 5) / 4",
+    "h": "Wie viele Kanten sind 5 cm lang? Wie viele sind Höhenkanten?",
+    "w": "Acht Kanten (vier unten, vier oben) sind je 5 cm lang: 8 · 5 = 40 cm. Für die vier Höhenkanten bleiben 76 − 40 = 36 cm, eine ist 36 : 4 = 9 cm hoch. Probe: 40 + 4 · 9 = 76."
    }
   },
   {
@@ -193,7 +211,7 @@
      "antwort": 60,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur eine Fläche gerechnet",
+     "beschreibung": "nur den Boden statt Boden und Deckel: 10 · 6",
      "c": "10 * 6"
     },
     {
@@ -201,7 +219,7 @@
      "antwort": 40,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur eine Fläche gerechnet",
+     "beschreibung": "nur die Vorderseite statt Vorder- und Rückseite: 10 · 4",
      "c": "10 * 4"
     },
     {
@@ -209,7 +227,7 @@
      "antwort": 24,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur eine Fläche gerechnet",
+     "beschreibung": "nur eine Seitenfläche statt beider: 6 · 4",
      "c": "6 * 4"
     },
     {
@@ -551,7 +569,7 @@
      "antwort": 24,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur eine Fläche gerechnet",
+     "beschreibung": "sechs Kantenlängen statt sechs Quadratflächen gezählt: 6 · 4",
      "c": "6 * 4"
     },
     {
@@ -803,7 +821,7 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Volumen eines Quaders mit den Kanten 5 cm, 4 cm und 3 cm: 94 cm³",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -811,7 +829,7 @@
      "c": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Summe aller Kanten eines Quaders mit 5 cm, 4 cm und 3 cm: 94 cm",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -819,7 +837,7 @@
      "c": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Oberfläche eines Würfels mit der Kante 5 cm: 94 cm²",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -838,13 +856,13 @@
      "text": "Die Maße sind in cm angegeben. Welche Aussage passt zur Rechnung 2 · (5 · 4 + 5 · 3 + 4 · 3) = 94?"
     },
     "a": [
+     "Oberfläche eines Quaders mit den Kanten 5 cm, 4 cm und 3 cm: 94 cm²",
      "Volumen eines Quaders mit den Kanten 5 cm, 4 cm und 3 cm: 94 cm³",
      "Summe aller Kanten eines Quaders mit 5 cm, 4 cm und 3 cm: 94 cm",
-     "Oberfläche eines Würfels mit der Kante 5 cm: 94 cm²",
-     "Oberfläche eines Quaders mit den Kanten 5 cm, 4 cm und 3 cm: 94 cm²"
+     "Oberfläche eines Würfels mit der Kante 5 cm: 94 cm²"
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "h": "Wie viele Flächen hat ein Quader, und wie viele davon sind gleich groß?",
     "w": "In der Klammer stehen die drei verschiedenen Flächen 5 · 4, 5 · 3 und 4 · 3. Jede kommt zweimal vor, deshalb der Faktor 2. Das ist die Oberfläche: 2 · 47 = 94 cm²."

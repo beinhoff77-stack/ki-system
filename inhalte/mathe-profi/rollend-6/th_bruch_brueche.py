@@ -10,7 +10,7 @@ neu(T, "bruchteil_von", "umkehren", Z(
     "Von einer 72 m langen Schnur wird ein Stück abgeschnitten. Es ist ?/8 der Schnur und 45 m lang. Welche Zahl steht an der Stelle des Fragezeichens?",
     5, "45 / (72 / 8)", "45 * 8 / 72", "Wie lang ist ein Achtel der ganzen Schnur?",
     "Ein Achtel der Schnur sind 72 m : 8 = 9 m. Das Stück hat 45 m. 45 m : 9 m = 5. Probe: 5/8 von 72 m = 45 m.",
-    [(9, None, "nur ein Achtel berechnet und den Zähler vergessen", "72 / 8"), (360, None, "45 mit dem Nenner 8 malgenommen", "45 * 8")]), regel=None)
+    [(9, None, "nur ein Achtel der Schnur (72 : 8 = 9 m) statt der Zahl der Achtel angegeben", "72 / 8"), (360, None, "45 mit dem Nenner 8 malgenommen", "45 * 8")]), regel=None)
 neu(T, "bruchteil_von", "anwenden", Z(
     "Ein Wanderweg ist 24 km lang. Am ersten Tag geht die Gruppe 3/8 des ganzen Weges, am zweiten Tag 1/4 des ganzen Weges. Wie viele Kilometer bleiben für den dritten Tag?",
     9, "24 * (1 - 3/8 - 1/4)", "24 - 9 - 6", "Rechne beide Tagesstrecken aus. Was bleibt vom ganzen Weg übrig?",
@@ -40,7 +40,7 @@ neu(T, "ganzes_bestimmen", "lueckenweg", L(
     "3/5 einer Strecke sind 27 km lang. Zuerst bestimmst du, wie lang ein Fünftel ist: ① km. Dann bekommst du die ganze Strecke: ② km. Ohne diese 27 km ist die Strecke noch ③ km lang.",
     KOMM(3), [9, 45, 18], ["27 / 3", "{1} * 5", "{2} - 27"], ["9", "45", "18"], "Teile zuerst durch den Zähler, um ein Teil zu erhalten.",
     "27 km : 3 = 9 km ist ein Fünftel. Das Ganze sind 5 Fünftel: 5 · 9 km = 45 km. Ohne die 27 km bleiben 45 km − 27 km = 18 km.",
-    {0: [(81, None, "den Zähler mit 27 malgenommen statt geteilt", "27 * 3")], 1: [(27, None, "mit dem Zähler statt dem Nenner malgenommen", "{1} * 3")],
+    {0: [(81, None, "27 · 3 gerechnet statt 27 : 3", "27 * 3")], 1: [(27, None, "mit dem Zähler statt dem Nenner malgenommen", "{1} * 3")],
      2: [(72, None, "die 27 km dazugezählt statt abgezogen", "{2} + 27")]}), regel=None)
 neu(T, "ganzes_bestimmen", "anwenden", Z(
     "Ein Händler verkauft am Montag 2/5 seiner Äpfel. Das sind 18 kg. Wie viele Kilogramm Äpfel hatte er vorher?",
@@ -79,13 +79,13 @@ neu(T, "ggt", "lueckenweg", L(
     KOMM(3), [36, 12, 15], ["180 % 48", "48 % {1}", "180 / {2}"], ["180 - 3 * 48", "48 - 36", "gcd(48, 180) * 15 / 12"],
     "Teile mit Rest: Welcher Rest bleibt, wenn du die größere Zahl durch die kleinere teilst?",
     "180 : 48 = 3 Rest 36. 48 : 36 = 1 Rest 12. 36 : 12 geht ohne Rest, also ist der ggT 12. 180 : 12 = 15, der neue Nenner ist 15 (48/180 = 4/15).",
-    {0: [(132, None, "nur einmal abgezogen: 180 − 48", "180 - 48")], 1: [(1, None, "den Quotienten 48 : 36 statt des Rests genommen", "48 // {1}")],
+    {0: [(132, None, "nur einmal abgezogen: 180 − 48", "180 - 48")], 1: [(1, None, "den ganzzahligen Quotienten 1 aus 48 = 1 · 36 + 12 statt des Rests 12 genommen", "48 // {1}")],
      2: [(5, None, "mit dem ersten Rest 36 statt mit dem ggT gekürzt", "180 / {1}")]}), regel=None)
 neu(T, "ggt", "anwenden", Z(
     "Eine Fläche von 24 cm mal 36 cm soll ohne Lücken mit gleich großen Quadraten ausgelegt werden. Die Quadrate sollen so groß wie möglich sein. Wie lang ist die Seite eines Quadrats in Zentimetern?",
     12, "2 * 2 * 3", "gcd(24, 36)", "Die Seitenlänge muss in 24 und in 36 ohne Rest passen.",
     "Gesucht ist der größte gemeinsame Teiler von 24 und 36. 24 = 2 · 2 · 2 · 3 und 36 = 2 · 2 · 3 · 3. Gemeinsam: 2 · 2 · 3 = 12. Das Quadrat hat 12 cm Seitenlänge.",
-    [(72, None, "das kleinste gemeinsame Vielfache statt des größten gemeinsamen Teilers", "2 * 2 * 2 * 3 * 3"), (6, None, "nur einen gemeinsamen Teiler genommen, nicht den größten", "24 / 4")], "cm"), regel=None)
+    [(72, None, "das kleinste gemeinsame Vielfache statt des größten gemeinsamen Teilers", "2 * 2 * 2 * 3 * 3"), (6, None, "24 : 4 = 6 gerechnet: 6 ist ein gemeinsamer Teiler von 24 und 36, aber nicht der größte", "24 / 4")], "cm"), regel=None)
 neu(T, "ggt", "fehler_detektiv", FD(
     "Jan bestimmt den größten gemeinsamen Teiler von 36 und 60.",
     [("Teiler von 36: 1, 2, 3, 4, 6, 9, 12, 18, 36", teiler(36) == [1, 2, 3, 4, 6, 9, 12, 18, 36]),
@@ -142,7 +142,7 @@ neu(T, "gleichwertig", "lueckenweg", L(
 neu(T, "gleichwertig", "bruecke", L(
     "Eine Farbmischung besteht aus 12 Teilen Blau und 18 Teilen Weiß. Teilst du beide Zahlen durch dieselbe Zahl, bleibt die Mischung gleich. Welcher Bruchteil der Mischung ist Blau? Schreibe ihn als vollständig gekürzten Bruch.",
     "□/□", [2, 5], ["12 / 6", "(12 + 18) / 6"], ["2", "5"], "Wie viele gleiche Teile hat die ganze Mischung? Kürze danach vollständig.",
-    "12 Teile Blau und 18 Teile Weiß sind zusammen 30 Teile. Blau ist 12/30 der Mischung, gekürzt durch 6: 2/5.",
+    "12 Teile Blau und 18 Teile Weiß sind zusammen 30 Teile. Es gilt 12 : 18 = 2 : 3, also sind 2 von 5 Teilen blau. Rechnung: 12/30 der Mischung, gekürzt durch 6: 2/5.",
     {0: [(12, None, "nicht gekürzt: die 12 Teile Blau als Zähler stehen gelassen", "12 / 1")],
      1: [(3, None, "den Nenner aus den Teilen Weiß gebildet und gekürzt: 18 durch 6", "18 / 6"), (30, None, "nicht gekürzt: alle 30 Teile als Nenner stehen gelassen", "(12 + 18) / 1")]},
     hinweis="Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."), regel=None)
@@ -167,7 +167,7 @@ neu(T, "gemischte_zahlen", "anwenden", Z(
 neu(T, "gemischte_zahlen", "fehler_detektiv", FD(
     "Tina rechnet 2 1/3 + 1 5/6.",
     [("2 1/3 + 1 5/6 = 2 2/6 + 1 5/6", 2 + F(1, 3) + 1 + F(5, 6) == (2 + F(2, 6)) + (1 + F(5, 6))),
-     ("= 3 7/6", (2 + F(2, 6)) + (1 + F(5, 6)) == 3 + F(7, 6)),
+     ("= 3 + 7/6", (2 + F(2, 6)) + (1 + F(5, 6)) == 3 + F(7, 6)),
      ("= 3 1/6", 3 + F(7, 6) == 3 + F(1, 6))],
     "Was passiert, wenn der Bruchteil größer als ein Ganzes ist?", "7/6 = 1 1/6. Man muss das Ganze zu den 3 dazuzählen: 3 + 1 1/6 = 4 1/6. In Zeile 3 ging das Ganze verloren.", rueck={}), regel=None)
 
@@ -196,7 +196,7 @@ neu(T, "vergleichen", "lueckenweg", L(
     "Vergleiche 5/6 und 7/9. Der Hauptnenner ist ①. Dann ist 5/6 = ②/① und 7/9 = ③/①. Der Bruch mit dem größeren Zähler ist der größere.",
     KOMM(3), [18, 15, 14], ["18", "5 * {1} / 6", "7 * {1} / 9"], ["lcm(6, 9)", "15", "14"], "Suche das kleinste gemeinsame Vielfache von 6 und 9.",
     "Hauptnenner 18. 5/6 = 15/18 und 7/9 = 14/18. 15 ist größer als 14, also ist 5/6 größer als 7/9.",
-    {0: [(54, None, "die Nenner malgenommen", "6 * 9")], 1: [(10, None, "mit dem Nenner 9 statt 6 erweitert", "5 * {1} / 9")], 2: [(21, None, "mit dem Nenner 6 statt 9 erweitert", "7 * {1} / 6")]}), regel=None)
+    {0: [(54, None, "die Nenner malgenommen", "6 * 9")], 1: [(10, None, "den Faktor 18 : 9 = 2 des anderen Bruchs verwendet: 5 · 2", "5 * {1} / 9")], 2: [(21, None, "den Faktor 18 : 6 = 3 des anderen Bruchs verwendet: 7 · 3", "7 * {1} / 6")]}), regel=None)
 neu(T, "vergleichen", "zwei_wege", Z(
     "Vergleiche 11/12 und 13/14. Weg A: Erweitere beide Brüche auf den Nenner 84. Weg B: Prüfe, wie viel jedem Bruch bis zum Ganzen fehlt (1/12 und 1/14). Um wie viele Vierundachtzigstel ist der größere Bruch größer als der kleinere?",
     1, "13 * 6 - 11 * 7", "(1/12 - 1/14) * 84", "Wie viele 84stel sind ein Zwölftel, wie viele ein Vierzehntel?",

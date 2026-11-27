@@ -65,7 +65,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Zahl hat 6 Einer, 2 Zehntel und 15 Tausendstel. Bündele die 15 Tausendstel: Das sind ① Hundertstel und ② Tausendstel. Schreibst du die Zahl als Dezimalzahl und lässt das Komma weg, entsteht die ganze Zahl ③. Auf Hundertstel gerundet sind es ④ Hundertstel.",
+     "text": "Die Zahl hat 6 Einer, 2 Zehntel und 15 Tausendstel. Bündele die 15 Tausendstel: Das sind ① Hundertstel und ② Tausendstel. Schreibe die Zahl mit genau drei Nachkommastellen. Die ganze Zahl, die entsteht, wenn du das Komma weglässt, ist ③. Auf Hundertstel gerundet sind es ④ Hundertstel.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
@@ -273,26 +273,26 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "75 ist größer als 8, also ist 0,75 größer.",
+     "antwort": "Die Zahlen hinter dem Komma wie ganze Zahlen vergleichen: 8 und 75.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "wie ganze Zahlen verglichen: 75 gegen 8",
+     "beschreibung": "die Stellenzahl nicht angeglichen: 75 gegen 8",
      "c": null
     },
     {
      "index": 2,
-     "antwort": "0,8 hat weniger Ziffern, also ist es kleiner.",
+     "antwort": "Die Ziffern zählen: Die Zahl mit mehr Ziffern ist die größere.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl der Ziffern verglichen",
+     "beschreibung": "die Zahl der Ziffern statt des Werts verglichen",
      "c": null
     },
     {
      "index": 3,
-     "antwort": "Beide sind gleich groß, weil man hinten Nullen anhängen darf.",
+     "antwort": "Beide Zahlen mit 10 malnehmen und nur die ganzen Zahlen vergleichen: 8 und 7.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "aus dem Anhängen von Nullen (0,8 = 0,80) gefolgert, dass auch 0,75 gleich groß ist",
+     "beschreibung": "Reste hinter dem Komma abgeschnitten; bei 0,81 und 0,89 entscheidet dieser Weg nichts",
      "c": null
     }
    ],
@@ -304,13 +304,13 @@
     "g": "mehrschritt",
     "y": "auswahl",
     "f": {
-     "text": "Du vergleichst 0,8 und 0,75. Welche Überlegung ist richtig?"
+     "text": "Du willst 0,8 und 0,75 vergleichen. Welcher Weg führt sicher zum richtigen Ergebnis?"
     },
     "a": [
-     "0,8 = 0,80. 80 Hundertstel sind mehr als 75 Hundertstel, also ist 0,8 größer.",
-     "75 ist größer als 8, also ist 0,75 größer.",
-     "0,8 hat weniger Ziffern, also ist es kleiner.",
-     "Beide sind gleich groß, weil man hinten Nullen anhängen darf."
+     "Beide Zahlen mit gleich vielen Nachkommastellen schreiben (0,80 und 0,75) und dann die Hundertstel vergleichen.",
+     "Die Zahlen hinter dem Komma wie ganze Zahlen vergleichen: 8 und 75.",
+     "Die Ziffern zählen: Die Zahl mit mehr Ziffern ist die größere.",
+     "Beide Zahlen mit 10 malnehmen und nur die ganzen Zahlen vergleichen: 8 und 7."
     ],
     "o": {
      "index": 0
@@ -690,8 +690,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": null,
-   "regel_name": null,
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -1109,14 +1109,14 @@
      "antwort": 27,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Periode als Zähler genommen",
+     "beschreibung": "27 als Zähler: die Probe 27 : 11 ergibt 2,4545… statt 0,2727…",
      "c": "27"
     },
     {
      "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "9 : 11 gerechnet, das ergibt 0,8181…",
+     "beschreibung": "9 als Zähler: die Probe 9 : 11 ergibt 0,8181… statt 0,2727…",
      "c": "9"
     }
    ],
@@ -1268,7 +1268,7 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "0,30 ist größer, weil die Zahl 30 größer ist als 3.",
+     "antwort": "Die Zahlen 3 und 30 vergleichen: 30 ist größer, also ist 0,30 größer.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "wie ganze Zahlen verglichen",
@@ -1276,7 +1276,7 @@
     },
     {
      "index": 1,
-     "antwort": "0,3 ist größer, weil es weniger Stellen hat.",
+     "antwort": "Die Stellen zählen: 0,3 hat weniger Stellen, also ist es kleiner.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Zahl der Stellen verglichen",
@@ -1284,7 +1284,7 @@
     },
     {
      "index": 2,
-     "antwort": "Sie sind verschieden, weil die Schreibweise verschieden ist.",
+     "antwort": "Die Schreibweise vergleichen: Sie ist verschieden, also sind die Werte verschieden.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Schreibweise mit dem Wert verwechselt",
@@ -1299,13 +1299,13 @@
     "g": "mehrschritt",
     "y": "auswahl",
     "f": {
-     "text": "Welche Aussage über 0,3 und 0,30 ist richtig?"
+     "text": "Du willst prüfen, ob 0,3 und 0,30 gleich groß sind. Welcher Weg zeigt es sicher?"
     },
     "a": [
-     "0,30 ist größer, weil die Zahl 30 größer ist als 3.",
-     "0,3 ist größer, weil es weniger Stellen hat.",
-     "Sie sind verschieden, weil die Schreibweise verschieden ist.",
-     "Sie sind gleich groß, denn 3 Zehntel sind 30 Hundertstel."
+     "Die Zahlen 3 und 30 vergleichen: 30 ist größer, also ist 0,30 größer.",
+     "Die Stellen zählen: 0,3 hat weniger Stellen, also ist es kleiner.",
+     "Die Schreibweise vergleichen: Sie ist verschieden, also sind die Werte verschieden.",
+     "0,3 in Hundertstel umschreiben (3 Zehntel sind 30 Hundertstel) und mit 0,30 vergleichen."
     ],
     "o": {
      "index": 3

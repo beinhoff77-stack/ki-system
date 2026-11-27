@@ -13,7 +13,7 @@ neu(T, "prozent_bedeutung", "bruecke", Z(
 neu(T, "prozent_bedeutung", "fehler_detektiv", FD(
     "Aysel schreibt 0,6 % als Dezimalzahl.",
     [("0,6 % = 6/100", F(6, 1000) == F(6, 100)), ("6/100 = 0,06", F(6, 100) == F(6, 100)), ("Also ist 0,6 % = 0,06.", True)],
-    "Wie viele Hundertstel sind 0,6 Hundertstel? Ein Prozent ist ein Hundertstel.", "0,6 % = 0,6/100 = 6/1000 = 0,006. In Zeile 1 steht 6/100, das wären 6 %. Die Zeilen 2 und 3 rechnen damit richtig weiter.", rueck={1: '6/100 = 0,06 ist für sich richtig. Der erste Fehler steht in Zeile 1, wo 0,6 % mit 6/100 gleichgesetzt wird.', 2: 'Diese Zeile übernimmt nur das Ergebnis aus Zeile 2. Der erste Fehler steht schon in Zeile 1.'}), regel="id.verhaeltnisse.prozent")
+    "Wie viele Hundertstel sind 0,6 Hundertstel? Ein Prozent ist ein Hundertstel.", "0,6 % = 0,6/100 = 6/1000 = 0,006. In Zeile 1 steht 6/100, das wären 6 %. Zeile 2 stimmt für sich (6/100 = 0,06), Zeile 3 übernimmt die falsche Gleichsetzung aus Zeile 1.", rueck={1: '6/100 = 0,06 ist für sich richtig. Der erste Fehler steht in Zeile 1, wo 0,6 % mit 6/100 gleichgesetzt wird.', 2: 'Diese Zeile übernimmt nur das Ergebnis aus Zeile 2. Der erste Fehler steht schon in Zeile 1.'}), regel="id.verhaeltnisse.prozent")
 
 # ───────── prozentwert ─────────
 neu(T, "prozentwert", "lueckenweg", L(
@@ -34,7 +34,7 @@ neu(T, "prozentwert", "anwenden", Z(
 
 # ───────── prozentsatz ─────────
 neu(T, "prozentsatz", "lueckenweg", L(
-    "Von 25 Kindern haben 6 ein Haustier. Erweitere 6/25 auf den Nenner 100. Die Erweiterungszahl ist ①. Der neue Zähler ② ist der Prozentsatz. Die übrigen Kinder machen ③ % aus.",
+    "Von 25 Kindern haben 6 ein Haustier. Erweitere 6/25 auf den Nenner 100. Die Erweiterungszahl ist ①. ② % ist der Prozentsatz. Die übrigen Kinder machen ③ % aus.",
     KOMM(3), [4, 24, 76], ["100 / 25", "6 * {1}", "100 - {2}"], ["4", "24", "76"], "Mit welcher Zahl wird aus 25 die 100?",
     "100 : 25 = 4. 6 · 4 = 24, also 24 %. Die übrigen Kinder: 100 % − 24 % = 76 %.",
     {0: [(75, None, "100 − 25 gerechnet", "100 - 25")], 1: [(10, None, "6 + 4 gerechnet statt 6 · 4", "6 + {1}")], 2: [(24, None, "den Prozentsatz der Haustierkinder noch einmal angegeben", "{2}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.verhaeltnisse.prozent")
@@ -90,9 +90,9 @@ neu(T, "verstehen", "lueckenweg", L(
     "Ein Preis von 100 € steigt um 10 %. Danach sinkt der neue Preis um 10 %. Nach der Erhöhung beträgt der Preis ① €. Nach der Senkung beträgt er ② €. Er liegt dann ③ € unter dem Startpreis.",
     KOMM(3), [110, 99, 1], ["100 * 1.1", "{1} * 0.9", "100 - {2}"], ["110", "99", "1"], "Die zweiten 10 % beziehen sich auf den neuen Preis.",
     "Nach +10 %: 110 €. 10 % von 110 € sind 11 €. 110 € − 11 € = 99 €. Das sind 1 € weniger als am Anfang.",
-    {0: [(10, None, "nur den Aufschlag angegeben", "100 * 0.1")], 1: [(100, None, "gedacht, plus und minus 10 % heben sich auf", "100")], 2: [(0, None, "mit 0 € Unterschied gerechnet", "100 - 100")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.verhaeltnisse.prozent")
+    {0: [(10, None, "nur den Aufschlag angegeben", "100 * 0.1")], 1: [(100, None, "gedacht, plus und minus 10 % heben sich auf: wieder 100 €", "100")], 2: [(0, None, "gedacht, plus und minus 10 % heben sich auf: 100 − 100 = 0 € Unterschied", "100 - 100")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.verhaeltnisse.prozent")
 neu(T, "verstehen", "bruecke", Z(
-    "In einem Kreisdiagramm gehört zu 40 % der Gäste der Kuchen. Max sagt: „Der Kreisausschnitt dafür hat 140°.“ Der ganze Kreis hat 360°. Um wie viel Grad ist Max' Angabe zu klein?",
+    "In einem Kreisdiagramm: 40 % der Gäste wählen Kuchen. Max sagt: „Der Kreisausschnitt dafür hat 140°.“ Der ganze Kreis hat 360°. Um wie viel Grad ist Max' Angabe zu klein?",
     4, "40 / 100 * 360 - 140", "360 / 100 * 40 - 140", "100 % entsprechen dem ganzen Kreis. Berechne zuerst den richtigen Winkel.",
     "1 % entspricht 3,6°. 40 · 3,6° = 144°. Max' 140° sind 4° zu wenig.",
     [(144, None, "nur den richtigen Winkel angegeben, nicht den Unterschied", "40 / 100 * 360"), (140, None, "Max' Winkel selbst als Unterschied genannt", "140")], "°"), regel="id.verhaeltnisse.prozent")

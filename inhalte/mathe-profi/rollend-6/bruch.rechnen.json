@@ -136,11 +136,19 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 3,
+     "antwort": 1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "auch das Auffüllen abgezogen: 8/12 − 3/12 − 2/12",
-     "c": "(2/3 - 1/4 - 1/6) * 12"
+     "beschreibung": "auch das Auffüllen abgezogen: 8/12 − 3/12 − 2/12 = 3/12 = 1/4, gekürzter Zähler 1",
+     "c": "(2/3 - 1/4 - 1/6) * 4"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auch das Auffüllen abgezogen: 8/12 − 3/12 − 2/12 = 3/12 = 1/4, gekürzter Nenner 4",
+     "c": "1 / (2/3 - 1/4 - 1/6)"
     }
    ],
    "aufgabe": {
@@ -386,7 +394,7 @@
      "(-5) - 9",
      "abs((-14))"
     ],
-    "h": "Minus mal Minus ergibt Plus. Beim Abziehen einer negativen Zahl gehst du nach rechts.",
+    "h": "Eine negative Zahl abziehen heißt ihre Gegenzahl addieren.",
     "w": "(−12) − (−7) = −12 + 7 = −5. Dann −5 + (−9) = −14. Der Abstand von der Null ist 14."
    }
   },
@@ -713,7 +721,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Berechne 7/12 : 21/16 als Malaufgabe mit dem Kehrwert: 7/12 · 16/21 = ①/②. Gekürzt ist das Ergebnis ③/④.",
+     "text": "Berechne 7/12 : 21/16 als Malaufgabe mit dem Kehrwert: 7/12 · 16/21. Zähler mal Zähler ergibt ① und Nenner mal Nenner ergibt ② (noch nicht gekürzt). Gekürzt ist das Ergebnis ③/④.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
@@ -876,7 +884,7 @@
      "antwort": 90,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Ergebnis selbst statt des Unterschieds zu 1 angegeben",
+     "beschreibung": "das Ergebnis selbst (9 Zehntel = 90 Hundertstel) statt des Unterschieds zu 1 angegeben",
      "c": "(9) * 10"
     }
    ],
@@ -1115,7 +1123,7 @@
     },
     "c": "7.2 // 0.35",
     "h": "Teile die Länge des Seils durch die Länge eines Stücks.",
-    "w": "7,2 : 0,35 = 720 : 35 = 20 Rest 20. Es gibt 20 ganze Stücke, ein Rest von 0,2 m bleibt übrig."
+    "w": "7,2 m = 720 cm und 0,35 m = 35 cm. 720 = 20 · 35 + 20 (in cm). Es gibt 20 ganze Stücke, ein Rest von 20 cm = 0,2 m bleibt übrig."
    }
   },
   {
@@ -1166,7 +1174,7 @@
      "index": 0
     },
     "h": "Mit welcher Zahl musst du beide Zahlen malnehmen, damit der Teiler 9 wird? Ändert das auch die erste Zahl um dasselbe?",
-    "w": "Erweiterst du beide Zahlen mit 10, steht 13,5 : 9 = 1,5. Wer 1,35 mit 100 und 0,9 mit 10 erweitert, ändert die Aufgabe. Die Zeilen 2 und 3 rechnen mit 135 : 9 richtig weiter."
+    "w": "Erweiterst du beide Zahlen mit 10, steht 13,5 : 9 = 1,5. Wer 1,35 mit 100 und 0,9 mit 10 erweitert, ändert die Aufgabe. Zeile 2 stimmt für sich (135 : 9 = 15), Zeile 3 zieht daraus die falsche Folgerung."
    }
   },
   {
@@ -1202,7 +1210,7 @@
      "antwort": 640,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 10 000 statt mit 1000 erweitert",
+     "beschreibung": "Zehntausendstel statt Tausendstel gezählt: 8/125 = 640/10 000 = 64/1000",
      "c": "(8) * 10000 / (125)"
     },
     {
@@ -1755,32 +1763,32 @@
    "typ": "Verfahren wählen (einfache Form)",
    "form": "verfahren_waehlen",
    "antwortform": "auswahl",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "3/5 · 10 = 6",
+     "antwort": "Malnehmen vergrößert immer. Das Ergebnis muss größer sein als beide Faktoren, 0,6 ist größer als 0,2 und 0,3.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Rechnung stimmt",
+     "beschreibung": "falsche Regel: Malnehmen mit Zahlen kleiner als 1 verkleinert",
      "c": null
     },
     {
      "index": 1,
-     "antwort": "2/3 : 4 = 1/6",
+     "antwort": "Das Komma bleibt an der Stelle wie beim ersten Faktor: 0,2 · 0,3 = 0,6.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Rechnung stimmt",
+     "beschreibung": "die Nachkommastellen nicht gezählt",
      "c": null
     },
     {
      "index": 2,
-     "antwort": "1,5 + 0,25 = 1,75",
+     "antwort": "0,2 + 0,3 = 0,5 rechnen und prüfen, ob das Ergebnis in der Nähe liegt.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Rechnung stimmt",
+     "beschreibung": "andere Rechenart geprüft",
      "c": null
     }
    ],
@@ -1792,19 +1800,19 @@
     "g": "mehrschritt",
     "y": "auswahl",
     "f": {
-     "text": "Eine dieser vier Rechnungen ist falsch. Welche?"
+     "text": "Ein Kind rechnet 0,2 · 0,3 = 0,6. Mit welcher Überlegung prüfst du am sichersten, ob das stimmt?"
     },
     "a": [
-     "3/5 · 10 = 6",
-     "2/3 : 4 = 1/6",
-     "1,5 + 0,25 = 1,75",
-     "0,2 · 0,3 = 0,6"
+     "Malnehmen vergrößert immer. Das Ergebnis muss größer sein als beide Faktoren, 0,6 ist größer als 0,2 und 0,3.",
+     "Das Komma bleibt an der Stelle wie beim ersten Faktor: 0,2 · 0,3 = 0,6.",
+     "0,2 + 0,3 = 0,5 rechnen und prüfen, ob das Ergebnis in der Nähe liegt.",
+     "Ohne Komma rechnen (2 · 3 = 6). Die beiden Faktoren haben zusammen 2 Nachkommastellen, also hat auch das Ergebnis 2: 0,06."
     ],
     "o": {
      "index": 3
     },
-    "h": "Rechne jede Aufgabe kurz nach. Bei Kommazahlen hilft die Zahl der Nachkommastellen.",
-    "w": "0,2 · 0,3 = 0,06, denn 2 · 3 = 6 und es gibt zwei Nachkommastellen. Die anderen stimmen: 3/5 · 10 = 6, 2/3 : 4 = 2/12 = 1/6, 1,5 + 0,25 = 1,75."
+    "h": "Wie viele Nachkommastellen haben die beiden Faktoren zusammen?",
+    "w": "2 · 3 = 6, und 0,2 und 0,3 haben zusammen 2 Nachkommastellen. Also ist 0,2 · 0,3 = 0,06, nicht 0,6. Probe mit Brüchen: 2/10 · 3/10 = 6/100."
    }
   },
   {
@@ -1866,49 +1874,41 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": null,
-   "regel_name": null,
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
    "zaehlt": "nein",
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 3,
+     "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Zähler 3 nicht geteilt",
-     "c": "3"
+     "beschreibung": "nur ein Sechstel berechnet: 36 : 6",
+     "c": "36 / 6"
     },
     {
      "luecke": 2,
-     "antwort": 24,
+     "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nicht gekürzt: 4 · 6",
-     "c": "6 * 4"
+     "beschreibung": "nur ein Fünftel der Radfahrer berechnet: 30 : 5",
+     "c": "(30) / 5"
     },
     {
      "luecke": 3,
-     "antwort": 10,
+     "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Portionszahl 10 als Zähler übernommen",
-     "c": "10"
+     "beschreibung": "nur durch 6 gekürzt: 12/36 = 2/6",
+     "c": "(12) / 6"
     },
     {
      "luecke": 4,
-     "antwort": 5000,
+     "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Bruch 5/4 nicht beachtet: Zähler 5 mal 1000",
-     "c": "(5) * 1000"
-    },
-    {
-     "luecke": 4,
-     "antwort": 12500,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "mit 10 000 statt mit 1000 malgenommen",
-     "c": "(5) * 10000 / 4"
+     "beschreibung": "nur durch 6 gekürzt: 12/36 = 2/6",
+     "c": "36 / 6"
     }
    ],
    "aufgabe": {
@@ -1919,26 +1919,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Rezept für 6 Portionen braucht 3/4 Liter Milch. Für eine Portion braucht man ①/② Liter (gekürzt). Für 10 Portionen braucht man ③/4 Liter. Das sind ④ Milliliter.",
+     "text": "In einer Klasse sind 36 Kinder. 5/6 der Kinder fahren mit dem Rad. Von diesen Radfahrern tragen 2/5 einen Helm. Die Radfahrer sind ① Kinder. Davon tragen ② einen Helm. Das ist der Bruchteil ③/④ der ganzen Klasse (vollständig gekürzt).",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
+      30,
+      12,
       1,
-      8,
-      5,
-      1250
+      3
      ]
     },
     "c": [
-     "3/4 * 8/6",
-     "6 * 4 / 3",
-     "10 * (1) / (8) * 4",
-     "(5) * 1000 / 4"
+     "36 * 5/6",
+     "(30) * 2/5",
+     "(12) / 36 * 3",
+     "36 / (12)"
     ],
-    "h": "Teile die Milchmenge durch die Zahl der Portionen.",
-    "w": "3/4 l : 6 = 3/24 l = 1/8 l. Für 10 Portionen: 10 · 1/8 l = 10/8 l = 5/4 l. Das sind 5/4 · 1000 ml = 1250 ml."
+    "h": "Der zweite Bruch gehört zu den Radfahrern, nicht zur ganzen Klasse.",
+    "w": "5/6 von 36 sind 30 Radfahrer. 2/5 von 30 sind 12 Kinder mit Helm. 12 von 36 sind 12/36 = 1/3 der ganzen Klasse."
    }
   },
   {
@@ -1954,18 +1954,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
+     "antwort": 9.375,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3/4 vom ganzen Taschengeld genommen: 12,50 € · 3/4",
+     "c": "12.5 * 3/4"
+    },
+    {
      "antwort": 7.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den ausgegebenen Betrag statt des Rests genommen",
+     "beschreibung": "nur den ausgegebenen Betrag berechnet: 12,50 € · 3/5",
      "c": "12.5 * 3/5"
-    },
-    {
-     "antwort": 8.25,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die 3/5 vergessen",
-     "c": "12.5 - 4.25"
     }
    ],
    "aufgabe": {
@@ -1976,15 +1976,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Svens Taschengeld im Monat beträgt 12,50 €. Er gibt 3/5 davon aus. Von dem, was übrig bleibt, kauft er ein Heft für 4,25 €. Wie viel Euro bleiben ihm?"
+     "text": "Svens Taschengeld im Monat beträgt 12,50 €. Er gibt 3/5 davon aus. Von dem, was übrig bleibt, spart er 3/4. Wie viel Euro spart er?"
     },
     "o": {
-     "wert": 0.75,
+     "wert": 3.75,
      "einheit": "€"
     },
-    "c": "12.5 * (1 - 3/5) - 4.25",
-    "h": "Wie viel Euro hat er nach den 3/5 noch?",
-    "w": "3/5 von 12,50 € sind 7,50 €. Übrig: 12,50 € − 7,50 € = 5 €. Nach dem Heft: 5 € − 4,25 € = 0,75 €."
+    "c": "12.5 * (1 - 3/5) * 3/4",
+    "h": "Wie viel Euro bleiben nach den 3/5? Der zweite Bruch gehört zu diesem Rest.",
+    "w": "3/5 von 12,50 € sind 7,50 €. Übrig: 12,50 € − 7,50 € = 5 €. 3/4 von 5 € sind 3,75 €."
    }
   },
   {
@@ -2000,18 +2000,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 1.5,
+     "antwort": 36,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 1,2 m³ als 4/5 des Beckens angesehen",
-     "c": "1.2 / (4/5)"
+     "beschreibung": "nur den zweiten Schritt rückgängig gemacht: 24 : 2/3",
+     "c": "24 / (2/3)"
     },
     {
-     "antwort": 0.24,
+     "antwort": 40,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "malgenommen statt geteilt",
-     "c": "1.2 * (4/5 - 3/5)"
+     "beschreibung": "nur den ersten Schritt rückgängig gemacht: 24 : 3/5",
+     "c": "24 / (3/5)"
     }
    ],
    "aufgabe": {
@@ -2022,15 +2022,15 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Becken ist zu 3/5 gefüllt. Nach dem Einfüllen von 1,2 m³ Wasser ist es zu 4/5 gefüllt. Wie viele Kubikmeter Wasser passen in das ganze Becken?"
+     "text": "In einem Lager werden zuerst 2/5 der Äpfel verkauft. Von den übrigen Äpfeln werden 1/3 zu Saft verarbeitet. Es bleiben 24 kg Äpfel. Wie viele Kilogramm Äpfel waren es am Anfang?"
     },
     "o": {
-     "wert": 6,
-     "einheit": "m³"
+     "wert": 60,
+     "einheit": "kg"
     },
-    "c": "1.2 / (4/5 - 3/5)",
-    "h": "Welcher Bruchteil des Beckens sind die 1,2 m³?",
-    "w": "Hinzugekommen sind 4/5 − 3/5 = 1/5 des Beckens. 1/5 sind 1,2 m³, also ist das ganze Becken 5 · 1,2 m³ = 6 m³."
+    "c": "24 / ((1 - 2/5) * (1 - 1/3))",
+    "h": "Welcher Bruchteil der ganzen Menge bleibt am Ende übrig?",
+    "w": "Nach dem Verkauf bleiben 3/5. Davon wird 1/3 verarbeitet, es bleiben 2/3 von 3/5 = 2/5 der Menge. 2/5 sind 24 kg, also 1/5 = 12 kg und alles 60 kg."
    }
   }
  ]

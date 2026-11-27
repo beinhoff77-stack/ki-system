@@ -2,7 +2,7 @@ T = "bruch.dezimal"
 H4 = "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
 # ───────── stellenwerte ─────────
 neu(T, "stellenwerte", "lueckenweg", L(
-    "Die Zahl hat 6 Einer, 2 Zehntel und 15 Tausendstel. Bündele die 15 Tausendstel: Das sind ① Hundertstel und ② Tausendstel. Schreibst du die Zahl als Dezimalzahl und lässt das Komma weg, entsteht die ganze Zahl ③. Auf Hundertstel gerundet sind es ④ Hundertstel.",
+    "Die Zahl hat 6 Einer, 2 Zehntel und 15 Tausendstel. Bündele die 15 Tausendstel: Das sind ① Hundertstel und ② Tausendstel. Schreibe die Zahl mit genau drei Nachkommastellen. Die ganze Zahl, die entsteht, wenn du das Komma weglässt, ist ③. Auf Hundertstel gerundet sind es ④ Hundertstel.",
     KOMM(4), [1, 5, 6215, 622], ["15 // 10", "15 % 10", "(6 + 2/10 + {1}/100 + {2}/1000) * 1000", "({3} + 5) // 10"], ["1", "5", "6215", "622"],
     "Zehn Tausendstel sind ein Hundertstel.",
     "15 Tausendstel = 1 Hundertstel und 5 Tausendstel. Die Zahl ist 6,215. Ohne Komma: 6215. Auf Hundertstel gerundet: 6,22, das sind 622 Hundertstel.",
@@ -28,14 +28,14 @@ neu(T, "vergleichen_ordnen", "lueckenweg", L(
      3: [(500, None, "mit 10 malgenommen statt durch 10 geteilt", "{3} * 10")]},
     hinweis="Je Lücke eine ganze Zahl."), regel="rr.stellenwert")
 neu(T, "vergleichen_ordnen", "verfahren_waehlen", W(
-    "Du vergleichst 0,8 und 0,75. Welche Überlegung ist richtig?",
-    "0,8 = 0,80. 80 Hundertstel sind mehr als 75 Hundertstel, also ist 0,8 größer.",
-    [("75 ist größer als 8, also ist 0,75 größer.", "wie ganze Zahlen verglichen: 75 gegen 8"),
-     ("0,8 hat weniger Ziffern, also ist es kleiner.", "die Zahl der Ziffern verglichen"),
-     ("Beide sind gleich groß, weil man hinten Nullen anhängen darf.", "aus dem Anhängen von Nullen (0,8 = 0,80) gefolgert, dass auch 0,75 gleich groß ist")],
+    "Du willst 0,8 und 0,75 vergleichen. Welcher Weg führt sicher zum richtigen Ergebnis?",
+    "Beide Zahlen mit gleich vielen Nachkommastellen schreiben (0,80 und 0,75) und dann die Hundertstel vergleichen.",
+    [("Die Zahlen hinter dem Komma wie ganze Zahlen vergleichen: 8 und 75.", "die Stellenzahl nicht angeglichen: 75 gegen 8"),
+     ("Die Ziffern zählen: Die Zahl mit mehr Ziffern ist die größere.", "die Zahl der Ziffern statt des Werts verglichen"),
+     ("Beide Zahlen mit 10 malnehmen und nur die ganzen Zahlen vergleichen: 8 und 7.", "Reste hinter dem Komma abgeschnitten; bei 0,81 und 0,89 entscheidet dieser Weg nichts")],
     "Schreibe beide Zahlen mit gleich vielen Nachkommastellen.",
     "Gleiche Stellenzahl: 0,8 = 0,80 und 0,75. Es ist 80 > 75, also 0,8 > 0,75. Die Länge der Ziffernfolge sagt nichts über die Größe.",
-    lambda: F(8, 10) > F(75, 100)), g="mehrschritt", regel=None)
+    lambda: F(8, 10) > F(75, 100) and F(81, 100) != F(89, 100) and int(F(81, 10)) == int(F(89, 10))), g="mehrschritt", regel=None)
 neu(T, "vergleichen_ordnen", "anwenden", Z(
     "Drei Papierflieger fliegen 4,35 m, 4,5 m und 4,305 m weit. Um wie viele Zentimeter ist der weiteste Flug weiter als der kürzeste?",
     19.5, "(4.5 - 4.305) * 100", "450 - 430.5", "Welcher Flug ist der weiteste, welcher der kürzeste? Schreibe die Zahlen mit gleich vielen Stellen.",
@@ -81,7 +81,7 @@ neu(T, "dezimal_zu_bruch", "lueckenweg", L(
     "Schreibe 0,36 als vollständig gekürzten Bruch. Zuerst 36/100. Der ggT von 36 und 100 ist ①. Gekürzt ist der Bruch ②/③.",
     KOMM(3), [4, 9, 25], ["4", "36 / {1}", "100 / {1}"], ["gcd(36, 100)", "9", "25"], "Welche größte Zahl steckt in 36 und in 100?",
     "36/100: der ggT ist 4. 36 : 4 = 9 und 100 : 4 = 25. Also 0,36 = 9/25.",
-    {0: [(2, None, "nur einen gemeinsamen Teiler genommen, nicht den größten", False)], 1: [(18, None, "nur durch 2 gekürzt", "36 / 2")], 2: [(50, None, "nur durch 2 gekürzt", "100 / 2")]}, hinweis="Je Lücke eine ganze Zahl."), regel=None)
+    {0: [(2, None, "nur einen gemeinsamen Teiler genommen, nicht den größten", False)], 1: [(18, None, "nur durch 2 gekürzt", "36 / 2")], 2: [(50, None, "nur durch 2 gekürzt", "100 / 2")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.zahlen.schreibweisen")
 neu(T, "dezimal_zu_bruch", "bruecke", L(
     "Auf einem Messbecher steht 0,125 Liter. Schreibe 0,125 als vollständig gekürzten Bruch.",
     "□/□", [1, 8], ["125 / 125", "1000 / 125"], ["1", "8"], "0,125 sind 125 Tausendstel. Kürze mit dem ggT von 125 und 1000.",
@@ -121,7 +121,7 @@ neu(T, "periodisch", "bruecke", Z(
     "Die Dezimalzahl 0,272727… (die Ziffern 27 wiederholen sich) ist gleich ?/11. Welche Zahl steht im Zähler?",
     3, "27 / 99 * 11", "3", "Teile für kleine Zähler Z : 11 schriftlich und vergleiche mit 0,2727…",
     "3 : 11 = 0,272727… Also ist 0,272727… = 3/11. Der Zähler ist 3.",
-    [(27, None, "die Periode als Zähler genommen", "27"), (9, None, "9 : 11 gerechnet, das ergibt 0,8181…", "9")]), regel="id.zahlen.schreibweisen")
+    [(27, None, "27 als Zähler: die Probe 27 : 11 ergibt 2,4545… statt 0,2727…", "27"), (9, None, "9 als Zähler: die Probe 9 : 11 ergibt 0,8181… statt 0,2727…", "9")]), regel="id.zahlen.schreibweisen")
 neu(T, "periodisch", "fehler_detektiv", FD(
     "Mia will wissen, ob 7/20 endlich oder periodisch ist.",
     [("Der Nenner ist 20 = 2 · 2 · 3.", 2 * 2 * 3 == 20), ("Der Nenner hat den Primfaktor 3, der nicht in 10 steckt.", True), ("Also ist 7/20 eine periodische Dezimalzahl.", True)],
@@ -134,11 +134,11 @@ neu(T, "verstehen", "lueckenweg", L(
     "6 Hundertstel = 60 Tausendstel. 60/1000 wird durch 20 gekürzt: 3/50. Also 0,06 = 3/50, nicht 1/6: Toms Aussage ist falsch.",
     {0: [(600, None, "mit 100 statt mit 10 malgenommen", "6 * 100")], 1: [(60, None, "nicht gekürzt", "{1} / 1")], 2: [(1000, None, "nicht gekürzt", "1000 / 1")]}, hinweis="Je Lücke eine ganze Zahl."), regel="rr.stellenwert")
 neu(T, "verstehen", "verfahren_waehlen", W(
-    "Welche Aussage über 0,3 und 0,30 ist richtig?",
-    "Sie sind gleich groß, denn 3 Zehntel sind 30 Hundertstel.",
-    [("0,30 ist größer, weil die Zahl 30 größer ist als 3.", "wie ganze Zahlen verglichen"),
-     ("0,3 ist größer, weil es weniger Stellen hat.", "die Zahl der Stellen verglichen"),
-     ("Sie sind verschieden, weil die Schreibweise verschieden ist.", "Schreibweise mit dem Wert verwechselt")],
+    "Du willst prüfen, ob 0,3 und 0,30 gleich groß sind. Welcher Weg zeigt es sicher?",
+    "0,3 in Hundertstel umschreiben (3 Zehntel sind 30 Hundertstel) und mit 0,30 vergleichen.",
+    [("Die Zahlen 3 und 30 vergleichen: 30 ist größer, also ist 0,30 größer.", "wie ganze Zahlen verglichen"),
+     ("Die Stellen zählen: 0,3 hat weniger Stellen, also ist es kleiner.", "die Zahl der Stellen verglichen"),
+     ("Die Schreibweise vergleichen: Sie ist verschieden, also sind die Werte verschieden.", "Schreibweise mit dem Wert verwechselt")],
     "Wie viele Hundertstel sind drei Zehntel?",
     "Ein Zehntel sind 10 Hundertstel. 3 Zehntel sind 30 Hundertstel. Eine Null am Ende einer Dezimalzahl ändert den Wert nicht.",
     lambda: F(3, 10) == F(30, 100)), g="mehrschritt", regel=None)

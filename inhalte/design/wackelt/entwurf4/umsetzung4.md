@@ -1,3 +1,5 @@
+> **FREIGEGEBEN vom Nutzer am 27.11.** („Was wackelt sieht jetzt gut aus“). Gültige Vorlage für den Bau. Entwürfe 1 und 2 sind abgelehnt, Entwurf 3 ist überholt.
+
 # Vorgabe WK, vierte Runde: „Was wackelt“ – Fehler als schlanke Tabelle
 
 Designer, 27.11.2026. Weiterentwicklung von `../entwurf3/` (dort gilt alles, was hier nicht steht: Stil, Auswertung, Regeln fürs Verschwinden, Datenbedarf). Entwurf: `index.html`, Bilder: `bilder/`.

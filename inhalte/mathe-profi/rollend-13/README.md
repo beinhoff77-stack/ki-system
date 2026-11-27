@@ -72,3 +72,7 @@ Umgebaut oder angepasst: V007, V009, V014, V026, V027, V037, V038, V039, V042, V
 V084, V090, V094, V098, V105, V107, V112, V114, V123, V124, V132. Alle umgebauten Aufgaben wurden danach wie neue geprüft
 (Lösung nachgerechnet, Fehlbilder gegen den Fehlwert, Rückmeldung je Detektiv-Zeile, Tipp, Stufe, Eingabefrage am Ende, Zeichnungsdaten).
 Offen: die Zeichnungen (auch V058 mit neuem Graphen) sind nicht im Browser angesehen.
+
+## Nach zweiter Gegenprüfung (Werkstatt 1106)
+Umgesetzt: V123 und V124 als Auswahl, bewertet wird jetzt der Bauplan (bei V124 Bauplan und Dreiecksumfang gemeinsam, ein falscher Bauplan nennt ebenfalls den richtigen Umfang);
+V027, V039 (Auswahl verlangt Gegenprobe und Begründung), V045, V054 (Kandidaten selbst ermitteln und prüfen, Stufe 3), V009. Alle danach wie neue geprüft; übrige Aufgaben unverändert.

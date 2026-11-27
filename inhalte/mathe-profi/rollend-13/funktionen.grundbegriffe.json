@@ -152,14 +152,14 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "W = {−2; −1; 0; 1; 2}",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Definitionsmenge als Wertemenge angegeben"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "W = {0; 3}",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -198,12 +198,12 @@
      }
     },
     "a": [
+     "W = {−1; 0; 3}",
      "W = {−2; −1; 0; 1; 2}",
-     "W = {0; 3}",
-     "W = {−1; 0; 3}"
+     "W = {0; 3}"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "h": "Wertemenge: Welche verschiedenen Funktionswerte stehen in der unteren Zeile? Jeder Wert wird nur einmal genannt.",
     "w": "Die Funktionswerte sind 3, 0, −1, 0, 3. Verschiedene Werte: −1, 0 und 3. Also W = {−1; 0; 3}. Die Zahlen aus D sind die Eingaben, nicht die Funktionswerte."

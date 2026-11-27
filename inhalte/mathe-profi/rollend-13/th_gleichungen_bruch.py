@@ -1,7 +1,7 @@
 T = "gleichungen.bruch"
 # ───────── definitionsmenge ─────────
 neu(T, "definitionsmenge", "bruecke", Z(
-    "Die Zeichnung zeigt den Graphen von y = 2/(x − 3). Für genau eine Zahl x gibt es auf dem Graphen keinen Punkt, nämlich dort, wo der Nenner x − 3 gleich 0 ist. Welche Zahl x darf in der Gleichung 2/(x − 3) = 1 nicht eingesetzt werden?",
+    "Die Zeichnung zeigt den Graphen von y = 2/(x − 3). Für genau eine Zahl x gibt es auf dem Graphen keinen Punkt, nämlich dort, wo der Nenner x − 3 gleich 0 ist. Gesucht sind Zahlen x aus ℚ. Welche Zahl x darf in der Gleichung 2/(x − 3) = 1 nicht eingesetzt werden?",
     3, "0 + 3", 3, "Löse x − 3 = 0. An dieser Stelle bricht der Graph ab.",
     "Der Nenner x − 3 ist 0 genau für x = 3 (die Lösung von x − 3 = 0). Dort ist der Term nicht definiert, der Graph hat an dieser Stelle eine Lücke. Die Definitionsmenge der Gleichung ist ℚ \\ {3}. (Die Gleichung selbst hat die Lösung x = 5: 2/2 = 1.)",
     [(-3, None, "x + 3 = 0 gelöst: das Vorzeichen der Nullstelle des Nenners verdreht", "-3"), (5, None, "die Lösung der Gleichung berechnet statt der verbotenen Zahl: 2 + 3", "2 + 3"), (1, None, "die rechte Seite der Gleichung als verbotene Zahl genommen", "1")],
@@ -62,13 +62,12 @@ neu(T, "scheinloesung", "bruecke", W(
     "Mit (x − 2) multipliziert bleibt x = 2. Für x = 2 ist der Nenner 0, die Zahl gehört nicht zur Definitionsmenge. Bei gleichem x ist der Abstand der Graphen die Differenz der Funktionswerte: x/(x − 2) − 2/(x − 2) = (x − 2)/(x − 2) = 1. Die Graphen liegen also immer 1 Einheit auseinander. Die Lösungsmenge ist leer.",
     lambda: all(wert_an("x/(x-2)", k) != wert_an("2/(x-2)", k) for k in range(-10, 11) if k != 2) and undef("x/(x-2)", 2) and gl("x/(x-2)", "1+2/(x-2)"),
     grafik={"typ": "koordinaten", "x": [-4, 8], "y": [-6, 8], "graphen": [{"art": "hyperbel", "a": 2, "b": -2, "c": 1, "name": "y = x/(x − 2)"}, {"art": "hyperbel", "a": 2, "b": -2, "c": 0, "name": "y = 2/(x − 2)"}]}), g="darstellung", regel="id.algebra.erlaubte_zahlen")
-neu(T, "scheinloesung", "anwenden", W(
-    "Gegeben ist die Gleichung (x² − 4)/(x − 2) = 0. Beide Seiten werden mit (x − 2) multipliziert, es bleibt x² − 4 = 0. Daraus folgen die Zahlen x = 2 und x = −2. Welche davon gehören zur Lösungsmenge der ursprünglichen Gleichung?",
-    "Nur x = −2: Für x = 2 ist der Nenner 0, diese Zahl ist eine Scheinlösung.",
-    [("Beide Zahlen, x = 2 und x = −2, denn beide lösen x² − 4 = 0.", "nur die umgeformte Gleichung geprüft; für x = 2 ist der Nenner der ursprünglichen Gleichung 0"), ("Nur x = 2, denn dort wird der Zähler 0.", "übersehen, dass für x = 2 auch der Nenner 0 wird; durch 0 darf man nicht teilen")],
-    "Setze beide Zahlen in die ursprüngliche Gleichung ein, nicht in die umgeformte. Was passiert mit dem Nenner?",
-    "Mit (x − 2) multipliziert bleibt x² − 4 = 0, also x = 2 oder x = −2. Probe in der ursprünglichen Gleichung: Für x = 2 ist der Nenner 0, die Zahl gehört nicht zur Definitionsmenge. Für x = −2 gilt (4 − 4)/(−4) = 0, das stimmt. Die Lösungsmenge ist {−2}.",
-    lambda: undef("(x**2-4)/(x-2)", 2) and wert_an("(x**2-4)/(x-2)", -2) == 0 and sorted(k for k in range(-5, 6) if k != 2 and wert_an("(x**2-4)/(x-2)", k) == 0) == [-2]), g="transfer", regel="id.algebra.erlaubte_zahlen")
+neu(T, "scheinloesung", "anwenden", Z(
+    "Gegeben ist die Gleichung x²/(x − 3) = (x + 6)/(x − 3) mit Zahlen aus ℚ. Bestimme zuerst alle Kandidaten, die beim Umformen entstehen, und prüfe jeden in der Ausgangsgleichung. Welche Zahl x löst die Gleichung wirklich?",
+    -2, "-2", "-6 / 3", "Was passiert mit dem Nenner der Ausgangsgleichung, wenn du einen Kandidaten einsetzt?",
+    "Mit (x − 3) multipliziert: x² = x + 6, also x² − x − 6 = 0 und (x − 3)(x + 2) = 0. Kandidaten: x = 3 und x = −2. Probe in der Ausgangsgleichung: Für x = 3 ist der Nenner 0, das ist eine Scheinlösung. Für x = −2 gilt 4/(−5) = 4/(−5), das stimmt. Die einzige Lösung ist x = −2.",
+    [(3, None, "den Kandidaten x = 3 nicht in der Ausgangsgleichung geprüft: dort ist der Nenner 0", "3"), (1, None, "beide Kandidaten addiert: 3 + (−2)", "3 + (-2)"), (2, None, "das Vorzeichen des Kandidaten −2 vertauscht", "2")]), g="transfer", regel="id.algebra.erlaubte_zahlen")
+assert undef("x**2/(x-3)", 3) and wert_an("x**2/(x-3)", -2) == wert_an("(x+6)/(x-3)", -2)
 # ───────── verhaeltnis ─────────
 neu(T, "verhaeltnis", "zwei_wege", Z(
     "Sirup und Wasser werden im Verhältnis 3 : 8 gemischt. Weg A: Verhältnisgleichung 3/8 = 4,5/x über Kreuz lösen. Weg B: den Faktor bestimmen, mit dem aus 3 die Zahl 4,5 wird, und 8 mit demselben Faktor malnehmen. Wie viel Liter Wasser gehören zu 4,5 Litern Sirup?",

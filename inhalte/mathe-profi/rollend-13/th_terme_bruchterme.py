@@ -57,12 +57,13 @@ neu(T, "erweitern", "fehler_detektiv", FD(
 # ───────── addieren ─────────
 _ta = [(1, F(3, 2)), (2, F(5, 6)), (3, F(7, 12)), (4, F(9, 20))]
 neu(T, "addieren", "bruecke", W(
-    "Die Tabelle zeigt einige Werte von T(x) = 1/x + 1/(x + 1) (x ≠ 0 und x ≠ −1). Welcher Bruchterm ist zu T(x) gleichwertig?",
-    "(2x + 1)/(x² + x)",
-    [("2/(2x + 1)", "Zähler und Nenner getrennt addiert; für x = 1 ergibt der Term 2/3 statt 3/2"), ("2/(x² + x)", "nur die Zähler addiert, aber die Nenner malgenommen; für x = 1 ergibt der Term 1 statt 3/2")],
-    "Setze x = 1 in jeden Term ein und vergleiche mit der Tabelle.",
-    "Hauptnenner x(x + 1) = x² + x: 1/x = (x + 1)/(x² + x) und 1/(x + 1) = x/(x² + x). Summe: (2x + 1)/(x² + x). Für x = 1: 3/2, für x = 2: 5/6, für x = 3: 7/12, für x = 4: 9/20. Die Tabellenspalte widerlegt die falschen Terme: 2/(2x + 1) ergibt für x = 2 nur 2/5 statt 5/6, und 2/(x² + x) ergibt für x = 2 nur 1/3 statt 5/6. Der Hauptnenner x² + x begründet den richtigen Term für alle x.",
-    lambda: all(wert_an("(2*x+1)/(x**2+x)", k) == v for k, v in _ta) and gl("1/x+1/(x+1)", "(2*x+1)/(x**2+x)") and not gl("1/x+1/(x+1)", "2/(2*x+1)") and not gl("1/x+1/(x+1)", "2/(x**2+x)"),
+    "Die Tabelle zeigt einige Werte von T(x) = 1/x + 1/(x + 1) (x ≠ 0 und x ≠ −1). Welcher Bruchterm ist zu T(x) gleichwertig, und mit welcher Gegenprobe und Begründung ist das richtig belegt?",
+    "(2x + 1)/(x² + x). Gegenprobe: x = 2 ergibt 5/6, das steht in der Tabelle. Begründung: Mit dem Hauptnenner x² + x wird aus 1/x der Bruch (x + 1)/(x² + x) und aus 1/(x + 1) der Bruch x/(x² + x), die Zähler addieren sich zu 2x + 1.",
+    [("(2x + 1)/(x² + x). Gegenprobe: x = 2 ergibt 5/6, das steht in der Tabelle. Begründung: Zähler und Nenner werden getrennt addiert, also (1 + 1)/(x + x + 1).", "der Term stimmt, aber die Begründung ist falsch: Zähler und Nenner dürfen nicht getrennt addiert werden; man braucht den Hauptnenner"),
+     ("2/(x² + x). Gegenprobe: x = 1 ergibt 1, das stimmt mit der Tabelle überein. Begründung: Mit dem Hauptnenner x² + x werden nur die Nenner malgenommen, die Zähler 1 + 1 ergeben 2.", "nur die Zähler addiert, die Erweiterung der Zähler vergessen; die Gegenprobe zeigt es: für x = 1 ergibt der Term 1, die Tabelle zeigt 3/2")],
+    "Setze x = 1 in jeden Term ein und vergleiche mit der Tabelle. Wie kommt man auf den Hauptnenner?",
+    "Hauptnenner x(x + 1) = x² + x: 1/x = (x + 1)/(x² + x) und 1/(x + 1) = x/(x² + x). Summe: (2x + 1)/(x² + x). Für x = 1: 3/2, für x = 2: 5/6, für x = 3: 7/12, für x = 4: 9/20. Die Tabelle widerlegt zum Beispiel 2/(x² + x): für x = 1 ergibt es 1 statt 3/2. Der Hauptnenner begründet den richtigen Term für alle x, die Tabelle prüft nur vier Werte.",
+    lambda: all(wert_an("(2*x+1)/(x**2+x)", k) == v for k, v in _ta) and gl("1/x+1/(x+1)", "(2*x+1)/(x**2+x)") and not gl("1/x+1/(x+1)", "2/(2*x+1)") and not gl("1/x+1/(x+1)", "2/(x**2+x)") and wert_an("2/(x**2+x)", 1) == 1,
     grafik=TAB(["x", "1", "2", "3", "4"], ["T(x)", "3/2", "5/6", "7/12", "9/20"])), g="darstellung", regel="rr.bruchrechnen")
 neu(T, "addieren", "umkehren", Z(
     "Für welche Zahl a gilt 1/x + a/(x + 2) = (3x + 2)/(x² + 2x) für alle Zahlen x mit x ≠ 0 und x ≠ −2?",

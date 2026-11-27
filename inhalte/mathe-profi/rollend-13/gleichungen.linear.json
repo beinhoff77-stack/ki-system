@@ -455,7 +455,7 @@
      "antwort": "Jede Zahl ist Lösung, denn beide Geraden haben dieselbe Steigung.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "gleiche Steigung mit gleichen Werten verwechselt: die Geraden liegen 2 Einheiten auseinander"
+     "beschreibung": "gleiche Steigung mit gleichen Werten verwechselt: bei gleichem x liegt die zweite Gerade 2 Einheiten höher"
     }
    ],
    "aufgabe": {
@@ -502,7 +502,7 @@
      "index": 2
     },
     "h": "Wo hätten die Geraden einen gemeinsamen Punkt? Vergleiche die y-Werte bei x = 0 und bei x = 1.",
-    "w": "Beide Geraden haben die Steigung 2 und sind parallel. Bei gleichem x unterscheiden sich die y-Werte um 2, sie liegen immer 2 Einheiten auseinander und haben keinen gemeinsamen Punkt. Rechnung: 2x + 3 = 2x + 5 führt auf 3 = 5, das ist falsch. Die Lösungsmenge ist leer."
+    "w": "Beide Geraden haben die Steigung 2 und sind parallel. Bei gleichem x liegt die zweite Gerade 2 Einheiten höher, die Geraden haben keinen gemeinsamen Punkt. Rechnung: 2x + 3 = 2x + 5 führt auf 3 = 5, das ist falsch. Die Lösungsmenge ist leer."
    }
   },
   {

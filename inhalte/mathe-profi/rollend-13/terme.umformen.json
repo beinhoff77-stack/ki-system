@@ -448,7 +448,7 @@
      "antwort": 1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur den Term mit gleicher Reihenfolge der Glieder erkannt, (1) wegen der Klammer verworfen"
+     "beschreibung": "Nur (3) durch Zusammenfassen erkannt, die Gleichwertigkeit von (1) wegen der Klammer übersehen."
     }
    ],
    "aufgabe": {

@@ -19,7 +19,8 @@ from pathlib import Path
 MIG = Path(__file__).resolve().parent.parent.parent / 'supabase/migrations/20261205_ww_s_wackelt.sql'
 NEU = ['schule.ww_fehlerart(schule.versuch, schule.aufgabe)', 'schule.ww_von(text)', 'schule.wackelt_analyse(bigint, integer, boolean)',
        'schule.ww_versuche(bigint, jsonb)', 'schule.fehler_abhaken(bigint, jsonb, boolean, text)', 'schule.nachueben_schicken(bigint, jsonb, boolean, text)',
-       'schule.nachueben_liste(bigint)', 'api.schule_wackelt_analyse(text, jsonb)', 'api.schule_fehler_abhaken(text, jsonb)',
+       'schule.nachueben_gueltig(schule.nachueben)', 'schule.nachueben_liste(bigint, boolean, date)', 'schule.nachueben_liegt(bigint, bigint)',
+       'api.schule_wackelt_analyse(text, jsonb)', 'api.schule_fehler_abhaken(text, jsonb)',
        'api.schule_nachueben_schicken(text, jsonb)', 'api.schule_nachueben_lesen(text, jsonb)']
 
 
@@ -35,7 +36,7 @@ def main():
     k = '(select id from schule.lernender where ist_test order by id limit 1)'
     defs = "(select md5(string_agg(coalesce(pg_get_functiondef(to_regprocedure(f)), 'fehlt'), '#' order by f)) from unnest(array[" + ', '.join(f"'{f}'" for f in NEU) + "]) f)"
     obj = """(select md5(string_agg(s.x, '#' order by s.x)) from (
-       select 'idx:' || indexrelid::regclass::text from pg_index where indrelid in ('schule.fehler_erledigt'::regclass, 'schule.nachueben'::regclass)
+       select 'idx:' || indexrelid::regclass::text from pg_index where indrelid in ('schule.fehler_erledigt'::regclass, 'schule.nachueben'::regclass, 'schule.nachueben_ausgabe'::regclass)
        union all select 'col:' || attrelid::regclass::text || attname from pg_attribute where attrelid in ('schule.fehler_erledigt'::regclass, 'schule.nachueben'::regclass) and attnum > 0
        union all select 'regel:' || wert::text from schule.regel where schluessel = 'nachueben_je_tag') s(x))"""
     ende = ("raise exception 'PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): %', bericht::text;" if probe else
@@ -52,16 +53,35 @@ create function pg_temp.ww_ant(p_k bigint, p_id bigint, p_wert text, p_cid text)
 begin
   return schule.uebung_pruefen_wd(p_k, jsonb_build_object('aufgabe_id', p_id, 'client_id', p_cid, 'antwort', jsonb_build_object('wert', p_wert)));
 end $f$;
+create function pg_temp.ww_richtig(p_k bigint, p_id bigint, p_cid text) returns jsonb language plpgsql as $f$
+declare a schule.aufgabe;
+begin
+  select * into a from schule.aufgabe where id = p_id;
+  return schule.uebung_pruefen_wd(p_k, jsonb_build_object('aufgabe_id', p_id, 'client_id', p_cid, 'antwort', case a.antworttyp
+    when 'zahl' then jsonb_build_object('wert', replace(a.loesung->>'wert', '.', ','))
+    when 'auswahl' then jsonb_build_object('index', (a.loesung->>'index')::int) when 'markierung' then jsonb_build_object('index', (a.loesung->>'index')::int)
+    when 'luecken' then jsonb_build_object('werte', a.loesung->'werte') when 'text' then jsonb_build_object('wert', a.loesung->>'text') end));
+end $f$;
+create function pg_temp.ww_falsch(p_k bigint, p_id bigint, p_cid text) returns jsonb language plpgsql as $f$
+declare a schule.aufgabe;
+begin
+  select * into a from schule.aufgabe where id = p_id;
+  return schule.uebung_pruefen_wd(p_k, jsonb_build_object('aufgabe_id', p_id, 'client_id', p_cid, 'antwort', case a.antworttyp
+    when 'zahl' then jsonb_build_object('wert', replace(((a.loesung->>'wert')::numeric + 987654)::text, '.', ','))
+    when 'auswahl' then jsonb_build_object('index', ((a.loesung->>'index')::int + 1) % jsonb_array_length(a.antworten))
+    when 'luecken' then jsonb_build_object('werte', jsonb_set(a.loesung->'werte', '{{0}}', to_jsonb((a.loesung->'werte'->>0)::numeric + 1))) end));
+end $f$;
 create function pg_temp.ww_ids(r jsonb, p text) returns bigint[] language sql immutable as $f$
   select coalesce(array_agg((e->>'versuch_id')::bigint), '{{}}') from jsonb_array_elements(coalesce(r->p, '[]'::jsonb)) e $f$;
 do $p$
 declare
   fehler text[] := '{{}}'; k bigint := {k}; v_e bigint; v_lz text; a1 schule.aufgabe; a2 schule.aufgabe; v1 bigint; v2 bigint; r jsonb; x text; b schule.aufgabe;
-  bericht jsonb := '{{}}';
+  bericht jsonb := '{{}}'; t0 timestamptz; ms numeric; v_f bigint; v_gross bigint; s_kind text; s_fremd text; s_eltern text; v_id bigint; v_t bigint[];
+  vn bigint[]; liste1 jsonb; kn jsonb; ko jsonb; a3 schule.aufgabe; tag date;
 begin
   if (select count(distinct ww_def.d) from ww_def) <> 1 or (select count(distinct ww_def.o) from ww_def) <> 1 then {F("'zweiter Lauf hat etwas geändert'")} end if;
   -- Rechte
-  for x in select unnest(array['schule.fehler_erledigt', 'schule.nachueben']) loop
+  for x in select unnest(array['schule.fehler_erledigt', 'schule.nachueben', 'schule.nachueben_ausgabe']) loop
     if not (select relrowsecurity from pg_class where oid = x::regclass) then {F("x || ': RLS aus'")} end if;
     if exists (select 1 from pg_policy where polrelid = x::regclass) then {F("x || ': hat eine Policy'")} end if;
     if has_table_privilege('anon', x, 'select') or has_table_privilege('authenticated', x, 'select') or has_table_privilege('authenticated', x, 'insert') then {F("x || ': App-Rollen haben Rechte'")} end if;
@@ -116,7 +136,7 @@ begin
     r := schule.nachueben_liste(k);
     if jsonb_array_length(r) <> 1 or (r->0->'aufgabe'->>'id')::bigint <> b.id or r->0->'aufgabe' ? 'loesung' or r->0->'aufgabe' ? 'loesungsweg' then {F("'Liste fürs Kind: ' || r::text")} end if;
     if (select e->'nachueben' is null from jsonb_array_elements(schule.wackelt_analyse(k, 14, false)->'offen') e where (e->>'versuch_id')::bigint = v2) then {F("'Analyse zeigt Nachüben nicht'")} end if;
-    perform pg_temp.ww_ant(k, b.id, replace(b.loesung->>'wert', '.', ','), 'ww-3');
+    perform pg_temp.ww_richtig(k, b.id, 'ww-3');
     r := schule.wackelt_analyse(k, 14, true);
     if v2 = any(pg_temp.ww_ids(r, 'offen')) then {F("'nachgeübte Antwort noch offen'")} end if;
     if (select e->'erledigt'->>'art' from jsonb_array_elements(r->'erledigt') e where (e->>'versuch_id')::bigint = v2) is distinct from 'nachgeuebt' then {F("'nachgeübt nicht unter erledigt'")} end if;
@@ -125,7 +145,114 @@ begin
   exception when sqlstate 'WW999' then null;
     when others then {F("'Prüfblock: ' || sqlerrm")}
   end;
-  if exists (select 1 from schule.fehler_erledigt) or exists (select 1 from schule.nachueben) then {F("'neue Tabellen nicht leer'")} end if;
+
+  -- 5. Lesevarianten mit echten Lern-Schlüsseln (Logins und Sitzungen nur in dieser Untertransaktion): Kind, fremdes Kind, Eltern
+  select id into v_f from schule.lernender where id <> k and aktiv order by id limit 1;
+  begin
+    insert into schule.lern_login (name, rolle, lernender_id, code_hash) values ('WW-Probe Kind', 'kind', k, md5('ww-k' || clock_timestamp()::text)) returning id into v_id;
+    s_kind := md5('ww-sk' || clock_timestamp()::text); insert into schule.lern_sitzung (token_hash, login_id, laeuft_ab) values (s_kind, v_id, now() + interval '1 hour'); s_kind := 'lern:' || s_kind;
+    insert into schule.lern_login (name, rolle, lernender_id, code_hash) values ('WW-Probe Eltern', 'eltern', null, md5('ww-e' || clock_timestamp()::text)) returning id into v_id;
+    s_eltern := md5('ww-se' || clock_timestamp()::text); insert into schule.lern_sitzung (token_hash, login_id, laeuft_ab) values (s_eltern, v_id, now() + interval '1 hour'); s_eltern := 'lern:' || s_eltern;
+    if v_f is not null then
+      insert into schule.lern_login (name, rolle, lernender_id, code_hash) values ('WW-Probe Fremd', 'kind', v_f, md5('ww-f' || clock_timestamp()::text)) returning id into v_id;
+      s_fremd := md5('ww-sf' || clock_timestamp()::text); insert into schule.lern_sitzung (token_hash, login_id, laeuft_ab) values (s_fremd, v_id, now() + interval '1 hour'); s_fremd := 'lern:' || s_fremd;
+    end if;
+    -- Kind: keine Analyse, kein Abhaken, kein Schicken – auch nicht für sich selbst
+    begin r := api.schule_wackelt_analyse(s_kind, jsonb_build_object('lernender_id', k)); {F("'Kind liest die Analyse'")}
+    exception when others then if position('Nur Eltern/Lehrer' in sqlerrm) = 0 then {F("'Kind/Analyse: falscher Fehler ' || sqlerrm")} end if; end;
+    begin r := api.schule_fehler_abhaken(s_kind, jsonb_build_object('lernender_id', k, 'versuch_ids', jsonb_build_array(1))); {F("'Kind hakt ab'")}
+    exception when others then if position('Nur Eltern/Lehrer' in sqlerrm) = 0 then {F("'Kind/Abhaken: falscher Fehler ' || sqlerrm")} end if; end;
+    begin r := api.schule_nachueben_schicken(s_kind, jsonb_build_object('lernender_id', k, 'versuch_ids', jsonb_build_array(1))); {F("'Kind schickt Nachüben'")}
+    exception when others then if position('Nur Eltern/Lehrer' in sqlerrm) = 0 then {F("'Kind/Schicken: falscher Fehler ' || sqlerrm")} end if; end;
+    r := api.schule_nachueben_lesen(s_kind, jsonb_build_object('lernender_id', k));
+    if r->>'ok' is distinct from 'true' then {F("'Kind liest die eigene Nachübe-Liste nicht'")} end if;
+    if v_f is not null then
+      begin r := api.schule_nachueben_lesen(s_fremd, jsonb_build_object('lernender_id', k)); {F("'fremdes Kind liest die Nachübe-Liste'")}
+      exception when others then if position('Kein Zugriff' in sqlerrm) = 0 then {F("'Fremdkind/Liste: falscher Fehler ' || sqlerrm")} end if; end;
+      begin r := api.schule_wackelt_analyse(s_fremd, jsonb_build_object('lernender_id', k)); {F("'fremdes Kind liest die Analyse'")}
+      exception when others then null; end;
+    else bericht := bericht || '{{"hinweis_fremdkind": "kein zweites aktives Kind – Fremdkind-Probe übersprungen"}}'::jsonb;
+    end if;
+    r := api.schule_wackelt_analyse(s_eltern, jsonb_build_object('lernender_id', k, 'tage', 0));
+    if r->>'ok' is distinct from 'true' then {F("'Eltern lesen die Analyse nicht'")} end if;
+    begin r := api.schule_wackelt_analyse('lern:ww-gibt-es-nicht', jsonb_build_object('lernender_id', k)); {F("'unbekannte Sitzung liest die Analyse'")}
+    exception when others then null; end;
+    raise exception using errcode = 'WW999', message = 'zurueck';
+  exception when sqlstate 'WW999' then null;
+    when others then {F("'Lesevarianten: ' || sqlerrm")}
+  end;
+  -- 3. Tagesgrenze: vier Fehler in vier Lernkarten, alle geschickt -> heute 3 ausgeliefert, am selben Tag kein Nachrücken, morgen der Rest
+  begin
+    select array_agg(m.id order by m.id) into v_t from (
+      select min(x2.id) id from schule.aufgabe x2 join schule.einheit e on e.id = x2.einheit_id
+       where x2.pool = 'uebung' and x2.freigegeben and e.status = 'freigegeben' and x2.antworttyp = 'zahl' and schule.aufgabe_zaehlt(x2)
+         and (x2.loesung->>'wert')::numeric <> 987654 and x2.loesung->>'einheit' is null
+       group by x2.einheit_id, x2.variante_gruppe having count(*) >= 2 order by 1 limit 4) m;
+    if coalesce(array_length(v_t, 1), 0) < 4 then raise exception 'WW-S: keine vier Lernkarten mit zwei Zahl-Aufgaben'; end if;
+    for i in 1 .. 4 loop perform pg_temp.ww_ant(k, v_t[i], '987654', 'ww-t' || i); end loop;
+    select array_agg(id order by id) into vn from schule.versuch where lernender_id = k and client_id like 'ww-t%';
+    r := schule.nachueben_schicken(k, to_jsonb(vn), false, 'probe');
+    if (r->>'geaendert')::int <> 4 then {F("'Tagesgrenze: nicht vier geschickt ' || r::text")} end if;
+    tag := schule.heute_tag(k);
+    liste1 := schule.nachueben_liste(k, true, tag);
+    if jsonb_array_length(liste1) <> 3 then {F("'Tagesgrenze: heute ' || jsonb_array_length(liste1) || ' statt 3'")} end if;
+    if schule.nachueben_liste(k, true, tag) <> liste1 then {F("'zweiter Abruf am selben Tag liefert anderes'")} end if;
+    if jsonb_array_length(schule.nachueben_liste(k, false, tag)) <> 4 then {F("'Eltern-Vorschau zeigt nicht alle vier'")} end if;
+    select * into b from schule.aufgabe where id = (liste1->0->'aufgabe'->>'id')::bigint;
+    r := pg_temp.ww_richtig(k, b.id, 'ww-t-richtig');
+    if r->>'richtig' is distinct from 'true' then {F("'Tagesgrenze: richtige Antwort nicht richtig ' || r::text")} end if;
+    if jsonb_array_length(schule.nachueben_liste(k, true, tag)) <> 2 then {F("'nach einer erledigten rückt am selben Tag etwas nach: ' || schule.nachueben_liste(k, true, tag)::text || ' / ' || b.id")} end if;
+    if jsonb_array_length(schule.nachueben_liste(k, true, tag + 1)) <> 3 then {F("'nächster Lerntag liefert nicht die übrigen drei'")} end if;
+    if not schule.nachueben_liegt(k, (schule.nachueben_liste(k, true, tag)->0->'aufgabe'->>'id')::bigint) then {F("'nachueben_liegt erkennt die ausgelieferte Aufgabe nicht'")} end if;
+    bericht := bericht || jsonb_build_object('tagesgrenze', jsonb_build_object('heute', 3, 'nach_erledigt', 2, 'naechster_tag', 3));
+    raise exception using errcode = 'WW999', message = 'zurueck';
+  exception when sqlstate 'WW999' then null;
+    when others then {F("'Tagesgrenze: ' || sqlerrm")}
+  end;
+  -- 4. Nachübe-Antwort an einer sitzenden, nicht fälligen Lernkarte: wirkt genau wie eine normale Übungsantwort derselben Lernkarte
+  --    (beide Läufe in eigenen Untertransaktionen vom selben Ausgangsstand; beobachtete Zustände im Bericht)
+  if to_regclass('schule.karte_stand') is not null then
+    select * into a3 from schule.aufgabe where einheit_id = v_e and variante_gruppe = v_lz and pool = 'uebung' and antworttyp = 'zahl' and freigegeben
+       and loesung->>'einheit' is null and id not in (a1.id, a2.id) order by id limit 1;
+    for i in 1 .. 2 loop
+      begin
+        insert into schule.karte_stand (lernender_id, einheit_id, lernziel) values (k, v_e, v_lz) on conflict do nothing;
+        update schule.karte_stand set sitzt = true, sitzt_am = now() - interval '10 days', wdh_stufe = 2, wdh_fehler = 0, wdh_ab = now(), wdh_lerntage = 7,
+               faellig_am = now() + interval '7 days' where lernender_id = k and einheit_id = v_e and lernziel = v_lz;
+        perform pg_temp.ww_ant(k, a1.id, '987654', 'ww-k0');    -- die falsche Antwort, zu der nachgeübt wird (erster Fehler an der sitzenden Karte)
+        if i = 1 then   -- Nachüben: geschickte Aufgabe falsch
+          r := schule.nachueben_schicken(k, jsonb_build_array((select id from schule.versuch where lernender_id = k and client_id = 'ww-k0')), false, 'probe');
+          select * into b from schule.aufgabe where id = (schule.nachueben_liste(k, true)->0->'aufgabe'->>'id')::bigint;
+        else            -- normal: dieselbe Aufgabe ohne Nachüben
+          select * into b from schule.aufgabe where id = (select n.aufgabe_id from schule.nachueben n where n.lernender_id = k order by n.id desc limit 1);
+          if b.id is null then b := a3; end if;
+        end if;
+        execute 'select to_jsonb(x) from schule.karte_stand x where x.lernender_id = $1 and x.einheit_id = $2 and x.lernziel = $3' into ko using k, v_e, v_lz;
+        r := pg_temp.ww_falsch(k, b.id, 'ww-k' || i);
+        if r->>'richtig' is distinct from 'false' then {F("'Karte: Fehlantwort nicht als falsch bewertet ' || r::text")} end if;
+        execute 'select to_jsonb(x) from schule.karte_stand x where x.lernender_id = $1 and x.einheit_id = $2 and x.lernziel = $3' into r using k, v_e, v_lz;
+        kn := coalesce(kn, '{{}}'::jsonb) || jsonb_build_object(case i when 1 then 'nachueben' else 'normal' end,
+                jsonb_build_object('nach_1_fehler', jsonb_build_object('sitzt', ko->'sitzt', 'wdh_fehler', ko->'wdh_fehler'),
+                                   'nach_2_fehler', jsonb_build_object('sitzt', r->'sitzt', 'wdh_fehler', r->'wdh_fehler', 'geoeffnet', r->'geoeffnet_am' <> 'null'::jsonb),
+                                   'zeile', r - 'zuletzt' - 'geoeffnet_am' - 'gezaehlt'));
+        raise exception using errcode = 'WW999', message = 'zurueck';
+      exception when sqlstate 'WW999' then null;
+        when others then {F("'Karte (' || i || '): ' || sqlerrm")}
+      end;
+    end loop;
+    if kn->'nachueben'->'zeile' is distinct from kn->'normal'->'zeile' then {F("'Nachübe-Antwort wirkt anders als eine normale Übungsantwort'")} end if;
+    bericht := bericht || jsonb_build_object('karte_sitzt_nicht_faellig', jsonb_build_object('nachueben', (kn->'nachueben') - 'zeile', 'normal', (kn->'normal') - 'zeile'));
+  end if;
+  -- Laufzeit der Analyse „alles“ (Testkind und das Kind mit den meisten Versuchen; nur die Zeit wird berichtet)
+  t0 := clock_timestamp(); perform schule.wackelt_analyse(k, 0, true); ms := round(extract(epoch from clock_timestamp() - t0) * 1000, 1);
+  bericht := bericht || jsonb_build_object('laufzeit_ms_testkind', ms);
+  select lernender_id into v_gross from schule.versuch group by 1 order by count(*) desc limit 1;
+  if v_gross is not null then
+    t0 := clock_timestamp(); perform schule.wackelt_analyse(v_gross, 0, true); ms := round(extract(epoch from clock_timestamp() - t0) * 1000, 1);
+    bericht := bericht || jsonb_build_object('laufzeit_ms_groesstes_kind', ms, 'versuche_groesstes_kind', (select count(*) from schule.versuch where lernender_id = v_gross));
+    if ms > 500 then bericht := bericht || jsonb_build_object('warnung', 'Analyse „alles“ braucht über 500 ms'); raise warning 'WW-S: Analyse „alles“ % ms', ms; end if;
+  end if;
+  if exists (select 1 from schule.fehler_erledigt) or exists (select 1 from schule.nachueben) or exists (select 1 from schule.nachueben_ausgabe) then {F("'neue Tabellen nicht leer'")} end if;
   if (select (n, m) is distinct from ((select count(*) from schule.versuch), (select coalesce(max(id), 0) from schule.versuch)) from ww_stand) then {F("'Versuche verändert'")} end if;
   bericht := bericht || jsonb_build_object('fehler', coalesce(array_length(fehler, 1), 0));
   if array_length(fehler, 1) > 0 then raise exception 'WW-S ABBRUCH, alles zurückgerollt: %', array_to_string(fehler, ' | '); end if;

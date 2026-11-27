@@ -49,6 +49,8 @@ def teil1():
     assert z2['fb'] == [] and z2['regel'], z2
     rc, out, err = py('tools/regelbezug_lernkarten.py', '--pruefen')
     assert rc == 0, err
+    rc, out, err = py('tools/tests/rb_ww_pakete.py', '--pruefen')
+    assert rc == 0, 'Paket-Dateien unter tools/tests/aus nicht auf dem Stand: python3 -I tools/tests/rb_ww_pakete.py\n' + err
     for r in ALLE:
         rc, out, err = py('tools/regelbezug_sql.py', '--runden', str(r), '--sql')
         assert rc == 0 and out.count('$rbf$') % 2 == 0 and 'do $rbnach$' in out, (r, err[-400:])
@@ -92,9 +94,68 @@ class PG:
             assert p.returncode != 0 and erwartet_fehler in p.stderr, (erwartet_fehler, p.stderr[-3000:])
         return p.stdout + p.stderr
 
+    def paket(self, text, erwartet_fehler=None):
+        """Wie der Projektleiter: Inhalt einer Paket-Datei in EINEM execute innerhalb eines do-Blocks (eine Transaktion)."""
+        assert '$rbpaketinhalt$' not in text
+        return self.sql(f'do $rbpaket$ begin execute $rbpaketinhalt${text}$rbpaketinhalt$; end $rbpaket$;', erwartet_fehler)
+
     def ende(self):
         self.als(f'{self.bin}/pg_ctl -D {self.dir}/d -m immediate stop > /dev/null 2>&1 || true')
         shutil.rmtree(self.dir, ignore_errors=True)
+
+
+def auszug(datei, anfang, ende='end $function$;'):
+    s = (WURZEL / 'supabase/migrations' / datei).read_text(encoding='utf-8')
+    i = s.index(anfang)
+    return s[i:s.index(ende, i) + len(ende)]
+
+
+def karte_sql():
+    """Karte wie live, soweit im Repo: karte_buchen aus H-Muss (19.11.) mit dem FT-S-Filter, karte_faellig aus R3; Trigger mit den Live-Namen
+    (versuch_hilfe_merken BEFORE; versuch_karte, versuch_lerntag, versuch_misch_verfall, versuch_sterne AFTER) – vereinfacht, siehe Kommentare."""
+    kb = auszug('20261119_w176_h_muss.sql', 'create or replace function schule.karte_buchen(')
+    alt = "if a.id is null or a.pool <> 'uebung' then return; end if;"
+    assert kb.count(alt) == 1
+    kb = kb.replace(alt, "if a.id is null or a.pool <> 'uebung' or not schule.aufgabe_zaehlt(a) then return; end if;")   # FT-S
+    kf = auszug('20261116_w150_r3_wiederholung_lerntage.sql', 'create or replace function schule.karte_faellig(', '$function$;\n')
+    return f"""
+create table schule.karte_stand (lernender_id bigint not null references schule.lernender(id), einheit_id bigint not null references schule.einheit(id), lernziel text not null,
+  serie smallint not null default 0, richtig int not null default 0, falsch int not null default 0, sitzt boolean not null default false, sitzt_am timestamptz,
+  wdh_stufe smallint not null default 0, faellig_am timestamptz, zuletzt timestamptz, schwer_ok boolean not null default false, wdh_fehler smallint not null default 0,
+  wdh_ab timestamptz, wdh_lerntage smallint, eigene_loesungen int not null default 0, typen text[] not null default '{{}}', folge int not null default 0,
+  fehler_folge int not null default 0, stufe_senkung smallint not null default 0, gezaehlt jsonb not null default '{{}}', geoeffnet_am timestamptz,
+  primary key (lernender_id, einheit_id, lernziel));
+create table schule.lerntag (lernender_id bigint, fach text, datum date, zeitzone text, primary key (lernender_id, fach, datum));
+create table schule.sterne (id bigserial primary key, lernender_id bigint, menge int, grund text, bezug text, am timestamptz default now(), unique (lernender_id, grund, bezug));
+create or replace function schule.karte_ziel(p_einheit bigint, p_lz text) returns int language sql stable set search_path to '' as $$
+  select least(4, greatest(2, count(*)))::int from schule.aufgabe a where a.einheit_id = p_einheit and a.pool = 'uebung' and a.variante_gruppe = p_lz and a.freigegeben $$;
+create or replace function schule.karte_typen_noetig(p_einheit bigint, p_lz text) returns int language sql stable as $$ select 0 $$;   -- Nachbau: keine Typen-Pflicht
+create or replace function schule.karte_schwer_noetig(p_einheit bigint, p_lz text) returns boolean language sql stable as $$ select false $$;
+{kf}
+{kb}
+-- Nachbau der Trigger (Live-Namen). versuch_karte wie R2 (live seit I-2 mit wertung_offen: ein falscher 1. Anlauf wird später nachgebucht).
+create or replace function schule.versuch_hilfe_merken() returns trigger language plpgsql as $$ begin new.hilfe := coalesce(new.hilfe, 0); return new; end $$;
+create trigger versuch_hilfe_merken before insert on schule.versuch for each row execute function schule.versuch_hilfe_merken();
+create or replace function schule.versuch_karte() returns trigger language plpgsql set search_path to '' as $$
+begin
+  if new.testsitzung_id is null and not (coalesce(new.anlauf, 0) = 1 and not new.richtig) then
+    perform schule.karte_buchen(new.lernender_id, new.aufgabe_id, new.richtig, new.hilfe, now());
+  end if;
+  return new;
+end $$;
+create trigger versuch_karte after insert on schule.versuch for each row execute function schule.versuch_karte();
+create or replace function schule.versuch_lerntag() returns trigger language plpgsql set search_path to '' as $$
+begin insert into schule.lerntag values (new.lernender_id, 'Mathematik', (now() at time zone 'Europe/Berlin')::date, 'Europe/Berlin') on conflict do nothing; return new; end $$;
+create trigger versuch_lerntag after insert on schule.versuch for each row execute function schule.versuch_lerntag();
+create or replace function schule.versuch_misch_verfall() returns trigger language plpgsql as $$ begin return new; end $$;
+create trigger versuch_misch_verfall after insert on schule.versuch for each row execute function schule.versuch_misch_verfall();
+create or replace function schule.versuch_sterne() returns trigger language plpgsql set search_path to '' as $$
+begin
+  if new.richtig and new.testsitzung_id is null then insert into schule.sterne (lernender_id, menge, grund, bezug) values (new.lernender_id, 10, 'uebung', 'aufgabe:' || new.aufgabe_id) on conflict do nothing; end if;
+  return new;
+end $$;
+create trigger versuch_sterne after insert on schule.versuch for each row execute function schule.versuch_sterne();
+"""
 
 
 def nachbau_sql():
@@ -102,7 +163,9 @@ def nachbau_sql():
     i = s.index('create or replace function schule.antwort_bewerten')
     ab = s[i:s.index('end $function$;', i) + len('end $function$;')]
     plan = json.loads((WURZEL / 'inhalte/plan/rollend-einheiten.json').read_text(encoding='utf-8'))
-    teile = [(WURZEL / 'tools/tests/regelbezug_nachbau.sql').read_text(encoding='utf-8'), ab + '\n']
+    zg = (WURZEL / 'supabase/migrations/20261114_w150_lern_zugaenge_plan.sql').read_text(encoding='utf-8')
+    zg = zg[:zg.index('-- Bestehende Funktionen auf die neuen Prüfungen umstellen')]   # Tabellen und Funktionen der Lern-Zugänge, ohne die Umstellung alter api-Funktionen
+    teile = [(WURZEL / 'tools/tests/regelbezug_nachbau.sql').read_text(encoding='utf-8'), ab + '\n', karte_sql(), zg]
     for t, e in plan['einheiten'].items():
         teile.append(f"insert into schule.thema values ({e['id']}, '{t}') on conflict do nothing; insert into schule.einheit values ({e['id']}, {e['id']}, 'freigegeben');")
     # Bestand (vor den Runden): je eine Aufgabe zahl / auswahl / luecken an Platz 1-3 der ersten Einheit
@@ -130,21 +193,20 @@ def teil2(zeilen):
     try:
         pg.sql(nachbau_sql())
         n = pg.sql("select count(*) from schule.aufgabe;")
-        rc, probe, err = py('tools/tests/regelbezug_einspielen.py', '--probe')
-        assert rc == 0, err
-        pg.sql(probe, erwartet_fehler='PROBELAUF bestanden')
+        aus = WURZEL / 'tools/tests/aus'
+        probe = (aus / 'rb_s_probe.sql').read_text(encoding='utf-8')
+        pg.paket(probe, erwartet_fehler='PROBELAUF bestanden')
+        pg.sql(probe, erwartet_fehler='PROBELAUF bestanden')   # auch direkt (psql) lauffähig
         assert 'from schule.aufgabe_fehlbild' in pg.sql("select 'from schule.aufgabe_fehlbild' where to_regclass('schule.aufgabe_fehlbild') is null;")
-        rc, ein, err = py('tools/tests/regelbezug_einspielen.py')
-        out = pg.sql(ein)
+        out = pg.paket((aus / 'rb_s_einspielen.sql').read_text(encoding='utf-8'))
         assert 'RB-S eingespielt' in out, out[-800:]
         # Probe-Lauf eines Nachtrags (rollt zurück), dann alle Runden zweimal
         rc, p5, err = py('tools/regelbezug_sql.py', '--runden', '5', '--sql', '--probe')
         pg.sql(p5, erwartet_fehler='PROBELAUF bestanden')
         for runde in ALLE:
-            rc, paket, err = py('tools/regelbezug_sql.py', '--runden', str(runde), '--sql')
-            assert rc == 0, err
-            out1 = pg.sql(paket)
-            out2 = pg.sql(paket)
+            paket = (aus / f'rb_nachtrag_r{runde:02d}.sql').read_text(encoding='utf-8')
+            out1 = pg.paket(paket)
+            out2 = pg.paket(paket)
             assert 'Fehlbilder neu' in out1 and ', 0 Regeln neu, 0 Fehlbilder neu' in out2, (runde, out1[-300:], out2[-300:])
         zahl = pg.sql("\\pset tuples_only on\nselect count(*) || ' ' || (select count(*) from schule.aufgabe_fehlbild) from schule.aufgabe_regel;").split()
         assert int(zahl[0]) == sum(1 for x in zeilen if x['regel']) and int(zahl[1]) == sum(len(x['fb']) for x in zeilen), zahl
@@ -160,8 +222,14 @@ select fehlbild_nr || ' ' || fehlbild from schule.versuch where client_id = 'rb-
         pg.sql(f"""update schule.einheit set status = 'geprueft' where id = {zeilen[0]['e']};
 update schule.aufgabe set frage = frage || '{{"text": "geändert"}}' where einheit_id = {zeilen[0]['e']} and reihenfolge = {zeilen[0]['r']};
 update schule.einheit set status = 'freigegeben' where id = {zeilen[0]['e']};""")
+        # veränderte Lösung (gleicher Text) -> Abbruch mit „Lösung … statt … wie eingespielt“
+        z1 = zeilen[1]
+        pg.sql(f"""update schule.einheit set status = 'geprueft' where id = {z1['e']};
+update schule.aufgabe set loesung = loesung || '{{"toleranz": 0.5}}' where einheit_id = {z1['e']} and reihenfolge = {z1['r']};
+update schule.einheit set status = 'freigegeben' where id = {z1['e']};""")
         rc, pk, _ = py('tools/regelbezug_sql.py', '--runden', 'alle', '--sql')
-        pg.sql(pk, erwartet_fehler='ist nicht die erwartete')
+        out = pg.sql(pk, erwartet_fehler='ist nicht die erwartete')
+        assert f"{z1['k']}: Aufgabe" in out and 'wie eingespielt' in out, out[-1500:]
         print('Teil 2 (lokaler Nachbau) bestanden')
     finally:
         pg.ende()

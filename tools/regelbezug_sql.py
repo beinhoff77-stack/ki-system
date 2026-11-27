@@ -16,7 +16,8 @@ ZUORDNUNG Repo-Aufgabe -> Datenbank-Aufgabe (es gibt in der Datenbank keine Kenn
      (falls sich Plätze verschoben haben). Inhaltliche Abweichung (Frage, Antworten, Lösung, Typ, Lernkarte) -> Fehlbilder NICHT übernommen,
      Regel schon (Regel hängt an der Lernkarte, nicht an den Zahlen); steht in der Abweichungsliste. Nur Tipp/Lösungsweg/Form anders -> nur gemeldet.
   3. In der Datenbank prüft das Paket je Aufgabe: genau EINE Übungsaufgabe der Einheit mit dieser Reihenfolge-Nummer; md5 des Fragetexts
-     (frage->>'text') = md5 des EINGESPIELTEN Texts; Antworttyp und Lernkarte gleich; bei Auswahl md5 der Antwort-Liste gleich. Jede Abweichung
+     (frage->>'text') = md5 des EINGESPIELTEN Texts; Antworttyp und Lernkarte gleich; bei Auswahl md5 der Antwort-Liste gleich; die Lösung
+     (Wert/Index/Lückenwerte, Einheit, Toleranz: ganzes loesung-JSON) gleich dem eingespielten (jsonb-Gleichheit). Jede Abweichung
      -> Abbruch des ganzen Pakets (alles zurück), mit Liste der Kennungen.
   4. Nach dem Einfügen: jedes Fehlbild wird mit schule.fehlbild_probeantwort als Antwort nachgebaut; schule.antwort_bewerten muss sie als gültig
      und falsch bewerten, schule.fehlbild_finden muss genau dieses Fehlbild finden. Sonst Abbruch.
@@ -184,7 +185,7 @@ def sammeln(runden, ohne=()):
             z['fb_uebernommen_mit_kennung'] += sum(1 for f in fb if f['fehlbild'])
             if not regel and not fb: z['ohne_beides'] += 1; continue
             zeilen.append({'k': k, 'e': eid, 'r': r, 'mt': md5(ein['f'].get('text', '')), 'y': y, 'l': ein['l'],
-                           'ma': md5('\n'.join(ein['a'])) if y == 'auswahl' else None, 'regel': regel, 'fb': fb})
+                           'ma': md5('\n'.join(ein['a'])) if y == 'auswahl' else None, 'o': ein.get('o'), 'regel': regel, 'fb': fb})
     return zeilen, abw, fehlt, z, weg, je_typ
 
 
@@ -199,7 +200,7 @@ def zeilen_neu(plan, je):
             fb, _ = fehlbilder(e, row)
             if not regel and not fb: continue
             zeilen.append({'k': k, 'e': plan['einheiten'][t]['id'], 'r': row['r'], 'mt': md5(row['f'].get('text', '')), 'y': row['y'], 'l': row['l'],
-                           'ma': md5('\n'.join(row['a'])) if row['y'] == 'auswahl' else None, 'regel': regel, 'fb': fb})
+                           'ma': md5('\n'.join(row['a'])) if row['y'] == 'auswahl' else None, 'o': row.get('o'), 'regel': regel, 'fb': fb})
     return zeilen
 
 
@@ -212,8 +213,9 @@ def block(zeilen, titel, probe=False):
     werte = []
     for x in zeilen:
         js = json.dumps(x['fb'], ensure_ascii=False)
-        assert '$rbf$' not in js
-        werte.append(f"    ({q(x['k'])}, {x['e']}, {x['r']}, {q(x['mt'])}, {q(x['y'])}, {q(x['l'])}, {q(x['ma'])}, {q(x['regel'])}, $rbf${js}$rbf$::jsonb)")
+        jo = json.dumps(x['o'], ensure_ascii=False)
+        assert '$rbf$' not in js + jo
+        werte.append(f"    ({q(x['k'])}, {x['e']}, {x['r']}, {q(x['mt'])}, {q(x['y'])}, {q(x['l'])}, {q(x['ma'])}, $rbf${jo}$rbf$::jsonb, {q(x['regel'])}, $rbf${js}$rbf$::jsonb)")
     n_regel = sum(1 for x in zeilen if x['regel'])
     n_fb = sum(len(x['fb']) for x in zeilen)
     ende = ("  raise exception 'PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): % Aufgaben, % Regeln neu, % Fehlbilder neu', "
@@ -229,13 +231,16 @@ begin
     raise exception 'RB-S Regelbezug: erst die Migration 20261204_rb_s_regelbezug.sql einspielen'; end if;
   for z in select * from (values
 {(',' + chr(10)).join(werte)}
-  ) x(k, e, r, mt, y, l, ma, regel, fb) loop
+  ) x(k, e, r, mt, y, l, ma, o, regel, fb) loop
     select count(*) into n from schule.aufgabe where einheit_id = z.e and pool = 'uebung' and reihenfolge = z.r;
     if n <> 1 then fehler := fehler || format('%s: %s Übungsaufgaben an Einheit %s, Platz %s', z.k, n, z.e, z.r); continue; end if;
     select * into a from schule.aufgabe where einheit_id = z.e and pool = 'uebung' and reihenfolge = z.r;
     if md5(coalesce(a.frage->>'text', '')) <> z.mt or a.antworttyp is distinct from z.y or a.variante_gruppe is distinct from z.l
        or (z.ma is not null and md5(coalesce((select string_agg(t.x, E'\\n' order by t.o) from jsonb_array_elements_text(a.antworten) with ordinality t(x, o)), '')) <> z.ma) then
       fehler := fehler || format('%s: Aufgabe %s (Einheit %s, Platz %s) ist nicht die erwartete (Fragetext/Typ/Lernkarte/Antworten)', z.k, a.id, z.e, z.r); continue; end if;
+    -- Lösung samt Einheit und Toleranz wie eingespielt (jsonb-Gleichheit: Zahlen werden als Zahlen verglichen, 12 = 12.0)
+    if a.loesung is distinct from z.o then
+      fehler := fehler || format('%s: Aufgabe %s (Einheit %s, Platz %s): Lösung %s statt %s wie eingespielt', z.k, a.id, z.e, z.r, a.loesung, z.o); continue; end if;
     if a.id = any(v_ids) then fehler := fehler || format('%s: Aufgabe %s doppelt zugeordnet', z.k, a.id); continue; end if;
     v_ids := v_ids || a.id;
     if z.regel is not null then

@@ -59,7 +59,7 @@ def main():
     basis_typ = lambda y: (f"(select min(xa.id) from schule.aufgabe xa join schule.einheit xe on xe.id = xa.einheit_id where xa.pool = 'uebung' and xa.antworttyp = '{y}' "
                            f"and xa.freigegeben and xe.status = 'freigegeben')")
     lauf = f"""do $x$
-declare k bigint := {k}; a schule.aufgabe; o jsonb := '{{}}';
+declare k bigint := {k}; a schule.aufgabe; o jsonb := '{{}}'; r jsonb;
 begin
   select * into a from schule.aufgabe where id = {basis};
   if k is null or a.id is null then raise exception 'RB-S: Testkind oder Vergleichsaufgabe fehlt'; end if;
@@ -71,6 +71,17 @@ begin
     o := o || jsonb_build_object('anders', pg_temp.rb_ant(k, a.id, '123457', null, 'rb-p-3'));
     o := o || jsonb_build_object('versuche', (select jsonb_agg(jsonb_build_array(v.client_id, to_jsonb(v) -> 'fehlbild_nr', to_jsonb(v) -> 'fehlbild') order by v.id)
                                                from schule.versuch v where v.lernender_id = k and v.client_id like 'rb-p-%'));
+    -- Wirkung der übrigen Trigger (versuch_hilfe_merken, versuch_karte, versuch_lerntag, versuch_misch_verfall, versuch_sterne): vor/nach gleich
+    o := o || jsonb_build_object('zeilen', (select jsonb_agg(to_jsonb(v) - 'id' - 'am' - 'fehlbild_nr' - 'fehlbild' order by v.id)
+                                             from schule.versuch v where v.lernender_id = k and v.client_id like 'rb-p-%'));
+    if to_regclass('schule.karte_stand') is not null then
+      execute 'select to_jsonb(x) from schule.karte_stand x where x.lernender_id = $1 and x.einheit_id = $2 and x.lernziel = $3' into r using k, a.einheit_id, a.variante_gruppe;
+      o := o || jsonb_build_object('karte', r);
+    end if;
+    if to_regclass('schule.sterne') is not null then
+      execute 'select jsonb_agg(to_jsonb(x) - ''id'' order by x.grund, x.bezug) from schule.sterne x where x.lernender_id = $1' into r using k;
+      o := o || jsonb_build_object('sterne', r);
+    end if;
     raise exception using errcode = 'RB999', message = 'zurueck';
   exception when sqlstate 'RB999' then null;
   end;
@@ -93,6 +104,8 @@ end $x$;"""
     ende = ("raise exception 'PROBELAUF bestanden, ALLES zurückgerollt (nichts eingespielt): %', (select b::text from rb_bericht);" if probe else
             "raise notice 'RB-S eingespielt: %', (select b::text from rb_bericht);")
     leser = ', '.join(f"'{x}'" for x in sorted(LESER))
+    TRG = ("(select string_agg(tgrelid::regclass::text || ':' || tgname || ':' || tgtype::text || ':' || tgenabled::text || ':' || tgfoid::regproc::text, ',' order by tgrelid::regclass::text, tgname) "
+           "from pg_trigger where tgrelid in ('schule.versuch'::regclass, 'schule.aufgabe'::regclass) and not tgisinternal and tgname <> 'versuch_fehlbild')")
     print(f"""-- RB-S Einspiel-Paket (erzeugt von tools/tests/regelbezug_einspielen.py{' --probe' if probe else ''}). Ein Aufruf, eine Transaktion. Fehler = alles zurück.
 select set_config('lock_timeout', '3s', true), set_config('statement_timeout', '180s', true);
 create temp table rb_mig on commit drop as select $rbmig${mig}$rbmig$::text as sql, $rbmig${lauf}$rbmig$::text as lauf;
@@ -103,6 +116,7 @@ begin
 end $f$;
 create temp table rb_aus (phase text, o jsonb) on commit drop;
 create temp table rb_stand on commit drop as select row({stand})::text m;
+create temp table rb_trg on commit drop as select {TRG} t;
 do $p$ begin execute replace((select lauf from rb_mig), 'PHASE', 'vor'); end $p$;
 do $p$ begin execute (select sql from rb_mig); end $p$;
 create temp table rb_def on commit drop as select 1 lauf, {defs} d, {objekte} o;
@@ -131,14 +145,32 @@ begin
   for x in select unnest(array[{', '.join(repr(f) for f in NEU)}]) loop
     if has_function_privilege('anon', x, 'execute') or has_function_privilege('authenticated', x, 'execute') then {F("x || ': für App-Rollen aufrufbar'")} end if;
   end loop;
-  begin
-    execute 'set local role authenticated';
-    perform count(*) from schule.aufgabe_fehlbild;
-    {F("'authenticated kann schule.aufgabe_fehlbild lesen'")}
-    raise exception using errcode = 'RB999', message = 'zurueck';
-  exception when sqlstate 'RB999' then null; when insufficient_privilege then null;
-    when others then {F("'Gegenprobe Rolle: ' || sqlerrm")}
-  end;
+  -- Gegenprobe Rolle: authenticated hat live KEIN usage auf schule – damit die Probe nicht aus diesem Grund besteht, bekommt die Rolle es hier
+  -- vorübergehend (Untertransaktion, wird zurückgerollt). Dann muss das Lesen an der TABELLE scheitern.
+  for x in select unnest(array['aufgabe_fehlbild', 'aufgabe_regel']) loop
+    begin
+      grant usage on schema schule to authenticated;
+      execute 'set local role authenticated';
+      execute format('select count(*) from schule.%I', x);
+      {F("'authenticated kann schule.' || x || ' lesen'")}
+      raise exception using errcode = 'RB999', message = 'zurueck';
+    exception when sqlstate 'RB999' then null;
+      when insufficient_privilege then
+        if position(x in sqlerrm) = 0 or position('schema' in sqlerrm) > 0 then {F("'Gegenprobe Rolle aus dem falschen Grund: ' || sqlerrm")} end if;
+      when others then {F("'Gegenprobe Rolle: ' || sqlerrm")}
+    end;
+  end loop;
+  if has_schema_privilege('authenticated', 'schule', 'usage') then bericht := bericht || '{{"hinweis_usage": "authenticated hat usage auf schule"}}'::jsonb; end if;
+  -- Trigger auf schule.versuch: versuch_fehlbild läuft als ERSTER BEFORE-INSERT-Trigger (Namensreihenfolge, vor versuch_hilfe_merken);
+  -- alle übrigen Trigger (auch die AFTER-Trigger versuch_karte, versuch_lerntag, versuch_misch_verfall, versuch_sterne) unverändert
+  if (select string_agg(tgname, ',' order by tgname) from pg_trigger where tgrelid = 'schule.versuch'::regclass and not tgisinternal
+        and (tgtype & 2) <> 0 and (tgtype & 4) <> 0 and (tgtype & 1) <> 0) not like 'versuch_fehlbild%' then
+    {F("'versuch_fehlbild ist nicht der erste BEFORE-INSERT-Trigger: ' || (select string_agg(tgname, ',' order by tgname) from pg_trigger where tgrelid = 'schule.versuch'::regclass and not tgisinternal and (tgtype & 2) <> 0)")}
+  end if;
+  if exists (select 1 from pg_trigger where tgrelid = 'schule.versuch'::regclass and tgname = 'versuch_hilfe_merken') and 'versuch_fehlbild' > 'versuch_hilfe_merken' then
+    {F("'Reihenfolge versuch_fehlbild/versuch_hilfe_merken'")} end if;
+  if (select t from rb_trg) is distinct from {TRG} then {F("'andere Trigger auf versuch/aufgabe verändert'")} end if;
+  bericht := bericht || jsonb_build_object('trigger_versuch', (select string_agg(tgname, ',' order by tgname) from pg_trigger where tgrelid = 'schule.versuch'::regclass and not tgisinternal));
   if current_user = 'authenticated' then {F("'Rolle nicht zurückgesetzt'")} end if;
   -- nur erwartete Funktionen lesen die neuen Tabellen / rufen die Rückmeldung
   for x in select p.oid::regprocedure::text from pg_proc p join pg_namespace s on s.oid = p.pronamespace

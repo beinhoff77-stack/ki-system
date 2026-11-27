@@ -7,8 +7,9 @@
 -- WAS
 -- 1. Tabellen (RLS an, keine Policy, keine Rechte für anon/authenticated; nur über die Funktionen):
 --      schule.fehler_erledigt  (id, lernender_id, versuch_id, am, von, zurueckgenommen_am, zurueckgenommen_von)  – „Abhaken“ je falscher Antwort
---      schule.nachueben        (id, lernender_id, versuch_id, vorlage_aufgabe_id, aufgabe_id, einheit_id, lernziel, geschickt_am, von,
---                               zurueckgenommen_am, zurueckgenommen_von)                                         – „Nachüben schicken“
+--      schule.nachueben        (id, lernender_id, versuch_id, vorlage_aufgabe_id, aufgabe_id, einheit_id, lernziel, geschickt_am, ab_versuch_id,
+--                               von, zurueckgenommen_am, zurueckgenommen_von)                                    – „Nachüben schicken“
+--      schule.nachueben_ausgabe(nachueben_id, lernender_id, tag, am)                                             – Auslieferung je Lerntag
 --    Rückgängig = zurueckgenommen_am setzen (kein DELETE). Je Versuch höchstens ein gültiger Eintrag (eindeutiger Teilindex).
 -- 2. schule.wackelt_analyse(kind, tage, mit_erledigt) -> jsonb (Form in wackelt-server.md). Regeln (umsetzung3 Abschnitt 2):
 --      falsch      = endgültig falsche Antwort (schule.fehler_endgueltig_am, wie LW-S 2) – ein falscher 1. Anlauf mit zweiter Chance zählt nicht
@@ -18,8 +19,9 @@
 --      Auswertung: Fehler je Thema (offen / alle Antworten im Zeitraum), die letzten 7 Lerntage (richtig/falsch, Tag in der Zeitzone des Kindes),
 --      wiederkehrende Fehlerarten (≥ 2 falsche im Zeitraum, mindestens eine offen; höchstens 3), „nur einmal passiert“ (Lernkarten mit genau einem
 --      offenen Fehler, dessen Fehlerart nicht wiederkehrt; davon danach richtig).
--- 3. schule.nachueben_liste(kind) -> die Bordkarten fürs Kind (schule.aufgabe_anzeige, ohne Lösung), älteste zuerst, höchstens
---    Regel nachueben_je_tag (3). Gültig, solange nicht zurückgenommen, nicht nachgeübt und die Antwort nicht abgehakt ist.
+-- 3. schule.nachueben_liste(kind, ausliefern, tag) -> die Bordkarten fürs Kind (schule.aufgabe_anzeige, ohne Lösung), älteste zuerst; Tagesgrenze:
+--    je Kind und Lerntag höchstens nachueben_je_tag (3) AUSGELIEFERTE (Tabelle schule.nachueben_ausgabe; am selben Tag rückt nichts nach).
+--    Gültig, solange nicht zurückgenommen, nicht nachgeübt und die Antwort nicht abgehakt ist (Abhaken beendet das Nachüben).
 --    Gewählt wird die Aufgabe beim Schicken und gespeichert (gleich auf allen Geräten): dieselbe Lernkarte, freigegeben, zählend, nicht die falsche
 --    Aufgabe selbst, gleiche Stufe zuerst, dann gleicher Typ, noch nie vom Kind bearbeitet zuerst, nicht schon in einem offenen Nachüben; gibt es
 --    keine, die falsche Aufgabe selbst. Beantwortet wird sie wie jede Übung (schule_uebung_pruefen) – kein eigener Antwortweg.
@@ -40,7 +42,7 @@ do $$ begin
   if to_regprocedure('schule.fehler_endgueltig_am(schule.versuch)') is null or to_regprocedure('schule.zugriff(text, bigint)') is null
      or to_regprocedure('schule.ist_leiter(text)') is null or to_regprocedure('schule.aufgabe_anzeige(schule.aufgabe, boolean)') is null
      or to_regprocedure('schule.loesung_sicht(schule.aufgabe)') is null or to_regprocedure('schule.aufgabe_zaehlt(schule.aufgabe)') is null
-     or to_regprocedure('schule.wd_regel(text, integer)') is null
+     or to_regprocedure('schule.wd_regel(text, integer)') is null or to_regprocedure('schule.heute_tag(bigint)') is null
   then raise exception 'WW-S: Voraussetzung fehlt (LW-S, BD-S2, FT-S, WD-S)'; end if;
 end $$;
 
@@ -251,27 +253,74 @@ begin
   return jsonb_build_object('ok', true, 'geaendert', n, 'geschickt', v_neu, 'uebersprungen', v_nicht);
 end $function$;
 
--- 3. Bordkarten fürs Kind
-create or replace function schule.nachueben_liste(p_l bigint)
- returns jsonb language sql stable set search_path to ''
+-- 3. Bordkarten fürs Kind. Tagesgrenze: je Kind und Lerntag (schule.heute_tag = Kalendertag in der Zeitzone des Kindes, wie „heute selbst
+--    gelöst“ und schule.lerntag) höchstens nachueben_je_tag AUSGELIEFERTE Nachübe-Aufgaben (schule.nachueben_ausgabe). Am selben Tag rückt nichts
+--    nach, auch wenn eine erledigt ist; ein zweites Gerät bekommt dieselben. Nicht Erledigtes wird am nächsten Lerntag wieder ausgeliefert (zählt dann neu).
+create table if not exists schule.nachueben_ausgabe (
+  nachueben_id bigint not null references schule.nachueben(id),
+  lernender_id bigint not null references schule.lernender(id),
+  tag date not null,
+  am timestamptz not null default now(),
+  primary key (nachueben_id, tag)
+);
+create index if not exists nachueben_ausgabe_kind_tag on schule.nachueben_ausgabe (lernender_id, tag);
+alter table schule.nachueben_ausgabe enable row level security;
+revoke all on table schule.nachueben_ausgabe from public, anon, authenticated;
+comment on table schule.nachueben_ausgabe is 'WW-S: an welchem Lerntag eine Nachübe-Aufgabe dem Kind ausgeliefert wurde (Tagesgrenze nachueben_je_tag)';
+
+-- gültig = nicht zurückgenommen, Antwort nicht abgehakt, noch nicht nachgeübt, Aufgabe freigegeben
+create or replace function schule.nachueben_gueltig(n schule.nachueben)
+ returns boolean language sql stable set search_path to ''
 as $function$
-  select coalesce(jsonb_agg(x.j order by x.geschickt_am, x.id), '[]'::jsonb) from (
-    select n.id, n.geschickt_am, jsonb_build_object('nachueben_id', n.id, 'einheit_id', n.einheit_id, 'lernziel', n.lernziel,
-             'thema_id', (select e.thema_id from schule.einheit e where e.id = n.einheit_id), 'geschickt_am', n.geschickt_am,
-             'aufgabe', schule.aufgabe_anzeige(a, true)) j
-      from schule.nachueben n join schule.aufgabe a on a.id = n.aufgabe_id
-     where n.lernender_id = p_l and n.zurueckgenommen_am is null and a.freigegeben
-       and not exists (select 1 from schule.fehler_erledigt fe where fe.versuch_id = n.versuch_id and fe.zurueckgenommen_am is null)
-       and not exists (select 1 from schule.versuch y join schule.aufgabe b on b.id = y.aufgabe_id
-                        where y.lernender_id = p_l and b.einheit_id = n.einheit_id and b.variante_gruppe = n.lernziel and y.richtig
-                          and coalesce(y.hilfe, 0) = 0 and coalesce(y.anlauf, 1) <> 2 and y.id > n.ab_versuch_id)
+  select n.zurueckgenommen_am is null
+     and exists (select 1 from schule.aufgabe a where a.id = n.aufgabe_id and a.freigegeben)
+     and not exists (select 1 from schule.fehler_erledigt fe where fe.versuch_id = n.versuch_id and fe.zurueckgenommen_am is null)
+     and not exists (select 1 from schule.versuch y join schule.aufgabe b on b.id = y.aufgabe_id
+                      where y.lernender_id = n.lernender_id and b.einheit_id = n.einheit_id and b.variante_gruppe = n.lernziel and y.richtig
+                        and coalesce(y.hilfe, 0) = 0 and coalesce(y.anlauf, 1) <> 2 and y.id > n.ab_versuch_id);
+$function$;
+
+-- p_ausliefern = true (Kind): füllt die heutige Ausgabe bis zur Grenze auf und liefert die heute ausgelieferten, noch gültigen.
+-- p_ausliefern = false (Eltern, Vorschau): schreibt nichts; liefert die heute ausgelieferten und die wartenden (ausgeliefert = false).
+create or replace function schule.nachueben_liste(p_l bigint, p_ausliefern boolean default true, p_tag date default null)
+ returns jsonb language plpgsql set search_path to ''
+as $function$
+declare v_tag date := coalesce(p_tag, schule.heute_tag(p_l)); v_max int := greatest(schule.wd_regel('nachueben_je_tag', 3), 0); v_heute int;
+begin
+  if p_ausliefern then
+    perform 1 from schule.lernender where id = p_l for update;   -- zwei Geräte gleichzeitig: nacheinander, damit die Grenze hält
+    select count(*) into v_heute from schule.nachueben_ausgabe where lernender_id = p_l and tag = v_tag;
+    insert into schule.nachueben_ausgabe (nachueben_id, lernender_id, tag)
+    select n.id, p_l, v_tag from schule.nachueben n
+     where n.lernender_id = p_l and schule.nachueben_gueltig(n)
+       and not exists (select 1 from schule.nachueben_ausgabe g where g.nachueben_id = n.id and g.tag = v_tag)
      order by n.geschickt_am, n.id
-     limit greatest(schule.wd_regel('nachueben_je_tag', 3), 0)) x;
+     limit greatest(v_max - v_heute, 0)
+    on conflict do nothing;
+  end if;
+  return coalesce((select jsonb_agg(x.j order by x.aus desc, x.geschickt_am, x.id) from (
+    select n.id, n.geschickt_am, g.nachueben_id is not null aus,
+           jsonb_build_object('nachueben_id', n.id, 'einheit_id', n.einheit_id, 'lernziel', n.lernziel,
+             'thema_id', (select e.thema_id from schule.einheit e where e.id = n.einheit_id), 'geschickt_am', n.geschickt_am,
+             'ausgeliefert', g.nachueben_id is not null, 'aufgabe', schule.aufgabe_anzeige(a, true)) j
+      from schule.nachueben n join schule.aufgabe a on a.id = n.aufgabe_id
+      left join schule.nachueben_ausgabe g on g.nachueben_id = n.id and g.tag = v_tag
+     where n.lernender_id = p_l and schule.nachueben_gueltig(n) and (g.nachueben_id is not null or not p_ausliefern)) x), '[]'::jsonb);
+end $function$;
+
+-- Abgegrenzte Stelle für eine spätere Sonderregel (heute NICHT verwendet): ist diese Aufgabe für das Kind heute eine ausgelieferte, gültige
+-- Nachübe-Aufgabe? Heute zählen Nachübe-Antworten wie jede Übung (karte_buchen unverändert, siehe wackelt-server.md „Nachübe-Antwort an der Karte“).
+create or replace function schule.nachueben_liegt(p_l bigint, p_aufgabe bigint)
+ returns boolean language sql stable set search_path to ''
+as $function$
+  select exists (select 1 from schule.nachueben n join schule.nachueben_ausgabe g on g.nachueben_id = n.id and g.tag = schule.heute_tag(p_l)
+                  where n.lernender_id = p_l and n.aufgabe_id = p_aufgabe and schule.nachueben_gueltig(n));
 $function$;
 
 revoke all on function schule.ww_fehlerart(schule.versuch, schule.aufgabe), schule.ww_von(text), schule.wackelt_analyse(bigint, integer, boolean),
   schule.ww_versuche(bigint, jsonb), schule.fehler_abhaken(bigint, jsonb, boolean, text), schule.nachueben_schicken(bigint, jsonb, boolean, text),
-  schule.nachueben_liste(bigint) from public, anon, authenticated;
+  schule.nachueben_gueltig(schule.nachueben), schule.nachueben_liste(bigint, boolean, date), schule.nachueben_liegt(bigint, bigint)
+  from public, anon, authenticated;
 
 -- 4. Aktionen
 create or replace function api.schule_wackelt_analyse(p_schluessel text, p_daten jsonb default null)
@@ -318,7 +367,9 @@ declare v_l bigint := nullif(p_daten->>'lernender_id', '')::bigint;
 begin
   perform schule.zugriff(p_schluessel, v_l);   -- Kind: nur der eigene Zugang; Eltern/Lehrer: ihre Kinder
   if not exists (select 1 from schule.lernender where id = v_l and aktiv) then raise exception 'Kind nicht gefunden' using errcode = 'P0001'; end if;
-  return jsonb_build_object('ok', true, 'lernender_id', v_l, 'aufgaben', schule.nachueben_liste(v_l));
+  -- ausgeliefert (und gezählt) wird nur, wenn das Kind selbst liest; Eltern/Lehrer sehen eine Vorschau ohne Ausgabe
+  return jsonb_build_object('ok', true, 'lernender_id', v_l, 'tag', schule.heute_tag(v_l),
+    'aufgaben', schule.nachueben_liste(v_l, not schule.ist_leiter(p_schluessel)));
 end $function$;
 
 do $$ begin

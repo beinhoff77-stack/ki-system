@@ -352,29 +352,79 @@ function lernKnobelDesTages(d) {
   return box;
 }
 // Auswahl der nächsten Bordkarte (stellt sie an den Anfang von warte). Regel „sitzt“ (16.11.): Die Stufe steigt mit den Punkten.
-function lernWaehleBordkarte(warte, e, letzte, gesehenTyp = new Set()) {
-  // W176: Stufe nach eigenen Lösungen (anteilig), nach je 2 Fehlern in Folge eine Stufe leichter (stufe_senkung vom Server)
+// W176: Stufe nach eigenen Lösungen (anteilig), nach je 2 Fehlern in Folge eine Stufe leichter (stufe_senkung vom Server)
+const lernSollStufe = (e) => { const ziel = e.ziel || 6, p = e.neueRegel ? e.eigene : e.serie || 0;
+  return Math.max(1, (p >= ziel ? 3 : Math.min(3, 1 + Math.floor(p * 3 / ziel))) - (e.neueRegel ? e.stufeSenkung || 0 : 0)); };
+// F: Abwechslung – nie zweimal hintereinander derselbe Typ (ohne Typ: derselbe Fragetext ohne Zahlen)
+const lernAnders = (x, letzte) => !letzte || (x.typ && letzte.typ ? x.typ !== letzte.typ : lernBauplan(x) !== lernBauplan(letzte));
+// Kern der Auswahl (bis 0.93.8 die ganze Auswahl). v: nur Bordkarten aus diesem Vorrat (Form-Takt); teil: 'schwer' = nur der Schwer-Vorrang, 'rest' = ohne ihn.
+function lernWaehleKern(warte, e, letzte, gesehenTyp, v = null, teil = null) {
   const ziel = e.ziel || 6, p = e.neueRegel ? e.eigene : e.serie || 0;
-  const soll = Math.max(1, (p >= ziel ? 3 : Math.min(3, 1 + Math.floor(p * 3 / ziel))) - (e.neueRegel ? e.stufeSenkung || 0 : 0));
+  const soll = lernSollStufe(e);
   const vor = (j) => { if (j > 0) warte.unshift(...warte.splice(j, 1)); return j >= 0; };
+  const such = (f) => warte.findIndex((x) => (!v || v(x)) && f(x));
   // Punkte voll, aber die schwere Aufgabe fehlt noch: dann kommt auf jeden Fall eine schwere
-  // F: Abwechslung – nie zweimal hintereinander derselbe Typ (ohne Typ: derselbe Fragetext ohne Zahlen); Typen bevorzugen, die in dieser Etappe noch nicht dran waren
-  const anders = (x) => !letzte || (x.typ && letzte.typ ? x.typ !== letzte.typ : lernBauplan(x) !== lernBauplan(letzte));
+  // F: Typen bevorzugen, die in dieser Etappe noch nicht dran waren
+  const anders = (x) => lernAnders(x, letzte);
   const neuTyp = (x) => !x.typ || !gesehenTyp.has(x.typ);
-  for (const ex of [(x) => anders(x) && neuTyp(x), anders]) {
-    if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(warte.findIndex((x) => lernIstSchwer(x) && x !== letzte && !x.geloest && ex(x)))) return;
+  if (teil !== 'rest') {
+    for (const ex of [(x) => anders(x) && neuTyp(x), anders]) {
+      if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(such((x) => lernIstSchwer(x) && x !== letzte && !x.geloest && ex(x)))) return true;
+    }
+    if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(such((x) => lernIstSchwer(x) && x !== letzte && !x.geloest))) return true;
+    if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(such((x) => lernIstSchwer(x) && x !== letzte))) return true;
+    if (teil === 'schwer') return false;
   }
-  if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(warte.findIndex((x) => lernIstSchwer(x) && x !== letzte && !x.geloest))) return;
-  if (p >= ziel && e.schwerNoetig && !e.schwerOk && vor(warte.findIndex((x) => lernIstSchwer(x) && x !== letzte))) return;
   const reihe = soll === 3 ? [3, 2, 1] : soll === 2 ? [2, 3, 1] : [1, 2, 3];
   const neuZ = (x) => e.sitzt || !e.gezaehlt || !e.gezaehlt.has(Number(x.id)); // H3: solange es ungezählte gibt, keine schon gezählte
   for (const ok of [(x) => !x.geloest && !x.falschHeute && neuZ(x), (x) => !x.geloest && neuZ(x), (x) => !x.geloest && !x.falschHeute, (x) => !x.geloest, (x) => x !== letzte])
     for (const st of reihe)
       for (const ex of [(x) => anders(x) && neuTyp(x), anders])
-        if (vor(warte.findIndex((x) => (x.stufe || 2) === st && ok(x) && ex(x)))) return;
+        if (vor(such((x) => (x.stufe || 2) === st && ok(x) && ex(x)))) return true;
   for (const ok of [(x) => !x.geloest && !x.falschHeute, (x) => !x.geloest, (x) => x !== letzte])
     for (const st of reihe)
-      if (vor(warte.findIndex((x) => (x.stufe || 2) === st && ok(x)))) return;
+      if (vor(such((x) => (x.stufe || 2) === st && ok(x)))) return true;
+  return false;
+}
+// Form-Takt (inhalte/plan/form-takt.md, Regeln 2–4 und 6): Sachaufgabe = Typ einkleidung/transfer/pruefung, die zählt (zaehlt ≠ nein)
+const LERN_ANWENDEN = new Set(['einkleidung', 'transfer', 'pruefung']);
+const lernIstAnwenden = (x) => LERN_ANWENDEN.has(x.typ) && x.zaehlt !== 'nein';
+// Regel 6: Alles für die Landung ist beisammen – nur die Sachaufgabe fehlt noch (Felder anwenden_noetig/anwenden_ok vom Server; fehlen sie, nie)
+const lernAnwendenFehlt = (e) => !!(e.neueRegel && e.anwendenNoetig && !e.anwendenOk && !e.sitzt && e.eigene >= (e.ziel || 6)
+  && (e.typenNoetig || 0) <= (e.typenAnzahl || 0) && (!e.schwerNoetig || e.schwerOk) && (e.folge || 0) >= (e.folgeZiel || 3));
+// Ist der nächste Platz der Lernkarte ein Form-Platz? platz = bearbeitungen (Server) + in dieser Sitzung abgeschlossene + 1; jede = form_jede (Vorgabe 3; fehlt = kein Takt)
+const lernFormPlatz = (platz, jede) => Number(jede) > 0 && Number(platz) > 0 && Number(platz) % Number(jede) === 0;
+// takt: { platz, formJede, nachFehler (gerade 2 Fehler in Folge), letzteFalsch }. Gibt zurück, warum gewählt wurde (für Tests): schwer, lueckenweg, anwenden, form, normal.
+// Ohne Bordkarte mit `form` und ohne fehlende Sachaufgabe (alter Server) läuft genau die bisherige Auswahl.
+function lernWaehleBordkarte(warte, e, letzte, gesehenTyp = new Set(), takt = {}) {
+  const k = (v, teil) => lernWaehleKern(warte, e, letzte, gesehenTyp, v, teil);
+  const anwFehlt = lernAnwendenFehlt(e);
+  if (!warte.some((x) => x.form) && !anwFehlt) { k(); return 'normal'; }
+  const und = (a, b) => (x) => a(x) && b(x);
+  const ohneDet = takt.letzteFalsch ? (x) => x.form !== 'fehler_detektiv' : () => true; // Regel 4: kein Fehler-Detektiv direkt nach einem eigenen Fehler
+  const versuch = (v, teil) => k(v ? und(v, ohneDet) : ohneDet, teil) || k(v, teil);
+  if (versuch(null, 'schwer')) return 'schwer';
+  // Regel 4: nach zwei Fehlern in Folge einmal ein Lückenweg (nie zwei hintereinander)
+  if (takt.nachFehler && letzte?.form !== 'lueckenweg') {
+    const lw = (x) => x.form === 'lueckenweg' && !x.geloest && x !== letzte;
+    if (warte.some(lw) && k(lw, 'rest')) return 'lueckenweg';
+  }
+  // Regel 6: nur noch die Sachaufgabe fehlt – eine ungelöste, zählende Sachaufgabe (sonst eine noch nicht gezählte)
+  if (anwFehlt) {
+    const neuZ = (x) => !e.gezaehlt || !e.gezaehlt.has(Number(x.id));
+    for (const v of [(x) => lernIstAnwenden(x) && !x.geloest && x !== letzte, (x) => lernIstAnwenden(x) && neuZ(x) && x !== letzte])
+      if (warte.some(und(v, ohneDet)) && versuch(v, 'rest')) return 'anwenden';
+  }
+  // Regel 2/3: Form-Platz – eine ungelöste Bordkarte mit `form` in der Stufe, die dran ist (Abwechslung gilt weiter); sonst normal, nichts aufstauen
+  if (lernFormPlatz(takt.platz, takt.formJede)) {
+    const soll = lernSollStufe(e);
+    const fv = (x) => !!x.form && !x.geloest && x !== letzte && (x.stufe || 2) === soll && lernAnders(x, letzte) && ohneDet(x);
+    if (warte.some(fv) && k(fv, 'rest')) return 'form';
+  }
+  // sonst Bordkarten ohne `form`, solange es ungelöste gibt (der Vorrat der neuen Formen bleibt für die Form-Plätze)
+  if (warte.some((x) => !x.form && !x.geloest && x !== letzte) && versuch((x) => !x.form, 'rest')) return 'normal';
+  versuch(null, 'rest');
+  return 'normal';
 }
 // W176 Teil 3: Ist jetzt eine Mischkarte dran? Start erst, wenn im Flug mindestens „ab“ Etappen gelandet sind; dann jede „jede“-te Bordkarte.
 // Bevorzugt gleicher Flug, dann gleicher Kontinent; jede 3. Mischkarte aus einem älteren Flug. Nimmt die Karte aus rest heraus (keine Wiederholung in der Sitzung).
@@ -2980,6 +3030,9 @@ const LERN_HOCH = '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿⁱᵃᵇᶜᵈ�
 const LERN_AUSWAHL = new Set(['w/m', 'm/w', 'm/w/d', 'j/n', 'ja/nein', 'u/o']); // Auswahl-Kürzel: Text (Groß-/Kleinschreibung egal)
 // Allgemeine Klasse: Modifikator-Buchstaben, Modifikator-Symbole (u. a. ^), hoch-/tiefgestellte Ziffern und Zeichen (ᴺ, ᴬ, ᵅ, ᵏ, ⁿ, ₂ …)
 const LERN_HOCH_ALLG = /[\p{Lm}\p{Sk}²³¹⁰-₟]/u;
+// 0.94.0: an den Grenzen ganze Codepoints prüfen (Zeichen außerhalb der BMP wie U+107A5 sind zwei UTF-16-Hälften)
+const lernZeichenAb = (s, i) => (i >= 0 && i < s.length ? String.fromCodePoint(s.codePointAt(i)) : '');
+const lernZeichenVor = (s, i) => (i <= 0 ? '' : i >= 2 && /[\udc00-\udfff]/.test(s[i - 1]) && /[\ud800-\udbff]/.test(s[i - 2]) ? s.slice(i - 2, i) : s[i - 1]);
 // Eng gefasst: „bis“ und „ab“ treffen echte Brüche im Bestand („von 1/3 bis 1/2“, „AB 2/4“), „den“ wäre zu riskant („den 3/4“).
 const LERN_DATUMSWORT = /(?:^|[^A-Za-zÄÖÜäöüß])(?:am|vom|zum|seit)\s+$/i; // „am 27/11“, „bis zum 3/12“: Datum, Text
 const LERN_LZ = '[ \\u00a0\\u202f]'; // Trenner von Tausendergruppen (Leerzeichen, geschützt, schmal geschützt)
@@ -2996,16 +3049,16 @@ function lernBruchTeile(text) {
     if (s[i - 1] === ')') {
       const p = s.lastIndexOf('(', i - 1); if (p < last) continue;
       z = s.slice(p + 1, i - 1); a0 = p;
-      if (!klammerOk(z) || (p > 0 && (new RegExp(`[\\d${LERN_BUCHST}α-ω√^${LERN_HOCH}]`).test(s[p - 1]) || LERN_HOCH_ALLG.test(s[p - 1])))) continue; // f(x)/2, √(…)/2, 2(x+1)/3
+      if (!klammerOk(z) || (p > 0 && (new RegExp(`[\\d${LERN_BUCHST}α-ω√^${LERN_HOCH}]`).test(s[p - 1]) || LERN_HOCH_ALLG.test(lernZeichenVor(s, p))))) continue; // f(x)/2, √(…)/2, 2(x+1)/3
     } else {
       const m = LERN_BRUCH_LINKS.exec(s.slice(Math.max(last, i - 14), i)); if (!m || !kern(m[1])) continue;
       z = m[1]; a0 = i - z.length;
-      if (a0 > 0 && (new RegExp(`[\\d/.,:^${LERN_BUCHST}α-ω√${LERN_HOCH}°]`).test(s[a0 - 1]) || LERN_HOCH_ALLG.test(s[a0 - 1]))) continue; // km/h, 3/4/2026, 1.5/2, 3^2/4
+      if (a0 > 0 && (new RegExp(`[\\d/.,:^${LERN_BUCHST}α-ω√${LERN_HOCH}°]`).test(s[a0 - 1]) || LERN_HOCH_ALLG.test(lernZeichenVor(s, a0)))) continue; // km/h, 3/4/2026, 1.5/2, 3^2/4
       if (/^\d{3}(?!\d)/.test(z) && new RegExp(`\\d${LERN_LZ}$`).test(s.slice(0, a0))) { // Tausendergruppe: 1 200/x, 11 880/…
         const g = new RegExp(`(?:^|[^\\d,.])(\\d{1,3}(?:${LERN_LZ}\\d{3})*${LERN_LZ})$`).exec(s.slice(last, a0)); if (!g) continue; // nicht eindeutig: Text
         if (/^\d{3}$/.test(z)) zweideutig = true; // 2 125/128: Tausendergruppe oder gemischte Zahl?
         z = g[1] + z; a0 -= g[1].length;
-        if (a0 > 0 && (new RegExp(`[\\d/.,:^${LERN_BUCHST}α-ω√${LERN_HOCH}°]`).test(s[a0 - 1]) || LERN_HOCH_ALLG.test(s[a0 - 1]))) continue;
+        if (a0 > 0 && (new RegExp(`[\\d/.,:^${LERN_BUCHST}α-ω√${LERN_HOCH}°]`).test(s[a0 - 1]) || LERN_HOCH_ALLG.test(lernZeichenVor(s, a0)))) continue;
       }
     }
     const davor = s.slice(Math.max(0, a0 - 3), a0);
@@ -3014,7 +3067,7 @@ function lernBruchTeile(text) {
     if (s[i + 1] === '(') {
       const q = s.indexOf(')', i + 2); if (q === -1) continue;
       n = s.slice(i + 2, q); b1 = q + 1;
-      if (!klammerOk(n) || LERN_HOCH_ALLG.test(s[b1] || '')) continue; // auch unbekannte Hochzeichen: Text
+      if (!klammerOk(n) || LERN_HOCH_ALLG.test(lernZeichenAb(s, b1))) continue; // auch unbekannte Hochzeichen: Text
     } else {
       const m = LERN_BRUCH_RECHTS.exec(s.slice(i + 1, i + 15)); if (!m || !kern(m[1])) continue;
       n = m[1]; b1 = i + 1 + n.length;
@@ -3022,7 +3075,7 @@ function lernBruchTeile(text) {
       if (tg) { if (!/^\d{1,3}$/.test(n)) continue; n += tg[0]; b1 += tg[0].length; } // Gruppe im Nenner hebt die Zweideutigkeit im Zähler NICHT auf
       if (/^\d.*[a-zA-Zα-ω]/.test(n)) continue; // 1/2x ist zweideutig (½ · x oder 1 durch 2x): bleibt Text; eindeutig ist 1/(2x)
       const nach = s.slice(b1, b1 + 2);
-      if (new RegExp(`^[\\d/(√α-ω^${LERN_HOCH}${LERN_BUCHST}]`).test(nach) || /^[.,:]\d/.test(nach) || LERN_HOCH_ALLG.test(nach[0] || '') || new RegExp(`^-[${LERN_BUCHST}]`).test(nach)) continue; // 3/4/2026, 1/2x, x/y-Ebene
+      if (new RegExp(`^[\\d/(√α-ω^${LERN_HOCH}${LERN_BUCHST}]`).test(nach) || /^[.,:]\d/.test(nach) || LERN_HOCH_ALLG.test(lernZeichenAb(s, b1)) || new RegExp(`^-[${LERN_BUCHST}]`).test(nach)) continue; // 3/4/2026, 1/2x, x/y-Ebene
     }
     if (zweideutig) continue; // 2 125/128, 1 200/x: ganz Text, nie zerreißen, nie raten
     if (LERN_EINHEIT.has(z) && LERN_EINHEIT.has(n)) continue; // m/s, g/l
@@ -3468,7 +3521,9 @@ function lernRegelFelder(k) {
   return { neueRegel: true, eigene: Number(k.eigene_loesungen || 0), folge: Number(k.folge || 0), folgeZiel: Number(k.folge_ziel || 3), typenAnzahl: Number(k.typen_anzahl || 0),
     typenNoetig: Number(k.typen_noetig || 0), fehlerFolge: Number(k.fehler_folge || 0), stufeSenkung: Number(k.stufe_senkung || 0), sicher: !!k.sicher,
     ...(Array.isArray(k.gezaehlt) ? { gezaehlt: new Set(k.gezaehlt.map(Number)) } : {}), // H3: diese Bordkarten haben schon als eigene Lösung gezählt
-    ...(k.flug_nachtest !== undefined ? { flugNachtest: !!k.flug_nachtest } : {}), ...(k.wieder_offen !== undefined ? { wiederOffen: !!k.wieder_offen } : {}) };
+    ...(k.flug_nachtest !== undefined ? { flugNachtest: !!k.flug_nachtest } : {}), ...(k.wieder_offen !== undefined ? { wiederOffen: !!k.wieder_offen } : {}),
+    // Form-Takt (FT-S): Sachaufgaben-Pflicht und Zahl der bisherigen Bearbeitungen – nur, wenn der Server sie liefert
+    ...(k.anwenden_noetig !== undefined ? { anwendenNoetig: !!k.anwenden_noetig, anwendenOk: !!k.anwenden_ok } : {}), ...(k.bearbeitungen !== undefined ? { bearbeitungen: Number(k.bearbeitungen) || 0 } : {}) };
 }
 // Checkliste je Etappe: „Eigene Lösungen 4/6 · 2 Aufgabentypen ✓ · schwere ✓ · 3 in Folge: 1/3“ – nichts fällt sichtbar zurück außer „in Folge“
 function lernCheckliste(e) {
@@ -3477,6 +3532,7 @@ function lernCheckliste(e) {
     [`Eigene Lösungen ${Math.min(e.eigene, z)}/${z}`, e.eigene >= z],
     e.typenNoetig > 1 ? [`${e.typenNoetig} Aufgabentypen`, e.typenAnzahl >= e.typenNoetig, `${Math.min(e.typenAnzahl, e.typenNoetig)}/${e.typenNoetig}`] : null,
     e.schwerNoetig ? ['schwere', e.schwerOk] : null,
+    lernAnwendenFehlt(e) ? ['Eine Sachaufgabe fehlt noch', false] : null, // Form-Takt Regel 6: erst, wenn sonst alles beisammen ist
     [`${e.folgeZiel} in Folge`, e.folge >= e.folgeZiel, `${Math.min(e.folge, e.folgeZiel)}/${e.folgeZiel}`],
   ].filter(Boolean);
   return el('ul', { class: 'lr-checkliste', 'aria-label': 'Bis „gelandet“' }, ...teile.map(([t, ok, stand]) =>
@@ -4103,7 +4159,10 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
     let letzte = null;
     const mischZaehler = (lernMischZaehler[e.lernziel] ||= { n: 0 }); // W176: wie viele Mischkarten in dieser Etappe schon kamen (jede 3. aus einem älteren Flug)
     const gesehenTyp = (lernTypGesehen[e.lernziel] ||= new Set()); // F: Typen, die in dieser Etappe schon dran waren
-    const waehleStufe = () => { if (!stufe && !e.sitzt && !e.fertig) lernWaehleBordkarte(warte, e, letzte, gesehenTyp); };
+    // Form-Takt: Platz = bearbeitungen (Server) + in dieser Sitzung abgeschlossene Bearbeitungen dieser Lernkarte + 1 (Mischkarten zählen nicht; zwei Anläufe = eine)
+    let nachFehler = false; // Regel 4: gerade zwei Fehler in Folge – die nächste Auswahl darf einmal einen Lückenweg nehmen
+    const takt = () => ({ formJede: Number(ctx.daten.form_jede || 0), platz: Number(e.bearbeitungen || 0) + (e.taktSitzung || 0) + 1, nachFehler, letzteFalsch: fehlFolge > 0 });
+    const waehleStufe = () => { if (!stufe && !e.sitzt && !e.fertig) lernWaehleBordkarte(warte, e, letzte, gesehenTyp, takt()); };
     // W176 Teil 3: Mischkarten – jede n-te Bordkarte stammt aus einer anderen, schon gelandeten Etappe (Server: schule_einheit_lesen.mischkarten, misch_jede, misch_ab)
     // 0.86.2 (Fehler Mischkarten 22.11.): Eine gezeigte Mischkarte ist für die ganze Sitzung des Flugs verbraucht (ctx.mischGezeigt), nicht je Etappe neu.
     // Ist die Liste leer, holt die App sie einmal neu vom Server (im Hintergrund); danach geht es ohne Mischkarte weiter.
@@ -4118,7 +4177,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
     const zeigeAufgabe = (fest) => {
       if (fest !== true) waehleStufe();
       const misch = fest !== true ? mischDran() : null;
-      const a = misch || warte[0]; if (!misch) { letzte = a || null; if (a?.typ) gesehenTyp.add(a.typ); }
+      const a = misch || warte[0]; if (!misch) { letzte = a || null; if (a?.typ) gesehenTyp.add(a.typ); nachFehler = false; }
       if (!a) { lernErsetze(flaeche, el('p', { class: 'lr-leise' }, 'Für diese Auswahl gibt es keine Bordkarten.')); return; }
       nr++;
       const auf = lernAufgabe(a, null, { tasten: neu, stellen: neu && kind.klasse && kind.klasse <= 6 }); let hilfe = 0; const dock = el('div', { class: 'lr-dock' }); let cid = lernCid();
@@ -4174,6 +4233,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
             a.falschHeute = true;
           }
           auf.zeigeLoesung(r.loesung); fehlFolge = r.richtig ? 0 : fehlFolge + 1; richtFolge = r.richtig ? richtFolge + 1 : 0;
+          if (fehlFolge === 2) nachFehler = true; // Regel 4 (Form-Takt): einmal je Fehler-Folge
           // JW: Sticker in der Rückmeldung – Serie 5/10, Wiederholung bestanden (Mischkarte), Fehler nach der Fehler-Regel (1., 3., 5. … nie ab dem 2. in Folge)
           if (r.richtig) lernJwRichtig(ctx.kind);
           const jwAnlass = !r.richtig ? null : a.misch && r.wiederholung?.bestanden ? 'wiederholung' : richtFolge === 10 ? 'serie_10' : richtFolge === 5 ? 'serie_5' : null;
@@ -4184,6 +4244,9 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
           const dasWar = a.misch && mischGueltig ? el('p', { class: 'lr-misch-das-war' }, `Das war: ${r.misch?.etappe || a.etappe || 'eine frühere Etappe'}` + ((lernStadtName(ctx.kind, a) || r.misch?.stadt) ? ` – ${a.lernziel && lernRkFlugVon(ctx.kind, a.thema_id || lernEinheitThema.get(Number(a.einheit_id))) ? lernStadtName(ctx.kind, a) : r.misch?.stadt || a.stadt}` : '')) : null;
           const warFaellig = e.faellig; let wdhFertigBox = null;
           if (r.karte && !a.misch) { if (r.karte.eigene_loesungen !== undefined) Object.assign(e, lernRegelFelder(r.karte)); e.serie = r.karte.serie; e.ziel = r.karte.ziel; e.sitzt = r.karte.sitzt; e.schwerOk = !!r.karte.schwer_ok; e.schwerNoetig = !!r.karte.schwer_noetig; e.fertig = r.karte.fertig !== undefined ? !!r.karte.fertig : e.fertig || r.karte.sitzt; e.wiederOffen = !r.karte.sitzt && (e.wiederOffen || warSitzt); /* H1: der Server entscheidet */ if (warSitzt && r.karte.sitzt) e.faellig = false; }
+          // Form-Takt: Stand vom Server gilt (in karte oder daneben); fehlt er – z. B. fehlt karte nach der ersten nicht zählenden Bordkarte ganz –, ist der Platz trotzdem verbraucht: selbst weiterzählen
+          if (!a.misch) { const bs = typeof r.karte?.bearbeitungen === 'number' ? r.karte.bearbeitungen : typeof r.bearbeitungen === 'number' ? r.bearbeitungen : null;
+            if (bs !== null) { e.bearbeitungen = bs; e.taktSitzung = 0; } else e.taktSitzung = (e.taktSitzung || 0) + 1; }
           zeichnePunkte(); zeichneFortschritt();
           const jetztSitzt = !!r.karte?.neu_sitzt || (!warSitzt && e.sitzt);
           const weiter = el('button', { type: 'button', class: 'lr-knopf lr-weiter', onclick: () => { zeigeAufgabe(); window.scrollTo(0, 0); } }, neu ? 'Neue Bordkarte ›' : 'Nächste Bordkarte');
@@ -4285,12 +4348,13 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
         } catch (err) { if (lernGesperrt(err)) { render(); return; } lernErsetze(meldung, el('p', { class: 'err-text' }, err.message)); pruefen.disabled = false; }
       });
       const fein = window.matchMedia?.('(pointer: fine)').matches;
+      const aufwaermen = a.zaehlt === 'nein' ? el('small', { class: 'lr-zaehlt-nicht' }, 'Zum Aufwärmen – zählt nicht für die Landung') : null; // Form-Takt: Gerüst
       auf.node.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' && ev.target.tagName === 'INPUT') { ev.preventDefault(); if (pruefen.isConnected) pruefen.click(); } });
       if (neu) {
         lernErsetze(dock, auf.tasten ? lernTastenfeld(auf.tasten, pruefen) : pruefen);
         lernErsetze(flaeche, erkl, erklBox,
           el('section', { class: 'lr-karte-box lr-aufgabe lr-bordkarte' },
-            el('div', { class: 'lr-bord-kopf' }, el('span', {}, a.misch ? `BORDKARTE ${nr} · AUS DEINER REISE` : `BORDKARTE ${nr} · ${String(ctx.stadtVon?.(e) || ctx.ort.stadt || 'Thema').toUpperCase()}`), lernStufeZeichen(a)),
+            el('div', { class: 'lr-bord-kopf' }, el('span', {}, a.misch ? `BORDKARTE ${nr} · AUS DEINER REISE` : `BORDKARTE ${nr} · ${String(ctx.stadtVon?.(e) || ctx.ort.stadt || 'Thema').toUpperCase()}`, aufwaermen), lernStufeZeichen(a)),
             a.misch ? el('p', { class: 'lr-misch-hinweis' }, 'Aus deiner Reise – erkennst du, was gefragt ist?') : null,
             auf.node, el('div', { class: 'lr-perforation', 'aria-hidden': 'true' }),
             tipp ? el('div', { class: 'lr-knopfzeile' }, tipp) : null),
@@ -4299,7 +4363,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
       } else lernErsetze(flaeche,
         erkl, erklBox,
         el('section', { class: 'lr-karte-box lr-aufgabe' },
-          el('p', { class: 'lr-ueber' }, `AUFGABE ${nr} `, lernStufeZeichen(a)), a.misch ? el('p', { class: 'lr-misch-hinweis' }, 'Aus deiner Reise – erkennst du, was gefragt ist?') : null, auf.node,
+          el('p', { class: 'lr-ueber' }, `AUFGABE ${nr} `, lernStufeZeichen(a), aufwaermen), a.misch ? el('p', { class: 'lr-misch-hinweis' }, 'Aus deiner Reise – erkennst du, was gefragt ist?') : null, auf.node,
           pruefen, tipp ? el('div', { class: 'lr-knopfzeile' }, tipp) : null),
         hilfeBox, meldung,
         ctx.leitung ? lernAendern({ einheit_id: ctx.einheit, lernziel: e.lernziel, aufgabe_id: a.id, lernender_id: ctx.kind }, { bezug: 'bordkarte', wo: `Bordkarte „${String(a.frage?.text || '').slice(0, 60)}“` }) : null);

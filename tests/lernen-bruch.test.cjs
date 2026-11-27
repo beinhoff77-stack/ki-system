@@ -146,3 +146,25 @@ test('Positivkontrollen 0.93.8, dritte Runde', () => {
     'von 3/8 bis 1/2': 'von [3|8] bis [1|2]' };
   for (const [s, k] of Object.entries(soll)) assert.equal(kurz(s), k, s);
 });
+
+// 0.94.0 (Gegenprüfung, Werkstatt 1030–1032): Hochzeichen außerhalb der BMP (zwei UTF-16-Hälften) – an jeder Grenze zählt der ganze Codepoint
+const HOCH = new Function(quelle.slice(a, b) + '\nreturn { LERN_HOCH, LERN_HOCH_ALLG };')();
+test('Hochzeichen außerhalb der BMP hinter dem Nenner: Text (4/x𐞥, 4/(x)𐞥)', () => {
+  const q = String.fromCodePoint(0x107A5);
+  for (const s of [`4/x${q}`, `4/(x)${q}`, `(4)/(x)${q}`, `1/2${q}`]) assert.deepEqual(lernBruchTeile(s), [s], s);
+  for (const s of [`${q}4/x`, `${q}(4)/x`]) assert.deepEqual(lernBruchTeile(s), [s], s); // rückwärts: Hochzeichen direkt vor dem Zähler
+  assert.equal(kurz(`4/x und ${q}`), '[4|x] und ' + q, 'mit Abstand bleibt der Bruch');
+});
+test('Systematisch: jedes Zeichen der Klasse LERN_HOCH_ALLG (0..0x10FFFF) direkt hinter „4/x“ und „4/(x)“ lässt Text stehen, davor auch', () => {
+  let geprueft = 0, ausserBmp = 0;
+  for (let cp = 0; cp <= 0x10FFFF; cp++) {
+    if (cp >= 0xD800 && cp <= 0xDFFF) continue; // keine Zeichen (einzelne UTF-16-Hälften)
+    const c = String.fromCodePoint(cp);
+    if (!HOCH.LERN_HOCH_ALLG.test(c)) continue;
+    for (const s of [`${c}4/x`, `${c}(4)/x`]) assert.deepEqual(lernBruchTeile(s), [s], `U+${cp.toString(16).toUpperCase()} vor: ${s}`);
+    if (HOCH.LERN_HOCH.includes(c)) continue; // bekannte Hochzahlen gehören zur Basis (4/x² ist ein Bruch)
+    for (const s of [`4/x${c}`, `4/(x)${c}`]) assert.deepEqual(lernBruchTeile(s), [s], `U+${cp.toString(16).toUpperCase()}: ${s}`);
+    geprueft++; if (cp > 0xFFFF) ausserBmp++;
+  }
+  assert.ok(geprueft > 500 && ausserBmp > 50, `${geprueft} Zeichen, davon ${ausserBmp} außerhalb der BMP`);
+});

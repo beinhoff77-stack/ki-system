@@ -224,7 +224,7 @@ function lernRahmen(kind, aktiv, ...inhalt) {
     const zu = () => { if (blatt.open) blatt.close(); };
     blatt.addEventListener('click', (ev) => { if (ev.target === blatt) zu(); });
     lernAnhaengen(blatt, el('div', { class: 'lr-blatt-liste' },
-      ...[['reise', 'Abflugtafel'], ['weg', 'Mein Weg'], ['merkheft', 'Merkheft'], ['reisepass', 'Reisepass']].map(([v, t]) => // K2: Weltkarte ist jetzt in „Mein Weg“
+      ...[['reise', 'Abflugtafel'], ['weg', 'Mein Weg'], ['merkheft', 'Merkheft'], ['reisepass', 'Reisepass'], ['regeln', 'Regel-Universum']].map(([v, t]) => // K2: Weltkarte ist jetzt in „Mein Weg“ · RU-App: Regel-Universum (lernen-regeln.js)
         el('a', { href: `#/${v}/${kind.id}`, class: v === aktiv ? 'on' : '', ...(v === aktiv ? { 'aria-current': 'page' } : {}), onclick: zu }, t)),
       el('button', { type: 'button', onclick: () => { try { localStorage.setItem('lern.gestaltung.' + kind.id, g === 'nacht' ? 'tag' : 'nacht'); } catch { /* egal */ } zu(); render(); } }, g === 'nacht' ? 'Helle Ansicht' : 'Dunkle Ansicht'),
       el('button', { type: 'button', class: 'lr-blatt-zu', onclick: zu }, 'Schließen')));
@@ -1102,7 +1102,7 @@ async function viewLernen() {
   if (!live()) return;
   const lagen = new Map(echte.map((k, i) => [k.id, lernKindLage(u, k, lsAlle[i])]));
   const nachschlagen = el('nav', { class: 'lern-nachschlagen', 'aria-label': 'Nachschlagen' }, el('span', { class: 'eyebrow' }, 'NACHSCHLAGEN'),
-    el('a', { href: '#/lehrplan' }, 'Lehrplan'), el('a', { href: '#/expeditionen' }, 'Expeditionen'),
+    el('a', { href: '#/lehrplan' }, 'Lehrplan'), el('a', { href: '#/regeln' }, 'Regeln'), el('a', { href: '#/expeditionen' }, 'Expeditionen'), // RU-App: Regeln (lernen-regeln.js)
     el('a', { href: '#/lernauftraege' }, 'Meine Aufträge' + (offen ? ` (${offen} offen)` : '')), el('a', { href: '#/info' }, 'So funktioniert’s'));
   const verwalten = [...testkinder.map((k) => el('a', { href: `#/reise/${k.id}` }, `${k.name} (zum Ausprobieren)`)),
     eltern ? el('a', { href: '#/zugaenge' }, 'Zugänge') : null,
@@ -4890,17 +4890,18 @@ const LERN_AUFTRAG_ARTEN = [
 const LERN_AUFTRAG_START = { erklaerung: 'erklaerung', etappe: 'bordkarten', bordkarte: 'fehler', flug: 'bordkarten', plan: 'sonst', allgemein: 'neu' };
 const LERN_BEZUG_TEXT = { erklaerung: 'Erklärung', etappe: 'Etappe', bordkarte: 'Bordkarte', flug: 'Flug', plan: 'Flugplan', allgemein: 'Allgemein' };
 // daten: Bezugsfelder für schule_rueckmeldung_geben (einheit_id, lernziel, aufgabe_id, block_id, lernender_id). bezug: wo der Knopf steht.
-function lernAuftragForm(daten, { bezug = 'allgemein', wo = '', art: artStart = null, text: textStart = '', onGesendet } = {}) {
+// RU-App: arten (eigene Auswahl, z. B. Fehler/Vorschlag/Frage) und vorsatz (Text oder Funktion der gewählten Art) für Rückmeldungen ohne Einheit (Regel-Universum)
+function lernAuftragForm(daten, { bezug = 'allgemein', wo = '', art: artStart = null, text: textStart = '', onGesendet, arten: ARTEN = LERN_AUFTRAG_ARTEN, vorsatz = '' } = {}) {
   let artKey = artStart || LERN_AUFTRAG_START[bezug] || 'neu', dbArt = null;
   const arten = el('div', { class: 'lern-rm-arten', role: 'group', 'aria-label': 'Was soll sich ändern?' });
   const chips = el('div', { class: 'lern-rm-arten lern-rm-vorlagen', role: 'group', 'aria-label': 'Vorlagen' });
-  const text = el('textarea', { rows: '3', maxlength: '4000', placeholder: 'Was soll anders sein?', 'aria-label': 'Was soll anders sein?' });
+  const text = el('textarea', { rows: '3', maxlength: vorsatz ? '3800' : '4000', placeholder: 'Was soll anders sein?', 'aria-label': 'Was soll anders sein?' });
   text.value = textStart;
   const zeichne = () => {
-    const a = LERN_AUFTRAG_ARTEN.find((x) => x[0] === artKey) || LERN_AUFTRAG_ARTEN[0];
-    lernErsetze(arten, ...LERN_AUFTRAG_ARTEN.map(([k, t]) => el('button', { type: 'button', class: 'lern-chip', 'aria-pressed': String(k === artKey), onclick: () => { artKey = k; dbArt = null; zeichne(); } }, t)));
+    const a = ARTEN.find((x) => x[0] === artKey) || ARTEN[0];
+    lernErsetze(arten, ...ARTEN.map(([k, t]) => el('button', { type: 'button', class: 'lern-chip', 'aria-pressed': String(k === artKey), onclick: () => { artKey = k; dbArt = null; zeichne(); } }, t)));
     lernErsetze(chips, ...a[3].map(([t, db]) => el('button', { type: 'button', class: 'lern-chip lern-chip-leise', 'aria-pressed': String(dbArt === db && text.value.startsWith(t)), onclick: () => {
-      dbArt = db; if (!text.value.trim() || LERN_AUFTRAG_ARTEN.some((x) => x[3].some(([v]) => text.value.trim() === v + ':'))) text.value = t + ': '; text.focus(); zeichne(); } }, t)));
+      dbArt = db; if (!text.value.trim() || ARTEN.some((x) => x[3].some(([v]) => text.value.trim() === v + ':'))) text.value = t + ': '; text.focus(); zeichne(); } }, t)));
   };
   zeichne();
   const status = el('p', { class: 'small muted', role: 'status' });
@@ -4914,8 +4915,8 @@ function lernAuftragForm(daten, { bezug = 'allgemein', wo = '', art: artStart = 
     if (!t || /^[^:]{1,40}:$/.test(t)) { status.textContent = 'Bitte in einem Satz sagen, was anders sein soll.'; return; }
     senden.disabled = true; status.textContent = 'Sende …';
     try {
-      const a = LERN_AUFTRAG_ARTEN.find((x) => x[0] === artKey) || LERN_AUFTRAG_ARTEN[0];
-      await lernCall('schule_rueckmeldung_geben', { ...daten, bezug, art: dbArt || a[2], text: t });
+      const a = ARTEN.find((x) => x[0] === artKey) || ARTEN[0];
+      await lernCall('schule_rueckmeldung_geben', { ...daten, bezug, art: dbArt || a[2], text: (typeof vorsatz === 'function' ? vorsatz(a[1]) : vorsatz) + t });
       text.value = ''; status.textContent = 'Danke – der Auftrag ist angekommen. Status und Antwort stehen unter „Meine Aufträge“.';
       if (onGesendet) onGesendet();
     } catch (err) { status.textContent = err.message; }

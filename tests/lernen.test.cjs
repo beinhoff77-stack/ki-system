@@ -619,7 +619,7 @@ test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, L
   // Menüblatt statt Leiste
   assert.equal(await page.locator('.lr-nav').count(), 0);
   await page.getByRole('button', { name: 'Menü', exact: true }).first().click();
-  assert.deepEqual(await page.locator('.lr-blatt-liste a').allInnerTexts(), ['Abflugtafel', 'Mein Weg', 'Merkheft', 'Reisepass']); // K2: 4 Einträge
+  assert.deepEqual(await page.locator('.lr-blatt-liste a').allInnerTexts(), ['Abflugtafel', 'Mein Weg', 'Merkheft', 'Reisepass', 'Regel-Universum']); // K2: 4 Einträge · RU-App: Regel-Universum als fünfter
   await page.screenshot({ path: path.join(root, 'test-results/abflug-menue-390.png') });
   await page.getByRole('button', { name: 'Schließen' }).click();
   await page.locator('.lr-flug-jetzt').click(); // KJ 2 S6: solange die Tafel zu sehen ist, startet man über ihre Zeile (die schwebende Leiste ist aus)
@@ -4632,7 +4632,7 @@ test('RK-App: Land antippen → Blatt → „Städte in Italien ansehen“ → S
 });
 
 test('RK-App 2 (0.92.2): Kopf einzeilig, Karte füllt das Fenster (S1/S2); Pin-Treffer ≥ 44 px, echter Klick trotz Puls (K1); Welt auf dem Handy als Ausschnitt, „Länder“ erst beim Hineinzoomen (S5)', async (t) => {
-  for (const [b, h, g] of [[400, 860, 'nacht'], [1280, 800, 'tag']]) {
+  for (const [b, h, g] of [[400, 860, 'nacht'], [400, 860, 'tag'], [1280, 800, 'tag']]) {
     const { page } = await rkOeffnen(t, b, h, { gestaltung: g });
     // S1/S2: eine Zeile in der oberen Leiste
     const kopf = page.locator('header.top .rk-kopf'); await kopf.waitFor();
@@ -5635,4 +5635,137 @@ test('Form-Takt Nachtrag: Mischkarte belegt keinen Takt-Platz und wird nicht nac
   const g = ftGezeigt(calls);
   assert.equal(g[0], 14, 'zuerst die Mischkarte');
   assert.equal(!!FT[g[1]].form, true, 'Platz 3 (bearbeitungen 2 + 1) ist nach der Mischkarte noch frei: Form-Bordkarte');
+});
+
+// ---------- RU-App (0.95.0): Regel-Universum, Stufe 1 (lernen-regeln.js, daten/regeln-universum.json) ----------
+// Prüft je Seite: kein Querscrollen, alle sichtbaren Tippflächen im Universum mindestens 44 px hoch (Links, Knöpfe, Klappzeilen, Suchfeld).
+async function ruPruefen(page, wo) {
+  await page.waitForFunction(() => !(document.querySelector('.ru-seite')?.getAnimations() || []).length); // nachgemessen nach dem Übergang (220 ms)
+  const r = await page.evaluate(() => {
+    const quer = document.documentElement.scrollWidth > window.innerWidth + 1;
+    const klein = [...document.querySelectorAll('.ru a, .ru button, .ru summary, .ru input, .ru [role="button"]')].filter((x) => x.checkVisibility() && !x.closest('.lern-rm-arten'))
+      .map((x) => { const q = x.getBoundingClientRect(); return { t: (x.textContent || x.getAttribute('aria-label') || x.tagName).trim().slice(0, 30), h: Math.round(q.height) }; }).filter((x) => x.h < 44);
+    return { quer, klein };
+  });
+  assert.equal(r.quer, false, wo + ': Querscrollen');
+  assert.deepEqual(r.klein, [], wo + ': Tippflächen unter 44 px');
+}
+const ruBild = async (page, name) => { if (!process.env.RU_BILDER) return; await page.waitForFunction(() => !(document.querySelector('.ru-seite')?.getAnimations() || []).length); const d = path.join(root, 'inhalte/pruefung/regeln/bilder'); fs.mkdirSync(d, { recursive: true }); await page.screenshot({ path: path.join(d, name + '.jpg'), quality: 80, fullPage: !!name.match(/ganz$/) }); };
+
+test('RU: Kind öffnet das Regel-Universum über das Menü – Sonne → Regel → alle Stufen, Gebiet → Idee → Einzelregel → zurück, Umschalter, Suche (400 und 1280 px)', async (t) => {
+  for (const [b, h, g] of [[400, 860, 'nacht'], [400, 860, 'tag'], [1280, 800, 'tag']]) {
+    const { page } = await setup(t, { gestaltung: g });
+    await page.setViewportSize({ width: b, height: h });
+    const daten = []; page.on('request', (r) => { if (r.url().includes('regeln-universum.json')) daten.push(r.url()); });
+    await page.goto(origin + '/#/reise/1');
+    await page.getByRole('button', { name: 'Menü', exact: true }).first().click();
+    assert.equal(daten.length, 0, 'Daten erst beim Öffnen laden');
+    await page.locator('.lr-blatt-liste a', { hasText: 'Regel-Universum' }).click();
+    await page.locator('.ru-universum').waitFor();
+    assert.match(page.url(), /#\/regeln\/1$/); assert.equal(daten.length, 1); assert.match(daten[0], /v=0\.95\.0/);
+    assert.equal(await page.locator('.ru').getAttribute('data-ru-g'), g === 'tag' ? 'hell' : 'nacht');
+    assert.equal(await page.evaluate(() => document.body.hasAttribute('data-kindmodus')), true);
+    await ruBild(page, `ebene0-universum-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    await ruPruefen(page, `${b} Universum`);
+    const s = (sel) => page.locator(sel).filter({ visible: true }).first();
+    // Ebene 0 → Sonne (Handy: gestapelte Sonne, Rechner: Sonnensystem-Bild)
+    if (b < 900) { assert.equal(await page.locator('.ru-system').isVisible(), false); await s('.ru-sonne0').click(); }
+    else { assert.equal(await page.locator('.ru-sonne0').isVisible(), false); assert.equal(await page.locator('.ru-system a.ru-sp').count(), 9); await s('.ru-sp-sonne').click(); }
+    await page.locator('.ru-schichten').waitFor();
+    assert.equal(await page.locator('.ru-schicht').count(), 4); assert.equal(await page.locator('.ru-zeile').count(), 14);
+    assert.match(await page.locator('.ru-zeile', { hasText: 'Rechnen mit Brüchen' }).locator('.ru-z-merk').innerText(), /^Plus, Minus: gleiche Nenner\. Mal: oben mal oben, unten mal unten\. Geteilt: mal Kehrwert\.$/);
+    await ruPruefen(page, `${b} Sonne`);
+    await ruBild(page, `ebene1-sonne-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    await page.locator('.ru-sc-ziel[data-schicht="3"] text').click(); // Schnitt durch die Sonne: Tipp springt zur Schicht
+    await page.waitForFunction(() => Math.abs(document.querySelector('#ru-schicht-3').getBoundingClientRect().top) < 220); // scroll-padding der App (110 px) + scroll-margin (70 px)
+    await page.locator('.ru-zeile', { hasText: 'Ausmultiplizieren' }).click();
+    await page.locator('.ru-regelseite .ru-merksatz').waitFor();
+    assert.match(page.url(), /#\/regeln\/1-r6$/);
+    assert.equal(await page.locator('.ru-merksatz').innerText(), 'Was vor der Klammer steht, nimmt jeden in der Klammer mal.');
+    assert.equal(await page.locator('.ru-stufe[open]').count(), 0, 'Stufen 4–7 zu');
+    await ruBild(page, `ebene2-regel6-zu-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    for (const z of await page.locator('.ru-stufe > summary').all()) await z.click();
+    assert.equal(await page.locator('.ru-stufe[open]').count(), 4);
+    assert.equal(await page.locator('.ru-leiter.ru-gl li').count(), 6);
+    assert.ok(await page.locator('.ru-stufe[data-stufe="genau"] .ru-z-teil svg').count() >= 1, 'weitere Bilder');
+    await ruBild(page, `ebene2-regel6-offen-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    await ruPruefen(page, `${b} Regel 6 offen`);
+    await page.locator('.ru-pfad a', { hasText: 'Universum' }).click();
+    await page.locator('.ru-universum').waitFor();
+    // Gebiet → Idee → Einzelregel → zurück
+    if (b < 900) await s('.ru-planet0:has-text("Fläche und Raum")').click(); else await page.locator('.ru-system a.ru-sp', { hasText: 'Fläche und Raum' }).click();
+    await page.locator('.ru-ideen1').waitFor(); assert.match(page.url(), /1-gebiet-fur$/);
+    assert.equal(await page.locator('.ru-idee1').count(), 4);
+    await ruBild(page, `ebene1-gebiet-fur-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    await ruPruefen(page, `${b} Gebiet`);
+    await page.locator('.ru-idee1').nth(1).click(); await page.locator('.ru-regelseite').waitFor(); assert.match(page.url(), /1-idee-fur-2$/);
+    await page.locator('.ru-stufe[data-stufe="folge"] > summary').click();
+    await page.locator('.ru-folge .ru-karte').first().click(); await page.locator('.ru-regelseite .ru-pfad').waitFor(); assert.match(page.url(), /1-regel-f\d+$/);
+    await ruBild(page, `ebene3-einzelregel-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    await ruPruefen(page, `${b} Einzelregel`);
+    await page.goBack(); await page.waitForURL(/1-idee-fur-2$/); await page.locator('.ru-stufe[data-stufe="folge"]').waitFor();
+    await page.goBack(); await page.waitForURL(/1-gebiet-fur$/); await page.locator('.ru-ideen1').waitFor();
+    // Arbeitsweisen: Kurzbeschreibung, Beispiel, Erklärung (kein „Noch offen“)
+    await page.goto(origin + '/#/regeln/1-weise-1'); await page.locator('.ru-regelseite').waitFor();
+    assert.match(await page.locator('.ru-r-kopf .ru-kurz').innerText(), /Probe zeigt/); assert.equal(await page.locator('.ru-z-folgt').count(), 0);
+    // Umschalter „Durch die Klassen“
+    await page.goto(origin + '/#/regeln/1-universum'); await page.locator('.ru-umschalter a', { hasText: 'Durch die Klassen' }).click();
+    await page.locator('.ru-klassen-ansicht').waitFor();
+    if (b < 900) {
+      await page.locator('.ru-klassenwahl a', { hasText: '7' }).click(); await page.waitForURL(/1-klassen-7$/);
+      await page.locator('.ru-klassenwahl a[aria-current]', { hasText: '7' }).waitFor(); // Seite neu gezeichnet
+      assert.match(await page.locator('.ru-handy-teil .ru-g-name').innerText(), /Klasse 7/);
+      assert.equal(await page.locator('.ru-kzeile').filter({ visible: true }).count() >= 14, true);
+    } else assert.equal(await page.locator('.ru-tafel tbody tr').count(), 18);
+    await ruBild(page, `klassen-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    await ruPruefen(page, `${b} Klassen`);
+    await page.locator('.ru-umschalter a', { hasText: 'Aufbau' }).click(); await page.locator('.ru-universum').waitFor();
+    // Suche im Kopf: ab drei Buchstaben, Feld behält den Fokus
+    await page.locator('.ru-suche input').fill('Kegelmantel');
+    await page.locator('.ru-treffer .ru-karte').first().waitFor();
+    assert.match(page.url(), /1-suche$/); assert.equal(await page.evaluate(() => document.activeElement?.closest('.ru-suche') !== null), true);
+    assert.match(await page.locator('.ru-treffer .ru-karte').first().innerText(), /Kegel/);
+    await page.locator('.ru-treffer .ru-karte').first().click(); await page.locator('.ru-regelseite').waitFor();
+    await ruPruefen(page, `${b} Treffer`);
+    // Zurück-Knopf der App
+    await page.locator('#btn-back').click(); await page.waitForURL(/1-suche$/);
+    await page.goto(origin + '/#/regeln/1-idee-fur-2'); await page.locator('.ru-regelseite').waitFor(); await ruBild(page, `ebene2-idee-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    await page.goto(origin + '/#/regeln/1-weisen'); await page.locator('.ru-ideen1').waitFor(); await ruBild(page, `ebene1-weisen-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+  }
+});
+
+test('RU: Eltern/Lehrer öffnen „Regeln“ → Blatt Regel 6 (alle Abschnitte offen, Rückmeldung ohne Einheit) → „So sieht es das Kind“', async (t) => {
+  for (const [b, h] of [[400, 860], [1280, 800]]) {
+    const { page, calls } = await setup(t);
+    await page.setViewportSize({ width: b, height: h });
+    await page.goto(origin + '/#/lernen');
+    await page.locator('.lern-nachschlagen').getByRole('link', { name: 'Regeln', exact: true }).click();
+    await page.locator('.ru-lz').first().waitFor();
+    assert.match(page.url(), /#\/regeln$/);
+    assert.equal(await page.locator('.ru-lz').count(), 14 + 28 + 8);
+    assert.equal(await page.evaluate(() => document.body.hasAttribute('data-kindmodus')), false);
+    await ruPruefen(page, `${b} Liste`);
+    await page.locator('.ru-lz', { hasText: 'Ausmultiplizieren' }).click();
+    await page.locator('.ru-l-abschnitt').first().waitFor(); assert.match(page.url(), /#\/regeln\/lehrer-r6$/);
+    assert.deepEqual(await page.locator('.ru-l-kopf h2').allInnerTexts(), ['1 Merksatz', '2 Was das Kind sieht', '3 Fachliche Erklärung', '4 Verweise und Zuordnung', '5 Stand je Kind']);
+    assert.equal(await page.locator('.ru-lehrer details').count(), 0, 'alles offen');
+    assert.equal(await page.locator('.ru-rueck').count(), 4);
+    assert.equal(await page.locator('.ru-aufgaben li').count(), 3);
+    assert.match(await page.locator('.ru-lehrer').innerText(), /Nicht geprüft:/);
+    await ruPruefen(page, `${b} Blatt`);
+    await ruBild(page, `lehrer-regel6-${b}-hell`);
+    await page.locator('.ru-rueck[data-abschnitt="Merksatz"]').click();
+    const form = page.locator('.ru-rueck-form form');
+    await form.getByRole('button', { name: 'Frage', exact: true }).click();
+    await form.locator('textarea').fill('Ist „jeden“ für Klasse 5 klar genug?');
+    await form.getByRole('button', { name: 'Auftrag senden' }).click();
+    await form.getByText('Danke – der Auftrag ist angekommen.', { exact: false }).waitFor();
+    const rm = calls.find((c) => c.aktion === 'schule_rueckmeldung_geben');
+    assert.deepEqual(rm.daten, { bezug: 'allgemein', art: 'sonstiges', text: 'Regel 6 · Ausmultiplizieren und Ausklammern (rr.ausmultiplizieren) · Merksatz · Frage: Ist „jeden“ für Klasse 5 klar genug?' });
+    await page.locator('.ru-lehrer-band a', { hasText: 'So sieht es das Kind' }).click();
+    await page.locator('.ru-regelseite .ru-merksatz').waitFor(); assert.match(page.url(), /#\/regeln\/kind-r6$/);
+    assert.equal(await page.locator('.ru-band-kind').count(), 1); assert.equal(await page.locator('.ru-rueck').count(), 0);
+    await ruPruefen(page, `${b} Kinderansicht`);
+    await page.locator('.ru-band-kind a').click(); await page.locator('.ru-l-abschnitt').first().waitFor();
+  }
 });

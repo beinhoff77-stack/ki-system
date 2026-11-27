@@ -2,6 +2,37 @@
 
 Neueste oben.
 
+## 2026-11-27 – FERTIG RU-1 (App 0.95.0) Regel-Universum Stufe 1, ohne Datenbank (Zweig `helfer-uni`, Cache v186)
+
+**Geliefert**
+- Kinder: Regel-Universum nach `umsetzung7.md` (Abschnitt 10) und `entwurf7/` – Ebene 0 (Sonne, 7 Gebiete, Arbeitsweisen; ab 900 px Sonnensystem-Bild), Ebene 1 Sonne (Schnitt durch die Sonne, 14 Regeln in 4 Schichten mit Merksatz und Klassenband, Legende), Gebiet (Ideen mit Band), Arbeitsweisen; Ebene 2 gestufte Regel-/Ideenseite (Kurzbeschreibung, Merksatz, Beispiel offen; „Dieselbe Regel in Klasse …“, „Genau erklärt“, „Typische Fehler“, „Aufbau“ zu), Arbeitsweise mit Kurzbeschreibung/Beispiel/Erklärung; Ebene 3 Einzelregel; Umschalter „Aufbau | Durch die Klassen“ (Handy Klassenwahl, Rechner Tabelle); Suche im Kopf; Brotkrumen; Übergang 220 ms; Sternenfeld dunkel auf Ebene 0/1. Kein Lernstand.
+- Einstieg Kind: Menüblatt der Kinderseiten (≡ Menü) – fünfter Eintrag „Regel-Universum“ → `#/regeln/<kind>`. Kein Verweis vor einer Aufgabe.
+- Eltern/Lehrer: „Regeln“ in „Nachschlagen“ der Startseite → `#/regeln` (Liste: 14 Rechenregeln nach Schichten, 28 Ideen nach Gebieten, 8 Arbeitsweisen) → Blatt `#/regeln/lehrer-r<n>` mit 5 Abschnitten offen (Merksatz, Was das Kind sieht, Fachliche Erklärung, Verweise und Zuordnung mit Lehrplan-Tabelle aus `texte8/lehrplan.json` und „Nicht geprüft“, Themen mit „Lehrer-Seite ›“ (öffnet den Lehrplan mit dem Thema), bis zu 3 Beispielaufgaben, Fehlbilder, Aufbau; Stand je Kind „Stand folgt“). „So sieht es das Kind ›“ → `#/regeln/kind-r<n>` (mit Leiste zurück zum Blatt).
+- Rückmeldung: gebaut, an Merksatz/Karte/Erklärung/Zuordnung. Weg `schule_rueckmeldung_geben` ohne Einheit, `bezug: 'allgemein'` (Migration 20261117 lässt `allgemein` zu, Einheit/Block sind optional; lernen-api reicht `daten` unverändert durch). Arten Fehler → `fehler`, Vorschlag/Frage → `sonstiges` (Prüfbedingung der Tabelle); Text beginnt mit „Regel 6 · Ausmultiplizieren und Ausklammern (rr.ausmultiplizieren) · Merksatz · Frage: “. `lernAuftragForm` hat dafür zwei optionale Parameter (`arten`, `vorsatz`), sonst unverändert.
+- Daten: `daten/regeln-universum.json` (606 kB, gzip 101 kB), erzeugt mit `node tools/regeln_bauen.cjs` (endet mit „OK“; `--pruefen` vergleicht). Übernommen aus `texte8`: 42 Kurzbeschreibungen (18 berichtigt), Regel 10 kürzere Fassung, 25 Lücken (genau/voraus/fehler), 8 Arbeitsweisen, 30 Einzelregeln (Beispiel + Grenze), Lehrplan je Regel, Beispielaufgaben R10/R14. Die Zeichnungen des Entwurfs werden beim Bau einmal ausgeführt und als SVG-Text abgelegt (42 Zeichnungen). Laden erst beim Öffnen; `sw.js` nimmt Datei, `lernen-regeln.js`, `lernen-regeln.css` in die Hülle.
+- Code: `lernen-regeln.js` (eigene Datei), `lernen-regeln.css` (alles unter `.ru`, Präfix `ru-`). `lernen.js` +4 Zeilen (Menüeintrag, Link „Regeln“, Formular-Optionen), `app.js`/`schule.js` je Route `regeln`. Hell/dunkel folgt der Gestaltung des Kindes bzw. dem System (kein eigener Umschalter). Version 0.95.0 an allen 5 Stellen, Cache v186.
+
+**Tests**
+- `tests/lernen-regeln.test.cjs` (neu, ohne Browser): 6/6 – Datei = Bau, Vollständigkeit (14/4/7/28/8, Merksatz, Kurzbeschreibung, Beispiel), texte8 übernommen (R10 kurz, R6 unverändert, 18 + 25), Suche, alle 235 Adressen ohne leere Texte/„undefined“, Adressen/Ebenen/Rückmelde-Text und Arten gegen die Migrationen.
+- `tests/lernen.test.cjs`: 2 neue Browser-Tests (Kind 400 hell/dunkel + 1280; Eltern 400 + 1280; Querscrollen, Tippflächen ≥ 44 px nach dem Übergang, keine Skriptfehler). Gesamttest 214/214.
+- `lernen-bruch` 24/24, `lernen-takt` 10/10. Bilder: `inhalte/pruefung/regeln/bilder/` (29, mit `RU_BILDER=1` aus den Browser-Tests).
+
+**Abweichungen vom Entwurf**
+- Über dem Universum stehen App-Kopf (Zurück, Titel) und die Menüzeile der Kinderseiten: Ebene 0 beginnt ~160 px tiefer; am Handy sind im ersten Bildschirm 5 statt 7 Gebiete zu sehen, am Rechner ist die Kapsel „Arbeitsweisen“ erst nach Wischen sichtbar.
+- Schnitt durch die Sonne: Tippfläche ist das ganze Band (im Entwurf nur die Schriftzeile, 26 px hoch).
+- Eltern-Bereich: Kopf und Klassenwahl kleben nicht (die App-Leiste klebt schon); Farben der App statt Abflug-Farben.
+- Für Ideen und Arbeitsweisen gibt es noch kein Lehrer-Blatt; die Liste verweist auf die Kinderseite.
+- Regel 9: Beispielaufgabe BG-05 nicht gezeigt (Stichprobe Mathe-Profi „passt nicht“), stattdessen Hinweis; R4/R11 mit Hinweis „nur teilweise geprüft“.
+
+**Nicht geprüft**
+- Echter Server (Rückmeldung nur gegen die simulierte lernen-api), echte Geräte/Safari, Offline-Betrieb (Tests blockieren den Service Worker; die eigene Lernen-Seite `lernen/` registriert keinen Service Worker), Bildschirmleser, dunkel im Eltern-Bereich, „Lehrer-Seite ›“ mit echten Themen-Nummern.
+
+**Annahmen**
+- Einstieg für Kinder im Menüblatt (nicht auf der Karte), weil es auf jeder Kinderseite da ist und nicht vor einer Aufgabe steht. Im alten Design (Leiste unten) gibt es keinen Einstieg.
+- Die Daten-HTML (Bruch-Schreibweise, SVG) wird als HTML eingesetzt – nur aus der im Repo erzeugten Datei; übrige Texte maskiert.
+
+**Stufe 2 braucht von der Datenbank**: Bezugsfeld „Regel“ (Kennung + Abschnitt) für `schule_rueckmeldung_geben` und `schule_rueckmeldungen`, Stand je Kind und Regel (sitzt / in Arbeit / kommt später), Fehlbilder je Regel aus dem Server.
+
 ## 2026-11-27 – FERTIG 0.94.0 Form-Takt, Nachbesserung nach Werkstatt 1039/1040 (Zweig `helfer-app2`, Cache v185)
 
 **Geliefert**

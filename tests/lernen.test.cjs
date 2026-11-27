@@ -4534,9 +4534,9 @@ function rkLage(daten, lage) {
     if (f.iso === 'IT') { const rom = f.staedte.find((c) => c.nr === 1); rom.abgelegt = true; rom.abgelegt_am = '2026-11-20'; } }
   return daten;
 }
-function rkServer({ karte = true, basis = null, lage = null, startGesperrt = false } = {}) {
+function rkServer({ karte = true, basis = null, lage = null, startGesperrt = false, stand = {} } = {}) {
   const daten = rkLage(rkKarte({ zustand: { ...RK_STAND, ...Object.fromEntries(RK_AUFBAU.kontinente[0].fluege.filter((f) => f.land === 'Griechenland').map((f) => [f.flug_id, { golden: true, stempel: true, alle: 'sicher' }])),
-    ...Object.fromEntries(RK_AUFBAU.kontinente[0].fluege.filter((f) => f.land === 'Deutschland').map((f) => [f.flug_id, { stufe: 'kommt', im_plan: true, plan_platz: 4 }])) } }), lage);
+    ...Object.fromEntries(RK_AUFBAU.kontinente[0].fluege.filter((f) => f.land === 'Deutschland').map((f) => [f.flug_id, { stufe: 'kommt', im_plan: true, plan_platz: 4 }])), ...stand } }), lage);
   const f = (aktion, e, d) => { if (aktion === 'schule_reise_karte') return karte ? structuredClone(daten) : null; const r = basis ? basis(aktion, e, d) : e;
     // Orte → Flüge: der Ort des fehlenden Visums gehört zum Flug der Schweiz (Thema 18)
     if (aktion === 'schule_uebersicht' && lage && r) return { ...r, einheiten: startGesperrt ? r.einheiten.map((e0) => (e0.id === 1 ? { ...e0, thema_id: 67 } : e0.id === 2 ? { ...e0, thema_id: 15 } : e0)) : r.einheiten, themen: [...(r.themen || []), { thema_id: 18, titel: 'Grundrechenarten', gebiet: 'Zahlen', ort: 'Bern', block_id: RK_VISUM.block_id, jahrgang: { gym_by: 5 }, einheit: null, stand: {}, geplant: [], rueckmeldungen: 0 }] };
@@ -6438,5 +6438,36 @@ test('Teil A: offene Flüge in der Routen-Spalte bzw. im Blatt antippbar (höchs
     if (b > 1000) assert.equal(await page.locator('.rk-seite button.rk-lzeile', { hasText: 'Slowenien' }).count(), 1);
     await page.locator('.rk-pin[data-id="SI"] .rk-treffer').click(); await page.locator(b > 1000 ? '.rk-seite-blatt' : '.rk-blatt:not([hidden])').waitFor();
     assert.equal(await page.locator('a[href="#/lerneinheit/1-2"], .rk-weiter-knopf').count(), 0, `${b}: auch im Blatt nicht`);
+  }
+});
+
+// ---------- Auflagen aus Werkstatt 1156 b: bereits gelandete / zur Wiederholung gesetzte Flüge bekommen keinen Startlink ----------
+test('Teil 3: Flug „Kann er – aber wiederholen“ (stufe wiederholung, gesetzt wiederholen, im Plan, ohne Stempel) nirgends startbar – wie in „Mein Weg › Kontinente“ (1280 / 390)', async (t) => {
+  const WDH = { 18: { stufe: 'wiederholung', gesetzt: 'wiederholen', im_plan: true, plan_platz: 2 } };
+  // Mein Weg führt denselben Flug als gelandet: Ort des Flugs hat kann_wdh_themen mit dem Thema
+  const mitWdh = (aktion, e) => { const r = rkThemen({ 1: 15, 2: 18 })(aktion, e); if (aktion !== 'schule_uebersicht' || !r) return r;
+    const b = (r.einheiten || []).find((x) => x.id === 2)?.block_id;
+    return { ...r, lernende: r.lernende.map((k) => (k.id !== 1 ? k : { ...k, route: [...(k.route || []).filter((q) => q.block_id !== b), { block_id: b, position: 150, art: 'normal', status: 'offen', kann_schon: false, kann_wdh_themen: [18] }] })) }; };
+  for (const [b, h] of [[1280, 800], [390, 844]]) {
+    // a) nur der Stand des Flugs (Karte) sagt „wiederholen“
+    { const { page } = await rkOeffnen(t, b, h, { basis: rkThemen({ 1: 15, 2: 18 }), stand: WDH });
+      if (b > 1000) { const spalte = page.locator('.rk-seite'); await spalte.locator('.rk-start').waitFor();
+        assert.equal(await spalte.locator('a.rk-lzeile-los', { hasText: 'Schweiz' }).count(), 0, '1280: Routen-Zeile ohne Startlink');
+        assert.equal(await spalte.locator('.rk-auch-offen a[href="#/lerneinheit/1-2"]').count(), 0, '1280: nicht unter „Auch offen“');
+        assert.equal(await spalte.locator('a.rk-lzeile-los', { hasText: 'Italien' }).getAttribute('href'), '#/lerneinheit/1-1', 'der Flug, der dran ist, bleibt startbar'); }
+      await page.locator('.rk-pin[data-id="CH"]').click(); await page.locator(b > 1000 ? '.rk-seite-blatt' : '.rk-blatt:not([hidden])').waitFor();
+      assert.equal(await page.locator('a[href="#/lerneinheit/1-2"], .rk-weiter-knopf').count(), 0, `${b}: Länder-Blatt ohne Link`);
+      const stadt = page.getByRole('button', { name: 'Städte in Schweiz ansehen ›' });
+      if (await stadt.count()) { await stadt.click(); await page.waitForTimeout(300); assert.equal(await page.locator('a[href="#/lerneinheit/1-2"]').count(), 0, `${b}: Stadtzeile ohne Link`); }
+      // Maßstab: Mein Weg › Kontinente führt den Flug (ohne kann_wdh_themen) als offen – die Karte ist hier strenger (Stand des Flugs)
+      await page.goto(origin + '/#/weg/1-kontinente'); await page.locator('.lr-kontinente').waitFor(); }
+    // b) Mein Weg führt ihn als gelandet (kann_wdh_themen), die Karte nennt nur „im Plan“: ebenfalls kein Link
+    { const { page } = await rkOeffnen(t, b, h, { basis: mitWdh });
+      await page.goto(origin + '/#/weg/1-kontinente'); const z = page.locator('a.lr-wegzeile[href="#/lerneinheit/1-2"]'); await z.first().waitFor({ state: 'attached' });
+      assert.match(await z.first().locator('.lr-zeile-zustand').textContent(), /gelandet/, 'Mein Weg: gelandet');
+      await page.goto(origin + '/#/reise/1'); await page.locator('.rk .rk-pin').first().waitFor(); await page.waitForTimeout(200);
+      assert.equal(await page.locator('a[href="#/lerneinheit/1-2"]').count(), 0, `${b}: kein Startlink für einen in Mein Weg gelandeten Flug`);
+      await page.locator('.rk-pin[data-id="CH"]').click(); await page.locator(b > 1000 ? '.rk-seite-blatt' : '.rk-blatt:not([hidden])').waitFor();
+      assert.equal(await page.locator('a[href="#/lerneinheit/1-2"], .rk-weiter-knopf').count(), 0, `${b}: auch im Blatt nicht`); }
   }
 });

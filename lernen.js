@@ -2540,7 +2540,12 @@ function lernReisekarte(d, karte, start) {
   // Offen = nach dem Zustand der Karte dran, im Plan, Zusatz oder offen (nie gesperrt/wartet, nie geschafft) und mit Einheit beim Kind – nichts wird neu freigeschaltet.
   const RK_OFFEN = new Set(['dran', 'plan', 'zusatz', 'offen']);
   const einheitVon = (f) => (d.mit || []).find((e) => e.thema_id && Number(e.thema_id) === Number(f.thema_id)) || null;
-  const flugZiel = (f) => { if (!f || f.gesperrt || !RK_OFFEN.has(lernRkZustand(f, nst))) return null; const e = einheitVon(f); return e ? `#/lerneinheit/${kind.id}-${e.id}` : null; };
+  // Auflagen aus Werkstatt 1156 b: bereits gelandete bzw. zur Wiederholung oder als „kann er“ gesetzte Flüge bekommen keinen Startlink –
+  // weder nach dem Stand des Flugs (stufe wiederholung/komplett, gesetzt wiederholen/komplett) noch, wenn „Mein Weg › Kontinente“ die Einheit als gelandet führt.
+  // Der gerade dran befindliche Flug (Startknopf) bleibt davon unberührt.
+  const flugFertig = (f) => ['wiederholung', 'komplett'].includes(f.stufe) || ['wiederholen', 'komplett'].includes(f.gesetzt);
+  const flugZiel = (f) => { if (!f || f.gesperrt) return null; const zst = lernRkZustand(f, nst); if (!RK_OFFEN.has(zst) || (zst !== 'dran' && flugFertig(f))) return null;
+    const e = einheitVon(f); return e && (zst === 'dran' || !lernGelandet(e)) ? `#/lerneinheit/${kind.id}-${e.id}` : null; };
   const flugPflicht = (f) => (f.staedte || []).filter((c) => c.pflicht !== false).sort((a, b) => Number(a.nr) - Number(b.nr));
   const flugStand = (f) => { const ps = flugPflicht(f); return `${ps.filter(lernStadtGelandet).length}/${ps.length}`; };
   // Flug des Startknopfs: „Weiter in …“ steht dort schon – kein zweiter Knopf im Blatt bzw. an der Stadt

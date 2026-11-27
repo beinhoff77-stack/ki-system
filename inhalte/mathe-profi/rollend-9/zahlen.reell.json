@@ -164,7 +164,7 @@
     "o": {
      "index": 0
     },
-    "h": "Rechne √36 aus. Ist das Ergebnis eine rationale Zahl?",
+    "h": "Lies die Zeilen der Reihe nach und prüfe jede Aussage an einem Beispiel.",
     "w": "Zeile 1 ist falsch: √36 = 6 ist rational. Die Wurzel aus einer Quadratzahl ist rational. Die Zeilen 2 und 3 folgen aus Zeile 1 richtig. Richtig: −√36 = −6 gehört zu ℤ, ℚ und ℝ."
    }
   },
@@ -182,19 +182,43 @@
    "fehlbilder": [
     {
      "luecke": 1,
+     "antwort": 95,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet: 95² = 9 025 liegt schon über 9 000, also ist 95 nicht die größte Zahl mit z² ≤ 9 000",
+     "c": "95"
+    },
+    {
+     "luecke": 1,
+     "antwort": 900,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 000 durch 10 geteilt statt die Wurzel gezogen",
+     "c": "9000 / 10"
+    },
+    {
+     "luecke": 2,
      "antwort": 188,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "94 verdoppelt statt quadriert: 94 · 2",
-     "c": "94 * 2"
+     "beschreibung": "die Zahl verdoppelt statt quadriert: 94 · 2",
+     "c": "(94) * 2"
     },
     {
      "luecke": 3,
-     "antwort": 8935,
+     "antwort": 190,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 90 statt mit 9 000 verglichen: 9 025 − 90",
-     "c": "(9025) - 90"
+     "beschreibung": "die nächste Zahl verdoppelt statt quadriert: (94 + 1) · 2",
+     "c": "((94) + 1) * 2"
+    },
+    {
+     "luecke": 4,
+     "antwort": 94,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als obere Grenze wieder die untere Zahl genommen",
+     "c": "(94)"
     }
    ],
    "aufgabe": {
@@ -205,24 +229,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Grenze √90 auf eine Nachkommastelle ein. Dazu werden 94 und 95 quadriert und mit 90 · 100 verglichen. Es ist 94² = ①. Dann ist 95² = ②. Also liegt 95² um ③ über 90 · 100.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Grenze √90 auf eine Nachkommastelle ein, also auf ganze Zehntel. Dazu sucht man zwei ganze Zahlen, deren Quadrate 90 · 100 = 9 000 einschließen. Die größte ganze Zahl z mit z² ≤ 9 000 ist ①. Ihr Quadrat ist ②. Das Quadrat der nächsten ganzen Zahl ist ③. Also liegt √90 zwischen ① Zehnteln und ④ Zehnteln.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
+      94,
       8836,
       9025,
-      25
+      95
      ]
     },
     "c": [
-     "8836",
-     "(8836) + 2 * 94 + 1",
-     "(9025) - 9000"
+     "94",
+     "(94) ** 2",
+     "((94) + 1) ** 2",
+     "(94) + 1"
     ],
-    "h": "Rechne 94 · 94 als 90 · 94 plus 4 · 94. Vergleichen musst du mit 90 · 100, nicht mit 90.",
-    "w": "94² = 8 836 und 95² = 9 025. Die Vergleichszahl ist 90 · 100 = 9 000. Es gilt 8 836 < 9 000 < 9 025, also 9,4 < √90 < 9,5. 95² liegt um 9 025 − 9 000 = 25 über 9 000."
+    "h": "Quadriere ganze Zahlen zwischen 90 und 100, bis du 9 000 eingeschlossen hast. Danach rechnest du mit der gefundenen Zahl weiter.",
+    "w": "Die größte ganze Zahl z mit z² ≤ 9 000 ist 94, denn 94² = 8 836 und 95² = 9 025 liegt über 9 000. Es gilt 8 836 < 9 000 < 9 025, also 94 : 10 < √90 < 95 : 10, das heißt 9,4 < √90 < 9,5."
    }
   },
   {
@@ -242,7 +268,7 @@
      "antwort": "zwischen 2,7 und 2,8",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zeile mit 7,29 als untere Grenze genommen: 7,29 liegt über 7",
+     "beschreibung": "eine Spalte zu weit rechts abgelesen: Du hast die Spalte mit 7,29 als untere Grenze genommen, aber 7,29 liegt über 7",
      "c": null
     },
     {
@@ -353,7 +379,7 @@
      "einheit": "cm"
     },
     "c": "round(264.5751311064591, 0)",
-    "h": "Rechne erst die Fläche in cm² um: 1 m² = 10 000 cm².",
+    "h": "Achte auf die Einheiten: In welcher Einheit soll das Ergebnis stehen?",
     "w": "7 m² = 70 000 cm². Die Seite ist √70 000 ≈ 264,58 cm. Gerundet auf ganze Zentimeter: 265 cm. Probe: 265 · 265 = 70 225, das ist nahe an 70 000."
    }
   },
@@ -575,7 +601,7 @@
      "12",
      "(12) - 5"
     ],
-    "h": "Es gilt √a · √b = √(a · b). Zum Schluss nicht vergessen, √25 zu berechnen.",
+    "h": "Für reelle Zahlen a, b ≥ 0 gilt √a · √b = √(a · b). Zum Schluss nicht vergessen, √25 zu berechnen.",
     "w": "√18 · √8 = √(18 · 8) = √144 = 12. Dann ist 12 − √25 = 12 − 5 = 7."
    }
   },
@@ -656,7 +682,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "beschreibung": "Diese Zeile ist richtig, weil √(25x) = √25 · √x = 5 · √x gilt. Sie übernimmt aber den Term √(25x) aus Zeile 2, und der ist falsch. Der erste Fehler steht früher.",
      "c": null
     }
    ],
@@ -678,7 +704,7 @@
     "o": {
      "index": 1
     },
-    "h": "Rechne 5x · 20x für x = 2 aus und vergleiche mit der Zeile.",
+    "h": "Prüfe jede Zeile mit einem selbst gewählten Wert für x.",
     "w": "Zeile 1 stimmt. In Zeile 2 wurde 5x · 20x falsch berechnet: 5 · 20 = 100 und x · x = x², also √(100x²) = 10x. Zeile 3 rechnet mit √(25x) richtig weiter: √(25x) = 5 · √x."
    }
   },
@@ -727,7 +753,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Schreibe √288 als a · √b mit möglichst kleiner Zahl b. Es gilt 288 = 144 · b. Die Zahl b ist ①. Die Wurzel aus 144 ist ②. Dann ist a gleich ②. Also ist a + b gleich ③.",
+     "text": "Schreibe √288 als a · √b mit positiven ganzen Zahlen a und b, wobei b möglichst klein ist. Es gilt 288 = 144 · b. Die Zahl b ist ①. Die Wurzel aus 144 ist ②. Dann ist a gleich ②. Also ist a + b gleich ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -821,9 +847,9 @@
    "fehlbilder": [
     {
      "antwort": 900,
-     "fehlbild": "fb.hoch_zurueck.wurzel_halbiert",
-     "regel_des_fehlbilds": "id.zahlen.hoch_zurueck",
-     "beschreibung": "1800 halbiert statt die Wurzel gezogen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 900 unter der Wurzel angegeben, also a² = 1800 : 2 = 900: Ziehe aus a² noch die positive Wurzel.",
      "c": "1800 / 2"
     },
     {
@@ -1035,7 +1061,7 @@
     "o": {
      "index": 2
     },
-    "h": "Bei gleichen Wurzeln werden nur die Zahlen vor der Wurzel zusammengefasst. Prüfe, was dabei mit der Zahl unter der Wurzel passiert.",
+    "h": "Prüfe jede Zeile durch Nachrechnen mit Näherungswerten.",
     "w": "Zeile 1 und 2 stimmen. In Zeile 3 wurde die Zahl unter der Wurzel verändert. Richtig: 2√3 + 3√3 = 5√3. Zeile 4 rechnet mit dem falschen Wert richtig weiter. Richtig: 5√3 ≈ 8,66."
    }
   },
@@ -1206,7 +1232,7 @@
      "wert": 30
     },
     "c": "3 * 2 * 5",
-    "h": "Multipliziere beide Seiten mit dem Nenner 2√5. Dann gilt √5 · √5 = 5.",
+    "h": "Wie kommst du von a/(2√5) zu a? Was gilt für √5 · √5?",
     "w": "Aus a/(2√5) = 3√5 folgt a = 3√5 · 2√5 = 3 · 2 · 5 = 30. Probe: 30/(2√5) = 15/√5 = 15√5/5 = 3√5."
    }
   },
@@ -1227,7 +1253,7 @@
      "antwort": "√5 mit dem Taschenrechner auf 20 Stellen ausrechnen und prüfen, dass sich keine Ziffernfolge wiederholt.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "endlich viele Stellen können nichts beweisen",
+     "beschreibung": "endlich viele Dezimalstellen beweisen keine Irrationalität",
      "c": null
     },
     {
@@ -1255,11 +1281,11 @@
     "g": "erkennen",
     "y": "auswahl",
     "f": {
-     "text": "Du sollst beweisen, dass √5 irrational ist. Welcher Weg führt zum Ziel?"
+     "text": "Du sollst beweisen, dass √5 irrational ist, und willst dazu einen Widerspruchsbeweis führen. Welcher Weg ist ein vollständiger Beweis?"
     },
     "a": [
      "√5 mit dem Taschenrechner auf 20 Stellen ausrechnen und prüfen, dass sich keine Ziffernfolge wiederholt.",
-     "Annahme: √5 = p/q mit teilerfremden ganzen Zahlen p und q. Quadrieren gibt p² = 5q². Dann folgt, dass p und q beide durch 5 teilbar wären. Das ist ein Widerspruch.",
+     "Annahme: √5 = p/q mit einem vollständig gekürzten Bruch (p und q teilerfremde ganze Zahlen). Quadrieren gibt p² = 5q². Dann folgt, dass p und q beide durch 5 teilbar wären. Das ist ein Widerspruch zur Kürzung.",
      "Zeigen, dass √5 keine ganze Zahl ist: 2² = 4 und 3² = 9.",
      "Annahme: √5 ist irrational. Dann einen Widerspruch suchen."
     ],
@@ -1267,7 +1293,7 @@
      "index": 1
     },
     "h": "Beim indirekten Beweis nimmt man das Gegenteil der Behauptung an.",
-    "w": "Ein indirekter Beweis nimmt das Gegenteil an: √5 ist rational, also ein gekürzter Bruch p/q. Quadrieren gibt p² = 5q². Dann ist p durch 5 teilbar, und mit p = 5r auch q. Das widerspricht der Kürzung. Zahlenbeispiele oder Taschenrechner beweisen nichts."
+    "w": "Ein indirekter Beweis nimmt das Gegenteil an: √5 ist rational, also ein gekürzter Bruch p/q. Quadrieren gibt p² = 5q². Dann ist p durch 5 teilbar, und mit p = 5r auch q. Das widerspricht der Kürzung. Endlich viele Dezimalstellen beweisen keine Irrationalität, denn die Ziffern könnten sich später doch wiederholen; auch Zahlenbeispiele beweisen nichts."
    }
   },
   {
@@ -1315,7 +1341,7 @@
     "g": "umkehr",
     "y": "auswahl",
     "f": {
-     "text": "Ein Beweis endet so: „Aus p² = 3q² folgt, dass p durch 3 teilbar ist. Dann ist auch q durch 3 teilbar. Das widerspricht der Kürzung.“ Für welche Zahl wurde bewiesen, dass sie irrational ist?"
+     "text": "Ein Beweis endet so: „Weil p² das Dreifache von q² ist, ist p durch 3 teilbar. Dann ist auch q durch 3 teilbar. Das widerspricht der Kürzung.“ Dabei war p/q ein vollständig gekürzter Bruch. Für welche Zahl wurde bewiesen, dass sie irrational ist?"
     },
     "a": [
      "√2",
@@ -1326,8 +1352,8 @@
     "o": {
      "index": 3
     },
-    "h": "Welche Gleichung für p² steht am Anfang des Beweises? Sie verrät die Zahl unter der Wurzel.",
-    "w": "Aus √x = p/q folgt p² = x · q². Im Beweis steht p² = 3q², also ist x = 3. Der Beweis zeigt: √3 ist irrational. Bei √9 wäre der Satz unsinnig, denn √9 = 3 ist rational."
+    "h": "Quadriere √x = p/q. Welche Gleichung für p² entsteht? Vergleiche sie mit dem Satz im Beweis.",
+    "w": "Aus √x = p/q folgt p² = x · q². Im Beweis ist p² das Dreifache von q², also p² = 3q² und x = 3. Der Beweis zeigt: √3 ist irrational. Bei √9 wäre der Satz unsinnig, denn √9 = 3 ist rational."
    }
   },
   {
@@ -1386,7 +1412,7 @@
     "o": {
      "index": 2
     },
-    "h": "Wenn p² durch 3 teilbar ist: Durch welche Zahl muss p dann teilbar sein? Probiere p = 6.",
+    "h": "Wenn p² durch 3 teilbar ist: Durch welche Zahl muss p dann teilbar sein? Suche selbst eine Zahl p, die durch 3 teilbar ist, aber nicht durch 9, und prüfe, ob p² durch 3 teilbar ist.",
     "w": "Zeile 1 und 2 stimmen. In Zeile 3 steht der Fehler: Aus „p² ist durch 3 teilbar“ folgt nur „p ist durch 3 teilbar“ (zum Beispiel p = 6, aber 6 ist nicht durch 9 teilbar). Richtig: p = 3r. Zeile 4 rechnet mit p = 9r richtig weiter."
    }
   }

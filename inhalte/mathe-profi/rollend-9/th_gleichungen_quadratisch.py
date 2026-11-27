@@ -29,19 +29,19 @@ neu(T, "ausklammern", "lueckenweg", L(
     KOMM(3), [6, -6, -3], ["12 // 2", "-{1}", "{2} // 2"], ["12 / 2", "-12 / 2", "-12 / 2 / 2"],
     "Beide Summanden enthalten den Faktor 2x. Ein Produkt ist 0, wenn einer der Faktoren 0 ist.",
     "2x² + 12x = 2x · (x + 6). Ein Faktor 2x = 0 gibt x = 0, der andere x + 6 = 0 gibt x = −6. Die Mitte von 0 und −6 ist −3.",
-    {0: [(24, None, "12 mit 2 malgenommen: 12 · 2", "12 * 2")], 1: [(6, "fb.nullprodukt.vorzeichen_der_loesung", "das Vorzeichen der Lösung vergessen", "{1}")], 2: [(-6, None, "die Lösung statt der Mitte angegeben", "{2}")]}), regel=NP)
+    {0: [(24, None, "12 mit 2 malgenommen: 12 · 2", "12 * 2")], 1: [(6, "fb.nullprodukt.vorzeichen_der_loesung", "aus x + 6 = 0 die Lösung x = 6 gemacht statt x = −6", "{1}")], 2: [(-6, None, "die Lösung statt der Mitte angegeben", "{2}")]}), regel=NP)
 neu(T, "ausklammern", "zwei_wege", Z(
-    "Löse x² = 6x über ℝ auf zwei Wegen. Weg A: Zeichne die Graphen von y = x² und y = 6x (oder lege eine Wertetabelle an) und zähle die Schnittstellen. Weg B: Bringe alles auf eine Seite und klammere x aus. Wie viele Lösungen hat die Gleichung?",
-    2, "1 + 1", lambda: len([x for x in range(-50, 50) if x * x == 6 * x]),
-    "Beide Wege müssen dieselbe Anzahl ergeben.",
-    "Weg B: x² − 6x = 0 gibt x · (x − 6) = 0, also x = 0 oder x = 6. Weg A: Die Parabel und die Gerade schneiden sich bei x = 0 und bei x = 6. Es gibt 2 Lösungen.",
-    [(1, "fb.hoeherer_grad.durch_x_geteilt", "durch x geteilt und dabei die Lösung x = 0 verloren", "1"), (3, None, "x = −6 als dritte Lösung dazugezählt, weil x² = 36 zwei Lösungen hat", "3")]), regel=HG)
+    "Löse x² = 6x über ℝ auf zwei Wegen. Weg A: Zeichne die Graphen von y = x² und y = 6x (oder lege eine Wertetabelle an) und lies die Schnittstellen ab. Weg B: Bringe alles auf eine Seite und klammere x aus. Die Gleichung hat n Lösungen, die größte davon sei g. Wie groß ist n + g?",
+    8, "(1 + 1) + 6", lambda: len([x for x in range(-50, 50) if x * x == 6 * x]) + max(x for x in range(-50, 50) if x * x == 6 * x),
+    "Beide Wege müssen dieselben Lösungen ergeben.",
+    "Weg B: x² − 6x = 0 gibt x · (x − 6) = 0, also x = 0 oder x = 6. Weg A: Die Parabel und die Gerade schneiden sich bei x = 0 und bei x = 6. Es gibt 2 Lösungen, die Schnittstellen 0 und 6, also n = 2 und g = 6 und n + g = 8.",
+    [(7, "fb.hoeherer_grad.durch_x_geteilt", "durch x geteilt und dabei die Lösung x = 0 verloren: n = 1 und g = 6, also 1 + 6", "1 + 6"), (9, None, "x = −6 als dritte Lösung dazugezählt, weil x² = 36 zwei Lösungen hat: n = 3 und g = 6, also 3 + 6", "3 + 6")]), regel=HG)
 neu(T, "ausklammern", "fehler_detektiv", FD(
     "Kim löst x² − 9x = 0 über ℝ.",
     [("Umstellen: x² = 9x", all((x * x - 9 * x == 0) == (x * x == 9 * x) for x in range(-3, 12)), None),
      ("Beide Seiten durch x teilen: x = 9", all((x * x == 9 * x) == (x == 9) for x in range(-3, 12)), None),
      ("Also ist L = {9}.", False, True)],
-    "Prüfe, ob x = 0 die Gleichung erfüllt. Darf man einfach durch x teilen?",
+    "Lies die Zeilen der Reihe nach. Prüfe bei jeder Umformung, ob sie immer erlaubt ist.",
     "Zeile 1 stimmt. In Zeile 2 wird durch x geteilt. Das geht nur für x ≠ 0, und so geht die Lösung x = 0 verloren. Richtig: x · (x − 9) = 0 gibt x = 0 oder x = 9. Zeile 3 folgt aus Zeile 2."), regel=HG)
 
 # ───────── faktorisieren ─────────
@@ -56,19 +56,19 @@ neu(T, "faktorisieren", "umkehren", Z(
     -9, "-(2 + 7)", lambda: -(2 + 7),
     "Schreibe zuerst die Gleichung in der Form (x − 2)(x − 7) = 0 und multipliziere aus.",
     "(x − 2)(x − 7) = x² − 9x + 14. Also ist p = −9 und q = 14. Probe: 4 − 18 + 14 = 0 und 49 − 63 + 14 = 0.",
-    [(9, "fb.vorzeichen.falsches_zeichen", "das Vorzeichen vergessen: 2 + 7", "2 + 7"), (14, None, "das Produkt statt der Summe genommen: 2 · 7", "2 * 7"), (5, None, "die Zahlen voneinander abgezogen: 7 − 2", "7 - 2")]), g="umkehr", regel=NP)
+    [(9, None, "die Summe der Lösungen ohne Minus als p genommen: 2 + 7 (richtig ist p = −(2 + 7))", "2 + 7"), (14, None, "das Produkt statt der Summe genommen: 2 · 7", "2 * 7"), (5, None, "die Zahlen voneinander abgezogen: 7 − 2", "7 - 2")]), g="umkehr", regel=NP)
 neu(T, "faktorisieren", "fehler_detektiv", FD(
     "Kim löst x² + 2x − 15 = 0 durch Faktorisieren.",
     [("Gesucht sind zwei Zahlen mit der Summe 2 und dem Produkt −15.", True, None),
      ("Das passt für 5 und −3.", 5 + (-3) == 2 and 5 * (-3) == -15, None),
      ("Also gilt x² + 2x − 15 = (x + 5)(x − 3).", all((x + 5) * (x - 3) == x * x + 2 * x - 15 for x in range(-5, 6)), None),
      ("Also sind die Lösungen x = 5 und x = −3.", False, None)],
-    "Setze x = 5 in die Gleichung x² + 2x − 15 = 0 ein.",
+    "Lies die Zeilen der Reihe nach. Prüfe bei jeder Zeile, ob sie aus der vorigen folgt.",
     "Die Zeilen 1 bis 3 stimmen. In Zeile 4 stehen die falschen Vorzeichen: (x + 5)(x − 3) = 0 ist null für x = −5 oder x = 3. Probe: 25 − 10 − 15 = 0 und 9 + 6 − 15 = 0."), regel=NP)
 
 # ───────── ergaenzung ─────────
 neu(T, "ergaenzung", "lueckenweg", L(
-    "Löse x² + 6x − 7 = 0 mit quadratischer Ergänzung. Auf beiden Seiten wird ① addiert, damit links ein Quadrat entsteht. Dann gilt (x + ②)² = ③.",
+    "Löse x² + 6x − 7 = 0 mit quadratischer Ergänzung. Zuerst x² + 6x = 7. Auf beiden Seiten wird ① addiert, damit links ein Quadrat entsteht. Dann gilt (x + ②)² = ③.",
     KOMM(3), [9, 3, 16], ["(6 // 2) ** 2", "6 // 2", "7 + {1}"], ["(6 / 2) ** 2", "6 / 2", "7 + (6 / 2) ** 2"],
     "Halbiere die Zahl vor x und quadriere das Ergebnis.",
     "x² + 6x + 9 = 7 + 9, links steht (x + 3)², rechts 16. Weiter: x + 3 = 4 oder x + 3 = −4, also x = 1 oder x = −7.",
@@ -82,7 +82,7 @@ neu(T, "ergaenzung", "zwei_wege", Z(
 neu(T, "ergaenzung", "umkehren", Z(
     "Für welche Zahl q hat die Gleichung x² + 10x + q = 0 genau eine Lösung?",
     25, "(10 // 2) ** 2", lambda: next(q for q in range(0, 200) if 10 * 10 - 4 * q == 0),
-    "Genau eine Lösung gibt es, wenn sich links ein vollständiges Quadrat (x + a)² bilden lässt.",
+    "Überlege, wann eine quadratische Gleichung genau eine Lösung hat.",
     "(x + 5)² = x² + 10x + 25. Dann ist die Gleichung (x + 5)² = 0 und hat nur die Lösung x = −5. Also q = 25.",
     [(5, None, "nur halbiert: 10 : 2", "10 // 2"), (100, None, "10 nur quadriert: 10²", "10 ** 2"), (50, None, "10 mit 5 malgenommen", "10 * 5")]), g="parameter", regel=GL)
 
@@ -104,7 +104,7 @@ neu(T, "loesungsformel", "fehler_detektiv", FD(
     [("Es ist a = 1, b = 4 und c = 5.", False, None),
      ("Dann ist b² − 4ac = 16 − 20 = −4.", False, 4 ** 2 - 4 * 1 * 5 == -4),
      ("Wegen −4 < 0 hat die Gleichung keine Lösung.", False, -4 < 0)],
-    "Lies c in der Gleichung x² + 4x − 5 = 0 noch einmal genau ab. Probiere x = 1.",
+    "Lies die Zeilen der Reihe nach. Vergleiche jede Zeile mit der Gleichung aus der Aufgabe.",
     "Zeile 1 enthält den Fehler: c = −5, nicht 5. Die Zeilen 2 und 3 folgen aus Zeile 1 richtig. Richtig ist D = 16 + 20 = 36 und die Lösungen sind x = 1 und x = −5. Probe: 1 + 4 − 5 = 0."), regel=GL)
 
 # ───────── bruchgleichung ─────────
@@ -113,7 +113,7 @@ neu(T, "bruchgleichung", "lueckenweg", L(
     KOMM(3), [81, 5, -4], ["1 + 4 * 20", "5", "1 - {2}"], ["1 + 80", "(1 + wz(81)) / 2", "(1 - wz(81)) / 2"],
     "Die Diskriminante ist b² minus das Vierfache von a mal c, hier mit a = 1, b = −1, c = −20. Die beiden Lösungen haben zusammen den Wert −b.",
     "D = 1 + 80 = 81 und √81 = 9. Lösungen: (1 + 9) : 2 = 5 und (1 − 9) : 2 = −4. Beide sind ungleich 0. Probe: 5 − 20/5 = 1 und −4 − 20/(−4) = −4 + 5 = 1.",
-    {0: [(-79, "fb.vorzeichen.falsches_zeichen", "−4ac mit falschem Vorzeichen: 1 − 80", "1 - 80")], 1: [(10, None, "nicht durch 2 geteilt: 1 + 9", "1 + 9")], 2: [(4, "fb.vorzeichen.falsches_zeichen", "das Minus der kleineren Lösung vergessen", "4")]}), regel=GL)
+    {0: [(-79, "fb.vorzeichen.falsches_zeichen", "−4ac mit falschem Vorzeichen: 1 − 80", "1 - 80")], 1: [(10, None, "nicht durch 2 geteilt: 1 + 9", "1 + 9")], 2: [(4, None, "das Minus der kleineren Lösung vergessen: 4 statt −4", "4")]}), regel=GL)
 neu(T, "bruchgleichung", "bruecke", W(
     "Die Zeichnung zeigt die Graphen von y = 6/x und y = x − 1. Welche Gleichung gehört zu den Schnittpunkten, und welche Lösungen hat sie?",
     "6/x = x − 1 mit x = 3 und x = −2", [("6/x = x − 1 mit x = 2 und x = −3", "die Vorzeichen der Lösungen vertauscht"), ("6/x = x + 1 mit x = 2 und x = −3", "die Gerade falsch abgelesen"), ("6x = x − 1 mit x = −0,2", "den Bruch durch ein Produkt ersetzt")],
@@ -145,7 +145,7 @@ neu(T, "diskriminante", "umkehren", Z(
 neu(T, "diskriminante", "umkehren", Z(
     "Die Gleichung x² + kx + 9 = 0 soll über ℝ keine Lösung haben. Für wie viele ganze Zahlen k ist das der Fall?",
     11, "2 * 5 + 1", lambda: sum(1 for k in range(-50, 50) if k * k - 36 < 0),
-    "Keine Lösung heißt: Die Diskriminante ist negativ. Stelle eine Ungleichung für k auf.",
+    "Wann hat eine quadratische Gleichung keine Lösung? Leite daraus eine Bedingung für k ab.",
     "D = k² − 36 < 0 gilt für −6 < k < 6. Die ganzen Zahlen sind −5, −4, …, 5. Das sind 11 Zahlen. Für k = 6 und k = −6 ist D = 0, dort gibt es eine Lösung.",
     [(5, None, "nur die positiven k gezählt", "5"), (13, None, "die Grenzfälle k = 6 und k = −6 mitgezählt, bei denen D = 0 ist", "2 * 6 + 1")]), g="parameter", regel=GL)
 
@@ -165,6 +165,6 @@ neu(T, "sachaufgabe", "anwenden", Z(
 neu(T, "sachaufgabe", "anwenden", Z(
     "Ein Ball wird von einer 15 m hohen Terrasse nach oben geworfen. Seine Höhe über dem Boden ist h = −5t² + 10t + 15 (h in Metern, t in Sekunden). Nach wie vielen Sekunden trifft der Ball den Boden?",
     3, "(2 + 4) / 2", lambda: next(t for t in range(1, 50) if -5 * t * t + 10 * t + 15 == 0),
-    "Am Boden ist h = 0. Teile die Gleichung durch −5.",
+    "Welche Bedingung gilt am Boden? Vereinfache die Gleichung, wenn es geht.",
     "−5t² + 10t + 15 = 0 gibt t² − 2t − 3 = 0, also (t − 3)(t + 1) = 0. Die Lösungen sind t = 3 und t = −1. Eine negative Zeit gibt es hier nicht, also t = 3 s. Probe: −45 + 30 + 15 = 0.",
     [(-1, None, "die negative Lösung angegeben", "(2 - 4) / 2"), (6, None, "nicht durch 2 geteilt: 2 + 4", "2 + 4"), (15, None, "die Starthöhe als Zeit angegeben", "15")], "s"), g="transfer", regel=GL)

@@ -36,8 +36,34 @@ THEMEN = {
     "stochastik.simulation": ("stochastik.simulation", ["zufallsgeraet", "regel", "zufallsziffern", "auswerten", "monte_carlo", "beurteilen"]),
 }
 KUERZEL = "K9A"
+# Ideen, deren Themenliste im Katalog das Thema nicht nennt, deren Katalogtext aber von Hand gelesen genau passt:
+REGEL_AUSNAHME = {
+    ("gleichungen.wurzel", "id.algebra.gleichung_loesen"): "Lösungsmenge finden, Scheinlösungen machen die Gleichung nicht wahr",
+    ("gleichungen.quadratisch", "id.algebra.gleichung_loesen"): "alle Zahlen finden, die die quadratische Gleichung wahr machen",
+    ("funktionen.quadratisch", "id.algebra.gleichung_loesen"): "Nullstellen und Schnittstellen sind Lösungen einer Gleichung",
+    ("stochastik.verknuepft", "id.zahlen.bausteine"): "V124 Teiler von 18 über die Zerlegung in Faktoren, V126 Primzahlen prüfen",
+    ("stochastik.simulation", "id.daten.anteil"): "gleich große Felder bzw. gleich wahrscheinliche Ziffern und Zahlen: Anteil günstige durch mögliche",
+    ("stochastik.grundbegriffe", "id.daten.stufen"): "V120: dreimal würfeln, Pfad (5/6)·(5/6)·(5/6) entlang malnehmen",
+}
 GEPRUEFT = ("umkehren", "zwei_wege", "bruecke", "anwenden")
 ZAEHLT_JA_AUS = ("umkehren", "zwei_wege", "bruecke", "verfahren_waehlen", "anwenden")
+
+# Fehlbild-Kennungen: jede gesetzte Kennung wurde von Hand gegen den Katalogtext in kennungen.json gelesen (passt genau, sonst leer).
+# fb.vorzeichen.falsches_zeichen gilt NUR für Mal/Geteilt; fb.hoch_zurueck.wurzel_halbiert nur, wo „Wurzel = Hälfte“ gerechnet wurde.
+FB_GELESEN = {
+    "K9A-V099": {"fb.vorzeichen.falsches_zeichen": "(−3) · 5 als 3 · 5: Vorzeichen eines Produkts"},
+    "K9A-V073": {"fb.vorzeichen.falsches_zeichen": "−4 · 2 · (−15): Vorzeichen eines Produkts", "fb.hoch_zurueck.wurzel_halbiert": "169 : 2 statt √169"},
+    "K9A-V076": {"fb.vorzeichen.falsches_zeichen": "−4 · 1 · (−20): Vorzeichen eines Produkts"},
+    "K9A-V061": {"fb.gegenrechnung.zweite_loesung_fehlt": "bei x² = 16 nur die positive Lösung"},
+    "K9A-V064": {"fb.nullprodukt.vorzeichen_der_loesung": "aus x + 6 = 0 wird x = 6"},
+    "K9A-V065": {"fb.hoeherer_grad.durch_x_geteilt": "durch x geteilt, Lösung 0 geht verloren"},
+    "K9A-V112": {"fb.anteil.guenstig_durch_unguenstig": "13 durch 7 statt durch 20"},
+    "K9A-V013": {"fb.gegenrechnung.zweite_loesung_fehlt": "bei x² = 196 nur die positive Lösung"},
+    "K9A-V002": {"fb.hoch_zurueck.wurzel_halbiert": "2025 : 2"}, "K9A-V004": {"fb.hoch_zurueck.wurzel_halbiert": "144 : 2 und 10 000 : 2"},
+    "K9A-V008": {"fb.hoch_zurueck.wurzel_halbiert": "1728 : 2 statt dritter Wurzel (Wurzel als Hälfte)"}, "K9A-V016": {"fb.hoch_zurueck.wurzel_halbiert": "3 600 : 2"},
+    "K9A-V017": {"fb.hoch_zurueck.wurzel_halbiert": "144 : 2"}, "K9A-V024": {"fb.hoch_zurueck.wurzel_halbiert": "7 : 2"}, "K9A-V027": {"fb.hoch_zurueck.wurzel_halbiert": "12 : 2"},
+    "K9A-V028": {"fb.hoch_zurueck.wurzel_halbiert": "144 : 2"}, "K9A-V031": {"fb.hoch_zurueck.wurzel_halbiert": "144 : 2"},
+}
 
 geladen = []
 for schl in THEMEN:
@@ -173,7 +199,9 @@ for a in A:
     gleich_ok = bool(q.pop("_gleich_ok", False))
     zaehler += 1
     kenn = f"{KUERZEL}-V{zaehler:03d}"
-    assert a["regel"] in REGELN, (kenn, a["regel"])
+    assert a["regel"] is None or a["regel"] in REGELN, (kenn, a["regel"])
+    # Katalog (kennungen.json): die Idee muss zum Thema passen; Ausnahmen stehen von Hand gelesen in REGEL_AUSNAHME; ohne passende Idee bleibt die Kennung leer
+    assert a["regel"] is None or datei in REGELN[a["regel"]]["themen"] or (datei, a["regel"]) in REGEL_AUSNAHME, (kenn, a["regel"], "Thema steht nicht in der Themenliste der Idee")
     assert ip.STUFE_VON[a["g"]] == a["s"], kenn
     assert (datei, a["lk"]) in KARTE, (kenn, a["lk"])
     q.update({"l": a["lk"], "t": KARTE[(datei, a["lk"])], "p": "uebung", "s": a["s"], "g": a["g"]})
@@ -198,7 +226,7 @@ for a in A:
     alle_texte.add(text)
     alle_bau[datei].add(b)
     eintrag = dict(kennung=kenn, thema=a["thema"], lernkarte=a["lk"], stufe=a["s"], typ=FORM[a["form"]][0], form=a["form"], antwortform=q["y"],
-                   regel=a["regel"], regel_name=REGELN[a["regel"]]["name"], zaehlt=a["zaehlt"], fehlbilder=[])
+                   regel=a["regel"], regel_name=REGELN[a["regel"]]["name"] if a["regel"] else None, zaehlt=a["zaehlt"], fehlbilder=[])
 
     def fb_eintrag(ort, antwort, fbk, beschr, c=None):
         global n_fb
@@ -299,6 +327,20 @@ for a in A:
             fb_eintrag({"index": i}, q["a"][i], fbk, beschr, c_r)
     eintrag["aufgabe"] = q
     aus[a["thema"]].append(eintrag)
+
+# ═════════ Kennungen gegen die von Hand gelesene Liste ═════════
+benutzt = defaultdict(set)
+for _l in aus.values():
+    for _e in _l:
+        for _x in _e["fehlbilder"]:
+            if _x["fehlbild"]:
+                benutzt[_e["kennung"]].add(_x["fehlbild"])
+assert {k: set(v) for k, v in FB_GELESEN.items()} == dict(benutzt), ("Fehlbild-Kennungen weichen von der gelesenen Liste ab", dict(benutzt))
+for _l in aus.values():
+    for _e in _l:
+        if _e["regel"]:
+            assert _e["thema"] in THEMEN and (THEMEN[_e["thema"]][0] in REGELN[_e["regel"]]["themen"] or (THEMEN[_e["thema"]][0], _e["regel"]) in REGEL_AUSNAHME), _e["kennung"]
+print("Kennungen: Regel-Kennungen geprüft (Themenliste oder gelesene Ausnahme), Fehlbild-Kennungen =", sum(len(v) for v in benutzt.values()), "(alle von Hand gelesen);", sum(1 for _l in aus.values() for _e in _l if not _e["regel"]), "Aufgaben ohne Regel-Kennung")
 
 # ═════════ Mischung je Lernkarte und je Thema ═════════
 mix = []

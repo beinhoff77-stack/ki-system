@@ -186,7 +186,7 @@
      "einheit": "%"
     },
     "c": "(360 + 108) / 2 * 100 / 360",
-    "h": "Beide Felder zusammen haben 360°. Wie groß ist das Restfeld, wenn das Trefferfeld um 108° mehr hat?",
+    "h": "Beide Felder zusammen füllen das ganze Rad. Stelle für die Winkel eine Gleichung auf.",
     "w": "Das Restfeld hat (360° − 108°) : 2 = 126°. Das Trefferfeld hat 126° + 108° = 234°. Es gilt 234 : 360 = 0,65, also 65 %."
    }
   },
@@ -239,7 +239,7 @@
      "antwort": 86,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl 00 doppelt berücksichtigt",
+     "beschreibung": "100 − 14 gerechnet: den letzten Trefferwert 14 mit der Trefferanzahl verwechselt, weil die Zahl 00 übergangen wurde",
      "c": "100 - (14)"
     }
    ],
@@ -251,7 +251,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Mit zweistelligen Zufallszahlen von 00 bis 99 soll ein Ereignis mit p = 3/20 simuliert werden. Dafür zählen ① Zahlen als Treffer. Dann sind die Zahlen von 00 bis ② Treffer. Also sind ③ Zahlen kein Treffer.",
+     "text": "Mit zweistelligen Zufallszahlen von 00 bis 99, die alle gleich wahrscheinlich sind, soll ein Ereignis mit p = 3/20 simuliert werden. Dafür zählen ① Zahlen als Treffer. Dann sind die Zahlen von 00 bis ② Treffer. Also sind ③ Zahlen kein Treffer.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -313,7 +313,7 @@
     "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "Die Tabelle legt fest, welche der Zufallsziffern 0 bis 9 als Treffer zählen. Welche Wahrscheinlichkeit wird so simuliert? Gib sie in Prozent an.",
+     "text": "Die Tabelle legt fest, welche der Zufallsziffern 0 bis 9 als Treffer zählen. Alle zehn Ziffern sind gleich wahrscheinlich. Welche Wahrscheinlichkeit wird so simuliert? Gib sie in Prozent an.",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -400,7 +400,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Mit zweistelligen Zufallszahlen von 00 bis 99 soll ein Ereignis mit p = 0,08 simuliert werden. Lara legt die Regel fest. Zeile 1: Bei 8 % sind 8 von 100 Zahlen Treffer. Zeile 2: Die Zahlen von 00 bis 07 sind genau 8 Zahlen und zählen als Treffer. Zeile 3: Alle anderen Zahlen, also 08 bis 99, sind kein Treffer. Zeile 4: Das sind 91 Zahlen, also ist die Wahrscheinlichkeit für keinen Treffer 0,91. In welcher Zeile passiert der erste Fehler?"
+     "text": "Mit zweistelligen Zufallszahlen von 00 bis 99, die alle gleich wahrscheinlich sind, soll ein Ereignis mit p = 0,08 simuliert werden. Lara legt die Regel fest. Zeile 1: Bei 8 % sind 8 von 100 Zahlen Treffer. Zeile 2: Die Zahlen von 00 bis 07 sind genau 8 Zahlen und zählen als Treffer. Zeile 3: Alle anderen Zahlen, also 08 bis 99, sind kein Treffer. Zeile 4: Das sind 91 Zahlen, also ist die Wahrscheinlichkeit für keinen Treffer 0,91. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -411,7 +411,7 @@
     "o": {
      "index": 3
     },
-    "h": "Zähle nach: Wie viele Zahlen liegen von 08 bis 99? Es sind 100 Zahlen insgesamt, 8 davon sind Treffer.",
+    "h": "Zähle nach, wie viele Zahlen zu jeder Gruppe der Regel gehören.",
     "w": "Die Zeilen 1 bis 3 stimmen. Von 08 bis 99 sind es 92 Zahlen, denn 100 − 8 = 92. Die Wahrscheinlichkeit für keinen Treffer ist 0,92."
    }
   },
@@ -423,8 +423,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -504,8 +504,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -556,8 +556,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -590,13 +590,13 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Bei einer Simulation sind einige der Ziffern 0 bis 9 als Treffer festgelegt, die kleinsten zuerst. Von 50 Zufallsziffern waren 30 Treffer. Wie viele der zehn Ziffern sind vermutlich als Treffer festgelegt?"
+     "text": "Bei einer Simulation sind einige der Ziffern 0 bis 9 als Treffer festgelegt, die kleinsten zuerst. Die zehn Ziffern sind gleich wahrscheinlich. Von 50 Zufallsziffern waren 30 Treffer. Schätze anhand der beobachteten relativen Häufigkeit, wie viele der zehn Ziffern als Treffer festgelegt sind."
     },
     "o": {
      "wert": 6
     },
     "c": "30 * 10 / 50",
-    "h": "Welcher Anteil der Ziffern waren Treffer? Rechne diesen Anteil auf zehn Ziffern um.",
+    "h": "Vergleiche den beobachteten Anteil der Treffer mit dem Anteil, den eine bestimmte Zahl von zehn Ziffern ergeben würde.",
     "w": "Der Anteil der Treffer ist 30 : 50 = 0,6. Das passt zu 6 von 10 Ziffern, zum Beispiel 0 bis 5."
    }
   },
@@ -608,8 +608,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -681,8 +681,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -715,14 +715,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "In einer Simulation kam ein Bus in 80 Durchgängen 56-mal pünktlich. Schätze, an wie vielen von 200 Tagen der Bus pünktlich kommt. Weg A: Bilde die relative Häufigkeit und multipliziere sie mit 200. Weg B: Rechne mit einem Dreisatz von 80 auf 200 Durchgänge."
+     "text": "In einer Simulation kam ein Bus in 80 Durchgängen 56-mal pünktlich. Schätze mit der relativen Häufigkeit, an wie vielen von 200 Tagen der Bus pünktlich kommt. Jeder Tag verläuft wie ein Durchgang der Simulation. Weg A: Bilde die relative Häufigkeit der pünktlichen Durchgänge und multipliziere sie mit 200. Weg B: Bestimme die Zahl der unpünktlichen Durchgänge, schätze damit die unpünktlichen Tage und nimm das Gegenereignis."
     },
     "o": {
      "wert": 140
     },
     "c": "56 / 80 * 200",
     "h": "Beide Wege müssen dieselbe Zahl ergeben.",
-    "w": "Weg A: 56 : 80 = 0,7 und 0,7 · 200 = 140. Weg B: 80 Durchgänge entsprechen 56 Treffern, 40 Durchgänge entsprechen 28 Treffern, 200 Durchgänge entsprechen 5 · 28 = 140 Treffern."
+    "w": "Weg A: 56 : 80 = 0,7 und 0,7 · 200 = 140. Weg B: Unpünktlich waren 80 − 56 = 24 von 80 Durchgängen, also 24 : 80 = 0,3. Bei 200 Tagen sind das 0,3 · 200 = 60 unpünktliche Tage, also 200 − 60 = 140 pünktliche Tage."
    }
   },
   {
@@ -733,8 +733,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -742,7 +742,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "beschreibung": "Diese Zeile ist rechnerisch richtig, weil 0,38 · 3 000 = 1 140 gilt. Der Fehler steckt im Wert 0,38 aus Zeile 1. Der erste Fehler steht früher.",
      "c": null
     },
     {
@@ -750,7 +750,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "beschreibung": "Diese Zeile ist rechnerisch richtig, weil 0,38 · 1 000 = 380 gilt. Der Fehler steckt im Wert 0,38 aus Zeile 1. Der erste Fehler steht früher.",
      "c": null
     }
    ],
@@ -772,7 +772,7 @@
     "o": {
      "index": 0
     },
-    "h": "Rechne 140 : 500 selbst nach, bevor du die nächste Zeile prüfst.",
+    "h": "Lies die Zeilen der Reihe nach und rechne jede Zeile selbst nach.",
     "w": "140 : 500 = 0,28 und nicht 0,38. Die Zeilen 2 und 3 rechnen mit dem falschen Wert 0,38 richtig weiter. Richtig wären 840 Treffer bei 3 000 Durchgängen."
    }
   },
@@ -784,8 +784,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -837,7 +837,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Quadrat hat die Seitenlänge 8 cm. Von 400 Zufallspunkten im Quadrat liegen 100 in einer Figur. Das Quadrat hat den Flächeninhalt ① cm². In der Figur liegen ② % der Punkte. Also schätzt man den Flächeninhalt der Figur auf ③ cm².",
+     "text": "Ein Quadrat hat die Seitenlänge 8 cm. Von 400 Punkten, die gleichverteilt zufällig im Quadrat liegen, liegen 100 in einer Figur. Das Quadrat hat den Flächeninhalt ① cm². In der Figur liegen ② % der Punkte. Also schätzt man den Flächeninhalt der Figur auf ③ cm².",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -853,7 +853,7 @@
      "100 * 100 / 400",
      "(64) * (25) / 100"
     ],
-    "h": "Fläche des Quadrats = Seitenlänge mal Seitenlänge. Der Anteil der Punkte in der Figur entspricht dem Anteil der Fläche.",
+    "h": "Fläche des Quadrats = Seitenlänge mal Seitenlänge. Der Anteil der Punkte in der Figur ist eine Schätzung für den Anteil der Fläche.",
     "w": "Quadrat: 8 · 8 = 64 cm². Anteil der Punkte: 100 : 400 = 25 %. Figur: 25 % von 64 cm² = 16 cm²."
    }
   },
@@ -865,8 +865,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -899,7 +899,7 @@
     "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "Das Säulendiagramm zeigt, wie viele von je 100 Zufallspunkten in vier Läufen in einer Figur lagen. Alle Punkte lagen in einem Quadrat mit der Seitenlänge 10 cm. Schätze den Flächeninhalt der Figur aus allen vier Läufen zusammen in cm².",
+     "text": "Das Säulendiagramm zeigt, wie viele von je 100 Zufallspunkten in vier Läufen in einer Figur lagen. Alle Punkte lagen gleichverteilt zufällig in einem Quadrat mit der Seitenlänge 10 cm. Schätze den Flächeninhalt der Figur aus allen vier Läufen zusammen in cm².",
      "grafik": {
       "typ": "saeulen",
       "einheit": " Punkte",
@@ -941,8 +941,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -975,13 +975,13 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Teich liegt in einem Rechteck von 40 m mal 25 m. Aus einer Karte weiß man, dass der Teich etwa 300 m² groß ist. Es werden 500 Zufallspunkte im Rechteck gewählt. Wie viele Punkte liegen ungefähr im Teich?"
+     "text": "Ein Teich liegt in einem Rechteck von 40 m mal 25 m. Aus einer Karte weiß man, dass der Teich etwa 300 m² groß ist. Es werden 500 Punkte gleichverteilt zufällig im Rechteck gewählt. Wie viele Punkte liegen ungefähr im Teich?"
     },
     "o": {
      "wert": 150
     },
     "c": "500 * 300 / (40 * 25)",
-    "h": "Welchen Anteil der Rechteckfläche nimmt der Teich ein? Dieser Anteil der Punkte liegt im Teich.",
+    "h": "Welchen Anteil der Rechteckfläche nimmt der Teich ein? Dieser Anteil der Punkte liegt erwartungsgemäß im Teich.",
     "w": "Das Rechteck hat 40 · 25 = 1 000 m². Der Teich hat den Anteil 300 : 1 000 = 0,3. Von 500 Punkten liegen etwa 0,3 · 500 = 150 im Teich."
    }
   },
@@ -999,7 +999,7 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "Ein Würfel, bei dem nur die Augenzahl 6 ein Treffer ist.",
+     "antwort": "Ein fairer Würfel, bei dem nur die Augenzahl 6 ein Treffer ist.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "ein Gerät mit der Wahrscheinlichkeit für einen Treffer von einem Sechstel gewählt",
@@ -1007,7 +1007,7 @@
     },
     {
      "index": 2,
-     "antwort": "Eine Münze, bei der Kopf ein Treffer ist.",
+     "antwort": "Eine faire Münze, bei der Kopf ein Treffer ist.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "ein Gerät mit der Wahrscheinlichkeit für einen Treffer von einer Hälfte gewählt",
@@ -1030,12 +1030,12 @@
     "g": "erkennen",
     "y": "auswahl",
     "f": {
-     "text": "Ein Bauteil ist mit der Wahrscheinlichkeit 0,25 fehlerhaft. Welches Zufallsgerät eignet sich zur Simulation?"
+     "text": "Ein Bauteil ist mit der Wahrscheinlichkeit 0,25 fehlerhaft. Welches Zufallsgerät eignet sich zur Simulation? Würfel und Münze sind fair, bei der Urne hat jede Kugel dieselbe Wahrscheinlichkeit."
     },
     "a": [
      "Eine Urne mit 3 weißen und 1 roten Kugel, rot ist ein Treffer, es wird mit Zurücklegen gezogen.",
-     "Ein Würfel, bei dem nur die Augenzahl 6 ein Treffer ist.",
-     "Eine Münze, bei der Kopf ein Treffer ist.",
+     "Ein fairer Würfel, bei dem nur die Augenzahl 6 ein Treffer ist.",
+     "Eine faire Münze, bei der Kopf ein Treffer ist.",
      "Eine Urne mit 4 weißen und 1 roten Kugel, rot ist ein Treffer, es wird mit Zurücklegen gezogen."
     ],
     "o": {
@@ -1142,7 +1142,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Ereignis hat die Wahrscheinlichkeit 0,4. Max simuliert es mit einer Urne mit 4 roten und 10 weißen Kugeln, es wird zufällig mit Zurücklegen gezogen. Zeile 1: Die Urne enthält 14 Kugeln, davon sind 4 rot. Zeile 2: Weil mit Zurücklegen gezogen wird, bleibt die Wahrscheinlichkeit bei jedem Zug gleich. Zeile 3: Die Wahrscheinlichkeit für rot ist das Verhältnis von roten zu weißen Kugeln, also 0,4. Zeile 4: Die Urne bildet also p = 0,4 ab und ist geeignet. In welcher Zeile passiert der erste Fehler?"
+     "text": "Ein Ereignis hat die Wahrscheinlichkeit 0,4. Max simuliert es mit einer Urne mit 4 roten und 10 weißen Kugeln, es wird mit Zurücklegen gezogen, jede Kugel mit derselben Wahrscheinlichkeit. Zeile 1: Die Urne enthält 14 Kugeln, davon sind 4 rot. Zeile 2: Weil mit Zurücklegen gezogen wird, bleibt die Wahrscheinlichkeit bei jedem Zug gleich. Zeile 3: Die Wahrscheinlichkeit für rot ist das Verhältnis von roten zu weißen Kugeln, also 0,4. Zeile 4: Die Urne bildet also p = 0,4 ab und ist geeignet. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1153,7 +1153,7 @@
     "o": {
      "index": 2
     },
-    "h": "Die Wahrscheinlichkeit für rot vergleicht die roten Kugeln mit allen Kugeln in der Urne.",
+    "h": "Lies die Zeilen der Reihe nach. Prüfe jede Zeile gegen die Beschreibung der Urne.",
     "w": "Die Wahrscheinlichkeit für rot ist 4 : 14 und nicht 4 : 10. Das sind etwa 0,29. Die Urne ist nicht geeignet. Zeile 4 folgt aus der falschen Zeile 3."
    }
   }

@@ -1,0 +1,1982 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-6",
+ "kuerzel": "K6",
+ "flug": "k6-bruch.rechnen",
+ "titel": "bruch.rechnen",
+ "fuer": "Klasse 6",
+ "klasse": 6,
+ "themen": [
+  "bruch.rechnen"
+ ],
+ "themen_datei_im_bestand": "bruch.rechnen",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema, lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder (mit Rechnung c, wo es eine gibt) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K6-V067",
+   "thema": "bruch.rechnen",
+   "lernkarte": "brueche_plus_minus",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Nenner malgenommen",
+     "c": "4 * 6"
+    },
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zähler und Nenner einzeln addiert: 3 + 5",
+     "c": "3 + 5"
+    },
+    {
+     "luecke": 3,
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler 19 nicht in Ganze und Rest zerlegt",
+     "c": "(19)"
+    }
+   ],
+   "aufgabe": {
+    "l": "brueche_plus_minus",
+    "t": "brueche_plus_minus",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne 3/4 + 5/6. Der Hauptnenner ist ①. Die Summe hat dann den Zähler ②. Als gemischte Zahl ist die Summe 1 ③/①.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      12,
+      19,
+      7
+     ]
+    },
+    "c": [
+     "12",
+     "3 * (12) / 4 + 5 * (12) / 6",
+     "(19) - (12)"
+    ],
+    "h": "Suche das kleinste gemeinsame Vielfache der beiden Nenner.",
+    "w": "Hauptnenner 12: 3/4 = 9/12 und 5/6 = 10/12. Summe: 19/12. Davon ist 12/12 ein Ganzes, es bleiben 7/12. Also 1 7/12."
+   }
+  },
+  {
+   "kennung": "K6-V068",
+   "thema": "bruch.rechnen",
+   "lernkarte": "brueche_plus_minus",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 31,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die kleinere Zahl 1/4 − 5/6 nicht entbündelt, sondern die Brüche in umgekehrter Richtung abgezogen",
+     "c": "((3 - 1) + (5/6 - 1/4)) * 12"
+    },
+    {
+     "antwort": 61,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt subtrahiert",
+     "c": "(3 + 1/4 + 1 + 5/6) * 12"
+    }
+   ],
+   "aufgabe": {
+    "l": "brueche_plus_minus",
+    "t": "brueche_plus_minus",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne 3 1/4 − 1 5/6. Weg A: Wandle beide Zahlen in unechte Brüche um. Weg B: Rechne die Ganzen und die Brüche getrennt und entbündle bei Bedarf. Wie viele Zwölftel ist das Ergebnis?"
+    },
+    "o": {
+     "wert": 17
+    },
+    "c": "(13/4 - 11/6) * 12",
+    "h": "Beide Wege führen zu demselben Ergebnis. Der Hauptnenner ist 12.",
+    "w": "Weg A: 3 1/4 = 13/4 = 39/12 und 1 5/6 = 11/6 = 22/12. 39/12 − 22/12 = 17/12. Weg B: 3 3/12 − 1 10/12 = 2 15/12 − 1 10/12 = 1 5/12 = 17/12."
+   }
+  },
+  {
+   "kennung": "K6-V069",
+   "thema": "bruch.rechnen",
+   "lernkarte": "brueche_plus_minus",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "luecken",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auch das Auffüllen abgezogen: 8/12 − 3/12 − 2/12",
+     "c": "(2/3 - 1/4 - 1/6) * 12"
+    }
+   ],
+   "aufgabe": {
+    "l": "brueche_plus_minus",
+    "t": "brueche_plus_minus",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Wasserbehälter ist zu 2/3 gefüllt. Morgens wird 1/4 des Behälters entnommen, abends wird 1/6 des Behälters aufgefüllt. Welcher Bruchteil des Behälters ist danach gefüllt?",
+     "schablone": "□/□",
+     "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+    },
+    "o": {
+     "werte": [
+      7,
+      12
+     ]
+    },
+    "c": [
+     "(2/3 - 1/4 + 1/6) * 12",
+     "12"
+    ],
+    "h": "Bringe alle Brüche auf einen Nenner.",
+    "w": "Hauptnenner 12: 2/3 = 8/12, 1/4 = 3/12, 1/6 = 2/12. 8/12 − 3/12 + 2/12 = 7/12."
+   }
+  },
+  {
+   "kennung": "K6-V070",
+   "thema": "bruch.rechnen",
+   "lernkarte": "dezimal_plus_minus",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 124,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Zehntel statt als Hundertstel gezählt",
+     "c": "12.4 * 10"
+    },
+    {
+     "luecke": 2,
+     "antwort": 509,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Komma nicht beachtet: 124 + 385",
+     "c": "124 + 385"
+    },
+    {
+     "luecke": 3,
+     "antwort": 2385,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt abgezogen",
+     "c": "(1625) + 760"
+    }
+   ],
+   "aufgabe": {
+    "l": "dezimal_plus_minus",
+    "t": "dezimal_plus_minus",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne 12,4 + 3,85 − 7,6 in Hundertsteln. 12,4 sind ① Hundertstel. Die Summe 12,4 + 3,85 sind ② Hundertstel. Nach dem Abziehen von 7,6 bleiben ③ Hundertstel.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      1240,
+      1625,
+      865
+     ]
+    },
+    "c": [
+     "12.4 * 100",
+     "(1240) + 385",
+     "(1625) - 760"
+    ],
+    "h": "Schreibe 12,4 als 12,40.",
+    "w": "12,4 = 1240 Hundertstel. 1240 + 385 = 1625. 7,6 = 760 Hundertstel. 1625 − 760 = 865, also 8,65."
+   }
+  },
+  {
+   "kennung": "K6-V071",
+   "thema": "bruch.rechnen",
+   "lernkarte": "dezimal_plus_minus",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 17.28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Summe der Preise angegeben",
+     "c": "3.49 + 12.80 + 0.99"
+    },
+    {
+     "antwort": 3.71,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Saft vergessen",
+     "c": "20 - (3.49 + 12.80)"
+    }
+   ],
+   "aufgabe": {
+    "l": "dezimal_plus_minus",
+    "t": "dezimal_plus_minus",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Beim Einkauf kosten Brot 3,49 €, Käse 12,80 € und Saft 0,99 €. Du bezahlst mit einem 20-Euro-Schein. Wie viel Euro bekommst du zurück?"
+    },
+    "o": {
+     "wert": 2.72,
+     "einheit": "€"
+    },
+    "c": "20 - (3.49 + 12.80 + 0.99)",
+    "h": "Addiere zuerst alle drei Preise.",
+    "w": "3,49 + 12,80 + 0,99 = 17,28. 20 − 17,28 = 2,72. Du bekommst 2,72 € zurück."
+   }
+  },
+  {
+   "kennung": "K6-V072",
+   "thema": "bruch.rechnen",
+   "lernkarte": "dezimal_plus_minus",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Zahlen addiert",
+     "c": "3.05 + 2.75 + 4.6"
+    },
+    {
+     "antwort": 1.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schritte nicht umgekehrt: 3,05 − 4,6 + 2,75",
+     "c": "3.05 - 4.6 + 2.75"
+    }
+   ],
+   "aufgabe": {
+    "l": "dezimal_plus_minus",
+    "t": "dezimal_plus_minus",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Denke dir eine Zahl x. Addierst du 2,75 und ziehst dann 4,6 ab, erhältst du 3,05. Welche Zahl war x?"
+    },
+    "o": {
+     "wert": 4.9
+    },
+    "c": "3.05 + 4.6 - 2.75",
+    "h": "Rechne rückwärts: Kehre jeden Schritt um, beginnend beim letzten.",
+    "w": "Letzter Schritt „− 4,6“ umkehren: 3,05 + 4,6 = 7,65. Davor „+ 2,75“ umkehren: 7,65 − 2,75 = 4,9. Probe: 4,9 + 2,75 − 4,6 = 3,05."
+   }
+  },
+  {
+   "kennung": "K6-V073",
+   "thema": "bruch.rechnen",
+   "lernkarte": "vorzeichen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„minus minus“ als Minus gerechnet: −12 − 7",
+     "c": "-12 - 7"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−5 + 9 gerechnet, Vorzeichen der −9 übersehen",
+     "c": "(-5) + 9"
+    },
+    {
+     "luecke": 3,
+     "antwort": -14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand mit Vorzeichen angegeben",
+     "c": "(-14)"
+    }
+   ],
+   "aufgabe": {
+    "l": "vorzeichen",
+    "t": "vorzeichen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne (−12) − (−7) + (−9). Minus eine negative Zahl ist Plus: (−12) − (−7) = ①. Dann ① + (−9) = ②. Der Abstand des Ergebnisses von der Null ist ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -5,
+      -14,
+      14
+     ]
+    },
+    "c": [
+     "-12 + 7",
+     "(-5) - 9",
+     "abs((-14))"
+    ],
+    "h": "Minus mal Minus ergibt Plus. Beim Abziehen einer negativen Zahl gehst du nach rechts.",
+    "w": "(−12) − (−7) = −12 + 7 = −5. Dann −5 + (−9) = −14. Der Abstand von der Null ist 14."
+   }
+  },
+  {
+   "kennung": "K6-V074",
+   "thema": "bruch.rechnen",
+   "lernkarte": "vorzeichen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -14.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auch den Weg nach rechts als Minus gerechnet",
+     "c": "-4.5 - 3.2 - 6.8"
+    },
+    {
+     "antwort": 5.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Weg nach links als Plus gerechnet",
+     "c": "-4.5 + 3.2 + 6.8"
+    }
+   ],
+   "aufgabe": {
+    "l": "vorzeichen",
+    "t": "vorzeichen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Auf der Zahlengeraden startest du bei −4,5. Du gehst 3,2 Einheiten nach links und danach 6,8 Einheiten nach rechts. Bei welcher Zahl landest du?"
+    },
+    "o": {
+     "wert": -0.9
+    },
+    "c": "-4.5 - 3.2 + 6.8",
+    "h": "Schreibe den Weg als Rechnung auf: Links ist minus, rechts ist plus.",
+    "w": "Als Rechnung: −4,5 − 3,2 + 6,8 = −7,7 + 6,8 = −0,9. Du landest bei −0,9."
+   }
+  },
+  {
+   "kennung": "K6-V075",
+   "thema": "bruch.rechnen",
+   "lernkarte": "vorzeichen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "vorzeichen",
+    "t": "vorzeichen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Tom rechnet (−3,2) − (−0,5). Zeile 1: (−3,2) − (−0,5) = (−3,2) + 0,5 Zeile 2: (−3,2) + 0,5 = −3,7 Zeile 3: Das Ergebnis ist −3,7. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Rechne (−3,2) + 0,5 auf der Zahlengeraden: in welche Richtung gehst du?",
+    "w": "Plus 0,5 heißt 0,5 nach rechts: −3,2 + 0,5 = −2,7. In Zeile 2 wurde 0,5 nach links gegangen."
+   }
+  },
+  {
+   "kennung": "K6-V076",
+   "thema": "bruch.rechnen",
+   "lernkarte": "brueche_mal",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gar nicht gekürzt: nur durch 1 geteilt",
+     "c": null
+    },
+    {
+     "luecke": 3,
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht gekürzt: Zähler 10 · 9",
+     "c": "10 * 9"
+    },
+    {
+     "luecke": 4,
+     "antwort": 525,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht gekürzt: Nenner 21 · 25",
+     "c": "21 * 25"
+    }
+   ],
+   "aufgabe": {
+    "l": "brueche_mal",
+    "t": "brueche_mal",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne 10/21 · 9/25. Kürze vor dem Malnehmen über Kreuz: 10 und 25 durch ① und 9 und 21 durch ②. Das Ergebnis ist dann ③/④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      5,
+      3,
+      6,
+      35
+     ]
+    },
+    "c": [
+     "5",
+     "3",
+     "(10 / (5)) * (9 / (3))",
+     "(21 / (3)) * (25 / (5))"
+    ],
+    "h": "Welche größte Zahl teilt 10 und 25? Welche teilt 9 und 21?",
+    "w": "10 : 5 = 2 und 25 : 5 = 5. 9 : 3 = 3 und 21 : 3 = 7. Dann: 2/7 · 3/5 = 6/35."
+   }
+  },
+  {
+   "kennung": "K6-V077",
+   "thema": "bruch.rechnen",
+   "lernkarte": "brueche_mal",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Zähler und Nenner einzeln addieren: 13/27",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt malgenommen",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "Mit dem Kehrwert von 5/12 malnehmen: 8/15 · 12/5 = 32/25",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch geteilt statt malgenommen",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "Nur die Zähler malnehmen, den Nenner 15 behalten: 40/15",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner nicht mit malgenommen",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "brueche_mal",
+    "t": "brueche_mal",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst 8/15 · 5/12 berechnen. Welcher Weg ist richtig und geschickt?"
+    },
+    "a": [
+     "Zähler und Nenner einzeln addieren: 13/27",
+     "Vor dem Malnehmen über Kreuz kürzen: 2/3 · 1/3 = 2/9",
+     "Mit dem Kehrwert von 5/12 malnehmen: 8/15 · 12/5 = 32/25",
+     "Nur die Zähler malnehmen, den Nenner 15 behalten: 40/15"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Beim Malnehmen von Brüchen braucht man keinen gemeinsamen Nenner.",
+    "w": "Zähler mal Zähler und Nenner mal Nenner. Vorher kürzen: 8 und 12 durch 4, 5 und 15 durch 5. So bleibt 2/3 · 1/3 = 2/9. Probe: 8/15 · 5/12 = 40/180 = 2/9."
+   }
+  },
+  {
+   "kennung": "K6-V078",
+   "thema": "bruch.rechnen",
+   "lernkarte": "brueche_mal",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "luecken",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nach Anna aufgehört: 1/4 der Torte bleibt",
+     "c": "1 / (3/4 * (1 - 2/3))"
+    }
+   ],
+   "aufgabe": {
+    "l": "brueche_mal",
+    "t": "brueche_mal",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "luecken",
+    "f": {
+     "text": "Von einer Torte sind noch 3/4 da. Anna isst davon 2/3. Vom Rest, der dann noch da ist, isst Ben 1/3. Welcher Bruchteil der ganzen Torte bleibt am Ende?",
+     "schablone": "□/□",
+     "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+    },
+    "o": {
+     "werte": [
+      1,
+      6
+     ]
+    },
+    "c": [
+     "(3/4 * (1 - 2/3) * (1 - 1/3)) * 6",
+     "6"
+    ],
+    "h": "Rechne mit dem Rest, der nach jedem Essen noch da ist.",
+    "w": "Nach Anna: 3/4 · 1/3 = 1/4 der Torte bleibt. Ben isst 1/3 davon, es bleiben 2/3 von 1/4. 2/3 · 1/4 = 2/12 = 1/6."
+   }
+  },
+  {
+   "kennung": "K6-V079",
+   "thema": "bruch.rechnen",
+   "lernkarte": "brueche_geteilt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 147,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht mit dem Kehrwert gerechnet: 7 · 21",
+     "c": "7 * 21"
+    },
+    {
+     "luecke": 2,
+     "antwort": 192,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht mit dem Kehrwert gerechnet: 12 · 16",
+     "c": "12 * 16"
+    },
+    {
+     "luecke": 3,
+     "antwort": 112,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht gekürzt",
+     "c": "(112) / 1"
+    },
+    {
+     "luecke": 4,
+     "antwort": 252,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht gekürzt",
+     "c": "(252) / 1"
+    }
+   ],
+   "aufgabe": {
+    "l": "brueche_geteilt",
+    "t": "brueche_geteilt",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne 7/12 : 21/16 als Malaufgabe mit dem Kehrwert: 7/12 · 16/21 = ①/②. Gekürzt ist das Ergebnis ③/④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      112,
+      252,
+      4,
+      9
+     ]
+    },
+    "c": [
+     "7 * 16",
+     "12 * 21",
+     "(112) / 28",
+     "(252) / 28"
+    ],
+    "h": "Beim Teilen durch einen Bruch malnimmst du mit seinem Kehrwert.",
+    "w": "7 · 16 = 112 und 12 · 21 = 252. 112/252 wird durch 28 gekürzt: 4/9."
+   }
+  },
+  {
+   "kennung": "K6-V080",
+   "thema": "bruch.rechnen",
+   "lernkarte": "brueche_geteilt",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.09375,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt geteilt",
+     "c": "3/4 * 1/8"
+    },
+    {
+     "antwort": 0.17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch herum geteilt: 1/8 : 3/4",
+     "c": "1/8 / (3/4)"
+    }
+   ],
+   "aufgabe": {
+    "l": "brueche_geteilt",
+    "t": "brueche_geteilt",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Aus einem Krug mit 3/4 Liter Saft sollen kleine Gläser mit je 1/8 Liter gefüllt werden. Wie viele Gläser werden voll?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "(3/4) / (1/8)",
+    "h": "Wie oft passt 1/8 in 3/4?",
+    "w": "3/4 : 1/8 = 3/4 · 8 = 6. In 3/4 Liter passen 6 Gläser zu je 1/8 Liter. Probe: 6 · 1/8 = 3/4."
+   }
+  },
+  {
+   "kennung": "K6-V081",
+   "thema": "bruch.rechnen",
+   "lernkarte": "brueche_geteilt",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "luecken",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch herum geteilt: 9/8 : 3/4 = 3/2",
+     "c": "(9/8 / (3/4)) * 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch herum geteilt: 9/8 : 3/4 = 3/2",
+     "c": "2"
+    }
+   ],
+   "aufgabe": {
+    "l": "brueche_geteilt",
+    "t": "brueche_geteilt",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "luecken",
+    "f": {
+     "text": "Der Bruch 3/4 wird durch einen Bruch geteilt. Das Ergebnis ist 9/8. Durch welchen Bruch wurde geteilt? Schreibe ihn gekürzt.",
+     "schablone": "□/□",
+     "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+    },
+    "o": {
+     "werte": [
+      2,
+      3
+     ]
+    },
+    "c": [
+     "(3/4 / (9/8)) * 3",
+     "3"
+    ],
+    "h": "Wenn a : b = c ist, dann ist b = a : c.",
+    "w": "Gesucht ist x mit 3/4 : x = 9/8. Dann ist x = 3/4 : 9/8 = 3/4 · 8/9 = 24/36 = 2/3. Probe: 3/4 : 2/3 = 3/4 · 3/2 = 9/8."
+   }
+  },
+  {
+   "kennung": "K6-V082",
+   "thema": "bruch.rechnen",
+   "lernkarte": "dezimal_mal",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 61,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt malgenommen",
+     "c": "36 + 25"
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Stellen des zweiten Faktors gezählt",
+     "c": "2"
+    },
+    {
+     "luecke": 3,
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur zwei Stellen abgetrennt: 9,00",
+     "c": "(900) / 10 ** 2 * 10"
+    }
+   ],
+   "aufgabe": {
+    "l": "dezimal_mal",
+    "t": "dezimal_mal",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne 3,6 · 0,25. Rechne zuerst ohne Komma: 36 · 25 = ①. Die beiden Faktoren haben zusammen ② Nachkommastellen. Das Ergebnis hat dann ③ Zehntel.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      900,
+      3,
+      9
+     ]
+    },
+    "c": [
+     "36 * 25",
+     "1 + 2",
+     "(900) / 10 ** (3) * 10"
+    ],
+    "h": "Zähle die Stellen hinter dem Komma bei beiden Faktoren.",
+    "w": "36 · 25 = 900. 3,6 hat 1 und 0,25 hat 2 Nachkommastellen, zusammen 3. 900 mit 3 Nachkommastellen ist 0,900 = 0,9, das sind 9 Zehntel."
+   }
+  },
+  {
+   "kennung": "K6-V083",
+   "thema": "bruch.rechnen",
+   "lernkarte": "dezimal_mal",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Nachkommastelle abgetrennt",
+     "c": "4 * 35 / 100"
+    },
+    {
+     "antwort": 140,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Komma gar nicht gesetzt: 4 · 35",
+     "c": "4 * 35"
+    }
+   ],
+   "aufgabe": {
+    "l": "dezimal_mal",
+    "t": "dezimal_mal",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne 0,4 · 0,35 auf zwei Wegen. Weg A: Rechne 4 · 35 und setze das Komma nach den Nachkommastellen. Weg B: Schreibe beide Zahlen als Bruch und multipliziere. Wie viele Hundertstel ist das Ergebnis?"
+    },
+    "o": {
+     "wert": 14
+    },
+    "c": "4 * 35 / 10",
+    "h": "Wie viele Nachkommastellen hat das Ergebnis insgesamt?",
+    "w": "Weg A: 4 · 35 = 140, drei Nachkommastellen: 0,140 = 0,14. Weg B: 4/10 · 35/100 = 140/1000 = 14/100. Das sind 14 Hundertstel."
+   }
+  },
+  {
+   "kennung": "K6-V084",
+   "thema": "bruch.rechnen",
+   "lernkarte": "dezimal_mal",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3.36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rabatt vergessen",
+     "c": "1.4 * 2.4"
+    },
+    {
+     "antwort": 3.3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt malgenommen: 1,4 + 2,4 − 0,5",
+     "c": "1.4 + 2.4 - 0.5"
+    }
+   ],
+   "aufgabe": {
+    "l": "dezimal_mal",
+    "t": "dezimal_mal",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kilogramm Birnen kostet 2,40 €. Mia kauft 1,4 kg. An der Kasse bekommt sie 0,50 € Rabatt auf den Gesamtbetrag. Wie viel Euro zahlt sie?"
+    },
+    "o": {
+     "wert": 2.86,
+     "einheit": "€"
+    },
+    "c": "1.4 * 2.4 - 0.5",
+    "h": "Berechne zuerst den Preis für die Birnen.",
+    "w": "1,4 · 2,40 = 3,36. Dann der Rabatt: 3,36 − 0,50 = 2,86. Mia zahlt 2,86 €."
+   }
+  },
+  {
+   "kennung": "K6-V085",
+   "thema": "bruch.rechnen",
+   "lernkarte": "dezimal_geteilt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit 10 erweitert",
+     "c": "4.8 * 10"
+    },
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 60 statt durch 6 geteilt",
+     "c": "(480) / 60"
+    },
+    {
+     "luecke": 3,
+     "antwort": 800,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 malgenommen statt geteilt",
+     "c": "(80) * 10"
+    }
+   ],
+   "aufgabe": {
+    "l": "dezimal_geteilt",
+    "t": "dezimal_geteilt",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne 4,8 : 0,06. Erweitere beide Zahlen mit 100: ① : 6. Das Ergebnis ist ②. Das sind ③ Zehner.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      480,
+      80,
+      8
+     ]
+    },
+    "c": [
+     "4.8 * 100",
+     "(480) / 6",
+     "(80) / 10"
+    ],
+    "h": "Erweitere so, dass der Teiler eine ganze Zahl wird.",
+    "w": "4,8 · 100 = 480 und 0,06 · 100 = 6. 480 : 6 = 80. 80 sind 8 Zehner."
+   }
+  },
+  {
+   "kennung": "K6-V086",
+   "thema": "bruch.rechnen",
+   "lernkarte": "dezimal_geteilt",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet, obwohl das letzte Stück nicht ganz ist",
+     "c": "7.2 // 0.35 + 1"
+    },
+    {
+     "antwort": 0.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rest in Metern statt der Zahl der Stücke angegeben",
+     "c": "7.2 - 20 * 0.35"
+    }
+   ],
+   "aufgabe": {
+    "l": "dezimal_geteilt",
+    "t": "dezimal_geteilt",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Seil ist 7,2 m lang. Daraus werden Stücke von je 0,35 m geschnitten. Wie viele ganze Stücke ergibt das?"
+    },
+    "o": {
+     "wert": 20
+    },
+    "c": "7.2 // 0.35",
+    "h": "Teile die Länge des Seils durch die Länge eines Stücks.",
+    "w": "7,2 : 0,35 = 720 : 35 = 20 Rest 20. Es gibt 20 ganze Stücke, ein Rest von 0,2 m bleibt übrig."
+   }
+  },
+  {
+   "kennung": "K6-V087",
+   "thema": "bruch.rechnen",
+   "lernkarte": "dezimal_geteilt",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "dezimal_geteilt",
+    "t": "dezimal_geteilt",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Eva rechnet 1,35 : 0,9. Zeile 1: 1,35 : 0,9 = 135 : 9 Zeile 2: 135 : 9 = 15 Zeile 3: Also ist 1,35 : 0,9 = 15. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Mit welcher Zahl musst du beide Zahlen malnehmen, damit der Teiler 9 wird? Ändert das auch die erste Zahl um dasselbe?",
+    "w": "Erweiterst du beide Zahlen mit 10, steht 13,5 : 9 = 1,5. Wer 1,35 mit 100 und 0,9 mit 10 erweitert, ändert die Aufgabe. Die Zeilen 2 und 3 rechnen mit 135 : 9 richtig weiter."
+   }
+  },
+  {
+   "kennung": "K6-V088",
+   "thema": "bruch.rechnen",
+   "lernkarte": "potenzen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Basis mal Hochzahl gerechnet: 2 · 3",
+     "c": "2 * 3"
+    },
+    {
+     "luecke": 2,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Basis mal Hochzahl gerechnet: 5 · 3",
+     "c": "5 * 3"
+    },
+    {
+     "luecke": 3,
+     "antwort": 640,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 000 statt mit 1000 erweitert",
+     "c": "(8) * 10000 / (125)"
+    }
+   ],
+   "aufgabe": {
+    "l": "potenzen",
+    "t": "potenzen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne (2/5)³. Der Zähler ist 2³ = ①. Der Nenner ist 5³ = ②. Als Dezimalzahl sind das ③ Tausendstel.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      8,
+      125,
+      64
+     ]
+    },
+    "c": [
+     "2 ** 3",
+     "5 ** 3",
+     "(8) * 1000 / (125)"
+    ],
+    "h": "Beim Potenzieren von Brüchen wird Zähler und Nenner potenziert.",
+    "w": "2³ = 8 und 5³ = 125. (2/5)³ = 8/125. Erweitern mit 8 gibt 64/1000, also 0,064, das sind 64 Tausendstel."
+   }
+  },
+  {
+   "kennung": "K6-V089",
+   "thema": "bruch.rechnen",
+   "lernkarte": "potenzen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 80,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Seite mit 2 malgenommen statt quadriert",
+     "c": "2/5 * 2 * 100"
+    },
+    {
+     "antwort": 0.16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in m² statt in dm² angegeben",
+     "c": "(2/5) ** 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "potenzen",
+    "t": "potenzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quadratischer Teppich hat die Seitenlänge 2/5 m. Wie groß ist seine Fläche in Quadratdezimetern? (1 m² = 100 dm²)"
+    },
+    "o": {
+     "wert": 16,
+     "einheit": "dm²"
+    },
+    "c": "(2/5) ** 2 * 100",
+    "h": "Die Fläche eines Quadrats ist Seite mal Seite.",
+    "w": "Fläche = (2/5 m)² = 4/25 m² = 0,16 m². Mal 100: 16 dm²."
+   }
+  },
+  {
+   "kennung": "K6-V090",
+   "thema": "bruch.rechnen",
+   "lernkarte": "potenzen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler 27 durch 3 geteilt",
+     "c": "27 / 3"
+    },
+    {
+     "luecke": 2,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner 64 durch 4 geteilt",
+     "c": "64 / 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "potenzen",
+    "t": "potenzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "luecken",
+    "f": {
+     "text": "Eine Zahl a/b hoch 3 ergibt 27/64. Wie heißt die Zahl? Schreibe sie als Bruch.",
+     "schablone": "□/□",
+     "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+    },
+    "o": {
+     "werte": [
+      3,
+      4
+     ]
+    },
+    "c": [
+     "3",
+     "4"
+    ],
+    "h": "Welche Zahl mal sich selbst mal sich selbst ergibt 27, welche 64?",
+    "w": "3 · 3 · 3 = 27 und 4 · 4 · 4 = 64. Also (3/4)³ = 27/64. Die Zahl ist 3/4."
+   }
+  },
+  {
+   "kennung": "K6-V091",
+   "thema": "bruch.rechnen",
+   "lernkarte": "rechenvorteile",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 29,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt malgenommen",
+     "c": "4 + 25"
+    },
+    {
+     "luecke": 2,
+     "antwort": 103.7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3,7 dazugezählt statt malgenommen",
+     "c": "(100) + 3.7"
+    },
+    {
+     "luecke": 3,
+     "antwort": 37,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 10 geteilt statt malgenommen",
+     "c": "(370) / 10"
+    }
+   ],
+   "aufgabe": {
+    "l": "rechenvorteile",
+    "t": "rechenvorteile",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne 4 · 3,7 · 25 geschickt. Zuerst tauschst du die Faktoren und rechnest 4 · 25 = ①. Dann ① · 3,7 = ②. Das sind ③ Zehntel.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      100,
+      370,
+      3700
+     ]
+    },
+    "c": [
+     "4 * 25",
+     "(100) * 3.7",
+     "(370) * 10"
+    ],
+    "h": "Welche zwei Faktoren ergeben zusammen eine runde Zahl?",
+    "w": "4 · 25 = 100. 100 · 3,7 = 370. Das sind 3700 Zehntel."
+   }
+  },
+  {
+   "kennung": "K6-V092",
+   "thema": "bruch.rechnen",
+   "lernkarte": "rechenvorteile",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 714,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "plus statt minus: 100 · 7 + 2 · 7",
+     "c": "100 * 7 + 2 * 7"
+    },
+    {
+     "antwort": 698,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 2 abgezogen statt 2 · 7",
+     "c": "100 * 7 - 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "rechenvorteile",
+    "t": "rechenvorteile",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne 98 · 7 auf zwei Wegen. Weg A: Schreibe 98 als 100 − 2 und rechne 100 · 7 − 2 · 7. Weg B: Multipliziere 98 mit 7 schriftlich."
+    },
+    "o": {
+     "wert": 686
+    },
+    "c": "100 * 7 - 2 * 7",
+    "h": "Beide Wege müssen dasselbe Ergebnis liefern.",
+    "w": "Weg A: 100 · 7 = 700 und 2 · 7 = 14. 700 − 14 = 686. Weg B: 98 · 7 = 686."
+   }
+  },
+  {
+   "kennung": "K6-V093",
+   "thema": "bruch.rechnen",
+   "lernkarte": "rechenvorteile",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 25 Kisten mit 3,6 kg gerechnet, die Kartons vergessen",
+     "c": "25 * 3.6"
+    },
+    {
+     "antwort": 3600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Komma falsch gesetzt: 25 · 4 · 36",
+     "c": "25 * 4 * 36"
+    }
+   ],
+   "aufgabe": {
+    "l": "rechenvorteile",
+    "t": "rechenvorteile",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Lager enthält 25 Kisten. In jeder Kiste stehen 4 Kartons. Jeder Karton wiegt 3,6 kg. Wie viel Kilogramm wiegt alles zusammen?"
+    },
+    "o": {
+     "wert": 360,
+     "einheit": "kg"
+    },
+    "c": "25 * 4 * 3.6",
+    "h": "Welche beiden Zahlen kannst du zuerst malnehmen, um eine runde Zahl zu erhalten?",
+    "w": "25 · 4 = 100 Kartons. 100 · 3,6 kg = 360 kg."
+   }
+  },
+  {
+   "kennung": "K6-V094",
+   "thema": "bruch.rechnen",
+   "lernkarte": "gemischt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt malgenommen",
+     "c": "3 + 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt malgenommen",
+     "c": "4 + 9"
+    },
+    {
+     "luecke": 3,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von links nach rechts gerechnet: (8/9 − 3/4) · 2/9 = 5/162",
+     "c": "(8/9 - 3/4) * 2/9 * 162"
+    },
+    {
+     "luecke": 4,
+     "antwort": 162,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von links nach rechts gerechnet: (8/9 − 3/4) · 2/9 = 5/162",
+     "c": "36 * 9 / 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "gemischt",
+    "t": "gemischt",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne 8/9 − 3/4 · 2/9. Punkt vor Strich: Das Produkt ist ①/② (noch nicht gekürzt). Das Ergebnis der ganzen Aufgabe ist ③/④ (gekürzt).",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      6,
+      36,
+      13,
+      18
+     ]
+    },
+    "c": [
+     "3 * 2",
+     "4 * 9",
+     "(8/9 - (6) / (36)) * 18",
+     "(36) / 2"
+    ],
+    "h": "Rechne zuerst das Mal. Dann bringe beide Brüche auf einen Nenner.",
+    "w": "3/4 · 2/9 = 6/36 = 1/6. 8/9 = 16/18 und 1/6 = 3/18. 16/18 − 3/18 = 13/18."
+   }
+  },
+  {
+   "kennung": "K6-V095",
+   "thema": "bruch.rechnen",
+   "lernkarte": "gemischt",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "(7/8 − 1/2) · 3/4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Differenz mit 3/4 malgenommen statt des Produkts abgezogen",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "7/8 − 1/2 − 3/4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Zahlen einzeln abgezogen",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "7/8 · 1/2 − 3/4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "7/8 mit 1/2 malgenommen",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "gemischt",
+    "t": "gemischt",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welcher Term passt zu dem Satz: „Von 7/8 wird das Produkt aus 1/2 und 3/4 abgezogen“?"
+    },
+    "a": [
+     "(7/8 − 1/2) · 3/4",
+     "7/8 − 1/2 · 3/4",
+     "7/8 − 1/2 − 3/4",
+     "7/8 · 1/2 − 3/4"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Was wird abgezogen? Es ist ein Produkt aus zwei Zahlen.",
+    "w": "Das Produkt aus 1/2 und 3/4 ist 1/2 · 3/4. Dieses Produkt wird von 7/8 abgezogen: 7/8 − 1/2 · 3/4 = 7/8 − 3/8 = 1/2."
+   }
+  },
+  {
+   "kennung": "K6-V096",
+   "thema": "bruch.rechnen",
+   "lernkarte": "gemischt",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Menge für die Flaschen angegeben",
+     "c": "60 / 3"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Menge für die Kanister statt des Rests angegeben",
+     "c": "60 * (1 - 1/3) * 3/4"
+    }
+   ],
+   "aufgabe": {
+    "l": "gemischt",
+    "t": "gemischt",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Aus 60 Litern Saft werden 1/3 in Flaschen gefüllt. Vom Rest werden 3/4 in Kanister gefüllt. Wie viele Liter bleiben übrig?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "l"
+    },
+    "c": "60 * (1 - 1/3) * (1 - 3/4)",
+    "h": "Welcher Rest bleibt nach dem Abfüllen in Flaschen?",
+    "w": "Flaschen: 60 l : 3 = 20 l. Rest: 40 l. Kanister: 40 l : 4 · 3 = 30 l. Übrig: 40 l − 30 l = 10 l."
+   }
+  },
+  {
+   "kennung": "K6-V097",
+   "thema": "bruch.rechnen",
+   "lernkarte": "fehler_finden",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Nenner addiert: 4 + 5",
+     "c": "4 + 5"
+    },
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zähler addiert: 3 + 2",
+     "c": "3 + 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "fehler_finden",
+    "t": "fehler_finden",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kind rechnet 3/4 + 2/5 = 5/9, weil es Zähler und Nenner einzeln addiert. Richtig ist: Der Hauptnenner ist ①. Die Summe hat dann den Zähler ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      20,
+      23
+     ]
+    },
+    "c": [
+     "20",
+     "3 * (20) / 4 + 2 * (20) / 5"
+    ],
+    "h": "Brüche mit verschiedenen Nennern muss man erst gleichnamig machen.",
+    "w": "Hauptnenner 20: 3/4 = 15/20 und 2/5 = 8/20. 15 + 8 = 23. Die Summe ist 23/20."
+   }
+  },
+  {
+   "kennung": "K6-V098",
+   "thema": "bruch.rechnen",
+   "lernkarte": "fehler_finden",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "3/5 · 10 = 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Rechnung stimmt",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "2/3 : 4 = 1/6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Rechnung stimmt",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "1,5 + 0,25 = 1,75",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Rechnung stimmt",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "fehler_finden",
+    "t": "fehler_finden",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine dieser vier Rechnungen ist falsch. Welche?"
+    },
+    "a": [
+     "3/5 · 10 = 6",
+     "2/3 : 4 = 1/6",
+     "1,5 + 0,25 = 1,75",
+     "0,2 · 0,3 = 0,6"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Rechne jede Aufgabe kurz nach. Bei Kommazahlen hilft die Zahl der Nachkommastellen.",
+    "w": "0,2 · 0,3 = 0,06, denn 2 · 3 = 6 und es gibt zwei Nachkommastellen. Die anderen stimmen: 3/5 · 10 = 6, 2/3 : 4 = 2/12 = 1/6, 1,5 + 0,25 = 1,75."
+   }
+  },
+  {
+   "kennung": "K6-V099",
+   "thema": "bruch.rechnen",
+   "lernkarte": "fehler_finden",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "fehler_finden",
+    "t": "fehler_finden",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Karl rechnet 2/3 : 4/9. Zeile 1: 2/3 : 4/9 = 2/3 · 9/4 Zeile 2: = 18/12 Zeile 3: Gekürzt ist das 2/3. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Kürze 18/12 noch einmal. Durch welche Zahl teilst du?",
+    "w": "18/12 wird durch 6 gekürzt: 3/2 = 1 1/2. In Zeile 3 stehen Zähler und Nenner vertauscht."
+   }
+  },
+  {
+   "kennung": "K6-V100",
+   "thema": "bruch.rechnen",
+   "lernkarte": "sach",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler 3 nicht geteilt",
+     "c": "3"
+    },
+    {
+     "luecke": 2,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht gekürzt: 4 · 6",
+     "c": "6 * 4"
+    },
+    {
+     "luecke": 3,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Portionszahl 10 als Zähler übernommen",
+     "c": "10"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "sach",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Rezept für 6 Portionen braucht 3/4 Liter Milch. Für eine Portion braucht man ①/② Liter (gekürzt). Für 10 Portionen braucht man ③/4 Liter.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      1,
+      8,
+      5
+     ]
+    },
+    "c": [
+     "3/4 * 8/6",
+     "6 * 4 / 3",
+     "10 * (1) / (8) * 4"
+    ],
+    "h": "Teile die Milchmenge durch die Zahl der Portionen.",
+    "w": "3/4 l : 6 = 3/24 l = 1/8 l. Für 10 Portionen: 10 · 1/8 l = 10/8 l = 5/4 l."
+   }
+  },
+  {
+   "kennung": "K6-V101",
+   "thema": "bruch.rechnen",
+   "lernkarte": "sach",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den ausgegebenen Betrag statt des Rests genommen",
+     "c": "12.5 * 3/5"
+    },
+    {
+     "antwort": 8.25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 3/5 vergessen",
+     "c": "12.5 - 4.25"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "sach",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Svens Taschengeld im Monat beträgt 12,50 €. Er gibt 3/5 davon aus. Von dem, was übrig bleibt, kauft er ein Heft für 4,25 €. Wie viel Euro bleiben ihm?"
+    },
+    "o": {
+     "wert": 0.75,
+     "einheit": "€"
+    },
+    "c": "12.5 * (1 - 3/5) - 4.25",
+    "h": "Wie viel Euro hat er nach den 3/5 noch?",
+    "w": "3/5 von 12,50 € sind 7,50 €. Übrig: 12,50 € − 7,50 € = 5 €. Nach dem Heft: 5 € − 4,25 € = 0,75 €."
+   }
+  },
+  {
+   "kennung": "K6-V102",
+   "thema": "bruch.rechnen",
+   "lernkarte": "sach",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 1,2 m³ als 4/5 des Beckens angesehen",
+     "c": "1.2 / (4/5)"
+    },
+    {
+     "antwort": 0.24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt geteilt",
+     "c": "1.2 * (4/5 - 3/5)"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "sach",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Becken ist zu 3/5 gefüllt. Nach dem Einfüllen von 1,2 m³ Wasser ist es zu 4/5 gefüllt. Wie viele Kubikmeter Wasser passen in das ganze Becken?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "m³"
+    },
+    "c": "1.2 / (4/5 - 3/5)",
+    "h": "Welcher Bruchteil des Beckens sind die 1,2 m³?",
+    "w": "Hinzugekommen sind 4/5 − 3/5 = 1/5 des Beckens. 1/5 sind 1,2 m³, also ist das ganze Becken 5 · 1,2 m³ = 6 m³."
+   }
+  }
+ ]
+}

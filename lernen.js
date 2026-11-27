@@ -1841,6 +1841,7 @@ function lernAbflugtafel(d, { n, et, nWdh, wdhRest = 0, wdhFertig = false, ort =
     band, // KJ 2 S2: Fortschrittslinie gehört zu „Gerade dran“ – vor der Zusatz-Karte
     lernZpKarte(d), // KJ §0.4: Zusatz · eingeplant unter „Gerade dran“
     lernSjKarte(d), // KJ §0.5: Mein Schuljahr
+    el('a', { class: 'lr-textlink lr-ru-link', href: `#/regeln/${kind.id}` }, 'Regel-Universum ›'), // auch im Rückfall ohne Karte erreichbar
     // KJ 2 M2: keine Mini-Linien GYM · RS · IB mehr auf der Abflugtafel (widersprachen „Mein Schuljahr“); sie bleiben unter „Meine Route 5–10“ bzw. im Linienplan
     el('div', { class: 'lr-tafelchips' }, el('a', { href: `#/reisepass/${kind.id}` }, `◎ ${d.konto?.stempel ?? 0} Stempel`), el('span', {}, 'Abflug, wann es dir passt')),
     lernKnobelDesTages(d),
@@ -2131,9 +2132,20 @@ function lernReisekarte(d, karte, start) {
   const legende = el('div', { class: 'rk-legende', hidden: true, role: 'note' }, el('b', {}, 'Was die Zeichen bedeuten'),
     ...[['✈', 'gerade dran', 'dran'], ['2', 'Platz im Plan', 'plan'], ['✓', 'geschafft', 'gesch'], ['★', 'golden', 'gold'], ['↻', 'wieder offen – nachbessern', 'wieder'], ['🔒', 'wartet', 'wartet'], ['+', 'Zusatz', 'zusatz']]
       .map(([z0, w, c]) => el('span', { class: 'rk-leg-zeile' }, el('i', { class: 'rk-leg-z rk-leg-' + c, 'aria-hidden': 'true' }, z0), ' ' + w)));
+  // Regel-Universum schwebt in der Karte (Wunsch des Nutzers): kleine Sonne mit zwei Bahnen, fest am Kartenrahmen (zoomt/schiebt nicht mit),
+  // auf allen Ebenen; die Ecke wird je Ebene so gewählt, dass weder Pins/Haltestellen der Route noch Bedienelemente verdeckt werden.
+  const ruZiel = `#/regeln/${kind.id}`;
+  const universum = el('a', { class: 'rk-universum' + (lernWenigBewegung() ? ' still' : ''), href: ruZiel, 'aria-label': 'Zum Regel-Universum', title: 'Regel-Universum' });
+  { const n0 = 'http://www.w3.org/2000/svg'; const q = (tag, a = {}, ...k) => { const e = document.createElementNS(n0, tag); for (const [x, v] of Object.entries(a)) e.setAttribute(x, v); e.append(...k); return e; };
+    universum.append(q('svg', { viewBox: '-30 -30 60 60', width: 54, height: 54, 'aria-hidden': 'true', class: 'rk-uni-bild' },
+      q('circle', { r: 17, class: 'rk-uni-bahn' }), q('circle', { r: 26, class: 'rk-uni-bahn' }),
+      q('circle', { r: 13.5, class: 'rk-uni-schein' }), q('circle', { r: 11, fill: '#FFE68C' }), q('circle', { r: 8.5, fill: '#FFD23F' }), q('circle', { r: 6, fill: '#FFB81F' }), q('circle', { r: 3.5, fill: '#F59E00' }),
+      q('g', { class: 'rk-uni-b1' }, q('circle', { cx: 17, cy: 0, r: 3.4, class: 'rk-uni-p1' })),
+      q('g', { class: 'rk-uni-b2' }, q('circle', { cx: -18.4, cy: -18.4, r: 2.8, class: 'rk-uni-p2' }))),
+    el('span', { class: 'rk-uni-wort' }, 'Regel-Universum')); }
   const zuMir = () => { const f = nbFlug || dranFlug; if (!f) return; z.kont = f.kontinent_id; geheLand(lernRkSchl(f)); }; // NB: „Zu mir“ springt zur offenen Stadt
   const quelle = el('p', { class: 'rk-quelle' }, 'Karte: Natural Earth · Orte: GeoNames (CC BY 4.0)' + (z.ebene === 'welt' ? ' · Stationen: COMNAP' : ''));
-  const kartenTeil = el('div', { class: 'rk-karte' }, rahmen, zoomKnoepfe, legende, quelle);
+  const kartenTeil = el('div', { class: 'rk-karte' }, rahmen, universum, zoomKnoepfe, legende, quelle);
   // S1/S2: eine Kopfzeile im App-Kopf (wie LW-3b): ‹ · Meine Reise · Pfad · ★ · ≡ – die Karte füllt den Rest des Fensters
   const menue = () => { const dlg = wurzel.closest('.lr-mit-menue')?.querySelector('dialog.lr-blatt'); if (dlg && !dlg.open) dlg.showModal(); };
   const schmal = () => innerWidth <= 760;
@@ -2187,7 +2199,7 @@ function lernReisekarte(d, karte, start) {
     const knopf = !start.ziel ? el('p', { class: 'rk-start rk-start-zu' }, el('span', {}, el('b', {}, '🔒 ' + start.text), el('small', {}, 'Frag Mama oder Papa nach dem Plan'))) : el('a', { class: 'rk-start', href: start.ziel }, el('span', {}, el('b', {}, text + ' ›'), st && !start.testDran && !start.wdh ? el('small', {}, `Stadt ${st.nr} · ${st.titel || ''}`) : start.wdh ? el('small', {}, 'Zuerst ein paar Bordkarten von früher') : null));
     const anr = anredeHolen();
     const karteEl = el('div', { class: 'rk-schwebe-karte' + (kompakt ? ' kompakt' : '') + (anr ? ' lr-jw-ecke-traeger' : '') }, zeile, start.ansage ? el('p', { class: 'lr-dock-ansage rk-ansage' }, start.ansage) : null, knopf,
-      start.wdh ? null : lernExtraLink(start.ws, kind.id), kompakt ? sjZeile() : null, anr); // Bonus: „Noch 3 Extra-Bordkarten?“ wie auf der Tafel
+      start.wdh ? null : lernExtraLink(start.ws, kind.id), kompakt ? el('div', { class: 'rk-sj-reihe' }, sjZeile(), el('a', { class: 'rk-ru-link', href: `#/regeln/${kind.id}` }, 'Regel-Universum ›')) : null, anr); // Bonus: „Noch 3 Extra-Bordkarten?“ wie auf der Tafel
     return [lernNachbuchungHinweis(d), nb ? lernNbKarte(d, { kompakt }) : null, ex, karteEl, // Geschenk für die Landungen: auch auf der Karte (Abflugtafel abgeschaltet)
       lernZpKarte(d, { kompakt })]; // KJ §0.4: Zusatz · eingeplant unter „Gerade dran“
   };
@@ -2210,6 +2222,7 @@ function lernReisekarte(d, karte, start) {
     setzeVb([cx - w / 2, cy - hNutz * k / 2, w, h]);
   }
   function passend() {
+    uniSchl = ''; // Regel-Universum: nach dem Einpassen die Ecke neu wählen
     const D = z.daten; if (!D) return;
     if (z.ebene === 'welt') {
       // S5: Handy startet als Ausschnitt um den aktuellen Kontinent
@@ -2323,7 +2336,7 @@ function lernReisekarte(d, karte, start) {
         pin.addEventListener('click', () => { if (!gezogen) route('stationen', String(kind.id)); }); ebenen.oben.append(pin); }
       // hier bist du
       if (dranStadt) ebenen.oben.append(gr(lernKarteProj(D.proj, dranStadt.laenge, dranStadt.breite), s('circle', { r: 10, class: 'rk-puls' }), s('circle', { r: 5, class: 'rk-hier' })));
-      return;
+      uniPlatz(); return;
     }
     // Kontinent und Land: Flaggen-Pins (Kopf = Flagge, Spitze = Hauptstadt bzw. Hauptort des Landesteils)
     // S2 (Prüfung RK-App 2, Abschnitt 2): Vorrang beim Beschriften, vier Lagen je Schild, kein Platz → Schild weglassen (Pin bleibt),
@@ -2440,8 +2453,29 @@ function lernReisekarte(d, karte, start) {
       lernErsetze(hinweis, f?.gesperrt ? el('p', { class: 'rk-grund rk-grund-karte' }, '🔒 ' + grundVon(f)) : null,
         nx ? el('button', { type: 'button', class: 'rk-weiter-hinweis', onclick: () => { z.kont = nx.kontinent_id; geheLand(lernRkSchl(nx)); } }, `Teil ${nx.teil} geht weiter in ${nx.land} ›`) : null);
     } else lernErsetze(hinweis);
+    uniPlatz();
   }
   const hinweis = el('div', { class: 'rk-hinweis' }); kartenTeil.append(hinweis);
+  // Ecke für das Regel-Universum: oben links, unten rechts, unten links, rechts unter den Zoom-Knöpfen – die mit der kleinsten Überdeckung
+  // (Pins und Schilder der Route, Haltestellen, Kontinent-Namen, Zoom-Knöpfe, Quellenzeile, Legende, „Gerade dran“). Beim Verschieben bleibt sie stehen.
+  let uniSchl = '';
+  function uniPlatz() {
+    const kb = kartenTeil.getBoundingClientRect(); if (!kb.width) return;
+    const sw = handy() ? Math.round(unten()) : 0;
+    const schl = [z.ebene, z.kont, z.land, Math.round(kb.width), Math.round(kb.height), sw].join('|'); if (schl === uniSchl) return; uniSchl = schl;
+    const zr = zoomKnoepfe.getBoundingClientRect(); const zu = Math.round(zr.bottom - kb.top + 10);
+    const kand = [{ left: '10px', top: '10px' }, { right: '10px', bottom: `${sw + 10}px` }, { left: '10px', bottom: `${sw + 30}px` }, { right: '6px', top: `${zu}px` }];
+    const hind = [...ebenen.oben.querySelectorAll('.rk-pin-flug .rk-kopfring, .rk-pin-flug .rk-pland, .rk-pin-flug .rk-phs, .rk-pin-flug .rk-spitze, .rk-st-g, .rk-kname, .rk-kzahl, .rk-station, .rk-hier, .rk-hs-ring')]
+      .map((e) => e.getBoundingClientRect()).filter((r) => r.width || r.height);
+    for (const e0 of [zoomKnoepfe, quelle, legende.hidden ? null : legende, ...schwebe.children, hinweis, ...(blatt.hidden ? [] : [blatt])]) { if (!e0) continue; const r = e0.getBoundingClientRect(); if (r.width) hind.push(r); }
+    const ueber = (a, b) => Math.max(0, Math.min(a.right, b.right) - Math.max(a.left, b.left) + 4) * Math.max(0, Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) + 4);
+    let best = null, bestU = Infinity;
+    for (const k0 of kand) { Object.assign(universum.style, { left: 'auto', right: 'auto', top: 'auto', bottom: 'auto' }, k0); const r = universum.getBoundingClientRect();
+      const raus = r.top < kb.top || r.bottom > kb.bottom || r.left < kb.left || r.right > kb.right;
+      const u = raus ? 1e9 : hind.reduce((s0, h) => s0 + ueber(r, h), 0); if (u < bestU) { bestU = u; best = k0; } if (!u) break; }
+    Object.assign(universum.style, { left: 'auto', right: 'auto', top: 'auto', bottom: 'auto' }, best);
+    universum.dataset.ecke = kand.indexOf(best);
+  }
   function lernRkPin({ g, f, label, off = [0, 0], angedeutet = false, fremd = false }, k, gr) {
     const zst = lernRkZustand(f, nst); const iso = g.iso;
     const marke = zst === 'gold' ? '★' : zst === 'gesch' ? '✓' : zst === 'kann' ? '◉' : (zst === 'plan' || zst === 'wartet') && f.plan_platz ? String(f.plan_platz) : zst === 'zusatz' ? '+' : zst === 'dran' ? '✈' : null;
@@ -2539,7 +2573,8 @@ function lernReisekarte(d, karte, start) {
   // Rechner: rechte Spalte – Gerade dran + Startknopf, angetipptes Land, „Meine Route · Länder“ bzw. „Städte in …“
   function zeichneSeite(blattInhalt = null) {
     if (!rechner()) { lernErsetze(seite); return; }
-    const teile = [el('section', { class: 'rk-seite-karte' }, ...geradeDran()), lernSjKarte(d)]; // KJ §0.5: Mein Schuljahr in der rechten Spalte
+    const teile = [el('section', { class: 'rk-seite-karte' }, ...geradeDran()), lernSjKarte(d), // KJ §0.5: Mein Schuljahr in der rechten Spalte
+      el('a', { class: 'lr-textlink rk-ru-link', href: ruZiel }, 'Regel-Universum ›')]; // auffindbar auch ohne das schwebende Objekt
     if (blattInhalt) teile.push(el('section', { class: 'rk-seite-karte rk-seite-blatt' }, ...blattInhalt));
     if (z.ebene === 'kontinent') { const r = reihe(z.kont);
       if (r.length) teile.push(el('section', { class: 'rk-seite-karte' }, el('h4', {}, 'MEINE ROUTE · LÄNDER'), ...r.map((f, i) => el('button', { type: 'button', class: 'rk-lzeile', onclick: () => waehle(lernRkSchl(f)) },
@@ -2563,7 +2598,7 @@ function lernReisekarte(d, karte, start) {
     const von = z.vb ? z.vb.slice() : null; passend(); const nach = z.vb.slice();
     if (!von || lernWenigBewegung()) { zeichneOben(); return; }
     const t0 = performance.now(); const lauf = (t) => { const p = Math.min(1, (t - t0) / 450); const e = 1 - Math.pow(1 - p, 3);
-      setzeVb(von.map((v, i) => v + (nach[i] - v) * e)); if (p < 1) requestAnimationFrame(lauf); else zeichneOben(); };
+      setzeVb(von.map((v, i) => v + (nach[i] - v) * e)); if (p < 1) requestAnimationFrame(lauf); else { uniSchl = ''; zeichneOben(); } };
     requestAnimationFrame(lauf);
   }
   // ---------- Verschieben (Finger/Maus), Zoomen (zwei Finger, Mausrad, + / −) ----------

@@ -41,6 +41,29 @@ Das Kind darf die richtige Antwort nicht sofort raten können. Für jede `luecke
 - Spätere Lücken hängen von früheren ab (wer vorne rät, liegt hinten falsch); die Zahlen sind so gewählt, dass der typische Fehler zu einer anderen, ebenfalls glatten Zahl führt.
 - Der Text erklärt den Schritt, nennt aber nicht das Zwischenergebnis.
 
+## Lehren aus der Gegenprüfung (27.11.) – PFLICHT für jeden Schreiber, vor der Abgabe abzuhaken
+Befund: In den ersten Runden hat die Gegenprüfung 30 bis 60 % der Aufgaben beanstandet. Die Lösungen stimmten rechnerisch fast immer; falsch war das Drumherum. Deshalb gilt ab jetzt:
+
+**A. Was die Maschine prüfen muss (im Prüfskript der Runde, sonst keine Abgabe)**
+1. **Jedes Fehlbild trägt seine Rechnung als Ausdruck** (Feld `c` am Fehlbild, mit denselben Zahlen wie die Aufgabe). Das Skript rechnet sie aus; sie muss genau die gespeicherte Fehlantwort ergeben. Eine Beschreibung ohne nachrechenbare Rechnung ist nur erlaubt, wenn der Fehler nicht rechnerisch ist (dann Feld `c` = null und im README aufgelistet).
+2. **Lückenwege:** Das Skript setzt die Lücken der Reihe nach ein und prüft, dass mindestens eine spätere Lücke den Wert einer früheren braucht (Rechenausdruck verweist auf ①, ② …) und dass die letzte Lücke keine unabhängige Nebenfrage ist. Kein Lückenwert steht in Fragetext, Schablone oder Tipp – weder als Ziffer noch als Zahlwort („null“ bis „zwanzig“, „kein“, „nie“, „ein Paar“, Singular/Plural, der den Wert verrät).
+3. **Fehler-Detektiv:** Jede Zeile trägt ihre Rechnung. Das Skript prüft: alle Zeilen vor der Fehlerzeile stimmen; die Fehlerzeile ist für sich falsch; jede Folgezeile folgt rechnerisch richtig aus der Zeile davor (kein zweiter unabhängiger Fehler). So viele Antworten wie Zeilen. Fehlerzeile über die Runde verteilt (keine Zeile über einem Drittel).
+4. **Auswahl:** genau eine richtige Antwort; keine zwei Antworten mit gleichem Wert; Position der richtigen Antwort verteilt.
+5. Mischung und Stufen je Lernkarte wie oben; `tools/vorrat_pruefen.py` (sobald vorhanden) läuft zusätzlich über die Runde und meldet nichts.
+
+**B. Was nur ein Mensch bzw. ein zweiter Helfer prüfen kann – Checkliste je Aufgabe**
+1. **Für sich allein eindeutig:** Alle Voraussetzungen stehen im Text (Graph ist eine Gerade / lineare Funktion; mit Zinseszins; gleich schnell und Arbeit teilbar; konvex; gerades Prisma; zylinderförmig; jedes Kind nennt genau eins; alle Ergebnisse gleich wahrscheinlich; „für alle x“, „a ≠ 0“, Grundmenge). Aus zwei Punkten oder einer Tabelle allein folgt keine Linearität.
+2. **Mehrere richtige Antworten ausschließen:** Reihenfolge von Summanden/Faktoren, gleichwertige Terme, beide Vorzeichenpaare, ein zweites gültiges Gegenbeispiel – entweder Form vorschreiben oder alle annehmen.
+3. **Aussagen gelten allgemein:** auch für negative Zahlen, null, Grenzfälle, offene/geschlossene Enden. Keine Merksprüche, die nur im Beispiel stimmen („Plus heißt nach rechts“, „größeres a heißt steiler“).
+4. **Tipp verrät nichts** und führt nicht in die Irre. **Fehlbild-Text** nennt genau den Fehler, der gerechnet wurde, und bezeichnet nichts Richtiges als falsch.
+5. **Die Form hält, was sie verspricht:** „Zwei Wege“ = zwei wirklich verschiedene Verfahren (nicht dieselbe Rechnung mit Zwischenschritt); „Brücke“ = echter Wechsel der Darstellung; „Umkehren“ = rückwärts denken, nicht nur probieren; Probe = die Ausgangsgleichung prüfen. `g` und Stufe nach der tatsächlichen Tätigkeit (Methode auswählen = erkennen; Gegenbeispiel beurteilen = begruenden), nicht pauschal nach der Form.
+6. **Sprache:** Fachwörter genau (Mantelfläche, Höhenunterschied statt Abstand, mittlere Änderung, Minimalwert vs. tiefster Punkt), Zahlwörter richtig geschrieben, „mindestens/höchstens“ statt „zwischen“, wenn die Grenzen zählen. Größenangaben plausibel.
+
+**C. Ablauf je Runde (verbindlich)**
+1. Schreiber schreibt Thema für Thema und hakt A und B ab.
+2. **Zweiter Helfer, der die Runde nicht geschrieben hat, prüft alle Aufgaben** nach A und B als strenger Gegenprüfer und berichtigt; er rechnet jedes Fehlbild von Hand nach, das die Maschine nicht prüfen kann.
+3. Erst dann geht die Runde an die unabhängige Gegenprüfung. Ziel: unter 5 % Befunde in der ersten Gegenprüfung. Liegt eine Runde darüber, werden die neuen Muster hier ergänzt.
+
 ## Arbeitsweise
 Thema für Thema: schreiben, prüfen, committen und pushen (nach jedem Thema, damit nichts verloren geht). Qualität vor Menge: lieber eine Lernkarte als „zurückgestellt“ melden als eine schwache Aufgabe liefern.
 

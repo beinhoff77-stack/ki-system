@@ -1,5 +1,129 @@
 # Postfach mathe-profi
 
+## 2026-11-27 01:10 (Berlin) – RÜCKMELDUNG vom Projektleiter zu Auftrag 17 und 18 (kein neuer Auftrag)
+Beides übernommen; alle 50 `bedingung`-Aufgaben aus `rollend-1` und `rollend-2` bestehen bei mir die Prüfung. Deine drei offenen Fragen, entschieden vom Projektleiter:
+- **Zeichnungen, die die App schon zeichnet (Tabelle, Säulen, Kreis, Koordinatensystem), zählen als „ohne Bau“.** Die 12 Aufgaben bleiben. Vor dem Einspielen sehe ich jede davon einmal in der App an.
+- **Hinweise dürfen sagen, woran es liegt.** Nur die Namen der Bedingungen nennen den Weg nicht. Deine Spiegel-Hinweise bleiben.
+- **Gekürzte Leitern:** Dass Begründungs-Halbsätze in der Regel selbst stehen und nicht mehr in der Sprosse, ist recht.
+Offen bleibt bei mir: die Muster-Aufgabe 3 umbenennen (dein Vorschlag), das Feld für Fehlbild-Kennungen und die Entscheidung, wann Zeichnen-Aufgaben (Säulen, Kreis, Wertetabelle → Graph) gebaut werden.
+
+## 2026-11-27 01:01 (Berlin) – FERTIG: Auftrag 18 – 116 Aufgaben auf Vorrat für sechs Flüge, `rollend-1` neu geprüft, Namen nachgezogen
+
+Zweig `mathe-profi` (e3e9b6ee), auf dem Stand von `lernen-app` 34d38094. Nur Inhalte, nichts eingespielt. Ablage `inhalte/mathe-profi/rollend-2/`, Einzelheiten in der `README.md` dort.
+**Zu Auftrag 17:** ist geliefert und gemeldet (Eintrag direkt unter diesem, Stand bce1ff5f). Daran war nichts mehr offen.
+
+**Geliefert**
+- **Sechs Dateien, eine je Flug** – Kind 1: `a1` (15 + 5), `d1` (14 + 5), `g1` (14 + 5). Kind 2: `g8` (15 + 5), `g2-teil2` (13 + 5), `f1` (15 + 5). Zusammen 86 Aufgaben ohne Bau und 30 des Typs `bedingung`. Jede Lernkarte jedes Flugs kommt vor. Jede Aufgabe hat eine Regel-Kennung; 69 von 192 beschriebenen Fehlbildern haben eine Fehlbild-Kennung.
+- **Geprüft:** 91 Rechnungen zweifach; alle 30 `bedingung`-Aufgaben mit dem aktuellen `pruefe_aufgabe` (leere Fehlerliste), jedes Gegenbeispiel scheitert genau an der genannten Bedingung; `tools/inhalt_pruefen.py` an einer Kopie jeder Themen-Datei ohne Fehler; kein Text wörtlich im Bestand.
+- **1. `rollend-1` gegen den aktuellen Stand:** Alle 20 `bedingung`-Aufgaben bestehen.
+- **2. Namen der Bedingungen:** In `rollend-1` sechs Namen in drei Aufgaben geändert (`GE2-B1`, `GE2-B4`, `GE2-B5`: zum Beispiel „Höhe bleibt“ → „y′ gehört zum Spiegelbild“). Muster-Fälle: nur Aufgabe 3 betroffen, Vorschlag „nicht genau eine Lösung“ und „nicht jede Zahl ist Lösung“; alle anderen Namen wiederholen den Aufgabentext. Liste in der README, Abschnitt 2. Die Muster-Datei habe ich nicht angefasst.
+- **3. Wo erst Grafik-Aufgaben tragen:** Tabelle je Flug in der README, Abschnitt 3. Kurz: Wirklich warten sollten **Säulendiagramm und Kreisdiagramm (d1)** und **Wertetabelle → Graph (f1)** – dort fehlt das Zeichnen durch das Kind. Dünn gelassen statt aufgefüllt: `schaetzen` und `verstehen` in g1 (je 1 Aufgabe). `g8` trägt ganz ohne Grafik.
+- **4. Brüche:** Nur zwei Aufgaben enthalten Bruchstriche (`D1-03`, `F1-B5`), alle in erkannter Form. Das Programm bricht bei 1/2x oder verschachtelten Klammern ab.
+- **Gewöhnliche Anwendungsaufgaben:** 6 von 86 (vorher 18 von 56).
+
+**Offen**
+- **Entscheidung nötig: Zählen Zeichnungen, die die App schon zeichnet, als „ohne Bau“?** Ich habe es angenommen und in 12 Aufgaben Tabelle, Säulen, Kreis und Koordinatensystem benutzt. Wenn nein, entfallen genau diese 12 (Liste in der README unter Annahmen); `d1` hätte dann nur 9 Aufgaben ohne Bau.
+- Hinweise der drei Spiegel-Aufgaben in `rollend-1` nennen weiter, woran es liegt („nicht auf gleicher Höhe“). Ich habe sie gelassen, weil ein Hinweis helfen soll. Wenn auch er den Weg nicht nennen darf, bitte sagen.
+- Fehlbild-Kennungen fehlen bei 123 Fehlbildern, weil die Liste der 70 sie nicht hergibt (vor allem Einheiten, Daten, Prozent-Lesefehler).
+
+**Nicht geprüft**
+- Kein Kind hat eine Aufgabe gerechnet; Stufen und Zählvorschläge sind Einschätzungen.
+- Die 12 Zeichnungen nicht in der App gesehen, nur ihre Form nach `inhalte/README.md`.
+- `bedingung` nur gegen die Python-Referenz, nicht gegen die Datenbank.
+- Inhaltlich gleiche Aufgaben im Bestand (nur wörtlicher Vergleich). Nahe am Bestand: `G8-08`, `D1-01`.
+- Darstellung der gestapelten Brüche in der App. Lehrplan an der Quelle.
+
+**Annahmen**
+- `g2-teil2` = die drei Lernkarten `erkennen`, `vervielfachen`, `pruefen` (in der Datenbank nachgelesen, nur lesend; im Repo gibt es dafür keine eigene Datei).
+- `a1` rechnet in ℕ, wie die Lernkarte.
+- Kennungen, wo die Liste nicht genau passt: Textaufgabe als Gleichung → `id.algebra.term`; irreführende Diagramme und absolute Häufigkeit → `id.daten.kennzahl`; relative Häufigkeit und Kreisdiagramm → `id.daten.anteil`.
+
+## 2026-11-27 00:45 (Berlin) – AUFTRAG 18 vom Projektleiter: neue Aufgaben auf Vorrat für die übernächsten Flüge (rollendes System)
+Der Nutzer: „Können wir nicht im Hintergrund weiter an neuen Aufgaben bauen? Für neue Themen etc.“ – ja. Stand der Technik: Der Rechner für den Typ `bedingung` ist seit heute in der Datenbank (Teil 1, alle Prüfungen bestanden); der Typ ist noch gesperrt, bis Teil 2 und die App-Eingabe stehen. Aufgaben auf Vorrat sind also richtig. Auftrag 17 (Zeichnung Regel 3, Handy-Beispiele) hat Vorrang, wenn er noch offen ist.
+
+**Flüge, in der Reihenfolge der eingestellten Routen** (nach den schon gelieferten `ge1`, `z2` und `ge2`, `a4`):
+- Kind 1: `a1`, `d1`, `g1`
+- Kind 2: `g8`, `g2-teil2`, `f1`
+Je Flug wie in Auftrag 14 Teil C: 12 bis 15 Aufgaben in den gewählten Typen ohne Bau und 4 bis 6 Aufgaben des Typs `bedingung`, jede mit Regel-Kennung aus `kennungen.json`, Fehlbild-Kennung wo sicher. Ablage `inhalte/mathe-profi/rollend-2/`, eine Datei je Flug.
+
+**Was diesmal dazukommt:**
+1. **Prüfen mit dem aktuellen Stand:** `tools/bedingung.py` hat sich geändert (Namen der Bedingungen müssen nichtleerer Text sein, `hinweis` Text, `min`/`max` ganzzahlig, strenge Typen in jedem Ast, genau ein Vorzeichen). Bitte auch die 20 Aufgaben aus `rollend-1` noch einmal durch `pruefe_aufgabe` schicken und melden, ob alle bestehen.
+2. **Namen der Bedingungen verraten nicht den Weg** (dein eigener Befund): Der Name nennt die Forderung aus dem Aufgabentext, nicht den Lösungsgedanken. Bitte in `rollend-1` und in den Muster-Fällen nachziehen, als Liste.
+3. **Dein ehrlicher Befund aus Auftrag 14** (18 von 56 waren gewöhnliche Anwendungsaufgaben; in Geometrie tragen die Typen ohne Grafik nicht jede Lernkarte): Bitte je Flug sagen, welche Lernkarten erst mit Grafik-Aufgaben (späterer Bau) gut abgedeckt wären, statt sie mit schwachen Aufgaben zu füllen.
+4. **Brüche:** Die App stellt Brüche in Aufgaben künftig gestapelt dar. Erkannt werden 3/4, x/2, 2x/27, (x + 1)/(x − 2), 1/(2x); nicht 1/2x (zweideutig) und keine verschachtelten Klammern. Bitte in neuen Aufgaben Brüche so schreiben, dass sie eindeutig sind.
+
+Bitte melden mit: Geliefert / Offen / Nicht geprüft / Annahmen.
+
+## 2026-11-27 00:27 (Berlin) – FERTIG: Auftrag 17 – Zeichnung zu Regel 3 geprüft, Klassenleitern fürs Handy gekürzt
+
+Zweig `mathe-profi`, auf dem Stand von `lernen-app` ea941036. Nur Inhalte. Sechs Läufe „OK“.
+
+**Geliefert**
+
+*1. Rechenregel 3* (Berichtigung Zeile für Zeile oben in `inhalte/postfach/designer.md`, 15 Zeilen)
+- **Beides ist fachlich richtig.** Die Fassung des Designers (Figur bei 0, eine Kehrtwende je Faktor −1, dann zwei Schritte) rechnet korrekt.
+- **Für ein Kind klarer ist die Vorgabe „Start bei 2, die Zahl springt über die Null“**, aus drei Gründen: (a) Beim Designer ist es dasselbe Bild wie Regel 2 – der Unterschied sitzt nicht. (b) Das zweite Umdrehen ist bei ihm nicht zu sehen: Der Pfeil führt von 0 nach 2, genau wie ganz ohne Minus. (c) Der gestrichelte Pfeil bedeutet oben und unten Verschiedenes.
+- Was ich zugestehe: Seine Fassung hat den Vorteil, dass Regel 2 und Regel 3 mit einer Figur auskommen. Das wiegt die drei Punkte nicht auf.
+- **Treppe: richtig umgesetzt** (Balken 6, 4, 2 Einheiten nach unten, +2 nach oben, nachgemessen). Zwei Kleinigkeiten: Punkt auf der Null-Linie fehlt; die „+2“ stehen bei 400 px im Balken.
+- **Seine drei kleinen Punkte aus Auftrag 15: alle erledigt** (im Code nachgesehen).
+
+*2. Handy* (`leiter_daten.py`, `klassenleiter.json`, `klassenleiter.md`, `sonne.md`)
+- **Markierte Stelle höchstens 12 Zeichen – vom Programm erzwungen.** Eine Ausnahme mit 13 Zeichen (Primfaktoren der 60).
+- **Die sechs Leitern neu gefasst**, „gleich gebaut“ bleibt: Rechenregel 11 markiert die Eins in der Mitte (3 kg: 7,50 € → ⟦1 kg⟧: 2,50 € → 5 kg: 12,50 €); Geld 2 das „· 2“; Algebra 4 die Null; Geometrie 1 die Summe 180°; Fläche und Raum 2 das Produkt 6 · 4; Daten 3 „3 von 6“.
+- **Übrige lange Zeilen: nicht nur Liste, sondern gekürzt.** Über 34 Zeichen: 107 → 59. Über 44 Zeichen: 76 → 4. Die vier verbliebenen: Zinseszins (Klasse 10), Waage mit 2ˣ (Klasse 10), Pyramide halbiert (Klasse 10), Kürzen im Bruchterm (Klasse 8).
+- Jedes Beispiel weiter nachgerechnet; alle 174 bestehen die Prüfung gegen die Lehrplan-Kopie.
+
+**Offen**
+- **Was beim Kürzen weggefallen ist** (Entscheidung, ob das recht ist): Begründungs-Halbsätze in den Sprossen („denn der Nenner wäre 0“, „der Ausreißer zieht nur den Mittelwert mit“, „3 nach rechts“ bei der verschobenen Parabel) und einige Endergebnisse (z. B. „= 3 + x/2“). Sie stehen weiter in der Regel selbst, nur nicht mehr in der Leiter.
+- Ob bei 400 px jetzt weniger als die Hälfte der Sprossen zweizeilig ist, zeigt erst der nächste Lauf des Designers; ich habe Zeichen gezählt, nicht Pixel.
+- Die neue Hauptzeichnung von Regel 3 ist noch nicht gezeichnet.
+
+**Nicht geprüft**
+- Von den Bildern nur die zwei genannten zu Regel 3; nicht die übrigen Seiten der fünften Runde.
+- Umbruch am Handy nicht im Browser; Grenze 34 Zeichen ist meine Schätzung für 400 px.
+- Kein Kind hat eine der beiden Fassungen von Regel 3 gesehen.
+
+**Annahmen**
+- In den Leitern „Aus dem Rechteck“ und „Aus dem Quader“ stehen die Einheiten nur noch am Ergebnis (⟦6 · 4⟧ = 24 cm²); der Satz über der Leiter nennt „Längen in cm“.
+- Zwei Leitern haben in einer Klasse zwei Sprossen; ich nehme an, dass der Designer das darstellen kann (bei „Größe“ war es schon so).
+
+## 2026-11-27 00:28 (Berlin) – AUFTRAG 17 vom Projektleiter (klein): Zeichnung zu Regel 3 prüfen, Beispiele für das Handy kürzen
+Deine Lieferung zu Auftrag 16 und die fünfte Runde des Designers sind in `lernen-app` übernommen (0d472ac6).
+1. **Rechenregel 3 prüfen** (`inhalte/design/gesetzbuch/bilder/gesetz-R3-1280-hell.jpg`, `gesetz-R3-400-dunkel.jpg`). Der Designer hat vor deiner Vorgabe gezeichnet: Bei ihm steht „die Figur bei 0 und will zur 2“, mit gestricheltem „Weg ohne Kehrtwende“; deine Vorgabe sagt „Start bei 2, die Zahl springt über die Null“. Was davon ist fachlich richtig und für ein Kind klarer? Sitzt der Unterschied zu Regel 2 (dort geht die Figur, hier springt die Zahl auf die andere Seite)? Bitte genaue Berichtigung für den Designer, Zeile für Zeile. Auch die berichtigte Treppe und seine drei kleinen Punkte prüfen.
+2. **Handy:** Bei 400 px sind 103 von 172 Sprossen zweizeilig; in sechs Leitern bricht die markierte Stelle selbst um, weil sie ein Wortlaut ist („doppelt so viel“, „1 nach rechts, 1,5 nach oben“; Rechenregel 11, Algebra 4, Geld 2, Geometrie 1, Fläche und Raum 2, Daten 3). Bitte für diese sechs kürzere Beispiele oder kürzere Stellen (Ziel: Stelle höchstens 12 Zeichen), ohne dass „gleich gebaut“ verloren geht. Für die übrigen langen Zeilen: Wo lässt sich ohne Verlust kürzen? Liste genügt.
+
+Bitte melden mit: Geliefert / Offen / Nicht geprüft / Annahmen.
+
+## 2026-11-27 00:02 (Berlin) – FERTIG: Auftrag 16 – Zeichen-Vorgabe für Rechenregel 3
+
+Zweig `mathe-profi`, auf dem Stand von `lernen-app` cc4a5b1d. Nur Inhalte. Sechs Läufe „OK“.
+
+**Geliefert**
+1. **`sonne.md`, Rechenregel 3: zwei Zeichen-Vorgaben**, je die üblichen sechs Zeilen.
+   - **Hauptzeichnung „Mal (−1) heißt umdrehen“:** zwei Zahlengeraden wie bei Regel 2, Start bei 2. Oben ein Sprung über die Null: (−1) · 2 = −2. Unten zwei Sprünge: (−1) · (−2) = +2. Kopfzeile: „Erst ohne Vorzeichen rechnen. Dann dreht jedes Minus einmal um.“
+   - **Treppe für „Warum das gilt“:** Balken hängen von der Null-Linie (−6, −4, −2), bei 0 nichts, +2 nach oben.
+   - **Rechenproben im Programm:** „Betrag ausrechnen, je Minus einmal umdrehen“ stimmt für Mal und Geteilt an acht Zahlenpaaren (ganze Zahlen und Brüche), für (−2)³ = −8, für die fünf Werte der Treppe; die Null bleibt beim Umdrehen liegen.
+   - **Merksatz und „Genau gesagt“ passen, keine Änderung nötig:** Die obere Gerade zeigt „Minus mal Plus gibt Minus“, die untere „Minus mal Minus gibt Plus“. „Ungleich null“ passt ebenfalls: Die Null hat kein Gegenüber.
+2. **Geteilt, Brüche, Terme:**
+   - **Geteilt: ja.** Geteilt durch (−1) ist derselbe Sprung wie mal (−1). (−6) : (−2): 6 : 2 = 3, zwei Sprünge, +3.
+   - **Brüche: ja,** unverändert – die Zahlengerade trägt jede Zahl. (−⅔) · (−¾): Start bei ½, zwei Sprünge.
+   - **Klasse 9 und 10 der Leiter: ja.** (−5)² zwei Sprünge, (−2)³ drei Sprünge – das Bild trägt hier weiter als der Merksatz, der nur zwei Faktoren nennt.
+   - **Terme: nur eingeschränkt.** Bei (−3x) · (−4) = +12x gehört das Plus zur Vorzahl 12; ob 12x positiv ist, hängt von x ab. Deshalb dort keine Zahlengerade, nur die Rechenzeile mit denselben Farbpaaren.
+3. **Die elf Beispiele des Designers: erledigt.** In den neuen Klassenleitern der Regeln 1, 9, 11 und 13 steht die wirkende Stelle in jeder Zeile (das Programm verlangt mindestens eine Markierung je Beispiel). Die elf Zeilen kamen aus der älteren Tabelle „Weitere Beispiele“ in `sonne.md`; ich habe sie dort zusätzlich umgeschrieben. Bescheid oben im Postfach des Designers.
+
+**Offen**
+- Der Unterschied zu Regel 2 muss im Bild sitzen: dort geht die Figur, hier springt die Zahl auf die andere Seite der Null. Ob der Designer das klar trennen kann, zeigt erst seine Zeichnung.
+- Vorschlag, nicht umgesetzt: Die Kopfzeile „Erst ohne Vorzeichen rechnen. Dann dreht jedes Minus einmal um.“ wäre auch als Zusatz zu „Genau gesagt“ brauchbar, weil sie drei und mehr Faktoren abdeckt.
+- Zurückgestellt wie angeordnet: die 30 Abweichungen beim IB.
+
+**Nicht geprüft**
+- Die neue Zeichnung ist nicht gezeichnet und nicht mit einem Kind erprobt.
+- Ob zwei so ähnliche Bilder (Regel 2 und Regel 3) helfen oder verwechselt werden.
+
+**Annahmen**
+- Zahlen der Hauptzeichnung: 2 und −2 an einer Geraden von −3 bis 3, damit sie neben Regel 2 passt.
+- Die Treppe behält die Zahlen 3, 2, 1, 0, −1 mal (−2).
+
 ## 2026-11-27 00:02 (Berlin) – AUFTRAG 16 vom Projektleiter (klein): Zeichen-Vorgabe für Rechenregel 3
 Deine Lieferung zu Auftrag 15 ist in `lernen-app` übernommen. Der Nutzer hat entschieden: Dein Vorschlag gilt. Rechenregel 3 bekommt als Hauptzeichnung „Mal (−1) heißt umdrehen“ an der Zahlengeraden, passend zu Regel 2; die Treppe bleibt als „Warum das gilt“, mit hängenden Balken von der Null-Linie. Außerdem entschieden: „Genau gesagt“ steht nicht mehr auf der Übersicht, nur in der aufgeschlagenen Regel.
 1. Zeichen-Vorgabe für die neue Hauptzeichnung in `sonne.md` (die üblichen sechs Zeilen, mit Rechenprobe) und die berichtigte Vorgabe der Treppe. Prüfe, ob Merksatz und „Genau gesagt“ von Regel 3 zum neuen Bild passen; wenn nicht, Vorschlag.

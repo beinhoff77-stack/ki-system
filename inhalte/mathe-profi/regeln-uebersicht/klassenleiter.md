@@ -1,6 +1,6 @@
 # Regel-Universum · Klassenleitern: dieselbe Regel, dieselbe Idee – von Klasse 5 bis 10
 
-Mathe-Profi, 27.11.2026 (Auftrag 15, Teil A und B). Erzeugt von `klassenleiter.py` aus `leiter_daten.py`; 172 Beispiele, jedes nachgerechnet, jede Klasse gegen die Themenliste geprüft (Lauf „OK“).
+Mathe-Profi, 27.11.2026 (Auftrag 15, Teil A und B). Erzeugt von `klassenleiter.py` aus `leiter_daten.py`; 174 Beispiele, jedes nachgerechnet, jede Klasse gegen die Themenliste geprüft (Lauf „OK“).
 Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genauen Zeichenpositionen der wirkenden Stelle.
 
 ## Wie die Leitern gebaut sind
@@ -43,7 +43,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 |---|---|---|---|
 | 5 | 34 ⟦· 10⟧ = 340 | Einführung | `zahlen.natuerlich` |
 | 6 | 2,5 ⟦· 10⟧ = 25 | Einführung | `bruch.dezimal` |
-| 7 | 0,15 ⟦· 100⟧ = 15, also 0,15 = 15 % | Anwendung | `bruch.prozent_grundwert` |
+| 7 | 0,15 ⟦· 100⟧ = 15, also 15 % | Anwendung | `bruch.prozent_grundwert` |
 | 8 | 3 ⟦· 10⁻⁴⟧ = 0,0003 | Anwendung | `terme.potenzgesetze_ganzzahlig` |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
 | 10 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
@@ -59,39 +59,39 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 5 | 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Einführung | `zahlen.ganz` |
 | 6 | ½ ⟦−⟧ (⟦−⟧¼) = ½ + ¼ = ¾ | Anwendung | `bruch.rechnen` |
 | 7 | 3x ⟦−⟧ (⟦−⟧2x) = 3x + 2x = 5x | Anwendung | `terme.umformen` |
-| 8 | f(x) = 3 − x an der Stelle −2: 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Anwendung | `funktionen.linear` |
+| 8 | f(x) = 3 − x, x = −2: 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Anwendung | `funktionen.linear` |
 | 9 | 3√2 ⟦−⟧ (⟦−⟧2√2) = 3√2 + 2√2 = 5√2 | Anwendung | `zahlen.reell` |
-| 10 | f(x) = 3 − 2x³ an der Stelle −1: 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Anwendung | `funktionen.ganzrational` |
+| 10 | f(x) = 3 − 2x³, x = −1: 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Anwendung | `funktionen.ganzrational` |
 
 ### Rechenregel 3: Vorzeichen bei Mal und Geteilt (`rr.vorzeichen`)
 
 > **Minus mal Minus gibt Plus, Minus mal Plus gibt Minus.**
 
-**In jeder Zeile markiert:** Die Vorzeichen der beiden Zahlen und das Vorzeichen des Ergebnisses.
+**In jeder Zeile markiert:** Die Vorzeichen der Zahlen und das Vorzeichen des Ergebnisses. In Klasse 10 sind es drei Minus: Ein Umdrehen bleibt übrig.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
 | 5 | (⟦−⟧3) · (⟦−⟧4) = ⟦+⟧12 | Einführung | `zahlen.rechengesetze` |
 | 6 | (⟦−⟧⅔) · (⟦−⟧¾) = ⟦+⟧½ | Anwendung | `bruch.rechnen` |
 | 7 | (⟦−⟧3x) · (⟦−⟧4) = ⟦+⟧12x | Anwendung | `terme.umformen` |
-| 8 | Steigung aus zwei Punkten: (⟦−⟧6) : (⟦−⟧2) = ⟦+⟧3 | Anwendung | `funktionen.linear` |
+| 8 | Steigung: (⟦−⟧6) : (⟦−⟧2) = ⟦+⟧3 | Anwendung | `funktionen.linear` |
 | 9 | (⟦−⟧5)² = (⟦−⟧5) · (⟦−⟧5) = ⟦+⟧25 | Anwendung | `gleichungen.quadratisch` |
-| 10 | (⟦−⟧2)³ = (⟦−⟧2) · (⟦−⟧2) · (⟦−⟧2) = ⟦−⟧8 – drei Minus: einmal umdrehen bleibt übrig | Anwendung | `funktionen.ganzrational` |
+| 10 | (⟦−⟧2)³ = (⟦−⟧2) · (⟦−⟧2) · (⟦−⟧2) = ⟦−⟧8 | Anwendung | `funktionen.ganzrational` |
 
 ### Rechenregel 4: Reihenfolge beim Rechnen (`rr.reihenfolge`)
 
 > **Klammer zuerst, dann Hoch, dann Punkt vor Strich.**
 
-**In jeder Zeile markiert:** Der Teil, der zuerst gerechnet wird – in jeder Zeile der Punkt-Teil hinter dem Plus.
+**In jeder Zeile markiert:** Der Teil, der zuerst gerechnet wird – in jeder Zeile der Punkt-Teil hinter dem Plus. Steht darin ein Hoch (Klasse 9 und 10), kommt es noch davor.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
 | 5 | 2 + ⟦3 · 4⟧ = 2 + 12 = 14 | Einführung | `zahlen.rechengesetze` |
 | 6 | ½ + ⟦½ · ½⟧ = ½ + ¼ = ¾ | Anwendung | `bruch.rechnen` |
 | 7 | 2 + ⟦3 · x⟧ bleibt 2 + 3x – nicht 5x | Anwendung | `terme.umformen` |
-| 8 | f(x) = 2 + 3x an der Stelle 4: 2 + ⟦3 · 4⟧ = 2 + 12 = 14 | Anwendung | `funktionen.linear` |
-| 9 | f(x) = 2 + 3x² an der Stelle 2: 2 + ⟦3 · 2²⟧ = 2 + 3 · 4 = 14 – im Punkt-Teil zuerst das Hoch | Anwendung | `funktionen.quadratisch` |
-| 10 | f(x) = 2 + 3 · 2ˣ an der Stelle 2: 2 + ⟦3 · 2²⟧ = 2 + 3 · 4 = 14 | Anwendung | `funktionen.exponential_log` |
+| 8 | f(x) = 2 + 3x, x = 4: 2 + ⟦3 · 4⟧ = 14 | Anwendung | `funktionen.linear` |
+| 9 | f(x) = 2 + 3x², x = 2: 2 + ⟦3 · 2²⟧ = 14 | Anwendung | `funktionen.quadratisch` |
+| 10 | f(x) = 2 + 3 · 2ˣ, x = 2: 2 + ⟦3 · 2²⟧ = 14 | Anwendung | `funktionen.exponential_log` |
 
 ### Rechenregel 5: Tauschen, Klammern, Zusammenfassen (`rr.tauschen`)
 
@@ -104,7 +104,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 5 | 12 − 30 ⟦+ 18⟧ = 12 ⟦+ 18⟧ − 30 = 0 | Einführung | `zahlen.ganz` |
 | 6 | ¼ − ½ ⟦+ ¾⟧ = ¼ ⟦+ ¾⟧ − ½ = ½ | Anwendung | `bruch.rechnen` |
 | 7 | 3a + 2b ⟦+ 4a⟧ = 3a ⟦+ 4a⟧ + 2b = 7a + 2b | Einführung | `terme.umformen` |
-| 8 | Zwei Gleichungen addieren: 2x + 3y ⟦− 2x⟧ + y = 2x ⟦− 2x⟧ + 3y + y = 4y | Anwendung | `gleichungen.lgs2` |
+| 8 | 2x + 3y ⟦− 2x⟧ + y = 2x ⟦− 2x⟧ + 4y = 4y | Anwendung | `gleichungen.lgs2` |
 | 9 | 3√2 + 5 ⟦+ 2√2⟧ = 3√2 ⟦+ 2√2⟧ + 5 = 5√2 + 5 | Anwendung | `zahlen.reell` |
 | 10 | 3x³ + 2x ⟦+ 4x³⟧ = 3x³ ⟦+ 4x³⟧ + 2x = 7x³ + 2x | Anwendung | `funktionen.ganzrational` |
 
@@ -119,7 +119,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 5 | ⟦6⟧ · (20 + 2) = ⟦6⟧ · 20 + ⟦6⟧ · 2 = 132 | Einführung | `zahlen.rechengesetze` |
 | 6 | ⟦4⟧ · (2 + ½) = ⟦4⟧ · 2 + ⟦4⟧ · ½ = 10 | Anwendung | `bruch.rechnen` |
 | 7 | ⟦3⟧ · (x + 2) = ⟦3⟧ · x + ⟦3⟧ · 2 = 3x + 6 | Einführung | `terme.umformen` |
-| 8 | ⟦x⟧ · (3/x + ½) = ⟦x⟧ · 3/x + ⟦x⟧ · ½ = 3 + x/2, für x ≠ 0 | Anwendung | `gleichungen.bruch` |
+| 8 | ⟦x⟧ · (3/x + ½) = ⟦x⟧ · 3/x + ⟦x⟧ · ½, für x ≠ 0 | Anwendung | `gleichungen.bruch` |
 | 9 | ⟦√2⟧ · (√2 + 3) = ⟦√2⟧ · √2 + ⟦√2⟧ · 3 = 2 + 3√2 | Anwendung | `zahlen.reell` |
 | 10 | ⟦x⟧ · (x² − 4) = ⟦x⟧ · x² − ⟦x⟧ · 4 = x³ − 4x | Anwendung | `gleichungen.polynom` |
 
@@ -135,7 +135,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 6 | 2 ⟦−⟧ (¾ ⟦−⟧ ¼) = 2 ⟦−⟧ ¾ ⟦+⟧ ¼ = 1½ | Vorwissen | `bruch.rechnen` |
 | 7 | 5x ⟦−⟧ (3x ⟦−⟧ 2) = 5x ⟦−⟧ 3x ⟦+⟧ 2 = 2x + 2 | Einführung | `terme.umformen` |
 | 8 | 7 ⟦−⟧ (2x ⟦−⟧ 6) = 7 ⟦−⟧ 2x ⟦+⟧ 6 = 13 − 2x | Anwendung | `gleichungen.ungleichungen` |
-| 9 | (x + 1)² ⟦−⟧ (x² ⟦−⟧ 3) = x² + 2x + 1 ⟦−⟧ x² ⟦+⟧ 3 = 2x + 4 | Anwendung | `gleichungen.quadratisch` |
+| 9 | x² ⟦−⟧ (x² ⟦−⟧ 3x) = x² ⟦−⟧ x² ⟦+⟧ 3x = 3x | Anwendung | `gleichungen.quadratisch` |
 | 10 | x³ ⟦−⟧ (x³ ⟦−⟧ 4x) = x³ ⟦−⟧ x³ ⟦+⟧ 4x = 4x | Anwendung | `gleichungen.polynom` |
 
 ### Rechenregel 8: Potenzen (`rr.potenz`)
@@ -150,7 +150,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 6 | 10⟦³⟧ · 10⟦²⟧ = 10⟦⁵⟧ = 100 000 | Anwendung | `zahlen.potenzen_zehner` |
 | 7 | x⟦³⟧ · x⟦²⟧ = (x · x · x) · (x · x) = x⟦⁵⟧ | Einführung | `terme.potenzgesetze_natuerlich` |
 | 8 | x⟦³⟧ · x⟦⁻²⟧ = x⟦¹⟧ = x, für x ≠ 0 | Einführung | `terme.potenzgesetze_ganzzahlig` |
-| 9 | x^⟦½⟧ · x^⟦½⟧ = x⟦¹⟧ = x, für x ≥ 0 – also ist x^½ die Wurzel aus x | Einführung | `zahlen.rationale_exponenten` |
+| 9 | x^⟦½⟧ · x^⟦½⟧ = x⟦¹⟧ = x, für x ≥ 0 | Einführung | `zahlen.rationale_exponenten` |
 | 10 | 2⟦ˣ⟧ · 2⟦³⟧ = 2 hoch ⟦x + 3⟧ | Anwendung | `funktionen.exponential_log` |
 
 ### Rechenregel 9: Erweitern und Kürzen (`rr.kuerzen`)
@@ -164,9 +164,9 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 5 | *kommt nicht vor – der Stoff dafür beginnt später (Brüche ab Klasse 6)* | – | – |
 | 6 | 12/18 = (2 · ⟦6⟧) / (3 · ⟦6⟧) = 2/3 | Einführung | `bruch.brueche` |
 | 7 | 6x/9 = (2x · ⟦3⟧) / (3 · ⟦3⟧) = 2x/3 | Anwendung | `gleichungen.linear` |
-| 8 | (3x + 6) / (x + 2) = (3 · ⟦(x + 2)⟧) / (1 · ⟦(x + 2)⟧) = 3, für x ≠ −2 | Anwendung | `terme.bruchterme` |
-| 9 | Seitenverhältnis 6 cm : 9 cm = (2 · ⟦3⟧) : (3 · ⟦3⟧) = 2 : 3 | Anwendung | `abbildungen.aehnlichkeit` |
-| 10 | Zweiter Zug aus der Urne: 2/4 = (1 · ⟦2⟧) / (2 · ⟦2⟧) = ½ | Anwendung | `stochastik.mehrstufig` |
+| 8 | (3 · ⟦(x + 2)⟧) / (1 · ⟦(x + 2)⟧) = 3, für x ≠ −2 | Anwendung | `terme.bruchterme` |
+| 9 | 6 cm : 9 cm = (2 · ⟦3⟧) : (3 · ⟦3⟧) = 2 : 3 | Anwendung | `abbildungen.aehnlichkeit` |
+| 10 | 2/4 = (1 · ⟦2⟧) / (2 · ⟦2⟧) = ½ | Anwendung | `stochastik.mehrstufig` |
 
 ### Rechenregel 10: Rechnen mit Brüchen (`rr.bruchrechnen`)
 
@@ -180,23 +180,23 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 6 | 1/2 + 1/3 = 3/⟦6⟧ + 2/⟦6⟧ = 5/⟦6⟧ | Einführung | `bruch.rechnen` |
 | 7 | x/2 + x/3 = 3x/⟦6⟧ + 2x/⟦6⟧ = 5x/⟦6⟧ | Anwendung | `gleichungen.linear` |
 | 8 | 1/x + 1/(2x) = 2/⟦2x⟧ + 1/⟦2x⟧ = 3/⟦2x⟧, für x ≠ 0 | Anwendung | `terme.bruchterme` |
-| 9 | Additionssatz: 1/2 + 1/3 − 1/6 = 3/⟦6⟧ + 2/⟦6⟧ − 1/⟦6⟧ = 4/⟦6⟧ = ⅔ | Anwendung | `stochastik.verknuepft` |
-| 10 | Zwei Pfade addieren: 1/6 + 1/3 = 1/⟦6⟧ + 2/⟦6⟧ = 3/⟦6⟧ = ½ | Anwendung | `stochastik.mehrstufig` |
+| 9 | 1/2 + 1/3 − 1/6 = 3/⟦6⟧ + 2/⟦6⟧ − 1/⟦6⟧ = 4/⟦6⟧ | Anwendung | `stochastik.verknuepft` |
+| 10 | 1/6 + 1/3 = 1/⟦6⟧ + 2/⟦6⟧ = 3/⟦6⟧ | Anwendung | `stochastik.mehrstufig` |
 
 ### Rechenregel 11: Verhältnis (Dreisatz) (`rr.verhaeltnis`)
 
 > **Erst auf eins, dann auf viele.**
 
-**In jeder Zeile markiert:** Die mittlere Zeile: der Wert für eins.
+**In jeder Zeile markiert:** Die Eins in der Mitte: erst auf eins, dann auf viele.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | 3 kg kosten 7,50 € → ⟦1 kg kostet 2,50 €⟧ → 5 kg kosten 12,50 € | Einführung | `groessen.proportional` |
-| 6 | 100 % sind 60 € → ⟦1 % sind 0,60 €⟧ → 25 % sind 15 € | Einführung | `bruch.prozent` |
-| 7 | 80 % sind 48 € → ⟦1 % sind 0,60 €⟧ → 100 % sind 60 € | Anwendung | `bruch.prozent_grundwert` |
-| 8 | 2 nach rechts, 3 nach oben → ⟦1 nach rechts, 1,5 nach oben⟧ → 4 nach rechts, 6 nach oben (Steigung 1,5) | Anwendung | `funktionen.linear` |
-| 9 | 2 cm gehören zu 3 cm → ⟦1 cm gehört zu 1,5 cm⟧ → 4 cm gehören zu 6 cm (Strahlensatz) | Anwendung | `abbildungen.aehnlichkeit` |
-| 10 | 360° sind 2π → ⟦1° ist π/180⟧ → 90° sind π/2 (Bogenmaß) | Anwendung | `funktionen.trig` |
+| 5 | 3 kg: 7,50 € → ⟦1 kg⟧: 2,50 € → 5 kg: 12,50 € | Einführung | `groessen.proportional` |
+| 6 | 100 %: 60 € → ⟦1 %⟧: 0,60 € → 25 %: 15 € | Einführung | `bruch.prozent` |
+| 7 | 80 %: 48 € → ⟦1 %⟧: 0,60 € → 100 %: 60 € | Anwendung | `bruch.prozent_grundwert` |
+| 8 | x = 2: y = 3 → ⟦x = 1⟧: y = 1,5 → x = 4: y = 6 | Anwendung | `funktionen.linear` |
+| 9 | 2 cm: 3 cm → ⟦1 cm⟧: 1,5 cm → 4 cm: 6 cm | Anwendung | `abbildungen.aehnlichkeit` |
+| 10 | 360°: 2π → ⟦1°⟧: π/180 → 90°: π/2 | Anwendung | `funktionen.trig` |
 
 ### Rechenregel 12: Gegenrechnung (`rr.gegenrechnung`)
 
@@ -209,8 +209,8 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 5 | □ ⟦+ 7⟧ = 3, also □ = 3 ⟦− 7⟧ = −4 | Einführung | `gleichungen.einfach` |
 | 6 | □ ⟦· ¾⟧ = 12, also □ = 12 ⟦: ¾⟧ = 16 | Anwendung | `bruch.rechnen` |
 | 7 | G ⟦· 1,2⟧ = 60 €, also G = 60 € ⟦: 1,2⟧ = 50 € | Anwendung | `bruch.prozent_grundwert` |
-| 8 | A = g ⟦· h⟧, also g = A ⟦: h⟧ – mit A = 42 und h = 7 ist g = 6 | Anwendung | `gleichungen.formeln` |
-| 9 | x ⟦hoch 2⟧ = 49, also x = ⟦±√⟧49: x = 7 oder x = −7 | Einführung | `gleichungen.quadratisch` |
+| 8 | A = g ⟦· h⟧, also g = A ⟦: h⟧ | Anwendung | `gleichungen.formeln` |
+| 9 | x ⟦hoch 2⟧ = 49, also x = ⟦±√⟧49 = ±7 | Einführung | `gleichungen.quadratisch` |
 | 10 | 2 ⟦hoch x⟧ = 8, also x = ⟦log₂⟧ 8 = 3 | Einführung | `gleichungen.exponential` |
 
 ### Rechenregel 13: Gleichung als Waage (`rr.waage`)
@@ -236,12 +236,12 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | ⟦□⟧ · 7 = ⟦0⟧, also □ = 0 | Vorwissen | `gleichungen.einfach` |
+| 5 | ⟦□⟧ · 7 = ⟦0⟧: □ = 0 | Vorwissen | `gleichungen.einfach` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 7 | *kommt nicht vor – kein Thema der App in dieser Klasse (Gleichungen mit x² erst ab Klasse 9)* | – | – |
-| 8 | Der Nenner ⟦x⟧ · ⟦(x − 4)⟧ wird ⟦0⟧ für x = 0 oder x = 4 – diese Zahlen sind nicht erlaubt | Vorwissen | `terme.bruchterme` |
-| 9 | ⟦(x − 2)⟧ · ⟦(x + 3)⟧ = ⟦0⟧, also x = 2 oder x = −3 | Einführung | `gleichungen.quadratisch` |
-| 10 | ⟦x⟧ · ⟦(x − 2)⟧ · ⟦(x + 2)⟧ = ⟦0⟧, also x = 0, x = 2 oder x = −2 | Anwendung | `gleichungen.polynom` |
+| 8 | Nenner ⟦x⟧ · ⟦(x − 4)⟧ = ⟦0⟧: x = 0 oder 4 | Vorwissen | `terme.bruchterme` |
+| 9 | ⟦(x − 2)⟧ · ⟦(x + 3)⟧ = ⟦0⟧: x = 2 oder −3 | Einführung | `gleichungen.quadratisch` |
+| 10 | ⟦x⟧ · ⟦(x − 2)⟧ · ⟦(x + 2)⟧ = ⟦0⟧: x = 0, 2 oder −2 | Anwendung | `gleichungen.polynom` |
 
 ## Teil B – die 28 tragenden Ideen
 
@@ -288,11 +288,11 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | −3 ⟦<⟧ 2 – die −3 liegt links von der 2 | Einführung | `zahlen.ganz` |
+| 5 | −3 ⟦<⟧ 2 | Einführung | `zahlen.ganz` |
 | 6 | −½ ⟦<⟧ ¼ | Anwendung | `bruch.rechnen` |
 | 7 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 8 | Im Intervall ]−3; 2] liegen alle Zahlen mit −3 ⟦<⟧ x ⟦≤⟧ 2 | Anwendung | `zahlen.intervalle` |
-| 9 | 1 ⟦<⟧ √2 ⟦<⟧ 2 – auch √2 ≈ 1,41 hat ihren Platz | Anwendung | `zahlen.reell` |
+| 8 | Intervall ]−3; 2]: −3 ⟦<⟧ x ⟦≤⟧ 2 | Anwendung | `zahlen.intervalle` |
+| 9 | 1 ⟦<⟧ √2 ⟦<⟧ 2 | Anwendung | `zahlen.reell` |
 | 10 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 
 #### Bündeln in Zehnern (`id.zahlen.buendeln`) – läuft über die Klassen 5, 6, 8
@@ -303,10 +303,10 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | ⟦10⟧ Einer = 1 Zehner: 347 liegt zwischen 340 und 350 | Einführung | `zahlen.natuerlich` |
-| 6 | ⟦10⟧ Zehntel = 1 Einer: 0,9 + 0,1 = 1,0 | Einführung | `bruch.dezimal` |
+| 5 | ⟦10⟧ Einer = 1 Zehner | Einführung | `zahlen.natuerlich` |
+| 6 | ⟦10⟧ Zehntel = 1 Einer | Einführung | `bruch.dezimal` |
 | 7 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 8 | ⟦10⟧ Tausendstel = 1 Hundertstel: 10 · 10⁻³ = 10⁻² | Anwendung | `terme.potenzgesetze_ganzzahlig` |
+| 8 | ⟦10⟧ Tausendstel = 1 Hundertstel | Anwendung | `terme.potenzgesetze_ganzzahlig` |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 10 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 
@@ -319,7 +319,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
 | 5 | 60 = ⟦2 · 2 · 3 · 5⟧ | Einführung | `zahlen.teilbarkeit` |
-| 6 | 12/18 = (⟦2 · 2 · 3⟧) / (⟦2 · 3 · 3⟧) = 2/3 – gemeinsame Bausteine 2 und 3 kürzen | Anwendung | `bruch.brueche` |
+| 6 | 12/18 = (⟦2 · 2 · 3⟧) / (⟦2 · 3 · 3⟧) = 2/3 | Anwendung | `bruch.brueche` |
 | 7 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 8 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 9 | √12 = √(⟦2 · 2 · 3⟧) = 2 · √3 | Anwendung | `zahlen.wurzeln_basis` |
@@ -336,8 +336,8 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 5 | *kommt nicht vor – der Stoff dafür beginnt später (Brüche ab Klasse 6)* | – | – |
 | 6 | ½ ⟦=⟧ 0,5 ⟦=⟧ 50 % | Einführung | `bruch.prozent` |
 | 7 | ⅕ ⟦=⟧ 0,2 ⟦=⟧ 20 % | Anwendung | `bruch.prozent_grundwert` |
-| 8 | Wahrscheinlichkeit ¼ ⟦=⟧ 0,25 ⟦=⟧ 25 % | Anwendung | `stochastik.grundbegriffe` |
-| 9 | ⅓ ⟦=⟧ 0,333… – eine Kommazahl, die nie endet, aber sich wiederholt | Anwendung | `zahlen.reell` |
+| 8 | ¼ ⟦=⟧ 0,25 ⟦=⟧ 25 % | Anwendung | `stochastik.grundbegriffe` |
+| 9 | ⅓ ⟦=⟧ 0,333… ⟦≈⟧ 33,3 % | Anwendung | `zahlen.reell` |
 | 10 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
 
 #### Hoch und zurück (`id.zahlen.hoch_zurueck`) – läuft über die Klassen 5, 6, 7, 8, 9, 10
@@ -361,31 +361,31 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 
 > **Ein Term ist ein Rechenrezept: Zahl hinein, Ergebnis heraus.**
 
-**In jeder Zeile markiert:** Die Zahl, die eingesetzt wird – in jeder Zeile die 5.
+**In jeder Zeile markiert:** Die Zahl, die eingesetzt wird – die 5, in Klasse 10 die 2 (3⁵ wäre unhandlich).
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
 | 5 | 2 · ⟦5⟧ + 3 = 13 | Vorwissen | `zahlen.rechengesetze` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 7 | T(x) = 2 · x + 3; T(⟦5⟧) = 2 · ⟦5⟧ + 3 = 13 | Einführung | `terme.aufstellen` |
-| 8 | f(x) = 2 · x + 3; f(⟦5⟧) = 2 · ⟦5⟧ + 3 = 13 | Anwendung | `funktionen.grundbegriffe` |
-| 9 | f(x) = 2 · x² + 3; f(⟦5⟧) = 2 · ⟦5⟧² + 3 = 53 | Anwendung | `funktionen.quadratisch` |
-| 10 | f(x) = 2 · 3ˣ + 3; f(⟦2⟧) = 2 · 3² + 3 = 21 – hier die 2, weil 3⁵ unhandlich wird | Anwendung | `funktionen.exponential_log` |
+| 7 | T(⟦5⟧) = 2 · ⟦5⟧ + 3 = 13 | Einführung | `terme.aufstellen` |
+| 8 | f(⟦5⟧) = 2 · ⟦5⟧ + 3 = 13 | Anwendung | `funktionen.grundbegriffe` |
+| 9 | f(⟦5⟧) = 2 · ⟦5⟧² + 3 = 53 | Anwendung | `funktionen.quadratisch` |
+| 10 | f(x) = 2 · 3ˣ + 3; f(⟦2⟧) = 2 · 3⟦²⟧ + 3 = 21 | Anwendung | `funktionen.exponential_log` |
 
 #### Erlaubte Zahlen (`id.algebra.erlaubte_zahlen`) – läuft über die Klassen 8, 9, 10
 
 > **Durch null teilen geht nie – prüfe das zuerst.**
 
-**In jeder Zeile markiert:** Die Zahl, die nicht eingesetzt werden darf.
+**In jeder Zeile markiert:** Die Bedingung für x: Kein Nenner wird 0, unter keiner Wurzel steht etwas Negatives.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
 | 5 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 6 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 7 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
-| 8 | 1 : (x − 2): nicht erlaubt ist ⟦x = 2⟧, denn der Nenner wäre 0 | Einführung | `terme.bruchterme` |
-| 9 | √(x − 2): erlaubt ist nur ⟦x ≥ 2⟧, denn unter der Wurzel darf nichts Negatives stehen | Anwendung | `zahlen.wurzeln_basis` |
-| 10 | log₂(x − 2): erlaubt ist nur ⟦x > 2⟧ | Anwendung | `funktionen.exponential_log` |
+| 8 | 1 : (x − 2): nicht erlaubt ⟦x = 2⟧ | Einführung | `terme.bruchterme` |
+| 9 | √(x − 2): erlaubt nur ⟦x ≥ 2⟧ | Anwendung | `zahlen.wurzeln_basis` |
+| 10 | log₂(x − 2): erlaubt nur ⟦x > 2⟧ | Anwendung | `funktionen.exponential_log` |
 
 #### Gleichung lösen (`id.algebra.gleichung_loesen`) – läuft über die Klassen 5, 7, 8, 9, 10
 
@@ -406,7 +406,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 
 > **Steht x im Quadrat: erst null auf eine Seite, dann zerlegen.**
 
-**In jeder Zeile markiert:** Die Null auf der einen Seite und die Faktoren auf der anderen.
+**In jeder Zeile markiert:** Die Null auf der rechten Seite – erst dann wird zerlegt.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
@@ -414,8 +414,8 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 6 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 7 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 8 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
-| 9 | x² + x = 6 → x² + x − 6 = ⟦0⟧ → ⟦(x − 2) · (x + 3)⟧ = ⟦0⟧ → x = 2 oder x = −3 | Einführung | `gleichungen.quadratisch` |
-| 10 | x³ = 4x → x³ − 4x = ⟦0⟧ → ⟦x · (x − 2) · (x + 2)⟧ = ⟦0⟧ → x = 0, x = 2 oder x = −2 | Anwendung | `gleichungen.polynom` |
+| 9 | x² + x − 6 = ⟦0⟧ → (x − 2) · (x + 3) = ⟦0⟧ | Einführung | `gleichungen.quadratisch` |
+| 10 | x³ − 4x = ⟦0⟧ → x · (x − 2) · (x + 2) = ⟦0⟧ | Anwendung | `gleichungen.polynom` |
 
 ### Planet „Geld und Verhältnisse“
 
@@ -433,21 +433,21 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 7 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
 | 8 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
-| 10 | ⟦180⟧° = ⟦π⟧ im Bogenmaß – andere Einheit, andere Zahl | Anwendung | `funktionen.trig` |
+| 10 | ⟦180⟧° = ⟦π⟧ im Bogenmaß | Anwendung | `funktionen.trig` |
 
 #### Wert für eins (`id.verhaeltnisse.wert_fuer_eins`) – läuft über die Klassen 5, 6, 7, 8, 9
 
 > **Doppelt so viel kostet doppelt so viel.**
 
-**In jeder Zeile markiert:** Das „· 2“ auf beiden Seiten.
+**In jeder Zeile markiert:** Das „· 2“ – es gilt für beide Größen zugleich.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | 3 kg kosten 7,50 €; ⟦doppelt so viel⟧: 6 kg kosten ⟦doppelt so viel⟧: 15 € | Einführung | `groessen.proportional` |
-| 6 | 25 % sind 15 €; ⟦doppelt so viel⟧: 50 % sind ⟦doppelt so viel⟧: 30 € | Anwendung | `bruch.prozent` |
-| 7 | 40 % sind 24 €; ⟦doppelt so viel⟧: 80 % sind ⟦doppelt so viel⟧: 48 € | Anwendung | `bruch.prozent_grundwert` |
-| 8 | y = 2,5 · x: zu x = 3 gehört 7,5; zu ⟦doppeltem⟧ x = 6 gehört das ⟦Doppelte⟧: 15 | Anwendung | `funktionen.linear` |
-| 9 | Im Bild mit Faktor 2 ist jede Länge ⟦doppelt so lang⟧: aus 3 cm werden 6 cm, aus 4 cm werden 8 cm | Anwendung | `abbildungen.aehnlichkeit` |
+| 5 | 3 kg: 7,50 € ⟦· 2⟧ → 6 kg: 15 € | Einführung | `groessen.proportional` |
+| 6 | 25 %: 15 € ⟦· 2⟧ → 50 %: 30 € | Anwendung | `bruch.prozent` |
+| 7 | 40 %: 24 € ⟦· 2⟧ → 80 %: 48 € | Anwendung | `bruch.prozent_grundwert` |
+| 8 | x = 3: y = 7,5 ⟦· 2⟧ → x = 6: y = 15 | Anwendung | `funktionen.linear` |
+| 9 | 3 cm: 4,5 cm ⟦· 2⟧ → 6 cm: 9 cm | Anwendung | `abbildungen.aehnlichkeit` |
 | 10 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
 
 #### Prozent als Faktor (`id.verhaeltnisse.prozent`) – läuft über die Klassen 6, 7, 8, 10
@@ -461,9 +461,9 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 5 | *kommt nicht vor – der Stoff dafür beginnt später (Prozent ab Klasse 6)* | – | – |
 | 6 | 25 % von 60 € = ⟦0,25⟧ · 60 € = 15 € | Einführung | `bruch.prozent` |
 | 7 | 50 € plus 20 % = ⟦1,2⟧ · 50 € = 60 € | Einführung | `bruch.prozent_grundwert` |
-| 8 | 12 von 48 Würfen: 12 : 48 = ⟦0,25⟧ = 25 % | Anwendung | `stochastik.grundbegriffe` |
+| 8 | 12 von 48: 12 : 48 = ⟦0,25⟧ = 25 % | Anwendung | `stochastik.grundbegriffe` |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
-| 10 | 1 000 € zwei Jahre lang plus 5 %: ⟦1,05⟧ · ⟦1,05⟧ · 1 000 € = 1 102,50 € | Anwendung | `funktionen.exponential_log` |
+| 10 | Zweimal plus 5 %: ⟦1,05⟧ · ⟦1,05⟧ · 1 000 € = 1 102,50 € | Anwendung | `funktionen.exponential_log` |
 
 ### Planet „Geometrie“
 
@@ -471,15 +471,15 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 
 > **Gleiche Winkel an Parallelen – darum im Dreieck immer 180 Grad.**
 
-**In jeder Zeile markiert:** Die Winkel, die zusammen eine feste Summe ergeben.
+**In jeder Zeile markiert:** Die Summe 180° – die gerade Linie.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | Volle Drehung: ⟦90° + 90° + 90° + 90°⟧ = 360° | Einführung | `geometrie.grundbegriffe` |
+| 5 | Gestreckter Winkel: 90° + 90° = ⟦180°⟧ | Einführung | `geometrie.grundbegriffe` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 7 | Dreieck: ⟦50° + 60° + 70°⟧ = 180° | Einführung | `geometrie.winkelsaetze` |
+| 7 | Dreieck: 50° + 60° + 70° = ⟦180°⟧ | Einführung | `geometrie.winkelsaetze` |
 | 8 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 9 | Rechtwinkliges Dreieck: ⟦90° + 30° + 60°⟧ = 180° – die zwei spitzen Winkel ergeben 90° | Anwendung | `trigo.rechtwinklig` |
+| 9 | Rechtwinklig: 90° + 30° + 60° = ⟦180°⟧ | Anwendung | `trigo.rechtwinklig` |
 | 10 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
 
 #### Gleicher Abstand (`id.geometrie.abstand`) – läuft über die Klassen 5, 7, 9
@@ -490,11 +490,11 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | Alle Punkte, die von M ⟦3 cm⟧ entfernt sind: Kreis um M mit Radius ⟦3 cm⟧ | Einführung | `geometrie.ortslinien` |
+| 5 | Kreis um M: alle Punkte ⟦3 cm⟧ von M | Einführung | `geometrie.ortslinien` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 7 | A(0 &#124; 0), B(4 &#124; 0): Der Punkt (2 &#124; 3) ist von A und von B ⟦gleich weit⟧ entfernt – er liegt auf der Mittelsenkrechten | Einführung | `geometrie.konstruktion` |
+| 7 | Mittelsenkrechte: von A und B ⟦gleich weit⟧ | Einführung | `geometrie.konstruktion` |
 | 8 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 9 | Der Punkt (3 &#124; 4) ist vom Ursprung ⟦5⟧ entfernt, denn 3² + 4² = ⟦5⟧² | Anwendung | `trigo.pythagoras` |
+| 9 | (3 &#124; 4) ist vom Ursprung ⟦5⟧ entfernt | Anwendung | `trigo.pythagoras` |
 | 10 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 
 #### Deckungsgleich (`id.geometrie.deckungsgleich`) – läuft über die Klassen 5, 7
@@ -505,9 +505,9 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | Im Rechteck sind gegenüberliegende Seiten ⟦gleich lang⟧ | Vorwissen | `geometrie.grundbegriffe` |
+| 5 | Rechteck: Gegenseiten ⟦gleich lang⟧ | Vorwissen | `geometrie.grundbegriffe` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 7 | Spiegeln an der y-Achse: A(2 &#124; 1) → A′(−2 &#124; 1), B(5 &#124; 1) → B′(−5 &#124; 1); die Strecke ist vorher ⟦3⟧ lang und nachher ⟦3⟧ | Einführung | `abbildungen.kongruenz` |
+| 7 | Spiegeln: [AB] = ⟦3⟧, danach [A′B′] = ⟦3⟧ | Einführung | `abbildungen.kongruenz` |
 | 8 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse (dort beginnt „Ähnlich“)* | – | – |
 | 10 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
@@ -524,8 +524,8 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 6 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 7 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 8 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
-| 9 | Dreieck 3 cm, 4 cm, 5 cm ⟦· 2⟧ → 6 cm, 8 cm, 10 cm; alle Winkel bleiben | Einführung | `abbildungen.aehnlichkeit` |
-| 10 | Schneidet man eine Pyramide auf halber Höhe ab, ist die kleine Pyramide ähnlich: Kanten ⟦· ½⟧, Volumen · ⅛ | Anwendung | `raum.pyramide_kegel_kugel` |
+| 9 | 3, 4, 5 cm ⟦· 2⟧ → 6, 8, 10 cm | Einführung | `abbildungen.aehnlichkeit` |
+| 10 | Pyramide, obere Hälfte: Kanten ⟦· ½⟧, Volumen · ⅛ | Anwendung | `raum.pyramide_kegel_kugel` |
 
 #### Rechtwinkliges Dreieck (`id.geometrie.rechtwinklig`) – läuft über die Klassen 9, 10
 
@@ -539,8 +539,8 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 6 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 7 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 8 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
-| 9 | Katheten 3 cm und 4 cm: ⟦3² + 4² = 5²⟧, die Hypotenuse ist 5 cm lang | Einführung | `trigo.pythagoras` |
-| 10 | Kegel mit r = 3 cm und h = 4 cm: ⟦3² + 4² = 5²⟧, die Mantellinie ist 5 cm lang | Anwendung | `raum.pyramide_kegel_kugel` |
+| 9 | Dreieck 3, 4, 5 cm: ⟦3² + 4² = 5²⟧ | Einführung | `trigo.pythagoras` |
+| 10 | Kegel r = 3, h = 4, s = 5: ⟦3² + 4² = 5²⟧ | Anwendung | `raum.pyramide_kegel_kugel` |
 
 ### Planet „Fläche und Raum“
 
@@ -548,13 +548,13 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 
 > **Messen heißt auslegen und zählen.**
 
-**In jeder Zeile markiert:** Das Zählen in Reihen und Schichten.
+**In jeder Zeile markiert:** Das, was gezählt wird: Reihen und Schichten.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | Rechteck 6 cm mal 4 cm: ⟦4 Reihen zu je 6⟧ = 24 cm² | Einführung | `messen.flaechen` |
-| 6 | Quader 5 cm, 4 cm, 3 cm: ⟦3 Schichten zu je 20⟧ = 60 cm³ | Einführung | `messen.volumen` |
-| 7 | Rechteck mit den Seiten x und 4: ⟦4 Reihen zu je x⟧ = 4x | Anwendung | `terme.aufstellen` |
+| 5 | Rechteck: ⟦4 Reihen⟧ zu je 6 = 24 cm² | Einführung | `messen.flaechen` |
+| 6 | Quader: ⟦3 Schichten⟧ zu je 20 = 60 cm³ | Einführung | `messen.volumen` |
+| 7 | Rechteck: ⟦4 Reihen⟧ zu je x = 4x | Anwendung | `terme.aufstellen` |
 | 8 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
 | 10 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
@@ -563,46 +563,47 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 
 > **Aus dem Rechteck entsteht jede Fläche.**
 
-**In jeder Zeile markiert:** Die Grundseite mal die Höhe – das Rechteck, das in jeder Formel steckt.
+**In jeder Zeile markiert:** Grundseite mal Höhe – das Rechteck, das in jeder Formel steckt. Längen in cm.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | Rechteck: ⟦6 cm · 4 cm⟧ = 24 cm² | Einführung | `messen.flaechen` |
-| 6 | Parallelogramm: ⟦6 cm · 4 cm⟧ = 24 cm². Dreieck: ⟦6 cm · 4 cm⟧ : 2 = 12 cm² | Einführung | `messen.flaechen_vielecke` |
+| 5 | Rechteck: ⟦6 · 4⟧ = 24 cm² | Einführung | `messen.flaechen` |
+| 6 | Parallelogramm: ⟦6 · 4⟧ = 24 cm² | Einführung | `messen.flaechen_vielecke` |
+| 6 | Dreieck: ⟦6 · 4⟧ : 2 = 12 cm² | Einführung | `messen.flaechen_vielecke` |
 | 7 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 8 | Kreis mit r = 3 cm, umgelegt zu einem Fast-Rechteck: ⟦π · 3 cm · 3 cm⟧ ≈ 28,3 cm² | Einführung | `messen.kreisberechnung` |
-| 9 | Gleichseitiges Dreieck mit Seite 6 cm: Höhe √27 cm ≈ 5,2 cm, also ⟦6 cm · 5,2 cm⟧ : 2 ≈ 15,6 cm² | Anwendung | `trigo.pythagoras` |
-| 10 | Mantel der Pyramide (Grundkante 6 cm, Seitenhöhe 5 cm): vier Dreiecke, je ⟦6 cm · 5 cm⟧ : 2 = 15 cm², zusammen 60 cm² | Anwendung | `raum.pyramide_kegel_kugel` |
+| 8 | Kreis, r = 3: ⟦π · 3 · 3⟧ ≈ 28,3 cm² | Einführung | `messen.kreisberechnung` |
+| 9 | Gleichseitig, a = 6: ⟦6 · 5,2⟧ : 2 ≈ 15,6 cm² | Anwendung | `trigo.pythagoras` |
+| 10 | Pyramidenmantel: 4 mal ⟦6 · 5⟧ : 2 = 60 cm² | Anwendung | `raum.pyramide_kegel_kugel` |
 
 #### Aus dem Quader (`id.flaeche_raum.aus_dem_quader`) – läuft über die Klassen 6, 8, 10
 
 > **Grundfläche mal Höhe – bei Spitzen nur ein Drittel.**
 
-**In jeder Zeile markiert:** Grundfläche mal Höhe.
+**In jeder Zeile markiert:** Grundfläche mal Höhe. Grundfläche in cm², Höhe in cm.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
 | 5 | *kommt nicht vor – der Stoff dafür beginnt später (Volumen ab Klasse 6)* | – | – |
-| 6 | Quader: ⟦20 cm² · 3 cm⟧ = 60 cm³ | Einführung | `messen.volumen` |
+| 6 | Quader: ⟦20 · 3⟧ = 60 cm³ | Einführung | `messen.volumen` |
 | 7 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 8 | Prisma mit dreieckiger Grundfläche: ⟦6 cm² · 10 cm⟧ = 60 cm³ | Einführung | `messen.prisma_zylinder` |
+| 8 | Prisma: ⟦6 · 10⟧ = 60 cm³ | Einführung | `messen.prisma_zylinder` |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 10 | Pyramide: ⟦36 cm² · 4 cm⟧ : 3 = 48 cm³ | Einführung | `raum.pyramide_kegel_kugel` |
+| 10 | Pyramide: ⟦36 · 4⟧ : 3 = 48 cm³ | Einführung | `raum.pyramide_kegel_kugel` |
 
 #### Haut des Körpers (`id.flaeche_raum.haut`) – läuft über die Klassen 5, 8, 10
 
 > **Aufklappen zeigt die ganze Haut des Körpers.**
 
-**In jeder Zeile markiert:** Die Flächen, die zusammengezählt werden.
+**In jeder Zeile markiert:** Das Plus: Die Flächen der Haut werden zusammengezählt.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | Quader 5 cm, 4 cm, 3 cm: ⟦2 · 20 + 2 · 15 + 2 · 12⟧ = 94 cm² | Einführung | `messen.koerper_berechnung` |
+| 5 | Quader: 40 ⟦+⟧ 30 ⟦+⟧ 24 = 94 cm² | Einführung | `messen.koerper_berechnung` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 7 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 8 | Prisma (Dreieck 3 cm, 4 cm, 5 cm; Höhe 6 cm): ⟦2 · 6 + 18 + 24 + 30⟧ = 84 cm² | Einführung | `messen.prisma_zylinder` |
+| 8 | Prisma: 12 ⟦+⟧ 18 ⟦+⟧ 24 ⟦+⟧ 30 = 84 cm² | Einführung | `messen.prisma_zylinder` |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 10 | Pyramide (Grundkante 6 cm, Seitenhöhe 5 cm): ⟦36 + 4 · 15⟧ = 96 cm² | Einführung | `raum.pyramide_kegel_kugel` |
+| 10 | Pyramide: 36 ⟦+⟧ 60 = 96 cm² | Einführung | `raum.pyramide_kegel_kugel` |
 
 ### Planet „Funktionen“
 
@@ -614,7 +615,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | Zu ⟦3 kg⟧ gehört genau ein Preis: ⟦7,50 €⟧ | Vorwissen | `groessen.proportional` |
+| 5 | zu ⟦3 kg⟧ gehört ⟦7,50 €⟧ | Vorwissen | `groessen.proportional` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 7 | T(x) = 2x + 1: zu ⟦x = 3⟧ gehört ⟦7⟧ | Vorwissen | `terme.aufstellen` |
 | 8 | y = 2x + 1: zu ⟦x = 3⟧ gehört ⟦y = 7⟧ | Einführung | `funktionen.grundbegriffe` |
@@ -629,12 +630,12 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | Je Kilogramm ⟦+ 2,50 €⟧: 2,50 €; 5 €; 7,50 € | Vorwissen | `groessen.proportional` |
+| 5 | Preis je kg: 2,50; 5; 7,50 – immer ⟦+ 2,50⟧ | Vorwissen | `groessen.proportional` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 7 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 8 | y = 1 + 2x: von Schritt zu Schritt ⟦+ 2⟧: 1; 3; 5; 7; 9 | Einführung | `funktionen.linear` |
+| 8 | y = 1 + 2x: 1; 3; 5; 7 – immer ⟦+ 2⟧ | Einführung | `funktionen.linear` |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse (quadratisch wächst weder in gleichen Schritten noch mit gleichem Faktor)* | – | – |
-| 10 | y = 2ˣ: von Schritt zu Schritt ⟦· 2⟧: 1; 2; 4; 8; 16 | Einführung | `funktionen.exponential_log` |
+| 10 | y = 2ˣ: 1; 2; 4; 8 – immer ⟦· 2⟧ | Einführung | `funktionen.exponential_log` |
 
 #### Gleichung und Form (`id.funktionen.gleichung_form`) – läuft über die Klassen 8, 9, 10
 
@@ -649,8 +650,8 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 7 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 8 | y = 2 · ⟦x⟧ + 1: Gerade | Einführung | `funktionen.linear` |
 | 8 | y = 1 : ⟦x⟧: Hyperbel | Einführung | `funktionen.gebrochen` |
-| 9 | y = ⟦x²⟧: Parabel. y = (x − 3)²: dieselbe Parabel, 3 nach rechts | Einführung | `funktionen.quadratisch` |
-| 10 | y = ⟦x³⟧ − 4x: Kurve mit drei Nullstellen −2, 0, 2 | Einführung | `funktionen.ganzrational` |
+| 9 | y = ⟦x²⟧: Parabel | Einführung | `funktionen.quadratisch` |
+| 10 | y = ⟦x³⟧ − 4x: drei Nullstellen | Einführung | `funktionen.ganzrational` |
 
 ### Planet „Daten und Zufall“
 
@@ -663,8 +664,8 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
 | 5 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 6 | 4, 5, 5, 6: Mittelwert ⟦5⟧. Und 1, 2, 8, 9: Mittelwert auch ⟦5⟧ | Einführung | `daten.kennwerte` |
-| 7 | 2, 3, 3, 4, 18: Median ⟦3⟧, Mittelwert 6 – der Ausreißer zieht nur den Mittelwert mit | Einführung | `daten.boxplot` |
+| 6 | 4, 5, 5, 6: Mittelwert ⟦5⟧ | Einführung | `daten.kennwerte` |
+| 7 | 2, 3, 3, 4, 18: Median ⟦3⟧, Mittelwert 6 | Einführung | `daten.boxplot` |
 | 8 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 10 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
@@ -673,31 +674,31 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 
 > **Wenige sagen nur etwas über alle, wenn der Zufall sie auswählt.**
 
-**In jeder Zeile markiert:** Der Anteil in der Stichprobe.
+**In jeder Zeile markiert:** Der Anteil in der Stichprobe – er schätzt den Anteil im Ganzen.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
 | 5 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 6 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 7 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
-| 8 | Von 100 zufällig gezogenen Kugeln sind 30 rot: geschätzter Anteil ⟦30 %⟧ | Einführung | `stochastik.grundbegriffe` |
+| 8 | 30 von 100 gezogenen Kugeln rot: ⟦30 %⟧ | Einführung | `stochastik.grundbegriffe` |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 10 | Ein Versuch wird sehr oft nachgespielt; der ⟦Anteil der Treffer⟧ schätzt die Wahrscheinlichkeit | Anwendung | `stochastik.simulation` |
+| 10 | 493 Treffer in 1 000 Versuchen: ⟦49,3 %⟧ | Anwendung | `stochastik.simulation` |
 
 #### Anteil (`id.daten.anteil`) – läuft über die Klassen 5, 8, 9, 10
 
 > **Wahrscheinlichkeit: günstige durch mögliche.**
 
-**In jeder Zeile markiert:** Günstige durch mögliche.
+**In jeder Zeile markiert:** Die Zahl der Möglichkeiten – ab Klasse 8 mit den günstigen davor.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | 3 Hosen und 2 Hemden: 3 · 2 = ⟦6 Möglichkeiten⟧ | Vorwissen | `stochastik.kombinatorik` |
+| 5 | 3 Hosen, 2 Hemden: 3 · 2 = ⟦6⟧ Möglichkeiten | Vorwissen | `stochastik.kombinatorik` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 7 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 8 | Würfel, gerade Zahl: ⟦3 von 6⟧ = ½ | Einführung | `stochastik.grundbegriffe` |
-| 9 | Würfel, „gerade oder größer als 4“: günstig sind 2, 4, 5, 6 – ⟦4 von 6⟧ = ⅔ | Anwendung | `stochastik.verknuepft` |
-| 10 | Zwei Münzwürfe, zweimal Kopf: ⟦1 von 4⟧ = ¼ | Anwendung | `stochastik.mehrstufig` |
+| 9 | Würfel, gerade oder über 4: ⟦4 von 6⟧ = ⅔ | Anwendung | `stochastik.verknuepft` |
+| 10 | Zweimal Kopf: ⟦1 von 4⟧ = ¼ | Anwendung | `stochastik.mehrstufig` |
 
 #### Stufen (`id.daten.stufen`) – kommt nur in Klasse 10 vor
 
@@ -712,7 +713,8 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 7 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 8 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 9 | *kommt nicht vor – der Stoff dafür beginnt später (Klasse 9 arbeitet mit der Vierfeldertafel, noch ohne Pfade)* | – | – |
-| 10 | Zwei Münzwürfe, erst Kopf, dann Zahl: ½ ⟦·⟧ ½ = ¼. Genau einmal Kopf: ¼ ⟦+⟧ ¼ = ½ | Einführung | `stochastik.mehrstufig` |
+| 10 | Kopf, dann Zahl: ½ ⟦·⟧ ½ = ¼ | Einführung | `stochastik.mehrstufig` |
+| 10 | Genau einmal Kopf: ¼ ⟦+⟧ ¼ = ½ | Einführung | `stochastik.mehrstufig` |
 
 ## Nicht geprüft
 

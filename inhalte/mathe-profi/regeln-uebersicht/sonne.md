@@ -1,4 +1,4 @@
-# Gesetzbuch · Die Sonne: die 14 Rechenregeln (fünfte Fassung: mit Klassenleiter je Regel)
+# Gesetzbuch · Die Sonne: die 14 Rechenregeln (sechste Fassung: Rechenregel 3 mit neuer Hauptzeichnung)
 
 Mathe-Profi, 26.11.2026. Erzeugt von `bauen.py`; 76 Beispiele, jedes nachgerechnet (Lauf „OK“).
 Die Sonne ist die Mitte des Gesetzbuchs: Diese Regeln bleiben von Klasse 5 bis 10 dieselben, nur das Gewand wechselt (Zahl, Bruch, Buchstabe, Bruchterm, Wurzel).
@@ -95,7 +95,7 @@ In jeder Zeile markiert: Das „· 10“ (oder „· 100“, „· 10⁻⁴“) 
 |---|---|---|---|
 | 5 | 34 ⟦· 10⟧ = 340 | Einführung | `zahlen.natuerlich` |
 | 6 | 2,5 ⟦· 10⟧ = 25 | Einführung | `bruch.dezimal` |
-| 7 | 0,15 ⟦· 100⟧ = 15, also 0,15 = 15 % | Anwendung | `bruch.prozent_grundwert` |
+| 7 | 0,15 ⟦· 100⟧ = 15, also 15 % | Anwendung | `bruch.prozent_grundwert` |
 | 8 | 3 ⟦· 10⁻⁴⟧ = 0,0003 | Anwendung | `terme.potenzgesetze_ganzzahlig` |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
 | 10 | *kommt nicht vor – kein Thema der App in dieser Klasse; die Regel wird als bekannt benutzt* | – | – |
@@ -105,9 +105,9 @@ In jeder Zeile markiert: Das „· 10“ (oder „· 100“, „· 10⁻⁴“) 
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
 | 5 | Einführung | 340 · 10 = 3 400 | `zahlen.natuerlich` |
-| 5 | Anwendung | 3 400 m = 3,4 km | `groessen.einheiten` |
+| 5 | Anwendung | 3 400 m : 1 000 = 3,4 km | `groessen.einheiten` |
 | 6 | Einführung | 2,5 · 10 = 25 | `bruch.dezimal` |
-| 6 | Anwendung | 15 % = 15 Hundertstel = 0,15 | `bruch.prozent` |
+| 6 | Anwendung | 15 % = 15 : 100 = 0,15 | `bruch.prozent` |
 | 8 | Anwendung | 3 · 10⁻⁴ = 0,0003 | `terme.potenzgesetze_ganzzahlig` |
 
 **Möglicher Erklärweg über:** – (zum Erklären hilfreich, keine Lernvoraussetzung)
@@ -145,9 +145,9 @@ In jeder Zeile markiert: Die zwei Minuszeichen nebeneinander: Rechenzeichen und 
 | 5 | 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Einführung | `zahlen.ganz` |
 | 6 | ½ ⟦−⟧ (⟦−⟧¼) = ½ + ¼ = ¾ | Anwendung | `bruch.rechnen` |
 | 7 | 3x ⟦−⟧ (⟦−⟧2x) = 3x + 2x = 5x | Anwendung | `terme.umformen` |
-| 8 | f(x) = 3 − x an der Stelle −2: 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Anwendung | `funktionen.linear` |
+| 8 | f(x) = 3 − x, x = −2: 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Anwendung | `funktionen.linear` |
 | 9 | 3√2 ⟦−⟧ (⟦−⟧2√2) = 3√2 + 2√2 = 5√2 | Anwendung | `zahlen.reell` |
-| 10 | f(x) = 3 − 2x³ an der Stelle −1: 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Anwendung | `funktionen.ganzrational` |
+| 10 | f(x) = 3 − 2x³, x = −1: 3 ⟦−⟧ (⟦−⟧2) = 3 + 2 = 5 | Anwendung | `funktionen.ganzrational` |
 
 **Weitere Beispiele**
 
@@ -177,7 +177,7 @@ In jeder Zeile markiert: Die zwei Minuszeichen nebeneinander: Rechenzeichen und 
 
 **Genau gesagt:** Bei Mal und Geteilt mit zwei Zahlen ungleich null: Gleiche Vorzeichen ergeben Plus, verschiedene Minus.
 
-**Warum das gilt:** In der Reihe 3 · (−2) = −6, 2 · (−2) = −4, 1 · (−2) = −2, 0 · (−2) = 0 wird das Ergebnis jedes Mal um 2 größer. Setzt man sie fort, muss (−1) · (−2) = 2 sein. Nur so bleiben die übrigen Rechengesetze gültig. Für Geteilt gilt dasselbe, weil Teilen die Gegenrechnung zum Malnehmen ist.
+**Warum das gilt:** In der Reihe 3 · (−2) = −6, 2 · (−2) = −4, 1 · (−2) = −2, 0 · (−2) = 0 wird das Ergebnis jedes Mal um 2 größer. Setzt man sie fort, muss (−1) · (−2) = 2 sein. Nur so bleiben die übrigen Rechengesetze gültig. Für Geteilt gilt dasselbe, weil Teilen die Gegenrechnung zum Malnehmen ist. Als Bild: Mal (−1) wirft jede Zahl auf die andere Seite der Null; zweimal geworfen liegt sie wieder am alten Platz.
 
 **Voraussetzung:** Gilt für zwei Zahlen, die beide nicht null sind. Ist ein Faktor null, ist das Produkt null und hat kein Vorzeichen.
 
@@ -187,16 +187,16 @@ In jeder Zeile markiert: Die zwei Minuszeichen nebeneinander: Rechenzeichen und 
 
 **Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
 
-In jeder Zeile markiert: Die Vorzeichen der beiden Zahlen und das Vorzeichen des Ergebnisses.
+In jeder Zeile markiert: Die Vorzeichen der Zahlen und das Vorzeichen des Ergebnisses. In Klasse 10 sind es drei Minus: Ein Umdrehen bleibt übrig.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
 | 5 | (⟦−⟧3) · (⟦−⟧4) = ⟦+⟧12 | Einführung | `zahlen.rechengesetze` |
 | 6 | (⟦−⟧⅔) · (⟦−⟧¾) = ⟦+⟧½ | Anwendung | `bruch.rechnen` |
 | 7 | (⟦−⟧3x) · (⟦−⟧4) = ⟦+⟧12x | Anwendung | `terme.umformen` |
-| 8 | Steigung aus zwei Punkten: (⟦−⟧6) : (⟦−⟧2) = ⟦+⟧3 | Anwendung | `funktionen.linear` |
+| 8 | Steigung: (⟦−⟧6) : (⟦−⟧2) = ⟦+⟧3 | Anwendung | `funktionen.linear` |
 | 9 | (⟦−⟧5)² = (⟦−⟧5) · (⟦−⟧5) = ⟦+⟧25 | Anwendung | `gleichungen.quadratisch` |
-| 10 | (⟦−⟧2)³ = (⟦−⟧2) · (⟦−⟧2) · (⟦−⟧2) = ⟦−⟧8 – drei Minus: einmal umdrehen bleibt übrig | Anwendung | `funktionen.ganzrational` |
+| 10 | (⟦−⟧2)³ = (⟦−⟧2) · (⟦−⟧2) · (⟦−⟧2) = ⟦−⟧8 | Anwendung | `funktionen.ganzrational` |
 
 **Weitere Beispiele**
 
@@ -213,13 +213,21 @@ In jeder Zeile markiert: Die Vorzeichen der beiden Zahlen und das Vorzeichen des
 
 **Wirkstelle** (in jedem Beispiel und in der Zeichnung gleich markiert): Die Vorzeichen der beiden Zahlen und das Vorzeichen des Ergebnisses.
 
-**Zeichen-Vorgabe**
-- **Zu sehen:** Eine Treppe aus fünf Stufen, die von links nach rechts ansteigt. Auf den Stufen stehen die Ergebnisse −6, −4, −2, 0, +2; unter jeder Stufe die Rechnung 3 · (−2), 2 · (−2), 1 · (−2), 0 · (−2), (−1) · (−2).
-- **Maße:** Alle Stufen gleich hoch (eine Stufe = 2). Die Stufe mit 0 liegt auf einer durchgezogenen Null-Linie.
-- **Beschriftung:** Zwischen den Stufen jeweils „+ 2“. Der erste Faktor zählt sichtbar herunter: 3, 2, 1, 0, −1.
-- **Hervorgehoben:** Die letzte Stufe (−1) · (−2) = +2, über der Null-Linie.
-- **Darf nicht falsch aussehen:** Die Treppe muss steigen, nicht fallen. Die Stufen müssen gleich hoch sein. Die +2 muss oberhalb der Null-Linie liegen.
-- **Gleiche Zeichnung, andere Beschriftung:** Keine – diese Zeichnung bleibt bei Zahlen. Für (−2x) · (−3) = 6x wird nur das Ergebnis darunter geschrieben.
+**Zeichen-Vorgabe** **– Hauptzeichnung**
+- **Zu sehen:** Zwei Zahlengeraden untereinander, gebaut wie die Zeichnung zu Rechenregel 2. Auf beiden sitzt der Startpunkt bei 2. Oben: ein Bogen führt von 2 über die Null hinweg nach −2. Unten: derselbe Bogen von 2 nach −2 und ein zweiter Bogen unter der Geraden von −2 zurück nach 2.
+- **Maße:** Beide Geraden von −3 bis 3, gleicher Maßstab, Teilstriche an jeder ganzen Zahl, die Null kräftiger und auf beiden genau übereinander. Jeder Bogen ist spiegelbildlich zur Null: Sein Scheitel liegt genau über (oder unter) der Null, Anfang und Ende sind gleich weit von ihr entfernt.
+- **Beschriftung:** Über der oberen Geraden „(−1) · 2 = −2“ und „ein Minus: einmal umdrehen“. Über der unteren „(−1) · (−2) = +2“ und „zwei Minus: zweimal umdrehen“. Ganz oben eine Zeile für beide: „Erst ohne Vorzeichen rechnen: 1 · 2 = 2. Dann dreht jedes Minus einmal um.“ Start mit vollem Punkt, Ziel mit Ring.
+- **Hervorgehoben:** Jedes Minuszeichen und sein Bogen in derselben Farbe – oben ein Paar, unten zwei Paare. Dasselbe Zeichen für die Kehrtwende wie bei Rechenregel 2.
+- **Darf nicht falsch aussehen:** Der Bogen muss genau beim Spiegelpunkt landen (−2, nicht −1 oder −3) und über die Null hinweggehen. Unten muss der zweite Bogen genau bei 2 ankommen. Es darf nicht wie ein Weg von zwei Schritten aussehen: Hier geht niemand, die Zahl springt auf die andere Seite der Null – das ist der Unterschied zu Rechenregel 2. Die Null muss sichtbar sein.
+- **Gleiche Zeichnung, andere Beschriftung:** Dieselben zwei Geraden für Geteilt: (−6) : (−2) = +3 – Start bei 3, zwei Bögen. Für Brüche: (−⅔) · (−¾) = +½ – Start bei ½, Geraden von −1 bis 1 in Vierteln. Für drei Minus (Klasse 10): (−2)³ = −8 – Gerade von −8 bis 8, Start bei 8, drei Bögen, Ende bei −8. Für Terme nur die Rechenzeile mit denselben Farbpaaren: (−3x) · (−4) = +12x – ohne Zahlengerade, weil 12x selbst nicht positiv sein muss; das Plus gehört zur Vorzahl 12.
+
+**Zeichen-Vorgabe zu „Warum das gilt“ (Treppe mit hängenden Balken)**
+- **Zu sehen:** Eine waagerechte Null-Linie über die ganze Breite. Fünf gleich breite Spalten für 3 · (−2), 2 · (−2), 1 · (−2), 0 · (−2), (−1) · (−2). In den ersten drei Spalten hängt je ein Balken von der Null-Linie nach unten, in der vierten ist nichts (nur ein Punkt auf der Linie), in der fünften steht ein Balken von der Null-Linie nach oben. Eine gestrichelte Linie verbindet die Balkenenden; sie steigt von links nach rechts.
+- **Maße:** Eine Einheit ist in allen Spalten gleich hoch. Die Balken sind 6, 4 und 2 Einheiten lang nach unten, dann 0, dann 2 Einheiten nach oben. Jeder Schritt der gestrichelten Linie steigt um genau 2 Einheiten.
+- **Beschriftung:** Am Ende jedes Balkens sein Wert: −6, −4, −2, 0, +2. Unter den Spalten die Rechnung. Zwischen den Balkenenden jeweils „+ 2“. Links an der Linie „Null-Linie“.
+- **Hervorgehoben:** Der letzte Balken über der Null-Linie und die Zeile „(−1) · (−2) = +2“.
+- **Darf nicht falsch aussehen:** Kein Balken darf auf dem Boden stehen: Alle beginnen an der Null-Linie. −6 muss der längste nach unten sein. Die Schritte müssen gleich groß sein. Der letzte Balken muss sichtbar über der Linie liegen.
+- **Gleiche Zeichnung, andere Beschriftung:** Keine – diese Zeichnung bleibt bei Zahlen und steht unter „Warum das gilt“, nicht als Hauptzeichnung.
 
 ### 4. Reihenfolge beim Rechnen
 
@@ -237,16 +245,16 @@ In jeder Zeile markiert: Die Vorzeichen der beiden Zahlen und das Vorzeichen des
 
 **Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
 
-In jeder Zeile markiert: Der Teil, der zuerst gerechnet wird – in jeder Zeile der Punkt-Teil hinter dem Plus.
+In jeder Zeile markiert: Der Teil, der zuerst gerechnet wird – in jeder Zeile der Punkt-Teil hinter dem Plus. Steht darin ein Hoch (Klasse 9 und 10), kommt es noch davor.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
 | 5 | 2 + ⟦3 · 4⟧ = 2 + 12 = 14 | Einführung | `zahlen.rechengesetze` |
 | 6 | ½ + ⟦½ · ½⟧ = ½ + ¼ = ¾ | Anwendung | `bruch.rechnen` |
 | 7 | 2 + ⟦3 · x⟧ bleibt 2 + 3x – nicht 5x | Anwendung | `terme.umformen` |
-| 8 | f(x) = 2 + 3x an der Stelle 4: 2 + ⟦3 · 4⟧ = 2 + 12 = 14 | Anwendung | `funktionen.linear` |
-| 9 | f(x) = 2 + 3x² an der Stelle 2: 2 + ⟦3 · 2²⟧ = 2 + 3 · 4 = 14 – im Punkt-Teil zuerst das Hoch | Anwendung | `funktionen.quadratisch` |
-| 10 | f(x) = 2 + 3 · 2ˣ an der Stelle 2: 2 + ⟦3 · 2²⟧ = 2 + 3 · 4 = 14 | Anwendung | `funktionen.exponential_log` |
+| 8 | f(x) = 2 + 3x, x = 4: 2 + ⟦3 · 4⟧ = 14 | Anwendung | `funktionen.linear` |
+| 9 | f(x) = 2 + 3x², x = 2: 2 + ⟦3 · 2²⟧ = 14 | Anwendung | `funktionen.quadratisch` |
+| 10 | f(x) = 2 + 3 · 2ˣ, x = 2: 2 + ⟦3 · 2²⟧ = 14 | Anwendung | `funktionen.exponential_log` |
 
 **Weitere Beispiele**
 
@@ -295,7 +303,7 @@ In jeder Zeile markiert: Der Summand, der wandert – immer zusammen mit seinem 
 | 5 | 12 − 30 ⟦+ 18⟧ = 12 ⟦+ 18⟧ − 30 = 0 | Einführung | `zahlen.ganz` |
 | 6 | ¼ − ½ ⟦+ ¾⟧ = ¼ ⟦+ ¾⟧ − ½ = ½ | Anwendung | `bruch.rechnen` |
 | 7 | 3a + 2b ⟦+ 4a⟧ = 3a ⟦+ 4a⟧ + 2b = 7a + 2b | Einführung | `terme.umformen` |
-| 8 | Zwei Gleichungen addieren: 2x + 3y ⟦− 2x⟧ + y = 2x ⟦− 2x⟧ + 3y + y = 4y | Anwendung | `gleichungen.lgs2` |
+| 8 | 2x + 3y ⟦− 2x⟧ + y = 2x ⟦− 2x⟧ + 4y = 4y | Anwendung | `gleichungen.lgs2` |
 | 9 | 3√2 + 5 ⟦+ 2√2⟧ = 3√2 ⟦+ 2√2⟧ + 5 = 5√2 + 5 | Anwendung | `zahlen.reell` |
 | 10 | 3x³ + 2x ⟦+ 4x³⟧ = 3x³ ⟦+ 4x³⟧ + 2x = 7x³ + 2x | Anwendung | `funktionen.ganzrational` |
 
@@ -344,7 +352,7 @@ In jeder Zeile markiert: Der Faktor vor der Klammer – an allen drei Stellen, a
 | 5 | ⟦6⟧ · (20 + 2) = ⟦6⟧ · 20 + ⟦6⟧ · 2 = 132 | Einführung | `zahlen.rechengesetze` |
 | 6 | ⟦4⟧ · (2 + ½) = ⟦4⟧ · 2 + ⟦4⟧ · ½ = 10 | Anwendung | `bruch.rechnen` |
 | 7 | ⟦3⟧ · (x + 2) = ⟦3⟧ · x + ⟦3⟧ · 2 = 3x + 6 | Einführung | `terme.umformen` |
-| 8 | ⟦x⟧ · (3/x + ½) = ⟦x⟧ · 3/x + ⟦x⟧ · ½ = 3 + x/2, für x ≠ 0 | Anwendung | `gleichungen.bruch` |
+| 8 | ⟦x⟧ · (3/x + ½) = ⟦x⟧ · 3/x + ⟦x⟧ · ½, für x ≠ 0 | Anwendung | `gleichungen.bruch` |
 | 9 | ⟦√2⟧ · (√2 + 3) = ⟦√2⟧ · √2 + ⟦√2⟧ · 3 = 2 + 3√2 | Anwendung | `zahlen.reell` |
 | 10 | ⟦x⟧ · (x² − 4) = ⟦x⟧ · x² − ⟦x⟧ · 4 = x³ − 4x | Anwendung | `gleichungen.polynom` |
 
@@ -396,7 +404,7 @@ In jeder Zeile markiert: Das Minus vor der Klammer und das Zeichen in der Klamme
 | 6 | 2 ⟦−⟧ (¾ ⟦−⟧ ¼) = 2 ⟦−⟧ ¾ ⟦+⟧ ¼ = 1½ | Vorwissen | `bruch.rechnen` |
 | 7 | 5x ⟦−⟧ (3x ⟦−⟧ 2) = 5x ⟦−⟧ 3x ⟦+⟧ 2 = 2x + 2 | Einführung | `terme.umformen` |
 | 8 | 7 ⟦−⟧ (2x ⟦−⟧ 6) = 7 ⟦−⟧ 2x ⟦+⟧ 6 = 13 − 2x | Anwendung | `gleichungen.ungleichungen` |
-| 9 | (x + 1)² ⟦−⟧ (x² ⟦−⟧ 3) = x² + 2x + 1 ⟦−⟧ x² ⟦+⟧ 3 = 2x + 4 | Anwendung | `gleichungen.quadratisch` |
+| 9 | x² ⟦−⟧ (x² ⟦−⟧ 3x) = x² ⟦−⟧ x² ⟦+⟧ 3x = 3x | Anwendung | `gleichungen.quadratisch` |
 | 10 | x³ ⟦−⟧ (x³ ⟦−⟧ 4x) = x³ ⟦−⟧ x³ ⟦+⟧ 4x = 4x | Anwendung | `gleichungen.polynom` |
 
 **Weitere Beispiele**
@@ -444,7 +452,7 @@ In jeder Zeile markiert: Die Hochzahlen: Sie zählen die Faktoren und werden bei
 | 6 | 10⟦³⟧ · 10⟦²⟧ = 10⟦⁵⟧ = 100 000 | Anwendung | `zahlen.potenzen_zehner` |
 | 7 | x⟦³⟧ · x⟦²⟧ = (x · x · x) · (x · x) = x⟦⁵⟧ | Einführung | `terme.potenzgesetze_natuerlich` |
 | 8 | x⟦³⟧ · x⟦⁻²⟧ = x⟦¹⟧ = x, für x ≠ 0 | Einführung | `terme.potenzgesetze_ganzzahlig` |
-| 9 | x^⟦½⟧ · x^⟦½⟧ = x⟦¹⟧ = x, für x ≥ 0 – also ist x^½ die Wurzel aus x | Einführung | `zahlen.rationale_exponenten` |
+| 9 | x^⟦½⟧ · x^⟦½⟧ = x⟦¹⟧ = x, für x ≥ 0 | Einführung | `zahlen.rationale_exponenten` |
 | 10 | 2⟦ˣ⟧ · 2⟦³⟧ = 2 hoch ⟦x + 3⟧ | Anwendung | `funktionen.exponential_log` |
 
 **Weitere Beispiele**
@@ -492,19 +500,19 @@ In jeder Zeile markiert: Der gemeinsame Faktor – einmal im Zähler, einmal im 
 | 5 | *kommt nicht vor – der Stoff dafür beginnt später (Brüche ab Klasse 6)* | – | – |
 | 6 | 12/18 = (2 · ⟦6⟧) / (3 · ⟦6⟧) = 2/3 | Einführung | `bruch.brueche` |
 | 7 | 6x/9 = (2x · ⟦3⟧) / (3 · ⟦3⟧) = 2x/3 | Anwendung | `gleichungen.linear` |
-| 8 | (3x + 6) / (x + 2) = (3 · ⟦(x + 2)⟧) / (1 · ⟦(x + 2)⟧) = 3, für x ≠ −2 | Anwendung | `terme.bruchterme` |
-| 9 | Seitenverhältnis 6 cm : 9 cm = (2 · ⟦3⟧) : (3 · ⟦3⟧) = 2 : 3 | Anwendung | `abbildungen.aehnlichkeit` |
-| 10 | Zweiter Zug aus der Urne: 2/4 = (1 · ⟦2⟧) / (2 · ⟦2⟧) = ½ | Anwendung | `stochastik.mehrstufig` |
+| 8 | (3 · ⟦(x + 2)⟧) / (1 · ⟦(x + 2)⟧) = 3, für x ≠ −2 | Anwendung | `terme.bruchterme` |
+| 9 | 6 cm : 9 cm = (2 · ⟦3⟧) : (3 · ⟦3⟧) = 2 : 3 | Anwendung | `abbildungen.aehnlichkeit` |
+| 10 | 2/4 = (1 · ⟦2⟧) / (2 · ⟦2⟧) = ½ | Anwendung | `stochastik.mehrstufig` |
 
 **Weitere Beispiele**
 
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
-| 6 | Einführung | ½ = 2/4 | `bruch.brueche` |
-| 6 | Einführung | 12/18 = 2/3 | `bruch.brueche` |
-| 7 | Anwendung | 6x : 9 = 2x : 3 | `terme.umformen` |
+| 6 | Einführung | ½ = (1 · 2)/(2 · 2) = 2/4 | `bruch.brueche` |
+| 6 | Einführung | 12/18 = (2 · 6)/(3 · 6) = 2/3 | `bruch.brueche` |
+| 7 | Anwendung | 6x : 9 = (2x · 3) : (3 · 3) = 2x : 3 | `terme.umformen` |
 | 8 | Anwendung | (3x + 6) : (x + 2) = 3 · (x + 2) : (x + 2) = 3 für x ≠ −2 | `terme.bruchterme` |
-| 9 | Anwendung | Das Seitenverhältnis 6 : 9 ist dasselbe wie 2 : 3 | `abbildungen.aehnlichkeit` |
+| 9 | Anwendung | Seitenverhältnis 6 : 9 = (2 · 3) : (3 · 3) = 2 : 3 | `abbildungen.aehnlichkeit` |
 
 **Möglicher Erklärweg über:** – (zum Erklären hilfreich, keine Lernvoraussetzung)
 
@@ -544,8 +552,8 @@ In jeder Zeile markiert: Der gemeinsame Nenner – in jedem der drei Brüche.
 | 6 | 1/2 + 1/3 = 3/⟦6⟧ + 2/⟦6⟧ = 5/⟦6⟧ | Einführung | `bruch.rechnen` |
 | 7 | x/2 + x/3 = 3x/⟦6⟧ + 2x/⟦6⟧ = 5x/⟦6⟧ | Anwendung | `gleichungen.linear` |
 | 8 | 1/x + 1/(2x) = 2/⟦2x⟧ + 1/⟦2x⟧ = 3/⟦2x⟧, für x ≠ 0 | Anwendung | `terme.bruchterme` |
-| 9 | Additionssatz: 1/2 + 1/3 − 1/6 = 3/⟦6⟧ + 2/⟦6⟧ − 1/⟦6⟧ = 4/⟦6⟧ = ⅔ | Anwendung | `stochastik.verknuepft` |
-| 10 | Zwei Pfade addieren: 1/6 + 1/3 = 1/⟦6⟧ + 2/⟦6⟧ = 3/⟦6⟧ = ½ | Anwendung | `stochastik.mehrstufig` |
+| 9 | 1/2 + 1/3 − 1/6 = 3/⟦6⟧ + 2/⟦6⟧ − 1/⟦6⟧ = 4/⟦6⟧ | Anwendung | `stochastik.verknuepft` |
+| 10 | 1/6 + 1/3 = 1/⟦6⟧ + 2/⟦6⟧ = 3/⟦6⟧ | Anwendung | `stochastik.mehrstufig` |
 
 **Weitere Beispiele**
 
@@ -586,26 +594,26 @@ In jeder Zeile markiert: Der gemeinsame Nenner – in jedem der drei Brüche.
 
 **Klassenleiter – dieselbe Stelle, dieselbe Handlung, andere Zahlen**
 
-In jeder Zeile markiert: Die mittlere Zeile: der Wert für eins.
+In jeder Zeile markiert: Die Eins in der Mitte: erst auf eins, dann auf viele.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | 3 kg kosten 7,50 € → ⟦1 kg kostet 2,50 €⟧ → 5 kg kosten 12,50 € | Einführung | `groessen.proportional` |
-| 6 | 100 % sind 60 € → ⟦1 % sind 0,60 €⟧ → 25 % sind 15 € | Einführung | `bruch.prozent` |
-| 7 | 80 % sind 48 € → ⟦1 % sind 0,60 €⟧ → 100 % sind 60 € | Anwendung | `bruch.prozent_grundwert` |
-| 8 | 2 nach rechts, 3 nach oben → ⟦1 nach rechts, 1,5 nach oben⟧ → 4 nach rechts, 6 nach oben (Steigung 1,5) | Anwendung | `funktionen.linear` |
-| 9 | 2 cm gehören zu 3 cm → ⟦1 cm gehört zu 1,5 cm⟧ → 4 cm gehören zu 6 cm (Strahlensatz) | Anwendung | `abbildungen.aehnlichkeit` |
-| 10 | 360° sind 2π → ⟦1° ist π/180⟧ → 90° sind π/2 (Bogenmaß) | Anwendung | `funktionen.trig` |
+| 5 | 3 kg: 7,50 € → ⟦1 kg⟧: 2,50 € → 5 kg: 12,50 € | Einführung | `groessen.proportional` |
+| 6 | 100 %: 60 € → ⟦1 %⟧: 0,60 € → 25 %: 15 € | Einführung | `bruch.prozent` |
+| 7 | 80 %: 48 € → ⟦1 %⟧: 0,60 € → 100 %: 60 € | Anwendung | `bruch.prozent_grundwert` |
+| 8 | x = 2: y = 3 → ⟦x = 1⟧: y = 1,5 → x = 4: y = 6 | Anwendung | `funktionen.linear` |
+| 9 | 2 cm: 3 cm → ⟦1 cm⟧: 1,5 cm → 4 cm: 6 cm | Anwendung | `abbildungen.aehnlichkeit` |
+| 10 | 360°: 2π → ⟦1°⟧: π/180 → 90°: π/2 | Anwendung | `funktionen.trig` |
 
 **Weitere Beispiele**
 
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
 | 5 | Einführung | 3 kg kosten 7,50 €, also kostet 1 kg 2,50 € und 5 kg kosten 12,50 € | `groessen.proportional` |
-| 6 | Anwendung | 15 von 60 sind 25 % | `bruch.prozent` |
+| 6 | Anwendung | 60 sind 100 %, also ist 0,6 gleich 1 % und 15 sind 25 % | `bruch.prozent` |
 | 7 | Anwendung | 80 % sind 48 €, also ist 1 % 0,60 € und 100 % sind 60 € | `bruch.prozent_grundwert` |
 | 8 | Anwendung | Steigung 1,5: je 2 nach rechts geht es 3 nach oben | `funktionen.linear` |
-| 9 | Anwendung | Strahlensatz: 2 : 3 = 4 : x, also x = 6 | `abbildungen.aehnlichkeit` |
+| 9 | Anwendung | Strahlensatz: zu 2 cm gehören 3 cm, also zu 1 cm 1,5 cm und zu 4 cm 6 cm | `abbildungen.aehnlichkeit` |
 
 **Möglicher Erklärweg über:** Erweitern und Kürzen (zum Erklären hilfreich, keine Lernvoraussetzung)
 
@@ -642,8 +650,8 @@ In jeder Zeile markiert: Die Rechnung und ihre Gegenrechnung – als Paar.
 | 5 | □ ⟦+ 7⟧ = 3, also □ = 3 ⟦− 7⟧ = −4 | Einführung | `gleichungen.einfach` |
 | 6 | □ ⟦· ¾⟧ = 12, also □ = 12 ⟦: ¾⟧ = 16 | Anwendung | `bruch.rechnen` |
 | 7 | G ⟦· 1,2⟧ = 60 €, also G = 60 € ⟦: 1,2⟧ = 50 € | Anwendung | `bruch.prozent_grundwert` |
-| 8 | A = g ⟦· h⟧, also g = A ⟦: h⟧ – mit A = 42 und h = 7 ist g = 6 | Anwendung | `gleichungen.formeln` |
-| 9 | x ⟦hoch 2⟧ = 49, also x = ⟦±√⟧49: x = 7 oder x = −7 | Einführung | `gleichungen.quadratisch` |
+| 8 | A = g ⟦· h⟧, also g = A ⟦: h⟧ | Anwendung | `gleichungen.formeln` |
+| 9 | x ⟦hoch 2⟧ = 49, also x = ⟦±√⟧49 = ±7 | Einführung | `gleichungen.quadratisch` |
 | 10 | 2 ⟦hoch x⟧ = 8, also x = ⟦log₂⟧ 8 = 3 | Einführung | `gleichungen.exponential` |
 
 **Weitere Beispiele**
@@ -701,10 +709,10 @@ In jeder Zeile markiert: Was auf beiden Seiten getan wird – der Befehl hinter 
 | Klasse | Art | Dieselbe Regel in diesem Jahr | Thema in der App |
 |---|---|---|---|
 | 5 | Einführung | □ + 7 = 3: auf beiden Seiten 7 abziehen, also □ = −4 | `gleichungen.einfach` |
-| 7 | Einführung | 2x + 2 = 12, also 2x = 10, also x = 5 | `gleichungen.linear` |
+| 7 | Einführung | 2x + 2 = 12 &#124; − 2 → 2x = 10 &#124; : 2 → x = 5 | `gleichungen.linear` |
 | 8 | Anwendung | 3/x + ½ = 5/x mit x ≠ 0: beide Seiten mal 2x, dann 6 + x = 10, also x = 4 | `gleichungen.bruch` |
-| 9 | Anwendung | 2x² = 18, also x² = 9 | `gleichungen.quadratisch` |
-| 10 | Anwendung | 3 · 2ˣ = 24, also 2ˣ = 8 | `gleichungen.exponential` |
+| 9 | Anwendung | 2x² = 18 &#124; : 2 → x² = 9 | `gleichungen.quadratisch` |
+| 10 | Anwendung | 3 · 2ˣ = 24 &#124; : 3 → 2ˣ = 8 | `gleichungen.exponential` |
 
 **Möglicher Erklärweg über:** Gegenrechnung (zum Erklären hilfreich, keine Lernvoraussetzung)
 
@@ -738,12 +746,12 @@ In jeder Zeile markiert: Die Null rechts und der Faktor, der null wird.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | ⟦□⟧ · 7 = ⟦0⟧, also □ = 0 | Vorwissen | `gleichungen.einfach` |
+| 5 | ⟦□⟧ · 7 = ⟦0⟧: □ = 0 | Vorwissen | `gleichungen.einfach` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 7 | *kommt nicht vor – kein Thema der App in dieser Klasse (Gleichungen mit x² erst ab Klasse 9)* | – | – |
-| 8 | Der Nenner ⟦x⟧ · ⟦(x − 4)⟧ wird ⟦0⟧ für x = 0 oder x = 4 – diese Zahlen sind nicht erlaubt | Vorwissen | `terme.bruchterme` |
-| 9 | ⟦(x − 2)⟧ · ⟦(x + 3)⟧ = ⟦0⟧, also x = 2 oder x = −3 | Einführung | `gleichungen.quadratisch` |
-| 10 | ⟦x⟧ · ⟦(x − 2)⟧ · ⟦(x + 2)⟧ = ⟦0⟧, also x = 0, x = 2 oder x = −2 | Anwendung | `gleichungen.polynom` |
+| 8 | Nenner ⟦x⟧ · ⟦(x − 4)⟧ = ⟦0⟧: x = 0 oder 4 | Vorwissen | `terme.bruchterme` |
+| 9 | ⟦(x − 2)⟧ · ⟦(x + 3)⟧ = ⟦0⟧: x = 2 oder −3 | Einführung | `gleichungen.quadratisch` |
+| 10 | ⟦x⟧ · ⟦(x − 2)⟧ · ⟦(x + 2)⟧ = ⟦0⟧: x = 0, 2 oder −2 | Anwendung | `gleichungen.polynom` |
 
 **Weitere Beispiele**
 

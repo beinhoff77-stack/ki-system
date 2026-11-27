@@ -6,7 +6,7 @@ const path = require('node:path');
 const quelle = fs.readFileSync(path.resolve(__dirname, '..', 'lernen.js'), 'utf8');
 const a = quelle.indexOf("const LERN_BUCHST = "); const b = quelle.indexOf('function lernBruchKnoten(s) {');
 const lernBruchTeile = new Function(quelle.slice(a, b) + '\nreturn lernBruchTeile;')();
-const kurz = (s) => lernBruchTeile(s).map((t) => (typeof t === 'string' ? t : `[${t.z}|${t.n}]`)).join('');
+const kurz = (s) => lernBruchTeile(s).map((t) => (typeof t === 'string' ? t : `${t.vz || ''}[${t.z}|${t.n}]`)).join('');
 
 test('Zahlenbrüche werden erkannt, auch mit Satzzeichen danach', () => {
   assert.equal(kurz('Kürze 6/8 vollständig.'), 'Kürze [6|8] vollständig.');
@@ -33,6 +33,9 @@ test('Kein Bruch: Einheiten, Wörter, Daten, Ketten, Hochzahlen, unklare Zähler
     assert.equal(kurz(s), s, s);
   }
 });
+test('Minus direkt vor dem Bruch bleibt am Bruch', () => {
+  assert.deepEqual(lernBruchTeile('= −1/2 und 3 − 1/2'), ['= ', { z: '1', n: '2', vz: '−' }, ' und 3 − ', { z: '1', n: '2' }]);
+});
 test('Gemischte Zahl bleibt zusammen', () => {
   assert.equal(kurz('Addiere 2 1/2 und 1 3/4.'), 'Addiere 2 [1|2] und 1 [3|4].');
   assert.equal(kurz('Teile 12 durch 3/4'), 'Teile 12 durch [3|4]');
@@ -40,5 +43,5 @@ test('Gemischte Zahl bleibt zusammen', () => {
 });
 test('Mehrere Brüche hintereinander und Text bleibt vollständig', () => {
   const s = 'Vergleiche 2/3 mit 4/6 und (x − 1)/4 mit 0,5.';
-  assert.equal(lernBruchTeile(s).map((t) => (typeof t === 'string' ? t : (/[ +−]/.test(t.z) ? `(${t.z})` : t.z) + '/' + t.n)).join(''), s);
+  assert.equal(lernBruchTeile(s).map((t) => (typeof t === 'string' ? t : (t.vz || '') + (/[ +−]/.test(t.z) ? `(${t.z})` : t.z) + '/' + t.n)).join(''), s);
 });

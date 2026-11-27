@@ -49,6 +49,9 @@ def marken(text):
 
 
 n_bsp = n_kein = 0
+LAENGEN = []
+# einzige Ausnahmen von „Stelle höchstens 12 Zeichen“: die Primfaktoren der 60 (13 Zeichen, gehört zur Zeichnung)
+LANGE_STELLE = {("id.zahlen.bausteine", 5)}
 daten, texte = [], set()
 for kennung in list(LD.LEITER_R) + list(LD.LEITER_I):
     gleich, zeilen = (LD.LEITER_R.get(kennung) or LD.LEITER_I[kennung])
@@ -68,6 +71,9 @@ for kennung in list(LD.LEITER_R) + list(LD.LEITER_I):
         assert pos and (kennung, klar) not in texte, (kennung, kl)
         texte.add((kennung, klar))
         n_bsp += 1
+        lang = max(b - a for a, b in pos)
+        assert lang <= 12 or (kennung, kl) in LANGE_STELLE, (kennung, kl, lang, klar)      # Auftrag 17: markierte Stelle höchstens 12 Zeichen
+        LAENGEN.append((len(klar), lang, kennung, kl, klar))
         stufen.append(dict(klasse=kl, kommt_vor=True, art=LD.ARTNAME[art], thema=thema, text=klar, wirkende_stelle=[klar[a:b] for a, b in pos], wirkende_stelle_positionen=pos))
     klassen_da = sorted({s["klasse"] for s in stufen if s["kommt_vor"]})
     daten.append(dict(kennung=kennung, art=KENN[kennung]["art"], ort=KENN[kennung]["ort"], name=KENN[kennung]["name"], merksatz=KENN[kennung]["merksatz"],
@@ -272,5 +278,8 @@ Erste als „Einführung“ gesetzte Stufe der Klassenleiter; dazu, in welchem J
 5. **Die Kopie selbst** gegen LehrplanPLUS.
 """)
 print(f"Leitern: {len(daten)} ({n_bsp} Beispiele, {n_kein} Mal „kommt nicht vor“); Rechenregeln {n_r} Beispiele / {n_r_kein} ohne")
+print(f"Länge der Sprossen: über 34 Zeichen {sum(1 for l in LAENGEN if l[0] > 34)}, über 44 Zeichen {sum(1 for l in LAENGEN if l[0] > 44)} von {len(LAENGEN)}; längste Stelle {max(l[1] for l in LAENGEN)} Zeichen")
+for l in sorted(LAENGEN, reverse=True)[:14]:
+    print("   ", l[0], l[2], l[3], l[4])
 print(f"Lehrplan-Kopie: {ok} bestanden, {len(abw)} Befunde; Klassen-Abweichungen Themenliste: {len(klassen_abw)}")
 print("OK")

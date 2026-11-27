@@ -312,9 +312,9 @@ neu("ge2", T, 13, "vierecke_ordnen", 3, "begruenden", DECK, "ja",
     lambda: True, {1: (None, "Drachenviereck: eine Achse, nicht punktsymmetrisch"), 2: (None, "gleichschenkliges Trapez: eine Achse, nicht punktsymmetrisch"), 3: (None, "Raute: punktsymmetrisch, hat aber zwei Achsen")})
 neu("ge2", T, "V", "achsenspiegelung", 1, "direkt", DECK, "ja",
     bed("Nenne einen Punkt P(x | y), der nicht auf der y-Achse liegt, und sein Spiegelbild P′(x′ | y′) bei der Spiegelung an der y-Achse. Reihenfolge der Felder: x, y, x′, y′.", [G, G, G, G],
-        [("P nicht auf der Achse", ["!=", "$1", 0], None, "Dein Punkt P liegt auf der Achse."), ("Höhe bleibt", ["=", "$2", "$4"], None, "P und P′ liegen bei dir nicht auf gleicher Höhe."),
-         ("gleich weit auf der anderen Seite", ["=", ["+", "$1", "$3"], 0], None, "P′ liegt bei dir nicht gleich weit auf der anderen Seite der Achse.")],
-        [3, 2, -3, 2], [([0, 2, 0, 2], "P nicht auf der Achse"), ([3, 2, -3, -2], "Höhe bleibt"), ([3, 2, 3, 2], "gleich weit auf der anderen Seite")],
+        [("P nicht auf der Achse", ["!=", "$1", 0], None, "Dein Punkt P liegt auf der Achse."), ("y′ gehört zum Spiegelbild", ["=", "$2", "$4"], None, "P und P′ liegen bei dir nicht auf gleicher Höhe."),
+         ("x′ gehört zum Spiegelbild", ["=", ["+", "$1", "$3"], 0], None, "P′ liegt bei dir nicht gleich weit auf der anderen Seite der Achse.")],
+        [3, 2, -3, 2], [([0, 2, 0, 2], "P nicht auf der Achse"), ([3, 2, -3, -2], "y′ gehört zum Spiegelbild"), ([3, 2, 3, 2], "x′ gehört zum Spiegelbild")],
         "Welche Koordinate ändert sich beim Spiegeln an der y-Achse?", "Die y-Koordinate bleibt, die x-Koordinate wechselt das Vorzeichen: zum Beispiel P(3 | 2) und P′(−3 | 2).", gut=[[-5, 0, 5, 0]]), None, None)
 neu("ge2", T, "V", "verschiebung", 2, "umkehr", DECK, "ja",
     bed("Nenne einen Vektor (a | b), der den Punkt P(2 | −1) in das Feld links oben verschiebt: Der Bildpunkt soll eine negative x-Koordinate und eine positive y-Koordinate haben. Beide Zahlen des Vektors sollen zwischen −5 und 5 liegen.", [G, G],
@@ -332,16 +332,16 @@ neu("ge2", T, "V", "mittelsenkrechte", 2, "umkehr", ABST, "ja",
         "Auf welcher Linie liegen alle Punkte, die von A und B gleich weit entfernt sind?", "Alle solchen Punkte liegen auf der Mittelsenkrechten von [AB], also bei x = 3: zum Beispiel (3 | 1) und (3 | −2).", gut=[[3, 0, 3, 100]]), None, None)
 neu("ge2", T, "V", "achsenspiegelung", 2, "umkehr", ABST, "ja",
     bed("A(1 | 4) wird an einer senkrechten Achse gespiegelt. Nenne den x-Wert der Achse und den Bildpunkt A′(x′ | y′) so, dass A′ links von der y-Achse liegt. Reihenfolge der Felder: x-Wert der Achse, x′, y′.", [R, G, G],
-        [("Bildpunkt links der y-Achse", ["<", "$2", 0], "$2", "Dein x′ ist {}."), ("Höhe bleibt", ["=", "$3", 4], "$3", "Dein y′ ist {}."),
-         ("Achse in der Mitte", ["=", ["*", 2, "$1"], ["+", 1, "$2"]], ["/", ["+", 1, "$2"], 2], "Die Mitte zwischen A und deinem A′ liegt bei x = {}.")],
-        [-1, -3, 4], [([2, 3, 4], "Bildpunkt links der y-Achse"), ([-1, -3, -4], "Höhe bleibt"), ([0, -3, 4], "Achse in der Mitte")],
+        [("Bildpunkt links der y-Achse", ["<", "$2", 0], "$2", "Dein x′ ist {}."), ("y′ gehört zum Spiegelbild", ["=", "$3", 4], "$3", "Dein y′ ist {}."),
+         ("Achse passt zu A und A′", ["=", ["*", 2, "$1"], ["+", 1, "$2"]], ["/", ["+", 1, "$2"], 2], "Die Mitte zwischen A und deinem A′ liegt bei x = {}.")],
+        [-1, -3, 4], [([2, 3, 4], "Bildpunkt links der y-Achse"), ([-1, -3, -4], "y′ gehört zum Spiegelbild"), ([0, -3, 4], "Achse passt zu A und A′")],
         "Wähle zuerst A′. Wo muss dann die Achse liegen?", "Die Achse liegt in der Mitte zwischen A und A′. Zum Beispiel A′(−3 | 4): Mitte von 1 und −3 ist −1.", gut=[["-0,5", -2, 4], [0, -1, 4]]), None, None)
 neu("ge2", T, "V", "punktspiegelung", 3, "parameter", ABST, "ja",
     bed("Bei einer Punktspiegelung am Zentrum Z(a | b) fällt der Punkt P(x | y) auf P′(4 | 0). Nenne Z und P so, dass P im Feld links unten liegt (beide Koordinaten negativ). Reihenfolge der Felder: a, b, x, y.", [R, R, G, G],
         [("P links unten", UND(["<", "$3", 0], ["<", "$4", 0]), None, "Dein Punkt P liegt nicht im Feld links unten."),
-         ("Z ist die Mitte in x-Richtung", ["=", ["*", 2, "$1"], ["+", "$3", 4]], ["/", ["+", "$3", 4], 2], "Die Mitte zwischen deinem P und P′ liegt bei x = {}."),
-         ("Z ist die Mitte in y-Richtung", ["=", ["*", 2, "$2"], "$4"], ["/", "$4", 2], "Die Mitte zwischen deinem P und P′ liegt bei y = {}.")],
-        [1, -1, -2, -2], [([1, -1, 2, -2], "P links unten"), ([2, -1, -2, -2], "Z ist die Mitte in x-Richtung"), ([1, 1, -2, -2], "Z ist die Mitte in y-Richtung")],
+         ("Z passt zu P und P′ (x-Richtung)", ["=", ["*", 2, "$1"], ["+", "$3", 4]], ["/", ["+", "$3", 4], 2], "Die Mitte zwischen deinem P und P′ liegt bei x = {}."),
+         ("Z passt zu P und P′ (y-Richtung)", ["=", ["*", 2, "$2"], "$4"], ["/", "$4", 2], "Die Mitte zwischen deinem P und P′ liegt bei y = {}.")],
+        [1, -1, -2, -2], [([1, -1, 2, -2], "P links unten"), ([2, -1, -2, -2], "Z passt zu P und P′ (x-Richtung)"), ([1, 1, -2, -2], "Z passt zu P und P′ (y-Richtung)")],
         "Wähle zuerst P. Das Zentrum liegt dann in der Mitte zwischen P und P′.", "Zum Beispiel P(−2 | −2): Mitte von −2 und 4 ist 1, Mitte von −2 und 0 ist −1. Also Z(1 | −1).", gut=[["1,5", "-0,5", -1, -1]]), None, None)
 
 # ═════════════════════ Kind 2 · Flug a4 · Lineare Ungleichungen (Klasse 8) ═════════════════════

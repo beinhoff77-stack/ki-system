@@ -74,9 +74,31 @@ Gerechnet wird exakt mit Brüchen. `pruefe` muss wahr oder falsch liefern.
 
 **Offen aus dem Gegenlesen des Mathe-Profis:** In der Muster-Aufgabe 6-K8-1 verraten die Namen der Bedingungen den Lösungsgedanken; Namen werden nach dem ersten Fehlversuch gezeigt. Regel für Autoren: Der Name nennt die Forderung aus dem Aufgabentext, nicht den Weg.
 
+## Teil 1 ist eingespielt (27.11.2026, 10:10 Adelaide)
+Satz des Nutzers: „Rechner Teil 1 einspielen“. Gegenprüfung: Werkstatt 1011 („Ja“). Das Paket war bytegleich mit dem geprüften Stand (lernen-app 24557245). Ein Aufruf, eine Transaktion, alle Prüfungen bestanden:
+- 16 Prüfsummen gleich der Referenz (15 Aufgaben über den echten Bewertungsweg, dazu die Formurteile).
+- Alte Antworttypen ohne Abweichung: auswahl 922, zahl 1 082, text 569, luecken 701, markierung 617 Bewertungen verglichen.
+- Drei Mischstände abgewiesen, Gegenprobe gelungen; zweiter Lauf ohne Änderung.
+- Bewertungsweg im Eigentümer-Kontext in Ordnung; Direktaufruf gesperrt für anon, authenticated, council_mcp, service_role.
+- Sperre unverändert zu: Der neue Typ wird am Constraint abgewiesen. Es gibt keine Aufgabe des Typs.
+- Laufzeit: 9,18 ms (meiste Knoten), 11,33 ms (große Brüche), 0,05 ms (Fall mit Potenzen) – **diese dritte Zahl ist ungültig:** Im Paket standen alle drei Argumente als feste Werte da; die Datenbank rechnet eine unveränderliche Funktion mit festen Argumenten nur einmal aus statt 200 Mal. Das Ergebnis des Falls wurde geprüft und stimmt, die Zeit ist nicht gemessen. Vor Teil 2 mit Variablen neu messen.
+Danach nur lesend nachgesehen: neun Funktionen vorhanden, Zweig vorhanden, Sperre zu, Probe „Deine Summe ist 1.“ Werkstatt-Änderung 395.
+
+## Teil 2 (BD-S2) – als Datei geschrieben am 27.11., nicht eingespielt, noch nicht gegengeprüft
+`supabase/migrations/20261202_bd_s2_bedingung_ausgabe.sql`. Eine Transaktion: Schutz und Öffnung gemeinsam.
+- **Eine Stelle für alles, was von einer Lösung den Server verlässt:** `schule.loesung_sicht(aufgabe)`. Typ `bedingung`: nur `beispiel` und die Namen der Bedingungen. Alle anderen Typen wie bisher.
+- **Sechs Ausgaben umgestellt** (in der Datenbank gelesen, andere gibt es nicht): `uebung_pruefen_intern` (5 Stellen), `test_abschliessen_intern`, `expeditionen_kind`, `expeditionen_alle`, `api.schule_lernstand`, `api.schule_inhalt_lesen`. Die Anker der Text-Patches sind gegen die echten Definitionen gezählt (nur lesend): alle zehn Zählungen stimmen.
+- **Übung:** `verletzt` und `hinweis` gehen beim ersten Fehlversuch, bei wiederholter Übertragung und am Ende an die App. Im laufenden Test bleibt es beim Formatstatus (dort war nichts zu ändern).
+- **Versionen:** Felder, Bedingungen und Beispiel sind fest, sobald es einen Versuch gibt (eigener Trigger; gilt auch für Expeditionen).
+- **Constraint:** Antworttyp `bedingung` zugelassen; zweiter Constraint prüft jede solche Aufgabe mit `schule.bed_gueltig`.
+- **Einspiel-Paket für Teil 2:** `tools/tests/bedingung_einspielen2.py` (27.11., nicht ausgeführt). Es übt mit dem Testkind an einer Aufgabe, die nur in einer zurückgerollten Untertransaktion existiert und deren Prüf-Baum eine Merkzahl enthält: Anzeige, erster Fehlversuch, wiederholte Übertragung, zweiter Fehlversuch, wiederholte endgültige Antwort, Formatfehler, richtig, Knobel. In keiner Antwort dürfen Merkzahl, `pruefe`, `zeige`, `gut` oder `gegenbeispiele` stehen. Dazu: alter Typ antwortet Zeichen für Zeichen wie vorher; Mischstand (auch halb umgestellte Funktion) wird abgewiesen; Versionsschutz; beide Constraints; Rechte; Laufzeit neu mit Variablen. Nur an der Definition geprüft, nicht im Lauf: Test-Auswertung, beide Expeditions-Ansichten, „Was wackelt“, Lehrer-Ansicht.
+- **Offen:** Gegenprüfung durch ChatGPT; App (Eingabe mit mehreren Feldern, Anzeige von Hinweis, Namen, „Zum Beispiel“); Feld für Regel-Kennung und Fehlbild; Eltern-Ansicht.
+- **Reihenfolge:** Teil 2 erst, wenn Teil 1 eingespielt ist und die App die neuen Felder anzeigen kann. Vorher gibt es keine Aufgabe des Typs.
+
 ## Was als Nächstes kommt
-- **Teil 2 der Migration (BD-S2):** Constraint öffnen; `hinweis` und `verletzt` beim ersten Fehlversuch durchreichen; überall, wo `loesung` den Server verlässt, beim Typ `bedingung` nur `beispiel` und die Namen der Bedingungen senden. Betroffen (in der Datenbank gelesen): `uebung_pruefen_intern`, `test_abschliessen_intern`, `aufgabe_anzeige`, `api.schule_lernstand`, `api.schule_inhalt_lesen`, `expeditionen_kind`, `expeditionen_alle`, `einheit_abgleichen`. Feld für Regel-Kennung und Fehlbild. **Nicht eingespielt ohne ausdrücklichen Satz des Nutzers.**
-- App: Eingabe mit mehreren Zahlenfeldern, Hinweis, „Zum Beispiel“. Tests.
+- Teil 1 einspielen (Paket liegt bereit; Satz des Nutzers steht aus).
+- App: Eingabe mit mehreren Zahlenfeldern nach Vorgabe ÜB des Designers, Hinweis, „Zum Beispiel“. Tests.
+- Einspiel-Paket für Teil 2, Gegenprüfung, Satz des Nutzers.
 - Spätere Feldarten `wahl` und `menge`.
 
 ## Nicht geprüft

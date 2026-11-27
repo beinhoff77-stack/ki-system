@@ -215,7 +215,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Ein Quader ist 5 cm lang, 4 cm breit und 3 cm hoch. Wie groß ist die Oberfläche seines Netzes? Weg A: Berechne alle sechs Rechtecke einzeln und addiere. Weg B: Berechne die beiden Grundflächen (5 cm × 4 cm) und dazu ein langes Rechteck, dessen Länge der Umfang der Grundfläche und dessen Höhe 3 cm ist."
+     "text": "Ein Quader ist 5 cm lang, 4 cm breit und 3 cm hoch. Weg A: Berechne alle sechs Rechtecke einzeln und addiere. Weg B: Berechne die beiden Grundflächen (5 cm × 4 cm) und dazu ein langes Rechteck, dessen Länge der Umfang der Grundfläche und dessen Höhe 3 cm ist. Wie groß ist die Oberfläche seines Netzes?"
     },
     "o": {
      "wert": 94,
@@ -630,10 +630,10 @@
      "beschreibung": "mit 3 malgenommen statt durch 3 geteilt"
     },
     {
-     "antwort": 27,
+     "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "3 abgezogen statt durch 3 geteilt"
+     "beschreibung": "Jans Zahl übernommen"
     }
    ],
    "aufgabe": {
@@ -644,15 +644,15 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Für das Kantenmodell eines Prismas stehen genau 30 Holzstäbe bereit. Jeder Stab ist eine Kante, und alle Stäbe werden gebraucht. Wie viele Ecken hat die Grundfläche des Prismas?"
+     "text": "Jan behauptet: „Für ein Kantenmodell aus genau 30 Holzstäben braucht man ein Prisma mit zwölfeckiger Grundfläche.“ Jeder Stab ist eine Kante, alle Stäbe werden gebraucht. Wie viele Ecken hat die Grundfläche des Prismas wirklich?"
     },
     "o": {
      "wert": 10,
      "einheit": "Ecken"
     },
     "c": "30 / 3",
-    "h": "Zähle zuerst die Kanten eines Prismas mit dreieckiger Grundfläche. Wie ändert sich die Zahl, wenn die Grundfläche mehr Ecken hat?",
-    "w": "Zu jeder Ecke der Grundfläche gehören 3 Kanten: eine in der Grundfläche, eine in der Deckfläche und eine senkrechte. 3 · n = 30, also n = 10. Das Prisma hat eine zehneckige Grundfläche. Probe: 3 · 10 = 30."
+    "h": "Prüfe Jans Behauptung: Wie viele Kanten hat ein Prisma mit zwölfeckiger Grundfläche?",
+    "w": "Ein Prisma mit n-eckiger Grundfläche hat n Kanten in der Grundfläche, n in der Deckfläche und n Verbindungskanten, zusammen 3 · n. Bei n = 12 wären es 36 Kanten, nicht 30. Aus 3 · n = 30 folgt n = 10. Das Prisma hat eine zehneckige Grundfläche. Probe: 3 · 10 = 30."
    }
   }
  ]

@@ -11,16 +11,16 @@ neu(T, "koordinaten", "umkehren", W(
     "Zweimal 2 nach rechts und 3 nach unten sind zusammen 4 nach rechts und 6 nach unten. Rückwärts: 4 nach links und 6 nach oben. x: 3 − 4 = −1, y: −4 + 6 = 2. Der Punkt lag bei (−1 | 2). Probe: (−1 + 4 | 2 − 6) = (3 | −4).",
     lambda: (3 - 4, -4 + 6) == (-1, 2) and (3 - 2, -4 + 3) == (1, -1) and (3 + 4, -4 - 6) == (7, -10) and (3 - 4, -4 - 6) == (-1, -10)), g="umkehr")
 neu(T, "koordinaten", "zwei_wege", Z(
-    "Ein Roboter steht im Punkt (−3 | 2). Er fährt zuerst 4 Einheiten nach rechts und dann 7 Einheiten nach unten. Wie viele Einheiten ist er danach von der x-Achse entfernt? Weg A: Bestimme zuerst seine neue Position. Weg B: Vergleiche direkt, wie weit er nach unten fährt, mit seinem Abstand zur x-Achse am Start.",
+    "Ein Roboter steht im Punkt (−3 | 2). Er fährt zuerst 4 Einheiten nach rechts und dann 7 Einheiten nach unten. Weg A: Bestimme zuerst seine neue Position. Weg B: Vergleiche direkt, wie weit er nach unten fährt, mit seinem Abstand zur x-Achse am Start. Wie viele Einheiten ist er danach von der x-Achse entfernt?",
     5, "abs(2 - 7)", "7 - 2", "Welche Koordinate bestimmt den Abstand eines Punktes zur x-Achse? Wie ändert sie sich bei der Fahrt?",
-    "Nach 4 nach rechts: (1 | 2). Nach 7 nach unten: (1 | 2 − 7) = (1 | −5). Der Abstand zur x-Achse ist |−5| = 5 Einheiten.",
+    "Weg A: Nach 4 nach rechts: (1 | 2). Nach 7 nach unten: (1 | 2 − 7) = (1 | −5). Der Abstand zur x-Achse ist |−5| = 5 Einheiten. Weg B: Am Start liegt er 2 Einheiten über der x-Achse, er fährt 7 nach unten, also 7 − 2 = 5 Einheiten darunter.",
     [(9, None, "die Beträge 2 und 7 addiert", "2 + 7"), (7, None, "nur die Fahrt nach unten genommen", "7"), (1, None, "den Abstand zur y-Achse genannt", "-3 + 4")], "Einheiten"), g="verknuepfen")
 
 # ───────── strecken ─────────
 neu(T, "strecken", "zwei_wege", Z(
-    "Ein Weg verläuft waagrecht vom Punkt A(−4 | 1) zum Punkt B(5 | 1). Eine Einheit im Koordinatensystem entspricht 20 m. Wie lang ist der Weg in Metern? Weg A: Rechne mit den Koordinaten 5 − (−4). Weg B: Zähle die Einheiten von A bis zum Nullpunkt und von dort bis B.",
-    180, "(5 - (-4)) * 20", "(4 + 5) * 20", "Wie viele Einheiten liegen zwischen x = −4 und x = 5? Denke an den Nullpunkt.",
-    "Der Weg ist 5 − (−4) = 9 Einheiten lang. 9 · 20 m = 180 m.",
+    "Ein Weg verläuft waagrecht vom Punkt A(−4 | 1) zum Punkt B(5 | 1). Eine Einheit im Koordinatensystem entspricht 20 m. Wie lang ist der Weg in Metern? Weg A: Rechne mit den Koordinaten 5 − (−4). Weg B: Zähle die Einheiten von A bis zum Schnittpunkt (0 | 1) mit der y-Achse und von dort bis B. Wie lang ist der Weg in Metern?",
+    180, "(5 - (-4)) * 20", "(4 + 5) * 20", "Der Weg schneidet die y-Achse im Punkt (0 | 1). Wie viele Einheiten sind es von A bis dorthin, wie viele von dort bis B?",
+    "Weg A: 5 − (−4) = 9 Einheiten. Weg B: Von A(−4 | 1) bis (0 | 1) sind es 4 Einheiten, von (0 | 1) bis B(5 | 1) sind es 5 Einheiten, zusammen 4 + 5 = 9 Einheiten. Der Weg ist 9 Einheiten lang: 9 · 20 m = 180 m.",
     [(20, None, "nur die Beträge voneinander abgezogen (das Minus von −4 nicht beachtet)", "(5 - 4) * 20"), (100, None, "nur die x-Koordinate von B genommen", "5 * 20"), (9, None, "die Länge in Einheiten statt in Metern angegeben", "5 + 4")], "m"))
 neu(T, "strecken", "bruecke", Z(
     "Die Tabelle nennt drei Strecken, die alle waagrecht oder senkrecht verlaufen. Um wie viele Einheiten ist die längste Strecke länger als die kürzeste?",
@@ -71,7 +71,7 @@ neu(T, "winkelarten", "anwenden", Z(
 neu(T, "vierecke", "bruecke", W(
     "Die Tabelle beschreibt vier Vierecke A bis D. Welches Viereck ist eine Raute, die kein Quadrat ist?",
     "Viereck B",
-    [("Viereck A", "Alle Seiten gleich lang und vier rechte Winkel: das ist ein Quadrat."), ("Viereck C", "Vier rechte Winkel, aber nicht alle Seiten gleich lang: ein Rechteck."), ("Viereck D", "Weder alle Seiten gleich lang noch rechte Winkel: das ist keine Raute.")],
+    [("Viereck A", "Alle Seiten gleich lang und vier rechte Winkel: das ist ein Quadrat."), ("Viereck C", "Vier rechte Winkel, aber nicht alle Seiten gleich lang: ein Rechteck."), ("Viereck D", "Viereck D hat nicht vier gleich lange Seiten und ist deshalb keine Raute.")],
     "Eine Raute hat vier gleich lange Seiten. Ein Quadrat hat zusätzlich vier rechte Winkel.",
     "Eine Raute hat vier gleich lange Seiten. Ein Quadrat hätte zusätzlich vier rechte Winkel. Gesucht ist also: gleich lange Seiten (ja), rechte Winkel (nein). Das ist Viereck B.",
     lambda: [(s and not r) for s, r in ((True, True), (True, False), (False, True), (False, False))] == [False, True, False, False], grafik=TAB(["Viereck", "Alle vier Seiten gleich lang", "Vier rechte Winkel"], ["A", "ja", "ja"], ["B", "ja", "nein"], ["C", "nein", "ja"], ["D", "nein", "nein"])))
@@ -85,7 +85,7 @@ neu(T, "vierecke", "anwenden", Z(
 neu(T, "verstehen", "bruecke", Z(
     "Mia behauptet: „Jeder Punkt mit negativer x-Koordinate liegt unter der x-Achse.“ In der Tabelle stehen sechs Punkte. Bei wie vielen von ihnen zeigt sich, dass die Behauptung nicht stimmt?",
     2, "2", "1 + 1", "Zu einem Gegenbeispiel gehört eine negative x-Koordinate, aber ein Punkt, der nicht unter der x-Achse liegt. Welche Punkte der Tabelle sind das?",
-    "Ein Gegenbeispiel hat x < 0 und liegt über der x-Achse (y > 0). Das gilt für A(−3 | 4) und D(−6 | 2). B(−2 | −1) und F(−4 | −5) bestätigen die Behauptung, C(5 | −2) und E(1 | 3) haben ein positives x. Es sind 2 Punkte.",
+    "Ein Gegenbeispiel hat x < 0 und liegt nicht unter der x-Achse, es gilt also x < 0 und y ≥ 0. Das trifft zu auf A(−3 | 4) und D(−6 | 2). B(−2 | −1) und F(−4 | −5) bestätigen die Behauptung, C(5 | −2) und E(1 | 3) haben ein positives x. Es sind 2 Punkte.",
     [(3, None, "alle Punkte über der x-Achse gezählt, auch E mit positivem x", lambda: sum(y > 0 for x, y in ((-3, 4), (-2, -1), (5, -2), (-6, 2), (1, 3), (-4, -5))) == 3), (4, None, "alle Punkte mit negativem x gezählt", lambda: sum(x < 0 for x, y in ((-3, 4), (-2, -1), (5, -2), (-6, 2), (1, 3), (-4, -5))) == 4)], "Punkte",
     grafik=TAB(["Punkt", "x-Koordinate", "y-Koordinate"], ["A", "−3", "4"], ["B", "−2", "−1"], ["C", "5", "−2"], ["D", "−6", "2"], ["E", "1", "3"], ["F", "−4", "−5"])))
 neu(T, "verstehen", "anwenden", W(

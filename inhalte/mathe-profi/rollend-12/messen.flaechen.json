@@ -51,7 +51,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Rechteck besteht aus 6 Reihen mit je 12 Einheitsquadraten. Wie viele Einheitsquadrate sind es? Weg A: Rechne 6 · 12. Weg B: Teile das Rechteck in zwei gleich große Hälften, die jeweils 6 Quadrate breit sind, bestimme die Zahl in einer Hälfte und verdopple."
+     "text": "Ein Rechteck besteht aus 6 Reihen mit je 12 Einheitsquadraten. Weg A: Rechne 6 · 12. Weg B: Teile das Rechteck in zwei gleich große Hälften, die jeweils 6 Quadrate breit sind, bestimme die Zahl in einer Hälfte und verdopple. Wie viele Einheitsquadrate sind es?"
     },
     "o": {
      "wert": 72,
@@ -101,7 +101,7 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Eine Terrasse ist 6 m lang und 4 m breit. Sie wird lückenlos mit quadratischen Platten von 50 cm Seitenlänge belegt. Nur ein rechteckiges Beet von 3 m Länge und 1 m Breite bleibt frei. Wie viele Platten braucht man?"
+     "text": "Eine Terrasse ist 6 m lang und 4 m breit. Sie wird lückenlos mit quadratischen Platten von 50 cm Seitenlänge belegt. Nur ein rechteckiges Beet von 3 m Länge und 1 m Breite bleibt frei. Das Beet liegt in einer Ecke, seine Ränder verlaufen entlang der Plattenreihen. Wie viele Platten braucht man?"
     },
     "o": {
      "wert": 84,
@@ -288,7 +288,7 @@
     },
     "c": "7200 / 100 * 2",
     "h": "Wie viele m² hat ein Ar? Rechne zuerst die Fläche in Ar um.",
-    "w": "1 a = 100 m². 7 200 m² : 100 = 72 a. 72 · 2 kg = 144 kg."
+    "w": "1 a = 100 m². 7 200 m² = 72 a (7 200 : 100). 72 · 2 kg = 144 kg."
    }
   },
   {
@@ -388,7 +388,7 @@
     },
     "c": "8.4 * 100",
     "h": "Wie viele dm² hat ein m²? Mache die Umrechnung rückgängig.",
-    "w": "1 m² = 100 dm². Rückwärts wird mit 100 malgenommen: 8,4 · 100 = 840 dm². Probe: 840 dm² : 100 = 8,4 m²."
+    "w": "1 m² = 100 dm². Rückwärts wird mit 100 malgenommen: 8,4 m² = 8,4 · 100 dm² = 840 dm². Probe: 840 dm² : 100 = 8,4 m²."
    }
   },
   {
@@ -437,7 +437,7 @@
      "index": 1
     },
     "h": "Prüfe jede Zeile für sich und rechne beim Addieren Komma unter Komma nach. Welche Zeile enthält zuerst einen Fehler?",
-    "w": "3,20 + 0,45 = 3,65. Richtig: 3,65 m². Der erste Fehler steht in Zeile 2."
+    "w": "45 dm² = 0,45 m². 3,20 m² + 0,45 m² = 3,65 m². Richtig: 3,65 m². Der erste Fehler steht in Zeile 2."
    }
   },
   {
@@ -674,22 +674,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 27,
+     "antwort": 26,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "9 von 36 abgezogen"
+     "beschreibung": "nur den Umfang des Rechtecks genannt"
     },
     {
-     "antwort": 6,
+     "antwort": 24,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Seite des Quadrats genannt"
+     "beschreibung": "nur den Umfang des Quadrats genannt"
     },
     {
-     "antwort": 45,
+     "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "36 und 9 addiert"
+     "beschreibung": "die Breite des Rechtecks genannt"
     }
    ],
    "aufgabe": {
@@ -700,15 +700,15 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Ein Quadrat und ein Rechteck haben denselben Flächeninhalt von 36 cm². Das Rechteck ist 9 cm lang. Wie breit ist das Rechteck?"
+     "text": "Ein Quadrat und ein Rechteck haben denselben Flächeninhalt von 36 cm². Das Rechteck ist 9 cm lang. Um wie viel cm ist der Umfang des Rechtecks größer als der Umfang des Quadrats?"
     },
     "o": {
-     "wert": 4,
+     "wert": 2,
      "einheit": "cm"
     },
-    "c": "36 / 9",
-    "h": "Fläche = Länge mal Breite. Mache das Malnehmen mit 9 rückgängig.",
-    "w": "36 cm² = 9 cm · Breite, also Breite = 36 : 9 = 4 cm. Probe: 9 · 4 = 36."
+    "c": "2 * (9 + 36 / 9) - 4 * 6",
+    "h": "Fläche = Länge mal Breite. Mache das Malnehmen rückgängig und bestimme beide Umfänge.",
+    "w": "Quadrat: 6 cm · 6 cm = 36 cm², also Seite 6 cm und Umfang 4 · 6 = 24 cm. Rechteck: Breite 36 : 9 = 4 cm, Umfang 2 · (9 + 4) = 26 cm. Unterschied: 26 − 24 = 2 cm. Probe: 9 · 4 = 36."
    }
   },
   {

@@ -3,7 +3,7 @@ PM, ZG, VZ = "rr.plusminus", "id.zahlen.zahlengerade", "rr.vorzeichen"
 
 # ───────── deuten ─────────
 neu(T, "deuten", "zwei_wege", Z(
-    "Eine Höhle liegt 12 m unter dem Meeresspiegel (−12 m). Ein Aussichtspunkt liegt 7 m über dem Meeresspiegel (7 m). Wie viele Meter liegt der Aussichtspunkt höher als die Höhle? Weg A: Zähle auf der Zahlengeraden von −12 bis 0 und dann weiter bis 7. Weg B: Rechne 7 − (−12).",
+    "Eine Höhle liegt 12 m unter dem Meeresspiegel (−12 m). Ein Aussichtspunkt liegt 7 m über dem Meeresspiegel (7 m). Weg A: Zähle auf der Zahlengeraden von −12 bis 0 und dann weiter bis 7. Weg B: Rechne 7 − (−12). Wie viele Meter liegt der Aussichtspunkt höher als die Höhle?",
     19, "7 - (-12)", "12 + 7", "Der Meeresspiegel ist die Null. Wie weit ist es von der Höhle bis dorthin?",
     "Weg A: Von −12 bis 0 sind es 12 Meter, von 0 bis 7 weitere 7 Meter: 12 + 7 = 19. Weg B: 7 − (−12) = 7 + 12 = 19. Der Aussichtspunkt liegt 19 m höher.",
     [(5, None, "die beiden Beträge voneinander abgezogen: 12 − 7", "12 - 7"), (84, None, "die beiden Beträge malgenommen", "12 * 7"), (-5, None, "7 − 12 gerechnet", "7 - 12")], "m"))
@@ -37,8 +37,8 @@ neu(T, "ordnen", "bruecke", Z(
     grafik=TAB(["Ort", "Temperatur in °C"], ["Alm", "−8"], ["Brunn", "2"], ["Cella", "−3"], ["Dorn", "−12"], ["Egg", "0"], ["Furt", "−5"])), regel=ZG)
 neu(T, "ordnen", "fehler_detektiv", FD(
     "Mia ordnet die Zahlen −7, 3, −2 und −10 vom kleinsten zum größten.",
-    [("Unter den negativen Zahlen ist −2 die kleinste, weil 2 die kleinste Ziffer ist.", -2 < -7, True),
-     ("Danach kommen −7 und −10, zuletzt kommt 3.", True, True, "Zeile 2 folgt aus der Ordnung in Zeile 1: die Reihe ist dann −2, −7, −10 und zuletzt 3. Der Fehler liegt schon in Zeile 1."),
+    [("Unter den negativen Zahlen ist −2 die kleinste, weil ihr Betrag 2 am kleinsten ist.", -2 < -7, True),
+     ("Danach kommen −7 und −10, zuletzt kommt 3.", True, True, "Zeile 2 folgt aus Zeile 1: Wer nach den Beträgen ordnet, setzt −7 und −10 hinter −2. Der Fehler liegt schon in Zeile 1, denn bei negativen Zahlen ist die mit dem größeren Betrag die kleinere."),
      ("Die Reihenfolge ist also −2, −7, −10, 3.", True, True, "Zeile 3 fasst Zeile 1 und 2 richtig zusammen. Der Fehler liegt schon in Zeile 1.")],
     "Prüfe jede Zeile für sich und zeichne die Zahlen in Gedanken auf die Zahlengerade. Welche Zeile enthält zuerst einen Fehler?",
     "Je weiter links, desto kleiner. Am weitesten links liegt −10, dann −7, dann −2, dann 3. Richtig: −10, −7, −2, 3. Der erste Fehler steht in Zeile 1."), regel=ZG)
@@ -50,7 +50,7 @@ neu(T, "betrag", "bruecke", Z(
     "Die beiden Zahlen sind −7 und 7. Von −7 bis 0 sind es 7 Schritte, von 0 bis 7 noch einmal 7. Zusammen sind es 14 Schritte.",
     [(7, None, "nur den Abstand zum Nullpunkt angegeben", "7"), (0, None, "7 und −7 addiert", "7 + (-7)")], "Schritte"))
 neu(T, "betrag", "zwei_wege", Z(
-    "Wie viele ganze Zahlen x erfüllen |x| < 4? Weg A: Schreibe alle diese Zahlen auf und zähle. Weg B: Überlege, wie weit man vom Nullpunkt nach rechts und nach links gehen darf, und rechne.",
+    "Weg A: Schreibe alle diese Zahlen auf und zähle. Weg B: Überlege, wie weit man vom Nullpunkt nach rechts und nach links gehen darf, und rechne. Wie viele ganze Zahlen x erfüllen |x| < 4?",
     7, "2 * 3 + 1", "(4 - 1) + (4 - 1) + 1", "Zähle die Null mit. Welche Zahlen haben einen Abstand kleiner als 4 von der Null?",
     "Weg A: −3, −2, −1, 0, 1, 2, 3 sind 7 Zahlen. Weg B: nach rechts 3 Zahlen, nach links 3 Zahlen und die Null: 3 + 3 + 1 = 7.",
     [(3, None, "nur die positiven Zahlen gezählt", "3"), (6, None, "die Null vergessen", "2 * 3"), (9, None, "auch −4 und 4 mitgezählt", "2 * 4 + 1")], "Zahlen"), g="verknuepfen")
@@ -62,7 +62,7 @@ neu(T, "schriftlich_plus_minus", "umkehren", Z(
     "Die gesuchte Zahl ist 10 000 − 4 507 = 5 493. Probe: 4 507 + 5 493 = 10 000.",
     [(14507, None, "addiert statt abgezogen", "10000 + 4507"), (5593, None, "beim Abziehen den Übertrag falsch gemerkt (Hunderter um 1 zu groß)", "10000 - 4407")]), g="umkehr")
 neu(T, "schriftlich_plus_minus", "fehler_detektiv", FD(
-    "Eva rechnet schriftlich 7 214 − 3 586 und beginnt bei den Einern. Dabei borgt sie immer 10 vom nächsten Stellenwert.",
+    "Eva rechnet schriftlich 7 214 − 3 586 und beginnt bei den Einern. Dabei tauscht sie, wenn nötig, eine Einheit des nächsthöheren Stellenwerts gegen zehn Einheiten der aktuellen Stelle.",
     [("Einer: 4 − 6 geht nicht, also 14 − 6 = 8. Ich borge 1.", 14 - 6 == 8, True, "Zeile 1 stimmt: 14 − 6 = 8, und die geborgte 1 wird weitergegeben. Der Fehler steckt später."),
      ("Zehner: 1 + 10 − 8 − 1 = 2. Ich borge 1.", 1 + 10 - 8 - 1 == 2, True, "Zeile 2 stimmt: Die geborgte 1 wird abgezogen, 11 − 8 − 1 = 2, und wieder wird 1 geborgt. Der Fehler steckt später."),
      ("Hunderter: 2 + 10 − 5 − 1 = 6. Ich borge 1.", 2 + 10 - 5 - 1 == 6, True, "Zeile 3 stimmt: 12 − 5 − 1 = 6, und wieder wird 1 geborgt. Der Fehler steckt später."),
@@ -72,7 +72,7 @@ neu(T, "schriftlich_plus_minus", "fehler_detektiv", FD(
 
 # ───────── addieren ─────────
 neu(T, "addieren", "zwei_wege", Z(
-    "Berechne (−47) + 38 + 47 + 15 auf zwei Wegen. Weg A: Rechne von links nach rechts. Weg B: Vertausche die Summanden so, dass sich zwei Zahlen aufheben.",
+    "Weg A: Rechne von links nach rechts. Weg B: Vertausche die Summanden so, dass sich zwei Zahlen aufheben. Berechne (−47) + 38 + 47 + 15 auf zwei Wegen.",
     53, "(-47) + 38 + 47 + 15", "(-47) + 47 + 38 + 15", "Welche zwei Zahlen ergeben zusammen null?",
     "Weg A: (−47) + 38 = −9, −9 + 47 = 38, 38 + 15 = 53. Weg B: (−47) + 47 = 0, dann 38 + 15 = 53.",
     [(-41, None, "die 47 als minus gerechnet", "(-47) + 38 - 47 + 15"), (-9, None, "nur die ersten beiden Zahlen addiert", "(-47) + 38")]), regel=PM)
@@ -113,7 +113,7 @@ neu(T, "ketten", "umkehren", Z(
     "Welche ganze Zahl muss im Kästchen stehen, damit die Gleichung stimmt? −2 + □ − 7 + 3 = −14",
     -8, "-14 + 2 + 7 - 3", "-14 - (-2 - 7 + 3)", "Fasse die bekannten Zahlen zusammen: −2 − 7 + 3. Was muss □ dann ergeben?",
     "−2 − 7 + 3 = −6. Also □ + (−6) = −14 und □ = −14 + 6 = −8. Probe: −2 + (−8) − 7 + 3 = −14.",
-    [(-12, None, "die Zahlen mit falschem Vorzeichen auf die andere Seite gebracht", "-14 - 2 + 7 - 3"), (-26, None, "alle Zahlen subtrahiert", "-14 - 2 - 7 - 3")]), g="umkehr", regel=PM)
+    [(-12, None, "die 2 mit falschem Vorzeichen auf die andere Seite gebracht: −14 − 2 + 7 − 3", "-14 - 2 + 7 - 3"), (-26, None, "alle Zahlen subtrahiert: −14 − 2 − 7 − 3", "-14 - 2 - 7 - 3")]), g="umkehr", regel=PM)
 neu(T, "ketten", "fehler_detektiv", FD(
     "Ben berechnet −14 + 20 − 9 − (−6).",
     [("−14 + 20 = 6.", -14 + 20 == 6, True, "Zeile 1 stimmt: −14 + 20 = 6. Der Fehler steckt später."),
@@ -124,7 +124,7 @@ neu(T, "ketten", "fehler_detektiv", FD(
 
 # ───────── verstehen ─────────
 neu(T, "verstehen", "zwei_wege", Z(
-    "Lena behauptet: „Wenn ich von 5 eine Zahl abziehe, wird das Ergebnis immer kleiner als 5.“ Bei wie vielen der Zahlen −2, 3, −4, 6, −1, 2 und 7 stimmt die Behauptung nicht? Weg A: Rechne 5 − b für jede Zahl b aus und vergleiche mit 5. Weg B: Überlege nur mit dem Vorzeichen von b, was beim Abziehen passiert. Bei wie vielen der Zahlen stimmt Lenas Behauptung nicht?",
+    "Lena behauptet: „Wenn ich von 5 eine Zahl abziehe, wird das Ergebnis immer kleiner als 5.“ Betrachte die Zahlen −2, 3, −4, 6, −1, 2 und 7. Weg A: Rechne 5 − b für jede Zahl b aus und vergleiche mit 5. Weg B: Überlege nur mit dem Vorzeichen von b, was beim Abziehen passiert. Bei wie vielen der Zahlen stimmt Lenas Behauptung nicht?",
     3, "3", "1 + 1 + 1", "Was passiert mit 5, wenn man eine negative Zahl abzieht?",
     "Weg A: 5 − (−2) = 7, 5 − 3 = 2, 5 − (−4) = 9, 5 − 6 = −1, 5 − (−1) = 6, 5 − 2 = 3, 5 − 7 = −2. Größer als 5 wird es bei −2, −4 und −1. Weg B: Das Abziehen einer negativen Zahl macht größer, also sind alle drei negativen Zahlen Gegenbeispiele.",
     [(4, None, "die Zahlen gezählt, bei denen die Behauptung stimmt", "7 - 3"), (7, None, "alle Zahlen gezählt", "7"), (2, None, "die Zahl −1 übersehen", "3 - 1")], "Zahlen"))
@@ -136,7 +136,7 @@ neu(T, "verstehen", "umkehren", Z(
 
 # ───────── sach ─────────
 neu(T, "sach", "zwei_wege", Z(
-    "Ein Spielkonto steht am Anfang auf −20 Punkten. Dann gibt es Gewinne von 50 und 10 Punkten und einen Verlust von 35 Punkten. Welchen Stand hat das Spielkonto am Ende? Weg A: Rechne die Änderungen der Reihe nach. Weg B: Fasse Gewinne und Verlust zusammen und rechne dann mit dem Anfangsstand.",
+    "Ein Spielkonto steht am Anfang auf −20 Punkten. Dann gibt es Gewinne von 50 und 10 Punkten und einen Verlust von 35 Punkten. Weg A: Rechne die Änderungen der Reihe nach. Weg B: Fasse Gewinne und Verlust zusammen und rechne dann mit dem Anfangsstand. Welchen Stand hat das Spielkonto am Ende?",
     5, "-20 + 50 + 10 - 35", "-20 + (50 + 10 - 35)", "Bei Weg B: Wie viel ist es insgesamt, wenn du 50 und 10 gewinnst und 35 verlierst?",
     "Weg A: −20 + 50 = 30, 30 + 10 = 40, 40 − 35 = 5. Weg B: Gewinne und Verlust zusammen: 50 + 10 − 35 = 25. Dann −20 + 25 = 5.",
     [(25, None, "den Anfangsstand vergessen", "50 + 10 - 35"), (-115, None, "alle Änderungen abgezogen", "-20 - 50 - 10 - 35")], "Punkte"), regel=PM)

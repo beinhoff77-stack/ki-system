@@ -5,7 +5,7 @@ _teiler = lambda n: sum(n % k == 0 for k in range(1, n + 1))
 # ───────── teiler ─────────
 neu(T, "teiler", "bruecke", Z(
     "Aus quadratischen Fliesen soll ein Rechteck mit der Fläche 36 Fliesen gelegt werden, beide Seitenlängen sind ganze Zahlen. Ein Rechteck 4 × 9 und ein Rechteck 9 × 4 gelten als dasselbe Rechteck. Wie viele verschiedene Rechtecke gibt es?",
-    5, "5", "1 + 1 + 1 + 1 + 1", "Zu jeder Seitenlänge, die 36 teilt, gehört genau eine andere. Welche Zahlen teilen 36?",
+    5, "5", "1 + 1 + 1 + 1 + 1", "Zu jeder Seitenlänge, die 36 teilt, gehört eine passende zweite Seitenlänge. Welche Zahlen teilen 36?",
     "Die Teiler von 36 sind 1, 2, 3, 4, 6, 9, 12, 18, 36. Paare: 1 × 36, 2 × 18, 3 × 12, 4 × 9, 6 × 6. Das sind 5 Rechtecke (6 × 6 ist ein Quadrat und zählt einmal).",
     [(9, None, "das Rechteck mit den Seiten 4 und 9 und das mit den Seiten 9 und 4 als verschieden gezählt, also alle Teiler von 36 gezählt", lambda: _teiler(36) == 9), (6, None, "das Quadrat mit Seite 6 doppelt gezählt", "5 + 1"), (4, None, "das Rechteck mit zwei gleich langen Seiten vergessen", "5 - 1")], "Rechtecke"))
 neu(T, "teiler", "umkehren", Z(
@@ -16,10 +16,10 @@ neu(T, "teiler", "umkehren", Z(
 
 # ───────── vielfache ─────────
 neu(T, "vielfache", "zwei_wege", Z(
-    "Wie viele Vielfache von 7 liegen zwischen 100 und 200? Weg A: Schreibe sie der Reihe nach auf und zähle. Weg B: Überlege, wie viele Vielfache von 7 es bis 200 und wie viele es bis 100 gibt.",
-    14, "200 // 7 - 100 // 7", "28 - 15 + 1", "Das erste Vielfache über 100 ist 105. Welches ist das letzte unter 200?",
-    "Weg A: 105, 112, …, 196 sind 14 Zahlen. Weg B: Bis 200 gibt es 200 : 7 = 28 Rest 4, also 28 Vielfache (7 bis 196). Bis 100 gibt es 14 (7 bis 98). 28 − 14 = 14.",
-    [(15, None, "ein Vielfaches zu viel gezählt: 28 − 14 + 1", "28 - 14 + 1"), (28, None, "alle Vielfache bis 200 gezählt", "200 // 7"), (13, None, "ein Vielfaches zu wenig gezählt", "28 - 14 - 1")], "Vielfache"))
+    "Wie viele Zahlen von 105 bis 203 sind Vielfache von 7? Die Grenzen 105 und 203 zählen mit. Weg A: Schreibe die Vielfachen der Reihe nach auf und zähle. Weg B: Bestimme, das wievielte Vielfache von 7 die 105 und das wievielte die 203 ist, und rechne mit diesen beiden Nummern. Gib die Zahl der Vielfachen an.",
+    15, "203 // 7 - 105 // 7 + 1", "29 - 15 + 1", "Welche Vielfachen von 7 sind 105 und 203? Gehören die Grenzen dazu?",
+    "Weg A: 105, 112, 119, …, 196, 203 sind 15 Zahlen. Weg B: 105 = 15 · 7 ist das 15. Vielfache, 203 = 29 · 7 ist das 29. Vielfache. Von der 15. bis zur 29. Nummer sind es 29 − 15 + 1 = 15 Vielfache, weil beide Grenzen mitzählen.",
+    [(14, None, "eine Grenze nicht mitgezählt: 29 − 15", "29 - 15"), (13, None, "beide Grenzen nicht mitgezählt: 29 − 15 − 1", "29 - 15 - 1"), (29, None, "alle Vielfachen von 7 bis 203 gezählt: 203 : 7", "203 // 7")], "Vielfache"))
 neu(T, "vielfache", "anwenden", Z(
     "Ein Bus der Linie A fährt alle 15 Minuten, ein Bus der Linie B alle 20 Minuten. Um 8:00 Uhr fahren beide gleichzeitig ab. Nach wie vielen Minuten fahren beide zum ersten Mal wieder gleichzeitig ab?",
     60, "60", "15 * 4", "Wann sind beide Busse gleichzeitig an der Haltestelle? Was haben die Abfahrtszeiten mit Vielfachen zu tun?",
@@ -35,7 +35,7 @@ neu(T, "endziffer", "anwenden", W(
     "Vielfache von 5 enden auf 0 oder 5. 275, 340 und 1 205 enden auf 5 oder 0. 4 902 endet auf 2, ist also kein Vielfaches von 5 und lässt sich mit 5-€- und 10-€-Scheinen nicht genau zahlen.",
     lambda: [n % 5 for n in (4902, 275, 340, 1205)] == [2, 0, 0, 0]))
 neu(T, "endziffer", "zwei_wege", Z(
-    "Wie viele Zahlen von 100 bis 150 (beide Grenzen eingeschlossen) sind durch 5 teilbar? Weg A: Prüfe die Endziffern. Weg B: Überlege, wie viele Vielfache von 5 es bis 150 und wie viele es unter 100 gibt.",
+    "Weg A: Prüfe die Endziffern. Weg B: Überlege, wie viele Vielfache von 5 es bis 150 und wie viele es unter 100 gibt. Wie viele Zahlen von 100 bis 150 (beide Grenzen eingeschlossen) sind durch 5 teilbar?",
     11, "150 // 5 - 99 // 5", "30 - 20 + 1", "Bis 99 gibt es 19 Vielfache von 5 (5 bis 95). Wie viele sind es bis 150?",
     "Weg A: Endziffer 0 oder 5: 100, 105, …, 150 sind 11 Zahlen. Weg B: Bis 150 gibt es 30 Vielfache, bis 99 gibt es 19. 30 − 19 = 11.",
     [(10, None, "die Zahl 100 nicht mitgezählt", "150 // 5 - 100 // 5"), (30, None, "alle Vielfache bis 150 gezählt", "150 // 5"), (51, None, "alle Zahlen von 100 bis 150 gezählt", "150 - 100 + 1")], "Zahlen"), g="verknuepfen")
@@ -49,7 +49,7 @@ neu(T, "quersumme", "anwenden", W(
     "Quersummen: 1 245 → 12 (durch 3 teilbar), 2 378 → 20, 4 123 → 10, 5 606 → 17. Nur 12 ist durch 3 teilbar, es gewinnt Los 1 245.",
     lambda: [n % 3 for n in (1245, 2378, 4123, 5606)] == [0, 2, 1, 2]))
 neu(T, "quersumme", "zwei_wege", Z(
-    "Welchen Rest lässt 2 749 bei der Division durch 3? Weg A: Dividiere schriftlich. Weg B: Bilde die Quersumme und bestimme ihren Rest bei der Division durch 3. Welchen Rest lässt 2 749 bei der Division durch 3?",
+    "Gegeben ist die Zahl 2 749. Weg A: Dividiere schriftlich. Weg B: Bilde die Quersumme und bestimme ihren Rest bei der Division durch 3. Welchen Rest lässt 2 749 bei der Division durch 3?",
     1, "2749 % 3", "(2 + 7 + 4 + 9) % 3", "Bei Weg B zählst du zuerst die Ziffern zusammen.",
     "Weg A: 2 749 : 3 = 916 Rest 1. Weg B: Quersumme 2 + 7 + 4 + 9 = 22, 22 : 3 = 7 Rest 1. Beide Wege geben Rest 1.",
     [(22, None, "die Quersumme selbst als Rest genannt", "2 + 7 + 4 + 9"), (7, None, "den Quotienten der Quersumme genannt", "22 // 3"), (0, "fb.bausteine.endziffer_statt_quersumme", "nur die Endziffer 9 angesehen: Sie ist durch 3 teilbar, also Rest 0", "9 % 3")]), g="verknuepfen")
@@ -61,7 +61,7 @@ neu(T, "neunerregel", "anwenden", Z(
     "Quersumme: 5 + 8 + 7 + 3 = 23. 23 : 9 = 2 Rest 5. Also bleibt Rest 5. Kontrolle: 5 873 = 9 · 652 + 5.",
     [(23, None, "die Quersumme als Rest genannt", "5 + 8 + 7 + 3"), (2, None, "den Quotienten der Quersumme genannt", "23 // 9"), (4, None, "mit der Quersumme 22 gerechnet (eine Ziffer falsch addiert)", "22 % 9")], "Stifte"))
 neu(T, "neunerregel", "zwei_wege", Z(
-    "Wie viele Zahlen von 100 bis 130 sind durch 9 teilbar? Weg A: Prüfe bei jeder Zahl die Quersumme. Weg B: Überlege, wie viele Vielfache von 9 es bis 130 und wie viele es bis 99 gibt.",
+    "Weg A: Prüfe bei jeder Zahl die Quersumme. Weg B: Überlege, wie viele Vielfache von 9 es bis 130 und wie viele es bis 99 gibt. Wie viele Zahlen von 100 bis 130 sind durch 9 teilbar?",
     3, "130 // 9 - 99 // 9", "(126 - 108) / 9 + 1", "Bis 99 sind es 11 Vielfache von 9 (9 bis 99). Bis 130?",
     "Weg A: Quersumme durch 9 teilbar nur bei 108, 117 und 126. Weg B: Bis 130: 130 : 9 = 14 Rest 4, also 14 Vielfache. Bis 99: 11. 14 − 11 = 3.",
     [(4, None, "ein Vielfaches zu viel gezählt", "14 - 11 + 1"), (14, None, "alle Vielfache bis 130 gezählt", "130 // 9"), (2, None, "126 vergessen", "3 - 1")], "Zahlen"), g="verknuepfen")
@@ -73,7 +73,7 @@ neu(T, "primzahl", "umkehren", Z(
     "20 − 3 = 17. 17 ist eine Primzahl, denn sie hat nur die Teiler 1 und 17. Probe: 3 + 17 = 20.",
     [(23, None, "addiert statt abgezogen", "20 + 3"), (10, None, "die Summe 20 halbiert statt 3 abzuziehen", "20 / 2")]), g="umkehr", regel=BA)
 neu(T, "primzahl", "zwei_wege", Z(
-    "Wie viele Primzahlen liegen zwischen 30 und 50? Weg A: Prüfe jede Zahl auf Teiler. Weg B: Schreibe alle Zahlen von 31 bis 49 auf und streiche alle Vielfachen von 2, 3, 5 und 7.",
+    "Weg A: Prüfe jede Zahl auf Teiler. Weg B: Schreibe alle Zahlen von 31 bis 49 auf und streiche alle Vielfachen von 2, 3, 5 und 7. Wie viele Primzahlen liegen zwischen 30 und 50?",
     5, "5", "1 + 1 + 1 + 1 + 1", "Primzahlen sind größer als 1 und haben nur zwei Teiler. Gerade Zahlen über 2 fallen sofort weg.",
     "Es bleiben 31, 37, 41, 43 und 47. Bei 49 = 7 · 7 ist 7 ein Teiler. Bei Weg B werden Vielfache von 2, 3, 5 und 7 gestrichen, denn 11 · 11 ist schon größer als 50.",
     [(6, None, "49 als Primzahl mitgezählt", lambda: len([n for n in range(31, 50) if n % 2 and n % 3 and n % 5]) == 6), (10, None, "alle ungeraden Zahlen gezählt", lambda: len([n for n in range(31, 50) if n % 2]) == 10)], "Primzahlen"), g="verknuepfen", regel=BA)
@@ -82,7 +82,7 @@ neu(T, "primzahl", "zwei_wege", Z(
 neu(T, "primfaktoren", "bruecke", W(
     "Die Tabelle zeigt, wie 180 durch Teilen zerlegt wurde: Jedes Mal wurde die Zahl durch die kleinste passende Primzahl geteilt, bis 1 übrig blieb. Welche Primfaktorzerlegung von 180 steht in der Tabelle?",
     "2 · 2 · 3 · 3 · 5",
-    [("2 · 2 · 3 · 3 · 5 · 5", "Der Rest 5 aus der vorletzten Zeile wurde zusätzlich als Faktor genommen."), ("2 · 3 · 5", "Jede Primzahl wurde nur einmal genommen, obwohl sie mehrfach als Teiler vorkommt.")],
+    [("2 · 2 · 3 · 3 · 5 · 5", "Das Ergebnis 5 aus der vorletzten Zeile wurde zusätzlich als Faktor genommen."), ("2 · 3 · 5", "Jede Primzahl wurde nur einmal genommen, obwohl sie mehrfach als Teiler vorkommt.")],
     "Welche Spalte der Tabelle enthält die Primzahlen, durch die geteilt wurde?",
     "Die Teiler in der Tabelle sind 2, 2, 3, 3 und 5. Es sind alles Primzahlen und das Produkt ist 2 · 2 · 3 · 3 · 5 = 180.",
     lambda: 2 * 2 * 3 * 3 * 5 == 180 and 2 * 2 * 3 * 3 * 5 * 5 == 900 and 2 * 3 * 5 == 30,

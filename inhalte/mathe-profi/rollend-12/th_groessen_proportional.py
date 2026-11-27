@@ -3,7 +3,7 @@ WF, VH = "id.verhaeltnisse.wert_fuer_eins", "rr.verhaeltnis"
 
 # ───────── einheit ─────────
 neu(T, "einheit", "zwei_wege", Z(
-    "5 Äpfel kosten 2 €. Was kosten 12 Äpfel? Weg A: Berechne zuerst den Preis für 1 Apfel und rechne dann mit 12. Weg B: Überlege, das Wievielfache von 5 die Zahl 12 ist, und nimm den Preis für 5 Äpfel mit diesem Faktor mal.",
+    "5 Äpfel kosten 2 €. Weg A: Berechne zuerst den Preis für 1 Apfel und rechne dann mit 12. Weg B: Überlege, das Wievielfache von 5 die Zahl 12 ist, und nimm den Preis für 5 Äpfel mit diesem Faktor mal. Was kosten 12 Äpfel?",
     4.8, "2 / 5 * 12", "2 * 2.4", "Bei Weg B: Wie oft passt 5 in 12? Das Ergebnis ist keine ganze Zahl.",
     "Weg A: 1 Apfel kostet 2 € : 5 = 0,40 €. 12 Äpfel: 12 · 0,40 € = 4,80 €. Weg B: 12 : 5 = 2,4. 2,4 · 2 € = 4,80 €.",
     [(24, None, "2 € mit 12 malgenommen", "2 * 12"), (10, None, "2 € mit 5 malgenommen", "2 * 5"), (0.4, None, "nur den Preis für 1 Apfel genannt", "2 / 5")], "€"), regel=WF)
@@ -20,7 +20,7 @@ neu(T, "dreisatz", "anwenden", Z(
     "In 1 Stunde: 240 km : 3 = 80 km. In 5 Stunden: 5 · 80 km = 400 km.",
     [(160, None, "nur mit dem Zeitunterschied der beiden Fahrten gerechnet", "240 / 3 * 2"), (720, None, "240 mit 3 malgenommen", "240 * 3"), (1200, None, "240 mit 5 malgenommen", "240 * 5")], "km"), regel=VH)
 neu(T, "dreisatz", "zwei_wege", Z(
-    "Ein Kopierer druckt 90 Blätter in 6 Minuten. Wie lange braucht er für 330 Blätter? Weg A: Bestimme, wie viele Blätter er pro Minute druckt, und teile 330 durch diese Zahl. Weg B: Überlege, wie lange 270 Blätter dauern, und rechne die restlichen 60 Blätter dazu.",
+    "Ein Kopierer druckt 90 Blätter in 6 Minuten. Weg A: Bestimme, wie viele Blätter er pro Minute druckt, und teile 330 durch diese Zahl. Weg B: Überlege, wie lange 270 Blätter dauern, und rechne die restlichen 60 Blätter dazu. Wie lange braucht er für 330 Blätter?",
     22, "330 / (90 / 6)", "3 * 6 + 60 / 15", "Bei Weg B: 270 Blätter sind das Dreifache von 90 Blättern. Wie lange dauern 60 Blätter?",
     "Weg A: 90 : 6 = 15 Blätter je Minute. 330 : 15 = 22 Minuten. Weg B: 270 Blätter brauchen 3 · 6 = 18 Minuten. 60 Blätter brauchen 60 : 15 = 4 Minuten. 18 + 4 = 22 Minuten.",
     [(55, None, "330 durch 6 geteilt", "330 / 6"), (18, None, "nur die ersten 270 Blätter gerechnet", "3 * 6"), (4, None, "nur die restlichen 60 Blätter gerechnet", "60 / 15")], "min"), g="verknuepfen", regel=VH)
@@ -28,8 +28,8 @@ neu(T, "dreisatz", "zwei_wege", Z(
 # ───────── geschickt ─────────
 neu(T, "geschickt", "umkehren", Z(
     "36 Eier kosten 9 €. Wie viele Eier bekommt man für 2,50 €?",
-    10, "2.5 / (9 / 36)", "2.5 * 4", "Wie viel kostet ein Ei? Wie oft passt dieser Preis in 2,50 €?",
-    "Ein Ei kostet 9 € : 36 = 0,25 €. 2,50 € : 0,25 € = 10. Man bekommt 10 Eier. Probe: 10 · 0,25 € = 2,50 €.",
+    10, "2.5 / (9 / 36)", "2.5 * 4", "Wie viele Eier bekommst du für 1 €? Und für 0,50 €?",
+    "36 Eier kosten 9 €, also bekommt man 4 Eier für 1 € und 2 Eier für 0,50 €. 2,50 € sind 2 € + 0,50 €: 2 · 4 + 2 = 10 Eier. Probe: 10 Eier kosten 10 · 0,25 € = 2,50 €.",
     [(90, None, "2,50 mit 36 malgenommen", "2.5 * 36"), (0.25, None, "nur den Preis für ein Ei genannt", "9 / 36"), (4, None, "36 durch 9 geteilt", "36 / 9")], "Eier"), g="umkehr", regel=WF)
 neu(T, "geschickt", "bruecke", Z(
     "Die Tabelle gehört zu einer proportionalen Zuordnung (Anzahl Hefte → Preis). Wie viel Euro kosten 14 Hefte?",

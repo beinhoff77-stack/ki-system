@@ -51,7 +51,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Eine Treppenstufe ist etwa 20 cm hoch. Wie viele Stufen braucht eine Treppe für einen Höhenunterschied von 9 m? Weg A: Rechne 9 m in cm um und teile durch die Höhe einer Stufe. Weg B: Überlege, wie viele Stufen auf 1 m kommen, und rechne damit weiter."
+     "text": "Eine Treppenstufe ist etwa 20 cm hoch. Weg A: Rechne 9 m in cm um und teile durch die Höhe einer Stufe. Weg B: Überlege, wie viele Stufen auf 1 m kommen, und rechne damit weiter. Wie viele Stufen braucht eine Treppe für einen Höhenunterschied von 9 m ungefähr?"
     },
     "o": {
      "wert": 45,
@@ -75,22 +75,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 0.6,
+     "antwort": 75,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Ergebnis in Metern statt in cm angegeben"
+     "beschreibung": "nur die Schrittlänge des Erwachsenen genannt: 15 000 : 200"
     },
     {
-     "antwort": 1.67,
+     "antwort": 50,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "250 durch 150 geteilt (Teiler und Dividend vertauscht)"
+     "beschreibung": "die Schrittzahlen statt der Schrittlängen verglichen: 250 − 200"
     },
     {
-     "antwort": 37500,
+     "antwort": 0.15,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "malgenommen statt geteilt"
+     "beschreibung": "das Ergebnis in Metern statt in cm angegeben: 0,75 m − 0,6 m"
     }
    ],
    "aufgabe": {
@@ -101,15 +101,15 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Kind geht einen 150 m langen Weg in 250 Schritten. Wie lang ist ein Schritt etwa in cm?"
+     "text": "Ein Kind geht einen 150 m langen Weg in 250 Schritten, ein Erwachsener braucht für denselben Weg 200 Schritte. Um wie viel cm ist ein Schritt des Erwachsenen länger als ein Schritt des Kindes?"
     },
     "o": {
-     "wert": 60,
+     "wert": 15,
      "einheit": "cm"
     },
-    "c": "150 * 100 / 250",
-    "h": "Rechne den Weg zuerst in cm um. Wie viel entfällt auf einen Schritt?",
-    "w": "150 m = 15 000 cm. 15 000 cm : 250 = 60 cm. Ein Schritt ist etwa 60 cm lang. Probe: 250 · 60 cm = 15 000 cm = 150 m."
+    "c": "150 * 100 / 200 - 150 * 100 / 250",
+    "h": "Was ist bei beiden gleich, was ist verschieden? Was vergleichst du am Ende?",
+    "w": "150 m = 15 000 cm. Kind: 15 000 cm : 250 = 60 cm je Schritt. Erwachsener: 15 000 cm : 200 = 75 cm je Schritt. Unterschied: 75 cm − 60 cm = 15 cm. Probe: 200 · 75 cm = 15 000 cm = 150 m."
    }
   },
   {
@@ -201,7 +201,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Wie viele Meter sind 3 km 40 m? Weg A: Rechne 3 km in m um und addiere 40 m. Weg B: Schreibe die Länge zuerst als Dezimalzahl in km und rechne dann in m um."
+     "text": "Weg A: Rechne 3 km in m um und addiere 40 m. Weg B: Schreibe die Länge zuerst als Dezimalzahl in km und rechne dann in m um. Wie viele Meter sind 3 km 40 m?"
     },
     "o": {
      "wert": 3040,
@@ -439,7 +439,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Wie viele Minuten liegen zwischen 14:35 Uhr und 17:10 Uhr? Weg A: Ergänze bis zur vollen Stunde und zähle dann weiter. Weg B: Rechne beide Uhrzeiten in Minuten seit Mitternacht um und ziehe ab."
+     "text": "Weg A: Ergänze bis zur vollen Stunde und zähle dann weiter. Weg B: Rechne beide Uhrzeiten in Minuten seit Mitternacht um und ziehe ab. Wie viele Minuten liegen zwischen 14:35 Uhr und 17:10 Uhr?"
     },
     "o": {
      "wert": 155,
@@ -528,7 +528,7 @@
      "antwort": 3008,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "0,08 kg als 8 g gerechnet"
+     "beschreibung": "Tims Fehler: 0,08 kg als 8 g gelesen"
     }
    ],
    "aufgabe": {
@@ -539,7 +539,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Wie viele Gramm sind 3,08 kg? Weg A: Rechne 3,08 · 1 000. Weg B: Schreibe 3,08 kg mit drei Stellen hinter dem Komma (3,080 kg) und lies kg und g ab. Gib die Masse in Gramm an."
+     "text": "Tim rechnet: „3,08 kg sind 3 kg 8 g, also 3 008 g.“ Prüfe seine Umrechnung. Weg A: Rechne 3,08 · 1 000. Weg B: Schreibe 3,08 kg mit drei Stellen hinter dem Komma (3,080 kg) und lies kg und g ab. Wie viele Gramm sind 3,08 kg wirklich?"
     },
     "o": {
      "wert": 3080,
@@ -689,7 +689,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Auf einer Karte mit dem Maßstab 1 : 25 000 sind zwei Orte 8 cm voneinander entfernt. Wie viele Kilometer liegen sie in Wirklichkeit auseinander? Weg A: Rechne 8 cm mal 25 000 und wandle um. Weg B: Bestimme zuerst, wie viele Meter 1 cm auf der Karte in Wirklichkeit sind, und rechne damit."
+     "text": "Auf einer Karte mit dem Maßstab 1 : 25 000 sind zwei Orte 8 cm voneinander entfernt. Weg A: Rechne 8 cm mal 25 000 und wandle um. Weg B: Bestimme zuerst, wie viele Meter 1 cm auf der Karte in Wirklichkeit sind, und rechne damit. Wie viele Kilometer liegen sie in Wirklichkeit auseinander?"
     },
     "o": {
      "wert": 2,
@@ -789,7 +789,7 @@
     "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "Die Tabelle nennt fünf Gegenstände mit einer Größenangabe. Bei wie vielen Gegenständen ist die Angabe nicht realistisch?",
+     "text": "Die Tabelle nennt fünf Beispiele für Gegenstände mit einer Größenangabe. Bei wie vielen Gegenständen ist die Angabe nicht realistisch?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [

@@ -1,0 +1,138 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-11",
+ "kuerzel": "S3",
+ "thema": "messen.prisma_zylinder",
+ "titel": "messen.prisma_zylinder",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen_datei_im_bestand": "messen.prisma_zylinder",
+ "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "S3-V048",
+   "thema": "messen.prisma_zylinder",
+   "lernkarte": "prisma_volumen",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "G = 5 · k gerechnet (das Teilen durch 2 vergessen)",
+     "rechnung": "15 / 5"
+    },
+    {
+     "antwort": 7.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundfläche halbiert statt die Kathete zu bestimmen",
+     "rechnung": "15 / 2"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "G · 2 genannt, ohne durch die Kathete 5 zu teilen",
+     "rechnung": "15 * 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "prisma_volumen",
+    "t": "prisma_volumen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ein gerades Prisma hat als Grundfläche ein rechtwinkliges Dreieck. Die Tabelle zeigt das Volumen des Prismas bei verschiedenen Körperhöhen. Eine Kathete des Dreiecks ist 5 cm lang. Wie lang ist die andere Kathete?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Körperhöhe in cm",
+       "2",
+       "4",
+       "6",
+       "8"
+      ],
+      "zeilen": [
+       [
+        "Volumen in cm³",
+        "30",
+        "60",
+        "90",
+        "120"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "cm"
+    },
+    "c": "30 / 2 * 2 / 5",
+    "h": "Das Volumen ist Grundfläche mal Körperhöhe. Wie groß muss die Grundfläche sein, damit die Tabelle stimmt? Wie berechnet man die Fläche eines rechtwinkligen Dreiecks?",
+    "w": "Aus der Tabelle: V : h = 30 : 2 = 15, ebenso 60 : 4 = 15 usw. Die Grundfläche ist also 15 cm². Für ein rechtwinkliges Dreieck gilt G = Kathete · Kathete : 2. Also 5 · k : 2 = 15, 5 · k = 30 und k = 6 cm."
+   }
+  },
+  {
+   "kennung": "S3-V049",
+   "thema": "messen.prisma_zylinder",
+   "lernkarte": "zylinder_oberflaeche",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei r + h stehen geblieben (den Radius nicht abgezogen)",
+     "rechnung": "150 / (2 * 5)"
+    },
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 2 aus 2πr vergessen",
+     "rechnung": "150 / 5 - 5"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Radius addiert statt abgezogen",
+     "rechnung": "150 / (2 * 5) + 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "zylinder_oberflaeche",
+    "t": "zylinder_oberflaeche",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein gerader Zylinder hat den Radius 5 cm. Seine Oberfläche (Mantel, Boden und Deckel) beträgt 150π cm². Wie hoch ist der Zylinder?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "cm"
+    },
+    "c": "150 / (2 * 5) - 5",
+    "h": "Die Oberfläche ist 2πr² + 2πrh. Teile beide Seiten durch π und ziehe dann das Stück für Boden und Deckel ab.",
+    "w": "O = 2πr² + 2πrh = 2πr(r + h). Mit r = 5: 150π = 10π(5 + h). Durch 10π teilen: 15 = 5 + h, also h = 10 cm. Probe: 2π · 25 + 2π · 5 · 10 = 50π + 100π = 150π."
+   }
+  }
+ ]
+}

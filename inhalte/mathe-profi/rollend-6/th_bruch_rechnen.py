@@ -16,8 +16,8 @@ neu(T, "brueche_plus_minus", "anwenden", L(
     "Ein Wasserbehälter ist zu 2/3 gefüllt. Morgens wird 1/4 des Behälters entnommen, abends wird 1/6 des Behälters aufgefüllt. Welcher Bruchteil des Behälters ist danach gefüllt? Gib den Bruch vollständig gekürzt an.",
     "□/□", [7, 12], ["(2/3 - 1/4 + 1/6) * 12", "12"], ["7", "12"], "Bringe alle Brüche auf einen Nenner.",
     "Hauptnenner 12: 2/3 = 8/12, 1/4 = 3/12, 1/6 = 2/12. 8/12 − 3/12 + 2/12 = 7/12.",
-    {0: [(1, None, "auch das Auffüllen abgezogen: 8/12 − 3/12 − 2/12 = 3/12 = 1/4, gekürzter Zähler 1", "(2/3 - 1/4 - 1/6) * 4")],
-     1: [(4, None, "auch das Auffüllen abgezogen: 8/12 − 3/12 − 2/12 = 3/12 = 1/4, gekürzter Nenner 4", "1 / (2/3 - 1/4 - 1/6)")]}, hinweis=H4), g="transfer", regel="rr.bruchrechnen")
+    {0: [(1, None, "Das passt zum Zähler von 1/4, wenn auch das Auffüllen abgezogen wurde: 8/12 − 3/12 − 2/12 = 3/12 = 1/4", "(2/3 - 1/4 - 1/6) * 4")],
+     1: [(4, None, "Das passt zum Nenner von 1/4, wenn auch das Auffüllen abgezogen wurde: 8/12 − 3/12 − 2/12 = 3/12 = 1/4", "1 / (2/3 - 1/4 - 1/6)")]}, hinweis=H4), g="transfer", regel="rr.bruchrechnen")
 
 # ───────── dezimal_plus_minus ─────────
 neu(T, "dezimal_plus_minus", "lueckenweg", L(
@@ -217,4 +217,4 @@ neu(T, "sach", "umkehren", Z(
     "In einem Lager werden zuerst 2/5 der Äpfel verkauft. Von den übrigen Äpfeln werden 1/3 zu Saft verarbeitet. Es bleiben 24 kg Äpfel. Wie viele Kilogramm Äpfel waren es am Anfang?",
     60, "24 / ((1 - 2/5) * (1 - 1/3))", "24 / (2/5)", "Welcher Bruchteil der ganzen Menge bleibt am Ende übrig?",
     "Nach dem Verkauf bleiben 3/5. Davon wird 1/3 verarbeitet, es bleiben 2/3 von 3/5 = 2/5 der Menge. 2/5 sind 24 kg, also 1/5 = 12 kg und alles 60 kg.",
-    [(36, None, "nur den zweiten Schritt rückgängig gemacht: 24 : 2/3", "24 / (2/3)"), (40, None, "nur den ersten Schritt rückgängig gemacht: 24 : 3/5", "24 / (3/5)")], "kg"), g="rueckwaerts", regel="rr.bruchrechnen")
+    [(36, None, "nur den zweiten Schritt rückgängig gemacht: 24 : (2/3)", "24 / (2/3)"), (40, None, "nur den ersten Schritt rückgängig gemacht: 24 : (3/5)", "24 / (3/5)")], "kg"), g="rueckwaerts", regel="rr.bruchrechnen")

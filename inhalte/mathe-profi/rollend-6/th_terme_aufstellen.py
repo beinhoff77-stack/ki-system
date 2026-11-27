@@ -1,10 +1,11 @@
 T = "terme.aufstellen"
 # ───────── struktur ─────────
 neu(T, "struktur", "lueckenweg", L(
-    "Die letzte Rechnung bestimmt die Termart. Beim Term (3 + a) · 4 − 2 wird zuletzt etwas abgezogen. Setze a = 5 ein. Die Klammer hat den Wert ①. Der Teil vor dem letzten Rechenzeichen, (3 + a) · 4, hat den Wert ②. Der ganze Term hat den Wert ③.",
-    KOMM(3), [8, 32, 30], ["3 + 5", "{1} * 4", "{2} - 2"], ["8", "32", "30"], "Die Klammer wird zuerst gerechnet.",
-    "Klammer: 3 + 5 = 8. Der Teil vor dem Abziehen: 8 · 4 = 32. Zuletzt minus 2: 30.",
-    {0: [(15, None, "3 mal 5 gerechnet statt 3 plus 5", "3 * 5")], 1: [(23, None, "die Klammer ignoriert: 3 + 5 · 4", "3 + 5 * 4")], 2: [(34, None, "plus statt minus 2", "{2} + 2")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.algebra.term")
+    "Die Termarten sind der Reihe nach nummeriert, beginnend bei 1: Summe, Differenz, Produkt, Quotient. Welche Nummer hat die Termart von (3 + a) · 4 − 6? ①. Für a = 5 hat die Klammer den Wert ②. Der erste Operand der letzten Rechnung hat den Wert ③. Der ganze Term hat den Wert ④.",
+    KOMM(4), [2, 8, 32, 26], ["2", "3 + 5", "{2} * 4", "{3} - 6"], ["2", "8", "32", "26"], "Welche Rechnung wird zuletzt ausgeführt?",
+    "Zuletzt wird 6 abgezogen: Der Term ist eine Differenz, also Nummer 2. Klammer: 3 + 5 = 8. Der erste Operand der letzten Rechnung: 8 · 4 = 32. Der ganze Term: 32 − 6 = 26.",
+    {0: [(1, None, "als Summe bestimmt, weil in der Klammer ein Plus steht", "1"), (3, None, "als Produkt bestimmt, weil ein Malzeichen im Term steht", "3")], 1: [(15, None, "3 mal 5 gerechnet statt 3 plus 5", "3 * 5")],
+     2: [(23, None, "die Klammer ignoriert: 3 + 5 · 4", "3 + 5 * 4")], 3: [(38, None, "plus statt minus 6", "{3} + 6")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.algebra.term")
 neu(T, "struktur", "verfahren_waehlen", W(
     "Du sollst die Termart von 2 · (x + 5) bestimmen. Welcher Weg führt sicher zum Ziel?",
     "Ein Zahlenbeispiel (x = 1) in der richtigen Reihenfolge durchrechnen (Klammer 6, dann mal 2) und die letzte Rechnung benennen: ein Produkt.",
@@ -38,7 +39,7 @@ neu(T, "termwert", "umkehren", Z(
 
 # ───────── uebersetzen ─────────
 neu(T, "uebersetzen", "lueckenweg", L(
-    "Ein Taxi berechnet eine feste Grundgebühr und dazu einen festen Preis je Kilometer. Eine Fahrt über 4 km kostet 11 €, eine Fahrt über 5 km kostet 13 €. Jeder Kilometer kostet ① €. Die Grundgebühr beträgt ② €. Der Preis für k Kilometer ist der Term ② + ① · k. Eine Fahrt über 12 km kostet ③ €. Eine Hin- und Rückfahrt über je 12 km kostet zusammen ④ €.",
+    "Ein Taxi berechnet eine feste Grundgebühr und dazu einen festen Preis je Kilometer. Eine Fahrt über 4 km kostet 11 €, eine Fahrt über 5 km kostet 13 €. Jeder Kilometer kostet ① €. Die Grundgebühr beträgt ② €. Der Preis für k Kilometer ist der Term ② + ① · k. Eine Fahrt über 12 km kostet ③ €. Hin- und Rückfahrt sind getrennte Taxifahrten über je 12 km, jede mit neuer Grundgebühr; sie kosten zusammen ④ €.",
     KOMM(4), [2, 3, 27, 54], ["13 - 11", "11 - 4 * {1}", "{2} + {1} * 12", "2 * {3}"], ["2", "3", "27", "54"], "Was kommt von 4 km auf 5 km dazu?",
     "Ein Kilometer mehr kostet 13 € − 11 € = 2 €. Für 4 km zahlt man 4 · 2 € = 8 €, die restlichen 3 € sind die Grundgebühr. Term: 3 + 2 · k. 12 km: 3 + 2 · 12 = 27 €. Hin und zurück: 2 · 27 € = 54 €.",
     {0: [(24, None, "die beiden Preise addiert: 11 + 13", "11 + 13")], 1: [(7, None, "vom Preis der 4-km-Fahrt nur 4 abgezogen: 11 − 4", "11 - 4")],
@@ -67,7 +68,7 @@ neu(T, "sachsituation", "anwenden", W(
     "Am Schulkiosk kostet eine Brezel 0,80 € und ein Apfel 0,60 €. Ein Kind kauft b Brezeln und 2 Äpfel und bezahlt mit einem 5-Euro-Schein. Welcher Term gibt an, wie viel Euro es zurückbekommt?",
     "5 − (0,80 · b + 2 · 0,60)",
     [("5 − 0,80 · b + 2 · 0,60", "Klammer vergessen: die Äpfel werden zum Rückgeld addiert statt abgezogen"),
-     ("5 − 0,80 · (b + 2) − 0,60", "den Preis für 2 Äpfel mit dem Brezelpreis gerechnet"),
+     ("5 − 0,80 · (b + 2) − 0,60", "die 2 Äpfel zum Brezelpreis 0,80 € gerechnet und zusätzlich 0,60 € für einen Apfel noch einmal abgezogen"),
      ("(5 − 0,80) · b − 2 · 0,60", "den Schein mit b malgenommen")],
     "Was kosten alle Brezeln und alle Äpfel zusammen? Das Rückgeld ist der Rest vom Schein.",
     "b Brezeln kosten 0,80 · b €, 2 Äpfel kosten 2 · 0,60 €. Zusammen 0,80 · b + 2 · 0,60. Das Rückgeld ist 5 − (0,80 · b + 2 · 0,60). Probe b = 3: 5 − (2,40 + 1,20) = 1,40 €.",
@@ -103,7 +104,7 @@ neu(T, "deuten", "lueckenweg", L(
     "Das Ausleihen eines Rollers kostet 4x + 15 Euro, wobei x die Zahl der Stunden ist. Für 8 Stunden zahlt man ① €. Verlängert man um 3 Stunden, zahlt man für 11 Stunden ② €. Mit einem 100-Euro-Schein bekommt man dafür ③ € zurück.",
     KOMM(3), [47, 59, 41], ["4 * 8 + 15", "{1} + 4 * 3", "100 - {2}"], ["47", "59", "41"], "Wie viel Euro kommen mit jeder weiteren Stunde dazu?",
     "8 Stunden: 4 · 8 + 15 = 47. Jede weitere Stunde kostet 4 € mehr, 3 Stunden also 12 € mehr: 59 €. Probe: 4 · 11 + 15 = 59. Rückgeld: 100 € − 59 € = 41 €.",
-    {0: [(152, None, "4x + 15 als (4 + 15) · x gerechnet: 19 · 8", "(4 + 15) * 8")], 1: [(62, None, "die Grundgebühr noch einmal dazugerechnet: 47 + 15", "{1} + 15"), (50, None, "nur 3 € statt 3 · 4 € dazugerechnet: 47 + 3", "{1} + 3")],
+    {0: [(152, None, "4x + 15 als (4 + 15) · x gerechnet: 19 · 8", "(4 + 15) * 8")], 1: [(62, None, "statt des Verlängerungspreises von 12 € erneut die Grundgebühr von 15 € addiert: 47 + 15", "{1} + 15"), (50, None, "nur 3 € statt 3 · 4 € dazugerechnet: 47 + 3", "{1} + 3")],
      2: [(53, None, "nur den 8-Stunden-Preis vom Schein abgezogen: 100 − 47", "100 - {1}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.algebra.term")
 neu(T, "deuten", "bruecke", W(
     "Für das Ausleihen eines Rollers gilt: Der Preis in Euro ist 4x + 15, wobei x die Zahl der Stunden ist. Was bedeutet die Rechnung 4 · 6 + 15 = 39?",

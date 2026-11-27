@@ -821,7 +821,7 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Volumen eines Quaders mit den Kanten 5 cm, 4 cm und 3 cm: 94 cm³",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -829,7 +829,7 @@
      "c": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Summe aller Kanten eines Quaders mit 5 cm, 4 cm und 3 cm: 94 cm",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -837,7 +837,7 @@
      "c": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Oberfläche eines Würfels mit der Kante 5 cm: 94 cm²",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -856,13 +856,13 @@
      "text": "Die Maße sind in cm angegeben. Welche Aussage passt zur Rechnung 2 · (5 · 4 + 5 · 3 + 4 · 3) = 94?"
     },
     "a": [
-     "Oberfläche eines Quaders mit den Kanten 5 cm, 4 cm und 3 cm: 94 cm²",
      "Volumen eines Quaders mit den Kanten 5 cm, 4 cm und 3 cm: 94 cm³",
      "Summe aller Kanten eines Quaders mit 5 cm, 4 cm und 3 cm: 94 cm",
-     "Oberfläche eines Würfels mit der Kante 5 cm: 94 cm²"
+     "Oberfläche eines Würfels mit der Kante 5 cm: 94 cm²",
+     "Oberfläche eines Quaders mit den Kanten 5 cm, 4 cm und 3 cm: 94 cm²"
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "h": "Wie viele Flächen hat ein Quader, und wie viele davon sind gleich groß?",
     "w": "In der Klammer stehen die drei verschiedenen Flächen 5 · 4, 5 · 3 und 4 · 3. Jede kommt zweimal vor, deshalb der Faktor 2. Das ist die Oberfläche: 2 · 47 = 94 cm²."

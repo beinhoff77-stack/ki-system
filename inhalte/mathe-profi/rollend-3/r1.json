@@ -207,10 +207,10 @@
     },
     {
      "index": 1,
-     "antwort": "Weil 1 m = 100 cm ist.",
+     "antwort": "Weil 1 dm = 100 cm ist.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Längen-Umrechnung m in cm, nicht der Grund für Flächen"
+     "beschreibung": "falsche Längen-Umrechnung: 1 dm sind nur 10 cm"
     },
     {
      "index": 3,
@@ -232,7 +232,7 @@
     },
     "a": [
      "Weil Flächen größer sind als Längen.",
-     "Weil 1 m = 100 cm ist.",
+     "Weil 1 dm = 100 cm ist.",
      "Weil in ein Quadrat mit 1 dm Seitenlänge 10 Reihen mit je 10 Quadraten von 1 cm² passen.",
      "Das ist nur eine Abmachung."
     ],

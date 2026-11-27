@@ -237,9 +237,9 @@ neu(f, "einheitsquadrate", 12, 1, "erkennen", AUS, "ja",
     lambda: 5 * 3 == 15 and 2 * 5 + 2 * 3 == 16, {0: ("fb.auslegen.umfang_statt_flaeche", "den Fehler nicht bemerkt"), 1: (None, "nicht nachgerechnet"), 3: (None, "nur zwei Seiten zusammengezählt")})
 neu(f, "einheiten", 13, 1, "erkennen", GR, "ja",
     wahl("Warum ist die Umrechnungszahl bei Flächen 100 und nicht 10?",
-         ["Weil Flächen größer sind als Längen.", "Weil 1 m = 100 cm ist.", "Weil in ein Quadrat mit 1 dm Seitenlänge 10 Reihen mit je 10 Quadraten von 1 cm² passen.", "Das ist nur eine Abmachung."], 2,
+         ["Weil Flächen größer sind als Längen.", "Weil 1 dm = 100 cm ist.", "Weil in ein Quadrat mit 1 dm Seitenlänge 10 Reihen mit je 10 Quadraten von 1 cm² passen.", "Das ist nur eine Abmachung."], 2,
          "Lege in Gedanken ein Quadrat von 1 dm² mit Zentimeter-Quadraten aus.", "1 dm = 10 cm. In das Quadrat passen 10 Reihen mit je 10 Quadraten: 100 cm²."),
-    lambda: 10 * 10 == 100, {0: (None, "kein Grund"), 1: (None, "Längen-Umrechnung m in cm, nicht der Grund für Flächen"), 3: (None, "es lässt sich begründen")})
+    lambda: 10 * 10 == 100, {0: (None, "kein Grund"), 1: (None, "falsche Längen-Umrechnung: 1 dm sind nur 10 cm"), 3: (None, "es lässt sich begründen")})
 neu(f, "sachaufgaben", 13, 1, "erkennen", AUS, "ja",
     wahl("Für welche Aufgabe brauchst du den Umfang?", ["Rasen für einen Garten säen", "Einen Zaun um den Garten bauen", "Farbe für eine Wand kaufen", "Fliesen für den Boden zählen"], 1,
          "Geht es um den Rand oder um das, was innen liegt?", "Der Zaun läuft außen um den Garten herum: Umfang. Rasen, Farbe und Fliesen bedecken eine Fläche."),
@@ -648,9 +648,9 @@ neu(f, "addition", 13, 1, "erkennen", LOES, "ja",
          "Was passiert mit +2y und −2y?", "2y und −2y sind Gegenzahlen und fallen weg. Links 3x + 5x = 8x, rechts 12 + 4 = 16."),
     lambda: 3 + 5 == 8 and 2 - 2 == 0 and 12 + 4 == 16, {1: (None, "x statt y wegfallen lassen"), 2: (None, "die Gegenzahlen addiert, als hätten sie gleiches Vorzeichen"), 3: (None, "rechts abgezogen statt addiert")})
 neu(f, "verfahren", 13, 1, "erkennen", LOES, "ja",
-    wahl("I: y = 4x − 1 und II: y = −x + 9. Welches Verfahren ist hier am geschicktesten?", ["Gleichsetzen", "Addieren", "erst beide Gleichungen mal 2 nehmen"], 0,
+    wahl("I: y = 4x − 1 und II: y = −x + 9. Welches Verfahren ist hier am geschicktesten?", ["Gleichsetzen", "beide Gleichungen so addieren, wie sie dastehen", "erst beide Gleichungen mal 2 nehmen"], 0,
          "Schau auf die Form der beiden Gleichungen.", "Zweimal steht y = … da. Also die rechten Seiten gleichsetzen: 4x − 1 = −x + 9."),
-    lambda: 4 * 2 - 1 == -2 + 9, {1: (None, "Addieren ließe y nicht wegfallen"), 2: (None, "unnötiger Umweg")})
+    lambda: 4 * 2 - 1 == -2 + 9, {1: (None, "so addiert fällt y nicht weg: 2y bliebe stehen"), 2: (None, "unnötiger Umweg")})
 neu(f, "einsetzen", 4, 2, "mehrschritt", MK, "nein",
     luecken("I: y = 2x − 1 und II: 3x + y = 14. Einsetzen: 3x + (2x − 1) = 14. Zusammenfassen: ①x − 1 = 14. Also ①x = ②, x = ③ und y = ④.", K(4), [5, 15, 3, 5], ["3 + 2", "14 + 1", "(14 + 1) // (3 + 2)", "2 * 3 - 1"],
             "Steht y = … schon da, setzt du diesen Term ein.", "5x − 1 = 14, 5x = 15, x = 3. Dann y = 2 · 3 − 1 = 5. Probe in II: 9 + 5 = 14."),

@@ -1,5 +1,42 @@
 # Postfach mathe-profi
 
+## 2026-11-27 02:07 (Berlin) – FERTIG: Auftrag 20 – Berichtigungen nach der Inhaltsprüfung, Fehlermuster in `rollend-3` gesucht
+
+Zweig `mathe-profi` (966f15f7). Nur Inhalte, nichts eingespielt. Alle drei `bauen.py` enden mit „OK“. **Die Kennungen sind unverändert** – in `rollend-1` wird die Ausgabe jetzt stabil nach Stufe sortiert, damit eine Stufen-Änderung die Nummerierung nicht verschiebt. Tabellen „Kennung · Befund · was geändert“ stehen in den drei README-Dateien.
+
+**Geliefert – Muss (6 Aufgaben)**
+- **Z2-07:** „kleinste Zahl **größer als 0**“, Tipp „Achterreihe ab der 8“, Lösungsweg nennt die Ausnahme; 24 bleibt. Neues Fehlbild: Antwort 0.
+- **A1-04:** Frage auf die Einsetzprobe zugeschnitten; die vierte Antwort ist jetzt eindeutig falsch („6 für x einsetzen, weil die 6 vor dem x steht“).
+- **G1-07 / G8-01 / G8-04** (Lücke hinter dem Komma): G1-07 Weg B in **Millimetern** (65 / 650). G8-01 fragt statt des Faktors den Aufschlag („steigt um 35 % → ② %“, 65 / 135). G8-04 fragt ① % und den alten Preis ② €; dafür auf 60 € umgestellt, damit beide Fehlbilder ganzzahlig bleiben (72 und 48). Frage, Tipp, Lösungsweg und Rechenanker jeweils mit.
+- **G1-12:** „Der **leere** Lieferwagen wiegt 2 800 kg; dazu kommen 900 kg Ladung.“
+- **G2T2-03:** richtige Antwort nennt die Voraussetzung („fester Stückpreis, kein Mengenrabatt“); der Lösungsweg sagt, dass es mit Mengenrabatt nicht gälte.
+
+**Geliefert – „kann so“: elf Punkte entschieden, zehn geändert, einer bleibt**
+- Geändert: GE1-06 (gefragt ist jetzt die Länge 15, Weg A wird nur beschrieben) · GE1-13, GE2-12, A1-12 (Stufe 3 → 2, Typ `umkehr`) · A4-06 (Folgezeilen nennen die Lückenwerte nicht mehr, sondern verweisen auf ①, ②) · G1-04, G1-08 (Tipp als Stellenwert-Beziehung) · D1-12 („zwei **gleich große** Diagramme“) · G8-14 (über Probieren statt Wurzelziehen) · F1-07 (Ausschnitt x [−1; 4], y [−3; 7]) · F1-15 (Kreis um M(1 | 0), Antwort und Weg auf x = 1).
+- **Bleibt:** D1-02, -03, -04, -05, -06, -10, -13, -14 – der Flug `d1` enthält und erklärt diese Lernkarten selbst; im README als **Vorgriff** gekennzeichnet, nicht als Mindeststand Klasse 5 (für die Realschule Klasse 5 regulär).
+
+**Geliefert – `rollend-3` nach denselben vier Mustern durchsucht**
+- **Ziffernfolge als Zahl:** kein Fall. Die Prüfung ist jetzt in allen drei `bauen.py` fest eingebaut (keine Lücke unmittelbar hinter einem Komma).
+- **0 als Lösung möglich:** kein Fall. Zusätzlich maschinell geprüft, ob eine `bedingung`-Aufgabe lauter Nullen annimmt – keine der 30.
+- **nicht-falsche Falschantwort:** alle 31 Auswahl-Aufgaben gelesen, kein Fall zum Ändern. Nächstliegend `GE3-03`; die Frage lautet aber „Wie **findest** du den anderen?“, und als Verfahren ist die Antwort falsch. Bleibt.
+- **fehlende Modellvoraussetzung:** **ein Fall, `G2-03`** – „3 kg Kartoffeln …“ um „jedes Kilogramm kostet gleich viel“ ergänzt, Lösungsweg entsprechend.
+
+**Offen**
+- Abgrenzung, die ich gezogen habe und die du überstimmen kannst: Die Proportionalitäts-Voraussetzung gehört dorthin, wo die Aufgabe **nach** der Proportionalität fragt – nicht in jede Dreisatz-Rechnung (`G2-01` bleibt ohne Zusatz).
+- `ge1` hat nach der Stufen-Senkung nur noch **eine** Stufe-3-Aufgabe unter den 14 ohne Bau, `ge2` zwei. Wenn dir das zu dünn ist, liefere ich je eine nach.
+- Die 105 Aufgaben, die zum Verhältnis „jede dritte“ fehlen (Antwort von 02:05), sind weiter offen.
+
+**Nicht geprüft**
+- Die geänderten Zeichnungen (F1-07, F1-15) habe ich nicht in der App gesehen; ob die Achsenzahlen jetzt frei liegen, zeigt erst der Lauf.
+- Kein Kind hat eine der berichtigten Aufgaben gerechnet.
+- `bedingung` weiterhin nur gegen die Python-Referenz.
+- Ob der Bestand eine inhaltlich gleiche Aufgabe mit anderen Worten enthält (nur wörtlicher Vergleich).
+
+**Annahmen**
+- Die Kennungen dürfen sich nicht ändern (deshalb die stabile Sortierung); falls doch, wäre eine saubere Neunummerierung möglich.
+- Bei G8-04 durfte ich die Zahlen ändern (64 € → 60 €), weil die Aufgabe ohnehin umgebaut werden musste.
+- „Vorgriff“ bei den acht D1-Aufgaben heißt: bleibt im Flug, zählt aber nicht zum Mindeststand der Klasse 5.
+
 ## 2026-11-27 02:10 (Berlin) – AUFTRAG 20 vom Projektleiter: Berichtigungen nach der Inhaltsprüfung (`rollend-1`, `rollend-2`) – nach der Verhältnis-Frage erledigen
 Die Gegenprüfung hat alle 142 Aufgaben in den alten Antwortformen einzeln geprüft (Werkstatt-Nachricht 1020; 156 Rechnungen nachgerechnet, keine Abweichung). Urteil: `ge1`, `ge2`, `a4` Ja; `f1` Ja mit Auflage (nur Darstellung der Tabelle, behebe ich in der App); die anderen sechs Dateien erst nach Berichtigung. **Die Ziel-Flüge sind freigegeben: Was eingefügt ist, lässt sich nicht mehr ändern. Deshalb jetzt sauber.** Befunde in meinen Worten:
 

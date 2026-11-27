@@ -19,15 +19,15 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
+     "index": 1,
+     "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
@@ -41,7 +41,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim rechnet 4 + 6 · 3 − 2. Zeile 1: Punkt vor Strich: Zuerst 6 · 3 = 18. Zeile 2: Dann 4 + 18 = 22. Zeile 3: Dann 22 − 2 = 21. In welcher Zeile steckt der Fehler?"
+     "text": "Kim rechnet 4 + 6 · 3 − 2. Zeile 1: Ich rechne von links nach rechts: 4 + 6 = 10. Zeile 2: Dann 10 · 3 = 30. Zeile 3: Dann 30 − 2 = 28. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -49,10 +49,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Rechne jede Zeile einzeln nach.",
-    "w": "6 · 3 = 18, 4 + 18 = 22, 22 − 2 = 20. Das Ergebnis ist 20."
+    "h": "Welche Rechenart hat Vorrang?",
+    "w": "Punkt vor Strich: Zuerst 6 · 3 = 18. Dann 4 + 18 = 22 und 22 − 2 = 20."
    }
   },
   {
@@ -170,7 +170,7 @@
    "fehlbilder": [
     {
      "luecke": 3,
-     "antwort": 23,
+     "antwort": 1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Klammer übersehen: 14 − 6 · 3 + 5"
@@ -316,6 +316,13 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     }
    ],
    "aufgabe": {
@@ -326,18 +333,19 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim benennt den Term 3 · (5 + 2). Zeile 1: Die letzte Rechnung ist das Malnehmen mit 3. Zeile 2: Darum ist der Term ein Produkt. Zeile 3: In der Klammer steht ein Plus, also ist der ganze Term eine Summe. In welcher Zeile steckt der Fehler?"
+     "text": "Kim benennt den Term 3 · (5 + 2). Zeile 1: Ich rechne zuerst die Klammer: 5 + 2 = 7. Zeile 2: Dann bleibt 3 · 7 übrig. Zeile 3: Die letzte Rechnung ist das Plus aus der Klammer. Zeile 4: Darum ist der Term eine Summe. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
      "In Zeile 2",
-     "In Zeile 3"
+     "In Zeile 3",
+     "In Zeile 4"
     ],
     "o": {
      "index": 2
     },
-    "h": "Nach welcher Rechnung richtet sich der Name?",
-    "w": "Der Name richtet sich nach der letzten Rechnung. Das ist das Malnehmen. Der Term ist ein Produkt; die Summe steckt nur in der Klammer."
+    "h": "Nach welcher Rechnung richtet sich der Name des Terms?",
+    "w": "Der Name richtet sich nach der letzten Rechnung. Das ist das Malnehmen mit 3. Der Term ist ein Produkt."
    }
   },
   {
@@ -416,10 +424,10 @@
      "beschreibung": "nur den Saft abgezogen"
     },
     {
-     "antwort": 14,
+     "antwort": 74,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Klammer vergessen: 50 − 12 + 12"
+     "beschreibung": "alle Ausgaben zu 50 addiert"
     }
    ],
    "aufgabe": {
@@ -499,12 +507,6 @@
    "regel_name": "Tauschen, Klammern, Zusammenfassen",
    "zaehlt": "ja",
    "fehlbilder": [
-    {
-     "antwort": 190,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "Rechenfehler beim Zusammenzählen"
-    },
     {
      "antwort": 100,
      "fehlbild": null,
@@ -593,8 +595,8 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
@@ -608,7 +610,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim rechnet 52 − 17 + 8 geschickt. Zeile 1: Das Minus gehört zur 17, das Plus gehört zur 8. Zeile 2: Ich tausche: 52 + 8 − 17. Zeile 3: 52 + 8 = 60 und 60 + 17 = 77. In welcher Zeile steckt der Fehler?"
+     "text": "Kim rechnet 52 − 17 + 8 geschickt. Zeile 1: Das Minus gehört zur 17, das Plus gehört zur 8. Zeile 2: Ich tausche 17 und 8, aber die Zeichen bleiben an ihrem Platz: 52 + 17 − 8. Zeile 3: 52 + 17 = 69 und 69 − 8 = 61. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -616,10 +618,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "Die 17 nimmt ihr Minus mit.",
-    "w": "Die 17 bleibt eine Zahl mit Minus: 60 − 17 = 43. Kim hat das Minus verloren."
+    "h": "Was passiert mit dem Zeichen, wenn eine Zahl den Platz wechselt?",
+    "w": "Beim Tauschen nimmt jede Zahl ihr Zeichen mit: 52 + 8 − 17 = 60 − 17 = 43."
    }
   },
   {
@@ -644,7 +646,7 @@
      "antwort": 110,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "38 addiert statt abgezogen"
+     "beschreibung": "die Zeichen von 38 und 18 vertauscht"
     }
    ],
    "aufgabe": {
@@ -852,7 +854,7 @@
      "beschreibung": "die 9 nur mit der 100 malgenommen"
     },
     {
-     "antwort": 907,
+     "antwort": 918,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "18 addiert statt abgezogen"
@@ -901,6 +903,13 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     }
    ],
    "aufgabe": {
@@ -911,18 +920,19 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim rechnet 7 · 38 im Kopf. Zeile 1: Ich zerlege 38 = 40 − 2. Zeile 2: 7 · 40 = 280. Zeile 3: Dann ziehe ich 2 ab: 7 · 38 = 280 − 2 = 278. In welcher Zeile steckt der Fehler?"
+     "text": "Kim rechnet 7 · 38 im Kopf. Zeile 1: Ich zerlege 38 = 40 − 2. Zeile 2: 7 · 40 = 280. Zeile 3: 7 · 2 = 14. Zeile 4: Also 7 · 38 = 280 + 14 = 294. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
      "In Zeile 2",
-     "In Zeile 3"
+     "In Zeile 3",
+     "In Zeile 4"
     ],
     "o": {
-     "index": 2
+     "index": 3
     },
-    "h": "Jede der 7 Gruppen ist um 2 kleiner.",
-    "w": "Es sind 7 Zweier zu viel: 7 · 2 = 14. 280 − 14 = 266."
+    "h": "Ist 38 größer oder kleiner als 40? Was heißt das für das Ergebnis?",
+    "w": "38 ist kleiner als 40, also muss 14 abgezogen werden: 280 − 14 = 266."
    }
   },
   {
@@ -944,10 +954,10 @@
      "beschreibung": "30 addiert statt abgezogen"
     },
     {
-     "antwort": 240,
+     "antwort": 180,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die zweite Teilrechnung vergessen"
+     "beschreibung": "nur 10 · 18 gerechnet"
     }
    ],
    "aufgabe": {
@@ -1024,11 +1034,18 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 3,
-     "antwort": -42,
+     "luecke": 2,
+     "antwort": 42,
      "fehlbild": "fb.vorzeichen.falsches_zeichen",
      "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "zwei Minus ergeben wieder minus gerechnet"
+     "beschreibung": "Vorzeichen vergessen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 0,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "zwei Minus als Minus gerechnet: beide Ergebnisse gleich"
     }
    ],
    "aufgabe": {
@@ -1039,7 +1056,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Du rechnest (−6) · 7. Ohne Vorzeichen: 6 · 7 = ①. Die Vorzeichen sind verschieden, also ist das Ergebnis negativ: ②. Bei (−6) · (−7) sind die Vorzeichen gleich: ③.",
+     "text": "Du rechnest (−6) · 7. Ohne Vorzeichen: 6 · 7 = ①. Die Vorzeichen sind verschieden, also hat das Ergebnis den Betrag ① mit dem passenden Vorzeichen: ②. Bei (−6) · (−7) sind die Vorzeichen gleich. Dieses Ergebnis ist um ③ größer als ②.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -1047,16 +1064,16 @@
      "werte": [
       42,
       -42,
-      42
+      84
      ]
     },
     "c": [
      "6*7",
      "(-6)*7",
-     "(-6)*(-7)"
+     "(-6)*(-7)-(-6)*7"
     ],
     "h": "Verschiedene Vorzeichen: minus. Gleiche Vorzeichen: plus.",
-    "w": "6 · 7 = 42. (−6) · 7 = −42. (−6) · (−7) = 42."
+    "w": "6 · 7 = 42. (−6) · 7 = −42. (−6) · (−7) = 42. 42 − (−42) = 84."
    }
   },
   {
@@ -1179,8 +1196,8 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
@@ -1194,7 +1211,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim rechnet (−72) : 9 und (−72) : (−9). Zeile 1: (−72) : 9 = −8, weil die Vorzeichen verschieden sind. Zeile 2: Bei (−72) : (−9) sind die Vorzeichen gleich. Das Ergebnis ist positiv. Zeile 3: Also ist (−72) : (−9) = −8. In welcher Zeile steckt der Fehler?"
+     "text": "Kim rechnet (−72) : (−9). Zeile 1: Beide Zahlen sind negativ. Zeile 2: Zwei Minuszeichen ergeben beim Teilen wieder ein Minus. Zeile 3: Also ist (−72) : (−9) = −8. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1202,10 +1219,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "Rechne die Probe: Ergebnis mal Teiler.",
-    "w": "Gleiche Vorzeichen ergeben plus. (−72) : (−9) = 8. Probe: 8 · (−9) = −72."
+    "h": "Was ergeben gleiche Vorzeichen beim Teilen: Plus oder Minus?",
+    "w": "Gleiche Vorzeichen ergeben Plus. (−72) : (−9) = 8. Probe: 8 · (−9) = −72."
    }
   },
   {
@@ -1225,12 +1242,6 @@
      "fehlbild": "fb.vorzeichen.falsches_zeichen",
      "regel_des_fehlbilds": "rr.vorzeichen",
      "beschreibung": "Vorzeichen vergessen"
-    },
-    {
-     "antwort": -1,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "geteilt statt malgenommen"
     }
    ],
    "aufgabe": {
@@ -1316,10 +1327,10 @@
     },
     {
      "luecke": 2,
-     "antwort": 2,
-     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
-     "regel_des_fehlbilds": "rr.gegenrechnung",
-     "beschreibung": "wieder geteilt statt malgenommen"
+     "antwort": 70,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "mit 14 statt −14 weitergerechnet"
     }
    ],
    "aufgabe": {
@@ -1330,22 +1341,22 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Löse 6 · x = −84. Die Umkehraufgabe zu Mal ist Geteilt: x = (−84) : 6 = ①. Löse x : 5 = 12. Die Umkehraufgabe zu Geteilt ist Mal: x = 12 · 5 = ②.",
+     "text": "Löse 6 · x = −84. Die Umkehraufgabe zu Mal ist Geteilt: x = (−84) : 6 = ①. Nun sei y : 5 = ①. Die Umkehraufgabe zu Geteilt ist Mal: y = ① · 5 = ②.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       -14,
-      60
+      -70
      ]
     },
     "c": [
      "(-84)//6",
-     "12*5"
+     "(-84)//6*5"
     ],
     "h": "Mal kehrst du mit Geteilt um, Geteilt mit Mal.",
-    "w": "(−84) : 6 = −14. 12 · 5 = 60."
+    "w": "(−84) : 6 = −14. (−14) · 5 = −70."
    }
   },
   {
@@ -1462,8 +1473,8 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
+     "index": 1,
+     "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
@@ -1484,7 +1495,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim überschlägt 4 987 · 21. Das genaue Ergebnis ist 104 727. Zeile 1: Ich runde: 4 987 ist etwa 5 000 und 21 ist etwa 20. Zeile 2: Überschlag: 5 000 · 20 = 10 000. Zeile 3: Das genaue Ergebnis hat 6 Stellen. In welcher Zeile steckt der Fehler?"
+     "text": "Kim überschlägt 4 987 · 21. Das genaue Ergebnis ist 104 727. Zeile 1: Ich runde 4 987 auf Tausender: 4 000. Zeile 2: Ich runde 21 auf Zehner: 20. Zeile 3: Überschlag: 4 000 · 20 = 80 000. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1492,10 +1503,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 1
+     "index": 0
     },
-    "h": "Rechne den Überschlag selbst nach: 5 000 · 20.",
-    "w": "5 000 · 20 = 100 000. Der Überschlag passt dann zum genauen Ergebnis 104 727."
+    "h": "Auf welche Zahl rundest du 4 987 auf Tausender? Schau auf die Hunderterziffer.",
+    "w": "4 987 rundet man auf 5 000, denn die Hunderterziffer 9 ist 5 oder mehr. Überschlag: 5 000 · 20 = 100 000. Das passt zum genauen Ergebnis."
    }
   },
   {
@@ -1515,12 +1526,6 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "beide Überschläge als gleich angenommen"
-    },
-    {
-     "antwort": 6,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "eine Stelle verrutscht"
     }
    ],
    "aufgabe": {
@@ -1602,6 +1607,13 @@
      "fehlbild": "fb.stellenwert.null_angehaengt",
      "regel_des_fehlbilds": "rr.stellenwert",
      "beschreibung": "die Null für die Zehnerstelle vergessen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 1107,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 492 weitergerechnet"
     }
    ],
    "aufgabe": {
@@ -1612,7 +1624,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Schriftlich 123 · 45. Erst mit der Einerziffer 5: 123 · 5 = ①. Dann mit der Zehnerziffer 4, das sind 40: 123 · 40 = ②. Beides addieren: ③.",
+     "text": "Schriftlich 123 · 45. Erst mit der Einerziffer 5: 123 · 5 = ①. Dann mit der Zehnerziffer 4, das sind 40: 123 · 40 = ②. Beides addieren: ① + ② = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -1644,12 +1656,6 @@
    "regel_name": "Stellenwert",
    "zaehlt": "ja",
    "fehlbilder": [
-    {
-     "antwort": 57,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "Rest falsch übertragen"
-    },
     {
      "antwort": 1728,
      "fehlbild": null,
@@ -1738,8 +1744,15 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
@@ -1753,18 +1766,19 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim rechnet 7 308 : 18 schriftlich. Zeile 1: 73 : 18 = 4, denn 4 · 18 = 72. Rest 1. Zeile 2: Hole die 0 herunter: 10 : 18 = 0. Ich schreibe 0 ins Ergebnis. Zeile 3: Hole die 8 herunter: 108 : 18 = 6. Ergebnis: 46. In welcher Zeile steckt der Fehler?"
+     "text": "Kim rechnet 7 308 : 18 schriftlich. Zeile 1: 73 : 18 = 4, denn 4 · 18 = 72. Rest 1. Zeile 2: Ich hole die 0 herunter. 10 : 18 geht nicht, also schreibe ich nichts ins Ergebnis. Zeile 3: Ich hole die 8 herunter: 108 : 18 = 6. Zeile 4: Ergebnis: 46. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
      "In Zeile 2",
-     "In Zeile 3"
+     "In Zeile 3",
+     "In Zeile 4"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "Wie viele Ziffern hat das Ergebnis? Jede heruntergeholte Ziffer bringt eine.",
-    "w": "Die Ziffern sind 4, 0 und 6: 7 308 : 18 = 406. Probe: 406 · 18 = 7 308."
+    "h": "Jede heruntergeholte Ziffer bringt eine Ziffer ins Ergebnis. Was schreibst du, wenn der Teiler nicht passt?",
+    "w": "Passt der Teiler nicht, schreibst du eine 0 ins Ergebnis. 7 308 : 18 = 406. Probe: 406 · 18 = 7 308."
    }
   },
   {
@@ -1837,16 +1851,10 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 8000,
+     "antwort": 7872,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "328 · 24 gerechnet"
-    },
-    {
-     "antwort": 13,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "geteilt statt malgenommen"
     }
    ],
    "aufgabe": {
@@ -1932,10 +1940,10 @@
      "beschreibung": "Schritte nicht umgekehrt: 24 + 35"
     },
     {
-     "antwort": 37,
+     "antwort": 23,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "falsche Reihenfolge der Umkehrung"
+     "beschreibung": "35 − 24 : 3 gerechnet"
     }
    ],
    "aufgabe": {
@@ -1976,10 +1984,10 @@
      "beschreibung": "Schritte nicht umgekehrt"
     },
     {
-     "antwort": 8,
+     "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur einen Schritt umgekehrt"
+     "beschreibung": "nur zwei Schritte umgekehrt"
     }
    ],
    "aufgabe": {

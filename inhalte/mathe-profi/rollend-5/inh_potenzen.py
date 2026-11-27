@@ -35,9 +35,9 @@ neu(TH, "berechnen", "anwenden", "einkleidung", Z(
 
 # ── quadrat ──
 neu(TH, "quadrat", "fehler_detektiv", "fehler", FDZ(
-    "Kim berechnet 13².",
-    [("13² heißt 13 · 13.", 13 ** 2 == 13 * 13), ("13 · 13 = 13 · 10 + 13 · 3 = 130 + 39.", 13 * 13 == 13 * 10 + 13 * 3), ("130 + 39 = 159.", 130 + 39 == 159)],
-    "Rechne die letzte Addition nach.", "130 + 39 = 169. Also 13² = 169."), HZ)
+    "Kim berechnet 13² und die Fläche eines Quadrats.",
+    [("13² heißt 13 · 2.", 13 ** 2 == 13 * 2), ("13 · 2 = 26.", 13 * 2 == 26), ("Ein Quadrat mit 13 cm Seitenlänge hat also 26 cm² Fläche.", True)],
+    "Wie oft steht die 13 als Faktor da?", "13² heißt 13 · 13 = 169. Ein Quadrat mit 13 cm Seite hat 169 cm² Fläche."), HZ)
 assert 14 * 14 == 196
 neu(TH, "quadrat", "umkehren", "umkehr", Z(
     "Ein Quadrat hat die Fläche 196 cm². Wie lang ist eine Seite in cm?",
@@ -56,17 +56,17 @@ neu(TH, "vertauschen", "lueckenweg", "direkt", L(
 neu(TH, "vertauschen", "zwei_wege", "mehrschritt", Z(
     "Vergleiche 4³ und 3⁴. Weg A: beide Potenzen einzeln ausrechnen. Weg B: beide als Mal-Kette schreiben und rechnen. Um wie viel ist 3⁴ größer als 4³?",
     "3**4-4**3", "81-64", "Die Zahlen sind dieselben, aber die Rollen sind vertauscht.", "4³ = 64. 3⁴ = 81. 81 − 64 = 17.",
-    [(1, None, "beide gleich groß angenommen und den Rest geraten"), (-17, None, "falsch herum abgezogen")]), PO)
+    [(-17, None, "falsch herum abgezogen")]), PO)
 neu(TH, "vertauschen", "anwenden", "einkleidung", Z(
     "Schloss A hat 5 Rädchen mit je 2 Symbolen. Seine Einstellungen zählt man mit 2⁵. Schloss B hat 2 Rädchen mit je 5 Symbolen. Seine Einstellungen zählt man mit 5². Wie viele Einstellungen hat Schloss A mehr als Schloss B?",
     "2**5-5**2", "32-25", "Rechne beide Potenzen getrennt aus.", "2⁵ = 32. 5² = 25. 32 − 25 = 7.",
-    [(0, None, "beide gleich angenommen"), (-7, None, "falsch herum abgezogen")]), PO)
+    [(-7, None, "falsch herum abgezogen")]), PO)
 
 # ── zehner ──
 neu(TH, "zehner", "fehler_detektiv", "fehler", FDZ(
     "Kim schreibt 7 · 10⁴ als Zahl.",
-    [("10⁴ ist eine 1 mit vier Nullen.", 10 ** 4 == 10000), ("Die 7 wird vor die Nullen geschrieben.", True), ("Also ist 7 · 10⁴ = 700 000.", 7 * 10 ** 4 == 700000)],
-    "Zähle die Nullen in deiner Zahl und vergleiche mit dem Exponenten.", "7 · 10⁴ = 7 und vier Nullen = 70 000."), PO)
+    [("10⁴ ist eine 1 mit vier Nullen: 10 000.", 10 ** 4 == 10000), ("7 · 10⁴ heißt: 7 mal 10 000.", True), ("Das ist die 7 mit vier Nullen dahinter.", 7 * 10 ** 4 == int("7" + "0" * 4)), ("Also ist 7 · 10⁴ = 700 000.", 7 * 10 ** 4 == 700000)],
+    "Zähle die Nullen in deiner Zahl und vergleiche mit dem Exponenten.", "7 und vier Nullen sind 70 000, nicht 700 000."), PO)
 neu(TH, "zehner", "bruecke", "darstellung", W(
     "Welche Schreibweise ist gleich der Zahl 3 400 000?",
     "34 · 10⁵", [("34 · 10⁶", "eine Null zu viel"), ("34 · 10⁴", "eine Null zu wenig"), ("340 · 10⁵", "eine Stelle zu viel")],
@@ -75,7 +75,7 @@ neu(TH, "zehner", "bruecke", "darstellung", W(
 neu(TH, "zehner", "umkehren", "umkehr", Z(
     "Die Zahl 25 000 000 000 soll als 25 · 10ⁿ geschrieben werden. Welche Zahl ist n?",
     "9", str(len(str(25000000000)) - 2), "Zähle die Nullen hinter der 25.", "25 000 000 000 hat hinter der 25 genau 9 Nullen. n = 9.",
-    [(10, None, "alle Ziffern gezählt"), (11, None, "die Stellen der Zahl gezählt")]), PO)
+    [(11, None, "alle Ziffern der Zahl gezählt"), (2, None, "die Ziffern der 25 gezählt")]), PO)
 
 # ── negativ ──
 neu(TH, "negativ", "lueckenweg", "direkt", L(
@@ -91,13 +91,13 @@ assert (-5) ** 3 == -125
 neu(TH, "negativ", "umkehren", "umkehr", Z(
     "Eine negative Zahl hoch 3 ergibt −125. Wie heißt die Basis?",
     "-5", "-5", "Welche Zahl dreimal mit sich malgenommen gibt 125? Dann das Vorzeichen.", "(−5) · (−5) · (−5) = 25 · (−5) = −125. Bei ungeradem Exponent bleibt das Minus.",
-    [(5, "fb.vorzeichen.falsches_zeichen", "Vorzeichen vergessen"), (-42, None, "durch 3 geteilt")]), VZ)
+    [(5, "fb.vorzeichen.falsches_zeichen", "Vorzeichen vergessen")]), VZ)
 
 # ── sach ──
 neu(TH, "sach", "fehler_detektiv", "fehler", FDZ(
-    "Kim faltet ein Blatt Papier 5-mal. Bei jedem Falten verdoppelt sich die Zahl der Lagen.",
-    [("Nach dem 1. Falten sind es 2 Lagen.", 2 ** 1 == 2), ("Nach dem 2. Falten sind es 4, nach dem 3. Falten 8 Lagen.", 2 ** 2 == 4 and 2 ** 3 == 8), ("Nach dem 5. Falten sind es 2 · 5 = 10 Lagen.", 2 ** 5 == 2 * 5)],
-    "Verdoppeln bei jedem Falten: Wie viele Faktoren 2 sind es nach 5-mal?", "Nach 5-mal Falten sind es 2⁵ = 32 Lagen."), PO)
+    "Kim faltet ein Blatt Papier 5-mal. Er will wissen, wie viele Lagen es dann sind.",
+    [("Nach dem 1. Falten sind es 2 Lagen.", 2 ** 1 == 2), ("Bei jedem weiteren Falten kommen 2 Lagen dazu.", 2 + 2 * 4 == 2 ** 5), ("Nach dem 5. Falten sind es 2 + 2 · 4 = 10 Lagen.", 2 + 2 * 4 == 10)],
+    "Wie viele Lagen sind es nach dem 2. Falten? Nimm ein Blatt und falte.", "Beim Falten verdoppelt sich die Zahl der Lagen: 2, 4, 8, 16, 32. Nach 5-mal sind es 2⁵ = 32 Lagen."), PO)
 neu(TH, "sach", "anwenden", "einkleidung", Z(
     "Eine Kettennachricht: In Runde 1 schickt eine Person sie an 3 Personen. In jeder weiteren Runde schickt jede neue Person sie an 3 weitere Personen. Wie viele Personen bekommen die Nachricht in Runde 4 neu?",
     "3**4", "3*3*3*3", "Runde 1: 3, Runde 2: 9. Jede Runde mal 3.", "Runde 1: 3, Runde 2: 9, Runde 3: 27, Runde 4: 81. Das ist 3⁴.",

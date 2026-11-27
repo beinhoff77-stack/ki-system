@@ -108,6 +108,12 @@ for a in sorted(A, key=lambda a: (THEMEN.index(a["thema"]), KARTEN[a["thema"]].i
             werte.add(w)
             fb_eintrag({}, w, fbk, beschr)
     elif q["y"] == "luecken":
+        if a["form"] == "lueckenweg":
+            n_l = len(q["o"]["werte"])
+            assert n_l >= 2, (kenn, "Lückenweg braucht mindestens zwei Lücken")
+            sym = "①②③④⑤"
+            for i in range(1, n_l):      # spätere Lücken müssen auf frühere zurückgreifen: ein früheres Zeichen steht nach seiner ersten Nennung noch einmal im Text
+                assert any(text.count(sym[j]) >= 2 for j in range(i)), (kenn, "Lücke hängt nicht von früheren ab", i + 1)
         assert not KOMMA_LUECKE.search(text + " " + q["f"]["schablone"]), (kenn, "Lücke hinter dem Komma")
         assert not KOMMA_NEBEN.search(text + " " + q["f"]["schablone"]), (kenn, "Komma neben Lücke")
         soll = [ip.rechne(c) for c in q["c"]]
@@ -199,5 +205,9 @@ for t in aus:
     fehl = [x for x in ("umkehren", "zwei_wege", "bruecke", "anwenden") if f[x] < 2]
     if fehl:
         print("WARNUNG:", t, "weniger als zweimal:", fehl)
+fz = Counter(e["aufgabe"]["o"]["index"] + 1 for l in aus.values() for e in l if e["form"] == "fehler_detektiv")
+nfd = sum(fz.values())
+print("Fehler-Detektiv, Fehlerzeile:", dict(sorted(fz.items())), "von", nfd)
+assert all(v <= max(1, -(-nfd // 3)) for v in fz.values()), "eine Zeile mit mehr als einem Drittel der Fehler"
 print(f"{n_rechnung} Rechnungen/Proben zweifach nachgerechnet; {n_fb} Fehlbilder")
 print("OK")

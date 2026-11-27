@@ -9,8 +9,8 @@ oberste = lambda s: type(ast.parse(s, mode="eval").body.op)
 # ── punkt_strich ──
 neu(TH, "punkt_strich", "fehler_detektiv", "fehler", FDZ(
     "Kim rechnet 4 + 6 · 3 − 2.",
-    [("Punkt vor Strich: Zuerst 6 · 3 = 18.", 6 * 3 == 18), ("Dann 4 + 18 = 22.", 4 + 18 == 22), ("Dann 22 − 2 = 21.", 22 - 2 == 21)],
-    "Rechne jede Zeile einzeln nach.", "6 · 3 = 18, 4 + 18 = 22, 22 − 2 = 20. Das Ergebnis ist 20."), RF)
+    [("Ich rechne von links nach rechts: 4 + 6 = 10.", 4 + 6 * 3 - 2 == (4 + 6) * 3 - 2), ("Dann 10 · 3 = 30.", 10 * 3 == 30), ("Dann 30 − 2 = 28.", 30 - 2 == 28)],
+    "Welche Rechenart hat Vorrang?", "Punkt vor Strich: Zuerst 6 · 3 = 18. Dann 4 + 18 = 22 und 22 − 2 = 20."), RF)
 neu(TH, "punkt_strich", "verfahren_waehlen", "mehrschritt", W(
     "Du rechnest 36 − 12 : 4 + 5. Welche Reihenfolge der Schritte ist richtig?",
     "12 : 4 = 3; dann 36 − 3 = 33; dann 33 + 5 = 38",
@@ -26,7 +26,7 @@ neu(TH, "punkt_strich", "anwenden", "einkleidung", Z(
 neu(TH, "klammern", "lueckenweg", "direkt", L(
     "Du rechnest (14 − 6) · 3 + 5. Die Klammer zuerst: 14 − 6 = ①. Dann mal 3: ① · 3 = ②. Zuletzt plus 5: ② + 5 = ③.",
     ["14-6", "(14-6)*3", "(14-6)*3+5"], ["8", "24", "29"], "Erst die Klammer, dann Punkt, dann Strich.", "14 − 6 = 8; 8 · 3 = 24; 24 + 5 = 29.",
-    {2: [(23, None, "Klammer übersehen: 14 − 6 · 3 + 5")]}), RF)
+    {2: [(1, None, "Klammer übersehen: 14 − 6 · 3 + 5")]}), RF)
 neu(TH, "klammern", "umkehren", "umkehr", Z(
     "Welche Zahl muss an der Stelle des Fragezeichens stehen? 3 · (? + 4) = 27",
     "27//3-4", "9-4", "Mach zuerst die Umkehrung des Malnehmens: Was steht in der Klammer?", "3 · Klammer = 27, also Klammer = 27 : 3 = 9. Dann ? + 4 = 9, also ? = 5.",
@@ -39,8 +39,8 @@ neu(TH, "klammern", "anwenden", "einkleidung", Z(
 # ── termaufbau ──
 neu(TH, "termaufbau", "fehler_detektiv", "fehler", FDZ(
     "Kim benennt den Term 3 · (5 + 2).",
-    [("Die letzte Rechnung ist das Malnehmen mit 3.", oberste("3*(5+2)") is ast.Mult), ("Darum ist der Term ein Produkt.", oberste("3*(5+2)") is ast.Mult), ("In der Klammer steht ein Plus, also ist der ganze Term eine Summe.", oberste("3*(5+2)") is ast.Add)],
-    "Nach welcher Rechnung richtet sich der Name?", "Der Name richtet sich nach der letzten Rechnung. Das ist das Malnehmen. Der Term ist ein Produkt; die Summe steckt nur in der Klammer."), TA)
+    [("Ich rechne zuerst die Klammer: 5 + 2 = 7.", 5 + 2 == 7), ("Dann bleibt 3 · 7 übrig.", True), ("Die letzte Rechnung ist das Plus aus der Klammer.", oberste("3*(5+2)") is ast.Add), ("Darum ist der Term eine Summe.", True)],
+    "Nach welcher Rechnung richtet sich der Name des Terms?", "Der Name richtet sich nach der letzten Rechnung. Das ist das Malnehmen mit 3. Der Term ist ein Produkt."), TA)
 neu(TH, "termaufbau", "bruecke", "darstellung", W(
     "Welcher Term passt zum Text: „Vom Fünffachen von 4 werden 3 abgezogen“?",
     "5 · 4 − 3", [("5 · (4 − 3)", "Klammer gesetzt, die im Text nicht vorkommt"), ("5 − 4 · 3", "Zahlen in falscher Reihenfolge"), ("(5 + 4) · 3", "Mal und Plus verwechselt")],
@@ -49,7 +49,7 @@ neu(TH, "termaufbau", "bruecke", "darstellung", W(
 neu(TH, "termaufbau", "anwenden", "einkleidung", Z(
     "Für ein Fest kaufst du 4 Packungen Saft zu je 3 € und 2 Kuchen zu je 6 €. Du bezahlst mit einem 50-€-Schein. Wie viel Euro Rückgeld bekommst du?",
     "50-(4*3+2*6)", "50-24", "Stelle den Term auf: 50 minus alles, was du kaufst.", "Saft: 4 · 3 = 12 €. Kuchen: 2 · 6 = 12 €. Zusammen 24 €. 50 − 24 = 26 €.",
-    [(38, None, "nur den Saft abgezogen"), (14, None, "Klammer vergessen: 50 − 12 + 12")], einheit="€"), TA)
+    [(38, None, "nur den Saft abgezogen"), (74, None, "alle Ausgaben zu 50 addiert")], einheit="€"), TA)
 
 # ── vorteil ──
 neu(TH, "vorteil", "lueckenweg", "direkt", L(
@@ -59,7 +59,7 @@ neu(TH, "vorteil", "lueckenweg", "direkt", L(
 neu(TH, "vorteil", "zwei_wege", "mehrschritt", Z(
     "Berechne 37 + 48 + 63 + 52. Weg A rechnet von links nach rechts. Weg B fasst 37 + 63 und 48 + 52 zusammen. Wie groß ist die Summe?",
     "37+48+63+52", "100+100", "Beide Wege geben dieselbe Zahl. Welcher geht schneller?", "Weg A: 37 + 48 = 85, 85 + 63 = 148, 148 + 52 = 200. Weg B: 100 + 100 = 200.",
-    [(190, None, "Rechenfehler beim Zusammenzählen"), (100, None, "nur ein Paar gerechnet")]), TS)
+    [(100, None, "nur ein Paar gerechnet")]), TS)
 neu(TH, "vorteil", "anwenden", "einkleidung", Z(
     "Eine Bäckerei liefert an 13 Schulen je 4 Kisten mit je 25 Brötchen. Wie viele Brötchen sind das insgesamt?",
     "13*4*25", "13*100", "25 und 4 passen gut zusammen.", "4 · 25 = 100 Brötchen je Schule. 13 · 100 = 1 300.",
@@ -68,12 +68,12 @@ neu(TH, "vorteil", "anwenden", "einkleidung", Z(
 # ── differenz_summe ──
 neu(TH, "differenz_summe", "fehler_detektiv", "fehler", FDZ(
     "Kim rechnet 52 − 17 + 8 geschickt.",
-    [("Das Minus gehört zur 17, das Plus gehört zur 8.", True), ("Ich tausche: 52 + 8 − 17.", 52 - 17 + 8 == 52 + 8 - 17), ("52 + 8 = 60 und 60 + 17 = 77.", 60 + 17 == 60 - 17)],
-    "Die 17 nimmt ihr Minus mit.", "Die 17 bleibt eine Zahl mit Minus: 60 − 17 = 43. Kim hat das Minus verloren."), TS)
+    [("Das Minus gehört zur 17, das Plus gehört zur 8.", True), ("Ich tausche 17 und 8, aber die Zeichen bleiben an ihrem Platz: 52 + 17 − 8.", 52 - 17 + 8 == 52 + 17 - 8), ("52 + 17 = 69 und 69 − 8 = 61.", 52 + 17 - 8 == 61)],
+    "Was passiert mit dem Zeichen, wenn eine Zahl den Platz wechselt?", "Beim Tauschen nimmt jede Zahl ihr Zeichen mit: 52 + 8 − 17 = 60 − 17 = 43."), TS)
 neu(TH, "differenz_summe", "zwei_wege", "mehrschritt", Z(
     "Berechne 90 − 38 + 18. Weg A rechnet von links nach rechts. Weg B tauscht zu 90 + 18 − 38. Wie groß ist das Ergebnis?",
     "90-38+18", "108-38", "Die Zahl nimmt ihr Zeichen mit, wenn du tauschst.", "Weg A: 90 − 38 = 52, 52 + 18 = 70. Weg B: 90 + 18 = 108, 108 − 38 = 70.",
-    [(34, None, "Zeichen der 18 gewechselt"), (110, None, "38 addiert statt abgezogen")]), TS)
+    [(34, None, "Zeichen der 18 gewechselt"), (110, None, "die Zeichen von 38 und 18 vertauscht")]), TS)
 neu(TH, "differenz_summe", "umkehren", "umkehr", Z(
     "Zu 37 wird eine Zahl addiert. Danach werden 15 abgezogen. Das Ergebnis ist 60. Welche Zahl wurde addiert?",
     "60+15-37", "75-37", "Beginne beim Ergebnis und kehre die Schritte um, den letzten zuerst.", "Rückwärts: 60 + 15 = 75. Dann 75 − 37 = 38. Probe: 37 + 38 − 15 = 60.",
@@ -93,17 +93,17 @@ neu(TH, "verteilen", "bruecke", "darstellung", W(
 neu(TH, "verteilen", "anwenden", "einkleidung", Z(
     "Ein Gärtner pflanzt 9 Reihen mit je 98 Tulpen. Wie viele Tulpen sind das insgesamt?",
     "9*(100-2)", "9*98", "98 ist fast 100. Rechne mit 100 − 2.", "9 · 100 = 900. 9 · 2 = 18. 900 − 18 = 882 Tulpen.",
-    [(898, None, "die 9 nur mit der 100 malgenommen"), (907, None, "18 addiert statt abgezogen")]), AM)
+    [(898, None, "die 9 nur mit der 100 malgenommen"), (918, None, "18 addiert statt abgezogen")]), AM)
 
 # ── kopfrechnen ──
 neu(TH, "kopfrechnen", "fehler_detektiv", "fehler", FDZ(
     "Kim rechnet 7 · 38 im Kopf.",
-    [("Ich zerlege 38 = 40 − 2.", 38 == 40 - 2), ("7 · 40 = 280.", 7 * 40 == 280), ("Dann ziehe ich 2 ab: 7 · 38 = 280 − 2 = 278.", 7 * 38 == 278)],
-    "Jede der 7 Gruppen ist um 2 kleiner.", "Es sind 7 Zweier zu viel: 7 · 2 = 14. 280 − 14 = 266."), AM)
+    [("Ich zerlege 38 = 40 − 2.", 38 == 40 - 2), ("7 · 40 = 280.", 7 * 40 == 280), ("7 · 2 = 14.", 7 * 2 == 14), ("Also 7 · 38 = 280 + 14 = 294.", 7 * 38 == 294)],
+    "Ist 38 größer oder kleiner als 40? Was heißt das für das Ergebnis?", "38 ist kleiner als 40, also muss 14 abgezogen werden: 280 − 14 = 266."), AM)
 neu(TH, "kopfrechnen", "zwei_wege", "mehrschritt", Z(
     "Berechne 15 · 18. Weg A: 15 · 20 − 15 · 2. Weg B: 10 · 18 + 5 · 18. Wie groß ist das Ergebnis?",
     "15*18", "15*20-15*2", "Beide Wege führen zum gleichen Ergebnis.", "Weg A: 300 − 30 = 270. Weg B: 180 + 90 = 270.",
-    [(330, None, "30 addiert statt abgezogen"), (240, None, "die zweite Teilrechnung vergessen")]), AM)
+    [(330, None, "30 addiert statt abgezogen"), (180, None, "nur 10 · 18 gerechnet")]), AM)
 neu(TH, "kopfrechnen", "anwenden", "einkleidung", Z(
     "Ein Zug hat 12 Wagen mit je 48 Sitzplätzen. Wie viele Sitzplätze sind das? Rechne geschickt im Kopf.",
     "12*48", "10*48+2*48", "Zerlege die 12 in 10 + 2.", "10 · 48 = 480, 2 · 48 = 96. 480 + 96 = 576 Plätze.",
@@ -111,9 +111,9 @@ neu(TH, "kopfrechnen", "anwenden", "einkleidung", Z(
 
 # ── mal_ganz ──
 neu(TH, "mal_ganz", "lueckenweg", "direkt", L(
-    "Du rechnest (−6) · 7. Ohne Vorzeichen: 6 · 7 = ①. Die Vorzeichen sind verschieden, also ist das Ergebnis negativ: ②. Bei (−6) · (−7) sind die Vorzeichen gleich: ③.",
-    ["6*7", "(-6)*7", "(-6)*(-7)"], ["42", "-42", "42"], "Verschiedene Vorzeichen: minus. Gleiche Vorzeichen: plus.", "6 · 7 = 42. (−6) · 7 = −42. (−6) · (−7) = 42.",
-    {2: [(-42, "fb.vorzeichen.falsches_zeichen", "zwei Minus ergeben wieder minus gerechnet")]}), VZ)
+    "Du rechnest (−6) · 7. Ohne Vorzeichen: 6 · 7 = ①. Die Vorzeichen sind verschieden, also hat das Ergebnis den Betrag ① mit dem passenden Vorzeichen: ②. Bei (−6) · (−7) sind die Vorzeichen gleich. Dieses Ergebnis ist um ③ größer als ②.",
+    ["6*7", "(-6)*7", "(-6)*(-7)-(-6)*7"], ["42", "-42", "84"], "Verschiedene Vorzeichen: minus. Gleiche Vorzeichen: plus.", "6 · 7 = 42. (−6) · 7 = −42. (−6) · (−7) = 42. 42 − (−42) = 84.",
+    {1: [(42, "fb.vorzeichen.falsches_zeichen", "Vorzeichen vergessen")], 2: [(0, "fb.vorzeichen.falsches_zeichen", "zwei Minus als Minus gerechnet: beide Ergebnisse gleich")]}), VZ)
 neu(TH, "mal_ganz", "umkehren", "umkehr", Z(
     "Welche Zahl mal (−5) ergibt 40?",
     "40//(-5)", "-8", "Rechne mit der Umkehraufgabe. Achte auf das Vorzeichen.", "40 : (−5) = −8. Probe: (−8) · (−5) = 40.",
@@ -126,13 +126,13 @@ neu(TH, "mal_ganz", "bruecke", "darstellung", W(
 
 # ── geteilt_ganz ──
 neu(TH, "geteilt_ganz", "fehler_detektiv", "fehler", FDZ(
-    "Kim rechnet (−72) : 9 und (−72) : (−9).",
-    [("(−72) : 9 = −8, weil die Vorzeichen verschieden sind.", -72 / 9 == -8), ("Bei (−72) : (−9) sind die Vorzeichen gleich. Das Ergebnis ist positiv.", True), ("Also ist (−72) : (−9) = −8.", -72 / -9 == -8)],
-    "Rechne die Probe: Ergebnis mal Teiler.", "Gleiche Vorzeichen ergeben plus. (−72) : (−9) = 8. Probe: 8 · (−9) = −72."), VZ)
+    "Kim rechnet (−72) : (−9).",
+    [("Beide Zahlen sind negativ.", True), ("Zwei Minuszeichen ergeben beim Teilen wieder ein Minus.", (-72) / (-9) < 0), ("Also ist (−72) : (−9) = −8.", True)],
+    "Was ergeben gleiche Vorzeichen beim Teilen: Plus oder Minus?", "Gleiche Vorzeichen ergeben Plus. (−72) : (−9) = 8. Probe: 8 · (−9) = −72."), VZ)
 neu(TH, "geteilt_ganz", "umkehren", "umkehr", Z(
     "Eine Zahl geteilt durch (−6) ergibt 7. Welche Zahl ist es?",
     "7*(-6)", "-42", "Kehre das Teilen um. Beachte das Vorzeichen.", "Zahl : (−6) = 7, also Zahl = 7 · (−6) = −42. Probe: (−42) : (−6) = 7.",
-    [(42, "fb.vorzeichen.falsches_zeichen", "Vorzeichen vergessen"), (-1, None, "geteilt statt malgenommen")]), VZ)
+    [(42, "fb.vorzeichen.falsches_zeichen", "Vorzeichen vergessen")]), VZ)
 neu(TH, "geteilt_ganz", "anwenden", "einkleidung", Z(
     "Ein Taucher sinkt in 8 Minuten gleichmäßig von 0 m auf −96 m. Wie ändert sich seine Höhe in jeder Minute (in Meter, mit Vorzeichen)?",
     "(-96)//8", "-12", "Teile die gesamte Änderung durch die Zahl der Minuten.", "−96 m : 8 = −12 m. Er sinkt jede Minute um 12 m.",
@@ -140,9 +140,9 @@ neu(TH, "geteilt_ganz", "anwenden", "einkleidung", Z(
 
 # ── umkehraufgabe_mal ──
 neu(TH, "umkehraufgabe_mal", "lueckenweg", "direkt", L(
-    "Löse 6 · x = −84. Die Umkehraufgabe zu Mal ist Geteilt: x = (−84) : 6 = ①. Löse x : 5 = 12. Die Umkehraufgabe zu Geteilt ist Mal: x = 12 · 5 = ②.",
-    ["(-84)//6", "12*5"], ["-14", "60"], "Mal kehrst du mit Geteilt um, Geteilt mit Mal.", "(−84) : 6 = −14. 12 · 5 = 60.",
-    {0: [(14, "fb.vorzeichen.falsches_zeichen", "Vorzeichen vergessen")], 1: [(2, "fb.gegenrechnung.gleiche_rechnung", "wieder geteilt statt malgenommen")]}), GR)
+    "Löse 6 · x = −84. Die Umkehraufgabe zu Mal ist Geteilt: x = (−84) : 6 = ①. Nun sei y : 5 = ①. Die Umkehraufgabe zu Geteilt ist Mal: y = ① · 5 = ②.",
+    ["(-84)//6", "(-84)//6*5"], ["-14", "-70"], "Mal kehrst du mit Geteilt um, Geteilt mit Mal.", "(−84) : 6 = −14. (−14) · 5 = −70.",
+    {0: [(14, "fb.vorzeichen.falsches_zeichen", "Vorzeichen vergessen")], 1: [(70, "fb.vorzeichen.falsches_zeichen", "mit 14 statt −14 weitergerechnet")]}), GR)
 neu(TH, "umkehraufgabe_mal", "verfahren_waehlen", "mehrschritt", W(
     "Du sollst x : 4 = −9 lösen. Welcher Weg ist richtig?",
     "x = (−9) · 4 = −36", [("x = (−9) : 4", "das Teilen nicht umgekehrt"), ("x = 4 : (−9)", "Zahlen vertauscht"), ("x = (−9) + 4 = −5", "Plus statt Mal")],
@@ -156,12 +156,12 @@ neu(TH, "umkehraufgabe_mal", "anwenden", "einkleidung", Z(
 # ── ueberschlag ──
 neu(TH, "ueberschlag", "fehler_detektiv", "fehler", FDZ(
     "Kim überschlägt 4 987 · 21. Das genaue Ergebnis ist 104 727.",
-    [("Ich runde: 4 987 ist etwa 5 000 und 21 ist etwa 20.", round(4987, -3) == 5000 and round(21, -1) == 20), ("Überschlag: 5 000 · 20 = 10 000.", 5000 * 20 == 10000), ("Das genaue Ergebnis hat 6 Stellen.", len(str(4987 * 21)) == 6)],
-    "Rechne den Überschlag selbst nach: 5 000 · 20.", "5 000 · 20 = 100 000. Der Überschlag passt dann zum genauen Ergebnis 104 727."), BN)
+    [("Ich runde 4 987 auf Tausender: 4 000.", round(4987, -3) == 4000), ("Ich runde 21 auf Zehner: 20.", round(21, -1) == 20), ("Überschlag: 4 000 · 20 = 80 000.", 4000 * 20 == 80000)],
+    "Auf welche Zahl rundest du 4 987 auf Tausender? Schau auf die Hunderterziffer.", "4 987 rundet man auf 5 000, denn die Hunderterziffer 9 ist 5 oder mehr. Überschlag: 5 000 · 20 = 100 000. Das passt zum genauen Ergebnis."), BN)
 neu(TH, "ueberschlag", "zwei_wege", "mehrschritt", Z(
     "Überschlage 612 + 349 + 98. Weg A rundet auf Hunderter und addiert. Weg B rundet auf Zehner und addiert. Um wie viel ist der Überschlag von Weg B größer als der von Weg A?",
     "(610+350+100)-(600+300+100)", "60", "Runde in jedem Weg alle drei Zahlen, dann addiere.", "Weg A: 600 + 300 + 100 = 1 000. Weg B: 610 + 350 + 100 = 1 060. Unterschied: 60.",
-    [(0, None, "beide Überschläge als gleich angenommen"), (6, None, "eine Stelle verrutscht")]), BN)
+    [(0, None, "beide Überschläge als gleich angenommen")]), BN)
 neu(TH, "ueberschlag", "anwenden", "einkleidung", Z(
     "Eine Schule bestellt 28 Pakete Papier mit je 312 Blatt. Sie braucht 10 000 Blatt. Wie viele Blatt fehlen noch? (Überschlag zur Kontrolle: 30 · 300 ist etwa 9 000.)",
     "10000-28*312", "10000-8736", "Rechne die Zahl der Blätter genau aus. Dein Überschlag sagt etwa 1 000.", "28 · 312 = 8 736. 10 000 − 8 736 = 1 264 Blatt fehlen.",
@@ -169,13 +169,13 @@ neu(TH, "ueberschlag", "anwenden", "einkleidung", Z(
 
 # ── schriftlich ──
 neu(TH, "schriftlich", "lueckenweg", "direkt", L(
-    "Schriftlich 123 · 45. Erst mit der Einerziffer 5: 123 · 5 = ①. Dann mit der Zehnerziffer 4, das sind 40: 123 · 40 = ②. Beides addieren: ③.",
+    "Schriftlich 123 · 45. Erst mit der Einerziffer 5: 123 · 5 = ①. Dann mit der Zehnerziffer 4, das sind 40: 123 · 40 = ②. Beides addieren: ① + ② = ③.",
     ["123*5", "123*40", "123*5+123*40"], ["615", "4920", "5535"], "Bei der Zehnerziffer wandert das Ergebnis eine Stelle nach links.", "123 · 5 = 615. 123 · 40 = 4 920. 615 + 4 920 = 5 535.",
-    {1: [(492, "fb.stellenwert.null_angehaengt", "die Null für die Zehnerstelle vergessen")]}), SW)
+    {1: [(492, "fb.stellenwert.null_angehaengt", "die Null für die Zehnerstelle vergessen")], 2: [(1107, None, "mit 492 weitergerechnet")]}), SW)
 neu(TH, "schriftlich", "umkehren", "umkehr", Z(
     "Eine Zahl mal 36 ergibt 1 692. Welche Zahl ist es? Rechne schriftlich geteilt.",
     "1692//36", "47", "Kehre das Malnehmen mit Teilen um.", "1 692 : 36 = 47. Probe: 47 · 36 = 1 692.",
-    [(57, None, "Rest falsch übertragen"), (1728, None, "addiert statt geteilt")]), SW)
+    [(1728, None, "addiert statt geteilt")]), SW)
 neu(TH, "schriftlich", "anwenden", "einkleidung", Z(
     "Ein Lastwagen bringt 24 Kisten mit je 135 Flaschen. Die Flaschen werden gleichmäßig auf 15 Tische verteilt. Wie viele Flaschen liegen auf einem Tisch?",
     "24*135//15", "3240//15", "Erst alle Flaschen ausrechnen, dann teilen.", "24 · 135 = 3 240 Flaschen. 3 240 : 15 = 216 Flaschen je Tisch.",
@@ -184,8 +184,8 @@ neu(TH, "schriftlich", "anwenden", "einkleidung", Z(
 # ── schriftlich_geteilt ──
 neu(TH, "schriftlich_geteilt", "fehler_detektiv", "fehler", FDZ(
     "Kim rechnet 7 308 : 18 schriftlich.",
-    [("73 : 18 = 4, denn 4 · 18 = 72. Rest 1.", 73 // 18 == 4 and 73 % 18 == 1), ("Hole die 0 herunter: 10 : 18 = 0. Ich schreibe 0 ins Ergebnis.", 10 // 18 == 0), ("Hole die 8 herunter: 108 : 18 = 6. Ergebnis: 46.", 7308 // 18 == 46)],
-    "Wie viele Ziffern hat das Ergebnis? Jede heruntergeholte Ziffer bringt eine.", "Die Ziffern sind 4, 0 und 6: 7 308 : 18 = 406. Probe: 406 · 18 = 7 308."), SW)
+    [("73 : 18 = 4, denn 4 · 18 = 72. Rest 1.", 73 // 18 == 4 and 73 % 18 == 1), ("Ich hole die 0 herunter. 10 : 18 geht nicht, also schreibe ich nichts ins Ergebnis.", 7308 // 18 == 46), ("Ich hole die 8 herunter: 108 : 18 = 6.", 108 // 18 == 6), ("Ergebnis: 46.", True)],
+    "Jede heruntergeholte Ziffer bringt eine Ziffer ins Ergebnis. Was schreibst du, wenn der Teiler nicht passt?", "Passt der Teiler nicht, schreibst du eine 0 ins Ergebnis. 7 308 : 18 = 406. Probe: 406 · 18 = 7 308."), SW)
 neu(TH, "schriftlich_geteilt", "verfahren_waehlen", "mehrschritt", W(
     "Du teilst 5 472 durch 24 schriftlich. Was hilft dir dabei am meisten?",
     "Die Vielfachen von 24 aufschreiben: 24, 48, 72, 96, …",
@@ -195,7 +195,7 @@ neu(TH, "schriftlich_geteilt", "verfahren_waehlen", "mehrschritt", W(
 neu(TH, "schriftlich_geteilt", "umkehren", "umkehr", Z(
     "Eine Zahl geteilt durch 25 ergibt 328. Welche Zahl ist es?",
     "328*25", "8200", "Kehre das Teilen mit Malnehmen um. Rechne schriftlich.", "328 · 25 = 8 200. Probe: 8 200 : 25 = 328.",
-    [(8000, None, "328 · 24 gerechnet"), (13, None, "geteilt statt malgenommen")]), SW)
+    [(7872, None, "328 · 24 gerechnet")]), SW)
 
 # ── sach ──
 neu(TH, "sach", "lueckenweg", "direkt", L(
@@ -205,9 +205,9 @@ neu(TH, "sach", "lueckenweg", "direkt", L(
 neu(TH, "sach", "umkehren", "rueckwaerts", Z(
     "Von einem Betrag werden erst 35 € abgezogen. Der Rest wird durch 3 geteilt. Es bleiben 24 €. Wie groß war der Betrag?",
     "24*3+35", "72+35", "Beginne beim Rest und kehre den letzten Schritt zuerst um.", "Rückwärts: 24 · 3 = 72. Dann 72 + 35 = 107. Probe: (107 − 35) : 3 = 24.",
-    [(59, None, "Schritte nicht umgekehrt: 24 + 35"), (37, None, "falsche Reihenfolge der Umkehrung")], einheit="€"), GR)
+    [(59, None, "Schritte nicht umgekehrt: 24 + 35"), (23, None, "35 − 24 : 3 gerechnet")], einheit="€"), GR)
 neu(TH, "sach", "bruecke", "darstellung", Z(
     "Die Tabelle zeigt drei Schritte, die nacheinander gerechnet werden. Am Ende kommt 41 heraus. Mit welcher Zahl wurde begonnen?",
     "((41+4)//5)-8", "9-8", "Lies die Tabelle von rechts nach links und kehre jeden Schritt um.", "Rückwärts: 41 + 4 = 45. 45 : 5 = 9. 9 − 8 = 1. Probe: ((1 + 8) · 5) − 4 = 41.",
-    [(37, None, "Schritte nicht umgekehrt"), (8, None, "nur einen Schritt umgekehrt")],
+    [(37, None, "Schritte nicht umgekehrt"), (9, None, "nur zwei Schritte umgekehrt")],
     grafik=TAB(["Schritt", "1", "2", "3"], ["Rechnung", "+ 8", "· 5", "− 4"])), GR)

@@ -102,7 +102,7 @@ def T(text, richtig, probe, h, w, fb, grafik=None):
     return mit({"y": "text", "f": {"text": text}, "o": {"text": richtig}, "h": h, "w": w}, grafik), probe, [(x[0], None, x[1]) for x in fb]
 
 
-def FDZ(einleitung, zeilen, h, w, frage="In welcher Zeile steckt der Fehler?", grafik=None):
+def FDZ(einleitung, zeilen, h, w, frage="In welcher Zeile passiert der erste Fehler?", grafik=None):
     """Fehler-Detektiv: zeilen = [(Text, stimmt)]; genau eine Zeile darf nicht stimmen (das Programm prüft es)."""
     falsche = [i for i, (_, ok) in enumerate(zeilen) if not ok]
     assert len(falsche) == 1 and 3 <= len(zeilen) <= 4, (einleitung, falsche)

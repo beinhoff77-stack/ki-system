@@ -41,7 +41,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim schreibt 5 · 5 · 5 · 5 als Potenz und rechnet sie aus. Zeile 1: Die Basis ist 5. Sie kommt 4-mal als Faktor vor. Zeile 2: Als Potenz: 5⁴. Zeile 3: Ausgerechnet: 5⁴ = 5 · 4 = 20. In welcher Zeile steckt der Fehler?"
+     "text": "Kim schreibt 5 · 5 · 5 · 5 als Potenz und rechnet sie aus. Zeile 1: Die Basis ist 5. Sie kommt 4-mal als Faktor vor. Zeile 2: Als Potenz: 5⁴. Zeile 3: Ausgerechnet: 5⁴ = 5 · 4 = 20. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -302,15 +302,15 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
+     "index": 1,
+     "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
@@ -324,7 +324,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim berechnet 13². Zeile 1: 13² heißt 13 · 13. Zeile 2: 13 · 13 = 13 · 10 + 13 · 3 = 130 + 39. Zeile 3: 130 + 39 = 159. In welcher Zeile steckt der Fehler?"
+     "text": "Kim berechnet 13² und die Fläche eines Quadrats. Zeile 1: 13² heißt 13 · 2. Zeile 2: 13 · 2 = 26. Zeile 3: Ein Quadrat mit 13 cm Seitenlänge hat also 26 cm² Fläche. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -332,10 +332,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Rechne die letzte Addition nach.",
-    "w": "130 + 39 = 169. Also 13² = 169."
+    "h": "Wie oft steht die 13 als Faktor da?",
+    "w": "13² heißt 13 · 13 = 169. Ein Quadrat mit 13 cm Seite hat 169 cm² Fläche."
    }
   },
   {
@@ -486,12 +486,6 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 1,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "beide gleich groß angenommen und den Rest geraten"
-    },
-    {
      "antwort": -17,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -528,12 +522,6 @@
    "regel_name": "Potenzen",
    "zaehlt": "ja",
    "fehlbilder": [
-    {
-     "antwort": 0,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "beide gleich angenommen"
-    },
     {
      "antwort": -7,
      "fehlbild": null,
@@ -584,6 +572,13 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     }
    ],
    "aufgabe": {
@@ -594,18 +589,19 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim schreibt 7 · 10⁴ als Zahl. Zeile 1: 10⁴ ist eine 1 mit vier Nullen. Zeile 2: Die 7 wird vor die Nullen geschrieben. Zeile 3: Also ist 7 · 10⁴ = 700 000. In welcher Zeile steckt der Fehler?"
+     "text": "Kim schreibt 7 · 10⁴ als Zahl. Zeile 1: 10⁴ ist eine 1 mit vier Nullen: 10 000. Zeile 2: 7 · 10⁴ heißt: 7 mal 10 000. Zeile 3: Das ist die 7 mit vier Nullen dahinter. Zeile 4: Also ist 7 · 10⁴ = 700 000. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
      "In Zeile 2",
-     "In Zeile 3"
+     "In Zeile 3",
+     "In Zeile 4"
     ],
     "o": {
-     "index": 2
+     "index": 3
     },
     "h": "Zähle die Nullen in deiner Zahl und vergleiche mit dem Exponenten.",
-    "w": "7 · 10⁴ = 7 und vier Nullen = 70 000."
+    "w": "7 und vier Nullen sind 70 000, nicht 700 000."
    }
   },
   {
@@ -678,16 +674,16 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 10,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "alle Ziffern gezählt"
-    },
-    {
      "antwort": 11,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Stellen der Zahl gezählt"
+     "beschreibung": "alle Ziffern der Zahl gezählt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffern der 25 gezählt"
     }
    ],
    "aufgabe": {
@@ -830,12 +826,6 @@
      "fehlbild": "fb.vorzeichen.falsches_zeichen",
      "regel_des_fehlbilds": "rr.vorzeichen",
      "beschreibung": "Vorzeichen vergessen"
-    },
-    {
-     "antwort": -42,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "durch 3 geteilt"
     }
    ],
    "aufgabe": {
@@ -876,8 +866,8 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
@@ -891,7 +881,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim faltet ein Blatt Papier 5-mal. Bei jedem Falten verdoppelt sich die Zahl der Lagen. Zeile 1: Nach dem 1. Falten sind es 2 Lagen. Zeile 2: Nach dem 2. Falten sind es 4, nach dem 3. Falten 8 Lagen. Zeile 3: Nach dem 5. Falten sind es 2 · 5 = 10 Lagen. In welcher Zeile steckt der Fehler?"
+     "text": "Kim faltet ein Blatt Papier 5-mal. Er will wissen, wie viele Lagen es dann sind. Zeile 1: Nach dem 1. Falten sind es 2 Lagen. Zeile 2: Bei jedem weiteren Falten kommen 2 Lagen dazu. Zeile 3: Nach dem 5. Falten sind es 2 + 2 · 4 = 10 Lagen. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -899,10 +889,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "Verdoppeln bei jedem Falten: Wie viele Faktoren 2 sind es nach 5-mal?",
-    "w": "Nach 5-mal Falten sind es 2⁵ = 32 Lagen."
+    "h": "Wie viele Lagen sind es nach dem 2. Falten? Nimm ein Blatt und falte.",
+    "w": "Beim Falten verdoppelt sich die Zahl der Lagen: 2, 4, 8, 16, 32. Nach 5-mal sind es 2⁵ = 32 Lagen."
    }
   },
   {

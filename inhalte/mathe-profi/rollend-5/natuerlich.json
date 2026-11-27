@@ -31,6 +31,13 @@
      "fehlbild": "fb.stellenwert.eine_stelle_daneben",
      "regel_des_fehlbilds": "rr.stellenwert",
      "beschreibung": "eine Stelle zu weit rechts gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 680,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Wert 600 für die 6 weitergerechnet"
     }
    ],
    "aufgabe": {
@@ -41,22 +48,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "In der Zahl 6 083 steht die 8 an der Zehnerstelle: 8 · 10 = ①. Die 6 steht an der Tausenderstelle: 6 · 1 000 = ②.",
-     "schablone": "① = □; ② = □",
+     "text": "In der Zahl 6 083 steht die 8 an der Zehnerstelle: 8 · 10 = ①. Die 6 steht an der Tausenderstelle: 6 · 1 000 = ②. Die Ziffer 0 an der Hunderterstelle trägt nichts bei. Die Zahl ohne die Einer ist deshalb ② + ① = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       80,
-      6000
+      6000,
+      6080
      ]
     },
     "c": [
      "8*10",
-     "6*1000"
+     "6*1000",
+     "6*1000+8*10"
     ],
     "h": "Wert einer Ziffer = Ziffer mal Wert ihrer Stelle.",
-    "w": "8 · 10 = 80. 6 · 1 000 = 6 000. Die 0 hält die Hunderterstelle frei."
+    "w": "8 · 10 = 80. 6 · 1 000 = 6 000. 6 000 + 80 = 6 080."
    }
   },
   {
@@ -182,8 +191,8 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
@@ -197,7 +206,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim schreibt „drei Millionen vierzigtausend zwölf“ in Ziffern. Zeile 1: Drei Millionen sind 3 000 000. Zeile 2: Vierzigtausend sind 40 000. Zeile 3: Zusammen: 3 000 000 + 40 000 + 12 = 3 400 012. In welcher Zeile steckt der Fehler?"
+     "text": "Kim schreibt „drei Millionen vierzigtausend zwölf“ in Ziffern. Zeile 1: Drei Millionen sind 3 000 000. Zeile 2: Vierzigtausend sind 400 000. Zeile 3: Zusammen: 3 000 000 + 400 000 + 12 = 3 400 012. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -205,10 +214,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "Rechne die Summe genau nach. Auf welche Stelle gehört die 4 von 40 000?",
-    "w": "3 000 000 + 40 000 + 12 = 3 040 012. Die 4 steht an der Zehntausenderstelle, nicht bei den Hunderttausendern."
+    "h": "Wie viele Nullen hat „vierzigtausend“?",
+    "w": "Vierzigtausend sind 40 000 (4 Zehntausender). Richtig: 3 000 000 + 40 000 + 12 = 3 040 012."
    }
   },
   {
@@ -224,16 +233,10 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 6,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Nullen in der leeren Gruppe vergessen"
-    },
-    {
      "antwort": 5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Wörter gezählt"
+     "beschreibung": "50 300 geschrieben und die leere Gruppe weggelassen"
     }
    ],
    "aufgabe": {
@@ -271,12 +274,6 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "„vierzig“ als 400 gelesen"
-    },
-    {
-     "antwort": 1000,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "Stellen verrutscht"
     }
    ],
    "aufgabe": {
@@ -310,6 +307,13 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 4800000,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "eine Null zu wenig"
+    },
+    {
      "luecke": 2,
      "antwort": 48120,
      "fehlbild": null,
@@ -325,7 +329,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Eine Zahl wird gelesen: „achtundvierzig Millionen einhundertzwanzig“. In Dreiergruppen: 48 | 000 | 120. Die Gruppe 48 steht vor „Millionen“: 48 · 1 000 000 = ①. Die Gruppe 000 liest man nicht. Zusammen mit der letzten Gruppe ist die Zahl ②.",
+     "text": "Eine Zahl wird gelesen: „achtundvierzig Millionen einhundertzwanzig“. In Dreiergruppen: 48 | 000 | 120. Die Gruppe 48 steht vor „Millionen“: 48 · 1 000 000 = ①. Die Gruppe 000 liest man nicht. Mit der letzten Gruppe 120 ist die Zahl ① + 120 = ②.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -403,12 +407,6 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Einer-Gruppe nicht mit 040 geschrieben"
-    },
-    {
-     "antwort": 7340500,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Gruppen vertauscht"
     }
    ],
    "aufgabe": {
@@ -457,15 +455,15 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
+     "index": 1,
+     "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
@@ -479,7 +477,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Zahlenstrahl geht von 200 bis 600 und hat 8 Abschnitte. Der Pfeil steht 5 Abschnitte nach dem Anfang. Kim liest ihn ab. Zeile 1: Abschnittswert: (600 − 200) : 8 = 50. Zeile 2: Der Pfeil liegt 5 Abschnitte weiter: 5 · 50 = 250. Zeile 3: Die Zahl am Pfeil ist 250. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Zahlenstrahl geht von 200 bis 600 und hat 8 Abschnitte. Der Pfeil steht 5 Abschnitte nach dem Anfang. Kim liest ihn ab. Zeile 1: Abschnittswert: 600 : 8 = 75. Zeile 2: Der Pfeil liegt 5 Abschnitte weiter: 5 · 75 = 375. Zeile 3: Die Zahl am Pfeil ist 200 + 375 = 575. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -487,10 +485,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Beginnt der Strahl bei 0?",
-    "w": "Der Strahl beginnt bei 200. Die Zahl am Pfeil ist 200 + 250 = 450."
+    "h": "Wie wird der Abschnittswert berechnet: Was gehört in die Klammer?",
+    "w": "Der Abschnittswert ist (Ende − Anfang) : Abschnitte = (600 − 200) : 8 = 50. Der Pfeil zeigt 200 + 5 · 50 = 450."
    }
   },
   {
@@ -780,6 +778,13 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     }
    ],
    "aufgabe": {
@@ -790,18 +795,19 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim vergleicht 89 999 und 101 000. Zeile 1: 89 999 hat 5 Stellen. Zeile 2: 101 000 hat 6 Stellen. Zeile 3: Die erste Ziffer 8 ist größer als die 1 vorn. Also ist 89 999 die größere Zahl. In welcher Zeile steckt der Fehler?"
+     "text": "Kim vergleicht 89 999 und 101 000. Zeile 1: 89 999 hat 5 Stellen. Zeile 2: 101 000 hat 6 Stellen. Zeile 3: Die Zahl der Stellen ist egal. Ich vergleiche nur die erste Ziffer: 8 ist größer als 1. Zeile 4: Also ist 89 999 die größere Zahl. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
      "In Zeile 2",
-     "In Zeile 3"
+     "In Zeile 3",
+     "In Zeile 4"
     ],
     "o": {
      "index": 2
     },
-    "h": "Wer hat mehr Stellen, hat diese Zahl dann die größere Ziffer vorn?",
-    "w": "Mehr Stellen heißt größer. 101 000 hat 6 Stellen und ist größer als 89 999."
+    "h": "Wann darfst du direkt von links Ziffer für Ziffer vergleichen?",
+    "w": "Hat eine Zahl mehr Stellen, ist sie größer. Erst bei gleich vielen Stellen vergleichst du von links. 101 000 ist größer als 89 999."
    }
   },
   {
@@ -820,13 +826,13 @@
      "antwort": 45,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die falschen Zahlen verglichen"
+     "beschreibung": "größte und mittlere Zahl verglichen"
     },
     {
-     "antwort": 205,
+     "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die mittlere Zahl statt der kleinsten genommen"
+     "beschreibung": "nur den Rest der kleinsten Zahl genannt"
     }
    ],
    "aufgabe": {
@@ -866,10 +872,10 @@
      "beschreibung": "C statt A als kleinste genommen"
     },
     {
-     "antwort": 535,
+     "antwort": 180,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "falsche Zahlen verglichen"
+     "beschreibung": "Stadt C und Stadt A verglichen"
     }
    ],
    "aufgabe": {
@@ -911,6 +917,13 @@
     },
     {
      "luecke": 2,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht aufgerundet"
+    },
+    {
+     "luecke": 3,
      "antwort": 48300,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -925,22 +938,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Zahl 48 372 wird auf Hunderter gerundet. Rechts neben der Hunderterstelle steht die Ziffer ①. Bei 5 oder mehr wird aufgerundet. Die gerundete Zahl ist ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Die Zahl 48 372 wird auf Hunderter gerundet. Rechts neben der Hunderterstelle steht die Ziffer ①. Ist ① gleich 5 oder mehr, wird die Hunderterziffer 3 um 1 größer: Sie wird zur ②. Die gerundete Zahl hat vorn 48, dann die Hunderterziffer ② und dahinter zwei Nullen: ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       7,
+      4,
       48400
      ]
     },
     "c": [
      "48372//10%10",
+     "48372//100%10+1",
      "(48372+50)//100*100"
     ],
     "h": "Welche Ziffer steht direkt rechts von der Hunderterstelle?",
-    "w": "Die Hunderterstelle ist die 3. Rechts daneben steht die 7. Also wird aufgerundet: 48 400."
+    "w": "Rechts der Hunderterstelle steht die 7. Also aufrunden: aus 3 wird 4. Dahinter Nullen: 48 400."
    }
   },
   {
@@ -962,10 +977,10 @@
      "beschreibung": "die glatte Zahl darunter genommen"
     },
     {
-     "antwort": 64999,
+     "antwort": 65499,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "eine zu große Zahl genannt"
+     "beschreibung": "die größte statt der kleinsten Zahl genannt"
     }
    ],
    "aufgabe": {
@@ -1049,8 +1064,8 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
@@ -1064,7 +1079,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim rundet 3 996 auf Zehner. Zeile 1: Die Einerziffer 6 ist 5 oder mehr: Es wird aufgerundet. Zeile 2: Die 9 an der Zehnerstelle wird um 1 größer: 9 + 1 = 10. Zeile 3: Kim schreibt 0 an die Zehnerstelle und lässt den Rest, wie er ist: 3 900. In welcher Zeile steckt der Fehler?"
+     "text": "Kim rundet 3 996 auf Zehner. Zeile 1: Die Einerziffer 6 ist 5 oder mehr: Es wird aufgerundet. Zeile 2: Aus 9 + 1 wird 10: Ich schreibe 0 an die Zehnerstelle und vergesse die 1. Zeile 3: Die Hunderterziffer bleibt 9. Gerundet: 3 900. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1072,10 +1087,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "Wohin geht die 1 aus der 10?",
-    "w": "Aus 9 Zehnern + 1 Zehner werden 10 Zehner: 0 hinschreiben, 1 an die Hunderter weitergeben. Dort wird aus 9 + 1 wieder 10. 3 996 wird zu 4 000."
+    "h": "Wohin gehört die 1 aus der 10?",
+    "w": "Die 1 muss an die Hunderterstelle weitergegeben werden: 9 + 1 = 10, wieder mit Übertrag. 3 996 wird zu 4 000."
    }
   },
   {
@@ -1097,10 +1112,10 @@
      "beschreibung": "zur falschen Hunderterzahl gerechnet"
     },
     {
-     "antwort": 105,
+     "antwort": 100,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Abstände addiert"
+     "beschreibung": "beide Abstände addiert"
     }
    ],
    "aufgabe": {
@@ -1138,12 +1153,6 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "abgerundet auf 19 900 gerechnet"
-    },
-    {
-     "antwort": 4,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "mit der Einerstelle gerechnet"
     }
    ],
    "aufgabe": {
@@ -1178,11 +1187,18 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": 10000,
+     "luecke": 1,
+     "antwort": 4900,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit der gerundeten Zahl gerechnet"
+     "beschreibung": "abgerundet statt aufgerundet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 9800,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 4 900 weitergerechnet"
     }
    ],
    "aufgabe": {
@@ -1193,7 +1209,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Eine Zeitung schreibt über 4 987 Besucher. Auf Hunderter gerundet sind das ①. Der Veranstalter rechnet genau ab: Jeder Besucher zahlt 2 €. Das sind ② €. Mit der gerundeten Zahl wären es ③ €, also 26 € zu viel.",
+     "text": "Eine Zeitung schreibt über 4 987 Besucher. Auf Hunderter gerundet sind das ①. Der Veranstalter rechnet genau ab: Jeder Besucher zahlt 2 €. Das sind ② €. Mit der gerundeten Zahl wären es ① · 2 = ③ €, also 26 € zu viel.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -1348,7 +1364,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim sagt: „Es gibt eine größte natürliche Zahl.“ Er begründet. Zeile 1: Die größte Zahl mit 3 Ziffern ist 999. Zeile 2: Mit 4 Ziffern ist die größte Zahl 9 999. Sie ist größer. Zeile 3: Irgendwo kommt eine Zahl, die keinen Nachfolger mehr hat. Sie ist die größte. In welcher Zeile steckt der Fehler?"
+     "text": "Kim sagt: „Es gibt eine größte natürliche Zahl.“ Er begründet. Zeile 1: Die größte Zahl mit 3 Ziffern ist 999. Zeile 2: Mit 4 Ziffern ist die größte Zahl 9 999. Sie ist größer. Zeile 3: Irgendwo kommt eine Zahl, die keinen Nachfolger mehr hat. Sie ist die größte. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1422,12 +1438,6 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur die Nullen gezählt"
-    },
-    {
-     "antwort": 4,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "nach den Wörtern gezählt"
     }
    ],
    "aufgabe": {
@@ -1483,7 +1493,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "MCMXLIV wird zerlegt. M = 1 000. CM = 1 000 − 100 = ①. XL = 50 − 10 = ②. IV = 5 − 1 = ③. Die Zahl ist die Summe: ④.",
+     "text": "MCMXLIV wird zerlegt. M = 1 000. CM = 1 000 − 100 = ①. XL = 50 − 10 = ②. IV = 5 − 1 = ③. Die Zahl ist die Summe 1 000 + ① + ② + ③ = ④.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -1619,15 +1629,15 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
+     "index": 1,
+     "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
@@ -1641,7 +1651,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim erklärt römische Zahlen. Zeile 1: In XI ist das X zehn wert, das I kommt dazu: 11. Zeile 2: In IX ist das X auch zehn wert, aber das I steht davor und wird abgezogen. Zeile 3: Deshalb haben XI und IX den gleichen Wert: beide sind 11. In welcher Zeile steckt der Fehler?"
+     "text": "Kim vergleicht die römischen Zahlen IX und XI. Zeile 1: Bei IX steht das kleinere Zeichen I vor dem größeren X. Ich addiere trotzdem: 10 + 1 = 11. Zeile 2: Bei XI steht das I hinter dem X: 10 + 1 = 11. Zeile 3: Also haben IX und XI den gleichen Wert, nämlich 11. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1649,10 +1659,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Wie viel ist IX?",
-    "w": "IX = 10 − 1 = 9. XI = 10 + 1 = 11. Die Reihenfolge der Zeichen ändert den Wert."
+    "h": "Steht das I bei IX vor oder hinter dem X? Was bedeutet das?",
+    "w": "Steht ein kleineres Zeichen vor einem größeren, wird es abgezogen: IX = 10 − 1 = 9. XI = 10 + 1 = 11."
    }
   },
   {
@@ -1711,12 +1721,6 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 251,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "D als 1 000 gelesen"
-    },
-    {
      "antwort": 1875,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1766,6 +1770,13 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Zahl einfach wie bei uns gelesen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 8909,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit den falsch gelesenen Zahlen gerechnet"
     }
    ],
    "aufgabe": {
@@ -1776,22 +1787,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Zweierzahl 1101 hat die Stellenwerte 8, 4, 2 und 1. Gerechnet: 1 · 8 + 1 · 4 + 0 · 2 + 1 · 1 = ①. Die Zweierzahl 10010 hat die Stellenwerte 16, 8, 4, 2 und 1. Hier steht eine 1 bei 16 und bei 2: 16 + 2 = ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Die Zweierzahl 1101 hat die Stellenwerte 8, 4, 2 und 1. Gerechnet: 1 · 8 + 1 · 4 + 0 · 2 + 1 · 1 = ①. Die Zweierzahl 10010 hat die Stellenwerte 16, 8, 4, 2 und 1. Eine 1 steht bei 16 und bei 2: 16 + 2 = ②. Die zweite Zahl ist um ② − ① = ③ größer.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       13,
-      18
+      18,
+      5
      ]
     },
     "c": [
      "1*8+1*4+0*2+1*1",
-     "16+2"
+     "16+2",
+     "16+2-(1*8+1*4+1*1)"
     ],
     "h": "Nur die Stellenwerte mit einer 1 darunter werden addiert.",
-    "w": "1101: 8 + 4 + 1 = 13. 10010: 16 + 2 = 18."
+    "w": "1101: 8 + 4 + 1 = 13. 10010: 16 + 2 = 18. 18 − 13 = 5."
    }
   },
   {
@@ -1816,7 +1829,7 @@
      "antwort": 23,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Stelle mit 0 mitgerechnet"
+     "beschreibung": "den Stellenwert 1 zusätzlich mitgerechnet"
     }
    ],
    "aufgabe": {

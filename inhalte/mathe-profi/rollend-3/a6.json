@@ -1,0 +1,1403 @@
+{
+ "stand": "2026-11-27",
+ "flug": "a6",
+ "titel": "Gleichungssysteme",
+ "fuer": "Kind 2",
+ "klasse": 8,
+ "themen": [
+  "gleichungen.lgs2"
+ ],
+ "hinweis": "Aufgaben auf Vorrat, rollendes System Stufe 3. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: erst die Aufgaben ohne Bau, dann die des Typs „bedingung“, jeweils mit aufsteigender Stufe.",
+ "aufgaben": [
+  {
+   "kennung": "A6-01",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "pruefen",
+   "stufe": 1,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Ja, beide Gleichungen stimmen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur in Gleichung I eingesetzt"
+    },
+    {
+     "index": 2,
+     "antwort": "Nein, nur Gleichung II stimmt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gleichungen verwechselt"
+    },
+    {
+     "index": 3,
+     "antwort": "Nein, keine der beiden stimmt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch eingesetzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "pruefen",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Ist das Zahlenpaar (3 | 2) eine Lösung des Systems I: x + y = 5 und II: 2x − y = 5?"
+    },
+    "a": [
+     "Ja, beide Gleichungen stimmen.",
+     "Nein, nur Gleichung I stimmt.",
+     "Nein, nur Gleichung II stimmt.",
+     "Nein, keine der beiden stimmt."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Setze das Paar in beide Gleichungen ein.",
+    "w": "I: 3 + 2 = 5 stimmt. II: 2 · 3 − 2 = 4, nicht 5. Das Paar löst nur I, also nicht das System."
+   }
+  },
+  {
+   "kennung": "A6-02",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "grafisch",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Es gibt genau eine Lösung.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Schnittpunkt angenommen"
+    },
+    {
+     "index": 2,
+     "antwort": "Es gibt unendlich viele Lösungen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gilt nur, wenn die Geraden aufeinanderliegen"
+    }
+   ],
+   "aufgabe": {
+    "l": "grafisch",
+    "t": "grafisch",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Die zwei Geraden eines Gleichungssystems sind parallel und verschieden. Was heißt das für die Lösung?"
+    },
+    "a": [
+     "Es gibt genau eine Lösung.",
+     "Es gibt keine Lösung.",
+     "Es gibt unendlich viele Lösungen."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Die Lösung ist der Schnittpunkt.",
+    "w": "Parallele, verschiedene Geraden haben keinen Schnittpunkt. Das System hat keine Lösung."
+   }
+  },
+  {
+   "kennung": "A6-03",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "addition",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "4y = 16",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x statt y wegfallen lassen"
+    },
+    {
+     "index": 2,
+     "antwort": "8x + 4y = 16",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gegenzahlen addiert, als hätten sie gleiches Vorzeichen"
+    },
+    {
+     "index": 3,
+     "antwort": "8x = 8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "rechts abgezogen statt addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "addition",
+    "t": "addition",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "I: 3x + 2y = 12 und II: 5x − 2y = 4. Was entsteht, wenn du beide Gleichungen addierst?"
+    },
+    "a": [
+     "8x = 16",
+     "4y = 16",
+     "8x + 4y = 16",
+     "8x = 8"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Was passiert mit +2y und −2y?",
+    "w": "2y und −2y sind Gegenzahlen und fallen weg. Links 3x + 5x = 8x, rechts 12 + 4 = 16."
+   }
+  },
+  {
+   "kennung": "A6-04",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "verfahren",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Addieren",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Addieren ließe y nicht wegfallen"
+    },
+    {
+     "index": 2,
+     "antwort": "erst beide Gleichungen mal 2 nehmen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "unnötiger Umweg"
+    }
+   ],
+   "aufgabe": {
+    "l": "verfahren",
+    "t": "verfahren",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "I: y = 4x − 1 und II: y = −x + 9. Welches Verfahren ist hier am geschicktesten?"
+    },
+    "a": [
+     "Gleichsetzen",
+     "Addieren",
+     "erst beide Gleichungen mal 2 nehmen"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Schau auf die Form der beiden Gleichungen.",
+    "w": "Zweimal steht y = … da. Also die rechten Seiten gleichsetzen: 4x − 1 = −x + 9."
+   }
+  },
+  {
+   "kennung": "A6-05",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "einsetzen",
+   "stufe": 2,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.minusklammer",
+   "regel_name": "Minus vor der Klammer",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 13,
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "14 − 1 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "einsetzen",
+    "t": "einsetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "I: y = 2x − 1 und II: 3x + y = 14. Einsetzen: 3x + (2x − 1) = 14. Zusammenfassen: ①x − 1 = 14. Also ①x = ②, x = ③ und y = ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      5,
+      15,
+      3,
+      5
+     ]
+    },
+    "c": [
+     "3 + 2",
+     "14 + 1",
+     "(14 + 1) // (3 + 2)",
+     "2 * 3 - 1"
+    ],
+    "h": "Steht y = … schon da, setzt du diesen Term ein.",
+    "w": "5x − 1 = 14, 5x = 15, x = 3. Dann y = 2 · 3 − 1 = 5. Probe in II: 9 + 5 = 14."
+   }
+  },
+  {
+   "kennung": "A6-06",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "grafisch",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "fehlbild": "fb.zuordnung.x_und_y_vertauscht",
+     "regel_des_fehlbilds": "id.funktionen.zuordnung",
+     "beschreibung": "x und y vertauscht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "fehlbild": "fb.zuordnung.x_und_y_vertauscht",
+     "regel_des_fehlbilds": "id.funktionen.zuordnung",
+     "beschreibung": "x und y vertauscht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Achsenabschnitt von h abgelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "grafisch",
+    "t": "grafisch",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "luecken",
+    "f": {
+     "text": "Lies die Lösung des Gleichungssystems am Graphen ab.",
+     "schablone": "x = □; y = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ).",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -3,
+       5
+      ],
+      "y": [
+       -2,
+       6
+      ],
+      "graphen": [
+       {
+        "art": "linear",
+        "m": 1,
+        "t": 1,
+        "name": "g"
+       },
+       {
+        "art": "linear",
+        "m": -1,
+        "t": 3,
+        "name": "h"
+       }
+      ]
+     }
+    },
+    "o": {
+     "werte": [
+      1,
+      2
+     ]
+    },
+    "c": [
+     "(3 - 1) // (1 + 1)",
+     "1 + 1"
+    ],
+    "h": "Die Lösung ist der Schnittpunkt der beiden Geraden.",
+    "w": "Die Geraden schneiden sich in (1 | 2). Probe: 1 + 1 = 2 und −1 + 3 = 2."
+   }
+  },
+  {
+   "kennung": "A6-07",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "pruefen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 7,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "die −1 als +1 eingesetzt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 0,
+     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "2 − 2 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "pruefen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "luecken",
+    "f": {
+     "text": "Das Paar (2 | −1) soll das System I: 3x + y = a und II: x − 2y = b lösen. Bestimme a und b.",
+     "schablone": "a = □; b = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      5,
+      4
+     ]
+    },
+    "c": [
+     "3 * 2 + (-1)",
+     "2 - 2 * (-1)"
+    ],
+    "h": "Setze das Paar in beide Gleichungen ein.",
+    "w": "I: 3 · 2 + (−1) = 5. II: 2 − 2 · (−1) = 2 + 2 = 4."
+   }
+  },
+  {
+   "kennung": "A6-08",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "gleichsetzen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "luecken",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 5 geteilt, oder 2x abgezogen statt dazugezählt (x − 5 = 10)"
+    },
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 abgezogen statt dazugezählt: 5x = 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleichsetzen",
+    "t": "gleichsetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "Löse das System I: y = 3x − 5 und II: y = −2x + 10.",
+     "schablone": "x = □; y = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      4
+     ]
+    },
+    "c": [
+     "(10 + 5) // (3 + 2)",
+     "3 * 3 - 5"
+    ],
+    "h": "Zweimal y = …: Setze die Terme gleich.",
+    "w": "3x − 5 = −2x + 10, also 5x = 15 und x = 3. Dann y = 3 · 3 − 5 = 4."
+   }
+  },
+  {
+   "kennung": "A6-09",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "gleichsetzen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "luecken",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2x dazugezählt statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleichsetzen",
+    "t": "gleichsetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "I: y = 2x + 3 und II: y = 5x − 6. Gleichsetzen: 2x + 3 = 5x − 6, also 9 = ①x und x = ②. Probe auf zwei Wegen: mit I ist y = ③, mit II ist y = ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      3,
+      3,
+      9,
+      9
+     ]
+    },
+    "c": [
+     "5 - 2",
+     "(3 + 6) // (5 - 2)",
+     "2 * 3 + 3",
+     "5 * 3 - 6"
+    ],
+    "h": "Beide Gleichungen müssen dasselbe y liefern.",
+    "w": "9 = 3x, x = 3. I: 2 · 3 + 3 = 9. II: 5 · 3 − 6 = 9. Beide ergeben y = 9."
+   }
+  },
+  {
+   "kennung": "A6-10",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "addition",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dann müsste man subtrahieren statt addieren"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "macht nichts gleich"
+    },
+    {
+     "antwort": -2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "lässt x wegfallen, nicht y"
+    }
+   ],
+   "aufgabe": {
+    "l": "addition",
+    "t": "addition",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "I: 2x + 3y = 13 und II: 4x − y = 5. Mit welcher Zahl nimmst du Gleichung II mal, damit beim Addieren y wegfällt?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "3 // 1",
+    "h": "Vor dem y sollen Gegenzahlen stehen.",
+    "w": "In I steht +3y. Aus −y wird mit mal 3 genau −3y. Dann fällt y beim Addieren weg."
+   }
+  },
+  {
+   "kennung": "A6-11",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "loesbarkeit",
+   "stufe": 2,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "keine",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Doppelte auf der rechten Seite nicht geprüft"
+    },
+    {
+     "index": 1,
+     "antwort": "genau eine",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht verglichen"
+    }
+   ],
+   "aufgabe": {
+    "l": "loesbarkeit",
+    "t": "loesbarkeit",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "I: 2x + y = 5 und II: 4x + 2y = 10. Wie viele Lösungen hat das System?"
+    },
+    "a": [
+     "keine",
+     "genau eine",
+     "unendlich viele"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Vergleiche II mit dem Doppelten von I.",
+    "w": "II ist genau das Doppelte von I. Beide Gleichungen sagen dasselbe; beim Lösen bleibt 0 = 0. Unendlich viele Lösungen."
+   }
+  },
+  {
+   "kennung": "A6-12",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "sachaufgabe",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "2e + 3k = 14 und e + k = 34",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Beträge vertauscht"
+    },
+    {
+     "index": 1,
+     "antwort": "5 · (e + k) = 34 und e + k = 14",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Personen zum selben Preis gerechnet"
+    },
+    {
+     "index": 2,
+     "antwort": "2e · 3k = 34 und e · k = 14",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt zusammengezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgabe",
+    "t": "sachaufgabe",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Im Zoo zahlen 2 Erwachsene und 3 Kinder zusammen 34 €. 1 Erwachsener und 1 Kind zahlen zusammen 14 €. Welches System passt? (e: Preis für einen Erwachsenen, k: Preis für ein Kind)"
+    },
+    "a": [
+     "2e + 3k = 14 und e + k = 34",
+     "5 · (e + k) = 34 und e + k = 14",
+     "2e · 3k = 34 und e · k = 14",
+     "2e + 3k = 34 und e + k = 14"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Für jede Angabe eine Gleichung.",
+    "w": "Erste Angabe: 2e + 3k = 34. Zweite: e + k = 14. (Lösung: e = 8 €, k = 6 €.)"
+   }
+  },
+  {
+   "kennung": "A6-13",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "einsetzen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "zahl",
+   "regel": "rr.minusklammer",
+   "regel_name": "Minus vor der Klammer",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -1,
+     "fehlbild": "fb.minusklammer.nur_erstes_zeichen",
+     "regel_des_fehlbilds": "rr.minusklammer",
+     "beschreibung": "wie Ben ohne Klammer: x + 4 = 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "einsetzen",
+    "t": "einsetzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "zahl",
+    "f": {
+     "text": "I: y = x + 4 und II: 2x − y = 3. Ben setzt ein und schreibt: 2x − x + 4 = 3. Welchen Wert hat x wirklich?"
+    },
+    "o": {
+     "wert": 7
+    },
+    "c": "3 + 4",
+    "h": "Der ganze Term x + 4 wird abgezogen. Was fehlt bei Ben?",
+    "w": "Mit Klammer: 2x − (x + 4) = 3, also 2x − x − 4 = 3 und x = 7. Probe: y = 11, 14 − 11 = 3."
+   }
+  },
+  {
+   "kennung": "A6-14",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "loesbarkeit",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die rechte Seite nicht verdoppelt"
+    },
+    {
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "an 0 = 0 gedacht und c = 0 gesetzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "loesbarkeit",
+    "t": "loesbarkeit",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "I: 3x − y = 2 und II: 6x − 2y = c. Für welches c hat das System unendlich viele Lösungen?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "2 * 2",
+    "h": "II muss dasselbe sagen wie I.",
+    "w": "Das Doppelte von I ist 6x − 2y = 4. Für c = 4 sind beide Gleichungen gleichwertig."
+   }
+  },
+  {
+   "kennung": "A6-15",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "loesung_parameter",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -3,
+     "fehlbild": "fb.nullprodukt.vorzeichen_der_loesung",
+     "regel_des_fehlbilds": "rr.nullprodukt",
+     "beschreibung": "Vorzeichen falsch"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x = 1 gesetzt: k − 3 = 6"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die rechte Seite genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "loesung_parameter",
+    "t": "loesung_parameter",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Beim Lösen eines Gleichungssystems bleibt (k − 3) · x = 6 übrig. Für welches k hat das System keine Lösung?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "0 + 3",
+    "h": "Wann darfst du nicht durch k − 3 teilen?",
+    "w": "Für k = 3 steht da 0 · x = 6. Das ist für kein x wahr: keine Lösung."
+   }
+  },
+  {
+   "kennung": "A6-16",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "sachaufgabe",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hühner statt der Kaninchen genannt"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "56 : 4 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgabe",
+    "t": "sachaufgabe",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "In einem Stall sind Hühner und Kaninchen: zusammen 20 Tiere mit 56 Beinen. Wie viele Kaninchen sind es?"
+    },
+    "o": {
+     "wert": 8
+    },
+    "c": "(56 - 2 * 20) // 2",
+    "h": "Für jede gesuchte Zahl eine Variable: h Hühner, k Kaninchen.",
+    "w": "h + k = 20 und 2h + 4k = 56. Wären alle Hühner, gäbe es 40 Beine. Die 16 Beine mehr gehören zu 8 Kaninchen."
+   }
+  },
+  {
+   "kennung": "A6-B1",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "pruefen",
+   "stufe": 1,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "pruefen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "bedingung",
+    "f": {
+     "text": "Nenne ein Zahlenpaar (x | y), das die Gleichung 2x + y = 7 löst, aber die Gleichung x − y = 2 nicht.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "löst 2x + y = 7",
+       "pruefe": [
+        "=",
+        [
+         "+",
+         [
+          "*",
+          2,
+          "$1"
+         ],
+         "$2"
+        ],
+        7
+       ],
+       "zeige": [
+        "+",
+        [
+         "*",
+         2,
+         "$1"
+        ],
+        "$2"
+       ],
+       "hinweis": "Bei dir ist 2x + y = {}."
+      },
+      {
+       "name": "löst x − y = 2 nicht",
+       "pruefe": [
+        "!=",
+        [
+         "-",
+         "$1",
+         "$2"
+        ],
+        2
+       ],
+       "hinweis": "Dein Paar löst auch die zweite Gleichung."
+      }
+     ],
+     "beispiel": [
+      1,
+      5
+     ],
+     "gut": [
+      [
+       0,
+       7
+      ],
+      [
+       "2,5",
+       2
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        1,
+        4
+       ],
+       "verletzt": "löst 2x + y = 7"
+      },
+      {
+       "werte": [
+        3,
+        1
+       ],
+       "verletzt": "löst x − y = 2 nicht"
+      }
+     ]
+    },
+    "h": "Wähle ein x und rechne das passende y aus.",
+    "w": "Zum Beispiel (1 | 5): 2 + 5 = 7, und 1 − 5 = −4 ist nicht 2. Nur (3 | 1) löst beide."
+   }
+  },
+  {
+   "kennung": "A6-B2",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "sachaufgabe",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "sachaufgabe",
+    "t": "sachaufgabe",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "bedingung",
+    "f": {
+     "text": "Karten für Erwachsene kosten 6 €, für Kinder 4 €. Eine Gruppe zahlt zusammen genau 40 €. Nenne eine mögliche Zahl von Erwachsenen und von Kindern (jeweils mindestens 1).",
+     "felder": [
+      {
+       "art": "ganz"
+      },
+      {
+       "art": "ganz"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "jeweils mindestens 1",
+       "pruefe": [
+        ">=",
+        [
+         "min",
+         "$alle"
+        ],
+        1
+       ],
+       "zeige": [
+        "min",
+        "$alle"
+       ],
+       "hinweis": "Deine kleinere Zahl ist {}."
+      },
+      {
+       "name": "zusammen 40 €",
+       "pruefe": [
+        "=",
+        [
+         "+",
+         [
+          "*",
+          6,
+          "$1"
+         ],
+         [
+          "*",
+          4,
+          "$2"
+         ]
+        ],
+        40
+       ],
+       "zeige": [
+        "+",
+        [
+         "*",
+         6,
+         "$1"
+        ],
+        [
+         "*",
+         4,
+         "$2"
+        ]
+       ],
+       "hinweis": "Deine Gruppe zahlt {} €."
+      }
+     ],
+     "beispiel": [
+      4,
+      4
+     ],
+     "gut": [
+      [
+       2,
+       7
+      ],
+      [
+       6,
+       1
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        0,
+        10
+       ],
+       "verletzt": "jeweils mindestens 1"
+      },
+      {
+       "werte": [
+        4,
+        3
+       ],
+       "verletzt": "zusammen 40 €"
+      },
+      {
+       "werte": [
+        3,
+        5
+       ],
+       "verletzt": "zusammen 40 €"
+      }
+     ]
+    },
+    "h": "Stelle eine Gleichung mit zwei Variablen auf.",
+    "w": "6e + 4k = 40. Es passen 2 Erwachsene und 7 Kinder, 4 und 4 oder 6 und 1."
+   }
+  },
+  {
+   "kennung": "A6-B3",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "loesbarkeit",
+   "stufe": 2,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "loesbarkeit",
+    "t": "loesbarkeit",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "bedingung",
+    "f": {
+     "text": "Ergänze Gleichung II so, dass das System keine Lösung hat. I: 2x + y = 3, II: 4x + □ · y = □.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "nicht genau eine Lösung",
+       "pruefe": [
+        "=",
+        "$1",
+        2
+       ],
+       "hinweis": "Mit deiner Zahl vor dem y hat das System genau eine Lösung."
+      },
+      {
+       "name": "nicht unendlich viele Lösungen",
+       "pruefe": [
+        "!=",
+        "$2",
+        6
+       ],
+       "hinweis": "Mit deinen Zahlen ist II das Doppelte von I: unendlich viele Lösungen."
+      }
+     ],
+     "beispiel": [
+      2,
+      5
+     ],
+     "gut": [
+      [
+       2,
+       0
+      ],
+      [
+       2,
+       "6,5"
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        1,
+        5
+       ],
+       "verletzt": "nicht genau eine Lösung"
+      },
+      {
+       "werte": [
+        2,
+        6
+       ],
+       "verletzt": "nicht unendlich viele Lösungen"
+      },
+      {
+       "werte": [
+        -2,
+        6
+       ],
+       "verletzt": "nicht genau eine Lösung"
+      }
+     ]
+    },
+    "h": "Vergleiche II mit dem Doppelten von I.",
+    "w": "Das Doppelte von I ist 4x + 2y = 6. Steht links dasselbe, rechts aber eine andere Zahl, widersprechen sich die Gleichungen: zum Beispiel 4x + 2y = 5."
+   }
+  },
+  {
+   "kennung": "A6-B4",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "addition",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "addition",
+    "t": "addition",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "bedingung",
+    "f": {
+     "text": "Baue ein Gleichungssystem mit genau einer Lösung, nämlich (2 | 3). I: x + y = □ und II: □ · x − y = □. Die Zahl vor dem x soll nicht 0 sein.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "Gleichung I stimmt für (2 | 3)",
+       "pruefe": [
+        "=",
+        "$1",
+        5
+       ],
+       "hinweis": "Mit (2 | 3) hat die linke Seite von I den Wert 5."
+      },
+      {
+       "name": "Zahl vor dem x ist nicht 0",
+       "pruefe": [
+        "!=",
+        "$2",
+        0
+       ],
+       "hinweis": "Die Zahl vor dem x soll nicht 0 sein."
+      },
+      {
+       "name": "Gleichung II stimmt für (2 | 3)",
+       "pruefe": [
+        "=",
+        [
+         "-",
+         [
+          "*",
+          2,
+          "$2"
+         ],
+         3
+        ],
+        "$3"
+       ],
+       "zeige": [
+        "-",
+        [
+         "*",
+         2,
+         "$2"
+        ],
+        3
+       ],
+       "hinweis": "Mit (2 | 3) hat die linke Seite von II den Wert {}."
+      },
+      {
+       "name": "genau eine Lösung",
+       "pruefe": [
+        "!=",
+        "$2",
+        -1
+       ],
+       "hinweis": "Mit dieser Zahl vor dem x hat dein System nicht genau eine Lösung."
+      }
+     ],
+     "beispiel": [
+      5,
+      2,
+      1
+     ],
+     "gut": [
+      [
+       5,
+       1,
+       -1
+      ],
+      [
+       5,
+       "0,5",
+       -2
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        6,
+        2,
+        1
+       ],
+       "verletzt": "Gleichung I stimmt für (2 | 3)"
+      },
+      {
+       "werte": [
+        5,
+        0,
+        -3
+       ],
+       "verletzt": "Zahl vor dem x ist nicht 0"
+      },
+      {
+       "werte": [
+        5,
+        2,
+        2
+       ],
+       "verletzt": "Gleichung II stimmt für (2 | 3)"
+      },
+      {
+       "werte": [
+        5,
+        -1,
+        -5
+       ],
+       "verletzt": "genau eine Lösung"
+      }
+     ]
+    },
+    "h": "Setze (2 | 3) in beide Gleichungen ein.",
+    "w": "I: 2 + 3 = 5. II: zum Beispiel 2x − y = 1, denn 4 − 3 = 1. Addieren ergibt 3x = 6, also x = 2."
+   }
+  },
+  {
+   "kennung": "A6-B5",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "loesung_parameter",
+   "stufe": 3,
+   "typ": "Viele richtige Antworten (bedingung)",
+   "antwortform": "bedingung",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "hinweis_zu_fehlbildern": "Aus einer verletzten Bedingung allein folgt kein Fehlbild (Festlegung 7 im Format).",
+   "aufgabe": {
+    "l": "loesung_parameter",
+    "t": "loesung_parameter",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "bedingung",
+    "f": {
+     "text": "I: y = k · x + 2 und II: y = 3x + c. Nenne k und c so, dass das System genau eine Lösung hat und diese bei x = 1 liegt.",
+     "felder": [
+      {
+       "art": "rational"
+      },
+      {
+       "art": "rational"
+      }
+     ]
+    },
+    "o": {
+     "bedingungen": [
+      {
+       "name": "genau eine Lösung",
+       "pruefe": [
+        "!=",
+        "$1",
+        3
+       ],
+       "hinweis": "Mit deinem k hat das System nicht genau eine Lösung."
+      },
+      {
+       "name": "Lösung liegt bei x = 1",
+       "pruefe": [
+        "=",
+        [
+         "+",
+         "$1",
+         2
+        ],
+        [
+         "+",
+         3,
+         "$2"
+        ]
+       ],
+       "zeige": [
+        "+",
+        "$1",
+        2
+       ],
+       "hinweis": "Bei x = 1 liefert I den Wert {}. II liefert etwas anderes."
+      }
+     ],
+     "beispiel": [
+      5,
+      4
+     ],
+     "gut": [
+      [
+       1,
+       0
+      ],
+      [
+       "-2",
+       "-3"
+      ]
+     ],
+     "gegenbeispiele": [
+      {
+       "werte": [
+        3,
+        2
+       ],
+       "verletzt": "genau eine Lösung"
+      },
+      {
+       "werte": [
+        5,
+        3
+       ],
+       "verletzt": "Lösung liegt bei x = 1"
+      },
+      {
+       "werte": [
+        0,
+        0
+       ],
+       "verletzt": "Lösung liegt bei x = 1"
+      }
+     ]
+    },
+    "h": "Setze x = 1 in beide Gleichungen ein. Was muss gelten?",
+    "w": "Bei x = 1 müssen beide dasselbe y liefern: k + 2 = 3 + c. Zum Beispiel k = 5 und c = 4. Für k = 3 wären die Geraden parallel."
+   }
+  }
+ ]
+}

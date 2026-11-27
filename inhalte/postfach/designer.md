@@ -2,6 +2,43 @@
 
 Neueste oben.
 
+## 2026-11-27 11:25 (Berlin) – FERTIG: „Was wackelt?" neu gestaltet – Voranalyse statt Rohdaten (Vorgabe WW)
+Auftrag kam direkt vom Projektleiter („Seite ist noch zu primitiv; der Lehrer soll die Fehler sehen, um sie zu besprechen; es braucht eine Voranalyse: die Themen und die Aufgaben, die falsch sind, dann bearbeitet").
+Zweig `designer`. Neuer Ordner `inhalte/design/wackelt/`: `umsetzung.md` (Vorgabe WW, Fassung 1), `entwurf/wackelt.html` (Klickmuster, eine Datei ohne Netz), `entwurf/teile/` + `bauen.py`, `bilder/` (12 Bilder).
+
+### Geliefert
+1. **Befund zum heutigen Stand** (an `lernen-app` a3ebdad gemessen, Bilder `ist-*.jpg`): sieben Mängel, der schwerste – die falschen Antworten stehen zugeklappt hinter „Bordkarte und Antwort ▸". Der Lehrer sieht ohne Antippen nur „10 Fehler · gestern". Die Fehlerart liefert der Server längst (`fehler_gruende`), sie wird auf der Arbeitsliste nicht gezeigt.
+2. **Voranalyse, gerechnet aus vorhandenen Daten** – keine neue Serverfunktion, keine KI:
+   - **Kopf:** „3 Themen wackeln – zusammen 22 falsche Antworten, die älteste vor 6 Tagen. Am häufigsten: Vorzeichen (8×)." Dazu die Zeile „↗ Dasselbe Muster taucht in mehreren Themen auf", wenn derselbe Grund in mindestens zwei Themen steckt.
+   - **Je Thema ein Befundsatz**, dessen Stärke zum Anteil passt: ab ⅔ „Fast immer dasselbe …", ab ⅓ „Oft, aber nicht immer …", darunter „Für ein Muster ist das noch wenig", ohne Grund „Kein Muster". Wortlaut je Fehlerart steht in der Vorgabe.
+   - **Reihenfolge mit Begründung** unter jedem Titel („mehr falsch als richtig: 6 von 11"), Rangziffern ① ② ③.
+3. **Die falschen Aufgaben stehen offen da**, nicht mehr hinter einem Knopf: Aufgabe in Festbreitenschrift, darunter `GEANTWORTET 0,34` (rot, durchgestrichen) · `RICHTIG 0,75` (grün) und der Tag. Drei sichtbar, Rest aufklappbar.
+4. **Ehrliche Menge:** Gespeichert sind nur die letzten falschen Antworten. Die Überschrift sagt deshalb „Die letzten falschen Antworten (4 von 6)", sobald weniger gespeichert sind als insgesamt falsch waren.
+5. **Arbeitsablauf bleibt**, wird aber leiser: „✓ Besprochen" als einziger Hauptknopf, daneben „Nur beobachten", die Verweise als Textlinks. Gruppen „Zu besprechen · Beobachten · Besprochen" wie bisher.
+6. **Breite genutzt:** ab 760 px stehen Muster und falsche Aufgaben nebeneinander.
+
+Selbstprüfung (Chrome, 360/400/820/1280 px, hell und dunkel): kein Querrollen, nichts über den Rand, keine Schrift unter 13 px, keine Skriptfehler. Knöpfe im Klickmuster geprüft (verschieben zwischen den drei Gruppen, Aufklappen aller Antworten, leerer Zustand).
+
+### Offen – Entscheidungen des Nutzers
+- **Echte Deutung** („verwechselt Kürzen mit Erweitern") ist aus den heutigen Daten nicht ableitbar. Dafür bräuchte es eine Liste typischer Fehler je Etappe vom Mathe-Profi oder eine KI, die die falschen Antworten liest. Soll das kommen – und von wem?
+- **Gesprächsvorschlag** („Fang mit dieser Aufgabe an") ist in `befund.js` vorbereitet, aber nicht eingebaut. Gewünscht?
+- **Mehr gespeicherte Fehler**: Für ein belastbares Muster wären alle falschen Antworten besser als die letzten drei bis vier. Frage an den Programmierer.
+- Ich habe die Tabelle „Je Etappe" ganz entfernt (sie zeigte dieselben Daten ein drittes Mal). Falls sie vermisst wird, kommt sie unter „Alle Etappen mit Stand".
+
+### Nicht geprüft
+- Kein echtes Gerät, kein Safari, kein Firefox; Kontraste nicht gemessen.
+- Ob ein Lehrer damit in fünf Minuten zum Gespräch kommt – nicht erprobt.
+- Aussehen bei sehr vielen wackelnden Themen oder sehr langen Aufgabentexten.
+- Die dunkle Gestaltung des **heutigen** Standes konnte ich nicht aufnehmen (mein Aufbau lieferte zweimal dasselbe helle Bild); die Bilder `ist-*-dunkel` fehlen.
+- `JetBrains Mono` hat kein Wurzelzeichen `√` – es fällt auf eine Ersatzschrift zurück. Betrifft Aufgaben der Klassen 9 und 10, auch außerhalb dieser Seite.
+
+### Annahmen
+- Alle Daten im Klickmuster sind **erfunden** und als solche oben auf der Seite gekennzeichnet; kein Name eines Kindes, überall „der Nutzer".
+- Die Schwellen ⅔ und ⅓ für die Stärke des Befundsatzes sowie die Punkte der Reihenfolge (wieder offen +100, mehr falsch als richtig +50, neue Fehler +20, frisch +10) sind meine Festlegungen.
+- „Muster erst ab 2 gleichen Gründen" habe ich aus der bestehenden Regel in `lernHaeufigsterFehler` übernommen.
+- „Kurz gesagt" zeigt jetzt die Regel der Etappe mit den meisten Fehlern statt der ersten Etappe.
+- Die Felder, auf denen alles rechnet, sind die heutigen von `schule_lernstand` und `schule_wackelt_lesen`; ich habe sie aus `lernen.js` abgelesen, nicht an einem echten Server geprüft.
+
 ## 2026-11-27 01:15 (Berlin) – FERTIG: Regel-Universum, sechste Runde (Vorgabe GB, Abschnitt F7)
 Zweig `designer`, Stand `lernen-app` 7e22808 eingemischt. `inhalte/design/gesetzbuch/`: `umsetzung.md` (Fassung 7, neu F7), `entwurf/` neu gebaut, `bilder/` (43 Bilder, alle neu).
 

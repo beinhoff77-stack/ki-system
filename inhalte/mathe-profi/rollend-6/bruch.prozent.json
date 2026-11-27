@@ -1,0 +1,989 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-6",
+ "kuerzel": "K6",
+ "flug": "k6-bruch.prozent",
+ "titel": "bruch.prozent",
+ "fuer": "Klasse 6",
+ "klasse": 6,
+ "themen": [
+  "bruch.prozent"
+ ],
+ "themen_datei_im_bestand": "bruch.prozent",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema, lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder (mit Rechnung c, wo es eine gibt) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K6-V103",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozent_bedeutung",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch 1 gekürzt, das ist nicht der größte gemeinsame Teiler",
+     "c": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler nicht gekürzt",
+     "c": "45 / 1"
+    },
+    {
+     "luecke": 3,
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner nicht gekürzt",
+     "c": "100 / 1"
+    }
+   ],
+   "aufgabe": {
+    "l": "prozent_bedeutung",
+    "t": "prozent_bedeutung",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Schreibe 45 % als gekürzten Bruch. 45 % sind 45/100. Der ggT von 45 und 100 ist ①. Der Bruch ist dann ②/③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      5,
+      9,
+      20
+     ]
+    },
+    "c": [
+     "5",
+     "45 / (5)",
+     "100 / (5)"
+    ],
+    "h": "Prozent heißt „von hundert“.",
+    "w": "45 % = 45/100. Der ggT ist 5. 45 : 5 = 9 und 100 : 5 = 20. Also 45 % = 9/20."
+   }
+  },
+  {
+   "kennung": "K6-V104",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozent_bedeutung",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil als Dezimalzahl statt als Prozent angegeben",
+     "c": "14 / 40"
+    },
+    {
+     "antwort": 2.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch 5 geteilt",
+     "c": "14 / 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "prozent_bedeutung",
+    "t": "prozent_bedeutung",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Streifen besteht aus 40 gleich großen Kästchen. 14 Kästchen sind gefärbt. Wie viel Prozent des Streifens sind gefärbt?"
+    },
+    "o": {
+     "wert": 35,
+     "einheit": "%"
+    },
+    "c": "14 / 40 * 100",
+    "h": "Wie viele Kästchen wären 100 Prozent? Rechne den Anteil in Hundertstel um.",
+    "w": "14 von 40 ist 14/40 = 35/100. Das sind 35 %. Probe: 1 % sind 0,4 Kästchen, 0,4 · 35 = 14."
+   }
+  },
+  {
+   "kennung": "K6-V105",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozent_bedeutung",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "prozent_bedeutung",
+    "t": "prozent_bedeutung",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Aysel schreibt 0,6 % als Dezimalzahl. Zeile 1: 0,6 % = 6/100 Zeile 2: 6/100 = 0,06 Zeile 3: Also ist 0,6 % = 0,06. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wie viele Hundertstel sind 0,6 Hundertstel? Ein Prozent ist ein Hundertstel.",
+    "w": "0,6 % = 0,6/100 = 6/1000 = 0,006. In Zeile 1 steht 6/100, das wären 6 %. Die Zeilen 2 und 3 rechnen damit richtig weiter."
+   }
+  },
+  {
+   "kennung": "K6-V106",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozentwert",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 10 statt durch 100 geteilt",
+     "c": "200 / 10"
+    },
+    {
+     "luecke": 2,
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "15 addiert statt malgenommen",
+     "c": "(2) + 15"
+    },
+    {
+     "luecke": 3,
+     "antwort": 230,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt abgezogen",
+     "c": "200 + (30)"
+    }
+   ],
+   "aufgabe": {
+    "l": "prozentwert",
+    "t": "prozentwert",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne 15 % von 200 €. Ein Prozent sind ① €. 15 % sind ② €. Nach dem Abziehen dieser 15 % bleiben ③ €.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      2,
+      30,
+      170
+     ]
+    },
+    "c": [
+     "200 / 100",
+     "(2) * 15",
+     "200 - (30)"
+    ],
+    "h": "Teile zuerst durch 100, um ein Prozent zu erhalten.",
+    "w": "200 € : 100 = 2 € ist ein Prozent. 15 · 2 € = 30 €. Es bleiben 200 € − 30 € = 170 €."
+   }
+  },
+  {
+   "kennung": "K6-V107",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozentwert",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2800,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "80 · 35 gerechnet, nicht durch 100 geteilt",
+     "c": "35 * 80"
+    },
+    {
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "80 − 35 gerechnet",
+     "c": "80 - 35"
+    }
+   ],
+   "aufgabe": {
+    "l": "prozentwert",
+    "t": "prozentwert",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne 35 % von 80 m. Weg A: Rechne 35/100 · 80. Weg B: Zerlege 35 % in 10 % + 10 % + 10 % + 5 % und rechne mit 10 % = ein Zehntel. Wie viele Meter sind es?"
+    },
+    "o": {
+     "wert": 28,
+     "einheit": "m"
+    },
+    "c": "35 / 100 * 80",
+    "h": "Beide Wege liefern dasselbe Ergebnis. Wie viel sind 10 % von 80 m?",
+    "w": "Weg A: 80 · 35 : 100 = 28. Weg B: 10 % = 8 m, drei mal 10 % = 24 m, 5 % = 4 m. 24 + 4 = 28 m."
+   }
+  },
+  {
+   "kennung": "K6-V108",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozentwert",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 63,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Anzahlung angegeben",
+     "c": "420 * 0.15"
+    },
+    {
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahlung vergessen: 420 : 6",
+     "c": "420 / 6"
+    },
+    {
+     "antwort": 10.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Anzahlung auf die Raten verteilt",
+     "c": "420 * 0.15 / 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "prozentwert",
+    "t": "prozentwert",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Fahrrad kostet 420 €. Beim Kauf zahlt man 15 % Anzahlung. Der Rest wird in 6 gleich hohen Raten bezahlt. Wie hoch ist eine Rate in Euro?"
+    },
+    "o": {
+     "wert": 59.5,
+     "einheit": "€"
+    },
+    "c": "420 * (1 - 0.15) / 6",
+    "h": "Wie viel Euro bleiben nach der Anzahlung?",
+    "w": "Anzahlung: 15 % von 420 € = 63 €. Rest: 420 € − 63 € = 357 €. Eine Rate: 357 € : 6 = 59,50 €."
+   }
+  },
+  {
+   "kennung": "K6-V109",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozentsatz",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "100 − 25 gerechnet",
+     "c": "100 - 25"
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 + 4 gerechnet statt 6 · 4",
+     "c": "6 + (4)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Prozentsatz der Haustierkinder noch einmal angegeben",
+     "c": "(24)"
+    }
+   ],
+   "aufgabe": {
+    "l": "prozentsatz",
+    "t": "prozentsatz",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Von 25 Kindern haben 6 ein Haustier. Erweitere 6/25 auf den Nenner 100. Die Erweiterungszahl ist ①. Der neue Zähler ② ist der Prozentsatz. Die übrigen Kinder machen ③ % aus.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      4,
+      24,
+      76
+     ]
+    },
+    "c": [
+     "100 / 25",
+     "6 * (4)",
+     "100 - (24)"
+    ],
+    "h": "Mit welcher Zahl wird aus 25 die 100?",
+    "w": "100 : 25 = 4. 6 · 4 = 24, also 24 %. Die übrigen Kinder: 100 % − 24 % = 76 %."
+   }
+  },
+  {
+   "kennung": "K6-V110",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozentsatz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.225,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil nicht in Prozent umgerechnet",
+     "c": "54 / 240"
+    },
+    {
+     "antwort": 186,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der übrigen Mitglieder angegeben",
+     "c": "240 - 54"
+    }
+   ],
+   "aufgabe": {
+    "l": "prozentsatz",
+    "t": "prozentsatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Verein hat 240 Mitglieder. 54 davon sind jünger als 18 Jahre. Wie viel Prozent der Mitglieder sind jünger als 18 Jahre?"
+    },
+    "o": {
+     "wert": 22.5,
+     "einheit": "%"
+    },
+    "c": "54 / 240 * 100",
+    "h": "Teil durch Ganzes, dann in Prozent umrechnen.",
+    "w": "54/240 = 0,225 = 22,5/100. Das sind 22,5 %."
+   }
+  },
+  {
+   "kennung": "K6-V111",
+   "thema": "bruch.prozent",
+   "lernkarte": "prozentsatz",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 20 € auf den alten Preis 80 € bezogen",
+     "c": "(100 - 80) / 80 * 100"
+    },
+    {
+     "antwort": 0.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht in Prozent umgerechnet",
+     "c": "20 / 100"
+    }
+   ],
+   "aufgabe": {
+    "l": "prozentsatz",
+    "t": "prozentsatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Der Preis einer Jacke wird von 80 € auf 100 € erhöht. Um wie viel Prozent muss der neue Preis gesenkt werden, damit die Jacke wieder 80 € kostet?"
+    },
+    "o": {
+     "wert": 20,
+     "einheit": "%"
+    },
+    "c": "(100 - 80) / 100 * 100",
+    "h": "Auf welchen Preis beziehen sich die Prozent bei der Senkung?",
+    "w": "Die Senkung beträgt 20 €. Sie bezieht sich auf den neuen Preis 100 €: 20/100 = 20 %."
+   }
+  },
+  {
+   "kennung": "K6-V112",
+   "thema": "bruch.prozent",
+   "lernkarte": "grundwert",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 675,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "45 mit 15 malgenommen",
+     "c": "45 * 15"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "15 % von 45 gerechnet statt den Grundwert gesucht",
+     "c": "45 * 15 / 100"
+    },
+    {
+     "luecke": 3,
+     "antwort": 3000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 malgenommen statt geteilt",
+     "c": "(300) * 10"
+    }
+   ],
+   "aufgabe": {
+    "l": "grundwert",
+    "t": "grundwert",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "15 % einer Summe sind 45 €. Dann sind 1 % genau ① €. Die ganze Summe ist ② €. Zur Probe: 10 % der Summe sind ③ €.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      3,
+      300,
+      30
+     ]
+    },
+    "c": [
+     "45 / 15",
+     "(3) * 100",
+     "(300) / 10"
+    ],
+    "h": "Rechne zuerst auf ein Prozent zurück.",
+    "w": "45 € : 15 = 3 € sind 1 %. Das Ganze: 100 · 3 € = 300 €. 10 % davon sind 30 €."
+   }
+  },
+  {
+   "kennung": "K6-V113",
+   "thema": "bruch.prozent",
+   "lernkarte": "grundwert",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "72 · 18 : 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Prozentwert berechnet, als wären 72 der Grundwert",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "72 · 18",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen einfach malgenommen",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "72 − 18",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen voneinander abgezogen",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "grundwert",
+    "t": "grundwert",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Du weißt: 18 % einer Größe sind 72. Mit welcher Rechnung findest du die ganze Größe?"
+    },
+    "a": [
+     "72 : 18 · 100",
+     "72 · 18 : 100",
+     "72 · 18",
+     "72 − 18"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Erst herausfinden, wie viel ein Prozent ist.",
+    "w": "72 : 18 = 4 sind 1 %. Das Ganze sind 100 %: 4 · 100 = 400. Rechnung: 72 : 18 · 100."
+   }
+  },
+  {
+   "kennung": "K6-V114",
+   "thema": "bruch.prozent",
+   "lernkarte": "grundwert",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 145.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "8 % auf 135 € aufgeschlagen",
+     "c": "135 * 1.08"
+    },
+    {
+     "antwort": 124.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "8 % von 135 € abgezogen",
+     "c": "135 - 135 * 0.08"
+    }
+   ],
+   "aufgabe": {
+    "l": "grundwert",
+    "t": "grundwert",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Händler verkauft ein Spiel mit 8 % Gewinn für 135 €. Das ist der Einkaufspreis plus 8 % davon. Wie viel Euro hat das Spiel im Einkauf gekostet?"
+    },
+    "o": {
+     "wert": 125,
+     "einheit": "€"
+    },
+    "c": "135 / 1.08",
+    "h": "135 € sind wie viel Prozent des Einkaufspreises?",
+    "w": "Der Verkaufspreis ist 108 % des Einkaufspreises. 135 € : 108 = 1,25 € sind 1 %. 100 % sind 125 €. Probe: 125 € + 10 € = 135 €."
+   }
+  },
+  {
+   "kennung": "K6-V115",
+   "thema": "bruch.prozent",
+   "lernkarte": "rabatt_aufschlag",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "80 · 15 gerechnet, nicht durch 100 geteilt",
+     "c": "80 * 15"
+    },
+    {
+     "luecke": 2,
+     "antwort": 68,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "abgezogen statt addiert",
+     "c": "80 - (12)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 23,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rabattbetrag statt des Preises angegeben",
+     "c": "(92) * 25 / 100"
+    }
+   ],
+   "aufgabe": {
+    "l": "rabatt_aufschlag",
+    "t": "rabatt_aufschlag",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Pullover kostet 80 €. Der Preis steigt um 15 %: Der Aufschlag beträgt ① €, der neue Preis ② €. Danach gibt es 25 % Rabatt auf den neuen Preis. Der Preis ist dann ③ €.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      12,
+      92,
+      69
+     ]
+    },
+    "c": [
+     "80 * 15 / 100",
+     "80 + (12)",
+     "(92) * 75 / 100"
+    ],
+    "h": "Der Aufschlag ist ein Prozentwert vom alten Preis.",
+    "w": "15 % von 80 € = 12 €. Neuer Preis: 92 €. 25 % Rabatt heißt: 75 % bleiben. 75 % von 92 € = 69 €."
+   }
+  },
+  {
+   "kennung": "K6-V116",
+   "thema": "bruch.prozent",
+   "lernkarte": "rabatt_aufschlag",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Rabatt angegeben",
+     "c": "150 * 0.3"
+    },
+    {
+     "antwort": 195,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rabatt aufgeschlagen",
+     "c": "150 + 150 * 0.3"
+    }
+   ],
+   "aufgabe": {
+    "l": "rabatt_aufschlag",
+    "t": "rabatt_aufschlag",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Mantel kostet 150 €. Es gibt 30 % Rabatt. Weg A: Berechne den Rabatt in Euro und ziehe ihn ab. Weg B: Berechne direkt, wie viel Prozent des Preises noch zu zahlen sind. Was kostet der Mantel jetzt?"
+    },
+    "o": {
+     "wert": 105,
+     "einheit": "€"
+    },
+    "c": "150 - 150 * 0.3",
+    "h": "Beide Wege liefern denselben Preis.",
+    "w": "Weg A: 30 % von 150 € = 45 €. 150 € − 45 € = 105 €. Weg B: 100 % − 30 % = 70 %. 70 % von 150 € = 105 €."
+   }
+  },
+  {
+   "kennung": "K6-V117",
+   "thema": "bruch.prozent",
+   "lernkarte": "rabatt_aufschlag",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 336,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 % auf 280 € aufgeschlagen",
+     "c": "280 * 1.2"
+    },
+    {
+     "antwort": 224,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 % von 280 € abgezogen",
+     "c": "280 * 0.8"
+    }
+   ],
+   "aufgabe": {
+    "l": "rabatt_aufschlag",
+    "t": "rabatt_aufschlag",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Fahrrad kostet nach einem Rabatt von 20 % noch 280 €. Wie viel Euro hat es vor dem Rabatt gekostet?"
+    },
+    "o": {
+     "wert": 350,
+     "einheit": "€"
+    },
+    "c": "280 / 0.8",
+    "h": "280 € sind wie viel Prozent des ursprünglichen Preises?",
+    "w": "Nach 20 % Rabatt sind noch 80 % zu zahlen. 280 € : 80 = 3,50 € sind 1 %. 100 % sind 350 €. Probe: 20 % von 350 € = 70 €, 350 € − 70 € = 280 €."
+   }
+  },
+  {
+   "kennung": "K6-V118",
+   "thema": "bruch.prozent",
+   "lernkarte": "verstehen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Aufschlag angegeben",
+     "c": "100 * 0.1"
+    },
+    {
+     "luecke": 2,
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gedacht, plus und minus 10 % heben sich auf",
+     "c": "100"
+    },
+    {
+     "luecke": 3,
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 0 € Unterschied gerechnet",
+     "c": "100 - 100"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Preis von 100 € steigt um 10 %. Danach sinkt der neue Preis um 10 %. Nach der Erhöhung beträgt der Preis ① €. Nach der Senkung beträgt er ② €. Er liegt dann ③ € unter dem Startpreis.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      110,
+      99,
+      1
+     ]
+    },
+    "c": [
+     "100 * 1.1",
+     "(110) * 0.9",
+     "100 - (99)"
+    ],
+    "h": "Die zweiten 10 % beziehen sich auf den neuen Preis.",
+    "w": "Nach +10 %: 110 €. 10 % von 110 € sind 11 €. 110 € − 11 € = 99 €. Das sind 1 € weniger als am Anfang."
+   }
+  },
+  {
+   "kennung": "K6-V119",
+   "thema": "bruch.prozent",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 14.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "40 durch 10 statt durch 100 geteilt",
+     "c": "40 / 100 * 36"
+    },
+    {
+     "antwort": 160,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "40 · 4 gerechnet",
+     "c": "40 * 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "In einem Kreisdiagramm gehört zu 40 % der Gäste der Kuchen. Wie groß ist der Winkel des zugehörigen Kreisausschnitts in Grad? (Der ganze Kreis hat 360°.)"
+    },
+    "o": {
+     "wert": 144,
+     "einheit": "°"
+    },
+    "c": "40 / 100 * 360",
+    "h": "100 % entsprechen dem ganzen Kreis.",
+    "w": "1 % entspricht 3,6°. 40 · 3,6° = 144°. Der Kreisausschnitt hat 144°."
+   }
+  },
+  {
+   "kennung": "K6-V120",
+   "thema": "bruch.prozent",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.prozent",
+   "regel_name": "Prozent als Faktor",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Mara behauptet: „Steigt ein Preis um 20 % und sinkt danach um 20 %, ist er wieder so hoch wie am Anfang.“ Sie rechnet mit 50 €. Zeile 1: Erhöhung: 50 · 1,2 = 60 € Zeile 2: Senkung: 60 · 0,8 = 48 € Zeile 3: Also 48 € = 50 €, der Preis ist wieder gleich. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Vergleiche die beiden letzten Preise.",
+    "w": "Die zwei Rechnungen stimmen, aber 48 € sind nicht 50 €. Die 20 % der Senkung beziehen sich auf den neuen Preis 60 €, nicht auf 50 €. Der Preis liegt am Ende 2 € unter dem Start."
+   }
+  }
+ ]
+}

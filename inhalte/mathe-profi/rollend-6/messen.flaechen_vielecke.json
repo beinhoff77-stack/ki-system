@@ -1,0 +1,1339 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-6",
+ "kuerzel": "K6",
+ "flug": "k6-messen.flaechen_vielecke",
+ "titel": "messen.flaechen_vielecke",
+ "fuer": "Klasse 6",
+ "klasse": 6,
+ "themen": [
+  "messen.flaechen_vielecke"
+ ],
+ "themen_datei_im_bestand": "messen.flaechen_vielecke",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema, lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder (mit Rechnung c, wo es eine gibt) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K6-V139",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "parallelogramm",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt malgenommen",
+     "c": "15 + 6"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch die erste Grundseite 15 geteilt statt durch 9",
+     "c": "(90) / 15"
+    },
+    {
+     "luecke": 3,
+     "antwort": 180,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt halbiert",
+     "c": "(90) * 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallelogramm",
+    "t": "parallelogramm",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Parallelogramm hat die Grundseite 15 cm und die Höhe 6 cm. Seine Fläche ist ① cm². Nimmt man die schräge Seite mit 9 cm als Grundseite, gehört dazu die Höhe ② cm. Eine Diagonale teilt das Parallelogramm in gleiche Dreiecke; jedes hat ③ cm².",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      90,
+      10,
+      45
+     ]
+    },
+    "c": [
+     "15 * 6",
+     "(90) / 9",
+     "(90) / 2"
+    ],
+    "h": "Fläche = Grundseite mal Höhe. Die Höhe steht senkrecht auf der Grundseite.",
+    "w": "A = 15 cm · 6 cm = 90 cm². Mit der Grundseite 9 cm: Höhe = 90 : 9 = 10 cm. Ein Dreieck hat 90 : 2 = 45 cm²."
+   }
+  },
+  {
+   "kennung": "K6-V140",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "parallelogramm",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Fläche angegeben",
+     "c": "8 * 3.5"
+    },
+    {
+     "antwort": 0.25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch herum geteilt: 7 : 28",
+     "c": "7 / 28"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallelogramm",
+    "t": "parallelogramm",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Beet hat die Form eines Parallelogramms. Die Grundseite ist 8 m lang. Der Abstand zur gegenüberliegenden Seite beträgt 3,5 m. Ein Kilogramm Rasensamen reicht für 7 m². Wie viele Kilogramm Rasensamen braucht man?"
+    },
+    "o": {
+     "wert": 4,
+     "einheit": "kg"
+    },
+    "c": "8 * 3.5 / 7",
+    "h": "Berechne zuerst die Fläche des Beets.",
+    "w": "A = 8 m · 3,5 m = 28 m². 28 : 7 = 4. Man braucht 4 kg."
+   }
+  },
+  {
+   "kennung": "K6-V141",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "parallelogramm",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 108,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Fläche angegeben",
+     "c": "12 * 9"
+    },
+    {
+     "antwort": 0.17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch herum geteilt: 18 : 108",
+     "c": "18 / (12 * 9)"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallelogramm",
+    "t": "parallelogramm",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rechteck (12 cm lang, 9 cm breit) und ein Parallelogramm haben denselben Flächeninhalt. Die Grundseite des Parallelogramms ist 18 cm lang. Wie hoch ist das Parallelogramm in Zentimetern?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "cm"
+    },
+    "c": "12 * 9 / 18",
+    "h": "Wie groß ist die Fläche des Rechtecks?",
+    "w": "Rechteck: 12 · 9 = 108 cm². Parallelogramm: 18 · h = 108, also h = 108 : 18 = 6 cm."
+   }
+  },
+  {
+   "kennung": "K6-V142",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "dreieck",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 23,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt malgenommen",
+     "c": "14 + 9"
+    },
+    {
+     "luecke": 2,
+     "antwort": 126,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht halbiert",
+     "c": "(126)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 182,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim höheren Dreieck nicht halbiert",
+     "c": "14 * (9 + 4)"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreieck",
+    "t": "dreieck",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Dreieck hat die Grundseite 14 cm und die Höhe 9 cm. Das Rechteck mit denselben Maßen hat ① cm². Das Dreieck hat ② cm². Ein zweites Dreieck hat dieselbe Grundseite, ist aber 4 cm höher. Seine Fläche ist ③ cm².",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      126,
+      63,
+      91
+     ]
+    },
+    "c": [
+     "14 * 9",
+     "(126) / 2",
+     "(63) + 14 * 4 / 2"
+    ],
+    "h": "Ein Dreieck füllt nur einen Teil des Rechtecks mit gleicher Grundseite und Höhe.",
+    "w": "Rechteck: 14 · 9 = 126 cm². Dreieck: 63 cm². Zweites Dreieck: 14 · 13 : 2 = 91 cm², das sind 28 cm² mehr als 63 cm²."
+   }
+  },
+  {
+   "kennung": "K6-V143",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "dreieck",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Ein Rechteck mit den Seiten 14 cm und 9 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ohne : 2 wäre es das Rechteck",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "Ein Parallelogramm mit der Grundseite 14 cm und der Höhe 9 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Parallelogramm hat die Fläche g · h ohne : 2",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "Ein Dreieck mit den Seiten 14 cm und 9 cm und einer Höhe von 2 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das : 2 als Höhe gelesen",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "dreieck",
+    "t": "dreieck",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Figur gehört zur Rechnung 14 · 9 : 2 = 63?"
+    },
+    "a": [
+     "Ein Rechteck mit den Seiten 14 cm und 9 cm",
+     "Ein Dreieck mit der Grundseite 14 cm und der Höhe 9 cm",
+     "Ein Parallelogramm mit der Grundseite 14 cm und der Höhe 9 cm",
+     "Ein Dreieck mit den Seiten 14 cm und 9 cm und einer Höhe von 2 cm"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Was bedeutet das „: 2“ in der Rechnung?",
+    "w": "Grundseite mal Höhe ist die Fläche eines Rechtecks oder Parallelogramms. Das Dreieck ist halb so groß: g · h : 2. Also gehört die Rechnung zu einem Dreieck mit g = 14 cm und h = 9 cm."
+   }
+  },
+  {
+   "kennung": "K6-V144",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "dreieck",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Flächeninhalt nicht verdoppelt: 36 : 8",
+     "c": "36 / 8"
+    },
+    {
+     "antwort": 288,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt geteilt: 36 · 8",
+     "c": "36 * 8"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreieck",
+    "t": "dreieck",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Dreieck hat einen Flächeninhalt von 36 cm² und eine Höhe von 8 cm. Wie lang ist die zugehörige Grundseite in Zentimetern?"
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "cm"
+    },
+    "c": "2 * 36 / 8",
+    "h": "Das Dreieck ist halb so groß wie das Rechteck aus Grundseite und Höhe.",
+    "w": "A = g · h : 2. Also g · 8 = 72 und g = 72 : 8 = 9 cm. Probe: 9 · 8 : 2 = 36."
+   }
+  },
+  {
+   "kennung": "K6-V145",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "trapez",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt addiert",
+     "c": "9 * 5"
+    },
+    {
+     "luecke": 2,
+     "antwort": 84,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt",
+     "c": "(14) * 6"
+    },
+    {
+     "luecke": 3,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 6 geteilt: die Summe angegeben",
+     "c": "(14)"
+    }
+   ],
+   "aufgabe": {
+    "l": "trapez",
+    "t": "trapez",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Trapez hat die parallelen Seiten 9 cm und 5 cm und die Höhe 6 cm. Die Summe der parallelen Seiten ist ① cm. Die Fläche ist ② cm². Ein Rechteck mit derselben Fläche und der Breite 6 cm ist ③ cm lang.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      14,
+      42,
+      7
+     ]
+    },
+    "c": [
+     "9 + 5",
+     "(14) * 6 / 2",
+     "(42) / 6"
+    ],
+    "h": "Fläche = (a + c) mal Höhe durch 2.",
+    "w": "9 + 5 = 14. A = 14 · 6 : 2 = 42 cm². Rechteck: 42 : 6 = 7 cm lang. Das ist die mittlere Länge der parallelen Seiten."
+   }
+  },
+  {
+   "kennung": "K6-V146",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "trapez",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt",
+     "c": "(12 + 8) * 5"
+    },
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Rechteck gerechnet",
+     "c": "8 * 5"
+    },
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der langen Seite als Rechteck",
+     "c": "12 * 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "trapez",
+    "t": "trapez",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Trapez hat die parallelen Seiten 12 cm und 8 cm und die Höhe 5 cm. Weg A: Rechne mit der Trapezformel. Weg B: Zerlege das Trapez in ein Rechteck mit der kurzen Seite und zwei Dreiecke, die zusammen die Grundseite 12 − 8 = 4 cm haben. Wie groß ist die Fläche in cm²?"
+    },
+    "o": {
+     "wert": 50,
+     "einheit": "cm²"
+    },
+    "c": "(12 + 8) * 5 / 2",
+    "h": "Beide Wege müssen dieselbe Fläche ergeben.",
+    "w": "Weg A: (12 + 8) · 5 : 2 = 50 cm². Weg B: Rechteck 8 · 5 = 40 cm². Die beiden Dreiecke haben zusammen die Grundseite 4 cm und die Höhe 5 cm: 4 · 5 : 2 = 10 cm². 40 + 10 = 50 cm²."
+   }
+  },
+  {
+   "kennung": "K6-V147",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "trapez",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2496,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei der Fläche nicht durch 2 geteilt",
+     "c": "(30 + 22) * 15 * 3.2"
+    },
+    {
+     "antwort": 390,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Fläche angegeben",
+     "c": "(30 + 22) * 15 / 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "trapez",
+    "t": "trapez",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Garten hat die Form eines Trapezes. Die parallelen Seiten sind 30 m (zur Straße) und 22 m lang. Der Abstand zwischen ihnen beträgt 15 m. Rollrasen kostet 3,20 € je Quadratmeter. Wie viel Euro kostet der Rasen für den ganzen Garten?"
+    },
+    "o": {
+     "wert": 1248,
+     "einheit": "€"
+    },
+    "c": "(30 + 22) * 15 / 2 * 3.2",
+    "h": "Berechne zuerst die Fläche des Gartens.",
+    "w": "A = (30 + 22) · 15 : 2 = 390 m². 390 · 3,20 € = 1248 €."
+   }
+  },
+  {
+   "kennung": "K6-V148",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "rueckwaerts",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Unterschied statt Summe der parallelen Seiten",
+     "c": "14 - 10"
+    },
+    {
+     "luecke": 2,
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 statt mal 2",
+     "c": "84 / 2"
+    },
+    {
+     "luecke": 3,
+     "antwort": 3.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche nicht verdoppelt: 84 : 24",
+     "c": "84 / (24)"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Trapez hat die Fläche 84 cm². Die parallelen Seiten sind 10 cm und 14 cm lang. Die Summe der parallelen Seiten ist ① cm. Zweimal die Fläche ist ② cm². Die Höhe ist ③ cm.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      24,
+      168,
+      7
+     ]
+    },
+    "c": [
+     "10 + 14",
+     "84 * 2",
+     "(168) / (24)"
+    ],
+    "h": "Stelle die Formel A = (a + c) · h : 2 nach h um.",
+    "w": "Aus 84 = 24 · h : 2 folgt 168 = 24 · h. Also h = 168 : 24 = 7 cm."
+   }
+  },
+  {
+   "kennung": "K6-V149",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "rueckwaerts",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Grundseite des Dreiecks angegeben",
+     "c": "2 * 60 / 6"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Dreieck nicht verdoppelt: 10 : 2",
+     "c": "60 / 6 / 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Parallelogramm und ein Dreieck haben beide den Flächeninhalt 60 cm² und beide die Höhe 6 cm. Um wie viele Zentimeter ist die Grundseite des Dreiecks länger als die des Parallelogramms?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "cm"
+    },
+    "c": "2 * 60 / 6 - 60 / 6",
+    "h": "Berechne beide Grundseiten mit den umgestellten Formeln.",
+    "w": "Parallelogramm: g = 60 : 6 = 10 cm. Dreieck: g = 2 · 60 : 6 = 20 cm. Unterschied: 20 cm − 10 cm = 10 cm."
+   }
+  },
+  {
+   "kennung": "K6-V150",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "rueckwaerts",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Mira bestimmt die Höhe eines Dreiecks mit dem Flächeninhalt 45 cm² und der Grundseite 15 cm. Zeile 1: Dreieck: A = g · h : 2 Zeile 2: 45 = 15 · h : 2 Zeile 3: 45 · 2 = 90, also 15 · h = 90 Zeile 4: h = 90 · 15 = 1350 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Wie rechnet man, wenn eine Zahl mit g malgenommen wurde?",
+    "w": "Aus 15 · h = 90 folgt h = 90 : 15 = 6 cm. In Zeile 4 wurde malgenommen statt geteilt."
+   }
+  },
+  {
+   "kennung": "K6-V151",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "zusammengesetzt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 32,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Umfang statt Fläche gerechnet",
+     "c": "2 * (10 + 6)"
+    },
+    {
+     "luecke": 2,
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Dreieck nicht halbiert",
+     "c": "10 * 4"
+    },
+    {
+     "luecke": 3,
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Giebel nicht halbiert: 60 + 40",
+     "c": "(60) + 10 * 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Haus hat vorn die Form eines Fünfecks: ein Rechteck (10 m breit, 6 m hoch) und darüber ein Dreieck als Giebel (Grundseite 10 m, Höhe 4 m). Das Rechteck hat ① m². Der Giebel hat ② m². Zusammen sind es ③ m².",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      60,
+      20,
+      80
+     ]
+    },
+    "c": [
+     "10 * 6",
+     "10 * 4 / 2",
+     "(60) + (20)"
+    ],
+    "h": "Zerlege die Figur in ein Rechteck und ein Dreieck.",
+    "w": "Rechteck: 10 · 6 = 60 m². Dreieck: 10 · 4 : 2 = 20 m². Zusammen 80 m²."
+   }
+  },
+  {
+   "kennung": "K6-V152",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "zusammengesetzt",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 280,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das herausgeschnittene Rechteck addiert statt abgezogen",
+     "c": "20 * 12 + 8 * 5"
+    },
+    {
+     "antwort": 240,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Ausschnitt vergessen",
+     "c": "20 * 12"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein L-förmiges Grundstück entsteht aus einem Rechteck (20 m lang, 12 m breit), aus dem an einer Ecke ein Rechteck (8 m lang, 5 m breit) herausgeschnitten ist. Weg A: Rechne großes Rechteck minus herausgeschnittenes Rechteck. Weg B: Zerlege das Grundstück in zwei Rechtecke. Wie groß ist das Grundstück in m²?"
+    },
+    "o": {
+     "wert": 200,
+     "einheit": "m²"
+    },
+    "c": "20 * 12 - 8 * 5",
+    "h": "Beide Wege müssen dieselbe Fläche ergeben.",
+    "w": "Weg A: 240 m² − 40 m² = 200 m². Weg B: ein Teil ist (20 − 8) · 12 = 144 m², der andere 8 · (12 − 5) = 56 m². 144 + 56 = 200 m²."
+   }
+  },
+  {
+   "kennung": "K6-V153",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "zusammengesetzt",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 972,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den herausgeschnittenen Teil vergessen",
+     "c": "9 * 6 * 18"
+    },
+    {
+     "antwort": 1188,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Ausschnitt addiert statt abgezogen",
+     "c": "(9 * 6 + 4 * 3) * 18"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Flur ist L-förmig. Er entsteht aus einem Rechteck von 9 m mal 6 m, aus dem an einer Ecke ein Rechteck von 4 m mal 3 m herausgeschnitten ist. Der Boden wird gefliest. Ein Quadratmeter Fliesen kostet 18 €. Wie viel Euro kosten die Fliesen?"
+    },
+    "o": {
+     "wert": 756,
+     "einheit": "€"
+    },
+    "c": "(9 * 6 - 4 * 3) * 18",
+    "h": "Berechne zuerst die Fläche des Flurs.",
+    "w": "Fläche: 9 · 6 − 4 · 3 = 54 − 12 = 42 m². 42 · 18 € = 756 €."
+   }
+  },
+  {
+   "kennung": "K6-V154",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "oberflaeche",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 54,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Dreieck gerechnet",
+     "c": "9 * 12 / 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 420,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Seiten 9 cm und 12 cm als Mantel",
+     "c": "(9 + 12) * 20"
+    },
+    {
+     "luecke": 3,
+     "antwort": 720,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Dreiecke vergessen",
+     "c": "(720)"
+    }
+   ],
+   "aufgabe": {
+    "l": "oberflaeche",
+    "t": "oberflaeche",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein dreiseitiges Prisma ist 20 cm lang. Seine Grundfläche ist ein rechtwinkliges Dreieck mit den Seiten 9 cm, 12 cm und 15 cm. Die beiden Dreiecke haben zusammen ① cm². Die drei Rechtecke (Mantel) haben zusammen ② cm². Die Oberfläche ist ③ cm².",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      108,
+      720,
+      828
+     ]
+    },
+    "c": [
+     "2 * 9 * 12 / 2",
+     "(9 + 12 + 15) * 20",
+     "(108) + (720)"
+    ],
+    "h": "Der Mantel ist ein Rechteck: Umfang des Dreiecks mal Länge.",
+    "w": "Dreiecke: 2 · (9 · 12 : 2) = 108 cm². Mantel: (9 + 12 + 15) · 20 = 720 cm². Oberfläche: 108 + 720 = 828 cm²."
+   }
+  },
+  {
+   "kennung": "K6-V155",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "oberflaeche",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 64,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Dachfläche gerechnet",
+     "c": "2 * 6 * 4 / 2 + 5 * 8"
+    },
+    {
+     "antwort": 80,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Giebel vergessen",
+     "c": "2 * 5 * 8"
+    },
+    {
+     "antwort": 152,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Boden mitgerechnet",
+     "c": "2 * 6 * 4 / 2 + 2 * 5 * 8 + 6 * 8"
+    }
+   ],
+   "aufgabe": {
+    "l": "oberflaeche",
+    "t": "oberflaeche",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Festzelt hat die Form eines liegenden Dreiecksprismas. Vorn und hinten sind gleichschenklige Dreiecke mit der Grundseite 6 m, der Höhe 4 m und den Schenkeln von je 5 m. Das Zelt ist 8 m lang. Wie viel Quadratmeter Stoff braucht man für die beiden Giebel und die beiden Dachflächen (ohne Boden)?"
+    },
+    "o": {
+     "wert": 104,
+     "einheit": "m²"
+    },
+    "c": "2 * 6 * 4 / 2 + 2 * 5 * 8",
+    "h": "Die Dachflächen sind Rechtecke: Schenkellänge mal Zeltlänge.",
+    "w": "Giebel: 2 · (6 · 4 : 2) = 24 m². Dachflächen: 2 · (5 · 8) = 80 m². Zusammen 104 m²."
+   }
+  },
+  {
+   "kennung": "K6-V156",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "oberflaeche",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Oberfläche durch den Umfang geteilt: 480 : 30",
+     "c": "480 / 30"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Oberfläche durch die Dreiecksflächen geteilt: 480 : 60",
+     "c": "480 / 60"
+    },
+    {
+     "antwort": 420,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Mantel angegeben",
+     "c": "480 - 60"
+    }
+   ],
+   "aufgabe": {
+    "l": "oberflaeche",
+    "t": "oberflaeche",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Seiten 5 cm, 12 cm und 13 cm. Die Oberfläche des Prismas beträgt 480 cm². Wie lang ist das Prisma in Zentimetern?"
+    },
+    "o": {
+     "wert": 14,
+     "einheit": "cm"
+    },
+    "c": "(480 - 2 * 5 * 12 / 2) / (5 + 12 + 13)",
+    "h": "Ziehe zuerst die beiden Dreiecke von der Oberfläche ab.",
+    "w": "Dreiecke: 2 · (5 · 12 : 2) = 60 cm². Mantel: 480 − 60 = 420 cm². Der Umfang ist 30 cm, also Länge = 420 : 30 = 14 cm."
+   }
+  },
+  {
+   "kennung": "K6-V157",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "verstehen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt malgenommen",
+     "c": "16 + 5"
+    },
+    {
+     "luecke": 2,
+     "antwort": 80,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Dreieck nicht verkleinert",
+     "c": "(80)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 640,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt geteilt",
+     "c": "(80) * 8"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Parallelogramm hat die Grundseite 16 cm und die Höhe 5 cm. Man schneidet an einer Seite ein Dreieck ab und setzt es auf der anderen Seite an. So entsteht ein Rechteck mit ① cm². Ein Dreieck mit derselben Grundseite und derselben Höhe hat ② cm². Ein Rechteck mit derselben Fläche wie das Parallelogramm und der Breite 8 cm ist ③ cm lang.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      80,
+      40,
+      10
+     ]
+    },
+    "c": [
+     "16 * 5",
+     "(80) / 2",
+     "(80) / 8"
+    ],
+    "h": "Beim Umlegen bleibt die Fläche gleich.",
+    "w": "Das Rechteck hat 16 · 5 = 80 cm², genau wie das Parallelogramm. Ein Dreieck mit g = 16 cm und h = 5 cm hat 40 cm². Das Rechteck mit der Breite 8 cm ist 80 : 8 = 10 cm lang."
+   }
+  },
+  {
+   "kennung": "K6-V158",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche nicht verdoppelt: 56 : 7 − 5",
+     "c": "56 / 7 - 5"
+    },
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 addiert statt abgezogen: 56 : 7 + 5",
+     "c": "56 / 7 + 5"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe der parallelen Seiten angegeben",
+     "c": "2 * 56 / 7"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Trapez hat die Fläche 56 cm², die Höhe 7 cm und eine parallele Seite von 5 cm. Wie lang ist die andere parallele Seite in Zentimetern?"
+    },
+    "o": {
+     "wert": 11,
+     "einheit": "cm"
+    },
+    "c": "2 * 56 / 7 - 5",
+    "h": "Die Summe der beiden parallelen Seiten ergibt sich aus 2 · A : h.",
+    "w": "(a + 5) · 7 : 2 = 56. Also (a + 5) · 7 = 112 und a + 5 = 16. Damit ist a = 11 cm."
+   }
+  },
+  {
+   "kennung": "K6-V159",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ben behauptet: „Wenn man bei einem Dreieck Grundseite und Höhe verdoppelt, verdoppelt sich die Fläche.“ Er prüft es mit g = 4 cm und h = 3 cm. Zeile 1: Vorher: 4 · 3 : 2 = 6 cm² Zeile 2: Nachher mit g = 8 cm und h = 6 cm: 8 · 6 : 2 = 24 cm² Zeile 3: 24 : 6 = 4 Zeile 4: Die Fläche hat sich also verdoppelt. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Wie oft passt 6 in 24? Wie oft sind die Maße größer geworden?",
+    "w": "Die Fläche ist 4-mal so groß: g wird 2-mal so groß und h auch, also 2 · 2 = 4. Zeile 4 zieht aus 24 : 6 = 4 den falschen Schluss."
+   }
+  },
+  {
+   "kennung": "K6-V160",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "drachen_raute",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt malgenommen",
+     "c": "16 + 12"
+    },
+    {
+     "luecke": 2,
+     "antwort": 192,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht halbiert",
+     "c": "(192)"
+    }
+   ],
+   "aufgabe": {
+    "l": "drachen_raute",
+    "t": "drachen_raute",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine Raute hat die Diagonalen e = 16 cm und f = 12 cm. Das Rechteck, das die Raute genau umschließt, hat ① cm². Die Raute hat ② cm².",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      192,
+      96
+     ]
+    },
+    "c": [
+     "16 * 12",
+     "(192) / 2"
+    ],
+    "h": "Die Raute füllt genau die Hälfte des umschließenden Rechtecks.",
+    "w": "Rechteck: 16 · 12 = 192 cm². Raute: 192 : 2 = 96 cm². Formel: A = e · f : 2."
+   }
+  },
+  {
+   "kennung": "K6-V161",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "drachen_raute",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 112,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche des Rechtecks angegeben",
+     "c": "14 * 8"
+    },
+    {
+     "antwort": 22,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt malgenommen",
+     "c": "14 + 8"
+    }
+   ],
+   "aufgabe": {
+    "l": "drachen_raute",
+    "t": "drachen_raute",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Raute liegt so in einem Rechteck (14 cm lang, 8 cm breit), dass ihre Ecken genau in den Mitten der Rechteckseiten liegen. Wie groß ist die Fläche der Raute in cm²?"
+    },
+    "o": {
+     "wert": 56,
+     "einheit": "cm²"
+    },
+    "c": "14 * 8 / 2",
+    "h": "Die Diagonalen der Raute sind so lang wie die Seiten des Rechtecks.",
+    "w": "Die Diagonalen der Raute sind 14 cm und 8 cm lang. A = e · f : 2 = 14 · 8 : 2 = 56 cm². Das ist die Hälfte der Rechteckfläche 112 cm²."
+   }
+  },
+  {
+   "kennung": "K6-V162",
+   "thema": "messen.flaechen_vielecke",
+   "lernkarte": "drachen_raute",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 240,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt",
+     "c": "10 * 24"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Dreieck angegeben",
+     "c": "5 * 12 / 2"
+    },
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur zwei der vier Dreiecke genommen",
+     "c": "2 * (5 * 12 / 2)"
+    }
+   ],
+   "aufgabe": {
+    "l": "drachen_raute",
+    "t": "drachen_raute",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Raute hat die Diagonalen 10 cm und 24 cm. Weg A: Rechne mit der Formel e · f : 2. Weg B: Die Diagonalen teilen die Raute in vier gleiche rechtwinklige Dreiecke mit den Katheten 5 cm und 12 cm. Rechne ein Dreieck aus und nimm es mal 4. Wie groß ist die Raute in cm²?"
+    },
+    "o": {
+     "wert": 120,
+     "einheit": "cm²"
+    },
+    "c": "10 * 24 / 2",
+    "h": "Beide Wege müssen dieselbe Fläche ergeben.",
+    "w": "Weg A: 10 · 24 : 2 = 120 cm². Weg B: Ein Dreieck hat 5 · 12 : 2 = 30 cm². Vier Dreiecke: 4 · 30 = 120 cm²."
+   }
+  }
+ ]
+}

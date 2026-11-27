@@ -1,0 +1,2252 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-6",
+ "kuerzel": "K6",
+ "flug": "k6-bruch.brueche",
+ "titel": "bruch.brueche",
+ "fuer": "Klasse 6",
+ "klasse": 6,
+ "themen": [
+  "bruch.brueche"
+ ],
+ "themen_datei_im_bestand": "bruch.brueche",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema, lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder (mit Rechnung c, wo es eine gibt) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K6-V001",
+   "thema": "bruch.brueche",
+   "lernkarte": "bruchteil_von",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 448,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Nenner malgenommen statt durch ihn geteilt",
+     "c": "56 * 8"
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler dazugezählt statt malgenommen",
+     "c": "(7) + 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "bruchteil_von",
+    "t": "bruchteil_von",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne 3/8 von 56 kg. Zuerst teilst du durch den Nenner: Ein Achtel sind ① kg. Dann nimmst du so viele Teile, wie der Zähler sagt: 3/8 sind ② kg.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      7,
+      21
+     ]
+    },
+    "c": [
+     "56 / 8",
+     "(7) * 3"
+    ],
+    "h": "Der Nenner sagt, in wie viele gleiche Teile du das Ganze teilst.",
+    "w": "56 kg : 8 = 7 kg ist ein Achtel. Drei Achtel sind 3 · 7 kg = 21 kg."
+   }
+  },
+  {
+   "kennung": "K6-V002",
+   "thema": "bruch.brueche",
+   "lernkarte": "bruchteil_von",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Achtel berechnet und den Zähler vergessen",
+     "c": "72 / 8"
+    },
+    {
+     "antwort": 360,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "45 mit dem Nenner 8 malgenommen",
+     "c": "45 * 8"
+    }
+   ],
+   "aufgabe": {
+    "l": "bruchteil_von",
+    "t": "bruchteil_von",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Von einer 72 m langen Schnur wird ein Stück abgeschnitten. Es ist ?/8 der Schnur und 45 m lang. Welche Zahl steht an der Stelle des Fragezeichens?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "45 / (72 / 8)",
+    "h": "Wie lang ist ein Achtel der ganzen Schnur?",
+    "w": "Ein Achtel der Schnur sind 72 m : 8 = 9 m. Das Stück hat 45 m. 45 m : 9 m = 5. Probe: 5/8 von 72 m = 45 m."
+   }
+  },
+  {
+   "kennung": "K6-V003",
+   "thema": "bruch.brueche",
+   "lernkarte": "bruchteil_von",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die schon gegangene Strecke statt des Rests angegeben",
+     "c": "24 * (3/8 + 1/4)"
+    },
+    {
+     "antwort": 3.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1/4 vom Rest (15 km) statt vom ganzen Weg genommen",
+     "c": "(24 - 24 * 3/8) / 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "bruchteil_von",
+    "t": "bruchteil_von",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Wanderweg ist 24 km lang. Am ersten Tag geht die Gruppe 3/8 des ganzen Weges, am zweiten Tag 1/4 des ganzen Weges. Wie viele Kilometer bleiben für den dritten Tag?"
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "km"
+    },
+    "c": "24 * (1 - 3/8 - 1/4)",
+    "h": "Rechne beide Tagesstrecken aus. Was bleibt vom ganzen Weg übrig?",
+    "w": "Erster Tag: 24 km : 8 · 3 = 9 km. Zweiter Tag: 24 km : 4 = 6 km. Rest: 24 km − 9 km − 6 km = 9 km."
+   }
+  },
+  {
+   "kennung": "K6-V004",
+   "thema": "bruch.brueche",
+   "lernkarte": "anteil_bestimmen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit 1 gekürzt: das verändert den Bruch nicht, 1 ist nicht der größte gemeinsame Teiler",
+     "c": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner statt des Zählers durch den Teiler geteilt",
+     "c": "36 / (3)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler noch einmal durch den Teiler geteilt",
+     "c": "15 / (3)"
+    }
+   ],
+   "aufgabe": {
+    "l": "anteil_bestimmen",
+    "t": "anteil_bestimmen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "In einer Gruppe sind 36 Kinder, 15 davon spielen Fußball. Der Anteil ist 15/36. Kürze mit dem größten gemeinsamen Teiler ①. Der gekürzte Anteil ist dann ②/③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      5,
+      12
+     ]
+    },
+    "c": [
+     "3",
+     "15 / (3)",
+     "36 / (3)"
+    ],
+    "h": "Suche die größte Zahl, die in 15 und in 36 steckt.",
+    "w": "Der größte gemeinsame Teiler von 15 und 36 ist 3. 15 : 3 = 5 und 36 : 3 = 12. Der Anteil ist 5/12."
+   }
+  },
+  {
+   "kennung": "K6-V005",
+   "thema": "bruch.brueche",
+   "lernkarte": "anteil_bestimmen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "luecken",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Anteil der Kinder ohne Rad gekürzt (7/28 = 1/4) und dessen Zähler angegeben",
+     "c": "7 / 7"
+    }
+   ],
+   "aufgabe": {
+    "l": "anteil_bestimmen",
+    "t": "anteil_bestimmen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "In einer Klasse sind 28 Kinder, 21 davon kommen mit dem Rad. Weg A: Kürze 21/28 direkt. Weg B: Berechne und kürze den Anteil der 7 Kinder ohne Rad und ziehe ihn von 1 ab. Beide Wege müssen denselben vollständig gekürzten Anteil ergeben.",
+     "schablone": "□/□",
+     "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+    },
+    "o": {
+     "werte": [
+      3,
+      4
+     ]
+    },
+    "c": [
+     "21 / 7",
+     "28 / 7"
+    ],
+    "h": "Prüfe, ob beide Wege am Ende dasselbe ergeben.",
+    "w": "Weg A: 21/28 = 3/4 (durch 7 gekürzt). Weg B: 7/28 = 1/4, dann 1 − 1/4 = 3/4. Beide Wege führen zu 3/4."
+   }
+  },
+  {
+   "kennung": "K6-V006",
+   "thema": "bruch.brueche",
+   "lernkarte": "anteil_bestimmen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "anteil_bestimmen",
+    "t": "anteil_bestimmen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Mia bestimmt, welcher Anteil der 45 Schüler in der AG ist. 18 Schüler sind in der AG. Zeile 1: Anteil = Ganzes : Teil = 45/18 Zeile 2: 45/18 = 5/2 (durch 9 gekürzt) Zeile 3: 45/18 = 2 1/2 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Was kommt in den Zähler, was in den Nenner?",
+    "w": "Der Teil (18) kommt in den Zähler, das Ganze (45) in den Nenner: 18/45 = 2/5. Zeile 1 hat Teil und Ganzes vertauscht; die späteren Zeilen rechnen damit richtig weiter."
+   }
+  },
+  {
+   "kennung": "K6-V007",
+   "thema": "bruch.brueche",
+   "lernkarte": "ganzes_bestimmen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 81,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler mit 27 malgenommen statt geteilt",
+     "c": "27 * 3"
+    },
+    {
+     "luecke": 2,
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Zähler statt dem Nenner malgenommen",
+     "c": "(9) * 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "ganzes_bestimmen",
+    "t": "ganzes_bestimmen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "3/5 einer Strecke sind 27 km lang. Zuerst bestimmst du, wie lang ein Fünftel ist: ① km. Dann bekommst du die ganze Strecke: ② km.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      9,
+      45
+     ]
+    },
+    "c": [
+     "27 / 3",
+     "(9) * 5"
+    ],
+    "h": "Teile zuerst durch den Zähler, um ein Teil zu erhalten.",
+    "w": "27 km : 3 = 9 km ist ein Fünftel. Das Ganze sind 5 Fünftel: 5 · 9 km = 45 km."
+   }
+  },
+  {
+   "kennung": "K6-V008",
+   "thema": "bruch.brueche",
+   "lernkarte": "ganzes_bestimmen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Zähler malgenommen und durch den Nenner geteilt, als wären 18 kg das Ganze",
+     "c": "18 * 2 / 5"
+    },
+    {
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "18 mit dem Nenner 5 malgenommen",
+     "c": "18 * 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "ganzes_bestimmen",
+    "t": "ganzes_bestimmen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Händler verkauft am Montag 2/5 seiner Äpfel. Das sind 18 kg. Wie viele Kilogramm Äpfel hatte er vorher?"
+    },
+    "o": {
+     "wert": 45,
+     "einheit": "kg"
+    },
+    "c": "18 / 2 * 5",
+    "h": "Wie viel kg sind ein Fünftel?",
+    "w": "18 kg : 2 = 9 kg ist ein Fünftel. Alle 5 Fünftel: 5 · 9 kg = 45 kg."
+   }
+  },
+  {
+   "kennung": "K6-V009",
+   "thema": "bruch.brueche",
+   "lernkarte": "ganzes_bestimmen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 l als 3/4 des Behälters angesehen",
+     "c": "12 / (3/4)"
+    },
+    {
+     "antwort": 96,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 l mit dem Nenner 8 malgenommen",
+     "c": "12 * 8"
+    }
+   ],
+   "aufgabe": {
+    "l": "ganzes_bestimmen",
+    "t": "ganzes_bestimmen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Behälter ist zu 3/8 gefüllt. Man gießt 12 l hinzu. Jetzt ist er zu 3/4 gefüllt. Wie viele Liter passen in den ganzen Behälter?"
+    },
+    "o": {
+     "wert": 32,
+     "einheit": "l"
+    },
+    "c": "12 / (3/4 - 3/8)",
+    "h": "Welcher Bruchteil des Behälters sind die 12 l?",
+    "w": "Hinzugekommen sind 3/4 − 3/8 = 3/8 des Behälters. 3/8 sind 12 l, also 1/8 = 4 l und 8/8 = 32 l."
+   }
+  },
+  {
+   "kennung": "K6-V010",
+   "thema": "bruch.brueche",
+   "lernkarte": "erweitern",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "42 − 6 gerechnet statt zu teilen",
+     "c": "42 - 6"
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Erweiterungszahl zum Zähler addiert statt malgenommen",
+     "c": "5 + (7)"
+    }
+   ],
+   "aufgabe": {
+    "l": "erweitern",
+    "t": "erweitern",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Erweitere 5/6 auf den Nenner 42. Wie oft passt der alte Nenner in den neuen? Die Erweiterungszahl ist ①. Der neue Zähler ist ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      7,
+      35
+     ]
+    },
+    "c": [
+     "42 / 6",
+     "5 * (7)"
+    ],
+    "h": "Mit welcher Zahl wird aus dem Nenner 6 der Nenner 42?",
+    "w": "42 : 6 = 7. Zähler und Nenner werden mit 7 malgenommen: 5 · 7 = 35. Also 5/6 = 35/42."
+   }
+  },
+  {
+   "kennung": "K6-V011",
+   "thema": "bruch.brueche",
+   "lernkarte": "erweitern",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "63 durch den alten Nenner 9 geteilt",
+     "c": "63 / 9"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "81 − 63 gerechnet",
+     "c": "81 - 63"
+    }
+   ],
+   "aufgabe": {
+    "l": "erweitern",
+    "t": "erweitern",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Der Bruch 7/9 wurde erweitert. Es entstand 63/81. Mit welcher Zahl wurde erweitert?"
+    },
+    "o": {
+     "wert": 9
+    },
+    "c": "63 / 7",
+    "h": "Wie oft passt der alte Zähler in den neuen?",
+    "w": "63 : 7 = 9 und 81 : 9 = 9. Es wurde mit 9 erweitert."
+   }
+  },
+  {
+   "kennung": "K6-V012",
+   "thema": "bruch.brueche",
+   "lernkarte": "erweitern",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dieselbe Stückzahl wie Tim angegeben",
+     "c": "3"
+    },
+    {
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied der Stückzahlen (24 − 8 = 16) zu 3 addiert",
+     "c": "3 + 24 - 8"
+    }
+   ],
+   "aufgabe": {
+    "l": "erweitern",
+    "t": "erweitern",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Pizza ist in 8 gleiche Stücke geschnitten. Tim isst 3 Stücke. Eine zweite, gleich große Pizza ist in 24 gleiche Stücke geschnitten. Wie viele von diesen kleinen Stücken muss Ben essen, um genauso viel Pizza zu essen wie Tim?"
+    },
+    "o": {
+     "wert": 9
+    },
+    "c": "3 * (24 / 8)",
+    "h": "Wie viele kleine Stücke ergeben ein großes Stück?",
+    "w": "Ein großes Stück sind 24 : 8 = 3 kleine. Tim isst 3 große Stücke, das sind 3 · 3 = 9 kleine. 3/8 = 9/24."
+   }
+  },
+  {
+   "kennung": "K6-V013",
+   "thema": "bruch.brueche",
+   "lernkarte": "ggt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 132,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einmal abgezogen: 180 − 48",
+     "c": "180 - 48"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Quotienten 48 : 36 statt des Rests genommen",
+     "c": "48 // (36)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem ersten Rest 36 statt mit dem ggT gekürzt",
+     "c": "180 / (36)"
+    }
+   ],
+   "aufgabe": {
+    "l": "ggt",
+    "t": "ggt",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Bestimme den ggT von 48 und 180 mit dem Teilen mit Rest. 180 geteilt durch 48 lässt den Rest ①. Dann teilst du 48 durch ①; der Rest ist ②. Dieser Rest teilt ① ohne Rest und ist der ggT. Kürzt du 48/180 damit, ist der neue Nenner ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      36,
+      12,
+      15
+     ]
+    },
+    "c": [
+     "180 % 48",
+     "48 % (36)",
+     "180 / (12)"
+    ],
+    "h": "Teile mit Rest: Welcher Rest bleibt, wenn du die größere Zahl durch die kleinere teilst?",
+    "w": "180 : 48 = 3 Rest 36. 48 : 36 = 1 Rest 12. 36 : 12 geht ohne Rest, also ist der ggT 12. 180 : 12 = 15, der neue Nenner ist 15 (48/180 = 4/15)."
+   }
+  },
+  {
+   "kennung": "K6-V014",
+   "thema": "bruch.brueche",
+   "lernkarte": "ggt",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das kleinste gemeinsame Vielfache statt des größten gemeinsamen Teilers",
+     "c": "2 * 2 * 2 * 3 * 3"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen gemeinsamen Teiler genommen, nicht den größten",
+     "c": "24 / 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "ggt",
+    "t": "ggt",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Fläche von 24 cm mal 36 cm soll ohne Lücken mit gleich großen Quadraten ausgelegt werden. Die Quadrate sollen so groß wie möglich sein. Wie lang ist die Seite eines Quadrats in Zentimetern?"
+    },
+    "o": {
+     "wert": 12,
+     "einheit": "cm"
+    },
+    "c": "2 * 2 * 3",
+    "h": "Die Seitenlänge muss in 24 und in 36 ohne Rest passen.",
+    "w": "Gesucht ist der größte gemeinsame Teiler von 24 und 36. 24 = 2 · 2 · 2 · 3 und 36 = 2 · 2 · 3 · 3. Gemeinsam: 2 · 2 · 3 = 12. Das Quadrat hat 12 cm Seitenlänge."
+   }
+  },
+  {
+   "kennung": "K6-V015",
+   "thema": "bruch.brueche",
+   "lernkarte": "ggt",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "ggt",
+    "t": "ggt",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Jan bestimmt den größten gemeinsamen Teiler von 36 und 60. Zeile 1: Teiler von 36: 1, 2, 3, 4, 6, 9, 12, 18, 36 Zeile 2: Teiler von 60: 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60 Zeile 3: Gemeinsame Teiler: 1, 2, 3, 4, 6, 12 Zeile 4: Der ggT ist der kleinste gemeinsame Teiler, also 1 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Was heißt „größter“ gemeinsamer Teiler?",
+    "w": "Die Zeilen 1 bis 3 stimmen. In Zeile 4 wurde der kleinste statt der größte gemeinsame Teiler genommen: richtig ist 12."
+   }
+  },
+  {
+   "kennung": "K6-V016",
+   "thema": "bruch.brueche",
+   "lernkarte": "kuerzen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 78,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 abgezogen statt geteilt",
+     "c": "84 - 6"
+    },
+    {
+     "luecke": 2,
+     "antwort": 120,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 abgezogen statt geteilt",
+     "c": "126 - 6"
+    },
+    {
+     "luecke": 3,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 statt durch 7 geteilt",
+     "c": "(14) / 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "kuerzen",
+    "t": "kuerzen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Kürze 84/126 vollständig. Zuerst durch 6: ①/②. Dann durch 7: ③/3.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      14,
+      21,
+      2
+     ]
+    },
+    "c": [
+     "84 / 6",
+     "126 / 6",
+     "(14) / 7"
+    ],
+    "h": "Teile Zähler und Nenner durch dieselbe Zahl.",
+    "w": "84 : 6 = 14 und 126 : 6 = 21. Dann durch 7: 14 : 7 = 2 und 21 : 7 = 3. Also 84/126 = 2/3."
+   }
+  },
+  {
+   "kennung": "K6-V017",
+   "thema": "bruch.brueche",
+   "lernkarte": "kuerzen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "luecken",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht gekürzt: Zähler 35 stehen gelassen",
+     "c": "35 / 1"
+    },
+    {
+     "luecke": 2,
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht gekürzt: Nenner 100 stehen gelassen",
+     "c": "100 / 1"
+    }
+   ],
+   "aufgabe": {
+    "l": "kuerzen",
+    "t": "kuerzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Rabatt von 35 % soll als vollständig gekürzter Bruch geschrieben werden. 35 % bedeutet 35/100. Schreibe den Bruch gekürzt.",
+     "schablone": "□/□",
+     "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+    },
+    "o": {
+     "werte": [
+      7,
+      20
+     ]
+    },
+    "c": [
+     "35 / 5",
+     "100 / 5"
+    ],
+    "h": "Prozent heißt „von hundert“. Kürze dann mit dem ggT von 35 und 100.",
+    "w": "35 % = 35/100. Der ggT von 35 und 100 ist 5. 35 : 5 = 7 und 100 : 5 = 20. Also 35 % = 7/20."
+   }
+  },
+  {
+   "kennung": "K6-V018",
+   "thema": "bruch.brueche",
+   "lernkarte": "kuerzen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Kürzungsfaktor 45 : 9 angegeben",
+     "c": "45 / 9"
+    },
+    {
+     "antwort": 180,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 mit dem Nenner 45 malgenommen",
+     "c": "4 * 45"
+    }
+   ],
+   "aufgabe": {
+    "l": "kuerzen",
+    "t": "kuerzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Bruch mit dem Nenner 45 wurde vollständig auf 4/9 gekürzt. Welchen Zähler hatte er vorher?"
+    },
+    "o": {
+     "wert": 20
+    },
+    "c": "4 * 45 / 9",
+    "h": "Mit welcher Zahl wurde gekürzt? Vergleiche die Nenner.",
+    "w": "Der Nenner wurde von 45 auf 9 gekürzt, also durch 5. Der Zähler war 4 · 5 = 20. Probe: 20/45 = 4/9."
+   }
+  },
+  {
+   "kennung": "K6-V019",
+   "thema": "bruch.brueche",
+   "lernkarte": "verhaeltnis_kuerzen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 abgezogen statt geteilt",
+     "c": "72 - 12"
+    },
+    {
+     "luecke": 2,
+     "antwort": 108,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 abgezogen statt geteilt",
+     "c": "120 - 12"
+    },
+    {
+     "luecke": 3,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 abgezogen statt geteilt",
+     "c": "(6) - 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "verhaeltnis_kuerzen",
+    "t": "verhaeltnis_kuerzen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Kürze das Verhältnis 72 : 120 vollständig. Teile beide Zahlen durch 12: ① : ②. Teile dann durch 2: ③ : 5.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      10,
+      3
+     ]
+    },
+    "c": [
+     "72 / 12",
+     "120 / 12",
+     "(6) / 2"
+    ],
+    "h": "Du teilst beide Zahlen des Verhältnisses durch dieselbe Zahl.",
+    "w": "72 : 12 = 6 und 120 : 12 = 10. Dann durch 2: 3 : 5. Das Verhältnis ist 3 : 5."
+   }
+  },
+  {
+   "kennung": "K6-V020",
+   "thema": "bruch.brueche",
+   "lernkarte": "verhaeltnis_kuerzen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 720,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gramm-Zahlen addiert, ohne zu kürzen",
+     "c": "450 + 270"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch 45 gekürzt (10 : 6), nicht vollständig",
+     "c": "450 / 45 + 270 / 45"
+    }
+   ],
+   "aufgabe": {
+    "l": "verhaeltnis_kuerzen",
+    "t": "verhaeltnis_kuerzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Müsli besteht aus 450 g Haferflocken und 270 g Nüssen. Das Verhältnis Haferflocken : Nüsse wird vollständig gekürzt und als a : b geschrieben. Wie groß ist a + b?"
+    },
+    "o": {
+     "wert": 8
+    },
+    "c": "450 / 90 + 270 / 90",
+    "h": "Kürze mit dem ggT von 450 und 270.",
+    "w": "Der ggT von 450 und 270 ist 90. 450 : 90 = 5 und 270 : 90 = 3. Das Verhältnis ist 5 : 3, also a + b = 8."
+   }
+  },
+  {
+   "kennung": "K6-V021",
+   "thema": "bruch.brueche",
+   "lernkarte": "verhaeltnis_kuerzen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "verhaeltnis_kuerzen",
+    "t": "verhaeltnis_kuerzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim kürzt das Verhältnis 56 : 98 : 70. Zeile 1: Der ggT von 56, 98 und 70 ist 14. Zeile 2: 56 : 14 = 4, 98 : 14 = 6, 70 : 14 = 5 Zeile 3: Das gekürzte Verhältnis ist 4 : 6 : 5. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Rechne jede Teilung nach.",
+    "w": "98 : 14 = 7, nicht 6. Richtig ist 4 : 7 : 5. Zeile 3 übernimmt nur das Ergebnis aus Zeile 2."
+   }
+  },
+  {
+   "kennung": "K6-V022",
+   "thema": "bruch.brueche",
+   "lernkarte": "gleichwertig",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "24 − 6 gerechnet statt zu teilen",
+     "c": "24 - 6"
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "8 + 4 gerechnet statt 8 · 4",
+     "c": "8 + (4)"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleichwertig",
+    "t": "gleichwertig",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Das Verhältnis 24 : ? soll gleichwertig zu 6 : 8 sein. Die Erweiterungszahl ist ①. Die gesuchte Zahl ist ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      32
+     ]
+    },
+    "c": [
+     "24 / 6",
+     "8 * (4)"
+    ],
+    "h": "Mit welcher Zahl wird aus der 6 die 24?",
+    "w": "24 : 6 = 4. Beide Zahlen werden mit 4 malgenommen: 8 · 4 = 32. 24 : 32 ist gleichwertig zu 6 : 8."
+   }
+  },
+  {
+   "kennung": "K6-V023",
+   "thema": "bruch.brueche",
+   "lernkarte": "gleichwertig",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "luecken",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Wasseranteil als Zähler genommen",
+     "c": "5"
+    },
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den anderen Teil statt des Ganzen als Nenner genommen",
+     "c": "5"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleichwertig",
+    "t": "gleichwertig",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "luecken",
+    "f": {
+     "text": "Wasser und Sirup werden im Verhältnis 5 : 3 gemischt. Welcher Bruchteil der Mischung ist Sirup? Schreibe ihn als Bruch.",
+     "schablone": "□/□",
+     "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+    },
+    "o": {
+     "werte": [
+      3,
+      8
+     ]
+    },
+    "c": [
+     "3",
+     "5 + 3"
+    ],
+    "h": "Wie viele gleiche Teile hat die ganze Mischung?",
+    "w": "5 Teile Wasser und 3 Teile Sirup sind zusammen 8 Teile. Sirup ist 3/8 der Mischung."
+   }
+  },
+  {
+   "kennung": "K6-V024",
+   "thema": "bruch.brueche",
+   "lernkarte": "gleichwertig",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 25.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "8,5 mit 3 malgenommen",
+     "c": "8.5 * 3"
+    },
+    {
+     "antwort": 2.125,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "8,5 · 3 : 12 gerechnet, falsche Richtung",
+     "c": "8.5 * 3 / 12"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleichwertig",
+    "t": "gleichwertig",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Auf einer Karte entsprechen 3 cm in Wirklichkeit 12 km. Zwei Orte sind auf der Karte 8,5 cm voneinander entfernt. Wie weit sind sie in Wirklichkeit voneinander entfernt, in Kilometern?"
+    },
+    "o": {
+     "wert": 34,
+     "einheit": "km"
+    },
+    "c": "8.5 * 12 / 3",
+    "h": "Wie viele Kilometer entsprechen 1 cm auf der Karte?",
+    "w": "3 cm : 12 km ist gleichwertig zu 1 cm : 4 km. 8,5 cm entsprechen 8,5 · 4 km = 34 km."
+   }
+  },
+  {
+   "kennung": "K6-V025",
+   "thema": "bruch.brueche",
+   "lernkarte": "gemischte_zahlen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet statt abgerundet",
+     "c": "47 // 6 + 1"
+    },
+    {
+     "luecke": 2,
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rest mit nur 6 Ganzen berechnet: 47 − 6 · 6",
+     "c": "47 - 6 * 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "gemischte_zahlen",
+    "t": "gemischte_zahlen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Schreibe 47/6 als gemischte Zahl. Die 6 passt ganz ① Mal in 47. Der Rest ist ②. Also ist 47/6 = ① ②/6.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      7,
+      5
+     ]
+    },
+    "c": [
+     "47 // 6",
+     "47 - 6 * (7)"
+    ],
+    "h": "Wie oft passt der Nenner ganz in den Zähler?",
+    "w": "47 : 6 = 7 Rest 5. Die gemischte Zahl ist 7 5/6."
+   }
+  },
+  {
+   "kennung": "K6-V026",
+   "thema": "bruch.brueche",
+   "lernkarte": "gemischte_zahlen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die 2 ganzen Meter in Viertel umgerechnet",
+     "c": "2 * 4"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zähler mal Nenner gerechnet",
+     "c": "3 * 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "gemischte_zahlen",
+    "t": "gemischte_zahlen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Brett ist 2 3/4 m lang. Daraus werden Stücke von je 1/4 m Länge gesägt. Wie viele Stücke ergibt das?"
+    },
+    "o": {
+     "wert": 11
+    },
+    "c": "(2 + 3/4) / (1/4)",
+    "h": "Wie viele Viertelmeter sind ein ganzer Meter?",
+    "w": "Ein Meter hat 4 Viertel. 2 m sind 8 Viertel, dazu 3 Viertel: 8 + 3 = 11 Stücke."
+   }
+  },
+  {
+   "kennung": "K6-V027",
+   "thema": "bruch.brueche",
+   "lernkarte": "gemischte_zahlen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "gemischte_zahlen",
+    "t": "gemischte_zahlen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Tina rechnet 2 1/3 + 1 5/6. Zeile 1: 2 1/3 + 1 5/6 = 2 2/6 + 1 5/6 Zeile 2: = 3 7/6 Zeile 3: = 3 1/6 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Was passiert, wenn der Bruchteil größer als ein Ganzes ist?",
+    "w": "7/6 = 1 1/6. Man muss das Ganze zu den 3 dazuzählen: 3 + 1 1/6 = 4 1/6. In Zeile 3 ging das Ganze verloren."
+   }
+  },
+  {
+   "kennung": "K6-V028",
+   "thema": "bruch.brueche",
+   "lernkarte": "kgv",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Nenner malgenommen, das ist nicht das kleinste gemeinsame Vielfache",
+     "c": "6 * 8"
+    },
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler beim Erweitern nicht mit verändert",
+     "c": "5"
+    },
+    {
+     "luecke": 3,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler beim Erweitern nicht mit verändert",
+     "c": "3"
+    }
+   ],
+   "aufgabe": {
+    "l": "kgv",
+    "t": "kgv",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Bestimme den Hauptnenner von 5/6 und 3/8. Das kleinste gemeinsame Vielfache von 6 und 8 ist ①. Erweiterst du 5/6 darauf, ist der neue Zähler ②. Erweiterst du 3/8 darauf, ist der neue Zähler ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      24,
+      20,
+      9
+     ]
+    },
+    "c": [
+     "24",
+     "5 * (24) / 6",
+     "3 * (24) / 8"
+    ],
+    "h": "Schreibe die Vielfachen von 8 auf, bis eines auch in der 6er-Reihe steht.",
+    "w": "Vielfache von 8: 8, 16, 24. 24 steht auch in der 6er-Reihe. 5/6 = 20/24 (mit 4 erweitert) und 3/8 = 9/24 (mit 3 erweitert)."
+   }
+  },
+  {
+   "kennung": "K6-V029",
+   "thema": "bruch.brueche",
+   "lernkarte": "kgv",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den ggT statt des kgV genommen",
+     "c": "2 * 3"
+    },
+    {
+     "antwort": 216,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Zahlen malgenommen",
+     "c": "12 * 18"
+    }
+   ],
+   "aufgabe": {
+    "l": "kgv",
+    "t": "kgv",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Busse starten um 8:00 Uhr gemeinsam an der Haltestelle. Der eine Bus fährt alle 12 Minuten ab, der andere alle 18 Minuten. Nach wie vielen Minuten fahren beide zum ersten Mal wieder gleichzeitig ab?"
+    },
+    "o": {
+     "wert": 36,
+     "einheit": "min"
+    },
+    "c": "2 * 2 * 3 * 3",
+    "h": "Gesucht ist eine Zahl, die in der 12er- und der 18er-Reihe vorkommt.",
+    "w": "Vielfache von 18: 18, 36. 36 ist auch ein Vielfaches von 12 (3 · 12). Nach 36 Minuten fahren beide wieder gleichzeitig ab."
+   }
+  },
+  {
+   "kennung": "K6-V030",
+   "thema": "bruch.brueche",
+   "lernkarte": "kgv",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "kgv",
+    "t": "kgv",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ben bringt 4/15 und 3/10 auf einen gemeinsamen Nenner. Zeile 1: Vielfache von 15: 15, 30, 45 Zeile 2: Vielfache von 10: 10, 20, 30 Zeile 3: Der Hauptnenner ist 15 · 10 = 150 Zeile 4: 4/15 = 40/150 und 3/10 = 45/150 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "In welchen beiden Reihen taucht die erste gemeinsame Zahl auf?",
+    "w": "Das kleinste gemeinsame Vielfache steht schon in Zeile 1 und 2: 30. 150 ist zwar ein gemeinsames Vielfaches, aber nicht das kleinste. Zeile 4 rechnet mit 150 richtig weiter."
+   }
+  },
+  {
+   "kennung": "K6-V031",
+   "thema": "bruch.brueche",
+   "lernkarte": "vergleichen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 54,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Nenner malgenommen",
+     "c": "6 * 9"
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Nenner 9 statt 6 erweitert",
+     "c": "5 * (18) / 9"
+    },
+    {
+     "luecke": 3,
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Nenner 6 statt 9 erweitert",
+     "c": "7 * (18) / 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen",
+    "t": "vergleichen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Vergleiche 5/6 und 7/9. Der Hauptnenner ist ①. Dann ist 5/6 = ②/① und 7/9 = ③/①. Der Bruch mit dem größeren Zähler ist der größere.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      18,
+      15,
+      14
+     ]
+    },
+    "c": [
+     "18",
+     "5 * (18) / 6",
+     "7 * (18) / 9"
+    ],
+    "h": "Suche das kleinste gemeinsame Vielfache von 6 und 9.",
+    "w": "Hauptnenner 18. 5/6 = 15/18 und 7/9 = 14/18. 15 ist größer als 14, also ist 5/6 größer als 7/9."
+   }
+  },
+  {
+   "kennung": "K6-V032",
+   "thema": "bruch.brueche",
+   "lernkarte": "vergleichen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Vierzehntel in 84stel umgerechnet",
+     "c": "84 / 14"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Zwölftel in 84stel umgerechnet",
+     "c": "84 / 12"
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen",
+    "t": "vergleichen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Vergleiche 11/12 und 13/14. Weg A: Erweitere beide Brüche auf den Nenner 84. Weg B: Prüfe, wie viel jedem Bruch bis zum Ganzen fehlt (1/12 und 1/14). Um wie viele Vierundachtzigstel ist der größere Bruch größer als der kleinere?"
+    },
+    "o": {
+     "wert": 1
+    },
+    "c": "13 * 6 - 11 * 7",
+    "h": "Wie viele 84stel sind ein Zwölftel, wie viele ein Vierzehntel?",
+    "w": "Weg A: 11/12 = 77/84 und 13/14 = 78/84. Unterschied: 1/84. Weg B: Es fehlen 7/84 und 6/84; 13/14 fehlt weniger, ist also um 1/84 größer."
+   }
+  },
+  {
+   "kennung": "K6-V033",
+   "thema": "bruch.brueche",
+   "lernkarte": "vergleichen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur Beas Betrag angegeben",
+     "c": "48 * 5/12"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur Alex' Betrag angegeben",
+     "c": "48 * 3/8"
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen",
+    "t": "vergleichen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Alex und Bea hatten beide 48 € Taschengeld. Alex gibt 3/8 davon für Eis aus, Bea gibt 5/12 davon aus. Wie viel Euro hat Bea mehr ausgegeben als Alex?"
+    },
+    "o": {
+     "wert": 2,
+     "einheit": "€"
+    },
+    "c": "48 * 5/12 - 48 * 3/8",
+    "h": "Rechne beide Beträge aus und vergleiche sie.",
+    "w": "Alex: 48 € : 8 · 3 = 18 €. Bea: 48 € : 12 · 5 = 20 €. Unterschied: 20 € − 18 € = 2 €."
+   }
+  },
+  {
+   "kennung": "K6-V034",
+   "thema": "bruch.brueche",
+   "lernkarte": "zahlenstrahl",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch 1 gekürzt: das ist ein gemeinsamer Teiler, aber nicht der größte",
+     "c": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler nicht gekürzt",
+     "c": "10 / 1"
+    },
+    {
+     "luecke": 3,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner nicht gekürzt",
+     "c": "15 / 1"
+    }
+   ],
+   "aufgabe": {
+    "l": "zahlenstrahl",
+    "t": "zahlenstrahl",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Strecke von 0 bis 1 ist in 15 gleiche Abschnitte geteilt. Der Punkt P liegt nach 10 Abschnitten, also bei 10/15. Der ggT von 10 und 15 ist ①. Gekürzt liegt P bei ②/③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      5,
+      2,
+      3
+     ]
+    },
+    "c": [
+     "5",
+     "10 / (5)",
+     "15 / (5)"
+    ],
+    "h": "Welche größte Zahl steckt in 10 und in 15?",
+    "w": "Der ggT von 10 und 15 ist 5. 10 : 5 = 2 und 15 : 5 = 3. P liegt bei 2/3."
+   }
+  },
+  {
+   "kennung": "K6-V035",
+   "thema": "bruch.brueche",
+   "lernkarte": "zahlenstrahl",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.375,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Strecke als 1 statt 2 gerechnet: 6 von 16 Teilen",
+     "c": "6 / 16"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 · 2 gerechnet",
+     "c": "6 * 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "zahlenstrahl",
+    "t": "zahlenstrahl",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Zahlenstrahl geht von 0 bis 2. Er ist in 16 gleich lange Abschnitte geteilt. Der Punkt P liegt nach 6 Abschnitten. Welche Dezimalzahl gehört zu P?"
+    },
+    "o": {
+     "wert": 0.75
+    },
+    "c": "2 * 6 / 16",
+    "h": "Wie lang ist ein Abschnitt?",
+    "w": "Ein Abschnitt ist 2 : 16 = 0,125 lang. Sechs Abschnitte sind 6 · 0,125 = 0,75."
+   }
+  },
+  {
+   "kennung": "K6-V036",
+   "thema": "bruch.brueche",
+   "lernkarte": "zahlenstrahl",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1/2 − 5/6 gerechnet, das ergibt −1/3",
+     "c": "(1/2 - 5/6) * 3"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner von −1/3 übernommen",
+     "c": "3"
+    }
+   ],
+   "aufgabe": {
+    "l": "zahlenstrahl",
+    "t": "zahlenstrahl",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "luecken",
+    "f": {
+     "text": "Auf dem Zahlenstrahl liegt B bei 5/6. Der Punkt M bei 1/2 ist die Mitte der Strecke von A bis B. Wo liegt A? Schreibe A als Bruch.",
+     "schablone": "□/□",
+     "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+    },
+    "o": {
+     "werte": [
+      1,
+      6
+     ]
+    },
+    "c": [
+     "(2 * (1/2) - 5/6) * 6",
+     "6"
+    ],
+    "h": "Von A bis M ist der Weg genauso lang wie von M bis B.",
+    "w": "Von M bis B sind es 5/6 − 1/2 = 1/3. A liegt genauso weit links von M: 1/2 − 1/3 = 1/6."
+   }
+  },
+  {
+   "kennung": "K6-V037",
+   "thema": "bruch.brueche",
+   "lernkarte": "zahlbereiche",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grenze −6 mitgezählt",
+     "c": "6"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grenze 3 mitgezählt",
+     "c": "3"
+    },
+    {
+     "luecke": 3,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Null vergessen",
+     "c": "(5) + (2)"
+    }
+   ],
+   "aufgabe": {
+    "l": "zahlbereiche",
+    "t": "zahlbereiche",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Zähle die ganzen Zahlen, die größer als −6 und kleiner als 3 sind. Negative Zahlen: ①. Positive Zahlen: ②. Dazu kommt noch die Null. Insgesamt sind es ③ ganze Zahlen.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      5,
+      2,
+      8
+     ]
+    },
+    "c": [
+     "6 - 1",
+     "3 - 1",
+     "(5) + (2) + 1"
+    ],
+    "h": "Die Grenzen selbst gehören nicht dazu.",
+    "w": "Negativ: −5, −4, −3, −2, −1 (5 Zahlen). Positiv: 1, 2 (2 Zahlen). Dazu die 0: 5 + 2 + 1 = 8."
+   }
+  },
+  {
+   "kennung": "K6-V038",
+   "thema": "bruch.brueche",
+   "lernkarte": "zahlbereiche",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen vergessen",
+     "c": "3 * 4"
+    },
+    {
+     "antwort": -7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 abgezogen statt erweitert",
+     "c": "-3 - 4"
+    },
+    {
+     "antwort": -0.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−3 durch 4 geteilt",
+     "c": "-3 / 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "zahlbereiche",
+    "t": "zahlbereiche",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die ganze Zahl −3 soll als Bruch mit dem Nenner 4 geschrieben werden: −3 = ?/4. Welche Zahl steht im Zähler?"
+    },
+    "o": {
+     "wert": -12
+    },
+    "c": "-3 * 4",
+    "h": "Du kannst −3 als −3/1 schreiben und dann erweitern.",
+    "w": "−3 = −3/1. Erweitern mit 4 ergibt −12/4. Der Zähler ist −12."
+   }
+  },
+  {
+   "kennung": "K6-V039",
+   "thema": "bruch.brueche",
+   "lernkarte": "zahlbereiche",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -0.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−3,5 + 2,75 gerechnet, als wäre es gestiegen",
+     "c": "-3.5 + 2.75"
+    },
+    {
+     "antwort": 6.25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minuszeichen vergessen",
+     "c": "3.5 + 2.75"
+    }
+   ],
+   "aufgabe": {
+    "l": "zahlbereiche",
+    "t": "zahlbereiche",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Die Temperatur liegt bei −3 1/2 °C und sinkt dann um 2 3/4 Grad. Wie viel °C sind es danach?"
+    },
+    "o": {
+     "wert": -6.25,
+     "einheit": "°C"
+    },
+    "c": "-(3 + 1/2) - (2 + 3/4)",
+    "h": "Beim Sinken wird die Temperatur kleiner.",
+    "w": "−3,5 − 2,75 = −6,25. Die Temperatur beträgt −6,25 °C."
+   }
+  },
+  {
+   "kennung": "K6-V040",
+   "thema": "bruch.brueche",
+   "lernkarte": "verstehen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "40 − 5 gerechnet statt zu teilen",
+     "c": "40 - 5"
+    },
+    {
+     "luecke": 2,
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Erweiterungszahl addiert statt malgenommen",
+     "c": "3 + (8)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler selbst als fehlenden Teil angegeben",
+     "c": "(24)"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Der Bruch 3/5 wird erweitert, bis er den Nenner 40 hat. Die Erweiterungszahl ist ①. Der neue Zähler ist ②. Bis zum Ganzen fehlen dem Bruch dann ③ Vierzigstel.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      8,
+      24,
+      16
+     ]
+    },
+    "c": [
+     "40 / 5",
+     "3 * (8)",
+     "40 - (24)"
+    ],
+    "h": "Mit welcher Zahl wird aus 5 die 40?",
+    "w": "40 : 5 = 8. 3 · 8 = 24, also 3/5 = 24/40. Das Ganze sind 40/40, es fehlen 40 − 24 = 16 Vierzigstel."
+   }
+  },
+  {
+   "kennung": "K6-V041",
+   "thema": "bruch.brueche",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Prüfen, ob sich Zähler und Nenner um dieselbe Zahl unterscheiden (14 − 2 und 21 − 3)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "additive Regel statt Erweitern und Kürzen",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "Prüfen, ob 14 größer ist als 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zähler verglichen",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "Prüfen, ob 14 + 21 so groß ist wie 2 + 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zähler und Nenner addiert",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Du willst prüfen, ob 14/21 und 2/3 gleich groß sind. Welcher Weg zeigt es sicher?"
+    },
+    "a": [
+     "Prüfen, ob sich Zähler und Nenner um dieselbe Zahl unterscheiden (14 − 2 und 21 − 3)",
+     "Prüfen, ob 14 größer ist als 2",
+     "14/21 durch 7 kürzen und das Ergebnis mit 2/3 vergleichen",
+     "Prüfen, ob 14 + 21 so groß ist wie 2 + 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Erweitern und Kürzen ändern den Wert nicht.",
+    "w": "Beim Kürzen werden Zähler und Nenner durch dieselbe Zahl geteilt: 14 : 7 = 2 und 21 : 7 = 3. Das ergibt 2/3. Differenzen oder Summen sagen nichts über den Wert."
+   }
+  },
+  {
+   "kennung": "K6-V042",
+   "thema": "bruch.brueche",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Lena vergleicht 3/8 und 3/5. Zeile 1: Beide Brüche haben den Zähler 3. Zeile 2: Je größer der Nenner, desto größer der Bruch. Zeile 3: Also ist 3/8 größer als 3/5. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Was passiert mit den Teilen, wenn man das Ganze in mehr Teile teilt?",
+    "w": "Je mehr Teile das Ganze hat, desto kleiner ist jedes Teil. Bei gleichem Zähler ist der Bruch mit dem größeren Nenner kleiner: 3/5 ist größer als 3/8."
+   }
+  }
+ ]
+}

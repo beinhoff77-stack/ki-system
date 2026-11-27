@@ -279,10 +279,10 @@
     },
     {
      "index": 3,
-     "antwort": "Bei Dreieck 1 und Dreieck 3, denn beide haben eine Gegenkathete unter 9 cm",
+     "antwort": "Bei Dreieck 1 und Dreieck 3, weil sich ihre Hypotenusen um 7 cm unterscheiden",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ein Nebenmerkmal statt des Verhältnisses geprüft"
+     "beschreibung": "ein Längenunterschied prüft nicht, ob die Verhältnisse gleich sind"
     }
    ],
    "aufgabe": {
@@ -324,7 +324,7 @@
      "Bei Dreieck 2 und Dreieck 3, denn bei beiden unterscheiden sich Hypotenuse und Gegenkathete um 4 cm",
      "Bei Dreieck 1 und Dreieck 2",
      "Bei allen drei Dreiecken",
-     "Bei Dreieck 1 und Dreieck 3, denn beide haben eine Gegenkathete unter 9 cm"
+     "Bei Dreieck 1 und Dreieck 3, weil sich ihre Hypotenusen um 7 cm unterscheiden"
     ],
     "o": {
      "index": 1
@@ -350,7 +350,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Diese Zeile ist für sich richtig: BC liegt dem Winkel α bei A gegenüber (Gegenkathete) und AB ist die Hypotenuse. Der erste Fehler steht schon in Zeile 1, bei der Erklärung von cos α."
     },
     {
      "index": 2,
@@ -580,7 +580,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Dreieck ABC hat bei C einen rechten Winkel. Es gilt BC = 6 cm, AC = 8 cm und AB = 10 cm. Der Winkel α bei A liegt der Seite BC gegenüber, und es gilt sin α = 0,6. Mit der Umkehrfunktion des Sinus am Taschenrechner (Gradmaß) ist α auf ganze Grad gerundet ① Grad groß. Der Winkel β bei B ist ② Grad groß.",
+     "text": "Ein Dreieck ABC hat bei C einen rechten Winkel. Es gilt BC = 6 cm, AC = 8 cm und AB = 10 cm. Der Winkel α bei A liegt der Seite BC gegenüber, und es gilt sin α = 0,6. Mit der Umkehrfunktion des Sinus am Taschenrechner (Gradmaß) ist α auf ganze Grad gerundet ① Grad groß. Der Winkel β bei B ist auf ganze Grad gerundet ② Grad groß.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -595,7 +595,7 @@
      "90 - (round(36.86989764584402, 0))"
     ],
     "h": "Der Winkel α ist der Winkel, dessen Sinus 0,6 ist. Die Winkel in einem Dreieck ergeben zusammen 180°, und einer davon ist ein rechter Winkel.",
-    "w": "α = sin⁻¹(0,6) ≈ 36,87°, gerundet 37°. β = 180° − 90° − 37° = 53°. Probe: cos β = sin α, und sin⁻¹(0,8) ≈ 53,13°."
+    "w": "α = sin⁻¹(0,6) ≈ 36,87°, gerundet 37°. β = 90° − α ≈ 90° − 36,87° = 53,13°, gerundet 53°. Probe: cos β = sin α, und sin⁻¹(0,8) ≈ 53,13°."
    }
   },
   {
@@ -694,7 +694,7 @@
      "index": 2
     },
     "h": "In welcher Einheit soll der Winkel angegeben werden? Auf welche Einstellung muss der Taschenrechner dann stehen?",
-    "w": "Der Taschenrechner muss auf Gradmaß (DEG) stehen. Dann ist α = tan⁻¹(0,75) ≈ 36,9°. Der Wert 0,64 ist der Winkel im Bogenmaß. Der Fehler steckt in Zeile 3."
+    "w": "Der Taschenrechner muss auf Gradmaß (DEG) stehen. Dann ist α = tan⁻¹(0,75) ≈ 36,9°. Der Rechner stand auf RAD: 0,64 rad wurden fälschlich als Grad angegeben. Mit DEG ergibt sich 36,9°, oder man rechnet 0,64 rad mit 180° : π um. Der Fehler steckt in Zeile 3."
    }
   },
   {
@@ -718,10 +718,10 @@
     },
     {
      "luecke": 2,
-     "antwort": 94,
+     "antwort": 40,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "sin α statt sin² α abgezogen: 100 − 6"
+     "beschreibung": "sin α statt sin² α verwendet: 100 · (1 − 0,6)"
     },
     {
      "luecke": 3,
@@ -899,7 +899,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Drachen hängt an einer 24 m langen, straff gespannten Schnur, die mit dem waagerechten Boden einen Winkel von 30° bildet. Es gilt sin 30° = 0,5. Der Drachen ist ① m hoch über dem Boden. Eine 5-mal so lange Schnur bildet denselben Winkel. Dann ist der Drachen ② m hoch. Er ist dann ③ m höher als vorher.",
+     "text": "Ein Drachen hängt an einer 24 m langen, straff gespannten Schnur, die am Boden befestigt ist und mit dem waagerechten Boden einen Winkel von 30° bildet. Es gilt sin 30° = 0,5. Der Drachen ist ① m hoch über dem Boden. Eine 5-mal so lange Schnur bildet denselben Winkel. Dann ist der Drachen ② m hoch. Er ist dann ③ m höher als vorher.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -1016,7 +1016,7 @@
     },
     "c": "round(39.458927337375876, 0)",
     "h": "Zeichne die Waagerechte durch die Augen. Die Gegenkathete des Winkels 25° ist nicht die ganze Masthöhe. Gesucht ist die Ankathete.",
-    "w": "Die Spitze liegt 20 − 1,6 = 18,4 m über den Augen. tan 25° = 18,4 : d, also d = 18,4 : tan 25° ≈ 39,5 m. Gerundet etwa 39 m. Probe: 18,4 : 39 ≈ 0,47 und tan 25° ≈ 0,47."
+    "w": "Die Spitze liegt 20 − 1,6 = 18,4 m über den Augen. tan 25° = 18,4 : d, also d = 18,4 : tan 25° ≈ 39,459 m, auf ganze Meter gerundet 39 m. Probe: 18,4 : 39 ≈ 0,47 und tan 25° ≈ 0,47."
    }
   },
   {

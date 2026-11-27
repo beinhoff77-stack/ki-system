@@ -20,8 +20,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -82,8 +82,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -126,8 +126,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
    "zaehlt": "ja",
    "fehlbilder": [
     {

@@ -27,9 +27,9 @@
     {
      "luecke": 1,
      "antwort": 78.5,
-     "fehlbild": "fb.aus_dem_rechteck.durchmesser_statt_radius",
-     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
-     "beschreibung": "mit dem Radius statt mit dem Durchmesser gerechnet: 3,14 · 25"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Radius statt des Durchmessers in die Formel u = π · d eingesetzt: 3,14 · 25"
     },
     {
      "luecke": 2,
@@ -138,9 +138,9 @@
    "fehlbilder": [
     {
      "antwort": 30,
-     "fehlbild": "fb.aus_dem_rechteck.durchmesser_statt_radius",
-     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
-     "beschreibung": "den Durchmesser als Radius angegeben: 94,2 : 3,14"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Durchmesser (94,2 : 3,14) berechnet, aber der Radius ist gefragt"
     },
     {
      "antwort": 7.5,
@@ -170,7 +170,7 @@
      "einheit": "cm"
     },
     "c": "94.2 / (2 * 3.14)",
-    "h": "Das Band ist so lang wie der Umfang. Stelle u = 2 · π · r nach r um.",
+    "h": "Das Band ist so lang wie der Umfang des Querschnitts.",
     "w": "u = 2 · π · r, also r = u : (2 · π) = 94,2 : 6,28 = 15 cm. Probe: 2 · 3,14 · 15 = 94,2."
    }
   },
@@ -467,22 +467,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 196,
-     "fehlbild": "fb.potenz.basis_mal_hochzahl",
-     "regel_des_fehlbilds": "rr.potenz",
-     "beschreibung": "14 quadriert, ohne den Radius zu bestimmen: 14²"
-    },
-    {
-     "antwort": 98,
+     "antwort": 16,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "14 · 7 gerechnet"
+     "beschreibung": "erst die Radien voneinander abgezogen und dann quadriert"
     },
     {
-     "antwort": 7,
+     "antwort": 256,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Radius statt der Fläche angegeben"
+     "beschreibung": "die Zahlen 20 und 12 statt der Radien quadriert: 20² − 12²"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Unterschied der Umfänge genommen: 20 − 12"
     }
    ],
    "aufgabe": {
@@ -493,14 +493,14 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Der Umfang eines Kreises ist 14π cm. Gib den Flächeninhalt des Kreises exakt an: A = □ · π cm². Welche Zahl gehört in das Kästchen?"
+     "text": "Ein Kreisring liegt zwischen zwei Kreisen mit demselben Mittelpunkt. Der äußere Kreis hat den Umfang 20π cm, der innere den Umfang 12π cm. Gib den Flächeninhalt des Kreisrings exakt an: A = □ · π cm². Welche Zahl gehört in das Kästchen?"
     },
     "o": {
-     "wert": 49
+     "wert": 64
     },
-    "c": "(14 / 2) ** 2",
-    "h": "Aus dem Umfang erhältst du zuerst den Radius. u = 2 · π · r.",
-    "w": "u = 2π · r = 14π, also r = 7 cm. A = π · 7² = 49π cm²."
+    "c": "(20 / 2) ** 2 - (12 / 2) ** 2",
+    "h": "Von den Umfängen kommst du zu den Radien. Der Ring ist der Rest, wenn du den inneren Kreis wegnimmst.",
+    "w": "u = 2π · r. Außen: 20π = 2π · r, also r = 10 cm. Innen: 12π = 2π · r, also r = 6 cm. Ring: π · 10² − π · 6² = 100π − 36π = 64π cm²."
    }
   },
   {
@@ -815,16 +815,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 540,
-     "fehlbild": "fb.potenz.basis_mal_hochzahl",
-     "regel_des_fehlbilds": "rr.potenz",
-     "beschreibung": "den Radius nicht quadriert: 9 · 360 : 6"
-    },
-    {
-     "antwort": 40,
+     "antwort": 18,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "360 durch 9 geteilt: 360 : 9"
+     "beschreibung": "Bogenlänge mal Radius ohne Halbieren: 3 · 6"
+    },
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche des ganzen Kreises angegeben"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Nenner des Anteils angegeben: 12 : 3"
     }
    ],
    "aufgabe": {
@@ -835,15 +841,14 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Kreissektor hat den Radius 6 cm und den Flächeninhalt 9π cm². Wie groß ist sein Mittelpunktswinkel in Grad?"
+     "text": "Ein Kreissektor hat den Radius 6 cm und die Bogenlänge 3π cm. Gib seinen Flächeninhalt exakt an: A = □ · π cm². Welche Zahl gehört in das Kästchen?"
     },
     "o": {
-     "wert": 90,
-     "einheit": "°"
+     "wert": 9
     },
-    "c": "9 * 360 / 6 ** 2",
-    "h": "Vergleiche den Sektor mit dem ganzen Kreis. Wie viel Fläche hat der ganze Kreis? Welcher Anteil ist 9π davon?",
-    "w": "Ganzer Kreis: π · 6² = 36π cm². Anteil: 9π : 36π = 1/4. Winkel: 1/4 von 360° = 90°."
+    "c": "(3 / (2 * 6)) * 6 ** 2",
+    "h": "Die Bogenlänge ist ein Anteil des Umfangs des ganzen Kreises. Derselbe Anteil gilt für die Fläche.",
+    "w": "Umfang des ganzen Kreises: 2π · 6 = 12π cm. Anteil: 3π : 12π = 1/4. Fläche des ganzen Kreises: 36π cm². Sektor: 36π : 4 = 9π cm². Probe: Bogenlänge · Radius : 2 = 3π · 6 : 2 = 9π."
    }
   },
   {
@@ -868,8 +873,8 @@
     {
      "luecke": 2,
      "antwort": 48,
-     "fehlbild": "fb.aus_dem_rechteck.halbieren_vergessen",
-     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "den ganzen Kreis statt des Halbkreises gerechnet"
     },
     {
@@ -978,22 +983,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 7413,
-     "fehlbild": "fb.aus_dem_rechteck.halbieren_vergessen",
-     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
-     "beschreibung": "nur einen Halbkreis gezählt: 6 000 + 1 413"
-    },
-    {
-     "antwort": 17304,
-     "fehlbild": "fb.aus_dem_rechteck.durchmesser_statt_radius",
-     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
-     "beschreibung": "den Durchmesser 60 m als Radius des Kreises genommen"
-    },
-    {
-     "antwort": 6000,
+     "antwort": 441,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur das Rechteck gerechnet"
+     "beschreibung": "abgerundet statt aufgerundet: 441,3 → 441"
+    },
+    {
+     "antwort": 371,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Halbkreis gezählt und die Rollen aufgerundet"
+    },
+    {
+     "antwort": 300,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Rechteck gerechnet: 6 000 : 20"
     }
    ],
    "aufgabe": {
@@ -1004,15 +1009,14 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Ein Sportplatz besteht aus einem Rechteck, 100 m lang und 60 m breit. An den beiden schmalen Seiten ist je ein Halbkreis mit dem Durchmesser 60 m angesetzt. Die ganze Fläche soll mit Kunstrasen belegt werden. Wie viele Quadratmeter Kunstrasen braucht man mindestens? Rechne mit π ≈ 3,14."
+     "text": "Ein Sportplatz besteht aus einem Rechteck, 100 m lang und 60 m breit. An den beiden schmalen Seiten ist je ein Halbkreis mit dem Durchmesser 60 m angesetzt. Die ganze Fläche soll mit Kunstrasen belegt werden. Der Kunstrasen wird in Rollen zu je 20 m² geliefert. Rechne mit π ≈ 3,14. Wie viele Rollen müssen mindestens bestellt werden?"
     },
     "o": {
-     "wert": 8826,
-     "einheit": "m²"
+     "wert": 442
     },
-    "c": "100 * 60 + 3.14 * 30 ** 2",
-    "h": "Die beiden Halbkreise ergeben zusammen einen ganzen Kreis. Der Radius ist halb so groß wie der Durchmesser.",
-    "w": "Rechteck: 100 · 60 = 6 000 m². Die zwei Halbkreise ergeben einen Kreis mit r = 30 m: 3,14 · 30² = 2 826 m². Gesamt: 6 000 + 2 826 = 8 826 m²."
+    "c": "(100 * 60 + 3.14 * 30 ** 2 + 19) // 20",
+    "h": "Berechne zuerst die ganze Fläche des Platzes. Eine angefangene Rolle muss ganz bestellt werden.",
+    "w": "Rechteck: 100 · 60 = 6 000 m². Die zwei Halbkreise ergeben einen Kreis mit r = 30 m: 3,14 · 30² = 2 826 m². Gesamt: 8 826 m². 8 826 : 20 = 441,3. Es müssen 442 Rollen bestellt werden."
    }
   }
  ]

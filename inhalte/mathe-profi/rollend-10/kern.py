@@ -124,7 +124,7 @@ def W(text, richtig, falsch, h, w, probe, grafik=None):
     return mit({"y": "auswahl", "f": {"text": text}, "a": antworten, "o": {"index": p}, "h": h, "w": w}, grafik), probe, fb
 
 
-def FD(einleitung, zeilen, h, w, frage="In welcher Zeile passiert der erste Fehler?", grafik=None):
+def FD(einleitung, zeilen, h, w, frage="In welcher Zeile passiert der erste Fehler?", grafik=None, rueck=None):
     """Fehler-Detektiv. zeilen: [(Text, stimmt, folgt)] – beides wird im Programm berechnet:
     stimmt = die Zeile ist für sich richtig (nur bis zur Fehlerzeile maßgeblich); folgt = die Zeile folgt rechnerisch richtig aus der Zeile davor (bei Zeile 1: True).
     Verlangt: alle Zeilen vor der Fehlerzeile stimmen; die Fehlerzeile stimmt nicht (und folgt richtig aus der Zeile davor oder ist der Fehler selbst);
@@ -137,6 +137,9 @@ def FD(einleitung, zeilen, h, w, frage="In welcher Zeile passiert der erste Fehl
     text = einleitung + " " + " ".join(f"Zeile {i + 1}: {z[0]}" for i, z in enumerate(zeilen)) + " " + frage
     ant = [f"In Zeile {i + 1}" for i in range(len(zeilen))]
     fb = {i: (None, "diese Zeile ist richtig; der Fehler steckt woanders" if i < f else "diese Zeile ist nur die Folge des ersten Fehlers") for i in range(len(zeilen)) if i != f}
+    for i, t in (rueck or {}).items():      # Rückmeldung von Hand, wo eine Zeile nach dem Fehler unabhängig richtig oder nur teilweise Folge ist
+        assert i > f, (einleitung, "rueck nur für Zeilen nach der Fehlerzeile")
+        fb[i] = (None, t)
     return mit({"y": "auswahl", "f": {"text": text}, "a": ant, "o": {"index": f}, "h": h, "w": w}, grafik), lambda: True, fb
 
 

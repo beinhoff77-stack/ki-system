@@ -8,7 +8,7 @@ neu(T, "pyr_volumen", "lueckenweg", L(
     "① = □; ② = □; ③ = □", [36, 288, 96], ["6 * 6", "{1} * 8", "{2} / 3"], ["36", "36 * 8", "288 // 3"],
     "Das Volumen einer Pyramide ist nur ein Teil des Volumens eines Prismas mit gleicher Grundfläche und gleicher Höhe.",
     "G = 6 · 6 = 36 cm². G · h = 36 · 8 = 288 cm³. Eine Pyramide fasst ein Drittel davon: V = 288 : 3 = 96 cm³.",
-    {0: [(12, None, "die Kantenlänge verdoppelt statt quadriert: 6 · 2", "6 * 2")], 1: [(44, "fb.verhaeltnis.addiert_statt_malgenommen", "Grundfläche und Höhe addiert: 36 + 8", "{1} + 8")],
+    {0: [(12, None, "die Kantenlänge verdoppelt statt quadriert: 6 · 2", "6 * 2")], 1: [(44, None, "Grundfläche und Höhe addiert statt malgenommen: 36 + 8", "{1} + 8")],
      2: [(288, DR, "den Faktor ein Drittel vergessen", "{2}"), (864, None, "mit 3 malgenommen statt durch 3 geteilt", "{2} * 3")]}), regel=R)
 neu(T, "pyr_volumen", "anwenden", Z(
     "Ein Zelt hat die Form einer geraden Pyramide mit quadratischer Grundfläche. Die Grundkante ist 3 m lang, die Zeltspitze liegt 2,4 m über dem Boden. Wie viele Kubikmeter Luft sind im Zelt?",
@@ -17,7 +17,7 @@ neu(T, "pyr_volumen", "anwenden", Z(
     [(21.6, DR, "den Faktor ein Drittel vergessen: 9 · 2,4", "3 * 3 * 2.4"), (2.4, None, "die Kantenlänge statt der Grundfläche genommen: 3 · 2,4 : 3", "3 * 2.4 / 3")], "m³"), g="einkleidung", regel=R)
 neu(T, "pyr_volumen", "umkehren", Z(
     "Eine gerade Pyramide hat eine quadratische Grundfläche. Ihr Volumen beträgt 108 cm³ und ihre Höhe 9 cm. Wie lang ist eine Kante der Grundfläche?",
-    6, "wurzel(3 * 108 / 9)", "sqrt(3 * 108 / 9)", "Stelle V = G · h : 3 nach G um. Aus der Fläche eines Quadrats bekommst du die Kantenlänge.",
+    6, "wurzel(3 * 108 / 9)", "sqrt(3 * 108 / 9)", "Das Volumen hängt von Grundfläche und Höhe ab. Überlege, wie du von V zurück zur Kantenlänge kommst.",
     "G = 3 · V : h = 3 · 108 : 9 = 36 cm². Kante: √36 = 6 cm. Probe: 36 · 9 : 3 = 108.",
     [(36, None, "die Grundfläche statt der Kantenlänge angegeben", "3 * 108 / 9"), (3.5, DR, "den Faktor 3 vergessen und aus der so erhaltenen Grundfläche die Wurzel gezogen (gerundet)", "round(sqrt(108 / 9), 1)")], "cm"), g="rueckwaerts", regel=R)
 
@@ -49,7 +49,7 @@ neu(T, "kegel_volumen", "lueckenweg", L(
     "① = □; ② = □; ③ = □", [9, 90, 30], ["3 ** 2", "{1} * 10", "{2} / 3"], ["9", "90", "90 // 3"],
     "Die Grundfläche ist ein Kreis. Ein Kegel fasst nur einen Teil von dem Zylinder mit gleicher Grundfläche und Höhe.",
     "G = π · 3² = 9π cm². Zylinder: 9π · 10 = 90π cm³. Kegel: ein Drittel davon, 90π : 3 = 30π cm³.",
-    {0: [(6, "fb.potenz.basis_mal_hochzahl", "3 · 2 statt 3² gerechnet", "3 * 2")], 1: [(19, "fb.verhaeltnis.addiert_statt_malgenommen", "Grundfläche und Höhe addiert: 9 + 10", "{1} + 10")], 2: [(90, DR, "den Faktor ein Drittel vergessen", "{2}"), (270, None, "mit 3 malgenommen statt durch 3 geteilt", "{2} * 3")]}), regel=R)
+    {0: [(6, "fb.potenz.basis_mal_hochzahl", "3 · 2 statt 3² gerechnet", "3 * 2")], 1: [(19, None, "Grundfläche und Höhe addiert statt malgenommen: 9 + 10", "{1} + 10")], 2: [(90, DR, "den Faktor ein Drittel vergessen", "{2}"), (270, None, "mit 3 malgenommen statt durch 3 geteilt", "{2} * 3")]}), regel=R)
 neu(T, "kegel_volumen", "anwenden", Z(
     "Ein Sandhaufen hat die Form eines geraden Kegels. Sein Durchmesser am Boden ist 3 m, seine Höhe ist 1,2 m. Rechne mit π ≈ 3,14. Wie viele Kubikmeter Sand sind das? Gib das Ergebnis ohne Rundung an.",
     2.826, "3.14 * 1.5 ** 2 * 1.2 / 3", "3.14 * 2.25 * 0.4", "Der Radius ist halb so groß wie der Durchmesser.",
@@ -57,7 +57,7 @@ neu(T, "kegel_volumen", "anwenden", Z(
     [(11.304, DM, "den Durchmesser 3 m als Radius genommen", "3.14 * 3 ** 2 * 1.2 / 3"), (8.478, DR, "den Faktor ein Drittel vergessen", "3.14 * 1.5 ** 2 * 1.2")], "m³"), g="einkleidung", regel=R)
 neu(T, "kegel_volumen", "umkehren", Z(
     "Ein gerader Kegel ist 12 cm hoch und hat das Volumen 113,04 cm³. Rechne mit π ≈ 3,14. Wie groß ist der Radius seiner Grundfläche?",
-    3, "wurzel(113.04 * 3 / (3.14 * 12))", "sqrt(113.04 * 3 / (3.14 * 12))", "Stelle V = π · r² · h : 3 nach r² um. Welche Zahl mal sich selbst ergibt r²?",
+    3, "wurzel(113.04 * 3 / (3.14 * 12))", "sqrt(113.04 * 3 / (3.14 * 12))", "Das Volumen hängt von Radius und Höhe ab. Überlege, welche Größe gesucht ist und wie du von V dorthin zurückkommst.",
     "r² = 3 · V : (π · h) = 339,12 : 37,68 = 9. Also r = 3 cm. Probe: 3,14 · 9 · 12 : 3 = 113,04.",
     [(9, None, "r² statt r angegeben", "113.04 * 3 / (3.14 * 12)"), (1.7, DR, "den Faktor 3 vergessen und die Wurzel gezogen (gerundet)", "round(sqrt(113.04 / (3.14 * 12)), 1)")], "cm"), g="rueckwaerts", regel=R)
 
@@ -72,7 +72,7 @@ neu(T, "kegel_mantel", "zwei_wege", Z(
     "Ein gerader Kegel hat den Radius 3 cm und die Mantellinie 5 cm. Gib die Mantelfläche in der Form M = □ · π cm² an. Welche Zahl gehört in das Kästchen? Rechne auf zwei Wegen. Weg A: mit der Formel M = π · r · s. Weg B: Der abgewickelte Mantel ist ein Kreissektor mit dem Radius s. Seine Bogenlänge ist der Umfang des Grundkreises. Die Fläche des Sektors ist Bogenlänge mal Radius geteilt durch 2.",
     15, "3 * 5", "(2 * 3) * 5 / 2", "Beide Wege müssen dieselbe Zahl ergeben. Bei Weg B ist die Bogenlänge ein Vielfaches von π.",
     "Weg A: M = π · 3 · 5 = 15π cm². Weg B: Bogenlänge = 2π · 3 = 6π cm. Sektorfläche = 6π · 5 : 2 = 15π cm². Beide Wege: 15.",
-    [(30, "fb.aus_dem_rechteck.halbieren_vergessen", "das Halbieren vergessen: 6 · 5", "2 * 3 * 5"), (9, None, "die Grundfläche statt des Mantels angegeben: 3²", "3 ** 2"), (8, None, "Radius und Mantellinie addiert: 3 + 5", "3 + 5")]), regel="id.flaeche_raum.haut")
+    [(30, None, "den Sektor nicht halbiert: Bogenlänge mal Radius, 6 · 5", "2 * 3 * 5"), (9, None, "die Grundfläche statt des Mantels angegeben: 3²", "3 ** 2"), (8, None, "Radius und Mantellinie addiert: 3 + 5", "3 + 5")]), regel="id.flaeche_raum.haut")
 neu(T, "kegel_mantel", "fehler_detektiv", FD(
     "Ein gerader Kegel hat den Radius 6 cm und die Höhe 8 cm. Kim berechnet die Oberfläche des Kegels, also Mantel und Grundfläche.",
     [("Mantellinie: s² = 6² + 8² = 100, also s = 10 cm.", 6 ** 2 + 8 ** 2 == 100, True),
@@ -87,17 +87,17 @@ neu(T, "kugel", "lueckenweg", L(
     "① = □; ② = □; ③ = □", [36, 144, 288], ["6 ** 2", "4 * {1}", "{2} * 6 / 3"], ["36", "4 * 36", "4 * 6 ** 3 // 3"],
     "Die Oberfläche einer Kugel ist 4 mal π mal Radius zum Quadrat. Das Volumen ist vier Drittel mal π mal Radius hoch drei. Mit der Oberfläche geht es kürzer: V = O · r : 3.",
     "r² = 36. O = 4π · 36 = 144π cm². V = 4/3 · π · 6³ = 4/3 · 216π = 288π cm³. Kontrolle: 144π · 6 : 3 = 288π.",
-    {0: [(12, "fb.potenz.basis_mal_hochzahl", "6 · 2 statt 6² gerechnet", "6 * 2")], 1: [(72, None, "2 mal statt 4 mal gerechnet: 2 · 36", "2 * {1}")], 2: [(864, DR, "den Faktor ein Drittel vergessen", "4 * 6 ** 3")]}), regel="id.flaeche_raum.aus_dem_rechteck")
+    {0: [(12, "fb.potenz.basis_mal_hochzahl", "6 · 2 statt 6² gerechnet", "6 * 2")], 1: [(72, None, "2 mal statt 4 mal gerechnet: 2 · 36", "2 * {1}")], 2: [(864, None, "bei der Kugel das Volumen als O · r statt O · r : 3 gerechnet", "4 * 6 ** 3")]}), regel=None)
 neu(T, "kugel", "zwei_wege", Z(
-    "Eine Kugel hat den Radius 3 cm. Gib ihr Volumen in der Form V = □ · π cm³ an. Welche Zahl gehört in das Kästchen? Rechne auf zwei Wegen. Weg A: mit der Formel V = 4/3 · π · r³. Weg B: Berechne das Volumen eines Zylinders mit dem Radius 3 cm und der Höhe 6 cm. Ziehe davon die Volumina von zwei Kegeln ab. Beide Kegel haben den Radius 3 cm und die Höhe 3 cm, ihre Spitzen liegen im Mittelpunkt des Zylinders, ihre Grundflächen sind Boden und Deckel. Der Rest hat dasselbe Volumen wie die Kugel, weil er in jeder Höhe denselben Querschnitt hat.",
+    "Eine Kugel hat den Radius 3 cm. Gib ihr Volumen in der Form V = □ · π cm³ an. Welche Zahl gehört in das Kästchen? Rechne auf zwei Wegen. Weg A: mit der Formel V = 4/3 · π · r³. Weg B: Berechne das Volumen eines Zylinders mit dem Radius 3 cm und der Höhe 6 cm. Ziehe davon die Volumina von zwei Kegeln ab. Beide Kegel haben den Radius 3 cm und die Höhe 3 cm, ihre Spitzen liegen im Mittelpunkt des Zylinders, ihre Grundflächen sind Boden und Deckel. Der Rest hat dasselbe Volumen wie die Kugel, weil in jeder Höhe der Querschnitt des Rests (ein Kreisring) denselben Flächeninhalt hat wie der Querschnitt der Kugel (eine Kreisscheibe).",
     36, "4 * 3 ** 3 / 3", "2 * 3 ** 3 - 2 * (3 ** 2 * 3 / 3)", "Beide Wege müssen dieselbe Zahl ergeben. Bei Weg B rechnest du das Volumen des Zylinders und das der beiden Kegel jeweils in Vielfachen von π.",
     "Weg A: V = 4/3 · π · 27 = 36π cm³. Weg B: Zylinder: π · 3² · 6 = 54π. Ein Kegel: π · 3² · 3 : 3 = 9π, zwei Kegel 18π. Rest: 54π − 18π = 36π cm³. Beide Wege: 36.",
-    [(108, DR, "den Faktor ein Drittel vergessen: 4 · 27", "4 * 27"), (12, None, "r² statt r³ genommen: 4 · 3² : 3", "4 * 9 / 3"), (54, None, "nur das Volumen des Zylinders angegeben", "2 * 27")]), regel="id.flaeche_raum.aus_dem_rechteck")
+    [(108, None, "den Faktor 1/3 der Kugelformel vergessen: 4 · 27", "4 * 27"), (12, None, "r² statt r³ genommen: 4 · 3² : 3", "4 * 9 / 3"), (54, None, "nur das Volumen des Zylinders angegeben", "2 * 27")]), regel="id.flaeche_raum.aus_dem_quader")
 neu(T, "kugel", "umkehren", Z(
     "Eine Kugel hat die Oberfläche 324π cm². Gib ihr Volumen in der Form V = □ · π cm³ an. Welche Zahl gehört in das Kästchen?",
-    972, "4 * wurzel(324 / 4) ** 3 / 3", "4 / 3 * 9 ** 3", "Aus der Oberfläche O = 4π · r² bekommst du zuerst r². Dann den Radius, dann das Volumen.",
+    972, "4 * wurzel(324 / 4) ** 3 / 3", "4 / 3 * 9 ** 3", "Welche Größe der Kugel kannst du aus der Oberfläche bestimmen? Was brauchst du dann für das Volumen?",
     "4 · r² = 324, also r² = 81 und r = 9 cm. V = 4/3 · π · 9³ = 4/3 · 729π = 972π cm³.",
-    [(729, DR, "nur r³ gerechnet, den Faktor vier Drittel vergessen", "9 ** 3"), (108, None, "r² statt r³ genommen", "4 * 9 ** 2 / 3"), (324, None, "die Oberfläche als Volumen angegeben", "324")]), g="rueckwaerts", regel="id.flaeche_raum.aus_dem_rechteck")
+    [(729, None, "nur r³ gerechnet: der ganze Faktor vier Drittel fehlt", "9 ** 3"), (108, None, "r² statt r³ genommen", "4 * 9 ** 2 / 3"), (324, None, "die Oberfläche als Volumen angegeben", "324")]), g="rueckwaerts", regel=None)
 
 # ───────── sachkontext ─────────
 neu(T, "sachkontext", "lueckenweg", L(
@@ -105,15 +105,15 @@ neu(T, "sachkontext", "lueckenweg", L(
     "① = □; ② = □; ③ = □", [81, 54, 135], ["3 * 3 ** 2 * 9 / 3", "4 * 3 * 3 ** 3 / 3 / 2", "{1} + {2}"], ["3 * 9 * 9 // 3", "2 * 3 * 27 // 3", "81 + 54"],
     "Das Volumen der Waffel ist das Volumen eines Kegels. Eine halbe Kugel ist die Hälfte einer ganzen Kugel.",
     "Kegel: V = 3 · 3² · 9 : 3 = 81 cm³. Ganze Kugel: 4/3 · 3 · 3³ = 108 cm³, halbe Kugel: 54 cm³. Zusammen: 81 + 54 = 135 cm³.",
-    {0: [(243, DR, "den Faktor ein Drittel vergessen: 3 · 9 · 9", "3 * 3 ** 2 * 9")], 1: [(108, "fb.aus_dem_rechteck.halbieren_vergessen", "die ganze Kugel statt der halben gerechnet", "4 * 3 * 3 ** 3 / 3")], 2: [(81, None, "nur den Kegel gezählt", "{1}")]}), regel=R)
+    {0: [(243, DR, "den Faktor ein Drittel vergessen: 3 · 9 · 9", "3 * 3 ** 2 * 9")], 1: [(108, None, "die ganze Kugel statt der halben gerechnet", "4 * 3 * 3 ** 3 / 3")], 2: [(81, None, "nur den Kegel gezählt", "{1}")]}), regel=R)
 neu(T, "sachkontext", "anwenden", Z(
-    "Ein kugelförmiger Wassertank hat den Innendurchmesser 2 m. Wie viele Liter Wasser passen höchstens hinein? Rechne mit π ≈ 3,14 und 1 m³ = 1 000 Liter. Runde auf ganze Liter.",
+    "Ein kugelförmiger Wassertank hat den Innendurchmesser 2 m. Wie groß ist das Fassungsvermögen des Tanks in Litern? Rechne mit π ≈ 3,14 und 1 m³ = 1 000 Liter. Runde das Ergebnis auf ganze Liter.",
     4187, "round(4 * 3.14 * 1 ** 3 / 3 * 1000, 0)", "round(4 / 3 * 3.14 * 1000, 0)", "Der Radius ist halb so groß wie der Durchmesser. Rechne das Volumen zuerst in m³, dann in Liter.",
     "r = 1 m. V = 4/3 · 3,14 · 1³ ≈ 4,1867 m³. In Liter: 4,1867 · 1 000 ≈ 4 187 l. Es passen etwa 4 187 Liter hinein.",
-    [(12560, DR, "den Faktor ein Drittel vergessen: 4 · 3,14 · 1 000", "4 * 3.14 * 1000"), (33493, DM, "den Durchmesser 2 m als Radius genommen (gerundet)", "round(4 / 3 * 3.14 * 2 ** 3 * 1000, 0)")], "Liter"), g="einkleidung", regel=R)
+    [(12560, None, "den Faktor 1/3 der Kugelformel vergessen: 4 · 3,14 · 1 000", "4 * 3.14 * 1000"), (33493, DM, "den Durchmesser 2 m als Radius genommen (gerundet)", "round(4 / 3 * 3.14 * 2 ** 3 * 1000, 0)")], "Liter"), g="einkleidung", regel=None)
 neu(T, "sachkontext", "umkehren", Z(
     "Eine Wachskugel mit dem Radius 6 cm wird vollständig eingeschmolzen. Aus dem Wachs wird ein gerader Kegel mit dem Radius 6 cm gegossen. Das Volumen bleibt dabei gleich. Wie hoch ist der Kegel?",
-    24, "4 * 6 ** 3 / 3 * 3 / 6 ** 2", "(4 / 3 * 6 ** 3) / (6 ** 2 / 3)", "Das Volumen der Kugel ist das Volumen des Kegels. Stelle die Kegelformel nach der Höhe um.",
+    24, "4 * 6 ** 3 / 3 * 3 / 6 ** 2", "(4 / 3 * 6 ** 3) / (6 ** 2 / 3)", "Beim Einschmelzen und Neugießen ändert sich das Volumen nicht.",
     "Kugel: V = 4/3 · π · 6³ = 288π cm³. Kegel: π · 6² · h : 3 = 12π · h. Aus 12π · h = 288π folgt h = 24 cm.",
     [(8, DR, "bei der Höhe den Faktor 3 vergessen: 288 : 36", "288 / 36"), (4, None, "für die Kugel r² statt r³ genommen: 4/3 · 36 = 48, dann 48 · 3 : 36", "4 * 6 ** 2 / 3 * 3 / 6 ** 2")], "cm"), g="rueckwaerts", regel=R)
 
@@ -131,11 +131,12 @@ neu(T, "verstehen", "bruecke", W(
     "Teile das Volumen bei r = 2 cm durch das Volumen bei r = 1 cm. Teile auch das Volumen bei r = 3 cm durch das bei r = 1 cm.",
     "33,51 : 4,19 ≈ 8 und 113,10 : 4,19 ≈ 27. Die Faktoren sind 2³ und 3³. Das Volumen wächst mit der dritten Potenz des Radius.",
     lambda: abs(33.51 / 4.19 - 8) < 0.05 and abs(113.10 / 4.19 - 27) < 0.1 and round(4 / 3 * math.pi * 8, 2) == 33.51 and round(4 / 3 * math.pi, 2) == 4.19 and round(4 / 3 * math.pi * 27, 2) == 113.10,
-    grafik=TAB(["Radius", "Volumen"], ["1 cm", "4,19 cm³"], ["2 cm", "33,51 cm³"], ["3 cm", "113,10 cm³"])), regel=R)
+    grafik=TAB(["Radius", "Volumen"], ["1 cm", "4,19 cm³"], ["2 cm", "33,51 cm³"], ["3 cm", "113,10 cm³"])), regel=None)
 neu(T, "verstehen", "fehler_detektiv", FD(
     "Kim vergleicht einen geraden Kegel mit einem geraden Zylinder. Beide haben denselben Radius und dieselbe Höhe. Der Zylinder hat den Radius 3 cm und die Höhe 5 cm.",
     [("Der Kegel hat die Hälfte des Volumens des Zylinders.", False, True),
      ("Das Volumen des Zylinders ist V = π · 3² · 5 = 45π cm³.", 3 ** 2 * 5 == 45, True),
      ("Also hat der Kegel das Volumen 22,5π cm³.", True, 45 / 2 == 22.5)],
     "Wie viele Kegel mit gleichem Radius und gleicher Höhe passen in Volumen genau in einen Zylinder?",
-    "Der Kegel hat ein Drittel des Volumens des Zylinders, nicht die Hälfte: 45π : 3 = 15π cm³. Der erste Fehler steht in Zeile 1."), regel=R)
+    "Der Kegel hat ein Drittel des Volumens des Zylinders, nicht die Hälfte: 45π : 3 = 15π cm³. Der erste Fehler steht in Zeile 1.",
+    rueck={1: "Diese Zeile ist für sich richtig: V = π · 3² · 5 = 45π cm³. Der erste Fehler steht schon in Zeile 1, bei der Aussage über den Kegel."}), regel=R)

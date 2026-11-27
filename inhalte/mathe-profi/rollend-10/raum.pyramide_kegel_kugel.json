@@ -34,9 +34,9 @@
     {
      "luecke": 2,
      "antwort": 44,
-     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
-     "regel_des_fehlbilds": "rr.verhaeltnis",
-     "beschreibung": "Grundfläche und Höhe addiert: 36 + 8"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Grundfläche und Höhe addiert statt malgenommen: 36 + 8"
     },
     {
      "luecke": 3,
@@ -165,7 +165,7 @@
      "einheit": "cm"
     },
     "c": "6",
-    "h": "Stelle V = G · h : 3 nach G um. Aus der Fläche eines Quadrats bekommst du die Kantenlänge.",
+    "h": "Das Volumen hängt von Grundfläche und Höhe ab. Überlege, wie du von V zurück zur Kantenlänge kommst.",
     "w": "G = 3 · V : h = 3 · 108 : 9 = 36 cm². Kante: √36 = 6 cm. Probe: 36 · 9 : 3 = 108."
    }
   },
@@ -381,9 +381,9 @@
     {
      "luecke": 2,
      "antwort": 19,
-     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
-     "regel_des_fehlbilds": "rr.verhaeltnis",
-     "beschreibung": "Grundfläche und Höhe addiert: 9 + 10"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Grundfläche und Höhe addiert statt malgenommen: 9 + 10"
     },
     {
      "luecke": 3,
@@ -512,7 +512,7 @@
      "einheit": "cm"
     },
     "c": "3",
-    "h": "Stelle V = π · r² · h : 3 nach r² um. Welche Zahl mal sich selbst ergibt r²?",
+    "h": "Das Volumen hängt von Radius und Höhe ab. Überlege, welche Größe gesucht ist und wie du von V dorthin zurückkommst.",
     "w": "r² = 3 · V : (π · h) = 339,12 : 37,68 = 9. Also r = 3 cm. Probe: 3,14 · 9 · 12 : 3 = 113,04."
    }
   },
@@ -592,9 +592,9 @@
    "fehlbilder": [
     {
      "antwort": 30,
-     "fehlbild": "fb.aus_dem_rechteck.halbieren_vergessen",
-     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
-     "beschreibung": "das Halbieren vergessen: 6 · 5"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Sektor nicht halbiert: Bogenlänge mal Radius, 6 · 5"
     },
     {
      "antwort": 9,
@@ -684,8 +684,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -705,9 +705,9 @@
     {
      "luecke": 3,
      "antwort": 864,
-     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
-     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
-     "beschreibung": "den Faktor ein Drittel vergessen"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei der Kugel das Volumen als O · r statt O · r : 3 gerechnet"
     }
    ],
    "aufgabe": {
@@ -746,15 +746,15 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "antwort": 108,
-     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
-     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
-     "beschreibung": "den Faktor ein Drittel vergessen: 4 · 27"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 1/3 der Kugelformel vergessen: 4 · 27"
     },
     {
      "antwort": 12,
@@ -777,7 +777,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Eine Kugel hat den Radius 3 cm. Gib ihr Volumen in der Form V = □ · π cm³ an. Welche Zahl gehört in das Kästchen? Rechne auf zwei Wegen. Weg A: mit der Formel V = 4/3 · π · r³. Weg B: Berechne das Volumen eines Zylinders mit dem Radius 3 cm und der Höhe 6 cm. Ziehe davon die Volumina von zwei Kegeln ab. Beide Kegel haben den Radius 3 cm und die Höhe 3 cm, ihre Spitzen liegen im Mittelpunkt des Zylinders, ihre Grundflächen sind Boden und Deckel. Der Rest hat dasselbe Volumen wie die Kugel, weil er in jeder Höhe denselben Querschnitt hat."
+     "text": "Eine Kugel hat den Radius 3 cm. Gib ihr Volumen in der Form V = □ · π cm³ an. Welche Zahl gehört in das Kästchen? Rechne auf zwei Wegen. Weg A: mit der Formel V = 4/3 · π · r³. Weg B: Berechne das Volumen eines Zylinders mit dem Radius 3 cm und der Höhe 6 cm. Ziehe davon die Volumina von zwei Kegeln ab. Beide Kegel haben den Radius 3 cm und die Höhe 3 cm, ihre Spitzen liegen im Mittelpunkt des Zylinders, ihre Grundflächen sind Boden und Deckel. Der Rest hat dasselbe Volumen wie die Kugel, weil in jeder Höhe der Querschnitt des Rests (ein Kreisring) denselben Flächeninhalt hat wie der Querschnitt der Kugel (eine Kreisscheibe)."
     },
     "o": {
      "wert": 36
@@ -795,15 +795,15 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "antwort": 729,
-     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
-     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
-     "beschreibung": "nur r³ gerechnet, den Faktor vier Drittel vergessen"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur r³ gerechnet: der ganze Faktor vier Drittel fehlt"
     },
     {
      "antwort": 108,
@@ -832,7 +832,7 @@
      "wert": 972
     },
     "c": "4 * 9 ** 3 / 3",
-    "h": "Aus der Oberfläche O = 4π · r² bekommst du zuerst r². Dann den Radius, dann das Volumen.",
+    "h": "Welche Größe der Kugel kannst du aus der Oberfläche bestimmen? Was brauchst du dann für das Volumen?",
     "w": "4 · r² = 324, also r² = 81 und r = 9 cm. V = 4/3 · π · 9³ = 4/3 · 729π = 972π cm³."
    }
   },
@@ -858,8 +858,8 @@
     {
      "luecke": 2,
      "antwort": 108,
-     "fehlbild": "fb.aus_dem_rechteck.halbieren_vergessen",
-     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "die ganze Kugel statt der halben gerechnet"
     },
     {
@@ -906,15 +906,15 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_quader",
-   "regel_name": "Aus dem Quader",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "antwort": 12560,
-     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
-     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
-     "beschreibung": "den Faktor ein Drittel vergessen: 4 · 3,14 · 1 000"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 1/3 der Kugelformel vergessen: 4 · 3,14 · 1 000"
     },
     {
      "antwort": 33493,
@@ -931,7 +931,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein kugelförmiger Wassertank hat den Innendurchmesser 2 m. Wie viele Liter Wasser passen höchstens hinein? Rechne mit π ≈ 3,14 und 1 m³ = 1 000 Liter. Runde auf ganze Liter."
+     "text": "Ein kugelförmiger Wassertank hat den Innendurchmesser 2 m. Wie groß ist das Fassungsvermögen des Tanks in Litern? Rechne mit π ≈ 3,14 und 1 m³ = 1 000 Liter. Runde das Ergebnis auf ganze Liter."
     },
     "o": {
      "wert": 4187,
@@ -982,7 +982,7 @@
      "einheit": "cm"
     },
     "c": "4 * 6 ** 3 / 3 * 3 / 6 ** 2",
-    "h": "Das Volumen der Kugel ist das Volumen des Kegels. Stelle die Kegelformel nach der Höhe um.",
+    "h": "Beim Einschmelzen und Neugießen ändert sich das Volumen nicht.",
     "w": "Kugel: V = 4/3 · π · 6³ = 288π cm³. Kegel: π · 6² · h : 3 = 12π · h. Aus 12π · h = 288π folgt h = 24 cm."
    }
   },
@@ -1056,8 +1056,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "auswahl",
-   "regel": "id.flaeche_raum.aus_dem_quader",
-   "regel_name": "Aus dem Quader",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1143,7 +1143,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Diese Zeile ist für sich richtig: V = π · 3² · 5 = 45π cm³. Der erste Fehler steht schon in Zeile 1, bei der Aussage über den Kegel."
     },
     {
      "index": 2,

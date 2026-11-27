@@ -534,7 +534,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Diese Zeile ist für sich richtig: 7² + 9² = 49 + 81 = 130. Der erste Fehler steht schon in Zeile 1, beim Quadrat von 12."
     },
     {
      "index": 2,
@@ -583,7 +583,7 @@
      "antwort": 5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "−2 + 7 gerechnet: das Vorzeichen von −2 nicht beachtet"
+     "beschreibung": "die Koordinaten addiert (−2 + 7). Der Abstand in x-Richtung ist 7 − (−2) = 9"
     },
     {
      "luecke": 2,
@@ -730,7 +730,7 @@
      "wert": 14
     },
     "c": "2 + 12",
-    "h": "Der Abstand ist die Hypotenuse. Ein Unterschied der Koordinaten ist bekannt. Der andere Unterschied ist die fehlende Kathete.",
+    "h": "Zeichne die beiden Punkte und ein passendes rechtwinkliges Dreieck. Welche Seiten sind bekannt?",
     "w": "Unterschied der x-Koordinaten: 6 − 1 = 5. Dann (y − 2)² = 13² − 5² = 169 − 25 = 144, also y − 2 = 12 (wegen y > 2). y = 14. Probe: Abstand √(5² + 12²) = 13."
    }
   },
@@ -892,7 +892,7 @@
      "einheit": "cm"
     },
     "c": "7",
-    "h": "Für die Raumdiagonale d gilt: d² ist die Summe der Quadrate der drei Kanten. Hier ist eine Kante unbekannt.",
+    "h": "Skizziere den Quader mit der Raumdiagonale. Suche rechtwinklige Dreiecke, in denen die Diagonale vorkommt.",
     "w": "d² = 4² + 4² + h². 81 = 16 + 16 + h², also h² = 49 und h = 7 cm. Probe: 16 + 16 + 49 = 81 = 9²."
    }
   },
@@ -999,7 +999,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Boot fährt vom Hafen aus 9 km genau nach Osten und dann 12 km genau nach Norden. Wie weit ist es dann in gerader Linie vom Hafen entfernt? Berechne es auf zwei Wegen. Weg A: Satz des Pythagoras. Weg B: Das Dreieck mit den Seiten 9 km und 12 km ist ein Vielfaches des Dreiecks mit den Seiten 3, 4 und 5. Bestimme den Vervielfältigungsfaktor."
+     "text": "Ein Boot fährt vom Hafen aus 9 km genau nach Osten und dann 12 km genau nach Norden. Wie weit ist es dann in gerader Linie vom Hafen entfernt? Berechne es auf zwei Wegen. Weg A: Satz des Pythagoras. Weg B: Das Dreieck mit den Seiten 9 km und 12 km ist ein Vielfaches des rechtwinkligen Dreiecks mit den Seiten 3, 4 und 5. Bestimme den Vervielfältigungsfaktor und daraus die Entfernung. Welche Entfernung in km erhältst du auf beiden Wegen?"
     },
     "o": {
      "wert": 15,

@@ -68,7 +68,8 @@ neu(T, "umkehrung", "fehler_detektiv", FD(
      ("Die Quadrate der beiden anderen Seiten ergeben zusammen 7² + 9² = 49 + 81 = 130.", 49 + 81 == 130, 7 ** 2 + 9 ** 2 == 130),
      ("130 ist nicht gleich 24, also hat das Dreieck keinen rechten Winkel.", True, 130 != 24)],
     "Wie berechnet man das Quadrat einer Zahl?",
-    "Das Quadrat von 12 ist 12² = 144, nicht 24. Dann vergleicht man 144 mit 130: Beides ist verschieden, das Dreieck hat keinen rechten Winkel. Das Ergebnis stimmt, aber der Fehler steckt in Zeile 1."), regel=R)
+    "Das Quadrat von 12 ist 12² = 144, nicht 24. Dann vergleicht man 144 mit 130: Beides ist verschieden, das Dreieck hat keinen rechten Winkel. Das Ergebnis stimmt, aber der Fehler steckt in Zeile 1.",
+    rueck={1: "Diese Zeile ist für sich richtig: 7² + 9² = 49 + 81 = 130. Der erste Fehler steht schon in Zeile 1, beim Quadrat von 12."}), regel=R)
 
 # ───────── koordinaten ─────────
 neu(T, "koordinaten", "lueckenweg", L(
@@ -76,10 +77,10 @@ neu(T, "koordinaten", "lueckenweg", L(
     "① = □; ② = □; ③ = □", [9, 12, 15], ["7 - (-2)", "13 - 1", "wurzel({1} ** 2 + {2} ** 2)"], ["9", "12", "sqrt(81 + 144)"],
     "Der Unterschied zweier Koordinaten ist die größere Zahl minus die kleinere Zahl. Vorsicht bei negativen Zahlen.",
     "x: 7 − (−2) = 9. y: 13 − 1 = 12. AB² = 9² + 12² = 81 + 144 = 225, AB = 15 cm.",
-    {0: [(5, None, "−2 + 7 gerechnet: das Vorzeichen von −2 nicht beachtet", "-2 + 7")], 1: [(14, None, "13 + 1 gerechnet statt zu subtrahieren", "13 + 1")], 2: [(21, "fb.rechtwinklig.ohne_quadrate", "die beiden Unterschiede addiert: 9 + 12", "{1} + {2}"), (225, None, "die Wurzel nicht gezogen", "{1} ** 2 + {2} ** 2")]}), regel=R)
+    {0: [(5, None, "die Koordinaten addiert (−2 + 7). Der Abstand in x-Richtung ist 7 − (−2) = 9", "-2 + 7")], 1: [(14, None, "13 + 1 gerechnet statt zu subtrahieren", "13 + 1")], 2: [(21, "fb.rechtwinklig.ohne_quadrate", "die beiden Unterschiede addiert: 9 + 12", "{1} + {2}"), (225, None, "die Wurzel nicht gezogen", "{1} ** 2 + {2} ** 2")]}), regel=R)
 neu(T, "koordinaten", "umkehren", Z(
     "Die Punkte A(1 | 2) und B(6 | y) haben den Abstand 13 Längeneinheiten voneinander. Es gilt y > 2. Wie groß ist y?",
-    14, "2 + wurzel(13 ** 2 - 5 ** 2)", "2 + sqrt(13 ** 2 - (6 - 1) ** 2)", "Der Abstand ist die Hypotenuse. Ein Unterschied der Koordinaten ist bekannt. Der andere Unterschied ist die fehlende Kathete.",
+    14, "2 + wurzel(13 ** 2 - 5 ** 2)", "2 + sqrt(13 ** 2 - (6 - 1) ** 2)", "Zeichne die beiden Punkte und ein passendes rechtwinkliges Dreieck. Welche Seiten sind bekannt?",
     "Unterschied der x-Koordinaten: 6 − 1 = 5. Dann (y − 2)² = 13² − 5² = 169 − 25 = 144, also y − 2 = 12 (wegen y > 2). y = 14. Probe: Abstand √(5² + 12²) = 13.",
     [(12, None, "nur den Unterschied y − 2 angegeben, nicht y selbst", "wurzel(13 ** 2 - 5 ** 2)"), (-10, None, "in die andere Richtung gerechnet: 2 − 12, obwohl y > 2 verlangt ist", "2 - 12"), (18, None, "Abstand und x-Unterschied addiert: 13 + 5", "13 + 5")]), g="rueckwaerts", regel=R)
 wert_dr, c_dr = rd("100 * sqrt(7 ** 2 + 6 ** 2)", 0)
@@ -99,7 +100,7 @@ neu(T, "raum", "lueckenweg", L(
     {0: [(17, "fb.rechtwinklig.ohne_quadrate", "die Kanten addiert: 8 + 9", "8 + 9")], 1: [(157, None, "die Höhe nicht quadriert: 145 + 12", "{1} + 12")], 2: [(289, None, "die Wurzel nicht gezogen", "{2}")]}), regel=R)
 neu(T, "raum", "umkehren", Z(
     "Ein Quader hat eine quadratische Grundfläche mit der Seitenlänge 4 cm. Seine Raumdiagonale ist 9 cm lang. Wie hoch ist der Quader?",
-    7, "wurzel(9 ** 2 - 4 ** 2 - 4 ** 2)", "sqrt(81 - 16 - 16)", "Für die Raumdiagonale d gilt: d² ist die Summe der Quadrate der drei Kanten. Hier ist eine Kante unbekannt.",
+    7, "wurzel(9 ** 2 - 4 ** 2 - 4 ** 2)", "sqrt(81 - 16 - 16)", "Skizziere den Quader mit der Raumdiagonale. Suche rechtwinklige Dreiecke, in denen die Diagonale vorkommt.",
     "d² = 4² + 4² + h². 81 = 16 + 16 + h², also h² = 49 und h = 7 cm. Probe: 16 + 16 + 49 = 81 = 9².",
     [(49, None, "das Quadrat der Höhe als Höhe angegeben", "9 ** 2 - 4 ** 2 - 4 ** 2"), (5, None, "9 − 4 gerechnet", "9 - 4"), (8, None, "nur eine Grundkante abgezogen und gerundet", "round(sqrt(9 ** 2 - 4 ** 2), 0)")], "cm"), g="rueckwaerts", regel=R)
 wert_ka, c_ka = rd("sqrt(60 ** 2 + 40 ** 2 + 30 ** 2)", 0)
@@ -118,7 +119,7 @@ neu(T, "anwendung", "lueckenweg", L(
     "Leiter: 5² = 25. Abstand: 3² = 9. Höhe²: 25 − 9 = 16. Höhe: √16 = 4 m.",
     {2: [(34, "fb.rechtwinklig.kathete_als_hypotenuse", "addiert statt subtrahiert: 25 + 9", "{1} + {2}")], 3: [(16, None, "die Wurzel nicht gezogen", "{3}")], 0: [(10, "fb.potenz.basis_mal_hochzahl", "5 · 2 statt 5² gerechnet", "5 * 2")]}), regel=R)
 neu(T, "anwendung", "zwei_wege", Z(
-    "Ein Boot fährt vom Hafen aus 9 km genau nach Osten und dann 12 km genau nach Norden. Wie weit ist es dann in gerader Linie vom Hafen entfernt? Berechne es auf zwei Wegen. Weg A: Satz des Pythagoras. Weg B: Das Dreieck mit den Seiten 9 km und 12 km ist ein Vielfaches des Dreiecks mit den Seiten 3, 4 und 5. Bestimme den Vervielfältigungsfaktor.",
+    "Ein Boot fährt vom Hafen aus 9 km genau nach Osten und dann 12 km genau nach Norden. Wie weit ist es dann in gerader Linie vom Hafen entfernt? Berechne es auf zwei Wegen. Weg A: Satz des Pythagoras. Weg B: Das Dreieck mit den Seiten 9 km und 12 km ist ein Vielfaches des rechtwinkligen Dreiecks mit den Seiten 3, 4 und 5. Bestimme den Vervielfältigungsfaktor und daraus die Entfernung. Welche Entfernung in km erhältst du auf beiden Wegen?",
     15, "wurzel(9 ** 2 + 12 ** 2)", "9 / 3 * 5", "Beide Wege müssen dieselbe Entfernung ergeben. Bei Weg B hilft die Frage: Mit welcher Zahl wurde 3 zu 9?",
     "Weg A: 9² + 12² = 81 + 144 = 225, √225 = 15 km. Weg B: 9 = 3 · 3 und 12 = 3 · 4, der Faktor ist 3. Die Hypotenuse ist 3 · 5 = 15 km.",
     [(21, "fb.rechtwinklig.ohne_quadrate", "die Strecken addiert: 9 + 12", "9 + 12"), (225, None, "die Wurzel nicht gezogen", "9 ** 2 + 12 ** 2"), (5, None, "den Faktor vergessen: die Hypotenuse 5 des kleinen Dreiecks genannt", "5")], "km"), regel=R)

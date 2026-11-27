@@ -7,7 +7,7 @@ neu(T, "umfang", "lueckenweg", L(
     "① = □; ② = □; ③ = □", [157, 628, 10], ["3.14 * 50", "4 * {1}", "1570 / {1}"], ["157", "4 * 157", "1570 // 157"],
     "Der Umfang eines Kreises ist π mal Durchmesser. Eine Umdrehung entspricht genau einem Umfang.",
     "u = 3,14 · 50 = 157 cm. 4 Umdrehungen: 4 · 157 = 628 cm. 1 570 : 157 = 10 Umdrehungen.",
-    {0: [(78.5, DM, "mit dem Radius statt mit dem Durchmesser gerechnet: 3,14 · 25", "3.14 * 25")], 1: [(161, "fb.verhaeltnis.addiert_statt_malgenommen", "4 addiert statt malgenommen: 157 + 4", "{1} + 4")],
+    {0: [(78.5, None, "den Radius statt des Durchmessers in die Formel u = π · d eingesetzt: 3,14 · 25", "3.14 * 25")], 1: [(161, "fb.verhaeltnis.addiert_statt_malgenommen", "4 addiert statt malgenommen: 157 + 4", "{1} + 4")],
      2: [(1413, None, "den Umfang von der Strecke abgezogen: 1 570 − 157", "1570 - {1}")]}), regel=R)
 neu(T, "umfang", "zwei_wege", Z(
     "Ein Kreis mit dem Durchmesser 10 cm hat den Umfang 31,4 cm. Wie groß ist der Umfang eines Kreises mit dem Durchmesser 70 cm? Rechne mit π ≈ 3,14. Weg A: mit der Formel u = π · d. Weg B: Der Umfang ist proportional zum Durchmesser. Der zweite Durchmesser ist ein Vielfaches des ersten, der Umfang wächst mit demselben Faktor.",
@@ -16,9 +16,9 @@ neu(T, "umfang", "zwei_wege", Z(
     [(439.6, DM, "2 · π · d gerechnet, als wäre d der Radius: 2 · 3,14 · 70", "2 * 3.14 * 70"), (91.4, "fb.verhaeltnis.addiert_statt_malgenommen", "den Unterschied der Durchmesser addiert statt den Faktor zu nehmen: 31,4 + 60", "31.4 + (70 - 10)"), (21.98, None, "nur mit dem Faktor 7 und π gerechnet: 3,14 · 7", "3.14 * 7")], "cm"), regel=R)
 neu(T, "umfang", "umkehren", Z(
     "Ein Band ist 94,2 cm lang. Es wird straff und ohne Überlappung genau einmal um einen kreisrunden Baumstamm gelegt und passt genau. Rechne mit π ≈ 3,14. Welchen Radius hat der Querschnitt des Stamms?",
-    15, "94.2 / (2 * 3.14)", "94.2 / 3.14 / 2", "Das Band ist so lang wie der Umfang. Stelle u = 2 · π · r nach r um.",
+    15, "94.2 / (2 * 3.14)", "94.2 / 3.14 / 2", "Das Band ist so lang wie der Umfang des Querschnitts.",
     "u = 2 · π · r, also r = u : (2 · π) = 94,2 : 6,28 = 15 cm. Probe: 2 · 3,14 · 15 = 94,2.",
-    [(30, DM, "den Durchmesser als Radius angegeben: 94,2 : 3,14", "94.2 / 3.14"), (7.5, None, "zweimal durch 2 geteilt: 94,2 : 3,14 : 4", "94.2 / 3.14 / 4"), (295.788, None, "mit π multipliziert statt dividiert: 94,2 · 3,14", "94.2 * 3.14")], "cm"), g="rueckwaerts", regel=R)
+    [(30, None, "den Durchmesser (94,2 : 3,14) berechnet, aber der Radius ist gefragt", "94.2 / 3.14"), (7.5, None, "zweimal durch 2 geteilt: 94,2 : 3,14 : 4", "94.2 / 3.14 / 4"), (295.788, None, "mit π multipliziert statt dividiert: 94,2 · 3,14", "94.2 * 3.14")], "cm"), g="rueckwaerts", regel=R)
 
 # ───────── flaeche ─────────
 neu(T, "flaeche", "lueckenweg", L(
@@ -55,10 +55,10 @@ neu(T, "exakt", "bruecke", W(
     "49π bedeutet 49 · π. Mit π ≈ 3,14: 49 · 3,14 = 153,86 cm².",
     lambda: round(49 * 3.14, 2) == 153.86 and round(7 * 3.14, 2) == 21.98 and round(98 * 3.14, 2) == 307.72 and round(49 + 3.14, 2) == 52.14), regel=R)
 neu(T, "exakt", "umkehren", Z(
-    "Der Umfang eines Kreises ist 14π cm. Gib den Flächeninhalt des Kreises exakt an: A = □ · π cm². Welche Zahl gehört in das Kästchen?",
-    49, "(14 / 2) ** 2", "7 * 7", "Aus dem Umfang erhältst du zuerst den Radius. u = 2 · π · r.",
-    "u = 2π · r = 14π, also r = 7 cm. A = π · 7² = 49π cm².",
-    [(196, "fb.potenz.basis_mal_hochzahl", "14 quadriert, ohne den Radius zu bestimmen: 14²", "14 ** 2"), (98, None, "14 · 7 gerechnet", "14 * 7"), (7, None, "den Radius statt der Fläche angegeben", "14 / 2")]), g="rueckwaerts", regel=R)
+    "Ein Kreisring liegt zwischen zwei Kreisen mit demselben Mittelpunkt. Der äußere Kreis hat den Umfang 20π cm, der innere den Umfang 12π cm. Gib den Flächeninhalt des Kreisrings exakt an: A = □ · π cm². Welche Zahl gehört in das Kästchen?",
+    64, "(20 / 2) ** 2 - (12 / 2) ** 2", "10 * 10 - 6 * 6", "Von den Umfängen kommst du zu den Radien. Der Ring ist der Rest, wenn du den inneren Kreis wegnimmst.",
+    "u = 2π · r. Außen: 20π = 2π · r, also r = 10 cm. Innen: 12π = 2π · r, also r = 6 cm. Ring: π · 10² − π · 6² = 100π − 36π = 64π cm².",
+    [(16, None, "erst die Radien voneinander abgezogen und dann quadriert", "(10 - 6) ** 2"), (256, None, "die Zahlen 20 und 12 statt der Radien quadriert: 20² − 12²", "20 ** 2 - 12 ** 2"), (8, None, "nur den Unterschied der Umfänge genommen: 20 − 12", "20 - 12")]), g="rueckwaerts", regel=R)
 
 # ───────── verstehen ─────────
 neu(T, "verstehen", "lueckenweg", L(
@@ -98,10 +98,10 @@ neu(T, "sektor", "anwenden", Z(
     [(5024, None, "die Fläche des ganzen Kreises angegeben", "3.14 * 40 ** 2"), (77, None, "die Bogenlänge statt der Fläche berechnet (gerundet)", "round(2 * 3.14 * 40 * 110 / 360, 0)")], "cm²"), g="einkleidung", regel=R)
 assert wert_sc == 1535
 neu(T, "sektor", "umkehren", Z(
-    "Ein Kreissektor hat den Radius 6 cm und den Flächeninhalt 9π cm². Wie groß ist sein Mittelpunktswinkel in Grad?",
-    90, "9 * 360 / 6 ** 2", "360 * 9 * 3.141592653589793 / (3.141592653589793 * 36)", "Vergleiche den Sektor mit dem ganzen Kreis. Wie viel Fläche hat der ganze Kreis? Welcher Anteil ist 9π davon?",
-    "Ganzer Kreis: π · 6² = 36π cm². Anteil: 9π : 36π = 1/4. Winkel: 1/4 von 360° = 90°.",
-    [(540, "fb.potenz.basis_mal_hochzahl", "den Radius nicht quadriert: 9 · 360 : 6", "9 * 360 / 6"), (40, None, "360 durch 9 geteilt: 360 : 9", "360 / 9")], "°"), g="rueckwaerts", regel=R)
+    "Ein Kreissektor hat den Radius 6 cm und die Bogenlänge 3π cm. Gib seinen Flächeninhalt exakt an: A = □ · π cm². Welche Zahl gehört in das Kästchen?",
+    9, "(3 / (2 * 6)) * 6 ** 2", "3 * 6 / 2", "Die Bogenlänge ist ein Anteil des Umfangs des ganzen Kreises. Derselbe Anteil gilt für die Fläche.",
+    "Umfang des ganzen Kreises: 2π · 6 = 12π cm. Anteil: 3π : 12π = 1/4. Fläche des ganzen Kreises: 36π cm². Sektor: 36π : 4 = 9π cm². Probe: Bogenlänge · Radius : 2 = 3π · 6 : 2 = 9π.",
+    [(18, None, "Bogenlänge mal Radius ohne Halbieren: 3 · 6", "3 * 6"), (36, None, "die Fläche des ganzen Kreises angegeben", "6 ** 2"), (4, None, "nur den Nenner des Anteils angegeben: 12 : 3", "12 / 3")]), g="rueckwaerts", regel=R)
 
 # ───────── zusammengesetzt ─────────
 neu(T, "zusammengesetzt", "lueckenweg", L(
@@ -109,7 +109,7 @@ neu(T, "zusammengesetzt", "lueckenweg", L(
     "① = □; ② = □; ③ = □", [48, 24, 72], ["8 * 6", "3 * 4 ** 2 / 2", "{1} + {2}"], ["48", "3 * 16 // 2", "72"],
     "Der Durchmesser des Halbkreises ist die aufgesetzte Seite. Berechne zuerst die Fläche eines ganzen Kreises und nimm davon die Hälfte.",
     "Rechteck: 8 · 6 = 48 cm². Halbkreis: Radius 4 cm, Kreis 3 · 4² = 48, Hälfte 24 cm². Gesamt: 48 + 24 = 72 cm².",
-    {0: [(14, None, "die Seiten addiert: 8 + 6", "8 + 6")], 1: [(48, "fb.aus_dem_rechteck.halbieren_vergessen", "den ganzen Kreis statt des Halbkreises gerechnet", "3 * 4 ** 2")], 2: [(96, None, "den Halbkreis doppelt gezählt: 48 + 2 · 24", "{1} + 2 * {2}")]}), regel=R)
+    {0: [(14, None, "die Seiten addiert: 8 + 6", "8 + 6")], 1: [(48, None, "den ganzen Kreis statt des Halbkreises gerechnet", "3 * 4 ** 2")], 2: [(96, None, "den Halbkreis doppelt gezählt: 48 + 2 · 24", "{1} + 2 * {2}")]}), regel=R)
 neu(T, "zusammengesetzt", "bruecke", W(
     "Aus einer rechteckigen Platte, 12 cm lang und 8 cm breit, wird in der Mitte ein kreisrundes Loch mit dem Durchmesser 6 cm ausgeschnitten. Das Loch liegt ganz in der Platte. Welcher Term gibt den Flächeninhalt der Platte nach dem Ausschneiden an (in cm²)?",
     "12 · 8 − π · 3²", [("12 · 8 − π · 6²", "mit dem Durchmesser statt dem Radius gerechnet"), ("12 · 8 − 2 · π · 3", "den Umfang statt der Fläche abgezogen"), ("12 · 8 + π · 3²", "die Fläche des Lochs addiert statt abgezogen")],
@@ -117,7 +117,7 @@ neu(T, "zusammengesetzt", "bruecke", W(
     "Rechteck: 12 · 8. Loch: Radius 6 : 2 = 3 cm, Fläche π · 3². Rest: 12 · 8 − π · 3² ≈ 96 − 28,3 = 67,7 cm².",
     lambda: 6 / 2 == 3 and abs(12 * 8 - math.pi * 9 - 67.7) < 0.05 and 12 * 8 - math.pi * 36 != 12 * 8 - math.pi * 9), regel=R)
 neu(T, "zusammengesetzt", "anwenden", Z(
-    "Ein Sportplatz besteht aus einem Rechteck, 100 m lang und 60 m breit. An den beiden schmalen Seiten ist je ein Halbkreis mit dem Durchmesser 60 m angesetzt. Die ganze Fläche soll mit Kunstrasen belegt werden. Wie viele Quadratmeter Kunstrasen braucht man mindestens? Rechne mit π ≈ 3,14.",
-    8826, "100 * 60 + 3.14 * 30 ** 2", "6000 + 2 * (3.14 * 30 ** 2 / 2)", "Die beiden Halbkreise ergeben zusammen einen ganzen Kreis. Der Radius ist halb so groß wie der Durchmesser.",
-    "Rechteck: 100 · 60 = 6 000 m². Die zwei Halbkreise ergeben einen Kreis mit r = 30 m: 3,14 · 30² = 2 826 m². Gesamt: 6 000 + 2 826 = 8 826 m².",
-    [(7413, "fb.aus_dem_rechteck.halbieren_vergessen", "nur einen Halbkreis gezählt: 6 000 + 1 413", "100 * 60 + 3.14 * 30 ** 2 / 2"), (17304, DM, "den Durchmesser 60 m als Radius des Kreises genommen", "100 * 60 + 3.14 * 60 ** 2"), (6000, None, "nur das Rechteck gerechnet", "100 * 60")], "m²"), g="transfer", regel=R)
+    "Ein Sportplatz besteht aus einem Rechteck, 100 m lang und 60 m breit. An den beiden schmalen Seiten ist je ein Halbkreis mit dem Durchmesser 60 m angesetzt. Die ganze Fläche soll mit Kunstrasen belegt werden. Der Kunstrasen wird in Rollen zu je 20 m² geliefert. Rechne mit π ≈ 3,14. Wie viele Rollen müssen mindestens bestellt werden?",
+    442, "(100 * 60 + 3.14 * 30 ** 2 + 19) // 20", "-(-8826 // 20)", "Berechne zuerst die ganze Fläche des Platzes. Eine angefangene Rolle muss ganz bestellt werden.",
+    "Rechteck: 100 · 60 = 6 000 m². Die zwei Halbkreise ergeben einen Kreis mit r = 30 m: 3,14 · 30² = 2 826 m². Gesamt: 8 826 m². 8 826 : 20 = 441,3. Es müssen 442 Rollen bestellt werden.",
+    [(441, None, "abgerundet statt aufgerundet: 441,3 → 441", "(8826) // 20"), (371, None, "nur einen Halbkreis gezählt und die Rollen aufgerundet", "(7413 + 19) // 20"), (300, None, "nur das Rechteck gerechnet: 6 000 : 20", "6000 / 20")], ), g="transfer", regel=R)

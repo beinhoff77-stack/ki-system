@@ -1,5 +1,5 @@
 T = "messen.prisma_zylinder_teil2"
-R = "id.flaeche_raum.aus_dem_rechteck"
+R = "id.flaeche_raum.aus_dem_quader"
 neu(T, "cavalieri", "lueckenweg", L(
     "Ein schiefes Prisma hat als Grundfläche ein Rechteck mit den Seiten 4 cm und 5 cm. Seine schräge Seitenkante ist 10 cm lang. Der senkrechte Abstand zwischen Grund- und Deckfläche beträgt 8 cm. Die Grundfläche ist ① cm² groß. Das Volumen des Prismas ist ② cm³. Würde man fälschlich mit der Länge der Seitenkante rechnen, käme ein um ③ cm³ größeres Volumen heraus.",
     "① = □; ② = □; ③ = □", [20, 160, 40], ["4 * 5", "{1} * 8", "{1} * 10 - {2}"], ["20", "20 * 8", "200 - 160"],

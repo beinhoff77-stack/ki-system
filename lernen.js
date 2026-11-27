@@ -2536,6 +2536,25 @@ function lernReisekarte(d, karte, start) {
   }
   const themaWoanders = (g) => alleFluege.find((y) => lernRkSchl(y) === g.id && y.kontinent_id !== z.kont) || null;
   function springeZu(y) { const id = lernRkSchl(y); if (z.ebene === 'kontinent' && z.kont === y.kontinent_id) { waehle(id); return; } z.kont = y.kontinent_id; geheKontinent(y.kontinent_id, id); }
+  // Offene Flüge von der Kartenseite aus startbar (Karte selbst unverändert): dieselbe Route wie „Mein Weg › Kontinente“ (#/lerneinheit/<kind>-<einheit>).
+  // Offen = nach dem Zustand der Karte dran, im Plan, Zusatz oder offen (nie gesperrt/wartet, nie geschafft) und mit Einheit beim Kind – nichts wird neu freigeschaltet.
+  const RK_OFFEN = new Set(['dran', 'plan', 'zusatz', 'offen']);
+  const einheitVon = (f) => (d.mit || []).find((e) => e.thema_id && Number(e.thema_id) === Number(f.thema_id)) || null;
+  const flugZiel = (f) => { if (!f || f.gesperrt || !RK_OFFEN.has(lernRkZustand(f, nst))) return null; const e = einheitVon(f); return e ? `#/lerneinheit/${kind.id}-${e.id}` : null; };
+  const flugPflicht = (f) => (f.staedte || []).filter((c) => c.pflicht !== false).sort((a, b) => Number(a.nr) - Number(b.nr));
+  const flugStand = (f) => { const ps = flugPflicht(f); return `${ps.filter(lernStadtGelandet).length}/${ps.length}`; };
+  // Flug des Startknopfs: „Weiter in …“ steht dort schon – kein zweiter Knopf im Blatt bzw. an der Stadt
+  const startThema = (() => { const e = start?.einheit ? (d.mit || []).find((x) => Number(x.id) === Number(start.einheit)) : null; return e?.thema_id ? Number(e.thema_id) : start?.flugThema || null; })();
+  const weiterStadt = (f) => flugPflicht(f).find((c) => !lernStadtGelandet(c)) || null;
+  const kontReihe = (f) => KONT.findIndex((k) => k.id === f.kontinent_id);
+  const auchOffen = (ohne) => alleFluege.filter((f) => !ohne.includes(f) && flugZiel(f))
+    .sort((a, b) => kontReihe(a) - kontReihe(b) || (a.zusatz ? 1 : 0) - (b.zusatz ? 1 : 0) || (Number(a.plan_platz) || 999) - (Number(b.plan_platz) || 999));
+  const offenZeile = (f) => el('a', { class: 'rk-lzeile rk-lzeile-los', href: flugZiel(f) },
+    el('img', { class: 'rk-mini-flagge', src: lernRkFlagge(f.iso), alt: '' }), el('span', {}, el('b', {}, f.land), ` · ${f.titel}${Number(f.teil_von) > 1 ? ` · Teil ${f.teil} von ${f.teil_von}` : ''}${f.zusatz ? ' · Zusatz' : ''}`),
+    el('span', { class: 'rk-l-los', 'aria-label': `${flugStand(f)} Städte – Flug öffnen` }, `${flugStand(f)} ›`));
+  const auchOffenTeil = (liste) => { if (!liste.length) return null; const zeilen = liste.map(offenZeile);
+    return liste.length > 3 ? el('details', { class: 'rk-auch-offen' }, el('summary', {}, el('h4', {}, `AUCH OFFEN (${liste.length})`)), ...zeilen)
+      : el('div', { class: 'rk-auch-offen' }, el('h4', {}, 'AUCH OFFEN'), ...zeilen); };
   function zeigeBlatt() {
     const D = z.daten; const g = D?.gebiete?.find((x) => x.id === z.sel); if (!g) { blatt.hidden = true; lernErsetze(blatt); zeichneSeite(); return; }
     const f = flugVon(z.kont, g.id); const zst = lernRkZustand(f, nst); const kont = KONT.find((x) => x.id === (f || g.k === z.kont ? z.kont : g.k));
@@ -2561,7 +2580,9 @@ function lernReisekarte(d, karte, start) {
       teile.length ? el('p', { class: 'rk-teile' }, ...teile.flatMap((y, i) => [i ? ' · ' : null, el('button', { type: 'button', class: 'rk-teil-link', onclick: () => { z.kont = y.kontinent_id; z.sel = lernRkSchl(y); if (z.ebene === 'land') geheLand(lernRkSchl(y)); else geheKontinent(y.kontinent_id, lernRkSchl(y)); } },
         `Teil ${y.teil}: `, el('img', { class: 'rk-mini-flagge', src: lernRkFlagge(y.iso), alt: '' }), ` ${y.land}${y === f ? ' (hier)' : ['gesch', 'gold', 'kann'].includes(lernRkZustand(y, nst)) ? ' ✓' : ''}`)])) : null,
       vorTeil && !['gesch', 'gold', 'kann'].includes(lernRkZustand(vorTeil, nst)) && zst !== 'dran' ? el('p', { class: 'rk-sub' }, `Erst Teil ${vorTeil.teil} in ${vorTeil.land}`) : null,
-      f && z.ebene !== 'land' && zst !== 'gesperrt' ? el('button', { type: 'button', class: 'rk-staedte-knopf', onclick: () => geheLand(g.id) }, `Städte in ${g.n} ansehen ›`) : null];
+      f && z.ebene !== 'land' && zst !== 'gesperrt' ? el('button', { type: 'button', class: 'rk-staedte-knopf', onclick: () => geheLand(g.id) }, `Städte in ${g.n} ansehen ›`) : null,
+      f && flugZiel(f) && Number(f.thema_id) !== startThema ? el('a', { class: 'rk-weiter-knopf', href: flugZiel(f) }, `Weiter in ${weiterStadt(f)?.name || f.land} ›`) : null,
+      handy() ? auchOffenTeil(auchOffen([f].filter(Boolean))) : null]; // Handy: die offenen Flüge (am Rechner in der rechten Spalte) im bestehenden Blatt
     if (rechner()) { blatt.hidden = true; lernErsetze(blatt); zeichneSeite(inhalt); }
     else { blatt.hidden = false; lernErsetze(blatt, ...inhalt); }
   }
@@ -2583,11 +2604,19 @@ function lernReisekarte(d, karte, start) {
       el('a', { class: 'lr-textlink rk-ru-link', href: ruZiel }, 'Regel-Universum ›')]; // auffindbar auch ohne das schwebende Objekt
     if (blattInhalt) teile.push(el('section', { class: 'rk-seite-karte rk-seite-blatt' }, ...blattInhalt));
     if (z.ebene === 'kontinent') { const r = reihe(z.kont);
-      if (r.length) teile.push(el('section', { class: 'rk-seite-karte' }, el('h4', {}, 'MEINE ROUTE · LÄNDER'), ...r.map((f, i) => el('button', { type: 'button', class: 'rk-lzeile', onclick: () => waehle(lernRkSchl(f)) },
-        el('span', { class: 'rk-nr rk-zn-' + lernRkZustand(f, nst) }, String(i + 1)), el('img', { class: 'rk-mini-flagge', src: lernRkFlagge(f.iso), alt: '' }), el('span', {}, el('b', {}, f.land), ` · ${f.titel}${Number(f.teil_von) > 1 ? ` · Teil ${f.teil} von ${f.teil_von}` : ''}`, f.gesperrt ? el('small', {}, ' 🔒 wartet') : null))))); }
+      // Zeile mit offenem Flug: führt in den Flug (wie „Mein Weg › Kontinente“), sonst wie bisher: Land auf der Karte zeigen
+      const zeile = (f, i) => { const ziel = flugZiel(f); const innen = [el('span', { class: 'rk-nr rk-zn-' + lernRkZustand(f, nst) }, String(i + 1)), el('img', { class: 'rk-mini-flagge', src: lernRkFlagge(f.iso), alt: '' }),
+        el('span', {}, el('b', {}, f.land), ` · ${f.titel}${Number(f.teil_von) > 1 ? ` · Teil ${f.teil} von ${f.teil_von}` : ''}`, f.gesperrt ? el('small', {}, ' 🔒 wartet') : null)];
+        return ziel ? el('a', { class: 'rk-lzeile rk-lzeile-los', href: ziel }, ...innen, el('span', { class: 'rk-l-los', 'aria-label': `${flugStand(f)} Städte – Flug öffnen` }, `${flugStand(f)} ›`))
+          : el('button', { type: 'button', class: 'rk-lzeile', onclick: () => waehle(lernRkSchl(f)) }, ...innen); };
+      const rest = auchOffenTeil(auchOffen(r));
+      if (r.length || rest) teile.push(el('section', { class: 'rk-seite-karte' }, r.length ? el('h4', {}, 'MEINE ROUTE · LÄNDER') : null, ...r.map(zeile), rest)); }
     if (z.ebene === 'land') { const f = flugVon(z.kont, z.land);
-      if (f) teile.push(el('section', { class: 'rk-seite-karte' }, el('h4', {}, `STÄDTE IN ${String(f.land).toUpperCase()}`), ...(f.staedte || []).slice().sort((a, b) => Number(a.nr) - Number(b.nr)).map((c) => el('div', { class: 'rk-lzeile' },
-        el('span', { class: 'rk-nr rk-zs-' + (c.abgelegt ? 'abgelegt' : f.gesperrt && (c.stand || 'offen') === 'offen' ? 'grau' : c.stand || 'offen') + (c.pflicht === false ? ' kuer' : '') }, c.abgelegt ? '★' : String(c.nr)), el('span', {}, el('b', {}, c.name), ` · ${c.titel || ''}${c.pflicht === false ? ' · Kür' : ''}`, el('small', {}, ` ${c.abgelegt ? LERN_RK_STADT.abgelegt : LERN_RK_STADT[c.stand] || ''}`)))))); }
+      // offener Flug (nicht der des Startknopfs): die nächste offene Stadt führt in den Flug
+      const weiter = flugZiel(f) && Number(f.thema_id) !== startThema ? weiterStadt(f) : null;
+      if (f) teile.push(el('section', { class: 'rk-seite-karte' }, el('h4', {}, `STÄDTE IN ${String(f.land).toUpperCase()}`), ...(f.staedte || []).slice().sort((a, b) => Number(a.nr) - Number(b.nr)).map((c) => el(c === weiter ? 'a' : 'div', { class: 'rk-lzeile' + (c === weiter ? ' rk-lzeile-los' : ''), ...(c === weiter ? { href: flugZiel(f) } : {}) },
+        el('span', { class: 'rk-nr rk-zs-' + (c.abgelegt ? 'abgelegt' : f.gesperrt && (c.stand || 'offen') === 'offen' ? 'grau' : c.stand || 'offen') + (c.pflicht === false ? ' kuer' : '') }, c.abgelegt ? '★' : String(c.nr)), el('span', {}, el('b', {}, c.name), ` · ${c.titel || ''}${c.pflicht === false ? ' · Kür' : ''}`, el('small', {}, ` ${c.abgelegt ? LERN_RK_STADT.abgelegt : LERN_RK_STADT[c.stand] || ''}`)),
+        c === weiter ? el('span', { class: 'rk-l-los' }, 'Weiter ›') : null)))); }
     lernErsetze(seite, ...teile);
   }
   // ---------- Ebenen wechseln (weich, ≤ 0,5 s) ----------

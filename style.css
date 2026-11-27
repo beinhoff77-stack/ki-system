@@ -5774,6 +5774,14 @@ header.top .lw-schlank .btn.lern-start { min-height: 44px; }
   .rk-seite-blatt .rk-x { top: 8px; right: 8px; }
 }
 .rk-lzeile { display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 5px 0; border: 0; background: none; font-family: inherit; color: var(--tx); text-align: left; width: 100%; cursor: pointer; min-height: 36px; }
+/* Offene Flüge in der Routen-Spalte / im Blatt: Zeile führt in den Flug (dezent: Stand und ›) */
+a.rk-lzeile { text-decoration: none; }
+.rk-lzeile-los:hover b, .rk-lzeile-los:focus-visible b { text-decoration: underline; }
+.rk-l-los { margin-left: auto; flex: none; font-size: 12px; font-weight: 800; color: var(--dranR); white-space: nowrap; padding-left: 6px; }
+.rk-auch-offen { display: grid; gap: 2px; margin-top: 6px; } .rk-auch-offen h4 { margin: 0; font-size: 11px; letter-spacing: .07em; color: var(--leise); }
+details.rk-auch-offen > summary { cursor: pointer; min-height: 32px; display: flex; align-items: center; } details.rk-auch-offen > summary h4 { display: inline; }
+.rk-blatt .rk-auch-offen { margin-top: 12px; padding-top: 8px; border-top: 1px solid var(--linieF); }
+.rk-weiter-knopf { display: flex; align-items: center; justify-content: center; width: 100%; box-sizing: border-box; margin-top: 8px; min-height: 44px; border-radius: 14px; border: 2px solid var(--dranR); color: var(--dranR); background: transparent; font-size: 15px; font-weight: 800; text-decoration: none; }
 .rk-nr { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 800; color: #fff; flex: none; background: #33413C; }
 .rk-zn-dran { background: var(--dranR); } .rk-zn-plan { background: var(--planR); } .rk-zn-gesch, .rk-zn-kann { background: var(--geschR); } .rk-zn-gold { background: var(--goldR); }
 .rk-zs-gelandet, .rk-zs-sicher { background: var(--geschR); } .rk-zs-wieder_offen { background: #C8642B; } .rk-zs-begonnen { background: var(--dranR); } .rk-zs-offen { background: #fff; color: #33413C; box-shadow: inset 0 0 0 1.5px #33413C; } .rk-nr.kuer { background: #fff; color: #6B726E; box-shadow: inset 0 0 0 1.5px #9AA19D; }

@@ -6391,3 +6391,52 @@ test('Teil 2: „Was wackelt“ leer, Ladefehler mit „Noch einmal versuchen“
     await page.goto(origin + '/lernen/#/kind/1-wackelt'); await page.waitForURL(/#\/reise\/1$/);
     assert.equal(await page.locator('.ww').count(), 0); assert.equal(calls.filter((c) => c.aktion === 'schule_wackelt_analyse').length, 0); }
 });
+
+// ---------- Teil A (0.96.x): offene Flüge von der Kartenseite aus startbar – die Karte selbst bleibt unverändert ----------
+// Testfall: neben dem aktuellen Schritt in Italien (Einheit 1, Thema 15) ein zweiter offener Flug: „Einfache Zinsen“ (Einheit 2) in den USA (anderer Kontinent).
+const rkThemen = (zuord) => (aktion, e) => (aktion === 'schule_uebersicht' && e ? { ...e, einheiten: (e.einheiten || []).map((x) => (zuord[x.id] ? { ...x, thema_id: zuord[x.id] } : x)) } : e);
+test('Teil A: offene Flüge in der Routen-Spalte bzw. im Blatt antippbar (höchstens 2 Tipps), gesperrte nicht, Karte ohne neue Knöpfe (1280 / 390 hell / 390 dunkel)', async (t) => {
+  const bild = async (page, name) => { if (process.env.APP4_BILDER) { await page.waitForTimeout(300); await page.screenshot({ path: path.join(process.env.APP4_BILDER, `route-${name}-${process.env.APP4_PHASE || 'nachher'}.png`) }); } };
+  const karteKnoepfe = (page) => page.locator('.rk-karte').evaluate((k) => [...k.querySelectorAll('a, button')].filter((x) => !x.closest('.rk-blatt') && !x.closest('svg')).map((x) => x.className.baseVal ?? x.className).sort().join('|'));
+  // Rechner 1280: Spalte „Meine Route · Länder“ + „Auch offen“
+  { const { page } = await rkOeffnen(t, 1280, 800, { basis: rkThemen({ 1: 15, 2: 71 }) }); await page.locator('.rk-seite .rk-start').waitFor();
+    await bild(page, '1280-hell');
+    assert.equal(await page.locator('.lr-abflugtafel, .rk-leiste, .rk-chip').count(), 0, 'keine Tafel, keine Leiste');
+    assert.equal(await page.locator('.rk-karte .rk-auch-offen, .rk-karte .rk-lzeile-los, .rk-karte .rk-weiter-knopf').count(), 0, 'nichts Neues auf der Karte');
+    const spalte = page.locator('.rk-seite');
+    assert.equal(await spalte.locator('a.rk-lzeile-los', { hasText: 'Italien' }).getAttribute('href'), '#/lerneinheit/1-1', 'Zeile mit offenem Flug führt hinein');
+    assert.equal(await spalte.locator('button.rk-lzeile', { hasText: 'Schweiz' }).count(), 1, 'Zeile ohne Einheit bleibt, wie sie war');
+    const auch = spalte.locator('.rk-auch-offen'); assert.match(await auch.innerText(), /AUCH OFFEN[\s\S]*USA · Zinsen[\s\S]*0\/\d+ ›/);
+    await auch.scrollIntoViewIfNeeded(); await bild(page, '1280-hell-auch-offen');
+    await auch.getByRole('link', { name: /USA/ }).click(); // 1 Tipp
+    await page.waitForURL(/#\/lerneinheit\/1-2$/); await page.getByRole('heading', { name: 'Einfache Zinsen', exact: true }).waitFor(); }
+  // Handy 390 (hell und dunkel): die Spalte gibt es dort nicht – die offenen Flüge stehen im bestehenden Blatt (Land antippen), keine neuen Knöpfe auf der Karte
+  for (const g of ['tag', 'nacht']) {
+    const { page } = await rkOeffnen(t, 390, 844, { basis: rkThemen({ 1: 15, 2: 71 }), gestaltung: g });
+    const vorher = await karteKnoepfe(page);
+    assert.equal(await page.locator('.rk-seite').evaluate((x) => getComputedStyle(x).display), 'none', 'Handy: keine Spalte');
+    await page.locator('.rk-pin[data-id="IT"]').click(); const bl = page.locator('.rk-blatt:not([hidden])'); await bl.waitFor(); // Tipp 1
+    await bild(page, `390-${g === 'nacht' ? 'dunkel' : 'hell'}`);
+    assert.equal(await karteKnoepfe(page), vorher, 'Karte: dieselben Knöpfe wie vorher');
+    assert.equal(await bl.locator('.rk-weiter-knopf').count(), 0, 'Flug des Startknopfs: kein zweiter „Weiter in …“');
+    await bl.locator('.rk-auch-offen').getByRole('link', { name: /USA · Zinsen/ }).click(); // Tipp 2
+    await page.waitForURL(/#\/lerneinheit\/1-2$/); await page.getByRole('heading', { name: 'Einfache Zinsen', exact: true }).waitFor();
+  }
+  // Offener Flug auf dem eigenen Kontinent (Einheit 2 → Schweiz, Platz 2): Routen-Zeile, „Weiter in …“ im Blatt, nächste Stadt in „Städte in …“
+  { const { page } = await rkOeffnen(t, 1280, 800, { basis: rkThemen({ 1: 15, 2: 18 }) }); const spalte = page.locator('.rk-seite'); await spalte.locator('.rk-start').waitFor();
+    assert.equal(await spalte.locator('a.rk-lzeile-los', { hasText: 'Schweiz' }).getAttribute('href'), '#/lerneinheit/1-2');
+    assert.equal(await spalte.locator('.rk-auch-offen').count(), 0, 'nichts außerhalb der Route offen');
+    await page.locator('.rk-pin[data-id="CH"]').click(); const bl = page.locator('.rk-seite-blatt'); await bl.waitFor();
+    await bild(page, '1280-hell-weiter-knopf'); const w = bl.locator('a.rk-weiter-knopf'); assert.match(await w.innerText(), /^Weiter in .+ ›$/); assert.equal(await w.getAttribute('href'), '#/lerneinheit/1-2');
+    await bl.getByRole('button', { name: 'Städte in Schweiz ansehen ›' }).click(); await page.locator('.rk-seite h4', { hasText: 'STÄDTE IN SCHWEIZ' }).waitFor();
+    assert.equal(await spalte.locator('a.rk-lzeile-los').count(), 1, 'genau die nächste Stadt'); assert.equal(await spalte.locator('a.rk-lzeile-los').getAttribute('href'), '#/lerneinheit/1-2');
+    await page.locator('.rk-seite a.rk-lzeile-los').click(); await page.waitForURL(/#\/lerneinheit\/1-2$/); }
+  // Gesperrt bleibt gesperrt: Einheit 2 → Slowenien (wartet auf das Visum) – keine Verknüpfung, weder in der Spalte noch im Blatt
+  for (const b of [1280, 390]) {
+    const { page } = await rkOeffnen(t, b, b > 1000 ? 800 : 844, { basis: rkThemen({ 1: 15, 2: 67 }), lage: 'eu3' });
+    assert.equal(await page.locator('a[href="#/lerneinheit/1-2"]').count(), 0, `${b}: gesperrter Flug nirgends startbar`);
+    if (b > 1000) assert.equal(await page.locator('.rk-seite button.rk-lzeile', { hasText: 'Slowenien' }).count(), 1);
+    await page.locator('.rk-pin[data-id="SI"] .rk-treffer').click(); await page.locator(b > 1000 ? '.rk-seite-blatt' : '.rk-blatt:not([hidden])').waitFor();
+    assert.equal(await page.locator('a[href="#/lerneinheit/1-2"], .rk-weiter-knopf').count(), 0, `${b}: auch im Blatt nicht`);
+  }
+});

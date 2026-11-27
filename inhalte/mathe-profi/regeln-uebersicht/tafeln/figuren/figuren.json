@@ -1,0 +1,1510 @@
+{
+ "hinweis": "Inhalte für die Nachschlage-Tafel „Figuren: Winkel, Dreiecke, Vierecke, Kongruenz“ (Entwurf, nichts in die App eingespielt). Geprüft mit ../pruefen.py. Alle Vierecke sind konvex gemeint. Trapez = mindestens ein Paar paralleler Gegenseiten (so ist jedes Parallelogramm ein Trapez). „immer“ heißt: gilt für jedes Viereck dieser Art, auch für seine Sonderfälle.",
+ "stand": "2026-11-27",
+ "tafel": "figuren",
+ "titel": "Figuren: Winkel, Dreiecke, Vierecke, Kongruenz",
+ "eintraege": [
+  {
+   "kennung": "fg-01",
+   "titel": "spitzer Winkel",
+   "art": "winkelart",
+   "name": "spitzer Winkel",
+   "bereich": "0° < α < 90°",
+   "von": 0,
+   "bis": 90,
+   "von_eingeschlossen": false,
+   "bis_eingeschlossen": false,
+   "so_erkennst_du": "kleiner als eine Heftecke",
+   "beispiel_winkel": 45,
+   "zeichnung": "Winkel mit Scheitel S und zwei Schenkeln, Winkelbogen mit der Gradzahl 45°.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.grundbegriffe",
+      "lernziel": "winkelarten",
+      "wort": "spitz"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G3",
+     "name": "Winkelarten",
+     "passt": "Voller Winkel 360°, gestreckter 180°, rechter 90°."
+    }
+   ],
+   "stichwoerter": [
+    "spitzer Winkel",
+    "spitz",
+    "Winkelarten",
+    "Winkel",
+    "Winkel benennen",
+    "wie heißt der Winkel"
+   ]
+  },
+  {
+   "kennung": "fg-02",
+   "titel": "rechter Winkel",
+   "art": "winkelart",
+   "name": "rechter Winkel",
+   "bereich": "α = 90°",
+   "von": 90,
+   "bis": 90,
+   "von_eingeschlossen": true,
+   "bis_eingeschlossen": true,
+   "so_erkennst_du": "genau eine Heftecke; im Bild mit einem kleinen Viereck am Scheitel markiert",
+   "beispiel_winkel": 90,
+   "zeichnung": "Winkel mit Scheitel S und zwei Schenkeln, Winkelbogen mit der Gradzahl 90°.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.grundbegriffe",
+      "lernziel": "winkelarten",
+      "wort": "recht"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G3",
+     "name": "Winkelarten",
+     "passt": "Voller Winkel 360°, gestreckter 180°, rechter 90°."
+    }
+   ],
+   "stichwoerter": [
+    "rechter Winkel",
+    "recht",
+    "Winkelarten",
+    "Winkel",
+    "Winkel benennen",
+    "wie heißt der Winkel"
+   ]
+  },
+  {
+   "kennung": "fg-03",
+   "titel": "stumpfer Winkel",
+   "art": "winkelart",
+   "name": "stumpfer Winkel",
+   "bereich": "90° < α < 180°",
+   "von": 90,
+   "bis": 180,
+   "von_eingeschlossen": false,
+   "bis_eingeschlossen": false,
+   "so_erkennst_du": "größer als eine Heftecke, aber nicht ganz gerade",
+   "beispiel_winkel": 135,
+   "zeichnung": "Winkel mit Scheitel S und zwei Schenkeln, Winkelbogen mit der Gradzahl 135°.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.grundbegriffe",
+      "lernziel": "winkelarten",
+      "wort": "stumpf"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G3",
+     "name": "Winkelarten",
+     "passt": "Voller Winkel 360°, gestreckter 180°, rechter 90°."
+    }
+   ],
+   "stichwoerter": [
+    "stumpfer Winkel",
+    "stumpf",
+    "Winkelarten",
+    "Winkel",
+    "Winkel benennen",
+    "wie heißt der Winkel"
+   ]
+  },
+  {
+   "kennung": "fg-04",
+   "titel": "gestreckter Winkel",
+   "art": "winkelart",
+   "name": "gestreckter Winkel",
+   "bereich": "α = 180°",
+   "von": 180,
+   "bis": 180,
+   "von_eingeschlossen": true,
+   "bis_eingeschlossen": true,
+   "so_erkennst_du": "die Schenkel bilden eine gerade Linie",
+   "beispiel_winkel": 180,
+   "zeichnung": "Winkel mit Scheitel S und zwei Schenkeln, Winkelbogen mit der Gradzahl 180°.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.grundbegriffe",
+      "lernziel": "winkelarten",
+      "wort": "gestreckt"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G3",
+     "name": "Winkelarten",
+     "passt": "Voller Winkel 360°, gestreckter 180°, rechter 90°."
+    }
+   ],
+   "stichwoerter": [
+    "gestreckter Winkel",
+    "gestreckt",
+    "Winkelarten",
+    "Winkel",
+    "Winkel benennen",
+    "wie heißt der Winkel"
+   ]
+  },
+  {
+   "kennung": "fg-05",
+   "titel": "überstumpfer Winkel",
+   "art": "winkelart",
+   "name": "überstumpfer Winkel",
+   "bereich": "180° < α < 360°",
+   "von": 180,
+   "bis": 360,
+   "von_eingeschlossen": false,
+   "bis_eingeschlossen": false,
+   "so_erkennst_du": "mehr als eine gerade Linie, aber noch keine ganze Drehung",
+   "beispiel_winkel": 235,
+   "zeichnung": "Winkel mit Scheitel S und zwei Schenkeln, Winkelbogen mit der Gradzahl 235°.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.grundbegriffe",
+      "lernziel": "winkelarten",
+      "wort": "überstumpf"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G3",
+     "name": "Winkelarten",
+     "passt": "Voller Winkel 360°, gestreckter 180°, rechter 90°."
+    }
+   ],
+   "stichwoerter": [
+    "überstumpfer Winkel",
+    "überstumpf",
+    "Winkelarten",
+    "Winkel",
+    "Winkel benennen",
+    "wie heißt der Winkel"
+   ]
+  },
+  {
+   "kennung": "fg-06",
+   "titel": "Vollwinkel",
+   "art": "winkelart",
+   "name": "Vollwinkel",
+   "bereich": "α = 360°",
+   "von": 360,
+   "bis": 360,
+   "von_eingeschlossen": true,
+   "bis_eingeschlossen": true,
+   "so_erkennst_du": "eine ganze Drehung; die Schenkel liegen wieder aufeinander",
+   "beispiel_winkel": 360,
+   "zeichnung": "Winkel mit Scheitel S und zwei Schenkeln, Winkelbogen mit der Gradzahl 360°.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.grundbegriffe",
+      "lernziel": "winkelarten",
+      "wort": "Vollwinkel"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G3",
+     "name": "Winkelarten",
+     "passt": "Voller Winkel 360°, gestreckter 180°, rechter 90°."
+    }
+   ],
+   "stichwoerter": [
+    "Vollwinkel",
+    "voll",
+    "Winkelarten",
+    "Winkel",
+    "Winkel benennen",
+    "wie heißt der Winkel"
+   ]
+  },
+  {
+   "kennung": "fg-07",
+   "titel": "Winkelsumme im Dreieck",
+   "art": "winkelsumme",
+   "formel": "α + β + γ = 180°",
+   "bedingung": "ebenes Dreieck mit den Innenwinkeln α, β, γ",
+   "so_gehts": [
+    "Addiere die zwei bekannten Winkel.",
+    "Ziehe die Summe von 180° ab."
+   ],
+   "beispiel": {
+    "werte": {
+     "α": 50,
+     "β": 60
+    },
+    "rechnung": "γ = 180° − 50° − 60° = 70°",
+    "ergebnis": 70,
+    "probe": "50° + 60° + 70° = 180°"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "geometrie.winkelsaetze",
+      "lernziel": "innenwinkelsumme",
+      "wort": "α + β + γ = 180°"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G6",
+     "name": "Winkelsumme",
+     "passt": "Winkelsumme im Dreieck 180°."
+    }
+   ],
+   "stichwoerter": [
+    "Winkelsumme",
+    "Winkelsumme Dreieck",
+    "180 Grad",
+    "fehlender Winkel",
+    "dritten Winkel berechnen"
+   ]
+  },
+  {
+   "kennung": "fg-08",
+   "titel": "Allgemeines (ungleichseitiges) Dreieck",
+   "art": "dreieck",
+   "nach": "seiten",
+   "definition": "Keine zwei Seiten sind gleich lang.",
+   "eigenschaften": [
+    "Alle drei Winkel sind verschieden groß."
+   ],
+   "winkelsumme": "α + β + γ = 180°",
+   "beispiele": [
+    {
+     "seiten": [
+      4,
+      5,
+      6
+     ]
+    }
+   ],
+   "zeichnung": "Dreieck mit drei verschieden langen Seiten, jede Seite mit ihrer Länge.",
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Im Bestand gibt es keinen eigenen Namen für das Dreieck ohne gleiche Seiten.",
+   "regeln": [
+    {
+     "kennung": "G9",
+     "name": "Gleichschenkliges Dreieck",
+     "passt": "Gleichschenklig: gleiche Schenkel, gleiche Basiswinkel – ein allgemeines Dreieck hat beides nicht."
+    }
+   ],
+   "stichwoerter": [
+    "allgemeines Dreieck",
+    "ungleichseitiges Dreieck",
+    "unregelmäßiges Dreieck",
+    "Dreiecksarten",
+    "Dreieck nach Seiten"
+   ]
+  },
+  {
+   "kennung": "fg-09",
+   "titel": "Gleichschenkliges Dreieck",
+   "art": "dreieck",
+   "nach": "seiten",
+   "definition": "Mindestens zwei Seiten sind gleich lang. Die gleich langen Seiten heißen Schenkel, die dritte heißt Basis.",
+   "eigenschaften": [
+    "Die beiden Basiswinkel (an der Basis) sind gleich groß.",
+    "Es gibt mindestens eine Symmetrieachse: von der Spitze zur Mitte der Basis."
+   ],
+   "winkelsumme": "α + β + γ = 180°",
+   "beispiele": [
+    {
+     "seiten": [
+      5,
+      5,
+      8
+     ]
+    },
+    {
+     "winkel": [
+      70,
+      70,
+      40
+     ]
+    }
+   ],
+   "zeichnung": "Dreieck mit zwei gleich markierten Schenkeln und der Basis unten; die zwei Basiswinkel gleich markieren, den Spitzenwinkel oben.",
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "geometrie.konstruktion",
+      "lernziel": "gleichschenklig",
+      "wort": "Basiswinkel"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G9",
+     "name": "Gleichschenkliges Dreieck",
+     "passt": "Gleiche Schenkel, gleiche Basiswinkel – und umgekehrt."
+    }
+   ],
+   "stichwoerter": [
+    "gleichschenkliges Dreieck",
+    "gleichschenklig",
+    "Schenkel",
+    "Basis",
+    "Basiswinkel",
+    "Spitzenwinkel"
+   ]
+  },
+  {
+   "kennung": "fg-10",
+   "titel": "Gleichseitiges Dreieck",
+   "art": "dreieck",
+   "nach": "seiten",
+   "definition": "Alle drei Seiten sind gleich lang. Es ist ein Sonderfall des gleichschenkligen Dreiecks.",
+   "eigenschaften": [
+    "Alle drei Winkel sind 60° groß.",
+    "Es gibt drei Symmetrieachsen."
+   ],
+   "winkelsumme": "α + β + γ = 180°",
+   "beispiele": [
+    {
+     "seiten": [
+      6,
+      6,
+      6
+     ]
+    },
+    {
+     "winkel": [
+      60,
+      60,
+      60
+     ]
+    }
+   ],
+   "zeichnung": "Dreieck mit drei gleich markierten Seiten und drei gleich markierten Winkeln (60°).",
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "geometrie.winkelsaetze",
+      "lernziel": "parkett",
+      "wort": "gleichseitig"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G9",
+     "name": "Gleichschenkliges Dreieck",
+     "passt": "Gleichseitig: dreimal 60°."
+    }
+   ],
+   "stichwoerter": [
+    "gleichseitiges Dreieck",
+    "gleichseitig",
+    "Dreieck 60 Grad",
+    "drei gleiche Seiten"
+   ]
+  },
+  {
+   "kennung": "fg-11",
+   "titel": "Spitzwinkliges Dreieck",
+   "art": "dreieck",
+   "nach": "winkel",
+   "definition": "Alle drei Winkel sind kleiner als 90°.",
+   "eigenschaften": [
+    "Alle drei Höhen liegen innerhalb des Dreiecks."
+   ],
+   "winkelsumme": "α + β + γ = 180°",
+   "beispiele": [
+    {
+     "winkel": [
+      70,
+      60,
+      50
+     ]
+    }
+   ],
+   "zeichnung": "Dreieck mit drei spitzen Winkeln, Gradzahlen an den Winkelbögen.",
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Im Bestand kommt „spitzwinklig“ nicht vor; spitze Winkel stehen in geometrie.grundbegriffe (Klasse 5).",
+   "regeln": [
+    {
+     "kennung": "G3",
+     "name": "Winkelarten",
+     "passt": "Spitz ist ein Winkel unter 90°."
+    }
+   ],
+   "stichwoerter": [
+    "spitzwinkliges Dreieck",
+    "spitzwinklig",
+    "Dreieck nach Winkeln"
+   ]
+  },
+  {
+   "kennung": "fg-12",
+   "titel": "Rechtwinkliges Dreieck",
+   "art": "dreieck",
+   "nach": "winkel",
+   "definition": "Ein Winkel ist genau 90°. Die Seite gegenüber heißt Hypotenuse, die zwei anderen Seiten heißen Katheten.",
+   "eigenschaften": [
+    "Die beiden anderen Winkel sind spitz und ergeben zusammen 90°.",
+    "Die Hypotenuse ist die längste Seite."
+   ],
+   "winkelsumme": "α + β + γ = 180°",
+   "beispiele": [
+    {
+     "winkel": [
+      90,
+      35,
+      55
+     ]
+    },
+    {
+     "seiten": [
+      3,
+      4,
+      5
+     ],
+     "pythagoras": true
+    }
+   ],
+   "zeichnung": "Dreieck mit rechtem Winkel (Viereck-Markierung) und den Seiten Hypotenuse c, Katheten a und b.",
+   "ab_klasse": {
+    "gymnasium_by": 9,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "trigo.pythagoras",
+      "lernziel": "hypotenuse",
+      "wort": "Hypotenuse"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G24",
+     "name": "Satz des Pythagoras",
+     "passt": "Im rechtwinkligen Dreieck gilt a² + b² = c²."
+    }
+   ],
+   "stichwoerter": [
+    "rechtwinkliges Dreieck",
+    "rechtwinklig",
+    "Hypotenuse",
+    "Kathete",
+    "Katheten",
+    "Pythagoras"
+   ]
+  },
+  {
+   "kennung": "fg-13",
+   "titel": "Stumpfwinkliges Dreieck",
+   "art": "dreieck",
+   "nach": "winkel",
+   "definition": "Ein Winkel ist größer als 90° (und kleiner als 180°).",
+   "eigenschaften": [
+    "Die beiden anderen Winkel sind spitz.",
+    "Eine Höhe liegt außerhalb des Dreiecks."
+   ],
+   "winkelsumme": "α + β + γ = 180°",
+   "beispiele": [
+    {
+     "winkel": [
+      120,
+      35,
+      25
+     ]
+    }
+   ],
+   "zeichnung": "Dreieck mit einem stumpfen Winkel; die Höhe auf die lange Seite von außen zeichnen (gestrichelt).",
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": null,
+    "beleg": [
+     {
+      "thema": "messen.flaechen_vielecke",
+      "lernziel": "dreieck",
+      "wort": "stumpfwinklig"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G3",
+     "name": "Winkelarten",
+     "passt": "Stumpf ist ein Winkel zwischen 90° und 180°."
+    }
+   ],
+   "stichwoerter": [
+    "stumpfwinkliges Dreieck",
+    "stumpfwinklig",
+    "Höhe außerhalb"
+   ]
+  },
+  {
+   "kennung": "fg-14",
+   "titel": "Quadrat",
+   "art": "viereck",
+   "schluessel": "quadrat",
+   "seiten": "Alle vier Seiten sind gleich lang; Gegenseiten sind parallel.",
+   "winkel": "Alle vier Winkel sind 90°.",
+   "diagonalen": "Die Diagonalen sind gleich lang, halbieren sich und stehen senkrecht aufeinander.",
+   "achsen_text": "4",
+   "punktsymmetrisch": true,
+   "immer": {
+    "parallele_paare_mindestens": 2,
+    "gegenseiten_gleich_lang": true,
+    "alle_seiten_gleich_lang": true,
+    "nachbarseitenpaare_gleich_lang": true,
+    "vier_rechte_winkel": true,
+    "gegenueberliegende_winkel_gleich": true,
+    "diagonalen_gleich_lang": true,
+    "diagonalen_senkrecht": true,
+    "diagonalen_halbieren_sich": true,
+    "symmetrieachsen_mindestens": 4,
+    "punktsymmetrisch": true
+   },
+   "sonderfall_von": [
+    "Rechteck",
+    "Raute"
+   ],
+   "beispiel_punkte": [
+    [
+     0,
+     0
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     4,
+     4
+    ],
+    [
+     0,
+     4
+    ]
+   ],
+   "zeichnung": "Quadrat; vier gleiche Seiten und vier rechte Winkel markieren, beide Diagonalen und alle vier Symmetrieachsen gestrichelt.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.grundbegriffe",
+      "lernziel": "vierecke",
+      "wort": "Quadrat"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G7",
+     "name": "Besondere Vierecke",
+     "passt": "Jedes besondere Viereck hat seine festen Eigenschaften."
+    }
+   ],
+   "stichwoerter": [
+    "Quadrat",
+    "Viereck",
+    "Haus der Vierecke",
+    "Eigenschaften Viereck"
+   ]
+  },
+  {
+   "kennung": "fg-15",
+   "titel": "Rechteck",
+   "art": "viereck",
+   "schluessel": "rechteck",
+   "seiten": "Gegenseiten sind gleich lang und parallel.",
+   "winkel": "Alle vier Winkel sind 90°.",
+   "diagonalen": "Die Diagonalen sind gleich lang und halbieren sich.",
+   "achsen_text": "2 (beim Quadrat 4)",
+   "punktsymmetrisch": true,
+   "immer": {
+    "parallele_paare_mindestens": 2,
+    "gegenseiten_gleich_lang": true,
+    "alle_seiten_gleich_lang": false,
+    "nachbarseitenpaare_gleich_lang": false,
+    "vier_rechte_winkel": true,
+    "gegenueberliegende_winkel_gleich": true,
+    "diagonalen_gleich_lang": true,
+    "diagonalen_senkrecht": false,
+    "diagonalen_halbieren_sich": true,
+    "symmetrieachsen_mindestens": 2,
+    "punktsymmetrisch": true
+   },
+   "sonderfall_von": [
+    "Parallelogramm",
+    "Gleichschenkliges Trapez"
+   ],
+   "beispiel_punkte": [
+    [
+     0,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     6,
+     4
+    ],
+    [
+     0,
+     4
+    ]
+   ],
+   "zeichnung": "Rechteck mit vier rechten Winkeln, beide Diagonalen und die zwei Symmetrieachsen (durch die Seitenmitten) gestrichelt.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.grundbegriffe",
+      "lernziel": "vierecke",
+      "wort": "Rechteck"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G7",
+     "name": "Besondere Vierecke",
+     "passt": "Jedes besondere Viereck hat seine festen Eigenschaften."
+    }
+   ],
+   "stichwoerter": [
+    "Rechteck",
+    "Viereck",
+    "Haus der Vierecke",
+    "Eigenschaften Viereck"
+   ]
+  },
+  {
+   "kennung": "fg-16",
+   "titel": "Raute",
+   "art": "viereck",
+   "schluessel": "raute",
+   "seiten": "Alle vier Seiten sind gleich lang; Gegenseiten sind parallel.",
+   "winkel": "Gegenüberliegende Winkel sind gleich groß.",
+   "diagonalen": "Die Diagonalen halbieren sich und stehen senkrecht aufeinander.",
+   "achsen_text": "2 (beim Quadrat 4): die beiden Diagonalen",
+   "punktsymmetrisch": true,
+   "immer": {
+    "parallele_paare_mindestens": 2,
+    "gegenseiten_gleich_lang": true,
+    "alle_seiten_gleich_lang": true,
+    "nachbarseitenpaare_gleich_lang": true,
+    "vier_rechte_winkel": false,
+    "gegenueberliegende_winkel_gleich": true,
+    "diagonalen_gleich_lang": false,
+    "diagonalen_senkrecht": true,
+    "diagonalen_halbieren_sich": true,
+    "symmetrieachsen_mindestens": 2,
+    "punktsymmetrisch": true
+   },
+   "sonderfall_von": [
+    "Parallelogramm",
+    "Drachenviereck"
+   ],
+   "beispiel_punkte": [
+    [
+     0,
+     0
+    ],
+    [
+     5,
+     0
+    ],
+    [
+     8,
+     4
+    ],
+    [
+     3,
+     4
+    ]
+   ],
+   "zeichnung": "Schiefe Raute mit vier gleich markierten Seiten, beide Diagonalen (zugleich Symmetrieachsen) gestrichelt, rechten Winkel im Schnittpunkt markieren.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.grundbegriffe",
+      "lernziel": "vierecke",
+      "wort": "Raute"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G7",
+     "name": "Besondere Vierecke",
+     "passt": "Jedes besondere Viereck hat seine festen Eigenschaften."
+    }
+   ],
+   "stichwoerter": [
+    "Raute",
+    "Viereck",
+    "Haus der Vierecke",
+    "Eigenschaften Viereck"
+   ]
+  },
+  {
+   "kennung": "fg-17",
+   "titel": "Parallelogramm",
+   "art": "viereck",
+   "schluessel": "parallelogramm",
+   "seiten": "Gegenseiten sind gleich lang und parallel.",
+   "winkel": "Gegenüberliegende Winkel sind gleich groß; benachbarte Winkel ergeben zusammen 180°.",
+   "diagonalen": "Die Diagonalen halbieren sich.",
+   "achsen_text": "keine (bei Rechteck und Raute 2, beim Quadrat 4)",
+   "punktsymmetrisch": true,
+   "immer": {
+    "parallele_paare_mindestens": 2,
+    "gegenseiten_gleich_lang": true,
+    "alle_seiten_gleich_lang": false,
+    "nachbarseitenpaare_gleich_lang": false,
+    "vier_rechte_winkel": false,
+    "gegenueberliegende_winkel_gleich": true,
+    "diagonalen_gleich_lang": false,
+    "diagonalen_senkrecht": false,
+    "diagonalen_halbieren_sich": true,
+    "symmetrieachsen_mindestens": 0,
+    "punktsymmetrisch": true
+   },
+   "sonderfall_von": [
+    "Trapez"
+   ],
+   "beispiel_punkte": [
+    [
+     0,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     8,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "zeichnung": "Schiefes Parallelogramm; Gegenseiten mit gleichen Strichen und Pfeilen für parallel, beide Diagonalen gestrichelt.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.grundbegriffe",
+      "lernziel": "vierecke",
+      "wort": "Parallelogramm"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G7",
+     "name": "Besondere Vierecke",
+     "passt": "Jedes besondere Viereck hat seine festen Eigenschaften."
+    }
+   ],
+   "stichwoerter": [
+    "Parallelogramm",
+    "Viereck",
+    "Haus der Vierecke",
+    "Eigenschaften Viereck"
+   ]
+  },
+  {
+   "kennung": "fg-18",
+   "titel": "Trapez",
+   "art": "viereck",
+   "schluessel": "trapez",
+   "seiten": "Mindestens ein Paar gegenüberliegender Seiten ist parallel.",
+   "winkel": "Die beiden Winkel an jedem Schenkel ergeben zusammen 180°.",
+   "diagonalen": "Keine besondere Eigenschaft, die für jedes Trapez gilt.",
+   "achsen_text": "keine (beim gleichschenkligen Trapez 1)",
+   "punktsymmetrisch": false,
+   "immer": {
+    "parallele_paare_mindestens": 1,
+    "gegenseiten_gleich_lang": false,
+    "alle_seiten_gleich_lang": false,
+    "nachbarseitenpaare_gleich_lang": false,
+    "vier_rechte_winkel": false,
+    "gegenueberliegende_winkel_gleich": false,
+    "diagonalen_gleich_lang": false,
+    "diagonalen_senkrecht": false,
+    "diagonalen_halbieren_sich": false,
+    "symmetrieachsen_mindestens": 0,
+    "punktsymmetrisch": false
+   },
+   "sonderfall_von": [
+    "Allgemeines Viereck"
+   ],
+   "beispiel_punkte": [
+    [
+     0,
+     0
+    ],
+    [
+     7,
+     0
+    ],
+    [
+     5,
+     3
+    ],
+    [
+     1,
+     3
+    ]
+   ],
+   "zeichnung": "Trapez mit zwei waagrechten Parallelen (Pfeilmarkierung), die beiden schrägen Seiten (Schenkel) unterschiedlich.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.grundbegriffe",
+      "lernziel": "vierecke",
+      "wort": "Trapez"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G7",
+     "name": "Besondere Vierecke",
+     "passt": "Jedes besondere Viereck hat seine festen Eigenschaften."
+    }
+   ],
+   "stichwoerter": [
+    "Trapez",
+    "Viereck",
+    "Haus der Vierecke",
+    "Eigenschaften Viereck"
+   ]
+  },
+  {
+   "kennung": "fg-19",
+   "titel": "Gleichschenkliges Trapez",
+   "art": "viereck",
+   "schluessel": "gl_trapez",
+   "seiten": "Ein Paar paralleler Seiten; die beiden anderen Seiten (Schenkel) sind gleich lang.",
+   "winkel": "Die beiden Winkel an jeder parallelen Seite sind gleich groß.",
+   "diagonalen": "Die Diagonalen sind gleich lang.",
+   "achsen_text": "1 (beim Rechteck 2, beim Quadrat 4): durch die Mitten der parallelen Seiten",
+   "punktsymmetrisch": false,
+   "immer": {
+    "parallele_paare_mindestens": 1,
+    "gegenseiten_gleich_lang": false,
+    "alle_seiten_gleich_lang": false,
+    "nachbarseitenpaare_gleich_lang": false,
+    "vier_rechte_winkel": false,
+    "gegenueberliegende_winkel_gleich": false,
+    "diagonalen_gleich_lang": true,
+    "diagonalen_senkrecht": false,
+    "diagonalen_halbieren_sich": false,
+    "symmetrieachsen_mindestens": 1,
+    "punktsymmetrisch": false
+   },
+   "sonderfall_von": [
+    "Trapez"
+   ],
+   "beispiel_punkte": [
+    [
+     0,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     6,
+     3
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "zeichnung": "Gleichschenkliges Trapez mit senkrechter Symmetrieachse durch die Mitten der beiden parallelen Seiten; Schenkel gleich markieren.",
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 6,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "abbildungen.kongruenz",
+      "lernziel": "vierecke_ordnen",
+      "wort": "gleichschenkliges Trapez"
+     }
+    ]
+   },
+   "regeln": [],
+   "regeln_hinweis": "Keine Einzelregel nennt dieses Viereck; G7 führt nur Quadrat bis Drachenviereck.",
+   "stichwoerter": [
+    "gleichschenkliges Trapez",
+    "symmetrisches Trapez",
+    "Viereck",
+    "Haus der Vierecke",
+    "Eigenschaften Viereck"
+   ]
+  },
+  {
+   "kennung": "fg-20",
+   "titel": "Drachenviereck",
+   "art": "viereck",
+   "schluessel": "drachen",
+   "seiten": "Zwei Paare gleich langer Nachbarseiten.",
+   "winkel": "Die beiden Winkel abseits der Symmetrieachse sind gleich groß.",
+   "diagonalen": "Die Diagonalen stehen senkrecht aufeinander; die Symmetrieachse ist eine der Diagonalen.",
+   "achsen_text": "1 (bei der Raute 2, beim Quadrat 4): eine Diagonale",
+   "punktsymmetrisch": false,
+   "immer": {
+    "parallele_paare_mindestens": 0,
+    "gegenseiten_gleich_lang": false,
+    "alle_seiten_gleich_lang": false,
+    "nachbarseitenpaare_gleich_lang": true,
+    "vier_rechte_winkel": false,
+    "gegenueberliegende_winkel_gleich": false,
+    "diagonalen_gleich_lang": false,
+    "diagonalen_senkrecht": true,
+    "diagonalen_halbieren_sich": false,
+    "symmetrieachsen_mindestens": 1,
+    "punktsymmetrisch": false
+   },
+   "sonderfall_von": [
+    "Allgemeines Viereck"
+   ],
+   "beispiel_punkte": [
+    [
+     0,
+     0
+    ],
+    [
+     3,
+     -2
+    ],
+    [
+     7,
+     0
+    ],
+    [
+     3,
+     2
+    ]
+   ],
+   "zeichnung": "Drachenviereck mit waagrechter Symmetrieachse (Diagonale); Seitenpaare mit gleichen Strichen, zweite Diagonale senkrecht dazu.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.grundbegriffe",
+      "lernziel": "vierecke",
+      "wort": "Drachen"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G7",
+     "name": "Besondere Vierecke",
+     "passt": "Jedes besondere Viereck hat seine festen Eigenschaften."
+    }
+   ],
+   "stichwoerter": [
+    "Drachen",
+    "Drachenviereck",
+    "Viereck",
+    "Haus der Vierecke",
+    "Eigenschaften Viereck"
+   ]
+  },
+  {
+   "kennung": "fg-21",
+   "titel": "Allgemeines Viereck",
+   "art": "viereck",
+   "schluessel": "allgemein",
+   "seiten": "Keine besonderen Seiteneigenschaften.",
+   "winkel": "Die Winkelsumme ist 360°.",
+   "diagonalen": "Keine besondere Eigenschaft.",
+   "achsen_text": "keine",
+   "punktsymmetrisch": false,
+   "immer": {
+    "parallele_paare_mindestens": 0,
+    "gegenseiten_gleich_lang": false,
+    "alle_seiten_gleich_lang": false,
+    "nachbarseitenpaare_gleich_lang": false,
+    "vier_rechte_winkel": false,
+    "gegenueberliegende_winkel_gleich": false,
+    "diagonalen_gleich_lang": false,
+    "diagonalen_senkrecht": false,
+    "diagonalen_halbieren_sich": false,
+    "symmetrieachsen_mindestens": 0,
+    "punktsymmetrisch": false
+   },
+   "sonderfall_von": [],
+   "beispiel_punkte": [
+    [
+     0,
+     0
+    ],
+    [
+     5,
+     1
+    ],
+    [
+     4,
+     4
+    ],
+    [
+     -1,
+     2
+    ]
+   ],
+   "zeichnung": "Beliebiges Viereck ohne gleiche oder parallele Seiten; Eckpunkte A, B, C, D gegen den Uhrzeigersinn.",
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "geometrie.konstruktion",
+      "lernziel": "vierecke_konstruieren",
+      "wort": "beliebiges Viereck"
+     }
+    ]
+   },
+   "regeln": [],
+   "regeln_hinweis": "Keine Einzelregel nennt dieses Viereck; G7 führt nur Quadrat bis Drachenviereck.",
+   "stichwoerter": [
+    "Viereck",
+    "allgemeines Viereck",
+    "beliebiges Viereck",
+    "Haus der Vierecke",
+    "Eigenschaften Viereck"
+   ]
+  },
+  {
+   "kennung": "fg-22",
+   "titel": "Haus der Vierecke: Wer ist Sonderfall von wem?",
+   "art": "haus",
+   "merksatz": "Ein Sonderfall hat alle Eigenschaften des allgemeineren Vierecks und noch mehr. Beispiel: Jedes Quadrat ist ein Rechteck und eine Raute, aber nicht jedes Rechteck ist ein Quadrat.",
+   "beziehungen": [
+    {
+     "sonderfall": "Quadrat",
+     "von": "Rechteck"
+    },
+    {
+     "sonderfall": "Quadrat",
+     "von": "Raute"
+    },
+    {
+     "sonderfall": "Rechteck",
+     "von": "Parallelogramm"
+    },
+    {
+     "sonderfall": "Rechteck",
+     "von": "Gleichschenkliges Trapez"
+    },
+    {
+     "sonderfall": "Raute",
+     "von": "Parallelogramm"
+    },
+    {
+     "sonderfall": "Raute",
+     "von": "Drachenviereck"
+    },
+    {
+     "sonderfall": "Parallelogramm",
+     "von": "Trapez"
+    },
+    {
+     "sonderfall": "Gleichschenkliges Trapez",
+     "von": "Trapez"
+    },
+    {
+     "sonderfall": "Drachenviereck",
+     "von": "Allgemeines Viereck"
+    },
+    {
+     "sonderfall": "Trapez",
+     "von": "Allgemeines Viereck"
+    }
+   ],
+   "zeichnung": "Haus von unten nach oben: allgemeines Viereck; Trapez; Parallelogramm, gleichschenkliges Trapez und Drachenviereck; Rechteck und Raute; Quadrat. Pfeil von jedem Sonderfall zum allgemeineren Viereck.",
+   "geschichtet": [
+    [
+     "Quadrat"
+    ],
+    [
+     "Rechteck",
+     "Raute"
+    ],
+    [
+     "Parallelogramm",
+     "gleichschenkliges Trapez",
+     "Drachenviereck"
+    ],
+    [
+     "Trapez"
+    ],
+    [
+     "Allgemeines Viereck"
+    ]
+   ],
+   "definition_trapez": "Trapez heißt hier: mindestens ein Paar paralleler Gegenseiten. Darum ist jedes Parallelogramm auch ein Trapez.",
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 6,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "abbildungen.kongruenz",
+      "lernziel": "vierecke_ordnen",
+      "wort": "Haus der Vierecke"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G7",
+     "name": "Besondere Vierecke",
+     "passt": "Jedes besondere Viereck hat seine festen Eigenschaften."
+    },
+    {
+     "kennung": "G16",
+     "name": "Symmetrie",
+     "passt": "Symmetrie ordnet die Vierecke."
+    }
+   ],
+   "stichwoerter": [
+    "Haus der Vierecke",
+    "Sonderfall",
+    "ist ein Quadrat ein Rechteck",
+    "ist ein Quadrat eine Raute",
+    "Viereck ordnen",
+    "Vierecke Beziehungen"
+   ]
+  },
+  {
+   "kennung": "fg-23",
+   "titel": "Kongruenzsatz SSS",
+   "art": "kongruenzsatz",
+   "kuerzel": "SSS",
+   "name": "Seite – Seite – Seite",
+   "gegeben": "Alle drei Seiten sind gegeben.",
+   "bedingung": "Jede Seite ist kürzer als die beiden anderen zusammen (Dreiecksungleichung).",
+   "merksatz": "Passen die drei Angaben, sind alle so gezeichneten Dreiecke kongruent (deckungsgleich).",
+   "beispiel_daten": {
+    "seiten": {
+     "a": 3,
+     "b": 4,
+     "c": 5
+    }
+   },
+   "beispiel": "a = 3 cm, b = 4 cm, c = 5 cm; 3 + 4 > 5, 3 + 5 > 4 und 4 + 5 > 3",
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "geometrie.konstruktion",
+      "lernziel": "kongruenzsatz",
+      "wort": "SSS"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G10",
+     "name": "Kongruenzsätze",
+     "passt": "Drei passende Angaben legen ein Dreieck fest: SSS, SWS, WSW, SsW."
+    }
+   ],
+   "stichwoerter": [
+    "SSS",
+    "Kongruenzsatz",
+    "Kongruenzsätze",
+    "kongruent",
+    "deckungsgleich",
+    "Dreieck konstruieren",
+    "Dreieck eindeutig",
+    "Seite – Seite – Seite"
+   ]
+  },
+  {
+   "kennung": "fg-24",
+   "titel": "Kongruenzsatz SWS",
+   "art": "kongruenzsatz",
+   "kuerzel": "SWS",
+   "name": "Seite – Winkel – Seite",
+   "gegeben": "Zwei Seiten und der Winkel dazwischen sind gegeben.",
+   "bedingung": "Der Winkel liegt zwischen den beiden Seiten (nicht an einer anderen Stelle).",
+   "merksatz": "Passen die drei Angaben, sind alle so gezeichneten Dreiecke kongruent (deckungsgleich).",
+   "beispiel_daten": {
+    "seiten": {
+     "b": 5,
+     "c": 7
+    },
+    "winkel": {
+     "α": 40
+    },
+    "zwischen": [
+     "b",
+     "c"
+    ]
+   },
+   "beispiel": "b = 5 cm, c = 7 cm und α = 40° zwischen b und c",
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "geometrie.konstruktion",
+      "lernziel": "kongruenzsatz",
+      "wort": "SWS"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G10",
+     "name": "Kongruenzsätze",
+     "passt": "Drei passende Angaben legen ein Dreieck fest: SSS, SWS, WSW, SsW."
+    }
+   ],
+   "stichwoerter": [
+    "SWS",
+    "Kongruenzsatz",
+    "Kongruenzsätze",
+    "kongruent",
+    "deckungsgleich",
+    "Dreieck konstruieren",
+    "Dreieck eindeutig",
+    "Seite – Winkel – Seite"
+   ]
+  },
+  {
+   "kennung": "fg-25",
+   "titel": "Kongruenzsatz WSW",
+   "art": "kongruenzsatz",
+   "kuerzel": "WSW",
+   "name": "Winkel – Seite – Winkel",
+   "gegeben": "Eine Seite und die beiden Winkel an ihren Enden sind gegeben.",
+   "bedingung": "Die beiden Winkel sind zusammen kleiner als 180°.",
+   "merksatz": "Passen die drei Angaben, sind alle so gezeichneten Dreiecke kongruent (deckungsgleich).",
+   "beispiel_daten": {
+    "seiten": {
+     "c": 6
+    },
+    "winkel": {
+     "α": 50,
+     "β": 60
+    }
+   },
+   "beispiel": "c = 6 cm, α = 50° und β = 60°; 50° + 60° < 180°",
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "geometrie.konstruktion",
+      "lernziel": "kongruenzsatz",
+      "wort": "WSW"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G10",
+     "name": "Kongruenzsätze",
+     "passt": "Drei passende Angaben legen ein Dreieck fest: SSS, SWS, WSW, SsW."
+    }
+   ],
+   "stichwoerter": [
+    "WSW",
+    "Kongruenzsatz",
+    "Kongruenzsätze",
+    "kongruent",
+    "deckungsgleich",
+    "Dreieck konstruieren",
+    "Dreieck eindeutig",
+    "Winkel – Seite – Winkel"
+   ]
+  },
+  {
+   "kennung": "fg-26",
+   "titel": "Kongruenzsatz SsW",
+   "art": "kongruenzsatz",
+   "kuerzel": "SsW",
+   "name": "Seite – Seite – Winkel",
+   "gegeben": "Zwei Seiten und der Winkel sind gegeben, der der längeren der beiden Seiten gegenüberliegt.",
+   "bedingung": "Der Winkel liegt der längeren Seite gegenüber. Liegt er der kürzeren gegenüber, können zwei verschiedene Dreiecke entstehen.",
+   "merksatz": "Passen die drei Angaben, sind alle so gezeichneten Dreiecke kongruent (deckungsgleich).",
+   "beispiel_daten": {
+    "seiten": {
+     "b": 5,
+     "c": 7
+    },
+    "winkel": {
+     "γ": 40
+    },
+    "gegenueber": {
+     "γ": "c"
+    }
+   },
+   "beispiel": "b = 5 cm, c = 7 cm und γ = 40° gegenüber von c; 7 cm > 5 cm",
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "geometrie.konstruktion",
+      "lernziel": "kongruenzsatz",
+      "wort": "SsW"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G10",
+     "name": "Kongruenzsätze",
+     "passt": "Drei passende Angaben legen ein Dreieck fest: SSS, SWS, WSW, SsW."
+    }
+   ],
+   "stichwoerter": [
+    "SsW",
+    "Kongruenzsatz",
+    "Kongruenzsätze",
+    "kongruent",
+    "deckungsgleich",
+    "Dreieck konstruieren",
+    "Dreieck eindeutig",
+    "Seite – Seite – Winkel"
+   ]
+  },
+  {
+   "kennung": "fg-27",
+   "titel": "Reicht nicht: WWW",
+   "art": "kongruenz_nicht",
+   "merksatz": "Drei Winkel allein legen das Dreieck nicht fest: Es gibt beliebig große Dreiecke mit denselben Winkeln.",
+   "beispiel_daten": {
+    "seiten_a": [
+     3,
+     3,
+     3
+    ],
+    "seiten_b": [
+     6,
+     6,
+     6
+    ],
+    "winkel": [
+     60,
+     60,
+     60
+    ]
+   },
+   "beispiel": "Zwei gleichseitige Dreiecke mit den Seiten 3 cm und 6 cm haben dieselben drei Winkel (60°), sind aber nicht kongruent.",
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "geometrie.konstruktion",
+      "lernziel": "kongruenzsatz",
+      "wort": "kongruent"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G10",
+     "name": "Kongruenzsätze",
+     "passt": "Drei passende Angaben legen ein Dreieck fest; drei Winkel gehören nicht dazu."
+    }
+   ],
+   "stichwoerter": [
+    "WWW",
+    "drei Winkel",
+    "Winkel reichen nicht",
+    "ähnlich",
+    "Kongruenzsatz WWW"
+   ]
+  }
+ ]
+}

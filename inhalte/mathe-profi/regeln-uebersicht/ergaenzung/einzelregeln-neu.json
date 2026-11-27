@@ -281,9 +281,9 @@
   {
    "kennung": "N-Z05",
    "name": "Nachfolger und „größte Zahl“",
-   "satz": "Zu jeder natürlichen Zahl gibt es einen Nachfolger: Zähle 1 dazu. Deshalb gibt es keine größte natürliche Zahl.",
+   "satz": "Zu jeder natürlichen Zahl (ℕ hier mit 0) gibt es einen Nachfolger: Zähle 1 dazu. Deshalb gibt es keine größte natürliche Zahl.",
    "beispiel": "Der Nachfolger von 999 999 999 ist 999 999 999 + 1 = 1 000 000 000.",
-   "voraus": "Gilt für alle natürlichen Zahlen. „Unendlich“ ist keine Zahl, die man aufschreiben oder ausrechnen kann.",
+   "voraus": "ℕ zählt hier die 0 mit, wie in der Tafel „Zeichen und Wörter“; die kleinste natürliche Zahl ist 0, der Nachfolger von 0 ist 1. Gilt für alle natürlichen Zahlen. „Unendlich“ ist keine Zahl, die man aufschreiben oder ausrechnen kann.",
    "fehler": "„Die größte Zahl ist eine Milliarde“: Eine Milliarde und eins ist größer.",
    "gym": "5",
    "rs": "5",
@@ -327,6 +327,11 @@
      "l": "1",
      "rel": "<",
      "r": "1000000000"
+    },
+    {
+     "l": "0+1",
+     "rel": "==",
+     "r": "1"
     }
    ]
   },
@@ -1334,7 +1339,7 @@
    "name": "Größen mit Komma schreiben",
    "satz": "Hinter dem Komma bekommt die kleinere Einheit so viele Stellen, wie die Umrechnungszahl Nullen hat: m und cm (100) zwei Stellen, kg und g (1 000) drei, € und ct (100) zwei. Leere Stellen füllst du mit 0.",
    "beispiel": "3 m 5 cm = 3,05 m, denn 5 cm sind 5 Hundertstel Meter. Wie beim Geld: 4 € 7 ct = 4,07 €.",
-   "voraus": "Die Stellenzahl hängt vom Sprung ab: Von m nach dm (Umrechnungszahl 10) ist es eine Stelle: 3 m 5 dm = 3,5 m. Von km nach m sind es drei Stellen: 2 km 40 m = 2,040 km = 2,04 km. Alle Umrechnungen: Tafel „Einheiten umrechnen“ (einheiten/).",
+   "voraus": "Die Stellenzahl hängt vom Sprung ab: Von m nach dm (Umrechnungszahl 10) ist es eine Stelle: 3 m 5 dm = 3,5 m. Von km nach m sind es drei Stellen: 2 km 40 m = 2,040 km. Eine Null am Ende hinter dem Komma ändert den Wert nicht (4 Hundertstel sind 40 Tausendstel): 2,040 km = 2,04 km. Alle Umrechnungen: Tafel „Einheiten umrechnen“ (einheiten/).",
    "fehler": "3 m 5 cm = 3,5 m schreiben: Das sind 3 m 50 cm. Wie beim Geld: 4,50 € und 4,05 € sind verschieden.",
    "gym": "5",
    "rs": "5",
@@ -1401,6 +1406,16 @@
      "l": "4+7/100",
      "rel": "==",
      "r": "4.07"
+    },
+    {
+     "l": "2.040",
+     "rel": "==",
+     "r": "2.04"
+    },
+    {
+     "l": "4/100",
+     "rel": "==",
+     "r": "40/1000"
     }
    ]
   },
@@ -1955,9 +1970,9 @@
   {
    "kennung": "N-F08",
    "name": "Schrägbild zeichnen",
-   "satz": "Zeichne die Vorderfläche in wahrer Größe. Kanten nach hinten zeichnest du unter 45° und auf die Hälfte verkürzt (Verkürzungsfaktor q = 1/2); verdeckte Kanten zeichnest du gestrichelt.",
+   "satz": "Zeichne die Vorderfläche in wahrer Größe. Kanten nach hinten zeichnest du üblicherweise unter 45° und auf die Hälfte verkürzt (Verkürzungsfaktor q = 1/2); die Aufgabe kann andere Werte vorgeben. Verdeckte Kanten zeichnest du gestrichelt.",
    "beispiel": "Quader 6 cm breit, 4 cm hoch, 8 cm tief: Vorderfläche 6 cm · 4 cm, Kante nach hinten im Schrägbild 8 cm · 1/2 = 4 cm unter 45°.",
-   "voraus": "Gilt, wenn Winkel 45° und q = 1/2 vereinbart sind (andere Werte stehen dann in der Aufgabe). Wirkliche Länge einer Kante nach hinten = Länge im Bild : q. Nur an der Vorderfläche kannst du im Bild direkt messen.",
+   "voraus": "45° und q = 1/2 sind die übliche Vereinbarung in Aufgaben und können abweichen; was gilt, steht in der Aufgabe. Wirkliche Länge einer Kante nach hinten = Länge im Bild : q. Nur an der Vorderfläche kannst du im Bild direkt messen.",
    "fehler": "Die Kante nach hinten in voller Länge (8 cm) zeichnen: Der Quader wirkt dann viel zu tief. Verkürzt wird nur nach hinten, nicht in der Breite oder Höhe.",
    "gym": "8",
    "rs": "5",
@@ -2009,9 +2024,9 @@
   {
    "kennung": "N-F09",
    "name": "Ansichten von Körpern",
-   "satz": "Eine Ansicht zeigt den Körper aus einer Richtung als flache Figur: von vorn (Vorderansicht), von der Seite (Seitenansicht), von oben (Draufsicht). Zeichne nur, was du aus dieser Richtung siehst.",
+   "satz": "Eine Ansicht zeigt den Körper aus einer Richtung als flache Figur: von vorn (Vorderansicht), von der Seite (Seitenansicht), von oben (Draufsicht). Zeichne nur, was du aus dieser Richtung siehst. Was vorn und was oben ist, legen Aufgabe oder Zeichnung fest.",
    "beispiel": "Zylinder (r = 3 cm, h = 10 cm), auf dem Boden stehend: Vorderansicht Rechteck 6 cm · 10 cm, Draufsicht Kreis mit Radius 3 cm.",
-   "voraus": "Der Körper steht auf seiner Grundfläche. Die Breite der Vorderansicht ist beim Zylinder der Durchmesser 2 · r.",
+   "voraus": "Die Aufgabe oder Zeichnung bestimmt, welche Seite vorn und welche oben ist; ohne Angabe steht der Körper auf seiner Grundfläche. Die Breite der Vorderansicht ist beim stehenden Zylinder der Durchmesser 2 · r.",
    "fehler": "Die Draufsicht des stehenden Zylinders als Rechteck zeichnen: Von oben sieht man den Deckel, einen Kreis.",
    "gym": "8",
    "rs": "5",
@@ -3055,10 +3070,10 @@
   {
    "kennung": "N-G14",
    "name": "Zweite Lösung bei sin, cos und tan",
-   "satz": "Der Taschenrechner liefert nur x₁. Zwischen 0° und 360° gibt es die zweite Lösung: bei sin x = v: x₂ = 180° − x₁; bei cos x = v: x₂ = 360° − x₁; bei tan x = v: x₂ = x₁ + 180°. Ist x₁ negativ, nimm statt x₁ den Winkel x₁ + 360°.",
-   "beispiel": "cos x = −0,5: x₁ = 120°, x₂ = 360° − 120° = 240°. Probe: cos 240° = −0,5.",
-   "voraus": "Für sin und cos muss −1 ≤ v ≤ 1 sein. Bei v = ±1 gibt es genau eine Lösung (x₁ = x₂), bei |v| > 1 keine. tan x = v hat für jedes v zwei Lösungen; tan 90° und tan 270° sind nicht definiert.",
-   "fehler": "Bei cos x = −0,5 mit 180° − x₁ = 60° rechnen: cos 60° = +0,5, das ist nicht die gesuchte Lösung.",
+   "satz": "Der Taschenrechner liefert nur x₁. Schritt 1: Bring x₁ in den Bereich 0° bis 360° (negativ: plus 360°). Schritt 2: Rechne die zweite Lösung x₂: bei sin x = v: 180° − x₁; bei cos x = v: 360° − x₁; bei tan x = v: x₁ + 180°. Auch x₂ muss im Bereich liegen (unter 0°: plus 360°, ab 360°: minus 360°). Schritt 3: Schreibe beide Lösungen der Größe nach auf.",
+   "beispiel": "tan x = −1: Rechner −45°, im Bereich 315°. x₂ = 315° + 180° = 495°, minus 360° gibt 135°. Lösungen sortiert: 135° und 315°. Probe: tan 135° = −1 und tan 315° = −1.",
+   "voraus": "Bereich: 0° ≤ x < 360° (360° ist dasselbe wie 0°). Für sin und cos muss −1 ≤ v ≤ 1 sein. Bei v = ±1 gibt es genau eine Lösung (x₁ = x₂), bei |v| > 1 keine. tan x = v hat für jedes v zwei Lösungen; tan 90° und tan 270° sind nicht definiert.",
+   "fehler": "Den Rechnerwert −45° stehen lassen oder nur eine Lösung angeben: Gesucht sind alle Lösungen von 0° bis 360°, hier 135° und 315°. Bei cos x = −0,5 mit 180° − x₁ = 60° rechnen ist falsch: cos 60° = +0,5.",
    "gym": "9",
    "rs": "10",
    "gebiet": "Geometrie",
@@ -3153,6 +3168,31 @@
      "l": "45+180",
      "rel": "==",
      "r": "225"
+    },
+    {
+     "l": "-45+360",
+     "rel": "==",
+     "r": "315"
+    },
+    {
+     "l": "315+180-360",
+     "rel": "==",
+     "r": "135"
+    },
+    {
+     "l": "rund(tan_d(135), 6)",
+     "rel": "==",
+     "r": "-1"
+    },
+    {
+     "l": "rund(tan_d(315), 6)",
+     "rel": "==",
+     "r": "-1"
+    },
+    {
+     "l": "135",
+     "rel": "<",
+     "r": "315"
     }
    ]
   },
@@ -3543,7 +3583,7 @@
    "name": "Hyperbel verschieben",
    "satz": "f(x) = a/(x + b) + c ist die Hyperbel a/x, verschoben um b nach links (b negativ: nach rechts) und um c nach oben (c negativ: nach unten). Das Vorzeichen in der Klammer wirkt umgekehrt.",
    "beispiel": "f(x) = 2/(x − 3) + 1: Die Hyperbel 2/x ist 3 nach rechts und 1 nach oben verschoben. Der verbotene Wert ist x = 3, denn 3 − 3 = 0.",
-   "voraus": "a ≠ 0, a, b, c rationale Zahlen. Definitionsmenge D = ℚ \\ {−b}.",
+   "voraus": "a ≠ 0; a, b, c sind Zahlen aus der Grundmenge. Die Grundmenge steht in der Aufgabe (oft ℚ, ab Klasse 9 ℝ). Definitionsmenge: D = Grundmenge ohne −b, zum Beispiel ℚ \\ {−b}.",
    "fehler": "1/(x − 3) nach links schieben: Die Lücke liegt bei x = 3 und das ist rechts von der 0.",
    "gym": "8",
    "rs": "–",
@@ -3610,9 +3650,9 @@
   {
    "kennung": "N-U07",
    "name": "Asymptoten der Hyperbel",
-   "satz": "Bei f(x) = a/(x + b) + c: Die senkrechte Asymptote ist x = −b (dort ist der Nenner 0), die waagerechte ist y = c. Der Graph kommt den Asymptoten beliebig nahe und erreicht sie nie. Wertemenge W = ℚ \\ {c}.",
+   "satz": "Bei f(x) = a/(x + b) + c: Die senkrechte Asymptote ist x = −b (dort ist der Nenner 0), die waagerechte ist y = c. Der Graph kommt den Asymptoten beliebig nahe und erreicht sie nie. Die Wertemenge hängt von D ab: Bei D = ℚ \\ {−b} ist W = ℚ \\ {c}, bei D = ℝ \\ {−b} ist W = ℝ \\ {c}.",
    "beispiel": "f(x) = 2/(x + 4) − 3: senkrechte Asymptote x = −4, waagerechte y = −3. Für x = 1 000 ist f(x) = 2/1 004 − 3 ≈ −2,998.",
-   "voraus": "a ≠ 0; a, b, c rational. Der Bruch 2/(x + 4) wird nie 0, deshalb wird f(x) nie −3.",
+   "voraus": "a ≠ 0. Die Grundmenge steht in der Aufgabe (oft ℚ, ab Klasse 9 ℝ). Der Bruch 2/(x + 4) wird nie 0, deshalb wird f(x) nie −3. Wird D weiter eingeschränkt, kann W kleiner sein.",
    "fehler": "Den Zähler als waagerechte Asymptote nehmen (y = 2): Sie liegt bei y = c = −3.",
    "gym": "8",
    "rs": "–",
@@ -3824,9 +3864,9 @@
   {
    "kennung": "N-A03",
    "name": "Bruchgleichung über Kreuz lösen",
-   "satz": "Steht links ein Bruch und rechts ein Bruch, bestimme zuerst D (jeder Nenner ≠ 0). Dann a/b = c/d ⇔ a · d = c · b: Zähler links mal Nenner rechts gleich Zähler rechts mal Nenner links. Löse die lineare Gleichung und prüfe, ob die Lösung in D liegt.",
-   "beispiel": "3/(x − 2) = 6/(x + 4) mit D = ℚ \\ {2; −4}: 3 · (x + 4) = 6 · (x − 2), also 3x + 12 = 6x − 12 und x = 8. 8 liegt in D. Probe: 3/6 = 1/2 und 6/12 = 1/2.",
-   "voraus": "Nur bei genau einem Bruch (oder einer Zahl) auf jeder Seite, sonst mit dem Hauptnenner multiplizieren. Liegt die Lösung nicht in D, ist es eine Scheinlösung und L = { }.",
+   "satz": "Steht links ein Bruch und rechts ein Bruch, bestimme zuerst D (in der Grundmenge der Aufgabe: jeder Nenner ≠ 0). Dann a/b = c/d ⇔ a · d = c · b: Zähler links mal Nenner rechts gleich Zähler rechts mal Nenner links. Löse die lineare Gleichung und prüfe, ob die Lösung in D liegt.",
+   "beispiel": "3/(x − 2) = 6/(x + 4), Grundmenge ℚ, D = ℚ \\ {2; −4}: 3 · (x + 4) = 6 · (x − 2), also 3x + 12 = 6x − 12 und x = 8. 8 liegt in D. Probe: 3/6 = 1/2 und 6/12 = 1/2.",
+   "voraus": "Die Grundmenge steht in der Aufgabe (oft ℚ, ab Klasse 9 ℝ). Nur bei genau einem Bruch (oder einer Zahl) auf jeder Seite, sonst mit dem Hauptnenner multiplizieren. Liegt die Lösung nicht in D, ist es eine Scheinlösung und L = { }.",
    "fehler": "Jeden Zähler mit dem eigenen Nenner malnehmen: 3 · (x − 2) = 6 · (x + 4) liefert x = −10, aber 3/(−12) = −0,25 ist nicht 6/(−6) = −1.",
    "gym": "8",
    "rs": "8",
@@ -4106,10 +4146,10 @@
   },
   {
    "kennung": "N-D02",
-   "name": "Baumdiagramm zum Zählen",
-   "satz": "Zeichne für jede Stufe Äste. Jeder Weg vom Start bis zum Ende ist ein Ergebnis. Gibt es auf jeder Stufe gleich viele Äste, malnimm die Astzahlen; zähle dann die Wege, die zur Frage passen.",
+   "name": "Baumdiagramm zum Zählen (Zählregel)",
+   "satz": "Zählregel, keine Wahrscheinlichkeit: Zeichne für jede Stufe Äste. Jeder Weg vom Start bis zum Ende ist ein Ergebnis. Gibt es auf jeder Stufe gleich viele Äste, malnimm die Astzahlen; zähle dann die Wege, die zur Frage passen.",
    "beispiel": "Münze dreimal werfen: 2 · 2 · 2 = 8 Wege. Genau zweimal Kopf: KKZ, KZK, ZKK, also 3 Wege.",
-   "voraus": "Jeder Weg ist ein eigenes Ergebnis: KZK und ZKK sind verschieden. Das Malnehmen der Äste gilt nur, wenn jede Stufe immer gleich viele Äste hat.",
+   "voraus": "Hier zählst du Wege und rechnest keine Wahrscheinlichkeiten. Die Pfadregel (Wahrscheinlichkeiten an den Ästen malnehmen und addieren) steht in D19 und I-daten-4. Jeder Weg ist ein eigenes Ergebnis: KZK und ZKK sind verschieden. Die Astzahlen malnehmen nur, wenn jede Stufe gleich viele Äste hat.",
    "fehler": "Bei „genau zweimal Kopf“ nur KKZ zählen: KZK und ZKK sind andere Wege und zählen mit.",
    "gym": "5",
    "rs": "5",
@@ -4132,7 +4172,8 @@
    "verwandt": [
     "D11",
     "D19",
-    "D12"
+    "D12",
+    "I-daten-4"
    ],
    "lernkarten": [
     {

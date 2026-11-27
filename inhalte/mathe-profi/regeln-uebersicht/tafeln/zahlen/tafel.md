@@ -59,10 +59,10 @@ Eine Primzahl hat genau zwei Teiler: 1 und sich selbst. Die 1 ist keine Primzahl
 
 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97 (25 Zahlen)
 
-Test: Prüfe eine Zahl bis 100 nur mit 2, 3, 5 und 7. Geht keine auf, ist sie eine Primzahl. Eine zusammengesetzte Zahl bis 100 hat einen Teiler von höchstens 7, denn 11 · 11 = 121 ist schon größer als 100.
+Test: Für eine Zahl von 2 bis 100: Ist es 2, 3, 5 oder 7, ist sie prim. Sonst teile sie einzeln durch 2, 3, 5 und 7. Geht keine Division ohne Rest auf, ist sie eine Primzahl. Eine zusammengesetzte Zahl bis 100 hat einen Teiler von höchstens 7, denn 11 · 11 = 121 ist schon größer als 100. Für 97 reicht es sogar bis √97, das ist knapp unter 10: 9 · 9 = 81 und 10 · 10 = 100. Die Primteiler bis dahin sind 2, 3, 5 und 7.
 
 - 91 ist nicht durch 2, 3, 5 teilbar, aber 7 · 13 = 91. Also keine Primzahl.
-- 97 ist ungerade, hat die Quersumme 16, endet nicht auf 0 oder 5; 7 · 13 = 91 und 7 · 14 = 98. Keine geht auf: Primzahl.
+- 97 : 2 ist 48 Rest 1; 97 : 3 ist 32 Rest 1; 97 : 5 ist 19 Rest 2; 97 : 7 ist 13 Rest 6. Kein Rest ist 0, weitere Primteiler bis √97 gibt es nicht: Primzahl.
 
 ## Teilbarkeitsregeln
 

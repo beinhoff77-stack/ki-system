@@ -1019,6 +1019,63 @@ def zeichen_pruefen():
             if (e['buchstabe'] == e['buchstabe'].upper()) != (e['schreibung'] == 'groß'): f('%s: groß/klein' % e['buchstabe'])
 zeichen_pruefen()
 
+# ============================================================ 8b Auflagen aus Werkstatt 1133/1137 (Tafeln)
+def auflagen_pruefen():
+    zw = {e['kennung']: e for e in T['zeichen-woerter']['eintraege']}
+    # Exponent: nur positive ganzzahlige Exponenten als „wie oft die Basis dasteht“, Nullregel genannt
+    w13 = zw['zw-w13']
+    if 'a⁰ = 1' not in w13['satz'] or 'a ≠ 0' not in w13['satz'] or 'wie oft die Basis dasteht' not in w13['satz'] or '1, 2, 3' not in w13['satz']: f('zw-w13: Satz muss auf 1, 2, 3 … beschränken und a⁰ = 1 für a ≠ 0 nennen')
+    if 5 ** 0 != 1 or '5⁰ = 1' not in w13['nullregel']: f('zw-w13: Nullregel-Beispiel')
+    # ∢ als Suchwort
+    if '∢' not in zw['zw-28']['stichwoerter']: f('zw-28: Suchwort ∢ fehlt')
+    # Schreibweise von Strecke, Gerade, Halbgerade sichtbar als hier gewählt gekennzeichnet
+    md_zw = (hier / 'zeichen-woerter' / 'tafel.md').read_text(encoding='utf-8')
+    for k in ('zw-32', 'zw-33', 'zw-34', 'zw-35'):
+        if 'dein Schulbuch kann anders schreiben' not in zw[k].get('schreibweise_hinweis', ''): f('%s: Hinweis „Schreibweise hier gewählt“ fehlt' % k)
+        zeile = [z for z in md_zw.splitlines() if z.startswith('| %s |' % k)]
+        if not zeile or 'dein Schulbuch kann anders schreiben' not in zeile[0]: f('%s: Hinweis fehlt in tafel.md' % k)
+    # Primzahlen: Bereich 2 bis 100, 97 mit Resten statt Produkten
+    z6 = {e['kennung']: e for e in T['zahlen']['eintraege']}['zz-06']
+    if '2 bis 100' not in z6['so_testest_du']: f('zz-06: Bereich „Zahl von 2 bis 100“ fehlt (1 darf nicht durchrutschen)')
+    w97 = [b for b in z6['beispiele'] if b['zahl'] == 97][0]['weg']
+    for t in (2, 3, 5, 7):
+        q, r = divmod(97, t)
+        if r == 0 or '97 : %d ist %d Rest %d' % (t, q, r) not in w97: f('zz-06: 97 : %d mit Rest fehlt oder falsch' % t)
+    if '7 · 13' in w97 or '7 · 14' in w97: f('zz-06: 97 darf nicht mit „7 · 13 / 7 · 14“ begründet werden')
+    if not (9 * 9 < 97 < 10 * 10): f('zz-06: √97 liegt nicht zwischen 9 und 10')
+    # Haus der Vierecke: Einordnung je Viereck stimmt mit der Hülle der Beziehungen überein; Trapez-Konvention gekennzeichnet
+    ve = [e for e in T['figuren']['eintraege'] if e['art'] == 'viereck']
+    kn = {(b['sonderfall'], b['von']) for b in [x for x in T['figuren']['eintraege'] if x['art'] == 'haus'][0]['beziehungen']}
+    hu = {e['titel']: {b for a, b in kn if a == e['titel']} for e in ve}
+    for _ in range(6):
+        for n in hu:
+            for m in list(hu[n]): hu[n] |= hu.get(m, set())
+    def genannt(t):
+        t0 = t.split('. ')[0]
+        t1 = re.sub(r'gleichschenklig\w* Trapez', 'GLTRAPEZ', t0)
+        return {n for n, rx in (('Quadrat', 'Quadrat'), ('Rechteck', 'Rechteck'), ('Raute', 'Raute'), ('Parallelogramm', 'Parallelogramm'), ('Drachenviereck', 'Drachenviereck'), ('Gleichschenkliges Trapez', 'GLTRAPEZ'), ('Trapez', r'(?<!GL)Trapez(?!\w)')) if re.search(rx, t1)}
+    for e in ve:
+        if not e.get('einordnung'): f('%s: Einordnung fehlt' % e['titel']); continue
+        soll = hu[e['titel']] - {'Allgemeines Viereck'}
+        ist = genannt(e['einordnung']) - {e['titel']}
+        if ist != soll: f('%s: Einordnung nennt %s, nach den Beziehungen sind es %s' % (e['titel'], sorted(ist), sorted(soll)))
+        zaehle('einordnungen')
+    f18 = [e for e in ve if e['kennung'] == 'fg-18'][0]
+    if 'Konvention' not in f18['konvention'] or 'Vereinbarung' not in f18['seiten']: f('fg-18: Trapez-Definition nicht als Konvention gekennzeichnet')
+    if 'Vereinbarung (Konvention)' not in (hier / 'figuren' / 'tafel.md').read_text(encoding='utf-8'): f('figuren/tafel.md: Konvention Trapez fehlt')
+    # Prozentformeln: bei jeder Formel die Symbolerklärung mit Faktor p/100
+    bd = T['bruch-dezimal-prozent']['eintraege']
+    md_bd = (hier / 'bruch-dezimal-prozent' / 'tafel.md').read_text(encoding='utf-8')
+    for e in bd:
+        if e['art'] in ('grundaufgabe', 'zins', 'zinseszins'):
+            sy = e.get('symbole', '')
+            if 'p/100' not in sy or not ('Prozentsatz' in sy or 'Prozentzahl' in sy or 'Zinssatz' in sy): f('%s: Symbolerklärung mit p/100 fehlt' % e['kennung'])
+            for m in re.finditer(r'(\d+) % → (\d+(?:,\d+)?)', sy):
+                if F(m.group(1)) / 100 != F(m.group(2).replace(',', '.')) and not (e['kennung'] == 'bd-03'): f('%s: %s %% als Faktor wäre %s' % (e['kennung'], m.group(1), F(m.group(1)) / 100))
+            if ('- Symbole: ' + sy) not in md_bd: f('%s: Symbolzeile fehlt in tafel.md' % e['kennung'])
+            zaehle('symbolzeilen')
+auflagen_pruefen()
+
 # ============================================================ 9 tafel.md
 def md_pruefen():
     for n, d in T.items():

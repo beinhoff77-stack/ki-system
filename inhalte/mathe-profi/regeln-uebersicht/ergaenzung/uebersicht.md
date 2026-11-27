@@ -43,7 +43,7 @@ Stand 27.11.2026. Nur Vorschlag und Inhalte; geändert wurden weder `daten/regel
 | `N-F03` | Quader: Ecken, Kanten, Flächen und Kantenlänge | Fläche und Raum, I-fur-4 | neu | messen.koerper_berechnung: quader |
 | `N-F04` | Oberfläche zusammengesetzter Körper | Fläche und Raum, I-fur-4 | neu | messen.koerper_berechnung: zusammengesetzt |
 | `N-D01` | Alle Möglichkeiten systematisch aufschreiben | Daten und Zufall, I-daten-3 | neu | stochastik.kombinatorik: systematisch |
-| `N-D02` | Baumdiagramm zum Zählen | Daten und Zufall, I-daten-4 | neu | stochastik.kombinatorik: baumdiagramm |
+| `N-D02` | Baumdiagramm zum Zählen (Zählregel) | Daten und Zufall, I-daten-4 | neu | stochastik.kombinatorik: baumdiagramm |
 | `N-D03` | Reihenfolgen ohne Wiederholung | Daten und Zufall, I-daten-3 | neu | stochastik.kombinatorik: reihenfolgen |
 | `N-D04` | Wenn die Reihenfolge egal ist: Paare zählen | Daten und Zufall, I-daten-3 | neu | stochastik.kombinatorik: grenzen |
 
@@ -114,7 +114,7 @@ Stand 27.11.2026. Nur Vorschlag und Inhalte; geändert wurden weder `daten/regel
 
 ## Nur Verweise (steht schon im Universum, nur unter anderem Namen oder ohne Verknüpfung)
 
-Kein neuer Text; es genügt, die Suchwörter (Spalte „Stichwörter“) auf das Ziel zu legen und die Lernkarten mit dem Ziel zu verknüpfen. Wo die bestehende Regel selbst etwas ergänzt haben möchte, steht ein Vorschlag.
+Abgleich mit dem Bestand: `verweise-abgleich.md`. Kein neuer Text; es genügt, die Suchwörter (Spalte „Stichwörter“) auf das Ziel zu legen und die Lernkarten mit dem Ziel zu verknüpfen. Wo die bestehende Regel selbst etwas ergänzt haben möchte, steht ein Vorschlag.
 
 | Kennung | Gesuchter Stoff | Steht in | Stichwörter | Lernkarten | Vorschlag |
 |---|---|---|---|---|---|
@@ -159,11 +159,11 @@ Begründungen je Verweis stehen in `einzelregeln-neu.json` (Feld `begruendung`).
 1. Trapez ist in `N-G09` bewusst nicht enthalten: Ob „genau ein Paar“ oder „mindestens ein Paar“ paralleler Seiten gilt, ist im Bestand nicht festgelegt (G7 nennt das Trapez nur beim Namen, F7 spricht von „den beiden parallelen Seiten“). Erst entscheiden, dann ergänzen.
 2. Klassen weichen im Bestand ab: V9 (Gymnasium Klasse 7) und die Lernkarte „rabatt_aufschlag“ (Klasse 6); D17 (Klasse 9) und die Lernkarte „darstellen“ (Klasse 8); V7 steht mit Klasse 5, Steigung kommt erst in Klasse 8. Die neuen Regeln folgen der Lernkarte.
 3. `N-A03` (über Kreuz) und `N-Z02`/`N-Z03` (Z3), `N-G06` (G13), `N-G13` (G21), `N-G14` (G30), `N-D09` (D17), `N-Z06` (Z7) sind Ausarbeitungen: Der Bestand nennt den Stoff schon in einem Halbsatz. Alternative: die bestehende Regel mit demselben Text ausarbeiten statt eine neue anzulegen.
-4. Grundmenge ℚ in `N-U01`, `N-U06`, `N-U07`, `N-A03`: so schreibt es die Lernkarte (Klasse 8, `D = ℚ \ {…}`); Wertemenge ℚ \ {c} gilt nur für rationale a, b, c. Würde die App ℝ verwenden, ist ℚ durch ℝ zu ersetzen (dann gilt dieselbe Rechnung).
-5. `N-F08` Schrägbild: Winkel 45° und Verkürzungsfaktor ½ stehen so in der Lernkarte; gegen den LehrplanPLUS nicht geprüft, in der Regel als „vereinbart“ gekennzeichnet.
+4. Grundmenge in `N-U01`, `N-U06`, `N-U07`, `N-A03`: Sie steht in der Aufgabe (oft ℚ, ab Klasse 9 ℝ); die Lernkarte (Klasse 8) schreibt `D = ℚ \ {…}`. Die Wertemenge in `N-U07` hängt von D ab (ℚ \ {c} bei D = ℚ \ {−b}, ℝ \ {c} bei D = ℝ \ {−b}). Auflage aus Werkstatt 1133/1137.
+5. `N-F08` Schrägbild: Winkel 45° und Verkürzungsfaktor ½ stehen so in der Lernkarte; gegen den LehrplanPLUS nicht geprüft, in der Regel ausdrücklich als übliche Vereinbarung gekennzeichnet, die in der Aufgabe abweichen kann.
 6. `N-Z06` (Teilbarkeit 4, 6, 8, 25) steht in Bericht A, nicht B, und hat keine Lernkarte im Bestand (`zahlen.teilbarkeit` behandelt nur 2, 3, 5, 9, 10).
 7. `N-Z12` (Im Kopf rechnen) trägt nur schwach zu einer Idee: gewählt ist „Bündeln in Zehnern“ (Zerlegen in Zehner und Einer); verwandt ist Rechenregel 6.
 8. `N-Z02`: Auf Uhren steht oft IIII statt IV; die Regel nennt die übliche Schreibweise IV. `N-Z01`: „Billion“ ist im Deutschen 10¹², im Englischen „billion“ 10⁹ – steht so in der Regel.
-9. `N-G14`: Rechner liefern für sin und tan bei negativem v negative Winkel; die Regel sagt dafür „+ 360°“. Die Rechenproben prüfen die Winkelfunktionen nur auf sechs Stellen (Gleitkomma), alles andere exakt.
+9. `N-G14`: Rechner liefern für sin und tan bei negativem v negative Winkel; die Regel bringt x₁ zuerst in den Bereich 0° bis 360° („+ 360°“), bestimmt dann alle Lösungen dort und ordnet sie (Beispiel tan x = −1: −45° gibt 315° und 135°). Die Rechenproben prüfen die Winkelfunktionen nur auf sechs Stellen (Gleitkomma), alles andere exakt.
 10. Kein Lehrplan-Abgleich: Alle Klassenangaben sind die der Lernkarten-Themen, nicht Fundstellen im Fachlehrplan.
 

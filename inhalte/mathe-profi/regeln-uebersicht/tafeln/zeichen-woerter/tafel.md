@@ -39,10 +39,10 @@ Stand 2026-11-27. Entwurf: nichts ist in die App eingespielt; geprüft mit `../p
 | zw-29 | △ | Dreieck | Das Dreieck mit den drei genannten Ecken. | △ABC: Dreieck mit den Ecken A, B und C | ohne Beleg | – |
 | zw-30 | ≅ | ist kongruent zu | Die Figuren sind deckungsgleich: gleiche Form und gleiche Größe. | △ABC ≅ △DEF | ohne Beleg | I-geo-3 |
 | zw-31 | ∼ | ist ähnlich zu | Die Figuren haben die gleiche Form, aber vielleicht eine andere Größe: gleiche Winkel, Seiten im selben Verhältnis. | △ABC ∼ △DEF | ohne Beleg | G20 |
-| zw-32 | [AB] | Strecke AB | Die Strecke von A nach B mit den Endpunkten A und B. | [AB] | Gym 5 · RS 5 · IB 1 | – |
-| zw-33 | \|AB\| | Länge der Strecke AB | Wie lang die Strecke [AB] ist, als Zahl mit Einheit. | \|AB\| = 5 cm | ohne Beleg | – |
-| zw-34 | AB | Gerade AB | Die Gerade durch A und B; sie geht in beide Richtungen ohne Ende weiter. | Gerade AB | ohne Beleg | – |
-| zw-35 | [AB | Halbgerade AB | Die Halbgerade, die in A beginnt und durch B immer weiter geht. | [AB | ohne Beleg | – |
+| zw-32 | [AB] | Strecke AB | Die Strecke von A nach B mit den Endpunkten A und B. Hier verwendete Schreibweise – dein Schulbuch kann anders schreiben. | [AB] | Gym 5 · RS 5 · IB 1 | – |
+| zw-33 | \|AB\| | Länge der Strecke AB | Wie lang die Strecke [AB] ist, als Zahl mit Einheit. Hier verwendete Schreibweise – dein Schulbuch kann anders schreiben. | \|AB\| = 5 cm | ohne Beleg | – |
+| zw-34 | AB | Gerade AB | Die Gerade durch A und B; sie geht in beide Richtungen ohne Ende weiter. Hier verwendete Schreibweise – dein Schulbuch kann anders schreiben. | Gerade AB | ohne Beleg | – |
+| zw-35 | [AB | Halbgerade AB | Die Halbgerade, die in A beginnt und durch B immer weiter geht. Hier verwendete Schreibweise – dein Schulbuch kann anders schreiben. | [AB | ohne Beleg | – |
 | zw-36 | ∞ | unendlich | Ohne Ende. ∞ ist keine Zahl, sondern steht für „immer weiter“. | Alle Zahlen größer als 3: ]3; ∞[ | Gym 8 · RS 7 · IB 4 | A11 |
 | zw-37 | ° | Grad | Einheit für Winkel. Eine ganze Drehung hat 360°. | 90° : 360° = 1/4 (stimmt); 180° = 360° : 2 (stimmt) | Gym 5 · RS 5 · IB 1 | G3 |
 | zw-38 | ⇒ | daraus folgt | Stimmt die linke Aussage, dann auch die rechte. Umgekehrt muss das nicht gelten. | x = 3 ⇒ x + 1 = 4 | Gym 9 · RS 9 · IB 4 | – |
@@ -81,7 +81,7 @@ Stand 2026-11-27. Entwurf: nichts ist in die App eingespielt; geprüft mit `../p
 | zw-w10 | Quotient | Das Ergebnis von geteilt. | 20 : 4 = 5: 5 ist der Quotient. | Gym 5 · RS 5 · IB 1 | A1 |
 | zw-w11 | Potenz | Kurzschreibweise für dieselbe Zahl mehrmals malgenommen. | 2³ = 2 · 2 · 2 = 8: 2³ ist eine Potenz, ihr Wert ist 8. | Gym 5 · RS 5 · IB 1 | R8 |
 | zw-w12 | Basis | Die Zahl, die bei einer Potenz malgenommen wird. | 2³ = 2 · 2 · 2 = 8: 2 ist die Basis. | Gym 5 · RS 5 · IB 1 | R8 |
-| zw-w13 | Exponent | Die kleine Zahl oben: Sie sagt, wie oft die Basis dasteht. | 2³ = 2 · 2 · 2 = 8: 3 ist der Exponent. | Gym 5 · RS 5 · IB 1 | R8 |
+| zw-w13 | Exponent | Die kleine Zahl oben. Bei 1, 2, 3 … sagt sie, wie oft die Basis dasteht; a⁰ = 1 (für a ≠ 0). | 2³ = 2 · 2 · 2 = 8: 3 ist der Exponent. | Gym 5 · RS 5 · IB 1 | R8 |
 | zw-w14 | Radikand | Die Zahl unter dem Wurzelzeichen. | √49 = 7: 49 ist der Radikand. | Gym 9 · RS 9 · IB 4 | Z20 |
 | zw-w15 | Zähler | Die Zahl über dem Bruchstrich: wie viele Teile du nimmst. | Bei 3/4 ist 3 der Zähler: Du nimmst 3 Teile. | Gym 6 · RS 6 · IB 1 | Z10 |
 | zw-w16 | Nenner | Die Zahl unter dem Bruchstrich: in wie viele gleiche Teile das Ganze geteilt wird. Sie darf nie 0 sein. | Bei 3/4 ist 4 der Nenner: Das Ganze wird in 4 gleiche Teile geteilt. | Gym 6 · RS 6 · IB 1 | Z10 |
@@ -109,5 +109,6 @@ Stand 2026-11-27. Entwurf: nichts ist in die App eingespielt; geprüft mit `../p
 - **Nebeneinander (Hauptansicht):** drei Reiter „Zeichen“, „Griechisch“, „Wörter“; im Reiter „Zeichen“ eine Zeile je Zeichen mit großem Zeichen links, Sprechweise und Bedeutung rechts. So kann das Kind ein unbekanntes Zeichen abschreiben oder suchen und sofort lesen, wie man es spricht.
 - **Wörter:** alphabetisch, ein Satz je Wort. Rechenwörter (Summand, Summe, Faktor, Produkt, Quotient …) als Gruppe, bei der das Beispiel die Rolle jeder Zahl farbig zeigt.
 - **Zum Aufklappen:** Beispiele je Zeichen (die „stimmt nicht“-Beispiele helfen gegen typische Fehler) und die Klassenstufe.
+- **Hinweis zu Strecke, Gerade, Halbgerade:** [AB], AB und [AB sowie |AB| sind die hier verwendete Schreibweise; dein Schulbuch kann anders schreiben. Auf der Karte steht der Hinweis direkt an diesen vier Zeichen.
 - **Hinweis zu Mengenzeichen:** ℕ zählt hier die 0 mit, wie im Bestand; bei Mengen steht das Semikolon zwischen den Elementen.
 - **Suche:** `stichwoerter` (auch Umschreibungen wie „kleiner gleich“, „Wurzelzeichen“, „parallel“).

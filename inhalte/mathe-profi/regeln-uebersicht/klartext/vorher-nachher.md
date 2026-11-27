@@ -1,60 +1,64 @@
 # Vorher und nachher: Klartext-Vorschläge für das Regel-Universum
 
 Entwurf, nichts eingespielt. 72 Einträge (B oder C): 23 Ideen, 48 Einzelregeln, 1 Rechenregel. A-Einträge sind unverändert.
-Alle Zahlenbeispiele werden von `pruefen.py` nachgerechnet. Maßstab: Ein Kind schlägt nach und kann danach eine Aufgabe lösen.
+Alle Zahlenbeispiele werden von `pruefen.py` nachgerechnet. Maßstab: Ein Kind schlägt nach und kann danach eine Aufgabe lösen. Bei den 23 Ideen steht zusätzlich die Zeile „Genau gesagt“ (vorher/nachher). Überarbeitet nach den Auflagen aus Werkstatt 1133/1137.
 
 Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und Klasse-8-Stoff.
 
 ## Daten und Zufall
 
-### I-daten-1 (Idee, Klasse 6–8): Kennzahl → Mittelwert, Median, Spannweite
+### I-daten-1 (Idee, Klasse 6–8): Kennzahl → Daten in Zahlen zusammenfassen
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Kennzahl | Mittelwert, Median, Spannweite |
-| Merksatz | Eine Zahl für viele – dabei geht meist etwas verloren. | Mittelwert = Summe : Anzahl. Median = mittlerer Wert der geordneten Liste (bei gerader Anzahl: Mitte der beiden mittleren). Spannweite = größter − kleinster Wert. |
-| Kurzbeschreibung | Mittelwert, Median und Spannweite fassen viele Werte in einer Zahl zusammen. | Drei Zahlen beschreiben eine Datenreihe: die Mitte (Mittelwert, Median) und die Streuung (Spannweite). |
+| Name | Kennzahl | Daten in Zahlen zusammenfassen |
+| Merksatz | Eine Zahl für viele – dabei geht meist etwas verloren. | Mittelwert = Summe aller Werte : Anzahl der Werte. Median = der mittlere Wert, nachdem du die Werte der Größe nach sortiert hast (bei gerader Anzahl: Mittelwert der beiden mittleren). Spannweite = größter − kleinster Wert. |
+| Kurzbeschreibung | Mittelwert, Median und Spannweite fassen viele Werte in einer Zahl zusammen. | Mittelwert und Median rechnet man verschieden aus; die Spannweite zeigt, wie weit die Werte streuen. |
+| Genau gesagt | Eine Kennzahl fasst viele Daten in einer Zahl zusammen – und verschweigt dabei meist etwas. | Mittelwert: alle Werte zusammenzählen und durch die Anzahl teilen. Median: die Werte der Größe nach ordnen und den mittleren nehmen; bei gerader Anzahl den Mittelwert der beiden mittleren. Spannweite: größter Wert minus kleinster Wert. |
 
-- **Beispiel (nachgerechnet):** Werte 2, 3, 10: Mittelwert (2 + 3 + 10) : 3 = 5, Median 3, Spannweite 10 − 2 = 8. Werte 2, 4, 6, 10: Median (4 + 6) : 2 = 5.
+- **Beispiel (nachgerechnet):** Beispiel (erfundene Beispielzahlen): Werte 2, 3, 10: Mittelwert (2 + 3 + 10) : 3 = 5; sortiert 2, 3, 10, der mittlere Wert ist der Median 3; Spannweite 10 − 2 = 8. Werte 2, 4, 6, 10: Median (4 + 6) : 2 = 5, Mittelwert (2 + 4 + 6 + 10) : 4 = 5,5.
 - **Gilt, wenn:** Für Zahlenwerte, nicht für Kategorien wie Lieblingsfarbe. Beim Median erst der Größe nach ordnen. Ein Ausreißer zieht den Mittelwert stark mit, den Median kaum (siehe D5).
-- **Erster Satz von „warum“ (alte Einsicht bleibt):** Eine einzige Zahl fasst viele Werte zusammen und macht Daten vergleichbar – dabei geht etwas verloren: Zwei ganz verschiedene Datenreihen können denselben Mittelwert haben. Deshalb nimmt man meist zwei Zahlen, eine für die Mitte und eine für die Streuung.
-- **Problem der alten Fassung:** Der Name „Kennzahl“ und der Satz „Eine Zahl für viele“ sagten nicht, welche Zahlen es gibt und wie man sie ausrechnet.
+- **Erster Satz von „warum“ (alte Einsicht bleibt):** Eine einzige Zahl fasst viele Werte zusammen und macht Daten vergleichbar – dabei geht etwas verloren: Zwei ganz verschiedene Datenreihen können denselben Mittelwert haben. Deshalb schaut man auf Mittelwert oder Median und zusätzlich auf die Spannweite.
+- **Problem der alten Fassung:** Der Name „Kennzahl“ und der Satz „Eine Zahl für viele“ sagten nicht, welche Zahlen es gibt und wie man sie ausrechnet; Mittelwert und Median werden jetzt getrennt erklärt.
 - **Suchwörter:** Mittelwert, Durchschnitt, Median, Zentralwert, Spannweite, arithmetisches Mittel, Streuung, Kennzahl
 
-### I-daten-2 (Idee, Klasse 8–10): Vom Teil aufs Ganze → Stichprobe und Hochrechnen
+### I-daten-2 (Idee, Klasse 8–10): Vom Teil aufs Ganze → Hochrechnen aus einer Umfrage
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Vom Teil aufs Ganze | Stichprobe und Hochrechnen |
-| Merksatz | Von wenigen auf alle schließt man verlässlich, wenn der Zufall die wenigen auswählt. | Aus einer Stichprobe rechnest du hoch: Anteil der Befragten mal Größe der ganzen Gruppe. Das ist nur eine Schätzung und nur brauchbar, wenn zufällig ausgewählt wurde. |
+| Name | Vom Teil aufs Ganze | Hochrechnen aus einer Umfrage |
+| Merksatz | Von wenigen auf alle schließt man verlässlich, wenn der Zufall die wenigen auswählt. | Hochrechnen: Anteil in der Stichprobe · Größe der ganzen Gruppe. Das gilt nur, wenn die Befragten zufällig ausgewählt wurden, und ist nur eine Schätzung. |
 | Kurzbeschreibung | Eine zufällig gezogene Stichprobe erlaubt verlässliche Schlüsse aufs Ganze; Größe heilt keine Verzerrung. | Aus den Antworten weniger Befragter schätzt man, was in der ganzen Gruppe gilt. |
+| Genau gesagt | Zufallsauswahl ist das Verfahren, mit dem man von wenigen verlässlich auf alle schließen kann. Eine größere Stichprobe mindert unter gleichen Bedingungen die Zufallsschwankung, garantiert aber kein genaueres Einzelergebnis und beseitigt keine Auswahlverzerrung. | Hochrechnen heißt: Anteil in der Stichprobe mal Größe der ganzen Gruppe. Das ist nur eine Schätzung und nur brauchbar, wenn zufällig ausgewählt wurde; mehr Befragte schwanken weniger durch Zufall, eine einseitige Auswahl bleibt trotzdem einseitig. |
 
-- **Beispiel (nachgerechnet):** 20 von 100 Befragten mögen Pizza, es gibt 500 Schüler: 20 : 100 · 500 = 100, also etwa 100 Schüler.
+- **Beispiel (nachgerechnet):** 20 von 100 Befragten mögen Pizza (Anteil 20 : 100), es gibt 500 Schüler: 20 : 100 · 500 = 100, also etwa 100 Schüler (nur wenn zufällig ausgewählt wurde).
 - **Gilt, wenn:** Nur bei zufälliger Auswahl verlässlich. Eine größere Stichprobe verringert die Zufallsschwankung unter gleichen Bedingungen, macht eine einseitige Auswahl aber nicht besser. Das Ergebnis ist ein Schätzwert, kein genauer Wert.
 - **Erster Satz von „warum“ (alte Einsicht bleibt):** Man kann selten alle fragen oder alles messen. Von wenigen auf alle schließt man verlässlich, wenn der Zufall die wenigen auswählt; eine größere Stichprobe schwankt dann weniger, eine einseitige Auswahl wird dadurch nicht besser.
 - **Problem der alten Fassung:** „Vom Teil aufs Ganze“ nannte kein Verfahren; das Kind sucht „Stichprobe“ und „Hochrechnen“ und bekam keine Rechenanleitung.
 - **Suchwörter:** Stichprobe, Hochrechnen, Umfrage, Befragung, repräsentativ, Grundgesamtheit, Schätzen, Zufallsauswahl
 
-### I-daten-3 (Idee, Klasse 5–10): Anteil → Wahrscheinlichkeit (Laplace)
+### I-daten-3 (Idee, Klasse 5–10): Anteil → Günstige durch mögliche Fälle
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Anteil | Wahrscheinlichkeit (Laplace) |
+| Name | Anteil | Günstige durch mögliche Fälle |
 | Merksatz | Bei gleich wahrscheinlichen Ergebnissen: günstige durch mögliche. | Sind alle Ergebnisse gleich wahrscheinlich: Wahrscheinlichkeit = Anzahl der günstigen Ergebnisse : Anzahl aller möglichen Ergebnisse. |
 | Kurzbeschreibung | Sind alle Ergebnisse gleich wahrscheinlich, ist die Wahrscheinlichkeit der Anteil der günstigen Fälle. | Bei gleichen Chancen zählt man die günstigen Fälle und teilt durch alle möglichen Fälle. |
+| Genau gesagt | Sind alle Ergebnisse gleich wahrscheinlich, ist die Wahrscheinlichkeit ein Anteil: günstige durch mögliche. | Sind alle Ergebnisse gleich wahrscheinlich, gilt: Wahrscheinlichkeit = Anzahl der günstigen Ergebnisse : Anzahl aller möglichen Ergebnisse. Bei einem unfairen Würfel stimmt das nicht. |
 
 - **Beispiel (nachgerechnet):** Würfel, Ereignis „Primzahl“ = {2, 3, 5}: 3 von 6 Ergebnissen, also 3 : 6 = 1 : 2.
 - **Gilt, wenn:** Nur bei gleich wahrscheinlichen Ergebnissen, etwa einem fairen Würfel oder einem Glücksrad mit gleich großen Feldern; sonst gilt die Formel nicht.
 - **Problem der alten Fassung:** Der Name „Anteil“ kommt in keiner Suche nach Wahrscheinlichkeit vor; der Satz war schon brauchbar und bleibt fast gleich.
 - **Suchwörter:** Wahrscheinlichkeit, Laplace, Laplace-Experiment, günstige Ergebnisse, mögliche Ergebnisse, Würfel, Zufall, Chance
 
-### I-daten-4 (Idee, Klasse 9–10): Stufen → Baumdiagramm und Pfadregeln
+### I-daten-4 (Idee, Klasse 9–10): Stufen → Baumdiagramm: malnehmen und addieren
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Stufen | Baumdiagramm und Pfadregeln |
+| Name | Stufen | Baumdiagramm: malnehmen und addieren |
 | Merksatz | Am Pfad entlang mal, Pfade zusammen plus. | Im Baumdiagramm: Entlang eines Pfades malnehmen, die Pfade, die zum Ereignis gehören, addieren. |
 | Kurzbeschreibung | Besteht ein Versuch aus mehreren Schritten, zeichnet man einen Baum. | Versuche mit mehreren Schritten zeichnet man als Baum, die Wahrscheinlichkeiten stehen an den Zweigen. |
+| Genau gesagt | Bei mehreren Stufen: entlang eines Pfades malnehmen, verschiedene Pfade addieren. | Im Baumdiagramm malnimmst du die Zahlen entlang eines Pfades und addierst die Pfade, die zum Ereignis gehören. Beim Ziehen ohne Zurücklegen ändern sich die Zahlen in der zweiten Stufe. |
 
 - **Beispiel (nachgerechnet):** Münze zweimal werfen, genau einmal Kopf: Pfad KZ 1/2 · 1/2 = 1/4, Pfad ZK 1/4, zusammen 1/4 + 1/4 = 1/2.
 - **Gilt, wenn:** An jedem Zweig steht die Wahrscheinlichkeit dieser Stufe; beim Ziehen ohne Zurücklegen ändern sich die Zahlen der zweiten Stufe. Addiert werden nur Pfade, die sich gegenseitig ausschließen.
@@ -128,7 +132,7 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 | Name | Gesetz der großen Zahlen | Gesetz der großen Zahlen |
 | Merksatz | Bei vielen unabhängigen Wiederholungen desselben Versuchs liegt die relative Häufigkeit meist nahe bei der Wahrscheinlichkeit. | Wiederholst du denselben Versuch sehr oft und jedes Mal unabhängig, liegt die relative Häufigkeit meist nahe bei der Wahrscheinlichkeit. Bei wenigen Würfen kann sie stark abweichen. |
 
-- **Beispiel (nachgerechnet):** Münze, 1000 Würfe, 512 mal Kopf: 512 : 1000 = 0,512, nahe bei 0,5 (Beispielzahlen).
+- **Beispiel (nachgerechnet):** Beispiel (erfundene Beispielzahlen, nicht gemessen): Münze, 1 000 Würfe, 512-mal Kopf: 512 : 1 000 = 0,512, nahe bei 0,5.
 - **Gilt, wenn:** Die Würfe sind voneinander unabhängig. „Meist nahe“ heißt nicht „genau“ und nicht „der Zufall gleicht aus“.
 - **Problem der alten Fassung:** Der Satz sagte nicht, was „nahe“ heißt und wie man die relative Häufigkeit ausrechnet.
 - **Suchwörter:** Gesetz der großen Zahlen, relative Häufigkeit, Wahrscheinlichkeit, Münzwurf, Versuchsreihe
@@ -159,26 +163,28 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 
 ## Zahlen
 
-### I-zahlen-2 (Idee, Klasse 5–6): Bündeln in Zehnern → Zehnersystem und Stellenwert
+### I-zahlen-2 (Idee, Klasse 5–6): Bündeln in Zehnern → Zehnersystem: Zehn gegen eins tauschen
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Bündeln in Zehnern | Zehnersystem und Stellenwert |
+| Name | Bündeln in Zehnern | Zehnersystem: Zehn gegen eins tauschen |
 | Merksatz | Zehn Einer sind ein Zehner, zehn Zehntel sind ein Einer. | Die Stelle bestimmt den Wert einer Ziffer: Jede Stelle ist zehnmal so viel wert wie die Stelle rechts daneben. Zehn Einer tauschst du gegen einen Zehner, zehn Zehntel gegen einen Einer. |
 | Kurzbeschreibung | Die Stelle einer Ziffer bestimmt ihren Wert: Das Zahlensystem bündelt in Zehnern, links wie rechts vom Komma. | Das Zehnersystem gibt jeder Ziffer ihren Wert durch ihre Stelle, links wie rechts vom Komma. |
+| Genau gesagt | Zehn von einer Sorte ergeben eins von der nächstgrößeren. | Jede Stelle ist zehnmal so viel wert wie die Stelle rechts daneben. Zehn Einer tauschst du gegen einen Zehner, zehn Zehntel gegen einen Einer. |
 
 - **Beispiel (nachgerechnet):** 5 302 = 5 · 1 000 + 3 · 100 + 0 · 10 + 2: Die 3 steht für 300. Zehn Zehntel: 10 · 0,1 = 1.
 - **Gilt, wenn:** Gilt im Zehnersystem, auch hinter dem Komma. Römische Zahlen haben keinen Stellenwert (X ist immer zehn).
 - **Problem der alten Fassung:** „Bündeln in Zehnern“ ist kein Wort, unter dem ein Kind nachschlägt; gesucht wird „Stellenwert“, „Einer“, „Zehner“.
 - **Suchwörter:** Stellenwert, Stellenwerttafel, Einer, Zehner, Hunderter, Tausender, Zehntel, Hundertstel, Dezimalsystem
 
-### I-zahlen-3 (Idee, Klasse 5–6): Bausteine → Primfaktorzerlegung
+### I-zahlen-3 (Idee, Klasse 5–6): Bausteine → Zahlen in Bausteine zerlegen
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Bausteine | Primfaktorzerlegung |
+| Name | Bausteine | Zahlen in Bausteine zerlegen |
 | Merksatz | Primzahlen sind die Bausteine: Jede Zahl ab zwei ist aus ihnen malgenommen. | Zerlege eine natürliche Zahl ab 2 in Faktoren, bis nur noch Primzahlen (2, 3, 5, 7, 11 …) übrig sind; teile dazu immer durch die kleinste Primzahl, die aufgeht. |
 | Kurzbeschreibung | Jede natürliche Zahl ab 2 lässt sich so lange in Faktoren zerlegen, bis nur noch Primzahlen übrig sind. | Aus der Zerlegung in Primzahlen liest man Teiler, ggT und kgV ab und kürzt Brüche. |
+| Genau gesagt | Jede natürliche Zahl ab 2 ist aus Primzahlen gebaut. | Jede natürliche Zahl ab 2 lässt sich in Primzahlen zerlegen, und zwar immer in dieselben; nur die Reihenfolge kann anders sein. Die 1 ist keine Primzahl. |
 
 - **Beispiel (nachgerechnet):** 60 : 2 = 30, 30 : 2 = 15, 15 : 3 = 5, also 60 = 2 · 2 · 3 · 5.
 - **Gilt, wenn:** Nur natürliche Zahlen ab 2; die 1 ist keine Primzahl. Die Zerlegung ist bis auf die Reihenfolge immer dieselbe.
@@ -190,23 +196,25 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 | | vorher | nachher |
 |---|---|---|
 | Name | Schreibweisen | Bruch, Dezimalzahl, Prozent |
-| Merksatz | Ein Halb, null Komma fünf, fünfzig Prozent: dreimal dieselbe Zahl. | Dieselbe Zahl kannst du als Bruch, als Dezimalzahl und in Prozent schreiben: Dezimalzahl = Zähler : Nenner, Prozent = Dezimalzahl · 100 %. |
+| Merksatz | Ein Halb, null Komma fünf, fünfzig Prozent: dreimal dieselbe Zahl. | Dieselbe Zahl kannst du als Bruch, als Dezimalzahl und in Prozent schreiben: Dezimalzahl = Zähler : Nenner; Prozentzahl = Dezimalzahl · 100, dahinter kommt das %-Zeichen. |
 | Kurzbeschreibung | Ein Bruch, eine Kommazahl und eine Prozentangabe können genau dieselbe Zahl meinen. | Bruch, Kommazahl und Prozent sind drei Schreibweisen derselben Zahl, man wählt die handlichste. |
+| Genau gesagt | Bruch, Dezimalzahl und Prozent sind drei Schreibweisen derselben Zahl. | Bruch, Dezimalzahl und Prozent sind drei Schreibweisen derselben Zahl: 3/4 = 0,75 = 75 %. Dezimalzahl = Zähler : Nenner; Prozentzahl = Dezimalzahl · 100. |
 
-- **Beispiel (nachgerechnet):** 3/4: 3 : 4 = 0,75 und 0,75 · 100 = 75, also 3/4 = 0,75 = 75 %.
+- **Beispiel (nachgerechnet):** 3/4: 3 : 4 = 0,75; 0,75 · 100 = 75, also 3/4 = 0,75 = 75 %.
 - **Gilt, wenn:** Der Nenner ist nicht 0. Die Dezimalzahl hört auf oder wiederholt sich (1/3 = 0,3̅).
 - **Problem der alten Fassung:** „Schreibweisen“ sagt nicht, zwischen welchen; gesucht wird „Bruch in Dezimalzahl“ oder „Prozent“.
 - **Suchwörter:** Bruch in Dezimalzahl, Dezimalzahl in Bruch, Prozent in Bruch, umwandeln, Prozent, Kommazahl, Bruch
 
-### I-zahlen-5 (Idee, Klasse 5–10): Hoch und zurück → Potenz, Wurzel, Logarithmus
+### I-zahlen-5 (Idee, Klasse 5–10): Hoch und zurück → Potenzieren und Zurückrechnen
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Hoch und zurück | Potenz, Wurzel, Logarithmus |
-| Merksatz | Hoch rechnet hin, die Wurzel rechnet zurück: √(x²) = |x|. | Potenz: dieselbe Zahl mehrmals malnehmen (2³ = 2 · 2 · 2 = 8). Zurückrechnen: Die Wurzel fragt nach der Basis (√49 = 7, weil 7² = 49), der Logarithmus nach der Hochzahl (log₂ 8 = 3, weil 2³ = 8). |
-| Kurzbeschreibung | Potenz, Wurzel und Logarithmus gehören zu einer Gleichung und fragen nach Ergebnis, Basis oder Hochzahl. | Hoch rechnet vorwärts; Wurzel und Logarithmus rechnen zurück zur Basis und zur Hochzahl. |
+| Name | Hoch und zurück | Potenzieren und Zurückrechnen |
+| Merksatz | Hoch rechnet hin, die Wurzel rechnet zurück: √(x²) = |x|. | Potenz (ab Klasse 5): 2³ = 8. Wurzel (ab Klasse 9): √49 = 7, weil 7 · 7 = 49; unter der Wurzel muss eine Zahl ≥ 0 stehen. Logarithmus (ab Klasse 10): log₂ 8 = 3, weil 2³ = 8; Basis > 0, Basis ≠ 1, Zahl > 0. |
+| Kurzbeschreibung | Potenz, Wurzel und Logarithmus gehören zu einer Gleichung und fragen nach Ergebnis, Basis oder Hochzahl. | Hoch rechnet vorwärts; Wurzel (ab Klasse 9) und Logarithmus (ab Klasse 10) rechnen zurück. |
+| Genau gesagt | Potenz, Wurzel und Logarithmus gehören zusammen: Die eine rechnet hoch, die beiden anderen fragen zurück. Die Quadratwurzel liefert die Zahl ab null: √(x²) = |x|. | Potenz (ab Klasse 5): Die Hochzahl sagt, wie oft die Basis als Faktor dasteht. Wurzel (ab Klasse 9): √a ist die Zahl ab 0, die mit sich selbst malgenommen a ergibt; es gibt sie nur für a ≥ 0. Logarithmus (ab Klasse 10): log_b x ist die Hochzahl, mit der aus b die Zahl x wird; nur für b > 0, b ≠ 1 und x > 0. |
 
-- **Beispiel (nachgerechnet):** 2³ = 8, deshalb √49 = 7 (7² = 49) und log₂ 8 = 3 (2³ = 8).
+- **Beispiel (nachgerechnet):** Potenz: 2³ = 2 · 2 · 2 = 8. Wurzel: √49 = 7, denn 7² = 49. Logarithmus: log₂ 8 = 3, denn 2³ = 8.
 - **Gilt, wenn:** Die Quadratwurzel gibt es nur für Zahlen ab 0 und ist nie negativ; √(x²) = |x|. Den Logarithmus gibt es nur für Basis b > 0, b ≠ 1 und Zahlen x > 0.
 - **Erster Satz von „warum“ (alte Einsicht bleibt):** Potenzieren fragt: Was kommt heraus? Die Wurzel fragt zurück nach der Basis, der Logarithmus nach der Hochzahl. Alle drei gehören zu einer einzigen Gleichung wie 2³ = 8.
 - **Problem der alten Fassung:** „Hoch und zurück“ und „√(x²) = |x|“ sagen einem Kind nicht, was es rechnen soll.
@@ -315,34 +323,37 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 | | vorher | nachher |
 |---|---|---|
 | Name | Größe | Einheiten umrechnen |
-| Merksatz | Kleinere Einheit, größere Zahl – größere Einheit, kleinere Zahl. | In eine kleinere Einheit: mal die Umrechnungszahl, die Zahl wird größer. In eine größere Einheit: geteilt, die Zahl wird kleiner (1 m = 100 cm, 1 kg = 1 000 g). |
+| Merksatz | Kleinere Einheit, größere Zahl – größere Einheit, kleinere Zahl. | Zur kleineren Einheit: mal die Umrechnungszahl; zur größeren: geteilt. Die Zahl hängt vom Sprung ab: Länge 10, Fläche 100, Raum 1 000 je Stufe (km zu m: 1 000). Alle Stufen: Tafel „Einheiten umrechnen“. |
 | Kurzbeschreibung | Eine Größe besteht aus Zahl und Einheit. | Wechselt man die Einheit, ändert sich die Zahl: Aus Metern werden mehr Zentimeter. |
+| Genau gesagt | Eine Größe ist Zahl mal Einheit – wechselt die Einheit, wechselt die Zahl. | Eine Größe ist Zahl mal Einheit. Wechselst du die Einheit, ändert sich die Zahl: in eine kleinere Einheit mal die Umrechnungszahl, in eine größere geteilt. Die Umrechnungszahl steht in der Tafel „Einheiten umrechnen“. |
 
-- **Beispiel (nachgerechnet):** 3 m = 3 · 100 cm = 300 cm; 2 500 g = 2 500 : 1 000 kg = 2,5 kg.
-- **Gilt, wenn:** Die Umrechnungszahl hängt von der Einheit ab: Länge 10 oder 1 000, Fläche 100, Raum 1 000, Zeit 60 und 24 (nicht 10).
+- **Beispiel (nachgerechnet):** Zwei Stufen: 3 m = 3 · 10 · 10 cm = 300 cm (m, dm, cm); 2 m² = 2 · 100 · 100 cm² = 20 000 cm² (m², dm², cm²). Zur größeren Einheit: 2 500 g = 2 500 : 1 000 kg = 2,5 kg.
+- **Gilt, wenn:** Die Umrechnungszahl hängt vom Einheitensprung ab: Länge 10 je Stufe (km zu m 1 000), Fläche 100 je Stufe, Raum 1 000 je Stufe, Zeit 60 und 24 (nicht 10). Alle Stufen stehen in der Tafel „Einheiten umrechnen“.
 - **Problem der alten Fassung:** „Größe“ ist kein Suchwort für Umrechnen, und der Satz nannte nicht, wann man mal und wann geteilt rechnet.
 - **Suchwörter:** Einheiten umrechnen, Umrechnen, Meter, Zentimeter, Kilogramm, Gramm, Länge, Masse, Zeit, Größen
 
-### I-geld-2 (Idee, Klasse 5–8): Wert für eins → Dreisatz: Wert für eins
+### I-geld-2 (Idee, Klasse 5–8): Wert für eins → Erst auf 1 Stück, dann auf die Menge
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Wert für eins | Dreisatz: Wert für eins |
+| Name | Wert für eins | Erst auf 1 Stück, dann auf die Menge |
 | Merksatz | Bei gleichem Preis je Einheit kostet doppelt so viel doppelt so viel. | Rechne erst auf 1 Stück, das heißt teilen, dann auf die gewünschte Anzahl, das heißt malnehmen. Das geht, wenn doppelte Menge doppelten Preis bedeutet. |
 | Kurzbeschreibung | Bei proportionalen Größen gehört zu jeder Einheit derselbe Wert. | Bei gleichem Preis je Einheit rechnet man vom Wert für 1 auf jede andere Menge. |
+| Genau gesagt | Proportional heißt: Der Wert für eine Einheit bleibt immer gleich. | Erst rechnest du auf 1 Stück (teilen), dann auf die gewünschte Menge (malnehmen). Das geht nur, wenn jedes Stück gleich viel kostet: doppelte Menge, doppelter Preis. |
 
 - **Beispiel (nachgerechnet):** 4 Hefte kosten 6 €: 6 : 4 = 1,50 € für ein Heft, 7 Hefte kosten 1,50 · 7 = 10,50 €.
 - **Gilt, wenn:** Diese Reihenfolge gilt bei direkter Proportionalität (gleicher Preis je Stück). Bei „je mehr, desto weniger“ rechnet man erst mal, dann geteilt.
 - **Problem der alten Fassung:** „Wert für eins“ steht in keiner Suche; das Kind sucht „Dreisatz“, und der Satz sagte nichts über das Vorgehen.
 - **Suchwörter:** Dreisatz, proportional, Preis pro Stück, Wert für eins, Verhältnis, Maßstab, Stückpreis
 
-### I-geld-3 (Idee, Klasse 6–7): Prozent als Faktor → Prozentrechnung
+### I-geld-3 (Idee, Klasse 6–7): Prozent als Faktor → Prozente berechnen und verändern
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Prozent als Faktor | Prozentrechnung |
+| Name | Prozent als Faktor | Prozente berechnen und verändern |
 | Merksatz | Prozent heißt: von hundert. | p % von einem Wert: Wert · p : 100. Um p % erhöhen: mal (1 + p : 100); um p % senken: mal (1 − p : 100). |
 | Kurzbeschreibung | Prozent ist nur ein anderes Wort für Hundertstel. | Prozent heißt Hundertstel; eine Änderung um p % ist ein Malnehmen mit einem Faktor. |
+| Genau gesagt | Prozent heißt Hundertstel; um p Prozent verändern heißt mit einem Faktor malnehmen. | Prozent heißt Hundertstel: 20 % = 20 : 100 = 0,2. Um p % erhöhen heißt mal (1 + p : 100) nehmen, um p % senken mal (1 − p : 100). |
 
 - **Beispiel (nachgerechnet):** 20 % von 80 € = 80 · 20 : 100 = 16 €; 20 % mehr: 80 · 1,2 = 96 €; 20 % weniger: 80 · 0,8 = 64 €.
 - **Gilt, wenn:** Der Wert, von dem die Prozente genommen werden (Grundwert), ist 100 %. Mehrere Änderungen nacheinander: Faktoren malnehmen, nicht die Prozente addieren.
@@ -363,52 +374,56 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 
 ## Fläche und Raum
 
-### I-fur-1 (Idee, Klasse 5–6): Auslegen und zählen → Flächeninhalt und Volumen messen
+### I-fur-1 (Idee, Klasse 5–6): Auslegen und zählen → Fläche und Raum auszählen
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Auslegen und zählen | Flächeninhalt und Volumen messen |
+| Name | Auslegen und zählen | Fläche und Raum auszählen |
 | Merksatz | Messen heißt auslegen und zählen. | Fläche = Anzahl der Einheitsquadrate, die lückenlos hineinpassen (1 cm² = Quadrat mit 1 cm Seite). Volumen = Anzahl der Einheitswürfel. |
 | Kurzbeschreibung | Eine Fläche misst man, indem man sie lückenlos mit gleich großen Quadraten auslegt und zählt. | Formeln für Fläche und Rauminhalt sind Abkürzungen fürs Zählen: 4 Reihen zu je 6 Quadraten sind 6 · 4. |
+| Genau gesagt | Messen heißt auslegen und zählen: Flächen mit Einheitsquadraten, Körper mit Einheitswürfeln. | Flächen misst man mit Einheitsquadraten, Körper mit Einheitswürfeln: Du zählst, wie viele lückenlos hineinpassen. Drei Reihen mit je vier Quadraten sind 3 · 4 = 12 Quadrate. |
 
 - **Beispiel (nachgerechnet):** Rechteck 3 cm mal 4 cm: 3 · 4 = 12 Quadrate, also 12 cm².
 - **Gilt, wenn:** Die Quadrate liegen lückenlos und ohne Überlappung; die Einheit passt zur Größe (cm² für Flächen, cm³ für Körper).
 - **Problem der alten Fassung:** „Messen heißt auslegen und zählen“ klingt wie eine Lebensweisheit und nennt weder Einheit noch Rechnung.
 - **Suchwörter:** Flächeninhalt, Fläche, Quadratzentimeter, cm², Volumen, Rauminhalt, Kubikzentimeter, Einheitsquadrat
 
-### I-fur-2 (Idee, Klasse 5–8): Aus dem Rechteck → Flächenformeln (Dreieck, Trapez …)
+### I-fur-2 (Idee, Klasse 5–8): Aus dem Rechteck → Flächenformeln herleiten
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Aus dem Rechteck | Flächenformeln (Dreieck, Trapez …) |
+| Name | Aus dem Rechteck | Flächenformeln herleiten |
 | Merksatz | Aus dem Rechteck entstehen die Flächen vieler Figuren. | Rechteck: a · b; Parallelogramm: Grundseite · Höhe; Dreieck: Grundseite · Höhe : 2; Trapez: (a + c) : 2 · Höhe; Kreis: π · r · r. |
 | Kurzbeschreibung | Viele Flächenformeln bauen auf dem Rechteck auf; Kreissektoren nähern es an, im Grenzwert folgt exakt A = πr². | Aus dem Rechteck lassen sich die Flächenformeln für Parallelogramm, Dreieck, Trapez und Kreis herleiten. |
+| Genau gesagt | Aus dem Rechteck entstehen die Formeln für Parallelogramm, Dreieck und Trapez: zerschneiden, neu legen, halbieren. Beim Kreis nähert man sich dem Rechteck mit endlich vielen Sektoren nur an; im Grenzwert folgt exakt A = πr². | Aus dem Rechteck entstehen die Formeln: Ein Parallelogramm schneidest du zu einem Rechteck um, das Dreieck ist ein halbes Parallelogramm. Beim Kreis nähert man mit vielen Kreisstücken ein Rechteck an; so kommt man auf A = π · r · r. |
 
 - **Beispiel (nachgerechnet):** Dreieck g = 6, h = 4: 6 · 4 : 2 = 12. Trapez a = 5, c = 3, h = 4: (5 + 3) : 2 · 4 = 16.
 - **Gilt, wenn:** Die Höhe steht senkrecht auf der Grundseite. Beim Trapez sind a und c die parallelen Seiten. Beim Kreis ist r der Radius.
 - **Problem der alten Fassung:** „Aus dem Rechteck“ sagt nicht, welche Fläche man damit berechnet; das Kind sucht Dreieck, Trapez, Kreis.
 - **Suchwörter:** Flächenformeln, Dreieck Fläche, Trapez Fläche, Parallelogramm, Kreisfläche, Flächeninhalt, Grundseite, Höhe
 
-### I-fur-3 (Idee, Klasse 8–10): Aus dem Quader → Volumen von Körpern
+### I-fur-3 (Idee, Klasse 8–10): Aus dem Quader → Rauminhalt: Grundfläche mal Höhe
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Aus dem Quader | Volumen von Körpern |
+| Name | Aus dem Quader | Rauminhalt: Grundfläche mal Höhe |
 | Merksatz | Grundfläche mal Höhe – bei Pyramide und Kegel nur ein Drittel davon. | Prisma und Zylinder: V = Grundfläche · Höhe. Pyramide und Kegel: V = ein Drittel von Grundfläche · Höhe. |
 | Kurzbeschreibung | Ein Quader ist ein Stapel gleicher Schichten: Grundfläche mal Höhe. | Ein Körper aus gleichen Schichten hat das Volumen Grundfläche mal Höhe, ein spitz zulaufender nur ein Drittel. |
+| Genau gesagt | Bei Prisma und Zylinder gilt Grundfläche mal Höhe, bei Pyramide und Kegel ein Drittel davon. | Ein Körper aus lauter gleichen Schichten (Quader, Prisma, Zylinder) hat V = Grundfläche · Höhe. Läuft er spitz zu (Pyramide, Kegel), ist es ein Drittel davon. Die Höhe misst du senkrecht zur Grundfläche. |
 
 - **Beispiel (nachgerechnet):** Quader 2 · 3 · 4 = 24 cm³; Pyramide mit G = 12 cm² und h = 5 cm: 12 · 5 : 3 = 20 cm³.
 - **Gilt, wenn:** h ist die senkrechte Höhe (bei schiefen Körpern nicht die schräge Kante). Bei Pyramide und Kegel steht h senkrecht auf der Grundfläche.
 - **Problem der alten Fassung:** Der Name „Aus dem Quader“ verrät nicht, dass es um das Volumen geht.
 - **Suchwörter:** Volumen, Rauminhalt, Prisma, Zylinder, Pyramide, Kegel, Grundfläche mal Höhe, Quader
 
-### I-fur-4 (Idee, Klasse 5–10): Haut des Körpers → Oberfläche und Netz
+### I-fur-4 (Idee, Klasse 5–10): Haut des Körpers → Alle Außenflächen eines Körpers
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Haut des Körpers | Oberfläche und Netz |
+| Name | Haut des Körpers | Alle Außenflächen eines Körpers |
 | Merksatz | Aufklappen zeigt bei Quader, Prisma, Pyramide, Zylinder und Kegel die ganze Haut des Körpers. | Oberfläche = Summe aller Außenflächen. Im Netz (dem aufgeklappten Körper) rechnest du jede Fläche einzeln und zählst zusammen; Quader: O = 2 · (a · b + a · c + b · c). |
 | Kurzbeschreibung | Das Netz zeigt die Oberfläche etwa eines Quaders flach ausgebreitet, wie ein aufgeklappter Karton. | Aufgeklappt zeigt das Netz alle Flächen eines Körpers; ihre Summe ist die Oberfläche. |
+| Genau gesagt | Die Oberfläche ist die Haut des Körpers. Bei Quader, Prisma, Pyramide, Zylinder und Kegel lässt sie sich als ebenes Netz ohne Verzerrung ausbreiten, bei der Kugel nicht. Das Schrägbild zeigt den Körper im Raum. | Die Oberfläche ist die Summe aller Außenflächen. Das Netz zeigt sie aufgeklappt: Du rechnest jede Fläche einzeln und zählst zusammen. Eine Kugel lässt sich nicht flach ausbreiten; für sie gilt O = 4 · π · r · r. |
 
 - **Beispiel (nachgerechnet):** Quader 5 · 4 · 3 cm: O = 2 · (20 + 15 + 12) = 94 cm².
 - **Gilt, wenn:** Ein Netz gibt es für Körper mit ebenen Flächen sowie für Zylinder und Kegel (Mantel abgewickelt); eine Kugel lässt sich nicht flach ausbreiten (O = 4 · π · r²).
@@ -482,10 +497,11 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 | | vorher | nachher |
 |---|---|---|
 | Name | Winkel an Geraden | Winkel an Geraden und Parallelen |
-| Merksatz | Gleiche Winkel an Parallelen – darum im ebenen Dreieck immer 180 Grad. | Nebenwinkel sind zusammen 180°, Scheitelwinkel sind gleich groß. Schneidet eine Gerade zwei Parallelen, sind Stufen- und Wechselwinkel gleich groß – und umgekehrt. |
+| Merksatz | Gleiche Winkel an Parallelen – darum im ebenen Dreieck immer 180 Grad. | Nebenwinkel (nebeneinander an einer Geraden): zusammen 180°. Scheitelwinkel (gegenüber, wo zwei Geraden sich kreuzen): gleich groß. Stufenwinkel (an Parallelen, gleiche Lage): gleich groß. Wechselwinkel (an Parallelen, auf gegenüberliegenden Seiten der schneidenden Geraden): gleich groß. |
 | Kurzbeschreibung | An geschnittenen Parallelen sind Stufen- und Wechselwinkel gleich; Nebenwinkel ergeben 180°. | Mit Neben-, Scheitel-, Stufen- und Wechselwinkeln findet man fehlende Winkel, auch im Dreieck. |
+| Genau gesagt | An parallelen Geraden kehren dieselben Winkel wieder – deshalb ergeben die Winkel im ebenen Dreieck zusammen 180°. | Nebenwinkel: 65° und 115°, zusammen 180°. Scheitelwinkel: 65° und 65°, gleich groß. Stufenwinkel an Parallelen: 65° und 65°, gleich groß. Wechselwinkel an Parallelen: 65° und 65°, gleich groß. Stufen- und Wechselwinkel sind nur bei Parallelen gleich. |
 
-- **Beispiel (nachgerechnet):** Winkel 65°: Nebenwinkel 180° − 65° = 115°, Scheitelwinkel 65°.
+- **Beispiel (nachgerechnet):** Ein Winkel misst 65°. Nebenwinkel: 180° − 65° = 115°. Scheitelwinkel: 65°. Schneidet die Gerade zwei Parallelen, ist der Stufenwinkel 65° und der Wechselwinkel 65°.
 - **Gilt, wenn:** Neben- und Scheitelwinkel gelten bei jeder Geradenkreuzung; Stufen- und Wechselwinkel sind nur gleich, wenn die geschnittenen Geraden parallel sind.
 - **Erster Satz von „warum“ (alte Einsicht bleibt):** An Parallelen kehren dieselben Winkel wieder – deshalb ergeben die drei Winkel im ebenen Dreieck zusammen 180°.
 - **Problem der alten Fassung:** Der Satz zielte auf die Winkelsumme im Dreieck und nannte keine der vier Winkelarten, nach denen ein Kind sucht.
@@ -498,6 +514,7 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 | Name | Gleicher Abstand | Mittelsenkrechte, Winkelhalbierende |
 | Merksatz | Der Kreis: alle Punkte gleich weit von der Mitte. | Gleich weit von einem Punkt M: Kreis um M. Gleich weit von A und B: Mittelsenkrechte von [AB]. Gleich weit von zwei sich schneidenden Geraden: ihre beiden Winkelhalbierenden. |
 | Kurzbeschreibung | Kreis um einen Punkt, Mittelsenkrechte zweier Punkte, Winkelhalbierende zweier sich schneidender Geraden. | Linien aus Punkten mit gleichem Abstand: Damit findet man die Mittelpunkte von Um- und Inkreis. |
+| Genau gesagt | Alle Punkte mit gleichem Abstand bilden eine Linie: Kreis, Mittelsenkrechte, Winkelhalbierende. Zwei sich schneidende Geraden haben zwei Winkelhalbierende, senkrecht zueinander; im Inneren eines Winkels liegt die innere. | Alle Punkte mit gleichem Abstand liegen auf einer Linie: von einem Punkt M auf einem Kreis, von A und B auf der Mittelsenkrechten von [AB], von zwei sich schneidenden Geraden auf deren Winkelhalbierenden. Zwei sich schneidende Geraden haben zwei Winkelhalbierende, die senkrecht aufeinander stehen. |
 
 - **Beispiel (nachgerechnet):** A(0 | 0), B(4 | 0), P(2 | 3): PA² = 2² + 3² = 13 und PB² = (2 − 4)² + 3² = 13, also liegt P auf der Mittelsenkrechten.
 - **Gilt, wenn:** Die Mittelsenkrechte steht senkrecht auf [AB] durch dessen Mitte. Zwei sich schneidende Geraden haben zwei Winkelhalbierende, senkrecht zueinander; im Inneren eines Winkels liegt die innere.
@@ -509,10 +526,10 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 | | vorher | nachher |
 |---|---|---|
 | Name | Winkelarten | Winkelarten |
-| Merksatz | Voller Winkel 360°, gestreckter 180°, rechter 90°. | Spitz: unter 90°; rechter Winkel: 90°; stumpf: zwischen 90° und 180°; gestreckt: 180°; überstumpf: zwischen 180° und 360°; voll: 360°. |
+| Merksatz | Voller Winkel 360°, gestreckter 180°, rechter 90°. | Winkel α: spitz 0° < α < 90°; recht α = 90°; stumpf 90° < α < 180°; gestreckt α = 180°; überstumpf 180° < α < 360°; voll α = 360°. |
 
 - **Beispiel (nachgerechnet):** 135° ist stumpf, denn 90° < 135° < 180°.
-- **Gilt, wenn:** Gemessen wird am Scheitel, von einem Schenkel zum anderen; am Geodreieck die richtige Skala ablesen.
+- **Gilt, wenn:** Jeder Winkel über 0° bis 360° gehört zu genau einer Art. Gemessen wird am Scheitel, von einem Schenkel zum anderen; am Geodreieck die richtige Skala ablesen.
 - **Problem der alten Fassung:** Der Satz nannte nur drei der sechs Winkelarten, nach denen man sucht.
 - **Suchwörter:** spitzer Winkel, stumpfer Winkel, rechter Winkel, gestreckter Winkel, überstumpf, Vollwinkel, Winkelarten
 
@@ -521,10 +538,10 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 | | vorher | nachher |
 |---|---|---|
 | Name | Besondere Vierecke | Besondere Vierecke |
-| Merksatz | Quadrat, Rechteck, Raute, Parallelogramm, Trapez, Drachenviereck: Jedes hat seine festen Eigenschaften. | Rechteck: vier rechte Winkel, Diagonalen gleich lang. Raute: vier gleiche Seiten, Diagonalen senkrecht. Quadrat: beides. Parallelogramm: Gegenseiten parallel; Trapez: ein Paar paralleler Seiten; Drachen: zwei Paare gleich langer Nachbarseiten. |
+| Merksatz | Quadrat, Rechteck, Raute, Parallelogramm, Trapez, Drachenviereck: Jedes hat seine festen Eigenschaften. | Rechteck: vier rechte Winkel; Raute: vier gleich lange Seiten; Quadrat: beides; Parallelogramm: Gegenseiten parallel; Trapez: mindestens ein Paar paralleler Seiten (Vereinbarung); Drachenviereck: zwei Paare gleich langer Nachbarseiten. |
 
 - **Beispiel (nachgerechnet):** Rechteck 3 cm mal 4 cm: Beide Diagonalen sind 5 cm lang, denn 3² + 4² = 5².
-- **Gilt, wenn:** Jedes Quadrat ist ein Rechteck und eine Raute, aber nicht jedes Rechteck ein Quadrat. Ob ein Parallelogramm auch ein Trapez heißt, hängt von der Definition im Unterricht ab.
+- **Gilt, wenn:** Jedes Quadrat ist ein Rechteck und eine Raute, aber nicht jedes Rechteck ein Quadrat. „Trapez = mindestens ein Paar paralleler Seiten“ ist eine Vereinbarung; manche Bücher verlangen genau ein Paar, dann ist ein Parallelogramm kein Trapez.
 - **Problem der alten Fassung:** Der Satz zählte nur die Namen auf und nannte keine Eigenschaft, an der man ein Viereck erkennt.
 - **Suchwörter:** Viereck, Quadrat, Rechteck, Raute, Parallelogramm, Trapez, Drachenviereck, Haus der Vierecke
 
@@ -626,25 +643,27 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 
 ## Algebra
 
-### I-algebra-1 (Idee, Klasse 7): Term → Term (Rechnung mit Buchstaben)
+### I-algebra-1 (Idee, Klasse 7): Term → Rechnen mit Buchstaben
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Term | Term (Rechnung mit Buchstaben) |
+| Name | Term | Rechnen mit Buchstaben |
 | Merksatz | Ein Term ist ein Rechenrezept: Zahl hinein, Ergebnis heraus. | Ein Term ist eine Rechnung mit Buchstaben. Setzt du für den Buchstaben eine Zahl ein, kannst du ihn ausrechnen. |
 | Kurzbeschreibung | Ein Term schreibt eine Rechnung auf, bevor man die Zahl kennt. | Mit einem Term kann man rechnen, bevor man die Zahl kennt; gleichwertige Terme liefern immer dasselbe. |
+| Genau gesagt | Ein Term ist eine Rechenvorschrift; gleichwertige Terme liefern für jede erlaubte Zahl dasselbe. | Ein Term ist eine Rechenvorschrift mit Buchstaben. Setzt du für den Buchstaben eine erlaubte Zahl ein, kannst du ihn ausrechnen; gleichwertige Terme geben für jede erlaubte Zahl dasselbe. |
 
 - **Beispiel (nachgerechnet):** Term 3 · x + 2 mit x = 4: 3 · 4 + 2 = 14.
 - **Gilt, wenn:** Eingesetzt werden nur erlaubte Zahlen (kein Nenner 0). Gleichwertige Terme liefern für jede erlaubte Zahl dasselbe.
 - **Problem der alten Fassung:** „Rechenrezept: Zahl hinein, Ergebnis heraus“ ist ein Bild; der Satz sagt nicht, was man mit dem Buchstaben tut.
 - **Suchwörter:** Term, Variable, Buchstabe, einsetzen, Termwert, Rechenausdruck, gleichwertige Terme
 
-### I-algebra-3 (Idee, Klasse 5–9): Gleichung lösen → Gleichung lösen
+### I-algebra-3 (Idee, Klasse 5–9): Gleichung lösen → Gleichung lösen und prüfen
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Gleichung lösen | Gleichung lösen |
+| Name | Gleichung lösen | Gleichung lösen und prüfen |
 | Merksatz | Lösen heißt: alle Zahlen finden, für die die Gleichung stimmt. | Rechne auf beiden Seiten dasselbe, bis x allein steht – nie mal oder durch 0. Mach zum Schluss die Probe: Lösung in die Gleichung einsetzen. |
+| Genau gesagt | Eine Gleichung lösen heißt: alle Zahlen finden, die sie wahr machen. | Eine Gleichung lösen heißt: alle Zahlen finden, für die sie stimmt. Das kann eine Zahl sein, mehrere, keine oder jede Zahl. Mit der Probe prüfst du: Zahl einsetzen und beide Seiten ausrechnen. |
 
 - **Beispiel (nachgerechnet):** x + 5 = 12: beide Seiten − 5 gibt x = 7; Probe 7 + 5 = 12.
 - **Gilt, wenn:** Es sind nur umkehrbare Umformungen erlaubt. Eine Gleichung kann eine Lösung haben, mehrere, keine oder jede Zahl; bei x² und bei x im Nenner gelten Zusatzregeln.
@@ -657,8 +676,9 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 | | vorher | nachher |
 |---|---|---|
 | Name | Höherer Grad | Gleichungen mit x² (und höher) |
-| Merksatz | Steht x im Quadrat: meist erst null auf eine Seite, dann zerlegen. | Alles auf eine Seite bringen, in Faktoren zerlegen, jeden Faktor einzeln gleich null setzen; ein Faktor, der nie null wird (wie x² + 1), liefert keine Lösung. Bei x² = a mit a > 0 gibt es zwei Lösungen: √a und −√a. |
+| Merksatz | Steht x im Quadrat: meist erst null auf eine Seite, dann zerlegen. | Alles auf eine Seite, in Faktoren zerlegen, jeden Faktor gleich 0 setzen. Sonderfall x² = a: a > 0 gibt x = √a und x = −√a, a = 0 gibt x = 0, a < 0 gibt keine Lösung (in den reellen Zahlen). |
 | Kurzbeschreibung | Bei Gleichungen höheren Grades faktorisiert man, zieht die Wurzel oder nutzt eine Lösungsformel, je nach Form. | Gleichungen mit x² löst man durch Faktorisieren, Wurzelziehen oder mit der Lösungsformel, je nach Form. |
+| Genau gesagt | Bei höherem Grad: alles auf eine Seite bringen und, wenn es gelingt, in Faktoren zerlegen – oder die Gegenrechnung nutzen. | Bei Gleichungen mit x² bringst du alles auf eine Seite und zerlegst in Faktoren; ein Produkt ist 0, wenn ein Faktor 0 ist. Bei x² = a gibt es für a > 0 zwei Lösungen, für a = 0 eine, für a < 0 keine (in den reellen Zahlen). |
 
 - **Beispiel (nachgerechnet):** x² − 9 = 0 gibt (x − 3) · (x + 3) = 0, also x = 3 oder x = −3.
 - **Gilt, wenn:** Das Zerlegen gelingt nicht immer; dann hilft die Lösungsformel. x² = a hat für a > 0 zwei, für a = 0 eine, für a < 0 keine Lösung (über den reellen Zahlen). Nie durch x teilen: Dabei geht x = 0 verloren.
@@ -729,13 +749,14 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 
 ## Funktionen
 
-### I-funktionen-1 (Idee, Klasse 8–9): Zuordnung → Funktion: Gleichung, Tabelle, Graph
+### I-funktionen-1 (Idee, Klasse 8–9): Zuordnung → Gleichung, Tabelle, Graph
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Zuordnung | Funktion: Gleichung, Tabelle, Graph |
+| Name | Zuordnung | Gleichung, Tabelle, Graph |
 | Merksatz | Zu jedem x gehört genau ein y. | Eine Funktion gibt jedem x genau ein y. Tabelle, Graph und Gleichung zeigen dieselbe Zuordnung; den Wert rechnest du aus, indem du x einsetzt. |
 | Kurzbeschreibung | Eine Funktion ist eine Zuordnung, bei der zu jedem x genau ein y gehört. | Tabelle, Graph und Gleichung sind drei Darstellungen derselben Zuordnung von x zu y. |
+| Genau gesagt | Eine Funktion ordnet jedem x genau ein y zu; Tabelle, Graph und Gleichung sind drei Darstellungen derselben Zuordnung. | Eine Funktion gibt jedem erlaubten x genau ein y. Tabelle, Graph und Gleichung zeigen dieselbe Zuordnung. Zu einem y dürfen mehrere x gehören, zu einem x nie mehrere y. |
 
 - **Beispiel (nachgerechnet):** f(x) = 2x + 1: f(3) = 2 · 3 + 1 = 7.
 - **Gilt, wenn:** Zu einem y dürfen mehrere x gehören (x² gibt für 3 und −3 dasselbe), zu einem x nie mehrere y: Der Kreis x² + y² = 25 ist keine Funktion.
@@ -748,19 +769,21 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 |---|---|---|
 | Name | Wachstum | Linear oder exponentiell |
 | Merksatz | Bei y = A · qˣ mit A > 0 steigt der Graph für q > 1, fällt für 0 < q < 1 und bleibt für q = 1 konstant. | Pro x-Schritt immer dieselbe Zahl dazu: linear. Pro x-Schritt immer mal derselbe Faktor q > 0: exponentiell, y = A · qˣ; mit A > 0 steigt es für q > 1 und fällt für 0 < q < 1. |
+| Genau gesagt | In gleichen x-Schritten wächst eine lineare Funktion um gleich viel, eine exponentielle um denselben Faktor: y = A · qˣ mit A > 0 steigt bei q > 1, fällt bei 0 < q < 1 und ist bei q = 1 konstant. | Linear: Bei jedem x-Schritt kommt immer dieselbe Zahl dazu. Exponentiell: Bei jedem x-Schritt wird mit demselben Faktor q > 0 malgenommen, y = A · qˣ. Mit A > 0 steigt der Wert bei q > 1, fällt bei 0 < q < 1 und bleibt bei q = 1 gleich. |
 
 - **Beispiel (nachgerechnet):** 2, 4, 6, 8: immer + 2, linear. 2, 4, 8, 16: immer · 2, exponentiell.
 - **Gilt, wenn:** Exponentiell: Anfangswert A > 0 und Faktor q > 0 je x-Schritt der Länge 1 (bei Schrittweite h ist der Faktor qʰ). Bei q = 1 bleibt der Wert konstant.
 - **Problem der alten Fassung:** Der Name „Wachstum“ und der Satz mit A, q und Ungleichungen nannten das Erkennungsmerkmal nicht in Kindersprache.
 - **Suchwörter:** Wachstum, linear, exponentiell, exponentielles Wachstum, Zerfall, Wachstumsfaktor, Zunahme, Abnahme, Verdopplung
 
-### I-funktionen-3 (Idee, Klasse 8–10): Gleichung und Form → Gerade, Parabel, Hyperbel
+### I-funktionen-3 (Idee, Klasse 8–10): Gleichung und Form → Form des Graphen aus der Gleichung
 
 | | vorher | nachher |
 |---|---|---|
-| Name | Gleichung und Form | Gerade, Parabel, Hyperbel |
+| Name | Gleichung und Form | Form des Graphen aus der Gleichung |
 | Merksatz | Die Gleichung verrät die Form: y = mx + t gibt eine Gerade, y = ax² (a ≠ 0) eine Parabel. | y = m · x + t ist eine Gerade (m = Steigung, t = Schnittpunkt mit der y-Achse). y = a · x² mit a ≠ 0 ist eine Parabel, y = a : x mit a ≠ 0 und x ≠ 0 eine Hyperbel. |
 | Kurzbeschreibung | Bei bekannten Funktionstypen verrät die Gleichung die Form des Graphen, bevor man Punkte berechnet. | Die Gleichung verrät, ob der Graph eine Gerade, Parabel oder Hyperbel ist, schon vor dem Zeichnen. |
+| Genau gesagt | Bei bekannten Funktionstypen verrät die Gleichung die Form des Graphen: y = mx + t ist eine Gerade, y = ax² + bx + c mit a ≠ 0 eine Parabel, y = a/x mit a ≠ 0 und x ≠ 0 eine Hyperbel. Bestimmte Änderungen der Gleichung verschieben, strecken oder spiegeln den Graphen. | Die Gleichung verrät die Form des Graphen: y = m · x + t ist eine Gerade, y = a · x² mit a ≠ 0 eine Parabel, y = a : x mit a ≠ 0 und x ≠ 0 eine Hyperbel. Dafür muss die Gleichung genau diese Form haben. |
 
 - **Beispiel (nachgerechnet):** y = 2x + 1: x = 0 gibt y = 1 (das ist t), x = 1 gibt y = 3, die Steigung ist 3 − 1 = 2.
 - **Gilt, wenn:** Dass x im Nenner steht, reicht für eine Hyperbel nicht: 1/(x² + 1) ist keine. Die Gleichung muss genau diese Form haben.

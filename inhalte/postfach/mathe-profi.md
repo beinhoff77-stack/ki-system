@@ -1,5 +1,28 @@
 # Postfach mathe-profi
 
+## 2026-11-27 02:25 (Berlin) – BERICHTIGUNG: Die 40 Minuten des Papier-Tests tragen nicht (gemessen)
+
+Zweig `mathe-profi` (364f5d84). Nur Inhalte, nichts eingespielt. Betrifft `inhalte/mathe-profi/papier-test-1/` (README und Nachtrag). Keine Ergebnisse und keine Namen im Repo – die gehen nur an den Nutzer.
+
+**Geliefert**
+- **Die Annahme „40 Minuten tragen, aber knapp“ ist widerlegt.** In der ersten Durchführung reichte die Zeit bei **beiden** Blättern nicht: K5-A brauchte 58 Minuten, K8-A 52 Minuten (45 % und 30 % über der angesetzten Zeit). Eine Messung an je einem Blatt, keine Statistik.
+- **Die Zeit bleibt trotzdem bei 40 Minuten** – eine Schulaufgabe verlängert auch niemand, und nur mit fester Zeit ist Blatt B vergleichbar. Stattdessen **zwei Spalten**: „Stand nach 40 Minuten“ (der Testwert) und „Stand mit Zugabe“ (was ohne Zeitdruck da ist). Nach 40 Minuten einen Strich ziehen, Zeit notieren, weiterarbeiten lassen. Im Erfassungsbogen kommt eine zweite Punktspalte dazu; „bis zu welcher Aufgabe gekommen“ bleibt.
+- **Warum das zählt:** Der Unterschied zwischen beiden Spalten war bei beiden Blättern so groß, dass die Diagnose nach 40 Minuten allein in die Irre geführt hätte – mehrere vermeintliche Stofflücken waren Tempo. Ohne die zweite Spalte hätte ich Übungsvorschläge für Stoff gemacht, der sitzt.
+- **Nachtrag** (`nachtrag.md`, Potenzen und binomische Formeln): von 20 auf **30 Minuten** gesetzt, hochgerechnet aus der Messung (rund 2,6 bis 2,9 Minuten je Punkt). `nachtrag.py` läuft weiter mit „OK“.
+- Die Blätter selbst (`k5-blatt-a.html` und die anderen drei) sind **unverändert**: Dort muss „40 Minuten“ stehen bleiben, sonst ist der Zwilling nicht vergleichbar.
+
+**Offen**
+- Die zweite Punktspalte im Erfassungsbogen ist im README beschrieben, aber noch nicht in den vier HTML-Blättern eingebaut. Soll ich das nachziehen? Das ändert die Blätter – also nur auf dein Wort, weil Blatt B sonst von einer anderen Vorlage kommt als Blatt A.
+- Ob 40 Minuten für den **Zwilling B** dieselbe Hürde sind, zeigt erst der zweite Durchgang in vier bis sechs Wochen.
+
+**Nicht geprüft**
+- Eine Messung je Blatt. Ob die Zeit am Stoff, an der Schreibmenge oder am Format liegt, ist damit nicht entschieden.
+- Die 30 Minuten des Nachtrags sind hochgerechnet, nicht gemessen.
+
+**Annahmen**
+- Die gebrauchte Zeit darf als Angabe über den **Test** im Repo stehen; Punkte, Fehler und Namen nicht.
+- „Je Punkt rund 2,6 bis 2,9 Minuten“ lässt sich auf ein kürzeres Blatt übertragen. Bei 10 Punkten ist das eine grobe Schätzung.
+
 ## 2026-11-27 02:07 (Berlin) – FERTIG: Auftrag 20 – Berichtigungen nach der Inhaltsprüfung, Fehlermuster in `rollend-3` gesucht
 
 Zweig `mathe-profi` (966f15f7). Nur Inhalte, nichts eingespielt. Alle drei `bauen.py` enden mit „OK“. **Die Kennungen sind unverändert** – in `rollend-1` wird die Ausgabe jetzt stabil nach Stufe sortiert, damit eine Stufen-Änderung die Nummerierung nicht verschiebt. Tabellen „Kennung · Befund · was geändert“ stehen in den drei README-Dateien.

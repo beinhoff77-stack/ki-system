@@ -597,7 +597,7 @@
      "klasse": 8,
      "art": "Anwendung",
      "thema": "gleichungen.bruch",
-     "text": "x · (3/x + ½) = x · 3/x + x · ½, für x ≠ 0",
+     "text": "x · (3/x + ½) = x · (3/x) + x · ½, für x ≠ 0",
      "pos": [
       [
        0,
@@ -608,8 +608,8 @@
        17
       ],
       [
-       26,
-       27
+       28,
+       29
       ]
      ]
     },
@@ -929,7 +929,7 @@
      "klasse": 10,
      "art": "Anwendung",
      "thema": "funktionen.exponential_log",
-     "text": "2ˣ · 2³ = 2 hoch x + 3",
+     "text": "2ˣ · 2³ = 2⁽ˣ⁺³⁾",
      "pos": [
       [
        1,
@@ -940,8 +940,8 @@
        7
       ],
       [
-       17,
-       22
+       12,
+       15
       ]
      ]
     }
@@ -1103,19 +1103,19 @@
      "klasse": 8,
      "art": "Anwendung",
      "thema": "terme.bruchterme",
-     "text": "1/x + 1/(2x) = 2/2x + 1/2x = 3/2x, für x ≠ 0",
+     "text": "1/x + 1/(2x) = 2/(2x) + 1/(2x) = 3/(2x), für x ≠ 0",
      "pos": [
       [
        17,
-       19
+       21
       ],
       [
-       24,
-       26
+       26,
+       30
       ],
       [
-       31,
-       33
+       35,
+       39
       ]
      ]
     },
@@ -1315,7 +1315,7 @@
      "klasse": 8,
      "art": "Anwendung",
      "thema": "gleichungen.formeln",
-     "text": "A = g · h, also g = A : h",
+     "text": "A = g · h, also g = A : h (für h ≠ 0)",
      "pos": [
       [
        6,
@@ -1492,7 +1492,7 @@
      "klasse": 8,
      "art": "Vorwissen",
      "thema": "terme.bruchterme",
-     "text": "Nenner x · (x − 4) = 0: x = 0 oder 4",
+     "text": "Nenner x · (x − 4) ist null für x = 0 oder x = 4: beide Werte sind ausgeschlossen",
      "pos": [
       [
        7,
@@ -1503,8 +1503,8 @@
        18
       ],
       [
-       21,
-       22
+       23,
+       27
       ]
      ]
     },
@@ -2025,7 +2025,7 @@
   },
   "I-algebra-2": {
    "kennung": "id.algebra.erlaubte_zahlen",
-   "markiert": "Die Bedingung für x: Kein Nenner wird 0, unter keiner Wurzel steht etwas Negatives.",
+   "markiert": "Die Bedingung für x: Kein Nenner wird 0, unter keiner Quadratwurzel steht etwas Negatives.",
    "klassen": [
     8,
     9,
@@ -2669,11 +2669,11 @@
      "klasse": 10,
      "art": "Anwendung",
      "thema": "raum.pyramide_kegel_kugel",
-     "text": "Pyramide, obere Hälfte: Kanten · ½, Volumen · ⅛",
+     "text": "Pyramide, Spitze bei halber Höhe abgeschnitten: Kanten · ½, Volumen · ⅛",
      "pos": [
       [
-       31,
-       34
+       55,
+       58
       ]
      ]
     }
@@ -2949,15 +2949,15 @@
      "klasse": 5,
      "art": "Einführung",
      "thema": "messen.koerper_berechnung",
-     "text": "Quader: 40 + 30 + 24 = 94 cm²",
+     "text": "Quader 5 · 4 · 3 cm: 2 · 20 + 2 · 15 + 2 · 12 = 94 cm²",
      "pos": [
       [
-       11,
-       12
+       28,
+       29
       ],
       [
-       16,
-       17
+       37,
+       38
       ]
      ]
     },
@@ -2973,19 +2973,19 @@
      "klasse": 8,
      "art": "Einführung",
      "thema": "messen.prisma_zylinder",
-     "text": "Prisma: 12 + 18 + 24 + 30 = 84 cm²",
+     "text": "Prisma (Dreieck 3 · 4 · 5 cm, Höhe 6 cm): 2 · 6 + 18 + 24 + 30 = 84 cm²",
      "pos": [
       [
-       11,
-       12
+       48,
+       49
       ],
       [
-       16,
-       17
+       53,
+       54
       ],
       [
-       21,
-       22
+       58,
+       59
       ]
      ]
     },
@@ -3117,11 +3117,11 @@
      "klasse": 5,
      "art": "Vorwissen",
      "thema": "groessen.proportional",
-     "text": "Preis je kg: 2,50; 5; 7,50 – immer + 2,50",
+     "text": "Preis für 1, 2, 3 kg: 2,50 €; 5 €; 7,50 € – immer + 2,50 €",
      "pos": [
       [
-       35,
-       41
+       50,
+       58
       ]
      ]
     },
@@ -3492,14 +3492,8 @@
     {
      "klasse": 5,
      "art": "Einführung",
-     "text": "340 · 10 = 3 400",
+     "text": "34 · 10 = 340",
      "thema": "zahlen.natuerlich"
-    },
-    {
-     "klasse": 5,
-     "art": "Anwendung",
-     "text": "3 400 m : 1 000 = 3,4 km",
-     "thema": "groessen.einheiten"
     },
     {
      "klasse": 6,
@@ -3508,10 +3502,10 @@
      "thema": "bruch.dezimal"
     },
     {
-     "klasse": 6,
+     "klasse": 7,
      "art": "Anwendung",
-     "text": "15 % = 15 : 100 = 0,15",
-     "thema": "bruch.prozent"
+     "text": "0,15 · 100 = 15, also 15 %",
+     "thema": "bruch.prozent_grundwert"
     },
     {
      "klasse": 8,
@@ -3546,32 +3540,38 @@
     {
      "klasse": 5,
      "art": "Einführung",
-     "text": "3 + (−2) = 1",
-     "thema": "zahlen.ganz"
-    },
-    {
-     "klasse": 5,
-     "art": "Einführung",
-     "text": "3 − (−2) = 5",
+     "text": "3 − (−2) = 3 + 2 = 5",
      "thema": "zahlen.ganz"
     },
     {
      "klasse": 6,
      "art": "Anwendung",
-     "text": "−½ − ¾ = −1¼",
+     "text": "½ − (−¼) = ½ + ¼ = ¾",
      "thema": "bruch.rechnen"
     },
     {
      "klasse": 7,
      "art": "Anwendung",
-     "text": "3x − 5x = −2x",
+     "text": "3x − (−2x) = 3x + 2x = 5x",
      "thema": "terme.umformen"
     },
     {
      "klasse": 8,
      "art": "Anwendung",
-     "text": "x + 5 < 2, also x < −3",
-     "thema": "gleichungen.ungleichungen"
+     "text": "f(x) = 3 − x, x = −2: 3 − (−2) = 3 + 2 = 5",
+     "thema": "funktionen.linear"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "text": "3√2 − (−2√2) = 3√2 + 2√2 = 5√2",
+     "thema": "zahlen.reell"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "text": "f(x) = 3 − 2x³, x = −1: 3 − (−2) = 3 + 2 = 5",
+     "thema": "funktionen.ganzrational"
     }
    ],
    "zeichen": {
@@ -3600,38 +3600,38 @@
     {
      "klasse": 5,
      "art": "Einführung",
-     "text": "(−3) · (−4) = 12",
-     "thema": "zahlen.rechengesetze"
-    },
-    {
-     "klasse": 5,
-     "art": "Einführung",
-     "text": "(−12) : 4 = −3",
+     "text": "(−3) · (−4) = +12",
      "thema": "zahlen.rechengesetze"
     },
     {
      "klasse": 6,
      "art": "Anwendung",
-     "text": "(−⅔) · ¾ = −½",
+     "text": "(−⅔) · (−¾) = +½",
      "thema": "bruch.rechnen"
     },
     {
      "klasse": 7,
      "art": "Anwendung",
-     "text": "(−2x) · (−3) = 6x",
+     "text": "(−3x) · (−4) = +12x",
      "thema": "terme.umformen"
     },
     {
      "klasse": 8,
      "art": "Anwendung",
-     "text": "−2x < 6, also x > −3",
-     "thema": "gleichungen.ungleichungen"
+     "text": "Steigung: (−6) : (−2) = +3",
+     "thema": "funktionen.linear"
     },
     {
      "klasse": 9,
      "art": "Anwendung",
-     "text": "x² = 25 hat die Lösungen 5 und −5",
+     "text": "(−5)² = (−5) · (−5) = +25",
      "thema": "gleichungen.quadratisch"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "text": "(−2)³ = (−2) · (−2) · (−2) = −8",
+     "thema": "funktionen.ganzrational"
     }
    ],
    "zeichen": {
@@ -3660,44 +3660,38 @@
     {
      "klasse": 5,
      "art": "Einführung",
-     "text": "2 + 3 · 4 = 14",
-     "thema": "zahlen.rechengesetze"
-    },
-    {
-     "klasse": 5,
-     "art": "Einführung",
-     "text": "12 : 3 · 2 = 8",
+     "text": "2 + 3 · 4 = 2 + 12 = 14",
      "thema": "zahlen.rechengesetze"
     },
     {
      "klasse": 6,
      "art": "Anwendung",
-     "text": "½ + ½ · ½ = ¾",
+     "text": "½ + ½ · ½ = ½ + ¼ = ¾",
      "thema": "bruch.rechnen"
     },
     {
      "klasse": 7,
      "art": "Anwendung",
-     "text": "2 + 3x bleibt 2 + 3x",
+     "text": "2 + 3 · x bleibt 2 + 3x – nicht 5x",
      "thema": "terme.umformen"
     },
     {
      "klasse": 8,
      "art": "Anwendung",
-     "text": "3 · 2⁻² = ¾",
-     "thema": "terme.potenzgesetze_ganzzahlig"
+     "text": "f(x) = 2 + 3x, x = 4: 2 + 3 · 4 = 14",
+     "thema": "funktionen.linear"
     },
     {
      "klasse": 9,
      "art": "Anwendung",
-     "text": "−3² = −9",
-     "thema": "gleichungen.quadratisch"
+     "text": "f(x) = 2 + 3x², x = 2: 2 + 3 · 2² = 14",
+     "thema": "funktionen.quadratisch"
     },
     {
      "klasse": 10,
      "art": "Anwendung",
-     "text": "2 · 3ˣ = 18: erst durch 2, dann 3ˣ = 9, also x = 2",
-     "thema": "gleichungen.exponential"
+     "text": "f(x) = 2 + 3 · 2ˣ, x = 2: 2 + 3 · 2² = 14",
+     "thema": "funktionen.exponential_log"
     }
    ],
    "zeichen": {
@@ -3726,32 +3720,38 @@
     {
      "klasse": 5,
      "art": "Einführung",
-     "text": "25 · 37 · 4 = 25 · 4 · 37 = 3 700",
-     "thema": "zahlen.rechengesetze"
-    },
-    {
-     "klasse": 5,
-     "art": "Einführung",
      "text": "12 − 30 + 18 = 12 + 18 − 30 = 0",
      "thema": "zahlen.ganz"
     },
     {
      "klasse": 6,
      "art": "Anwendung",
-     "text": "0,5 · 7 · 2 = 0,5 · 2 · 7 = 7",
+     "text": "¼ − ½ + ¾ = ¼ + ¾ − ½ = ½",
      "thema": "bruch.rechnen"
     },
     {
      "klasse": 7,
      "art": "Einführung",
-     "text": "3a + 2b + 4a = 7a + 2b",
+     "text": "3a + 2b + 4a = 3a + 4a + 2b = 7a + 2b",
      "thema": "terme.umformen"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "text": "2x + 3y − 2x + y = 2x − 2x + 4y = 4y",
+     "thema": "gleichungen.lgs2"
     },
     {
      "klasse": 9,
      "art": "Anwendung",
-     "text": "3 · √2 + 2 · √2 = 5 · √2",
+     "text": "3√2 + 5 + 2√2 = 3√2 + 2√2 + 5 = 5√2 + 5",
      "thema": "zahlen.reell"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "text": "3x³ + 2x + 4x³ = 3x³ + 4x³ + 2x = 7x³ + 2x",
+     "thema": "funktionen.ganzrational"
     }
    ],
    "zeichen": {
@@ -3780,43 +3780,37 @@
     {
      "klasse": 5,
      "art": "Einführung",
-     "text": "6 · 98 = 6 · 100 − 6 · 2 = 588",
+     "text": "6 · (20 + 2) = 6 · 20 + 6 · 2 = 132",
      "thema": "zahlen.rechengesetze"
     },
     {
      "klasse": 6,
      "art": "Anwendung",
-     "text": "4 · 2,5 = 4 · 2 + 4 · 0,5 = 10",
+     "text": "4 · (2 + ½) = 4 · 2 + 4 · ½ = 10",
      "thema": "bruch.rechnen"
     },
     {
      "klasse": 7,
      "art": "Einführung",
-     "text": "3 · (x + 2) = 3x + 6",
-     "thema": "terme.umformen"
-    },
-    {
-     "klasse": 7,
-     "art": "Einführung",
-     "text": "3x + 6 = 3 · (x + 2)",
+     "text": "3 · (x + 2) = 3 · x + 3 · 2 = 3x + 6",
      "thema": "terme.umformen"
     },
     {
      "klasse": 8,
      "art": "Anwendung",
-     "text": "(3x + 6) : (x + 2) = 3 für x ≠ −2",
-     "thema": "terme.bruchterme"
+     "text": "x · (3/x + ½) = x · (3/x) + x · ½, für x ≠ 0",
+     "thema": "gleichungen.bruch"
     },
     {
      "klasse": 9,
      "art": "Anwendung",
-     "text": "x² + 5x = x · (x + 5)",
-     "thema": "gleichungen.quadratisch"
+     "text": "√2 · (√2 + 3) = √2 · √2 + √2 · 3 = 2 + 3√2",
+     "thema": "zahlen.reell"
     },
     {
      "klasse": 10,
      "art": "Anwendung",
-     "text": "x³ − 4x = x · (x² − 4)",
+     "text": "x · (x² − 4) = x · x² − x · 4 = x³ − 4x",
      "thema": "gleichungen.polynom"
     }
    ],
@@ -3850,22 +3844,34 @@
      "thema": "zahlen.rechengesetze"
     },
     {
+     "klasse": 6,
+     "art": "Vorwissen",
+     "text": "2 − (¾ − ¼) = 2 − ¾ + ¼ = 1½",
+     "thema": "bruch.rechnen"
+    },
+    {
      "klasse": 7,
      "art": "Einführung",
-     "text": "5x − (3x − 2) = 5x − 3x + 2",
+     "text": "5x − (3x − 2) = 5x − 3x + 2 = 2x + 2",
      "thema": "terme.umformen"
     },
     {
      "klasse": 8,
      "art": "Anwendung",
-     "text": "7 − 2 · (x − 3) = 7 − 2x + 6",
-     "thema": "gleichungen.bruch"
+     "text": "7 − (2x − 6) = 7 − 2x + 6 = 13 − 2x",
+     "thema": "gleichungen.ungleichungen"
     },
     {
      "klasse": 9,
      "art": "Anwendung",
-     "text": "(x + 1)² − (x² − 3) = 2x + 4",
+     "text": "x² − (x² − 3x) = x² − x² + 3x = 3x",
      "thema": "gleichungen.quadratisch"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "text": "x³ − (x³ − 4x) = x³ − x³ + 4x = 4x",
+     "thema": "gleichungen.polynom"
     }
    ],
    "zeichen": {
@@ -3894,31 +3900,37 @@
     {
      "klasse": 5,
      "art": "Einführung",
-     "text": "2⁵ = 2 · 2 · 2 · 2 · 2 = 32",
+     "text": "2³ · 2² = (2 · 2 · 2) · (2 · 2) = 2⁵ = 32",
      "thema": "zahlen.potenzen_basis"
     },
     {
      "klasse": 6,
      "art": "Anwendung",
-     "text": "10³ · 10² = 10⁵",
+     "text": "10³ · 10² = 10⁵ = 100 000",
      "thema": "zahlen.potenzen_zehner"
     },
     {
      "klasse": 7,
      "art": "Einführung",
-     "text": "x² · x³ = x⁵",
+     "text": "x³ · x² = (x · x · x) · (x · x) = x⁵",
      "thema": "terme.potenzgesetze_natuerlich"
     },
     {
      "klasse": 8,
      "art": "Einführung",
-     "text": "a⁻² = 1 : a² für a ≠ 0",
+     "text": "x³ · x⁻² = x¹ = x, für x ≠ 0",
      "thema": "terme.potenzgesetze_ganzzahlig"
+    },
+    {
+     "klasse": 9,
+     "art": "Einführung",
+     "text": "x^½ · x^½ = x¹ = x, für x ≥ 0",
+     "thema": "zahlen.rationale_exponenten"
     },
     {
      "klasse": 10,
      "art": "Anwendung",
-     "text": "2ˣ · 2³ = 2 hoch (x + 3)",
+     "text": "2ˣ · 2³ = 2⁽ˣ⁺³⁾",
      "thema": "funktionen.exponential_log"
     }
    ],
@@ -3941,39 +3953,39 @@
    "genau": "Ein gemeinsamer Faktor ungleich null darf in Zähler und Nenner dazukommen oder wegfallen – der Wert des Bruchs bleibt.",
    "warum": "Der Nenner sagt, in wie viele gleiche Teile das Ganze geteilt ist, der Zähler, wie viele davon gemeint sind. Teilt man jedes Teil noch einmal, gibt es doppelt so viele Teile und man nimmt doppelt so viele: Die Menge bleibt gleich, nur die Einteilung wird feiner.",
    "voraus": "Der Faktor darf nicht null sein. Er muss den ganzen Zähler und den ganzen Nenner betreffen.",
-   "fehler": "Aus Summen kürzen: (x + 6) : (x + 2) zu 3 machen. Erst ausklammern, dann kürzen.",
+   "fehler": "Aus Summen kürzen: (x + 6)/(x + 2) zu 3 machen – hier lässt sich nichts kürzen. Bei (3x + 6)/(x + 2) hilft erst ausklammern: 3 · (x + 2)/(x + 2) = 3.",
    "verwandt": "ggT zum vollständigen Kürzen, kgV als Hauptnenner (Planet Zahlen). Dasselbe bei Verhältnissen und Bruchtermen.",
    "weg": "– (zum Erklären hilfreich, keine Lernvoraussetzung)",
    "klassen": [
     {
      "klasse": 6,
      "art": "Einführung",
-     "text": "½ = (1 · 2)/(2 · 2) = 2/4",
-     "thema": "bruch.brueche"
-    },
-    {
-     "klasse": 6,
-     "art": "Einführung",
-     "text": "12/18 = (2 · 6)/(3 · 6) = 2/3",
+     "text": "12/18 = (2 · 6) / (3 · 6) = 2/3",
      "thema": "bruch.brueche"
     },
     {
      "klasse": 7,
      "art": "Anwendung",
-     "text": "6x : 9 = (2x · 3) : (3 · 3) = 2x : 3",
-     "thema": "terme.umformen"
+     "text": "6x/9 = (2x · 3) / (3 · 3) = 2x/3",
+     "thema": "gleichungen.linear"
     },
     {
      "klasse": 8,
      "art": "Anwendung",
-     "text": "(3x + 6) : (x + 2) = 3 · (x + 2) : (x + 2) = 3 für x ≠ −2",
+     "text": "(3 · (x + 2)) / (1 · (x + 2)) = 3, für x ≠ −2",
      "thema": "terme.bruchterme"
     },
     {
      "klasse": 9,
      "art": "Anwendung",
-     "text": "Seitenverhältnis 6 : 9 = (2 · 3) : (3 · 3) = 2 : 3",
+     "text": "6 cm : 9 cm = (2 · 3) : (3 · 3) = 2 : 3",
      "thema": "abbildungen.aehnlichkeit"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "text": "2/4 = (1 · 2) / (2 · 2) = ½",
+     "thema": "stochastik.mehrstufig"
     }
    ],
    "zeichen": {
@@ -4002,37 +4014,31 @@
     {
      "klasse": 6,
      "art": "Einführung",
-     "text": "½ + ⅓ = 3/6 + 2/6 = 5/6",
-     "thema": "bruch.rechnen"
-    },
-    {
-     "klasse": 6,
-     "art": "Einführung",
-     "text": "⅔ · ¾ = 6/12 = ½",
-     "thema": "bruch.rechnen"
-    },
-    {
-     "klasse": 6,
-     "art": "Einführung",
-     "text": "6 : ½ = 6 · 2 = 12",
+     "text": "1/2 + 1/3 = 3/6 + 2/6 = 5/6",
      "thema": "bruch.rechnen"
     },
     {
      "klasse": 7,
      "art": "Anwendung",
-     "text": "x/2 + x/3 = 5x/6",
+     "text": "x/2 + x/3 = 3x/6 + 2x/6 = 5x/6",
      "thema": "gleichungen.linear"
     },
     {
      "klasse": 8,
      "art": "Anwendung",
-     "text": "2/x + 3/(x + 1) = (5x + 2) : (x · (x + 1)) für x ≠ 0 und x ≠ −1",
+     "text": "1/x + 1/(2x) = 2/(2x) + 1/(2x) = 3/(2x), für x ≠ 0",
      "thema": "terme.bruchterme"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "text": "1/2 + 1/3 − 1/6 = 3/6 + 2/6 − 1/6 = 4/6",
+     "thema": "stochastik.verknuepft"
     },
     {
      "klasse": 10,
      "art": "Anwendung",
-     "text": "Zwei unabhängige Würfe einer fairen Münze, zweimal Kopf: ½ · ½ = ¼",
+     "text": "1/6 + 1/3 = 1/6 + 2/6 = 3/6",
      "thema": "stochastik.mehrstufig"
     }
    ],
@@ -4054,40 +4060,46 @@
    "wirkstelle": "Der Wert für eins.",
    "genau": "Bei gleichem Preis je Einheit: erst auf eins, dann auf die gewünschte Menge.",
    "warum": "Wenn zwei Größen im selben Verhältnis wachsen, gehört zu jeder Einheit derselbe Wert. Wer den Wert für eine Einheit kennt, kennt jeden anderen: 3 kg kosten 7,50 €, also 1 kg 2,50 €, also 5 kg 12,50 €. Allgemein: y = k · x, und k ist der Wert für eine Einheit.",
-   "voraus": "Gilt nur bei direkter Proportionalität: doppelte Menge, doppelter Wert; zur Menge null gehört der Wert null.",
-   "fehler": "Den Dreisatz anwenden, obwohl ein fester Betrag dazukommt (Grundgebühr) oder obwohl mehr von dem einen weniger von dem anderen bedeutet.",
+   "voraus": "Gilt, wenn zwei Größen im selben Verhältnis wachsen (direkte Proportionalität): doppelte Menge, doppelter Wert; zur Menge null gehört der Wert null.",
+   "fehler": "Den Dreisatz anwenden, obwohl ein fester Betrag dazukommt (Grundgebühr). Oder wie bei direkter Proportionalität rechnen, obwohl mehr von dem einen weniger von dem anderen bedeutet: Dann rechnet man umgekehrt.",
    "verwandt": "Umgekehrte Proportionalität: Das Produkt bleibt gleich (x · y = k). Prozent, Maßstab, Steigung einer Geraden, Strahlensatz und Sinus sind dieselbe Idee.",
    "weg": "Erweitern und Kürzen (zum Erklären hilfreich, keine Lernvoraussetzung)",
    "klassen": [
     {
      "klasse": 5,
      "art": "Einführung",
-     "text": "3 kg kosten 7,50 €, also kostet 1 kg 2,50 € und 5 kg kosten 12,50 €",
+     "text": "3 kg: 7,50 € → 1 kg: 2,50 € → 5 kg: 12,50 €",
      "thema": "groessen.proportional"
     },
     {
      "klasse": 6,
-     "art": "Anwendung",
-     "text": "60 sind 100 %, also ist 0,6 gleich 1 % und 15 sind 25 %",
+     "art": "Einführung",
+     "text": "100 %: 60 € → 1 %: 0,60 € → 25 %: 15 €",
      "thema": "bruch.prozent"
     },
     {
      "klasse": 7,
      "art": "Anwendung",
-     "text": "80 % sind 48 €, also ist 1 % 0,60 € und 100 % sind 60 €",
+     "text": "80 %: 48 € → 1 %: 0,60 € → 100 %: 60 €",
      "thema": "bruch.prozent_grundwert"
     },
     {
      "klasse": 8,
      "art": "Anwendung",
-     "text": "Steigung 1,5: je 2 nach rechts geht es 3 nach oben",
+     "text": "x = 2: y = 3 → x = 1: y = 1,5 → x = 4: y = 6",
      "thema": "funktionen.linear"
     },
     {
      "klasse": 9,
      "art": "Anwendung",
-     "text": "Strahlensatz: zu 2 cm gehören 3 cm, also zu 1 cm 1,5 cm und zu 4 cm 6 cm",
+     "text": "2 cm: 3 cm → 1 cm: 1,5 cm → 4 cm: 6 cm",
      "thema": "abbildungen.aehnlichkeit"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "text": "360°: 2π → 1°: π/180 → 90°: π/2",
+     "thema": "funktionen.trig"
     }
    ],
    "zeichen": {
@@ -4116,37 +4128,37 @@
     {
      "klasse": 5,
      "art": "Einführung",
-     "text": "4 · (□ − 12) = −20: erst : 4, dann + 12, also □ = 7",
+     "text": "□ + 7 = 3, also □ = 3 − 7 = −4",
      "thema": "gleichungen.einfach"
     },
     {
      "klasse": 6,
      "art": "Anwendung",
-     "text": "¾ von einer Zahl sind 12, also ist die Zahl 12 : ¾ = 16",
+     "text": "□ · ¾ = 12, also □ = 12 : ¾ = 16",
      "thema": "bruch.rechnen"
     },
     {
      "klasse": 7,
      "art": "Anwendung",
-     "text": "Nach 20 % Aufschlag kostet es 60 €, vorher also 60 : 1,2 = 50 €",
+     "text": "G · 1,2 = 60 €, also G = 60 € : 1,2 = 50 €",
      "thema": "bruch.prozent_grundwert"
     },
     {
      "klasse": 8,
      "art": "Anwendung",
-     "text": "A = g · h : 2 nach h: erst mal 2, dann durch g",
+     "text": "A = g · h, also g = A : h (für h ≠ 0)",
      "thema": "gleichungen.formeln"
     },
     {
      "klasse": 9,
      "art": "Einführung",
-     "text": "x² = 49, also x = 7 oder x = −7",
+     "text": "x hoch 2 = 49, also x = ±√49 = ±7",
      "thema": "gleichungen.quadratisch"
     },
     {
      "klasse": 10,
      "art": "Einführung",
-     "text": "2ˣ = 8, also x = 3",
+     "text": "2 hoch x = 8, also x = log₂ 8 = 3",
      "thema": "gleichungen.exponential"
     }
    ],
@@ -4175,32 +4187,32 @@
    "klassen": [
     {
      "klasse": 5,
-     "art": "Einführung",
-     "text": "□ + 7 = 3: auf beiden Seiten 7 abziehen, also □ = −4",
+     "art": "Vorwissen",
+     "text": "□ + 7 = 3 | − 7 → □ = −4",
      "thema": "gleichungen.einfach"
     },
     {
      "klasse": 7,
      "art": "Einführung",
-     "text": "2x + 2 = 12 &#124; − 2 → 2x = 10 &#124; : 2 → x = 5",
+     "text": "2x + 2 = 12 | − 2 → 2x = 10 | : 2 → x = 5",
      "thema": "gleichungen.linear"
     },
     {
      "klasse": 8,
      "art": "Anwendung",
-     "text": "3/x + ½ = 5/x mit x ≠ 0: beide Seiten mal 2x, dann 6 + x = 10, also x = 4",
-     "thema": "gleichungen.bruch"
+     "text": "2x + 2 < 12 | − 2 → 2x < 10 | : 2 → x < 5",
+     "thema": "gleichungen.ungleichungen"
     },
     {
      "klasse": 9,
      "art": "Anwendung",
-     "text": "2x² = 18 &#124; : 2 → x² = 9",
+     "text": "2x² + 2 = 20 | − 2 → 2x² = 18 | : 2 → x² = 9",
      "thema": "gleichungen.quadratisch"
     },
     {
      "klasse": 10,
      "art": "Anwendung",
-     "text": "3 · 2ˣ = 24 &#124; : 3 → 2ˣ = 8",
+     "text": "2 · 2ˣ + 2 = 18 | − 2 → 2 · 2ˣ = 16 | : 2 → 2ˣ = 8",
      "thema": "gleichungen.exponential"
     }
    ],
@@ -4230,31 +4242,25 @@
     {
      "klasse": 5,
      "art": "Vorwissen",
-     "text": "0 · 7 = 0",
-     "thema": "zahlen.rechengesetze"
-    },
-    {
-     "klasse": 5,
-     "art": "Vorwissen",
-     "text": "□ · 7 = 0, also □ = 0",
+     "text": "□ · 7 = 0: □ = 0",
      "thema": "gleichungen.einfach"
     },
     {
      "klasse": 8,
-     "art": "Anwendung",
-     "text": "Der Nenner x · (x − 4) ist null für x = 0 oder x = 4",
+     "art": "Vorwissen",
+     "text": "Nenner x · (x − 4) ist null für x = 0 oder x = 4: beide Werte sind ausgeschlossen",
      "thema": "terme.bruchterme"
     },
     {
      "klasse": 9,
      "art": "Einführung",
-     "text": "(x − 2) · (x + 3) = 0, also x = 2 oder x = −3",
+     "text": "(x − 2) · (x + 3) = 0: x = 2 oder −3",
      "thema": "gleichungen.quadratisch"
     },
     {
      "klasse": 10,
      "art": "Anwendung",
-     "text": "x · (x − 2) · (x + 2) = 0, also x = 0, x = 2 oder x = −2",
+     "text": "x · (x − 2) · (x + 2) = 0: x = 0, 2 oder −2",
      "thema": "gleichungen.polynom"
     }
    ],
@@ -4413,7 +4419,7 @@
     {
      "nr": 2,
      "satz": "Durch null teilen geht nie – prüfe das zuerst.",
-     "genau": "Kläre zuerst, welche Zahlen du einsetzen darfst: Kein Nenner wird null, unter keiner Wurzel steht etwas Negatives.",
+     "genau": "Kläre zuerst, welche Zahlen du einsetzen darfst: Kein Nenner wird null, unter keiner Quadratwurzel steht etwas Negatives (über den reellen Zahlen).",
      "kurz": "Erlaubte Zahlen",
      "gesetze": [
       "A5",
@@ -4421,7 +4427,7 @@
       "A12",
       "A20"
      ],
-     "warum": "Nicht jede Zahl darf in jeden Term: Durch null kann man nicht teilen, und aus einer negativen Zahl gibt es keine Quadratwurzel. Wer das vor dem Rechnen klärt, erkennt Scheinlösungen.",
+     "warum": "Nicht jede Zahl darf in jeden Term: Durch null kann man nicht teilen, und aus einer negativen Zahl gibt es über den reellen Zahlen keine Quadratwurzel (eine dritte Wurzel aus −8 gibt es dagegen: −2). Wer das vor dem Rechnen klärt, erkennt Scheinlösungen.",
      "zeichen": {
       "Zu sehen": "Eine Zahlengerade von −1 bis 5, durchgehend kräftig gezeichnet – nur bei 2 sitzt ein offener Ring (ein Loch). Darüber der Term. Darunter eine kleine Tabelle mit drei Einsetzungen.",
       "Maße": "Ring genau bei 2. Tabelle: x = 1 ergibt −1; x = 2 „geht nicht“; x = 3 ergibt 1.",
@@ -4506,7 +4512,7 @@
     },
     {
      "nr": 2,
-     "satz": "Doppelt so viel kostet doppelt so viel.",
+     "satz": "Bei gleichem Preis je Einheit kostet doppelt so viel doppelt so viel.",
      "genau": "Proportional heißt: Der Wert für eine Einheit bleibt immer gleich.",
      "kurz": "Wert für eins",
      "gesetze": [
@@ -4587,7 +4593,7 @@
       "G13",
       "G14"
      ],
-     "warum": "Viele Linien der Geometrie sind „alle Punkte mit einer Abstandseigenschaft“: gleich weit von einem Punkt (Kreis), von zwei Punkten (Mittelsenkrechte), von zwei Geraden (Winkelhalbierende). Darum findet man den Umkreismittelpunkt mit Mittelsenkrechten und den Inkreismittelpunkt mit Winkelhalbierenden.",
+     "warum": "Viele Linien der Geometrie bestehen aus allen Punkten, die von etwas gleich weit entfernt sind: von einem Punkt (Kreis), von zwei Punkten (Mittelsenkrechte), von zwei Geraden (Winkelhalbierende). Darum findet man den Umkreismittelpunkt mit Mittelsenkrechten und den Inkreismittelpunkt mit Winkelhalbierenden.",
      "zeichen": {
       "Zu sehen": "Eine Hauptzeichnung und zwei kleinere Nebenzeichnungen. Hauptzeichnung (Feld 1, passt zum Merksatz): Kreis um M mit vier Punkten auf der Linie und ihren Radien. Nebenzeichnung Feld 2: Strecke AB mit ihrer Mittelsenkrechten; ein Punkt P darauf ist mit A und B verbunden. Nebenzeichnung Feld 3: ein Winkel mit seiner Winkelhalbierenden; von einem Punkt P darauf gehen zwei Lote zu den Schenkeln.",
       "Maße": "Radius 3 cm. Strecke AB 4 cm, P liegt 3 cm über der Mitte. Winkel 60°.",
@@ -4646,7 +4652,7 @@
     },
     {
      "nr": 5,
-     "satz": "Rechter Winkel im Dreieck: a² plus b² ist c².",
+     "satz": "Rechter Winkel im Dreieck: a² plus b² ist c² – c liegt dem rechten Winkel gegenüber.",
      "genau": "Im rechtwinkligen Dreieck legen zwei Angaben alles fest: Pythagoras verbindet die Seiten, Sinus, Kosinus und Tangens verbinden Seiten und Winkel.",
      "kurz": "Rechtwinkliges Dreieck",
      "gesetze": [
@@ -4686,7 +4692,7 @@
       "F11",
       "F12"
      ],
-     "warum": "Eine Fläche misst man, indem man sie lückenlos mit gleich großen Quadraten auslegt und zählt; einen Körper füllt man mit gleich großen Würfeln. Jede Formel dieses Planeten ist eine Abkürzung für dieses Zählen: 4 Reihen zu je 6 Quadraten sind 6 · 4.",
+     "warum": "Eine Fläche misst man, indem man sie lückenlos mit gleich großen Quadraten auslegt und zählt; einen Körper füllt man mit gleich großen Würfeln. Die Formeln für Fläche und Rauminhalt sind Abkürzungen für dieses Zählen: 4 Reihen zu je 6 Quadraten sind 6 · 4.",
      "zeichen": {
       "Zu sehen": "Links ein Rechteck, vollständig mit Einheitsquadraten ausgelegt; die unterste Reihe ist gefärbt. Rechts ein Quader aus Einheitswürfeln im Schrägbild; die unterste Schicht ist gefärbt.",
       "Maße": "Rechteck 6 cm mal 4 cm in Originalgröße (24 Quadrate zu 1 cm²). Quader 5 mal 4 mal 3 Würfel.",
@@ -4698,8 +4704,8 @@
     },
     {
      "nr": 2,
-     "satz": "Aus dem Rechteck entsteht jede Fläche.",
-     "genau": "Aus dem Rechteck entsteht jede Fläche: zerschneiden, neu legen, halbieren.",
+     "satz": "Aus dem Rechteck entstehen die Flächen vieler Figuren.",
+     "genau": "Aus dem Rechteck entstehen die Formeln für Parallelogramm, Dreieck und Trapez: zerschneiden, neu legen, halbieren. Beim Kreis nähert man sich dem Rechteck nur an.",
      "kurz": "Aus dem Rechteck",
      "gesetze": [
       "F4",
@@ -4710,7 +4716,7 @@
       "F9",
       "F10"
      ],
-     "warum": "Vom Rechteck weiß man die Fläche durch Zählen. Jede andere Figur wird so zerschnitten und neu gelegt, dass ein Rechteck entsteht – oder sie ist die Hälfte einer Figur, deren Fläche man schon kennt. Deshalb muss man die Formeln nicht einzeln lernen: Man kann sie herleiten.",
+     "warum": "Vom Rechteck weiß man die Fläche durch Zählen. Viele andere Figuren werden so zerschnitten und neu gelegt, dass ein Rechteck entsteht – oder sie sind die Hälfte einer Figur, deren Fläche man schon kennt. Deshalb muss man diese Formeln nicht einzeln lernen: Man kann sie herleiten. Beim Kreis geht das nur als Annäherung.",
      "zeichen": {
       "Zu sehen": "Ein Stammbaum von links nach rechts. Rechteck → Parallelogramm (links ein Dreieck abgeschnitten, rechts angesetzt) → Dreieck (das Parallelogramm entlang einer Diagonale halbiert) → Trapez (zwei gleiche Trapeze ergeben ein Parallelogramm). Eigener Ast: Rechteck → Drachenviereck (im umschriebenen Rechteck, das doppelt so groß ist). Eigener Ast: Kreis in 12 Tortenstücke geschnitten und abwechselnd umgelegt zu einem „Fast-Rechteck“.",
       "Maße": "Rechteck, Parallelogramm und Dreieck mit derselben Grundseite 6 cm und derselben Höhe 4 cm. Kreis: Radius 3 cm; das Fast-Rechteck ist π · r breit und r hoch.",
@@ -4723,7 +4729,7 @@
     {
      "nr": 3,
      "satz": "Grundfläche mal Höhe – bei Spitzen nur ein Drittel.",
-     "genau": "Aus dem Quader entsteht jeder Körper: Grundfläche mal Höhe – bei spitzen Körpern ein Drittel davon.",
+     "genau": "Bei Prisma und Zylinder gilt Grundfläche mal Höhe, bei spitz zulaufenden Körpern (Pyramide, Kegel) ein Drittel davon.",
      "kurz": "Aus dem Quader",
      "gesetze": [
       "F15",
@@ -4731,7 +4737,7 @@
       "F17",
       "F18"
      ],
-     "warum": "Ein Quader ist ein Stapel gleicher Schichten: Grundfläche mal Höhe. Das bleibt richtig, wenn die Grundfläche ein Dreieck oder ein Kreis ist (Prisma, Zylinder) und sogar, wenn der Stapel schief steht. Läuft der Körper spitz zu, bleibt genau ein Drittel übrig.",
+     "warum": "Ein Quader ist ein Stapel gleicher Schichten: Grundfläche mal Höhe. Das bleibt richtig, wenn die Grundfläche ein Dreieck oder ein Kreis ist (Prisma, Zylinder) und sogar, wenn der Stapel schief steht. Läuft ein Körper spitz zu (Pyramide, Kegel), bleibt genau ein Drittel übrig.",
      "zeichen": {
       "Zu sehen": "Ein Stammbaum. Quader → Prisma mit dreieckiger Grundfläche → Zylinder (alle drei als Stapel dünner Schichten angedeutet). Darunter: Pyramide, eingezeichnet in den Quader mit derselben Grundfläche und Höhe, daneben Kegel im Zylinder. Abseits: Kugel im genau passenden Zylinder.",
       "Maße": "Alle Körper gleich hoch. Pyramide und Kegel füllen sichtbar denselben Umriss wie ihr umgebender Körper.",
@@ -4791,7 +4797,7 @@
     },
     {
      "nr": 2,
-     "satz": "Plus gleich viel gibt eine Gerade, mal gleich viel eine steile Kurve.",
+     "satz": "Immer plus dasselbe gibt eine Gerade, immer mal denselben Faktor eine Kurve.",
      "genau": "Linear wächst in gleichen Schritten um gleich viel, exponentiell um den gleichen Faktor.",
      "kurz": "Wachstum",
      "gesetze": [
@@ -4804,7 +4810,7 @@
       "U19",
       "U20"
      ],
-     "warum": "Es gibt zwei Grundarten zu wachsen. Kommt in jedem Schritt gleich viel dazu, liegen die Punkte auf einer Geraden. Wird in jedem Schritt mit derselben Zahl malgenommen, wird die Kurve immer steiler und überholt jede Gerade.",
+     "warum": "Es gibt zwei Grundarten zu wachsen. Kommt in jedem Schritt gleich viel dazu, liegen die Punkte auf einer Geraden. Wird in jedem Schritt mit derselben Zahl malgenommen und ist diese Zahl größer als 1, wird die Kurve immer steiler und überholt jede Gerade; ist sie kleiner als 1, fällt die Kurve.",
      "zeichen": {
       "Zu sehen": "Ein Koordinatensystem mit zwei Graphen, die im selben Punkt beginnen: eine Gerade und eine Kurve. An beiden sind die Punkte für x = 0 bis 4 markiert; zwischen den Punkten kleine Treppenstufen.",
       "Maße": "Gerade: (0 | 1), (1 | 3), (2 | 5), (3 | 7), (4 | 9). Kurve: (0 | 1), (1 | 2), (2 | 4), (3 | 8), (4 | 16). x-Achse 0 bis 4, y-Achse 0 bis 16.",
@@ -4817,7 +4823,7 @@
     {
      "nr": 3,
      "satz": "Die Gleichung verrät die Form: x gibt eine Gerade, x² eine Parabel.",
-     "genau": "Die Gleichung verrät die Form des Graphen – und jede Änderung der Gleichung verschiebt oder streckt ihn.",
+     "genau": "Bei bekannten Funktionstypen verrät die Gleichung die Form des Graphen – und bestimmte Änderungen der Gleichung verschieben, strecken oder spiegeln ihn.",
      "kurz": "Gleichung und Form",
      "gesetze": [
       "U5",
@@ -4828,7 +4834,7 @@
       "U17",
       "U18"
      ],
-     "warum": "An der Gleichung erkennt man, wie der Graph aussieht, bevor man einen einzigen Punkt berechnet: x allein gibt eine Gerade, x² eine Parabel, x im Nenner eine Hyperbel. Ändert man die Gleichung an einer Stelle, bewegt sich der Graph auf eine vorhersagbare Weise.",
+     "warum": "Bei bekannten Funktionstypen erkennt man an der Gleichung, wie der Graph aussieht, bevor man einen einzigen Punkt berechnet: x allein gibt eine Gerade, x² eine Parabel, x im Nenner eine Hyperbel. Ändert man die Gleichung an einer Stelle, bewegt sich der Graph auf eine vorhersagbare Weise.",
      "zeichen": {
       "Zu sehen": "Vier kleine Koordinatensysteme in einer Reihe, jedes mit einem Graphen und seiner Gleichung: Gerade, Parabel, Hyperbel, Knick.",
       "Maße": "Alle vier mit Achsen von −3 bis 3. Parabel durch (−2 | 4), (−1 | 1), (0 | 0), (1 | 1), (2 | 4) – dafür y-Achse bis 4. Hyperbel durch (1 | 1), (2 | 0,5), (0,5 | 2) und gespiegelt im dritten Viertel.",
@@ -5153,7 +5159,7 @@
   {
    "id": "Z20",
    "name": "Quadratwurzel",
-   "satz": "Die Wurzel aus a ist die Zahl ab null, deren Quadrat a ist. Aus negativen Zahlen gibt es keine.",
+   "satz": "Die Wurzel aus a ist die Zahl ab null, deren Quadrat a ist. Aus negativen Zahlen gibt es über den reellen Zahlen keine.",
    "idee": 5,
    "gym": "9",
    "rs": "9",
@@ -5186,7 +5192,7 @@
   {
    "id": "Z23",
    "name": "n-te Wurzel und Bruch als Hochzahl",
-   "satz": "a hoch 1/n ist die n-te Wurzel aus a.",
+   "satz": "Für a ≥ 0 ist a hoch (1/n) die n-te Wurzel aus a.",
    "idee": 5,
    "gym": "9",
    "rs": "10",
@@ -5527,7 +5533,7 @@
   {
    "id": "V7",
    "name": "Änderungsrate",
-   "satz": "Änderung je Einheit: Unterschied der Werte durch Unterschied der Schritte.",
+   "satz": "Änderung je Einheit: Unterschied der Werte durch Unterschied der Schritte. In Klasse 5 heißt das: Wert je Einheit bei direkter Proportionalität, zum Beispiel Preis je Kilogramm.",
    "idee": 2,
    "gym": "5",
    "rs": "6",
@@ -5756,7 +5762,7 @@
    "wirkstelle": "",
    "genau": "",
    "warum": "Die Parallele durch eine Ecke legt alle drei Winkel nebeneinander auf eine Gerade. Ein n-Eck lässt sich von einer Ecke aus in n − 2 Dreiecke teilen.",
-   "voraus": "Gilt für jedes Dreieck in der Ebene; die Vielecksformel für die Innenwinkel.",
+   "voraus": "Gilt für jedes Dreieck in der Ebene. Die Vielecksformel gilt für die Innenwinkel jedes n-Ecks, dessen Seiten sich nicht überschneiden.",
    "fehler": "Beim n-Eck n · 180° rechnen.",
    "verwandt": "Außenwinkelsatz. Gleichschenkliges Dreieck.",
    "weg": "G5 Stufen- und Wechselwinkel",
@@ -7502,7 +7508,7 @@
   {
    "id": "D9",
    "name": "Streuung",
-   "satz": "Die Standardabweichung ist die Wurzel aus dem Mittelwert der quadrierten Abweichungen vom Mittelwert – ein Maß für die typische Abweichung.",
+   "satz": "Die Standardabweichung ist die Wurzel aus dem Mittelwert der quadrierten Abweichungen vom Mittelwert (Formel für die Grundgesamtheit, Nenner n) – ein Maß für die typische Abweichung. Bei einer Stichprobe teilt man durch n − 1.",
    "idee": 1,
    "gym": "–",
    "rs": "–",
@@ -7656,7 +7662,7 @@
   {
    "id": "E3",
    "name": "Graphen",
-   "satz": "Jede Kante zählt an zwei Knoten. Ein Rundweg über alle Kanten geht nur, wenn jeder Knoten gerade viele Kanten hat.",
+   "satz": "Jede Kante zählt an zwei Knoten. In einem zusammenhängenden Graphen gibt es einen Rundweg über alle Kanten genau dann, wenn jeder Knoten gerade viele Kanten hat.",
    "idee": null,
    "gym": "–",
    "rs": "–",

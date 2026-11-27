@@ -32,11 +32,11 @@ test('Daten vollständig: 14 Regeln, 4 Schichten, 7 Gebiete, 28 Ideen, 8 Arbeits
   assert.equal(D.gesetze.filter((g) => g.beispiel).length, 30, '30 ausgearbeitete Einzelregeln');
 });
 
-test('Texte der achten Runde übernommen: Regel 10 kürzere Fassung, Regel 6 unverändert, 18 berichtigte Kurzbeschreibungen, 25 Lücken', () => {
-  assert.equal(I.REGEL.R10.satz, 'Plus, Minus: gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: mal Kehrwert.');
+test('Texte der achten Runde übernommen: Regel 10 kürzere Fassung, Regel 6 unverändert, 21 berichtigte Kurzbeschreibungen, 25 Lücken', () => {
+  assert.equal(I.REGEL.R10.satz, 'Plus/Minus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: mal Kehrwert.');
   assert.equal(I.REGEL.R6.satz, 'Was vor der Klammer steht, nimmt jeden in der Klammer mal.');
   const kb = T8('kurzbeschreibungen.json').eintraege;
-  assert.equal(kb.filter((e) => e.befund === 'berichtigt').length, 18);
+  assert.equal(kb.filter((e) => e.befund === 'berichtigt').length, 21);
   for (const e of kb) assert.equal(I.KURZ[e.entwurf_schluessel], e.endfassung, e.entwurf_schluessel);
   let n = 0;
   for (const m of T8('merksaetze.json').regeln) for (const l of m.luecken) { const t = l.text.slice(1, 40); assert.ok(I.REGEL[m.entwurf_schluessel][l.wo].includes(t), `${m.entwurf_schluessel} ${l.wo}`); n++; }
@@ -45,7 +45,8 @@ test('Texte der achten Runde übernommen: Regel 10 kürzere Fassung, Regel 6 unv
   // Lehrer-Blatt: Lehrplan für alle 14, Beispielaufgaben für Regel 10 und 14 aus beispielaufgaben.json, „nicht geprüft“ bleibt stehen
   for (const r of D.regeln) { const lp = D.lehrer[r.id].lehrplan; assert.ok(lp && lp.nicht_geprueft.length, r.id + ' Lehrplan'); }
   assert.equal(D.lehrer.R10.aufgaben.length, 3); assert.equal(D.lehrer.R14.aufgaben.length, 3);
-  assert.equal(D.lehrer.R9.aufgaben.length, 0, 'BG-05 passt laut Stichprobe nicht zu Regel 9'); assert.equal(D.lehrer.R9.zuordnung.befund, 'passt nicht');
+  assert.equal(D.lehrer.R9.zuordnung.befund, 'passt nicht'); assert.ok(!D.lehrer.R9.aufgaben.some((a) => /BG-05/.test(a.kopf)), 'BG-05 gehört zu Regel 13, nicht zu Regel 9');
+  assert.ok(D.lehrer.R13.aufgaben.length === 3 && D.lehrer.R9.aufgaben.length === 3 && D.lehrer.R11.aufgaben.length === 3);
   assert.equal(D.lehrer.R6.aufgaben.length, 3);
 });
 
@@ -78,7 +79,7 @@ test('Alle Seiten bauen ohne leere Texte, ohne „undefined“/„NaN“, mit Br
   assert.doesNotMatch(r6, /<details[^>]* open/, 'Stufen 4–7 zu');
   // Liste der 14 Regeln: kein Bild, kein Beispiel; Merksatz in der Zeile (Regel 10 eine Zeile)
   const sonne = S.seite('sonne'); assert.equal((sonne.match(/class="ru-zeile ru-mit-satz"/g) || []).length, 14); assert.doesNotMatch(sonne, /ru-z-teil/);
-  assert.match(sonne, /Plus, Minus: gleiche Nenner\. Mal: oben mal oben, unten mal unten\. Geteilt: mal Kehrwert\./);
+  assert.match(sonne, /Plus\/Minus: erst gleiche Nenner\. Mal: oben mal oben, unten mal unten\. Geteilt: mal Kehrwert\./);
   // Lehrer-Blatt: fünf Abschnitte, vier Rückmelde-Knöpfe, nichts zugeklappt, „Nicht geprüft“ offen
   const bl = S.seite('lehrer-r6'); assert.equal((bl.match(/class="ru-l-abschnitt"/g) || []).length, 5); assert.equal((bl.match(/class="ru-rueck"/g) || []).length, 4);
   assert.doesNotMatch(bl, /<details/); assert.match(bl, /Nicht geprüft:/); assert.match(bl, /Stand folgt/);
@@ -102,3 +103,70 @@ test('Adressen und Ebenen; Rückmeldung nennt Regel, Name, Kennung und Abschnitt
   for (const a of L.RU_ARTEN) assert.ok(erlaubt.includes(`'${a[2]}'`), a[2]);
   assert.match(fs.readFileSync(path.join(root, 'supabase/migrations/20261117_w150_e3_auftraege_bezug.sql'), 'utf8'), /'plan', 'allgemein'\) then raise exception 'Unbekannter Bezug'/);
 });
+
+// ---------- Gegenprüfung (Werkstatt 1078/1079): geprüft wird, was die App anzeigt (daten/regeln-universum.json) ----------
+const alleLeiterTexte = () => Object.entries(D.leitern).flatMap(([k, l]) => l.stufen.filter((s) => s.text).map((s) => ({ k, klasse: s.klasse, text: s.text })));
+const text = (k, kl) => D.leitern[k].stufen.find((s) => s.klasse === kl && s.text).text;
+
+test('Grenztexte stehen im aufgeschlagenen Text der Regel (Genau gesagt, Wann sie gilt, Typische Fehler)', () => {
+  assert.match(D.regeln.find((r) => r.id === 'R4').voraus, /Beim Bruch fasst der Strich Zähler und Nenner jeweils zusammen\. Unter der Wurzel und zwischen Betragsstrichen gehört jeweils der ganze eingeschlossene Ausdruck zusammen/);
+  assert.match(I.REGEL.R4.voraus, /2 hoch \(3²\) = 2 hoch 9 = 512|2 hoch \(3²\) = 2⁹ = 512/);
+  assert.match(I.REGEL.R6.voraus, /5 \+ \(x − 2\) = 5 \+ x − 2/); assert.match(I.REGEL.R6.voraus, /3 · \(2 · 5\) = 30/);
+  assert.match(I.REGEL.R10.voraus, /Gemischte Zahlen zuerst in einen Bruch/); assert.match(I.REGEL.R10.fehler, /Kehrwert|kehren/);
+  assert.match(I.REGEL.R11.voraus, /umgekehrt\w* Proportionalität/);
+  assert.doesNotMatch(Object.values(I.REGEL.R11).filter((v) => typeof v === 'string').join(' '), /nur bei direkter Proportionalität/i, 'R11: alter Bestandstext muss weg');
+  assert.match(I.REGEL.R12.voraus, /Runden lässt sich nicht eindeutig rückgängig machen/); assert.match(I.REGEL.R12.voraus, /\|x\| = 3 hat die Lösungen x = −3 und x = 3/);
+  assert.doesNotMatch(I.REGEL.R12.voraus, /Betrag lassen sich nicht umkehren/);
+  assert.match(I.REGEL.R14.fehler, /nicht durch x teilen|durch x teilen/);
+  // jeder Grenztext aus texte8 steht im Feld, das die Seite zeigt: genau → „Genau gesagt“, voraus → „Wann sie gilt“, fehler → Stufe „Typische Fehler“
+  for (const m of T8('merksaetze.json').regeln) for (const l of m.luecken) assert.ok(I.REGEL[m.entwurf_schluessel][l.wo].includes(l.text.slice(1)), m.entwurf_schluessel + ' ' + l.wo);
+  const S = L.ruSichten(I, (h) => '#/regeln/1-' + h, { klasse: 5, frage: '' }, 'kind');
+  for (const [id, stuecke] of [['r4', ['Betragsstrichen', 'Potenzen übereinander|Hochzahlen übereinander']], ['r6', ['Plus davor']], ['r10', ['Gemischte Zahlen']], ['r11', ['umgekehrter Proportionalität']], ['r14', ['[Dd]urch x teilen']]]) {
+    const html = S.seite(id).replace(/&#124;/g, '|'); for (const st of stuecke) assert.match(html, new RegExp(st), id + ': ' + st);
+  }
+});
+
+test('Klassenbeispiele kommen aus einer Quelle (Leiter-Datei); regeln[].klassen ist nicht mehr in den App-Daten', () => {
+  for (const r of D.regeln) assert.ok(!('klassen' in r), r.id + ' hat noch regeln[].klassen');
+  const ld = JSON.parse(fs.readFileSync(path.join(root, 'inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json'), 'utf8')).leitern;
+  const nachKennung = Object.fromEntries(Object.values(D.leitern).map((l) => [l.kennung, l]));
+  for (const q of ld) { const l = nachKennung[q.kennung]; assert.ok(l, q.kennung); assert.deepEqual(l.stufen.map((s) => s.text || null), q.stufen.map((s) => (s.kommt_vor ? s.text : null)), q.kennung); }
+  assert.equal(text('R7', 8), '7 − (2x − 6) = 7 − 2x + 6 = 13 − 2x');
+});
+
+test('Berichtigte Klassenbeispiele: Oberflächen eindeutig, Hochzahlen und Brüche mit Klammern, Nenner-Nullstellen gekennzeichnet', () => {
+  assert.equal(text('I-fur-4', 5), 'Quader 5 · 4 · 3 cm: 2 · 20 + 2 · 15 + 2 · 12 = 94 cm²');
+  assert.equal(2 * 20 + 2 * 15 + 2 * 12, 2 * (5 * 4 + 5 * 3 + 4 * 3)); assert.equal(2 * 6 + 18 + 24 + 30, 84); assert.equal(36 + 4 * (6 * 5 / 2), 96);
+  assert.match(text('I-fur-4', 8), /^Prisma \(Dreieck 3 · 4 · 5 cm, Höhe 6 cm\): 2 · 6 \+ 18 \+ 24 \+ 30 = 84 cm²$/);
+  assert.match(text('I-fur-4', 10), /36 \+ 60 = 96 cm²/);
+  assert.equal(text('R8', 10), '2ˣ · 2³ = 2⁽ˣ⁺³⁾');
+  assert.equal(text('R10', 8), '1/x + 1/(2x) = 2/(2x) + 1/(2x) = 3/(2x), für x ≠ 0');
+  assert.match(text('R14', 8), /ist null für x = 0 oder x = 4: beide Werte sind ausgeschlossen/);
+  assert.equal(text('R6', 8), 'x · (3/x + ½) = x · (3/x) + x · ½, für x ≠ 0');
+  for (const { k, klasse, text: t } of alleLeiterTexte()) { assert.doesNotMatch(t, /\d\/\d?[a-z]\d?x|\/\d+x[ ,]|hoch x \+ 3/, `${k} Klasse ${klasse}: mehrdeutige Schreibweise ${t}`); }
+  // markierte Stellen liegen im Text
+  for (const [k, l] of Object.entries(D.leitern)) for (const s of l.stufen) if (s.text) for (const [a, b] of s.pos) assert.ok(a >= 0 && b <= s.text.length && b > a, `${k} ${s.klasse}`);
+});
+
+test('Nur Endfassungen der Kurzbeschreibungen werden angezeigt (nie die alte Designer-Fassung)', () => {
+  const alt = JSON.parse(fs.readFileSync(path.join(root, 'inhalte/design/gesetzbuch/entwurf7/teile/kurz.json'), 'utf8')).texte;
+  const kb = T8('kurzbeschreibungen.json').eintraege;
+  for (const e of kb) { assert.equal(D.kurz[e.entwurf_schluessel], e.endfassung, e.entwurf_schluessel); assert.ok(e.endfassung.length <= 110, e.entwurf_schluessel + ' Länge');
+    if (e.befund === 'berichtigt') assert.notEqual(D.kurz[e.entwurf_schluessel], alt[e.entwurf_schluessel].text, e.entwurf_schluessel + ' zeigt noch die alte Fassung'); }
+  assert.equal(Object.keys(D.kurz).length, 42);
+  const S = L.ruSichten(I, (h) => '#/regeln/1-' + h, { klasse: 5, frage: '' }, 'kind');
+  for (const id of ['r3', 'r5', 'r8', 'r9', 'r10', 'r11']) assert.ok(S.seite(id).includes(D.kurz[id.toUpperCase()].replace(/&/g, '&amp;')), id);
+  assert.match(D.kurz['I-algebra-2'], /Quadratwurzel über den reellen Zahlen/);
+  assert.match(D.kurz['I-geo-5'], /^Mit Pythagoras berechnet man/); assert.match(D.kurz['I-daten-3'], /gleich wahrscheinlich/);
+});
+
+test('Lehrplan-Bezug ist als redaktionelle Einordnung gekennzeichnet; Arbeitsweisen und Einzelregeln berichtigt', () => {
+  for (const r of D.regeln) { const lp = D.lehrer[r.id].lehrplan; assert.match(lp.befund, /Redaktionelle Einordnung/); assert.match(lp.befund, /nicht hinterlegt/); assert.doesNotMatch(lp.befund, /gegen den Lehrplan geprüft(?!“)/); }
+  const S = L.ruSichten(I, (h) => '#/regeln/1-' + h, { klasse: 5, frage: '' }, 'lehrer');
+  assert.match(S.seite('lehrer-r6'), /Redaktionelle Einordnung/);
+  const w = D.arbeitsweisen.find((a) => a.name === 'Begründen'); assert.match(w.kurz, /allgemeine Behauptung widerlegt ein Gegenbeispiel/);
+  assert.match(D.arbeitsweisen.find((a) => a.name === 'Einheiten').beispiel.text, /im Durchschnitt/);
+  assert.match(I.GESETZ.V1.fehler, /Faktor 10/); assert.match(I.GESETZ.V1.fehler, /Zeit wird nicht dezimal umgerechnet/);
+  assert.match(I.GESETZ.Z6.fehler, /positive natürliche Zahlen/); assert.match(I.GESETZ.V7.satz, /Klasse 5/); assert.match(I.GESETZ.D9.satz, /n − 1/);
+});
+

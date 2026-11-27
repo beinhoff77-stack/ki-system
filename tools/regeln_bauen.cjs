@@ -40,8 +40,10 @@ function bauen() {
 
   // ---------- Texte, achte Runde ----------
   const kurz = Object.fromEntries(Object.entries(kurzAlt).map(([k, v]) => [k, v.text]));
-  for (const e of kurzT8) kurz[e.entwurf_schluessel] = e.endfassung; // 18 berichtigt, 24 unverändert
-  const regeln = inhalt.regeln.map((r) => ({ ...r }));
+  for (const e of kurzT8) kurz[e.entwurf_schluessel] = e.endfassung; // nur die Endfassungen aus texte8 (berichtigte und unveränderte)
+  assert.equal(kurzT8.length, 42); assert.deepEqual(Object.keys(kurz).sort(), kurzT8.map((e) => e.entwurf_schluessel).sort(), 'jede Kurzbeschreibung kommt aus texte8');
+  // Klassenbeispiele kommen aus EINER Quelle: inhalt.leitern (= klassenleiter.json). regeln[].klassen wird nicht in die App-Daten übernommen.
+  const regeln = inhalt.regeln.map((r) => { const { klassen, ...rest } = r; return rest; });
   const regel = Object.fromEntries(regeln.map((r) => [r.id, r]));
   const anhaengen = (x, feld, text) => { const alt = (x[feld] || '').trim();
     x[feld] = !alt ? text : feld === 'fehler' ? `${alt} Und: ${text.charAt(0).toLowerCase()}${text.slice(1)}` : `${alt} ${text}`; };
@@ -75,6 +77,7 @@ function bauen() {
   const ken = Object.fromEntries(json(...mp, 'regeln-uebersicht', 'kennungen.json').kennungen.map((k) => [k.kennung, k]));
   const etik = json(...mp, 'schritt1', 'etiketten.json').aufgaben;
   const zuord = Object.fromEntries(json(...mp, 'schritt1', 'kennungen-zuordnung.json').aufgaben.map((a) => [a.kennung_aufgabe, a.regel]));
+  Object.assign(zuord, aufgT8.umhaengen.regel_von_aufgabe); // Korrekturen des Mathe-Profis (Gegenprüfung): texte8/beispielaufgaben.json
   const stich = Object.fromEntries(aufgT8.stichprobe_bestehende_zuordnung.ergebnis.map((s) => [s.regel, s]));
   const themenIds = {};
   for (const f of fs.readdirSync(path.join(repo, 'inhalte', 'themen')).filter((f) => f.endsWith('.json')).sort()) {
@@ -95,7 +98,7 @@ function bauen() {
       if (a) aufgaben.push(aufgabe(a, `${e.kennung} · Klasse ${e.klasse} · Lernkarte „${e.lernkarte}“`));
     }
     const z = aufgT8.zuordnung.find((x) => x.entwurf_schluessel === r.id);
-    if (z && !aufgaben.length) for (const x of z.aufgaben.slice(0, 3)) {
+    if (z) for (const x of z.aufgaben.slice(0, 3 - aufgaben.length)) {
       const d = JSON.parse(fs.readFileSync(path.join(repo, x.datei), 'utf8')), a = d.aufgaben[x.index_in_aufgaben];
       assert.ok(a && a.l === x.lernkarte, `${x.datei} Stelle ${x.index_in_aufgaben}`);
       aufgaben.push(aufgabe(a, `${path.basename(x.datei, '.json')} · Stelle ${x.index_in_aufgaben} · Klasse ${x.klasse} · Lernkarte „${x.lernkarte}“`));

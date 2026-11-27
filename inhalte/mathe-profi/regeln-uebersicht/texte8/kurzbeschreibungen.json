@@ -3,11 +3,11 @@
  "stand": "2026-11-27",
  "zusammenfassung": {
   "geprueft": 42,
-  "in_ordnung": 24,
-  "berichtigt": 18,
+  "in_ordnung": 21,
+  "berichtigt": 21,
   "rechenregeln_berichtigt": 6,
-  "ideen_gekuerzt_berichtigt": 3,
-  "ideen_woertlich_berichtigt": 9
+  "ideen_gekuerzt_berichtigt": 4,
+  "ideen_woertlich_berichtigt": 11
  },
  "eintraege": [
   {
@@ -298,10 +298,10 @@
    "herkunft": "wörtlich übernommen",
    "kurz_alt": "Nicht jede Zahl darf in jeden Term: Durch null kann man nicht teilen, und aus einer negativen Zahl gibt es keine Quadratwurzel.",
    "befund": "berichtigt",
-   "kurz_neu": "Nicht jede Zahl darf in jeden Term: kein Nenner null, keine negative Zahl unter der Wurzel.",
-   "grund": "Mit 127 Zeichen zu lang; inhaltlich gleich, nur gestrafft.",
-   "endfassung": "Nicht jede Zahl darf in jeden Term: kein Nenner null, keine negative Zahl unter der Wurzel.",
-   "endfassung_laenge": 91,
+   "kurz_neu": "Kein Nenner darf null sein, und unter einer Quadratwurzel über den reellen Zahlen nichts Negatives stehen.",
+   "grund": "Die Bedingung gilt nur für Quadratwurzeln über den reellen Zahlen (die dritte Wurzel aus −8 ist −2); das muss im Satz stehen.",
+   "endfassung": "Kein Nenner darf null sein, und unter einer Quadratwurzel über den reellen Zahlen nichts Negatives stehen.",
+   "endfassung_laenge": 106,
    "kurz_alt_laenge": 127
   },
   {
@@ -326,10 +326,10 @@
    "herkunft": "wörtlich übernommen",
    "kurz_alt": "Bei Gleichungen mit x² hilft das Hin- und Herschieben einzelner Summanden nicht weiter.",
    "befund": "berichtigt",
-   "kurz_neu": "Bei Gleichungen mit x² reicht Umstellen nicht: Man zerlegt in Faktoren oder zieht die Wurzel.",
-   "grund": "Die alte Fassung sagt nur, was nicht hilft; die neue sagt, was stattdessen hilft.",
-   "endfassung": "Bei Gleichungen mit x² reicht Umstellen nicht: Man zerlegt in Faktoren oder zieht die Wurzel.",
-   "endfassung_laenge": 93,
+   "kurz_neu": "Bei Gleichungen höheren Grades faktorisiert man, zieht die Wurzel oder nutzt eine Lösungsformel, je nach Form.",
+   "grund": "Die alte Fassung sagt nur, was nicht hilft; die neue nennt die drei Wege, ohne einen als einzigen hinzustellen.",
+   "endfassung": "Bei Gleichungen höheren Grades faktorisiert man, zieht die Wurzel oder nutzt eine Lösungsformel, je nach Form.",
+   "endfassung_laenge": 110,
    "kurz_alt_laenge": 87
   },
   {
@@ -381,11 +381,11 @@
    "name": "Winkel an Geraden",
    "herkunft": "wörtlich übernommen",
    "kurz_alt": "Schneidet eine Gerade zwei Parallelen, entstehen an beiden Kreuzungen dieselben Winkel.",
-   "befund": "in Ordnung",
-   "kurz_neu": null,
-   "grund": "Fachlich richtig, sagt worum es geht, wiederholt den Merksatz nicht, höchstens etwa 110 Zeichen.",
-   "endfassung": "Schneidet eine Gerade zwei Parallelen, entstehen an beiden Kreuzungen dieselben Winkel.",
-   "endfassung_laenge": 87,
+   "befund": "berichtigt",
+   "kurz_neu": "An geschnittenen Parallelen sind Stufen- und Wechselwinkel gleich; Nebenwinkel ergeben 180°.",
+   "grund": "Die alte Fassung sagt nur „dieselben Winkel“; es sind die Stufen- und Wechselwinkel, und die Nebenwinkel (180°) tragen die Winkelsumme.",
+   "endfassung": "An geschnittenen Parallelen sind Stufen- und Wechselwinkel gleich; Nebenwinkel ergeben 180°.",
+   "endfassung_laenge": 92,
    "kurz_alt_laenge": 87
   },
   {
@@ -396,10 +396,10 @@
    "herkunft": "gekürzt vom Designer",
    "kurz_alt": "Viele Linien der Geometrie sind „alle Punkte mit einer Abstandseigenschaft“.",
    "befund": "berichtigt",
-   "kurz_neu": "Kreis, Mittelsenkrechte und Winkelhalbierende sind alle Punkte, die von etwas gleich weit entfernt sind.",
-   "grund": "„Abstandseigenschaft“ ist ein erfundenes Sammelwort; die neue Fassung nennt die drei Beispiele und sagt es in Alltagssprache.",
-   "endfassung": "Kreis, Mittelsenkrechte und Winkelhalbierende sind alle Punkte, die von etwas gleich weit entfernt sind.",
-   "endfassung_laenge": 104,
+   "kurz_neu": "Gleiche Abstände: zu einem Punkt (Kreis), zwei Punkten (Mittelsenkrechte), zwei Geraden (Winkelhalbierende).",
+   "grund": "Die erste Fassung lässt offen, wovon der Abstand gilt; die neue nennt zu jedem Beispiel, wozu der Abstand gleich ist.",
+   "endfassung": "Gleiche Abstände: zu einem Punkt (Kreis), zwei Punkten (Mittelsenkrechte), zwei Geraden (Winkelhalbierende).",
+   "endfassung_laenge": 108,
    "kurz_alt_laenge": 76
   },
   {
@@ -437,11 +437,11 @@
    "name": "Rechtwinkliges Dreieck",
    "herkunft": "wörtlich übernommen",
    "kurz_alt": "Der rechte Winkel macht das Dreieck berechenbar.",
-   "befund": "in Ordnung",
-   "kurz_neu": null,
-   "grund": "Fachlich richtig, sagt worum es geht, wiederholt den Merksatz nicht, höchstens etwa 110 Zeichen.",
-   "endfassung": "Der rechte Winkel macht das Dreieck berechenbar.",
-   "endfassung_laenge": 48,
+   "befund": "berichtigt",
+   "kurz_neu": "Mit Pythagoras berechnet man im rechtwinkligen Dreieck eine Seite aus den beiden anderen.",
+   "grund": "„Der rechte Winkel macht das Dreieck berechenbar“ ist zu allgemein; die Idee trägt zuerst den Satz des Pythagoras (Sinus, Kosinus, Tangens stehen unter „Warum“).",
+   "endfassung": "Mit Pythagoras berechnet man im rechtwinkligen Dreieck eine Seite aus den beiden anderen.",
+   "endfassung_laenge": 89,
    "kurz_alt_laenge": 48
   },
   {
@@ -466,10 +466,10 @@
    "herkunft": "wörtlich übernommen",
    "kurz_alt": "Vom Rechteck weiß man die Fläche durch Zählen.",
    "befund": "berichtigt",
-   "kurz_neu": "Die Rechteckfläche kennt man durch Zählen; die Formeln der anderen Figuren folgen daraus.",
-   "grund": "„Vom Rechteck weiß man die Fläche durch Zählen“ ist als Beschreibung zu dünn (worum geht es?); die neue Fassung nennt die Folgerung. „Die Formeln der anderen Figuren“ statt „jede Fläche“, weil der Kreis über einen Grenzübergang kommt.",
-   "endfassung": "Die Rechteckfläche kennt man durch Zählen; die Formeln der anderen Figuren folgen daraus.",
-   "endfassung_laenge": 89,
+   "kurz_neu": "Viele Flächenformeln bauen auf dem Rechteck auf; die Kreisfläche wird angenähert.",
+   "grund": "„jede Fläche“ ist zu absolut: Der Kreis folgt nicht durch Zerschneiden, sondern durch Annähern.",
+   "endfassung": "Viele Flächenformeln bauen auf dem Rechteck auf; die Kreisfläche wird angenähert.",
+   "endfassung_laenge": 81,
    "kurz_alt_laenge": 46
   },
   {
@@ -494,9 +494,9 @@
    "herkunft": "wörtlich übernommen",
    "kurz_alt": "Schneidet man einen Körper an seinen Kanten auf und klappt ihn flach, sieht man seine ganze Außenfläche auf einmal: das Netz.",
    "befund": "berichtigt",
-   "kurz_neu": "Klappt man einen Körper an den Kanten flach, sieht man seine ganze Oberfläche auf einmal: das Netz.",
-   "grund": "Mit 125 Zeichen zu lang; gestrafft.",
-   "endfassung": "Klappt man einen Körper an den Kanten flach, sieht man seine ganze Oberfläche auf einmal: das Netz.",
+   "kurz_neu": "Das Netz zeigt die ganze Oberfläche eines Körpers flach ausgebreitet, wie ein aufgeklappter Karton.",
+   "grund": "Gegenprüfung: „an den Kanten aufschneiden“ trifft nicht auf Zylinder und Kegel zu (gekrümmte Flächen); das Netz selbst gibt es bei der Kugel nicht, die Idee bleibt bei ebenen und abwickelbaren Körpern.",
+   "endfassung": "Das Netz zeigt die ganze Oberfläche eines Körpers flach ausgebreitet, wie ein aufgeklappter Karton.",
    "endfassung_laenge": 99,
    "kurz_alt_laenge": 125
   },
@@ -522,10 +522,10 @@
    "herkunft": "wörtlich übernommen",
    "kurz_alt": "Es gibt zwei Grundarten zu wachsen.",
    "befund": "berichtigt",
-   "kurz_neu": "Wachstum ist linear (immer gleich viel dazu) oder exponentiell (immer mal derselbe Faktor).",
-   "grund": "„Es gibt zwei Grundarten zu wachsen“ sagt nicht, welche; die neue Fassung nennt beide.",
-   "endfassung": "Wachstum ist linear (immer gleich viel dazu) oder exponentiell (immer mal derselbe Faktor).",
-   "endfassung_laenge": 91,
+   "kurz_neu": "Linear: immer derselbe Betrag kommt dazu; exponentiell: immer derselbe Faktor wird malgenommen.",
+   "grund": "Kürzer als der Vorschlag der Gegenprüfung (130 Zeichen), gleiche Aussage.",
+   "endfassung": "Linear: immer derselbe Betrag kommt dazu; exponentiell: immer derselbe Faktor wird malgenommen.",
+   "endfassung_laenge": 95,
    "kurz_alt_laenge": 35
   },
   {
@@ -535,11 +535,11 @@
    "name": "Gleichung und Form",
    "herkunft": "gekürzt vom Designer",
    "kurz_alt": "An der Gleichung erkennt man, wie der Graph aussieht, bevor man einen einzigen Punkt berechnet.",
-   "befund": "in Ordnung",
-   "kurz_neu": null,
-   "grund": "Gekürzt, aber fachlich vollständig genug (Form des Graphen aus der Gleichung).",
-   "endfassung": "An der Gleichung erkennt man, wie der Graph aussieht, bevor man einen einzigen Punkt berechnet.",
-   "endfassung_laenge": 95,
+   "befund": "berichtigt",
+   "kurz_neu": "Bei bekannten Funktionstypen verrät die Gleichung die Form des Graphen, bevor man Punkte berechnet.",
+   "grund": "„Immer“ stimmt nicht: Das gilt nur für bekannte Funktionstypen (Gerade, Parabel, Hyperbel …).",
+   "endfassung": "Bei bekannten Funktionstypen verrät die Gleichung die Form des Graphen, bevor man Punkte berechnet.",
+   "endfassung_laenge": 99,
    "kurz_alt_laenge": 95
   },
   {
@@ -564,10 +564,10 @@
    "herkunft": "wörtlich übernommen",
    "kurz_alt": "Man kann selten alle fragen oder alles messen.",
    "befund": "berichtigt",
-   "kurz_neu": "Meist kann man nicht alle fragen oder messen; eine Stichprobe soll für das Ganze stehen.",
-   "grund": "Die alte Fassung ist nur der Anfang des Gedankens (was folgt daraus?); die neue sagt, worum es geht.",
-   "endfassung": "Meist kann man nicht alle fragen oder messen; eine Stichprobe soll für das Ganze stehen.",
-   "endfassung_laenge": 88,
+   "kurz_neu": "Von einer Stichprobe schließt man nur dann aufs Ganze, wenn sie passend und möglichst zufällig ausgewählt ist.",
+   "grund": "Die Bedingung „passend und möglichst zufällig“ gehört in den Satz.",
+   "endfassung": "Von einer Stichprobe schließt man nur dann aufs Ganze, wenn sie passend und möglichst zufällig ausgewählt ist.",
+   "endfassung_laenge": 110,
    "kurz_alt_laenge": 46
   },
   {

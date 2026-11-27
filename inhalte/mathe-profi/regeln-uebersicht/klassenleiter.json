@@ -788,7 +788,7 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "gleichungen.bruch",
-     "text": "x · (3/x + ½) = x · 3/x + x · ½, für x ≠ 0",
+     "text": "x · (3/x + ½) = x · (3/x) + x · ½, für x ≠ 0",
      "wirkende_stelle": [
       "x",
       "x",
@@ -804,8 +804,8 @@
        17
       ],
       [
-       26,
-       27
+       28,
+       29
       ]
      ]
     },
@@ -1220,11 +1220,11 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "funktionen.exponential_log",
-     "text": "2ˣ · 2³ = 2 hoch x + 3",
+     "text": "2ˣ · 2³ = 2⁽ˣ⁺³⁾",
      "wirkende_stelle": [
       "ˣ",
       "³",
-      "x + 3"
+      "ˣ⁺³"
      ],
      "wirkende_stelle_positionen": [
       [
@@ -1236,8 +1236,8 @@
        7
       ],
       [
-       17,
-       22
+       12,
+       15
       ]
      ]
     }
@@ -1449,24 +1449,24 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "terme.bruchterme",
-     "text": "1/x + 1/(2x) = 2/2x + 1/2x = 3/2x, für x ≠ 0",
+     "text": "1/x + 1/(2x) = 2/(2x) + 1/(2x) = 3/(2x), für x ≠ 0",
      "wirkende_stelle": [
-      "2x",
-      "2x",
-      "2x"
+      "(2x)",
+      "(2x)",
+      "(2x)"
      ],
      "wirkende_stelle_positionen": [
       [
        17,
-       19
+       21
       ],
       [
-       24,
-       26
+       26,
+       30
       ],
       [
-       31,
-       33
+       35,
+       39
       ]
      ]
     },
@@ -1729,7 +1729,7 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "gleichungen.formeln",
-     "text": "A = g · h, also g = A : h",
+     "text": "A = g · h, also g = A : h (für h ≠ 0)",
      "wirkende_stelle": [
       "· h",
       ": h"
@@ -1963,11 +1963,11 @@
      "kommt_vor": true,
      "art": "Vorwissen",
      "thema": "terme.bruchterme",
-     "text": "Nenner x · (x − 4) = 0: x = 0 oder 4",
+     "text": "Nenner x · (x − 4) ist null für x = 0 oder x = 4: beide Werte sind ausgeschlossen",
      "wirkende_stelle": [
       "x",
       "(x − 4)",
-      "0"
+      "null"
      ],
      "wirkende_stelle_positionen": [
       [
@@ -1979,8 +1979,8 @@
        18
       ],
       [
-       21,
-       22
+       23,
+       27
       ]
      ]
     },
@@ -2672,7 +2672,7 @@
    "ort": "Algebra",
    "name": "Erlaubte Zahlen",
    "merksatz": "Durch null teilen geht nie – prüfe das zuerst.",
-   "in_jeder_zeile_markiert": "Die Bedingung für x: Kein Nenner wird 0, unter keiner Wurzel steht etwas Negatives.",
+   "in_jeder_zeile_markiert": "Die Bedingung für x: Kein Nenner wird 0, unter keiner Quadratwurzel steht etwas Negatives.",
    "klassen_mit_beispiel": [
     8,
     9,
@@ -3528,14 +3528,14 @@
      "kommt_vor": true,
      "art": "Anwendung",
      "thema": "raum.pyramide_kegel_kugel",
-     "text": "Pyramide, obere Hälfte: Kanten · ½, Volumen · ⅛",
+     "text": "Pyramide, Spitze bei halber Höhe abgeschnitten: Kanten · ½, Volumen · ⅛",
      "wirkende_stelle": [
       "· ½"
      ],
      "wirkende_stelle_positionen": [
       [
-       31,
-       34
+       55,
+       58
       ]
      ]
     }
@@ -3904,19 +3904,19 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "messen.koerper_berechnung",
-     "text": "Quader: 40 + 30 + 24 = 94 cm²",
+     "text": "Quader 5 · 4 · 3 cm: 2 · 20 + 2 · 15 + 2 · 12 = 94 cm²",
      "wirkende_stelle": [
       "+",
       "+"
      ],
      "wirkende_stelle_positionen": [
       [
-       11,
-       12
+       28,
+       29
       ],
       [
-       16,
-       17
+       37,
+       38
       ]
      ]
     },
@@ -3935,7 +3935,7 @@
      "kommt_vor": true,
      "art": "Einführung",
      "thema": "messen.prisma_zylinder",
-     "text": "Prisma: 12 + 18 + 24 + 30 = 84 cm²",
+     "text": "Prisma (Dreieck 3 · 4 · 5 cm, Höhe 6 cm): 2 · 6 + 18 + 24 + 30 = 84 cm²",
      "wirkende_stelle": [
       "+",
       "+",
@@ -3943,16 +3943,16 @@
      ],
      "wirkende_stelle_positionen": [
       [
-       11,
-       12
+       48,
+       49
       ],
       [
-       16,
-       17
+       53,
+       54
       ],
       [
-       21,
-       22
+       58,
+       59
       ]
      ]
     },
@@ -4126,14 +4126,14 @@
      "kommt_vor": true,
      "art": "Vorwissen",
      "thema": "groessen.proportional",
-     "text": "Preis je kg: 2,50; 5; 7,50 – immer + 2,50",
+     "text": "Preis für 1, 2, 3 kg: 2,50 €; 5 €; 7,50 € – immer + 2,50 €",
      "wirkende_stelle": [
-      "+ 2,50"
+      "+ 2,50 €"
      ],
      "wirkende_stelle_positionen": [
       [
-       35,
-       41
+       50,
+       58
       ]
      ]
     },

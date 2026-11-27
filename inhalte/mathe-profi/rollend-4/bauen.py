@@ -315,6 +315,124 @@ neu(f, "primfaktoren", "VW", W("Welche Zerlegung ist die Primfaktorzerlegung von
     "Zerlege so lange, bis nur noch Primzahlen dastehen.", "90 = 2 · 45 = 2 · 3 · 15 = 2 · 3 · 3 · 5. Alle Faktoren sind Primzahlen, und 2 · 3 · 3 · 5 = 90.",
     lambda: 2 * 3 * 3 * 5 == 90 and all(prim(x) for x in (2, 3, 3, 5)) and not prim(9) and 2 * 3 * 3 * 3 != 90), g="mehrschritt")
 
+# ═════════════════════ Kind 2 · Flug ge2 · Spiegeln und Symmetrie (12 Lernkarten) ═════════════════════
+f = "ge2"
+rot90 = lambda v: (-v[1], v[0])            # +90°, gegen den Uhrzeigersinn
+rotm90 = lambda v: (v[1], -v[0])           # −90°
+punkt_sp = lambda p, z: (2 * z[0] - p[0], 2 * z[1] - p[1])
+# achsenspiegelung
+neu(f, "achsenspiegelung", "FD", FDZ("Kim spiegelt den Punkt P(4 | −3) an der y-Achse.",
+    [("Bei der Spiegelung an der y-Achse bleibt die Höhe (y-Wert) gleich.", True), ("Der x-Wert wechselt das Vorzeichen: Aus 4 wird −4.", True), ("Das Bild ist P'(−4 | 3).", (-4, 3) == (-4, -3))],
+    "Die y-Achse ist senkrecht. Was passiert mit der Höhe eines Punktes?", "Zeile 1 sagt es selbst: Die Höhe bleibt gleich, also y = −3. Richtig: P'(−4 | −3)."))
+# punktspiegelung
+neu(f, "punktspiegelung", "FD", FDZ("Kim spiegelt P(6 | 3) am Punkt Z(2 | 1).",
+    [("Von P nach Z geht man 4 nach links und 2 nach unten.", (2 - 6, 1 - 3) == (-4, -2)), ("Von Z aus geht man denselben Weg weiter: x: 2 − 4 = −2 und y: 1 + 2 = 3.", (2 - 4, 1 + 2) == punkt_sp((6, 3), (2, 1))), ("Das Bild ist P'(−2 | 3).", True)],
+    "„Nach unten“ heißt, dass y kleiner wird. Das gilt auch beim zweiten Teil des Weges.", "Von Z aus geht es 2 nach unten: y = 1 − 2 = −1. Richtig: P'(−2 | −1)."))
+neu(f, "punktspiegelung", "VW", W("Der Punkt P(7 | −2) wird am Punkt Z(3 | 4) gespiegelt. Welche Rechnung liefert den Bildpunkt P'?",
+    "x: 2 · 3 − 7 = −1 und y: 2 · 4 − (−2) = 10, also P'(−1 | 10)",
+    [("x: 7 − 3 = 4 und y: −2 − 4 = −6, also P'(4 | −6)", "nur den Vektor von Z nach P ausgerechnet"), ("x: −7 und y: 2, also P'(−7 | 2)", "am Ursprung statt an Z gespiegelt"), ("x: 3 − 7 = −4 und y: 4 − (−2) = 6, also P'(−4 | 6)", "nur den Vektor von P nach Z ausgerechnet")],
+    "Z ist die Mitte von P und P'. Zum Doppelten von Z gehört noch etwas dazu.", "Z ist die Mitte: P' = 2 · Z − P. x: 6 − 7 = −1. y: 8 + 2 = 10.",
+    lambda: punkt_sp((7, -2), (3, 4)) == (-1, 10) and (4, -6) != (-1, 10) and (-7, 2) != (-1, 10) and (-4, 6) != (-1, 10)), g="mehrschritt")
+# mittelsenkrechte
+neu(f, "mittelsenkrechte", "LW", L("A(2 | 3) und B(10 | 3) liegen auf einer waagrechten Linie. Die Mitte von [AB] hat die x-Koordinate (2 + 10) : 2 = ①. Die Mittelsenkrechte ist die senkrechte Linie durch diese Stelle. Sie hat von A den Abstand ① − 2 = ②.",
+    K(2), [6, 4], ["(2 + 10) // 2", "(2 + 10) // 2 - 2"], ["12 / 2", "(10 - 2) / 2"], "Die Mitte liegt genau zwischen den beiden x-Werten.", "(2 + 10) : 2 = 6. Abstand zu A: 6 − 2 = 4.",
+    {0: [(12, None, "die x-Werte nicht halbiert")], 1: [(8, None, "die ganze Strecke statt der Hälfte")]}, hinweis=GZ))
+neu(f, "mittelsenkrechte", "VW", W("Die Punkte A(1 | 4) und B(9 | 4) liegen auf einer waagrechten Linie. Welche Linie ist die Mittelsenkrechte von [AB]?",
+    "die senkrechte Linie durch x = 5", [("die senkrechte Linie durch x = 8", "den Abstand AB statt der Mitte genommen"), ("die waagrechte Linie durch y = 4", "die Linie AB selbst genannt"), ("die senkrechte Linie durch x = 4", "den y-Wert für den x-Wert gehalten")],
+    "Die Mittelsenkrechte steht senkrecht auf [AB] und geht durch die Mitte.", "Die Mitte hat x = (1 + 9) : 2 = 5. Senkrecht zur waagrechten Strecke: senkrechte Linie durch x = 5.",
+    lambda: (1 + 9) / 2 == 5 and 9 - 1 != 5 and 4 != 5), g="mehrschritt")
+# winkelhalbierende
+neu(f, "winkelhalbierende", "LW", L("Ein Winkel hat 70°. Die Winkelhalbierende teilt ihn in zwei Winkel von je 70° : 2 = ①. Ein Winkel von 100° wird in zwei Winkel von je ② geteilt. Zwei Teilwinkel von je 15° ergeben zusammen einen Winkel von ③°.",
+    K(3), [35, 50, 30], ["70 // 2", "100 // 2", "15 * 2"], ["35", "50", "15 + 15"], "Halbieren heißt durch 2 teilen. Zwei Hälften ergeben wieder das Ganze.", "70° : 2 = 35°. 100° : 2 = 50°. 15° + 15° = 30°.",
+    {0: [(140, None, "mit 2 multipliziert statt geteilt")], 2: [(7, None, "durch 2 geteilt statt verdoppelt")]}, hinweis=GZ))
+neu(f, "winkelhalbierende", "FD", FDZ("Ein Winkel hat 84°. Kim berechnet, wie groß die beiden Winkel sind, in die ihn die Winkelhalbierende teilt.",
+    [("Die Winkelhalbierende teilt den Winkel in zwei gleich große Teile.", True), ("Jeder Teil hat 84° − 2 = 82°.", 84 - 2 == 84 / 2), ("Die Winkelhalbierende liegt also 82° vom Schenkel entfernt.", True)],
+    "Zwei gleich große Teile ergeben zusammen wieder 84°.", "Jeder Teil ist die Hälfte: 84° : 2 = 42°. Zusammen 42° + 42° = 84°."))
+neu(f, "winkelhalbierende", "VW", W("Ein Punkt liegt auf der Winkelhalbierenden eines Winkels. Er ist vom einen Schenkel 3 cm entfernt. Wie weit ist er vom anderen Schenkel entfernt?",
+    "3 cm, denn auf der Winkelhalbierenden ist der Abstand zu beiden Schenkeln gleich",
+    [("1,5 cm, denn die Winkelhalbierende halbiert", "Halbieren des Winkels mit Halbieren des Abstands verwechselt"), ("6 cm, denn der andere Schenkel liegt auf der anderen Seite", "die beiden Abstände addiert"), ("Das lässt sich nicht sagen. Der Abstand kann beliebig sein", "die Eigenschaft der Winkelhalbierenden nicht gekannt")],
+    "Welche Eigenschaft haben alle Punkte auf der Winkelhalbierenden?", "Alle Punkte auf der Winkelhalbierenden haben von beiden Schenkeln denselben Abstand: 3 cm.",
+    lambda: 3 == 3 and 3 / 2 != 3 and 3 + 3 != 3), g="mehrschritt")
+# verschiebung
+neu(f, "verschiebung", "FD", FDZ("Kim verschiebt P(3 | −2) mit dem Vektor v = (−5 | 4).",
+    [("Die erste Zahl −5 gehört zu x: x = 3 + (−5) = −2.", 3 + (-5) == -2), ("Die zweite Zahl 4 gehört zu y: y = −2 + 4 = 2.", -2 + 4 == 2), ("Das Bild ist P'(2 | −2).", (2, -2) == (-2, 2))],
+    "Zuerst kommt x, dann y. Wie steht es in den Zeilen davor?", "Zeile 1 gibt x = −2, Zeile 2 gibt y = 2. Richtig: P'(−2 | 2). Kim hat x und y vertauscht."))
+neu(f, "verschiebung", "VW", W("Eine Verschiebung bringt A(2 | 5) nach A'(−1 | 9). Wohin kommt B(4 | 0) bei derselben Verschiebung, und wie berechnest du das?",
+    "v = (−1 − 2 | 9 − 5) = (−3 | 4), also B'(4 − 3 | 0 + 4) = (1 | 4)",
+    [("v = (2 − (−1) | 5 − 9) = (3 | −4), also B'(4 + 3 | 0 − 4) = (7 | −4)", "den Vektor rückwärts (A' nach A) gebildet"), ("v = (−1 | 9), also B'(4 − 1 | 0 + 9) = (3 | 9)", "den Bildpunkt als Vektor genommen"), ("v = (−3 | 4), also B'(4 | 0) bleibt, weil B nicht auf A liegt", "nur A wird verschoben")],
+    "Der Vektor zeigt von A nach A'. Ende minus Anfang.", "v = A' − A = (−3 | 4). Dann B' = B + v = (1 | 4).",
+    lambda: (-1 - 2, 9 - 5) == (-3, 4) and (4 - 3, 0 + 4) == (1, 4) and (7, -4) != (1, 4) and (3, 9) != (1, 4) and (4, 0) != (1, 4)), g="mehrschritt")
+# gegenvektor
+neu(f, "gegenvektor", "LW", L("Die Verschiebung mit v = (3 | −5) bringt P nach P'(5 | −1). Der Gegenvektor ist −v = (−3 | 5). Mit ihm geht P' zurück: P = (5 + (−3) | −1 + 5) = (① | ②).",
+    K(2), [2, 4], ["5 + (-3)", "-1 + 5"], ["5 - 3", "5 - 1"], "Rechne Zahl für Zahl: erst x, dann y.", "5 + (−3) = 2 und −1 + 5 = 4. Der Urpunkt ist P(2 | 4).",
+    {0: [(8, None, "v statt −v addiert")], 1: [(-6, None, "v statt −v addiert")]}, hinweis=GZ), regel=DECK)
+neu(f, "gegenvektor", "FD", FDZ("Der Punkt P'(1 | −4) entstand durch die Verschiebung mit v = (6 | −2). Kim sucht den Urpunkt P.",
+    [("Der Gegenvektor ist −v = (−6 | −2).", (-6, -2) == (-6, 2)), ("Neue x-Zahl: 1 + (−6) = −5.", 1 + (-6) == -5), ("Neue y-Zahl: −4 + (−2) = −6.", -4 + (-2) == -6)],
+    "Beim Gegenvektor ändern sich beide Vorzeichen.", "Aus (6 | −2) wird (−6 | 2). Dann y: −4 + 2 = −2. Richtig: P(−5 | −2)."))
+neu(f, "gegenvektor", "VW", W("Ein Punkt wurde mit v = (4 | −3) verschoben und liegt jetzt bei Q'(2 | 7). Wie findest du den Urpunkt Q?",
+    "Q' − v rechnen: (2 − 4 | 7 − (−3)) = (−2 | 10)",
+    [("Q' + v rechnen: (2 + 4 | 7 + (−3)) = (6 | 4)", "noch einmal verschoben statt zurück"), ("v − Q' rechnen: (4 − 2 | −3 − 7) = (2 | −10)", "die Reihenfolge der Subtraktion vertauscht"), ("x und y tauschen: (7 − 4 | 2 − (−3)) = (3 | 5)", "x- und y-Zahl vermischt")],
+    "Der Weg zurück ist der Gegenvektor.", "Q' − v = (2 − 4 | 7 + 3) = (−2 | 10). Probe: (−2 + 4 | 10 − 3) = (2 | 7).",
+    lambda: (2 - 4, 7 + 3) == (-2, 10) and (-2 + 4, 10 + (-3)) == (2, 7) and (6, 4) != (-2, 10) and (2, -10) != (-2, 10) and (3, 5) != (-2, 10)), g="mehrschritt")
+# drehung
+neu(f, "drehung", "LW", L("P(9 | 6) wird um Z(2 | 1) um 90° gegen den Uhrzeigersinn gedreht. Zuerst der Vektor von Z nach P: (9 − 2 | 6 − 1) = (① | ②). Die Drehung macht aus (a | b) den Vektor (−b | a). Der Bildpunkt ist Z plus dieser Vektor: P'(③ | ④).",
+    K(4), [7, 5, -3, 8], ["9 - 2", "6 - 1", "2 + (-(6 - 1))", "1 + (9 - 2)"], ["7", "5", "2 - 5", "1 + 7"], "Der gedrehte Vektor ist (−5 | 7).", "(9 − 2 | 6 − 1) = (7 | 5). Gedreht: (−5 | 7). P' = (2 − 5 | 1 + 7) = (−3 | 8).",
+    {2: [(7, None, "um O statt um Z gedreht")]}, hinweis=GZ))
+neu(f, "drehung", "FD", FDZ("Kim dreht P(4 | 1) um O(0 | 0) um 180°.",
+    [("Bei 180° wird aus (x | y) der Punkt (−x | −y).", True), ("Aus x = 4 wird −4.", -4 == -4), ("Aus y = 1 wird 1. Das Bild ist P'(−4 | 1).", 1 == -1)],
+    "Bei 180° wechseln beide Zahlen das Vorzeichen.", "Aus y = 1 wird −1. Richtig: P'(−4 | −1)."))
+neu(f, "drehung", "VW", W("Der Punkt P(3 | 5) wird um O(0 | 0) um 90° im Uhrzeigersinn gedreht. Welche Rechnung ist richtig?",
+    "(x | y) wird (y | −x), also P'(5 | −3)",
+    [("(x | y) wird (−y | x), also P'(−5 | 3)", "gegen den Uhrzeigersinn gedreht"), ("(x | y) wird (−x | −y), also P'(−3 | −5)", "um 180° gedreht"), ("(x | y) wird (y | x), also P'(5 | 3)", "an der Winkelhalbierenden gespiegelt statt gedreht")],
+    "Im Uhrzeigersinn ist die Gegenrichtung zu „gegen den Uhrzeigersinn“.", "Im Uhrzeigersinn um 90°: (x | y) wird (y | −x). Aus (3 | 5) wird (5 | −3).",
+    lambda: rotm90((3, 5)) == (5, -3) and rot90((3, 5)) == (-5, 3) and (-3, -5) != (5, -3) and (5, 3) != (5, -3)), g="mehrschritt")
+# symmetrie
+neu(f, "symmetrie", "LW", L("Ein Quadrat hat ① Symmetrieachsen. Ein Rechteck, das kein Quadrat ist, hat ② Symmetrieachsen. Ein gleichseitiges Dreieck hat ③ Symmetrieachsen.",
+    K(3), [4, 2, 3], ["4", "2", "3"], ["2 + 2", "1 + 1", "6 // 2"], "Falte in Gedanken: Wo passt alles genau aufeinander?", "Quadrat: 4 (2 durch die Seitenmitten, 2 durch die Ecken). Rechteck: 2. Gleichseitiges Dreieck: 3.",
+    {0: [(2, None, "die Diagonalen vergessen")], 1: [(4, None, "das Rechteck wie ein Quadrat gezählt")]}, hinweis=GZ))
+ACHSEN = {"Quadrat": 4, "Rechteck": 2, "Raute": 2}
+neu(f, "symmetrie", "FD", FDZ("Kim zählt die Symmetrieachsen von Vierecken, die kein Quadrat sind.",
+    [("Ein Quadrat hat 4 Achsen.", ACHSEN["Quadrat"] == 4), ("Ein Rechteck hat 2 Achsen.", ACHSEN["Rechteck"] == 2), ("Eine Raute hat 4 Achsen.", ACHSEN["Raute"] == 4)],
+    "Eine Raute lässt sich nur an ihren beiden Diagonalen falten.", "Die Raute hat nur 2 Achsen: ihre beiden Diagonalen. Die Seitenmitten-Linien sind keine Achsen."))
+# vierecke_ordnen
+neu(f, "vierecke_ordnen", "LW", L("Im Haus der Vierecke haben die Vierecke Eigenschaften. Ein Parallelogramm hat ① Paare paralleler Seiten. Ein Trapez hat mindestens ② Paar paralleler Seiten. Ein Drachenviereck hat ③ Paare gleich langer Nachbarseiten.",
+    K(3), [2, 1, 2], ["2", "1", "2"], ["1 + 1", "3 - 2", "4 // 2"], "Ein Paar sind immer zwei Seiten.", "Parallelogramm: 2 Paare. Trapez: mindestens 1 Paar. Drachenviereck: 2 Paare.",
+    {0: [(1, None, "mit dem Trapez verwechselt")], 2: [(1, None, "nur ein Paar gezählt")]}, hinweis=GZ))
+neu(f, "vierecke_ordnen", "ZW", Z("Zwei Wege: Weg A prüft jedes der sechs Vierecke einzeln. Weg B sucht nur die Vierecke, die das nicht haben, und zieht von 6 ab. Wie viele der Vierecke Quadrat, Rechteck, Raute, Parallelogramm, Trapez und Drachenviereck haben immer mindestens ein Paar paralleler Seiten?",
+    5, "6 - 1", "1 + 1 + 1 + 1 + 1", "Beim Drachenviereck gibt es keine Garantie für parallele Seiten.", "Quadrat, Rechteck, Raute, Parallelogramm und Trapez haben immer ein Paar paralleler Seiten. Das Drachenviereck nicht immer. 6 − 1 = 5.",
+    [(6, None, "das Drachenviereck mitgezählt"), (4, None, "das Trapez nicht mitgezählt")]), g="mehrschritt")
+# eigenschaften
+neu(f, "eigenschaften", "LW", L("Ein Dreieck hat die Seiten 7 cm, 9 cm und 11 cm. Sein Umfang ist 7 + 9 + 11 = ① cm. Das Dreieck wird gespiegelt. Der Umfang des Bildes ist ② cm. Die drei Winkel des Bildes ergeben zusammen ③°.",
+    K(3), [27, 27, 180], ["7 + 9 + 11", "7 + 9 + 11", "180"], ["27", "9 * 3", "90 * 2"], "Eine Spiegelung ändert keine Längen und keine Winkel.", "7 + 9 + 11 = 27. Das Bild hat denselben Umfang. Die Winkelsumme im Dreieck ist 180°.",
+    {2: [(360, None, "mit der Winkelsumme im Viereck verwechselt")]}, hinweis=GZ))
+neu(f, "eigenschaften", "FD", FDZ("Kim sagt etwas über ein Dreieck, das um 90° gedreht wird.",
+    [("Die Seitenlängen bleiben gleich.", True), ("Die Winkel bleiben gleich.", True), ("Der Umlaufsinn ändert sich bei jeder Drehung.", False)],
+    "Nur eine Abbildung dreht den Umlaufsinn um. Welche?", "Der Umlaufsinn ändert sich nur bei der Achsenspiegelung. Bei einer Drehung bleibt er gleich."))
+# vektor_koordinaten
+neu(f, "vektor_koordinaten", "LW", L("Der Vektor v zeigt von A(1 | 6) nach B(8 | 2): v = (8 − 1 | 2 − 6) = (① | ②). Addiert man v zu C(3 | 9), erhält man C'(③ | ④).",
+    K(4), [7, -4, 10, 5], ["8 - 1", "2 - 6", "3 + (8 - 1)", "9 + (2 - 6)"], ["7", "-4", "10", "5"], "Ende minus Anfang. Dann C plus v.", "v = (7 | −4). C' = (3 + 7 | 9 − 4) = (10 | 5).",
+    {1: [(4, "fb.plusminus.zeichen_des_ergebnisses", "6 − 2 statt 2 − 6 gerechnet")]}, hinweis=GZ), regel=DECK)
+neu(f, "vektor_koordinaten", "FD", FDZ("Kim berechnet den Vektor von A(5 | −2) nach B(1 | 4).",
+    [("Regel: Ende minus Anfang.", True), ("Erste Zahl: 1 − 5 = −4.", 1 - 5 == -4), ("Zweite Zahl: 4 − (−2) = 4 − 2 = 2.", 4 - (-2) == 2)],
+    "Minus minus 2: Was wird daraus?", "4 − (−2) = 4 + 2 = 6. Der Vektor ist (−4 | 6)."), regel=DECK)
+neu(f, "vektor_koordinaten", "VW", W("Der Vektor v zeigt von A(1 | 2) nach B(6 | 5). Vom Punkt B aus gehst du noch einmal um v weiter und kommst zu C. Welche Rechnung ist richtig?",
+    "v = (6 − 1 | 5 − 2) = (5 | 3), also C(6 + 5 | 5 + 3) = (11 | 8)",
+    [("C(6 + 1 | 5 + 2) = (7 | 7)", "die Koordinaten von A statt des Vektors addiert"), ("v = (1 − 6 | 2 − 5) = (−5 | −3), also C(6 − 5 | 5 − 3) = (1 | 2)", "den Rückweg gerechnet: das ist wieder A"), ("C(6 · 2 | 5 · 2) = (12 | 10)", "die Koordinaten von B verdoppelt")],
+    "Erst v ausrechnen, dann zu B addieren.", "v = (5 | 3). C = B + v = (11 | 8).",
+    lambda: (6 + (6 - 1), 5 + (5 - 2)) == (11, 8) and (7, 7) != (11, 8) and (1, 2) != (11, 8) and (12, 10) != (11, 8)), g="mehrschritt", regel=DECK)
+# vektor_drehen
+neu(f, "vektor_drehen", "LW", L("Der Vektor v zeigt von A(1 | 2) nach B(5 | 9): v = (5 − 1 | 9 − 2) = (① | ②). Eine Drehung um +90° macht aus (x | y) den Vektor (−y | x). Gedreht ist v also (③ | ④).",
+    K(4), [4, 7, -7, 4], ["5 - 1", "9 - 2", "-(9 - 2)", "5 - 1"], ["4", "7", "-7", "2 * 2"], "Die zweite Zahl wird zur ersten, mit anderem Vorzeichen.", "v = (4 | 7). Gedreht um +90°: (−7 | 4).",
+    {2: [(7, None, "das Minus vergessen")]}, hinweis=GZ), regel=DECK)
+neu(f, "vektor_drehen", "FD", FDZ("Kim dreht den Vektor v = (6 | −2) um −90°. Die Regel lautet: Aus (x | y) wird (y | −x).",
+    [("x = 6 und y = −2.", True), ("Die neue erste Zahl ist y = −2.", True), ("Die neue zweite Zahl ist x = 6.", 6 == -6)],
+    "In der Regel steht bei der zweiten Zahl ein Minus.", "Die zweite Zahl ist −x = −6. Richtig: (−2 | −6)."), regel=DECK)
+neu(f, "vektor_drehen", "VW", W("Der Vektor v = (2 | 5) wird zweimal hintereinander um +90° gedreht. Welcher Vektor entsteht?",
+    "(−2 | −5), denn zweimal 90° sind zusammen 180°",
+    [("(−5 | 2)", "nur einmal gedreht"), ("(5 | −2)", "um −90° gedreht"), ("(2 | −5)", "an der x-Achse gespiegelt statt gedreht")],
+    "Zweimal 90° ergibt eine Drehung um wie viel Grad?", "Erst (2 | 5) → (−5 | 2), dann (−5 | 2) → (−2 | −5). Das ist eine Drehung um 180°.",
+    lambda: rot90(rot90((2, 5))) == (-2, -5) and rot90((2, 5)) != (-2, -5) and rotm90((2, 5)) != (-2, -5) and (2, -5) != (-2, -5)), g="mehrschritt", regel=DECK)
+
 # ═════════════════════ Prüfen ═════════════════════
 KOMMA_LUECKE = re.compile(r"\d\s*,\s*[①②③④⑤□]")          # Lücke unmittelbar hinter dem Komma: wäre eine Ziffernfolge, keine Zahl (Auftrag 20)
 KOMMA_NEBEN = re.compile(r"[①②③④⑤□],|,[①②③④⑤□]")      # Komma direkt neben einem Lückenzeichen

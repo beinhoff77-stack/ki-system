@@ -1013,18 +1013,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1035,7 +1035,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim spiegelt den Punkt P(4 | −3) an der y-Achse. Zeile 1: Bei der Spiegelung an der y-Achse bleibt die Höhe (y-Wert) gleich. Zeile 2: Der x-Wert wechselt das Vorzeichen: Aus 4 wird −4. Zeile 3: Das Bild ist P'(−4 | 3). In welcher Zeile steckt der Fehler?"
+     "text": "Kim spiegelt den Punkt P(4 | −3) an der y-Achse. Zeile 1: Bei der Spiegelung an der y-Achse bleibt der x-Wert gleich. Zeile 2: Der y-Wert wechselt das Vorzeichen: Aus −3 wird 3. Zeile 3: Das Bild ist P'(4 | 3). In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1043,10 +1043,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Die y-Achse ist senkrecht. Was passiert mit der Höhe eines Punktes?",
-    "w": "Zeile 1 sagt es selbst: Die Höhe bleibt gleich, also y = −3. Richtig: P'(−4 | −3)."
+    "h": "Die y-Achse ist senkrecht. Welcher Wert eines Punktes ändert sich bei der Spiegelung?",
+    "w": "Bei der y-Achse als Spiegelachse wechselt der x-Wert das Vorzeichen, die Höhe bleibt. Richtig: P'(−4 | −3)."
    }
   },
   {
@@ -1083,7 +1083,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim spiegelt P(6 | 3) am Punkt Z(2 | 1). Zeile 1: Von P nach Z geht man 4 nach links und 2 nach unten. Zeile 2: Von Z aus geht man denselben Weg weiter: x: 2 − 4 = −2 und y: 1 + 2 = 3. Zeile 3: Das Bild ist P'(−2 | 3). In welcher Zeile steckt der Fehler?"
+     "text": "Kim spiegelt P(6 | 3) am Punkt Z(2 | 1). Zeile 1: Von P nach Z geht man 4 nach links und 2 nach unten. Zeile 2: Von Z aus geht man denselben Weg weiter: x: 2 − 4 = −2 und y: 1 + 2 = 3. Zeile 3: Das Bild ist P'(−2 | 3). In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1131,7 +1131,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Winkel hat 84°. Kim berechnet, wie groß die beiden Winkel sind, in die ihn die Winkelhalbierende teilt. Zeile 1: Die Winkelhalbierende teilt den Winkel in zwei gleich große Teile. Zeile 2: Jeder Teil hat 84° − 2 = 82°. Zeile 3: Die Winkelhalbierende liegt also 82° vom Schenkel entfernt. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Winkel hat 84°. Kim berechnet, wie groß die beiden Winkel sind, in die ihn die Winkelhalbierende teilt. Zeile 1: Die Winkelhalbierende teilt den Winkel in zwei gleich große Teile. Zeile 2: Jeder Teil hat 84° − 2 = 82°. Zeile 3: Die Winkelhalbierende liegt also 82° vom Schenkel entfernt. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1157,18 +1157,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1179,7 +1179,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim verschiebt P(3 | −2) mit dem Vektor v = (−5 | 4). Zeile 1: Die erste Zahl −5 gehört zu x: x = 3 + (−5) = −2. Zeile 2: Die zweite Zahl 4 gehört zu y: y = −2 + 4 = 2. Zeile 3: Das Bild ist P'(2 | −2). In welcher Zeile steckt der Fehler?"
+     "text": "Kim verschiebt P(3 | −2) mit dem Vektor v = (−5 | 4). Zeile 1: Die erste Zahl −5 gehört zu y: y = −2 + (−5) = −7. Zeile 2: Die zweite Zahl 4 gehört zu x: x = 3 + 4 = 7. Zeile 3: Das Bild ist P'(7 | −7). In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1187,10 +1187,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Zuerst kommt x, dann y. Wie steht es in den Zeilen davor?",
-    "w": "Zeile 1 gibt x = −2, Zeile 2 gibt y = 2. Richtig: P'(−2 | 2). Kim hat x und y vertauscht."
+    "h": "Welche Zahl des Vektors gehört zu x?",
+    "w": "Die erste Zahl gehört zu x: x = 3 + (−5) = −2. Die zweite zu y: y = −2 + 4 = 2. Richtig: P'(−2 | 2)."
    }
   },
   {
@@ -1227,7 +1227,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Der Punkt P'(1 | −4) entstand durch die Verschiebung mit v = (6 | −2). Kim sucht den Urpunkt P. Zeile 1: Der Gegenvektor ist −v = (−6 | −2). Zeile 2: Neue x-Zahl: 1 + (−6) = −5. Zeile 3: Neue y-Zahl: −4 + (−2) = −6. In welcher Zeile steckt der Fehler?"
+     "text": "Der Punkt P'(1 | −4) entstand durch die Verschiebung mit v = (6 | −2). Kim sucht den Urpunkt P. Zeile 1: Der Gegenvektor ist −v = (−6 | −2). Zeile 2: Neue x-Zahl: 1 + (−6) = −5. Zeile 3: Neue y-Zahl: −4 + (−2) = −6. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1260,11 +1260,11 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1275,7 +1275,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim dreht P(4 | 1) um O(0 | 0) um 180°. Zeile 1: Bei 180° wird aus (x | y) der Punkt (−x | −y). Zeile 2: Aus x = 4 wird −4. Zeile 3: Aus y = 1 wird 1. Das Bild ist P'(−4 | 1). In welcher Zeile steckt der Fehler?"
+     "text": "Kim dreht P(4 | 1) um O(0 | 0) um 180°. Zeile 1: Bei 180° wird aus (x | y) der Punkt (−x | −y). Zeile 2: Aus x = 4 wird 4. Zeile 3: Aus y = 1 wird −1. Das Bild ist P'(4 | −1). In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1283,10 +1283,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
     "h": "Bei 180° wechseln beide Zahlen das Vorzeichen.",
-    "w": "Aus y = 1 wird −1. Richtig: P'(−4 | −1)."
+    "w": "Aus x = 4 wird −4 und aus y = 1 wird −1. Richtig: P'(−4 | −1)."
    }
   },
   {
@@ -1344,18 +1344,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1366,7 +1366,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim berechnet den Vektor von A(5 | −2) nach B(1 | 4). Zeile 1: Regel: Ende minus Anfang. Zeile 2: Erste Zahl: 1 − 5 = −4. Zeile 3: Zweite Zahl: 4 − (−2) = 4 − 2 = 2. In welcher Zeile steckt der Fehler?"
+     "text": "Kim berechnet den Vektor von A(5 | −2) nach B(1 | 4). Zeile 1: Regel: Anfang minus Ende. Zeile 2: Erste Zahl: 5 − 1 = 4. Zeile 3: Zweite Zahl: −2 − 4 = −6. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1374,10 +1374,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Minus minus 2: Was wird daraus?",
-    "w": "4 − (−2) = 4 + 2 = 6. Der Vektor ist (−4 | 6)."
+    "h": "Beim Vektor von A nach B: Welcher Punkt steht in der Rechnung vorn?",
+    "w": "Ende minus Anfang: 1 − 5 = −4 und 4 − (−2) = 6. Der Vektor ist (−4 | 6)."
    }
   },
   {

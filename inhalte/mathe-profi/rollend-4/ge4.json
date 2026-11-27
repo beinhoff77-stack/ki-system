@@ -148,7 +148,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Fünfeck zerlegt man von einer Ecke aus in 3 Dreiecke. Die Winkelsumme ist 3 · 180° = ①°. Ein Sechseck hat die Winkelsumme (6 − 2) · 180° = ②°.",
+     "text": "Ein konvexes Fünfeck zerlegt man von einer Ecke aus in 3 Dreiecke. Die Winkelsumme ist 3 · 180° = ①°. Ein Sechseck hat die Winkelsumme (6 − 2) · 180° = ②°.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -1247,18 +1247,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1269,7 +1269,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Im Dreieck ist α = 40° und β = 75°. Kim berechnet γ. Zeile 1: Die Winkelsumme im Dreieck beträgt 180°. Zeile 2: α + β = 40° + 75° = 115°. Zeile 3: γ = 180° − 115° = 75°. In welcher Zeile steckt der Fehler?"
+     "text": "Im Dreieck ist α = 40° und β = 75°. Kim berechnet γ. Zeile 1: Die Winkelsumme im Dreieck beträgt 360°. Zeile 2: α + β = 40° + 75° = 115°. Zeile 3: γ = 360° − 115° = 245°. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1277,10 +1277,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Rechne 180 − 115 noch einmal.",
-    "w": "180° − 115° = 65°. γ = 65°."
+    "h": "Welche Zahl gehört zur Winkelsumme im Dreieck?",
+    "w": "Die Winkelsumme im Dreieck beträgt 180°. Also γ = 180° − 115° = 65°."
    }
   },
   {
@@ -1295,18 +1295,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1317,7 +1317,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim berechnet die Winkelsumme eines Achtecks. Zeile 1: Von einer Ecke aus zerlegt man ein n-Eck in n − 2 Dreiecke. Zeile 2: Beim Achteck sind das 8 − 2 = 6 Dreiecke. Zeile 3: Die Winkelsumme ist 6 · 180° = 960°. In welcher Zeile steckt der Fehler?"
+     "text": "Kim berechnet die Winkelsumme eines konvexen Achtecks. Zeile 1: Von einer Ecke aus zerlegt man ein konvexes n-Eck in n Dreiecke. Zeile 2: Beim Achteck sind das 8 Dreiecke. Zeile 3: Die Winkelsumme ist 8 · 180° = 1 440°. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1325,10 +1325,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Rechne 6 · 180 noch einmal.",
-    "w": "6 · 180° = 1080°."
+    "h": "Zähle bei einem Viereck nach: Wie viele Dreiecke entstehen von einer Ecke aus?",
+    "w": "Es sind n − 2 Dreiecke: 8 − 2 = 6, und 6 · 180° = 1 080°."
    }
   },
   {
@@ -1343,18 +1343,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1365,7 +1365,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim prüft, ob regelmäßige Fünfecke einen Boden lückenlos bedecken können. Zeile 1: Die Winkelsumme im Fünfeck ist 3 · 180° = 540°. Zeile 2: Jeder Innenwinkel hat 540° : 5 = 108°. Zeile 3: An einem Punkt treffen sich 360° : 108° = 3 Fünfecke. Das geht ohne Lücke auf. In welcher Zeile steckt der Fehler?"
+     "text": "Kim prüft, ob regelmäßige Fünfecke einen Boden lückenlos bedecken können. Zeile 1: Die Winkelsumme im Fünfeck ist 4 · 180° = 720°. Zeile 2: Jeder Innenwinkel hat 720° : 5 = 144°. Zeile 3: An einem Punkt treffen sich 360° : 144° = 2,5 Fünfecke. Das geht nicht ohne Lücke auf. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1373,10 +1373,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Geht 360 durch 108 ohne Rest?",
-    "w": "360° : 108° ist ungefähr 3,3. Es bleibt eine Lücke. Regelmäßige Fünfecke bedecken den Boden nicht lückenlos."
+    "h": "Von einer Ecke aus zerlegt man ein Fünfeck in wie viele Dreiecke?",
+    "w": "Ein Fünfeck zerlegt man in 3 Dreiecke: 3 · 180° = 540°, jeder Winkel hat 540° : 5 = 108°. 360° : 108° ist ungefähr 3,3, es bleibt eine Lücke. Zeile 2 und 3 folgen richtig aus Zeile 1."
    }
   },
   {
@@ -1516,7 +1516,7 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Du willst beweisen, dass die Winkel in jedem Dreieck zusammen 180° ergeben. Womit beginnst du?"
+     "text": "Du willst beweisen, dass die Winkel in jedem Dreieck zusammen 180° ergeben. Welcher Ansatz ermöglicht einen Beweis für jedes Dreieck?"
     },
     "a": [
      "Mit dem Messen der Winkel in einem gezeichneten Dreieck",
@@ -1550,11 +1550,11 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1565,7 +1565,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein gleichschenkliges Dreieck hat die Basiswinkel 55°. Kim berechnet den Winkel an der Spitze. Zeile 1: Die beiden Basiswinkel sind gleich groß. Zeile 2: Beide zusammen: 55° + 55° = 110°. Zeile 3: Die Spitze: 180° − 110° = 80°. In welcher Zeile steckt der Fehler?"
+     "text": "Ein gleichschenkliges Dreieck hat die Basiswinkel 55°. Kim berechnet den Winkel an der Spitze. Zeile 1: Die beiden Basiswinkel sind gleich groß. Zeile 2: Die Winkelsumme ist 180°. Davon ein Basiswinkel abgezogen: 180° − 55° = 125°. Zeile 3: Der Winkel an der Spitze hat also 125°. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1573,10 +1573,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "Rechne 180 − 110 noch einmal.",
-    "w": "180° − 110° = 70°. Der Winkel an der Spitze hat 70°."
+    "h": "Wie viele Winkel müssen von der Winkelsumme abgehen?",
+    "w": "Beide Basiswinkel gehören zur Summe: 180° − 55° − 55° = 70°. Zeile 3 folgt richtig aus der falschen Zeile 2."
    }
   },
   {
@@ -1742,11 +1742,11 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1757,7 +1757,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Eine Raute hat einen Winkel von 40°. Kim berechnet den Nachbarwinkel. Zeile 1: Eine Raute ist ein Parallelogramm. Zeile 2: Nachbarwinkel im Parallelogramm ergeben zusammen 180°. Zeile 3: Der Nachbarwinkel hat 180° − 40° = 120°. In welcher Zeile steckt der Fehler?"
+     "text": "Eine Raute hat einen Winkel von 40°. Kim berechnet den Nachbarwinkel. Zeile 1: Eine Raute ist ein Parallelogramm. Zeile 2: Nachbarwinkel im Parallelogramm sind gleich groß. Zeile 3: Der Nachbarwinkel hat also 40°. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1765,10 +1765,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "Rechne 180 − 40 noch einmal.",
-    "w": "180° − 40° = 140°. Der Nachbarwinkel hat 140°."
+    "h": "Welche Winkel im Parallelogramm sind gleich groß, welche ergeben zusammen 180°?",
+    "w": "Gegenüberliegende Winkel sind gleich groß, Nachbarwinkel ergeben zusammen 180°: 180° − 40° = 140°. Zeile 3 folgt richtig aus der falschen Zeile 2."
    }
   },
   {

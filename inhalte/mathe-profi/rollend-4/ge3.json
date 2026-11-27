@@ -382,7 +382,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Neben einem Winkel von 65° liegt an einer Geraden ein zweiter Winkel. Kim berechnet ihn. Zeile 1: Beide zusammen ergeben einen gestreckten Winkel. Zeile 2: Ein gestreckter Winkel hat 90°. Zeile 3: Der zweite Winkel hat 90° − 65° = 25°. In welcher Zeile steckt der Fehler?"
+     "text": "Neben einem Winkel von 65° liegt an einer Geraden ein zweiter Winkel. Kim berechnet ihn. Zeile 1: Beide zusammen ergeben einen gestreckten Winkel. Zeile 2: Ein gestreckter Winkel hat 90°. Zeile 3: Der zweite Winkel hat 90° − 65° = 25°. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -408,18 +408,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -430,7 +430,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Zwei Geraden schneiden sich. Ein Winkel hat 50°. Kim berechnet die anderen. Zeile 1: Der gegenüberliegende Winkel hat auch 50°. Zeile 2: Die beiden Nachbarwinkel haben je 180° − 50° = 130°. Zeile 3: Alle vier Winkel zusammen: 50° + 50° + 130° + 130° = 350°. In welcher Zeile steckt der Fehler?"
+     "text": "Zwei Geraden schneiden sich. Ein Winkel hat 50°. Kim berechnet die anderen. Zeile 1: Der gegenüberliegende Winkel hat 180° − 50° = 130°. Zeile 2: Die beiden Nachbarwinkel dieses Winkels haben je 180° − 130° = 50°. Zeile 3: Alle vier Winkel zusammen: 50° + 130° + 50° + 130° = 360°. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -438,10 +438,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Rechne die vier Winkel noch einmal zusammen.",
-    "w": "50 + 50 + 130 + 130 = 360. Um einen Punkt herum sind es immer 360°."
+    "h": "Welche Winkel sind bei sich schneidenden Geraden gleich groß: gegenüberliegende oder benachbarte?",
+    "w": "Gegenüberliegende Winkel (Scheitelwinkel) sind gleich groß: Der gegenüberliegende Winkel hat auch 50°. Die Nachbarwinkel haben 180° − 50° = 130°."
    }
   },
   {
@@ -478,7 +478,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Um einen Punkt liegen vier gleich große Winkel. Kim berechnet einen von ihnen. Zeile 1: Alle Winkel um einen Punkt ergeben 360°. Zeile 2: Jeder der vier Winkel hat 360° : 4 = 80°. Zeile 3: Ein Winkel hat also 80°. In welcher Zeile steckt der Fehler?"
+     "text": "Um einen Punkt liegen vier gleich große Winkel. Kim berechnet einen von ihnen. Zeile 1: Alle Winkel um einen Punkt ergeben 360°. Zeile 2: Jeder der vier Winkel hat 360° : 4 = 80°. Zeile 3: Ein Winkel hat also 80°. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -552,18 +552,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -574,7 +574,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "In einem Quadrat teilen zwei Linien aus einer Ecke den rechten Winkel in drei gleich große Teile. Kim berechnet zwei der Teile zusammen. Zeile 1: Ein Quadrat hat in jeder Ecke 90°. Zeile 2: Jeder der drei Teile hat 90° : 3 = 30°. Zeile 3: Zwei der Teile zusammen haben 30° + 30° = 90°. In welcher Zeile steckt der Fehler?"
+     "text": "In einem Quadrat teilen zwei Linien aus einer Ecke den rechten Winkel in drei gleich große Teile. Kim berechnet zwei der Teile zusammen. Zeile 1: Ein Quadrat hat in jeder Ecke 180°. Zeile 2: Jeder der drei Teile hat 180° : 3 = 60°. Zeile 3: Zwei der Teile zusammen haben 60° + 60° = 120°. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -582,10 +582,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Rechne 30 + 30 noch einmal nach.",
-    "w": "30° + 30° = 60°. Alle drei Teile zusammen sind 90°."
+    "h": "Wie groß ist ein rechter Winkel?",
+    "w": "Ein Quadrat hat in jeder Ecke 90°. Ein Teil hat 90° : 3 = 30°, zwei Teile haben zusammen 60°."
    }
   }
  ]

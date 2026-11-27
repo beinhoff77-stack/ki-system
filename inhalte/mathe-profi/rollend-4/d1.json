@@ -279,7 +279,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim hat 20-mal gewürfelt. Seine Strichliste: Augenzahl 1 dreimal, 2 fünfmal, 3 viermal, 4 zweimal, 5 viermal, 6 dreimal. Zeile 1: Alle Häufigkeiten zusammen müssen 20 ergeben. Zeile 2: 3 + 5 + 4 + 2 + 4 + 3 = 20. Zeile 3: Die Strichliste passt also zu 20 Würfen. In welcher Zeile steckt der Fehler?"
+     "text": "Kim hat 20-mal gewürfelt. Seine Strichliste: Augenzahl 1 dreimal, 2 fünfmal, 3 viermal, 4 zweimal, 5 viermal, 6 dreimal. Zeile 1: Alle Häufigkeiten zusammen müssen 20 ergeben. Zeile 2: 3 + 5 + 4 + 2 + 4 + 3 = 20. Zeile 3: Die Strichliste passt also zu 20 Würfen. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -312,11 +312,11 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -327,7 +327,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Bei 40 Würfen fällt 12-mal die Sechs. Kim berechnet die relative Häufigkeit. Zeile 1: Relative Häufigkeit = Anzahl : Gesamtzahl. Zeile 2: 12 : 40 = 0,3. Zeile 3: 0,3 sind 3 %. In welcher Zeile steckt der Fehler?"
+     "text": "Bei 40 Würfen fällt 12-mal die Sechs. Kim berechnet die relative Häufigkeit. Zeile 1: Relative Häufigkeit = Anzahl : Gesamtzahl. Zeile 2: 12 : 40 = 0,03. Zeile 3: 0,03 sind 3 %. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -335,10 +335,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "0,3 sind 30 Hundertstel. Wie viel Prozent ist das?",
-    "w": "0,3 = 30/100 = 30 %. Kim hat die Prozentzahl um eine Stelle verschoben."
+    "h": "12 : 40 ist dasselbe wie 30 : 100. Wie schreibt man das als Dezimalzahl?",
+    "w": "12 : 40 = 0,3. 0,3 sind 30 %. Zeile 3 folgt richtig aus der falschen Zeile 2."
    }
   },
   {
@@ -423,7 +423,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Im Säulendiagramm steht 1 cm Höhe für 4 Kinder. Eine Säule ist 7 cm hoch. Kim liest sie ab. Zeile 1: Jeder Zentimeter steht für 4 Kinder. Zeile 2: Die Säule gehört also zu 7 : 4 Kindern, das sind weniger als 2 Kinder. Zeile 3: Eine Säule für 12 Kinder wäre 12 : 4 = 3 cm hoch. In welcher Zeile steckt der Fehler?"
+     "text": "Im Säulendiagramm steht 1 cm Höhe für 4 Kinder. Eine Säule ist 7 cm hoch. Kim liest sie ab. Zeile 1: Jeder Zentimeter steht für 4 Kinder. Zeile 2: Die Säule gehört also zu 7 : 4 Kindern, das sind weniger als 2 Kinder. Zeile 3: Eine Säule für 12 Kinder wäre 12 : 4 = 3 cm hoch. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",

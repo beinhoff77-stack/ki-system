@@ -524,7 +524,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim bestimmt die Definitionsmenge von f(x) = 6 : (x + 2). Zeile 1: Man darf nicht durch 0 teilen. Zeile 2: x + 2 = 0 gilt für x = 2. Zeile 3: Also ist D = ℝ ohne {2}. In welcher Zeile steckt der Fehler?"
+     "text": "Kim bestimmt die Definitionsmenge von f(x) = 6 : (x + 2). Zeile 1: Man darf nicht durch 0 teilen. Zeile 2: x + 2 = 0 gilt für x = 2. Zeile 3: Also ist D = ℝ ohne {2}. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -572,7 +572,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim berechnet f(−2) für f(x) = x² − 3x. Zeile 1: Einsetzen: (−2)² − 3 · (−2). Zeile 2: (−2)² = −4 und −3 · (−2) = 6. Zeile 3: Zusammen: −4 + 6 = 2. In welcher Zeile steckt der Fehler?"
+     "text": "Kim berechnet f(−2) für f(x) = x² − 3x. Zeile 1: Einsetzen: (−2)² − 3 · (−2). Zeile 2: (−2)² = −4 und −3 · (−2) = 6. Zeile 3: Zusammen: −4 + 6 = 2. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -620,7 +620,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Für f(x) = 3x − 4 wird die Zahl x gesucht, bei der f(x) = 11 gilt. Kim rechnet. Zeile 1: Gesucht ist x mit f(x) = 11. Zeile 2: Ich setze 11 für x ein: f(11) = 3 · 11 − 4 = 29. Zeile 3: Also ist x = 29. In welcher Zeile steckt der Fehler?"
+     "text": "Für f(x) = 3x − 4 wird die Zahl x gesucht, bei der f(x) = 11 gilt. Kim rechnet. Zeile 1: Gesucht ist x mit f(x) = 11. Zeile 2: Ich setze 11 für x ein: f(11) = 3 · 11 − 4 = 29. Zeile 3: Also ist x = 29. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -646,18 +646,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -668,7 +668,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Die Wertetabelle einer linearen Funktion zeigt x = 1, 2, 3, 4 und f(x) = 5, 7, 9, 11. Kim sucht den Term. Zeile 1: f(x) wächst bei jedem Schritt von x um 2. Zeile 2: Also hat der Term die Form f(x) = 2x + c. Zeile 3: Für x = 1 muss 5 herauskommen: 2 · 1 + c = 5, also c = 2. Der Term ist f(x) = 2x + 2. In welcher Zeile steckt der Fehler?"
+     "text": "Die Wertetabelle einer linearen Funktion zeigt x = 1, 2, 3, 4 und f(x) = 5, 7, 9, 11. Kim sucht den Term. Zeile 1: Von x = 1 bis x = 4 wächst f(x) von 5 auf 11, also um 6. Pro Schritt wächst f(x) um 6. Zeile 2: Also hat der Term die Form f(x) = 6x + c. Zeile 3: Für x = 1 muss 5 herauskommen: 6 · 1 + c = 5, also c = −1. Der Term ist f(x) = 6x − 1. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -676,10 +676,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Setze zur Probe x = 2 in 2x + 2 ein. Kommt 7 heraus?",
-    "w": "2 · 1 + c = 5 ergibt c = 3. Richtig: f(x) = 2x + 3. Probe: f(2) = 7."
+    "h": "Von x = 1 bis x = 4: Wie viele Schritte nach rechts sind das?",
+    "w": "Von x = 1 bis x = 4 sind es 3 Schritte. 6 : 3 = 2 je Schritt. Mit 2 · 1 + c = 5 ist c = 3, also f(x) = 2x + 3. Probe: f(2) = 7. Die Zeilen 2 und 3 folgen richtig aus der falschen Zeile 1."
    }
   },
   {
@@ -694,18 +694,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -716,7 +716,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Der Graph von f steigt gleichmäßig. Er geht durch die Punkte (1 | 3), (2 | 5) und (4 | 9). Kim liest f(3) ab. Zeile 1: Von (1 | 3) nach (2 | 5) steigt der Graph um 2. Zeile 2: Bei x = 3 liegt der Graph also zwischen 5 und 9. Zeile 3: Dort liest Kim f(3) = 8 ab. In welcher Zeile steckt der Fehler?"
+     "text": "Der Graph von f steigt gleichmäßig. Er geht durch die Punkte (1 | 3), (2 | 5) und (4 | 9). Kim liest f(3) ab. Zeile 1: Von (1 | 3) nach (4 | 9) steigt der Graph um 9 − 3 = 6. Das ist der Anstieg pro Schritt nach rechts. Zeile 2: Von (2 | 5) nach x = 3 ist es ein Schritt, also f(3) = 5 + 6 = 11. Zeile 3: Kim liest f(3) = 11 ab. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -724,10 +724,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Von (2 | 5) aus geht es um 2 nach oben.",
-    "w": "f(3) = 5 + 2 = 7. Probe: Von (3 | 7) nach (4 | 9) sind es wieder 2."
+    "h": "Von x = 1 bis x = 4: Wie viele Schritte nach rechts sind das?",
+    "w": "Von x = 1 bis x = 4 sind es 3 Schritte, also 6 : 3 = 2 je Schritt. f(3) = 5 + 2 = 7. Probe: Von (3 | 7) nach (4 | 9) sind es wieder 2."
    }
   },
   {
@@ -764,7 +764,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim berechnet die Nullstelle von f(x) = x − 6. Zeile 1: Ich rechne f(0) = 0 − 6 = −6. Zeile 2: Also ist die Nullstelle bei x = −6. Zeile 3: Der Graph schneidet die x-Achse bei (−6 | 0). In welcher Zeile steckt der Fehler?"
+     "text": "Kim berechnet die Nullstelle von f(x) = x − 6. Zeile 1: Ich rechne f(0) = 0 − 6 = −6. Zeile 2: Also ist die Nullstelle bei x = −6. Zeile 3: Der Graph schneidet die x-Achse bei (−6 | 0). In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -775,7 +775,7 @@
      "index": 1
     },
     "h": "Die Nullstelle ist die Stelle x, bei der der Funktionswert 0 ist, nicht umgekehrt.",
-    "w": "Du löst f(x) = 0: x − 6 = 0, also x = 6. f(0) = −6 ist der Schnittpunkt mit der y-Achse."
+    "w": "Du löst f(x) = 0: x − 6 = 0, also x = 6. f(0) = −6 ist die y-Koordinate: Der Schnittpunkt mit der y-Achse ist (0 | −6)."
    }
   },
   {

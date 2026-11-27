@@ -180,7 +180,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim löst 2 · x − 5 = 17. Zeile 1: Erst 5 abziehen: 2 · x = 12. Zeile 2: Dann durch 2 teilen: x = 6. Zeile 3: Die Lösung ist x = 6. In welcher Zeile steckt der Fehler?"
+     "text": "Kim löst 2 · x − 5 = 17. Zeile 1: Erst 5 abziehen: 2 · x = 12. Zeile 2: Dann durch 2 teilen: x = 6. Zeile 3: Die Lösung ist x = 6. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -206,18 +206,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -228,7 +228,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Das Vierfache einer Zahl, um 6 vermehrt, ergibt 30. Kim sucht die Zahl. Zeile 1: Die gesuchte Zahl heißt x. Zeile 2: Das Vierfache ist 4 · x, um 6 vermehrt: 4 · x + 6 = 30. Zeile 3: Rückwärts: 30 − 6 = 24 und 24 : 4 = 6. Die Zahl ist 24. In welcher Zeile steckt der Fehler?"
+     "text": "Das Vierfache einer Zahl, um 6 vermehrt, ergibt 30. Kim sucht die Zahl. Zeile 1: Als Gleichung: 4 · x − 6 = 30. Zeile 2: Rückwärts: 30 + 6 = 36. Zeile 3: 36 : 4 = 9. Die Zahl ist 9. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -236,10 +236,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Was hast du am Ende ausgerechnet: x oder 4 · x?",
-    "w": "24 ist 4 · x. Danach hat Kim noch durch 4 geteilt: x = 6. Die gesuchte Zahl ist 6."
+    "h": "Was bedeutet „vermehrt“: Wird die Zahl größer oder kleiner?",
+    "w": "„Um 6 vermehrt“ heißt plus 6: 4 · x + 6 = 30. Rückwärts: 30 − 6 = 24 und 24 : 4 = 6. Die Zeilen 2 und 3 passen zur falschen Gleichung aus Zeile 1."
    }
   }
  ]

@@ -955,18 +955,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -977,7 +977,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim löst 5x + 8 > 33. Zeile 1: Auf beiden Seiten 8 abziehen: 5x > 25. Zeile 2: Durch 5 teilen: x > 5. Zeile 3: Die Lösung sind alle Zahlen kleiner als 5. In welcher Zeile steckt der Fehler?"
+     "text": "Kim löst 4x + 6 > 30. Zeile 1: Auf beiden Seiten 6 addieren: 4x > 36. Zeile 2: Durch 4 teilen: x > 9. Zeile 3: Die Lösung sind alle Zahlen größer als 9. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -985,10 +985,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Das Zeichen bleibt beim Teilen durch eine positive Zahl, wie es ist.",
-    "w": "Aus x > 5 folgt: alle Zahlen größer als 5. Kim hat das Ergebnis falsch gelesen."
+    "h": "Wie macht man „plus 6“ rückgängig?",
+    "w": "Plus 6 macht man mit minus 6 rückgängig: 4x > 24, also x > 6. Die Zeilen 2 und 3 folgen richtig aus der falschen Zeile 1."
    }
   },
   {
@@ -1025,7 +1025,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim löst 2(x − 3) < x + 5. Zeile 1: Klammer auflösen: 2x − 3 < x + 5. Zeile 2: Auf beiden Seiten x abziehen: x − 3 < 5. Zeile 3: Auf beiden Seiten 3 addieren: x < 8. In welcher Zeile steckt der Fehler?"
+     "text": "Kim löst 2(x − 3) < x + 5. Zeile 1: Klammer auflösen: 2x − 3 < x + 5. Zeile 2: Auf beiden Seiten x abziehen: x − 3 < 5. Zeile 3: Auf beiden Seiten 3 addieren: x < 8. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1051,18 +1051,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1073,7 +1073,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim löst −2x ≤ 10 und schreibt die Lösung als Intervall. Zeile 1: Durch −2 teilen und das Zeichen umdrehen: x ≥ −5. Zeile 2: Die Grenze −5 gehört dazu, die Klammer zeigt zur Zahl hin: [−5. Zeile 3: Es geht unbegrenzt nach rechts: L = [−5; ∞]. In welcher Zeile steckt der Fehler?"
+     "text": "Kim löst −2x ≤ 10 und schreibt die Lösung als Intervall. Zeile 1: Durch −2 teilen, das Zeichen bleibt: x ≤ −5. Zeile 2: Die Grenze −5 gehört dazu, die Klammer zeigt zur Zahl hin: −5]. Zeile 3: Es geht unbegrenzt nach links: L = ]−∞; −5]. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1081,10 +1081,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Bei ∞ zeigt die Klammer immer nach außen.",
-    "w": "∞ ist keine Zahl und gehört nie dazu. Richtig: L = [−5; ∞[."
+    "h": "Was passiert mit dem Zeichen, wenn du durch eine negative Zahl teilst?",
+    "w": "Beim Teilen durch −2 dreht sich das Zeichen um: x ≥ −5, also L = [−5; ∞[. Die Zeilen 2 und 3 passen zur falschen Zeile 1."
    }
   },
   {
@@ -1121,7 +1121,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim löst −2x + 1 > 7 und prüft das Ergebnis. Zeile 1: 1 abziehen: −2x > 6. Zeile 2: Durch −2 teilen: x > −3. Zeile 3: Probe mit x = 0: −2 · 0 + 1 = 1, und 1 > 7 stimmt nicht. In welcher Zeile steckt der Fehler?"
+     "text": "Kim löst −2x + 1 > 7 und prüft das Ergebnis. Zeile 1: 1 abziehen: −2x > 6. Zeile 2: Durch −2 teilen: x > −3. Zeile 3: Probe mit x = 0: −2 · 0 + 1 = 1, und 1 > 7 stimmt nicht. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1147,18 +1147,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1169,7 +1169,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Die Geraden f(x) = x + 2 und g(x) = 3x − 4 schneiden sich bei x = 3. Kim löst f(x) < g(x) mit den Graphen. Zeile 1: Links von x = 3 liegt g unter f. Zeile 2: Rechts von x = 3 liegt g über f. Zeile 3: f(x) < g(x) gilt also für alle x < 3. In welcher Zeile steckt der Fehler?"
+     "text": "Die Geraden f(x) = x + 2 und g(x) = 3x − 4 schneiden sich bei x = 3. Kim löst f(x) < g(x) mit den Graphen. Zeile 1: f(x) < g(x) heißt: Der Graph von f liegt über dem von g. Zeile 2: Links von x = 3 liegt g unter f, rechts von x = 3 liegt g über f. Zeile 3: f(x) < g(x) gilt also für alle x < 3. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1177,10 +1177,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "f(x) < g(x) heißt: f liegt unter g. Wo ist das der Fall?",
-    "w": "f liegt unter g rechts vom Schnittpunkt. Richtig: x > 3."
+    "h": "Bei f(x) < g(x): Welcher der beiden Graphen liegt unten?",
+    "w": "f(x) < g(x) heißt: f liegt unter g. Das ist rechts vom Schnittpunkt der Fall: x > 3."
    }
   },
   {
@@ -1217,7 +1217,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Verein verlangt 8 € Grundgebühr und 3 € für jeden Besuch. Kim hat höchstens 50 € zur Verfügung und will wissen, wie oft er kommen kann. Zeile 1: Ansatz: 8 + 3x ≥ 50. Zeile 2: 8 abziehen: 3x ≥ 42. Zeile 3: Durch 3 teilen: x ≥ 14. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Verein verlangt 8 € Grundgebühr und 3 € für jeden Besuch. Kim hat höchstens 50 € zur Verfügung und will wissen, wie oft er kommen kann. Zeile 1: Ansatz: 8 + 3x ≥ 50. Zeile 2: 8 abziehen: 3x ≥ 42. Zeile 3: Durch 3 teilen: x ≥ 14. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1243,18 +1243,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1265,7 +1265,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim schreibt „alle Zahlen größer als −1 und höchstens 4“ als Intervall. Zeile 1: Die untere Grenze −1: „größer als“, also gehört −1 nicht dazu. Die Klammer zeigt weg: ]−1. Zeile 2: Die obere Grenze 4: „höchstens“, also gehört 4 dazu. Die Klammer zeigt zur Zahl: 4]. Zeile 3: Zusammen: L = ]−1; 4[. In welcher Zeile steckt der Fehler?"
+     "text": "Kim schreibt „alle Zahlen größer als −1 und höchstens 4“ als Intervall. Zeile 1: Die untere Grenze −1: „größer als“, also gehört −1 dazu. Die Klammer zeigt zur Zahl: [−1. Zeile 2: Die obere Grenze 4: „höchstens“, also gehört 4 dazu. Die Klammer zeigt zur Zahl: 4]. Zeile 3: Zusammen: L = [−1; 4]. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1273,10 +1273,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Gehört die 4 dazu? Dann muss die Klammer zur 4 hin zeigen.",
-    "w": "Zeile 2 sagt: 4 gehört dazu. Also L = ]−1; 4]."
+    "h": "Gehört −1 dazu, wenn „größer als“ dasteht?",
+    "w": "„Größer als −1“ schließt −1 aus: Die Klammer zeigt weg, ]−1. Richtig ist L = ]−1; 4]. Zeile 3 folgt richtig aus Zeile 1 und 2."
    }
   },
   {
@@ -1291,18 +1291,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1313,7 +1313,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim prüft, welche der Zahlen −2, 0, 3 und 7 zum Intervall ]−2; 7] gehören. Zeile 1: −2 ist die Grenze. Die Klammer zeigt weg, also gehört −2 nicht dazu. Zeile 2: 0 und 3 liegen zwischen −2 und 7, also gehören sie dazu. Zeile 3: 7 ist die Grenze. Die Klammer zeigt weg, also gehört 7 nicht dazu. In welcher Zeile steckt der Fehler?"
+     "text": "Kim prüft, welche der Zahlen −2, 0, 3 und 7 zum Intervall ]−2; 7] gehören. Zeile 1: −2 ist die Grenze. Die Klammer zeigt zur Zahl hin, also gehört −2 dazu. Zeile 2: 0 und 3 liegen zwischen −2 und 7, also gehören sie dazu. Zeile 3: 7 ist die Grenze. Die Klammer zeigt zur Zahl hin, also gehört 7 dazu. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1321,10 +1321,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Welche Seite der 7 ist die Klammer, die „]“ oder „[“?",
-    "w": "Am Ende steht „]“. Das ist die Klammer zur Zahl hin: 7 gehört dazu."
+    "h": "Welche Klammer steht bei −2: eine, die zur Zahl zeigt, oder eine, die wegzeigt?",
+    "w": "Bei −2 steht „]“: Die Klammer zeigt weg von der Zahl, −2 gehört nicht dazu. Die Zahlen 0, 3 und 7 gehören dazu."
    }
   }
  ]

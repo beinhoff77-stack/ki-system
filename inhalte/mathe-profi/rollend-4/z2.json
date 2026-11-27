@@ -573,7 +573,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim sucht die kleinste Zahl, die in der Viererreihe und in der Sechserreihe vorkommt. Zeile 1: Viererreihe: 4, 8, 12, 16, 20, 24. Zeile 2: Sechserreihe: 6, 12, 18, 24. Zeile 3: Die erste Zahl, die in beiden Reihen steht, ist 24. In welcher Zeile steckt der Fehler?"
+     "text": "Kim sucht die kleinste positive Zahl, die in der Viererreihe und in der Sechserreihe vorkommt. Zeile 1: Viererreihe: 4, 8, 12, 16, 20, 24. Zeile 2: Sechserreihe: 6, 12, 18, 24. Zeile 3: Die erste Zahl, die in beiden Reihen steht, ist 24. In welcher Zeile steckt der Fehler?"
     },
     "a": [
      "In Zeile 1",

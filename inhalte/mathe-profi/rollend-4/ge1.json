@@ -440,7 +440,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Hund ist mit einer 4 m langen Leine an einen Pfahl gebunden. Der Pfahl steht 10 m von der Straße entfernt. Der Hund kommt bis auf 10 − 4 = ① m an die Straße heran. Wäre die Leine 12 m lang, ragte der Kreis 12 − 10 = ② m über die Straße hinaus.",
+     "text": "Ein Hund ist mit einer 4 m langen Leine an einen Pfahl gebunden. Der Pfahl steht 10 m vom Straßenrand entfernt. Der Hund kommt bis auf 10 − 4 = ① m an den Straßenrand heran. Wäre die Leine 12 m lang, ragte der Kreis 12 − 10 = ② m über den Straßenrand hinaus.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -455,7 +455,7 @@
      "12 - 10"
     ],
     "h": "Die Leine ist der Radius des Kreises.",
-    "w": "10 − 4 = 6 m bleiben bis zur Straße. 12 − 10 = 2 m zu viel."
+    "w": "10 − 4 = 6 m bleiben bis zum Straßenrand. 12 − 10 = 2 m zu viel."
    }
   },
   {
@@ -1066,7 +1066,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim soll den Punkt P(−3 | 5) im Koordinatensystem finden. Zeile 1: Sie startet im Ursprung (0 | 0). Zeile 2: Die erste Zahl ist −3. Sie geht 3 Einheiten nach rechts. Zeile 3: Die zweite Zahl ist 5. Sie geht 5 Einheiten nach oben. In welcher Zeile steckt der Fehler?"
+     "text": "Kim soll den Punkt P(−3 | 5) im Koordinatensystem finden. Zeile 1: Sie startet im Ursprung (0 | 0). Zeile 2: Die erste Zahl ist −3. Sie geht 3 Einheiten nach rechts. Zeile 3: Die zweite Zahl ist 5. Sie geht 5 Einheiten nach oben. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1114,7 +1114,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim berechnet die Länge der Strecke [AB] mit A(−4 | 3) und B(5 | 3). Zeile 1: A und B haben beide y = 3. Die Strecke liegt waagrecht. Zeile 2: Die y-Achse liegt zwischen A und B. Kim rechnet 5 − 4 = 1. Zeile 3: Die Strecke [AB] ist 1 Einheit lang. In welcher Zeile steckt der Fehler?"
+     "text": "Kim berechnet die Länge der Strecke [AB] mit A(−4 | 3) und B(5 | 3). Zeile 1: A und B haben beide y = 3. Die Strecke liegt waagrecht. Zeile 2: Die y-Achse liegt zwischen A und B. Kim rechnet 5 − 4 = 1. Zeile 3: Die Strecke [AB] ist 1 Einheit lang. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1188,18 +1188,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1210,7 +1210,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kreis hat den Radius 4 cm. Die Gerade g ist 7 cm vom Mittelpunkt entfernt. Kim sagt, was g für den Kreis ist. Zeile 1: Ich vergleiche den Abstand 7 cm mit dem Radius 4 cm. Zeile 2: 7 ist größer als 4. Zeile 3: Also ist g eine Sekante und hat 2 Punkte mit dem Kreis gemeinsam. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Kreis hat den Radius 4 cm. Die Gerade g ist 7 cm vom Mittelpunkt entfernt. Kim sagt, was g für den Kreis ist. Zeile 1: Eine Gerade ist eine Sekante, wenn ihr Abstand vom Mittelpunkt größer als der Radius ist. Zeile 2: Hier ist der Abstand 7 cm und der Radius 4 cm. 7 ist größer als 4. Zeile 3: Also ist g eine Sekante und hat 2 Punkte mit dem Kreis gemeinsam. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1218,10 +1218,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Ist der Abstand größer als der Radius, erreicht g den Kreis?",
-    "w": "7 cm ist größer als 4 cm: g erreicht den Kreis nicht. g ist eine Passante und hat 0 gemeinsame Punkte."
+    "h": "Wie nahe muss die Gerade am Mittelpunkt sein, damit sie den Kreis schneidet?",
+    "w": "Eine Sekante hat einen Abstand kleiner als der Radius. Hier ist der Abstand größer: g erreicht den Kreis nicht. g ist eine Passante und hat 0 gemeinsame Punkte."
    }
   },
   {
@@ -1236,18 +1236,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1258,7 +1258,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim ordnet Winkel nach ihrer Art. Zeile 1: 90° ist ein rechter Winkel. Zeile 2: 135° ist stumpf, denn er liegt zwischen 90° und 180°. Zeile 3: 300° ist stumpf, denn er ist größer als 90°. In welcher Zeile steckt der Fehler?"
+     "text": "Kim ordnet Winkel nach ihrer Art. Zeile 1: Stumpf ist jeder Winkel, der größer als 90° ist. Zeile 2: 135° ist stumpf, denn er ist größer als 90°. Zeile 3: 300° ist stumpf, denn er ist größer als 90°. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1266,7 +1266,7 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "h": "Wo hört „stumpf“ auf?",
     "w": "Stumpf sind Winkel zwischen 90° und 180°. 300° ist größer als 180°, also überstumpf."
@@ -1313,7 +1313,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim sortiert Vierecke. Zeile 1: Ein Quadrat hat vier gleich lange Seiten und vier rechte Winkel. Zeile 2: Jedes Quadrat hat vier rechte Winkel, also ist jedes Quadrat auch ein Rechteck. Zeile 3: Jedes Rechteck hat vier rechte Winkel, also ist jedes Rechteck auch ein Quadrat. Zeile 4: Eine Raute hat vier gleich lange Seiten. In welcher Zeile steckt der Fehler?"
+     "text": "Kim sortiert Vierecke. Zeile 1: Ein Quadrat hat vier gleich lange Seiten und vier rechte Winkel. Zeile 2: Jedes Quadrat hat vier rechte Winkel, also ist jedes Quadrat auch ein Rechteck. Zeile 3: Jedes Rechteck hat vier rechte Winkel, also ist jedes Rechteck auch ein Quadrat. Zeile 4: Eine Raute hat vier gleich lange Seiten. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1347,11 +1347,11 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1362,7 +1362,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Gesucht sind alle Punkte auf der x-Achse, die von M(2 | 0) den Abstand 5 haben. Kim rechnet. Zeile 1: Es gibt zwei Punkte: einen rechts von M und einen links von M. Zeile 2: Rechts: x = 2 + 5 = 7. Zeile 3: Links: x = 5 − 2 = 3. In welcher Zeile steckt der Fehler?"
+     "text": "Gesucht sind alle Punkte auf der x-Achse, die von M(2 | 0) den Abstand 5 haben. Kim rechnet. Zeile 1: Es gibt zwei Punkte: einen rechts von M und einen links von M. Zeile 2: Rechts: x = 5 − 2 = 3. Zeile 3: Links: x = 2 − 5 = −3. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1370,10 +1370,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "Links von M wird der x-Wert kleiner. Von welcher Zahl gehst du aus?",
-    "w": "Links von M geht es von 2 aus nach links: x = 2 − 5 = −3. Kim hat die Zahlen vertauscht."
+    "h": "Rechts von M: Von welcher Zahl gehst du aus, und in welche Richtung?",
+    "w": "Rechts von M wird x größer: x = 2 + 5 = 7. Links: x = 2 − 5 = −3. Die Punkte sind (7 | 0) und (−3 | 0)."
    }
   },
   {
@@ -1436,18 +1436,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1458,7 +1458,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kreis um A(0 | 0) hat den Radius 2. Ein Kreis um B(10 | 0) hat den Radius 3. Kim prüft, ob sie sich schneiden. Zeile 1: Der Abstand AB ist 10. Zeile 2: Die beiden Radien zusammen sind 2 + 3 = 5. Zeile 3: 5 ist kleiner als 10, also schneiden sich die Kreise in 2 Punkten. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Kreis um A(0 | 0) hat den Radius 2. Ein Kreis um B(10 | 0) hat den Radius 3. Kim prüft, ob sie sich schneiden. Zeile 1: Die Kreise schneiden sich, wenn die beiden Radien zusammen kleiner sind als der Abstand AB. Zeile 2: Der Abstand AB ist 10, die Radien zusammen sind 2 + 3 = 5. Zeile 3: 5 ist kleiner als 10, also schneiden sich die Kreise in 2 Punkten. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1466,10 +1466,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Reichen die beiden Radien zusammen von A bis B?",
-    "w": "Die Radien reichen zusammen nur 5 weit, der Abstand ist 10. Die Kreise erreichen sich nicht: 0 Schnittpunkte."
+    "h": "Müssen die Radien zusammen bis zum anderen Mittelpunkt reichen?",
+    "w": "Die Kreise schneiden sich nur, wenn die Radien zusammen mindestens so groß sind wie der Abstand. 5 reicht nicht bis 10: 0 Schnittpunkte."
    }
   },
   {
@@ -1532,18 +1532,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1554,7 +1554,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Rasensprenger steht 5 m von einem Zaun entfernt. Er spritzt 3 m weit. Kim fragt, ob der Zaun nass wird. Zeile 1: Die nasse Fläche ist ein Kreis um den Sprenger mit dem Radius 3 m. Zeile 2: Der Zaun ist 5 m entfernt. Das ist mehr als 3 m. Zeile 3: Also wird der Zaun nass. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Rasensprenger steht 5 m von einem Zaun entfernt. Er spritzt 3 m weit. Kim fragt, ob der Zaun nass wird. Zeile 1: Die nasse Fläche ist ein Kreis um den Sprenger. Die Reichweite 3 m ist der Durchmesser, der Radius ist doppelt so groß: 6 m. Zeile 2: Der Zaun ist 5 m entfernt. Das ist weniger als 6 m. Zeile 3: Also wird der Zaun nass. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1562,10 +1562,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Wie weit reicht das Wasser höchstens?",
-    "w": "Das Wasser reicht höchstens 3 m weit, der Zaun ist 5 m weg. Der Zaun bleibt trocken."
+    "h": "Wie weit reicht das Wasser vom Sprenger aus?",
+    "w": "Die Reichweite 3 m ist der Radius. Der Zaun ist 5 m weg, also bleibt er trocken."
    }
   },
   {

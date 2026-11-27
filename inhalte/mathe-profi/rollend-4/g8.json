@@ -467,18 +467,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -489,7 +489,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim bestimmt den Wachstumsfaktor für 15 % Rabatt. Zeile 1: Beim Rabatt zahlt man noch 100 % − 15 % = 85 %. Zeile 2: 85 % sind 0,85. Zeile 3: Der Faktor ist also 1,15. In welcher Zeile steckt der Fehler?"
+     "text": "Kim bestimmt den Wachstumsfaktor für 15 % Rabatt. Zeile 1: Beim Rabatt zahlt man noch 100 % + 15 % = 115 %. Zeile 2: 115 % sind 1,15. Zeile 3: Der Faktor ist also 1,15. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -497,10 +497,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Bei einem Rabatt wird der Preis kleiner. Ist der Faktor dann größer oder kleiner als 1?",
-    "w": "Beim Rabatt ist der Faktor 0,85. 1,15 wäre ein Aufschlag von 15 %."
+    "h": "Wird bei einem Rabatt etwas dazugerechnet oder abgezogen?",
+    "w": "Beim Rabatt zahlt man noch 100 % − 15 % = 85 %. Der Faktor ist 0,85. 1,15 wäre ein Aufschlag von 15 %."
    }
   },
   {
@@ -537,7 +537,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Fahrrad kostet 200 €. Der Preis steigt um 10 %. Kim berechnet den neuen Preis. Zeile 1: Der Wachstumsfaktor ist 1,10. Zeile 2: 200 · 1,10 = 22. Zeile 3: Das Fahrrad kostet jetzt 22 €. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Fahrrad kostet 200 €. Der Preis steigt um 10 %. Kim berechnet den neuen Preis. Zeile 1: Der Wachstumsfaktor ist 1,10. Zeile 2: 200 · 1,10 = 22. Zeile 3: Das Fahrrad kostet jetzt 22 €. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -570,11 +570,11 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -585,7 +585,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Spiel kostet 50 €. Es gibt 30 % Rabatt. Kim berechnet den neuen Preis. Zeile 1: Man zahlt noch 100 % − 30 % = 70 %. Zeile 2: Der Faktor ist 0,7. Zeile 3: 50 · 0,7 = 30, also kostet das Spiel 30 €. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Spiel kostet 50 €. Es gibt 30 % Rabatt. Kim berechnet den neuen Preis. Zeile 1: Man zahlt noch 100 % − 30 % = 70 %. Zeile 2: Der Faktor ist 0,07. Zeile 3: 50 · 0,07 = 3,5, also kostet das Spiel 3,50 €. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -593,10 +593,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "Rechne 50 · 0,7 noch einmal: 5 · 7 = 35.",
-    "w": "50 · 0,7 = 35. Das Spiel kostet 35 €."
+    "h": "70 % heißt 70 von 100. Wie schreibt man das als Dezimalzahl?",
+    "w": "70 % = 0,7. 50 · 0,7 = 35. Das Spiel kostet 35 €. Zeile 3 folgt richtig aus der falschen Zeile 2."
    }
   },
   {
@@ -633,7 +633,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim berechnet, wie viel 2 000 € bei 5 % Zinsen pro Jahr nach 2 Jahren wert sind. Die Zinsen werden jedes Jahr gutgeschrieben und mitverzinst. Zeile 1: Der Faktor ist q = 1,05. Zeile 2: K₂ = 2 000 · 1,05 · 2 = 4 200. Zeile 3: Das Kapital beträgt nach 2 Jahren also 4 200 €. In welcher Zeile steckt der Fehler?"
+     "text": "Kim berechnet, wie viel 2 000 € bei 5 % Zinsen pro Jahr nach 2 Jahren wert sind. Die Zinsen werden jedes Jahr gutgeschrieben und mitverzinst. Zeile 1: Der Faktor ist q = 1,05. Zeile 2: K₂ = 2 000 · 1,05 · 2 = 4 200. Zeile 3: Das Kapital beträgt nach 2 Jahren also 4 200 €. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",

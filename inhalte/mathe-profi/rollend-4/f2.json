@@ -625,7 +625,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim liest bei y = 4 − 3x Steigung und Achsenabschnitt ab. Zeile 1: Die Steigung m ist die erste Zahl: m = 4. Zeile 2: Der Achsenabschnitt t ist die Zahl ohne x: t = 4. Zeile 3: Die Gerade geht also durch den Punkt (0 | 4). In welcher Zeile steckt der Fehler?"
+     "text": "Kim liest bei y = 4 − 3x Steigung und Achsenabschnitt ab. Zeile 1: Die Steigung m ist die erste Zahl: m = 4. Zeile 2: Der Achsenabschnitt t ist die Zahl ohne x: t = 4. Zeile 3: Die Gerade geht also durch den Punkt (0 | 4). In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -721,7 +721,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Eine Gerade geht durch A(1 | 4) und B(3 | 10). Kim stellt die Gleichung auf. Zeile 1: Steigung: m = (10 − 4) : (3 − 1) = 3. Zeile 2: A einsetzen in y = 3x + t: 4 = 3 · 1 + t, also t = 4 + 3 = 7. Zeile 3: Die Gerade ist y = 3x + 7. In welcher Zeile steckt der Fehler?"
+     "text": "Eine Gerade geht durch A(1 | 4) und B(3 | 10). Kim stellt die Gleichung auf. Zeile 1: Steigung: m = (10 − 4) : (3 − 1) = 3. Zeile 2: A einsetzen in y = 3x + t: 4 = 3 · 1 + t, also t = 4 + 3 = 7. Zeile 3: Die Gerade ist y = 3x + 7. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -769,7 +769,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Die Geraden y = 2x + 1 und y = −x + 7 schneiden sich. Kim bestimmt den Schnittpunkt. Zeile 1: Gleichsetzen: 2x + 1 = −x + 7. Zeile 2: x auf die linke Seite bringen: x + 1 = 7, also x = 6. Zeile 3: Dann ist y = 2 · 6 + 1 = 13. In welcher Zeile steckt der Fehler?"
+     "text": "Die Geraden y = 2x + 1 und y = −x + 7 schneiden sich. Kim bestimmt den Schnittpunkt. Zeile 1: Gleichsetzen: 2x + 1 = −x + 7. Zeile 2: x auf die linke Seite bringen: x + 1 = 7, also x = 6. Zeile 3: Dann ist y = 2 · 6 + 1 = 13. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -865,7 +865,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Die Schar y = (k − 2) · x + 3 hat für k = 5 eine bestimmte Gerade. Kim setzt k = 5 ein. Zeile 1: Die Klammer wird zu 5 + 2 = 7. Zeile 2: Die Gerade ist also y = 7x + 3. Zeile 3: Für x = 2 ist y = 7 · 2 + 3 = 17. In welcher Zeile steckt der Fehler?"
+     "text": "Die Schar y = (k − 2) · x + 3 hat für k = 5 eine bestimmte Gerade. Kim setzt k = 5 ein. Zeile 1: Die Klammer wird zu 5 + 2 = 7. Zeile 2: Die Gerade ist also y = 7x + 3. Zeile 3: Für x = 2 ist y = 7 · 2 + 3 = 17. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -961,7 +961,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Alle Geraden y = k · (x + 2) + 4 gehen durch einen Punkt Z. Kim bestimmt Z. Zeile 1: Z liegt dort, wo k keinen Einfluss hat. Zeile 2: Das ist bei x + 2 = 0, also bei x = 2. Zeile 3: Dort ist y = 4. Also ist Z(2 | 4). In welcher Zeile steckt der Fehler?"
+     "text": "Alle Geraden y = k · (x + 2) + 4 gehen durch einen Punkt Z. Kim bestimmt Z. Zeile 1: Z liegt dort, wo k keinen Einfluss hat. Zeile 2: Das ist bei x + 2 = 0, also bei x = 2. Zeile 3: Dort ist y = 4. Also ist Z(2 | 4). In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -987,18 +987,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -1009,7 +1009,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Taxi kostet 3 € Grundpreis und 2 € je Kilometer: K(x) = 2x + 3. Kim deutet die Zahlen. Zeile 1: Der Grundpreis ist das Glied ohne x: 3 €. Zeile 2: Die Zahl vor dem x ist der Preis je Kilometer: 2 €. Zeile 3: Bei 0 km kostet die Fahrt 2 €. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Taxi kostet 3 € Grundpreis und 2 € je Kilometer: K(x) = 2x + 3. Kim deutet die Zahlen. Zeile 1: Der Grundpreis ist die Zahl vor dem x: 2 €. Zeile 2: Der Preis je Kilometer ist das Glied ohne x: 3 €. Zeile 3: Bei 0 km kostet die Fahrt also 2 €. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1017,10 +1017,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "h": "Setze x = 0 in den Term ein.",
-    "w": "K(0) = 2 · 0 + 3 = 3. Auch bei 0 km zahlt man den Grundpreis 3 €."
+    "w": "K(0) = 2 · 0 + 3 = 3. Der Grundpreis ist das Glied ohne x (3 €), die Zahl vor dem x ist der Preis je Kilometer (2 €)."
    }
   }
  ]

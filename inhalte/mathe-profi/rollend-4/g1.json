@@ -565,18 +565,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -587,7 +587,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim rechnet 3 km 40 m in Meter um. Zeile 1: 1 km = 1 000 m. Zeile 2: 3 km = 3 000 m. Zeile 3: 3 000 m + 40 m = 3 400 m. In welcher Zeile steckt der Fehler?"
+     "text": "Kim rechnet 3 km 40 m in Meter um. Zeile 1: 1 km = 100 m. Zeile 2: 3 km = 300 m. Zeile 3: 300 m + 40 m = 340 m. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -595,10 +595,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Wie viele Stellen hat 3 040 im Vergleich zu 3 400?",
-    "w": "3 000 + 40 = 3 040. Also 3 km 40 m = 3 040 m."
+    "h": "Wie viele Meter sind ein Kilometer?",
+    "w": "1 km = 1 000 m, also 3 km = 3 000 m. Dazu 40 m: 3 040 m. Die Zeilen 2 und 3 folgen richtig aus der falschen Zeile 1."
    }
   },
   {
@@ -620,18 +620,11 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
-     "index": 3,
-     "antwort": "In Zeile 4",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
     }
    ],
    "aufgabe": {
@@ -642,19 +635,18 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim rechnet 7,5 kg in Gramm um. Zeile 1: 1 kg = 1 000 g. Zeile 2: 7 kg = 7 000 g. Zeile 3: 0,5 kg = 50 g. Zeile 4: Zusammen sind es 7 050 g. In welcher Zeile steckt der Fehler?"
+     "text": "Kim rechnet 7,5 kg in Gramm um. Zeile 1: 1 kg = 1 000 g. Zeile 2: 7,5 · 1 000 g = 750 g. Zeile 3: 7,5 kg sind also 750 g. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
      "In Zeile 2",
-     "In Zeile 3",
-     "In Zeile 4"
+     "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "Eine halbe Tonne? Nein, ein halbes Kilogramm: Wie viel ist das?",
-    "w": "Ein halbes Kilogramm sind 500 g. Zusammen 7 000 g + 500 g = 7 500 g."
+    "h": "Das Komma wandert beim Malnehmen mit 1 000 um drei Stellen. In welche Richtung?",
+    "w": "7,5 · 1 000 = 7 500. 7,5 kg sind 7 500 g. Zeile 3 folgt richtig aus der falschen Zeile 2."
    }
   },
   {
@@ -691,7 +683,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Film beginnt um 17:45 Uhr und dauert 2 h 30 min. Kim berechnet das Ende. Zeile 1: 17:45 Uhr plus 15 min ist 18:00 Uhr. Zeile 2: Dann bleiben noch 2 h 30 min − 15 min = 2 h 25 min. Zeile 3: 18:00 Uhr plus 2 h 25 min ist 20:25 Uhr. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Film beginnt um 17:45 Uhr und dauert 2 h 30 min. Kim berechnet das Ende. Zeile 1: 17:45 Uhr plus 15 min ist 18:00 Uhr. Zeile 2: Dann bleiben noch 2 h 30 min − 15 min = 2 h 25 min. Zeile 3: 18:00 Uhr plus 2 h 25 min ist 20:25 Uhr. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",

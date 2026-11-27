@@ -368,7 +368,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Rechteck hat die Fläche 60 cm² und ist 12 cm lang. Kim berechnet die Breite. Zeile 1: Es gilt A = a · b, also 60 = 12 · b. Zeile 2: Dann ist b = 12 · 60 = 720. Zeile 3: Die Breite ist 720 cm. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Rechteck hat die Fläche 60 cm² und ist 12 cm lang. Kim berechnet die Breite. Zeile 1: Es gilt A = a · b, also 60 = 12 · b. Zeile 2: Dann ist b = 12 · 60 = 720. Zeile 3: Die Breite ist 720 cm. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -464,7 +464,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Beet ist 3 m lang und 2 m breit. Kim will einen Zaun um das ganze Beet kaufen. Zeile 1: Der Zaun läuft am Rand, also brauche ich den Umfang. Zeile 2: Umfang: 3 · 2 = 6. Zeile 3: Ich brauche 6 m Zaun. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Beet ist 3 m lang und 2 m breit. Kim will einen Zaun um das ganze Beet kaufen. Zeile 1: Der Zaun läuft am Rand, also brauche ich den Umfang. Zeile 2: Umfang: 3 · 2 = 6. Zeile 3: Ich brauche 6 m Zaun. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",

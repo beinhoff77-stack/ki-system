@@ -76,7 +76,8 @@ function ruIndex(D) {
     // Formeln der Figuren und Körper stehen in der Gesamtübersicht (Zeile klappt auf); die Tafel selbst ist die Detailansicht
     if (t.karten) return t.karten.map((k) => ({ anker: k.anker, titel: k.name, kl: k.kl, stich: k.stich, wo: ['formeln', k.anker], vorschau: k.zeilen.map((z) => z.formel).join(' · '),
       kenn: [...new Set([...k.zeilen, ...k.zusatz].flatMap((z) => [z.ziel, ...kennVon(z.regeln)]).filter(Boolean))] }));
-    return t.eintraege.map((e) => ({ anker: e.kennung, titel: e.titel, kl: e.kl, stich: e.stich, kenn: kennVon(e.regeln),
+    // haupt: das eigene Zeichen der Zeile (Zeichen, griechischer Buchstabe, Kürzel der Vorsilbe) – die Zeichensuche stellt diese Zeile vor Zeilen, bei denen es nur Suchwort ist
+    return t.eintraege.map((e) => ({ anker: e.kennung, titel: e.titel, kl: e.kl, stich: e.stich, kenn: kennVon(e.regeln), haupt: [e.zeichen, e.buchstabe, e.art === 'vorsilbe' ? e.kurz : null].filter(Boolean),
       vorschau: e.formel || e.merksatz || e.regel_text || e.bedeutung || e.satz || e.verwendung || e.definition || e.bereich || e.gegeben || '' }));
   }
   const TEILE = Object.fromEntries(TAFELN.map((t) => [t.id, tafelTeile(t)]));
@@ -93,18 +94,53 @@ function ruIndex(D) {
   // Suche in den Tafeln: alle Suchwörter müssen treffen; genaues Stichwort vor Wort im Namen vor Wortteil. Die ganze Tafel gewinnt bei Gleichstand.
   const TSUCH = TAFELN.flatMap((t) => [{ t, teil: null, name: t.titel, stich: t.stich, vorschau: t.kurz }, ...TEILE[t.id].filter((x) => x.stich.length).map((x) => ({ t, teil: x, name: x.titel, stich: x.stich, vorschau: x.vorschau }))])
     .map((e) => ({ ...e, wn: woerter(e.name), wk: e.stich.map((s) => woerter(s)) }));
-  function tafelSuche(teile) {
-    return TSUCH.map((e, i) => { let p = 0;
-      for (const w of teile) { const q = e.wk.some((l) => l.length === 1 && l[0] === w) ? 10 : e.wn.includes(w) ? 9 : e.wk.some((l) => l.includes(w)) ? 6 : trifft(e.wn, w) ? 4 : e.wk.some((l) => trifft(l, w)) ? 3 : 0;
+  const tafelTreffer = (e) => ({ id: 'tafel ' + e.t.id + (e.teil ? ' ' + e.teil.anker : ''), art: 'Tafel', tafel: true, name: e.name, satz: ruEsc(e.vorschau || ''), ort: 'Tafeln · ' + e.t.titel,
+    ziel: e.teil ? tafelZiel(e.t, e.teil) : tafelStart(e.t), ae: ['Tafel', e.t.id + (e.teil ? ' ' + e.teil.anker : '')] });
+  // roh: die Eingabe, wie sie getippt wurde. Ein einzelner Buchstabe trifft ein einbuchstabiges Suchwort nur in derselben Schreibung (M Mega ≠ m Milli, N ℕ ≠ n Nano).
+  function tafelSuche(teile, roh = '') {
+    const r = String(roh).trim(), einB = /^[A-Za-zÄÖÜäöüß]$/.test(r);
+    return TSUCH.map((e, i) => { let p = 0; const wk = einB ? e.wk.filter((l, j) => l.length !== 1 || l[0] !== r.toLowerCase() || e.stich[j].trim() === r) : e.wk;
+      for (const w of teile) { const q = wk.some((l) => l.length === 1 && l[0] === w) ? 10 : e.wn.includes(w) ? 9 : wk.some((l) => l.includes(w)) ? 6 : trifft(e.wn, w) ? 4 : wk.some((l) => trifft(l, w)) ? 3 : 0;
         if (!q) return null; p += q; }
-      return { e, p: p + (e.teil ? 0 : 0.5), i }; }).filter(Boolean).sort((a, b) => b.p - a.p || a.i - b.i).slice(0, 4)
-      .map(({ e }) => ({ id: 'tafel ' + e.t.id + (e.teil ? ' ' + e.teil.anker : ''), art: 'Tafel', tafel: true, name: e.name, satz: ruEsc(e.vorschau || ''), ort: 'Tafeln · ' + e.t.titel,
-        ziel: e.teil ? tafelZiel(e.t, e.teil) : tafelStart(e.t), ae: ['Tafel', e.t.id + (e.teil ? ' ' + e.teil.anker : '')] }));
+      return { e, p: p + (e.teil ? 0 : 0.5), i }; }).filter(Boolean).sort((a, b) => b.p - a.p || a.i - b.i).slice(0, 4).map(({ e }) => tafelTreffer(e));
   }
+  // ---------- Zeichensuche (Auflagen aus Werkstatt 1152) ----------
+  // Die Wortzerlegung kennt nur a–z, Ziffern, %, ‰, °, € – mathematische Zeichen und griechische Buchstaben fielen dort weg (≤, π, ∈, ∢ ohne Treffer, „µm“ wurde zu „m“).
+  // Darum wird die Eingabe VOR der Zerlegung als Ganzes (und je Teil zwischen Leerzeichen) exakt gegen die Suchwörter der Tafeln gesucht, die ein Zeichen enthalten
+  // (alles außer Buchstaben, Ziffern, Leerzeichen) oder aus ein bis drei Großbuchstaben bestehen (N, M, AB, XIV). Groß/klein bleibt dabei erhalten (Δ ≠ δ, Σ ≠ σ, ℕ ≠ n);
+  // µ (Mikrozeichen) und μ (griechisch) gelten als gleich, Leerzeichen zählen nicht („{ }“ = „{}“). Zuerst die Zeile, deren eigenes Zeichen es ist, dann Zeilen mit dem Zeichen als Suchwort.
+  const zNorm = (s) => String(s ?? '').normalize('NFC').replace(/\u00b5/g, '\u03bc').replace(/\s+/g, '');
+  const zeichenWort = (s) => /[^A-Za-zÄÖÜäöüß0-9\s]/.test(s) || /^[A-ZÄÖÜ]{1,3}$/.test(String(s).trim());
+  // Was man auf der Tastatur tippt, wenn das Zeichen fehlt → Zeichen der Tafel (∢ und „pi“, „alpha“ … stehen schon in den Suchwörtern der Tafel)
+  const Z_ALIAS = { '<=': '≤', '=<': '≤', '>=': '≥', '!=': '≠', '<>': '≠', '=/=': '≠', '+-': '±', '+/-': '±', '~=': '≈', '=>': '⇒', '<=>': '⇔', '*': '·', '∡': '∠' };
+  // haupt: 2 = eigenes Zeichen genau so geschrieben, 1 = eigenes Zeichen nach Angleichung (µ/μ), 0 = nur Suchwort
+  const zRoh = (s) => String(s ?? '').normalize('NFC').replace(/\s+/g, '');
+  const ZSUCH = TSUCH.flatMap((e, i) => { const h = (e.teil && e.teil.haupt) || [], haupt = new Set(h.map(zNorm)), roh = new Set(h.map(zRoh));
+    return [...new Set([...e.stich, ...h].filter(zeichenWort).map(zRoh))].filter(Boolean).map((r) => ({ key: zNorm(r), roh: r, e, i, haupt: haupt.has(zNorm(r)) ? 1 : 0, hroh: roh })); });
+  // Regeln, in deren Name, Merksatz oder Stichwörtern das Zeichen wörtlich steht (nur für Zeichen außerhalb der Tastatur, z. B. π, √, ≤ – nicht für „:“ oder „=“)
+  const klar = (t) => String(t || '').replace(/<[^>]+>/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/\u00b5/g, '\u03bc');
+  const ZREGEL = SUCHBAR.map((e) => ({ e, kopf: klar(e.name + ' ' + e.stich.join(' ')), text: klar(e.satz) }));
+  function zeichenSuche(q) {
+    const roh = String(q ?? '').trim(); if (!roh) return { tafel: [], regeln: [] };
+    const teile = [roh, ...(/\s/.test(roh) ? roh.split(/\s+/) : [])].map(zRoh).map((k) => Z_ALIAS[k] || k).filter(Boolean);
+    const gesehen = new Set(), tafel = [], regeln = [];
+    for (const r of new Set(teile)) { const k = zNorm(r), rang = (x) => x.haupt + (x.hroh.has(r) ? 1 : 0);
+      for (const z of ZSUCH.filter((x) => x.key === k).sort((a, b) => rang(b) - rang(a) || a.i - b.i)) { if (gesehen.has(z.i)) continue; gesehen.add(z.i); tafel.push(tafelTreffer(z.e)); }
+      if (/[^\x00-\x7F·]/.test(k)) regeln.push(...ZREGEL.filter((x) => x.kopf.includes(k) || x.text.includes(k)).sort((a, b) => b.kopf.includes(k) - a.kopf.includes(k)).map((x) => x.e));
+    }
+    return { tafel, regeln: [...new Set(regeln)].slice(0, 8) };
+  }
+  // Ein- und Zweizeichen-Eingaben: sofort suchen, wenn es ein Tafel-Zeichen, eine Einheit oder ein bekanntes Kurzwort ist (cm, kg, m, %, π, ≤ …); sonst ab drei Zeichen
+  const kurzForm = (s) => (/^[A-Za-zÄÖÜäöüß]+$/.test(s) ? s.toLowerCase() : s); // Buchstabenwörter ohne Groß/klein (cm = CM), Zeichen genau (π ≠ Π)
+  const KURZ_BEKANNT = new Set(TSUCH.flatMap((e) => e.stich.map((s) => kurzForm(String(s).trim()))).filter((s) => s.length <= 2));
+  const sofort = (q) => { const r = String(q ?? '').trim(); return r.length >= 3 || (!!r && (KURZ_BEKANNT.has(kurzForm(r)) || zeichenSuche(r).tafel.length > 0)); };
   function suche(q) {
-    const teile = frageWoerter(q); if (!teile.length) return [];
-    // Tafeln zuerst (Nachschlagen: „cm“, „Kreis“, „Volumen“ landen auf der passenden Tafel), danach Regeln, Ideen, Formeln
-    return [...tafelSuche(teile), ...sucheRegeln(teile)].slice(0, 16);
+    const z = zeichenSuche(q), teile = frageWoerter(q); if (!teile.length && !z.tafel.length && !z.regeln.length) return [];
+    // Zeichen zuerst (die eigene Zeile der Tafel), dann Tafeln (Nachschlagen: „cm“, „Kreis“, „Volumen“ landen auf der passenden Tafel), danach Regeln, Ideen, Formeln
+    const schon = new Set(z.tafel.map((x) => x.id)), tafel = teile.length ? tafelSuche(teile, q).filter((x) => !schon.has(x.id)) : [];
+    // Regeln mit dem Zeichen im Wortlaut nur, wenn die Eingabe keine Wörter hat (π, √, ≤); sonst wie bisher über die Wörter („m²“ = „m2“)
+    const regeln = teile.length ? sucheRegeln(teile) : z.regeln;
+    return [...z.tafel, ...tafel, ...regeln].slice(0, 16);
   }
   function sucheRegeln(teile) {
     return SUCHBAR.map((e) => { let p = 0, kopf = 0, ueber = null; for (const t of teile) { const k = e.wk.findIndex((l) => trifft(l, t)); if (k >= 0) { p += e.wk[k].includes(t) ? 9 : 5; ueber = e.stich[k]; kopf++; }
@@ -113,7 +149,7 @@ function ruIndex(D) {
       .filter((x) => x.p > 0).sort((a, b) => b.kopf - a.kopf || b.p - a.p || (a.art === 'Formel') - (b.art === 'Formel')).slice(0, 14);
   }
   return { D, LEITER, KURZ, LEHRER, REGEL, GESETZ, ETAGE, PLANETEN, PLANET, KUERZEL_ZU, IDEE, IDEEN, ideeVon, thema, klasseVon, bandStufen, spanneText,
-    brauchtRegeln, ideeBraucht, regelTraegt, erklaertUeber, hilftBei, zahlGesetze, felder, adr, suche, TAFELN, TAFEL, TEILE, tafelnZu };
+    brauchtRegeln, ideeBraucht, regelTraegt, erklaertUeber, hilftBei, zahlGesetze, felder, adr, suche, sofort, TAFELN, TAFEL, TEILE, tafelnZu };
 }
 
 // „Ändern lassen“ (Eltern/Lehrer): ein Knopf an jedem Element. Die Fundstelle steht vollständig im Knopf (data-wo) und später am Anfang des Auftrags:
@@ -400,7 +436,8 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
   // Bausteine (alle Klassen ru-tafel-…, Optik nur in lernen-regeln.css): Karte, Matrix (eigener Rollbereich, erste Spalte fest, Zeile klappt auf), Aufklapper, Kette.
   const { TAFEL } = I;
   let tfNr = 0;
-  const tfZahl = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  // Zahlen deutsch: Tausender mit geschütztem Leerzeichen, Dezimalkomma („3,6“, nicht „3.6“; Auflagen aus Werkstatt 1152)
+  const tfZahl = (n) => { const [g, d] = String(n).split('.'); return g.replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + (d ? ',' + d : ''); };
   // Text der Vorschläge mit geschütztem Leerzeichen in Zahlen und vor Einheiten („3 500 m“ bricht nicht um; einheiten/vorschlag.md, Abschnitt 5.6)
   const nb = (s) => esc(s).replace(/(\d) (?=\d{3}(?!\d))/g, '$1 ').replace(/(\d) (?=(?:[A-Za-zµ²³/]{1,6}|€|%|°)(?![A-Za-zäöüß]))/g, '$1 ');
   // Formel mit Umbruchstellen nur vor Rechenzeichen außerhalb von Klammern (auf dem Handy zwei, drei Zeilen statt waagrecht rollen)
@@ -526,7 +563,7 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
     return `${tfKarte(t, 'schnell', 'Schnellübersicht', `<p class="ru-tafel-leitsatz"><b>Zur größeren Einheit teilen, zur kleineren malnehmen.</b> <span>${nb(t.richtung.merksatz)}</span></p>${schnell}
         <p class="ru-tafel-hinweis">Die Zahl zwischen zwei Einheiten sagt, wie viele kleine eine große sind: <b class="ru-rechnung">mm ·10 cm</b> heißt 1 cm = 10 mm.${w && (w.treppe || []).some((s) => s.zusatz) ? ' hl, dl und cl stehen unten bei Volumen.' : ''}</p>`, { klasse: 'ru-tafel-erste' })}
       ${tfKarte(t, 'je-groesse', '1 … = … je Größe', `<p class="ru-tafel-hinweis">Zeile lesen: 1 m = 10 dm = 100 cm = 1 000 mm, und 1 m = 0,001 km. Leer: kleiner als ein Tausendstel.</p>${t.arten.filter((x) => !['tempo', 'dichte'].includes(x.anker)).map((x) => einheitAbschnitt(t, x, ['laenge', 'masse'].includes(x.anker))).join('')}`)}
-      ${hoeher.length ? tfKarte(t, 'hoeher', 'Für höhere Klassen', hoeher.map((x) => tfMehr(`${esc(x.art)} ${tfKl(x.kl)}`, `${aeZeile(tfAe(t, x.anker, x.art, 'Abschnitt'))}<p class="ru-tafel-kette-z">${ketteHtml(kette(x.treppe, true))}</p>${tfMerk(x.merksatz)}${(x.so_gehts || []).length ? tfListe(x.so_gehts, 'ol') : ''}${tfMehr('Beispiele · Stolperstellen', einheitDetails(t, { ...x, so_gehts: [] }))}`, { anker: x.anker, kl: x.kl })).join('')) : ''}
+      ${hoeher.length ? tfKarte(t, 'hoeher', 'Für höhere Klassen', hoeher.map((x) => tfMehr(`${esc(x.art)} ${tfKl(x.kl)}`, `${aeZeile(tfAe(t, x.anker, x.art, 'Abschnitt'))}<p class="ru-tafel-kette-z">${ketteHtml(kette(x.treppe, true))}</p>${x.zusammengesetzt ? '<p class="ru-tafel-hinweis">Keine Tabelle: zusammengesetzte Einheit – rechne über die Kette.</p>' : ''}${tfMerk(x.merksatz)}${(x.so_gehts || []).length ? tfListe(x.so_gehts, 'ol') : ''}${tfMehr('Beispiele · Stolperstellen', einheitDetails(t, { ...x, so_gehts: [] }))}`, { anker: x.anker, kl: x.kl })).join('')) : ''}
       ${ERW && (t.nicht_aufgenommen || []).length ? `<p class="ru-tafel-erw"><b>Für Eltern – nicht aufgenommen:</b> ${t.nicht_aufgenommen.map((n) => `${esc(n.art)} (${esc(n.grund)})`).join(' ')}</p>` : ''}`;
   }
 
@@ -536,6 +573,8 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
   // kleine Beschriftung einer Formel, wenn sie nicht die erwartete Größe der Spalte ist (Bogen, Mantel, Raute …)
   function formelLabel(f, karte, spalte) {
     const rest = f.figur !== karte.name ? (f.figur.startsWith(karte.name + ' ') ? f.figur.slice(karte.name.length + 1) : f.figur) : '';
+    // Sonderfall aus der Quelle (fk-19: „gerade quadratische Pyramide“) steht direkt an der Formel (Auflagen aus Werkstatt 1152)
+    if (f.sonderfall) return 'Sonderfall: ' + f.sonderfall;
     const teil = teilName(f), std = ['Fläche', 'Umfang', 'Volumen', 'Oberfläche'].includes(teil) && (spalte === teil || (spalte === 'Flächeninhalt' && teil === 'Fläche'));
     return [std ? '' : teil, rest].filter(Boolean).join(', ');
   }
@@ -583,7 +622,7 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
     const F = TAFEL['formeln-flaechen'], K = TAFEL['formeln-koerper'];
     const legende = (q) => (q && q.groessenarten ? `<p class="ru-tafel-hinweis">${Object.entries(q.groessenarten).filter(([k]) => k !== 'Winkel').map(([k, v]) => `${esc(k)}: ${esc(v)}`).join(' · ')}. Tippe auf eine Zeile für Bezeichnungen und Bedingungen.</p>` : '');
     return `${F ? tfKarte(t, 'flaechen', 'Ebene Figuren', `${formelMatrix(F, 'Figur')}${legende(F)}<p class="ru-tafel-weiter"><a class="ru-tafel-warum" href="${Z(adr.tafel(F.id))}">Alle Figuren mit Beispielen ›</a></p>`, { klasse: 'ru-tafel-erste' }) : ''}
-      ${K ? tfKarte(t, 'koerper', 'Körper', `${formelMatrix(K, 'Körper')}<p class="ru-tafel-hinweis">Volumen in cm³, Oberfläche und Mantel in cm². G ist die Grundfläche, M der Mantel – beide stehen bei den ebenen Figuren.</p><p class="ru-tafel-weiter"><a class="ru-tafel-warum" href="${Z(adr.tafel(K.id))}">Alle Körper mit Beispielen ›</a></p>`) : ''}
+      ${K ? tfKarte(t, 'koerper', 'Körper', `${formelMatrix(K, 'Körper')}<p class="ru-tafel-hinweis">Volumen in cm³, Oberfläche und Mantel in cm². G ist der Flächeninhalt der Grundfläche, M der Mantelflächeninhalt des Körpers.</p><p class="ru-tafel-weiter"><a class="ru-tafel-warum" href="${Z(adr.tafel(K.id))}">Alle Körper mit Beispielen ›</a></p>`) : ''}
       ${tfKarte(t, 'sonst', 'Was man sonst noch braucht', matrix(['Wofür', 'Formel oder Regel'], (t.sonst || []).map(sonstZeile).filter(Boolean), { titel: 'Weitere Formeln', klasse: 'ru-tafel-sonst' }))}`;
   }
   // Detailansicht Flächen bzw. Körper: je Figur eine Karte mit Zeichnung, Formeln, Bezeichnungen, Beispielen (entwurf1, Bild 04/05)
@@ -653,11 +692,11 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
   }
 
   // ---------- Figuren: Winkel, Dreiecke, Vierecke, Kongruenz ----------
-  const VIER_SPALTEN = [['parallele_paare_mindestens', 'parallele Seiten&shy;paare'], ['alle_seiten_gleich_lang', 'alle Seiten gleich'], ['gegenseiten_gleich_lang', 'Gegen&shy;seiten gleich'],
-    ['nachbarseitenpaare_gleich_lang', 'Nachbar&shy;seiten paarweise gleich'], ['vier_rechte_winkel', '4 rechte Winkel'], ['gegenueberliegende_winkel_gleich', 'Gegen&shy;winkel gleich'],
+  const VIER_SPALTEN = [['parallele_paare_mindestens', 'parallele Seiten&shy;paare (mindestens)'], ['alle_seiten_gleich_lang', 'alle Seiten gleich'], ['gegenseiten_gleich_lang', 'Gegen&shy;seiten gleich'],
+    ['nachbarseitenpaare_gleich_lang', 'Nachbar&shy;seiten paarweise gleich'], ['vier_rechte_winkel', '4 rechte Winkel'], ['gegenueberliegende_winkel_gleich', 'beide Paare gegenüber&shy;liegender Winkel gleich'],
     ['diagonalen_gleich_lang', 'Diago&shy;nalen gleich lang'], ['diagonalen_senkrecht', 'Diago&shy;nalen senk&shy;recht'], ['diagonalen_halbieren_sich', 'Diago&shy;nalen halbieren sich'],
-    ['symmetrieachsen_mindestens', 'Symmetrie&shy;achsen'], ['punktsymmetrisch', 'punkt&shy;symme&shy;trisch']];
-  const jaNein = (v) => (v === true ? '<span class="ru-tafel-ja" aria-label="ja">✓</span>' : v === false ? '<span class="ru-tafel-nein" aria-label="nein">–</span>' : `<b>${esc(v)}</b>`);
+    ['symmetrieachsen_mindestens', 'Symmetrie&shy;achsen (mindestens)'], ['punktsymmetrisch', 'punkt&shy;symme&shy;trisch']];
+  const jaNein = (v) => (v === true ? '<span class="ru-tafel-ja" role="img" aria-label="gilt immer">✓</span>' : v === false ? '<span class="ru-tafel-nein" role="img" aria-label="gilt nicht immer">–</span>' : `<b>${esc(v)}</b>`);
   function tafelFiguren(t) {
     const nach = (a) => t.eintraege.filter((e) => e.art === a), E = Object.fromEntries(t.eintraege.map((e) => [e.kennung, e]));
     const winkel = matrix(['Winkel', 'Größe', 'So erkennst du ihn'], nach('winkelart').map((e) => ({ anker: e.kennung, kl: e.kl, kopf: `${miniSvg(e.bild)}<span class="ru-tafel-zk-text"><b>${esc(e.titel)}</b>${tfKl(e.kl)}</span>`, zellen: [`<span class="ru-tafel-f">${nb(e.bereich)}</span>`, nb(e.so_erkennst_du)] })), { titel: 'Winkelarten', klasse: 'ru-tafel-winkel' });
@@ -678,7 +717,7 @@ function ruSichten(I, ziel, zustand, ansicht = 'kind') {
       detail: `${e.name ? `<p><b>${esc(e.name)}</b></p>` : ''}${e.art === 'kongruenz_nicht' ? '' : tfMerk(e.merksatz)}${tfH3('Beispiel')}<p class="ru-rechnung">${nb(e.beispiel)}</p>${tfRegeln(kennVonT(e.regeln))}${aeZeile(tfAe(t, e.kennung, e.titel, 'Zeile'))}` })), { titel: 'Kongruenzsätze', klasse: 'ru-tafel-kongruenz' });
     return `${tfKarte(t, 'winkel', 'Winkelarten', `${tfAnker(...nach('winkelart').map((e) => 'w-' + e.kennung))}${winkel}`, { klasse: 'ru-tafel-erste' })}
       ${tfKarte(t, 'dreiecke', 'Dreiecke', `${ws ? `<div class="ru-tafel-formelzeile" id="ru-tf-fg-07"${dkl(ws.kl)}><span class="ru-tafel-f ru-tafel-f-gross">${formel(ws.formel)}</span>${tfKl(ws.kl)}<small>${nb(ws.bedingung)}</small></div>${tfMehr('So rechnest du den dritten Winkel aus', eintragFormelDetail(ws) + tfRegeln(kennVonT(ws.regeln)))}` : ''}${dreiecke}`)}
-      ${tfKarte(t, 'vierecke', 'Vierecke', `${vm}<p class="ru-tafel-hinweis">✓ gilt immer · – gilt nicht immer. Tippe auf ein Viereck für Bild und Beschreibung.</p>${hausHtml}`)}
+      ${tfKarte(t, 'vierecke', 'Vierecke', `${vm}<p class="ru-tafel-hinweis ru-tafel-legende"><b>✓</b> = gilt immer, <b>–</b> = gilt nicht immer. Zahlen: so viele mindestens. Tippe auf ein Viereck für Bild und Beschreibung.</p>${hausHtml}`)}
       ${tfKarte(t, 'kongruenz', 'Kongruenzsätze', `${km}<p class="ru-tafel-hinweis">Kongruent heißt deckungsgleich. Tippe auf einen Satz für ein Beispiel.</p>`)}`;
   }
 
@@ -805,7 +844,7 @@ function ruAufbauen(I, k, kind, schluessel) {
   const lupe = el('span', { class: 'ru-lupe', 'aria-hidden': 'true' }); lupe.innerHTML = ruLupe;
   const feld = el('input', { type: 'search', name: 'q', placeholder: 'Suchen', autocomplete: 'off', enterkeyhint: 'search' });
   const suchen = () => { ruZustand.frage = feld.value.trim(); if (location.hash !== ziel('suche')) location.hash = ziel('suche'); else ruZeigen('suche'); };
-  feld.addEventListener('input', () => { if (feld.value.trim().length >= 3) suchen(); });
+  feld.addEventListener('input', () => { if (I.sofort(feld.value)) suchen(); }); // ab drei Zeichen; kürzer nur Tafel-Zeichen, Einheiten, Kurzwörter (π, ≤, cm, %)
   const kopf = el('header', { class: 'ru-kopf' }, el('div', { class: 'ru-breite ru-schmal-k' },
     el('a', { class: 'ru-kopf-marke', href: ziel('universum') }, el('i', { 'aria-hidden': 'true' }), el('span', {}, 'Regel-Universum')),
     el('form', { class: 'ru-suche', role: 'search', onsubmit: (ev) => { ev.preventDefault(); suchen(); feld.blur(); } },

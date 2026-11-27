@@ -453,7 +453,7 @@ def primzahlen(n):
 def zahlen_pruefen():
     d = {e['kennung']: e for e in T['zahlen']['eintraege']}
     q = d['zz-01']['liste']
-    if [x['n'] for x in q] != list(range(1, 21)) + [25]: f('Quadratzahlen: n ist nicht 1–20 und 25')
+    if [x['n'] for x in q] != list(range(0, 21)) + [25]: f('Quadratzahlen: n ist nicht 0–20 und 25 (n = 0 gefüllt, passend zu 2⁰ in derselben Tabelle)')
     for x in q:
         if x['quadrat'] != x['n'] ** 2 or x['text'] != '%d² = %s' % (x['n'], tz(x['n'] ** 2)): f('Quadratzahl falsch: %s' % x)
     tr = d['zz-01']['trick']
@@ -462,7 +462,7 @@ def zahlen_pruefen():
         if (10 * z + 5) ** 2 != (100 * z * (z + 1) + 25): f('Trick für Endziffer 5 stimmt nicht (z = %d)' % z)
     if (tr['zahl'] // 10) * (tr['zahl'] // 10 + 1) != 12 or tr['quadrat'] != 1225: f('Trick-Beispiel 35² falsch')
     k = d['zz-02']['liste']
-    if [x['n'] for x in k] != list(range(1, 11)): f('Kubikzahlen: n ist nicht 1–10')
+    if [x['n'] for x in k] != list(range(0, 11)): f('Kubikzahlen: n ist nicht 0–10 (n = 0 gefüllt)')
     for x in k:
         if x['kubik'] != x['n'] ** 3 or x['text'] != '%d³ = %s' % (x['n'], tz(x['n'] ** 3)): f('Kubikzahl falsch: %s' % x)
     zw = d['zz-03']['liste']

@@ -8,7 +8,7 @@ Stand 2026-11-27. Entwurf: nichts ist in die App eingespielt; geprüft mit `../p
 
 n² heißt n · n: die Zahl mal sich selbst.
 
-1² = 1; 2² = 4; 3² = 9; 4² = 16; 5² = 25; 6² = 36; 7² = 49; 8² = 64; 9² = 81; 10² = 100; 11² = 121; 12² = 144; 13² = 169; 14² = 196; 15² = 225; 16² = 256; 17² = 289; 18² = 324; 19² = 361; 20² = 400; 25² = 625
+0² = 0; 1² = 1; 2² = 4; 3² = 9; 4² = 16; 5² = 25; 6² = 36; 7² = 49; 8² = 64; 9² = 81; 10² = 100; 11² = 121; 12² = 144; 13² = 169; 14² = 196; 15² = 225; 16² = 256; 17² = 289; 18² = 324; 19² = 361; 20² = 400; 25² = 625
 
 Trick: Endet die Zahl auf 5, rechne: Zehnerziffer z mal (z + 1), dahinter 25. Beispiel 35²: 3 · 4 = 12, dahinter 25 ergibt 1 225.
 
@@ -16,7 +16,7 @@ Trick: Endet die Zahl auf 5, rechne: Zehnerziffer z mal (z + 1), dahinter 25. Be
 
 n³ heißt n · n · n: die Zahl dreimal malnehmen.
 
-1³ = 1; 2³ = 8; 3³ = 27; 4³ = 64; 5³ = 125; 6³ = 216; 7³ = 343; 8³ = 512; 9³ = 729; 10³ = 1 000
+0³ = 0; 1³ = 1; 2³ = 8; 3³ = 27; 4³ = 64; 5³ = 125; 6³ = 216; 7³ = 343; 8³ = 512; 9³ = 729; 10³ = 1 000
 
 ## Zweierpotenzen
 

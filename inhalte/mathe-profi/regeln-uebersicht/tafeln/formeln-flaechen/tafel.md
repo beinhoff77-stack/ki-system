@@ -1,6 +1,6 @@
 # Formeln: Flächen und Umfänge – Tafel
 
-Ergänzt: Umfänge von Quadrat, Dreieck, Parallelogramm, Trapez, Drachen und Raute sowie Kreisring. Die 11 Flächen-Formeln des Universums stehen unverändert da.
+Ergänzt: Umfänge von Quadrat, Dreieck, Parallelogramm, Trapez, Drachen und Raute, der Umfang des Kreisausschnitts (u = 2 · r + b) sowie Fläche und Randlänge des Kreisrings. Die 11 Flächen-Formeln des Universums stehen unverändert da.
 
 Stand 2026-11-27. Entwurf: nichts ist in die App eingespielt; geprüft mit `../pruefen.py`. Spalte „ab“ = frühester Beleg im Bestand (Gym = Gymnasium Bayern, RS = Realschule Bayern, IB = IB MYP); „Regel“ = passende Kennung im Regel-Universum.
 
@@ -26,6 +26,8 @@ Stand 2026-11-27. Entwurf: nichts ist in die App eingespielt; geprüft mit `../p
 | ff-16 | Drachenviereck – Umfang | u = 2 · (a + b) | Je zwei benachbarte Seiten sind gleich lang: zweimal a und zweimal b | ergaenzt | ohne Beleg | – |
 | ff-17 | Raute – Umfang | u = 4 · a | alle vier Seiten sind gleich lang | ergaenzt | ohne Beleg | – |
 | ff-18 | Kreisring – Fläche | A = π · (R² − r²) | R > r; beide Kreise haben denselben Mittelpunkt | ergaenzt | Gym 8 · RS 9 · IB 3 | – |
+| ff-19 | Kreisausschnitt – Umfang | u = 2 · r + b | Rand aus zwei Radien und dem Bogen b; b = α : 360° · 2 · π · r ist die Bogenlänge | ergaenzt | Gym 8 · RS 9 · IB 3 | F10 |
+| ff-20 | Kreisring – Umfang (beide Ränder) | u = 2 · π · (R + r) | beide Ränder zusammen: außen 2 · π · R, innen 2 · π · r (wie nachtrag nt-08) | ergaenzt | Gym 8 · RS 9 · IB 3 | – |
 
 ## Beschriften und Beispiel (nachgerechnet)
 
@@ -49,6 +51,8 @@ Stand 2026-11-27. Entwurf: nichts ist in die App eingespielt; geprüft mit `../p
 | ff-16 | a = erste Seitenlänge (die zwei gleich langen Seiten an der einen Spitze); b = zweite Seitenlänge (die zwei gleich langen Seiten an der anderen Spitze) | u = 2 · (5 cm + 3 cm) = 2 · 8 cm = 16 cm |
 | ff-17 | a = Seitenlänge (eine Seite mit Maßpfeil; alle vier Seiten mit gleichen Strichen markieren) | u = 4 · 5 cm = 20 cm · Hilfe: 5² = (8 : 2)² + (6 : 2)² = 25 |
 | ff-18 | R = äußerer Radius (von der gemeinsamen Mitte M zum äußeren Rand); r = innerer Radius (von der gemeinsamen Mitte M zum inneren Rand) | A = π · (5² cm² − 3² cm²) = π · 16 cm² = 16π cm² ≈ 50,27 cm² |
+| ff-19 | r = Radius (beide Begrenzungsradien); b = Bogenlänge (gebogener Maßpfeil am Rand) | u = 2 · 4 cm + 2π cm = 8 cm + 2π cm ≈ 14,28 cm · Hilfe: b = 2π cm aus ff-10 |
+| ff-20 | R = äußerer Radius; r = innerer Radius (wie ff-18) | u = 2 · π · (5 cm + 3 cm) = 2 · π · 8 cm = 16π cm ≈ 50,27 cm |
 
 ## Vorschlag zur Gliederung der Karte
 

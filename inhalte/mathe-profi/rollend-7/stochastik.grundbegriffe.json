@@ -26,7 +26,7 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 14,
+     "antwort": 13,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Kugeln statt der Farben gezählt"
@@ -40,10 +40,17 @@
     },
     {
      "luecke": 2,
-     "antwort": 11,
+     "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "rot und grün genommen"
+    },
+    {
+     "luecke": 4,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Ereignis selbst statt des Gegenereignisses genannt"
     }
    ],
    "aufgabe": {
@@ -54,24 +61,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "In einer Urne liegen 6 rote, 2 blaue, 5 grüne und 1 gelbe Kugel. Man zieht eine Kugel und notiert die Farbe. Der Ergebnisraum hat ① Ergebnisse. Zum Ereignis „rot oder blau“ gehören ② Kugeln. In der Urne liegen insgesamt ③ Kugeln.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "In einer Urne liegen 6 rote, 2 blaue, 3 grüne und 2 gelbe Kugeln. Man zieht eine Kugel und notiert die Farbe. Der Ergebnisraum hat ① Ergebnisse. Zum Ereignis „rot oder blau“ gehören ② Kugeln. In der Urne liegen insgesamt ③ Kugeln. Zum Gegenereignis „weder rot noch blau“ gehören ④ Kugeln.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       4,
       8,
-      14
+      13,
+      5
      ]
     },
     "c": [
      "4",
      "6 + 2",
-     "6 + 2 + 5 + 1"
+     "6 + 2 + 3 + 2",
+     "(13) - (8)"
     ],
-    "h": "Die Ergebnisse sind die Farben. Das Ereignis fasst Ergebnisse zusammen, gezählt werden aber die Kugeln.",
-    "w": "Vier Farben, also vier Ergebnisse. Rot oder blau: 6 + 2 = 8 Kugeln. Insgesamt 6 + 2 + 5 + 1 = 14 Kugeln."
+    "h": "Die Ergebnisse sind die Farben. Das Ereignis fasst Ergebnisse zusammen, gezählt werden aber die Kugeln. Das Gegenereignis besteht aus allen übrigen Kugeln.",
+    "w": "Vier Farben, also vier Ergebnisse. Rot oder blau: 6 + 2 = 8 Kugeln. Insgesamt 6 + 2 + 3 + 2 = 13 Kugeln. Gegenereignis: 13 − 8 = 5 Kugeln (3 grüne und 2 gelbe)."
    }
   },
   {
@@ -113,7 +122,7 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Ein Würfel hat die Zahlen 1 bis 12. Das Ereignis „Die Zahl ist ein Vielfaches von k“ hat genau 4 Ergebnisse. Dabei ist k eine Zahl größer als 1. Welche Zahl ist k?"
+     "text": "Ein Würfel hat die Zahlen 1 bis 12. Das Ereignis „Die Zahl ist ein Vielfaches von k“ hat genau 4 Ergebnisse. Dabei ist k eine natürliche Zahl größer als 1. Welche Zahl ist k?"
     },
     "o": {
      "wert": 3
@@ -136,22 +145,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 2,
+     "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die durch 3 teilbaren Zahlen gezählt"
+     "beschreibung": "nur die durch 2 teilbaren Zahlen gezählt"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 6 doppelt gezählt: 4 + 2"
     },
     {
      "antwort": 8,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "alle Felder gezählt"
-    },
-    {
-     "antwort": 5,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl 12 oder 1 mitgezählt"
     }
    ],
    "aufgabe": {
@@ -162,15 +171,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Glücksrad hat 8 gleich große Felder mit den Zahlen 1 bis 8. Wie viele Ergebnisse gehören zum Ereignis „Die Zahl ist durch 3 oder durch 4 teilbar“?"
+     "text": "Ein Glücksrad hat 8 gleich große Felder mit den Zahlen 1 bis 8. Wie viele Ergebnisse gehören zum Ereignis „Die Zahl ist durch 2 oder durch 3 teilbar“?"
     },
     "o": {
-     "wert": 4,
+     "wert": 5,
      "einheit": "Ergebnisse"
     },
-    "c": "2 + 2",
-    "h": "Gehe die Zahlen 1 bis 8 der Reihe nach durch. Eine Zahl zählt nur einmal.",
-    "w": "Durch 3 teilbar: 3 und 6. Durch 4 teilbar: 4 und 8. Zusammen 4 Ergebnisse: {3; 4; 6; 8}."
+    "c": "4 + 2 - 1",
+    "h": "Gehe die Zahlen 1 bis 8 der Reihe nach durch. Eine Zahl zählt nur einmal, auch wenn sie in beiden Reihen vorkommt.",
+    "w": "Durch 2 teilbar: 2, 4, 6, 8. Durch 3 teilbar: 3 und 6. Die 6 gehört zu beiden. Zusammen 5 Ergebnisse: {2; 3; 4; 6; 8}."
    }
   },
   {
@@ -201,7 +210,7 @@
      "antwort": 4.5,
      "fehlbild": "fb.stellenwert.eine_stelle_daneben",
      "regel_des_fehlbilds": "rr.stellenwert",
-     "beschreibung": "eine Stelle verrutscht"
+     "beschreibung": "eine Stelle verrutscht: 18 : 40 · 10"
     }
    ],
    "aufgabe": {
@@ -212,7 +221,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Eine Münze wird 40-mal geworfen. Wappen fällt 18-mal. Wie groß ist die relative Häufigkeit von Wappen in Prozent? Rechne auf zwei Wegen. Weg A: 18 : 40 als Dezimalzahl und dann mal 100. Weg B: den Bruch 18/40 auf den Nenner 100 erweitern."
+     "text": "Eine Münze wird 40-mal geworfen. Wappen fällt 18-mal. Wie groß ist die relative Häufigkeit von Wappen in Prozent? Rechne auf zwei Wegen. Weg A: 18 : 40 als Dezimalzahl und dann mal 100. Weg B: den Bruch 18/40 zuerst kürzen und dann auf den Nenner 100 erweitern."
     },
     "o": {
      "wert": 45,
@@ -254,7 +263,7 @@
      "antwort": "0,125",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "8 durch 64 geteilt"
+     "beschreibung": "1 durch 8 geteilt statt 8 durch 50"
     }
    ],
    "aufgabe": {
@@ -331,7 +340,7 @@
      "antwort": 12,
      "fehlbild": "fb.stellenwert.eine_stelle_daneben",
      "regel_des_fehlbilds": "rr.stellenwert",
-     "beschreibung": "eine Stelle verrutscht"
+     "beschreibung": "eine Stelle verrutscht: 0,6 % statt 6 %"
     }
    ],
    "aufgabe": {
@@ -369,13 +378,13 @@
      "antwort": 18,
      "fehlbild": "fb.stufen.addiert_statt_malgenommen",
      "regel_des_fehlbilds": "id.daten.stufen",
-     "beschreibung": "36 : 2 gerechnet"
+     "beschreibung": "Wege als n + n angenommen: n + n = 36, also n = 18"
     },
     {
-     "antwort": 12,
-     "fehlbild": "fb.stufen.addiert_statt_malgenommen",
-     "regel_des_fehlbilds": "id.daten.stufen",
-     "beschreibung": "n + n = 12 angenommen"
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "36 mit 2 malgenommen statt die Wurzel zu suchen"
     },
     {
      "antwort": 36,
@@ -424,7 +433,7 @@
      "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "9 Ergebnisse angenommen, weil die Summe 9 heißt"
+     "beschreibung": "die Zahl 9 aus der Summe als Anzahl genommen"
     },
     {
      "antwort": 14,
@@ -441,7 +450,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Würfel wird zweimal geworfen. Wie viele Ergebnisse gehören zum Ereignis „Die Augensumme ist 5 oder 9“? Rechne auf zwei Wegen. Weg A: mit einem Baumdiagramm. Weg B: mit einer Tabelle mit 6 Zeilen und 6 Spalten."
+     "text": "Ein normaler Würfel wird zweimal geworfen. Ein Ergebnis ist ein Zahlenpaar (erster Wurf | zweiter Wurf). Wie viele Ergebnisse gehören zum Ereignis „Die Augensumme ist 5 oder 9“? Rechne auf zwei Wegen. Weg A: mit einem Baumdiagramm. Weg B: mit einer Tabelle mit 6 Zeilen und 6 Spalten."
     },
     "o": {
      "wert": 8,
@@ -469,21 +478,21 @@
      "antwort": "6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "„größer oder gleich 4“ gelesen"
+     "beschreibung": "„größer oder gleich 4“ gelesen: auch die drei Felder mit Summe 4 mitgezählt"
     },
     {
      "index": 2,
-     "antwort": "4",
+     "antwort": "2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Summe 4 mitgezählt"
+     "beschreibung": "nur die Summe 5 gezählt, die Summe 6 vergessen"
     },
     {
      "index": 3,
-     "antwort": "5",
+     "antwort": "9",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "falsch abgezählt"
+     "beschreibung": "alle Felder der Tabelle gezählt"
     }
    ],
    "aufgabe": {
@@ -528,8 +537,8 @@
     "a": [
      "6",
      "3",
-     "4",
-     "5"
+     "2",
+     "9"
     ],
     "o": {
      "index": 1

@@ -59,7 +59,7 @@
     },
     "c": [
      "4 + 5",
-     "4 + 5 + 2"
+     "(9) + 2"
     ],
     "h": "Gleiche Basis beim Malnehmen: Was passiert mit den Hochzahlen?",
     "w": "3⁴ · 3⁵ = 3⁹, denn 4 + 5 = 9. Mit 3² dazu: 3¹¹, denn 9 + 2 = 11."
@@ -172,8 +172,8 @@
     {
      "luecke": 1,
      "antwort": 18,
-     "fehlbild": "fb.potenz.basis_mal_hochzahl",
-     "regel_des_fehlbilds": "rr.potenz",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "24 − 6 gerechnet"
     },
     {
@@ -204,7 +204,7 @@
     },
     "c": [
      "24 // 6",
-     "(24 // 6) ** 3"
+     "(4) ** 3"
     ],
     "h": "Bei gleichen Hochzahlen darfst du die Basen zuerst teilen.",
     "w": "24 : 6 = 4. 4³ = 64. Probe: 24³ : 6³ = 13824 : 216 = 64."
@@ -232,16 +232,16 @@
     {
      "index": 2,
      "antwort": "10⁸",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Hochzahlen addiert, obwohl die Basen verschieden sind"
+     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "alle acht Faktoren gezählt und die Hochzahlen 4 + 4 addiert"
     },
     {
      "index": 3,
-     "antwort": "4¹⁰",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "falsch zusammengezählt"
+     "antwort": "10¹⁶",
+     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "die Hochzahlen malgenommen statt beibehalten"
     }
    ],
    "aufgabe": {
@@ -258,7 +258,7 @@
      "7⁴",
      "10⁴",
      "10⁸",
-     "4¹⁰"
+     "10¹⁶"
     ],
     "o": {
      "index": 1
@@ -281,15 +281,15 @@
    "fehlbilder": [
     {
      "antwort": 9,
-     "fehlbild": "fb.potenz.basis_mal_hochzahl",
-     "regel_des_fehlbilds": "rr.potenz",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "2 + 7 gerechnet"
     },
     {
      "antwort": 98,
-     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
-     "regel_des_fehlbilds": "rr.potenz",
-     "beschreibung": "2 · 7² oder ähnlich falsch gerechnet"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die 7 mit der Hochzahl 2 gerechnet: 2 · 7²"
     },
     {
      "antwort": 42,
@@ -340,7 +340,7 @@
      "antwort": 128,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "2⁷ gerechnet"
+     "beschreibung": "mit dem falschen Wert 7 weitergerechnet: 2⁷"
     }
    ],
    "aufgabe": {
@@ -363,7 +363,7 @@
     },
     "c": [
      "3 * 4",
-     "2 ** (3 * 4)"
+     "2 ** (12)"
     ],
     "h": "Eine Potenz wird noch einmal hoch genommen. Was geschieht mit den Hochzahlen?",
     "w": "(2³)⁴ = 2³ · 2³ · 2³ · 2³ = 2¹². 2¹² = 4 096."
@@ -440,10 +440,10 @@
     },
     {
      "index": 2,
-     "antwort": "2 · x⁴",
+     "antwort": "8x",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Hoch zwei als Malnehmen mit 2 verstanden"
+     "beschreibung": "die Hochzahlen 4 und 2 malgenommen und als Faktor vor x geschrieben"
     }
    ],
    "aufgabe": {
@@ -459,7 +459,7 @@
     "a": [
      "x⁴ · x²",
      "x⁴ + x⁴",
-     "2 · x⁴",
+     "8x",
      "x⁴ · x⁴"
     ],
     "o": {
@@ -484,16 +484,16 @@
     {
      "luecke": 1,
      "antwort": 13,
-     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
-     "regel_des_fehlbilds": "rr.potenz",
-     "beschreibung": "die Hochzahlen addiert"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen addiert statt subtrahiert"
     },
     {
      "luecke": 2,
      "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "5 + 2 gerechnet"
+     "beschreibung": "5 + 2 gerechnet statt 5 − 2"
     }
    ],
    "aufgabe": {
@@ -516,7 +516,7 @@
     },
     "c": [
      "9 - 4",
-     "9 - 4 - 2"
+     "(5) - 2"
     ],
     "h": "Gleiche Basis beim Teilen: Was passiert mit den Hochzahlen?",
     "w": "7⁹ : 7⁴ = 7⁵, denn 9 − 4 = 5. Noch durch 7²: 7³, denn 5 − 2 = 3."
@@ -600,7 +600,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim vereinfacht a⁸ : a³ : a. Die Zeilen bauen aufeinander auf. Zeile 1: a⁸ : a³ = a⁵, denn 8 − 3 = 5. Zeile 2: a⁵ : a = a⁵, weil a keine Hochzahl hat. Zeile 3: Das Ergebnis lautet a⁵. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim vereinfacht a⁸ : a³ : a für a ≠ 0. Die Zeilen bauen aufeinander auf. Zeile 1: a⁸ : a³ = a⁵, denn 8 − 3 = 5. Zeile 2: a⁵ : a = a⁵, weil a keine Hochzahl hat. Zeile 3: Das Ergebnis lautet a⁵. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -662,7 +662,7 @@
    "kennung": "K8-V116",
    "thema": "terme.potenzgesetze_natuerlich",
    "lernkarte": "anwenden",
-   "stufe": 2,
+   "stufe": 1,
    "typ": "Verfahren wählen (einfache Form)",
    "form": "verfahren_waehlen",
    "antwortform": "auswahl",
@@ -696,8 +696,8 @@
     "l": "anwenden",
     "t": "anwenden",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
      "text": "Du sollst 5⁶ : 5² berechnen. Welcher Weg ist richtig?"

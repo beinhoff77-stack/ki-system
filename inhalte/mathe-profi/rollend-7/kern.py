@@ -55,6 +55,8 @@ def gl(a, b):
 
 
 def z2(ausdruck):
+    if "round(" in str(ausdruck):          # Rundung kennt nur der Rechner aus tools/inhalt_pruefen.py
+        return F(ip.rechne(ausdruck))
     return F(_ev(ausdruck, {}))
 
 
@@ -65,13 +67,22 @@ def mit(d, grafik):
     return d
 
 
-def L(text, schablone, werte, c, zweit, h, w, fb=None, hinweis="Je Lücke eine ganze Zahl (mit Minus, falls negativ).", grafik=None):
-    """Lücken. fb: {Nummer der Lücke ab 0: [(falscher Wert, Fehlbild-Kennung oder None, Beschreibung)]}"""
-    return mit({"y": "luecken", "f": {"text": text, "schablone": schablone, "hinweis": hinweis}, "o": {"werte": werte}, "c": c, "h": h, "w": w}, grafik), zweit, fb or {}
+def L(text, schablone, werte, c, zweit, h, w, fb=None, hinweis="Je Lücke eine ganze Zahl (mit Minus, falls negativ).", grafik=None, gleich_ok=False):
+    """Lücken. c: ein Rechenausdruck je Lücke; {n} steht für den (richtigen) Wert der n-ten Lücke (ab 1), ggT(a, b) für den größten gemeinsamen Teiler.
+    bauen.py setzt die früheren Werte ein und prüft, dass spätere Lücken wirklich von früheren abhängen. zweit: unabhängige Zweitrechnung je Lücke (ohne {n}).
+    fb: {Nummer der Lücke ab 0: [(falscher Wert, Fehlbild-Kennung oder None, Beschreibung, Rechnung)]}. Rechnung: Ausdruck (darf {n} enthalten),
+    Funktion, die True liefert, oder False, wenn das Fehlbild keine Rechnung ist.
+    gleich_ok: gleiche Lückenwerte erlaubt (nur, wenn fachlich nötig)."""
+    d = mit({"y": "luecken", "f": {"text": text, "schablone": schablone, "hinweis": hinweis}, "o": {"werte": werte}, "c": c, "h": h, "w": w}, grafik)
+    if gleich_ok:
+        d["_gleich_ok"] = True
+    return d, zweit, fb or {}
 
 
 def Z(text, wert, c, zweit, h, w, fb, einheit=None, toleranz=None, grafik=None):
-    """Zahl. zweit: Ausdruck (Text) oder Zahl für die zweite, unabhängige Rechnung. fb: [(falscher Wert, Kennung oder None, Beschreibung)]"""
+    """Zahl. zweit: Ausdruck (Text) oder Zahl für die zweite, unabhängige Rechnung.
+    fb: [(falscher Wert, Kennung oder None, Beschreibung, Rechnung)]. Rechnung: Ausdruck, dessen Wert der falsche Wert ist (bei gerundeten Werten auf 2 Stellen gerundet),
+    Funktion, die True liefert, oder False, wenn das Fehlbild keine Rechnung ist. toleranz nur, wo fachlich nötig."""
     o = {"wert": wert}
     if einheit:
         o["einheit"] = einheit
@@ -81,7 +92,8 @@ def Z(text, wert, c, zweit, h, w, fb, einheit=None, toleranz=None, grafik=None):
 
 
 def W(text, richtig, falsch, h, w, probe, grafik=None):
-    """Auswahl. falsch: [(Antwort, Beschreibung)] oder [(Antwort, Beschreibung, Fehlbild-Kennung)]. probe: Funktion, die True liefert, wenn die richtige Antwort stimmt und die anderen nicht."""
+    """Auswahl. falsch: [(Antwort, Beschreibung)] oder [(Antwort, Beschreibung, Fehlbild-Kennung)]. probe: Funktion, die True liefert, wenn die richtige Antwort stimmt und die anderen nicht
+    (und jede falsche Antwort wirklich aus dem beschriebenen Fehler entsteht, soweit das maschinell geht)."""
     n = len(falsch) + 1
     assert n in (3, 4), text
     p = next(POSITION[n])
@@ -104,10 +116,13 @@ def FD(einleitung, zeilen, h, w, frage="In welcher Zeile passiert der erste Fehl
 
 
 def neu(thema, lk, form, bau, g=None, regel="rr.waage", thema_datei=None):
-    """form: Schlüssel aus FORM. g: Aufgabentyp (Standard je Form); die Stufe folgt aus g."""
+    """form: Schlüssel aus FORM. g: Aufgabentyp (Standard je Form); die Stufe folgt aus g.
+    rang: Sortierrang für die Kennungen. Er bleibt die Stufe, die der Standard-Typ der Form hatte (Verfahren wählen: 2), damit die Kennungen K8-V… stabil bleiben,
+    auch wenn g nach der tatsächlichen Tätigkeit gesetzt wird."""
     g = g or FORM[form][1]
     aufgabe, zweit, fb = bau
-    A.append(dict(thema=thema, lk=lk, form=form, g=g, regel=regel, zaehlt="nein" if form == "lueckenweg" else "ja", s=ip.STUFE_VON[g], aufgabe=aufgabe, zweit=zweit, fb=fb))
+    rang = 2 if form == "verfahren_waehlen" else ip.STUFE_VON[g]
+    A.append(dict(thema=thema, lk=lk, form=form, g=g, regel=regel, zaehlt="nein" if form == "lueckenweg" else "ja", s=ip.STUFE_VON[g], rang=rang, aufgabe=aufgabe, zweit=zweit, fb=fb))
 
 
 KOMM = lambda n: "; ".join(f"{'①②③④⑤'[i]} = □" for i in range(n))

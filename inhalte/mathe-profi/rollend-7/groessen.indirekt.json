@@ -40,10 +40,10 @@
     },
     {
      "luecke": 3,
-     "antwort": 6,
+     "antwort": 216,
      "fehlbild": "fb.verhaeltnis.falsche_richtung",
      "regel_des_fehlbilds": "rr.verhaeltnis",
-     "beschreibung": "mit 6 statt 72 : 9 gerechnet"
+     "beschreibung": "mit der Helferzahl malgenommen: 24 · 9"
     }
    ],
    "aufgabe": {
@@ -54,7 +54,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "3 Helfer brauchen 24 Stunden, 6 Helfer brauchen 12 Stunden. Bei einer indirekten Proportionalität ist das Produkt aus Helfern und Stunden immer gleich. Dieses Produkt ist ①. Dann brauchen 4 Helfer ② Stunden und 9 Helfer ③ Stunden.",
+     "text": "Alle Helfer arbeiten gleich schnell. 3 Helfer brauchen 24 Stunden, 6 Helfer brauchen 12 Stunden. Bei einer indirekten Proportionalität ist das Produkt aus Helfern und Stunden immer gleich. Dieses Produkt ist ①. Dann brauchen 4 Helfer ② Stunden und 9 Helfer ③ Stunden.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -67,8 +67,8 @@
     },
     "c": [
      "3 * 24",
-     "3 * 24 // 4",
-     "3 * 24 // 9"
+     "(72) // 4",
+     "(72) // 9"
     ],
     "h": "Rechne Helfer mal Stunden. Teile dieses Produkt durch die neue Zahl der Helfer.",
     "w": "3 · 24 = 72 und 6 · 12 = 72. 72 : 4 = 18 und 72 : 9 = 8."
@@ -116,7 +116,7 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Die Tabelle zeigt, wie lange verschiedene Zahlen von Helfern für eine Arbeit brauchen. Welche Aussage passt?",
+     "text": "Die Tabelle zeigt, wie lange verschiedene Zahlen von Helfern für eine Arbeit brauchen. Alle Helfer arbeiten gleich schnell. Welche Aussage passt?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -211,17 +211,17 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 36,
+     "antwort": 48,
      "fehlbild": "fb.verhaeltnis.falsche_richtung",
      "regel_des_fehlbilds": "rr.verhaeltnis",
      "beschreibung": "mit 2 malgenommen statt geteilt"
     },
     {
      "luecke": 2,
-     "antwort": 54,
+     "antwort": 24,
      "fehlbild": "fb.verhaeltnis.falsche_richtung",
      "regel_des_fehlbilds": "rr.verhaeltnis",
-     "beschreibung": "mit 3 malgenommen statt geteilt"
+     "beschreibung": "mit dem falschen Wert 12 weiter mit 2 malgenommen"
     }
    ],
    "aufgabe": {
@@ -232,22 +232,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Zuordnung Pumpen → Stunden ist indirekt proportional. 4 Pumpen brauchen 18 Stunden. Doppelt so viele Pumpen brauchen nur die Hälfte der Zeit. 8 Pumpen brauchen ① Stunden. Dreimal so viele Pumpen wie anfangs brauchen ein Drittel der Zeit. 12 Pumpen brauchen ② Stunden.",
-     "schablone": "① = □; ② = □",
+     "text": "Die Zuordnung Pumpen → Stunden ist indirekt proportional (alle Pumpen leisten gleich viel). 4 Pumpen brauchen 24 Stunden. Doppelt so viele Pumpen brauchen nur die Hälfte der Zeit: 8 Pumpen brauchen ① Stunden. Verdoppelst du die Pumpenzahl noch einmal auf 16, halbiert sich die Zeit aus ① noch einmal: 16 Pumpen brauchen ② Stunden. Zur Probe rechnest du 16 mal ②. Das Ergebnis ist ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      9,
-      6
+      12,
+      6,
+      96
      ]
     },
     "c": [
-     "18 // 2",
-     "18 // 3"
+     "24 // 2",
+     "(12) // 2",
+     "16 * (6)"
     ],
-    "h": "Mehr Pumpen: Die Zeit wird durch denselben Faktor geteilt.",
-    "w": "8 Pumpen: 18 : 2 = 9 Stunden. 12 Pumpen: 18 : 3 = 6 Stunden. Probe: 4 · 18 = 72 = 8 · 9 = 12 · 6."
+    "h": "Mehr Pumpen: Die Zeit wird durch denselben Faktor geteilt. Das Produkt aus Pumpen und Stunden bleibt gleich.",
+    "w": "8 Pumpen: 24 : 2 = 12 Stunden. 16 Pumpen: 12 : 2 = 6 Stunden. Probe: 16 · 6 = 96 und 4 · 24 = 96. Das Produkt bleibt gleich."
    }
   },
   {
@@ -266,7 +268,7 @@
      "antwort": 26.67,
      "fehlbild": "fb.verhaeltnis.falsche_richtung",
      "regel_des_fehlbilds": "rr.verhaeltnis",
-     "beschreibung": "direkt proportional gerechnet: 20 · 8 : 6"
+     "beschreibung": "direkt proportional gerechnet: 20 · 8 : 6 (gerundet)"
     },
     {
      "antwort": 18,
@@ -283,7 +285,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "6 Maler streichen ein Haus in 20 Tagen. Wie viele Tage brauchen 8 Maler? Rechne auf zwei Wegen. Weg A: erst ausrechnen, wie lange ein Maler braucht. Weg B: mit dem Faktor 6 : 8 für die Zahl der Maler."
+     "text": "6 Maler streichen ein Haus in 20 Tagen. Alle Maler arbeiten gleich schnell, und die Arbeit lässt sich beliebig aufteilen. Wie viele Tage brauchen 8 Maler? Rechne auf zwei Wegen. Weg A: erst ausrechnen, wie lange ein Maler braucht. Weg B: Die Zahl der Maler wächst um den Faktor 8/6, deshalb ändert sich die Zeit um den Faktor 6/8."
     },
     "o": {
      "wert": 15,
@@ -291,7 +293,7 @@
     },
     "c": "6 * 20 / 8",
     "h": "Beide Wege müssen dasselbe ergeben. Mehr Maler: Die Zeit wird kürzer.",
-    "w": "Weg A: 1 Maler braucht 6 · 20 = 120 Tage, 8 Maler brauchen 120 : 8 = 15 Tage. Weg B: 20 · 6/8 = 15 Tage."
+    "w": "Weg A: 1 Maler braucht 6 · 20 = 120 Tage, 8 Maler brauchen 120 : 8 = 15 Tage. Weg B: Die Malerzahl wächst um den Faktor 8/6, die Zeit ändert sich um den Faktor 6/8: 20 · 6/8 = 15 Tage."
    }
   },
   {
@@ -310,7 +312,7 @@
      "antwort": 6.67,
      "fehlbild": "fb.verhaeltnis.falsche_richtung",
      "regel_des_fehlbilds": "rr.verhaeltnis",
-     "beschreibung": "10 · 8 : 12 gerechnet"
+     "beschreibung": "10 · 8 : 12 gerechnet (gerundet)"
     },
     {
      "antwort": 14,
@@ -327,7 +329,7 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "10 gleich starke Pumpen leeren ein Becken in 12 Stunden. Es soll in nur 8 Stunden leer sein. Wie viele solche Pumpen braucht man mindestens?"
+     "text": "10 gleich starke Pumpen leeren ein Becken in 12 Stunden. Jede Pumpe fördert gleichmäßig. Es soll in nur 8 Stunden leer sein. Wie viele solche Pumpen braucht man mindestens?"
     },
     "o": {
      "wert": 15,
@@ -386,8 +388,8 @@
     },
     "c": [
      "5 * 12",
-     "5 * 12 // 4",
-     "5 * 12 // 20"
+     "(60) // 4",
+     "(60) // 20"
     ],
     "h": "Das Produkt aus x und y bleibt immer gleich. Teile es durch das neue x.",
     "w": "5 · 12 = 60. 60 : 4 = 15. 60 : 20 = 3."
@@ -513,7 +515,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "5 gleiche Rohre füllen einen Tank in 36 Minuten. Wie viele Minuten brauchen 9 solche Rohre? Rechne auf zwei Wegen. Weg A: erst ausrechnen, wie lange 1 Rohr braucht. Weg B: Das Produkt aus Rohren und Minuten bleibt gleich."
+     "text": "5 gleiche Rohre füllen einen Tank in 36 Minuten. Jedes Rohr liefert gleich viel Wasser. Wie viele Minuten brauchen 9 solche Rohre? Rechne auf zwei Wegen. Weg A: erst ausrechnen, wie lange 1 Rohr braucht. Weg B: Das Produkt aus Rohren und Minuten bleibt gleich."
     },
     "o": {
      "wert": 20,
@@ -566,7 +568,7 @@
     "g": "mehrschritt",
     "y": "auswahl",
     "f": {
-     "text": "12 Arbeiter brauchen für eine Arbeit 10 Tage. Es sind aber nur 8 Arbeiter da. Welcher Weg führt zur richtigen Zahl der Tage?"
+     "text": "12 Arbeiter brauchen für eine Arbeit 10 Tage. Alle Arbeiter sind gleich leistungsfähig, und die Arbeit lässt sich beliebig aufteilen. Es sind aber nur 8 Arbeiter da. Welcher Weg führt zur richtigen Zahl der Tage?"
     },
     "a": [
      "10 : 12 · 8 ≈ 6,7 Tage.",
@@ -595,8 +597,8 @@
    "fehlbilder": [
     {
      "antwort": 10,
-     "fehlbild": "fb.verhaeltnis.falsche_richtung",
-     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "die 3 Tage nicht abgezogen: 60 : 6"
     },
     {
@@ -620,7 +622,7 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Ein Vorrat Hundefutter reicht für 4 Hunde genau 15 Tage. Nach 3 Tagen kommen 2 Hunde dazu, es sind jetzt 6 Hunde. Wie viele Tage reicht der Rest des Futters noch?"
+     "text": "Ein Vorrat Hundefutter reicht für 4 Hunde genau 15 Tage. Jeder Hund bekommt jeden Tag dieselbe Menge. Nach 3 Tagen kommen 2 Hunde dazu, es sind jetzt 6 Hunde. Wie viele Tage reicht der Rest des Futters noch?"
     },
     "o": {
      "wert": 8,
@@ -645,17 +647,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 48,
-     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "antwort": 11,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
      "regel_des_fehlbilds": "rr.verhaeltnis",
-     "beschreibung": "24 · 2 gerechnet"
+     "beschreibung": "3 + 8 gerechnet"
     },
     {
      "luecke": 2,
-     "antwort": 192,
+     "antwort": 32,
      "fehlbild": "fb.verhaeltnis.falsche_richtung",
      "regel_des_fehlbilds": "rr.verhaeltnis",
-     "beschreibung": "24 · 8 gerechnet"
+     "beschreibung": "8 · 4 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 96,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "8 · 12 gerechnet"
     }
    ],
    "aufgabe": {
@@ -666,24 +675,42 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Der Graph gehört zu y = 24/x (für x > 0). Für x = 2 liegt der Punkt bei y = ①. Für x = 8 liegt er bei y = ②. Für x = 6 liegt er bei y = ③.",
+     "text": "Im Koordinatensystem ist der Punkt P(3 | 8) eingezeichnet. Er liegt auf dem Graphen einer indirekten Proportionalität (für x > 0). Das Produkt x · y ist für jeden Punkt dieses Graphen gleich: ①. Der Graph geht durch den Punkt Q(4 | ②). Er geht auch durch den Punkt R(12 | ③).",
      "schablone": "① = □; ② = □; ③ = □",
-     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ).",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       0,
+       13
+      ],
+      "y": [
+       0,
+       13
+      ],
+      "punkte": [
+       {
+        "x": 3,
+        "y": 8,
+        "name": "P"
+       }
+      ]
+     }
     },
     "o": {
      "werte": [
-      12,
-      3,
-      4
+      24,
+      6,
+      2
      ]
     },
     "c": [
-     "24 // 2",
-     "24 // 8",
-     "24 // 6"
+     "3 * 8",
+     "(24) // 4",
+     "(24) // 12"
     ],
-    "h": "Teile 24 durch den x-Wert.",
-    "w": "24 : 2 = 12. 24 : 8 = 3. 24 : 6 = 4. Je größer x, desto kleiner y."
+    "h": "Das Produkt der Koordinaten von P gilt für alle Punkte des Graphen. Teile es durch die x-Koordinate.",
+    "w": "x · y = 3 · 8 = 24. Für Q: 24 : 4 = 6. Für R: 24 : 12 = 2. Je größer x, desto kleiner y."
    }
   },
   {
@@ -766,8 +793,8 @@
     "o": {
      "index": 1
     },
-    "h": "Setze die Koordinaten von P in die Gleichungen ein. Welche Gleichung stimmt?",
-    "w": "Für P(3 | 4) gilt x · y = 12. Also y = 12 : x. Probe: 12 : 3 = 4."
+    "h": "Setze die Koordinaten von P in die Gleichungen ein. Passt mehr als eine Gleichung? Dann lies einen zweiten Punkt des Graphen ab und prüfe, ob x · y gleich bleibt.",
+    "w": "Für P(3 | 4) gilt x · y = 12. Also y = 12 : x. Probe: 12 : 3 = 4. Auch y = x + 1 geht durch P, aber der Graph geht durch den Punkt (6 | 2), und dort ist x + 1 = 7. Nur bei y = 12 : x bleibt x · y immer gleich."
    }
   },
   {
@@ -823,7 +850,7 @@
    "kennung": "K8-V178",
    "thema": "groessen.indirekt",
    "lernkarte": "unterscheiden",
-   "stufe": 2,
+   "stufe": 1,
    "typ": "Verfahren wählen (einfache Form)",
    "form": "verfahren_waehlen",
    "antwortform": "auswahl",
@@ -857,8 +884,8 @@
     "l": "unterscheiden",
     "t": "darstellen",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
      "text": "Wie prüfst du sicher, ob eine Wertetabelle zu einer indirekten Proportionalität gehört?"
@@ -1032,7 +1059,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Die Miete für eine Hütte wird gleichmäßig auf alle Personen verteilt. Bei 8 Personen zahlt jede Person 45 €. Zwei Personen sagen ab. Wie viel Euro muss jede der übrigen Personen zahlen?"
+     "text": "Die Miete für eine Hütte wird gleichmäßig auf alle Personen verteilt, die Gesamtmiete bleibt gleich. Bei 8 Personen zahlt jede Person 45 €. Zwei Personen sagen ab. Wie viel Euro muss jede der übrigen Personen zahlen?"
     },
     "o": {
      "wert": 60,
@@ -1076,7 +1103,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Futtervorrat reicht für 15 Schafe 24 Tage. Wie viele Tage reicht er für 20 Schafe? Rechne auf zwei Wegen. Weg A: Der Vorrat ist 15 · 24 „Schaftage“; teile durch 20. Weg B: Die Schafzahl wird mit 20/15 malgenommen, die Tage mit 15/20."
+     "text": "Ein Futtervorrat reicht für 15 Schafe 24 Tage. Jedes Schaf frisst jeden Tag dieselbe Menge. Wie viele Tage reicht er für 20 Schafe? Rechne auf zwei Wegen. Weg A: Der Vorrat ist 15 · 24 „Schaftage“; teile durch 20. Weg B: Die Schafzahl wird mit 20/15 malgenommen, die Tage mit 15/20."
     },
     "o": {
      "wert": 18,
@@ -1126,7 +1153,7 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Zwei gleiche Pumpen füllen ein Becken in 9 Stunden. Nach 3 Stunden fällt eine Pumpe aus. Die andere pumpt allein weiter. Wie viele Stunden dauert das Füllen insgesamt?"
+     "text": "Zwei gleiche Pumpen füllen ein Becken in 9 Stunden. Jede Pumpe fördert gleichmäßig. Nach 3 Stunden fällt eine Pumpe aus. Die andere pumpt allein weiter. Wie viele Stunden dauert das Füllen insgesamt?"
     },
     "o": {
      "wert": 15,

@@ -26,17 +26,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 42,
+     "antwort": 30,
      "fehlbild": "fb.waage.zeichen_nicht_gedreht",
      "regel_des_fehlbilds": "rr.waage",
-     "beschreibung": "die Zahl addiert statt abgezogen"
+     "beschreibung": "die Zahl addiert statt abgezogen: 21 + 9"
     },
     {
      "luecke": 2,
-     "antwort": 20,
+     "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "24 − 4 gerechnet statt 24 : 4"
+     "beschreibung": "12 − 2 gerechnet statt 12 : 2"
+    },
+    {
+     "luecke": 3,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei der Probe nur 4 · 6 gerechnet, die 9 vergessen"
     }
    ],
    "aufgabe": {
@@ -47,24 +54,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Löse 4x + 9 = 33. Nach dem ersten Schritt steht 4x = ①. Dann ist x = ②. Zur Probe: 5x hat für dieses x den Wert ③.",
+     "text": "Löse 4x + 9 = 2x + 21. Ziehe auf beiden Seiten 2x und dann 9 ab. Dann steht 2x = ①. Also ist x = ②. Zur Probe setzt du dieses x in beide Seiten der Gleichung ein: Beide Seiten haben dann den Wert ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      24,
+      12,
       6,
-      30
+      33
      ]
     },
     "c": [
-     "33 - 9",
-     "(33 - 9) / 4",
-     "5 * ((33 - 9) // 4)"
+     "21 - 9",
+     "(12) / 2",
+     "4 * (6) + 9"
     ],
-    "h": "Mache auf beiden Seiten dasselbe.",
-    "w": "33 − 9 = 24. 24 : 4 = 6. Dann ist 5 · 6 = 30. Probe: 4 · 6 + 9 = 33."
+    "h": "Mache auf beiden Seiten dasselbe. Zur Probe rechnest du die linke und die rechte Seite einzeln aus.",
+    "w": "21 − 9 = 12, also 2x = 12 und x = 6. Probe: links 4 · 6 + 9 = 33, rechts 2 · 6 + 21 = 33. Beide Seiten sind gleich, also stimmt die Lösung."
    }
   },
   {
@@ -109,7 +116,7 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Eine Waage ist im Gleichgewicht. Links liegen 4 gleiche Dosen mit je x g Inhalt und ein Gewicht von 30 g. Rechts liegen 2 solche Dosen und ein Gewicht von 90 g. Welche Gleichung gehört zur Waage?"
+     "text": "Eine Waage ist im Gleichgewicht. Links liegen 4 gleiche gefüllte Dosen und ein Gewicht von 30 g. Rechts liegen 2 solche gefüllte Dosen und ein Gewicht von 90 g. Jede gefüllte Dose wiegt x g (Dose und Inhalt zusammen). Welche Gleichung gehört zur Waage?"
     },
     "a": [
      "4x + 2x = 30 + 90",
@@ -120,8 +127,8 @@
     "o": {
      "index": 1
     },
-    "h": "Auf jeder Seite stehen: Dosen mal x, plus das Gewicht.",
-    "w": "Links: 4x + 30. Rechts: 2x + 90. Gleichgewicht heißt: 4x + 30 = 2x + 90. Daraus folgt x = 30."
+    "h": "Auf jeder Seite stehen: Zahl der Dosen mal x, plus das Gewicht.",
+    "w": "Links: 4x + 30. Rechts: 2x + 90. Gleichgewicht heißt: 4x + 30 = 2x + 90. Daraus folgt x = 30, eine gefüllte Dose wiegt also 30 g."
    }
   },
   {
@@ -191,7 +198,7 @@
      "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "12 : 4 gerechnet"
+     "beschreibung": "mit dem falschen Wert 12 weitergerechnet: 12 : 4"
     }
    ],
    "aufgabe": {
@@ -215,8 +222,8 @@
     },
     "c": [
      "16 + 4",
-     "(16 + 4) / 4",
-     "2 * ((16 + 4) // 4) + 16"
+     "(20) / 4",
+     "2 * (5) + 16"
     ],
     "h": "Die Zahl mit Minus wird durch Addieren weggeschafft.",
     "w": "16 + 4 = 20. 20 : 4 = 5. Probe: 6 · 5 − 4 = 26 und 2 · 5 + 16 = 26."
@@ -298,7 +305,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Tarif A kostet 6 € Grundgebühr im Monat und dazu 0,10 € je Minute. Tarif B hat keine Grundgebühr und kostet 0,16 € je Minute. Bei wie vielen Minuten im Monat kosten beide Tarife gleich viel?"
+     "text": "Tarif A kostet 6 € Grundgebühr im Monat und dazu 0,10 € je Minute. Tarif B hat keine Grundgebühr und kostet 0,16 € je Minute. Beide Tarife rechnen jede Minute einzeln ab. Bei wie vielen Minuten im Monat kosten beide Tarife gleich viel?"
     },
     "o": {
      "wert": 100,
@@ -326,7 +333,7 @@
      "antwort": 2,
      "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
      "regel_des_fehlbilds": "rr.ausmultiplizieren",
-     "beschreibung": "die Zahl vor der Klammer nur bei x gerechnet"
+     "beschreibung": "die Zahl vor der Klammer nur bei x gerechnet: 3x − 2"
     },
     {
      "luecke": 3,
@@ -357,8 +364,8 @@
     },
     "c": [
      "3 * 2",
-     "8 + 6",
-     "(8 + 6) / 2"
+     "8 + (6)",
+     "(14) / 2"
     ],
     "h": "Die Zahl vor der Klammer gilt für jedes Glied in der Klammer.",
     "w": "3 · 2 = 6. 8 + 6 = 14. 14 : 2 = 7. Probe: 3 · 5 = 15 und 7 + 8 = 15."
@@ -380,7 +387,7 @@
      "antwort": -1,
      "fehlbild": "fb.vorzeichen.falsches_zeichen",
      "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "10 − 12 gerechnet"
+     "beschreibung": "10 − 12 gerechnet: 2x = −2"
     },
     {
      "antwort": 22,
@@ -505,7 +512,7 @@
     "c": [
      "5 * 4 - 4",
      "2 * 4 + 5",
-     "(5 * 4 - 4) - (2 * 4 + 5)"
+     "(16) - (13)"
     ],
     "h": "Setze für x überall die 4 ein. Rechne Punkt vor Strich.",
     "w": "Links: 20 − 4 = 16. Rechts: 8 + 5 = 13. Unterschied: 3. Die Lösung ist x = 3: 11 = 11."
@@ -657,14 +664,14 @@
      "antwort": 4,
      "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
      "regel_des_fehlbilds": "rr.ausmultiplizieren",
-     "beschreibung": "die Zahl vor der Klammer nur bei x gerechnet"
+     "beschreibung": "die Zahl vor der Klammer nur bei x gerechnet: 2x + 4"
     },
     {
      "luecke": 3,
      "antwort": 1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "eine Lösung genannt, obwohl x herausfällt"
+     "beschreibung": "eine Lösung genannt, obwohl x herausfällt und links und rechts verschiedene Zahlen stehen"
     }
    ],
    "aufgabe": {
@@ -675,7 +682,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Wie viele Lösungen hat 2(x + 4) = 2x + 5? Nach dem Ausmultiplizieren steht links 2x + ①. Ziehst du auf beiden Seiten 2x ab, so unterscheiden sich die Zahlen um ②. Die Aussage stimmt für kein x. Die Gleichung hat ③ Lösungen.",
+     "text": "Wie viele Zahlen x erfüllen die Gleichung 2(x + 4) = 2x + 5? Nach dem Ausmultiplizieren steht links 2x + ①. Ziehst du auf beiden Seiten 2x ab, so unterscheiden sich die Zahlen links und rechts um ②. Entscheide danach: Für ③ Zahlen x ist die Gleichung erfüllt.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -688,11 +695,11 @@
     },
     "c": [
      "2 * 4",
-     "2 * 4 - 5",
-     "0"
+     "(8) - 5",
+     "1 - min(1, abs((3)))"
     ],
-    "h": "Die Zahl vor der Klammer gilt für jedes Glied in der Klammer.",
-    "w": "2(x + 4) = 2x + 8. Aus 8 = 5 wird eine falsche Aussage. Dann gibt es keine Lösung."
+    "h": "Die Zahl vor der Klammer gilt für jedes Glied in der Klammer. Dann zählt nur noch, ob die Zahlen übrig bleiben, die gleich sind.",
+    "w": "2(x + 4) = 2x + 8. Nach dem Abziehen von 2x steht links 8 und rechts 5. Der Unterschied ist 3. Die beiden Zahlen sind verschieden, für kein x ist die Gleichung erfüllt, also gibt es 0 Zahlen."
    }
   },
   {
@@ -801,6 +808,13 @@
    "fehlbilder": [
     {
      "luecke": 1,
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "50 + 20 gerechnet"
+    },
+    {
+     "luecke": 2,
      "antwort": 14,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -811,7 +825,7 @@
      "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "30 : 3 gerechnet"
+     "beschreibung": "30 : 3 gerechnet, durch 3 statt durch 6 geteilt"
     }
    ],
    "aufgabe": {
@@ -822,24 +836,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ben hat 50 € und spart jede Woche 4 €. Mia hat 20 € und spart jede Woche 10 €. Nach w Wochen haben beide gleich viel: 50 + 4w = 20 + 10w. Nach dem Sortieren steht ①w = ②. Also ist w = ③.",
+     "text": "Ben hat 50 € und spart jede Woche 4 €. Mia hat 20 € und spart jede Woche 10 €. Nach w Wochen haben beide gleich viel: 50 + 4w = 20 + 10w. Sortiere so, dass die w auf der rechten Seite und die Zahlen auf der linken Seite stehen. Dann steht dort ① = ②w. Also ist w = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      6,
       30,
+      6,
       5
      ]
     },
     "c": [
-     "10 - 4",
      "50 - 20",
-     "(50 - 20) / (10 - 4)"
+     "10 - 4",
+     "(30) / (6)"
     ],
-    "h": "Auf jeder Seite wird derselbe Term abgezogen.",
-    "w": "10w − 4w = 6w. 50 − 20 = 30. 30 : 6 = 5. Nach 5 Wochen haben beide 70 €."
+    "h": "Auf jeder Seite wird derselbe Term abgezogen: erst 4w, dann 20.",
+    "w": "Links 50 − 20 = 30, rechts 10w − 4w = 6w. Also 30 = 6w und w = 5. Nach 5 Wochen haben beide 70 €."
    }
   },
   {
@@ -932,7 +946,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Eine Kerze ist 30 cm hoch und brennt 2 cm in jeder Stunde ab. Eine zweite Kerze ist 24 cm hoch und brennt 1 cm in jeder Stunde ab. Beide werden gleichzeitig angezündet. Nach wie vielen Stunden sind beide Kerzen gleich hoch?"
+     "text": "Eine Kerze ist 30 cm hoch und brennt gleichmäßig 2 cm in jeder Stunde ab. Eine zweite Kerze ist 24 cm hoch und brennt gleichmäßig 1 cm in jeder Stunde ab. Beide werden gleichzeitig angezündet. Nach wie vielen Stunden sind beide Kerzen gleich hoch?"
     },
     "o": {
      "wert": 6,

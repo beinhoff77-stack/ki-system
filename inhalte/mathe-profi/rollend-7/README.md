@@ -24,7 +24,7 @@ Der Auftrag nennt 65 Lernkarten / 195 Aufgaben. Die aufgelisteten Lernkarten erg
 
 ## Wie geprüft
 - `bauen.py` rechnet jede Lösung zweifach nach (`c` und unabhängige Zweitrechnung), bei auswahl genau eine richtige Antwort, Termgleichheit mit exakten Brüchen an mehreren Stellen.
-- Fehlbilder (446) werden neu berechnet, nicht von Hand übernommen.
+- Fehlbilder (464) werden neu berechnet, nicht von Hand übernommen (soweit sie eine Rechnung nennen: 300 maschinell nachgerechnet).
 - Mischung je Lernkarte: höchstens 1 Lückenweg (zaehlt nein), höchstens 1 Fehler-Detektiv, mindestens 1 zaehlt-ja-Aufgabe aus umkehren/zwei_wege/bruecke/verfahren_waehlen/anwenden. Je Thema umkehren, zwei_wege, bruecke, anwenden mindestens zweimal.
 - Lückenweg: Antwortform luecken, mindestens zwei Lücken, verschiedene Werte, kein Lückenwert in Text, Schablone oder Hinweis.
 - Fehler-Detektiv: genau ein unabhängiger Fehler, so viele Antworten wie Zeilen. Fehlerzeile: Zeile 1: 5, Zeile 2: 5, Zeile 3: 6, Zeile 4: 4 (von 20).
@@ -36,3 +36,13 @@ Der Auftrag nennt 65 Lernkarten / 195 Aufgaben. Die aufgelisteten Lernkarten erg
 - Nicht gesichert: Anzeige in der App nicht getestet, keine Probe mit Kindern, Schwierigkeit (Stufe) nur aus dem Aufgabentyp abgeleitet.
 - Annahmen stehen in den Aufgabentexten (zum Beispiel „indirekt proportional“, Definitionsmenge, Rundung).
 - Lernkarten, bei denen eine Form nicht passte: keine zurückgestellt. Einzelne Formen fehlen bewusst, wo sie fachlich nicht passen (zum Beispiel kein Fehler-Detektiv in stochastik.grundbegriffe).
+
+## Nach Gegenprüfung (Werkstatt 1043)
+
+Eine unabhängige Gegenprüfung hat Aufgaben gefunden, bei denen Frage, Antworten, Tipp, Lösungsweg und Fehlbilder nicht zusammenpassten. Alles wurde neu gerechnet und korrigiert.
+
+- Geändert: 106 Aufgaben inhaltlich (Text, Zahlen, Antworten, Tipp, Lösungsweg, Fehlbilder), weitere 11 nur im Lückenweg (echte Abhängigkeit). Bei 7 Verfahren-wählen-Aufgaben wurde `g` nach tatsächlicher Tätigkeit auf `erkennen` gesetzt; die Kennungen bleiben stabil (`rang` in `neu()`).
+- Arten der Änderung: Zahlen und Fehlbilder neu berechnet; Grundmenge und Annahmen ausdrücklich genannt (für alle x, a ≠ 0, gerades Prisma, gleich leistungsfähige Arbeiter, gleichmäßiges Tempo); Lückenwege so umgebaut, dass spätere Lücken wirklich von früheren abhängen und der Text keine Lücke verrät; Toleranzen nur, wo es technisch nötig ist; Auswahlantworten mit Doppelungen oder mehreren richtigen Antworten ersetzt.
+- Zusätzlich selbst gefunden (nicht aus der Gegenprüfung): 56 weitere Aufgaben, vor allem unabhängige oder erratbare Lückenwege, fehlende Annahmen, falsch beschriebene Fehlbilder und doppelte Antwortwerte.
+- Neu in `bauen.py`: Fehlbilder haben eine vierte Angabe (Rechnung) und werden nachgerechnet; Lückenwege werden mit eingesetzten Vorgängerwerten gerechnet und auf Abhängigkeit geprüft (Änderung einer früheren Lücke ändert das Ergebnis); gleiche Lückenwerte sind nur mit `gleich_ok` erlaubt.
+- Nicht maschinell prüfbar: 5 Fehlbilder ohne Rechnung (Wert oder Auswahl). Darstellung in der App wurde nicht getestet.

@@ -167,11 +167,11 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
+     "index": 1,
+     "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
     },
     {
      "index": 2,
@@ -189,7 +189,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ben berechnet 5 · 2³ − 3². Zeile 1: 2³ = 2 · 2 · 2 = 8, also ist 5 · 2³ = 5 · 8 = 40. Zeile 2: 3² = 3 · 2 = 6. Zeile 3: 40 − 6 = 34. In welcher Zeile passiert der erste Fehler?"
+     "text": "Ben berechnet 5 · 2³ − 3². Zeile 1: 2³ = 2 · 3 = 6, also ist 5 · 2³ = 5 · 6 = 30. Zeile 2: 3² = 3 · 3 = 9. Zeile 3: 30 − 9 = 21. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -197,10 +197,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 1
+     "index": 0
     },
-    "h": "Was bedeutet 3² ausgeschrieben? Wie oft steht die 3 da?",
-    "w": "3² = 3 · 3 = 9, nicht 3 · 2. Richtig: 40 − 9 = 31. Der erste Fehler steht in Zeile 2."
+    "h": "Was bedeutet 2³ ausgeschrieben? Wie oft steht die 2 da?",
+    "w": "2³ = 2 · 2 · 2 = 8, nicht 2 · 3. Richtig: 5 · 8 = 40 und 40 − 9 = 31. Der erste Fehler steht in Zeile 1."
    }
   },
   {

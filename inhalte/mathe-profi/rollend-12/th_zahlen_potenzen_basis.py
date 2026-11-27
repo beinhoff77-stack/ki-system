@@ -22,11 +22,11 @@ neu(T, "berechnen", "umkehren", Z(
     [(25, None, "nur durch 3 geteilt, das Quadrat nicht rückgängig gemacht", "75 / 3"), (12.5, None, "die Hochzahl 2 als Teilen durch 2 gedeutet: 25 : 2", "75 / 3 / 2")]), g="umkehr", regel=PO)
 neu(T, "berechnen", "fehler_detektiv", FD(
     "Ben berechnet 5 · 2³ − 3².",
-    [("2³ = 2 · 2 · 2 = 8, also ist 5 · 2³ = 5 · 8 = 40.", 2 ** 3 == 8 and 5 * 8 == 40, True),
-     ("3² = 3 · 2 = 6.", 3 ** 2 == 3 * 2, True),
-     ("40 − 6 = 34.", 40 - 6 == 34, True)],
-    "Was bedeutet 3² ausgeschrieben? Wie oft steht die 3 da?",
-    "3² = 3 · 3 = 9, nicht 3 · 2. Richtig: 40 − 9 = 31. Der erste Fehler steht in Zeile 2."), regel=PO)
+    [("2³ = 2 · 3 = 6, also ist 5 · 2³ = 5 · 6 = 30.", 2 ** 3 == 2 * 3, True),
+     ("3² = 3 · 3 = 9.", 3 ** 2 == 9, True),
+     ("30 − 9 = 21.", 30 - 9 == 21, True)],
+    "Was bedeutet 2³ ausgeschrieben? Wie oft steht die 2 da?",
+    "2³ = 2 · 2 · 2 = 8, nicht 2 · 3. Richtig: 5 · 8 = 40 und 40 − 9 = 31. Der erste Fehler steht in Zeile 1."), regel=PO)
 
 # ───────── quadrat ─────────
 neu(T, "quadrat", "zwei_wege", Z(

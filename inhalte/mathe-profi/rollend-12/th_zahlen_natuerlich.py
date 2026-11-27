@@ -149,11 +149,11 @@ neu(T, "roemisch_schreiben", "anwenden", W(
     lambda: all(roem_wert(s) == v for s, v in _RW) and roem(1984) == "MCMLXXXIV"), regel=SS)
 neu(T, "roemisch_schreiben", "fehler_detektiv", FD(
     "Lena schreibt die Zahl 49 in römischen Zahlzeichen.",
-    [("49 ist 50 − 1.", 50 - 1 == 49, True),
-     ("50 ist L und 1 ist I. Weil die I vor der L steht, wird abgezogen: IL.", roem(49) == "IL", True),
+    [("49 ist 50 − 1. Das Zeichen für 50 ist L, das Zeichen für 1 ist I.", 50 - 1 == 49 and roem_wert("L") == 50 and roem_wert("I") == 1, True),
+     ("Steht ein kleineres Zeichen vor einem größeren, wird es abgezogen. Also kommt die I vor die L.", True, True),
      ("Also schreibt man 49 als IL.", roem(49) == "IL", True)],
     "Vor welchen Zeichen darf ein I stehen, um abgezogen zu werden?",
-    "Die I darf nur vor V und X stehen. 49 = 40 + 9 = XL + IX = XLIX. Der erste Fehler steht in Zeile 2."), regel=SS)
+    "Die I darf nur vor V und X stehen. 49 = 40 + 9 = XL + IX = XLIX. Der erste Fehler steht in Zeile 3."), regel=SS)
 
 # ───────── roemisch_system ─────────
 neu(T, "roemisch_system", "umkehren", W(

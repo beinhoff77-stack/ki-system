@@ -1141,11 +1141,11 @@
      "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     },
     {
-     "index": 2,
-     "antwort": "In Zeile 3",
+     "index": 1,
+     "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
     }
    ],
    "aufgabe": {
@@ -1156,7 +1156,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Lena schreibt die Zahl 49 in römischen Zahlzeichen. Zeile 1: 49 ist 50 − 1. Zeile 2: 50 ist L und 1 ist I. Weil die I vor der L steht, wird abgezogen: IL. Zeile 3: Also schreibt man 49 als IL. In welcher Zeile passiert der erste Fehler?"
+     "text": "Lena schreibt die Zahl 49 in römischen Zahlzeichen. Zeile 1: 49 ist 50 − 1. Das Zeichen für 50 ist L, das Zeichen für 1 ist I. Zeile 2: Steht ein kleineres Zeichen vor einem größeren, wird es abgezogen. Also kommt die I vor die L. Zeile 3: Also schreibt man 49 als IL. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1164,10 +1164,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 1
+     "index": 2
     },
     "h": "Vor welchen Zeichen darf ein I stehen, um abgezogen zu werden?",
-    "w": "Die I darf nur vor V und X stehen. 49 = 40 + 9 = XL + IX = XLIX. Der erste Fehler steht in Zeile 2."
+    "w": "Die I darf nur vor V und X stehen. 49 = 40 + 9 = XL + IX = XLIX. Der erste Fehler steht in Zeile 3."
    }
   },
   {

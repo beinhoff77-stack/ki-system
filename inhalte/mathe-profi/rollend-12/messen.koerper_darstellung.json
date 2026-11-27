@@ -1,0 +1,665 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-12",
+ "kuerzel": "R5",
+ "flug": "r5-reserve-messen.koerper_darstellung",
+ "titel": "messen.koerper_darstellung",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen": [
+  "messen.koerper_darstellung"
+ ],
+ "themen_datei_im_bestand": "messen.koerper_darstellung",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag „Reserve“ (zwei zählende Aufgaben je Lernkarte, Stufe 2 und 3). Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R5-V147",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "prisma",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Kanten von Grund- und Deckfläche gezählt: 2 · 6"
+    },
+    {
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Muster mit +6 statt +3 fortgesetzt"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 4 · 6 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "prisma",
+    "t": "prisma",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt, wie viele Kanten Prismen mit verschiedenen Grundflächen haben. Wie viele Kanten hat ein Prisma mit sechseckiger Grundfläche?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Grundfläche",
+       "Kanten des Prismas"
+      ],
+      "zeilen": [
+       [
+        "Dreieck",
+        "9"
+       ],
+       [
+        "Viereck",
+        "12"
+       ],
+       [
+        "Fünfeck",
+        "15"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 18,
+     "einheit": "Kanten"
+    },
+    "c": "3 * 6",
+    "h": "Erkenne das Muster: Wie viele Kanten kommen jedes Mal dazu, wenn die Grundfläche eine Ecke mehr hat?",
+    "w": "Mit jeder zusätzlichen Ecke kommen 3 Kanten dazu (eine in der Grundfläche, eine in der Deckfläche, eine seitlich). 15 + 3 = 18. Auch: 3 · 6 = 18."
+   }
+  },
+  {
+   "kennung": "R5-V148",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "prisma",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "prisma",
+    "t": "prisma",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Nico zählt die Flächen eines Prismas mit sechseckiger Grundfläche. Zeile 1: Das Prisma hat zwei Sechsecke als Grund- und Deckfläche. Zeile 2: Die Zahl der Seitenflächen ist doppelt so groß wie die Zahl der Ecken der Grundfläche: 2 · 6 = 12. Zeile 3: Insgesamt hat das Prisma 2 + 12 = 14 Flächen. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wie viele Seitenflächen hat ein Prisma mit dreieckiger Grundfläche?",
+    "w": "Zu jeder Seite der Grundfläche gehört eine Seitenfläche, hier also 6. Insgesamt: 2 + 6 = 8 Flächen. Der erste Fehler steht in Zeile 2."
+   }
+  },
+  {
+   "kennung": "R5-V149",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "netz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Quadrat gerechnet"
+    },
+    {
+     "antwort": 144,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur vier Quadrate gezählt (ohne Deckel und Boden)"
+    },
+    {
+     "antwort": 1296,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen berechnet: 6 · 6 · 6 · 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "netz",
+    "t": "netz",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Würfelschachtel hat die Kantenlänge 6 cm. Sie wird aus einem Netz gefaltet. Wie viele cm² Pappe braucht man für das Netz, wenn man keine Klebelaschen rechnet?"
+    },
+    "o": {
+     "wert": 216,
+     "einheit": "cm²"
+    },
+    "c": "6 * (6 * 6)",
+    "h": "Aus wie vielen Quadraten besteht das Netz eines Würfels? Wie groß ist jedes?",
+    "w": "Das Netz besteht aus 6 Quadraten. Jedes hat 6 · 6 = 36 cm². 6 · 36 cm² = 216 cm²."
+   }
+  },
+  {
+   "kennung": "R5-V150",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "netz",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 47,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur drei Rechtecke gezählt"
+    },
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen berechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "netz",
+    "t": "netz",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader ist 5 cm lang, 4 cm breit und 3 cm hoch. Wie groß ist die Oberfläche seines Netzes? Weg A: Berechne alle sechs Rechtecke einzeln und addiere. Weg B: Berechne die beiden Grundflächen (5 cm × 4 cm) und dazu ein langes Rechteck, dessen Länge der Umfang der Grundfläche und dessen Höhe 3 cm ist."
+    },
+    "o": {
+     "wert": 94,
+     "einheit": "cm²"
+    },
+    "c": "2 * (5 * 4) + 2 * (5 + 4) * 3",
+    "h": "Bei Weg B: Wie groß ist der Umfang der Grundfläche 5 cm × 4 cm?",
+    "w": "Weg A: 20 + 20 + 15 + 15 + 12 + 12 = 94 cm². Weg B: Zwei Grundflächen 2 · 20 = 40 cm². Umfang der Grundfläche 2 · (5 + 4) = 18 cm, langes Rechteck 18 · 3 = 54 cm². 40 + 54 = 94 cm²."
+   }
+  },
+  {
+   "kennung": "R5-V151",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "zylinder",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Durchmesser statt des Radius angegeben: 37,68 : 3,14"
+    },
+    {
+     "antwort": 18.84,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang nur halbiert"
+    },
+    {
+     "antwort": 3.768,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch die Höhe 10 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "zylinder",
+    "t": "zylinder",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Im Netz eines Zylinders ist das Mantelrechteck 37,68 cm lang und 10 cm hoch. Rechne mit π ≈ 3,14. Wie groß ist der Radius des Grundkreises?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "cm"
+    },
+    "c": "37.68 / (2 * 3.14)",
+    "h": "Die Länge des Mantelrechtecks ist genauso lang wie ein Umfang. Welcher Kreis hat diesen Umfang?",
+    "w": "Die Länge des Mantelrechtecks ist der Umfang des Grundkreises: u = 37,68 cm. Aus u = 2 · π · r folgt r = 37,68 : (2 · 3,14) = 37,68 : 6,28 = 6 cm."
+   }
+  },
+  {
+   "kennung": "R5-V152",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "zylinder",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "zylinder",
+    "t": "zylinder",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Zylinder hat den Radius 3 cm und die Höhe 10 cm. Tim berechnet die Mantelfläche mit π ≈ 3,14. Zeile 1: Der Umfang des Grundkreises ist u = 3,14 · 3 = 9,42 cm. Zeile 2: Die Mantelfläche ist u · h = 9,42 · 10 = 94,2 cm². Zeile 3: Der Mantel des Zylinders hat also etwa 94,2 cm². In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wie lautet die Formel für den Umfang eines Kreises mit dem Radius r?",
+    "w": "Der Umfang ist u = 2 · π · r = 2 · 3,14 · 3 = 18,84 cm. Die Mantelfläche ist 18,84 · 10 = 188,4 cm². Der erste Fehler steht in Zeile 1."
+   }
+  },
+  {
+   "kennung": "R5-V153",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "schraegbild",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "noch einmal halbiert"
+    },
+    {
+     "antwort": 3.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die gezeichnete Länge ohne Umrechnung übernommen"
+    },
+    {
+     "antwort": 10.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 3 malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "schraegbild",
+    "t": "schraegbild",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tiefe eines Quaders wird im Schrägbild (q = 1/2) mit 3,5 cm gezeichnet. Wie tief ist der Quader in Wirklichkeit?"
+    },
+    "o": {
+     "wert": 7,
+     "einheit": "cm"
+    },
+    "c": "3.5 * 2",
+    "h": "Beim Schrägbild werden die nach hinten laufenden Kanten auf die Hälfte verkürzt. Mache das rückgängig.",
+    "w": "Die gezeichnete Länge ist die Hälfte der wirklichen: 3,5 cm = 1/2 · wirkliche Tiefe. Wirkliche Tiefe: 3,5 · 2 = 7 cm."
+   }
+  },
+  {
+   "kennung": "R5-V154",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "schraegbild",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "schraegbild",
+    "t": "schraegbild",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Quader ist 8 cm lang, 4 cm hoch und 6 cm tief. Lena zeichnet ein Schrägbild mit q = 1/2. Zeile 1: Die Vorderseite (8 cm × 4 cm) wird unverändert gezeichnet. Zeile 2: Die nach hinten laufenden Kanten werden mit q = 1/2 verkürzt: 6 · 2 = 12 cm. Zeile 3: Die schrägen Kanten werden also 12 cm lang gezeichnet. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Verkürzen heißt: kleiner machen. Wird beim Malnehmen mit 2 etwas kleiner?",
+    "w": "Mit q = 1/2 wird die Tiefe halbiert: 6 · 1/2 = 3 cm. Die schrägen Kanten sind 3 cm lang. Der erste Fehler steht in Zeile 2."
+   }
+  },
+  {
+   "kennung": "R5-V155",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "ansichten",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Würfel gezählt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Körper gezählt"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zylinder mitgezählt, weil beide Ansichten rund oder eckig wirken"
+    }
+   ],
+   "aufgabe": {
+    "l": "ansichten",
+    "t": "ansichten",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle nennt für vier Körper die Vorderansicht und die Draufsicht. Bei wie vielen der vier Körper haben die Vorderansicht und die Draufsicht dieselbe Figur?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Körper",
+       "Vorderansicht",
+       "Draufsicht"
+      ],
+      "zeilen": [
+       [
+        "Zylinder",
+        "Rechteck",
+        "Kreis"
+       ],
+       [
+        "Kegel",
+        "Dreieck",
+        "Kreis"
+       ],
+       [
+        "Quader",
+        "Rechteck",
+        "Rechteck"
+       ],
+       [
+        "Würfel",
+        "Quadrat",
+        "Quadrat"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 2,
+     "einheit": "Körper"
+    },
+    "c": "1 + 1",
+    "h": "Vergleiche in jeder Zeile die beiden Figuren.",
+    "w": "Zylinder: Rechteck und Kreis (verschieden). Kegel: Dreieck und Kreis (verschieden). Quader: Rechteck und Rechteck (gleich). Würfel: Quadrat und Quadrat (gleich). Das sind 2 Körper."
+   }
+  },
+  {
+   "kennung": "R5-V156",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "ansichten",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Kegel",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Von oben sieht ein Kegel wie ein Kreis aus."
+    },
+    {
+     "index": 2,
+     "antwort": "Dreiecksprisma (liegend)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Von oben sieht man ein Rechteck, von der Seite ein Rechteck."
+    },
+    {
+     "index": 3,
+     "antwort": "Würfel",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Von vorn sieht man ein Quadrat."
+    }
+   ],
+   "aufgabe": {
+    "l": "ansichten",
+    "t": "ansichten",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Körper wird von vorn und von der Seite betrachtet. In beiden Fällen sieht man ein Dreieck. Von oben sieht man ein Quadrat. Welcher Körper ist es?"
+    },
+    "a": [
+     "Pyramide mit quadratischer Grundfläche",
+     "Kegel",
+     "Dreiecksprisma (liegend)",
+     "Würfel"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welcher Körper hat von oben die Form seiner Grundfläche und läuft nach oben spitz zu?",
+    "w": "Dreieck von vorn und von der Seite heißt: Der Körper läuft nach oben spitz zu. Das Quadrat von oben ist die Grundfläche. Das ist die Pyramide mit quadratischer Grundfläche."
+   }
+  },
+  {
+   "kennung": "R5-V157",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "beurteilen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "jede Kante doppelt gezählt"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Ecken genannt"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Flächen genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "beurteilen",
+    "t": "beurteilen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Kanten hat ein Würfel? Weg A: Zähle die Kanten oben, unten und die senkrechten Kanten. Weg B: Ein Würfel hat 6 Flächen mit je 4 Kanten. Jede Kante gehört zu genau zwei Flächen."
+    },
+    "o": {
+     "wert": 12,
+     "einheit": "Kanten"
+    },
+    "c": "4 + 4 + 4",
+    "h": "Bei Weg B werden alle Kanten doppelt gezählt. Was musst du am Ende tun?",
+    "w": "Weg A: oben 4, unten 4, senkrecht 4: 4 + 4 + 4 = 12. Weg B: 6 · 4 = 24 Kanten gezählt, aber jede wurde zweimal gezählt: 24 : 2 = 12."
+   }
+  },
+  {
+   "kennung": "R5-V158",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "beurteilen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur Grund- und Deckfläche gezählt"
+    },
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 · 5 gerechnet"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "vier Kantengruppen angenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "beurteilen",
+    "t": "beurteilen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Bastler baut aus Holzstäben das Kantenmodell eines Prismas mit fünfeckiger Grundfläche. Jeder Stab ist eine Kante. Wie viele Stäbe braucht er?"
+    },
+    "o": {
+     "wert": 15,
+     "einheit": "Stäbe"
+    },
+    "c": "3 * 5",
+    "h": "Wie viele Kanten hat die Grundfläche? Wie viele die Deckfläche? Und wie viele laufen senkrecht?",
+    "w": "Grundfläche: 5 Kanten, Deckfläche: 5 Kanten, senkrechte Kanten: 5. Zusammen 5 + 5 + 5 = 15 Stäbe."
+   }
+  }
+ ]
+}

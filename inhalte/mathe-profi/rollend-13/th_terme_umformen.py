@@ -63,7 +63,7 @@ neu(T, "aequivalenz", "anwenden", Z(
     2, "2", 2, "Fasse jeden Term zusammen. Bei linearen Termen (nur n, kein n²) genügt auch: setze n = 0 und n = 1 ein.",
     "(1) 2n + 8 + n = 3n + 8. Gleich. (2) 3n + 24. Nicht gleich, schon bei n = 0 ist es 24 statt 8. (3) 8 + 3n. Gleich. Es sind 2 Terme.",
     [(3, None, "alle drei Terme für gleich gehalten, ohne (2) auszumultiplizieren", lambda: 3 == len(["2*(n+4)+n", "3*(n+8)", "8+2*n+n"])),
-     (1, None, "nur den Term mit gleicher Reihenfolge der Glieder erkannt, (1) wegen der Klammer verworfen", lambda: gl("2*(n+4)+n", "3*n+8") and not gl("3*(n+8)", "3*n+8"))]), g="einkleidung", regel="id.algebra.term")
+     (1, None, "Nur (3) durch Zusammenfassen erkannt, die Gleichwertigkeit von (1) wegen der Klammer übersehen.", lambda: gl("2*(n+4)+n", "3*n+8") and not gl("3*(n+8)", "3*n+8"))]), g="einkleidung", regel="id.algebra.term")
 assert sum(gl(t, "3*n+8") for t in ["2*(n+4)+n", "3*(n+8)", "8+2*n+n"]) == 2
 neu(T, "aequivalenz", "fehler_detektiv", FD(
     "Kim prüft, ob die Terme x² + 2 und 3x für alle Zahlen x denselben Wert haben.",

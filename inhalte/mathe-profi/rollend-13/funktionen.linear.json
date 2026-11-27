@@ -282,14 +282,14 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "y = 6x − 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Steigung nur als Unterschied der y-Werte 11 − 5 gerechnet, nicht durch den Unterschied der x-Werte geteilt"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "y = 2x + 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -322,12 +322,12 @@
      }
     },
     "a": [
-     "y = 2x + 3",
      "y = 6x − 1",
-     "y = 2x + 5"
+     "y = 2x + 5",
+     "y = 2x + 3"
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "h": "Berechne zuerst die Steigung aus den beiden Punkten. Setze dann einen Punkt ein, um t zu bestimmen.",
     "w": "Steigung: (11 − 5) : (4 − 1) = 6 : 3 = 2. Aus 5 = 2 · 1 + t folgt t = 3. Probe mit dem zweiten Punkt: 2 · 4 + 3 = 11. Bei y = 6x − 1 ergibt x = 4 den Wert 23, bei y = 2x + 5 ergibt x = 1 den Wert 7."
@@ -518,7 +518,7 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "h = 150 + 400t",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -562,12 +562,12 @@
      }
     },
     "a": [
-     "h = 150 + 400t",
      "h = 400 + 150t",
+     "h = 150 + 400t",
      "h = 550 + 150t"
     ],
     "o": {
-     "index": 1
+     "index": 0
     },
     "h": "Welche Höhe gehört zu t = 0? Wie viel kommt von einer Stunde zur nächsten dazu?",
     "w": "Bei t = 0 ist die Höhe 400 m (das ist der Wert ohne t im Term). Von Stunde zu Stunde kommen 150 m dazu (Steigung m = 150). Also h = 400 + 150t. Probe: t = 3 gibt 400 + 450 = 850."
@@ -1063,7 +1063,7 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "y = m·(x + 2) + 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1122,12 +1122,12 @@
      }
     },
     "a": [
-     "y = m·(x − 2) + 3",
      "y = m·(x + 2) + 3",
+     "y = m·(x − 2) + 3",
      "y = m·(x − 3) + 2"
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "h": "Wo schneiden sich die drei Geraden? Welcher Punkt ergibt sich, wenn in y = m·(x − a) + b der Wert x = a eingesetzt wird?",
     "w": "Alle drei Geraden gehen durch den Punkt (2 | 3). In y = m·(x − 2) + 3 verschwindet der Klammerterm für x = 2, und y = 3 gilt für jede Steigung m. Die Geraden in der Zeichnung gehören zu m = −1, m = 0,5 und m = 2."
@@ -1196,14 +1196,14 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Die Sonnenblume war am Anfang 1,5 cm hoch und wächst jeden Tag um 12 cm.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Anfangshöhe und Wachstum pro Tag vertauscht"
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Die Sonnenblume ist nach 12 Tagen 1,5 cm hoch.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1221,12 +1221,12 @@
      "text": "Die Höhe einer Sonnenblume wird durch H(t) = 12 + 1,5·t beschrieben (t in Tagen, H in Zentimetern). Welche Aussage stimmt?"
     },
     "a": [
+     "Die Sonnenblume war am Anfang 12 cm hoch und wächst jeden Tag um 1,5 cm.",
      "Die Sonnenblume war am Anfang 1,5 cm hoch und wächst jeden Tag um 12 cm.",
-     "Die Sonnenblume ist nach 12 Tagen 1,5 cm hoch.",
-     "Die Sonnenblume war am Anfang 12 cm hoch und wächst jeden Tag um 1,5 cm."
+     "Die Sonnenblume ist nach 12 Tagen 1,5 cm hoch."
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "h": "Welche Höhe gehört zu t = 0? Um wie viel ändert sich H, wenn t um 1 größer wird?",
     "w": "Für t = 0 ist H = 12: Am Anfang ist die Pflanze 12 cm hoch. Jeder Tag bringt 1,5 cm dazu, denn 1,5 steht vor t. Nach 10 Tagen ist H = 27 cm."

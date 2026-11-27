@@ -1,5 +1,39 @@
 # Postfach mathe-profi
 
+## 2026-11-27 01:34 (Berlin) – FERTIG: Auftrag 19 – 127 Aufgaben für die nächsten sechs Flüge (`rollend-3`), Zeichnen-Liste über drei Runden, Nachtrag zum Papier-Test
+
+Zweig `mathe-profi` (79c17dff), auf dem Stand von `lernen-app` af1ebe6c. Nur Inhalte, nichts eingespielt. Einzelheiten in `inhalte/mathe-profi/rollend-3/README.md`.
+
+**Geliefert**
+- **Sechs Dateien in `rollend-3/`** – Kind 1: `ge3` Winkel (15 + 5), `r1` Umfang und Fläche (15 + 5), `g2` Dreisatz Teil 1 (15 + 5). Kind 2: `ge4` Dreiecke, Vierecke, Konstruktion (18 + 5), `f2` Lineare Funktionen (18 + 5), `a6` Gleichungssysteme (16 + 5). Zusammen 97 ohne Bau und 30 des Typs `bedingung`.
+- **Jede Lernkarte ist bedient** (55 Lernkarten; das Programm bricht sonst ab). `ge4` hat 16 Lernkarten, deshalb 18 Aufgaben, die meisten Karten nur einmal.
+- **Geprüft:** 106 Rechnungen zweifach; alle 30 `bedingung`-Aufgaben mit dem aktuellen `pruefe_aufgabe` (leere Fehlerliste, also auch nur die vier erlaubten Schlüssel); jedes Gegenbeispiel scheitert genau an der genannten Bedingung; `tools/inhalt_pruefen.py` an Kopien der sieben Themen-Dateien ohne Fehler; kein Text wörtlich im Bestand. `bauen.py` endet mit „OK“.
+- **Typen:** Umkehren 27, Verfahren wählen 16, Fehler-Detektiv 16, Brücke 15, Lückenweg 10, Zwei Wege 6, gewöhnliche Anwendung 7 von 97.
+- **Reihenfolge der Flüge:** aus `lehrplan-kinder/route.md` (Plätze 7 bis 9 beider Kinder). Tabelle und Annahmen dazu im README.
+- **Zeichnen-Liste über alle drei Runden** (README, eigener Abschnitt): 24 Zeilen, je Lernkarte, was das Kind zeichnen müsste, in drei Stufen. Ohne Zeichnen nur dünn abgedeckt sind **17 Lernkarten in acht Flügen**. Drei Werkzeuge würden fast alles decken: (1) Punkt setzen im Koordinatensystem – fünf Flüge, größter Hebel; (2) Säule ziehen und Winkel im Kreis einstellen – `d1`; (3) Konstruieren mit Zirkel und Geodreieck – am teuersten, bis dahin Papier.
+- **Nachtrag Papier-Test:** `papier-test-1/nachtrag.md` (erzeugt und nachgerechnet von `nachtrag.py`): je 6 Aufgaben, 10 Punkte, 20 Minuten – Potenzen für Kind 1, binomische Formeln für Kind 2. Aufbau wie die Blätter (Teil 1 „wie in der App“ 5 Punkte, Teil 2 „weiter“ 5 Punkte), Lösungen und Bewertung getrennt am Ende.
+
+**Offen**
+- **Für die ersten Flüge der Routen (`z1` bei Kind 1, `a5` bei Kind 2) gibt es keine Vorrats-Aufgaben.** Die Route nennt sie „zu Ende bringen“, die Aufträge haben danach begonnen. Wenn sie noch laufen: Auftrag nötig?
+- **Lücken aus Runde 1**, beim Zusammenführen gefunden: In `ge1` fehlen die Lernkarten `verstehen` (beide Themen) und `verknuepfen`, in `ge2` die zwei Vektor-Lernkarten. Runde 1 hatte die Prüfung „jede Lernkarte“ noch nicht. Soll ich nachliefern?
+- **`ge3` ganz ohne Zeichnung.** Die Aufgaben sind lesbar, wären mit einer Figur aber leichter. Die Zeichenart `figur` gibt es; ich habe sie nur dreimal benutzt (`ge4`), weil ich keine Figur ansehen kann.
+- 158 von 223 Fehlbildern ohne Fehlbild-Kennung (die Liste der 70 deckt Geometrie-Konstruktion, Einheiten und Gleichungssysteme kaum).
+- Zum Nachtrag gibt es keinen Zwilling (Blatt B).
+
+**Nicht geprüft**
+- Kein Kind hat eine Aufgabe gerechnet; Stufen, Zählvorschläge und die 20 Minuten des Nachtrags sind Einschätzungen.
+- Die sechs Zeichnungen nicht in der App gesehen. Die drei Figuren (`GE4-02`, `GE4-08`, `GE4-16`) sind nach dem Muster des Bestands gerechnet, aber nie gezeichnet worden – bitte vor dem Einspielen ansehen.
+- `bedingung` nur gegen die Python-Referenz.
+- Inhaltlich gleiche Aufgaben im Bestand (nur wörtlicher Vergleich; die Themen haben 244 bis 445 Aufgaben, Überschneidungen im Muster sind wahrscheinlich).
+- Lehrplan an der Quelle.
+
+**Annahmen**
+- Die Route aus Auftrag 9 ist in der App so eingestellt (steht nicht im Repo).
+- `ge4` folgt für Kind 2 direkt auf `f1`. Verlangt die Diagnose erst `ge3`, passt `ge3.json` auch für Kind 2.
+- `f2`: Die drei Parameter-Lernkarten in `funktionen.linear` (`einsetzen`, `wirkung`, `bueschel`) sind mit je einer Aufgabe bedient, obwohl die Route `funktionen.scharen` auslässt.
+- `g2` für Kind 1 = die fünf Lernkarten von Teil 1; Teil 2 liegt in `rollend-2/g2-teil2.json` und ist für beide Kinder brauchbar.
+- Gleichungssysteme hängen an `id.algebra.gleichung_loesen`, Kongruenz an `id.geometrie.deckungsgleich` (eigene Kennungen gibt es nicht).
+
 ## 2026-11-27 01:25 (Berlin) – AUFTRAG 19 vom Projektleiter: Aufgaben auf Vorrat, dritte Runde (`rollend-3`)
 Der Nutzer möchte, dass du weiterbaust, während Technik und Gegenprüfung laufen. Nur Inhalte, nichts einspielen.
 - **Was:** Für **Kind 1 und Kind 2 je die nächsten drei Flüge**, die nach den zehn Flügen aus `rollend-1` und `rollend-2` an der Reihe sind. Die Reihenfolge bestimmst du wie bei Auftrag 18 aus den Themen-Dateien und dem Lehrplan-Stand im Repo. Nenne im README, woraus du die Reihenfolge abgeleitet hast, und markiere sie als Annahme, wo sie nicht feststeht.

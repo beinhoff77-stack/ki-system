@@ -1093,10 +1093,10 @@
    "beispiel": {
     "werte": {
      "R": "5 cm",
-     "r": "3 cm"
+     "r": "2 cm"
     },
-    "rechnung": "A = π · (5² cm² − 3² cm²) = π · 16 cm² = 16π cm² ≈ 50,27 cm²",
-    "ergebnis": "16π cm² ≈ 50,27 cm²"
+    "rechnung": "A = π · (5² cm² − 2² cm²) = π · 21 cm² = 21π cm² ≈ 65,97 cm²",
+    "ergebnis": "21π cm² ≈ 65,97 cm²"
    },
    "ab_klasse": {
     "gymnasium_by": 8,
@@ -1218,10 +1218,10 @@
    "beispiel": {
     "werte": {
      "R": "5 cm",
-     "r": "3 cm"
+     "r": "2 cm"
     },
-    "rechnung": "u = 2 · π · (5 cm + 3 cm) = 2 · π · 8 cm = 16π cm ≈ 50,27 cm",
-    "ergebnis": "16π cm ≈ 50,27 cm"
+    "rechnung": "u = 2 · π · (5 cm + 2 cm) = 2 · π · 7 cm = 14π cm ≈ 43,98 cm",
+    "ergebnis": "14π cm ≈ 43,98 cm"
    },
    "ab_klasse": {
     "gymnasium_by": 8,

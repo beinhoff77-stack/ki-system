@@ -91,7 +91,7 @@
     }
    ],
    "fehlerzeile": 2,
-   "fehler": "„vierhunderttausend“ mit nur vier Nullen weniger geschrieben: 40 000 statt 400 000",
+   "fehler": "bei „vierhunderttausend“ eine Null zu wenig geschrieben: 40 000 statt 400 000",
    "zeilen": [
     {
      "zeile": 1,
@@ -323,7 +323,7 @@
      "antwort": 2042,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "XC als 10 + 100 = 110 gelesen statt als 100 − 10 = 90",
+     "beschreibung": "XC als 110 gelesen statt als 90, also 1 000 + 500 + 300 + 110 + 7 + 125",
      "rechnung": "1000 + 500 + 300 + 110 + 7 + 125"
     },
     {

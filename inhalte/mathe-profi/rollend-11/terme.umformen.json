@@ -194,7 +194,7 @@
      "wert": 2
     },
     "c": "14 - 12",
-    "h": "Beide Wege müssen dasselbe k ergeben. Welche Zahl für x lässt das Glied mit k ganz wegfallen, welche macht die Klammer einfach?",
+    "h": "Beide Wege müssen dasselbe k ergeben. Welche Zahl für x macht die Rechnung besonders einfach? Prüfe das Ergebnis mit einer zweiten Zahl.",
     "w": "Weg A: 4(x + 3) − k(x − 1) = 4x + 12 − kx + k = (4 − k)x + (12 + k). Vergleich mit 2x + 14: 4 − k = 2 und 12 + k = 14, beides gibt k = 2. Weg B: Für x = 0 ist 12 + k = 14, also k = 2. Zur Kontrolle x = 2: 4 · 5 − 2 · 1 = 18 und 2 · 2 + 14 = 18."
    }
   }

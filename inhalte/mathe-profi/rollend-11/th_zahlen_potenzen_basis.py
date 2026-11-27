@@ -2,7 +2,7 @@ T = "zahlen.potenzen_basis"
 
 # ───────── berechnen: Brücke ─────────
 Z(T, "berechnen", "bruecke",
-  "Die Tabelle zeigt, wie viele Zellen eine Kultur nach 1, 2, 3 und 4 Stunden hat. Das Wachstum setzt sich in gleicher Weise fort. Wie viele Zellen sind es nach 7 Stunden?",
+  "Die Tabelle zeigt, wie viele Zellen eine Kultur nach 1, 2, 3 und 4 Stunden hat. Von Stunde zu Stunde wird die Zahl der Zellen jedes Mal mit derselben Zahl malgenommen. Wie viele Zellen sind es nach 7 Stunden?",
   2187, "3 ** 7", "3 * 3 * 3 * 3 * 3 * 3 * 3",
   "Wie entsteht jede Zahl der Tabelle aus der Zahl davor? Schreibe die Zahlen als Potenzen.",
   "Jede Zahl ist dreimal so groß wie die davor: 3 = 3¹, 9 = 3², 27 = 3³, 81 = 3⁴. Nach n Stunden sind es 3ⁿ Zellen. Nach 7 Stunden: 3⁷ = 2 187 Zellen.",
@@ -29,7 +29,7 @@ Z(T, "negativ", "anwenden",
   -96, "3 * (-2) ** 5", "3 * (-2) * (-2) * (-2) * (-2) * (-2)",
   "Schreibe die 5 Runden als Potenz. Wie oft kommt der Faktor (−2) vor, und was bedeutet das für das Vorzeichen?",
   "Nach 5 Runden wurde 5-mal mit (−2) malgenommen: 3 · (−2)⁵. (−2)⁵ = −32, denn bei einer ungeraden Zahl von Faktoren bleibt das Minus stehen. 3 · (−32) = −96 Punkte.",
-  [(96, "3 * 2 ** 5", "das Minus vergessen: 3 · 2⁵"),
+  [(96, "3 * 2 ** 5", "das Minus vergessen: 3 · 32"),
    (-30, "3 * (-2) * 5", "„hoch 5“ als „mal 5“ gerechnet: 3 · (−2) · 5"),
    (-32, "(-2) ** 5", "den Startwert 3 vergessen")],
   "rr.potenz", einheit="Punkte")

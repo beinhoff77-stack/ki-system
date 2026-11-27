@@ -393,7 +393,7 @@
     "o": {
      "index": 0
     },
-    "h": "In welcher Spalte des Gitters steht der Faktor 30?",
+    "h": "46 · 30 heißt: beide Teile von 46 mal 30. Welche Felder gehören dazu?",
     "w": "Die erste Zeile 46 · 30 = 1 380 gehört zur Spalte mit 30: 40 · 30 = 1 200 und 6 · 30 = 180, zusammen 1 380. Die zweite Zeile 46 · 8 = 368 gehört zur Spalte mit 8: 320 + 48 = 368. Zusammen 1 380 + 368 = 1 748."
    }
   }

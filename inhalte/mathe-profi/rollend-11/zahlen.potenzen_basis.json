@@ -51,7 +51,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Die Tabelle zeigt, wie viele Zellen eine Kultur nach 1, 2, 3 und 4 Stunden hat. Das Wachstum setzt sich in gleicher Weise fort. Wie viele Zellen sind es nach 7 Stunden?",
+     "text": "Die Tabelle zeigt, wie viele Zellen eine Kultur nach 1, 2, 3 und 4 Stunden hat. Von Stunde zu Stunde wird die Zahl der Zellen jedes Mal mit derselben Zahl malgenommen. Wie viele Zellen sind es nach 7 Stunden?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -167,7 +167,7 @@
      "antwort": 96,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Minus vergessen: 3 · 2⁵",
+     "beschreibung": "das Minus vergessen: 3 · 32",
      "rechnung": "3 * 2 ** 5"
     },
     {

@@ -187,7 +187,7 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Bei einem Schulfest wählt jedes Kind zuerst ein Hauptgericht. Zur Wahl stehen Nudeln (dazu 3 Soßen zur Wahl), Reis (dazu 2 Soßen) und Kartoffeln (dazu 4 Soßen). Danach gibt es zu jedem Gericht einen Nachtisch zur Wahl aus 2 Sorten. Ein Menü besteht aus Hauptgericht, Soße und Nachtisch. Wie viele verschiedene Menüs sind möglich?"
+     "text": "Bei einem Schulfest wählt jedes Kind zuerst ein Hauptgericht. Zur Wahl stehen Nudeln (dazu 3 Soßen zur Wahl), Reis (dazu 2 Soßen) und Kartoffeln (dazu 4 Soßen). Danach wählt jedes Kind noch einen Nachtisch aus 2 Sorten, bei jedem Hauptgericht dieselben zwei. Ein Menü besteht aus Hauptgericht, Soße und Nachtisch. Wie viele verschiedene Menüs sind möglich?"
     },
     "o": {
      "wert": 18,

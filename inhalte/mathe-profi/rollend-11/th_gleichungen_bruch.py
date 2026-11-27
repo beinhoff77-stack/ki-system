@@ -33,7 +33,7 @@ Z(T, "hauptnenner", "anwenden",
   "Gleichung: s/60 + s/40 = 2s/v. Durch s teilen: 1/60 + 1/40 = 2/v. Mit 120v multiplizieren: 2v + 3v = 240, also 5v = 240 und v = 48 km/h. "
   "Probe: Mit s = 120 km: hin 2 h, zurück 3 h, zusammen 5 h; 240 km : 5 h = 48 km/h.",
   [(50, "(60 + 40) / 2", "den Mittelwert der beiden Geschwindigkeiten genommen"),
-   (100, "2 / (2 / 100)", "beim Addieren der Brüche Zähler und Nenner addiert: 1/60 + 1/40 = 2/100"),
+   (100, "2 / (2 / 100)", "beim Addieren der Brüche Zähler und Nenner addiert (1/60 + 1/40 = 2/100), also v = 2 : (2/100)"),
    (24, "120 / 5", "den Faktor 2 (Hin- und Rückweg) vergessen: 1/v statt 2/v")],
   "rr.bruchrechnen", einheit="km/h")
 

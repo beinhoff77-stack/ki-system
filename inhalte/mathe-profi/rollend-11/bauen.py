@@ -286,5 +286,41 @@ for kl in (5, 8):
 print(f"{n_fb_rechnung} Fehlbilder mit Rechnung nachgerechnet, {n_fb_ohne} ohne Rechnung (Worte, Zeilen oder Auswahltext); {n_rechnung} Lösungen nachgerechnet; {n_zeilen} Detektiv-Zeilen einzeln geprüft")
 print("Fehler-Detektiv: Fehlerzeile je Zeile", dict(sorted(Counter(z for _, z, _ in FEHLERZEILEN).items())), "von", len(FEHLERZEILEN))
 print("Lage der richtigen Auswahlantwort (Anzahl Antworten, Platz):", dict(sorted(Counter(LAGEN).items())))
+
+# ═════════ Zusatzprüfungen der Vorprüfung ═════════
+# (1) Die vier Prüfungen von tools/vorrat_pruefen.py (i Lückenwerte, ii Lückenwege, iii Fehlbild-Rechnung in der Beschreibung, iv Fehler-Detektiv),
+#     angewandt auf die Dateien dieser Runde, ohne das Werkzeug zu ändern. Nur die unten einzeln begründeten Restmeldungen sind erlaubt.
+RESTMELDUNGEN = {
+    ("iii", "S3-V054"): "Potenzschreibweise 2¹⁰ = 1 024 in der Beschreibung wird vom Werkzeug nicht als Rechnung gelesen",
+    ("iv", "S3-V036"): "Werkzeug liest das Bruchstück „− 4 = 20“ in 4x − 4 = 20 als Rechnung; die Zeile ist richtig (Gleichung mit x)",
+    ("iv", "S3-V024"): "Fehlerzeile: 6 + 2 = 8 ist richtig gerechnet, falsch ist die Behauptung „zusammengezählt“ (Rechenart), sie steht in dieser Zeile",
+    ("iv", "S3-V019"): "Fehlerzeile: 8 + 9 + 5 = 22 ist richtig, falsch ist der danach ausgesprochene Übertrag „merke 1“, er steht in dieser Zeile",
+}
+if len(geladen) == len(THEMEN):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("vorrat_pruefen", os.path.join(WURZEL, "tools", "vorrat_pruefen.py"))
+    vp = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(vp)
+    vp.DATEIEN = sorted(glob.glob(os.path.join(HIER, "*.json")))
+    funde = []
+    for _f, _a in vp.alle():
+        for _p in (vp.pruefe_i, vp.pruefe_ii, vp.pruefe_iii, vp.pruefe_iv):
+            _p(_f, _a, lambda art, a, text: funde.append((art, a["kennung"], text)))
+    neu_funde = [x for x in funde if (x[0], x[1]) not in RESTMELDUNGEN]
+    assert not neu_funde, ("vorrat_pruefen meldet etwas Neues", neu_funde)
+    print("vorrat_pruefen auf die Runde angewandt:", len(funde), "Restmeldungen, alle einzeln begründet (RESTMELDUNGEN)")
+
+# (2) Fehler-Detektiv: genau eine Fehlerzeile, die Fehlerzeile steht in der Frage, Folgezeilen nach der Fehlerzeile gibt es nur, wenn sie aus ihr folgen (Wahrheitswerte kommen aus der Rechnung in th_*.py)
+for e in alle:
+    if e["form"] == "fehler_detektiv":
+        st = [z["stimmt"] for z in e["zeilen"]]
+        assert st.count(False) == 1 and st.index(False) == e["fehlerzeile"] - 1 and e["aufgabe"]["o"]["index"] == e["fehlerzeile"] - 1, e["kennung"]
+        assert len(e["aufgabe"]["a"]) == len(st), e["kennung"]
+# (3) Zahl-Antworten: das Ergebnis steht nicht im Tipp als Zahlwort-Satz "ist/also ... =" (grobe Prüfung) und kein Fehlbild gleicht der Lösung
+for e in alle:
+    q = e["aufgabe"]
+    if q["y"] == "zahl":
+        assert all(f["antwort"] != q["o"]["wert"] for f in e["fehlbilder"]), e["kennung"]
+        assert f"= {q['o']['wert']}" not in q["h"], (e["kennung"], "Tipp nennt das Ergebnis")
 print("Themen geladen:", ", ".join(geladen))
 print("OK")

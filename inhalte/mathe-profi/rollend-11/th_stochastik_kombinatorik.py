@@ -37,7 +37,7 @@ menues = sum(1 for haupt, soessen in (("Nudeln", 3), ("Reis", 2), ("Kartoffeln",
 assert menues == 18
 Z(T, "baumdiagramm", "anwenden",
   "Bei einem Schulfest wählt jedes Kind zuerst ein Hauptgericht. Zur Wahl stehen Nudeln (dazu 3 Soßen zur Wahl), Reis (dazu 2 Soßen) und Kartoffeln (dazu 4 Soßen). "
-  "Danach gibt es zu jedem Gericht einen Nachtisch zur Wahl aus 2 Sorten. Ein Menü besteht aus Hauptgericht, Soße und Nachtisch. Wie viele verschiedene Menüs sind möglich?",
+  "Danach wählt jedes Kind noch einen Nachtisch aus 2 Sorten, bei jedem Hauptgericht dieselben zwei. Ein Menü besteht aus Hauptgericht, Soße und Nachtisch. Wie viele verschiedene Menüs sind möglich?",
   18, "(3 + 2 + 4) * 2", "3 * 2 + 2 * 2 + 4 * 2",
   "Zeichne die Äste für das Hauptgericht. Bei den Soßen ist die Zahl der Äste nicht bei jedem Ast gleich.",
   "Baumdiagramm: Nudeln hat 3 Soßen, Reis 2, Kartoffeln 4. Das sind 3 + 2 + 4 = 9 Wege bis zur Soße. Jeder dieser Wege teilt sich in 2 Nachtische: 9 · 2 = 18 Menüs. "

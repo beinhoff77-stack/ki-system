@@ -1,0 +1,3239 @@
+{
+ "hinweis": "Inhalte für die Nachschlage-Tafel „Zeichen und Wörter“ (Entwurf, nichts in die App eingespielt). Geprüft mit ../pruefen.py. Mengen wie im Bestand mit Semikolon: {1; 2; 3}. „gilt“ = true/false: Beispiel wurde nachgerechnet; null: Beispiel ist keine Rechnung (Bild oder Schreibweise).",
+ "stand": "2026-11-27",
+ "tafel": "zeichen-woerter",
+ "titel": "Zeichen und Wörter",
+ "abschnitte": [
+  {
+   "name": "Mathematische Zeichen",
+   "art": "zeichen",
+   "kennungen": [
+    "zw-01",
+    "zw-02",
+    "zw-03",
+    "zw-04",
+    "zw-05",
+    "zw-06",
+    "zw-07",
+    "zw-08",
+    "zw-09",
+    "zw-10",
+    "zw-11",
+    "zw-12",
+    "zw-13",
+    "zw-14",
+    "zw-15",
+    "zw-16",
+    "zw-17",
+    "zw-18",
+    "zw-19",
+    "zw-20",
+    "zw-21",
+    "zw-22",
+    "zw-23",
+    "zw-24",
+    "zw-25",
+    "zw-26",
+    "zw-27",
+    "zw-28",
+    "zw-29",
+    "zw-30",
+    "zw-31",
+    "zw-32",
+    "zw-33",
+    "zw-34",
+    "zw-35",
+    "zw-36",
+    "zw-37",
+    "zw-38",
+    "zw-39",
+    "zw-40"
+   ]
+  },
+  {
+   "name": "Griechische Buchstaben",
+   "art": "griechisch",
+   "kennungen": [
+    "zw-g1",
+    "zw-g2",
+    "zw-g3",
+    "zw-g4",
+    "zw-g5",
+    "zw-g6",
+    "zw-g7",
+    "zw-g8",
+    "zw-g9",
+    "zw-g10",
+    "zw-g11"
+   ]
+  },
+  {
+   "name": "Fachwörter",
+   "art": "fachwort",
+   "kennungen": [
+    "zw-w01",
+    "zw-w02",
+    "zw-w03",
+    "zw-w04",
+    "zw-w05",
+    "zw-w06",
+    "zw-w07",
+    "zw-w08",
+    "zw-w09",
+    "zw-w10",
+    "zw-w11",
+    "zw-w12",
+    "zw-w13",
+    "zw-w14",
+    "zw-w15",
+    "zw-w16",
+    "zw-w17",
+    "zw-w18",
+    "zw-w19",
+    "zw-w20",
+    "zw-w21",
+    "zw-w22",
+    "zw-w23",
+    "zw-w24",
+    "zw-w25",
+    "zw-w26",
+    "zw-w27",
+    "zw-w28",
+    "zw-w29",
+    "zw-w30",
+    "zw-w31",
+    "zw-w32",
+    "zw-w33",
+    "zw-w34"
+   ]
+  }
+ ],
+ "eintraege": [
+  {
+   "kennung": "zw-01",
+   "titel": "=",
+   "art": "zeichen",
+   "zeichen": "=",
+   "sprechweise": "ist gleich",
+   "bedeutung": "Links und rechts steht derselbe Wert.",
+   "beispiele": [
+    {
+     "text": "3 + 4 = 7",
+     "gilt": true
+    },
+    {
+     "text": "12 : 4 = 3",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "messen.flaechen",
+      "lernziel": "rechteck",
+      "wort": " = "
+     }
+    ]
+   },
+   "regeln": [],
+   "stichwoerter": [
+    "=",
+    "gleich",
+    "Gleichheitszeichen",
+    "ist gleich"
+   ]
+  },
+  {
+   "kennung": "zw-02",
+   "titel": "≠",
+   "art": "zeichen",
+   "zeichen": "≠",
+   "sprechweise": "ist ungleich",
+   "bedeutung": "Links und rechts stehen verschiedene Werte.",
+   "beispiele": [
+    {
+     "text": "7 ≠ 8",
+     "gilt": true
+    },
+    {
+     "text": "0,5 ≠ 0,05",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "terme.potenzgesetze_ganzzahlig",
+      "lernziel": "terme_vereinfachen",
+      "wort": "≠"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [],
+   "stichwoerter": [
+    "≠",
+    "ungleich",
+    "ist nicht gleich",
+    "Ungleichzeichen"
+   ]
+  },
+  {
+   "kennung": "zw-03",
+   "titel": "≈",
+   "art": "zeichen",
+   "zeichen": "≈",
+   "sprechweise": "ist ungefähr gleich",
+   "bedeutung": "Der Wert ist gerundet: Er stimmt fast, aber nicht genau.",
+   "beispiele": [
+    {
+     "text": "3,14159 ≈ 3,14",
+     "gilt": true
+    },
+    {
+     "text": "4,583 ≈ 4,6",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.natuerlich",
+      "lernziel": "runden_regel",
+      "wort": "„ungefähr gleich“"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z2",
+     "name": "Runden",
+     "passt": "Gerundete Werte schreibt man mit ≈."
+    }
+   ],
+   "stichwoerter": [
+    "≈",
+    "ungefähr gleich",
+    "gerundet",
+    "rund",
+    "ungefähr"
+   ]
+  },
+  {
+   "kennung": "zw-04",
+   "titel": "<",
+   "art": "zeichen",
+   "zeichen": "<",
+   "sprechweise": "ist kleiner als",
+   "bedeutung": "Die Spitze zeigt zur kleineren Zahl.",
+   "beispiele": [
+    {
+     "text": "3 < 5",
+     "gilt": true
+    },
+    {
+     "text": "−2 < 1",
+     "gilt": true
+    },
+    {
+     "text": "0,25 < 1/2",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "zahlen.ganz",
+      "lernziel": "ordnen",
+      "wort": " < "
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z4",
+     "name": "Ordnung auf der Zahlengeraden",
+     "passt": "Was weiter links auf der Zahlengeraden liegt, ist kleiner."
+    }
+   ],
+   "stichwoerter": [
+    "<",
+    "kleiner",
+    "kleiner als",
+    "Kleinerzeichen"
+   ]
+  },
+  {
+   "kennung": "zw-05",
+   "titel": ">",
+   "art": "zeichen",
+   "zeichen": ">",
+   "sprechweise": "ist größer als",
+   "bedeutung": "Die Spitze zeigt zur kleineren Zahl, die offene Seite zur größeren.",
+   "beispiele": [
+    {
+     "text": "5 > 3",
+     "gilt": true
+    },
+    {
+     "text": "−1 > −4",
+     "gilt": true
+    },
+    {
+     "text": "0,5 > 0,25",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.potenzen_basis",
+      "lernziel": "vertauschen",
+      "wort": " > "
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z4",
+     "name": "Ordnung auf der Zahlengeraden",
+     "passt": "Was weiter rechts auf der Zahlengeraden liegt, ist größer."
+    }
+   ],
+   "stichwoerter": [
+    ">",
+    "größer",
+    "größer als",
+    "Größerzeichen"
+   ]
+  },
+  {
+   "kennung": "zw-06",
+   "titel": "≤",
+   "art": "zeichen",
+   "zeichen": "≤",
+   "sprechweise": "ist kleiner oder gleich",
+   "bedeutung": "Links ist höchstens so viel wie rechts: kleiner oder genau gleich.",
+   "beispiele": [
+    {
+     "text": "5 ≤ 5",
+     "gilt": true
+    },
+    {
+     "text": "3 ≤ 7",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 7,
+    "ib_myp": null,
+    "beleg": [
+     {
+      "thema": "geometrie.ortslinien",
+      "lernziel": "sachsituationen",
+      "wort": "≤"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "A10",
+     "name": "Ungleichungen",
+     "passt": "Ungleichungen."
+    }
+   ],
+   "stichwoerter": [
+    "≤",
+    "kleiner gleich",
+    "höchstens",
+    "kleiner oder gleich"
+   ]
+  },
+  {
+   "kennung": "zw-07",
+   "titel": "≥",
+   "art": "zeichen",
+   "zeichen": "≥",
+   "sprechweise": "ist größer oder gleich",
+   "bedeutung": "Links ist mindestens so viel wie rechts: größer oder genau gleich.",
+   "beispiele": [
+    {
+     "text": "4 ≥ 4",
+     "gilt": true
+    },
+    {
+     "text": "10 ≥ 2",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "gleichungen.ungleichungen",
+      "lernziel": "umdrehen",
+      "wort": "≥"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "A10",
+     "name": "Ungleichungen",
+     "passt": "Ungleichungen."
+    }
+   ],
+   "stichwoerter": [
+    "≥",
+    "größer gleich",
+    "mindestens",
+    "größer oder gleich"
+   ]
+  },
+  {
+   "kennung": "zw-08",
+   "titel": "·",
+   "art": "zeichen",
+   "zeichen": "·",
+   "sprechweise": "mal",
+   "bedeutung": "Malzeichen: Multiplikation.",
+   "beispiele": [
+    {
+     "text": "6 · 7 = 42",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "messen.flaechen",
+      "lernziel": "rechteck",
+      "wort": " · "
+     }
+    ]
+   },
+   "regeln": [],
+   "stichwoerter": [
+    "·",
+    "mal",
+    "Malpunkt",
+    "Multiplikation",
+    "malnehmen"
+   ]
+  },
+  {
+   "kennung": "zw-09",
+   "titel": ":",
+   "art": "zeichen",
+   "zeichen": ":",
+   "sprechweise": "geteilt durch",
+   "bedeutung": "Geteiltzeichen: Division. Ein Bruchstrich bedeutet dasselbe: 12/4 = 12 : 4.",
+   "beispiele": [
+    {
+     "text": "20 : 4 = 5",
+     "gilt": true
+    },
+    {
+     "text": "12/4 = 12 : 4",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "groessen.einheiten",
+      "lernziel": "massstab",
+      "wort": " : "
+     }
+    ]
+   },
+   "regeln": [],
+   "stichwoerter": [
+    ":",
+    "geteilt",
+    "durch",
+    "Division",
+    "Geteiltzeichen",
+    "teilen"
+   ]
+  },
+  {
+   "kennung": "zw-10",
+   "titel": "±",
+   "art": "zeichen",
+   "zeichen": "±",
+   "sprechweise": "plus minus",
+   "bedeutung": "Zwei Rechnungen in einer: einmal plus, einmal minus.",
+   "beispiele": [
+    {
+     "text": "5 + 2 = 7",
+     "gilt": true
+    },
+    {
+     "text": "5 − 2 = 3",
+     "gilt": true
+    }
+   ],
+   "merke": "5 ± 2 steht für die beiden Zahlen 7 und 3.",
+   "ab_klasse": {
+    "gymnasium_by": 9,
+    "realschule_by": 9,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "gleichungen.quadratisch",
+      "lernziel": "ergaenzung",
+      "wort": "±"
+     }
+    ]
+   },
+   "regeln": [],
+   "stichwoerter": [
+    "±",
+    "plus minus",
+    "plusminus",
+    "plus oder minus"
+   ]
+  },
+  {
+   "kennung": "zw-11",
+   "titel": "√",
+   "art": "zeichen",
+   "zeichen": "√",
+   "sprechweise": "Wurzel aus",
+   "bedeutung": "Die Zahl ab 0, die mit sich selbst malgenommen die Zahl unter dem Zeichen ergibt.",
+   "beispiele": [
+    {
+     "text": "√49 = 7",
+     "gilt": true
+    },
+    {
+     "text": "7 · 7 = 49",
+     "gilt": true
+    }
+   ],
+   "bedingung": "Die Zahl unter dem Zeichen ist nicht negativ.",
+   "ab_klasse": {
+    "gymnasium_by": 9,
+    "realschule_by": 9,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "zahlen.reell",
+      "lernziel": "nenner_rational",
+      "wort": "√"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z20",
+     "name": "Quadratwurzel",
+     "passt": "Die Wurzel aus a ist die Zahl ab null, deren Quadrat a ist."
+    }
+   ],
+   "stichwoerter": [
+    "√",
+    "Wurzel",
+    "Quadratwurzel",
+    "Wurzel aus",
+    "Wurzelzeichen"
+   ]
+  },
+  {
+   "kennung": "zw-12",
+   "titel": "∛",
+   "art": "zeichen",
+   "zeichen": "∛",
+   "sprechweise": "dritte Wurzel aus",
+   "bedeutung": "Die Zahl, die hoch 3 genommen die Zahl unter dem Zeichen ergibt (Kubikwurzel).",
+   "beispiele": [
+    {
+     "text": "∛8 = 2",
+     "gilt": true
+    },
+    {
+     "text": "2 · 2 · 2 = 8",
+     "gilt": true
+    },
+    {
+     "text": "∛125 = 5",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 9,
+    "realschule_by": 9,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.wurzeln_basis",
+      "lernziel": "kubikwurzel",
+      "wort": "∛"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [
+    {
+     "kennung": "Z23",
+     "name": "n-te Wurzel und Bruch als Hochzahl",
+     "passt": "n-te Wurzel."
+    }
+   ],
+   "stichwoerter": [
+    "∛",
+    "dritte Wurzel",
+    "Kubikwurzel",
+    "Wurzel 3"
+   ]
+  },
+  {
+   "kennung": "zw-13",
+   "titel": "π",
+   "art": "zeichen",
+   "zeichen": "π",
+   "sprechweise": "Pi",
+   "bedeutung": "Die Kreiszahl: Umfang geteilt durch Durchmesser, bei jedem Kreis gleich. Sie ist ungefähr 3,14.",
+   "beispiele": [
+    {
+     "text": "π ≈ 3,14",
+     "gilt": true
+    },
+    {
+     "text": "3,14 < π",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "messen.kreisberechnung",
+      "lernziel": "exakt",
+      "wort": "π"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F9",
+     "name": "Kreis",
+     "passt": "Der Umfang misst π Durchmesser."
+    }
+   ],
+   "stichwoerter": [
+    "π",
+    "Pi",
+    "Kreiszahl",
+    "pi",
+    "3,14"
+   ]
+  },
+  {
+   "kennung": "zw-14",
+   "titel": "%",
+   "art": "zeichen",
+   "zeichen": "%",
+   "sprechweise": "Prozent",
+   "bedeutung": "Hundertstel: ein Prozent ist 1/100.",
+   "beispiele": [
+    {
+     "text": "1 % = 1/100",
+     "gilt": true
+    },
+    {
+     "text": "25 % = 0,25",
+     "gilt": true
+    },
+    {
+     "text": "50 % = 1/2",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "bruch.dezimal",
+      "lernziel": "merkwerte",
+      "wort": "Prozent heißt Hundertstel"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [
+    {
+     "kennung": "Z12",
+     "name": "Drei Schreibweisen einer Zahl",
+     "passt": "Bruch, Dezimalzahl und Prozent sagen dasselbe."
+    }
+   ],
+   "stichwoerter": [
+    "%",
+    "Prozent",
+    "Prozentzeichen",
+    "Hundertstel",
+    "vom Hundert"
+   ]
+  },
+  {
+   "kennung": "zw-15",
+   "titel": "|a|",
+   "art": "zeichen",
+   "zeichen": "|a|",
+   "sprechweise": "Betrag von a",
+   "bedeutung": "Abstand der Zahl a von der 0, immer ohne Minus.",
+   "beispiele": [
+    {
+     "text": "|−7| = 7",
+     "gilt": true
+    },
+    {
+     "text": "|4| = 4",
+     "gilt": true
+    },
+    {
+     "text": "|0| = 0",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "zahlen.ganz",
+      "lernziel": "betrag",
+      "wort": "|−7|"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z5",
+     "name": "Betrag und Gegenzahl",
+     "passt": "Der Betrag ist der Abstand zur Null."
+    }
+   ],
+   "stichwoerter": [
+    "|a|",
+    "Betrag",
+    "Betragsstriche",
+    "Abstand von null",
+    "Betrag von"
+   ]
+  },
+  {
+   "kennung": "zw-16",
+   "titel": "∈",
+   "art": "zeichen",
+   "zeichen": "∈",
+   "sprechweise": "ist Element von",
+   "bedeutung": "Die Zahl gehört zur Menge.",
+   "beispiele": [
+    {
+     "text": "3 ∈ {1; 2; 3}",
+     "gilt": true
+    },
+    {
+     "text": "2 ∈ {2; 5}",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 9,
+    "realschule_by": 9,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "stochastik.verknuepft",
+      "lernziel": "elemente",
+      "wort": "∈"
+     }
+    ]
+   },
+   "regeln": [],
+   "stichwoerter": [
+    "∈",
+    "Element",
+    "ist Element von",
+    "gehört zu",
+    "Elementzeichen"
+   ]
+  },
+  {
+   "kennung": "zw-17",
+   "titel": "∉",
+   "art": "zeichen",
+   "zeichen": "∉",
+   "sprechweise": "ist nicht Element von",
+   "bedeutung": "Die Zahl gehört nicht zur Menge.",
+   "beispiele": [
+    {
+     "text": "4 ∉ {1; 2; 3}",
+     "gilt": true
+    },
+    {
+     "text": "0,5 ∉ {1; 2; 3}",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 9,
+    "realschule_by": 9,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "stochastik.verknuepft",
+      "lernziel": "elemente",
+      "wort": "∉"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [],
+   "stichwoerter": [
+    "∉",
+    "nicht Element",
+    "ist nicht Element von",
+    "gehört nicht zu"
+   ]
+  },
+  {
+   "kennung": "zw-18",
+   "titel": "⊂",
+   "art": "zeichen",
+   "zeichen": "⊂",
+   "sprechweise": "ist Teilmenge von",
+   "bedeutung": "Jedes Element der linken Menge liegt auch in der rechten Menge.",
+   "beispiele": [
+    {
+     "text": "{1; 2} ⊂ {1; 2; 3}",
+     "gilt": true
+    },
+    {
+     "text": "ℕ ⊂ ℤ",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Im Bestand steht ⊂ nur in der Themen-Merke zahlen.reell (ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ, Klasse 9), nicht in einer Etappe.",
+   "regeln": [],
+   "stichwoerter": [
+    "⊂",
+    "Teilmenge",
+    "ist Teilmenge von",
+    "enthalten in"
+   ]
+  },
+  {
+   "kennung": "zw-19",
+   "titel": "∩",
+   "art": "zeichen",
+   "zeichen": "∩",
+   "sprechweise": "geschnitten mit",
+   "bedeutung": "Die Schnittmenge: alle Elemente, die in beiden Mengen liegen.",
+   "beispiele": [
+    {
+     "text": "{1; 2; 3} ∩ {2; 3; 4} = {2; 3}",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 9,
+    "realschule_by": 9,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "stochastik.verknuepft",
+      "lernziel": "verknuepfen",
+      "wort": "∩"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "E1",
+     "name": "Mengen",
+     "passt": "Schnittmenge: in beiden."
+    }
+   ],
+   "stichwoerter": [
+    "∩",
+    "Schnittmenge",
+    "geschnitten",
+    "Durchschnitt"
+   ]
+  },
+  {
+   "kennung": "zw-20",
+   "titel": "∪",
+   "art": "zeichen",
+   "zeichen": "∪",
+   "sprechweise": "vereinigt mit",
+   "bedeutung": "Die Vereinigungsmenge: alle Elemente, die in mindestens einer der Mengen liegen.",
+   "beispiele": [
+    {
+     "text": "{1; 2} ∪ {2; 3} = {1; 2; 3}",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 9,
+    "realschule_by": 9,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "stochastik.verknuepft",
+      "lernziel": "verknuepfen",
+      "wort": "∪"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "E1",
+     "name": "Mengen",
+     "passt": "Vereinigungsmenge: in mindestens einer."
+    }
+   ],
+   "stichwoerter": [
+    "∪",
+    "Vereinigungsmenge",
+    "vereinigt",
+    "Vereinigung"
+   ]
+  },
+  {
+   "kennung": "zw-21",
+   "titel": "{ }",
+   "art": "zeichen",
+   "zeichen": "{ }",
+   "sprechweise": "Mengenklammer",
+   "bedeutung": "In der Klammer stehen die Elemente einer Menge, getrennt durch Semikolon. Jedes Element zählt nur einmal. { } ohne Inhalt ist die leere Menge.",
+   "beispiele": [
+    {
+     "text": "{1; 3; 5}",
+     "gilt": null
+    },
+    {
+     "text": "Lösung von x + 2 = 1 in ℕ: L = { }",
+     "gilt": null
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 9,
+    "realschule_by": 9,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "stochastik.verknuepft",
+      "lernziel": "elemente",
+      "wort": "in { }"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [],
+   "stichwoerter": [
+    "{ }",
+    "Menge",
+    "Mengenklammer",
+    "leere Menge",
+    "Lösungsmenge",
+    "geschweifte Klammer"
+   ]
+  },
+  {
+   "kennung": "zw-22",
+   "titel": "ℕ",
+   "art": "zeichen",
+   "zeichen": "ℕ",
+   "sprechweise": "die natürlichen Zahlen",
+   "bedeutung": "Die Zahlen 0, 1, 2, 3 … zum Zählen.",
+   "beispiele": [
+    {
+     "text": "5 ∈ ℕ",
+     "gilt": true
+    },
+    {
+     "text": "−3 ∉ ℕ",
+     "gilt": true
+    },
+    {
+     "text": "0 ∈ ℕ",
+     "gilt": true
+    }
+   ],
+   "hinweis": "In manchen Büchern fängt ℕ erst bei 1 an. In dieser App gehört die 0 dazu, wie in den Lernkarten.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "gleichungen.einfach",
+      "lernziel": "ohne_loesung",
+      "wort": "die natürlichen Zahlen 0, 1, 2, 3"
+     }
+    ]
+   },
+   "regeln": [],
+   "stichwoerter": [
+    "ℕ",
+    "natürliche Zahlen",
+    "N",
+    "Zahlbereich"
+   ]
+  },
+  {
+   "kennung": "zw-23",
+   "titel": "ℤ",
+   "art": "zeichen",
+   "zeichen": "ℤ",
+   "sprechweise": "die ganzen Zahlen",
+   "bedeutung": "Die natürlichen Zahlen und ihre Gegenzahlen: … −2, −1, 0, 1, 2 …",
+   "beispiele": [
+    {
+     "text": "−3 ∈ ℤ",
+     "gilt": true
+    },
+    {
+     "text": "0 ∈ ℤ",
+     "gilt": true
+    },
+    {
+     "text": "0,5 ∉ ℤ",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Das Zeichen ℤ kommt im Bestand nur in der Themen-Merke zahlen.reell (Klasse 9) vor; ganze Zahlen als Begriff ab Klasse 5 (zahlen.ganz).",
+   "regeln": [],
+   "stichwoerter": [
+    "ℤ",
+    "ganze Zahlen",
+    "Z",
+    "Zahlbereich"
+   ]
+  },
+  {
+   "kennung": "zw-24",
+   "titel": "ℚ",
+   "art": "zeichen",
+   "zeichen": "ℚ",
+   "sprechweise": "die rationalen Zahlen",
+   "bedeutung": "Alle Zahlen, die man als Bruch schreiben kann, auch negative und ganze.",
+   "beispiele": [
+    {
+     "text": "0,5 ∈ ℚ",
+     "gilt": true
+    },
+    {
+     "text": "−3/4 ∈ ℚ",
+     "gilt": true
+    },
+    {
+     "text": "√2 ∉ ℚ",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "bruch.brueche",
+      "lernziel": "zahlbereiche",
+      "wort": "Zeichen ℚ"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [
+    {
+     "kennung": "Z22",
+     "name": "Irrationale und reelle Zahlen",
+     "passt": "Manche Zahlen sind kein Bruch, zum Beispiel √2."
+    }
+   ],
+   "stichwoerter": [
+    "ℚ",
+    "rationale Zahlen",
+    "Q",
+    "Brüche als Zahlen",
+    "Zahlbereich"
+   ]
+  },
+  {
+   "kennung": "zw-25",
+   "titel": "ℝ",
+   "art": "zeichen",
+   "zeichen": "ℝ",
+   "sprechweise": "die reellen Zahlen",
+   "bedeutung": "Alle Zahlen auf der Zahlengeraden: die rationalen Zahlen und Zahlen wie √2 und π.",
+   "beispiele": [
+    {
+     "text": "√2 ∈ ℝ",
+     "gilt": true
+    },
+    {
+     "text": "π ∈ ℝ",
+     "gilt": true
+    },
+    {
+     "text": "−3/4 ∈ ℝ",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 9,
+    "realschule_by": 9,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "zahlen.reell",
+      "lernziel": "zahlarten",
+      "wort": "reellen Zahlen ℝ"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [
+    {
+     "kennung": "Z22",
+     "name": "Irrationale und reelle Zahlen",
+     "passt": "Brüche und Zahlen wie √2 zusammen heißen reelle Zahlen."
+    }
+   ],
+   "stichwoerter": [
+    "ℝ",
+    "reelle Zahlen",
+    "R",
+    "Zahlbereich"
+   ]
+  },
+  {
+   "kennung": "zw-26",
+   "titel": "∥",
+   "art": "zeichen",
+   "zeichen": "∥",
+   "sprechweise": "ist parallel zu",
+   "bedeutung": "Die Geraden haben überall denselben Abstand und schneiden sich nie.",
+   "beispiele": [
+    {
+     "text": "g ∥ h",
+     "gilt": null
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "geometrie.winkelsaetze",
+      "lernziel": "figuren",
+      "wort": "∥"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [
+    {
+     "kennung": "G2",
+     "name": "Parallel, senkrecht, Abstand",
+     "passt": "Parallel, senkrecht, Abstand."
+    }
+   ],
+   "stichwoerter": [
+    "∥",
+    "parallel",
+    "ist parallel zu",
+    "Parallelen"
+   ]
+  },
+  {
+   "kennung": "zw-27",
+   "titel": "⊥",
+   "art": "zeichen",
+   "zeichen": "⊥",
+   "sprechweise": "steht senkrecht auf",
+   "bedeutung": "Die Geraden bilden einen rechten Winkel (90°).",
+   "beispiele": [
+    {
+     "text": "g ⊥ h",
+     "gilt": null
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 8,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "funktionen.linear",
+      "lernziel": "lage",
+      "wort": "⊥"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [
+    {
+     "kennung": "G2",
+     "name": "Parallel, senkrecht, Abstand",
+     "passt": "Parallel, senkrecht, Abstand."
+    }
+   ],
+   "stichwoerter": [
+    "⊥",
+    "senkrecht",
+    "steht senkrecht auf",
+    "rechter Winkel",
+    "orthogonal"
+   ]
+  },
+  {
+   "kennung": "zw-28",
+   "titel": "∠",
+   "art": "zeichen",
+   "zeichen": "∠",
+   "sprechweise": "Winkel",
+   "bedeutung": "Der Winkel an der mittleren Ecke: ∠ASB liegt bei S zwischen den Schenkeln SA und SB.",
+   "beispiele": [
+    {
+     "text": "∠ASB = 50°",
+     "gilt": null
+    }
+   ],
+   "hinweis": "In bayerischen Schulbüchern steht oft ∢; es bedeutet dasselbe wie ∠.",
+   "auch": "∢",
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "geometrie.winkelsaetze",
+      "lernziel": "figuren",
+      "wort": "∢"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G3",
+     "name": "Winkelarten",
+     "passt": "Winkelarten."
+    }
+   ],
+   "stichwoerter": [
+    "∠",
+    "Winkel",
+    "Winkelzeichen",
+    "Winkel ASB"
+   ]
+  },
+  {
+   "kennung": "zw-29",
+   "titel": "△",
+   "art": "zeichen",
+   "zeichen": "△",
+   "sprechweise": "Dreieck",
+   "bedeutung": "Das Dreieck mit den drei genannten Ecken.",
+   "beispiele": [
+    {
+     "text": "△ABC: Dreieck mit den Ecken A, B und C",
+     "gilt": null
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Das Zeichen △ steht im Bestand nicht.",
+   "regeln": [],
+   "stichwoerter": [
+    "△",
+    "Dreieck",
+    "Dreieckszeichen"
+   ]
+  },
+  {
+   "kennung": "zw-30",
+   "titel": "≅",
+   "art": "zeichen",
+   "zeichen": "≅",
+   "sprechweise": "ist kongruent zu",
+   "bedeutung": "Die Figuren sind deckungsgleich: gleiche Form und gleiche Größe.",
+   "beispiele": [
+    {
+     "text": "△ABC ≅ △DEF",
+     "gilt": null
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Das Zeichen ≅ steht im Bestand nicht; Kongruenz kommt in geometrie.konstruktion (Klasse 7) vor.",
+   "regeln": [
+    {
+     "kennung": "I-geo-3",
+     "name": "Deckungsgleich",
+     "passt": "Deckungsgleich: Form und Größe bleiben gleich."
+    }
+   ],
+   "stichwoerter": [
+    "≅",
+    "kongruent",
+    "deckungsgleich",
+    "ist kongruent zu",
+    "gleiche Form und Größe"
+   ]
+  },
+  {
+   "kennung": "zw-31",
+   "titel": "∼",
+   "art": "zeichen",
+   "zeichen": "∼",
+   "sprechweise": "ist ähnlich zu",
+   "bedeutung": "Die Figuren haben die gleiche Form, aber vielleicht eine andere Größe: gleiche Winkel, Seiten im selben Verhältnis.",
+   "beispiele": [
+    {
+     "text": "△ABC ∼ △DEF",
+     "gilt": null
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Das Zeichen ∼ steht im Bestand nicht; Ähnlichkeit kommt in abbildungen.aehnlichkeit (Klasse 9) vor.",
+   "regeln": [
+    {
+     "kennung": "G20",
+     "name": "Ähnlichkeit",
+     "passt": "Ähnliche Figuren haben gleiche Winkel und alle Seiten im selben Verhältnis."
+    }
+   ],
+   "stichwoerter": [
+    "∼",
+    "ähnlich",
+    "ist ähnlich zu",
+    "gleiche Form"
+   ]
+  },
+  {
+   "kennung": "zw-32",
+   "titel": "[AB]",
+   "art": "zeichen",
+   "zeichen": "[AB]",
+   "sprechweise": "Strecke AB",
+   "bedeutung": "Die Strecke von A nach B mit den Endpunkten A und B.",
+   "beispiele": [
+    {
+     "text": "[AB]",
+     "gilt": null
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.grundbegriffe",
+      "lernziel": "strecken",
+      "wort": "[AB]"
+     }
+    ]
+   },
+   "regeln": [],
+   "stichwoerter": [
+    "[AB]",
+    "Strecke",
+    "Strecke AB",
+    "Strecke von A nach B"
+   ]
+  },
+  {
+   "kennung": "zw-33",
+   "titel": "|AB|",
+   "art": "zeichen",
+   "zeichen": "|AB|",
+   "sprechweise": "Länge der Strecke AB",
+   "bedeutung": "Wie lang die Strecke [AB] ist, als Zahl mit Einheit.",
+   "beispiele": [
+    {
+     "text": "|AB| = 5 cm",
+     "gilt": null
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Das Zeichen |AB| steht im Bestand nicht; Streckenlängen kommen in geometrie.grundbegriffe vor.",
+   "regeln": [],
+   "stichwoerter": [
+    "|AB|",
+    "Länge",
+    "Streckenlänge",
+    "Länge der Strecke",
+    "Abstand AB"
+   ]
+  },
+  {
+   "kennung": "zw-34",
+   "titel": "AB",
+   "art": "zeichen",
+   "zeichen": "AB",
+   "sprechweise": "Gerade AB",
+   "bedeutung": "Die Gerade durch A und B; sie geht in beide Richtungen ohne Ende weiter.",
+   "beispiele": [
+    {
+     "text": "Gerade AB",
+     "gilt": null
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Die Schreibweise „Gerade AB“ steht im Bestand nicht.",
+   "regeln": [],
+   "stichwoerter": [
+    "AB",
+    "Gerade",
+    "Gerade AB",
+    "Gerade durch zwei Punkte"
+   ]
+  },
+  {
+   "kennung": "zw-35",
+   "titel": "[AB",
+   "art": "zeichen",
+   "zeichen": "[AB",
+   "sprechweise": "Halbgerade AB",
+   "bedeutung": "Die Halbgerade, die in A beginnt und durch B immer weiter geht.",
+   "beispiele": [
+    {
+     "text": "[AB",
+     "gilt": null
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Die Schreibweise [AB steht im Bestand nicht.",
+   "regeln": [],
+   "stichwoerter": [
+    "[AB",
+    "Halbgerade",
+    "Strahl",
+    "Halbgerade AB"
+   ]
+  },
+  {
+   "kennung": "zw-36",
+   "titel": "∞",
+   "art": "zeichen",
+   "zeichen": "∞",
+   "sprechweise": "unendlich",
+   "bedeutung": "Ohne Ende. ∞ ist keine Zahl, sondern steht für „immer weiter“.",
+   "beispiele": [
+    {
+     "text": "Alle Zahlen größer als 3: ]3; ∞[",
+     "gilt": null
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "gleichungen.ungleichungen",
+      "lernziel": "intervall",
+      "wort": "∞"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "A11",
+     "name": "Intervalle",
+     "passt": "Intervalle: bei ∞ steht die Klammer immer nach außen."
+    }
+   ],
+   "stichwoerter": [
+    "∞",
+    "unendlich",
+    "Unendlichzeichen",
+    "ohne Ende"
+   ]
+  },
+  {
+   "kennung": "zw-37",
+   "titel": "°",
+   "art": "zeichen",
+   "zeichen": "°",
+   "sprechweise": "Grad",
+   "bedeutung": "Einheit für Winkel. Eine ganze Drehung hat 360°.",
+   "beispiele": [
+    {
+     "text": "90° : 360° = 1/4",
+     "gilt": true
+    },
+    {
+     "text": "180° = 360° : 2",
+     "gilt": true
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.grundbegriffe",
+      "lernziel": "winkelarten",
+      "wort": "360°"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "G3",
+     "name": "Winkelarten",
+     "passt": "Voller Winkel 360°, gestreckter 180°, rechter 90°."
+    }
+   ],
+   "stichwoerter": [
+    "°",
+    "Grad",
+    "Gradzahl",
+    "Winkelgrad"
+   ]
+  },
+  {
+   "kennung": "zw-38",
+   "titel": "⇒",
+   "art": "zeichen",
+   "zeichen": "⇒",
+   "sprechweise": "daraus folgt",
+   "bedeutung": "Stimmt die linke Aussage, dann auch die rechte. Umgekehrt muss das nicht gelten.",
+   "beispiele": [
+    {
+     "text": "x = 3 ⇒ x + 1 = 4",
+     "gilt": null
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 9,
+    "realschule_by": 9,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "gleichungen.quadratisch",
+      "lernziel": "reinquadratisch",
+      "wort": "⇒"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [],
+   "stichwoerter": [
+    "⇒",
+    "folgt",
+    "daraus folgt",
+    "Folgepfeil",
+    "Implikation"
+   ]
+  },
+  {
+   "kennung": "zw-39",
+   "titel": "⇔",
+   "art": "zeichen",
+   "zeichen": "⇔",
+   "sprechweise": "genau dann, wenn",
+   "bedeutung": "Beide Seiten sagen dasselbe: Stimmt die eine, stimmt die andere, und umgekehrt.",
+   "beispiele": [
+    {
+     "text": "x + 2 = 5 ⇔ x = 3",
+     "gilt": null
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 10,
+    "realschule_by": 10,
+    "ib_myp": 5,
+    "beleg": [
+     {
+      "thema": "gleichungen.exponential",
+      "lernziel": "gleiche_basis",
+      "wort": "⇔"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [],
+   "stichwoerter": [
+    "⇔",
+    "genau dann wenn",
+    "gleichbedeutend",
+    "Äquivalenz",
+    "Doppelpfeil"
+   ]
+  },
+  {
+   "kennung": "zw-40",
+   "titel": "\\",
+   "art": "zeichen",
+   "zeichen": "\\",
+   "sprechweise": "ohne",
+   "bedeutung": "Menge ohne bestimmte Elemente. Bei Definitionsmengen: alle Zahlen außer den genannten.",
+   "beispiele": [
+    {
+     "text": "ℚ \\ {2}: alle rationalen Zahlen außer 2",
+     "gilt": null
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 8,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "gleichungen.bruch",
+      "lernziel": "definitionsmenge",
+      "wort": "\\\\"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [
+    {
+     "kennung": "A5",
+     "name": "Definitionsmenge",
+     "passt": "Ein Nenner darf nie null sein; diese Zahlen werden ausgeschlossen."
+    }
+   ],
+   "stichwoerter": [
+    "\\",
+    "ohne",
+    "außer",
+    "Definitionsmenge ohne",
+    "Mengendifferenz"
+   ]
+  },
+  {
+   "kennung": "zw-g1",
+   "titel": "α (Alpha)",
+   "art": "griechisch",
+   "buchstabe": "α",
+   "name": "Alpha",
+   "schreibung": "klein",
+   "verwendung": "Winkel, im Dreieck der Winkel bei der Ecke A.",
+   "beispiel": "α + β + γ = 180° im Dreieck",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.winkel",
+      "lernziel": "ergaenzen",
+      "wort": "α"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [],
+   "stichwoerter": [
+    "α",
+    "Alpha",
+    "alpha",
+    "griechischer Buchstabe",
+    "Winkel alpha",
+    "Winkelname"
+   ]
+  },
+  {
+   "kennung": "zw-g2",
+   "titel": "β (Beta)",
+   "art": "griechisch",
+   "buchstabe": "β",
+   "name": "Beta",
+   "schreibung": "klein",
+   "verwendung": "Winkel, im Dreieck der Winkel bei der Ecke B.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.winkel",
+      "lernziel": "ergaenzen",
+      "wort": "β"
+     }
+    ]
+   },
+   "regeln": [],
+   "stichwoerter": [
+    "β",
+    "Beta",
+    "beta",
+    "griechischer Buchstabe",
+    "Winkel beta"
+   ]
+  },
+  {
+   "kennung": "zw-g3",
+   "titel": "γ (Gamma)",
+   "art": "griechisch",
+   "buchstabe": "γ",
+   "name": "Gamma",
+   "schreibung": "klein",
+   "verwendung": "Winkel, im Dreieck der Winkel bei der Ecke C.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.winkel",
+      "lernziel": "kreuzung",
+      "wort": "γ"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [],
+   "stichwoerter": [
+    "γ",
+    "Gamma",
+    "gamma",
+    "griechischer Buchstabe",
+    "Winkel gamma"
+   ]
+  },
+  {
+   "kennung": "zw-g4",
+   "titel": "δ (Delta)",
+   "art": "griechisch",
+   "buchstabe": "δ",
+   "name": "Delta",
+   "schreibung": "klein",
+   "verwendung": "Winkel, im Viereck der Winkel bei der Ecke D; auch der vierte Winkel an einem Punkt.",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "geometrie.winkel",
+      "lernziel": "kreuzung",
+      "wort": "δ"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [],
+   "stichwoerter": [
+    "δ",
+    "Delta",
+    "delta",
+    "griechischer Buchstabe",
+    "Winkel delta"
+   ]
+  },
+  {
+   "kennung": "zw-g5",
+   "titel": "ε (Epsilon)",
+   "art": "griechisch",
+   "buchstabe": "ε",
+   "name": "Epsilon",
+   "schreibung": "klein",
+   "verwendung": "In der Mathematik oft eine sehr kleine positive Zahl; im Stoff dieser App kommt es nicht vor.",
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Im Bestand nicht verwendet.",
+   "regeln": [],
+   "stichwoerter": [
+    "ε",
+    "Epsilon",
+    "epsilon",
+    "griechischer Buchstabe"
+   ]
+  },
+  {
+   "kennung": "zw-g6",
+   "titel": "φ (Phi)",
+   "art": "griechisch",
+   "buchstabe": "φ",
+   "name": "Phi",
+   "schreibung": "klein",
+   "verwendung": "Winkel, wenn α, β, γ, δ schon vergeben sind; im Bestand der Winkel des Kreisausschnitts beim Kegelmantel.",
+   "ab_klasse": {
+    "gymnasium_by": 10,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "raum.pyramide_kegel_kugel",
+      "lernziel": "kegel_mantel",
+      "wort": "φ"
+     }
+    ]
+   },
+   "regeln": [],
+   "stichwoerter": [
+    "φ",
+    "Phi",
+    "phi",
+    "griechischer Buchstabe",
+    "Winkel phi"
+   ]
+  },
+  {
+   "kennung": "zw-g7",
+   "titel": "π (Pi)",
+   "art": "griechisch",
+   "buchstabe": "π",
+   "name": "Pi",
+   "schreibung": "klein",
+   "verwendung": "Die Kreiszahl, ungefähr 3,14.",
+   "beispiel": "π ≈ 3,14",
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "messen.kreisberechnung",
+      "lernziel": "exakt",
+      "wort": "π"
+     }
+    ]
+   },
+   "regeln": [],
+   "stichwoerter": [
+    "π",
+    "Pi",
+    "pi",
+    "griechischer Buchstabe",
+    "Kreiszahl"
+   ]
+  },
+  {
+   "kennung": "zw-g8",
+   "titel": "Δ (Delta)",
+   "art": "griechisch",
+   "buchstabe": "Δ",
+   "name": "Delta",
+   "schreibung": "groß",
+   "verwendung": "Unterschied zweier Werte, zum Beispiel Δx = x₂ − x₁ für den Unterschied der x-Werte.",
+   "beispiel": "Δx = x₂ − x₁",
+   "ab_klasse": {
+    "gymnasium_by": 9,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "trigo.pythagoras",
+      "lernziel": "koordinaten",
+      "wort": "Δ"
+     }
+    ]
+   },
+   "regeln": [],
+   "stichwoerter": [
+    "Δ",
+    "Delta",
+    "delta",
+    "griechischer Buchstabe",
+    "Unterschied",
+    "Differenz",
+    "Delta groß"
+   ]
+  },
+  {
+   "kennung": "zw-g9",
+   "titel": "σ (Sigma)",
+   "art": "griechisch",
+   "buchstabe": "σ",
+   "name": "Sigma",
+   "schreibung": "klein",
+   "verwendung": "Bei der Normalverteilung die Standardabweichung: Sie bestimmt, wie breit die Glocke ist.",
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": 5,
+    "beleg": [
+     {
+      "thema": "daten.normalverteilung",
+      "lernziel": "eigenschaften",
+      "wort": "σ"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Nur in einem Thema ohne Gymnasium- oder Realschulklasse (IB MYP 5 oder Zusatz).",
+   "regeln": [],
+   "stichwoerter": [
+    "σ",
+    "Sigma",
+    "sigma",
+    "griechischer Buchstabe",
+    "Standardabweichung",
+    "Streuung"
+   ]
+  },
+  {
+   "kennung": "zw-g10",
+   "titel": "μ (My (Mü))",
+   "art": "griechisch",
+   "buchstabe": "μ",
+   "name": "My (Mü)",
+   "schreibung": "klein",
+   "verwendung": "Bei der Normalverteilung der Mittelwert, um den die Glocke symmetrisch liegt. Nicht verwechseln mit µ („Mikro“, 10⁻⁶) bei Einheiten: Es sieht fast gleich aus.",
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": 5,
+    "beleg": [
+     {
+      "thema": "daten.normalverteilung",
+      "lernziel": "eigenschaften",
+      "wort": "μ"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Nur in einem Thema ohne Gymnasium- oder Realschulklasse (IB MYP 5 oder Zusatz).",
+   "regeln": [],
+   "stichwoerter": [
+    "μ",
+    "My (Mü)",
+    "my (mü)",
+    "griechischer Buchstabe",
+    "Mittelwert",
+    "My",
+    "Mü"
+   ]
+  },
+  {
+   "kennung": "zw-g11",
+   "titel": "Ω (Omega)",
+   "art": "griechisch",
+   "buchstabe": "Ω",
+   "name": "Omega",
+   "schreibung": "groß",
+   "verwendung": "In der Stochastik der Ergebnisraum: die Menge aller möglichen Ergebnisse.",
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "stochastik.grundbegriffe",
+      "lernziel": "begriffe",
+      "wort": "Ω"
+     }
+    ]
+   },
+   "regeln": [],
+   "stichwoerter": [
+    "Ω",
+    "Omega",
+    "omega",
+    "griechischer Buchstabe",
+    "Ergebnisraum",
+    "Omega groß"
+   ]
+  },
+  {
+   "kennung": "zw-w01",
+   "titel": "Summand",
+   "art": "fachwort",
+   "begriff": "Summand",
+   "satz": "Eine Zahl, die man bei plus zu einer anderen dazuzählt.",
+   "beispiel": "3 + 4 = 7: 3 und 4 sind Summanden.",
+   "rolle_im_beispiel": [
+    "3: Summand",
+    "4: Summand"
+   ],
+   "rechnung": "3 + 4 = 7",
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": 5,
+    "beleg": [
+     {
+      "thema": "funktionen.reihen",
+      "lernziel": "verstehen",
+      "wort": "Summand"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Nur in einem Thema ohne Gymnasium- oder Realschulklasse (IB MYP 5 oder Zusatz).",
+   "regeln": [],
+   "stichwoerter": [
+    "Summand",
+    "summand",
+    "plus",
+    "addieren",
+    "Zahl beim Plus"
+   ]
+  },
+  {
+   "kennung": "zw-w02",
+   "titel": "Summe",
+   "art": "fachwort",
+   "begriff": "Summe",
+   "satz": "Das Ergebnis von plus.",
+   "beispiel": "3 + 4 = 7: 7 ist die Summe.",
+   "rolle_im_beispiel": [
+    "7: Summe"
+   ],
+   "rechnung": "3 + 4 = 7",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.rechengesetze",
+      "lernziel": "termaufbau",
+      "wort": "Summe"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "A1",
+     "name": "Term und Variable",
+     "passt": "Die zuletzt ausgeführte Rechnung gibt dem Term seinen Namen: Plus zuletzt: Summe."
+    }
+   ],
+   "stichwoerter": [
+    "Summe",
+    "summe",
+    "plus",
+    "addieren",
+    "Ergebnis von plus"
+   ]
+  },
+  {
+   "kennung": "zw-w03",
+   "titel": "Minuend",
+   "art": "fachwort",
+   "begriff": "Minuend",
+   "satz": "Die Zahl, von der man etwas abzieht.",
+   "beispiel": "9 − 4 = 5: 9 ist der Minuend.",
+   "rolle_im_beispiel": [
+    "9: Minuend"
+   ],
+   "rechnung": "9 − 4 = 5",
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Im Bestand kommt „Minuend“ nicht vor.",
+   "regeln": [],
+   "stichwoerter": [
+    "Minuend",
+    "minuend",
+    "minus",
+    "subtrahieren",
+    "abziehen"
+   ]
+  },
+  {
+   "kennung": "zw-w04",
+   "titel": "Subtrahend",
+   "art": "fachwort",
+   "begriff": "Subtrahend",
+   "satz": "Die Zahl, die man abzieht.",
+   "beispiel": "9 − 4 = 5: 4 ist der Subtrahend.",
+   "rolle_im_beispiel": [
+    "4: Subtrahend"
+   ],
+   "rechnung": "9 − 4 = 5",
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Im Bestand kommt „Subtrahend“ nicht vor.",
+   "regeln": [],
+   "stichwoerter": [
+    "Subtrahend",
+    "subtrahend",
+    "minus",
+    "subtrahieren",
+    "abziehen"
+   ]
+  },
+  {
+   "kennung": "zw-w05",
+   "titel": "Differenz",
+   "art": "fachwort",
+   "begriff": "Differenz",
+   "satz": "Das Ergebnis von minus.",
+   "beispiel": "9 − 4 = 5: 5 ist die Differenz.",
+   "rolle_im_beispiel": [
+    "5: Differenz"
+   ],
+   "rechnung": "9 − 4 = 5",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.rechengesetze",
+      "lernziel": "termaufbau",
+      "wort": "Differenz"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [
+    {
+     "kennung": "A1",
+     "name": "Term und Variable",
+     "passt": "Die zuletzt ausgeführte Rechnung gibt dem Term seinen Namen: Minus zuletzt: Differenz."
+    }
+   ],
+   "stichwoerter": [
+    "Differenz",
+    "differenz",
+    "minus",
+    "subtrahieren",
+    "Unterschied",
+    "Ergebnis von minus"
+   ]
+  },
+  {
+   "kennung": "zw-w06",
+   "titel": "Faktor",
+   "art": "fachwort",
+   "begriff": "Faktor",
+   "satz": "Eine Zahl, die bei mal mit einer anderen malgenommen wird.",
+   "beispiel": "6 · 7 = 42: 6 und 7 sind Faktoren.",
+   "rolle_im_beispiel": [
+    "6: Faktor",
+    "7: Faktor"
+   ],
+   "rechnung": "6 · 7 = 42",
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "bruch.rechnen",
+      "lernziel": "dezimal_mal",
+      "wort": "Faktor"
+     }
+    ]
+   },
+   "regeln": [],
+   "stichwoerter": [
+    "Faktor",
+    "faktor",
+    "mal",
+    "multiplizieren",
+    "malnehmen"
+   ]
+  },
+  {
+   "kennung": "zw-w07",
+   "titel": "Produkt",
+   "art": "fachwort",
+   "begriff": "Produkt",
+   "satz": "Das Ergebnis von mal.",
+   "beispiel": "6 · 7 = 42: 42 ist das Produkt.",
+   "rolle_im_beispiel": [
+    "42: Produkt"
+   ],
+   "rechnung": "6 · 7 = 42",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.rechengesetze",
+      "lernziel": "termaufbau",
+      "wort": "Produkt"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "A1",
+     "name": "Term und Variable",
+     "passt": "Die zuletzt ausgeführte Rechnung gibt dem Term seinen Namen: Mal zuletzt: Produkt."
+    }
+   ],
+   "stichwoerter": [
+    "Produkt",
+    "produkt",
+    "mal",
+    "multiplizieren",
+    "Ergebnis von mal"
+   ]
+  },
+  {
+   "kennung": "zw-w08",
+   "titel": "Dividend",
+   "art": "fachwort",
+   "begriff": "Dividend",
+   "satz": "Die Zahl, die geteilt wird.",
+   "beispiel": "20 : 4 = 5: 20 ist der Dividend.",
+   "rolle_im_beispiel": [
+    "20: Dividend"
+   ],
+   "rechnung": "20 : 4 = 5",
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Im Bestand kommt „Dividend“ nicht vor.",
+   "regeln": [],
+   "stichwoerter": [
+    "Dividend",
+    "dividend",
+    "geteilt",
+    "dividieren",
+    "teilen"
+   ]
+  },
+  {
+   "kennung": "zw-w09",
+   "titel": "Divisor",
+   "art": "fachwort",
+   "begriff": "Divisor",
+   "satz": "Die Zahl, durch die man teilt.",
+   "beispiel": "20 : 4 = 5: 4 ist der Divisor.",
+   "rolle_im_beispiel": [
+    "4: Divisor"
+   ],
+   "rechnung": "20 : 4 = 5",
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Im Bestand kommt „Divisor“ nicht vor.",
+   "regeln": [],
+   "stichwoerter": [
+    "Divisor",
+    "divisor",
+    "geteilt",
+    "dividieren",
+    "teilen"
+   ]
+  },
+  {
+   "kennung": "zw-w10",
+   "titel": "Quotient",
+   "art": "fachwort",
+   "begriff": "Quotient",
+   "satz": "Das Ergebnis von geteilt.",
+   "beispiel": "20 : 4 = 5: 5 ist der Quotient.",
+   "rolle_im_beispiel": [
+    "5: Quotient"
+   ],
+   "rechnung": "20 : 4 = 5",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.rechengesetze",
+      "lernziel": "termaufbau",
+      "wort": "Quotient"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [
+    {
+     "kennung": "A1",
+     "name": "Term und Variable",
+     "passt": "Die zuletzt ausgeführte Rechnung gibt dem Term seinen Namen: Geteilt zuletzt: Quotient."
+    }
+   ],
+   "stichwoerter": [
+    "Quotient",
+    "quotient",
+    "geteilt",
+    "dividieren",
+    "Ergebnis von geteilt"
+   ]
+  },
+  {
+   "kennung": "zw-w11",
+   "titel": "Potenz",
+   "art": "fachwort",
+   "begriff": "Potenz",
+   "satz": "Kurzschreibweise für dieselbe Zahl mehrmals malgenommen.",
+   "beispiel": "2³ = 2 · 2 · 2 = 8: 2³ ist eine Potenz, ihr Wert ist 8.",
+   "rolle_im_beispiel": [
+    "2³: Potenz",
+    "8: Wert der Potenz"
+   ],
+   "rechnung": "2³ = 2 · 2 · 2 = 8",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.potenzen_basis",
+      "lernziel": "berechnen",
+      "wort": "Potenz"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "R8",
+     "name": "Potenzen",
+     "passt": "Hoch drei heißt: die Zahl dreimal hinschreiben und malnehmen."
+    }
+   ],
+   "stichwoerter": [
+    "Potenz",
+    "potenz",
+    "hoch",
+    "Potenzen",
+    "zum Quadrat"
+   ]
+  },
+  {
+   "kennung": "zw-w12",
+   "titel": "Basis",
+   "art": "fachwort",
+   "begriff": "Basis",
+   "satz": "Die Zahl, die bei einer Potenz malgenommen wird.",
+   "beispiel": "2³ = 2 · 2 · 2 = 8: 2 ist die Basis.",
+   "rolle_im_beispiel": [
+    "2: Basis"
+   ],
+   "rechnung": "2³ = 2 · 2 · 2 = 8",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.potenzen_basis",
+      "lernziel": "negativ",
+      "wort": "Basis"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "R8",
+     "name": "Potenzen",
+     "passt": "Hoch drei heißt: die Zahl dreimal hinschreiben und malnehmen."
+    }
+   ],
+   "stichwoerter": [
+    "Basis",
+    "basis",
+    "Potenz",
+    "hoch",
+    "Grundzahl"
+   ]
+  },
+  {
+   "kennung": "zw-w13",
+   "titel": "Exponent",
+   "art": "fachwort",
+   "begriff": "Exponent",
+   "satz": "Die kleine Zahl oben: Sie sagt, wie oft die Basis dasteht.",
+   "beispiel": "2³ = 2 · 2 · 2 = 8: 3 ist der Exponent.",
+   "rolle_im_beispiel": [
+    "3: Exponent"
+   ],
+   "rechnung": "2³ = 2 · 2 · 2 = 8",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.potenzen_basis",
+      "lernziel": "schreibweise",
+      "wort": "Exponent"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "R8",
+     "name": "Potenzen",
+     "passt": "Hoch drei heißt: die Zahl dreimal hinschreiben und malnehmen."
+    }
+   ],
+   "stichwoerter": [
+    "Exponent",
+    "exponent",
+    "Potenz",
+    "hoch",
+    "Hochzahl"
+   ]
+  },
+  {
+   "kennung": "zw-w14",
+   "titel": "Radikand",
+   "art": "fachwort",
+   "begriff": "Radikand",
+   "satz": "Die Zahl unter dem Wurzelzeichen.",
+   "beispiel": "√49 = 7: 49 ist der Radikand.",
+   "rolle_im_beispiel": [
+    "49: Radikand"
+   ],
+   "rechnung": "√49 = 7",
+   "ab_klasse": {
+    "gymnasium_by": 9,
+    "realschule_by": 9,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "zahlen.reell",
+      "lernziel": "teilweise",
+      "wort": "Radikand"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z20",
+     "name": "Quadratwurzel",
+     "passt": "Die Wurzel aus a ist die Zahl ab null, deren Quadrat a ist."
+    }
+   ],
+   "stichwoerter": [
+    "Radikand",
+    "radikand",
+    "Wurzel",
+    "unter der Wurzel"
+   ]
+  },
+  {
+   "kennung": "zw-w15",
+   "titel": "Zähler",
+   "art": "fachwort",
+   "begriff": "Zähler",
+   "satz": "Die Zahl über dem Bruchstrich: wie viele Teile du nimmst.",
+   "beispiel": "Bei 3/4 ist 3 der Zähler: Du nimmst 3 Teile.",
+   "rolle_im_beispiel": [
+    "3: Zähler"
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "bruch.brueche",
+      "lernziel": "bruchteil_von",
+      "wort": "Zähler"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z10",
+     "name": "Bruch als Anteil",
+     "passt": "Der Nenner teilt, der Zähler zählt."
+    }
+   ],
+   "stichwoerter": [
+    "Zähler",
+    "zähler",
+    "Bruch",
+    "Bruchstrich",
+    "oben im Bruch"
+   ]
+  },
+  {
+   "kennung": "zw-w16",
+   "titel": "Nenner",
+   "art": "fachwort",
+   "begriff": "Nenner",
+   "satz": "Die Zahl unter dem Bruchstrich: in wie viele gleiche Teile das Ganze geteilt wird. Sie darf nie 0 sein.",
+   "beispiel": "Bei 3/4 ist 4 der Nenner: Das Ganze wird in 4 gleiche Teile geteilt.",
+   "rolle_im_beispiel": [
+    "4: Nenner"
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "bruch.brueche",
+      "lernziel": "bruchteil_von",
+      "wort": "Nenner"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z10",
+     "name": "Bruch als Anteil",
+     "passt": "Der Nenner teilt, der Zähler zählt."
+    }
+   ],
+   "stichwoerter": [
+    "Nenner",
+    "nenner",
+    "Bruch",
+    "Bruchstrich",
+    "unten im Bruch"
+   ]
+  },
+  {
+   "kennung": "zw-w17",
+   "titel": "Kehrwert",
+   "art": "fachwort",
+   "begriff": "Kehrwert",
+   "satz": "Der Bruch mit vertauschtem Zähler und Nenner. Eine Zahl mal ihr Kehrwert ergibt 1; die Zahl darf nicht 0 sein.",
+   "beispiel": "Der Kehrwert von 3/4 ist 4/3, denn 3/4 · 4/3 = 1.",
+   "rolle_im_beispiel": [
+    "4/3: Kehrwert von 3/4"
+   ],
+   "rechnung": "3/4 · 4/3 = 1",
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 8,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "funktionen.linear",
+      "lernziel": "lage",
+      "wort": "Kehrwert"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [
+    {
+     "kennung": "R10",
+     "name": "Rechnen mit Brüchen",
+     "passt": "Geteilt: mal Kehrwert."
+    }
+   ],
+   "stichwoerter": [
+    "Kehrwert",
+    "kehrwert",
+    "Bruch umdrehen",
+    "durch Bruch teilen",
+    "Kehrbruch"
+   ]
+  },
+  {
+   "kennung": "zw-w18",
+   "titel": "Term",
+   "art": "fachwort",
+   "begriff": "Term",
+   "satz": "Eine Rechnung aus Zahlen (und Buchstaben) mit Rechenzeichen.",
+   "beispiel": "3 + 4 · 5 ist ein Term. Sein Wert ist 23.",
+   "rolle_im_beispiel": [
+    "3 + 4 · 5: Term",
+    "23: Wert des Terms"
+   ],
+   "rechnung": "3 + 4 · 5 = 23",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.rechengesetze",
+      "lernziel": "termaufbau",
+      "wort": "Term"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "A1",
+     "name": "Term und Variable",
+     "passt": "Ein Buchstabe steht für eine Zahl. Die zuletzt ausgeführte Rechnung gibt dem Term seinen Namen."
+    }
+   ],
+   "stichwoerter": [
+    "Term",
+    "term",
+    "Rechnung",
+    "Rechenausdruck",
+    "Termwert"
+   ]
+  },
+  {
+   "kennung": "zw-w19",
+   "titel": "Variable",
+   "art": "fachwort",
+   "begriff": "Variable",
+   "satz": "Ein Buchstabe, der für eine Zahl steht, die sich ändern kann.",
+   "beispiel": "Im Term 3x + 5 ist x die Variable. Für x = 4 ist der Wert 3 · 4 + 5 = 17.",
+   "rolle_im_beispiel": [
+    "x: Variable"
+   ],
+   "rechnung": "3 · 4 + 5 = 17",
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "terme.aufstellen",
+      "lernziel": "termwert",
+      "wort": "Variable"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "A1",
+     "name": "Term und Variable",
+     "passt": "Ein Buchstabe steht für eine Zahl."
+    }
+   ],
+   "stichwoerter": [
+    "Variable",
+    "variable",
+    "Platzhalter",
+    "Buchstabe",
+    "x",
+    "Unbekannte"
+   ]
+  },
+  {
+   "kennung": "zw-w20",
+   "titel": "Koeffizient",
+   "art": "fachwort",
+   "begriff": "Koeffizient",
+   "satz": "Die Zahl, die vor der Variablen steht.",
+   "beispiel": "In 6x³ ist 6 der Koeffizient.",
+   "rolle_im_beispiel": [
+    "6: Koeffizient"
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "terme.potenzgesetze_ganzzahlig",
+      "lernziel": "terme_vereinfachen",
+      "wort": "Koeffizient"
+     }
+    ]
+   },
+   "regeln": [],
+   "stichwoerter": [
+    "Koeffizient",
+    "koeffizient",
+    "Zahl vor x",
+    "Vorzahl",
+    "Faktor vor der Variablen"
+   ]
+  },
+  {
+   "kennung": "zw-w21",
+   "titel": "Gleichung",
+   "art": "fachwort",
+   "begriff": "Gleichung",
+   "satz": "Zwei Seiten mit einem Gleichheitszeichen dazwischen, meist mit einer gesuchten Zahl.",
+   "beispiel": "x + 7 = 12 hat die Lösung x = 5. Probe: 5 + 7 = 12.",
+   "rolle_im_beispiel": [
+    "x + 7 = 12: Gleichung"
+   ],
+   "rechnung": "5 + 7 = 12",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "zahlen.ganz",
+      "lernziel": "umkehraufgabe",
+      "wort": "Gleichung"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "R13",
+     "name": "Gleichung als Waage",
+     "passt": "Eine Gleichung ist eine Waage: Was du links tust, musst du auch rechts tun."
+    }
+   ],
+   "stichwoerter": [
+    "Gleichung",
+    "gleichung",
+    "Gleichung lösen",
+    "Waage",
+    "x berechnen"
+   ]
+  },
+  {
+   "kennung": "zw-w22",
+   "titel": "Ungleichung",
+   "art": "fachwort",
+   "begriff": "Ungleichung",
+   "satz": "Ein Vergleich mit <, >, ≤ oder ≥ statt mit =.",
+   "beispiel": "x + 2 < 5 gilt für x = 2, denn 2 + 2 < 5.",
+   "rolle_im_beispiel": [
+    "x + 2 < 5: Ungleichung"
+   ],
+   "rechnung": "2 + 2 < 5",
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "gleichungen.ungleichungen",
+      "lernziel": "umformen",
+      "wort": "Ungleichung"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "A10",
+     "name": "Ungleichungen",
+     "passt": "Mal oder geteilt durch eine negative Zahl dreht das Ungleichheitszeichen um."
+    }
+   ],
+   "stichwoerter": [
+    "Ungleichung",
+    "ungleichung",
+    "kleiner",
+    "größer",
+    "Ungleichung lösen"
+   ]
+  },
+  {
+   "kennung": "zw-w23",
+   "titel": "Lösungsmenge",
+   "art": "fachwort",
+   "begriff": "Lösungsmenge",
+   "satz": "Die Menge aller Zahlen, für die die Gleichung stimmt. Sie steht in einer Mengenklammer.",
+   "beispiel": "x² = 25 hat die Lösungsmenge L = {−5; 5}, denn (−5)² = 25 und 5² = 25.",
+   "rolle_im_beispiel": [
+    "L = {−5; 5}: Lösungsmenge"
+   ],
+   "rechnung": "(−5)² = 25",
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "gleichungen.linear",
+      "lernziel": "sonderfaelle",
+      "wort": "Lösungsmenge"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [],
+   "stichwoerter": [
+    "Lösungsmenge",
+    "lösungsmenge",
+    "Lösungen",
+    "L",
+    "alle Lösungen"
+   ]
+  },
+  {
+   "kennung": "zw-w24",
+   "titel": "Definitionsmenge",
+   "art": "fachwort",
+   "begriff": "Definitionsmenge",
+   "satz": "Alle Zahlen, die man für die Variable einsetzen darf.",
+   "beispiel": "Bei 1/(x − 2) ist D = ℚ \\ {2}, denn für x = 2 wäre der Nenner 2 − 2 = 0.",
+   "rolle_im_beispiel": [
+    "D = ℚ \\ {2}: Definitionsmenge"
+   ],
+   "rechnung": "2 − 2 = 0",
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 8,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "funktionen.grundbegriffe",
+      "lernziel": "mengen",
+      "wort": "Definitionsmenge"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "A5",
+     "name": "Definitionsmenge",
+     "passt": "Ein Nenner darf nie null sein. Diese Zahlen werden vorher ausgeschlossen."
+    }
+   ],
+   "stichwoerter": [
+    "Definitionsmenge",
+    "definitionsmenge",
+    "D",
+    "erlaubte Zahlen",
+    "Nenner nicht null",
+    "einsetzen"
+   ]
+  },
+  {
+   "kennung": "zw-w25",
+   "titel": "Grundwert",
+   "art": "fachwort",
+   "begriff": "Grundwert",
+   "satz": "Das Ganze, das 100 % ist.",
+   "beispiel": "20 % von 80 €: Der Grundwert ist 80 €.",
+   "rolle_im_beispiel": [
+    "80 €: Grundwert"
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "bruch.prozent",
+      "lernziel": "prozentwert",
+      "wort": "Grundwert"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "V8",
+     "name": "Grundgleichung der Prozentrechnung",
+     "passt": "Prozentwert = Prozentsatz mal Grundwert."
+    }
+   ],
+   "stichwoerter": [
+    "Grundwert",
+    "grundwert",
+    "Prozent",
+    "das Ganze",
+    "100 Prozent"
+   ]
+  },
+  {
+   "kennung": "zw-w26",
+   "titel": "Prozentwert",
+   "art": "fachwort",
+   "begriff": "Prozentwert",
+   "satz": "Der Teil vom Ganzen, ausgedrückt in € oder kg usw.",
+   "beispiel": "20 % von 80 € sind 16 €: Der Prozentwert ist 16 €.",
+   "rolle_im_beispiel": [
+    "16 €: Prozentwert"
+   ],
+   "rechnung": "80 € · 20 % = 16 €",
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "bruch.prozent",
+      "lernziel": "prozentwert",
+      "wort": "Prozentwert"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "V8",
+     "name": "Grundgleichung der Prozentrechnung",
+     "passt": "Prozentwert = Prozentsatz mal Grundwert."
+    }
+   ],
+   "stichwoerter": [
+    "Prozentwert",
+    "prozentwert",
+    "Prozent",
+    "Teil vom Ganzen"
+   ]
+  },
+  {
+   "kennung": "zw-w27",
+   "titel": "Prozentsatz",
+   "art": "fachwort",
+   "begriff": "Prozentsatz",
+   "satz": "Der Anteil in Prozent.",
+   "beispiel": "20 % von 80 € sind 16 €: Der Prozentsatz ist 20 %.",
+   "rolle_im_beispiel": [
+    "20 %: Prozentsatz"
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "bruch.prozent",
+      "lernziel": "prozentsatz",
+      "wort": "Prozentsatz"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "V8",
+     "name": "Grundgleichung der Prozentrechnung",
+     "passt": "Prozentwert = Prozentsatz mal Grundwert."
+    }
+   ],
+   "stichwoerter": [
+    "Prozentsatz",
+    "prozentsatz",
+    "Prozent",
+    "Anteil in Prozent"
+   ]
+  },
+  {
+   "kennung": "zw-w28",
+   "titel": "Teiler",
+   "art": "fachwort",
+   "begriff": "Teiler",
+   "satz": "Eine Zahl, durch die eine andere ohne Rest teilbar ist.",
+   "beispiel": "3 ist ein Teiler von 12, denn 12 : 3 = 4.",
+   "rolle_im_beispiel": [
+    "3: Teiler von 12"
+   ],
+   "rechnung": "12 : 3 = 4",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.rechengesetze",
+      "lernziel": "schriftlich_geteilt",
+      "wort": "Teiler"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z6",
+     "name": "Teiler und Vielfache",
+     "passt": "a ist Teiler von b, wenn b geteilt durch a ohne Rest aufgeht."
+    }
+   ],
+   "stichwoerter": [
+    "Teiler",
+    "teiler",
+    "teilen ohne Rest",
+    "Teilbarkeit"
+   ]
+  },
+  {
+   "kennung": "zw-w29",
+   "titel": "Vielfaches",
+   "art": "fachwort",
+   "begriff": "Vielfaches",
+   "satz": "Eine Zahl aus der Mal-Reihe einer Zahl.",
+   "beispiel": "Die Vielfachen von 7 sind 7, 14, 21 …, denn 7 · 3 = 21.",
+   "rolle_im_beispiel": [
+    "21: Vielfaches von 7"
+   ],
+   "rechnung": "7 · 3 = 21",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.rechengesetze",
+      "lernziel": "schriftlich_geteilt",
+      "wort": "Vielfache"
+     }
+    ]
+   },
+   "ab_klasse_hinweis": "Im Bestand nur im Lerntext genannt, nicht in der Wörterliste der Etappe.",
+   "regeln": [
+    {
+     "kennung": "Z6",
+     "name": "Teiler und Vielfache",
+     "passt": "a ist Teiler von b, wenn b geteilt durch a ohne Rest aufgeht."
+    }
+   ],
+   "stichwoerter": [
+    "Vielfaches",
+    "vielfaches",
+    "Einmaleins",
+    "Reihe",
+    "Vielfache"
+   ]
+  },
+  {
+   "kennung": "zw-w30",
+   "titel": "Quersumme",
+   "art": "fachwort",
+   "begriff": "Quersumme",
+   "satz": "Die Summe aller Ziffern einer Zahl.",
+   "beispiel": "Die Quersumme von 4 251 ist 4 + 2 + 5 + 1 = 12.",
+   "rolle_im_beispiel": [
+    "12: Quersumme von 4 251"
+   ],
+   "rechnung": "4 + 2 + 5 + 1 = 12",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "zahlen.teilbarkeit",
+      "lernziel": "quersumme",
+      "wort": "Quersumme"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z7",
+     "name": "Teilbarkeitsregeln",
+     "passt": "Durch 3 und 9: Quersumme ansehen."
+    }
+   ],
+   "stichwoerter": [
+    "Quersumme",
+    "quersumme",
+    "Ziffernsumme",
+    "Teilbarkeit durch 3"
+   ]
+  },
+  {
+   "kennung": "zw-w31",
+   "titel": "Gegenzahl",
+   "art": "fachwort",
+   "begriff": "Gegenzahl",
+   "satz": "Die Zahl, die gleich weit von 0 entfernt auf der anderen Seite liegt.",
+   "beispiel": "Die Gegenzahl von 7 ist −7, denn 7 + (−7) = 0.",
+   "rolle_im_beispiel": [
+    "−7: Gegenzahl von 7"
+   ],
+   "rechnung": "7 + (−7) = 0",
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "zahlen.ganz",
+      "lernziel": "betrag",
+      "wort": "Gegenzahl"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z5",
+     "name": "Betrag und Gegenzahl",
+     "passt": "Die Gegenzahl liegt gleich weit auf der anderen Seite."
+    }
+   ],
+   "stichwoerter": [
+    "Gegenzahl",
+    "gegenzahl",
+    "Gegenteil",
+    "Minus vor der Zahl"
+   ]
+  },
+  {
+   "kennung": "zw-w32",
+   "titel": "Kapital",
+   "art": "fachwort",
+   "begriff": "Kapital",
+   "satz": "Das Geld, das angelegt oder geliehen wird.",
+   "beispiel": "Bei 2 000 € auf der Bank ist das Kapital 2 000 €.",
+   "rolle_im_beispiel": [
+    "2 000 €: Kapital"
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "finanzen.zinsen",
+      "lernziel": "begriffe",
+      "wort": "Kapital"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "V10",
+     "name": "Zinsen",
+     "passt": "Jahreszinsen = Kapital mal Zinssatz."
+    }
+   ],
+   "stichwoerter": [
+    "Kapital",
+    "kapital",
+    "Geld anlegen",
+    "Zinsen",
+    "K"
+   ]
+  },
+  {
+   "kennung": "zw-w33",
+   "titel": "Zinssatz",
+   "art": "fachwort",
+   "begriff": "Zinssatz",
+   "satz": "Wie viel Prozent des Kapitals es für ein Jahr als Zinsen gibt.",
+   "beispiel": "Bei 3 % auf 2 000 € ist der Zinssatz 3 %.",
+   "rolle_im_beispiel": [
+    "3 %: Zinssatz"
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "finanzen.zinsen",
+      "lernziel": "zinssatz",
+      "wort": "Zinssatz"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "V10",
+     "name": "Zinsen",
+     "passt": "Jahreszinsen = Kapital mal Zinssatz."
+    }
+   ],
+   "stichwoerter": [
+    "Zinssatz",
+    "zinssatz",
+    "Zinsen",
+    "Prozent pro Jahr",
+    "p"
+   ]
+  },
+  {
+   "kennung": "zw-w34",
+   "titel": "Zinsen",
+   "art": "fachwort",
+   "begriff": "Zinsen",
+   "satz": "Der Betrag in Euro, den man für das Kapital bekommt oder zahlt.",
+   "beispiel": "Bei 2 000 € und 3 % sind die Zinsen für ein Jahr 2 000 € · 3 : 100 = 60 €.",
+   "rolle_im_beispiel": [
+    "60 €: Zinsen"
+   ],
+   "rechnung": "2 000 € · 3 : 100 = 60 €",
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "finanzen.zinsen",
+      "lernziel": "begriffe",
+      "wort": "Zinsen"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "V10",
+     "name": "Zinsen",
+     "passt": "Jahreszinsen = Kapital mal Zinssatz."
+    }
+   ],
+   "stichwoerter": [
+    "Zinsen",
+    "zinsen",
+    "Zinsen berechnen",
+    "Jahreszinsen",
+    "Z"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,731 @@
+{
+ "hinweis": "Inhalte für die Nachschlage-Tafel „Bruch, Dezimalzahl, Prozent“ (Entwurf, nichts in die App eingespielt). Geprüft mit ../pruefen.py. Schreibweise wie im Bestand: Dezimalkomma, Bruch mit Schrägstrich, Periodenstrich (kombinierendes Überstrich-Zeichen U+0305).",
+ "stand": "2026-11-27",
+ "tafel": "bruch-dezimal-prozent",
+ "titel": "Bruch, Dezimalzahl, Prozent",
+ "eintraege": [
+  {
+   "kennung": "bd-01",
+   "titel": "Brüche, Dezimalzahlen und Prozent im Überblick",
+   "art": "tabelle",
+   "so_gehts": [
+    "Bruch in Dezimalzahl: Zähler durch Nenner teilen, z. B. 3/8 = 3 : 8 = 0,375.",
+    "Dezimalzahl in Prozent: mal 100 rechnen und % dahinterschreiben, z. B. 0,375 · 100 = 37,5, also 37,5 %.",
+    "Der Strich über einer Ziffer heißt: Sie wiederholt sich ohne Ende (periodisch): 1/3 = 0,3̅ = 0,333 …"
+   ],
+   "zeilen": [
+    {
+     "bruch": "1/2",
+     "zaehler": 1,
+     "nenner": 2,
+     "dezimal": {
+      "text": "0,5",
+      "ganz": "0",
+      "vor": "5",
+      "periode": ""
+     },
+     "prozent": {
+      "text": "50 %",
+      "ganz": "50",
+      "vor": "",
+      "periode": ""
+     },
+     "periodisch": false
+    },
+    {
+     "bruch": "1/3",
+     "zaehler": 1,
+     "nenner": 3,
+     "dezimal": {
+      "text": "0,3̅",
+      "ganz": "0",
+      "vor": "",
+      "periode": "3"
+     },
+     "prozent": {
+      "text": "33,3̅ %",
+      "ganz": "33",
+      "vor": "",
+      "periode": "3"
+     },
+     "periodisch": true
+    },
+    {
+     "bruch": "2/3",
+     "zaehler": 2,
+     "nenner": 3,
+     "dezimal": {
+      "text": "0,6̅",
+      "ganz": "0",
+      "vor": "",
+      "periode": "6"
+     },
+     "prozent": {
+      "text": "66,6̅ %",
+      "ganz": "66",
+      "vor": "",
+      "periode": "6"
+     },
+     "periodisch": true
+    },
+    {
+     "bruch": "1/4",
+     "zaehler": 1,
+     "nenner": 4,
+     "dezimal": {
+      "text": "0,25",
+      "ganz": "0",
+      "vor": "25",
+      "periode": ""
+     },
+     "prozent": {
+      "text": "25 %",
+      "ganz": "25",
+      "vor": "",
+      "periode": ""
+     },
+     "periodisch": false
+    },
+    {
+     "bruch": "3/4",
+     "zaehler": 3,
+     "nenner": 4,
+     "dezimal": {
+      "text": "0,75",
+      "ganz": "0",
+      "vor": "75",
+      "periode": ""
+     },
+     "prozent": {
+      "text": "75 %",
+      "ganz": "75",
+      "vor": "",
+      "periode": ""
+     },
+     "periodisch": false
+    },
+    {
+     "bruch": "1/5",
+     "zaehler": 1,
+     "nenner": 5,
+     "dezimal": {
+      "text": "0,2",
+      "ganz": "0",
+      "vor": "2",
+      "periode": ""
+     },
+     "prozent": {
+      "text": "20 %",
+      "ganz": "20",
+      "vor": "",
+      "periode": ""
+     },
+     "periodisch": false
+    },
+    {
+     "bruch": "2/5",
+     "zaehler": 2,
+     "nenner": 5,
+     "dezimal": {
+      "text": "0,4",
+      "ganz": "0",
+      "vor": "4",
+      "periode": ""
+     },
+     "prozent": {
+      "text": "40 %",
+      "ganz": "40",
+      "vor": "",
+      "periode": ""
+     },
+     "periodisch": false
+    },
+    {
+     "bruch": "3/5",
+     "zaehler": 3,
+     "nenner": 5,
+     "dezimal": {
+      "text": "0,6",
+      "ganz": "0",
+      "vor": "6",
+      "periode": ""
+     },
+     "prozent": {
+      "text": "60 %",
+      "ganz": "60",
+      "vor": "",
+      "periode": ""
+     },
+     "periodisch": false
+    },
+    {
+     "bruch": "4/5",
+     "zaehler": 4,
+     "nenner": 5,
+     "dezimal": {
+      "text": "0,8",
+      "ganz": "0",
+      "vor": "8",
+      "periode": ""
+     },
+     "prozent": {
+      "text": "80 %",
+      "ganz": "80",
+      "vor": "",
+      "periode": ""
+     },
+     "periodisch": false
+    },
+    {
+     "bruch": "1/8",
+     "zaehler": 1,
+     "nenner": 8,
+     "dezimal": {
+      "text": "0,125",
+      "ganz": "0",
+      "vor": "125",
+      "periode": ""
+     },
+     "prozent": {
+      "text": "12,5 %",
+      "ganz": "12",
+      "vor": "5",
+      "periode": ""
+     },
+     "periodisch": false
+    },
+    {
+     "bruch": "3/8",
+     "zaehler": 3,
+     "nenner": 8,
+     "dezimal": {
+      "text": "0,375",
+      "ganz": "0",
+      "vor": "375",
+      "periode": ""
+     },
+     "prozent": {
+      "text": "37,5 %",
+      "ganz": "37",
+      "vor": "5",
+      "periode": ""
+     },
+     "periodisch": false
+    },
+    {
+     "bruch": "5/8",
+     "zaehler": 5,
+     "nenner": 8,
+     "dezimal": {
+      "text": "0,625",
+      "ganz": "0",
+      "vor": "625",
+      "periode": ""
+     },
+     "prozent": {
+      "text": "62,5 %",
+      "ganz": "62",
+      "vor": "5",
+      "periode": ""
+     },
+     "periodisch": false
+    },
+    {
+     "bruch": "7/8",
+     "zaehler": 7,
+     "nenner": 8,
+     "dezimal": {
+      "text": "0,875",
+      "ganz": "0",
+      "vor": "875",
+      "periode": ""
+     },
+     "prozent": {
+      "text": "87,5 %",
+      "ganz": "87",
+      "vor": "5",
+      "periode": ""
+     },
+     "periodisch": false
+    },
+    {
+     "bruch": "1/10",
+     "zaehler": 1,
+     "nenner": 10,
+     "dezimal": {
+      "text": "0,1",
+      "ganz": "0",
+      "vor": "1",
+      "periode": ""
+     },
+     "prozent": {
+      "text": "10 %",
+      "ganz": "10",
+      "vor": "",
+      "periode": ""
+     },
+     "periodisch": false
+    },
+    {
+     "bruch": "1/20",
+     "zaehler": 1,
+     "nenner": 20,
+     "dezimal": {
+      "text": "0,05",
+      "ganz": "0",
+      "vor": "05",
+      "periode": ""
+     },
+     "prozent": {
+      "text": "5 %",
+      "ganz": "5",
+      "vor": "",
+      "periode": ""
+     },
+     "periodisch": false
+    },
+    {
+     "bruch": "1/25",
+     "zaehler": 1,
+     "nenner": 25,
+     "dezimal": {
+      "text": "0,04",
+      "ganz": "0",
+      "vor": "04",
+      "periode": ""
+     },
+     "prozent": {
+      "text": "4 %",
+      "ganz": "4",
+      "vor": "",
+      "periode": ""
+     },
+     "periodisch": false
+    },
+    {
+     "bruch": "1/50",
+     "zaehler": 1,
+     "nenner": 50,
+     "dezimal": {
+      "text": "0,02",
+      "ganz": "0",
+      "vor": "02",
+      "periode": ""
+     },
+     "prozent": {
+      "text": "2 %",
+      "ganz": "2",
+      "vor": "",
+      "periode": ""
+     },
+     "periodisch": false
+    },
+    {
+     "bruch": "1/100",
+     "zaehler": 1,
+     "nenner": 100,
+     "dezimal": {
+      "text": "0,01",
+      "ganz": "0",
+      "vor": "01",
+      "periode": ""
+     },
+     "prozent": {
+      "text": "1 %",
+      "ganz": "1",
+      "vor": "",
+      "periode": ""
+     },
+     "periodisch": false
+    }
+   ],
+   "hinweis": "Der Strich über der Ziffer ist der Periodenstrich. 33,3̅ % heißt 33,333… %; gerundet 33,3 %.",
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "bruch.dezimal",
+      "lernziel": "merkwerte",
+      "wort": "Merkwerte"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "Z12",
+     "name": "Drei Schreibweisen einer Zahl",
+     "passt": "Bruch, Dezimalzahl und Prozent sagen dasselbe."
+    },
+    {
+     "kennung": "Z13",
+     "name": "Periodische Dezimalzahlen",
+     "passt": "Jeder Bruch wird als Dezimalzahl endlich oder periodisch."
+    }
+   ],
+   "stichwoerter": [
+    "Bruch Dezimal Prozent",
+    "Merkwerte",
+    "Bruch in Dezimalzahl",
+    "Bruch in Prozent",
+    "ein Drittel",
+    "drei Viertel",
+    "ein Achtel",
+    "periodisch",
+    "Periode",
+    "0,333",
+    "33 Prozent"
+   ]
+  },
+  {
+   "kennung": "bd-02",
+   "titel": "Prozentwert berechnen",
+   "art": "grundaufgabe",
+   "formel": "W = G · p %",
+   "bedingung": "p % ist der Prozentsatz als Anteil: p % = p : 100",
+   "ergebnis": {
+    "zeichen": "W",
+    "name": "Prozentwert",
+    "art": "Betrag",
+    "einheit": "€"
+   },
+   "groessen": [
+    {
+     "zeichen": "W",
+     "name": "Prozentwert (der Teil)"
+    },
+    {
+     "zeichen": "G",
+     "name": "Grundwert (das Ganze, 100 %)"
+    },
+    {
+     "zeichen": "p %",
+     "name": "Prozentsatz (der Anteil)"
+    }
+   ],
+   "so_gehts": [
+    "Rechne den Prozentsatz in einen Anteil um: 20 % = 20 : 100 = 0,2.",
+    "Multipliziere mit dem Grundwert: 80 € · 0,2 = 16 €."
+   ],
+   "aufgabe": "Wie viel sind 20 % von 80 €?",
+   "beispiel": {
+    "werte": {
+     "G": "80 €",
+     "p %": "20 %"
+    },
+    "rechnung": "W = 80 € · 20 % = 80 € · 0,2 = 16 €",
+    "ergebnis": "16 €"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "bruch.prozent",
+      "lernziel": "prozentwert",
+      "wort": "Prozentwert"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "V8",
+     "name": "Grundgleichung der Prozentrechnung",
+     "passt": "Prozentwert = Prozentsatz mal Grundwert; zwei der drei Größen bestimmen die dritte."
+    }
+   ],
+   "stichwoerter": [
+    "Prozentwert",
+    "Prozent von",
+    "Prozentwert berechnen",
+    "wie viel sind",
+    "W gleich G mal p",
+    "Prozentrechnung",
+    "Prozent",
+    "W G p"
+   ]
+  },
+  {
+   "kennung": "bd-03",
+   "titel": "Prozentsatz berechnen",
+   "art": "grundaufgabe",
+   "formel": "p % = W : G",
+   "bedingung": "G ≠ 0",
+   "ergebnis": {
+    "zeichen": "p %",
+    "name": "Prozentsatz",
+    "art": "Anteil",
+    "einheit": "%"
+   },
+   "groessen": [
+    {
+     "zeichen": "W",
+     "name": "Prozentwert (der Teil)"
+    },
+    {
+     "zeichen": "G",
+     "name": "Grundwert (das Ganze, 100 %)"
+    },
+    {
+     "zeichen": "p %",
+     "name": "Prozentsatz (der Anteil)"
+    }
+   ],
+   "so_gehts": [
+    "Teile den Prozentwert durch den Grundwert: 12 € : 48 € = 0,25.",
+    "Mal 100 ergibt die Prozentzahl: 0,25 = 25 %."
+   ],
+   "aufgabe": "Wie viel Prozent sind 12 € von 48 €?",
+   "beispiel": {
+    "werte": {
+     "W": "12 €",
+     "G": "48 €"
+    },
+    "rechnung": "p % = 12 € : 48 € = 0,25 = 25 %",
+    "ergebnis": "25 %"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "bruch.prozent",
+      "lernziel": "prozentsatz",
+      "wort": "Prozentsatz"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "V8",
+     "name": "Grundgleichung der Prozentrechnung",
+     "passt": "Prozentwert = Prozentsatz mal Grundwert; zwei der drei Größen bestimmen die dritte."
+    }
+   ],
+   "stichwoerter": [
+    "Prozentsatz",
+    "wie viel Prozent",
+    "Prozentsatz berechnen",
+    "Anteil in Prozent",
+    "p gleich W durch G",
+    "Prozentrechnung",
+    "Prozent",
+    "W G p"
+   ]
+  },
+  {
+   "kennung": "bd-04",
+   "titel": "Grundwert berechnen",
+   "art": "grundaufgabe",
+   "formel": "G = W : p %",
+   "bedingung": "p ≠ 0",
+   "ergebnis": {
+    "zeichen": "G",
+    "name": "Grundwert",
+    "art": "Betrag",
+    "einheit": "€"
+   },
+   "groessen": [
+    {
+     "zeichen": "W",
+     "name": "Prozentwert (der Teil)"
+    },
+    {
+     "zeichen": "G",
+     "name": "Grundwert (das Ganze, 100 %)"
+    },
+    {
+     "zeichen": "p %",
+     "name": "Prozentsatz (der Anteil)"
+    }
+   ],
+   "so_gehts": [
+    "Rechne den Prozentsatz in einen Anteil um: 30 % = 30 : 100 = 0,3.",
+    "Teile den Prozentwert durch den Anteil: 15 € : 0,3 = 50 €."
+   ],
+   "aufgabe": "15 € sind 30 %. Wie groß ist das Ganze?",
+   "beispiel": {
+    "werte": {
+     "W": "15 €",
+     "p %": "30 %"
+    },
+    "rechnung": "G = 15 € : 30 % = 15 € : 0,3 = 50 €",
+    "ergebnis": "50 €"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "bruch.prozent",
+      "lernziel": "grundwert",
+      "wort": "Grundwert"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "V8",
+     "name": "Grundgleichung der Prozentrechnung",
+     "passt": "Prozentwert = Prozentsatz mal Grundwert; zwei der drei Größen bestimmen die dritte."
+    }
+   ],
+   "stichwoerter": [
+    "Grundwert",
+    "Grundwert berechnen",
+    "das Ganze",
+    "hundert Prozent",
+    "G gleich W durch p",
+    "Prozentrechnung",
+    "Prozent",
+    "W G p"
+   ]
+  },
+  {
+   "kennung": "bd-05",
+   "titel": "Zinsen für ein Jahr",
+   "art": "zins",
+   "formel": "Z = K · p : 100",
+   "bedingung": "Zinsen für genau ein Jahr; p ist die Prozentzahl des Zinssatzes (bei 10 % ist p = 10)",
+   "ergebnis": {
+    "zeichen": "Z",
+    "name": "Zinsen",
+    "art": "Betrag",
+    "einheit": "€"
+   },
+   "groessen": [
+    {
+     "zeichen": "K",
+     "name": "Kapital"
+    },
+    {
+     "zeichen": "p",
+     "name": "Prozentzahl des Zinssatzes"
+    }
+   ],
+   "so_gehts": [
+    "Rechne 1 % aus: K : 100.",
+    "Mal die Prozentzahl p ergibt die Zinsen.",
+    "Nach einem Jahr hat man K + Z."
+   ],
+   "aufgabe": "1 000 € werden ein Jahr zu 10 % verzinst. Wie viel Geld ist es dann?",
+   "beispiel": {
+    "werte": {
+     "K": "1 000 €",
+     "p": "10"
+    },
+    "rechnung": "Z = 1 000 € · 10 : 100 = 100 €",
+    "ergebnis": "100 €",
+    "danach": "K₁ = 1 000 € + 100 € = 1 100 €"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 7,
+    "ib_myp": 4,
+    "beleg": [
+     {
+      "thema": "finanzen.zinsen",
+      "lernziel": "jahreszinsen",
+      "wort": "Z = K · p/100"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "V10",
+     "name": "Zinsen",
+     "passt": "Jahreszinsen = Kapital mal Zinssatz."
+    }
+   ],
+   "stichwoerter": [
+    "Zinsen",
+    "Jahreszinsen",
+    "Zinsen berechnen",
+    "Kapital",
+    "Zinssatz",
+    "Z gleich K mal p durch 100"
+   ]
+  },
+  {
+   "kennung": "bd-06",
+   "titel": "Zinseszins über zwei Jahre",
+   "art": "zinseszins",
+   "formel": "Kₙ = K₀ · qⁿ",
+   "bedingung": "Die Zinsen bleiben auf dem Konto und werden mitverzinst; der Zinssatz bleibt gleich; q = 1 + p : 100",
+   "ergebnis": {
+    "zeichen": "K₂",
+    "name": "Kapital nach 2 Jahren",
+    "art": "Betrag",
+    "einheit": "€"
+   },
+   "groessen": [
+    {
+     "zeichen": "K₀",
+     "name": "Anfangskapital"
+    },
+    {
+     "zeichen": "q",
+     "name": "Zinsfaktor: q = 1 + p : 100"
+    },
+    {
+     "zeichen": "n",
+     "name": "Anzahl der Jahre"
+    }
+   ],
+   "so_gehts": [
+    "Berechne den Zinsfaktor: q = 1 + p : 100; bei 10 % ist q = 1,1.",
+    "Nimm das Kapital für jedes Jahr einmal mal q.",
+    "Für 2 Jahre: K₂ = K₀ · q · q = K₀ · q²."
+   ],
+   "aufgabe": "1 000 € werden zwei Jahre zu 10 % verzinst, die Zinsen bleiben auf dem Konto.",
+   "beispiel": {
+    "werte": {
+     "K₀": "1 000 €",
+     "q": "1,1",
+     "n": "2"
+    },
+    "rechnung": "K₂ = 1 000 € · 1,1² = 1 000 € · 1,21 = 1 210 €",
+    "ergebnis": "1 210 €",
+    "q_rechnung": "q = 1 + 10 : 100 = 1,1",
+    "schritte": [
+     "K₁ = 1 000 € · 1,1 = 1 100 €",
+     "K₂ = 1 100 € · 1,1 = 1 210 €"
+    ],
+    "achtung": "Die Zinsen für zwei Jahre sind 210 €, nicht 2 · 100 € = 200 €: Im zweiten Jahr zählen auch die ersten 100 € Zinsen mit.",
+    "zinsen_gesamt": "K₂ − K₀ = 1 210 € − 1 000 € = 210 €"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 7,
+    "realschule_by": 7,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "bruch.prozent_grundwert",
+      "lernziel": "formel",
+      "wort": "Zinseszins"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "V11",
+     "name": "Zinseszins",
+     "passt": "Kapital nach n Jahren = Anfangskapital mal Wachstumsfaktor hoch n."
+    }
+   ],
+   "stichwoerter": [
+    "Zinseszins",
+    "Zinseszinsen",
+    "zwei Jahre",
+    "Kapital nach n Jahren",
+    "Wachstumsfaktor",
+    "Zinsfaktor",
+    "q gleich 1 plus p durch 100"
+   ]
+  }
+ ]
+}

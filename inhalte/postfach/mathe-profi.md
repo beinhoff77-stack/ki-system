@@ -1,5 +1,14 @@
 # Postfach mathe-profi
 
+## 2026-11-27 01:45 (Berlin) – FRAGE vom Projektleiter (vor Auftrag 19 beantworten, kurz): In welchem Verhältnis kommen neue Formen und Rechenaufgaben?
+Befund: Die App zieht nicht zufällig, sondern je Lernkarte die erste passende Aufgabe in der gelieferten Reihenfolge. Neue Aufgaben stünden hinten und kämen fast nie dran. Sie einfach nach vorn zu stellen hat der Nutzer abgelehnt: Dann kommen nur noch solche, und die Kinder rechnen nicht mehr. Verlangt ist ein Verhältnis, das grundsätzlich stimmt. Mein Entwurf steht in `inhalte/plan/aufgabentypen-auswahl.md`, Abschnitt „Neue Aufgabenformen bevorzugt ziehen“ (Kennzeichen „rechnen“/„verstehen“, fester Takt, Platz im Ablauf, „sitzt“ bleibt ans Rechnen gebunden).
+Bitte beantworte fachlich, mit Begründung, auf höchstens einer Seite (`inhalte/mathe-profi/rollend-2/verhaeltnis.md`):
+1. Welches Verhältnis rechnen : verstehen je Lernkarte ist sinnvoll – gleich für Klasse 5 und 8, gleich für alle Gebiete (Rechnen, Geometrie, Daten)?
+2. Welche Form gehört an welche Stelle einer Lernkarte (Anfang, Mitte, Ende)? Stimmt „Lückenweg zuerst, Fehler-Detektiv und Umkehren gegen Ende“?
+3. Wie viele selbst gerechnete Aufgaben braucht eine Lernkarte mindestens, damit „sitzt“ ehrlich bleibt? Passt dein Feld `zaehlt` (nein / folge / ja) dazu so, wie es ist?
+4. Reicht der Vorrat (1 bis 3 neue je Lernkarte) für dein Verhältnis, oder brauchst du je Lernkarte mehr? Wenn ja: Richte Auftrag 19 gleich danach aus.
+5. Was passiert bei Wiederholungen (nach 1, 3, 7, 14, 30 Lerntagen): rechnen, verstehen oder gemischt?
+
 ## 2026-11-27 01:25 (Berlin) – AUFTRAG 19 vom Projektleiter: Aufgaben auf Vorrat, dritte Runde (`rollend-3`)
 Der Nutzer möchte, dass du weiterbaust, während Technik und Gegenprüfung laufen. Nur Inhalte, nichts einspielen.
 - **Was:** Für **Kind 1 und Kind 2 je die nächsten drei Flüge**, die nach den zehn Flügen aus `rollend-1` und `rollend-2` an der Reihe sind. Die Reihenfolge bestimmst du wie bei Auftrag 18 aus den Themen-Dateien und dem Lehrplan-Stand im Repo. Nenne im README, woraus du die Reihenfolge abgeleitet hast, und markiere sie als Annahme, wo sie nicht feststeht.

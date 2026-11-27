@@ -98,7 +98,14 @@ Der Nutzer erwartet, dass neue Aufgaben laufend geschrieben werden und dass die 
   - Folge: Neue Aufgaben bekommen bisher die höchsten Nummern und stehen damit **hinten**. Ein Kind braucht je Lernkarte etwa 6 bis 10 Aufgaben, der Bestand hat je Lernkarte rund 20 und mehr. Die neuen Formen kämen also fast nie dran – schlechter als die geschätzten 10 %.
   - **Vorschlag A (klein, kein Umbau):** Die neuen Aufgaben beim Einfügen mit kleinen Nummern **vor** den Bestand stellen (`reihenfolge` unter 1). Dann kommen sie je Stufe zuerst; die Regel „nie zweimal derselbe Typ“ mischt sie von selbst mit dem Bestand. Je Lernkarte gibt es 1 bis 3 neue: etwa jede dritte bis jede zweite Aufgabe wäre eine neue Form, bis der Vorrat der Lernkarte aufgebraucht ist. Änderung nur in `tools/rollend_sql.py`, keine an App oder Datenbank-Aufbau.
   - **Vorschlag B (später, wenn es viele neue Formen gibt):** eigenes Kennzeichen „neue Form“ an der Aufgabe und ein einstellbares Verhältnis in der App.
-- **Stand:** Vorschlag liegt beim Nutzer; Meinung der Gegenprüfung in Werkstatt 1018 angefragt.
+- **Entscheidung des Nutzers 27.11.: Vorschlag A ist abgelehnt.** Stehen die neuen Formen vorn, kommen nur noch solche, und die Kinder rechnen nicht mehr. Verlangt ist: Das Verhältnis muss grundsätzlich stimmen. „Da müsst ihr euch was Intelligentes überlegen.“
+- **Entwurf des Projektleiters (Meinung, zur Diskussion mit Gegenprüfung und Mathe-Profi):**
+  1. Jede Aufgabe bekommt ein Kennzeichen **Art**: „rechnen“ (selbst ausrechnen, der ganze Bestand) oder „verstehen“ (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Umkehren, Brücke, viele richtige Antworten). Die Angabe steht schon in den Dateien des Mathe-Profis (`typ`), wird aber bisher nicht mit eingespielt.
+  2. Die App zieht in einem **festen Takt**, einstellbar als Regel in der Datenbank (wie heute `misch_jede`): Vorschlag jede dritte Aufgabe einer Lernkarte „verstehen“, die anderen zwei „rechnen“. Ist der Vorrat „verstehen“ der Lernkarte leer, geht es mit „rechnen“ weiter.
+  3. **Platz im Ablauf statt Zufall:** am Anfang einer Lernkarte ein Lückenweg (geführt), in der Mitte rechnen, gegen Ende Fehler-Detektiv oder Umkehren.
+  4. **„Sitzt“ bleibt ans Rechnen gebunden:** Eine Lernkarte kann nur landen, wenn genug Aufgaben selbst gerechnet sind. Der Vorschlag des Mathe-Profis je Aufgabe (`zaehlt`: nein / folge / ja) wird dafür genutzt.
+  5. Bau: ein Feld an der Aufgabe, eine Regel, die Auswahl in der App. Das ist ein eigener kleiner bis mittlerer Schritt mit Gegenprüfung und „Live“.
+- **Stand:** Fragen an Gegenprüfung (Werkstatt 1019) und Mathe-Profi (Postfach, Frage zu Auftrag 19) gestellt; Vorrats-Aufgaben werden bis zur Entscheidung nicht eingespielt.
 
 ## Darstellung verbessern – als fester Teil des Plans (Erinnerung des Nutzers vom 26.11.)
 Die Verbesserungen an der Darstellung, die die Recherche schon gefunden hat (`inhalte/recherche/tief-11-bedienung-eltern.md`, Lieferung 2 und Lieferung 5), gehören in den Plan. Sie waren am 25.11. zurückgestellt („nicht der Kern“), sind aber nicht gestrichen.

@@ -208,3 +208,52 @@ details[open] > summary .chev { transform: rotate(180deg); }
 .sonne0 { height: 168px; } .s0-kreis { top: -128px; } .s0-text { padding: 0 0 26px; }
 .bahn0 { padding-top: 3px; padding-bottom: 1px; } .planet0 { min-height: 50px; } .u-zwischen { margin-top: 8px; }
 .sonne0 { height: 136px; } .s0-kreis { top: -158px; } .s0-text { padding: 0 0 14px; } .universum .umschalter { margin: 10px 0 8px; }
+
+/* ===================== Achte Runde ===================== */
+/* Klassenband: drei Zustände, die Klasse steht im Kästchen */
+.b6 i { width: 24px; height: 22px; border-radius: 5px; display: grid; place-items: center; font-family: var(--mono); font-size: 12px; font-weight: 700; line-height: 1; border: 1.5px solid var(--text); color: var(--text); background: var(--flaeche); }
+.b6 i.neu { background: var(--text); color: var(--flaeche); }
+.b6 i.da { background: var(--flaeche); }
+.b6 i.nicht { border-color: transparent; background: color-mix(in srgb, var(--linie) 45%, transparent); color: color-mix(in srgb, var(--leise) 70%, transparent); font-weight: 600; }
+.b6.gross i { width: 36px; height: 30px; font-size: 15px; }
+.legende { font-size: 14px; gap: 4px 6px; margin: 6px 0 10px; } .legende .b6 i { width: 22px; height: 20px; font-size: 11px; } .legende .b6 { margin-left: 8px; } .legende .b6:first-child { margin-left: 0; }
+.stufe .st-hinweis .b6 i { width: 20px; height: 20px; font-size: 11px; }
+/* Liste der 14 Regeln: oben Name und Band, darunter der Merksatz über die ganze Breite */
+.zeile.mit-satz { grid-template-columns: 28px minmax(0, 1fr) auto; column-gap: 10px; row-gap: 3px; align-items: start; padding: 9px 12px 10px 10px; }
+.zeile.mit-satz .z-text { display: contents; }
+.zeile.mit-satz .z-nr { grid-row: 1 / span 2; }
+.zeile.mit-satz .z-name { grid-column: 2; grid-row: 1; font-size: 16px; font-weight: 700; line-height: 1.3; padding-top: 2px; }
+.zeile.mit-satz .b6 { grid-column: 3; grid-row: 1; padding-top: 2px; } .zeile.mit-satz .b6 i { width: 20px; height: 20px; font-size: 11px; } .zeile.mit-satz .b6 { gap: 2px; }
+.z-merk { grid-column: 2 / -1; grid-row: 2; font-size: 16px; font-weight: 500; line-height: 1.35; color: var(--leise); text-align: left; }
+.idee1 { grid-template-columns: 28px minmax(0, 1fr); row-gap: 8px; } .idee1 .b6 { grid-column: 2; margin-top: 0; }
+@media (min-width: 640px) { .idee1 { grid-template-columns: 28px minmax(0, 1fr) auto; } .idee1 .b6 { grid-column: 3; grid-row: 1; align-self: center; } }
+/* Schichten: Ringbild statt Zahl am Rand */
+.schicht { border-left-width: 1.5px; }
+.schicht-kopf { gap: 10px; padding: 6px 12px 6px 8px; scroll-margin-top: 70px; background: color-mix(in srgb, var(--sf) 26%, var(--flaeche)); }
+.ring { flex: none; }
+.ueber.mit-ring { display: flex; align-items: center; gap: 8px; }
+/* Schnitt durch die Sonne */
+.schnitt { margin: 4px 0 6px; } .schnitt svg { display: block; width: 100%; max-width: 520px; margin: 0 auto; height: auto; }
+.schnitt figcaption { font-size: 15px; color: var(--leise); text-align: center; margin-top: 6px; }
+.sc-ziel { cursor: pointer; } .sc-ziel:focus-visible { outline: none; } .sc-ziel:focus-visible text { text-decoration: underline; }
+/* Ebene 0 am Rechner: Sonnensystem */
+.system { display: none; }
+.sp { cursor: pointer; } .sp:hover text:first-of-type { text-decoration: underline; }
+@media (min-width: 900px) {
+  .universum.schmal { max-width: 1140px; } .universum .titel, .universum .lead, .universum .umschalter { max-width: 760px; }
+  .universum .sonne0, .universum .u-zwischen, .universum .bahnen0, .universum .guertel0 { display: none; }
+  .system { display: block; margin-top: 6px; } .system svg { display: block; width: 100%; height: auto; } }
+/* Weltraum: dunkle Fassung auf Ebene 0 und 1 mit leisem Sternenhimmel */
+body[data-g="nacht"].weltraum { background-color: #070A10; background-image:
+  radial-gradient(1.2px 1.2px at 23px 41px, rgba(255,255,255,.55), transparent 60%), radial-gradient(1px 1px at 141px 97px, rgba(255,255,255,.4), transparent 60%),
+  radial-gradient(1.4px 1.4px at 211px 23px, rgba(255,255,255,.5), transparent 60%), radial-gradient(1px 1px at 77px 171px, rgba(255,255,255,.35), transparent 60%),
+  radial-gradient(1.2px 1.2px at 187px 203px, rgba(255,255,255,.45), transparent 60%), radial-gradient(1px 1px at 251px 141px, rgba(255,255,255,.3), transparent 60%);
+  background-size: 280px 240px; }
+body[data-g="nacht"].weltraum .kopf { background: rgba(7, 10, 16, .92); backdrop-filter: blur(6px); }
+body[data-g="nacht"].weltraum .bahn0 { border-top-color: rgba(169, 179, 193, .28); }
+body[data-g="nacht"] .s0-kreis { box-shadow: 0 0 60px 18px rgba(255, 190, 40, .35); }
+.system .sp text { paint-order: stroke; stroke: var(--bg); stroke-width: 5px; stroke-linejoin: round; }
+body[data-g="nacht"].weltraum .system .sp text { stroke: #070A10; }
+/* Schrift AUF der Sonne und die Zeichen IN den Planeten bekommen keine Kontur – auch nicht in der Weltraum-Fassung (sonst verschmiert sie). */
+.system a.sp[href="#sonne"] text, .system .sp g text, body[data-g="nacht"].weltraum .system a.sp[href="#sonne"] text, body[data-g="nacht"].weltraum .system .sp g text { stroke: none; }
+.s0-kreis { width: 118%; margin-left: -59%; }

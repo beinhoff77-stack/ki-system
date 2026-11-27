@@ -20,14 +20,27 @@ const IDEEN = Object.values(IDEE);
 const ideeVon = (gid) => IDEEN.find((i) => i.gesetze.includes(gid));
 const thema = (k) => (INHALT.themen[k] ? `${INHALT.themen[k].ort} · ${INHALT.themen[k].titel}` : k);
 const klasseVon = (g) => (g.gym && g.gym !== '–' ? 'Klasse ' + g.gym : 'Realschule oder IB');
-const planetScheibe = (name, gr = 28) => `<svg class="scheibe" width="${gr}" height="${gr}" viewBox="-22 -22 44 44" aria-hidden="true"><circle r="21" fill="${PLANET_BILD[name].farbe}"/>${PLANET_BILD[name].zeichen}</svg>`;
+const planetScheibe = (name, gr = 28) => `<svg class="scheibe" width="${gr}" height="${gr}" viewBox="-22 -22 44 44" aria-hidden="true"><circle r="21" fill="${PLANET_BILD[name].farbe}"/><circle r="21" fill="url(#glanz)"/>${PLANET_BILD[name].zeichen}</svg>`;
 const ART_KURZ = { Einführung: 'E', Anwendung: 'A', Vorwissen: 'V' }, STUFE_WORT = { E: 'eingeführt', A: 'angewendet', V: 'Vorwissen', N: 'kommt nicht vor' };
 const bandStufen = (id) => Object.fromEntries(LEITER[id].stufen.map((s) => [s.klasse, s.text ? ART_KURZ[s.art] : 'N']));
 const spanneText = (id) => { const k = LEITER[id].klassen; return k.length === 1 ? `Klasse ${k[0]}` : `Klasse ${k[0]} bis ${k[k.length - 1]}`; };
 // Schmales Klassenband: sechs Kästchen ohne Ziffern (die Ziffern stehen einmal je Schicht darüber)
-const band = (id, o = {}) => { const st = bandStufen(id); return `<span class="b6${o.ziffern ? ' mit' : ''}${o.klein ? ' klein' : ''}" role="img" aria-label="Klassen: ${KL.map((k) => `${k} ${STUFE_WORT[st[k]]}`).join(', ')}">${KL.map((k) => `<i class="${st[k]}">${o.ziffern ? k : ''}</i>`).join('')}</span>`; };
-const bandKopf = `<span class="b6 kopfzahlen" aria-hidden="true">${KL.map((k) => `<i>${k}</i>`).join('')}</span>`;
-const LEGENDE = `<p class="legende"><span class="b6"><i class="E"></i></span>eingeführt <span class="b6"><i class="A"></i></span>angewendet <span class="b6"><i class="V"></i></span>Vorwissen <span class="b6"><i class="N"></i></span>kommt nicht vor</p>`;
+// Achte Runde: drei Zustände, die Klasse steht im Kästchen. neu = eingeführt · da = angewendet oder Vorwissen · nicht = kommt nicht vor
+const DREI = { E: 'neu', A: 'da', V: 'da', N: 'nicht' }, DREI_WORT = { neu: 'neu', da: 'kommt vor', nicht: 'kommt nicht vor' };
+const band = (id, o = {}) => { const st = bandStufen(id); return `<span class="b6${o.gross ? ' gross' : ''}" role="img" aria-label="Klassen: ${KL.map((k) => `${k} ${DREI_WORT[DREI[st[k]]]}`).join(', ')}">${KL.map((k) => `<i class="${DREI[st[k]]}">${k}</i>`).join('')}</span>`; };
+const LEGENDE = `<p class="legende"><span class="b6"><i class="neu">5</i></span>neu <span class="b6"><i class="da">6</i></span>kommt vor <span class="b6"><i class="nicht">9</i></span>kommt nicht vor</p>`;
+// Kleines Bild der Schicht: vier Ringe von innen nach außen, die eigene Schicht kräftig, die anderen blass
+const SF = ['', 'var(--s1)', 'var(--s2)', 'var(--s3)', 'var(--s4)'];
+const ringBild = (nr, gr = 34) => `<svg class="ring" width="${gr}" height="${gr}" viewBox="-22 -22 44 44" aria-hidden="true">${[4, 3, 2, 1].map((k) => `<circle r="${k * 5 + 1}" fill="${SF[k]}" opacity="${k === nr ? 1 : 0.3}"${k === nr ? ' stroke="#11161D" stroke-width="1.6"' : ''}/>`).join('')}</svg>`;
+// Schnitt durch die Sonne: Halbkreis, vier Bänder von innen nach außen, beschriftet; Tipp springt zur Schicht
+function sonnenSchnitt() {
+  const R = [0, 56, 98, 140, 182], cy = 190;
+  const ring = (k) => `<path d="M${200 - R[k]} ${cy}A${R[k]} ${R[k]} 0 0 1 ${200 + R[k]} ${cy}Z" fill="${SF[k]}"/>`;
+  const schrift = (k, y) => `<g class="sc-ziel" data-schicht="${k}" role="button" tabindex="0" aria-label="Schicht ${k}: ${ETAGE[k]}"><rect x="40" y="${y - 19}" width="320" height="28" fill="transparent"/><text x="200" y="${y}" text-anchor="middle" font-family="var(--grotesk)" font-weight="700" font-size="${k === 1 ? 14 : 15}" fill="#11161D"><tspan font-family="var(--mono)" font-weight="800">${k}</tspan>  ${ETAGE[k]}</text></g>`;
+  return `<figure class="schnitt"><svg viewBox="0 0 400 ${cy + 2}" role="img" aria-label="Schnitt durch die Sonne: vier Schichten von innen nach außen">${[4, 3, 2, 1].map(ring).join('')}${[4, 3, 2, 1].map((k) => `<path d="M${200 - R[k]} ${cy}A${R[k]} ${R[k]} 0 0 1 ${200 + R[k]} ${cy}" fill="none" stroke="#11161D" stroke-opacity=".35" stroke-width="1.2"/>`).join('')}
+    ${schrift(4, cy - 154)}${schrift(3, cy - 112)}${schrift(2, cy - 70)}${schrift(1, cy - 18)}<line x1="6" y1="${cy + 1}" x2="394" y2="${cy + 1}" stroke="var(--text)" stroke-width="2"/></svg><figcaption>Schnitt durch die Sonne: innen die Grundlage, außen, was darauf aufbaut. Tippe eine Schicht an.</figcaption></figure>`;
+}
+const satzZeile = (t) => t.replace(/<br>/g, ' ');
 const brauchtRegeln = (g) => ((g.sonne || '').match(/\d+/g) || []).map((n) => 'R' + n).filter((id) => REGEL[id]);
 const ideeBraucht = (i) => [...new Set(i.gesetze.flatMap((gid) => brauchtRegeln(GESETZ[gid])))].sort((a, b) => a.slice(1) - b.slice(1));
 const regelTraegt = (rid) => IDEEN.map((i) => ({ i, n: i.gesetze.filter((gid) => brauchtRegeln(GESETZ[gid]).includes(rid)).length })).filter((x) => x.n);
@@ -92,15 +105,32 @@ function sichtUniversum() {
     <a class="sonne0" href="#sonne"><span class="s0-kreis" aria-hidden="true"></span><span class="s0-text"><small>Die Sonne · die Grundlage</small><b>14 Rechenregeln</b><small>gelten in jedem Gebiet und jeder Klasse</small></span></a>
     <p class="u-zwischen">Darum die sieben Gebiete:</p>
     <ol class="bahnen0">${bahnen}</ol>
-    <a class="guertel0" href="#weisen"><b>8 Arbeitsweisen</b><small>wie man vorgeht – gilt überall</small></a></div>`;
+    <a class="guertel0" href="#weisen"><b>8 Arbeitsweisen</b><small>wie man vorgeht – gilt überall</small></a>${systemBild()}</div>`;
+}
+
+// Rechner (ab 900 px): dasselbe als Sonnensystem. Sonne links angeschnitten, Bahnen als Kreisbögen um sie, Planet und Name auf der Bahn.
+function systemBild() {
+  const cx = -40, cy = 300, rs = 300, dy = [-150, 95, -40, 175, -205, 40, -95], weg = (r) => `M${cx + Math.sqrt(r * r - 290 * 290)} ${cy - 290}A${r} ${r} 0 0 1 ${cx + Math.sqrt(r * r - 290 * 290)} ${cy + 290}`;
+  const bahnR = (n) => 400 + n * 78;
+  const pl = PLANETEN.map((p, n) => { const r = bahnR(n), y = cy + dy[n], x = cx + Math.sqrt(r * r - dy[n] * dy[n]);
+    return `<path d="${weg(r)}" fill="none" stroke="var(--linie)" stroke-width="1.5"/><a href="${adrGebiet(p.name)}" class="sp"><circle cx="${x}" cy="${y}" r="38" fill="transparent"/><g transform="translate(${x} ${y}) scale(1.25)"><circle r="21" fill="${PLANET_BILD[p.name].farbe}"/><circle r="21" fill="url(#glanz)"/>${PLANET_BILD[p.name].zeichen}</g><text x="${x + 36}" y="${y - 2}" font-family="var(--grotesk)" font-weight="700" font-size="19" fill="var(--text)">${esc(p.name)}</text><text x="${x + 36}" y="${y + 19}" font-family="var(--grotesk)" font-weight="500" font-size="15" fill="var(--leise)">${p.ideen.length} tragende Ideen</text></a>`; }).join('');
+  const rw = bahnR(7) - 10;
+  return `<div class="system" aria-hidden="false"><svg viewBox="0 0 1100 600" role="img" aria-label="Sonnensystem: die Sonne mit 14 Rechenregeln, darum sieben Gebiete, außen die Arbeitsweisen">
+    <defs><radialGradient id="sonnenlicht" cx="0" cy=".5" r="1"><stop offset="0" stop-color="#FFD23F" stop-opacity=".35"/><stop offset="1" stop-color="#FFD23F" stop-opacity="0"/></radialGradient></defs>
+    <circle cx="${cx}" cy="${cy}" r="${rs + 120}" fill="url(#sonnenlicht)"/>
+    <a href="#sonne" class="sp"><circle cx="${cx}" cy="${cy}" r="${rs}" fill="var(--s4)"/><circle cx="${cx}" cy="${cy}" r="${rs - 64}" fill="var(--s3)"/><circle cx="${cx}" cy="${cy}" r="${rs - 128}" fill="var(--s2)"/><circle cx="${cx}" cy="${cy}" r="${rs - 192}" fill="var(--s1)"/>
+      <text x="22" y="${cy - 14}" font-family="var(--grotesk)" font-weight="700" font-size="15" fill="#11161D">Die Sonne · die Grundlage</text><text x="22" y="${cy + 17}" font-family="var(--grotesk)" font-weight="700" font-size="28" fill="#11161D">14 Rechenregeln</text><text x="22" y="${cy + 41}" font-family="var(--grotesk)" font-weight="500" font-size="15" fill="#11161D">in vier Schichten</text></a>
+    ${pl}
+    <path d="${weg(rw)}" fill="none" stroke="var(--leise)" stroke-width="2" stroke-dasharray="6 6"/>
+    <a href="#weisen" class="sp"><rect x="${cx + Math.sqrt(rw * rw - 250 * 250) - 30}" y="${cy + 238}" width="230" height="56" rx="28" fill="var(--flaeche)" stroke="var(--leise)" stroke-width="2" stroke-dasharray="6 5"/><text x="${cx + Math.sqrt(rw * rw - 250 * 250) + 85}" y="${cy + 262}" text-anchor="middle" font-family="var(--grotesk)" font-weight="700" font-size="18" fill="var(--text)">8 Arbeitsweisen</text><text x="${cx + Math.sqrt(rw * rw - 250 * 250) + 85}" y="${cy + 282}" text-anchor="middle" font-family="var(--grotesk)" font-size="14" fill="var(--leise)">gelten überall</text></a></svg></div>`;
 }
 
 // Ebene 1: die Sonne – die 14 Rechenregeln in vier Schichten (Nummer, Name, Klassenband)
 function sichtSonne() {
-  const schichten = [1, 2, 3, 4].map((nr) => `<li class="schicht s${nr}"><div class="schicht-kopf"><span class="sk-nr">Schicht ${nr}</span><b>${ETAGE[nr]}</b>${bandKopf}</div><ul class="zeilen">${INHALT.regeln.filter((r) => r.etage === nr).map((r) => `<li><a class="zeile" href="${adr.regel(r.id)}"><span class="z-nr">${r.nr}</span><span class="z-name">${esc(r.name)}</span>${band(r.id)}</a></li>`).join('')}</ul></li>`).join('');
+  const schichten = [1, 2, 3, 4].map((nr) => `<li class="schicht s${nr}"><div class="schicht-kopf" id="schicht-${nr}">${ringBild(nr)}<span class="sk-nr">Schicht ${nr}</span><b>${ETAGE[nr]}</b></div><ul class="zeilen">${INHALT.regeln.filter((r) => r.etage === nr).map((r) => `<li><a class="zeile mit-satz" href="${adr.regel(r.id)}"><span class="z-nr">${r.nr}</span><span class="z-text"><span class="z-name">${esc(r.name)}</span><span class="z-merk">${satzZeile(r.satz)}</span></span>${band(r.id)}</a></li>`).join('')}</ul></li>`).join('');
   return `<div class="breite schmal start">${pfad()}<header class="e-kopf"><span class="s0-mini" aria-hidden="true"></span><div><p class="ueber">Die Sonne</p><h1>14 Rechenregeln</h1></div></header>
-    <p class="lead">In vier Schichten, von den Grundlagen nach außen. Die Schichten ordnen, sie sperren nichts. Das Band rechts zeigt die Klassen 5 bis 10.</p>
-    <ol class="schichten">${schichten}</ol>${LEGENDE}
+    <p class="lead">In vier Schichten, von den Grundlagen nach außen. Die Schichten ordnen, sie sperren nichts.</p>${sonnenSchnitt()}
+    ${LEGENDE}<ol class="schichten">${schichten}</ol>
     <a class="verweis weiter" href="#klassen">Dieselben Regeln durch die Klassen ›</a></div>`;
 }
 
@@ -108,8 +138,8 @@ function sichtSonne() {
 function sichtGebiet(name) {
   const p = PLANETEN.find((x) => x.name === name), n = PLANETEN.indexOf(p), vor = PLANETEN[n - 1], nach = PLANETEN[n + 1];
   return `<div class="breite schmal start">${pfad()}<header class="e-kopf">${planetScheibe(p.name, 48)}<div><p class="ueber">Gebiet ${n + 1} von 7</p><h1>${esc(p.name)}</h1></div></header>
-    <p class="lead">${p.ideen.length} tragende Ideen. Hinter ihnen stehen ${zahlGesetze(p)} einzelne Regeln und Formeln.</p>
-    <ol class="ideen1">${p.ideen.map((i) => `<li><a class="idee1" href="${adr.idee(i.id)}"><span class="z-nr">${i.nr}</span><span class="i1-text"><span class="i1-name">${esc(i.kurz)}</span><span class="i1-satz">${i.satz}</span></span>${band(i.id, { ziffern: 1, klein: 1 })}</a></li>`).join('')}</ol>${LEGENDE}
+    <p class="lead">${p.ideen.length} tragende Ideen. Hinter ihnen stehen ${zahlGesetze(p)} einzelne Regeln und Formeln.</p>${LEGENDE}
+    <ol class="ideen1">${p.ideen.map((i) => `<li><a class="idee1" href="${adr.idee(i.id)}"><span class="z-nr">${i.nr}</span><span class="i1-text"><span class="i1-name">${esc(i.kurz)}</span><span class="i1-satz">${i.satz}</span></span>${band(i.id)}</a></li>`).join('')}</ol>
     ${blaettern(vor && { href: adrGebiet(vor.name), ueber: 'Gebiet ' + n, name: vor.name }, nach && { href: adrGebiet(nach.name), ueber: 'Gebiet ' + (n + 2), name: nach.name })}</div>`;
 }
 
@@ -155,11 +185,11 @@ function genauInhalt(x, id) {
     ${rest.length ? `<h3 class="ueber">Weitere Bilder (${rest.length})</h3>${felderHtml(rest)}` : ''}${x.verwandt ? `<h3 class="ueber">Verwandt</h3><p class="fliess">${x.verwandt}</p>` : ''}`;
 }
 function vergleichInhalt(id) {
-  return `<p class="band-zeile">${band(id, { ziffern: 1 })}</p>${LEGENDE}<p class="markiert"><b>Gelb umrahmt, in jeder Klasse an derselben Stelle:</b> ${esc(LEITER[id].markiert)}</p>${klassenLeiter(id)}`;
+  return `<p class="band-zeile">${band(id, { gross: 1 })}</p>${LEGENDE}<p class="markiert"><b>Gelb umrahmt, in jeder Klasse an derselben Stelle:</b> ${esc(LEITER[id].markiert)}</p>${klassenLeiter(id)}`;
 }
 function sichtRegel(id, lehrer) {
   const r = REGEL[id], n = r.nr, vor = REGEL['R' + (n - 1)], nach = REGEL['R' + (n + 1)];
-  const kopf = `<header class="r-kopf"><p class="ueber">Rechenregel ${n} von 14 · Schicht ${r.etage}</p><h1>${esc(r.name)}</h1><p class="kurz">${esc(KURZ[id] || '')}</p></header>`;
+  const kopf = `<header class="r-kopf"><p class="ueber mit-ring">${ringBild(r.etage, 26)}Rechenregel ${n} von 14 · Schicht ${r.etage}</p><h1>${esc(r.name)}</h1><p class="kurz">${esc(KURZ[id] || '')}</p></header>`;
   if (lehrer) return sichtLehrer(id, kopf);
   return `<article class="breite schmal regelseite">${pfad('<a href="#sonne">Sonne</a>', `<span>Schicht ${r.etage}</span>`)}${kopf}${merksatz(r.satz)}
     <section class="bsp"><p class="ueber">Beispiel</p>${beispiel(id)}</section>
@@ -262,7 +292,9 @@ suchfeld.addEventListener('input', () => { if (suchfeld.value.trim().length >= 3
 
 // ---------- Weiche ----------
 const seite = document.getElementById('seite');
-let ZULETZT = '';
+let ZULETZT = '', ZULETZT_EBENE = 0;
+// Ebene einer Adresse: 0 Universum · 1 Sonne, Gebiet, Arbeitsweisen, Klassen, Suche · 2 Regel, Idee, Arbeitsweise, Lehrer · 3 einzelne Regel
+const ebeneVon = (h) => (h === 'universum' || h === 'aufbau' || !h ? 0 : /^(sonne|weisen|gebiet-|klassen|suche)/.test(h) ? 1 : h.startsWith('regel-') ? 3 : 2);
 function zeige() {
   const h = decodeURIComponent(location.hash.replace(/^#/, '')).toLowerCase() || 'universum';
   let m, html;
@@ -278,13 +310,20 @@ function zeige() {
   else if ((m = h.match(/^klassen(?:-(\d+))?$/))) { if (m[1] && KL.includes(+m[1])) KLASSE = +m[1]; html = sichtKlassen(); }
   else html = sichtUniversum();
   seite.innerHTML = html;
+  const e = ebeneVon(h); document.body.classList.toggle('weltraum', e <= 1);
+  if (ZULETZT && e !== ZULETZT_EBENE && !matchMedia('(prefers-reduced-motion: reduce)').matches && seite.animate)
+    seite.animate([{ opacity: 0, transform: `scale(${e > ZULETZT_EBENE ? 0.965 : 1.035})` }, { opacity: 1, transform: 'none' }], { duration: 220, easing: 'cubic-bezier(.2,.7,.2,1)' });
+  ZULETZT_EBENE = e;
   if (h !== 'suche') { if (document.activeElement !== suchfeld) suchfeld.value = ''; }
   // Beim Wechsel der Klasse bleibt die Seite stehen, sonst nach oben
   if (!(h.startsWith('klassen') && ZULETZT.startsWith('klassen')) && h !== 'suche') scrollTo(0, 0);
   ZULETZT = h;
 }
 addEventListener('hashchange', zeige);
+const zurSchicht = (t) => { const g = t.closest && t.closest('.sc-ziel'); if (g) document.getElementById('schicht-' + g.dataset.schicht).scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' }); return !!g; };
+seite.addEventListener('keydown', (e) => { if ((e.key === 'Enter' || e.key === ' ') && zurSchicht(e.target)) e.preventDefault(); });
 seite.addEventListener('click', (e) => {
+  if (zurSchicht(e.target)) return;
   const b = e.target.closest('.rueck'); if (b) { const alt = b.parentElement.querySelector('.rueck-info'); if (alt) alt.remove(); else b.insertAdjacentHTML('afterend', `<p class="rueck-info">Im Entwurf ohne Funktion. In der App öffnet sich hier die Rückmeldung (Fehler, Vorschlag, Frage) mit dem Bezug „${esc(b.dataset.bezug)}“.</p>`); }
   const o = e.target.closest('[data-ohne]'); if (o) { e.preventDefault(); o.textContent = 'Verweis im Entwurf ohne Ziel'; }
 });
@@ -296,4 +335,5 @@ ew.querySelector('button').addEventListener('click', () => { ew.classList.toggle
 ew.querySelector('.thema').addEventListener('click', () => setzeThema(THEMA === 'hell' ? 'nacht' : 'hell'));
 ew.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => ew.classList.remove('offen')));
 document.body.append(ew);
+document.body.insertAdjacentHTML('afterbegin', '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><radialGradient id="glanz" cx=".34" cy=".3" r=".8"><stop offset="0" stop-color="#fff" stop-opacity=".5"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></radialGradient></defs></svg>');
 zeige();

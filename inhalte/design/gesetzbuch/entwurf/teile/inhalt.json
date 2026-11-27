@@ -4810,7 +4810,7 @@
       "U19",
       "U20"
      ],
-     "warum": "Es gibt zwei Grundarten zu wachsen. Kommt in jedem gleich großen x-Schritt gleich viel dazu, liegen die Punkte auf einer Geraden. Wird in jedem gleich großen x-Schritt mit derselben Zahl q malgenommen, entsteht y = A · qˣ (A > 0): Für q > 1 wird die Kurve immer steiler und überholt jede Gerade, für 0 < q < 1 fällt sie, für q = 1 bleibt sie konstant. Dabei ist q der Faktor je einem x-Schritt der Länge 1; bei der Schrittweite h ist der Faktor qʰ.",
+     "warum": "Es gibt zwei Grundarten zu wachsen. Kommt in jedem gleich großen x-Schritt gleich viel dazu, liegen die Punkte auf einer Geraden. Multipliziert sich der Funktionswert bei jedem x-Schritt der Länge 1 mit demselben positiven Faktor q, beschreibt y = A · qˣ das exponentielle Modell mit Anfangswert A > 0. Für q > 1 wird die Kurve immer steiler und überholt jede Gerade, für 0 < q < 1 fällt sie, für q = 1 bleibt sie konstant. Dabei ist q der Faktor je einem x-Schritt der Länge 1; bei der Schrittweite h ist der Faktor qʰ.",
      "zeichen": {
       "Zu sehen": "Ein Koordinatensystem mit zwei Graphen, die im selben Punkt beginnen: eine Gerade und eine Kurve. An beiden sind die Punkte für x = 0 bis 4 markiert; zwischen den Punkten kleine Treppenstufen.",
       "Maße": "Gerade: (0 | 1), (1 | 3), (2 | 5), (3 | 7), (4 | 9). Kurve: (0 | 1), (1 | 2), (2 | 4), (3 | 8), (4 | 16). x-Achse 0 bis 4, y-Achse 0 bis 16.",

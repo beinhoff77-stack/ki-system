@@ -230,6 +230,10 @@ AENDERUNGEN += [
  (idee, ('Algebra', 4), 'satz', 'Steht x im Quadrat: erst null auf eine Seite, dann zerlegen.',
   'Steht x im Quadrat: meist erst null auf eine Seite, dann zerlegen.'),
 ]
+AENDERUNGEN += [
+ (idee, ('Funktionen', 2), 'warum', 'Es gibt zwei Grundarten zu wachsen. Kommt in jedem gleich großen x-Schritt gleich viel dazu, liegen die Punkte auf einer Geraden. Wird in jedem gleich großen x-Schritt mit derselben Zahl q malgenommen, entsteht y = A · qˣ (A > 0): Für q > 1 wird die Kurve immer steiler und überholt jede Gerade, für 0 < q < 1 fällt sie, für q = 1 bleibt sie konstant. Dabei ist q der Faktor je einem x-Schritt der Länge 1; bei der Schrittweite h ist der Faktor qʰ.',
+  'Es gibt zwei Grundarten zu wachsen. Kommt in jedem gleich großen x-Schritt gleich viel dazu, liegen die Punkte auf einer Geraden. Multipliziert sich der Funktionswert bei jedem x-Schritt der Länge 1 mit demselben positiven Faktor q, beschreibt y = A · qˣ das exponentielle Modell mit Anfangswert A > 0. Für q > 1 wird die Kurve immer steiler und überholt jede Gerade, für 0 < q < 1 fällt sie, für q = 1 bleibt sie konstant. Dabei ist q der Faktor je einem x-Schritt der Länge 1; bei der Schrittweite h ist der Faktor qʰ.'),
+]
 KLASSEN = [  # (Tabelle, Schlüssel, Klasse, alt, neu): Text des Klassenbeispiels im Gesetz
  (gesetz, 'G16', 5, 'Rechteck: 2 Symmetrieachsen. Quadrat: 4',
   'Ein nichtquadratisches Rechteck hat zwei Symmetrieachsen, ein Quadrat vier.'),

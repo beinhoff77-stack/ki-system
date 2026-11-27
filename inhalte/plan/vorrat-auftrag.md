@@ -59,6 +59,14 @@ Befund: In den ersten Runden hat die Gegenprüfung 30 bis 60 % der Aufgaben bean
 5. **Die Form hält, was sie verspricht:** „Zwei Wege“ = zwei wirklich verschiedene Verfahren (nicht dieselbe Rechnung mit Zwischenschritt); „Brücke“ = echter Wechsel der Darstellung; „Umkehren“ = rückwärts denken, nicht nur probieren; Probe = die Ausgangsgleichung prüfen. `g` und Stufe nach der tatsächlichen Tätigkeit (Methode auswählen = erkennen; Gegenbeispiel beurteilen = begruenden), nicht pauschal nach der Form.
 6. **Sprache:** Fachwörter genau (Mantelfläche, Höhenunterschied statt Abstand, mittlere Änderung, Minimalwert vs. tiefster Punkt), Zahlwörter richtig geschrieben, „mindestens/höchstens“ statt „zwischen“, wenn die Grenzen zählen. Größenangaben plausibel.
 
+**D. Weitere Lehren (Gegenprüfung der Runden 10 und 11, 27.11.: 28 % und 18 % Muss trotz Vorprüfung)**
+1. **Diagnose- und Regel-Kennungen** (`fehlbild`, `regel`, Verweis auf eine tragende Idee): nur setzen, wenn der Katalog `inhalte/mathe-profi/regeln-uebersicht/kennungen.json` GENAU diesen Fehler bzw. diese Regel beschreibt (z. B. „Fläche mit k“ ist nicht „Volumen mit k“; „Drittel vergessen“ gilt nicht für die Kugel; „halbieren vergessen (Dreieck)“ nicht für Halbkreis/Sektor). Sonst Kennung leer lassen und die richtige Beschreibung behalten. Jede gesetzte Kennung gegen den Katalogtext lesen.
+2. **Rückmeldung zu jeder falsch gewählten Zeile im Fehler-Detektiv:** Eine Zeile, die unabhängig vom ersten Fehler richtig gerechnet ist, darf nicht als „Folge des Fehlers“ erklärt werden – dann steht dort: „Diese Zeile ist richtig, weil …“.
+3. **Die Aufgabe übt, was die Lernkarte heißt** – auch die Richtung (lesen ≠ schreiben; Bruchgleichung = Variable im Nenner mit Definitionsbedingung; Sachaufgabe mit Gleichung = Gleichung im Lösungsweg).
+4. **Schreibweise:** kein Malpunkt auf der Grundlinie in Hochzahlen (nicht „a²·³“, sondern „(a²)³ = a⁶, denn 2 · 3 = 6“); Brüche mit Klammern (3/(2x)); Rundungsweg so zeigen, dass er nicht die falsche Rundung nahelegt.
+5. **Was gefragt ist, wird bewertet:** Die letzte Aufforderung im Text ist die Eingabefrage; „mindestens/höchstens“ nur, wenn die Rundungsrichtung dazu passt; bei Näherung mit 3,14 nach dem Wert DIESER Rechnung fragen.
+6. **Stufe 3:** nicht durch den Tipp zur Routine machen; die nötige Beziehung muss das Kind selbst auswählen.
+
 **C. Ablauf je Runde (verbindlich)**
 1. Schreiber schreibt Thema für Thema und hakt A und B ab.
 2. **Zweiter Helfer, der die Runde nicht geschrieben hat, prüft alle Aufgaben** nach A und B als strenger Gegenprüfer und berichtigt; er rechnet jedes Fehlbild von Hand nach, das die Maschine nicht prüfen kann.

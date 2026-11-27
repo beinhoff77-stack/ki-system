@@ -20,8 +20,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.haut",
-   "regel_name": "Haut des Körpers",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -91,8 +91,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.flaeche_raum.haut",
-   "regel_name": "Haut des Körpers",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -100,14 +100,14 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "Zeile 1 stimmt: Grund- und Deckfläche sind zwei Sechsecke. Der Fehler steckt später."
     },
     {
      "index": 2,
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Zeile 3 rechnet 2 + 12 = 14 für sich richtig, benutzt aber die falsche Zahl der Seitenflächen aus Zeile 2. Der Fehler liegt schon in Zeile 2."
     }
    ],
    "aufgabe": {
@@ -128,7 +128,7 @@
     "o": {
      "index": 1
     },
-    "h": "Wie viele Seitenflächen hat ein Prisma mit dreieckiger Grundfläche?",
+    "h": "Prüfe jede Zeile für sich und überlege, wie viele Seitenflächen zu den Seiten der Grundfläche gehören. Welche Zeile enthält zuerst einen Fehler?",
     "w": "Zu jeder Seite der Grundfläche gehört eine Seitenfläche, hier also 6. Insgesamt: 2 + 6 = 8 Flächen. Der erste Fehler steht in Zeile 2."
    }
   },
@@ -145,22 +145,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 36,
+     "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur ein Quadrat gerechnet"
     },
     {
-     "antwort": 144,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "nur vier Quadrate gezählt (ohne Deckel und Boden)"
+     "antwort": 75,
+     "fehlbild": "fb.haut.nur_drei_flaechen",
+     "regel_des_fehlbilds": "id.flaeche_raum.haut",
+     "beschreibung": "nur drei statt sechs Quadrate gezählt"
     },
     {
-     "antwort": 1296,
+     "antwort": 125,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Volumen berechnet: 6 · 6 · 6 · 6"
+     "beschreibung": "das Volumen berechnet: 5 · 5 · 5"
     }
    ],
    "aufgabe": {
@@ -171,15 +171,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Eine Würfelschachtel hat die Kantenlänge 6 cm. Sie wird aus einem Netz gefaltet. Wie viele cm² Pappe braucht man für das Netz, wenn man keine Klebelaschen rechnet?"
+     "text": "Eine Würfelschachtel hat die Kantenlänge 5 cm. Sie wird aus einem Netz gefaltet. Wie viele cm² Pappe braucht man für das Netz, wenn man keine Klebelaschen rechnet?"
     },
     "o": {
-     "wert": 216,
+     "wert": 150,
      "einheit": "cm²"
     },
-    "c": "6 * (6 * 6)",
+    "c": "6 * (5 * 5)",
     "h": "Aus wie vielen Quadraten besteht das Netz eines Würfels? Wie groß ist jedes?",
-    "w": "Das Netz besteht aus 6 Quadraten. Jedes hat 6 · 6 = 36 cm². 6 · 36 cm² = 216 cm²."
+    "w": "Das Netz besteht aus 6 Quadraten. Jedes hat 5 · 5 = 25 cm². 6 · 25 cm² = 150 cm²."
    }
   },
   {
@@ -196,9 +196,9 @@
    "fehlbilder": [
     {
      "antwort": 47,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "nur drei Rechtecke gezählt"
+     "fehlbild": "fb.haut.nur_drei_flaechen",
+     "regel_des_fehlbilds": "id.flaeche_raum.haut",
+     "beschreibung": "nur drei statt sechs Rechtecke gezählt"
     },
     {
      "antwort": 60,
@@ -293,14 +293,14 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Zeile 2 rechnet 9,42 · 10 = 94,2 für sich richtig, benutzt aber den falschen Umfang aus Zeile 1. Der Fehler liegt schon in Zeile 1."
     },
     {
      "index": 2,
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Zeile 3 übernimmt nur das Ergebnis aus Zeile 2. Der Fehler liegt schon in Zeile 1."
     }
    ],
    "aufgabe": {
@@ -321,7 +321,7 @@
     "o": {
      "index": 0
     },
-    "h": "Wie lautet die Formel für den Umfang eines Kreises mit dem Radius r?",
+    "h": "Prüfe jede Zeile für sich und vergleiche mit der Formel für den Kreisumfang. Welche Zeile enthält zuerst einen Fehler?",
     "w": "Der Umfang ist u = 2 · π · r = 2 · 3,14 · 3 = 18,84 cm. Die Mantelfläche ist 18,84 · 10 = 188,4 cm². Der erste Fehler steht in Zeile 1."
    }
   },
@@ -392,14 +392,14 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "Zeile 1 stimmt: Die Vorderseite liegt in der Zeichenebene und wird in wahrer Größe gezeichnet. Der Fehler steckt später."
     },
     {
      "index": 2,
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Zeile 3 übernimmt nur das Ergebnis aus Zeile 2. Der Fehler liegt schon in Zeile 2."
     }
    ],
    "aufgabe": {
@@ -420,7 +420,7 @@
     "o": {
      "index": 1
     },
-    "h": "Verkürzen heißt: kleiner machen. Wird beim Malnehmen mit 2 etwas kleiner?",
+    "h": "Prüfe jede Zeile für sich und frage, ob die Rechnung zum Verkürzen passt. Welche Zeile enthält zuerst einen Fehler?",
     "w": "Mit q = 1/2 wird die Tiefe halbiert: 6 · 1/2 = 3 cm. Die schrägen Kanten sind 3 cm lang. Der erste Fehler steht in Zeile 2."
    }
   },
@@ -432,8 +432,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.haut",
-   "regel_name": "Haut des Körpers",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -447,12 +447,6 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "alle Körper gezählt"
-    },
-    {
-     "antwort": 3,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den Zylinder mitgezählt, weil beide Ansichten rund oder eckig wirken"
     }
    ],
    "aufgabe": {
@@ -463,7 +457,7 @@
     "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "Die Tabelle nennt für vier Körper die Vorderansicht und die Draufsicht. Bei wie vielen der vier Körper haben die Vorderansicht und die Draufsicht dieselbe Figur?",
+     "text": "Die Tabelle nennt für vier Körper die Vorderansicht und die Draufsicht. Bei wie vielen der vier Körper sind beide Ansichten dieselbe Art von Figur (zum Beispiel beide Rechtecke)?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -512,12 +506,12 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "auswahl",
-   "regel": "id.flaeche_raum.haut",
-   "regel_name": "Haut des Körpers",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Kegel",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -549,13 +543,13 @@
      "text": "Ein Körper wird von vorn und von der Seite betrachtet. In beiden Fällen sieht man ein Dreieck. Von oben sieht man ein Quadrat. Welcher Körper ist es?"
     },
     "a": [
-     "Pyramide mit quadratischer Grundfläche",
      "Kegel",
+     "Pyramide mit quadratischer Grundfläche",
      "Dreiecksprisma (liegend)",
      "Würfel"
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "h": "Welcher Körper hat von oben die Form seiner Grundfläche und läuft nach oben spitz zu?",
     "w": "Dreieck von vorn und von der Seite heißt: Der Körper läuft nach oben spitz zu. Das Quadrat von oben ist die Grundfläche. Das ist die Pyramide mit quadratischer Grundfläche."
@@ -569,8 +563,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.haut",
-   "regel_name": "Haut des Körpers",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -600,7 +594,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Wie viele Kanten hat ein Würfel? Weg A: Zähle die Kanten oben, unten und die senkrechten Kanten. Weg B: Ein Würfel hat 6 Flächen mit je 4 Kanten. Jede Kante gehört zu genau zwei Flächen."
+     "text": "Jan behauptet: „Ein Würfel hat 6 Flächen mit je 4 Kanten, also 24 Kanten.“ Wie viele Kanten hat ein Würfel wirklich? Weg A: Zähle die Kanten oben, unten und die senkrechten Kanten. Weg B: Prüfe Jans Rechnung: Jede Kante gehört zu genau zwei Flächen."
     },
     "o": {
      "wert": 12,
@@ -619,27 +613,27 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.haut",
-   "regel_name": "Haut des Körpers",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 10,
+     "antwort": 15,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur Grund- und Deckfläche gezählt"
+     "beschreibung": "nur Grund- und Deckfläche gezählt: 30 : 2"
     },
     {
-     "antwort": 25,
+     "antwort": 90,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "5 · 5 gerechnet"
+     "beschreibung": "mit 3 malgenommen statt durch 3 geteilt"
     },
     {
-     "antwort": 20,
+     "antwort": 27,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "vier Kantengruppen angenommen"
+     "beschreibung": "3 abgezogen statt durch 3 geteilt"
     }
    ],
    "aufgabe": {
@@ -650,15 +644,15 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Ein Bastler baut aus Holzstäben das Kantenmodell eines Prismas mit fünfeckiger Grundfläche. Jeder Stab ist eine Kante. Wie viele Stäbe braucht er?"
+     "text": "Für das Kantenmodell eines Prismas stehen genau 30 Holzstäbe bereit. Jeder Stab ist eine Kante, und alle Stäbe werden gebraucht. Wie viele Ecken hat die Grundfläche des Prismas?"
     },
     "o": {
-     "wert": 15,
-     "einheit": "Stäbe"
+     "wert": 10,
+     "einheit": "Ecken"
     },
-    "c": "3 * 5",
-    "h": "Wie viele Kanten hat die Grundfläche? Wie viele die Deckfläche? Und wie viele laufen senkrecht?",
-    "w": "Grundfläche: 5 Kanten, Deckfläche: 5 Kanten, senkrechte Kanten: 5. Zusammen 5 + 5 + 5 = 15 Stäbe."
+    "c": "30 / 3",
+    "h": "Wie viele Kanten gehören bei einem Prisma zu jeder Ecke der Grundfläche? Denke an Grundfläche, Deckfläche und die senkrechten Kanten.",
+    "w": "Zu jeder Ecke der Grundfläche gehören 3 Kanten: eine in der Grundfläche, eine in der Deckfläche und eine senkrechte. 3 · n = 30, also n = 10. Das Prisma hat eine zehneckige Grundfläche. Probe: 3 · 10 = 30."
    }
   }
  ]

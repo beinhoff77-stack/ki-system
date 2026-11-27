@@ -171,14 +171,14 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Zeile 2 ist unabhängig von Zeile 1 und für sich richtig: 3² = 3 · 3 = 9."
     },
     {
      "index": 2,
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Zeile 3 rechnet 30 − 9 = 21 für sich richtig, benutzt aber die 30 aus Zeile 1. Der Fehler liegt schon in Zeile 1."
     }
    ],
    "aufgabe": {
@@ -199,7 +199,7 @@
     "o": {
      "index": 0
     },
-    "h": "Was bedeutet 2³ ausgeschrieben? Wie oft steht die 2 da?",
+    "h": "Prüfe jede Zeile für sich und schreibe jede Potenz als Produkt aus. Welche Zeile enthält zuerst einen Fehler?",
     "w": "2³ = 2 · 2 · 2 = 8, nicht 2 · 3. Richtig: 5 · 8 = 40 und 40 − 9 = 31. Der erste Fehler steht in Zeile 1."
    }
   },
@@ -318,19 +318,19 @@
      "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Hochzahl 3 übernommen"
+     "beschreibung": "Basis und Hochzahl vertauscht: die Basis 3 als Hochzahl genommen"
     },
     {
-     "antwort": 64,
+     "antwort": 27,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Wert der Potenz statt der Hochzahl angegeben"
+     "beschreibung": "81 durch 3 geteilt"
     },
     {
-     "antwort": 8,
+     "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "4 · 2 gerechnet"
+     "beschreibung": "nur zwei Faktoren 3 gemalt und 3 · 3 als Hochzahl genommen"
     }
    ],
    "aufgabe": {
@@ -341,14 +341,14 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Für welche Hochzahl gilt 2 hoch □ = 4³? Tipp: 4 = 2 · 2."
+     "text": "Für welche Hochzahl gilt 3 hoch □ = 81?"
     },
     "o": {
-     "wert": 6
+     "wert": 4
     },
-    "c": "2 * 3",
-    "h": "Berechne zuerst, wie oft die 2 als Faktor in 4 · 4 · 4 steckt.",
-    "w": "4³ = 4 · 4 · 4 = 64. 2⁶ = 64. Auch: Jede 4 sind zwei Faktoren 2, dreimal 4 sind 3 · 2 = 6 Faktoren 2. Die Hochzahl ist 6."
+    "c": "4",
+    "h": "Wie oft muss die 3 als Faktor stehen, damit 81 herauskommt? Die Hochzahl sagt, wie oft die Basis als Faktor vorkommt.",
+    "w": "3 · 3 = 9, 9 · 3 = 27, 27 · 3 = 81: Die 3 steht 4-mal als Faktor da, also 3⁴ = 81. Nicht verwechseln: 4³ ist 4 · 4 · 4 = 64. Probe: 3⁴ = 81."
    }
   },
   {
@@ -368,14 +368,14 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "Zeile 1 stimmt: 3 · 3 · 3 · 3 = 81. Der Fehler steckt später."
     },
     {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "Zeile 2 stimmt: 4 · 4 · 4 = 64. Der Fehler steckt später."
     }
    ],
    "aufgabe": {
@@ -396,7 +396,7 @@
     "o": {
      "index": 2
     },
-    "h": "Vergleiche die Werte aus Zeile 1 und Zeile 2.",
+    "h": "Prüfe jede Zeile für sich und rechne die Werte genau nach. Welche Zeile enthält zuerst einen Fehler?",
     "w": "81 und 64 sind verschieden. Beim Vertauschen von Basis und Hochzahl ändert sich der Wert im Allgemeinen. Der erste Fehler steht in Zeile 3."
    }
   },
@@ -513,8 +513,8 @@
    "fehlbilder": [
     {
      "antwort": 27,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
      "beschreibung": "das Vorzeichen vergessen"
     },
     {
@@ -565,14 +565,14 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "Zeile 1 stimmt: Bei −2⁴ wird nur 2⁴ negativ genommen, −(2 · 2 · 2 · 2) = −16. Der Fehler steckt später."
     },
     {
      "index": 2,
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Zeile 3 rechnet −16 + (−16) = −32 für sich richtig, benutzt aber das falsche Ergebnis aus Zeile 2. Der Fehler liegt schon in Zeile 2."
     }
    ],
    "aufgabe": {
@@ -593,7 +593,7 @@
     "o": {
      "index": 1
     },
-    "h": "Ist ein Produkt aus vier negativen Faktoren negativ oder positiv?",
+    "h": "Prüfe jede Zeile für sich und zähle bei jedem Produkt die negativen Faktoren. Welche Zeile enthält zuerst einen Fehler?",
     "w": "Zwei negative Faktoren ergeben plus, vier ebenso: (−2)⁴ = 16. Richtig: −16 + 16 = 0. Der erste Fehler steht in Zeile 2."
    }
   },

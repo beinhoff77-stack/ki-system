@@ -125,7 +125,7 @@ def W(text, richtig, falsch, h, w, probe, grafik=None):
 
 
 def FD(einleitung, zeilen, h, w, frage="In welcher Zeile passiert der erste Fehler?", grafik=None):
-    """Fehler-Detektiv. zeilen: [(Text, stimmt, folgt)] – beides wird im Programm berechnet:
+    """Fehler-Detektiv. zeilen: [(Text, stimmt, folgt[, Rückmeldung])] – optional eine eigene Rückmeldung je Zeile (sonst eine allgemeine); beides wird im Programm berechnet:
     stimmt = die Zeile ist für sich richtig (nur bis zur Fehlerzeile maßgeblich); folgt = die Zeile folgt rechnerisch richtig aus der Zeile davor (bei Zeile 1: True).
     Verlangt: alle Zeilen vor der Fehlerzeile stimmen; die Fehlerzeile stimmt nicht (und folgt richtig aus der Zeile davor oder ist der Fehler selbst);
     jede Zeile nach der Fehlerzeile folgt richtig aus der Zeile davor (kein zweiter unabhängiger Fehler)."""
@@ -134,13 +134,14 @@ def FD(einleitung, zeilen, h, w, frage="In welcher Zeile passiert der erste Fehl
     assert falsche, (einleitung, "eine Zeile muss für sich falsch sein")
     f = falsche[0]                      # erste Fehlerzeile; für Zeilen danach zählt nur, dass sie aus der Zeile davor richtig folgen
     assert all(z[2] for z in zeilen[f + 1:]), (einleitung, "Folgezeile folgt nicht richtig aus der Zeile davor")
+    assert all(len(z) == 4 for i, z in enumerate(zeilen) if i != f), (einleitung, "zu jeder Zeile außer der Fehlerzeile gehört eine eigene Rückmeldung (4. Eintrag)")
     text = einleitung + " " + " ".join(f"Zeile {i + 1}: {z[0]}" for i, z in enumerate(zeilen)) + " " + frage
     ant = [f"In Zeile {i + 1}" for i in range(len(zeilen))]
-    fb = {i: (None, "diese Zeile ist richtig; der Fehler steckt woanders" if i < f else "diese Zeile ist nur die Folge des ersten Fehlers") for i in range(len(zeilen)) if i != f}
+    fb = {i: (None, zeilen[i][3]) for i in range(len(zeilen)) if i != f}
     return mit({"y": "auswahl", "f": {"text": text}, "a": ant, "o": {"index": f}, "h": h, "w": w}, grafik), lambda: True, fb
 
 
-def neu(thema, lk, form, bau, g=None, regel="rr.waage", thema_datei=None):
+def neu(thema, lk, form, bau, g=None, regel=None, thema_datei=None):
     """form: Schlüssel aus FORM. g: Aufgabentyp (Standard je Form); die Stufe folgt aus g.
     rang: Sortierrang für die Kennungen. Er bleibt die Stufe, die der Standard-Typ der Form hatte (Verfahren wählen: 2), damit die Kennungen K8-V… stabil bleiben,
     auch wenn g nach der tatsächlichen Tätigkeit gesetzt wird."""

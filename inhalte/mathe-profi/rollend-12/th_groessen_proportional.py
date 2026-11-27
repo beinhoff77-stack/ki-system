@@ -9,7 +9,7 @@ neu(T, "einheit", "zwei_wege", Z(
     [(24, None, "2 € mit 12 malgenommen", "2 * 12"), (10, None, "2 € mit 5 malgenommen", "2 * 5"), (0.4, None, "nur den Preis für 1 Apfel genannt", "2 / 5")], "€"), regel=WF)
 neu(T, "einheit", "anwenden", Z(
     "Eine Pumpe fördert in 8 Minuten 120 Liter Wasser. Wie viele Liter fördert sie in einer Stunde?",
-    900, "120 / 8 * 60", "15 * 60", "Wie viele Liter fördert sie in 1 Minute? Wie viele Minuten hat eine Stunde?",
+    900, "120 / 8 * 60", "15 * 60", "Auf welche gemeinsame Zeiteinheit musst du die Angaben bringen? Was lässt sich zuerst ausrechnen?",
     "In 1 Minute: 120 : 8 = 15 Liter. Eine Stunde hat 60 Minuten: 15 · 60 = 900 Liter.",
     [(15, None, "nur die Liter je Minute genannt", "120 / 8"), (960, None, "120 mit 8 malgenommen", "120 * 8"), (7200, None, "120 mit 60 malgenommen", "120 * 60")], "Liter"), g="transfer", regel=WF)
 
@@ -32,8 +32,8 @@ neu(T, "geschickt", "umkehren", Z(
     "Ein Ei kostet 9 € : 36 = 0,25 €. 2,50 € : 0,25 € = 10. Man bekommt 10 Eier. Probe: 10 · 0,25 € = 2,50 €.",
     [(90, None, "2,50 mit 36 malgenommen", "2.5 * 36"), (0.25, None, "nur den Preis für ein Ei genannt", "9 / 36"), (4, None, "36 durch 9 geteilt", "36 / 9")], "Eier"), g="umkehr", regel=WF)
 neu(T, "geschickt", "bruecke", Z(
-    "Die Tabelle gehört zu einer proportionalen Zuordnung (Anzahl Hefte → Preis). Wie viel Euro kosten 14 Hefte? Tipp: 14 = 4 + 10.",
-    21, "6 + 15", "14 * 1.5", "Der Preis für 14 Hefte ist der Preis für 4 Hefte plus der Preis für 10 Hefte. Beide stehen in der Tabelle.",
+    "Die Tabelle gehört zu einer proportionalen Zuordnung (Anzahl Hefte → Preis). Wie viel Euro kosten 14 Hefte?",
+    21, "6 + 15", "14 * 1.5", "Aus welchen Heftzahlen der Tabelle kannst du 14 zusammensetzen? Was bedeutet das für die Preise?",
     "14 Hefte sind 4 Hefte und 10 Hefte. Preis: 6 € + 15 € = 21 €. Kontrolle: Ein Heft kostet 1,50 €, 14 · 1,50 € = 21 €.",
     [(28, None, "14 mit 2 malgenommen", "14 * 2"), (24, None, "den Preis für 6 Hefte statt 4 Hefte addiert: 9 + 15", "9 + 15"), (15, None, "nur den Preis für 10 Hefte genannt", "15")], "€",
     grafik=TAB(["Hefte", "Preis in €"], ["4", "6"], ["6", "9"], ["10", "15"])), g="verknuepfen", regel=WF)
@@ -57,9 +57,9 @@ neu(T, "aenderung", "bruecke", Z(
     3, "(24 - 12) / (12 - 8)", "(18 - 12) / 2", "Wie viele Grad kommen zwischen 8 Uhr und 12 Uhr dazu? Wie viele Stunden sind das?",
     "Von 8 Uhr bis 12 Uhr steigt die Temperatur um 24 − 12 = 12 Grad in 4 Stunden. Pro Stunde: 12 : 4 = 3 Grad.",
     [(6, None, "den Anstieg in 2 Stunden genannt", "18 - 12"), (12, None, "den gesamten Anstieg genannt", "24 - 12"), (4, None, "die Zahl der Stunden genannt", "12 - 8")], "°C",
-    grafik=TAB(["Uhrzeit", "Temperatur in °C"], ["8 Uhr", "12"], ["10 Uhr", "18"], ["12 Uhr", "24"])), regel=WF)
+    grafik=TAB(["Uhrzeit", "Temperatur in °C"], ["8 Uhr", "12"], ["10 Uhr", "18"], ["12 Uhr", "24"])))
 neu(T, "aenderung", "anwenden", Z(
     "Ein Becken wird gleichmäßig gefüllt. Nach 2 Stunden sind 800 Liter im Becken, nach 5 Stunden 2 000 Liter. Wie viele Liter sind nach 8 Stunden im Becken?",
     3200, "800 + 6 * (2000 - 800) / 3", "2000 + 3 * 400", "Wie viele Liter kommen pro Stunde dazu? Wie viele Stunden sind es noch bis zur 8. Stunde?",
     "Von der 2. bis zur 5. Stunde kommen 1 200 Liter in 3 Stunden dazu, also 400 Liter je Stunde. Von der 5. bis zur 8. Stunde noch einmal 3 · 400 = 1 200 Liter. 2 000 + 1 200 = 3 200 Liter.",
-    [(6400, None, "8 mit 800 malgenommen", "8 * 800"), (2800, None, "nur 800 Liter dazugerechnet", "2000 + 800"), (3600, None, "mit 450 Liter je Stunde gerechnet", "8 * 450")], "Liter"), g="transfer", regel=WF)
+    [(6400, None, "8 mit 800 malgenommen", "8 * 800"), (2800, None, "nur 800 Liter dazugerechnet", "2000 + 800"), (5600, None, "den Zuwachs von 1 200 Litern, der schon 3 Stunden umfasst, noch einmal mit 3 malgenommen", "2000 + 3 * 1200")], "Liter"), g="transfer", regel=WF)

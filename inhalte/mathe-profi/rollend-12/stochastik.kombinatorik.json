@@ -20,8 +20,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.daten.stufen",
-   "regel_name": "Stufen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -70,8 +70,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.daten.stufen",
-   "regel_name": "Stufen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -220,8 +220,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.daten.stufen",
-   "regel_name": "Stufen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -270,8 +270,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.stufen",
-   "regel_name": "Stufen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -308,7 +308,7 @@
      "einheit": "Aufstellungen"
     },
     "c": "5 * 4 * 3 * 2 * 1",
-    "h": "Behandle Tim und Eva wie ein einziges Paket. Wie viele Teile werden dann angeordnet?",
+    "h": "Was passiert mit Tim und Eva, wenn sie immer zusammenbleiben müssen? Wie viele Einheiten werden dann angeordnet?",
     "w": "Tim und Eva bilden ein festes Paar (Tim links). Es werden 5 Teile angeordnet: das Paar und 4 weitere Kinder. 5 · 4 · 3 · 2 · 1 = 120 Aufstellungen."
    }
   },
@@ -420,8 +420,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.stufen",
-   "regel_name": "Stufen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -470,8 +470,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.daten.stufen",
-   "regel_name": "Stufen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -519,8 +519,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.daten.stufen",
-   "regel_name": "Stufen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -569,8 +569,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.daten.stufen",
-   "regel_name": "Stufen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -619,23 +619,23 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "auswahl",
-   "regel": "id.daten.stufen",
-   "regel_name": "Stufen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Ja, es sind 6 + 4 + 3 = 13 Becher mehr als 100.",
+     "antwort": "Nein, es sind nur 13 Becher.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Zahlen wurden addiert statt malgenommen und das Ergebnis falsch verglichen."
+     "beschreibung": "Die Zahlen wurden addiert statt malgenommen."
     },
     {
      "index": 1,
-     "antwort": "Ja, es sind 6 · 4 · 3 · 2 = 144 Becher.",
+     "antwort": "Ja, es sind 7 · 5 · 4 = 140 Becher.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Es wurde ein Faktor 2 zu viel gerechnet."
+     "beschreibung": "„Ohne“ wurde als zusätzliche Möglichkeit mitgezählt, obwohl man aus jeder Gruppe genau eines wählt."
     }
    ],
    "aufgabe": {
@@ -646,11 +646,11 @@
     "g": "einkleidung",
     "y": "auswahl",
     "f": {
-     "text": "Ein Eis-Imbiss wirbt: „Über 100 verschiedene Eisbecher!“ Man wählt genau eine von 6 Sorten, eine von 4 Soßen und eines von 3 Toppings. Stimmt die Werbung?"
+     "text": "Ein Eis-Imbiss wirbt: „Über 100 verschiedene Eisbecher!“ Man wählt genau eine von 6 Sorten, genau eine von 4 Soßen und genau eines von 3 Toppings. Stimmt die Werbung?"
     },
     "a": [
-     "Ja, es sind 6 + 4 + 3 = 13 Becher mehr als 100.",
-     "Ja, es sind 6 · 4 · 3 · 2 = 144 Becher.",
+     "Nein, es sind nur 13 Becher.",
+     "Ja, es sind 7 · 5 · 4 = 140 Becher.",
      "Nein, es sind nur 72 Becher."
     ],
     "o": {
@@ -668,15 +668,15 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.daten.stufen",
-   "regel_name": "Stufen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "2 + 2 + 2 gerechnet"
+     "beschreibung": "Tims Zahl 3 · 2 · 1 übernommen (Anordnungen ohne Wiederholung)"
     },
     {
      "antwort": 4,
@@ -699,15 +699,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Wie viele dreistellige Zahlen gibt es, die nur aus den Ziffern 1 und 2 bestehen? Ziffern dürfen mehrfach vorkommen. Weg A: Schreibe alle Zahlen geordnet auf (111, 112, 121, …) und zähle. Weg B: Rechne mit der Zahl der Möglichkeiten für jede Stelle."
+     "text": "Tim behauptet: „Aus den Ziffern 1 und 2 kann man nur 6 verschiedene dreistellige Zahlen bilden, denn es gibt 3 · 2 · 1 Anordnungen.“ Wie viele dreistellige Zahlen aus den Ziffern 1 und 2 gibt es wirklich, wenn Ziffern mehrfach vorkommen dürfen? Weg A: Schreibe alle Zahlen geordnet auf (111, 112, 121, …) und zähle. Weg B: Rechne mit der Zahl der Möglichkeiten für jede Stelle."
     },
     "o": {
      "wert": 8,
      "einheit": "Zahlen"
     },
     "c": "2 * 2 * 2",
-    "h": "Wie viele Ziffern kommen für die erste Stelle in Frage? Und für die zweite und dritte?",
-    "w": "Weg A: 111, 112, 121, 122, 211, 212, 221, 222 sind 8 Zahlen. Weg B: Jede der 3 Stellen hat 2 Möglichkeiten: 2 · 2 · 2 = 8."
+    "h": "Darf eine Ziffer mehrfach vorkommen? Wie viele Ziffern kommen dann für jede Stelle in Frage?",
+    "w": "Weg A: 111, 112, 121, 122, 211, 212, 221, 222 sind 8 Zahlen. Weg B: Jede der 3 Stellen hat 2 Möglichkeiten: 2 · 2 · 2 = 8. Tims Rechnung 3 · 2 · 1 gilt nur, wenn jede Ziffer genau einmal vorkommt."
    }
   }
  ]

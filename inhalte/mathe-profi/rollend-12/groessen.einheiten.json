@@ -31,10 +31,10 @@
      "beschreibung": "9 mal 20 gerechnet"
     },
     {
-     "antwort": 4.5,
+     "antwort": 0.45,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "9 durch 2 geteilt (m und cm nicht umgerechnet)"
+     "beschreibung": "9 durch 20 geteilt, ohne die Meter in cm umzurechnen"
     },
     {
      "antwort": 5,
@@ -341,15 +341,15 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.verhaeltnisse.groesse",
-   "regel_name": "Größe",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "antwort": 125,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Stunden und Minuten falsch zusammengezählt: 1 h 25 min als 125 min"
+     "beschreibung": "1 h 25 min als 125 min gelesen (1 h = 100 min gerechnet)"
     },
     {
      "antwort": 35,
@@ -358,10 +358,10 @@
      "beschreibung": "47 − 12 Minuten gerechnet"
     },
     {
-     "antwort": 165,
+     "antwort": 155,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "zwei Stunden zu viel gerechnet: 12 + 47 + 106"
+     "beschreibung": "Stunden und Minuten einzeln voneinander abgezogen, ohne die Minuten über eine Stunde hinweg richtig zu behandeln"
     }
    ],
    "aufgabe": {
@@ -408,21 +408,21 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.verhaeltnisse.groesse",
-   "regel_name": "Größe",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "antwort": 235,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "1 h = 100 min gerechnet: 2 h 35 min als 2 h + 135"
+     "beschreibung": "1 h = 100 min gerechnet: 2 h 35 min als 2 · 100 + 35"
     },
     {
-     "antwort": 175,
+     "antwort": 205,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Minuten 35 und 10 falsch abgezogen: 125 + 50"
+     "beschreibung": "3 h gerechnet und die 25 Minuten addiert statt abgezogen"
     },
     {
      "antwort": 25,
@@ -539,15 +539,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Wie viele Gramm sind 2,75 kg? Weg A: Rechne 2,75 · 1 000. Weg B: Rechne 2 kg und 0,75 kg getrennt in g um und addiere."
+     "text": "Wie viele Gramm sind 2,75 kg? Weg A: Rechne 2,75 · 1 000. Weg B: Schreibe 2,75 kg mit drei Stellen hinter dem Komma (2,750 kg) und lies kg und g ab."
     },
     "o": {
      "wert": 2750,
      "einheit": "g"
     },
     "c": "2.75 * 1000",
-    "h": "Wie viele Gramm sind 0,75 kg?",
-    "w": "Weg A: 2,75 · 1 000 = 2 750 g. Weg B: 2 kg = 2 000 g und 0,75 kg = 750 g, zusammen 2 750 g."
+    "h": "Ein Gramm ist ein Tausendstel eines Kilogramms. Welche Stellen hinter dem Komma gehören zu den Gramm?",
+    "w": "Weg A: 2,75 · 1 000 = 2 750 g. Weg B: 2,75 kg = 2,750 kg. Vor dem Komma stehen die 2 kg, die drei Stellen dahinter sind die Gramm: 2 kg 750 g = 2 000 g + 750 g = 2 750 g."
    }
   },
   {
@@ -558,27 +558,27 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.verhaeltnisse.groesse",
-   "regel_name": "Größe",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 7,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "aufgerundet, obwohl das Geld nicht reicht"
-    },
-    {
-     "antwort": 6.38,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "nicht auf ganze Hefte abgerundet"
-    },
-    {
-     "antwort": 35.25,
+     "antwort": 33.135,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "multipliziert statt geteilt"
+    },
+    {
+     "antwort": 11.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Preis eines Hefts vom Gesamtpreis abgezogen"
+    },
+    {
+     "antwort": 16.45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Preis eines Hefts zum Gesamtpreis addiert"
     }
    ],
    "aufgabe": {
@@ -589,15 +589,15 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Ein Heft kostet 2,35 €. Wie viele Hefte kann man für 15 € höchstens kaufen?"
+     "text": "Mia hat Hefte gekauft, die je 2,35 € kosten. Sie hat insgesamt 14,10 € bezahlt. Wie viele Hefte hat sie gekauft?"
     },
     "o": {
      "wert": 6,
      "einheit": "Hefte"
     },
-    "c": "15 // 2.35",
-    "h": "Wie viele Hefte kosten zusammen noch nicht mehr als 15 €? Rechne zurück.",
-    "w": "15 : 2,35 ≈ 6,38. Man kann nur ganze Hefte kaufen: höchstens 6 Hefte (6 · 2,35 € = 14,10 €). 7 Hefte würden 16,45 € kosten."
+    "c": "14.1 / 2.35",
+    "h": "Mit welcher Rechnung bekommt man den Gesamtpreis aus der Zahl der Hefte? Mache sie rückgängig.",
+    "w": "Gesamtpreis = Zahl der Hefte · 2,35 €. Rückwärts: 14,10 € : 2,35 € = 6. Probe: 6 · 2,35 € = 14,10 €."
    }
   },
   {
@@ -608,8 +608,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.verhaeltnisse.groesse",
-   "regel_name": "Größe",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -746,7 +746,7 @@
      "einheit": "min"
     },
     "c": "14 * 50000 / 100000 / 4 * 60",
-    "h": "Rechne zuerst die Länge in Wirklichkeit in km aus. Dann: Wie viele Stunden sind das?",
+    "h": "Welche Größen brauchst du, um aus Weglänge und Tempo eine Zeit zu bekommen? Auf welche Einheiten musst du achten?",
     "w": "14 · 50 000 cm = 700 000 cm = 7 km. 7 km : 4 km/h = 1,75 h. 1,75 h = 105 min."
    }
   },
@@ -758,8 +758,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "auswahl",
-   "regel": "id.verhaeltnisse.groesse",
-   "regel_name": "Größe",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -777,7 +777,7 @@
      "beschreibung": "Die Nachkommastelle 5 wurde als 5 Minuten gelesen."
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "3 h 15 min",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -797,11 +797,11 @@
     "a": [
      "3 h 50 min",
      "3 h 5 min",
-     "3 h 30 min",
-     "3 h 15 min"
+     "3 h 15 min",
+     "3 h 30 min"
     ],
     "o": {
-     "index": 2
+     "index": 3
     },
     "h": "Eine halbe Stunde hat wie viele Minuten? 0,5 h ist eine halbe Stunde.",
     "w": "0,5 h ist eine halbe Stunde, das sind 30 Minuten. 3,5 h = 3 h 30 min."
@@ -815,19 +815,19 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "auswahl",
-   "regel": "id.verhaeltnisse.groesse",
-   "regel_name": "Größe",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "17:42 Uhr",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Die Fahrzeit wurde addiert statt abgezogen."
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "12:12 Uhr",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -852,13 +852,13 @@
      "text": "Ein Zug kommt um 15:12 Uhr an. Die Fahrt hat 2,5 Stunden gedauert. Wann ist er abgefahren?"
     },
     "a": [
+     "12:42 Uhr",
      "17:42 Uhr",
      "12:12 Uhr",
-     "12:42 Uhr",
      "12:22 Uhr"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "h": "Rechne 2,5 Stunden in Stunden und Minuten um. Gehe dann rückwärts von der Ankunftszeit.",
     "w": "2,5 h = 2 h 30 min. Rückwärts von 15:12 Uhr: 2 h zurück ergibt 13:12 Uhr, weitere 30 min zurück ergibt 12:42 Uhr. Probe: 12:42 Uhr + 2 h 30 min = 15:12 Uhr."

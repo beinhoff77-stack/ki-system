@@ -20,21 +20,21 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.zahlen.bausteine",
-   "regel_name": "Bausteine",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "alle Teiler gezählt statt der Paare"
+     "beschreibung": "das Rechteck mit den Seiten 4 und 9 und das mit den Seiten 9 und 4 als verschieden gezählt, also alle Teiler von 36 gezählt"
     },
     {
-     "antwort": 10,
+     "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "jedes Paar doppelt gezählt (4 × 9 und 9 × 4)"
+     "beschreibung": "das Quadrat mit Seite 6 doppelt gezählt"
     },
     {
      "antwort": 4,
@@ -70,27 +70,27 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.zahlen.bausteine",
-   "regel_name": "Bausteine",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 18,
+     "antwort": 47,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "eine Zahl mit 6 Teilern gewählt, die nicht die kleinste ist"
-    },
-    {
-     "antwort": 6,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl 6 selbst gewählt (sie hat nur 4 Teiler)"
+     "beschreibung": "die größte Primzahl unter 50 genommen (sie hat nur 2 Teiler)"
     },
     {
      "antwort": 36,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl mit den meisten Teilern in der Nähe gewählt (36 hat 9 Teiler)"
+     "beschreibung": "die Quadratzahl 36 genommen (sie hat 9 Teiler)"
+    },
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht die größte, sondern die nächstkleinere Zahl mit 3 Teilern genommen"
     }
    ],
    "aufgabe": {
@@ -101,14 +101,14 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Welches ist die kleinste Zahl, die genau 6 Teiler hat?"
+     "text": "Eine Zahl kleiner als 50 hat genau 3 Teiler. Es gibt mehrere solche Zahlen. Wie heißt die größte davon?"
     },
     "o": {
-     "wert": 12
+     "wert": 49
     },
-    "c": "12",
-    "h": "Probiere nacheinander kleine Zahlen und zähle ihre Teiler. Zahlen mit wenigen Teilern kannst du schnell ausschließen.",
-    "w": "12 hat die Teiler 1, 2, 3, 4, 6 und 12, das sind 6. Die kleineren Zahlen haben weniger: 6 hat 4 Teiler, 8 hat 4, 10 hat 4, 9 hat 3, 11 hat 2. Also ist 12 die kleinste."
+    "c": "7 * 7",
+    "h": "Eine Zahl mit genau 3 Teilern hat die Teiler 1, eine Zahl a und sich selbst. Wie hängen a und die Zahl zusammen?",
+    "w": "Die Teiler sind 1, a und die Zahl selbst. Das geht nur, wenn die Zahl a · a ist und a eine Primzahl ist. Solche Zahlen unter 50 sind 4, 9, 25 und 49. Die größte ist 49 = 7 · 7 mit den Teilern 1, 7 und 49."
    }
   },
   {
@@ -119,15 +119,15 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.zahlen.bausteine",
-   "regel_name": "Bausteine",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "antwort": 15,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ein Vielfaches zu viel gezählt (erstes und letztes Glied beide mitgezählt, obwohl 100 kein Vielfaches ist)"
+     "beschreibung": "ein Vielfaches zu viel gezählt: 28 − 14 + 1"
     },
     {
      "antwort": 28,
@@ -169,24 +169,24 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.zahlen.bausteine",
-   "regel_name": "Bausteine",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 6,
+     "antwort": 5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den größten gemeinsamen Teiler genommen"
     },
     {
-     "antwort": 216,
+     "antwort": 300,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "beide Zahlen malgenommen"
     },
     {
-     "antwort": 30,
+     "antwort": 35,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "beide Zahlen addiert"
@@ -200,15 +200,15 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Ein Bus der Linie A fährt alle 12 Minuten, ein Bus der Linie B alle 18 Minuten. Um 8:00 Uhr fahren beide gleichzeitig ab. Nach wie vielen Minuten fahren beide zum ersten Mal wieder gleichzeitig ab?"
+     "text": "Ein Bus der Linie A fährt alle 15 Minuten, ein Bus der Linie B alle 20 Minuten. Um 8:00 Uhr fahren beide gleichzeitig ab. Nach wie vielen Minuten fahren beide zum ersten Mal wieder gleichzeitig ab?"
     },
     "o": {
-     "wert": 36,
+     "wert": 60,
      "einheit": "Minuten"
     },
-    "c": "36",
-    "h": "Schreibe die Vielfachen von 12 und von 18 auf. Welche Zahl kommt in beiden Reihen zuerst vor?",
-    "w": "Vielfache von 12: 12, 24, 36, … Vielfache von 18: 18, 36, … Die erste gemeinsame Zahl ist 36. Nach 36 Minuten fahren beide wieder gleichzeitig ab."
+    "c": "60",
+    "h": "Wann sind beide Busse gleichzeitig an der Haltestelle? Was haben die Abfahrtszeiten mit Vielfachen zu tun?",
+    "w": "Vielfache von 15: 15, 30, 45, 60, … Vielfache von 20: 20, 40, 60, … Die erste gemeinsame Zahl ist 60. Nach 60 Minuten fahren beide wieder gleichzeitig ab."
    }
   },
   {
@@ -219,26 +219,26 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "auswahl",
-   "regel": "id.zahlen.bausteine",
-   "regel_name": "Bausteine",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "275 €",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Endziffer 5: durch 5 teilbar, also mit 5-Euro-Scheinen zahlbar."
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "340 €",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Endziffer 0: durch 5 teilbar, also zahlbar."
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "1 205 €",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -256,13 +256,13 @@
      "text": "Eine Kasse hat nur 5-Euro-Scheine und 10-Euro-Scheine. Welcher Betrag kann damit nicht genau bezahlt werden?"
     },
     "a": [
-     "4 902 €",
      "275 €",
      "340 €",
-     "1 205 €"
+     "1 205 €",
+     "4 902 €"
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "h": "Alle Beträge, die man mit 5-Euro-Scheinen zahlen kann, sind Vielfache von 5. Woran erkennt man Vielfache von 5?",
     "w": "Vielfache von 5 enden auf 0 oder 5. 275, 340 und 1 205 enden auf 5 oder 0. 4 902 endet auf 2, ist also kein Vielfaches von 5 und lässt sich mit 5-€- und 10-€-Scheinen nicht genau zahlen."
@@ -276,8 +276,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.zahlen.bausteine",
-   "regel_name": "Bausteine",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -326,19 +326,19 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "auswahl",
-   "regel": "id.zahlen.bausteine",
-   "regel_name": "Bausteine",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Los 2 378",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Quersumme 20, nicht durch 3 teilbar."
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Los 4 123",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -363,13 +363,13 @@
      "text": "Bei einer Tombola gewinnt jedes Los, dessen Nummer durch 3 teilbar ist. Welches dieser Lose gewinnt?"
     },
     "a": [
+     "Los 1 245",
      "Los 2 378",
      "Los 4 123",
-     "Los 1 245",
      "Los 5 606"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "h": "Eine Zahl ist durch 3 teilbar, wenn ihre Quersumme durch 3 teilbar ist.",
     "w": "Quersummen: 1 245 → 12 (durch 3 teilbar), 2 378 → 20, 4 123 → 10, 5 606 → 17. Nur 12 ist durch 3 teilbar, es gewinnt Los 1 245."
@@ -383,27 +383,27 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.zahlen.bausteine",
-   "regel_name": "Bausteine",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 24,
+     "antwort": 22,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Quersumme selbst als Rest genannt"
     },
     {
-     "antwort": 2,
+     "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Quotienten der Quersumme genannt"
     },
     {
      "antwort": 0,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Quersumme durch 3 geprüft statt durch 9 (24 ist durch 3 teilbar)"
+     "fehlbild": "fb.bausteine.endziffer_statt_quersumme",
+     "regel_des_fehlbilds": "id.zahlen.bausteine",
+     "beschreibung": "nur die Endziffer 9 angesehen: Sie ist durch 3 teilbar, also Rest 0"
     }
    ],
    "aufgabe": {
@@ -414,14 +414,14 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Welchen Rest lässt 7 836 bei der Division durch 9? Weg A: Dividiere schriftlich. Weg B: Bilde die Quersumme und bestimme ihren Rest bei der Division durch 9."
+     "text": "Welchen Rest lässt 2 749 bei der Division durch 3? Weg A: Dividiere schriftlich. Weg B: Bilde die Quersumme und bestimme ihren Rest bei der Division durch 3."
     },
     "o": {
-     "wert": 6
+     "wert": 1
     },
-    "c": "7836 % 9",
+    "c": "2749 % 3",
     "h": "Bei Weg B zählst du zuerst die Ziffern zusammen.",
-    "w": "Weg A: 7 836 : 9 = 870 Rest 6. Weg B: Quersumme 7 + 8 + 3 + 6 = 24, 24 : 9 = 2 Rest 6. Beide Wege geben Rest 6."
+    "w": "Weg A: 2 749 : 3 = 916 Rest 1. Weg B: Quersumme 2 + 7 + 4 + 9 = 22, 22 : 3 = 7 Rest 1. Beide Wege geben Rest 1."
    }
   },
   {
@@ -432,8 +432,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.zahlen.bausteine",
-   "regel_name": "Bausteine",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -470,7 +470,7 @@
      "einheit": "Stifte"
     },
     "c": "5873 % 9",
-    "h": "Mit der Quersumme findest du den Rest, ohne zu dividieren.",
+    "h": "Womit kannst du den Rest bei Division durch 9 finden, ohne zu dividieren?",
     "w": "Quersumme: 5 + 8 + 7 + 3 = 23. 23 : 9 = 2 Rest 5. Also bleibt Rest 5. Kontrolle: 5 873 = 9 · 652 + 5."
    }
   },
@@ -482,8 +482,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.zahlen.bausteine",
-   "regel_name": "Bausteine",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -543,10 +543,10 @@
      "beschreibung": "addiert statt abgezogen"
     },
     {
-     "antwort": 16,
+     "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "20 − 4 gerechnet (Zahl ist außerdem keine Primzahl)"
+     "beschreibung": "die Summe 20 halbiert statt 3 abzuziehen"
     }
    ],
    "aufgabe": {
@@ -624,14 +624,14 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "2 · 2 · 3 · 15",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
+     "fehlbild": "fb.bausteine.nicht_zu_ende_zerlegt",
+     "regel_des_fehlbilds": "id.zahlen.bausteine",
      "beschreibung": "Der Faktor 15 ist noch nicht zu Ende zerlegt."
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "2 · 3 · 3 · 5 · 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -649,12 +649,12 @@
      "text": "Ein Faktorbaum für 180 sieht so aus: 180 = 2 · 90, dann 90 = 2 · 45, dann 45 = 3 · 15, dann 15 = 3 · 5. Welche Primfaktorzerlegung ergibt sich aus dem Baum?"
     },
     "a": [
-     "2 · 2 · 3 · 3 · 5",
      "2 · 2 · 3 · 15",
-     "2 · 3 · 3 · 5 · 5"
+     "2 · 3 · 3 · 5 · 5",
+     "2 · 2 · 3 · 3 · 5"
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "h": "Lies alle Enden des Baums ab: Welche Faktoren lassen sich nicht weiter zerlegen?",
     "w": "Die Enden des Baums sind 2, 2, 3, 3 und 5. 2 · 2 · 3 · 3 · 5 = 180 und alle Faktoren sind Primzahlen."
@@ -706,7 +706,7 @@
      "einheit": "cm"
     },
     "c": "2 * 3 * 7",
-    "h": "Zerlege beide Zahlen in Primfaktoren. Welche Faktoren kommen in beiden vor?",
+    "h": "Welche Eigenschaft muss die Seitenlänge der Platten für 84 cm und für 126 cm haben?",
     "w": "84 = 2 · 2 · 3 · 7 und 126 = 2 · 3 · 3 · 7. Gemeinsam sind 2, 3 und 7. 2 · 3 · 7 = 42. Die Platten sind 42 cm lang. Probe: 84 : 42 = 2 und 126 : 42 = 3."
    }
   }

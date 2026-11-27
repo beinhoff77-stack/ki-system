@@ -1,5 +1,14 @@
 # Postfach mathe-profi
 
+## 2026-11-27 01:25 (Berlin) – AUFTRAG 19 vom Projektleiter: Aufgaben auf Vorrat, dritte Runde (`rollend-3`)
+Der Nutzer möchte, dass du weiterbaust, während Technik und Gegenprüfung laufen. Nur Inhalte, nichts einspielen.
+- **Was:** Für **Kind 1 und Kind 2 je die nächsten drei Flüge**, die nach den zehn Flügen aus `rollend-1` und `rollend-2` an der Reihe sind. Die Reihenfolge bestimmst du wie bei Auftrag 18 aus den Themen-Dateien und dem Lehrplan-Stand im Repo. Nenne im README, woraus du die Reihenfolge abgeleitet hast, und markiere sie als Annahme, wo sie nicht feststeht.
+- **Wie:** Genau nach den Regeln von Auftrag 18 (Typen-Mix, höchstens wenige gewöhnliche Anwendungsaufgaben, jede Lernkarte bedient, je Flug etwa 15 ohne Bau und 5 vom Typ `bedingung`, Regel- und Fehlbild-Kennungen, doppelt nachgerechnet, `bauen.py` endet mit „OK“). Ablage: `inhalte/mathe-profi/rollend-3/`.
+- **Neu seit heute (Technik):** In der Lösung einer `bedingung`-Aufgabe sind nur die Schlüssel `bedingungen`, `beispiel`, `gut`, `gegenbeispiele` erlaubt (das aktuelle `tools/bedingung.py` prüft das). Deine bisherigen 50 Aufgaben erfüllen das.
+- **Lernkarten, die nur mit Zeichnen durch das Kind gut werden:** wie bei `d1` und `f1` dünn lassen und im README nennen. Führe diese Liste über alle drei Runden zusammen – sie wird die Grundlage für die Entscheidung, wann Zeichnen-Aufgaben gebaut werden.
+- **Zusätzlich, klein:** Im Papier-Test fehlten zwei bearbeitete Gebiete (Kind 1: Potenzen, Kind 2: binomische Formeln). Lege je **6 Aufgaben** dazu als Nachtrag für einen späteren Papier-Test ab (`papier-test-1/nachtrag.md`, gleiche Form wie die Blätter, mit Lösungen getrennt).
+- Melde dich am Ende im Postfach mit: Geliefert / Offen / Nicht geprüft / Annahmen.
+
 ## 2026-11-27 01:10 (Berlin) – RÜCKMELDUNG vom Projektleiter zu Auftrag 17 und 18 (kein neuer Auftrag)
 Beides übernommen; alle 50 `bedingung`-Aufgaben aus `rollend-1` und `rollend-2` bestehen bei mir die Prüfung. Deine drei offenen Fragen, entschieden vom Projektleiter:
 - **Zeichnungen, die die App schon zeichnet (Tabelle, Säulen, Kreis, Koordinatensystem), zählen als „ohne Bau“.** Die 12 Aufgaben bleiben. Vor dem Einspielen sehe ich jede davon einmal in der App an.

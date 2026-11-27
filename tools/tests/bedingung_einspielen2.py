@@ -68,10 +68,37 @@ def main():
     i = mig.index('do $$', mig.index('-- Text-Patches.'))
     patch = mig[i:mig.index('end $$;', i) + len('end $$;')]
     assert 'zaehle' in patch
+    kopf = 'do $$\ndeclare\n  f record;'
+    assert mig.count(kopf) == 1 and patch.startswith(kopf)
+    anker = "E'do $$\\ndeclare\\n  f record;'"
     lit = lambda v: "'" + bedingung.schreibe_json(v).replace("'", "''") + "'::jsonb"
     feld = lambda sp, **neu: ', '.join(neu.get(s, s) for s in SPALTEN.split(', '))
     neu = dict(antworttyp="'bedingung'", frage='v_frage', antworten='null', loesung='v_loesung', tipp='null', loesungsweg="'Probe-Aufgabe des Einspiel-Pakets'", freigegeben='true')
     teuer, tp = T.teuer(), E.teuer_potenz()
+
+    def kurz(wert, *teile):
+        """Langes JSON als SQL-Ausdruck mit Bausteinen (replace), damit das Paket kürzer wird. Die Auflösung wird hier nachgerechnet."""
+        voll = bedingung.schreibe_json(wert)
+        assert '~' not in voll and "'" not in voll
+        text, kurzteile = voll, []          # teile: von innen nach außen
+        for i, t in enumerate(teile, 1):
+            for j, k in enumerate(kurzteile, 1):
+                t = t.replace(teile[j - 1] if False else k[1], f'~{j}~')
+            assert text.count(t) > 1, t[:40]
+            text = text.replace(t, f'~{i}~')
+            kurzteile.append((t, teile[i - 1]))
+        sql, probe = f"'{text}'", text
+        for i in range(len(teile), 0, -1):  # außen zuerst auflösen
+            t = kurzteile[i - 1][0]
+            sql = f"replace({sql}, '~{i}~', '{t}')"
+            probe = probe.replace(f'~{i}~', t)
+        assert probe == voll
+        return f"({sql})::jsonb"
+    js = bedingung.schreibe_json
+    b1, p1 = teuer['o']['bedingungen'][0]['pruefe'], tp['o']['bedingungen'][0]['pruefe']
+    assert all(b['pruefe'] == b1 for b in teuer['o']['bedingungen'][:7]) and all(b['pruefe'] == p1 for b in tp['o']['bedingungen'][:7])
+    kb = kurz(teuer['o']['bedingungen'], js(b1[1][1]), js(b1))
+    kp = kurz(tp['o']['bedingungen'], js(p1[1][1]), js(p1))
     sechs = 'array[' + ', '.join(f"'{f}'" for f in SECHS) + ']'
     fn_soll = 'array[' + ', '.join(f"'{f}'" for f in LOESUNG_FUNKTIONEN) + ']::text[]'
     typ_soll = "'" + TYP_SOLL.replace("'", "''") + "'"
@@ -167,7 +194,8 @@ def main():
   end if;"""
     print(f"""-- BD-S2 Einspiel-Paket (erzeugt von tools/tests/bedingung_einspielen2.py). Ein Aufruf, eine Transaktion. Fehler = alles zurück.
 select set_config('lock_timeout', '3s', true), set_config('statement_timeout', '120s', true);
-create temp table b2_mig on commit drop as select $b2mig${mig}$b2mig$::text as sql, $b2patch${patch}$b2patch$::text as patch,
+create temp table b2_mig on commit drop as select m.sql, substr(m.sql, strpos(m.sql, {anker}), strpos(substr(m.sql, strpos(m.sql, {anker})), 'end $$;') + 6) as patch, m.alt
+from (select $b2mig${mig}$b2mig$::text as sql,
 $b2alt$do $x$
 declare k bigint := (select id from schule.lernender where ist_test order by id limit 1); a schule.aufgabe; r1 jsonb; r2 jsonb; r3 jsonb; r4 jsonb; r5 jsonb;
   falsch constant jsonb := '{{"wert":"987654"}}'; richtig jsonb;
@@ -189,7 +217,8 @@ begin
   exception when sqlstate 'BD999' then null;
   end;
   insert into b2_aus values ('PHASE', 'falsch-1', r1), ('PHASE', 'falsch-2', r2), ('PHASE', 'wiederholt', r3), ('PHASE', 'richtig', r4), ('PHASE', 'wiederholt-endgueltig', r5);
-end $x$;$b2alt$::text as alt;
+end $x$;$b2alt$::text as alt) m;
+do $chk$ begin if (select strpos(patch, 'plan constant jsonb') = 0 or right(patch, 7) <> 'end $$;' or length(patch) <> {len(patch)} from b2_mig) then raise exception 'BD-S2: Patch-Block nicht gefunden'; end if; end $chk$;
 create temp table b2_aus (phase text, schritt text, r jsonb) on commit drop;
 create temp table b2_vor on commit drop as
   select f, pg_get_functiondef(to_regprocedure(f)) as def, (select proacl::text from pg_proc where oid = to_regprocedure(f)) as acl from unnest({sechs}) f;
@@ -389,9 +418,9 @@ begin
 
   -- 7. Laufzeit (Mittel aus 200), alle Argumente als Variablen, damit wirklich 200 Mal gerechnet wird
   for i in 1 .. 3 loop
-    if i = 1 then v_f := {lit(teuer['f']['felder'])}; v_b := {lit(teuer['o']['bedingungen'])}; v_a := {lit({'werte': T.MESS})};
+    if i = 1 then v_f := {lit(teuer['f']['felder'])}; v_b := {kb}; v_a := {lit({'werte': T.MESS})};
     elsif i = 2 then v_a := {lit({'werte': E.GROSS})};
-    else v_f := {lit(tp['f']['felder'])}; v_b := {lit(tp['o']['bedingungen'])}; v_a := {lit({'werte': E.POTENZ})};
+    else v_f := {lit(tp['f']['felder'])}; v_b := {kp}; v_a := {lit({'werte': E.POTENZ})};
     end if;
     t0 := clock_timestamp();
     for n in 1 .. 200 loop v_r := schule.bed_bewerten(v_f, v_b, v_a); end loop;

@@ -151,7 +151,7 @@
     "g": "transfer",
     "y": "luecken",
     "f": {
-     "text": "Ein Wasserbehälter ist zu 2/3 gefüllt. Morgens wird 1/4 des Behälters entnommen, abends wird 1/6 des Behälters aufgefüllt. Welcher Bruchteil des Behälters ist danach gefüllt?",
+     "text": "Ein Wasserbehälter ist zu 2/3 gefüllt. Morgens wird 1/4 des Behälters entnommen, abends wird 1/6 des Behälters aufgefüllt. Welcher Bruchteil des Behälters ist danach gefüllt? Gib den Bruch vollständig gekürzt an.",
      "schablone": "□/□",
      "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
     },
@@ -452,7 +452,7 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -460,7 +460,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Zeile 3 übernimmt nur das Ergebnis aus Zeile 2. Der erste Fehler steht in Zeile 2.",
      "c": null
     }
    ],
@@ -472,7 +472,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Tom rechnet (−3,2) − (−0,5). Zeile 1: (−3,2) − (−0,5) = (−3,2) + 0,5 Zeile 2: (−3,2) + 0,5 = −3,7 Zeile 3: Das Ergebnis ist −3,7. In welcher Zeile passiert der erste Fehler?"
+     "text": "Tom rechnet (−3,2) − (−0,5). Zeile 1: (−3,2) − (−0,5) = (−3,2) + 0,5 Zeile 2: (−3,2) + 0,5 = −3,7 Zeile 3: Das Ergebnis ist −3,7. In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",
@@ -642,7 +642,7 @@
     "g": "transfer",
     "y": "luecken",
     "f": {
-     "text": "Von einer Torte sind noch 3/4 da. Anna isst davon 2/3. Vom Rest, der dann noch da ist, isst Ben 1/3. Welcher Bruchteil der ganzen Torte bleibt am Ende?",
+     "text": "Von einer Torte sind noch 3/4 da. Anna isst davon 2/3. Vom Rest, der dann noch da ist, isst Ben 1/3. Welcher Bruchteil der ganzen Torte bleibt am Ende? Gib den Bruch vollständig gekürzt an.",
      "schablone": "□/□",
      "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
     },
@@ -817,7 +817,7 @@
     "g": "rueckwaerts",
     "y": "luecken",
     "f": {
-     "text": "Der Bruch 3/4 wird durch einen Bruch geteilt. Das Ergebnis ist 9/8. Durch welchen Bruch wurde geteilt? Schreibe ihn gekürzt.",
+     "text": "Der Bruch 3/4 wird durch einen Bruch geteilt. Das Ergebnis ist 9/8. Durch welchen Bruch wurde geteilt? Schreibe ihn vollständig gekürzt.",
      "schablone": "□/□",
      "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
     },
@@ -831,7 +831,7 @@
      "(3/4 / (9/8)) * 3",
      "3"
     ],
-    "h": "Wenn a : b = c ist, dann ist b = a : c.",
+    "h": "Schreibe die Aufgabe als 3/4 : ? = 9/8. Wie kannst du die gesuchte Zahl durch eine Probe finden?",
     "w": "Gesucht ist x mit 3/4 : x = 9/8. Dann ist x = 3/4 : 9/8 = 3/4 · 8/9 = 24/36 = 2/3. Probe: 3/4 : 2/3 = 3/4 · 3/2 = 9/8."
    }
   },
@@ -843,8 +843,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "rr.stellenwert",
-   "regel_name": "Stellenwert",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -918,8 +918,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "rr.stellenwert",
-   "regel_name": "Stellenwert",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -970,8 +970,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.stellenwert",
-   "regel_name": "Stellenwert",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1016,8 +1016,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "rr.stellenwert",
-   "regel_name": "Stellenwert",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -1081,8 +1081,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.stellenwert",
-   "regel_name": "Stellenwert",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1126,8 +1126,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "rr.stellenwert",
-   "regel_name": "Stellenwert",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1135,7 +1135,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "135 : 9 = 15 ist für sich richtig. Die Aufgabe 135 : 9 ist aber nicht mehr die Aufgabe aus Zeile 1; der erste Fehler steht in Zeile 1.",
      "c": null
     },
     {
@@ -1143,7 +1143,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Zeile 3 übernimmt nur das Ergebnis aus Zeile 2. Der erste Fehler steht schon in Zeile 1.",
      "c": null
     }
    ],
@@ -1155,7 +1155,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Eva rechnet 1,35 : 0,9. Zeile 1: 1,35 : 0,9 = 135 : 9 Zeile 2: 135 : 9 = 15 Zeile 3: Also ist 1,35 : 0,9 = 15. In welcher Zeile passiert der erste Fehler?"
+     "text": "Eva rechnet 1,35 : 0,9. Zeile 1: 1,35 : 0,9 = 135 : 9 Zeile 2: 135 : 9 = 15 Zeile 3: Also ist 1,35 : 0,9 = 15. In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",
@@ -1279,7 +1279,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Eine quadratische Teppichfliese hat die Seitenlänge 2/5 m. Wie groß ist seine Fläche in Quadratdezimetern? (1 m² = 100 dm²)"
+     "text": "Eine quadratische Teppichfliese hat die Seitenlänge 2/5 m. Es gilt 1 m² = 100 dm². Wie groß ist ihre Fläche in Quadratdezimetern?"
     },
     "o": {
      "wert": 16,
@@ -1327,7 +1327,7 @@
     "g": "rueckwaerts",
     "y": "luecken",
     "f": {
-     "text": "Eine Zahl a/b hoch 3 ergibt 27/64. Wie heißt die Zahl? Schreibe sie als Bruch.",
+     "text": "Eine Zahl a/b hoch 3 ergibt 27/64. Wie heißt die Zahl? Schreibe sie als vollständig gekürzten Bruch.",
      "schablone": "□/□",
      "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
     },
@@ -1418,8 +1418,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "rr.tauschen",
-   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1445,7 +1445,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Berechne 98 · 7 auf zwei Wegen. Weg A: Schreibe 98 als 100 − 2 und rechne 100 · 7 − 2 · 7. Weg B: Multipliziere 98 mit 7 schriftlich."
+     "text": "Berechne 98 · 7 auf zwei Wegen. Weg A: Schreibe 98 als 100 − 2 und rechne 100 · 7 − 2 · 7. Weg B: Multipliziere 98 mit 7 schriftlich. Wie groß ist das Produkt?"
     },
     "o": {
      "wert": 686
@@ -1644,8 +1644,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.reihenfolge",
-   "regel_name": "Reihenfolge beim Rechnen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1824,7 +1824,7 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -1832,7 +1832,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     }
    ],
@@ -1844,7 +1844,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Karl rechnet 2/3 : 4/9. Zeile 1: 2/3 : 4/9 = 2/3 · 9/4 Zeile 2: = 18/12 Zeile 3: Gekürzt ist das 2/3. In welcher Zeile passiert der erste Fehler?"
+     "text": "Karl rechnet 2/3 : 4/9. Zeile 1: 2/3 : 4/9 = 2/3 · 9/4 Zeile 2: = 18/12 Zeile 3: Gekürzt ist das 2/3. In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",
@@ -1866,8 +1866,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -1949,8 +1949,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {

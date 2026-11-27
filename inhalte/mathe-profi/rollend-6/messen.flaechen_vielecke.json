@@ -336,7 +336,7 @@
      "einheit": "cm"
     },
     "c": "2 * 36 / 8",
-    "h": "Das Dreieck ist halb so groß wie das Rechteck aus Grundseite und Höhe.",
+    "h": "Wie hängt der Flächeninhalt eines Dreiecks mit Grundseite und Höhe zusammen?",
     "w": "A = g · h : 2. Also g · 8 = 72 und g = 72 : 8 = 9 cm. Probe: 9 · 8 : 2 = 36."
    }
   },
@@ -658,7 +658,7 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -666,7 +666,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -674,7 +674,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     }
    ],
@@ -686,7 +686,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Mira bestimmt die Höhe eines Dreiecks mit dem Flächeninhalt 45 cm² und der Grundseite 15 cm. Zeile 1: Dreieck: A = g · h : 2 Zeile 2: 45 = 15 · h : 2 Zeile 3: 45 · 2 = 90, also 15 · h = 90 Zeile 4: h = 90 · 15 = 1350 In welcher Zeile passiert der erste Fehler?"
+     "text": "Mira bestimmt die Höhe eines Dreiecks mit dem Flächeninhalt 45 cm² und der Grundseite 15 cm. Zeile 1: Dreieck: A = g · h : 2 Zeile 2: 45 = 15 · h : 2 Zeile 3: 45 · 2 = 90, also 15 · h = 90 Zeile 4: h = 90 · 15 = 1350 In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",
@@ -709,8 +709,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.flaeche_raum.auslegen",
-   "regel_name": "Auslegen und zählen",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -784,8 +784,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.auslegen",
-   "regel_name": "Auslegen und zählen",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -830,8 +830,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.auslegen",
-   "regel_name": "Auslegen und zählen",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1045,7 +1045,7 @@
      "einheit": "cm"
     },
     "c": "(480 - 2 * 5 * 12 / 2) / (5 + 12 + 13)",
-    "h": "Ziehe zuerst die beiden Dreiecke von der Oberfläche ab.",
+    "h": "Aus welchen Teilen besteht die Oberfläche des Prismas? Welcher Teil ist schon bekannt?",
     "w": "Dreiecke: 2 · (5 · 12 : 2) = 60 cm². Mantel: 480 − 60 = 420 cm². Der Umfang ist 30 cm, also Länge = 420 : 30 = 14 cm."
    }
   },
@@ -1184,7 +1184,7 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -1192,7 +1192,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -1200,7 +1200,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     }
    ],
@@ -1212,7 +1212,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ben behauptet: „Wenn man bei einem Dreieck Grundseite und Höhe verdoppelt, verdoppelt sich die Fläche.“ Er prüft es mit g = 4 cm und h = 3 cm. Zeile 1: Vorher: 4 · 3 : 2 = 6 cm² Zeile 2: Nachher mit g = 8 cm und h = 6 cm: 8 · 6 : 2 = 24 cm² Zeile 3: 24 : 6 = 4 Zeile 4: Die Fläche hat sich also verdoppelt. In welcher Zeile passiert der erste Fehler?"
+     "text": "Ben behauptet: „Wenn man bei einem Dreieck Grundseite und Höhe verdoppelt, verdoppelt sich die Fläche.“ Er prüft es mit g = 4 cm und h = 3 cm. Zeile 1: Vorher: 4 · 3 : 2 = 6 cm² Zeile 2: Nachher mit g = 8 cm und h = 6 cm: 8 · 6 : 2 = 24 cm² Zeile 3: 24 : 6 = 4 Zeile 4: Die Fläche hat sich also verdoppelt. In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",

@@ -33,7 +33,7 @@ neu(T, "dreieck", "bruecke", W(
     lambda: 14 * 9 // 2 == 63 and 14 * 9 != 63), regel="id.flaeche_raum.aus_dem_rechteck")
 neu(T, "dreieck", "umkehren", Z(
     "Ein Dreieck hat einen Flächeninhalt von 36 cm² und eine Höhe von 8 cm. Wie lang ist die zugehörige Grundseite in Zentimetern?",
-    9, "2 * 36 / 8", "36 / 8 * 2", "Das Dreieck ist halb so groß wie das Rechteck aus Grundseite und Höhe.",
+    9, "2 * 36 / 8", "36 / 8 * 2", "Wie hängt der Flächeninhalt eines Dreiecks mit Grundseite und Höhe zusammen?",
     "A = g · h : 2. Also g · 8 = 72 und g = 72 : 8 = 9 cm. Probe: 9 · 8 : 2 = 36.",
     [(4.5, None, "den Flächeninhalt nicht verdoppelt: 36 : 8", "36 / 8"), (288, None, "malgenommen statt geteilt: 36 · 8", "36 * 8")], "cm"), g="rueckwaerts", regel="id.flaeche_raum.aus_dem_rechteck")
 
@@ -69,7 +69,7 @@ neu(T, "rueckwaerts", "umkehren", Z(
 neu(T, "rueckwaerts", "fehler_detektiv", FD(
     "Mira bestimmt die Höhe eines Dreiecks mit dem Flächeninhalt 45 cm² und der Grundseite 15 cm.",
     [("Dreieck: A = g · h : 2", True), ("45 = 15 · h : 2", True), ("45 · 2 = 90, also 15 · h = 90", 45 * 2 == 90), ("h = 90 · 15 = 1350", F(90, 15) == 90 * 15)],
-    "Wie rechnet man, wenn eine Zahl mit g malgenommen wurde?", "Aus 15 · h = 90 folgt h = 90 : 15 = 6 cm. In Zeile 4 wurde malgenommen statt geteilt."), regel="id.flaeche_raum.aus_dem_rechteck")
+    "Wie rechnet man, wenn eine Zahl mit g malgenommen wurde?", "Aus 15 · h = 90 folgt h = 90 : 15 = 6 cm. In Zeile 4 wurde malgenommen statt geteilt.", rueck={}), regel="id.flaeche_raum.aus_dem_rechteck")
 
 # ───────── zusammengesetzt ─────────
 neu(T, "zusammengesetzt", "lueckenweg", L(
@@ -77,17 +77,17 @@ neu(T, "zusammengesetzt", "lueckenweg", L(
     KOMM(4), [60, 20, 80, 40], ["10 * 6", "10 * 4 / 2", "{1} + {2}", "{1} - {2}"], ["60", "20", "80", "40"], "Zerlege die Figur in ein Rechteck und ein Dreieck.",
     "Rechteck: 10 · 6 = 60 m². Dreieck: 10 · 4 : 2 = 20 m². Zusammen 80 m². Unterschied: 60 m² − 20 m² = 40 m².",
     {0: [(32, None, "Umfang statt Fläche gerechnet", "2 * (10 + 6)")], 1: [(40, None, "das Dreieck nicht halbiert", "10 * 4")], 2: [(100, None, "den Giebel nicht halbiert: 60 + 40", "{1} + 10 * 4")],
-     3: [(80, None, "die Summe statt des Unterschieds angegeben", "{1} + {2}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.auslegen")
+     3: [(80, None, "die Summe statt des Unterschieds angegeben", "{1} + {2}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.aus_dem_rechteck")
 neu(T, "zusammengesetzt", "zwei_wege", Z(
     "Ein L-förmiges Grundstück entsteht aus einem Rechteck (20 m lang, 12 m breit), aus dem an einer Ecke ein Rechteck (8 m lang, 5 m breit) herausgeschnitten ist. Weg A: Rechne großes Rechteck minus herausgeschnittenes Rechteck. Weg B: Zerlege das Grundstück in zwei Rechtecke. Wie groß ist das Grundstück in m²?",
     200, "20 * 12 - 8 * 5", "(20 - 8) * 12 + 8 * (12 - 5)", "Beide Wege müssen dieselbe Fläche ergeben.",
     "Weg A: 240 m² − 40 m² = 200 m². Weg B: ein Teil ist (20 − 8) · 12 = 144 m², der andere 8 · (12 − 5) = 56 m². 144 + 56 = 200 m².",
-    [(280, None, "das herausgeschnittene Rechteck addiert statt abgezogen", "20 * 12 + 8 * 5"), (240, None, "den Ausschnitt vergessen", "20 * 12")], "m²"), g="mehrschritt", regel="id.flaeche_raum.auslegen")
+    [(280, None, "das herausgeschnittene Rechteck addiert statt abgezogen", "20 * 12 + 8 * 5"), (240, None, "den Ausschnitt vergessen", "20 * 12")], "m²"), g="mehrschritt", regel="id.flaeche_raum.aus_dem_rechteck")
 neu(T, "zusammengesetzt", "anwenden", Z(
     "Ein Flur ist L-förmig. Er entsteht aus einem Rechteck von 9 m mal 6 m, aus dem an einer Ecke ein Rechteck von 4 m mal 3 m herausgeschnitten ist. Der Boden wird gefliest. Ein Quadratmeter Fliesen kostet 18 €. Wie viel Euro kosten die Fliesen?",
     756, "(9 * 6 - 4 * 3) * 18", "42 * 18", "Berechne zuerst die Fläche des Flurs.",
     "Fläche: 9 · 6 − 4 · 3 = 54 − 12 = 42 m². 42 · 18 € = 756 €.",
-    [(972, None, "den herausgeschnittenen Teil vergessen", "9 * 6 * 18"), (1188, None, "den Ausschnitt addiert statt abgezogen", "(9 * 6 + 4 * 3) * 18")], "€"), g="transfer", regel="id.flaeche_raum.auslegen")
+    [(972, None, "den herausgeschnittenen Teil vergessen", "9 * 6 * 18"), (1188, None, "den Ausschnitt addiert statt abgezogen", "(9 * 6 + 4 * 3) * 18")], "€"), g="transfer", regel="id.flaeche_raum.aus_dem_rechteck")
 
 # ───────── oberflaeche ─────────
 neu(T, "oberflaeche", "lueckenweg", L(
@@ -103,7 +103,7 @@ neu(T, "oberflaeche", "anwenden", Z(
     [(64, None, "nur eine Dachfläche gerechnet", "2 * 6 * 4 / 2 + 5 * 8"), (80, None, "die Giebel vergessen", "2 * 5 * 8"), (152, None, "den Boden mitgerechnet", "2 * 6 * 4 / 2 + 2 * 5 * 8 + 6 * 8")], "m²"), regel="id.flaeche_raum.haut")
 neu(T, "oberflaeche", "umkehren", Z(
     "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Seiten 5 cm, 12 cm und 13 cm. Die Oberfläche des Prismas beträgt 480 cm². Wie lang ist das Prisma in Zentimetern?",
-    14, "(480 - 2 * 5 * 12 / 2) / (5 + 12 + 13)", "(480 - 60) / 30", "Ziehe zuerst die beiden Dreiecke von der Oberfläche ab.",
+    14, "(480 - 2 * 5 * 12 / 2) / (5 + 12 + 13)", "(480 - 60) / 30", "Aus welchen Teilen besteht die Oberfläche des Prismas? Welcher Teil ist schon bekannt?",
     "Dreiecke: 2 · (5 · 12 : 2) = 60 cm². Mantel: 480 − 60 = 420 cm². Der Umfang ist 30 cm, also Länge = 420 : 30 = 14 cm.",
     [(16, None, "die Oberfläche durch den Umfang geteilt: 480 : 30", "480 / 30"), (8, None, "die Oberfläche durch die Dreiecksflächen geteilt: 480 : 60", "480 / 60"), (420, None, "nur den Mantel angegeben", "480 - 60")], "cm"), g="rueckwaerts", regel="id.flaeche_raum.haut")
 
@@ -121,7 +121,7 @@ neu(T, "verstehen", "umkehren", Z(
 neu(T, "verstehen", "fehler_detektiv", FD(
     "Ben behauptet: „Wenn man bei einem Dreieck Grundseite und Höhe verdoppelt, verdoppelt sich die Fläche.“ Er prüft es mit g = 4 cm und h = 3 cm.",
     [("Vorher: 4 · 3 : 2 = 6 cm²", F(4 * 3, 2) == 6), ("Nachher mit g = 8 cm und h = 6 cm: 8 · 6 : 2 = 24 cm²", F(8 * 6, 2) == 24), ("24 : 6 = 4", F(24, 6) == 4), ("Die Fläche hat sich also verdoppelt.", F(24, 6) == 2)],
-    "Wie oft passt 6 in 24? Wie oft sind die Maße größer geworden?", "Die Fläche ist 4-mal so groß: g wird 2-mal so groß und h auch, also 2 · 2 = 4. Zeile 4 zieht aus 24 : 6 = 4 den falschen Schluss."), regel="id.flaeche_raum.aus_dem_rechteck")
+    "Wie oft passt 6 in 24? Wie oft sind die Maße größer geworden?", "Die Fläche ist 4-mal so groß: g wird 2-mal so groß und h auch, also 2 · 2 = 4. Zeile 4 zieht aus 24 : 6 = 4 den falschen Schluss.", rueck={}), regel="id.flaeche_raum.aus_dem_rechteck")
 
 # ───────── drachen_raute ─────────
 neu(T, "drachen_raute", "lueckenweg", L(

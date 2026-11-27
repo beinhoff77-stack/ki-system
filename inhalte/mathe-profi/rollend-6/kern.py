@@ -79,16 +79,24 @@ def W(text, richtig, falsch, h, w, probe):
     return {"y": "auswahl", "f": {"text": text}, "a": antworten, "o": {"index": p}, "h": h, "w": w}, probe, fb
 
 
-def FD(einleitung, zeilen, h, w, frage="In welcher Zeile passiert der erste Fehler?"):
+def FD(einleitung, zeilen, h, w, frage="In welcher Zeile steht zum ersten Mal eine falsche Aussage?", rueck=None):
     """Fehler-Detektiv. zeilen: [(Text, stimmt)] – stimmt ist ein im Programm berechneter Wahrheitswert:
-    „diese Zeile folgt rechnerisch richtig aus der Zeile davor (bzw. aus der Aufgabe)“. Genau eine Zeile darf nicht stimmen."""
+    „diese Zeile folgt rechnerisch richtig aus der Zeile davor (bzw. aus der Aufgabe)“. Genau eine Zeile darf nicht stimmen.
+    Rückmeldung für JEDE andere Zeile: vor dem Fehler „richtig“; für Zeilen nach dem Fehler muss rueck={Zeilenindex ab 0: Text} von Hand
+    sagen, was dort Sache ist (eine für sich richtige Zeile wird nicht als falsch oder „nur Folge“ bezeichnet)."""
     assert all(isinstance(ok, bool) for _, ok in zeilen), einleitung
     falsche = [i for i, (_, ok) in enumerate(zeilen) if not ok]
     assert len(falsche) == 1 and 3 <= len(zeilen) <= 4, (einleitung, falsche)
+    f = falsche[0]
+    rueck = rueck or {}
+    assert set(rueck) == set(range(f + 1, len(zeilen))), (einleitung, "Rückmeldung für jede Zeile nach dem Fehler nötig", sorted(rueck))
     text = einleitung + " " + " ".join(f"Zeile {i + 1}: {t}" for i, (t, _) in enumerate(zeilen)) + " " + frage
     ant = [f"In Zeile {i + 1}" for i in range(len(zeilen))]
-    fb = {i: (None, "diese Zeile ist richtig; der Fehler steckt woanders", None) for i in range(len(zeilen)) if i != falsche[0]}
-    return {"y": "auswahl", "f": {"text": text}, "a": ant, "o": {"index": falsche[0]}, "h": h, "w": w}, lambda: True, fb
+    fb = {i: (None, "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.", None) for i in range(f)}
+    for i, t in rueck.items():
+        fb[i] = (None, t, None)
+    assert set(fb) == set(range(len(zeilen))) - {f}
+    return {"y": "auswahl", "f": {"text": text}, "a": ant, "o": {"index": f}, "h": h, "w": w}, lambda: True, fb
 
 
 def neu(thema, lk, form, bau, g=None, regel="rr.bruchrechnen"):

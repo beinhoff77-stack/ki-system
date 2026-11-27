@@ -20,8 +20,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.flaeche_raum.aus_dem_quader",
-   "regel_name": "Aus dem Quader",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -85,8 +85,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_quader",
-   "regel_name": "Aus dem Quader",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -130,8 +130,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_quader",
-   "regel_name": "Aus dem Quader",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -339,8 +339,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.flaeche_raum.aus_dem_quader",
-   "regel_name": "Aus dem Quader",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -404,8 +404,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "auswahl",
-   "regel": "id.flaeche_raum.aus_dem_quader",
-   "regel_name": "Aus dem Quader",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -464,8 +464,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_quader",
-   "regel_name": "Aus dem Quader",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -491,13 +491,13 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Ein Schwimmbecken enthält 45 m³ Wasser. Mit einem Eimer, der 12 Liter fasst, soll es leer geschöpft werden. Wie oft muss man den Eimer füllen? (1 m³ sind 1000 Liter)"
+     "text": "Ein Schwimmbecken enthält 45 m³ Wasser. Mit einem Eimer, der 12 Liter fasst, soll es leer geschöpft werden. Es gilt 1 m³ = 1000 Liter. Wie oft muss man den Eimer füllen?"
     },
     "o": {
      "wert": 3750
     },
     "c": "45 * 1000 / 12",
-    "h": "Rechne zuerst die Wassermenge in Liter um.",
+    "h": "In welcher Einheit ist die Wassermenge angegeben, in welcher fasst der Eimer?",
     "w": "45 m³ = 45 000 Liter. 45 000 : 12 = 3750. Man muss den Eimer 3750-mal füllen."
    }
   },
@@ -509,8 +509,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.flaeche_raum.aus_dem_quader",
-   "regel_name": "Aus dem Quader",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -574,8 +574,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_quader",
-   "regel_name": "Aus dem Quader",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -627,8 +627,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_quader",
-   "regel_name": "Aus dem Quader",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -668,7 +668,7 @@
      "einheit": "m"
     },
     "c": "4.8 / (2 * 1.5)",
-    "h": "Rechne die Liter zuerst in Kubikmeter um.",
+    "h": "Passen die Einheiten von Grundfläche und Inhalt zusammen?",
     "w": "4 800 Liter = 4,8 m³. Grundfläche: 2 · 1,5 = 3 m². Höhe = 4,8 : 3 = 1,6 m."
    }
   },
@@ -702,11 +702,11 @@
     },
     {
      "luecke": 3,
-     "antwort": 157,
+     "antwort": 20,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Faktor 2 vergessen",
-     "c": "(45) + 9 * (8) + 5 * (8)"
+     "beschreibung": "nur durch die Länge geteilt: 180 : 9",
+     "c": "180 / 9"
     }
    ],
    "aufgabe": {
@@ -717,7 +717,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Quader hat das Volumen 360 cm³. Er ist 9 cm lang und 5 cm breit. Die Grundfläche ist ① cm². Die Höhe ist ② cm. Die Oberfläche des Quaders ist ③ cm².",
+     "text": "Ein Quader hat das Volumen 360 cm³. Er ist 9 cm lang und 5 cm breit. Die Grundfläche ist ① cm². Die Höhe ist ② cm. Füllt man 180 cm³ Wasser in den Quader, steht das Wasser ③ cm hoch.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
@@ -725,16 +725,16 @@
      "werte": [
       45,
       8,
-      314
+      4
      ]
     },
     "c": [
      "9 * 5",
      "360 / (45)",
-     "2 * ((45) + 9 * (8) + 5 * (8))"
+     "180 / (45)"
     ],
     "h": "Aus Volumen = Grundfläche · Höhe folgt: Höhe = Volumen : Grundfläche.",
-    "w": "Grundfläche: 9 · 5 = 45 cm². Höhe: 360 : 45 = 8 cm. Oberfläche: 2 · (45 + 9 · 8 + 5 · 8) = 2 · (45 + 72 + 40) = 314 cm²."
+    "w": "Grundfläche: 9 · 5 = 45 cm². Höhe: 360 : 45 = 8 cm. Füllhöhe: 180 : 45 = 4 cm."
    }
   },
   {
@@ -807,7 +807,7 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -815,7 +815,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -823,7 +823,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     }
    ],
@@ -835,7 +835,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Lara bestimmt die Breite eines Quaders mit dem Volumen 420 cm³, der Länge 7 cm und der Höhe 5 cm. Zeile 1: V = l · b · h, also 420 = 7 · b · 5 Zeile 2: 7 · 5 = 35, also 420 = 35 · b Zeile 3: b = 420 : 35 = 12 Zeile 4: Probe: 7 · 12 = 84 und 84 · 5 = 410 In welcher Zeile passiert der erste Fehler?"
+     "text": "Lara bestimmt die Breite eines Quaders mit dem Volumen 420 cm³, der Länge 7 cm und der Höhe 5 cm. Zeile 1: V = l · b · h, also 420 = 7 · b · 5 Zeile 2: 7 · 5 = 35, also 420 = 35 · b Zeile 3: b = 420 : 35 = 12 Zeile 4: Probe: 7 · 12 = 84 und 84 · 5 = 410 In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",
@@ -1108,8 +1108,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_quader",
-   "regel_name": "Aus dem Quader",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1120,18 +1120,11 @@
      "c": "343"
     },
     {
-     "antwort": 294,
+     "antwort": 49,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Oberfläche statt einer Seitenfläche angegeben",
-     "c": "6 * 7 * 7"
-    },
-    {
-     "antwort": 7,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Kantenlänge angegeben",
-     "c": "7"
+     "beschreibung": "eine Seitenfläche statt der Kante angegeben",
+     "c": "7 * 7"
     }
    ],
    "aufgabe": {
@@ -1142,15 +1135,15 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Ein Würfel hat das Volumen 343 cm³. Wie viele Quadratzentimeter hat eine seiner Seitenflächen?"
+     "text": "Ein Würfel hat das Volumen 343 cm³. Wie lang ist eine Kante in Zentimetern?"
     },
     "o": {
-     "wert": 49,
-     "einheit": "cm²"
+     "wert": 7,
+     "einheit": "cm"
     },
-    "c": "7 * 7",
-    "h": "Wie lang ist eine Kante? Welche Zahl mal sich selbst mal sich selbst ergibt 343?",
-    "w": "7 · 7 · 7 = 343, die Kante ist 7 cm lang. Eine Seitenfläche ist 7 · 7 = 49 cm². Probe: 343 : 7 = 49."
+    "c": "343 / (7 * 7)",
+    "h": "Schätze zuerst: Was ergibt 5 · 5 · 5, was 10 · 10 · 10? Welche Zahl liegt dazwischen?",
+    "w": "7 · 7 · 7 = 343, die Kante ist 7 cm lang. Schätzen hilft: 5 · 5 · 5 = 125 ist zu klein, 10 · 10 · 10 = 1000 ist zu groß. Probe: 343 : 7 = 49 und 49 : 7 = 7."
    }
   },
   {
@@ -1161,8 +1154,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.flaeche_raum.aus_dem_quader",
-   "regel_name": "Aus dem Quader",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1170,7 +1163,7 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -1178,7 +1171,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -1186,7 +1179,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     }
    ],
@@ -1198,7 +1191,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Tim behauptet: „Verdoppelt man die Kantenlänge eines Würfels, verdoppelt sich das Volumen.“ Er prüft es. Zeile 1: Kante 2 cm: V = 2 · 2 · 2 = 8 cm³ Zeile 2: Kante 4 cm: V = 4 · 4 · 4 = 64 cm³ Zeile 3: 64 : 8 = 8 Zeile 4: Also hat sich das Volumen verdoppelt. In welcher Zeile passiert der erste Fehler?"
+     "text": "Tim behauptet: „Verdoppelt man die Kantenlänge eines Würfels, verdoppelt sich das Volumen.“ Er prüft es. Zeile 1: Kante 2 cm: V = 2 · 2 · 2 = 8 cm³ Zeile 2: Kante 4 cm: V = 4 · 4 · 4 = 64 cm³ Zeile 3: 64 : 8 = 8 Zeile 4: Also hat sich das Volumen verdoppelt. In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",

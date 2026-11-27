@@ -13,7 +13,7 @@ neu(T, "brueche_plus_minus", "zwei_wege", Z(
     [(31, None, "Ganze und Brüche getrennt gerechnet, aber den kleineren Bruch vom größeren abgezogen: (3 − 1) + (5/6 − 1/4)", "((3 - 1) + (5/6 - 1/4)) * 12"),
      (61, None, "addiert statt subtrahiert", "(3 + 1/4 + 1 + 5/6) * 12")]), g="mehrschritt", regel="rr.bruchrechnen")
 neu(T, "brueche_plus_minus", "anwenden", L(
-    "Ein Wasserbehälter ist zu 2/3 gefüllt. Morgens wird 1/4 des Behälters entnommen, abends wird 1/6 des Behälters aufgefüllt. Welcher Bruchteil des Behälters ist danach gefüllt?",
+    "Ein Wasserbehälter ist zu 2/3 gefüllt. Morgens wird 1/4 des Behälters entnommen, abends wird 1/6 des Behälters aufgefüllt. Welcher Bruchteil des Behälters ist danach gefüllt? Gib den Bruch vollständig gekürzt an.",
     "□/□", [7, 12], ["(2/3 - 1/4 + 1/6) * 12", "12"], ["7", "12"], "Bringe alle Brüche auf einen Nenner.",
     "Hauptnenner 12: 2/3 = 8/12, 1/4 = 3/12, 1/6 = 2/12. 8/12 − 3/12 + 2/12 = 7/12.",
     {0: [(3, None, "auch das Auffüllen abgezogen: 8/12 − 3/12 − 2/12", "(2/3 - 1/4 - 1/6) * 12")]}, hinweis=H4), g="transfer", regel="rr.bruchrechnen")
@@ -49,7 +49,7 @@ neu(T, "vorzeichen", "bruecke", Z(
 neu(T, "vorzeichen", "fehler_detektiv", FD(
     "Tom rechnet (−3,2) − (−0,5).",
     [("(−3,2) − (−0,5) = (−3,2) + 0,5", F(-32, 10) - F(-5, 10) == F(-32, 10) + F(5, 10)), ("(−3,2) + 0,5 = −3,7", F(-32, 10) + F(5, 10) == F(-37, 10)), ("Das Ergebnis ist −3,7.", True)],
-    "Rechne (−3,2) + 0,5 auf der Zahlengeraden: in welche Richtung gehst du?", "Plus 0,5 heißt 0,5 nach rechts: −3,2 + 0,5 = −2,7. In Zeile 2 wurde 0,5 nach links gegangen."), regel="rr.plusminus")
+    "Rechne (−3,2) + 0,5 auf der Zahlengeraden: in welche Richtung gehst du?", "Plus 0,5 heißt 0,5 nach rechts: −3,2 + 0,5 = −2,7. In Zeile 2 wurde 0,5 nach links gegangen.", rueck={2: 'Zeile 3 übernimmt nur das Ergebnis aus Zeile 2. Der erste Fehler steht in Zeile 2.'}), regel="rr.plusminus")
 
 # ───────── brueche_mal ─────────
 neu(T, "brueche_mal", "lueckenweg", L(
@@ -67,7 +67,7 @@ neu(T, "brueche_mal", "verfahren_waehlen", W(
     "Zähler mal Zähler und Nenner mal Nenner. Vorher kürzen: 8 und 12 durch 4, 5 und 15 durch 5. So bleibt 2/3 · 1/3 = 2/9. Probe: 8/15 · 5/12 = 40/180 = 2/9.",
     lambda: F(8, 15) * F(5, 12) == F(2, 9) and F(13, 27) != F(2, 9) and F(32, 25) != F(2, 9) and F(40, 15) != F(2, 9) and F(8 + 5, 15 + 12) == F(13, 27) and F(8, 15) * F(12, 5) == F(32, 25) and F(8 * 5, 15) == F(40, 15)), g="mehrschritt", regel="rr.bruchrechnen")
 neu(T, "brueche_mal", "anwenden", L(
-    "Von einer Torte sind noch 3/4 da. Anna isst davon 2/3. Vom Rest, der dann noch da ist, isst Ben 1/3. Welcher Bruchteil der ganzen Torte bleibt am Ende?",
+    "Von einer Torte sind noch 3/4 da. Anna isst davon 2/3. Vom Rest, der dann noch da ist, isst Ben 1/3. Welcher Bruchteil der ganzen Torte bleibt am Ende? Gib den Bruch vollständig gekürzt an.",
     "□/□", [1, 6], ["(3/4 * (1 - 2/3) * (1 - 1/3)) * 6", "6"], ["1", "6"], "Rechne mit dem Rest, der nach jedem Essen noch da ist.",
     "Nach Anna: 3/4 · 1/3 = 1/4 der Torte bleibt. Ben isst 1/3 davon, es bleiben 2/3 von 1/4. 2/3 · 1/4 = 2/12 = 1/6.",
     {1: [(4, None, "nach Anna aufgehört: 1/4 der Torte bleibt", "1 / (3/4 * (1 - 2/3))")]}, hinweis=H4), g="transfer", regel="rr.bruchrechnen")
@@ -84,8 +84,8 @@ neu(T, "brueche_geteilt", "anwenden", Z(
     "3/4 : 1/8 = 3/4 · 8 = 6. In 3/4 Liter passen 6 Gläser zu je 1/8 Liter. Probe: 6 · 1/8 = 3/4.",
     [(0.09375, None, "malgenommen statt geteilt", "3/4 * 1/8"), (0.625, None, "abgezogen statt geteilt: 3/4 − 1/8", "3/4 - 1/8")]), regel="rr.bruchrechnen")
 neu(T, "brueche_geteilt", "umkehren", L(
-    "Der Bruch 3/4 wird durch einen Bruch geteilt. Das Ergebnis ist 9/8. Durch welchen Bruch wurde geteilt? Schreibe ihn gekürzt.",
-    "□/□", [2, 3], ["(3/4 / (9/8)) * 3", "3"], ["2", "3"], "Wenn a : b = c ist, dann ist b = a : c.",
+    "Der Bruch 3/4 wird durch einen Bruch geteilt. Das Ergebnis ist 9/8. Durch welchen Bruch wurde geteilt? Schreibe ihn vollständig gekürzt.",
+    "□/□", [2, 3], ["(3/4 / (9/8)) * 3", "3"], ["2", "3"], "Schreibe die Aufgabe als 3/4 : ? = 9/8. Wie kannst du die gesuchte Zahl durch eine Probe finden?",
     "Gesucht ist x mit 3/4 : x = 9/8. Dann ist x = 3/4 : 9/8 = 3/4 · 8/9 = 24/36 = 2/3. Probe: 3/4 : 2/3 = 3/4 · 3/2 = 9/8.",
     {0: [(3, None, "falsch herum geteilt: 9/8 : 3/4 = 3/2", "(9/8 / (3/4)) * 2")], 1: [(2, None, "falsch herum geteilt: 9/8 : 3/4 = 3/2", "2")]}, hinweis=H4), g="rueckwaerts", regel="rr.bruchrechnen")
 
@@ -95,33 +95,33 @@ neu(T, "dezimal_mal", "lueckenweg", L(
     KOMM(4), [900, 3, 9, 10], ["36 * 25", "1 + 2", "{1} / 10 ** {2} * 10", "100 - {3} * 10"], ["900", "3", "9", "10"], "Zähle die Stellen hinter dem Komma bei beiden Faktoren.",
     "36 · 25 = 900. 3,6 hat 1 und 0,25 hat 2 Nachkommastellen, zusammen 3. 900 mit 3 Nachkommastellen ist 0,900 = 0,9, das sind 9 Zehntel. 0,9 sind 90 Hundertstel, bis 1 fehlen 100 − 90 = 10 Hundertstel.",
     {0: [(61, None, "addiert statt malgenommen", "36 + 25")], 1: [(2, None, "nur die Stellen des zweiten Faktors gezählt", "2")], 2: [(90, None, "nur zwei Stellen abgetrennt: 9,00", "{1} / 10 ** 2 * 10")],
-     3: [(90, None, "das Ergebnis selbst statt des Unterschieds zu 1 angegeben", "{3} * 10")]}, hinweis="Je Lücke eine ganze Zahl."), regel="rr.stellenwert")
+     3: [(90, None, "das Ergebnis selbst statt des Unterschieds zu 1 angegeben", "{3} * 10")]}, hinweis="Je Lücke eine ganze Zahl."), regel=None)
 neu(T, "dezimal_mal", "zwei_wege", Z(
     "Berechne 0,4 · 0,35 auf zwei Wegen. Weg A: Rechne 4 · 35 und setze das Komma nach den Nachkommastellen. Weg B: Schreibe beide Zahlen als Bruch und multipliziere. Wie lautet das Ergebnis?",
     0.14, "4 * 35 / 1000", "0.4 * 0.35", "Wie viele Nachkommastellen haben beide Faktoren zusammen?",
     "Weg A: 4 · 35 = 140, drei Nachkommastellen: 0,140 = 0,14. Weg B: 4/10 · 35/100 = 140/1000 = 14/100 = 0,14.",
-    [(1.4, None, "zwei statt drei Nachkommastellen abgetrennt", "4 * 35 / 100"), (14, None, "nur eine Nachkommastelle abgetrennt: 14,0", "4 * 35 / 10"), (140, None, "das Komma gar nicht gesetzt: 4 · 35", "4 * 35")]), g="mehrschritt", regel="rr.stellenwert")
+    [(1.4, None, "zwei statt drei Nachkommastellen abgetrennt", "4 * 35 / 100"), (14, None, "nur eine Nachkommastelle abgetrennt: 14,0", "4 * 35 / 10"), (140, None, "das Komma gar nicht gesetzt: 4 · 35", "4 * 35")]), g="mehrschritt", regel=None)
 neu(T, "dezimal_mal", "anwenden", Z(
     "Ein Kilogramm Birnen kostet 2,40 €. Mia kauft 1,4 kg. An der Kasse bekommt sie 0,50 € Rabatt auf den Gesamtbetrag. Wie viel Euro zahlt sie?",
     2.86, "1.4 * 2.4 - 0.5", "3.36 - 0.5", "Berechne zuerst den Preis für die Birnen.",
     "1,4 · 2,40 = 3,36. Dann der Rabatt: 3,36 − 0,50 = 2,86. Mia zahlt 2,86 €.",
-    [(3.36, None, "den Rabatt vergessen", "1.4 * 2.4"), (3.3, None, "addiert statt malgenommen: 1,4 + 2,4 − 0,5", "1.4 + 2.4 - 0.5")], "€"), g="transfer", regel="rr.stellenwert")
+    [(3.36, None, "den Rabatt vergessen", "1.4 * 2.4"), (3.3, None, "addiert statt malgenommen: 1,4 + 2,4 − 0,5", "1.4 + 2.4 - 0.5")], "€"), g="transfer", regel=None)
 
 # ───────── dezimal_geteilt ─────────
 neu(T, "dezimal_geteilt", "lueckenweg", L(
     "Berechne 4,8 : 0,06. Erweitere beide Zahlen mit 100: ① : 6. Das Ergebnis ist ②. Das sind ③ Zehner.",
     KOMM(3), [480, 80, 8], ["4.8 * 100", "{1} / 6", "{2} / 10"], ["480", "80", "8"], "Erweitere so, dass der Teiler eine ganze Zahl wird.",
     "4,8 · 100 = 480 und 0,06 · 100 = 6. 480 : 6 = 80. 80 sind 8 Zehner.",
-    {0: [(48, None, "nur mit 10 erweitert", "4.8 * 10")], 1: [(8, None, "durch 60 statt durch 6 geteilt", "{1} / 60")], 2: [(800, None, "mit 10 malgenommen statt geteilt", "{2} * 10")]}, hinweis="Je Lücke eine ganze Zahl."), regel="rr.stellenwert")
+    {0: [(48, None, "nur mit 10 erweitert", "4.8 * 10")], 1: [(8, None, "durch 60 statt durch 6 geteilt", "{1} / 60")], 2: [(800, None, "mit 10 malgenommen statt geteilt", "{2} * 10")]}, hinweis="Je Lücke eine ganze Zahl."), regel=None)
 neu(T, "dezimal_geteilt", "anwenden", Z(
     "Ein Seil ist 7,2 m lang. Daraus werden Stücke von je 0,35 m geschnitten. Wie viele ganze Stücke ergibt das?",
     20, "7.2 // 0.35", "720 // 35", "Teile die Länge des Seils durch die Länge eines Stücks.",
     "7,2 : 0,35 = 720 : 35 = 20 Rest 20. Es gibt 20 ganze Stücke, ein Rest von 0,2 m bleibt übrig.",
-    [(21, None, "aufgerundet, obwohl das letzte Stück nicht ganz ist", "7.2 // 0.35 + 1"), (0.2, None, "den Rest in Metern statt der Zahl der Stücke angegeben", "7.2 - 20 * 0.35")]), regel="rr.stellenwert")
+    [(21, None, "aufgerundet, obwohl das letzte Stück nicht ganz ist", "7.2 // 0.35 + 1"), (0.2, None, "den Rest in Metern statt der Zahl der Stücke angegeben", "7.2 - 20 * 0.35")]), regel=None)
 neu(T, "dezimal_geteilt", "fehler_detektiv", FD(
     "Eva rechnet 1,35 : 0,9.",
     [("1,35 : 0,9 = 135 : 9", F(135, 100) / F(9, 10) == F(135, 9)), ("135 : 9 = 15", F(135, 9) == 15), ("Also ist 1,35 : 0,9 = 15.", True)],
-    "Mit welcher Zahl musst du beide Zahlen malnehmen, damit der Teiler 9 wird? Ändert das auch die erste Zahl um dasselbe?", "Erweiterst du beide Zahlen mit 10, steht 13,5 : 9 = 1,5. Wer 1,35 mit 100 und 0,9 mit 10 erweitert, ändert die Aufgabe. Die Zeilen 2 und 3 rechnen mit 135 : 9 richtig weiter."), regel="rr.stellenwert")
+    "Mit welcher Zahl musst du beide Zahlen malnehmen, damit der Teiler 9 wird? Ändert das auch die erste Zahl um dasselbe?", "Erweiterst du beide Zahlen mit 10, steht 13,5 : 9 = 1,5. Wer 1,35 mit 100 und 0,9 mit 10 erweitert, ändert die Aufgabe. Die Zeilen 2 und 3 rechnen mit 135 : 9 richtig weiter.", rueck={1: '135 : 9 = 15 ist für sich richtig. Die Aufgabe 135 : 9 ist aber nicht mehr die Aufgabe aus Zeile 1; der erste Fehler steht in Zeile 1.', 2: 'Zeile 3 übernimmt nur das Ergebnis aus Zeile 2. Der erste Fehler steht schon in Zeile 1.'}), regel=None)
 
 # ───────── potenzen ─────────
 neu(T, "potenzen", "lueckenweg", L(
@@ -131,12 +131,12 @@ neu(T, "potenzen", "lueckenweg", L(
     {0: [(6, None, "Basis mal Hochzahl gerechnet: 2 · 3", "2 * 3")], 1: [(15, None, "Basis mal Hochzahl gerechnet: 5 · 3", "5 * 3")], 2: [(640, None, "mit 10 000 statt mit 1000 erweitert", "{1} * 10000 / {2}")],
      3: [(7, None, "aufgerundet statt abgerundet", "{3} // 10 + 1")]}, hinweis="Je Lücke eine ganze Zahl."), regel="rr.potenz")
 neu(T, "potenzen", "anwenden", Z(
-    "Eine quadratische Teppichfliese hat die Seitenlänge 2/5 m. Wie groß ist seine Fläche in Quadratdezimetern? (1 m² = 100 dm²)",
+    "Eine quadratische Teppichfliese hat die Seitenlänge 2/5 m. Es gilt 1 m² = 100 dm². Wie groß ist ihre Fläche in Quadratdezimetern?",
     16, "(2/5) ** 2 * 100", "4 / 25 * 100", "Die Fläche eines Quadrats ist Seite mal Seite.",
     "Fläche = (2/5 m)² = 4/25 m² = 0,16 m². Mal 100: 16 dm².",
     [(80, None, "die Seite mit 2 malgenommen statt quadriert", "2/5 * 2 * 100"), (0.16, None, "in m² statt in dm² angegeben", "(2/5) ** 2")], "dm²"), regel="rr.potenz")
 neu(T, "potenzen", "umkehren", L(
-    "Eine Zahl a/b hoch 3 ergibt 27/64. Wie heißt die Zahl? Schreibe sie als Bruch.",
+    "Eine Zahl a/b hoch 3 ergibt 27/64. Wie heißt die Zahl? Schreibe sie als vollständig gekürzten Bruch.",
     "□/□", [3, 4], ["3", "4"], ["3", "4"], "Welche Zahl mal sich selbst mal sich selbst ergibt 27, welche 64?",
     "3 · 3 · 3 = 27 und 4 · 4 · 4 = 64. Also (3/4)³ = 27/64. Die Zahl ist 3/4.",
     {0: [(9, None, "den Zähler 27 durch 3 geteilt", "27 / 3")], 1: [(16, None, "den Nenner 64 durch 4 geteilt", "64 / 4")]}, hinweis=H4), g="rueckwaerts", regel="rr.potenz")
@@ -148,10 +148,10 @@ neu(T, "rechenvorteile", "lueckenweg", L(
     "4 · 25 = 100. 100 · 3,7 = 370. Das sind 3700 Zehntel.",
     {0: [(29, None, "addiert statt malgenommen", "4 + 25")], 1: [(3700, None, "das Komma vergessen: 100 · 37", "{1} * 37")], 2: [(37, None, "durch 10 geteilt statt malgenommen", "{2} / 10")]}, hinweis="Je Lücke eine ganze Zahl."), regel="rr.tauschen")
 neu(T, "rechenvorteile", "zwei_wege", Z(
-    "Berechne 98 · 7 auf zwei Wegen. Weg A: Schreibe 98 als 100 − 2 und rechne 100 · 7 − 2 · 7. Weg B: Multipliziere 98 mit 7 schriftlich.",
+    "Berechne 98 · 7 auf zwei Wegen. Weg A: Schreibe 98 als 100 − 2 und rechne 100 · 7 − 2 · 7. Weg B: Multipliziere 98 mit 7 schriftlich. Wie groß ist das Produkt?",
     686, "100 * 7 - 2 * 7", "98 * 7", "Beide Wege müssen dasselbe Ergebnis liefern.",
     "Weg A: 100 · 7 = 700 und 2 · 7 = 14. 700 − 14 = 686. Weg B: 98 · 7 = 686.",
-    [(714, None, "plus statt minus: 100 · 7 + 2 · 7", "100 * 7 + 2 * 7"), (698, None, "nur 2 abgezogen statt 2 · 7", "100 * 7 - 2")]), g="mehrschritt", regel="rr.tauschen")
+    [(714, None, "plus statt minus: 100 · 7 + 2 · 7", "100 * 7 + 2 * 7"), (698, None, "nur 2 abgezogen statt 2 · 7", "100 * 7 - 2")]), g="mehrschritt", regel=None)
 neu(T, "rechenvorteile", "anwenden", Z(
     "Ein Lager enthält 25 Kisten. In jeder Kiste stehen 4 Kartons. Jeder Karton wiegt 3,6 kg. Wie viel Kilogramm wiegt alles zusammen?",
     360, "25 * 4 * 3.6", "100 * 3.6", "Welche beiden Zahlen kannst du zuerst malnehmen, um eine runde Zahl zu erhalten?",
@@ -178,7 +178,7 @@ neu(T, "gemischt", "anwenden", Z(
     "Aus 60 Litern Saft werden 1/3 in Flaschen gefüllt. Vom Rest werden 3/4 in Kanister gefüllt. Wie viele Liter bleiben übrig?",
     10, "60 * (1 - 1/3) * (1 - 3/4)", "60 - 20 - 30", "Welcher Rest bleibt nach dem Abfüllen in Flaschen?",
     "Flaschen: 60 l : 3 = 20 l. Rest: 40 l. Kanister: 40 l : 4 · 3 = 30 l. Übrig: 40 l − 30 l = 10 l.",
-    [(20, None, "nur die Menge für die Flaschen angegeben", "60 / 3"), (30, None, "die Menge für die Kanister statt des Rests angegeben", "60 * (1 - 1/3) * 3/4")], "l"), g="transfer", regel="rr.reihenfolge")
+    [(20, None, "nur die Menge für die Flaschen angegeben", "60 / 3"), (30, None, "die Menge für die Kanister statt des Rests angegeben", "60 * (1 - 1/3) * 3/4")], "l"), g="transfer", regel=None)
 
 # ───────── fehler_finden ─────────
 neu(T, "fehler_finden", "lueckenweg", L(
@@ -196,7 +196,7 @@ neu(T, "fehler_finden", "verfahren_waehlen", W(
 neu(T, "fehler_finden", "fehler_detektiv", FD(
     "Karl rechnet 2/3 : 4/9.",
     [("2/3 : 4/9 = 2/3 · 9/4", F(2, 3) / F(4, 9) == F(2, 3) * F(9, 4)), ("= 18/12", F(2, 3) * F(9, 4) == F(18, 12)), ("Gekürzt ist das 2/3.", F(18, 12) == F(2, 3))],
-    "Kürze 18/12 noch einmal. Durch welche Zahl teilst du?", "18/12 wird durch 6 gekürzt: 3/2 = 1 1/2. In Zeile 3 stehen Zähler und Nenner vertauscht."), regel="rr.bruchrechnen")
+    "Kürze 18/12 noch einmal. Durch welche Zahl teilst du?", "18/12 wird durch 6 gekürzt: 3/2 = 1 1/2. In Zeile 3 stehen Zähler und Nenner vertauscht.", rueck={}), regel="rr.bruchrechnen")
 
 # ───────── sach ─────────
 neu(T, "sach", "lueckenweg", L(
@@ -204,12 +204,12 @@ neu(T, "sach", "lueckenweg", L(
     KOMM(4), [1, 8, 5, 1250], ["3/4 * 8/6", "6 * 4 / 3", "10 * {1} / {2} * 4", "{3} * 1000 / 4"], ["1", "8", "5", "1250"], "Teile die Milchmenge durch die Zahl der Portionen.",
     "3/4 l : 6 = 3/24 l = 1/8 l. Für 10 Portionen: 10 · 1/8 l = 10/8 l = 5/4 l. Das sind 5/4 · 1000 ml = 1250 ml.",
     {0: [(3, None, "den Zähler 3 nicht geteilt", "3")], 1: [(24, None, "nicht gekürzt: 4 · 6", "6 * 4")], 2: [(10, None, "die Portionszahl 10 als Zähler übernommen", "10")],
-     3: [(5000, None, "den Bruch 5/4 nicht beachtet: Zähler 5 mal 1000", "{3} * 1000"), (12500, None, "mit 10 000 statt mit 1000 malgenommen", "{3} * 10000 / 4")]}, hinweis="Je Lücke eine ganze Zahl."), regel="rr.bruchrechnen")
+     3: [(5000, None, "den Bruch 5/4 nicht beachtet: Zähler 5 mal 1000", "{3} * 1000"), (12500, None, "mit 10 000 statt mit 1000 malgenommen", "{3} * 10000 / 4")]}, hinweis="Je Lücke eine ganze Zahl."), regel=None)
 neu(T, "sach", "anwenden", Z(
     "Svens Taschengeld im Monat beträgt 12,50 €. Er gibt 3/5 davon aus. Von dem, was übrig bleibt, kauft er ein Heft für 4,25 €. Wie viel Euro bleiben ihm?",
     0.75, "12.5 * (1 - 3/5) - 4.25", "5 - 4.25", "Wie viel Euro hat er nach den 3/5 noch?",
     "3/5 von 12,50 € sind 7,50 €. Übrig: 12,50 € − 7,50 € = 5 €. Nach dem Heft: 5 € − 4,25 € = 0,75 €.",
-    [(7.5, None, "den ausgegebenen Betrag statt des Rests genommen", "12.5 * 3/5"), (8.25, None, "die 3/5 vergessen", "12.5 - 4.25")], "€"), regel="rr.bruchrechnen")
+    [(7.5, None, "den ausgegebenen Betrag statt des Rests genommen", "12.5 * 3/5"), (8.25, None, "die 3/5 vergessen", "12.5 - 4.25")], "€"), regel=None)
 neu(T, "sach", "umkehren", Z(
     "Ein Becken ist zu 3/5 gefüllt. Nach dem Einfüllen von 1,2 m³ Wasser ist es zu 4/5 gefüllt. Wie viele Kubikmeter Wasser passen in das ganze Becken?",
     6, "1.2 / (4/5 - 3/5)", "1.2 * 5", "Welcher Bruchteil des Beckens sind die 1,2 m³?",

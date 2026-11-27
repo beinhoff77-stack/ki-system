@@ -20,8 +20,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -93,8 +93,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -138,8 +138,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -184,8 +184,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "rr.kuerzen",
-   "regel_name": "Erweitern und Kürzen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -249,8 +249,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "luecken",
-   "regel": "rr.kuerzen",
-   "regel_name": "Erweitern und Kürzen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -270,7 +270,7 @@
     "g": "mehrschritt",
     "y": "luecken",
     "f": {
-     "text": "In einer Klasse sind 28 Kinder, 21 davon kommen mit dem Rad. Weg A: Kürze 21/28 direkt. Weg B: Berechne und kürze den Anteil der 7 Kinder ohne Rad und ziehe ihn von 1 ab. Beide Wege müssen denselben vollständig gekürzten Anteil ergeben.",
+     "text": "In einer Klasse sind 28 Kinder, 21 davon kommen mit dem Rad. Weg A: Kürze 21/28 direkt. Weg B: Berechne und kürze den Anteil der 7 Kinder ohne Rad und ziehe ihn von 1 ab. Beide Wege müssen denselben Anteil ergeben. Welcher Anteil der Kinder kommt mit dem Rad? Schreibe ihn als vollständig gekürzten Bruch.",
      "schablone": "□/□",
      "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
     },
@@ -296,8 +296,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "rr.kuerzen",
-   "regel_name": "Erweitern und Kürzen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -305,7 +305,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Umformung ist für sich richtig: 45/18 = 5/2. Sie rechnet aber mit dem Bruch aus Zeile 1 weiter; der erste Fehler steht in Zeile 1.",
      "c": null
     },
     {
@@ -313,7 +313,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Auch 45/18 = 2 1/2 ist als Umformung richtig. Der erste Fehler steht schon in Zeile 1, wo Teil und Ganzes vertauscht sind.",
      "c": null
     }
    ],
@@ -325,7 +325,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Mia bestimmt, welcher Anteil der 45 Schüler in der AG ist. 18 Schüler sind in der AG. Zeile 1: Anteil = Ganzes : Teil = 45/18 Zeile 2: 45/18 = 5/2 (durch 9 gekürzt) Zeile 3: 45/18 = 2 1/2 In welcher Zeile passiert der erste Fehler?"
+     "text": "Mia bestimmt, welcher Anteil der 45 Schüler in der AG ist. 18 Schüler sind in der AG. Zeile 1: Anteil = Ganzes : Teil = 45/18 Zeile 2: 45/18 = 5/2 (durch 9 gekürzt) Zeile 3: 45/18 = 2 1/2 In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",
@@ -347,8 +347,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -412,8 +412,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -458,8 +458,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -659,8 +659,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.zahlen.bausteine",
-   "regel_name": "Bausteine",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -724,8 +724,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.zahlen.bausteine",
-   "regel_name": "Bausteine",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -770,8 +770,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.zahlen.bausteine",
-   "regel_name": "Bausteine",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -779,7 +779,7 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -787,7 +787,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -795,7 +795,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     }
    ],
@@ -807,7 +807,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Jan bestimmt den größten gemeinsamen Teiler von 36 und 60. Zeile 1: Teiler von 36: 1, 2, 3, 4, 6, 9, 12, 18, 36 Zeile 2: Teiler von 60: 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60 Zeile 3: Gemeinsame Teiler: 1, 2, 3, 4, 6, 12 Zeile 4: Der ggT ist der kleinste gemeinsame Teiler, also 1 In welcher Zeile passiert der erste Fehler?"
+     "text": "Jan bestimmt den größten gemeinsamen Teiler von 36 und 60. Zeile 1: Teiler von 36: 1, 2, 3, 4, 6, 9, 12, 18, 36 Zeile 2: Teiler von 60: 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60 Zeile 3: Gemeinsame Teiler: 1, 2, 3, 4, 6, 12 Zeile 4: Der ggT ist der kleinste gemeinsame Teiler, also 1 In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",
@@ -934,7 +934,7 @@
     "g": "darstellung",
     "y": "luecken",
     "f": {
-     "text": "Ein Rabatt von 35 % soll als vollständig gekürzter Bruch geschrieben werden. Schreibe den Bruch gekürzt.",
+     "text": "Ein Rabatt von 35 % soll als vollständig gekürzter Bruch geschrieben werden. Schreibe den Bruch vollständig gekürzt.",
      "schablone": "□/□",
      "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
     },
@@ -1005,8 +1005,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.verhaeltnisse.groesse",
-   "regel_name": "Größe",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -1080,8 +1080,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.verhaeltnisse.groesse",
-   "regel_name": "Größe",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1125,8 +1125,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.verhaeltnisse.groesse",
-   "regel_name": "Größe",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1134,7 +1134,7 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -1142,7 +1142,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Zeile 3 schreibt nur die Ergebnisse aus Zeile 2 hin. Die falsche 6 kommt aus Zeile 2; dort steht der erste Fehler.",
      "c": null
     }
    ],
@@ -1154,7 +1154,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim kürzt das Verhältnis 56 : 98 : 70. Zeile 1: Der ggT von 56, 98 und 70 ist 14. Zeile 2: 56 : 14 = 4, 98 : 14 = 6, 70 : 14 = 5 Zeile 3: Das gekürzte Verhältnis ist 4 : 6 : 5. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim kürzt das Verhältnis 56 : 98 : 70. Zeile 1: Der ggT von 56, 98 und 70 ist 14. Zeile 2: 56 : 14 = 4, 98 : 14 = 6, 70 : 14 = 5 Zeile 3: Das gekürzte Verhältnis ist 4 : 6 : 5. In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",
@@ -1176,8 +1176,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.verhaeltnisse.groesse",
-   "regel_name": "Größe",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -1241,8 +1241,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "luecken",
-   "regel": "id.verhaeltnisse.groesse",
-   "regel_name": "Größe",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1278,7 +1278,7 @@
     "g": "darstellung",
     "y": "luecken",
     "f": {
-     "text": "Eine Farbmischung besteht aus 12 Teilen Blau und 18 Teilen Weiß. Welcher Bruchteil der Mischung ist Blau? Schreibe ihn als vollständig gekürzten Bruch.",
+     "text": "Eine Farbmischung besteht aus 12 Teilen Blau und 18 Teilen Weiß. Teilst du beide Zahlen durch dieselbe Zahl, bleibt die Mischung gleich. Welcher Bruchteil der Mischung ist Blau? Schreibe ihn als vollständig gekürzten Bruch.",
      "schablone": "□/□",
      "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
     },
@@ -1304,8 +1304,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.verhaeltnisse.groesse",
-   "regel_name": "Größe",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1350,8 +1350,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -1415,8 +1415,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1460,8 +1460,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1469,7 +1469,7 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -1477,7 +1477,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     }
    ],
@@ -1489,7 +1489,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Tina rechnet 2 1/3 + 1 5/6. Zeile 1: 2 1/3 + 1 5/6 = 2 2/6 + 1 5/6 Zeile 2: = 3 7/6 Zeile 3: = 3 1/6 In welcher Zeile passiert der erste Fehler?"
+     "text": "Tina rechnet 2 1/3 + 1 5/6. Zeile 1: 2 1/3 + 1 5/6 = 2 2/6 + 1 5/6 Zeile 2: = 3 7/6 Zeile 3: = 3 1/6 In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",
@@ -1511,8 +1511,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.zahlen.bausteine",
-   "regel_name": "Bausteine",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -1576,8 +1576,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.zahlen.bausteine",
-   "regel_name": "Bausteine",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1622,8 +1622,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.zahlen.bausteine",
-   "regel_name": "Bausteine",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1631,7 +1631,7 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -1639,7 +1639,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -1647,7 +1647,7 @@
      "antwort": "In Zeile 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist für sich richtig: 4/15 = 40/150 und 3/10 = 45/150 stimmen. Sie nutzt den Nenner aus Zeile 3; der erste Fehler steht dort, denn 150 ist nicht der kleinste gemeinsame Nenner.",
      "c": null
     }
    ],
@@ -1659,7 +1659,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ben bringt 4/15 und 3/10 auf einen gemeinsamen Nenner. Zeile 1: Vielfache von 15: 15, 30, 45 Zeile 2: Vielfache von 10: 10, 20, 30 Zeile 3: Der Hauptnenner ist 15 · 10 = 150 Zeile 4: 4/15 = 40/150 und 3/10 = 45/150 In welcher Zeile passiert der erste Fehler?"
+     "text": "Ben bringt 4/15 und 3/10 auf einen gemeinsamen Nenner. Zeile 1: Vielfache von 15: 15, 30, 45 Zeile 2: Vielfache von 10: 10, 20, 30 Zeile 3: Der Hauptnenner ist 15 · 10 = 150 Zeile 4: 4/15 = 40/150 und 3/10 = 45/150 In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",
@@ -1682,8 +1682,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -1747,8 +1747,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1792,8 +1792,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1977,7 +1977,7 @@
     "g": "rueckwaerts",
     "y": "luecken",
     "f": {
-     "text": "Auf dem Zahlenstrahl liegt B bei 5/6. Der Punkt M bei 1/2 ist die Mitte der Strecke von A bis B. Wo liegt A? Schreibe A als Bruch.",
+     "text": "Auf dem Zahlenstrahl liegt B bei 5/6. Der Punkt M bei 1/2 ist die Mitte der Strecke von A bis B. Wo liegt A? Schreibe A als vollständig gekürzten Bruch.",
      "schablone": "□/□",
      "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
     },
@@ -2009,35 +2009,35 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 6,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Grenze −6 mitgezählt",
-     "c": "6"
-    },
-    {
-     "luecke": 2,
      "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Grenze 3 mitgezählt",
+     "beschreibung": "die ganzen Einheiten statt der Schritte gezählt",
      "c": "3"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die ganze Einheit statt der Schritte gezählt",
+     "c": "1"
     },
     {
      "luecke": 3,
      "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Null vergessen",
-     "c": "(5) + (2)"
+     "beschreibung": "die Schritte von 0 bis 1 mit nur 1 gezählt",
+     "c": "(6) + 1"
     },
     {
      "luecke": 4,
-     "antwort": 8,
+     "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Grenzen nicht dazugezählt",
-     "c": "(8)"
+     "beschreibung": "die beiden Endpunkte mitgezählt",
+     "c": "(8) + 1"
     }
    ],
    "aufgabe": {
@@ -2048,26 +2048,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Zähle die ganzen Zahlen, die größer als −6 und kleiner als 3 sind. Negative Zahlen: ①. Positive Zahlen: ②. Dazu kommt noch die Null. Insgesamt sind es ③ ganze Zahlen. Nimmt man die beiden Grenzen noch dazu, sind es ④ ganze Zahlen.",
+     "text": "Auf dem Zahlenstrahl ist die Strecke von −3 bis 1 in Schritte der Länge 0,5 geteilt. Von −3 bis 0 sind es ① Schritte, von 0 bis 1 sind es ② Schritte, zusammen also ③ Schritte. Ohne die beiden Endpunkte liegen ④ Teilpunkte dazwischen.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
-      5,
+      6,
       2,
       8,
-      10
+      7
      ]
     },
     "c": [
-     "6 - 1",
-     "3 - 1",
-     "(5) + (2) + 1",
-     "(8) + 2"
+     "3 * 2",
+     "1 * 2",
+     "(6) + (2)",
+     "(8) - 1"
     ],
-    "h": "Die Grenzen selbst gehören nicht dazu.",
-    "w": "Negativ: −5, −4, −3, −2, −1 (5 Zahlen). Positiv: 1, 2 (2 Zahlen). Dazu die 0: 5 + 2 + 1 = 8. Mit den Grenzen −6 und 3 sind es 8 + 2 = 10."
+    "h": "Wie viele Schritte der Länge 0,5 passen in eine ganze Einheit?",
+    "w": "Eine ganze Einheit hat 2 Schritte der Länge 0,5. Von −3 bis 0 sind es 3 Einheiten, also 6 Schritte. Von 0 bis 1 sind es 2 Schritte. Zusammen 8 Schritte. Dabei gibt es 9 Teilpunkte, mit den beiden Endpunkten; ohne sie bleiben 7."
    }
   },
   {
@@ -2078,8 +2078,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -2130,8 +2130,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.zahlen.zahlengerade",
-   "regel_name": "Zahlengerade",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -2198,11 +2198,11 @@
     },
     {
      "luecke": 3,
-     "antwort": 24,
+     "antwort": 46,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Zähler selbst als fehlenden Teil angegeben",
-     "c": "(24)"
+     "beschreibung": "Lenas Zähler und den richtigen Zähler addiert",
+     "c": "(24) + 22"
     }
    ],
    "aufgabe": {
@@ -2213,7 +2213,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Der Bruch 3/5 wird erweitert, bis er den Nenner 40 hat. Die Erweiterungszahl ist ①. Der neue Zähler ist ②. Bis zum Ganzen fehlen dem Bruch dann ③ Vierzigstel.",
+     "text": "Lena behauptet: 3/5 = 22/40. Prüfe die Aussage, indem du 3/5 auf den Nenner 40 erweiterst. Die Erweiterungszahl ist ①. Der neue Zähler ist ②. Lenas Zähler 22 weicht davon um ③ ab.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
@@ -2221,16 +2221,16 @@
      "werte": [
       8,
       24,
-      16
+      2
      ]
     },
     "c": [
      "40 / 5",
      "3 * (8)",
-     "40 - (24)"
+     "(24) - 22"
     ],
     "h": "Mit welcher Zahl wird aus 5 die 40?",
-    "w": "40 : 5 = 8. 3 · 8 = 24, also 3/5 = 24/40. Das Ganze sind 40/40, es fehlen 40 − 24 = 16 Vierzigstel."
+    "w": "40 : 5 = 8. 3 · 8 = 24, also 3/5 = 24/40. Lena hat 22 geschrieben, das sind 2 zu wenig: Die Aussage ist falsch."
    }
   },
   {
@@ -2301,8 +2301,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -2310,7 +2310,7 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -2318,7 +2318,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Zeile 3 wendet nur die falsche Regel aus Zeile 2 an. Der erste Fehler steht in Zeile 2.",
      "c": null
     }
    ],
@@ -2330,7 +2330,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Lena vergleicht 3/8 und 3/5. Zeile 1: Beide Brüche haben den Zähler 3. Zeile 2: Je größer der Nenner, desto größer der Bruch. Zeile 3: Also ist 3/8 größer als 3/5. In welcher Zeile passiert der erste Fehler?"
+     "text": "Lena vergleicht 3/8 und 3/5. Zeile 1: Beide Brüche haben den Zähler 3. Zeile 2: Je größer der Nenner, desto größer der Bruch. Zeile 3: Also ist 3/8 größer als 3/5. In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",

@@ -22,6 +22,9 @@ from kern import A, FORM, ip, WURZEL, z2   # noqa: E402
 
 KENN = json.load(open(os.path.join(HIER, "..", "regeln-uebersicht", "kennungen.json"), encoding="utf-8"))["kennungen"]
 REGELN = {e["kennung"]: e for e in KENN}
+# Bewusst gesetzte Ausnahmen: Katalogtext trifft zu, das Thema steht aber (noch) nicht in der Themenliste der Kennung.
+REGEL_AUSNAHME = {("bruch.rechnen", "rr.potenz"), ("messen.volumen", "id.flaeche_raum.aus_dem_quader"),
+                  ("messen.koerper_berechnung", "id.flaeche_raum.aus_dem_quader")}
 FEHLBILD = {f["kennung"]: e["kennung"] for e in KENN for f in e["fehlbilder"]}
 
 THEMEN = {
@@ -184,7 +187,9 @@ for a in A:
     gleich_ok = bool(q.pop("_gleich_ok", False))
     zaehler += 1
     kenn = f"{KUERZEL}-V{zaehler:03d}"
-    assert a["regel"] in REGELN, (kenn, a["regel"])
+    # Regel-Kennung nur, wenn der Katalogtext (genau) die Aufgabe wirklich trifft; sonst leer (None).
+    assert a["regel"] is None or a["regel"] in REGELN, (kenn, "Regel-Kennung nicht im Katalog", a["regel"])
+    assert a["regel"] is None or datei in REGELN[a["regel"]]["themen"] or (datei, a["regel"]) in REGEL_AUSNAHME, (kenn, "Regel passt nicht zum Thema", datei, a["regel"])
     assert ip.STUFE_VON[a["g"]] == a["s"], kenn
     assert (datei, a["lk"]) in KARTE, (kenn, a["lk"])
     q.update({"l": a["lk"], "t": KARTE[(datei, a["lk"])], "p": "uebung", "s": a["s"], "g": a["g"]})
@@ -207,7 +212,7 @@ for a in A:
     alle_texte.add(text)
     alle_bau[datei].add(b)
     eintrag = dict(kennung=kenn, thema=a["thema"], lernkarte=a["lk"], stufe=a["s"], typ=FORM[a["form"]][0], form=a["form"], antwortform=q["y"],
-                   regel=a["regel"], regel_name=REGELN[a["regel"]]["name"], zaehlt=a["zaehlt"], fehlbilder=[])
+                   regel=a["regel"], regel_name=REGELN[a["regel"]]["name"] if a["regel"] else None, zaehlt=a["zaehlt"], fehlbilder=[])
 
     def fb_eintrag(ort, antwort, fbk, beschr, c):
         global n_fb

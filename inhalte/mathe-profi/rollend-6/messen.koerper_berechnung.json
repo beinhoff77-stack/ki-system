@@ -835,7 +835,7 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Welche Aussage passt zur Rechnung 2 · (5 · 4 + 5 · 3 + 4 · 3) = 94? Die Maße sind in cm angegeben."
+     "text": "Die Maße sind in cm angegeben. Welche Aussage passt zur Rechnung 2 · (5 · 4 + 5 · 3 + 4 · 3) = 94?"
     },
     "a": [
      "Volumen eines Quaders mit den Kanten 5 cm, 4 cm und 3 cm: 94 cm³",
@@ -867,7 +867,7 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -875,7 +875,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     },
     {
@@ -883,7 +883,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
      "c": null
     }
    ],
@@ -895,7 +895,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Mara behauptet: „Haben zwei Quader dasselbe Volumen, dann haben sie auch dieselbe Oberfläche.“ Sie vergleicht Quader A (4 cm · 3 cm · 2 cm) und Quader B (6 cm · 4 cm · 1 cm). Zeile 1: Volumen A: 4 · 3 · 2 = 24 cm³; Volumen B: 6 · 4 · 1 = 24 cm³ Zeile 2: Oberfläche A: 2 · (12 + 8 + 6) = 52 cm² Zeile 3: Oberfläche B: 2 · (24 + 6 + 4) = 68 cm² Zeile 4: Also haben beide Quader dieselbe Oberfläche. In welcher Zeile passiert der erste Fehler?"
+     "text": "Mara behauptet: „Haben zwei Quader dasselbe Volumen, dann haben sie auch dieselbe Oberfläche.“ Sie vergleicht Quader A (4 cm · 3 cm · 2 cm) und Quader B (6 cm · 4 cm · 1 cm). Zeile 1: Volumen A: 4 · 3 · 2 = 24 cm³; Volumen B: 6 · 4 · 1 = 24 cm³ Zeile 2: Oberfläche A: 2 · (12 + 8 + 6) = 52 cm² Zeile 3: Oberfläche B: 2 · (24 + 6 + 4) = 68 cm² Zeile 4: Also haben beide Quader dieselbe Oberfläche. In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",

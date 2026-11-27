@@ -77,7 +77,7 @@ neu(T, "verstehen", "lueckenweg", L(
     {0: [(30, None, "6 · 5 gerechnet", "6 * 5")], 1: [(7, None, "2 addiert statt verdoppelt", "5 + 2")], 2: [(300, None, "die Oberfläche nur verdoppelt", "{1} * 2")],
      3: [(2, None, "gedacht, mit der Kante verdoppelt sich auch die Oberfläche", "2")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.haut")
 neu(T, "verstehen", "bruecke", W(
-    "Welche Aussage passt zur Rechnung 2 · (5 · 4 + 5 · 3 + 4 · 3) = 94? Die Maße sind in cm angegeben.",
+    "Die Maße sind in cm angegeben. Welche Aussage passt zur Rechnung 2 · (5 · 4 + 5 · 3 + 4 · 3) = 94?",
     "Oberfläche eines Quaders mit den Kanten 5 cm, 4 cm und 3 cm: 94 cm²",
     [("Volumen eines Quaders mit den Kanten 5 cm, 4 cm und 3 cm: 94 cm³", "Volumen und Oberfläche verwechselt"),
      ("Summe aller Kanten eines Quaders mit 5 cm, 4 cm und 3 cm: 94 cm", "Kantensumme und Oberfläche verwechselt"),
@@ -88,4 +88,4 @@ neu(T, "verstehen", "bruecke", W(
 neu(T, "verstehen", "fehler_detektiv", FD(
     "Mara behauptet: „Haben zwei Quader dasselbe Volumen, dann haben sie auch dieselbe Oberfläche.“ Sie vergleicht Quader A (4 cm · 3 cm · 2 cm) und Quader B (6 cm · 4 cm · 1 cm).",
     [("Volumen A: 4 · 3 · 2 = 24 cm³; Volumen B: 6 · 4 · 1 = 24 cm³", 4 * 3 * 2 == 24 and 6 * 4 * 1 == 24), ("Oberfläche A: 2 · (12 + 8 + 6) = 52 cm²", 2 * (12 + 8 + 6) == 52), ("Oberfläche B: 2 · (24 + 6 + 4) = 68 cm²", 2 * (24 + 6 + 4) == 68), ("Also haben beide Quader dieselbe Oberfläche.", 52 == 68)],
-    "Vergleiche die Oberflächen in Zeile 2 und 3.", "Die Volumen sind gleich (24 cm³), aber die Oberflächen sind 52 cm² und 68 cm². Zeile 4 widerspricht den Zeilen 2 und 3. Die Behauptung ist falsch."), regel="id.flaeche_raum.haut")
+    "Vergleiche die Oberflächen in Zeile 2 und 3.", "Die Volumen sind gleich (24 cm³), aber die Oberflächen sind 52 cm² und 68 cm². Zeile 4 widerspricht den Zeilen 2 und 3. Die Behauptung ist falsch.", rueck={}), regel="id.flaeche_raum.haut")

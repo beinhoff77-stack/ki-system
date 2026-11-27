@@ -57,7 +57,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Berechne den Term (3 + a) · 4 − 2 für a = 5. Schritt für Schritt: Die Klammer hat den Wert ①. Mal 4 ergibt ②. Minus 2 ergibt ③.",
+     "text": "Die letzte Rechnung bestimmt die Termart. Berechne dazu (3 + a) · 4 − 2 für a = 5 Schritt für Schritt: Die Klammer hat den Wert ①. Mal 4 ergibt ②. Die letzte Rechnung, minus 2, ergibt ③. Der Term ist also eine Differenz.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
@@ -154,7 +154,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "3 + 4 = 7 und 7 · 2 = 14 ist für sich richtig gerechnet. Es folgt aber der falschen Reihenfolge aus Zeile 1; dort steht der erste Fehler.",
      "c": null
     },
     {
@@ -162,7 +162,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Zeile 3 übernimmt nur das Ergebnis aus Zeile 2. Der erste Fehler steht schon in Zeile 1.",
      "c": null
     }
    ],
@@ -174,7 +174,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Tim berechnet 3 + 4 · a für a = 2. Zeile 1: Man rechnet zuerst 3 + 4 und dann mal a. Zeile 2: 3 + 4 = 7, also 7 · 2 = 14 Zeile 3: Der Wert des Terms ist 14. In welcher Zeile passiert der erste Fehler?"
+     "text": "Tim berechnet 3 + 4 · a für a = 2. Zeile 1: Man rechnet zuerst 3 + 4 und dann mal a. Zeile 2: 3 + 4 = 7, also 7 · 2 = 14 Zeile 3: Der Wert des Terms ist 14. In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",
@@ -298,7 +298,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Berechne den Wert von 4 · (a + 3) − 2a für a = 5. Weg A: Setze a = 5 sofort ein. Weg B: Multipliziere die Klammer aus, fasse zusammen und setze dann a = 5 ein."
+     "text": "Berechne den Wert von 4 · (a + 3) − 2a für a = 5 auf zwei Wegen. Weg A: Setze a = 5 sofort ein. Weg B: Multipliziere die Klammer aus, fasse zusammen und setze dann a = 5 ein. Wie groß ist der Wert des Terms?"
     },
     "o": {
      "wert": 22
@@ -321,18 +321,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 6.2,
+     "antwort": 4.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "7 abgezogen statt addiert",
-     "c": "(38 - 7) / 5"
+     "beschreibung": "3 abgezogen statt addiert",
+     "c": "(21 - 3) / 4"
     },
     {
-     "antwort": 45,
+     "antwort": 24,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur 7 addiert, nicht durch 5 geteilt",
-     "c": "38 + 7"
+     "beschreibung": "nur 3 addiert, nicht durch 4 geteilt",
+     "c": "21 + 3"
     }
    ],
    "aufgabe": {
@@ -343,14 +343,14 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Für welchen Wert von a hat der Term 5a − 7 den Wert 38?"
+     "text": "Für welchen Wert von a hat der Term 4a − 3 den Wert 21?"
     },
     "o": {
-     "wert": 9
+     "wert": 6
     },
-    "c": "(38 + 7) / 5",
+    "c": "(21 + 3) / 4",
     "h": "Kehre die Rechenschritte um, beginnend beim letzten.",
-    "w": "5a − 7 = 38. Erst 7 addieren: 5a = 45. Dann durch 5 teilen: a = 9. Probe: 5 · 9 − 7 = 38."
+    "w": "4a − 3 = 21. Erst 3 addieren: 4a = 24. Dann durch 4 teilen: a = 6. Probe: 4 · 6 − 3 = 21."
    }
   },
   {
@@ -406,7 +406,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Taxi kostet 3 € Grundgebühr und 2 € für jeden gefahrenen Kilometer. Eine Fahrt über 7 km kostet ① €. Eine Fahrt über 12 km kostet ② €. Die längere Fahrt ist um ③ € teurer. Zwei Fahrten über je 12 km kosten zusammen ④ €.",
+     "text": "Ein Taxi kostet 3 € Grundgebühr und 2 € für jeden gefahrenen Kilometer. Für k Kilometer ergibt das den Term 3 + 2 · k. Setze ein: Eine Fahrt über 7 km kostet ① €. Eine Fahrt über 12 km kostet ② €. Die längere Fahrt ist um ③ € teurer. Zwei Fahrten über je 12 km kosten zusammen ④ €.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
@@ -689,7 +689,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Tarif A kostet 8 € Grundgebühr und 0,05 € je Minute. Tarif B kostet 2 € Grundgebühr und 0,15 € je Minute. Nach wie vielen Minuten kosten beide Tarife gleich viel? Weg A: Lege eine Tabelle mit den Preisen für 10, 20, 30 … Minuten an und suche die Stelle, an der beide Preise gleich sind. Weg B: Teile den Unterschied der Grundgebühren durch den Unterschied der Minutenpreise."
+     "text": "Tarif A kostet 8 € Grundgebühr und 0,05 € je Minute. Tarif B kostet 2 € Grundgebühr und 0,15 € je Minute. Weg A: Lege eine Tabelle mit den Preisen für 10, 20, 30 … Minuten an und suche die Stelle, an der beide Preise gleich sind. Weg B: Teile den Unterschied der Grundgebühren durch den Unterschied der Minutenpreise. Nach wie vielen Minuten kosten beide Tarife gleich viel?"
     },
     "o": {
      "wert": 60,
@@ -838,18 +838,18 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 10.6,
+     "antwort": 6.75,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 3 vergessen: 53 : 5",
-     "c": "53 / 5"
+     "beschreibung": "die 3 vergessen: 27 : 4",
+     "c": "27 / 4"
     },
     {
-     "antwort": 11.2,
+     "antwort": 7.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "3 addiert statt abgezogen",
-     "c": "(53 + 3) / 5"
+     "c": "(27 + 3) / 4"
     }
    ],
    "aufgabe": {
@@ -860,14 +860,14 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Figur n eines Musters hat 5n + 3 Plättchen. Bei welcher Figur sind es genau 53 Plättchen?"
+     "text": "Figur n eines Musters hat 4n + 3 Plättchen. Bei welcher Figur sind es genau 27 Plättchen?"
     },
     "o": {
-     "wert": 10
+     "wert": 6
     },
-    "c": "(53 - 3) / 5",
-    "h": "Kehre die Rechnung um: Was passiert zuletzt mit 5n?",
-    "w": "5n + 3 = 53. Erst 3 abziehen: 5n = 50. Dann durch 5 teilen: n = 10. Probe: 5 · 10 + 3 = 53."
+    "c": "(27 - 3) / 4",
+    "h": "Kehre die Rechnung um: Was passiert zuletzt mit 4n?",
+    "w": "4n + 3 = 27. Erst 3 abziehen: 4n = 24. Dann durch 4 teilen: n = 6. Probe: 4 · 6 + 3 = 27."
    }
   },
   {
@@ -1012,7 +1012,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Für x = 2 ergibt 19x tatsächlich 38. Der Term 19x ist aber durch den Fehler in Zeile 1 entstanden; dort steht der erste Fehler.",
      "c": null
     },
     {
@@ -1020,7 +1020,7 @@
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "beschreibung": "Zeile 3 übernimmt nur den Wert aus Zeile 2. Der erste Fehler steht schon in Zeile 1.",
      "c": null
     }
    ],
@@ -1032,7 +1032,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Nina vereinfacht den Term 4x + 15, der den Preis für das Ausleihen eines Rollers für x Stunden beschreibt. Zeile 1: Man darf die Zahlen 4 und 15 zusammenzählen: 4x + 15 = 19x. Zeile 2: Für x = 2 ergibt 19x den Wert 38. Zeile 3: Also kostet das Ausleihen für 2 Stunden 38 €. In welcher Zeile passiert der erste Fehler?"
+     "text": "Nina vereinfacht den Term 4x + 15, der den Preis für das Ausleihen eines Rollers für x Stunden beschreibt. Zeile 1: Man darf die Zahlen 4 und 15 zusammenzählen: 4x + 15 = 19x. Zeile 2: Für x = 2 ergibt 19x den Wert 38. Zeile 3: Also kostet das Ausleihen für 2 Stunden 38 €. In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",

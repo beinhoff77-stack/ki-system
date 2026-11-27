@@ -13,7 +13,7 @@ neu(T, "prozent_bedeutung", "bruecke", Z(
 neu(T, "prozent_bedeutung", "fehler_detektiv", FD(
     "Aysel schreibt 0,6 % als Dezimalzahl.",
     [("0,6 % = 6/100", F(6, 1000) == F(6, 100)), ("6/100 = 0,06", F(6, 100) == F(6, 100)), ("Also ist 0,6 % = 0,06.", True)],
-    "Wie viele Hundertstel sind 0,6 Hundertstel? Ein Prozent ist ein Hundertstel.", "0,6 % = 0,6/100 = 6/1000 = 0,006. In Zeile 1 steht 6/100, das wären 6 %. Die Zeilen 2 und 3 rechnen damit richtig weiter."), regel="id.verhaeltnisse.prozent")
+    "Wie viele Hundertstel sind 0,6 Hundertstel? Ein Prozent ist ein Hundertstel.", "0,6 % = 0,6/100 = 6/1000 = 0,006. In Zeile 1 steht 6/100, das wären 6 %. Die Zeilen 2 und 3 rechnen damit richtig weiter.", rueck={1: '6/100 = 0,06 ist für sich richtig. Der erste Fehler steht in Zeile 1, wo 0,6 % mit 6/100 gleichgesetzt wird.', 2: 'Diese Zeile übernimmt nur das Ergebnis aus Zeile 2. Der erste Fehler steht schon in Zeile 1.'}), regel="id.verhaeltnisse.prozent")
 
 # ───────── prozentwert ─────────
 neu(T, "prozentwert", "lueckenweg", L(
@@ -92,11 +92,11 @@ neu(T, "verstehen", "lueckenweg", L(
     "Nach +10 %: 110 €. 10 % von 110 € sind 11 €. 110 € − 11 € = 99 €. Das sind 1 € weniger als am Anfang.",
     {0: [(10, None, "nur den Aufschlag angegeben", "100 * 0.1")], 1: [(100, None, "gedacht, plus und minus 10 % heben sich auf", "100")], 2: [(0, None, "mit 0 € Unterschied gerechnet", "100 - 100")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.verhaeltnisse.prozent")
 neu(T, "verstehen", "bruecke", Z(
-    "In einem Kreisdiagramm gehört zu 40 % der Gäste der Kuchen. Wie groß ist der Winkel des zugehörigen Kreisausschnitts in Grad? (Der ganze Kreis hat 360°.)",
-    144, "40 / 100 * 360", "360 / 100 * 40", "100 % entsprechen dem ganzen Kreis.",
-    "1 % entspricht 3,6°. 40 · 3,6° = 144°. Der Kreisausschnitt hat 144°.",
-    [(14.4, None, "1 % als 0,36° statt als 3,6° gerechnet", "40 * 0.36"), (40, None, "die Prozentzahl als Gradzahl genommen", "40")], "°"), regel="id.verhaeltnisse.prozent")
+    "In einem Kreisdiagramm gehört zu 40 % der Gäste der Kuchen. Max sagt: „Der Kreisausschnitt dafür hat 140°.“ Der ganze Kreis hat 360°. Um wie viel Grad ist Max' Angabe zu klein?",
+    4, "40 / 100 * 360 - 140", "360 / 100 * 40 - 140", "100 % entsprechen dem ganzen Kreis. Berechne zuerst den richtigen Winkel.",
+    "1 % entspricht 3,6°. 40 · 3,6° = 144°. Max' 140° sind 4° zu wenig.",
+    [(144, None, "nur den richtigen Winkel angegeben, nicht den Unterschied", "40 / 100 * 360"), (140, None, "Max' Winkel selbst als Unterschied genannt", "140")], "°"), regel="id.verhaeltnisse.prozent")
 neu(T, "verstehen", "fehler_detektiv", FD(
     "Mara behauptet: „Steigt ein Preis um 20 % und sinkt danach um 20 %, ist er wieder so hoch wie am Anfang.“ Sie rechnet mit 50 €.",
     [("Erhöhung: 50 · 1,2 = 60 €", 50 * 1.2 == 60), ("Senkung: 60 · 0,8 = 48 €", abs(60 * 0.8 - 48) < 1e-9), ("Also 48 € = 50 €, der Preis ist wieder gleich.", 48 == 50)],
-    "Vergleiche die beiden letzten Preise.", "Die zwei Rechnungen stimmen, aber 48 € sind nicht 50 €. Die 20 % der Senkung beziehen sich auf den neuen Preis 60 €, nicht auf 50 €. Der Preis liegt am Ende 2 € unter dem Start."), regel="id.verhaeltnisse.prozent")
+    "Vergleiche die beiden letzten Preise.", "Die zwei Rechnungen stimmen, aber 48 € sind nicht 50 €. Die 20 % der Senkung beziehen sich auf den neuen Preis 60 €, nicht auf 50 €. Der Preis liegt am Ende 2 € unter dem Start.", rueck={}), regel="id.verhaeltnisse.prozent")

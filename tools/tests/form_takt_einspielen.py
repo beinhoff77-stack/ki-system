@@ -272,11 +272,11 @@ begin
     v_id := pg_temp.ft_kopie(v_basis, 'ft-probe-a', 'einkleidung', 2, 'anwenden', 'ja', 17);
     perform pg_temp.ft_kopie(v_basis, 'ft-probe-b', 'einkleidung', 2, 'anwenden', 'nein', 27);
     for i in 1 .. 6 loop v_r := pg_temp.ft_ant(k, v_ids[i], true, 1, 'ft-a-' || i); end loop;
-    p := p || jsonb_build_object('a_ohne', v_r->'karte' - 'gezaehlt');
+    p := p || jsonb_build_object('a_ohne', (v_r->'karte') - 'gezaehlt');
     v_r := pg_temp.ft_ant(k, v_id, true, 1, 'ft-a-7');
-    p := p || jsonb_build_object('a_mit', v_r->'karte' - 'gezaehlt');
+    p := p || jsonb_build_object('a_mit', (v_r->'karte') - 'gezaehlt');
     for i in 7 .. 12 loop v_r := pg_temp.ft_ant(k, v_ids[i], true, 1, 'ft-b-' || i); end loop;
-    p := p || jsonb_build_object('b', v_r->'karte' - 'gezaehlt');
+    p := p || jsonb_build_object('b', (v_r->'karte') - 'gezaehlt');
 {zurueck('Sachaufgaben-Pflicht')}
   if not (p->'a_ohne' @> '{{"sitzt":false,"eigene_loesungen":6,"anwenden_noetig":true,"anwenden_ok":false}}') then {F("'Pflicht: Karte ohne Sachaufgabe: ' || coalesce((p->'a_ohne')::text, 'leer')")} end if;
   if not (p->'a_mit' @> '{{"sitzt":true,"anwenden_ok":true}}') then {F("'Pflicht: Karte mit Sachaufgabe: ' || coalesce((p->'a_mit')::text, 'leer')")} end if;

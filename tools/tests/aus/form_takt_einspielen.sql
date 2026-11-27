@@ -332,11 +332,11 @@ begin
     v_id := pg_temp.ft_kopie(v_basis, 'ft-probe-a', 'einkleidung', 2, 'anwenden', 'ja', 17);
     perform pg_temp.ft_kopie(v_basis, 'ft-probe-b', 'einkleidung', 2, 'anwenden', 'nein', 27);
     for i in 1 .. 6 loop v_r := pg_temp.ft_ant(k, v_ids[i], true, 1, 'ft-a-' || i); end loop;
-    p := p || jsonb_build_object('a_ohne', v_r->'karte' - 'gezaehlt');
+    p := p || jsonb_build_object('a_ohne', (v_r->'karte') - 'gezaehlt');
     v_r := pg_temp.ft_ant(k, v_id, true, 1, 'ft-a-7');
-    p := p || jsonb_build_object('a_mit', v_r->'karte' - 'gezaehlt');
+    p := p || jsonb_build_object('a_mit', (v_r->'karte') - 'gezaehlt');
     for i in 7 .. 12 loop v_r := pg_temp.ft_ant(k, v_ids[i], true, 1, 'ft-b-' || i); end loop;
-    p := p || jsonb_build_object('b', v_r->'karte' - 'gezaehlt');
+    p := p || jsonb_build_object('b', (v_r->'karte') - 'gezaehlt');
     raise exception using errcode = 'FT999', message = 'zurueck';
   exception
     when sqlstate 'FT999' then null;

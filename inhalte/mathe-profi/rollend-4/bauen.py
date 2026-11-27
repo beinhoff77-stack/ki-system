@@ -17,6 +17,9 @@ from collections import Counter, defaultdict
 from fractions import Fraction as F
 
 sys.dont_write_bytecode = True
+if "--ueberschreiben" not in sys.argv:
+    sys.exit("Nicht ausgeführt: Die Dateien <flug>.json sind seit 27.11. von Hand geändert (6 neue ge1-Aufgaben, 5 umgewandelte Aufgaben, siehe README). "
+             "Dieses Programm würde sie überschreiben. Nur mit --ueberschreiben, dann gehen die Handänderungen verloren.")
 HIER = os.path.dirname(os.path.abspath(__file__))
 WURZEL = os.path.abspath(os.path.join(HIER, "..", "..", ".."))
 sys.path.insert(0, os.path.join(WURZEL, "tools"))

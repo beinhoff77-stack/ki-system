@@ -27,7 +27,7 @@ a6                 9         0          17   17        9     0
 Summe      135 5 255 255 135 0
 ```
 
-Gesamt: 255 neue Aufgaben (vorher 135 von 135 Lernkarten ohne drei, Fehlbedarf 261 inklusive der zurückgestellten Karten).
+Gesamt: 255 neue Aufgaben (135 Lernkarten hatten vorher nicht drei; Fehlbedarf 261 inklusive der zurückgestellten Karten).
 
 Nach Form und Stufe: Fehler-Detektiv Stufe 3: 98; Lückenweg Stufe 1: 94 (zählt nein); Verfahren wählen Stufe 2: 58, Stufe 1: 2, Stufe 3: 2; Zwei Wege vergleichen Stufe 2: 1.
 

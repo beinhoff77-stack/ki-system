@@ -59,12 +59,10 @@ test('Tausendergruppen bleiben ganz – im Nenner', () => {
   assert.deepEqual(lernBruchTeile('7/1 000'), [{ z: '7', n: '1 000' }]);
 });
 test('Tausendergruppen bleiben ganz – im Zähler und in beiden', () => {
-  assert.equal(kurz('s(x) = 1 200/x + 15 Euro'), 's(x) = [1 200|x] + 15 Euro');
   assert.equal(kurz('9/12 = 11 880/20 736 = 55/96.'), '[9|12] = [11 880|20 736] = [55|96].');
   assert.equal(kurz('V = 2 299π/3 ≈ 2 407,5 cm³.'), 'V = [2 299π|3] ≈ 2 407,5 cm³.');
-  assert.deepEqual(lernBruchTeile('1 200/x'), [{ z: '1 200', n: 'x' }]);
-  assert.deepEqual(lernBruchTeile('1 200/x'), [{ z: '1 200', n: 'x' }]);
-  assert.equal(kurz('−1 500/x'), '−[1 500|x]');
+  // 0.93.8: Gruppe nur im Zähler ist zweideutig (Tausendergruppe oder gemischte Zahl) → ganzer Ausdruck bleibt Text
+  for (const s of ['s(x) = 1 200/x + 15 Euro', '1 200/x', '1\u00a0200/x', '1\u202f200/x', '−1 500/x', '1 234 567/x']) assert.equal(kurz(s), s, s);
   // nicht eindeutig begrenzt: lieber Text als zerrissen
   for (const s of ['12,5 200/x', '1/2,5 000', '7/1 000,5', 'x/1 000x']) assert.equal(kurz(s), s, s);
 });
@@ -93,4 +91,41 @@ test('Kurzdaten und Jahre bleiben Text', () => {
   }
   assert.equal(kurz('1800/60 = 30'), '[1800|60] = 30');
   assert.equal(kurz('0,5/2'), '[0,5|2]');
+});
+
+// Regressionstests 0.93.8 (Gegenprüfung der 0.93.7)
+test('Zweideutige Gruppe im Zähler bleibt ganz Text, nie zerrissen', () => {
+  for (const s of ['Als gemischte Zahl: 2 125/128', '2 125/128', '2\u00a0125/128', '1 200/x', '3 125/(x + 1)']) {
+    assert.equal(kurz(s), s, s);
+    assert.deepEqual(lernBruchTeile(s), [s], s);
+  }
+  assert.deepEqual(lernBruchTeile('11 880/20 736'), [{ z: '11 880', n: '20 736' }]); // Gruppe auch im Nenner: eine Zahl
+  assert.deepEqual(lernBruchTeile('7/1 000'), [{ z: '7', n: '1 000' }]); // Gruppe nur im Nenner: eindeutig
+});
+test('Gemischte Zahlen mit ein- oder zweistelligem Zähler wie in 0.93.6', () => {
+  assert.deepEqual(lernBruchTeile('2 1/2'), ['2\u202f', { z: '1', n: '2' }]);
+  assert.deepEqual(lernBruchTeile('1 1/4'), ['1\u202f', { z: '1', n: '4' }]);
+  assert.deepEqual(lernBruchTeile('3 25/48'), ['3\u202f', { z: '25', n: '48' }]);
+});
+test('Alle hochgestellten Zeichen gehören zur Basis', () => {
+  assert.deepEqual(lernBruchTeile('4/xᵏ'), [{ z: '4', n: 'xᵏ' }]);
+  assert.equal(kurz('xᵃ/yᵇ und 1/2ᵐ⁺¹ und 3/x⁽ⁿ⁾'), '[xᵃ|yᵇ] und [1|2ᵐ⁺¹] und [3|x⁽ⁿ⁾]');
+  assert.equal(kurz('aᵗ/4 = 1/eˣ'), '[aᵗ|4] = [1|eˣ]');
+});
+test('Datum nach Datumswort bleibt Text, echte Brüche nicht', () => {
+  for (const s of ['Termin am 27/11', 'Am 1/12 geht es los', 'vom 3/4 bis zum 5/6', 'seit 12/9']) assert.equal(kurz(s), s, s);
+  assert.equal(kurz('Rechne 3/4 + 1/2'), 'Rechne [3|4] + [1|2]');
+  assert.equal(kurz('den Bruch 3/4'), 'den Bruch [3|4]');
+  assert.equal(kurz('von 1/3 bis 1/2'), 'von [1|3] bis [1|2]'); // „bis“ allein ist kein Datumswort (Bestand)
+  assert.equal(kurz('AB 2/4 = 0,5'), 'AB [2|4] = 0,5'); // „ab“ ebenso nicht (Bestand)
+  assert.equal(kurz('am 27/13'), 'am [27|13]'); // kein Monat
+});
+test('Auswahl-Kürzel bleiben Text, Buchstabenbrüche nicht', () => {
+  for (const s of ['Auswahl: w/m', 'm/w', 'm/w/d', 'j/n', 'ja/nein', 'u/o']) assert.equal(kurz(s), s, s);
+  assert.equal(kurz('x/y + a/b und p/q'), '[x|y] + [a|b] und [p|q]');
+});
+test('Positivkontrollen 0.93.8', () => {
+  const soll = { 'x/y + a/b': '[x|y] + [a|b]', '7/1 000': '[7|1 000]', '11 880/20 736': '[11 880|20 736]', '4/x⁻²': '[4|x⁻²]',
+    '1/2ⁿ⁻¹': '[1|2ⁿ⁻¹]', '(x + 1)/(x − 2)': '[x + 1|x − 2]', '2 1/2': '2\u202f[1|2]', '3/4': '[3|4]' };
+  for (const [s, k] of Object.entries(soll)) assert.equal(kurz(s), k, s);
 });

@@ -2,6 +2,16 @@
 
 Neueste oben.
 
+## 2026-11-27 – FERTIG 0.93.8 (Bruch-Erkennung nachgebessert, Zweig `helfer-bruch2`, Commit f3e24697, Cache v183)
+
+- Zweideutige Gruppe im Zähler („2 125/128“, „1 200/x“) bleibt ganz Text; gestapelt nur, wenn auch der Nenner eine Tausendergruppe hat („11 880/20 736“). Gemischte Zahlen „2 1/2“, „3 25/48“ unverändert.
+- Alle hochgestellten Zeichen (Ziffern, ⁺⁻⁼⁽⁾, ⁿⁱ, ᵃ…ᶻ) gehören zur Basis; die Durchsicht nimmt dieselbe Liste aus `lernen.js`.
+- Datum: nur nach „am“, „vom“, „zum“, „seit“ (Tag 1–31, Monat 1–12). „bis“ und „ab“ verworfen: trafen 5 echte Brüche des Bestands („von 3/8 bis 1/2“, „AB 2/4“); „den“ weggelassen (zu riskant).
+- Auswahl-Kürzel w/m, m/w, m/w/d, j/n, ja/nein, u/o bleiben Text.
+- Durchsicht: 6 Texte geändert (alle 1 200/x bzw. 1 500/x → Text, gewollt); zweideutige Gruppe im Zähler: 7 Texte, davon 6 bewusst Text, 1 gestapelt (11 880/20 736); verdächtige Reste 0/0.
+- Tests: lernen-bruch 19/19; Gesamttest 203 Tests, 203 bestanden, 0 fehlgeschlagen.
+- Nicht geprüft: Darstellung im Browser von Hand (nur über den Gesamttest); Texte außerhalb `inhalte/themen`.
+
 ## 2026-11-25 – FERTIG: WT (App 0.93.5)
 
 Ausgangsstand `origin/lernen-app` 8ae84ee, Zweig `bau-app`. Nur App und Tests: keine Datenbank, nichts eingespielt, kein Merge. Cache v180.

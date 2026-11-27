@@ -15,10 +15,11 @@ const alle = arg.includes('--alle');
 function ladeFunktion(quelle) {
   const a = quelle.indexOf('const LERN_BUCHST = '); const b = quelle.indexOf('function lernBruchKnoten(s) {');
   if (a < 0 || b < 0) throw new Error('Block der Bruch-Erkennung nicht gefunden');
-  return new Function(quelle.slice(a, b) + '\nreturn lernBruchTeile;')();
+  return new Function(quelle.slice(a, b) + '\nreturn [lernBruchTeile, LERN_HOCH];')();
 }
-const alt = ladeFunktion(execFileSync('git', ['show', `${altStand}:lernen.js`], { cwd: wurzel, encoding: 'utf8' }));
-const neu = ladeFunktion(fs.readFileSync(path.join(wurzel, 'lernen.js'), 'utf8'));
+const [alt] = ladeFunktion(execFileSync('git', ['show', `${altStand}:lernen.js`], { cwd: wurzel, encoding: 'utf8' }));
+// Zeichenliste der Hochzeichen kommt aus dem Arbeitsstand (dieselbe wie in lernBruchTeile, keine eigene engere Liste).
+const [neu, HOCH] = ladeFunktion(fs.readFileSync(path.join(wurzel, 'lernen.js'), 'utf8'));
 
 // Kurzform: Bruch als [Zähler|Nenner], Trenner sichtbar (· = U+00A0, ˙ = U+202F).
 const zeig = (t) => t.replace(/ /g, '·').replace(/ /g, '˙');
@@ -27,7 +28,6 @@ const brueche = (teile) => teile.filter((t) => typeof t !== 'string').length;
 
 // Verdächtige Reste: Bruch, auf den direkt Ziffer, Trenner + genau 3 Ziffern, Hochzahl oder ^ folgt;
 // Bruch, dem direkt Ziffer + Trenner vorausgeht und dessen Zähler mit genau 3 Ziffern beginnt (Tausendergruppe).
-const HOCH = '⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺ⁿ';
 function verdaechtig(teile) {
   const funde = [];
   teile.forEach((t, k) => {
@@ -65,8 +65,11 @@ function* texte(datei, d) {
 }
 
 const ordner = path.join(wurzel, 'inhalte', 'themen');
-const sum = { texte: 0, mitStrich: 0, altBr: 0, neuBr: 0, geaendert: 0, verdAlt: 0, verdNeu: 0, weniger: 0, mehr: 0 };
-const aenderungen = []; const restNeu = [];
+const sum = { texte: 0, mitStrich: 0, altBr: 0, neuBr: 0, geaendert: 0, verdAlt: 0, verdNeu: 0, weniger: 0, mehr: 0, zweideutig: 0 };
+const aenderungen = []; const restNeu = []; const zweideutigeTexte = [];
+// Zweideutige Gruppe im Zähler: 1–3 Ziffern, Trenner, genau 3 Ziffern, Schrägstrich (2 125/128 oder 1 200/x) – bleibt bewusst Text,
+// außer der Nenner hat auch eine Tausendergruppe (11 880/20 736).
+const ZWEIDEUTIG = /(?:^|[^\d,.])\d{1,3}[ \u00a0\u202f]\d{3}\//;
 const kuerze = (t) => (alle || t.length <= 160 ? t : t.slice(0, 157) + '…');
 for (const datei of fs.readdirSync(ordner).filter((f) => f.endsWith('.json')).sort()) {
   const d = JSON.parse(fs.readFileSync(path.join(ordner, datei), 'utf8'));
@@ -74,6 +77,7 @@ for (const datei of fs.readdirSync(ordner).filter((f) => f.endsWith('.json')).so
     sum.texte++;
     if (!t.includes('/')) continue;
     sum.mitStrich++;
+    if (ZWEIDEUTIG.test(t)) { sum.zweideutig++; zweideutigeTexte.push(`${datei} ${pos}\n    ${kuerze(kurz(neu(t)))}`); }
     const ta = alt(t); const tn = neu(t);
     const ba = brueche(ta); const bn = brueche(tn);
     sum.altBr += ba; sum.neuBr += bn;
@@ -91,8 +95,11 @@ console.log(`Geänderte Texte (${aenderungen.length}):`);
 for (const z of aenderungen) console.log(z);
 console.log(`\nVerdächtige Reste im NEUEN Stand (${restNeu.length} Texte):`);
 for (const z of restNeu) console.log('  ' + z);
+console.log(`\nZweideutige Gruppe im Zähler (${zweideutigeTexte.length} Texte):`);
+for (const z of zweideutigeTexte) console.log('  ' + z);
 console.log('\nZusammenfassung');
 console.log(`  Texte gesamt: ${sum.texte}, davon mit „/“: ${sum.mitStrich}`);
 console.log(`  Gestapelte Brüche alt/neu: ${sum.altBr} / ${sum.neuBr}`);
 console.log(`  Texte mit geändertem Ergebnis: ${sum.geaendert} (weniger Brüche: ${sum.weniger}, mehr: ${sum.mehr}, gleich viele: ${sum.geaendert - sum.weniger - sum.mehr})`);
 console.log(`  Verdächtige Reste alt/neu: ${sum.verdAlt} / ${sum.verdNeu}`);
+console.log(`  Zweideutige Gruppe im Zähler (Texte): ${sum.zweideutig}`);

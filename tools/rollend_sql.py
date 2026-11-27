@@ -37,9 +37,10 @@ def sammeln(mit_bedingung=False):
         import bedingung
     for pfad in sorted(glob.glob(str(WURZEL / 'inhalte/mathe-profi/rollend-*/*.json'))):
         d = json.loads(Path(pfad).read_text(encoding='utf-8'))
-        themen = plan['fluege'].get(d['flug'])
+        flug = d.get('flug') or d.get('thema') or '?'  # rollend-5 ff. nennen das Thema statt eines Flugs
+        themen = plan['fluege'].get(flug)
         if not themen:
-            ohne.append((Path(pfad).relative_to(WURZEL).as_posix(), d['flug'], len(d['aufgaben']))); continue
+            ohne.append((Path(pfad).relative_to(WURZEL).as_posix(), flug, len(d['aufgaben']))); continue
         for e in d['aufgaben']:
             a, k = e['aufgabe'], e['kennung']
             form = FORM.get(e.get('typ'))

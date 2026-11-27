@@ -573,7 +573,7 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "72 · 18 : 100",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -581,7 +581,7 @@
      "c": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "72 · 18",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -589,7 +589,7 @@
      "c": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "72 − 18",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -608,13 +608,13 @@
      "text": "Du weißt: 18 % einer Größe sind 72. Mit welcher Rechnung findest du die ganze Größe?"
     },
     "a": [
-     "72 : 18 · 100",
      "72 · 18 : 100",
      "72 · 18",
-     "72 − 18"
+     "72 − 18",
+     "72 : 18 · 100"
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "h": "Erst herausfinden, wie viel ein Prozent ist.",
     "w": "72 : 18 = 4 sind 1 %. Das Ganze sind 100 %: 4 · 100 = 400. Rechnung: 72 : 18 · 100."

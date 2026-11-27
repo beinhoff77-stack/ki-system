@@ -44,7 +44,7 @@ neu(T, "einheiten", "bruecke", W(
     "3,4 dm³",
     [("34 dm³", "mit 100 statt mit 1000 umgerechnet"), ("0,34 dm³", "mit 10 000 geteilt"), ("3,4 m³", "dm³ mit m³ verwechselt")],
     "Wie viele cm³ hat ein dm³?",
-    "1 dm³ = 1000 cm³. 3 400 cm³ : 1000 = 3,4 dm³, also 3 400 cm³ = 3,4 dm³.",
+    "1 dm³ = 1 000 cm³. Die Maßzahl in dm³ ist 3 400 : 1 000 = 3,4. Also sind 3 400 cm³ = 3,4 dm³.",
     lambda: F(3400, 1000) == F(34, 10) and F(3400, 100) == 34 and F(3400, 10000) == F(34, 100) and F(34, 10) * 1000 == 3400 and F(34, 10) != 3400 * 1000), regel=None)
 neu(T, "einheiten", "anwenden", Z(
     "Ein Schwimmbecken enthält 45 m³ Wasser. Mit einem Eimer, der 12 Liter fasst, soll es leer geschöpft werden. Es gilt 1 m³ = 1000 Liter. Wie oft muss man den Eimer füllen?",

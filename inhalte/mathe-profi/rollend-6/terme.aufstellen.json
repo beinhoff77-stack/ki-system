@@ -26,6 +26,22 @@
    "fehlbilder": [
     {
      "luecke": 1,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Summe bestimmt, weil in der Klammer ein Plus steht",
+     "c": "1"
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Produkt bestimmt, weil ein Malzeichen im Term steht",
+     "c": "3"
+    },
+    {
+     "luecke": 2,
      "antwort": 15,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -33,7 +49,7 @@
      "c": "3 * 5"
     },
     {
-     "luecke": 2,
+     "luecke": 3,
      "antwort": 23,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -41,12 +57,12 @@
      "c": "3 + 5 * 4"
     },
     {
-     "luecke": 3,
-     "antwort": 34,
+     "luecke": 4,
+     "antwort": 38,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "plus statt minus 2",
-     "c": "(32) + 2"
+     "beschreibung": "plus statt minus 6",
+     "c": "(32) + 6"
     }
    ],
    "aufgabe": {
@@ -57,24 +73,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die letzte Rechnung bestimmt die Termart. Beim Term (3 + a) · 4 − 2 wird zuletzt etwas abgezogen. Setze a = 5 ein. Die Klammer hat den Wert ①. Der Teil vor dem letzten Rechenzeichen, (3 + a) · 4, hat den Wert ②. Der ganze Term hat den Wert ③.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Die Termarten sind der Reihe nach nummeriert, beginnend bei 1: Summe, Differenz, Produkt, Quotient. Welche Nummer hat die Termart von (3 + a) · 4 − 6? ①. Für a = 5 hat die Klammer den Wert ②. Der erste Operand der letzten Rechnung hat den Wert ③. Der ganze Term hat den Wert ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
+      2,
       8,
       32,
-      30
+      26
      ]
     },
     "c": [
+     "2",
      "3 + 5",
      "(8) * 4",
-     "(32) - 2"
+     "(32) - 6"
     ],
-    "h": "Die Klammer wird zuerst gerechnet.",
-    "w": "Klammer: 3 + 5 = 8. Der Teil vor dem Abziehen: 8 · 4 = 32. Zuletzt minus 2: 30."
+    "h": "Welche Rechnung wird zuletzt ausgeführt?",
+    "w": "Zuletzt wird 6 abgezogen: Der Term ist eine Differenz, also Nummer 2. Klammer: 3 + 5 = 8. Der erste Operand der letzten Rechnung: 8 · 4 = 32. Der ganze Term: 32 − 6 = 26."
    }
   },
   {
@@ -90,7 +108,7 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Von links nach rechts rechnen: zuerst 2 · x, dann + 5. Also eine Summe.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -98,7 +116,7 @@
      "c": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Die Klammer weglassen, denn Klammern ändern die Termart nicht: eine Summe aus 2 · x und 5.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -125,13 +143,13 @@
      "text": "Du sollst die Termart von 2 · (x + 5) bestimmen. Welcher Weg führt sicher zum Ziel?"
     },
     "a": [
+     "Ein Zahlenbeispiel (x = 1) in der richtigen Reihenfolge durchrechnen (Klammer 6, dann mal 2) und die letzte Rechnung benennen: ein Produkt.",
      "Von links nach rechts rechnen: zuerst 2 · x, dann + 5. Also eine Summe.",
      "Die Klammer weglassen, denn Klammern ändern die Termart nicht: eine Summe aus 2 · x und 5.",
-     "Ein Zahlenbeispiel (x = 1) in der richtigen Reihenfolge durchrechnen (Klammer 6, dann mal 2) und die letzte Rechnung benennen: ein Produkt.",
      "Den Term in Wörter fassen: zwei plus x plus fünf. Also eine Summe."
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
     "h": "Welche Rechenart wird zuletzt ausgeführt?",
     "w": "Zuerst wird x + 5 gerechnet (Klammer), zuletzt wird mit 2 malgenommen. Also ein Produkt aus 2 und der Summe x + 5. Probe mit x = 1: 2 · 6 = 12, aber 2 · 1 + 5 = 7."
@@ -406,7 +424,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Taxi berechnet eine feste Grundgebühr und dazu einen festen Preis je Kilometer. Eine Fahrt über 4 km kostet 11 €, eine Fahrt über 5 km kostet 13 €. Jeder Kilometer kostet ① €. Die Grundgebühr beträgt ② €. Der Preis für k Kilometer ist der Term ② + ① · k. Eine Fahrt über 12 km kostet ③ €. Eine Hin- und Rückfahrt über je 12 km kostet zusammen ④ €.",
+     "text": "Ein Taxi berechnet eine feste Grundgebühr und dazu einen festen Preis je Kilometer. Eine Fahrt über 4 km kostet 11 €, eine Fahrt über 5 km kostet 13 €. Jeder Kilometer kostet ① €. Die Grundgebühr beträgt ② €. Der Preis für k Kilometer ist der Term ② + ① · k. Eine Fahrt über 12 km kostet ③ €. Hin- und Rückfahrt sind getrennte Taxifahrten über je 12 km, jede mit neuer Grundgebühr; sie kosten zusammen ④ €.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
@@ -629,7 +647,7 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "5 − 0,80 · b + 2 · 0,60",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -637,11 +655,11 @@
      "c": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "5 − 0,80 · (b + 2) − 0,60",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Preis für 2 Äpfel mit dem Brezelpreis gerechnet",
+     "beschreibung": "die 2 Äpfel zum Brezelpreis 0,80 € gerechnet und zusätzlich 0,60 € für einen Apfel noch einmal abgezogen",
      "c": null
     },
     {
@@ -664,13 +682,13 @@
      "text": "Am Schulkiosk kostet eine Brezel 0,80 € und ein Apfel 0,60 €. Ein Kind kauft b Brezeln und 2 Äpfel und bezahlt mit einem 5-Euro-Schein. Welcher Term gibt an, wie viel Euro es zurückbekommt?"
     },
     "a": [
-     "5 − (0,80 · b + 2 · 0,60)",
      "5 − 0,80 · b + 2 · 0,60",
      "5 − 0,80 · (b + 2) − 0,60",
+     "5 − (0,80 · b + 2 · 0,60)",
      "(5 − 0,80) · b − 2 · 0,60"
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "h": "Was kosten alle Brezeln und alle Äpfel zusammen? Das Rückgeld ist der Rest vom Schein.",
     "w": "b Brezeln kosten 0,80 · b €, 2 Äpfel kosten 2 · 0,60 €. Zusammen 0,80 · b + 2 · 0,60. Das Rückgeld ist 5 − (0,80 · b + 2 · 0,60). Probe b = 3: 5 − (2,40 + 1,20) = 1,40 €."
@@ -800,7 +818,7 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "3n + 7",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -808,7 +826,7 @@
      "c": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "n + 6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -816,7 +834,7 @@
      "c": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "7n",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -835,13 +853,13 @@
      "text": "Eine Wertetabelle zeigt: n = 1 ergibt 7, n = 2 ergibt 10, n = 3 ergibt 13, n = 4 ergibt 16. Welcher Term gehört zu dieser Tabelle?"
     },
     "a": [
+     "3n + 4",
      "3n + 7",
      "n + 6",
-     "7n",
-     "3n + 4"
+     "7n"
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "h": "Wie viel kommt von einer Zeile zur nächsten dazu? Setze dann n = 1 ein.",
     "w": "Von Zeile zu Zeile kommen 3 dazu, also 3n + etwas. Für n = 1: 3 + 4 = 7. Probe n = 4: 3 · 4 + 4 = 16."
@@ -917,7 +935,7 @@
      "antwort": 62,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Grundgebühr noch einmal dazugerechnet: 47 + 15",
+     "beschreibung": "statt des Verlängerungspreises von 12 € erneut die Grundgebühr von 15 € addiert: 47 + 15",
      "c": "(47) + 15"
     },
     {
@@ -986,7 +1004,7 @@
      "c": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Eine Stunde kostet 39 €.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -994,7 +1012,7 @@
      "c": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Man zahlt 15 Stunden lang je 4 €.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1014,12 +1032,12 @@
     },
     "a": [
      "Für 39 Stunden zahlt man 6 €.",
-     "Für 6 Stunden zahlt man 39 €.",
      "Eine Stunde kostet 39 €.",
-     "Man zahlt 15 Stunden lang je 4 €."
+     "Man zahlt 15 Stunden lang je 4 €.",
+     "Für 6 Stunden zahlt man 39 €."
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "h": "Was ist x? Was ist das Ergebnis der Rechnung?",
     "w": "x ist die Zahl der Stunden. 4 · 6 steht für 6 Stunden zu je 4 €, die 15 € fallen einmal an. Das Ergebnis 39 ist der Preis in Euro."

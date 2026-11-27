@@ -28,14 +28,13 @@ neu(T, "vergleichen_ordnen", "lueckenweg", L(
      3: [(500, None, "mit 10 malgenommen statt durch 10 geteilt", "{3} * 10")]},
     hinweis="Je Lücke eine ganze Zahl."), regel="rr.stellenwert")
 neu(T, "vergleichen_ordnen", "verfahren_waehlen", W(
-    "Du willst 0,8 und 0,75 vergleichen. Welcher Weg führt sicher zum richtigen Ergebnis?",
-    "Beide Zahlen mit gleich vielen Nachkommastellen schreiben (0,80 und 0,75) und dann die Hundertstel vergleichen.",
+    "Du willst zwei Dezimalzahlen vergleichen, zum Beispiel 0,8 und 0,75. Welcher Weg entscheidet für jedes Paar nichtnegativer Dezimalzahlen richtig?",
+    "Beide Zahlen mit gleich vielen Nachkommastellen schreiben (0,80 und 0,75) und dann die Hundertstel vergleichen: 80 Hundertstel mit 75 Hundertsteln.",
     [("Die Zahlen hinter dem Komma wie ganze Zahlen vergleichen: 8 und 75.", "die Stellenzahl nicht angeglichen: 75 gegen 8"),
-     ("Die Ziffern zählen: Die Zahl mit mehr Ziffern ist die größere.", "die Zahl der Ziffern statt des Werts verglichen"),
-     ("Beide Zahlen mit 10 malnehmen und nur die ganzen Zahlen vergleichen: 8 und 7.", "Reste hinter dem Komma abgeschnitten; bei 0,81 und 0,89 entscheidet dieser Weg nichts")],
+     ("Die Ziffern zählen: Die Zahl mit mehr Ziffern ist die größere.", "die Zahl der Ziffern statt des Werts verglichen")],
     "Schreibe beide Zahlen mit gleich vielen Nachkommastellen.",
     "Gleiche Stellenzahl: 0,8 = 0,80 und 0,75. Es ist 80 > 75, also 0,8 > 0,75. Die Länge der Ziffernfolge sagt nichts über die Größe.",
-    lambda: F(8, 10) > F(75, 100) and F(81, 100) != F(89, 100) and int(F(81, 10)) == int(F(89, 10))), g="mehrschritt", regel=None)
+    lambda: F(8, 10) > F(75, 100) and F(8, 10) < F(75, 10) and len("0,75") > len("0,8")), g="mehrschritt", regel=None)
 neu(T, "vergleichen_ordnen", "anwenden", Z(
     "Drei Papierflieger fliegen 4,35 m, 4,5 m und 4,305 m weit. Um wie viele Zentimeter ist der weiteste Flug weiter als der kürzeste?",
     19.5, "(4.5 - 4.305) * 100", "450 - 430.5", "Welcher Flug ist der weiteste, welcher der kürzeste? Schreibe die Zahlen mit gleich vielen Stellen.",
@@ -140,7 +139,7 @@ neu(T, "verstehen", "verfahren_waehlen", W(
      ("Die Stellen zählen: 0,3 hat weniger Stellen, also ist es kleiner.", "die Zahl der Stellen verglichen"),
      ("Die Schreibweise vergleichen: Sie ist verschieden, also sind die Werte verschieden.", "Schreibweise mit dem Wert verwechselt")],
     "Wie viele Hundertstel sind drei Zehntel?",
-    "Ein Zehntel sind 10 Hundertstel. 3 Zehntel sind 30 Hundertstel. Eine Null am Ende einer Dezimalzahl ändert den Wert nicht.",
+    "Ein Zehntel sind 10 Hundertstel. 3 Zehntel sind 30 Hundertstel. Eine angehängte Null nach der letzten Nachkommastelle ändert den Wert nicht.",
     lambda: F(3, 10) == F(30, 100)), g="mehrschritt", regel=None)
 neu(T, "verstehen", "umkehren", Z(
     "Eine Dezimalzahl hat 3 Einer, 2 Zehntel und ? Hundertstel und keine weitere Stelle. Auf Zehntel gerundet ist sie 3,3. Welche ist die kleinste Ziffer, die an der Stelle des Fragezeichens stehen kann?",

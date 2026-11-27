@@ -272,7 +272,7 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "Die Zahlen hinter dem Komma wie ganze Zahlen vergleichen: 8 und 75.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -286,14 +286,6 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "die Zahl der Ziffern statt des Werts verglichen",
      "c": null
-    },
-    {
-     "index": 3,
-     "antwort": "Beide Zahlen mit 10 malnehmen und nur die ganzen Zahlen vergleichen: 8 und 7.",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "Reste hinter dem Komma abgeschnitten; bei 0,81 und 0,89 entscheidet dieser Weg nichts",
-     "c": null
     }
    ],
    "aufgabe": {
@@ -304,16 +296,15 @@
     "g": "mehrschritt",
     "y": "auswahl",
     "f": {
-     "text": "Du willst 0,8 und 0,75 vergleichen. Welcher Weg führt sicher zum richtigen Ergebnis?"
+     "text": "Du willst zwei Dezimalzahlen vergleichen, zum Beispiel 0,8 und 0,75. Welcher Weg entscheidet für jedes Paar nichtnegativer Dezimalzahlen richtig?"
     },
     "a": [
-     "Beide Zahlen mit gleich vielen Nachkommastellen schreiben (0,80 und 0,75) und dann die Hundertstel vergleichen.",
      "Die Zahlen hinter dem Komma wie ganze Zahlen vergleichen: 8 und 75.",
-     "Die Ziffern zählen: Die Zahl mit mehr Ziffern ist die größere.",
-     "Beide Zahlen mit 10 malnehmen und nur die ganzen Zahlen vergleichen: 8 und 7."
+     "Beide Zahlen mit gleich vielen Nachkommastellen schreiben (0,80 und 0,75) und dann die Hundertstel vergleichen: 80 Hundertstel mit 75 Hundertsteln.",
+     "Die Ziffern zählen: Die Zahl mit mehr Ziffern ist die größere."
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "h": "Schreibe beide Zahlen mit gleich vielen Nachkommastellen.",
     "w": "Gleiche Stellenzahl: 0,8 = 0,80 und 0,75. Es ist 80 > 75, also 0,8 > 0,75. Die Länge der Ziffernfolge sagt nichts über die Größe."
@@ -1267,7 +1258,7 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Die Zahlen 3 und 30 vergleichen: 30 ist größer, also ist 0,30 größer.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1275,7 +1266,7 @@
      "c": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Die Stellen zählen: 0,3 hat weniger Stellen, also ist es kleiner.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1283,7 +1274,7 @@
      "c": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Die Schreibweise vergleichen: Sie ist verschieden, also sind die Werte verschieden.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1302,16 +1293,16 @@
      "text": "Du willst prüfen, ob 0,3 und 0,30 gleich groß sind. Welcher Weg zeigt es sicher?"
     },
     "a": [
+     "0,3 in Hundertstel umschreiben (3 Zehntel sind 30 Hundertstel) und mit 0,30 vergleichen.",
      "Die Zahlen 3 und 30 vergleichen: 30 ist größer, also ist 0,30 größer.",
      "Die Stellen zählen: 0,3 hat weniger Stellen, also ist es kleiner.",
-     "Die Schreibweise vergleichen: Sie ist verschieden, also sind die Werte verschieden.",
-     "0,3 in Hundertstel umschreiben (3 Zehntel sind 30 Hundertstel) und mit 0,30 vergleichen."
+     "Die Schreibweise vergleichen: Sie ist verschieden, also sind die Werte verschieden."
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "h": "Wie viele Hundertstel sind drei Zehntel?",
-    "w": "Ein Zehntel sind 10 Hundertstel. 3 Zehntel sind 30 Hundertstel. Eine Null am Ende einer Dezimalzahl ändert den Wert nicht."
+    "w": "Ein Zehntel sind 10 Hundertstel. 3 Zehntel sind 30 Hundertstel. Eine angehängte Null nach der letzten Nachkommastelle ändert den Wert nicht."
    }
   },
   {

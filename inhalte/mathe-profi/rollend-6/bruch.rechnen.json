@@ -139,7 +139,7 @@
      "antwort": 1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "auch das Auffüllen abgezogen: 8/12 − 3/12 − 2/12 = 3/12 = 1/4, gekürzter Zähler 1",
+     "beschreibung": "Das passt zum Zähler von 1/4, wenn auch das Auffüllen abgezogen wurde: 8/12 − 3/12 − 2/12 = 3/12 = 1/4",
      "c": "(2/3 - 1/4 - 1/6) * 4"
     },
     {
@@ -147,7 +147,7 @@
      "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "auch das Auffüllen abgezogen: 8/12 − 3/12 − 2/12 = 3/12 = 1/4, gekürzter Nenner 4",
+     "beschreibung": "Das passt zum Nenner von 1/4, wenn auch das Auffüllen abgezogen wurde: 8/12 − 3/12 − 2/12 = 3/12 = 1/4",
      "c": "1 / (2/3 - 1/4 - 1/6)"
     }
    ],
@@ -582,7 +582,7 @@
      "c": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "Mit dem Kehrwert von 5/12 malnehmen: 8/15 · 12/5 = 32/25",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -590,7 +590,7 @@
      "c": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "Nur die Zähler malnehmen, den Nenner 15 behalten: 40/15",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -610,12 +610,12 @@
     },
     "a": [
      "Zähler und Nenner einzeln addieren: 13/27",
-     "Vor dem Malnehmen über Kreuz kürzen: 2/3 · 1/3 = 2/9",
      "Mit dem Kehrwert von 5/12 malnehmen: 8/15 · 12/5 = 32/25",
-     "Nur die Zähler malnehmen, den Nenner 15 behalten: 40/15"
+     "Nur die Zähler malnehmen, den Nenner 15 behalten: 40/15",
+     "Vor dem Malnehmen über Kreuz kürzen: 2/3 · 1/3 = 2/9"
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "h": "Beim Malnehmen von Brüchen braucht man keinen gemeinsamen Nenner.",
     "w": "Zähler mal Zähler und Nenner mal Nenner. Vorher kürzen: 8 und 12 durch 4, 5 und 15 durch 5. So bleibt 2/3 · 1/3 = 2/9. Probe: 8/15 · 5/12 = 40/180 = 2/9."
@@ -1776,7 +1776,7 @@
      "c": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Das Komma bleibt an der Stelle wie beim ersten Faktor: 0,2 · 0,3 = 0,6.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1784,7 +1784,7 @@
      "c": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "0,2 + 0,3 = 0,5 rechnen und prüfen, ob das Ergebnis in der Nähe liegt.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -1804,12 +1804,12 @@
     },
     "a": [
      "Malnehmen vergrößert immer. Das Ergebnis muss größer sein als beide Faktoren, 0,6 ist größer als 0,2 und 0,3.",
+     "Ohne Komma rechnen (2 · 3 = 6). Die beiden Faktoren haben zusammen 2 Nachkommastellen, also hat auch das Ergebnis 2: 0,06.",
      "Das Komma bleibt an der Stelle wie beim ersten Faktor: 0,2 · 0,3 = 0,6.",
-     "0,2 + 0,3 = 0,5 rechnen und prüfen, ob das Ergebnis in der Nähe liegt.",
-     "Ohne Komma rechnen (2 · 3 = 6). Die beiden Faktoren haben zusammen 2 Nachkommastellen, also hat auch das Ergebnis 2: 0,06."
+     "0,2 + 0,3 = 0,5 rechnen und prüfen, ob das Ergebnis in der Nähe liegt."
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "h": "Wie viele Nachkommastellen haben die beiden Faktoren zusammen?",
     "w": "2 · 3 = 6, und 0,2 und 0,3 haben zusammen 2 Nachkommastellen. Also ist 0,2 · 0,3 = 0,06, nicht 0,6. Probe mit Brüchen: 2/10 · 3/10 = 6/100."
@@ -2003,14 +2003,14 @@
      "antwort": 36,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur den zweiten Schritt rückgängig gemacht: 24 : 2/3",
+     "beschreibung": "nur den zweiten Schritt rückgängig gemacht: 24 : (2/3)",
      "c": "24 / (2/3)"
     },
     {
      "antwort": 40,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur den ersten Schritt rückgängig gemacht: 24 : 3/5",
+     "beschreibung": "nur den ersten Schritt rückgängig gemacht: 24 : (3/5)",
      "c": "24 / (3/5)"
     }
    ],

@@ -109,7 +109,7 @@ neu(T, "oberflaeche", "umkehren", Z(
 
 # ───────── verstehen ─────────
 neu(T, "verstehen", "lueckenweg", L(
-    "Ein Parallelogramm hat die Grundseite 16 cm und die Höhe 5 cm. Man schneidet an einer Seite ein Dreieck ab und setzt es auf der anderen Seite an. So entsteht ein Rechteck mit ① cm². Ein Dreieck mit derselben Grundseite und derselben Höhe hat ② cm². Ein Rechteck mit derselben Fläche wie das Parallelogramm und der Breite 8 cm ist ③ cm lang.",
+    "Ein Parallelogramm hat die Grundseite 16 cm und die Höhe 5 cm; der Fußpunkt der Höhe liegt auf der Grundseite. Man schneidet an einer Seite ein Dreieck ab und setzt es auf der anderen Seite an. So entsteht ein Rechteck mit ① cm². Ein Dreieck mit derselben Grundseite und derselben Höhe hat ② cm². Ein Rechteck mit derselben Fläche wie das Parallelogramm und der Breite 8 cm ist ③ cm lang.",
     KOMM(3), [80, 40, 10], ["16 * 5", "{1} / 2", "{1} / 8"], ["80", "40", "10"], "Beim Umlegen bleibt die Fläche gleich.",
     "Das Rechteck hat 16 · 5 = 80 cm², genau wie das Parallelogramm. Ein Dreieck mit g = 16 cm und h = 5 cm hat 40 cm². Das Rechteck mit der Breite 8 cm ist 80 : 8 = 10 cm lang.",
     {0: [(21, None, "addiert statt malgenommen", "16 + 5")], 1: [(80, None, "das Dreieck nicht halbiert: 80 statt 80 : 2", "{1}")], 2: [(640, None, "malgenommen statt geteilt", "{1} * 8")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.aus_dem_rechteck")

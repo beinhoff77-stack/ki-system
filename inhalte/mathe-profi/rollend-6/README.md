@@ -67,3 +67,8 @@ Alle Punkte der Arbeitsliste umgesetzt, Lösungsschlüssel unverändert bis auf 
 - Neu gebaut (nach dem Umbau wie neue Aufgaben geprüft, Form je Lernkarte nicht doppelt): V047, V065, V098, V122 (echte Methodenwahl), V100, V101, V102 (Anteile von Anteilen), V121, V127, V130, V131 (jetzt Auswahl des Terms), V136, V184, V186.
 - Auflagen und kleine Fassungen: V013, V023, V027, V055, V073, V079, V086, V087, V105, V109, V119, V125, V146, V154, V156, V160, V170, V182.
 - `bauen.py --voll` OK; `tools/rollend_sql.py --runden 6` 198 Aufgaben.
+
+## Nach zweiter Gegenprüfung (Werkstatt 1107)
+- V047 (Weg für jedes Paar, nur zwei falsche Wege), V121 (Termart per Nummer abgefragt, Term mit − 6), V170 (ganzer Rechenschritt ersetzt, Suche nach dem Einheitenwechsel „: 1000 =“ in allen Feldern ohne weiteren Treffer).
+- Auflagen: V065, V069, V102, V127, V131, V136, V157.
+- `bauen.py --voll` OK, `tools/rollend_sql.py --runden 6` 198 Aufgaben.

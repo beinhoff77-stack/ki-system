@@ -417,7 +417,7 @@
      "c": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "0,34 dm³",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -425,7 +425,7 @@
      "c": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "3,4 m³",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -445,15 +445,15 @@
     },
     "a": [
      "34 dm³",
+     "3,4 dm³",
      "0,34 dm³",
-     "3,4 m³",
-     "3,4 dm³"
+     "3,4 m³"
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "h": "Wie viele cm³ hat ein dm³?",
-    "w": "1 dm³ = 1000 cm³. 3 400 cm³ : 1000 = 3,4 dm³, also 3 400 cm³ = 3,4 dm³."
+    "w": "1 dm³ = 1 000 cm³. Die Maßzahl in dm³ ist 3 400 : 1 000 = 3,4. Also sind 3 400 cm³ = 3,4 dm³."
    }
   },
   {

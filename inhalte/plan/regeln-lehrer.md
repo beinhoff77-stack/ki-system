@@ -1,7 +1,7 @@
 # Regel-Universum: Ansicht für Lehrer und Eltern – Vorgabe
 
 Stand 27.11.2026. **Vorgabe des Nutzers:** Der Lehrer muss das Regel-Universum einsehen können, um es zu bewerten und Änderungen zu verlangen. Es muss in der Lehrer-Ansicht verständlich sein und Verweise tragen.
-Gehört zum Bau des Regel-Universums (Übersicht A „Sonnensystem“, entschieden am 27.11.), Merkliste Punkt 9. Grundlagen: `inhalte/design/regeln-sonnensystem/umsetzung.md`, `inhalte/plan/regeln-uebersicht-auftrag.md`, `inhalte/mathe-profi/denkpapier-grundregeln.md`.
+Gehört zum Bau des Regel-Universums, Merkliste Punkt 9. **Berichtigung 27.11.:** Gültige Gestaltung ist `inhalte/design/gesetzbuch/umsetzung.md` (Fassung 7, sechste Runde: 14 Rechenregeln, sieben Gebiete, 28 tragende Ideen, acht Arbeitsweisen) – NICHT `regeln-sonnensystem/` (am 26.11. abgelehnt). Inhalt und Kennungen: `inhalte/mathe-profi/regeln-uebersicht/`. Die Wahl zwischen Übersicht A und B des Regel-Universums steht noch aus. Wo unten „15 Regeln“ oder `inhalte/regeln/*.json` steht, gilt sinngemäß der Bestand des Mathe-Profis.
 
 ## Wozu
 Das Kind sieht je Regel eine kurze Karte. Ein Lehrer kann damit allein nicht urteilen: Er braucht die fachliche Begründung, die Grenzen der Regel, den Bezug zum Lehrplan und die Stellen in der App, an denen die Regel geübt wird. Und er braucht einen Weg, eine Änderung zu verlangen, der beim Projektleiter ankommt.

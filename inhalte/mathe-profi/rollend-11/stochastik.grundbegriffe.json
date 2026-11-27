@@ -25,21 +25,21 @@
      "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Ergebnisse von E gezählt statt die des Gegenereignisses",
+     "beschreibung": "die Paare von E gezählt statt die des Gegenereignisses",
      "rechnung": "2 + 1 + 1"
     },
     {
      "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "alle Ergebnisse gezählt",
+     "beschreibung": "alle Paare gezählt",
      "rechnung": "3 * 4"
     },
     {
      "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 1 als Primzahl mitgezählt",
+     "beschreibung": "die 1 als Primzahl gezählt, so gehört auch das Paar (1 | 1) zu E",
      "rechnung": "12 - 5"
     }
    ],
@@ -51,48 +51,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Zwei Glücksräder werden gedreht. Rad A zeigt die Zahlen 1, 2, 3, Rad B zeigt die Zahlen 1, 2, 3, 4. Die Tabelle zeigt für jedes Zahlenpaar (Rad A | Rad B) das Produkt. Das Ereignis E lautet: „Das Produkt ist eine Primzahl.“ Wie viele Ergebnisse gehören zum Gegenereignis von E?",
-     "grafik": {
-      "typ": "tabelle",
-      "kopf": [
-       "Rad A \\ Rad B",
-       "1",
-       "2",
-       "3",
-       "4"
-      ],
-      "zeilen": [
-       [
-        "1",
-        "1",
-        "2",
-        "3",
-        "4"
-       ],
-       [
-        "2",
-        "2",
-        "4",
-        "6",
-        "8"
-       ],
-       [
-        "3",
-        "3",
-        "6",
-        "9",
-        "12"
-       ]
-      ]
-     }
+     "text": "Zwei Glücksräder werden gedreht. Rad A zeigt die Zahlen 1, 2, 3, Rad B zeigt die Zahlen 1, 2, 3, 4. Ein Ergebnis ist ein geordnetes Paar (Zahl auf Rad A | Zahl auf Rad B). Das Ereignis E lautet: „Das Produkt der beiden Zahlen ist eine Primzahl.“ Wie viele Ergebnisse gehören zum Gegenereignis von E?"
     },
     "o": {
      "wert": 8,
      "einheit": "Ergebnisse"
     },
     "c": "12 - 4",
-    "h": "Überlege, welche Ergebnisse zum Ereignis E gehören. Das Gegenereignis besteht aus allen anderen Ergebnissen.",
-    "w": "Die Tabelle hat 3 · 4 = 12 Felder. Primzahlen als Produkt: 2 (1 · 2), 3 (1 · 3), 2 (2 · 1) und 3 (3 · 1). Das sind 4 Felder. Das Gegenereignis von E enthält die übrigen 12 − 4 = 8 Felder. Die 1 ist keine Primzahl."
+    "h": "Wie viele Paare gibt es insgesamt? Finde die Paare, deren Produkt eine Primzahl ist. Das Gegenereignis besteht aus allen anderen Paaren.",
+    "w": "Es gibt 3 · 4 = 12 Paare. Primzahlen als Produkt: (1 | 2) mit 2, (1 | 3) mit 3, (2 | 1) mit 2 und (3 | 1) mit 3. Das sind 4 Paare. Das Gegenereignis von E enthält die übrigen 12 − 4 = 8 Paare. Die 1 ist keine Primzahl."
    }
   },
   {
@@ -164,7 +131,7 @@
      "antwort": -4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 6 Kinder in beiden Gruppen doppelt gezählt (ergibt eine negative Zahl)",
+     "beschreibung": "die Kinder in beiden Gruppen doppelt gezählt: 17 und 15 einfach addiert (ergibt eine negative Zahl)",
      "rechnung": "28 - (17 + 15)"
     },
     {
@@ -172,7 +139,7 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Zahl der Kinder in beiden Gruppen genannt",
-     "rechnung": "6"
+     "rechnung": "17 - 11"
     },
     {
      "antwort": 11,
@@ -190,15 +157,15 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "In einer Klasse mit 28 Kindern gehen 17 Kinder in den Chor und 15 Kinder in die Theater-AG. 6 Kinder gehen in beide Gruppen. Wie viele Kinder gehen in keine der beiden Gruppen?"
+     "text": "In einer Klasse mit 28 Kindern gehen 17 Kinder in den Chor und 15 Kinder in die Theater-AG. Elf der Chorkinder gehen nicht in die Theater-AG. Wie viele Kinder gehen in keine der beiden Gruppen?"
     },
     "o": {
      "wert": 2,
      "einheit": "Kinder"
     },
-    "c": "28 - (17 + 15 - 6)",
-    "h": "Eine Vierfeldertafel mit den Spalten „Chor ja“ und „Chor nein“ und den Zeilen „Theater ja“ und „Theater nein“ kann helfen.",
-    "w": "Nur Chor: 17 − 6 = 11. Nur Theater: 15 − 6 = 9. Beide: 6. Zusammen in mindestens einer Gruppe: 11 + 9 + 6 = 26. Keine der beiden Gruppen: 28 − 26 = 2 Kinder."
+    "c": "28 - (17 + 15 - (17 - 11))",
+    "h": "Eine Vierfeldertafel mit den Spalten „Chor ja“ und „Chor nein“ und den Zeilen „Theater ja“ und „Theater nein“ kann helfen. Wie viele Chorkinder gehen auch ins Theater?",
+    "w": "Nur Chor: 11 Kinder. Beide: 17 − 11 = 6. Nur Theater: 15 − 6 = 9. Zusammen in mindestens einer Gruppe: 11 + 9 + 6 = 26. Keine der beiden Gruppen: 28 − 26 = 2 Kinder."
    }
   }
  ]

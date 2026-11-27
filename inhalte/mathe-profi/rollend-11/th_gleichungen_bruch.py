@@ -57,13 +57,13 @@ Z(T, "hauptnenner", "anwenden",
 # ───────── verhaeltnis: Umkehren ─────────
 assert 300 * 2 // 5 == 120 and (120 + 120) * 5 == 300 * 4
 Z(T, "verhaeltnis", "umkehren",
-  "In einer Mischung ist das Verhältnis Mehl : Zucker = 5 : 2. Nach dem Zugeben von 120 g Zucker ist das Verhältnis Mehl : Zucker = 5 : 4. Wie viel Gramm Mehl sind in der Mischung?",
+  "In einer Mischung ist das Verhältnis Mehl : Zucker = 5 : 2. Nach dem Zugeben von 120 g Zucker ist das Verhältnis Mehl : Zucker = 5 : 4. Stelle mit m für die Mehlmenge eine Verhältnisgleichung auf und löse sie. Wie viel Gramm Mehl sind in der Mischung?",
   300, "120 / (4 - 2) * 5", "120 / (4 / 5 - 2 / 5)",
-  "Wie viele Teile Zucker sind dazugekommen? Wie viel Gramm ist ein Teil?",
-  "Vorher 5 Teile Mehl, 2 Teile Zucker, nachher 5 Teile Mehl und 4 Teile Zucker. Dazugekommen sind 4 − 2 = 2 Teile Zucker, und das sind 120 g. Ein Teil ist 60 g. Mehl: 5 · 60 = 300 g. "
-  "Probe: Zucker vorher 2 · 60 = 120 g, nachher 240 g; 300 : 240 = 5 : 4.",
-  [(240, "4 * 60", "den neuen Zuckeranteil genannt statt der Mehlmenge"),
-   (60, "120 / 2", "nur die Größe eines Teils genannt"),
+  "Wie viel Gramm Zucker gehören vorher zu m Gramm Mehl? Wie viel Zucker ist es nachher? Nachher gilt Mehl : Zucker = 5 : 4.",
+  "Mehl m Gramm. Vorher ist der Zucker 2m/5 Gramm, nachher 2m/5 + 120 Gramm. Verhältnisgleichung: m/(2m/5 + 120) = 5/4. Über Kreuz: 4m = 5 · (2m/5 + 120) = 2m + 600, also 2m = 600 und m = 300 g. "
+  "Kontrolle mit Teilen: Dazugekommen sind 4 − 2 = 2 Teile Zucker, das sind 120 g, ein Teil ist 60 g, Mehl 5 · 60 = 300 g. Probe: Zucker vorher 120 g, nachher 240 g; 300 : 240 = 5 : 4.",
+  [(240, "4 * 60", "die Zuckermenge nachher (240 g) genannt statt der Mehlmenge"),
+   (60, "120 / 2", "nur die Größe eines Teils (60 g) genannt"),
    (600, "5 * 120", "die 120 g als einen Teil genommen")],
   None, einheit="g")
 
@@ -71,11 +71,11 @@ Z(T, "verhaeltnis", "umkehren",
 assert 12 / -4 + 4 == -3 + 4 == 1 and all(12 / x == x + 1 for x in (3, -4))
 Z(T, "graphisch", "umkehren",
   "Die Gerade y = x + b schneidet den Graphen von y = 12/x an der Stelle x = −4. Sie schneidet ihn noch ein zweites Mal bei einer positiven Zahl x. "
-  "Bestimme zuerst b. Suche dann mit einer Wertetabelle von y = 12/x und y = x + b den zweiten Schnittpunkt. Wie lautet seine x-Koordinate?",
-  3, "12 / 4", "4 - 1",
-  "Wie groß ist y = 12/x bei x = −4? Dieser y-Wert muss auch auf der Geraden liegen. Daraus folgt b.",
-  "Bei x = −4 ist y = 12 : (−4) = −3. Auf der Geraden gilt −3 = −4 + b, also b = 1. Die Gerade ist y = x + 1. Wertetabelle für x > 0: x = 1: 12 und 2, x = 2: 6 und 3, x = 3: 4 und 4. Bei x = 3 sind beide Werte gleich. "
-  "Der zweite Schnittpunkt liegt bei x = 3.",
+  "Bestimme zuerst b. Zeichne dann beide Graphen, lies die positive Schnittstelle ab und kontrolliere sie mit einer Wertetabelle. Wie lautet die x-Koordinate des zweiten Schnittpunkts?",
+  3, "4 - 1", "12 / 4",
+  "Wie groß ist y = 12/x bei x = −4? Dieser y-Wert muss auch auf der Geraden liegen. Daraus folgt b. Die Schnittstelle liest du dort ab, wo sich beide Graphen treffen.",
+  "Bei x = −4 ist y = 12 : (−4) = −3. Auf der Geraden gilt −3 = −4 + b, also b = 1. Die Gerade ist y = x + 1. Zeichnet man y = 12/x und y = x + 1, so treffen sich die Graphen für x > 0 bei x = 3. Kontrolle mit der Wertetabelle: x = 1: 12 und 2, x = 2: 6 und 3, x = 3: 4 und 4. "
+  "Einsetzen von x = 3: 12/3 = 4 und 3 + 1 = 4, beide Funktionen haben dort den Wert 4. Der zweite Schnittpunkt liegt bei x = 3.",
   [(1, "-3 + 4", "nur b bestimmt und nicht den zweiten Schnittpunkt"),
    (-4, "-4", "den bekannten ersten Schnittpunkt noch einmal genannt"),
    (-3, "12 / (-4)", "den y-Wert des ersten Schnittpunkts genannt")],

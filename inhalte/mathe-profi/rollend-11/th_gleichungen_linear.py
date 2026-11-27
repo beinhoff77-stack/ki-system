@@ -29,7 +29,7 @@ assert 12 + 8 * 5 == 82 - 6 * 5 == 52
 Z(T, "beide_seiten", "bruecke",
   "Becken A wird gleichmäßig gefüllt, Becken B wird gleichmäßig leergepumpt. Die Tabelle zeigt die Wassermenge in beiden Becken in Litern. Nach wie vielen Minuten (nach Minute 0) enthalten beide Becken gleich viele Liter?",
   5, "(82 - 12) / (8 + 6)", "(82 - 12) / 14",
-  "Wie viele Liter kommen bei A pro Minute dazu, wie viele gehen bei B pro Minute weg? Schreibe beide Wasserstände nach t Minuten als Term.",
+  "Wie viele Liter kommen bei A pro Minute dazu, wie viele gehen bei B pro Minute weg? Schreibe beide Wassermengen nach t Minuten als Term.",
   "Aus der Tabelle: A wächst um 8 Liter pro Minute, B nimmt um 6 Liter pro Minute ab. Nach t Minuten: A = 12 + 8t, B = 82 − 6t. Gleichsetzen: 12 + 8t = 82 − 6t, also 14t = 70 und t = 5. "
   "Probe: 12 + 40 = 52 und 82 − 30 = 52.",
   [(35, "(82 - 12) / (8 - 6)", "die beiden Raten voneinander abgezogen statt addiert"),

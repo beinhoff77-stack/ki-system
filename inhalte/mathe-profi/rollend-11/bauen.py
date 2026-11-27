@@ -294,6 +294,7 @@ RESTMELDUNGEN = {
     ("iii", "S3-V054"): "Potenzschreibweise 2¹⁰ = 1 024 in der Beschreibung wird vom Werkzeug nicht als Rechnung gelesen",
     ("iv", "S3-V036"): "Werkzeug liest das Bruchstück „− 4 = 20“ in 4x − 4 = 20 als Rechnung; die Zeile ist richtig (Gleichung mit x)",
     ("iv", "S3-V024"): "Fehlerzeile: 6 + 2 = 8 ist richtig gerechnet, falsch ist die Behauptung „zusammengezählt“ (Rechenart), sie steht in dieser Zeile",
+    ("iii", "S3-V020"): "vorgegebener Wortlaut nennt als Rechnung die richtige Rückrechnung −2 + (−9) = −11; die Fehlantwort 7 ist im Fehlbild als Ausdruck −21 + 5 + 14 + 9 nachgerechnet",
     ("iv", "S3-V053"): "Fehlerzeile: 5 + (−5) = 0 ist richtig, falsch ist die ausgesprochene Folgerung a⁰ = 0 (richtig a⁰ = 1), sie steht in dieser Zeile",
     ("iv", "S3-V019"): "Fehlerzeile: 8 + 9 + 5 = 22 ist richtig, falsch ist der danach ausgesprochene Übertrag „merke 1“, er steht in dieser Zeile",
 }

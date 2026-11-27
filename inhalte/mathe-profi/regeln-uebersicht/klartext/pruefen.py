@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Prüft klartext/vorschlag.json: Kennungen, alte Texte unverändert zitiert, Längen, alle Zahlenbeispiele (exakt gerechnet),
-A-Einträge nicht enthalten, und dass in diesem Zweig nur unter klartext/ geschrieben wurde.
+A-Einträge nicht enthalten, und dass nur unter den Inhaltsordnern (klartext, tafeln, ergaenzung, einheiten) geschrieben wurde.
 Aufruf:  python3 -I inhalte/mathe-profi/regeln-uebersicht/klartext/pruefen.py     Endet mit „OK“, sonst Fehlerliste und Exit-Code 1."""
 import json, math, pathlib, re, subprocess, sys
 from fractions import Fraction as F
@@ -145,8 +145,58 @@ for e in ein:
     b = bestehend.get(e['neu_name'])
     if b and b != e['id']: f('%s: neu_name wie der bestehende Name von %s' % (e['id'], b))
 
+# ---------- Auflagen aus Werkstatt 1133/1137 ----------
+E = {e['id']: e for e in ein}
+# Ebene „Genau gesagt“: für alle 23 Ideen in klarer Sprache neu gefasst, alte Fassung unverändert zitiert
+for i in IDEEN:
+    e = E[i]; o = i + ': '
+    if e.get('alt_genau') != ideen[i][1]['genau']: f(o + 'alt_genau weicht von den Daten ab')
+    g = e.get('neu_genau', '')
+    if not g or g == e.get('alt_genau'): f(o + 'neu_genau fehlt oder ist unverändert')
+    if len(g) > 450 or satzanzahl(g) > 5: f(o + 'neu_genau zu lang (%d Zeichen, %d Sätze)' % (len(g), satzanzahl(g)))
+# Namensüberschneidungen: kein Wort von mindestens 7 Buchstaben im neuen Namen einer Idee kommt im alten oder neuen Namen eines anderen Eintrags vor
+def woerter(t): return {w.lower() for w in re.findall(r'[A-Za-zÄÖÜäöüß]{7,}', t)}
+GENERISCH = {'gleichung', 'gleichungen', 'tauschen', 'rechnen', 'zerlegen', 'zusammenfassen', 'geraden', 'graphen', 'zählen'}  # allgemeine Wörter, keine Namen
+andere = {}
+for i in alle_ids:
+    n = ideen[i][1]['kurz'] if i in ideen else (ges[i]['name'] if i in ges else reg[i]['name'])
+    andere[i] = [n] if i in a_ids else []  # B/C-Einträge zählen mit ihrem neuen Namen
+for e in ein: andere.setdefault(e['id'], []).append(e['neu_name'])
+for i in IDEEN:
+    mein = woerter(E[i]['neu_name']) - GENERISCH
+    for j, namen_j in andere.items():
+        if j == i: continue
+        for n in namen_j:
+            gem = mein & woerter(n)
+            if gem: f('%s: Namensüberschneidung mit %s („%s“): %s' % (i, j, n, ', '.join(sorted(gem))))
+# Inhaltliche Auflagen je Eintrag
+def fehlt(i, feld, *teile):
+    for t in teile:
+        if t not in E[i][feld]: f('%s: %s muss „%s“ enthalten' % (i, feld, t))
+fehlt('I-zahlen-5', 'neu_satz', 'ab Klasse 5', 'ab Klasse 9', 'ab Klasse 10', '≥ 0', 'Basis > 0', 'Basis ≠ 1', 'Zahl > 0')
+fehlt('I-daten-1', 'neu_satz', 'Mittelwert = Summe aller Werte : Anzahl', 'Median = der mittlere Wert', 'sortiert')
+fehlt('I-daten-1', 'beispiel', 'Beispielzahlen')
+fehlt('D15', 'beispiel', 'Beispielzahlen')
+for k in ('neu_kurz', 'neu_genau', 'neu_satz'):
+    if 'Mitte' in E['I-daten-1'][k].replace('mittler', '').replace('Mittelwert', ''): f('I-daten-1: %s fasst Mittelwert und Median nicht getrennt (Wort „Mitte“)' % k)
+fehlt('I-daten-2', 'neu_satz', 'Anteil in der Stichprobe · Größe der ganzen Gruppe', 'zufällig')
+fehlt('I-geld-1', 'neu_satz', 'Länge 10', 'Fläche 100', 'Raum 1 000', 'Tafel „Einheiten umrechnen“')
+fehlt('I-geld-1', 'beispiel', '3 · 10 · 10 cm', '2 · 100 · 100 cm²')
+for k in ('neu_satz', 'neu_genau'): fehlt('I-geo-1', k, 'Nebenwinkel', 'Scheitelwinkel', 'Stufenwinkel', 'Wechselwinkel')
+if len(E['I-geo-1']['neu_genau'].split('. ')) < 4: f('I-geo-1: neu_genau braucht vier Fälle mit je einem Beispiel')
+fehlt('I-zahlen-4', 'neu_satz', 'Prozentzahl = Dezimalzahl · 100')
+for k in ('neu_satz', 'beispiel', 'neu_genau'):
+    if re.search(r'· ?100 ?%', E['I-zahlen-4'][k]): f('I-zahlen-4: „· 100 %%“ als Rechnung in %s' % k)
+# G3, G7, I-algebra-4, I-zahlen-5: kürzer als vorher, Bedingungen im Satz
+for i, grenze in (('G3', 140), ('G7', 245), ('I-algebra-4', 235), ('I-zahlen-5', 213)):
+    if len(E[i]['neu_satz']) > grenze: f('%s: neu_satz mit %d Zeichen nicht kürzer als vorher (höchstens %d)' % (i, len(E[i]['neu_satz']), grenze))
+fehlt('G3', 'neu_satz', '0° < α < 90°', 'α = 90°', '90° < α < 180°', 'α = 180°', '180° < α < 360°', 'α = 360°')
+fehlt('G7', 'neu_satz', 'Vereinbarung', 'mindestens ein Paar')
+fehlt('I-algebra-4', 'neu_satz', 'a > 0', 'a = 0', 'a < 0', 'reellen Zahlen')
+
 # ---------- Nur unter klartext/ geschrieben? ----------
 git_hinweis = ''
+ERLAUBT = tuple('inhalte/mathe-profi/regeln-uebersicht/%s/' % o for o in ('klartext', 'tafeln', 'ergaenzung', 'einheiten'))  # Auflagen aus Werkstatt 1133/1137: Helfer 3 arbeitet in allen vier Ordnern
 try:
     st = subprocess.run(['git', '-C', str(repo), 'status', '--porcelain'], capture_output=True, text=True, check=True).stdout.splitlines()
     pfade = [z[3:].strip().strip('"') for z in st]
@@ -158,7 +208,7 @@ try:
         pfade += subprocess.run(['git', '-C', str(repo), 'diff', '--name-only', base, 'HEAD'], capture_output=True, text=True, check=True).stdout.split('\n')
     else: git_hinweis = ' (Vergleich mit dem Ausgangsstand übersprungen: kein Basiszweig gefunden)'
     for p in pfade:
-        if p and not p.startswith('inhalte/mathe-profi/regeln-uebersicht/klartext/'): f('Änderung außerhalb von klartext/: ' + p)
+        if p and not p.startswith(ERLAUBT): f('Änderung außerhalb der Inhaltsordner (klartext, tafeln, ergaenzung, einheiten): ' + p)
 except Exception as ex:
     git_hinweis = ' (git nicht verfügbar: %s)' % ex
 

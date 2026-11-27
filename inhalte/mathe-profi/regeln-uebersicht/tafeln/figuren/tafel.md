@@ -37,22 +37,24 @@ In jedem ebenen Dreieck gilt α + β + γ = 180°.
 
 ## Vierecke
 
-| Kennung | Viereck | Seiten | Winkel | Diagonalen | Symmetrieachsen | punktsymmetrisch | ab |
-|---|---|---|---|---|---|---|---|
-| fg-14 | Quadrat | Alle vier Seiten sind gleich lang; Gegenseiten sind parallel. | Alle vier Winkel sind 90°. | Die Diagonalen sind gleich lang, halbieren sich und stehen senkrecht aufeinander. | 4 | ja | Gym 5 · RS 5 · IB 1 |
-| fg-15 | Rechteck | Gegenseiten sind gleich lang und parallel. | Alle vier Winkel sind 90°. | Die Diagonalen sind gleich lang und halbieren sich. | 2 (beim Quadrat 4) | ja | Gym 5 · RS 5 · IB 1 |
-| fg-16 | Raute | Alle vier Seiten sind gleich lang; Gegenseiten sind parallel. | Gegenüberliegende Winkel sind gleich groß. | Die Diagonalen halbieren sich und stehen senkrecht aufeinander. | 2 (beim Quadrat 4): die beiden Diagonalen | ja | Gym 5 · RS 5 · IB 1 |
-| fg-17 | Parallelogramm | Gegenseiten sind gleich lang und parallel. | Gegenüberliegende Winkel sind gleich groß; benachbarte Winkel ergeben zusammen 180°. | Die Diagonalen halbieren sich. | keine (bei Rechteck und Raute 2, beim Quadrat 4) | ja | Gym 5 · RS 5 · IB 1 |
-| fg-18 | Trapez | Mindestens ein Paar gegenüberliegender Seiten ist parallel. | Die beiden Winkel an jedem Schenkel ergeben zusammen 180°. | Keine besondere Eigenschaft, die für jedes Trapez gilt. | keine (beim gleichschenkligen Trapez 1) | nein | Gym 5 · RS 5 · IB 1 |
-| fg-19 | Gleichschenkliges Trapez | Ein Paar paralleler Seiten; die beiden anderen Seiten (Schenkel) sind gleich lang. | Die beiden Winkel an jeder parallelen Seite sind gleich groß. | Die Diagonalen sind gleich lang. | 1 (beim Rechteck 2, beim Quadrat 4): durch die Mitten der parallelen Seiten | nein | Gym 7 · RS 6 · IB 3 |
-| fg-20 | Drachenviereck | Zwei Paare gleich langer Nachbarseiten. | Die beiden Winkel abseits der Symmetrieachse sind gleich groß. | Die Diagonalen stehen senkrecht aufeinander; die Symmetrieachse ist eine der Diagonalen. | 1 (bei der Raute 2, beim Quadrat 4): eine Diagonale | nein | Gym 5 · RS 5 · IB 1 |
-| fg-21 | Allgemeines Viereck | Keine besonderen Seiteneigenschaften. | Die Winkelsumme ist 360°. | Keine besondere Eigenschaft. | keine | nein | Gym 7 · RS 7 · IB 3 |
+| Kennung | Viereck | Seiten | Winkel | Diagonalen | Symmetrieachsen | punktsymmetrisch | Einordnung | ab |
+|---|---|---|---|---|---|---|---|---|
+| fg-14 | Quadrat | Alle vier Seiten sind gleich lang; Gegenseiten sind parallel. | Alle vier Winkel sind 90°. | Die Diagonalen sind gleich lang, halbieren sich und stehen senkrecht aufeinander. | 4 | ja | Sonderfall von Rechteck und Raute; damit auch von Parallelogramm, Drachenviereck, gleichschenkligem Trapez und Trapez. Nicht jedes Rechteck und nicht jede Raute ist ein Quadrat. | Gym 5 · RS 5 · IB 1 |
+| fg-15 | Rechteck | Gegenseiten sind gleich lang und parallel. | Alle vier Winkel sind 90°. | Die Diagonalen sind gleich lang und halbieren sich. | 2 (beim Quadrat 4) | ja | Sonderfall von Parallelogramm und gleichschenkligem Trapez; damit auch von Trapez. Nicht jedes Rechteck ist ein Quadrat. | Gym 5 · RS 5 · IB 1 |
+| fg-16 | Raute | Alle vier Seiten sind gleich lang; Gegenseiten sind parallel. | Gegenüberliegende Winkel sind gleich groß. | Die Diagonalen halbieren sich und stehen senkrecht aufeinander. | 2 (beim Quadrat 4): die beiden Diagonalen | ja | Sonderfall von Parallelogramm und Drachenviereck; damit auch von Trapez. Nicht jede Raute ist ein Quadrat. | Gym 5 · RS 5 · IB 1 |
+| fg-17 | Parallelogramm | Gegenseiten sind gleich lang und parallel. | Gegenüberliegende Winkel sind gleich groß; benachbarte Winkel ergeben zusammen 180°. | Die Diagonalen halbieren sich. | keine (bei Rechteck und Raute 2, beim Quadrat 4) | ja | Sonderfall von Trapez. Nicht jedes Parallelogramm ist ein Rechteck oder eine Raute. | Gym 5 · RS 5 · IB 1 |
+| fg-18 | Trapez | Mindestens ein Paar gegenüberliegender Seiten ist parallel (Vereinbarung, siehe unten). | Die beiden Winkel an jedem Schenkel ergeben zusammen 180°. | Keine besondere Eigenschaft, die für jedes Trapez gilt. | keine (beim gleichschenkligen Trapez 1) | nein | Kein Sonderfall von einem anderen besonderen Viereck, nur vom allgemeinen Viereck. Nicht jedes Trapez ist ein Parallelogramm. | Gym 5 · RS 5 · IB 1 |
+| fg-19 | Gleichschenkliges Trapez | Ein Paar paralleler Seiten; die beiden anderen Seiten (Schenkel) sind gleich lang. | Die beiden Winkel an jeder parallelen Seite sind gleich groß. | Die Diagonalen sind gleich lang. | 1 (beim Rechteck 2, beim Quadrat 4): durch die Mitten der parallelen Seiten | nein | Sonderfall von Trapez. Nicht jedes Trapez ist gleichschenklig. | Gym 7 · RS 6 · IB 3 |
+| fg-20 | Drachenviereck | Zwei Paare gleich langer Nachbarseiten. | Die beiden Winkel abseits der Symmetrieachse sind gleich groß. | Die Diagonalen stehen senkrecht aufeinander; die Symmetrieachse ist eine der Diagonalen. | 1 (bei der Raute 2, beim Quadrat 4): eine Diagonale | nein | Kein Sonderfall von einem anderen besonderen Viereck, nur vom allgemeinen Viereck. Nicht jedes Drachenviereck ist eine Raute. | Gym 5 · RS 5 · IB 1 |
+| fg-21 | Allgemeines Viereck | Keine besonderen Seiteneigenschaften. | Die Winkelsumme ist 360°. | Keine besondere Eigenschaft. | keine | nein | Oberbegriff: Jedes Viereck ist ein allgemeines Viereck. Es ist kein Sonderfall von etwas anderem. | Gym 7 · RS 7 · IB 3 |
 
 ## Haus der Vierecke (fg-22)
 
 Ein Sonderfall hat alle Eigenschaften des allgemeineren Vierecks und noch mehr. Beispiel: Jedes Quadrat ist ein Rechteck und eine Raute, aber nicht jedes Rechteck ist ein Quadrat.
 
 Trapez heißt hier: mindestens ein Paar paralleler Gegenseiten. Darum ist jedes Parallelogramm auch ein Trapez.
+
+**Vereinbarung (Konvention):** Diese Definition ist eine Vereinbarung. Manche Bücher verlangen genau ein Paar paralleler Seiten; dann ist das Parallelogramm kein Trapez. Frage im Zweifel, welche Definition in deinem Buch steht.
 
 - Quadrat ist Sonderfall von Rechteck.
 - Quadrat ist Sonderfall von Raute.

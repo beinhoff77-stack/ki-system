@@ -181,6 +181,36 @@ neu = sum(1 for r in R if r['status'] == 'neu'); aus = len(R) - neu
 m = re.search(r'\*\*(\d+) Regeln\*\* \((\d+) neu, (\d+) Ausarbeitung[^)]*\), \*\*(\d+) Verweise', md)
 if not m or tuple(map(int, m.groups())) != (len(R), neu, aus, len(V)): f('uebersicht.md: Zählzeile stimmt nicht (%s)' % (m.groups() if m else 'fehlt'))
 
+# ---------- Auflagen aus Werkstatt 1133/1137 ----------
+RR = {r['kennung']: r for r in R}
+def muss(k, feld, *teile):
+    for t in teile:
+        if t not in RR[k][feld]: f('%s: %s muss „%s“ enthalten' % (k, feld, t))
+muss('N-G14', 'satz', 'Bereich 0° bis 360°', 'plus 360°', 'minus 360°', 'der Größe nach')
+muss('N-G14', 'beispiel', '−45°', '315°', '135°')
+if (-45 + 360, (-45 + 360 + 180) % 360) != (315, 135): f('N-G14: tan-Beispiel rechnet nicht')
+muss('N-D02', 'satz', 'Zählregel'); muss('N-D02', 'voraus', 'keine Wahrscheinlichkeiten', 'Pfadregel', 'D19')
+if 'D19' not in RR['N-D02']['verwandt']: f('N-D02: Verweis auf die Pfadregel D19 fehlt in verwandt')
+muss('N-F09', 'satz', 'Aufgabe oder Zeichnung'); muss('N-F09', 'voraus', 'vorn', 'oben')
+muss('N-Z05', 'satz', 'ℕ hier mit 0'); muss('N-Z05', 'voraus', 'ℕ zählt hier die 0 mit')
+for k in ('N-U06', 'N-U07', 'N-A03'):
+    muss(k, 'voraus', 'Die Grundmenge steht in der Aufgabe (oft ℚ, ab Klasse 9 ℝ)')
+if 'W = ℚ \\ {c}' in RR['N-U07']['satz'] and 'hängt von D ab' not in RR['N-U07']['satz']: f('N-U07: Wertemenge ohne Abhängigkeit von D')
+muss('N-U07', 'satz', 'hängt von D ab', 'ℝ \\ {c}')
+if 'D = ℚ \\ {2; −4}' in RR['N-A03']['beispiel'] and 'Grundmenge ℚ' not in RR['N-A03']['beispiel']: f('N-A03: Beispiel nennt die Grundmenge nicht')
+muss('N-F08', 'satz', 'üblicherweise', 'kann andere Werte vorgeben'); muss('N-F08', 'voraus', 'übliche Vereinbarung', 'abweichen')
+muss('N-V01', 'voraus', '2,040 km = 2,04 km', 'Null am Ende', 'ändert den Wert nicht')
+# Verweise-Abgleich: Datei vorhanden, nennt alle Verweise und jedes Ziel, das im Universum fehlt
+ab = (hier / 'verweise-abgleich.md').read_text(encoding='utf-8')
+bestand = set(ids) | {'Arbeitsweise ' + a for a in aw}
+for v in V:
+    if '`%s`' % v['kennung'] not in ab: f('verweise-abgleich.md nennt %s nicht' % v['kennung'])
+    if v['ziel'] not in bestand and ('`%s`' % v['ziel'] not in ab or 'fehlt im Bestand' not in ab): f('verweise-abgleich.md benennt das fehlende Ziel %s nicht' % v['ziel'])
+sw_alt = {s['wort'].lower(): s['ziel'] for s in uni['stichwoerter']}
+for v in V:
+    for w in v['stichwoerter']:
+        if w.lower() in sw_alt and sw_alt[w.lower()] != v['ziel'] and w not in ab: f('verweise-abgleich.md nennt den Konflikt um „%s“ nicht' % w)
+
 for w in warn: print('Hinweis:', w)
 if fehler:
     print('\n'.join(fehler)); print('FEHLER: %d' % len(fehler)); sys.exit(1)

@@ -11,17 +11,19 @@
 | Volumen und Hohlmaße | m³ –1 000→ dm³ –1 000→ cm³ –1 000→ mm³ | Bei Raummaßen ist jeder Schritt 1 000, und 1 l ist genau 1 dm³. |
 | Volumen (Hohlmaße) | hl –100→ l –10→ dl –10→ cl –10→ ml | 1 l = 1 dm³, 1 ml = 1 cm³ |
 | Masse | t –1 000→ kg –1 000→ g –1 000→ mg | Bei Massen ist jeder Schritt 1 000: abwärts mal, aufwärts geteilt. |
-| Zeit | d –24→ h –60→ min –60→ s | Zeit zählt nicht in Zehnern: 1 h = 60 min, 1 min = 60 s, 1 d = 24 h. |
+| Zeit | d –24→ h –60→ min –60→ s | Zeit ist nicht dezimal (nicht in Zehnern): 1 h = 60 min, 1 min = 60 s, 1 d = 24 h. |
 | Geld | € –100→ ct | 1 € = 100 ct: in Cent mal 100, in Euro durch 100. |
 
-Zusätze (nicht in den Lernkarten des Bestands): hl, dl, cl.
+**Zusatz** (nicht im Lernstoff der App, nur zum Nachschlagen): die Stufen hl, dl, cl bei den Hohlmaßen und die Einheit kg/m³ bei der Dichte. Im Lernstoff kommen nur l und ml vor.
+
+Geld: Es gibt nur die eine Stufe € und ct. Wechselkurse (Euro in andere Währungen) ändern sich täglich; sie stehen darum nicht als feste Treppe hier.
 
 ## Zusammengesetzte Einheiten
 
-| Größe | Umrechnung | Merksatz |
-|---|---|---|
-| Geschwindigkeit | m/s –3,6→ km/h | m/s in km/h: mal 3,6; km/h in m/s: durch 3,6. |
-| Dichte | g/cm³ –1 000→ kg/m³ | Von g/cm³ in kg/m³ mal 1 000, zurück durch 1 000. |
+| Größe | Einheit und Formel | Umrechnung | Merksatz | Richtung |
+|---|---|---|---|---|
+| Geschwindigkeit | km/h oder m/s: v = s : t | m/s –3,6→ km/h | m/s in km/h: mal 3,6; km/h in m/s: durch 3,6. | 15 m/s = 54 km/h (mal 3,6); 72 km/h = 20 m/s (durch 3,6) |
+| Dichte | g/cm³ oder kg/m³ (Zusatz): ρ = m : V | g/cm³ –1 000→ kg/m³ | Von g/cm³ in kg/m³ mal 1 000, zurück durch 1 000. | 0,7 g/cm³ = 700 kg/m³ (mal 1 000); 2 700 kg/m³ = 2,7 g/cm³ (durch 1 000) |
 
 Herleitung Geschwindigkeit: 1 m/s heißt 1 m in 1 s. Eine Stunde hat 3 600 s, in der Zeit sind das 3 600 m = 3,6 km. Also 1 m/s = 3,6 km/h.
 

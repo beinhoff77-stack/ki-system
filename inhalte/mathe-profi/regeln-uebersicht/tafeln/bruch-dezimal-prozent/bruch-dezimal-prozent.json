@@ -445,7 +445,8 @@
     "Prozentrechnung",
     "Prozent",
     "W G p"
-   ]
+   ],
+   "symbole": "p % ist der Prozentsatz. Als Faktor setzt du p/100 ein: 20 % → 0,2."
   },
   {
    "kennung": "bd-03",
@@ -514,7 +515,8 @@
     "Prozentrechnung",
     "Prozent",
     "W G p"
-   ]
+   ],
+   "symbole": "p % ist der Prozentsatz. W : G ergibt den Faktor p/100, hier 0,25; mal 100 gibt die Prozentzahl: 0,25 → 25 %."
   },
   {
    "kennung": "bd-04",
@@ -583,7 +585,8 @@
     "Prozentrechnung",
     "Prozent",
     "W G p"
-   ]
+   ],
+   "symbole": "p % ist der Prozentsatz. Als Faktor setzt du p/100 ein: 30 % → 0,3."
   },
   {
    "kennung": "bd-05",
@@ -648,7 +651,8 @@
     "Kapital",
     "Zinssatz",
     "Z gleich K mal p durch 100"
-   ]
+   ],
+   "symbole": "p ist die Prozentzahl des Zinssatzes: 10 % → p = 10. Als Faktor wäre es p/100: 10 % → 0,1."
   },
   {
    "kennung": "bd-06",
@@ -725,7 +729,8 @@
     "Wachstumsfaktor",
     "Zinsfaktor",
     "q gleich 1 plus p durch 100"
-   ]
+   ],
+   "symbole": "p % ist der Zinssatz (ein Prozentsatz). Als Faktor p/100: 10 % → 0,1; darum q = 1 + 0,1 = 1,1."
   }
  ]
 }

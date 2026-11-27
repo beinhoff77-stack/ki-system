@@ -309,6 +309,24 @@ for pfad, t in alle_texte({'t': tafel}):
         if not ok: f('tafel.md: Gleichung falsch: ' + m.group(0))
     if re.search(r'(?<![\d,.])\d{4,}(?!\d)', t): f('tafel.md: Zahl ab 4 Stellen ohne Tausenderleerzeichen')
 
+# ---------- 8 Auflagen aus Werkstatt 1133/1137 ----------
+AA = {a['art']: a for a in arten}
+zusatz_einheiten = {u['einheit'] for a in arten for tr in [a['treppe']] + [w['treppe'] for w in a.get('weitere_treppen', [])] for u in tr if u.get('zusatz')}
+if not {'hl', 'dl', 'cl', 'kg/m³'} <= zusatz_einheiten: f('Zusatz-Markierung: hl, dl, cl und kg/m³ müssen als zusatz markiert sein (gefunden: %s)' % sorted(zusatz_einheiten))
+if 'Zusatz' not in tafel or any(x not in tafel.split('Zusatz', 1)[1].split('\n\n', 1)[0] for x in ('hl', 'dl', 'cl', 'kg/m³')): f('tafel.md: Absatz „Zusatz“ nennt hl, dl, cl und kg/m³ nicht')
+if 'nicht dezimal' not in AA['Zeit']['merksatz'] or 'nicht dezimal' not in tafel: f('Zeit: „nicht dezimal“ fehlt im Merksatz oder in tafel.md')
+if [u['einheit'] for u in AA['Geld']['treppe']] != ['€', 'ct'] or len(AA['Geld']['gleichungen']) != 1: f('Geld: nur € und ct als Treppe, keine Wechselkurse')
+if not any('Wechselkurse' in h and 'nicht als feste Treppe' in h for h in AA['Geld']['hinweise']) or 'Wechselkurse' not in tafel: f('Geld: Hinweis zu Wechselkursen fehlt')
+for art, symbol in (('Geschwindigkeit', 'v = s : t'), ('Dichte', 'ρ = m : V')):
+    a = AA[art]
+    if symbol not in a['formel'] or symbol not in tafel: f('%s: Formel %s fehlt' % (art, symbol))
+    if len(a['richtungsbeispiele']) != 2 or 'mal' not in a['richtungsbeispiele'][0] or 'durch' not in a['richtungsbeispiele'][1]: f('%s: je ein Beispiel für mal und für durch fehlt' % art)
+    for b in a['richtungsbeispiele']:
+        if not gleich(b.split(' (')[0]): f('%s: Richtungsbeispiel falsch: %s' % (art, b))
+        if b.split(' (')[0] not in tafel: f('%s: Richtungsbeispiel fehlt in tafel.md: %s' % (art, b))
+        zaehler['gleichungen'] += 1
+if F(15) * F(36, 10) != 54 or F(72) / F(36, 10) != 20 or F(7, 10) * 1000 != 700 or F(2700) / 1000 != F(27, 10): f('Richtungsbeispiele: Nachrechnung')
+
 if fehler:
     print('FEHLER (%d):' % len(fehler)); [print(' -', x) for x in fehler]; sys.exit(1)
 print('%d Größenarten, %d Beispiele, %d Rechnungen, %d Faktoren und %d Gleichungen gerechnet, %d Stolperstellen' % (len(arten), zaehler['beispiele'], zaehler['rechnungen'], zaehler['faktoren'], zaehler['gleichungen'], zaehler['stolperstellen']))

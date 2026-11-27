@@ -1,6 +1,6 @@
 {
  "hinweis": "Vorschläge für B- und C-Einträge des Regel-Universums (Ideen, Einzelregeln, Rechenregel 14). Nichts davon ist eingespielt; A-Einträge sind nicht enthalten. Geprüft mit pruefen.py. Fachlich nicht von einer zweiten Stelle gegengelesen.",
- "felder": "neu_kurz nur gesetzt, wo die Kurzbeschreibung (nur Ideen und Rechenregeln haben eine) neu gefasst werden soll; neu_warum_einstieg nur, wo die tiefe Einsicht der alten Fassung als erster Satz von „warum“ erhalten bleiben soll; rechnung = maschinell geprüfte Aussagen zum Beispiel.",
+ "felder": "neu_kurz nur gesetzt, wo die Kurzbeschreibung (nur Ideen und Rechenregeln haben eine) neu gefasst werden soll; neu_warum_einstieg nur, wo die tiefe Einsicht der alten Fassung als erster Satz von „warum“ erhalten bleiben soll; rechnung = maschinell geprüfte Aussagen zum Beispiel. alt_genau/neu_genau (nur Ideen) = die Ebene „Genau gesagt“ in klarer Sprache.",
  "eintraege": [
   {
    "id": "I-daten-1",
@@ -10,19 +10,20 @@
    "alt_name": "Kennzahl",
    "alt_satz": "Eine Zahl für viele – dabei geht meist etwas verloren.",
    "alt_kurz": "Mittelwert, Median und Spannweite fassen viele Werte in einer Zahl zusammen.",
-   "neu_name": "Mittelwert, Median, Spannweite",
-   "neu_satz": "Mittelwert = Summe : Anzahl. Median = mittlerer Wert der geordneten Liste (bei gerader Anzahl: Mitte der beiden mittleren). Spannweite = größter − kleinster Wert.",
-   "neu_kurz": "Drei Zahlen beschreiben eine Datenreihe: die Mitte (Mittelwert, Median) und die Streuung (Spannweite).",
-   "neu_warum_einstieg": "Eine einzige Zahl fasst viele Werte zusammen und macht Daten vergleichbar – dabei geht etwas verloren: Zwei ganz verschiedene Datenreihen können denselben Mittelwert haben. Deshalb nimmt man meist zwei Zahlen, eine für die Mitte und eine für die Streuung.",
-   "beispiel": "Werte 2, 3, 10: Mittelwert (2 + 3 + 10) : 3 = 5, Median 3, Spannweite 10 − 2 = 8. Werte 2, 4, 6, 10: Median (4 + 6) : 2 = 5.",
+   "neu_name": "Daten in Zahlen zusammenfassen",
+   "neu_satz": "Mittelwert = Summe aller Werte : Anzahl der Werte. Median = der mittlere Wert, nachdem du die Werte der Größe nach sortiert hast (bei gerader Anzahl: Mittelwert der beiden mittleren). Spannweite = größter − kleinster Wert.",
+   "neu_kurz": "Mittelwert und Median rechnet man verschieden aus; die Spannweite zeigt, wie weit die Werte streuen.",
+   "neu_warum_einstieg": "Eine einzige Zahl fasst viele Werte zusammen und macht Daten vergleichbar – dabei geht etwas verloren: Zwei ganz verschiedene Datenreihen können denselben Mittelwert haben. Deshalb schaut man auf Mittelwert oder Median und zusätzlich auf die Spannweite.",
+   "beispiel": "Beispiel (erfundene Beispielzahlen): Werte 2, 3, 10: Mittelwert (2 + 3 + 10) : 3 = 5; sortiert 2, 3, 10, der mittlere Wert ist der Median 3; Spannweite 10 − 2 = 8. Werte 2, 4, 6, 10: Median (4 + 6) : 2 = 5, Mittelwert (2 + 4 + 6 + 10) : 4 = 5,5.",
    "rechnung": [
     "(2+3+10)/3 == 5",
     "median([2,3,10]) == 3",
     "max([2,3,10]) - min([2,3,10]) == 8",
-    "median([2,4,6,10]) == 5"
+    "median([2,4,6,10]) == 5",
+    "mittel([2,4,6,10]) == 5.5"
    ],
    "bedingung": "Für Zahlenwerte, nicht für Kategorien wie Lieblingsfarbe. Beim Median erst der Größe nach ordnen. Ein Ausreißer zieht den Mittelwert stark mit, den Median kaum (siehe D5).",
-   "begruendung": "Der Name „Kennzahl“ und der Satz „Eine Zahl für viele“ sagten nicht, welche Zahlen es gibt und wie man sie ausrechnet.",
+   "begruendung": "Der Name „Kennzahl“ und der Satz „Eine Zahl für viele“ sagten nicht, welche Zahlen es gibt und wie man sie ausrechnet; Mittelwert und Median werden jetzt getrennt erklärt.",
    "suchwoerter": [
     "Mittelwert",
     "Durchschnitt",
@@ -32,7 +33,9 @@
     "arithmetisches Mittel",
     "Streuung",
     "Kennzahl"
-   ]
+   ],
+   "alt_genau": "Eine Kennzahl fasst viele Daten in einer Zahl zusammen – und verschweigt dabei meist etwas.",
+   "neu_genau": "Mittelwert: alle Werte zusammenzählen und durch die Anzahl teilen. Median: die Werte der Größe nach ordnen und den mittleren nehmen; bei gerader Anzahl den Mittelwert der beiden mittleren. Spannweite: größter Wert minus kleinster Wert."
   },
   {
    "id": "I-daten-2",
@@ -42,11 +45,11 @@
    "alt_name": "Vom Teil aufs Ganze",
    "alt_satz": "Von wenigen auf alle schließt man verlässlich, wenn der Zufall die wenigen auswählt.",
    "alt_kurz": "Eine zufällig gezogene Stichprobe erlaubt verlässliche Schlüsse aufs Ganze; Größe heilt keine Verzerrung.",
-   "neu_name": "Stichprobe und Hochrechnen",
-   "neu_satz": "Aus einer Stichprobe rechnest du hoch: Anteil der Befragten mal Größe der ganzen Gruppe. Das ist nur eine Schätzung und nur brauchbar, wenn zufällig ausgewählt wurde.",
+   "neu_name": "Hochrechnen aus einer Umfrage",
+   "neu_satz": "Hochrechnen: Anteil in der Stichprobe · Größe der ganzen Gruppe. Das gilt nur, wenn die Befragten zufällig ausgewählt wurden, und ist nur eine Schätzung.",
    "neu_kurz": "Aus den Antworten weniger Befragter schätzt man, was in der ganzen Gruppe gilt.",
    "neu_warum_einstieg": "Man kann selten alle fragen oder alles messen. Von wenigen auf alle schließt man verlässlich, wenn der Zufall die wenigen auswählt; eine größere Stichprobe schwankt dann weniger, eine einseitige Auswahl wird dadurch nicht besser.",
-   "beispiel": "20 von 100 Befragten mögen Pizza, es gibt 500 Schüler: 20 : 100 · 500 = 100, also etwa 100 Schüler.",
+   "beispiel": "20 von 100 Befragten mögen Pizza (Anteil 20 : 100), es gibt 500 Schüler: 20 : 100 · 500 = 100, also etwa 100 Schüler (nur wenn zufällig ausgewählt wurde).",
    "rechnung": [
     "20/100*500 == 100"
    ],
@@ -61,7 +64,9 @@
     "Grundgesamtheit",
     "Schätzen",
     "Zufallsauswahl"
-   ]
+   ],
+   "alt_genau": "Zufallsauswahl ist das Verfahren, mit dem man von wenigen verlässlich auf alle schließen kann. Eine größere Stichprobe mindert unter gleichen Bedingungen die Zufallsschwankung, garantiert aber kein genaueres Einzelergebnis und beseitigt keine Auswahlverzerrung.",
+   "neu_genau": "Hochrechnen heißt: Anteil in der Stichprobe mal Größe der ganzen Gruppe. Das ist nur eine Schätzung und nur brauchbar, wenn zufällig ausgewählt wurde; mehr Befragte schwanken weniger durch Zufall, eine einseitige Auswahl bleibt trotzdem einseitig."
   },
   {
    "id": "I-daten-3",
@@ -71,7 +76,7 @@
    "alt_name": "Anteil",
    "alt_satz": "Bei gleich wahrscheinlichen Ergebnissen: günstige durch mögliche.",
    "alt_kurz": "Sind alle Ergebnisse gleich wahrscheinlich, ist die Wahrscheinlichkeit der Anteil der günstigen Fälle.",
-   "neu_name": "Wahrscheinlichkeit (Laplace)",
+   "neu_name": "Günstige durch mögliche Fälle",
    "neu_satz": "Sind alle Ergebnisse gleich wahrscheinlich: Wahrscheinlichkeit = Anzahl der günstigen Ergebnisse : Anzahl aller möglichen Ergebnisse.",
    "neu_kurz": "Bei gleichen Chancen zählt man die günstigen Fälle und teilt durch alle möglichen Fälle.",
    "neu_warum_einstieg": "",
@@ -90,7 +95,9 @@
     "Würfel",
     "Zufall",
     "Chance"
-   ]
+   ],
+   "alt_genau": "Sind alle Ergebnisse gleich wahrscheinlich, ist die Wahrscheinlichkeit ein Anteil: günstige durch mögliche.",
+   "neu_genau": "Sind alle Ergebnisse gleich wahrscheinlich, gilt: Wahrscheinlichkeit = Anzahl der günstigen Ergebnisse : Anzahl aller möglichen Ergebnisse. Bei einem unfairen Würfel stimmt das nicht."
   },
   {
    "id": "I-daten-4",
@@ -100,7 +107,7 @@
    "alt_name": "Stufen",
    "alt_satz": "Am Pfad entlang mal, Pfade zusammen plus.",
    "alt_kurz": "Besteht ein Versuch aus mehreren Schritten, zeichnet man einen Baum.",
-   "neu_name": "Baumdiagramm und Pfadregeln",
+   "neu_name": "Baumdiagramm: malnehmen und addieren",
    "neu_satz": "Im Baumdiagramm: Entlang eines Pfades malnehmen, die Pfade, die zum Ereignis gehören, addieren.",
    "neu_kurz": "Versuche mit mehreren Schritten zeichnet man als Baum, die Wahrscheinlichkeiten stehen an den Zweigen.",
    "neu_warum_einstieg": "",
@@ -120,7 +127,9 @@
     "Ziehen ohne Zurücklegen",
     "Produktregel",
     "Summenregel"
-   ]
+   ],
+   "alt_genau": "Bei mehreren Stufen: entlang eines Pfades malnehmen, verschiedene Pfade addieren.",
+   "neu_genau": "Im Baumdiagramm malnimmst du die Zahlen entlang eines Pfades und addierst die Pfade, die zum Ereignis gehören. Beim Ziehen ohne Zurücklegen ändern sich die Zahlen in der zweiten Stufe."
   },
   {
    "id": "I-zahlen-2",
@@ -130,7 +139,7 @@
    "alt_name": "Bündeln in Zehnern",
    "alt_satz": "Zehn Einer sind ein Zehner, zehn Zehntel sind ein Einer.",
    "alt_kurz": "Die Stelle einer Ziffer bestimmt ihren Wert: Das Zahlensystem bündelt in Zehnern, links wie rechts vom Komma.",
-   "neu_name": "Zehnersystem und Stellenwert",
+   "neu_name": "Zehnersystem: Zehn gegen eins tauschen",
    "neu_satz": "Die Stelle bestimmt den Wert einer Ziffer: Jede Stelle ist zehnmal so viel wert wie die Stelle rechts daneben. Zehn Einer tauschst du gegen einen Zehner, zehn Zehntel gegen einen Einer.",
    "neu_kurz": "Das Zehnersystem gibt jeder Ziffer ihren Wert durch ihre Stelle, links wie rechts vom Komma.",
    "neu_warum_einstieg": "",
@@ -151,7 +160,9 @@
     "Zehntel",
     "Hundertstel",
     "Dezimalsystem"
-   ]
+   ],
+   "alt_genau": "Zehn von einer Sorte ergeben eins von der nächstgrößeren.",
+   "neu_genau": "Jede Stelle ist zehnmal so viel wert wie die Stelle rechts daneben. Zehn Einer tauschst du gegen einen Zehner, zehn Zehntel gegen einen Einer."
   },
   {
    "id": "I-zahlen-3",
@@ -161,7 +172,7 @@
    "alt_name": "Bausteine",
    "alt_satz": "Primzahlen sind die Bausteine: Jede Zahl ab zwei ist aus ihnen malgenommen.",
    "alt_kurz": "Jede natürliche Zahl ab 2 lässt sich so lange in Faktoren zerlegen, bis nur noch Primzahlen übrig sind.",
-   "neu_name": "Primfaktorzerlegung",
+   "neu_name": "Zahlen in Bausteine zerlegen",
    "neu_satz": "Zerlege eine natürliche Zahl ab 2 in Faktoren, bis nur noch Primzahlen (2, 3, 5, 7, 11 …) übrig sind; teile dazu immer durch die kleinste Primzahl, die aufgeht.",
    "neu_kurz": "Aus der Zerlegung in Primzahlen liest man Teiler, ggT und kgV ab und kürzt Brüche.",
    "neu_warum_einstieg": "",
@@ -182,7 +193,9 @@
     "ggT",
     "kgV",
     "Faktorisieren"
-   ]
+   ],
+   "alt_genau": "Jede natürliche Zahl ab 2 ist aus Primzahlen gebaut.",
+   "neu_genau": "Jede natürliche Zahl ab 2 lässt sich in Primzahlen zerlegen, und zwar immer in dieselben; nur die Reihenfolge kann anders sein. Die 1 ist keine Primzahl."
   },
   {
    "id": "I-zahlen-4",
@@ -193,10 +206,10 @@
    "alt_satz": "Ein Halb, null Komma fünf, fünfzig Prozent: dreimal dieselbe Zahl.",
    "alt_kurz": "Ein Bruch, eine Kommazahl und eine Prozentangabe können genau dieselbe Zahl meinen.",
    "neu_name": "Bruch, Dezimalzahl, Prozent",
-   "neu_satz": "Dieselbe Zahl kannst du als Bruch, als Dezimalzahl und in Prozent schreiben: Dezimalzahl = Zähler : Nenner, Prozent = Dezimalzahl · 100 %.",
+   "neu_satz": "Dieselbe Zahl kannst du als Bruch, als Dezimalzahl und in Prozent schreiben: Dezimalzahl = Zähler : Nenner; Prozentzahl = Dezimalzahl · 100, dahinter kommt das %-Zeichen.",
    "neu_kurz": "Bruch, Kommazahl und Prozent sind drei Schreibweisen derselben Zahl, man wählt die handlichste.",
    "neu_warum_einstieg": "",
-   "beispiel": "3/4: 3 : 4 = 0,75 und 0,75 · 100 = 75, also 3/4 = 0,75 = 75 %.",
+   "beispiel": "3/4: 3 : 4 = 0,75; 0,75 · 100 = 75, also 3/4 = 0,75 = 75 %.",
    "rechnung": [
     "3/4 == 0.75",
     "0.75*100 == 75"
@@ -211,7 +224,9 @@
     "Prozent",
     "Kommazahl",
     "Bruch"
-   ]
+   ],
+   "alt_genau": "Bruch, Dezimalzahl und Prozent sind drei Schreibweisen derselben Zahl.",
+   "neu_genau": "Bruch, Dezimalzahl und Prozent sind drei Schreibweisen derselben Zahl: 3/4 = 0,75 = 75 %. Dezimalzahl = Zähler : Nenner; Prozentzahl = Dezimalzahl · 100."
   },
   {
    "id": "I-zahlen-5",
@@ -221,11 +236,11 @@
    "alt_name": "Hoch und zurück",
    "alt_satz": "Hoch rechnet hin, die Wurzel rechnet zurück: √(x²) = |x|.",
    "alt_kurz": "Potenz, Wurzel und Logarithmus gehören zu einer Gleichung und fragen nach Ergebnis, Basis oder Hochzahl.",
-   "neu_name": "Potenz, Wurzel, Logarithmus",
-   "neu_satz": "Potenz: dieselbe Zahl mehrmals malnehmen (2³ = 2 · 2 · 2 = 8). Zurückrechnen: Die Wurzel fragt nach der Basis (√49 = 7, weil 7² = 49), der Logarithmus nach der Hochzahl (log₂ 8 = 3, weil 2³ = 8).",
-   "neu_kurz": "Hoch rechnet vorwärts; Wurzel und Logarithmus rechnen zurück zur Basis und zur Hochzahl.",
+   "neu_name": "Potenzieren und Zurückrechnen",
+   "neu_satz": "Potenz (ab Klasse 5): 2³ = 8. Wurzel (ab Klasse 9): √49 = 7, weil 7 · 7 = 49; unter der Wurzel muss eine Zahl ≥ 0 stehen. Logarithmus (ab Klasse 10): log₂ 8 = 3, weil 2³ = 8; Basis > 0, Basis ≠ 1, Zahl > 0.",
+   "neu_kurz": "Hoch rechnet vorwärts; Wurzel (ab Klasse 9) und Logarithmus (ab Klasse 10) rechnen zurück.",
    "neu_warum_einstieg": "Potenzieren fragt: Was kommt heraus? Die Wurzel fragt zurück nach der Basis, der Logarithmus nach der Hochzahl. Alle drei gehören zu einer einzigen Gleichung wie 2³ = 8.",
-   "beispiel": "2³ = 8, deshalb √49 = 7 (7² = 49) und log₂ 8 = 3 (2³ = 8).",
+   "beispiel": "Potenz: 2³ = 2 · 2 · 2 = 8. Wurzel: √49 = 7, denn 7² = 49. Logarithmus: log₂ 8 = 3, denn 2³ = 8.",
    "rechnung": [
     "2*2*2 == 8",
     "7**2 == 49",
@@ -245,7 +260,9 @@
     "Logarithmus",
     "hoch",
     "Quadratzahl"
-   ]
+   ],
+   "alt_genau": "Potenz, Wurzel und Logarithmus gehören zusammen: Die eine rechnet hoch, die beiden anderen fragen zurück. Die Quadratwurzel liefert die Zahl ab null: √(x²) = |x|.",
+   "neu_genau": "Potenz (ab Klasse 5): Die Hochzahl sagt, wie oft die Basis als Faktor dasteht. Wurzel (ab Klasse 9): √a ist die Zahl ab 0, die mit sich selbst malgenommen a ergibt; es gibt sie nur für a ≥ 0. Logarithmus (ab Klasse 10): log_b x ist die Hochzahl, mit der aus b die Zahl x wird; nur für b > 0, b ≠ 1 und x > 0."
   },
   {
    "id": "I-geld-1",
@@ -256,15 +273,16 @@
    "alt_satz": "Kleinere Einheit, größere Zahl – größere Einheit, kleinere Zahl.",
    "alt_kurz": "Eine Größe besteht aus Zahl und Einheit.",
    "neu_name": "Einheiten umrechnen",
-   "neu_satz": "In eine kleinere Einheit: mal die Umrechnungszahl, die Zahl wird größer. In eine größere Einheit: geteilt, die Zahl wird kleiner (1 m = 100 cm, 1 kg = 1 000 g).",
+   "neu_satz": "Zur kleineren Einheit: mal die Umrechnungszahl; zur größeren: geteilt. Die Zahl hängt vom Sprung ab: Länge 10, Fläche 100, Raum 1 000 je Stufe (km zu m: 1 000). Alle Stufen: Tafel „Einheiten umrechnen“.",
    "neu_kurz": "Wechselt man die Einheit, ändert sich die Zahl: Aus Metern werden mehr Zentimeter.",
    "neu_warum_einstieg": "",
-   "beispiel": "3 m = 3 · 100 cm = 300 cm; 2 500 g = 2 500 : 1 000 kg = 2,5 kg.",
+   "beispiel": "Zwei Stufen: 3 m = 3 · 10 · 10 cm = 300 cm (m, dm, cm); 2 m² = 2 · 100 · 100 cm² = 20 000 cm² (m², dm², cm²). Zur größeren Einheit: 2 500 g = 2 500 : 1 000 kg = 2,5 kg.",
    "rechnung": [
-    "3*100 == 300",
+    "3*10*10 == 300",
+    "2*100*100 == 20000",
     "2500/1000 == 2.5"
    ],
-   "bedingung": "Die Umrechnungszahl hängt von der Einheit ab: Länge 10 oder 1 000, Fläche 100, Raum 1 000, Zeit 60 und 24 (nicht 10).",
+   "bedingung": "Die Umrechnungszahl hängt vom Einheitensprung ab: Länge 10 je Stufe (km zu m 1 000), Fläche 100 je Stufe, Raum 1 000 je Stufe, Zeit 60 und 24 (nicht 10). Alle Stufen stehen in der Tafel „Einheiten umrechnen“.",
    "begruendung": "„Größe“ ist kein Suchwort für Umrechnen, und der Satz nannte nicht, wann man mal und wann geteilt rechnet.",
    "suchwoerter": [
     "Einheiten umrechnen",
@@ -277,7 +295,9 @@
     "Masse",
     "Zeit",
     "Größen"
-   ]
+   ],
+   "alt_genau": "Eine Größe ist Zahl mal Einheit – wechselt die Einheit, wechselt die Zahl.",
+   "neu_genau": "Eine Größe ist Zahl mal Einheit. Wechselst du die Einheit, ändert sich die Zahl: in eine kleinere Einheit mal die Umrechnungszahl, in eine größere geteilt. Die Umrechnungszahl steht in der Tafel „Einheiten umrechnen“."
   },
   {
    "id": "I-geld-2",
@@ -287,7 +307,7 @@
    "alt_name": "Wert für eins",
    "alt_satz": "Bei gleichem Preis je Einheit kostet doppelt so viel doppelt so viel.",
    "alt_kurz": "Bei proportionalen Größen gehört zu jeder Einheit derselbe Wert.",
-   "neu_name": "Dreisatz: Wert für eins",
+   "neu_name": "Erst auf 1 Stück, dann auf die Menge",
    "neu_satz": "Rechne erst auf 1 Stück, das heißt teilen, dann auf die gewünschte Anzahl, das heißt malnehmen. Das geht, wenn doppelte Menge doppelten Preis bedeutet.",
    "neu_kurz": "Bei gleichem Preis je Einheit rechnet man vom Wert für 1 auf jede andere Menge.",
    "neu_warum_einstieg": "",
@@ -306,7 +326,9 @@
     "Verhältnis",
     "Maßstab",
     "Stückpreis"
-   ]
+   ],
+   "alt_genau": "Proportional heißt: Der Wert für eine Einheit bleibt immer gleich.",
+   "neu_genau": "Erst rechnest du auf 1 Stück (teilen), dann auf die gewünschte Menge (malnehmen). Das geht nur, wenn jedes Stück gleich viel kostet: doppelte Menge, doppelter Preis."
   },
   {
    "id": "I-geld-3",
@@ -316,7 +338,7 @@
    "alt_name": "Prozent als Faktor",
    "alt_satz": "Prozent heißt: von hundert.",
    "alt_kurz": "Prozent ist nur ein anderes Wort für Hundertstel.",
-   "neu_name": "Prozentrechnung",
+   "neu_name": "Prozente berechnen und verändern",
    "neu_satz": "p % von einem Wert: Wert · p : 100. Um p % erhöhen: mal (1 + p : 100); um p % senken: mal (1 − p : 100).",
    "neu_kurz": "Prozent heißt Hundertstel; eine Änderung um p % ist ein Malnehmen mit einem Faktor.",
    "neu_warum_einstieg": "",
@@ -338,7 +360,9 @@
     "Aufschlag",
     "Mehrwertsteuer",
     "Wachstumsfaktor"
-   ]
+   ],
+   "alt_genau": "Prozent heißt Hundertstel; um p Prozent verändern heißt mit einem Faktor malnehmen.",
+   "neu_genau": "Prozent heißt Hundertstel: 20 % = 20 : 100 = 0,2. Um p % erhöhen heißt mal (1 + p : 100) nehmen, um p % senken mal (1 − p : 100)."
   },
   {
    "id": "I-geo-1",
@@ -349,12 +373,13 @@
    "alt_satz": "Gleiche Winkel an Parallelen – darum im ebenen Dreieck immer 180 Grad.",
    "alt_kurz": "An geschnittenen Parallelen sind Stufen- und Wechselwinkel gleich; Nebenwinkel ergeben 180°.",
    "neu_name": "Winkel an Geraden und Parallelen",
-   "neu_satz": "Nebenwinkel sind zusammen 180°, Scheitelwinkel sind gleich groß. Schneidet eine Gerade zwei Parallelen, sind Stufen- und Wechselwinkel gleich groß – und umgekehrt.",
+   "neu_satz": "Nebenwinkel (nebeneinander an einer Geraden): zusammen 180°. Scheitelwinkel (gegenüber, wo zwei Geraden sich kreuzen): gleich groß. Stufenwinkel (an Parallelen, gleiche Lage): gleich groß. Wechselwinkel (an Parallelen, auf gegenüberliegenden Seiten der schneidenden Geraden): gleich groß.",
    "neu_kurz": "Mit Neben-, Scheitel-, Stufen- und Wechselwinkeln findet man fehlende Winkel, auch im Dreieck.",
    "neu_warum_einstieg": "An Parallelen kehren dieselben Winkel wieder – deshalb ergeben die drei Winkel im ebenen Dreieck zusammen 180°.",
-   "beispiel": "Winkel 65°: Nebenwinkel 180° − 65° = 115°, Scheitelwinkel 65°.",
+   "beispiel": "Ein Winkel misst 65°. Nebenwinkel: 180° − 65° = 115°. Scheitelwinkel: 65°. Schneidet die Gerade zwei Parallelen, ist der Stufenwinkel 65° und der Wechselwinkel 65°.",
    "rechnung": [
-    "180 - 65 == 115"
+    "180 - 65 == 115",
+    "180 - (180 - 65) == 65"
    ],
    "bedingung": "Neben- und Scheitelwinkel gelten bei jeder Geradenkreuzung; Stufen- und Wechselwinkel sind nur gleich, wenn die geschnittenen Geraden parallel sind.",
    "begruendung": "Der Satz zielte auf die Winkelsumme im Dreieck und nannte keine der vier Winkelarten, nach denen ein Kind sucht.",
@@ -366,7 +391,9 @@
     "Parallelen",
     "Winkel an Geraden",
     "Winkelsumme"
-   ]
+   ],
+   "alt_genau": "An parallelen Geraden kehren dieselben Winkel wieder – deshalb ergeben die Winkel im ebenen Dreieck zusammen 180°.",
+   "neu_genau": "Nebenwinkel: 65° und 115°, zusammen 180°. Scheitelwinkel: 65° und 65°, gleich groß. Stufenwinkel an Parallelen: 65° und 65°, gleich groß. Wechselwinkel an Parallelen: 65° und 65°, gleich groß. Stufen- und Wechselwinkel sind nur bei Parallelen gleich."
   },
   {
    "id": "I-geo-2",
@@ -396,7 +423,9 @@
     "Inkreis",
     "Ortslinie",
     "gleicher Abstand"
-   ]
+   ],
+   "alt_genau": "Alle Punkte mit gleichem Abstand bilden eine Linie: Kreis, Mittelsenkrechte, Winkelhalbierende. Zwei sich schneidende Geraden haben zwei Winkelhalbierende, senkrecht zueinander; im Inneren eines Winkels liegt die innere.",
+   "neu_genau": "Alle Punkte mit gleichem Abstand liegen auf einer Linie: von einem Punkt M auf einem Kreis, von A und B auf der Mittelsenkrechten von [AB], von zwei sich schneidenden Geraden auf deren Winkelhalbierenden. Zwei sich schneidende Geraden haben zwei Winkelhalbierende, die senkrecht aufeinander stehen."
   },
   {
    "id": "I-fur-1",
@@ -406,7 +435,7 @@
    "alt_name": "Auslegen und zählen",
    "alt_satz": "Messen heißt auslegen und zählen.",
    "alt_kurz": "Eine Fläche misst man, indem man sie lückenlos mit gleich großen Quadraten auslegt und zählt.",
-   "neu_name": "Flächeninhalt und Volumen messen",
+   "neu_name": "Fläche und Raum auszählen",
    "neu_satz": "Fläche = Anzahl der Einheitsquadrate, die lückenlos hineinpassen (1 cm² = Quadrat mit 1 cm Seite). Volumen = Anzahl der Einheitswürfel.",
    "neu_kurz": "Formeln für Fläche und Rauminhalt sind Abkürzungen fürs Zählen: 4 Reihen zu je 6 Quadraten sind 6 · 4.",
    "neu_warum_einstieg": "",
@@ -425,7 +454,9 @@
     "Rauminhalt",
     "Kubikzentimeter",
     "Einheitsquadrat"
-   ]
+   ],
+   "alt_genau": "Messen heißt auslegen und zählen: Flächen mit Einheitsquadraten, Körper mit Einheitswürfeln.",
+   "neu_genau": "Flächen misst man mit Einheitsquadraten, Körper mit Einheitswürfeln: Du zählst, wie viele lückenlos hineinpassen. Drei Reihen mit je vier Quadraten sind 3 · 4 = 12 Quadrate."
   },
   {
    "id": "I-fur-2",
@@ -435,7 +466,7 @@
    "alt_name": "Aus dem Rechteck",
    "alt_satz": "Aus dem Rechteck entstehen die Flächen vieler Figuren.",
    "alt_kurz": "Viele Flächenformeln bauen auf dem Rechteck auf; Kreissektoren nähern es an, im Grenzwert folgt exakt A = πr².",
-   "neu_name": "Flächenformeln (Dreieck, Trapez …)",
+   "neu_name": "Flächenformeln herleiten",
    "neu_satz": "Rechteck: a · b; Parallelogramm: Grundseite · Höhe; Dreieck: Grundseite · Höhe : 2; Trapez: (a + c) : 2 · Höhe; Kreis: π · r · r.",
    "neu_kurz": "Aus dem Rechteck lassen sich die Flächenformeln für Parallelogramm, Dreieck, Trapez und Kreis herleiten.",
    "neu_warum_einstieg": "",
@@ -455,7 +486,9 @@
     "Flächeninhalt",
     "Grundseite",
     "Höhe"
-   ]
+   ],
+   "alt_genau": "Aus dem Rechteck entstehen die Formeln für Parallelogramm, Dreieck und Trapez: zerschneiden, neu legen, halbieren. Beim Kreis nähert man sich dem Rechteck mit endlich vielen Sektoren nur an; im Grenzwert folgt exakt A = πr².",
+   "neu_genau": "Aus dem Rechteck entstehen die Formeln: Ein Parallelogramm schneidest du zu einem Rechteck um, das Dreieck ist ein halbes Parallelogramm. Beim Kreis nähert man mit vielen Kreisstücken ein Rechteck an; so kommt man auf A = π · r · r."
   },
   {
    "id": "I-fur-3",
@@ -465,7 +498,7 @@
    "alt_name": "Aus dem Quader",
    "alt_satz": "Grundfläche mal Höhe – bei Pyramide und Kegel nur ein Drittel davon.",
    "alt_kurz": "Ein Quader ist ein Stapel gleicher Schichten: Grundfläche mal Höhe.",
-   "neu_name": "Volumen von Körpern",
+   "neu_name": "Rauminhalt: Grundfläche mal Höhe",
    "neu_satz": "Prisma und Zylinder: V = Grundfläche · Höhe. Pyramide und Kegel: V = ein Drittel von Grundfläche · Höhe.",
    "neu_kurz": "Ein Körper aus gleichen Schichten hat das Volumen Grundfläche mal Höhe, ein spitz zulaufender nur ein Drittel.",
    "neu_warum_einstieg": "",
@@ -485,7 +518,9 @@
     "Kegel",
     "Grundfläche mal Höhe",
     "Quader"
-   ]
+   ],
+   "alt_genau": "Bei Prisma und Zylinder gilt Grundfläche mal Höhe, bei Pyramide und Kegel ein Drittel davon.",
+   "neu_genau": "Ein Körper aus lauter gleichen Schichten (Quader, Prisma, Zylinder) hat V = Grundfläche · Höhe. Läuft er spitz zu (Pyramide, Kegel), ist es ein Drittel davon. Die Höhe misst du senkrecht zur Grundfläche."
   },
   {
    "id": "I-fur-4",
@@ -495,7 +530,7 @@
    "alt_name": "Haut des Körpers",
    "alt_satz": "Aufklappen zeigt bei Quader, Prisma, Pyramide, Zylinder und Kegel die ganze Haut des Körpers.",
    "alt_kurz": "Das Netz zeigt die Oberfläche etwa eines Quaders flach ausgebreitet, wie ein aufgeklappter Karton.",
-   "neu_name": "Oberfläche und Netz",
+   "neu_name": "Alle Außenflächen eines Körpers",
    "neu_satz": "Oberfläche = Summe aller Außenflächen. Im Netz (dem aufgeklappten Körper) rechnest du jede Fläche einzeln und zählst zusammen; Quader: O = 2 · (a · b + a · c + b · c).",
    "neu_kurz": "Aufgeklappt zeigt das Netz alle Flächen eines Körpers; ihre Summe ist die Oberfläche.",
    "neu_warum_einstieg": "",
@@ -515,7 +550,9 @@
     "Würfel",
     "Zylinder",
     "Schrägbild"
-   ]
+   ],
+   "alt_genau": "Die Oberfläche ist die Haut des Körpers. Bei Quader, Prisma, Pyramide, Zylinder und Kegel lässt sie sich als ebenes Netz ohne Verzerrung ausbreiten, bei der Kugel nicht. Das Schrägbild zeigt den Körper im Raum.",
+   "neu_genau": "Die Oberfläche ist die Summe aller Außenflächen. Das Netz zeigt sie aufgeklappt: Du rechnest jede Fläche einzeln und zählst zusammen. Eine Kugel lässt sich nicht flach ausbreiten; für sie gilt O = 4 · π · r · r."
   },
   {
    "id": "I-algebra-1",
@@ -525,7 +562,7 @@
    "alt_name": "Term",
    "alt_satz": "Ein Term ist ein Rechenrezept: Zahl hinein, Ergebnis heraus.",
    "alt_kurz": "Ein Term schreibt eine Rechnung auf, bevor man die Zahl kennt.",
-   "neu_name": "Term (Rechnung mit Buchstaben)",
+   "neu_name": "Rechnen mit Buchstaben",
    "neu_satz": "Ein Term ist eine Rechnung mit Buchstaben. Setzt du für den Buchstaben eine Zahl ein, kannst du ihn ausrechnen.",
    "neu_kurz": "Mit einem Term kann man rechnen, bevor man die Zahl kennt; gleichwertige Terme liefern immer dasselbe.",
    "neu_warum_einstieg": "",
@@ -543,7 +580,9 @@
     "Termwert",
     "Rechenausdruck",
     "gleichwertige Terme"
-   ]
+   ],
+   "alt_genau": "Ein Term ist eine Rechenvorschrift; gleichwertige Terme liefern für jede erlaubte Zahl dasselbe.",
+   "neu_genau": "Ein Term ist eine Rechenvorschrift mit Buchstaben. Setzt du für den Buchstaben eine erlaubte Zahl ein, kannst du ihn ausrechnen; gleichwertige Terme geben für jede erlaubte Zahl dasselbe."
   },
   {
    "id": "I-algebra-3",
@@ -553,7 +592,7 @@
    "alt_name": "Gleichung lösen",
    "alt_satz": "Lösen heißt: alle Zahlen finden, für die die Gleichung stimmt.",
    "alt_kurz": "Eine Gleichung ist eine Frage: Für welche Zahlen stimmt sie?",
-   "neu_name": "Gleichung lösen",
+   "neu_name": "Gleichung lösen und prüfen",
    "neu_satz": "Rechne auf beiden Seiten dasselbe, bis x allein steht – nie mal oder durch 0. Mach zum Schluss die Probe: Lösung in die Gleichung einsetzen.",
    "neu_kurz": "",
    "neu_warum_einstieg": "Eine Gleichung ist eine Frage: Für welche Zahlen stimmt sie? Die Antwort kann eine Zahl sein, mehrere, keine oder ein ganzer Bereich. Umformen ist nur der schnelle Weg dorthin, Einsetzen zeigt, ob die Antwort stimmt.",
@@ -572,7 +611,9 @@
     "Probe",
     "Lösungsmenge",
     "x ausrechnen"
-   ]
+   ],
+   "alt_genau": "Eine Gleichung lösen heißt: alle Zahlen finden, die sie wahr machen.",
+   "neu_genau": "Eine Gleichung lösen heißt: alle Zahlen finden, für die sie stimmt. Das kann eine Zahl sein, mehrere, keine oder jede Zahl. Mit der Probe prüfst du: Zahl einsetzen und beide Seiten ausrechnen."
   },
   {
    "id": "I-algebra-4",
@@ -583,14 +624,16 @@
    "alt_satz": "Steht x im Quadrat: meist erst null auf eine Seite, dann zerlegen.",
    "alt_kurz": "Bei Gleichungen höheren Grades faktorisiert man, zieht die Wurzel oder nutzt eine Lösungsformel, je nach Form.",
    "neu_name": "Gleichungen mit x² (und höher)",
-   "neu_satz": "Alles auf eine Seite bringen, in Faktoren zerlegen, jeden Faktor einzeln gleich null setzen; ein Faktor, der nie null wird (wie x² + 1), liefert keine Lösung. Bei x² = a mit a > 0 gibt es zwei Lösungen: √a und −√a.",
+   "neu_satz": "Alles auf eine Seite, in Faktoren zerlegen, jeden Faktor gleich 0 setzen. Sonderfall x² = a: a > 0 gibt x = √a und x = −√a, a = 0 gibt x = 0, a < 0 gibt keine Lösung (in den reellen Zahlen).",
    "neu_kurz": "Gleichungen mit x² löst man durch Faktorisieren, Wurzelziehen oder mit der Lösungsformel, je nach Form.",
    "neu_warum_einstieg": "",
    "beispiel": "x² − 9 = 0 gibt (x − 3) · (x + 3) = 0, also x = 3 oder x = −3.",
    "rechnung": [
     "3**2 - 9 == 0",
     "(-3)**2 - 9 == 0",
-    "(3-3)*(3+3) == 0"
+    "(3-3)*(3+3) == 0",
+    "wurzel(9) == 3",
+    "3**2 == 9"
    ],
    "bedingung": "Das Zerlegen gelingt nicht immer; dann hilft die Lösungsformel. x² = a hat für a > 0 zwei, für a = 0 eine, für a < 0 keine Lösung (über den reellen Zahlen). Nie durch x teilen: Dabei geht x = 0 verloren.",
    "begruendung": "„Höherer Grad“ ist ein Fachbegriff; das Kind sucht „Gleichung mit x²“ oder „quadratische Gleichung“.",
@@ -602,7 +645,9 @@
     "Nullprodukt",
     "Wurzel ziehen",
     "Gleichung höheren Grades"
-   ]
+   ],
+   "alt_genau": "Bei höherem Grad: alles auf eine Seite bringen und, wenn es gelingt, in Faktoren zerlegen – oder die Gegenrechnung nutzen.",
+   "neu_genau": "Bei Gleichungen mit x² bringst du alles auf eine Seite und zerlegst in Faktoren; ein Produkt ist 0, wenn ein Faktor 0 ist. Bei x² = a gibt es für a > 0 zwei Lösungen, für a = 0 eine, für a < 0 keine (in den reellen Zahlen)."
   },
   {
    "id": "I-funktionen-1",
@@ -612,7 +657,7 @@
    "alt_name": "Zuordnung",
    "alt_satz": "Zu jedem x gehört genau ein y.",
    "alt_kurz": "Eine Funktion ist eine Zuordnung, bei der zu jedem x genau ein y gehört.",
-   "neu_name": "Funktion: Gleichung, Tabelle, Graph",
+   "neu_name": "Gleichung, Tabelle, Graph",
    "neu_satz": "Eine Funktion gibt jedem x genau ein y. Tabelle, Graph und Gleichung zeigen dieselbe Zuordnung; den Wert rechnest du aus, indem du x einsetzt.",
    "neu_kurz": "Tabelle, Graph und Gleichung sind drei Darstellungen derselben Zuordnung von x zu y.",
    "neu_warum_einstieg": "",
@@ -631,7 +676,9 @@
     "Wertetabelle",
     "Graph",
     "Funktionsgleichung"
-   ]
+   ],
+   "alt_genau": "Eine Funktion ordnet jedem x genau ein y zu; Tabelle, Graph und Gleichung sind drei Darstellungen derselben Zuordnung.",
+   "neu_genau": "Eine Funktion gibt jedem erlaubten x genau ein y. Tabelle, Graph und Gleichung zeigen dieselbe Zuordnung. Zu einem y dürfen mehrere x gehören, zu einem x nie mehrere y."
   },
   {
    "id": "I-funktionen-2",
@@ -662,7 +709,9 @@
     "Zunahme",
     "Abnahme",
     "Verdopplung"
-   ]
+   ],
+   "alt_genau": "In gleichen x-Schritten wächst eine lineare Funktion um gleich viel, eine exponentielle um denselben Faktor: y = A · qˣ mit A > 0 steigt bei q > 1, fällt bei 0 < q < 1 und ist bei q = 1 konstant.",
+   "neu_genau": "Linear: Bei jedem x-Schritt kommt immer dieselbe Zahl dazu. Exponentiell: Bei jedem x-Schritt wird mit demselben Faktor q > 0 malgenommen, y = A · qˣ. Mit A > 0 steigt der Wert bei q > 1, fällt bei 0 < q < 1 und bleibt bei q = 1 gleich."
   },
   {
    "id": "I-funktionen-3",
@@ -672,7 +721,7 @@
    "alt_name": "Gleichung und Form",
    "alt_satz": "Die Gleichung verrät die Form: y = mx + t gibt eine Gerade, y = ax² (a ≠ 0) eine Parabel.",
    "alt_kurz": "Bei bekannten Funktionstypen verrät die Gleichung die Form des Graphen, bevor man Punkte berechnet.",
-   "neu_name": "Gerade, Parabel, Hyperbel",
+   "neu_name": "Form des Graphen aus der Gleichung",
    "neu_satz": "y = m · x + t ist eine Gerade (m = Steigung, t = Schnittpunkt mit der y-Achse). y = a · x² mit a ≠ 0 ist eine Parabel, y = a : x mit a ≠ 0 und x ≠ 0 eine Hyperbel.",
    "neu_kurz": "Die Gleichung verrät, ob der Graph eine Gerade, Parabel oder Hyperbel ist, schon vor dem Zeichnen.",
    "neu_warum_einstieg": "",
@@ -694,7 +743,9 @@
     "Hyperbel",
     "Funktionsgleichung",
     "mx + t"
-   ]
+   ],
+   "alt_genau": "Bei bekannten Funktionstypen verrät die Gleichung die Form des Graphen: y = mx + t ist eine Gerade, y = ax² + bx + c mit a ≠ 0 eine Parabel, y = a/x mit a ≠ 0 und x ≠ 0 eine Hyperbel. Bestimmte Änderungen der Gleichung verschieben, strecken oder spiegeln den Graphen.",
+   "neu_genau": "Die Gleichung verrät die Form des Graphen: y = m · x + t ist eine Gerade, y = a · x² mit a ≠ 0 eine Parabel, y = a : x mit a ≠ 0 und x ≠ 0 eine Hyperbel. Dafür muss die Gleichung genau diese Form haben."
   },
   {
    "id": "R14",
@@ -1107,14 +1158,16 @@
    "alt_satz": "Voller Winkel 360°, gestreckter 180°, rechter 90°.",
    "alt_kurz": "",
    "neu_name": "Winkelarten",
-   "neu_satz": "Spitz: unter 90°; rechter Winkel: 90°; stumpf: zwischen 90° und 180°; gestreckt: 180°; überstumpf: zwischen 180° und 360°; voll: 360°.",
+   "neu_satz": "Winkel α: spitz 0° < α < 90°; recht α = 90°; stumpf 90° < α < 180°; gestreckt α = 180°; überstumpf 180° < α < 360°; voll α = 360°.",
    "neu_kurz": "",
    "neu_warum_einstieg": "",
    "beispiel": "135° ist stumpf, denn 90° < 135° < 180°.",
    "rechnung": [
-    "90 < 135 < 180"
+    "90 < 135 < 180",
+    "sum([0<135<90, 135==90, 90<135<180, 135==180, 180<135<360, 135==360]) == 1",
+    "sum([0<90<90, 90==90, 90<90<180, 90==180, 180<90<360, 90==360]) == 1"
    ],
-   "bedingung": "Gemessen wird am Scheitel, von einem Schenkel zum anderen; am Geodreieck die richtige Skala ablesen.",
+   "bedingung": "Jeder Winkel über 0° bis 360° gehört zu genau einer Art. Gemessen wird am Scheitel, von einem Schenkel zum anderen; am Geodreieck die richtige Skala ablesen.",
    "begruendung": "Der Satz nannte nur drei der sechs Winkelarten, nach denen man sucht.",
    "suchwoerter": [
     "spitzer Winkel",
@@ -1135,14 +1188,14 @@
    "alt_satz": "Quadrat, Rechteck, Raute, Parallelogramm, Trapez, Drachenviereck: Jedes hat seine festen Eigenschaften.",
    "alt_kurz": "",
    "neu_name": "Besondere Vierecke",
-   "neu_satz": "Rechteck: vier rechte Winkel, Diagonalen gleich lang. Raute: vier gleiche Seiten, Diagonalen senkrecht. Quadrat: beides. Parallelogramm: Gegenseiten parallel; Trapez: ein Paar paralleler Seiten; Drachen: zwei Paare gleich langer Nachbarseiten.",
+   "neu_satz": "Rechteck: vier rechte Winkel; Raute: vier gleich lange Seiten; Quadrat: beides; Parallelogramm: Gegenseiten parallel; Trapez: mindestens ein Paar paralleler Seiten (Vereinbarung); Drachenviereck: zwei Paare gleich langer Nachbarseiten.",
    "neu_kurz": "",
    "neu_warum_einstieg": "",
    "beispiel": "Rechteck 3 cm mal 4 cm: Beide Diagonalen sind 5 cm lang, denn 3² + 4² = 5².",
    "rechnung": [
     "3**2 + 4**2 == 5**2"
    ],
-   "bedingung": "Jedes Quadrat ist ein Rechteck und eine Raute, aber nicht jedes Rechteck ein Quadrat. Ob ein Parallelogramm auch ein Trapez heißt, hängt von der Definition im Unterricht ab.",
+   "bedingung": "Jedes Quadrat ist ein Rechteck und eine Raute, aber nicht jedes Rechteck ein Quadrat. „Trapez = mindestens ein Paar paralleler Seiten“ ist eine Vereinbarung; manche Bücher verlangen genau ein Paar, dann ist ein Parallelogramm kein Trapez.",
    "begruendung": "Der Satz zählte nur die Namen auf und nannte keine Eigenschaft, an der man ein Viereck erkennt.",
    "suchwoerter": [
     "Viereck",
@@ -1898,7 +1951,7 @@
    "neu_satz": "Wiederholst du denselben Versuch sehr oft und jedes Mal unabhängig, liegt die relative Häufigkeit meist nahe bei der Wahrscheinlichkeit. Bei wenigen Würfen kann sie stark abweichen.",
    "neu_kurz": "",
    "neu_warum_einstieg": "",
-   "beispiel": "Münze, 1000 Würfe, 512 mal Kopf: 512 : 1000 = 0,512, nahe bei 0,5 (Beispielzahlen).",
+   "beispiel": "Beispiel (erfundene Beispielzahlen, nicht gemessen): Münze, 1 000 Würfe, 512-mal Kopf: 512 : 1 000 = 0,512, nahe bei 0,5.",
    "rechnung": [
     "512/1000 == 0.512",
     "abs(512/1000 - 1/2) < 0.05"

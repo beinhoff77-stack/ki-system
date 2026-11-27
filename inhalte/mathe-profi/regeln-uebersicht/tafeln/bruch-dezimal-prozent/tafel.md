@@ -38,6 +38,7 @@ Der Strich über der Ziffer ist der Periodenstrich. 33,3̅ % heißt 33,333… %;
 ### Prozentwert berechnen (bd-02)
 
 - Formel: W = G · p %
+- Symbole: p % ist der Prozentsatz. Als Faktor setzt du p/100 ein: 20 % → 0,2.
 - Bedingung: p % ist der Prozentsatz als Anteil: p % = p : 100
 - Größen: W = Prozentwert (der Teil); G = Grundwert (das Ganze, 100 %); p % = Prozentsatz (der Anteil)
 - So geht es: Rechne den Prozentsatz in einen Anteil um: 20 % = 20 : 100 = 0,2. Multipliziere mit dem Grundwert: 80 € · 0,2 = 16 €.
@@ -48,6 +49,7 @@ Der Strich über der Ziffer ist der Periodenstrich. 33,3̅ % heißt 33,333… %;
 ### Prozentsatz berechnen (bd-03)
 
 - Formel: p % = W : G
+- Symbole: p % ist der Prozentsatz. W : G ergibt den Faktor p/100, hier 0,25; mal 100 gibt die Prozentzahl: 0,25 → 25 %.
 - Bedingung: G ≠ 0
 - Größen: W = Prozentwert (der Teil); G = Grundwert (das Ganze, 100 %); p % = Prozentsatz (der Anteil)
 - So geht es: Teile den Prozentwert durch den Grundwert: 12 € : 48 € = 0,25. Mal 100 ergibt die Prozentzahl: 0,25 = 25 %.
@@ -58,6 +60,7 @@ Der Strich über der Ziffer ist der Periodenstrich. 33,3̅ % heißt 33,333… %;
 ### Grundwert berechnen (bd-04)
 
 - Formel: G = W : p %
+- Symbole: p % ist der Prozentsatz. Als Faktor setzt du p/100 ein: 30 % → 0,3.
 - Bedingung: p ≠ 0
 - Größen: W = Prozentwert (der Teil); G = Grundwert (das Ganze, 100 %); p % = Prozentsatz (der Anteil)
 - So geht es: Rechne den Prozentsatz in einen Anteil um: 30 % = 30 : 100 = 0,3. Teile den Prozentwert durch den Anteil: 15 € : 0,3 = 50 €.
@@ -68,6 +71,7 @@ Der Strich über der Ziffer ist der Periodenstrich. 33,3̅ % heißt 33,333… %;
 ### Zinsen für ein Jahr (bd-05)
 
 - Formel: Z = K · p : 100
+- Symbole: p ist die Prozentzahl des Zinssatzes: 10 % → p = 10. Als Faktor wäre es p/100: 10 % → 0,1.
 - Bedingung: Zinsen für genau ein Jahr; p ist die Prozentzahl des Zinssatzes (bei 10 % ist p = 10)
 - Größen: K = Kapital; p = Prozentzahl des Zinssatzes
 - So geht es: Rechne 1 % aus: K : 100. Mal die Prozentzahl p ergibt die Zinsen. Nach einem Jahr hat man K + Z.
@@ -79,6 +83,7 @@ Der Strich über der Ziffer ist der Periodenstrich. 33,3̅ % heißt 33,333… %;
 ### Zinseszins über zwei Jahre (bd-06)
 
 - Formel: Kₙ = K₀ · qⁿ
+- Symbole: p % ist der Zinssatz (ein Prozentsatz). Als Faktor p/100: 10 % → 0,1; darum q = 1 + 0,1 = 1,1.
 - Bedingung: Die Zinsen bleiben auf dem Konto und werden mitverzinst; der Zinssatz bleibt gleich; q = 1 + p : 100
 - Größen: K₀ = Anfangskapital; q = Zinsfaktor: q = 1 + p : 100; n = Anzahl der Jahre
 - So geht es: Berechne den Zinsfaktor: q = 1 + p : 100; bei 10 % ist q = 1,1. Nimm das Kapital für jedes Jahr einmal mal q. Für 2 Jahre: K₂ = K₀ · q · q = K₀ · q².

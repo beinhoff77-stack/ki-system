@@ -901,7 +901,7 @@
     "1 d = 1 440 min",
     "1 d = 86 400 s"
    ],
-   "merksatz": "Zeit zählt nicht in Zehnern: 1 h = 60 min, 1 min = 60 s, 1 d = 24 h.",
+   "merksatz": "Zeit ist nicht dezimal (nicht in Zehnern): 1 h = 60 min, 1 min = 60 s, 1 d = 24 h.",
    "so_gehts": [
     "Suche beide Einheiten auf der Treppe: Tag, Stunde, Minute, Sekunde.",
     "Abwärts mal 24 oder mal 60, aufwärts durch 24 oder durch 60; ein Komma in der Zahl liest du als Dezimalzahl (1,5 h sind 1,5 · 60 min).",
@@ -1222,7 +1222,8 @@
     }
    ],
    "hinweise": [
-    "Geld hat nur eine Stufe; ein Beispiel über zwei Stufen gibt es deshalb nicht."
+    "Geld hat nur eine Stufe; ein Beispiel über zwei Stufen gibt es deshalb nicht.",
+    "Wechselkurse (Euro in andere Währungen) ändern sich täglich und stehen darum nicht als feste Treppe hier; die Tafel kennt nur € und ct."
    ]
   },
   {
@@ -1400,6 +1401,11 @@
    ],
    "hinweise": [
     "Geschwindigkeit = Strecke : Zeit; hier geht es nur um das Umrechnen der Einheit."
+   ],
+   "formel": "v = s : t, Einheit km/h oder m/s. Umrechnen: v in km/h = v in m/s · 3,6; v in m/s = v in km/h : 3,6.",
+   "richtungsbeispiele": [
+    "15 m/s = 54 km/h (mal 3,6)",
+    "72 km/h = 20 m/s (durch 3,6)"
    ]
   },
   {
@@ -1556,6 +1562,11 @@
    "hinweise": [
     "Dichte = Masse : Volumen, also Masse = Volumen · Dichte (so im Bestand).",
     "kg/m³ steht nicht im Bestand und ist hier als Zusatz markiert."
+   ],
+   "formel": "ρ = m : V, Einheit g/cm³ oder kg/m³ (kg/m³ ist hier ein Zusatz). Umrechnen: ρ in kg/m³ = ρ in g/cm³ · 1 000; zurück durch 1 000.",
+   "richtungsbeispiele": [
+    "0,7 g/cm³ = 700 kg/m³ (mal 1 000)",
+    "2 700 kg/m³ = 2,7 g/cm³ (durch 1 000)"
    ]
   }
  ],

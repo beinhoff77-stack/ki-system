@@ -661,7 +661,8 @@
     "Viereck",
     "Haus der Vierecke",
     "Eigenschaften Viereck"
-   ]
+   ],
+   "einordnung": "Sonderfall von Rechteck und Raute; damit auch von Parallelogramm, Drachenviereck, gleichschenkligem Trapez und Trapez. Nicht jedes Rechteck und nicht jede Raute ist ein Quadrat."
   },
   {
    "kennung": "fg-15",
@@ -733,7 +734,8 @@
     "Viereck",
     "Haus der Vierecke",
     "Eigenschaften Viereck"
-   ]
+   ],
+   "einordnung": "Sonderfall von Parallelogramm und gleichschenkligem Trapez; damit auch von Trapez. Nicht jedes Rechteck ist ein Quadrat."
   },
   {
    "kennung": "fg-16",
@@ -805,7 +807,8 @@
     "Viereck",
     "Haus der Vierecke",
     "Eigenschaften Viereck"
-   ]
+   ],
+   "einordnung": "Sonderfall von Parallelogramm und Drachenviereck; damit auch von Trapez. Nicht jede Raute ist ein Quadrat."
   },
   {
    "kennung": "fg-17",
@@ -876,14 +879,15 @@
     "Viereck",
     "Haus der Vierecke",
     "Eigenschaften Viereck"
-   ]
+   ],
+   "einordnung": "Sonderfall von Trapez. Nicht jedes Parallelogramm ist ein Rechteck oder eine Raute."
   },
   {
    "kennung": "fg-18",
    "titel": "Trapez",
    "art": "viereck",
    "schluessel": "trapez",
-   "seiten": "Mindestens ein Paar gegenüberliegender Seiten ist parallel.",
+   "seiten": "Mindestens ein Paar gegenüberliegender Seiten ist parallel (Vereinbarung, siehe unten).",
    "winkel": "Die beiden Winkel an jedem Schenkel ergeben zusammen 180°.",
    "diagonalen": "Keine besondere Eigenschaft, die für jedes Trapez gilt.",
    "achsen_text": "keine (beim gleichschenkligen Trapez 1)",
@@ -947,7 +951,9 @@
     "Viereck",
     "Haus der Vierecke",
     "Eigenschaften Viereck"
-   ]
+   ],
+   "einordnung": "Kein Sonderfall von einem anderen besonderen Viereck, nur vom allgemeinen Viereck. Nicht jedes Trapez ist ein Parallelogramm.",
+   "konvention": "Vereinbarung (Konvention) hier: Trapez = mindestens ein Paar paralleler Seiten. Manche Bücher verlangen genau ein Paar; dann ist das Parallelogramm kein Trapez."
   },
   {
    "kennung": "fg-19",
@@ -1014,7 +1020,8 @@
     "Viereck",
     "Haus der Vierecke",
     "Eigenschaften Viereck"
-   ]
+   ],
+   "einordnung": "Sonderfall von Trapez. Nicht jedes Trapez ist gleichschenklig."
   },
   {
    "kennung": "fg-20",
@@ -1086,7 +1093,8 @@
     "Viereck",
     "Haus der Vierecke",
     "Eigenschaften Viereck"
-   ]
+   ],
+   "einordnung": "Kein Sonderfall von einem anderen besonderen Viereck, nur vom allgemeinen Viereck. Nicht jedes Drachenviereck ist eine Raute."
   },
   {
    "kennung": "fg-21",
@@ -1151,7 +1159,8 @@
     "beliebiges Viereck",
     "Haus der Vierecke",
     "Eigenschaften Viereck"
-   ]
+   ],
+   "einordnung": "Oberbegriff: Jedes Viereck ist ein allgemeines Viereck. Es ist kein Sonderfall von etwas anderem."
   },
   {
    "kennung": "fg-22",
@@ -1253,7 +1262,8 @@
     "ist ein Quadrat eine Raute",
     "Viereck ordnen",
     "Vierecke Beziehungen"
-   ]
+   ],
+   "konvention": "Vereinbarung (Konvention) hier: Trapez = mindestens ein Paar paralleler Seiten. Manche Bücher verlangen genau ein Paar; dann ist das Parallelogramm kein Trapez."
   },
   {
    "kennung": "fg-23",

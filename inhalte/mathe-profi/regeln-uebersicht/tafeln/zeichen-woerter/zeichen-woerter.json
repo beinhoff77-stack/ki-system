@@ -1271,6 +1271,7 @@
    ],
    "stichwoerter": [
     "∠",
+    "∢",
     "Winkel",
     "Winkelzeichen",
     "Winkel ASB"
@@ -1378,7 +1379,7 @@
    "art": "zeichen",
    "zeichen": "[AB]",
    "sprechweise": "Strecke AB",
-   "bedeutung": "Die Strecke von A nach B mit den Endpunkten A und B.",
+   "bedeutung": "Die Strecke von A nach B mit den Endpunkten A und B. Hier verwendete Schreibweise – dein Schulbuch kann anders schreiben.",
    "beispiele": [
     {
      "text": "[AB]",
@@ -1403,7 +1404,8 @@
     "Strecke",
     "Strecke AB",
     "Strecke von A nach B"
-   ]
+   ],
+   "schreibweise_hinweis": "Hier verwendete Schreibweise – dein Schulbuch kann anders schreiben."
   },
   {
    "kennung": "zw-33",
@@ -1411,7 +1413,7 @@
    "art": "zeichen",
    "zeichen": "|AB|",
    "sprechweise": "Länge der Strecke AB",
-   "bedeutung": "Wie lang die Strecke [AB] ist, als Zahl mit Einheit.",
+   "bedeutung": "Wie lang die Strecke [AB] ist, als Zahl mit Einheit. Hier verwendete Schreibweise – dein Schulbuch kann anders schreiben.",
    "beispiele": [
     {
      "text": "|AB| = 5 cm",
@@ -1432,7 +1434,8 @@
     "Streckenlänge",
     "Länge der Strecke",
     "Abstand AB"
-   ]
+   ],
+   "schreibweise_hinweis": "Hier verwendete Schreibweise – dein Schulbuch kann anders schreiben."
   },
   {
    "kennung": "zw-34",
@@ -1440,7 +1443,7 @@
    "art": "zeichen",
    "zeichen": "AB",
    "sprechweise": "Gerade AB",
-   "bedeutung": "Die Gerade durch A und B; sie geht in beide Richtungen ohne Ende weiter.",
+   "bedeutung": "Die Gerade durch A und B; sie geht in beide Richtungen ohne Ende weiter. Hier verwendete Schreibweise – dein Schulbuch kann anders schreiben.",
    "beispiele": [
     {
      "text": "Gerade AB",
@@ -1460,7 +1463,8 @@
     "Gerade",
     "Gerade AB",
     "Gerade durch zwei Punkte"
-   ]
+   ],
+   "schreibweise_hinweis": "Hier verwendete Schreibweise – dein Schulbuch kann anders schreiben."
   },
   {
    "kennung": "zw-35",
@@ -1468,7 +1472,7 @@
    "art": "zeichen",
    "zeichen": "[AB",
    "sprechweise": "Halbgerade AB",
-   "bedeutung": "Die Halbgerade, die in A beginnt und durch B immer weiter geht.",
+   "bedeutung": "Die Halbgerade, die in A beginnt und durch B immer weiter geht. Hier verwendete Schreibweise – dein Schulbuch kann anders schreiben.",
    "beispiele": [
     {
      "text": "[AB",
@@ -1488,7 +1492,8 @@
     "Halbgerade",
     "Strahl",
     "Halbgerade AB"
-   ]
+   ],
+   "schreibweise_hinweis": "Hier verwendete Schreibweise – dein Schulbuch kann anders schreiben."
   },
   {
    "kennung": "zw-36",
@@ -2423,7 +2428,7 @@
    "titel": "Exponent",
    "art": "fachwort",
    "begriff": "Exponent",
-   "satz": "Die kleine Zahl oben: Sie sagt, wie oft die Basis dasteht.",
+   "satz": "Die kleine Zahl oben. Bei 1, 2, 3 … sagt sie, wie oft die Basis dasteht; a⁰ = 1 (für a ≠ 0).",
    "beispiel": "2³ = 2 · 2 · 2 = 8: 3 ist der Exponent.",
    "rolle_im_beispiel": [
     "3: Exponent"
@@ -2454,7 +2459,8 @@
     "Potenz",
     "hoch",
     "Hochzahl"
-   ]
+   ],
+   "nullregel": "Exponent 0: a⁰ = 1, wenn a ≠ 0. Beispiel: 5⁰ = 1. Negative Exponenten kommen später (Zehnerpotenzen 10⁻ⁿ)."
   },
   {
    "kennung": "zw-w14",

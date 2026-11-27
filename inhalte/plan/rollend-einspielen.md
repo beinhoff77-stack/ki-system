@@ -15,7 +15,7 @@ Alle zwölf werden gezeichnet; die Rechnungen habe ich an den Bildern nachvollzo
 - **Tabellen (D1-05, D1-13, F1-05, G2T2-06, G2T2-07, G8-07):** In der Sichtseite stehen die Zeilen sehr eng. Unklar, ob das an der Sichtseite liegt oder echt ist – am Gerät prüfen.
 - **F1-07, F1-15:** Achsenzahlen liegen teils auf dem Graphen bzw. dem Kreis. Lesbar, nicht schön.
 
-## Nachtrag 27.11.: zwei echte Darstellungsfehler gefunden und im Arbeitsstand behoben (nicht live)
+## Nachtrag 27.11.: zwei echte Darstellungsfehler gefunden und behoben, LIVE seit 27.11.2026 mit App 0.93.6 (main 9429d03b)
 - **Tabellen in Aufgaben:** Die Zeilenhöhe war 0 (`.lr-bild` setzt sie für Zeichnungen auf 0, die Tabelle erbte das). Zeilen lagen ineinander. **Der Fehler steckt auch in der Live-Fassung** (gleiche Stil-Regeln in `main`) und betrifft dort jede Aufgabe mit Tabelle. Behoben in `style.css` (`.lr-bild-tabelle` mit eigener Zeilenhöhe).
 - **Kreisdiagramm:** Die Breite war fest, lange Beschriftungen wurden abgeschnitten. Jetzt richtet sich die Breite nach der längsten Beschriftung (`lernKreisdiagramm`).
 - Nachher angesehen (Sichtseite, 420 px): Tabellen und Legende sind lesbar. Nicht geprüft: echtes Gerät, dunkle Ansicht.
@@ -30,3 +30,7 @@ Alle zwölf werden gezeichnet; die Rechnungen habe ich an den Bildern nachvollzo
 2. Die beiden Darstellungs-Korrekturen müssen live sein, bevor die Aufgaben mit Tabelle oder Kreisdiagramm hineingehen (siehe Nachtrag).
 3. Satz des Nutzers. Das SQL ist rund 70 KB groß; es wird je Einheit einzeln ausgeführt.
 4. **Pflicht (Auftrag des Nutzers vom 27.11.):** neue Formen bevorzugt ziehen – siehe `aufgabentypen-auswahl.md`, Abschnitt „Neue Aufgabenformen bevorzugt ziehen“. Bisher offen und nicht nachgesehen: wie die App aus dem Vorrat einer Lernkarte auswählt (ob neue Formen bevorzugt werden oder nur zufällig dazukommen).
+
+## Live 27.11.2026: App 0.93.6
+- Auf das Wort des Nutzers. Gesamttest 203/203, Bruch-Tests 7/7, Sichtprüfung des Designers hell/dunkel. Nicht geprüft: echtes Gerät, Safari.
+- Zusammenführung: Der gewöhnliche Merge meldete Konflikte (drei gemeinsame Vorfahren durch frühere Kreuz-Merges). `main` war inhaltsgleich mit dem Vorfahren ac2bffe1 von `lernen-app`; deshalb Merge-Commit mit genau dem Baum von `lernen-app` gesetzt (commit-tree) und Gleichheit geprüft. **Beim nächsten Live genauso vorgehen oder vorher `main` in `lernen-app` zusammenführen.**

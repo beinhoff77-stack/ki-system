@@ -6,16 +6,22 @@
 --    Typ „bedingung“: nur „beispiel“ und die NAMEN der Bedingungen. pruefe, zeige, hinweis-Vorlagen, gut, gegenbeispiele bleiben intern.
 --    Alle anderen Typen: unverändert die ganze Lösung (wie bisher).
 -- 2. Alle sechs Ausgaben, die bisher a.loesung sendeten, senden schule.loesung_sicht(a) (Text-Patch mit Zählung, drei Zustände):
---    schule.uebung_pruefen_intern (5 Stellen), schule.test_abschliessen_intern, schule.expeditionen_kind, schule.expeditionen_alle,
+--    schule.uebung_pruefen_intern (sieben Stellen), schule.test_abschliessen_intern, schule.expeditionen_kind, schule.expeditionen_alle,
 --    api.schule_lernstand, api.schule_inhalt_lesen.   Gelesen am 27.11.: Weitere Ausgaben der Lösung gibt es nicht
 --    (kein to_jsonb(a), keine Sicht; schule.aufgabe_anzeige sendet nur loesung->>'einheit'; test_antwort_intern sendet nur den Formatstatus).
--- 3. Übung: Beim ersten Fehlversuch, bei der wiederholten Übertragung und nach der endgültigen Antwort gehen zusätzlich
---    „verletzt“ (Name der Bedingung) und „hinweis“ („Deine Summe ist 1.“) an die App. Für die fünf alten Typen ändert sich nichts
---    (dort gibt es bei gültigem Format weder „verletzt“ noch „hinweis“; die Felder fallen durch jsonb_strip_nulls weg).
+-- 3. Übung: Beim ersten Fehlversuch und nach der endgültigen Antwort gehen zusätzlich „verletzt“ (Name der Bedingung) und
+--    „hinweis“ („Deine Summe ist 1.“) an die App. Bei JEDER wiederholten Übertragung (erster wie endgültiger Fehlversuch) wird beides
+--    einmal aus dem gespeicherten Versuch neu berechnet (die Bedingungen sind ab dem ersten Versuch unveränderlich, siehe 4) –
+--    die Wiederholung antwortet also wie das Original. Für die fünf alten Typen ändert sich an den Antworten nichts.
+--    Neu für ALLE Typen: Eine wiederholte Übertragung, deren client_id zu einer anderen Aufgabe gehört, wird abgewiesen
+--    (bisher lieferte sie die Lösung der genannten Aufgabe ohne Versuch).
 -- 4. Schutz der Versionen: Felder, Bedingungen und Beispiel einer Aufgabe dieses Typs sind unveränderlich, sobald es einen Versuch gibt
 --    (gilt auch für Expeditionen, die der vorhandene Schutz ausnimmt). Inhaltliche Änderung = neue Aufgabe.
 -- 5. Constraint: aufgabe_antworttyp_check lässt „bedingung“ zu; neuer Constraint aufgabe_bedingung_gueltig prüft jede solche Aufgabe
---    mit schule.bed_gueltig – für jeden Schreibweg (aufgaben_einfuegen, einheit_abgleichen, expedition_importieren, Handarbeit).
+--    mit schule.bed_gueltig – für jeden Schreibweg (aufgaben_einfuegen, einheit_abgleichen, expedition_importieren, Handarbeit) –
+--    und lässt in der Lösung NUR die Schlüssel bedingungen, beispiel, gut, gegenbeispiele zu. Damit kann schule.aufgabe_anzeige
+--    (sendet loesung->>'einheit' vor der Antwort) bei diesem Typ nichts aus der Lösung zeigen.
+--    Beide Constraints werden gegen eine Soll-Fassung verglichen (Zwilling an einer Temp-Tabelle); jede andere Fassung = Abbruch.
 --    Das Ersetzen des alten Constraints braucht ein DROP CONSTRAINT (eine Check-Bedingung lässt sich nicht ändern); Daten werden nicht gelöscht.
 -- Nicht in dieser Datei: Feld für Regel-Kennung und Fehlbild (kommt mit dem Einbau des Regel-Universums); Eltern-Ansicht „verletzt“.
 -- Wiederholbar. Kein DELETE. Nicht eingespielt ohne ausdrücklichen Satz des Nutzers.
@@ -46,14 +52,20 @@ declare
   zaehle constant text := 'select (length($1) - length(replace($1, $2, ''''))) / length($2)';
   plan constant jsonb := jsonb_build_array(
     jsonb_build_object('f', 'schule.uebung_pruefen_intern(bigint, jsonb)', 'p', jsonb_build_array(
+      jsonb_build_array('if v_alt.id is not null then
+      if coalesce(v_alt.anlauf, 0) = 1 and not v_alt.richtig then',
+                        'if v_alt.id is not null then
+      if v_alt.aufgabe_id is distinct from a.id then raise exception ''Diese Antwort gehört zu einer anderen Aufgabe'' using errcode = ''P0001''; end if;
+      b := case when a.antworttyp = ''bedingung'' and not v_alt.richtig then schule.antwort_bewerten(a, v_alt.antwort) end; -- BD-S2: Rückmeldung aus dem gespeicherten Versuch
+      if coalesce(v_alt.anlauf, 0) = 1 and not v_alt.richtig then', 1),
       jsonb_build_array('''grund'', b->>''grund'', ''loesung'', a.loesung',
                         '''grund'', b->>''grund'', ''verletzt'', b->>''verletzt'', ''hinweis'', b->>''hinweis'', ''loesung'', schule.loesung_sicht(a)', 4),
-      jsonb_build_array('''richtig'', v_alt.richtig, ''loesung'', a.loesung',
-                        '''richtig'', v_alt.richtig, ''loesung'', schule.loesung_sicht(a)', 1),
+      jsonb_build_array('return jsonb_build_object(''ok'', true, ''format_ok'', true, ''richtig'', v_alt.richtig, ''loesung'', a.loesung, ''loesungsweg'', a.loesungsweg, ''wiederholt'', true);',
+                        'return jsonb_build_object(''ok'', true, ''format_ok'', true, ''richtig'', v_alt.richtig, ''loesung'', schule.loesung_sicht(a), ''loesungsweg'', a.loesungsweg, ''wiederholt'', true) || jsonb_strip_nulls(jsonb_build_object(''verletzt'', b->>''verletzt'', ''hinweis'', b->>''hinweis''));', 1),
       jsonb_build_array('return jsonb_strip_nulls(jsonb_build_object(''ok'', true, ''format_ok'', true, ''richtig'', false, ''nochmal'', true, ''grund'', b->>''grund''));',
                         'return jsonb_strip_nulls(jsonb_build_object(''ok'', true, ''format_ok'', true, ''richtig'', false, ''nochmal'', true, ''grund'', b->>''grund'', ''verletzt'', b->>''verletzt'', ''hinweis'', b->>''hinweis''));', 1),
       jsonb_build_array('return jsonb_build_object(''ok'', true, ''format_ok'', true, ''richtig'', false, ''nochmal'', true, ''wiederholt'', true);',
-                        'return jsonb_strip_nulls(jsonb_build_object(''ok'', true, ''format_ok'', true, ''richtig'', false, ''nochmal'', true, ''wiederholt'', true, ''verletzt'', schule.antwort_bewerten(a, v_alt.antwort)->>''verletzt'', ''hinweis'', schule.antwort_bewerten(a, v_alt.antwort)->>''hinweis''));', 1))),
+                        'return jsonb_strip_nulls(jsonb_build_object(''ok'', true, ''format_ok'', true, ''richtig'', false, ''nochmal'', true, ''wiederholt'', true, ''verletzt'', b->>''verletzt'', ''hinweis'', b->>''hinweis''));', 1))),
     jsonb_build_object('f', 'schule.test_abschliessen_intern(bigint, jsonb)', 'p', jsonb_build_array(
       jsonb_build_array('''loesung'', a.loesung', '''loesung'', schule.loesung_sicht(a)', 1))),
     jsonb_build_object('f', 'schule.expeditionen_kind(bigint)', 'p', jsonb_build_array(
@@ -107,20 +119,30 @@ end $$;
 
 -- Öffnung: erst jetzt, in derselben Transaktion wie der Schutz.
 do $$
-declare v_def text;
+declare
+  v_ist text; v_soll text;
+  alt constant text := 'CHECK ((antworttyp = ANY (ARRAY[''auswahl''::text, ''zahl''::text, ''text''::text, ''markierung''::text, ''luecken''::text])))';
+  c_typ constant text := 'check (antworttyp = any (array[''auswahl''::text, ''zahl''::text, ''text''::text, ''markierung''::text, ''luecken''::text, ''bedingung''::text]))';
+  c_gueltig constant text := 'check (antworttyp <> ''bedingung'' or (schule.bed_gueltig(frage, loesung) is null and (loesung - array[''bedingungen'', ''beispiel'', ''gut'', ''gegenbeispiele'']) = ''{}''::jsonb))';
 begin
-  select pg_get_constraintdef(oid) into v_def from pg_constraint where conname = 'aufgabe_antworttyp_check' and conrelid = 'schule.aufgabe'::regclass;
-  if v_def is null then raise exception 'BD-S2: aufgabe_antworttyp_check fehlt'; end if;
-  if v_def not like '%bedingung%' then
-    if v_def <> 'CHECK ((antworttyp = ANY (ARRAY[''auswahl''::text, ''zahl''::text, ''text''::text, ''markierung''::text, ''luecken''::text])))' then
-      raise exception 'BD-S2: aufgabe_antworttyp_check hat eine unerwartete Fassung: %', v_def;
-    end if;
-    alter table schule.aufgabe drop constraint aufgabe_antworttyp_check;
-    alter table schule.aufgabe add constraint aufgabe_antworttyp_check
-      check (antworttyp = any (array['auswahl'::text, 'zahl'::text, 'text'::text, 'markierung'::text, 'luecken'::text, 'bedingung'::text]));
+  -- Zwilling: dieselben Bedingungen an einer Temp-Tabelle, damit die Soll-Fassung so vorliegt, wie die Datenbank sie schreibt
+  if to_regclass('pg_temp.bd_s2_zwilling') is null then
+    execute format('create temp table bd_s2_zwilling (antworttyp text, frage jsonb, loesung jsonb, constraint z_typ %s, constraint z_gueltig %s) on commit drop', c_typ, c_gueltig);
   end if;
-  if not exists (select 1 from pg_constraint where conname = 'aufgabe_bedingung_gueltig' and conrelid = 'schule.aufgabe'::regclass) then
-    alter table schule.aufgabe add constraint aufgabe_bedingung_gueltig
-      check (antworttyp <> 'bedingung' or schule.bed_gueltig(frage, loesung) is null);
+  select pg_get_constraintdef(oid) into v_ist from pg_constraint where conname = 'aufgabe_antworttyp_check' and conrelid = 'schule.aufgabe'::regclass;
+  select pg_get_constraintdef(oid) into v_soll from pg_constraint where conname = 'z_typ' and conrelid = 'pg_temp.bd_s2_zwilling'::regclass;
+  if v_ist is null or v_soll is null then raise exception 'BD-S2: aufgabe_antworttyp_check fehlt'; end if;
+  if v_ist = alt then
+    alter table schule.aufgabe drop constraint aufgabe_antworttyp_check;
+    execute 'alter table schule.aufgabe add constraint aufgabe_antworttyp_check ' || c_typ;
+  elsif v_ist <> v_soll then
+    raise exception 'BD-S2: aufgabe_antworttyp_check hat eine unerwartete Fassung: %', v_ist;
+  end if;
+  select pg_get_constraintdef(oid) into v_ist from pg_constraint where conname = 'aufgabe_bedingung_gueltig' and conrelid = 'schule.aufgabe'::regclass;
+  select pg_get_constraintdef(oid) into v_soll from pg_constraint where conname = 'z_gueltig' and conrelid = 'pg_temp.bd_s2_zwilling'::regclass;
+  if v_ist is null then
+    execute 'alter table schule.aufgabe add constraint aufgabe_bedingung_gueltig ' || c_gueltig;
+  elsif v_ist <> v_soll then
+    raise exception 'BD-S2: aufgabe_bedingung_gueltig hat eine unerwartete Fassung: %', v_ist;
   end if;
 end $$;

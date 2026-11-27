@@ -335,6 +335,9 @@ def bewerte(aufgabe, antwort):
     return {'format_ok': True, 'richtig': True}
 
 
+LOESUNG_SCHLUESSEL = {'bedingungen', 'beispiel', 'gut', 'gegenbeispiele'}
+
+
 def pruefe_aufgabe(a, nur_form=False):
     """Prüft eine Aufgabe beim Einlesen der Inhalte. Rückgabe: Liste von Fehlertexten (leer = in Ordnung).
     nur_form=True prüft genau das, was auch die Datenbank prüft (schule.bed_gueltig): Aufbau, Grenzen, Typen und das Beispiel –
@@ -342,6 +345,8 @@ def pruefe_aufgabe(a, nur_form=False):
     fehler = []
     felder = (a.get('f') or {}).get('felder')
     o = a.get('o') or {}
+    if not nur_form and isinstance(o, dict) and set(o) - LOESUNG_SCHLUESSEL:  # die Datenbank prüft das im Constraint aufgabe_bedingung_gueltig
+        fehler.append('Lösung: nur ' + ', '.join(sorted(LOESUNG_SCHLUESSEL)) + ' erlaubt, nicht ' + ', '.join(sorted(set(o) - LOESUNG_SCHLUESSEL)))
     beds = o.get('bedingungen')
     if not isinstance(felder, list) or not 1 <= len(felder) <= MAX_FELDER:
         return [f'felder: 1 bis {MAX_FELDER} Felder nötig']

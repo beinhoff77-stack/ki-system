@@ -507,7 +507,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 |---|---|---|---|
 | 5 | Rechteck: Gegenseiten ⟦gleich lang⟧ | Vorwissen | `geometrie.grundbegriffe` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 7 | Spiegeln: [AB] = ⟦3⟧, danach [A′B′] = ⟦3⟧ | Einführung | `abbildungen.kongruenz` |
+| 7 | Spiegeln: &#124;AB&#124; = ⟦3⟧, danach &#124;A′B′&#124; = ⟦3⟧ | Einführung | `abbildungen.kongruenz` |
 | 8 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse (dort beginnt „Ähnlich“)* | – | – |
 | 10 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
@@ -525,7 +525,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 7 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 8 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 9 | 3, 4, 5 cm ⟦· 2⟧ → 6, 8, 10 cm | Einführung | `abbildungen.aehnlichkeit` |
-| 10 | Pyramide, Spitze bei halber Höhe abgeschnitten: Kanten ⟦· ½⟧, Volumen · ⅛ | Anwendung | `raum.pyramide_kegel_kugel` |
+| 10 | Pyramide, Schnitt parallel zur Grundfläche auf halber Höhe: Die abgeschnittene Spitze hat halbe Kantenlängen (⟦· ½⟧) und ⅛ des ursprünglichen Volumens, der Stumpf ⅞ | Anwendung | `raum.pyramide_kegel_kugel` |
 
 #### Rechtwinkliges Dreieck (`id.geometrie.rechtwinklig`) – läuft über die Klassen 9, 10
 
@@ -601,7 +601,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 5 | Quader 5 · 4 · 3 cm: 2 · 20 ⟦+⟧ 2 · 15 ⟦+⟧ 2 · 12 = 94 cm² | Einführung | `messen.koerper_berechnung` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 7 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 8 | Prisma (Dreieck 3 · 4 · 5 cm, Höhe 6 cm): 2 · 6 ⟦+⟧ 18 ⟦+⟧ 24 ⟦+⟧ 30 = 84 cm² | Einführung | `messen.prisma_zylinder` |
+| 8 | Gerades Prisma (Dreiecksseiten 3, 4, 5 cm, Höhe 6 cm): 2 · 6 ⟦+⟧ 18 ⟦+⟧ 24 ⟦+⟧ 30 = 84 cm² | Einführung | `messen.prisma_zylinder` |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 10 | Pyramide: 36 ⟦+⟧ 60 = 96 cm² | Einführung | `raum.pyramide_kegel_kugel` |
 

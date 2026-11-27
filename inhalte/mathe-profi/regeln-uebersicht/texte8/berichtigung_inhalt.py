@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Berichtigt einzelne Texte in inhalt.json (Entwurf, nur Texte; Gegenprüfung 1078). Jede Ersetzung prüft den alten Text und ist wiederholbar.
+"""Berichtigt einzelne Texte in inhalt.json (Entwurf, nur Texte; Gegenprüfung 1078 und 1090). Jede Ersetzung prüft den alten Text und ist wiederholbar.
 Aufruf: python3 -I inhalte/mathe-profi/regeln-uebersicht/texte8/berichtigung_inhalt.py"""
 import json, pathlib
 repo = pathlib.Path(__file__).resolve().parents[4]
@@ -57,10 +57,173 @@ AENDERUNGEN += [
  (regel, 'R9', 'fehler', 'Aus Summen kürzen: (x + 6) : (x + 2) zu 3 machen. Erst ausklammern, dann kürzen.',
   'Aus Summen kürzen: (x + 6)/(x + 2) zu 3 machen – hier lässt sich nichts kürzen. Bei (3x + 6)/(x + 2) hilft erst ausklammern: 3 · (x + 2)/(x + 2) = 3.'),
 ]
+
+# Zweite Gegenprüfung (1090): weitere Berichtigungen; „alt“ ist der Stand nach der ersten Liste, die Ersetzung ist wiederholbar.
+arbeitsweise = {a['name']: a for a in d['arbeitsweisen']}
+AENDERUNGEN += [
+ (regel, 'R11', 'fehler', 'Den Dreisatz anwenden, obwohl ein fester Betrag dazukommt (Grundgebühr). Oder wie bei direkter Proportionalität rechnen, obwohl mehr von dem einen weniger von dem anderen bedeutet: Dann rechnet man umgekehrt.',
+  'Den Dreisatz anwenden, obwohl ein fester Betrag dazukommt (Grundgebühr). Oder wie bei direkter Proportionalität rechnen, obwohl das Produkt beider Größen konstant bleibt (mehr Arbeiter, weniger Tage): Dann rechnet man umgekehrt.'),
+ (regel, 'R9', 'fehler', 'Aus Summen kürzen: (x + 6)/(x + 2) zu 3 machen – hier lässt sich nichts kürzen. Bei (3x + 6)/(x + 2) hilft erst ausklammern: 3 · (x + 2)/(x + 2) = 3.',
+  'Aus Summen kürzen: (x + 6)/(x + 2) zu 3 machen – hier lässt sich nichts kürzen. Bei (3x + 6)/(x + 2) hilft erst ausklammern: 3 · (x + 2)/(x + 2) = 3 für x ≠ −2.'),
+ (idee, ('Algebra', 4), 'warum', 'Bei Gleichungen mit x² hilft das Hin- und Herschieben einzelner Summanden nicht weiter. Bringt man alles auf eine Seite und zerlegt in Faktoren, greift das Nullprodukt: Jeder Faktor liefert eine Lösung. Wo die Gegenrechnung reicht (x² = 49), ist sie der kürzere Weg.',
+  'Bei vielen Gleichungen mit x² hilft das Hin- und Herschieben einzelner Summanden nicht weiter. Bringt man alles auf eine Seite und zerlegt in Faktoren, greift das Nullprodukt: Setze jeden Faktor einzeln gleich null und sammle alle Lösungen dieser Gleichungen. Bei (x² + 1) · (x − 2) = 0 liefert nur x − 2 = 0 eine Lösung, denn x² + 1 ist nie null. Wo die Gegenrechnung reicht (x² = 49), ist sie der kürzere Weg.'),
+ (idee, ('Funktionen', 1), 'genau', 'Eine Funktion ordnet jedem x genau ein y zu; Tabelle, Graph und Gleichung zeigen dasselbe.',
+  'Eine Funktion ordnet jedem x genau ein y zu; Tabelle, Graph und Gleichung sind drei Darstellungen derselben Zuordnung.'),
+ (idee, ('Funktionen', 1), 'warum', 'Eine Funktion ist eine Zuordnung, bei der zu jedem x genau ein y gehört. Man kann sie als Tabelle, als Graph oder als Gleichung zeigen; jede Darstellung lässt sich in die anderen übersetzen.',
+  'Eine Funktion ist eine Zuordnung, bei der zu jedem erlaubten x genau ein y gehört. Man kann sie als Tabelle, als Graph oder als Gleichung zeigen. Aus einer Gleichung lassen sich Tabelle und Graph herstellen; aus endlich vielen Tabellenwerten folgt dagegen keine eindeutige Gleichung: Sowohl y = x als auch y = x² passen zu (0 | 0) und (1 | 1).'),
+ (idee, ('Funktionen', 2), 'satz', 'Immer plus dasselbe gibt eine Gerade, immer mal denselben Faktor eine Kurve.',
+  'Immer plus dasselbe gibt eine Gerade; immer mal denselben Faktor eine Kurve, die bei Faktor über 1 steigt und zwischen 0 und 1 fällt.'),
+ (idee, ('Funktionen', 2), 'genau', 'Linear wächst in gleichen Schritten um gleich viel, exponentiell um den gleichen Faktor.',
+  'In gleichen x-Schritten wächst eine lineare Funktion um gleich viel, eine exponentielle um denselben Faktor: y = A · qˣ mit A > 0 steigt bei q > 1, fällt bei 0 < q < 1 und ist bei q = 1 konstant.'),
+ (idee, ('Funktionen', 2), 'warum', 'Es gibt zwei Grundarten zu wachsen. Kommt in jedem Schritt gleich viel dazu, liegen die Punkte auf einer Geraden. Wird in jedem Schritt mit derselben Zahl malgenommen und ist diese Zahl größer als 1, wird die Kurve immer steiler und überholt jede Gerade; ist sie kleiner als 1, fällt die Kurve.',
+  'Es gibt zwei Grundarten zu wachsen. Kommt in jedem gleich großen x-Schritt gleich viel dazu, liegen die Punkte auf einer Geraden. Wird in jedem gleich großen x-Schritt mit derselben Zahl q malgenommen, entsteht y = A · qˣ (A > 0): Für q > 1 wird die Kurve immer steiler und überholt jede Gerade, für 0 < q < 1 fällt sie, für q = 1 bleibt sie konstant.'),
+ (idee, ('Funktionen', 3), 'satz', 'Die Gleichung verrät die Form: x gibt eine Gerade, x² eine Parabel.',
+  'Die Gleichung verrät die Form: y = mx + t gibt eine Gerade, y = ax² (a ≠ 0) eine Parabel.'),
+ (idee, ('Funktionen', 3), 'genau', 'Bei bekannten Funktionstypen verrät die Gleichung die Form des Graphen – und bestimmte Änderungen der Gleichung verschieben, strecken oder spiegeln ihn.',
+  'Bei bekannten Funktionstypen verrät die Gleichung die Form des Graphen: y = mx + t ist eine Gerade, y = ax² + bx + c mit a ≠ 0 eine Parabel, y = a/x mit a ≠ 0 und x ≠ 0 eine Hyperbel. Bestimmte Änderungen der Gleichung verschieben, strecken oder spiegeln den Graphen.'),
+ (idee, ('Funktionen', 3), 'warum', 'Bei bekannten Funktionstypen erkennt man an der Gleichung, wie der Graph aussieht, bevor man einen einzigen Punkt berechnet: x allein gibt eine Gerade, x² eine Parabel, x im Nenner eine Hyperbel. Ändert man die Gleichung an einer Stelle, bewegt sich der Graph auf eine vorhersagbare Weise.',
+  'Bei bekannten Funktionstypen erkennt man an der Gleichung, wie der Graph aussieht, bevor man einen einzigen Punkt berechnet: y = mx + t gibt eine Gerade, y = ax² (a ≠ 0) eine Parabel, y = a/x (a ≠ 0, x ≠ 0) eine Hyperbel. Dass x im Nenner steht, reicht dafür nicht: 1/(x² + 1) ist keine Hyperbel. Ändert man die Gleichung an einer Stelle, bewegt sich der Graph auf eine vorhersagbare Weise.'),
+ (idee, ('Geometrie', 2), 'genau', 'Alle Punkte mit gleichem Abstand bilden eine Linie: Kreis, Mittelsenkrechte, Winkelhalbierende.',
+  'Alle Punkte mit gleichem Abstand bilden eine Linie: Kreis, Mittelsenkrechte, Winkelhalbierende. Zwei sich schneidende Geraden haben zwei Winkelhalbierende, senkrecht zueinander; im Inneren eines Winkels liegt die innere.'),
+ (idee, ('Geometrie', 2), 'warum', 'Viele Linien der Geometrie bestehen aus allen Punkten, die von etwas gleich weit entfernt sind: von einem Punkt (Kreis), von zwei Punkten (Mittelsenkrechte), von zwei Geraden (Winkelhalbierende). Darum findet man den Umkreismittelpunkt mit Mittelsenkrechten und den Inkreismittelpunkt mit Winkelhalbierenden.',
+  'Viele Linien der Geometrie bestehen aus allen Punkten, die von etwas gleich weit entfernt sind: von einem Punkt (Kreis), von zwei Punkten (Mittelsenkrechte), von zwei sich schneidenden Geraden (Winkelhalbierende). Zwei sich schneidende Geraden haben zwei Winkelhalbierende; im Inneren eines Winkels liegt die innere. Darum findet man den Umkreismittelpunkt mit Mittelsenkrechten und den Inkreismittelpunkt mit den inneren Winkelhalbierenden.'),
+ (idee, ('Geometrie', 5), 'genau', 'Im rechtwinkligen Dreieck legen zwei Angaben alles fest: Pythagoras verbindet die Seiten, Sinus, Kosinus und Tangens verbinden Seiten und Winkel.',
+  'Im rechtwinkligen Dreieck genügen zusätzlich zum rechten Winkel zwei Seiten oder eine Seite und ein spitzer Winkel, um alles festzulegen: Pythagoras verbindet die Seiten, Sinus, Kosinus und Tangens verbinden Seiten und Winkel.'),
+ (idee, ('Daten und Zufall', 2), 'satz', 'Wenige sagen nur etwas über alle, wenn der Zufall sie auswählt.',
+  'Von wenigen auf alle schließt man verlässlich, wenn der Zufall die wenigen auswählt.'),
+ (idee, ('Daten und Zufall', 2), 'genau', 'Von wenigen auf alle schließen geht nur, wenn zufällig und oft genug gezogen wurde.',
+  'Zufallsauswahl ist das Verfahren, mit dem man von wenigen verlässlich auf alle schließen kann. Eine größere Stichprobe mindert unter gleichen Bedingungen die Zufallsschwankung, garantiert aber kein genaueres Einzelergebnis und beseitigt keine Auswahlverzerrung.'),
+ (idee, ('Daten und Zufall', 2), 'warum', 'Man kann selten alle fragen oder alles messen. Eine Stichprobe verrät nur dann etwas über das Ganze, wenn der Zufall sie ausgewählt hat und wenn sie groß genug ist. Das gilt für Umfragen genauso wie für das Schätzen von Wahrscheinlichkeiten durch viele Versuche.',
+  'Man kann selten alle fragen oder alles messen. Eine Stichprobe erlaubt verlässliche Schlüsse aufs Ganze vor allem dann, wenn der Zufall sie ausgewählt hat. Ist sie größer, schwankt das Ergebnis unter gleichen Bedingungen weniger durch Zufall; eine verzerrte Auswahl wird dadurch nicht besser. Das gilt für Umfragen genauso wie für das Schätzen von Wahrscheinlichkeiten durch viele Versuche.'),
+ (idee, ('Daten und Zufall', 3), 'satz', 'Wahrscheinlichkeit: günstige durch mögliche.',
+  'Bei gleich wahrscheinlichen Ergebnissen: günstige durch mögliche.'),
+ (idee, ('Fläche und Raum', 3), 'satz', 'Grundfläche mal Höhe – bei Spitzen nur ein Drittel.',
+  'Grundfläche mal Höhe – bei Pyramide und Kegel nur ein Drittel davon.'),
+ (idee, ('Fläche und Raum', 3), 'genau', 'Bei Prisma und Zylinder gilt Grundfläche mal Höhe, bei spitz zulaufenden Körpern (Pyramide, Kegel) ein Drittel davon.',
+  'Bei Prisma und Zylinder gilt Grundfläche mal Höhe, bei Pyramide und Kegel ein Drittel davon.'),
+ (idee, ('Fläche und Raum', 3), 'warum', 'Ein Quader ist ein Stapel gleicher Schichten: Grundfläche mal Höhe. Das bleibt richtig, wenn die Grundfläche ein Dreieck oder ein Kreis ist (Prisma, Zylinder) und sogar, wenn der Stapel schief steht. Läuft ein Körper spitz zu (Pyramide, Kegel), bleibt genau ein Drittel übrig.',
+  'Ein Quader ist ein Stapel gleicher Schichten: Grundfläche mal Höhe. Das bleibt richtig, wenn die Grundfläche ein Dreieck oder ein Kreis ist (Prisma, Zylinder) und sogar, wenn der Stapel schief steht. Läuft der Körper wie bei Pyramide und Kegel spitz zu, bleibt genau ein Drittel übrig.'),
+ (idee, ('Fläche und Raum', 4), 'satz', 'Aufklappen zeigt die ganze Haut des Körpers.',
+  'Aufklappen zeigt bei Quader, Prisma, Pyramide, Zylinder und Kegel die ganze Haut des Körpers.'),
+ (idee, ('Fläche und Raum', 4), 'genau', 'Die Oberfläche ist die Haut des Körpers: Das Netz zeigt sie ausgebreitet, das Schrägbild zeigt den Körper im Raum.',
+  'Die Oberfläche ist die Haut des Körpers. Bei Quader, Prisma, Pyramide, Zylinder und Kegel lässt sie sich als ebenes Netz ohne Verzerrung ausbreiten, bei der Kugel nicht. Das Schrägbild zeigt den Körper im Raum.'),
+ (idee, ('Fläche und Raum', 4), 'warum', 'Schneidet man einen Körper an seinen Kanten auf und klappt ihn flach, sieht man seine ganze Außenfläche auf einmal: das Netz. Die Oberfläche ist die Summe dieser Flächen. Das Schrägbild ist der umgekehrte Weg: ein flaches Bild, das den Körper räumlich zeigt.',
+  'Schneidet man einen Körper wie einen Quader an seinen Kanten auf und klappt ihn flach, sieht man seine ganze Außenfläche auf einmal: das Netz. Die Oberfläche ist die Summe dieser Flächen. Eine Kugel lässt sich ohne Verzerrung nicht flach ausbreiten. Das Schrägbild ist der umgekehrte Weg: ein flaches Bild, das den Körper räumlich zeigt.'),
+ (idee, ('Zahlen', 5), 'satz', 'Hoch rechnet hin, die Wurzel rechnet zurück.',
+  'Hoch rechnet hin, die Wurzel rechnet zurück: √(x²) = |x|.'),
+ (idee, ('Zahlen', 5), 'genau', 'Potenz, Wurzel und Logarithmus gehören zusammen: Die eine rechnet hoch, die beiden anderen fragen zurück.',
+  'Potenz, Wurzel und Logarithmus gehören zusammen: Die eine rechnet hoch, die beiden anderen fragen zurück. Die Quadratwurzel liefert die Zahl ab null: √(x²) = |x|.'),
+ (idee, ('Zahlen', 5), 'warum', 'Potenzieren fragt: Was kommt heraus? Die Wurzel fragt zurück: Welche Zahl wurde potenziert? Der Logarithmus fragt: Mit welcher Hochzahl? Alle drei gehören zu einer einzigen Gleichung.',
+  'Potenzieren fragt: Was kommt heraus? Die Wurzel fragt zurück: Welche Zahl wurde potenziert? Bei der Quadratwurzel ist die Antwort die Zahl ab null, deshalb ist √(x²) = |x|, nicht einfach x. Der Logarithmus fragt: Mit welcher Hochzahl? Alle drei gehören zu einer einzigen Gleichung.'),
+ (gesetz, 'A4', 'satz', '(a + b)² = a² + 2ab + b² · (a − b)² = a² − 2ab + b² · (a + b)(a − b) = a² − b²',
+  '(a + b)² = a² + 2ab + b²<br>(a − b)² = a² − 2ab + b²<br>(a + b)(a − b) = a² − b²'),
+ (gesetz, 'E4', 'satz', 'Gibt es einen besten Wert, wird er in mindestens einer Ecke des erlaubten Bereichs erreicht; sind zwei Ecken gleich gut, ist es auch die ganze Kante dazwischen.',
+  'Ist der erlaubte Bereich ein nichtleeres, beschränktes Vieleck, wird der beste Wert in mindestens einer Ecke erreicht; sind zwei benachbarte Ecken gleich gut, ist es auch die ganze Kante dazwischen.'),
+ (gesetz, 'E5', 'satz', 'Ein gerundeter Messwert kann eine halbe Einheit größer oder kleiner sein.',
+  'Bei Rundung auf die nächste Einheit beträgt der Rundungsfehler höchstens eine halbe Rundungseinheit.'),
+ (gesetz, 'V8', 'satz', 'Prozentwert = Prozentsatz mal Grundwert. Zwei der drei Größen bestimmen die dritte.',
+  'Prozentwert = Prozentsatz mal Grundwert. Zwei der drei Größen bestimmen die dritte, solange man nicht durch null teilen muss: Bei Grundwert 0 ist der Prozentsatz nicht bestimmbar, bei Prozentsatz 0 % der Grundwert nicht.'),
+ (gesetz, 'V1', 'satz', 'Eine Größe ist Zahl mal Einheit. Umrechnungszahlen: Längen 10 (m zu km: 1 000), Massen 1 000, Zeit 60 (Tag zu Stunde: 24).',
+  'Eine Größe ist Zahl mal Einheit. Umrechnungen: 1 km = 1 000 m, 1 m = 100 cm, 1 cm = 10 mm, 1 kg = 1 000 g, 1 g = 1 000 mg, 1 h = 60 min, 1 d = 24 h.'),
+ (gesetz, 'D9', 'satz', 'Die Standardabweichung ist die Wurzel aus dem Mittelwert der quadrierten Abweichungen vom Mittelwert (Formel für die Grundgesamtheit, Nenner n) – ein Maß für die typische Abweichung. Bei einer Stichprobe teilt man durch n − 1.',
+  'Die Standardabweichung ist die Wurzel aus dem Mittelwert der quadrierten Abweichungen vom Mittelwert (Nenner n) – ein Maß für die typische Abweichung der beschriebenen Datenreihe, auch wenn sie nur eine Stichprobe ist. Will man mit einer Stichprobe die Varianz der Grundgesamtheit schätzen (n > 1), teilt man die Summe der quadrierten Abweichungen durch n − 1 und zieht danach die Wurzel.'),
+ (gesetz, 'Z23', 'satz', 'Für a ≥ 0 ist a hoch (1/n) die n-te Wurzel aus a.',
+  'Für a ≥ 0 und eine positive ganze Zahl n ist a hoch (1/n) die n-te Wurzel aus a.'),
+ (gesetz, 'G6', 'satz', 'Im Dreieck 180°, im Viereck 360°, im n-Eck (n − 2) mal 180°. Ein Außenwinkel ist so groß wie die beiden anderen Innenwinkel zusammen.',
+  'Im Dreieck 180°, im Viereck 360°, im einfachen n-Eck (n − 2) mal 180°. Ein einfaches n-Eck lässt sich in n − 2 Dreiecke zerlegen. Im Dreieck ist ein Außenwinkel so groß wie die beiden nicht anliegenden Innenwinkel zusammen.'),
+ (gesetz, 'G6', 'voraus', 'Gilt für jedes Dreieck in der Ebene. Die Vielecksformel gilt für die Innenwinkel jedes n-Ecks, dessen Seiten sich nicht überschneiden.',
+  'Gilt für jedes Dreieck in der Ebene. Die Vielecksformel gilt für die Innenwinkel jedes einfachen n-Ecks (die Seiten überschneiden sich nicht), auch für konkave. Die Zerlegung als Fächer von einer Ecke aus gelingt nur bei konvexen Vielecken; bei konkaven wählt man andere Diagonalen.'),
+ (gesetz, 'E3', 'satz', 'Jede Kante zählt an zwei Knoten. In einem zusammenhängenden Graphen gibt es einen Rundweg über alle Kanten genau dann, wenn jeder Knoten gerade viele Kanten hat.',
+  'Jede Kante zählt an zwei Knoten. Ein zusammenhängender ungerichteter Graph hat genau dann einen geschlossenen Weg, der jede Kante genau einmal benutzt, wenn jeder Knotengrad gerade ist (jeder Knoten hat gerade viele Kanten).'),
+ (gesetz, 'G8', 'satz', 'Kreis: gleich weit von einem Punkt. Mittelsenkrechte: gleich weit von zwei Punkten. Winkelhalbierende: gleich weit von zwei Schenkeln.',
+  'Kreis: gleich weit von einem Punkt. Mittelsenkrechte: gleich weit von zwei Punkten. Winkelhalbierende: gleich weit von zwei sich schneidenden Geraden; zwei Geraden haben zwei Winkelhalbierende, im Inneren eines Winkels liegt die innere.'),
+ (gesetz, 'D7', 'satz', 'Von einer Stichprobe darf man nur aufs Ganze schließen, wenn sie zufällig gezogen ist; je größer sie ist, desto genauer.',
+  'Eine zufällig gezogene Stichprobe erlaubt verlässliche Schlüsse aufs Ganze. Unter gleichen Bedingungen schwankt das Ergebnis bei größerer Stichprobe weniger durch Zufall; ein genaueres Einzelergebnis ist damit nicht garantiert, und eine verzerrte Auswahl wird dadurch nicht besser.'),
+ (gesetz, 'F3', 'verwandt', 'Größter Flächeninhalt bei festem Umfang: das Quadrat (Kleinster und größter Wert, Planet Algebra).',
+  'Unter allen Rechtecken mit gleichem Umfang hat das Quadrat den größten Flächeninhalt (Kleinster und größter Wert, Planet Algebra).'),
+ (arbeitsweise, 'Begründen', 'satz', 'Nenne den Satz, dann wende ihn an. Für „stimmt nicht“ genügt ein Gegenbeispiel.',
+  'Nenne den Satz, dann wende ihn an. Für „stimmt nicht“ bei einer allgemeinen Behauptung genügt ein Gegenbeispiel.'),
+ (arbeitsweise, 'Einheiten', 'satz', 'Rechne mit Einheiten – die Einheit des Ergebnisses prüft die Rechnung.',
+  'Rechne mit Einheiten – eine falsche Einheit im Ergebnis kann einen Rechenfehler aufdecken.'),
+]
+# Eigener Durchgang über alle Texte (1090): Allaussagen und fehlende Bedingungen.
+AENDERUNGEN += [
+ (regel, 'R10', 'voraus', 'Nenner sind nie null; beim Teilen darf auch der Bruch, durch den geteilt wird, nicht null sein. Ungleichnamige Brüche erst gleichnamig machen.',
+  'Nenner sind nie null; beim Teilen darf auch der Bruch, durch den geteilt wird, nicht null sein. Für Plus und Minus ungleichnamige Brüche erst gleichnamig machen.'),
+ (idee, ('Zahlen', 2), 'warum', 'Unser Zahlensystem tauscht immer zehn gleiche Teile gegen ein größeres. Das gilt in beide Richtungen: nach links zu Zehnern und Hundertern, nach rechts zu Zehnteln und Hundertsteln. Jedes Rechnen mit Übertrag, jedes Runden und jedes Komma-Verschieben beruht darauf.',
+  'Unser Zahlensystem tauscht immer zehn gleiche Teile gegen ein größeres. Das gilt in beide Richtungen: nach links zu Zehnern und Hundertern, nach rechts zu Zehnteln und Hundertsteln. Rechnen mit Übertrag, Runden und Komma-Verschieben beruhen darauf.'),
+ (idee, ('Algebra', 1), 'warum', 'Ein Term schreibt eine Rechnung auf, bevor man die Zahl kennt. Zwei Terme, die ganz verschieden aussehen, können für jede Zahl dasselbe liefern – dann darf man den einen durch den anderen ersetzen. Das ist der Sinn jeder Termumformung.',
+  'Ein Term schreibt eine Rechnung auf, bevor man die Zahl kennt. Zwei Terme, die ganz verschieden aussehen, können für jede Zahl dasselbe liefern – dann darf man den einen durch den anderen ersetzen. Das ist der Sinn von Termumformungen.'),
+ (idee, ('Algebra', 4), 'genau', 'Bei höherem Grad: alles auf eine Seite bringen und in Faktoren zerlegen – oder die Gegenrechnung nutzen.',
+  'Bei höherem Grad: alles auf eine Seite bringen und, wenn es gelingt, in Faktoren zerlegen – oder die Gegenrechnung nutzen.'),
+ (idee, ('Geometrie', 1), 'satz', 'Gleiche Winkel an Parallelen – darum im Dreieck immer 180 Grad.',
+  'Gleiche Winkel an Parallelen – darum im ebenen Dreieck immer 180 Grad.'),
+ (idee, ('Geometrie', 1), 'genau', 'An parallelen Geraden kehren dieselben Winkel wieder – deshalb ergeben die Winkel im Dreieck zusammen 180°.',
+  'An parallelen Geraden kehren dieselben Winkel wieder – deshalb ergeben die Winkel im ebenen Dreieck zusammen 180°.'),
+ (idee, ('Fläche und Raum', 2), 'genau', 'Aus dem Rechteck entstehen die Formeln für Parallelogramm, Dreieck und Trapez: zerschneiden, neu legen, halbieren. Beim Kreis nähert man sich dem Rechteck nur an.',
+  'Aus dem Rechteck entstehen die Formeln für Parallelogramm, Dreieck und Trapez: zerschneiden, neu legen, halbieren. Beim Kreis nähert man sich dem Rechteck mit endlich vielen Sektoren nur an; im Grenzwert folgt exakt A = πr².'),
+ (idee, ('Fläche und Raum', 2), 'warum', 'Vom Rechteck weiß man die Fläche durch Zählen. Viele andere Figuren werden so zerschnitten und neu gelegt, dass ein Rechteck entsteht – oder sie sind die Hälfte einer Figur, deren Fläche man schon kennt. Deshalb muss man diese Formeln nicht einzeln lernen: Man kann sie herleiten. Beim Kreis geht das nur als Annäherung.',
+  'Vom Rechteck weiß man die Fläche durch Zählen. Viele andere Figuren werden so zerschnitten und neu gelegt, dass ein Rechteck entsteht – oder sie sind die Hälfte einer Figur, deren Fläche man schon kennt. Deshalb muss man diese Formeln nicht einzeln lernen: Man kann sie herleiten. Beim Kreis nähert man sich dem Rechteck an: Das Umlegen endlich vieler Kreissektoren ergibt nur näherungsweise ein Rechteck, im Grenzwert folgt exakt A = πr².'),
+ (idee, ('Daten und Zufall', 1), 'satz', 'Eine Zahl für viele – und immer geht etwas verloren.',
+  'Eine Zahl für viele – dabei geht meist etwas verloren.'),
+ (idee, ('Daten und Zufall', 1), 'genau', 'Eine Kennzahl fasst viele Daten in einer Zahl zusammen – und verschweigt dabei immer etwas.',
+  'Eine Kennzahl fasst viele Daten in einer Zahl zusammen – und verschweigt dabei meist etwas.'),
+ (gesetz, 'Z9', 'satz', 'Der größte gemeinsame Teiler kürzt vollständig, das kleinste gemeinsame Vielfache ist der Hauptnenner.',
+  'Der größte gemeinsame Teiler von Zähler und Nenner kürzt einen Bruch vollständig, das kleinste gemeinsame Vielfache der Nenner ist der Hauptnenner.'),
+ (gesetz, 'Z13', 'satz', 'Jeder Bruch wird als Dezimalzahl endlich oder periodisch – nie etwas anderes.',
+  'Jeder Bruch aus ganzen Zahlen (Nenner ungleich 0) wird als Dezimalzahl endlich oder periodisch – nie etwas anderes.'),
+ (gesetz, 'Z16', 'satz', 'Gerade Hochzahl: Ergebnis positiv. Ungerade Hochzahl: Ergebnis negativ.',
+  'Negative Basis: Bei gerader Hochzahl ist das Ergebnis positiv, bei ungerader negativ.'),
+ (gesetz, 'Z18', 'satz', '10ⁿ ist eine 1 mit n Nullen, 10⁻ⁿ hat n Stellen hinter dem Komma. Kilo, Mega, Milli, Mikro sind Zehnerpotenzen.',
+  'Für n = 1, 2, 3, … ist 10ⁿ eine 1 mit n Nullen und 10⁻ⁿ hat n Stellen hinter dem Komma. Kilo, Mega, Milli, Mikro sind Zehnerpotenzen.'),
+ (gesetz, 'A16', 'satz', 'Zwei Lösungen, wenn a positiv ist (Wurzel und Gegenzahl), eine bei a = 0, keine bei negativem a.',
+  'Über den reellen Zahlen: Zwei Lösungen, wenn a positiv ist (Wurzel und Gegenzahl), eine bei a = 0, keine bei negativem a.'),
+ (gesetz, 'A19', 'satz', 'a·x² + b·x + c = 0 mit a ≠ 0 hat die Lösungen x = (−b ± √(b² − 4ac)) : (2a). Der Ausdruck unter der Wurzel entscheidet: positiv zwei Lösungen, null eine, negativ keine.',
+  'a·x² + b·x + c = 0 mit a ≠ 0 hat die Lösungen x = (−b ± √(b² − 4ac)) : (2a). Der Ausdruck unter der Wurzel entscheidet: positiv zwei Lösungen, null eine, negativ keine (über den reellen Zahlen).'),
+ (gesetz, 'A22', 'satz', 'Gleiche Basis: Hochzahlen gleichsetzen. Sonst hilft der Logarithmus.',
+  'Bei gleicher Basis (positiv, nicht 1): Hochzahlen gleichsetzen. Sonst hilft der Logarithmus.'),
+ (gesetz, 'U8', 'satz', 'Proportional heißt: Gerade durch den Ursprung.',
+  'Proportional heißt: y = m · x, eine Gerade durch den Ursprung.'),
+ (gesetz, 'U11', 'satz', 'y = a : x: doppeltes x, halbes y. Der Graph kommt den Asymptoten beliebig nahe, erreicht sie aber nie.',
+  'y = a : x (a ≠ 0, x ≠ 0): doppeltes x, halbes y. Der Graph kommt den Asymptoten beliebig nahe, erreicht sie aber nie.'),
+ (gesetz, 'U12', 'satz', 'y = a · (x − d)² + e hat den Scheitel (d &#124; e). a entscheidet über Öffnung und Breite.',
+  'y = a · (x − d)² + e mit a ≠ 0 hat den Scheitel (d &#124; e). a entscheidet über Öffnung und Breite.'),
+ (gesetz, 'U13', 'satz', 'Gerade Hochzahl: symmetrisch zur y-Achse. Ungerade Hochzahl: symmetrisch zum Ursprung.',
+  'Bei y = xⁿ mit ganzem n: Gerade Hochzahl: symmetrisch zur y-Achse. Ungerade Hochzahl: symmetrisch zum Ursprung.'),
+ (gesetz, 'U14', 'satz', 'Exponentiell: In gleichen Schritten wird mit derselben Zahl malgenommen. Linear: Es kommt dieselbe Zahl dazu.',
+  'Exponentiell: In gleichen x-Schritten wird mit derselben Zahl malgenommen. Linear: In gleichen x-Schritten kommt dieselbe Zahl dazu.'),
+ (gesetz, 'U15', 'satz', 'Sie ist die Umkehrung der Exponentialfunktion.',
+  'Sie ist die Umkehrung der Exponentialfunktion (Basis positiv, nicht 1).'),
+ (gesetz, 'D10', 'satz', 'Etwa 68 % der Werte liegen höchstens eine Standardabweichung vom Mittelwert entfernt, 95 % höchstens zwei.',
+  'Bei normalverteilten Werten liegen etwa 68 % höchstens eine Standardabweichung vom Mittelwert entfernt, etwa 95 % höchstens zwei.'),
+ (gesetz, 'D17', 'satz', 'Zeilen und Spalten ergeben die Randsummen; ein Feld folgt aus den anderen.',
+  'Zeilen und Spalten ergeben die Randsummen; fehlt ein Feld, folgt es aus den übrigen Feldern und den Randsummen.'),
+ (gesetz, 'G14', 'satz', 'Umkreis-Mittelpunkt: Schnitt der Mittelsenkrechten. Inkreis-Mittelpunkt: Schnitt der Winkelhalbierenden.',
+  'Umkreis-Mittelpunkt: Schnitt der Mittelsenkrechten. Inkreis-Mittelpunkt: Schnitt der inneren Winkelhalbierenden.'),
+ (gesetz, 'G14', 'warum', 'Ein Punkt auf zwei Mittelsenkrechten ist von allen drei Ecken gleich weit entfernt. Ein Punkt auf zwei Winkelhalbierenden ist von allen drei Seiten gleich weit entfernt.',
+  'Ein Punkt auf zwei Mittelsenkrechten ist von allen drei Ecken gleich weit entfernt. Ein Punkt auf zwei inneren Winkelhalbierenden ist von allen drei Seiten gleich weit entfernt.'),
+ (gesetz, 'F9', 'warum', 'Der Umfang ist bei jedem Kreis dasselbe Vielfache des Durchmessers: π, etwas mehr als 3. Schneidet man den Kreis in Tortenstücke und legt sie abwechselnd um, entsteht fast ein Rechteck: halber Umfang breit, r hoch.',
+  'Der Umfang ist bei jedem Kreis dasselbe Vielfache des Durchmessers: π, etwas mehr als 3. Schneidet man den Kreis in Tortenstücke und legt sie abwechselnd um, entsteht fast ein Rechteck: halber Umfang breit, r hoch – je feiner die Stücke, desto genauer, im Grenzwert exakt.'),
+]
+KLASSEN = [  # (Tabelle, Schlüssel, Klasse, alt, neu): Text des Klassenbeispiels im Gesetz
+ (gesetz, 'G16', 5, 'Rechteck: 2 Symmetrieachsen. Quadrat: 4',
+  'Ein nichtquadratisches Rechteck hat zwei Symmetrieachsen, ein Quadrat vier.'),
+ (gesetz, 'F3', 9, 'Umfang 20 cm: Die größte Fläche hat das Quadrat mit 25 cm²',
+  'Unter allen Rechtecken mit Umfang 20 cm hat das Quadrat die größte Fläche (25 cm²).'),
+]
 n = 0
-for tab, k, feld, alt, neu in AENDERUNGEN:
+spaeter = {}  # (Tabelle, Schlüssel, Feld) -> alle alt/neu-Fassungen späterer Ersetzungen (für Ketten)
+for i, (tab, k, feld, alt, neu) in enumerate(AENDERUNGEN):
+    spaeter.setdefault((id(tab), k, feld), []).append((i, alt, neu))
+for i, (tab, k, feld, alt, neu) in enumerate(AENDERUNGEN):
     t = tab[k]
-    assert t[feld] in (alt, neu), (k, feld, t[feld])
     if t[feld] == alt: t[feld] = neu; n += 1
+    elif t[feld] == neu: pass
+    else:  # steht schon eine spätere Fassung der Kette da?
+        assert any(j > i and t[feld] in (a, b) for j, a, b in spaeter[(id(tab), k, feld)]), (k, feld, t[feld])
+for tab, k, klasse, alt, neu in KLASSEN:
+    e = [x for x in tab[k]['klassen'] if x['klasse'] == klasse]
+    assert len(e) == 1 and e[0]['text'] in (alt, neu), (k, klasse)
+    if e[0]['text'] == alt: e[0]['text'] = neu; n += 1
 P.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding='utf-8')
-print('inhalt.json: %d Texte berichtigt (%d insgesamt vorgesehen)' % (n, len(AENDERUNGEN)))
+print('inhalt.json: %d Texte berichtigt (%d Ersetzungen vorgesehen)' % (n, len(AENDERUNGEN) + len(KLASSEN)))

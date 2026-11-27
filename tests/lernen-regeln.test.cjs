@@ -32,11 +32,11 @@ test('Daten vollständig: 14 Regeln, 4 Schichten, 7 Gebiete, 28 Ideen, 8 Arbeits
   assert.equal(D.gesetze.filter((g) => g.beispiel).length, 30, '30 ausgearbeitete Einzelregeln');
 });
 
-test('Texte der achten Runde übernommen: Regel 10 kürzere Fassung, Regel 6 unverändert, 21 berichtigte Kurzbeschreibungen, 25 Lücken', () => {
+test('Texte der achten Runde übernommen: Regel 10 kürzere Fassung, Regel 6 unverändert, 23 berichtigte Kurzbeschreibungen, 25 Lücken', () => {
   assert.equal(I.REGEL.R10.satz, 'Plus/Minus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: mal Kehrwert.');
   assert.equal(I.REGEL.R6.satz, 'Was vor der Klammer steht, nimmt jeden in der Klammer mal.');
   const kb = T8('kurzbeschreibungen.json').eintraege;
-  assert.equal(kb.filter((e) => e.befund === 'berichtigt').length, 21);
+  assert.equal(kb.filter((e) => e.befund === 'berichtigt').length, 23);
   for (const e of kb) assert.equal(I.KURZ[e.entwurf_schluessel], e.endfassung, e.entwurf_schluessel);
   let n = 0;
   for (const m of T8('merksaetze.json').regeln) for (const l of m.luecken) { const t = l.text.slice(1, 40); assert.ok(I.REGEL[m.entwurf_schluessel][l.wo].includes(t), `${m.entwurf_schluessel} ${l.wo}`); n++; }
@@ -137,7 +137,7 @@ test('Klassenbeispiele kommen aus einer Quelle (Leiter-Datei); regeln[].klassen 
 test('Berichtigte Klassenbeispiele: Oberflächen eindeutig, Hochzahlen und Brüche mit Klammern, Nenner-Nullstellen gekennzeichnet', () => {
   assert.equal(text('I-fur-4', 5), 'Quader 5 · 4 · 3 cm: 2 · 20 + 2 · 15 + 2 · 12 = 94 cm²');
   assert.equal(2 * 20 + 2 * 15 + 2 * 12, 2 * (5 * 4 + 5 * 3 + 4 * 3)); assert.equal(2 * 6 + 18 + 24 + 30, 84); assert.equal(36 + 4 * (6 * 5 / 2), 96);
-  assert.match(text('I-fur-4', 8), /^Prisma \(Dreieck 3 · 4 · 5 cm, Höhe 6 cm\): 2 · 6 \+ 18 \+ 24 \+ 30 = 84 cm²$/);
+  assert.match(text('I-fur-4', 8), /^Gerades Prisma \(Dreiecksseiten 3, 4, 5 cm, Höhe 6 cm\): 2 · 6 \+ 18 \+ 24 \+ 30 = 84 cm²$/);
   assert.match(text('I-fur-4', 10), /36 \+ 60 = 96 cm²/);
   assert.equal(text('R8', 10), '2ˣ · 2³ = 2⁽ˣ⁺³⁾');
   assert.equal(text('R10', 8), '1/x + 1/(2x) = 2/(2x) + 1/(2x) = 3/(2x), für x ≠ 0');
@@ -170,3 +170,37 @@ test('Lehrplan-Bezug ist als redaktionelle Einordnung gekennzeichnet; Arbeitswei
   assert.match(I.GESETZ.Z6.fehler, /positive natürliche Zahlen/); assert.match(I.GESETZ.V7.satz, /Klasse 5/); assert.match(I.GESETZ.D9.satz, /n − 1/);
 });
 
+// ---------- Zweite Gegenprüfung (Werkstatt 1090): wieder an den angezeigten Daten ----------
+test('1090: Kurzkarten, Ideen-Texte und Einzelregeln zeigen die berichtigten Fassungen', () => {
+  assert.equal(D.kurz.R6, 'Ein Faktor vor einer Summe multipliziert jeden Summanden.');
+  assert.equal(D.kurz.R7, 'Beim Auflösen einer Minusklammer wechselt jeder Summand sein Vorzeichen.');
+  assert.match(D.kurz.R3, /ungleich null/); assert.match(D.kurz.R8, /positiver ganzzahliger Hochzahl/);
+  assert.match(D.kurz['I-funktionen-2'], /gleichen x-Schritten/); assert.match(D.kurz['I-fur-2'], /Grenzwert folgt exakt A = πr²/);
+  assert.match(I.REGEL.R7.genau, /−\(a \+ \(b − c\)\) = −a − \(b − c\)/);
+  assert.match(I.REGEL.R11.fehler, /Produkt beider Größen konstant/); assert.match(I.REGEL.R11.voraus, /Bei gleicher Leistung jeder Person/);
+  assert.match(I.REGEL.R9.fehler, /= 3 für x ≠ −2/); assert.match(I.REGEL.R9.genau, /gemeinsamen Teiler/);
+  const ide = (id) => D.planeten.flatMap((p) => p.ideen).find((i) => i.id === id);
+  assert.match(ide('I-algebra-4').warum, /jeden Faktor einzeln gleich null/); assert.doesNotMatch(ide('I-algebra-4').warum, /Jeder Faktor liefert eine Lösung/);
+  assert.match(ide('I-funktionen-1').warum, /y = x als auch y = x² passen zu \(0 \| 0\) und \(1 \| 1\)/);
+  assert.match(ide('I-funktionen-2').genau, /A > 0.*q > 1.*0 < q < 1.*q = 1/); assert.match(ide('I-funktionen-3').genau, /a ≠ 0 und x ≠ 0/);
+  assert.match(ide('I-geo-5').genau, /zwei Seiten oder eine Seite und ein spitzer Winkel/); assert.match(ide('I-geo-2').warum, /zwei Winkelhalbierende/);
+  assert.match(I.GESETZ.G8.satz, /zwei Winkelhalbierende/);
+  assert.match(ide('I-daten-2').genau, /keine Auswahlverzerrung/); assert.match(ide('I-daten-3').satz, /^Bei gleich wahrscheinlichen Ergebnissen: günstige durch mögliche\.$/);
+  assert.match(ide('I-fur-3').satz, /Pyramide und Kegel/); assert.match(ide('I-fur-4').genau, /Kugel nicht/);
+  assert.equal(I.GESETZ.A4.satz.split('<br>').length, 3); assert.doesNotMatch(I.GESETZ.A4.satz, / · /);
+  assert.match(I.GESETZ.E4.satz, /beschränktes Vieleck/); assert.match(I.GESETZ.E5.satz, /höchstens eine halbe Rundungseinheit/);
+  assert.match(ide('I-zahlen-5').satz, /√\(x²\) = \|x\|/); assert.match(I.GESETZ.V8.satz, /Grundwert 0/);
+  assert.match(I.GESETZ.V1.satz, /1 kg = 1 000 g/); assert.match(I.GESETZ.V1.satz, /1 h = 60 min/); assert.match(I.GESETZ.V1.satz, /1 d = 24 h/);
+  assert.match(I.GESETZ.D9.satz, /Nenner n/); assert.match(I.GESETZ.D9.satz, /n > 1/);
+  assert.match(I.GESETZ.Z23.satz, /positive ganze Zahl n/); assert.match(I.GESETZ.G6.satz, /einfache[nm] n-Eck/); assert.match(I.GESETZ.G6.voraus, /nur bei konvexen/);
+  assert.match(I.GESETZ.E3.satz, /zusammenhängender ungerichteter Graph.*genau dann.*jeder Knotengrad gerade/);
+  assert.equal(I.GESETZ.G16.klassen.find((k) => k.klasse === 5).text, 'Ein nichtquadratisches Rechteck hat zwei Symmetrieachsen, ein Quadrat vier.');
+  assert.equal(I.GESETZ.F3.klassen.find((k) => k.klasse === 9).text, 'Unter allen Rechtecken mit Umfang 20 cm hat das Quadrat die größte Fläche (25 cm²).');
+  const bg = (r, k) => D.lehrer[r].aufgaben.find((a) => a.kopf.startsWith(k));
+  assert.match(bg('R13', 'BG-01').text, /^Ausgeschlossen: x ≠ 3 und x ≠ −3/); assert.match(bg('R13', 'BG-02').text, /^Ausgeschlossen: x ≠ −4 und x ≠ 2/);
+  assert.match(D.arbeitsweisen.find((a) => a.name === 'Begründen').satz, /allgemeinen Behauptung/); assert.match(D.arbeitsweisen.find((a) => a.name === 'Einheiten').satz, /kann einen Rechenfehler aufdecken/);
+  assert.match(text('I-geo-4', 10), /Schnitt parallel zur Grundfläche auf halber Höhe.*⅛ des ursprünglichen Volumens, der Stumpf ⅞/);
+  assert.match(text('I-geo-3', 7), /^Spiegeln: \|AB\| = 3, danach \|A′B′\| = 3$/);
+  // in den Texten der App steht kein Verweis auf interne Prüfnummern
+  assert.doesNotMatch(JSON.stringify(D.lehrer), /Gegenprüfung|umhaengen|1078|1090/);
+});

@@ -3,9 +3,9 @@
  "stand": "2026-11-27",
  "zusammenfassung": {
   "geprueft": 42,
-  "in_ordnung": 21,
-  "berichtigt": 21,
-  "rechenregeln_berichtigt": 6,
+  "in_ordnung": 19,
+  "berichtigt": 23,
+  "rechenregeln_berichtigt": 8,
   "ideen_gekuerzt_berichtigt": 4,
   "ideen_woertlich_berichtigt": 11
  },
@@ -46,10 +46,10 @@
    "herkunft": "gekürzt vom Designer",
    "kurz_alt": "Welches Vorzeichen das Ergebnis bei Mal und Geteilt bekommt.",
    "befund": "berichtigt",
-   "kurz_neu": "Bei Mal und Geteilt bestimmen die beiden Vorzeichen, ob das Ergebnis positiv oder negativ ist.",
-   "grund": "Die alte Fassung ist ein Nebensatz ohne Aussage („Welches Vorzeichen …“) und nennt nur das Thema.",
-   "endfassung": "Bei Mal und Geteilt bestimmen die beiden Vorzeichen, ob das Ergebnis positiv oder negativ ist.",
-   "endfassung_laenge": 94,
+   "kurz_neu": "Bei zwei Zahlen ungleich null bestimmen ihre Vorzeichen bei Mal und Geteilt das Vorzeichen des Ergebnisses.",
+   "grund": "Die alte Fassung ist ein Nebensatz ohne Aussage („Welches Vorzeichen …“) und nennt nur das Thema. Zweite Gegenprüfung 1090: Die Kurzfassung nannte keine Voraussetzung; bei einem Faktor null gibt es kein Vorzeichen.",
+   "endfassung": "Bei zwei Zahlen ungleich null bestimmen ihre Vorzeichen bei Mal und Geteilt das Vorzeichen des Ergebnisses.",
+   "endfassung_laenge": 107,
    "kurz_alt_laenge": 60
   },
   {
@@ -87,11 +87,11 @@
    "name": "Ausmultiplizieren und Ausklammern",
    "herkunft": "gekürzt vom Designer",
    "kurz_alt": "Ein Faktor vor einer Klammer: vorwärts ausmultiplizieren, rückwärts ausklammern.",
-   "befund": "in Ordnung",
-   "kurz_neu": null,
-   "grund": "Fachlich richtig, sagt worum es geht, wiederholt den Merksatz nicht, höchstens etwa 110 Zeichen.",
-   "endfassung": "Ein Faktor vor einer Klammer: vorwärts ausmultiplizieren, rückwärts ausklammern.",
-   "endfassung_laenge": 80,
+   "befund": "berichtigt",
+   "kurz_neu": "Ein Faktor vor einer Summe multipliziert jeden Summanden.",
+   "grund": "„Vor einer Klammer“ galt auch für ein Produkt in der Klammer, wo nicht jeder Faktor mit dem Faktor davor malgenommen wird; richtig ist: vor einer Summe, jeder Summand (Gegenprüfung 1090).",
+   "endfassung": "Ein Faktor vor einer Summe multipliziert jeden Summanden.",
+   "endfassung_laenge": 57,
    "kurz_alt_laenge": 80
   },
   {
@@ -101,11 +101,11 @@
    "name": "Minus vor der Klammer",
    "herkunft": "wörtlich übernommen",
    "kurz_alt": "Ein Minus vor der Klammer heißt „mal (−1)“.",
-   "befund": "in Ordnung",
-   "kurz_neu": null,
-   "grund": "Fachlich richtig, sagt worum es geht, wiederholt den Merksatz nicht, höchstens etwa 110 Zeichen.",
-   "endfassung": "Ein Minus vor der Klammer heißt „mal (−1)“.",
-   "endfassung_laenge": 43,
+   "befund": "berichtigt",
+   "kurz_neu": "Beim Auflösen einer Minusklammer wechselt jeder Summand sein Vorzeichen.",
+   "grund": "„Heißt mal (−1)“ ist ein Bild, aber kein Satz über das Vorzeichen; die neue Fassung sagt genau, was geschieht (Gegenprüfung 1090).",
+   "endfassung": "Beim Auflösen einer Minusklammer wechselt jeder Summand sein Vorzeichen.",
+   "endfassung_laenge": 72,
    "kurz_alt_laenge": 43
   },
   {
@@ -116,10 +116,10 @@
    "herkunft": "wörtlich übernommen",
    "kurz_alt": "Hoch ist wiederholtes Malnehmen.",
    "befund": "berichtigt",
-   "kurz_neu": "Eine Potenz schreibt gleiche Faktoren kurz auf; die Hochzahl sagt, wie viele es sind.",
-   "grund": "Die alte Fassung wiederholt den Merksatz („Hoch drei heißt …“) und sagt nicht, worum es geht.",
-   "endfassung": "Eine Potenz schreibt gleiche Faktoren kurz auf; die Hochzahl sagt, wie viele es sind.",
-   "endfassung_laenge": 85,
+   "kurz_neu": "Eine Potenz schreibt gleiche Faktoren kurz auf; bei positiver ganzzahliger Hochzahl zählt diese die Faktoren.",
+   "grund": "Die alte Fassung wiederholt den Merksatz („Hoch drei heißt …“) und sagt nicht, worum es geht. Zweite Gegenprüfung 1090: Die Hochzahl zählt die Faktoren nur bei positiver ganzer Hochzahl; null und negative Hochzahlen sind eigens festgelegt.",
+   "endfassung": "Eine Potenz schreibt gleiche Faktoren kurz auf; bei positiver ganzzahliger Hochzahl zählt diese die Faktoren.",
+   "endfassung_laenge": 109,
    "kurz_alt_laenge": 32
   },
   {
@@ -466,10 +466,10 @@
    "herkunft": "wörtlich übernommen",
    "kurz_alt": "Vom Rechteck weiß man die Fläche durch Zählen.",
    "befund": "berichtigt",
-   "kurz_neu": "Viele Flächenformeln bauen auf dem Rechteck auf; die Kreisfläche wird angenähert.",
-   "grund": "„jede Fläche“ ist zu absolut: Der Kreis folgt nicht durch Zerschneiden, sondern durch Annähern.",
-   "endfassung": "Viele Flächenformeln bauen auf dem Rechteck auf; die Kreisfläche wird angenähert.",
-   "endfassung_laenge": 81,
+   "kurz_neu": "Viele Flächenformeln bauen auf dem Rechteck auf; Kreissektoren nähern es an, im Grenzwert folgt exakt A = πr².",
+   "grund": "„jede Fläche“ ist zu absolut: Der Kreis folgt nicht durch Zerschneiden, sondern durch Annähern. Zweite Gegenprüfung 1090: Die Kreisfläche ergibt sich erst im Grenzwert exakt aus dem Rechteck; ein Umlegen endlich vieler Sektoren nähert nur an.",
+   "endfassung": "Viele Flächenformeln bauen auf dem Rechteck auf; Kreissektoren nähern es an, im Grenzwert folgt exakt A = πr².",
+   "endfassung_laenge": 110,
    "kurz_alt_laenge": 46
   },
   {
@@ -494,10 +494,10 @@
    "herkunft": "wörtlich übernommen",
    "kurz_alt": "Schneidet man einen Körper an seinen Kanten auf und klappt ihn flach, sieht man seine ganze Außenfläche auf einmal: das Netz.",
    "befund": "berichtigt",
-   "kurz_neu": "Das Netz zeigt die ganze Oberfläche eines Körpers flach ausgebreitet, wie ein aufgeklappter Karton.",
-   "grund": "Gegenprüfung: „an den Kanten aufschneiden“ trifft nicht auf Zylinder und Kegel zu (gekrümmte Flächen); das Netz selbst gibt es bei der Kugel nicht, die Idee bleibt bei ebenen und abwickelbaren Körpern.",
-   "endfassung": "Das Netz zeigt die ganze Oberfläche eines Körpers flach ausgebreitet, wie ein aufgeklappter Karton.",
-   "endfassung_laenge": 99,
+   "kurz_neu": "Das Netz zeigt die Oberfläche etwa eines Quaders flach ausgebreitet, wie ein aufgeklappter Karton.",
+   "grund": "Gegenprüfung: „an den Kanten aufschneiden“ trifft nicht auf Zylinder und Kegel zu (gekrümmte Flächen); das Netz selbst gibt es bei der Kugel nicht, die Idee bleibt bei ebenen und abwickelbaren Körpern. Zweite Gegenprüfung 1090: Nicht jeder Körper hat ein ebenes unverzerrtes Netz (Kugel); die Kurzbeschreibung nennt jetzt einen Körper, bei dem es gilt.",
+   "endfassung": "Das Netz zeigt die Oberfläche etwa eines Quaders flach ausgebreitet, wie ein aufgeklappter Karton.",
+   "endfassung_laenge": 98,
    "kurz_alt_laenge": 125
   },
   {
@@ -522,10 +522,10 @@
    "herkunft": "wörtlich übernommen",
    "kurz_alt": "Es gibt zwei Grundarten zu wachsen.",
    "befund": "berichtigt",
-   "kurz_neu": "Linear: immer derselbe Betrag kommt dazu; exponentiell: immer derselbe Faktor wird malgenommen.",
-   "grund": "Kürzer als der Vorschlag der Gegenprüfung (130 Zeichen), gleiche Aussage.",
-   "endfassung": "Linear: immer derselbe Betrag kommt dazu; exponentiell: immer derselbe Faktor wird malgenommen.",
-   "endfassung_laenge": 95,
+   "kurz_neu": "Linear: in gleichen x-Schritten kommt derselbe Betrag dazu; exponentiell: wird derselbe Faktor malgenommen.",
+   "grund": "Kürzer als der Vorschlag der Gegenprüfung (130 Zeichen), gleiche Aussage. Zweite Gegenprüfung 1090: Das gleichmäßige Wachstum gilt nur bei gleich großen x-Schritten.",
+   "endfassung": "Linear: in gleichen x-Schritten kommt derselbe Betrag dazu; exponentiell: wird derselbe Faktor malgenommen.",
+   "endfassung_laenge": 107,
    "kurz_alt_laenge": 35
   },
   {
@@ -564,10 +564,10 @@
    "herkunft": "wörtlich übernommen",
    "kurz_alt": "Man kann selten alle fragen oder alles messen.",
    "befund": "berichtigt",
-   "kurz_neu": "Von einer Stichprobe schließt man nur dann aufs Ganze, wenn sie passend und möglichst zufällig ausgewählt ist.",
-   "grund": "Die Bedingung „passend und möglichst zufällig“ gehört in den Satz.",
-   "endfassung": "Von einer Stichprobe schließt man nur dann aufs Ganze, wenn sie passend und möglichst zufällig ausgewählt ist.",
-   "endfassung_laenge": 110,
+   "kurz_neu": "Eine zufällig gezogene Stichprobe erlaubt verlässliche Schlüsse aufs Ganze; Größe heilt keine Verzerrung.",
+   "grund": "Die Bedingung „passend und möglichst zufällig“ gehört in den Satz. Zweite Gegenprüfung 1090: Größe und Zufall sind zwei verschiedene Bedingungen: Größe mindert die Zufallsschwankung, beseitigt aber keine Verzerrung.",
+   "endfassung": "Eine zufällig gezogene Stichprobe erlaubt verlässliche Schlüsse aufs Ganze; Größe heilt keine Verzerrung.",
+   "endfassung_laenge": 105,
    "kurz_alt_laenge": 46
   },
   {

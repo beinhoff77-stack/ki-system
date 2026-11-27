@@ -195,6 +195,38 @@ for a, r in nu.items():
     if a not in zk or r not in kenn: f('umhaengen: %s → %s unbekannt' % (a, r))
 if 'Redaktionelle Einordnung' not in laden('lehrplan.json')['regeln'][0]['befund']: f('lehrplan: Kennzeichnung redaktionelle Einordnung fehlt')
 
+# ---------- Zweite Gegenprüfung 1090: gerechnete Aussagen und Pflichtstellen in inhalt.json ----------
+pruefe([c('(3*x+6)/(x+2)', '3', mit={'x': 5}), c('(x+6)/(x+2)', '3', rel='!=', mit={'x': 2}),
+        c('x**2+1', '0', rel='!=', mit={'x': -3}), c('x**2+1', '0', rel='!=', mit={'x': 0}), c('x**2+1', '0', rel='!=', mit={'x': 2}),  # (x²+1)(x−2)=0 nur bei x=2
+        c('(2**2+1)*(2-2)', '0'), c('0', '0**2'), c('1', '1**2'),  # y=x und y=x² passen zu (0|0) und (1|1)
+        c('1/(0**2+1)', '1'),  # 1/(x²+1): x im Nenner, aber definiert bei 0 und keine Hyperbel
+        c('3*2**(x+1)', '2*(3*2**x)', mit={'x': 4}), c('3*(1/2)**(x+1)', '(1/2)*(3*(1/2)**x)', mit={'x': 4}), c('3*(1/2)**(x+1)', '3*(1/2)**x', rel='<', mit={'x': 4}),
+        c('3*1**(x+1)', '3*1**x', mit={'x': 4}),  # q = 1: konstant
+        c('(1/2)**3', '1/8'), c('1-1/8', '7/8'), c('6*0', '0', mit={'g': 3}), c('4*0', '0'),  # Pyramidenstumpf; Prozentwert bei Grundwert 0
+        c('p*0', '0', mit={'p': 3}), c('p*0', '0', mit={'p': 5}), c('0*g', '0', mit={'g': 2}), c('0*g', '0', mit={'g': 7}),  # Grundwert 0 / Prozentsatz 0: nicht bestimmbar
+        c('(a+b)**2', 'a**2+2*a*b+b**2', mit={'a': 3, 'b': 5}), c('(a-b)**2', 'a**2-2*a*b+b**2', mit={'a': 3, 'b': 5}), c('(a+b)*(a-b)', 'a**2-b**2', mit={'a': 3, 'b': 5}),
+        c('(5-2)*180', '540'), c('6**2', '36'), c('12/18', '2/3'), c('1000*1', '1000'), c('24*60', '1440'),
+        c('wurzel(x**2)', 'abs(x)', mit={'x': -3}), c('wurzel(x**2)', 'x', rel='!=', mit={'x': -3})], '1090 Aussagen')
+MUSS = [  # (Tabelle, Schlüssel, Feld, Pflicht-Text)
+ ('regel', 'R11', 'fehler', 'Produkt beider Größen konstant'), ('regel', 'R9', 'fehler', '= 3 für x ≠ −2'),
+ ('idee', ('Algebra', 4), 'warum', 'jeden Faktor einzeln gleich null'), ('idee', ('Funktionen', 1), 'warum', 'y = x² passen zu (0 | 0) und (1 | 1)'),
+ ('idee', ('Funktionen', 2), 'genau', 'A > 0'), ('idee', ('Funktionen', 3), 'genau', 'a ≠ 0 und x ≠ 0'), ('idee', ('Geometrie', 5), 'genau', 'zwei Seiten oder eine Seite und ein spitzer Winkel'),
+ ('idee', ('Geometrie', 2), 'warum', 'zwei Winkelhalbierende'), ('gesetz', 'G8', 'satz', 'zwei Winkelhalbierende'), ('idee', ('Daten und Zufall', 2), 'genau', 'keine Auswahlverzerrung'),
+ ('idee', ('Daten und Zufall', 3), 'satz', 'Bei gleich wahrscheinlichen Ergebnissen'), ('idee', ('Fläche und Raum', 3), 'genau', 'Pyramide und Kegel'), ('idee', ('Fläche und Raum', 4), 'genau', 'bei der Kugel nicht'),
+ ('gesetz', 'F3', 'verwandt', 'Unter allen Rechtecken'), ('gesetz', 'A4', 'satz', '<br>'), ('gesetz', 'E4', 'satz', 'beschränktes Vieleck'), ('gesetz', 'E5', 'satz', 'halbe Rundungseinheit'),
+ ('idee', ('Zahlen', 5), 'satz', '|x|'), ('gesetz', 'V8', 'satz', 'Grundwert 0'), ('gesetz', 'V1', 'satz', '1 kg = 1 000 g'), ('gesetz', 'D9', 'satz', 'n − 1'),
+ ('gesetz', 'Z23', 'satz', 'positive ganze Zahl n'), ('gesetz', 'G6', 'satz', 'einfachen n-Eck'), ('gesetz', 'E3', 'satz', 'genau dann'), ('gesetz', 'D7', 'satz', 'verzerrte Auswahl')]
+reg_, ges_ = {r['id']: r for r in inh['regeln']}, {g['id']: g for g in inh['gesetze']}
+ide_ = {(p['name'], i['nr']): i for p in inh['planeten'] for i in p['ideen']}
+for t, k, fe, text in MUSS:
+    if text not in {'regel': reg_, 'gesetz': ges_, 'idee': ide_}[t][k][fe]: f('1090: %s %s/%s: „%s“ fehlt' % (t, k, fe, text))
+lk = {(m['entwurf_schluessel'], l['wo']): l['text'] for m in laden('merksaetze.json')['regeln'] for l in m['luecken']}
+for k, text in ((('R9', 'genau'), 'gemeinsamen Teiler'), (('R7', 'genau'), '−(a + (b − c))'), (('R11', 'voraus'), 'gleicher Leistung')):
+    if text not in lk[k]: f('1090: Lücke %s/%s: „%s“ fehlt' % (k[0], k[1], text))
+kz = {e['entwurf_schluessel']: e['endfassung'] for e in laden('kurzbeschreibungen.json')['eintraege']}
+for k, text in (('R6', 'vor einer Summe'), ('R7', 'Minusklammer'), ('R3', 'ungleich null'), ('R8', 'positiver ganzzahliger Hochzahl'), ('I-funktionen-2', 'gleichen x-Schritten'), ('I-fur-2', 'Grenzwert')):
+    if text not in kz[k]: f('1090: Kurzbeschreibung %s: „%s“ fehlt' % (k, text))
+
 if fehler:
     print('\n'.join(fehler)); print('FEHLER: %d' % len(fehler)); sys.exit(1)
 print('Prüfungen gerechnet: %d · Kurzbeschreibungen 42 (berichtigt %d) · Merksätze 14 · Arbeitsweisen 8 · Einzelregeln 30' % (n_pruef, ber))

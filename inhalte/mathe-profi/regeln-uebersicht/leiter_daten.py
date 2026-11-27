@@ -218,12 +218,12 @@ LEITER_I = {
  "id.geometrie.deckungsgleich": ("Die Länge, die vorher und nachher gleich ist.", [
   (5, "V", "geometrie.grundbegriffe", "Rechteck: Gegenseiten ⟦gleich lang⟧", lambda: True),
   (6, None, VORBEI),
-  (7, "E", "abbildungen.kongruenz", "Spiegeln: [AB] = ⟦3⟧, danach [A′B′] = ⟦3⟧", lambda: 5 - 2 == -2 - (-5) == 3),
+  (7, "E", "abbildungen.kongruenz", "Spiegeln: |AB| = ⟦3⟧, danach |A′B′| = ⟦3⟧", lambda: 5 - 2 == -2 - (-5) == 3),
   (8, None, VORBEI), (9, None, VORBEI + " (dort beginnt „Ähnlich“)"), (10, None, VORBEI)]),
  "id.geometrie.aehnlich": ("Der Faktor, mit dem jede Länge malgenommen wird.", [
   (5, None, NOCH_NICHT), (6, None, NOCH_NICHT), (7, None, NOCH_NICHT), (8, None, NOCH_NICHT),
   (9, "E", "abbildungen.aehnlichkeit", "3, 4, 5 cm ⟦· 2⟧ → 6, 8, 10 cm", lambda: (3 * 2, 4 * 2, 5 * 2) == (6, 8, 10)),
-  (10, "A", "raum.pyramide_kegel_kugel", "Pyramide, Spitze bei halber Höhe abgeschnitten: Kanten ⟦· ½⟧, Volumen · ⅛", lambda: F(1, 2) ** 3 == F(1, 8))]),
+  (10, "A", "raum.pyramide_kegel_kugel", "Pyramide, Schnitt parallel zur Grundfläche auf halber Höhe: Die abgeschnittene Spitze hat halbe Kantenlängen (⟦· ½⟧) und ⅛ des ursprünglichen Volumens, der Stumpf ⅞", lambda: F(1, 2) ** 3 == F(1, 8) and 1 - F(1, 8) == F(7, 8))]),
  "id.geometrie.rechtwinklig": ("Die Quadrate der drei Seiten.", [
   (5, None, NOCH_NICHT), (6, None, NOCH_NICHT), (7, None, NOCH_NICHT), (8, None, NOCH_NICHT),
   (9, "E", "trigo.pythagoras", "Dreieck 3, 4, 5 cm: ⟦3² + 4² = 5²⟧", lambda: 3 ** 2 + 4 ** 2 == 5 ** 2),
@@ -251,7 +251,7 @@ LEITER_I = {
  "id.flaeche_raum.haut": ("Das Plus: Die Flächen der Haut werden zusammengezählt.", [
   (5, "E", "messen.koerper_berechnung", "Quader 5 · 4 · 3 cm: 2 · 20 ⟦+⟧ 2 · 15 ⟦+⟧ 2 · 12 = 94 cm²", lambda: 2 * 20 + 2 * 15 + 2 * 12 == 40 + 30 + 24 == 94),
   (6, None, VORBEI), (7, None, VORBEI),
-  (8, "E", "messen.prisma_zylinder", "Prisma (Dreieck 3 · 4 · 5 cm, Höhe 6 cm): 2 · 6 ⟦+⟧ 18 ⟦+⟧ 24 ⟦+⟧ 30 = 84 cm²", lambda: 2 * 6 + 3 * 6 + 4 * 6 + 5 * 6 == 12 + 18 + 24 + 30 == 84),
+  (8, "E", "messen.prisma_zylinder", "Gerades Prisma (Dreiecksseiten 3, 4, 5 cm, Höhe 6 cm): 2 · 6 ⟦+⟧ 18 ⟦+⟧ 24 ⟦+⟧ 30 = 84 cm²", lambda: 2 * 6 + 3 * 6 + 4 * 6 + 5 * 6 == 12 + 18 + 24 + 30 == 84),
   (9, None, VORBEI),
   (10, "E", "raum.pyramide_kegel_kugel", "Pyramide: 36 ⟦+⟧ 60 = 96 cm²", lambda: 36 + 4 * 15 == 36 + 60 == 96)]),
  "id.funktionen.zuordnung": ("Das Paar: zu diesem x genau dieses y.", [

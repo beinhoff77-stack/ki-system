@@ -1,0 +1,823 @@
+{
+ "stand": "2026-11-27",
+ "flug": "a6",
+ "titel": "Gleichungssysteme",
+ "fuer": "Kind 2",
+ "klasse": 8,
+ "themen": [
+  "gleichungen.lgs2"
+ ],
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Brücke), rollend-4. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag ja/nein) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: Stufe aufsteigend.",
+ "aufgaben": [
+  {
+   "kennung": "A6-V01",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "pruefen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in II plus gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "pruefen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Prüfe, ob (6 | 1) das System I: x + y = 9 und II: x − y = 1 löst. Einsetzen in I: 6 + 1 = ①. Das ist nicht 9. Einsetzen in II: 6 − 1 = ②. Das ist nicht 1. Also ist (6 | 1) keine Lösung.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      7,
+      5
+     ]
+    },
+    "c": [
+     "6 + 1",
+     "6 - 1"
+    ],
+    "h": "Setze x = 6 und y = 1 in die linke Seite ein.",
+    "w": "6 + 1 = 7 und 6 − 1 = 5. Keine Gleichung stimmt."
+   }
+  },
+  {
+   "kennung": "A6-V02",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "grafisch",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "5 + 2 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "grafisch",
+    "t": "grafisch",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Geraden y = x + 1 und y = −x + 5 sollen sich schneiden. Für x = 2 ist x + 1 = ① und −x + 5 = ②. Beide Werte sind gleich. Der Schnittpunkt ist also S(2 | ①).",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      3
+     ]
+    },
+    "c": [
+     "2 + 1",
+     "-2 + 5"
+    ],
+    "h": "Setze für x die Zahl 2 ein.",
+    "w": "2 + 1 = 3 und −2 + 5 = 3. Beide Geraden gehen durch (2 | 3)."
+   }
+  },
+  {
+   "kennung": "A6-V03",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "gleichsetzen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -10,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "1 − 11 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleichsetzen",
+    "t": "gleichsetzen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Bei I: y = 2x + 1 und II: y = 6x − 11 steht zweimal y = …. Gleichsetzen: 2x + 1 = 6x − 11. Auf beiden Seiten 2x abziehen: 1 = 4x − 11. 11 addieren: ① = 4x. Also ist x = ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      12,
+      3
+     ]
+    },
+    "c": [
+     "1 + 11",
+     "(1 + 11) // 4"
+    ],
+    "h": "Die Zahl 11 steht mit Minus auf der rechten Seite.",
+    "w": "1 + 11 = 12. 12 : 4 = 3. Probe: y = 2 · 3 + 1 = 7 und y = 6 · 3 − 11 = 7."
+   }
+  },
+  {
+   "kennung": "A6-V04",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "addition",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die rechten Seiten abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "addition",
+    "t": "addition",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "I: x + y = 12 und II: 3x − y = 8. Addiert man I und II, fällt y weg: 4x = ①. Also ist x = ②. Einsetzen in I: ② + y = 12, also y = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      20,
+      5,
+      7
+     ]
+    },
+    "c": [
+     "12 + 8",
+     "(12 + 8) // 4",
+     "12 - (12 + 8) // 4"
+    ],
+    "h": "Rechne die rechten Seiten zusammen: 12 + 8.",
+    "w": "4x = 20, x = 5. y = 12 − 5 = 7. Probe in II: 15 − 7 = 8."
+   }
+  },
+  {
+   "kennung": "A6-V05",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "verfahren",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "verfahren",
+    "t": "verfahren",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Bei I: y = 4x + 1 und II: y = 2x + 11 steht zweimal y = …. Das Gleichsetzen ist hier geschickt: 4x + 1 = 2x + 11. Dann ist 2x = ①. Also ist x = ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      10,
+      5
+     ]
+    },
+    "c": [
+     "11 - 1",
+     "(11 - 1) // 2"
+    ],
+    "h": "Auf beiden Seiten 2x abziehen, dann 1 abziehen.",
+    "w": "4x − 2x = 2x und 11 − 1 = 10. x = 5."
+   }
+  },
+  {
+   "kennung": "A6-V06",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "loesbarkeit",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit genau einer Lösung verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "loesbarkeit",
+    "t": "loesbarkeit",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "I: y = 2x + 1 und II: y = 2x + 5. Gleichsetzen: 2x + 1 = 2x + 5. Auf beiden Seiten 2x abziehen: 1 = 5. Das ist falsch. Beide Geraden haben dieselbe Steigung und schneiden sich nie. Das System hat ① Lösungen.",
+     "schablone": "① = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      0
+     ]
+    },
+    "c": [
+     "0"
+    ],
+    "h": "Eine falsche Aussage heißt: Es passt keine Zahl.",
+    "w": "1 = 5 ist falsch: keine Lösung."
+   }
+  },
+  {
+   "kennung": "A6-V07",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "loesung_parameter",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 addiert statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "loesung_parameter",
+    "t": "loesung_parameter",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "I: x + y = 6 und II: x − y = k. Addiert man I und II, so ist 2x = 6 + k. Für x = 5 muss also 2 · 5 = ① gelten, nämlich 6 + k = ①. Daraus folgt k = ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      10,
+      4
+     ]
+    },
+    "c": [
+     "2 * 5",
+     "2 * 5 - 6"
+    ],
+    "h": "Setze x = 5 in 2x = 6 + k ein.",
+    "w": "2 · 5 = 10 = 6 + k, also k = 4."
+   }
+  },
+  {
+   "kennung": "A6-V08",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "sachaufgabe",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x und y verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgabe",
+    "t": "sachaufgabe",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Zwei Zahlen haben die Summe 20 und die Differenz 6. Addiert man x + y = 20 und x − y = 6, so ist 2x = ①. Die größere Zahl ist x = ②. Die kleinere Zahl ist y = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      26,
+      13,
+      7
+     ]
+    },
+    "c": [
+     "20 + 6",
+     "(20 + 6) // 2",
+     "20 - (20 + 6) // 2"
+    ],
+    "h": "Das y fällt beim Addieren weg.",
+    "w": "2x = 26, x = 13. y = 20 − 13 = 7."
+   }
+  },
+  {
+   "kennung": "A6-V09",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "einsetzen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.minusklammer",
+   "regel_name": "Minus vor der Klammer",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "4x − 2x − 1 = 7, also 2x = 8 und x = 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer fehlt: das Minus wirkt nur auf die erste Zahl"
+    },
+    {
+     "index": 2,
+     "antwort": "4x − (2x − 1) = 7, also 2x − 1 = 7 und x = 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Auflösen der Klammer 2x − 1 behalten"
+    },
+    {
+     "index": 3,
+     "antwort": "4x − (2x − 1) = 7, also 2x + 1 = 7 und x = 8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nach dem Auflösen nicht durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "einsetzen",
+    "t": "einsetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Im System I: y = 2x − 1 und II: 4x − y = 7 soll y aus I in II eingesetzt werden. Welche Rechnung ist richtig?"
+    },
+    "a": [
+     "4x − (2x − 1) = 7, also 2x + 1 = 7 und x = 3",
+     "4x − 2x − 1 = 7, also 2x = 8 und x = 4",
+     "4x − (2x − 1) = 7, also 2x − 1 = 7 und x = 4",
+     "4x − (2x − 1) = 7, also 2x + 1 = 7 und x = 8"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Setze für y den ganzen Term in Klammern ein.",
+    "w": "4x − (2x − 1) = 4x − 2x + 1 = 2x + 1. 2x + 1 = 7 ergibt x = 3. Dann y = 2 · 3 − 1 = 5."
+   }
+  },
+  {
+   "kennung": "A6-V10",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "loesung_parameter",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "k = 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Achsenabschnitt als Steigung genommen"
+    },
+    {
+     "index": 1,
+     "antwort": "k = 0",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "k = 0 für „keine Lösung“ gehalten"
+    },
+    {
+     "index": 3,
+     "antwort": "k = −3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen der Steigung gedreht"
+    }
+   ],
+   "aufgabe": {
+    "l": "loesung_parameter",
+    "t": "loesung_parameter",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "System: I: y = k · x und II: y = 3x + 4. Für welches k hat das System keine Lösung?"
+    },
+    "a": [
+     "k = 4",
+     "k = 0",
+     "k = 3: gleiche Steigung, aber verschiedene Achsenabschnitte",
+     "k = −3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Gleichsetzen: (k − 3) · x = 4. Wann kann man nicht nach x auflösen?",
+    "w": "Für k = 3 ist 0 · x = 4. Das geht nie. Für jedes andere k gilt x = 4 : (k − 3)."
+   }
+  },
+  {
+   "kennung": "A6-V11",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "pruefen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "pruefen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Prüfe das Paar (5 | 1) im System I: 2x + y = 11 und II: x − y = 1. Kim prüft. Zeile 1: In I: 2 · 5 + 1 = 11. Das stimmt. Zeile 2: In II: 5 − 1 = 4. Das ist nicht 1. Zeile 3: Eine Gleichung stimmt, also ist (5 | 1) eine Lösung des Systems. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Ein Paar ist eine Lösung des Systems, wenn es zu beiden Gleichungen passt.",
+    "w": "Gleichung II stimmt nicht. (5 | 1) ist keine Lösung des Systems."
+   }
+  },
+  {
+   "kennung": "A6-V12",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "gleichsetzen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleichsetzen",
+    "t": "gleichsetzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Das System I: y = 3x − 2 und II: y = x + 6 wird durch Gleichsetzen gelöst. Kim rechnet. Zeile 1: Gleichsetzen: 3x − 2 = x + 6. Zeile 2: x abziehen: 2x − 2 = 6. Zeile 3: 2 abziehen: 2x = 4, also x = 2. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Die −2 wird auf der anderen Seite zu +2.",
+    "w": "2x − 2 = 6 ergibt 2x = 8 und x = 4. Dann y = 4 + 6 = 10."
+   }
+  },
+  {
+   "kennung": "A6-V13",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "addition",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "addition",
+    "t": "addition",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "System: I: 3x + 2y = 17 und II: 5x − 2y = 7. Kim löst es mit dem Additionsverfahren. Zeile 1: Die y-Terme +2y und −2y sind Gegenzahlen. Zeile 2: Addieren: 8x = 24, also x = 3. Zeile 3: x in I einsetzen: 3 · 3 + 2y = 17, also 2y = 17 + 9 = 26 und y = 13. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Aus 9 + 2y = 17 folgt 2y, wenn du auf beiden Seiten 9 abziehst.",
+    "w": "2y = 17 − 9 = 8, also y = 4. Probe in II: 5 · 3 − 2 · 4 = 7."
+   }
+  },
+  {
+   "kennung": "A6-V14",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "verfahren",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "verfahren",
+    "t": "verfahren",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "System: I: x + y = 10 und II: x − y = 4. Kim wählt das Additionsverfahren. Zeile 1: In I und II stehen +y und −y. Das sind Gegenzahlen. Zeile 2: Darum ist das Additionsverfahren geschickt. Zeile 3: Addiert man beide Gleichungen, so ist 2x = 6, also x = 3. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne 10 + 4 noch einmal.",
+    "w": "10 + 4 = 14. Also 2x = 14 und x = 7."
+   }
+  },
+  {
+   "kennung": "A6-V15",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "loesbarkeit",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "loesbarkeit",
+    "t": "loesbarkeit",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "System: I: y = 3x − 2 und II: 2y = 6x − 4. Kim untersucht, wie viele Lösungen es gibt. Zeile 1: Teile II durch 2: y = 3x − 2. Zeile 2: Beide Gleichungen sind gleich. Zeile 3: Also hat das System keine Lösung. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wenn beide Gleichungen dieselbe Gerade beschreiben, wie viele Punkte haben sie gemeinsam?",
+    "w": "Beide Gleichungen beschreiben dieselbe Gerade. Jeder ihrer Punkte ist eine Lösung: unendlich viele."
+   }
+  },
+  {
+   "kennung": "A6-V16",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "loesung_parameter",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "loesung_parameter",
+    "t": "loesung_parameter",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "System: I: y = a · x und II: y = 2x + 6. Kim untersucht, für welches a es keine Lösung gibt. Zeile 1: Gleichsetzen: a · x = 2x + 6. Zeile 2: Umstellen: (a − 2) · x = 6. Zeile 3: Für a = 2 ist 0 · x = 6. Das System hat dann unendlich viele Lösungen. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Gibt es ein x, für das 0 · x = 6 gilt?",
+    "w": "0 · x ist immer 0, nie 6. Für a = 2 gibt es keine Lösung."
+   }
+  },
+  {
+   "kennung": "A6-V17",
+   "thema": "gleichungen.lgs2",
+   "lernkarte": "sachaufgabe",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgabe",
+    "t": "sachaufgabe",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kino verkauft 100 Karten. Erwachsene zahlen 8 €, Kinder 5 €. Die Einnahmen sind 620 €. Kim stellt die Gleichungen auf. x ist die Zahl der Erwachsenen, y die der Kinder. Zeile 1: Karten: x + y = 100. Zeile 2: Einnahmen: 8y + 5x = 620. Zeile 3: Aus der ersten Gleichung folgt y = 100 − x. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wer zahlt 8 €? Zu welcher Unbekannten gehört die 8?",
+    "w": "Erwachsene (x) zahlen 8 €, Kinder (y) zahlen 5 €: 8x + 5y = 620."
+   }
+  }
+ ]
+}

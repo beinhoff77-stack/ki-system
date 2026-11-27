@@ -853,6 +853,138 @@ neu(f, "aenderung", "VW", W("Eine Pflanze war nach 2 Wochen 14 cm hoch und nach 
     "Änderungsrate = Änderung : Zeitspanne.", "Die Höhe ändert sich um 16 cm in 4 Wochen: 16 : 4 = 4 cm je Woche.",
     lambda: (30 - 14) / (6 - 2) == 4 and 30 / 6 != 4 and 30 - 14 != 4 and (30 + 14) / (6 + 2) != 4), g="mehrschritt")
 
+# ═════════════════════ Kind 2 · Flug f2 · Lineare Funktionen ═════════════════════
+f = "f2"
+FORM = "id.funktionen.gleichung_form"
+neu(f, "ablesen", "LW", L("Die Gleichung 2y = 6x + 8 wird durch 2 geteilt. Dann ist y = ①x + ②. Die Steigung ist ① und der Achsenabschnitt ist ②.",
+    K(2), [3, 4], ["6 // 2", "8 // 2"], ["6 / 2", "8 / 2"], "Teile beide Zahlen rechts durch 2, nicht nur eine.", "6x : 2 = 3x und 8 : 2 = 4. Also y = 3x + 4.",
+    {0: [(6, None, "nur die rechte Seite von y = nicht geteilt")], 1: [(8, None, "nur 6x geteilt")]}, hinweis=GZ))
+neu(f, "ablesen", "FD", FDZ("Kim liest bei y = 4 − 3x Steigung und Achsenabschnitt ab.",
+    [("Die Steigung m ist die erste Zahl: m = 4.", False), ("Der Achsenabschnitt t ist die Zahl ohne x: t = −3.", True), ("Die Gerade geht also durch den Punkt (0 | −3).", True)],
+    "m steht vor dem x, nicht am Anfang der Gleichung.", "m = −3, denn −3 steht vor dem x. t = 4 ist die Zahl ohne x. Die Gerade geht durch (0 | 4)."))
+neu(f, "graph_ablesen", "LW", L("Die Gerade y = 3x − 5 geht durch die Punkte (2 | ①) und (4 | ②). Zwischen den beiden Punkten steigt sie um ② − ① = ③.",
+    K(3), [1, 7, 6], ["3 * 2 - 5", "3 * 4 - 5", "(3 * 4 - 5) - (3 * 2 - 5)"], ["6 - 5", "12 - 5", "3 * 2"], "Setze erst x ein, rechne dann mal, dann minus.", "y(2) = 6 − 5 = 1. y(4) = 12 − 5 = 7. 7 − 1 = 6, also 2 Schritte mal Steigung 3.",
+    {2: [(2, None, "nur die Schrittweite genommen")]}, hinweis=GZ))
+neu(f, "zwei_punkte", "VW", W("Eine Gerade geht durch A(2 | 1) und B(5 | 13). Welche Rechnung gibt die Steigung?",
+    "(13 − 1) : (5 − 2) = 4", [("(5 − 2) : (13 − 1) = 1/4", "nach rechts durch nach oben gerechnet"), ("(13 + 1) : (5 + 2) = 2", "die Koordinaten addiert"), ("13 − 1 = 12", "nicht durch den Schritt nach rechts geteilt")],
+    "Steigung = nach oben geteilt durch nach rechts.", "Nach oben: 13 − 1 = 12. Nach rechts: 5 − 2 = 3. Steigung 12 : 3 = 4.",
+    lambda: (13 - 1) / (5 - 2) == 4 and (5 - 2) / (13 - 1) != 4 and (13 + 1) / (5 + 2) != 4 and 13 - 1 != 4), g="mehrschritt")
+neu(f, "proportional", "LW", L("Bei einer proportionalen Zuordnung y = k · x gehört zu x = 4 der Wert y = 20. Dann ist k = 20 : 4 = ①. Zu x = 7 gehört dann y = ① · 7 = ②.",
+    K(2), [5, 35], ["20 // 4", "(20 // 4) * 7"], ["5", "20 // 4 * 7"], "k ist der Wert für x = 1.", "k = 5. y = 5 · 7 = 35.",
+    {1: [(27, "fb.verhaeltnis.addiert_statt_malgenommen", "den Unterschied addiert statt mit k gerechnet")]}, hinweis=GZ), regel="rr.verhaeltnis")
+neu(f, "proportional", "FD", FDZ("Eine Tabelle zeigt x = 2, 4, 6 und y = 6, 12, 20. Kim prüft, ob die Zuordnung proportional ist.",
+    [("Für x = 2: y : x = 6 : 2 = 3.", 6 / 2 == 3), ("Für x = 4: y : x = 12 : 4 = 3.", 12 / 4 == 3), ("Für x = 6: y : x = 20 : 6 ist ungefähr 3. Also ist die Zuordnung proportional.", 20 / 6 == 3)],
+    "Für proportional muss in jeder Spalte genau dieselbe Zahl herauskommen.", "20 : 6 ist nicht 3, sondern ungefähr 3,33. Die Zuordnung ist nicht proportional."), regel="rr.verhaeltnis")
+def prop(xs, ys):
+    return len({F(y) / F(x) for x, y in zip(xs, ys)}) == 1 and all(x != 0 for x in xs)
+neu(f, "proportional", "VW", W("Welche Wertetabelle gehört zu einer proportionalen Zuordnung?",
+    "x: 1, 2, 5 und y: 3, 6, 15",
+    [("x: 1, 2, 5 und y: 3, 5, 8", "gleiche Schritte nach oben statt gleicher Faktor"), ("x: 1, 2, 4 und y: 8, 4, 2", "Doppeltes x gibt halbes y"), ("x: 1, 2, 3 und y: 4, 6, 8", "y wächst gleichmäßig, aber zu x = 0 gehörte 2")],
+    "Bei Proportionalität ist y : x überall gleich.", "3 : 1 = 6 : 2 = 15 : 5 = 3. In den anderen Tabellen ändert sich y : x.",
+    lambda: prop([1, 2, 5], [3, 6, 15]) and not prop([1, 2, 5], [3, 5, 8]) and not prop([1, 2, 4], [8, 4, 2]) and not prop([1, 2, 3], [4, 6, 8])), g="mehrschritt", regel="rr.verhaeltnis")
+neu(f, "aufstellen", "LW", L("Eine Gerade hat die Steigung 2 und geht durch P(3 | 11). Ansatz: y = 2x + t. Einsetzen: 11 = 2 · 3 + t, also t = 11 − ① = ②.",
+    K(2), [6, 5], ["2 * 3", "11 - 2 * 3"], ["3 + 3", "10 - 5"], "Rechne erst 2 · 3 aus.", "2 · 3 = 6. t = 11 − 6 = 5. Die Gerade ist y = 2x + 5.",
+    {1: [(17, None, "6 addiert statt abgezogen")]}, hinweis=GZ))
+neu(f, "aufstellen", "FD", FDZ("Eine Gerade geht durch A(1 | 4) und B(3 | 10). Kim stellt die Gleichung auf.",
+    [("Steigung: m = (10 − 4) : (3 − 1) = 3.", (10 - 4) / (3 - 1) == 3), ("A einsetzen in y = 3x + t: 4 = 3 · 1 + t, also t = 4 + 3 = 7.", 4 + 3 == 4 - 3), ("Die Gerade ist y = 3x + 7.", True)],
+    "Aus 4 = 3 + t folgt t, wenn du auf beiden Seiten 3 abziehst.", "t = 4 − 3 = 1. Die Gerade ist y = 3x + 1. Probe mit B: 3 · 3 + 1 = 10."))
+neu(f, "schnittpunkte", "FD", FDZ("Die Geraden y = 2x + 1 und y = −x + 7 schneiden sich. Kim bestimmt den Schnittpunkt.",
+    [("Gleichsetzen: 2x + 1 = −x + 7.", True), ("x auf die linke Seite bringen: x + 1 = 7, also x = 6.", 2 - 1 == 2 + 1), ("Dann ist y = 2 · 6 + 1 = 13.", 2 * 6 + 1 == 13)],
+    "Wenn du −x auf die linke Seite bringst, wird daraus +x. Wie viele x stehen dann links?", "2x + x = 3x. Also 3x + 1 = 7, x = 2 und y = 5. Der Schnittpunkt ist (2 | 5)."))
+neu(f, "lage", "LW", L("Die Gerade g hat die Gleichung y = −x + 3. Eine Gerade parallel zu g hat die Steigung ①. Für eine Gerade senkrecht zu g muss das Produkt der beiden Steigungen minus eins sein. Ihre Steigung ist also ②.",
+    K(2), [-1, 1], ["-1", "1"], ["-2 + 1", "(-1) * (-1)"], "Parallel heißt: dieselbe Steigung.", "Parallel: −1. Senkrecht: (−1) · m = −1, also m = 1.",
+    {1: [(-1, None, "dieselbe Steigung genommen")]}, hinweis=GZ), regel=FORM)
+neu(f, "lage", "FD", FDZ("Die Geraden y = 2x + 5 und y = −2x + 5 sollen untersucht werden. Kim prüft ihre Lage.",
+    [("Die Steigungen sind 2 und −2.", True), ("Das Produkt der Steigungen ist 2 · (−2) = −4.", 2 * (-2) == -4), ("Das Produkt ist −4, also stehen die Geraden senkrecht aufeinander.", 2 * (-2) == -1)],
+    "Senkrecht heißt: Das Produkt der Steigungen ist genau minus eins.", "Das Produkt −4 ist nicht −1, und die Steigungen sind verschieden. Die Geraden sind weder parallel noch senkrecht."), regel=FORM)
+neu(f, "einsetzen", "LW", L("Die Geradenschar y = k · x + 2 enthält für k = 5 die Gerade y = 5x + 2. Für k = 5 und x = 3 ist y = ①. Für k = −4 und x = 3 ist y = ②.",
+    K(2), [17, -10], ["5 * 3 + 2", "-4 * 3 + 2"], ["15 + 2", "2 - 12"], "Ersetze nur k, alles andere bleibt.", "5 · 3 + 2 = 17. (−4) · 3 + 2 = −12 + 2 = −10.",
+    {1: [(-14, None, "2 abgezogen statt addiert")]}, hinweis=GZ))
+neu(f, "einsetzen", "FD", FDZ("Die Schar y = (k − 2) · x + 3 hat für k = 5 eine bestimmte Gerade. Kim setzt k = 5 ein.",
+    [("Die Klammer wird zu 5 + 2 = 7.", 5 + 2 == 5 - 2), ("Die Gerade ist also y = 7x + 3.", True), ("Für x = 2 ist y = 7 · 2 + 3 = 17.", 7 * 2 + 3 == 17)],
+    "In der Klammer steht k − 2. Was ist 5 − 2?", "5 − 2 = 3. Die Gerade ist y = 3x + 3. Für x = 2 ist y = 9."))
+neu(f, "wirkung", "LW", L("In y = a · x + b verschiebt b die Gerade nach oben oder unten. Wird b von 2 auf 8 erhöht, wandert die Gerade um 8 − 2 = ① nach oben. Wird a von 1 auf 5 erhöht, liegt die Gerade bei x = 3 um (5 − 1) · 3 = ② höher.",
+    K(2), [6, 12], ["8 - 2", "(5 - 1) * 3"], ["2 * 3", "4 * 3"], "a wirkt bei jedem x. b wirkt immer gleich.", "b: 8 − 2 = 6. a: (5 − 1) · 3 = 12.",
+    {1: [(4, None, "nur die Änderung von a genommen")]}, hinweis=GZ), regel=FORM)
+neu(f, "wirkung", "FD", FDZ("Kim untersucht die Geraden y = a · x + 3 für verschiedene a.",
+    [("a steht vor x, es ändert also die Steigung.", True), ("Bei jedem a geht die Gerade durch den Punkt (0 | 3).", 0 * 7 + 3 == 3), ("Wird a größer, verschiebt sich die Gerade nach oben, ohne dass sich die Steigung ändert.", False)],
+    "Der Parameter a steht vor x. Was bewirkt das?", "Wird a größer, wird die Gerade steiler. Sie dreht sich um (0 | 3), sie verschiebt sich nicht."), regel=FORM)
+neu(f, "bueschel", "LW", L("Alle Geraden y = k · (x − 3) + 7 gehen durch einen Punkt Z. Für x = 3 ist x − 3 gleich ①. Dann spielt k keine Rolle mehr. Für k = 2 und x = 5 ist y = 2 · (5 − 3) + 7 = ②.",
+    K(2), [0, 11], ["3 - 3", "2 * (5 - 3) + 7"], ["0", "4 + 7"], "Welche Zahl macht die Klammer zu 0?", "3 − 3 = 0. 2 · 2 + 7 = 11.",
+    {1: [(14, None, "5 − 3 mit 5 verwechselt")]}, hinweis=GZ), regel=FORM)
+neu(f, "bueschel", "FD", FDZ("Alle Geraden y = k · (x + 2) + 4 gehen durch einen Punkt Z. Kim bestimmt Z.",
+    [("Z liegt dort, wo k keinen Einfluss hat.", True), ("Das ist bei x + 2 = 0, also bei x = 2.", 2 + 2 == 0), ("Dort ist y = 4. Also ist Z(2 | 4).", True)],
+    "Welche Zahl macht x + 2 gleich 0?", "x + 2 = 0 gilt für x = −2. Der Punkt ist Z(−2 | 4)."), regel=FORM)
+neu(f, "bueschel", "VW", W("Alle Geraden y = k · x + 3 gehen durch denselben Punkt. Welcher ist es?",
+    "(0 | 3), denn für x = 0 fällt k weg", [("(3 | 0)", "x und y vertauscht"), ("(1 | 3)", "x = 1 statt x = 0 gewählt"), ("(0 | 0)", "den Achsenabschnitt vergessen")],
+    "Wo hat k keinen Einfluss auf y?", "Bei x = 0 ist k · 0 = 0, also y = 3 für jedes k. Der Punkt ist (0 | 3).",
+    lambda: len({k * 0 + 3 for k in range(-5, 6)}) == 1 and len({k * 1 + 3 for k in range(-5, 6)}) > 1 and len({k * 3 + 3 for k in range(-5, 6)}) > 1), g="mehrschritt", regel=FORM)
+neu(f, "deuten", "LW", L("Ein Behälter enthält am Anfang 45 l Wasser. Jede Minute fließen 3 l ab. Nach 5 Minuten sind es noch 45 − 3 · 5 = ① l. Leer ist der Behälter, wenn 3 · t = 45 gilt, also nach ② Minuten.",
+    K(2), [30, 15], ["45 - 3 * 5", "45 // 3"], ["45 - 15", "5 * 3"], "Die Rate ist negativ: Es wird weniger.", "45 − 15 = 30 l. 45 : 3 = 15 Minuten.",
+    {0: [(210, "fb.reihenfolge.links_nach_rechts", "(45 − 3) · 5 gerechnet")]}, hinweis=GZ))
+neu(f, "deuten", "FD", FDZ("Ein Taxi kostet 3 € Grundpreis und 2 € je Kilometer: K(x) = 2x + 3. Kim deutet die Zahlen.",
+    [("Der Grundpreis ist das Glied ohne x: 3 €.", True), ("Die Zahl vor dem x ist der Preis je Kilometer: 2 €.", True), ("Bei 0 km kostet die Fahrt 2 €.", 2 * 0 + 3 == 2)],
+    "Setze x = 0 in den Term ein.", "K(0) = 2 · 0 + 3 = 3. Auch bei 0 km zahlt man den Grundpreis 3 €."))
+
+# ═════════════════════ Kind 2 · Flug a6 · Gleichungssysteme ═════════════════════
+f = "a6"
+LG = "id.algebra.gleichung_loesen"
+neu(f, "pruefen", "LW", L("Prüfe, ob (6 | 1) das System I: x + y = 9 und II: x − y = 1 löst. Einsetzen in I: 6 + 1 = ①. Das ist nicht 9. Einsetzen in II: 6 − 1 = ②. Das ist nicht 1. Also ist (6 | 1) keine Lösung.",
+    K(2), [7, 5], ["6 + 1", "6 - 1"], ["1 + 6", "10 - 5"], "Setze x = 6 und y = 1 in die linke Seite ein.", "6 + 1 = 7 und 6 − 1 = 5. Keine Gleichung stimmt.",
+    {1: [(7, None, "in II plus gerechnet")]}, hinweis=GZ))
+neu(f, "pruefen", "FD", FDZ("Prüfe das Paar (5 | 1) im System I: 2x + y = 11 und II: x − y = 1. Kim prüft.",
+    [("In I: 2 · 5 + 1 = 11. Das stimmt.", 2 * 5 + 1 == 11), ("In II: 5 − 1 = 4. Das ist nicht 1.", 5 - 1 == 4), ("Eine Gleichung stimmt, also ist (5 | 1) eine Lösung des Systems.", False)],
+    "Ein Paar ist eine Lösung des Systems, wenn es zu beiden Gleichungen passt.", "Gleichung II stimmt nicht. (5 | 1) ist keine Lösung des Systems."))
+neu(f, "grafisch", "LW", L("Die Geraden y = x + 1 und y = −x + 5 sollen sich schneiden. Für x = 2 ist x + 1 = ① und −x + 5 = ②. Beide Werte sind gleich. Der Schnittpunkt ist also S(2 | ①).",
+    K(2), [3, 3], ["2 + 1", "-2 + 5"], ["1 + 2", "5 - 2"], "Setze für x die Zahl 2 ein.", "2 + 1 = 3 und −2 + 5 = 3. Beide Geraden gehen durch (2 | 3).",
+    {1: [(7, "fb.plusminus.zeichen_des_ergebnisses", "5 + 2 gerechnet")]}, hinweis=GZ))
+neu(f, "einsetzen", "VW", W("Im System I: y = 2x − 1 und II: 4x − y = 7 soll y aus I in II eingesetzt werden. Welche Rechnung ist richtig?",
+    "4x − (2x − 1) = 7, also 2x + 1 = 7 und x = 3",
+    [("4x − 2x − 1 = 7, also 2x = 8 und x = 4", "die Klammer fehlt: das Minus wirkt nur auf die erste Zahl"), ("4x − (2x − 1) = 7, also 2x − 1 = 7 und x = 4", "beim Auflösen der Klammer 2x − 1 behalten"), ("4x − (2x − 1) = 7, also 2x + 1 = 7 und x = 8", "nach dem Auflösen nicht durch 2 geteilt")],
+    "Setze für y den ganzen Term in Klammern ein.", "4x − (2x − 1) = 4x − 2x + 1 = 2x + 1. 2x + 1 = 7 ergibt x = 3. Dann y = 2 · 3 − 1 = 5.",
+    lambda: 4 * 3 - (2 * 3 - 1) == 7 and 4 * 4 - (2 * 4 - 1) != 7 and 4 * 8 - (2 * 8 - 1) != 7 and 4 * 4 - 2 * 4 - 1 != 4 * 4 - (2 * 4 - 1)), g="mehrschritt", regel="rr.minusklammer")
+neu(f, "gleichsetzen", "LW", L("Bei I: y = 2x + 1 und II: y = 6x − 11 steht zweimal y = …. Gleichsetzen: 2x + 1 = 6x − 11. Auf beiden Seiten 2x abziehen: 1 = 4x − 11. 11 addieren: ① = 4x. Also ist x = ②.",
+    K(2), [12, 3], ["1 + 11", "(1 + 11) // 4"], ["2 * 6", "9 // 3"], "Die Zahl 11 steht mit Minus auf der rechten Seite.", "1 + 11 = 12. 12 : 4 = 3. Probe: y = 2 · 3 + 1 = 7 und y = 6 · 3 − 11 = 7.",
+    {0: [(-10, "fb.plusminus.zeichen_des_ergebnisses", "1 − 11 gerechnet")]}, hinweis=GZ), regel="rr.waage")
+neu(f, "gleichsetzen", "FD", FDZ("Das System I: y = 3x − 2 und II: y = x + 6 wird durch Gleichsetzen gelöst. Kim rechnet.",
+    [("Gleichsetzen: 3x − 2 = x + 6.", True), ("x abziehen: 2x − 2 = 6.", 3 - 1 == 2), ("2 abziehen: 2x = 4, also x = 2.", 6 - 2 == 6 + 2)],
+    "Die −2 wird auf der anderen Seite zu +2.", "2x − 2 = 6 ergibt 2x = 8 und x = 4. Dann y = 4 + 6 = 10."), regel="rr.waage")
+neu(f, "addition", "LW", L("I: x + y = 12 und II: 3x − y = 8. Addiert man I und II, fällt y weg: 4x = ①. Also ist x = ②. Einsetzen in I: ② + y = 12, also y = ③.",
+    K(3), [20, 5, 7], ["12 + 8", "(12 + 8) // 4", "12 - (12 + 8) // 4"], ["10 + 10", "20 / 4", "12 - 5"], "Rechne die rechten Seiten zusammen: 12 + 8.", "4x = 20, x = 5. y = 12 − 5 = 7. Probe in II: 15 − 7 = 8.",
+    {0: [(4, None, "die rechten Seiten abgezogen")]}, hinweis=GZ))
+neu(f, "addition", "FD", FDZ("System: I: 3x + 2y = 17 und II: 5x − 2y = 7. Kim löst es mit dem Additionsverfahren.",
+    [("Die y-Terme +2y und −2y sind Gegenzahlen.", True), ("Addieren: 8x = 24, also x = 3.", 17 + 7 == 24 and 24 // 8 == 3), ("x in I einsetzen: 3 · 3 + 2y = 17, also 2y = 17 + 9 = 26 und y = 13.", 17 + 9 == 17 - 9)],
+    "Aus 9 + 2y = 17 folgt 2y, wenn du auf beiden Seiten 9 abziehst.", "2y = 17 − 9 = 8, also y = 4. Probe in II: 5 · 3 − 2 · 4 = 7."))
+neu(f, "verfahren", "LW", L("Bei I: y = 4x + 1 und II: y = 2x + 11 steht zweimal y = …. Das Gleichsetzen ist hier geschickt: 4x + 1 = 2x + 11. Dann ist 2x = ①. Also ist x = ②.",
+    K(2), [10, 5], ["11 - 1", "(11 - 1) // 2"], ["20 / 2", "10 // 2"], "Auf beiden Seiten 2x abziehen, dann 1 abziehen.", "4x − 2x = 2x und 11 − 1 = 10. x = 5.",
+    {1: [(10, None, "nicht durch 2 geteilt")]}, hinweis=GZ), regel="rr.waage")
+neu(f, "verfahren", "FD", FDZ("System: I: x + y = 10 und II: x − y = 4. Kim wählt das Additionsverfahren.",
+    [("In I und II stehen +y und −y. Das sind Gegenzahlen.", True), ("Darum ist das Additionsverfahren geschickt.", True), ("Addiert man beide Gleichungen, so ist 2x = 6, also x = 3.", 10 + 4 == 6)],
+    "Rechne 10 + 4 noch einmal.", "10 + 4 = 14. Also 2x = 14 und x = 7."))
+neu(f, "loesbarkeit", "LW", L("I: y = 2x + 1 und II: y = 2x + 5. Gleichsetzen: 2x + 1 = 2x + 5. Auf beiden Seiten 2x abziehen: 1 = 5. Das ist falsch. Beide Geraden haben dieselbe Steigung und schneiden sich nie. Das System hat ① Lösungen.",
+    K(1), [0], ["0"], ["1 - 1"], "Eine falsche Aussage heißt: Es passt keine Zahl.", "1 = 5 ist falsch: keine Lösung.",
+    {0: [(1, None, "mit genau einer Lösung verwechselt")]}, hinweis=GZ))
+neu(f, "loesbarkeit", "FD", FDZ("System: I: y = 3x − 2 und II: 2y = 6x − 4. Kim untersucht, wie viele Lösungen es gibt.",
+    [("Teile II durch 2: y = 3x − 2.", 6 // 2 == 3 and 4 // 2 == 2), ("Beide Gleichungen sind gleich.", True), ("Also hat das System keine Lösung.", False)],
+    "Wenn beide Gleichungen dieselbe Gerade beschreiben, wie viele Punkte haben sie gemeinsam?", "Beide Gleichungen beschreiben dieselbe Gerade. Jeder ihrer Punkte ist eine Lösung: unendlich viele."))
+neu(f, "loesung_parameter", "LW", L("I: x + y = 6 und II: x − y = k. Addiert man I und II, so ist 2x = 6 + k. Für x = 5 muss also 2 · 5 = ① gelten, nämlich 6 + k = ①. Daraus folgt k = ②.",
+    K(2), [10, 4], ["2 * 5", "2 * 5 - 6"], ["5 + 5", "10 - 6"], "Setze x = 5 in 2x = 6 + k ein.", "2 · 5 = 10 = 6 + k, also k = 4.",
+    {1: [(16, None, "6 addiert statt abgezogen")]}, hinweis=GZ))
+neu(f, "loesung_parameter", "FD", FDZ("System: I: y = a · x und II: y = 2x + 6. Kim untersucht, für welches a es keine Lösung gibt.",
+    [("Gleichsetzen: a · x = 2x + 6.", True), ("Umstellen: (a − 2) · x = 6.", True), ("Für a = 2 ist 0 · x = 6. Das System hat dann unendlich viele Lösungen.", 0 * 7 == 6)],
+    "Gibt es ein x, für das 0 · x = 6 gilt?", "0 · x ist immer 0, nie 6. Für a = 2 gibt es keine Lösung."))
+neu(f, "loesung_parameter", "VW", W("System: I: y = k · x und II: y = 3x + 4. Für welches k hat das System keine Lösung?",
+    "k = 3: gleiche Steigung, aber verschiedene Achsenabschnitte",
+    [("k = 4", "den Achsenabschnitt als Steigung genommen"), ("k = 0", "k = 0 für „keine Lösung“ gehalten"), ("k = −3", "das Vorzeichen der Steigung gedreht")],
+    "Gleichsetzen: (k − 3) · x = 4. Wann kann man nicht nach x auflösen?", "Für k = 3 ist 0 · x = 4. Das geht nie. Für jedes andere k gilt x = 4 : (k − 3).",
+    lambda: all(((k - 3) * x == 4) for k in range(-6, 7) if k != 3 for x in [F(4, k - 3)]) and not any((3 - 3) * x == 4 for x in range(-50, 51))), g="mehrschritt")
+neu(f, "sachaufgabe", "LW", L("Zwei Zahlen haben die Summe 20 und die Differenz 6. Addiert man x + y = 20 und x − y = 6, so ist 2x = ①. Die größere Zahl ist x = ②. Die kleinere Zahl ist y = ③.",
+    K(3), [26, 13, 7], ["20 + 6", "(20 + 6) // 2", "20 - (20 + 6) // 2"], ["13 * 2", "26 / 2", "13 - 6"], "Das y fällt beim Addieren weg.", "2x = 26, x = 13. y = 20 − 13 = 7.",
+    {2: [(19, None, "x und y verwechselt")]}, hinweis=GZ))
+neu(f, "sachaufgabe", "FD", FDZ("Ein Kino verkauft 100 Karten. Erwachsene zahlen 8 €, Kinder 5 €. Die Einnahmen sind 620 €. Kim stellt die Gleichungen auf. x ist die Zahl der Erwachsenen, y die der Kinder.",
+    [("Karten: x + y = 100.", True), ("Einnahmen: 8y + 5x = 620.", False), ("Aus der ersten Gleichung folgt y = 100 − x.", 100 - 3 - (100 - 3) == 0)],
+    "Wer zahlt 8 €? Zu welcher Unbekannten gehört die 8?", "Erwachsene (x) zahlen 8 €, Kinder (y) zahlen 5 €: 8x + 5y = 620."))
+
 # ═════════════════════ Prüfen ═════════════════════
 KOMMA_LUECKE = re.compile(r"\d\s*,\s*[①②③④⑤□]")          # Lücke unmittelbar hinter dem Komma: wäre eine Ziffernfolge, keine Zahl (Auftrag 20)
 KOMMA_NEBEN = re.compile(r"[①②③④⑤□],|,[①②③④⑤□]")      # Komma direkt neben einem Lückenzeichen

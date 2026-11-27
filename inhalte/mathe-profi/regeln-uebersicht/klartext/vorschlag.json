@@ -1,0 +1,2081 @@
+{
+ "hinweis": "Vorschläge für B- und C-Einträge des Regel-Universums (Ideen, Einzelregeln, Rechenregel 14). Nichts davon ist eingespielt; A-Einträge sind nicht enthalten. Geprüft mit pruefen.py. Fachlich nicht von einer zweiten Stelle gegengelesen.",
+ "felder": "neu_kurz nur gesetzt, wo die Kurzbeschreibung (nur Ideen und Rechenregeln haben eine) neu gefasst werden soll; neu_warum_einstieg nur, wo die tiefe Einsicht der alten Fassung als erster Satz von „warum“ erhalten bleiben soll; rechnung = maschinell geprüfte Aussagen zum Beispiel.",
+ "eintraege": [
+  {
+   "id": "I-daten-1",
+   "ebene": "idee",
+   "gebiet": "Daten und Zufall",
+   "klasse": "6–8",
+   "alt_name": "Kennzahl",
+   "alt_satz": "Eine Zahl für viele – dabei geht meist etwas verloren.",
+   "alt_kurz": "Mittelwert, Median und Spannweite fassen viele Werte in einer Zahl zusammen.",
+   "neu_name": "Mittelwert, Median, Spannweite",
+   "neu_satz": "Mittelwert = Summe : Anzahl. Median = mittlerer Wert der geordneten Liste (bei gerader Anzahl: Mitte der beiden mittleren). Spannweite = größter − kleinster Wert.",
+   "neu_kurz": "Drei Zahlen beschreiben eine Datenreihe: die Mitte (Mittelwert, Median) und die Streuung (Spannweite).",
+   "neu_warum_einstieg": "Eine einzige Zahl fasst viele Werte zusammen und macht Daten vergleichbar – dabei geht etwas verloren: Zwei ganz verschiedene Datenreihen können denselben Mittelwert haben. Deshalb nimmt man meist zwei Zahlen, eine für die Mitte und eine für die Streuung.",
+   "beispiel": "Werte 2, 3, 10: Mittelwert (2 + 3 + 10) : 3 = 5, Median 3, Spannweite 10 − 2 = 8. Werte 2, 4, 6, 10: Median (4 + 6) : 2 = 5.",
+   "rechnung": [
+    "(2+3+10)/3 == 5",
+    "median([2,3,10]) == 3",
+    "max([2,3,10]) - min([2,3,10]) == 8",
+    "median([2,4,6,10]) == 5"
+   ],
+   "bedingung": "Für Zahlenwerte, nicht für Kategorien wie Lieblingsfarbe. Beim Median erst der Größe nach ordnen. Ein Ausreißer zieht den Mittelwert stark mit, den Median kaum (siehe D5).",
+   "begruendung": "Der Name „Kennzahl“ und der Satz „Eine Zahl für viele“ sagten nicht, welche Zahlen es gibt und wie man sie ausrechnet.",
+   "suchwoerter": [
+    "Mittelwert",
+    "Durchschnitt",
+    "Median",
+    "Zentralwert",
+    "Spannweite",
+    "arithmetisches Mittel",
+    "Streuung",
+    "Kennzahl"
+   ]
+  },
+  {
+   "id": "I-daten-2",
+   "ebene": "idee",
+   "gebiet": "Daten und Zufall",
+   "klasse": "8–10",
+   "alt_name": "Vom Teil aufs Ganze",
+   "alt_satz": "Von wenigen auf alle schließt man verlässlich, wenn der Zufall die wenigen auswählt.",
+   "alt_kurz": "Eine zufällig gezogene Stichprobe erlaubt verlässliche Schlüsse aufs Ganze; Größe heilt keine Verzerrung.",
+   "neu_name": "Stichprobe und Hochrechnen",
+   "neu_satz": "Aus einer Stichprobe rechnest du hoch: Anteil der Befragten mal Größe der ganzen Gruppe. Das ist nur eine Schätzung und nur brauchbar, wenn zufällig ausgewählt wurde.",
+   "neu_kurz": "Aus den Antworten weniger Befragter schätzt man, was in der ganzen Gruppe gilt.",
+   "neu_warum_einstieg": "Man kann selten alle fragen oder alles messen. Von wenigen auf alle schließt man verlässlich, wenn der Zufall die wenigen auswählt; eine größere Stichprobe schwankt dann weniger, eine einseitige Auswahl wird dadurch nicht besser.",
+   "beispiel": "20 von 100 Befragten mögen Pizza, es gibt 500 Schüler: 20 : 100 · 500 = 100, also etwa 100 Schüler.",
+   "rechnung": [
+    "20/100*500 == 100"
+   ],
+   "bedingung": "Nur bei zufälliger Auswahl verlässlich. Eine größere Stichprobe verringert die Zufallsschwankung unter gleichen Bedingungen, macht eine einseitige Auswahl aber nicht besser. Das Ergebnis ist ein Schätzwert, kein genauer Wert.",
+   "begruendung": "„Vom Teil aufs Ganze“ nannte kein Verfahren; das Kind sucht „Stichprobe“ und „Hochrechnen“ und bekam keine Rechenanleitung.",
+   "suchwoerter": [
+    "Stichprobe",
+    "Hochrechnen",
+    "Umfrage",
+    "Befragung",
+    "repräsentativ",
+    "Grundgesamtheit",
+    "Schätzen",
+    "Zufallsauswahl"
+   ]
+  },
+  {
+   "id": "I-daten-3",
+   "ebene": "idee",
+   "gebiet": "Daten und Zufall",
+   "klasse": "5–10",
+   "alt_name": "Anteil",
+   "alt_satz": "Bei gleich wahrscheinlichen Ergebnissen: günstige durch mögliche.",
+   "alt_kurz": "Sind alle Ergebnisse gleich wahrscheinlich, ist die Wahrscheinlichkeit der Anteil der günstigen Fälle.",
+   "neu_name": "Wahrscheinlichkeit (Laplace)",
+   "neu_satz": "Sind alle Ergebnisse gleich wahrscheinlich: Wahrscheinlichkeit = Anzahl der günstigen Ergebnisse : Anzahl aller möglichen Ergebnisse.",
+   "neu_kurz": "Bei gleichen Chancen zählt man die günstigen Fälle und teilt durch alle möglichen Fälle.",
+   "neu_warum_einstieg": "",
+   "beispiel": "Würfel, Ereignis „Primzahl“ = {2, 3, 5}: 3 von 6 Ergebnissen, also 3 : 6 = 1 : 2.",
+   "rechnung": [
+    "len([2,3,5]) / 6 == 1/2"
+   ],
+   "bedingung": "Nur bei gleich wahrscheinlichen Ergebnissen, etwa einem fairen Würfel oder einem Glücksrad mit gleich großen Feldern; sonst gilt die Formel nicht.",
+   "begruendung": "Der Name „Anteil“ kommt in keiner Suche nach Wahrscheinlichkeit vor; der Satz war schon brauchbar und bleibt fast gleich.",
+   "suchwoerter": [
+    "Wahrscheinlichkeit",
+    "Laplace",
+    "Laplace-Experiment",
+    "günstige Ergebnisse",
+    "mögliche Ergebnisse",
+    "Würfel",
+    "Zufall",
+    "Chance"
+   ]
+  },
+  {
+   "id": "I-daten-4",
+   "ebene": "idee",
+   "gebiet": "Daten und Zufall",
+   "klasse": "9–10",
+   "alt_name": "Stufen",
+   "alt_satz": "Am Pfad entlang mal, Pfade zusammen plus.",
+   "alt_kurz": "Besteht ein Versuch aus mehreren Schritten, zeichnet man einen Baum.",
+   "neu_name": "Baumdiagramm und Pfadregeln",
+   "neu_satz": "Im Baumdiagramm: Entlang eines Pfades malnehmen, die Pfade, die zum Ereignis gehören, addieren.",
+   "neu_kurz": "Versuche mit mehreren Schritten zeichnet man als Baum, die Wahrscheinlichkeiten stehen an den Zweigen.",
+   "neu_warum_einstieg": "",
+   "beispiel": "Münze zweimal werfen, genau einmal Kopf: Pfad KZ 1/2 · 1/2 = 1/4, Pfad ZK 1/4, zusammen 1/4 + 1/4 = 1/2.",
+   "rechnung": [
+    "1/2*1/2 == 1/4",
+    "1/2*1/2 + 1/2*1/2 == 1/2"
+   ],
+   "bedingung": "An jedem Zweig steht die Wahrscheinlichkeit dieser Stufe; beim Ziehen ohne Zurücklegen ändern sich die Zahlen der zweiten Stufe. Addiert werden nur Pfade, die sich gegenseitig ausschließen.",
+   "begruendung": "Der Name „Stufen“ ist kein Suchwort; der Satz „Am Pfad entlang mal, Pfade zusammen plus“ war brauchbar und wird nur um „Baumdiagramm“ ergänzt.",
+   "suchwoerter": [
+    "Baumdiagramm",
+    "Pfadregel",
+    "Pfadregeln",
+    "mehrstufiger Zufallsversuch",
+    "Ziehen mit Zurücklegen",
+    "Ziehen ohne Zurücklegen",
+    "Produktregel",
+    "Summenregel"
+   ]
+  },
+  {
+   "id": "I-zahlen-2",
+   "ebene": "idee",
+   "gebiet": "Zahlen",
+   "klasse": "5–6",
+   "alt_name": "Bündeln in Zehnern",
+   "alt_satz": "Zehn Einer sind ein Zehner, zehn Zehntel sind ein Einer.",
+   "alt_kurz": "Die Stelle einer Ziffer bestimmt ihren Wert: Das Zahlensystem bündelt in Zehnern, links wie rechts vom Komma.",
+   "neu_name": "Zehnersystem und Stellenwert",
+   "neu_satz": "Die Stelle bestimmt den Wert einer Ziffer: Jede Stelle ist zehnmal so viel wert wie die Stelle rechts daneben. Zehn Einer tauschst du gegen einen Zehner, zehn Zehntel gegen einen Einer.",
+   "neu_kurz": "Das Zehnersystem gibt jeder Ziffer ihren Wert durch ihre Stelle, links wie rechts vom Komma.",
+   "neu_warum_einstieg": "",
+   "beispiel": "5 302 = 5 · 1 000 + 3 · 100 + 0 · 10 + 2: Die 3 steht für 300. Zehn Zehntel: 10 · 0,1 = 1.",
+   "rechnung": [
+    "5*1000 + 3*100 + 0*10 + 2 == 5302",
+    "10*0.1 == 1"
+   ],
+   "bedingung": "Gilt im Zehnersystem, auch hinter dem Komma. Römische Zahlen haben keinen Stellenwert (X ist immer zehn).",
+   "begruendung": "„Bündeln in Zehnern“ ist kein Wort, unter dem ein Kind nachschlägt; gesucht wird „Stellenwert“, „Einer“, „Zehner“.",
+   "suchwoerter": [
+    "Stellenwert",
+    "Stellenwerttafel",
+    "Einer",
+    "Zehner",
+    "Hunderter",
+    "Tausender",
+    "Zehntel",
+    "Hundertstel",
+    "Dezimalsystem"
+   ]
+  },
+  {
+   "id": "I-zahlen-3",
+   "ebene": "idee",
+   "gebiet": "Zahlen",
+   "klasse": "5–6",
+   "alt_name": "Bausteine",
+   "alt_satz": "Primzahlen sind die Bausteine: Jede Zahl ab zwei ist aus ihnen malgenommen.",
+   "alt_kurz": "Jede natürliche Zahl ab 2 lässt sich so lange in Faktoren zerlegen, bis nur noch Primzahlen übrig sind.",
+   "neu_name": "Primfaktorzerlegung",
+   "neu_satz": "Zerlege eine natürliche Zahl ab 2 in Faktoren, bis nur noch Primzahlen (2, 3, 5, 7, 11 …) übrig sind; teile dazu immer durch die kleinste Primzahl, die aufgeht.",
+   "neu_kurz": "Aus der Zerlegung in Primzahlen liest man Teiler, ggT und kgV ab und kürzt Brüche.",
+   "neu_warum_einstieg": "",
+   "beispiel": "60 : 2 = 30, 30 : 2 = 15, 15 : 3 = 5, also 60 = 2 · 2 · 3 · 5.",
+   "rechnung": [
+    "zerlege(60) == [2,2,3,5]",
+    "2*2*3*5 == 60",
+    "alle_prim([2,2,3,5])"
+   ],
+   "bedingung": "Nur natürliche Zahlen ab 2; die 1 ist keine Primzahl. Die Zerlegung ist bis auf die Reihenfolge immer dieselbe.",
+   "begruendung": "„Bausteine“ verrät nicht, was zu tun ist; das Kind sucht „Primzahlen“ und „Primfaktorzerlegung“.",
+   "suchwoerter": [
+    "Primfaktorzerlegung",
+    "Primzahl",
+    "Primfaktoren",
+    "Zerlegen",
+    "Teiler",
+    "ggT",
+    "kgV",
+    "Faktorisieren"
+   ]
+  },
+  {
+   "id": "I-zahlen-4",
+   "ebene": "idee",
+   "gebiet": "Zahlen",
+   "klasse": "6",
+   "alt_name": "Schreibweisen",
+   "alt_satz": "Ein Halb, null Komma fünf, fünfzig Prozent: dreimal dieselbe Zahl.",
+   "alt_kurz": "Ein Bruch, eine Kommazahl und eine Prozentangabe können genau dieselbe Zahl meinen.",
+   "neu_name": "Bruch, Dezimalzahl, Prozent",
+   "neu_satz": "Dieselbe Zahl kannst du als Bruch, als Dezimalzahl und in Prozent schreiben: Dezimalzahl = Zähler : Nenner, Prozent = Dezimalzahl · 100 %.",
+   "neu_kurz": "Bruch, Kommazahl und Prozent sind drei Schreibweisen derselben Zahl, man wählt die handlichste.",
+   "neu_warum_einstieg": "",
+   "beispiel": "3/4: 3 : 4 = 0,75 und 0,75 · 100 = 75, also 3/4 = 0,75 = 75 %.",
+   "rechnung": [
+    "3/4 == 0.75",
+    "0.75*100 == 75"
+   ],
+   "bedingung": "Der Nenner ist nicht 0. Die Dezimalzahl hört auf oder wiederholt sich (1/3 = 0,3̅).",
+   "begruendung": "„Schreibweisen“ sagt nicht, zwischen welchen; gesucht wird „Bruch in Dezimalzahl“ oder „Prozent“.",
+   "suchwoerter": [
+    "Bruch in Dezimalzahl",
+    "Dezimalzahl in Bruch",
+    "Prozent in Bruch",
+    "umwandeln",
+    "Prozent",
+    "Kommazahl",
+    "Bruch"
+   ]
+  },
+  {
+   "id": "I-zahlen-5",
+   "ebene": "idee",
+   "gebiet": "Zahlen",
+   "klasse": "5–10",
+   "alt_name": "Hoch und zurück",
+   "alt_satz": "Hoch rechnet hin, die Wurzel rechnet zurück: √(x²) = |x|.",
+   "alt_kurz": "Potenz, Wurzel und Logarithmus gehören zu einer Gleichung und fragen nach Ergebnis, Basis oder Hochzahl.",
+   "neu_name": "Potenz, Wurzel, Logarithmus",
+   "neu_satz": "Potenz: dieselbe Zahl mehrmals malnehmen (2³ = 2 · 2 · 2 = 8). Zurückrechnen: Die Wurzel fragt nach der Basis (√49 = 7, weil 7² = 49), der Logarithmus nach der Hochzahl (log₂ 8 = 3, weil 2³ = 8).",
+   "neu_kurz": "Hoch rechnet vorwärts; Wurzel und Logarithmus rechnen zurück zur Basis und zur Hochzahl.",
+   "neu_warum_einstieg": "Potenzieren fragt: Was kommt heraus? Die Wurzel fragt zurück nach der Basis, der Logarithmus nach der Hochzahl. Alle drei gehören zu einer einzigen Gleichung wie 2³ = 8.",
+   "beispiel": "2³ = 8, deshalb √49 = 7 (7² = 49) und log₂ 8 = 3 (2³ = 8).",
+   "rechnung": [
+    "2*2*2 == 8",
+    "7**2 == 49",
+    "wurzel(49) == 7",
+    "2**3 == 8",
+    "log(2,8) == 3"
+   ],
+   "bedingung": "Die Quadratwurzel gibt es nur für Zahlen ab 0 und ist nie negativ; √(x²) = |x|. Den Logarithmus gibt es nur für Basis b > 0, b ≠ 1 und Zahlen x > 0.",
+   "begruendung": "„Hoch und zurück“ und „√(x²) = |x|“ sagen einem Kind nicht, was es rechnen soll.",
+   "suchwoerter": [
+    "Potenz",
+    "Hochzahl",
+    "Exponent",
+    "Basis",
+    "Wurzel",
+    "Quadratwurzel",
+    "Logarithmus",
+    "hoch",
+    "Quadratzahl"
+   ]
+  },
+  {
+   "id": "I-geld-1",
+   "ebene": "idee",
+   "gebiet": "Geld und Verhältnisse",
+   "klasse": "5",
+   "alt_name": "Größe",
+   "alt_satz": "Kleinere Einheit, größere Zahl – größere Einheit, kleinere Zahl.",
+   "alt_kurz": "Eine Größe besteht aus Zahl und Einheit.",
+   "neu_name": "Einheiten umrechnen",
+   "neu_satz": "In eine kleinere Einheit: mal die Umrechnungszahl, die Zahl wird größer. In eine größere Einheit: geteilt, die Zahl wird kleiner (1 m = 100 cm, 1 kg = 1 000 g).",
+   "neu_kurz": "Wechselt man die Einheit, ändert sich die Zahl: Aus Metern werden mehr Zentimeter.",
+   "neu_warum_einstieg": "",
+   "beispiel": "3 m = 3 · 100 cm = 300 cm; 2 500 g = 2 500 : 1 000 kg = 2,5 kg.",
+   "rechnung": [
+    "3*100 == 300",
+    "2500/1000 == 2.5"
+   ],
+   "bedingung": "Die Umrechnungszahl hängt von der Einheit ab: Länge 10 oder 1 000, Fläche 100, Raum 1 000, Zeit 60 und 24 (nicht 10).",
+   "begruendung": "„Größe“ ist kein Suchwort für Umrechnen, und der Satz nannte nicht, wann man mal und wann geteilt rechnet.",
+   "suchwoerter": [
+    "Einheiten umrechnen",
+    "Umrechnen",
+    "Meter",
+    "Zentimeter",
+    "Kilogramm",
+    "Gramm",
+    "Länge",
+    "Masse",
+    "Zeit",
+    "Größen"
+   ]
+  },
+  {
+   "id": "I-geld-2",
+   "ebene": "idee",
+   "gebiet": "Geld und Verhältnisse",
+   "klasse": "5–8",
+   "alt_name": "Wert für eins",
+   "alt_satz": "Bei gleichem Preis je Einheit kostet doppelt so viel doppelt so viel.",
+   "alt_kurz": "Bei proportionalen Größen gehört zu jeder Einheit derselbe Wert.",
+   "neu_name": "Dreisatz: Wert für eins",
+   "neu_satz": "Rechne erst auf 1 Stück, das heißt teilen, dann auf die gewünschte Anzahl, das heißt malnehmen. Das geht, wenn doppelte Menge doppelten Preis bedeutet.",
+   "neu_kurz": "Bei gleichem Preis je Einheit rechnet man vom Wert für 1 auf jede andere Menge.",
+   "neu_warum_einstieg": "",
+   "beispiel": "4 Hefte kosten 6 €: 6 : 4 = 1,50 € für ein Heft, 7 Hefte kosten 1,50 · 7 = 10,50 €.",
+   "rechnung": [
+    "6/4 == 1.5",
+    "1.5*7 == 10.5"
+   ],
+   "bedingung": "Diese Reihenfolge gilt bei direkter Proportionalität (gleicher Preis je Stück). Bei „je mehr, desto weniger“ rechnet man erst mal, dann geteilt.",
+   "begruendung": "„Wert für eins“ steht in keiner Suche; das Kind sucht „Dreisatz“, und der Satz sagte nichts über das Vorgehen.",
+   "suchwoerter": [
+    "Dreisatz",
+    "proportional",
+    "Preis pro Stück",
+    "Wert für eins",
+    "Verhältnis",
+    "Maßstab",
+    "Stückpreis"
+   ]
+  },
+  {
+   "id": "I-geld-3",
+   "ebene": "idee",
+   "gebiet": "Geld und Verhältnisse",
+   "klasse": "6–7",
+   "alt_name": "Prozent als Faktor",
+   "alt_satz": "Prozent heißt: von hundert.",
+   "alt_kurz": "Prozent ist nur ein anderes Wort für Hundertstel.",
+   "neu_name": "Prozentrechnung",
+   "neu_satz": "p % von einem Wert: Wert · p : 100. Um p % erhöhen: mal (1 + p : 100); um p % senken: mal (1 − p : 100).",
+   "neu_kurz": "Prozent heißt Hundertstel; eine Änderung um p % ist ein Malnehmen mit einem Faktor.",
+   "neu_warum_einstieg": "",
+   "beispiel": "20 % von 80 € = 80 · 20 : 100 = 16 €; 20 % mehr: 80 · 1,2 = 96 €; 20 % weniger: 80 · 0,8 = 64 €.",
+   "rechnung": [
+    "80*20/100 == 16",
+    "80*(1+20/100) == 96",
+    "80*(1-20/100) == 64"
+   ],
+   "bedingung": "Der Wert, von dem die Prozente genommen werden (Grundwert), ist 100 %. Mehrere Änderungen nacheinander: Faktoren malnehmen, nicht die Prozente addieren.",
+   "begruendung": "„Prozent heißt: von hundert“ nannte keinen Rechenweg und half bei keiner Aufgabe.",
+   "suchwoerter": [
+    "Prozent",
+    "Prozentrechnung",
+    "Prozentwert",
+    "Grundwert",
+    "Prozentsatz",
+    "Rabatt",
+    "Aufschlag",
+    "Mehrwertsteuer",
+    "Wachstumsfaktor"
+   ]
+  },
+  {
+   "id": "I-geo-1",
+   "ebene": "idee",
+   "gebiet": "Geometrie",
+   "klasse": "5–7",
+   "alt_name": "Winkel an Geraden",
+   "alt_satz": "Gleiche Winkel an Parallelen – darum im ebenen Dreieck immer 180 Grad.",
+   "alt_kurz": "An geschnittenen Parallelen sind Stufen- und Wechselwinkel gleich; Nebenwinkel ergeben 180°.",
+   "neu_name": "Winkel an Geraden und Parallelen",
+   "neu_satz": "Nebenwinkel sind zusammen 180°, Scheitelwinkel sind gleich groß. Schneidet eine Gerade zwei Parallelen, sind Stufen- und Wechselwinkel gleich groß – und umgekehrt.",
+   "neu_kurz": "Mit Neben-, Scheitel-, Stufen- und Wechselwinkeln findet man fehlende Winkel, auch im Dreieck.",
+   "neu_warum_einstieg": "An Parallelen kehren dieselben Winkel wieder – deshalb ergeben die drei Winkel im ebenen Dreieck zusammen 180°.",
+   "beispiel": "Winkel 65°: Nebenwinkel 180° − 65° = 115°, Scheitelwinkel 65°.",
+   "rechnung": [
+    "180 - 65 == 115"
+   ],
+   "bedingung": "Neben- und Scheitelwinkel gelten bei jeder Geradenkreuzung; Stufen- und Wechselwinkel sind nur gleich, wenn die geschnittenen Geraden parallel sind.",
+   "begruendung": "Der Satz zielte auf die Winkelsumme im Dreieck und nannte keine der vier Winkelarten, nach denen ein Kind sucht.",
+   "suchwoerter": [
+    "Nebenwinkel",
+    "Scheitelwinkel",
+    "Stufenwinkel",
+    "Wechselwinkel",
+    "Parallelen",
+    "Winkel an Geraden",
+    "Winkelsumme"
+   ]
+  },
+  {
+   "id": "I-geo-2",
+   "ebene": "idee",
+   "gebiet": "Geometrie",
+   "klasse": "5–7",
+   "alt_name": "Gleicher Abstand",
+   "alt_satz": "Der Kreis: alle Punkte gleich weit von der Mitte.",
+   "alt_kurz": "Kreis um einen Punkt, Mittelsenkrechte zweier Punkte, Winkelhalbierende zweier sich schneidender Geraden.",
+   "neu_name": "Mittelsenkrechte, Winkelhalbierende",
+   "neu_satz": "Gleich weit von einem Punkt M: Kreis um M. Gleich weit von A und B: Mittelsenkrechte von [AB]. Gleich weit von zwei sich schneidenden Geraden: ihre beiden Winkelhalbierenden.",
+   "neu_kurz": "Linien aus Punkten mit gleichem Abstand: Damit findet man die Mittelpunkte von Um- und Inkreis.",
+   "neu_warum_einstieg": "",
+   "beispiel": "A(0 | 0), B(4 | 0), P(2 | 3): PA² = 2² + 3² = 13 und PB² = (2 − 4)² + 3² = 13, also liegt P auf der Mittelsenkrechten.",
+   "rechnung": [
+    "2**2 + 3**2 == 13",
+    "(2-4)**2 + 3**2 == 13"
+   ],
+   "bedingung": "Die Mittelsenkrechte steht senkrecht auf [AB] durch dessen Mitte. Zwei sich schneidende Geraden haben zwei Winkelhalbierende, senkrecht zueinander; im Inneren eines Winkels liegt die innere.",
+   "begruendung": "Der Name „Gleicher Abstand“ und der Satz nur über den Kreis sagten nicht, welche Linie man wann zeichnet.",
+   "suchwoerter": [
+    "Kreis",
+    "Mittelsenkrechte",
+    "Winkelhalbierende",
+    "Abstand",
+    "Umkreis",
+    "Inkreis",
+    "Ortslinie",
+    "gleicher Abstand"
+   ]
+  },
+  {
+   "id": "I-fur-1",
+   "ebene": "idee",
+   "gebiet": "Fläche und Raum",
+   "klasse": "5–6",
+   "alt_name": "Auslegen und zählen",
+   "alt_satz": "Messen heißt auslegen und zählen.",
+   "alt_kurz": "Eine Fläche misst man, indem man sie lückenlos mit gleich großen Quadraten auslegt und zählt.",
+   "neu_name": "Flächeninhalt und Volumen messen",
+   "neu_satz": "Fläche = Anzahl der Einheitsquadrate, die lückenlos hineinpassen (1 cm² = Quadrat mit 1 cm Seite). Volumen = Anzahl der Einheitswürfel.",
+   "neu_kurz": "Formeln für Fläche und Rauminhalt sind Abkürzungen fürs Zählen: 4 Reihen zu je 6 Quadraten sind 6 · 4.",
+   "neu_warum_einstieg": "",
+   "beispiel": "Rechteck 3 cm mal 4 cm: 3 · 4 = 12 Quadrate, also 12 cm².",
+   "rechnung": [
+    "3*4 == 12"
+   ],
+   "bedingung": "Die Quadrate liegen lückenlos und ohne Überlappung; die Einheit passt zur Größe (cm² für Flächen, cm³ für Körper).",
+   "begruendung": "„Messen heißt auslegen und zählen“ klingt wie eine Lebensweisheit und nennt weder Einheit noch Rechnung.",
+   "suchwoerter": [
+    "Flächeninhalt",
+    "Fläche",
+    "Quadratzentimeter",
+    "cm²",
+    "Volumen",
+    "Rauminhalt",
+    "Kubikzentimeter",
+    "Einheitsquadrat"
+   ]
+  },
+  {
+   "id": "I-fur-2",
+   "ebene": "idee",
+   "gebiet": "Fläche und Raum",
+   "klasse": "5–8",
+   "alt_name": "Aus dem Rechteck",
+   "alt_satz": "Aus dem Rechteck entstehen die Flächen vieler Figuren.",
+   "alt_kurz": "Viele Flächenformeln bauen auf dem Rechteck auf; Kreissektoren nähern es an, im Grenzwert folgt exakt A = πr².",
+   "neu_name": "Flächenformeln (Dreieck, Trapez …)",
+   "neu_satz": "Rechteck: a · b; Parallelogramm: Grundseite · Höhe; Dreieck: Grundseite · Höhe : 2; Trapez: (a + c) : 2 · Höhe; Kreis: π · r · r.",
+   "neu_kurz": "Aus dem Rechteck lassen sich die Flächenformeln für Parallelogramm, Dreieck, Trapez und Kreis herleiten.",
+   "neu_warum_einstieg": "",
+   "beispiel": "Dreieck g = 6, h = 4: 6 · 4 : 2 = 12. Trapez a = 5, c = 3, h = 4: (5 + 3) : 2 · 4 = 16.",
+   "rechnung": [
+    "6*4/2 == 12",
+    "(5+3)/2*4 == 16"
+   ],
+   "bedingung": "Die Höhe steht senkrecht auf der Grundseite. Beim Trapez sind a und c die parallelen Seiten. Beim Kreis ist r der Radius.",
+   "begruendung": "„Aus dem Rechteck“ sagt nicht, welche Fläche man damit berechnet; das Kind sucht Dreieck, Trapez, Kreis.",
+   "suchwoerter": [
+    "Flächenformeln",
+    "Dreieck Fläche",
+    "Trapez Fläche",
+    "Parallelogramm",
+    "Kreisfläche",
+    "Flächeninhalt",
+    "Grundseite",
+    "Höhe"
+   ]
+  },
+  {
+   "id": "I-fur-3",
+   "ebene": "idee",
+   "gebiet": "Fläche und Raum",
+   "klasse": "8–10",
+   "alt_name": "Aus dem Quader",
+   "alt_satz": "Grundfläche mal Höhe – bei Pyramide und Kegel nur ein Drittel davon.",
+   "alt_kurz": "Ein Quader ist ein Stapel gleicher Schichten: Grundfläche mal Höhe.",
+   "neu_name": "Volumen von Körpern",
+   "neu_satz": "Prisma und Zylinder: V = Grundfläche · Höhe. Pyramide und Kegel: V = ein Drittel von Grundfläche · Höhe.",
+   "neu_kurz": "Ein Körper aus gleichen Schichten hat das Volumen Grundfläche mal Höhe, ein spitz zulaufender nur ein Drittel.",
+   "neu_warum_einstieg": "",
+   "beispiel": "Quader 2 · 3 · 4 = 24 cm³; Pyramide mit G = 12 cm² und h = 5 cm: 12 · 5 : 3 = 20 cm³.",
+   "rechnung": [
+    "2*3*4 == 24",
+    "12*5/3 == 20"
+   ],
+   "bedingung": "h ist die senkrechte Höhe (bei schiefen Körpern nicht die schräge Kante). Bei Pyramide und Kegel steht h senkrecht auf der Grundfläche.",
+   "begruendung": "Der Name „Aus dem Quader“ verrät nicht, dass es um das Volumen geht.",
+   "suchwoerter": [
+    "Volumen",
+    "Rauminhalt",
+    "Prisma",
+    "Zylinder",
+    "Pyramide",
+    "Kegel",
+    "Grundfläche mal Höhe",
+    "Quader"
+   ]
+  },
+  {
+   "id": "I-fur-4",
+   "ebene": "idee",
+   "gebiet": "Fläche und Raum",
+   "klasse": "5–10",
+   "alt_name": "Haut des Körpers",
+   "alt_satz": "Aufklappen zeigt bei Quader, Prisma, Pyramide, Zylinder und Kegel die ganze Haut des Körpers.",
+   "alt_kurz": "Das Netz zeigt die Oberfläche etwa eines Quaders flach ausgebreitet, wie ein aufgeklappter Karton.",
+   "neu_name": "Oberfläche und Netz",
+   "neu_satz": "Oberfläche = Summe aller Außenflächen. Im Netz (dem aufgeklappten Körper) rechnest du jede Fläche einzeln und zählst zusammen; Quader: O = 2 · (a · b + a · c + b · c).",
+   "neu_kurz": "Aufgeklappt zeigt das Netz alle Flächen eines Körpers; ihre Summe ist die Oberfläche.",
+   "neu_warum_einstieg": "",
+   "beispiel": "Quader 5 · 4 · 3 cm: O = 2 · (20 + 15 + 12) = 94 cm².",
+   "rechnung": [
+    "2*(5*4+5*3+4*3) == 94"
+   ],
+   "bedingung": "Ein Netz gibt es für Körper mit ebenen Flächen sowie für Zylinder und Kegel (Mantel abgewickelt); eine Kugel lässt sich nicht flach ausbreiten (O = 4 · π · r²).",
+   "begruendung": "„Haut des Körpers“ ist ein Bild, aber kein Suchwort, und der Satz sagte nicht, wie man die Oberfläche berechnet.",
+   "suchwoerter": [
+    "Oberfläche",
+    "Netz",
+    "Körpernetz",
+    "Mantel",
+    "Mantelfläche",
+    "Quader",
+    "Würfel",
+    "Zylinder",
+    "Schrägbild"
+   ]
+  },
+  {
+   "id": "I-algebra-1",
+   "ebene": "idee",
+   "gebiet": "Algebra",
+   "klasse": "7",
+   "alt_name": "Term",
+   "alt_satz": "Ein Term ist ein Rechenrezept: Zahl hinein, Ergebnis heraus.",
+   "alt_kurz": "Ein Term schreibt eine Rechnung auf, bevor man die Zahl kennt.",
+   "neu_name": "Term (Rechnung mit Buchstaben)",
+   "neu_satz": "Ein Term ist eine Rechnung mit Buchstaben. Setzt du für den Buchstaben eine Zahl ein, kannst du ihn ausrechnen.",
+   "neu_kurz": "Mit einem Term kann man rechnen, bevor man die Zahl kennt; gleichwertige Terme liefern immer dasselbe.",
+   "neu_warum_einstieg": "",
+   "beispiel": "Term 3 · x + 2 mit x = 4: 3 · 4 + 2 = 14.",
+   "rechnung": [
+    "3*4+2 == 14"
+   ],
+   "bedingung": "Eingesetzt werden nur erlaubte Zahlen (kein Nenner 0). Gleichwertige Terme liefern für jede erlaubte Zahl dasselbe.",
+   "begruendung": "„Rechenrezept: Zahl hinein, Ergebnis heraus“ ist ein Bild; der Satz sagt nicht, was man mit dem Buchstaben tut.",
+   "suchwoerter": [
+    "Term",
+    "Variable",
+    "Buchstabe",
+    "einsetzen",
+    "Termwert",
+    "Rechenausdruck",
+    "gleichwertige Terme"
+   ]
+  },
+  {
+   "id": "I-algebra-3",
+   "ebene": "idee",
+   "gebiet": "Algebra",
+   "klasse": "5–9",
+   "alt_name": "Gleichung lösen",
+   "alt_satz": "Lösen heißt: alle Zahlen finden, für die die Gleichung stimmt.",
+   "alt_kurz": "Eine Gleichung ist eine Frage: Für welche Zahlen stimmt sie?",
+   "neu_name": "Gleichung lösen",
+   "neu_satz": "Rechne auf beiden Seiten dasselbe, bis x allein steht – nie mal oder durch 0. Mach zum Schluss die Probe: Lösung in die Gleichung einsetzen.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "Eine Gleichung ist eine Frage: Für welche Zahlen stimmt sie? Die Antwort kann eine Zahl sein, mehrere, keine oder ein ganzer Bereich. Umformen ist nur der schnelle Weg dorthin, Einsetzen zeigt, ob die Antwort stimmt.",
+   "beispiel": "x + 5 = 12: beide Seiten − 5 gibt x = 7; Probe 7 + 5 = 12.",
+   "rechnung": [
+    "12-5 == 7",
+    "7+5 == 12"
+   ],
+   "bedingung": "Es sind nur umkehrbare Umformungen erlaubt. Eine Gleichung kann eine Lösung haben, mehrere, keine oder jede Zahl; bei x² und bei x im Nenner gelten Zusatzregeln.",
+   "begruendung": "Der Satz „Lösen heißt: alle Zahlen finden …“ ist richtig, sagt aber nicht, wie man vorgeht.",
+   "suchwoerter": [
+    "Gleichung",
+    "lösen",
+    "Waage",
+    "Äquivalenzumformung",
+    "Probe",
+    "Lösungsmenge",
+    "x ausrechnen"
+   ]
+  },
+  {
+   "id": "I-algebra-4",
+   "ebene": "idee",
+   "gebiet": "Algebra",
+   "klasse": "9–10",
+   "alt_name": "Höherer Grad",
+   "alt_satz": "Steht x im Quadrat: meist erst null auf eine Seite, dann zerlegen.",
+   "alt_kurz": "Bei Gleichungen höheren Grades faktorisiert man, zieht die Wurzel oder nutzt eine Lösungsformel, je nach Form.",
+   "neu_name": "Gleichungen mit x² (und höher)",
+   "neu_satz": "Alles auf eine Seite bringen, in Faktoren zerlegen, jeden Faktor einzeln gleich null setzen; ein Faktor, der nie null wird (wie x² + 1), liefert keine Lösung. Bei x² = a mit a > 0 gibt es zwei Lösungen: √a und −√a.",
+   "neu_kurz": "Gleichungen mit x² löst man durch Faktorisieren, Wurzelziehen oder mit der Lösungsformel, je nach Form.",
+   "neu_warum_einstieg": "",
+   "beispiel": "x² − 9 = 0 gibt (x − 3) · (x + 3) = 0, also x = 3 oder x = −3.",
+   "rechnung": [
+    "3**2 - 9 == 0",
+    "(-3)**2 - 9 == 0",
+    "(3-3)*(3+3) == 0"
+   ],
+   "bedingung": "Das Zerlegen gelingt nicht immer; dann hilft die Lösungsformel. x² = a hat für a > 0 zwei, für a = 0 eine, für a < 0 keine Lösung (über den reellen Zahlen). Nie durch x teilen: Dabei geht x = 0 verloren.",
+   "begruendung": "„Höherer Grad“ ist ein Fachbegriff; das Kind sucht „Gleichung mit x²“ oder „quadratische Gleichung“.",
+   "suchwoerter": [
+    "quadratische Gleichung",
+    "x²",
+    "Lösungsformel",
+    "Faktorisieren",
+    "Nullprodukt",
+    "Wurzel ziehen",
+    "Gleichung höheren Grades"
+   ]
+  },
+  {
+   "id": "I-funktionen-1",
+   "ebene": "idee",
+   "gebiet": "Funktionen",
+   "klasse": "8–9",
+   "alt_name": "Zuordnung",
+   "alt_satz": "Zu jedem x gehört genau ein y.",
+   "alt_kurz": "Eine Funktion ist eine Zuordnung, bei der zu jedem x genau ein y gehört.",
+   "neu_name": "Funktion: Gleichung, Tabelle, Graph",
+   "neu_satz": "Eine Funktion gibt jedem x genau ein y. Tabelle, Graph und Gleichung zeigen dieselbe Zuordnung; den Wert rechnest du aus, indem du x einsetzt.",
+   "neu_kurz": "Tabelle, Graph und Gleichung sind drei Darstellungen derselben Zuordnung von x zu y.",
+   "neu_warum_einstieg": "",
+   "beispiel": "f(x) = 2x + 1: f(3) = 2 · 3 + 1 = 7.",
+   "rechnung": [
+    "2*3+1 == 7"
+   ],
+   "bedingung": "Zu einem y dürfen mehrere x gehören (x² gibt für 3 und −3 dasselbe), zu einem x nie mehrere y: Der Kreis x² + y² = 25 ist keine Funktion.",
+   "begruendung": "„Zuordnung“ allein sagt nicht, wie man einen Funktionswert findet.",
+   "suchwoerter": [
+    "Funktion",
+    "Funktionswert",
+    "f(x)",
+    "Zuordnung",
+    "einsetzen",
+    "Wertetabelle",
+    "Graph",
+    "Funktionsgleichung"
+   ]
+  },
+  {
+   "id": "I-funktionen-2",
+   "ebene": "idee",
+   "gebiet": "Funktionen",
+   "klasse": "8–10",
+   "alt_name": "Wachstum",
+   "alt_satz": "Bei y = A · qˣ mit A > 0 steigt der Graph für q > 1, fällt für 0 < q < 1 und bleibt für q = 1 konstant.",
+   "alt_kurz": "Linear: in gleichen x-Schritten kommt derselbe Betrag dazu; exponentiell: wird derselbe Faktor malgenommen.",
+   "neu_name": "Linear oder exponentiell",
+   "neu_satz": "Pro x-Schritt immer dieselbe Zahl dazu: linear. Pro x-Schritt immer mal derselbe Faktor q > 0: exponentiell, y = A · qˣ; mit A > 0 steigt es für q > 1 und fällt für 0 < q < 1.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "2, 4, 6, 8: immer + 2, linear. 2, 4, 8, 16: immer · 2, exponentiell.",
+   "rechnung": [
+    "[4-2,6-4,8-6] == [2,2,2]",
+    "[4/2,8/4,16/8] == [2,2,2]"
+   ],
+   "bedingung": "Exponentiell: Anfangswert A > 0 und Faktor q > 0 je x-Schritt der Länge 1 (bei Schrittweite h ist der Faktor qʰ). Bei q = 1 bleibt der Wert konstant.",
+   "begruendung": "Der Name „Wachstum“ und der Satz mit A, q und Ungleichungen nannten das Erkennungsmerkmal nicht in Kindersprache.",
+   "suchwoerter": [
+    "Wachstum",
+    "linear",
+    "exponentiell",
+    "exponentielles Wachstum",
+    "Zerfall",
+    "Wachstumsfaktor",
+    "Zunahme",
+    "Abnahme",
+    "Verdopplung"
+   ]
+  },
+  {
+   "id": "I-funktionen-3",
+   "ebene": "idee",
+   "gebiet": "Funktionen",
+   "klasse": "8–10",
+   "alt_name": "Gleichung und Form",
+   "alt_satz": "Die Gleichung verrät die Form: y = mx + t gibt eine Gerade, y = ax² (a ≠ 0) eine Parabel.",
+   "alt_kurz": "Bei bekannten Funktionstypen verrät die Gleichung die Form des Graphen, bevor man Punkte berechnet.",
+   "neu_name": "Gerade, Parabel, Hyperbel",
+   "neu_satz": "y = m · x + t ist eine Gerade (m = Steigung, t = Schnittpunkt mit der y-Achse). y = a · x² mit a ≠ 0 ist eine Parabel, y = a : x mit a ≠ 0 und x ≠ 0 eine Hyperbel.",
+   "neu_kurz": "Die Gleichung verrät, ob der Graph eine Gerade, Parabel oder Hyperbel ist, schon vor dem Zeichnen.",
+   "neu_warum_einstieg": "",
+   "beispiel": "y = 2x + 1: x = 0 gibt y = 1 (das ist t), x = 1 gibt y = 3, die Steigung ist 3 − 1 = 2.",
+   "rechnung": [
+    "2*0+1 == 1",
+    "2*1+1 == 3",
+    "(2*1+1) - (2*0+1) == 2"
+   ],
+   "bedingung": "Dass x im Nenner steht, reicht für eine Hyperbel nicht: 1/(x² + 1) ist keine. Die Gleichung muss genau diese Form haben.",
+   "begruendung": "„Gleichung und Form“ nannte keine der Formen, nach denen ein Kind sucht.",
+   "suchwoerter": [
+    "Gerade",
+    "lineare Funktion",
+    "Steigung",
+    "y-Achsenabschnitt",
+    "Parabel",
+    "quadratische Funktion",
+    "Hyperbel",
+    "Funktionsgleichung",
+    "mx + t"
+   ]
+  },
+  {
+   "id": "R14",
+   "ebene": "rechenregel",
+   "gebiet": "Rechenregeln",
+   "klasse": "5–10",
+   "alt_name": "Nullprodukt",
+   "alt_satz": "Mal ergibt nur null, wenn eine der Zahlen null ist.",
+   "alt_kurz": "Eine Gleichung „Produkt = 0“ darf man in einfache Gleichungen zerlegen.",
+   "neu_name": "Produkt gleich null (Nullprodukt)",
+   "neu_satz": "Steht ein Produkt gleich 0, ist mindestens ein Faktor 0: Setze jeden Faktor einzeln gleich 0. Das gilt nur bei „= 0“, nicht bei einer anderen Zahl.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "x · (x − 3) = 0 gibt x = 0 oder x = 3.",
+   "rechnung": [
+    "0*(0-3) == 0",
+    "3*(3-3) == 0"
+   ],
+   "bedingung": "Auf der einen Seite muss ein Produkt stehen, auf der anderen genau 0. Aus (x − 2) · (x + 3) = 6 folgt nicht x − 2 = 6. Nicht durch x teilen, sondern ausklammern.",
+   "begruendung": "„Nullprodukt“ ist kein Wort, unter dem ein Kind sucht; der Satz wird um das Tun ergänzt, der Inhalt bleibt.",
+   "suchwoerter": [
+    "Nullprodukt",
+    "Produkt gleich null",
+    "Satz vom Nullprodukt",
+    "Faktor null",
+    "ausklammern",
+    "Gleichung zerlegen"
+   ]
+  },
+  {
+   "id": "Z3",
+   "ebene": "einzelregel",
+   "gebiet": "Zahlen",
+   "klasse": "5",
+   "alt_name": "Andere Zahlschriften",
+   "alt_satz": "Römische Zahlen reihen Zeichen aneinander; das Zweiersystem bündelt in Zweiern statt in Zehnern.",
+   "alt_kurz": "",
+   "neu_name": "Römische Zahlen und Zweiersystem",
+   "neu_satz": "Römisch: I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000; ein kleineres Zeichen vor einem größeren wird abgezogen (nur IV, IX, XL, XC, CD, CM). Zweiersystem: Die Stellen sind 1, 2, 4, 8 … wert, es gibt nur die Ziffern 0 und 1.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "XIV = 10 + (5 − 1) = 14; MCMXC = 1000 + 900 + 90 = 1990; 1101 im Zweiersystem = 8 + 4 + 0 + 1 = 13.",
+   "rechnung": [
+    "roemisch('XIV') == 14",
+    "roemisch('MCMXC') == 1990",
+    "zweier('1101') == 13",
+    "8+4+0+1 == 13"
+   ],
+   "bedingung": "Römische Zahlen haben keinen Stellenwert; dasselbe Zeichen steht höchstens dreimal hintereinander.",
+   "begruendung": "„Andere Zahlschriften“ sagt nicht, welche, und der Satz zählte kein einziges Zeichen auf.",
+   "suchwoerter": [
+    "römische Zahlen",
+    "römisch",
+    "Zweiersystem",
+    "Binärzahlen",
+    "Dualsystem",
+    "Zahlschrift",
+    "XIV"
+   ]
+  },
+  {
+   "id": "Z6",
+   "ebene": "einzelregel",
+   "gebiet": "Zahlen",
+   "klasse": "5",
+   "alt_name": "Teiler und Vielfache",
+   "alt_satz": "a ist Teiler von b, wenn b geteilt durch a ohne Rest aufgeht.",
+   "alt_kurz": "",
+   "neu_name": "Teiler und Vielfache",
+   "neu_satz": "6 ist ein Teiler von 18, wenn 18 : 6 ohne Rest aufgeht; dann ist 18 ein Vielfaches von 6. Teiler findest du in Paaren.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Teiler von 12: 1 · 12, 2 · 6, 3 · 4, also 1, 2, 3, 4, 6, 12.",
+   "rechnung": [
+    "teiler(12) == (1,2,3,4,6,12)",
+    "18/6 == 3",
+    "18 % 6 == 0"
+   ],
+   "bedingung": "Es geht um positive natürliche Zahlen; ein Teiler ist nie 0. Die Vielfachen einer Zahl hören nie auf, ihre Teiler sind endlich viele.",
+   "begruendung": "Der Satz mit a und b ist ein Fachsatz; er nennt kein Beispiel und kein Verfahren zum Finden der Teiler.",
+   "suchwoerter": [
+    "Teiler",
+    "Vielfache",
+    "teilbar",
+    "Rest",
+    "Teilermenge",
+    "Vielfaches"
+   ]
+  },
+  {
+   "id": "Z8",
+   "ebene": "einzelregel",
+   "gebiet": "Zahlen",
+   "klasse": "5",
+   "alt_name": "Primzahlen und Primfaktoren",
+   "alt_satz": "Jede natürliche Zahl größer als 1 lässt sich in Primzahlen zerlegen – bis auf die Reihenfolge auf genau eine Weise.",
+   "alt_kurz": "",
+   "neu_name": "Primzahlen und Primfaktoren",
+   "neu_satz": "Eine Primzahl hat genau zwei Teiler: 1 und sich selbst (2, 3, 5, 7, 11 …; die 1 ist keine). Zum Zerlegen teilst du immer durch die kleinste Primzahl, die aufgeht.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "60 = 2 · 2 · 3 · 5; und 51 sieht prim aus, ist aber 3 · 17.",
+   "rechnung": [
+    "zerlege(60) == [2,2,3,5]",
+    "3*17 == 51",
+    "ist_prim(7)",
+    "not ist_prim(51)"
+   ],
+   "bedingung": "Gilt für natürliche Zahlen ab 2. Die Zerlegung ist bis auf die Reihenfolge eindeutig. 2 ist die einzige gerade Primzahl.",
+   "begruendung": "Der alte Satz sagt nur, dass es eine Zerlegung gibt, aber nicht, wie man zerlegt.",
+   "suchwoerter": [
+    "Primzahl",
+    "Primfaktoren",
+    "zerlegen",
+    "Primfaktorzerlegung",
+    "Teiler",
+    "Primzahlen bis 100"
+   ]
+  },
+  {
+   "id": "Z13",
+   "ebene": "einzelregel",
+   "gebiet": "Zahlen",
+   "klasse": "6",
+   "alt_name": "Periodische Dezimalzahlen",
+   "alt_satz": "Jeder Bruch aus ganzen Zahlen (Nenner ungleich 0) wird als Dezimalzahl endlich oder periodisch – nie etwas anderes.",
+   "alt_kurz": "",
+   "neu_name": "Periodische Dezimalzahlen",
+   "neu_satz": "Teile Zähler durch Nenner: Entweder hört die Kommazahl auf (1 : 4 = 0,25) oder dieselben Ziffern wiederholen sich ewig (1 : 3 = 0,3̅, der Strich steht über der Wiederholung).",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "1 : 4 = 0,25; 1 : 3 = 0,333… = 0,3̅.",
+   "rechnung": [
+    "1/4 == 0.25",
+    "1/3*10 - 3 == 1/3"
+   ],
+   "bedingung": "Der Bruch besteht aus ganzen Zahlen, der Nenner ist nicht 0. Die Kommazahl hört genau dann auf, wenn der gekürzte Nenner nur die Primfaktoren 2 und 5 hat.",
+   "begruendung": "Der Satz sagte, was herauskommt, aber nicht, was man tut und wie man periodisch schreibt.",
+   "suchwoerter": [
+    "periodisch",
+    "Periode",
+    "Dezimalzahl",
+    "Bruch in Dezimalzahl",
+    "0,3 Periode",
+    "Strich über der Zahl"
+   ]
+  },
+  {
+   "id": "Z20",
+   "ebene": "einzelregel",
+   "gebiet": "Zahlen",
+   "klasse": "9",
+   "alt_name": "Quadratwurzel",
+   "alt_satz": "Die Wurzel aus a ist die Zahl ab null, deren Quadrat a ist. Aus negativen Zahlen gibt es über den reellen Zahlen keine.",
+   "alt_kurz": "",
+   "neu_name": "Quadratwurzel",
+   "neu_satz": "√a fragt: Welche Zahl mal sich selbst ergibt a? Es gibt sie nur für a ≥ 0, und √a ist nie negativ.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "√49 = 7, denn 7 · 7 = 49.",
+   "rechnung": [
+    "7*7 == 49",
+    "wurzel(49) == 7"
+   ],
+   "bedingung": "Über den reellen Zahlen nur für a ≥ 0. Die Gleichung x² = 49 hat zwei Lösungen, 7 und −7; √49 ist nur 7.",
+   "begruendung": "Der Satz „die Zahl ab null, deren Quadrat a ist“ ist richtig, aber für Klasse 9 schwer zu lesen; die Frage „welche Zahl mal sich selbst“ ist das Verfahren.",
+   "suchwoerter": [
+    "Wurzel",
+    "Quadratwurzel",
+    "Wurzel ziehen",
+    "√",
+    "Quadratzahl",
+    "Radikand"
+   ]
+  },
+  {
+   "id": "Z22",
+   "ebene": "einzelregel",
+   "gebiet": "Zahlen",
+   "klasse": "9",
+   "alt_name": "Irrationale und reelle Zahlen",
+   "alt_satz": "Manche Zahlen sind kein Bruch, zum Beispiel √2. Brüche und diese Zahlen zusammen heißen reelle Zahlen.",
+   "alt_kurz": "",
+   "neu_name": "Irrationale Zahlen (√2, π)",
+   "neu_satz": "Manche Zahlen wie √2 kann man nicht als Bruch schreiben: Ihre Dezimalzahl hört nie auf und wiederholt sich nie. Brüche und solche Zahlen zusammen heißen reelle Zahlen.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "√2 liegt zwischen 1,41 und 1,42: 1,41² = 1,9881 ist kleiner als 2, 1,42² = 2,0164 ist größer.",
+   "rechnung": [
+    "1.41**2 < 2",
+    "2 < 1.42**2",
+    "1.41**2 == 1.9881"
+   ],
+   "bedingung": "√2 ist kein Bruch aus ganzen Zahlen; ein Taschenrechner zeigt nur eine Näherung. Nicht jede Wurzel ist irrational: √49 = 7.",
+   "begruendung": "Der Name „Irrationale und reelle Zahlen“ und der Satz enthielten kein Beispiel, an dem man die Aussage prüfen kann.",
+   "suchwoerter": [
+    "irrational",
+    "reelle Zahlen",
+    "√2",
+    "π",
+    "Kreiszahl",
+    "nicht periodisch",
+    "Zahlenmengen"
+   ]
+  },
+  {
+   "id": "Z23",
+   "ebene": "einzelregel",
+   "gebiet": "Zahlen",
+   "klasse": "9",
+   "alt_name": "n-te Wurzel und Bruch als Hochzahl",
+   "alt_satz": "Für a ≥ 0 und eine positive ganze Zahl n ist a hoch (1/n) die n-te Wurzel aus a.",
+   "alt_kurz": "",
+   "neu_name": "Bruch als Hochzahl, n-te Wurzel",
+   "neu_satz": "Hoch 1/n ist die n-te Wurzel (hoch 1/2: Wurzel, hoch 1/3: dritte Wurzel). Hoch m/n: erst die n-te Wurzel ziehen, dann hoch m.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "8^(1/3) = 2, denn 2³ = 8; 4^(3/2) = (√4)³ = 2³ = 8.",
+   "rechnung": [
+    "2**3 == 8",
+    "wurzel(4)**3 == 8"
+   ],
+   "bedingung": "Für a ≥ 0 und eine positive ganze Zahl n; bei negativer Hochzahl muss a > 0 sein.",
+   "begruendung": "Der Satz sagt nur „ist die n-te Wurzel“, aber nicht, wie man m/n rechnet.",
+   "suchwoerter": [
+    "n-te Wurzel",
+    "dritte Wurzel",
+    "Kubikwurzel",
+    "Bruch im Exponenten",
+    "Wurzel als Potenz",
+    "rationale Exponenten"
+   ]
+  },
+  {
+   "id": "Z24",
+   "ebene": "einzelregel",
+   "gebiet": "Zahlen",
+   "klasse": "10",
+   "alt_name": "Logarithmus",
+   "alt_satz": "Für b > 0, b ≠ 1 und x > 0 ist der Logarithmus von x zur Basis b die Hochzahl, mit der aus b die Zahl x wird. Aus Mal wird Plus, aus Hoch wird Mal.",
+   "alt_kurz": "",
+   "neu_name": "Logarithmus",
+   "neu_satz": "log_b(x) fragt: b hoch wie viel ergibt x? Das geht nur für b > 0, b ≠ 1 und x > 0. Aus Mal wird Plus: log(a · c) = log a + log c.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "log₂ 8 = 3, denn 2³ = 8; log₂(2 · 4) = 1 + 2 = 3.",
+   "rechnung": [
+    "log(2,8) == 3",
+    "2**3 == 8",
+    "log(2,2*4) == log(2,2) + log(2,4)"
+   ],
+   "bedingung": "Basis b > 0 und b ≠ 1, Zahl x > 0. Die Regel „aus Mal wird Plus“ gilt nur für positive Zahlen a und c.",
+   "begruendung": "Der Satz „aus Mal wird Plus, aus Hoch wird Mal“ sagt nicht, was ein Logarithmus ist.",
+   "suchwoerter": [
+    "Logarithmus",
+    "log",
+    "lg",
+    "Basis",
+    "Exponent",
+    "Zehnerlogarithmus"
+   ]
+  },
+  {
+   "id": "A1",
+   "ebene": "einzelregel",
+   "gebiet": "Algebra",
+   "klasse": "7",
+   "alt_name": "Term und Variable",
+   "alt_satz": "Ein Buchstabe steht für eine Zahl. Die zuletzt ausgeführte Rechnung gibt dem Term seinen Namen.",
+   "alt_kurz": "",
+   "neu_name": "Term und Variable",
+   "neu_satz": "Ein Term ist eine Rechnung, in der ein Buchstabe für eine Zahl steht. Zahl einsetzen und ausrechnen; die zuletzt ausgeführte Rechnung gibt dem Term seinen Namen (Summe, Produkt …).",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "3 · x + 2 mit x = 4: 3 · 4 + 2 = 14; zuletzt wird addiert, also ist es eine Summe.",
+   "rechnung": [
+    "3*4+2 == 14"
+   ],
+   "bedingung": "Der Buchstabe steht für eine Zahl, die man einsetzen darf (kein Nenner 0).",
+   "begruendung": "Der Satz beschreibt, was ein Buchstabe ist, aber nicht, was man mit ihm tut.",
+   "suchwoerter": [
+    "Term",
+    "Variable",
+    "einsetzen",
+    "Termart",
+    "Summe",
+    "Produkt",
+    "Buchstabe"
+   ]
+  },
+  {
+   "id": "A2",
+   "ebene": "einzelregel",
+   "gebiet": "Algebra",
+   "klasse": "7",
+   "alt_name": "Gleichwertige Terme",
+   "alt_satz": "Zwei Terme sind gleichwertig, wenn sie für jede Zahl ihrer gemeinsamen Definitionsmenge denselben Wert haben.",
+   "alt_kurz": "",
+   "neu_name": "Gleiche Terme (äquivalente Terme)",
+   "neu_satz": "Zwei Terme sind gleichwertig, wenn für jede erlaubte Zahl dasselbe herauskommt. Mit Zahlen kannst du nur widerlegen: Kommt einmal etwas anderes heraus, sind sie nicht gleich.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "2 · (x + 3) und 2x + 6 mit x = 1: 8 und 8; (x + 1)² und x² + 1 mit x = 1: 4 und 2, also nicht gleich.",
+   "rechnung": [
+    "2*(1+3) == 2*1+6",
+    "(1+1)**2 == 4",
+    "1**2+1 == 2"
+   ],
+   "bedingung": "Gleiche Ergebnisse bei einigen Zahlen beweisen die Gleichwertigkeit nicht; dafür muss man umformen. Es zählen nur Zahlen der gemeinsamen Definitionsmenge.",
+   "begruendung": "„Gleichwertige Terme“ klang wie Fachsprache, und der Satz sagte nicht, wie man es testet.",
+   "suchwoerter": [
+    "äquivalente Terme",
+    "gleichwertige Terme",
+    "gleiche Terme",
+    "Termumformung",
+    "Definitionsmenge",
+    "testen"
+   ]
+  },
+  {
+   "id": "A8",
+   "ebene": "einzelregel",
+   "gebiet": "Algebra",
+   "klasse": "5–7",
+   "alt_name": "Äquivalenzumformung",
+   "alt_satz": "Dieselbe umkehrbare Rechnung auf beiden Seiten ändert die Lösungsmenge nicht. Haupteintrag: Rechenregel 13 „Gleichung als Waage“.",
+   "alt_kurz": "",
+   "neu_name": "Gleichung umformen (Waage)",
+   "neu_satz": "Mache auf beiden Seiten dasselbe: plus, minus, mal oder geteilt – nie mal oder durch 0. Dann bleibt die Lösung gleich.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "x + 3 = 10: beide Seiten − 3 gibt x = 7; Probe 7 + 3 = 10.",
+   "rechnung": [
+    "10-3 == 7",
+    "7+3 == 10"
+   ],
+   "bedingung": "Nur umkehrbare Rechnungen. Quadrieren ist keine Äquivalenzumformung. Mit einem Ausdruck mit x malnehmen oder teilen nur, wenn er sicher nicht 0 ist.",
+   "begruendung": "„Äquivalenzumformung“ ist das Fachwort; das Kind sucht „Gleichung umformen“ oder „Waage“.",
+   "suchwoerter": [
+    "Äquivalenzumformung",
+    "Gleichung umformen",
+    "Waage",
+    "auf beiden Seiten",
+    "Umkehroperation",
+    "Gleichung lösen"
+   ]
+  },
+  {
+   "id": "A9",
+   "ebene": "einzelregel",
+   "gebiet": "Algebra",
+   "klasse": "5–7",
+   "alt_name": "Wie viele Lösungen?",
+   "alt_satz": "Eine lineare Gleichung hat genau eine Lösung, keine oder jede Zahl als Lösung.",
+   "alt_kurz": "",
+   "neu_name": "Wie viele Lösungen hat die Gleichung?",
+   "neu_satz": "Bleibt x beim Umformen stehen: genau eine Lösung. Fällt x weg: Eine falsche Aussage (1 = 2) heißt keine Lösung, eine wahre (0 = 0) heißt, jede Zahl ist Lösung.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "x + 1 = x + 2 gibt 1 = 2, falsch: keine Lösung. Probe mit x = 5: 6 ist nicht 7.",
+   "rechnung": [
+    "5+1 != 5+2",
+    "not (1 == 2)"
+   ],
+   "bedingung": "Das gilt für lineare Gleichungen. Gleichungen mit x² können zwei Lösungen haben (x² = 9: x = 3 oder x = −3).",
+   "begruendung": "Der Satz „keine, genau eine oder jede Zahl“ half nicht beim Erkennen; das Kind braucht das Kennzeichen am Umformergebnis.",
+   "suchwoerter": [
+    "keine Lösung",
+    "unendlich viele Lösungen",
+    "Lösungsmenge",
+    "leere Menge",
+    "wahre Aussage",
+    "falsche Aussage"
+   ]
+  },
+  {
+   "id": "V7",
+   "ebene": "einzelregel",
+   "gebiet": "Geld und Verhältnisse",
+   "klasse": "5",
+   "alt_name": "Änderungsrate",
+   "alt_satz": "Änderung je Einheit: Unterschied der Werte durch Unterschied der Schritte. In Klasse 5 heißt das: Wert je Einheit bei direkter Proportionalität, zum Beispiel Preis je Kilogramm.",
+   "alt_kurz": "",
+   "neu_name": "Pro Stunde, pro Stück (Änderungsrate)",
+   "neu_satz": "Wert je Einheit: Unterschied der Werte durch Unterschied der Schritte, zum Beispiel km pro Stunde oder Preis pro Kilogramm.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Von 100 km auf 250 km in 3 Stunden: (250 − 100) : 3 = 50 km pro Stunde.",
+   "rechnung": [
+    "(250-100)/3 == 50"
+   ],
+   "bedingung": "Die Rate ist nur gleichbleibend, wenn sich der Wert gleichmäßig ändert; sonst ist es ein Durchschnitt. In Klasse 5 heißt das: Wert je Einheit bei direkter Proportionalität.",
+   "begruendung": "„Änderungsrate“ ist ein Fachwort; das Kind sucht „pro Stunde“ und „pro Stück“.",
+   "suchwoerter": [
+    "Änderungsrate",
+    "pro Stunde",
+    "pro Stück",
+    "Geschwindigkeit",
+    "Rate",
+    "Preis pro Kilogramm",
+    "Stückpreis"
+   ]
+  },
+  {
+   "id": "G3",
+   "ebene": "einzelregel",
+   "gebiet": "Geometrie",
+   "klasse": "5",
+   "alt_name": "Winkelarten",
+   "alt_satz": "Voller Winkel 360°, gestreckter 180°, rechter 90°.",
+   "alt_kurz": "",
+   "neu_name": "Winkelarten",
+   "neu_satz": "Spitz: unter 90°; rechter Winkel: 90°; stumpf: zwischen 90° und 180°; gestreckt: 180°; überstumpf: zwischen 180° und 360°; voll: 360°.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "135° ist stumpf, denn 90° < 135° < 180°.",
+   "rechnung": [
+    "90 < 135 < 180"
+   ],
+   "bedingung": "Gemessen wird am Scheitel, von einem Schenkel zum anderen; am Geodreieck die richtige Skala ablesen.",
+   "begruendung": "Der Satz nannte nur drei der sechs Winkelarten, nach denen man sucht.",
+   "suchwoerter": [
+    "spitzer Winkel",
+    "stumpfer Winkel",
+    "rechter Winkel",
+    "gestreckter Winkel",
+    "überstumpf",
+    "Vollwinkel",
+    "Winkelarten"
+   ]
+  },
+  {
+   "id": "G7",
+   "ebene": "einzelregel",
+   "gebiet": "Geometrie",
+   "klasse": "5–7",
+   "alt_name": "Besondere Vierecke",
+   "alt_satz": "Quadrat, Rechteck, Raute, Parallelogramm, Trapez, Drachenviereck: Jedes hat seine festen Eigenschaften.",
+   "alt_kurz": "",
+   "neu_name": "Besondere Vierecke",
+   "neu_satz": "Rechteck: vier rechte Winkel, Diagonalen gleich lang. Raute: vier gleiche Seiten, Diagonalen senkrecht. Quadrat: beides. Parallelogramm: Gegenseiten parallel; Trapez: ein Paar paralleler Seiten; Drachen: zwei Paare gleich langer Nachbarseiten.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Rechteck 3 cm mal 4 cm: Beide Diagonalen sind 5 cm lang, denn 3² + 4² = 5².",
+   "rechnung": [
+    "3**2 + 4**2 == 5**2"
+   ],
+   "bedingung": "Jedes Quadrat ist ein Rechteck und eine Raute, aber nicht jedes Rechteck ein Quadrat. Ob ein Parallelogramm auch ein Trapez heißt, hängt von der Definition im Unterricht ab.",
+   "begruendung": "Der Satz zählte nur die Namen auf und nannte keine Eigenschaft, an der man ein Viereck erkennt.",
+   "suchwoerter": [
+    "Viereck",
+    "Quadrat",
+    "Rechteck",
+    "Raute",
+    "Parallelogramm",
+    "Trapez",
+    "Drachenviereck",
+    "Haus der Vierecke"
+   ]
+  },
+  {
+   "id": "G11",
+   "ebene": "einzelregel",
+   "gebiet": "Geometrie",
+   "klasse": "7",
+   "alt_name": "Satz und Kehrsatz",
+   "alt_satz": "Die Umkehrung eines Satzes ist ein neuer Satz und muss eigens begründet werden.",
+   "alt_kurz": "",
+   "neu_name": "Umkehrung eines Satzes",
+   "neu_satz": "Aus „Wenn A, dann B“ folgt nicht „Wenn B, dann A“. Die Umkehrung ist ein neuer Satz; sie muss eigens begründet werden, und ein Gegenbeispiel widerlegt sie.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Wenn ein Viereck ein Quadrat ist, hat es vier rechte Winkel. Umkehrung falsch: Das Rechteck 3 cm mal 5 cm hat vier rechte Winkel, aber 3 ist nicht 5.",
+   "rechnung": [
+    "3 != 5"
+   ],
+   "bedingung": "Jede Umkehrung braucht eine eigene Begründung. Manche Umkehrungen sind richtig (zum Beispiel beim Satz des Thales), das muss man aber zeigen.",
+   "begruendung": "„Satz und Kehrsatz“ ist Fachsprache; gesucht wird „Umkehrung“.",
+   "suchwoerter": [
+    "Umkehrung",
+    "Kehrsatz",
+    "Wenn dann",
+    "Gegenbeispiel",
+    "Satz",
+    "Begründen"
+   ]
+  },
+  {
+   "id": "G15",
+   "ebene": "einzelregel",
+   "gebiet": "Geometrie",
+   "klasse": "7",
+   "alt_name": "Spiegeln, Verschieben, Drehen",
+   "alt_satz": "Diese Abbildungen ändern weder Längen noch Winkel: Bild und Original sind deckungsgleich.",
+   "alt_kurz": "",
+   "neu_name": "Spiegeln, Verschieben, Drehen",
+   "neu_satz": "Beim Spiegeln, Verschieben und Drehen bleiben alle Längen und Winkel gleich: Bild und Original sind deckungsgleich. Vergrößern gehört nicht dazu.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Spiegelung an der y-Achse: A(2 | 1) wird A′(−2 | 1), B(5 | 1) wird B′(−5 | 1); die Strecke ist vorher 5 − 2 = 3 und nachher −2 − (−5) = 3 lang.",
+   "rechnung": [
+    "5-2 == 3",
+    "-2-(-5) == 3"
+   ],
+   "bedingung": "Nur diese Bewegungen und ihre Verkettungen. Die Achsenspiegelung kehrt den Umlaufsinn um, Verschiebung und Drehung nicht.",
+   "begruendung": "Der Satz sagt nur, was gleich bleibt, aber nicht, wie man spiegelt oder verschiebt.",
+   "suchwoerter": [
+    "Spiegeln",
+    "Achsenspiegelung",
+    "Verschieben",
+    "Drehen",
+    "Abbildung",
+    "deckungsgleich",
+    "Bildpunkt"
+   ]
+  },
+  {
+   "id": "G18",
+   "ebene": "einzelregel",
+   "gebiet": "Geometrie",
+   "klasse": "–",
+   "alt_name": "Fläche mit Determinante",
+   "alt_satz": "Zwei Vektoren spannen ein Parallelogramm auf; seine Fläche ist der Betrag von a·d − b·c.",
+   "alt_kurz": "",
+   "neu_name": "Fläche aus Vektoren (Determinante)",
+   "neu_satz": "Spannen die Vektoren (a | b) und (c | d) ein Parallelogramm auf, ist seine Fläche der Betrag von a · d − b · c; das Dreieck daraus hat die Hälfte.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "(3 | 0) und (0 | 2): |3 · 2 − 0 · 0| = 6.",
+   "rechnung": [
+    "abs(3*2 - 0*0) == 6"
+   ],
+   "bedingung": "Beide Vektoren beginnen an derselben Ecke. Der Betrag ist nötig, weil eine Fläche nie negativ ist.",
+   "begruendung": "„Determinante“ ist für ein Kind kein Suchwort; der Satz nannte nicht, welche Zahlen man einsetzt.",
+   "suchwoerter": [
+    "Determinante",
+    "Fläche Vektoren",
+    "Parallelogramm Vektoren",
+    "Dreieck Vektoren",
+    "Vektorprodukt"
+   ]
+  },
+  {
+   "id": "G19",
+   "ebene": "einzelregel",
+   "gebiet": "Geometrie",
+   "klasse": "–",
+   "alt_name": "Matrizen und Skalarprodukt",
+   "alt_satz": "Eine Matrix beschreibt eine Abbildung. Skalarprodukt null heißt senkrecht.",
+   "alt_kurz": "",
+   "neu_name": "Skalarprodukt und Matrix",
+   "neu_satz": "Skalarprodukt von (a | b) und (c | d): a · c + b · d. Ist es 0, stehen die beiden Vektoren senkrecht aufeinander. Eine Matrix beschreibt eine Abbildung.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "(1 | 2) und (2 | −1): 1 · 2 + 2 · (−1) = 0, also senkrecht.",
+   "rechnung": [
+    "1*2 + 2*(-1) == 0"
+   ],
+   "bedingung": "Beide Vektoren sind nicht der Nullvektor. Skalarprodukt und Determinante nicht verwechseln: Das eine ergibt 0 bei senkrecht, das andere bei parallel.",
+   "begruendung": "Der Satz nannte weder die Formel noch ein Beispiel.",
+   "suchwoerter": [
+    "Skalarprodukt",
+    "Matrix",
+    "senkrecht",
+    "Vektoren",
+    "orthogonal",
+    "Matrizen"
+   ]
+  },
+  {
+   "id": "G21",
+   "ebene": "einzelregel",
+   "gebiet": "Geometrie",
+   "klasse": "9",
+   "alt_name": "Strahlensätze",
+   "alt_satz": "Schneiden Parallelen zwei Strahlen, stehen die Abschnitte im selben Verhältnis.",
+   "alt_kurz": "",
+   "neu_name": "Strahlensätze",
+   "neu_satz": "Schneiden Parallelen zwei Strahlen vom Punkt S aus, gilt SA : SA′ = SB : SB′. Mit den Parallelenstücken: AB : A′B′ = SA : SA′. Alle Strecken beginnen bei S.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "SA = 2, SA′ = 6, AB = 3: A′B′ = 3 · 6 : 2 = 9.",
+   "rechnung": [
+    "3*6/2 == 9",
+    "6/2 == 9/3"
+   ],
+   "bedingung": "Die beiden Geraden AB und A′B′ sind parallel. Beim zweiten Satz misst man die Abschnitte vom Scheitel S aus, nicht die Teilabschnitte.",
+   "begruendung": "Der Satz sagte „stehen im selben Verhältnis“, ohne die Formel, die man in die Aufgabe einsetzt.",
+   "suchwoerter": [
+    "Strahlensatz",
+    "Strahlensätze",
+    "Verhältnis",
+    "Streckenverhältnis",
+    "Parallelen",
+    "Scheitel",
+    "Ähnlichkeit"
+   ]
+  },
+  {
+   "id": "G27",
+   "ebene": "einzelregel",
+   "gebiet": "Geometrie",
+   "klasse": "9",
+   "alt_name": "Einheitskreis",
+   "alt_satz": "Am Kreis mit Radius 1 sind Kosinus und Sinus die Koordinaten des Punktes – für jeden Winkel.",
+   "alt_kurz": "",
+   "neu_name": "Einheitskreis",
+   "neu_satz": "Am Kreis mit Radius 1 sind cos α und sin α die Koordinaten des Punktes beim Winkel α: (cos α | sin α). Der Winkel wird von der positiven x-Achse gegen den Uhrzeigersinn gemessen.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "α = 90°: Punkt (0 | 1), also cos 90° = 0 und sin 90° = 1; sin 150° = sin 30° = 0,5.",
+   "rechnung": [
+    "ca(sin(90), 1, 0.000001)",
+    "ca(cos(90), 0, 0.000001)",
+    "ca(sin(150), 0.5, 0.000001)"
+   ],
+   "bedingung": "Radius genau 1. Im zweiten bis vierten Viertel können Sinus oder Kosinus negativ sein.",
+   "begruendung": "Der Satz „Koordinaten des Punktes“ ohne die Schreibweise (cos α | sin α) ließ offen, was man abliest.",
+   "suchwoerter": [
+    "Einheitskreis",
+    "Sinus",
+    "Kosinus",
+    "cos",
+    "sin",
+    "Winkel über 90°",
+    "Koordinaten"
+   ]
+  },
+  {
+   "id": "G28",
+   "ebene": "einzelregel",
+   "gebiet": "Geometrie",
+   "klasse": "9",
+   "alt_name": "Sinussatz und Kosinussatz",
+   "alt_satz": "In jedem Dreieck: Seite durch Sinus des Gegenwinkels ist für alle drei gleich. Der Kosinussatz ist Pythagoras mit Korrektur.",
+   "alt_kurz": "",
+   "neu_name": "Sinussatz und Kosinussatz",
+   "neu_satz": "Sinussatz: a : sin α = b : sin β. Kosinussatz: c² = a² + b² − 2 · a · b · cos γ, wobei γ zwischen a und b liegt. Beide gelten in jedem Dreieck.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "a = 5, b = 7, γ = 60°: c² = 25 + 49 − 2 · 5 · 7 · 0,5 = 39, also c ≈ 6,24.",
+   "rechnung": [
+    "5**2 + 7**2 - 2*5*7*0.5 == 39",
+    "ca(wurzelf(39), 6.24, 0.01)"
+   ],
+   "bedingung": "Im Kosinussatz liegt γ der Seite c gegenüber. Beim Sinussatz können zu einem Sinuswert zwei Winkel gehören. Für γ = 90° wird der Kosinussatz zum Satz des Pythagoras.",
+   "begruendung": "Der Satz nannte keine Formel; ohne die Formel kann ein Kind keine Aufgabe ansetzen.",
+   "suchwoerter": [
+    "Sinussatz",
+    "Kosinussatz",
+    "Dreieck berechnen",
+    "beliebiges Dreieck",
+    "Seite berechnen",
+    "Winkel berechnen"
+   ]
+  },
+  {
+   "id": "G30",
+   "ebene": "einzelregel",
+   "gebiet": "Geometrie",
+   "klasse": "9",
+   "alt_name": "Winkel aus Sinus oder Kosinus",
+   "alt_satz": "Zu einem Wert gehören in einer vollen Drehung meist zwei Winkel.",
+   "alt_kurz": "",
+   "neu_name": "Winkel aus Sinus oder Kosinus",
+   "neu_satz": "Zu sin x = v (v zwischen −1 und 1) gibt es zwischen 0° und 360° meist zwei Winkel: x₁ vom Taschenrechner und x₂ = 180° − x₁. Beim Kosinus ist x₂ = 360° − x₁.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "sin x = 0,5: x₁ = 30° und x₂ = 180° − 30° = 150°.",
+   "rechnung": [
+    "180-30 == 150",
+    "ca(sin(30), 0.5, 0.000001)",
+    "ca(sin(150), 0.5, 0.000001)"
+   ],
+   "bedingung": "Der Wert liegt zwischen −1 und 1. Bei genau 1 oder −1 gibt es in einer vollen Drehung nur einen Winkel.",
+   "begruendung": "Der Satz „meist zwei Winkel“ sagte nicht, wie man den zweiten findet.",
+   "suchwoerter": [
+    "Winkel berechnen",
+    "Arcsin",
+    "sin⁻¹",
+    "Taschenrechner",
+    "zweiter Winkel",
+    "Gleichung sin x"
+   ]
+  },
+  {
+   "id": "F3",
+   "ebene": "einzelregel",
+   "gebiet": "Fläche und Raum",
+   "klasse": "5",
+   "alt_name": "Fläche ist nicht Umfang",
+   "alt_satz": "Derselbe Rand kann verschieden viel Fläche einschließen.",
+   "alt_kurz": "",
+   "neu_name": "Fläche ist nicht Umfang",
+   "neu_satz": "Gleicher Umfang heißt nicht gleiche Fläche: Rechne Umfang (2a + 2b) und Fläche (a · b) getrennt aus.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Rechteck 2 × 8 und Rechteck 4 × 6: beide haben Umfang 20, aber Fläche 16 und 24.",
+   "rechnung": [
+    "2*(2+8) == 20",
+    "2*(4+6) == 20",
+    "2*8 == 16",
+    "4*6 == 24"
+   ],
+   "bedingung": "Gilt für alle Figuren; die Formeln 2a + 2b und a · b gelten für Rechtecke.",
+   "begruendung": "Der Satz „derselbe Rand kann verschieden viel Fläche einschließen“ nannte keine Rechnung.",
+   "suchwoerter": [
+    "Umfang",
+    "Fläche",
+    "Flächeninhalt",
+    "Umfang und Fläche",
+    "Rand",
+    "Rechteck"
+   ]
+  },
+  {
+   "id": "F4",
+   "ebene": "einzelregel",
+   "gebiet": "Fläche und Raum",
+   "klasse": "5–6",
+   "alt_name": "Zerlegen und Ergänzen",
+   "alt_satz": "Lückenlos und ohne Überlappung neu legen: Der Flächeninhalt bleibt, der Umfang kann sich ändern.",
+   "alt_kurz": "",
+   "neu_name": "Zerlegen und Ergänzen",
+   "neu_satz": "Zerlege die Figur lückenlos in Rechtecke, oder ergänze sie zu einem Rechteck und ziehe das Ergänzte ab; dann rechne zusammen. Der Flächeninhalt bleibt gleich, der Umfang kann sich ändern.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "L-Form: zerlegt 6 · 2 + 2 · 3 = 18, ergänzt 6 · 5 − 4 · 3 = 18 (alles in cm und cm²).",
+   "rechnung": [
+    "6*2 + 2*3 == 18",
+    "6*5 - 4*3 == 18"
+   ],
+   "bedingung": "Die Teile liegen lückenlos und ohne Überlappung.",
+   "begruendung": "Der Satz sagte nur, was bleibt, nicht, wie man vorgeht.",
+   "suchwoerter": [
+    "zusammengesetzte Fläche",
+    "L-Form",
+    "zerlegen",
+    "ergänzen",
+    "Fläche berechnen",
+    "Rechtecke"
+   ]
+  },
+  {
+   "id": "F14",
+   "ebene": "einzelregel",
+   "gebiet": "Fläche und Raum",
+   "klasse": "8–10",
+   "alt_name": "Netz und Schrägbild",
+   "alt_satz": "Das Netz zeigt die aufgefaltete Oberfläche; das Schrägbild zeigt den Körper räumlich.",
+   "alt_kurz": "",
+   "neu_name": "Netz und Schrägbild",
+   "neu_satz": "Das Netz klappt alle Flächen eines Körpers flach auf: Oberfläche = Summe der Netzflächen. Im Schrägbild bleibt die Vorderseite unverzerrt, Kanten nach hinten zeichnest du schräg (45°) und verkürzt.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Würfel mit Kante 2 cm: Das Netz hat 6 Quadrate, O = 6 · 2 · 2 = 24 cm².",
+   "rechnung": [
+    "6*2*2 == 24"
+   ],
+   "bedingung": "Im Netz sind zusammengehörende Kanten gleich lang; es muss sich zu einem Körper falten lassen. Im Schrägbild misst man nur an unverzerrten Flächen.",
+   "begruendung": "Der Satz beschrieb, was Netz und Schrägbild sind, aber nicht, wie man sie zeichnet oder auswertet.",
+   "suchwoerter": [
+    "Netz",
+    "Schrägbild",
+    "Körpernetz",
+    "Würfelnetz",
+    "Oberfläche",
+    "Prisma",
+    "Zylinder"
+   ]
+  },
+  {
+   "id": "F16",
+   "ebene": "einzelregel",
+   "gebiet": "Fläche und Raum",
+   "klasse": "8",
+   "alt_name": "Satz von Cavalieri",
+   "alt_satz": "Haben zwei Körper gleiche Höhe und in jeder Höhe gleich große parallele Schnittflächen, haben sie gleiches Volumen.",
+   "alt_kurz": "",
+   "neu_name": "Schiefe Körper (Satz von Cavalieri)",
+   "neu_satz": "Haben zwei Körper gleiche Höhe und in jeder Höhe gleich große Schnittflächen parallel zur Grundfläche, haben sie gleiches Volumen. Darum gilt V = G · h auch für schiefe Prismen.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Schiefes Prisma mit G = 12 cm² und senkrechter Höhe 5 cm: V = 12 · 5 = 60 cm³, wie beim geraden.",
+   "rechnung": [
+    "12*5 == 60"
+   ],
+   "bedingung": "h ist die senkrechte Höhe, nicht die schräge Kante. Über die Oberfläche sagt der Satz nichts.",
+   "begruendung": "Der Name „Cavalieri“ sagt einem Kind nichts, und der Satz war eine reine Aussage ohne Anwendung.",
+   "suchwoerter": [
+    "Cavalieri",
+    "schiefes Prisma",
+    "schiefer Körper",
+    "Volumen",
+    "Höhe",
+    "Schnittfläche"
+   ]
+  },
+  {
+   "id": "F19",
+   "ebene": "einzelregel",
+   "gebiet": "Fläche und Raum",
+   "klasse": "10",
+   "alt_name": "Lage im Raum",
+   "alt_satz": "Zwei verschiedene Geraden im Raum sind parallel, schneiden sich oder sind windschief.",
+   "alt_kurz": "",
+   "neu_name": "Lage im Raum (windschief)",
+   "neu_satz": "Zwei verschiedene Geraden im Raum sind parallel, schneiden sich oder sind windschief: Dann treffen sie sich nie und sind auch nicht parallel.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Würfel: Die Kante von (0 | 0 | 0) nach (1 | 0 | 0) und die Kante von (1 | 1 | 0) nach (1 | 1 | 1) sind windschief.",
+   "rechnung": [
+    "windschief([0,0,0],[1,0,0],[1,1,0],[0,0,1])"
+   ],
+   "bedingung": "Gilt für zwei verschiedene Geraden. Im Schrägbild können sich Bilder windschiefer Kanten kreuzen, ohne dass sich die Geraden schneiden.",
+   "begruendung": "Der Satz nannte keine Probe, an der man windschief erkennt.",
+   "suchwoerter": [
+    "windschief",
+    "parallel",
+    "schneiden",
+    "Geraden im Raum",
+    "Lage zweier Geraden",
+    "Würfelkanten"
+   ]
+  },
+  {
+   "id": "U1",
+   "ebene": "einzelregel",
+   "gebiet": "Funktionen",
+   "klasse": "8",
+   "alt_name": "Funktion",
+   "alt_satz": "Zu jedem x gehört genau ein y.",
+   "alt_kurz": "",
+   "neu_name": "Funktion und Funktionswert",
+   "neu_satz": "Eine Funktion gibt jedem x genau ein y. Den Funktionswert findest du, indem du für x einsetzt.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "f(x) = 2x + 1: f(3) = 2 · 3 + 1 = 7.",
+   "rechnung": [
+    "2*3+1 == 7"
+   ],
+   "bedingung": "Zu einem y dürfen mehrere x gehören (3 und −3 haben dasselbe Quadrat), zu einem x aber nie mehrere y: Der Kreis x² + y² = 25 ist keine Funktion.",
+   "begruendung": "Der Satz „zu jedem x gehört genau ein y“ sagte nicht, wie man mit einer Funktion rechnet.",
+   "suchwoerter": [
+    "Funktion",
+    "Funktionswert",
+    "f(x)",
+    "Zuordnung",
+    "einsetzen",
+    "Funktionsgleichung"
+   ]
+  },
+  {
+   "id": "U10",
+   "ebene": "einzelregel",
+   "gebiet": "Funktionen",
+   "klasse": "8",
+   "alt_name": "Geradenscharen",
+   "alt_satz": "Ein Parameter in m dreht die Gerade, ein Parameter in t verschiebt sie.",
+   "alt_kurz": "",
+   "neu_name": "Geraden mit Parameter (Geradenschar)",
+   "neu_satz": "In y = m · x + t verschiebt ein Parameter bei t die Gerade parallel, ein Parameter bei m dreht sie um einen festen Punkt.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "y = 2x + t: Für t = 1 und t = 4 steigen beide Geraden um 2 je Schritt, die zweite liegt höher.",
+   "rechnung": [
+    "(2*1+1) - (2*0+1) == 2",
+    "(2*1+4) - (2*0+4) == 2"
+   ],
+   "bedingung": "Ein Parameter ist eine frei wählbare Zahl; jeder Wert gibt eine Gerade der Schar. Bei m dreht die Gerade um den Punkt (0 | t), wenn t fest ist. Nie durch null teilen: Der Faktor vor x darf nicht 0 werden.",
+   "begruendung": "Der Satz sagte nicht, was ein Parameter ist; die Aussage „dreht“ und „verschiebt“ braucht ein Beispiel.",
+   "suchwoerter": [
+    "Parameter",
+    "Geradenschar",
+    "Schar",
+    "Gerade verschieben",
+    "Gerade drehen",
+    "Steigung"
+   ]
+  },
+  {
+   "id": "U11",
+   "ebene": "einzelregel",
+   "gebiet": "Funktionen",
+   "klasse": "8",
+   "alt_name": "Hyperbel",
+   "alt_satz": "y = a : x (a ≠ 0, x ≠ 0): doppeltes x, halbes y. Der Graph kommt den Asymptoten beliebig nahe, erreicht sie aber nie.",
+   "alt_kurz": "",
+   "neu_name": "Hyperbel (y = a : x)",
+   "neu_satz": "Bei y = a : x (a ≠ 0, x ≠ 0): doppeltes x gibt halbes y. Der Graph kommt den Achsen beliebig nahe, berührt sie aber nie.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "y = 6 : x: x = 2 gibt y = 3; x = 4 gibt y = 1,5.",
+   "rechnung": [
+    "6/2 == 3",
+    "6/4 == 3/2"
+   ],
+   "bedingung": "x = 0 ist nicht erlaubt, und y wird nie 0.",
+   "begruendung": "Der Satz sprach von Asymptoten; ein Kind sucht „Hyperbel“ und braucht das Rechenmuster „doppelt – halb“.",
+   "suchwoerter": [
+    "Hyperbel",
+    "indirekt proportional",
+    "y = a/x",
+    "Asymptote",
+    "Kehrwertfunktion"
+   ]
+  },
+  {
+   "id": "U13",
+   "ebene": "einzelregel",
+   "gebiet": "Funktionen",
+   "klasse": "9",
+   "alt_name": "Potenzfunktionen",
+   "alt_satz": "Bei y = xⁿ mit ganzem n: Gerade Hochzahl: symmetrisch zur y-Achse. Ungerade Hochzahl: symmetrisch zum Ursprung.",
+   "alt_kurz": "",
+   "neu_name": "Potenzfunktionen (x², x³ …)",
+   "neu_satz": "Bei y = xⁿ mit ganzer Hochzahl n: Gerades n gibt einen Graphen, der zur y-Achse spiegelbildlich liegt; ungerades n gibt einen Graphen, der zum Ursprung punktsymmetrisch liegt.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "x²: (−2)² = 2² = 4 (gerade). x³: (−2)³ = −8 = −(2³) (ungerade).",
+   "rechnung": [
+    "(-2)**2 == 2**2",
+    "(-2)**3 == -(2**3)"
+   ],
+   "bedingung": "Hochzahl n ganz; bei negativem n ist x = 0 nicht erlaubt.",
+   "begruendung": "„Symmetrisch zur y-Achse“ ohne Prüfregel konnte ein Kind nicht anwenden.",
+   "suchwoerter": [
+    "Potenzfunktion",
+    "x²",
+    "x³",
+    "Symmetrie",
+    "achsensymmetrisch",
+    "punktsymmetrisch",
+    "gerade Hochzahl"
+   ]
+  },
+  {
+   "id": "U14",
+   "ebene": "einzelregel",
+   "gebiet": "Funktionen",
+   "klasse": "10",
+   "alt_name": "Exponentialfunktion",
+   "alt_satz": "Exponentiell: In gleichen x-Schritten wird mit derselben Zahl malgenommen. Linear: In gleichen x-Schritten kommt dieselbe Zahl dazu.",
+   "alt_kurz": "",
+   "neu_name": "Exponentialfunktion",
+   "neu_satz": "y = a · bˣ: a ist der Startwert (bei x = 0), b der Faktor pro Schritt mit b > 0. Für a > 0 wächst y bei b > 1 und fällt bei 0 < b < 1.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "y = 100 · 1,1ˣ: x = 0 gibt 100, x = 1 gibt 110, x = 2 gibt 121.",
+   "rechnung": [
+    "100*1.1**0 == 100",
+    "100*1.1**1 == 110",
+    "100*1.1**2 == 121"
+   ],
+   "bedingung": "Basis b > 0 und b ≠ 1 für echtes Wachstum oder Zerfall; für a > 0 ist y immer positiv.",
+   "begruendung": "Der Satz nannte keine Bedingung an a und b und kein Zahlenbeispiel.",
+   "suchwoerter": [
+    "Exponentialfunktion",
+    "exponentielles Wachstum",
+    "Zerfall",
+    "Wachstumsfaktor",
+    "Startwert",
+    "bˣ"
+   ]
+  },
+  {
+   "id": "U15",
+   "ebene": "einzelregel",
+   "gebiet": "Funktionen",
+   "klasse": "10",
+   "alt_name": "Logarithmusfunktion",
+   "alt_satz": "Sie ist die Umkehrung der Exponentialfunktion (Basis positiv, nicht 1).",
+   "alt_kurz": "",
+   "neu_name": "Logarithmusfunktion",
+   "neu_satz": "y = log_b x fragt: b hoch wie viel ergibt x? Sie ist die Umkehrung von y = bˣ (b > 0, b ≠ 1, nur für x > 0); ihr Graph geht durch (1 | 0).",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "log₂ 8 = 3, denn 2³ = 8; log₂ 1 = 0, denn 2⁰ = 1.",
+   "rechnung": [
+    "log(2,8) == 3",
+    "2**3 == 8",
+    "log(2,1) == 0"
+   ],
+   "bedingung": "Basis b > 0, b ≠ 1; x muss positiv sein.",
+   "begruendung": "Der Satz „Umkehrung der Exponentialfunktion“ ohne Frageform und Beispiel war zu abstrakt.",
+   "suchwoerter": [
+    "Logarithmusfunktion",
+    "Logarithmus",
+    "Umkehrfunktion",
+    "log",
+    "Exponentialfunktion"
+   ]
+  },
+  {
+   "id": "U16",
+   "ebene": "einzelregel",
+   "gebiet": "Funktionen",
+   "klasse": "10",
+   "alt_name": "Sinus- und Kosinusfunktion",
+   "alt_satz": "Sie wiederholen sich nach 360° (im Bogenmaß 2π). Die Amplitude ist die größte Auslenkung. 180° entsprechen π.",
+   "alt_kurz": "",
+   "neu_name": "Sinus- und Kosinusfunktion",
+   "neu_satz": "Sinus und Kosinus wiederholen sich alle 360° (im Bogenmaß 2π). Die Welle schwingt zwischen −1 und 1; bei a · sin x ist |a| die Amplitude, die größte Auslenkung.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "sin 0° = 0, sin 90° = 1, sin 360° = 0; bei 2 · sin x ist der größte Wert 2 · 1 = 2.",
+   "rechnung": [
+    "ca(sin(0), 0, 0.000001)",
+    "ca(sin(90), 1, 0.000001)",
+    "ca(sin(360), 0, 0.000001)",
+    "2*1 == 2"
+   ],
+   "bedingung": "180° entsprechen π im Bogenmaß. Sinus ist punktsymmetrisch zum Ursprung, Kosinus achsensymmetrisch zur y-Achse.",
+   "begruendung": "Der Satz sprach von Amplitude und Bogenmaß, ohne einen Wert, den man nachrechnen kann.",
+   "suchwoerter": [
+    "Sinusfunktion",
+    "Kosinusfunktion",
+    "Amplitude",
+    "Periode",
+    "Bogenmaß",
+    "Welle",
+    "sin",
+    "cos"
+   ]
+  },
+  {
+   "id": "U17",
+   "ebene": "einzelregel",
+   "gebiet": "Funktionen",
+   "klasse": "10",
+   "alt_name": "Ganzrationale Funktionen",
+   "alt_satz": "Grad und Vorzeichen der höchsten Potenz bestimmen, wohin der Graph außen läuft. Die Produktform zeigt die Nullstellen.",
+   "alt_kurz": "",
+   "neu_name": "Ganzrationale Funktionen",
+   "neu_satz": "Für sehr große |x| bestimmt das Glied mit der höchsten Hochzahl, wohin der Graph läuft. Steht die Funktion als Produkt, liest du die Nullstellen ab: die x, bei denen ein Faktor 0 wird.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "f(x) = x³ − x = x · (x − 1) · (x + 1): Nullstellen 0, 1, −1; links unten, rechts oben (ungerade Hochzahl, Vorzeichen +).",
+   "rechnung": [
+    "0**3 - 0 == 0",
+    "1**3 - 1 == 0",
+    "(-1)**3 - (-1) == 0",
+    "(-10)**3 - (-10) < 0",
+    "10**3 - 10 > 0"
+   ],
+   "bedingung": "Grad = höchste Hochzahl; das Verhalten außen hängt von Grad und Vorzeichen des höchsten Glieds ab. Die Produktform zeigt alle Nullstellen nur, wenn sie vollständig zerlegt ist.",
+   "begruendung": "Der Satz nannte die Regel, aber kein Beispiel, an dem man „wohin der Graph läuft“ prüfen kann.",
+   "suchwoerter": [
+    "ganzrationale Funktion",
+    "Polynomfunktion",
+    "Nullstellen",
+    "Grad",
+    "Produktform",
+    "Verhalten im Unendlichen"
+   ]
+  },
+  {
+   "id": "D5",
+   "ebene": "einzelregel",
+   "gebiet": "Daten und Zufall",
+   "klasse": "7",
+   "alt_name": "Mittelwert oder Median",
+   "alt_satz": "Ein Ausreißer zieht den Mittelwert stark mit; der Median ist robuster.",
+   "alt_kurz": "",
+   "neu_name": "Mittelwert oder Median",
+   "neu_satz": "Gibt es einen sehr großen oder sehr kleinen Ausreißer, nimm den Median: Er bleibt fast gleich, der Mittelwert wird stark mitgezogen.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Werte 2, 3, 100: Mittelwert (2 + 3 + 100) : 3 = 35, Median 3.",
+   "rechnung": [
+    "(2+3+100)/3 == 35",
+    "median([2,3,100]) == 3"
+   ],
+   "bedingung": "Bei Daten ohne Ausreißer liegen beide meist dicht beieinander.",
+   "begruendung": "Der Satz „der Median ist robuster“ nannte nicht, wann man ihn wählt.",
+   "suchwoerter": [
+    "Ausreißer",
+    "Mittelwert",
+    "Median",
+    "Durchschnitt",
+    "robust"
+   ]
+  },
+  {
+   "id": "D6",
+   "ebene": "einzelregel",
+   "gebiet": "Daten und Zufall",
+   "klasse": "7",
+   "alt_name": "Quartile und Boxplot",
+   "alt_satz": "Die Box enthält die mittlere Hälfte der Werte.",
+   "alt_kurz": "",
+   "neu_name": "Quartile und Boxplot",
+   "neu_satz": "Q₁ = Median der unteren Hälfte, Q₃ = Median der oberen Hälfte. Die Box reicht von Q₁ bis Q₃ und enthält die mittlere Hälfte der Werte; der Strich in der Box ist der Median.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Werte 1, 2, 3, 4, 5, 6, 7: Median 4, untere Hälfte 1, 2, 3 gibt Q₁ = 2, obere Hälfte 5, 6, 7 gibt Q₃ = 6.",
+   "rechnung": [
+    "median([1,2,3,4,5,6,7]) == 4",
+    "median([1,2,3]) == 2",
+    "median([5,6,7]) == 6"
+   ],
+   "bedingung": "Bei ungerader Anzahl gehört der mittlere Wert zu keiner Hälfte. Erst die Werte der Größe nach ordnen.",
+   "begruendung": "Der Satz sagte nur, was die Box enthält, aber nicht, wie man Q₁ und Q₃ findet.",
+   "suchwoerter": [
+    "Boxplot",
+    "Quartil",
+    "unteres Quartil",
+    "oberes Quartil",
+    "Median",
+    "Kastendiagramm"
+   ]
+  },
+  {
+   "id": "D7",
+   "ebene": "einzelregel",
+   "gebiet": "Daten und Zufall",
+   "klasse": "–",
+   "alt_name": "Stichprobe",
+   "alt_satz": "Eine zufällig gezogene Stichprobe erlaubt verlässliche Schlüsse aufs Ganze. Unter gleichen Bedingungen schwankt das Ergebnis bei größerer Stichprobe weniger durch Zufall; ein genaueres Einzelergebnis ist damit nicht garantiert, und eine verzerrte Auswahl wird dadurch nicht besser.",
+   "alt_kurz": "",
+   "neu_name": "Stichprobe",
+   "neu_satz": "Wähle zufällig aus und rechne hoch: Anteil in der Stichprobe mal Größe der ganzen Gruppe, nur eine Schätzung. Mehr Befragte verringern die Zufallsschwankung, heilen aber keine einseitige Auswahl.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "20 von 100 Befragten mögen Pizza, 500 Schüler: 20 : 100 · 500 = 100.",
+   "rechnung": [
+    "20/100*500 == 100"
+   ],
+   "bedingung": "Nur bei zufälliger Auswahl verlässlich; ein genaueres Einzelergebnis ist mit einer größeren Stichprobe nicht garantiert.",
+   "begruendung": "Der Satz bestand aus lauter Einschränkungen und nannte die Rechnung nicht.",
+   "suchwoerter": [
+    "Stichprobe",
+    "Hochrechnen",
+    "Umfrage",
+    "repräsentativ",
+    "Zufallsauswahl",
+    "Schätzen"
+   ]
+  },
+  {
+   "id": "D8",
+   "ebene": "einzelregel",
+   "gebiet": "Daten und Zufall",
+   "klasse": "–",
+   "alt_name": "Zusammenhang ist nicht Ursache",
+   "alt_satz": "Zwei Größen können zusammen steigen, ohne dass die eine die andere bewirkt.",
+   "alt_kurz": "",
+   "neu_name": "Zusammenhang ist nicht Ursache",
+   "neu_satz": "Steigen zwei Werte gemeinsam, heißt das nicht, dass der eine den anderen verursacht: Oft steckt eine dritte Ursache dahinter.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Eisverkauf 10, 20, 30 und Sonnenbrände 2, 4, 6 steigen gemeinsam (Korrelation 1); beide hängen von der Sonne ab.",
+   "rechnung": [
+    "ca(korr([10,20,30],[2,4,6]), 1, 0.000001)"
+   ],
+   "bedingung": "Eine Korrelation (gemeinsames Steigen oder Fallen) zeigt nur einen Zusammenhang; ob eine Ursache dahintersteckt, muss man begründen.",
+   "begruendung": "Der Satz „kann zusammen steigen“ nannte kein Beispiel mit Zahlen.",
+   "suchwoerter": [
+    "Korrelation",
+    "Ursache",
+    "Zusammenhang",
+    "Streudiagramm",
+    "Scheinkorrelation"
+   ]
+  },
+  {
+   "id": "D12",
+   "ebene": "einzelregel",
+   "gebiet": "Daten und Zufall",
+   "klasse": "8",
+   "alt_name": "Ergebnis und Ereignis",
+   "alt_satz": "Ein Ereignis ist eine Menge von Ergebnissen.",
+   "alt_kurz": "",
+   "neu_name": "Ergebnis und Ereignis",
+   "neu_satz": "Ergebnis: ein einzelner möglicher Ausgang (der Würfel zeigt 3). Ereignis: eine Auswahl von Ergebnissen, zum Beispiel „gerade Zahl“ = {2, 4, 6}.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Würfel, Ereignis „gerade“: P = 3 : 6 = 1 : 2.",
+   "rechnung": [
+    "len([2,4,6])/6 == 1/2"
+   ],
+   "bedingung": "Die Rechnung 3 : 6 gilt, wenn alle sechs Ergebnisse gleich wahrscheinlich sind.",
+   "begruendung": "Der Satz sagte „Menge von Ergebnissen“ ohne ein Beispiel für eine solche Menge.",
+   "suchwoerter": [
+    "Ergebnis",
+    "Ereignis",
+    "Ergebnisraum",
+    "Zufallsexperiment",
+    "Würfel"
+   ]
+  },
+  {
+   "id": "D15",
+   "ebene": "einzelregel",
+   "gebiet": "Daten und Zufall",
+   "klasse": "8–10",
+   "alt_name": "Gesetz der großen Zahlen",
+   "alt_satz": "Bei vielen unabhängigen Wiederholungen desselben Versuchs liegt die relative Häufigkeit meist nahe bei der Wahrscheinlichkeit.",
+   "alt_kurz": "",
+   "neu_name": "Gesetz der großen Zahlen",
+   "neu_satz": "Wiederholst du denselben Versuch sehr oft und jedes Mal unabhängig, liegt die relative Häufigkeit meist nahe bei der Wahrscheinlichkeit. Bei wenigen Würfen kann sie stark abweichen.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Münze, 1000 Würfe, 512 mal Kopf: 512 : 1000 = 0,512, nahe bei 0,5 (Beispielzahlen).",
+   "rechnung": [
+    "512/1000 == 0.512",
+    "abs(512/1000 - 1/2) < 0.05"
+   ],
+   "bedingung": "Die Würfe sind voneinander unabhängig. „Meist nahe“ heißt nicht „genau“ und nicht „der Zufall gleicht aus“.",
+   "begruendung": "Der Satz sagte nicht, was „nahe“ heißt und wie man die relative Häufigkeit ausrechnet.",
+   "suchwoerter": [
+    "Gesetz der großen Zahlen",
+    "relative Häufigkeit",
+    "Wahrscheinlichkeit",
+    "Münzwurf",
+    "Versuchsreihe"
+   ]
+  },
+  {
+   "id": "D17",
+   "ebene": "einzelregel",
+   "gebiet": "Daten und Zufall",
+   "klasse": "9",
+   "alt_name": "Vierfeldertafel",
+   "alt_satz": "Zeilen und Spalten ergeben die Randsummen; fehlt ein Feld, folgt es aus den übrigen Feldern und den Randsummen.",
+   "alt_kurz": "",
+   "neu_name": "Vierfeldertafel",
+   "neu_satz": "In der Vierfeldertafel ergeben Zeilen und Spalten die Randsummen; ein fehlendes Feld rechnest du als Randsumme minus die übrigen Felder der Zeile oder Spalte.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "60 Personen, 40 davon A: nicht A ist 60 − 40 = 20.",
+   "rechnung": [
+    "60 - 40 == 20"
+   ],
+   "bedingung": "Die vier Felder müssen alle Fälle abdecken, ohne dass einer doppelt vorkommt.",
+   "begruendung": "Der Satz beschrieb die Tafel, aber nicht, wie man ein fehlendes Feld findet.",
+   "suchwoerter": [
+    "Vierfeldertafel",
+    "Randsumme",
+    "Tabelle",
+    "bedingte Wahrscheinlichkeit",
+    "Häufigkeitstabelle"
+   ]
+  },
+  {
+   "id": "D20",
+   "ebene": "einzelregel",
+   "gebiet": "Daten und Zufall",
+   "klasse": "10",
+   "alt_name": "Simulation",
+   "alt_satz": "Ein Zufallsversuch lässt sich mit Zufallszahlen nachspielen; viele Durchgänge ergeben einen Schätzwert.",
+   "alt_kurz": "",
+   "neu_name": "Simulation",
+   "neu_satz": "Spiele den Zufallsversuch mit Würfel oder Zufallszahlen oft nach; Schätzwert = Treffer : Durchgänge.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "100 Würfe, 17 Sechsen: 17 : 100 = 0,17, nahe bei 1/6 ≈ 0,167.",
+   "rechnung": [
+    "17/100 == 0.17",
+    "abs(17/100 - 1/6) < 0.01"
+   ],
+   "bedingung": "Das Zufallsgerät muss genau die gesuchte Wahrscheinlichkeit haben. Der Schätzwert schwankt von Durchgang zu Durchgang.",
+   "begruendung": "Der Satz sagte „Schätzwert“ ohne Rechnung.",
+   "suchwoerter": [
+    "Simulation",
+    "Zufallszahlen",
+    "Schätzwert",
+    "Zufallsversuch",
+    "Monte-Carlo"
+   ]
+  },
+  {
+   "id": "E2",
+   "ebene": "einzelregel",
+   "gebiet": "Entdecker-Inseln",
+   "klasse": "–",
+   "alt_name": "Aussagenlogik",
+   "alt_satz": "„Und“ ist nur wahr, wenn beide wahr sind. „Wenn A, dann B“ ist nur falsch, wenn A wahr und B falsch ist.",
+   "alt_kurz": "",
+   "neu_name": "Aussagenlogik (und, wenn-dann)",
+   "neu_satz": "„A und B“ ist nur wahr, wenn beide wahr sind. „Wenn A, dann B“ ist nur falsch, wenn A wahr und B falsch ist.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "„3 > 2 und 5 > 6“ ist falsch, weil 5 > 6 falsch ist. „Wenn 3 > 5, dann 2 > 7“ ist wahr, weil 3 > 5 falsch ist.",
+   "rechnung": [
+    "not (3 > 2 and 5 > 6)",
+    "(not 3 > 5) or 2 > 7"
+   ],
+   "bedingung": "Hier geht es um Aussagen, die entweder wahr oder falsch sind.",
+   "begruendung": "Der Satz war richtig, aber ohne ein Beispiel mit konkreten Aussagen.",
+   "suchwoerter": [
+    "Aussagenlogik",
+    "und",
+    "wenn dann",
+    "wahr",
+    "falsch",
+    "Implikation"
+   ]
+  },
+  {
+   "id": "E3",
+   "ebene": "einzelregel",
+   "gebiet": "Entdecker-Inseln",
+   "klasse": "–",
+   "alt_name": "Graphen",
+   "alt_satz": "Jede Kante zählt an zwei Knoten. Ein zusammenhängender ungerichteter Graph hat genau dann einen geschlossenen Weg, der jede Kante genau einmal benutzt, wenn jeder Knotengrad gerade ist (jeder Knoten hat gerade viele Kanten).",
+   "alt_kurz": "",
+   "neu_name": "Graphen (Knoten, Kanten, Grad)",
+   "neu_satz": "Zähle an jedem Knoten die Kanten (Grad); die Summe aller Grade ist 2 · Anzahl der Kanten. Ein Weg, der jede Kante genau einmal benutzt und zum Start zurückkehrt, ist bei einem zusammenhängenden Graphen genau dann möglich, wenn jeder Grad gerade ist.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Dreieck: 3 Knoten mit Grad 2, Summe 6 = 2 · 3 Kanten.",
+   "rechnung": [
+    "3*2 == 2*3"
+   ],
+   "bedingung": "Der Graph ist zusammenhängend und ungerichtet.",
+   "begruendung": "Der Satz begann mit „jede Kante zählt an zwei Knoten“ und nannte die Rechenregel nicht.",
+   "suchwoerter": [
+    "Graph",
+    "Knoten",
+    "Kanten",
+    "Grad",
+    "Euler",
+    "Haus vom Nikolaus"
+   ]
+  },
+  {
+   "id": "E4",
+   "ebene": "einzelregel",
+   "gebiet": "Entdecker-Inseln",
+   "klasse": "–",
+   "alt_name": "Lineare Optimierung",
+   "alt_satz": "Ist der erlaubte Bereich ein nichtleeres, beschränktes Vieleck, wird der beste Wert in mindestens einer Ecke erreicht; sind zwei benachbarte Ecken gleich gut, ist es auch die ganze Kante dazwischen.",
+   "alt_kurz": "",
+   "neu_name": "Lineare Optimierung (beste Ecke)",
+   "neu_satz": "Zeichne den erlaubten Bereich. Ist er ein nichtleeres, beschränktes Vieleck, liegt der beste Wert in mindestens einer Ecke: Rechne den Zielwert an allen Ecken aus und vergleiche.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Ecken (0 | 0), (3 | 0), (3 | 1), (0 | 4), Ziel z = 2x + y: Werte 0, 6, 7, 4; das Maximum 7 liegt bei (3 | 1).",
+   "rechnung": [
+    "max([2*0+0, 2*3+0, 2*3+1, 2*0+4]) == 7"
+   ],
+   "bedingung": "Sind zwei benachbarte Ecken gleich gut, ist auch die ganze Kante dazwischen gleich gut.",
+   "begruendung": "Der Satz nannte nicht, was man an den Ecken rechnet.",
+   "suchwoerter": [
+    "lineare Optimierung",
+    "Ecke",
+    "Zielfunktion",
+    "Maximum",
+    "Minimum",
+    "Ungleichungen"
+   ]
+  },
+  {
+   "id": "E5",
+   "ebene": "einzelregel",
+   "gebiet": "Entdecker-Inseln",
+   "klasse": "–",
+   "alt_name": "Schranken",
+   "alt_satz": "Bei Rundung auf die nächste Einheit beträgt der Rundungsfehler höchstens eine halbe Rundungseinheit.",
+   "alt_kurz": "",
+   "neu_name": "Schranken beim Runden",
+   "neu_satz": "Wurde auf eine ganze Einheit gerundet, liegt der wahre Wert höchstens eine halbe Einheit daneben: Wert − 0,5 ≤ x < Wert + 0,5.",
+   "neu_kurz": "",
+   "neu_warum_einstieg": "",
+   "beispiel": "Gerundet 5 cm: 4,5 ≤ x < 5,5; 4,5 wird zu 5, 5,49 wird zu 5, 5,5 wird zu 6.",
+   "rechnung": [
+    "kaufm(4.5,1) == 5",
+    "kaufm(5.49,1) == 5",
+    "kaufm(5.5,1) == 6",
+    "kaufm(4.49,1) == 4"
+   ],
+   "bedingung": "Bei Rundung auf die nächste Einheit (ab 5 aufrunden).",
+   "begruendung": "Der Satz sagte „höchstens eine halbe Rundungseinheit“, ohne die Grenzen.",
+   "suchwoerter": [
+    "Schranken",
+    "Rundungsfehler",
+    "runden",
+    "Intervall",
+    "Genauigkeit"
+   ]
+  }
+ ]
+}

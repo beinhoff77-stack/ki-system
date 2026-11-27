@@ -115,14 +115,35 @@
      "antwort": 63,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mal 3 statt geteilt"
+     "beschreibung": "21 · 3 statt 21 : 3 gerechnet"
     },
     {
      "luecke": 3,
-     "antwort": 1536,
+     "antwort": 4659,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "falsch geteilt"
+     "beschreibung": "die Quersumme addiert statt abgezogen: 4 638 + 21"
+    },
+    {
+     "luecke": 3,
+     "antwort": 4638,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Quersumme nicht abgezogen"
+    },
+    {
+     "luecke": 4,
+     "antwort": 1546,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 638 : 3 statt ③ : 3 gerechnet"
+    },
+    {
+     "luecke": 4,
+     "antwort": 4617,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 3 geteilt"
     }
    ],
    "aufgabe": {
@@ -133,24 +154,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ist 4 638 durch 3 teilbar? Quersumme: 4 + 6 + 3 + 8 = ①. Dann ① : 3 = ②, es bleibt kein Rest. Also geht auch 4 638 : 3 auf: ③.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Ist 4 638 durch 3 teilbar? Quersumme: 4 + 6 + 3 + 8 = ①. Dann ① : 3 = ②, es bleibt kein Rest, also ist 4 638 durch 3 teilbar. Der Unterschied zwischen einer Zahl und ihrer Quersumme ist immer durch 3 teilbar. Hier: 4 638 − ① = ③. Diese Zahl geteilt durch 3 ergibt ③ : 3 = ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine Zahl."
     },
     "o": {
      "werte": [
       21,
       7,
-      1546
+      4617,
+      1539
      ]
     },
     "c": [
      "4+6+3+8",
      "(4+6+3+8)//3",
-     "4638//3"
+     "4638-(4+6+3+8)",
+     "(4638-(4+6+3+8))//3"
     ],
-    "h": "Die Quersumme ist die Summe der Ziffern.",
-    "w": "Quersumme 21, 21 : 3 = 7 ohne Rest. 4 638 : 3 = 1 546."
+    "h": "Zähle alle Ziffern zusammen und teile durch 3. Ziehe dann die Quersumme von der Zahl ab.",
+    "w": "4 + 6 + 3 + 8 = 21. 21 : 3 = 7. 4 638 − 21 = 4 617. 4 617 : 3 = 1 539. Probe: 1 539 · 3 = 4 617."
    }
   },
   {

@@ -337,7 +337,7 @@
     "s": 1,
     "g": "erkennen",
     "f": {
-     "text": "Die Gleichung x + 3 = x + 5 wird als Bild gezeichnet: die Gerade y = x + 3 und die Gerade y = x + 5 im selben Koordinatensystem. Was zeigt das Bild über die Lösungen der Gleichung?"
+     "text": "Die Gleichung x + 3 = x + 5 soll mit Hilfe von Geraden gedeutet werden. Angenommen, man zeichnet die Gerade y = x + 3 und die Gerade y = x + 5 in dasselbe Koordinatensystem. Was würde man dann sehen, und was folgt daraus für die Lösungen der Gleichung?"
     },
     "y": "auswahl",
     "a": [

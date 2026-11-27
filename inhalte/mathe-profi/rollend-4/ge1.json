@@ -1288,7 +1288,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim berechnet die Länge der Strecke [AB] mit A(−4 | 3) und B(5 | 3). Zeile 1: A und B haben beide y = 3. Die Strecke liegt waagrecht. Zeile 2: Die y-Achse liegt zwischen A und B. Kim rechnet 5 − 4 = 1. Zeile 3: Die Strecke [AB] ist 1 Einheit lang. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim berechnet die Länge der Strecke [AB] mit A(−4 | 3) und B(5 | 3). Zeile 1: A und B haben beide y = 3. Die Strecke liegt waagrecht. Zeile 2: Die y-Achse liegt zwischen A und B. Kim behauptet: Die gesuchte Streckenlänge ist 5 − 4 = 1. Zeile 3: Die Strecke [AB] ist 1 Einheit lang. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1728,7 +1728,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Rasensprenger steht 5 m von einem Zaun entfernt. Er spritzt 3 m weit. Kim fragt, ob der Zaun nass wird. Zeile 1: Die nasse Fläche ist ein Kreis um den Sprenger mit dem Radius 3 m. Zeile 2: Der Kreis ist 3 + 3 = 6 m breit. Der Zaun ist 5 m vom Sprenger entfernt. Das ist weniger als 6 m. Zeile 3: Also wird der Zaun nass. In welcher Zeile passiert der erste Fehler?"
+     "text": "Ein Rasensprenger steht 5 m von einem Zaun entfernt. Er spritzt 3 m weit. Kim fragt, ob der Zaun nass wird. Zeile 1: Die nasse Fläche ist ein Kreis um den Sprenger mit dem Radius 3 m. Zeile 2: Der Kreis ist 3 + 3 = 6 m breit. Der Zaun ist 5 m vom Sprenger entfernt. Weil 5 weniger als 6 ist, reicht das Wasser bis zum Zaun. Zeile 3: Also wird der Zaun nass. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1739,7 +1739,7 @@
      "index": 1
     },
     "h": "Von wo aus wird die Entfernung zum Zaun gemessen, und wie weit reicht das Wasser von dort?",
-    "w": "Die 6 m gelten von Rand zu Rand des Kreises, der Zaun wird aber vom Sprenger aus gemessen. Vom Sprenger reicht das Wasser nur 3 m, und der Zaun ist 5 m weg: Er bleibt trocken. Zeile 3 folgt aus Zeile 2."
+    "w": "Die 6 m gelten von Rand zu Rand des Kreises, der Zaun wird aber vom Sprenger aus gemessen. Vom Sprenger reicht das Wasser nur 3 m, und der Zaun ist 5 m weg: Er bleibt trocken. Zeile 2 behauptet, dass 5 < 6 genügt; Zeile 3 folgt nur daraus."
    }
   },
   {

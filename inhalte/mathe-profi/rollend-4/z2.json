@@ -83,45 +83,59 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 7,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die erste Ziffer genommen"
-    },
-    {
-     "luecke": 2,
      "antwort": 73,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "eine Stelle zu wenig gestrichen"
     },
     {
-     "luecke": 3,
+     "luecke": 1,
+     "antwort": 73600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 malgenommen statt geteilt"
+    },
+    {
+     "luecke": 2,
      "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die erste Ziffer von 736 genommen"
     },
     {
-     "luecke": 3,
+     "luecke": 2,
      "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die mittlere Ziffer von 736 genommen"
     },
     {
-     "luecke": 4,
+     "luecke": 3,
      "antwort": 184,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "durch 4 geteilt"
     },
     {
-     "luecke": 4,
+     "luecke": 3,
      "antwort": 736,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nicht geteilt"
+    },
+    {
+     "luecke": 4,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Endziffer von ① statt von ③ genommen"
+    },
+    {
+     "luecke": 4,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die erste Ziffer von 368 genommen"
     }
    ],
    "aufgabe": {
@@ -132,26 +146,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Zahl 7 360 endet auf die Ziffer ①. Sie ist durch 10 teilbar: 7 360 : 10 = ②. Die Endziffer von ② ist ③. Deshalb ist ② durch 2 teilbar: ② : 2 = ④.",
+     "text": "Die Zahl 7 360 wird durch 10 geteilt: 7 360 : 10 = ①. Die Endziffer von ① ist ②. Weil ② gerade ist, ist ① durch 2 teilbar: ① : 2 = ③. Die Endziffer von ③ ist ④.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      0,
       736,
       6,
-      368
+      368,
+      8
      ]
     },
     "c": [
-     "7360%10",
      "7360//10",
      "(7360//10)%10",
-     "7360//10//2"
+     "7360//10//2",
+     "(7360//10//2)%10"
     ],
-    "h": "Die Endziffer ist die letzte Ziffer der Zahl. Beim Teilen durch 10 fällt sie weg.",
-    "w": "7 360 endet auf 0, also ist sie durch 10 teilbar: 7 360 : 10 = 736. Die Endziffer von 736 ist 6, eine gerade Ziffer, also ist 736 durch 2 teilbar: 736 : 2 = 368."
+    "h": "Beim Teilen durch 10 fällt die letzte Null weg. Die Endziffer ist die letzte Ziffer einer Zahl.",
+    "w": "7 360 : 10 = 736. Die Endziffer von 736 ist 6, eine gerade Ziffer, also ist 736 durch 2 teilbar: 736 : 2 = 368. Die Endziffer von 368 ist 8."
    }
   },
   {
@@ -166,11 +180,46 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 3,
-     "antwort": 69,
+     "luecke": 1,
+     "antwort": 17,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Quotienten ohne die Null in der Mitte geschrieben"
+     "beschreibung": "die letzte Ziffer 1 nicht mitgezählt: 5 + 4 + 8"
+    },
+    {
+     "luecke": 2,
+     "antwort": 162,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "18 · 9 statt 18 : 9 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 5499,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Quersumme addiert statt abgezogen: 5 481 + 18"
+    },
+    {
+     "luecke": 3,
+     "antwort": 5481,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Quersumme nicht abgezogen"
+    },
+    {
+     "luecke": 4,
+     "antwort": 609,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 481 : 9 statt ③ : 9 gerechnet"
+    },
+    {
+     "luecke": 4,
+     "antwort": 5463,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 9 geteilt"
     }
    ],
    "aufgabe": {
@@ -181,24 +230,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Prüfe 5 481 auf Teilbarkeit durch 9. Quersumme: 5 + 4 + 8 + 1 = ①. Dann ① : 9 = ② ohne Rest. Also ist 5 481 durch 9 teilbar, und 5 481 : 9 = ③.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Prüfe 5 481 auf Teilbarkeit durch 9. Quersumme: 5 + 4 + 8 + 1 = ①. Dann ① : 9 = ② ohne Rest, also ist 5 481 durch 9 teilbar. Der Unterschied zwischen einer Zahl und ihrer Quersumme ist immer durch 9 teilbar. Hier: 5 481 − ① = ③. Diese Zahl geteilt durch 9 ergibt ③ : 9 = ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       18,
       2,
-      609
+      5463,
+      607
      ]
     },
     "c": [
      "5 + 4 + 8 + 1",
      "(5 + 4 + 8 + 1) // 9",
-     "5481 // 9"
+     "5481 - (5 + 4 + 8 + 1)",
+     "(5481 - (5 + 4 + 8 + 1)) // 9"
     ],
-    "h": "Zähle alle Ziffern zusammen und teile dann durch 9.",
-    "w": "5 + 4 + 8 + 1 = 18. 18 : 9 = 2. 5 481 : 9 = 609."
+    "h": "Zähle alle Ziffern zusammen und teile durch 9. Ziehe dann die Quersumme von der Zahl ab.",
+    "w": "5 + 4 + 8 + 1 = 18. 18 : 9 = 2. 5 481 − 18 = 5 463. 5 463 : 9 = 607. Probe: 607 · 9 = 5 463."
    }
   },
   {

@@ -1,0 +1,1242 @@
+{
+ "hinweis": "Von den 103 Einzelregeln der Gebiete, die nur Name, Satz und Klasse haben (ohne Warum/Genau gesagt), die je 15 dringlichsten für Klasse 5 und Klasse 8. Dringlichkeit = wie viele spätere Regeln darauf bauen und wie häufig der Fehler ist; [M] Meinung. Nicht aufgenommen: A8 und V4 (verweisen auf Rechenregel 13 und 11). Alle Zahlenbeispiele sind in pruefen.py nachgerechnet.",
+ "stand": "2026-11-27",
+ "klasse5": [
+  {
+   "rang": 1,
+   "id": "Z1",
+   "name": "Stellenwertsystem",
+   "gebiet": "Zahlen",
+   "klassen_gymnasium": "5–6",
+   "satz_bestand": "Jede Stelle ist zehnmal so viel wert wie die Stelle rechts daneben – auch hinter dem Komma.",
+   "begruendung": "Alles Rechnen im Zehnersystem hängt an der Stelle der Ziffer; Klasse 5 beginnt damit.",
+   "beispiel": {
+    "text": "5 302 = 5 · 1 000 + 3 · 100 + 0 · 10 + 2 · 1."
+   },
+   "grenze": {
+    "art": "gilt nicht",
+    "text": "Römische Zahlen haben keinen Stellenwert (X ist immer zehn). Typischer Fehler: die Null weglassen, weil sie „nichts“ ist; 5 302 ist nicht 532."
+   },
+   "pruefung": [
+    {
+     "l": "5*1000+3*100+0*10+2*1",
+     "rel": "==",
+     "r": "5302"
+    },
+    {
+     "l": "5302",
+     "rel": "!=",
+     "r": "532"
+    }
+   ]
+  },
+  {
+   "rang": 2,
+   "id": "Z2",
+   "name": "Runden",
+   "gebiet": "Zahlen",
+   "klassen_gymnasium": "5–6",
+   "satz_bestand": "Die Ziffer rechts von der Rundungsstelle entscheidet: 0 bis 4 abrunden, 5 bis 9 aufrunden.",
+   "begruendung": "Runden braucht jede Überschlagsrechnung und jede Sachaufgabe mit großen Zahlen.",
+   "beispiel": {
+    "text": "3 450 auf Hunderter gerundet: Die Ziffer rechts der Hunderterstelle ist 5, also aufrunden zu 3 500. Bei 3 449 ist sie 4, also abrunden zu 3 400."
+   },
+   "grenze": {
+    "art": "typischer Fehler",
+    "text": "Von hinten runden: 3 449 → 3 450 → 3 500 ist falsch; nur die eine Ziffer rechts von der Rundungsstelle zählt."
+   },
+   "pruefung": [
+    {
+     "l": "kaufm(3450,100)",
+     "rel": "==",
+     "r": "3500"
+    },
+    {
+     "l": "kaufm(3449,100)",
+     "rel": "==",
+     "r": "3400"
+    },
+    {
+     "l": "kaufm(3449,100)",
+     "rel": "!=",
+     "r": "3500"
+    }
+   ]
+  },
+  {
+   "rang": 3,
+   "id": "Z4",
+   "name": "Ordnung auf der Zahlengeraden",
+   "gebiet": "Zahlen",
+   "klassen_gymnasium": "5–6",
+   "satz_bestand": "Was weiter links liegt, ist kleiner – auch bei negativen Zahlen und Brüchen.",
+   "begruendung": "Mit negativen Zahlen beginnt Klasse 5; die Ordnung am Zahlenstrahl ist die Grundlage für Plus, Minus und Ungleichungen.",
+   "beispiel": {
+    "text": "−7 liegt links von −2, also ist −7 < −2. Geordnet: −7, −2, 0, 3."
+   },
+   "grenze": {
+    "art": "typischer Fehler",
+    "text": "−30 für größer als −10 halten, weil 30 größer als 10 ist. Bei negativen Zahlen ist die größere Zahl die, die weniger weit links liegt."
+   },
+   "pruefung": [
+    {
+     "l": "-7",
+     "rel": "<",
+     "r": "-2"
+    },
+    {
+     "l": "-30",
+     "rel": "<",
+     "r": "-10"
+    }
+   ]
+  },
+  {
+   "rang": 4,
+   "id": "Z5",
+   "name": "Betrag und Gegenzahl",
+   "gebiet": "Zahlen",
+   "klassen_gymnasium": "5",
+   "satz_bestand": "Der Betrag ist der Abstand zur Null. Die Gegenzahl liegt gleich weit auf der anderen Seite.",
+   "begruendung": "Betrag und Gegenzahl brauchen Abstand und Richtung bei negativen Zahlen und später die Betragsfunktion.",
+   "beispiel": {
+    "text": "Der Betrag von −6 ist 6, der von 6 ebenfalls; die Gegenzahl von −6 ist 6."
+   },
+   "grenze": {
+    "art": "gilt nicht",
+    "text": "Ein Betrag ist nie negativ: |3 − 8| = |−5| = 5, nicht −5. Der Betrag „streicht das Minus“ nur bei einer einzelnen Zahl, nicht bei einer ganzen Rechnung."
+   },
+   "pruefung": [
+    {
+     "l": "abs(-6)",
+     "rel": "==",
+     "r": "6"
+    },
+    {
+     "l": "abs(6)",
+     "rel": "==",
+     "r": "6"
+    },
+    {
+     "l": "abs(3-8)",
+     "rel": "==",
+     "r": "5"
+    },
+    {
+     "l": "abs(3-8)",
+     "rel": "!=",
+     "r": "-5"
+    }
+   ]
+  },
+  {
+   "rang": 5,
+   "id": "Z6",
+   "name": "Teiler und Vielfache",
+   "gebiet": "Zahlen",
+   "klassen_gymnasium": "5",
+   "satz_bestand": "a ist Teiler von b, wenn b geteilt durch a ohne Rest aufgeht.",
+   "begruendung": "Teiler und Vielfache brauchen Kürzen, Hauptnenner und Teilbarkeit in Klasse 5 und 6.",
+   "beispiel": {
+    "text": "18 : 6 = 3 ohne Rest, also ist 6 ein Teiler von 18 und 18 ein Vielfaches von 6. Die Teiler von 12 sind 1, 2, 3, 4, 6, 12."
+   },
+   "grenze": {
+    "art": "typischer Fehler",
+    "text": "Teiler und Vielfache verwechseln: Die Vielfachen von 6 (6, 12, 18, …) hören nie auf, die Teiler von 18 sind endlich viele. Und: 7 ist kein Teiler von 20, denn 20 : 7 lässt Rest 6."
+   },
+   "pruefung": [
+    {
+     "l": "18/6",
+     "rel": "==",
+     "r": "3"
+    },
+    {
+     "l": "18 % 6",
+     "rel": "==",
+     "r": "0"
+    },
+    {
+     "l": "teiler(12)",
+     "rel": "==",
+     "r": "(1,2,3,4,6,12)"
+    },
+    {
+     "l": "20 % 7",
+     "rel": "==",
+     "r": "6"
+    }
+   ]
+  },
+  {
+   "rang": 6,
+   "id": "Z7",
+   "name": "Teilbarkeitsregeln",
+   "gebiet": "Zahlen",
+   "klassen_gymnasium": "5",
+   "satz_bestand": "Durch 2, 5 und 10: letzte Ziffer ansehen. Durch 3 und 9: Quersumme ansehen.",
+   "begruendung": "Teilbarkeitsregeln machen Kürzen und Primfaktorzerlegung im Kopf möglich.",
+   "beispiel": {
+    "text": "4 536 hat die Quersumme 4 + 5 + 3 + 6 = 18, ist also durch 3 und durch 9 teilbar; die letzte Ziffer 6 ist gerade, also auch durch 2."
+   },
+   "grenze": {
+    "art": "gilt nicht",
+    "text": "Die Quersumme gilt nur für 3 und 9. Für 4 zählen die letzten beiden Ziffern: 124 hat Quersumme 7 und ist doch durch 4 teilbar (124 : 4 = 31)."
+   },
+   "pruefung": [
+    {
+     "l": "quersumme(4536)",
+     "rel": "==",
+     "r": "18"
+    },
+    {
+     "l": "4536 % 9",
+     "rel": "==",
+     "r": "0"
+    },
+    {
+     "l": "4536 % 2",
+     "rel": "==",
+     "r": "0"
+    },
+    {
+     "l": "quersumme(124)",
+     "rel": "==",
+     "r": "7"
+    },
+    {
+     "l": "124 % 3",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "124/4",
+     "rel": "==",
+     "r": "31"
+    }
+   ]
+  },
+  {
+   "rang": 7,
+   "id": "Z8",
+   "name": "Primzahlen und Primfaktoren",
+   "gebiet": "Zahlen",
+   "klassen_gymnasium": "5",
+   "satz_bestand": "Jede natürliche Zahl größer als 1 lässt sich in Primzahlen zerlegen – bis auf die Reihenfolge auf genau eine Weise.",
+   "begruendung": "Primfaktoren sind der Weg zu ggT, kgV und vollständigem Kürzen.",
+   "beispiel": {
+    "text": "60 = 2 · 2 · 3 · 5; alle Faktoren sind Primzahlen und das Produkt ist 60."
+   },
+   "grenze": {
+    "art": "typischer Fehler",
+    "text": "1 ist keine Primzahl; 2 ist die einzige gerade. Und 51 sieht prim aus, ist aber 3 · 17."
+   },
+   "pruefung": [
+    {
+     "l": "2*2*3*5",
+     "rel": "==",
+     "r": "60"
+    },
+    {
+     "l": "ist_prim(2)",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "ist_prim(3)",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "ist_prim(5)",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "ist_prim(51)",
+     "rel": "==",
+     "r": "0"
+    },
+    {
+     "l": "3*17",
+     "rel": "==",
+     "r": "51"
+    },
+    {
+     "l": "ist_prim(1)",
+     "rel": "==",
+     "r": "0"
+    }
+   ]
+  },
+  {
+   "rang": 8,
+   "id": "V1",
+   "name": "Größe und Einheit",
+   "gebiet": "Geld und Verhältnisse",
+   "klassen_gymnasium": "5",
+   "satz_bestand": "Eine Größe ist Zahl mal Einheit. Umrechnungszahlen: Längen 10 (m zu km: 1 000), Massen 1 000, Zeit 60 (Tag zu Stunde: 24).",
+   "begruendung": "Jede Sachaufgabe in Klasse 5 verlangt Einheiten umzurechnen; die Umrechnungszahlen sind nicht überall 10.",
+   "beispiel": {
+    "text": "3,5 km = 3 500 m, denn 1 km = 1 000 m. 2 h 30 min = 150 min."
+   },
+   "grenze": {
+    "art": "typischer Fehler",
+    "text": "Zeit rechnet nicht in Hundertern: 2,5 h sind 2 h 30 min, nicht 2 h 50 min. Bei Flächen (Klasse 6) ist die Umrechnungszahl 100, nicht 10."
+   },
+   "pruefung": [
+    {
+     "l": "3.5*1000",
+     "rel": "==",
+     "r": "3500"
+    },
+    {
+     "l": "2*60+30",
+     "rel": "==",
+     "r": "150"
+    },
+    {
+     "l": "2.5*60",
+     "rel": "==",
+     "r": "150"
+    },
+    {
+     "l": "2*60+50",
+     "rel": "!=",
+     "r": "150"
+    }
+   ]
+  },
+  {
+   "rang": 9,
+   "id": "V3",
+   "name": "Direkte Proportionalität",
+   "gebiet": "Geld und Verhältnisse",
+   "klassen_gymnasium": "5–8",
+   "satz_bestand": "Doppelt so viel von dem einen, doppelt so viel von dem anderen. Der Quotient bleibt gleich.",
+   "begruendung": "Direkte Proportionalität steckt hinter Preis, Dreisatz, Prozent und später Steigung.",
+   "beispiel": {
+    "text": "2 kg kosten 5 €, also kosten 6 kg das Dreifache, 15 €. Der Preis je Kilogramm bleibt 2,50 €."
+   },
+   "grenze": {
+    "art": "gilt nicht",
+    "text": "Mit Grundgebühr ist es nicht proportional: Taxi mit 3 € Grundgebühr und 2 € je km kostet für 2 km 7 € und für 4 km 11 €, nicht 14 €."
+   },
+   "pruefung": [
+    {
+     "l": "5*3",
+     "rel": "==",
+     "r": "15"
+    },
+    {
+     "l": "5/2",
+     "rel": "==",
+     "r": "2.5"
+    },
+    {
+     "l": "15/6",
+     "rel": "==",
+     "r": "2.5"
+    },
+    {
+     "l": "3+2*2",
+     "rel": "==",
+     "r": "7"
+    },
+    {
+     "l": "3+2*4",
+     "rel": "==",
+     "r": "11"
+    },
+    {
+     "l": "2*7",
+     "rel": "==",
+     "r": "14"
+    },
+    {
+     "l": "11",
+     "rel": "!=",
+     "r": "14"
+    }
+   ]
+  },
+  {
+   "rang": 10,
+   "id": "V2",
+   "name": "Maßstab",
+   "gebiet": "Geld und Verhältnisse",
+   "klassen_gymnasium": "5",
+   "satz_bestand": "1 : n heißt: 1 cm im Plan sind n cm in Wirklichkeit.",
+   "begruendung": "Pläne, Karten und Modelle kommen in Klasse 5 vor und bereiten Ähnlichkeit vor.",
+   "beispiel": {
+    "text": "Maßstab 1 : 50 000: 3 cm auf der Karte sind 3 · 50 000 cm = 150 000 cm = 1,5 km."
+   },
+   "grenze": {
+    "art": "gilt nicht",
+    "text": "Der Maßstab gilt für Längen, nicht für Flächen: Bei 1 : 100 sind 1 cm² im Plan nicht 100 cm², sondern 100 · 100 = 10 000 cm² in Wirklichkeit."
+   },
+   "pruefung": [
+    {
+     "l": "3*50000",
+     "rel": "==",
+     "r": "150000"
+    },
+    {
+     "l": "150000/100000",
+     "rel": "==",
+     "r": "1.5"
+    },
+    {
+     "l": "100*100",
+     "rel": "==",
+     "r": "10000"
+    }
+   ]
+  },
+  {
+   "rang": 11,
+   "id": "Z15",
+   "name": "Quadratzahlen",
+   "gebiet": "Zahlen",
+   "klassen_gymnasium": "5",
+   "satz_bestand": "Hoch 2 heißt Zahl mal sich selbst; die Quadratzahlen bis 20² weiß man auswendig.",
+   "begruendung": "Quadratzahlen sind die Grundlage von Flächen, Wurzeln und dem Satz des Pythagoras.",
+   "beispiel": {
+    "text": "12² = 12 · 12 = 144; 15² = 225."
+   },
+   "grenze": {
+    "art": "typischer Fehler",
+    "text": "Verdoppeln statt Quadrieren: 12² ist nicht 24."
+   },
+   "pruefung": [
+    {
+     "l": "12*12",
+     "rel": "==",
+     "r": "144"
+    },
+    {
+     "l": "12**2",
+     "rel": "==",
+     "r": "144"
+    },
+    {
+     "l": "15**2",
+     "rel": "==",
+     "r": "225"
+    },
+    {
+     "l": "12**2",
+     "rel": "!=",
+     "r": "24"
+    }
+   ]
+  },
+  {
+   "rang": 12,
+   "id": "Z16",
+   "name": "Potenz mit negativer Basis",
+   "gebiet": "Zahlen",
+   "klassen_gymnasium": "5",
+   "satz_bestand": "Gerade Hochzahl: Ergebnis positiv. Ungerade Hochzahl: Ergebnis negativ.",
+   "begruendung": "Mit negativer Basis stolpern Kinder früh; die Regel verbindet Vorzeichenregel und Potenz.",
+   "beispiel": {
+    "text": "(−2)³ = (−2) · (−2) · (−2) = −8 und (−2)⁴ = 16."
+   },
+   "grenze": {
+    "art": "gilt nicht",
+    "text": "Ohne Klammer ist die Basis 2, nicht −2: −2⁴ = −16, denn erst Hoch, dann das Minus (Regel 4)."
+   },
+   "pruefung": [
+    {
+     "l": "(-2)**3",
+     "rel": "==",
+     "r": "-8"
+    },
+    {
+     "l": "(-2)**4",
+     "rel": "==",
+     "r": "16"
+    },
+    {
+     "l": "-2**4",
+     "rel": "==",
+     "r": "-16"
+    },
+    {
+     "l": "(-2)**4",
+     "rel": "!=",
+     "r": "-2**4"
+    }
+   ]
+  },
+  {
+   "rang": 13,
+   "id": "Z18",
+   "name": "Zehnerpotenzen",
+   "gebiet": "Zahlen",
+   "klassen_gymnasium": "5–6",
+   "satz_bestand": "10ⁿ ist eine 1 mit n Nullen, 10⁻ⁿ hat n Stellen hinter dem Komma. Kilo, Mega, Milli, Mikro sind Zehnerpotenzen.",
+   "begruendung": "Zehnerpotenzen tragen große Zahlen, Einheiten (Kilo, Milli) und die Schreibweise 3 · 10⁵.",
+   "beispiel": {
+    "text": "10⁴ = 10 000 (vier Nullen); 3 · 10⁵ = 300 000."
+   },
+   "grenze": {
+    "art": "typischer Fehler",
+    "text": "10⁴ mit 10 · 4 = 40 verwechseln. Die Hochzahl zählt die Nullen, sie ist kein Faktor."
+   },
+   "pruefung": [
+    {
+     "l": "10**4",
+     "rel": "==",
+     "r": "10000"
+    },
+    {
+     "l": "3*10**5",
+     "rel": "==",
+     "r": "300000"
+    },
+    {
+     "l": "10*4",
+     "rel": "==",
+     "r": "40"
+    },
+    {
+     "l": "10**4",
+     "rel": "!=",
+     "r": "10*4"
+    }
+   ]
+  },
+  {
+   "rang": 14,
+   "id": "D11",
+   "name": "Zählprinzip",
+   "gebiet": "Daten und Zufall",
+   "klassen_gymnasium": "5",
+   "satz_bestand": "Die Möglichkeiten der einzelnen Stufen werden malgenommen.",
+   "begruendung": "Das Zählprinzip ist der erste Schritt zur Wahrscheinlichkeit und braucht nur Malnehmen.",
+   "beispiel": {
+    "text": "3 Hosen und 4 Shirts ergeben 3 · 4 = 12 verschiedene Kombinationen."
+   },
+   "grenze": {
+    "art": "gilt nicht",
+    "text": "Nicht addieren (3 + 4 = 7). Und: Sind einzelne Kombinationen verboten, muss man sie abziehen; ist eine verboten, bleiben 12 − 1 = 11."
+   },
+   "pruefung": [
+    {
+     "l": "3*4",
+     "rel": "==",
+     "r": "12"
+    },
+    {
+     "l": "3+4",
+     "rel": "==",
+     "r": "7"
+    },
+    {
+     "l": "3*4",
+     "rel": "!=",
+     "r": "3+4"
+    },
+    {
+     "l": "12-1",
+     "rel": "==",
+     "r": "11"
+    }
+   ]
+  },
+  {
+   "rang": 15,
+   "id": "A9",
+   "name": "Wie viele Lösungen?",
+   "gebiet": "Algebra",
+   "klassen_gymnasium": "5–7",
+   "satz_bestand": "Eine lineare Gleichung hat genau eine Lösung, keine oder jede Zahl als Lösung.",
+   "begruendung": "Klasse 5 lernt, dass nicht jede Gleichung genau eine Lösung hat; das schützt vor falschem Selbstvertrauen.",
+   "beispiel": {
+    "text": "3 · x = 12 hat genau die Lösung x = 4. 0 · x = 5 hat keine Lösung, denn null mal jede Zahl ist null. 0 · x = 0 stimmt für jede Zahl."
+   },
+   "grenze": {
+    "art": "typischer Fehler",
+    "text": "Annehmen, jede Gleichung habe genau eine Lösung. Für Gleichungen mit x² gilt das ohnehin nicht (x² = 9 hat zwei)."
+   },
+   "pruefung": [
+    {
+     "l": "3*x",
+     "rel": "==",
+     "r": "12",
+     "mit": {
+      "x": 4
+     }
+    },
+    {
+     "l": "0*x",
+     "rel": "==",
+     "r": "5",
+     "bereich": {
+      "x": [
+       -50,
+       50
+      ]
+     },
+     "modus": "keine"
+    },
+    {
+     "l": "0*x",
+     "rel": "==",
+     "r": "0",
+     "bereich": {
+      "x": [
+       -50,
+       50
+      ]
+     },
+     "modus": "alle"
+    },
+    {
+     "l": "x**2",
+     "rel": "==",
+     "r": "9",
+     "mit": {
+      "x": 3
+     }
+    },
+    {
+     "l": "x**2",
+     "rel": "==",
+     "r": "9",
+     "mit": {
+      "x": -3
+     }
+    }
+   ]
+  }
+ ],
+ "klasse8": [
+  {
+   "rang": 1,
+   "id": "U7",
+   "name": "Lineare Funktion",
+   "gebiet": "Funktionen",
+   "klassen_gymnasium": "8",
+   "satz_bestand": "y = m · x + t: m ist die Steigung (Höhenunterschied durch Längenunterschied), t der Abschnitt auf der y-Achse.",
+   "begruendung": "Die Gerade y = m · x + t ist der Kern von Klasse 8 und kommt in Dreisatz, Gleichungssystem und Funktionslehre wieder.",
+   "beispiel": {
+    "text": "Durch (1 | 3) und (3 | 7): Steigung m = (7 − 3) : (3 − 1) = 2; mit y = 2x + t folgt t = 3 − 2 · 1 = 1."
+   },
+   "grenze": {
+    "art": "gilt nicht",
+    "text": "Eine senkrechte Gerade (x = 3) hat keine Steigung und ist keine Funktion. Typischer Fehler: Steigung als Längenunterschied durch Höhenunterschied rechnen."
+   },
+   "pruefung": [
+    {
+     "l": "(7-3)/(3-1)",
+     "rel": "==",
+     "r": "2"
+    },
+    {
+     "l": "3-2*1",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "2*3+1",
+     "rel": "==",
+     "r": "7"
+    },
+    {
+     "l": "2*1+1",
+     "rel": "==",
+     "r": "3"
+    }
+   ]
+  },
+  {
+   "rang": 2,
+   "id": "U1",
+   "name": "Funktion",
+   "gebiet": "Funktionen",
+   "klassen_gymnasium": "8",
+   "satz_bestand": "Zu jedem x gehört genau ein y.",
+   "begruendung": "Der Funktionsbegriff trennt „Zuordnung“ von „Funktion“ und entscheidet, was ein Graph darstellen darf.",
+   "beispiel": {
+    "text": "x ↦ x²: 3 ↦ 9 und −3 ↦ 9. Zwei x mit demselben y sind erlaubt, es ist trotzdem eine Funktion."
+   },
+   "grenze": {
+    "art": "gilt nicht",
+    "text": "Der Kreis x² + y² = 25 ist keine Funktion: Zu x = 3 gehören y = 4 und y = −4. Umgekehrt dürfen zu einem y viele x gehören."
+   },
+   "pruefung": [
+    {
+     "l": "3**2",
+     "rel": "==",
+     "r": "9"
+    },
+    {
+     "l": "(-3)**2",
+     "rel": "==",
+     "r": "9"
+    },
+    {
+     "l": "3**2+4**2",
+     "rel": "==",
+     "r": "25"
+    },
+    {
+     "l": "3**2+(-4)**2",
+     "rel": "==",
+     "r": "25"
+    }
+   ]
+  },
+  {
+   "rang": 3,
+   "id": "U3",
+   "name": "Nullstelle und Achsenabschnitt",
+   "gebiet": "Funktionen",
+   "klassen_gymnasium": "8",
+   "satz_bestand": "Eine Nullstelle ist ein x-Wert mit f(x) = 0. Den Schnitt mit der y-Achse liefert x = 0.",
+   "begruendung": "Nullstelle und Achsenabschnitt sind die zwei Punkte, an denen man jeden Graphen in Klasse 8 festnagelt.",
+   "beispiel": {
+    "text": "f(x) = 2x − 6: Nullstelle bei x = 3, denn 2 · 3 − 6 = 0; Achsenabschnitt f(0) = −6."
+   },
+   "grenze": {
+    "art": "gilt nicht",
+    "text": "Nicht jede Funktion hat eine Nullstelle: x² + 1 ist immer mindestens 1. Und die Nullstelle ist ein x-Wert (3), der Achsenabschnitt ein y-Wert (−6)."
+   },
+   "pruefung": [
+    {
+     "l": "2*x-6",
+     "rel": "==",
+     "r": "0",
+     "mit": {
+      "x": 3
+     }
+    },
+    {
+     "l": "2*0-6",
+     "rel": "==",
+     "r": "-6"
+    },
+    {
+     "l": "x**2+1",
+     "rel": "==",
+     "r": "0",
+     "bereich": {
+      "x": [
+       -50,
+       50
+      ]
+     },
+     "modus": "keine"
+    }
+   ]
+  },
+  {
+   "rang": 4,
+   "id": "A5",
+   "name": "Definitionsmenge",
+   "gebiet": "Algebra",
+   "klassen_gymnasium": "8",
+   "satz_bestand": "Ein Nenner darf nie null sein. Diese Zahlen werden vorher ausgeschlossen.",
+   "begruendung": "Ohne Definitionsmenge sind Bruchterme und Bruchgleichungen in Klasse 8 nicht lösbar.",
+   "beispiel": {
+    "text": "6/(x − 2) ist für x = 2 nicht definiert, weil der Nenner 2 − 2 = 0 wird; für x = 5 ist der Wert 6/3 = 2."
+   },
+   "grenze": {
+    "art": "typischer Fehler",
+    "text": "Das Vorzeichen falsch lesen: x − 2 = 0 gilt für x = 2, nicht für x = −2. Der Zähler darf null sein; x/(x − 2) ist für x = 0 definiert und 0."
+   },
+   "pruefung": [
+    {
+     "l": "2-2",
+     "rel": "==",
+     "r": "0"
+    },
+    {
+     "l": "6/(x-2)",
+     "rel": "==",
+     "r": "2",
+     "mit": {
+      "x": 5
+     }
+    },
+    {
+     "l": "x-2",
+     "rel": "!=",
+     "r": "0",
+     "mit": {
+      "x": -2
+     }
+    },
+    {
+     "l": "x/(x-2)",
+     "rel": "==",
+     "r": "0",
+     "mit": {
+      "x": 0
+     }
+    }
+   ]
+  },
+  {
+   "rang": 5,
+   "id": "A6",
+   "name": "Bruchterme",
+   "gebiet": "Algebra",
+   "klassen_gymnasium": "8",
+   "satz_bestand": "Mit Bruchtermen rechnet man wie mit Brüchen: erst faktorisieren, dann kürzen.",
+   "begruendung": "Bruchterme sind das Hauptthema von Klasse 8; Kürzen verlangt vorher Faktorisieren.",
+   "beispiel": {
+    "text": "(3x + 6)/(x + 2) = 3 · (x + 2)/(x + 2) = 3 für x ≠ −2."
+   },
+   "grenze": {
+    "art": "typischer Fehler",
+    "text": "Aus Summen kürzen: (x + 6)/(x + 2) ist nicht 3. Für x = 2 ist der Wert 8/4 = 2."
+   },
+   "pruefung": [
+    {
+     "l": "(3*x+6)/(x+2)",
+     "rel": "==",
+     "r": "3",
+     "bereich": {
+      "x": [
+       -50,
+       50
+      ]
+     },
+     "modus": "alle",
+     "ohne": [
+      -2
+     ]
+    },
+    {
+     "l": "(x+6)/(x+2)",
+     "rel": "!=",
+     "r": "3",
+     "mit": {
+      "x": 2
+     }
+    },
+    {
+     "l": "(x+6)/(x+2)",
+     "rel": "==",
+     "r": "2",
+     "mit": {
+      "x": 2
+     }
+    }
+   ]
+  },
+  {
+   "rang": 6,
+   "id": "A12",
+   "name": "Bruchgleichungen",
+   "gebiet": "Algebra",
+   "klassen_gymnasium": "8",
+   "satz_bestand": "Mit dem Hauptnenner malnehmen; die Lösung muss in der Definitionsmenge liegen. Bruch gleich Bruch: über Kreuz.",
+   "begruendung": "Bruchgleichungen verbinden Waage, Definitionsmenge und Hauptnenner und sind die Hürde von Klasse 8.",
+   "beispiel": {
+    "text": "3/x + 1/2 = 5/x, mal 2x: 6 + x = 10, also x = 4. Probe: 3/4 + 1/2 = 5/4."
+   },
+   "grenze": {
+    "art": "gilt nicht",
+    "text": "Eine Lösung muss in der Definitionsmenge liegen: x/(x − 2) = 2/(x − 2) liefert rechnerisch x = 2, aber für x = 2 ist der Nenner null. Die Gleichung hat keine Lösung."
+   },
+   "pruefung": [
+    {
+     "l": "6+x",
+     "rel": "==",
+     "r": "10",
+     "mit": {
+      "x": 4
+     }
+    },
+    {
+     "l": "3/x+1/2",
+     "rel": "==",
+     "r": "5/x",
+     "mit": {
+      "x": 4
+     }
+    },
+    {
+     "l": "2-2",
+     "rel": "==",
+     "r": "0"
+    }
+   ]
+  },
+  {
+   "rang": 7,
+   "id": "A10",
+   "name": "Ungleichungen",
+   "gebiet": "Algebra",
+   "klassen_gymnasium": "8",
+   "satz_bestand": "Mal oder geteilt durch eine negative Zahl dreht das Ungleichheitszeichen um.",
+   "begruendung": "Ungleichungen kommen in Klasse 8 mit dem Zeichenwechsel; dieser Fehler ist der häufigste.",
+   "beispiel": {
+    "text": "−2x < 6, geteilt durch −2: x > −3. Probe: x = −2 gibt 4 < 6, stimmt; x = −4 gibt 8 < 6, stimmt nicht."
+   },
+   "grenze": {
+    "art": "typischer Fehler",
+    "text": "Das Zeichen nicht umdrehen (x < −3 wäre falsch). Beim Addieren und Subtrahieren bleibt es: x − 2 < 6 gibt x < 8."
+   },
+   "pruefung": [
+    {
+     "l": "-2*x",
+     "rel": "<",
+     "r": "6",
+     "mit": {
+      "x": -2
+     }
+    },
+    {
+     "l": "-2*x",
+     "rel": ">=",
+     "r": "6",
+     "mit": {
+      "x": -4
+     }
+    },
+    {
+     "l": "-2*x",
+     "rel": ">=",
+     "r": "6",
+     "mit": {
+      "x": -4
+     }
+    },
+    {
+     "l": "x-2",
+     "rel": "<",
+     "r": "6",
+     "mit": {
+      "x": 7
+     }
+    }
+   ]
+  },
+  {
+   "rang": 8,
+   "id": "A14",
+   "name": "Gleichungssystem mit zwei Unbekannten",
+   "gebiet": "Algebra",
+   "klassen_gymnasium": "8",
+   "satz_bestand": "Gesucht ist das Zahlenpaar, das beide Gleichungen erfüllt: einsetzen, gleichsetzen oder addieren. Zwei Geraden schneiden sich, sind parallel oder gleich.",
+   "begruendung": "Zwei Gleichungen mit zwei Unbekannten sind der Rahmen für Schnittpunkte und Sachaufgaben in Klasse 8.",
+   "beispiel": {
+    "text": "x + y = 5 und x − y = 1: Addiert gibt 2x = 6, also x = 3 und y = 2. Probe in beiden Gleichungen: 3 + 2 = 5 und 3 − 2 = 1."
+   },
+   "grenze": {
+    "art": "gilt nicht",
+    "text": "Nicht immer genau eine Lösung: x + y = 5 und x + y = 7 haben keine. Typischer Fehler: Probe nur in einer Gleichung; (4 | 1) erfüllt x + y = 5, aber x − y = 3, nicht 1."
+   },
+   "pruefung": [
+    {
+     "l": "3+2",
+     "rel": "==",
+     "r": "5"
+    },
+    {
+     "l": "3-2",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "4+1",
+     "rel": "==",
+     "r": "5"
+    },
+    {
+     "l": "4-1",
+     "rel": "!=",
+     "r": "1"
+    }
+   ]
+  },
+  {
+   "rang": 9,
+   "id": "A13",
+   "name": "Formeln umstellen",
+   "gebiet": "Algebra",
+   "klassen_gymnasium": "8",
+   "satz_bestand": "Eine Formel ist eine Gleichung mit mehreren Buchstaben: nach dem gesuchten auflösen.",
+   "begruendung": "Formeln umstellen verlangt Gegenrechnung und Waage in einem Schritt und trägt Geometrie und Physik.",
+   "beispiel": {
+    "text": "A = g · h : 2 nach h umgestellt: h = 2A : g. Mit A = 12 und g = 6 ist h = 24 : 6 = 4; Probe: 6 · 4 : 2 = 12."
+   },
+   "grenze": {
+    "art": "typischer Fehler",
+    "text": "Nur einen Teil umformen: h = 2A − g (richtig ist h = 2A : g). Durch g teilen darf man nur für g ≠ 0."
+   },
+   "pruefung": [
+    {
+     "l": "2*12/6",
+     "rel": "==",
+     "r": "4"
+    },
+    {
+     "l": "6*4/2",
+     "rel": "==",
+     "r": "12"
+    },
+    {
+     "l": "2*12-6",
+     "rel": "!=",
+     "r": "4"
+    }
+   ]
+  },
+  {
+   "rang": 10,
+   "id": "U4",
+   "name": "Schnittpunkt",
+   "gebiet": "Funktionen",
+   "klassen_gymnasium": "8–9",
+   "satz_bestand": "Im Schnittpunkt haben beide Funktionen denselben Wert: gleichsetzen.",
+   "begruendung": "Der Schnittpunkt zweier Geraden verbindet lineare Funktionen und Gleichungssysteme.",
+   "beispiel": {
+    "text": "y = 2x + 1 und y = −x + 7 gleichsetzen: 2x + 1 = −x + 7, also 3x = 6, x = 2, y = 5. Der Schnittpunkt ist S(2 | 5)."
+   },
+   "grenze": {
+    "art": "gilt nicht",
+    "text": "Parallele Geraden schneiden sich nicht: y = 2x + 1 und y = 2x + 3 gleichgesetzt gibt 1 = 3, einen Widerspruch."
+   },
+   "pruefung": [
+    {
+     "l": "2*x+1",
+     "rel": "==",
+     "r": "-x+7",
+     "mit": {
+      "x": 2
+     }
+    },
+    {
+     "l": "2*2+1",
+     "rel": "==",
+     "r": "5"
+    },
+    {
+     "l": "-2+7",
+     "rel": "==",
+     "r": "5"
+    },
+    {
+     "l": "1",
+     "rel": "!=",
+     "r": "3"
+    }
+   ]
+  },
+  {
+   "rang": 11,
+   "id": "U2",
+   "name": "Punktprobe",
+   "gebiet": "Funktionen",
+   "klassen_gymnasium": "8–9",
+   "satz_bestand": "Ein Punkt liegt auf dem Graphen, wenn seine Koordinaten die Gleichung erfüllen. Die Probe als Vorgehen: siehe Arbeitsweisen.",
+   "begruendung": "Die Punktprobe prüft ohne Zeichnen, ob ein Punkt auf einem Graphen liegt.",
+   "beispiel": {
+    "text": "Liegt P(3 | 7) auf y = 2x + 1? 2 · 3 + 1 = 7, ja. Q(2 | 6)? 2 · 2 + 1 = 5, nicht 6, also nein."
+   },
+   "grenze": {
+    "art": "typischer Fehler",
+    "text": "x und y vertauschen: (7 | 3) einsetzen gibt 2 · 7 + 1 = 15, nicht 3."
+   },
+   "pruefung": [
+    {
+     "l": "2*3+1",
+     "rel": "==",
+     "r": "7"
+    },
+    {
+     "l": "2*2+1",
+     "rel": "==",
+     "r": "5"
+    },
+    {
+     "l": "2*2+1",
+     "rel": "!=",
+     "r": "6"
+    },
+    {
+     "l": "2*7+1",
+     "rel": "==",
+     "r": "15"
+    },
+    {
+     "l": "2*7+1",
+     "rel": "!=",
+     "r": "3"
+    }
+   ]
+  },
+  {
+   "rang": 12,
+   "id": "Z19",
+   "name": "Potenzgesetze",
+   "gebiet": "Zahlen",
+   "klassen_gymnasium": "7–9",
+   "satz_bestand": "Mal bei gleicher Basis: Hochzahlen addieren. Mal bei gleicher Hochzahl: Basen malnehmen. Potenz einer Potenz: Hochzahlen malnehmen.",
+   "begruendung": "Die Potenzgesetze tragen Terme, Wachstum und Wurzeln von Klasse 7 bis 10.",
+   "beispiel": {
+    "text": "2³ · 2⁴ = 2⁷ = 128; (2³)² = 2⁶ = 64; 2³ · 3³ = (2 · 3)³ = 216."
+   },
+   "grenze": {
+    "art": "gilt nicht",
+    "text": "Bei Plus gilt nichts davon: 2³ + 2⁴ = 8 + 16 = 24, nicht 2⁷ = 128. Verschiedene Basis und verschiedene Hochzahl lassen sich nicht zusammenfassen."
+   },
+   "pruefung": [
+    {
+     "l": "2**3*2**4",
+     "rel": "==",
+     "r": "2**7"
+    },
+    {
+     "l": "2**7",
+     "rel": "==",
+     "r": "128"
+    },
+    {
+     "l": "(2**3)**2",
+     "rel": "==",
+     "r": "2**6"
+    },
+    {
+     "l": "2**6",
+     "rel": "==",
+     "r": "64"
+    },
+    {
+     "l": "2**3*3**3",
+     "rel": "==",
+     "r": "(2*3)**3"
+    },
+    {
+     "l": "6**3",
+     "rel": "==",
+     "r": "216"
+    },
+    {
+     "l": "2**3+2**4",
+     "rel": "==",
+     "r": "24"
+    },
+    {
+     "l": "2**3+2**4",
+     "rel": "!=",
+     "r": "2**7"
+    }
+   ]
+  },
+  {
+   "rang": 13,
+   "id": "Z17",
+   "name": "Hoch null und negative Hochzahl",
+   "gebiet": "Zahlen",
+   "klassen_gymnasium": "6–8",
+   "satz_bestand": "Für a ≠ 0 gilt: a⁰ = 1, und eine negative Hochzahl heißt Kehrwert: a⁻ⁿ = 1 : aⁿ.",
+   "begruendung": "Negative Hochzahlen sind Klasse 8 in den Potenzgesetzen mit ganzzahligen Hochzahlen.",
+   "beispiel": {
+    "text": "5⁰ = 1 und 2⁻³ = 1 : 2³ = 1/8."
+   },
+   "grenze": {
+    "art": "typischer Fehler",
+    "text": "Eine negative Hochzahl macht die Zahl nicht negativ: 2⁻³ ist 1/8, nicht −8. Die Basis darf nicht 0 sein; 0⁻² = 1 : 0² gibt es nicht."
+   },
+   "pruefung": [
+    {
+     "l": "5**0",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "2**(-3)",
+     "rel": "==",
+     "r": "1/8"
+    },
+    {
+     "l": "2**(-3)",
+     "rel": "!=",
+     "r": "-8"
+    }
+   ]
+  },
+  {
+   "rang": 14,
+   "id": "D13",
+   "name": "Laplace-Wahrscheinlichkeit",
+   "gebiet": "Daten und Zufall",
+   "klassen_gymnasium": "8",
+   "satz_bestand": "Günstige durch mögliche Ergebnisse – nur wenn alle gleich wahrscheinlich sind.",
+   "begruendung": "Die Laplace-Regel ist der Einstieg in die Wahrscheinlichkeit in Klasse 8.",
+   "beispiel": {
+    "text": "Wurf eines Würfels: Gerade Zahl bedeutet 2, 4, 6, also 3 günstige von 6 möglichen Ergebnissen: 3/6 = 1/2."
+   },
+   "grenze": {
+    "art": "gilt nicht",
+    "text": "Nur bei gleich wahrscheinlichen Ergebnissen. Die Augensumme zweier Würfel hat 11 Werte (2 bis 12), aber Summe 7 kommt 6-mal unter 36 Paaren vor, Summe 2 nur 1-mal."
+   },
+   "pruefung": [
+    {
+     "l": "3/6",
+     "rel": "==",
+     "r": "1/2"
+    },
+    {
+     "l": "sum(1 for a in W for b in W if a+b==7)",
+     "rel": "==",
+     "r": "6"
+    },
+    {
+     "l": "sum(1 for a in W for b in W if a+b==2)",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "sum(1 for a in W for b in W)",
+     "rel": "==",
+     "r": "36"
+    }
+   ]
+  },
+  {
+   "rang": 15,
+   "id": "D14",
+   "name": "Gegenereignis",
+   "gebiet": "Daten und Zufall",
+   "klassen_gymnasium": "8–10",
+   "satz_bestand": "Jede Wahrscheinlichkeit liegt zwischen 0 und 1. Gegenereignis: 1 minus die Wahrscheinlichkeit.",
+   "begruendung": "„Mindestens einmal“ ist die häufigste Aufgabe zur Wahrscheinlichkeit; das Gegenereignis spart viel Rechnung.",
+   "beispiel": {
+    "text": "Mindestens eine Sechs bei zwei Würfen: 1 − (5/6)² = 1 − 25/36 = 11/36."
+   },
+   "grenze": {
+    "art": "typischer Fehler",
+    "text": "Wahrscheinlichkeiten einfach addieren: 1/6 + 1/6 = 1/3 = 12/36 ist falsch, weil „zweimal Sechs“ doppelt gezählt ist. Jede Wahrscheinlichkeit liegt zwischen 0 und 1."
+   },
+   "pruefung": [
+    {
+     "l": "1-(5/6)**2",
+     "rel": "==",
+     "r": "11/36"
+    },
+    {
+     "l": "1/6+1/6",
+     "rel": "==",
+     "r": "12/36"
+    },
+    {
+     "l": "1/6+1/6",
+     "rel": "!=",
+     "r": "11/36"
+    }
+   ]
+  }
+ ],
+ "funde_im_bestand": [
+  "V7 „Änderungsrate“ steht mit Gymnasium Klasse 5, obwohl Steigung erst in Klasse 8 vorkommt; Klassenangabe prüfen.",
+  "D9 „Streuung“ beschreibt die Standardabweichung der Grundgesamtheit (Mittelwert der quadrierten Abweichungen); für Stichproben teilt man durch n − 1. Grenze im Satz nennen, falls der Satz ausgearbeitet wird.",
+  "inhalt.json (Feld klassen, ältere Fassung aus sonne.md) und klassenleiter.json weichen bei einzelnen Beispielen ab; der Entwurf nutzt für „Durch die Klassen“ klassenleiter.json. Beispiel Regel 7, Klasse 8 in inhalt.json („7 − 2 · (x − 3)“) ist kein reiner Fall von Regel 7."
+ ]
+}

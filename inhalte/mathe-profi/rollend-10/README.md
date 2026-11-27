@@ -34,7 +34,7 @@ Formen: lw Lückenweg, fd Fehler-Detektiv, vw Verfahren wählen, zw Zwei Wege, u
 - Annahmen in den Texten: π ≈ 3,14 oder π ≈ 3 oder exakt in π, Gradmaß (DEG) am Taschenrechner, Rundung stets genannt, Figuren ausdrücklich (gerade Pyramide, Kegel, Prisma schief, Dach symmetrisch).
 
 ## Vorprüfung durch zweiten Helfer
-Alle 108 Aufgaben vollständig gelesen (Frage, Antworten, Schablone, Tipp, Lösungsweg, Fehlbilder) und von Hand nachgerechnet. 15 Aufgaben geändert, Kennungen unverändert.
+Alle 108 Aufgaben vollständig gelesen (Frage, Antworten, Schablone, Tipp, Lösungsweg, Fehlbilder) und von Hand nachgerechnet. 16 Aufgaben geändert, Kennungen unverändert.
 - Lösung falsch / mehrdeutig: 0 gefunden. Alle Zahlen- und Lückenlösungen stimmen, jede Auswahl hat genau eine richtige Antwort.
 - Tabelle und Text widersprachen sich: V104 (Tabelle mit genauem π gerechnet, Text sagte π ≈ 3,14). Text berichtigt, Prüffunktion rechnet die Tabelle jetzt nach.
 - Fehlbild passte nicht zur Antwort oder war unklar: V079 (Antwort 24 war kein Quadrat, jetzt 576 mit Durchmesser), V023 (Antwort 6 ohne sinnvollen Fehler, jetzt 21), V074 (Beschreibung), V029 (Beschreibung „kürzeste“ statt „beiden kürzeren“ Seiten).

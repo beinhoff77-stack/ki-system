@@ -138,3 +138,88 @@ test('Sachaufgabe fehlt noch: nächste Bordkarte ist eine ungelöste, zählende 
   const w4 = [k(65, 2, 'einkleidung'), k(1, 3, 'begruenden'), k(21, 2, 'umkehr', { form: 'umkehren' })]; const g4 = waehle(w4, { ...voll, schwerNoetig: true, schwerOk: false }, null, new Set(), { formJede: 3, platz: 3 });
   assert.deepEqual([g4, w4[0].id], ['schwer', 1]);
 });
+
+// Werkstatt 1039/1040: beide Verbote über alle Vorränge und Rückfälle; Pflicht „schwer“ nur mit zählenden Aufgaben
+test('Nie zwei Lückenwege hintereinander – auch auf dem Form-Platz und in der allgemeinen Auswahl', () => {
+  const lz = k(40, 1, 'mehrschritt', { form: 'lueckenweg', geloest: true });
+  const e = { ziel: 6, neueRegel: true, eigene: 0 };
+  // nachgewiesener Fall: Platz 3, ungelöst ein weiterer Lückenweg und eine normale Aufgabe
+  const w1 = [k(41, 1, 'direkt', { form: 'lueckenweg' }), k(1, 1, 'erkennen'), lz];
+  assert.deepEqual([waehle(w1, e, lz, new Set(), { formJede: 3, platz: 3 }), w1[0].id], ['normal', 1]);
+  // mit einer Brücke: die andere Form auf dem Form-Platz
+  const w2 = [k(41, 1, 'direkt', { form: 'lueckenweg' }), k(42, 1, 'erkennen', { form: 'bruecke' }), lz];
+  assert.deepEqual([waehle(w2, e, lz, new Set(), { formJede: 3, platz: 3 }), w2[0].id], ['form', 42]);
+  // allgemeine Auswahl (kein Form-Platz, alle normalen gelöst)
+  const w3 = [k(41, 1, 'direkt', { form: 'lueckenweg' }), k(1, 1, 'erkennen', { geloest: true }), lz];
+  assert.deepEqual([waehle(w3, e, lz, new Set(), { formJede: 3, platz: 4 }), w3[0].id], ['normal', 1]);
+  // Gegenprobe Vorrat leer: nur noch der Lückenweg → er darf kommen (Notfall)
+  const w4 = [k(41, 1, 'direkt', { form: 'lueckenweg' }), lz];
+  assert.deepEqual([waehle(w4, e, lz, new Set(), { formJede: 3, platz: 3 }), w4[0].id], ['notfall', 41]);
+});
+
+test('Kein Fehler-Detektiv nach eigenem Fehler – auch beim Schwer-Vorrang und in jedem Rückfall', () => {
+  const e = { ziel: 6, neueRegel: true, eigene: 6, schwerNoetig: true, schwerOk: false };
+  const letzte = k(9, 1, 'direkt', { falschHeute: true });
+  // nachgewiesener Fall: einzige schwere ist ein Fehler-Detektiv, eine normale leichte ist da
+  const w1 = [k(51, 3, 'begruenden', { form: 'fehler_detektiv' }), k(1, 1, 'erkennen'), letzte];
+  assert.deepEqual([waehle(w1, e, letzte, new Set(), { formJede: 3, platz: 4, letzteFalsch: true }), w1[0].id], ['normal', 1]);
+  // ohne Fehler davor: der Detektiv ist die schwere
+  const w2 = [k(1, 1, 'erkennen'), k(51, 3, 'begruenden', { form: 'fehler_detektiv' }), letzte];
+  assert.deepEqual([waehle(w2, e, letzte, new Set(), { formJede: 3, platz: 4 }), w2[0].id], ['schwer', 51]);
+  // die schwere wird nachgeholt: nach einer richtigen Antwort kommt sie
+  const w3 = [k(1, 1, 'erkennen', { geloest: true }), k(51, 3, 'begruenden', { form: 'fehler_detektiv' })];
+  assert.deepEqual([waehle(w3, e, w3[0], new Set(), { formJede: 3, platz: 5 }), w3[0].id], ['schwer', 51]);
+  // Gegenprobe Vorrat leer: nur der Detektiv (und die gelöste letzte) → er darf kommen (Notfall)
+  const l4 = k(9, 1, 'direkt', { geloest: true });
+  const w4 = [k(51, 3, 'begruenden', { form: 'fehler_detektiv' }), l4];
+  assert.deepEqual([waehle(w4, e, l4, new Set(), { formJede: 3, platz: 4, letzteFalsch: true }), w4[0].id], ['notfall', 51]);
+  // Sachaufgabe fehlt: ein Detektiv mit Sachaufgaben-Typ wird nach einem Fehler nicht gezogen
+  const voll = { ziel: 2, neueRegel: true, eigene: 2, folge: 2, folgeZiel: 2, typenAnzahl: 2, typenNoetig: 2, anwendenNoetig: true, anwendenOk: false };
+  const w5 = [k(66, 2, 'einkleidung', { form: 'fehler_detektiv' }), k(2, 2, 'mehrschritt'), letzte];
+  waehle(w5, voll, letzte, new Set(), { letzteFalsch: true }); assert.equal(w5[0].id, 2);
+});
+
+test('Pflicht „schwere Aufgabe“: Aufgaben mit zaehlt = nein zählen nicht', () => {
+  const e = { ziel: 6, neueRegel: true, eigene: 6, schwerNoetig: true, schwerOk: false };
+  // ungelöst: die normale Auswahl darf sie (Stufe 3 ist dran) ziehen, aber nicht als „die schwere“
+  const w0 = [k(1, 1, 'erkennen'), k(71, 3, 'begruenden', { zaehlt: 'nein' }), k(21, 1, 'direkt', { form: 'zwei_wege' })];
+  assert.notEqual(waehle(w0, e, null, new Set(), {}), 'schwer');
+  // gelöst: der Schwer-Vorrang (letzte Stufe nimmt auch gelöste) zog sie bisher; jetzt kommt die ungelöste normale
+  const w1 = [k(1, 1, 'erkennen'), k(71, 3, 'begruenden', { zaehlt: 'nein', geloest: true }), k(21, 1, 'direkt', { form: 'zwei_wege', geloest: true })];
+  assert.deepEqual([waehle(w1, e, null, new Set(), {}), w1[0].id], ['normal', 1]);
+  const w2 = [k(1, 1, 'erkennen'), k(71, 3, 'begruenden', { zaehlt: 'nein' }), k(72, 3, 'begruenden')];
+  waehle(w2, e, null, new Set(), {}); assert.equal(w2[0].id, 72, 'die zählende schwere (alter Weg, ohne form)');
+  const w2f = [k(1, 1, 'erkennen'), k(71, 3, 'begruenden', { zaehlt: 'nein' }), k(72, 3, 'begruenden', { form: 'zwei_wege' })];
+  assert.deepEqual([waehle(w2f, e, null, new Set(), {}), w2f[0].id], ['schwer', 72]);
+  // auch auf dem alten Weg (keine form): die nicht zählende schwere ist nicht „die schwere“
+  const w3 = [k(1, 1, 'erkennen'), k(71, 3, 'begruenden', { zaehlt: 'nein', geloest: true })];
+  waehle(w3, e, null, new Set(), {}); assert.equal(w3[0].id, 1);
+});
+
+test('Invarianten über 20000 Zufallslagen mit form: kein Lückenweg nach Lückenweg, kein Detektiv nach Fehler (außer nichts anderes wählbar), schwer zählt', () => {
+  let s = 777; const zuf = () => { s = (s * 1103515245 + 12345) % 2147483648; return s / 2147483648; };
+  const wahl = (l) => l[Math.floor(zuf() * l.length)];
+  const FORMEN = [null, null, 'lueckenweg', 'fehler_detektiv', 'bruecke', 'zwei_wege', 'umkehren', 'anwenden'];
+  let notfall = 0, sperrFaelle = 0;
+  for (let fall = 0; fall < 20000; fall++) {
+    const n = 1 + Math.floor(zuf() * 8);
+    const w = Array.from({ length: n }, (_, i) => ({ id: i + 1, stufe: wahl([1, 2, 3, undefined]), typ: zuf() < 0.2 ? null : wahl(TYPEN), form: wahl(FORMEN) || undefined,
+      zaehlt: zuf() < 0.2 ? 'nein' : undefined, geloest: zuf() < 0.35, falschHeute: zuf() < 0.2, frage: { text: wahl(['Rechne 3 + 4.', 'Rechne 5 + 9.', `Text ${i}`]) } }));
+    if (!w.some((x) => x.form)) w[0].form = wahl(['lueckenweg', 'fehler_detektiv']);
+    const e = { ziel: wahl([2, 4, 6]), neueRegel: true, eigene: Math.floor(zuf() * 7), stufeSenkung: wahl([0, 0, 1]), schwerNoetig: zuf() < 0.5, schwerOk: zuf() < 0.3,
+      gezaehlt: zuf() < 0.5 ? new Set(w.filter(() => zuf() < 0.4).map((x) => x.id)) : undefined, typenNoetig: 0, typenAnzahl: 0, folge: 3, folgeZiel: 3,
+      anwendenNoetig: zuf() < 0.3, anwendenOk: zuf() < 0.5 };
+    const letzte = zuf() < 0.15 ? null : w[Math.floor(zuf() * n)];
+    const takt = { formJede: wahl([0, 3, 3, 2]), platz: 1 + Math.floor(zuf() * 9), nachFehler: zuf() < 0.3, letzteFalsch: zuf() < 0.5 };
+    const grund = waehle(w, e, letzte, new Set(TYPEN.filter(() => zuf() < 0.2)), takt);
+    const x = w[0];
+    const gesperrt = (y) => (letzte?.form === 'lueckenweg' && y.form === 'lueckenweg') || (takt.letzteFalsch && y.form === 'fehler_detektiv');
+    if (gesperrt(x)) {
+      sperrFaelle++;
+      assert.ok(!w.some((y) => !gesperrt(y) && (y !== letzte || !y.geloest) && [1, 2, 3].includes(y.stufe || 2)), `Fall ${fall}: gesperrte Bordkarte ${x.id}, obwohl eine erlaubte da ist`);
+    }
+    if (grund === 'notfall') { notfall++; assert.ok(!w.some((y) => !gesperrt(y) && (y !== letzte || !y.geloest)), `Fall ${fall}: Notfall ohne Not`); }
+    if (grund === 'schwer') assert.ok(x.zaehlt !== 'nein' && !gesperrt(x), `Fall ${fall}: schwer ${x.id}`);
+  }
+  assert.ok(notfall > 0 && sperrFaelle > 0, `Notfälle ${notfall}, gesperrte Wahl ${sperrFaelle}: beide Zweige kommen vor`);
+});

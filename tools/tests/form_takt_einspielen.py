@@ -194,7 +194,7 @@ begin
   if exists (select 1 from ft_nach1 n1 where pg_get_functiondef(to_regprocedure(n1.f)) is distinct from n1.def) then {F("'nach den Proben sind die Definitionen nicht wieder die neuen'")} end if;
 
   -- 3. Bestand: dieselbe Übung antwortet wie vorher, die Karte bleibt gleich
-  select o into v_vor from ft_aus where phase = 'vor'; select o into v_nach from ft_aus where phase = 'nach';
+  select t.o into v_vor from ft_aus t where t.phase = 'vor'; select t.o into v_nach from ft_aus t where t.phase = 'nach';
   if (select count(*) from jsonb_object_keys(coalesce(v_vor, '{{}}')) ) <> 4 or (select count(*) from jsonb_object_keys(coalesce(v_nach, '{{}}'))) <> 4 then {F("'Bestand: Vergleich unvollständig'")}
   else
     for v_txt in select key from jsonb_object_keys(v_vor) key loop

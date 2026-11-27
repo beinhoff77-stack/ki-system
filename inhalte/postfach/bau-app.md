@@ -2,6 +2,18 @@
 
 Neueste oben.
 
+## 2026-11-27 – FERTIG RU-1c (App 0.95.0) sw.js-Rückfall eingegrenzt, Werkstatt 1093 (Zweig `helfer-uni`, Cache v188)
+
+**Geliefert**
+- `sw.js`: Ersatz aus dem Cache bei HTTP-Fehler nur noch für `daten/` und nur bei 5xx (ohne gespeicherte Fassung die Antwort des Servers). 404/410 bei `daten/`: Antwort durchreichen und den Cache-Eintrag dieser Anfrage löschen. Übrige 4xx durchreichen. Netzabbruch getrennt wie bisher (Cache, sonst Navigations-Rückfall/`Response.error`). Hülle und `karte/` verhalten sich wieder genau wie in `origin/main` (Erfolg speichern, HTTP-Fehler durchreichen, Cache unberührt). Cache v188, Version 0.95.0.
+
+**Tests**
+- Node-vm-Matrix (ersetzt den alten SW-Test): 4 Pfadarten (daten/-JSON, Hülle index.html, karte/, API außerhalb) × 200/503/404/410/Netzabbruch × mit/ohne Cache = 40 Fälle mit Antwort und Cache-Eintrag; dazu Folge 200 → 410 (Eintrag weg) → 503 (Serverantwort) → 200 (wieder gespeichert) → 503 (gespeicherte Fassung).
+- Neu: Browser-Test mit echter Service-Worker-Registrierung (eigener Kontext ohne Sperre, lokaler Testserver liefert die Regel-JSON nach Vorgabe): 200 gespeichert → 503 Universum aus dem Cache → 404 Eintrag gelöscht, Meldung „lädt gerade nicht“ → wieder 200 über „Noch einmal versuchen“, wieder gespeichert. Grün.
+- Gesamttest 218/218 (`/tmp/gesamt-uni3.txt`), `lernen-regeln` 11/11 (Stand des anderen Helfers), `lernen-bruch` 24/24, `lernen-takt` 10/10, `node --check` alle geänderten Dateien. Keine Fehlschläge durch Regeltexte.
+
+**Nicht geprüft**: Safari/iOS-Service-Worker, echter Server.
+
 ## 2026-11-27 – FERTIG RU-1b (App 0.95.0) Auflagen Werkstatt 1079 (Zweig `helfer-uni`, Cache v187)
 
 **Geliefert**

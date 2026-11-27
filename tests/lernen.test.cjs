@@ -6,10 +6,12 @@ const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
 let browser, server, origin;
+let ruDatenStatus = 0; const ruDatenAbrufe = []; // RU-SW-Test (Werkstatt 1093): 0 = normal
 const root = path.resolve(__dirname, '..');
 before(async () => {
   server = http.createServer((req, res) => {
     const name = new URL(req.url, 'http://localhost').pathname;
+    if (ruDatenStatus && name === '/daten/regeln-universum.json') { ruDatenAbrufe.push(ruDatenStatus); if (ruDatenStatus !== 200) { res.writeHead(ruDatenStatus); res.end(); return; } } // RU-SW-Test: Server liefert die Regel-Daten nach Vorgabe
     const file = path.join(root, name.endsWith('/') ? name + 'index.html' : name);
     if (!file.startsWith(root + path.sep) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) { res.writeHead(404); res.end(); return; }
     const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.webmanifest': 'application/manifest+json' };
@@ -5804,24 +5806,78 @@ test('RU Nachbesserung: Daten laden nicht – kindgerechte Meldung mit „Noch e
   await page.locator('.ru-universum').waitFor(); assert.equal(n, 2);
 });
 
-test('RU Nachbesserung: Service Worker – Regel-Daten nicht in der Vorab-Liste; bei Netzabbruch und HTTP-Fehler die gespeicherte Fassung', async () => {
+// Werkstatt 1093: Service Worker im Node-vm – Matrix Pfadart × Antwort × Cache. Erwartung: Ersatz aus dem Cache bei HTTP-Fehler nur für daten/ und nur bei 5xx;
+// 404/410 löschen den Eintrag (nur daten/); Hülle und karte/ wie vor 0.95.0 (HTTP-Fehler durchreichen, Cache unberührt); Netzabbruch → Cache; API außerhalb unberührt.
+function ruSwLaden() {
   const vm = require('node:vm');
   const quelle = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
-  const hoerer = {}, gespeichert = new Map(); let netz;
-  const cache = { put: async (rq, r) => { gespeichert.set(rq.url, r); }, match: async (rq) => gespeichert.get(typeof rq === 'string' ? rq : rq.url), addAll: async () => {} };
-  const ctx = { self: { registration: { scope: 'https://x.test/app/' }, addEventListener: (n, f) => { hoerer[n] = f; } }, caches: { open: async () => cache, keys: async () => [] }, URL, Request: class { constructor(u) { this.url = String(u); } }, Response: { error: () => ({ fehler: true }) }, fetch: (...a) => netz(...a) };
-  vm.runInNewContext(quelle, ctx);
-  const huelle = vm.runInNewContext(quelle + ';HUELLE', { ...ctx, self: { ...ctx.self, addEventListener: () => {} } });
+  const hoerer = {}, gespeichert = new Map(); let netz = null;
+  const schl = (rq) => (typeof rq === 'string' ? rq : rq.url);
+  const cache = { put: async (rq, r) => { gespeichert.set(schl(rq), r); }, match: async (rq) => gespeichert.get(schl(rq)), delete: async (rq) => gespeichert.delete(schl(rq)), addAll: async () => {} };
+  const ctx = { self: { registration: { scope: 'https://x.test/app/' }, addEventListener: (n, f) => { hoerer[n] = f; } }, caches: { open: async () => cache, keys: async () => [] }, URL,
+    Request: class { constructor(u) { this.url = String(u); } }, Response: { error: () => ({ name: 'Response.error' }) }, fetch: (...a) => netz(...a) };
+  vm.runInNewContext(quelle + ';self.__HUELLE = HUELLE;', ctx);
+  const abruf = async (url, antwort) => {
+    netz = async () => { if (antwort === 'abbruch') throw new TypeError('Failed to fetch'); return { ok: antwort === 200, status: antwort, name: 'netz-' + antwort, clone() { return { name: 'gespeichert' }; } }; };
+    let p = null; const w = []; hoerer.fetch({ request: { url, method: 'GET', mode: 'cors' }, respondWith: (x) => { p = x; }, waitUntil: (x) => w.push(x) });
+    if (!p) return 'nicht bearbeitet'; const r = await p; await Promise.all(w); return r.name;
+  };
+  return { quelle, huelle: ctx.self.__HUELLE, gespeichert, abruf };
+}
+
+test('RU Nachbesserung: Service Worker – Regel-Daten nicht in der Vorab-Liste; Matrix Pfadart × 200/503/404/410/Netzabbruch × mit/ohne Cache', async () => {
+  const { quelle, huelle } = ruSwLaden();
   assert.ok(!huelle.some((x) => x.includes('regeln-universum')), 'nicht in der Vorab-Liste');
   assert.ok(huelle.includes('./lernen-regeln.js?v=0.95.0') && huelle.includes('./lernen-regeln.css?v=0.95.0'));
-  assert.match(quelle, /'v187'/);
-  const abruf = async () => { let p, w = []; hoerer.fetch({ request: { url: 'https://x.test/app/daten/regeln-universum.json?v=0.95.0', method: 'GET', mode: 'cors' }, respondWith: (x) => { p = x; }, waitUntil: (x) => w.push(x) }); const r = await p; await Promise.all(w); return r; };
-  netz = async () => ({ ok: true, status: 200, name: 'frisch', clone() { return { name: 'kopie' }; } });
-  assert.equal((await abruf()).name, 'frisch'); assert.equal(gespeichert.size, 1, 'beim ersten Öffnen gespeichert');
-  netz = async () => ({ ok: false, status: 503, name: 'fehler' });
-  assert.equal((await abruf()).name, 'kopie', 'HTTP-Fehler → gespeicherte Fassung');
-  netz = async () => { throw new TypeError('offline'); };
-  assert.equal((await abruf()).name, 'kopie', 'Netzabbruch → gespeicherte Fassung');
-  gespeichert.clear(); netz = async () => ({ ok: false, status: 503, name: 'fehler' });
-  assert.equal((await abruf()).name, 'fehler', 'ohne Speicher die Antwort des Servers');
+  assert.match(quelle, /'v188'/);
+  const PFADE = { daten: 'https://x.test/app/daten/regeln-universum.json?v=0.95.0', huelle: 'https://x.test/app/index.html', karte: 'https://x.test/app/karte/welt.json', api: 'https://y.test/functions/v1/lernen-api/aktion' };
+  // Erwartete Antwort und ob der Eintrag danach noch (bzw. neu) im Cache ist
+  const soll = (art, antwort, mitCache) => {
+    if (art === 'api') return ['nicht bearbeitet', mitCache]; // außerhalb: der Worker greift nicht ein
+    if (antwort === 200) return ['netz-200', true];
+    if (antwort === 'abbruch') return [mitCache ? 'gespeichert' : 'Response.error', mitCache];
+    if (art === 'daten' && antwort === 503) return [mitCache ? 'gespeichert' : 'netz-503', mitCache];
+    if (art === 'daten') return ['netz-' + antwort, false]; // 404/410: durchreichen, Eintrag weg
+    return ['netz-' + antwort, mitCache]; // Hülle, karte/: wie vor 0.95.0
+  };
+  let faelle = 0;
+  for (const [art, url] of Object.entries(PFADE)) for (const antwort of [200, 503, 404, 410, 'abbruch']) for (const mitCache of [true, false]) {
+    const sw = ruSwLaden(); if (mitCache) sw.gespeichert.set(url, { name: 'gespeichert' });
+    const [antwortSoll, drin] = soll(art, antwort, mitCache);
+    assert.equal(await sw.abruf(url, antwort), antwortSoll, `${art} ${antwort} ${mitCache ? 'mit' : 'ohne'} Cache`);
+    assert.equal(sw.gespeichert.has(url), drin, `${art} ${antwort} ${mitCache ? 'mit' : 'ohne'} Cache: Eintrag`);
+    faelle++;
+  }
+  assert.equal(faelle, 40);
+  // Entfernte Datei (404) → Eintrag weg; wiederhergestellt (200) → wieder gefüllt; danach 503 → gespeicherte Fassung
+  const sw = ruSwLaden();
+  assert.equal(await sw.abruf(PFADE.daten, 200), 'netz-200'); assert.ok(sw.gespeichert.has(PFADE.daten));
+  assert.equal(await sw.abruf(PFADE.daten, 410), 'netz-410'); assert.ok(!sw.gespeichert.has(PFADE.daten));
+  assert.equal(await sw.abruf(PFADE.daten, 503), 'netz-503');
+  assert.equal(await sw.abruf(PFADE.daten, 200), 'netz-200'); assert.ok(sw.gespeichert.has(PFADE.daten));
+  assert.equal(await sw.abruf(PFADE.daten, 503), 'gespeichert');
+});
+
+test('RU Nachbesserung: echter Service Worker im Browser – Regel-Daten 200 gespeichert, 503 aus dem Cache, 404 Eintrag weg und Fehlermeldung, wieder 200', async (t) => {
+  const context = await browser.newContext({ viewport: { width: 400, height: 860 } }); // ohne serviceWorkers: 'block'
+  t.after(async () => { ruDatenStatus = 0; await context.close(); });
+  await context.addInitScript(() => { localStorage.setItem('ks_token', 'synthetic-test-session'); localStorage.setItem('lern.gestaltung', 'nacht'); });
+  await context.route('https://cdnjs.cloudflare.com/**', (r) => r.abort());
+  await context.route('**/functions/v1/**', (r) => r.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: {} }) }));
+  const page = await context.newPage(); const fehler = []; page.on('pageerror', (e) => fehler.push(e.message));
+  ruDatenAbrufe.length = 0; ruDatenStatus = 200;
+  await page.goto(origin + '/#/regeln');
+  await page.evaluate(() => navigator.serviceWorker.ready);
+  await page.reload(); await page.waitForFunction(() => !!navigator.serviceWorker.controller);
+  const imCache = () => page.evaluate(async () => { for (const k of await caches.keys()) { const c = await caches.open(k); if ((await c.keys()).some((r) => r.url.includes('regeln-universum.json'))) return true; } return false; });
+  const oeffnen = async () => { await page.reload(); await page.waitForFunction(() => !!navigator.serviceWorker.controller); await page.goto(origin + '/#/regeln/kind'); };
+  await oeffnen(); await page.locator('.ru-universum').waitFor();
+  assert.equal(await imCache(), true, '200: beim ersten Öffnen gespeichert');
+  ruDatenStatus = 503; await oeffnen(); await page.locator('.ru-universum').waitFor();
+  assert.equal(ruDatenAbrufe.at(-1), 503, 'Server lieferte 503'); assert.equal(await imCache(), true);
+  ruDatenStatus = 404; await oeffnen(); await page.locator('.ru-fehler').waitFor();
+  assert.equal(ruDatenAbrufe.at(-1), 404); assert.equal(await imCache(), false, '404: Eintrag gelöscht');
+  ruDatenStatus = 200; await page.getByRole('button', { name: 'Noch einmal versuchen' }).click(); await page.locator('.ru-universum').waitFor();
+  assert.equal(await imCache(), true, 'wiederhergestellt: wieder gespeichert');
+  assert.deepEqual(fehler, []);
 });

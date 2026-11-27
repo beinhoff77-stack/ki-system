@@ -225,4 +225,64 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Zähler und Nenner getrennt addiert: (4 + 2)/(x + x + 2)",
-     "rechnung": 
+     "rechnung": null
+    },
+    {
+     "index": 1,
+     "antwort": "(4x + 10)/(x(x + 2))",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den ersten Bruch auf den Hauptnenner erweitert: 4(x + 2) + 2 im Zähler",
+     "rechnung": null
+    },
+    {
+     "index": 3,
+     "antwort": "6/(x(x + 2))",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zähler addiert, aber nicht erweitert: 4 + 2 über dem Hauptnenner",
+     "rechnung": null
+    }
+   ],
+   "aufgabe": {
+    "l": "addieren",
+    "t": "addieren",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt einige Werte des Terms T(x) = 4/x + 2/(x + 2). Welcher zu einem Bruch zusammengefasste Term gehört zu allen Werten der Tabelle?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "x",
+       "2",
+       "3",
+       "4"
+      ],
+      "zeilen": [
+       [
+        "T(x)",
+        "5/2",
+        "26/15",
+        "4/3"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "6/(2x + 2)",
+     "(4x + 10)/(x(x + 2))",
+     "(6x + 8)/(x(x + 2))",
+     "6/(x(x + 2))"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Setze einen Wert aus der Tabelle in die Terme ein, zum Beispiel x = 2. Du kannst auch selbst mit dem Hauptnenner x(x + 2) zusammenfassen.",
+    "w": "Hauptnenner x(x + 2): 4/x = 4(x + 2)/(x(x + 2)) und 2/(x + 2) = 2x/(x(x + 2)). Summe: (4x + 8 + 2x)/(x(x + 2)) = (6x + 8)/(x(x + 2)). Probe x = 2: 20/8 = 5/2, das passt zur Tabelle."
+   }
+  }
+ ]
+}

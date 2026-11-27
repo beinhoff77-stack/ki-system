@@ -174,7 +174,7 @@ for nr, a in enumerate(A, 1):
                 n_fb_rechnung += 1
             else:
                 n_fb_ohne += 1
-            fb_liste.append(({"index": i}, ant[i], beschr, rech))
+            fb_liste.append(({"index": i}, ant[i], beschr, None if callable(rech) else rech))
         n_rechnung += 1
         LAGEN.append((len(ant), a["richtig"]))
         aufg = {"y": "auswahl", "f": {"text": text}, "a": ant, "o": {"index": a["richtig"]}}

@@ -5857,15 +5857,35 @@ test('RU Tafeln: Einstieg im Universum, alle Tafeln erreichbar (Kind und Erwachs
     await page.setViewportSize({ width: b, height: h });
     await page.goto(origin + '/lernen/'); await page.getByLabel('Lern-Code').fill('ABCD-EFGH-JKLM'); await page.getByRole('button', { name: 'Anmelden' }).click(); await page.waitForURL(/#\/reise\/1$/);
     await page.goto(origin + '/lernen/#/regeln/1'); await page.locator('.ru-universum').waitFor();
-    // Einstieg: Teil „Tafeln“ im Umschalter (immer), am Rechner zusätzlich die Karte „Tafeln zum Nachschlagen“
-    const station = b < 700 ? page.locator('.ru-umsch-tafeln') : page.locator('.ru-tafel-station');
-    assert.equal(await page.locator('.ru-umsch-tafeln').isVisible(), true); assert.equal(await page.locator('.ru-tafel-station').isVisible(), b >= 700);
-    assert.ok((await station.boundingBox()).y + 40 < h, 'Einstieg im ersten Bildschirm');
+    // Teil 1b (28.11.): kein Reiter „Tafeln“ und keine große Karte mehr – die Tafeln stehen ganz oben in ihren Gebieten („Auf einen Blick“)
+    assert.equal(await page.locator('.ru-umsch-tafeln, .ru-tafel-station').count(), 0, 'kein Reiter, keine Karte');
+    assert.deepEqual((await page.locator('.ru-umschalter a').allInnerTexts()).map((x) => x.trim()), ['Aufbau', 'Durch die Klassen']);
+    // Hinweis je Gebiet auf der Startseite (klein, in der Zeile des Gebiets)
+    assert.match((await page.locator('.ru-planet0', { hasText: 'Zahlen' }).innerText()).replace(/\s+/g, ' '), /3 Übersichten/);
+    assert.match((await page.locator('.ru-planet0', { hasText: 'Fläche und Raum' }).innerText()).replace(/\s+/g, ' '), /2 Übersichten/);
+    assert.match((await page.locator('.ru-sonne0').innerText()).replace(/\s+/g, ' '), /1 Übersicht/);
     await tafelBild(page, `universum-${b}-${hd}`);
-    await station.click(); await page.locator('.ru-tafel-kacheln').first().waitFor();
-    assert.match(page.url(), /#\/regeln\/1-tafeln$/);
-    assert.equal(await page.locator('.ru-tafel-kachel').count(), 9);
-    await ruPruefen(page, `${b} Tafeln`); await tafelBild(page, `tafeln-${b}-${hd}`);
+    // jede der neun Tafeln: vom Gebiet (bzw. der Sonne) aus mit einem Tipp; Brotkrumen Universum › Gebiet › Tafel
+    const erreicht = new Set();
+    for (const [von, name] of [['sonne', 'Sonne'], ['gebiet-zahlen', 'Zahlen'], ['gebiet-geld', 'Geld und Verhältnisse'], ['gebiet-geo', 'Geometrie'], ['gebiet-fur', 'Fläche und Raum'], ['gebiet-algebra', 'Algebra'], ['gebiet-funktionen', 'Funktionen'], ['gebiet-daten', 'Daten und Zufall']]) {
+      await page.goto(origin + '/lernen/#/regeln/1-' + von); const blick = page.locator('.ru-blick'); await blick.waitFor();
+      // ganz oben: vor den tragenden Ideen bzw. vor dem Schnitt der Sonne
+      assert.ok(await page.evaluate(() => { const b0 = document.querySelector('.ru-blick'), n = document.querySelector('.ru-ideen1, .ru-schnitt'); return !!(b0.compareDocumentPosition(n) & Node.DOCUMENT_POSITION_FOLLOWING); }), von + ': vor den Ideen');
+      assert.ok((await blick.boundingBox()).y < h * 0.6, von + ': im ersten Bildschirm');
+      if (von === 'gebiet-fur' || von === 'gebiet-zahlen') await tafelBild(page, `gebiet-${von.slice(7)}-${b}-${hd}`);
+      const ziele = await blick.locator('a').evaluateAll((xs) => xs.map((x) => x.getAttribute('href')));
+      for (const z of ziele) { const m = z.match(/1-tafel-([a-z-]+?)(?:\.[a-z0-9-]+)?$/); assert.ok(m, z); erreicht.add(m[1]); }
+      const erstes = blick.locator('a').first(); const ziel = await erstes.getAttribute('href'); await erstes.click();
+      await page.locator('.ru-tafel-seite').waitFor();
+      const krumen = (await page.locator('.ru-pfad').innerText()).replace(/\s+/g, ' ');
+      assert.ok(krumen.includes(name) && krumen.startsWith('‹ Universum'), `${von} → ${ziel}: ${krumen}`);
+    }
+    assert.deepEqual([...erreicht].sort(), [...TAFEL_IDS].sort(), 'alle neun Tafeln mit einem Tipp aus einem Gebiet');
+    // Maßeinheiten an zwei Gebieten: die Brotkrumen nennen das Gebiet, aus dem man kam; von der Suche aus das erste
+    await page.goto(origin + '/lernen/#/regeln/1-gebiet-fur'); await page.locator('.ru-blick a', { hasText: 'Maßeinheiten' }).click(); await page.locator('.ru-tafel-seite[data-tafel="einheiten"]').waitFor();
+    assert.match(await page.locator('.ru-pfad').innerText(), /Fläche und Raum[\s\S]*Maßeinheiten/);
+    // alte Route der Übersicht → Startseite (kein toter Link)
+    await page.goto(origin + '/lernen/#/regeln/1-tafeln'); await page.locator('.ru-universum').waitFor(); await page.waitForURL(/#\/regeln\/1-universum$/);
     for (const id of TAFEL_IDS) {
       await page.goto(origin + '/lernen/#/regeln/1-tafel-' + id); await page.locator(`.ru-tafel-seite[data-tafel="${id}"]`).waitFor();
       assert.equal(await page.locator('.ru-ae').count(), 0, id + ': Kind sieht keinen Knopf „Ändern lassen“');

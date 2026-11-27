@@ -86,23 +86,30 @@ const schlank = (o) => (Array.isArray(o) ? o.map(schlank) : o && typeof o === 'o
 const klasse = (e) => (e.ab_klasse ? e.ab_klasse.gymnasium_by ?? null : null); // Klassenfilter: Gymnasium Bayern (entwurf1, Abschnitt 3)
 
 // ---------- Tafeln: Reihenfolge, Titel der Kachel, Gebiet (Farbe), Stichwörter der ganzen Tafel (Suche) ----------
+// gebiete: wo die Tafel im Universum als „Auf einen Blick“-Einstieg ganz oben steht (Wunsch des Nutzers 28.11.: kein eigener Reiter, in die Bereiche einbauen).
+//   Namen der Gebiete (Planeten) oder „Sonne“. Die erste Angabe gilt für die Brotkrumen, wenn man nicht aus einem Gebiet kommt.
+//   Maßeinheiten: Größe und Einheit (V1) liegt bei Geld und Verhältnisse, Flächen- und Raummaße gehören zu Fläche und Raum → beide.
+//   Bruch, Dezimalzahl, Prozent: Prozent und Zinsen bei Geld und Verhältnisse, „Drei Schreibweisen einer Zahl“ (Z12) bei Zahlen → beide.
+//   Zeichen und Wörter gilt überall: bei der Sonne (die Rechenregeln sind in diesen Zeichen geschrieben; ein Kind sucht ein Zeichen dort, wo „gilt überall“ steht).
+// unter: Einzelansicht hinter einer anderen Tafel (Flächen und Körper hinter „Formeln auf einen Blick“) – im Gebiet als Unterlink dieser Tafel.
+// „Was man sonst noch braucht“ (Formeln) erscheint zusätzlich in dem Gebiet der jeweiligen Einzelregel (Funktionen, Algebra, Daten und Zufall, Geometrie) – aus den Daten, nicht fest im Code.
 const TAFELN = [
   // Gesamtübersicht (Wunsch des Nutzers 27.11.): Ebene Figuren, Körper und „was man sonst noch braucht“ – nur Verweise auf vorhandene Formeln
-  { id: 'formeln', titel: 'Formeln auf einen Blick', kurz: 'Flächen, Körper und was man sonst noch braucht', chip: 'A = a · b', gebiet: 'Fläche und Raum',
+  { id: 'formeln', titel: 'Formeln auf einen Blick', kurz: 'Flächen, Körper und was man sonst noch braucht', chip: 'A = a · b', gebiet: 'Fläche und Raum', gebiete: ['Fläche und Raum'],
     stich: ['Formeln', 'Formel', 'Formelsammlung', 'Formelübersicht'] },
-  { id: 'einheiten', titel: 'Maßeinheiten', kurz: 'Länge, Fläche, Volumen, Masse, Zeit, Geld, Tempo', chip: 'km · m · cm', gebiet: 'Geld und Verhältnisse',
+  { id: 'einheiten', titel: 'Maßeinheiten', kurz: 'Länge, Fläche, Volumen, Masse, Zeit, Geld, Tempo', chip: 'km · m · cm', gebiet: 'Geld und Verhältnisse', gebiete: ['Geld und Verhältnisse', 'Fläche und Raum'],
     stich: ['Maßeinheiten', 'Einheiten', 'Einheit', 'umrechnen', 'Einheiten umrechnen', 'Umrechnungszahl', 'Umrechnungstabelle', 'Einheitentafel', 'Größen'] },
-  { id: 'formeln-flaechen', titel: null, kurz: 'Figuren mit Fläche und Umfang', chip: 'A = a · b', gebiet: 'Fläche und Raum',
+  { id: 'formeln-flaechen', titel: null, kurz: 'Figuren mit Fläche und Umfang', chip: 'A = a · b', gebiet: 'Fläche und Raum', gebiete: ['Fläche und Raum'], unter: 'formeln',
     stich: ['Fläche', 'Flächen', 'Flächeninhalt', 'Flächenformeln', 'Umfang', 'Formeln Flächen', 'Formelsammlung'] },
-  { id: 'formeln-koerper', titel: null, kurz: 'Körper mit Volumen, Mantel und Oberfläche', chip: 'V = a · b · c', gebiet: 'Fläche und Raum',
+  { id: 'formeln-koerper', titel: null, kurz: 'Körper mit Volumen, Mantel und Oberfläche', chip: 'V = a · b · c', gebiet: 'Fläche und Raum', gebiete: ['Fläche und Raum'], unter: 'formeln',
     stich: ['Volumen', 'Rauminhalt', 'Körper', 'Körperformeln', 'Oberfläche', 'Mantel', 'Formeln Körper', 'Formelsammlung'] },
-  { id: 'zahlen', titel: null, kurz: 'Quadratzahlen, Potenzen, Primzahlen, Teilbarkeit', chip: '1 4 9 16', gebiet: 'Zahlen', stich: ['Zahlen', 'Quadratzahlen', 'Primzahlen', 'Teilbarkeit', 'Potenzen'] },
-  { id: 'stellenwert', titel: null, kurz: 'Stellenwerttafel, Runden, römische Zahlen, Vorsilben', chip: 'H Z E', gebiet: 'Zahlen', stich: ['Stellenwert', 'Stellenwerttafel', 'Runden', 'römische Zahlen', 'Vorsilben'] },
-  { id: 'bruch-dezimal-prozent', titel: null, kurz: 'Umrechnungstabelle, Prozentrechnung, Zinsen', chip: '½ = 0,5 = 50 %', gebiet: 'Geld und Verhältnisse',
+  { id: 'zahlen', titel: null, kurz: 'Quadratzahlen, Potenzen, Primzahlen, Teilbarkeit', chip: '1 4 9 16', gebiet: 'Zahlen', gebiete: ['Zahlen'], stich: ['Zahlen', 'Quadratzahlen', 'Primzahlen', 'Teilbarkeit', 'Potenzen'] },
+  { id: 'stellenwert', titel: null, kurz: 'Stellenwerttafel, Runden, römische Zahlen, Vorsilben', chip: 'H Z E', gebiet: 'Zahlen', gebiete: ['Zahlen'], stich: ['Stellenwert', 'Stellenwerttafel', 'Runden', 'römische Zahlen', 'Vorsilben'] },
+  { id: 'bruch-dezimal-prozent', titel: null, kurz: 'Umrechnungstabelle, Prozentrechnung, Zinsen', chip: '½ = 0,5 = 50 %', gebiet: 'Geld und Verhältnisse', gebiete: ['Geld und Verhältnisse', 'Zahlen'],
     stich: ['Prozent', 'Prozentrechnung', 'Bruch', 'Brüche', 'Dezimalzahl', 'Dezimalzahlen', 'Zinsen'] },
-  { id: 'figuren', titel: null, kurz: 'Winkel, Dreiecke, Vierecke, Kongruenz', chip: 'α + β + γ = 180°', gebiet: 'Geometrie',
+  { id: 'figuren', titel: null, kurz: 'Winkel, Dreiecke, Vierecke, Kongruenz', chip: 'α + β + γ = 180°', gebiet: 'Geometrie', gebiete: ['Geometrie'],
     stich: ['Figuren', 'Winkel', 'Winkelarten', 'Dreiecke', 'Vierecke', 'Kongruenz'] },
-  { id: 'zeichen-woerter', titel: null, kurz: 'Zeichen, griechische Buchstaben, Fachwörter', chip: '≤ · π · ∈', gebiet: 'Algebra',
+  { id: 'zeichen-woerter', titel: null, kurz: 'Zeichen, griechische Buchstaben, Fachwörter', chip: '≤ · π · ∈', gebiet: 'Algebra', gebiete: ['Sonne'],
     stich: ['Zeichen', 'Rechenzeichen', 'Symbole', 'griechische Buchstaben', 'Fachwörter', 'Wörterbuch', 'Fachbegriffe'] },
 ];
 // Formeltafeln: je Figur/Körper eine Karte (Zeichnung + Zeilen). „zusatz“: Zeilen im Aufklapper (formeln-koerper/tafel.md: Raumdiagonale, Kantenlänge als Zusatz).
@@ -134,9 +141,9 @@ function tafelnBauen(json) {
   const tafeln = TAFELN.map((t) => {
     if (t.id === 'formeln') { // nur Verweise; die App liest Formeln und Sätze aus den Tafeln und den Einzelregeln
       for (const z of SONST) assert.ok(z.gesetz || quellen[z.tafel].eintraege.some((e) => e.kennung === z.kennung), JSON.stringify(z));
-      return { id: t.id, titel: t.titel, kurz: t.kurz, chip: t.chip, gebiet: t.gebiet, stich: t.stich, ikon: svg('0 0 64 52', IKON[t.id], ''), teile: ['formeln-flaechen', 'formeln-koerper'], sonst: SONST };
+      return { id: t.id, titel: t.titel, kurz: t.kurz, chip: t.chip, gebiet: t.gebiet, gebiete: t.gebiete, stich: t.stich, ikon: svg('0 0 64 52', IKON[t.id], ''), teile: ['formeln-flaechen', 'formeln-koerper'], sonst: SONST };
     }
-    const q = quellen[t.id], aus = { id: t.id, titel: t.titel || q.titel, kurz: t.kurz, chip: t.chip, gebiet: t.gebiet, stich: t.stich, stand: q.stand, ikon: svg('0 0 64 52', IKON[t.id], '') };
+    const q = quellen[t.id], aus = { id: t.id, titel: t.titel || q.titel, kurz: t.kurz, chip: t.chip, gebiet: t.gebiet, gebiete: t.gebiete, ...(t.unter ? { unter: t.unter } : {}), stich: t.stich, stand: q.stand, ikon: svg('0 0 64 52', IKON[t.id], '') };
     if (t.id === 'einheiten') {
       aus.richtung = q.regel_der_richtung; aus.nicht_aufgenommen = q.nicht_aufgenommen;
       // je Größenart: Anker, Klasse, Stichwörter (Name der Art, alle Einheiten mit Namen – Vorschlag einheiten/vorschlag.md, Abschnitt 3)

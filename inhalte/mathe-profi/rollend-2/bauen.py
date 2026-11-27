@@ -99,10 +99,10 @@ neu(f, "zwei_schritte", 12, 1, "erkennen", GEGEN, "ja",
          "Welcher Schritt kam in der Gleichung zuletzt?", "Zuletzt wurde 3 abgezogen. Das wird zuerst rückgängig gemacht: 32 + 3 = 35, dann 35 : 5 = 7."),
     lambda: (32 + 3) % 5 == 0 and 5 * 7 - 3 == 32, {0: ("fb.gegenrechnung.gleiche_rechnung", "dieselbe Rechnung statt der Gegenrechnung"), 1: ("fb.gegenrechnung.gleiche_rechnung", "dieselbe Rechnung statt der Gegenrechnung"), 2: ("fb.gegenrechnung.reihenfolge_nicht_umgekehrt", "den Fehler in der Reihenfolge nicht bemerkt")})
 neu(f, "probe", 13, 1, "erkennen", LOES, "ja",
-    wahl("Du willst prüfen, ob x = 9 die Gleichung 6 · x − 14 = 40 löst. Was tust du?",
-         ["40 für x einsetzen", "9 für x einsetzen und beide Seiten vergleichen", "9 und 40 zusammenzählen", "die Gleichung noch einmal auf demselben Weg lösen"], 1,
+    wahl("Wie machst du die Einsetzprobe für x = 9 bei der Gleichung 6 · x − 14 = 40?",
+         ["40 für x einsetzen", "9 für x einsetzen und beide Seiten vergleichen", "9 und 40 zusammenzählen", "6 für x einsetzen, weil die 6 vor dem x steht"], 1,
          "Eine Lösung macht beide Seiten gleich.", "Einsetzen: 6 · 9 − 14 = 40. Beide Seiten sind gleich, also ist 9 die Lösung."),
-    lambda: 6 * 9 - 14 == 40, {0: (None, "das Ergebnis statt der Lösung eingesetzt"), 2: (None, "kein Bezug zur Gleichung"), 3: (None, "derselbe Weg wiederholt auch denselben Fehler")})
+    lambda: 6 * 9 - 14 == 40, {0: (None, "das Ergebnis statt der Lösung eingesetzt"), 2: (None, "kein Bezug zur Gleichung"), 3: (None, "die Zahl vor dem x ist nicht die Lösung")})
 neu(f, "ohne_loesung", 13, 1, "erkennen", LOES, "ja",
     wahl("Woran erkennst du, dass 6 · x + 20 = 14 in ℕ keine Lösung hat?",
          ["14 ist nicht durch 6 teilbar.", "Rückwärts müsstest du 14 − 20 rechnen. Das geht in ℕ nicht.", "20 ist größer als 6.", "Links steht ein Plus."], 1,
@@ -133,7 +133,7 @@ neu(f, "probe", 12, 2, "mehrschritt", LOES, "ja",
     luecken("Nora löst 8 · x − 6 = 50 und erhält x = 6. Mach die Probe: Mit x = 6 ergibt die linke Seite ①. Das ist nicht 50. Die richtige Lösung ist x = ②.", K(2), [42, 7],
             ["8 * 6 - 6", "(50 + 6) // 8"], "Setze 6 ein. Löse dann selbst rückwärts.", "8 · 6 − 6 = 42, also stimmt 6 nicht. Rückwärts: 50 + 6 = 56, 56 : 8 = 7."),
     ["48-6", "56/8"], {0: [(48, None, "die 6 nicht abgezogen")], 1: [(6, None, "Noras falsche Lösung übernommen")]})
-neu(f, "probe", 17, 3, "parameter", LOES, "ja",
+neu(f, "probe", 17, 2, "umkehr", LOES, "ja",
     zahl("Die Gleichung 4 · x + □ = 26 soll die Lösung x = 5 haben. Welche Zahl gehört in das Kästchen?", 6, "26 - 4 * 5",
          "Setze 5 für x ein.", "4 · 5 = 20. Bis 26 fehlen 6."),
     ["26-20"], [(46, "fb.gegenrechnung.gleiche_rechnung", "26 + 20 gerechnet"), (21, None, "nur 5 abgezogen, das Malnehmen vergessen")])
@@ -235,7 +235,7 @@ neu(f, "irrefuehrend", 12, 2, "darstellung", KENNZ, "ja",
     probe=None)
 A[-1]["aufgabe"]["f"]["grafik"] = {"typ": "saeulen", "einheit": "Besucher", "werte": [{"name": "Juni", "wert": 520}, {"name": "Juli", "wert": 540}], "y_start": 500, "zahlen": True}
 neu(f, "irrefuehrend", 14, 3, "begruenden", KENNZ, "ja",
-    wahl("Zwei Diagramme zeigen dieselben Zahlen: 48 und 52 Stimmen. Bei Diagramm A beginnt die Achse bei 0, bei Diagramm B bei 46. Was stimmt?",
+    wahl("Zwei gleich große Diagramme zeigen dieselben Zahlen: 48 und 52 Stimmen. Bei Diagramm A beginnt die Achse bei 0, bei Diagramm B bei 46. Was stimmt?",
          ["In A wirkt der Unterschied größer: Dort ist die zweite Säule 3-mal so hoch.", "In beiden wirkt der Unterschied gleich groß.", "In B wirkt der Unterschied größer: Dort ist die zweite Säule doppelt so hoch.", "In B wirkt der Unterschied größer: Dort ist die zweite Säule 3-mal so hoch."], 3,
          "Wie hoch sind die Säulen in B? Zieh den Achsenanfang ab.", "In B sind die Säulen 48 − 46 = 2 und 52 − 46 = 6 hoch. 6 ist das Dreifache von 2. In A sind sie fast gleich hoch."),
     lambda: (52 - 46) == 3 * (48 - 46), {0: (None, "die beiden Diagramme verwechselt"), 1: (None, "den Achsenanfang nicht beachtet"), 2: (None, "Säulenhöhen in B falsch gerechnet")})
@@ -298,7 +298,7 @@ neu(f, "schaetzen", 13, 1, "erkennen", GR, "ja",
     lambda: True, {1: (None, "Masse statt Länge"), 2: (None, "Zeit statt Länge"), 3: (None, "Rauminhalt statt Länge")})
 neu(f, "kommaschreibweise", 12, 1, "erkennen", SW, "ja",
     wahl("Mia schreibt: 4 m 7 cm = 4,7 m. Was stimmt?", ["Mia hat recht.", "Richtig ist 47 m.", "Richtig ist 4,007 m.", "7 cm sind 0,07 m. Richtig ist 4,07 m."], 3,
-         "Bei m und cm gibt es zwei Stellen hinter dem Komma.", "1 cm ist ein Hundertstel Meter. 7 cm = 0,07 m, also 4,07 m. 4,7 m wären 4 m 70 cm."),
+         "1 cm ist ein Hundertstel Meter – zwei Stellen hinter dem Komma.", "1 cm ist ein Hundertstel Meter. 7 cm = 0,07 m, also 4,07 m. 4,7 m wären 4 m 70 cm."),
     lambda: F(4) + F(7, 100) == F("4.07"), {0: ("fb.stellenwert.eine_stelle_daneben", "7 cm als 0,7 m: eine Stelle daneben"), 1: (None, "das Komma weggelassen"), 2: (None, "drei Stellen wie bei kg und g")})
 neu(f, "rechnen", 13, 1, "erkennen", GR, "ja",
     wahl("Du sollst 2,5 kg + 750 g rechnen. Was tust du zuerst?", ["2,5 + 750 rechnen", "750 durch 2,5 teilen", "das Komma weglassen", "beide Größen in dieselbe Einheit bringen"], 3,
@@ -309,12 +309,12 @@ neu(f, "masse", 17, 2, "umkehr", GR, "ja",
          "Bring erst alles auf Gramm.", "1,2 kg = 1 200 g. 1 200 − 350 = 850.", einheit="g"),
     ["1200-350"], [(1550, "fb.gegenrechnung.gleiche_rechnung", "350 dazugezählt statt abgezogen"), (-230, "fb.stellenwert.eine_stelle_daneben", "1,2 kg als 120 g")])
 neu(f, "rechnen", 14, 2, "mehrschritt", GR, "ja",
-    luecken("1,5 m − 85 cm auf zwei Wegen. Weg A in cm: 150 cm − 85 cm = ① cm. Weg B in m: 1,50 m − 0,85 m = 0,② m.", K(2), [65, 65], ["150 - 85", "(1.5 - 0.85) * 100"],
-            "Beide Wege müssen dieselbe Länge ergeben.", "150 − 85 = 65 cm. In Metern: 1,50 − 0,85 = 0,65 m. Das ist dasselbe."),
-    ["65", "150-85"], {0: [(235, None, "dazugezählt statt abgezogen")]})
+    luecken("1,5 m − 85 cm auf zwei Wegen. Weg A in cm: 150 cm − 85 cm = ① cm. Weg B in mm: 1 500 mm − 850 mm = ② mm.", K(2), [65, 650], ["150 - 85", "1500 - 850"],
+            "Beide Wege müssen dieselbe Länge ergeben – einmal in cm, einmal in mm.", "150 − 85 = 65 cm. In Millimetern: 1 500 − 850 = 650 mm. 650 mm sind 65 cm, also dasselbe."),
+    ["65", "65*10"], {0: [(235, None, "dazugezählt statt abgezogen")], 1: [(65, "fb.groesse.falsche_richtung", "das Ergebnis in cm statt in mm angegeben"), (2350, None, "dazugezählt statt abgezogen")]})
 neu(f, "kommaschreibweise", "B", 2, "darstellung", SW, "ja",
     zahl("Schreibe 3 kg 40 g als Kommazahl in Kilogramm.", 3.04, "3 + 40 / 1000",
-         "Bei kg und g gibt es drei Stellen hinter dem Komma.", "40 g = 0,040 kg. Also 3,040 kg = 3,04 kg.", einheit="kg"),
+         "1 g ist ein Tausendstel Kilogramm – drei Stellen hinter dem Komma.", "40 g = 0,040 kg. Also 3,040 kg = 3,04 kg.", einheit="kg"),
     ["3040/1000"], [(3.4, "fb.stellenwert.eine_stelle_daneben", "40 g als 0,4 kg"), (3.004, "fb.stellenwert.eine_stelle_daneben", "40 g als 0,004 kg")])
 neu(f, "laenge", "B", 2, "mehrschritt", GR, "ja",
     wahl("Welche Länge ist am größten?", ["0,5 km", "480 m", "51 000 cm", "5 300 dm"], 3,
@@ -329,7 +329,7 @@ neu(f, "massstab", 17, 2, "umkehr", VERH, "ja",
          "Rechne die 4 km erst in Zentimeter um. Auf der Karte ist alles 50 000-mal kleiner.", "4 km = 400 000 cm. 400 000 : 50 000 = 8 cm."),
     ["400000/50000"], [(0.8, "fb.stellenwert.eine_stelle_daneben", "4 km als 40 000 cm"), (200000, "fb.verhaeltnis.falsche_richtung", "4 · 50 000 gerechnet")])
 neu(f, "verstehen", "A", 2, "einkleidung", GR, "ja",
-    wahl("Auf einem Schild steht: „Brücke bis 3,5 t“. Ein Lieferwagen wiegt 2 800 kg und hat 900 kg geladen. Darf er über die Brücke fahren?",
+    wahl("Auf einem Schild steht: „Brücke bis 3,5 t“. Der leere Lieferwagen wiegt 2 800 kg; dazu kommen 900 kg Ladung. Darf er über die Brücke fahren?",
          ["Ja, 3 700 kg sind weniger als 35 000 kg.", "Nein, er wiegt zusammen 3 700 kg. Erlaubt sind 3 500 kg.", "Ja, 2 800 kg sind weniger als 3,5 t.", "Nein, er wiegt 37 t."], 1,
          "Bring beide Angaben auf dieselbe Einheit.", "2 800 kg + 900 kg = 3 700 kg. 3,5 t = 3 500 kg. Der Wagen ist 200 kg zu schwer."),
     lambda: 2800 + 900 > F("3.5") * 1000, {0: ("fb.stellenwert.eine_stelle_daneben", "3,5 t als 35 000 kg"), 2: (None, "die Ladung vergessen"), 3: ("fb.stellenwert.eine_stelle_daneben", "3 700 kg als 37 t")})
@@ -376,9 +376,9 @@ neu(f, "massstab", "V", 3, "parameter", VERH, "ja",
 # ═════════════════════ Kind 2 · Flug g8 · Prozent mit verändertem Grundwert (Klasse 7) ═════════════════════
 f = "g8"
 neu(f, "faktor", 4, 1, "direkt", PROZ, "nein",
-    luecken("Ein Preis sinkt um 35 %. Es bleiben ① % des alten Preises. Der Faktor ist 0,②.", K(2), [65, 65], ["100 - 35", "100 - 35"],
-            "Rechne erst 100 % minus den Rabatt.", "100 % − 35 % = 65 %. Als Faktor: 0,65."),
-    ["65", "130/2"], {1: [(35, None, "den Rabatt selbst als Faktor genommen")]})
+    luecken("Ein Preis sinkt um 35 %. Es bleiben ① % des alten Preises. Ein anderer Preis steigt um 35 %; dort sind es ② % des alten Preises.", K(2), [65, 135], ["100 - 35", "100 + 35"],
+            "Rechne 100 % minus den Rabatt und 100 % plus den Aufschlag.", "100 % − 35 % = 65 %, als Faktor 0,65. 100 % + 35 % = 135 %, als Faktor 1,35."),
+    ["130/2", "270/2"], {0: [(35, None, "den Rabatt selbst genannt")], 1: [(35, None, "den Aufschlag selbst genannt"), (65, "fb.prozent.prozente_addiert", "wie beim Sinken gerechnet")]})
 neu(f, "faktor", 13, 1, "erkennen", PROZ, "ja",
     wahl("Ein Wert soll um 4 % erhöht werden. Mit welchem Faktor rechnest du?", ["1,4", "0,04", "1,04", "4"], 2,
          "Rechne erst 100 % plus 4 %.", "100 % + 4 % = 104 % = 1,04."),
@@ -388,9 +388,9 @@ neu(f, "prozentsatz", "B", 1, "direkt", PROZ, "ja",
          "Schreibe den Faktor in Prozent und vergleiche mit 100 %.", "0,85 = 85 %. Bis 100 % fehlen 15 %.", einheit="%"),
     ["(1-85/100)*100"], [(85, None, "den Rest statt der Abnahme genannt"), (0.15, None, "als Dezimalzahl statt in Prozent")])
 neu(f, "zurueck", 4, 2, "mehrschritt", GEGEN, "nein",
-    luecken("Nach 20 % Rabatt kostet eine Jacke 64 €. Der Faktor war 0,①. Zurück zum alten Preis: 64 € : 0,① = ② €.", K(2), [8, 80], ["(100 - 20) // 10", "64 * 10 // 8"],
-            "Teilen macht das Malnehmen rückgängig.", "Faktor 0,8. 64 € : 0,8 = 80 €. Probe: 80 € · 0,8 = 64 €."),
-    ["8", "640/8"], {1: [(76.8, "fb.prozent.falscher_grundwert", "20 % von 64 € aufgeschlagen")]})
+    luecken("Nach 20 % Rabatt kostet eine Jacke 60 €. Bezahlt wurden damit ① % des alten Preises. Der alte Preis war ② €.", K(2), [80, 75], ["100 - 20", "60 * 100 // 80"],
+            "Wie viel Prozent des alten Preises sind nach dem Rabatt noch zu zahlen?", "100 % − 20 % = 80 %. 60 € sind 80 % des alten Preises: 60 € : 0,8 = 75 €. Probe: 75 € · 0,8 = 60 €."),
+    ["80", "300/4"], {0: [(20, None, "den Rabatt selbst genannt")], 1: [(72, "fb.prozent.falscher_grundwert", "20 % von 60 € aufgeschlagen"), (48, "fb.prozent.falscher_grundwert", "noch einmal 20 % von 60 € abgezogen")]})
 neu(f, "vermindert", 14, 2, "mehrschritt", PROZ, "ja",
     luecken("Ein Pullover kostet 60 €, es gibt 30 % Rabatt. Weg A: Rabatt ausrechnen und abziehen: 60 € − ① € = ② €. Weg B: 60 € · 0,7.", K(2), [18, 42], ["60 * 30 // 100", "60 - 60 * 30 // 100"],
             "Beide Wege müssen denselben Preis ergeben.", "30 % von 60 € sind 18 €. 60 € − 18 € = 42 €. Weg B: 60 · 0,7 = 42."),
@@ -431,7 +431,7 @@ neu(f, "mehrfach", 17, 3, "rueckwaerts", PROZ, "ja",
     ["(1-4/5)*100"], [(25, "fb.prozent.falscher_grundwert", "dieselben 25 % genommen")])
 neu(f, "formel", 17, 3, "parameter", PROZ, "ja",
     zahl("Ein Kapital wächst in 2 Jahren von 400 € auf 484 €, jedes Jahr mit demselben Faktor. Wie viel Prozent Zinsen gibt es im Jahr?", 10, "(1.1 - 1) * 100",
-         "Welcher Faktor ergibt zweimal hintereinander 1,21?", "484 : 400 = 1,21. Gesucht ist q mit q · q = 1,21: q = 1,1. Das sind 10 % im Jahr.", einheit="%"),
+         "Rechne 484 : 400 und probiere dann Faktoren wie 1,05, 1,1 oder 1,2 aus.", "484 : 400 = 1,21. Probieren: 1,05 · 1,05 = 1,1025 (zu klein), 1,1 · 1,1 = 1,21 ✓. Das sind 10 % im Jahr.", einheit="%"),
     ["110-100"], [(21, None, "den ganzen Zuwachs als Jahreszins genommen"), (10.5, "fb.prozent.prozente_addiert", "21 % durch 2 geteilt")], probe=lambda: 400 * F(11, 10) ** 2 == 484)
 neu(f, "argumente", 12, 3, "begruenden", PROZ, "ja",
     wahl("Ein Laden wirbt: „Erst 50 % Rabatt, dann noch einmal 50 % – also geschenkt!“ Welche Rechnung zeigt, was wirklich gilt?",
@@ -481,8 +481,8 @@ neu(f, "pruefen", 4, 1, "direkt", WERT, "nein",
             "Teile jeden Preis durch seine Menge.", "5 € : 2 = 2,50 €. 15 € : 6 = 2,50 €. 24 € : 10 = 2,40 €. Der letzte Wert weicht ab: nicht proportional.", "Je Lücke ein Preis in Cent."),
     ["5*100/2", "15*100/6", "24*100/10"], {})
 neu(f, "erkennen", 13, 1, "erkennen", WERT, "ja",
-    wahl("Bei welcher dieser vier Zuordnungen gehört zur doppelten Menge immer der doppelte Wert?", ["Alter → Körpergröße", "Anzahl der Arbeiter → Dauer der Arbeit", "Anzahl gleicher Brötchen → Preis", "Uhrzeit → Temperatur"], 2,
-         "Prüfe: Gehört zur doppelten Menge der doppelte Wert?", "Doppelt so viele Brötchen kosten doppelt so viel. Bei den anderen stimmt das nicht."),
+    wahl("Bei welcher dieser vier Zuordnungen gehört zur doppelten Menge immer der doppelte Wert?", ["Alter → Körpergröße", "Anzahl der Arbeiter → Dauer der Arbeit", "Anzahl gleicher Brötchen → Preis (fester Stückpreis, kein Mengenrabatt)", "Uhrzeit → Temperatur"], 2,
+         "Prüfe: Gehört zur doppelten Menge der doppelte Wert?", "Bei festem Stückpreis kosten doppelt so viele Brötchen doppelt so viel. Gäbe es Mengenrabatt, wäre auch das nicht proportional. Bei den anderen drei stimmt es nie."),
     lambda: True, {0: (None, "„wächst mit“ für proportional gehalten"), 1: (None, "je mehr, desto weniger: nicht proportional"), 3: (None, "kein fester Zusammenhang")})
 neu(f, "erkennen", 12, 1, "erkennen", WERT, "ja",
     wahl("Ein Kind ist mit 5 Jahren 110 cm groß. Lina sagt: „Dann ist es mit 10 Jahren 220 cm groß.“ Was ist falsch?",
@@ -595,7 +595,7 @@ neu(f, "wertetabelle", 17, 2, "umkehr", ZU, "ja",
 neu(f, "graph_lesen", 17, 2, "umkehr", ZU, "ja",
     zahl("Lies am Graphen ab: Für welches x gilt f(x) = 3?", 2, "(3 + 1) // 2",
          "Geh von der 3 auf der y-Achse waagrecht zum Graphen, dann senkrecht zur x-Achse.", "Auf der Höhe y = 3 trifft man den Graphen bei x = 2.",
-         grafik=KO([-4, 4], [-5, 5], graphen=[{"art": "linear", "m": 2, "t": -1, "name": "f"}])),
+         grafik=KO([-1, 4], [-3, 7], graphen=[{"art": "linear", "m": 2, "t": -1, "name": "f"}])),
     ["4/2"], [(5, "fb.zuordnung.x_und_y_vertauscht", "f(3) abgelesen statt die Stelle zu y = 3")], probe=lambda: 2 * 2 - 1 == 3)
 neu(f, "graph_lesen", "B", 2, "darstellung", ZU, "ja",
     zahl("Wie viele x-Werte gehören am Graphen zum y-Wert 1?", 2, "1 + 1",
@@ -630,10 +630,10 @@ neu(f, "sachzusammenhang", 17, 3, "verknuepfen", ZU, "ja",
     ["18/(6/4)"], [(8, None, "nur die Zeit ab der 12-cm-Marke gerechnet"), (3, None, "18 : 6 gerechnet, ohne die 4 Stunden")])
 neu(f, "eindeutig", 12, 3, "begruenden", ZU, "ja",
     wahl("Im Koordinatensystem ist ein Kreis gezeichnet. Ist das der Graph einer Funktion?",
-         ["Nein, zu x = 0 gehören zwei y-Werte: 3 und −3.", "Ja, zu jedem y gehört ein x.", "Ja, die Linie ist geschlossen.", "Nein, weil ein Kreis keine Gleichung hat."], 0,
-         "Geh von einem x aus senkrecht nach oben und unten. Wie oft triffst du die Linie?", "Über x = 0 liegen zwei Punkte der Linie: (0 | 3) und (0 | −3). Eine Eingabe mit zwei Ausgaben – keine Funktion.",
-         grafik=KO([-4, 4], [-4, 4], kreise=[{"m": [0, 0], "r": 3, "name": "k"}])),
-    lambda: 0 ** 2 + 3 ** 2 == 0 ** 2 + (-3) ** 2 == 3 ** 2, {1: ("fb.zuordnung.x_und_y_vertauscht", "von y aus statt von x aus geprüft"), 2: (None, "Form der Linie statt Eindeutigkeit"), 3: (None, "richtiges Urteil, falscher Grund")})
+         ["Nein, zu x = 1 gehören zwei y-Werte: 3 und −3.", "Ja, zu jedem y gehört ein x.", "Ja, die Linie ist geschlossen.", "Nein, weil ein Kreis keine Gleichung hat."], 0,
+         "Geh von einem x aus senkrecht nach oben und unten. Wie oft triffst du die Linie?", "Über x = 1 liegen zwei Punkte der Linie: (1 | 3) und (1 | −3). Eine Eingabe mit zwei Ausgaben – keine Funktion.",
+         grafik=KO([-3, 5], [-4, 4], kreise=[{"m": [1, 0], "r": 3, "name": "k"}])),
+    lambda: (1 - 1) ** 2 + 3 ** 2 == (1 - 1) ** 2 + (-3) ** 2 == 3 ** 2, {1: ("fb.zuordnung.x_und_y_vertauscht", "von y aus statt von x aus geprüft"), 2: (None, "Form der Linie statt Eindeutigkeit"), 3: (None, "richtiges Urteil, falscher Grund")})
 fx = lambda feld: ["-", ["*", 2, feld], 7]
 neu(f, "funktionswert", "V", 1, "direkt", ZU, "ja",
     bed("f(x) = 2x − 7. Nenne zuerst ein x, für das f(x) negativ ist, und dann ein x, für das f(x) größer als 10 ist.", [R, R],
@@ -665,6 +665,7 @@ neu(f, "mengen", "V", 3, "verknuepfen", ERL, "ja",
         "Welchen Wert muss der Nenner haben, damit 12 durch ihn 4 ergibt?", "Der Nenner x − a muss 3 sein. Mit a = −1 ist x = 2: 12/(2 + 1) = 4.", gut=[[-3, 0], ["-0,5", "2,5"]]), None, None)
 
 # ═════════════════════ Prüfen ═════════════════════
+KOMMA_LUECKE = re.compile(r"\d\s*,\s*[①②③④⑤□]")      # Lücke unmittelbar hinter dem Komma: wäre eine Ziffernfolge, keine Zahl
 ZWEIDEUTIG = re.compile(r"\d/\d+[a-zA-Z]|/\([^()]*\(|\)\)/")       # 1/2x · /( … ( · )) /
 
 
@@ -721,6 +722,9 @@ for a in sorted(A, key=lambda a: (list(FLUG).index(a["flug"]), a["typ"] == "V", 
             werte.add(w)
             fb_eintrag({}, w, fbk, text)
     elif q["y"] == "luecken":
+        # Auftrag 20: Eine Lücke unmittelbar hinter einem Komma wäre eine Ziffernfolge, die App vergleicht aber ganze Zahlen
+        # („08“ zählt als 8, „80“ wird abgewiesen). Kommazahlen nimmt der Lückentyp nicht an.
+        assert not KOMMA_LUECKE.search(q["f"]["text"] + " " + q["f"]["schablone"]), (kenn, "Lücke hinter dem Komma – Ziffernfolge")
         soll = [ip.rechne(c) for c in q["c"]]
         assert soll == q["o"]["werte"] == [z2(z) for z in a["zweit"]], (kenn, soll, [z2(z) for z in a["zweit"]])
         assert all(isinstance(w, int) for w in q["o"]["werte"]) and q["f"]["schablone"].count("□") == len(soll), kenn

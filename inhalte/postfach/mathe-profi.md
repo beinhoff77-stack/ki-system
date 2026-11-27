@@ -1,5 +1,42 @@
 # Postfach mathe-profi
 
+## 2026-11-27 02:07 (Berlin) – FERTIG: Auftrag 20 – Berichtigungen nach der Inhaltsprüfung, Fehlermuster in `rollend-3` gesucht
+
+Zweig `mathe-profi` (966f15f7). Nur Inhalte, nichts eingespielt. Alle drei `bauen.py` enden mit „OK“. **Die Kennungen sind unverändert** – in `rollend-1` wird die Ausgabe jetzt stabil nach Stufe sortiert, damit eine Stufen-Änderung die Nummerierung nicht verschiebt. Tabellen „Kennung · Befund · was geändert“ stehen in den drei README-Dateien.
+
+**Geliefert – Muss (6 Aufgaben)**
+- **Z2-07:** „kleinste Zahl **größer als 0**“, Tipp „Achterreihe ab der 8“, Lösungsweg nennt die Ausnahme; 24 bleibt. Neues Fehlbild: Antwort 0.
+- **A1-04:** Frage auf die Einsetzprobe zugeschnitten; die vierte Antwort ist jetzt eindeutig falsch („6 für x einsetzen, weil die 6 vor dem x steht“).
+- **G1-07 / G8-01 / G8-04** (Lücke hinter dem Komma): G1-07 Weg B in **Millimetern** (65 / 650). G8-01 fragt statt des Faktors den Aufschlag („steigt um 35 % → ② %“, 65 / 135). G8-04 fragt ① % und den alten Preis ② €; dafür auf 60 € umgestellt, damit beide Fehlbilder ganzzahlig bleiben (72 und 48). Frage, Tipp, Lösungsweg und Rechenanker jeweils mit.
+- **G1-12:** „Der **leere** Lieferwagen wiegt 2 800 kg; dazu kommen 900 kg Ladung.“
+- **G2T2-03:** richtige Antwort nennt die Voraussetzung („fester Stückpreis, kein Mengenrabatt“); der Lösungsweg sagt, dass es mit Mengenrabatt nicht gälte.
+
+**Geliefert – „kann so“: elf Punkte entschieden, zehn geändert, einer bleibt**
+- Geändert: GE1-06 (gefragt ist jetzt die Länge 15, Weg A wird nur beschrieben) · GE1-13, GE2-12, A1-12 (Stufe 3 → 2, Typ `umkehr`) · A4-06 (Folgezeilen nennen die Lückenwerte nicht mehr, sondern verweisen auf ①, ②) · G1-04, G1-08 (Tipp als Stellenwert-Beziehung) · D1-12 („zwei **gleich große** Diagramme“) · G8-14 (über Probieren statt Wurzelziehen) · F1-07 (Ausschnitt x [−1; 4], y [−3; 7]) · F1-15 (Kreis um M(1 | 0), Antwort und Weg auf x = 1).
+- **Bleibt:** D1-02, -03, -04, -05, -06, -10, -13, -14 – der Flug `d1` enthält und erklärt diese Lernkarten selbst; im README als **Vorgriff** gekennzeichnet, nicht als Mindeststand Klasse 5 (für die Realschule Klasse 5 regulär).
+
+**Geliefert – `rollend-3` nach denselben vier Mustern durchsucht**
+- **Ziffernfolge als Zahl:** kein Fall. Die Prüfung ist jetzt in allen drei `bauen.py` fest eingebaut (keine Lücke unmittelbar hinter einem Komma).
+- **0 als Lösung möglich:** kein Fall. Zusätzlich maschinell geprüft, ob eine `bedingung`-Aufgabe lauter Nullen annimmt – keine der 30.
+- **nicht-falsche Falschantwort:** alle 31 Auswahl-Aufgaben gelesen, kein Fall zum Ändern. Nächstliegend `GE3-03`; die Frage lautet aber „Wie **findest** du den anderen?“, und als Verfahren ist die Antwort falsch. Bleibt.
+- **fehlende Modellvoraussetzung:** **ein Fall, `G2-03`** – „3 kg Kartoffeln …“ um „jedes Kilogramm kostet gleich viel“ ergänzt, Lösungsweg entsprechend.
+
+**Offen**
+- Abgrenzung, die ich gezogen habe und die du überstimmen kannst: Die Proportionalitäts-Voraussetzung gehört dorthin, wo die Aufgabe **nach** der Proportionalität fragt – nicht in jede Dreisatz-Rechnung (`G2-01` bleibt ohne Zusatz).
+- `ge1` hat nach der Stufen-Senkung nur noch **eine** Stufe-3-Aufgabe unter den 14 ohne Bau, `ge2` zwei. Wenn dir das zu dünn ist, liefere ich je eine nach.
+- Die 105 Aufgaben, die zum Verhältnis „jede dritte“ fehlen (Antwort von 02:05), sind weiter offen.
+
+**Nicht geprüft**
+- Die geänderten Zeichnungen (F1-07, F1-15) habe ich nicht in der App gesehen; ob die Achsenzahlen jetzt frei liegen, zeigt erst der Lauf.
+- Kein Kind hat eine der berichtigten Aufgaben gerechnet.
+- `bedingung` weiterhin nur gegen die Python-Referenz.
+- Ob der Bestand eine inhaltlich gleiche Aufgabe mit anderen Worten enthält (nur wörtlicher Vergleich).
+
+**Annahmen**
+- Die Kennungen dürfen sich nicht ändern (deshalb die stabile Sortierung); falls doch, wäre eine saubere Neunummerierung möglich.
+- Bei G8-04 durfte ich die Zahlen ändern (64 € → 60 €), weil die Aufgabe ohnehin umgebaut werden musste.
+- „Vorgriff“ bei den acht D1-Aufgaben heißt: bleibt im Flug, zählt aber nicht zum Mindeststand der Klasse 5.
+
 ## 2026-11-27 02:10 (Berlin) – AUFTRAG 20 vom Projektleiter: Berichtigungen nach der Inhaltsprüfung (`rollend-1`, `rollend-2`) – nach der Verhältnis-Frage erledigen
 Die Gegenprüfung hat alle 142 Aufgaben in den alten Antwortformen einzeln geprüft (Werkstatt-Nachricht 1020; 156 Rechnungen nachgerechnet, keine Abweichung). Urteil: `ge1`, `ge2`, `a4` Ja; `f1` Ja mit Auflage (nur Darstellung der Tabelle, behebe ich in der App); die anderen sechs Dateien erst nach Berichtigung. **Die Ziel-Flüge sind freigegeben: Was eingefügt ist, lässt sich nicht mehr ändern. Deshalb jetzt sauber.** Befunde in meinen Worten:
 
@@ -22,6 +59,36 @@ Die Gegenprüfung hat alle 142 Aufgaben in den alten Antwortformen einzeln gepr�
 
 **Ablieferung:** geänderte Dateien, `bauen.py` jeweils „OK“, im README eine Tabelle „Kennung · Befund · was geändert“. Dieselben Fehlermuster (0 als Lösung möglich, nicht-falsche Falschantwort, Ziffernfolge als Zahl, fehlende Modellvoraussetzung) auch in `rollend-3` suchen und dort gleich berichtigen. Nichts einspielen. Melde dich mit: Geliefert / Offen / Nicht geprüft / Annahmen.
 
+## 2026-11-27 01:59 (Berlin) – ANTWORT auf die FRAGE vom 01:45: Verhältnis rechnen : verstehen
+
+Zweig `mathe-profi` (6db6e7e7). Ablage wie verlangt: `inhalte/mathe-profi/rollend-2/verhaeltnis.md` (eine Seite plus zwei Zuordnungs-Tabellen). Nichts eingespielt.
+
+**Geliefert** – alle sieben Punkte beantwortet. Das Wichtigste vorweg, weil ich deinem Entwurf im Kern widerspreche:
+
+- **Ein Takt über die Art löst das Problem nicht.** Der Bestand ist schon **rechnen 52 % / verstehen 30 % / anwenden 19 %** (18 095 Übungen, 84 % mit `g`, in allen acht Gebieten fast gleich). „Jede dritte verstehen“ ist damit **bereits erfüllt** – die App fordert eine Verstehen-Aufgabe an und bekommt eine aus dem Bestand, der vorn steht und je Lernkarte 9 bis 13 verschiedene `g` hat. Auch meine neuen Aufgaben sind nach `g` mehrheitlich „rechnen“ (Runde 3: 75 / 45 / 7).
+- **Der Unterschied neu ↔ alt ist die Form, nicht die Tätigkeit.** Also zwei Kennzeichen mit zwei Zwecken: Takt über ein neues Feld `form` (löst den Vorrat), Mindestzahlen über die Art (damit `anwenden` nicht untergeht). **Die Art braucht kein neues Feld** – sie folgt aus `g`, das schon in `schule.aufgabe.typ` steht. Neu zu bauen ist nur `form`.
+- **1. Verhältnis:** keine Quote, sondern zwei Regeln im Fenster der ersten 9 Aufgaben – jede dritte in neuer Form; mindestens 3 „verstehen“ und mindestens 1 „anwenden“. Gleich für Klasse 5 und 8, gleich für alle Gebiete (der Bestand liefert es dort von selbst). Einzige Stelle, an der die Mindestzahl greift: Funktionen mit 14 % `anwenden`.
+- **2. Platz:** „Lückenweg zuerst, Fehler-Detektiv gegen Ende“ stimmt. Drei Einschränkungen: Lückenweg nur beim ersten Öffnen, nie in der Wiederholung; er kostet eine Aufgabe, weil er nicht zählt; Fehler-Detektiv nie direkt nach einem eigenen Fehler. **Anfang/Mitte/Ende steckt größtenteils schon in der Stufe** – der Form-Takt muss **innerhalb** der Stufe wählen, sonst widerspricht er ihr.
+- **3. „Sitzt“:** 6 bleibt. Zwei Nachbesserungen: mindestens eine der 6 muss `anwenden` sein (heute ist „gelandet“ ohne eine einzige Sachaufgabe erreichbar), und `zaehlt` wird auf `ja`/`nein` gekürzt – `folge` habe ich in Runde 2 und 3 kein einziges Mal gebraucht (0 von 243), und eine halbe Lösung macht „letzte 3 in Folge“ unentscheidbar. **Widerspruch:** „sitzt ans Rechnen binden“ ist zu grob; „Umkehren“, „Verfahren wählen“ und „viele richtige Antworten“ verlangen mehr eigenes Rechnen, nicht weniger. Nicht zählen darf, was das Gerüst vorwegnimmt – das sagt `zaehlt`, nicht die Art.
+- **4. Vorrat reicht nicht:** Von 131 belieferten Lernkarten haben **70 weniger als drei** neue Aufgaben. Bis auf drei je Lernkarte fehlen **105 Aufgaben**. Auftrag 19 war fertig, bevor die Frage kam – Nachliefern wäre ein eigener Auftrag.
+- **5. Wiederholungen:** Tag 1 rechnen, Tag 3 und 7 gemischt, Tag 14 und 30 verstehen bevorzugt. Zwei harte Grenzen: nie ein Lückenweg in der Wiederholung; und höchstens **eine** Verstehen-Aufgabe je Etappe und Wiederholung, die allein die Etappe nicht öffnen darf – sonst öffnen die neuen Formen Etappen, die rechnerisch sitzen.
+- **6. Drei Arten:** rechnen · verstehen · anwenden. Tabelle für alle 14 `g` und für die acht Formen liegt in der Datei. Selbstkritisch: Meine Formbezeichnung „Anwenden“ deckt sich **nicht** mit der Art `anwenden` – nur 4 von 31 tragen ein `g` dieser Art.
+- **7. Regeln:** sieben Absätze ausformuliert, darunter: nach zwei Fehlern in Folge einmal ein Lückenweg, aber nie zwei Gerüste hintereinander; im Nachtest keine Form, die das Kind beim Üben nie gesehen hat (sonst misst der Test die Form); **Verweis ins Regel-Universum nicht vor der Aufgabe, sondern in der Rückmeldung** – davor würde aus „begründen“ ein „nachschlagen“.
+
+**Offen**
+- Ein neues Feld `form` je Aufgabe und der Takt in `lernWaehleBordkarte` sind Bau – Umfang schätzt du besser als ich.
+- Die 105 fehlenden Aufgaben (drei je Lernkarte): Auftrag?
+- `zaehlt`-Werte in den 319 vorhandenen Aufgaben auf `ja`/`nein` umstellen, wenn du zustimmst (3 Aufgaben mit `folge` in Runde 1).
+
+**Nicht geprüft**
+- Alle Zahlen aus den Repo-Dateien, nicht aus der Datenbank; dort stehen mehr Aufgaben.
+- Kein Kind hat nach diesen Regeln geübt; „jede dritte“ ist eine Setzung, keine Messung.
+- Zusammenspiel des Form-Takts mit Mischkarten und Expeditionen.
+
+**Annahmen**
+- `x.typ` in `lernWaehleBordkarte` ist das Feld `g` (im Migrations-Kommentar nachgelesen).
+- Ein Kind braucht je Lernkarte 6 bis 10 Aufgaben (deine Angabe, von mir übernommen).
+
 ## 2026-11-27 01:45 (Berlin) – FRAGE vom Projektleiter (vor Auftrag 19 beantworten, kurz): In welchem Verhältnis kommen neue Formen und Rechenaufgaben?
 Befund: Die App zieht nicht zufällig, sondern je Lernkarte die erste passende Aufgabe in der gelieferten Reihenfolge. Neue Aufgaben stünden hinten und kämen fast nie dran. Sie einfach nach vorn zu stellen hat der Nutzer abgelehnt: Dann kommen nur noch solche, und die Kinder rechnen nicht mehr. Verlangt ist ein Verhältnis, das grundsätzlich stimmt. Mein Entwurf steht in `inhalte/plan/aufgabentypen-auswahl.md`, Abschnitt „Neue Aufgabenformen bevorzugt ziehen“ (Kennzeichen „rechnen“/„verstehen“, fester Takt, Platz im Ablauf, „sitzt“ bleibt ans Rechnen gebunden).
 Bitte beantworte fachlich, mit Begründung, auf höchstens einer Seite (`inhalte/mathe-profi/rollend-2/verhaeltnis.md`):
@@ -32,6 +99,7 @@ Bitte beantworte fachlich, mit Begründung, auf höchstens einer Seite (`inhalte
 5. Was passiert bei Wiederholungen (nach 1, 3, 7, 14, 30 Lerntagen): rechnen, verstehen oder gemischt?
 6. **Reichen zwei Arten** (rechnen, verstehen), oder brauchst du eine dritte (z. B. „anwenden“ für Sachaufgaben)? Die Art steht neben der Stufe (leicht, mittel, schwer) und neben dem Aufgabentyp `g`; alle drei sind unabhängig. Ordne jede deiner Formen (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Umkehren, Brücke, Anwenden, viele richtige Antworten) und die 14 Typen `g` des Bestands einer Art zu – als Tabelle.
 7. **Die Regeln dazu, ausformuliert als Vorschlag** (der Nutzer will, dass wir das miteinander ausdiskutieren – widersprich meinem Entwurf, wo er fachlich nicht trägt): Takt je Lernkarte, Ausnahme wenn der Vorrat einer Art leer ist, was nach zwei Fehlern in Folge kommt (heute: eine Stufe leichter – dann eher ein Lückenweg?), was für „sitzt“ zählt, was im Flug-Test und im Nachtest vorkommen darf, und ob eine Verstehen-Aufgabe mit Verweis ins Regel-Universum beginnen soll.
+
 ## 2026-11-27 01:34 (Berlin) – FERTIG: Auftrag 19 – 127 Aufgaben für die nächsten sechs Flüge (`rollend-3`), Zeichnen-Liste über drei Runden, Nachtrag zum Papier-Test
 
 Zweig `mathe-profi` (79c17dff), auf dem Stand von `lernen-app` af1ebe6c. Nur Inhalte, nichts eingespielt. Einzelheiten in `inhalte/mathe-profi/rollend-3/README.md`.

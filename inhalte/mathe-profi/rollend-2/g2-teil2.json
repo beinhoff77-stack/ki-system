@@ -146,14 +146,14 @@
     "a": [
      "Alter → Körpergröße",
      "Anzahl der Arbeiter → Dauer der Arbeit",
-     "Anzahl gleicher Brötchen → Preis",
+     "Anzahl gleicher Brötchen → Preis (fester Stückpreis, kein Mengenrabatt)",
      "Uhrzeit → Temperatur"
     ],
     "o": {
      "index": 2
     },
     "h": "Prüfe: Gehört zur doppelten Menge der doppelte Wert?",
-    "w": "Doppelt so viele Brötchen kosten doppelt so viel. Bei den anderen stimmt das nicht."
+    "w": "Bei festem Stückpreis kosten doppelt so viele Brötchen doppelt so viel. Gäbe es Mengenrabatt, wäre auch das nicht proportional. Bei den anderen drei stimmt es nie."
    }
   },
   {

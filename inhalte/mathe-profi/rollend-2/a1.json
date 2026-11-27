@@ -187,10 +187,10 @@
     },
     {
      "index": 3,
-     "antwort": "die Gleichung noch einmal auf demselben Weg lösen",
+     "antwort": "6 für x einsetzen, weil die 6 vor dem x steht",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "derselbe Weg wiederholt auch denselben Fehler"
+     "beschreibung": "die Zahl vor dem x ist nicht die Lösung"
     }
    ],
    "aufgabe": {
@@ -201,13 +201,13 @@
     "g": "erkennen",
     "y": "auswahl",
     "f": {
-     "text": "Du willst prüfen, ob x = 9 die Gleichung 6 · x − 14 = 40 löst. Was tust du?"
+     "text": "Wie machst du die Einsetzprobe für x = 9 bei der Gleichung 6 · x − 14 = 40?"
     },
     "a": [
      "40 für x einsetzen",
      "9 für x einsetzen und beide Seiten vergleichen",
      "9 und 40 zusammenzählen",
-     "die Gleichung noch einmal auf demselben Weg lösen"
+     "6 für x einsetzen, weil die 6 vor dem x steht"
     ],
     "o": {
      "index": 1
@@ -559,7 +559,7 @@
    "kennung": "A1-12",
    "thema": "gleichungen.einfach",
    "lernkarte": "probe",
-   "stufe": 3,
+   "stufe": 2,
    "typ": "Umkehren",
    "antwortform": "zahl",
    "regel": "id.algebra.gleichung_loesen",
@@ -583,8 +583,8 @@
     "l": "probe",
     "t": "verstehen",
     "p": "uebung",
-    "s": 3,
-    "g": "parameter",
+    "s": 2,
+    "g": "umkehr",
     "y": "zahl",
     "f": {
      "text": "Die Gleichung 4 · x + □ = 26 soll die Lösung x = 5 haben. Welche Zahl gehört in das Kästchen?"

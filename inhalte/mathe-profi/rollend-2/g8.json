@@ -19,11 +19,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rabatt selbst genannt"
+    },
+    {
      "luecke": 2,
      "antwort": 35,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Rabatt selbst als Faktor genommen"
+     "beschreibung": "den Aufschlag selbst genannt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 65,
+     "fehlbild": "fb.prozent.prozente_addiert",
+     "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
+     "beschreibung": "wie beim Sinken gerechnet"
     }
    ],
    "aufgabe": {
@@ -34,22 +48,22 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Preis sinkt um 35 %. Es bleiben ① % des alten Preises. Der Faktor ist 0,②.",
+     "text": "Ein Preis sinkt um 35 %. Es bleiben ① % des alten Preises. Ein anderer Preis steigt um 35 %; dort sind es ② % des alten Preises.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       65,
-      65
+      135
      ]
     },
     "c": [
      "100 - 35",
-     "100 - 35"
+     "100 + 35"
     ],
-    "h": "Rechne erst 100 % minus den Rabatt.",
-    "w": "100 % − 35 % = 65 %. Als Faktor: 0,65."
+    "h": "Rechne 100 % minus den Rabatt und 100 % plus den Aufschlag.",
+    "w": "100 % − 35 % = 65 %, als Faktor 0,65. 100 % + 35 % = 135 %, als Faktor 1,35."
    }
   },
   {
@@ -163,11 +177,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rabatt selbst genannt"
+    },
+    {
      "luecke": 2,
-     "antwort": 76.8,
+     "antwort": 72,
      "fehlbild": "fb.prozent.falscher_grundwert",
      "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
-     "beschreibung": "20 % von 64 € aufgeschlagen"
+     "beschreibung": "20 % von 60 € aufgeschlagen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 48,
+     "fehlbild": "fb.prozent.falscher_grundwert",
+     "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
+     "beschreibung": "noch einmal 20 % von 60 € abgezogen"
     }
    ],
    "aufgabe": {
@@ -178,22 +206,22 @@
     "g": "mehrschritt",
     "y": "luecken",
     "f": {
-     "text": "Nach 20 % Rabatt kostet eine Jacke 64 €. Der Faktor war 0,①. Zurück zum alten Preis: 64 € : 0,① = ② €.",
+     "text": "Nach 20 % Rabatt kostet eine Jacke 60 €. Bezahlt wurden damit ① % des alten Preises. Der alte Preis war ② €.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
-      8,
-      80
+      80,
+      75
      ]
     },
     "c": [
-     "(100 - 20) // 10",
-     "64 * 10 // 8"
+     "100 - 20",
+     "60 * 100 // 80"
     ],
-    "h": "Teilen macht das Malnehmen rückgängig.",
-    "w": "Faktor 0,8. 64 € : 0,8 = 80 €. Probe: 80 € · 0,8 = 64 €."
+    "h": "Wie viel Prozent des alten Preises sind nach dem Rabatt noch zu zahlen?",
+    "w": "100 % − 20 % = 80 %. 60 € sind 80 % des alten Preises: 60 € : 0,8 = 75 €. Probe: 75 € · 0,8 = 60 €."
    }
   },
   {
@@ -672,8 +700,8 @@
      "einheit": "%"
     },
     "c": "(1.1 - 1) * 100",
-    "h": "Welcher Faktor ergibt zweimal hintereinander 1,21?",
-    "w": "484 : 400 = 1,21. Gesucht ist q mit q · q = 1,21: q = 1,1. Das sind 10 % im Jahr."
+    "h": "Rechne 484 : 400 und probiere dann Faktoren wie 1,05, 1,1 oder 1,2 aus.",
+    "w": "484 : 400 = 1,21. Probieren: 1,05 · 1,05 = 1,1025 (zu klein), 1,1 · 1,1 = 1,21 ✓. Das sind 10 % im Jahr."
    }
   },
   {

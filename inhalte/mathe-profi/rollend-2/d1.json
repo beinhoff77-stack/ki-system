@@ -641,7 +641,7 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Zwei Diagramme zeigen dieselben Zahlen: 48 und 52 Stimmen. Bei Diagramm A beginnt die Achse bei 0, bei Diagramm B bei 46. Was stimmt?"
+     "text": "Zwei gleich große Diagramme zeigen dieselben Zahlen: 48 und 52 Stimmen. Bei Diagramm A beginnt die Achse bei 0, bei Diagramm B bei 46. Was stimmt?"
     },
     "a": [
      "In A wirkt der Unterschied größer: Dort ist die zweite Säule 3-mal so hoch.",

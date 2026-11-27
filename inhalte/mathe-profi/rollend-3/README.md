@@ -100,3 +100,16 @@ Ohne jeden Bau lösbar ist Stufe C: Den ge3-Aufgaben eine Figur beilegen (die Ze
 - `ge4` hat 16 Lernkarten; deshalb 18 statt 15 Aufgaben ohne Bau, die meisten Lernkarten nur einmal. Ebenso `f2` (11 Lernkarten, 18 Aufgaben).
 - In `g2` stehen Preise in Lücken in Cent, weil Lücken nur ganze Zahlen nehmen.
 - Namen in Aufgaben (Ole, Kim, Pia, Tim, Lars, Emil, Jule, Nico, Mia, Jan, Ben) sind erfunden.
+
+## Auftrag 20 – dieselben Fehlermuster in Runde 3 gesucht (27.11.2026)
+
+Alle 127 Aufgaben gegen die vier Muster der Gegenprüfung durchgesehen; `bauen.py` endet mit „OK“. Kennungen unverändert.
+
+| Muster | Suche | Befund |
+|---|---|---|
+| **Ziffernfolge als Zahl** (Lücke hinter dem Komma) | maschinell über Text und Schablone aller Lücken-Aufgaben | **kein Fall.** Die Prüfung ist jetzt fest in `bauen.py` eingebaut (gilt für alle drei Runden). |
+| **0 als Lösung möglich** | alle Fragen mit „kleinste“, „größte“, „mindestens“ durchgesehen; zusätzlich maschinell: nimmt eine `bedingung`-Aufgabe lauter Nullen als richtig an? | **kein Fall.** `Z2-09` (kleinste Ziffer, damit 82□4 durch 3 teilbar) schließt die 0 rechnerisch aus (1, 4, 7); `GE4-12`, `A4-07`, `R1-13` sind eindeutig; keine der 30 `bedingung`-Aufgaben nimmt lauter Nullen an. |
+| **nicht-falsche Falschantwort** | alle 31 Auswahl-Aufgaben einzeln gelesen | **kein Fall zum Ändern.** Nächstliegend ist `GE3-03` („Er ist gleich groß“ – trifft bei 90° zufällig zu); die Frage lautet aber „Wie **findest** du den anderen?“, und als Verfahren ist die Antwort falsch. **Bleibt.** |
+| **fehlende Modellvoraussetzung** | alle Sach- und Begründungsaufgaben | **ein Fall: `G2-03`** – „3 kg Kartoffeln kosten 4,50 €. Was kosten 5 kg?“ ist ohne Zusatz nicht zwingend proportional (Mengenrabatt). **Geändert:** „…; jedes Kilogramm kostet gleich viel“, und der Lösungsweg sagt, dass es ohne diese Angabe nicht gälte. |
+
+**Abgrenzung, die ich dabei gezogen habe [M]:** Die Voraussetzung muss dort stehen, wo die Aufgabe **nach** der Proportionalität fragt (`G2-03`, `G2T2-03`) – nicht in jeder Dreisatz-Rechnung. In `G2-01` („5 Äpfel kosten 2 €, was kostet einer?“) ist der feste Stückpreis die Aufgabenstellung selbst; dort wäre der Zusatz nur Ballast. `G2-11` (zwei Maler) nennt keine Voraussetzung, aber die richtige Antwort lautet „Jule darf den Dreisatz hier nicht nehmen“ – das stimmt unabhängig vom Modell. **Bleibt.**

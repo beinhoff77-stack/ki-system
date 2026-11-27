@@ -1,3 +1,5 @@
+> **ABGELEHNT am 27.11. – zu laut, zu viel Text und Farbe, keine Struktur; nicht weiterverwenden.** (Nutzer: „Ich will keine Bild-Zeitung. Ich will Struktur, Übersichtlichkeit, Analyse, Bearbeitung, schlank und modern.“) Gültig bleiben nur die Regeln R0–R9 (Abschnitt 3), das Zustandsmodell (Abschnitt 4) und der Datenbedarf (Abschnitt 5) – als Grundlage von `../entwurf2/umsetzung2.md`.
+
 # Vorgabe WK, erste Runde: „Was wackelt“ als Gesprächsvorbereitung
 
 Designer, 27.11.2026. Ersetzt für den Reiter „Was wackelt“ die Arbeitsliste LW-3 (1a) und die Tabelle „Je Etappe“ (LA-3). Kein App-Code geändert.

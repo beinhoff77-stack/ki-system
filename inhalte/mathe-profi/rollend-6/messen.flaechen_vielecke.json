@@ -455,7 +455,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Trapez hat die parallelen Seiten 12 cm und 8 cm und die Höhe 5 cm. Weg A: Rechne mit der Trapezformel. Weg B: Zerlege das Trapez in ein Rechteck mit der kurzen Seite und zwei Dreiecke, die zusammen die Grundseite 12 − 8 = 4 cm haben. Wie groß ist die Fläche in cm²?"
+     "text": "Ein gleichschenkliges Trapez hat die parallelen Seiten 12 cm und 8 cm und die Höhe 5 cm. Weg A: Rechne mit der Trapezformel. Weg B: Zerlege das Trapez in ein Rechteck mit der kurzen Seite und zwei Dreiecke, die zusammen die Grundseite 12 − 8 = 4 cm haben. Wie groß ist die Fläche in cm²?"
     },
     "o": {
      "wert": 50,
@@ -615,11 +615,11 @@
      "c": "2 * 60 / 6"
     },
     {
-     "antwort": 5,
+     "antwort": 0,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "beim Dreieck nicht verdoppelt: 10 : 2",
-     "c": "60 / 6 / 2"
+     "beschreibung": "beim Dreieck nicht verdoppelt: beide Grundseiten 60 : 6 = 10 cm, Unterschied 0",
+     "c": "60 / 6 - 60 / 6"
     }
    ],
    "aufgabe": {
@@ -921,7 +921,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein dreiseitiges Prisma ist 20 cm lang. Seine Grundfläche ist ein rechtwinkliges Dreieck mit den Seiten 9 cm, 12 cm und 15 cm. Die beiden Dreiecke haben zusammen ① cm². Die drei Rechtecke (Mantel) haben zusammen ② cm². Die Oberfläche ist ③ cm². Der Mantel ist um ④ cm² größer als die beiden Dreiecke zusammen.",
+     "text": "Ein gerades dreiseitiges Prisma ist 20 cm lang. Seine Grundfläche ist ein rechtwinkliges Dreieck mit den Seiten 9 cm, 12 cm und 15 cm. Die beiden Dreiecke haben zusammen ① cm². Die drei Rechtecke (Mantel) haben zusammen ② cm². Die Oberfläche ist ③ cm². Der Mantel ist um ④ cm² größer als die beiden Dreiecke zusammen.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
@@ -939,7 +939,7 @@
      "(108) + (720)",
      "(720) - (108)"
     ],
-    "h": "Der Mantel ist ein Rechteck: Umfang des Dreiecks mal Länge.",
+    "h": "Wickelt man den Mantel ab, entsteht ein Rechteck. Welche Seiten hat es?",
     "w": "Dreiecke: 2 · (9 · 12 : 2) = 108 cm². Mantel: (9 + 12 + 15) · 20 = 720 cm². Oberfläche: 108 + 720 = 828 cm². Unterschied: 720 cm² − 108 cm² = 612 cm²."
    }
   },
@@ -1038,7 +1038,7 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Seiten 5 cm, 12 cm und 13 cm. Die Oberfläche des Prismas beträgt 480 cm². Wie lang ist das Prisma in Zentimetern?"
+     "text": "Ein gerades Prisma hat als Grundfläche ein rechtwinkliges Dreieck mit den Seiten 5 cm, 12 cm und 13 cm. Die Oberfläche des Prismas beträgt 480 cm². Wie lang ist das Prisma in Zentimetern?"
     },
     "o": {
      "wert": 14,
@@ -1074,7 +1074,7 @@
      "antwort": 80,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Dreieck nicht verkleinert",
+     "beschreibung": "das Dreieck nicht halbiert: 80 statt 80 : 2",
      "c": "(80)"
     },
     {
@@ -1137,7 +1137,7 @@
      "antwort": 13,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "5 addiert statt abgezogen: 56 : 7 + 5",
+     "beschreibung": "die Fläche nicht verdoppelt und 5 addiert statt abgezogen: 56 : 7 + 5",
      "c": "56 / 7 + 5"
     },
     {
@@ -1272,7 +1272,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Eine Raute hat die Diagonalen e = 16 cm und f = 12 cm. Das Rechteck, das die Raute genau umschließt, hat ① cm². Die Raute hat ② cm². Wird jede Diagonale halbiert, hat die kleinere Raute ③ cm².",
+     "text": "Eine Raute hat die Diagonalen e = 16 cm und f = 12 cm. Das Rechteck, dessen Seiten parallel zu den Diagonalen liegen und das durch die vier Eckpunkte der Raute geht, hat ① cm². Die Raute hat ② cm². Wird jede Diagonale halbiert, hat die kleinere Raute ③ cm².",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },

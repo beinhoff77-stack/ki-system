@@ -57,7 +57,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die letzte Rechnung bestimmt die Termart. Berechne dazu (3 + a) · 4 − 2 für a = 5 Schritt für Schritt: Die Klammer hat den Wert ①. Mal 4 ergibt ②. Die letzte Rechnung, minus 2, ergibt ③. Der Term ist also eine Differenz.",
+     "text": "Die letzte Rechnung bestimmt die Termart. Beim Term (3 + a) · 4 − 2 wird zuletzt etwas abgezogen. Setze a = 5 ein. Die Klammer hat den Wert ①. Der Teil vor dem letzten Rechenzeichen, (3 + a) · 4, hat den Wert ②. Der ganze Term hat den Wert ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
@@ -74,7 +74,7 @@
      "(32) - 2"
     ],
     "h": "Die Klammer wird zuerst gerechnet.",
-    "w": "Klammer: 3 + 5 = 8. Mal 4: 8 · 4 = 32. Minus 2: 30."
+    "w": "Klammer: 3 + 5 = 8. Der Teil vor dem Abziehen: 8 · 4 = 32. Zuletzt minus 2: 30."
    }
   },
   {
@@ -91,7 +91,7 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "Eine Summe aus 2 · x und 5",
+     "antwort": "Von links nach rechts rechnen: zuerst 2 · x, dann + 5. Also eine Summe.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Klammer ignoriert",
@@ -99,18 +99,18 @@
     },
     {
      "index": 1,
-     "antwort": "Eine Summe aus 2 und x + 5",
+     "antwort": "Die Klammer weglassen, denn Klammern ändern die Termart nicht: eine Summe aus 2 · x und 5.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Malzeichen übersehen",
+     "beschreibung": "Klammern als unwichtig behandelt",
      "c": null
     },
     {
      "index": 3,
-     "antwort": "Eine Differenz aus 2 · x und 5",
+     "antwort": "Den Term in Wörter fassen: zwei plus x plus fünf. Also eine Summe.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ein Minus erfunden",
+     "beschreibung": "das Malzeichen und die Klammer übersehen",
      "c": null
     }
    ],
@@ -122,13 +122,13 @@
     "g": "mehrschritt",
     "y": "auswahl",
     "f": {
-     "text": "Welche Aussage beschreibt den Aufbau des Terms 2 · (x + 5) richtig?"
+     "text": "Du sollst die Termart von 2 · (x + 5) bestimmen. Welcher Weg führt sicher zum Ziel?"
     },
     "a": [
-     "Eine Summe aus 2 · x und 5",
-     "Eine Summe aus 2 und x + 5",
-     "Ein Produkt aus 2 und der Summe x + 5",
-     "Eine Differenz aus 2 · x und 5"
+     "Von links nach rechts rechnen: zuerst 2 · x, dann + 5. Also eine Summe.",
+     "Die Klammer weglassen, denn Klammern ändern die Termart nicht: eine Summe aus 2 · x und 5.",
+     "Ein Zahlenbeispiel (x = 1) in der richtigen Reihenfolge durchrechnen (Klammer 6, dann mal 2) und die letzte Rechnung benennen: ein Produkt.",
+     "Den Term in Wörter fassen: zwei plus x plus fünf. Also eine Summe."
     ],
     "o": {
      "index": 2
@@ -298,7 +298,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Berechne den Wert von 4 · (a + 3) − 2a für a = 5 auf zwei Wegen. Weg A: Setze a = 5 sofort ein. Weg B: Multipliziere die Klammer aus, fasse zusammen und setze dann a = 5 ein. Wie groß ist der Wert des Terms?"
+     "text": "Berechne den Wert von 4 · (a + 3) − 2a für a = 5 auf zwei Wegen. Weg A: Setze a = 5 sofort ein. Weg B: Multipliziere die Klammer aus (jedes Glied in der Klammer mal 4), fasse gleiche Buchstabenteile zusammen und setze dann a = 5 ein. Wie groß ist der Wert des Terms?"
     },
     "o": {
      "wert": 22
@@ -367,27 +367,27 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 35,
+     "antwort": 24,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Grundgebühr mit dazugerechnet: (3 + 2) · 7",
-     "c": "(3 + 2) * 7"
+     "beschreibung": "die beiden Preise addiert: 11 + 13",
+     "c": "11 + 13"
     },
     {
      "luecke": 2,
-     "antwort": 36,
+     "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur 3 mal 12 gerechnet",
-     "c": "3 * 12"
+     "beschreibung": "vom Preis der 4-km-Fahrt nur 4 abgezogen: 11 − 4",
+     "c": "11 - 4"
     },
     {
      "luecke": 3,
-     "antwort": 44,
+     "antwort": 24,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "addiert statt abgezogen",
-     "c": "(17) + (27)"
+     "beschreibung": "nur den Kilometerpreis mal 12 gerechnet, die Grundgebühr vergessen: 12 · Kilometerpreis",
+     "c": "12 * (2)"
     },
     {
      "luecke": 4,
@@ -406,26 +406,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Taxi kostet 3 € Grundgebühr und 2 € für jeden gefahrenen Kilometer. Für k Kilometer ergibt das den Term 3 + 2 · k. Setze ein: Eine Fahrt über 7 km kostet ① €. Eine Fahrt über 12 km kostet ② €. Die längere Fahrt ist um ③ € teurer. Zwei Fahrten über je 12 km kosten zusammen ④ €.",
+     "text": "Ein Taxi berechnet eine feste Grundgebühr und dazu einen festen Preis je Kilometer. Eine Fahrt über 4 km kostet 11 €, eine Fahrt über 5 km kostet 13 €. Jeder Kilometer kostet ① €. Die Grundgebühr beträgt ② €. Der Preis für k Kilometer ist der Term ② + ① · k. Eine Fahrt über 12 km kostet ③ €. Eine Hin- und Rückfahrt über je 12 km kostet zusammen ④ €.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
-      17,
+      2,
+      3,
       27,
-      10,
       54
      ]
     },
     "c": [
-     "3 + 2 * 7",
-     "3 + 2 * 12",
-     "(27) - (17)",
+     "13 - 11",
+     "11 - 4 * (2)",
+     "(3) + (2) * 12",
      "2 * (27)"
     ],
-    "h": "Die Grundgebühr zahlst du nur einmal je Fahrt.",
-    "w": "7 km: 3 € + 2 · 7 € = 17 €. 12 km: 3 € + 2 · 12 € = 27 €. Unterschied: 27 € − 17 € = 10 €. Zwei Fahrten über 12 km: 2 · 27 € = 54 €."
+    "h": "Was kommt von 4 km auf 5 km dazu?",
+    "w": "Ein Kilometer mehr kostet 13 € − 11 € = 2 €. Für 4 km zahlt man 4 · 2 € = 8 €, die restlichen 3 € sind die Grundgebühr. Term: 3 + 2 · k. 12 km: 3 + 2 · 12 = 27 €. Hin und zurück: 2 · 27 € = 54 €."
    }
   },
   {
@@ -547,35 +547,43 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 10,
+     "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "7 + 3 gerechnet",
-     "c": "7 + 3"
+     "beschreibung": "nur eine Erwachsenenkarte gerechnet",
+     "c": "9"
+    },
+    {
+     "luecke": 1,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Erwachsenen mit dem Kinderpreis gerechnet: 2 · 7",
+     "c": "2 * 7"
     },
     {
      "luecke": 2,
-     "antwort": 11,
+     "antwort": 21,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "9 + 2 gerechnet",
-     "c": "9 + 2"
+     "beschreibung": "den festen Teil vergessen: 7 · 3",
+     "c": "7 * 3"
     },
     {
      "luecke": 3,
-     "antwort": 378,
+     "antwort": 39,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "malgenommen statt addiert",
-     "c": "(21) * (18)"
+     "beschreibung": "den Preis statt des Rückgelds angegeben",
+     "c": "(39)"
     },
     {
      "luecke": 4,
-     "antwort": 89,
+     "antwort": 28,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "addiert statt abgezogen",
-     "c": "50 + (39)"
+     "beschreibung": "den festen Teil vergessen: 7 · 4",
+     "c": "7 * 4"
     }
    ],
    "aufgabe": {
@@ -586,26 +594,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Im Kino kostet eine Kinderkarte 7 € und eine Erwachsenenkarte 9 €. Eine Familie mit 3 Kindern und 2 Erwachsenen kauft Karten. Die Kinderkarten kosten zusammen ① €. Die Erwachsenenkarten kosten zusammen ② €. Alles zusammen kostet ③ €. Die Familie zahlt mit einem 50-Euro-Schein und bekommt ④ € zurück.",
+     "text": "Im Kino kostet eine Kinderkarte 7 € und eine Erwachsenenkarte 9 €. Eine Familie kauft Karten für k Kinder und 2 Erwachsene. Der Preis in Euro ist der Term 7 · k + ①. Für 3 Kinder zahlt die Familie ② €. Mit einem 50-Euro-Schein bekommt sie dann ③ € zurück. Für 4 Kinder zahlt sie ④ €.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
-      21,
       18,
       39,
-      11
+      11,
+      46
      ]
     },
     "c": [
-     "7 * 3",
      "9 * 2",
-     "(21) + (18)",
-     "50 - (39)"
+     "7 * 3 + (18)",
+     "50 - (39)",
+     "7 * 4 + (18)"
     ],
-    "h": "Rechne erst jede Kartenart einzeln, dann zusammen.",
-    "w": "Kinder: 7 € · 3 = 21 €. Erwachsene: 9 € · 2 = 18 €. Zusammen: 21 € + 18 € = 39 €. Rückgeld: 50 € − 39 € = 11 €."
+    "h": "Der feste Teil des Preises hängt nicht von k ab.",
+    "w": "Die Erwachsenenkarten kosten 2 · 9 € = 18 €, unabhängig von k. 3 Kinder: 7 · 3 + 18 = 39 €. Rückgeld: 50 € − 39 € = 11 €. 4 Kinder: 7 · 4 + 18 = 46 €."
    }
   },
   {
@@ -615,24 +623,34 @@
    "stufe": 2,
    "typ": "Anwenden",
    "form": "anwenden",
-   "antwortform": "zahl",
+   "antwortform": "auswahl",
    "regel": "id.algebra.term",
    "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 3.6,
+     "index": 1,
+     "antwort": "5 − 0,80 · b + 2 · 0,60",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Preis statt des Rückgelds angegeben",
-     "c": "0.8 * 3 + 0.6 * 2"
+     "beschreibung": "Klammer vergessen: die Äpfel werden zum Rückgeld addiert statt abgezogen",
+     "c": null
     },
     {
-     "antwort": 1.6,
+     "index": 2,
+     "antwort": "5 − 0,80 · (b + 2) − 0,60",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Stückzahlen vertauscht: 2 Brezeln und 3 Äpfel",
-     "c": "5 - (0.8 * 2 + 0.6 * 3)"
+     "beschreibung": "den Preis für 2 Äpfel mit dem Brezelpreis gerechnet",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "(5 − 0,80) · b − 2 · 0,60",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Schein mit b malgenommen",
+     "c": null
     }
    ],
    "aufgabe": {
@@ -641,17 +659,21 @@
     "p": "uebung",
     "s": 2,
     "g": "einkleidung",
-    "y": "zahl",
+    "y": "auswahl",
     "f": {
-     "text": "Am Schulkiosk kostet eine Brezel 0,80 € und ein Apfel 0,60 €. Ein Kind kauft 3 Brezeln und 2 Äpfel und bezahlt mit einem 5-Euro-Schein. Wie viel Euro bekommt es zurück?"
+     "text": "Am Schulkiosk kostet eine Brezel 0,80 € und ein Apfel 0,60 €. Ein Kind kauft b Brezeln und 2 Äpfel und bezahlt mit einem 5-Euro-Schein. Welcher Term gibt an, wie viel Euro es zurückbekommt?"
     },
+    "a": [
+     "5 − (0,80 · b + 2 · 0,60)",
+     "5 − 0,80 · b + 2 · 0,60",
+     "5 − 0,80 · (b + 2) − 0,60",
+     "(5 − 0,80) · b − 2 · 0,60"
+    ],
     "o": {
-     "wert": 1.4,
-     "einheit": "€"
+     "index": 0
     },
-    "c": "5 - (0.8 * 3 + 0.6 * 2)",
-    "h": "Wie viel kosten die Brezeln, wie viel die Äpfel?",
-    "w": "Brezeln: 3 · 0,80 € = 2,40 €. Äpfel: 2 · 0,60 € = 1,20 €. Zusammen 3,60 €. Rückgeld: 5 € − 3,60 € = 1,40 €."
+    "h": "Was kosten alle Brezeln und alle Äpfel zusammen? Das Rückgeld ist der Rest vom Schein.",
+    "w": "b Brezeln kosten 0,80 · b €, 2 Äpfel kosten 2 · 0,60 €. Zusammen 0,80 · b + 2 · 0,60. Das Rückgeld ist 5 − (0,80 · b + 2 · 0,60). Probe b = 3: 5 − (2,40 + 1,20) = 1,40 €."
    }
   },
   {
@@ -778,7 +800,7 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "3n + 7",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -786,7 +808,7 @@
      "c": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "n + 6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -794,7 +816,7 @@
      "c": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "7n",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -813,13 +835,13 @@
      "text": "Eine Wertetabelle zeigt: n = 1 ergibt 7, n = 2 ergibt 10, n = 3 ergibt 13, n = 4 ergibt 16. Welcher Term gehört zu dieser Tabelle?"
     },
     "a": [
-     "3n + 4",
      "3n + 7",
      "n + 6",
-     "7n"
+     "7n",
+     "3n + 4"
     ],
     "o": {
-     "index": 0
+     "index": 3
     },
     "h": "Wie viel kommt von einer Zeile zur nächsten dazu? Setze dann n = 1 ein.",
     "w": "Von Zeile zu Zeile kommen 3 dazu, also 3n + etwas. Für n = 1: 3 + 4 = 7. Probe n = 4: 3 · 4 + 4 = 16."
@@ -887,24 +909,32 @@
      "antwort": 152,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "4x + 15 als (4 + 15) · x gerechnet",
+     "beschreibung": "4x + 15 als (4 + 15) · x gerechnet: 19 · 8",
      "c": "(4 + 15) * 8"
     },
     {
      "luecke": 2,
-     "antwort": 47,
+     "antwort": 62,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die zusätzliche Stunde nicht gerechnet",
-     "c": "(47)"
+     "beschreibung": "die Grundgebühr noch einmal dazugerechnet: 47 + 15",
+     "c": "(47) + 15"
+    },
+    {
+     "luecke": 2,
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 3 € statt 3 · 4 € dazugerechnet: 47 + 3",
+     "c": "(47) + 3"
     },
     {
      "luecke": 3,
-     "antwort": 80,
+     "antwort": 53,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Grundgebühr vergessen",
-     "c": "4 * 20"
+     "beschreibung": "nur den 8-Stunden-Preis vom Schein abgezogen: 100 − 47",
+     "c": "100 - (47)"
     }
    ],
    "aufgabe": {
@@ -915,24 +945,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Das Ausleihen eines Rollers kostet 4x + 15 Euro, wobei x die Zahl der Stunden ist. Für 8 Stunden zahlt man ① €. Für 9 Stunden zahlt man ② €. Für 20 Stunden zahlt man ③ €.",
+     "text": "Das Ausleihen eines Rollers kostet 4x + 15 Euro, wobei x die Zahl der Stunden ist. Für 8 Stunden zahlt man ① €. Verlängert man um 3 Stunden, zahlt man für 11 Stunden ② €. Mit einem 100-Euro-Schein bekommt man dafür ③ € zurück.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       47,
-      51,
-      95
+      59,
+      41
      ]
     },
     "c": [
      "4 * 8 + 15",
-     "(47) + 4",
-     "(51) + 4 * 11"
+     "(47) + 4 * 3",
+     "100 - (59)"
     ],
     "h": "Wie viel Euro kommen mit jeder weiteren Stunde dazu?",
-    "w": "8 Stunden: 4 · 8 + 15 = 47. Eine Stunde mehr kostet 4 € mehr: 51 €. Von 9 auf 20 Stunden sind es 11 Stunden mehr, also 11 · 4 € = 44 € mehr: 95 €."
+    "w": "8 Stunden: 4 · 8 + 15 = 47. Jede weitere Stunde kostet 4 € mehr, 3 Stunden also 12 € mehr: 59 €. Probe: 4 · 11 + 15 = 59. Rückgeld: 100 € − 59 € = 41 €."
    }
   },
   {
@@ -956,7 +986,7 @@
      "c": null
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Eine Stunde kostet 39 €.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -964,7 +994,7 @@
      "c": null
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Man zahlt 15 Stunden lang je 4 €.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -984,12 +1014,12 @@
     },
     "a": [
      "Für 39 Stunden zahlt man 6 €.",
+     "Für 6 Stunden zahlt man 39 €.",
      "Eine Stunde kostet 39 €.",
-     "Man zahlt 15 Stunden lang je 4 €.",
-     "Für 6 Stunden zahlt man 39 €."
+     "Man zahlt 15 Stunden lang je 4 €."
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "h": "Was ist x? Was ist das Ergebnis der Rechnung?",
     "w": "x ist die Zahl der Stunden. 4 · 6 steht für 6 Stunden zu je 4 €, die 15 € fallen einmal an. Das Ergebnis 39 ist der Preis in Euro."

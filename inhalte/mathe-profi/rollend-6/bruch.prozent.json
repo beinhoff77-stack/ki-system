@@ -171,7 +171,7 @@
      "index": 0
     },
     "h": "Wie viele Hundertstel sind 0,6 Hundertstel? Ein Prozent ist ein Hundertstel.",
-    "w": "0,6 % = 0,6/100 = 6/1000 = 0,006. In Zeile 1 steht 6/100, das wären 6 %. Die Zeilen 2 und 3 rechnen damit richtig weiter."
+    "w": "0,6 % = 0,6/100 = 6/1000 = 0,006. In Zeile 1 steht 6/100, das wären 6 %. Zeile 2 stimmt für sich (6/100 = 0,06), Zeile 3 übernimmt die falsche Gleichsetzung aus Zeile 1."
    }
   },
   {
@@ -383,7 +383,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Von 25 Kindern haben 6 ein Haustier. Erweitere 6/25 auf den Nenner 100. Die Erweiterungszahl ist ①. Der neue Zähler ② ist der Prozentsatz. Die übrigen Kinder machen ③ % aus.",
+     "text": "Von 25 Kindern haben 6 ein Haustier. Erweitere 6/25 auf den Nenner 100. Die Erweiterungszahl ist ①. ② % ist der Prozentsatz. Die übrigen Kinder machen ③ % aus.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
@@ -848,7 +848,7 @@
      "antwort": 100,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "gedacht, plus und minus 10 % heben sich auf",
+     "beschreibung": "gedacht, plus und minus 10 % heben sich auf: wieder 100 €",
      "c": "100"
     },
     {
@@ -856,7 +856,7 @@
      "antwort": 0,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 0 € Unterschied gerechnet",
+     "beschreibung": "gedacht, plus und minus 10 % heben sich auf: 100 − 100 = 0 € Unterschied",
      "c": "100 - 100"
     }
    ],
@@ -923,7 +923,7 @@
     "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "In einem Kreisdiagramm gehört zu 40 % der Gäste der Kuchen. Max sagt: „Der Kreisausschnitt dafür hat 140°.“ Der ganze Kreis hat 360°. Um wie viel Grad ist Max' Angabe zu klein?"
+     "text": "In einem Kreisdiagramm: 40 % der Gäste wählen Kuchen. Max sagt: „Der Kreisausschnitt dafür hat 140°.“ Der ganze Kreis hat 360°. Um wie viel Grad ist Max' Angabe zu klein?"
     },
     "o": {
      "wert": 4,

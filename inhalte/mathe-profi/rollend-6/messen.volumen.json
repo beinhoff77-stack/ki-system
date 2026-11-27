@@ -417,7 +417,7 @@
      "c": null
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "0,34 dm³",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -425,7 +425,7 @@
      "c": null
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "3,4 m³",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -445,15 +445,15 @@
     },
     "a": [
      "34 dm³",
-     "3,4 dm³",
      "0,34 dm³",
-     "3,4 m³"
+     "3,4 m³",
+     "3,4 dm³"
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "h": "Wie viele cm³ hat ein dm³?",
-    "w": "1 dm³ = 1000 cm³. 3 400 cm³ : 1000 = 3,4 dm³."
+    "w": "1 dm³ = 1000 cm³. 3 400 cm³ : 1000 = 3,4 dm³, also 3 400 cm³ = 3,4 dm³."
    }
   },
   {
@@ -479,7 +479,7 @@
      "antwort": 540,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "malgenommen statt geteilt",
+     "beschreibung": "die Umrechnung in Liter ausgelassen und malgenommen statt geteilt: 45 · 12",
      "c": "45 * 12"
     }
    ],
@@ -1135,7 +1135,7 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Ein Würfel hat das Volumen 343 cm³. Wie lang ist eine Kante in Zentimetern?"
+     "text": "Ein Würfel hat das Volumen 343 cm³. Schätze zuerst, ob die Kante kürzer oder länger als 10 cm ist. Wie lang ist die Kante in Zentimetern?"
     },
     "o": {
      "wert": 7,

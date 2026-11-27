@@ -101,7 +101,7 @@
      "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur ein Achtel berechnet und den Zähler vergessen",
+     "beschreibung": "nur ein Achtel der Schnur (72 : 8 = 9 m) statt der Zahl der Achtel angegeben",
      "c": "72 / 8"
     },
     {
@@ -356,7 +356,7 @@
      "antwort": 81,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Zähler mit 27 malgenommen statt geteilt",
+     "beschreibung": "27 · 3 gerechnet statt 27 : 3",
      "c": "27 * 3"
     },
     {
@@ -676,7 +676,7 @@
      "antwort": 1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Quotienten 48 : 36 statt des Rests genommen",
+     "beschreibung": "den ganzzahligen Quotienten 1 aus 48 = 1 · 36 + 12 statt des Rests 12 genommen",
      "c": "48 // (36)"
     },
     {
@@ -739,7 +739,7 @@
      "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur einen gemeinsamen Teiler genommen, nicht den größten",
+     "beschreibung": "24 : 4 = 6 gerechnet: 6 ist ein gemeinsamer Teiler von 24 und 36, aber nicht der größte",
      "c": "24 / 4"
     }
    ],
@@ -1293,7 +1293,7 @@
      "(12 + 18) / 6"
     ],
     "h": "Wie viele gleiche Teile hat die ganze Mischung? Kürze danach vollständig.",
-    "w": "12 Teile Blau und 18 Teile Weiß sind zusammen 30 Teile. Blau ist 12/30 der Mischung, gekürzt durch 6: 2/5."
+    "w": "12 Teile Blau und 18 Teile Weiß sind zusammen 30 Teile. Es gilt 12 : 18 = 2 : 3, also sind 2 von 5 Teilen blau. Rechnung: 12/30 der Mischung, gekürzt durch 6: 2/5."
    }
   },
   {
@@ -1489,7 +1489,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Tina rechnet 2 1/3 + 1 5/6. Zeile 1: 2 1/3 + 1 5/6 = 2 2/6 + 1 5/6 Zeile 2: = 3 7/6 Zeile 3: = 3 1/6 In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
+     "text": "Tina rechnet 2 1/3 + 1 5/6. Zeile 1: 2 1/3 + 1 5/6 = 2 2/6 + 1 5/6 Zeile 2: = 3 + 7/6 Zeile 3: = 3 1/6 In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
     },
     "a": [
      "In Zeile 1",
@@ -1699,7 +1699,7 @@
      "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit dem Nenner 9 statt 6 erweitert",
+     "beschreibung": "den Faktor 18 : 9 = 2 des anderen Bruchs verwendet: 5 · 2",
      "c": "5 * (18) / 9"
     },
     {
@@ -1707,7 +1707,7 @@
      "antwort": 21,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit dem Nenner 6 statt 9 erweitert",
+     "beschreibung": "den Faktor 18 : 6 = 3 des anderen Bruchs verwendet: 7 · 3",
      "c": "7 * (18) / 6"
     }
    ],

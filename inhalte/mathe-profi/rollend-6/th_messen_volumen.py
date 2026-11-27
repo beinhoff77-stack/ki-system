@@ -44,13 +44,13 @@ neu(T, "einheiten", "bruecke", W(
     "3,4 dm³",
     [("34 dm³", "mit 100 statt mit 1000 umgerechnet"), ("0,34 dm³", "mit 10 000 geteilt"), ("3,4 m³", "dm³ mit m³ verwechselt")],
     "Wie viele cm³ hat ein dm³?",
-    "1 dm³ = 1000 cm³. 3 400 cm³ : 1000 = 3,4 dm³.",
+    "1 dm³ = 1000 cm³. 3 400 cm³ : 1000 = 3,4 dm³, also 3 400 cm³ = 3,4 dm³.",
     lambda: F(3400, 1000) == F(34, 10) and F(3400, 100) == 34 and F(3400, 10000) == F(34, 100) and F(34, 10) * 1000 == 3400 and F(34, 10) != 3400 * 1000), regel=None)
 neu(T, "einheiten", "anwenden", Z(
     "Ein Schwimmbecken enthält 45 m³ Wasser. Mit einem Eimer, der 12 Liter fasst, soll es leer geschöpft werden. Es gilt 1 m³ = 1000 Liter. Wie oft muss man den Eimer füllen?",
     3750, "45 * 1000 / 12", "45000 / 12", "In welcher Einheit ist die Wassermenge angegeben, in welcher fasst der Eimer?",
     "45 m³ = 45 000 Liter. 45 000 : 12 = 3750. Man muss den Eimer 3750-mal füllen.",
-    [(3.75, None, "die Wassermenge nicht in Liter umgerechnet", "45 / 12"), (540, None, "malgenommen statt geteilt", "45 * 12")]), g="transfer", regel=None)
+    [(3.75, None, "die Wassermenge nicht in Liter umgerechnet", "45 / 12"), (540, None, "die Umrechnung in Liter ausgelassen und malgenommen statt geteilt: 45 · 12", "45 * 12")]), g="transfer", regel=None)
 
 # ───────── liter ─────────
 neu(T, "liter", "lueckenweg", L(
@@ -111,7 +111,7 @@ neu(T, "verstehen", "lueckenweg", L(
     {0: [(15, None, "5 · 3 gerechnet", "5 * 3")], 1: [(7, None, "2 addiert statt verdoppelt", "5 + 2")], 2: [(250, None, "das Volumen nur verdoppelt", "{1} * 2")],
      3: [(2, None, "gedacht, mit der Kante verdoppelt sich auch das Volumen", "2"), (4, None, "wie bei der Fläche gerechnet: 2 · 2", "2 * 2")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.aus_dem_quader")
 neu(T, "verstehen", "umkehren", Z(
-    "Ein Würfel hat das Volumen 343 cm³. Wie lang ist eine Kante in Zentimetern?",
+    "Ein Würfel hat das Volumen 343 cm³. Schätze zuerst, ob die Kante kürzer oder länger als 10 cm ist. Wie lang ist die Kante in Zentimetern?",
     7, "343 / (7 * 7)", "49 / 7", "Schätze zuerst: Was ergibt 5 · 5 · 5, was 10 · 10 · 10? Welche Zahl liegt dazwischen?",
     "7 · 7 · 7 = 343, die Kante ist 7 cm lang. Schätzen hilft: 5 · 5 · 5 = 125 ist zu klein, 10 · 10 · 10 = 1000 ist zu groß. Probe: 343 : 7 = 49 und 49 : 7 = 7.",
     [(343, None, "das Volumen angegeben", "343"), (49, None, "eine Seitenfläche statt der Kante angegeben", "7 * 7")], "cm"), regel=None)

@@ -60,3 +60,10 @@ Alle 198 Aufgaben (Frage, Antworten, Schablone, Tipp, Lösungsweg, jedes Fehlbil
 - Stufe 3: Tipps nur noch Anstoß, nicht der Rechenschritt (V054, V081, V144, V156, V171, V174).
 - Entscheidungen des Projektleiters: (1) 25 Lückenwege mit zwei unabhängigen ersten Lücken bleiben, solange mindestens zwei abhängige folgen. (2) „Verfahren wählen“ bleibt Stufe 2 (`g = mehrschritt`). (3) V088 bis V090 (Potenzen von Brüchen) haben eine eigene Lernkarte im Themenbestand (bruch.rechnen, „potenzen“), bleiben. V126 und V135 (Umkehren eines Terms) stehen nicht eindeutig im Bestand von terme.aufstellen; die Zahlen sind vereinfacht (V126: 4a − 3 = 21; V135: 4n + 3 = 27, beides in zwei Schritten rückwärts zu lösen). (4) Der Rest bleibt.
 - Stand: `bauen.py --voll` OK, `tools/rollend_sql.py --runden 6` 198 Aufgaben OK, `vorrat_pruefen` über Hülle weiterhin 25 Meldungen, alle als Fehlalarm geprüft (Lesefehler des Werkzeugs bei Brüchen und Einheiten im Text).
+
+## Nach Gegenprüfung (Werkstatt 1094)
+Alle Punkte der Arbeitsliste umgesetzt, Lösungsschlüssel unverändert bis auf die Neubauten.
+- Fehlbild-Beschreibungen: über alle 198 gegen den gespeicherten Fehlwert nachgerechnet; geändert V002, V007, V014, V031, V013, V043 (Eingabe), V062, V069 (Paar 1 und 4), V082, V088, V118, V127, V130, V136, V149, V157, V158, V171, V187, V193.
+- Neu gebaut (nach dem Umbau wie neue Aufgaben geprüft, Form je Lernkarte nicht doppelt): V047, V065, V098, V122 (echte Methodenwahl), V100, V101, V102 (Anteile von Anteilen), V121, V127, V130, V131 (jetzt Auswahl des Terms), V136, V184, V186.
+- Auflagen und kleine Fassungen: V013, V023, V027, V055, V073, V079, V086, V087, V105, V109, V119, V125, V146, V154, V156, V160, V170, V182.
+- `bauen.py --voll` OK; `tools/rollend_sql.py --runden 6` 198 Aufgaben.

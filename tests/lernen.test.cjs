@@ -189,6 +189,8 @@ async function setup(t, opt = {}) {
     }
     if (opt.anpassen && e) e = opt.anpassen(b.aktion, e, d) || e; // Schritt D: Antwort nach einer Migration nachbilden
     else if (opt.anpassen?.neueAktionen) e = opt.anpassen(b.aktion, null, d) || e; // Aktionen, die der Standard-Mock nicht kennt (LM-S)
+    // Abflugtafel abgeschaltet: die Tafel erscheint nur noch ohne Kartendaten – page._ohneKarte (true oder Funktion) lässt den Server keine Karte liefern
+    if (b.aktion === 'schule_reise_karte' && (page._ohneKarte === true || (typeof page._ohneKarte === 'function' && page._ohneKarte(d)))) e = null;
     if (opt.verzoegerung) await new Promise((r) => setTimeout(r, opt.verzoegerung)); // WK F5: Serverzeit nachstellen
     { const ms = opt.verzoegerungJe?.(b.aktion, d); if (ms) await new Promise((r) => setTimeout(r, ms)); } // WT: einzelne Antworten gezielt verzögern (Wettläufe nachstellen)
     await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) });
@@ -1045,7 +1047,7 @@ const standAnpassen = ({ mitThemen = true, bisSitzt } = {}) => (aktion, e) => {
 
 test('K3: Mini-Linien GYM · RS · IB unter „Mein Weg · Stand“ (KJ 2 M2: nicht mehr auf der Abflugtafel); Stand in drei Ebenen (Linienplan → Klasse → Kontinent)', async (t) => {
   const { page } = await setup(t, { gestaltung: 'nacht', anpassen: standAnpassen() });
-  await page.addInitScript(() => localStorage.setItem('lern.rk.1', 'tafel'));
+  page._ohneKarte = true; // Tafel nur noch ohne Kartendaten
   await page.goto(origin + '/#/reise/1'); await page.locator('.lr-abflugtafel').waitFor();
   assert.equal(await page.locator('.lr-mini3').count(), 0, 'M2: keine Mini-Linien auf der Abflugtafel');
   await page.goto(origin + '/#/weg/1-stand');
@@ -4202,7 +4204,7 @@ test('EX-App: offene Expedition ist die oberste, größte Karte der Abflugtafel 
   for (const [w, h] of [[400, 780], [820, 1180]]) {
     const ex = exServer();
     const { page } = await setup(t, { gestaltung: 'tag', anpassen: ex.anpassen });
-    await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); localStorage.setItem('lern.rk.1', 'tafel'); }); // Ansicht 1 schon gesehen; Abflugtafel (Reisekarte: eigener Test)
+    await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); }); page._ohneKarte = true; // Ansicht 1 schon gesehen; Abflugtafel = Rückfall ohne Karte (Reisekarte: eigener Test)
     await page.setViewportSize({ width: w, height: h });
     await page.goto(origin + '/#/reise/1');
     const karte = page.locator('.lr-ex-karte'); await karte.waitFor();
@@ -4231,7 +4233,7 @@ test('EX-App: Ansicht 1 „Expedition freigeschaltet“ beim Öffnen der Startse
   for (const [w, h] of [[400, 780], [820, 1180]]) {
     const ex = exServer();
     const { page, calls } = await setup(t, { gestaltung: 'tag', anpassen: ex.anpassen });
-    await page.addInitScript(() => localStorage.setItem('lern.rk.1', 'tafel')); // Abflugtafel (auf der Reisekarte ist die Expedition einzeilig, eigener Test)
+    page._ohneKarte = true; // Abflugtafel = Rückfall ohne Karte (auf der Reisekarte ist die Expedition einzeilig, eigener Test)
     await page.setViewportSize({ width: w, height: h });
     await page.goto(origin + '/#/reise/1');
     const a = page.locator('.lr-abschluss .lr-ex-frei'); await a.waitFor();
@@ -4274,7 +4276,7 @@ test('EX-Nachprüfung (0.92.2): 360 × 640 höchstens 2 Chips + „+n weitere“
     await page.screenshot({ path: path.join(root, 'test-results/ex-s1-360.png') }); }
   // K1 + K2: Expedition begonnen (Teil a erledigt), Abflugtafel
   const ex = exServer({ erledigt: [601] }); const { page } = await setup(t, { gestaltung: 'tag', anpassen: ex.anpassen });
-  await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); localStorage.setItem('lern.rk.1', 'tafel'); });
+  await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); }); page._ohneKarte = true;
   await page.setViewportSize({ width: 400, height: 860 }); await page.goto(origin + '/#/reise/1');
   const karte = page.locator('.lr-ex-karte'); await karte.waitFor();
   assert.equal((await karte.locator('.lr-ex-ueber').innerText()).replace(/\s+/g, ' ').trim(), '⛯ EXPEDITION · TEIL B VON 3');
@@ -4638,11 +4640,12 @@ test('RK-App 2 (0.92.2): Kopf einzeilig, Karte füllt das Fenster (S1/S2); Pin-T
     const { page } = await rkOeffnen(t, b, h, { gestaltung: g });
     // S1/S2: eine Zeile in der oberen Leiste
     const kopf = page.locator('header.top .rk-kopf'); await kopf.waitFor();
-    const ys = await page.locator('header.top #btn-back, header.top .rk-pfad-teil.an, header.top .rk-stern, header.top .rk-menue, header.top .rk-tafel-knopf, header.top .rk-zumir').evaluateAll((xs) => xs.filter((e) => e.offsetParent).map((e) => { const r = e.getBoundingClientRect(); return r.top + r.height / 2; }));
-    assert.ok(ys.length >= (b <= 760 ? 5 : 6) && Math.max(...ys) - Math.min(...ys) < 6, `eine Zeile ${ys}`);
+    const ys = await page.locator('header.top #btn-back, header.top .rk-pfad-teil.an, header.top .rk-stern, header.top .rk-menue, header.top .rk-zumir').evaluateAll((xs) => xs.filter((e) => e.offsetParent).map((e) => { const r = e.getBoundingClientRect(); return r.top + r.height / 2; }));
+    assert.ok(ys.length >= (b <= 760 ? 4 : 5) && Math.max(...ys) - Math.min(...ys) < 6, `eine Zeile ${ys}`);
     assert.ok((await page.locator('header.top').boundingBox()).height <= 72, 'Kopf flach');
-    if (b < 760) { assert.equal(await page.locator('.rk-tafel-knopf .rk-wort').isVisible(), false, 'Handy: nur Symbole'); assert.equal(await page.locator('header.top .rk-zumir').isVisible(), false, 'M1: „Zu mir“ in den Kartenknöpfen'); }
-    for (const s2 of ['.rk-menue', '.rk-tafel-knopf', '#btn-back', ...(b > 760 ? ['.rk-zumir'] : [])]) { const r = await page.locator('header.top ' + s2).boundingBox(); assert.ok(r.height >= 40, `${s2} ${r.height}`); }
+    assert.equal(await page.locator('.rk-tafel-knopf').count(), 0, 'Abflugtafel abgeschaltet: kein Tafel-Knopf im Kartenkopf');
+    if (b < 760) { assert.equal(await page.locator('header.top .rk-zumir').isVisible(), false, 'M1: „Zu mir“ in den Kartenknöpfen'); }
+    for (const s2 of ['.rk-menue', '#btn-back', ...(b > 760 ? ['.rk-zumir'] : [])]) { const r = await page.locator('header.top ' + s2).boundingBox(); assert.ok(r.height >= 40, `${s2} ${r.height}`); }
     const kb = await page.locator('.rk-karte').boundingBox(); const fensterB = await page.evaluate(() => innerWidth);
     assert.ok(kb.y + kb.height >= h - 24, `Karte bis unten (${kb.y + kb.height} / ${h})`);
     assert.ok(await page.evaluate(() => document.documentElement.scrollHeight <= innerHeight + 1), 'S1: Seite rollt nicht – Kopf bleibt sichtbar');
@@ -4694,11 +4697,11 @@ test('RK-App 3 M1: Handy-Kopf bei 360 und 400 px ohne Überdeckung – rechts fe
   for (const b of [360, 400]) for (const g of ['tag', 'nacht']) {
     const { page } = await rkOeffnen(t, b, 800, { gestaltung: g });
     const kopfPruefen = async (ebene) => {
-      const k = await rkKasten(page.locator('header.top #btn-back, header.top .rk-pfad, header.top .rk-tafel-knopf, header.top .rk-stern, header.top .rk-menue'));
-      assert.equal(k.length, 5, `${b} ${ebene}: fünf Kopf-Elemente`); rkOhneUeberdeckung(k, `${b} ${ebene} Kopf`);
-      const [tafel, stern, menue] = k.slice(2); for (const x of [tafel, stern, menue]) assert.ok(x.b - x.t >= 43.5, `${x.n} hoch`);
-      assert.ok(tafel.r - tafel.l >= 43.5 && menue.r - menue.l >= 43.5, 'Knöpfe ≥ 44 px breit');
-      assert.ok(stern.l - tafel.r >= 3.5 && menue.l - stern.r >= 3.5, `4 px Abstand (${stern.l - tafel.r}, ${menue.l - stern.r})`); assert.ok(menue.r <= b, 'im Bild');
+      const k = await rkKasten(page.locator('header.top #btn-back, header.top .rk-pfad, header.top .rk-stern, header.top .rk-menue')); // Abflugtafel abgeschaltet: ohne ▤
+      assert.equal(k.length, 4, `${b} ${ebene}: vier Kopf-Elemente`); rkOhneUeberdeckung(k, `${b} ${ebene} Kopf`);
+      const [stern, menue] = k.slice(2); for (const x of [stern, menue]) assert.ok(x.b - x.t >= 43.5, `${x.n} hoch`);
+      assert.ok(menue.r - menue.l >= 43.5, 'Knopf ≥ 44 px breit');
+      assert.ok(menue.l - stern.r >= 3.5, `4 px Abstand (${menue.l - stern.r})`); assert.ok(menue.r <= b, 'im Bild');
       // die aktuelle Stufe steht ganz im Pfad (nicht abgeschnitten, nicht unter einem Knopf)
       const an = await page.locator('header.top .rk-pfad-teil.an').evaluate((e) => { const r = e.getBoundingClientRect(), p = e.closest('.rk-pfad').getBoundingClientRect(); const s0 = e.querySelector('.rk-pt-text');
         return { l: r.left, r: r.right, pl: p.left, pr: p.right, voll: s0.scrollWidth <= s0.clientWidth + 1, text: e.querySelector(':scope > span').textContent.trim() }; });
@@ -4883,11 +4886,12 @@ test('RK-App: Schalter „Abflugtafel“ (bis zur Freigabe) und zurück; Start, 
   // Antarktis: Stationen, die freigeschaltete pulsiert (grün)
   await page.locator('.rk-pfad-teil', { hasText: 'Welt' }).click(); await page.locator('.rk-station-frei').waitFor();
   assert.ok((await page.locator('.rk-kzahl').allTextContents()).includes('⛯ 1 Expedition freigeschaltet'));
-  // Schalter: Abflugtafel → gleiche Ziele
-  await page.getByRole('button', { name: 'Abflugtafel' }).click(); await page.locator('.lr-abflugtafel').waitFor();
-  assert.equal(await page.locator('.lr-einsteigen-knopf').getAttribute('href'), zielKarte, 'Startknopf führt wie die Tafel');
-  await page.reload(); await page.locator('.lr-abflugtafel').waitFor(); assert.equal(await page.locator('.rk').count(), 0, 'Wahl gemerkt');
-  await page.getByRole('button', { name: 'Zur Reisekarte ›' }).click(); await page.locator('.rk .rk-pin').first().waitFor();
+  // Abflugtafel abgeschaltet: kein Schalter; eine früher gemerkte Wahl „tafel“ führt trotzdem zur Karte und wird still entfernt; Menü heißt „Reisekarte“
+  assert.equal(await page.getByRole('button', { name: 'Abflugtafel' }).count(), 0, 'kein Tafel-Knopf');
+  await page.evaluate(() => localStorage.setItem('lern.rk.1', 'tafel')); await page.reload(); await page.locator('.rk .rk-pin').first().waitFor();
+  assert.equal(await page.locator('.lr-abflugtafel').count(), 0, 'gemerkte Wahl ignoriert'); assert.equal(await page.evaluate(() => localStorage.getItem('lern.rk.1')), null, 'alter Eintrag entfernt');
+  assert.equal(await page.locator('.rk-schwebe .rk-start').getAttribute('href'), zielKarte);
+  assert.deepEqual(await page.locator('.lr-blatt-liste a').allTextContents(), ['Reisekarte', 'Mein Weg', 'Merkheft', 'Reisepass', 'Regel-Universum'], 'Menü: Reisekarte');
   // einmal je Sitzung: Seite wechseln und zurück
   const vorher = calls.filter((c) => c.aktion === 'schule_reise_karte').length;
   await page.evaluate(() => { location.hash = '#/reisepass/1'; }); await page.locator('.lr-stats-box').waitFor();
@@ -4904,10 +4908,7 @@ test('RK-App: Startknopf zeigt Check-in und Flug-Test wie die Tafel; nach einer 
   const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen }); await page.setViewportSize({ width: 820, height: 1180 });
   await page.goto(origin + '/#/reise/1'); const st = page.locator('.rk-schwebe .rk-start'); await st.waitFor();
   const txt = await st.innerText(); const href = await st.getAttribute('href');
-  await page.getByRole('button', { name: 'Abflugtafel' }).click(); await page.locator('.lr-abflugtafel').waitFor();
-  assert.equal(await page.locator('.lr-einsteigen-knopf').getAttribute('href'), href);
-  if (/test$/.test(href)) assert.match(txt, /Flug-Test/);
-  await page.getByRole('button', { name: 'Zur Reisekarte ›' }).click(); await page.locator('.rk-schwebe .rk-start').waitFor();
+  if (/test$/.test(href)) assert.match(txt, /Flug-Test/); // Abflugtafel abgeschaltet: kein Vergleich mit der Tafel über den Schalter mehr
   // Änderung (Antwort) → Karte gilt als alt → beim nächsten Öffnen sofort die alte, dann die neue
   const n0 = (await page.evaluate(() => lernReiseKarteSpeicher.size));
   await page.evaluate(() => lernVergessen(1)); assert.equal(await page.evaluate(() => lernReiseKarteSpeicher.has(1)), false); assert.ok(n0 >= 1);
@@ -5019,7 +5020,7 @@ test('KJ §0: Kinderseite – Nachbessern zuerst (Expedition als Chip), Gerade d
   for (const [b, h, g] of [[400, 860, 'tag'], [820, 1180, 'nacht']]) {
     const ex = exServer();
     const { page } = await setup(t, { gestaltung: g, anpassen: kjServer({ basis: ex.anpassen }) });
-    await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); localStorage.setItem('lern.rk.1', 'tafel'); });
+    await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); }); page._ohneKarte = true;
     await page.setViewportSize({ width: b, height: h }); await page.goto(origin + '/#/reise/1'); await page.locator('.lr-nb-karte').waitFor(); await page.waitForTimeout(400);
     const folge = await page.evaluate(() => [...document.querySelector('.lr-inhalt').querySelectorAll('.lr-nb-karte, .lr-ex-wartet, .lr-ex-karte, .lr-abflugtafel, .lr-zp-karte, .lr-sj-karte')].map((e) => e.className.split(' ')[0]));
     assert.deepEqual(folge, ['lr-nb-karte', 'lr-ex-wartet', 'lr-abflugtafel', 'lr-zp-karte', 'lr-karte-box'], 'Reihenfolge §0');
@@ -5045,7 +5046,7 @@ test('KJ §0: Kinderseite – Nachbessern zuerst (Expedition als Chip), Gerade d
     await page.screenshot({ path: path.join(root, `test-results/kj-start-${b}-${g}.png`), fullPage: true });
   }
   // Ziel-Feld bei 9 % = 1 Etappe (Kl. 8: 9 von 97)
-  const { page } = await setup(t, { gestaltung: 'tag', anpassen: kjServer({ sj: KJ_SJ(8), nb: [], zp: [] }) }); await page.addInitScript(() => localStorage.setItem('lern.rk.1', 'tafel'));
+  const { page } = await setup(t, { gestaltung: 'tag', anpassen: kjServer({ sj: KJ_SJ(8), nb: [], zp: [] }) }); page._ohneKarte = true;
   await page.setViewportSize({ width: 400, height: 860 }); await page.goto(origin + '/#/reise/1'); const sj = page.locator('.lr-sj-karte'); await sj.waitFor();
   assert.match(await sj.innerText(), /Klasse 7: noch 7 Flüge · 38 Etappen[\s\S]*38 %[\s\S]*9 %[\s\S]*Nächstes Ziel: 10 % – nur noch 1 Etappe![\s\S]*Danach Klasse 9: 14 Flüge · 87 Etappen/);
   assert.equal(await page.locator('.lr-nb-karte, .lr-zp-karte').count(), 0, 'ohne Daten keine Karten');
@@ -5143,11 +5144,10 @@ test('KJ 2 (0.93.1): M1 „Zur Reisekarte ›“ nachts lesbar (Kontrast ≥ 4,5
     const fg = rgb(getComputedStyle(e).color).slice(0, 3); const [a, b] = [lum(fg), lum(bg || [255, 255, 255])]; return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05); });
   for (const [b, h] of [[360, 740], [400, 860], [820, 1180]]) for (const g of ['tag', 'nacht']) {
     const ex = exServer(); const { page } = await setup(t, { gestaltung: g, anpassen: kjServer({ basis: ex.anpassen }) });
-    await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); localStorage.setItem('lern.rk.1', 'tafel'); });
+    await page.addInitScript(() => { localStorage.setItem('lern.exfrei.1.7', '1'); }); page._ohneKarte = true;
     await page.setViewportSize({ width: b, height: h }); await page.goto(origin + '/#/reise/1'); await page.locator('.lr-abflugtafel').waitFor(); await page.waitForTimeout(600);
-    // M1
-    const k = await kontrast(page); assert.ok(k >= 4.5, `${b} ${g}: Kontrast „Zur Reisekarte“ ${k.toFixed(2)}`);
-    assert.equal(await page.locator('.rk-zur-karte').evaluate((e) => getComputedStyle(e).textDecorationLine), 'underline');
+    // M1 entfällt: Abflugtafel abgeschaltet – die Tafel ist nur noch Rückfall ohne Karte, ohne „Zur Reisekarte ›“
+    void kontrast; assert.equal(await page.locator('.rk-zur-karte').count(), 0);
     // M2
     assert.equal(await page.locator('.lr-mini3').count(), 0);
     // S1: Titel einzeilig; Anrede unter 600 px auf der Ecke der ersten Karte (Nachbessern), ab 600 px im Kopf
@@ -5169,6 +5169,8 @@ test('KJ 2 (0.93.1): M1 „Zur Reisekarte ›“ nachts lesbar (Kontrast ≥ 4,5
     const tafelImBild = await page.locator('.lr-flug-jetzt').evaluate((e) => { const r = e.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; });
     if (tafelImBild) { const z0 = await zustand(); assert.ok(z0[0], `${b} ${g}: Leiste aus, solange die Tafel zu sehen ist`); }
     await page.screenshot({ path: path.join(root, `test-results/kj2-tafel-${b}-${g}.png`) });
+    // Abflugtafel abgeschaltet: ohne den Link „Zur Reisekarte ›“ ist die Rückfall-Tafel bei 820 px so kurz, dass sie nicht aus dem Bild rollt – dann braucht es die Leiste nicht
+    if (!(await page.evaluate(() => document.documentElement.scrollHeight - innerHeight >= document.querySelector('.lr-flug-jetzt').getBoundingClientRect().bottom + 10))) { assert.ok(tafelImBild && (await zustand())[0], `${b} ${g}: Tafel bleibt im Bild, Leiste aus`); continue; }
     await page.evaluate(() => { const r = document.querySelector('.lr-flug-jetzt').getBoundingClientRect(); window.scrollBy(0, r.bottom + 10); });
     await page.waitForFunction(() => !document.querySelector('.lr-dock-start').classList.contains('lr-dock-weg')).catch(async () => { throw new Error(`${b} ${g}: ` + JSON.stringify(await page.evaluate(() => [scrollY, document.documentElement.scrollHeight, innerHeight, document.querySelector('.lr-abflugtafel').getBoundingClientRect().toJSON()]))); });
     await page.waitForTimeout(300);
@@ -5289,7 +5291,7 @@ test('WK F5: Rückweg von der Aufgabe – letzte Ansicht sofort (gedimmt), frisc
 // ---------- RS (0.93.3): Anrede auf der Reisekarte, „Mein Schuljahr“ auf Handy/Tablet ----------
 const rsOeffnen = async (t, b, h, g, { tafel = false } = {}) => {
   const srv = rkServer({ basis: kjServer({ nb: [] }) }); const { page } = await setup(t, { gestaltung: g, anpassen: srv.anpassen });
-  if (tafel) await page.addInitScript(() => { if (!sessionStorage.getItem('rs.einmal')) { sessionStorage.setItem('rs.einmal', '1'); localStorage.setItem('lern.rk.1', 'tafel'); } });
+  if (tafel) { let einmal = true; page._ohneKarte = () => { const x = einmal; einmal = false; return x; }; } // Abflugtafel nur als Rückfall: erster Abruf ohne Karte
   await page.setViewportSize({ width: b, height: h }); await page.goto(origin + '/#/reise/1'); return page;
 };
 // Startkarte steht fest: Bordkarten der Stadt (x/6) und Wortliste geladen – danach wird sie nicht mehr neu gezeichnet
@@ -5317,9 +5319,9 @@ test('RS 1: Anrede auf der Ecke der Startkarte der Reisekarte – danach keine a
     assert.ok(sichtbar, `${b} ${g}: Sticker nicht abgeschnitten/verdeckt`);
     if (b === 400 || b === 1280) await page.screenshot({ path: path.join(root, `test-results/rs-anrede-reisekarte-${b}-${g}.png`) });
     await st.click(); await page.locator('.lr-jw-blatt').waitFor(); await page.locator('.lr-jw-blatt .lr-jw-zu').click();
-    // danach die Abflugtafel: keine zweite Anrede an diesem Lerntag
-    await page.locator('.rk-tafel-knopf').click(); await page.locator('.lr-abflugtafel').waitFor(); await page.waitForTimeout(300);
-    assert.equal(await page.locator('.lr-jw-anrede').count(), 0, `${b} ${g}: Tafel ohne zweite Anrede`);
+    // danach (Seite neu): keine zweite Anrede an diesem Lerntag (Abflugtafel abgeschaltet – vorher über den Tafel-Knopf geprüft)
+    await page.reload(); await page.locator('.rk-start').first().waitFor(); await page.waitForTimeout(400);
+    assert.equal(await page.locator('.lr-jw-anrede').count(), 0, `${b} ${g}: keine zweite Anrede`);
   }
 });
 
@@ -5327,7 +5329,8 @@ test('RS 1: Abflugtafel zuerst – Anrede dort, danach auf der Reisekarte keine 
   for (const [b, h] of rsGroessen) for (const g of ['tag', 'nacht']) {
     const page = await rsOeffnen(t, b, h, g, { tafel: true });
     await page.locator('.lr-abflugtafel').waitFor(); await page.locator('.lr-jw-anrede').first().waitFor();
-    await page.locator('.rk-zur-karte').click(); await page.locator('.rk-start').first().waitFor(); await page.waitForTimeout(300);
+    await page.evaluate(() => { lernReiseKarteVergessen(1); location.hash = '#/reisepass/1'; }); await page.locator('.lr-stats-box').waitFor(); await page.evaluate(() => { location.hash = '#/reise/1'; });
+    await page.locator('.rk-start').first().waitFor(); await page.waitForTimeout(300);
     assert.equal(await page.locator('.lr-jw-anrede').count(), 0, `${b} ${g}: Reisekarte ohne zweite Anrede`);
   }
 });
@@ -5384,10 +5387,7 @@ test('WK 2 A1: echter Fall – alle Städte gelandet, Test fehlt → „Flug-Tes
     assert.doesNotMatch(await page.locator('body').innerText(), /Stadt \d+ von \d+/, 'keine gelandete Stadt als „Gerade dran“');
     assert.equal(await page.locator('.rk-auch, .lr-auch-dran').count(), 0, 'kein „Auch dran“');
     await page.waitForTimeout(300); await page.screenshot({ path: path.join(root, `test-results/wk2-reisekarte-flugtest-${b}.png`) });
-    // Abflugtafel: derselbe Schritt
-    await page.locator('.rk-tafel-knopf').click(); const k = page.locator('.lr-einsteigen-knopf'); await k.waitFor({ state: 'attached' });
-    assert.equal(await k.getAttribute('href'), '#/lerneinheit/1-1-test'); assert.match(await k.textContent(), /Flug-Test Italien/);
-    assert.equal(await page.locator('.lr-flug-jetzt').getAttribute('href'), '#/lerneinheit/1-1-test');
+    // (Abflugtafel abgeschaltet: der Vergleich mit der Tafel über den Tafel-Knopf entfällt)
     await page.close();
   }
 });
@@ -5483,7 +5483,7 @@ test('WT: Hauptknopf erst antippbar, wenn sein Ziel feststeht – verzögerte Ka
   for (const ansicht of ['karte', 'tafel']) {
     const srv = wk2Server('test');
     const { page } = await setup(t, { gestaltung: 'tag', anpassen: srv.anpassen, verzoegerungJe: (a, d) => (Number(d.lernender_id) === 1 && ['schule_reise_karte', 'schule_konto'].includes(a) ? 900 : 0) });
-    if (ansicht === 'tafel') await page.addInitScript(() => { localStorage.setItem('lern.rk.1', 'tafel'); localStorage.setItem('lern.rk.2', 'tafel'); });
+    if (ansicht === 'tafel') page._ohneKarte = true; // Tafel = Rückfall ohne Karte
     await page.setViewportSize({ width: 400, height: 860 }); await page.goto(origin + '/#/lernen'); await page.waitForTimeout(300);
     await page.evaluate(() => { location.hash = '#/reise/1'; }); await page.waitForTimeout(150); await wtBeobachten(page);
     await page.evaluate(() => { location.hash = '#/reise/2'; });
@@ -6013,4 +6013,18 @@ test('Tabelle 400 px: breite Tabelle – Seite rollt nicht, eigener Rollbereich 
   const st = await page.locator('.lr-bordkarte .lr-tafel').evaluate((tb) => ({ fs: getComputedStyle(tb).fontSize, pad: getComputedStyle(tb.querySelector('td')).padding, kasten: tb.closest('.lr-bild-tabelle').className, tab: tb.parentElement.getAttribute('tabindex') }));
   assert.deepEqual(st, { fs: '15.2px', pad: '6px 12px', kasten: 'lr-bild lr-bild-tabelle', tab: null }, 'schmale Tabelle wie bisher');
   assert.ok(await page.locator('.lr-tafel-hinweis').isHidden());
+});
+
+// ---------- Abflugtafel abgeschaltet: was nur auf der Tafel stand und sichtbar bleiben muss (Geschenk), steht auf der Karte ----------
+test('Abflugtafel aus: Geschenk-Hinweis („Geschenk für deine Landungen“) auf der Reisekarte, „Super ›“ schließt ihn; ohne Karte Rückfall Tafel mit Menü „Abflugtafel“', async (t) => {
+  for (const [b, h] of [[400, 860], [1280, 800]]) {
+    const { page } = await rkOeffnen(t, b, h, { basis: (aktion, e) => (aktion === 'schule_konto' && e ? { ...structuredClone(e), landung_nachbuchung: { etappen: 25, sterne: 1620, am: '2026-11-22T12:00:00Z' } } : e) });
+    const k = page.locator(`${b >= 1100 ? '.rk-seite' : '.rk-schwebe'} .lr-fp-geschenk`); await k.waitFor();
+    assert.match(await k.innerText(), /★ Geschenk für deine Landungen[\s\S]*\+1.620 ★ Landungs-Bonus/);
+    assert.ok(await ohneQuerrollen(page));
+    await page.screenshot({ path: path.join(root, `test-results/tafel-aus-geschenk-${b}.png`) });
+    await k.getByRole('button', { name: 'Super ›' }).click(); await page.waitForTimeout(200); assert.equal(await page.locator('.lr-fp-geschenk').count(), 0);
+  }
+  const alt = rkServer({ karte: false }); const { page: p2 } = await setup(t, { gestaltung: 'tag', anpassen: alt.anpassen }); await p2.goto(origin + '/#/reise/1'); await p2.locator('.lr-abflugtafel').waitFor();
+  assert.equal(await p2.locator('.lr-blatt-liste a').first().textContent(), 'Abflugtafel', 'ohne Karte heißt die Startseite weiter Abflugtafel');
 });

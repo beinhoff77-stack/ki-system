@@ -81,3 +81,11 @@ Zweite Gegenprüfung umgesetzt; Kennungen unverändert, weiter 210 Aufgaben. Ge�
 - V093, V107, V128, V184: Eingabefrage nur noch am Ende, vor Weg A stehen nur die Bedingungen. V186: „im Durchschnitt“ und ein Überschlag mit Begründung aus den Schrittzahlen. V199: durchgehend „Beispiel“.
 - Systematische Suchen: Einheit-durch-100-Umrechnungen in allen Texten, Hinweisen, Lösungen, Proben und Rückmeldungen ohne weiteren Treffer. Doppelte Fragen bei Zwei-Wege-Aufgaben: zusätzlich in V125, V130, V131, V157, V138 und V144 die erste Frage zur Bedingung umgestellt; V146 bleibt (zwei Teilgrößen, Schlussauftrag nennt die Summe).
 - Prüfläufe: `bauen.py` OK, `tools/vorrat_pruefen.py` (i) bis (iii) ohne Meldung, (iv) nur die vier bestätigten Denkfehler-Zeilen; `tools/rollend_sql.py --runden 12` ohne Fehler, 210 Aufgaben.
+
+## Nach Gegenprüfung (Werkstatt 1115)
+Vier Restauflagen umgesetzt, sonst nichts geändert; der JSON-Vergleich gegen den Stand vor der Änderung und gegen origin/lernen-app zeigt genau vier geänderte Aufgaben (V020, V138, V156, V186), Reihenfolgen anderer Auswahlaufgaben unverändert. Weiter 210 Aufgaben.
+- V020: Form von „umkehren“ auf „anwenden“ (die Karte „unendlich“ hat damit zwei_wege und anwenden; Verteilung erfüllt).
+- V138: Weg B nennt nur den Zwischenschritt (Fläche eines Quadrats mit 100 m Seitenlänge), Schlussauftrag bleibt.
+- V156: Rückmeldung zum liegenden Dreiecksprisma neu gefasst (Ansicht quer zur Längsrichtung).
+- V186: Auswahl der Größenordnung (2 cm, 20 cm, 2 m) ist die gewertete Antwort mit grober Begründung über das Viertel mehr Schritte; die exakte Rechnung (15 cm) steht erst im Lösungsweg.
+- Prüfläufe: `bauen.py` OK, (i) bis (iii) leer, (iv) nur die vier bestätigten Zeilen; `tools/rollend_sql.py --runden 12` ohne Fehler, 210 Aufgaben.

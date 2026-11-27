@@ -66,7 +66,7 @@ neu(T, "ansichten", "bruecke", Z(
 neu(T, "ansichten", "umkehren", W(
     "Ein Körper wird von vorn und von der Seite betrachtet. In beiden Fällen sieht man ein Dreieck. Von oben sieht man ein Quadrat. Welcher Körper ist es?",
     "Pyramide mit quadratischer Grundfläche",
-    [("Kegel", "Von oben sieht ein Kegel wie ein Kreis aus."), ("Dreiecksprisma (liegend)", "Von oben sieht man ein Rechteck, von der Seite ein Rechteck."), ("Würfel", "Von vorn sieht man ein Quadrat.")],
+    [("Kegel", "Von oben sieht ein Kegel wie ein Kreis aus."), ("Dreiecksprisma (liegend)", "Blickst du auf die dreieckige Stirnfläche, ist die Ansicht quer zur Längsrichtung rechteckig. Das Prisma erklärt daher nicht beide Dreiecksansichten."), ("Würfel", "Von vorn sieht man ein Quadrat.")],
     "Was verraten dir die Ansichten von vorn und von der Seite über die Form des Körpers nach oben? Und was die Ansicht von oben über die Grundfläche?",
     "Dreieck von vorn und von der Seite heißt: Der Körper läuft nach oben spitz zu. Das Quadrat von oben ist die Grundfläche. Das ist die Pyramide mit quadratischer Grundfläche.",
     lambda: [v == ("Dreieck", "Dreieck", "Quadrat") for v in (("Dreieck", "Dreieck", "Quadrat"), ("Dreieck", "Dreieck", "Kreis"), ("Dreieck", "Rechteck", "Rechteck"), ("Quadrat", "Quadrat", "Quadrat"))] == [True, False, False, False]), g="rueckwaerts")

@@ -33,7 +33,7 @@ neu(T, "einheiten", "anwenden", Z(
     "1 a = 100 m². 7 200 m² = 72 a (7 200 : 100). 72 · 2 kg = 144 kg.",
     [(14400, None, "mit m² statt mit Ar gerechnet", "7200 * 2"), (14.4, None, "durch 1 000 statt durch 100 umgerechnet", "7200 / 1000 * 2"), (72, None, "die Fläche in Ar genannt", "7200 / 100")], "kg"))
 neu(T, "einheiten", "zwei_wege", Z(
-    "Eine Fläche von 3 ha soll in m² angegeben werden. Weg A: Rechne mit 1 ha = 10 000 m². Weg B: Ein Quadrat mit 100 m Seitenlänge hat 1 ha. Berechne die Fläche von 3 solchen Quadraten in m². Gib an, wie viele m² 3 ha sind.",
+    "Eine Fläche von 3 ha soll in m² angegeben werden. Weg A: Rechne mit 1 ha = 10 000 m². Weg B: Ein Quadrat mit 100 m Seitenlänge hat 1 ha. Bestimme die Fläche eines Quadrats mit 100 m Seitenlänge. Gib an, wie viele m² 3 ha sind.",
     30000, "3 * 10000", "3 * (100 * 100)", "Wie groß ist die Fläche eines Quadrats mit der Seitenlänge 100 m?",
     "Weg A: 3 · 10 000 m² = 30 000 m². Weg B: Ein Quadrat hat 100 m · 100 m = 10 000 m². Drei Quadrate: 30 000 m².",
     [(3000, None, "mit 1 ha = 1 000 m² gerechnet", "3 * 1000"), (300000, None, "mit 1 ha = 100 000 m² gerechnet", "3 * 100000"), (300, None, "mit 1 ha = 100 m² gerechnet", "3 * 100")], "m²"), g="verknuepfen")

@@ -132,7 +132,7 @@ neu(T, "unendlich", "zwei_wege", Z(
     1000000, "999999 + 1", "10 ** 6", "Welche Zahl kommt unmittelbar nach 999 999? Was geschieht mit den Neunen?",
     "Weg A: 999 999 + 1 = 1 000 000. Weg B: 999 997, 999 998, 999 999, 1 000 000: Nach drei Schritten steht man bei 1 000 000, und das ist der Nachfolger von 999 999. Der Nachfolger ist größer, also ist Tims Zahl nicht die größte. Dasselbe gilt für jede Zahl, die jemand als größte nennt: Ihr Nachfolger ist größer. Darum gibt es keine größte natürliche Zahl.",
     [(999998, None, "den Vorgänger statt des Nachfolgers genommen: 999 999 − 1", "999999 - 1"), (1000001, None, "zwei Schritte statt einen weitergezählt: 999 999 + 2", "999999 + 2"), (100000, None, "nur eine 1 mit fünf Nullen geschrieben", "10 ** 5")]))
-neu(T, "unendlich", "umkehren", W(
+neu(T, "unendlich", "anwenden", W(
     "Anna behauptet, 2 000 000 sei die größte natürliche Zahl. Welche Begründung zeigt, dass es überhaupt keine größte natürliche Zahl gibt?",
     "Für jede vorgeschlagene natürliche Zahl n ist n + 1 eine größere natürliche Zahl.",
     [("Die Zahl 2 000 001 ist größer als 2 000 000.", "Das zeigt nur einen einzelnen Fall und sagt nichts über jede vorgeschlagene Zahl."),

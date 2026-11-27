@@ -1,0 +1,353 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-13",
+ "kuerzel": "R8",
+ "flug": "r8-stochastik.grundbegriffe",
+ "titel": "stochastik.grundbegriffe",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen": [
+  "stochastik.grundbegriffe"
+ ],
+ "themen_datei_im_bestand": "stochastik.grundbegriffe",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R8-V109",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "begriffe",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ergebnisse des Ereignisses selbst statt des Gegenereignisses gezählt"
+    },
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "verschiedene Zahlen statt Felder gezählt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die verschiedenen Primzahlen 2, 3, 5 und 7 gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "begriffe",
+    "t": "begriffe",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Glücksrad hat 8 gleich große Felder. Die Tabelle zeigt die Zahl auf jedem Feld. Ein Ergebnis ist das Feld, auf dem das Rad stehen bleibt. Wie viele Ergebnisse gehören zum Gegenereignis von „Die Zahl ist eine Primzahl“?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Feld",
+       "1",
+       "2",
+       "3",
+       "4",
+       "5",
+       "6",
+       "7",
+       "8"
+      ],
+      "zeilen": [
+       [
+        "Zahl",
+        "2",
+        "3",
+        "3",
+        "5",
+        "8",
+        "8",
+        "2",
+        "7"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "8 - 6",
+    "h": "Zähle Felder, nicht Zahlen. Welche Felder gehören zum Ereignis selbst?",
+    "w": "Zum Ereignis gehören die Felder 1, 2, 3, 4, 7 und 8 (Zahlen 2, 3, 3, 5, 2 und 7). Das sind 6 Ergebnisse. Das Gegenereignis enthält alle übrigen Ergebnisse: die Felder 5 und 6, beide mit der Zahl 8. Es hat 8 − 6 = 2 Ergebnisse."
+   }
+  },
+  {
+   "kennung": "R8-V110",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "begriffe",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen aus beiden Ereignissen gezählt und die doppelten nicht abgezogen"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„und“ statt „oder“ gezählt: nur Zahlen, die in beiden stehen"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Gegenereignis von „A oder B“ gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "begriffe",
+    "t": "begriffe",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Glücksrad hat 12 gleich große Felder mit den Zahlen 1 bis 12. Ein Ergebnis ist die Zahl, bei der das Rad stehen bleibt. Ereignis A: „Die Zahl ist durch 3 teilbar“. Ereignis B: „Die Zahl ist größer als 6“. Wie viele Ergebnisse gehören zum Ereignis „A oder B“ (A, B oder beides)? Weg A: Die Zahlen von A und B aufschreiben und doppelte nur einmal zählen. Weg B: Zahlen von A und von B zählen und die Zahlen abziehen, die in beiden Ereignissen stehen."
+    },
+    "o": {
+     "wert": 8
+    },
+    "c": "4 + 6 - 2",
+    "h": "Welche Zahlen stehen in A und in B zugleich? Sie dürfen nur einmal gezählt werden.",
+    "w": "A hat die Zahlen 3, 6, 9, 12 (4 Ergebnisse). B hat die Zahlen 7, 8, 9, 10, 11, 12 (6 Ergebnisse). In beiden stehen 9 und 12. Weg A: 3, 6, 7, 8, 9, 10, 11, 12 sind 8 Zahlen. Weg B: 4 + 6 − 2 = 8. Probe: Das Gegenereignis hat die Zahlen 1, 2, 4, 5. Das sind 4 Zahlen, und 12 − 4 = 8."
+   }
+  },
+  {
+   "kennung": "R8-V111",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "rel_haeufigkeit",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "80 durch 28 teilen und das Ergebnis mit 100 malnehmen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Gesamtzahl durch die günstige Anzahl geteilt: das Ergebnis wäre über 100 Prozent"
+    },
+    {
+     "index": 1,
+     "antwort": "28 mit 80 malnehmen und durch 100 teilen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Zahlen multipliziert, aber keinen Anteil gebildet"
+    },
+    {
+     "index": 2,
+     "antwort": "80 minus 28 durch 80 teilen und mit 100 malnehmen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Würfe mit Spitze nach unten gezählt: das ist die relative Häufigkeit des Gegenereignisses"
+    }
+   ],
+   "aufgabe": {
+    "l": "rel_haeufigkeit",
+    "t": "rel_haeufigkeit",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Reißnagel wird 80-mal geworfen. 28-mal landet er mit der Spitze nach oben. Welche Rechnung gibt die relative Häufigkeit von „Spitze nach oben“ in Prozent?"
+    },
+    "a": [
+     "80 durch 28 teilen und das Ergebnis mit 100 malnehmen",
+     "28 mit 80 malnehmen und durch 100 teilen",
+     "80 minus 28 durch 80 teilen und mit 100 malnehmen",
+     "28 durch 80 teilen und das Ergebnis mit 100 malnehmen"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Relative Häufigkeit ist ein Anteil. Wovon ist der Teil, und was ist das Ganze?",
+    "w": "Der Teil sind 28 Würfe, das Ganze sind 80 Würfe. 28 : 80 = 0,35 und 0,35 · 100 = 35 Prozent. Die anderen Rechnungen geben ungefähr 286 Prozent, 22,4 und 65 Prozent."
+   }
+  },
+  {
+   "kennung": "R8-V112",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "rel_haeufigkeit",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl mit 0,2 malgenommen statt durch 0,2 geteilt"
+    },
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl der Sechsen und die Prozentzahl 20 addiert"
+    },
+    {
+     "antwort": 300,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl der Sechsen mit der Prozentzahl 20 malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "rel_haeufigkeit",
+    "t": "rel_haeufigkeit",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Würfel wird mehrmals geworfen. Die Sechs fällt 15-mal. Die relative Häufigkeit der Sechs ist 20 Prozent. Wie oft wurde der Würfel geworfen?"
+    },
+    "o": {
+     "wert": 75
+    },
+    "c": "15 * 100 / 20",
+    "h": "Wie hängen die Anzahl der Sechsen, die Zahl aller Würfe und die relative Häufigkeit zusammen?",
+    "w": "Relative Häufigkeit = Anzahl der Sechsen geteilt durch Anzahl aller Würfe. 20 Prozent sind 0,2, also 15 : n = 0,2. Daraus folgt n = 15 : 0,2 = 75. Probe: 15 : 75 = 0,2."
+   }
+  },
+  {
+   "kennung": "R8-V113",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "darstellen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auch nach „Zahl“ noch gewürfelt: Münze und Würfel in jedem Fall"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Äste der zweiten Stufe und der ersten Stufe gezählt statt der Wege"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Weg über „Zahl“ vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "darstellen",
+    "t": "darstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einem Spiel wird zuerst eine Münze geworfen. Fällt Zahl, ist das Spiel zu Ende. Fällt Wappen, wird danach ein Würfel mit den Zahlen 1 bis 6 geworfen. Das Spiel wird als Baumdiagramm gezeichnet. Wie viele Wege führen vom Start bis zu einem Ende?"
+    },
+    "o": {
+     "wert": 7
+    },
+    "c": "1 + 6",
+    "h": "Zeichne den Baum. Wie viele Wege gehen durch den Ast „Wappen“, wie viele durch den Ast „Zahl“?",
+    "w": "Der Ast „Zahl“ endet sofort: 1 Weg. Der Ast „Wappen“ teilt sich in 6 Äste für den Würfel: 6 Wege. Zusammen sind es 1 + 6 = 7 Wege. Nicht 2 · 6, denn nach „Zahl“ wird nicht gewürfelt."
+   }
+  },
+  {
+   "kennung": "R8-V114",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "darstellen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "darstellen",
+    "t": "darstellen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim zieht zweimal hintereinander eine Kugel aus einer Urne mit den Kugeln 1, 2, 3 und 4. Die gezogene Kugel wird nicht zurückgelegt. Kim zeichnet das Baumdiagramm und zählt. Zeile 1: Beim ersten Zug gibt es 4 Möglichkeiten. Zeile 2: Die gezogene Kugel bleibt draußen. Beim zweiten Zug gibt es nur noch 3 Möglichkeiten. Zeile 3: Das Baumdiagramm hat 12 Wege, denn 4 mal 3 sind 12. Zeile 4: Zum Ereignis „Die Summe ist 5“ gehören die Wege (1 | 4), (2 | 3), (3 | 2), (4 | 1) und (2 | 2). Das sind 5 Wege. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Prüfe jede Zeile einzeln: Passt sie zu der Regel, dass die Kugel nicht zurückgelegt wird?",
+    "w": "Zeile 1 bis 3 stimmen: 4 · 3 = 12 Wege. In Zeile 4 steht der Weg (2 | 2). Kugel 2 ist nach dem ersten Zug draußen und kann nicht noch einmal gezogen werden. Es gehören nur 4 Wege zum Ereignis. Dass die Summe 5 ist, reicht nicht: Der Weg muss im Baum vorkommen."
+   }
+  }
+ ]
+}

@@ -21,7 +21,7 @@ Summe                            52    156  33/23/15/20/20/20/25  123/33
 ```
 
 Stufen 1/2/3: 33/91/32. Antwortformen luecken 33, zahl 63, auswahl 60 – kein `bedingung`, keine neuen
-Bauteile, keine Zeichnungen. Jede Aufgabe trägt `thema`; bei Teil 2 der Schrägbilder steht dort
+Bauteile, keine Zeichnungen. Jede Aufgabe trägt `thema`; bei Schrägbilder Teil 2 steht dort
 `raum.schraegbilder_teil2`, obwohl der Bestand in `raum.schraegbilder` liegt.
 
 ## Mischung je Lernkarte
@@ -39,8 +39,8 @@ mindestens zweimal vor. **Zurückgestellt: keine Lernkarte.** Wo eine Form fachl
 
 ## Geprüft
 
-- Jede Rechenaufgabe: `c` mit Brüchen ausgerechnet und mit dem von Hand erwarteten Wert verglichen,
-  eine Abweichung bricht ab; bei Vielecken zusätzlich eine zweite Rechnung im Lösungsweg.
+- Jede Rechenaufgabe: `c` mit Brüchen ausgerechnet und mit dem Handwert verglichen, Abweichung bricht
+  ab; bei Vielecken zusätzlich eine zweite Rechnung im Lösungsweg.
 - Lückenweg: Kästchen = Werte, ganze Zahlen, kein Kleinbuchstabe in der Schablone (sonst Term-Vorlage),
   kein Komma neben einer Lücke, gesuchte Zahl nicht im Aufgabentext.
 - Auswahl: genau eine richtige Antwort, je falsche ein Fehlbild mit demselben Text. Keine Dopplung zum
@@ -52,7 +52,6 @@ mindestens zweimal vor. **Zurückgestellt: keine Lernkarte.** Wo eine Form fachl
 VW und ZW Stufe 2 `mehrschritt`, UM `umkehr`, BR `darstellung`, AN `einkleidung` bzw. 3 `transfer`.
 
 ## Offene Punkte (nichts geändert)
-
 - `tools/rollend_sql.py` meldet alle zehn Dateien als „ohne Zuordnung": die Themen fehlen in
   `inhalte/plan/rollend-einheiten.json`; beides darf ich nicht ändern (anderer Helfer). Erwartet, wie
   bei rollend-3. Keine Prüfung in der App, keine Prüfung durch Kinder.

@@ -100,3 +100,24 @@ Ohne jeden Bau lösbar ist Stufe C: Den ge3-Aufgaben eine Figur beilegen (die Ze
 - `ge4` hat 16 Lernkarten; deshalb 18 statt 15 Aufgaben ohne Bau, die meisten Lernkarten nur einmal. Ebenso `f2` (11 Lernkarten, 18 Aufgaben).
 - In `g2` stehen Preise in Lücken in Cent, weil Lücken nur ganze Zahlen nehmen.
 - Namen in Aufgaben (Ole, Kim, Pia, Tim, Lars, Emil, Jule, Nico, Mia, Jan, Ben) sind erfunden.
+
+
+## Berichtigungen nach der Inhaltsprüfung (Auftrag 20)
+
+Die Muster-Suche aus Auftrag 20 (unbeabsichtigte Lösung 0, nicht-falsche Falschantwort, Ziffernfolge als Zahl, fehlende Modellvoraussetzung) lief über alle 97 Aufgaben in `zahl`, `auswahl`, `luecken` dieser Runde. Neu erzeugt sind `a6.json`, `g2.json`, `r1.json` (`bauen.py` endet mit „OK“, 127 Aufgaben, 106 Rechnungen zweifach nachgerechnet). Kennungen, Lernziele und Teilfähigkeiten sind unverändert; die 30 `bedingung`-Aufgaben sind nicht angefasst.
+
+| Kennung | Befund | was geändert (oder „bleibt, weil …“) |
+|---|---|---|
+| `G2-03` | Muster 4: „3 kg Kartoffeln kosten 4,50 €“ setzt einen festen Preis je kg voraus, der nirgends steht. | Voraussetzung im Text: „Bei Preisen gilt: Jedes Stück und jedes Kilogramm kostet gleich viel, es gibt keinen Rabatt.“ Lösungsweg nennt sie. |
+| `G2-11` | Muster 4: „Ein Maler … 2 Maler“ setzt gleich schnelle Maler voraus. | Text: „alle Maler arbeiten gleich schnell“. Antwort bleibt. |
+| `G2-15` | Muster 4: Rezept setzt gleiche Menge je Person voraus. | Text: „jede Person bekommt gleich viel“. |
+| `A6-04` | Muster 2: „Addieren“ ist nicht falsch. Nach dem Umstellen (4x − y = 1 und x + y = 9) fällt y beim Addieren sofort weg. | Antwort heißt jetzt „beide Gleichungen so addieren, wie sie dastehen“ (dann entsteht 2y = 3x + 8, nichts fällt weg). Richtige Antwort „Gleichsetzen“ bleibt. |
+| `R1-04` | Muster 2: „Weil 1 m = 100 cm ist“ ist für sich wahr, nur keine Begründung. | Antwort heißt „Weil 1 dm = 100 cm ist.“ (falsch: 1 dm sind 10 cm). Fehlbild-Text angepasst. |
+
+**Geprüft und ohne Befund:**
+(1) Unbeabsichtigte Lösung 0 oder weitere Lösungen: keine. Einzeln nachgesehen u. a. `GE3-08` (150° am Minutenzeiger gleich 25 Minuten, eine volle Drehung kommt nicht vor), `GE3-10` (kürzester Weg), `GE4-12` (kleinste ganze Zahl über 5: 6), `A6-10`, `A6-14`, `A6-15`, `F2-09`, `F2-16`, `F2-18` (ab 5 Stunden, bei 4 sind beide gleich).
+(2) Alle weiteren Auswahl-Aufgaben einzeln gegengelesen, keine zweite richtige Antwort gefunden (u. a. `GE4-04`, `GE4-17`, `GE3-05`, `A6-01`, `A6-03`, `F2-03`, `F2-04`).
+(3) Komma an einer Lücke: keiner. Satzkommas wie `A6-05` („②, x = ③“) stehen mit Leerzeichen und sind erlaubt. `R1-08` („2 a ① m²“, „0,08 m² = ② dm²“) hat die Lücken nicht an einem Komma.
+(4) Weitere Modellvoraussetzungen: `G2-12`, `G2-14`, `F2-18` nennen „gleichmäßig“ bzw. die Tarife ausdrücklich.
+
+**Neue automatische Prüfung in `bauen.py`:** Das Programm bricht ab, wenn im Fragetext oder in der Schablone einer Lückenaufgabe ein Komma ohne Leerzeichen an einem Lückenzeichen (① … ⑨, □) steht, etwa „0,②“ oder „①,②“. Satzkommas mit Leerzeichen („①, dann …“) sind erlaubt. Zusätzlich muss jede Lücke eine ganze Zahl sein. Die alten Fassungen von `G1-07`, `G8-01` und `G8-04` würden damit abbrechen (nachgestellt mit der Regel, nicht mit dem Programm selbst).

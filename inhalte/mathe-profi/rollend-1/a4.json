@@ -324,7 +324,7 @@
     "g": "mehrschritt",
     "y": "luecken",
     "f": {
-     "text": "Löse: 2 · (x − 3) > 5x + 9. Klammer auflösen: 2x − ① > 5x + 9. Minus 5x auf beiden Seiten: ② · x − 6 > 9. Plus 6: −3x > ③. Geteilt durch −3, Zeichen umdrehen: x < ④.",
+     "text": "Löse: 2 · (x − 3) > 5x + 9. Klammer auflösen: 2x − ① > 5x + 9. Bring alle x nach links und alle Zahlen nach rechts: ② · x > ③. Teilst du durch ②, dreht sich das Zeichen um: x < ④.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -342,8 +342,8 @@
      "9 + 6",
      "15 // (-3)"
     ],
-    "h": "Jede Zeile ändert nur eine Stelle.",
-    "w": "2 · 3 = 6. 2x − 5x = −3x. 9 + 6 = 15. 15 : (−3) = −5. Also x < −5."
+    "h": "Erst die Klammer auflösen. Dann: Was bleibt links bei den x, was rechts bei den Zahlen?",
+    "w": "2 · 3 = 6. Minus 5x: 2x − 5x = −3x. Plus 6: 9 + 6 = 15. Also −3x > 15. Geteilt durch −3, Zeichen umdrehen: 15 : (−3) = −5. Also x < −5."
    }
   },
   {

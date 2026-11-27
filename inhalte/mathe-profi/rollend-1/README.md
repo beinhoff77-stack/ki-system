@@ -69,3 +69,24 @@ Eine Beobachtung, kein Fehler: In Aufgabe 4 (Bruchterm negativ) nennt der Hinwei
 - Aufgaben ohne Grafik, weil „ohne Bau“; Koordinaten und Achsen stehen im Text.
 - Die Themen der Flüge wie in `lehrplan-kinder/plan.py`: ge1 = `geometrie.grundbegriffe`, `geometrie.ortslinien`; z2 = `zahlen.teilbarkeit`; ge2 = `abbildungen.kongruenz`; a4 = `gleichungen.ungleichungen`, `zahlen.intervalle`.
 - In ge2 sind die zwei Vektor-Lernkarten der Realschule (`vektor_koordinaten`, `vektor_drehen`) ausgelassen.
+
+
+## Berichtigungen nach der Inhaltsprüfung (Auftrag 20)
+
+Stand 27.11.2026. Die Dateien `ge1.json`, `z2.json`, `ge2.json`, `a4.json` sind neu erzeugt (`bauen.py` endet mit „OK“, 76 Aufgaben, 65 Rechnungen zweifach nachgerechnet). Kennungen, Lernziele (`l`) und Teilfähigkeiten (`t`) sind unverändert; keine Aufgabe hinzugefügt oder gelöscht; die 20 `bedingung`-Aufgaben sind nicht angefasst.
+
+| Kennung | Befund | was geändert (oder „bleibt, weil …“) |
+|---|---|---|
+| `Z2-07` | „kleinste Zahl in beiden Reihen“ lässt die 0 zu (0 steht in jeder Reihe). | Frage: „kleinste Zahl **über 0**“. Tipp: „Die 0 zählt hier nicht.“ Lösungsweg nennt die 0 ausdrücklich. Lösung 24 bleibt. |
+| `GE1-06` | Die gesuchte 6 stand schon in Weg A („6 + 9“). | Weg A ohne Zahlen: „von C bis zur x-Achse zählen, dann von der x-Achse bis D“. Tipp fragt nach dem Abstand von C zur x-Achse. Lösungsweg rechnet beide Wege. Lösung 6 bleibt. |
+| `GE1-13` | Stufe 3 zu hoch: ein Schritt („Tangente hat den Abstand r“), keine Kette. | Stufe 3 → 2, Typ `rueckwaerts` → `umkehr`. Text unverändert. |
+| `GE2-12` | Stufe 3 zu hoch: ein Schritt (Mitte von 7 und −1). | Stufe 3 → 2, Typ `rueckwaerts` → `umkehr`. Text unverändert. |
+| `A4-06` | Zwei Lückenwerte standen später ausgeschrieben in der Frage („② · x − 6 > 9“ verrät ① = 6; „−3x > ③“ verrät ② = −3). | Zwischenzeilen neu gefasst: „Bring alle x nach links und alle Zahlen nach rechts: ② · x > ③. Teilst du durch ②, dreht sich das Zeichen um: x < ④.“ Tipp und Lösungsweg angepasst. Werte (6, −3, 15, −5) bleiben. |
+
+**Muster-Suche in dieser Runde (56 Aufgaben in `zahl`, `auswahl`, `luecken`):** Weitere Treffer gab es nicht.
+(1) Unbeabsichtigte Lösung 0: keine. `Z2-08` hat 0 als gewollte Lösung (nur die 0 ist durch 2 und 5 teilbar). `Z2-09`, `Z2-10` haben je genau eine Ziffer.
+(2) Falsche Auswahl-Antworten einzeln gegengelesen (`A4-03`, `-04`, `-05`, `-08`, `-11`, `-12`, `-14`; `GE1-03`, `-04`, `-05`, `-12`; `GE2-04`, `-05`, `-13`, `-14`; `Z2-04`, `-05`, `-13`): jede falsche Antwort ist falsch. Bei `GE1-05` ist „Trapez“ nach bayerischer Definition zwar auch wahr, die Frage verlangt aber „der genaueste Name“. Das bleibt so.
+(3) Komma an einer Lücke: keine (Satzkommas bei `Z2-01`, `Z2-02` stehen mit Leerzeichen).
+(4) Fehlende Modellvoraussetzung: keine; `A4-09` (Lastenaufzug) und `GE1-09` nennen alles Nötige.
+
+**Neue automatische Prüfung in `bauen.py`:** Das Programm bricht ab, wenn im Fragetext oder in der Schablone einer Lückenaufgabe ein Komma ohne Leerzeichen an einem Lückenzeichen (① … ⑨, □) steht, etwa „0,②“ oder „①,②“. Satzkommas mit Leerzeichen („①, dann …“) sind erlaubt. Zusätzlich muss jede Lücke eine ganze Zahl sein. Die alten Fassungen von `G1-07`, `G8-01` und `G8-04` würden damit abbrechen (nachgestellt mit der Regel, nicht mit dem Programm selbst).

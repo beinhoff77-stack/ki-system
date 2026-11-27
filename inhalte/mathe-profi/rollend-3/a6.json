@@ -182,7 +182,7 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "Addieren",
+     "antwort": "beide Gleichungen so addieren, wie sie dastehen",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Addieren ließe y nicht wegfallen"
@@ -207,7 +207,7 @@
     },
     "a": [
      "Gleichsetzen",
-     "Addieren",
+     "beide Gleichungen so addieren, wie sie dastehen",
      "erst beide Gleichungen mal 2 nehmen"
     ],
     "o": {

@@ -190,7 +190,7 @@
      "antwort": "die Gleichung noch einmal auf demselben Weg lösen",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "derselbe Weg wiederholt auch denselben Fehler"
+     "beschreibung": "noch einmal lösen ist keine Einsetzprobe: derselbe Weg wiederholt auch denselben Fehler"
     }
    ],
    "aufgabe": {
@@ -201,7 +201,7 @@
     "g": "erkennen",
     "y": "auswahl",
     "f": {
-     "text": "Du willst prüfen, ob x = 9 die Gleichung 6 · x − 14 = 40 löst. Was tust du?"
+     "text": "Du hast x = 9 als Lösung von 6 · x − 14 = 40 gefunden. Bei der Einsetzprobe setzt du eine Zahl in die Gleichung ein und vergleichst. Wie machst du die Einsetzprobe für x = 9?"
     },
     "a": [
      "40 für x einsetzen",
@@ -212,8 +212,8 @@
     "o": {
      "index": 1
     },
-    "h": "Eine Lösung macht beide Seiten gleich.",
-    "w": "Einsetzen: 6 · 9 − 14 = 40. Beide Seiten sind gleich, also ist 9 die Lösung."
+    "h": "Du setzt die gefundene Lösung ein, nicht das Ergebnis. Eine Lösung macht beide Seiten gleich.",
+    "w": "Einsetzprobe: 9 für x einsetzen. 6 · 9 − 14 = 54 − 14 = 40. Beide Seiten sind gleich, also ist 9 die Lösung."
    }
   },
   {
@@ -559,7 +559,7 @@
    "kennung": "A1-12",
    "thema": "gleichungen.einfach",
    "lernkarte": "probe",
-   "stufe": 3,
+   "stufe": 2,
    "typ": "Umkehren",
    "antwortform": "zahl",
    "regel": "id.algebra.gleichung_loesen",
@@ -583,8 +583,8 @@
     "l": "probe",
     "t": "verstehen",
     "p": "uebung",
-    "s": 3,
-    "g": "parameter",
+    "s": 2,
+    "g": "umkehr",
     "y": "zahl",
     "f": {
      "text": "Die Gleichung 4 · x + □ = 26 soll die Lösung x = 5 haben. Welche Zahl gehört in das Kästchen?"

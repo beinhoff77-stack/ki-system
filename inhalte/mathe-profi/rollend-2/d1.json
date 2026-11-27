@@ -613,21 +613,21 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "In A wirkt der Unterschied größer: Dort ist die zweite Säule 3-mal so hoch.",
+     "antwort": "In A ist die zweite Säule 3-mal so hoch wie die erste.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die beiden Diagramme verwechselt"
     },
     {
      "index": 1,
-     "antwort": "In beiden wirkt der Unterschied gleich groß.",
+     "antwort": "In beiden Diagrammen ist das Höhenverhältnis gleich.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Achsenanfang nicht beachtet"
     },
     {
      "index": 2,
-     "antwort": "In B wirkt der Unterschied größer: Dort ist die zweite Säule doppelt so hoch.",
+     "antwort": "In B ist die zweite Säule doppelt so hoch wie die erste.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Säulenhöhen in B falsch gerechnet"
@@ -641,19 +641,19 @@
     "g": "begruenden",
     "y": "auswahl",
     "f": {
-     "text": "Zwei Diagramme zeigen dieselben Zahlen: 48 und 52 Stimmen. Bei Diagramm A beginnt die Achse bei 0, bei Diagramm B bei 46. Was stimmt?"
+     "text": "Zwei Diagramme zeigen dieselben Zahlen: 48 und 52 Stimmen. Bei Diagramm A beginnt die Achse bei 0, bei Diagramm B bei 46. Du vergleichst in jedem Diagramm die Höhe der zweiten Säule mit der Höhe der ersten. Was stimmt?"
     },
     "a": [
-     "In A wirkt der Unterschied größer: Dort ist die zweite Säule 3-mal so hoch.",
-     "In beiden wirkt der Unterschied gleich groß.",
-     "In B wirkt der Unterschied größer: Dort ist die zweite Säule doppelt so hoch.",
-     "In B wirkt der Unterschied größer: Dort ist die zweite Säule 3-mal so hoch."
+     "In A ist die zweite Säule 3-mal so hoch wie die erste.",
+     "In beiden Diagrammen ist das Höhenverhältnis gleich.",
+     "In B ist die zweite Säule doppelt so hoch wie die erste.",
+     "In B ist die zweite Säule 3-mal so hoch wie die erste."
     ],
     "o": {
      "index": 3
     },
     "h": "Wie hoch sind die Säulen in B? Zieh den Achsenanfang ab.",
-    "w": "In B sind die Säulen 48 − 46 = 2 und 52 − 46 = 6 hoch. 6 ist das Dreifache von 2. In A sind sie fast gleich hoch."
+    "w": "In B sind die Säulen 48 − 46 = 2 und 52 − 46 = 6 hoch. 6 ist das Dreifache von 2. In A sind die Säulen 48 und 52 hoch: Die zweite ist nur etwa 1,08-mal so hoch wie die erste. Darum wirkt der Unterschied in B so groß."
    }
   },
   {

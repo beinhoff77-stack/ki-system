@@ -141,19 +141,19 @@
     "g": "erkennen",
     "y": "auswahl",
     "f": {
-     "text": "Bei welcher dieser vier Zuordnungen gehört zur doppelten Menge immer der doppelte Wert?"
+     "text": "Bei welcher dieser vier Zuordnungen gehört zur doppelten Menge immer der doppelte Wert? Bei den Brötchen gilt: Jedes Brötchen kostet gleich viel, es gibt keinen Mengenrabatt und keine Grundgebühr."
     },
     "a": [
      "Alter → Körpergröße",
      "Anzahl der Arbeiter → Dauer der Arbeit",
-     "Anzahl gleicher Brötchen → Preis",
+     "Anzahl der Brötchen → Preis",
      "Uhrzeit → Temperatur"
     ],
     "o": {
      "index": 2
     },
-    "h": "Prüfe: Gehört zur doppelten Menge der doppelte Wert?",
-    "w": "Doppelt so viele Brötchen kosten doppelt so viel. Bei den anderen stimmt das nicht."
+    "h": "Prüfe: Gehört zur doppelten Menge der doppelte Wert? Lies bei den Brötchen die Bedingungen im Text mit.",
+    "w": "Jedes Brötchen kostet gleich viel, ohne Rabatt und ohne Grundgebühr: Doppelt so viele Brötchen kosten doppelt so viel. Bei den anderen stimmt das nicht."
    }
   },
   {

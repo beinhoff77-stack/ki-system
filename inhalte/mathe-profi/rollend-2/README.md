@@ -22,7 +22,7 @@ Gewöhnliche Anwendungsaufgaben sind damit 6 von 86 (in `rollend-1` waren es 18 
 ## Geprüft [G]
 
 - Jede Rechenaufgabe zweifach nachgerechnet: Feld `c` mit dem Rechner aus `tools/inhalt_pruefen.py`, dazu ein zweiter Weg im Programm (91 Rechnungen).
-- Jede Auswahl-Aufgabe hat eine Probe; jede falsche Antwort ist beschrieben (192 Fehlbilder, 69 davon mit Fehlbild-Kennung aus `kennungen.json`; wo ich nicht sicher war, steht keine).
+- Jede Auswahl-Aufgabe hat eine Probe; jede falsche Antwort ist beschrieben (194 Fehlbilder, 69 davon mit Fehlbild-Kennung aus `kennungen.json`; wo ich nicht sicher war, steht keine).
 - Jede `bedingung`-Aufgabe: `pruefe_aufgabe` aus dem **aktuellen** `tools/bedingung.py` liefert eine leere Fehlerliste. Zusätzlich: Jede gute Antwort wird als richtig bewertet; jedes Gegenbeispiel scheitert genau an der genannten Bedingung und bekommt einen lesbaren Hinweis; jede Bedingung hat mindestens ein Gegenbeispiel. Höchstens vier Felder.
 - Alle Aufgaben an eine Kopie ihrer Themen-Datei gehängt: `tools/inhalt_pruefen.py` meldet vorher und nachher keinen Fehler. Kein Aufgabentext steht wörtlich schon im Bestand.
 - Jede Regel-Kennung und jede Fehlbild-Kennung gibt es in `regeln-uebersicht/kennungen.json`.
@@ -86,7 +86,7 @@ Kurz [M]: Wirklich auf Grafik-Eingabe warten sollten **Säulendiagramm, Kreisdia
 
 ## 4. Brüche
 
-Sechs Texte enthalten einen Bruchstrich: `D1-03` (12/18, 18/12, 12/30, 2/5) und `F1-B5` (12/(x − a), 12/(2 + 1)). Alle stehen in einer der erkannten Formen (Zahl/Zahl, Zahl/(Klammer)). Das Programm bricht ab, wenn eine Form wie 1/2x oder eine verschachtelte Klammer im Bruch vorkommt. [G]
+Acht Texte enthalten einen Bruchstrich: `D1-03` (12/18, 18/12, 12/30, 2/5), `F1-B5` (12/(x − a), 12/(2 + 1)) und seit Auftrag 20 `G8-01` (②/100) und `G8-04` (①/10). Alle stehen in einer der erkannten Formen (Zahl/Zahl, Zahl/(Klammer)). Das Programm bricht ab, wenn eine Form wie 1/2x oder eine verschachtelte Klammer im Bruch vorkommt. [G]
 Sonst habe ich Brüche vermieden und „6 von 24“, „ein Viertel“ oder „:“ geschrieben.
 
 ## Nicht geprüft
@@ -105,3 +105,43 @@ Sonst habe ich Brüche vermieden und „6 von 24“, „ein Viertel“ oder „:
 - `a1` rechnet in ℕ, wie die Lernkarte „Gibt es immer eine Lösung?“. Negative Zahlen kommen nicht vor.
 - Regel-Kennungen, wo die Liste nicht genau passt: „Textaufgabe als Gleichung“ (a1) hängt an `id.algebra.term`; „irreführende Diagramme“ und „absolute Häufigkeit“ (d1) an `id.daten.kennzahl`; „relative Häufigkeit“ und „Kreisdiagramm“ an `id.daten.anteil`. Dessen Merksatz spricht von Wahrscheinlichkeit; gemeint ist hier derselbe Gedanke „Teil durch Ganzes“.
 - Namen in Aufgaben (Tom, Nora, Mia, Paul …) sind erfunden.
+
+
+## Berichtigungen nach der Inhaltsprüfung (Auftrag 20)
+
+Stand 27.11.2026. Alle sechs Dateien sind neu erzeugt (`bauen.py` endet mit „OK“, 116 Aufgaben, 91 Rechnungen zweifach nachgerechnet, 194 Fehlbilder). Kennungen, Lernziele (`l`) und Teilfähigkeiten (`t`) sind unverändert; keine Aufgabe hinzugefügt oder gelöscht; die 30 `bedingung`-Aufgaben sind nicht angefasst.
+
+**Muss vorher**
+
+| Kennung | Befund | was geändert |
+|---|---|---|
+| `A1-04` | Die Antwort „noch einmal auf demselben Weg lösen“ ist nicht falsch, nur nicht gemeint. | Frage auf die Einsetzprobe zugeschnitten: „Bei der Einsetzprobe setzt du eine Zahl in die Gleichung ein und vergleichst. Wie machst du die Einsetzprobe für x = 9?“ Damit passt nur „9 für x einsetzen und beide Seiten vergleichen“. Tipp und Lösungsweg angepasst. |
+| `G1-07` | Lücke hinter „0,“ (Weg B „= 0,② m“): Die App vergleicht die Lücke als ganze Zahl; „08“ zählte als 8, „80“ würde abgewiesen. | Weg B in Millimetern: „1 500 mm − 850 mm = ② mm“. Lücken jetzt ① = 65 (cm) und ② = 650 (mm), beide echte ganze Zahlen. Tipp („1 cm sind 10 mm“), Lösungsweg, Rechenanker (`150 - 85`, `1500 - 850`) und Fehlbilder angepasst. |
+| `G8-01` | Lücke hinter „0,“ („Der Faktor ist 0,②“), gleiche Ursache wie bei `G1-07`. | „Der Faktor ist der Bruch ②/100.“ Lücken 65 und 65. Tipp und Lösungsweg nennen „Prozent heißt von Hundert“ und den Bruch 65/100. |
+| `G8-04` | Zwei Lücken hinter „0,“ („Faktor war 0,①“, „: 0,①“). | „Der Faktor war der Bruch ①/10. Zurück zum alten Preis: 64 € · 10 : ① = ② €.“ Lücken 8 und 80. Tipp („80 % sind wie viele Zehntel?“) und Lösungsweg angepasst. |
+| `G1-12` | Leergewicht nicht ausdrücklich genannt. | „Der leere Lieferwagen wiegt 2 800 kg; dazu kommen 900 kg Ladung.“ Lösungsweg und Fehlbild („nur den leeren Wagen gewogen“) angepasst. |
+| `G2T2-03` | „gleiche Brötchen“ garantiert keine Proportionalität (Mengenrabatt). | Voraussetzung im Text: „Jedes Brötchen kostet gleich viel, es gibt keinen Mengenrabatt und keine Grundgebühr.“ Antwort heißt „Anzahl der Brötchen → Preis“. Tipp und Lösungsweg nennen die Voraussetzung. |
+
+**Kann so – je Punkt entschieden**
+
+| Kennung | Befund | was geändert (oder „bleibt, weil …“) |
+|---|---|---|
+| `A1-12` | Stufe 3 zu hoch: ein Schritt (Probe rückwärts). | Stufe 3 → 2, Typ `parameter` → `umkehr`. Text unverändert. |
+| `G1-04` | Tipp „zwei Stellen hinter dem Komma“ klingt nach fester Regel. | Tipp als Stellenwert-Beziehung: „1 cm ist 0,01 m. Wie viele Hundertstel Meter sind 7 cm?“ |
+| `G1-08` | dasselbe („drei Stellen“). | Tipp: „1 g ist 0,001 kg. Wie viele Tausendstel Kilogramm sind 40 g?“ |
+| `D1-12` | „wirkt größer“ braucht gleiche Zeichenfläche. | Direkt nach dem Höhenverhältnis gefragt: „Du vergleichst in jedem Diagramm die Höhe der zweiten Säule mit der Höhe der ersten.“ Die Antworten sagen „3-mal so hoch wie die erste“ statt „wirkt größer“. Richtige Antwort bleibt an Stelle 4; Lösungsweg nennt A: etwa 1,08-mal. |
+| `G8-14` | 1,1 wurde über Wurzelziehen gesucht. | Tipp: Faktoren ausprobieren (1,05; 1,1; 1,2). Lösungsweg zeigt das Probieren (1,05 · 1,05 = 1,1025 zu klein; 1,2 · 1,2 = 1,44 zu groß; 1,1 · 1,1 = 1,21). Der Text nennt den Faktor jetzt „q“. Lösung 10 % bleibt. |
+| `F1-07` | Achsenzahlen liegen auf dem Graphen (die Gerade läuft durch die Beschriftungen links der y-Achse). | Zeichnung mit `schritt_y: 3`: Auf der y-Achse stehen nur −3 und 3. Gefragt ist y = 3, das ist beschriftet. **In der App nicht angesehen.** |
+| `F1-15` | Die Achsenzahlen ±3 liegen genau auf dem Kreis. | Zeichnung mit `schritt_x: 2` und `schritt_y: 2`: Beschriftet sind ±2 und ±4, der Kreis (Radius 3) läuft zwischen den Zahlen durch. Antwort nennt weiter die Punkte (0 | 3) und (0 | −3). **In der App nicht angesehen.** |
+| `D1-02`, `-03`, `-04`, `-05`, `-06`, `-10`, `-13`, `-14` | Prozent, relative Häufigkeit und Kreisdiagramm sind am bayerischen Gymnasium Stoff der 6. Klasse. | **Vorgriff auf Klasse 6.** Der Flug erklärt das selbst. Die Aufgaben bleiben, sind aber kein Mindeststand Klasse 5. Der Zähler in der Dateiübersicht oben („für Kind 1“) bleibt; maßgeblich ist diese Kennzeichnung. Die Aufgaben selbst sind nicht geändert. |
+
+Zusatz zur Zeichnungsprüfung in `bauen.py`: Eine Koordinaten-Zeichnung darf jetzt auch `schritt_x`, `schritt_y` enthalten (sonst wie bisher nur Art `linear`, `poly`, Kreise).
+Folge für Abschnitt 4 („Brüche“): Zwei Texte kommen dazu, `G8-01` („②/100“) und `G8-04` („①/10“). Beide stehen in der erkannten Form Zahl/Zahl; das Lückenzeichen steht vor dem Strich. **Wie die App „②/100“ mit Lückenzeichen darstellt, ist nicht gesehen.** Das Programm meldet jetzt 8 Texte mit Bruchstrich, keiner zweideutig.
+
+**Muster-Suche in dieser Runde (86 Aufgaben in `zahl`, `auswahl`, `luecken`):** Weitere Treffer außer den genannten:
+(1) Unbeabsichtigte Lösung 0: keine. `A1-06`, `A1-12`, `G1-06` u. a. haben eine einzige Lösung.
+(2) Falsche Auswahl-Antworten einzeln gegengelesen. Bei `A1-05` („14 ist nicht durch 6 teilbar“) bleibt es, weil als Begründung nachweislich falsch (6 · x + 2 = 14 hat die Lösung 2, obwohl 14 nicht durch 6 teilbar ist, steht im Fehlbild). `G1-12` Antwort „Ja, 2 800 kg sind weniger als 3,5 t“ ist als Urteil falsch (die Ladung fehlt).
+(3) Komma an einer Lücke: nur `G1-07`, `G8-01`, `G8-04` (siehe oben). Satzkommas wie in `G2T2-02` („①, ②, ③“) stehen mit Leerzeichen und sind erlaubt. `G1-14` („□:□ Uhr“) bleibt: Doppelpunkt, und jede Lücke ist eine ganze Zahl.
+(4) Modellvoraussetzung: `G2T2-03` (siehe oben). `G2T2-09` (Taxi) nennt den Grundpreis, `F1-14` und `G2T2-13` sagen „gleichmäßig“.
+
+**Neue automatische Prüfung in `bauen.py`:** Das Programm bricht ab, wenn im Fragetext oder in der Schablone einer Lückenaufgabe ein Komma ohne Leerzeichen an einem Lückenzeichen (① … ⑨, □) steht, etwa „0,②“ oder „①,②“. Satzkommas mit Leerzeichen („①, dann …“) sind erlaubt. Zusätzlich muss jede Lücke eine ganze Zahl sein. Die alten Fassungen von `G1-07`, `G8-01` und `G8-04` würden damit abbrechen (nachgestellt mit der Regel, nicht mit dem Programm selbst).

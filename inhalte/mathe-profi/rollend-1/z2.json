@@ -325,14 +325,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Welches ist die kleinste Zahl, die sowohl in der Sechserreihe als auch in der Achterreihe vorkommt?"
+     "text": "Welches ist die kleinste Zahl über 0, die sowohl in der Sechserreihe als auch in der Achterreihe vorkommt?"
     },
     "o": {
      "wert": 24
     },
     "c": "6 * 8 // 2",
-    "h": "Schreib die Achterreihe auf und prüfe jede Zahl auf Teilbarkeit durch 6.",
-    "w": "Achterreihe: 8, 16, 24 … Die 24 ist auch 4 · 6. Kleiner geht es nicht."
+    "h": "Schreib die Achterreihe ab 8 auf und prüfe jede Zahl auf Teilbarkeit durch 6. Die 0 zählt hier nicht.",
+    "w": "Achterreihe: 8, 16, 24 … Die 24 ist auch 4 · 6. Die 0 steht zwar in jeder Reihe, aber gesucht ist die kleinste Zahl über 0. Kleiner als 24 geht es nicht."
    }
   },
   {

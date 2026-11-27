@@ -151,7 +151,7 @@
     "g": "erkennen",
     "y": "auswahl",
     "f": {
-     "text": "Bei welcher Aufgabe darfst du mit dem Dreisatz rechnen?"
+     "text": "Bei welcher Aufgabe darfst du mit dem Dreisatz rechnen? Bei Preisen gilt: Jedes Stück und jedes Kilogramm kostet gleich viel, es gibt keinen Rabatt."
     },
     "a": [
      "3 kg Kartoffeln kosten 4,50 €. Was kosten 5 kg?",
@@ -162,7 +162,7 @@
      "index": 0
     },
     "h": "Prüfe: doppelte Menge, doppelter Wert?",
-    "w": "Doppelt so viele Kartoffeln kosten doppelt so viel. Größe und Liedlänge verdoppeln sich nicht."
+    "w": "Jedes Kilogramm kostet gleich viel: Doppelt so viele Kartoffeln kosten doppelt so viel. Größe und Liedlänge verdoppeln sich nicht."
    }
   },
   {
@@ -562,7 +562,7 @@
     "g": "einkleidung",
     "y": "auswahl",
     "f": {
-     "text": "Ein Maler streicht eine Wand in 3 Stunden. Jule rechnet mit dem Dreisatz: „Dann brauchen 2 Maler 6 Stunden.“ Was stimmt?"
+     "text": "Ein Maler streicht eine Wand in 3 Stunden; alle Maler arbeiten gleich schnell. Jule rechnet mit dem Dreisatz: „Dann brauchen 2 Maler 6 Stunden.“ Was stimmt?"
     },
     "a": [
      "Jule hat recht.",
@@ -736,7 +736,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Für 4 Personen braucht ein Rezept 300 g Mehl. Im Schrank ist 1 kg Mehl. Für wie viele Personen reicht das höchstens?"
+     "text": "Für 4 Personen braucht ein Rezept 300 g Mehl; jede Person bekommt gleich viel. Im Schrank ist 1 kg Mehl. Für wie viele Personen reicht das höchstens?"
     },
     "o": {
      "wert": 13

@@ -237,9 +237,9 @@ neu(f, "einheitsquadrate", 12, 1, "erkennen", AUS, "ja",
     lambda: 5 * 3 == 15 and 2 * 5 + 2 * 3 == 16, {0: ("fb.auslegen.umfang_statt_flaeche", "den Fehler nicht bemerkt"), 1: (None, "nicht nachgerechnet"), 3: (None, "nur zwei Seiten zusammengezählt")})
 neu(f, "einheiten", 13, 1, "erkennen", GR, "ja",
     wahl("Warum ist die Umrechnungszahl bei Flächen 100 und nicht 10?",
-         ["Weil Flächen größer sind als Längen.", "Weil 1 m = 100 cm ist.", "Weil in ein Quadrat mit 1 dm Seitenlänge 10 Reihen mit je 10 Quadraten von 1 cm² passen.", "Das ist nur eine Abmachung."], 2,
+         ["Weil Flächen größer sind als Längen.", "Weil 1 dm = 100 cm ist.", "Weil in ein Quadrat mit 1 dm Seitenlänge 10 Reihen mit je 10 Quadraten von 1 cm² passen.", "Das ist nur eine Abmachung."], 2,
          "Lege in Gedanken ein Quadrat von 1 dm² mit Zentimeter-Quadraten aus.", "1 dm = 10 cm. In das Quadrat passen 10 Reihen mit je 10 Quadraten: 100 cm²."),
-    lambda: 10 * 10 == 100, {0: (None, "kein Grund"), 1: (None, "Längen-Umrechnung m in cm, nicht der Grund für Flächen"), 3: (None, "es lässt sich begründen")})
+    lambda: 10 * 10 == 100, {0: (None, "kein Grund"), 1: (None, "falsche Längen-Umrechnung: 1 dm sind nur 10 cm"), 3: (None, "es lässt sich begründen")})
 neu(f, "sachaufgaben", 13, 1, "erkennen", AUS, "ja",
     wahl("Für welche Aufgabe brauchst du den Umfang?", ["Rasen für einen Garten säen", "Einen Zaun um den Garten bauen", "Farbe für eine Wand kaufen", "Fliesen für den Boden zählen"], 1,
          "Geht es um den Rand oder um das, was innen liegt?", "Der Zaun läuft außen um den Garten herum: Umfang. Rasen, Farbe und Fliesen bedecken eine Fläche."),
@@ -329,9 +329,9 @@ neu(f, "dreisatz", 12, 1, "erkennen", VERH, "ja",
          "Was kostet 1 Heft?", "1 Heft kostet 4,50 € : 3 = 1,50 €. 5 Hefte kosten 5 · 1,50 € = 7,50 €."),
     lambda: F(450, 3) * 5 == 750, {1: (None, "das wäre der Preis für 15 Hefte"), 2: ("fb.verhaeltnis.addiert_statt_malgenommen", "den Fehler nicht bemerkt"), 3: (None, "5 Hefte kosten mehr als 3")})
 neu(f, "sach", 13, 1, "erkennen", WERT, "ja",
-    wahl("Bei welcher Aufgabe darfst du mit dem Dreisatz rechnen?",
+    wahl("Bei welcher Aufgabe darfst du mit dem Dreisatz rechnen? Bei Preisen gilt: Jedes Stück und jedes Kilogramm kostet gleich viel, es gibt keinen Rabatt.",
          ["3 kg Kartoffeln kosten 4,50 €. Was kosten 5 kg?", "Ein Kind ist mit 6 Jahren 1,20 m groß. Wie groß ist es mit 12 Jahren?", "Ein Lied dauert 3 Minuten, wenn ein Kind es singt. Wie lange dauert es, wenn 4 Kinder es zusammen singen?"], 0,
-         "Prüfe: doppelte Menge, doppelter Wert?", "Doppelt so viele Kartoffeln kosten doppelt so viel. Größe und Liedlänge verdoppeln sich nicht."),
+         "Prüfe: doppelte Menge, doppelter Wert?", "Jedes Kilogramm kostet gleich viel: Doppelt so viele Kartoffeln kosten doppelt so viel. Größe und Liedlänge verdoppeln sich nicht."),
     lambda: True, {1: (None, "Wachstum ist nicht proportional"), 2: (None, "die Dauer hängt nicht von der Zahl der Kinder ab")})
 neu(f, "geschickt", 13, 1, "erkennen", VERH, "ja",
     wahl("12 Flaschen kosten 18 €. Gesucht ist der Preis für 8 Flaschen. Welche Zwischenmenge ist geschickt?", ["5 Flaschen", "10 Flaschen", "7 Flaschen", "4 Flaschen"], 3,
@@ -364,7 +364,7 @@ neu(f, "dreisatz", 17, 2, "umkehr", VERH, "ja",
          "Wie viele Liter bekommt man für 1 €? Oder: Wievielmal so viel Geld ist es?", "20 € sind 2,5-mal so viel wie 8 €. Also 2,5 · 5 Liter = 12,5 Liter.", einheit="Liter"),
     ["100/8"], [(32, "fb.verhaeltnis.falsche_richtung", "den Preis für 20 Liter berechnet"), (17, "fb.verhaeltnis.addiert_statt_malgenommen", "12 € mehr, also 12 Liter mehr")])
 neu(f, "sach", 12, 2, "einkleidung", WERT, "ja",
-    wahl("Ein Maler streicht eine Wand in 3 Stunden. Jule rechnet mit dem Dreisatz: „Dann brauchen 2 Maler 6 Stunden.“ Was stimmt?",
+    wahl("Ein Maler streicht eine Wand in 3 Stunden; alle Maler arbeiten gleich schnell. Jule rechnet mit dem Dreisatz: „Dann brauchen 2 Maler 6 Stunden.“ Was stimmt?",
          ["Jule hat recht.", "Zwei Maler brauchen auch 3 Stunden.", "Jule darf den Dreisatz hier nicht nehmen: Mehr Maler brauchen weniger Zeit.", "Zwei Maler brauchen 5 Stunden."], 2,
          "Prüfe zuerst: Gehört zur doppelten Zahl der doppelte Wert?", "Mehr Maler sind schneller fertig. Die Zuordnung ist nicht proportional, also kein Dreisatz."),
     lambda: True, {0: (None, "Proportionalität ungeprüft angenommen"), 1: (None, "zwei arbeiten schneller als einer"), 3: (None, "geraten")})
@@ -381,7 +381,7 @@ neu(f, "aenderung", 12, 3, "fehler", PM, "ja",
          "Nimmt die Größe zu oder ab?", "Änderung: 2 − 12 = −10 °C. Geteilt durch 5 Stunden: −2 °C pro Stunde. Das Minus zeigt: Es wird kälter."),
     ["(0-10)/5"], [(2, "fb.plusminus.zeichen_des_ergebnisses", "wie Nico ohne Minus"), (-10, None, "die ganze Änderung statt der Rate")])
 neu(f, "sach", "A", 3, "verknuepfen", VERH, "ja",
-    zahl("Für 4 Personen braucht ein Rezept 300 g Mehl. Im Schrank ist 1 kg Mehl. Für wie viele Personen reicht das höchstens?", 13, "1000 // (300 // 4)",
+    zahl("Für 4 Personen braucht ein Rezept 300 g Mehl; jede Person bekommt gleich viel. Im Schrank ist 1 kg Mehl. Für wie viele Personen reicht das höchstens?", 13, "1000 // (300 // 4)",
          "Wie viel Mehl braucht eine Person? Rechne das Kilogramm in Gramm um.", "Eine Person: 300 g : 4 = 75 g. 1 000 g : 75 g = 13, Rest 25 g. Es reicht für 13 Personen."),
     ["(1000-25)/75"], [(14, None, "aufgerundet, obwohl das Mehl nicht reicht"), (12, None, "nur ganze Rezepte gezählt: 3 · 4")])
 je = ["/", "$2", "$1"]
@@ -648,7 +648,7 @@ neu(f, "addition", 13, 1, "erkennen", LOES, "ja",
          "Was passiert mit +2y und −2y?", "2y und −2y sind Gegenzahlen und fallen weg. Links 3x + 5x = 8x, rechts 12 + 4 = 16."),
     lambda: 3 + 5 == 8 and 2 - 2 == 0 and 12 + 4 == 16, {1: (None, "x statt y wegfallen lassen"), 2: (None, "die Gegenzahlen addiert, als hätten sie gleiches Vorzeichen"), 3: (None, "rechts abgezogen statt addiert")})
 neu(f, "verfahren", 13, 1, "erkennen", LOES, "ja",
-    wahl("I: y = 4x − 1 und II: y = −x + 9. Welches Verfahren ist hier am geschicktesten?", ["Gleichsetzen", "Addieren", "erst beide Gleichungen mal 2 nehmen"], 0,
+    wahl("I: y = 4x − 1 und II: y = −x + 9. Welches Verfahren ist hier am geschicktesten?", ["Gleichsetzen", "beide Gleichungen so addieren, wie sie dastehen", "erst beide Gleichungen mal 2 nehmen"], 0,
          "Schau auf die Form der beiden Gleichungen.", "Zweimal steht y = … da. Also die rechten Seiten gleichsetzen: 4x − 1 = −x + 9."),
     lambda: 4 * 2 - 1 == -2 + 9, {1: (None, "Addieren ließe y nicht wegfallen"), 2: (None, "unnötiger Umweg")})
 neu(f, "einsetzen", 4, 2, "mehrschritt", MK, "nein",
@@ -729,6 +729,21 @@ neu(f, "loesung_parameter", "V", 3, "parameter", LOES, "ja",
         [5, 4], [([3, 2], "genau eine Lösung"), ([5, 3], "Lösung liegt bei x = 1"), ([0, 0], "Lösung liegt bei x = 1")],
         "Setze x = 1 in beide Gleichungen ein. Was muss gelten?", "Bei x = 1 müssen beide dasselbe y liefern: k + 2 = 3 + c. Zum Beispiel k = 5 und c = 4. Für k = 3 wären die Geraden parallel.", gut=[[1, 0], ["-2", "-3"]]), None, None)
 
+# ═════════════════════ Prüfung: kein Komma an einer Lücke (Auftrag 20) ═════════════════════
+# Der Antworttyp „luecken“ vergleicht jede Lücke als GANZE ZAHL. Eine Lücke hinter „0,“ oder zwischen Ziffern und Komma wäre eine Ziffernfolge
+# („08“ zählt als 8, „80“ würde abgewiesen). Deshalb bricht das Programm ab, wenn in Fragetext oder Schablone einer Lückenaufgabe ein Komma
+# unmittelbar (ohne Leerzeichen) an einem Lückenzeichen steht. Satzkommas mit Leerzeichen danach („① , ②“ nur als „①, ②“) sind erlaubt.
+LUECKENZEICHEN = "①②③④⑤⑥⑦⑧⑨□"
+KOMMA_AN_LUECKE = re.compile(rf"(?<=[{LUECKENZEICHEN}]),(?=\S)|(?<=\S),(?=[{LUECKENZEICHEN}])")
+
+
+def pruefe_komma_an_luecke(kenn, f):
+    for feld in ("text", "schablone"):
+        t = f.get(feld, "")
+        m = KOMMA_AN_LUECKE.search(t)
+        assert m is None, f"{kenn}: Komma direkt an einer Lücke in {feld}: „…{t[max(0, m.start() - 10):m.end() + 10]}…“ – Lücken sind ganze Zahlen; in Millimeter, in Hundertstel o. ä. umbauen"
+
+
 # ═════════════════════ Prüfen ═════════════════════
 ZWEIDEUTIG = re.compile(r"\d/\d+[a-zA-Z]|/\([^()]*\(|\)\)/")       # 1/2x · /( … ( · )) /
 
@@ -789,6 +804,8 @@ for a in sorted(A, key=lambda a: (list(FLUG).index(a["flug"]), a["typ"] == "V", 
             werte.add(w)
             fb_eintrag({}, w, fbk, text)
     elif q["y"] == "luecken":
+        pruefe_komma_an_luecke(kenn, q["f"])
+        assert all(isinstance(w, int) for w in q["o"]["werte"]), kenn
         soll = [ip.rechne(c) for c in q["c"]]
         assert soll == q["o"]["werte"] == [z2(z) for z in a["zweit"]], (kenn, soll, [z2(z) for z in a["zweit"]])
         assert all(isinstance(w, int) for w in q["o"]["werte"]) and q["f"]["schablone"].count("□") == len(soll), kenn

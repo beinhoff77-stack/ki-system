@@ -92,8 +92,8 @@ neu("ge1", T, 13, "vierecke", 1, "erkennen", DECK, "ja",
          "Prüfe erst die Seiten, dann die Winkel.", "Vier gleich lange Seiten: Raute. Für ein Quadrat bräuchte es zusätzlich rechte Winkel."),
     lambda: True, {0: (None, "rechte Winkel nicht geprüft"), 2: (None, "ein Rechteck hat rechte Winkel"), 3: (None, "zu allgemein: nicht der genaueste Name")})
 neu("ge1", T, 14, "strecken", 2, "mehrschritt", PM, "ja",
-    zahl("Zwei Wege für die Länge von [CD] mit C(2 | −6) und D(2 | 9). Weg A: 6 + 9. Weg B: 9 − (−6) = 9 + ?. Welche Zahl steht für das Fragezeichen?", 6, "0 - (-6)",
-         "Beide Wege müssen dieselbe Länge ergeben.", "Minus (−6) heißt plus 6. Beide Wege ergeben 15."),
+    zahl("Zwei Wege für die Länge von [CD] mit C(2 | −6) und D(2 | 9). Weg A: von C bis zur x-Achse zählen, dann von der x-Achse bis D. Weg B: 9 − (−6) = 9 + ?. Beide Wege ergeben dieselbe Länge. Welche Zahl steht für das Fragezeichen?", 6, "0 - (-6)",
+         "Beide Wege müssen dieselbe Länge ergeben. Wie weit ist C von der x-Achse entfernt?", "Weg A: C ist 6 unter der x-Achse, D ist 9 darüber: 6 + 9 = 15. Weg B: Minus (−6) heißt plus 6. Auch hier kommt 15 heraus."),
     ["(6+9)-9"], [(-6, "fb.plusminus.doppelminus_uebersehen", "das Minus der −6 stehen gelassen")])
 neu("ge1", T, 17, "strecken", 2, "umkehr", PM, "ja",
     zahl("Die Strecke [EF] ist waagrecht und 7 Einheiten lang. E(−2 | 4), und F liegt rechts von E. Welche x-Koordinate hat F?", 5, "-2 + 7",
@@ -120,7 +120,7 @@ neu("ge1", O, 13, "sachsituationen", 2, "einkleidung", ABST, "ja",
          ["eine Kreislinie mit Radius 6 m", "ein Streifen von 6 m Breite", "eine Kreisfläche mit Radius 6 m", "eine Kreisfläche mit Durchmesser 6 m"], 2,
          "„Bis zu 6 m“ heißt: höchstens 6 m entfernt.", "Alle Punkte, die höchstens 6 m vom Sprenger entfernt sind, bilden eine Kreisfläche mit Radius 6 m."),
     lambda: True, {0: (None, "„genau 6 m“ statt „höchstens 6 m“ gelesen"), 1: (None, "Abstand zu einer Geraden statt zu einem Punkt"), 3: ("fb.aus_dem_rechteck.durchmesser_statt_radius", "Reichweite als Durchmesser genommen")})
-neu("ge1", T, 17, "kreis_lage", 3, "rueckwaerts", ABST, "ja",
+neu("ge1", T, 17, "kreis_lage", 2, "umkehr", ABST, "ja",
     zahl("Ein Kreis um M(1 | 3) hat den Radius 5. Die Gerade h verläuft senkrecht (parallel zur y-Achse), liegt rechts von M und ist eine Tangente des Kreises. Durch welchen x-Wert geht h?", 6, "1 + 5",
          "Wie weit ist eine Tangente vom Mittelpunkt entfernt?", "Eine Tangente hat vom Mittelpunkt genau den Abstand r. Rechts von M: 1 + 5 = 6."),
     ["5+1"], [(-4, "fb.abstand.nur_eine_seite", "die Tangente links von M genommen"), (5, None, "von 0 statt von M aus gemessen"), (8, "fb.abstand.koordinaten_vertauscht", "mit der y-Koordinate von M gerechnet")])
@@ -185,8 +185,8 @@ neu("z2", T, "A", "teiler", 2, "mehrschritt", BAU, "ja",
          "Schreib die Teilerpaare auf. Achte auf das Paar 6 · 6.", "Paare: 1 · 36, 2 · 18, 3 · 12, 4 · 9, 6 · 6. Das sind 4 Paare mit je zwei Teilern und die 6 nur einmal: 9 Teiler."),
     ["len([1,2,3,4,6,9,12,18,36])"], [(10, None, "die 6 doppelt gezählt"), (5, None, "Paare statt Teiler gezählt"), (8, None, "die 6 ganz weggelassen")])
 neu("z2", T, "A", "vielfache", 2, "mehrschritt", BAU, "ja",
-    zahl("Welches ist die kleinste Zahl, die sowohl in der Sechserreihe als auch in der Achterreihe vorkommt?", 24, "6 * 8 // 2",
-         "Schreib die Achterreihe auf und prüfe jede Zahl auf Teilbarkeit durch 6.", "Achterreihe: 8, 16, 24 … Die 24 ist auch 4 · 6. Kleiner geht es nicht."),
+    zahl("Welches ist die kleinste Zahl über 0, die sowohl in der Sechserreihe als auch in der Achterreihe vorkommt?", 24, "6 * 8 // 2",
+         "Schreib die Achterreihe ab 8 auf und prüfe jede Zahl auf Teilbarkeit durch 6. Die 0 zählt hier nicht.", "Achterreihe: 8, 16, 24 … Die 24 ist auch 4 · 6. Die 0 steht zwar in jeder Reihe, aber gesucht ist die kleinste Zahl über 0. Kleiner als 24 geht es nicht."),
     ["min(24,48)"], [(48, None, "6 · 8 genommen – das ist ein gemeinsames Vielfaches, aber nicht das kleinste"), (2, None, "den größten gemeinsamen Teiler genannt"), (14, None, "6 + 8 gerechnet")])
 neu("z2", T, 17, "endziffer", 2, "umkehr", BAU, "ja",
     zahl("Die vierstellige Zahl 473□ soll durch 2 und durch 5 teilbar sein. Welche Ziffer gehört in das Kästchen?", 0, "0",
@@ -297,7 +297,7 @@ neu("ge2", T, "A", "drehung", 2, "mehrschritt", DECK, "ja",
     luecken("Drehe P(3 | 1) um den Ursprung um 90° nach links (gegen den Uhrzeigersinn). Bildpunkt P′(□ | □).", "P′(□ | □)", [-1, 3], ["0 - 1", "3"],
             "Aus (x | y) wird (−y | x).", "Aus (3 | 1) wird (−1 | 3). Probe mit einer Skizze: P liegt rechts, P′ liegt oben.", "Erst x, dann y."),
     ["-1", "3"], {0: [(1, "fb.deckungsgleich.drehrichtung", "nach rechts gedreht"), (-3, None, "um 180° gedreht")], 1: [(-3, "fb.deckungsgleich.drehrichtung", "nach rechts gedreht"), (-1, None, "um 180° gedreht")]})
-neu("ge2", T, 17, "achsenspiegelung", 3, "rueckwaerts", ABST, "ja",
+neu("ge2", T, 17, "achsenspiegelung", 2, "umkehr", ABST, "ja",
     zahl("P(2 | 7) wird an einer waagrechten Achse gespiegelt und fällt auf P′(2 | −1). Durch welchen y-Wert geht die Achse?", 3, "(7 + (-1)) // 2",
          "Die Achse liegt genau in der Mitte zwischen P und P′.", "Mitte von 7 und −1: (7 − 1) : 2 = 3. Probe: P liegt 4 darüber, P′ 4 darunter."),
     ["7-(7-(-1))/2"], [(4, "fb.abstand.halbe_laenge_statt_mitte", "den halben Abstand genannt"), (8, None, "den ganzen Abstand genannt"), (0, "fb.deckungsgleich.an_koordinatenachse_gespiegelt", "die x-Achse angenommen")])
@@ -367,8 +367,8 @@ neu("a4", T, "A", "umdrehen", 2, "mehrschritt", WAAGE, "ja",
          "Erst die 6 wegbringen. Dann durch die Zahl vor x teilen – achte auf ihr Vorzeichen.", "Minus 6: −2x > 8. Geteilt durch −2, das Zeichen dreht sich um: x < −4."),
     lambda: all((-2 * x + 6 > 14) == (x < -4) for x in range(-20, 20)), {0: ("fb.waage.zeichen_nicht_gedreht", "Zeichen nicht umgedreht"), 1: ("fb.vorzeichen.falsches_zeichen", "8 : (−2) als 4 gerechnet und Zeichen nicht umgedreht"), 2: ("fb.vorzeichen.falsches_zeichen", "8 : (−2) als 4 gerechnet")})
 neu("a4", T, 4, "klammern", 2, "mehrschritt", WAAGE, "folge",
-    luecken("Löse: 2 · (x − 3) > 5x + 9. Klammer auflösen: 2x − ① > 5x + 9. Minus 5x auf beiden Seiten: ② · x − 6 > 9. Plus 6: −3x > ③. Geteilt durch −3, Zeichen umdrehen: x < ④.", K(4), [6, -3, 15, -5],
-            ["2 * 3", "2 - 5", "9 + 6", "15 // (-3)"], "Jede Zeile ändert nur eine Stelle.", "2 · 3 = 6. 2x − 5x = −3x. 9 + 6 = 15. 15 : (−3) = −5. Also x < −5."),
+    luecken("Löse: 2 · (x − 3) > 5x + 9. Klammer auflösen: 2x − ① > 5x + 9. Bring alle x nach links und alle Zahlen nach rechts: ② · x > ③. Teilst du durch ②, dreht sich das Zeichen um: x < ④.", K(4), [6, -3, 15, -5],
+            ["2 * 3", "2 - 5", "9 + 6", "15 // (-3)"], "Erst die Klammer auflösen. Dann: Was bleibt links bei den x, was rechts bei den Zahlen?", "2 · 3 = 6. Minus 5x: 2x − 5x = −3x. Plus 6: 9 + 6 = 15. Also −3x > 15. Geteilt durch −3, Zeichen umdrehen: 15 : (−3) = −5. Also x < −5."),
     ["6", "-(5-2)", "15", "-(15/3)"], {0: [(3, "fb.ausmultiplizieren.nur_erster_summand", "die 3 nicht mit 2 malgenommen")], 1: [(3, "fb.plusminus.zeichen_des_ergebnisses", "5 − 2 gerechnet"), (7, None, "5x addiert statt abgezogen")], 2: [(3, "fb.gegenrechnung.gleiche_rechnung", "6 abgezogen statt addiert")], 3: [(5, "fb.vorzeichen.falsches_zeichen", "15 : (−3) als 5 gerechnet")]})
 neu("a4", T, "A", "pruefen", 2, "mehrschritt", LOES, "ja",
     zahl("Welche ist die kleinste ganze Zahl, die die Ungleichung 3x + 1 > 16 erfüllt?", 6, "(16 - 1) // 3 + 1",
@@ -431,6 +431,21 @@ neu("a4", T, "V", "umdrehen", 3, "parameter", WAAGE, "ja",
         [-3, 6], [([3, -6], "Lösungen haben die Form x < …"), ([0, 5], "Lösungen haben die Form x < …"), ([-3, 3], "Grenze ist 2")],
         "Wann dreht sich beim Auflösen nach x das Zeichen um?", "Das Zeichen dreht sich nur um, wenn a negativ ist. Die Grenze 2 muss die Gleichung a · 2 + b = 0 erfüllen, zum Beispiel a = −3 und b = 6.", gut=[[-1, 2], ["-0,5", 1]]), None, None)
 
+# ═════════════════════ Prüfung: kein Komma an einer Lücke (Auftrag 20) ═════════════════════
+# Der Antworttyp „luecken“ vergleicht jede Lücke als GANZE ZAHL. Eine Lücke hinter „0,“ oder zwischen Ziffern und Komma wäre eine Ziffernfolge
+# („08“ zählt als 8, „80“ würde abgewiesen). Deshalb bricht das Programm ab, wenn in Fragetext oder Schablone einer Lückenaufgabe ein Komma
+# unmittelbar (ohne Leerzeichen) an einem Lückenzeichen steht. Satzkommas mit Leerzeichen danach („① , ②“ nur als „①, ②“) sind erlaubt.
+LUECKENZEICHEN = "①②③④⑤⑥⑦⑧⑨□"
+KOMMA_AN_LUECKE = re.compile(rf"(?<=[{LUECKENZEICHEN}]),(?=\S)|(?<=\S),(?=[{LUECKENZEICHEN}])")
+
+
+def pruefe_komma_an_luecke(kenn, f):
+    for feld in ("text", "schablone"):
+        t = f.get(feld, "")
+        m = KOMMA_AN_LUECKE.search(t)
+        assert m is None, f"{kenn}: Komma direkt an einer Lücke in {feld}: „…{t[max(0, m.start() - 10):m.end() + 10]}…“ – Lücken sind ganze Zahlen; in Millimeter, in Hundertstel o. ä. umbauen"
+
+
 # ═════════════════════ Prüfen ═════════════════════
 aus = {f: [] for f in FLUG}
 je_thema = {}
@@ -458,6 +473,8 @@ for a in A:
             werte.add(w)
             fb_eintrag({}, w, fbk, text)
     elif q["y"] == "luecken":
+        pruefe_komma_an_luecke(kenn, q["f"])
+        assert all(isinstance(w, int) for w in q["o"]["werte"]), kenn
         soll = [ip.rechne(c) for c in q["c"]]
         assert soll == q["o"]["werte"] == [z2(z) for z in a["zweit"]], (kenn, soll, [z2(z) for z in a["zweit"]])
         assert q["f"]["schablone"].count("□") == len(soll), kenn

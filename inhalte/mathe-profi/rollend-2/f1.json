@@ -390,6 +390,7 @@
        -5,
        5
       ],
+      "schritt_y": 3,
       "graphen": [
        {
         "art": "linear",
@@ -835,6 +836,8 @@
        -4,
        4
       ],
+      "schritt_x": 2,
+      "schritt_y": 2,
       "kreise": [
        {
         "m": [

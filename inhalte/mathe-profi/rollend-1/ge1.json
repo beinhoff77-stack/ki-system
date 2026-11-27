@@ -291,14 +291,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Zwei Wege für die Länge von [CD] mit C(2 | −6) und D(2 | 9). Weg A: 6 + 9. Weg B: 9 − (−6) = 9 + ?. Welche Zahl steht für das Fragezeichen?"
+     "text": "Zwei Wege für die Länge von [CD] mit C(2 | −6) und D(2 | 9). Weg A: von C bis zur x-Achse zählen, dann von der x-Achse bis D. Weg B: 9 − (−6) = 9 + ?. Beide Wege ergeben dieselbe Länge. Welche Zahl steht für das Fragezeichen?"
     },
     "o": {
      "wert": 6
     },
     "c": "0 - (-6)",
-    "h": "Beide Wege müssen dieselbe Länge ergeben.",
-    "w": "Minus (−6) heißt plus 6. Beide Wege ergeben 15."
+    "h": "Beide Wege müssen dieselbe Länge ergeben. Wie weit ist C von der x-Achse entfernt?",
+    "w": "Weg A: C ist 6 unter der x-Achse, D ist 9 darüber: 6 + 9 = 15. Weg B: Minus (−6) heißt plus 6. Auch hier kommt 15 heraus."
    }
   },
   {
@@ -605,7 +605,7 @@
    "kennung": "GE1-13",
    "thema": "geometrie.grundbegriffe",
    "lernkarte": "kreis_lage",
-   "stufe": 3,
+   "stufe": 2,
    "typ": "Umkehren",
    "antwortform": "zahl",
    "regel": "id.geometrie.abstand",
@@ -635,8 +635,8 @@
     "l": "kreis_lage",
     "t": "kreis_lage",
     "p": "uebung",
-    "s": 3,
-    "g": "rueckwaerts",
+    "s": 2,
+    "g": "umkehr",
     "y": "zahl",
     "f": {
      "text": "Ein Kreis um M(1 | 3) hat den Radius 5. Die Gerade h verläuft senkrecht (parallel zur y-Achse), liegt rechts von M und ist eine Tangente des Kreises. Durch welchen x-Wert geht h?"

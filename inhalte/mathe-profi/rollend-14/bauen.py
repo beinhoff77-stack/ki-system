@@ -384,6 +384,60 @@ with tempfile.TemporaryDirectory() as tmp:
             print(aus1[-2500:])
         assert code0 == 0 and code1 == 0, datei
 
+# ═════════ Selbstprüfung mit Negativproben: die Prüfungen müssen kaputte Aufgaben wirklich ablehnen ═════════
+def lehnt_ab(f, *args):
+    try:
+        f(*args)
+    except (AssertionError, ZeroDivisionError, ValueError, SyntaxError, KeyError, TypeError):
+        return True
+    return False
+
+
+n_neg = Counter()
+hs = lambda w: __import__("hashlib").sha256(w.lower().encode()).hexdigest()[:12]
+# 1. Namensprüfung über Prüfsumme: eine künstliche Prüfsumme (Fantasiewort) wird gefunden, neutrale Namen nicht
+assert name_treffer("Heute spielt Zzprobewort mit Kim.", summen={hs("zzprobewort")}) == {hs("zzprobewort")}
+assert not name_treffer("Heute spielt Alex mit Kim und Sam.", summen={hs("zzprobewort")})
+n_neg["Namensprüfung (Prüfsumme findet, neutrale Namen nicht)"] += 2
+# 2. Bauplan: gleiche Aufgabe mit anderen Zahlen wird als gleich erkannt, ein anderer Sachverhalt nicht
+assert bau_ohne_zahl("Kim kauft 5 Äpfel für 3,20 €.") == bau_ohne_zahl("Kim kauft 7 Äpfel für 4,10 €.")
+assert bau_ohne_zahl("Kim kauft 5 Äpfel für 3,20 €.") != bau_ohne_zahl("Kim kauft 5 Birnen für 3,20 €.")
+n_neg["Bauplan (nur andere Zahlen = gleich)"] += 2
+# 3. Ergebnis im Text: wird erkannt, auch mit Tausenderleerzeichen und Komma
+assert F(42) in zahlen_im("Es sind 42 Stück.") and F(1350) in zahlen_im("Das sind 1 350 cm².") and F(5.5) in zahlen_im("Es sind 5,5 m.") and F(41) not in zahlen_im("Es sind 42 Stück.")
+n_neg["Ergebnis steht im Text"] += 4
+# 4. Eine Fehlbild-Rechnung, die den genannten Wert nicht ergibt, wird abgelehnt; eine richtige nicht
+assert lehnt_ab(fb_pruefen, "N", "Zahl", 25, "6 * 4") and lehnt_ab(fb_pruefen, "N", "Zahl", 24.5, "6 * 4") and lehnt_ab(fb_pruefen, "N", "Zahl", 24, None)
+assert fb_pruefen("N", "Zahl", 24, "6 * 4") is True
+n_neg["Fehlbild-Rechnung stimmt nicht"] += 3
+# 5. Zweitrechnung und Hauptrechnung: eine zweite Rechnung mit anderem Ergebnis wird erkannt
+assert z2("6 * 7") == F(42) and z2("6 * 8") != F(42)
+n_neg["Zweitrechnung"] += 1
+# 6. Unzulässige Rechenausdrücke (len, range, Namen) werden vom Rechner abgelehnt
+assert lehnt_ab(ip.rechne, "len([1, 2])") and lehnt_ab(ip.rechne, "__import__('os')") and lehnt_ab(ip.rechne, "1 / 0")
+n_neg["Rechner lehnt unzulässige Ausdrücke ab"] += 3
+# 7. Mutationen an allen echten Aufgaben mit Zahlantwort: falscher Sollwert, ein Fehlbild mit dem richtigen Wert, ein Fehlbild mit falscher Rechnung
+for a in A:
+    q = a["aufgabe"]
+    if q["y"] != "zahl":
+        continue
+    soll = ip.rechne(q["c"])
+    w = q["o"]["wert"]
+    def sollwert_stimmt(wert):
+        assert soll == ip.zahlwert(wert)
+    assert not lehnt_ab(sollwert_stimmt, w) and lehnt_ab(sollwert_stimmt, float(w) + 1), (a["thema"], a["lk"])   # richtiger Sollwert besteht, um 1 verschoben fällt durch
+    n_neg["Sollwert um 1 verschoben fällt auf"] += 1
+    for (fw, fk, fb_text, rech) in a["fb"]:
+        assert lehnt_ab(fb_pruefen, "N", "Zahl", float(fw) + 1, rech), (a["thema"], a["lk"], fw)      # Fehlwert um 1 verschoben: Rechnung passt nicht mehr
+        assert fw != w                                                                                 # kein Fehlbild entspricht dem richtigen Wert
+        n_neg["Fehlbild-Wert um 1 verschoben fällt auf"] += 1
+        n_neg["Fehlbild ist nicht die richtige Antwort"] += 1
+print()
+print("Selbstprüfung mit Negativproben (jede Probe muss die Prüfung zum Anschlagen bringen):")
+for k, v in n_neg.items():
+    print(f"  {v:4}  {k}")
+print(f"  gesamt {sum(n_neg.values())} Proben, alle bestanden")
+
 # ═════════ Schreiben und Zählen ═════════
 gesamt_f, gesamt_z = Counter(), Counter()
 print()

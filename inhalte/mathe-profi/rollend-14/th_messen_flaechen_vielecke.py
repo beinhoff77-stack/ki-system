@@ -1,0 +1,129 @@
+T = "messen.flaechen_vielecke"
+# ───────── parallelogramm ─────────
+a1(T, "parallelogramm", Z(
+    "Eine Fensterscheibe hat die Form eines Parallelogramms. Die Grundseite ist 45 cm lang, die Höhe beträgt 30 cm. Wie groß ist die Fläche der Scheibe?",
+    1350, "45 * 30", "30 * 45", "Beim Parallelogramm ist die Fläche Grundseite mal Höhe. Die Höhe steht senkrecht auf der Grundseite.",
+    "A = g · h = 45 · 30 = 1 350 cm².",
+    [B("45 * 30 / 2", "die Formel für das Dreieck benutzt"), B("45 + 30", "Grundseite und Höhe addiert"), B("2 * (45 + 30)", "einen Umfang berechnet")], "cm²"))
+a2(T, "parallelogramm", Z(
+    "Ein Banner hat die Form eines Parallelogramms. Die Grundseite ist 2,4 m lang, die Höhe ist 1,5 m. Der Stoff kostet 8 € je Quadratmeter. Wie viel Euro kostet der Stoff für das Banner?",
+    28.8, "2.4 * 1.5 * 8", "3.6 * 8", "Berechne zuerst die Fläche in m². Dann rechnest du den Preis.",
+    "Fläche: 2,4 · 1,5 = 3,6 m². Preis: 3,6 · 8 = 28,80 €.",
+    [B("2.4 * 1.5", "nur die Fläche angegeben"), B("2.4 * 8", "die Höhe vergessen"), B("2.4 * 1.5 * 8 / 2", "die Formel für das Dreieck benutzt")], "€"))
+a3(T, "parallelogramm", Z(
+    "Ein Parallelogramm hat die Seiten 9 cm und 12 cm. Die Höhe zur 9-cm-Seite ist 8 cm. Wie groß ist die Höhe zur 12-cm-Seite?",
+    6, "9 * 8 / 12", "72 / 12", "Berechne zuerst die Fläche mit der Grundseite 9 cm. Dieselbe Fläche gilt auch für die Grundseite 12 cm.",
+    "Fläche: 9 · 8 = 72 cm². Mit der Grundseite 12 cm gilt: 72 : 12 = 6 cm.",
+    [B("8 * 12 / 9", "Grundseite und Höhe vertauscht"), B("9 * 8", "die Fläche statt der Höhe angegeben"), B("12 - 9 + 8", "die Seiten addiert und subtrahiert")], "cm"), g="transfer")
+# ───────── dreieck ─────────
+a1(T, "dreieck", Z(
+    "Ein Segel ist ein Dreieck mit der Grundseite 7 m und der Höhe 4 m. Wie groß ist die Fläche des Segels?",
+    14, "7 * 4 / 2", "28 / 2", "Beim Dreieck rechnest du Grundseite mal Höhe und teilst dann durch 2.",
+    "Das Rechteck mit denselben Maßen hat 7 · 4 = 28 m². Das Dreieck ist halb so groß: 28 : 2 = 14 m².",
+    [B("7 * 4", "nicht durch 2 geteilt"), B("7 + 4", "Grundseite und Höhe addiert"), B("7 * 4 / 4", "durch 4 statt durch 2 geteilt")], "m²"))
+a2(T, "dreieck", Z(
+    "Eine Wimpelkette hat 8 gleiche Dreiecke aus Stoff. Jedes Dreieck hat die Grundseite 30 cm und die Höhe 40 cm. Wie viele Quadratzentimeter Stoff braucht man für alle Wimpel?",
+    4800, "8 * 30 * 40 / 2", "8 * 600", "Berechne zuerst die Fläche eines Wimpels. Dann rechnest du mal 8.",
+    "Ein Wimpel: 30 · 40 : 2 = 600 cm². Alle 8 Wimpel: 8 · 600 = 4 800 cm².",
+    [B("8 * 30 * 40", "nicht durch 2 geteilt"), B("30 * 40 / 2", "nur einen Wimpel berechnet"), B("8 * (30 + 40) / 2", "Grundseite und Höhe addiert")], "cm²"))
+a3(T, "dreieck", Z(
+    "Ein Dreieck hat die Grundseite 14 cm und die Höhe 5 cm. Ein zweites Dreieck hat denselben Flächeninhalt, aber die Grundseite 10 cm. Wie hoch ist das zweite Dreieck?",
+    7, "14 * 5 / 10", "70 / 10", "Das erste Dreieck hat die Fläche 14 · 5 : 2. Für das zweite gilt dieselbe Fläche mit der Grundseite 10 cm.",
+    "Fläche: 14 · 5 : 2 = 35 cm². Zweites Dreieck: 2 · 35 : 10 = 7 cm. Probe: 10 · 7 : 2 = 35.",
+    [B("14 * 5 / 2 / 10", "die Fläche nicht wieder verdoppelt"), B("14 * 5", "das Produkt der ersten Maße als Höhe angegeben"), B("14 + 5 - 10", "die Maße addiert und abgezogen")], "cm"), g="transfer")
+# ───────── trapez ─────────
+a1(T, "trapez", Z(
+    "Die Giebelwand eines Schuppens ist ein Trapez. Die parallelen Seiten sind 10 m und 6 m lang, die Höhe ist 3 m. Wie groß ist die Wandfläche?",
+    24, "(10 + 6) * 3 / 2", "16 * 3 / 2", "Beim Trapez addierst du die parallelen Seiten, multiplizierst mit der Höhe und teilst durch 2.",
+    "(10 + 6) · 3 : 2 = 16 · 3 : 2 = 48 : 2 = 24 m².",
+    [B("10 * 6 * 3 / 2", "die parallelen Seiten malgenommen"), B("(10 + 6) * 3", "nicht durch 2 geteilt"), B("(10 + 6) / 2", "die Höhe vergessen")], "m²"))
+a2(T, "trapez", Z(
+    "Eine Tischplatte hat die Form eines Trapezes. Die parallelen Seiten sind 1,2 m und 0,8 m lang, der Abstand zwischen ihnen ist 0,5 m. Lack kostet 12 € je Quadratmeter. Wie viel Euro kostet der Lack für die Platte?",
+    6, "(1.2 + 0.8) * 0.5 / 2 * 12", "0.5 * 12", "Berechne zuerst die Fläche der Platte. Dann rechnest du den Preis.",
+    "Fläche: (1,2 + 0,8) · 0,5 : 2 = 0,5 m². Preis: 0,5 · 12 = 6 €.",
+    [B("(1.2 + 0.8) * 0.5 / 2", "nur die Fläche angegeben"), B("(1.2 + 0.8) * 0.5 * 12", "nicht durch 2 geteilt"), B("1.2 * 0.8 * 0.5 / 2 * 12", "die parallelen Seiten malgenommen")], "€"))
+a3(T, "trapez", Z(
+    "Ein Trapez hat die Fläche 54 cm² und die Höhe 6 cm. Eine der parallelen Seiten ist 11 cm lang. Wie lang ist die andere parallele Seite?",
+    7, "54 * 2 / 6 - 11", "18 - 11", "Zweimal die Fläche geteilt durch die Höhe ist die Summe der parallelen Seiten.",
+    "Summe der parallelen Seiten: 2 · 54 : 6 = 18 cm. Die andere Seite: 18 − 11 = 7 cm.",
+    [B("54 / 6 - 11", "zweimal die Fläche vergessen"), B("54 * 2 / 6", "die Summe der Seiten als andere Seite angegeben"), B("54 * 2 / 6 + 11", "die bekannte Seite addiert statt abgezogen")], "cm"), g="rueckwaerts")
+# ───────── rueckwaerts ─────────
+a1(T, "rueckwaerts", Z(
+    "Ein Parallelogramm hat die Fläche 96 cm² und die Grundseite 12 cm. Wie hoch ist es?",
+    8, "96 / 12", "96 / 12", "Die Fläche ist Grundseite mal Höhe. Teile die Fläche durch die Grundseite.",
+    "h = A : g = 96 : 12 = 8 cm. Probe: 12 · 8 = 96.",
+    [B("96 * 12", "mit der Grundseite malgenommen"), B("96 / 12 / 2", "zusätzlich durch 2 geteilt"), B("96 - 12", "die Grundseite abgezogen")], "cm"))
+a2(T, "rueckwaerts", Z(
+    "Ein Dreieck hat die Fläche 60 cm² und die Höhe 8 cm. Wie lang ist die zugehörige Grundseite?",
+    15, "2 * 60 / 8", "120 / 8", "Beim Dreieck ist die Fläche g · h : 2. Rechne zuerst zweimal die Fläche.",
+    "2 · 60 = 120. Grundseite: 120 : 8 = 15 cm. Probe: 15 · 8 : 2 = 60.",
+    [B("60 / 8", "zweimal die Fläche vergessen"), B("60 * 8 / 2", "die Fläche mit der Höhe malgenommen"), B("2 * 60 * 8", "alles malgenommen")], "cm"))
+a3(T, "rueckwaerts", Z(
+    "Ein Rechteck ist 6 cm breit und 10 cm lang. Ein Dreieck hat denselben Flächeninhalt und die Grundseite 15 cm. Wie hoch ist das Dreieck?",
+    8, "2 * 6 * 10 / 15", "120 / 15", "Berechne die Fläche des Rechtecks. Beim Dreieck rechnest du dann zweimal die Fläche geteilt durch die Grundseite.",
+    "Rechteck: 6 · 10 = 60 cm². Dreieck: 2 · 60 : 15 = 8 cm. Probe: 15 · 8 : 2 = 60.",
+    [B("6 * 10 / 15", "zweimal die Fläche vergessen"), B("6 * 10 * 15 / 2", "die Fläche mit der Grundseite malgenommen"), B("6 * 10 - 15", "die Grundseite von der Fläche abgezogen")], "cm"), g="verknuepfen")
+# ───────── zusammengesetzt ─────────
+a1(T, "zusammengesetzt", Z(
+    "Ein Zimmer ist ein Rechteck von 8 m mal 5 m. An einer Seite hat es einen Erker, der ein Quadrat mit 2 m Seitenlänge ist. Wie groß ist die Bodenfläche mit dem Erker?",
+    44, "8 * 5 + 2 * 2", "40 + 4", "Zerlege den Grundriss in ein Rechteck und ein Quadrat. Berechne beide Flächen.",
+    "Rechteck: 8 · 5 = 40 m². Erker: 2 · 2 = 4 m². Zusammen 40 + 4 = 44 m².",
+    [B("8 * 5", "den Erker vergessen"), B("2 * 2", "nur den Erker gerechnet"), B("8 * 5 - 2 * 2", "den Erker abgezogen statt addiert")], "m²"))
+a2(T, "zusammengesetzt", Z(
+    "Ein Spielfeld ist ein Rechteck von 20 m mal 12 m. In einer Ecke liegt ein Beet in Form eines rechtwinkligen Dreiecks mit den Katheten 6 m und 4 m. Dort darf man nicht spielen. Wie groß ist die Spielfläche?",
+    228, "20 * 12 - 6 * 4 / 2", "240 - 12", "Berechne das ganze Rechteck. Ziehe dann die Fläche des Dreiecks ab. Das Dreieck ist halb so groß wie ein Rechteck mit denselben Maßen.",
+    "Rechteck: 20 · 12 = 240 m². Dreieck: 6 · 4 : 2 = 12 m². Spielfläche: 240 − 12 = 228 m².",
+    [B("20 * 12", "das Beet nicht abgezogen"), B("20 * 12 - 6 * 4", "das Dreieck wie ein Rechteck abgezogen"), B("20 * 12 + 6 * 4 / 2", "das Beet dazugezählt statt abgezogen")], "m²"))
+a3(T, "zusammengesetzt", Z(
+    "Ein Bild ist 40 cm breit und 30 cm hoch. Es hat einen Rahmen, der rundherum 5 cm breit ist. Wie groß ist die Fläche des Rahmens ohne das Bild?",
+    800, "(40 + 2 * 5) * (30 + 2 * 5) - 40 * 30", "50 * 40 - 40 * 30", "Der Rahmen macht das Rechteck auf jeder Seite größer. Berechne das Außenrechteck und ziehe das Bild ab.",
+    "Außen: (40 + 10) · (30 + 10) = 50 · 40 = 2 000 cm². Bild: 40 · 30 = 1 200 cm². Rahmen: 2 000 − 1 200 = 800 cm².",
+    [B("(40 + 5) * (30 + 5) - 40 * 30", "den Rahmen nur auf einer Seite gerechnet"), B("2 * 5 * (40 + 30)", "die vier Ecken vergessen"), B("(40 - 2 * 5) * (30 - 2 * 5)", "die Fläche innerhalb des Rahmens gerechnet")], "cm²"), g="transfer")
+# ───────── oberflaeche ─────────
+a1(T, "oberflaeche", Z(
+    "Ein Geschenk ist ein Quader: 20 cm lang, 10 cm breit und 5 cm hoch. Es wird rundherum in Papier eingepackt, ohne dass sich das Papier überlappt. Wie viele Quadratzentimeter Papier braucht man mindestens?",
+    700, "2 * (20 * 10 + 20 * 5 + 10 * 5)", "2 * 350", "Ein Quader hat drei Paare gleicher Flächen. Berechne jede Sorte einmal und verdopple die Summe.",
+    "Boden und Deckel: 20 · 10 = 200. Vorder- und Rückseite: 20 · 5 = 100. Die beiden Seiten: 10 · 5 = 50. Summe: 350. Doppelt: 700 cm².",
+    [B("20 * 10 * 5", "das Volumen statt der Oberfläche berechnet"), B("20 * 10 + 20 * 5 + 10 * 5", "die drei Flächensorten nur einmal gezählt"), B("2 * (20 * 10 + 20 * 5)", "ein Flächenpaar vergessen")], "cm²"))
+a2(T, "oberflaeche", Z(
+    "Ein Aquarium aus Glas hat keinen Deckel. Es ist 50 cm lang, 30 cm breit und 40 cm hoch. Wie viele Quadratzentimeter Glas braucht man für Boden und vier Seitenwände?",
+    7900, "50 * 30 + 2 * (50 * 40 + 30 * 40)", "1500 + 6400", "Rechne den Boden und die vier Seitenwände getrennt. Es gibt zwei lange und zwei kurze Wände.",
+    "Boden: 50 · 30 = 1 500 cm². Lange Wände: 2 · 50 · 40 = 4 000 cm². Kurze Wände: 2 · 30 · 40 = 2 400 cm². Zusammen 1 500 + 4 000 + 2 400 = 7 900 cm².",
+    [B("2 * (50 * 30 + 50 * 40 + 30 * 40)", "den Deckel mitgerechnet"), B("50 * 30 + 50 * 40 + 30 * 40", "die Flächen nur einmal gezählt"), B("50 * 30 + 2 * 50 * 40", "die beiden kurzen Wände vergessen")], "cm²"))
+a3(T, "oberflaeche", Z(
+    "Ein Würfel hat die Oberfläche 54 cm². Zwei solche Würfel werden mit je einer ganzen Fläche zu einem Quader zusammengeklebt. Wie groß ist die Oberfläche des Quaders?",
+    90, "2 * 54 - 2 * (54 / 6)", "108 - 18", "Wie groß ist eine Würfelfläche? Beim Zusammenkleben verschwinden zwei Würfelflächen.",
+    "Eine Würfelfläche: 54 : 6 = 9 cm². Beide Würfel: 2 · 54 = 108 cm². Beim Kleben verschwinden 2 · 9 = 18 cm². Oberfläche: 108 − 18 = 90 cm².",
+    [B("2 * 54", "die Klebeflächen nicht abgezogen"), B("2 * 54 - 54 / 6", "nur eine Klebefläche abgezogen"), B("2 * 54 - 54", "eine ganze Würfeloberfläche abgezogen")], "cm²"), g="transfer")
+# ───────── verstehen ─────────
+a1(T, "verstehen", Z(
+    "Ein Dreieck hat die Grundseite 8 cm und die Höhe 6 cm. Die Grundseite wird verdoppelt, die Höhe bleibt gleich. Wie groß ist die neue Fläche?",
+    48, "16 * 6 / 2", "8 * 6 / 2 * 2", "Wie ändert sich die Fläche, wenn die Grundseite doppelt so lang wird? Du kannst auch neu rechnen.",
+    "Die neue Grundseite ist 16 cm. Fläche: 16 · 6 : 2 = 48 cm². Die Fläche hat sich verdoppelt (vorher 24 cm²).",
+    [B("8 * 6 / 2", "die alte Fläche angegeben"), B("8 * 6 / 2 * 4", "die Fläche vervierfacht"), B("8 * 6 / 2 + 8", "die alte Grundseite zur Fläche addiert")], "cm²"))
+a2(T, "verstehen", Z(
+    "Ein Rechteck ist 9 cm lang und 6 cm hoch. Ein Parallelogramm hat dieselbe Grundseite 9 cm und dieselbe Höhe 6 cm. Seine schräge Seite ist 8 cm lang. Wie groß ist die Fläche des Parallelogramms?",
+    54, "9 * 6", "6 * 9", "Beim Parallelogramm zählt die Höhe, nicht die schräge Seite. Die Höhe steht senkrecht auf der Grundseite.",
+    "Das Parallelogramm hat dieselbe Grundseite und Höhe wie das Rechteck. Gleiche Fläche: 9 · 6 = 54 cm². Die schräge Seite ist für die Fläche nicht wichtig.",
+    [B("9 * 8", "die schräge Seite als Höhe benutzt"), B("9 * 6 / 2", "durch 2 geteilt"), B("2 * (9 + 8)", "einen Umfang berechnet")], "cm²"))
+a3(T, "verstehen", Z(
+    "Kim berechnet ein Trapez mit den parallelen Seiten 8 cm und 4 cm und der Höhe 5 cm so: „8 · 4 · 5 : 2 = 80 cm².“ Um wie viele Quadratzentimeter ist Kims Ergebnis zu groß?",
+    50, "8 * 4 * 5 / 2 - (8 + 4) * 5 / 2", "80 - 30", "Welche Formel gilt beim Trapez? Berechne die richtige Fläche und vergleiche mit Kims 80.",
+    "Richtig: (8 + 4) · 5 : 2 = 30 cm². Kim hat die Seiten malgenommen statt addiert und kommt auf 80 cm². Unterschied: 80 − 30 = 50 cm².",
+    [B("8 * 4 * 5 / 2", "Kims falsche Fläche angegeben"), B("(8 + 4) * 5 / 2", "die richtige Fläche angegeben"), B("8 * 4 * 5", "nicht durch 2 geteilt")], "cm²"), g="fehler")
+# ───────── drachen_raute ─────────
+a1(T, "drachen_raute", Z(
+    "Ein Papierdrache hat die Diagonalen 60 cm und 40 cm. Wie groß ist die Fläche des Drachens?",
+    1200, "60 * 40 / 2", "2400 / 2", "Beim Drachen rechnest du: erste Diagonale mal zweite Diagonale, geteilt durch 2.",
+    "A = e · f : 2 = 60 · 40 : 2 = 2 400 : 2 = 1 200 cm².",
+    [B("60 * 40", "nicht durch 2 geteilt"), B("60 + 40", "die Diagonalen addiert"), B("60 * 40 / 4", "durch 4 statt durch 2 geteilt")], "cm²"))
+a2(T, "drachen_raute", Z(
+    "Eine Fliese hat die Form einer Raute mit den Diagonalen 18 cm und 10 cm. Zwei gleiche Fliesen liegen nebeneinander. Wie groß ist ihre gesamte Fläche?",
+    180, "2 * (18 * 10 / 2)", "2 * 90", "Berechne zuerst die Fläche einer Fliese. Dann verdoppelst du.",
+    "Eine Fliese: 18 · 10 : 2 = 90 cm². Zwei Fliesen: 2 · 90 = 180 cm².",
+    [B("18 * 10 / 2", "nur eine Fliese berechnet"), B("2 * 18 * 10", "die Fläche nicht durch 2 geteilt"), B("2 * (18 + 10)", "die Diagonalen addiert")], "cm²"))
+a3(T, "drachen_raute", Z(
+    "Eine Raute hat die Fläche 120 cm². Die eine Diagonale ist 24 cm lang. Wie lang ist die andere Diagonale?",
+    10, "2 * 120 / 24", "240 / 24", "Die Fläche ist e · f : 2. Rechne zuerst zweimal die Fläche. Dann teilst du durch die bekannte Diagonale.",
+    "2 · 120 = 240. Andere Diagonale: 240 : 24 = 10 cm. Probe: 24 · 10 : 2 = 120.",
+    [B("120 / 24", "zweimal die Fläche vergessen"), B("120 * 24 / 2", "die Fläche mit der Diagonale malgenommen"), B("2 * 120 * 24", "alles malgenommen")], "cm"), g="rueckwaerts")

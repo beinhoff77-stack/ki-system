@@ -6268,3 +6268,126 @@ test('Teil 1: Reisekarte ohne zusätzliche Leiste; Karte als Gruppe mit einzeln 
   await p2.goto(origin + '/#/reise/1'); await p2.locator('.lr-abflugtafel').waitFor();
   assert.equal(await p2.locator('.lr-knobel-tag').count(), 0, 'auch auf der Rückfall-Tafel kein Knobeln des Tages');
 });
+
+// ---------- Teil 2 (0.96.0): „Was wackelt“ für Eltern/Lehrer – nachgebildete Server-Antworten in der Form von inhalte/plan/wackelt-server.md ----------
+function wwServer({ leer = false } = {}) {
+  const heute = new Date(); const tag = (n) => { const d = new Date(heute); d.setDate(d.getDate() - n); return d.toISOString().slice(0, 10); };
+  const A = (id, text, wert, extra = {}) => ({ id, antworttyp: 'zahl', frage: { text }, loesung: { wert }, loesungsweg: 'Schritt für Schritt gerechnet.', ...extra });
+  const fb = (kennung, text) => ({ quelle: 'fehlbild', schluessel: 'fb:' + kennung, kennung, text });
+  const basis = [
+    [9001, 0, 29, 'Terme umformen', 31, 'minusklammer', 'Minus vor der Klammer', A(5001, 'Löse: 20 − (x + 4) = 9', 7), { wert: '15' }, fb('fb.minusklammer.nur_erstes_zeichen', 'nur das erste Zeichen in der Klammer gedreht'), { anlauf: 2, erst_antwort: { wert: '13' }, danach_richtig: { lernkarte_am: tag(0) } }],
+    [9002, 1, 29, 'Terme umformen', 31, 'minusklammer', 'Minus vor der Klammer', A(5002, 'Vereinfache: 12 − (4 − a) + 2a', 8), { wert: '9' }, fb('fb.minusklammer.nur_erstes_zeichen', 'nur das erste Zeichen in der Klammer gedreht'), {}],
+    [9003, 1, 30, 'Lineare Gleichungen', 32, 'klammern', 'Gleichungen mit Klammern', A(5003, 'Löse: 3 − (2x − 5) = 0', 4), { wert: '−1' }, fb('fb.minusklammer.nur_erstes_zeichen', 'nur das erste Zeichen in der Klammer gedreht'), { mit_tipp: true }],
+    [9004, 2, 33, 'Satz des Pythagoras', 34, 'seite', 'Fehlende Seite berechnen', A(5004, 'Eine 5 m lange Leiter lehnt an einer Wand. Ihr Fuß steht 1,4 m von der Wand entfernt. Wie hoch reicht sie?', 4.8), { wert: '23,04' }, null, {}],
+    [9005, 3, 33, 'Satz des Pythagoras', 34, 'seite', 'Fehlende Seite berechnen', A(5005, 'Berechne die Länge der Seite b.', 12), { wert: '13,9' }, { quelle: 'grund', schluessel: 'g:komma', grund: 'komma' }, {}],
+    [9006, 4, 24, 'Prozentrechnung', 35, 'grundwert', 'Grundwert berechnen', A(5006, '20 % sind 30 €. Wie viel sind 100 %?', 150), { wert: '6' }, null, { danach_richtig: { lernkarte_am: tag(1) } }],
+    [9007, 5, 30, 'Lineare Gleichungen', 32, 'klammern', 'Gleichungen mit Klammern', A(5007, 'Welche Zeile ist falsch?', null, { antworttyp: 'auswahl', antworten: ['Zeile 1', 'Zeile 2', 'Zeile 3'], loesung: { index: 0 } }), { index: 2 }, null, {}],
+  ].map(([versuch_id, vor, thema_id, thema, einheit_id, lernziel, lernkarte, aufgabe, antwort, fehlerart, extra]) => ({ versuch_id, am: tag(vor) + 'T17:25:00+01:00', tag: tag(vor), thema_id, thema, einheit_id, lernziel, lernkarte, aufgabe, antwort, anlauf: 1, ...(fehlerart ? { fehlerart } : {}), ...extra }));
+  const st = { abgehakt: new Map(), calls: [] };
+  const analyse = (d) => {
+    const tage = d.tage ?? 14; const offen = leer ? [] : basis.filter((x) => !st.abgehakt.has(x.versuch_id) && (!tage || x.tag >= tag(tage)));
+    const themen = [...new Set(basis.map((x) => x.thema_id))].map((id) => { const b = basis.filter((x) => x.thema_id === id); return { thema_id: id, thema: b[0].thema, offen: offen.filter((x) => x.thema_id === id).length, gesamt: b.length + 2 }; })
+      .sort((a, b) => b.offen - a.offen);
+    const r = { ok: true, lernender_id: d.lernender_id, tage, heute: tag(0), mit_fehlbild: true, offen_zahl: offen.length, offen,
+      auswertung: { antworten: 40, richtig: 33, themen, lerntage: [6, 5, 4, 3, 2, 1, 0].map((n) => ({ tag: tag(n), richtig: 3 + n % 3, falsch: n % 2 + (n === 1 ? 2 : 0) })),
+        wiederkehrend: leer ? [] : [{ schluessel: 'fb:fb.minusklammer.nur_erstes_zeichen', kennung: 'fb.minusklammer.nur_erstes_zeichen', text: 'Minus vor der Klammer: nur das erste Zeichen gedreht', anzahl: 3, offen: 3, themen: [29, 30] }],
+        einmal: { lernkarten: leer ? 0 : 2, danach_richtig: leer ? 0 : 1, themen_danach_richtig: leer ? [] : [24] } } };
+    if (d.erledigt) r.erledigt = basis.filter((x) => st.abgehakt.has(x.versuch_id)).map((x) => ({ ...x, erledigt: { art: 'abgehakt', am: st.abgehakt.get(x.versuch_id) } }));
+    return r;
+  };
+  const anpassen = (aktion, e, d) => {
+    if (aktion === 'schule_wackelt_analyse') { st.calls.push({ aktion, ...d }); return analyse(d); }
+    if (aktion === 'schule_fehler_abhaken') { st.calls.push({ aktion, ...d }); let n = 0;
+      for (const id of d.versuch_ids) { if (d.zurueck) { if (st.abgehakt.delete(id)) n++; } else if (!st.abgehakt.has(id)) { st.abgehakt.set(id, new Date().toISOString()); n++; } }
+      return { ok: true, geaendert: n, uebersprungen: [] }; }
+    return e;
+  };
+  anpassen.neueAktionen = true; return { anpassen, st };
+}
+const wwBild = async (page, name) => { if (!process.env.APP3_BILDER) return; await page.waitForTimeout(250); await page.screenshot({ path: path.join(process.env.APP3_BILDER, `wackelt-${name}.png`), fullPage: true }); };
+
+test('Teil 2: „Was wackelt“ (Entwurf 4, ohne Nachüben) – Auswertung, Letzte Fehler, Nach Themen, Abhaken mit Rückgängig, Erledigtes, Zeitraum (390/1280, hell/dunkel)', async (t) => {
+  for (const [b, h, dunkel] of [[1280, 900, false], [390, 844, false], [390, 844, true]]) {
+    const srv = wwServer(); const { page } = await setup(t, { anpassen: srv.anpassen });
+    if (dunkel) await page.emulateMedia({ colorScheme: 'dark' });
+    await page.setViewportSize({ width: b, height: h }); const hd = `${b}-${dunkel ? 'dunkel' : 'hell'}`;
+    await page.goto(origin + '/#/kind/1-wackelt'); const ww = page.locator('.ww'); await ww.locator('.ww-kachel').first().waitFor();
+    assert.match(await ww.locator('.ww-titel h2').innerText(), /Was wackelt bei Kind A/);
+    assert.deepEqual(await ww.locator('.ww-kachel h3').allInnerTexts(), ['Fehler je Thema', 'Letzte Lerntage', 'Kommt immer wieder', 'Nur einmal passiert']);
+    assert.match(await ww.locator('.ww-fazit').innerText(), /Am meisten hakt es bei Minus vor der Klammer: nur das erste Zeichen gedreht \(3×\), dann bei Satz des Pythagoras \(2 falsch\); Prozentrechnung war ein Ausrutscher\./);
+    assert.equal(await ww.getByRole('table', { name: 'Letzte Fehler' }).locator('.ww-z:not(.ww-kopfz)').count(), 5, '5 neueste');
+    assert.equal(await page.getByText(/nachüb|liegt bereit/i).count(), 0, 'nichts zu Nachüben');
+    assert.deepEqual(await ww.getByRole('group', { name: 'Zeitraum' }).locator('button').allInnerTexts(), ['7 Tage', '14 Tage', 'Alles']);
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), true, 'kein Querrollen');
+    // Nach Themen: das Thema mit den meisten offenen Fehlern ist offen, die anderen zu
+    const themen = ww.locator('.ww-thema'); assert.equal(await themen.count(), 4);
+    assert.equal(await themen.first().locator('.ww-th-titel').getAttribute('aria-expanded'), 'true'); assert.equal(await themen.nth(1).locator('.ww-th-titel').getAttribute('aria-expanded'), 'false');
+    // Tippflächen der Knöpfe ≥ 40 px, Namen
+    for (const k of await ww.locator('.ww-sym, .ww-knopf-klein, .ww-seg button').all()) { const r = await k.boundingBox(); assert.ok(r.height >= 40, 'Tippfläche'); }
+    assert.match(await ww.locator('.ww-sym').first().getAttribute('aria-label'), /^Abhaken: /);
+    await wwBild(page, `${hd}-gefuellt`);
+    // Zeile aufklappen: voller Text, Fehler, erster Anlauf, Lösungsweg
+    await ww.getByRole('table', { name: 'Letzte Fehler' }).locator('.ww-aufg').first().click();
+    const mehr = ww.locator('.ww-mehr').first(); await mehr.waitFor();
+    assert.match(await mehr.innerText(), /Löse: 20 − \(x \+ 4\) = 9[\s\S]*Erster Anlauf: 13[\s\S]*Fehler: nur das erste Zeichen in der Klammer gedreht · 2\. Anlauf · danach richtig gelöst[\s\S]*Lösungsweg/);
+    if (b === 1280) await wwBild(page, `${hd}-zeile-auf`);
+    // Abhaken (Zeile): verschwindet sofort, Meldung mit Rückgängig, Server mit versuch_ids
+    const erste = ww.getByRole('table', { name: 'Letzte Fehler' }).locator('.ww-z:not(.ww-kopfz)').first(); const id = await erste.getAttribute('data-versuch');
+    await erste.locator('.ww-sym').click();
+    await page.locator(`.ww-z[data-versuch="${id}"]`).first().waitFor({ state: 'detached' });
+    const toast = page.locator('.ww-toast'); await toast.getByRole('button', { name: 'Rückgängig' }).waitFor();
+    assert.deepEqual(srv.st.calls.filter((c) => c.aktion === 'schule_fehler_abhaken').pop(), { aktion: 'schule_fehler_abhaken', lernender_id: 1, versuch_ids: [Number(id)] });
+    await wwBild(page, `${hd}-nach-abhaken`);
+    await toast.getByRole('button', { name: 'Rückgängig' }).click(); await page.locator(`.ww-z[data-versuch="${id}"]`).first().waitFor();
+    assert.equal(srv.st.calls.filter((c) => c.aktion === 'schule_fehler_abhaken').pop().zurueck, true);
+    // „alle abhaken“ je Thema: alle gezeigten Fehler des Themas
+    const th = ww.locator('.ww-thema').first(); const ids = await th.locator('.ww-z[data-versuch]').evaluateAll((xs) => xs.map((x) => Number(x.dataset.versuch)));
+    await th.getByRole('button', { name: /^Alle abhaken: / }).click(); await page.waitForFunction(() => !document.querySelector('.ww [aria-busy="true"]'));
+    await toast.getByRole('button', { name: 'Rückgängig' }).waitFor();
+    assert.deepEqual(srv.st.calls.filter((c) => c.aktion === 'schule_fehler_abhaken').pop().versuch_ids.sort(), ids.sort());
+    // Erledigtes: aufklappen lädt die abgehakten, „zurückholen“ holt sie zurück
+    await page.locator('.ww-erledigt summary').click(); await page.locator('.ww-erledigt li').first().waitFor();
+    assert.equal(await page.locator('.ww-erledigt li').count(), ids.length);
+    assert.equal(srv.st.calls.filter((c) => c.aktion === 'schule_wackelt_analyse' && c.erledigt).length >= 1, true);
+    if (b === 1280) await wwBild(page, `${hd}-erledigt`);
+    await page.locator('.ww-erledigt li').first().getByRole('button', { name: /^Zurückholen: / }).click();
+    await page.waitForFunction((n) => document.querySelectorAll('.ww-erledigt li').length === n - 1, ids.length);
+    // Zeitraum: 7 Tage → Server mit tage: 7
+    await ww.getByRole('group', { name: 'Zeitraum' }).getByRole('button', { name: '7 Tage' }).click();
+    await page.waitForFunction(() => document.querySelector('.ww-seg button[aria-pressed="true"]')?.textContent === '7 Tage' && document.querySelector('.ww').getAttribute('aria-busy') === 'false');
+    assert.equal(srv.st.calls.filter((c) => c.aktion === 'schule_wackelt_analyse').pop().tage, 7);
+    assert.match(await page.locator('.ww-teil-kopf span').first().innerText(), /letzte 7 Tage/);
+  }
+});
+
+test('Teil 2: „Was wackelt“ leer, Ladefehler mit „Noch einmal versuchen“, Rückfall auf die bisherige Ansicht (Server ohne neue Aktion), Kind kommt nicht hin', async (t) => {
+  // leer
+  { const srv = wwServer({ leer: true }); const { page } = await setup(t, { anpassen: srv.anpassen });
+    for (const [b, dunkel] of [[1280, false], [390, false], [390, true]]) { if (dunkel) await page.emulateMedia({ colorScheme: 'dark' }); await page.setViewportSize({ width: b, height: 844 });
+      await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ww-leer').waitFor();
+      assert.match(await page.locator('.ww-leer').innerText(), /Nichts offen/); assert.equal(await page.locator('.ww-thema, .ww-tabelle').count(), 0);
+      assert.match(await page.locator('.ww-fazit').innerText(), /In den letzten 14 Tagen 40 Aufgaben, davon 33 richtig\./);
+      await wwBild(page, `${b}-${dunkel ? 'dunkel' : 'hell'}-leer`); await page.goto(origin + '/#/lernen'); } }
+  // Fehler (Server erreichbar, Antwort Fehler) → Meldung, „Noch einmal versuchen“ lädt neu
+  { const srv = wwServer(); const { page } = await setup(t, { anpassen: srv.anpassen }); let fehler = true;
+    await page.route('**/functions/v1/lernen-api/**', async (route) => { const b = JSON.parse(route.request().postData() || '{}');
+      if (b.aktion === 'schule_wackelt_analyse' && fehler) { await route.fulfill({ status: 500, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: 'Zeitüberschreitung der Datenbank' }) }); return; }
+      await route.fallback(); });
+    await page.goto(origin + '/#/kind/1-wackelt'); const f = page.locator('.ww-fehler'); await f.waitFor();
+    assert.match(await f.innerText(), /„Was wackelt“ lädt gerade nicht\.[\s\S]*Zeitüberschreitung/);
+    fehler = false; await f.getByRole('button', { name: 'Noch einmal versuchen' }).click(); await page.locator('.ww-kachel').first().waitFor(); }
+  // Rückfall: Edge-Funktion kennt die Aktion nicht (vor 0.9.5) → bisherige Ansicht ohne Fehlermeldung
+  { const { page } = await setup(t);
+    await page.route('**/functions/v1/lernen-api/**', async (route) => { const b = JSON.parse(route.request().postData() || '{}');
+      if (b.aktion === 'schule_wackelt_analyse') { await route.fulfill({ status: 400, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: 'Unbekannte Aktion "schule_wackelt_analyse"' }) }); return; }
+      await route.fallback(); });
+    await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ls-wackelt, .wk-karte').first().waitFor();
+    assert.equal(await page.locator('.ww, .ww-fehler, .err-text').count(), 0, 'bisherige Ansicht, kein Fehler'); }
+  // Rückfall: Antwort ohne die Form des Plans (z. B. leer) → bisherige Ansicht
+  { const { page } = await setup(t); await page.goto(origin + '/#/kind/1-wackelt'); await page.locator('.ls-wackelt, .wk-karte').first().waitFor(); assert.equal(await page.locator('.ww').count(), 0); }
+  // Kind: die Seite der Eltern/Lehrer ist nicht erreichbar (bestehende Rollenprüfung)
+  { const srv = wwServer(); const { page, calls } = await setup(t, { lernSeite: true, rolle: 'kind', anpassen: srv.anpassen });
+    await page.goto(origin + '/lernen/'); await page.getByLabel('Lern-Code').fill('ABCD-EFGH-JKLM'); await page.getByRole('button', { name: 'Anmelden' }).click(); await page.waitForURL(/#\/reise\/1$/);
+    await page.goto(origin + '/lernen/#/kind/1-wackelt'); await page.waitForURL(/#\/reise\/1$/);
+    assert.equal(await page.locator('.ww').count(), 0); assert.equal(calls.filter((c) => c.aktion === 'schule_wackelt_analyse').length, 0); }
+});

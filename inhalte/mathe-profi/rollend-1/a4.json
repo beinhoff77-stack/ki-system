@@ -278,7 +278,7 @@
    "antwortform": "luecken",
    "regel": "rr.waage",
    "regel_name": "Gleichung als Waage",
-   "zaehlt": "folge",
+   "zaehlt": "nein",
    "fehlbilder": [
     {
      "luecke": 1,

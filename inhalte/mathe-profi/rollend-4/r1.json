@@ -55,51 +55,6 @@
    }
   },
   {
-   "kennung": "R1-V02",
-   "thema": "messen.flaechen",
-   "lernkarte": "kommaschreibweise",
-   "stufe": 1,
-   "typ": "Lückenweg",
-   "antwortform": "luecken",
-   "regel": "rr.stellenwert",
-   "regel_name": "Stellenwert",
-   "zaehlt": "nein",
-   "fehlbilder": [
-    {
-     "luecke": 2,
-     "antwort": 50,
-     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
-     "regel_des_fehlbilds": "rr.stellenwert",
-     "beschreibung": "05 als 50 gelesen"
-    }
-   ],
-   "aufgabe": {
-    "l": "kommaschreibweise",
-    "t": "kommaschreibweise",
-    "p": "uebung",
-    "s": 1,
-    "g": "direkt",
-    "y": "luecken",
-    "f": {
-     "text": "Bei Flächen bekommt jede kleinere Einheit hinter dem Komma zwei Stellen. 3,25 m² sind 3 m² 25 dm². Das sind insgesamt ① dm². 2,05 m² sind 2 m² ② dm².",
-     "schablone": "① = □; ② = □",
-     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
-    },
-    "o": {
-     "werte": [
-      325,
-      5
-     ]
-    },
-    "c": [
-     "3 * 100 + 25",
-     "205 - 200"
-    ],
-    "h": "1 m² sind 100 dm².",
-    "w": "3 m² = 300 dm², dazu 25 dm²: 325 dm². 2,05 m² = 2 m² 05 dm² = 2 m² 5 dm²."
-   }
-  },
-  {
    "kennung": "R1-V03",
    "thema": "messen.flaechen",
    "lernkarte": "zerlegen",
@@ -239,6 +194,49 @@
    }
   },
   {
+   "kennung": "R1-V02",
+   "thema": "messen.flaechen",
+   "lernkarte": "kommaschreibweise",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4250,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "mit 1 000 statt 100 malgenommen"
+    },
+    {
+     "antwort": 4025,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "die 25 mit einer Null zu viel angehängt"
+    }
+   ],
+   "aufgabe": {
+    "l": "kommaschreibweise",
+    "t": "kommaschreibweise",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele dm² sind 4,25 m²? Weg A: 4 m² sind 400 dm², dazu kommen 25 dm². Weg B: 4,25 mal 100 rechnen."
+    },
+    "o": {
+     "wert": 425,
+     "einheit": "dm²"
+    },
+    "c": "4 * 100 + 25",
+    "h": "Beide Wege müssen dieselbe Zahl ergeben.",
+    "w": "Weg A: 400 + 25 = 425. Weg B: 4,25 · 100 = 425. 1 m² sind 100 dm²."
+   }
+  },
+  {
    "kennung": "R1-V06",
    "thema": "messen.flaechen",
    "lernkarte": "rechteck",
@@ -298,48 +296,42 @@
    "kennung": "R1-V07",
    "thema": "messen.flaechen",
    "lernkarte": "einheitsquadrate",
-   "stufe": 3,
-   "typ": "Fehler-Detektiv (einfache Form)",
-   "antwortform": "auswahl",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
    "regel": "id.flaeche_raum.auslegen",
    "regel_name": "Auslegen und zählen",
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
+     "antwort": 36,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "die Zahl der Quadrate in einer Reihe abgezogen statt geteilt"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "antwort": 48,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "die Zahl der Quadrate in einer Reihe addiert statt geteilt"
     }
    ],
    "aufgabe": {
     "l": "einheitsquadrate",
     "t": "einheitsquadrate",
     "p": "uebung",
-    "s": 3,
-    "g": "fehler",
-    "y": "auswahl",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
     "f": {
-     "text": "Ein Rechteck wird mit Quadraten von 1 cm² ausgelegt. Es passen 5 Reihen mit je 7 Quadraten. Kim bestimmt die Fläche. Zeile 1: Die Zahl der Quadrate ist 5 · 7. Zeile 2: 5 · 7 = 35. Zeile 3: Die Fläche ist 35 cm. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Rechteck wird mit Quadraten von 1 cm² ausgelegt. In jede Reihe passen 6 Quadrate. Insgesamt sind es 42 Quadrate. Wie viele Reihen sind es?"
     },
-    "a": [
-     "In Zeile 1",
-     "In Zeile 2",
-     "In Zeile 3"
-    ],
     "o": {
-     "index": 2
+     "wert": 7
     },
-    "h": "Eine Fläche misst man in Quadraten. Wie schreibt man die Einheit?",
-    "w": "Die Fläche ist 35 cm². Die Einheit der Fläche hat die kleine Zwei."
+    "c": "42 // 6",
+    "h": "Reihen mal Quadrate je Reihe gibt alle Quadrate. Was rechnest du rückwärts?",
+    "w": "Reihen · 6 = 42. Also sind es 42 : 6 = 7 Reihen."
    }
   },
   {

@@ -338,7 +338,7 @@
    "antwortform": "luecken",
    "regel": "id.geometrie.deckungsgleich",
    "regel_name": "Deckungsgleich",
-   "zaehlt": "folge",
+   "zaehlt": "nein",
    "fehlbilder": [
     {
      "luecke": 2,
@@ -498,7 +498,7 @@
    "antwortform": "luecken",
    "regel": "id.geometrie.deckungsgleich",
    "regel_name": "Deckungsgleich",
-   "zaehlt": "folge",
+   "zaehlt": "ja",
    "fehlbilder": [
     {
      "luecke": 2,

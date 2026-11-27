@@ -886,6 +886,62 @@
    }
   },
   {
+   "kennung": "A4-V24",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "lesen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "]−1; 6[",
+     "fehlbild": "fb.gleichung_loesen.klammer_falsch_herum",
+     "regel_des_fehlbilds": "id.algebra.gleichung_loesen",
+     "beschreibung": "beide Grenzen falsch herum geschrieben"
+    },
+    {
+     "index": 2,
+     "antwort": "[−1; 6]",
+     "fehlbild": "fb.gleichung_loesen.klammer_falsch_herum",
+     "regel_des_fehlbilds": "id.algebra.gleichung_loesen",
+     "beschreibung": "rechte Klammer verkehrt"
+    },
+    {
+     "index": 3,
+     "antwort": "]−1; 6]",
+     "fehlbild": "fb.gleichung_loesen.klammer_falsch_herum",
+     "regel_des_fehlbilds": "id.algebra.gleichung_loesen",
+     "beschreibung": "linke und rechte Klammer vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "lesen",
+    "t": "lesen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Zahlen x mit −1 ≤ x < 6 sollen als Intervall geschrieben werden. Welche Schreibweise passt?"
+    },
+    "a": [
+     "]−1; 6[",
+     "[−1; 6[",
+     "[−1; 6]",
+     "]−1; 6]"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Gehört die Grenze dazu, zeigt die Klammer zur Zahl hin.",
+    "w": "−1 gehört dazu (≤): die Klammer zeigt zur −1. 6 gehört nicht dazu (<): die Klammer zeigt von der 6 weg. Also [−1; 6[."
+   }
+  },
+  {
    "kennung": "A4-V18",
    "thema": "gleichungen.ungleichungen",
    "lernkarte": "umformen",
@@ -1171,54 +1227,6 @@
     },
     "h": "Welches Zeichen gehört zu „höchstens“?",
     "w": "„Höchstens 50 €“ heißt: Die Kosten sind kleiner oder gleich 50. Richtig: 8 + 3x ≤ 50, also x ≤ 14."
-   }
-  },
-  {
-   "kennung": "A4-V24",
-   "thema": "zahlen.intervalle",
-   "lernkarte": "lesen",
-   "stufe": 3,
-   "typ": "Fehler-Detektiv (einfache Form)",
-   "antwortform": "auswahl",
-   "regel": "id.algebra.gleichung_loesen",
-   "regel_name": "Gleichung lösen",
-   "zaehlt": "ja",
-   "fehlbilder": [
-    {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
-     "index": 1,
-     "antwort": "In Zeile 2",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    }
-   ],
-   "aufgabe": {
-    "l": "lesen",
-    "t": "lesen",
-    "p": "uebung",
-    "s": 3,
-    "g": "fehler",
-    "y": "auswahl",
-    "f": {
-     "text": "Kim liest das Intervall [2; 7[. Zeile 1: Die 2 gehört dazu, weil die Klammer zur Zahl hin zeigt. Zeile 2: Die 7 gehört nicht dazu, weil die Klammer von der Zahl weg zeigt. Zeile 3: Also sind alle Zahlen x mit 2 ≤ x ≤ 7 gemeint. In welcher Zeile steckt der Fehler?"
-    },
-    "a": [
-     "In Zeile 1",
-     "In Zeile 2",
-     "In Zeile 3"
-    ],
-    "o": {
-     "index": 2
-    },
-    "h": "Gehört die 7 dazu? Dann darf in der Ungleichung kein ≤ stehen.",
-    "w": "Die 7 gehört nicht dazu. Richtig: 2 ≤ x < 7."
    }
   },
   {

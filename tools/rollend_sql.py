@@ -7,7 +7,7 @@ Aufruf:  python3 -I tools/rollend_sql.py                 -> Übersicht (prüft a
          --mit-bedingung                                 -> auch Aufgaben mit y = bedingung (Vorgabe: aus – erst, wenn die App sie anzeigen kann)
 Zuordnung Flug -> Einheiten: inhalte/plan/rollend-einheiten.json (aus der Datenbank gelesen, nur Aufbau). Flüge ohne Zuordnung dort
 werden übersprungen und als „ohne Zuordnung“ aufgelistet (kein Abbruch).
-Jede Aufgabe gehört über ihr Lernziel zu genau einer Einheit des Flugs. Nichts wird überschrieben:
+Jede Aufgabe gehört über ihr Lernziel zu genau einer Einheit des Flugs; ist das Lernziel in zwei Einheiten gleich benannt (ge1: „verstehen“), entscheidet das Feld „thema“ der Aufgabe. Nichts wird überschrieben:
 schule.aufgaben_einfuegen fügt nur ein, was es (gleiche Frage, gleiche Antworten) in der Einheit noch nicht gibt.
 FT-S (Form-Takt, inhalte/plan/form-takt.md Regel 1): Feld „typ“ der Dateien -> form (acht Werte), Feld „zaehlt“ -> zaehlt (ja/nein);
 beides geht ins JSON für schule.aufgaben_einfuegen (setzt die Migration 20261203_ft_s_form_takt.sql voraus – das SQL prüft das).
@@ -53,6 +53,8 @@ def sammeln(mit_bedingung=False):
             elif a['y'] not in ALT: fehler.append(f'{k}: Antworttyp {a["y"]}')
             if a['p'] != 'uebung': fehler.append(f'{k}: Vorrat {a["p"]} statt uebung')
             ziel = [t for t in themen if a['l'] in plan['einheiten'][t]['lz']]
+            if len(ziel) > 1 and e.get('thema') in ziel:  # gleiche Lernkarte in zwei Einheiten eines Flugs (ge1: „verstehen“): Feld „thema“ der Aufgabe entscheidet
+                ziel = [e['thema']]
             if len(ziel) != 1:
                 fehler.append(f'{k}: Lernziel {a["l"]} passt zu {len(ziel)} Einheiten des Flugs'); continue
             ein = plan['einheiten'][ziel[0]]

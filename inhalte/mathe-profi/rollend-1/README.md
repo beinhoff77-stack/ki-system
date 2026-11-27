@@ -83,3 +83,13 @@ Alle Änderungen über `bauen.py`, Lauf endet mit „OK“. **Die Kennungen sind
 | A4-06 | zwei Lückenwerte standen später ausgeschrieben in der Frage | **geändert:** Die Folgezeilen nennen die Zahlen nicht mehr, sondern verweisen auf die Lücken: „② · x − ① > 9. Plus ①: ② · x > ③. Geteilt durch ②“. Werte unverändert. |
 
 **Neue Prüfung in `bauen.py`** (in allen drei Runden): Eine Lücke darf nicht unmittelbar hinter einem Komma stehen. Sonst wäre sie eine Ziffernfolge, die App vergleicht aber ganze Zahlen. In Runde 1 gab es keinen solchen Fall.
+
+## Nachtrag 27.11.2026: `zaehlt = folge` entschieden
+
+`folge` gibt es nicht mehr (`inhalte/plan/form-takt.md`, Regel 1). Maßstab: `nein`, wenn der Lösungsweg vorgegeben ist und das Kind nur Lücken füllt; `ja`, wenn das Kind die Leistung selbst erbringt.
+
+| Aufgabe | Entscheidung | Begründung |
+|---|---|---|
+| A4-06 (Lückenweg, Klammer auflösen) | `nein` | Alle Zeilen des Weges stehen da, das Kind rechnet nur je eine Stelle. Es muss weder einen Schritt wählen noch erkennen, dass das Zeichen sich dreht (der Satz steht im Text). Wie die übrigen Lückenwege. |
+| GE2-07 (Lückenweg, Punktspiegelung) | `nein` | Der Weg „zu Z hin, dann denselben Weg weiter“ ist vorgegeben; das Kind setzt nur Zahlen ein. Gerüst. |
+| GE2-10 (Umkehren, Gegenvektor) | `ja` | Zwar mit Lücken, aber das Kind muss selbst umkehren: erst die Vorzeichen des Gegenvektors, dann den Ausgangspunkt finden. Die Umkehr ist die Leistung, nicht vorgegeben. Wie die anderen Umkehren-Aufgaben. |

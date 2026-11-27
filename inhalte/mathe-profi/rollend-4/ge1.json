@@ -795,6 +795,244 @@
    }
   },
   {
+   "kennung": "GE1-V27",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Eine Parallele zur Strecke [MN] im Abstand 3 cm zeichnen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Abstand von einer Geraden statt von einem Punkt"
+    },
+    {
+     "index": 1,
+     "antwort": "Die Mittelsenkrechte von [MN] zeichnen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Gleich weit von M und N ist etwas anderes: hier sind die Abstände verschieden"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "M und N liegen 9 cm auseinander. Gibt es einen Punkt, der von M genau 3 cm und von N genau 5 cm entfernt ist? Mit welchem Vorgehen prüfst du das?"
+    },
+    "a": [
+     "Eine Parallele zur Strecke [MN] im Abstand 3 cm zeichnen.",
+     "Die Mittelsenkrechte von [MN] zeichnen.",
+     "Zwei Kreise zeichnen (um M mit r = 3 cm, um N mit r = 5 cm) und nach gemeinsamen Punkten suchen."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Alle Punkte mit gleichem Abstand von einem Punkt liegen auf einer Kreislinie.",
+    "w": "Jede Bedingung gibt einen Kreis: um M mit r = 3 cm und um N mit r = 5 cm. Ein Punkt, der beides erfüllt, muss auf beiden Kreisen liegen. Hier gibt es keinen: 3 cm + 5 cm sind weniger als 9 cm, die Kreise berühren sich nicht."
+   }
+  },
+  {
+   "kennung": "GE1-V28",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Breite des Streifens als Abstand genommen"
+    },
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Breite verdoppelt statt halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Alle Punkte, die von einer Geraden g höchstens r cm entfernt sind, bilden einen Streifen. Der Streifen ist 18 cm breit. Wie groß ist r?"
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "cm"
+    },
+    "c": "18 // 2",
+    "h": "Der Streifen geht von g aus nach beiden Seiten.",
+    "w": "Der Streifen reicht r cm nach links und r cm nach rechts. Seine Breite ist 2 · r. Also ist r = 18 : 2 = 9 cm."
+   }
+  },
+  {
+   "kennung": "GE1-V29",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "eine Kreislinie mit Radius 6 km",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„höchstens“ heißt auch alle Orte näher als 6 km, nicht nur die Linie"
+    },
+    {
+     "index": 1,
+     "antwort": "ein Streifen der Breite 12 km",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Streifen gehört zu einer Geraden, nicht zu einem Punkt"
+    },
+    {
+     "index": 3,
+     "antwort": "eine Kreisfläche mit Durchmesser 6 km",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Radius und Durchmesser verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Sender erreicht alle Orte, die höchstens 6 km von ihm entfernt sind. Wie sieht dieses Gebiet auf der Karte aus?"
+    },
+    "a": [
+     "eine Kreislinie mit Radius 6 km",
+     "ein Streifen der Breite 12 km",
+     "eine Kreisfläche mit Radius 6 km",
+     "eine Kreisfläche mit Durchmesser 6 km"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Vom Sender aus ist alles gleich weit entfernt. Denke an „höchstens“.",
+    "w": "Der Abstand wird vom Sender (einem Punkt) gemessen. „Höchstens 6 km“ heißt: auf dem Kreis und innen. Das ist eine Kreisfläche mit Radius 6 km."
+   }
+  },
+  {
+   "kennung": "GE1-V30",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Ja, beide haben vier rechte Winkel.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Vergleich der Winkel reicht nicht: die Seiten fehlen"
+    },
+    {
+     "index": 2,
+     "antwort": "Ja, alle Rechtecke haben vier gleich lange Seiten.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Rechtecke haben nur gegenüberliegende Seiten gleich lang"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Aussage „Jedes Quadrat ist ein Rechteck“ stimmt. Jetzt drehst du sie um: „Jedes Rechteck ist ein Quadrat.“ Stimmt die umgedrehte Aussage?"
+    },
+    "a": [
+     "Ja, beide haben vier rechte Winkel.",
+     "Nein, ein Rechteck mit 6 cm und 3 cm ist kein Quadrat.",
+     "Ja, alle Rechtecke haben vier gleich lange Seiten."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Suche ein Rechteck mit zwei verschiedenen Seitenlängen.",
+    "w": "Ein Rechteck mit 6 cm und 3 cm hat vier rechte Winkel, aber nicht gleich lange Seiten. Das ist ein Gegenbeispiel. Die umgedrehte Aussage stimmt nicht."
+   }
+  },
+  {
+   "kennung": "GE1-V31",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt: es sind zwei Seiten, die fehlen"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Seite von 24 abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Aussage: „Jedes Rechteck mit dem Umfang 24 cm ist ein Quadrat.“ Du suchst ein Gegenbeispiel mit einer Seite von 8 cm. Weg A: 24 − 8 − 8 = 8 und dann geteilt durch 2. Weg B: der halbe Umfang 24 : 2 = 12, davon 8 abziehen. Wie lang ist die andere Seite?"
+    },
+    "o": {
+     "wert": 4,
+     "einheit": "cm"
+    },
+    "c": "(24 - 8 - 8) // 2",
+    "h": "Beide Wege müssen dieselbe Länge ergeben.",
+    "w": "Weg A: 24 − 8 − 8 = 8, geteilt durch 2 sind 4. Weg B: 12 − 8 = 4. Das Rechteck hat 8 cm und 4 cm, ist also kein Quadrat. Die Aussage stimmt nicht."
+   }
+  },
+  {
    "kennung": "GE1-V16",
    "thema": "geometrie.grundbegriffe",
    "lernkarte": "koordinaten",
@@ -1328,6 +1566,54 @@
     },
     "h": "Wie weit reicht das Wasser höchstens?",
     "w": "Das Wasser reicht höchstens 3 m weit, der Zaun ist 5 m weg. Der Zaun bleibt trocken."
+   }
+  },
+  {
+   "kennung": "GE1-V32",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim prüft die Aussage „Jedes Viereck mit zwei rechten Winkeln ist ein Rechteck.“ Zeile 1: Ich zeichne ein Viereck mit vier rechten Winkeln und den Seiten 5 cm und 3 cm. Zeile 2: Das ist ein Rechteck. Zeile 3: Also gilt die Aussage für jedes Viereck mit zwei rechten Winkeln. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Reicht ein Beispiel, um eine „immer“-Aussage zu beweisen?",
+    "w": "Ein einzelnes Beispiel kann eine „immer“-Aussage nicht beweisen. Es gibt Vierecke mit nur zwei rechten Winkeln, die kein Rechteck sind, zum Beispiel ein Trapez mit zwei rechten Winkeln."
    }
   }
  ]

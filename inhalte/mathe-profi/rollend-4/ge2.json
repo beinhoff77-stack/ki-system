@@ -960,6 +960,48 @@
    }
   },
   {
+   "kennung": "GE2-V25",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "symmetrie",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Achsen durch die Ecken gezählt"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "jede Achse doppelt gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "symmetrie",
+    "t": "symmetrie",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Symmetrieachsen hat ein regelmäßiges Sechseck? Weg A: 3 Achsen gehen durch gegenüberliegende Ecken, 3 weitere durch gegenüberliegende Seitenmitten. Weg B: Ein regelmäßiges Vieleck hat so viele Achsen, wie es Ecken hat."
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "3 + 3",
+    "h": "Beide Wege müssen dieselbe Zahl ergeben.",
+    "w": "Weg A: 3 + 3 = 6. Weg B: Ein Sechseck hat 6 Ecken, also 6 Achsen."
+   }
+  },
+  {
    "kennung": "GE2-V19",
    "thema": "abbildungen.kongruenz",
    "lernkarte": "achsenspiegelung",
@@ -1248,77 +1290,27 @@
    }
   },
   {
-   "kennung": "GE2-V25",
-   "thema": "abbildungen.kongruenz",
-   "lernkarte": "symmetrie",
-   "stufe": 3,
-   "typ": "Fehler-Detektiv (einfache Form)",
-   "antwortform": "auswahl",
-   "regel": "id.geometrie.deckungsgleich",
-   "regel_name": "Deckungsgleich",
-   "zaehlt": "ja",
-   "fehlbilder": [
-    {
-     "index": 0,
-     "antwort": "In Zeile 1",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    },
-    {
-     "index": 1,
-     "antwort": "In Zeile 2",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
-    }
-   ],
-   "aufgabe": {
-    "l": "symmetrie",
-    "t": "symmetrie",
-    "p": "uebung",
-    "s": 3,
-    "g": "fehler",
-    "y": "auswahl",
-    "f": {
-     "text": "Kim zählt die Symmetrieachsen von Vierecken, die kein Quadrat sind. Zeile 1: Ein Quadrat hat 4 Achsen. Zeile 2: Ein Rechteck hat 2 Achsen. Zeile 3: Eine Raute hat 4 Achsen. In welcher Zeile steckt der Fehler?"
-    },
-    "a": [
-     "In Zeile 1",
-     "In Zeile 2",
-     "In Zeile 3"
-    ],
-    "o": {
-     "index": 2
-    },
-    "h": "Eine Raute lässt sich nur an ihren beiden Diagonalen falten.",
-    "w": "Die Raute hat nur 2 Achsen: ihre beiden Diagonalen. Die Seitenmitten-Linien sind keine Achsen."
-   }
-  },
-  {
    "kennung": "GE2-V26",
    "thema": "abbildungen.kongruenz",
    "lernkarte": "eigenschaften",
    "stufe": 3,
-   "typ": "Fehler-Detektiv (einfache Form)",
-   "antwortform": "auswahl",
+   "typ": "Umkehren",
+   "antwortform": "zahl",
    "regel": "id.geometrie.deckungsgleich",
    "regel_name": "Deckungsgleich",
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "In Zeile 1",
+     "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "den Umfang des Bildes als Seite genommen"
     },
     {
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "antwort": 16,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "nur die beiden bekannten Seiten zusammengezählt"
     }
    ],
    "aufgabe": {
@@ -1326,21 +1318,18 @@
     "t": "eigenschaften",
     "p": "uebung",
     "s": 3,
-    "g": "fehler",
-    "y": "auswahl",
+    "g": "rueckwaerts",
+    "y": "zahl",
     "f": {
-     "text": "Kim sagt etwas über ein Dreieck, das um 90° gedreht wird. Zeile 1: Die Seitenlängen bleiben gleich. Zeile 2: Die Winkel bleiben gleich. Zeile 3: Der Umlaufsinn ändert sich bei jeder Drehung. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Dreieck wird an einer Achse gespiegelt. Das Bild hat die Seiten 6 cm und 10 cm und den Umfang 25 cm. Wie lang ist die dritte Seite des ursprünglichen Dreiecks?"
     },
-    "a": [
-     "In Zeile 1",
-     "In Zeile 2",
-     "In Zeile 3"
-    ],
     "o": {
-     "index": 2
+     "wert": 9,
+     "einheit": "cm"
     },
-    "h": "Nur eine Abbildung dreht den Umlaufsinn um. Welche?",
-    "w": "Der Umlaufsinn ändert sich nur bei der Achsenspiegelung. Bei einer Drehung bleibt er gleich."
+    "c": "25 - 6 - 10",
+    "h": "Eine Spiegelung ändert keine Längen.",
+    "w": "Das Original hat denselben Umfang wie das Bild: 25 cm. Die dritte Seite ist 25 − 6 − 10 = 9 cm."
    }
   },
   {

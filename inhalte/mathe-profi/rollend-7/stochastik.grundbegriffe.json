@@ -1,0 +1,542 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-7",
+ "kuerzel": "K8",
+ "flug": "k8-stochastik.grundbegriffe",
+ "titel": "stochastik.grundbegriffe",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen": [
+  "stochastik.grundbegriffe"
+ ],
+ "themen_datei_im_bestand": "stochastik.grundbegriffe",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K8-V133",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "begriffe",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Kugeln statt der Farben gezählt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Farbe blau betrachtet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "rot und grün genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "begriffe",
+    "t": "begriffe",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "In einer Urne liegen 6 rote, 2 blaue, 5 grüne und 1 gelbe Kugel. Man zieht eine Kugel und notiert die Farbe. Der Ergebnisraum hat ① Ergebnisse. Zum Ereignis „rot oder blau“ gehören ② Kugeln. In der Urne liegen insgesamt ③ Kugeln.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      8,
+      14
+     ]
+    },
+    "c": [
+     "4",
+     "6 + 2",
+     "6 + 2 + 5 + 1"
+    ],
+    "h": "Die Ergebnisse sind die Farben. Das Ereignis fasst Ergebnisse zusammen, gezählt werden aber die Kugeln.",
+    "w": "Vier Farben, also vier Ergebnisse. Rot oder blau: 6 + 2 = 8 Kugeln. Insgesamt 6 + 2 + 5 + 1 = 14 Kugeln."
+   }
+  },
+  {
+   "kennung": "K8-V134",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "begriffe",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl der Ergebnisse statt k genannt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei k = 2 gibt es 6 Vielfache"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei k = 6 gibt es nur 2 Vielfache"
+    }
+   ],
+   "aufgabe": {
+    "l": "begriffe",
+    "t": "begriffe",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Würfel hat die Zahlen 1 bis 12. Das Ereignis „Die Zahl ist ein Vielfaches von k“ hat genau 4 Ergebnisse. Dabei ist k eine Zahl größer als 1. Welche Zahl ist k?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": 3,
+    "h": "Zähle für k = 2, 3, 4 … wie viele Vielfache es zwischen 1 und 12 gibt.",
+    "w": "Vielfache von 3: 3, 6, 9, 12. Das sind genau 4. Bei k = 2 sind es 6, bei k = 4 nur 3 Vielfache."
+   }
+  },
+  {
+   "kennung": "K8-V135",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "begriffe",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die durch 3 teilbaren Zahlen gezählt"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Felder gezählt"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 12 oder 1 mitgezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "begriffe",
+    "t": "begriffe",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Glücksrad hat 8 gleich große Felder mit den Zahlen 1 bis 8. Wie viele Ergebnisse gehören zum Ereignis „Die Zahl ist durch 3 oder durch 4 teilbar“?"
+    },
+    "o": {
+     "wert": 4,
+     "einheit": "Ergebnisse"
+    },
+    "c": "2 + 2",
+    "h": "Gehe die Zahlen 1 bis 8 der Reihe nach durch. Eine Zahl zählt nur einmal.",
+    "w": "Durch 3 teilbar: 3 und 6. Durch 4 teilbar: 4 und 8. Zusammen 4 Ergebnisse: {3; 4; 6; 8}."
+   }
+  },
+  {
+   "kennung": "K8-V136",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "rel_haeufigkeit",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die absolute Häufigkeit als Prozent genommen"
+    },
+    {
+     "antwort": 22,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "40 − 18 gerechnet"
+    },
+    {
+     "antwort": 4.5,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "eine Stelle verrutscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "rel_haeufigkeit",
+    "t": "rel_haeufigkeit",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Münze wird 40-mal geworfen. Wappen fällt 18-mal. Wie groß ist die relative Häufigkeit von Wappen in Prozent? Rechne auf zwei Wegen. Weg A: 18 : 40 als Dezimalzahl und dann mal 100. Weg B: den Bruch 18/40 auf den Nenner 100 erweitern."
+    },
+    "o": {
+     "wert": 45,
+     "einheit": "%"
+    },
+    "c": "18 / 40 * 100",
+    "h": "Beide Wege müssen dasselbe Ergebnis ergeben.",
+    "w": "Weg A: 18 : 40 = 0,45 und 0,45 · 100 = 45. Weg B: 18/40 = 9/20 = 45/100 = 45 %."
+   }
+  },
+  {
+   "kennung": "K8-V137",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "rel_haeufigkeit",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die absolute Häufigkeit statt der relativen genommen"
+    },
+    {
+     "index": 2,
+     "antwort": "0,08",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 100 statt durch 50 geteilt"
+    },
+    {
+     "index": 3,
+     "antwort": "0,125",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "8 durch 64 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "rel_haeufigkeit",
+    "t": "rel_haeufigkeit",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt 50 Würfe mit einem Würfel. Wie groß ist die relative Häufigkeit der Sechs?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Zahl",
+       "1",
+       "2",
+       "3",
+       "4",
+       "5",
+       "6"
+      ],
+      "zeilen": [
+       [
+        "Anzahl",
+        "9",
+        "7",
+        "8",
+        "12",
+        "6",
+        "8"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "8",
+     "0,16",
+     "0,08",
+     "0,125"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Relative Häufigkeit = Anzahl der Sechsen : Anzahl aller Würfe.",
+    "w": "In der Spalte „6“ steht 8. Es gab 50 Würfe. 8 : 50 = 0,16."
+   }
+  },
+  {
+   "kennung": "K8-V138",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "rel_haeufigkeit",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl aus der Prüfung übernommen"
+    },
+    {
+     "antwort": 1880,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die nicht fehlerhaften Schrauben berechnet"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
+     "regel_des_fehlbilds": "rr.stellenwert",
+     "beschreibung": "eine Stelle verrutscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "rel_haeufigkeit",
+    "t": "rel_haeufigkeit",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Qualitätskontrolle prüft 250 Schrauben. 15 davon sind fehlerhaft. Es werden 2000 Schrauben hergestellt. Wie viele davon sind nach dieser Kontrolle ungefähr fehlerhaft?"
+    },
+    "o": {
+     "wert": 120,
+     "einheit": "Schrauben"
+    },
+    "c": "15 / 250 * 2000",
+    "h": "Berechne zuerst die relative Häufigkeit der fehlerhaften Schrauben. Übertrage sie auf 2000.",
+    "w": "15 : 250 = 0,06 = 6 %. 6 % von 2000 sind 120. Es sind ungefähr 120 fehlerhafte Schrauben."
+   }
+  },
+  {
+   "kennung": "K8-V139",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "darstellen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "fehlbild": "fb.stufen.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "id.daten.stufen",
+     "beschreibung": "36 : 2 gerechnet"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": "fb.stufen.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "id.daten.stufen",
+     "beschreibung": "n + n = 12 angenommen"
+    },
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Wege genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "darstellen",
+    "t": "darstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Urne enthält Kugeln mit den Nummern 1 bis n. Man zieht zweimal nacheinander eine Kugel und legt sie nach jedem Zug zurück. Das Baumdiagramm hat insgesamt 36 Wege. Wie viele Kugeln liegen in der Urne?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": 6,
+    "h": "Jede Stufe hat n Äste. Wie viele Wege gibt es bei zwei Stufen?",
+    "w": "Es gibt n · n Wege, weil jeder der n Äste der ersten Stufe wieder n Zweige hat. n · n = 36, also n = 6."
+   }
+  },
+  {
+   "kennung": "K8-V140",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "darstellen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine der beiden Summen gezählt"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 Ergebnisse angenommen, weil die Summe 9 heißt"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 + 9 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "darstellen",
+    "t": "darstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Würfel wird zweimal geworfen. Wie viele Ergebnisse gehören zum Ereignis „Die Augensumme ist 5 oder 9“? Rechne auf zwei Wegen. Weg A: mit einem Baumdiagramm. Weg B: mit einer Tabelle mit 6 Zeilen und 6 Spalten."
+    },
+    "o": {
+     "wert": 8,
+     "einheit": "Ergebnisse"
+    },
+    "c": "4 + 4",
+    "h": "Zähle die Paare getrennt für Summe 5 und für Summe 9.",
+    "w": "Summe 5: (1|4), (2|3), (3|2), (4|1). Summe 9: (3|6), (4|5), (5|4), (6|3). Zusammen 4 + 4 = 8 Ergebnisse."
+   }
+  },
+  {
+   "kennung": "K8-V141",
+   "thema": "stochastik.grundbegriffe",
+   "lernkarte": "darstellen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„größer oder gleich 4“ gelesen"
+    },
+    {
+     "index": 2,
+     "antwort": "4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe 4 mitgezählt"
+    },
+    {
+     "index": 3,
+     "antwort": "5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch abgezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "darstellen",
+    "t": "darstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Glücksrad mit den Zahlen 1, 2 und 3 wird zweimal gedreht. Die Tabelle zeigt alle neun Augensummen. Wie viele Ergebnisse gehören zum Ereignis „Die Summe ist größer als 4“?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "+",
+       "1",
+       "2",
+       "3"
+      ],
+      "zeilen": [
+       [
+        "1",
+        "2",
+        "3",
+        "4"
+       ],
+       [
+        "2",
+        "3",
+        "4",
+        "5"
+       ],
+       [
+        "3",
+        "4",
+        "5",
+        "6"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "6",
+     "3",
+     "4",
+     "5"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Zähle die Felder der Tabelle, in denen die Summe 5 oder 6 steht.",
+    "w": "Summe 5 steht zweimal, Summe 6 einmal. Zusammen 3 Ergebnisse."
+   }
+  }
+ ]
+}

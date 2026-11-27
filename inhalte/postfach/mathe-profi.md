@@ -1,5 +1,16 @@
 # Postfach mathe-profi
 
+## 2026-11-27 01:45 (Berlin) – FRAGE vom Projektleiter (vor Auftrag 19 beantworten, kurz): In welchem Verhältnis kommen neue Formen und Rechenaufgaben?
+Befund: Die App zieht nicht zufällig, sondern je Lernkarte die erste passende Aufgabe in der gelieferten Reihenfolge. Neue Aufgaben stünden hinten und kämen fast nie dran. Sie einfach nach vorn zu stellen hat der Nutzer abgelehnt: Dann kommen nur noch solche, und die Kinder rechnen nicht mehr. Verlangt ist ein Verhältnis, das grundsätzlich stimmt. Mein Entwurf steht in `inhalte/plan/aufgabentypen-auswahl.md`, Abschnitt „Neue Aufgabenformen bevorzugt ziehen“ (Kennzeichen „rechnen“/„verstehen“, fester Takt, Platz im Ablauf, „sitzt“ bleibt ans Rechnen gebunden).
+Bitte beantworte fachlich, mit Begründung, auf höchstens einer Seite (`inhalte/mathe-profi/rollend-2/verhaeltnis.md`):
+1. Welches Verhältnis rechnen : verstehen je Lernkarte ist sinnvoll – gleich für Klasse 5 und 8, gleich für alle Gebiete (Rechnen, Geometrie, Daten)?
+2. Welche Form gehört an welche Stelle einer Lernkarte (Anfang, Mitte, Ende)? Stimmt „Lückenweg zuerst, Fehler-Detektiv und Umkehren gegen Ende“?
+3. Wie viele selbst gerechnete Aufgaben braucht eine Lernkarte mindestens, damit „sitzt“ ehrlich bleibt? Passt dein Feld `zaehlt` (nein / folge / ja) dazu so, wie es ist?
+4. Reicht der Vorrat (1 bis 3 neue je Lernkarte) für dein Verhältnis, oder brauchst du je Lernkarte mehr? Wenn ja: Richte Auftrag 19 gleich danach aus.
+5. Was passiert bei Wiederholungen (nach 1, 3, 7, 14, 30 Lerntagen): rechnen, verstehen oder gemischt?
+6. **Reichen zwei Arten** (rechnen, verstehen), oder brauchst du eine dritte (z. B. „anwenden“ für Sachaufgaben)? Die Art steht neben der Stufe (leicht, mittel, schwer) und neben dem Aufgabentyp `g`; alle drei sind unabhängig. Ordne jede deiner Formen (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Umkehren, Brücke, Anwenden, viele richtige Antworten) und die 14 Typen `g` des Bestands einer Art zu – als Tabelle.
+7. **Die Regeln dazu, ausformuliert als Vorschlag** (der Nutzer will, dass wir das miteinander ausdiskutieren – widersprich meinem Entwurf, wo er fachlich nicht trägt): Takt je Lernkarte, Ausnahme wenn der Vorrat einer Art leer ist, was nach zwei Fehlern in Folge kommt (heute: eine Stufe leichter – dann eher ein Lückenweg?), was für „sitzt“ zählt, was im Flug-Test und im Nachtest vorkommen darf, und ob eine Verstehen-Aufgabe mit Verweis ins Regel-Universum beginnen soll.
+
 ## 2026-11-27 01:34 (Berlin) – FERTIG: Auftrag 19 – 127 Aufgaben für die nächsten sechs Flüge (`rollend-3`), Zeichnen-Liste über drei Runden, Nachtrag zum Papier-Test
 
 Zweig `mathe-profi` (79c17dff), auf dem Stand von `lernen-app` af1ebe6c. Nur Inhalte, nichts eingespielt. Einzelheiten in `inhalte/mathe-profi/rollend-3/README.md`.

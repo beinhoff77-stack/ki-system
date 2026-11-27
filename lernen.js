@@ -3278,14 +3278,17 @@ function lernSaeulen(b) {
   return svg;
 }
 function lernKreisdiagramm(b) {
-  const w = b.werte || []; const sum = w.reduce((a, x) => a + x.wert, 0) || 1; const B = 340, H = 220, cx = 110, cy = 110, r = 92;
+  const w = b.werte || []; const sum = w.reduce((a, x) => a + x.wert, 0) || 1;
+  const beschr = (x) => x.name + (b.zahlen === false ? '' : ` (${lernZahlText(x.wert)}${b.einheit || ''})`);
+  // Breite nach der längsten Beschriftung (rund 9 Einheiten je Zeichen), damit die Legende am Handy nicht abgeschnitten wird
+  const B = Math.max(340, 250 + Math.ceil(Math.max(0, ...w.map((x) => beschr(x).length)) * 9)), H = Math.max(220, 40 + w.length * 24), cx = 110, cy = 110, r = 92;
   const { svg, mk } = lernSvg(B, H, b.label || `Kreisdiagramm: ${w.map((x) => `${x.name} ${x.wert}`).join(', ')}`);
   let a0 = -Math.PI / 2;
   w.forEach((x, i) => {
     const a1 = a0 + 2 * Math.PI * x.wert / sum; const gross = a1 - a0 > Math.PI ? 1 : 0;
     mk('path', { d: `M${cx} ${cy} L${cx + r * Math.cos(a0)} ${cy + r * Math.sin(a0)} A${r} ${r} 0 ${gross} 1 ${cx + r * Math.cos(a1)} ${cy + r * Math.sin(a1)} Z`, class: 'saeule sektor saeule' + (i % 4) });
     mk('rect', { x: 222, y: 24 + i * 24, width: 14, height: 14, class: 'saeule saeule' + (i % 4) });
-    mk('text', { x: 242, y: 36 + i * 24, class: 'zahl links' }, x.name + (b.zahlen === false ? '' : ` (${lernZahlText(x.wert)}${b.einheit || ''})`));
+    mk('text', { x: 242, y: 36 + i * 24, class: 'zahl links' }, beschr(x));
     a0 = a1;
   });
   return svg;

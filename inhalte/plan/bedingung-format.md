@@ -84,7 +84,7 @@ Satz des Nutzers: „Rechner Teil 1 einspielen“. Gegenprüfung: Werkstatt 1011
 - Laufzeit: 9,18 ms (meiste Knoten), 11,33 ms (große Brüche), 0,05 ms (Fall mit Potenzen) – **diese dritte Zahl ist ungültig:** Im Paket standen alle drei Argumente als feste Werte da; die Datenbank rechnet eine unveränderliche Funktion mit festen Argumenten nur einmal aus statt 200 Mal. Das Ergebnis des Falls wurde geprüft und stimmt, die Zeit ist nicht gemessen. Vor Teil 2 mit Variablen neu messen.
 Danach nur lesend nachgesehen: neun Funktionen vorhanden, Zweig vorhanden, Sperre zu, Probe „Deine Summe ist 1.“ Werkstatt-Änderung 395.
 
-## Teil 2 (BD-S2) – als Datei geschrieben am 27.11., nicht eingespielt, nach Gegenprüfung nachgebessert (zweite Prüfung offen)
+## Teil 2 (BD-S2) – als Datei geschrieben am 27.11., eingespielt am 27.11.2026
 `supabase/migrations/20261202_bd_s2_bedingung_ausgabe.sql`. Eine Transaktion: Schutz und Öffnung gemeinsam.
 - **Eine Stelle für alles, was von einer Lösung den Server verlässt:** `schule.loesung_sicht(aufgabe)`. Typ `bedingung`: nur `beispiel` und die Namen der Bedingungen. Alle anderen Typen wie bisher.
 - **Sechs Ausgaben umgestellt** (in der Datenbank gelesen, andere gibt es nicht): `uebung_pruefen_intern` (5 Stellen), `test_abschliessen_intern`, `expeditionen_kind`, `expeditionen_alle`, `api.schule_lernstand`, `api.schule_inhalt_lesen`. Die Anker der Text-Patches sind gegen die echten Definitionen gezählt (nur lesend): alle zehn Zählungen stimmen.
@@ -100,6 +100,16 @@ Danach nur lesend nachgesehen: neun Funktionen vorhanden, Zweig vorhanden, Sperr
   - *Fünf übrige Ausgabewege:* je ein gezielter Lauf in einer zurückgerollten Konstellation (Testkind, Probe-Aufgaben, Testsitzung, Expedition im Entwurf, Lehrer-Zugang auf Zeit): laufender Test (nur Formatstatus), Test-Abschluss, Expedition beim Kind vor/nach, Expeditionen gesamt, Lernstand, Inhalt.
   - *Schärfere Prüfungen:* alter Typ mit fünf fachlich erwarteten Antworten (nicht nur vorher = nachher); Rollenwechsel getrennt abgesichert; Typ-Constraint exakt die Sollmenge; Menge aller Funktionen mit dem Wort „loesung“ muss genau die erwarteten 13 sein.
   - *Neu: Probelauf.* `bedingung_einspielen2.py --probe` erzeugt dasselbe Paket, das am Ende absichtlich abbricht: alles läuft, nichts bleibt. **Offen:** Das Paket ist bisher nie gelaufen (keine lokale Datenbank). Unsicher sind vor allem die fünf neuen Läufe (z. B. ob der Lernstand den Flug des Testkinds zeigt).
+- **Probeläufe 27.11. auf der echten Datenbank (Satz des Nutzers „Probelauf Teil 2“; beide endeten mit Abbruch, danach nachgeprüft: nichts ist geblieben):**
+  - *Voller Probelauf:* abgebrochen mit zwei Fehlern **im Prüfpaket, nicht in der Migration**: (1) die Suche nach „ganze Aufgabenzeile wird gesendet“ traf drei fremde Funktionen (jetzt auf Funktionen begrenzt, die `schule.aufgabe` nennen); (2) ein Name im Lernstand-Lauf war doppelt belegt (umbenannt). Alle übrigen Abschnitte liefen ohne Fehlermeldung durch: zweimalige Migration, Mischstand, alter Typ, neuer Typ, Test, Expedition, Constraints, Rechte, Laufzeit.
+  - *Kleiner Probelauf (`--probe-wege`: Migration einmal + nur die fünf Ausgabewege):* bestanden. Lernstand und Inhalt zeigen für den neuen Typ exakt die öffentliche Lösung.
+  - **Offen:** Ein voller Probelauf mit der berichtigten Fassung ist noch nicht gelaufen. Zweite Gegenprüfung (Werkstatt 1015): „Ja mit Auflagen“ – vor dem Einspielen muss der volle Lauf grün sein.
+  - **Berichtigung zur Sperre:** Die Tabelle `schule.aufgabe` ist nicht nur während des Umbaus gesperrt, sondern bis zum Ende der ganzen Transaktion (auch für Lesen). Also nur in einer Nutzungspause laufen lassen.
+- **EINGESPIELT am 27.11.2026, 01:33 (Berlin)** auf den Satz des Nutzers, nach der dritten Gegenprüfung (Werkstatt 1017: direktes Einspielen vertretbar). Stand `lernen-app@59641cc7`, das volle selbstprüfende Paket; Werkstatt-Änderung 398.
+  - Alle Prüfungen bestanden: Mischstand abgewiesen, Gegenprobe ok, alter Typ fünf Antworten fachlich richtig und gleich wie vorher, neuer Typ neun Antworten, fünf Ausgabewege, Versionsschutz, fremde `client_id` abgewiesen, beide Constraint-Proben, vier Rollen gesperrt.
+  - Laufzeit (je 200 Läufe, mit Variablen): 9,08 ms (meiste Knoten), 9,76 ms (große Brüche), 8,27 ms (Potenzen) – damit ist auch die ungültige dritte Zahl aus Teil 1 ersetzt.
+  - Danach nachgeprüft: Typ-Constraint mit `bedingung`, `aufgabe_bedingung_gueltig` gültig, `loesung_sicht` und Trigger da, keine Funktion sendet mehr die rohe Lösung, keine Probe-Reste, keine Aufgabe des neuen Typs.
+  - **Noch nicht live:** die App-Seite (Zahlenfelder, Rückmeldung). Bis dahin darf keine Aufgabe des neuen Typs eingespielt werden – die Live-App könnte sie nicht anzeigen.
 - **Reihenfolge:** Teil 2 erst, wenn Teil 1 eingespielt ist und die App die neuen Felder anzeigen kann. Vorher gibt es keine Aufgabe des Typs.
 
 ## Was als Nächstes kommt

@@ -16,7 +16,7 @@ neu(T, "teiler", "umkehren", Z(
 
 # ───────── vielfache ─────────
 neu(T, "vielfache", "zwei_wege", Z(
-    "Wie viele Zahlen von 105 bis 203 sind Vielfache von 7? Die Grenzen 105 und 203 zählen mit. Weg A: Schreibe die Vielfachen der Reihe nach auf und zähle. Weg B: Bestimme, das wievielte Vielfache von 7 die 105 und das wievielte die 203 ist, und rechne mit diesen beiden Nummern. Gib die Zahl der Vielfachen an.",
+    "Betrachte die Zahlen von 105 bis 203 einschließlich beider Grenzen. Weg A: Schreibe die Vielfachen der Reihe nach auf und zähle. Weg B: Bestimme, das wievielte Vielfache von 7 die 105 und das wievielte die 203 ist, und rechne mit diesen beiden Nummern. Gib die Zahl der Vielfachen an.",
     15, "203 // 7 - 105 // 7 + 1", "29 - 15 + 1", "Welche Vielfachen von 7 sind 105 und 203? Gehören die Grenzen dazu?",
     "Weg A: 105, 112, 119, …, 196, 203 sind 15 Zahlen. Weg B: 105 = 15 · 7 ist das 15. Vielfache, 203 = 29 · 7 ist das 29. Vielfache. Von der 15. bis zur 29. Nummer sind es 29 − 15 + 1 = 15 Vielfache, weil beide Grenzen mitzählen.",
     [(14, None, "eine Grenze nicht mitgezählt: 29 − 15", "29 - 15"), (13, None, "beide Grenzen nicht mitgezählt: 29 − 15 − 1", "29 - 15 - 1"), (29, None, "alle Vielfachen von 7 bis 203 gezählt: 203 : 7", "203 // 7")], "Vielfache"))
@@ -51,7 +51,7 @@ neu(T, "quersumme", "anwenden", W(
 neu(T, "quersumme", "zwei_wege", Z(
     "Gegeben ist die Zahl 2 749. Weg A: Dividiere schriftlich. Weg B: Bilde die Quersumme und bestimme ihren Rest bei der Division durch 3. Welchen Rest lässt 2 749 bei der Division durch 3?",
     1, "2749 % 3", "(2 + 7 + 4 + 9) % 3", "Bei Weg B zählst du zuerst die Ziffern zusammen.",
-    "Weg A: 2 749 : 3 = 916 Rest 1. Weg B: Quersumme 2 + 7 + 4 + 9 = 22, 22 : 3 = 7 Rest 1. Beide Wege geben Rest 1.",
+    "Weg A schriftlich: 27 : 3 = 9 Rest 0; die 4 herunterholen: 4 : 3 = 1 Rest 1; die 9 herunterholen: 19 : 3 = 6 Rest 1. Ergebnis: 2 749 : 3 = 916 Rest 1. Weg B: Quersumme 2 + 7 + 4 + 9 = 22, 22 : 3 = 7 Rest 1. Beide Wege geben Rest 1.",
     [(22, None, "die Quersumme selbst als Rest genannt", "2 + 7 + 4 + 9"), (7, None, "den Quotienten der Quersumme genannt", "22 // 3"), (0, "fb.bausteine.endziffer_statt_quersumme", "nur die Endziffer 9 angesehen: Sie ist durch 3 teilbar, also Rest 0", "9 % 3")]), g="verknuepfen")
 
 # ───────── neunerregel ─────────

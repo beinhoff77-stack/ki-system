@@ -30,10 +30,10 @@ neu(T, "berechnen", "fehler_detektiv", FD(
 
 # ───────── quadrat ─────────
 neu(T, "quadrat", "zwei_wege", Z(
-    "Weg A: Rechne 15 · 15 schriftlich. Weg B: Zerlege den zweiten Faktor in 10 + 5 und rechne 15 · 10 + 15 · 5. Berechne 15² auf zwei Wegen.",
-    225, "15 * 15", "15 * 10 + 15 * 5", "Bei Weg B rechnest du zwei einfachere Malaufgaben und addierst.",
-    "Weg A schriftlich: 15 · 1 = 15, das sind 150 (eine Stelle nach links), dann 15 · 5 = 75; 150 + 75 = 225. Weg B: 15 · 10 = 150, 15 · 5 = 75, 150 + 75 = 225.",
-    [(30, BM, "Basis mal Hochzahl gerechnet: 15 · 2", "15 * 2"), (150, None, "nur 15 · 10 gerechnet", "15 * 10"), (25, None, "nur die Einerziffer quadriert", "5 * 5")]), regel=PO)
+    "Weg A: Rechne 15 · 15 schriftlich. Weg B: Schreibe den zweiten Faktor als 20 − 5 und rechne 15 · (20 − 5) = 15 · 20 − 15 · 5. Berechne 15² auf zwei Wegen.",
+    225, "15 * 15", "15 * 10 + 15 * 5", "Bei Weg B rechnest du zwei einfachere Malaufgaben und ziehst ab.",
+    "Weg A schriftlich: 15 · 1 = 15, das sind 150 (eine Stelle nach links), dann 15 · 5 = 75; 150 + 75 = 225. Weg B: 15 · 20 = 300, 15 · 5 = 75, 300 − 75 = 225.",
+    [(30, BM, "Basis mal Hochzahl gerechnet: 15 · 2", "15 * 2"), (375, None, "statt abzuziehen addiert: 300 + 75", "300 + 75"), (25, None, "nur die Einerziffer quadriert", "5 * 5")]), regel=PO)
 neu(T, "quadrat", "bruecke", Z(
     "Aus Plättchen wird ein Quadrat gelegt, 9 Plättchen lang und 9 Plättchen breit. Wie viele Plättchen liegen nicht am Rand, also im Inneren?",
     49, "9 * 9 - (4 * 9 - 4)", "(9 - 2) ** 2", "Das Innere ist wieder ein Quadrat. Wie viele Plättchen lang ist es? Am Rand fehlt auf jeder Seite eine Reihe.",

@@ -72,3 +72,12 @@ Die Arbeitsliste der Gegenprüfung ist vollständig umgesetzt (Muss und Auflagen
 - Sach-, Text- und Lösungsweg-Korrekturen der Liste: V024, V060, V064, V086, V091, V105 bis V107, V115, V117, V122, V134, V137, V139, V140, V184, V185, V199, V205 sowie die Weg-A- und Weg-B-Ausführungen in V037, V049, V081, V106, V023, V012.
 - Bei allen 58 Zwei-Wege-Aufgaben steht der Schlussauftrag hinter den beiden Wegen. `bauen.py` prüft das jetzt: der letzte Satz darf nicht mit „Weg“ beginnen und muss eine Frage oder ein Auftrag (Gib, Berechne, Bestimme, Nenne, Löse, Runde) sein.
 - Prüfläufe: `bauen.py` OK, `tools/vorrat_pruefen.py` (i) bis (iii) ohne Meldung, (iv) nur die vier bestätigten Denkfehler-Zeilen; `tools/rollend_sql.py --runden 12` ohne Fehler, 210 Aufgaben.
+
+## Nach Gegenprüfung (Werkstatt 1105)
+Zweite Gegenprüfung umgesetzt; Kennungen unverändert, weiter 210 Aufgaben. Geänderte Aufgaben wurden wie neue geprüft, im erzeugten JSON ist in allen Feldern kein alter Text mehr zu finden.
+- V019: Weg B zählt von 999 997 drei Schritte weiter. V020 ist jetzt eine Auswahl mit Begründung (allgemeine Begründung gegen Einzelfälle) und prüft damit etwas anderes als V019.
+- V139 und V140: Probe und Rückmeldung begründen die Umrechnung mit 100 dm² = 1 m² statt mit einer Division durch 100.
+- V023: Auswahl fragt nach dem Grund für CM (kleineres Zeichen vor größerem folgenden Zeichen wird abgezogen). V049, V052, V098: schriftliche Division in Weg A in Teilschritten. V081: zweiter Weg 15 · (20 − 5) = 300 − 75.
+- V093, V107, V128, V184: Eingabefrage nur noch am Ende, vor Weg A stehen nur die Bedingungen. V186: „im Durchschnitt“ und ein Überschlag mit Begründung aus den Schrittzahlen. V199: durchgehend „Beispiel“.
+- Systematische Suchen: Einheit-durch-100-Umrechnungen in allen Texten, Hinweisen, Lösungen, Proben und Rückmeldungen ohne weiteren Treffer. Doppelte Fragen bei Zwei-Wege-Aufgaben: zusätzlich in V125, V130, V131, V157, V138 und V144 die erste Frage zur Bedingung umgestellt; V146 bleibt (zwei Teilgrößen, Schlussauftrag nennt die Summe).
+- Prüfläufe: `bauen.py` OK, `tools/vorrat_pruefen.py` (i) bis (iii) ohne Meldung, (iv) nur die vier bestätigten Denkfehler-Zeilen; `tools/rollend_sql.py --runden 12` ohne Fehler, 210 Aufgaben.

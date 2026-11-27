@@ -420,14 +420,14 @@
      "beschreibung": "Das Minus gilt nur für die 25 €. Das Heft wurde dazugerechnet statt abgezogen."
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "80 + (25 + 15)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Beide Ausgaben wurden zum Geld addiert statt abgezogen."
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "80 − 25 · 15",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -446,12 +446,12 @@
     },
     "a": [
      "80 − 25 + 15",
-     "80 − (25 + 15)",
      "80 + (25 + 15)",
-     "80 − 25 · 15"
+     "80 − 25 · 15",
+     "80 − (25 + 15)"
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
     "h": "Beide Einkäufe kosten Geld. Was kostet beides zusammen? Wie kommst du von 80 € zum Rest?",
     "w": "Das Buch und das Heft kosten zusammen 25 € + 15 € = 40 €. Das Minus gilt für beide Ausgaben, deshalb steht die Summe in einer Klammer: 80 − (25 + 15) = 40 €."
@@ -1125,7 +1125,7 @@
     },
     "c": "728 / 14",
     "h": "Bei Weg B: Wie oft passt 14 in 700? Wie oft in 28?",
-    "w": "Weg A schriftlich: 72 : 14 = 5 (5 · 14 = 70), Rest 2; die 8 herunterholen: 28 : 14 = 2 (2 · 14 = 28), Rest 0; Ergebnis 52. Weg B: 700 : 14 = 50 und 28 : 14 = 2, zusammen 52. Probe: 52 · 14 = 728."
+    "w": "Weg A schriftlich: 72 : 14 = 5 Rest 2 (5 · 14 = 70); die 8 herunterholen: 28 : 14 = 2 Rest 0 (2 · 14 = 28); Ergebnis 52. Weg B: 700 : 14 = 50 und 28 : 14 = 2, zusammen 52. Probe: 52 · 14 = 728."
    }
   },
   {
@@ -1261,7 +1261,7 @@
     },
     "c": "3128 % 24",
     "h": "Bei Weg B: Nach 24 · 100 bleibt eine Zahl übrig. Wie viele 24er passen noch hinein?",
-    "w": "Weg A: 3 128 : 24 = 130 Rest 8. Weg B: 3 128 − 2 400 = 728. 728 − 30 · 24 = 728 − 720 = 8."
+    "w": "Weg A schriftlich: 31 : 24 = 1 Rest 7 (1 · 24 = 24); die 2 herunterholen: 72 : 24 = 3 Rest 0 (3 · 24 = 72); die 8 herunterholen: 8 : 24 = 0 Rest 8. Ergebnis: 3 128 : 24 = 130 Rest 8. Weg B: 3 128 − 2 400 = 728. 728 − 30 · 24 = 728 − 720 = 8."
    }
   },
   {

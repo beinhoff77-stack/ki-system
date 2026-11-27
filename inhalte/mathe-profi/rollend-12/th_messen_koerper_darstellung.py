@@ -73,7 +73,7 @@ neu(T, "ansichten", "umkehren", W(
 
 # ───────── beurteilen ─────────
 neu(T, "beurteilen", "zwei_wege", Z(
-    "Jan behauptet: „Ein Würfel hat 6 Flächen mit je 4 Kanten, also 24 Kanten.“ Wie viele Kanten hat ein Würfel wirklich? Weg A: Zähle die Kanten oben, unten und die senkrechten Kanten. Weg B: Prüfe Jans Rechnung: Jede Kante gehört zu genau zwei Flächen. Gib die wirkliche Zahl der Kanten an.",
+    "Jan behauptet: „Ein Würfel hat 6 Flächen mit je 4 Kanten, also 24 Kanten.“ Weg A: Zähle die Kanten oben, unten und die senkrechten Kanten. Weg B: Prüfe Jans Rechnung: Jede Kante gehört zu genau zwei Flächen. Gib die wirkliche Zahl der Kanten an.",
     12, "4 + 4 + 4", "6 * 4 / 2", "Jede Kante grenzt an zwei Flächen. Wie oft hat Jan jede Kante gezählt?",
     "Weg A: oben 4, unten 4, senkrecht 4: 4 + 4 + 4 = 12. Weg B: 6 · 4 = 24 Kanten gezählt, aber jede wurde zweimal gezählt: 24 : 2 = 12.",
     [(24, None, "jede Kante doppelt gezählt", "6 * 4"), (8, None, "die Zahl der Ecken genannt", "8"), (6, None, "die Zahl der Flächen genannt", "6")], "Kanten"))

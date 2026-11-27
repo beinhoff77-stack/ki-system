@@ -330,7 +330,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Wie viele m² sind 3 ha? Weg A: Rechne mit 1 ha = 10 000 m². Weg B: Ein Quadrat mit 100 m Seitenlänge hat 1 ha. Berechne die Fläche von 3 solchen Quadraten in m²."
+     "text": "Eine Fläche von 3 ha soll in m² angegeben werden. Weg A: Rechne mit 1 ha = 10 000 m². Weg B: Ein Quadrat mit 100 m Seitenlänge hat 1 ha. Berechne die Fläche von 3 solchen Quadraten in m². Gib an, wie viele m² 3 ha sind."
     },
     "o": {
      "wert": 30000,
@@ -388,7 +388,7 @@
     },
     "c": "8.4 * 100",
     "h": "Wie viele dm² hat ein m²? Mache die Umrechnung rückgängig.",
-    "w": "1 m² = 100 dm². Rückwärts wird mit 100 malgenommen: 8,4 m² = 8,4 · 100 dm² = 840 dm². Probe: 840 dm² : 100 = 8,4 m²."
+    "w": "1 m² = 100 dm². Rückwärts wird mit 100 malgenommen: 8,4 m² = 8,4 · 100 dm² = 840 dm². Probe: 840 dm² = 8,4 m², denn 100 dm² = 1 m²."
    }
   },
   {
@@ -408,7 +408,7 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Zeile 1 stimmt: 45 dm² : 100 = 0,45 m². Der Fehler steckt später."
+     "beschreibung": "Zeile 1 stimmt: 45 dm² = 0,45 m², denn 100 dm² = 1 m². Der Fehler steckt später."
     },
     {
      "index": 2,
@@ -650,7 +650,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Ein Gartenweg ist 6 m lang und 80 cm breit. Er wird lückenlos mit quadratischen Platten von 20 cm Seitenlänge belegt. Wie viele Platten braucht man? Weg A: Teile die Fläche des Wegs durch die Fläche einer Platte (beides in cm²). Weg B: Bestimme, wie viele Platten in der Länge und wie viele in der Breite nebeneinander passen. Gib die Zahl der Platten an."
+     "text": "Ein Gartenweg ist 6 m lang und 80 cm breit. Er wird lückenlos mit quadratischen Platten von 20 cm Seitenlänge belegt. Weg A: Teile die Fläche des Wegs durch die Fläche einer Platte (beides in cm²). Weg B: Bestimme, wie viele Platten in der Länge und wie viele in der Breite nebeneinander passen. Gib die Zahl der Platten an."
     },
     "o": {
      "wert": 120,

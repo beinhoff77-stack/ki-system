@@ -372,7 +372,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Um wie viel Grad dreht sich der Minutenzeiger einer Uhr in 20 Minuten? Weg A: Bestimme zuerst, um wie viel Grad er sich in 1 Minute dreht, und rechne dann mal 20. Weg B: Zwischen zwei Zahlen auf dem Zifferblatt liegen 5 Minuten. Bestimme den Winkel zwischen zwei Zahlen und überlege, wie oft 5 Minuten in 20 Minuten passen. Gib an, um wie viel Grad sich der Minutenzeiger in 20 Minuten dreht."
+     "text": "Betrachte den Minutenzeiger einer Uhr und eine Zeitspanne von 20 Minuten. Weg A: Bestimme zuerst, um wie viel Grad er sich in 1 Minute dreht, und rechne dann mal 20. Weg B: Zwischen zwei Zahlen auf dem Zifferblatt liegen 5 Minuten. Bestimme den Winkel zwischen zwei Zahlen und überlege, wie oft 5 Minuten in 20 Minuten passen. Gib an, um wie viel Grad sich der Minutenzeiger in 20 Minuten dreht."
     },
     "o": {
      "wert": 120,
@@ -529,7 +529,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Ein Schiff dreht sich um 90° nach rechts, dann um 45° nach links und danach um 180° nach rechts. Wie groß ist die resultierende Drehung nach rechts? Weg A: Rechne mit Grad: Bestimme nach jeder Drehung die Gesamtdrehung. Weg B: Zähle auf der Windrose in Schritten von 45° (Abstand zweier Nachbarrichtungen): Wie viele Schritte sind es nach rechts, wie viele nach links? Gib die resultierende Drehung (netto nach rechts) in Grad an."
+     "text": "Ein Schiff dreht sich um 90° nach rechts, dann um 45° nach links und danach um 180° nach rechts. Weg A: Rechne mit Grad: Bestimme nach jeder Drehung die Gesamtdrehung. Weg B: Zähle auf der Windrose in Schritten von 45° (Abstand zweier Nachbarrichtungen): Wie viele Schritte sind es nach rechts, wie viele nach links? Gib die resultierende Drehung (netto nach rechts) in Grad an."
     },
     "o": {
      "wert": 225,
@@ -710,7 +710,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "In einem Rechteck gehen von einer Ecke aus zwei Strecken, die den rechten Winkel in drei Teile teilen. Der mittlere Teil ist 10° größer als der kleinste, der größte Teil ist 10° größer als der mittlere. Wie groß ist der größte Teil? Weg A: Nenne den kleinsten Teil k und löse k + (k + 10°) + (k + 20°) = 90°. Weg B: Wären alle drei Teile gleich groß, hätte jeder 30°. Überlege, wie der mittlere Teil dazu liegt und wie viel der größte Teil mehr hat. Gib die Größe des größten Teils an."
+     "text": "In einem Rechteck gehen von einer Ecke aus zwei Strecken, die den rechten Winkel in drei Teile teilen. Der mittlere Teil ist 10° größer als der kleinste, der größte Teil ist 10° größer als der mittlere. Weg A: Nenne den kleinsten Teil k und löse k + (k + 10°) + (k + 20°) = 90°. Weg B: Wären alle drei Teile gleich groß, hätte jeder 30°. Überlege, wie der mittlere Teil dazu liegt und wie viel der größte Teil mehr hat. Gib die Größe des größten Teils an."
     },
     "o": {
      "wert": 40,
@@ -754,7 +754,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Tim behauptet: „Addiert man zwei spitze Winkel, ist die Summe immer ein stumpfer Winkel.“ Bei wie vielen der Paare 20° + 40°, 50° + 60°, 80° + 70°, 30° + 30°, 60° + 85° und 45° + 45° stimmt die Behauptung? Weg A: Rechne jede Summe aus und ordne sie ein. Weg B: Ergänze den ersten Winkel zu 90° und vergleiche mit dem zweiten Winkel. Gib die Zahl der Paare an, bei denen die Behauptung stimmt."
+     "text": "Tim behauptet: „Addiert man zwei spitze Winkel, ist die Summe immer ein stumpfer Winkel.“ Betrachte die Paare 20° + 40°, 50° + 60°, 80° + 70°, 30° + 30°, 60° + 85° und 45° + 45°. Weg A: Rechne jede Summe aus und ordne sie ein. Weg B: Ergänze den ersten Winkel zu 90° und vergleiche mit dem zweiten Winkel. Gib die Zahl der Paare an, bei denen die Behauptung stimmt."
     },
     "o": {
      "wert": 3,

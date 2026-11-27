@@ -339,7 +339,7 @@ function lernKnobel(ziel, a, ctx, { ortCode = '', zurueck, titel = 'KNOBEL-BORDK
   ziel.scrollIntoView?.({ block: 'start' });
 }
 // F: „Knobeln des Tages“ auf der Abflugtafel – höchstens einmal je Lerntag, aus einer sitzenden Etappe (schule_konto.knobel_tag)
-function lernKnobelDesTages(d) {
+function lernKnobelDesTages(d, nachZurueck = null) { // nachZurueck: Reisekarte – das Blatt schließt nach „Zurück“ mit
   const a = d.knobelTag; if (!a) return null;
   const tag = lernHeuteTag(d.kind.id), schl = `lern.knobel.${d.kind.id}`; // Teil 6: Tag des Kindes (heute_bis), nicht UTC
   try { if (localStorage.getItem(schl) === tag) return null; } catch { /* egal */ }
@@ -348,7 +348,7 @@ function lernKnobelDesTages(d) {
     el('p', {}, 'Eine harte Nuss aus ', el('b', {}, a.etappe || 'einer Etappe, die schon sitzt'), lernStadtName(d.kind.id, a) ? ` (${lernStadtName(d.kind.id, a)})` : '', '. Für Profis – falsch kostet nichts.'),
     el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => {
       try { localStorage.setItem(schl, tag); } catch { /* egal */ }
-      lernKnobel(box, a, { kind: d.kind.id }, { titel: 'KNOBELN DES TAGES', zurueck: () => box.remove() });
+      lernKnobel(box, a, { kind: d.kind.id }, { titel: 'KNOBELN DES TAGES', zurueck: () => { box.remove(); nachZurueck?.(); } });
     } }, 'Knobeln für Profis'));
   return box;
 }
@@ -2078,6 +2078,7 @@ function lernReisekarte(d, karte, start) {
   const nst = karte.naechster_start && !nbStart && !gesperrtThema.has(Number(karte.naechster_start.thema_id)) ? karte.naechster_start : null;
   // WK 2: „Gerade dran“ ist der Flug des Hauptknopfs (Schritt aus den Ständen), sonst wie bisher
   const dranFlug0 = (start?.flugThema && alleFluege.find((f) => Number(f.thema_id) === start.flugThema)) || alleFluege.find((f) => nst && Number(f.thema_id) === Number(nst.thema_id)) || alleFluege.find((f) => f.stufe === 'dran' && !f.gesperrt) || null;
+  const startEinheit0 = start?.einheit; // Einheit des Schritts vor einem Ersatz (für „Alle offenen Flüge“ wie auf der Abflugtafel)
   if (start && !start.wdh && start.einheit) {
     const e0 = (d.mit || []).find((e) => e.id === start.einheit);
     if (e0 && gesperrtThema.has(Number(e0.thema_id)) && !e0.laeuft) { // Ersatz: der Flug, der auf der Karte dran ist, sonst der nächste freie im Plan
@@ -2113,7 +2114,8 @@ function lernReisekarte(d, karte, start) {
   if (z.kont === undefined || z.kont === null) z.ebene = 'welt';
   const ns = 'http://www.w3.org/2000/svg';
   const s = (tag, a = {}, ...kids) => { const e = document.createElementNS(ns, tag); for (const [k, v] of Object.entries(a)) if (v !== null && v !== undefined && v !== false) e.setAttribute(k, v); for (const c of kids.flat()) if (c !== null && c !== undefined && c !== false) e.append(c); return e; };
-  const svg = s('svg', { class: 'rk-svg', role: 'img', 'aria-label': 'Reisekarte' });
+  // Barrierefreiheit: Gruppe statt Bild – die Pins darin sind einzeln bedienbare Knöpfe (role=img würde sie verschlucken)
+  const svg = s('svg', { class: 'rk-svg', role: 'group', 'aria-label': 'Reisekarte' });
   const ebenen = { meer: s('g'), land: s('g', { class: 'rk-laender' }), kette: s('g', { class: 'rk-kette' }), route: s('g', { class: 'rk-routen' }), oben: s('g', { class: 'rk-oben' }) };
   svg.append(s('defs', {}, s('pattern', { id: 'rk-schraffur', width: 6, height: 6, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)' }, s('rect', { width: 6, height: 6, class: 'rk-schr-g' }), s('line', { x1: 0, y1: 0, x2: 0, y2: 6, class: 'rk-schr-l' })),
     s('clipPath', { id: 'rk-kreis', clipPathUnits: 'objectBoundingBox' }, s('circle', { cx: 0.5, cy: 0.5, r: 0.5 }))), ebenen.meer, ebenen.land, ebenen.kette, ebenen.route, ebenen.oben);
@@ -2155,7 +2157,14 @@ function lernReisekarte(d, karte, start) {
     // Abflugtafel abgeschaltet: kein Schalter mehr im Kartenkopf
     el('a', { class: 'lr-chip-stern rk-stern', href: `#/reisepass/${kind.id}`, 'aria-label': `${lernZahl(d.konto?.sterne ?? 0)} Sterne – zum Reisepass` }, '★ ' + lernZahl(d.konto?.sterne ?? 0)),
     el('button', { type: 'button', class: 'rk-menue', 'aria-label': 'Menü', 'aria-haspopup': 'dialog', onclick: menue }, '≡'));
+  // Einstiege der früheren Abflugtafel (Knobeln des Tages, Alle offenen Flüge, Was kommt wann wieder? …): schlanke Leiste über der Karte
+  const leiste = lernRkLeiste(d, { einheit0: startEinheit0, einheit: start?.einheit || null, ws: start?.ws || null }, () => wurzel);
   const wurzel = el('div', { class: 'rk' + (handy() ? ' rk-handy' : ' rk-rechner') }, el('div', { class: 'rk-koerper' }, kartenTeil, seite));
+  // Handy/Tablet: die Leiste schwebt oben in der Karte (links neben den Kartenknöpfen) – die Karte bleibt so hoch wie bisher, der Ausschnitt rückt darunter.
+  // Rechner: Leiste über Karte und Spalte.
+  const leistePlatz = () => { if (handy()) { if (leiste.parentNode !== kartenTeil) kartenTeil.append(leiste); } else if (leiste.parentNode !== wurzel) wurzel.prepend(leiste); };
+  leistePlatz();
+  const oben = () => { if (!handy() || !leiste.isConnected) return 0; const r = leiste.getBoundingClientRect(); return r.height ? r.bottom - kartenTeil.getBoundingClientRect().top + 4 : 0; };
   requestAnimationFrame(() => { const h = document.querySelector('header.top'); if (!h || !document.body.contains(wurzel)) return;
     h.querySelectorAll(':scope > .rk-kopf').forEach((x) => x.remove()); const tt = h.querySelector('#title'); if (tt) tt.after(kopf); else h.prepend(kopf);
     kopf.classList.add('lr-abflug-' + lernGestaltung(kind)); document.body.classList.add('rk-kopf-oben'); hoeheSetzen(); if (z.vb) { passend(); zeichneOben(); } });
@@ -2217,10 +2226,10 @@ function lernReisekarte(d, karte, start) {
   const unten = () => (handy() ? (schwebe.getBoundingClientRect().height || 150) + 16 : 0);
   function setzeVb(vb) { z.vb = vb; svg.setAttribute('viewBox', vb.map((v) => v.toFixed(1)).join(' ')); }
   function passeAn(box, rand = 0.12) {
-    const [W, H] = groesse(); const u = unten(); const hNutz = Math.max(120, H - u);
+    const [W, H] = groesse(); const u = unten(); const o = oben(); const hNutz = Math.max(120, H - u - o);
     let [x0, y0, x1, y1] = box; const bw = Math.max(20, x1 - x0) * (1 + 2 * rand), bh = Math.max(20, y1 - y0) * (1 + 2 * rand);
     const k = Math.max(bw / W, bh / hNutz); const w = W * k, h = H * k; const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
-    setzeVb([cx - w / 2, cy - hNutz * k / 2, w, h]);
+    setzeVb([cx - w / 2, cy - (o + hNutz / 2) * k, w, h]);
   }
   function passend() {
     uniSchl = ''; // Regel-Universum: nach dem Einpassen die Ecke neu wählen
@@ -2344,7 +2353,7 @@ function lernReisekarte(d, karte, start) {
     // Hauptstadt-Zeile auf dem Handy nur für gerade dran, die nächsten 3 und das angetippte Land; Köpfe, die sich zu mehr als einem Drittel
     // überdecken, fächern bis 14 px schräg auseinander (die Nadelspitze bleibt an der Hauptstadt).
     const rb = rahmen.getBoundingClientRect(); // Kartenknöpfe, Legende und Quellen-Zeile sind für Schilder belegt
-    for (const e0 of [zoomKnoepfe, quelle, legende.hidden ? null : legende]) { if (!e0) continue; const r0 = e0.getBoundingClientRect(); if (r0.width) belegt.push([r0.left - rb.left - 4, r0.top - rb.top - 4, r0.right - rb.left + 4, r0.bottom - rb.top + 4]); }
+    for (const e0 of [zoomKnoepfe, quelle, legende.hidden ? null : legende, handy() ? leiste : null]) { if (!e0) continue; const r0 = e0.getBoundingClientRect(); if (r0.width) belegt.push([r0.left - rb.left - 4, r0.top - rb.top - 4, r0.right - rb.left + 4, r0.bottom - rb.top + 4]); }
     const naechste3 = new Set(alleFluege.filter((f) => f.kontinent_id === z.kont && lernRkZustand(f, nst) === 'plan').sort((a, b) => (Number(a.plan_platz) || 999) - (Number(b.plan_platz) || 999)).slice(0, 3).map((f) => f.thema_id));
     const wiederOffenF = (f) => (f?.staedte || []).some((c) => c.stand === 'wieder_offen');
     const rang = (g, f) => { if (z.sel === g.id) return -1; if (!f) return 9; const zs = lernRkZustand(f, nst);
@@ -2465,10 +2474,10 @@ function lernReisekarte(d, karte, start) {
     const sw = handy() ? Math.round(unten()) : 0;
     const schl = [z.ebene, z.kont, z.land, Math.round(kb.width), Math.round(kb.height), sw].join('|'); if (schl === uniSchl) return; uniSchl = schl;
     const zr = zoomKnoepfe.getBoundingClientRect(); const zu = Math.round(zr.bottom - kb.top + 10);
-    const kand = [{ left: '10px', top: '10px' }, { right: '10px', bottom: `${sw + 10}px` }, { left: '10px', bottom: `${sw + 30}px` }, { right: '6px', top: `${zu}px` }];
+    const kand = [{ left: '10px', top: `${Math.max(10, Math.round(oben()))}px` }, { right: '10px', bottom: `${sw + 10}px` }, { left: '10px', bottom: `${sw + 30}px` }, { right: '6px', top: `${zu}px` }];
     const hind = [...ebenen.oben.querySelectorAll('.rk-pin-flug .rk-kopfring, .rk-pin-flug .rk-pland, .rk-pin-flug .rk-phs, .rk-pin-flug .rk-spitze, .rk-st-g, .rk-kname, .rk-kzahl, .rk-station, .rk-hier, .rk-hs-ring')]
       .map((e) => e.getBoundingClientRect()).filter((r) => r.width || r.height);
-    for (const e0 of [zoomKnoepfe, quelle, legende.hidden ? null : legende, ...schwebe.children, hinweis, ...(blatt.hidden ? [] : [blatt])]) { if (!e0) continue; const r = e0.getBoundingClientRect(); if (r.width) hind.push(r); }
+    for (const e0 of [zoomKnoepfe, quelle, legende.hidden ? null : legende, handy() ? leiste : null, ...schwebe.children, hinweis, ...(blatt.hidden ? [] : [blatt])]) { if (!e0) continue; const r = e0.getBoundingClientRect(); if (r.width) hind.push(r); }
     const ueber = (a, b) => Math.max(0, Math.min(a.right, b.right) - Math.max(a.left, b.left) + 4) * Math.max(0, Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top) + 4);
     let best = null, bestU = Infinity;
     for (const k0 of kand) { Object.assign(universum.style, { left: 'auto', right: 'auto', top: 'auto', bottom: 'auto' }, k0); const r = universum.getBoundingClientRect();
@@ -2629,7 +2638,7 @@ function lernReisekarte(d, karte, start) {
   // Karte bis zum unteren Fensterrand (Rechner), auf dem Handy bleibt unten Platz für die Menüzeile
   const hoeheSetzen = () => { const top = kartenTeil.getBoundingClientRect().top + scrollY; const h = Math.max(420, innerHeight - top - (handy() ? 12 : 16));
     kartenTeil.style.height = h + 'px'; if (rechner()) seite.style.maxHeight = h + 'px'; };
-  const beiGroesse = () => { if (!document.body.contains(wurzel)) { removeEventListener('resize', beiGroesse); return; } hoeheSetzen(); wurzel.classList.toggle('rk-handy', handy()); wurzel.classList.toggle('rk-rechner', rechner());
+  const beiGroesse = () => { if (!document.body.contains(wurzel)) { removeEventListener('resize', beiGroesse); return; } leistePlatz(); hoeheSetzen(); wurzel.classList.toggle('rk-handy', handy()); wurzel.classList.toggle('rk-rechner', rechner());
     lernErsetze(schwebe, ...(handy() ? geradeDran() : [])); zeichneSeite(); zeichnePfad(); if (z.vb) { passend(); zeichneOben(); } };
   addEventListener('resize', beiGroesse);
   kartenTeil.append(schwebe, blatt);
@@ -2638,6 +2647,57 @@ function lernReisekarte(d, karte, start) {
   zeichnePfad();
   wurzel._z = z; // für Tests
   return wurzel;
+}
+
+// Reisekarte: Einstiege, die nur auf der (abgeschalteten) Abflugtafel lagen – Inhalt und Ziele unverändert aus den bisherigen Funktionen.
+// Jeder Chip öffnet ein Blatt von unten (Knobeln, Flüge, Wiederholungsplan) bzw. führt wie bisher als Link weiter (Erklärungen, Meine Route).
+function lernRkBlatt({ titel = null, name, inhalt, vorher, wo, nachZu = null }) {
+  document.querySelectorAll('.rk-mehr-blatt').forEach((x) => x._zu?.());
+  const kopfId = 'rk-mb-' + Math.random().toString(36).slice(2, 8);
+  const zuKnopf = el('button', { type: 'button', class: 'rk-mehr-zu', 'aria-label': 'Schließen', onclick: () => zu() }, '✕');
+  const blatt = el('div', { class: 'lr-sj-blatt rk-mehr-blatt', role: 'dialog', 'aria-modal': 'true', ...(titel ? { 'aria-labelledby': kopfId } : { 'aria-label': name || '' }), onclick: (ev) => { if (ev.target === blatt) zu(); } },
+    el('div', { class: 'lr-sj-blatt-innen rk-mehr-innen' }, el('div', { class: 'rk-mehr-kopf' }, titel ? el('h2', { id: kopfId }, titel) : el('span', {}), zuKnopf), ...inhalt));
+  function zu() { if (!blatt.isConnected) return; blatt.remove(); removeEventListener('hashchange', zu); document.removeEventListener('keydown', taste, true); if (vorher?.isConnected) vorher.focus({ preventScroll: true }); nachZu?.(); }
+  blatt._zu = zu;
+  // am Dokument: auch wenn der Inhalt den fokussierten Knopf ersetzt (Knobeln startet), schließt Escape das Blatt
+  function taste(ev) {
+    if (ev.key === 'Escape') { ev.stopPropagation(); zu(); return; }
+    if (ev.key !== 'Tab') return; // Fokus bleibt im Blatt
+    const f = [...blatt.querySelectorAll('a[href], button:not([disabled]), input, select, textarea, summary, [tabindex="0"]')].filter((x) => x.offsetParent !== null);
+    if (!f.length) return; const i = f.indexOf(document.activeElement);
+    if (ev.shiftKey && i <= 0) { ev.preventDefault(); f[f.length - 1].focus(); } else if (!ev.shiftKey && (i === f.length - 1 || i < 0)) { ev.preventDefault(); f[0].focus(); }
+  }
+  document.addEventListener('keydown', taste, true);
+  (wo || document.body).append(blatt); zuKnopf.focus({ preventScroll: true });
+  addEventListener('hashchange', zu, { once: true });
+  return { blatt, zu };
+}
+function lernRkLeiste(d, { einheit0, einheit, ws }, woFn) {
+  const kind = d.kind; const wo = () => woFn() || document.body;
+  const chip = (attr, ...kids) => el(attr.href ? 'a' : 'button', { ...(attr.href ? {} : { type: 'button', 'aria-haspopup': 'dialog' }), ...attr, class: 'rk-chip ' + (attr.class || '') }, ...kids);
+  const sym = (z) => el('span', { class: 'rk-chip-sym', 'aria-hidden': 'true' }, z);
+  // 1 Knobeln des Tages – nur, wenn es heute eins gibt (wie bisher; nach dem Start ist es für heute weg)
+  const knobel = lernKnobelDesTages(d) ? chip({ class: 'rk-chip-knobel', onclick: (ev) => { const vorher = ev.currentTarget; let b = null;
+    const box = lernKnobelDesTages(d, () => b?.zu()); if (!box) { vorher.remove(); return; }
+    b = lernRkBlatt({ name: 'Knobeln des Tages', inhalt: [box], vorher, wo: wo(), nachZu: () => { if (!lernKnobelDesTages(d)) { const nx = vorher.nextElementSibling; vorher.remove(); nx?.focus?.({ preventScroll: true }); } } }); } },
+  sym('★'), 'Knobeln des Tages') : null;
+  // 2 Alle offenen Flüge – dieselben Einträge wie auf der Abflugtafel (Antippen öffnet den Flug wie bisher), dazu die übrigen Gruppen der Tafel
+  const weitere = (d.jetzt || []).filter((e) => Number(e.id) !== Number(einheit0));
+  const gruppe = (titel, liste) => liste.length ? el('details', { class: 'lr-mehr' }, el('summary', {}, `${titel} (${liste.length})`), ...liste.map((e) => lernOrtZeile(kind, e))) : null;
+  const hatFluege = weitere.length || (d.kann || []).length || (d.frueher || []).length || (d.spaeter || []).length;
+  const fluege = hatFluege ? chip({ class: 'rk-chip-fluege', onclick: (ev) => lernRkBlatt({ titel: 'Alle offenen Flüge', vorher: ev.currentTarget, wo: wo(), inhalt: [
+    weitere.length ? el('div', { class: 'rk-mehr-liste' }, ...weitere.map((e) => lernOrtZeile(kind, e))) : el('p', { class: 'lr-leise' }, 'Gerade ist kein weiterer Flug offen.'),
+    gruppe('Gelandet oder kann schon – zum Wiederholen', d.kann || []), gruppe('Aus früheren Klassen – zum Auffrischen', d.frueher || []), gruppe('Später – für höhere Klassen', d.spaeter || [])] }) },
+  sym('✈'), 'Alle offenen Flüge', weitere.length ? el('span', { class: 'rk-chip-zahl', 'aria-label': `(${weitere.length})` }, String(weitere.length)) : null) : null;
+  // 3 Was kommt wann wieder? – derselbe Text wie unter der Abflugtafel
+  const wdh = chip({ class: 'rk-chip-wdh', onclick: (ev) => { const det = lernWdhErklaert(ws?.neu);
+    lernRkBlatt({ titel: 'Was kommt wann wieder?', vorher: ev.currentTarget, wo: wo(), inhalt: [el('div', { class: 'rk-mehr-text lr-wdh-erklaert' }, ...[...det.children].filter((x) => x.tagName !== 'SUMMARY'))] }); } },
+  sym('↻'), 'Was kommt wann wieder?');
+  // weitere Einstiege der Tafel: „Erst die Erklärungen ansehen“, „Meine Route 5–10“, alter Server: übrige Wiederholungen
+  const erkl = einheit ? chip({ href: `#/lerneinheit/${kind.id}-${einheit}`, class: 'rk-chip-erkl' }, sym('📖'), 'Erklärungen ansehen') : null;
+  const route = chip({ href: `#/route/${kind.id}`, class: 'rk-chip-route' }, sym('〰'), 'Meine Route 5–10');
+  const rest = ws && !ws.neu && Number(ws.rest) ? chip({ href: `#/wiederholen/${kind.id}`, class: 'rk-chip-rest' }, `Noch ${ws.rest} ${ws.rest === 1 ? 'Wiederholung' : 'Wiederholungen'} offen`) : null;
+  return el('nav', { class: 'rk-leiste', 'aria-label': 'Mehr zur Reise' }, knobel, fluege, wdh, erkl, route, rest);
 }
 
 function lernOrtZeile(kind, e) {

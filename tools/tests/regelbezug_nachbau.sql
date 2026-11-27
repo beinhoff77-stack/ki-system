@@ -90,14 +90,8 @@ create or replace function schule.wd_regel(p text, p_vorgabe integer) returns in
 -- Nachbau: endgültig falsch = falsch und nicht 1. Anlauf (echte Regel: LW-S 2 mit versuch_wertung und 30 Minuten)
 create or replace function schule.fehler_endgueltig_am(v schule.versuch) returns timestamptz language sql stable set search_path to '' as $$
   select case when not v.richtig and coalesce(v.anlauf, 0) <> 1 then v.am end $$;
--- Schlüssel im Nachbau: 'eltern:<kind>' sieht Kind <kind>, 'kind:<kind>' ist das Kind selbst
-create or replace function schule.ist_lern(p text) returns boolean language sql stable as $$ select true $$;
-create or replace function schule.lern_ich(p text) returns table (rolle text, name text, login_id bigint) language sql stable as $$
-  select split_part(p, ':', 1), 'Probe', 1::bigint $$;
-create or replace function schule.wer_tn(p text) returns bigint language sql stable as $$ select -1::bigint $$;
-create or replace function schule.ist_leiter(p text) returns boolean language sql stable as $$ select split_part(p, ':', 1) in ('eltern', 'lehrer') $$;
-create or replace function schule.zugriff(p text, p_l bigint) returns bigint language plpgsql stable as $$
-begin
-  if split_part(p, ':', 2) = p_l::text then return -1; end if;
-  raise exception 'Kein Zugriff auf diesen Lernenden' using errcode = 'P0001';
-end $$;
+-- Zugänge: die echten Funktionen aus 20261114_w150_lern_zugaenge_plan.sql hängt der Test an (lern_login, lern_sitzung, lern_ich, ist_lern, wer_tn,
+-- ist_leiter, sieht, zugriff); Council-Zugänge gibt es im Nachbau nicht (nur Schlüssel der Form 'lern:<token>').
+create or replace function schule.heute_tag(p_l bigint) returns date language sql stable set search_path to '' as $function$
+  select (now() at time zone coalesce((select l.zeitzone from schule.lernender l where l.id = p_l), 'Europe/Berlin'))::date;
+$function$;

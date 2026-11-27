@@ -1,6 +1,7 @@
 # RB-S – Regelbezug (Teil Datenbank): Regel und Fehlbild zu jeder Fehlantwort
 
 Stand 27.11.2026, Zweig `helfer-regelbezug`. **Entwurf, nichts eingespielt.** Eingespielt wird nur nach Gegenprüfung und dem ausdrücklichen Satz des Nutzers.
+Gegenprüfung: Werkstatt 1129 (Auflagen eingearbeitet, siehe Abschnitt „Nach der Gegenprüfung“). Schrittfolge zum Einspielen: `einspiel-reihenfolge-rb-ww.md`.
 
 Anlass: Ein Kind gibt bei einer Zinseszins-Aufgabe (1 000 € zu 10 % über zwei Jahre) 1 200 statt 1 210 ein. Die Rückmeldung zeigt Lösung und Lösungsweg, aber keinen Weg zur passenden Regelkarte und keine Erklärung, *welcher* Fehler das war. Die 2 028 neuen Aufgaben tragen beides in den Dateien (`regel`, `fehlbilder`), es kam aber nie in die Datenbank.
 
@@ -61,7 +62,7 @@ Rückfall im Client: kein `regel` → `regelbezug-lernkarten.json` → `themen[<
 - Es gibt keine Kennung in der Datenbank. Schlüssel: **Einheit + Pool `uebung` + Reihenfolge-Nummer**. `rollend_sql.sammeln` rechnet die Nummer wie beim Einspielen: Runden 1–4 `max_r` + Platz unter allen Aufgaben der Einheit in den Runden 1–4 (Runde, Dateireihenfolge; auch herausgenommene zählen mit, deshalb bekamen die sieben Restaufgaben ihre alten Plätze); Runde R ≥ 5 `max_r + 1000·R + Platz`. `max_r` in `rollend-einheiten.json` hat sich zwischen den Fassungen nie geändert (alle vier Stände verglichen).
 - Eindeutigkeit: In der Datenbank gibt es keinen eindeutigen Index auf (Einheit, Pool, Reihenfolge). Neue Aufgaben liegen in eigenen Bereichen über `max_r` und sind durch das Einspiel-SQL („Nummern noch frei“) eindeutig; **ob danach etwas anderes dort eingefügt wurde, prüft das Paket** (genau eine Aufgabe, sonst Abbruch).
 - Abgleich gegen das, was wirklich eingespielt wurde: die Pakete `tools/tests/aus/rollend*_einspielen.sql` (14 Pakete, zusammen 2 028 Zeilen, kein Platz doppelt). Stimmt die Datei an diesem Platz nicht, sucht das Werkzeug in der Einheit genau eine Zeile mit gleichem Fragetext (verschobene Plätze) – heute nicht nötig.
-- In der Datenbank je Aufgabe: md5 von `frage->>'text'` = md5 des **eingespielten** Texts, Antworttyp und Lernkarte gleich, bei Auswahl md5 der Optionsliste gleich. Jede Abweichung bricht das ganze Paket ab. Nach dem Einfügen wird jedes Fehlbild als Antwort nachgebaut (`fehlbild_probeantwort`): `antwort_bewerten` muss „gültig, falsch“ sagen, `fehlbild_finden` genau dieses Fehlbild finden.
+- In der Datenbank je Aufgabe: md5 von `frage->>'text'` = md5 des **eingespielten** Texts, Antworttyp und Lernkarte gleich, bei Auswahl md5 der Optionsliste gleich, **die Lösung (`loesung`: Wert/Index/Lückenwerte, Einheit, Toleranz) gleich der eingespielten** (jsonb-Gleichheit, Meldung „Lösung … statt … wie eingespielt“). Jede Abweichung bricht das ganze Paket ab. Nach dem Einfügen wird jedes Fehlbild als Antwort nachgebaut (`fehlbild_probeantwort`): `antwort_bewerten` muss „gültig, falsch“ sagen, `fehlbild_finden` genau dieses Fehlbild finden.
 - **Abweichungsliste heute: 1** – `Z2-02` (Einheit 4, Platz 660): Frage und Lösung nach dem Einspielen im Repo berichtigt. Regel wird übernommen, die 6 Fehlbilder nicht (sie gehören zur berichtigten Fassung). Kommt mit dem eigenen Schritt „Z2-02 ersetzen“.
 - Pakete: `python3 -I tools/regelbezug_sql.py --runden <R> --sql` je Runde 1–13 (40–160 KB); `--probe` rollt zurück. Ein zweiter Lauf fügt nichts ein (Meldung „0 Regeln neu, 0 Fehlbilder neu“); steht etwas anders da → Abbruch.
 
@@ -105,9 +106,17 @@ Themen (97) nach Themenliste: 49 bei genau einer Regel, 44 bei mehreren, 4 bei k
 - **Lücken-Regel „erste falsche Lücke“** übersieht ein Fehlbild an einer späteren Lücke, wenn davor schon etwas falsch ist (bewusst: lieber keins als ein falsches).
 - Die Beschreibungen sind für Lehrer geschrieben, nicht immer kindgerecht („Fehler-Detektiv“-Zeilen sind Erklärungen, keine Vorwürfe – gut; einige sind sehr knapp: „150 : 5 gerechnet“).
 
+## Nach der Gegenprüfung (Werkstatt 1129)
+
+- **Entschieden vom Nutzer:** Fehlbild-Text erst nach der endgültigen Antwort (so gebaut).
+- **Lösungsvergleich** im Nachtrag ergänzt (siehe Zuordnung); Test im Nachbau: veränderte Toleranz bei gleichem Text → Abbruch mit Kennung. Auf der Repo-Seite steht eine Lösungs-Abweichung (Feld `o`) ohnehin in der Abweichungsliste (heute nur Z2-02).
+- **Trigger auf `schule.versuch`** (live laut Vorprüfung: `versuch_hilfe_merken` BEFORE INSERT; `versuch_karte`, `versuch_lerntag`, `versuch_misch_verfall`, `versuch_sterne` AFTER INSERT): `versuch_fehlbild` läuft als erster BEFORE-Trigger (Namensreihenfolge f < h) und liest nur `richtig`, `aufgabe_id`, `antwort` – nichts, was `versuch_hilfe_merken` setzt. Das Probe-Paket prüft die Reihenfolge, dass alle übrigen Trigger auf `versuch`/`aufgabe` unverändert sind, und vergleicht vor/nach der Migration die gespeicherten Versuch-Zeilen (ohne id/am/fehlbild), die Karte und die Sterne des Testkinds an derselben Aufgabe.
+- **Gegenprobe mit `set local role authenticated`:** `authenticated` hat live kein `usage` auf `schule`; die Probe gibt es in einer zurückgerollten Untertransaktion vorübergehend und verlangt dann den Fehler an der **Tabelle** (nicht am Schema) – sonst bestünde sie aus dem falschen Grund.
+- Lesende Vorprüfung live: Patch-Stellen 4/1/1/1, Spalten von `schule.versuch` wie erwartet (ohne `fehlbild*`), keine Default-ACL, `council_mcp` vorhanden. Der doppelte Platz (Einheit 61, Reihenfolge 107) liegt im Alt-Bestand einer Einheit, die kein Paket berührt.
+
 ## Offene Fragen (mit Vorschlag)
 
-1. Fehlbild-Text schon beim ersten Fehlversuch zeigen? – **Vorschlag: nein**, nur die Regel (Texte verraten teils Zwischenergebnisse); nach der endgültigen Antwort voll.
+1. ~~Fehlbild-Text schon beim ersten Fehlversuch?~~ Entschieden: nein.
 2. Regel auch bei **richtiger** Antwort mitschicken (Knopf „Regel dazu“ immer)? – Vorschlag: nein im Server; der Client kennt die Regel der Lernkarte aus der Datei und kann den Knopf ohnehin zeigen.
 3. Rückfall „thema“ (133 Lernkarten außerhalb Klasse 5/8) verwenden oder nur „aufgaben“? – Vorschlag: verwenden, aber die 126 „offen“ und die 133 „thema“ vom Mathe-Profi in einem Durchgang bestätigen lassen (Liste `redaktion`).
 4. Die 8 Lücken-Fehlbilder mit Dezimalzahl: Daten- oder Formfehler? – Vorschlag: an den Mathe-Profi (K9A-V073, K9A-V046, K9A-V121, K9B-V025, K9B-V067, K9B-V070, K9B-V052, K7-V139); bis dahin weggelassen.

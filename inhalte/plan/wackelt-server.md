@@ -1,10 +1,11 @@
 # WW-S – „Was wackelt“, Teil Datenbank (zu Entwurf 4)
 
-Stand 27.11.2026, Zweig `helfer-regelbezug`. **Entwurf, nichts eingespielt.** Vorlage: `inhalte/design/wackelt/entwurf4/umsetzung4.md` (vom Nutzer freigegeben), dazu `entwurf3/umsetzung3.md` Abschnitte 2 (Regeln fürs Verschwinden) und 3 (Datenbedarf).
+Stand 27.11.2026, Zweig `helfer-regelbezug`. **Entwurf, nichts eingespielt.** Gegenprüfung: Werkstatt 1129 (Auflagen eingearbeitet). Schrittfolge: `einspiel-reihenfolge-rb-ww.md`. Vorlage: `inhalte/design/wackelt/entwurf4/umsetzung4.md` (vom Nutzer freigegeben), dazu `entwurf3/umsetzung3.md` Abschnitte 2 (Regeln fürs Verschwinden) und 3 (Datenbedarf).
 
 | Datei | Was |
 |---|---|
-| `supabase/migrations/20261205_ww_s_wackelt.sql` | Tabellen `schule.fehler_erledigt`, `schule.nachueben`; Analyse; Abhaken; Nachüben; vier api-Aktionen |
+| `supabase/migrations/20261205_ww_s_wackelt.sql` | Tabellen `schule.fehler_erledigt`, `schule.nachueben`, `schule.nachueben_ausgabe`; Analyse; Abhaken; Nachüben mit Tagesgrenze; vier api-Aktionen |
+| `supabase/functions/lernen-api/index.ts` | vier Aktionen in `AKTIONEN` ergänzt, Version 0.9.4 – **vorbereitet, nicht ausgeliefert** (vorher mit der ausgelieferten Fassung vergleichen: die Repo-Fassung stand auf 0.9.3) |
 | `tools/tests/wackelt_einspielen.py` | selbstprüfendes Einspiel-Paket; `--probe` rollt alles zurück |
 | `tools/tests/wackelt_test.py` | lokal im **Nachbau** (nicht die echte Datenbank): Probe ohne und mit RB-S, Einspielen, Rechte über die api-Aktionen |
 
@@ -23,9 +24,25 @@ Vorhanden (gelesen): **Nachbessern** (NB-S: wieder offene Etappe wird zuerst vor
 
 Vorschlag:
 - **Welche Aufgabe:** beim Schicken gewählt und gespeichert: dieselbe Lernkarte, freigegeben, zählend, **nicht** die falsche Aufgabe selbst; gleiche Stufe zuerst, dann gleicher Typ, dann eine, die das Kind noch nie bearbeitet hat, und keine, die schon in einem offenen Nachüben liegt. Gibt es keine, die falsche Aufgabe selbst (`dieselbe: true`). Begründung: dieselbe Aufgabe prüft eher das Gedächtnis als das Verfahren.
-- **Wann:** als Pflicht-Bordkarten **vorn im Check-in** des nächsten Lerntags (höchstens `nachueben_je_tag` = 3, älteste zuerst; Regel in `schule.regel`). Der Check-in ist der Ort, an dem das Kind schon heute „erst kurz einchecken“ erwartet – keine neue Station auf der Reisekarte.
+- **Wann:** als Pflicht-Bordkarten **vorn im Check-in** des nächsten Lerntags. Der Check-in ist der Ort, an dem das Kind schon heute „erst kurz einchecken“ erwartet – keine neue Station auf der Reisekarte.
+- **Tagesgrenze (echt):** je Kind und Lerntag höchstens `nachueben_je_tag` = 3 **ausgelieferte** Nachübe-Aufgaben. Lerntag = `schule.heute_tag(kind)` (Kalendertag in der Zeitzone des Kindes – derselbe Tag wie „heute selbst gelöst“ und `schule.lerntag`). Ausgeliefert wird nur, wenn das Kind selbst liest (`schule_nachueben_lesen` mit Kind-Sitzung); jede Auslieferung steht in `schule.nachueben_ausgabe (nachueben_id, tag)`. Am selben Tag rückt nichts nach (auch nicht, wenn eine erledigt ist); ein zweites Gerät bekommt dieselben; nicht Erledigtes kommt am nächsten Lerntag wieder (zählt dann neu). Eltern sehen eine Vorschau ohne Auslieferung (`ausgeliefert: false` bei den wartenden). Test im Nachbau: 4 geschickt → heute 3, zweiter Abruf gleich, nach einer erledigten 2, nächster Tag 3.
 - **Richtig nachgeübt:** eine richtige Antwort **derselben Lernkarte** ohne Tipp und nicht im 2. Anlauf nach dem Schicken (Entwurf 3, Regel 4) – gleich, ob es die geschickte Aufgabe war. Dann verschwindet der Fehler von der Lehrer-Seite (unter „Erledigtes ansehen“: `nachgeuebt`) und die Bordkarte aus der Liste des Kindes.
-- **Erneuter Fehler:** das Nachüben bleibt liegen und kommt am nächsten Lerntag wieder; die neue falsche Antwort ist ein neuer offener Fehler (Entwurf 3, Regel 5). Abhaken der ursprünglichen Antwort beendet das Nachüben (die Bordkarte kommt nicht mehr).
+- **Erneuter Fehler:** das Nachüben bleibt liegen und kommt am nächsten Lerntag wieder; die neue falsche Antwort ist ein neuer offener Fehler (Entwurf 3, Regel 5). Abhaken der ursprünglichen Antwort beendet das Nachüben (die Bordkarte kommt nicht mehr) – vom Nutzer so entschieden.
+
+### Nachübe-Antwort an der Karte (Vorschlag des Projektleiters, gebaut: wie jede Übungsantwort)
+
+Eine Nachübe-Aufgabe ist eine normale, zählende Übung; die Antwort läuft durch `schule_uebung_pruefen` → `versuch_karte` → `schule.karte_buchen` (unverändert). Was dort passiert (Live-Fassung laut Repo: `20261119_w176_h_muss.sql` + FT-S-Filter; vom Projektleiter an der Live-Definition bestätigt):
+
+| Zustand der Lernkarte | richtig, ohne Tipp, 1. Anlauf | richtig mit Tipp oder im 2. Anlauf | falsch (endgültig) |
+|---|---|---|---|
+| noch nicht gelandet | `folge` + 1; neue Aufgabe zählt als eigene Lösung (kann landen lassen) | nur Zähler „richtig“, `folge` bleibt | `folge` 0, `fehler_folge` + 1 (jeder 2. Fehler senkt die Stufe) |
+| gelandet, kein offener Wiederholungs-Fehler, nicht fällig | `wdh_fehler` bleibt 0, sonst nichts | wie links | `wdh_fehler` 1, Wiederholungsstufe − 1, **fällig nach 1 Lerntag** |
+| gelandet, kein offener Fehler, fällig | Stufe + 1, nächste Fälligkeit (WD-S: bestandene Wiederholung, Sterne) | wie links (`karte_buchen` unterscheidet hier nicht nach Tipp) | wie Zeile darüber |
+| gelandet, ein offener Wiederholungs-Fehler (`wdh_fehler` 1) | `wdh_fehler` 0 (bei Fälligkeit Stufe + 1) | wie links | **wieder offen**: `sitzt` false, Stufe 0, es braucht wieder 3 eigene Lösungen in Folge |
+
+Folge für das Nachüben: Die Antwort, zu der nachgeübt wird, war selbst schon ein Fehler an dieser Karte. War die Karte gelandet, steht danach `wdh_fehler` = 1 – **eine falsche Nachübe-Antwort öffnet sie also wieder** („erst beim zweiten Fehler übst du noch einmal von vorn“, die Regel, die die Kinder kennen). Eine richtige setzt den Fehler zurück und erledigt das Nachüben. Ein falscher 1. Anlauf mit zweiter Chance wird wie immer erst nach dem 2. Anlauf bzw. dem Weitergehen gebucht; Aufgaben mit `zaehlt = nein` bucht `karte_buchen` gar nicht (sie werden fürs Nachüben nicht gewählt).
+Geprüft: im Nachbau (echtes `karte_buchen` aus dem Repo) und im Probe-Paket an der echten Datenbank – Nachübe-Antwort und normale Übungsantwort derselben Lernkarte vom selben Ausgangsstand ergeben dieselbe Kartenzeile; der Bericht zeigt die beobachteten Zustände nach dem 1. und 2. Fehler.
+**Abgegrenzte Stelle zum Ändern:** `schule.nachueben_liegt(kind, aufgabe)` (heute ungenutzt) sagt, ob eine Antwort eine heute ausgelieferte Nachübe-Aufgabe betrifft. Soll eine falsche Nachübe-Antwort eine gelandete, nicht fällige Karte nicht öffnen, genügt in `karte_buchen` im Zweig `if not p_richtig then if k.wdh_fehler >= 1 then` eine vorgeschaltete Zeile `if schule.nachueben_liegt(p_l, p_aufgabe) and not schule.karte_faellig(k) then <nur zählen> else …` (eigener Text-Patch mit Satz des Nutzers).
 
 **Client-Stellen, die davon wissen müssen (nicht geändert):**
 - `lernWdhLaden` (`lernen.js` ≈ Z. 1730): zusätzlich `schule_nachueben_lesen` holen.
@@ -34,7 +51,7 @@ Vorschlag:
 - Antworten wie jede Übung (`schule_uebung_pruefen`, ohne `misch`); Stadt der Bordkarte wie bei Check-in/Mischkarte (≈ Z. 848).
 - `lernWaehleBordkarte` (≈ Z. 405) braucht **nichts** zu wissen: Nachüben läuft nur im Check-in.
 - Lehrer-Seite: `schule_wackelt_analyse`, `schule_fehler_abhaken`, `schule_nachueben_schicken` (Knöpfe ✓ und ↻, „liegt bereit“ aus `nachueben.geschickt_am`).
-- Edge-Funktion `supabase/functions/lernen-api/index.ts`, Liste `AKTIONEN` (nicht geändert): `schule_wackelt_analyse: ['lernender_id', 'tage?', 'erledigt?']`, `schule_fehler_abhaken: ['lernender_id', 'versuch_ids', 'zurueck?']`, `schule_nachueben_schicken: ['lernender_id', 'versuch_ids', 'zurueck?']`, `schule_nachueben_lesen: ['lernender_id']`.
+- Edge-Funktion `supabase/functions/lernen-api/index.ts`, Liste `AKTIONEN` (im Repo vorbereitet, Version 0.9.4, nicht ausgeliefert): `schule_wackelt_analyse: ['lernender_id', 'tage?', 'erledigt?']`, `schule_fehler_abhaken: ['lernender_id', 'versuch_ids', 'zurueck?']`, `schule_nachueben_schicken: ['lernender_id', 'versuch_ids', 'zurueck?']`, `schule_nachueben_lesen: ['lernender_id']`.
 
 ## Antwortformen (Beispiele mit erfundenen Daten)
 
@@ -67,11 +84,13 @@ Vorschlag:
 
 `schule_nachueben_schicken {lernender_id, versuch_ids: [9001]}` → `{"ok": true, "geaendert": 1, "geschickt": [{"versuch_id": 9001, "nachueben_id": 12, "aufgabe_id": 5003, "dieselbe": false}], "uebersprungen": []}`; noch einmal → `uebersprungen: [{"grund": "liegt schon bereit"}]`; `zurueck: true` nimmt es zurück.
 
-`schule_nachueben_lesen {lernender_id}` (Kind oder Eltern) → `{"ok": true, "lernender_id": 2, "aufgaben": [{"nachueben_id": 12, "einheit_id": 31, "thema_id": 29, "lernziel": "minusklammer", "geschickt_am": "…", "aufgabe": {"id": 5003, "lernziel": "minusklammer", "stufe": 2, "antworttyp": "zahl", "frage": {"text": "…"}, "tipp": "…", "typ": "direkt"}}]}` – `aufgabe` wie `schule.aufgabe_anzeige` (ohne Lösung).
+`schule_nachueben_lesen {lernender_id}` (Kind: liefert aus und zählt; Eltern: Vorschau) → `{"ok": true, "lernender_id": 2, "tag": "2026-11-28", "aufgaben": [{"nachueben_id": 12, "einheit_id": 31, "thema_id": 29, "lernziel": "minusklammer", "geschickt_am": "…", "ausgeliefert": true, "aufgabe": {"id": 5003, "lernziel": "minusklammer", "stufe": 2, "antworttyp": "zahl", "frage": {"text": "…"}, "tipp": "…", "typ": "direkt"}}]}` – `aufgabe` wie `schule.aufgabe_anzeige` (ohne Lösung).
 
 ## Rechte
 
-Analyse, Abhaken, Schicken: `schule.wer_tn` → `schule.ist_leiter` (sonst „Nur Eltern/Lehrer“) → `schule.zugriff` (nur eigene Kinder) – Muster `api.schule_wackelt_lesen`. Lesen der Nachübe-Liste: `schule.zugriff` (Kind nur sich selbst). Tabellen: RLS, keine Policy, keine Rechte für anon/authenticated; api-Funktionen nur `council_mcp`. Das Kind sieht nur die zusätzlichen Aufgaben (ohne Lösung). Im Nachbau geprüft: Kind-Schlüssel → „Nur Eltern/Lehrer“, fremdes Kind → „Kein Zugriff“.
+Analyse, Abhaken, Schicken: `schule.wer_tn` → `schule.ist_leiter` (sonst „Nur Eltern/Lehrer“) → `schule.zugriff` – Muster `api.schule_wackelt_lesen`. Lesen der Nachübe-Liste: `schule.zugriff` (Kind nur sich selbst). Tabellen: RLS, keine Policy, keine Rechte für anon/authenticated; api-Funktionen nur `council_mcp`. Das Kind sieht nur die zusätzlichen Aufgaben (ohne Lösung).
+Geprüft (Probe-Paket, an der echten Datenbank mit echten Lern-Sitzungen, die nur in einer zurückgerollten Untertransaktion entstehen; ebenso im Nachbau mit den echten Zugangsfunktionen): Kind → Analyse, Abhaken, Schicken „Nur Eltern/Lehrer“ (auch für sich selbst); Kind liest die eigene Nachübe-Liste; fremdes Kind → Nachübe-Liste „Kein Zugriff“, Analyse abgewiesen; Eltern → Analyse ok; unbekannte Sitzung → abgewiesen.
+**Hinweis „Eltern eines anderen Kindes“:** Nach der bestehenden Regel `schule.sieht` sehen Lern-Zugänge mit Rolle `eltern`/`lehrer` **alle** Kinder (Familien-App), Council-Zugänge mit Leitungsrecht ebenso. Eine Einschränkung „nur eigene Kinder“ gibt es nur für Council-Teilnehmer ohne Leitung (`schule.zugang`) – die scheitern schon an `ist_leiter`. Eine eigene Sperre „Eltern von Kind A sehen Kind B nicht“ würde `schule.sieht` für alle Aktionen ändern; nicht Teil von WW-S.
 
 ## Reihenfolge der Einspielung
 
@@ -80,15 +99,15 @@ Analyse, Abhaken, Schicken: `schule.wer_tn` → `schule.ist_leiter` (sonst „Nu
 
 ## Offene Fragen (mit Vorschlag)
 
-1. Beendet Abhaken ein laufendes Nachüben? – **Vorschlag: ja** (so gebaut): Wer abhakt, ist fertig damit; die Bordkarte kommt nicht mehr.
-2. Wie viele Nachübe-Karten je Lerntag? – Vorschlag: höchstens 3 (Regel `nachueben_je_tag`), damit der Check-in kurz bleibt; der Rest kommt an den folgenden Tagen.
-3. Zählt eine Nachübe-Aufgabe für die Karte wie jede Übung (Folge, „sitzt“, Sterne)? – Vorschlag: ja, ohne Sonderregel; bei einer **sitzenden** Lernkarte prüfen, dass eine falsche Nachübe-Antwort außerhalb der Fälligkeit die Karte nicht wieder öffnet (siehe unten 2).
-4. Zeitraum-Standard 14 Tage (Entwurf 4) – „Seit Gespräch“ aus Entwurf 1 entfällt? – Vorschlag: ja, 7/14/alles wie im Entwurf.
+1. ~~Beendet Abhaken ein laufendes Nachüben?~~ Entschieden: ja. ~~Nachüben-Regel?~~ Entschieden: wie vorgeschlagen.
+2. Nachübe-Antwort an einer gelandeten Karte: wie jede Übung (öffnet nach dem zweiten Fehler) – **dem Nutzer vorlegen** (Tabelle oben); Änderung wäre eine Zeile in `karte_buchen`.
+3. Zeitraum-Standard 14 Tage (Entwurf 4) – „Seit Gespräch“ aus Entwurf 1 entfällt? – Vorschlag: ja, 7/14/alles wie im Entwurf.
+4. Sollen Eltern nur „ihre“ Kinder sehen (siehe Hinweis oben)? – Vorschlag: nein, Familien-App wie bisher.
 
 ## Nicht geprüft (keine Datenbank) – vorab beim Projektleiter
 
 1. Live-Signaturen: `select to_regprocedure(x) from unnest(array['schule.fehler_endgueltig_am(schule.versuch)', 'schule.zugriff(text, bigint)', 'schule.ist_leiter(text)', 'schule.wer_tn(text)', 'schule.lern_ich(text)', 'schule.ist_lern(text)', 'schule.aufgabe_anzeige(schule.aufgabe, boolean)', 'schule.loesung_sicht(schule.aufgabe)', 'schule.aufgabe_zaehlt(schule.aufgabe)', 'schule.wd_regel(text, integer)']) x;` – alle nicht leer; dazu Spalten `schule.lernender.zeitzone`, `schule.lernender.aktiv`, `schule.thema.unterthema`, `schule.versuch.hilfe/anlauf/am`.
-2. Wirkung einer Übungsantwort auf eine **sitzende**, nicht fällige Lernkarte (`karte_buchen`): öffnet ein Fehler sie wieder? Lesen: `pg_get_functiondef('schule.karte_buchen(bigint, bigint, boolean, smallint, timestamp with time zone)'::regprocedure)`.
-3. Dauer der Analyse bei „alles“ für ein Kind mit vielen Versuchen: `explain analyze select schule.wackelt_analyse(<kind>, 0, true);` (rollt nichts, schreibt nur Hilfstabellen dieser Sitzung).
+2. ~~`karte_buchen`~~ vom Projektleiter gelesen (siehe Tabelle). Für einen genaueren Nachbau: `select pg_get_functiondef(p.oid) from pg_proc p where p.oid in ('schule.karte_buchen(bigint, bigint, boolean, smallint, timestamp with time zone)'::regprocedure, 'schule.karte_faellig(schule.karte_stand)'::regprocedure, 'schule.versuch_karte()'::regprocedure, 'schule.versuch_hilfe_merken()'::regprocedure);` sowie `select tgname, pg_get_triggerdef(oid) from pg_trigger where tgrelid = 'schule.karte_stand'::regclass and not tgisinternal;` (der WD-S-Trigger an der Karte fehlt im Nachbau).
+3. Dauer der Analyse „alles“: misst das Probe-Paket selbst (Testkind und das Kind mit den meisten Versuchen; `laufzeit_ms_*` im Bericht, Warnung über 500 ms).
 4. Rolle `council_mcp` vorhanden (die Migration vergibt das Recht nur dann).
 5. Im Probelauf: Das Testkind braucht eine Lernkarte mit drei freigegebenen, zählenden Zahl-Aufgaben ohne Einheit im Ergebnis (gibt es nach den rollend-Runden reichlich).

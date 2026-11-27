@@ -24,3 +24,10 @@ Stand 27.11.2026, 03:00 (Berlin). Jede Zeile bleibt stehen, bis sie erledigt ode
 - Blick am echten Gerät auf Brüche und Tabellen (iPhone/iPad), Foto bei Auffälligkeiten.
 - Ob `docs/REISEPLAN.md` (private Reise-Einzelheiten) öffentlich bleiben soll.
 - Papier-Test: zweiter Durchgang (Blatt B) in vier bis sechs Wochen, mit zwei Wertungen (nach 40 Minuten / mit Zugabe); Nachtrag (Potenzen, binomische Formeln) liegt bereit.
+
+## Stand 27.11., nach Gegenprüfung Werkstatt 1030–1032
+- **Brüche 0.93.8: „Muss vorher“.** Rest des Hochzahl-Fehlers bei Zeichen außerhalb der BMP (halbes UTF-16-Paar an den Grenzen). Nachtrag an den App-Helfer; geht mit 0.94.0.
+- **FT-S: „Muss vorher“.** Verlangt: zusätzliche Verhaltens-Nachweise im Prüfpaket (fällige sitzende Karte mit `zaehlt = nein`, Filterwirkung, Übergänge), Bearbeitungsstand auch ohne Kartenzeile, abgesicherter Übergang (Pflicht per Schalter aus, bis die App live ist). Helfer auf Zweig `helfer-probe`.
+- **Reihenfolge neu:** App 0.94.0 live (abwärtsverträglich) → FT-S einspielen mit Pflicht aus → Pflicht einschalten → Vorrats-Aufgaben einspielen.
+- **Sterne bei `zaehlt = nein`:** Gegenprüfung empfiehlt, die normalen Sterne zu lassen (Belohnung getrennt von Nachweis). Entscheidung des Nutzers offen.
+- Inhaltsprüfung (1027) noch ohne Antwort. Inhalts-Nachtrag (drei `folge`, sechs Aufgaben ge1, Mischung der Formen) auf Zweig `helfer-inhalt`.

@@ -114,10 +114,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 5,
+     "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "aufgerundet statt abgerundet"
+     "beschreibung": "5 + 4 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 + 5 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Abstand zum nächsten Vielfachen statt Rest"
     }
    ],
    "aufgabe": {
@@ -128,22 +142,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Hat 5 · x = 22 eine Lösung in den natürlichen Zahlen? Rechne 22 : 5 = ① Rest ②. Weil ein Rest bleibt, geht die Teilung nicht auf. Es gibt keine Lösung.",
-     "schablone": "① = □; ② = □",
+     "text": "Hat 5 · x = 22 eine Lösung in den natürlichen Zahlen? Die Fünferreihe: 5 · 4 = ①. 5 · 5 = ②. Die Zahl 22 liegt zwischen ① und ② und ist also kein Vielfaches von 5. Der Rest von 22 : 5 ist 22 − ① = ③. Weil ein Rest bleibt, geht die Teilung nicht auf.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      4,
+      20,
+      25,
       2
      ]
     },
     "c": [
-     "22 // 5",
-     "22 % 5"
+     "5*4",
+     "5*5",
+     "22-5*4"
     ],
     "h": "Wie oft passt die 5 ganz in die 22?",
-    "w": "5 passt 4-mal in 22. 4 · 5 = 20, es bleibt der Rest 2."
+    "w": "5 · 4 = 20 und 5 · 5 = 25. 22 − 20 = 2. Es bleibt ein Rest, also gibt es keine Lösung in den natürlichen Zahlen."
    }
   },
   {

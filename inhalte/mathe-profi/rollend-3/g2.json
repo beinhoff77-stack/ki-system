@@ -21,18 +21,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": 1000,
-     "fehlbild": "fb.verhaeltnis.falsche_richtung",
-     "regel_des_fehlbilds": "rr.verhaeltnis",
-     "beschreibung": "200 · 5 gerechnet"
+     "luecke": 1,
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal 10 statt mal 100"
     },
     {
      "luecke": 2,
-     "antwort": 195,
+     "antwort": 1800,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "abgezogen statt geteilt"
+     "beschreibung": "mal 6 statt durch 6"
+    },
+    {
+     "luecke": 3,
+     "antwort": 54,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 + 50 gerechnet"
     }
    ],
    "aufgabe": {
@@ -43,22 +50,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "5 Äpfel kosten 2 €. Rechne in Cent: 200 Cent : ① = ② Cent für einen Apfel.",
-     "schablone": "① = □; ② = □",
+     "text": "6 Äpfel kosten 3 €. In Cent sind das ① Cent. Für einen Apfel zahlt man ① : 6 = ② Cent. Für 4 Äpfel zahlt man 4 · ② = ③ Cent.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
-      5,
-      40
+      300,
+      50,
+      200
      ]
     },
     "c": [
-     "5",
-     "200 // 5"
+     "3*100",
+     "3*100//6",
+     "4*(3*100//6)"
     ],
     "h": "Wert durch Anzahl ergibt den Preis für 1 Stück.",
-    "w": "200 Cent : 5 = 40 Cent."
+    "w": "3 € = 300 Cent. 300 : 6 = 50 Cent für einen Apfel. 4 · 50 = 200 Cent."
    }
   },
   {

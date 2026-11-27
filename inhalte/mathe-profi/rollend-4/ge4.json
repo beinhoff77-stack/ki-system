@@ -33,7 +33,14 @@
      "antwort": 72,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Nebenwinkel mit Stufenwinkel verwechselt"
+     "beschreibung": "den Nebenwinkel dem Stufenwinkel gleichgesetzt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 108,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nebenwinkel noch einmal genannt"
     }
    ],
    "aufgabe": {
@@ -44,22 +51,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "g ∥ h. Eine Gerade schneidet beide. Bei S gibt es einen Winkel von 72°. Sein Stufenwinkel bei T ist genauso groß. Beide zusammen haben ①°. Der Nebenwinkel bei T hat ②°.",
-     "schablone": "① = □; ② = □",
+     "text": "g ∥ h. Eine Gerade schneidet beide. Bei S gibt es einen Winkel von 72°. Sein Stufenwinkel bei T ist genauso groß. Beide zusammen haben ①°. Der Nebenwinkel bei T hat 180° − 72° = ②°. Er ist ② − 72° = ③° größer als der Stufenwinkel.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       144,
-      108
+      108,
+      36
      ]
     },
     "c": [
-     "72 + 72",
-     "180 - 72"
+     "72+72",
+     "180-72",
+     "180-72-72"
     ],
     "h": "Der Nebenwinkel ergänzt den Stufenwinkel zu einer geraden Linie.",
-    "w": "72° + 72° = 144°. 180° − 72° = 108°."
+    "w": "72 + 72 = 144. 180 − 72 = 108. 108 − 72 = 36."
    }
   },
   {
@@ -75,17 +84,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 125,
+     "antwort": 305,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur α abgezogen"
+     "beschreibung": "360° statt 180° genommen"
     },
     {
      "luecke": 2,
-     "antwort": 100,
+     "antwort": 103,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "von 180° statt von 360° abgezogen"
+     "beschreibung": "48 addiert statt abgezogen"
+    },
+    {
+     "luecke": 3,
+     "antwort": -100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 180° statt 360° gerechnet"
     }
    ],
    "aufgabe": {
@@ -96,22 +112,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Im Dreieck ist α = 48° und β = 77°. Dann ist γ = 180° − 48° − 77° = ①°. Ein Viereck hat die Winkel 95°, 100° und 85° und δ = ②°.",
-     "schablone": "① = □; ② = □",
+     "text": "Im Dreieck ist α = 48° und β = 77°. Dann ist γ = 180° − 48° − 77° = ①°. Das sind ① − 48° = ②° mehr als α. Ein Viereck hat die Winkel 95°, 100° und 85°. Der vierte Winkel ist 360° − 95° − 100° − 85° = ③°.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       55,
+      7,
       80
      ]
     },
     "c": [
-     "180 - 48 - 77",
-     "360 - 95 - 100 - 85"
+     "180-48-77",
+     "180-48-77-48",
+     "360-95-100-85"
     ],
     "h": "Im Dreieck sind es 180°, im Viereck 360°.",
-    "w": "γ = 55°. δ = 360° − 280° = 80°."
+    "w": "180 − 48 − 77 = 55. 55 − 48 = 7. 360 − 280 = 80."
    }
   },
   {
@@ -130,14 +148,21 @@
      "antwort": 900,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "5 Dreiecke gezählt"
+     "beschreibung": "5 Dreiecke angenommen"
     },
     {
      "luecke": 2,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Eckenzahl genommen"
+    },
+    {
+     "luecke": 3,
      "antwort": 1080,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "6 Dreiecke statt 4 gerechnet"
+     "beschreibung": "6 Dreiecke angenommen"
     }
    ],
    "aufgabe": {
@@ -148,22 +173,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein konvexes Fünfeck zerlegt man von einer Ecke aus in 3 Dreiecke. Die Winkelsumme ist 3 · 180° = ①°. Ein Sechseck hat die Winkelsumme (6 − 2) · 180° = ②°.",
-     "schablone": "① = □; ② = □",
+     "text": "Ein konvexes Fünfeck zerlegt man von einer Ecke aus in 3 Dreiecke. Die Winkelsumme ist 3 · 180° = ①°. Ein konvexes Sechseck zerlegt man in 6 − 2 = ② Dreiecke. Seine Winkelsumme ist ② · 180° = ③°.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       540,
+      4,
       720
      ]
     },
     "c": [
-     "3 * 180",
-     "(6 - 2) * 180"
+     "3*180",
+     "6-2",
+     "(6-2)*180"
     ],
     "h": "Ein n-Eck zerlegt man in n − 2 Dreiecke.",
-    "w": "3 · 180° = 540°. 4 · 180° = 720°."
+    "w": "3 · 180 = 540. Ein Sechseck: 6 − 2 = 4 Dreiecke, 4 · 180 = 720."
    }
   },
   {
@@ -238,6 +265,13 @@
     },
     {
      "luecke": 2,
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Basiswinkel gezählt"
+    },
+    {
+     "luecke": 3,
      "antwort": 145,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -252,22 +286,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein gleichschenkliges Dreieck hat an der Spitze 50°. Ein Basiswinkel hat (180° − 50°) : 2 = ①°. Ein anderes hat die Basiswinkel 35°. Dann hat die Spitze 180° − 2 · 35° = ②°.",
-     "schablone": "① = □; ② = □",
+     "text": "Ein gleichschenkliges Dreieck hat an der Spitze 50°. Ein Basiswinkel hat (180° − 50°) : 2 = ①°. Ein anderes hat die Basiswinkel 35°. Beide zusammen haben 2 · 35° = ②°. Dann hat die Spitze 180° − ②° = ③°.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       65,
+      70,
       110
      ]
     },
     "c": [
-     "(180 - 50) // 2",
-     "180 - 2 * 35"
+     "(180-50)//2",
+     "2*35",
+     "180-2*35"
     ],
     "h": "Es gibt zwei gleich große Basiswinkel.",
-    "w": "130° : 2 = 65°. 180° − 70° = 110°."
+    "w": "(180 − 50) : 2 = 65. 2 · 35 = 70. 180 − 70 = 110."
    }
   },
   {
@@ -338,11 +374,32 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": 6,
+     "luecke": 1,
+     "antwort": 60,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die kürzere Seite genommen"
+     "beschreibung": "malgenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt subtrahiert"
+    },
+    {
+     "luecke": 3,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grenze selbst genommen"
+    },
+    {
+     "luecke": 4,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grenze selbst genommen"
     }
    ],
    "aufgabe": {
@@ -353,22 +410,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Zwei Seiten eines Dreiecks sind 6 cm und 10 cm lang. Die dritte Seite muss kürzer sein als 6 + 10 = ① cm. Sie muss länger sein als 10 − 6 = ② cm.",
-     "schablone": "① = □; ② = □",
+     "text": "Zwei Seiten eines Dreiecks sind 6 cm und 10 cm lang. Die dritte Seite muss kürzer sein als 6 + 10 = ① cm. Sie muss länger sein als 10 − 6 = ② cm. Die kleinste ganze Zahl in cm, die passt, ist ② + 1 = ③. Die größte ist ① − 1 = ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       16,
-      4
+      4,
+      5,
+      15
      ]
     },
     "c": [
-     "6 + 10",
-     "10 - 6"
+     "6+10",
+     "10-6",
+     "10-6+1",
+     "6+10-1"
     ],
     "h": "Zwei Seiten zusammen müssen länger sein als die dritte.",
-    "w": "6 + 10 = 16. 10 − 6 = 4."
+    "w": "6 + 10 = 16, 10 − 6 = 4. Passend sind die Zahlen von 5 bis 15 cm."
    }
   },
   {
@@ -443,14 +504,21 @@
      "antwort": 180,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit der Winkelsumme im Dreieck verwechselt"
+     "beschreibung": "mit dem Dreieck verwechselt"
     },
     {
      "luecke": 2,
      "antwort": 65,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit dem gegenüberliegenden Winkel verwechselt"
+     "beschreibung": "β gleich α gesetzt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 295,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Winkel β gezählt"
     }
    ],
    "aufgabe": {
@@ -461,22 +529,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Im Parallelogramm ABCD ist α = 65°. Alle vier Winkel zusammen haben ①°. Der Nachbarwinkel β hat ②°.",
-     "schablone": "① = □; ② = □",
+     "text": "Im Parallelogramm ABCD ist α = 65°. Alle vier Winkel zusammen haben ①°. Der Nachbarwinkel β hat 180° − 65° = ②°. Probe: 2 · 65° + 2 · ②° = ③°. Das passt zu ①°.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       360,
-      115
+      115,
+      360
      ]
     },
     "c": [
      "360",
-     "180 - 65"
+     "180-65",
+     "2*65+2*(180-65)"
     ],
     "h": "Nachbarwinkel im Parallelogramm ergeben zusammen eine gerade Linie.",
-    "w": "Die Winkelsumme im Viereck ist 360°. β = 180° − 65° = 115°."
+    "w": "Im Viereck sind es 360°. β = 115°. 130° + 230° = 360°."
    }
   },
   {
@@ -495,14 +565,21 @@
      "antwort": 70,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit dem gegenüberliegenden Winkel verwechselt"
+     "beschreibung": "β gleich α gesetzt"
+    },
+    {
+     "luecke": 1,
+     "antwort": 290,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "360° − 70° gerechnet"
     },
     {
      "luecke": 2,
      "antwort": 180,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit der Winkelsumme im Dreieck verwechselt"
+     "beschreibung": "mit dem Dreieck verwechselt"
     }
    ],
    "aufgabe": {
@@ -513,7 +590,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Du konstruierst ein Parallelogramm ABCD mit a = 6 cm, b = 4 cm und α = 70°. Der Winkel β bei B hat ①°. Alle vier Winkel zusammen haben ②°.",
+     "text": "Du konstruierst ein Parallelogramm ABCD mit a = 6 cm, b = 4 cm und α = 70°. Der Winkel β bei B hat 180° − 70° = ①°. Alle vier Winkel zusammen: 70° + ①° + 70° + ①° = ②°.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -524,11 +601,11 @@
      ]
     },
     "c": [
-     "180 - 70",
-     "360"
+     "180-70",
+     "70+(180-70)+70+(180-70)"
     ],
     "h": "Nachbarwinkel im Parallelogramm ergänzen sich zu 180°.",
-    "w": "β = 180° − 70° = 110°. Die vier Winkel ergeben 360°."
+    "w": "β = 110°. 70 + 110 + 70 + 110 = 360°."
    }
   },
   {

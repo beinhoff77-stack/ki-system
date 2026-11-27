@@ -210,11 +210,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen übersehen"
+    },
+    {
      "luecke": 2,
      "antwort": -1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "dieselbe Steigung genommen"
+     "beschreibung": "dieselbe Steigung wie g genommen (parallel)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Beträge addiert"
     }
    ],
    "aufgabe": {
@@ -225,22 +239,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Gerade g hat die Gleichung y = −x + 3. Eine Gerade parallel zu g hat die Steigung ①. Für eine Gerade senkrecht zu g muss das Produkt der beiden Steigungen minus eins sein. Ihre Steigung ist also ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Die Gerade g hat die Gleichung y = −x + 3. Ihre Steigung ist ①. Für eine Gerade h senkrecht zu g gilt: Steigung von g mal Steigung von h ist minus eins. Also ist die Steigung von h gleich ②. Die Summe beider Steigungen ist ① + ② = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       -1,
-      1
+      1,
+      0
      ]
     },
     "c": [
      "-1",
-     "1"
+     "1",
+     "-1+1"
     ],
-    "h": "Parallel heißt: dieselbe Steigung.",
-    "w": "Parallel: −1. Senkrecht: (−1) · m = −1, also m = 1."
+    "h": "Die Steigung ist die Zahl vor dem x. Wie lautet sie bei −x?",
+    "w": "g hat die Steigung −1. Aus (−1) · m = −1 folgt m = 1. Die Summe ist 0."
    }
   },
   {
@@ -255,11 +271,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": -14,
+     "luecke": 1,
+     "antwort": 15,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "2 abgezogen statt addiert"
+     "beschreibung": "das +2 vergessen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen von k übersehen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "minus minus als minus gerechnet"
     }
    ],
    "aufgabe": {
@@ -270,22 +300,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Geradenschar y = k · x + 2 enthält für k = 5 die Gerade y = 5x + 2. Für k = 5 und x = 3 ist y = ①. Für k = −4 und x = 3 ist y = ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Die Geradenschar y = k · x + 2 enthält für k = 5 die Gerade y = 5x + 2. Für k = 5 und x = 3 ist y = ①. Für k = −4 und x = 3 ist y = ②. Der Unterschied der beiden y-Werte ist ① − ② = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       17,
-      -10
+      -10,
+      27
      ]
     },
     "c": [
-     "5 * 3 + 2",
-     "-4 * 3 + 2"
+     "5*3+2",
+     "-4*3+2",
+     "(5*3+2)-(-4*3+2)"
     ],
     "h": "Ersetze nur k, alles andere bleibt.",
-    "w": "5 · 3 + 2 = 17. (−4) · 3 + 2 = −12 + 2 = −10."
+    "w": "5 · 3 + 2 = 17. −4 · 3 + 2 = −10. 17 − (−10) = 27."
    }
   },
   {
@@ -304,7 +336,21 @@
      "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Änderung von a genommen"
+     "beschreibung": "nicht mit x malgenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 · 3 statt (5 − 1) · 3"
+    },
+    {
+     "luecke": 3,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wirkung von b vergessen"
     }
    ],
    "aufgabe": {
@@ -315,22 +361,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "In y = a · x + b verschiebt b die Gerade nach oben oder unten. Wird b von 2 auf 8 erhöht, wandert die Gerade um 8 − 2 = ① nach oben. Wird a von 1 auf 5 erhöht, liegt die Gerade bei x = 3 um (5 − 1) · 3 = ② höher.",
-     "schablone": "① = □; ② = □",
+     "text": "In y = a · x + b verschiebt b die Gerade nach oben oder unten. Wird b von 2 auf 8 erhöht, wandert die Gerade um 8 − 2 = ① nach oben. Wird a von 1 auf 5 erhöht, liegt die Gerade bei x = 3 um (5 − 1) · 3 = ② höher. Ändert man beides, liegt die Gerade bei x = 3 um ① + ② = ③ höher.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       6,
-      12
+      12,
+      18
      ]
     },
     "c": [
-     "8 - 2",
-     "(5 - 1) * 3"
+     "8-2",
+     "(5-1)*3",
+     "(8-2)+(5-1)*3"
     ],
     "h": "a wirkt bei jedem x. b wirkt immer gleich.",
-    "w": "b: 8 − 2 = 6. a: (5 − 1) · 3 = 12."
+    "w": "b: 8 − 2 = 6. a: (5 − 1) · 3 = 12. Zusammen 6 + 12 = 18."
    }
   },
   {
@@ -345,11 +393,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": 14,
+     "luecke": 1,
+     "antwort": 8,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "5 − 3 mit 5 verwechselt"
+     "beschreibung": "5 + 3 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 + 2 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +7 vergessen"
     }
    ],
    "aufgabe": {
@@ -360,22 +422,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Alle Geraden y = k · (x − 3) + 7 gehen durch einen Punkt Z. Für x = 3 ist x − 3 gleich ①. Dann spielt k keine Rolle mehr. Für k = 2 und x = 5 ist y = 2 · (5 − 3) + 7 = ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Alle Geraden y = k · (x − 3) + 7 gehen durch einen Punkt Z. Für x = 3 ist die Klammer 0, also ist y = 7 für jedes k. Für k = 4 und x = 5 ist die Klammer 5 − 3 = ①. Dann ist k · ① = ②. Also ist y = ② + 7 = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      0,
-      11
+      2,
+      8,
+      15
      ]
     },
     "c": [
-     "3 - 3",
-     "2 * (5 - 3) + 7"
+     "5-3",
+     "4*(5-3)",
+     "4*(5-3)+7"
     ],
-    "h": "Welche Zahl macht die Klammer zu 0?",
-    "w": "3 − 3 = 0. 2 · 2 + 7 = 11."
+    "h": "Rechne erst die Klammer aus, dann malnehmen, dann plus 7.",
+    "w": "5 − 3 = 2. 4 · 2 = 8. 8 + 7 = 15."
    }
   },
   {
@@ -391,10 +455,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 210,
-     "fehlbild": "fb.reihenfolge.links_nach_rechts",
-     "regel_des_fehlbilds": "rr.reihenfolge",
-     "beschreibung": "(45 − 3) · 5 gerechnet"
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 · 5 addiert statt abgezogen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rest als Abfluss genommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 135,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "45 · 3 gerechnet"
     }
    ],
    "aufgabe": {
@@ -405,22 +483,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Behälter enthält am Anfang 45 l Wasser. Jede Minute fließen 3 l ab. Nach 5 Minuten sind es noch 45 − 3 · 5 = ① l. Leer ist der Behälter, wenn 3 · t = 45 gilt, also nach ② Minuten.",
-     "schablone": "① = □; ② = □",
+     "text": "Ein Behälter enthält am Anfang 45 l Wasser. Jede Minute fließen 3 l ab. Nach 5 Minuten sind es noch 45 − 3 · 5 = ① l. In dieser Zeit sind 45 − ① = ② l abgeflossen. Leer ist der Behälter, wenn 3 · t = 45 gilt, also nach ③ Minuten.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       30,
+      15,
       15
      ]
     },
     "c": [
-     "45 - 3 * 5",
-     "45 // 3"
+     "45-3*5",
+     "45-(45-3*5)",
+     "45//3"
     ],
     "h": "Die Rate ist negativ: Es wird weniger.",
-    "w": "45 − 15 = 30 l. 45 : 3 = 15 Minuten."
+    "w": "45 − 15 = 30 l sind noch drin. 15 l sind abgeflossen. 3 · t = 45 ergibt t = 15 Minuten."
    }
   },
   {

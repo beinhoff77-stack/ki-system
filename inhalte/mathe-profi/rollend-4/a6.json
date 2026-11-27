@@ -21,11 +21,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "minus statt plus gerechnet"
+    },
+    {
      "luecke": 2,
+     "antwort": -2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Unterschied falsch herum"
+    },
+    {
+     "luecke": 3,
      "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "in II plus gerechnet"
+     "beschreibung": "plus statt minus gerechnet"
     }
    ],
    "aufgabe": {
@@ -36,22 +50,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Prüfe, ob (6 | 1) das System I: x + y = 9 und II: x − y = 1 löst. Einsetzen in I: 6 + 1 = ①. Das ist nicht 9. Einsetzen in II: 6 − 1 = ②. Das ist nicht 1. Also ist (6 | 1) keine Lösung.",
-     "schablone": "① = □; ② = □",
+     "text": "Prüfe, ob (6 | 1) das System I: x + y = 9 und II: x − y = 1 löst. Einsetzen in I: 6 + 1 = ①. Es fehlen 9 − ① = ② bis zur rechten Seite. Einsetzen in II: 6 − 1 = ③. Das ist nicht 1. Also ist (6 | 1) keine Lösung.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       7,
+      2,
       5
      ]
     },
     "c": [
-     "6 + 1",
-     "6 - 1"
+     "6+1",
+     "9-(6+1)",
+     "6-1"
     ],
     "h": "Setze x = 6 und y = 1 in die linke Seite ein.",
-    "w": "6 + 1 = 7 und 6 − 1 = 5. Keine Gleichung stimmt."
+    "w": "In I: 6 + 1 = 7, es fehlen 2 bis 9. In II: 6 − 1 = 5, nicht 1."
    }
   },
   {
@@ -112,10 +128,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": -10,
-     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
-     "regel_des_fehlbilds": "rr.plusminus",
-     "beschreibung": "1 − 11 gerechnet"
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "11 abgezogen statt addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal 4 statt geteilt durch 4"
+    },
+    {
+     "luecke": 3,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +1 vergessen"
     }
    ],
    "aufgabe": {
@@ -126,22 +156,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Bei I: y = 2x + 1 und II: y = 6x − 11 steht zweimal y = …. Gleichsetzen: 2x + 1 = 6x − 11. Auf beiden Seiten 2x abziehen: 1 = 4x − 11. 11 addieren: ① = 4x. Also ist x = ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Bei I: y = 2x + 1 und II: y = 6x − 11 steht zweimal y = …. Gleichsetzen: 2x + 1 = 6x − 11. Auf beiden Seiten 2x abziehen: 1 = 4x − 11. 11 addieren: ① = 4x. Also ist x = ②. Dann ist y = 2 · ② + 1 = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       12,
-      3
+      3,
+      7
      ]
     },
     "c": [
-     "1 + 11",
-     "(1 + 11) // 4"
+     "1+11",
+     "(1+11)//4",
+     "2*((1+11)//4)+1"
     ],
     "h": "Die Zahl 11 steht mit Minus auf der rechten Seite.",
-    "w": "1 + 11 = 12. 12 : 4 = 3. Probe: y = 2 · 3 + 1 = 7 und y = 6 · 3 − 11 = 7."
+    "w": "1 + 11 = 12, also 4x = 12 und x = 3. y = 2 · 3 + 1 = 7. Probe in II: 6 · 3 − 11 = 7."
    }
   },
   {
@@ -203,11 +235,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": 10,
+     "luecke": 1,
+     "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nicht durch 2 geteilt"
+     "beschreibung": "1 addiert statt abgezogen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal 2 statt geteilt durch 2"
+    },
+    {
+     "luecke": 3,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +1 vergessen"
     }
    ],
    "aufgabe": {
@@ -218,22 +264,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Bei I: y = 4x + 1 und II: y = 2x + 11 steht zweimal y = …. Das Gleichsetzen ist hier geschickt: 4x + 1 = 2x + 11. Dann ist 2x = ①. Also ist x = ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Bei I: y = 4x + 1 und II: y = 2x + 11 steht zweimal y = …. Das Gleichsetzen ist hier geschickt: 4x + 1 = 2x + 11. Dann ist 2x = ①. Also ist x = ②. Dann ist y = 4 · ② + 1 = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       10,
-      5
+      5,
+      21
      ]
     },
     "c": [
-     "11 - 1",
-     "(11 - 1) // 2"
+     "11-1",
+     "(11-1)//2",
+     "4*((11-1)//2)+1"
     ],
     "h": "Auf beiden Seiten 2x abziehen, dann 1 abziehen.",
-    "w": "4x − 2x = 2x und 11 − 1 = 10. x = 5."
+    "w": "2x = 11 − 1 = 10, also x = 5. y = 4 · 5 + 1 = 21. Probe in II: 2 · 5 + 11 = 21."
    }
   },
   {
@@ -249,10 +297,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Achsenabschnitte addiert"
+    },
+    {
+     "luecke": 2,
      "antwort": 1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit genau einer Lösung verwechselt"
+     "beschreibung": "eine Lösung angenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand als Zahl der Lösungen genommen"
     }
    ],
    "aufgabe": {
@@ -263,20 +325,22 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "I: y = 2x + 1 und II: y = 2x + 5. Gleichsetzen: 2x + 1 = 2x + 5. Auf beiden Seiten 2x abziehen: 1 = 5. Das ist falsch. Beide Geraden haben dieselbe Steigung und schneiden sich nie. Das System hat ① Lösungen.",
-     "schablone": "① = □",
+     "text": "I: y = 2x + 1 und II: y = 2x + 5. Beide Geraden haben dieselbe Steigung. Der Unterschied der Achsenabschnitte ist 5 − 1 = ①. Die Geraden liegen ① Einheiten übereinander und berühren sich nie. Das System hat ② Lösungen.",
+     "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
+      4,
       0
      ]
     },
     "c": [
+     "5-1",
      "0"
     ],
     "h": "Eine falsche Aussage heißt: Es passt keine Zahl.",
-    "w": "1 = 5 ist falsch: keine Lösung."
+    "w": "Gleiche Steigung, andere Achsenabschnitte: Die Geraden sind parallel (Abstand 4 senkrecht gemessen in y-Richtung). Sie schneiden sich nie, es gibt 0 Lösungen."
    }
   },
   {
@@ -336,11 +400,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 3,
-     "antwort": 19,
+     "luecke": 1,
+     "antwort": 14,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "x und y verwechselt"
+     "beschreibung": "20 − 6 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 26,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x statt y genannt"
     }
    ],
    "aufgabe": {
@@ -351,7 +429,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Zwei Zahlen haben die Summe 20 und die Differenz 6. Addiert man x + y = 20 und x − y = 6, so ist 2x = ①. Die größere Zahl ist x = ②. Die kleinere Zahl ist y = ③.",
+     "text": "Zwei Zahlen haben die Summe 20 und die Differenz 6. Addiert man x + y = 20 und x − y = 6, so ist 2x = ①. Die größere Zahl ist x = ① : 2 = ②. Die kleinere Zahl ist y = 20 − ② = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -363,12 +441,12 @@
      ]
     },
     "c": [
-     "20 + 6",
-     "(20 + 6) // 2",
-     "20 - (20 + 6) // 2"
+     "20+6",
+     "(20+6)//2",
+     "20-(20+6)//2"
     ],
     "h": "Das y fällt beim Addieren weg.",
-    "w": "2x = 26, x = 13. y = 20 − 13 = 7."
+    "w": "2x = 26, x = 13, y = 20 − 13 = 7. Probe: 13 − 7 = 6."
    }
   },
   {

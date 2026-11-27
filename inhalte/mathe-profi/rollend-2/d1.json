@@ -19,11 +19,32 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "einen Wurf übersehen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "einen Wurf falsch gezählt"
+    },
+    {
      "luecke": 3,
      "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die verschiedenen Augenzahlen statt der Würfe gezählt"
+     "beschreibung": "nur die Zahlen gezählt, die einmal vorkommen"
+    },
+    {
+     "luecke": 4,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl statt der Prozentzahl"
     }
    ],
    "aufgabe": {
@@ -34,24 +55,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Würfe: 3, 5, 3, 6, 1, 3, 5, 2, 6, 3. Die 3 kommt ①-mal vor, die 5 kommt ②-mal vor. Alle Würfe zusammen: ③.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Würfe: 3, 5, 3, 6, 1, 3, 5, 1, 6, 3. Die 3 kommt ①-mal vor, die 5 kommt ②-mal vor. Alle Würfe zusammen: ③. Die 3 hat die relative Häufigkeit ① von ③, das sind ④ %.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       4,
       2,
-      10
+      10,
+      40
      ]
     },
     "c": [
-     "1 + 1 + 1 + 1",
-     "1 + 1",
-     "4 + 2 + 2 + 1 + 1"
+     "1+1+1+1",
+     "1+1",
+     "10",
+     "4*100//10"
     ],
     "h": "Streiche jede gezählte Zahl ab.",
-    "w": "Die 3 steht viermal da, die 5 zweimal. Zusammen sind es 10 Würfe."
+    "w": "Die 3 steht viermal, die 5 zweimal. Es sind 10 Würfe. 4 von 10 sind 40 %."
    }
   },
   {
@@ -66,18 +89,32 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 4,
-     "antwort": 5,
+     "luecke": 1,
+     "antwort": 30,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Anzahl als Prozent genommen"
+     "beschreibung": "40 − 10 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl statt der Prozentzahl"
+    },
+    {
+     "luecke": 3,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl statt der Prozentzahl"
     },
     {
      "luecke": 4,
-     "antwort": 4,
+     "antwort": 75,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Nenner als Prozent genommen"
+     "beschreibung": "nur einen Anteil abgezogen"
     }
    ],
    "aufgabe": {
@@ -88,26 +125,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Von 20 Kindern kommen 5 mit dem Rad. Anteil: ① von ②. Gekürzt ist das 1 von ③. In Prozent: ④ %.",
+     "text": "Von 40 Kindern kommen 10 mit dem Rad und 20 zu Fuß. Der Anteil Rad ist 10 von 40, gekürzt 1 von ①. In Prozent: 10 · 100 : 40 = ②. Zu Fuß sind es 20 · 100 : 40 = ③ %. Alle anderen zusammen: 100 − ② − ③ = ④ %.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
-      5,
-      20,
       4,
+      25,
+      50,
       25
      ]
     },
     "c": [
-     "5",
-     "20",
-     "20 // 5",
-     "5 * 100 // 20"
+     "40//10",
+     "10*100//40",
+     "20*100//40",
+     "100-10*100//40-20*100//40"
     ],
     "h": "Relative Häufigkeit ist Anzahl durch Gesamtzahl.",
-    "w": "5 von 20, gekürzt 1 von 4. Ein Viertel sind 25 %."
+    "w": "40 : 10 = 4. 10 von 40 sind 25 %. 20 von 40 sind 50 %. Der Rest ist 100 − 25 − 50 = 25 %."
    }
   },
   {

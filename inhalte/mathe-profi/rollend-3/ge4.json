@@ -22,18 +22,32 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
+     "luecke": 1,
      "antwort": 48,
-     "fehlbild": "fb.winkel.neben_statt_scheitel",
-     "regel_des_fehlbilds": "id.geometrie.winkel",
-     "beschreibung": "Nebenwinkel wie Scheitelwinkel behandelt"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nebenwinkel gleich groß gesetzt"
     },
     {
-     "luecke": 2,
+     "luecke": 1,
      "antwort": 42,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "auf 90° ergänzt"
+     "beschreibung": "90° − 48° gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 132,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Winkel β gezählt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 264,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Winkel α vergessen"
     }
    ],
    "aufgabe": {
@@ -44,22 +58,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Zwei Geraden schneiden sich. α = 48°. Der Scheitelwinkel von α hat ①°. Jeder Nebenwinkel von α hat ②°.",
-     "schablone": "① = □; ② = □",
+     "text": "Zwei Geraden schneiden sich. α = 48°. Der Nebenwinkel β von α hat 180° − 48° = ①°. Der Scheitelwinkel von β ist gleich groß. Beide Winkel β zusammen haben 2 · ① = ②°. Alle vier Winkel: ② + 2 · 48° = ③°.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
-      48,
-      132
+      132,
+      264,
+      360
      ]
     },
     "c": [
-     "48",
-     "180 - 48"
+     "180-48",
+     "2*(180-48)",
+     "2*(180-48)+2*48"
     ],
     "h": "Scheitelwinkel sind gleich groß. Nebenwinkel ergeben zusammen 180°.",
-    "w": "Scheitelwinkel: 48°. Nebenwinkel: 180° − 48° = 132°."
+    "w": "β = 132°. 2 · 132 = 264. 264 + 96 = 360."
    }
   },
   {

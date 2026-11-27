@@ -18,25 +18,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": -5,
-     "fehlbild": "fb.deckungsgleich.an_koordinatenachse_gespiegelt",
-     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
-     "beschreibung": "an der y-Achse statt an der genannten Achse gespiegelt"
+     "luecke": 1,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "7 + 2 gerechnet"
     },
     {
      "luecke": 2,
-     "antwort": -4,
+     "antwort": -5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "von 0 statt von der Achse aus gezählt"
+     "beschreibung": "an der y-Achse statt an der Achse x = 2 gespiegelt"
     },
     {
      "luecke": 3,
-     "antwort": -2,
-     "fehlbild": "fb.deckungsgleich.falsche_koordinate_gespiegelt",
-     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
-     "beschreibung": "auch die Höhe gespiegelt"
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Abstand genommen"
     }
    ],
    "aufgabe": {
@@ -47,24 +47,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Spiegle P(5 | 2) an der senkrechten Achse durch (1 | 0). P liegt ① Einheiten rechts von der Achse. Der Bildpunkt liegt gleich weit links davon: x′ = ②. Die Höhe bleibt: y′ = ③.",
+     "text": "Spiegle P(7 | 4) an der senkrechten Achse durch (2 | 0). P liegt 7 − 2 = ① Einheiten rechts von der Achse. Der Bildpunkt liegt gleich weit links davon: x′ = 2 − ① = ②. Der Abstand von P zum Bildpunkt ist ① + ① = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      4,
+      5,
       -3,
-      2
+      10
      ]
     },
     "c": [
-     "5 - 1",
-     "1 - (5 - 1)",
-     "2"
+     "7-2",
+     "2-(7-2)",
+     "2*(7-2)"
     ],
     "h": "Gleich weit auf die andere Seite der Achse.",
-    "w": "5 − 1 = 4. Von der Achse 4 nach links: 1 − 4 = −3. Also P′(−3 | 2)."
+    "w": "7 − 2 = 5. x′ = 2 − 5 = −3. Abstand 5 + 5 = 10."
    }
   },
   {
@@ -116,31 +116,31 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 8,
-     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
-     "regel_des_fehlbilds": "rr.plusminus",
-     "beschreibung": "3 − (−5) gerechnet: abgezogen statt addiert"
-    },
-    {
-     "luecke": 1,
-     "antwort": 2,
-     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
-     "regel_des_fehlbilds": "rr.plusminus",
-     "beschreibung": "5 − 3 gerechnet"
-    },
-    {
-     "luecke": 2,
-     "antwort": -5,
+     "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "abgezogen statt addiert"
+     "beschreibung": "−6 addiert wie +6"
     },
     {
      "luecke": 2,
-     "antwort": -3,
-     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
-     "regel_des_fehlbilds": "rr.plusminus",
-     "beschreibung": "Vorzeichen des Ergebnisses falsch"
+     "antwort": -9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "8 abgezogen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den ersten Schritt vergessen"
+    },
+    {
+     "luecke": 4,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−5 addiert wie +5"
     }
    ],
    "aufgabe": {
@@ -151,22 +151,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Verschiebe A(3 | −1) mit dem Vektor (−5 | 4). Bildpunkt A′(① | ②).",
-     "schablone": "A′(□ | □)",
+     "text": "Verschiebe A(4 | −1) mit dem Vektor (−6 | 8). Erst x: 4 + (−6) = ①. Dann y: −1 + 8 = ②. Dann wird A′ mit dem Vektor (9 | −5) verschoben: x ist dann ① + 9 = ③ und y ist ② + (−5) = ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Erst x, dann y."
     },
     "o": {
      "werte": [
       -2,
-      3
+      7,
+      7,
+      2
      ]
     },
     "c": [
-     "3 + (-5)",
-     "-1 + 4"
+     "4+(-6)",
+     "-1+8",
+     "4+(-6)+9",
+     "-1+8+(-5)"
     ],
     "h": "Erste Zahl zu x, zweite Zahl zu y.",
-    "w": "3 + (−5) = −2 und −1 + 4 = 3. Also A′(−2 | 3)."
+    "w": "A′(−2 | 7). Danach A″(−2 + 9 | 7 − 5) = (7 | 2)."
    }
   },
   {
@@ -341,32 +345,32 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": -1,
-     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
-     "regel_des_fehlbilds": "rr.plusminus",
-     "beschreibung": "1 − 2 gerechnet"
+     "luecke": 1,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 + 1 gerechnet"
     },
     {
      "luecke": 2,
-     "antwort": 1,
-     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
-     "regel_des_fehlbilds": "rr.plusminus",
-     "beschreibung": "Betrag von 1 − 2"
+     "antwort": -1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1 + (−2) gerechnet"
     },
     {
      "luecke": 3,
-     "antwort": -1,
-     "fehlbild": "fb.deckungsgleich.an_koordinatenachse_gespiegelt",
-     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
-     "beschreibung": "am Ursprung statt an Z gespiegelt"
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Z mit P′ verwechselt"
     },
     {
      "luecke": 4,
-     "antwort": 2,
-     "fehlbild": "fb.deckungsgleich.an_koordinatenachse_gespiegelt",
-     "regel_des_fehlbilds": "id.geometrie.deckungsgleich",
-     "beschreibung": "am Ursprung statt an Z gespiegelt"
+     "antwort": -1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Weg in die falsche Richtung"
     }
    ],
    "aufgabe": {
@@ -377,26 +381,26 @@
     "g": "mehrschritt",
     "y": "luecken",
     "f": {
-     "text": "Spiegle P(1 | −2) am Punkt Z(4 | 1). Von P zu Z geht es ① nach rechts und ② nach oben. Denselben Weg noch einmal von Z aus: P′(③ | ④).",
+     "text": "Spiegle P(1 | −2) am Punkt Z(5 | 1). Von P zu Z geht es ① nach rechts und ② nach oben. Denselben Weg noch einmal von Z aus: P′(③ | ④).",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
+      4,
       3,
-      3,
-      7,
+      9,
       4
      ]
     },
     "c": [
-     "4 - 1",
-     "1 - (-2)",
-     "4 + 3",
-     "1 + 3"
+     "5-1",
+     "1-(-2)",
+     "5+(5-1)",
+     "1+(1-(-2))"
     ],
     "h": "Z ist die Mitte zwischen P und P′.",
-    "w": "Von P zu Z: 3 nach rechts, 3 nach oben. Von Z weiter: (4 + 3 | 1 + 3) = (7 | 4)."
+    "w": "Von P zu Z: 4 nach rechts, 3 nach oben. Von Z aus derselbe Weg: P′(9 | 4)."
    }
   },
   {

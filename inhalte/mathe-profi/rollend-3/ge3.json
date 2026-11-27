@@ -25,14 +25,21 @@
      "antwort": 53,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "auch beim gestreckten Winkel auf 90° ergänzt"
+     "beschreibung": "mit dem rechten Winkel gerechnet"
     },
     {
      "luecke": 2,
      "antwort": 323,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "auf 360° ergänzt"
+     "beschreibung": "360° − 37° gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die rechten Winkel gezählt"
     }
    ],
    "aufgabe": {
@@ -43,22 +50,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein rechter Winkel wird in zwei Teile geteilt. Ein Teil hat 37°, der andere 90° − 37° = ①°. Ein gestreckter Winkel wird in zwei Teile geteilt. Ein Teil hat 37°, der andere ②°.",
-     "schablone": "① = □; ② = □",
+     "text": "Ein rechter Winkel wird in zwei Teile geteilt. Ein Teil hat 37°, der andere 90° − 37° = ①°. Ein gestreckter Winkel wird in zwei Teile geteilt. Ein Teil hat 37°, der andere ②°. Beide anderen Teile zusammen: ① + ② = ③°.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       53,
-      143
+      143,
+      196
      ]
     },
     "c": [
-     "90 - 37",
-     "180 - 37"
+     "90-37",
+     "180-37",
+     "(90-37)+(180-37)"
     ],
     "h": "Das Ganze ist erst 90°, dann 180°.",
-    "w": "90° − 37° = 53°. 180° − 37° = 143°."
+    "w": "90 − 37 = 53. 180 − 37 = 143. 53 + 143 = 196."
    }
   },
   {
@@ -73,18 +82,32 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
+     "luecke": 1,
      "antwort": 65,
-     "fehlbild": "fb.winkel.neben_statt_scheitel",
-     "regel_des_fehlbilds": "id.geometrie.winkel",
-     "beschreibung": "Nachbarwinkel wie den gegenüberliegenden behandelt"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nebenwinkel gleich groß gesetzt"
     },
     {
-     "luecke": 2,
+     "luecke": 1,
      "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "auf 90° ergänzt"
+     "beschreibung": "90° − 65° gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 115,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkel selbst genannt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 180,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur zwei Winkel gezählt"
     }
    ],
    "aufgabe": {
@@ -95,24 +118,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Zwei Geraden schneiden sich. Ein Winkel hat 65°. Gegenüber liegt ein Winkel von ①°. Jeder der beiden Nachbarwinkel hat ②°. Alle vier zusammen ergeben ③°.",
+     "text": "Zwei Geraden schneiden sich. Ein Winkel hat 65°. Sein Nebenwinkel hat 180° − 65° = ①°. Der Winkel gegenüber vom Nebenwinkel ist genauso groß. Er ist um ① − 65° = ②° größer als der gegebene Winkel. Alle vier Winkel zusammen: 2 · 65° + 2 · ①° = ③°.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
-      65,
       115,
+      50,
       360
      ]
     },
     "c": [
-     "65",
-     "180 - 65",
-     "65 + 115 + 65 + 115"
+     "180-65",
+     "180-65-65",
+     "2*65+2*(180-65)"
     ],
     "h": "Gegenüberliegende Winkel sind gleich. Nachbarwinkel ergeben zusammen 180°.",
-    "w": "Gegenüber: 65°. Daneben: 180° − 65° = 115°. Zusammen 360°."
+    "w": "180 − 65 = 115. 115 − 65 = 50. 2 · 65 + 2 · 115 = 360."
    }
   },
   {

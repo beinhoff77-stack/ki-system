@@ -68,9 +68,30 @@
     {
      "luecke": 1,
      "antwort": 2035,
-     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
-     "regel_des_fehlbilds": "rr.stellenwert",
-     "beschreibung": "350 als 35 behandelt"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "350 g als 35 g gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6350,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 4 000 dazugezählt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet statt abgerundet"
+    },
+    {
+     "luecke": 4,
+     "antwort": 685,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffern vertauscht"
     }
    ],
    "aufgabe": {
@@ -81,22 +102,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "2 kg 350 g sind 2 · 1 000 g + 350 g = ① g. 4 500 g sind 4 kg und ② g.",
-     "schablone": "① = □; ② = □",
+     "text": "2 kg 350 g sind 2 · 1 000 g + 350 g = ① g. Zusammen mit 4 500 g wiegen sie ① g + 4 500 g = ② g. Das sind ③ kg und ④ g.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       2350,
-      500
+      6850,
+      6,
+      850
      ]
     },
     "c": [
-     "2 * 1000 + 350",
-     "4500 - 4 * 1000"
+     "2*1000+350",
+     "2*1000+350+4500",
+     "(2*1000+350+4500)//1000",
+     "(2*1000+350+4500)%1000"
     ],
     "h": "1 kg sind 1 000 g.",
-    "w": "2 000 g + 350 g = 2 350 g. 4 500 g − 4 000 g = 500 g."
+    "w": "2 000 + 350 = 2 350 g. 2 350 + 4 500 = 6 850 g. Das sind 6 kg und 850 g."
    }
   },
   {
@@ -111,11 +136,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 2035,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 m als 2 000 cm gerechnet"
+    },
+    {
      "luecke": 2,
      "antwort": 40,
-     "fehlbild": "fb.stellenwert.eine_stelle_daneben",
-     "regel_des_fehlbilds": "rr.stellenwert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "04 als 40 gelesen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 739,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch zusammengezählt"
     }
    ],
    "aufgabe": {
@@ -126,22 +165,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Hinter dem Komma bekommt jede kleinere Einheit ihre Stellen. 2,35 m sind 2 m 35 cm. Das sind insgesamt ① cm. 7,04 m sind 7 m ② cm.",
-     "schablone": "① = □; ② = □",
+     "text": "Hinter dem Komma bekommt jede kleinere Einheit ihre Stellen. 2,35 m sind 2 m 35 cm. Das sind insgesamt ① cm. 7,04 m sind 7 m ② cm. Beide Längen zusammen sind ① cm + 704 cm = ③ cm.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       235,
-      4
+      4,
+      939
      ]
     },
     "c": [
-     "2 * 100 + 35",
-     "704 - 700"
+     "2*100+35",
+     "704-700",
+     "2*100+35+704"
     ],
     "h": "Bei m und cm sind es zwei Stellen hinter dem Komma.",
-    "w": "2 m = 200 cm, dazu 35 cm: 235 cm. 7,04 m = 7 m 04 cm = 7 m 4 cm."
+    "w": "2,35 m = 235 cm. 7,04 m = 7 m 4 cm = 704 cm. Zusammen 235 + 704 = 939 cm."
    }
   },
   {
@@ -252,7 +293,21 @@
      "antwort": 120,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 10 statt mit 100 umgerechnet"
+     "beschreibung": "mal 10 statt mal 100"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1205,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 dazugezählt statt malgenommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 10 statt durch 100"
     }
    ],
    "aufgabe": {
@@ -263,22 +318,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Schulbus ist etwa 12 m lang. Das sind ① cm. Ein Schulweg ist 2 km lang. Das sind ② m.",
-     "schablone": "① = □; ② = □",
+     "text": "Ein Schulbus ist etwa 12 m lang. Das sind ① cm. Stehen 5 solche Busse hintereinander, sind sie 5 · ① = ② cm lang. Das sind ③ m.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       1200,
-      2000
+      6000,
+      60
      ]
     },
     "c": [
-     "12 * 100",
-     "2 * 1000"
+     "12*100",
+     "5*12*100",
+     "5*12*100//100"
     ],
-    "h": "1 m sind 100 cm und 1 km sind 1 000 m.",
-    "w": "12 · 100 cm = 1 200 cm. 2 · 1 000 m = 2 000 m."
+    "h": "1 m sind 100 cm.",
+    "w": "12 m = 1 200 cm. 5 · 1 200 = 6 000 cm = 60 m."
    }
   },
   {

@@ -77,14 +77,21 @@
      "antwort": 140,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 2 multipliziert statt geteilt"
+     "beschreibung": "mit 2 malgenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Teilwinkel nicht abgezogen"
     },
     {
      "luecke": 3,
-     "antwort": 7,
+     "antwort": 180,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch 2 geteilt statt verdoppelt"
+     "beschreibung": "mit 2 malgenommen"
     }
    ],
    "aufgabe": {
@@ -95,24 +102,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Winkel hat 70°. Die Winkelhalbierende teilt ihn in zwei Winkel von je 70° : 2 = ①. Ein Winkel von 100° wird in zwei Winkel von je ② geteilt. Zwei Teilwinkel von je 15° ergeben zusammen einen Winkel von ③°.",
+     "text": "Ein Winkel hat 70°. Die Winkelhalbierende teilt ihn in zwei Winkel von je 70° : 2 = ①°. Ein Dreieck hat bei A diesen Teilwinkel und bei B den Winkel 90°. Dann hat der dritte Winkel 180° − ①° − 90° = ②°. Die Winkelhalbierende des 90°-Winkels teilt ihn in zwei Winkel von je ③°.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       35,
-      50,
-      30
+      55,
+      45
      ]
     },
     "c": [
-     "70 // 2",
-     "100 // 2",
-     "15 * 2"
+     "70//2",
+     "180-70//2-90",
+     "90//2"
     ],
-    "h": "Halbieren heißt durch 2 teilen. Zwei Hälften ergeben wieder das Ganze.",
-    "w": "70° : 2 = 35°. 100° : 2 = 50°. 15° + 15° = 30°."
+    "h": "Halbieren heißt durch 2 teilen. Im Dreieck sind es zusammen 180°.",
+    "w": "70 : 2 = 35. 180 − 35 − 90 = 55. 90 : 2 = 45."
    }
   },
   {
@@ -229,17 +236,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 2,
+     "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Diagonalen vergessen"
+     "beschreibung": "nur die Achsen durch gegenüberliegende Ecken gezählt"
     },
     {
      "luecke": 2,
      "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Rechteck wie ein Quadrat gezählt"
+     "beschreibung": "nur die Achsen durch gegenüberliegende Ecken gezählt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt addiert"
     }
    ],
    "aufgabe": {
@@ -250,24 +264,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Quadrat hat ① Symmetrieachsen. Ein Rechteck, das kein Quadrat ist, hat ② Symmetrieachsen. Ein gleichseitiges Dreieck hat ③ Symmetrieachsen.",
+     "text": "Ein regelmäßiges n-Eck hat n Symmetrieachsen. Ein regelmäßiges Sechseck hat ① Symmetrieachsen. Ein regelmäßiges Achteck hat ② Symmetrieachsen. Zusammen haben die beiden ① + ② = ③ Achsen.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      4,
-      2,
-      3
+      6,
+      8,
+      14
      ]
     },
     "c": [
-     "4",
-     "2",
-     "3"
+     "6",
+     "8",
+     "6+8"
     ],
-    "h": "Falte in Gedanken: Wo passt alles genau aufeinander?",
-    "w": "Quadrat: 4 (2 durch die Seitenmitten, 2 durch die Ecken). Rechteck: 2. Gleichseitiges Dreieck: 3."
+    "h": "Bei einem regelmäßigen n-Eck gibt es n Achsen.",
+    "w": "Sechseck: 6 Achsen. Achteck: 8 Achsen. Zusammen 14."
    }
   },
   {
@@ -283,17 +297,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 1,
+     "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit dem Trapez verwechselt"
+     "beschreibung": "mit dem Parallelogramm verwechselt"
     },
     {
-     "luecke": 3,
+     "luecke": 2,
      "antwort": 1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur ein Paar gezählt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Paare statt des Unterschieds"
     }
    ],
    "aufgabe": {
@@ -304,24 +325,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Im Haus der Vierecke haben die Vierecke Eigenschaften. Ein Parallelogramm hat ① Paare paralleler Seiten. Ein Trapez hat mindestens ② Paar paralleler Seiten. Ein Drachenviereck hat ③ Paare gleich langer Nachbarseiten.",
+     "text": "Im Haus der Vierecke ist jedes Parallelogramm auch ein Trapez. Ein Trapez hat mindestens ① Paar paralleler Seiten. Ein Parallelogramm hat ② Paare paralleler Seiten. Es hat also ② − ① = ③ Paar mehr als ein Trapez mindestens hat.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      2,
       1,
-      2
+      2,
+      1
      ]
     },
     "c": [
-     "2",
      "1",
-     "2"
+     "2",
+     "2-1"
     ],
     "h": "Ein Paar sind immer zwei Seiten.",
-    "w": "Parallelogramm: 2 Paare. Trapez: mindestens 1 Paar. Drachenviereck: 2 Paare."
+    "w": "Trapez: mindestens 1 Paar. Parallelogramm: 2 Paare. Der Unterschied ist 1."
    }
   },
   {
@@ -336,11 +357,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur zwei Seiten addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Dreieck gezählt"
+    },
+    {
      "luecke": 3,
      "antwort": 360,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit der Winkelsumme im Viereck verwechselt"
+     "beschreibung": "mit dem Viereck verwechselt"
     }
    ],
    "aufgabe": {
@@ -351,24 +386,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Dreieck hat die Seiten 7 cm, 9 cm und 11 cm. Sein Umfang ist 7 + 9 + 11 = ① cm. Das Dreieck wird gespiegelt. Der Umfang des Bildes ist ② cm. Die drei Winkel des Bildes ergeben zusammen ③°.",
+     "text": "Ein Dreieck hat die Seiten 7 cm, 9 cm und 11 cm. Sein Umfang ist 7 + 9 + 11 = ① cm. Das Dreieck wird gespiegelt. Das Bild hat denselben Umfang. Beide Dreiecke zusammen haben als Ränder ① + ① = ② cm. Die drei Winkel des Bildes ergeben zusammen ③°.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       27,
-      27,
+      54,
       180
      ]
     },
     "c": [
-     "7 + 9 + 11",
-     "7 + 9 + 11",
+     "7+9+11",
+     "2*(7+9+11)",
      "180"
     ],
     "h": "Eine Spiegelung ändert keine Längen und keine Winkel.",
-    "w": "7 + 9 + 11 = 27. Das Bild hat denselben Umfang. Die Winkelsumme im Dreieck ist 180°."
+    "w": "7 + 9 + 11 = 27. Das Bild hat auch 27 cm Umfang, zusammen 54 cm. Die Winkelsumme im Dreieck ist 180°."
    }
   },
   {

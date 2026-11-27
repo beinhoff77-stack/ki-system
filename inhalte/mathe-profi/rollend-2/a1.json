@@ -19,18 +19,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
+     "luecke": 1,
      "antwort": 29,
-     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
-     "regel_des_fehlbilds": "rr.gegenrechnung",
-     "beschreibung": "8 dazugezählt statt weggenommen"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "8 addiert statt weggenommen"
+    },
+    {
+     "luecke": 1,
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nichts weggenommen"
     },
     {
      "luecke": 2,
-     "antwort": 21,
-     "fehlbild": "fb.waage.nur_eine_seite",
-     "regel_des_fehlbilds": "rr.waage",
-     "beschreibung": "rechts nichts weggenommen"
+     "antwort": 29,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 + 13 gerechnet"
     }
    ],
    "aufgabe": {
@@ -41,22 +48,22 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "x + 8 = 21 als Waage: Links bleibt nur x übrig, wenn du ① wegnimmst. Dasselbe nimmst du rechts weg. Rechts bleiben dann ②.",
+     "text": "x + 8 = 21 als Waage: Links bleibt nur x übrig, wenn du 8 wegnimmst. Dasselbe nimmst du rechts weg. Rechts bleiben dann ①. Also ist x = ①. Dann ist 3 · x = ②.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
-      8,
-      13
+      13,
+      39
      ]
     },
     "c": [
-     "8",
-     "21 - 8"
+     "21-8",
+     "3*(21-8)"
     ],
     "h": "Was du links wegnimmst, nimmst du auch rechts weg.",
-    "w": "Auf beiden Seiten 8 weg: links bleibt x, rechts 21 − 8 = 13. Also x = 13."
+    "w": "21 − 8 = 13, also x = 13. 3 · 13 = 39."
    }
   },
   {

@@ -19,17 +19,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 17,
+     "antwort": -25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die beiden Zahlen vertauscht"
     },
     {
      "luecke": 2,
-     "antwort": 42,
+     "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Zahlen vertauscht"
+     "beschreibung": "das Vorzeichen vergessen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "minus minus als minus gerechnet"
     }
    ],
    "aufgabe": {
@@ -40,22 +47,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Schreibe als Term: die Differenz aus 42 und 17. Achte auf die Reihenfolge.",
-     "schablone": "□ − □",
+     "text": "Die Differenz aus 42 und 17 ist 42 − 17 = ①. Vertauscht man die Zahlen, ist 17 − 42 = ②. Die beiden Werte unterscheiden sich um ① − ② = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      42,
-      17
+      25,
+      -25,
+      50
      ]
     },
     "c": [
-     "42",
-     "17"
+     "42-17",
+     "17-42",
+     "(42-17)-(17-42)"
     ],
-    "h": "Differenz heißt minus. Welche Zahl steht zuerst?",
-    "w": "Die Differenz aus 42 und 17 ist 42 − 17. Die zuerst genannte Zahl steht vorn. Bei 17 − 42 wären die Zahlen vertauscht, und es käme −25 statt 25 heraus."
+    "h": "Differenz heißt minus. Die zuerst genannte Zahl steht vorn.",
+    "w": "42 − 17 = 25. 17 − 42 = −25. 25 − (−25) = 50. Die Reihenfolge bei der Differenz ändert das Vorzeichen."
    }
   },
   {
@@ -71,17 +80,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 9,
+     "antwort": 648,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Zahlen vertauscht"
+     "beschreibung": "malgenommen"
     },
     {
      "luecke": 2,
-     "antwort": 72,
+     "antwort": 16,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Zahlen vertauscht"
+     "beschreibung": "mal 2 statt geteilt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 432,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen"
     }
    ],
    "aufgabe": {
@@ -92,22 +108,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Schreibe als Term: der Quotient aus 72 und 9.",
-     "schablone": "□ : □",
+     "text": "Der Quotient aus 72 und 9 ist 72 : 9 = ①. Der Quotient aus ① und 2 ist ① : 2 = ②. Der Quotient aus 72 und 6 ist 72 : 6 = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      72,
-      9
+      8,
+      4,
+      12
      ]
     },
     "c": [
-     "72",
-     "9"
+     "72//9",
+     "72//9//2",
+     "72//6"
     ],
-    "h": "Quotient heißt geteilt. Welche Zahl wird geteilt?",
-    "w": "Der Quotient aus 72 und 9 ist 72 : 9. Die zuerst genannte Zahl wird geteilt, sie heißt Dividend. Bei 9 : 72 wären die beiden Zahlen vertauscht, und es käme kein ganzzahliges Ergebnis heraus. (Der Wert ist 8.)"
+    "h": "Quotient heißt geteilt. Die zuerst genannte Zahl wird geteilt.",
+    "w": "72 : 9 = 8. 8 : 2 = 4. 72 : 6 = 12. Bei „Quotient aus a und b“ wird a durch b geteilt."
    }
   },
   {
@@ -220,14 +238,28 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "luecke": 5,
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen vertauscht"
+    },
+    {
+     "luecke": 2,
+     "antwort": -8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−6 − 2 gerechnet"
+    },
+    {
+     "luecke": 3,
      "antwort": -32,
-     "fehlbild": "fb.vorzeichen.falsches_zeichen",
-     "regel_des_fehlbilds": "rr.vorzeichen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "Minus mal Minus als Minus gerechnet"
     },
     {
-     "luecke": 5,
+     "luecke": 3,
      "antwort": -12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -242,28 +274,24 @@
     "g": "mehrschritt",
     "y": "luecken",
     "f": {
-     "text": "Multipliziere die Differenz aus 3 und 11 mit der Summe aus −6 und 2. Setze die vier Zahlen ein und rechne aus. Behalte die Reihenfolge der Nennung bei.",
-     "schablone": "(□ − □) · (□ + □) = □",
+     "text": "Multipliziere die Differenz aus 3 und 11 mit der Summe aus −6 und 2. Die Differenz ist 3 − 11 = ①. Die Summe ist −6 + 2 = ②. Das Produkt ist ① · ② = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      3,
-      11,
-      -6,
-      2,
+      -8,
+      -4,
       32
      ]
     },
     "c": [
-     "3",
-     "11",
-     "-6",
-     "2",
-     "(3 - 11) * (-6 + 2)"
+     "3-11",
+     "-6+2",
+     "(3-11)*(-6+2)"
     ],
     "h": "Erst jede Klammer für sich, dann malnehmen.",
-    "w": "(3 − 11) · (−6 + 2) = (−8) · (−4) = 32. Zwei Minus ergeben beim Malnehmen ein Plus."
+    "w": "3 − 11 = −8. −6 + 2 = −4. (−8) · (−4) = 32. Zwei Minus ergeben beim Malnehmen ein Plus."
    }
   },
   {
@@ -436,7 +464,29 @@
    "regel": "id.algebra.term",
    "regel_name": "Term",
    "zaehlt": "ja",
-   "fehlbilder": [],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−5 − 9 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Dreifache vergessen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer nicht beachtet"
+    }
+   ],
    "aufgabe": {
     "l": "termaufbau",
     "t": "terme",
@@ -445,24 +495,24 @@
     "g": "darstellung",
     "y": "luecken",
     "f": {
-     "text": "Schreibe als Term: das Dreifache der Summe aus −5 und 9. Behalte die Reihenfolge der Nennung bei.",
-     "schablone": "□ · (□ + □)",
+     "text": "Die Summe aus −5 und 9 ist −5 + 9 = ①. Das Dreifache dieser Summe ist 3 · ① = ②. Ohne Klammer käme 3 · (−5) + 9 = ③ heraus, das ist etwas anderes.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      3,
-      -5,
-      9
+      4,
+      12,
+      -6
      ]
     },
     "c": [
-     "3",
-     "-5",
-     "9"
+     "-5+9",
+     "3*(-5+9)",
+     "3*(-5)+9"
     ],
     "h": "„Das Dreifache von etwas“ heißt: mal 3. Die Klammer hält die Summe zusammen.",
-    "w": "Das Dreifache der Summe aus −5 und 9 ist 3 · (−5 + 9) = 3 · 4 = 12. Ohne Klammer käme 3 · (−5) + 9 = −6 heraus."
+    "w": "−5 + 9 = 4. 3 · 4 = 12. Ohne Klammer: −15 + 9 = −6. Die Klammer hält die Summe zusammen: 3 · (−5 + 9)."
    }
   },
   {

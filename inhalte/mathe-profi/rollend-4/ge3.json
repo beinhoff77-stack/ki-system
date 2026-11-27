@@ -113,11 +113,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": 2,
+     "luecke": 1,
+     "antwort": 180,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "halbe Drehungen gezählt"
+     "beschreibung": "360 : 2 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "270 : 45 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit den 270° verwechselt"
     }
    ],
    "aufgabe": {
@@ -128,7 +142,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Du drehst dich im Uhrzeigersinn um 270°. Eine Vierteldrehung sind ①°. 270° sind also ② Vierteldrehungen. Eine ganze Drehung sind ③ Vierteldrehungen.",
+     "text": "Du drehst dich im Uhrzeigersinn um 270°. Eine ganze Drehung hat 360°. Eine Vierteldrehung ist ein Viertel von 360°, das sind ①°. 270° sind 270 : ① = ② Vierteldrehungen. Eine ganze Drehung sind 360 : ① = ③ Vierteldrehungen.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -140,12 +154,12 @@
      ]
     },
     "c": [
-     "360 // 4",
-     "270 // 90",
-     "4"
+     "360//4",
+     "270//(360//4)",
+     "360//(360//4)"
     ],
     "h": "Eine ganze Drehung hat 360°.",
-    "w": "360° : 4 = 90°. 270° : 90° = 3. Vier Vierteldrehungen sind eine ganze Drehung."
+    "w": "360 : 4 = 90. 270 : 90 = 3. 360 : 90 = 4."
    }
   },
   {
@@ -206,10 +220,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 70,
+     "antwort": 250,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den bekannten Winkel wiederholt"
+     "beschreibung": "plus statt minus"
+    },
+    {
+     "luecke": 2,
+     "antwort": -40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Unterschied falsch herum"
+    },
+    {
+     "luecke": 2,
+     "antwort": 110,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den ersten Winkel genannt"
     }
    ],
    "aufgabe": {
@@ -220,20 +248,22 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Kim sagt: „Zwei Winkel, die zusammen 180° ergeben, sind immer gleich groß.“ Gegenbeispiel: Ein Winkel hat 70°. Der andere hat 180° − 70° = ①°. ① ist nicht 70. Also ist die Behauptung falsch.",
-     "schablone": "① = □",
+     "text": "Kim sagt: „Zwei Winkel, die zusammen 180° ergeben, sind immer gleich groß.“ Gegenbeispiel: Ein Winkel hat 70°. Der andere hat 180° − 70° = ①°. Der Unterschied der beiden Winkel ist ① − 70° = ②°. Weil ② nicht 0 ist, sind sie nicht gleich groß. Also ist die Behauptung falsch.",
+     "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      110
+      110,
+      40
      ]
     },
     "c": [
-     "180 - 70"
+     "180-70",
+     "180-70-70"
     ],
     "h": "Ein einziges Beispiel genügt, um „immer“ zu widerlegen.",
-    "w": "180° − 70° = 110°. 110° ist nicht gleich 70°."
+    "w": "180 − 70 = 110. 110 − 70 = 40. Die Winkel sind verschieden, die Behauptung ist widerlegt. Ein einziges Gegenbeispiel genügt."
    }
   },
   {

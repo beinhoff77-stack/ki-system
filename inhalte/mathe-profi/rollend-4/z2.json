@@ -28,11 +28,18 @@
      "beschreibung": "4 + 6 gerechnet"
     },
     {
-     "luecke": 3,
-     "antwort": 16,
+     "luecke": 2,
+     "antwort": 27,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "10 + 6 gerechnet"
+     "beschreibung": "nur 3 addiert"
+    },
+    {
+     "luecke": 3,
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 3 addiert"
     }
    ],
    "aufgabe": {
@@ -43,7 +50,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die ersten Vielfachen von 6 sind 6, 12 und 18. Das vierte Vielfache ist 4 · 6 = ①. Das siebte Vielfache ist 7 · 6 = ②. Das zehnte Vielfache ist 10 · 6 = ③.",
+     "text": "Die ersten Vielfachen von 6 sind 6, 12 und 18. Das vierte Vielfache ist 4 · 6 = ①. Drei Vielfache weiter ist es ① + 3 · 6 = ②. Weitere drei Vielfache weiter ist es ② + 3 · 6 = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -55,12 +62,12 @@
      ]
     },
     "c": [
-     "4 * 6",
-     "7 * 6",
-     "10 * 6"
+     "4*6",
+     "4*6+3*6",
+     "4*6+6*6"
     ],
     "h": "Das n-te Vielfache von 6 ist n · 6.",
-    "w": "4 · 6 = 24, 7 · 6 = 42, 10 · 6 = 60."
+    "w": "4 · 6 = 24. 24 + 18 = 42 (das siebte). 42 + 18 = 60 (das zehnte)."
    }
   },
   {
@@ -75,11 +82,32 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die erste Ziffer genommen"
+    },
+    {
      "luecke": 2,
      "antwort": 47,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "zwei Stellen abgestrichen"
+     "beschreibung": "eine Stelle zu wenig gestrichen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die erste Ziffer genommen"
+    },
+    {
+     "luecke": 4,
+     "antwort": 1184,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 4 geteilt"
     }
    ],
    "aufgabe": {
@@ -90,24 +118,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Zahl 4 730 hat die Endziffer ①. Sie ist durch 10 teilbar: 4 730 : 10 = ②. Die Zahl 4 736 ist durch 2 teilbar, weil ihre Endziffer ③ gerade ist.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Die Zahl 4 730 hat die Endziffer ①. Weil ① die Endziffer ist, ist sie durch 10 teilbar: 4 730 : 10 = ②. Die Zahl 4 736 hat die Endziffer ③. Sie ist durch 2 teilbar: 4 736 : 2 = ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       0,
       473,
-      6
+      6,
+      2368
      ]
     },
     "c": [
-     "4730 % 10",
-     "4730 // 10",
-     "4736 % 10"
+     "4730%10",
+     "4730//10",
+     "4736%10",
+     "4736//2"
     ],
     "h": "Die Endziffer ist die letzte Ziffer der Zahl.",
-    "w": "Endziffer von 4 730: 0. 4 730 : 10 = 473. Endziffer von 4 736: 6."
+    "w": "Endziffer 0: durch 10 teilbar, 4 730 : 10 = 473. 4 736 endet auf 6 (gerade): 4 736 : 2 = 2 368."
    }
   },
   {

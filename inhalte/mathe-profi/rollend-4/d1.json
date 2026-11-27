@@ -66,11 +66,25 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": 175,
+     "luecke": 1,
+     "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mal 5 statt geteilt durch 5"
+     "beschreibung": "6 : 3 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 99,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal statt geteilt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied nicht in Kinder zurückgerechnet"
     }
    ],
    "aufgabe": {
@@ -81,22 +95,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "In einem Säulendiagramm steht 1 cm Höhe für 5 Kinder. Eine Säule ist 6 cm hoch. Sie gehört zu 6 · 5 = ① Kindern. Eine andere Säule gehört zu 35 Kindern. Sie ist 35 : 5 = ② cm hoch.",
-     "schablone": "① = □; ② = □",
+     "text": "In einem Säulendiagramm steht 1 cm Höhe für 3 Kinder. Eine Säule ist 6 cm hoch. Sie gehört zu 6 · 3 = ① Kindern. Eine zweite Säule gehört zu 33 Kindern. Sie ist 33 : 3 = ② cm hoch. Die zweite Säule ist ② − 6 cm höher, das sind (② − 6) · 3 = ③ Kinder mehr.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      30,
-      7
+      18,
+      11,
+      15
      ]
     },
     "c": [
-     "6 * 5",
-     "35 // 5"
+     "6*3",
+     "33//3",
+     "(33//3-6)*3"
     ],
     "h": "Höhe mal Maßstab gibt die Anzahl.",
-    "w": "6 · 5 = 30 Kinder. 35 : 5 = 7 cm."
+    "w": "6 · 3 = 18 Kinder. 33 : 3 = 11 cm. 11 − 6 = 5 cm Unterschied, 5 · 3 = 15 Kinder mehr (33 − 18 = 15)."
    }
   },
   {
@@ -161,6 +177,20 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Achsenanfang nicht beachtet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die gezeichneten Höhen statt der Werte genommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal statt geteilt"
     }
    ],
    "aufgabe": {
@@ -171,22 +201,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Achse eines Säulendiagramms beginnt bei 40 statt bei 0. Säule A reicht bis 50, Säule B bis 100. Die gezeichnete Höhe von B ist (100 − 40) : (50 − 40) = ①-mal so groß wie die von A. Die dargestellten Werte sind aber 50 und 100: Der Wert von B ist 100 : 50 = ②-mal so groß wie der von A.",
-     "schablone": "① = □; ② = □",
+     "text": "Die Achse eines Säulendiagramms beginnt bei 40 statt bei 0. Säule A reicht bis 50, Säule B bis 100. Die gezeichnete Höhe von B ist (100 − 40) : (50 − 40) = ①-mal so groß wie die von A. Die dargestellten Werte sind aber 50 und 100: Der Wert von B ist 100 : 50 = ②-mal so groß wie der von A. Das Bild übertreibt also um den Faktor ① : ② = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       6,
-      2
+      2,
+      3
      ]
     },
     "c": [
-     "(100 - 40) // (50 - 40)",
-     "100 // 50"
+     "(100-40)//(50-40)",
+     "100//50",
+     "((100-40)//(50-40))//(100//50)"
     ],
     "h": "Zieh bei der gekürzten Achse erst 40 ab.",
-    "w": "Gezeichnet sind 60 und 10, also 6-mal so hoch. Dargestellt sind die Werte 100 und 50: 100 : 50 = 2. Der Wert von B ist nur doppelt so groß."
+    "w": "Gezeichnet sind 60 und 10, also 6-mal so hoch. Dargestellt sind die Werte 100 und 50: 2-mal. Das Bild übertreibt um 6 : 2 = 3."
    }
   },
   {

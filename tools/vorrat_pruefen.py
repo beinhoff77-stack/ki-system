@@ -31,6 +31,27 @@ ZAHLWORT = {0: ['null', 'kein', 'keine', 'keinen', 'keiner', 'keinem', 'nie', 'n
             6: ['sechs'], 7: ['sieben'], 8: ['acht'], 9: ['neun'], 10: ['zehn'], 11: ['elf'], 12: ['zwölf'],
             13: ['dreizehn'], 14: ['vierzehn'], 15: ['fünfzehn'], 16: ['sechzehn'], 17: ['siebzehn'],
             18: ['achtzehn'], 19: ['neunzehn'], 20: ['zwanzig']}
+
+def _bis100():
+    e = ['', 'ein', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun']
+    teen = {10: 'zehn', 11: 'elf', 12: 'zwölf', 13: 'dreizehn', 14: 'vierzehn', 15: 'fünfzehn', 16: 'sechzehn',
+            17: 'siebzehn', 18: 'achtzehn', 19: 'neunzehn'}
+    zig = {2: 'zwanzig', 3: 'dreißig', 4: 'vierzig', 5: 'fünfzig', 6: 'sechzig', 7: 'siebzig', 8: 'achtzig', 9: 'neunzig'}
+    out = {}
+    for n in range(21, 100):
+        z, r = divmod(n, 10)
+        out[n] = [(e[r] + 'und' + zig[z]) if r else zig[z]]
+    for n, w in teen.items():
+        out.setdefault(n, []).append(w)
+    for z, w in zig.items():
+        out.setdefault(z * 10, [w])
+    out[100] = ['hundert', 'einhundert']
+    return out
+
+
+for _n, _w in _bis100().items():
+    ZAHLWORT.setdefault(_n, [])
+    ZAHLWORT[_n] += [x for x in _w if x not in ZAHLWORT[_n]]
 EIN = re.compile(r'\bein(?:e|en)?\s+(?:Paar|Punkt|Schnittpunkt|gemeinsamen?)\w*', re.I)
 ZAHL = re.compile(r'\d+(?:[.,]\d+)?')
 
@@ -58,7 +79,7 @@ def zahlen_in(s):
 def wortfund(wert, s):
     """Zahlwörter zu einem ganzzahligen Wert (Betrag) im Text; Wortgrenzen, ohne Zusammensetzungen."""
     w = abs(wert)
-    if w.denominator != 1 or w.numerator > 20:
+    if w.denominator != 1 or w.numerator > 100:
         return []
     treffer = [x for x in ZAHLWORT.get(int(w), []) if re.search(r'(?<![\wäöüß])' + x + r'(?![\wäöüß])', s, re.I)]
     if int(w) == 1 and EIN.search(s):
@@ -68,7 +89,8 @@ def wortfund(wert, s):
 
 # ---------- sichere Auswertung einfacher Rechnungen ----------
 OPS = {ast.Add: operator.add, ast.Sub: operator.sub, ast.Mult: operator.mul, ast.Div: operator.truediv,
-       ast.FloorDiv: lambda a, b: Fraction(a // b), ast.Mod: operator.mod}
+       ast.FloorDiv: lambda a, b: Fraction(a // b), ast.Mod: operator.mod,
+       ast.Pow: lambda a, b: a ** int(b) if b.denominator == 1 and abs(b) <= 6 else (_ for _ in ()).throw(ValueError)}
 
 
 def rechne(ausdruck):
@@ -84,7 +106,7 @@ def rechne(ausdruck):
 
 
 def text_zu_ausdruck(s):
-    s = ohne_tausender(s).replace('−', '-').replace('·', '*').replace('×', '*').replace(':', '/').replace(',', '.')
+    s = ohne_tausender(s).replace('−', '-').replace('·', '*').replace('×', '*').replace(':', '/').replace(',', '.').replace('²', '**2').replace('³', '**3')
     s = re.sub(r'\s+', ' ', s).strip()
     return s
 
@@ -125,8 +147,6 @@ def pruefe_i(f, a, melde):
     for i, wert in enumerate(q['o']['werte'], 1):
         wert = Fraction(wert)
         for name, s in texte.items():
-            if name == 'Schablone':
-                continue
             nur_zahl = abs(wert) in zahlen_in(s)
             wort = wortfund(wert, s)
             if nur_zahl or wort:
@@ -145,27 +165,22 @@ def pruefe_ii(f, a, melde):
     text = q['f']['text']
     # Satzweise: steht in demselben Satz wie Lücke i ein früheres Symbol?
     saetze = re.split(r'(?<=[.!?])\s+', text)
-    ANSCHLUSS = re.compile(r'(?:Dann|Also|Daher|Deshalb|Damit|Somit|Folglich|Weil|Deswegen|Das|Er|Sie)\b')
     def sym_abh(i):
-        # Erstes Auftreten von SYM[i]. Abhängig, wenn
-        #  (A) im selben Satz davor ein früheres Symbol steht und SYM[i] das Ergebnis einer Gleichung ist
-        #      („② − ① = ③“; gilt nicht für Aufzählungen wie „y = ①x + ②“), oder
-        #  (B) der Satz mit einem Anschlusswort beginnt („Dann hat g ④ Punkte“) und im Satz davor ein früheres
-        #      Symbol steht. Spätere Wiederholungen der Lücke zählen nicht.
-        for k, s in enumerate(saetze):
+        # Erstes Auftreten von SYM[i] steht als Ergebnis einer Gleichung hinter einem früheren Symbol
+        # („② − ① = ③“); Aufzählungen wie „y = ①x + ②“ zählen nicht. Anschlusswörter zählen nicht.
+        for s in saetze:
             if SYM[i] in s:
                 pre = s.split(SYM[i])[0]
-                if re.search(r'=\s*$', pre) and any(SYM[j] in pre for j in range(i)):
-                    return True
-                if k and ANSCHLUSS.match(s) and any(SYM[j] in saetze[k - 1] for j in range(i)):
-                    return True
-                return False
+                return bool(re.search(r'=\s*$', pre) and any(SYM[j] in pre for j in range(i)))
         return False
     def c_abh(i):
+        # Der Rechenausdruck enthält den Anker oder den Wert einer früheren Lücke
         for j in range(i):
             if len(c[j]) >= 3 and c[j] in c[i]:
                 return True
-            # früherer Wert als Zahl im späteren Anker (z. B. 24 in 24-8)? zu unscharf, nur mit Klammerform
+            wj = q['o']['werte'][j]
+            if any(Fraction(str(x)) == abs(Fraction(wj)) for x in re.findall(r'\d+(?:\.\d+)?', c[i])) and abs(Fraction(wj)) > 2:
+                return True
         return False
     abh = [False] + [c_abh(i) or sym_abh(i) for i in range(1, n)]
     if n >= 2 and not any(abh):
@@ -207,7 +222,7 @@ def gleichungsketten(s):
     s = re.sub(r'(\d[\d.,]*)\s*%', r'(\1/100)', s)
     s = re.sub(r'(?<=\d)\s*(' + EINHEITEN + r')', lambda m: '~' + m.group(1) + '~', s)
     out = []
-    for m in re.finditer(r'(?:~[^~]+~|[\d\s.,+\-−·×:*/()=°²€])+', s):
+    for m in re.finditer(r'(?:~[^~]+~|[\d\s.,+\-−·×:*/()=°²³€])+', s):
         lauf = m.group(0)
         if m.start() > 0 and s[m.start() - 1].isalpha() and lauf.lstrip().startswith('('):
             continue
@@ -243,7 +258,7 @@ def pruefe_iv(f, a, melde):
                 if not ok:
                     melde('iv', a, f'Zeile {i} (vor der Fehlerzeile {err}) enthält eine falsche Rechnung: {k}')
         elif i == err and ketten and all(ok for _, ok in ketten):
-            melde('iv', a, f'Fehlerzeile {err}: alle Rechnungen stimmen ({"; ".join(k for k, _ in ketten)}); Fehler muss ein Denkfehler sein')
+            melde('iv', a, f'Fehlerzeile {err}: nur richtige Rechnungen ({"; ".join(k for k, _ in ketten)}); von Hand prüfen, ob DIESE Zeile die falsche Behauptung ausspricht (sonst Schlüssel auf die Folgezeile)')
 
 
 def main():

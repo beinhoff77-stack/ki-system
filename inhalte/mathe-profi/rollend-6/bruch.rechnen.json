@@ -93,7 +93,7 @@
      "antwort": 31,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die kleinere Zahl 1/4 − 5/6 nicht entbündelt, sondern die Brüche in umgekehrter Richtung abgezogen",
+     "beschreibung": "Ganze und Brüche getrennt gerechnet, aber den kleineren Bruch vom größeren abgezogen: (3 − 1) + (5/6 − 1/4)",
      "c": "((3 - 1) + (5/6 - 1/4)) * 12"
     },
     {
@@ -755,11 +755,11 @@
      "c": "3/4 * 1/8"
     },
     {
-     "antwort": 0.17,
+     "antwort": 0.625,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "falsch herum geteilt: 1/8 : 3/4",
-     "c": "1/8 / (3/4)"
+     "beschreibung": "abgezogen statt geteilt: 3/4 − 1/8",
+     "c": "3/4 - 1/8"
     }
    ],
    "aufgabe": {
@@ -870,6 +870,14 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "nur zwei Stellen abgetrennt: 9,00",
      "c": "(900) / 10 ** 2 * 10"
+    },
+    {
+     "luecke": 4,
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Ergebnis selbst statt des Unterschieds zu 1 angegeben",
+     "c": "(9) * 10"
     }
    ],
    "aufgabe": {
@@ -880,24 +888,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Berechne 3,6 · 0,25. Rechne zuerst ohne Komma: 36 · 25 = ①. Die beiden Faktoren haben zusammen ② Nachkommastellen. Das Ergebnis hat dann ③ Zehntel.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Berechne 3,6 · 0,25. Rechne zuerst ohne Komma: 36 · 25 = ①. Die beiden Faktoren haben zusammen ② Nachkommastellen. Das Ergebnis hat dann ③ Zehntel. Es ist um ④ Hundertstel kleiner als 1.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       900,
       3,
-      9
+      9,
+      10
      ]
     },
     "c": [
      "36 * 25",
      "1 + 2",
-     "(900) / 10 ** (3) * 10"
+     "(900) / 10 ** (3) * 10",
+     "100 - (9) * 10"
     ],
     "h": "Zähle die Stellen hinter dem Komma bei beiden Faktoren.",
-    "w": "36 · 25 = 900. 3,6 hat 1 und 0,25 hat 2 Nachkommastellen, zusammen 3. 900 mit 3 Nachkommastellen ist 0,900 = 0,9, das sind 9 Zehntel."
+    "w": "36 · 25 = 900. 3,6 hat 1 und 0,25 hat 2 Nachkommastellen, zusammen 3. 900 mit 3 Nachkommastellen ist 0,900 = 0,9, das sind 9 Zehntel. 0,9 sind 90 Hundertstel, bis 1 fehlen 100 − 90 = 10 Hundertstel."
    }
   },
   {
@@ -916,8 +926,15 @@
      "antwort": 1.4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur eine Nachkommastelle abgetrennt",
+     "beschreibung": "zwei statt drei Nachkommastellen abgetrennt",
      "c": "4 * 35 / 100"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Nachkommastelle abgetrennt: 14,0",
+     "c": "4 * 35 / 10"
     },
     {
      "antwort": 140,
@@ -935,14 +952,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Berechne 0,4 · 0,35 auf zwei Wegen. Weg A: Rechne 4 · 35 und setze das Komma nach den Nachkommastellen. Weg B: Schreibe beide Zahlen als Bruch und multipliziere. Wie viele Hundertstel ist das Ergebnis?"
+     "text": "Berechne 0,4 · 0,35 auf zwei Wegen. Weg A: Rechne 4 · 35 und setze das Komma nach den Nachkommastellen. Weg B: Schreibe beide Zahlen als Bruch und multipliziere. Wie lautet das Ergebnis?"
     },
     "o": {
-     "wert": 14
+     "wert": 0.14
     },
-    "c": "4 * 35 / 10",
-    "h": "Wie viele Nachkommastellen hat das Ergebnis insgesamt?",
-    "w": "Weg A: 4 · 35 = 140, drei Nachkommastellen: 0,140 = 0,14. Weg B: 4/10 · 35/100 = 140/1000 = 14/100. Das sind 14 Hundertstel."
+    "c": "4 * 35 / 1000",
+    "h": "Wie viele Nachkommastellen haben beide Faktoren zusammen?",
+    "w": "Weg A: 4 · 35 = 140, drei Nachkommastellen: 0,140 = 0,14. Weg B: 4/10 · 35/100 = 140/1000 = 14/100 = 0,14."
    }
   },
   {
@@ -1187,6 +1204,14 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "mit 10 000 statt mit 1000 erweitert",
      "c": "(8) * 10000 / (125)"
+    },
+    {
+     "luecke": 4,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet statt abgerundet",
+     "c": "(64) // 10 + 1"
     }
    ],
    "aufgabe": {
@@ -1197,24 +1222,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Berechne (2/5)³. Der Zähler ist 2³ = ①. Der Nenner ist 5³ = ②. Als Dezimalzahl sind das ③ Tausendstel.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Berechne (2/5)³. Der Zähler ist 2³ = ①. Der Nenner ist 5³ = ②. Als Dezimalzahl sind das ③ Tausendstel. Auf Hundertstel gerundet sind es ④ Hundertstel.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       8,
       125,
-      64
+      64,
+      6
      ]
     },
     "c": [
      "2 ** 3",
      "5 ** 3",
-     "(8) * 1000 / (125)"
+     "(8) * 1000 / (125)",
+     "((64) + 5) // 10"
     ],
     "h": "Beim Potenzieren von Brüchen wird Zähler und Nenner potenziert.",
-    "w": "2³ = 8 und 5³ = 125. (2/5)³ = 8/125. Erweitern mit 8 gibt 64/1000, also 0,064, das sind 64 Tausendstel."
+    "w": "2³ = 8 und 5³ = 125. (2/5)³ = 8/125. Erweitern mit 8 gibt 64/1000, also 0,064, das sind 64 Tausendstel. Auf Hundertstel gerundet: 0,06, das sind 6 Hundertstel."
    }
   },
   {
@@ -1252,7 +1279,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein quadratischer Teppich hat die Seitenlänge 2/5 m. Wie groß ist seine Fläche in Quadratdezimetern? (1 m² = 100 dm²)"
+     "text": "Eine quadratische Teppichfliese hat die Seitenlänge 2/5 m. Wie groß ist seine Fläche in Quadratdezimetern? (1 m² = 100 dm²)"
     },
     "o": {
      "wert": 16,
@@ -1340,11 +1367,11 @@
     },
     {
      "luecke": 2,
-     "antwort": 103.7,
+     "antwort": 3700,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "3,7 dazugezählt statt malgenommen",
-     "c": "(100) + 3.7"
+     "beschreibung": "das Komma vergessen: 100 · 37",
+     "c": "(100) * 37"
     },
     {
      "luecke": 3,
@@ -1669,19 +1696,27 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 9,
+     "antwort": 48,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Nenner addiert: 4 + 5",
-     "c": "4 + 5"
+     "beschreibung": "die Nenner malgenommen: 8 · 6",
+     "c": "8 * 6"
     },
     {
      "luecke": 2,
-     "antwort": 5,
+     "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zähler addiert: 3 + 2",
-     "c": "3 + 2"
+     "beschreibung": "die Zähler addiert: 7 + 5",
+     "c": "7 + 5"
+    },
+    {
+     "luecke": 3,
+     "antwort": 41,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler nicht in Ganze und Rest zerlegt",
+     "c": "(41)"
     }
    ],
    "aufgabe": {
@@ -1692,22 +1727,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Kind rechnet 3/4 + 2/5 = 5/9, weil es Zähler und Nenner einzeln addiert. Richtig ist: Der Hauptnenner ist ①. Die Summe hat dann den Zähler ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Ein Kind rechnet 7/8 + 5/6 = 12/14, weil es Zähler und Nenner einzeln addiert. Richtig ist: Der Hauptnenner ist ①. Die Summe hat dann den Zähler ②. Als gemischte Zahl ist die Summe 1 ③/①.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
-      20,
-      23
+      24,
+      41,
+      17
      ]
     },
     "c": [
-     "20",
-     "3 * (20) / 4 + 2 * (20) / 5"
+     "24",
+     "7 * (24) / 8 + 5 * (24) / 6",
+     "(41) - (24)"
     ],
     "h": "Brüche mit verschiedenen Nennern muss man erst gleichnamig machen.",
-    "w": "Hauptnenner 20: 3/4 = 15/20 und 2/5 = 8/20. 15 + 8 = 23. Die Summe ist 23/20."
+    "w": "Hauptnenner 24: 7/8 = 21/24 und 5/6 = 20/24. 21 + 20 = 41. Die Summe ist 41/24 = 1 17/24."
    }
   },
   {
@@ -1856,6 +1893,22 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "die Portionszahl 10 als Zähler übernommen",
      "c": "10"
+    },
+    {
+     "luecke": 4,
+     "antwort": 5000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Bruch 5/4 nicht beachtet: Zähler 5 mal 1000",
+     "c": "(5) * 1000"
+    },
+    {
+     "luecke": 4,
+     "antwort": 12500,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 000 statt mit 1000 malgenommen",
+     "c": "(5) * 10000 / 4"
     }
    ],
    "aufgabe": {
@@ -1866,24 +1919,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Rezept für 6 Portionen braucht 3/4 Liter Milch. Für eine Portion braucht man ①/② Liter (gekürzt). Für 10 Portionen braucht man ③/4 Liter.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Ein Rezept für 6 Portionen braucht 3/4 Liter Milch. Für eine Portion braucht man ①/② Liter (gekürzt). Für 10 Portionen braucht man ③/4 Liter. Das sind ④ Milliliter.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       1,
       8,
-      5
+      5,
+      1250
      ]
     },
     "c": [
      "3/4 * 8/6",
      "6 * 4 / 3",
-     "10 * (1) / (8) * 4"
+     "10 * (1) / (8) * 4",
+     "(5) * 1000 / 4"
     ],
     "h": "Teile die Milchmenge durch die Zahl der Portionen.",
-    "w": "3/4 l : 6 = 3/24 l = 1/8 l. Für 10 Portionen: 10 · 1/8 l = 10/8 l = 5/4 l."
+    "w": "3/4 l : 6 = 3/24 l = 1/8 l. Für 10 Portionen: 10 · 1/8 l = 10/8 l = 5/4 l. Das sind 5/4 · 1000 ml = 1250 ml."
    }
   },
   {

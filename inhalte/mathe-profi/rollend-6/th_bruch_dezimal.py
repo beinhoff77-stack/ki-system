@@ -2,12 +2,13 @@ T = "bruch.dezimal"
 H4 = "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
 # ───────── stellenwerte ─────────
 neu(T, "stellenwerte", "lueckenweg", L(
-    "Die Zahl hat 6 Einer, 2 Zehntel und 15 Tausendstel. Bündele die 15 Tausendstel: Das sind ① Hundertstel und ② Tausendstel. Schreibst du die Zahl als Dezimalzahl und lässt das Komma weg, entsteht die ganze Zahl ③.",
-    KOMM(3), [1, 5, 6215], ["15 // 10", "15 % 10", "(6 + 2/10 + {1}/100 + {2}/1000) * 1000"], ["1", "5", "6215"],
+    "Die Zahl hat 6 Einer, 2 Zehntel und 15 Tausendstel. Bündele die 15 Tausendstel: Das sind ① Hundertstel und ② Tausendstel. Schreibst du die Zahl als Dezimalzahl und lässt das Komma weg, entsteht die ganze Zahl ③. Auf Hundertstel gerundet sind es ④ Hundertstel.",
+    KOMM(4), [1, 5, 6215, 622], ["15 // 10", "15 % 10", "(6 + 2/10 + {1}/100 + {2}/1000) * 1000", "({3} + 5) // 10"], ["1", "5", "6215", "622"],
     "Zehn Tausendstel sind ein Hundertstel.",
-    "15 Tausendstel = 1 Hundertstel und 5 Tausendstel. Die Zahl ist 6,215. Ohne Komma: 6215.",
-    {0: [(15, None, "nicht gebündelt: 15 als Hundertstel genommen", "15")], 1: [(0, None, "gedacht, 15 Tausendstel hätten keine Tausendstel mehr übrig", False)],
-     2: [(6251, None, "Hundertstel- und Tausendstelziffer vertauscht: 6,251", "(6 + 2/10 + {2}/100 + {1}/1000) * 1000")]}, hinweis="Je Lücke eine ganze Zahl."), regel="rr.stellenwert")
+    "15 Tausendstel = 1 Hundertstel und 5 Tausendstel. Die Zahl ist 6,215. Ohne Komma: 6215. Auf Hundertstel gerundet: 6,22, das sind 622 Hundertstel.",
+    {0: [(15, None, "nicht gebündelt: 15 als Hundertstel genommen", "15")], 1: [(14, None, "beim Bündeln nur 1 statt 10 Tausendstel abgezogen", "15 - {1}")],
+     2: [(6251, None, "Hundertstel- und Tausendstelziffer vertauscht: 6,251", "(6 + 2/10 + {2}/100 + {1}/1000) * 1000")],
+     3: [(621, None, "abgerundet statt aufgerundet", "{3} // 10")]}, hinweis="Je Lücke eine ganze Zahl."), regel="rr.stellenwert")
 neu(T, "stellenwerte", "anwenden", Z(
     "Die Stoppuhr zeigt 12,07 Sekunden. Wie viele Hundertstelsekunden sind das?",
     1207, "12.07 * 100", "12 * 100 + 7", "Wie viele Hundertstel passen in eine ganze Sekunde?",
@@ -20,25 +21,26 @@ neu(T, "stellenwerte", "fehler_detektiv", FD(
 
 # ───────── vergleichen_ordnen ─────────
 neu(T, "vergleichen_ordnen", "lueckenweg", L(
-    "Vergleiche 0,45 und 0,5 als Tausendstel. 0,45 sind ① Tausendstel. 0,5 sind ② Tausendstel. Die größere Zahl ist um ③ Tausendstel größer.",
-    KOMM(3), [450, 500, 50], ["0.45 * 1000", "0.5 * 1000", "{2} - {1}"], ["450", "500", "50"], "Wie viele Tausendstel sind ein Zehntel, wie viele ein Hundertstel?",
-    "0,45 = 450/1000 und 0,5 = 500/1000. 500 − 450 = 50. Also ist 0,5 größer als 0,45, um 50 Tausendstel.",
-    {0: [(45, None, "als Hundertstel statt Tausendstel gezählt", "0.45 * 100")], 1: [(5, None, "als Zehntel statt Tausendstel gezählt", "0.5 * 10")], 2: [(950, None, "die Tausendstel addiert statt abgezogen", "{1} + {2}")]},
+    "Vergleiche 0,45 und 0,5 als Tausendstel. 0,45 sind ① Tausendstel. 0,5 sind ② Tausendstel. Die größere Zahl ist um ③ Tausendstel größer. Der Unterschied sind ④ Hundertstel.",
+    KOMM(4), [450, 500, 50, 5], ["0.45 * 1000", "0.5 * 1000", "{2} - {1}", "{3} / 10"], ["450", "500", "50", "5"], "Wie viele Tausendstel sind ein Zehntel, wie viele ein Hundertstel?",
+    "0,45 = 450/1000 und 0,5 = 500/1000. 500 − 450 = 50. Also ist 0,5 größer als 0,45, um 50 Tausendstel. 50 Tausendstel sind 5 Hundertstel.",
+    {0: [(45, None, "als Hundertstel statt Tausendstel gezählt", "0.45 * 100")], 1: [(5, None, "als Zehntel statt Tausendstel gezählt", "0.5 * 10")], 2: [(950, None, "die Tausendstel addiert statt abgezogen", "{1} + {2}")],
+     3: [(500, None, "mit 10 malgenommen statt durch 10 geteilt", "{3} * 10")]},
     hinweis="Je Lücke eine ganze Zahl."), regel="rr.stellenwert")
 neu(T, "vergleichen_ordnen", "verfahren_waehlen", W(
     "Du vergleichst 0,8 und 0,75. Welche Überlegung ist richtig?",
     "0,8 = 0,80. 80 Hundertstel sind mehr als 75 Hundertstel, also ist 0,8 größer.",
     [("75 ist größer als 8, also ist 0,75 größer.", "wie ganze Zahlen verglichen: 75 gegen 8"),
      ("0,8 hat weniger Ziffern, also ist es kleiner.", "die Zahl der Ziffern verglichen"),
-     ("Beide sind gleich groß, weil man hinten Nullen anhängen darf.", "Nullen am Ende dürfen nur an gleich lange Zahlen angeglichen werden: 0,8 = 0,80 ≠ 0,75")],
+     ("Beide sind gleich groß, weil man hinten Nullen anhängen darf.", "aus dem Anhängen von Nullen (0,8 = 0,80) gefolgert, dass auch 0,75 gleich groß ist")],
     "Schreibe beide Zahlen mit gleich vielen Nachkommastellen.",
     "Gleiche Stellenzahl: 0,8 = 0,80 und 0,75. Es ist 80 > 75, also 0,8 > 0,75. Die Länge der Ziffernfolge sagt nichts über die Größe.",
     lambda: F(8, 10) > F(75, 100)), g="mehrschritt", regel="rr.stellenwert")
 neu(T, "vergleichen_ordnen", "anwenden", Z(
-    "Beim Weitsprung gelingen drei Sprünge: 4,35 m, 4,5 m und 4,305 m. Um wie viele Zentimeter ist der weiteste Sprung weiter als der kürzeste?",
+    "Drei Papierflieger fliegen 4,35 m, 4,5 m und 4,305 m weit. Um wie viele Zentimeter ist der weiteste Flug weiter als der kürzeste?",
     19.5, "(4.5 - 4.305) * 100", "450 - 430.5", "Welcher Sprung ist der weiteste, welcher der kürzeste? Schreibe die Zahlen mit gleich vielen Stellen.",
     "Mit drei Nachkommastellen: 4,350 m, 4,500 m, 4,305 m. Weitester: 4,5 m, kürzester: 4,305 m. Unterschied 0,195 m = 19,5 cm.",
-    [(15, None, "den weitesten mit dem mittleren statt mit dem kürzesten Sprung verglichen", "(4.5 - 4.35) * 100"), (0.195, None, "in Metern angegeben statt in Zentimetern", "4.5 - 4.305")], "cm"), g="transfer", regel="rr.stellenwert")
+    [(15, None, "den weitesten mit dem mittleren statt mit dem kürzesten Flug verglichen", "(4.5 - 4.35) * 100"), (0.195, None, "in Metern angegeben statt in Zentimetern", "4.5 - 4.305")], "cm"), g="transfer", regel="rr.stellenwert")
 
 # ───────── runden ─────────
 neu(T, "runden", "lueckenweg", L(
@@ -59,10 +61,10 @@ neu(T, "runden", "fehler_detektiv", FD(
 
 # ───────── bruch_zu_dezimal ─────────
 neu(T, "bruch_zu_dezimal", "lueckenweg", L(
-    "Schreibe 7/8 als Dezimalzahl. Erweitere auf den Nenner 1000. Die Erweiterungszahl ist ①. Der neue Zähler ist ②. Er gibt die Tausendstel an.",
-    KOMM(2), [125, 875], ["1000 / 8", "7 * {1}"], ["125", "875"], "Mit welcher Zahl wird aus 8 die 1000?",
-    "1000 : 8 = 125. 7 · 125 = 875. Also 7/8 = 875/1000 = 0,875.",
-    {0: [(992, None, "1000 − 8 gerechnet", "1000 - 8")], 1: [(132, None, "den Zähler addiert statt malgenommen", "7 + {1}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.zahlen.schreibweisen")
+    "Schreibe 7/8 als Dezimalzahl. Erweitere auf den Nenner 1000. Die Erweiterungszahl ist ①. Der neue Zähler ist ②. Er gibt die Tausendstel an. Auf Hundertstel gerundet sind es ③ Hundertstel.",
+    KOMM(3), [125, 875, 88], ["1000 / 8", "7 * {1}", "({2} + 5) // 10"], ["125", "875", "88"], "Mit welcher Zahl wird aus 8 die 1000?",
+    "1000 : 8 = 125. 7 · 125 = 875. Also 7/8 = 875/1000 = 0,875. Auf Hundertstel gerundet: 0,88, das sind 88 Hundertstel.",
+    {0: [(992, None, "1000 − 8 gerechnet", "1000 - 8")], 1: [(132, None, "den Zähler addiert statt malgenommen", "7 + {1}")], 2: [(87, None, "abgerundet statt aufgerundet", "{2} // 10")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.zahlen.schreibweisen")
 neu(T, "bruch_zu_dezimal", "zwei_wege", Z(
     "Wie viele Zehntausendstel sind 7/16? Weg A: Teile 7 durch 16 schriftlich und lies die Dezimalzahl ab. Weg B: Erweitere 7/16 auf den Nenner 10 000.",
     4375, "7 * 625", "7 / 16 * 10000", "Beide Wege liefern dieselbe Zahl. Mit welcher Zahl wird 16 zu 10 000?",
@@ -92,10 +94,11 @@ neu(T, "dezimal_zu_bruch", "fehler_detektiv", FD(
 
 # ───────── merkwerte ─────────
 neu(T, "merkwerte", "lueckenweg", L(
-    "Du weißt: 1/5 = 0,2. Also sind 3/5 genau ① Zehntel und 4/5 genau ② Zehntel. Zusammen sind 3/5 + 4/5 genau ③ Zehntel.",
-    KOMM(3), [6, 8, 14], ["3 * 2", "4 * 2", "{1} + {2}"], ["6", "8", "14"], "Ein Fünftel sind zwei Zehntel.",
-    "3/5 = 3 · 0,2 = 0,6, das sind 6 Zehntel. 4/5 sind 8 Zehntel. Zusammen 14 Zehntel, also 1,4.",
-    {0: [(3, None, "den Zähler als Zehntel genommen", "3")], 1: [(4, None, "den Zähler als Zehntel genommen", "4")], 2: [(48, None, "die Zehntel malgenommen statt addiert", "{1} * {2}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.zahlen.schreibweisen")
+    "Du weißt: 1/5 = 0,2. Also sind 3/5 genau ① Zehntel und 4/5 genau ② Zehntel. Zusammen sind 3/5 + 4/5 genau ③ Zehntel. Als Hundertstel sind das ④ Hundertstel.",
+    KOMM(4), [6, 8, 14, 140], ["3 * 2", "4 * 2", "{1} + {2}", "{3} * 10"], ["6", "8", "14", "140"], "Ein Fünftel sind zwei Zehntel.",
+    "3/5 = 3 · 0,2 = 0,6, das sind 6 Zehntel. 4/5 sind 8 Zehntel. Zusammen 14 Zehntel, also 1,4. Das sind 140 Hundertstel.",
+    {0: [(3, None, "den Zähler als Zehntel genommen", "3")], 1: [(4, None, "den Zähler als Zehntel genommen", "4")], 2: [(48, None, "die Zehntel malgenommen statt addiert", "{1} * {2}")],
+     3: [(14, None, "Zehntel nicht in Hundertstel umgerechnet", "{3}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.zahlen.schreibweisen")
 neu(T, "merkwerte", "bruecke", Z(
     "Wie viele Tausendstel ist 5/8 größer als 0,62? Rechne 5/8 als Dezimalzahl und vergleiche.",
     5, "5/8 * 1000 - 0.62 * 1000", "625 - 620", "Merke dir 1/8 = 0,125.",
@@ -109,20 +112,20 @@ neu(T, "merkwerte", "zwei_wege", Z(
 
 # ───────── periodisch ─────────
 neu(T, "periodisch", "lueckenweg", L(
-    "Rechne 5 : 6. Nach dem Komma steht zuerst die Ziffer ①. Danach wiederholt sich immer dieselbe Ziffer ②. Auf Hundertstel gerundet sind das ③ Hundertstel.",
-    KOMM(3), [8, 3, 83], ["50 // 6", "(50 % 6) * 10 // 6", "{1} * 10 + {2} + {2} // 5"], ["8", "3", "83"], "Teile 50 durch 6 und achte auf den Rest.",
-    "5 : 6 = 0,8333… Die 8 steht einmal, dann wiederholt sich die 3. Gerundet auf Hundertstel: 0,83, das sind 83 Hundertstel (die nächste Ziffer 3 rundet ab).",
+    "Rechne 5 : 6. Nach dem Komma steht zuerst die Ziffer ①. Danach wiederholt sich immer dieselbe Ziffer ②. Auf Hundertstel gerundet sind das ③ Hundertstel. Auf Tausendstel gerundet sind das ④ Tausendstel.",
+    KOMM(4), [8, 3, 83, 833], ["50 // 6", "(50 % 6) * 10 // 6", "{1} * 10 + {2} + {2} // 5", "{1} * 100 + {2} * 10 + {2} + {2} // 5"], ["8", "3", "83", "833"], "Teile 50 durch 6 und achte auf den Rest.",
+    "5 : 6 = 0,8333… Die 8 steht einmal, dann wiederholt sich die 3. Gerundet auf Hundertstel: 0,83, das sind 83 Hundertstel (die nächste Ziffer 3 rundet ab). Auf Tausendstel: 0,833, das sind 833 Tausendstel.",
     {0: [(5, None, "den Zähler als erste Nachkommaziffer genommen", "5")], 1: [(8, None, "die erste Ziffer als Periode genommen", "{1}")],
-     2: [(84, None, "aufgerundet, obwohl die nächste Ziffer 3 ist", "{1} * 10 + {2} + 1")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.zahlen.schreibweisen")
+     2: [(84, None, "aufgerundet, obwohl die nächste Ziffer 3 ist", "{1} * 10 + {2} + 1")], 3: [(834, None, "aufgerundet, obwohl die nächste Ziffer 3 ist", "{1} * 100 + {2} * 10 + {2} + 1")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.zahlen.schreibweisen")
 neu(T, "periodisch", "bruecke", Z(
     "Die Dezimalzahl 0,272727… (die Ziffern 27 wiederholen sich) ist gleich ?/11. Welche Zahl steht im Zähler?",
     3, "27 / 99 * 11", "3", "Teile für kleine Zähler Z : 11 schriftlich und vergleiche mit 0,2727…",
     "3 : 11 = 0,272727… Also ist 0,272727… = 3/11. Der Zähler ist 3.",
     [(27, None, "die Periode als Zähler genommen", "27"), (9, None, "9 : 11 gerechnet, das ergibt 0,8181…", "9")]), regel="id.zahlen.schreibweisen")
 neu(T, "periodisch", "fehler_detektiv", FD(
-    "Mia will wissen, ob 9/20 endlich oder periodisch ist.",
-    [("Der Nenner ist 20 = 2 · 2 · 3.", 2 * 2 * 3 == 20), ("Der Nenner hat den Primfaktor 3.", True), ("Also ist 9/20 eine periodische Dezimalzahl.", True)],
-    "Zerlege 20 noch einmal in Primfaktoren.", "20 = 2 · 2 · 5. Der Nenner hat nur die Primfaktoren 2 und 5, also ist 9/20 = 0,45 endlich. In Zeile 1 steht 3 statt 5."), regel="id.zahlen.schreibweisen")
+    "Mia will wissen, ob 7/20 endlich oder periodisch ist.",
+    [("Der Nenner ist 20 = 2 · 2 · 3.", 2 * 2 * 3 == 20), ("Der Nenner hat den Primfaktor 3, der nicht in 10 steckt.", True), ("Also ist 7/20 eine periodische Dezimalzahl.", True)],
+    "Zerlege 20 noch einmal in Primfaktoren.", "20 = 2 · 2 · 5. Der Nenner hat nur die Primfaktoren 2 und 5, also ist 7/20 = 0,35 endlich. In Zeile 1 steht 3 statt 5."), regel="id.zahlen.schreibweisen")
 
 # ───────── verstehen ─────────
 neu(T, "verstehen", "lueckenweg", L(

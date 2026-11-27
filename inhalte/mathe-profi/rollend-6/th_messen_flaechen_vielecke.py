@@ -14,7 +14,7 @@ neu(T, "parallelogramm", "umkehren", Z(
     "Ein Rechteck (12 cm lang, 9 cm breit) und ein Parallelogramm haben denselben Flächeninhalt. Die Grundseite des Parallelogramms ist 18 cm lang. Wie hoch ist das Parallelogramm in Zentimetern?",
     6, "12 * 9 / 18", "108 / 18", "Wie groß ist die Fläche des Rechtecks?",
     "Rechteck: 12 · 9 = 108 cm². Parallelogramm: 18 · h = 108, also h = 108 : 18 = 6 cm.",
-    [(108, None, "nur die Fläche angegeben", "12 * 9"), (0.17, None, "falsch herum geteilt: 18 : 108", "18 / (12 * 9)")], "cm"), g="rueckwaerts", regel="id.flaeche_raum.aus_dem_rechteck")
+    [(108, None, "nur die Fläche angegeben", "12 * 9"), (90, None, "abgezogen statt geteilt: 108 − 18", "12 * 9 - 18")], "cm"), g="rueckwaerts", regel="id.flaeche_raum.aus_dem_rechteck")
 
 # ───────── dreieck ─────────
 neu(T, "dreieck", "lueckenweg", L(
@@ -42,7 +42,7 @@ neu(T, "trapez", "lueckenweg", L(
     "Ein Trapez hat die parallelen Seiten 9 cm und 5 cm und die Höhe 6 cm. Die Summe der parallelen Seiten ist ① cm. Die Fläche ist ② cm². Ein Rechteck mit derselben Fläche und der Breite 6 cm ist ③ cm lang.",
     KOMM(3), [14, 42, 7], ["9 + 5", "{1} * 6 / 2", "{2} / 6"], ["14", "42", "7"], "Fläche = (a + c) mal Höhe durch 2.",
     "9 + 5 = 14. A = 14 · 6 : 2 = 42 cm². Rechteck: 42 : 6 = 7 cm lang. Das ist die mittlere Länge der parallelen Seiten.",
-    {0: [(45, None, "malgenommen statt addiert", "9 * 5")], 1: [(84, None, "nicht durch 2 geteilt", "{1} * 6")], 2: [(14, None, "nicht durch 6 geteilt: die Summe angegeben", "{1}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.aus_dem_rechteck")
+    {0: [(45, None, "malgenommen statt addiert", "9 * 5")], 1: [(84, None, "nicht durch 2 geteilt", "{1} * 6")], 2: [(14, None, "die Summe der parallelen Seiten statt ihrer Hälfte angegeben", "{1}"), (42, None, "die Fläche statt der Länge angegeben: nicht durch 6 geteilt", "{2}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.aus_dem_rechteck")
 neu(T, "trapez", "zwei_wege", Z(
     "Ein Trapez hat die parallelen Seiten 12 cm und 8 cm und die Höhe 5 cm. Weg A: Rechne mit der Trapezformel. Weg B: Zerlege das Trapez in ein Rechteck mit der kurzen Seite und zwei Dreiecke, die zusammen die Grundseite 12 − 8 = 4 cm haben. Wie groß ist die Fläche in cm²?",
     50, "(12 + 8) * 5 / 2", "8 * 5 + 4 * 5 / 2", "Beide Wege müssen dieselbe Fläche ergeben.",
@@ -56,10 +56,11 @@ neu(T, "trapez", "anwenden", Z(
 
 # ───────── rueckwaerts ─────────
 neu(T, "rueckwaerts", "lueckenweg", L(
-    "Ein Trapez hat die Fläche 84 cm². Die parallelen Seiten sind 10 cm und 14 cm lang. Die Summe der parallelen Seiten ist ① cm. Zweimal die Fläche ist ② cm². Die Höhe ist ③ cm.",
-    KOMM(3), [24, 168, 7], ["10 + 14", "84 * 2", "{2} / {1}"], ["24", "168", "7"], "Stelle die Formel A = (a + c) · h : 2 nach h um.",
-    "Aus 84 = 24 · h : 2 folgt 168 = 24 · h. Also h = 168 : 24 = 7 cm.",
-    {0: [(4, None, "Unterschied statt Summe der parallelen Seiten", "14 - 10")], 1: [(42, None, "durch 2 statt mal 2", "84 / 2")], 2: [(3.5, None, "die Fläche nicht verdoppelt: 84 : 24", "84 / {1}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.aus_dem_rechteck")
+    "Ein Trapez hat die Fläche 84 cm². Die parallelen Seiten sind 10 cm und 14 cm lang. Die Summe der parallelen Seiten ist ① cm. Zweimal die Fläche ist ② cm². Die Höhe ist ③ cm. Das sind ④ Millimeter.",
+    KOMM(4), [24, 168, 7, 70], ["10 + 14", "84 * 2", "{2} / {1}", "{3} * 10"], ["24", "168", "7", "70"], "Stelle die Formel A = (a + c) · h : 2 nach h um.",
+    "Aus 84 = 24 · h : 2 folgt 168 = 24 · h. Also h = 168 : 24 = 7 cm = 70 mm.",
+    {0: [(4, None, "Unterschied statt Summe der parallelen Seiten", "14 - 10")], 1: [(42, None, "durch 2 statt mal 2", "84 / 2")], 2: [(144, None, "abgezogen statt geteilt", "{2} - {1}")],
+     3: [(7, None, "nicht in Millimeter umgerechnet", "{3}"), (700, None, "mit 100 statt mit 10 malgenommen", "{3} * 100")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.aus_dem_rechteck")
 neu(T, "rueckwaerts", "umkehren", Z(
     "Ein Parallelogramm und ein Dreieck haben beide den Flächeninhalt 60 cm² und beide die Höhe 6 cm. Um wie viele Zentimeter ist die Grundseite des Dreiecks länger als die des Parallelogramms?",
     10, "2 * 60 / 6 - 60 / 6", "20 - 10", "Berechne beide Grundseiten mit den umgestellten Formeln.",
@@ -72,10 +73,11 @@ neu(T, "rueckwaerts", "fehler_detektiv", FD(
 
 # ───────── zusammengesetzt ─────────
 neu(T, "zusammengesetzt", "lueckenweg", L(
-    "Ein Haus hat vorn die Form eines Fünfecks: ein Rechteck (10 m breit, 6 m hoch) und darüber ein Dreieck als Giebel (Grundseite 10 m, Höhe 4 m). Das Rechteck hat ① m². Der Giebel hat ② m². Zusammen sind es ③ m².",
-    KOMM(3), [60, 20, 80], ["10 * 6", "10 * 4 / 2", "{1} + {2}"], ["60", "20", "80"], "Zerlege die Figur in ein Rechteck und ein Dreieck.",
-    "Rechteck: 10 · 6 = 60 m². Dreieck: 10 · 4 : 2 = 20 m². Zusammen 80 m².",
-    {0: [(32, None, "Umfang statt Fläche gerechnet", "2 * (10 + 6)")], 1: [(40, None, "das Dreieck nicht halbiert", "10 * 4")], 2: [(100, None, "den Giebel nicht halbiert: 60 + 40", "{1} + 10 * 4")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.auslegen")
+    "Ein Haus hat vorn die Form eines Fünfecks: ein Rechteck (10 m breit, 6 m hoch) und darüber ein Dreieck als Giebel (Grundseite 10 m, Höhe 4 m). Das Rechteck hat ① m². Der Giebel hat ② m². Zusammen sind es ③ m². Der Giebel ist um ④ m² kleiner als das Rechteck.",
+    KOMM(4), [60, 20, 80, 40], ["10 * 6", "10 * 4 / 2", "{1} + {2}", "{1} - {2}"], ["60", "20", "80", "40"], "Zerlege die Figur in ein Rechteck und ein Dreieck.",
+    "Rechteck: 10 · 6 = 60 m². Dreieck: 10 · 4 : 2 = 20 m². Zusammen 80 m². Unterschied: 60 m² − 20 m² = 40 m².",
+    {0: [(32, None, "Umfang statt Fläche gerechnet", "2 * (10 + 6)")], 1: [(40, None, "das Dreieck nicht halbiert", "10 * 4")], 2: [(100, None, "den Giebel nicht halbiert: 60 + 40", "{1} + 10 * 4")],
+     3: [(80, None, "die Summe statt des Unterschieds angegeben", "{1} + {2}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.auslegen")
 neu(T, "zusammengesetzt", "zwei_wege", Z(
     "Ein L-förmiges Grundstück entsteht aus einem Rechteck (20 m lang, 12 m breit), aus dem an einer Ecke ein Rechteck (8 m lang, 5 m breit) herausgeschnitten ist. Weg A: Rechne großes Rechteck minus herausgeschnittenes Rechteck. Weg B: Zerlege das Grundstück in zwei Rechtecke. Wie groß ist das Grundstück in m²?",
     200, "20 * 12 - 8 * 5", "(20 - 8) * 12 + 8 * (12 - 5)", "Beide Wege müssen dieselbe Fläche ergeben.",
@@ -89,10 +91,11 @@ neu(T, "zusammengesetzt", "anwenden", Z(
 
 # ───────── oberflaeche ─────────
 neu(T, "oberflaeche", "lueckenweg", L(
-    "Ein dreiseitiges Prisma ist 20 cm lang. Seine Grundfläche ist ein rechtwinkliges Dreieck mit den Seiten 9 cm, 12 cm und 15 cm. Die beiden Dreiecke haben zusammen ① cm². Die drei Rechtecke (Mantel) haben zusammen ② cm². Die Oberfläche ist ③ cm².",
-    KOMM(3), [108, 720, 828], ["2 * 9 * 12 / 2", "(9 + 12 + 15) * 20", "{1} + {2}"], ["108", "720", "828"], "Der Mantel ist ein Rechteck: Umfang des Dreiecks mal Länge.",
-    "Dreiecke: 2 · (9 · 12 : 2) = 108 cm². Mantel: (9 + 12 + 15) · 20 = 720 cm². Oberfläche: 108 + 720 = 828 cm².",
-    {0: [(54, None, "nur ein Dreieck gerechnet", "9 * 12 / 2")], 1: [(420, None, "nur die Seiten 9 cm und 12 cm als Mantel", "(9 + 12) * 20")], 2: [(720, None, "die Dreiecke vergessen", "{2}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.haut")
+    "Ein dreiseitiges Prisma ist 20 cm lang. Seine Grundfläche ist ein rechtwinkliges Dreieck mit den Seiten 9 cm, 12 cm und 15 cm. Die beiden Dreiecke haben zusammen ① cm². Die drei Rechtecke (Mantel) haben zusammen ② cm². Die Oberfläche ist ③ cm². Der Mantel ist um ④ cm² größer als die beiden Dreiecke zusammen.",
+    KOMM(4), [108, 720, 828, 612], ["2 * 9 * 12 / 2", "(9 + 12 + 15) * 20", "{1} + {2}", "{2} - {1}"], ["108", "720", "828", "612"], "Der Mantel ist ein Rechteck: Umfang des Dreiecks mal Länge.",
+    "Dreiecke: 2 · (9 · 12 : 2) = 108 cm². Mantel: (9 + 12 + 15) · 20 = 720 cm². Oberfläche: 108 + 720 = 828 cm². Unterschied: 720 cm² − 108 cm² = 612 cm².",
+    {0: [(54, None, "nur ein Dreieck gerechnet", "9 * 12 / 2")], 1: [(420, None, "nur die Seiten 9 cm und 12 cm als Mantel", "(9 + 12) * 20")], 2: [(720, None, "die Dreiecke vergessen", "{2}")],
+     3: [(828, None, "die Summe statt des Unterschieds angegeben", "{1} + {2}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.haut")
 neu(T, "oberflaeche", "anwenden", Z(
     "Ein Festzelt hat die Form eines liegenden Dreiecksprismas. Vorn und hinten sind gleichschenklige Dreiecke mit der Grundseite 6 m, der Höhe 4 m und den Schenkeln von je 5 m. Das Zelt ist 8 m lang. Wie viel Quadratmeter Stoff braucht man für die beiden Giebel und die beiden Dachflächen (ohne Boden)?",
     104, "2 * 6 * 4 / 2 + 2 * 5 * 8", "24 + 80", "Die Dachflächen sind Rechtecke: Schenkellänge mal Zeltlänge.",
@@ -122,13 +125,13 @@ neu(T, "verstehen", "fehler_detektiv", FD(
 
 # ───────── drachen_raute ─────────
 neu(T, "drachen_raute", "lueckenweg", L(
-    "Eine Raute hat die Diagonalen e = 16 cm und f = 12 cm. Das Rechteck, das die Raute genau umschließt, hat ① cm². Die Raute hat ② cm².",
-    KOMM(2), [192, 96], ["16 * 12", "{1} / 2"], ["192", "96"], "Die Raute füllt genau die Hälfte des umschließenden Rechtecks.",
-    "Rechteck: 16 · 12 = 192 cm². Raute: 192 : 2 = 96 cm². Formel: A = e · f : 2.",
-    {0: [(28, None, "addiert statt malgenommen", "16 + 12")], 1: [(192, None, "nicht halbiert", "{1}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.aus_dem_rechteck")
+    "Eine Raute hat die Diagonalen e = 16 cm und f = 12 cm. Das Rechteck, das die Raute genau umschließt, hat ① cm². Die Raute hat ② cm². Wird jede Diagonale halbiert, hat die kleinere Raute ③ cm².",
+    KOMM(3), [192, 96, 24], ["16 * 12", "{1} / 2", "{2} / 4"], ["192", "96", "24"], "Die Raute füllt genau die Hälfte des umschließenden Rechtecks.",
+    "Rechteck: 16 · 12 = 192 cm². Raute: 192 : 2 = 96 cm². Formel: A = e · f : 2. Halbe Diagonalen: 8 · 6 : 2 = 24 cm², das ist ein Viertel von 96 cm².",
+    {0: [(28, None, "addiert statt malgenommen", "16 + 12")], 1: [(192, None, "nicht halbiert", "{1}")], 2: [(48, None, "durch 2 statt durch 4 geteilt: nur eine Diagonale halbiert", "{2} / 2")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.flaeche_raum.aus_dem_rechteck")
 neu(T, "drachen_raute", "bruecke", Z(
     "Eine Raute liegt so in einem Rechteck (14 cm lang, 8 cm breit), dass ihre Ecken genau in den Mitten der Rechteckseiten liegen. Wie groß ist die Fläche der Raute in cm²?",
-    56, "14 * 8 / 2", "14 * 8 / 2", "Die Diagonalen der Raute sind so lang wie die Seiten des Rechtecks.",
+    56, "14 * 8 / 2", "14 * 8 / 2", "Wo liegen die beiden Diagonalen der Raute im Rechteck?",
     "Die Diagonalen der Raute sind 14 cm und 8 cm lang. A = e · f : 2 = 14 · 8 : 2 = 56 cm². Das ist die Hälfte der Rechteckfläche 112 cm².",
     [(112, None, "die Fläche des Rechtecks angegeben", "14 * 8"), (22, None, "addiert statt malgenommen", "14 + 8")], "cm²"), regel="id.flaeche_raum.aus_dem_rechteck")
 neu(T, "drachen_raute", "zwei_wege", Z(

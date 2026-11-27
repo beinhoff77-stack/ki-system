@@ -9,7 +9,7 @@ neu(T, "prozent_bedeutung", "bruecke", Z(
     "Ein Streifen besteht aus 40 gleich großen Kästchen. 14 Kästchen sind gefärbt. Wie viel Prozent des Streifens sind gefärbt?",
     35, "14 / 40 * 100", "14 * 2.5", "Wie viele Kästchen wären 100 Prozent? Rechne den Anteil in Hundertstel um.",
     "14 von 40 ist 14/40 = 35/100. Das sind 35 %. Probe: 1 % sind 0,4 Kästchen, 0,4 · 35 = 14.",
-    [(0.35, None, "den Anteil als Dezimalzahl statt als Prozent angegeben", "14 / 40"), (2.8, None, "nur durch 5 geteilt", "14 / 5")], "%"), regel="id.verhaeltnisse.prozent")
+    [(0.35, None, "den Anteil als Dezimalzahl statt als Prozent angegeben", "14 / 40"), (65, None, "den Anteil der nicht gefärbten Kästchen berechnet", "(40 - 14) / 40 * 100")], "%"), regel="id.verhaeltnisse.prozent")
 neu(T, "prozent_bedeutung", "fehler_detektiv", FD(
     "Aysel schreibt 0,6 % als Dezimalzahl.",
     [("0,6 % = 6/100", F(6, 1000) == F(6, 100)), ("6/100 = 0,06", F(6, 100) == F(6, 100)), ("Also ist 0,6 % = 0,06.", True)],
@@ -54,7 +54,7 @@ neu(T, "grundwert", "lueckenweg", L(
     "15 % einer Summe sind 45 €. Dann sind 1 % genau ① €. Die ganze Summe ist ② €. Zur Probe: 10 % der Summe sind ③ €.",
     KOMM(3), [3, 300, 30], ["45 / 15", "{1} * 100", "{2} / 10"], ["3", "300", "30"], "Rechne zuerst auf ein Prozent zurück.",
     "45 € : 15 = 3 € sind 1 %. Das Ganze: 100 · 3 € = 300 €. 10 % davon sind 30 €.",
-    {0: [(675, None, "45 mit 15 malgenommen", "45 * 15")], 1: [(6.75, None, "15 % von 45 gerechnet statt den Grundwert gesucht", "45 * 15 / 100")], 2: [(3000, None, "mit 10 malgenommen statt geteilt", "{2} * 10")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.verhaeltnisse.prozent")
+    {0: [(675, None, "45 mit 15 malgenommen", "45 * 15")], 1: [(103, None, "100 dazugezählt statt malgenommen", "{1} + 100")], 2: [(3000, None, "mit 10 malgenommen statt geteilt", "{2} * 10")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.verhaeltnisse.prozent")
 neu(T, "grundwert", "verfahren_waehlen", W(
     "Du weißt: 18 % einer Größe sind 72. Mit welcher Rechnung findest du die ganze Größe?",
     "72 : 18 · 100",
@@ -95,7 +95,7 @@ neu(T, "verstehen", "bruecke", Z(
     "In einem Kreisdiagramm gehört zu 40 % der Gäste der Kuchen. Wie groß ist der Winkel des zugehörigen Kreisausschnitts in Grad? (Der ganze Kreis hat 360°.)",
     144, "40 / 100 * 360", "360 / 100 * 40", "100 % entsprechen dem ganzen Kreis.",
     "1 % entspricht 3,6°. 40 · 3,6° = 144°. Der Kreisausschnitt hat 144°.",
-    [(14.4, None, "40 durch 10 statt durch 100 geteilt", "40 / 100 * 36"), (160, None, "40 · 4 gerechnet", "40 * 4")], "°"), regel="id.verhaeltnisse.prozent")
+    [(14.4, None, "1 % als 0,36° statt als 3,6° gerechnet", "40 * 0.36"), (40, None, "die Prozentzahl als Gradzahl genommen", "40")], "°"), regel="id.verhaeltnisse.prozent")
 neu(T, "verstehen", "fehler_detektiv", FD(
     "Mara behauptet: „Steigt ein Preis um 20 % und sinkt danach um 20 %, ist er wieder so hoch wie am Anfang.“ Sie rechnet mit 50 €.",
     [("Erhöhung: 50 · 1,2 = 60 €", 50 * 1.2 == 60), ("Senkung: 60 · 0,8 = 48 €", abs(60 * 0.8 - 48) < 1e-9), ("Also 48 € = 50 €, der Preis ist wieder gleich.", 48 == 50)],

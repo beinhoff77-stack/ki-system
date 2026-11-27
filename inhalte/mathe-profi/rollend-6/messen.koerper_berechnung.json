@@ -219,6 +219,14 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "jede Fläche nur einmal gezählt",
      "c": "10 * 6 + 10 * 4 + 6 * 4"
+    },
+    {
+     "luecke": 5,
+     "antwort": 464,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt abgezogen",
+     "c": "(248) + 216"
     }
    ],
    "aufgabe": {
@@ -229,8 +237,8 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Quader ist 10 cm lang, 6 cm breit und 4 cm hoch. Boden und Deckel zusammen haben ① cm². Vorder- und Rückseite zusammen haben ② cm². Die beiden Seitenflächen zusammen haben ③ cm². Die Oberfläche ist ④ cm².",
-     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "text": "Ein Quader ist 10 cm lang, 6 cm breit und 4 cm hoch. Boden und Deckel zusammen haben ① cm². Vorder- und Rückseite zusammen haben ② cm². Die beiden Seitenflächen zusammen haben ③ cm². Die Oberfläche ist ④ cm². Ein Würfel mit 6 cm Kante hat 216 cm² Oberfläche. Der Quader hat ⑤ cm² mehr.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □; ⑤ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
@@ -238,17 +246,19 @@
       120,
       80,
       48,
-      248
+      248,
+      32
      ]
     },
     "c": [
      "2 * 10 * 6",
      "2 * 10 * 4",
      "2 * 6 * 4",
-     "(120) + (80) + (48)"
+     "(120) + (80) + (48)",
+     "(248) - 216"
     ],
     "h": "Jede Fläche kommt zweimal vor.",
-    "w": "Boden und Deckel: 2 · 10 · 6 = 120 cm². Vorn und hinten: 2 · 10 · 4 = 80 cm². Seiten: 2 · 6 · 4 = 48 cm². Zusammen 248 cm²."
+    "w": "Boden und Deckel: 2 · 10 · 6 = 120 cm². Vorn und hinten: 2 · 10 · 4 = 80 cm². Seiten: 2 · 6 · 4 = 48 cm². Zusammen 248 cm². Gegenüber dem Würfel: 248 cm² − 216 cm² = 32 cm²."
    }
   },
   {
@@ -364,11 +374,11 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 22.5,
+     "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur zwei Wände gerechnet",
-     "c": "(5 + 4) * 2.5"
+     "beschreibung": "nur die beiden langen Wände gerechnet",
+     "c": "2 * 5 * 2.5"
     },
     {
      "luecke": 2,
@@ -385,6 +395,14 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "abgezogen statt addiert",
      "c": "(45) - (20)"
+    },
+    {
+     "luecke": 4,
+     "antwort": 325,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 5 malgenommen statt geteilt",
+     "c": "(65) * 5"
     }
    ],
    "aufgabe": {
@@ -395,24 +413,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Zimmer ist 5 m lang, 4 m breit und 2,5 m hoch. Die vier Wände und die Decke werden gestrichen, der Boden nicht. Die vier Wände haben zusammen ① m². Die Decke hat ② m². Zusammen sind das ③ m².",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Ein Zimmer ist 5 m lang, 4 m breit und 2,5 m hoch. Die vier Wände und die Decke werden gestrichen, der Boden nicht. Die vier Wände haben zusammen ① m². Die Decke hat ② m². Zusammen sind das ③ m². Ein Liter Farbe reicht für 5 m². Man braucht ④ Liter.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       45,
       20,
-      65
+      65,
+      13
      ]
     },
     "c": [
      "2 * (5 + 4) * 2.5",
      "5 * 4",
-     "(45) + (20)"
+     "(45) + (20)",
+     "(65) / 5"
     ],
     "h": "Die Wände bilden zusammen einen Streifen: Umfang des Bodens mal Höhe.",
-    "w": "Wände: Umfang 2 · (5 + 4) = 18 m, mal 2,5 m = 45 m². Decke: 5 · 4 = 20 m². Zusammen 65 m²."
+    "w": "Wände: Umfang 2 · (5 + 4) = 18 m, mal 2,5 m = 45 m². Decke: 5 · 4 = 20 m². Zusammen 65 m². Farbe: 65 : 5 = 13 Liter."
    }
   },
   {
@@ -638,7 +658,7 @@
      "einheit": "cm²"
     },
     "c": "(5 * 6 - 2 * 4) * 4",
-    "h": "Eine Würfelfläche hat 4 cm². Beide Wege müssen 22 Flächen ergeben.",
+    "h": "Eine Würfelfläche hat 2 · 2 = 4 cm². Beide Wege müssen dieselbe Zahl an Flächen ergeben.",
     "w": "Weg A: 30 Flächen. Es gibt 4 Klebestellen, die 8 Flächen verdecken. 22 Flächen. Weg B: oben 5, unten 5, vorn 4, hinten 4, links 2, rechts 2: ebenfalls 22 Flächen. 22 · 4 cm² = 88 cm²."
    }
   },
@@ -662,11 +682,11 @@
      "c": "160 / 10"
     },
     {
-     "antwort": 13.33,
+     "antwort": 8,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch 12 statt durch 10 Flächen geteilt",
-     "c": "160 / 12"
+     "beschreibung": "die Länge des ganzen Quaders (zwei Kanten) angegeben",
+     "c": "2 * 4"
     },
     {
      "antwort": 20,
@@ -730,6 +750,14 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "die Oberfläche nur verdoppelt",
      "c": "(150) * 2"
+    },
+    {
+     "luecke": 4,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gedacht, mit der Kante verdoppelt sich auch die Oberfläche",
+     "c": "2"
     }
    ],
    "aufgabe": {
@@ -740,24 +768,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Würfel hat die Kantenlänge 5 cm. Seine Oberfläche ist ① cm². Wird jede Kante verdoppelt, ist die neue Kante ② cm lang. Die neue Oberfläche ist dann ③ cm².",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Ein Würfel hat die Kantenlänge 5 cm. Seine Oberfläche ist ① cm². Wird jede Kante verdoppelt, ist die neue Kante ② cm lang. Die neue Oberfläche ist dann ③ cm². Die neue Oberfläche ist ④-mal so groß wie die alte.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       150,
       10,
-      600
+      600,
+      4
      ]
     },
     "c": [
      "6 * 5 * 5",
      "5 * 2",
-     "6 * (10) * (10)"
+     "6 * (10) * (10)",
+     "(600) / (150)"
     ],
     "h": "Ein Würfel hat sechs gleiche Flächen.",
-    "w": "Oberfläche: 6 · 5 · 5 = 150 cm². Neue Kante: 10 cm. Neue Oberfläche: 6 · 10 · 10 = 600 cm². Das ist das Vierfache."
+    "w": "Oberfläche: 6 · 5 · 5 = 150 cm². Neue Kante: 10 cm. Neue Oberfläche: 6 · 10 · 10 = 600 cm². Das ist 600 : 150 = 4-mal so viel."
    }
   },
   {

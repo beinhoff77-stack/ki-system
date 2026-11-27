@@ -164,7 +164,7 @@ def fb_pruefen(kenn, ort, wert, rechnung, frueher=()):
         assert rechnung() is True, (kenn, ort, wert, "Fehlbild stimmt nicht")
         return "(Prüffunktion)"
     v, t = wert_von_c(rechnung, list(frueher))
-    ok = F(v) == ip.zahlwert(wert) or round(float(v), 2) == float(wert)
+    ok = F(v) == ip.zahlwert(wert)   # exakt: keine gerundeten Fehlwerte (Vorprüfung)
     assert ok, (kenn, ort, "Fehlbild: Rechnung", t, "ergibt", float(v), "nicht", wert)
     return t
 
@@ -273,6 +273,9 @@ for a in A:
                 for n in r:
                     assert n <= i, (kenn, "Verweis nach vorn")
                     assert hang_ab(vorlagen[i], soll, i, n), (kenn, i + 1, n, "Lücke hängt in Wahrheit nicht vom früheren Wert ab")
+            assert sum(1 for r in refs[1:] if r) >= 1 and sum(1 for r in refs if r) >= 1, kenn
+            # Vorprüfung: Lückenweg mit nur zwei Lücken hat genau eine abhängige; ab drei Lücken müssen mindestens zwei von früheren abhängen
+            assert len(soll) == 2 or sum(1 for r in refs if r) >= 2, (kenn, "ab drei Lücken mindestens zwei abhängige Lücken")
             n_abhaengig += 1
             assert gleich_ok or len(set(soll)) == len(soll), (kenn, "Lückenwerte sollen verschieden sein")
             assert a["fb"], (kenn, "Lückenweg braucht Fehlbilder")
@@ -283,6 +286,7 @@ for a in A:
                 assert len(t) == 4, (kenn, i + 1, t[:1], "Fehlbild braucht 4 Einträge (Wert, Kennung, Beschreibung, Rechnung)")
                 w, fbk, beschr, rech = t
                 assert w != soll[i] and w not in werte, (kenn, i, w)
+                assert isinstance(w, int), (kenn, i, w, "Fehlwert einer Lücke muss eine ganze Zahl sein (Eingabe: ganze Zahl)")
                 werte.add(w)
                 ct = fb_pruefen(kenn, f"Lücke {i + 1}", w, rech, soll[:i])
                 if ct:

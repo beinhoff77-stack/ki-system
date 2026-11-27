@@ -523,11 +523,11 @@
     },
     {
      "luecke": 2,
-     "antwort": 7.2,
+     "antwort": 720,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch 10 000 statt durch 1000 geteilt",
-     "c": "(72000) / 10000"
+     "beschreibung": "durch 100 statt durch 1000 geteilt",
+     "c": "(72000) / 100"
     },
     {
      "luecke": 3,
@@ -885,6 +885,14 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "abgezogen statt addiert",
      "c": "(240) - (60)"
+    },
+    {
+     "luecke": 4,
+     "antwort": 300,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Gewicht je cm³ nicht beachtet",
+     "c": "(300)"
     }
    ],
    "aufgabe": {
@@ -895,24 +903,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Körper besteht aus einem großen Quader (12 cm lang, 5 cm breit, 4 cm hoch). Obendrauf liegt ein kleiner Quader (4 cm lang, 5 cm breit, 3 cm hoch). Der große Quader hat ① cm³. Der kleine hat ② cm³. Zusammen sind es ③ cm³.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Ein Körper besteht aus einem großen Quader (12 cm lang, 5 cm breit, 4 cm hoch). Obendrauf liegt ein kleiner Quader (4 cm lang, 5 cm breit, 3 cm hoch). Der große Quader hat ① cm³. Der kleine hat ② cm³. Zusammen sind es ③ cm³. Der Körper besteht aus Ton, jeder cm³ wiegt 2 g. Der Körper wiegt ④ g.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       240,
       60,
-      300
+      300,
+      600
      ]
     },
     "c": [
      "12 * 5 * 4",
      "4 * 5 * 3",
-     "(240) + (60)"
+     "(240) + (60)",
+     "(300) * 2"
     ],
     "h": "Rechne jeden Quader einzeln und addiere dann.",
-    "w": "Großer Quader: 12 · 5 · 4 = 240 cm³. Kleiner Quader: 4 · 5 · 3 = 60 cm³. Zusammen: 300 cm³."
+    "w": "Großer Quader: 12 · 5 · 4 = 240 cm³. Kleiner Quader: 4 · 5 · 3 = 60 cm³. Zusammen: 300 cm³. Gewicht: 300 · 2 g = 600 g."
    }
   },
   {
@@ -1042,6 +1052,22 @@
      "regel_des_fehlbilds": null,
      "beschreibung": "das Volumen nur verdoppelt",
      "c": "(125) * 2"
+    },
+    {
+     "luecke": 4,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gedacht, mit der Kante verdoppelt sich auch das Volumen",
+     "c": "2"
+    },
+    {
+     "luecke": 4,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie bei der Fläche gerechnet: 2 · 2",
+     "c": "2 * 2"
     }
    ],
    "aufgabe": {
@@ -1052,24 +1078,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Würfel hat die Kantenlänge 5 cm. Sein Volumen ist ① cm³. Wird jede Kante verdoppelt, ist die neue Kantenlänge ② cm und das neue Volumen ③ cm³.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Ein Würfel hat die Kantenlänge 5 cm. Sein Volumen ist ① cm³. Wird jede Kante verdoppelt, ist die neue Kantenlänge ② cm und das neue Volumen ③ cm³. Das neue Volumen ist ④-mal so groß wie das alte.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       125,
       10,
-      1000
+      1000,
+      8
      ]
     },
     "c": [
      "5 ** 3",
      "5 * 2",
-     "(10) ** 3"
+     "(10) ** 3",
+     "(1000) / (125)"
     ],
     "h": "Bei einem Würfel wird die Kantenlänge dreimal malgenommen.",
-    "w": "V = 5 · 5 · 5 = 125 cm³. Neue Kante: 10 cm. Neues Volumen: 10 · 10 · 10 = 1000 cm³. Das Volumen ist 8-mal so groß."
+    "w": "V = 5 · 5 · 5 = 125 cm³. Neue Kante: 10 cm. Neues Volumen: 10 · 10 · 10 = 1000 cm³. Das Volumen ist 1000 : 125 = 8-mal so groß."
    }
   },
   {
@@ -1092,11 +1120,11 @@
      "c": "343"
     },
     {
-     "antwort": 114.33,
+     "antwort": 294,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "343 durch 3 geteilt",
-     "c": "343 / 3"
+     "beschreibung": "die Oberfläche statt einer Seitenfläche angegeben",
+     "c": "6 * 7 * 7"
     },
     {
      "antwort": 7,

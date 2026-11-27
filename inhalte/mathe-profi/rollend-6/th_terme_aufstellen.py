@@ -14,7 +14,7 @@ neu(T, "struktur", "verfahren_waehlen", W(
     lambda: 2 * (1 + 5) != 2 * 1 + 5), g="mehrschritt", regel="id.algebra.term")
 neu(T, "struktur", "fehler_detektiv", FD(
     "Tim berechnet 3 + 4 · a für a = 2.",
-    [("Tim liest zuerst 3 + 4 und rechnet dann mal a.", 3 + 4 * 2 == (3 + 4) * 2), ("3 + 4 = 7, also 7 · 2 = 14", (3 + 4) * 2 == 14), ("Der Wert des Terms ist 14.", True)],
+    [("Man rechnet zuerst 3 + 4 und dann mal a.", 3 + 4 * 2 == (3 + 4) * 2), ("3 + 4 = 7, also 7 · 2 = 14", (3 + 4) * 2 == 14), ("Der Wert des Terms ist 14.", True)],
     "Welche Rechnung kommt zuerst: Plus oder Mal?", "Punktrechnung geht vor Strichrechnung: 4 · 2 = 8, dann 3 + 8 = 11. Zeile 1 beschreibt eine falsche Reihenfolge, die Folgezeilen rechnen damit richtig weiter."), regel="id.algebra.term")
 
 # ───────── termwert ─────────
@@ -36,10 +36,11 @@ neu(T, "termwert", "umkehren", Z(
 
 # ───────── uebersetzen ─────────
 neu(T, "uebersetzen", "lueckenweg", L(
-    "Ein Taxi kostet 3 € Grundgebühr und 2 € für jeden gefahrenen Kilometer. Eine Fahrt über 7 km kostet ① €. Eine Fahrt über 12 km kostet ② €. Die längere Fahrt ist um ③ € teurer.",
-    KOMM(3), [17, 27, 10], ["3 + 2 * 7", "3 + 2 * 12", "{2} - {1}"], ["17", "27", "10"], "Die Grundgebühr zahlst du nur einmal.",
-    "7 km: 3 € + 2 · 7 € = 17 €. 12 km: 3 € + 2 · 12 € = 27 €. Unterschied: 27 € − 17 € = 10 €.",
-    {0: [(35, None, "die Grundgebühr mit dazugerechnet: (3 + 2) · 7", "(3 + 2) * 7")], 1: [(36, None, "nur 3 mal 12 gerechnet", "3 * 12")], 2: [(44, None, "addiert statt abgezogen", "{1} + {2}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.algebra.term")
+    "Ein Taxi kostet 3 € Grundgebühr und 2 € für jeden gefahrenen Kilometer. Eine Fahrt über 7 km kostet ① €. Eine Fahrt über 12 km kostet ② €. Die längere Fahrt ist um ③ € teurer. Zwei Fahrten über je 12 km kosten zusammen ④ €.",
+    KOMM(4), [17, 27, 10, 54], ["3 + 2 * 7", "3 + 2 * 12", "{2} - {1}", "2 * {2}"], ["17", "27", "10", "54"], "Die Grundgebühr zahlst du nur einmal je Fahrt.",
+    "7 km: 3 € + 2 · 7 € = 17 €. 12 km: 3 € + 2 · 12 € = 27 €. Unterschied: 27 € − 17 € = 10 €. Zwei Fahrten über 12 km: 2 · 27 € = 54 €.",
+    {0: [(35, None, "die Grundgebühr mit dazugerechnet: (3 + 2) · 7", "(3 + 2) * 7")], 1: [(36, None, "nur 3 mal 12 gerechnet", "3 * 12")], 2: [(44, None, "addiert statt abgezogen", "{1} + {2}")],
+     3: [(27, None, "nur eine der beiden Fahrten gerechnet", "{2}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.algebra.term")
 neu(T, "uebersetzen", "bruecke", W(
     "Welcher Term passt zu dem Satz: „Das Doppelte von x, vermindert um 5“?",
     "2x − 5",
@@ -55,10 +56,11 @@ neu(T, "uebersetzen", "anwenden", Z(
 
 # ───────── sachsituation ─────────
 neu(T, "sachsituation", "lueckenweg", L(
-    "Im Kino kostet eine Kinderkarte 7 € und eine Erwachsenenkarte 9 €. Eine Familie mit 3 Kindern und 2 Erwachsenen kauft Karten. Die Kinderkarten kosten zusammen ① €. Die Erwachsenenkarten kosten zusammen ② €. Alles zusammen kostet ③ €.",
-    KOMM(3), [21, 18, 39], ["7 * 3", "9 * 2", "{1} + {2}"], ["21", "18", "39"], "Rechne erst jede Kartenart einzeln, dann zusammen.",
-    "Kinder: 7 € · 3 = 21 €. Erwachsene: 9 € · 2 = 18 €. Zusammen: 21 € + 18 € = 39 €.",
-    {0: [(10, None, "7 + 3 gerechnet", "7 + 3")], 1: [(11, None, "9 + 2 gerechnet", "9 + 2")], 2: [(378, None, "malgenommen statt addiert", "{1} * {2}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.algebra.term")
+    "Im Kino kostet eine Kinderkarte 7 € und eine Erwachsenenkarte 9 €. Eine Familie mit 3 Kindern und 2 Erwachsenen kauft Karten. Die Kinderkarten kosten zusammen ① €. Die Erwachsenenkarten kosten zusammen ② €. Alles zusammen kostet ③ €. Die Familie zahlt mit einem 50-Euro-Schein und bekommt ④ € zurück.",
+    KOMM(4), [21, 18, 39, 11], ["7 * 3", "9 * 2", "{1} + {2}", "50 - {3}"], ["21", "18", "39", "11"], "Rechne erst jede Kartenart einzeln, dann zusammen.",
+    "Kinder: 7 € · 3 = 21 €. Erwachsene: 9 € · 2 = 18 €. Zusammen: 21 € + 18 € = 39 €. Rückgeld: 50 € − 39 € = 11 €.",
+    {0: [(10, None, "7 + 3 gerechnet", "7 + 3")], 1: [(11, None, "9 + 2 gerechnet", "9 + 2")], 2: [(378, None, "malgenommen statt addiert", "{1} * {2}")],
+     3: [(89, None, "addiert statt abgezogen", "50 + {3}")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.algebra.term")
 neu(T, "sachsituation", "anwenden", Z(
     "Am Schulkiosk kostet eine Brezel 0,80 € und ein Apfel 0,60 €. Ein Kind kauft 3 Brezeln und 2 Äpfel und bezahlt mit einem 5-Euro-Schein. Wie viel Euro bekommt es zurück?",
     1.4, "5 - (0.8 * 3 + 0.6 * 2)", "5 - 2.4 - 1.2", "Wie viel kosten die Brezeln, wie viel die Äpfel?",
@@ -92,18 +94,18 @@ neu(T, "muster", "umkehren", Z(
 
 # ───────── deuten ─────────
 neu(T, "deuten", "lueckenweg", L(
-    "Ein Roller kostet 4x + 15 Euro, wobei x die Zahl der Stunden ist. Für 8 Stunden zahlt man ① €. Für 9 Stunden zahlt man ② €. Für 20 Stunden zahlt man ③ €.",
+    "Das Ausleihen eines Rollers kostet 4x + 15 Euro, wobei x die Zahl der Stunden ist. Für 8 Stunden zahlt man ① €. Für 9 Stunden zahlt man ② €. Für 20 Stunden zahlt man ③ €.",
     KOMM(3), [47, 51, 95], ["4 * 8 + 15", "{1} + 4", "{2} + 4 * 11"], ["47", "51", "95"], "Wie viel Euro kommen mit jeder weiteren Stunde dazu?",
     "8 Stunden: 4 · 8 + 15 = 47. Eine Stunde mehr kostet 4 € mehr: 51 €. Von 9 auf 20 Stunden sind es 11 Stunden mehr, also 11 · 4 € = 44 € mehr: 95 €.",
     {0: [(152, None, "4x + 15 als (4 + 15) · x gerechnet", "(4 + 15) * 8")], 1: [(47, None, "die zusätzliche Stunde nicht gerechnet", "{1}")], 2: [(80, None, "die Grundgebühr vergessen", "4 * 20")]}, hinweis="Je Lücke eine ganze Zahl."), regel="id.algebra.term")
 neu(T, "deuten", "bruecke", W(
-    "Für einen Roller gilt: Der Preis in Euro ist 4x + 15, wobei x die Zahl der Stunden ist. Was bedeutet die Rechnung 4 · 6 + 15 = 39?",
+    "Für das Ausleihen eines Rollers gilt: Der Preis in Euro ist 4x + 15, wobei x die Zahl der Stunden ist. Was bedeutet die Rechnung 4 · 6 + 15 = 39?",
     "Für 6 Stunden zahlt man 39 €.",
     [("Für 39 Stunden zahlt man 6 €.", "x und Preis vertauscht"), ("Eine Stunde kostet 39 €.", "den Gesamtpreis mit dem Preis je Stunde verwechselt"), ("Man zahlt 15 Stunden lang je 4 €.", "Zahl der Stunden und Grundgebühr verwechselt")],
     "Was ist x? Was ist das Ergebnis der Rechnung?",
     "x ist die Zahl der Stunden. 4 · 6 steht für 6 Stunden zu je 4 €, die 15 € fallen einmal an. Das Ergebnis 39 ist der Preis in Euro.",
     lambda: 4 * 6 + 15 == 39), regel="id.algebra.term")
 neu(T, "deuten", "fehler_detektiv", FD(
-    "Nina vereinfacht den Term 4x + 15, der den Preis eines Rollers für x Stunden beschreibt.",
-    [("Man darf die Zahlen 4 und 15 zusammenzählen: 4x + 15 = 19x.", all(4 * x + 15 == 19 * x for x in (2, 3))), ("Für x = 2 ergibt 19x den Wert 38.", 19 * 2 == 38), ("Also kostet der Roller für 2 Stunden 38 €.", True)],
+    "Nina vereinfacht den Term 4x + 15, der den Preis für das Ausleihen eines Rollers für x Stunden beschreibt.",
+    [("Man darf die Zahlen 4 und 15 zusammenzählen: 4x + 15 = 19x.", all(4 * x + 15 == 19 * x for x in (2, 3))), ("Für x = 2 ergibt 19x den Wert 38.", 19 * 2 == 38), ("Also kostet das Ausleihen für 2 Stunden 38 €.", True)],
     "Setze x = 2 in den ursprünglichen Term ein und vergleiche.", "4x + 15 hat für x = 2 den Wert 4 · 2 + 15 = 23. Die 15 gehört nicht zu x, man darf sie nicht mit der 4 zusammenzählen. Die Zeilen 2 und 3 rechnen mit 19x richtig weiter."), regel="id.algebra.term")

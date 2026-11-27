@@ -64,6 +64,9 @@ Befund: In den ersten Runden hat die Gegenprüfung 30 bis 60 % der Aufgaben bean
 2. **Zweiter Helfer, der die Runde nicht geschrieben hat, prüft alle Aufgaben** nach A und B als strenger Gegenprüfer und berichtigt; er rechnet jedes Fehlbild von Hand nach, das die Maschine nicht prüfen kann.
 3. Erst dann geht die Runde an die unabhängige Gegenprüfung. Ziel: unter 5 % Befunde in der ersten Gegenprüfung. Liegt eine Runde darüber, werden die neuen Muster hier ergänzt.
 
+## Stufen (Entscheidung des Nutzers 27.11.)
+Der Takt nimmt auf einem Form-Platz nur eine Aufgabe in neuer Form der Stufe, die gerade dran ist. Ein Kind ohne Fehler ist ab der 5. Aufgabe auf Stufe 3. Deshalb gilt für jede Lernkarte: **mindestens eine zählende Aufgabe in neuer Form auf Stufe 3** (z. B. Fehler-Detektiv, Umkehren, Zwei Wege, Brücke oder Anwenden als Transfer – je nachdem, was `tools/inhalt_pruefen.py` für Stufe 3 zulässt), dazu mindestens eine auf Stufe 2; der Lückenweg bleibt auf Stufe 1. Bei drei Aufgaben je Lernkarte also in der Regel: Stufe 1 Lückenweg, Stufe 2 eine zählende Form, Stufe 3 eine zählende Form.
+
 ## Arbeitsweise
 Thema für Thema: schreiben, prüfen, committen und pushen (nach jedem Thema, damit nichts verloren geht). Qualität vor Menge: lieber eine Lernkarte als „zurückgestellt“ melden als eine schwache Aufgabe liefern.
 

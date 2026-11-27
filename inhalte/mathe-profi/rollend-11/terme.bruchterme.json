@@ -102,7 +102,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile folgt aus der falschen Zeile 1 richtig; der erste Fehler steckt weiter oben",
+     "beschreibung": "Diese Zeile ist richtig: Der Nenner wird unabhängig vom Zähler berechnet, −2 + 4 = 2. Der erste Fehler steckt beim Quadrieren im Zähler (Zeile 1).",
      "rechnung": null
     },
     {
@@ -163,8 +163,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
    "zaehlt": "ja",
    "fehlbilder": [
     {

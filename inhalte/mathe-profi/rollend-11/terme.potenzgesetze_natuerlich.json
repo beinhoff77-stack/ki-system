@@ -17,8 +17,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "rr.potenz",
-   "regel_name": "Potenzen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -51,7 +51,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Berechne 2⁷ · 5⁷ − 2⁶ · 5⁶. Weg A: Rechne alle vier Potenzen einzeln aus und dann weiter. Weg B: Nimm in jedem Produkt zuerst die Basen mal, weil die Hochzahlen gleich sind."
+     "text": "Berechne 2⁷ · 5⁷ − 2⁶ · 5⁶. Weg A: Rechne alle vier Potenzen einzeln aus und dann weiter. Weg B: Nimm in jedem Produkt zuerst die Basen mal, weil die Hochzahlen gleich sind. Welchen Wert hat der Term?"
     },
     "o": {
      "wert": 9000000
@@ -95,12 +95,12 @@
    "zeilen": [
     {
      "zeile": 1,
-     "text": "(a²)³ = a²·³ = a⁶",
+     "text": "(a²)³ = a⁶, denn 2 · 3 = 6.",
      "stimmt": true
     },
     {
      "zeile": 2,
-     "text": "a⁶ · a⁴ = a⁶·⁴ = a²⁴",
+     "text": "a⁶ · a⁴ = a²⁴, denn ich multipliziere 6 und 4.",
      "stimmt": false
     },
     {
@@ -117,7 +117,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim vereinfacht (a²)³ · a⁴ für eine Zahl a ≠ 0. Zeile 1: (a²)³ = a²·³ = a⁶ Zeile 2: a⁶ · a⁴ = a⁶·⁴ = a²⁴ Zeile 3: Also ist (a²)³ · a⁴ = a²⁴ In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim vereinfacht (a²)³ · a⁴ für eine Zahl a ≠ 0. Zeile 1: (a²)³ = a⁶, denn 2 · 3 = 6. Zeile 2: a⁶ · a⁴ = a²⁴, denn ich multipliziere 6 und 4. Zeile 3: Also ist (a²)³ · a⁴ = a²⁴ In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",

@@ -15,7 +15,7 @@ Z(T, "prisma", "bruecke",
   [(9, "27 / 3", "die Eckenzahl der Grundfläche als Flächenzahl genannt"),
    (18, "27 / 3 * 2", "die Zahl der Ecken des Prismas genannt (2 · 9)"),
    (29, "27 + 2", "zur Kantenzahl 2 addiert statt zur Eckenzahl der Grundfläche")],
-  "id.flaeche_raum.haut", einheit="Flächen",
+  None, einheit="Flächen",
   grafik={"typ": "tabelle", "kopf": ["Grundfläche", "3-Eck", "4-Eck", "5-Eck", "6-Eck"],
           "zeilen": [["Ecken"] + prisma(3)[:1] + [prisma(4)[0], prisma(5)[0], prisma(6)[0]],
                      ["Flächen"] + [prisma(n)[1] for n in (3, 4, 5, 6)],
@@ -27,7 +27,7 @@ flaechen = {k: u * h for k, (u, h) in spur.items()}
 assert max(flaechen.values()) - min(flaechen.values()) == 16
 Z(T, "zylinder", "bruecke",
   "Drei Dosen werden einmal auf dem Tisch abgerollt (eine ganze Umdrehung). Die Tabelle zeigt die Länge der Spur und die Höhe jeder Dose. "
-  "Zu jeder Dose gehört ein Etikett, das genau einmal rund um den Mantel passt, ohne Überstand. Um wie viele Quadratzentimeter ist das größte Etikett größer als das kleinste?",
+  "Zu jeder Dose gehört ein Etikett: Es bedeckt den gesamten Mantel vom unteren bis zum oberen Rand und passt genau einmal rund um die Dose, ohne Überstand. Um wie viele Quadratzentimeter ist das größte Etikett größer als das kleinste?",
   16, "28 * 7 - 20 * 9", "196 - 180",
   "Wie lang ist die Spur im Vergleich zum Rand des Bodens? Welche Form hat ein Etikett, das man glatt auf den Tisch legt?",
   "Die Spur ist genau so lang wie der Umfang der Grundfläche. Das Etikett ist ein Rechteck mit Länge = Umfang und Breite = Höhe. A: 20 · 9 = 180 cm². B: 28 · 7 = 196 cm². C: 16 · 12 = 192 cm². "
@@ -48,4 +48,4 @@ Z(T, "schraegbild", "umkehren",
   [(6, "288 / (8 * 6)", "die wahre Tiefe genannt, nicht die gezeichnete"),
    (12, "288 / (8 * 6) * 2", "die Tiefe im Bild verdoppelt statt halbiert"),
    (36, "288 / 8", "nur durch die Breite geteilt")],
-  "id.flaeche_raum.aus_dem_quader", einheit="cm")
+  "id.flaeche_raum.haut", einheit="cm")

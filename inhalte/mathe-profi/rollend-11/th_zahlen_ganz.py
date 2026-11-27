@@ -3,14 +3,14 @@ T = "zahlen.ganz"
 # ───────── deuten: Zwei Wege ─────────
 Z(T, "deuten", "zwei_wege",
   "Eine Möwe fliegt 85 m über dem Meeresspiegel. Ein Fisch schwimmt bei −42 m. Dann steigt die Möwe noch 15 m auf und der Fisch taucht noch 30 m tiefer. "
-  "Weg A: Rechne den neuen Abstand in zwei Teilen: von der Möwe bis zum Meeresspiegel und von dort bis zum Fisch. Weg B: Rechne die beiden neuen Höhen mit einer Subtraktion. "
-  "Wie viele Meter sind Möwe und Fisch dann voneinander entfernt?",
-  172, "(85 + 15) - (-42 - 30)", "(85 + 15) + (42 + 30)",
-  "Bestimme zuerst, in welcher Höhe sich Möwe und Fisch nach den Bewegungen befinden.",
-  "Möwe: 85 + 15 = 100 m. Fisch: −42 − 30 = −72 m. Weg A: 100 m bis zum Meeresspiegel und 72 m weiter bis zum Fisch: 100 + 72 = 172 m. "
-  "Weg B: 100 − (−72) = 100 + 72 = 172 m. Beide Wege ergeben 172 m.",
+  "Weg A: Rechne die beiden neuen Höhen aus und bilde dann den Höhenunterschied. Weg B: Rechne den Höhenunterschied am Anfang aus und addiere dazu, um wie viel sich beide Tiere voneinander entfernen. "
+  "Wie viele Meter beträgt der Höhenunterschied zwischen Möwe und Fisch dann?",
+  172, "(85 + 15) - (-42 - 30)", "(85 - (-42)) + 15 + 30",
+  "Beide Wege müssen denselben Höhenunterschied ergeben. Der Höhenunterschied ist die höhere Höhe minus die tiefere Höhe.",
+  "Weg A: Möwe 85 + 15 = 100 m, Fisch −42 − 30 = −72 m. Höhenunterschied: 100 − (−72) = 100 + 72 = 172 m. "
+  "Weg B: Am Anfang 85 − (−42) = 127 m. Die Möwe steigt 15 m, der Fisch taucht 30 m, zusammen wächst der Unterschied um 45 m: 127 + 45 = 172 m. Beide Wege ergeben 172 m.",
   [(28, "100 - 72", "die Beträge voneinander abgezogen, als lägen beide auf derselben Seite des Meeresspiegels: 100 − 72"),
-   (127, "85 + 42", "die Bewegungen vergessen und nur die Anfangshöhen genommen: 85 + 42"),
+   (127, "85 + 42", "die Bewegungen vergessen und nur den Höhenunterschied am Anfang genannt: 85 + 42"),
    (142, "100 + 42", "das Tieferschwimmen des Fisches vergessen: 100 + 42")],
   "id.zahlen.zahlengerade", einheit="m")
 
@@ -46,7 +46,7 @@ FD(T, "schriftlich_plus_minus",
    "Prüfe jede Zeile: Passen Summe, hingeschriebene Ziffer und gemerkter Übertrag zusammen?",
    "Die Summe in Zeile 1 stimmt: 8 + 9 + 5 = 22. Aber bei 22 muss man 2 merken (zwei Zehner), nicht 1. Alle weiteren Zeilen rechnen mit dem falschen Übertrag richtig weiter. "
    "Richtig wäre: Zehner 4 + 5 + 7 + 2 = 18 (schreibe 8, merke 1), Hunderter 7 + 6 + 8 + 1 = 22 (schreibe 2, merke 2), Tausender 3 + 2 + 1 + 2 = 8. Ergebnis: 8 282, Kim erhält 8 272.",
-   "rr.plusminus", "bei der Summe 22 nur 1 statt 2 Zehner gemerkt")
+   None, "bei der Summe 22 nur 1 statt 2 Zehner gemerkt")
 
 # ───────── subtrahieren: Umkehren ─────────
 Z(T, "subtrahieren", "umkehren",

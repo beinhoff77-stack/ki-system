@@ -27,7 +27,7 @@ Z(T, "probe", "anwenden",
 # ───────── beide_seiten: Brücke ─────────
 assert 12 + 8 * 5 == 82 - 6 * 5 == 52
 Z(T, "beide_seiten", "bruecke",
-  "Becken A wird gleichmäßig gefüllt, Becken B wird gleichmäßig leergepumpt. Die Tabelle zeigt den Wasserstand beider Becken in Litern. Nach wie vielen Minuten (nach Minute 0) enthalten beide Becken gleich viele Liter?",
+  "Becken A wird gleichmäßig gefüllt, Becken B wird gleichmäßig leergepumpt. Die Tabelle zeigt die Wassermenge in beiden Becken in Litern. Nach wie vielen Minuten (nach Minute 0) enthalten beide Becken gleich viele Liter?",
   5, "(82 - 12) / (8 + 6)", "(82 - 12) / 14",
   "Wie viele Liter kommen bei A pro Minute dazu, wie viele gehen bei B pro Minute weg? Schreibe beide Wasserstände nach t Minuten als Term.",
   "Aus der Tabelle: A wächst um 8 Liter pro Minute, B nimmt um 6 Liter pro Minute ab. Nach t Minuten: A = 12 + 8t, B = 82 − 6t. Gleichsetzen: 12 + 8t = 82 − 6t, also 14t = 70 und t = 5. "
@@ -36,15 +36,15 @@ Z(T, "beide_seiten", "bruecke",
    (70, "82 - 12", "nur den Unterschied der Anfangswerte genannt"),
    (14, "8 + 6", "die Summe der beiden Raten genannt statt der Zeit")],
   "rr.waage", einheit="min",
-  grafik={"typ": "tabelle", "kopf": ["Minute", "0", "1", "2", "3"], "zeilen": [["Becken A in Litern", "12", "20", "28", "36"], ["Becken B in Litern", "82", "76", "70", "64"]]})
+  grafik={"typ": "tabelle", "kopf": ["Minute", "0", "1", "2", "3"], "zeilen": [["Wassermenge Becken A in Litern", "12", "20", "28", "36"], ["Wassermenge Becken B in Litern", "82", "76", "70", "64"]]})
 
 # ───────── sach: Umkehren ─────────
 assert 40 + 7 * 8 == 24 + 9 * 8 == 96
 Z(T, "sach", "umkehren",
   "Anna hat anfangs 40 € und spart jede Woche 7 €. Ben spart jede Woche 9 €. Nach 8 Wochen haben beide gleich viel Geld. Wie viel Euro hatte Ben am Anfang?",
   24, "40 + 7 * 8 - 9 * 8", "40 - (9 - 7) * 8",
-  "Wie viel Geld hat Anna nach 8 Wochen? Wie viel hat Ben in dieser Zeit gespart? Gehe von dem Endstand rückwärts zum Anfang.",
-  "Anna hat nach 8 Wochen 40 + 7 · 8 = 96 €. Ben hat dann auch 96 €. Er hat in den 8 Wochen 9 · 8 = 72 € gespart. Am Anfang hatte er also 96 − 72 = 24 €. "
+  "Nenne Bens Anfangsbetrag b. Schreibe auf, wie viel Geld jeder nach 8 Wochen hat. Beide Beträge sind gleich.",
+  "Bens Anfangsbetrag sei b. Nach 8 Wochen hat Anna 40 + 7 · 8 = 96 € und Ben b + 9 · 8 = b + 72 €. Gleichung: b + 72 = 96. Rückwärts gerechnet: b = 96 − 72 = 24 €. "
   "Probe: 24 + 72 = 96.",
   [(96, "40 + 7 * 8", "den gemeinsamen Endstand genannt"),
    (16, "(9 - 7) * 8", "den Unterschied der Sparbeträge pro Woche mal 8 genannt"),

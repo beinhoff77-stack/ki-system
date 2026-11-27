@@ -91,21 +91,21 @@
     }
    ],
    "fehlerzeile": 2,
-   "fehler": "bei „vierhunderttausend“ eine Null zu wenig geschrieben: 40 000 statt 400 000",
+   "fehler": "die Gruppe 400 als „vierzigtausend“ statt als „vierhunderttausend“ gesprochen",
    "zeilen": [
     {
      "zeile": 1,
-     "text": "„dreißig Millionen“ sind 30 000 000.",
+     "text": "Von rechts in Dreiergruppen geteilt: 30 | 400 | 012.",
      "stimmt": true
     },
     {
      "zeile": 2,
-     "text": "„vierhunderttausend“ sind 40 000, zusammen 30 040 000.",
+     "text": "Die mittlere Gruppe 400 spricht er als „vierzigtausend“.",
      "stimmt": false
     },
     {
      "zeile": 3,
-     "text": "„zwölf“ sind 12, zusammen 30 040 012.",
+     "text": "Zusammen sagt er: „dreißig Millionen vierzigtausendzwölf“.",
      "stimmt": true
     }
    ],
@@ -117,7 +117,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim schreibt das Zahlwort „dreißig Millionen vierhunderttausendzwölf“ mit Ziffern. Zeile 1: „dreißig Millionen“ sind 30 000 000. Zeile 2: „vierhunderttausend“ sind 40 000, zusammen 30 040 000. Zeile 3: „zwölf“ sind 12, zusammen 30 040 012. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim liest die Zahl 30 400 012 in Worten vor. Zeile 1: Von rechts in Dreiergruppen geteilt: 30 | 400 | 012. Zeile 2: Die mittlere Gruppe 400 spricht er als „vierzigtausend“. Zeile 3: Zusammen sagt er: „dreißig Millionen vierzigtausendzwölf“. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -127,8 +127,8 @@
     "o": {
      "index": 1
     },
-    "h": "Rechne jede Zeile einzeln nach.",
-    "w": "In Zeile 2 sind „vierhunderttausend“ 400 · 1 000 = 400 000, nicht 40 000. Zeile 3 rechnet mit dem falschen Wert richtig weiter. Richtig: 30 000 000 + 400 000 + 12 = 30 400 012."
+    "h": "Welche Zahl gehört zu dem Zahlwort, das Kim sagt? Vergleiche sie mit der Zahl in Ziffern.",
+    "w": "Die Gruppe 400 steht an der Stelle der Tausender, es sind 400 Tausender, also „vierhunderttausend“. „Vierzigtausend“ wären 40 000. Zeile 3 setzt Kims Wörter richtig zusammen. Richtig gelesen heißt die Zahl „dreißig Millionen vierhunderttausendzwölf“."
    }
   },
   {
@@ -201,7 +201,7 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 3",
+     "beschreibung": "Diese Zeile ist richtig: 28 446 auf Zehner gerundet ist 28 450. Die erste falsche Aussage steht in Zeile 3.",
      "rechnung": null
     },
     {
@@ -209,7 +209,7 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 3",
+     "beschreibung": "Diese Zeile ist für sich richtig: 28 450 auf Hunderter gerundet ist 28 500. Falsch ist erst die Aussage in Zeile 3, dass damit auch 28 446 auf 28 500 gerundet wird.",
      "rechnung": null
     }
    ],
@@ -240,7 +240,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim möchte die Zahl 28 446 auf Hunderter runden und geht in Schritten vor. Zeile 1: Auf Zehner gerundet: 28 446 ≈ 28 450. Zeile 2: Auf Hunderter gerundet: 28 450 ≈ 28 500. Zeile 3: Also ist 28 446 auf Hunderter gerundet 28 500. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim rundet die Zahl 28 446 auf Hunderter. Er rundet zuerst auf Zehner und dann das Ergebnis auf Hunderter. Zeile 1: Auf Zehner gerundet: 28 446 ≈ 28 450. Zeile 2: Auf Hunderter gerundet: 28 450 ≈ 28 500. Zeile 3: Also ist 28 446 auf Hunderter gerundet 28 500. In welcher Zeile steht zum ersten Mal eine Aussage, die für sich genommen falsch ist?"
     },
     "a": [
      "In Zeile 1",
@@ -251,7 +251,7 @@
      "index": 2
     },
     "h": "Runde 28 446 selbst direkt auf Hunderter und vergleiche.",
-    "w": "Zeile 1 und Zeile 2 sind für sich richtig gerundet. Aber das Ergebnis darf nicht in zwei Schritten gerundet werden: Bei 28 446 steht rechts neben der Hunderterstelle die 4, also wird abgerundet. Richtig ist 28 400."
+    "w": "Zeile 1 und Zeile 2 sind als Aussagen für sich richtig. Falsch ist erst Zeile 3: Man darf nicht in zwei Schritten runden. Bei 28 446 steht rechts neben der Hunderterstelle die 4, also wird abgerundet. Richtig ist 28 400."
    }
   },
   {
@@ -262,8 +262,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.zahlen.buendeln",
-   "regel_name": "Bündeln in Zehnern",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -314,30 +314,33 @@
    "stufe": 3,
    "typ": "Anwenden",
    "form": "anwenden",
-   "antwortform": "zahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 2042,
+     "index": 0,
+     "antwort": "MDCCCXCVII",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "XC als 110 gelesen statt als 90, also 1 000 + 500 + 300 + 110 + 7 + 125",
-     "rechnung": "1000 + 500 + 300 + 110 + 7 + 125"
+     "beschreibung": "das Baujahr 1897 aufgeschrieben, die 125 Jahre vergessen",
+     "rechnung": "1897"
     },
     {
-     "antwort": 1897,
+     "index": 1,
+     "antwort": "MCMXXII",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Baujahr richtig gelesen, aber die 125 Jahre vergessen",
-     "rechnung": "1000 + 500 + 300 + 90 + 7"
+     "beschreibung": "nur 25 statt 125 Jahre dazugerechnet: 1 897 + 25 = 1 922",
+     "rechnung": "1897 + 25"
     },
     {
-     "antwort": 1772,
+     "index": 2,
+     "antwort": "MDCCLXXII",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "125 Jahre abgezogen statt addiert",
+     "beschreibung": "125 Jahre abgezogen statt dazugezählt: 1 897 − 125 = 1 772",
      "rechnung": "1897 - 125"
     }
    ],
@@ -347,16 +350,21 @@
     "p": "uebung",
     "s": 3,
     "g": "transfer",
-    "y": "zahl",
+    "y": "auswahl",
     "f": {
-     "text": "Über dem Tor eines Rathauses steht das Baujahr MDCCCXCVII. 125 Jahre später wurde das Rathaus erneuert. In welchem Jahr (mit Ziffern geschrieben) war das?"
+     "text": "Ein Rathaus wurde im Jahr 1897 gebaut. 125 Jahre später wurde es erneuert. Wie schreibt man das Jahr der Erneuerung mit römischen Zeichen?"
     },
+    "a": [
+     "MDCCCXCVII",
+     "MCMXXII",
+     "MDCCLXXII",
+     "MMXXII"
+    ],
     "o": {
-     "wert": 2022
+     "index": 3
     },
-    "c": "1000 + 500 + 300 + 90 + 7 + 125",
-    "h": "Zerlege die römische Zahl in Gruppen. Ein kleines Zeichen vor einem größeren wird abgezogen.",
-    "w": "MDCCCXCVII = M (1 000) + D (500) + CCC (300) + XC (100 − 10 = 90) + VII (7) = 1 897. 1 897 + 125 = 2 022. Das Rathaus wurde 2022 erneuert."
+    "h": "Rechne zuerst das Jahr aus. Schreibe es dann Stelle für Stelle, bei den Tausendern beginnend.",
+    "w": "1 897 + 125 = 2 022. Tausender: 2 000 = MM. Zehner: 20 = XX. Einer: 2 = II. Das Jahr 2022 schreibt man MMXXII."
    }
   },
   {
@@ -367,8 +375,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -401,7 +409,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Welche normale Zahl gehört zur Zweierzahl 1101101? Weg A: Schreibe die Stellenwerte 64, 32, 16, 8, 4, 2, 1 unter die Ziffern und addiere die Stellenwerte der Einsen. Weg B: Beginne mit der ersten Ziffer. Verdopple bei jeder weiteren Ziffer das bisherige Ergebnis und addiere die neue Ziffer."
+     "text": "Eine Zweierzahl ist 1101101. Weg A: Schreibe die Stellenwerte 64, 32, 16, 8, 4, 2, 1 unter die Ziffern und addiere die Stellenwerte der Einsen. Weg B: Beginne mit der ersten Ziffer. Verdopple bei jeder weiteren Ziffer das bisherige Ergebnis und addiere die neue Ziffer. Welche normale Zahl gehört zur Zweierzahl?"
     },
     "o": {
      "wert": 109

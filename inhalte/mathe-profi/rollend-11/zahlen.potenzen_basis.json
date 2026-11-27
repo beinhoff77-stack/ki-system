@@ -17,8 +17,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.zahlen.hoch_zurueck",
-   "regel_name": "Hoch und zurück",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -51,23 +51,19 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Die Tabelle zeigt, wie viele Zellen eine Kultur nach 1, 2, 3 und 4 Stunden hat. Von Stunde zu Stunde wird die Zahl der Zellen jedes Mal mit derselben Zahl malgenommen. Wie viele Zellen sind es nach 7 Stunden?",
+     "text": "Die Tabelle zeigt, wie viele Zellen eine Kultur nach 2 und nach 5 Stunden hat. In jeder Stunde wird die Zahl der Zellen mit derselben Zahl malgenommen. Wie viele Zellen sind es nach 7 Stunden?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
        "Stunden",
-       "1",
        "2",
-       "3",
-       "4"
+       "5"
       ],
       "zeilen": [
        [
         "Zellen",
-        "3",
         "9",
-        "27",
-        "81"
+        "243"
        ]
       ]
      }
@@ -77,8 +73,8 @@
      "einheit": "Zellen"
     },
     "c": "3 ** 7",
-    "h": "Wie entsteht jede Zahl der Tabelle aus der Zahl davor? Schreibe die Zahlen als Potenzen.",
-    "w": "Jede Zahl ist dreimal so groß wie die davor: 3 = 3¹, 9 = 3², 27 = 3³, 81 = 3⁴. Nach n Stunden sind es 3ⁿ Zellen. Nach 7 Stunden: 3⁷ = 2 187 Zellen."
+    "h": "Wie oft wird zwischen Stunde 2 und Stunde 5 mit derselben Zahl malgenommen? Welche Zahl ist es? Schreibe die Zahlen als Potenzen.",
+    "w": "Von Stunde 2 bis Stunde 5 sind es 3 Schritte: 243 : 9 = 27 = 3 · 3 · 3, die Zahl ist also mit 3 malgenommen worden. Dann ist 9 = 3², und nach n Stunden sind es 3ⁿ Zellen. Nach 7 Stunden: 3⁷ = 2 187 Zellen. Kontrolle: 243 · 3 · 3 = 2 187."
    }
   },
   {
@@ -89,8 +85,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.zahlen.hoch_zurueck",
-   "regel_name": "Hoch und zurück",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
    "zaehlt": "ja",
    "fehlbilder": [
     {

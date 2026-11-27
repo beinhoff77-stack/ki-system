@@ -17,8 +17,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.haut",
-   "regel_name": "Haut des Körpers",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -137,7 +137,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Drei Dosen werden einmal auf dem Tisch abgerollt (eine ganze Umdrehung). Die Tabelle zeigt die Länge der Spur und die Höhe jeder Dose. Zu jeder Dose gehört ein Etikett, das genau einmal rund um den Mantel passt, ohne Überstand. Um wie viele Quadratzentimeter ist das größte Etikett größer als das kleinste?",
+     "text": "Drei Dosen werden einmal auf dem Tisch abgerollt (eine ganze Umdrehung). Die Tabelle zeigt die Länge der Spur und die Höhe jeder Dose. Zu jeder Dose gehört ein Etikett: Es bedeckt den gesamten Mantel vom unteren bis zum oberen Rand und passt genau einmal rund um die Dose, ohne Überstand. Um wie viele Quadratzentimeter ist das größte Etikett größer als das kleinste?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -179,8 +179,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_quader",
-   "regel_name": "Aus dem Quader",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
    "zaehlt": "ja",
    "fehlbilder": [
     {

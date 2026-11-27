@@ -174,7 +174,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Becken A wird gleichmäßig gefüllt, Becken B wird gleichmäßig leergepumpt. Die Tabelle zeigt den Wasserstand beider Becken in Litern. Nach wie vielen Minuten (nach Minute 0) enthalten beide Becken gleich viele Liter?",
+     "text": "Becken A wird gleichmäßig gefüllt, Becken B wird gleichmäßig leergepumpt. Die Tabelle zeigt die Wassermenge in beiden Becken in Litern. Nach wie vielen Minuten (nach Minute 0) enthalten beide Becken gleich viele Liter?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -186,14 +186,14 @@
       ],
       "zeilen": [
        [
-        "Becken A in Litern",
+        "Wassermenge Becken A in Litern",
         "12",
         "20",
         "28",
         "36"
        ],
        [
-        "Becken B in Litern",
+        "Wassermenge Becken B in Litern",
         "82",
         "76",
         "70",
@@ -260,8 +260,8 @@
      "einheit": "€"
     },
     "c": "40 + 7 * 8 - 9 * 8",
-    "h": "Wie viel Geld hat Anna nach 8 Wochen? Wie viel hat Ben in dieser Zeit gespart? Gehe von dem Endstand rückwärts zum Anfang.",
-    "w": "Anna hat nach 8 Wochen 40 + 7 · 8 = 96 €. Ben hat dann auch 96 €. Er hat in den 8 Wochen 9 · 8 = 72 € gespart. Am Anfang hatte er also 96 − 72 = 24 €. Probe: 24 + 72 = 96."
+    "h": "Nenne Bens Anfangsbetrag b. Schreibe auf, wie viel Geld jeder nach 8 Wochen hat. Beide Beträge sind gleich.",
+    "w": "Bens Anfangsbetrag sei b. Nach 8 Wochen hat Anna 40 + 7 · 8 = 96 € und Ben b + 9 · 8 = b + 72 €. Gleichung: b + 72 = 96. Rückwärts gerechnet: b = 96 − 72 = 24 €. Probe: 24 + 72 = 96."
    }
   }
  ]

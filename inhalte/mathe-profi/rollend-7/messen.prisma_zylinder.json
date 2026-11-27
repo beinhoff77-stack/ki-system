@@ -589,7 +589,7 @@
      "antwort": 3768,
      "fehlbild": "fb.aus_dem_rechteck.durchmesser_statt_radius",
      "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
-     "beschreibung": "den Radius 5 verdoppelt, also mit 10 quadriert: π · 10² · 12"
+     "beschreibung": "Weg A (π ≈ 3,14): den Radius 5 verdoppelt, also mit 10 quadriert: 3,14 · 10² · 12"
     }
    ],
    "aufgabe": {

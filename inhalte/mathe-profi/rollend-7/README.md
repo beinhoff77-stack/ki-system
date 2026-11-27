@@ -46,3 +46,8 @@ Eine unabhängige Gegenprüfung hat Aufgaben gefunden, bei denen Frage, Antworte
 - Zusätzlich selbst gefunden (nicht aus der Gegenprüfung): 56 weitere Aufgaben, vor allem unabhängige oder erratbare Lückenwege, fehlende Annahmen, falsch beschriebene Fehlbilder und doppelte Antwortwerte.
 - Neu in `bauen.py`: Fehlbilder haben eine vierte Angabe (Rechnung) und werden nachgerechnet; Lückenwege werden mit eingesetzten Vorgängerwerten gerechnet und auf Abhängigkeit geprüft (Änderung einer früheren Lücke ändert das Ergebnis); gleiche Lückenwerte sind nur mit `gleich_ok` erlaubt.
 - Nicht maschinell prüfbar: 5 Fehlbilder ohne Rechnung (Wert oder Auswahl). Darstellung in der App wurde nicht getestet.
+
+### Nachprüfung (Werkstatt 1056)
+
+- Nachgebessert: Fehlbild und Rechenweg bei einer Bruchgleichung mit zwei Wegen (die Fehlantwort folgt jetzt wirklich aus dem beschriebenen Fehler); Wertetabellen-Aufgabe so geführt, dass beide Tabellenwerte gebraucht werden; Sonderfall-Lückenweg mit Prüfrechnung für Widerspruch (0 Lösungen) und Identität (unendlich viele, als Merkwert 99 markiert); „über ℚ“ bei einer Definitionsmenge ergänzt; Zylinder-Fehlbild ausdrücklich auf den Weg mit π ≈ 3,14 bezogen; zwei Fehlbild-Beschreibungen berichtigt, die einen richtigen Wert als falsch bezeichneten; Minimalwert und tiefster Punkt getrennt benannt.
+- Alle 464 Fehlbild-Beschreibungen wurden noch einmal gegen ihre Antwort gelesen (auch die ohne Rechnung): beschriebener Fehler muss zur gespeicherten Antwort führen, und nichts Richtiges darf als falsch bezeichnet sein.

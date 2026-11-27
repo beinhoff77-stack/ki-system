@@ -1,7 +1,7 @@
 T = "terme.bruchterme"
 # ───────── definitionsmenge ─────────
 neu(T, "definitionsmenge", "lueckenweg", L(
-    "Bestimme die Definitionsmenge des Bruchs mit dem Zähler 9 und dem Nenner (3x − 12)(2x + 10). Ein Produkt ist 0, wenn ein Faktor 0 ist. Der erste Faktor ist 0 für x = ①. Der zweite Faktor ist 0 für x = ②. Zählst du beide ausgeschlossenen Zahlen zusammen, erhältst du ③.",
+    "Bestimme über ℚ die Definitionsmenge des Bruchs mit dem Zähler 9 und dem Nenner (3x − 12)(2x + 10). Ein Produkt ist 0, wenn ein Faktor 0 ist. Der erste Faktor ist 0 für x = ①. Der zweite Faktor ist 0 für x = ②. Zählst du beide ausgeschlossenen Zahlen zusammen, erhältst du ③.",
     KOMM(3), [4, -5, -1], ["12 // 3", "-10 // 2", "{1} + {2}"], ["4", "-5", "4 - 5"], "Setze jeden Faktor einzeln gleich 0 und löse wie eine Waage.",
     "3x − 12 = 0 ergibt x = 4. 2x + 10 = 0 ergibt x = −5. Beide Zahlen werden ausgeschlossen: D = ℚ \\ {−5; 4}. Ihre Summe ist 4 + (−5) = −1.",
     {0: [(12, None, "durch 3 nicht geteilt", "12")], 1: [(5, "fb.vorzeichen.falsches_zeichen", "das Minus der Lösung vergessen", "10 / 2")], 2: [(9, None, "beide Zahlen ohne Vorzeichen addiert", "4 + 5")]}), regel="id.algebra.erlaubte_zahlen")

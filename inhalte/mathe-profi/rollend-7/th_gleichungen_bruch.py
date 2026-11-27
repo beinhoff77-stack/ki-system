@@ -67,7 +67,7 @@ neu(T, "hauptnenner", "zwei_wege", Z(
     "Löse 1/x + 1/(2x) = 3/2 (x ≠ 0) auf zwei Wegen. Weg A: erst die Brüche links zusammenfassen. Weg B: beide Seiten sofort mit dem Hauptnenner 2x multiplizieren. Wie groß ist x?",
     1, "3 / 3", 1, "Beide Wege müssen dasselbe x ergeben.",
     "Weg A: 2/(2x) + 1/(2x) = 3/(2x) = 3/2, also 2x = 2 und x = 1. Weg B: 2 + 1 = 3x, also x = 1.",
-    [(3, "fb.waage.nur_eine_seite", "2 + 1 = 3 gerechnet und das x vergessen", "2 + 1"), (0.5, None, "nur links mit 2x multipliziert: 3x = 3/2", "(3 / 2) / 3")]), regel="rr.bruchrechnen")
+    [(3, "fb.waage.nur_eine_seite", "die Summe 2 + 1 = 3 als Ergebnis genommen, ohne nach x aufzulösen", "2 + 1"), (2, None, "die rechte Seite nur mit x statt mit 2x multipliziert: 3 = 3x/2", "3 / (3 / 2)")]), regel="rr.bruchrechnen")
 assert ist_loesung("1/x+1/(2*x)", "3/2", 1)
 neu(T, "hauptnenner", "bruecke", W(
     "Eine Pumpe füllt ein Becken allein in x Stunden. Eine zweite Pumpe braucht allein 2x Stunden. Beide Pumpen fördern gleichmäßig. Zusammen füllen sie das Becken in 4 Stunden. Welche Gleichung gehört dazu (x ≠ 0)?",
@@ -114,10 +114,10 @@ neu(T, "verhaeltnis", "anwenden", Z(
 
 # ───────── graphisch ─────────
 neu(T, "graphisch", "lueckenweg", L(
-    "Du löst 36/x = 4 (x ≠ 0) mit einer Wertetabelle. Für x = 3 hat 36/x den Wert ①. Für x = 18 hat 36/x den Wert ②. Der gesuchte Wert 4 liegt dazwischen. Die Lösung ist x = ③. Von x = 3 bis zur Lösung wächst x um ④.",
-    KOMM(4), [12, 2, 9, 6], ["36 // 3", "36 // 18", "36 // 4", "{3} - 3"], ["12", "2", "9", "9 - 3"], "Teile 36 durch den x-Wert. Die Lösung ist die Zahl, bei der genau der gesuchte Wert herauskommt.",
-    "36 : 3 = 12 und 36 : 18 = 2. Der Wert 4 liegt dazwischen: 36 : 9 = 4. Die Lösung ist x = 9. Von x = 3 bis 9 wächst x um 6.",
-    {0: [(33, None, "36 − 3 gerechnet", "36 - 3")], 1: [(54, None, "36 + 18 gerechnet", "36 + 18")], 2: [(144, None, "36 · 4 gerechnet", "36 * 4")], 3: [(3, None, "den Abstand zum falschen Wert 6 gebildet: 9 − 6", "{3} - 6")]}), regel="id.algebra.gleichung_loesen")
+    "Du löst 36/x = 4 (x ≠ 0) mit einer Wertetabelle. Für x = 3 hat 36/x den Wert ①. Für x = 18 hat 36/x den Wert ②. Der gesuchte Wert 4 liegt dazwischen und ist doppelt so groß wie ②. Bei dieser Zuordnung halbiert sich dann x gegenüber 18. Die Lösung ist x = ③. Von x = 3 bis zur Lösung wächst x um ④.",
+    KOMM(4), [12, 2, 9, 6], ["36 // 3", "36 // 18", "18 // (4 // {2})", "{3} - 3"], ["12", "2", "9", "9 - 3"], "Teile 36 durch den x-Wert. Ist der gesuchte Wert doppelt so groß wie der Wert bei x = 18, so wird x halbiert.",
+    "36 : 3 = 12 und 36 : 18 = 2. Der gesuchte Wert 4 ist das Doppelte von 2, also wird x von 18 auf die Hälfte 9 verkleinert. Probe: 36 : 9 = 4. Die Lösung ist x = 9. Von x = 3 bis 9 wächst x um 6.",
+    {0: [(33, None, "36 − 3 gerechnet", "36 - 3")], 1: [(54, None, "36 + 18 gerechnet", "36 + 18")], 2: [(144, None, "36 · 4 gerechnet", "36 * 4")], 3: [(3, None, "von der Lösung 9 statt der Startstelle 3 die Zahl 6 abgezogen: 9 − 6", "{3} - 6")]}), regel="id.algebra.gleichung_loesen")
 neu(T, "graphisch", "bruecke", W(
     "Die Zeichnung zeigt zwei Graphen. Sie gehören zu den beiden Seiten einer Gleichung. Welche Gleichung wird mit dem Schnittpunkt gelöst?",
     "8/x = 2", [("8/x = x", "die Gerade als y = x gelesen"), ("2/x = 8", "Zähler und Zahl vertauscht"), ("8/x + 2 = 0", "die Gerade als y = −2 gelesen")],

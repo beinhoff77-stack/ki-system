@@ -252,7 +252,7 @@
    "name": "Ausmultiplizieren und Ausklammern",
    "nr_in_der_uebersicht": 6,
    "etikett_alt": 4,
-   "merksatz": "Was vor der Klammer steht, nimmt jeden in der Klammer mal.",
+   "merksatz": "Ein Faktor vor einer Summe multipliziert jeden Summanden.",
    "genau": "Der Faktor vor der Klammer multipliziert jeden Summanden – vorwärts ausmultiplizieren, rückwärts ausklammern.",
    "klassen": {
     "gym_by": [
@@ -304,7 +304,7 @@
    "name": "Minus vor der Klammer",
    "nr_in_der_uebersicht": 7,
    "etikett_alt": 5,
-   "merksatz": "Minus vor der Klammer dreht alle Zeichen um.",
+   "merksatz": "Beim Auflösen einer Minusklammer wechselt jeder Summand sein Vorzeichen.",
    "genau": "Löst du eine Minusklammer auf, wechselt jeder Summand in der Klammer sein Vorzeichen.",
    "klassen": {
     "gym_by": [

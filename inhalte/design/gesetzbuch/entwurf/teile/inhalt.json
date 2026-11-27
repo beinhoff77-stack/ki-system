@@ -3768,7 +3768,7 @@
    "nr": 6,
    "name": "Ausmultiplizieren und Ausklammern",
    "etage": 2,
-   "satz": "Was vor der Klammer steht, nimmt jeden in der Klammer mal.",
+   "satz": "Ein Faktor vor einer Summe multipliziert jeden Summanden.",
    "wirkstelle": "Der Faktor vor der Klammer – an jeder Stelle, an der er auftritt.",
    "genau": "Der Faktor vor der Klammer multipliziert jeden Summanden – vorwärts ausmultiplizieren, rückwärts ausklammern.",
    "warum": "Ein Rechteck mit den Seiten a und (b + c) hat dieselbe Fläche wie die zwei Teilrechtecke a · b und a · c zusammen. Rückwärts gelesen ist es das Ausklammern: Steckt in jedem Summanden derselbe Faktor, darf man ihn vor eine Klammer ziehen.",
@@ -3828,10 +3828,10 @@
    "nr": 7,
    "name": "Minus vor der Klammer",
    "etage": 2,
-   "satz": "Minus vor der Klammer dreht alle Zeichen um.",
+   "satz": "Beim Auflösen einer Minusklammer wechselt jeder Summand sein Vorzeichen.",
    "wirkstelle": "Das Minus vor der Klammer und jedes Vorzeichen, das wechselt (vorher und nachher als Paar).",
    "genau": "Löst du eine Minusklammer auf, wechselt jeder Summand in der Klammer sein Vorzeichen.",
-   "warum": "Ein Minus vor der Klammer heißt „mal (−1)“. Der Faktor −1 multipliziert jeden Summanden, also wechselt jedes Vorzeichen. Im Alltag: Wer 20 € hat und einen Einkauf von 8 € mit 3 € Rabatt bezahlt, behält 20 − 8 + 3 €.",
+   "warum": "Ein Minus vor der Klammer heißt „mal (−1)“. Der Faktor −1 multipliziert jeden Summanden, also wechselt jeder Summand sein Vorzeichen. Im Alltag: Wer 20 € hat und einen Einkauf von 8 € mit 3 € Rabatt bezahlt, behält 20 − 8 + 3 €.",
    "voraus": "Gilt für jede Klammer, vor der ein Minus steht. Malzeichen in der Klammer bleiben: −(2 · x − 3) = −2 · x + 3.",
    "fehler": "Nur das erste Vorzeichen wechseln: 5x − (3x − 2) = 5x − 3x − 2.",
    "verwandt": "Folgt aus dem Ausmultiplizieren und der Vorzeichenregel; steht eigens da, weil hier besonders viele Fehler entstehen. Ein Plus vor der Klammer ändert nichts.",
@@ -4463,7 +4463,7 @@
     },
     {
      "nr": 4,
-     "satz": "Steht x im Quadrat: erst null auf eine Seite, dann zerlegen.",
+     "satz": "Steht x im Quadrat: meist erst null auf eine Seite, dann zerlegen.",
      "genau": "Bei höherem Grad: alles auf eine Seite bringen und, wenn es gelingt, in Faktoren zerlegen – oder die Gegenrechnung nutzen.",
      "kurz": "Höherer Grad",
      "gesetze": [
@@ -4797,7 +4797,7 @@
     },
     {
      "nr": 2,
-     "satz": "Immer plus dasselbe gibt eine Gerade; immer mal denselben Faktor eine Kurve, die bei Faktor über 1 steigt und zwischen 0 und 1 fällt.",
+     "satz": "Bei y = A · qˣ mit A > 0 steigt der Graph für q > 1, fällt für 0 < q < 1 und bleibt für q = 1 konstant.",
      "genau": "In gleichen x-Schritten wächst eine lineare Funktion um gleich viel, eine exponentielle um denselben Faktor: y = A · qˣ mit A > 0 steigt bei q > 1, fällt bei 0 < q < 1 und ist bei q = 1 konstant.",
      "kurz": "Wachstum",
      "gesetze": [
@@ -4810,7 +4810,7 @@
       "U19",
       "U20"
      ],
-     "warum": "Es gibt zwei Grundarten zu wachsen. Kommt in jedem gleich großen x-Schritt gleich viel dazu, liegen die Punkte auf einer Geraden. Wird in jedem gleich großen x-Schritt mit derselben Zahl q malgenommen, entsteht y = A · qˣ (A > 0): Für q > 1 wird die Kurve immer steiler und überholt jede Gerade, für 0 < q < 1 fällt sie, für q = 1 bleibt sie konstant.",
+     "warum": "Es gibt zwei Grundarten zu wachsen. Kommt in jedem gleich großen x-Schritt gleich viel dazu, liegen die Punkte auf einer Geraden. Wird in jedem gleich großen x-Schritt mit derselben Zahl q malgenommen, entsteht y = A · qˣ (A > 0): Für q > 1 wird die Kurve immer steiler und überholt jede Gerade, für 0 < q < 1 fällt sie, für q = 1 bleibt sie konstant. Dabei ist q der Faktor je einem x-Schritt der Länge 1; bei der Schrittweite h ist der Faktor qʰ.",
      "zeichen": {
       "Zu sehen": "Ein Koordinatensystem mit zwei Graphen, die im selben Punkt beginnen: eine Gerade und eine Kurve. An beiden sind die Punkte für x = 0 bis 4 markiert; zwischen den Punkten kleine Treppenstufen.",
       "Maße": "Gerade: (0 | 1), (1 | 3), (2 | 5), (3 | 7), (4 | 9). Kurve: (0 | 1), (1 | 2), (2 | 4), (3 | 8), (4 | 16). x-Achse 0 bis 4, y-Achse 0 bis 16.",
@@ -5761,8 +5761,8 @@
    "planet": "Geometrie",
    "wirkstelle": "",
    "genau": "",
-   "warum": "Die Parallele durch eine Ecke legt alle drei Winkel nebeneinander auf eine Gerade. Ein n-Eck lässt sich von einer Ecke aus in n − 2 Dreiecke teilen.",
-   "voraus": "Gilt für jedes Dreieck in der Ebene. Die Vielecksformel gilt für die Innenwinkel jedes einfachen n-Ecks (die Seiten überschneiden sich nicht), auch für konkave. Die Zerlegung als Fächer von einer Ecke aus gelingt nur bei konvexen Vielecken; bei konkaven wählt man andere Diagonalen.",
+   "warum": "Die Parallele durch eine Ecke legt alle drei Winkel nebeneinander auf eine Gerade. Jedes einfache n-Eck lässt sich durch Diagonalen in n − 2 Dreiecke zerlegen. Beim konvexen n-Eck gelingt das von jeder Ecke aus.",
+   "voraus": "Gilt für jedes Dreieck in der Ebene. Die Vielecksformel gilt für die Innenwinkel jedes einfachen n-Ecks (die Seiten überschneiden sich nicht), auch für konkave. Jedes einfache n-Eck lässt sich durch Diagonalen in n − 2 Dreiecke zerlegen. Beim konvexen n-Eck gelingt das von jeder Ecke aus.",
    "fehler": "Beim n-Eck n · 180° rechnen.",
    "verwandt": "Außenwinkelsatz. Gleichschenkliges Dreieck.",
    "weg": "G5 Stufen- und Wechselwinkel",
@@ -7508,7 +7508,7 @@
   {
    "id": "D9",
    "name": "Streuung",
-   "satz": "Die Standardabweichung ist die Wurzel aus dem Mittelwert der quadrierten Abweichungen vom Mittelwert (Nenner n) – ein Maß für die typische Abweichung der beschriebenen Datenreihe, auch wenn sie nur eine Stichprobe ist. Will man mit einer Stichprobe die Varianz der Grundgesamtheit schätzen (n > 1), teilt man die Summe der quadrierten Abweichungen durch n − 1 und zieht danach die Wurzel.",
+   "satz": "Die Standardabweichung ist die Wurzel aus dem Mittelwert der quadrierten Abweichungen vom Mittelwert (Nenner n) – ein Maß für die typische Abweichung der beschriebenen Datenreihe, auch wenn sie nur eine Stichprobe ist. Zur Schätzung der Populationsvarianz teilt man bei einer unabhängigen Zufallsstichprobe (n > 1) die Summe der quadrierten Abweichungen vom Stichprobenmittel durch n − 1. Das ergibt die korrigierte Stichprobenvarianz. Ihre Wurzel ist die Stichprobenstandardabweichung.",
    "idee": 1,
    "gym": "–",
    "rs": "–",
@@ -7952,7 +7952,7 @@
   },
   {
    "name": "Einheiten",
-   "satz": "Rechne mit Einheiten – eine falsche Einheit im Ergebnis kann einen Rechenfehler aufdecken."
+   "satz": "Rechne mit Einheiten – eine unpassende Dimension im Ergebnis zeigt einen Fehler an."
   },
   {
    "name": "Skizze",

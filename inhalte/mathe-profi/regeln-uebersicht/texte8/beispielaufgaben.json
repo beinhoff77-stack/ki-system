@@ -162,13 +162,13 @@
    "GF-10": "rr.gegenrechnung"
   },
   "text_voranstellen": {
-   "BG-01": "Ausgeschlossen: x ≠ 3 und x ≠ −3 (die Nenner dürfen nicht null sein). ",
-   "BG-02": "Ausgeschlossen: x ≠ −4 und x ≠ 2 (die Nenner dürfen nicht null sein). ",
-   "BG-03": "Ausgeschlossen: x ≠ 0 (der Nenner darf nicht null sein). ",
-   "BG-13": "Ausgeschlossen: x ≠ 0 und x ≠ −9 (die Nenner dürfen nicht null sein). ",
-   "PG-01": "Alle Basen sind ungleich null. ",
-   "PG-02": "Alle Basen sind ungleich null. ",
-   "PG-03": "Alle Basen sind ungleich null. ",
+   "BG-01": "Es gilt x ≠ 3 und x ≠ −3. ",
+   "BG-02": "Es gilt x ≠ −4 und x ≠ 2. ",
+   "BG-03": "Es gilt x ≠ 0. ",
+   "BG-13": "Es gilt x ≠ 0 und x ≠ −9. ",
+   "PG-01": "Es gilt a ≠ 0. ",
+   "PG-02": "Es gilt x ≠ 0. ",
+   "PG-03": "Es gilt a ≠ 0. ",
    "terme.bruchterme#93": "Es gilt x ≠ 0. "
   }
  },

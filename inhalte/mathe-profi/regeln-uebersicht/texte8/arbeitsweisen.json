@@ -74,8 +74,8 @@
    "name": "Einheiten",
    "entwurf_schluessel": "weise-3",
    "kennung_vorschlag": "aw.einheiten",
-   "merksatz": "Rechne mit Einheiten – eine falsche Einheit im Ergebnis kann einen Rechenfehler aufdecken.",
-   "kurz": "Eine Größe besteht aus Zahl und Einheit; eine falsche Einheit im Ergebnis kann einen Rechenfehler aufdecken.",
+   "merksatz": "Rechne mit Einheiten – eine unpassende Dimension im Ergebnis zeigt einen Fehler an.",
+   "kurz": "Eine Größe besteht aus Zahl und Einheit; eine unpassende Dimension im Ergebnis zeigt einen Fehler an.",
    "beispiel": {
     "klasse": 5,
     "text": "Ein Zug fährt in 2 h genau 60 km. Wie schnell war er im Durchschnitt? 60 km : 2 h = 30 km/h, das ist eine Geschwindigkeit, wie gefragt. Wer 60 km · 2 h rechnet, erhält 120 km·h, und das ist keine Geschwindigkeit: Der Ansatz stimmt nicht.",
@@ -92,7 +92,7 @@
      }
     ]
    },
-   "erklaerung": "Das Rechnen mit Einheiten hilft bei Sachaufgaben und Formeln. Man braucht es, wenn Größen in verschiedenen Einheiten vorkommen, etwa m und cm, oder wenn man nicht weiß, welche Rechenart gemeint ist. Passt die Einheit des Ergebnisses nicht zur Frage, ist der Ansatz falsch; passt sie, ist das noch kein Beweis, dass richtig gerechnet wurde."
+   "erklaerung": "Das Rechnen mit Einheiten hilft bei Sachaufgaben und Formeln. Man braucht es, wenn Größen in verschiedenen Einheiten vorkommen, etwa m und cm, oder wenn man nicht weiß, welche Rechenart gemeint ist. Zeigt das Ergebnis eine unpassende Dimension (km·h statt km/h), ist der Ansatz falsch; eine andere, umrechenbare Einheit wie cm statt m beweist keinen falschen Ansatz, und eine passende Dimension beweist keinen richtigen."
   },
   {
    "name": "Skizze",

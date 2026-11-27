@@ -1084,7 +1084,7 @@
    },
    "grenze": {
     "art": "gilt nicht",
-    "text": "Bei Plus gilt nichts davon: 2³ + 2⁴ = 8 + 16 = 24, nicht 2⁷ = 128. Verschiedene Basis und verschiedene Hochzahl lassen sich nicht zusammenfassen. Die Gesetze gelten für ganze Hochzahlen und Basen ungleich null; gebrochene Hochzahlen verlangen eine Basis ab null."
+    "text": "Bei Plus gilt nichts davon: 2³ + 2⁴ = 8 + 16 = 24, nicht 2⁷ = 128. Verschiedene Basis und verschiedene Hochzahl lassen sich nicht zusammenfassen. Die Regeln für gleiche Basis oder gleiche Hochzahl sind erst nach einer passenden Umformung anwendbar: 2³ · 4² = 2³ · (2²)² = 2⁷. Für rationale Exponenten muss die Basis positiv sein; 0 ist als Basis bei positivem Exponenten möglich, bei negativem ausgeschlossen."
    },
    "pruefung": [
     {
@@ -1125,6 +1125,11 @@
     {
      "l": "2**3+2**4",
      "rel": "!=",
+     "r": "2**7"
+    },
+    {
+     "l": "2**3*4**2",
+     "rel": "==",
      "r": "2**7"
     }
    ]

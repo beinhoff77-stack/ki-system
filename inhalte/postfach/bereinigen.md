@@ -84,12 +84,12 @@ Neueste Meldung oben.
 - **geometrie.konstruktion/satz_kehrsatz:** Die Thales-Aufgabe zieht nach geometrie.kreis/umkehrung. Die Beweisschritte-Aufgabe passte nicht mehr in kreis/beweis (dort schon 3 × verknuepfen) und entfällt. Neu: 2 Transfer-Aufgaben. Aus gleichschenklig zieht 1 Thales-Aufgabe nach kreis/thales, neu ist 1 Fehler-Aufgabe.
 - **abbildungen.kongruenz/parkett:** ganze Karte nach geometrie.winkelsaetze (nach vieleck), bleibt Vertiefung.
 - **gleichungen.formeln:** Prisma- und Pyramiden-Aufgaben raus (Prisma kommt erst in prisma_zylinder, Pyramide in Kl. 10); 4 davon ziehen dorthin. Neu: 2 Umkehr-Aufgaben, 1 Prüfungs-Aufgabe, 1 Sicherung.
-- **stochastik.verknuepft/bedingt:** war schon Vertiefung – keine Änderung (siehe „Für Sebastian“).
+- **stochastik.verknuepft/bedingt:** war schon Vertiefung – keine Änderung (siehe „Für den Nutzer“).
 - **gleichungen.lgs3:** pruefen, stufenform, eliminieren → Vertiefung.
 - **gleichungen.trig:** Geprüft, was nach der neuen Reihenfolge noch vorgreift: Graphen von sin/cos und Lösungsbereiche über 360° (beides Kl. 10, funktionen.trig). 4 Übungen ziehen nach funktionen.trig, 4 entfallen. Die 3 Test-/Sicherungsaufgaben mit Graph sind durch Fassungen ohne Graph ersetzt (neu, siehe Liste 5).
 - **funktionen.ganzrational/nullstellen:** die beiden Substitutions-Aufgaben und eine dritte biquadratische (x⁴ − 5x² + 4) → gleichungen.polynom/substitution; neu: 3 Stufe-3-Aufgaben ohne Substitution.
 
-### Für Sebastian (nur gemeldet, nicht geändert)
+### Für den Nutzer (nur gemeldet, nicht geändert)
 1. **Potenzen von Potenzen (M7 1.1)** hat in terme.umformen noch keine Karte. Vorschlag: neue Karte „(aᵐ)ⁿ = aᵐ·ⁿ“ (nur Vorschlag, nicht angelegt).
 2. **Kartenzahl:** terme.umformen hat jetzt 12 Karten (10 Pflicht), bruch.brueche 12. Die README nennt 4–10. Andere Flüge haben schon mehr (rechengesetze 14).
 3. **terme.potenzgesetze** heißt weiter „Potenzgesetze“, enthält in Kl. 6 aber nur noch Potenzen und negative Exponenten. Ein neuer Titel in der Themenliste wäre eine Planänderung (Teil B).

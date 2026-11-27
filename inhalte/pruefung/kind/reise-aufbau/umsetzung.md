@@ -31,7 +31,7 @@ Spalten = **Reise-Kontinente**, Zeilen = Klassen. Karte: **Land fett**, Thema kl
 ## 6 Antarktis = Expeditionen
 Seite „Antarktis · Expeditionen“ statt der heutigen Expeditionsliste: je Expedition eine Karte **Station (groß) · Expedition · Betreiberland**, rechts Zustand („✓ geschafft“, „offen · Kl. 5“, „kommt mit {Thema}“). Kein Lern-Kontinent, keine Länder.
 
-## Offene Entscheidungen für Sebastian
+## Offene Entscheidungen für den Nutzer
 1. **„Highlight“ statt „Bordkarte“ überall?** Vorschlag: ja, ein Wort für Aufgaben. Der Check-in heißt weiter Check-in („6 Highlights von früher“). Betrifft auch die neue Vorgabe „abgelegt“ (dort noch „Bordkarten von früher“) – bei Zustimmung dort angleichen.
 2. **Flug-Test als „Grenze“** (Halt am Ende der Rundreise, Symbol Passkontrolle)? Vorschlag: ja.
 3. **Dein Beispiel „Samarkand · Minus vor der Klammer“ passt nicht zum Vorschlag:** Samarkand bleibt bei *Potenzgesetze* (zuerst abgeschlossen, Regel 6); *Terme umformen* zieht nach **Kasachstan**, „Minus vor der Klammer“ wird **Schymkent**. Ein Kind, das gerade „Terme umformen“ in Samarkand lernt, findet sich nach dem Umbau in Kasachstan wieder. Entweder so lassen (ein Satz beim ersten Öffnen: „Deine Reise geht jetzt durch Länder …“) oder *Terme umformen* behält Usbekistan.
@@ -39,7 +39,7 @@ Seite „Antarktis · Expeditionen“ statt der heutigen Expeditionsliste: je Ex
 ## Prüfung des Vorschlags aus Kindersicht (Klasse 5)
 **Gut:** Europa, Nordamerika, Südamerika, Afrika und Australien sind bekannt und gut fahrbar; Rundreisen in Italien, Indien, Japan, Peru, Ägypten, Südafrika sind stimmig und haben echte Höhepunkte. Begonnene Städte bleiben (9/9).
 
-**Änderungswünsche (Meinung, Sebastian entscheidet):**
+**Änderungswünsche (Meinung, der Nutzer entscheidet):**
 1. **Nicht lesbare Schreibweisen ersetzen:** Mingətschevir → **Mingetschaur**, Lənkəran → **Lenkoran** (Buchstabe ə kennt kein Kind); Wangdue Phodrang → **Wangdue**; Freiburg im Üechtland → **Freiburg (Schweiz)**; Quetzaltenango → **Xela (Quetzaltenango)**.
 2. **Emirate in der Schreibweise, die Kinder dort sehen:** Schardscha/Adschman/Fudschaira/Ras al-Chaima → **Sharjah, Ajman, Fujairah, Ras al-Khaimah** (so steht es auf Schildern und Karten vor Ort); Umm al-Qaiwain → durch **Al Ain** ersetzen (bekannt, Zoo/Oase).
 3. **Polynesien: Inseln statt Dörfer** – Kinder kennen Inselnamen, nicht Hauptorte: Afareaitu → **Moorea**, Fare → **Huahine**, Uturoa → **Raiatea**, Vaitape → **Bora Bora**; Tonga: ʻOhonua → **ʻEua** (Inselname; Pangai und Neiafu sind schon die Hauptorte von Haʻapai und Vavaʻu).

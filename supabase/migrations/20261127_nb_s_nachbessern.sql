@@ -1,4 +1,4 @@
--- NB-S (Entscheidung Sebastian 23.11. 02:54): eine wieder offene Etappe wird dem Kind immer zuerst vorgelegt – auch bei fertigem Ort und bei
+-- NB-S (Entscheidung des Nutzers 23.11. 02:54): eine wieder offene Etappe wird dem Kind immer zuerst vorgelegt – auch bei fertigem Ort und bei
 -- „Kann er“-Setzung mit Rückfall.
 -- „Wieder offen“ wie bisher (karte_buchen, unverändert): zwei Fehler in Folge in der fälligen Wiederholung → sitzt = false, geoeffnet_am, folge 0;
 -- zurück nach Landeregel mit 3 eigenen Lösungen in Folge (Tipp/2. Versuch zählt nicht, folge bleibt) → sitzt, Wiederholung ab Stufe 0.

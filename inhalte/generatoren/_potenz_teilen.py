@@ -321,7 +321,7 @@ NB_A = [
      Z('Ein Kind rechnet 2³ · 2⁴ · 2 = 2¹². Richtig ist 2ᵏ. Wie groß ist k?', 8, '3 + 4 + 1',
        'Das Kind hat die Exponenten malgenommen: 3 · 4 · 1 = 12. Richtig ist addieren: 3 + 4 + 1 = 8. Die einzelne 2 ist 2¹.',
        'Welchen Exponenten hat die einzelne 2? Malnehmen oder addieren?')),
-    # Sollte 4, Folge: Stufe 3 je Karte höchstens 3 × „fehler“ (Regel der Zwanzigsten Runde, Entscheidung Sebastian: keine leichten
+    # Sollte 4, Folge: Stufe 3 je Karte höchstens 3 × „fehler“ (Regel der Zwanzigsten Runde, Entscheidung des Nutzers: keine leichten
     # Aufgaben auf Stufe 3). Auswahl-Aufgaben, die nur den verletzten Rechenweg benennen lassen, werden Stufe 1 „erkennen“.
     ('typ', 'mal_gleiche_basis', 'Stimmt die Rechnung? 5² · 5³ = 5⁶', _ERK),
     ('typ', 'mal_gleiche_basis', 'Ein Kind rechnet: 3⁴ · 3⁴ = 9⁸. Was ist falsch?', _ERK),
@@ -342,7 +342,7 @@ NB_A = [
                                                  'den anderen Fall lernst du später.'}),
 ]
 
-# Kann 6 (Sebastian: Ja): neue Pflichtkarte „Potenzen von Potenzen“ (M7 1.2), natürliche Exponenten.
+# Kann 6 (Nutzer: Ja): neue Pflichtkarte „Potenzen von Potenzen“ (M7 1.2), natürliche Exponenten.
 def _tab(kopf, zeilen): return {'typ': 'tabelle', 'kopf': kopf, 'zeilen': zeilen}
 
 
@@ -426,7 +426,7 @@ AUFGABEN_PVP = [
 ]
 
 
-# Neunundzwanzigste Runde (21.11., Entscheidung Sebastian Punkt 2; Nachprüfung Kann 2, 4, 6)
+# Neunundzwanzigste Runde (21.11., Entscheidung des Nutzers Punkt 2; Nachprüfung Kann 2, 4, 6)
 NB29_A = [
     # die sieben „Fehler benennen“-Auswahlaufgaben: kein Typ (überzählig, beim Einspielen gesperrt, nicht gelöscht)
     ('ohne_typ', 'mal_gleiche_basis', 'Ein Kind rechnet: 3⁴ · 3⁴ = 9⁸. Was ist falsch?'),
@@ -555,7 +555,7 @@ def flug_a():
                      'erstem Exponenten im Rechenweg) sind nach terme.potenzgesetze_ganzzahlig umgezogen und hier durch Aufgaben mit natürlichen '
                      'Exponenten ersetzt (gleiche Karte, gleicher Pool, gleiche Stufe, gleicher Typ). Dazu 23 Aufgaben aus „Fehler finden“ von '
                      'terme.potenzgesetze; Stufe und Typ nach der Prüfung (Achtundzwanzigste Runde) je Aufgabe gesetzt.',
-                     'Achtundzwanzigste Runde: neue Pflichtkarte potenz_von_potenz (M7 1.2 „Potenzen von Potenzen“, Entscheidung Sebastian).',
+                     'Achtundzwanzigste Runde: neue Pflichtkarte potenz_von_potenz (M7 1.2 „Potenzen von Potenzen“, Entscheidung des Nutzers).',
                      'Quotienten von Potenzen (geteilt_gleiche_basis) und anwenden bleiben Vertiefung wie bisher.']}
     return _schreiben(thema, out)
 

@@ -1,5 +1,5 @@
 -- W150 (Claude): Themen-Datei (inhalte/themen/*.json, geprüft mit tools/inhalt_pruefen.py) als Entwurf einspielen.
--- Aufruf nur durch Claude nach Sebastians Okay:
+-- Aufruf nur durch Claude nach Okay des Nutzers:
 --   select net.http_get('https://raw.githubusercontent.com/beinhoff77-stack/ki-system/<zweig>/inhalte/themen/<datei>.json');  -> id
 --   select schule.einheit_importieren((select content::jsonb from net._http_response where id = <id>));
 -- Legt nichts an, wenn das Thema schon eine Einheit hat. Status 'entwurf': sichtbar nur fürs Testkind und für Eltern/Lehrer („in Prüfung“).

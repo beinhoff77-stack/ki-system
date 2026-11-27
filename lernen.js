@@ -1061,7 +1061,7 @@ async function viewLernen() {
 }
 
 // ---------- Bau-Auftrag LA (18.11.): Lehrer-Aufbau ----------
-// Rolle der Anmeldung: Lern-Seite kennt sie (schule_ich); die ganze App ist Sebastians Eltern-Zugang.
+// Rolle der Anmeldung: Lern-Seite kennt sie (schule_ich); die ganze App ist Eltern-Zugang des Nutzers.
 // „Lernen starten“ bleibt für Eltern (die Kinder kommen über den Eltern-Zugang auf ihre Abflugtafel), entfällt für Lehrer.
 const lernRolle = () => (typeof lernIch !== 'undefined' && lernIch?.rolle) || 'eltern';
 const lernTag = (t) => new Date(t).toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' });
@@ -1938,7 +1938,7 @@ const lernZpGesehen = (kid, thema) => { try { return localStorage.getItem(`lern.
 // Vorgabe inhalte/pruefung/kind/karte/umsetzung.md (§1–11) und EX-Vorgabe §7 (Antarktis). Ebenen Welt › Kontinent › Land, alles aus schule_reise_karte
 // (keine feste Zahl an Kontinenten, Ländern, Städten). Umrisse: karte/welt.json und karte/kontinent-<id>.json (Natural Earth, im Build vorgerechnet von
 // tools/karte/bauen.mjs), Flaggen karte/flaggen/<iso>.svg – erst beim Anzeigen geladen. Keine Kartenkacheln, kein Kartenserver.
-// Die alte Anzeigetafel bleibt hinter dem Schalter „Abflugtafel“ erreichbar (je Kind auf dem Gerät gemerkt), bis Sebastian die Karte freigibt.
+// Die alte Anzeigetafel bleibt hinter dem Schalter „Abflugtafel“ erreichbar (je Kind auf dem Gerät gemerkt), bis der Nutzer die Karte freigibt.
 const LERN_KARTE_BASIS = (() => { try { const s = document.currentScript?.src || [...document.scripts].map((x) => x.src).find((x) => /lernen\.js/.test(x)); return new URL('karte/', s || location.href).href; } catch { return 'karte/'; } })();
 const lernKarteDateien = new Map(); // Datei → Promise (einmal je Sitzung)
 const lernKarteMessung = {}; // Datei → { ms, bytes } (Ladezeit und Größe; Test/Meldung)
@@ -3076,7 +3076,7 @@ function lernKurzGesagt(regel) { // N2: ganz zeigen, nie mit „…“ abschneid
   const t = String(regel ?? '').replace(/⟦|⟧/g, '').trim();
   const e = lernSatzEnde(t); return (e > 0 ? t.slice(0, e) : t).trim();
 }
-// Kl. 7–10: „Kurz gesagt“ zusätzlich als erste Zeile in der Karte (Schalter je Kind und Gerät, Standard aus – Entscheidung von Sebastian offen).
+// Kl. 7–10: „Kurz gesagt“ zusätzlich als erste Zeile in der Karte (Schalter je Kind und Gerät, Standard aus – Entscheidung vom Nutzer offen).
 function lernKurzOben(kind) {
   if (!kind?.klasse || kind.klasse < 7) return false;
   try { return localStorage.getItem('lern.kurzoben.' + kind.id) === '1'; } catch { return false; }

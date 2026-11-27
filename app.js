@@ -1,6 +1,6 @@
 /* KI-System – Rohbau der Web-/Handy-App (Werkstatt #4).
    Spricht ausschließlich mit app-api (Supabase). Kein Schlüssel im Code.
-   Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
+   Schreibende Aktionen laufen nur nach einem Klick vom Nutzer. */
 'use strict';
 
 const APP_VERSION = '0.93.6';
@@ -446,7 +446,7 @@ const AMPEL = {
 function ampel(stufe) { const a = AMPEL[stufe] || AMPEL.offen; return el('span', { class: 'ampel ' + a.cls }, el('span', { class: 'ampel-punkt' }), a.text); }
 
 // ---------- Präsentation (Werkstatt #13/#14, Motor v11): Antwort · Uneinigkeit · Weiter ----------
-// Die Seite für Sebastian steht zuerst; das Protokoll des Zusammenfassers folgt aufklappbar darunter.
+// Die Seite für den Nutzer steht zuerst; das Protokoll des Zusammenfassers folgt aufklappbar darunter.
 function praesentationAnsicht(e, entsch) {
   const p = e.praesentation;
   const teile = [];
@@ -884,7 +884,7 @@ async function viewWerkstatt(idStr) {
 
 // ---------- Unterkunftssuche (Werkstatt #41) ----------
 const SUCHE_ENDE = new Set(['fertig', 'fehler', 'gestoppt_budget', 'abgebrochen', 'gestoppt']);
-// 19.10.2026 (Sebastian): eigener Score, Teilnoten, Rangfolge und Reiseart vorerst abgeschaltet – später Schritt für Schritt wieder einbauen.
+// 19.10.2026 (Nutzer): eigener Score, Teilnoten, Rangfolge und Reiseart vorerst abgeschaltet – später Schritt für Schritt wieder einbauen.
 // Schalter: aus. Die automatischen Tests prüfen den archivierten Score-Modus über localStorage ks_score_an = '1'.
 const SUCHE_SCORE_AN = (() => { try { return localStorage.getItem('ks_score_an') === '1'; } catch { return false; } })();
 const SUCHE_NOTEN = [['raum', 'Raum'], ['lage', 'Lage'], ['preis_leistung', 'Preis-Leistung'], ['bewertungen', 'Bewertungen'], ['eignung', 'Eignung']];
@@ -913,7 +913,7 @@ function sucheLink(value, { allowHttp = false } = {}) {
   try { const u = new URL(value); return (u.protocol === 'https:' || (allowHttp && u.protocol === 'http:')) && !u.username && !u.password ? u.href : null; } catch { return null; }
 }
 function sucheVergleich(a, b, key, direction) {
-  // 0.36.4 (Sebastian 21.10.: „Bewertungssortierung“): nach deinem Urteil – ♥ zuerst, dann Na ja, offen, Raus; gleiche Stufe nach Preis.
+  // 0.36.4 (Nutzer 21.10.: „Bewertungssortierung“): nach deinem Urteil – ♥ zuerst, dann Na ja, offen, Raus; gleiche Stufe nach Preis.
   if (key === 'urteil') { const rang = t => ({ favorit: 0, vielleicht: 1, ausgeschlossen: 3 })[t.status] ?? 2; return (rang(a) - rang(b)) * direction || sucheVergleich(a, b, 'preis', 1); }
   const value = (t) => key === 'name' ? t.name : key === 'schlafzimmer' ? sucheZimmerKurz(t).schlafzimmer : key === 'betten' ? sucheZimmerKurz(t).typen : key === 'anbieter' ? (t.angebot?.anbieter || SUCHE_QUELLEN[t.quelle] || t.quelle || null) : key === 'warnungen' ? sucheWarnungen(t).length : key === 'gaestenote' ? (sucheZahl(t.note) !== null && sucheZahl(t.note_skala) > 0 ? Number(t.note) * 10 / Number(t.note_skala) : null) : key === 'preis' ? sucheZahl(t.angebot?.preis_gesamt_eur) :
     key === 'bewertungen' ? sucheZahl(t.bewertungen) : key === 'entfernung' ? sucheZahl(t.luftlinie_ziel_m) : key === 'gehzeit' ? sucheZahl(t.gehzeit_min) : key.startsWith('note_') ? sucheZahl(t.bewertung?.spaltennoten?.[key.slice(5)]) : key === 'datenlage' ? sucheDatenlage(t) : key === 'rang' ? (t.topf === 'shortlist' && t.bewertung?.liste === 'A' ? sucheZahl(t.bewertung?.rang) : null) : sucheZahl(t.bewertung?.[key]);
@@ -1003,7 +1003,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     input('kinder_alter', 'Kinderalter (mit Kommas)', { placeholder: 'z. B. 13, 11' });
     input('budget_eur', 'Gesamtbudget Aufenthalt (€)', { type: 'number', min: 0.01, step: 0.01, placeholder: 'Optional' });
     input('schlafzimmer_min', 'Schlafzimmer mindestens', { type: 'number', min: 0, max: 6, value: 2, required: true });
-    // W119 (Sebastian 23.10.): Trefferzahl je Quelle wählbar bis „Alle“ (500); das Suchkostenlimit bleibt die harte Grenze
+    // W119 (Nutzer 23.10.): Trefferzahl je Quelle wählbar bis „Alle“ (500); das Suchkostenlimit bleibt die harte Grenze
     grid.append(el('label', {}, 'Treffer je Quelle', el('select', { name: 'max_je_quelle', required: true },
       ...[['25', '25'], ['50', '50'], ['100', '100'], ['200', '200'], ['500', 'Alle (bis 500)']].map(([v, t]) => el('option', { value: v, selected: v === '500' }, t)))));
     input('limit_usd', 'Suchkostenlimit (USD, 0–10)', { type: 'number', min: 0, max: 10, step: 0.01, value: 1.5, required: true });
@@ -1087,7 +1087,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     }
     if (historyOnly) { recent.append(refresh, recentNotice, list); recent.append(el('p', { class: 'small muted' }, 'Hier stehen die letzten zehn Suchaufträge. Die gemeinsame Merkliste umfasst alle Reisen. Rohdaten werden nach 30 Tagen entfernt.')); }
     else { recent.classList.add('recent-compact'); recent.firstElementChild.textContent = 'Deine Suchen'; recent.append(recentNotice, list); }
-    // W105 (Sebastian 20.10.): Suchen nicht unten verstecken – ohne Score stehen sie über dem Formular, je Suche „Löschen“ (Papierkorb, 30 Tage)
+    // W105 (Nutzer 20.10.): Suchen nicht unten verstecken – ohne Score stehen sie über dem Formular, je Suche „Löschen“ (Papierkorb, 30 Tage)
     if (!historyOnly && !SUCHE_SCORE_AN) { recent.classList.add('a-suchen'); scope.insertBefore(recent, form); } else scope.append(recent);
     let undoRow = null;
     async function loeschen(a) {
@@ -1267,10 +1267,10 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const runBar=el('div',{class:'review-run-bar'},runTools,endrunde);
   const ortBanner = el('p', { class: 'ort-warnung', role: 'alert', hidden: true }); // W116: „Anderer Ort?“ sichtbar über der Liste
   const doneStatus = el('p', { role: 'status', class: 'sr-only' }); let runInfo = null; const aToast = el('p', { class: 'a-toast', role: 'status', 'aria-live': 'polite' });
-  // 0.36.0 (Sebastian 21.10.): ohne Score eine Werkzeugzeile (Suchen · Sortieren · Filter) und die Filter als Blatt von unten.
+  // 0.36.0 (Nutzer 21.10.): ohne Score eine Werkzeugzeile (Suchen · Sortieren · Filter) und die Filter als Blatt von unten.
   const fState = stayFilterState(id); // 0.36.0: gemeinsamer Spaltenfilter (Liste, Karte, Durchsehen, Tabelle)
   const aBlatt = SUCHE_SCORE_AN ? null : stayFilterBlatt({ rows: () => snapshot?.treffer || [], ctx: () => ({ trip: snapshot?.suchauftrag || {}, vergleich: stayVergleich(snapshot?.treffer || [], snapshot?.suchauftrag || {}) }), st: fState, onChange: () => { pages.clear(); draw(); } });
-  // W123 (Sebastian 24.10.): Sortieren als Blatt – Kriterium wählen, Richtung frei (aufsteigend/absteigend), Bedeutung je Richtung im Klartext
+  // W123 (Nutzer 24.10.): Sortieren als Blatt – Kriterium wählen, Richtung frei (aufsteigend/absteigend), Bedeutung je Richtung im Klartext
   const A_SORT_KRIT = [['preis', 'Preis', 'günstigste zuerst', 'teuerste zuerst', 1], ['urteil', 'Mein Urteil', '♥ zuerst, dann Na ja, offen', 'Raus zuerst, dann offen, Na ja'], ['gaestenote', 'Gästenote', 'schlechteste zuerst', 'beste zuerst', -1],
     ['entfernung', 'Nähe zum Ziel', 'nächste zuerst', 'weiteste zuerst', 1], ['gehzeit', 'Gehzeit zur Station', 'kürzeste zuerst', 'längste zuerst', 1], ['bewertungen', 'Anzahl Bewertungen', 'wenigste zuerst', 'meiste zuerst', -1],
     ['schlafzimmer', 'Schlafzimmer', 'wenigste zuerst', 'meiste zuerst', -1], ['m2', 'Fläche', 'kleinste zuerst', 'größte zuerst', -1], ['name', 'Name', 'A bis Z', 'Z bis A', 1]];
@@ -1343,7 +1343,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const aCount = snapshot.treffer.filter(t => t.topf !== 'ausgeschlossen' && t.topf !== 'unbewertet' && t.bewertung?.liste === 'A').length;
     if (phase.final && aCount < 10) technical.append(el('p', { class: 'erg-warnung' }, `Datenlage reicht noch nicht für 10 Empfehlungen unter den passenden Treffern (derzeit ${aCount}).`));
     if (a.rohdaten_bis) technical.append(el('p', { class: 'small muted' }, 'Rohdaten werden nach 30 Tagen entfernt. Frist: ' + sucheAbruf(a.rohdaten_bis)));
-    if (!SUCHE_SCORE_AN) { // 0.36.4 (Sebastian 21.10.): Reise in der Kopfzeile, Suchlauf-Details hinter ⓘ – die Liste beginnt weiter oben
+    if (!SUCHE_SCORE_AN) { // 0.36.4 (Nutzer 21.10.): Reise in der Kopfzeile, Suchlauf-Details hinter ⓘ – die Liste beginnt weiter oben
       const kinder = (a.kinder_alter || []).map(Number).filter(Number.isFinite), d = x => new Date(x + 'T12:00:00');
       const von = d(a.anreise), bis = d(a.abreise), gleich = von.getMonth() === bis.getMonth();
       const zeit = gleich ? `${von.getDate()}.–${bis.getDate()}.${bis.getMonth() + 1}.` : `${shortDate(a.anreise)}–${shortDate(a.abreise)}`;

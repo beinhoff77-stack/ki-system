@@ -1,4 +1,4 @@
--- W150 Umbau D2 (Freigabe Sebastian 16.11., Vorschlag inhalte/pruefung/klassen/vorschlag.md im Zweig daten-klassen):
+-- W150 Umbau D2 (Freigabe des Nutzers 16.11., Vorschlag inhalte/pruefung/klassen/vorschlag.md im Zweig daten-klassen):
 -- jeder der 13 Orte bekommt genau eine Klasse; zwei Flüge ziehen um; zwei Themen gelten am Gymnasium als Klasse 10.
 -- Noch NICHT enthalten: Umzug „Lineare Gleichungen“ (Delhi → Samarkand) – wartet auf Entscheidung (ein Kind hat Samarkand schon abgeschlossen).
 

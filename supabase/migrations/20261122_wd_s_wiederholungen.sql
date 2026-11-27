@@ -4,14 +4,14 @@
 --
 -- Ziel und Grenzen (ehrlich):
 --   Ziel ist, einen Stau schrittweise abzubauen – bei ausreichender Kapazität in etwa fünf Lerntagen. Das ist keine Garantie: Wer täglich mehr landet
---   als die Runde trägt, baut weiter auf. Bekannte Grenze: Ohne Bündeln (Entscheidung Sebastians: jede Etappe für sich) trägt die Kapazität dauerhaft
+--   als die Runde trägt, baut weiter auf. Bekannte Grenze: Ohne Bündeln (Entscheidung des Nutzers: jede Etappe für sich) trägt die Kapazität dauerhaft
 --   etwa 3 Landungen je Lerntag (jede Landung erzeugt 5 Wiederholungen; die Runde hat höchstens 12 Pflicht-Plätze, dazu freiwillige und Mischkarten).
 --
 -- Befund heute (Live-Text gelesen 22.11.):
 --   Takt: Landung → Stufe 0 (1 Lerntag), jede richtige fällige Wiederholung +1 Stufe: 3, 7, 14, 30 Lerntage; ab Stufe 4 bleibt es bei 30 (karte_buchen).
 --   Sterne: Trigger versuch_sterne gibt für JEDE richtige Antwort außerhalb von Tests (auch mit Tipp/2. Anlauf, auch Wiederholung und Mischkarte)
 --   sterne_uebung_richtig = 10 Sterne – aber je Aufgabe nur einmal im Leben (Schlüssel lernender, grund 'uebung', bezug 'aufgabe:<id>').
---   → NICHT gekürzt: sterne_wdh_richtig steht auf 10 (Schnittstelle nennt 5), bis Sebastian entscheidet (eine Zeile in schule.regel).
+--   → NICHT gekürzt: sterne_wdh_richtig steht auf 10 (Schnittstelle nennt 5), bis der Nutzer entscheidet (eine Zeile in schule.regel).
 --
 -- Was diese Datei baut:
 --   WD-1 Runde: Größe ein Fünftel der fälligen, aufgerundet, min 6, max 12 (bis Klasse 6 max 10; bis 6 fällige: alle). Auswahl: mindestens ein Drittel der

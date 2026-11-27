@@ -2,7 +2,7 @@
 """Baut aus geprüften Themen-Dateien das SQL zum Einspielen (Werkstatt #150).
 
 Aufruf:  python3 -I tools/inhalt_sql.py inhalte/themen/<datei>.json [...] > einspielen.sql
-Nur für den Haupt-Chat (Claude mit DB-Freigabe durch Sebastian). Neue Einheiten kommen als
+Nur für den Haupt-Chat (Claude mit DB-Freigabe durch den Nutzer). Neue Einheiten kommen als
 status 'entwurf' hinein: nur das Testkind sieht sie, Eltern/Lehrer sehen sie als „in Prüfung“.
 Gibt es für das Thema schon eine Einheit, bricht das SQL ab (keine stillen Überschreibungen).
 """

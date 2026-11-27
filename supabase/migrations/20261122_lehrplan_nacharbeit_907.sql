@@ -4,7 +4,7 @@
 -- Fassung b (22.11. abends): Test-Lernender ohne feste id (ids GENERATED ALWAYS), N2 aufgelöste Themen ohne RS/IB-Klasse und
 -- -Reihenfolge (Abschnitt 3d, Rauchtest l), N3 „eigenständig“ für 83 entfernt.
 -- Ersetzt die eingespielte Datei 20261121_lehrplan_zuordnung_voraussetzungen.sql NICHT, sondern ist ihre berichtigte Fassung:
--- gleicher Inhalt (Runden 30, 30 b, 30 c; 102 ← 30 bleibt hart, Entscheidung Sebastian), dazu
+-- gleicher Inhalt (Runden 30, 30 b, 30 c; 102 ← 30 bleibt hart, Entscheidung des Nutzers), dazu
 --   * Rauchtest j: fehlt der Vorherstand der Reiseoptionen, bricht er mit EXCEPTION ab (statt still zu überspringen);
 --   * vor jeder gezielten Löschung (Abschnitt 3c) wird geprüft, dass das aufgelöste Thema keine für Kinder sichtbare Einheit
 --     (geprueft oder freigegeben) hat, sonst Abbruch;

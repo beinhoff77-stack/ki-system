@@ -159,7 +159,7 @@ Noten: 1 = sehr gut, 5 = mangelhaft. „Stufen“ bewertet den Stand **nach** de
 - messen.flaechen / rechteck: „Ein Rechteck ist 8 cm lang und 3 cm breit. Ein Quadrat hat denselben Umfang. Wie groß ist der Flächeninhalt des Quadrats?“ – Grund: Lösung 5,5 · 5,5 = 30,25 – Kommazahl mal Kommazahl ist Kl. 6
 - messen.koerper_berechnung / oberflaeche: „Ein Würfel hat die Oberfläche 216 cm². Wie groß ist sein Volumen?“ – Grund: Volumen ist in Kl. 5 kein Pflichtstoff
 
-### 5. Für Sebastian (nur gemeldet, nicht geändert)
+### 5. Für den Nutzer (nur gemeldet, nicht geändert)
 - **zahlen.teilbarkeit:** Die Regel für 9 und ggT/kgV gehen über M5 hinaus (dort nur 2, 3, 5, 10 und Primfaktorzerlegung). Als Vertiefung führen oder nach Kl. 6 verschieben?
 - **geometrie.ortslinien:** Die Schreibweise „y = 2“ für Geraden wird erklärt, ist aber eigentlich Stoff von Kl. 8.
 - **geometrie.winkel/uhr:** 0,5° je Minute ist eine Dezimalzahl, die vor Kl. 6 kommt.
@@ -194,7 +194,7 @@ Noten: 1 = sehr gut, 5 = mangelhaft. „Stufen“ bewertet den Stand **nach** de
 
 ## 2026-11-17 17:45 – STATUS: messen.koerper_berechnung fertig
 Umgestuft 1 (Stufe 3 → 2: „Drei Würfel 2 cm in einer Reihe“ stand wortgleich schon in Stufe 2). Ersetzt 1 (Pflichtkarte oberflaeche fragte nach dem Volumen; jetzt Kantenlänge aus der Oberfläche). Neu 1 (sachaufgaben Stufe 1 hatte nur 3). Prüfskript OK, Nachweis OK.
-Für Sebastian: Pflichtkarte „verstehen“ enthält 7 Volumen-Aussagen (Volumen ist in Kl. 5 nicht Lehrplanstoff, nur Vertiefung „volumen“); Verschieben in die Vertiefung oder nach messen.volumen (Kl. 6) erwägen – nicht selbst geändert.
+Für den Nutzer: Pflichtkarte „verstehen“ enthält 7 Volumen-Aussagen (Volumen ist in Kl. 5 nicht Lehrplanstoff, nur Vertiefung „volumen“); Verschieben in die Vertiefung oder nach messen.volumen (Kl. 6) erwägen – nicht selbst geändert.
 
 ## 2026-11-17 17:30 – STATUS: messen.flaechen fertig
 Umgestuft 10 (Stufe 3 → 2: m · cm in dm², „Zerlege“ in zwei Flächeneinheiten, ha → m², Wohnung aus Räumen, Quadrat im Quadrat = Rahmen). Ersetzt 1 (Rechteck → Quadrat mit gleichem Umfang ergab 5,5 · 5,5 = 30,25 cm², Kommazahl mal Kommazahl ist Kl. 6; neu 9 cm × 5 cm → 49 cm²). Prüfskript OK, Nachweis OK (231 von 242 unverändert).
@@ -202,7 +202,7 @@ Hinweis: Sachaufgaben mit 4,5 m × 2,5 m sind nur über die Umrechnung in cm/dm 
 
 ## 2026-11-17 17:15 – STATUS: groessen.proportional fertig
 Umgestuft 5 (Stufe 3 → 2: Taxi mit Grundgebühr = Gedanke der Park-Aufgabe in Stufe 2; einfacher Dreisatz vorwärts; „geschickt“ über 5er-Zwischenschritt wie Stufe 2). Prüfskript OK, Nachweis OK (212 von 217 unverändert).
-Für Sebastian: Karte „erkennen“ (Begriff proportional) geht über M5 hinaus (dort nur Schlussrechnung/Dreisatz) – Annahme, Lehrplan Kl. 6 nicht abrufbar.
+Für den Nutzer: Karte „erkennen“ (Begriff proportional) geht über M5 hinaus (dort nur Schlussrechnung/Dreisatz) – Annahme, Lehrplan Kl. 6 nicht abrufbar.
 
 ## 2026-11-17 17:05 – STATUS: groessen.einheiten fertig
 Umgestuft 15 (Stufe 3 → 2: „Zerlege … in zwei Einheiten“, Ankunftszeit, Einkauf mit Rückgeld, Radweg ×2 – derselbe Gedanke wie Stufe 2). Prüfskript OK, Nachweis OK (257 von 272 unverändert).

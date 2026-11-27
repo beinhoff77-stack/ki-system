@@ -75,7 +75,7 @@ print('Punkte', len(PKT), collections.Counter(p['befund'] for p in PKT))
 # ---------------- Tabellen je Klasse/Gruppe
 def name(t): return T[t]['titel']
 RS_Q = [7, 8, 24, 25, 12, 26, 13, 14, 15, 16]
-RS_SQL = [7, 8, 24, 12, 13, 15]   # Entscheidung Sebastian 22.11. 13:45: Maßstab Gruppe I; II/III nur Bericht
+RS_SQL = [7, 8, 24, 12, 13, 15]   # Entscheidung des Nutzers 22.11. 13:45: Maßstab Gruppe I; II/III nur Bericht
 KLASSE_NEU = {91: 7}   # Gruppe I: Schrägbilder/Raumgeometrie M7 I LB4
 tab = {}
 for q in list(RS_Q) + [3, 4]:
@@ -185,7 +185,7 @@ erwartet = [(p['eintrag_id'], t, b) for p in PKT if p['quelle'] in RS_SQL for t,
 
 S = []
 S.append(f"""-- LP-RS (22.11.2026, Stand Nachtrag 13:30/13:45): Korrektur der Realschul-Lehrplanzuordnungen nach Punkt-für-Punkt-Abgleich mit LehrplanPLUS (abgerufen 22.11.2026).
--- Maßstab Wahlpflichtfächergruppe I (Entscheidung Sebastian 22.11., 13:45): nur Quellen RS 5, 6 (allgemein) und 7 I, 8 I, 9 I, 10 I (7, 8, 24, 12, 13, 15).
+-- Maßstab Wahlpflichtfächergruppe I (Entscheidung des Nutzers 22.11., 13:45): nur Quellen RS 5, 6 (allgemein) und 7 I, 8 I, 9 I, 10 I (7, 8, 24, 12, 13, 15).
 -- Gruppe II/III (25, 26, 14, 16) nur im Bericht und in der JSON (korrektur_sql = false), hier unverändert.
 -- Bericht: inhalte/pruefung/lehrplan/rs_pruefung_2211.md, Daten: rs_pruefung_2211.json.
 -- Nur INSERT und UPDATE auf schule.zuordnung, schule.eintrag und schule.thema (eine Klasse, Schritt 8); kein DROP, kein DELETE.

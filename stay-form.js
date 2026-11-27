@@ -409,14 +409,14 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   form.addEventListener('input', e => { if (e.target?.name === 'ziel') viertelLink.hidden = (e.target.value || '').trim().length < 2; });
   const zielLabel = el('div', { class: 'mit-viertel a-zeile' }, el('span', { class: 'a-zeile-ikon' }, stayIcon('pin')), label('ziel'), viertelLink);
   sucheOrtsauswahl(form, zielLabel); // W116: Ort mit Land wählen
-  // W102 (Sebastian 20.10.: „unübersichtlich, nicht kompakt“): feste Reihenfolge in drei Blöcken –
+  // W102 (Nutzer 20.10.: „unübersichtlich, nicht kompakt“): feste Reihenfolge in drei Blöcken –
   // 1 Wo & Wann (am Rechner eine Zeile) · 2 Wohnen & Wer (eine Zeile) · 3 Wichtig für dich (Chip-Fläche) · Suchknopf bleibt sichtbar.
   const kopf = el('div', { class: 'quick-kopf' }, el('h2', {}, 'Unterkunft suchen'), el('p', { class: 'quick-meta small' }, tripLine));
   who.prepend(el('span', { class: 'a-zeile-ikon' }, stayIcon('personen'))); who.classList.add('a-zeile');
   submit.prepend(stayIcon('lupe'));
   when.classList.add('dr-felder'); // W103: echte Datumsfelder bleiben im Formular, bedient wird „Wann?“
   const ortZeit = el('div', { class: 'quick-block quick-ortzeit a-reise' }, zielLabel, when);
-  // W103 (Sebastian 20.10.): Wohnform (Apartment/Schlafzimmer, Hotel/Zimmer, Bett) gehört zu den Kriterien – steht in „Wichtig für dich“ vorne
+  // W103 (Nutzer 20.10.): Wohnform (Apartment/Schlafzimmer, Hotel/Zimmer, Bett) gehört zu den Kriterien – steht in „Wichtig für dich“ vorne
   if (maske) { maske.wohnenSlot.append(wohnen.node); wohnen.node.classList.add('wohnen-in-maske'); }
   const werWohnen = el('div', { class: 'quick-block quick-werwohnen' }, maske ? null : wohnen.node);
   ortZeit.append(who); // W104: Wo / Wann / Wer in einer Karte
@@ -429,7 +429,7 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   const p4 = panel('04');
   if (SUCHE_SCORE_AN) { more.append(landPanel); if (p4) more.append(p4); more.append(extended.tripPanel, extended.qualityPanel, extended.filtersPanel); }
   else {
-    // W105 (Sebastian 20.10.): „Mehr Optionen“ = Reise & Profil. Technik (Land, Quellen, Suchkosten, Zusatz-Notenfilter) zugeklappt und klar benannt –
+    // W105 (Nutzer 20.10.): „Mehr Optionen“ = Reise & Profil. Technik (Land, Quellen, Suchkosten, Zusatz-Notenfilter) zugeklappt und klar benannt –
     // keine zweite Notenauswahl neben „Gästenote ab“: der Zusatz-Notenfilter steht dort, ist aber standardmäßig aus.
     more.querySelector(':scope > summary').replaceChildren(stayIcon('regler'), 'Reise, Profil & Technik');
     more.querySelector(':scope > p').textContent = 'Welcher Reise die Suche zugeordnet wird, gespeicherte Suchprofile und selten gebrauchte Technik.';
@@ -453,7 +453,7 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
       const da = [...fs.children].some(c => c.tagName !== 'LEGEND' && !(c.tagName === 'P' && c.classList.contains('small')) && !(c.classList.contains('trip-criterion') && c.hidden));
       fs.hidden = !da; if (da) irgendwas = true;
     }
-    // W106 (Sebastian 20.10.): der alte Block „Filter anpassen“ entfällt ohne Score ganz. Viertel wählt man über die Kachel „Viertel“
+    // W106 (Nutzer 20.10.): der alte Block „Filter anpassen“ entfällt ohne Score ganz. Viertel wählt man über die Kachel „Viertel“
     // in der Suchmaske (Auswahl der ermittelten Viertel, Noten auf der Viertel-Seite). Einzelne Viertel-Noten als Filter: vorerst nicht
     // (nur ca. die Hälfte der Treffer ist einem Viertel zugeordnet).
     extended.filtersPanel.hidden = true; void irgendwas;
@@ -502,11 +502,11 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
       : el('button', { type: 'button', class: 'link-button a-mehr-knopf', 'aria-expanded': String(more.open), onclick: e => { more.open = !more.open; e.currentTarget.setAttribute('aria-expanded', String(more.open)); e.currentTarget.textContent = more.open ? 'schließen' : 'ändern'; } }, more.open ? 'schließen' : 'ändern'));
   };
   onTrip(trip);
-  // W121 (Sebastian 24.10.): Karten „Hier fehlt noch eine Unterkunft“ entfernt – Lücken stehen weiter im Reiseplan.
+  // W121 (Nutzer 24.10.): Karten „Hier fehlt noch eine Unterkunft“ entfernt – Lücken stehen weiter im Reiseplan.
   return { restoreWho, wohnenWerte: wohnen.werte };
 }
 
-// W100 (Claude, Sebastian 20.10.): Suchmaske nach Themen. Jedes Kriterium: Angeheftet (in der Maske), Weitere (aufklappbar) oder Aus (nie gesendet).
+// W100 (Claude, der Nutzer 20.10.): Suchmaske nach Themen. Jedes Kriterium: Angeheftet (in der Maske), Weitere (aufklappbar) oder Aus (nie gesendet).
 // Wirkung je Kriterium: ➜ Suche = Booking fragt schon gefiltert an · ⧩ Filter = nach dem Laden geprüft; unbekannt bleibt sichtbar (?).
 const MASKE_THEMEN = [
   ['Preis & Buchung', [
@@ -557,7 +557,7 @@ function maskeSpeichern(e) { return stayWrite('ks_maske', e); }
 
 function sucheMaske({ form, extended }) {
   const api = extended.kriterien;
-  // W103 (Sebastian 20.10.: „erkenne ich, was wirklich mitgesucht wird?“): zwei ruhige Gruppen statt Zeichen am Chip
+  // W103 (Nutzer 20.10.: „erkenne ich, was wirklich mitgesucht wird?“): zwei ruhige Gruppen statt Zeichen am Chip
   const chipsSuche = el('div', { class: 'maske-an', role: 'group', 'aria-label': 'Kriterien, die mitgesucht werden' });
   const chipsFilter = el('div', { class: 'maske-an', role: 'group', 'aria-label': 'Kriterien, die nach dem Laden geprüft werden' });
   const wohnenSlot = el('div', { class: 'maske-wohnen' });
@@ -572,7 +572,7 @@ function sucheMaske({ form, extended }) {
   const zustand = key => { const v = api.get(key); return v ? { an: v.modus !== 'egal', wert: v.wert } : { an: false, wert: null }; };
   const kurz = k => { const z = zustand(k.key); if (!z.an) return null; if (k.typ === 'ja') return k.label;
     const st = k.typ === 'stufen' ? k.stufen.find(([w]) => String(w) === String(z.wert))?.[1] : `${z.wert} ${k.einheit}`.trim(); return `${k.label} ${st ?? z.wert}`; };
-  // W103 (Sebastian 20.10.: „zu wild“): jedes Kriterium ist ein ruhiger Chip. Ja/Nein = antippen; Stufen und Zahlen = Chip mit Auswahlliste.
+  // W103 (Nutzer 20.10.: „zu wild“): jedes Kriterium ist ein ruhiger Chip. Ja/Nein = antippen; Stufen und Zahlen = Chip mit Auswahlliste.
   // Die Wirkung (➜ Suche / ⧩ Filter) steht in den Einstellungen und als Hinweis beim Antippen-Halten (title), nicht mehr am Chip.
   function zeile(k, mitPin) {
     const z = zustand(k.key), id = 'mk-' + k.key;
@@ -653,7 +653,7 @@ function sucheBudgetNacht(form, gesamt) {
   return { node: label, ausGesamt, rechne };
 }
 
-// W103 (Sebastian 20.10.: „Von–bis muss ich immer zweimal klicken“): ein Feld „Wann?“ mit Kalender – erst Anreise, dann Abreise antippen.
+// W103 (Nutzer 20.10.: „Von–bis muss ich immer zweimal klicken“): ein Feld „Wann?“ mit Kalender – erst Anreise, dann Abreise antippen.
 // Die echten Felder anreise/abreise bleiben (unsichtbar) im Formular; alles Weitere (Nächte, Nachtband, Budget) hört wie bisher auf sie.
 function sucheDatumBereich(form) {
   const feld = n => form.querySelector(`[name="${n}"]`);
@@ -716,7 +716,7 @@ function sucheDatumBereich(form) {
   return { node: el('div', { class: 'dr' }, knopf, panel), beschriften };
 }
 
-// W116 (Sebastian 22.10.): Ziel eindeutig – „Palau“ landete auf Sardinien. Beim Tippen zeigt „Wo?“ passende Orte mit Land (Open-Meteo, kostenlos);
+// W116 (Nutzer 22.10.): Ziel eindeutig – „Palau“ landete auf Sardinien. Beim Tippen zeigt „Wo?“ passende Orte mit Land (Open-Meteo, kostenlos);
 // gleichnamige Orte in mehreren Ländern müssen gewählt werden, sonst wird der eindeutige Treffer übernommen. Gespeichert: Name, Region, Land, Koordinaten.
 const ORT_LAND_DE = (() => { try { return new Intl.DisplayNames(['de'], { type: 'region' }); } catch { return null; } })();
 const ortLand = code => { try { return code && /^[A-Z]{2}$/i.test(code) ? ORT_LAND_DE?.of(String(code).toUpperCase()) || code : ''; } catch { return code || ''; } };

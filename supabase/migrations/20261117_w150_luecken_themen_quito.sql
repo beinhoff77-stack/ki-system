@@ -1,4 +1,4 @@
--- W150 Inhalte „Lücken laut Lehrplan“ (Entscheidung Sebastian 17.11.): drei fehlende Gymnasium-Flüge bekommen ihre Themen-Einträge, damit die Inhalts-Chats feste Nummern haben.
+-- W150 Inhalte „Lücken laut Lehrplan“ (Entscheidung des Nutzers 17.11.): drei fehlende Gymnasium-Flüge bekommen ihre Themen-Einträge, damit die Inhalts-Chats feste Nummern haben.
 --  * Klasse 6: Flächen von Parallelogramm, Dreieck und Trapez (LehrplanPLUS M6 2.1) und Volumen (M6 2.2).
 --    Im Kontinent „Fläche und Raum“ gibt es keinen Ort der Klasse 6 (Regel seit D2: ein Ort = eine Klasse) → neuer Ort Quito.
 --  * Klasse 8: Prismen und Zylinder (M8 7) → Cusco (Klasse 8, „Körper und Netze“).

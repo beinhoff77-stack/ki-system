@@ -1,4 +1,4 @@
--- NT-S / NT-S 2 (22.11.): Nachtests bei kleinen Flügen (Bau-Auftrag NT, Entscheidung Sebastian 22.11., 17:50 Berlin). Nach TL-S. Nicht einspielen ohne Ansage.
+-- NT-S / NT-S 2 (22.11.): Nachtests bei kleinen Flügen (Bau-Auftrag NT, Entscheidung des Nutzers 22.11., 17:50 Berlin). Nach TL-S. Nicht einspielen ohne Ansage.
 -- Regel: jeder Nachtest hat mindestens 5 Aufgaben je Flug – 1 Pflicht-Etappe → 5 Aufgaben, 2 → je 3, 3–4 → je 2, ab 5 → je 1 (= aufrunden(5 / Pflicht-Etappen)).
 -- Gezählt werden die Pflicht-Etappen des Kindes (lernziel_stand.pflicht, nach TL-S die Regel Pflicht/Kür je Schulart). Quote und Einstufung unverändert
 -- (≥ 0,8 bestanden, ≥ 0,6 wiederholen, sonst Rückreise; Wertung je Etappe wie bisher). Flug-Test (Blocktest) und Korrektur-Test unverändert.

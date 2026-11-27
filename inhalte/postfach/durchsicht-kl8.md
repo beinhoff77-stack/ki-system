@@ -5,7 +5,7 @@
 - funktionen.linear: umgestuft 11, ersetzt 2, Lernkarten unverändert. `inhalt_pruefen` OK, Nachweis OK. Mangel: Stufe 2 enthielt reines Ablesen bzw. Rechnen wie Stufe 1, Stufe 3 teils Aufgaben wie Stufe 2; sechsmal gleiche k-Aufgabe in Reihe (proportional).
 - zahlen.intervalle: umgestuft 10, Lernkarten unverändert. `inhalt_pruefen` OK, Nachweis OK. Mangel: Stufe 2 bzw. 3 war in „schreiben“ und „beurteilen“ derselbe Aufgabentyp wie die Stufe darunter.
 - gleichungen.ungleichungen: umgestuft 14, Lernkarten unverändert. `inhalt_pruefen` OK, Nachweis OK. Mangel: Stufe 3 in umdrehen, klammern und grafisch war nur die längere Fassung der Stufe 2; in sachaufgabe gleiche Aufgaben auf Stufe 1 und 2.
-- groessen.indirekt: umgestuft 16, ersetzt 4, neu 2, Lernkarten unverändert. `inhalt_pruefen` OK, Nachweis OK. Mangel: Stufe 1 und 2 in „unterscheiden“ waren dieselbe Frage; Stufe 3 viermal dieselbe Aufgabe in Reihe (erkennen, dreisatz) bzw. Umkehrung/Ablesen als Stufe 3. Starke Überschneidung mit funktionen.gebrochen → für Sebastian.
+- groessen.indirekt: umgestuft 16, ersetzt 4, neu 2, Lernkarten unverändert. `inhalt_pruefen` OK, Nachweis OK. Mangel: Stufe 1 und 2 in „unterscheiden“ waren dieselbe Frage; Stufe 3 viermal dieselbe Aufgabe in Reihe (erkennen, dreisatz) bzw. Umkehrung/Ablesen als Stufe 3. Starke Überschneidung mit funktionen.gebrochen → für den Nutzer.
 - funktionen.gebrochen: umgestuft 30, neu 2, Lernkarten unverändert. `inhalt_pruefen` OK, Nachweis OK. Mangel: Stufe 1 und 2 waren in definitionsmenge und asymptoten dieselbe Aufgabe; Stufe 3 in mehreren Karten nur Stufe 2 mit anderen Zahlen.
 - terme.bruchterme: umgestuft 6, ersetzt 2, Lernkarten unverändert. `inhalt_pruefen` OK, Nachweis OK. Insgesamt gut gestuft. Mangel: Stufe 3 in termwert und fehler_finden teils wie Stufe 2; in kuerzen viermal dieselbe binomische Formel.
 - gleichungen.bruch: umgestuft 11, Lernkarten unverändert. `inhalt_pruefen` OK, Nachweis OK. Mangel: Stufe 3 in ein_bruch, ueber_kreuz und scheinloesung war meist die Stufe-2-Aufgabe mit mehr Rechenschritten.
@@ -207,7 +207,7 @@ Jede Lernkarte hat jetzt auf jeder Stufe mindestens 4 Übungen (gezählt mit `cn
 - stochastik.simulation: „In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet (Bild: Ausschnitt mit 40 Punkten). Von 400 Zufallspunkten liegen 331 im Viertelkreis. Welchen Schätzwert für π erhält man?“
 - stochastik.simulation: „In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet (Bild: Ausschnitt mit 40 Punkten). Von 1000 Zufallspunkten liegen 758 im Viertelkreis. Welchen Schätzwert für π erhält man?“
 
-### 5. Für Sebastian (nur gemeldet, nichts geändert)
+### 5. Für den Nutzer (nur gemeldet, nichts geändert)
 
 1. **Doppelung groessen.indirekt ↔ funktionen.gebrochen** (Karten `indirekt`, `indirekt_sach`): Es kommen dieselben Gedanken und Pumpen- und Vorrat-Aufgaben in beiden Themen vor. Vorschlag: Ein Thema behalten oder klar trennen (Dreisatz gegen Funktion).
 2. **Doppelung messen.koerper_darstellung ↔ raum.schraegbilder**: Schrägbild mit q = 1/2 und Ecken/Kanten/Flächen zählen kommen zweimal vor.

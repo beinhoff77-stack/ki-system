@@ -172,7 +172,7 @@ Je Thema umgestuft: exponential_log 28, gl.exponential 18, mehrstufig 35, simula
 9. gleichungen.polynom/verstehen: „Jemand löst x³ = 4x, indem er durch x teilt, und erhält x = ±2. Was stimmt?“
 10. raum.pyramide_kegel_kugel/pyr_oberflaeche: „Eine quadratische Pyramide hat die Grundkante 6 cm und die Höhe 4 cm. Berechne ihre Oberfläche.“ (gleiche Zahlen wie das Beispiel der Karte)
 
-### 5. Für Sebastian (nur gemeldet, nicht geändert)
+### 5. Für den Nutzer (nur gemeldet, nicht geändert)
 - **Reihenfolge:** `funktionen.ganzrational/nullstellen` hat zwei Stufe-3-Übungen mit Substitution (x⁴ − 29x² + 100, x⁴ − 17x² − 200); erklärt wird sie erst in `gleichungen.polynom/substitution` danach. Reihenfolge tauschen oder die Übungen verschieben?
 - **Überschneidung:** `funktionen.exponential_log/zeitpunkt` und `gleichungen.exponential` (wachstum, mit_log_loesen) lösen beide a · b^t = c mit Logarithmus; exponential_log kommt zuerst und nutzt die Potenzregel vor ihrer Erklärung (jetzt als Schritt auf der Karte).
 - **Überschneidung π:** `stochastik.mehrstufig/simulation` (π-Übungen), `stochastik.mehrstufig/pi_schaetzen` und `stochastik.simulation/monte_carlo` – alle im Block Darwin. Die π-Übungen in `mehrstufig/simulation` könnten entfallen.

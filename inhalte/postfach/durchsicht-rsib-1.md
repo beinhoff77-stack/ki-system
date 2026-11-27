@@ -264,7 +264,7 @@ FEHLER = die alte Aufgabe war falsch gelöst.
 - Ein Tank wird mit 4 Litern pro Minute gefüllt. Am Anfang sind 59 Liter darin. Wie viele Liter sind es nach 6 Minuten?
 - Ein Tank wird mit 6 Litern pro Minute gefüllt. Am Anfang sind 49 Liter darin. Wie viele Liter sind es nach 4 Minuten?
 
-### (5) Für Sebastian (Entscheidung nötig)
+### (5) Für den Nutzer (Entscheidung nötig)
 1. **funktionen.transformation (RS 9):** Die Karten „spiegeln“ (an den Achsen) und „punkte“ (g(x) = a · f(x − d) + e für beliebige f) gehen über die Parabeln der RS 9 hinaus; das Abbilden von Graphen steht nach meiner Recherche in RS 10 I (Lernbereiche 2–4). Vorschlag: beide Karten als Vertiefung führen oder in Klasse 10 verschieben. (Annahme, Lehrplantext nicht selbst gelesen.)
 2. **abbildungen.matrizen:** Ob inverse Matrix, Matrizenprodukt und Skalarprodukt zum RS-10-Stoff gehören, konnte ich nicht belegen (belegt ist nur „Abbildung mit Matrix“, „10I.2“). Für IB sind Matrizen kein Standard-Inhalt des MYP-Frameworks; MYP 4 ist eine Annahme. Teil C sollte das klären.
 3. **abbildungen.vektoren:** Titel „Vektoren und Determinanten“ passt nicht (Determinanten stehen in abbildungen.determinanten2); `umfang` in der Themenliste nennt Skalarprodukt (steht in matrizen). Titel/umfang anpassen?

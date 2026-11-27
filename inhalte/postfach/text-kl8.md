@@ -41,7 +41,7 @@ Keine.
 - Kein Test mit Kindern (Verständlichkeit, Dauer).
 - **Sicherung/Korrektur-Pools sind gewachsen** (alte Aufgaben bleiben, neue kommen dazu, z. B. 8 Sicherung/4 Korrektur je Karte). Nicht geprüft, wie Server/App daraus zieht. Wenn die App nur einen Teil nimmt, sollte sie die neuen Textaufgaben bevorzugen oder mischen – sonst wirkt die Erhöhung in Sicherung/Korrektur nicht sicher.
 - Die Erkennung „Sachaufgabe“ bei alten Aufgaben ist eine Wortliste plus Längenregel; Würfel/Münze/Urne/Glücksrad zählen bewusst nicht als Sachsituation. Grenzfälle sind möglich.
-- Merge nach `main` erst nach Sebastians „Live“.
+- Merge nach `main` erst nach „Live“ des Nutzers.
 
 ## 2026-11-18 02:36 – STATUS gleichungen.lgs2
 

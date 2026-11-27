@@ -209,7 +209,7 @@ Dazu gelten für die bestehenden Felder:
 - `fehler`: den Fehler in der Alltagssituation deuten („wie eine Taste, die mal Cola und mal Wasser gibt“).
 - Verboten in `einstieg` und `schritte`: Fachwörter, die nicht in `woerter` dieser oder einer früheren Karte desselben Themas stehen; Schachtelsätze; „offensichtlich“, „einfach“, „trivial“.
 
-**Vorgabe seit 16.11.** (Sebastians Auswahl; Herleitung in inhalte/pruefung/erklaerungen/darstellung/umsetzung.md und bericht.md). Wo sie den Regeln weiter oben in diesem Abschnitt widerspricht (Längen, Zahl der Wörter und Schritte), gilt diese Vorgabe.
+**Vorgabe seit 16.11.** (Auswahl des Nutzers; Herleitung in inhalte/pruefung/erklaerungen/darstellung/umsetzung.md und bericht.md). Wo sie den Regeln weiter oben in diesem Abschnitt widerspricht (Längen, Zahl der Wörter und Schritte), gilt diese Vorgabe.
 
 Die Anzeige (alle Klassen gleich): Übersicht (Titel + Merksatz als „Kurz gesagt“) → eine Karte:
 WORUM GEHT’S? → Bild → Beispiel als Bildergeschichte (jeder Schritt mit Bild) → „Pass auf!“ (fehler + fehler_bild) → MERKE.

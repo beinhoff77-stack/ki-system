@@ -55,7 +55,7 @@ class Befunde:
         self.zusatz = []       # (lz, s, aufgabe)
         self.ersetzt = []      # alte Fragetexte
         self.nicht = []        # (Befund, Begründung)
-        self.sebastian = []    # Hinweise „für Sebastian“
+        self.sebastian = []    # Hinweise „für den Nutzer“
         self.zaehler = collections.Counter()
 
     # ---------- Bausteine ----------

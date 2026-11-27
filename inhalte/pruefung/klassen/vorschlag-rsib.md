@@ -1,4 +1,4 @@
-# Klassen-Zuordnung Realschule und IB MYP – Vorschlag an Sebastian (Neunzehnte Runde, Teil C)
+# Klassen-Zuordnung Realschule und IB MYP – Vorschlag an den Nutzer (Neunzehnte Runde, Teil C)
 
 Stand: 2026-11-17. Zweig `lehrplan-rsib`. **Nur ein Vorschlag.** Nichts an `themenliste.json`, Generatoren, Datenbank, App oder Tests geändert.
 Aufbau wie der Gymnasium-Vorschlag (`inhalte/pruefung/klassen/vorschlag.md` im Zweig `daten-klassen`).
@@ -302,7 +302,7 @@ Hinweis: Die Haese-Reihenfolge ist eine Lehrwerks-Reihenfolge, keine IB-Vorgabe.
 
 ---
 
-## Was Sebastian entscheiden muss
+## Was der Nutzer entscheiden muss
 
 1. **Realschule – 7 Klassen ändern?** `groessen.proportional` 5→6, `zahlen.potenzen_zehner` 5→7, `geometrie.konstruktion` 6→7, `raum.schraegbilder` 5→8, `funktionen.quadratisch` 8→9, `stochastik.grundbegriffe` 8→9, `stochastik.verknuepft` 8→9 (letzteres Annahme).
 2. **Gruppe I oder II/III?** Die App hat nur ein Feld `rs_by`. Vorschlag: Gruppe I als Maßstab, Abweichungen der Gruppe II/III (Tabelle, Spalte II/III) nur als Hinweis. Alternative: zweites Feld (App-Wunsch).

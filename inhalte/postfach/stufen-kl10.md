@@ -125,7 +125,7 @@ Je Thema (neu / Knobel / umgestuft / überzählig): exponential_log 45/14/16/53 
 **Knobel-Bordkarte (freiwillig)**
 - Ein Bestand wächst drei Jahre lang jedes Jahr um 25 % und nimmt danach drei Jahre lang jedes Jahr um 20 % ab. Wie viel Prozent des Anfangswerts sind es am Ende? → *100 %* (Tipp: Ordne die sechs Faktoren geschickt zu Paaren.)
 
-### Für Sebastian (nur gemeldet)
+### Für den Nutzer (nur gemeldet)
 - Weiter offen aus der Neunzehnten Runde: In `funktionen.ganzrational/nullstellen` brauchen zwei Stufe-3-Übungen die Substitution, die erst in `gleichungen.polynom` kommt. Ich habe sie als `verknuepfen` eingeordnet.
 - Weiter offen, App-Wunsch: Schrägbild und Netz des Kegels zeichnen. Deshalb gibt es in `raum.schraegbilder` keine Zeichenaufgaben zum Kegel.
 - In `raum.pyramide_kegel_kugel/verstehen` ist die doppelte Frage „Bei einem Kegel wird nur die Höhe verdoppelt …“ (Stufe 2) jetzt unter „überzählig“ gelistet.

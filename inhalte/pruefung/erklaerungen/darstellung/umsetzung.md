@@ -1,6 +1,6 @@
 # Erklärungen umbauen – Umsetzung (Stand 2026-11-16)
 
-Grundlage: Sebastians Auswahl (`bericht.md`, Abschnitt 6). Dieses Papier sagt, **was die App ändern muss**, **wie Inhalte künftig aussehen** und **wie der Bestand umgebaut wird**.
+Grundlage: Auswahl des Nutzers (`bericht.md`, Abschnitt 6). Dieses Papier sagt, **was die App ändern muss**, **wie Inhalte künftig aussehen** und **wie der Bestand umgebaut wird**.
 Geschrieben im Prüf-Zweig; hier ist nichts an App, Tests oder `inhalte/themen/` geändert. Umsetzen sollen der Haupt-Chat (App) und die Inhalts-Chats.
 
 Bestand (gezählt am 2026-11-16): 87 Themen, 549 Lernkarten, 1 500 Schritte. Karten mit `einstieg`: Kl. 5 80 von 87, Kl. 8 90 von 97, alle anderen Klassen 0. Karten mit Bild: 242.
@@ -27,7 +27,7 @@ Bestand (gezählt am 2026-11-16): 87 Themen, 549 Lernkarten, 1 500 Schritte. Kar
 **Üben-Reiter, erster Besuch einer Karte:** Nur die Aufgabe. Darüber steht ein gut sichtbarer Link „Erklärung ansehen“. Kein Merksatz, keine Erklärung über der Aufgabe.
 
 **Klasse 7–10:** Die Karte ist aufgebaut wie Klasse 5. „Kurz gesagt“ steht dort nur auf der Übersichtskachel.
-*Noch offen:* Sebastian ist bei Punkt 10 unentschieden. Fällt die Wahl auf „Regel zuerst“, kommt in Klasse 7–10 zusätzlich „Kurz gesagt“ als erste Zeile in die Karte. Das ist in der App ein Schalter, die Inhalte bleiben gleich.
+*Noch offen:* der Nutzer ist bei Punkt 10 unentschieden. Fällt die Wahl auf „Regel zuerst“, kommt in Klasse 7–10 zusätzlich „Kurz gesagt“ als erste Zeile in die Karte. Das ist in der App ein Schalter, die Inhalte bleiben gleich.
 
 ---
 
@@ -161,6 +161,6 @@ Arbeite ohne Rückfragen durch; Unklares unter "offen" notieren.
 
 ## 6. Offen
 
-- **Punkt 10** (Klasse 7–10: „Kurz gesagt“ zusätzlich in der Karte?) entscheidet Sebastian. Das ist ein App-Schalter, die Inhalte sind davon nicht betroffen.
+- **Punkt 10** (Klasse 7–10: „Kurz gesagt“ zusätzlich in der Karte?) entscheidet der Nutzer. Das ist ein App-Schalter, die Inhalte sind davon nicht betroffen.
 - **Nicht mit den Kindern getestet.** Vorschlag: nach A1–A9 je eine umgebaute Karte mit beiden Kindern ausprobieren, bevor die Pakete U6–UR starten.
 - **Aufwand ist geschätzt, nicht gemessen:** U5 und U8 sind die größten Brocken, weil fast jeder Schritt ein eigenes Bild bekommt.

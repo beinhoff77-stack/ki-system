@@ -1,6 +1,6 @@
 # Stufe 2 · Entdecker · 0.19.0
 
-Wunsch 80, Serververtrag app-api 0.12.0 (Werkstatt 283/290), Freigabe von Sebastian am 17.10.2026. Eigenständiger PR auf der veröffentlichten Stufe 1 (0.18.2). **Dieser Stand darf erst nach Claudes Prüfung und Sebastians separater Freigabe gemergt oder veröffentlicht werden.**
+Wunsch 80, Serververtrag app-api 0.12.0 (Werkstatt 283/290), Freigabe vom Nutzer am 17.10.2026. Eigenständiger PR auf der veröffentlichten Stufe 1 (0.18.2). **Dieser Stand darf erst nach Claudes Prüfung und separater Freigabe des Nutzers gemergt oder veröffentlicht werden.**
 
 ## Verhalten und Gestaltung
 

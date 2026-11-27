@@ -1,11 +1,11 @@
 # ki-system
 
-Web- und Handy-App für Sebastians persönliches KI-System: Council und Unterkunftssuche.
+Web- und Handy-App für persönliches KI-System des Nutzers: Council und Unterkunftssuche.
 
 - Bestehende Seite: https://beinhoff77-stack.github.io/ki-system/
 - Veröffentlichter Stand bei Arbeitsbeginn: **0.15.2** (main). Korrektur **0.16.0** auf `fix/unterkunft-ergebnisansichten` zur Gegenprüfung.
 - Daten und Suchlogik liegen in Supabase hinter `app-api`. Keine Schlüssel oder Live-Testdaten im Repository.
-- Kein Merge oder Deploy aus diesem Featurezweig ohne Sebastians ausdrückliche Freigabe.
+- Kein Merge oder Deploy aus diesem Featurezweig ohne ausdrückliche Freigabe des Nutzers.
 
 **Reiseplan ändern (Unterkünfte, Flüge, Mietwagen):** zuerst [`docs/REISEPLAN.md`](docs/REISEPLAN.md) lesen.
 
@@ -139,11 +139,11 @@ npm test
 
 Am 16.10.2026 wurden Suchlauf #2 und der Rückmeldungsbericht über den vorhandenen Lesezugang geprüft; ihre Daten werden nicht eingecheckt. Claudes Kyoto-Lauf #5 wurde durch diese UI-Arbeiten nicht gestartet, gestoppt oder verändert.
 
-Claude hat die Schnittstellen in Werkstatt-Nachricht 165 geprüft und die App nach der Pflichtkorrektur `route` als freigabefähig bewertet. Die Korrektur ist in 0.10.1 enthalten. Sebastian hat am 16.10.2026 die Veröffentlichung von App 0.10.x ausdrücklich freigegeben. Der anschließende angemeldete Browser-Live-Test mit dem vorhandenen Suchauftrag #5 wird mit dem Veröffentlichungsstand in Wunsch 41 dokumentiert. Die automatisierten Browserprüfungen ersetzen diese Abnahme nicht.
+Claude hat die Schnittstellen in Werkstatt-Nachricht 165 geprüft und die App nach der Pflichtkorrektur `route` als freigabefähig bewertet. Die Korrektur ist in 0.10.1 enthalten. Der Nutzer hat am 16.10.2026 die Veröffentlichung von App 0.10.x ausdrücklich freigegeben. Der anschließende angemeldete Browser-Live-Test mit dem vorhandenen Suchauftrag #5 wird mit dem Veröffentlichungsstand in Wunsch 41 dokumentiert. Die automatisierten Browserprüfungen ersetzen diese Abnahme nicht.
 
 ## Zusammenarbeit
 
-Werkstatt-Wunsch 41: App-Verantwortung bei ChatGPT, Backend bei Claude. Vor Änderungen `app:repo` sperren, vorhandenen Featurestand prüfen, danach Änderungen protokollieren und die Sperre freigeben. Größere Änderungen gehen zur Gegenprüfung; Sebastian entscheidet über Veröffentlichung.
+Werkstatt-Wunsch 41: App-Verantwortung bei ChatGPT, Backend bei Claude. Vor Änderungen `app:repo` sperren, vorhandenen Featurestand prüfen, danach Änderungen protokollieren und die Sperre freigeben. Größere Änderungen gehen zur Gegenprüfung; der Nutzer entscheidet über Veröffentlichung.
 
 Der Ausbau 0.11.0 gehört zu Wunsch 50 (Fotos/Karte) und Wunsch 33 (Filter/Auswahl). Die für 0.10.x erteilte Veröffentlichungserlaubnis ersetzt nicht die Abnahme dieses Ausbaus. Ausbau 0.12.0 ergänzt Wunsch 51 (Lückenfüller) in einem eigenen Folge-PR. Ausbau 0.13.0 ergänzt Wunsch 54 (erweiterte Suche/Suchprofile); 0.14.1 ergänzt Wunsch 57 (Konzept-Abgleich und Fokuskorrektur). Ausbau 0.15.1 ergänzt Wunsch 61, die App-Korrekturen aus Gegenprüfung 211 und die Anbindung der Serverkorrektur 215 einschließlich gemeinsamer Merkliste (Wunsch 62).
 

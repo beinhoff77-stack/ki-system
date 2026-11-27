@@ -339,7 +339,7 @@ Meinung: Für Kind B die 6 IB-Flüge aus Kl. 6/7 nicht als Rückstand werten (IB
 
 ---
 
-## Was Sebastian entscheiden muss
+## Was der Nutzer entscheiden muss
 
 1. **Plan-Klassen** wie Punkt 1 (10 Gym-Themen rutschen wegen RS nach vorn).
 2. **Etappen, die dann vorgreifen** (Punkt 3): `daten.darstellen` 2 Etappen nach Kl. 6 verschieben; `gleichungen.ungleichungen`/grafisch nach `funktionen.linear` oder Vertiefung; `messen.koerper_darstellung`/zylinder zu `messen.prisma_zylinder`; einzelne Aufgaben sperren (7 in `messen.koerper_darstellung`/netz, 10 in `daten.darstellen`/tabelle_auswerten, 2 in `raum.schraegbilder`). Das ist Arbeit wie Teil A (eigener Inhalte-Chat).

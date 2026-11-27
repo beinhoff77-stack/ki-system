@@ -1,4 +1,4 @@
--- W150: Neue Regel für „Lernkarte sitzt“ (Entscheidung Sebastian 16.11.):
+-- W150: Neue Regel für „Lernkarte sitzt“ (Entscheidung des Nutzers 16.11.):
 --  * 6 Punkte statt 2–4 (bei weniger als 6 Übungen: so viele, wie es gibt, mindestens 2)
 --  * richtig ohne Hilfe im ersten Versuch: +1 Punkt; Fehler: −2 Punkte (nicht mehr zurück auf 0)
 --  * zusätzlich muss mindestens eine Aufgabe der Stufe 3 im ersten Versuch ohne Hilfe richtig sein (wenn die Karte Stufe-3-Übungen hat)

@@ -1,4 +1,4 @@
--- Bau-Auftrag LB, LB-3 Serverteil (20.11., von Sebastian bestätigt, ohne Vortest): „Kann er – aber wiederholen“, „Wieder in die Wiederholung“, Sammelaktionen, 4 Stufen.
+-- Bau-Auftrag LB, LB-3 Serverteil (20.11., vom Nutzer bestätigt, ohne Vortest): „Kann er – aber wiederholen“, „Wieder in die Wiederholung“, Sammelaktionen, 4 Stufen.
 -- Vorgabe: inhalte/pruefung/lehrer/umsetzung-lb.md (Abschnitte „Die 4 Stufen“ und LB-3). Nach 20261120_i3_lernregeln_nachpruefung.sql.
 -- Nicht ausgeführt – der Haupt-Chat spielt ein. Kein DROP, kein DELETE (auch keine Versuche), keine Änderung am Bestand. Wiederholt ausführbar.
 --

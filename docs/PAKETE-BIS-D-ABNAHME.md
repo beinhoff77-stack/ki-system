@@ -1,6 +1,6 @@
 # Pakete B–D · Arbeitsstand 0.20.0
 
-Sebastian hat A–D aus Werkstatt-Nachricht 315 freigegeben. Reihenfolge: A (PR13) veröffentlichen, danach B+C, danach D. Dieser Branch basiert auf dem korrigierten PR13. Kein Merge/Deploy dieses Branches ohne Sebastians weitere Live-Freigabe.
+Der Nutzer hat A–D aus Werkstatt-Nachricht 315 freigegeben. Reihenfolge: A (PR13) veröffentlichen, danach B+C, danach D. Dieser Branch basiert auf dem korrigierten PR13. Kein Merge/Deploy dieses Branches ohne weitere Live-Freigabe des Nutzers.
 
 ## B · Entscheiden und buchen
 

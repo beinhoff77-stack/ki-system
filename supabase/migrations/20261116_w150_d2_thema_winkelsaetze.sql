@@ -1,5 +1,5 @@
--- W150 Umbau D2-Folge (Entscheidung Sebastian 16.11.): neuer Flug „Winkelsätze“ (Gymnasium Klasse 7, LehrplanPLUS M7 2.2) in Addis Abeba.
--- Nur der Themen-Eintrag; die Einheit wird als Entwurf importiert und erst nach Sebastians Freigabe für Kinder sichtbar.
+-- W150 Umbau D2-Folge (Entscheidung des Nutzers 16.11.): neuer Flug „Winkelsätze“ (Gymnasium Klasse 7, LehrplanPLUS M7 2.2) in Addis Abeba.
+-- Nur der Themen-Eintrag; die Einheit wird als Entwurf importiert und erst nach Freigabe des Nutzers für Kinder sichtbar.
 do $$
 declare v_id bigint;
 begin

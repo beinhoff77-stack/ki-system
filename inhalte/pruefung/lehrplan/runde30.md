@@ -83,7 +83,7 @@ Damit hat RS 8 jetzt 6 statt 7 Themen (78 fällt weg). Der Befund „RS 8 dünn�
 
 ## 0d. Nacharbeit aus ChatGPTs Prüfergebnis 907 (22.11.)
 
-Grundlage: `lernen-app` 986d43e7. Runde 30 c ist eingespielt, 102 ← 30 bleibt hart (Entscheidung Sebastian). Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Die eingespielte Datei `20261121_lehrplan_zuordnung_voraussetzungen.sql` ist unverändert.
+Grundlage: `lernen-app` 986d43e7. Runde 30 c ist eingespielt, 102 ← 30 bleibt hart (Entscheidung des Nutzers). Die Datenbank habe ich nur gelesen, **nichts ausgeführt**. Die eingespielte Datei `20261121_lehrplan_zuordnung_voraussetzungen.sql` ist unverändert.
 
 **Neue Datei** `supabase/migrations/20261122_lehrplan_nacharbeit_907.sql`: berichtigte Fassung mit demselben Inhalt.
 - Auf der Datenbank mit eingespielter Runde 30 c ändert ein Lauf nichts; der Rauchtest bestätigt das.
@@ -140,7 +140,7 @@ Grundlage: `lernen-app` d463182a. Die Datenbank habe ich nur gelesen, die Migrat
 - **Hart geblieben: 102 ← 30** (Potenzgesetze braucht Potenzen). Begründung: Ohne Potenzbegriff (Basis, Exponent) sind Potenzgesetze nicht lernbar; die Kette 30 → 102 → 29 verlangt der Auftrag.
   - Folge: Ort „Terme umformen“ braucht künftig das Visum „Potenzen“.
   - Für die heutigen Pläne ändert das nichts. Beim Kind Klasse 8 sind beide Orte fertig. Beim Kind Klasse 5 ist „Terme umformen“ aus der Route entfernt und wird nicht angeboten.
-  - **Zur Entscheidung durch Sebastian:** hart lassen (empfohlen) oder auch `empfohlen`.
+  - **Zur Entscheidung durch den Nutzer:** hart lassen (empfohlen) oder auch `empfohlen`.
 - Hart geblieben sind außerdem 13 neue Verbindungen ohne neue Sperre. Bei ihnen liegt die Voraussetzung im selben Ort, das Thema hat keinen Ort, oder die Sperre bestand schon.
 - **Durch die Löschungen aus 30 b fallen 4 Visum-Zeilen weg.** Betroffen sind nur zwei Zusatz-Orte, „Zinseszins“ und „Statistik vertieft“. Zusatz-Orte bietet `reiseoptionen` nicht an, die heutigen Pläne bleiben gleich.
 - Ergebnis: `v_ort_visum` hat **46 statt 49 Zeilen**. Neu ist nur „Terme umformen“ → „Potenzen“.

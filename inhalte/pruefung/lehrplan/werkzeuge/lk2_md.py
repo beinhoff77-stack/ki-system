@@ -124,7 +124,7 @@ Nur Fälle, in denen sich etwas ändert oder Stand und Flug nicht zusammenpassen
 - **{len(VP)} Etappen** stehen in der Themendatei unter `lernziele_vertiefung` (heute Kür für alle), sind aber in mindestens einer Schulart Pflicht.
   - Im Gymnasium: {', '.join(VP_GYM)}.
   - Darunter die neuen LK-Etappen, z. B. 20 `irrational_beweis`, 61 `darstellen`, 101 `cavalieri`.
-- **Offen, Sebastian/TL-S:** Welche Angabe gilt?
+- **Offen, der Nutzer/TL-S:** Welche Angabe gilt?
   - Mein Vorschlag: Pflicht/Kür je Schulart nach dieser JSON, und `lernziele_vertiefung` nur noch als Vorgabe für Etappen ohne Lehrplanbezug.
   - Die Liste steht in `vertiefung_aber_lehrplanpunkt`.
 
@@ -220,7 +220,7 @@ L.append(f"""## Frühere Fassung (LK-D 2/3, Stand nach „Entscheidung Teilung�
   - Dazu je eine neue Etappe in den schon geteilten Themen 29 (Teil 2) und 91 (Teil 2); die Zahl der Teile ändert das nicht.
 - **Kind 2, Thema 29 (betrifft Punkt 4 der Entscheidung):** Teil 2 hat durch die neue Etappe „Gleichungen mit Klammerprodukten“ jetzt 4 Etappen, Kind 2 hat 3. **Teil 2 ist nach dem Umhängen also nicht vollständig.**
   - Stempel und die 100 Flug-Sterne für Teil 2 kommen erst, wenn die neue Etappe gelandet ist.
-  - Alternative: die neue Etappe in Teil 2 als Zusatz führen, dann ist Teil 2 für Kind 2 sofort vollständig. Sebastian entscheidet.
+  - Alternative: die neue Etappe in Teil 2 als Zusatz führen, dann ist Teil 2 für Kind 2 sofort vollständig. Der Nutzer entscheidet.
 - **Zusatz-Regel umgesetzt:** je Teil und Schulart `zusatz` in der JSON; Kanten je Schulart in `kanten_je_schulart` (Abschnitt 3a).
 - **IB-Zählung:** 2 harte Verstöße je Kurs (63 ← 61, 29 ← 102), nicht 3. LK-D-Bericht und Postfach sind berichtigt.
 - **Kurzflüge:** 44 Teil 2 und 61 Teil 1 (je 2 Etappen), neu 101 Teil 2 (1 Etappe).
@@ -316,7 +316,7 @@ Legende:
 - Teil 1 ist vollständig (5/5).
 - **Teil 2 hat durch die neue Etappe „Gleichungen mit Klammerprodukten“ jetzt 4 Etappen, Kind 2 hat 3/4.** Ohne die Audit-Ergänzung wäre Teil 2 vollständig (3/3).
 - Nichts geht verloren: Der Flug-Abschluss von 29 bleibt. Teil 2 gilt erst nach der neuen Etappe als geschafft, Stempel dann nach der Regel.
-- Vorschlag: die neue Etappe für Kind 2 als „nachholen“ einplanen. Sebastian entscheidet.
+- Vorschlag: die neue Etappe für Kind 2 als „nachholen“ einplanen. Der Nutzer entscheidet.
 
 **Benennung:** „‹Titel› – Teil x von y“ mit Untertitel wie oben.
 """)
@@ -365,7 +365,7 @@ L.append(f"""## 4 Aufbau nach der Teilung
   - 37 ← 103 (empfohlen; 103 ist in II/III kein Lehrplanstoff).
   - 101 Teil 2 ← Teil 1: Nach der Zusatz-Regel ist das nur empfohlen, der Verstoß entfällt (Abschnitt 3a).
 - IB je Kurs: {VC[('ib_standard','hart')]} hart, {VC[('ib_standard','empfohlen')]} empfohlen.
-  - Hart: 63 ← 61 Teil 1 (MYP 1 gegen 2) und 29 Teil 1 ← 102. Das zweite ist **Sebastians Entscheidung, bleibt**, nur gemeldet.
+  - Hart: 63 ← 61 Teil 1 (MYP 1 gegen 2) und 29 Teil 1 ← 102. Das zweite ist **Entscheidung des Nutzers, bleibt**, nur gemeldet.
   - Empfohlen, u. a.: 92 ← 101 Teil 2 (101 hat keine IB-Klasse), 44 ← 46, 34 ← 93, 37 ← 103, 45 ← 73, 23 ← 16, 100 ← 25.
 
 **46 im Gymnasium:** entschieden (16:20) und umgesetzt: Teil 2 ist Zusatz, Teil 3 braucht hart nur Teil 1.
@@ -407,7 +407,7 @@ Für alle übrigen Themen steht die Kette in `aufbau_kette` (JSON).
 - Audit-Urteil „gedeckt / teilweise / fehlte“.
 - Untertitel als Vorschlag.
 
-**Offen (Sebastian):**
+**Offen (Nutzer):**
 - Liste mit 101 bestätigen (7 Themen, 15 Teile, 8 neue Flüge).
 - Kurzflug 101 Teil 2.
 - Kind 2 in 29 Teil 2: neue Etappe nachholen oder als Zusatz führen.

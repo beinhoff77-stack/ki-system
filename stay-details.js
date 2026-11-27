@@ -105,7 +105,7 @@ function sucheMerkliste(entries) {
     for (const t of rows) {
       const href = '#/suche/' + id + '?favoriten=1&treffer=' + t.treffer_id, offer = sucheLink(t.link);
       const name = t.name || 'Unterkunft ' + t.treffer_id;
-      if (!SUCHE_SCORE_AN) { // 0.36.4 (Sebastian 21.10.): Favoriten kompakt wie die Liste – Foto, Name, Preis, Symbol-Knöpfe
+      if (!SUCHE_SCORE_AN) { // 0.36.4 (Nutzer 21.10.): Favoriten kompakt wie die Liste – Foto, Name, Preis, Symbol-Knöpfe
         const note = sucheZahl(t.note) !== null && sucheZahl(t.note_skala) ? Number(t.note) / Number(t.note_skala) * 10 : null;
         const naechte = Math.round((Date.parse(t.abreise) - Date.parse(t.anreise)) / 86400000), preis = sucheZahl(t.preis_gesamt_eur), ca = t.preis_art === 'geschaetzt' ? 'ca. ' : '';
         const euro = x => Math.round(x).toLocaleString('de-DE') + ' €';

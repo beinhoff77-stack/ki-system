@@ -1,5 +1,5 @@
 -- WD-S 3 (22.11.): Ergänzung zu 20261122_wd_s_wiederholungen.sql (WD-S 2) – danach einspielen, in einer Transaktion.
--- Vorgabe: inhalte/AUFTRAEGE.md „Fehler Mischkarten (22.11.)“, Nachtrag „WD-S 3 – frische Aufgaben“ (Entscheidung Sebastian) und
+-- Vorgabe: inhalte/AUFTRAEGE.md „Fehler Mischkarten (22.11.)“, Nachtrag „WD-S 3 – frische Aufgaben“ (Entscheidung des Nutzers) und
 -- „ChatGPT 919 zu WD-S 2 / WD-4b / Nacharbeit 907“, Teil bau-lehrer.
 --
 -- 1. Frische Aufgaben (eine Regel für Wiederholung und Mischkarte, schule.wdh_aufgabe_waehlen):
@@ -13,7 +13,7 @@
 --    wenn die Aufgabe schon beantwortet oder die Etappe heute schon dran war.
 --    Mischkarte ohne gültige Ausgabe: Antwort misch {gueltig: false, sterne}, wird nicht als Wiederholung gebucht (kein Fortschritt, kein
 --    Wiederholungs-Fehler; als normales Üben wie bisher). Gültige Mischkarte: misch.gueltig = true und misch.sterne. sterne = tatsächlich gebuchte Sterne.
--- 2. Bestandene Wiederholung nur richtig im ersten Versuch ohne Tipp (Regel wdh_nur_selbst, Standard true – Sebastian kann umschalten):
+-- 2. Bestandene Wiederholung nur richtig im ersten Versuch ohne Tipp (Regel wdh_nur_selbst, Standard true – der Nutzer kann umschalten):
 --    gilt für Runde, freiwillige Wiederholung und Mischkarte. Richtig mit Tipp oder im zweiten Versuch: kein Fortschritt, kein Fehler, keine
 --    Wiederholungs-Sterne, kein Ablegen; die Etappe kommt am nächsten Lerntag wieder. Endgültig falsch: wie bisher.
 --    (Die Hilfe des Versuchs merkt sich ein Trigger vor dem Speichern des Versuchs; uebung_pruefen_intern setzt hilfe ≥ 1 im zweiten Anlauf.)
@@ -21,7 +21,7 @@
 -- 3. Reihenfolge: falsche Mischkarte zählt als Wiederholungs-Fehler erst nach endgültiger Wertung (schule.versuch_wertung = 'falsch').
 -- 4. Lesend für den Haupt-Chat: schule.etappen_wenig_frisch() – je Kind die gelandeten Etappen mit weniger als 3 frischen Aufgaben der Stufen 2–3.
 -- WD-4b (Stau strecken) ist in 20261122_wd_4b_stau_strecken.sql nachgezogen (offene Tagesrunde, belegte Folgetage, Rückweg nur ohne Zwischenübung).
--- sterne_wdh_richtig bleibt 10 bis zu Sebastians Entscheidung.
+-- sterne_wdh_richtig bleibt 10 bis zu Entscheidung des Nutzers.
 -- Nicht ausgeführt – der Haupt-Chat spielt ein. Kein DROP, kein DELETE; Bestand unverändert (am Ende geprüft). Wiederholt ausführbar.
 
 create temp table if not exists wd3_vorher (t text, s text) on commit drop;

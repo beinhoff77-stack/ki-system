@@ -24,10 +24,10 @@ Paket U10 (Achte Runde, Klasse 10) ist umgesetzt. Zweig umbau-kl10, kein Merge n
 - funktionen.trig: Der Commit aca25ca hatte noch einen Längenhinweis (Schritt mit 16 Wörtern); behoben in bc36176. Die STATUS-Meldung „0 Hinweise“ gilt ab bc36176. Seitdem bricht das Commit-Skript bei offenen Hinweisen ab.
 
 ### offen
-- Laut AUFTRAEGE.md sollte die Achte Runde erst nach dem Test mit den Kindern laufen. U10 wurde auf Sebastians ausdrücklichen Auftrag vom 16.11. trotzdem jetzt ausgeführt; Rückmeldungen aus dem Test sind noch nicht eingearbeitet.
+- Laut AUFTRAEGE.md sollte die Achte Runde erst nach dem Test mit den Kindern laufen. U10 wurde auf ausdrücklichen Auftrag des Nutzers vom 16.11. trotzdem jetzt ausgeführt; Rückmeldungen aus dem Test sind noch nicht eingearbeitet.
 - Darstellung in der App nicht im Browser geprüft. Annahme: Ein Schrittbild überschreibt die genannten Felder des Kartenbilds, ein anderer `typ` ersetzt es ganz. Wo ein Schritt zu einem früheren Bild zurückkehrt, ist das Bild vollständig angegeben.
 - Baumdiagramme haben keine Markierung von Pfaden; die Schrittbilder zeigen daher gekürzte Bäume (nur der gemeinte Pfad). Falls eine Pfad-Markierung kommt, wären diese Schritte einfacher.
-- Merge nach main erst nach Sebastians „Live“.
+- Merge nach main erst nach „Live“ des Nutzers.
 
 ## 2026-11-16 03:07 – STATUS
 stochastik.mehrstufig umgebaut (7 Karten): einstieg (≤ 35 Wörter), woerter (≤ 3), Kartenbild, Schritte als {text, bild}, fehler + fehler_bild, regel (erster Satz = Kurz gesagt). KLAR-Abschnitt im Generator, eingesetzt nach dem Erzeugen der Aufgaben (_kl10.bauen(klar=…)); probe entfällt.

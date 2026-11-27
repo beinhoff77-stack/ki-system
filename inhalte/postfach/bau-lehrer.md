@@ -193,7 +193,7 @@ Stand `lernen-app` e2a8fcd übernommen. Nur Dateien, nichts eingespielt, kein DR
   - Ohne WD-5 dauert es etwa 13 Lerntage.
   - **Preis:** bis zu 12 Wiederholungen je Lerntag statt 6, also etwa doppelte Wiederholungszeit, bis der Stau weg ist.
   - **Milder:** Teiler 2 – Rückstau 16 → 12 → 10 → 9 → 7 → 9 → 9 → 7, auch nach 14 Lerntagen noch um 10; erst nach rund 20 Lerntagen bei 0.
-  - Entscheidung Sebastian. `update schule.regel set wert = '1' where schluessel = 'wdh_runde_teiler'` ginge jederzeit und ohne Migration.
+  - Entscheidung des Nutzers. `update schule.regel set wert = '1' where schluessel = 'wdh_runde_teiler'` ginge jederzeit und ohne Migration.
 
 **Rauchtest `wd5`** (Transaktion, Rollback; spielt WD-5 zweimal ein)
 1. Regel 3, höchstens 3 gesetzte Erst-Wiederholungen je Lerntag.
@@ -294,7 +294,7 @@ Stand `lernen-app` 31d5374 übernommen. Nur Dateien, nichts eingespielt, kein DR
 
 Die Pflicht-Etappen entsprechen genau der Abfrage des Haupt-Chats von 03:10. Flüge sind unverändert (z. B. Kind 2 Kl. 7: 12 / 5 / 7).
 
-**App:** Kein Feld fällt weg. Für „nur Pflicht“ nimmt die App `etappen_pflicht` und `prozent_pflicht` statt `etappen` und `prozent` und zeigt `kuer` getrennt, ohne neue Migration. Der Ring müsste dann mitgehen; nach Sebastians Entscheidung.
+**App:** Kein Feld fällt weg. Für „nur Pflicht“ nimmt die App `etappen_pflicht` und `prozent_pflicht` statt `etappen` und `prozent` und zeigt `kuer` getrennt, ohne neue Migration. Der Ring müsste dann mitgehen; nach Entscheidung des Nutzers.
 
 **Rauchtests** (lokal, Kopien wie echt mit ids `generated always`): 50 Läufe grün.
 - Tests: `nb_s, sj_s, zp_s, tl_s, rd_s, ex_s, lz_s, nt_s, lk_s, fp_s`.
@@ -747,7 +747,7 @@ Stand `lernen-app` 6da3aec übernommen. Grundlage `inhalte/reise/aufbau-vorschla
   - Test 6: Lernstand, Sterne, Stempel, Route, Ortsnamen und Reiseoptionen unverändert.
 - `tl_s`, `nt_s` und `lk_s` bleiben grün.
 
-**Offen für Sebastian / Haupt-Chat**
+**Offen für den Nutzer / Haupt-Chat**
 - COMNAP-Daten (Stationen) laut JSON „frei für Bildung, nicht kommerziell“ – vor RK-App klären, wie in Bau-Auftrag RK vorgesehen.
 - Die bisherigen Ortsnamen (`block.stadt/land`) bleiben, bis die RK-App live ist; danach eigener Auftrag.
 
@@ -764,7 +764,7 @@ Stand `lernen-app` 00cd00e übernommen (Rückläufer Prüfung 951). Nur Dateien:
 - **A2:** `stufe_etappen` – ausdrücklich leere Pflichtliste → keine Etappen (Kür zählt nicht); ohne Liste wie bisher alle.
 - **D2:** Nachtest-Menge zählt die Pflicht-Etappen des Kindes (`lernziel_stand.pflicht`, gesetzt nach `pflicht_lernziele` der Gruppe); `schule.nachtest_vorrat` jetzt je Gruppe (gym_by, rs_I, rs_II_III, myp_standard, myp_extended) – RS II/III ausgewiesen.
 - **lk_s Teil 4:** statt md5 über das Stufen-JSON: Karten, Versuche, Sterne unverändert, bestehende Lernziel-Stände unverändert (neue offene Zeilen erlaubt), Etappenzahl der Stufe = Pflichtliste der Gruppe (`stufe_etappen`; vor TL-S alle Etappen). Lokal vor und nach der Teilung durchgelaufen.
-- **Liste je Kind:** `schule.tl_teile_je_kind` mit neuer Spalte `visum_aus_altem_thema` (fertig | gesetzt) – bewusste, dauerhafte Ausnahme, Sebastian bestätigt einmal.
+- **Liste je Kind:** `schule.tl_teile_je_kind` mit neuer Spalte `visum_aus_altem_thema` (fertig | gesetzt) – bewusste, dauerhafte Ausnahme, der Nutzer bestätigt einmal.
 
 **Gesehen/getestet (lokal, Nachbau mit echten Indizes, echtem Graph, echtem `lk_einspiel` vor TL-S, Live-Funktionen):** TL-S zweimal ohne Fehler; `tl_s_rauchtest` vor und nach der Teilung grün; NT-S zweimal ohne Fehler, `nt_s_rauchtest` vor und nach der Teilung grün; `lk_s_rauchtest` vor und nach der Teilung durchgelaufen. Auf der echten Datenbank nicht ausgeführt.
 

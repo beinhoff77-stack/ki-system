@@ -1,4 +1,4 @@
--- W150: Realschul-Klasse (rs_by) und IB-MYP-Jahr (ib_myp) je Thema fest eintragen (Entscheidung Sebastian, 18.11.2026).
+-- W150: Realschul-Klasse (rs_by) und IB-MYP-Jahr (ib_myp) je Thema fest eintragen (Entscheidung des Nutzers, 18.11.2026).
 -- Grund: thema_jahrgang nahm je Schulart die früheste Zuordnung, auch Neben-Zuordnungen; 860 von 862 Zuordnungen sind ungeprüft.
 -- Quelle der Werte: inhalte/pruefung/klassen/vorschlag-mindeststand.md, Punkt 1 (RS korrigiert nach vorschlag-rsib.md; IB = Vorschlag rsib, sonst heutiger Wert).
 -- null = diese Schulart hat das Thema nicht; die Angabe aus den Zuordnungen wird dann unterdrückt. Gymnasium (gym_by) bleibt unverändert.

@@ -11,7 +11,7 @@ Neueste Meldung oben.
   - `pruefung-kinderansicht`: Vorgabe EX, Nachprüfung 0.89.1.
   - Werkstatt-Prüfergebnisse 952 und 958 stehen in der Werkstatt.
 - **Offene Befunde, nicht von mir zu erledigen (stehen in den jeweiligen Meldungen):**
-  - 48 bzw. 58 Etappen „Vertiefung in der Themendatei, aber Pflicht nach Lehrplan“: Sebastian/TL-S entscheidet (LK-D 4).
+  - 48 bzw. 58 Etappen „Vertiefung in der Themendatei, aber Pflicht nach Lehrplan“: Der Nutzer/TL-S entscheidet (LK-D 4).
   - Pflicht je Schulart für **ungeteilte** Themen (z. B. 1, 31, 20, 47, 99) ist in der DB noch nicht gesetzt. Der Vorrat dafür ist mit NT-D 3 schon aufgefüllt.
   - Expedition `8-schulfest` verweist noch auf `stochastik.grundbegriffe_teil2` (Prüfskript-Fehler seit 83ada52) → `bau-lehrer`.
   - `stufe_etappen` bei leerer Pflichtliste: alle Etappen (Werkstatt 952/958, kein Muss).
@@ -148,7 +148,7 @@ Grundlage: `lernen-app` d722a791. Nichts eingespielt, Kinder nur als Nummern. Ei
 - **Kinder (Gymnasium):**
   - Kind 2: 29 Teil 2 mit 3/3 vollständig, 99 vollständig.
   - Kein geflogener Flug wird wieder offen.
-- **Offen:** 58 Etappen stehen in der Themendatei als Vertiefung, sind nach dieser JSON aber in einer Schulart Pflicht (`vertiefung_aber_lehrplanpunkt`). Vorschlag: Die JSON gilt. Entscheidung Sebastian/TL-S.
+- **Offen:** 58 Etappen stehen in der Themendatei als Vertiefung, sind nach dieser JSON aber in einer Schulart Pflicht (`vertiefung_aber_lehrplanpunkt`). Vorschlag: Die JSON gilt. Entscheidung des Nutzers/TL-S.
 - **Für reise-aufbau:** Neue Etappen seit LK-D 3 sind 61 `darstellen`, 91 `raumwinkel` und 20 `irrational_beweis` (kein neuer Flug).
 - Prüfskript ohne Fehler, Tests 141/141.
 
@@ -156,7 +156,7 @@ FERTIG: LK-D 4
 
 ## 2026-11-22 – MELDUNG LK-D 4 (lehrplan-lb)
 
-Grundlage: `lernen-app` 723770dd, „Entscheidungen Sebastian (17:05)“. Nichts eingespielt, Kinder nur als Nummern. Einzelheiten stehen in `lk_teilung_2211.md`, Abschnitt „LK-D 4“.
+Grundlage: `lernen-app` 723770dd, „Entscheidungen des Nutzers (17:05)“. Nichts eingespielt, Kinder nur als Nummern. Einzelheiten stehen in `lk_teilung_2211.md`, Abschnitt „LK-D 4“.
 
 - **(b) Kür je Etappe und Schulart:**
   - In der JSON hat jede Etappe `kuer_in` und `klasse_je_schulart`, in den geteilten Themen und unter `etappen_kuer` für alle 87 Themen.
@@ -172,7 +172,7 @@ Grundlage: `lernen-app` 723770dd, „Entscheidungen Sebastian (17:05)“. Nichts
 - **Widerspruch, offen:**
   - 47 Etappen stehen in der Themendatei als Vertiefung (heute Kür für alle), haben aber in einer Schulart einen Lehrplanpunkt. Dazu gehören meine LK-Etappen, z. B. 61 `darstellen` und 101 `cavalieri`, die im Gymnasium Pflicht sind.
   - Vorschlag: Die Schulart-Regel gilt, und `lernziele_vertiefung` gilt nur noch für Etappen ohne Lehrplanpunkt.
-  - Die Liste steht in `vertiefung_aber_lehrplanpunkt`. Sebastian bzw. TL-S entscheidet.
+  - Die Liste steht in `vertiefung_aber_lehrplanpunkt`. Der Nutzer bzw. TL-S entscheidet.
 - **(a) F1 und (c) F3** waren schon vor der Entscheidung von 17:05 geliefert (Commit c7a86ada, Meldung darunter):
   - Alle Themen sind durchgezählt (62 Fälle).
   - **57**: Wiederholung ohne neue Etappe, Anzeige „wird in Kl. 7 wieder aufgegriffen“. Kl. 7 verlangt dieselbe Fähigkeit wie Kl. 5 auf höherem Niveau.
@@ -210,7 +210,7 @@ Grundlage: `lernen-app` 95886f3b. Nichts eingespielt, Kinder nur als Nummern. Ei
 - **SQL:** Nur die Begründungstexte von 185 ändern sich; die Zahlen bleiben 33/18/13/187. Probelauf auf dem echten Stand: LP-RS zweimal, dann LK-D zweimal, bestanden; `thema_jahrgang` unverändert. Tests: 141/141.
 - **Offen:**
   - 57 `irrefuehrend` hat kaum Aufgaben zu „Diagramm berichtigen“. Das sind fehlende Aufgaben, keine fehlende Etappe; nicht geliefert.
-  - Unverändert offen: Kind 2 / 29 Teil 2 (3 von 4 Etappen, neue Etappe nachholen oder als Zusatz führen) – Sebastian entscheidet.
+  - Unverändert offen: Kind 2 / 29 Teil 2 (3 von 4 Etappen, neue Etappe nachholen oder als Zusatz führen) – der Nutzer entscheidet.
 
 FERTIG: LK-D 3
 
@@ -223,7 +223,7 @@ Grundlage ist `lernen-app` 13dd8a52, „Entscheidung Teilung (16:20)“. Nichts 
   - neue Etappe 101 `cavalieri` (Gym 10 5/k4, schiefe Körper und Volumengleichheit) → **101 wird geteilt** (Teil 2 von 2, Gym 10, RS I 9);
   - neue Etappen 91 `koerper_symmetrie` und 29 `gleichungen_binomisch` (RS 8).
   - **Die Liste steht damit bei 7 Themen, 15 Teilen, 8 neuen Flügen.**
-- **Kind 2, Thema 29:** Teil 2 hat jetzt 4 Etappen, Kind 2 hat 3. Teil 2 ist also nicht sofort vollständig, das widerspricht Punkt 4 der Entscheidung. Entweder die neue Etappe nachholen, oder sie in Teil 2 als Zusatz führen (Sebastian).
+- **Kind 2, Thema 29:** Teil 2 hat jetzt 4 Etappen, Kind 2 hat 3. Teil 2 ist also nicht sofort vollständig, das widerspricht Punkt 4 der Entscheidung. Entweder die neue Etappe nachholen, oder sie in Teil 2 als Zusatz führen (Nutzer).
 - **Zusatz je Teil und Schulart** steht in der JSON (`teile[].zusatz`), dazu die Kanten je Schulart in `kanten_je_schulart`.
   - Gymnasium: 46 Teil 2 und 44 Teil 2 sind Zusatz; 46 Teil 3 braucht hart nur Teil 1.
   - RS I und II/III: 101 Teil 1 ist Zusatz (Prismen stehen dort bei 92), deshalb braucht Teil 2 ihn nur empfohlen.
@@ -250,7 +250,7 @@ Grundlage ist `lernen-app` „Stand 15:50 – Rückläufer ChatGPT 936/937“. N
   - RS II/III 2, darunter neu 101 Teil 2 ← Teil 1.
   - IB je Kurs 2 hart und 7 empfohlen.
 - **IB Muss B1:** Der LK-D-Bericht nannte fälschlich 3 harte Verstöße, richtig sind 2 (63 ← 61, 29 ← 102). Bericht berichtigt, die JSON war richtig.
-- **Kind 2, Thema 29:** Teil 2 hat durch die neue Etappe 3/4, nicht mehr 3/3. Der Flug-Abschluss bleibt. Vorschlag: die neue Etappe nachholen (Entscheidung Sebastian).
+- **Kind 2, Thema 29:** Teil 2 hat durch die neue Etappe 3/4, nicht mehr 3/3. Der Flug-Abschluss bleibt. Vorschlag: die neue Etappe nachholen (Entscheidung des Nutzers).
 - **Geändert:**
   - `lk_daten_2211.json` und **`lk_korrektur_2211.sql`** (285 bekommt die Etappe `cavalieri`; 781 von 92 auf 101; 734 von 2 auf 29; 939 bekommt die Etappe `koerper_symmetrie`).
   - Probelauf auf dem vollständigen echten Stand erneut bestanden, Klassen unverändert. **Der Probelauf des Haupt-Chats von 15:50 galt der alten Fassung.**
@@ -275,7 +275,7 @@ Grundlage ist `lernen-app` 367e31e0 (Teilungsregel 15:30/15:35/15:40). Nichts ei
 - **Aufbau:**
   - Teil n braucht Teil n−1 (hart).
   - Alle 128 bisherigen Voraussetzungen sind dem passenden Teil zugeordnet (3 davon inhaltlich).
-  - Ergebnis: Gymnasium 0 Verstöße, RS I 0, RS II/III 2 (empfohlen), IB 10 je Kurs. 29 Teil 1 ← 102 ist Sebastians harte Entscheidung und bleibt.
+  - Ergebnis: Gymnasium 0 Verstöße, RS I 0, RS II/III 2 (empfohlen), IB 10 je Kurs. 29 Teil 1 ← 102 ist harte Entscheidung des Nutzers und bleibt.
   - Befund 46 im Gymnasium: Die harte Kette Teil 3 ← Teil 2 führt Gym-Kinder durch einen Teil ohne Gym-Punkt. Vorschlag: im Gymnasium „empfohlen“.
 - **Grenzfälle:** RS II/III bei 8 und 33, im IB viele Themen über zwei Jahre. Empfehlung: nicht teilen, Anzeige „weitergeführt“.
 - **Aufbau-Kette je Teil** für die Anzeige steht im Bericht und in der JSON.
@@ -306,7 +306,7 @@ Grundlage ist `lernen-app` 22251c0e: Bau-Auftrag LK, Abschnitt LK-D, mit den Nac
   - Kein Pflichtstoff je Spur ist ausgewiesen.
 - **Teilen (Regel 14:25):** Kein Thema erfüllt die Regel, weil im Gymnasium jedes Thema in einer Klasse liegt.
   - 8 Grenzfälle mit Empfehlung „zusammen lassen“, darunter 29 Terme umformen (RS 8: 3 Etappen; Kind 2 hat 8/8, Flug geschafft).
-  - Sebastian entscheidet.
+  - der Nutzer entscheidet.
 - **Lernstand (Nachtrag Punkt 6):** keine verteilten Themen mit Lernstand im Gymnasium; kein „geschafft, aber spätere Etappen offen“.
 - **Neue Inhalte:** 6 Lernkarten mit je 22 Aufgaben (`_lk_etappen_2211.py`, in 5 Generatoren eingehängt), als Vertiefung (Flug und Stempel unverändert). Prüfskript OK, App-Tests 164/164.
 - **Repo-Klassen:** 31 Themendateien und Generatoren an `themenliste.json` angeglichen, darunter 61, 44, 91, 99, 100, 101, 64 und 26. 91 `rs_by` 7 folgt `rs_korrektur_2211.sql`. Die stillgelegten Dateien sind unverändert.
@@ -461,7 +461,7 @@ FERTIG: Lehrplan Nacharbeit 907
 Grundlage ist `lernen-app` d463182a. Die Datenbank habe ich nur gelesen, die Migration auf der echten Datenbank **nicht ausgeführt**. Einzelheiten stehen im Bericht `inhalte/pruefung/lehrplan/runde30.md`, Abschnitt 0c.
 
 - **Ursache:** Jede harte Verbindung zwischen zwei Orten ist über `schule.v_ort_visum` eine Reise-Sperre in `schule.reiseoptionen`. Meine Aussage „Plan-Folgen: keine“ war falsch.
-- **38 von 39 neuen harten Verbindungen mit neuer Sperre sind jetzt `empfohlen`.** Hart bleibt nur 102 ← 30 (Potenzgesetze braucht Potenzen; Kette laut Auftrag). Das bringt eine neue Visum-Zeile: Ort „Terme umformen“ braucht „Potenzen“. Heute wirkt sie nicht, weil das Kind Klasse 8 beide Orte fertig hat und beim Kind Klasse 5 der Ort entfernt ist. **Entscheidung Sebastian:** hart lassen oder empfohlen.
+- **38 von 39 neuen harten Verbindungen mit neuer Sperre sind jetzt `empfohlen`.** Hart bleibt nur 102 ← 30 (Potenzgesetze braucht Potenzen; Kette laut Auftrag). Das bringt eine neue Visum-Zeile: Ort „Terme umformen“ braucht „Potenzen“. Heute wirkt sie nicht, weil das Kind Klasse 8 beide Orte fertig hat und beim Kind Klasse 5 der Ort entfernt ist. **Entscheidung des Nutzers:** hart lassen oder empfohlen.
 - **`v_ort_visum`:** vorher 49, nachher 46 Zeilen. Vier Zeilen fallen durch die Löschungen aus 30 b weg; sie betreffen nur die Zusatz-Orte „Zinseszins“ und „Statistik vertieft“.
 - **Reiseoptionen je Kind:** Für das Kind Klasse 5, das Kind Klasse 8 und das Testkind Klasse 7 sind vorher und nachher dieselben Orte wählbar und dieselben gesperrt. Die Tabellen dazu stehen im Bericht.
 - **Rauchtest j:** vergleicht die Reiseoptionen aller Lernenden vor und nach der Migration und bricht bei jedem Unterschied ab.
@@ -513,13 +513,13 @@ Betroffen sind nur die Gym-Kinder: zwei echte und das Testkind.
 
 Die Voraussetzungen ändern keine Reihenfolge.
 
-**Offen für Sebastian:** Soll 32 nach MYP 3 (umgesetzt) oder lieber 33 nach MYP 4? Vorschläge V1–V5 stehen im Bericht.
+**Offen für den Nutzer:** Soll 32 nach MYP 3 (umgesetzt) oder lieber 33 nach MYP 4? Vorschläge V1–V5 stehen im Bericht.
 
 FERTIG: Lehrplan Runde 30
 
 ## 2026-11-20 06:10 – ENTSCHEIDUNG SEBASTIAN zum Auftragsentwurf Potenzgesetze
 
-Sebastian hat am 20.11. im Chat `lehrplan-lb` entschieden:
+Der Nutzer hat am 20.11. im Chat `lehrplan-lb` entschieden:
 1. **Klassen der neuen Flüge wie vorgeschlagen:**
    - Flug A „Potenzgesetze“: `gym_by` 7 · `rs_by` 7 · `ib_myp` 4.
    - Flug B „Potenzgesetze mit ganzzahligen Exponenten“: `gym_by` 8 · `rs_by` 7 · `ib_myp` 4.
@@ -527,9 +527,9 @@ Sebastian hat am 20.11. im Chat `lehrplan-lb` entschieden:
 
 Umsetzung weiter durch den Haupt-Chat (IDs, Ort, Lernstand) und einen Inhalts-Chat. In diesem Zweig ist nichts davon umgesetzt.
 
-## 2026-11-20 06:00 – AUFTRAGSENTWURF: Potenzgesetze in zwei eigene Flüge teilen (von Sebastian gewählt)
+## 2026-11-20 06:00 – AUFTRAGSENTWURF: Potenzgesetze in zwei eigene Flüge teilen (vom Nutzer gewählt)
 
-Sebastian will die Potenzgesetze nach Klassen aufteilen. Der Lehrer soll sie dann gebündelt oder einzeln in den Plan nehmen können (LB-1/LB-5: Knöpfe je Flug, Sammelaktion für mehrere Flüge). **Nichts davon ist umgesetzt.** Neue Flüge brauchen `thema_id`, `block_id` und Ort aus der Datenbank. Die vergibt der Haupt-Chat; danach baut ein Inhalts-Chat. Alle Zahlen unten habe ich per Skript aus den Themendateien gezählt (Zweig `lernen-app`, Stand 752acf0).
+Der Nutzer will die Potenzgesetze nach Klassen aufteilen. Der Lehrer soll sie dann gebündelt oder einzeln in den Plan nehmen können (LB-1/LB-5: Knöpfe je Flug, Sammelaktion für mehrere Flüge). **Nichts davon ist umgesetzt.** Neue Flüge brauchen `thema_id`, `block_id` und Ort aus der Datenbank. Die vergibt der Haupt-Chat; danach baut ein Inhalts-Chat. Alle Zahlen unten habe ich per Skript aus den Themendateien gezählt (Zweig `lernen-app`, Stand 752acf0).
 
 **Heute (Tatsache):**
 
@@ -542,7 +542,7 @@ Sebastian will die Potenzgesetze nach Klassen aufteilen. Der Lehrer soll sie dan
 **Vorschlag Flug A „Potenzgesetze“ (Gym 7, M7 1.2)** – aus `terme.umformen` herauslösen
 - Die vier Karten oben umziehen. Das geht mit dem Werkzeug der Vierundzwanzigsten Runde (`inhalte/generatoren/_aufloesen.py`, Baustein `karte_her`). Pflicht und Vertiefung bleiben wie heute. Die 22 Aufgaben mit negativen Exponenten gehören zu Flug B; in Flug A durch Aufgaben mit natürlichen Exponenten ersetzen (auch die Testaufgabe von „Gleiche Basis: teilen“).
 - `terme.umformen`: die vier Lernziele aus `bewertung` streichen. Danach bleiben 8 Karten (Termumformen, binomische Formeln).
-- Klasse (Vorschlag, Sebastian entscheidet): `gym_by` 7 · `rs_by` 7 (R7 M7 1 Potenzen) · `ib_myp` 4 (IBG: Potenzgesetze = MYP 4–5 Standard).
+- Klasse (Vorschlag, der Nutzer entscheidet): `gym_by` 7 · `rs_by` 7 (R7 M7 1 Potenzen) · `ib_myp` 4 (IBG: Potenzgesetze = MYP 4–5 Standard).
 - Reihenfolge Gym 7: hinter `terme.aufstellen`, vor `terme.umformen`, Lernbereich „M7 1 Terme mit Variablen“. Der Lehrplan M7 1.2 nennt die Potenzgesetze zuerst (G7). Realschule 7: Lernbereich „M7 1 Potenzen“, hinter `terme.potenzgesetze`.
 
 **Vorschlag Flug B „Potenzgesetze mit ganzzahligen Exponenten“ (Gym 8, M8 4)** – neu bauen
@@ -560,10 +560,10 @@ Sebastian will die Potenzgesetze nach Klassen aufteilen. Der Lehrer soll sie dan
 **Folgen, die der Haupt-Chat lösen muss**
 - **Lernstand der Kinder:** Fortschritt auf den vier umziehenden Lernzielen (`karte_stand`, Wiederholungen, Sterne) muss in der Datenbank auf Flug A umgehängt werden, ohne Verlust (W1–W7).
 - **Reihenfolge Gym:** Die Nummern von `reihenfolge.gym_by` (Gym 7 und 8) verschieben sich. Die habe ich in LB-4 nicht anfassen dürfen.
-- **`terme.potenzgesetze` (Gym 6):** Titel „Potenzen und Potenzgesetze“, `umfang` („… rationalen Exponenten, Potenzgesetze“) und der dritte Eintrag in `lehrplan_gym` an den echten Inhalt anpassen. Vorschlag Titel: „Potenzen und negative Exponenten“. Die 19 Aufgaben in „Fehler finden“, die Potenzgesetze nutzen, als Vertiefung lassen oder nach Flug A verschieben (Sebastian).
+- **`terme.potenzgesetze` (Gym 6):** Titel „Potenzen und Potenzgesetze“, `umfang` („… rationalen Exponenten, Potenzgesetze“) und der dritte Eintrag in `lehrplan_gym` an den echten Inhalt anpassen. Vorschlag Titel: „Potenzen und negative Exponenten“. Die 19 Aufgaben in „Fehler finden“, die Potenzgesetze nutzen, als Vertiefung lassen oder nach Flug A verschieben (Nutzer).
 - Expeditionen verweisen auf keine der betroffenen Lernkarten (per Skript geprüft).
 
-## 2026-11-20 – NACHPRÜFUNG LB-4 (auf Wunsch von Sebastian)
+## 2026-11-20 – NACHPRÜFUNG LB-4 (auf Wunsch vom Nutzer)
 
 Die vier Lehrplan-Seiten, die vorhin fehlten, habe ich heute gelesen: Gymnasium 8 und 9, Realschule 8 und 9 (I). Dazu kamen die Seiten der Realschule 8–10 (II/III). Danach habe ich jede Zuordnung erneut gegen den Lehrplan geprüft. Ein Skript hat außerdem jeden Lernbereich gegen die Kürzel in `lehrplan_gym` und `lehrplan_andere` abgeglichen.
 
@@ -580,7 +580,7 @@ Die vier Lehrplan-Seiten, die vorhin fehlten, habe ich heute gelesen: Gymnasium 
 - `terme.potenzgesetze` (Gym 6) hat nur drei Lernkarten: „Was ist eine Potenz?“, „Negative Exponenten und Hoch 0“ (beide Pflicht) und „Fehler bei Potenzen finden“ (Vertiefung). Das passt zu M6 1.4. Das Ziel der Datei sagt selbst: „Die Potenzgesetze folgen in Klasse 7 (Terme umformen).“ Nur Titel („Potenzen und Potenzgesetze“), `umfang` und der dritte Eintrag in `lehrplan_gym` versprechen mehr. Ein Teil der Vertiefungs-Aufgaben („Fehler finden“) nutzt schon Potenzgesetze mit natürlichen Exponenten.
 - Die Potenzgesetze mit natürlichen Exponenten (M7 1.2) stehen in `terme.umformen` (Gym 7). Pflicht: „Gleiche Basis: malnehmen“, „Gleicher Exponent“. Vertiefung: „Gleiche Basis: teilen“, „Potenzgesetze geschickt nutzen“.
 - Für Potenzgesetze mit ganzzahligen Exponenten (M8 4) gibt es **kein eigenes Thema**. 22 Aufgaben in den vier Potenzgesetz-Karten von `terme.umformen` (Gym 7) nutzen schon negative Exponenten (z. B. „y⁻³ · y⁻¹ = yᵏ“), darunter 1 Testaufgabe.
-Die Aufteilung auf Klasse 6 und 7 besteht also schon. Es fehlt ein eigener Flug für M8 4, und die Potenzgesetze sind in Klasse 7 nicht vom Termumformen getrennt. Das Weitere entscheidet Sebastian.
+Die Aufteilung auf Klasse 6 und 7 besteht also schon. Es fehlt ein eigener Flug für M8 4, und die Potenzgesetze sind in Klasse 7 nicht vom Termumformen getrennt. Das Weitere entscheidet der Nutzer.
 
 **Geprüft und richtig:** alle Titel der Lernbereiche (Gym 5–10, RS 5–10) gegen die Lehrplan-Seiten. Zahl und Reihenfolge der Lernbereiche passen. Kein Thema hängt an einem Lernbereich, der seinen Kern nicht enthält. Die Selbstprüfung ist unverändert, das Prüfskript meldet 116 × OK. Es bleibt der bekannte Befund Gym 6.
 
@@ -596,7 +596,7 @@ Zweig `lehrplan-lb` (von `lernen-app`, Commit 752acf0). Drei Commits, je Schular
 - **Neu in `themenliste.json`:** `lernbereich.gym_by` (71 Themen), `reihenfolge.rs_by` + `lernbereich.rs_by` + `lehrplan_rs` (76 Themen), `reihenfolge.ib_myp` + `lernbereich.ib_myp` + `lehrplan_ib` (84 Themen). Jedes Thema mit Klasse in einer Schulart hat dort Reihenfolge und Lernbereich. Themen ohne Klasse in einer Schulart haben dort keinen Eintrag. `reihenfolge.gym_by`, `lehrplan_gym`, `lehrplan_andere` und `klasse` sind unverändert.
 - **Eingefügt, nicht neu formatiert:** Ein Skript hat nur Zeilen eingefügt. Der Diff zeigt neue Zeilen und Kommas am Ende der jeweils vorherigen Zeile (69 so geänderte Zeilen). Geprüft per Skript: Alle alten Werte sind gleich, neu ist nur das Erwartete. `python3 -I tools/inhalt_pruefen.py --alle` ergibt 116 × OK, Rückgabewert 0.
 - **Selbstprüfung:** Alles lückenlos und eindeutig. Realschule Klasse 7 hat 18 Themen. **Ein Befund:** Gymnasium Klasse 6 – der Lernbereich M6 1 wird durch die bestehende `reihenfolge.gym_by` unterbrochen (siehe unten, Vorschlag). Den Vorschlag habe ich nicht umgesetzt, weil der Auftrag die Gym-Reihenfolge sperrt.
-- **Für Sebastian zu entscheiden:** die Gym-6-Reihenfolge (1 Punkt), 9 Vorschläge zu Klassen (Liste unten, nichts geändert) und ob IB-Überschriften englisch bleiben.
+- **Für den Nutzer zu entscheiden:** die Gym-6-Reihenfolge (1 Punkt), 9 Vorschläge zu Klassen (Liste unten, nichts geändert) und ob IB-Überschriften englisch bleiben.
 
 ### So habe ich zugeordnet (Festlegungen)
 - **Lernbereich = oberste Ebene des Lehrplans**, z. B. „M8 1 Funktion und Term“, „M9 7 Trigonometrie“ (nicht 7.1/7.2). So passt jede Überschrift zu einem zusammenhängenden Block. Die Unterkapitel stehen weiter in `lehrplan_gym`.

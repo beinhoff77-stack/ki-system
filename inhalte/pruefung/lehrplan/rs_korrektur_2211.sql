@@ -1,5 +1,5 @@
 -- LP-RS (22.11.2026, Stand Nachtrag 13:30/13:45): Korrektur der Realschul-Lehrplanzuordnungen nach Punkt-für-Punkt-Abgleich mit LehrplanPLUS (abgerufen 22.11.2026).
--- Maßstab Wahlpflichtfächergruppe I (Entscheidung Sebastian 22.11., 13:45): nur Quellen RS 5, 6 (allgemein) und 7 I, 8 I, 9 I, 10 I (7, 8, 24, 12, 13, 15).
+-- Maßstab Wahlpflichtfächergruppe I (Entscheidung des Nutzers 22.11., 13:45): nur Quellen RS 5, 6 (allgemein) und 7 I, 8 I, 9 I, 10 I (7, 8, 24, 12, 13, 15).
 -- Gruppe II/III (25, 26, 14, 16) nur im Bericht und in der JSON (korrektur_sql = false), hier unverändert.
 -- Bericht: inhalte/pruefung/lehrplan/rs_pruefung_2211.md, Daten: rs_pruefung_2211.json.
 -- Nur INSERT und UPDATE auf schule.zuordnung, schule.eintrag und schule.thema (eine Klasse, Schritt 8); kein DROP, kein DELETE.

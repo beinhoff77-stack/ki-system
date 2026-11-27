@@ -1,7 +1,7 @@
 # Nachprüfung Abschluss-Ansichten (AB-A) – App 0.83.0
 
 Stand: `main` c9c5f0d (App 0.83.0, Cache v150), geprüft am 20.11.
-Vorgabe: `umsetzung.md` (Fassung 2, Freigabe §7), `entwurf/abschluss.html`, Zusätze von Sebastian (Knobel von selbst vor dem Abschluss, Flug-Test folgt, RICHTIG/FALSCH im Ergebnis).
+Vorgabe: `umsetzung.md` (Fassung 2, Freigabe §7), `entwurf/abschluss.html`, Zusätze vom Nutzer (Knobel von selbst vor dem Abschluss, Flug-Test folgt, RICHTIG/FALSCH im Ergebnis).
 Geprüft mit Playwright/Chrome, Testkind und erfundenen Daten (Server-Antworten nach AB-S nachgebildet, wie in den Tests des Bau-Chats). Handy 400 × 780 und 360 × 640, Tablet 820, hell und nacht. Keine Kinderdaten.
 Bilder: `nachpruefung-bilder/`. Messskript: `nachpruefung-bilder/ab1.test.cjs`, Ergebnisse `mess.json`.
 

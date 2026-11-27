@@ -13,7 +13,7 @@
 // Version 0.16.0 (Suchtool Bauschritt 7, Werkstatt #47): Rückmeldung geben und Rückmelde-Report, nur über die Tür.
 // Version 0.17.0 (Suchtool Ausbau 3a, Werkstatt #52): Suchauftrag mit Nebenart/Unterkunftsform/Kriterien/Qualitätsfilter/Suchprofil; Suchprofile speichern/lesen.
 // Version 0.18.0 (Ortswissen, Werkstatt #60): Viertel lesen/ermitteln, Zonen lesen/entscheiden; Kriterium mit werte (Viertel-Auswahl), nur über die Tür.
-// Version 0.18.1 (Werkstatt #83): werkstatt_nachricht kennt art entscheidung und fertig (Handy-Meldung an Sebastian).
+// Version 0.18.1 (Werkstatt #83): werkstatt_nachricht kennt art entscheidung und fertig (Handy-Meldung an den Nutzer).
 // Version 0.19.0 (Werkstatt #155): Highlights – Recherche-Aufträge aus der App im Chat erledigen (highlights_chat_offen/abholen/abschliessen), nur über die Tür.
 // REGEL FÜR KÜNFTIGE ERWEITERUNGEN: neue Aktionen mit nurTuer = true anlegen, damit sich die Werkzeugliste
 // in den Apps nicht ändert und niemand neu verbinden muss.
@@ -340,21 +340,21 @@ function baueServer(schluesselHash: string, rechte: string[]): McpServer {
   def('aufraeumen', 'leiten', 'Aufräumrunde (Leitung)', 'Löscht fällige Verläufe einmaliger, abgeschlossener Aufträge nach 30 Tagen (Ergebnis und Archiv bleiben) und listet ruhende Aufträge.', {}, () => [h], LOESCHT)
 
   // ---------- Werkstatt (Bauschritt 14) ----------
-  lese('werkstatt_lesen', 'teilnehmen', 'Werkstatt: Überblick', 'Werkstatt = Absprache zwischen Claude und ChatGPT über Programmierwünsche von Sebastian am System. Zeigt Regeln W1-W7, neue Nachrichten an dich (danach als gelesen markiert), offene Wünsche, aktive Sperren, letzte Änderungen. Aufrufen, wenn Sebastian "Werkstatt" sagt, und bevor du am System etwas änderst.',
+  lese('werkstatt_lesen', 'teilnehmen', 'Werkstatt: Überblick', 'Werkstatt = Absprache zwischen Claude und ChatGPT über Programmierwünsche vom Nutzer am System. Zeigt Regeln W1-W7, neue Nachrichten an dich (danach als gelesen markiert), offene Wünsche, aktive Sperren, letzte Änderungen. Aufrufen, wenn der Nutzer "Werkstatt" sagt, und bevor du am System etwas änderst.',
     { alle: z.boolean().optional().describe('true zeigt auch erledigte/verworfene Wünsche') }, (a) => [h, a.alle ?? false], true)
   lese('werkstatt_wunsch_lesen', 'teilnehmen', 'Werkstatt: Wunsch im Detail', 'Nur lesen. Ein Programmierwunsch mit Beschreibung, allen Nachrichten, Änderungen und Sperren.',
     { id: z.number().int() }, (a) => [h, a.id], true)
-  def('werkstatt_wunsch_anlegen', 'daten', 'Werkstatt: Wunsch anlegen', 'Legt einen Programmierwunsch an. im_auftrag_nutzer = true NUR, wenn Sebastian ihn selbst geäußert hat (dann sofort freigegeben); eigene Ideen bleiben Vorschlag. Zuständig standardmäßig: datenbank/motor/zugang = Claude, app = ChatGPT.', {
+  def('werkstatt_wunsch_anlegen', 'daten', 'Werkstatt: Wunsch anlegen', 'Legt einen Programmierwunsch an. im_auftrag_nutzer = true NUR, wenn der Nutzer ihn selbst geäußert hat (dann sofort freigegeben); eigene Ideen bleiben Vorschlag. Zuständig standardmäßig: datenbank/motor/zugang = Claude, app = ChatGPT.', {
     titel: z.string().min(3), beschreibung: z.string().optional(),
     bereich: z.enum(['datenbank', 'motor', 'zugang', 'app', 'sonstiges']).optional(),
     prioritaet: z.number().int().min(1).max(3).optional().describe('1 = hoch, 3 = niedrig'),
-    im_auftrag_nutzer: z.boolean().optional(), zustaendig: z.string().optional().describe('Claude oder ChatGPT; nur auf Ansage von Sebastian abweichend vom Standard'),
+    im_auftrag_nutzer: z.boolean().optional(), zustaendig: z.string().optional().describe('Claude oder ChatGPT; nur auf Ansage vom Nutzer abweichend vom Standard'),
   }, (a) => [h, JSON.stringify(a)], SCHREIBT, true)
-  def('werkstatt_wunsch_status', 'daten', 'Werkstatt: Status ändern', 'Status eines Wunsches setzen: in_arbeit/pruefung (nur zuständige KI, nur freigegebene Wünsche), erledigt (zuständige KI), freigegeben/verworfen und Zuständigkeitswechsel NUR mit nutzer_ansage = true auf Sebastians ausdrückliche Ansage. Erzeugt automatisch eine Nachricht.', {
+  def('werkstatt_wunsch_status', 'daten', 'Werkstatt: Status ändern', 'Status eines Wunsches setzen: in_arbeit/pruefung (nur zuständige KI, nur freigegebene Wünsche), erledigt (zuständige KI), freigegeben/verworfen und Zuständigkeitswechsel NUR mit nutzer_ansage = true auf ausdrückliche Ansage des Nutzers. Erzeugt automatisch eine Nachricht.', {
     id: z.number().int(), status: z.enum(['vorschlag', 'freigegeben', 'in_arbeit', 'pruefung', 'erledigt', 'verworfen']),
     nutzer_ansage: z.boolean().optional(), zustaendig: z.string().optional(), notiz: z.string().optional(),
   }, (a) => [h, a.id, a.status, a.nutzer_ansage ?? false, a.zustaendig ?? null, a.notiz ?? null], SCHREIBT, true)
-  def('werkstatt_nachricht', 'teilnehmen', 'Werkstatt: Nachricht schreiben', 'Nachricht an die andere KI (oder an alle), optional zu einem Wunsch: frage, antwort, info, vorschlag, uebergabe, pruefbitte, pruefergebnis; an Sebastian: entscheidung (er muss entscheiden – kurz, Optionen, Empfehlung) oder fertig (Paket geprüft, bereit zur Live-Freigabe) – beide erzeugen eine Handy-Meldung. Keine Schlüssel oder Stammdaten-Inhalte.', {
+  def('werkstatt_nachricht', 'teilnehmen', 'Werkstatt: Nachricht schreiben', 'Nachricht an die andere KI (oder an alle), optional zu einem Wunsch: frage, antwort, info, vorschlag, uebergabe, pruefbitte, pruefergebnis; an den Nutzer: entscheidung (er muss entscheiden – kurz, Optionen, Empfehlung) oder fertig (Paket geprüft, bereit zur Live-Freigabe) – beide erzeugen eine Handy-Meldung. Keine Schlüssel oder Stammdaten-Inhalte.', {
     text: z.string().min(1).max(8000), wunsch_id: z.number().int().optional(),
     an: z.string().optional().describe('Claude, ChatGPT oder alle (Standard)'),
     art: z.enum(['frage', 'antwort', 'info', 'vorschlag', 'uebergabe', 'pruefbitte', 'pruefergebnis', 'entscheidung', 'fertig']).optional(),

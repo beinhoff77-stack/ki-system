@@ -136,7 +136,7 @@ Jede Lernkarte hat jetzt mindestens 4 Übungen je Stufe (Stufe 1 / 2 / 3).
 - Jemand rechnet für 6 000 € zu 2 % und ein halbes Jahr: 120 € · 6 = 720 €. Was stimmt?
 - Jemand rechnet für 4 500 € zu 4 % und ein halbes Jahr: 180 € · 6 = 1 080 €. Was stimmt?
 
-### (5) Für Sebastian
+### (5) Für den Nutzer
 1. **terme.potenzgesetze:** LehrplanPLUS M6 1.4 nennt Potenzen mit natürlichen Exponenten, negative Exponenten als Bruch und Zehnerpotenzen – Potenzgesetze und Variablen nennt M6 nicht. Prüfen, ob das Thema (oder die Karten mal/geteilt/gleicher Exponent) in eine spätere Klasse gehört. Nicht verschoben.
 2. **Paris doppelt:** zahlen.potenzen_zehner / negativer_exponent und terme.potenzgesetze / negativer_exponent behandeln fast dasselbe.
 3. **finanzen.zinsen** überschneidet sich mit bruch.prozent / zinsen (Jahres-, Monats-, Kapitalaufgaben in beiden Flügen).

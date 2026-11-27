@@ -34,7 +34,7 @@ const STAY_FIELDS = {
   entfernung: 'Entfernung zum Ziel', gehzeit: 'Gehzeit zur Station', strand: 'Strand (Luftlinie)', viertel: 'Viertel',
   anbieter: 'Quelle', datenlage: 'Datenlage'
 };
-// W98b: Themen für Einstellung und Info-Box – immer dieselbe Reihenfolge und Struktur (Sebastian 20.10.).
+// W98b: Themen für Einstellung und Info-Box – immer dieselbe Reihenfolge und Struktur (Nutzer 20.10.).
 const STAY_THEMEN = [
   ['Preis & Buchung', ['nacht','preis','tarif','tarif_storno','vergleich','storno','fruehstueck']],
   ['Wohnen', ['art','schlafzimmer','hotelzimmer','betten','m2','balkon','kueche','waschmaschine','klima','raucher']],
@@ -119,7 +119,7 @@ function viewAnzeige(arg = null) {
             el('button',{type:'button',role:'radio','aria-checked':String(st===w),'aria-label':'Suchmaske: '+k.label+': '+t,onclick:()=>{if(st!==w)setze(k.key,w);}},t))));}))),
       el('button',{type:'button',onclick:()=>{maskStatus.textContent=maskeSpeichern({an:[...MASKE_STANDARD.an],aus:[...MASKE_STANDARD.aus]})?'Standard wiederhergestellt.':'Gerätespeicher nicht verfügbar.';maskDraw();}},'Suchmaske: Standard'),maskStatus);
   }
-  // W103 (Sebastian 20.10.): drei getrennte Einstellungen – oben umschalten, immer nur eine zeigen
+  // W103 (Nutzer 20.10.): drei getrennte Einstellungen – oben umschalten, immer nur eine zeigen
   const teile=[['suche','Suche',maskBox],['ergebnisse','Ergebnisse',box],['tabelle','Tabelle',tabBox]];
   let teil=teile.some(([k])=>k===arg)?arg:'ergebnisse';
   const umschalter=el('div',{class:'anzeige-teile',role:'tablist','aria-label':'Einstellungen'});
@@ -179,7 +179,7 @@ function stayPreisZeile(t,trip) {
 }
 function stayInfo(t,trip) {return el('dl',{class:'stay-info'},stayFields().flatMap(key=>[el('dt',{},STAY_FIELDS[key]),el('dd',{'data-field':key},stayField(t,key,trip))]));}
 // Anzeige-Text einer Angabe (für Schnell-Info und Info-Box); fehlt sie: „unbekannt“.
-// W100: Strand-Luftlinie auf 50 m gerundet (Sebastian 20.10.); Airbnb verschiebt Standorte, daher „ca.“
+// W100: Strand-Luftlinie auf 50 m gerundet (Nutzer 20.10.); Airbnb verschiebt Standorte, daher „ca.“
 function stayStrandText(t) {
   const m=sucheZahl(t.strand_m); if(m===null) return '?';
   if(m>3000) return 'über 3 km';
@@ -301,7 +301,7 @@ function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.tr
   function setMode(next){if(isP()||mode===next)return;mode=next;stayWrite('ks_review_mode',mode);const list=currentList(false);if(!list.some(t=>t.treffer_id===currentId)){currentId=list[0]?.treffer_id??null;lastIndex=0;}draw();}
   const reviewed=new Set();
   let leiste=null, leisteFor=null; // W98
-  // 0.35.3 (Sebastian 21.10.: „wenn ich auf Weg klicke, soll es gleich weg sein“): Urteil sofort anzeigen, Speichern läuft im Hintergrund; schlägt es fehl, wird zurückgesetzt.
+  // 0.35.3 (Nutzer 21.10.: „wenn ich auf Weg klicke, soll es gleich weg sein“): Urteil sofort anzeigen, Speichern läuft im Hintergrund; schlägt es fehl, wird zurückgesetzt.
   async function vote(t,urteil,gruende=[],withReasons=true,restoring=false){
     if(busy.has(t.treffer_id)||(holding&&!restoring)||needsRefresh||isBlocked())return;const focusDecision=document.activeElement?.dataset.decision;const previous={status:t.status||'aktiv',gruende:[...(t.urteil_gruende||[])],uebernommen:t.urteil_uebernommen};
     const neu={favorit:'favorit',wow:'wow',vielleicht:'vielleicht',weg:'ausgeschlossen',offen:'aktiv'}[urteil];
@@ -431,7 +431,7 @@ function stayAKompakt(t,trip){
     el('div',{class:'a-preis'},el('strong',{},g===null?'? €':ca+euro(g)),nacht!==null?el('small',{},euro(nacht)+'/N'):null),
   ];
 }
-// W107 (Sebastian 20.10.): Fotos groß ansehen (alle Bilder, wischen/blättern) und Lage auf einer kleinen Karte – direkt aus Liste, Karte und Durchsehen
+// W107 (Nutzer 20.10.): Fotos groß ansehen (alle Bilder, wischen/blättern) und Lage auf einer kleinen Karte – direkt aus Liste, Karte und Durchsehen
 function stayFotoDialog(t){
   const d=el('dialog',{class:'a-foto-dialog','aria-label':'Fotos von '+(t.name||'Unterkunft')});
   d.append(el('div',{class:'a-dialog-kopf'},el('strong',{},t.name||'Unterkunft'),el('button',{type:'button',class:'a-dialog-zu','aria-label':'Schließen',onclick:()=>d.close()},stayIcon('raus'))),stayGallery(t));
@@ -459,7 +459,7 @@ function stayAKacheln(t,trip){
   const keys=stayKarten().direkt.filter(k=>!['preis','nacht','art','anbieter'].includes(k)).slice(0,6);
   return keys.length?el('div',{class:'a-r-fakten'},keys.map(k=>{const f=stayAFakt(t,k,trip);return el('div',{class:'a-r-kachel'+(f?.ok?' is-ok':'')+(!f||f.warn?' is-warn':''),'data-fakt':k},el('span',{class:'a-r-wert'},stayIcon(STAY_A_ICON[k]||'info'),f?f.text:'?'),el('span',{class:'a-r-label'},f?.title&&k!=='betten'?f.title:STAY_FIELDS[k]));})):null;
 }
-// 0.36.4 (Sebastian 21.10.): Detail-Fenster im A-Stil – Preis oben, Kacheln, bekannte Angaben nach Themen, Unbekanntes eingeklappt.
+// 0.36.4 (Nutzer 21.10.): Detail-Fenster im A-Stil – Preis oben, Kacheln, bekannte Angaben nach Themen, Unbekanntes eingeklappt.
 function stayDetailA(t,trip){
   const [meta,,preis]=stayAKompakt(t,trip), karten=stayKarten();
   const unbekannt=[], themen=[];
@@ -475,7 +475,7 @@ function stayDetailA(t,trip){
   return el('div',{class:'ad'},el('div',{class:'ad-kopf'},meta,preis),stayAKacheln(t,trip),...themen,
     unbekannt.length?el('details',{class:'ad-unbekannt'},el('summary',{},'Nicht angegeben ('+unbekannt.length+')'),el('p',{},unbekannt.join(' · '))):null);
 }
-// W107 (Sebastian 20.10.): Karte – Antippen eines Pins zeigt unten die Durchsehen-Ansicht (Fotos, Fakten, Urteil)
+// W107 (Nutzer 20.10.): Karte – Antippen eines Pins zeigt unten die Durchsehen-Ansicht (Fotos, Fakten, Urteil)
 function stayKartenKarte(t,trip,select,openDetail){
   const a=t.angebot||{}, g=stayFieldValue(t,'preis',trip), n=stayFieldValue(t,'nacht',trip), ca=a.preis_art==='geschaetzt'?'ca. ':'';
   const euro=x=>Math.round(x).toLocaleString('de-DE')+' €';
@@ -501,8 +501,8 @@ function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
     const provider=sucheAnbieterLink(t);if(provider)identity.querySelector('.hit-identity > div').append(el('a',{class:'hit-provider',href:provider.url,target:'_blank',rel:'noopener noreferrer'},provider.label));
     if(!SUCHE_SCORE_AN){const [meta,fakten,preis]=stayAKompakt(t,trip);identity.querySelector('.hit-identity > div')?.append(meta,fakten);identity.append(preis);row.classList.add('a-zeile-treffer','a-u-'+stayUrteilKey(t)); // W104
       const foto=identity.querySelector('.stay-photo');if(foto){foto.tabIndex=0;foto.setAttribute('role','button');foto.setAttribute('aria-label','Fotos von '+(t.name||'Unterkunft')+' groß ansehen');foto.addEventListener('click',()=>stayFotoDialog(t));foto.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();stayFotoDialog(t);}});} // W107
-      detail.append(...(provider?[el('a',{class:'a-anbieter-knopf',href:provider.url,target:'_blank',rel:'noopener noreferrer','aria-label':provider.label.replace(/\s*↗/,'')+' (öffnet neues Fenster)',title:provider.label.replace(/\s*↗/,'')},stayIcon('extern'))]:[]),el('button',{type:'button',class:'a-info-knopf','aria-label':'Details zu '+(t.name||'Unterkunft'),title:'Details',onclick:()=>row.nextElementSibling?.querySelector('.candidate-open')?.click()},stayIcon('info')),el('button',{type:'button',class:'a-lage-knopf','aria-label':'Lage von '+(t.name||'Unterkunft')+' auf der Karte',title:'Lage',onclick:()=>stayLageDialog(t,trip)},stayIcon('pin'))); // 0.35.3: nur Symbole (Sebastian 21.10.)
-      // W107 (Sebastian 20.10.: „alte Leichen“): „Details“ öffnet direkt die Detailansicht statt des alten Aufklapp-Bereichs (Prüfungen, Rückmeldung, Nachrecherche)
+      detail.append(...(provider?[el('a',{class:'a-anbieter-knopf',href:provider.url,target:'_blank',rel:'noopener noreferrer','aria-label':provider.label.replace(/\s*↗/,'')+' (öffnet neues Fenster)',title:provider.label.replace(/\s*↗/,'')},stayIcon('extern'))]:[]),el('button',{type:'button',class:'a-info-knopf','aria-label':'Details zu '+(t.name||'Unterkunft'),title:'Details',onclick:()=>row.nextElementSibling?.querySelector('.candidate-open')?.click()},stayIcon('info')),el('button',{type:'button',class:'a-lage-knopf','aria-label':'Lage von '+(t.name||'Unterkunft')+' auf der Karte',title:'Lage',onclick:()=>stayLageDialog(t,trip)},stayIcon('pin'))); // 0.35.3: nur Symbole (Nutzer 21.10.)
+      // W107 (Nutzer 20.10.: „alte Leichen“): „Details“ öffnet direkt die Detailansicht statt des alten Aufklapp-Bereichs (Prüfungen, Rückmeldung, Nachrecherche)
       const toggle=detail.querySelector('.hit-toggle');toggle?.addEventListener('click',e=>{const open=row.nextElementSibling?.querySelector('.candidate-open');if(!open)return;e.stopImmediatePropagation();e.preventDefault();open.click();},true);}
     identity.append(select(t));
     row.replaceChildren(identity,...fields.map(key=>el('td',{'data-label':!SUCHE_SCORE_AN&&key==='preis'?'Preis':STAY_FIELDS[key],'data-field':key},!SUCHE_SCORE_AN&&key==='preis'?stayPreisZeile(t,trip):stayField(t,key,trip))),detail);

@@ -738,7 +738,7 @@ test('Info-Seite „So funktioniert’s“: ein Tipp von der Startseite und vom 
 
 test('Reisewörter auf allen Eltern-/Lehrerseiten', async (t) => {
   const { page } = await setup(t);
-  // Entscheidung Sebastian 21.11. (Teil 9 Punkt 3 / N8): auf Eltern-/Lehrerseiten sind „Thema“, „Themen“ und „Themengebiet“ erlaubt – Lehrer denken in Themen.
+  // Entscheidung des Nutzers 21.11. (Teil 9 Punkt 3 / N8): auf Eltern-/Lehrerseiten sind „Thema“, „Themen“ und „Themengebiet“ erlaubt – Lehrer denken in Themen.
   // Die übrigen Reisewörter gelten weiter; für die Kinderseiten prüfen die Tests der Kinderansicht („nur Reisewörter“).
   const verboten = /Lernkarte|Aufgabe|Themenplan|Lernziel|\bGebiet/;
   await page.route('**/functions/v1/lernen-api/**', async (route) => {

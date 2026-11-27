@@ -1,5 +1,5 @@
--- WD-5 (Entscheidung Sebastian 23.11. 03:37): Zulauf gesetzter Etappen drosseln – 3 statt 6 je Lerntag.
--- NUR nach Probelauf und Sebastians Okay einspielen. Nach WD-S, WD-4b, WD-S 4 (alle live).
+-- WD-5 (Entscheidung des Nutzers 23.11. 03:37): Zulauf gesetzter Etappen drosseln – 3 statt 6 je Lerntag.
+-- NUR nach Probelauf und Okay des Nutzers einspielen. Nach WD-S, WD-4b, WD-S 4 (alle live).
 --
 -- Was passiert – in Worten:
 --   1. Regel wdh_gesetzt_je_lerntag = 3; dazu wdh_runde_teiler = 1 (Rundengröße „A“, Rückweg siehe 1b). Neu gesetzte Etappen („Kann er – aber wiederholen“) kommen damit nur noch zu 3 je Lerntag in den Takt
@@ -40,7 +40,7 @@ insert into schule.regel (schluessel, wert, hinweis)
 select 'wdh_gesetzt_je_lerntag', '3'::jsonb, 'WD-4/WD-5: gesetzte Etappen, die je Lerntag neu in den Takt kommen (WD-5: 3 statt 6)'
  where not exists (select 1 from schule.regel where schluessel = 'wdh_gesetzt_je_lerntag');
 
--- 1b. Rundengröße „A“ (Entscheidung Sebastian 23.11. 04:20): Runde = alle fälligen, höchstens wdh_runde_max (12), bis Kl. 6 wdh_runde_max_bis_kl6 (10);
+-- 1b. Rundengröße „A“ (Entscheidung des Nutzers 23.11. 04:20): Runde = alle fälligen, höchstens wdh_runde_max (12), bis Kl. 6 wdh_runde_max_bis_kl6 (10);
 --     bis wdh_runde_min (6) ohnehin alle. Zunächst für vier Lerntage erproben.
 --     Rückweg: update schule.regel set wert = '5' where schluessel = 'wdh_runde_teiler';   -- wie vorher (WD-1)
 --          oder: update schule.regel set wert = '2' where schluessel = 'wdh_runde_teiler';   -- mildere Stufe

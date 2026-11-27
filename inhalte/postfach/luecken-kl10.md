@@ -25,7 +25,7 @@ In jedem Thema ein neuer Eintrag unter „offen“ (alte Einträge unverändert)
 
 **Offen geblieben (und warum)**
 - Graph der Sinusfunktion aus dem Einheitskreis herleiten (M10 3): braucht Einheitskreis und Graph nebeneinander mit Verbindungslinien. **App-Wunsch:** Zeichnung „Einheitskreis + Graph“ (z. B. koordinaten mit zweitem Teilbild). Bis dahin nur in Worten.
-- gleichungen.trig nach Klasse 10 holen und um Bogenmaß-Lösungen erweitern: Klassen-Zuordnung eines ganzen Themas, nicht Teil dieses Auftrags (Entscheidung Haupt-Chat/Sebastian). Winkel zu gegebenen Werten im Bogenmaß üben `werte`/`eigenschaften` in funktionen.trig schon.
+- gleichungen.trig nach Klasse 10 holen und um Bogenmaß-Lösungen erweitern: Klassen-Zuordnung eines ganzen Themas, nicht Teil dieses Auftrags (Entscheidung Haupt-Chat/der Nutzer). Winkel zu gegebenen Werten im Bogenmaß üben `werte`/`eigenschaften` in funktionen.trig schon.
 - Karte `monte_carlo` (stochastik.simulation) und Karten `rotation`/`axialschnitt` (raum.schraegbilder) verschieben: nicht Teil dieses Auftrags; seit D2 stehen beide Themen ohnehin in Klasse 10 (Themenliste). **Bitte klären:** In beiden Themendateien steht noch `"klasse": {"gym_by": 8, …}`.
 - Schrägbild und Netz des Kegels (M10 5): **App** – kein Bildtyp für Körper/Ellipsen.
 - Baumdiagramme in vorhandenen Aufgaben von stochastik.mehrstufig nachrüsten: würde freigegebene Aufgaben ändern; die Lernkarten haben die Bäume seit Runde 3.
@@ -68,7 +68,7 @@ Geprüft gegen den Stand von `lernen-app` am 17.11. (inhalte/themen, inhalte/the
 4. **Beliebige Winkel, Graph aus dem Einheitskreis, Winkel zu gegebenen Werten im Bogenmaß** (mittel) – **teilweise offen.**
    - Winkel über 2π / negative Winkel: nur einzelne Übungen (`werte`: sin(−π/2), cos(7π/3)), keine Erklärung → **offen**, `periode` um Schritt und Übungen erweitern.
    - Winkel zu gegebenen sin-/cos-Werten im Bogenmaß: **erledigt (als Übungen)** in funktionen.trig `werte` und `eigenschaften` (z. B. cos x = −0,5 in [0; π], sin x = 0,5 in [0; 2π[, cos x = 0,5 zwei Lösungen; Zehnte und Fünfzehnte Runde).
-   - gleichungen.trig nach Klasse 10 holen: **nicht Teil dieses Auftrags** (Klassen-Zuordnung eines ganzen Themas; Entscheidung D-Runde/Sebastian). Bogenmaß-Lösungen dort einzubauen widerspräche der heutigen Zuordnung Kl. 9 („Bogenmaß gehört nicht zur 9. Klasse“).
+   - gleichungen.trig nach Klasse 10 holen: **nicht Teil dieses Auftrags** (Klassen-Zuordnung eines ganzen Themas; Entscheidung D-Runde/der Nutzer). Bogenmaß-Lösungen dort einzubauen widerspräche der heutigen Zuordnung Kl. 9 („Bogenmaß gehört nicht zur 9. Klasse“).
    - Graph aus dem Einheitskreis herleiten: **offen geblieben** – braucht eine Zeichnung mit Einheitskreis und Graph nebeneinander (App-Wunsch, siehe unten).
 5. **Rotationskörper, schiefe Prismen, Schrägbilder/Netze** (mittel) – **teilweise erledigt.**
    - Zylinder/Kegel/Kugel als Rotationskörper: **erledigt (raum.schraegbilder, Karten `rotation` und `axialschnitt`)** – das Thema steht seit D2 in der Themenliste bei Klasse 10. Übernehmen/Verschieben ist **nicht Teil dieses Auftrags**.

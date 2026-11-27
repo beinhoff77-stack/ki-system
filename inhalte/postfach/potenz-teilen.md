@@ -4,7 +4,7 @@ Neueste Meldung oben. Zeiten: Sechsundzwanzigste Runde Ortszeit Adelaide (UTC+10
 
 ## 2026-11-21 01:09 – FERTIG: Potenz Runde 29
 
-Neunundzwanzigste Runde, Zweig `potenz-teilen` (auf den Stand von `lernen-app` 4970b4b gebracht). Grundlage sind Sebastians Entscheidungen vom 21.11., Punkt 2, und die Nachprüfung (`inhalte/pruefung/potenz/nachpruefung.md`), Kann 2, 4, 6 und 7.
+Neunundzwanzigste Runde, Zweig `potenz-teilen` (auf den Stand von `lernen-app` 4970b4b gebracht). Grundlage sind Entscheidungen des Nutzers vom 21.11., Punkt 2, und die Nachprüfung (`inhalte/pruefung/potenz/nachpruefung.md`), Kann 2, 4, 6 und 7.
 
 Nichts in die Datenbank, kein App-Code, kein Merge nach `main`. `terme.potenzgesetze` (Gym 6), `terme.umformen`, Themenliste und kann-Texte sind unverändert.
 
@@ -49,7 +49,7 @@ Bei allen geänderten Aufgaben bleiben der Fragetext und die richtige Antwort gl
 
 ## 2026-11-20 13:58 – FERTIG: Potenz nachgebessert
 
-Achtundzwanzigste Runde (Zweig `potenz-teilen`, vorher auf den Stand von `lernen-app` 72abf97 gebracht). Grundlage: `inhalte/pruefung/potenz/bericht.md`, Auftrag in `AUFTRAEGE.md`, Sebastians Ja zu Kann 6 (`antworten.md`, 20.11. 14:50). Nichts in die Datenbank, kein App-Code, kein Merge nach `main`.
+Achtundzwanzigste Runde (Zweig `potenz-teilen`, vorher auf den Stand von `lernen-app` 72abf97 gebracht). Grundlage: `inhalte/pruefung/potenz/bericht.md`, Auftrag in `AUFTRAEGE.md`, Ja des Nutzers zu Kann 6 (`antworten.md`, 20.11. 14:50). Nichts in die Datenbank, kein App-Code, kein Merge nach `main`.
 
 ### Kurz
 - **Muss 1 und 2:** erledigt (zwei Tipps).
@@ -66,10 +66,10 @@ Achtundzwanzigste Runde (Zweig `potenz-teilen`, vorher auf den Stand von `lernen
 ### Entscheidungen, die ich getroffen habe (bitte ansehen)
 1. **Sollte 4, Folge:**
    - Nach den verlangten Umstufungen hatte `mal_gleiche_basis` auf Stufe 3 noch 10 von 19 Übungen „fehler“, war also weiter davon beherrscht.
-   - Ich habe deshalb je Karte höchstens 3 „fehler“ auf Stufe 3 gelassen. Das ist die Regel der Zwanzigsten Runde, Sebastians Grund vom 20.11.: keine leichten Aufgaben auf Stufe 3.
+   - Ich habe deshalb je Karte höchstens 3 „fehler“ auf Stufe 3 gelassen. Das ist die Regel der Zwanzigsten Runde, Grund des Nutzers vom 20.11.: keine leichten Aufgaben auf Stufe 3.
    - Die Auswahl-Aufgaben, bei denen das Kind nur benennt, welcher Rechenweg falsch war („Was ist falsch?“, „Welcher Satz beschreibt …“, „Stimmt die Rechnung? 5² · 5³ = 5⁶“), sind jetzt Stufe 1 „erkennen“: 7 in `mal_gleiche_basis`, 1 in `gleicher_exponent`.
    - Auf Stufe 3 bleiben die Aufgaben, bei denen das Kind den richtigen Wert selbst bestimmt, und eine Auswahl-Aufgabe je Karte.
-   - Wenn Sebastian das anders will, lässt es sich in `NB_A` mit einer Zeile je Aufgabe zurückdrehen.
+   - Wenn der Nutzer das anders will, lässt es sich in `NB_A` mit einer Zeile je Aufgabe zurückdrehen.
 2. **Sollte 4, Aufgabe 43** („2⁵ + 2⁵ = 2¹⁰“): ersetzt statt in den Knobel-Pool gelegt, weil sie zu nah an Knobel 44 liegt. Neu ist eine Aufgabe vom Typ „fehler“: „Ein Kind rechnet 2³ · 2⁴ · 2 = 2¹². Richtig ist 2ᵏ …“.
 3. **Sollte 6, Aufgaben 75 und 76:** Mit dem Typ „direkt“ hätten je 3 gleich gebaute Aufgaben auf Stufe 1 gestanden („2² · 50²“ neben „25² · 4²“ und „4² · 25²“). Das verbietet das Prüfskript. Deshalb haben die beiden Spiegelbild-Aufgaben „4² · 25²“ und „2³ · 50³“ ihren Typ verloren: Sie sind überzählig und werden beim Einspielen gesperrt, nicht gelöscht. Die Zahl der aktiven Übungen bleibt gleich.
 4. **Sollte 6, Aufgaben 30, 154 und 156:** In `anwenden` ist „27 · 3ᵉ“ die Grundform der Karte und bleibt Stufe 1 „direkt“. In `mal_gleiche_basis` kommt das Umschreiben einer Zahl als Potenz noch dazu. Dort ist „27 · 3⁵“ jetzt Stufe 2 „darstellung“ (vorher Stufe 3 „transfer“). Die Spanne ist damit eine Stufe, und beide Karten folgen ihrem eigenen Beispiel.
@@ -263,7 +263,7 @@ Zweig `potenz-teilen` (von `lernen-app`, e71a72d). Commits: Flug A 56cbd40 · Fl
 ### Abweichungen vom Auftrag (bitte ansehen)
 1. **29 statt 22 Aufgaben nach Flug B.** 22 haben einen negativen Exponenten im Text (wie gezählt). 7 weitere haben ihn im Ergebnis: Das Gesetz liefert aᵐ⁻ⁿ mit m < n (z. B. „3⁴ : 3⁸ = 3ᵏ“, k = −4). Das ist M8-4-Stoff, deshalb auch nach Flug B und in Flug A ersetzt. Zwei weitere Aufgaben gehen auch ohne negativen Exponenten; dort habe ich nur Lösungsweg und Tipp neu geschrieben (Frage und Lösung gleich).
 2. **23 statt 19 Aufgaben aus Gym 6 nach Flug A.** Maßgeblich war die Regel der Entscheidung („In Gym 6 bleiben nur Aufgaben zu Potenzbegriff, Hoch 0 und negativem Exponenten“). Vermutlich nicht mitgezählt waren: „Welche Rechnung ist richtig?“ (3² · 3⁴ …), die Parameter-Aufgabe zu „a² · a³ = a⁶“, die Rückwärts-Aufgabe zu aᵏ · a² und die Knobel-Aufgabe 2⁵ + 2⁵. Keine der 23 hat einen negativen Exponenten im Text; nach Flug B ging deshalb keine.
-3. **Alle 23 sind jetzt Übungen Stufe 3 vom Typ „fehler“**, wie verlangt – auch die früheren Test-, Korrektur-, Sicherungs- und Knobel-Aufgaben (8 davon bekamen einen Tipp, Übungen brauchen einen). Folge: In `mal_gleiche_basis` hat Stufe 3 jetzt 22 Übungen, davon 15 „fehler“, darunter leichte wie „Stimmt die Rechnung? 4⁴ · 4² = 4⁶“. Das Prüfskript ist zufrieden (je Typ und Satzbau höchstens 2), die Regel „Stufe 3 je Typ höchstens 3“ aus `_bereinigen` gilt hier nur je Satzbau. **Für Sebastian:** Sollen die vier „Stimmt die Rechnung? …“-Aufgaben lieber Stufe 1 „erkennen“ werden?
+3. **Alle 23 sind jetzt Übungen Stufe 3 vom Typ „fehler“**, wie verlangt – auch die früheren Test-, Korrektur-, Sicherungs- und Knobel-Aufgaben (8 davon bekamen einen Tipp, Übungen brauchen einen). Folge: In `mal_gleiche_basis` hat Stufe 3 jetzt 22 Übungen, davon 15 „fehler“, darunter leichte wie „Stimmt die Rechnung? 4⁴ · 4² = 4⁶“. Das Prüfskript ist zufrieden (je Typ und Satzbau höchstens 2), die Regel „Stufe 3 je Typ höchstens 3“ aus `_bereinigen` gilt hier nur je Satzbau. **Für den Nutzer:** Sollen die vier „Stimmt die Rechnung? …“-Aufgaben lieber Stufe 1 „erkennen“ werden?
 4. **Antworten geändert, ohne Frage und richtige Antwort zu ändern:** In 4 umgezogenen Aufgaben (Flug A) stand eine falsche Antwort mit negativem Exponenten („Ein negativer Exponent bedeutet Kehrbruch …“). Sie ist durch einen typischen Fehler mit natürlichen Exponenten ersetzt. In Gym 6 nannten 5 bleibende Aufgaben Potenzgesetze als falsche Antworten („Exponenten subtrahieren, nicht teilen: 4⁸“). Die sind durch typische Fehler beim negativen Exponenten ersetzt („Richtig wäre −12, denn man rechnet 4 · (−3)“, „Richtig wäre 1/12“). Dazu zwei Lösungswege bzw. Tipps in Gym 6 ohne Potenzgesetz.
 5. **Themenliste `terme.potenzgesetze`:** Neben Titel, `umfang` und dem dritten Eintrag habe ich auch den **zweiten** Eintrag von `lehrplan_gym` geändert („Potenzen mit gleicher Basis oder gleichem natürlichen Exponenten zusammenfassen“ war ebenfalls ein Gesetzes-Versprechen) sowie `lehrplan_rs` und `lehrplan_ib` (beide nannten Potenzgesetze). Neu: „Potenzen mit rationaler Basis und natürlichen Exponenten berechnen“ (M6 1.4, laut `inhalte/pruefung/aufbau/klasse6.json`), „Typische Fehler bei Potenzen mit einer Zahlenprobe erkennen (Vertiefung)“.
 6. **Flug B: Stufe und Typ der 29 übernommenen Aufgaben angepasst** (Text, Antworten, Lösung gleich). Zweierprodukte und -quotienten wie „z³ · z⁻⁵ = zᵏ“ sind in diesem Flug die Grundform → Stufe 1 „direkt“; Dreierprodukte und die Dezimal-Aufgaben → Stufe 2 „mehrschritt“. Test-, Korrektur- und Sicherungsaufgaben blieben in ihrem Pool. Darum hat `gleiche_basis_ganz` 4 Korrektur- und 10 Sicherungsaufgaben.
@@ -489,7 +489,7 @@ Selbstprüfung: OK
 - `terme.umformen` behält in der Themendatei `klasse` nur `gym_by` (unverändert). Der `lehrplan_rs`-Text von `terme.umformen` („… auch mit Potenzgesetzen …“) ist unverändert. Er könnte Wortlaut des RS-Lernbereichs M7 6 sein; nicht geprüft.
 
 ### Offen / nicht geprüft
-- **M7 1.2 „Potenzen von Potenzen“** hat in Flug A keine Karte (in Flug B: `exponent_und_potenz`). Vorschlag: eigene Karte in Flug A – Sebastian entscheidet. Steht auch unter `offen` in der Themendatei.
+- **M7 1.2 „Potenzen von Potenzen“** hat in Flug A keine Karte (in Flug B: `exponent_und_potenz`). Vorschlag: eigene Karte in Flug A – der Nutzer entscheidet. Steht auch unter `offen` in der Themendatei.
 - Nicht in der App angesehen: Tabellen als Kartenbild und in einer Aufgabe, Lücken „c = □; n = □“ (Flug B, `terme_vereinfachen`).
 - Alte, unveränderte Aufgaben nur über `c` und das Prüfskript nachgerechnet, nicht von Hand.
 - Lehrplantexte nicht selbst gelesen (siehe Quellen).

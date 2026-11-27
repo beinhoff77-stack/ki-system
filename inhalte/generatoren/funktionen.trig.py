@@ -840,7 +840,7 @@ BF.stufe('periode', 'Jemand sagt: „f(x) = sin(0,5x) hat die Periode 180°.“ 
 BF.stufe('werte', 'Berechne sin(2,7) (x im Bogenmaß) auf drei Nachkommastellen.', 1)
 BF.stufe('werte', 'Berechne cos(4,4) (x im Bogenmaß) auf drei Nachkommastellen.', 1)
 BF.nicht_umgesetzt('periode, parameter, zuordnen, eigenschaften, anwendung: fast nur Gradmaß statt Bogenmaß (LehrplanPLUS M10 3, Abitur)',
-                   'Kein Fehler in einzelnen Aufgaben; ein Umstellen aller alten Aufgaben auf Bogenmaß wäre ein Umbau der Karten. Runde 10 hat Bogenmaß-Aufgaben ergänzt (siehe „für Sebastian“).')
+                   'Kein Fehler in einzelnen Aufgaben; ein Umstellen aller alten Aufgaben auf Bogenmaß wäre ein Umbau der Karten. Runde 10 hat Bogenmaß-Aufgaben ergänzt (siehe „für den Nutzer“).')
 BF.fuer_sebastian('funktionen.trig: Die alten Aufgaben arbeiten fast nur im Gradmaß; LehrplanPLUS M10 3 und Abitur nutzen das Bogenmaß. Die Begründung unter „offen“ (keine π-Beschriftung) ist seit 15.11. überholt. Karten/alte Aufgaben auf Bogenmaß umstellen?')
 
 # ---- BEFUNDE ENDE ----

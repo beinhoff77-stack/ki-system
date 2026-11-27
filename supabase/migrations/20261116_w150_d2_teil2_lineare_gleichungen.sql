@@ -1,4 +1,4 @@
--- W150 Umbau D2, Teil 2 (Entscheidung Sebastian 16.11.: „A“ und „ja“):
+-- W150 Umbau D2, Teil 2 (Entscheidung des Nutzers 16.11.: „A“ und „ja“):
 -- „Lineare Gleichungen“ zieht von Delhi nach Samarkand; Delhi wird Klasse 8 („Lineare Ungleichungen“).
 -- Wer Samarkand schon abgeschlossen hat, aber den neuen Flug dort noch nicht begonnen hat, bekommt den Ort wieder geöffnet (Sterne bleiben; der Stempel kommt nach dem Flug wieder).
 update schule.einheit e set block_id = (select id from schule.block where stadt = 'Samarkand')

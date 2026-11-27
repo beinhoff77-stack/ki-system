@@ -673,7 +673,7 @@ Stand `lernen-app` 83ada52 übernommen. Nur App: keine Datenbank, kein Merge nac
 
 Stand `lernen-app` 302d242 übernommen (Nachtrag LZ-App + Kopf, Prüfung LW-3). Nur App: keine Datenbank, keine Migration, kein Merge nach `main`, keine Namen. Cache v169.
 
-**1) Kopf größer (Rückmeldung Sebastian)**
+**1) Kopf größer (Rückmeldung des Nutzers)**
 - Rechner 1280 × 800:
   - Kopf 68 px (vorher 53).
   - Kindernamen und Reiter 16,5 px.
@@ -784,7 +784,7 @@ Stand `lernen-app` cfaf70a übernommen. Nur App, keine Datenbank, keine Migratio
 
 ## 2026-11-23 – FERTIG: LW-3b (0.90.1) – Kopf der Kind-Seite schlank, Matrix groß, „Lehrplan von:“, Cache v167
 
-Auf `lernen-app` fb2fcfb (Nachtrag LW-3, Rückmeldung Sebastian zu 0.89.1). Nur App, Version in sechs Dateien, Tests, Info-Seite. Nichts in der Datenbank, keine Migration, kein Merge nach `main`.
+Auf `lernen-app` fb2fcfb (Nachtrag LW-3, Rückmeldung des Nutzers zu 0.89.1). Nur App, Version in sechs Dateien, Tests, Info-Seite. Nichts in der Datenbank, keine Migration, kein Merge nach `main`.
 Bilder: `docs/previews/la/lw3b-1280.png` (1280 × 800), `lw3b-820.png`, `lw3b-400.png`.
 
 1. **Eine Kopfzeile** auf allen drei Reitern der Kind-Seite, im App-Kopf statt im Inhalt: ‹ Zurück · Kinder-Umschalter (ersetzt die Überschrift „Lehrplan ‹Kind›“; die Überschrift bleibt nur für Vorleser) · Reiter Überblick | Was wackelt (rote Zahl) | Lehrplan · rechts klein „Lernen starten ›“ (Eltern) bzw. „Lernreise ansehen ›“ (Lehrer), ⚙ (Einstellen), ⓘ (So funktioniert’s), Version bzw. Abmelden (Lernen-Seite). Die Bereichsleiste oben ist auf der Kind-Seite 52 statt 72 px hoch. **Gemessen 1280 × 800: Kopf 53 px.** Tablet: Reiter in einer zweiten Zeile; Handy: Umschalter + Knöpfe, darunter die Reiter. Auf anderen Seiten ist der Kopf wie bisher (Test).
@@ -1059,7 +1059,7 @@ Zweig `bau-lehrer`, auf `lernen-app` (Stand 15:50). Nichts eingespielt, kein DRO
 - Lokal grün (alle sieben Teile), Migration zweimal eingespielt.
 
 **3. Wo „mindestens 3 Etappen“ vorausgesetzt wird** (live gelesen) – Folgen für Flüge mit 1–2 Etappen
-- `schule.einheit_importieren` und `schule.einheit_abgleichen`: „Datei unvollständig“ bei weniger als 3 Etappen; Import zusätzlich erst ab 30 Aufgaben. **Ein Teil mit 1–2 Etappen lässt sich heute nicht importieren.** Das braucht eine Lockerung (eigener Auftrag, Sebastians Okay).
+- `schule.einheit_importieren` und `schule.einheit_abgleichen`: „Datei unvollständig“ bei weniger als 3 Etappen; Import zusätzlich erst ab 30 Aufgaben. **Ein Teil mit 1–2 Etappen lässt sich heute nicht importieren.** Das braucht eine Lockerung (eigener Auftrag, Okay des Nutzers).
 - `einheit_importieren` lehnt außerdem ab, wenn das Thema schon eine Einheit hat, die nicht `ersetzt` ist. Für die Rest-Version von Teil 1 muss die alte Einheit vorher auf `ersetzt` oder die Version anders angelegt werden. Das Teil-Verfahren erwartet die Einheiten fertig angelegt.
 - Mischkarten: Regel `misch_ab_gelandet` (Vorgabe 3) wird über `einheit_lesen_intern` an die App gegeben. Ob sie je Flug oder insgesamt zählt, entscheidet die App (bitte bei `bau-motivation` prüfen). Zählt sie je Flug, gäbe es in einem Flug mit 1–2 Etappen nie Mischkarten.
 - Flug-Test (`test_starten_intern`): je Pflicht-Etappe eine Aufgabe. Ein Flug mit 1 Etappe hat also 1 Testaufgabe (Quote 0 oder 100 %), mit 2 Etappen 2. Technisch geht das, als Test ist es dünn.
@@ -1336,7 +1336,7 @@ Neue Datei: `supabase/migrations/20261122_fp_s2_nacharbeit_924.sql`. Einspielen 
 
 **Offen / nicht geprüft**
 - Nicht gegen die Live-Datenbank gelaufen (nur lokal mit Nachbau von `uebung_pruefen_intern`).
-- `sterne_wdh_richtig` unverändert 10 (Sebastians Entscheidung offen).
+- `sterne_wdh_richtig` unverändert 10 (Entscheidung des Nutzers offen).
 
 ## 2026-11-22 – FERTIG: 0.87.0 – faire Punkte (FP-App), Cache v160
 
@@ -1397,7 +1397,7 @@ Bau-Auftrag FP, Teil FP-S. Nur Dateien, nichts eingespielt, Nachbuchung nicht au
 | 2 | 3970 | 28 | 27 / 1 / 0 | +2200 | 6170 | 36 |
 | 3 (Testkind) | 120 | 6 | 5 / 1 / 0 | +440 | 560 | 0 |
 
-Hinweise: Bei 16 bzw. 21 Etappen gibt es keine gespeicherte Landung (vor AB-S gelandet) – dort zählt die Nachbuchung die Fehler aus den Versuchen bis zur Landung neu. Die Nachbuchung erhöht den Kontostand um rund 55–60 % – vor dem Ausführen bitte mit Sebastian abstimmen (Belohnungen/Einlösungen hängen an Sternen).
+Hinweise: Bei 16 bzw. 21 Etappen gibt es keine gespeicherte Landung (vor AB-S gelandet) – dort zählt die Nachbuchung die Fehler aus den Versuchen bis zur Landung neu. Die Nachbuchung erhöht den Kontostand um rund 55–60 % – vor dem Ausführen bitte mit dem Nutzer abstimmen (Belohnungen/Einlösungen hängen an Sternen).
 
 ## 2026-11-22 – bau-lehrer – FERTIG: WD-S 3 Test
 
@@ -1515,7 +1515,7 @@ Bilder: `docs/previews/la/wd-etappe-abgelegt-400.png`, `wd-flug-abgelegt-400.png
 - **WD-2 Merker:** Mit `runde` gilt nur noch `runde_gemacht` vom Server, `localStorage` wird dann weder gelesen noch geschrieben. Am Ende der Pflicht-Runde ruft die App `schule_wiederholung_runde_fertig {lernender_id}` (scheitert der Aufruf, merkt sich das Gerät die Runde wie bisher).
 - **WD-4 Staffelung:** `gestaffelt` > 0 → auf der Abflugtafel (beide Designs) und am Ende der Runde: „n Etappen warten noch auf die erste Wiederholung – sie kommen ab dem nächsten Lerntag nach und nach dazu.“ Ein Datum „kommt ab …“ je Etappe liefert die Schnittstelle nicht – **Vorschlag (optional, nicht verbindlich):** im Plan je Flug in `thema_stufe` `wartet` (Zahl) und `kommt_ab_in` (Lerntage); die App zeigt dann im Plan „3 Etappen warten · kommt ab in 2 Lerntagen“ (ist schon eingebaut, ohne die Felder unsichtbar). Ebenso `etappen_abgelegt` → „2 von 7 abgelegt“.
 - **WD-5 Sterne:** `wiederholung.sterne` erscheint als „Richtig! · +5 Sterne“, darunter „Nächste Wiederholung in n Lerntagen“ (`naechste_in`), am Ende „★ +n Sterne“. Die App rechnet nichts selbst – sie zeigt, was der Server meldet.
-- **WD-3 Mischkarte:** Bei `wiederholung.bestanden` steht unter „✓ An Bord“ „↻ Zählt als Wiederholung dieser Etappe“; die Sterne-Zeile zeigt 10 (Mischkarte, wie heute) **plus** `wiederholung.sterne`. Entscheidet Sebastian anders (nur 5 oder nur 10), bitte entsprechend buchen und `wiederholung.sterne` 0 bzw. die Differenz melden – die App zeigt genau das.
+- **WD-3 Mischkarte:** Bei `wiederholung.bestanden` steht unter „✓ An Bord“ „↻ Zählt als Wiederholung dieser Etappe“; die Sterne-Zeile zeigt 10 (Mischkarte, wie heute) **plus** `wiederholung.sterne`. Entscheidet der Nutzer anders (nur 5 oder nur 10), bitte entsprechend buchen und `wiederholung.sterne` 0 bzw. die Differenz melden – die App zeigt genau das.
 - **WD-6 Einblendungen** (aus `abgelegt` in `schule_uebung_pruefen`, nach einer Wiederholung oder Mischkarte): „Etappe abgelegt“ klein – goldene Karte über der Seite (★-Siegel, Titel der Etappe, Satz, „★ +30“, „Weiter“); danach, falls `flug`, „Flug abgelegt“ groß – Vollbild im Stil von „Flug geschafft“, in Gold (Konfetti, Zähler 100 ★, Siegel, „Im Reisepass: Dein Flug ist jetzt golden.“, bei `ort_gold` „Alle Flüge dieses Orts sind abgelegt – dein Stempel ist jetzt golden.“, „Weiter“, „Reisepass ansehen“). Gestalter-Vorgabe gab es noch nicht – bitte nachprüfen, ich gleiche an.
 - **Gold im Reisepass:** `konto.orte[].gold` → Stempel golden mit „★ GOLD“. Flüge: neuer Abschnitt „Abgelegt“ (nur wenn etwas abgelegt ist) mit dem Eintrag je Flug, golden bei `abgelegt`, sonst „1 von 2 Etappen abgelegt“. Bisher gab es im Reisepass keinen Eintrag je Flug – das ist der „Eintrag des Flugs“. **Erwartetes Format:** `konto.fluege[] { block_id, titel, abgelegt, etappen_abgelegt, etappen }` oder dieselben Felder in `konto.orte[].fluege[]` (beides gelesen) – bitte so liefern oder melden.
 - **Info-Seite:** Wiederholung (Rundengröße, ein Mal je Lerntag auch beim Gerätewechsel), neuer Eintrag „Endgültig abgelegt“, Mischkarten (zählen als Wiederholung), Belohnungen (5 / 30 / 100), Plan („Kann er – aber wiederholen“: höchstens 6 je Lerntag neu in den Takt). „Was kommt wann wieder?“ (Kind) mit Runde und Sternen nur, wenn der Server `runde` liefert. Die Info-Texte beschreiben WD – **erst mit dem Server live schalten.**
@@ -1543,12 +1543,12 @@ Bau-Auftrag WD (Server) nach der Schnittstelle im Nachtrag. Nur Dateien, in der 
 
 **Sterne heute (Live-Text gelesen 22.11.) – Meldung vor dem Bau:**
 - Jede richtige Antwort außerhalb eines Tests – auch mit Tipp oder im 2. Anlauf, auch eine Wiederholung oder Mischkarte – gibt `sterne_uebung_richtig` = **10 Sterne**, aber **je Aufgabe nur einmal** (Schlüssel `uebung` + `aufgabe:<id>`). Die Wiederholungs-Runde wählt bevorzugt ungesehene Aufgaben → eine richtige Wiederholung gibt heute meist 10, sonst 0. Mischkarte genauso.
-- Also: **Ja, eine richtige Wiederholung gibt heute schon 10.** Nicht gekürzt: `sterne_wdh_richtig` steht in der Migration auf **10** (Schnittstelle: 5). **Sebastian entscheidet 5 oder 10** – Umstellen ohne Bau: `update schule.regel set wert = '5' where schluessel = 'sterne_wdh_richtig'`.
+- Also: **Ja, eine richtige Wiederholung gibt heute schon 10.** Nicht gekürzt: `sterne_wdh_richtig` steht in der Migration auf **10** (Schnittstelle: 5). **Der Nutzer entscheidet 5 oder 10** – Umstellen ohne Bau: `update schule.regel set wert = '5' where schluessel = 'sterne_wdh_richtig'`.
 - Neu gilt: je bestandener Wiederholung (Runde, freiwillig, Mischkarte nach WD-3) einmal je Etappe und Fälligkeit `sterne_wdh_richtig`; für denselben Versuch dann keine `uebung`-Sterne (nichts doppelt). Die `uebung`-Sterne dieser Aufgabe bleiben für später übrig.
 
 **Dateien**
 - `supabase/migrations/20261122_wd_s_wiederholungen.sql` – WD-1 bis WD-6 (Regeln, Tabellen `schule.wdh_runde`, `schule.abgelegt`, Trigger `karte_wdh_ereignis`, Umbauten an genau bezeichneten Stellen). Prüft am Ende: Karten, Lernstände, Plan, Sterne vorher = nachher, sonst Abbruch. In einer Transaktion einspielen.
-- `supabase/migrations/20261122_wd_4b_stau_strecken.sql` – **eigene Datei, erst nach Probelauf und Sebastians Okay**: streckt einmalig gesetzte, heute fällige Etappen auf Stufe 0 (je Kind 6 je Lerntag); nur `faellig_am`, `wdh_ab`, `wdh_lerntage`; alte Werte in `schule.wdh_staffel_sicherung` (Rückweg im Kopf der Datei); prüft, dass sich sonst nichts ändert. Nur gelesen nachgerechnet: Kind 2 hat 34 solche Etappen → heute 6, dann 6/6/6/6/4 an den nächsten 5 Lerntagen; heute fällig 42 → 14 (die 8 übrigen sind natürlich gelandet oder mit Fehler und bleiben).
+- `supabase/migrations/20261122_wd_4b_stau_strecken.sql` – **eigene Datei, erst nach Probelauf und Okay des Nutzers**: streckt einmalig gesetzte, heute fällige Etappen auf Stufe 0 (je Kind 6 je Lerntag); nur `faellig_am`, `wdh_ab`, `wdh_lerntage`; alte Werte in `schule.wdh_staffel_sicherung` (Rückweg im Kopf der Datei); prüft, dass sich sonst nichts ändert. Nur gelesen nachgerechnet: Kind 2 hat 34 solche Etappen → heute 6, dann 6/6/6/6/4 an den nächsten 5 Lerntagen; heute fällig 42 → 14 (die 8 übrigen sind natürlich gelandet oder mit Fehler und bleiben).
 - `supabase/tests/wd_s_rauchtest.sql` – Rollback, nur Testkind; Prüfungen 1–9 (s. u.), 10: Karten, Lernstände, Plan, Sterne, Stufen (`thema_stufe`) und Reiseoptionen aller anderen Kinder vorher = nachher.
 - `supabase/functions/lernen-api/index.ts`: Aktion `schule_wiederholung_runde_fertig: ['lernender_id']`, VERSION 0.9.0.
 
@@ -1570,7 +1570,7 @@ Bau-Auftrag WD (Server) nach der Schnittstelle im Nachtrag. Nur Dateien, in der 
 
 **Vorschläge**
 1. **„sicher“ (◉) gegenüber „abgelegt“:** Heute heißt ◉ „Stufe 4 erreicht und belegt (Mischkarte oder Nachtest)“ – also *vor* der letzten 30-Tage-Wiederholung. Vorschlag: auf der Kinderseite ◉ nicht mehr als eigenen Zustand zeigen, sondern die Stufe als „Wiederholung x von 5“ und am Ende nur Gold (abgelegt). Für Eltern/Lehrer bleibt „sicher“ als Beleg-Hinweis. Auf dem Server bleibt `karte_sicher` unverändert (Nachtest-Logik hängt daran). Alternative (nicht empfohlen, verzögert das Gold): Ablegen erst, wenn zusätzlich „sicher“.
-2. **Nachtest nach dem Ablegen:** Heute ändert ein Nachtest den Karten-Takt nicht (er setzt nur die Etappe im Flug auf „fehler“ → Verbessern). Vorschlag wie im Auftrag: fällt eine abgelegte Etappe im Nachtest durch, kommt sie **einmalig mit 7 Lerntagen** (Stufe 2) zurück in den Takt; Gold, Sterne und Einblendung bleiben, ein erneutes Ablegen gibt nichts. **Nicht gebaut** – braucht eine Stelle in `test_abschliessen_intern`; auf Sebastians Okay als eigene kleine Datei.
+2. **Nachtest nach dem Ablegen:** Heute ändert ein Nachtest den Karten-Takt nicht (er setzt nur die Etappe im Flug auf „fehler“ → Verbessern). Vorschlag wie im Auftrag: fällt eine abgelegte Etappe im Nachtest durch, kommt sie **einmalig mit 7 Lerntagen** (Stufe 2) zurück in den Takt; Gold, Sterne und Einblendung bleiben, ein erneutes Ablegen gibt nichts. **Nicht gebaut** – braucht eine Stelle in `test_abschliessen_intern`; auf Okay des Nutzers als eigene kleine Datei.
 
 ## 2026-11-21 – FERTIG: 0.84.0 b – Matrix an LM-S 2 angepasst, Filter „Inhalt“, Info-Texte (Version bleibt 0.84.0, Cache v154)
 
@@ -1738,7 +1738,7 @@ Auf antworten.md „21.11. 04:25“. Nur Dateien, nichts ausgeführt, kein App-C
 
 Stand `lernen-app` 05037ef (0.83.2 live, Nachträge aus Prüfergebnis 888). Nur App (`lernen.js`, `style.css`), Versionsnummer in sechs Dateien, Tests. Nichts in der Datenbank, keine Kinderdaten, keine Schlüssel, kein Merge nach `main`.
 
-1. **„Etappen ▸“ (Entscheidungen Sebastian 21.11., Punkt 3):** In der Inhalte-Zeile der kompakten Themen-Karte („Inhalte ansehen (n Etappen)“ · „Ort: …“) steht ein zugeklappter Textlink „Etappen ▸“ (`aria-expanded`, `aria-controls`). Aufgeklappt („Etappen ▾“) die Liste wie in 0.83.0: Nummer, Titel, Stand rechtsbündig in der ersten Titelzeile (offen / begonnen / gelandet / sicher / wieder offen, Farben wie vorher). Zuklappen mit demselben Link, der Fokus bleibt darauf. Gilt in „Nach Klasse“ und im aufgeklappten Ort unter „Nach Themengebiet“. Bei Flügen ohne Etappen gibt es den Link nicht.
+1. **„Etappen ▸“ (Entscheidungen des Nutzers 21.11., Punkt 3):** In der Inhalte-Zeile der kompakten Themen-Karte („Inhalte ansehen (n Etappen)“ · „Ort: …“) steht ein zugeklappter Textlink „Etappen ▸“ (`aria-expanded`, `aria-controls`). Aufgeklappt („Etappen ▾“) die Liste wie in 0.83.0: Nummer, Titel, Stand rechtsbündig in der ersten Titelzeile (offen / begonnen / gelandet / sicher / wieder offen, Farben wie vorher). Zuklappen mit demselben Link, der Fokus bleibt darauf. Gilt in „Nach Klasse“ und im aufgeklappten Ort unter „Nach Themengebiet“. Bei Flügen ohne Etappen gibt es den Link nicht.
 2. **Reisewörter (Punkt 4):** Der Test „Reisewörter auf allen Eltern-/Lehrerseiten“ verbietet „Thema“, „Themen“ (und damit „Themengebiet“) nicht mehr; „Lernkarte“, „Aufgabe“, „Themenplan“, „Lernziel“ und das alleinstehende „Gebiet“ bleiben auch dort verboten (enge Auslegung – sag Bescheid, wenn auf Eltern-/Lehrerseiten gar nichts mehr geprüft werden soll). Ebenso im Test der Info-Seite. Neu: **Test „Reisewörter auf den Kinderseiten“** (Abflugtafel, Reisepass, Erklärung, Bordkarten, Flug-Test; klassisch und neue Gestaltung) gegen Lernkarte, Aufgabe, Themen, Themenplan, Lernziel, Gebiet. Hinweis: „Thema“ (Einzahl) prüfe ich dort nicht, weil die Abschluss-Ansichten es laut Vorgabe selbst verwenden („Weiter zum nächsten Thema“, „NEUES THEMA“). Keine Texte geändert.
 3. **Nachtrag 888 (Teil bau-motivation):** Meldet der Server `ort_geschafft: true` mit `flug_geschafft: false`, startet die Abschluss-Ansicht direkt mit dem Ort-Stempel, danach die Bordkarte – kein zweites „Flug geschafft“. Bei `flug_geschafft: true` und `ort_geschafft: true` bleibt die Reihenfolge Flug → Ort → Bordkarte; ohne das Feld (alter Server) wie 0.83.0.
 
@@ -1871,12 +1871,12 @@ Anlass: `antworten.md`, „20.11. 13:25“ – `supabase/tests/lb3_rauchtest.sql
 ## 2026-11-20 – FERTIG: AB-A (App 0.83.0, Cache v149)
 
 Gebaut im Zweig `bau-lehrer` auf `lernen-app` e71a72d (App 0.82.2) – ich war der einzige Chat am App-Code. Datenbank nur gelesen (für AB-A nichts). Kein Merge nach `main`, keine Kinderdaten.
-Vorgabe: `inhalte/pruefung/kind/abschluss/umsetzung.md`, `entwurf/abschluss.html`, Zusätze von Sebastian in `AUFTRAEGE.md`. Server-Felder: AB-S (Meldung unten).
+Vorgabe: `inhalte/pruefung/kind/abschluss/umsetzung.md`, `entwurf/abschluss.html`, Zusätze vom Nutzer in `AUFTRAEGE.md`. Server-Felder: AB-S (Meldung unten).
 Bilder: `docs/previews/ab/` – Etappe `direkt`/`sauber`/`sturm` × `tag`/`nacht` (400 × 780) und Tablet 820, Flug geschafft (tag/nacht 400, tag 820), Ort geschafft, Bordkarte (gleicher Ort, Ortswechsel).
 
 **Umgesetzt (nur Abflug-Gestaltung „tag“/„nacht“; die alte Gestaltung bleibt wie bisher)**
 - **1 Etappe gelandet:** Vollbild über der Seite, drei Fassungen nach `landung.landung_art` (Ersatz `einheit_lesen.landungen`, sonst „sauber“ bei altem Server): Direktflug (Sonnenuntergang, Jet, Funken, „{ziel}/{ziel} AUF ANHIEB“, Abzeichen Direkt), Saubere Landung (Taghimmel, Landebahn, Chips Bordkarten · selbst gelöst · in Folge; bei `wieder_gelandet` „WIEDER GELANDET“), Sturmflug gemeistert (Gewitter, Durchbruch, Satz ohne Fehlerzahl mit „einmal/zweimal/mehrmals neu angesetzt“, Band „⚡ AUSDAUER-ABZEICHEN“). Blatt: „Du kannst jetzt“ (`kann` → „Kurz gesagt“ → Titel), ★ +Sterne, ein Satz zur Wiederholung, **ein** großer Knopf (Weiter: nächste Etappe · Weiter: Flug-Test „{k} Bordkarten, eine je Etappe, ohne Tipps“ · Zur Abflugtafel), Textlink „Pause – zur Abflugtafel“. Kein Weg zurück in die Übungen; die Adresse wird beim Landen durch `…-erklaeren` ersetzt (Zurück-Taste führt nicht in die Bordkarten).
-- **Ablauf (Zusatz Sebastian):** Übungen → Knobel-Bordkarte von selbst → Abschluss-Ansicht. **Sturmflug:** Knobel kommt nicht von selbst, nur als kleiner Textlink im Blatt; danach wieder die Abschluss-Ansicht. Nach der letzten Pflicht-Etappe führt der Knopf zum Flug-Test.
+- **Ablauf (Zusatz der Nutzer):** Übungen → Knobel-Bordkarte von selbst → Abschluss-Ansicht. **Sturmflug:** Knobel kommt nicht von selbst, nur als kleiner Textlink im Blatt; danach wieder die Abschluss-Ansicht. Nach der letzten Pflicht-Etappe führt der Knopf zum Flug-Test.
 - **2 Flug geschafft** (nach bestandenem Flug-Test bzw. vollständiger Korrektur, nicht nach Nachtests): Gold-Szene, Konfetti, je Etappe ein Licht, Sterne-Zähler (`sterne_flug.summe`) mit „Test r von g{, v verbessert}“, Liste „Das kannst du jetzt – n Etappen“, Wiederholungs-Kette, Knopf „Weiter zum nächsten Thema“, Textlink „Test ansehen“ (schließt die Ansicht; darunter die Antwortliste mit Teil 4/5f). „Überspringen ›“.
 - **Bordkarte:** NEUES THEMA, ORT ✈ FLUG nr/von, Flugname, `kurz`, ETAPPEN · GEBIET · FLUG, Gate „ERKLÄRUNG“; „Boarding: {Titel}“ → `#/lerneinheit/{kind}-{einheit}-erklaeren-1` (Erklärung der ersten Etappe); „Später – zur Abflugtafel“. `naechster_flug: null` → „Alles geschafft, was im Plan steht …“ + „Zur Abflugtafel“. Alter Server ohne das Feld → Abflugtafel.
 - **3 Ort geschafft** (`ort_geschafft`): Papier-Szene, Stempel „GESCHAFFT / ORT / Gebiet · Datum“, „REISEPASS · STEMPEL n“ (Konto neu geladen), „Alle k Flüge · ★ +100 Ort-Sterne“, „Deine Flüge in …“, Knopf „Weiter: neuer Ort“ → Bordkarte „NEUES THEMA · NEUER ORT“, „VON … ✈ NACH …“, „Abflug nach {Ort}“.
@@ -2155,7 +2155,7 @@ angepasst `w176_h_muss_rauchtest.sql` (H10a legt jetzt eine Ausgabe an – ohne 
    App speichert `{tag, n, server}` und zeigt den Server-Zähler unabhängig vom Gerätetag; nur ohne Server-Tag (alter Server) zählt das Gerät nach seinem Tag.
 6. **W177 – Nachtragstest** (Rauchtest ergänzt): offen + fehlerhaft zugleich → Nachtragstest nur für die offene Etappe, danach Korrektur nur für die fehlerhafte; Abbruch und Wiederaufnahme → dieselbe Sitzung,
    Antwort einmal gespeichert; Sterne vorher/nachher = richtige × Regel, zweiter Abschluss bucht nichts. Läuft der Nachtragstest, bekommt eine Korrektur-Anfrage den laufenden Test zurück (heutiges Verhalten, nur notiert).
-   **Frist des nächsten Nachtests (nichts geändert – Sebastian entscheidet):** Der Nachtragstest ist technisch ein Flugtest (`blocktest`). Solange es **noch keinen Nachtest** gab, ist der Anker
+   **Frist des nächsten Nachtests (nichts geändert – der Nutzer entscheidet):** Der Nachtragstest ist technisch ein Flugtest (`blocktest`). Solange es **noch keinen Nachtest** gab, ist der Anker
    der letzte Abschluss eines Flugtests oder einer Korrektur → **die 10-Lerntage-Frist beginnt nach dem Nachtragstest (und nach jeder folgenden Korrektur) neu.** Gab es **schon einen Nachtest**,
    zählt die Frist ab diesem Nachtest weiter; der Nachtragstest verschiebt sie nicht. Solange eine Pflicht-Etappe offen oder fehlerhaft ist, ist ohnehin kein Nachtest fällig.
 7. **H5/H13 – was wie getestet ist:**

@@ -551,7 +551,7 @@ begin
   select count(*) into v_exp from schule.aufgabe a where a.einheit_id = v_e.id and a.pool = 'expedition';
 
   -- Plan (TL-S 6, Entscheidung 20:20): neue Teile bekommen KEINEN Plan-Platz und erben keine Setzung; Teil 1 behält den bisherigen Plan-Eintrag unverändert.
-  -- Nur ein selbst geschaffter Teil kommt als „fertig“ in den Plan (unten). Sebastian teilt die übrigen später zu oder setzt sie.
+  -- Nur ein selbst geschaffter Teil kommt als „fertig“ in den Plan (unten). Der Nutzer teilt die übrigen später zu oder setzt sie.
   -- (c) Visum-Übergang: Hatte das Kind das alte Thema geschafft oder gesetzt (Ort „fertig“ oder „Kann er“ am Ort), gilt der Ort jedes neuen Teils für das
   -- Visum als erfüllt – so verschlechtern sich die Reiseoptionen für kein Kind (z. B. 93 ← 26 Teil 2, 31/8/97 ← 29 Teil 2).
   insert into schule.visum_uebergang (lernender_id, block_id, von_block_id, grund)
@@ -747,8 +747,8 @@ begin
   execute replace(d, a, a || ' and v.gruppe = schule.kind_gruppe((select id from l)) /* TL-S: Visum je Gruppe */');
 end $$;
 
--- TL-S 6 (Entscheidung 20:20, Punkt 4): Liste je Kind für Sebastian – neue Teile mit „selbst geschafft“, „teilweise selbst (x von y Pflicht-Etappen)“,
--- „vom alten Thema gesetzt, jetzt offen“, „offen“. Nur lesen; die Zuteilung macht Sebastian mit den vorhandenen Funktionen (einplanen / „Kann er“).
+-- TL-S 6 (Entscheidung 20:20, Punkt 4): Liste je Kind für den Nutzer – neue Teile mit „selbst geschafft“, „teilweise selbst (x von y Pflicht-Etappen)“,
+-- „vom alten Thema gesetzt, jetzt offen“, „offen“. Nur lesen; die Zuteilung macht der Nutzer mit den vorhandenen Funktionen (einplanen / „Kann er“).
 create or replace view schule.tl_teile_je_kind as
 select l.id lernender_id, t.teil_stamm thema, t.teil_nr teil, t.id thema_id, e.id einheit_id,
        cardinality(coalesce(schule.pflicht_lernziele(l.id, e.id), '{}')) pflicht,
@@ -763,7 +763,7 @@ select l.id lernender_id, t.teil_stamm thema, t.teil_nr teil, t.id thema_id, e.i
        exists (select 1 from schule.route r join schule.block_thema bt on bt.block_id = r.block_id and bt.thema_id = t.id
                 where r.lernender_id = l.id and r.status <> 'entfernt') im_plan,
        (select u.grund from schule.visum_uebergang u join schule.block_thema bt on bt.block_id = u.block_id and bt.thema_id = t.id
-         where u.lernender_id = l.id limit 1) visum_aus_altem_thema   -- TL-S 7: bewusste, dauerhafte Ausnahme (fertig | gesetzt); Sebastian bestätigt einmal
+         where u.lernender_id = l.id limit 1) visum_aus_altem_thema   -- TL-S 7: bewusste, dauerhafte Ausnahme (fertig | gesetzt); der Nutzer bestätigt einmal
   from schule.lernender l cross join schule.thema t join schule.einheit e on e.id = schule.thema_einheit(t.id)
  where l.aktiv and t.teil_nr > 1;
 comment on view schule.tl_teile_je_kind is 'TL-S 6: neue Teile je Kind – selbst geschafft / teilweise selbst (x von y Pflicht-Etappen) / vom alten Thema gesetzt, jetzt offen / offen';

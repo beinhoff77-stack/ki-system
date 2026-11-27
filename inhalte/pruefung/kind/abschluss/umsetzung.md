@@ -1,7 +1,7 @@
 # Entwurf: Abschluss nach Etappe, Flug und Ort (Kinderansicht)
 
-Auftrag: `inhalte/AUFTRAEGE.md`, „Kinderansicht: Abschluss nach Etappe und Flug (20.11., Wunsch von Sebastian)“. Stand gelesen: `lernen-app` (Merge in `pruefung-kinderansicht`, 20.11.).
-Nur Entwurf und Beschreibung – kein App-Code, keine Datenbank. Freigabe durch Sebastian, danach Bau-Chat.
+Auftrag: `inhalte/AUFTRAEGE.md`, „Kinderansicht: Abschluss nach Etappe und Flug (20.11., Wunsch vom Nutzer)“. Stand gelesen: `lernen-app` (Merge in `pruefung-kinderansicht`, 20.11.).
+Nur Entwurf und Beschreibung – kein App-Code, keine Datenbank. Freigabe durch den Nutzer, danach Bau-Chat.
 
 - Klickbarer Entwurf (Entwurf 2): `entwurf/abschluss.html` (oben umschalten: Handy 400 / Tablet 820, hell / nacht, Bewegung an / aus; „↺“ spielt die Bewegung nochmal).
 - Bilder: `bilder/<gerät>-<gestaltung>-<fall>.png` (28 Einzelbilder), Übersichten `bilder/uebersicht-etappe.png`, `bilder/uebersicht-flug-ort.png`, `bilder/uebersicht-tablet.png`.
@@ -19,7 +19,7 @@ Folge (Anlass des Auftrags): Nach der Landung gibt es mehrere gleich starke Wege
 
 ## 1. Abschluss einer Etappe (drei Fassungen, Entwurf 2)
 
-Sebastians Rückmeldung zu Entwurf 1: „zu unspektakulär und zu gleich“. Entwurf 2: jede Fassung hat **eigene Szene, eigene Farbe, eigenes Abzeichen, eigene Bewegung** – auf den ersten Blick unterscheidbar.
+Rückmeldung des Nutzers zu Entwurf 1: „zu unspektakulär und zu gleich“. Entwurf 2: jede Fassung hat **eigene Szene, eigene Farbe, eigenes Abzeichen, eigene Bewegung** – auf den ersten Blick unterscheidbar.
 
 ### Aufbau (gleich gegliedert, verschieden gestaltet)
 
@@ -144,7 +144,7 @@ Ton: standardmäßig keiner; optional später „Töne“ (aus) unter Gestaltung
 | Feld `landung` in `schule_antwort`, `landung_art` speichern, `sterne_flug` im Test-Ergebnis | Bau-Chat mit Datenbank (W1–W7) |
 | `kann` je Etappe, `kurz` je Thema | Inhalts-Chats |
 
-## 7. Freigabe (Sebastian, 20.11.)
+## 7. Freigabe (Nutzer, 20.11.)
 
 - Entwurf 2 freigegeben, so wie im klickbaren Entwurf.
 - Schwellen bleiben: Saubere Landung = höchstens 2 endgültige Fehler, Stufe nie gesenkt, höchstens `ziel + 4` Bordkarten; alles darüber Sturmflug.

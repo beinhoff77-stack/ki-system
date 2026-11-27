@@ -1132,7 +1132,7 @@ body:has(.tinder-mode) main.view{padding:8px 10px;}
 .suche:not(.tinder-mode)>.result-jumps button{min-height:32px;padding:0;border:0;background:none;color:#365c61;text-decoration:underline;font-size:13px;font-weight:600}
 .stay-run-summary{padding-bottom:10px}
 
-/* Urteilsfarben (Sebastian 18.10.): Grün = Favorit, Gelb = Na ja, Rot = Weg – überall gleich. */
+/* Urteilsfarben (Nutzer 18.10.): Grün = Favorit, Gelb = Na ja, Rot = Weg – überall gleich. */
 :root{--fav:#2f8a4e;--fav-bg:#e2f3e7;--maybe:#8a6a00;--maybe-solid:#d9a514;--maybe-bg:#fdf3cf;--out:#c0392b;--out-bg:#fbe1dd}
 .review-actions .decision-favorit,.photo-first .review-actions .decision-favorit{background:var(--fav-bg);color:var(--fav);border-color:transparent}
 .review-actions .decision-vielleicht,.photo-first .review-actions .decision-vielleicht{background:var(--maybe-bg);color:var(--maybe);border-color:transparent}
@@ -1554,7 +1554,7 @@ button.mk-tag { position: absolute; top: -7px; right: -5px; width: 20px; height:
 .mk-art-filter .mk-chip:not([aria-pressed="true"]):not(.is-on) { border-style: dashed; border-color: #b9a37a; }
 .mk-legende { margin: 2px 0 0; }
 
-/* ===== W104 · Richtung A „Ruhig & kompakt“ (Sebastian 20.10.) ===== */
+/* ===== W104 · Richtung A „Ruhig & kompakt“ (Nutzer 20.10.) ===== */
 :root { --a-ink: #14343b; --a-teal: #0e3b43; --a-soft: #e6eeed; --a-line: #e3eae9; --a-muted: #5b6f72; --a-coral: #d95840; --a-fav: #2f8a4e; --a-maybe: #8a6a00; --a-maybe-solid: #d9a514; --a-out: #c0392b; }
 .ic { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; vertical-align: middle; }
 /* Suche: Karte mit Zeilen Wo / Wann / Wer */
@@ -1801,7 +1801,7 @@ button.mk-tag { position: absolute; top: -7px; right: -5px; width: 20px; height:
 .a-ergebnis .stay-run-summary .run-line { line-height: 1.35; }
 .a-ergebnis > .result-view-switch, .a-ergebnis > .filter-box, .a-ergebnis > .result-jumps { margin-bottom: 8px; }
 .quick-search .a-reise > .who-chip.a-zeile { border-top: 1px solid #edf2f1; } @media (min-width: 720px) { .quick-search .a-reise > .who-chip.a-zeile { border-top: 0; border-left: 1px solid #edf2f1; } }
-/* W105 (Sebastian 20.10., iPhone): Durchsehen – Kopf unter der Statusleiste erreichbar, Foto füllt den freien Platz, Leiste unten flacher */
+/* W105 (Nutzer 20.10., iPhone): Durchsehen – Kopf unter der Statusleiste erreichbar, Foto füllt den freien Platz, Leiste unten flacher */
 body:has(.tinder-mode) main.view { padding-top: calc(6px + env(safe-area-inset-top)) !important; }
 .tinder-mode { height: calc(100dvh - var(--tabs-h) - 16px - env(safe-area-inset-bottom) - env(safe-area-inset-top)) !important; }
 .a-ergebnis.tinder-mode .review-card { display: flex !important; flex-direction: column; }
@@ -1925,7 +1925,7 @@ body:has(.tinder-mode) main.view { padding-top: calc(6px + env(safe-area-inset-t
 .a-ergebnis .result-view-switch { grid-template-columns: repeat(4, minmax(0, 1fr)) auto; }
 .a-ergebnis .result-view-switch > button:nth-of-type(4) { display: flex; }
 @media (max-width: 479px) { .a-ergebnis .result-view-switch > button .ic { display: none; } .a-ergebnis .result-view-switch > button { font-size: 12.5px; padding: 0 2px; } }
-/* 0.35.3: Details und Lage in der Liste nur als Symbol (Sebastian 21.10.) */
+/* 0.35.3: Details und Lage in der Liste nur als Symbol (Nutzer 21.10.) */
 .a-zeile-treffer .hit-toggle { display: none !important; }
 .a-zeile-treffer .a-info-knopf, .a-zeile-treffer .a-lage-knopf { width: 40px; min-width: 40px; height: 40px; min-height: 40px; padding: 0; border-radius: 50%; border: 1px solid #e1e8e6; background: #fff; color: var(--a-teal); display: inline-flex; align-items: center; justify-content: center; flex: none; }
 .a-zeile-treffer .a-info-knopf .ic, .a-zeile-treffer .a-lage-knopf .ic { width: 18px; height: 18px; }
@@ -2015,7 +2015,7 @@ body:has(.tinder-mode) main.view { padding-top: calc(6px + env(safe-area-inset-t
 .district-filters > label:not(.district-chip), .decision-controls > label { max-width: 100%; min-width: 0; box-sizing: border-box; }
 .district-filters > label:not(.district-chip) select, .decision-controls > label select { min-width: 0; max-width: 100%; text-overflow: ellipsis; }
 .district-filters { min-width: 0; max-width: 100%; box-sizing: border-box; }
-/* 0.36.0: Urteils-Knöpfe in der Listenzeile bleiben gleich groß, auch als Favorit (Sebastian 21.10.) */
+/* 0.36.0: Urteils-Knöpfe in der Listenzeile bleiben gleich groß, auch als Favorit (Nutzer 21.10.) */
 .a-ergebnis tr.a-zeile-treffer .stay-selection .actions { gap: 6px; }
 .a-ergebnis tr.a-zeile-treffer .stay-selection .actions > button { flex: none; width: 36px !important; height: 36px; padding: 0 !important; border-radius: 50% !important; font-size: 0 !important; }
 .a-ergebnis tr.a-zeile-treffer .stay-selection .actions > button:not(.sel-fav):not(.sel-maybe):not(.sel-out):not(.sel-buchen) { display: none !important; }
@@ -2201,7 +2201,7 @@ body[data-area="unterkunft"] main.view:has(.a-ergebnis) { padding-top: 2px; }
   .a-sort-krit[aria-checked="true"]:not(:disabled):hover { background: #e3f0ee; }
 }
 
-/* W127 (Sebastian 01.11.): viertes Urteil „Wow, aber zu teuer“ */
+/* W127 (Nutzer 01.11.): viertes Urteil „Wow, aber zu teuer“ */
 :root { --wow: #7a4fd6; --wow-bg: #efe8fc; }
 .review-actions .decision-wow, .photo-first .review-actions .decision-wow { background: var(--wow-bg); color: var(--wow); border-color: transparent; }
 .photo-first .review-actions .decision-wow[aria-pressed="true"], .review-actions .decision-wow[aria-pressed="true"] { background: var(--wow); color: #fff; }

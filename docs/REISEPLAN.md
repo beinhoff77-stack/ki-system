@@ -1,7 +1,7 @@
 # Reiseplan – Handbuch für Änderungen (Claude & ChatGPT)
 
-Stand: 07.11.2026, App 0.47.2. Verbindliche Anleitung, **was wo angelegt wird**, wenn Sebastian am Reiseplan etwas ändern lässt.
-Vor jeder Änderung: Werkstatt-Ablauf W1–W7 (Wunsch → `werkstatt_sperre` → Änderung → `werkstatt_aenderung` → erledigt). Keine Schlüssel/Stammdaten in Nachrichten (W7). Nichts live ohne Sebastians „Live“.
+Stand: 07.11.2026, App 0.47.2. Verbindliche Anleitung, **was wo angelegt wird**, wenn der Nutzer am Reiseplan etwas ändern lässt.
+Vor jeder Änderung: Werkstatt-Ablauf W1–W7 (Wunsch → `werkstatt_sperre` → Änderung → `werkstatt_aenderung` → erledigt). Keine Schlüssel/Stammdaten in Nachrichten (W7). Nichts live ohne „Live“ des Nutzers.
 
 ## 1. Grundsätze
 
@@ -34,7 +34,7 @@ storno_kostenlos_bis | storno_text, gebucht_am, notiz,
 land  ← z. B. "Japan" (steuert Länder-Abschnitt + Flagge)
 ```
 
-Achtung `land`: `unterkunft.buchung_bauen` übernimmt `land` **noch nicht** (Migration offen, braucht Sebastians Okay). Wird über die API gespeichert, danach `land` per SQL nachsetzen:
+Achtung `land`: `unterkunft.buchung_bauen` übernimmt `land` **noch nicht** (Migration offen, braucht Okay des Nutzers). Wird über die API gespeichert, danach `land` per SQL nachsetzen:
 `update unterkunft.etappe set buchung = buchung || '{"land":"Japan"}' where id = …;`
 Ohne `land` nutzt die App `ziel` als Land → eigener Abschnitt pro Stadt (unschön).
 Ländernamen deutsch ausschreiben (z. B. „Japan“, „Australien“, „Vereinigte Arabische Emirate“); die Flagge kommt aus der Liste `TRIP_LAND_ISO` in `stay-trips.js` (Europa, Naher Osten, Afrika, Asien, Ozeanien, Amerika). Fehlt ein Land dort, erscheint keine Flagge → in der Liste ergänzen.
@@ -74,7 +74,7 @@ values (1,'flug','gebucht','Qantas Sydney – Auckland','Qantas','ABC123',1234.5
 Pflicht: `taucher` (Vornamen, wer getaucht ist), `tauchgaenge`, `gebiet` (genaues Tauchgebiet; unbekannt → nur `ort`). Log-Werte aus dem Tauchcomputer (UDDF) je Tauchgang in `tg`.
 ```json
 {"ab":"2026-10-05T09:19","an":"2026-10-05T11:21","ort":"Ishigaki","land":"Japan",
- "gebiet":"Westküste vor der Sakieda-Halbinsel","taucher":["Sebastian","Kerstin","Leo","Rosa"],
+ "gebiet":"Westküste vor der Sakieda-Halbinsel","taucher":["Anna","Ben","Cleo","Dan"],
  "tauchgaenge":2,"modus":"Gerät (Luft)",
  "tg":[{"nr":1,"start":"09:19","dauer_min":44,"max_tiefe_m":16.7,"temp_c":28.2,"lat":24.4196,"lon":124.0791,"gebiet":"vor Sakieda"}]}
 ```
@@ -86,7 +86,7 @@ App: eigene Farbe (petrol), Filter „Tauchen“ (nur wenn vorhanden), Summe „
 Kreditkartenbuchungen (Wio, alle Karten) ab Reisebeginn, **eine Zeile je Buchung** – Quelle sind die Monatsabrechnungen (PDF). Felder: `datum`, `anbieter` (bereinigter Name), `text_original`, `karte_endung`, `waehrung_karte`, `betrag_aed`, `betrag_eur` (Tageskurs AED→EUR aus `wechselkurs`), `gebuehr_eur` (2 % Auslandseinsatzgebühr), `land`, `quelle_ref` (`wio:<n>`, eindeutig).
 - `status`: `reise` = Nebenkosten (zählt), `privat` = nicht zählen, `plan` = steckt schon in `etappe`/`reise_posten` (nie doppelt zählen).
 - `kategorie`: `essen` (Restaurants, Supermarkt, Konbini, Lieferdienst), `erleben` (Aktivitäten, Eintritte, Onsen, Massage), `unterwegs` (Taxi/Uber/Careem, Tanken, Parken, Flug-Nebenkosten), `sonst` (Shopping, Telefon/eSIM, Apps, Apotheke, Unklares).
-- Regeln je Anbieter hat Sebastian in der Seite „Reisekasse Weltreise“ gesetzt (privat u. a.: KI-Abos, Apple, Behörden Dubai, Etisalat/du, Noon, Spas Dubai, Hoka). Neue Abrechnung: gleiche Regeln anwenden, nur neue Anbieter fragen.
+- Regeln je Anbieter hat der Nutzer in der Seite „Reisekasse Weltreise“ gesetzt (privat u. a.: KI-Abos, Apple, Behörden Dubai, Etisalat/du, Noon, Spas Dubai, Hoka). Neue Abrechnung: gleiche Regeln anwenden, nur neue Anbieter fragen.
 - Gebühr zählt bei `status <> 'privat'` unter Sonstiges (auch für Plan-Buchungen).
 - Plan-Buchungen auf der Karte: Plan-Wert = Kartenbetrag ohne Gebühr (Etappen: `waehrung` AED, `preis_buchung` = Originalpreis).
 - `unterkunft.nebenkosten_json(reise)` fasst je Monat zusammen; `api.unterkunft_etappen_lesen` liefert sie als `nebenkosten`. App: Zeile „Nebenkosten <Monat>“ am Monatsende (rosé, Filter „Nebenkosten“), Summe in der Gesamtzeile.
@@ -96,7 +96,7 @@ Kreditkartenbuchungen (Wio, alle Karten) ab Reisebeginn, **eine Zeile je Buchung
 
 Posten: 1 Emirates IDN6RJ · 2 Tigerair W75GXP · 3 Klook-Mietwagen Ishigaki · 4 oneworld-RTW YNGQBK (11 Flüge, ca. 24.490 €) · 5 ANA NH 90 · 6 Mietwagen Japan-Rundreise 27.10.–10.11. (ca. 1.200 €) · 7–10 Tauchtage Ishigaki 02./03./05./13.10. (Euro Divers, 3× Aqua-no-jikan; je 2 TG, alle 4; ca. 1.992 €).
 Unterkünfte gebucht bis 09.11.2026 (Kyoto). Danach Lücken – die App zeigt sie automatisch mit „Suchen“.
-Offen (Sebastian liefert): Emirates-Sitzplatzpreis, ob Mondial-Servicegebühr in 24.490 € enthalten, Kinderaufschlag Taipei.
+Offen (Nutzer liefert): Emirates-Sitzplatzpreis, ob Mondial-Servicegebühr in 24.490 € enthalten, Kinderaufschlag Taipei.
 
 ## 4. Automatik – nichts davon von Hand machen
 
@@ -109,4 +109,4 @@ Offen (Sebastian liefert): Emirates-Sitzplatzpreis, ob Mondial-Servicegebühr in
 - Reiseplan-Ansicht: `stay-trips.js` (`viewReisen`, `segRow`, `gapRow`, `row`); Fotos: `stay-photos.js`; Stil: `style.css` (Klassen `.rp-*`).
 - Abschnitte je Land (aktueller + nächste 4 Wochen offen), Filter Hotel/Flug/Transport/Tauchen, Farben: Flug blau, Transport orange, Tauchen petrol (`diveRow`).
 - Jede Version: `APP_VERSION` in `app.js`, `?v=` in `index.html`/`sw.js`, Cache `vNN` in `sw.js`, Tests in `tests/search.test.cjs` mitziehen. `npm test`; danach `git checkout -- docs/previews`.
-- PR auf `main`, Merge erst nach Sebastians „Live“.
+- PR auf `main`, Merge erst nach „Live“ des Nutzers.

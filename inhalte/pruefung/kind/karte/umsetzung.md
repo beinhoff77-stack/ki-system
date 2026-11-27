@@ -2,7 +2,7 @@
 
 Stand 22.11.2026. Entwurf zum Anklicken: `entwurf/reisekarte.html` (oben umschaltbar: Welt / Europa / Italien, Tag/Nacht, Handy/Rechner; Stand des Kindes erfunden). Bilder: `bilder/`. Grundlage: `inhalte/reise/briefing-gestalter.md` (Zweig `lernen-app`). Nur Vorgabe, kein App-Code.
 
-**Entscheidungen Sebastian (22.11.):** echte Karte statt Anzeigetafel, kein Google Maps · Land-Zeichen **Flaggen-Pin** · Startknopf **in der Karte** · Strecke im Land als **dezente gezeichnete Linie** (kein Straßenverlauf) · **keine eigene Karte für Eltern/Lehrer** (dort bleibt „Unser Lehrplan“).
+**Entscheidungen des Nutzers (22.11.):** echte Karte statt Anzeigetafel, kein Google Maps · Land-Zeichen **Flaggen-Pin** · Startknopf **in der Karte** · Strecke im Land als **dezente gezeichnete Linie** (kein Straßenverlauf) · **keine eigene Karte für Eltern/Lehrer** (dort bleibt „Unser Lehrplan“).
 
 Leitregel: Die Karte zeichnet alles **aus den Daten** – keine feste Zahl an Kontinenten, Ländern oder Städten, nichts von Hand platziert. Neue Länder/Städte/Fächer kommen ohne Umbau dazu.
 
@@ -50,7 +50,7 @@ Leitregel: Die Karte zeichnet alles **aus den Daten** – keine feste Zahl an Ko
 
 ## 5 Linien
 - **Länder-Route** (Kontinent): Bögen zwischen den Pin-Köpfen in der Reihenfolge des Plans, 2 px, dezent: geflogen grün durchgezogen, kommt noch gelb gepunktet.
-- **Städte-Route** (Land): leicht gebogene Linie zwischen den Haltestellen, gleiche Farben; zur Kür-Stadt grau gepunktet. **Kein Straßenverlauf** (Sebastian).
+- **Städte-Route** (Land): leicht gebogene Linie zwischen den Haltestellen, gleiche Farben; zur Kür-Stadt grau gepunktet. **Kein Straßenverlauf** (Nutzer).
 - Plan wechselt den Kontinent: am Kartenrand ein Hinweis „Danach: ✈ Usbekistan (Asien) ›“; in der Welt-Ebene die ganze Route über die Kontinente.
 - Geteilte Themen: siehe §11.
 

@@ -1,8 +1,8 @@
-# Einspielen RB-S und WW-S – Schrittfolge für den Projektleiter
+# Einspielen RB-S und WW-S2 – Schrittfolge für den Projektleiter
 
-Stand 27.11.2026, Zweig `helfer-regelbezug` (nicht in lernen-app gemergt). Gegenprüfung: Werkstatt 1129. **Jeder echte Schritt nur mit dem ausdrücklichen Satz des Nutzers.** Vorher `werkstatt_sperre`, nachher `werkstatt_aenderung`.
+Stand 27.11.2026, Zweig `helfer-ww2` (nicht in lernen-app gemergt). Gegenprüfung RB-S: Werkstatt 1129. **WW-S2** = WW-S ohne Nachüben (Entscheidung des Nutzers 27.11.: Wiederholungs- und Mischkarten bleiben, wie sie sind) – nur Analyse und Abhaken, siehe `wackelt-server.md`; die WW-Dateien unten sind neu erzeugt, die RB-S-Dateien byteidentisch. **Jeder echte Schritt nur mit dem ausdrücklichen Satz des Nutzers.** Vorher `werkstatt_sperre`, nachher `werkstatt_aenderung`.
 
-Technik: Jede Datei unter `tools/tests/aus/` ist **ein** Schritt – eine SQL-Datei, in **einem** `execute` lauffähig (kein psql-Meta, kein eigenes BEGIN/COMMIT, alle unter 1,5 MB). Holen per `net.http_get` von raw.githubusercontent.com (Zweig `helfer-regelbezug`), md5 gegen die Tabelle unten prüfen, im `do`-Block per `execute` ausführen. Probe = derselbe Block mit `raise exception` am Ende; für die beiden Migrationen gibt es zusätzlich eigene Probe-Dateien (`*_probe.sql`), die selbst zurückrollen und einen Bericht melden. Im lokalen Nachbau sind alle Dateien genau so gelaufen (Test `regelbezug_sql_test.py`, `wackelt_test.py`: Inhalt in `do $…$ begin execute …; end $…$;`).
+Technik: Jede Datei unter `tools/tests/aus/` ist **ein** Schritt – eine SQL-Datei, in **einem** `execute` lauffähig (kein psql-Meta, kein eigenes BEGIN/COMMIT, alle unter 1,5 MB). Holen per `net.http_get` von raw.githubusercontent.com (Zweig `helfer-ww2`, nach dem Merge `lernen-app`), md5 gegen die Tabelle unten prüfen, im `do`-Block per `execute` ausführen. Probe = derselbe Block mit `raise exception` am Ende; für die beiden Migrationen gibt es zusätzlich eigene Probe-Dateien (`*_probe.sql`), die selbst zurückrollen und einen Bericht melden. Im lokalen Nachbau sind alle Dateien genau so gelaufen (Test `regelbezug_sql_test.py`, `wackelt_test.py`: Inhalt in `do $…$ begin execute …; end $…$;`).
 Die Dateien erzeugt `python3 -I tools/tests/rb_ww_pakete.py` (der Test prüft, dass sie auf dem Stand sind). Ändert sich eine Aufgaben-Datei oder Migration, ändern sich Dateien und md5 – dann diese Tabelle neu erzeugen.
 
 ## Schritte
@@ -13,13 +13,13 @@ Die Dateien erzeugt `python3 -I tools/tests/rb_ww_pakete.py` (der Test prüft, d
 | 1 | Probe RB-S | `rb_s_probe.sql` | Fehler „PROBELAUF bestanden, ALLES zurückgerollt …“ mit `"fehler": 0`, `"bestand_gleich": true`, `trigger_versuch` beginnt mit `versuch_fehlbild`, `versuch_hilfe_merken` dahinter | jede andere Meldung („RB-S ABBRUCH …“, „weder im alten noch im fertigen Zustand“, Sperre nach 3 s) |
 | 2 | RB-S echt | `rb_s_einspielen.sql` | Hinweis „RB-S eingespielt: …“, `"fehler": 0`; danach `select to_regclass('schule.aufgabe_fehlbild'), (select count(*) from schule.aufgabe_fehlbild);` = Tabelle, 0 | jede Ausnahme (dann ist nichts geändert) |
 | 3 | Nachträge rundenweise, je erst Probe (Block + `raise exception`), dann echt | `rb_nachtrag_r01.sql` … `rb_nachtrag_r13.sql` (Reihenfolge egal) | Hinweis „RB-S Regelbezug: N Aufgaben, R Regeln neu, F Fehlbilder neu“ mit den Zahlen der Tabelle unten; ein zweiter Lauf: „0 Regeln neu, 0 Fehlbilder neu“ | „RB-S Regelbezug ABBRUCH …“ (Liste der Kennungen: Platz leer/doppelt, Text/Typ/Lernkarte/Optionen oder **Lösung** anders als eingespielt, Fehlbild nicht wiedererkannt) – Liste an den Helfer, nicht von Hand berichtigen |
-| 4 | Probe WW-S | `ww_s_probe.sql` | „PROBELAUF bestanden …“ mit `"fehler": 0`, `tagesgrenze` {3, 2, 3}, `karte_sitzt_nicht_faellig` mit beobachteten Zuständen, `laufzeit_ms_testkind`, `laufzeit_ms_groesstes_kind` (Warnung im Bericht, wenn über 500 ms – dann vor Schritt 5 melden) | „WW-S ABBRUCH …“ |
-| 5 | WW-S echt | `ww_s_einspielen.sql` | Hinweis „WW-S eingespielt: …“, `"fehler": 0` | jede Ausnahme |
-| 6 | Edge-Funktion `lernen-api` 0.9.4 | `supabase/functions/lernen-api/index.ts` (vier Einträge in `AKTIONEN`) | vorher mit der ausgelieferten Fassung vergleichen (Repo stand auf 0.9.3); nach dem Ausliefern `GET /lernen-api/hilfe` listet die vier Aktionen | Unterschied zur ausgelieferten Fassung außer den vier Zeilen und der Version |
-| 7 | App | Client-Stellen: `regelbezug.md` („Was der Client später braucht“), `wackelt-server.md` („Client-Stellen“) | – | – |
+| 4 | Probe WW-S2 | `ww_s_probe.sql` | „PROBELAUF bestanden …“ mit `"fehler": 0`, `"schema_bestehend_gleich": true`, `"bestand_gleich": true`, `"bestand_gleich_beim_abhaken": true`, `karte_abhaken_ohne_wirkung` (mit und ohne Abhaken gleiche Zustände), `laufzeit_ms_testkind`, `laufzeit_ms_groesstes_kind` (Warnung im Bericht, wenn über 500 ms – dann vor Schritt 5 melden) | „WW-S ABBRUCH …“ |
+| 5 | WW-S2 echt | `ww_s_einspielen.sql` | Hinweis „WW-S eingespielt: …“, `"fehler": 0`, `"bestand_gleich": true`; danach `select to_regclass('schule.fehler_erledigt'), (select count(*) from schule.fehler_erledigt), to_regclass('schule.nachueben');` = Tabelle, 0, leer | jede Ausnahme |
+| 6 | Edge-Funktion `lernen-api` 0.9.5 | `supabase/functions/lernen-api/index.ts` (zwei Einträge in `AKTIONEN`: `schule_wackelt_analyse`, `schule_fehler_abhaken`) | vorher mit der ausgelieferten Fassung 0.9.3 vergleichen; nach dem Ausliefern `GET /lernen-api/hilfe` meldet 0.9.5 und listet die zwei Aktionen, keine `schule_nachueben_*` | Unterschied zur ausgelieferten Fassung außer den zwei Zeilen, den Kopfkommentaren und der Version |
+| 7 | App | Client-Stellen: `regelbezug.md` („Was der Client später braucht“), `wackelt-server.md` („Client-Einbindung (noch zu bauen)“) | – | – |
 
-WW-S ist unabhängig von RB-S (Schritte 4–5 gehen auch vor 1–3; ohne RB-S meldet die Analyse `mit_fehlbild: false`). Die Nachträge (Schritt 3) brauchen RB-S (Schritt 2), sonst bricht jede Datei mit „erst die Migration … einspielen“ ab.
-Ein Nachtrag sperrt nur die neuen Tabellen (Einfügen) – keine Nutzungspause nötig; die Schritte 2 und 5 ändern `schule.versuch` bzw. legen Tabellen an (Schritt 2 sperrt `schule.versuch` bis zum Ende der Transaktion) – nur in der Pause.
+WW-S2 ist unabhängig von RB-S (Schritte 4–5 gehen auch vor 1–3; ohne RB-S meldet die Analyse `mit_fehlbild: false`). Die Nachträge (Schritt 3) brauchen RB-S (Schritt 2), sonst bricht jede Datei mit „erst die Migration … einspielen“ ab.
+Ein Nachtrag sperrt nur die neuen Tabellen (Einfügen) – keine Nutzungspause nötig. Schritt 2 ändert `schule.versuch` (sperrt die Tabelle bis zum Ende der Transaktion) – nur in der Pause. Schritt 5 legt nur `schule.fehler_erledigt` und neue Funktionen an (kein Fremdschlüssel, keine Sperre an `schule.versuch`); die Fingerabdrücke lesen aber alle `schule`-Tabellen – trotzdem in der Pause, damit `bestand_gleich` nicht an einer gleichzeitigen Antwort scheitert.
 
 ## Dateien, md5 und erwartete Zahlen
 
@@ -40,8 +40,8 @@ Ein Nachtrag sperrt nur die neuen Tabellen (Einfügen) – keine Nutzungspause n
 | `tools/tests/aus/rb_nachtrag_r11.sql` | 43 108 | `d3744a23f62258a7a92b70585ae6db67` | 60 Aufgaben, 42 Regeln neu, 170 Fehlbilder neu (zweiter Lauf: 0 und 0) |
 | `tools/tests/aus/rb_nachtrag_r12.sql` | 127 142 | `c54e233eb300ded02d40f95b889ff7b3` | 210 Aufgaben, 106 Regeln neu, 575 Fehlbilder neu (zweiter Lauf: 0 und 0) |
 | `tools/tests/aus/rb_nachtrag_r13.sql` | 87 423 | `05600fafc761fbb3d8682109dc67b13d` | 132 Aufgaben, 112 Regeln neu, 366 Fehlbilder neu (zweiter Lauf: 0 und 0) |
-| `tools/tests/aus/ww_s_probe.sql` | 56 692 | `1b9eef2f47a7baf1ee95a71357e20974` | Meldung „PROBELAUF bestanden …“ mit "fehler": 0 |
-| `tools/tests/aus/ww_s_einspielen.sql` | 56 635 | `0e96871b89f32a90134dc24c2907eeed` | Hinweis „WW-S eingespielt: …“, "fehler": 0 |
+| `tools/tests/aus/ww_s_probe.sql` | 43 993 | `634a542eb3f3f2e5b1515555c7495bf8` | Meldung „PROBELAUF bestanden …“ mit "fehler": 0 |
+| `tools/tests/aus/ww_s_einspielen.sql` | 43 936 | `6f8d5357c97e3a5761c9c0f437f8afea` | Hinweis „WW-S eingespielt: …“, "fehler": 0 |
 
 Zusammen nach Schritt 3: **1 795 Regeln, 5 047 Fehlbilder** an 2 028 Aufgaben (Z2-02: Regel ja, Fehlbilder nein – Abweichung Datei/eingespielt).
 Prüfabfrage danach: `select (select count(*) from schule.aufgabe_regel), (select count(*) from schule.aufgabe_fehlbild), (select count(*) from schule.aufgabe_fehlbild where fehlbild is not null);` → 1795, 5047, 478.

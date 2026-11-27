@@ -1,0 +1,592 @@
+{
+ "stand": "2026-11-27",
+ "flug": "ge3",
+ "titel": "Winkel",
+ "fuer": "Kind 1",
+ "klasse": 5,
+ "themen": [
+  "geometrie.winkel"
+ ],
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Brücke), rollend-4. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag ja/nein) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: Stufe aufsteigend.",
+ "aufgaben": [
+  {
+   "kennung": "GE3-V01",
+   "thema": "geometrie.winkel",
+   "lernkarte": "um_punkt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 180,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem gestreckten Winkel verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "um_punkt",
+    "t": "um_punkt",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Um einen Punkt liegen drei Winkel: 100°, 140° und ein dritter. Alle zusammen ergeben ①°. Die ersten beiden zusammen haben 100° + 140° = ②°. Der dritte Winkel hat ① − ② = ③°.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      360,
+      240,
+      120
+     ]
+    },
+    "c": [
+     "360",
+     "100 + 140",
+     "360 - (100 + 140)"
+    ],
+    "h": "Um einen Punkt herum ist ein voller Winkel.",
+    "w": "360° − 240° = 120°."
+   }
+  },
+  {
+   "kennung": "GE3-V02",
+   "thema": "geometrie.winkel",
+   "lernkarte": "uhr",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 6 statt durch 60 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "uhr",
+    "t": "uhr",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Der Minutenzeiger dreht sich in 60 Minuten um 360°. In 1 Minute dreht er sich um 360° : 60 = ①°. In 15 Minuten dreht er sich um 15 · ① = ②°.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      90
+     ]
+    },
+    "c": [
+     "360 // 60",
+     "15 * (360 // 60)"
+    ],
+    "h": "Eine Viertelstunde ist ein Viertel einer ganzen Drehung.",
+    "w": "360° : 60 = 6°. 15 · 6° = 90°."
+   }
+  },
+  {
+   "kennung": "GE3-V03",
+   "thema": "geometrie.winkel",
+   "lernkarte": "drehungen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "halbe Drehungen gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "drehungen",
+    "t": "drehungen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Du drehst dich im Uhrzeigersinn um 270°. Eine Vierteldrehung sind ①°. 270° sind also ② Vierteldrehungen. Eine ganze Drehung sind ③ Vierteldrehungen.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      90,
+      3,
+      4
+     ]
+    },
+    "c": [
+     "360 // 4",
+     "270 // 90",
+     "4"
+    ],
+    "h": "Eine ganze Drehung hat 360°.",
+    "w": "360° : 4 = 90°. 270° : 90° = 3. Vier Vierteldrehungen sind eine ganze Drehung."
+   }
+  },
+  {
+   "kennung": "GE3-V04",
+   "thema": "geometrie.winkel",
+   "lernkarte": "figuren",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 148,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 180° statt von 90° abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "figuren",
+    "t": "figuren",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Diagonale eines Rechtecks teilt eine Ecke in zwei Teile. Ein Teil hat 32°. Jede Ecke des Rechtecks hat ①°. Der andere Teil hat ① − 32 = ②°.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      90,
+      58
+     ]
+    },
+    "c": [
+     "90",
+     "90 - 32"
+    ],
+    "h": "Jede Ecke eines Rechtecks ist ein rechter Winkel.",
+    "w": "90° − 32° = 58°."
+   }
+  },
+  {
+   "kennung": "GE3-V05",
+   "thema": "geometrie.winkel",
+   "lernkarte": "verstehen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den bekannten Winkel wiederholt"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Kim sagt: „Zwei Winkel, die zusammen 180° ergeben, sind immer gleich groß.“ Gegenbeispiel: Ein Winkel hat 70°. Der andere hat 180° − 70° = ①°. ① ist nicht 70. Also ist die Behauptung falsch.",
+     "schablone": "① = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      110
+     ]
+    },
+    "c": [
+     "180 - 70"
+    ],
+    "h": "Ein einziges Beispiel genügt, um „immer“ zu widerlegen.",
+    "w": "180° − 70° = 110°. 110° ist nicht gleich 70°."
+   }
+  },
+  {
+   "kennung": "GE3-V06",
+   "thema": "geometrie.winkel",
+   "lernkarte": "uhr",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In 1 Minute dreht er sich um 6°. Zwei Stunden: 2 · 6° = 12°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Minutenzeiger genommen"
+    },
+    {
+     "index": 1,
+     "antwort": "In 1 Stunde dreht er sich um 360°. Zwei Stunden: 2 · 360° = 720°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Drehung des Minutenzeigers gerechnet"
+    },
+    {
+     "index": 3,
+     "antwort": "Zwei Stunden sind die Hälfte: 360° : 2 = 180°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Stunden und Teile einer Drehung verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "uhr",
+    "t": "uhr",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Stundenzeiger läuft 2 Stunden. Um wie viel Grad dreht er sich? Welche Rechnung stimmt?"
+    },
+    "a": [
+     "In 1 Minute dreht er sich um 6°. Zwei Stunden: 2 · 6° = 12°",
+     "In 1 Stunde dreht er sich um 360°. Zwei Stunden: 2 · 360° = 720°",
+     "In 12 Stunden dreht er sich um 360°, also in 1 Stunde um 30°. Zwei Stunden: 2 · 30° = 60°",
+     "Zwei Stunden sind die Hälfte: 360° : 2 = 180°"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wie lange braucht der Stundenzeiger für eine ganze Drehung?",
+    "w": "Eine ganze Drehung dauert 12 Stunden. 360° : 12 = 30° je Stunde. 2 · 30° = 60°."
+   }
+  },
+  {
+   "kennung": "GE3-V07",
+   "thema": "geometrie.winkel",
+   "lernkarte": "figuren",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "180° − 25° − 30° = 125°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 180° statt von 90° abgezogen"
+    },
+    {
+     "index": 1,
+     "antwort": "25° + 30° = 55°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Teile zusammengezählt"
+    },
+    {
+     "index": 3,
+     "antwort": "90° − 25° = 65°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Teil abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "figuren",
+    "t": "figuren",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Ecke eines Rechtecks wird durch zwei Linien in drei Teile geteilt. Zwei Teile haben 25° und 30°. Wie berechnest du den dritten Teil?"
+    },
+    "a": [
+     "180° − 25° − 30° = 125°",
+     "25° + 30° = 55°",
+     "90° − 25° − 30° = 35°",
+     "90° − 25° = 65°"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Die drei Teile ergeben zusammen eine Ecke des Rechtecks.",
+    "w": "Ecke 90°. 90° − 25° = 65°. 65° − 30° = 35°."
+   }
+  },
+  {
+   "kennung": "GE3-V08",
+   "thema": "geometrie.winkel",
+   "lernkarte": "ergaenzen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "ergaenzen",
+    "t": "ergaenzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Neben einem Winkel von 65° liegt an einer Geraden ein zweiter Winkel. Kim berechnet ihn. Zeile 1: Beide zusammen ergeben einen gestreckten Winkel. Zeile 2: Ein gestreckter Winkel hat 90°. Zeile 3: Der zweite Winkel hat 90° − 65° = 25°. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wie viel Grad hat eine gerade Linie als Winkel?",
+    "w": "Ein gestreckter Winkel hat 180°. Der zweite Winkel hat 180° − 65° = 115°."
+   }
+  },
+  {
+   "kennung": "GE3-V09",
+   "thema": "geometrie.winkel",
+   "lernkarte": "kreuzung",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreuzung",
+    "t": "kreuzung",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Geraden schneiden sich. Ein Winkel hat 50°. Kim berechnet die anderen. Zeile 1: Der gegenüberliegende Winkel hat auch 50°. Zeile 2: Die beiden Nachbarwinkel haben je 180° − 50° = 130°. Zeile 3: Alle vier Winkel zusammen: 50° + 50° + 130° + 130° = 350°. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne die vier Winkel noch einmal zusammen.",
+    "w": "50 + 50 + 130 + 130 = 360. Um einen Punkt herum sind es immer 360°."
+   }
+  },
+  {
+   "kennung": "GE3-V10",
+   "thema": "geometrie.winkel",
+   "lernkarte": "um_punkt",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "um_punkt",
+    "t": "um_punkt",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Um einen Punkt liegen vier gleich große Winkel. Kim berechnet einen von ihnen. Zeile 1: Alle Winkel um einen Punkt ergeben 360°. Zeile 2: Jeder der vier Winkel hat 360° : 4 = 80°. Zeile 3: Ein Winkel hat also 80°. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Rechne 4 · 80° als Probe.",
+    "w": "360° : 4 = 90°. Probe: 4 · 90° = 360°."
+   }
+  },
+  {
+   "kennung": "GE3-V11",
+   "thema": "geometrie.winkel",
+   "lernkarte": "drehungen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "drehungen",
+    "t": "drehungen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Du schaust nach Osten und drehst dich um 90° im Uhrzeigersinn. Kim sagt, wohin du dann schaust. Zeile 1: 90° sind eine Vierteldrehung. Zeile 2: Im Uhrzeigersinn geht es von Osten nach Süden. Zeile 3: Du schaust danach nach Norden. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Zwischen zwei Himmelsrichtungen, die direkt nebeneinander liegen, sind 90°. Welche kommt nach Osten?",
+    "w": "Von Osten aus ist im Uhrzeigersinn Süden die nächste Himmelsrichtung. Du schaust nach Süden."
+   }
+  },
+  {
+   "kennung": "GE3-V12",
+   "thema": "geometrie.winkel",
+   "lernkarte": "figuren",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "figuren",
+    "t": "figuren",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "In einem Quadrat teilen zwei Linien aus einer Ecke den rechten Winkel in drei gleich große Teile. Kim berechnet zwei der Teile zusammen. Zeile 1: Ein Quadrat hat in jeder Ecke 90°. Zeile 2: Jeder der drei Teile hat 90° : 3 = 30°. Zeile 3: Zwei der Teile zusammen haben 30° + 30° = 90°. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne 30 + 30 noch einmal nach.",
+    "w": "30° + 30° = 60°. Alle drei Teile zusammen sind 90°."
+   }
+  }
+ ]
+}

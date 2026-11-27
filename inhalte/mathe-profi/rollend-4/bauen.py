@@ -756,6 +756,103 @@ neu(f, "sachzusammenhang", "FD", FDZ("Eine Kerze ist 30 cm lang und brennt in je
     [("Feste Größe am Anfang: 30 cm.", True), ("Änderung pro Stunde: −2 cm.", True), ("Term: L(t) = 2 − 30 · t.", False)],
     "Die feste Größe steht allein, die Änderung steht beim t.", "Die Länge am Anfang ist 30, pro Stunde kommt −2 dazu: L(t) = 30 − 2 · t."))
 
+# ═════════════════════ Kind 1 · Flug ge3 · Winkel ═════════════════════
+f = "ge3"
+neu(f, "ergaenzen", "FD", FDZ("Neben einem Winkel von 65° liegt an einer Geraden ein zweiter Winkel. Kim berechnet ihn.",
+    [("Beide zusammen ergeben einen gestreckten Winkel.", True), ("Ein gestreckter Winkel hat 90°.", 90 == 180), ("Der zweite Winkel hat 90° − 65° = 25°.", True)],
+    "Wie viel Grad hat eine gerade Linie als Winkel?", "Ein gestreckter Winkel hat 180°. Der zweite Winkel hat 180° − 65° = 115°."))
+neu(f, "kreuzung", "FD", FDZ("Zwei Geraden schneiden sich. Ein Winkel hat 50°. Kim berechnet die anderen.",
+    [("Der gegenüberliegende Winkel hat auch 50°.", True), ("Die beiden Nachbarwinkel haben je 180° − 50° = 130°.", 180 - 50 == 130), ("Alle vier Winkel zusammen: 50° + 50° + 130° + 130° = 350°.", 50 + 50 + 130 + 130 == 350)],
+    "Rechne die vier Winkel noch einmal zusammen.", "50 + 50 + 130 + 130 = 360. Um einen Punkt herum sind es immer 360°."))
+neu(f, "um_punkt", "LW", L("Um einen Punkt liegen drei Winkel: 100°, 140° und ein dritter. Alle zusammen ergeben ①°. Die ersten beiden zusammen haben 100° + 140° = ②°. Der dritte Winkel hat ① − ② = ③°.",
+    K(3), [360, 240, 120], ["360", "100 + 140", "360 - (100 + 140)"], ["2 * 180", "140 + 100", "360 // 3"], "Um einen Punkt herum ist ein voller Winkel.", "360° − 240° = 120°.",
+    {0: [(180, None, "mit dem gestreckten Winkel verwechselt")]}, hinweis=GZ))
+neu(f, "um_punkt", "FD", FDZ("Um einen Punkt liegen vier gleich große Winkel. Kim berechnet einen von ihnen.",
+    [("Alle Winkel um einen Punkt ergeben 360°.", True), ("Jeder der vier Winkel hat 360° : 4 = 80°.", 360 // 4 == 80), ("Ein Winkel hat also 80°.", True)],
+    "Rechne 4 · 80° als Probe.", "360° : 4 = 90°. Probe: 4 · 90° = 360°."))
+neu(f, "uhr", "LW", L("Der Minutenzeiger dreht sich in 60 Minuten um 360°. In 1 Minute dreht er sich um 360° : 60 = ①°. In 15 Minuten dreht er sich um 15 · ① = ②°.",
+    K(2), [6, 90], ["360 // 60", "15 * (360 // 60)"], ["30 // 5", "360 // 4"], "Eine Viertelstunde ist ein Viertel einer ganzen Drehung.", "360° : 60 = 6°. 15 · 6° = 90°.",
+    {0: [(60, None, "durch 6 statt durch 60 geteilt")]}, hinweis=GZ))
+neu(f, "uhr", "VW", W("Der Stundenzeiger läuft 2 Stunden. Um wie viel Grad dreht er sich? Welche Rechnung stimmt?",
+    "In 12 Stunden dreht er sich um 360°, also in 1 Stunde um 30°. Zwei Stunden: 2 · 30° = 60°",
+    [("In 1 Minute dreht er sich um 6°. Zwei Stunden: 2 · 6° = 12°", "den Minutenzeiger genommen"), ("In 1 Stunde dreht er sich um 360°. Zwei Stunden: 2 · 360° = 720°", "mit der Drehung des Minutenzeigers gerechnet"), ("Zwei Stunden sind die Hälfte: 360° : 2 = 180°", "Stunden und Teile einer Drehung verwechselt")],
+    "Wie lange braucht der Stundenzeiger für eine ganze Drehung?", "Eine ganze Drehung dauert 12 Stunden. 360° : 12 = 30° je Stunde. 2 · 30° = 60°.",
+    lambda: 360 // 12 == 30 and 2 * 30 == 60 and 2 * 6 != 60 and 2 * 360 != 60 and 360 // 2 != 60), g="mehrschritt")
+neu(f, "drehungen", "LW", L("Du drehst dich im Uhrzeigersinn um 270°. Eine Vierteldrehung sind ①°. 270° sind also ② Vierteldrehungen. Eine ganze Drehung sind ③ Vierteldrehungen.",
+    K(3), [90, 3, 4], ["360 // 4", "270 // 90", "4"], ["90", "3 * 90 // 90", "360 // 90"], "Eine ganze Drehung hat 360°.", "360° : 4 = 90°. 270° : 90° = 3. Vier Vierteldrehungen sind eine ganze Drehung.",
+    {1: [(2, None, "halbe Drehungen gezählt")]}, hinweis=GZ))
+neu(f, "drehungen", "FD", FDZ("Du schaust nach Osten und drehst dich um 90° im Uhrzeigersinn. Kim sagt, wohin du dann schaust.",
+    [("90° sind eine Vierteldrehung.", True), ("Im Uhrzeigersinn geht es von Osten nach Süden.", True), ("Du schaust danach nach Norden.", False)],
+    "Zwischen zwei Himmelsrichtungen, die direkt nebeneinander liegen, sind 90°. Welche kommt nach Osten?", "Von Osten aus ist im Uhrzeigersinn Süden die nächste Himmelsrichtung. Du schaust nach Süden."))
+neu(f, "figuren", "LW", L("Die Diagonale eines Rechtecks teilt eine Ecke in zwei Teile. Ein Teil hat 32°. Jede Ecke des Rechtecks hat ①°. Der andere Teil hat ① − 32 = ②°.",
+    K(2), [90, 58], ["90", "90 - 32"], ["180 // 2", "32 + 58 - 32"], "Jede Ecke eines Rechtecks ist ein rechter Winkel.", "90° − 32° = 58°.",
+    {1: [(148, None, "von 180° statt von 90° abgezogen")]}, hinweis=GZ))
+neu(f, "figuren", "FD", FDZ("In einem Quadrat teilen zwei Linien aus einer Ecke den rechten Winkel in drei gleich große Teile. Kim berechnet zwei der Teile zusammen.",
+    [("Ein Quadrat hat in jeder Ecke 90°.", True), ("Jeder der drei Teile hat 90° : 3 = 30°.", 90 // 3 == 30), ("Zwei der Teile zusammen haben 30° + 30° = 90°.", 30 + 30 == 90)],
+    "Rechne 30 + 30 noch einmal nach.", "30° + 30° = 60°. Alle drei Teile zusammen sind 90°."))
+neu(f, "figuren", "VW", W("Eine Ecke eines Rechtecks wird durch zwei Linien in drei Teile geteilt. Zwei Teile haben 25° und 30°. Wie berechnest du den dritten Teil?",
+    "90° − 25° − 30° = 35°",
+    [("180° − 25° − 30° = 125°", "von 180° statt von 90° abgezogen"), ("25° + 30° = 55°", "die beiden Teile zusammengezählt"), ("90° − 25° = 65°", "nur einen Teil abgezogen")],
+    "Die drei Teile ergeben zusammen eine Ecke des Rechtecks.", "Ecke 90°. 90° − 25° = 65°. 65° − 30° = 35°.",
+    lambda: 90 - 25 - 30 == 35 and 180 - 25 - 30 != 35 and 25 + 30 != 35 and 90 - 25 != 35), g="mehrschritt")
+neu(f, "verstehen", "LW", L("Kim sagt: „Zwei Winkel, die zusammen 180° ergeben, sind immer gleich groß.“ Gegenbeispiel: Ein Winkel hat 70°. Der andere hat 180° − 70° = ①°. ① ist nicht 70. Also ist die Behauptung falsch.",
+    K(1), [110], ["180 - 70"], ["100 + 10"], "Ein einziges Beispiel genügt, um „immer“ zu widerlegen.", "180° − 70° = 110°. 110° ist nicht gleich 70°.",
+    {0: [(70, None, "den bekannten Winkel wiederholt")]}, hinweis=GZ))
+
+# ═════════════════════ Kind 1 · Flug r1 · Umfang und Fläche ═════════════════════
+f = "r1"
+neu(f, "einheitsquadrate", "FD", FDZ("Ein Rechteck wird mit Quadraten von 1 cm² ausgelegt. Es passen 5 Reihen mit je 7 Quadraten. Kim bestimmt die Fläche.",
+    [("Die Zahl der Quadrate ist 5 · 7.", True), ("5 · 7 = 35.", 5 * 7 == 35), ("Die Fläche ist 35 cm.", False)],
+    "Eine Fläche misst man in Quadraten. Wie schreibt man die Einheit?", "Die Fläche ist 35 cm². Die Einheit der Fläche hat die kleine Zwei."))
+neu(f, "rechteck", "LW", L("Ein Rechteck ist 9 m lang und 4 m breit. Die Fläche ist 9 · 4 = ① m². Der Umfang ist 2 · 9 + 2 · 4 = ② m.",
+    K(2), [36, 26], ["9 * 4", "2 * 9 + 2 * 4"], ["4 * 9", "(9 + 4) * 2"], "Fläche: Länge mal Breite. Umfang: alle Seiten zusammen.", "9 · 4 = 36 m². 18 + 8 = 26 m.",
+    {1: [(36, "fb.auslegen.umfang_statt_flaeche", "die Fläche statt des Umfangs genannt")]}, hinweis=GZ))
+neu(f, "rechteck", "FD", FDZ("Ein Rechteck hat die Fläche 60 cm² und ist 12 cm lang. Kim berechnet die Breite.",
+    [("Es gilt A = a · b, also 60 = 12 · b.", True), ("Dann ist b = 12 · 60 = 720.", 12 * 60 == 60 // 12), ("Die Breite ist 720 cm.", True)],
+    "Aus A = a · b folgt b = A : a. Wann musst du teilen?", "Die Breite ist die Fläche geteilt durch die Länge: b = 60 : 12 = 5 cm."))
+neu(f, "rechteck", "VW", W("Ein Garten ist 12 m lang und 8 m breit. Du willst wissen, wie viel Zaun du um den ganzen Garten brauchst. Welche Rechnung passt?",
+    "2 · 12 + 2 · 8 = 40 m (Umfang)", [("12 · 8 = 96 m (Fläche)", "Fläche statt Umfang"), ("12 + 8 = 20 m", "nur zwei Seiten gezählt"), ("12 + 8 + 12 = 32 m", "eine Seite vergessen")],
+    "Der Zaun läuft einmal um den ganzen Garten herum.", "Der Zaun geht um alle vier Seiten: 12 + 8 + 12 + 8 = 40 m.",
+    lambda: 2 * 12 + 2 * 8 == 40 and 12 * 8 != 40 and 12 + 8 != 40 and 12 + 8 + 12 != 40), g="einkleidung")
+neu(f, "einheiten", "FD", FDZ("Kim rechnet 4 m² in dm² um.",
+    [("Bei Flächen ist die Umrechnungszahl 100.", True), ("1 m² = 100 dm².", 10 * 10 == 100), ("4 m² = 4 · 10 = 40 dm².", 4 * 10 == 4 * 100)],
+    "Welche Zahl hast du in Zeile 1 und 2 für die Umrechnung genannt?", "Die Umrechnungszahl ist 100: 4 · 100 = 400 dm²."))
+neu(f, "kommaschreibweise", "LW", L("Bei Flächen bekommt jede kleinere Einheit hinter dem Komma zwei Stellen. 3,25 m² sind 3 m² 25 dm². Das sind insgesamt ① dm². 2,05 m² sind 2 m² ② dm².",
+    K(2), [325, 5], ["3 * 100 + 25", "205 - 200"], ["300 + 25", "5"], "1 m² sind 100 dm².", "3 m² = 300 dm², dazu 25 dm²: 325 dm². 2,05 m² = 2 m² 05 dm² = 2 m² 5 dm².",
+    {1: [(50, "fb.stellenwert.eine_stelle_daneben", "05 als 50 gelesen")]}, hinweis=GZ))
+neu(f, "zerlegen", "LW", L("Eine L-förmige Fläche wird in zwei Rechtecke zerlegt: eines ist 6 m mal 3 m, das andere 2 m mal 4 m. Die Flächen sind 6 · 3 = ① m² und 2 · 4 = ② m². Zusammen sind es ③ m².",
+    K(3), [18, 8, 26], ["6 * 3", "2 * 4", "6 * 3 + 2 * 4"], ["3 * 6", "4 * 2", "18 + 8"], "Rechne beide Rechtecke einzeln und addiere.", "18 m² + 8 m² = 26 m².",
+    {2: [(24, None, "die beiden Flächen nicht richtig addiert")]}, hinweis=GZ))
+neu(f, "sachaufgaben", "LW", L("Ein Zimmer ist 5 m lang und 4 m breit. Der Boden wird mit Fliesen belegt. Das ist eine Fläche: 5 · 4 = ① m². Für die Leiste an der Wand brauchst du den Umfang: 2 · 5 + 2 · 4 = ② m.",
+    K(2), [20, 18], ["5 * 4", "2 * 5 + 2 * 4"], ["4 * 5", "5 + 4 + 5 + 4"], "Boden: Fläche. Wand: Umfang.", "5 · 4 = 20 m². 10 + 8 = 18 m.",
+    {1: [(20, "fb.auslegen.umfang_statt_flaeche", "die Fläche statt des Umfangs genannt")]}, hinweis=GZ))
+neu(f, "sachaufgaben", "FD", FDZ("Ein Beet ist 3 m lang und 2 m breit. Kim will einen Zaun um das ganze Beet kaufen.",
+    [("Der Zaun läuft am Rand, also brauche ich den Umfang.", True), ("Umfang: 3 · 2 = 6.", 3 * 2 == 2 * 3 + 2 * 2), ("Ich brauche 6 m Zaun.", True)],
+    "Der Umfang ist die Summe aller vier Seiten.", "Umfang: 3 + 2 + 3 + 2 = 10 m. 3 · 2 = 6 wäre die Fläche in m²."))
+neu(f, "verstehen", "LW", L("Ein Rechteck ist 5 cm lang und 2 cm breit. Seine Fläche ist ① cm². Verdoppelt man Länge und Breite, ist die neue Fläche (2 · 5) · (2 · 2) = ② cm². Die neue Fläche ist ③-mal so groß wie die alte.",
+    K(3), [10, 40, 4], ["5 * 2", "(2 * 5) * (2 * 2)", "40 // 10"], ["2 * 5", "10 * 4", "2 * 2"], "Verdopple beide Seiten, nicht nur eine.", "Alt: 10 cm². Neu: 10 · 4 = 40 cm². 40 : 10 = 4.",
+    {2: [(2, None, "nur mit 2 gerechnet")]}, hinweis=GZ))
+
+# ═════════════════════ Kind 1 · Flug g2 · Dreisatz (Teil 1) ═════════════════════
+f = "g2"
+neu(f, "einheit", "FD", FDZ("6 Brötchen kosten 3,60 €. Kim berechnet den Preis für 1 Brötchen in Cent.",
+    [("Preis durch Anzahl: 360 ct : 6.", True), ("360 ct : 6 = 6 ct.", 360 // 6 == 6), ("Ein Brötchen kostet also 6 ct.", True)],
+    "Rechne 6 mal den Preis für ein Brötchen. Kommt 360 ct heraus?", "360 : 6 = 60. Ein Brötchen kostet 60 ct. Probe: 6 · 60 ct = 360 ct."))
+neu(f, "geschickt", "LW", L("Jedes Heft kostet gleich viel. 4 Hefte kosten 6 €. Von 4 Heften zu 12 Heften: 12 : 4 = ①. Der Preis wird auch ①-mal so groß: 6 € · ① = ② €.",
+    K(2), [3, 18], ["12 // 4", "6 * (12 // 4)"], ["4 - 1", "6 * 3"], "Wie oft passen 4 Hefte in 12 Hefte?", "12 : 4 = 3. 6 € · 3 = 18 €.",
+    {1: [(9, None, "3 € dazugezählt statt malgenommen")]}, hinweis=GZ))
+neu(f, "sach", "LW", L("Ein Auto verbraucht auf jedem Kilometer gleich viel. Auf 100 km braucht es 6 l Benzin. Für 300 km braucht es 300 : 100 = ① mal so viel. Das sind 6 l · ① = ② l.",
+    K(2), [3, 18], ["300 // 100", "6 * (300 // 100)"], ["1 + 1 + 1", "6 + 6 + 6"], "300 km sind mehrere Stücke von je 100 km.", "300 : 100 = 3. 3 · 6 l = 18 l.",
+    {1: [(306, None, "6 l und 300 km vermischt")]}, hinweis=GZ))
+neu(f, "aenderung", "LW", L("Ein Becken wird leer gepumpt. Nach 2 Minuten sind es noch 90 l Wasser, nach 5 Minuten noch 60 l. Änderung des Wassers: 60 − 90 = ① l. Zeitspanne: 5 − 2 = ② min. Rate: ① : ② = ③ l je Minute.",
+    K(3), [-30, 3, -10], ["60 - 90", "5 - 2", "(60 - 90) // (5 - 2)"], ["-(90 - 60)", "1 + 2", "-30 // 3"], "Das Wasser wird weniger. Die Rate hat ein Minus.", "−30 l in 3 min: −30 : 3 = −10 l je Minute.",
+    {0: [(30, "fb.plusminus.zeichen_des_ergebnisses", "das Minus vergessen")]}, hinweis=GZ))
+neu(f, "aenderung", "VW", W("Eine Pflanze war nach 2 Wochen 14 cm hoch und nach 6 Wochen 30 cm. Wie berechnest du, wie viel sie pro Woche wächst?",
+    "(30 − 14) : (6 − 2) = 4 cm pro Woche",
+    [("30 : 6 = 5 cm pro Woche", "die Anfangshöhe ignoriert"), ("30 − 14 = 16 cm pro Woche", "nicht durch die Zeitspanne geteilt"), ("(30 + 14) : (6 + 2) = 5,5 cm pro Woche", "die Werte addiert statt der Änderungen")],
+    "Änderungsrate = Änderung : Zeitspanne.", "Die Höhe ändert sich um 16 cm in 4 Wochen: 16 : 4 = 4 cm je Woche.",
+    lambda: (30 - 14) / (6 - 2) == 4 and 30 / 6 != 4 and 30 - 14 != 4 and (30 + 14) / (6 + 2) != 4), g="mehrschritt")
+
 # ═════════════════════ Prüfen ═════════════════════
 KOMMA_LUECKE = re.compile(r"\d\s*,\s*[①②③④⑤□]")          # Lücke unmittelbar hinter dem Komma: wäre eine Ziffernfolge, keine Zahl (Auftrag 20)
 KOMMA_NEBEN = re.compile(r"[①②③④⑤□],|,[①②③④⑤□]")      # Komma direkt neben einem Lückenzeichen

@@ -33,7 +33,7 @@ neu(T, "eingrenzen", "lueckenweg", L(
     {0: [(188, None, "94 verdoppelt statt quadriert: 94 · 2", "94 * 2")], 2: [(8935, None, "mit 90 statt mit 9 000 verglichen: 9 025 − 90", "{2} - 90")]}), regel=HZ)
 neu(T, "eingrenzen", "bruecke", W(
     "Die Tabelle zeigt Quadrate von Zahlen mit einer Nachkommastelle. Zwischen welchen beiden Zahlen der oberen Zeile liegt √7?",
-    "zwischen 2,6 und 2,7", [("zwischen 2,7 und 2,8", "die Zeile mit 7,29 als untere Grenze genommen: 7,29 liegt über 7"), ("zwischen 2,5 und 2,6", "zu weit links abgelesen: 6,76 ist schon näher an 7"), ("zwischen 6,76 und 7,29", "die Quadrate aus der unteren Zeile als Grenzen der Wurzel genommen")],
+    "zwischen 2,6 und 2,7", [("zwischen 2,7 und 2,8", "die Zeile mit 7,29 als untere Grenze genommen: 7,29 liegt über 7"), ("zwischen 2,5 und 2,6", "eine Spalte zu weit links abgelesen: 7 liegt über 6,76, nicht zwischen 6,25 und 6,76"), ("zwischen 6,76 und 7,29", "die Quadrate aus der unteren Zeile als Grenzen der Wurzel genommen")],
     "In der unteren Zeile suchst du zwei Quadrate, zwischen denen 7 liegt. Die Wurzel steht darüber.",
     "6,76 < 7 < 7,29. Die Quadrate gehören zu 2,6 und 2,7. Also gilt 2,6 < √7 < 2,7.",
     lambda: F("2.6") ** 2 < 7 < F("2.7") ** 2 and not F("2.7") ** 2 < 7 < F("2.8") ** 2 and not F("2.5") ** 2 < 7 < F("2.6") ** 2,
@@ -53,7 +53,7 @@ neu(T, "heron", "lueckenweg", L(
     "45 : 9 = 5. Mittelwert: (9 + 5) : 2 = 7. Das Quadrat ist 7² = 49. Es liegt um 49 − 45 = 4 über 45. Der neue Wert 7 ist besser als 9, denn 9² = 81 liegt um 36 über 45.",
     {0: [(405, None, "mit 9 malgenommen statt geteilt: 45 · 9", "45 * 9")], 1: [(14, None, "die Summe nicht halbiert: 9 + 5", "9 + {1}")]}), regel=HZ)
 neu(T, "heron", "zwei_wege", Z(
-    "Bestimme √12 auf zwei Nachkommastellen gerundet auf zwei Wegen. Weg A: Intervallschachtelung mit Zehntelzahlen, dann mit Hundertstelzahlen, und die Mitte der letzten Schachtel prüfen. Weg B: Heron-Verfahren mit dem Startwert 3,5 und zwei Schritten. Wie lautet der gerundete Wert?",
+    "Bestimme √12, gerundet auf zwei Nachkommastellen, auf zwei Wegen. Weg A: Intervallschachtelung mit Zehntelzahlen, dann mit Hundertstelzahlen, und die Mitte der letzten Schachtel prüfen. Weg B: Heron-Verfahren mit dem Startwert 3,5 und zwei Schritten. Wie lautet der gerundete Wert?",
     3.46, RC(math.sqrt(12), 2), lambda: dwurzel(12, 2),
     "Beide Wege müssen denselben gerundeten Wert ergeben.",
     "Weg A: 3,4² = 11,56 < 12 < 12,25 = 3,5². Dann 3,46² = 11,9716 < 12 < 12,0409 = 3,47². Die Mitte 3,465² = 12,006… ist größer als 12, also liegt √12 unter 3,465 und wird zu 3,46 gerundet. Weg B: x₁ = (3,5 + 12 : 3,5) : 2 ≈ 3,4643, x₂ ≈ 3,4641. Gerundet 3,46.",
@@ -96,7 +96,7 @@ neu(T, "teilweise", "lueckenweg", L(
 neu(T, "teilweise", "bruecke", W(
     "Schreibe 6√2 als eine einzige Wurzel. Welche Wurzel ist es?",
     "√72", [("√12", "die Zahlen 6 und 2 unter der Wurzel malgenommen, die 6 aber nicht quadriert: 6 · 2", None, "6 * 2"), ("√8", "die Zahlen 6 und 2 addiert: 6 + 2", None, "6 + 2"), ("√38", "6 quadriert, aber 2 addiert statt malgenommen: 6² + 2", None, "6 ** 2 + 2")],
-    "Die 6 muss in die Wurzel hinein. Dafür wird sie quadriert: √36 = 6.",
+    "Die 6 muss in die Wurzel hinein. Überlege, was mit der 6 dabei geschehen muss, damit der Wert gleich bleibt.",
     "6 = √36. Also 6√2 = √36 · √2 = √(36 · 2) = √72. Probe: √72 = √(36 · 2) = 6√2.",
     lambda: 6 ** 2 * 2 == 72 and 6 ** 2 * 2 not in (12, 8, 38)), g="darstellung", regel=HZ)
 neu(T, "teilweise", "zwei_wege", Z(
@@ -136,7 +136,7 @@ neu(T, "nenner_rational", "lueckenweg", L(
     "Der Nenner wird 6 · √7 · √7 = 6 · 7 = 42. Der Zähler wird 28√7. Der größte gemeinsame Teiler von 28 und 42 ist 14. Kürzen: 28√7/42 = (2 · √7)/3.",
     {0: [(7, None, "den Faktor 6 vergessen: nur √7 · √7", "7"), (13, None, "6 + 7 gerechnet", "6 + 7")], 3: [(42, None, "nicht gekürzt, den Nenner stehen lassen", "{1}")]}), regel=HZ)
 neu(T, "nenner_rational", "zwei_wege", Z(
-    "Schreibe 30/√6 als a · √6 auf zwei Wegen. Weg A: Erweitere den Bruch mit √6. Weg B: Schreibe 30 als 5 · 6 = 5 · √6 · √6 und kürze mit √6. Wie groß ist a?",
+    "Schreibe 30/√6 als a · √6 auf zwei Wegen. Weg A: Erweitere den Bruch mit √6. Weg B: Schreibe 30 als Produkt aus einer Zahl und 6, ersetze die 6 durch √6 · √6 und kürze mit √6. Wie groß ist a?",
     5, "30 / 6", lambda: next(a for a in range(1, 100) if abs(30 / math.sqrt(6) - a * math.sqrt(6)) < 1e-9),
     "Beide Wege müssen dasselbe a ergeben.",
     "Weg A: 30/√6 = (30 · √6)/(√6 · √6) = 30√6/6 = 5√6. Weg B: 30/√6 = (5 · √6 · √6)/√6 = 5√6. Also a = 5.",

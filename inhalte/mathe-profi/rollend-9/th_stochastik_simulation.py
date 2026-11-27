@@ -142,7 +142,7 @@ neu(T, "beurteilen", "anwenden", Z(
     "Zwei Drittel von 6 sind 4. Also zählen vier Augenzahlen als Treffer, zum Beispiel 1, 2, 3 und 4.",
     [(2, None, "den Zähler des Bruchs als Zahl der Augenzahlen genommen", "2"), (3, None, "den Nenner des Bruchs als Zahl der Augenzahlen genommen", "3"), (5, None, "eine Augenzahl weniger als alle genommen", "6 - 1")]), g="einkleidung", regel=AN)
 neu(T, "beurteilen", "fehler_detektiv", FD(
-    "Ein Ereignis hat die Wahrscheinlichkeit 0,4. Max simuliert es mit einer Urne mit 4 roten und 10 weißen Kugeln, es wird mit Zurücklegen gezogen.",
+    "Ein Ereignis hat die Wahrscheinlichkeit 0,4. Max simuliert es mit einer Urne mit 4 roten und 10 weißen Kugeln, es wird zufällig mit Zurücklegen gezogen.",
     [("Die Urne enthält 14 Kugeln, davon sind 4 rot.", True, None),
      ("Weil mit Zurücklegen gezogen wird, bleibt die Wahrscheinlichkeit bei jedem Zug gleich.", True, None),
      ("Die Wahrscheinlichkeit für rot ist das Verhältnis von roten zu weißen Kugeln, also 0,4.", False, None),

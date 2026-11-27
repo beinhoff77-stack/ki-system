@@ -280,10 +280,10 @@
     },
     {
      "index": 2,
-     "antwort": "Es ist kein Laplace-Experiment, weil drei Säulen gleich hoch sind.",
+     "antwort": "Es ist ein Laplace-Experiment, weil drei Säulen gleich hoch sind.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Grund falsch benannt: gleich hohe Säulen sprechen nicht dagegen",
+     "beschreibung": "drei gleich hohe Säulen für ausreichend gehalten: es müssen alle Säulen gleich hoch sein",
      "c": null
     }
    ],
@@ -323,7 +323,7 @@
     "a": [
      "Es ist ein Laplace-Experiment, weil die Wahrscheinlichkeiten zusammen 100 % ergeben.",
      "Es ist ein Laplace-Experiment, weil es vier Ergebnisse gibt.",
-     "Es ist kein Laplace-Experiment, weil drei Säulen gleich hoch sind.",
+     "Es ist ein Laplace-Experiment, weil drei Säulen gleich hoch sind.",
      "Es ist kein Laplace-Experiment, weil gelb eine kleinere Wahrscheinlichkeit hat."
     ],
     "o": {
@@ -561,7 +561,7 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Bei einem Brettspiel darf man dreimal würfeln. Man gewinnt, wenn mindestens eine Sechs fällt. Wie groß ist die Gewinnwahrscheinlichkeit? Runde auf ganze Prozent."
+     "text": "Bei einem Brettspiel darf man mit einem fairen Würfel dreimal würfeln. Man gewinnt, wenn mindestens eine Sechs fällt. Wie groß ist die Gewinnwahrscheinlichkeit? Runde auf ganze Prozent."
     },
     "o": {
      "wert": 42,
@@ -719,7 +719,7 @@
      "antwort": 17,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Treffer aller Reihen durch die Zahl der längsten Reihe geteilt (halbiert)",
+     "beschreibung": "die Treffer der längsten Reihe durch die doppelte Zahl ihrer Versuche geteilt",
      "c": "round(331 * 100 / 2000, 0)"
     }
    ],

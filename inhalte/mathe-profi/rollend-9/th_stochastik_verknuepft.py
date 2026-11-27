@@ -71,7 +71,7 @@ neu(T, "verknuepfen", "zwei_wege", Z(
     "Weg A: Weder durch 3 noch durch 5 teilbar sind 1, 2, 4, 7, 8, 11, 13, 14, 16, 17, 19, 22, 23, 26, 28, 29, 31, 32, 34, 37, 38. Das sind 21 Zahlen. Weg B: In A liegen 13 Zahlen, in B liegen 8 Zahlen, in A ∩ B liegen 2 Zahlen (15 und 30). In A ∪ B liegen 13 + 8 − 2 = 19 Zahlen. Also 40 − 19 = 21.",
     [(19, None, "A und B abgezogen, aber die doppelt gezählten Zahlen nicht wieder dazugerechnet", "40 - 13 - 8"), (27, None, "nur die Zahlen aus A abgezogen", "40 - 13"), (17, None, "die gemeinsamen Zahlen zusätzlich abgezogen", "40 - 13 - 8 - 2")]), regel=TG)
 neu(T, "verknuepfen", "fehler_detektiv", FD(
-    "Aus den Zahlen von 1 bis 20 wird eine gezogen. A: „durch 2 teilbar“, B: „durch 3 teilbar“. Ben bestimmt P(A und nicht B).",
+    "Aus den Zahlen von 1 bis 20 wird zufällig eine gezogen. A: „durch 2 teilbar“, B: „durch 3 teilbar“. Ben bestimmt P(A und nicht B).",
     [("A hat 10 Elemente, B hat 6 Elemente.", True, None),
      ("A ∩ B besteht aus 6, 12 und 18.", True, None),
      ("Nur in A liegen 10 − 3 = 7 Zahlen.", True, None),
@@ -129,7 +129,7 @@ neu(T, "venn", "anwenden", Z(
 # ───────── mengen_verstehen ─────────
 neu(T, "mengen_verstehen", "verfahren_waehlen", W(
     "Die Menge A hat 8 Elemente und die Menge B hat 5 Elemente. Welche Aussage über A ∪ B stimmt immer?",
-    "Die Zahl der Elemente von A ∪ B liegt zwischen 8 und 13.",
+    "Die Zahl der Elemente von A ∪ B ist mindestens 8 und höchstens 13.",
     [("A ∪ B hat genau 13 Elemente.", "die Überschneidung nicht beachtet", None, lambda: True),
      ("A ∪ B hat höchstens 5 Elemente.", "die kleinere Menge als Obergrenze genommen", None, lambda: True),
      ("A ∪ B hat genau 40 Elemente.", "die Zahlen der Elemente multipliziert", None, lambda: 8 * 5 == 40)],
@@ -267,7 +267,7 @@ neu(T, "verstehen", "zwei_wege", Z(
     "Weg A: Summe 10 mit (4|6), (5|5), (6|4), Summe 11 mit (5|6), (6|5), Summe 12 mit (6|6). Das sind 6 Paare. Weg B: Für die Summen 2 bis 9 gibt es 1 + 2 + 3 + 4 + 5 + 6 + 5 + 4 = 30 Paare. 36 − 30 = 6.",
     [(3, None, "nur die Paare mit der Augensumme genau 10 gezählt", "3"), (5, None, "die Paare mit der Augensumme 12 vergessen", "3 + 2"), (30, None, "die Anzahl des Gegenereignisses angegeben", "36 - 6")]), regel=AN)
 neu(T, "verstehen", "fehler_detektiv", FD(
-    "In einer Urne liegen 3 rote und 2 blaue Kugeln. Es wird zweimal ohne Zurücklegen gezogen. Mia bestimmt P(zwei rote Kugeln).",
+    "In einer Urne liegen 3 rote und 2 blaue Kugeln. Es wird zweimal zufällig ohne Zurücklegen gezogen. Mia bestimmt P(zwei rote Kugeln).",
     [("Beim ersten Zug ist die Wahrscheinlichkeit für rot 3/5.", True, None),
      ("Beim zweiten Zug liegen 4 Kugeln in der Urne, davon 3 rote: 3/4.", False, None),
      ("P(zwei rote Kugeln) = 3/5 · 3/4 = 9/20.", False, True)],

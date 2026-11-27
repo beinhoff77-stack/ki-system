@@ -560,7 +560,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Aus den Zahlen von 1 bis 20 wird eine gezogen. A: „durch 2 teilbar“, B: „durch 3 teilbar“. Ben bestimmt P(A und nicht B). Zeile 1: A hat 10 Elemente, B hat 6 Elemente. Zeile 2: A ∩ B besteht aus 6, 12 und 18. Zeile 3: Nur in A liegen 10 − 3 = 7 Zahlen. Zeile 4: P(A und nicht B) = 7 : 20 = 0,45. In welcher Zeile passiert der erste Fehler?"
+     "text": "Aus den Zahlen von 1 bis 20 wird zufällig eine gezogen. A: „durch 2 teilbar“, B: „durch 3 teilbar“. Ben bestimmt P(A und nicht B). Zeile 1: A hat 10 Elemente, B hat 6 Elemente. Zeile 2: A ∩ B besteht aus 6, 12 und 18. Zeile 3: Nur in A liegen 10 − 3 = 7 Zahlen. Zeile 4: P(A und nicht B) = 7 : 20 = 0,45. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -990,7 +990,7 @@
     },
     "a": [
      "A ∪ B hat genau 13 Elemente.",
-     "Die Zahl der Elemente von A ∪ B liegt zwischen 8 und 13.",
+     "Die Zahl der Elemente von A ∪ B ist mindestens 8 und höchstens 13.",
      "A ∪ B hat höchstens 5 Elemente.",
      "A ∪ B hat genau 40 Elemente."
     ],
@@ -2172,7 +2172,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "In einer Urne liegen 3 rote und 2 blaue Kugeln. Es wird zweimal ohne Zurücklegen gezogen. Mia bestimmt P(zwei rote Kugeln). Zeile 1: Beim ersten Zug ist die Wahrscheinlichkeit für rot 3/5. Zeile 2: Beim zweiten Zug liegen 4 Kugeln in der Urne, davon 3 rote: 3/4. Zeile 3: P(zwei rote Kugeln) = 3/5 · 3/4 = 9/20. In welcher Zeile passiert der erste Fehler?"
+     "text": "In einer Urne liegen 3 rote und 2 blaue Kugeln. Es wird zweimal zufällig ohne Zurücklegen gezogen. Mia bestimmt P(zwei rote Kugeln). Zeile 1: Beim ersten Zug ist die Wahrscheinlichkeit für rot 3/5. Zeile 2: Beim zweiten Zug liegen 4 Kugeln in der Urne, davon 3 rote: 3/4. Zeile 3: P(zwei rote Kugeln) = 3/5 · 3/4 = 9/20. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",

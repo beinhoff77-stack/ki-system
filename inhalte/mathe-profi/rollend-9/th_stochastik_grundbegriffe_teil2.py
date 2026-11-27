@@ -32,7 +32,7 @@ neu(T, "laplace_pruefen", "verfahren_waehlen", W(
 neu(T, "laplace_pruefen", "bruecke", W(
     "Das Säulendiagramm zeigt die Wahrscheinlichkeiten der vier Ergebnisse eines Zufallsexperiments in Prozent. Welche Aussage stimmt?",
     "Es ist kein Laplace-Experiment, weil gelb eine kleinere Wahrscheinlichkeit hat.",
-    [("Es ist ein Laplace-Experiment, weil die Wahrscheinlichkeiten zusammen 100 % ergeben.", "die Summe 100 % gilt immer und sagt nichts über Gleichheit"), ("Es ist ein Laplace-Experiment, weil es vier Ergebnisse gibt.", "die Anzahl der Ergebnisse mit ihrer Gleichwahrscheinlichkeit verwechselt"), ("Es ist kein Laplace-Experiment, weil drei Säulen gleich hoch sind.", "den Grund falsch benannt: gleich hohe Säulen sprechen nicht dagegen")],
+    [("Es ist ein Laplace-Experiment, weil die Wahrscheinlichkeiten zusammen 100 % ergeben.", "die Summe 100 % gilt immer und sagt nichts über Gleichheit"), ("Es ist ein Laplace-Experiment, weil es vier Ergebnisse gibt.", "die Anzahl der Ergebnisse mit ihrer Gleichwahrscheinlichkeit verwechselt"), ("Es ist ein Laplace-Experiment, weil drei Säulen gleich hoch sind.", "drei gleich hohe Säulen für ausreichend gehalten: es müssen alle Säulen gleich hoch sein")],
     "Bei einem Laplace-Experiment müssen alle Säulen gleich hoch sein. Wie sieht es hier aus?",
     "Die Säulen zeigen 30 %, 30 %, 30 % und 10 %. Zusammen sind es 100 %, aber gelb ist kleiner als die anderen. Nicht alle Ergebnisse sind gleich wahrscheinlich, also ist es kein Laplace-Experiment.",
     lambda: 30 + 30 + 30 + 10 == 100 and len({30, 30, 30, 10}) > 1,
@@ -59,7 +59,7 @@ neu(T, "gegenereignis", "bruecke", Z(
     [(40, None, "die Wahrscheinlichkeit für den Bus angegeben", "40"), (35, None, "nur zwei der drei anderen Gruppen addiert: 20 + 15", "20 + 15")], "%",
     grafik={"typ": "kreisdiagramm", "einheit": " %", "werte": [{"name": "Bus", "wert": 40}, {"name": "Rad", "wert": 25}, {"name": "zu Fuß", "wert": 20}, {"name": "Auto", "wert": 15}], "zahlen": True}), g="darstellung", regel=AN)
 neu(T, "gegenereignis", "anwenden", Z(
-    "Bei einem Brettspiel darf man dreimal würfeln. Man gewinnt, wenn mindestens eine Sechs fällt. Wie groß ist die Gewinnwahrscheinlichkeit? Runde auf ganze Prozent.",
+    "Bei einem Brettspiel darf man mit einem fairen Würfel dreimal würfeln. Man gewinnt, wenn mindestens eine Sechs fällt. Wie groß ist die Gewinnwahrscheinlichkeit? Runde auf ganze Prozent.",
     42, RC((1 - (5 / 6) ** 3) * 100, 0), lambda: F(round(sum(1 for a in range(1, 7) for b in range(1, 7) for c in range(1, 7) if 6 in (a, b, c)) * 100 / 216)),
     "Das Gegenereignis von „mindestens eine Sechs“ ist „keine Sechs in allen drei Würfen“.",
     "P(keine Sechs in einem Wurf) = 5/6. In drei Würfen: (5/6)³ = 125/216 ≈ 0,579. Gegenereignis: 1 − 0,579 = 0,421, also etwa 42 %.",
@@ -83,4 +83,4 @@ neu(T, "grosse_zahlen", "zwei_wege", Z(
     33, RC(415 / 1250 * 100, 0), lambda: F(round(331 * 100 / 1000)),
     "Beide Wege müssen auf ganze Prozent gerundet dasselbe ergeben.",
     "Weg A: 331 : 1 000 = 33,1 %. Weg B: (18 + 66 + 331) : (50 + 200 + 1 000) = 415 : 1 250 = 33,2 %. Gerundet sind es in beiden Fällen 33 %. Je mehr Versuche, desto verlässlicher die Schätzung.",
-    [(36, None, "nur die kürzeste Reihe genommen", "round(18 * 100 / 50, 0)"), (33.2, None, "nicht auf ganze Prozent gerundet", "415 * 100 / 1250"), (17, None, "die Treffer aller Reihen durch die Zahl der längsten Reihe geteilt (halbiert)", "round(331 * 100 / 2000, 0)")], "%"), g="verknuepfen", regel=AN)
+    [(36, None, "nur die kürzeste Reihe genommen", "round(18 * 100 / 50, 0)"), (33.2, None, "nicht auf ganze Prozent gerundet", "415 * 100 / 1250"), (17, None, "die Treffer der längsten Reihe durch die doppelte Zahl ihrer Versuche geteilt", "round(331 * 100 / 2000, 0)")], "%"), g="verknuepfen", regel=AN)

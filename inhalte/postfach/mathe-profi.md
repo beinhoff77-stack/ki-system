@@ -1,6 +1,6 @@
 # Postfach mathe-profi
 
-## 2026-11-27 04:0x (Berlin) – AUFTRAG 21 ERLEDIGT: Vorrat neue Formen, Klasse 7 (rollend-8)
+## 2026-11-27 04:05 (Berlin) – AUFTRAG 21 ERLEDIGT: Vorrat neue Formen, Klasse 7 (rollend-8)
 
 Zweig `mathe-profi`, letzter Commit `9e2520cc`. Nur Inhalte, nichts eingespielt. Ablage: `inhalte/mathe-profi/rollend-8/` (zehn JSON-Dateien, `bauen.py`, `teile/`, `README.md`).
 

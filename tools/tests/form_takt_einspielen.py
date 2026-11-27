@@ -360,11 +360,20 @@ begin
     v_id := pg_temp.ft_kopie(v_basis, 'ft-probe-g', 'umkehr', 1, 'umkehren', 'nein', 117);   -- einziger Träger des zweiten Typs
     v_id2 := pg_temp.ft_kopie(v_basis, 'ft-probe-g', 'direkt', 3, 'bruecke', 'nein', 118);   -- einzige Stufe-3-Aufgabe
     q := q || jsonb_build_object('g_nein', jsonb_build_array(schule.karte_ziel(v_e, 'ft-probe-g'), schule.karte_typen_noetig(v_e, 'ft-probe-g'), schule.karte_schwer_noetig(v_e, 'ft-probe-g')));
-    update schule.aufgabe set zaehlt = 'ja' where id = v_id;
-    q := q || jsonb_build_object('g_gegen_typ', schule.karte_typen_noetig(v_e, 'ft-probe-g'));
-    update schule.aufgabe set zaehlt = 'nein' where id = v_id; update schule.aufgabe set zaehlt = 'ja' where id = v_id2;
-    q := q || jsonb_build_object('g_gegen_schwer', schule.karte_schwer_noetig(v_e, 'ft-probe-g'));
-    update schule.aufgabe set zaehlt = 'nein' where id = v_id2;
+    -- Gegenproben mit je einer zusätzlichen ZÄHLENDEN Kopie in einer eigenen, zurückgerollten Untertransaktion
+    -- (ein UPDATE an Aufgaben einer freigegebenen Einheit verbietet aufgabe_schutz; Zuweisungen an q bleiben erhalten).
+    begin
+      perform pg_temp.ft_kopie(v_basis, 'ft-probe-g', 'umkehr', 1, 'umkehren', 'ja', 119);
+      q := q || jsonb_build_object('g_gegen_typ', schule.karte_typen_noetig(v_e, 'ft-probe-g'));
+      raise exception using errcode = 'FT998', message = 'gegenprobe';
+    exception when sqlstate 'FT998' then null;
+    end;
+    begin
+      perform pg_temp.ft_kopie(v_basis, 'ft-probe-g', 'direkt', 3, 'bruecke', 'ja', 119);
+      q := q || jsonb_build_object('g_gegen_schwer', schule.karte_schwer_noetig(v_e, 'ft-probe-g'));
+      raise exception using errcode = 'FT998', message = 'gegenprobe';
+    exception when sqlstate 'FT998' then null;
+    end;
     if q->'g_nein' is distinct from '[6, 1, false]'::jsonb or (q->>'g_gegen_typ')::int <> 2 or not (q->>'g_gegen_schwer')::boolean then {F("'9: Ziel/Typen/Schwer mit nicht zählenden Aufgaben: ' || left(q::text, 300)")} end if;
     for i in 1 .. 6 loop v_r := pg_temp.ft_ant(k, v_ids[i], true, 1, 'ft-g-' || i); end loop;
     q := q || jsonb_build_object('g_karte', (v_r->'karte') - 'gezaehlt');

@@ -23,7 +23,7 @@ neu(T, "netz", "anwenden", Z(
     "Das Netz besteht aus 6 Quadraten. Jedes hat 5 · 5 = 25 cm². 6 · 25 cm² = 150 cm².",
     [(25, None, "nur ein Quadrat gerechnet", "5 * 5"), (75, "fb.haut.nur_drei_flaechen", "nur drei statt sechs Quadrate gezählt", "3 * 25"), (125, None, "das Volumen berechnet: 5 · 5 · 5", "5 * 5 * 5")], "cm²"), regel=HA)
 neu(T, "netz", "zwei_wege", Z(
-    "Ein Quader ist 5 cm lang, 4 cm breit und 3 cm hoch. Wie groß ist die Oberfläche seines Netzes? Weg A: Berechne alle sechs Rechtecke einzeln und addiere. Weg B: Berechne die beiden Grundflächen (5 cm × 4 cm) und dazu ein langes Rechteck, dessen Länge der Umfang der Grundfläche und dessen Höhe 3 cm ist.",
+    "Ein Quader ist 5 cm lang, 4 cm breit und 3 cm hoch. Weg A: Berechne alle sechs Rechtecke einzeln und addiere. Weg B: Berechne die beiden Grundflächen (5 cm × 4 cm) und dazu ein langes Rechteck, dessen Länge der Umfang der Grundfläche und dessen Höhe 3 cm ist. Wie groß ist die Oberfläche seines Netzes?",
     94, "2 * (5 * 4) + 2 * (5 + 4) * 3", "5 * 4 + 5 * 4 + 5 * 3 + 5 * 3 + 4 * 3 + 4 * 3", "Bei Weg B: Wie groß ist der Umfang der Grundfläche 5 cm × 4 cm?",
     "Weg A: 20 + 20 + 15 + 15 + 12 + 12 = 94 cm². Weg B: Zwei Grundflächen 2 · 20 = 40 cm². Umfang der Grundfläche 2 · (5 + 4) = 18 cm, langes Rechteck 18 · 3 = 54 cm². 40 + 54 = 94 cm².",
     [(47, "fb.haut.nur_drei_flaechen", "nur drei statt sechs Rechtecke gezählt", "20 + 15 + 12"), (60, None, "das Volumen berechnet", "5 * 4 * 3")], "cm²"), g="verknuepfen", regel=HA)
@@ -78,7 +78,7 @@ neu(T, "beurteilen", "zwei_wege", Z(
     "Weg A: oben 4, unten 4, senkrecht 4: 4 + 4 + 4 = 12. Weg B: 6 · 4 = 24 Kanten gezählt, aber jede wurde zweimal gezählt: 24 : 2 = 12.",
     [(24, None, "jede Kante doppelt gezählt", "6 * 4"), (8, None, "die Zahl der Ecken genannt", "8"), (6, None, "die Zahl der Flächen genannt", "6")], "Kanten"))
 neu(T, "beurteilen", "anwenden", Z(
-    "Für das Kantenmodell eines Prismas stehen genau 30 Holzstäbe bereit. Jeder Stab ist eine Kante, und alle Stäbe werden gebraucht. Wie viele Ecken hat die Grundfläche des Prismas?",
-    10, "30 / 3", "5 + 5", "Zähle zuerst die Kanten eines Prismas mit dreieckiger Grundfläche. Wie ändert sich die Zahl, wenn die Grundfläche mehr Ecken hat?",
-    "Zu jeder Ecke der Grundfläche gehören 3 Kanten: eine in der Grundfläche, eine in der Deckfläche und eine senkrechte. 3 · n = 30, also n = 10. Das Prisma hat eine zehneckige Grundfläche. Probe: 3 · 10 = 30.",
-    [(15, None, "nur Grund- und Deckfläche gezählt: 30 : 2", "30 / 2"), (90, None, "mit 3 malgenommen statt durch 3 geteilt", "30 * 3"), (27, None, "3 abgezogen statt durch 3 geteilt", "30 - 3")], "Ecken"), g="transfer")
+    "Jan behauptet: „Für ein Kantenmodell aus genau 30 Holzstäben braucht man ein Prisma mit zwölfeckiger Grundfläche.“ Jeder Stab ist eine Kante, alle Stäbe werden gebraucht. Wie viele Ecken hat die Grundfläche des Prismas wirklich?",
+    10, "30 / 3", "5 + 5", "Prüfe Jans Behauptung: Wie viele Kanten hat ein Prisma mit zwölfeckiger Grundfläche?",
+    "Ein Prisma mit n-eckiger Grundfläche hat n Kanten in der Grundfläche, n in der Deckfläche und n Verbindungskanten, zusammen 3 · n. Bei n = 12 wären es 36 Kanten, nicht 30. Aus 3 · n = 30 folgt n = 10. Das Prisma hat eine zehneckige Grundfläche. Probe: 3 · 10 = 30.",
+    [(15, None, "nur Grund- und Deckfläche gezählt: 30 : 2", "30 / 2"), (90, None, "mit 3 malgenommen statt durch 3 geteilt", "30 * 3"), (12, None, "Jans Zahl übernommen", "12")], "Ecken"), g="transfer")

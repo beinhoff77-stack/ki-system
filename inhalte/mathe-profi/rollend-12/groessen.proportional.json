@@ -51,7 +51,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "5 Äpfel kosten 2 €. Was kosten 12 Äpfel? Weg A: Berechne zuerst den Preis für 1 Apfel und rechne dann mit 12. Weg B: Überlege, das Wievielfache von 5 die Zahl 12 ist, und nimm den Preis für 5 Äpfel mit diesem Faktor mal."
+     "text": "5 Äpfel kosten 2 €. Weg A: Berechne zuerst den Preis für 1 Apfel und rechne dann mit 12. Weg B: Überlege, das Wievielfache von 5 die Zahl 12 ist, und nimm den Preis für 5 Äpfel mit diesem Faktor mal. Was kosten 12 Äpfel?"
     },
     "o": {
      "wert": 4.8,
@@ -201,7 +201,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Ein Kopierer druckt 90 Blätter in 6 Minuten. Wie lange braucht er für 330 Blätter? Weg A: Bestimme, wie viele Blätter er pro Minute druckt, und teile 330 durch diese Zahl. Weg B: Überlege, wie lange 270 Blätter dauern, und rechne die restlichen 60 Blätter dazu."
+     "text": "Ein Kopierer druckt 90 Blätter in 6 Minuten. Weg A: Bestimme, wie viele Blätter er pro Minute druckt, und teile 330 durch diese Zahl. Weg B: Überlege, wie lange 270 Blätter dauern, und rechne die restlichen 60 Blätter dazu. Wie lange braucht er für 330 Blätter?"
     },
     "o": {
      "wert": 22,
@@ -258,8 +258,8 @@
      "einheit": "Eier"
     },
     "c": "2.5 / (9 / 36)",
-    "h": "Wie viel kostet ein Ei? Wie oft passt dieser Preis in 2,50 €?",
-    "w": "Ein Ei kostet 9 € : 36 = 0,25 €. 2,50 € : 0,25 € = 10. Man bekommt 10 Eier. Probe: 10 · 0,25 € = 2,50 €."
+    "h": "Wie viele Eier bekommst du für 1 €? Und für 0,50 €?",
+    "w": "36 Eier kosten 9 €, also bekommt man 4 Eier für 1 € und 2 Eier für 0,50 €. 2,50 € sind 2 € + 0,50 €: 2 · 4 + 2 = 10 Eier. Probe: 10 Eier kosten 10 · 0,25 € = 2,50 €."
    }
   },
   {

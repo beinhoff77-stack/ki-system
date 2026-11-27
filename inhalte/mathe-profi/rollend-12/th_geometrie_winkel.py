@@ -4,7 +4,7 @@ RI = ["Norden", "Osten", "Süden", "Westen"]
 
 # ───────── ergaenzen ─────────
 neu(T, "ergaenzen", "zwei_wege", Z(
-    "Welcher Winkel ergänzt 62° zu einem gestreckten Winkel? Weg A: Ziehe 62° von 180° ab. Weg B: Ergänze 62° zuerst zu einem rechten Winkel und füge dann noch einen rechten Winkel hinzu.",
+    "Weg A: Ziehe 62° von 180° ab. Weg B: Ergänze 62° zuerst zu einem rechten Winkel und füge dann noch einen rechten Winkel hinzu. Welcher Winkel ergänzt 62° zu einem gestreckten Winkel?",
     118, "180 - 62", "(90 - 62) + 90", "Ein gestreckter Winkel besteht aus zwei rechten Winkeln.",
     "Weg A: 180° − 62° = 118°. Weg B: 90° − 62° = 28° bis zum rechten Winkel, dazu noch 90°: 28° + 90° = 118°.",
     [(28, None, "nur bis zum rechten Winkel ergänzt", "90 - 62"), (242, None, "62° zu 180° addiert", "180 + 62"), (108, None, "von 170° statt von 180° abgezogen", "170 - 62")], "°"), regel=WI)
@@ -21,8 +21,8 @@ neu(T, "kreuzung", "anwenden", Z(
     "Der Nachbarwinkel von 38° ist 180° − 38° = 142°. Die anderen beiden Winkel sind 38° und 142° (gegenüberliegende Winkel sind gleich). Der größte ist 142°.",
     [(38, "fb.winkel.neben_statt_scheitel", "den gegebenen Winkel als größten genannt (Scheitelwinkel statt Nebenwinkel genommen)", "38"), (52, None, "zu einem rechten Winkel ergänzt: 90° − 38°", "90 - 38"), (322, "fb.winkel.teil_der_drehung", "von 360° abgezogen (den falschen Teil der vollen Drehung genommen)", "360 - 38")], "°"), regel=WI)
 neu(T, "kreuzung", "zwei_wege", Z(
-    "Zwei Geraden schneiden sich. Ein Winkel ist 24° größer als sein Nachbarwinkel. Wie groß ist der größere der beiden Winkel? Weg A: Nenne den kleineren Winkel w und löse w + (w + 24°) = 180°. Weg B: Wären beide Winkel gleich groß, hätte jeder 90°. Überlege, wie viel Grad vom einen zum anderen wandern müssen, damit der Unterschied 24° beträgt. Wie groß ist der größere Winkel?",
-    102, "(180 + 24) / 2", "90 + 24 / 2", "Wie groß ist die Summe zweier Nachbarwinkel? Was geschieht mit dem Unterschied, wenn ein Winkel um 12° kleiner und der andere um 12° größer wird?",
+    "Zwei Geraden schneiden sich. Ein Winkel ist 24° größer als sein Nachbarwinkel. Weg A: Nenne den kleineren Winkel w und löse w + (w + 24°) = 180°. Weg B: Wären beide Winkel gleich groß, hätte jeder 90°. Überlege, wie viel Grad vom einen zum anderen wandern müssen, damit der Unterschied 24° beträgt. Wie groß ist der größere Winkel?",
+    102, "(180 + 24) / 2", "90 + 24 / 2", "Wie groß ist die Summe zweier Nachbarwinkel? Was geschieht mit dem Unterschied, wenn ein Winkel kleiner und der andere um genauso viel größer wird?",
     "Weg A: 2w + 24° = 180°, also 2w = 156°, w = 78°. Der größere Winkel ist 78° + 24° = 102°. Weg B: Von 90° und 90° wandern 12° vom einen zum anderen: 78° und 102°. Der Unterschied ist 24°. Probe: 102° + 78° = 180°.",
     [(204, None, "180° und 24° addiert und nicht halbiert", "180 + 24"), (78, None, "den kleineren Winkel genannt", "(180 - 24) / 2"), (156, None, "24° von 180° abgezogen und nicht halbiert", "180 - 24")], "°"), g="verknuepfen", regel=WI)
 
@@ -60,10 +60,10 @@ neu(T, "drehungen", "anwenden", W(
     "Norden, 90° im Uhrzeigersinn: Osten. Von Osten 180° gegen den Uhrzeigersinn: Westen.",
     lambda: RI[(0 + 1) % 4] == "Osten" and RI[(1 - 2) % 4] == "Westen" and RI[1] != "Westen" and RI[(0 - 2) % 4] == "Süden"))
 neu(T, "drehungen", "zwei_wege", Z(
-    "Ein Schiff dreht sich um 90° nach rechts, dann um 45° nach links und danach um 180° nach rechts. Um wie viel Grad insgesamt hat es sich nach rechts gedreht? Weg A: Rechne mit Grad: Bestimme nach jeder Drehung die Gesamtdrehung. Weg B: Zähle auf der Windrose in Schritten von 45° (Abstand zweier Nachbarrichtungen): Wie viele Schritte sind es nach rechts, wie viele nach links? Gib die Gesamtdrehung nach rechts in Grad an.",
+    "Ein Schiff dreht sich um 90° nach rechts, dann um 45° nach links und danach um 180° nach rechts. Wie groß ist die resultierende Drehung nach rechts? Weg A: Rechne mit Grad: Bestimme nach jeder Drehung die Gesamtdrehung. Weg B: Zähle auf der Windrose in Schritten von 45° (Abstand zweier Nachbarrichtungen): Wie viele Schritte sind es nach rechts, wie viele nach links? Gib die resultierende Drehung (netto nach rechts) in Grad an.",
     225, "90 - 45 + 180", "(2 - 1 + 4) * 45", "Eine Drehung nach links macht eine Drehung nach rechts zum Teil rückgängig.",
     "Weg A: Nach der 1. Drehung 90° rechts, nach der 2. 45° rechts, nach der 3. 225° rechts. Weg B: 90° sind 2 Schritte nach rechts, 45° ist 1 Schritt nach links, 180° sind 4 Schritte nach rechts. Insgesamt 2 − 1 + 4 = 5 Schritte nach rechts. 5 · 45° = 225°.",
-    [(315, None, "alle Drehungen addiert", "90 + 45 + 180"), (135, None, "die dritte Drehung nach rechts vergessen: 90° + 45°", "90 + 45"), (45, None, "nur die Drehung nach links genannt", "45")], "°"), g="verknuepfen")
+    [(315, None, "alle Drehungen addiert", "90 + 45 + 180"), (135, None, "die letzte Drehung weggelassen und die Linksdrehung addiert: 90° + 45°", "90 + 45"), (45, None, "nur die Drehung nach links genannt", "45")], "°"), g="verknuepfen")
 
 # ───────── figuren ─────────
 FIG = {"typ": "figur", "punkte": {"A": [0, 0], "B": [7, 0], "C": [7, 7], "D": [0, 7], "E": [7, 3.264], "F": [4.041, 7]}, "flaeche": ["A", "B", "C", "D"],

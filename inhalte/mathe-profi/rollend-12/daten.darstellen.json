@@ -151,7 +151,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Gib 18 von 25 als Prozentzahl an. Weg A: Erweitere den Bruch 18/25 auf den Nenner 100. Weg B: Rechne 18 : 25 und schreibe das Ergebnis in Prozent."
+     "text": "Weg A: Erweitere den Bruch 18/25 auf den Nenner 100. Weg B: Rechne 18 : 25 und schreibe das Ergebnis in Prozent. Gib 18 von 25 als Prozentzahl an."
     },
     "o": {
      "wert": 72,
@@ -251,7 +251,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Die Tabelle zeigt eine Umfrage zum Lieblingssport. Wie viele Kinder haben nicht „Fußball“ gewählt? Weg A: Addiere die Anzahlen aller anderen Sportarten. Weg B: Berechne zuerst, wie viele Kinder insgesamt befragt wurden, und ziehe dann die Anzahl für Fußball ab.",
+     "text": "Die Tabelle zeigt eine Umfrage zum Lieblingssport. Weg A: Addiere die Anzahlen aller anderen Sportarten. Weg B: Berechne zuerst, wie viele Kinder insgesamt befragt wurden, und ziehe dann die Anzahl für Fußball ab. Wie viele Kinder haben nicht „Fußball“ gewählt?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -390,7 +390,7 @@
      "antwort": 3.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch 10 statt durch 100 umgerechnet"
+     "beschreibung": "durch 1 000 statt durch 100 geteilt"
     }
    ],
    "aufgabe": {

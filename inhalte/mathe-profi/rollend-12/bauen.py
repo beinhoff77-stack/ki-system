@@ -223,6 +223,10 @@ for a in A:
     assert text not in alle_texte and text not in BESTAND_TEXT[datei] and text not in ANDERE_TEXT, (kenn, "Fragetext schon vorhanden")
     b = bau_ohne_zahl(text)
     assert b not in alle_bau[datei] and b not in BESTAND_BAU[datei] and b not in ANDERE_BAU, (kenn, "Fragetext nur mit anderen Zahlen schon vorhanden", b)
+    if a["form"] == "zwei_wege":   # der Schlussauftrag (die Frage) steht hinter beiden Wegen
+        assert "Weg A:" in text and "Weg B:" in text, (kenn, "zwei Wege fehlen im Text")
+        letzter = re.split(r"(?<=[.?!])\s+(?=[A-ZÄÖÜ])", text.strip())[-1]
+        assert not letzter.startswith("Weg ") and ("?" in letzter or re.match(r"(Gib|Berechne|Bestimme|Nenne|Löse|Runde)\b", letzter)), (kenn, "bei zwei Wegen muss der Schlussauftrag am Textende stehen", letzter)
     if "grafik" in q["f"]:
         assert grafik_ok(q["f"]["grafik"]), (kenn, "grafik")
         n_grafik += 1

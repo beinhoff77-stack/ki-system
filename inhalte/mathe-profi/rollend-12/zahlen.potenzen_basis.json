@@ -51,7 +51,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Berechne 4³ auf zwei Wegen. Weg A: Schreibe die Potenz als Produkt gleicher Faktoren und rechne. Weg B: Schreibe 4 als 2 · 2, bilde daraus eine Potenz mit der Basis 2 und rechne diese aus."
+     "text": "Weg A: Schreibe die Potenz als Produkt gleicher Faktoren und rechne. Weg B: Schreibe 4 als 2 · 2, bilde daraus eine Potenz mit der Basis 2 und rechne diese aus. Berechne 4³ auf zwei Wegen."
     },
     "o": {
      "wert": 64
@@ -83,7 +83,7 @@
      "antwort": 15,
      "fehlbild": "fb.potenz.basis_mal_hochzahl",
      "regel_des_fehlbilds": "rr.potenz",
-     "beschreibung": "Basis mal Hochzahl gerechnet: 3 · 5"
+     "beschreibung": "Basis mal Hochzahl gerechnet (3 · 5) und dabei die Tagesnummer statt der Zahl der Wachstumsschritte genommen"
     },
     {
      "antwort": 12,
@@ -242,14 +242,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Berechne 15² auf zwei Wegen. Weg A: Rechne 15 · 15 schriftlich. Weg B: Zerlege den zweiten Faktor in 10 + 5 und rechne 15 · 10 + 15 · 5."
+     "text": "Weg A: Rechne 15 · 15 schriftlich. Weg B: Zerlege den zweiten Faktor in 10 + 5 und rechne 15 · 10 + 15 · 5. Berechne 15² auf zwei Wegen."
     },
     "o": {
      "wert": 225
     },
     "c": "15 * 15",
     "h": "Bei Weg B rechnest du zwei einfachere Malaufgaben und addierst.",
-    "w": "Weg A: 15 · 15 = 225. Weg B: 15 · 10 = 150, 15 · 5 = 75, 150 + 75 = 225."
+    "w": "Weg A schriftlich: 15 · 1 = 15, das sind 150 (eine Stelle nach links), dann 15 · 5 = 75; 150 + 75 = 225. Weg B: 15 · 10 = 150, 15 · 5 = 75, 150 + 75 = 225."
    }
   },
   {
@@ -280,7 +280,7 @@
      "antwort": 63,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur eine Seite entfernt: 9 · 7"
+     "beschreibung": "nur zwei gegenüberliegende Randreihen entfernt: 9 · 7"
     }
    ],
    "aufgabe": {
@@ -425,10 +425,10 @@
      "beschreibung": "sechs Nullen angehängt"
     },
     {
-     "antwort": 180,
+     "antwort": 1800,
      "fehlbild": "fb.potenz.basis_mal_hochzahl",
      "regel_des_fehlbilds": "rr.potenz",
-     "beschreibung": "Basis mal Hochzahl gerechnet: 36 · 5"
+     "beschreibung": "Basis mal Hochzahl gerechnet: 36 · (10 · 5)"
     }
    ],
    "aufgabe": {
@@ -439,7 +439,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Berechne 36 · 10⁵ auf zwei Wegen. Weg A: Schreibe 10⁵ als Zahl und multipliziere. Weg B: Überlege, wie viele Nullen man an 36 anhängt."
+     "text": "Weg A: Schreibe 10⁵ als Zahl und multipliziere. Weg B: Überlege, wie viele Nullen man an 36 anhängt. Berechne 36 · 10⁵ auf zwei Wegen."
     },
     "o": {
      "wert": 3600000
@@ -488,7 +488,7 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Licht legt in einer Sekunde etwa 3 · 10⁵ Kilometer zurück. Wie viele Kilometer legt es in 10 Sekunden zurück?"
+     "text": "Licht legt in einer Sekunde etwa 3 · 10⁵ Kilometer zurück. Wie viele Kilometer legt es in 10 Sekunden etwa zurück?"
     },
     "o": {
      "wert": 3000000,
@@ -496,7 +496,7 @@
     },
     "c": "3 * 10 ** 5 * 10",
     "h": "Zehn Sekunden sind das Zehnfache. Was passiert mit einer Zehnerpotenz, wenn man mit 10 malnimmt?",
-    "w": "In 10 Sekunden: 3 · 10⁵ · 10 = 3 · 10⁶ = 3 000 000 km."
+    "w": "In 10 Sekunden: 3 · 10⁵ · 10 = 3 · 10⁶ = 3 000 000 km. Die Strecke ist also etwa 3 000 000 km lang."
    }
   },
   {
@@ -538,7 +538,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Berechne (−3)³ auf zwei Wegen. Weg A: Schreibe (−3) · (−3) · (−3) und rechne Schritt für Schritt. Weg B: Bestimme das Vorzeichen daran, wie viele negative Faktoren es sind, und rechne dann 3³."
+     "text": "Weg A: Schreibe (−3) · (−3) · (−3) und rechne Schritt für Schritt. Weg B: Bestimme das Vorzeichen daran, wie viele negative Faktoren es sind, und rechne dann 3³. Berechne (−3)³ auf zwei Wegen."
     },
     "o": {
      "wert": -27
@@ -619,7 +619,7 @@
      "antwort": 18,
      "fehlbild": "fb.potenz.basis_mal_hochzahl",
      "regel_des_fehlbilds": "rr.potenz",
-     "beschreibung": "Basis mal Hochzahl gerechnet: 2 · 9"
+     "beschreibung": "Basis mal Hochzahl gerechnet (2 · 9) und dabei die Tagesnummer statt der Zahl der Wachstumsschritte genommen"
     },
     {
      "antwort": 16,

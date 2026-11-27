@@ -3,15 +3,15 @@ GR = "id.verhaeltnisse.groesse"
 
 # ───────── schaetzen ─────────
 neu(T, "schaetzen", "zwei_wege", Z(
-    "Eine Treppenstufe ist etwa 20 cm hoch. Wie viele Stufen braucht eine Treppe für einen Höhenunterschied von 9 m? Weg A: Rechne 9 m in cm um und teile durch die Höhe einer Stufe. Weg B: Überlege, wie viele Stufen auf 1 m kommen, und rechne damit weiter.",
+    "Eine Treppenstufe ist etwa 20 cm hoch. Weg A: Rechne 9 m in cm um und teile durch die Höhe einer Stufe. Weg B: Überlege, wie viele Stufen auf 1 m kommen, und rechne damit weiter. Wie viele Stufen braucht eine Treppe für einen Höhenunterschied von 9 m ungefähr?",
     45, "900 / 20", "9 * (100 / 20)", "Wie viele Stufen von 20 cm sind zusammen 1 m hoch?",
     "Weg A: 9 m = 900 cm, 900 : 20 = 45. Weg B: 1 m = 100 cm, das sind 100 : 20 = 5 Stufen. Für 9 m sind es 9 · 5 = 45 Stufen.",
     [(180, None, "9 mal 20 gerechnet", "9 * 20"), (0.45, None, "9 durch 20 geteilt, ohne die Meter in cm umzurechnen", "9 / 20"), (5, None, "nur die Stufen für 1 m genannt", "100 / 20")], "Stufen"), regel=GR)
 neu(T, "schaetzen", "umkehren", Z(
-    "Ein Kind geht einen 150 m langen Weg in 250 Schritten. Wie lang ist ein Schritt etwa in cm?",
-    60, "150 * 100 / 250", "15000 / 250", "Rechne den Weg zuerst in cm um. Wie viel entfällt auf einen Schritt?",
-    "150 m = 15 000 cm. 15 000 cm : 250 = 60 cm. Ein Schritt ist etwa 60 cm lang. Probe: 250 · 60 cm = 15 000 cm = 150 m.",
-    [(0.6, None, "das Ergebnis in Metern statt in cm angegeben", "150 / 250"), (1.67, None, "250 durch 150 geteilt (Teiler und Dividend vertauscht)", "250 / 150"), (37500, None, "malgenommen statt geteilt", "150 * 250")], "cm"), g="rueckwaerts", regel=GR)
+    "Ein Kind geht einen 150 m langen Weg in 250 Schritten, ein Erwachsener braucht für denselben Weg 200 Schritte. Um wie viel cm ist ein Schritt des Erwachsenen länger als ein Schritt des Kindes?",
+    15, "150 * 100 / 200 - 150 * 100 / 250", "75 - 60", "Was ist bei beiden gleich, was ist verschieden? Was vergleichst du am Ende?",
+    "150 m = 15 000 cm. Kind: 15 000 cm : 250 = 60 cm je Schritt. Erwachsener: 15 000 cm : 200 = 75 cm je Schritt. Unterschied: 75 cm − 60 cm = 15 cm. Probe: 200 · 75 cm = 15 000 cm = 150 m.",
+    [(75, None, "nur die Schrittlänge des Erwachsenen genannt: 15 000 : 200", "150 * 100 / 200"), (50, None, "die Schrittzahlen statt der Schrittlängen verglichen: 250 − 200", "250 - 200"), (0.15, None, "das Ergebnis in Metern statt in cm angegeben: 0,75 m − 0,6 m", "150 / 200 - 150 / 250")], "cm"), g="rueckwaerts", regel=GR)
 
 # ───────── laenge ─────────
 neu(T, "laenge", "umkehren", Z(
@@ -20,7 +20,7 @@ neu(T, "laenge", "umkehren", Z(
     "Jetzt: 2 m 15 cm = 215 cm. Vorher war das Band um 135 cm länger: 215 + 135 = 350 cm.",
     [(80, None, "die gekürzte Länge von der jetzigen abgezogen", "215 - 135"), (2150, None, "2 m 15 cm als 2 015 cm gelesen und 135 cm addiert", "2015 + 135"), (215, None, "nur die jetzige Länge in cm genannt", "215")], "cm"), g="umkehr", regel=GR)
 neu(T, "laenge", "zwei_wege", Z(
-    "Wie viele Meter sind 3 km 40 m? Weg A: Rechne 3 km in m um und addiere 40 m. Weg B: Schreibe die Länge zuerst als Dezimalzahl in km und rechne dann in m um.",
+    "Weg A: Rechne 3 km in m um und addiere 40 m. Weg B: Schreibe die Länge zuerst als Dezimalzahl in km und rechne dann in m um. Wie viele Meter sind 3 km 40 m?",
     3040, "3 * 1000 + 40", "3.04 * 1000", "Wie viele Meter hat 1 km? Wie schreibt man 40 m in km?",
     "Weg A: 3 km = 3 000 m, dazu 40 m: 3 040 m. Weg B: 40 m = 0,04 km, also 3 km 40 m = 3,04 km. 3,04 · 1 000 = 3 040 m.",
     [(340, None, "3 km als 300 m gerechnet", "300 + 40"), (3400, None, "40 m als 400 m gerechnet", "3000 + 400"), (30040, None, "3 km als 30 000 m gerechnet", "30000 + 40")], "m"), g="verknuepfen", regel=GR)
@@ -46,7 +46,7 @@ neu(T, "zeit", "bruecke", Z(
     [(125, None, "1 h 25 min als 125 min gelesen (1 h = 100 min gerechnet)", "1 * 100 + 25"), (35, None, "47 − 12 Minuten gerechnet", "47 - 12"), (155, None, "Stunden und Minuten einzeln voneinander abgezogen, ohne die Minuten über eine Stunde hinweg richtig zu behandeln", "(10 - 8) * 60 + (47 - 12)")], "min",
     grafik=TAB(["Halt", "Uhrzeit"], ["Abfahrt Hauptbahnhof", "8:47 Uhr"], ["Ankunft Altstadt", "10:12 Uhr"])))
 neu(T, "zeit", "zwei_wege", Z(
-    "Wie viele Minuten liegen zwischen 14:35 Uhr und 17:10 Uhr? Weg A: Ergänze bis zur vollen Stunde und zähle dann weiter. Weg B: Rechne beide Uhrzeiten in Minuten seit Mitternacht um und ziehe ab.",
+    "Weg A: Ergänze bis zur vollen Stunde und zähle dann weiter. Weg B: Rechne beide Uhrzeiten in Minuten seit Mitternacht um und ziehe ab. Wie viele Minuten liegen zwischen 14:35 Uhr und 17:10 Uhr?",
     155, "(17 * 60 + 10) - (14 * 60 + 35)", "25 + 120 + 10", "Wie viele Minuten sind es von 14:35 Uhr bis 15:00 Uhr?",
     "Weg A: 14:35 bis 15:00 sind 25 min, 15:00 bis 17:00 sind 120 min, 17:00 bis 17:10 sind 10 min: 155 min. Weg B: 17:10 Uhr = 1 030 min, 14:35 Uhr = 875 min. 1 030 − 875 = 155.",
     [(235, None, "1 h = 100 min gerechnet: 2 h 35 min als 2 · 100 + 35", "100 * 2 + 35"), (205, None, "3 h gerechnet und die 25 Minuten addiert statt abgezogen", "3 * 60 + (35 - 10)"), (25, None, "nur bis zur vollen Stunde gerechnet", "60 - 35")], "min"), g="verknuepfen")
@@ -58,10 +58,10 @@ neu(T, "kommaschreibweise", "anwenden", Z(
     "12,5 km = 12 500 m. Noch zu gehen: 12 500 − 4 800 = 7 700 m.",
     [(7.7, None, "das Ergebnis in km statt in m angegeben", "12.5 - 4.8"), (-4787.5, None, "ohne Umrechnung 12,5 − 4 800 gerechnet", "12.5 - 4800"), (8500, None, "nur 4 000 m statt 4 800 m abgezogen", "12500 - 4000")], "m"), regel=GR)
 neu(T, "kommaschreibweise", "zwei_wege", Z(
-    "Wie viele Gramm sind 3,08 kg? Weg A: Rechne 3,08 · 1 000. Weg B: Schreibe 3,08 kg mit drei Stellen hinter dem Komma (3,080 kg) und lies kg und g ab. Gib die Masse in Gramm an.",
+    "Tim rechnet: „3,08 kg sind 3 kg 8 g, also 3 008 g.“ Prüfe seine Umrechnung. Weg A: Rechne 3,08 · 1 000. Weg B: Schreibe 3,08 kg mit drei Stellen hinter dem Komma (3,080 kg) und lies kg und g ab. Wie viele Gramm sind 3,08 kg wirklich?",
     3080, "3.08 * 1000", "3 * 1000 + 80", "Ein Gramm ist ein Tausendstel eines Kilogramms. Welche Stellen hinter dem Komma gehören zu den Gramm?",
     "Weg A: 3,08 · 1 000 = 3 080 g. Weg B: 3,08 kg = 3,080 kg. Vor dem Komma stehen die 3 kg, die drei Stellen dahinter (080) sind die Gramm: 3 kg 80 g = 3 000 g + 80 g = 3 080 g.",
-    [(308, None, "mit 100 statt mit 1 000 malgenommen", "3.08 * 100"), (30800, None, "mit 10 000 malgenommen", "3.08 * 10000"), (3008, None, "0,08 kg als 8 g gerechnet", "3 * 1000 + 8")], "g"), g="verknuepfen", regel=GR)
+    [(308, None, "mit 100 statt mit 1 000 malgenommen", "3.08 * 100"), (30800, None, "mit 10 000 malgenommen", "3.08 * 10000"), (3008, None, "Tims Fehler: 0,08 kg als 8 g gelesen", "3 * 1000 + 8")], "g"), g="verknuepfen", regel=GR)
 
 # ───────── rechnen ─────────
 neu(T, "rechnen", "umkehren", Z(
@@ -77,7 +77,7 @@ neu(T, "rechnen", "anwenden", Z(
 
 # ───────── massstab ─────────
 neu(T, "massstab", "zwei_wege", Z(
-    "Auf einer Karte mit dem Maßstab 1 : 25 000 sind zwei Orte 8 cm voneinander entfernt. Wie viele Kilometer liegen sie in Wirklichkeit auseinander? Weg A: Rechne 8 cm mal 25 000 und wandle um. Weg B: Bestimme zuerst, wie viele Meter 1 cm auf der Karte in Wirklichkeit sind, und rechne damit.",
+    "Auf einer Karte mit dem Maßstab 1 : 25 000 sind zwei Orte 8 cm voneinander entfernt. Weg A: Rechne 8 cm mal 25 000 und wandle um. Weg B: Bestimme zuerst, wie viele Meter 1 cm auf der Karte in Wirklichkeit sind, und rechne damit. Wie viele Kilometer liegen sie in Wirklichkeit auseinander?",
     2, "8 * 25000 / 100 / 1000", "8 * 250 / 1000", "Wie viele cm sind 1 km? Wie viele m sind 25 000 cm?",
     "Weg A: 8 · 25 000 cm = 200 000 cm = 2 000 m = 2 km. Weg B: 1 cm auf der Karte sind 25 000 cm = 250 m. 8 · 250 m = 2 000 m = 2 km.",
     [(200, None, "durch 1 000 statt durch 100 000 umgerechnet", "8 * 25000 / 1000"), (20, None, "durch 10 000 statt durch 100 000 umgerechnet", "8 * 25000 / 10000"), (0.2, None, "durch 1 000 000 umgerechnet", "8 * 25000 / 1000000")], "km"), regel=GR)
@@ -89,7 +89,7 @@ neu(T, "massstab", "anwenden", Z(
 
 # ───────── verstehen ─────────
 neu(T, "verstehen", "bruecke", Z(
-    "Die Tabelle nennt fünf Gegenstände mit einer Größenangabe. Bei wie vielen Gegenständen ist die Angabe nicht realistisch?",
+    "Die Tabelle nennt fünf Beispiele für Gegenstände mit einer Größenangabe. Bei wie vielen Gegenständen ist die Angabe nicht realistisch?",
     2, "2", "1 + 1", "Vergleiche mit etwas, das du kennst: Wie lang ist ein Lineal? Wie schwer ist ein Apfel?",
     "Ein Bleistift mit 5 kg wäre so schwer wie fünf Packungen Zucker, er wiegt nur wenige Gramm. Ein Kind mit 14 m wäre höher als ein Haus. Die anderen Angaben passen: Heft 21 cm, Zimmerhöhe 3 m, Apfel 150 g. Es sind 2 Angaben.",
     [(1, None, "nur eine unrealistische Angabe gefunden", "1"), (3, None, "auch die Höhe des Klassenzimmers (3 m) für unrealistisch gehalten", "2 + 1"), (5, None, "alle Angaben für unrealistisch gehalten", "5")], "Angaben",

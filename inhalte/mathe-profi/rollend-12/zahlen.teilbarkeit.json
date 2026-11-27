@@ -58,7 +58,7 @@
      "einheit": "Rechtecke"
     },
     "c": "5",
-    "h": "Zu jeder Seitenlänge, die 36 teilt, gehört genau eine andere. Welche Zahlen teilen 36?",
+    "h": "Zu jeder Seitenlänge, die 36 teilt, gehört eine passende zweite Seitenlänge. Welche Zahlen teilen 36?",
     "w": "Die Teiler von 36 sind 1, 2, 3, 4, 6, 9, 12, 18, 36. Paare: 1 × 36, 2 × 18, 3 × 12, 4 × 9, 6 × 6. Das sind 5 Rechtecke (6 × 6 ist ein Quadrat und zählt einmal)."
    }
   },
@@ -124,22 +124,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 15,
+     "antwort": 14,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ein Vielfaches zu viel gezählt: 28 − 14 + 1"
-    },
-    {
-     "antwort": 28,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "alle Vielfache bis 200 gezählt"
+     "beschreibung": "eine Grenze nicht mitgezählt: 29 − 15"
     },
     {
      "antwort": 13,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ein Vielfaches zu wenig gezählt"
+     "beschreibung": "beide Grenzen nicht mitgezählt: 29 − 15 − 1"
+    },
+    {
+     "antwort": 29,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Vielfachen von 7 bis 203 gezählt: 203 : 7"
     }
    ],
    "aufgabe": {
@@ -150,15 +150,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Wie viele Vielfache von 7 liegen zwischen 100 und 200? Weg A: Schreibe sie der Reihe nach auf und zähle. Weg B: Überlege, wie viele Vielfache von 7 es bis 200 und wie viele es bis 100 gibt."
+     "text": "Wie viele Zahlen von 105 bis 203 sind Vielfache von 7? Die Grenzen 105 und 203 zählen mit. Weg A: Schreibe die Vielfachen der Reihe nach auf und zähle. Weg B: Bestimme, das wievielte Vielfache von 7 die 105 und das wievielte die 203 ist, und rechne mit diesen beiden Nummern. Gib die Zahl der Vielfachen an."
     },
     "o": {
-     "wert": 14,
+     "wert": 15,
      "einheit": "Vielfache"
     },
-    "c": "200 // 7 - 100 // 7",
-    "h": "Das erste Vielfache über 100 ist 105. Welches ist das letzte unter 200?",
-    "w": "Weg A: 105, 112, …, 196 sind 14 Zahlen. Weg B: Bis 200 gibt es 200 : 7 = 28 Rest 4, also 28 Vielfache (7 bis 196). Bis 100 gibt es 14 (7 bis 98). 28 − 14 = 14."
+    "c": "203 // 7 - 105 // 7 + 1",
+    "h": "Welche Vielfachen von 7 sind 105 und 203? Gehören die Grenzen dazu?",
+    "w": "Weg A: 105, 112, 119, …, 196, 203 sind 15 Zahlen. Weg B: 105 = 15 · 7 ist das 15. Vielfache, 203 = 29 · 7 ist das 29. Vielfache. Von der 15. bis zur 29. Nummer sind es 29 − 15 + 1 = 15 Vielfache, weil beide Grenzen mitzählen."
    }
   },
   {
@@ -307,7 +307,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Wie viele Zahlen von 100 bis 150 (beide Grenzen eingeschlossen) sind durch 5 teilbar? Weg A: Prüfe die Endziffern. Weg B: Überlege, wie viele Vielfache von 5 es bis 150 und wie viele es unter 100 gibt."
+     "text": "Weg A: Prüfe die Endziffern. Weg B: Überlege, wie viele Vielfache von 5 es bis 150 und wie viele es unter 100 gibt. Wie viele Zahlen von 100 bis 150 (beide Grenzen eingeschlossen) sind durch 5 teilbar?"
     },
     "o": {
      "wert": 11,
@@ -414,7 +414,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Welchen Rest lässt 2 749 bei der Division durch 3? Weg A: Dividiere schriftlich. Weg B: Bilde die Quersumme und bestimme ihren Rest bei der Division durch 3. Welchen Rest lässt 2 749 bei der Division durch 3?"
+     "text": "Gegeben ist die Zahl 2 749. Weg A: Dividiere schriftlich. Weg B: Bilde die Quersumme und bestimme ihren Rest bei der Division durch 3. Welchen Rest lässt 2 749 bei der Division durch 3?"
     },
     "o": {
      "wert": 1
@@ -513,7 +513,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Wie viele Zahlen von 100 bis 130 sind durch 9 teilbar? Weg A: Prüfe bei jeder Zahl die Quersumme. Weg B: Überlege, wie viele Vielfache von 9 es bis 130 und wie viele es bis 99 gibt."
+     "text": "Weg A: Prüfe bei jeder Zahl die Quersumme. Weg B: Überlege, wie viele Vielfache von 9 es bis 130 und wie viele es bis 99 gibt. Wie viele Zahlen von 100 bis 130 sind durch 9 teilbar?"
     },
     "o": {
      "wert": 3,
@@ -600,7 +600,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Wie viele Primzahlen liegen zwischen 30 und 50? Weg A: Prüfe jede Zahl auf Teiler. Weg B: Schreibe alle Zahlen von 31 bis 49 auf und streiche alle Vielfachen von 2, 3, 5 und 7."
+     "text": "Weg A: Prüfe jede Zahl auf Teiler. Weg B: Schreibe alle Zahlen von 31 bis 49 auf und streiche alle Vielfachen von 2, 3, 5 und 7. Wie viele Primzahlen liegen zwischen 30 und 50?"
     },
     "o": {
      "wert": 5,
@@ -628,7 +628,7 @@
      "antwort": "2 · 2 · 3 · 3 · 5 · 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Der Rest 5 aus der vorletzten Zeile wurde zusätzlich als Faktor genommen."
+     "beschreibung": "Das Ergebnis 5 aus der vorletzten Zeile wurde zusätzlich als Faktor genommen."
     },
     {
      "index": 1,

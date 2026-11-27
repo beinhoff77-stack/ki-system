@@ -3,10 +3,10 @@ ST = "id.daten.stufen"
 
 # ───────── systematisch ─────────
 neu(T, "systematisch", "zwei_wege", Z(
-    "Wie viele verschiedene dreibuchstabige Wörter kann man aus den Buchstaben A, B und C bilden, wenn jeder Buchstabe genau einmal vorkommt? Weg A: Schreibe alle Wörter geordnet nach dem Anfangsbuchstaben auf und zähle. Weg B: Rechne: 3 Möglichkeiten für den ersten Platz, dann 2 für den zweiten, dann 1 für den dritten.",
+    "Weg A: Schreibe alle Wörter geordnet nach dem Anfangsbuchstaben auf und zähle. Weg B: Rechne: 3 Möglichkeiten für den ersten Platz, dann 2 für den zweiten, dann 1 für den dritten. Wie viele verschiedene dreibuchstabige Wörter kann man aus den Buchstaben A, B und C bilden, wenn jeder Buchstabe genau einmal vorkommt?",
     6, "3 * 2 * 1", "1 + 1 + 1 + 1 + 1 + 1", "Schreibe zuerst alle Wörter mit A am Anfang auf. Wie viele sind es?",
     "Weg A: ABC, ACB, BAC, BCA, CAB, CBA sind 6 Wörter. Weg B: 3 · 2 · 1 = 6.",
-    [(3, None, "nur die Möglichkeiten für den ersten Platz gezählt", "3"), (9, None, "3 · 3 gerechnet (Buchstaben dürfen sich wiederholen)", "3 * 3"), (8, None, "2 · 2 · 2 gerechnet", "2 * 2 * 2")], "Wörter"))
+    [(3, None, "nur die Möglichkeiten für den ersten Platz gezählt", "3"), (9, None, "3 · 3 gerechnet (Buchstaben dürfen sich wiederholen, nur zwei Plätze besetzt)", "3 * 3"), (8, None, "2 · 2 · 2 gerechnet", "2 * 2 * 2")], "Wörter"))
 neu(T, "systematisch", "umkehren", Z(
     "Ein Kind hat 5 Hosen und 4 T-Shirts. Mit mehreren Jacken kann es genau 60 verschiedene Outfits aus je einer Hose, einem T-Shirt und einer Jacke zusammenstellen. Wie viele Jacken hat es?",
     3, "60 / (5 * 4)", "60 / 20", "Wie viele Outfits gibt es nur mit Hose und T-Shirt? Wie oft passt das in 60?",
@@ -27,7 +27,7 @@ neu(T, "zaehlprinzip", "bruecke", Z(
 
 # ───────── reihenfolgen ─────────
 neu(T, "reihenfolgen", "zwei_wege", Z(
-    "Auf wie viele Arten können 4 Kinder in einer Reihe stehen? Weg A: Wähle nacheinander das Kind für den 1., 2., 3. und 4. Platz und multipliziere die Möglichkeiten. Weg B: Schreibe zuerst alle Reihenfolgen für 3 Kinder auf (es sind 6) und überlege, an wie vielen Stellen das vierte Kind eingefügt werden kann.",
+    "Weg A: Wähle nacheinander das Kind für den 1., 2., 3. und 4. Platz und multipliziere die Möglichkeiten. Weg B: Schreibe zuerst alle Reihenfolgen für 3 Kinder auf (es sind 6) und überlege, an wie vielen Stellen das vierte Kind eingefügt werden kann. Auf wie viele Arten können 4 Kinder in einer Reihe stehen?",
     24, "4 * 3 * 2 * 1", "6 * 4", "Wenn 3 Kinder in einer Reihe stehen: An wie vielen Stellen kann sich ein viertes Kind einreihen (auch ganz vorn und ganz hinten)?",
     "Weg A: 4 · 3 · 2 · 1 = 24. Weg B: Bei jeder der 6 Reihenfolgen von 3 Kindern kann das vierte Kind an 4 Stellen stehen (vorn, zwei Lücken, hinten): 6 · 4 = 24.",
     [(10, None, "die Zahlen von 1 bis 4 addiert", "4 + 3 + 2 + 1"), (16, None, "4 · 4 gerechnet", "4 * 4"), (12, None, "nur an 2 Stellen eingefügt: 6 · 2", "6 * 2")], "Möglichkeiten"))
@@ -44,7 +44,7 @@ neu(T, "baumdiagramm", "anwenden", Z(
     "Erste Stufe: 4 Äste (A, B, C, D). An jedem Ast hängen 2 Äste (Kopf, Zahl). 4 · 2 = 8 Pfade.",
     [(6, None, "die Astzahlen addiert", "4 + 2"), (16, None, "4 · 4 gerechnet", "4 * 4"), (4, None, "nur die erste Stufe gezählt", "4")], "Pfade"), regel=ST)
 neu(T, "baumdiagramm", "zwei_wege", Z(
-    "Eine Münze wird 4-mal geworfen. Bei wie vielen der Ergebnisfolgen kommt genau 1-mal Kopf vor? Weg A: Zeichne den Baum und zähle die passenden Pfade. Weg B: Überlege, an welcher der 4 Stellen der einzige Kopf stehen kann.",
+    "Eine Münze wird 4-mal geworfen. Weg A: Zeichne den Baum und zähle die passenden Pfade. Weg B: Überlege, an welcher der 4 Stellen der einzige Kopf stehen kann. Bei wie vielen der Ergebnisfolgen kommt genau 1-mal Kopf vor?",
     4, "4", "1 + 1 + 1 + 1", "Alle anderen Würfe sind Zahl. Es kommt nur darauf an, wann der Kopf fällt.",
     "Weg A: KZZZ, ZKZZ, ZZKZ, ZZZK sind die passenden Pfade, das sind 4. Weg B: Der Kopf kann beim 1., 2., 3. oder 4. Wurf fallen: 4 Möglichkeiten.",
     [(16, None, "alle Ergebnisfolgen gezählt: 2 · 2 · 2 · 2", "2 * 2 * 2 * 2"), (1, None, "nur eine Folge gezählt", "1"), (8, None, "2 · 4 gerechnet", "2 * 4")], "Folgen"), g="verknuepfen", regel=ST)
@@ -63,7 +63,7 @@ neu(T, "bedingungen", "umkehren", Z(
 
 # ───────── grenzen ─────────
 neu(T, "grenzen", "zwei_wege", Z(
-    "6 Personen begrüßen sich bei einem Treffen, indem jede jeder anderen genau einmal die Hand gibt. Wie viele Handschläge gibt es? Weg A: Zähle der Reihe nach: Die erste Person gibt 5 Handschläge, die zweite noch 4 neue und so weiter. Weg B: Jede der 6 Personen gibt 5 Handschläge; dabei wird jeder Handschlag zweimal gezählt.",
+    "6 Personen begrüßen sich bei einem Treffen, indem jede jeder anderen genau einmal die Hand gibt. Weg A: Zähle der Reihe nach: Die erste Person gibt 5 Handschläge, die zweite noch 4 neue und so weiter. Weg B: Jede der 6 Personen gibt 5 Handschläge; dabei wird jeder Handschlag zweimal gezählt. Wie viele Handschläge gibt es?",
     15, "5 + 4 + 3 + 2 + 1", "6 * 5 / 2", "Bei Weg B: Wie oft wird ein einzelner Handschlag gezählt? Was musst du am Ende tun?",
     "Weg A: 5 + 4 + 3 + 2 + 1 = 15. Weg B: 6 · 5 = 30, aber jeder Handschlag wurde zweimal gezählt: 30 : 2 = 15.",
     [(30, None, "nicht durch 2 geteilt", "6 * 5"), (36, None, "6 · 6 gerechnet", "6 * 6"), (21, None, "5 + 4 + 3 + 2 + 1 + 6 gerechnet", "5 + 4 + 3 + 2 + 1 + 6")], "Handschläge"))
@@ -84,5 +84,5 @@ neu(T, "verstehen", "anwenden", W(
 neu(T, "verstehen", "zwei_wege", Z(
     "Tim behauptet: „Aus den Ziffern 1 und 2 kann man nur 6 verschiedene dreistellige Zahlen bilden, denn es gibt 3 · 2 · 1 Anordnungen.“ Wie viele dreistellige Zahlen aus den Ziffern 1 und 2 gibt es wirklich, wenn Ziffern mehrfach vorkommen dürfen? Weg A: Schreibe alle Zahlen geordnet auf (111, 112, 121, …) und zähle. Weg B: Rechne mit der Zahl der Möglichkeiten für jede Stelle. Gib die richtige Zahl der dreistelligen Zahlen an.",
     8, "2 * 2 * 2", "1 + 1 + 1 + 1 + 1 + 1 + 1 + 1", "Darf eine Ziffer mehrfach vorkommen? Wie viele Ziffern kommen dann für jede Stelle in Frage?",
-    "Weg A: 111, 112, 121, 122, 211, 212, 221, 222 sind 8 Zahlen. Weg B: Jede der 3 Stellen hat 2 Möglichkeiten: 2 · 2 · 2 = 8. Tims Rechnung 3 · 2 · 1 gilt nur, wenn jede Ziffer genau einmal vorkommt.",
+    "Weg A: 111, 112, 121, 122, 211, 212, 221, 222 sind 8 Zahlen. Weg B: Jede der 3 Stellen hat 2 Möglichkeiten: 2 · 2 · 2 = 8. 3 · 2 · 1 zählt Anordnungen von drei verschiedenen Ziffern, die jeweils einmal vorkommen. Hier stehen nur 1 und 2 zur Wahl, mit Wiederholung.",
     [(6, None, "Tims Zahl 3 · 2 · 1 übernommen (Anordnungen ohne Wiederholung)", "3 * 2 * 1"), (4, None, "nur zwei Stellen gezählt", "2 * 2"), (9, None, "mit 3 Möglichkeiten je Stelle gerechnet, nur für zwei Stellen: 3 · 3", "3 * 3")], "Zahlen"), g="verknuepfen")

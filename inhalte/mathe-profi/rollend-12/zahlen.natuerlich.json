@@ -28,7 +28,7 @@
      "antwort": 45,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch 100 statt durch 10 geteilt"
+     "beschreibung": "nur die 45 vollen Hunderter gezählt, den Rest 60 weggelassen"
     },
     {
      "antwort": 56,
@@ -51,7 +51,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Wie viele Zehner stecken insgesamt in der Zahl 4 560? Weg A: Teile die Zahl durch 10. Weg B: Zähle zusammen, wie viele Zehner in den Tausendern, in den Hundertern und in den Zehnern stecken."
+     "text": "Weg A: Teile die Zahl durch 10. Weg B: Zähle zusammen, wie viele Zehner in den Tausendern, in den Hundertern und in den Zehnern stecken. Wie viele Zehner stecken insgesamt in der Zahl 4 560?"
     },
     "o": {
      "wert": 456,
@@ -150,7 +150,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Welche Ziffer steht an der Zehntausenderstelle der Zahl „dreihundertzwölf Millionen vierzigtausend“? Weg A: Schreibe die ganze Zahl mit Ziffern hin und lies die Stelle ab. Weg B: Suche im Zahlwort den Teil, der die Zehntausender enthält, und lies dort die Ziffer ab. Welche Ziffer steht an der Zehntausenderstelle?"
+     "text": "Die Zahl lautet „dreihundertzwölf Millionen vierzigtausend“. Weg A: Schreibe die ganze Zahl mit Ziffern hin und lies die Stelle ab. Weg B: Suche im Zahlwort den Teil, der die Zehntausender enthält, und lies dort die Ziffer ab. Welche Ziffer steht an der Zehntausenderstelle?"
     },
     "o": {
      "wert": 4,
@@ -637,7 +637,7 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "In der Schulbücherei stehen vier Regale. Sie enthalten 1 205, 1 250, 1 052 und 1 502 Bücher. Wie viele Bücher mehr steht im vollsten Regal als im leersten?"
+     "text": "In der Schulbücherei stehen vier Regale. Sie enthalten 1 205, 1 250, 1 052 und 1 502 Bücher. Wie viele Bücher mehr stehen im vollsten Regal als im leersten?"
     },
     "o": {
      "wert": 450,
@@ -664,7 +664,7 @@
      "antwort": 7400,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "aufgerundet, weil die Einerziffer 9 beachtet wurde"
+     "beschreibung": "wegen der Einerziffer 9 aufgerundet: 7 349 + 51 = 7 400"
     },
     {
      "antwort": 7350,
@@ -687,7 +687,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Runde 7 349 auf volle Hunderter. Weg A: Wende die Rundungsregel an und sieh dir die Ziffer rechts neben der Rundungsstelle an. Weg B: Schreibe die beiden benachbarten vollen Hunderter auf und prüfe, zu welchem 7 349 näher liegt."
+     "text": "Weg A: Wende die Rundungsregel an und sieh dir die Ziffer rechts neben der Rundungsstelle an. Weg B: Schreibe die beiden benachbarten vollen Hunderter auf und prüfe, zu welchem 7 349 näher liegt. Runde 7 349 auf volle Hunderter."
     },
     "o": {
      "wert": 7300
@@ -905,7 +905,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Für 342 Personen sollen Busse bestellt werden. In jeden Bus passen 50 Personen. Wie viele Busse werden mindestens gebraucht? Weg A: Teile und runde sinnvoll. Weg B: Zähle die Plätze für 1, 2, 3 … Busse auf, bis es reicht."
+     "text": "Für 342 Personen sollen Busse bestellt werden. In jeden Bus passen 50 Personen. Weg A: Teile und runde sinnvoll. Weg B: Zähle die Plätze für 1, 2, 3 … Busse auf, bis es reicht. Wie viele Busse werden mindestens gebraucht?"
     },
     "o": {
      "wert": 7,
@@ -978,22 +978,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 8,
+     "antwort": 999998,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur den Unterschied genommen: 11 − 3"
+     "beschreibung": "den Vorgänger statt des Nachfolgers genommen: 999 999 − 1"
     },
     {
-     "antwort": 9,
+     "antwort": 1000001,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "3 und 11 mitgezählt"
+     "beschreibung": "zwei Schritte statt einen weitergezählt: 999 999 + 2"
     },
     {
-     "antwort": 14,
+     "antwort": 100000,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Zahlen addiert"
+     "beschreibung": "nur eine 1 mit fünf Nullen geschrieben"
     }
    ],
    "aufgabe": {
@@ -1004,15 +1004,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Wie viele natürliche Zahlen liegen zwischen 3 und 11 (ohne 3 und 11 selbst)? Weg A: Schreibe sie alle auf und zähle. Weg B: Rechne mit dem Unterschied der beiden Zahlen."
+     "text": "Tim behauptet: „999 999 ist die größte natürliche Zahl.“ Du widerlegst das mit dem Nachfolger. Weg A: Addiere 1 zu 999 999. Weg B: Überlege, welche Zahl direkt nach 999 999 kommt, wenn du die Zahlen bis zur Million aufzählst. Wie heißt der Nachfolger von 999 999?"
     },
     "o": {
-     "wert": 7,
-     "einheit": "Zahlen"
+     "wert": 1000000
     },
-    "c": "11 - 3 - 1",
-    "h": "Gehören 3 und 11 selbst dazu?",
-    "w": "Weg A: 4, 5, 6, 7, 8, 9, 10 sind 7 Zahlen. Weg B: 11 − 3 = 8, davon ist eine Zahl zu viel gezählt: 8 − 1 = 7."
+    "c": "999999 + 1",
+    "h": "Welche Zahl kommt unmittelbar nach 999 999? Was geschieht mit den Neunen?",
+    "w": "Weg A: 999 999 + 1 = 1 000 000. Weg B: Beim Zählen auf die Million kommt nach 999 999 die Zahl 1 000 000. Der Nachfolger ist größer, also ist Tims Zahl nicht die größte. Dasselbe gilt für jede Zahl, die jemand als größte nennt: Ihr Nachfolger ist größer. Darum gibt es keine größte natürliche Zahl."
    }
   },
   {
@@ -1028,22 +1027,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 52,
+     "antwort": 2000001,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 14 nur addiert, die größere Zahl nicht mehr mitgezählt: 38 + 14"
+     "beschreibung": "den Nachfolger statt des Vorgängers genommen: 2 000 000 + 1"
     },
     {
-     "antwort": 54,
+     "antwort": 1999998,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "einen Schritt zu viel: 38 + 14 + 2"
+     "beschreibung": "zwei Schritte statt einen zurückgegangen: 2 000 000 − 2"
     },
     {
-     "antwort": 24,
+     "antwort": 1000000,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Unterschied der beiden Zahlen mit 14 vertauscht: 38 − 14"
+     "beschreibung": "die Zahl halbiert: 2 000 000 : 2"
     }
    ],
    "aufgabe": {
@@ -1054,14 +1053,14 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Zwischen zwei natürlichen Zahlen liegen genau 14 weitere natürliche Zahlen. Die kleinere der beiden Zahlen ist 38. Wie heißt die größere?"
+     "text": "Anna behauptet, ihre Zahl sei die größte natürliche Zahl. Ben widerlegt sie, indem er den Nachfolger ihrer Zahl nennt: 2 000 000. Welche Zahl hat Anna genannt?"
     },
     "o": {
-     "wert": 53
+     "wert": 1999999
     },
-    "c": "38 + 14 + 1",
-    "h": "Die kleinere Zahl und die 14 Zahlen dazwischen sind schon aufgezählt. Was kommt als Nächstes?",
-    "w": "Nach 38 kommen die 14 Zahlen 39 bis 52. Die nächste Zahl ist 53 und damit die größere. Probe: Zwischen 38 und 53 liegen 53 − 38 − 1 = 14 Zahlen."
+    "c": "2000000 - 1",
+    "h": "Ben hat zu Annas Zahl 1 addiert. Wie kommst du zu Annas Zahl zurück?",
+    "w": "Der Nachfolger von Annas Zahl ist 2 000 000, also ist Annas Zahl der Vorgänger: 2 000 000 − 1 = 1 999 999. Probe: 1 999 999 + 1 = 2 000 000. Zu jeder Zahl gibt es einen Nachfolger, der größer ist; darum kann Annas Zahl nicht die größte sein."
    }
   },
   {
@@ -1224,7 +1223,7 @@
      "index": 1
     },
     "h": "Schreibe MCM zuerst mit Ziffern. Rechne dann rückwärts.",
-    "w": "MCM ist 1 900 (M = 1 000 und CM = 900). Die Zahl ist die Hälfte: 1 900 : 2 = 950. 950 = 900 + 50 = CM + L = CML. Probe: 2 · 950 = 1 900."
+    "w": "MCM ist 1 900 (M = 1 000 und CM = 900). Die Zahl ist die Hälfte: 1 900 : 2 = 950. 950 = 900 + 50 = CM + L = CML. Probe: 2 · 950 = 1 900. Das Zeichen C hat immer den Grundwert 100; steht es vor M, wird es abgezogen: CM = 1 000 − 100 = 900. Das Zeichen behält seinen Wert, nur seine Stellung vor oder nach einem anderen Zeichen entscheidet, ob addiert oder abgezogen wird."
    }
   },
   {
@@ -1266,7 +1265,7 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Römische Zahlen haben keinen Stellenwert und keine Null: Für jede Stelle braucht man mehrere Zeichen. Die Zahl 888 hat in Ziffern 3 Zeichen. Wie viele Zeichen mehr braucht ihre römische Schreibweise (DCCCLXXXVIII)?"
+     "text": "Römische Zahlen haben keinen Stellenwert und keine Null. Die Zahl 888 hat in Ziffern 3 Zeichen. Bei 888 benötigt jeder der drei Teile 800, 80 und 8 vier römische Zeichen. Wie viele Zeichen mehr braucht ihre römische Schreibweise (DCCCLXXXVIII)?"
     },
     "o": {
      "wert": 9,
@@ -1310,7 +1309,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Welche Zahl im Zehnersystem steht hinter der Dualzahl 101101? Weg A: Addiere die Stellenwerte 1, 2, 4, 8, 16, 32 dort, wo eine 1 steht. Weg B: Gehe von links nach rechts: Verdopple die bisherige Zahl und addiere die nächste Ziffer."
+     "text": "Weg A: Addiere die Stellenwerte 1, 2, 4, 8, 16, 32 dort, wo eine 1 steht. Weg B: Gehe von links nach rechts: Verdopple die bisherige Zahl und addiere die nächste Ziffer. Welche Zahl im Zehnersystem steht hinter der Dualzahl 101101?"
     },
     "o": {
      "wert": 45

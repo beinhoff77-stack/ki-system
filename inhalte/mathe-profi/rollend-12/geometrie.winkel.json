@@ -51,7 +51,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Welcher Winkel ergänzt 62° zu einem gestreckten Winkel? Weg A: Ziehe 62° von 180° ab. Weg B: Ergänze 62° zuerst zu einem rechten Winkel und füge dann noch einen rechten Winkel hinzu."
+     "text": "Weg A: Ziehe 62° von 180° ab. Weg B: Ergänze 62° zuerst zu einem rechten Winkel und füge dann noch einen rechten Winkel hinzu. Welcher Winkel ergänzt 62° zu einem gestreckten Winkel?"
     },
     "o": {
      "wert": 118,
@@ -201,14 +201,14 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Zwei Geraden schneiden sich. Ein Winkel ist 24° größer als sein Nachbarwinkel. Wie groß ist der größere der beiden Winkel? Weg A: Nenne den kleineren Winkel w und löse w + (w + 24°) = 180°. Weg B: Wären beide Winkel gleich groß, hätte jeder 90°. Überlege, wie viel Grad vom einen zum anderen wandern müssen, damit der Unterschied 24° beträgt. Wie groß ist der größere Winkel?"
+     "text": "Zwei Geraden schneiden sich. Ein Winkel ist 24° größer als sein Nachbarwinkel. Weg A: Nenne den kleineren Winkel w und löse w + (w + 24°) = 180°. Weg B: Wären beide Winkel gleich groß, hätte jeder 90°. Überlege, wie viel Grad vom einen zum anderen wandern müssen, damit der Unterschied 24° beträgt. Wie groß ist der größere Winkel?"
     },
     "o": {
      "wert": 102,
      "einheit": "°"
     },
     "c": "(180 + 24) / 2",
-    "h": "Wie groß ist die Summe zweier Nachbarwinkel? Was geschieht mit dem Unterschied, wenn ein Winkel um 12° kleiner und der andere um 12° größer wird?",
+    "h": "Wie groß ist die Summe zweier Nachbarwinkel? Was geschieht mit dem Unterschied, wenn ein Winkel kleiner und der andere um genauso viel größer wird?",
     "w": "Weg A: 2w + 24° = 180°, also 2w = 156°, w = 78°. Der größere Winkel ist 78° + 24° = 102°. Weg B: Von 90° und 90° wandern 12° vom einen zum anderen: 78° und 102°. Der Unterschied ist 24°. Probe: 102° + 78° = 180°."
    }
   },
@@ -512,7 +512,7 @@
      "antwort": 135,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die dritte Drehung nach rechts vergessen: 90° + 45°"
+     "beschreibung": "die letzte Drehung weggelassen und die Linksdrehung addiert: 90° + 45°"
     },
     {
      "antwort": 45,
@@ -529,7 +529,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Ein Schiff dreht sich um 90° nach rechts, dann um 45° nach links und danach um 180° nach rechts. Um wie viel Grad insgesamt hat es sich nach rechts gedreht? Weg A: Rechne mit Grad: Bestimme nach jeder Drehung die Gesamtdrehung. Weg B: Zähle auf der Windrose in Schritten von 45° (Abstand zweier Nachbarrichtungen): Wie viele Schritte sind es nach rechts, wie viele nach links? Gib die Gesamtdrehung nach rechts in Grad an."
+     "text": "Ein Schiff dreht sich um 90° nach rechts, dann um 45° nach links und danach um 180° nach rechts. Wie groß ist die resultierende Drehung nach rechts? Weg A: Rechne mit Grad: Bestimme nach jeder Drehung die Gesamtdrehung. Weg B: Zähle auf der Windrose in Schritten von 45° (Abstand zweier Nachbarrichtungen): Wie viele Schritte sind es nach rechts, wie viele nach links? Gib die resultierende Drehung (netto nach rechts) in Grad an."
     },
     "o": {
      "wert": 225,

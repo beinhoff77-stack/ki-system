@@ -145,7 +145,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Berechne (48 − 12) : 6 auf zwei Wegen. Weg A: Rechne zuerst die Klammer aus. Weg B: Teile beide Zahlen in der Klammer einzeln durch 6 und ziehe die Ergebnisse voneinander ab."
+     "text": "Weg A: Rechne zuerst die Klammer aus. Weg B: Teile beide Zahlen in der Klammer einzeln durch 6 und ziehe die Ergebnisse voneinander ab. Berechne (48 − 12) : 6 auf zwei Wegen."
     },
     "o": {
      "wert": 6
@@ -292,7 +292,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Term A ist 6 + 4 · 5, Term B ist (6 + 4) · 5. Um wie viel ist B größer als A? Weg A: Berechne beide Terme und bilde den Unterschied. Weg B: Schreibe B als 6 · 5 + 4 · 5 und vergleiche mit A, ohne beide ganz auszurechnen."
+     "text": "Term A ist 6 + 4 · 5, Term B ist (6 + 4) · 5. Weg A: Berechne beide Terme und bilde den Unterschied. Weg B: Schreibe B als 6 · 5 + 4 · 5 und vergleiche mit A, ohne beide ganz auszurechnen. Um wie viel ist B größer als A?"
     },
     "o": {
      "wert": 24
@@ -546,14 +546,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Berechne 8 · 27. Weg A: Rechne die Malaufgabe schriftlich. Weg B: Zerlege 27 in 20 + 7 und rechne 8 · 20 + 8 · 7."
+     "text": "Weg A: Rechne die Malaufgabe schriftlich. Weg B: Zerlege 27 in 20 + 7 und rechne 8 · 20 + 8 · 7. Berechne 8 · 27."
     },
     "o": {
      "wert": 216
     },
     "c": "8 * 27",
     "h": "Bei Weg B rechnest du zwei einfache Malaufgaben und addierst.",
-    "w": "Weg A: 8 · 27 = 216. Weg B: 8 · 20 = 160, 8 · 7 = 56, 160 + 56 = 216."
+    "w": "Weg A schriftlich: 8 · 7 = 56, schreibe 6 und merke 5; 8 · 2 = 16, dazu 5 ergibt 21; Ergebnis 216. Weg B: 8 · 20 = 160, 8 · 7 = 56, 160 + 56 = 216."
    }
   },
   {
@@ -633,7 +633,7 @@
      "antwort": 11,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 1 100 statt 1 200 verglichen"
+     "beschreibung": "mit 1 100 statt 1 200 gerechnet: 1 100 : 100"
     }
    ],
    "aufgabe": {
@@ -793,7 +793,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Berechne (−2) · (−5) · (−3) · 4 auf zwei Wegen. Weg A: Rechne von links nach rechts Schritt für Schritt. Weg B: Zähle die negativen Faktoren, bestimme so das Vorzeichen und multipliziere dann die Beträge."
+     "text": "Weg A: Rechne von links nach rechts Schritt für Schritt. Weg B: Zähle die negativen Faktoren, bestimme so das Vorzeichen und multipliziere dann die Beträge. Berechne (−2) · (−5) · (−3) · 4 auf zwei Wegen."
     },
     "o": {
      "wert": -120
@@ -836,7 +836,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Berechne (−84) : (−4) : 3 auf zwei Wegen. Weg A: Rechne von links nach rechts. Weg B: Rechne zuerst (−4) · 3 und teile dann −84 durch das Ergebnis."
+     "text": "Weg A: Rechne von links nach rechts. Weg B: Rechne zuerst (−4) · 3 und teile dann −84 durch das Ergebnis. Berechne (−84) : (−4) : 3 auf zwei Wegen."
     },
     "o": {
      "wert": 7
@@ -934,7 +934,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Welche Zahl ergibt mit 12 malgenommen −156? Weg A: Teile −156 durch 12. Weg B: Zerlege −156 in −120 und −36 und überlege, womit man 12 jeweils malnehmen muss."
+     "text": "Weg A: Teile −156 durch 12. Weg B: Zerlege −156 in −120 und −36 und überlege, womit man 12 jeweils malnehmen muss. Welche Zahl ergibt mit 12 malgenommen −156?"
     },
     "o": {
      "wert": -13
@@ -1050,17 +1050,17 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "3 019",
+     "antwort": "30 195",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Eine Stelle zu klein: Ein Überschlag nahe 30 000 passt nicht zu 3 019."
+     "beschreibung": "Die Endziffer passt nicht: 7 · 2 = 14, das Produkt muss auf 4 enden."
     },
     {
      "index": 2,
-     "antwort": "301 940",
+     "antwort": "31 194",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Eine Stelle zu groß: Ein Überschlag nahe 30 000 passt nicht zu 301 940."
+     "beschreibung": "Der Überschlag mit 500 · 62 = 31 000 ist nach oben gerundet. Das genaue Ergebnis muss kleiner als 31 000 sein."
     }
    ],
    "aufgabe": {
@@ -1071,18 +1071,18 @@
     "g": "pruefung",
     "y": "auswahl",
     "f": {
-     "text": "Maja rechnet 487 · 62. Ihr Taschenrechner zeigt eine Zahl an. Maja überschlägt mit 500 · 60. Welches Ergebnis des Taschenrechners passt zu ihrem Überschlag?"
+     "text": "Maja rechnet 487 · 62 mit dem Taschenrechner und ist unsicher, ob sie sich vertippt hat. Zur Auswahl stehen drei Ergebnisse. Welches Ergebnis kann stimmen? Prüfe mit einem Überschlag, den du selbst wählst, und mit der Endziffer."
     },
     "a": [
      "30 194",
-     "3 019",
-     "301 940"
+     "30 195",
+     "31 194"
     ],
     "o": {
      "index": 0
     },
-    "h": "Rechne 500 · 60 aus. Welche Zahl liegt in dieser Größenordnung?",
-    "w": "500 · 60 = 30 000. Nur 30 194 liegt in der Nähe. Genau gerechnet: 487 · 62 = 30 194. Wäre 3 019 oder 301 940 herausgekommen, hätte sich Maja verrechnet."
+    "h": "Runde einen Faktor so, dass du genau sagen kannst, ob das Ergebnis größer oder kleiner sein muss. Welche Ziffer steht am Ende?",
+    "w": "Die Endziffer des Produkts kommt von 7 · 2 = 14, also endet es auf 4. Damit scheidet 30 195 aus. Rundet man 487 auf 500, wird das Produkt größer: 487 · 62 ist kleiner als 500 · 62 = 31 000. Damit scheidet 31 194 aus. Es bleibt 30 194. Genau gerechnet: 487 · 62 = 30 194."
    }
   },
   {
@@ -1118,14 +1118,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Berechne 728 : 14. Weg A: Teile schriftlich. Weg B: Zerlege 728 in 700 + 28 und teile beide Teile einzeln durch 14."
+     "text": "Weg A: Teile schriftlich. Weg B: Zerlege 728 in 700 + 28 und teile beide Teile einzeln durch 14. Berechne 728 : 14."
     },
     "o": {
      "wert": 52
     },
     "c": "728 / 14",
     "h": "Bei Weg B: Wie oft passt 14 in 700? Wie oft in 28?",
-    "w": "Weg A: 728 : 14 = 52. Weg B: 700 : 14 = 50 und 28 : 14 = 2, zusammen 52. Probe: 52 · 14 = 728."
+    "w": "Weg A schriftlich: 72 : 14 = 5 (5 · 14 = 70), Rest 2; die 8 herunterholen: 28 : 14 = 2 (2 · 14 = 28), Rest 0; Ergebnis 52. Weg B: 700 : 14 = 50 und 28 : 14 = 2, zusammen 52. Probe: 52 · 14 = 728."
    }
   },
   {
@@ -1254,7 +1254,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Wie groß ist der Rest bei 3 128 : 24? Weg A: Teile schriftlich. Weg B: Ziehe von 3 128 zuerst 24 · 100 ab, dann so oft 24, wie es geht."
+     "text": "Weg A: Teile schriftlich. Weg B: Ziehe von 3 128 zuerst 24 · 100 ab, dann so oft 24, wie es geht. Wie groß ist der Rest bei 3 128 : 24?"
     },
     "o": {
      "wert": 8
@@ -1286,7 +1286,7 @@
      "antwort": 92,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Preis nicht abgezogen"
+     "beschreibung": "den Preis nicht abgezogen, sondern den Zuschuss dazugezählt: 72 + 20"
     },
     {
      "antwort": -13,
@@ -1303,7 +1303,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Eine Klasse mit 24 Kindern kauft ein Geschenk für 85 €. Jedes Kind gibt 3 €, die Schule gibt 20 € dazu. Wie viel Geld bleibt übrig? Weg A: Rechne aus, wie viel Geld insgesamt zusammenkommt, und ziehe den Preis ab. Weg B: Rechne zuerst aus, wie viel die Kinder zahlen müssten, wenn die Schule 20 € gibt, und vergleiche mit dem, was sie zahlen."
+     "text": "Eine Klasse mit 24 Kindern kauft ein Geschenk für 85 €. Jedes Kind gibt 3 €, die Schule gibt 20 € dazu. Weg A: Rechne aus, wie viel Geld insgesamt zusammenkommt, und ziehe den Preis ab. Weg B: Rechne zuerst aus, wie viel die Kinder zahlen müssten, wenn die Schule 20 € gibt, und vergleiche mit dem, was sie zahlen. Wie viel Geld bleibt übrig?"
     },
     "o": {
      "wert": 7,

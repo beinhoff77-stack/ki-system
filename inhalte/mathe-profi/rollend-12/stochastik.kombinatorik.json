@@ -34,7 +34,7 @@
      "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "3 · 3 gerechnet (Buchstaben dürfen sich wiederholen)"
+     "beschreibung": "3 · 3 gerechnet (Buchstaben dürfen sich wiederholen, nur zwei Plätze besetzt)"
     },
     {
      "antwort": 8,
@@ -51,7 +51,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Wie viele verschiedene dreibuchstabige Wörter kann man aus den Buchstaben A, B und C bilden, wenn jeder Buchstabe genau einmal vorkommt? Weg A: Schreibe alle Wörter geordnet nach dem Anfangsbuchstaben auf und zähle. Weg B: Rechne: 3 Möglichkeiten für den ersten Platz, dann 2 für den zweiten, dann 1 für den dritten."
+     "text": "Weg A: Schreibe alle Wörter geordnet nach dem Anfangsbuchstaben auf und zähle. Weg B: Rechne: 3 Möglichkeiten für den ersten Platz, dann 2 für den zweiten, dann 1 für den dritten. Wie viele verschiedene dreibuchstabige Wörter kann man aus den Buchstaben A, B und C bilden, wenn jeder Buchstabe genau einmal vorkommt?"
     },
     "o": {
      "wert": 6,
@@ -251,7 +251,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Auf wie viele Arten können 4 Kinder in einer Reihe stehen? Weg A: Wähle nacheinander das Kind für den 1., 2., 3. und 4. Platz und multipliziere die Möglichkeiten. Weg B: Schreibe zuerst alle Reihenfolgen für 3 Kinder auf (es sind 6) und überlege, an wie vielen Stellen das vierte Kind eingefügt werden kann."
+     "text": "Weg A: Wähle nacheinander das Kind für den 1., 2., 3. und 4. Platz und multipliziere die Möglichkeiten. Weg B: Schreibe zuerst alle Reihenfolgen für 3 Kinder auf (es sind 6) und überlege, an wie vielen Stellen das vierte Kind eingefügt werden kann. Auf wie viele Arten können 4 Kinder in einer Reihe stehen?"
     },
     "o": {
      "wert": 24,
@@ -401,7 +401,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Eine Münze wird 4-mal geworfen. Bei wie vielen der Ergebnisfolgen kommt genau 1-mal Kopf vor? Weg A: Zeichne den Baum und zähle die passenden Pfade. Weg B: Überlege, an welcher der 4 Stellen der einzige Kopf stehen kann."
+     "text": "Eine Münze wird 4-mal geworfen. Weg A: Zeichne den Baum und zähle die passenden Pfade. Weg B: Überlege, an welcher der 4 Stellen der einzige Kopf stehen kann. Bei wie vielen der Ergebnisfolgen kommt genau 1-mal Kopf vor?"
     },
     "o": {
      "wert": 4,
@@ -550,7 +550,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "6 Personen begrüßen sich bei einem Treffen, indem jede jeder anderen genau einmal die Hand gibt. Wie viele Handschläge gibt es? Weg A: Zähle der Reihe nach: Die erste Person gibt 5 Handschläge, die zweite noch 4 neue und so weiter. Weg B: Jede der 6 Personen gibt 5 Handschläge; dabei wird jeder Handschlag zweimal gezählt."
+     "text": "6 Personen begrüßen sich bei einem Treffen, indem jede jeder anderen genau einmal die Hand gibt. Weg A: Zähle der Reihe nach: Die erste Person gibt 5 Handschläge, die zweite noch 4 neue und so weiter. Weg B: Jede der 6 Personen gibt 5 Handschläge; dabei wird jeder Handschlag zweimal gezählt. Wie viele Handschläge gibt es?"
     },
     "o": {
      "wert": 15,
@@ -707,7 +707,7 @@
     },
     "c": "2 * 2 * 2",
     "h": "Darf eine Ziffer mehrfach vorkommen? Wie viele Ziffern kommen dann für jede Stelle in Frage?",
-    "w": "Weg A: 111, 112, 121, 122, 211, 212, 221, 222 sind 8 Zahlen. Weg B: Jede der 3 Stellen hat 2 Möglichkeiten: 2 · 2 · 2 = 8. Tims Rechnung 3 · 2 · 1 gilt nur, wenn jede Ziffer genau einmal vorkommt."
+    "w": "Weg A: 111, 112, 121, 122, 211, 212, 221, 222 sind 8 Zahlen. Weg B: Jede der 3 Stellen hat 2 Möglichkeiten: 2 · 2 · 2 = 8. 3 · 2 · 1 zählt Anordnungen von drei verschiedenen Ziffern, die jeweils einmal vorkommen. Hier stehen nur 1 und 2 zur Wahl, mit Wiederholung."
    }
   }
  ]

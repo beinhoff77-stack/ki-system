@@ -14,7 +14,7 @@ neu(T, "absolute_haeufigkeit", "anwenden", Z(
 
 # ───────── relative_haeufigkeit ─────────
 neu(T, "relative_haeufigkeit", "zwei_wege", Z(
-    "Gib 18 von 25 als Prozentzahl an. Weg A: Erweitere den Bruch 18/25 auf den Nenner 100. Weg B: Rechne 18 : 25 und schreibe das Ergebnis in Prozent.",
+    "Weg A: Erweitere den Bruch 18/25 auf den Nenner 100. Weg B: Rechne 18 : 25 und schreibe das Ergebnis in Prozent. Gib 18 von 25 als Prozentzahl an.",
     72, "18 * 4", "18 / 25 * 100", "Mit welcher Zahl musst du 25 malnehmen, um 100 zu erhalten?",
     "Weg A: 25 · 4 = 100, also 18 · 4 = 72 und 18/25 = 72/100 = 72 %. Weg B: 18 : 25 = 0,72 und 0,72 = 72 %.",
     [(18, None, "den Zähler als Prozentzahl genommen", "18"), (0.72, None, "das Ergebnis der Division nicht in Prozent umgerechnet", "18 / 25"), (43, None, "Zähler und Nenner addiert", "18 + 25")], "%"))
@@ -26,7 +26,7 @@ neu(T, "relative_haeufigkeit", "anwenden", Z(
 
 # ───────── tabelle_auswerten ─────────
 neu(T, "tabelle_auswerten", "zwei_wege", Z(
-    "Die Tabelle zeigt eine Umfrage zum Lieblingssport. Wie viele Kinder haben nicht „Fußball“ gewählt? Weg A: Addiere die Anzahlen aller anderen Sportarten. Weg B: Berechne zuerst, wie viele Kinder insgesamt befragt wurden, und ziehe dann die Anzahl für Fußball ab.",
+    "Die Tabelle zeigt eine Umfrage zum Lieblingssport. Weg A: Addiere die Anzahlen aller anderen Sportarten. Weg B: Berechne zuerst, wie viele Kinder insgesamt befragt wurden, und ziehe dann die Anzahl für Fußball ab. Wie viele Kinder haben nicht „Fußball“ gewählt?",
     17, "6 + 4 + 7", "(11 + 6 + 4 + 7) - 11", "Welche Zeilen der Tabelle zählen zu „nicht Fußball“?",
     "Weg A: Schwimmen 6 + Tennis 4 + Tanzen 7 = 17. Weg B: Insgesamt 11 + 6 + 4 + 7 = 28 Kinder. 28 − 11 = 17.",
     [(11, None, "nur die Fußball-Kinder genannt", "11"), (28, None, "alle befragten Kinder genannt", "11 + 6 + 4 + 7"), (10, None, "nur Schwimmen und Tennis addiert", "6 + 4")], "Kinder",
@@ -43,7 +43,7 @@ neu(T, "saeulendiagramm", "bruecke", Z(
     "Das Säulendiagramm zeigt, wie viele Kinder in vier Klassen eine Brezel bestellt haben. Eine Brezel kostet 70 Cent. Wie viel Euro kosten alle bestellten Brezeln?",
     35, "(14 + 11 + 9 + 16) * 70 / 100", "50 * 0.7", "Lies die vier Säulen ab und zähle sie zusammen. Wie viele Brezeln sind das?",
     "Bestellt wurden 14 + 11 + 9 + 16 = 50 Brezeln. 50 · 70 Cent = 3 500 Cent = 35 €.",
-    [(50, None, "die Zahl der Brezeln als Preis genannt", "14 + 11 + 9 + 16"), (3500, None, "in Cent statt in Euro angegeben", "50 * 70"), (3.5, None, "durch 10 statt durch 100 umgerechnet", "50 * 70 / 1000")], "€",
+    [(50, None, "die Zahl der Brezeln als Preis genannt", "14 + 11 + 9 + 16"), (3500, None, "in Cent statt in Euro angegeben", "50 * 70"), (3.5, None, "durch 1 000 statt durch 100 geteilt", "50 * 70 / 1000")], "€",
     grafik={"typ": "saeulen", "werte": [{"name": "5a", "wert": 14}, {"name": "5b", "wert": 11}, {"name": "5c", "wert": 9}, {"name": "5d", "wert": 16}]}))
 neu(T, "saeulendiagramm", "umkehren", Z(
     "Ein Säulendiagramm zeigt vier Klassen. Die ersten drei Säulen sind 12, 7 und 15 Kinder hoch, die vierte Säule ist verdeckt. Insgesamt wurden 50 Kinder befragt. Wie hoch ist die verdeckte Säule?",

@@ -1,0 +1,1927 @@
+{
+ "stand": "2026-11-27",
+ "flug": "ge4",
+ "titel": "Dreiecke, Vierecke und Konstruktion",
+ "fuer": "Kind 2",
+ "klasse": 7,
+ "themen": [
+  "geometrie.winkelsaetze",
+  "geometrie.konstruktion"
+ ],
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Brücke), rollend-4. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag ja/nein) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: Stufe aufsteigend.",
+ "aufgaben": [
+  {
+   "kennung": "GE4-V01",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "parallel_pruefen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Winkel genannt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nebenwinkel mit Stufenwinkel verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallel_pruefen",
+    "t": "parallel_pruefen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "g ∥ h. Eine Gerade schneidet beide. Bei S gibt es einen Winkel von 72°. Sein Stufenwinkel bei T ist genauso groß. Beide zusammen haben ①°. Der Nebenwinkel bei T hat ②°.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      144,
+      108
+     ]
+    },
+    "c": [
+     "72 + 72",
+     "180 - 72"
+    ],
+    "h": "Der Nebenwinkel ergänzt den Stufenwinkel zu einer geraden Linie.",
+    "w": "72° + 72° = 144°. 180° − 72° = 108°."
+   }
+  },
+  {
+   "kennung": "GE4-V02",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "innenwinkelsumme",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 125,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur α abgezogen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 180° statt von 360° abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "innenwinkelsumme",
+    "t": "innenwinkelsumme",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Im Dreieck ist α = 48° und β = 77°. Dann ist γ = 180° − 48° − 77° = ①°. Ein Viereck hat die Winkel 95°, 100° und 85° und δ = ②°.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      55,
+      80
+     ]
+    },
+    "c": [
+     "180 - 48 - 77",
+     "360 - 95 - 100 - 85"
+    ],
+    "h": "Im Dreieck sind es 180°, im Viereck 360°.",
+    "w": "γ = 55°. δ = 360° − 280° = 80°."
+   }
+  },
+  {
+   "kennung": "GE4-V03",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "vieleck",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 900,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 Dreiecke gezählt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1080,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 Dreiecke statt 4 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "vieleck",
+    "t": "vieleck",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Fünfeck zerlegt man von einer Ecke aus in 3 Dreiecke. Die Winkelsumme ist 3 · 180° = ①°. Ein Sechseck hat die Winkelsumme (6 − 2) · 180° = ②°.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      540,
+      720
+     ]
+    },
+    "c": [
+     "3 * 180",
+     "(6 - 2) * 180"
+    ],
+    "h": "Ein n-Eck zerlegt man in n − 2 Dreiecke.",
+    "w": "3 · 180° = 540°. 4 · 180° = 720°."
+   }
+  },
+  {
+   "kennung": "GE4-V04",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "figuren",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 140,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Basiswinkel und Nebenwinkel verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "figuren",
+    "t": "figuren",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Im gleichschenkligen Dreieck hat der Winkel an der Spitze 40°. Ein Basiswinkel hat (180° − 40°) : 2 = ①°. Der Nebenwinkel eines Basiswinkels hat 180° − ①° = ②°.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      70,
+      110
+     ]
+    },
+    "c": [
+     "(180 - 40) // 2",
+     "180 - (180 - 40) // 2"
+    ],
+    "h": "Beide Basiswinkel sind gleich groß.",
+    "w": "140° : 2 = 70°. 180° − 70° = 110°."
+   }
+  },
+  {
+   "kennung": "GE4-V05",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "gleichschenklig",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 130,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 145,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Basiswinkel abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleichschenklig",
+    "t": "gleichschenklig",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein gleichschenkliges Dreieck hat an der Spitze 50°. Ein Basiswinkel hat (180° − 50°) : 2 = ①°. Ein anderes hat die Basiswinkel 35°. Dann hat die Spitze 180° − 2 · 35° = ②°.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      65,
+      110
+     ]
+    },
+    "c": [
+     "(180 - 50) // 2",
+     "180 - 2 * 35"
+    ],
+    "h": "Es gibt zwei gleich große Basiswinkel.",
+    "w": "130° : 2 = 65°. 180° − 70° = 110°."
+   }
+  },
+  {
+   "kennung": "GE4-V06",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "kongruenzsatz",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "SWS",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "der Winkel liegt nicht zwischen zwei Seiten"
+    },
+    {
+     "index": 2,
+     "antwort": "SSS",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Seite ist gegeben"
+    },
+    {
+     "index": 3,
+     "antwort": "WWW",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Dieser Satz gilt nicht, gleiche Winkel geben nur ähnliche Dreiecke"
+    }
+   ],
+   "aufgabe": {
+    "l": "kongruenzsatz",
+    "t": "kongruenzsatz",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Dreiecke stimmen in einer Seite von 6 cm und in den beiden Winkeln an dieser Seite überein. Welcher Satz zeigt, dass sie kongruent sind?"
+    },
+    "a": [
+     "SWS",
+     "WSW",
+     "SSS",
+     "WWW"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Zähle, wie viele Seiten und wie viele Winkel gegeben sind.",
+    "w": "Eine Seite und die beiden Winkel an ihr: Winkel, Seite, Winkel (WSW)."
+   }
+  },
+  {
+   "kennung": "GE4-V07",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "konstruierbar",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die kürzere Seite genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "konstruierbar",
+    "t": "konstruierbar",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Zwei Seiten eines Dreiecks sind 6 cm und 10 cm lang. Die dritte Seite muss kürzer sein als 6 + 10 = ① cm. Sie muss länger sein als 10 − 6 = ② cm.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      16,
+      4
+     ]
+    },
+    "c": [
+     "6 + 10",
+     "10 - 6"
+    ],
+    "h": "Zwei Seiten zusammen müssen länger sein als die dritte.",
+    "w": "6 + 10 = 16. 10 − 6 = 4."
+   }
+  },
+  {
+   "kennung": "GE4-V08",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "konstruierbar",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "2 cm, 3 cm, 6 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 + 3 ist kleiner als 6"
+    },
+    {
+     "index": 1,
+     "antwort": "4 cm, 4 cm, 8 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 + 4 ist nur gleich 8, die Seiten liegen flach aufeinander"
+    },
+    {
+     "index": 2,
+     "antwort": "1 cm, 5 cm, 7 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1 + 5 ist kleiner als 7"
+    }
+   ],
+   "aufgabe": {
+    "l": "konstruierbar",
+    "t": "konstruierbar",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Aus welchen drei Längen lässt sich ein Dreieck konstruieren?"
+    },
+    "a": [
+     "2 cm, 3 cm, 6 cm",
+     "4 cm, 4 cm, 8 cm",
+     "1 cm, 5 cm, 7 cm",
+     "5 cm, 6 cm, 10 cm"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Prüfe bei jeder Auswahl, ob die zwei kürzeren Seiten zusammen länger sind als die längste.",
+    "w": "5 + 6 = 11 ist größer als 10. Bei den anderen reicht die Summe der zwei kürzeren Seiten nicht."
+   }
+  },
+  {
+   "kennung": "GE4-V09",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "vierecke",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 180,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Winkelsumme im Dreieck verwechselt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 65,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem gegenüberliegenden Winkel verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke",
+    "t": "vierecke",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Im Parallelogramm ABCD ist α = 65°. Alle vier Winkel zusammen haben ①°. Der Nachbarwinkel β hat ②°.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      360,
+      115
+     ]
+    },
+    "c": [
+     "360",
+     "180 - 65"
+    ],
+    "h": "Nachbarwinkel im Parallelogramm ergeben zusammen eine gerade Linie.",
+    "w": "Die Winkelsumme im Viereck ist 360°. β = 180° − 65° = 115°."
+   }
+  },
+  {
+   "kennung": "GE4-V10",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "vierecke_konstruieren",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem gegenüberliegenden Winkel verwechselt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 180,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Winkelsumme im Dreieck verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke_konstruieren",
+    "t": "vierecke_konstruieren",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Du konstruierst ein Parallelogramm ABCD mit a = 6 cm, b = 4 cm und α = 70°. Der Winkel β bei B hat ①°. Alle vier Winkel zusammen haben ②°.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      110,
+      360
+     ]
+    },
+    "c": [
+     "180 - 70",
+     "360"
+    ],
+    "h": "Nachbarwinkel im Parallelogramm ergänzen sich zu 180°.",
+    "w": "β = 180° − 70° = 110°. Die vier Winkel ergeben 360°."
+   }
+  },
+  {
+   "kennung": "GE4-V11",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "scheitel_neben",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Der Nebenwinkel hat auch 65°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Scheitelwinkel verwechselt"
+    },
+    {
+     "index": 2,
+     "antwort": "90° − 65° = 25°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 90° statt von 180° abgezogen"
+    },
+    {
+     "index": 3,
+     "antwort": "360° − 65° = 295°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von einem vollen Winkel abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheitel_neben",
+    "t": "scheitel_neben",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Geraden schneiden sich. Ein Winkel hat 65°. Welche Rechnung gibt den Nebenwinkel?"
+    },
+    "a": [
+     "Der Nebenwinkel hat auch 65°",
+     "180° − 65° = 115°",
+     "90° − 65° = 25°",
+     "360° − 65° = 295°"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Ein Winkel und sein Nebenwinkel bilden zusammen eine gerade Linie.",
+    "w": "Eine gerade Linie hat 180°. 180° − 65° = 115°."
+   }
+  },
+  {
+   "kennung": "GE4-V12",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "stufen_wechsel",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "105°, denn Wechselwinkel ergeben zusammen 180°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Wechselwinkel mit Nebenwinkeln verwechselt"
+    },
+    {
+     "index": 2,
+     "antwort": "15°, denn 90° − 75°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 90° abgezogen"
+    },
+    {
+     "index": 3,
+     "antwort": "285°, denn 360° − 75°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von einem vollen Winkel abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "stufen_wechsel",
+    "t": "stufen_wechsel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "g ∥ h. Eine Gerade schneidet g in S und h in T. Der Winkel bei S oberhalb von g und rechts von der Geraden hat 75°. Wie groß ist sein Wechselwinkel bei T (unterhalb von h und links von der Geraden)?"
+    },
+    "a": [
+     "105°, denn Wechselwinkel ergeben zusammen 180°",
+     "75°, denn Wechselwinkel an Parallelen sind gleich groß",
+     "15°, denn 90° − 75°",
+     "285°, denn 360° − 75°"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wechselwinkel liegen auf verschiedenen Seiten der Geraden und an verschiedenen Parallelen.",
+    "w": "Wechselwinkel an Parallelen sind gleich: 75°."
+   }
+  },
+  {
+   "kennung": "GE4-V13",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "innenwinkelsumme",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "360° − 35° − 70° = 255°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Winkelsumme des Vierecks benutzt"
+    },
+    {
+     "index": 1,
+     "antwort": "35° + 70° = 105°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die beiden Winkel addiert"
+    },
+    {
+     "index": 2,
+     "antwort": "180° − 70° = 110°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Winkel abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "innenwinkelsumme",
+    "t": "innenwinkelsumme",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Dreieck hat α = 35° und β = 70°. Welche Rechnung gibt γ?"
+    },
+    "a": [
+     "360° − 35° − 70° = 255°",
+     "35° + 70° = 105°",
+     "180° − 70° = 110°",
+     "180° − 35° − 70° = 75°"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Alle drei Winkel eines Dreiecks ergeben zusammen eine feste Summe.",
+    "w": "180° − 35° = 145°. 145° − 70° = 75°."
+   }
+  },
+  {
+   "kennung": "GE4-V14",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "aussenwinkel",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "180° − 62° − 48° = 70°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Innenwinkel γ berechnet"
+    },
+    {
+     "index": 2,
+     "antwort": "180° − 62° = 118°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur α abgezogen"
+    },
+    {
+     "index": 3,
+     "antwort": "360° − 62° − 48° = 250°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 360° abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "aussenwinkel",
+    "t": "aussenwinkel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Dreieck hat α = 62° und β = 48°. Wie groß ist der Außenwinkel bei C?"
+    },
+    "a": [
+     "62° + 48° = 110°",
+     "180° − 62° − 48° = 70°",
+     "180° − 62° = 118°",
+     "360° − 62° − 48° = 250°"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Der Außenwinkel und γ ergeben zusammen eine gerade Linie.",
+    "w": "γ = 70°. Außenwinkel = 180° − 70° = 110°. Das ist auch α + β."
+   }
+  },
+  {
+   "kennung": "GE4-V15",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "vieleck",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "180° : 6 = 30°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Winkelsumme des Dreiecks genommen"
+    },
+    {
+     "index": 1,
+     "antwort": "360° : 6 = 60°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Außenwinkel berechnet"
+    },
+    {
+     "index": 3,
+     "antwort": "(6 − 2) · 180° = 720°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch die Eckenzahl geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vieleck",
+    "t": "vieleck",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Wie groß ist jeder Innenwinkel eines regelmäßigen Sechsecks?"
+    },
+    "a": [
+     "180° : 6 = 30°",
+     "360° : 6 = 60°",
+     "(6 − 2) · 180° : 6 = 120°",
+     "(6 − 2) · 180° = 720°"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne erst die Winkelsumme aus, dann teile durch die Zahl der Ecken.",
+    "w": "Winkelsumme: 4 · 180° = 720°. 720° : 6 = 120°."
+   }
+  },
+  {
+   "kennung": "GE4-V16",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "parkett",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "4, denn 4 · 90° = 360°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das gilt für Quadrate"
+    },
+    {
+     "index": 1,
+     "antwort": "2, denn 2 · 180° = 360°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem gestreckten Winkel gerechnet"
+    },
+    {
+     "index": 3,
+     "antwort": "6, denn ein Sechseck hat 6 Ecken",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Eckenzahl verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "parkett",
+    "t": "parkett",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Boden wird mit regelmäßigen Sechsecken ausgelegt. Wie viele Sechsecke stoßen an einer Ecke zusammen?"
+    },
+    "a": [
+     "4, denn 4 · 90° = 360°",
+     "2, denn 2 · 180° = 360°",
+     "3, denn 3 · 120° = 360°",
+     "6, denn ein Sechseck hat 6 Ecken"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Alle Winkel an einem Punkt ergeben 360°. Wie groß ist ein Innenwinkel des Sechsecks?",
+    "w": "Ein Innenwinkel hat 120°. 360° : 120° = 3."
+   }
+  },
+  {
+   "kennung": "GE4-V17",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "figuren",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "180° : 5 = 36°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch 5 geteilt"
+    },
+    {
+     "index": 2,
+     "antwort": "180° : 2 = 90°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in zwei gleiche Teile geteilt"
+    },
+    {
+     "index": 3,
+     "antwort": "180° − 5° = 175°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5° statt das Fünffache abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "figuren",
+    "t": "figuren",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein gestreckter Winkel wird durch eine Linie in zwei Teile geteilt. Ein Teil ist fünfmal so groß wie der andere. Welche Rechnung gibt den kleineren Teil?"
+    },
+    "a": [
+     "180° : (1 + 5) = 30°",
+     "180° : 5 = 36°",
+     "180° : 2 = 90°",
+     "180° − 5° = 175°"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Zähle die Teile: Der kleine Teil ist ein Teil, der große sind fünf Teile.",
+    "w": "Es sind 1 + 5 = 6 gleiche Teile. 180° : 6 = 30°. Der große Teil hat 150°."
+   }
+  },
+  {
+   "kennung": "GE4-V18",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "gleichschenklig",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "180° − 30° = 150°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    },
+    {
+     "index": 2,
+     "antwort": "180° : 2 − 30° = 60°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "erst geteilt, dann abgezogen"
+    },
+    {
+     "index": 3,
+     "antwort": "(180° − 30°) · 2 = 300°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 2 multipliziert"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleichschenklig",
+    "t": "gleichschenklig",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein gleichschenkliges Dreieck hat an der Spitze 30°. Welche Rechnung gibt einen Basiswinkel?"
+    },
+    "a": [
+     "180° − 30° = 150°",
+     "(180° − 30°) : 2 = 75°",
+     "180° : 2 − 30° = 60°",
+     "(180° − 30°) · 2 = 300°"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Die beiden Basiswinkel zusammen sind die Winkelsumme ohne die Spitze.",
+    "w": "Die Basiswinkel haben zusammen 150°. Jeder hat 75°."
+   }
+  },
+  {
+   "kennung": "GE4-V19",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "planfigur",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Kreisbogen um A und um B mit je 5 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "b wäre dann auch 5 cm"
+    },
+    {
+     "index": 2,
+     "antwort": "Kreisbogen um A und um B mit je 6 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "a wäre dann auch 6 cm"
+    },
+    {
+     "index": 3,
+     "antwort": "Kreisbogen um A mit 7 cm und um B mit 5 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "AC wäre dann 7 cm statt 6 cm"
+    }
+   ],
+   "aufgabe": {
+    "l": "planfigur",
+    "t": "planfigur",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Du konstruierst ein Dreieck mit c = 7 cm, b = 6 cm und a = 5 cm. Du zeichnest AB = 7 cm. Wie findest du C?"
+    },
+    "a": [
+     "Kreisbogen um A mit 6 cm und um B mit 5 cm; sie schneiden sich in C",
+     "Kreisbogen um A und um B mit je 5 cm",
+     "Kreisbogen um A und um B mit je 6 cm",
+     "Kreisbogen um A mit 7 cm und um B mit 5 cm"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Die Seite b liegt an der Ecke A, die Seite a an der Ecke B.",
+    "w": "AC = b = 6 cm, also ein Kreisbogen um A mit 6 cm. BC = a = 5 cm, also ein Kreisbogen um B mit 5 cm."
+   }
+  },
+  {
+   "kennung": "GE4-V20",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "vierecke",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "180° − 85° − 95° − 100° = −100°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Winkelsumme des Dreiecks benutzt"
+    },
+    {
+     "index": 1,
+     "antwort": "85° + 95° + 100° = 280°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur addiert"
+    },
+    {
+     "index": 3,
+     "antwort": "360° − 85° − 95° = 180°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "einen Winkel nicht abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke",
+    "t": "vierecke",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Viereck hat die Winkel 85°, 95° und 100°. Welche Rechnung gibt den vierten Winkel?"
+    },
+    "a": [
+     "180° − 85° − 95° − 100° = −100°",
+     "85° + 95° + 100° = 280°",
+     "360° − 85° − 95° − 100° = 80°",
+     "360° − 85° − 95° = 180°"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Ein Viereck hat eine feste Winkelsumme.",
+    "w": "Die drei Winkel haben zusammen 280°. 360° − 280° = 80°."
+   }
+  },
+  {
+   "kennung": "GE4-V21",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "scheitel_neben",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheitel_neben",
+    "t": "scheitel_neben",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Geraden schneiden sich. Ein Winkel α hat 52°. Kim berechnet die anderen drei Winkel. Zeile 1: Der Scheitelwinkel von α ist genauso groß: 52°. Zeile 2: Ein Nebenwinkel von α hat 180° − 52° = 128°. Zeile 3: Der andere Nebenwinkel von α hat 52°. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Die vier Winkel bilden zwei Paare gleich großer Winkel. Welche Paare sind es?",
+    "w": "Der andere Nebenwinkel ist der Scheitelwinkel des ersten Nebenwinkels. Er hat auch 128°."
+   }
+  },
+  {
+   "kennung": "GE4-V22",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "stufen_wechsel",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "stufen_wechsel",
+    "t": "stufen_wechsel",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Geraden g und h sind parallel. Eine dritte Gerade schneidet beide. Bei S ist ein Winkel 110° groß. Kim sucht Winkel bei T. Zeile 1: Der Stufenwinkel bei T ist gleich groß: 110°. Zeile 2: Der Nebenwinkel dieses Stufenwinkels hat 180° − 110° = 70°. Zeile 3: Der Nebenwinkel dieses Stufenwinkels hat auch 110°. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Stufenwinkel sind gleich. Nebenwinkel sind es nur, wenn beide 90° haben.",
+    "w": "Der Nebenwinkel hat 180° − 110° = 70°."
+   }
+  },
+  {
+   "kennung": "GE4-V23",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "parallel_pruefen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallel_pruefen",
+    "t": "parallel_pruefen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Gerade schneidet g und h. Die zugehörigen Stufenwinkel sind 80° und 100° groß. Kim prüft, ob g ∥ h gilt. Zeile 1: Die Stufenwinkel sind 80° und 100°. Zeile 2: Bei Parallelen müssten die Stufenwinkel gleich groß sein. Zeile 3: 80° + 100° = 180°, also sind g und h parallel. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Welche Winkel sind bei Parallelen gleich groß, und welche ergeben zusammen 180°?",
+    "w": "Die Summe 180° gilt für Nebenwinkel. Stufenwinkel müssen gleich sein. 80° ist nicht 100°, also sind g und h nicht parallel."
+   }
+  },
+  {
+   "kennung": "GE4-V24",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "innenwinkelsumme",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "innenwinkelsumme",
+    "t": "innenwinkelsumme",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Im Dreieck ist α = 40° und β = 75°. Kim berechnet γ. Zeile 1: Die Winkelsumme im Dreieck beträgt 180°. Zeile 2: α + β = 40° + 75° = 115°. Zeile 3: γ = 180° − 115° = 75°. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne 180 − 115 noch einmal.",
+    "w": "180° − 115° = 65°. γ = 65°."
+   }
+  },
+  {
+   "kennung": "GE4-V25",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "vieleck",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "vieleck",
+    "t": "vieleck",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim berechnet die Winkelsumme eines Achtecks. Zeile 1: Von einer Ecke aus zerlegt man ein n-Eck in n − 2 Dreiecke. Zeile 2: Beim Achteck sind das 8 − 2 = 6 Dreiecke. Zeile 3: Die Winkelsumme ist 6 · 180° = 960°. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne 6 · 180 noch einmal.",
+    "w": "6 · 180° = 1080°."
+   }
+  },
+  {
+   "kennung": "GE4-V26",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "parkett",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "parkett",
+    "t": "parkett",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim prüft, ob regelmäßige Fünfecke einen Boden lückenlos bedecken können. Zeile 1: Die Winkelsumme im Fünfeck ist 3 · 180° = 540°. Zeile 2: Jeder Innenwinkel hat 540° : 5 = 108°. Zeile 3: An einem Punkt treffen sich 360° : 108° = 3 Fünfecke. Das geht ohne Lücke auf. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Geht 360 durch 108 ohne Rest?",
+    "w": "360° : 108° ist ungefähr 3,3. Es bleibt eine Lücke. Regelmäßige Fünfecke bedecken den Boden nicht lückenlos."
+   }
+  },
+  {
+   "kennung": "GE4-V27",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "figuren",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "figuren",
+    "t": "figuren",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Im Parallelogramm ABCD ist α = 70°. Kim berechnet die anderen Winkel. Zeile 1: Gegenüberliegende Winkel sind gleich groß: γ = 70°. Zeile 2: Nachbarwinkel ergeben 180°: β = 180° − 70° = 110°. Zeile 3: δ = 360° − 70° − 70° − 110° = 100°. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "δ liegt gegenüber von β.",
+    "w": "δ = 360° − 250° = 110°. Es ist gleich β, denn die Winkel gegenüber sind gleich."
+   }
+  },
+  {
+   "kennung": "GE4-V28",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "beweisen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "beweisen",
+    "t": "beweisen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim beweist: „Ein Außenwinkel eines Dreiecks ist so groß wie die beiden nicht anliegenden Innenwinkel zusammen.“ Es geht um den Außenwinkel bei C. Zeile 1: Außenwinkel bei C und γ sind Nebenwinkel: Außenwinkel + γ = 180°. Zeile 2: Die Winkelsumme im Dreieck ist α + β + γ = 180°. Zeile 3: Aus beiden Gleichungen folgt: Außenwinkel = α + γ. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Vergleiche beide Gleichungen: Was steht auf beiden Seiten gleich da?",
+    "w": "In beiden Gleichungen kommt γ vor. Zieht man γ ab, folgt: Außenwinkel = α + β."
+   }
+  },
+  {
+   "kennung": "GE4-V29",
+   "thema": "geometrie.winkelsaetze",
+   "lernkarte": "beweisen",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Mit dem Messen der Winkel in einem gezeichneten Dreieck",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Beispiel beweist nicht für alle Dreiecke"
+    },
+    {
+     "index": 1,
+     "antwort": "Mit der Annahme, dass alle drei Winkel gleich sind",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur für das gleichseitige Dreieck"
+    },
+    {
+     "index": 2,
+     "antwort": "Mit einem Dreieck mit den Winkeln 60°, 60° und 60°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein einzelnes Beispiel"
+    }
+   ],
+   "aufgabe": {
+    "l": "beweisen",
+    "t": "beweisen",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Du willst beweisen, dass die Winkel in jedem Dreieck zusammen 180° ergeben. Womit beginnst du?"
+    },
+    "a": [
+     "Mit dem Messen der Winkel in einem gezeichneten Dreieck",
+     "Mit der Annahme, dass alle drei Winkel gleich sind",
+     "Mit einem Dreieck mit den Winkeln 60°, 60° und 60°",
+     "Mit der Parallelen zu AB durch C, damit du Wechselwinkel nutzen kannst"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Ein Beweis muss für jedes Dreieck gelten, nicht nur für ein gezeichnetes.",
+    "w": "Die Parallele zu AB durch C liefert zwei Wechselwinkel. Mit γ bilden sie eine gerade Linie von 180°."
+   }
+  },
+  {
+   "kennung": "GE4-V30",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "gleichschenklig",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleichschenklig",
+    "t": "gleichschenklig",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein gleichschenkliges Dreieck hat die Basiswinkel 55°. Kim berechnet den Winkel an der Spitze. Zeile 1: Die beiden Basiswinkel sind gleich groß. Zeile 2: Beide zusammen: 55° + 55° = 110°. Zeile 3: Die Spitze: 180° − 110° = 80°. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne 180 − 110 noch einmal.",
+    "w": "180° − 110° = 70°. Der Winkel an der Spitze hat 70°."
+   }
+  },
+  {
+   "kennung": "GE4-V31",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "kongruenzsatz",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "kongruenzsatz",
+    "t": "kongruenzsatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Dreieck 1 hat die Seiten a = 4 cm, b = 5 cm und den Winkel γ = 40° zwischen ihnen. Dreieck 2 hat auch a = 4 cm, b = 5 cm und 40°, aber dieser Winkel liegt der Seite a gegenüber. Kim prüft, ob sie kongruent sind. Zeile 1: Beide Dreiecke stimmen in zwei Seiten und einem Winkel überein. Zeile 2: Bei Dreieck 1 liegt der Winkel zwischen den Seiten, bei Dreieck 2 nicht. Zeile 3: Also gilt SWS, und die Dreiecke sind kongruent. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Bei SWS muss der Winkel zwischen den beiden gegebenen Seiten liegen.",
+    "w": "Bei Dreieck 2 liegt der Winkel nicht zwischen den Seiten. SWS gilt nicht, und man kann nicht auf Kongruenz schließen."
+   }
+  },
+  {
+   "kennung": "GE4-V32",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "konstruierbar",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "konstruierbar",
+    "t": "konstruierbar",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim prüft, ob es ein Dreieck mit den Seiten 3 cm, 4 cm und 8 cm gibt. Zeile 1: Die Summe zweier Seiten muss größer sein als die dritte Seite. Zeile 2: 3 + 4 = 7, und 7 ist kleiner als 8. Zeile 3: Das Dreieck lässt sich konstruieren, weil 8 die längste Seite ist. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Prüfe, ob die beiden kürzeren Seiten zusammen die längste überbrücken.",
+    "w": "Die beiden kurzen Seiten sind zusammen nur 7 cm lang. Sie erreichen sich nicht. Das Dreieck gibt es nicht."
+   }
+  },
+  {
+   "kennung": "GE4-V33",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "planfigur",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "planfigur",
+    "t": "planfigur",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim konstruiert ein Dreieck aus c = 6 cm, α = 50° und b = 4 cm. Er beschreibt seine Schritte. Zeile 1: Zeichne zuerst die Strecke AB = 6 cm. Zeile 2: Trage bei A den Winkel 50° an. Zeile 3: Markiere C auf dem freien Schenkel im Abstand 4 cm von B. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Welche Ecke liegt am Anfang der Seite b?",
+    "w": "Die Seite b liegt zwischen A und C. C hat also den Abstand 4 cm von A."
+   }
+  },
+  {
+   "kennung": "GE4-V34",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "vierecke",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke",
+    "t": "vierecke",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Raute hat einen Winkel von 40°. Kim berechnet den Nachbarwinkel. Zeile 1: Eine Raute ist ein Parallelogramm. Zeile 2: Nachbarwinkel im Parallelogramm ergeben zusammen 180°. Zeile 3: Der Nachbarwinkel hat 180° − 40° = 120°. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne 180 − 40 noch einmal.",
+    "w": "180° − 40° = 140°. Der Nachbarwinkel hat 140°."
+   }
+  },
+  {
+   "kennung": "GE4-V35",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "satz_kehrsatz",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "satz_kehrsatz",
+    "t": "satz_kehrsatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Satz: „Wenn ein Dreieck gleichseitig ist, dann hat es drei gleich große Winkel.“ Kim bildet den Kehrsatz. Zeile 1: Der Satz hat die Form: Wenn A, dann B. Zeile 2: Den Kehrsatz bildet man, indem man A und B vertauscht. Zeile 3: Er lautet: Wenn ein Dreieck gleichseitig ist, dann hat es drei gleich große Winkel. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Vergleiche den Kehrsatz mit dem Satz. Was hat sich geändert?",
+    "w": "Das ist der Satz selbst. Der Kehrsatz lautet: Wenn ein Dreieck drei gleich große Winkel hat, dann ist es gleichseitig."
+   }
+  },
+  {
+   "kennung": "GE4-V36",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "satz_kehrsatz",
+   "stufe": 3,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Der Kehrsatz ist wahr, denn der Satz ist wahr",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "einen wahren Satz mit seinem Kehrsatz gleichgesetzt"
+    },
+    {
+     "index": 1,
+     "antwort": "Der Kehrsatz ist falsch. Gegenbeispiel: 12",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 ist durch 6 teilbar, also kein Gegenbeispiel"
+    },
+    {
+     "index": 3,
+     "antwort": "Der Kehrsatz ist wahr, weil 3 ein Teiler von 6 ist",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "der Teiler macht den Kehrsatz nicht wahr"
+    }
+   ],
+   "aufgabe": {
+    "l": "satz_kehrsatz",
+    "t": "satz_kehrsatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Satz: „Wenn eine Zahl durch 6 teilbar ist, dann ist sie durch 3 teilbar.“ Was gilt für den Kehrsatz?"
+    },
+    "a": [
+     "Der Kehrsatz ist wahr, denn der Satz ist wahr",
+     "Der Kehrsatz ist falsch. Gegenbeispiel: 12",
+     "Der Kehrsatz ist falsch. Gegenbeispiel: 9 ist durch 3 teilbar, aber nicht durch 6",
+     "Der Kehrsatz ist wahr, weil 3 ein Teiler von 6 ist"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Der Kehrsatz lautet: Wenn eine Zahl durch 3 teilbar ist, dann ist sie durch 6 teilbar. Suche eine Zahl, die nicht passt.",
+    "w": "9 : 3 = 3, aber 9 ist nicht durch 6 teilbar. Ein Gegenbeispiel genügt."
+   }
+  },
+  {
+   "kennung": "GE4-V37",
+   "thema": "geometrie.konstruktion",
+   "lernkarte": "vierecke_konstruieren",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke_konstruieren",
+    "t": "vierecke_konstruieren",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim konstruiert ein Parallelogramm ABCD aus a = 6 cm, b = 4 cm und α = 70°. Zeile 1: Zeichne AB = 6 cm und trage bei A den Winkel 70° an. Zeile 2: Auf dem freien Schenkel liegt D mit AD = 4 cm. Zeile 3: C erhältst du mit BC = 6 cm und CD = 4 cm. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Gegenüberliegende Seiten im Parallelogramm sind gleich lang. Welche Seite liegt gegenüber von AB?",
+    "w": "BC liegt gegenüber von AD, also BC = 4 cm. CD liegt gegenüber von AB, also CD = 6 cm."
+   }
+  }
+ ]
+}

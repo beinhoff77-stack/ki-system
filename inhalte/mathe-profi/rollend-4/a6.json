@@ -383,7 +383,7 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "4x − 2x − 1 = 7, also 2x = 8 und x = 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -415,13 +415,13 @@
      "text": "Im System I: y = 2x − 1 und II: 4x − y = 7 soll y aus I in II eingesetzt werden. Welche Rechnung ist richtig?"
     },
     "a": [
-     "4x − (2x − 1) = 7, also 2x + 1 = 7 und x = 3",
      "4x − 2x − 1 = 7, also 2x = 8 und x = 4",
+     "4x − (2x − 1) = 7, also 2x + 1 = 7 und x = 3",
      "4x − (2x − 1) = 7, also 2x − 1 = 7 und x = 4",
      "4x − (2x − 1) = 7, also 2x + 1 = 7 und x = 8"
     ],
     "o": {
-     "index": 0
+     "index": 1
     },
     "h": "Setze für y den ganzen Term in Klammern ein.",
     "w": "4x − (2x − 1) = 4x − 2x + 1 = 2x + 1. 2x + 1 = 7 ergibt x = 3. Dann y = 2 · 3 − 1 = 5."
@@ -453,7 +453,7 @@
      "beschreibung": "k = 0 für „keine Lösung“ gehalten"
     },
     {
-     "index": 3,
+     "index": 2,
      "antwort": "k = −3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -473,11 +473,11 @@
     "a": [
      "k = 4",
      "k = 0",
-     "k = 3: gleiche Steigung, aber verschiedene Achsenabschnitte",
-     "k = −3"
+     "k = −3",
+     "k = 3: gleiche Steigung, aber verschiedene Achsenabschnitte"
     ],
     "o": {
-     "index": 2
+     "index": 3
     },
     "h": "Gleichsetzen: (k − 3) · x = 4. Wann kann man nicht nach x auflösen?",
     "w": "Für k = 3 ist 0 · x = 4. Das geht nie. Für jedes andere k gilt x = 4 : (k − 3)."

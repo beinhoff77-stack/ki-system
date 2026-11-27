@@ -853,6 +853,135 @@ neu(f, "aenderung", "VW", W("Eine Pflanze war nach 2 Wochen 14 cm hoch und nach 
     "Änderungsrate = Änderung : Zeitspanne.", "Die Höhe ändert sich um 16 cm in 4 Wochen: 16 : 4 = 4 cm je Woche.",
     lambda: (30 - 14) / (6 - 2) == 4 and 30 / 6 != 4 and 30 - 14 != 4 and (30 + 14) / (6 + 2) != 4), g="mehrschritt")
 
+# ═════════════════════ Kind 2 · Flug ge4 · Dreiecke, Vierecke und Konstruktion ═════════════════════
+f = "ge4"
+neu(f, "scheitel_neben", "FD", FDZ("Zwei Geraden schneiden sich. Ein Winkel α hat 52°. Kim berechnet die anderen drei Winkel.",
+    [("Der Scheitelwinkel von α ist genauso groß: 52°.", True), ("Ein Nebenwinkel von α hat 180° − 52° = 128°.", 180 - 52 == 128), ("Der andere Nebenwinkel von α hat 52°.", False)],
+    "Die vier Winkel bilden zwei Paare gleich großer Winkel. Welche Paare sind es?", "Der andere Nebenwinkel ist der Scheitelwinkel des ersten Nebenwinkels. Er hat auch 128°."))
+neu(f, "scheitel_neben", "VW", W("Zwei Geraden schneiden sich. Ein Winkel hat 65°. Welche Rechnung gibt den Nebenwinkel?",
+    "180° − 65° = 115°", [("Der Nebenwinkel hat auch 65°", "mit dem Scheitelwinkel verwechselt"), ("90° − 65° = 25°", "von 90° statt von 180° abgezogen"), ("360° − 65° = 295°", "von einem vollen Winkel abgezogen")],
+    "Ein Winkel und sein Nebenwinkel bilden zusammen eine gerade Linie.", "Eine gerade Linie hat 180°. 180° − 65° = 115°.",
+    lambda: 180 - 65 == 115 and 65 != 115 and 90 - 65 != 115 and 360 - 65 != 115))
+neu(f, "stufen_wechsel", "FD", FDZ("Die Geraden g und h sind parallel. Eine dritte Gerade schneidet beide. Bei S ist ein Winkel 110° groß. Kim sucht Winkel bei T.",
+    [("Der Stufenwinkel bei T ist gleich groß: 110°.", True), ("Der Nebenwinkel dieses Stufenwinkels hat 180° − 110° = 70°.", 180 - 110 == 70), ("Der Nebenwinkel dieses Stufenwinkels hat auch 110°.", False)],
+    "Stufenwinkel sind gleich. Nebenwinkel sind es nur, wenn beide 90° haben.", "Der Nebenwinkel hat 180° − 110° = 70°."))
+neu(f, "stufen_wechsel", "VW", W("g ∥ h. Eine Gerade schneidet g in S und h in T. Der Winkel bei S oberhalb von g und rechts von der Geraden hat 75°. Wie groß ist sein Wechselwinkel bei T (unterhalb von h und links von der Geraden)?",
+    "75°, denn Wechselwinkel an Parallelen sind gleich groß", [("105°, denn Wechselwinkel ergeben zusammen 180°", "Wechselwinkel mit Nebenwinkeln verwechselt"), ("15°, denn 90° − 75°", "von 90° abgezogen"), ("285°, denn 360° − 75°", "von einem vollen Winkel abgezogen")],
+    "Wechselwinkel liegen auf verschiedenen Seiten der Geraden und an verschiedenen Parallelen.", "Wechselwinkel an Parallelen sind gleich: 75°.",
+    lambda: 75 == 75 and 180 - 75 != 75 and 90 - 75 != 75 and 360 - 75 != 75))
+neu(f, "parallel_pruefen", "FD", FDZ("Eine Gerade schneidet g und h. Die zugehörigen Stufenwinkel sind 80° und 100° groß. Kim prüft, ob g ∥ h gilt.",
+    [("Die Stufenwinkel sind 80° und 100°.", True), ("Bei Parallelen müssten die Stufenwinkel gleich groß sein.", True), ("80° + 100° = 180°, also sind g und h parallel.", False)],
+    "Welche Winkel sind bei Parallelen gleich groß, und welche ergeben zusammen 180°?", "Die Summe 180° gilt für Nebenwinkel. Stufenwinkel müssen gleich sein. 80° ist nicht 100°, also sind g und h nicht parallel."))
+neu(f, "parallel_pruefen", "LW", L("g ∥ h. Eine Gerade schneidet beide. Bei S gibt es einen Winkel von 72°. Sein Stufenwinkel bei T ist genauso groß. Beide zusammen haben ①°. Der Nebenwinkel bei T hat ②°.",
+    K(2), [144, 108], ["72 + 72", "180 - 72"], ["2 * 72", "108"], "Der Nebenwinkel ergänzt den Stufenwinkel zu einer geraden Linie.", "72° + 72° = 144°. 180° − 72° = 108°.",
+    {0: [(72, None, "nur einen Winkel genannt")], 1: [(72, None, "Nebenwinkel mit Stufenwinkel verwechselt")]}, hinweis=GZ))
+neu(f, "innenwinkelsumme", "LW", L("Im Dreieck ist α = 48° und β = 77°. Dann ist γ = 180° − 48° − 77° = ①°. Ein Viereck hat die Winkel 95°, 100° und 85° und δ = ②°.",
+    K(2), [55, 80], ["180 - 48 - 77", "360 - 95 - 100 - 85"], ["180 - (48 + 77)", "360 - (95 + 100 + 85)"], "Im Dreieck sind es 180°, im Viereck 360°.", "γ = 55°. δ = 360° − 280° = 80°.",
+    {0: [(125, None, "nur α abgezogen")], 1: [(100, None, "von 180° statt von 360° abgezogen")]}, hinweis=GZ))
+neu(f, "innenwinkelsumme", "FD", FDZ("Im Dreieck ist α = 40° und β = 75°. Kim berechnet γ.",
+    [("Die Winkelsumme im Dreieck beträgt 180°.", True), ("α + β = 40° + 75° = 115°.", 40 + 75 == 115), ("γ = 180° − 115° = 75°.", 180 - 115 == 75)],
+    "Rechne 180 − 115 noch einmal.", "180° − 115° = 65°. γ = 65°."))
+neu(f, "innenwinkelsumme", "VW", W("Ein Dreieck hat α = 35° und β = 70°. Welche Rechnung gibt γ?",
+    "180° − 35° − 70° = 75°", [("360° − 35° − 70° = 255°", "die Winkelsumme des Vierecks benutzt"), ("35° + 70° = 105°", "nur die beiden Winkel addiert"), ("180° − 70° = 110°", "nur einen Winkel abgezogen")],
+    "Alle drei Winkel eines Dreiecks ergeben zusammen eine feste Summe.", "180° − 35° = 145°. 145° − 70° = 75°.",
+    lambda: 180 - 35 - 70 == 75 and 360 - 35 - 70 != 75 and 35 + 70 != 75 and 180 - 70 != 75))
+neu(f, "aussenwinkel", "VW", W("Ein Dreieck hat α = 62° und β = 48°. Wie groß ist der Außenwinkel bei C?",
+    "62° + 48° = 110°", [("180° − 62° − 48° = 70°", "den Innenwinkel γ berechnet"), ("180° − 62° = 118°", "nur α abgezogen"), ("360° − 62° − 48° = 250°", "von 360° abgezogen")],
+    "Der Außenwinkel und γ ergeben zusammen eine gerade Linie.", "γ = 70°. Außenwinkel = 180° − 70° = 110°. Das ist auch α + β.",
+    lambda: 62 + 48 == 110 == 180 - (180 - 62 - 48) and 180 - 62 - 48 != 110 and 180 - 62 != 110 and 360 - 62 - 48 != 110))
+neu(f, "vieleck", "LW", L("Ein Fünfeck zerlegt man von einer Ecke aus in 3 Dreiecke. Die Winkelsumme ist 3 · 180° = ①°. Ein Sechseck hat die Winkelsumme (6 − 2) · 180° = ②°.",
+    K(2), [540, 720], ["3 * 180", "(6 - 2) * 180"], ["540", "4 * 180"], "Ein n-Eck zerlegt man in n − 2 Dreiecke.", "3 · 180° = 540°. 4 · 180° = 720°.",
+    {0: [(900, None, "5 Dreiecke gezählt")], 1: [(1080, None, "6 Dreiecke statt 4 gerechnet")]}, hinweis=GZ))
+neu(f, "vieleck", "FD", FDZ("Kim berechnet die Winkelsumme eines Achtecks.",
+    [("Von einer Ecke aus zerlegt man ein n-Eck in n − 2 Dreiecke.", True), ("Beim Achteck sind das 8 − 2 = 6 Dreiecke.", 8 - 2 == 6), ("Die Winkelsumme ist 6 · 180° = 960°.", 6 * 180 == 960)],
+    "Rechne 6 · 180 noch einmal.", "6 · 180° = 1080°."))
+neu(f, "vieleck", "VW", W("Wie groß ist jeder Innenwinkel eines regelmäßigen Sechsecks?",
+    "(6 − 2) · 180° : 6 = 120°", [("180° : 6 = 30°", "die Winkelsumme des Dreiecks genommen"), ("360° : 6 = 60°", "den Außenwinkel berechnet"), ("(6 − 2) · 180° = 720°", "nicht durch die Eckenzahl geteilt")],
+    "Rechne erst die Winkelsumme aus, dann teile durch die Zahl der Ecken.", "Winkelsumme: 4 · 180° = 720°. 720° : 6 = 120°.",
+    lambda: (6 - 2) * 180 // 6 == 120 and 180 // 6 != 120 and 360 // 6 != 120 and (6 - 2) * 180 != 120))
+neu(f, "parkett", "FD", FDZ("Kim prüft, ob regelmäßige Fünfecke einen Boden lückenlos bedecken können.",
+    [("Die Winkelsumme im Fünfeck ist 3 · 180° = 540°.", 3 * 180 == 540), ("Jeder Innenwinkel hat 540° : 5 = 108°.", 540 // 5 == 108), ("An einem Punkt treffen sich 360° : 108° = 3 Fünfecke. Das geht ohne Lücke auf.", 360 % 108 == 0)],
+    "Geht 360 durch 108 ohne Rest?", "360° : 108° ist ungefähr 3,3. Es bleibt eine Lücke. Regelmäßige Fünfecke bedecken den Boden nicht lückenlos."))
+neu(f, "parkett", "VW", W("Ein Boden wird mit regelmäßigen Sechsecken ausgelegt. Wie viele Sechsecke stoßen an einer Ecke zusammen?",
+    "3, denn 3 · 120° = 360°", [("4, denn 4 · 90° = 360°", "das gilt für Quadrate"), ("2, denn 2 · 180° = 360°", "mit dem gestreckten Winkel gerechnet"), ("6, denn ein Sechseck hat 6 Ecken", "mit der Eckenzahl verwechselt")],
+    "Alle Winkel an einem Punkt ergeben 360°. Wie groß ist ein Innenwinkel des Sechsecks?", "Ein Innenwinkel hat 120°. 360° : 120° = 3.",
+    lambda: 3 * 120 == 360 and 4 * 120 != 360 and 2 * 120 != 360 and 6 * 120 != 360))
+neu(f, "figuren", "LW", L("Im gleichschenkligen Dreieck hat der Winkel an der Spitze 40°. Ein Basiswinkel hat (180° − 40°) : 2 = ①°. Der Nebenwinkel eines Basiswinkels hat 180° − ①° = ②°.",
+    K(2), [70, 110], ["(180 - 40) // 2", "180 - (180 - 40) // 2"], ["70", "110"], "Beide Basiswinkel sind gleich groß.", "140° : 2 = 70°. 180° − 70° = 110°.",
+    {0: [(140, None, "nicht durch 2 geteilt")], 1: [(70, None, "Basiswinkel und Nebenwinkel verwechselt")]}, hinweis=GZ))
+neu(f, "figuren", "FD", FDZ("Im Parallelogramm ABCD ist α = 70°. Kim berechnet die anderen Winkel.",
+    [("Gegenüberliegende Winkel sind gleich groß: γ = 70°.", True), ("Nachbarwinkel ergeben 180°: β = 180° − 70° = 110°.", 180 - 70 == 110), ("δ = 360° − 70° − 70° − 110° = 100°.", 360 - 70 - 70 - 110 == 100)],
+    "δ liegt gegenüber von β.", "δ = 360° − 250° = 110°. Es ist gleich β, denn die Winkel gegenüber sind gleich."))
+neu(f, "figuren", "VW", W("Ein gestreckter Winkel wird durch eine Linie in zwei Teile geteilt. Ein Teil ist fünfmal so groß wie der andere. Welche Rechnung gibt den kleineren Teil?",
+    "180° : (1 + 5) = 30°", [("180° : 5 = 36°", "nur durch 5 geteilt"), ("180° : 2 = 90°", "in zwei gleiche Teile geteilt"), ("180° − 5° = 175°", "5° statt das Fünffache abgezogen")],
+    "Zähle die Teile: Der kleine Teil ist ein Teil, der große sind fünf Teile.", "Es sind 1 + 5 = 6 gleiche Teile. 180° : 6 = 30°. Der große Teil hat 150°.",
+    lambda: 180 // (1 + 5) * 5 + 180 // 6 == 180 and 180 // 5 != 30 and 180 // 2 != 30 and 180 - 5 != 30))
+neu(f, "beweisen", "FD", FDZ("Kim beweist: „Ein Außenwinkel eines Dreiecks ist so groß wie die beiden nicht anliegenden Innenwinkel zusammen.“ Es geht um den Außenwinkel bei C.",
+    [("Außenwinkel bei C und γ sind Nebenwinkel: Außenwinkel + γ = 180°.", True), ("Die Winkelsumme im Dreieck ist α + β + γ = 180°.", True), ("Aus beiden Gleichungen folgt: Außenwinkel = α + γ.", False)],
+    "Vergleiche beide Gleichungen: Was steht auf beiden Seiten gleich da?", "In beiden Gleichungen kommt γ vor. Zieht man γ ab, folgt: Außenwinkel = α + β."))
+neu(f, "beweisen", "VW", W("Du willst beweisen, dass die Winkel in jedem Dreieck zusammen 180° ergeben. Womit beginnst du?",
+    "Mit der Parallelen zu AB durch C, damit du Wechselwinkel nutzen kannst", [("Mit dem Messen der Winkel in einem gezeichneten Dreieck", "ein Beispiel beweist nicht für alle Dreiecke"), ("Mit der Annahme, dass alle drei Winkel gleich sind", "nur für das gleichseitige Dreieck"), ("Mit einem Dreieck mit den Winkeln 60°, 60° und 60°", "ein einzelnes Beispiel")],
+    "Ein Beweis muss für jedes Dreieck gelten, nicht nur für ein gezeichnetes.", "Die Parallele zu AB durch C liefert zwei Wechselwinkel. Mit γ bilden sie eine gerade Linie von 180°.",
+    lambda: 60 + 60 + 60 == 180), g="begruenden")
+neu(f, "gleichschenklig", "LW", L("Ein gleichschenkliges Dreieck hat an der Spitze 50°. Ein Basiswinkel hat (180° − 50°) : 2 = ①°. Ein anderes hat die Basiswinkel 35°. Dann hat die Spitze 180° − 2 · 35° = ②°.",
+    K(2), [65, 110], ["(180 - 50) // 2", "180 - 2 * 35"], ["130 / 2", "180 - 70"], "Es gibt zwei gleich große Basiswinkel.", "130° : 2 = 65°. 180° − 70° = 110°.",
+    {0: [(130, None, "nicht durch 2 geteilt")], 1: [(145, None, "nur einen Basiswinkel abgezogen")]}, hinweis=GZ))
+neu(f, "gleichschenklig", "FD", FDZ("Ein gleichschenkliges Dreieck hat die Basiswinkel 55°. Kim berechnet den Winkel an der Spitze.",
+    [("Die beiden Basiswinkel sind gleich groß.", True), ("Beide zusammen: 55° + 55° = 110°.", 55 + 55 == 110), ("Die Spitze: 180° − 110° = 80°.", 180 - 110 == 80)],
+    "Rechne 180 − 110 noch einmal.", "180° − 110° = 70°. Der Winkel an der Spitze hat 70°."))
+neu(f, "gleichschenklig", "VW", W("Ein gleichschenkliges Dreieck hat an der Spitze 30°. Welche Rechnung gibt einen Basiswinkel?",
+    "(180° − 30°) : 2 = 75°", [("180° − 30° = 150°", "nicht durch 2 geteilt"), ("180° : 2 − 30° = 60°", "erst geteilt, dann abgezogen"), ("(180° − 30°) · 2 = 300°", "mit 2 multipliziert")],
+    "Die beiden Basiswinkel zusammen sind die Winkelsumme ohne die Spitze.", "Die Basiswinkel haben zusammen 150°. Jeder hat 75°.",
+    lambda: (180 - 30) // 2 == 75 and 180 - 30 != 75 and 180 // 2 - 30 != 75 and (180 - 30) * 2 != 75))
+neu(f, "kongruenzsatz", "FD", FDZ("Dreieck 1 hat die Seiten a = 4 cm, b = 5 cm und den Winkel γ = 40° zwischen ihnen. Dreieck 2 hat auch a = 4 cm, b = 5 cm und 40°, aber dieser Winkel liegt der Seite a gegenüber. Kim prüft, ob sie kongruent sind.",
+    [("Beide Dreiecke stimmen in zwei Seiten und einem Winkel überein.", True), ("Bei Dreieck 1 liegt der Winkel zwischen den Seiten, bei Dreieck 2 nicht.", True), ("Also gilt SWS, und die Dreiecke sind kongruent.", False)],
+    "Bei SWS muss der Winkel zwischen den beiden gegebenen Seiten liegen.", "Bei Dreieck 2 liegt der Winkel nicht zwischen den Seiten. SWS gilt nicht, und man kann nicht auf Kongruenz schließen."))
+neu(f, "kongruenzsatz", "VW", W("Zwei Dreiecke stimmen in einer Seite von 6 cm und in den beiden Winkeln an dieser Seite überein. Welcher Satz zeigt, dass sie kongruent sind?",
+    "WSW", [("SWS", "der Winkel liegt nicht zwischen zwei Seiten"), ("SSS", "nur eine Seite ist gegeben"), ("WWW", "Dieser Satz gilt nicht, gleiche Winkel geben nur ähnliche Dreiecke")],
+    "Zähle, wie viele Seiten und wie viele Winkel gegeben sind.", "Eine Seite und die beiden Winkel an ihr: Winkel, Seite, Winkel (WSW).",
+    lambda: True), g="erkennen")
+neu(f, "konstruierbar", "LW", L("Zwei Seiten eines Dreiecks sind 6 cm und 10 cm lang. Die dritte Seite muss kürzer sein als 6 + 10 = ① cm. Sie muss länger sein als 10 − 6 = ② cm.",
+    K(2), [16, 4], ["6 + 10", "10 - 6"], ["10 + 6", "4"], "Zwei Seiten zusammen müssen länger sein als die dritte.", "6 + 10 = 16. 10 − 6 = 4.",
+    {1: [(6, None, "die kürzere Seite genommen")]}, hinweis=GZ))
+neu(f, "konstruierbar", "FD", FDZ("Kim prüft, ob es ein Dreieck mit den Seiten 3 cm, 4 cm und 8 cm gibt.",
+    [("Die Summe zweier Seiten muss größer sein als die dritte Seite.", True), ("3 + 4 = 7, und 7 ist kleiner als 8.", 3 + 4 < 8), ("Das Dreieck lässt sich konstruieren, weil 8 die längste Seite ist.", False)],
+    "Prüfe, ob die beiden kürzeren Seiten zusammen die längste überbrücken.", "Die beiden kurzen Seiten sind zusammen nur 7 cm lang. Sie erreichen sich nicht. Das Dreieck gibt es nicht."))
+neu(f, "konstruierbar", "VW", W("Aus welchen drei Längen lässt sich ein Dreieck konstruieren?",
+    "5 cm, 6 cm, 10 cm", [("2 cm, 3 cm, 6 cm", "2 + 3 ist kleiner als 6"), ("4 cm, 4 cm, 8 cm", "4 + 4 ist nur gleich 8, die Seiten liegen flach aufeinander"), ("1 cm, 5 cm, 7 cm", "1 + 5 ist kleiner als 7")],
+    "Prüfe bei jeder Auswahl, ob die zwei kürzeren Seiten zusammen länger sind als die längste.", "5 + 6 = 11 ist größer als 10. Bei den anderen reicht die Summe der zwei kürzeren Seiten nicht.",
+    lambda: 5 + 6 > 10 and 2 + 3 <= 6 and 4 + 4 <= 8 and 1 + 5 <= 7), g="erkennen")
+neu(f, "planfigur", "FD", FDZ("Kim konstruiert ein Dreieck aus c = 6 cm, α = 50° und b = 4 cm. Er beschreibt seine Schritte.",
+    [("Zeichne zuerst die Strecke AB = 6 cm.", True), ("Trage bei A den Winkel 50° an.", True), ("Markiere C auf dem freien Schenkel im Abstand 4 cm von B.", False)],
+    "Welche Ecke liegt am Anfang der Seite b?", "Die Seite b liegt zwischen A und C. C hat also den Abstand 4 cm von A."))
+neu(f, "planfigur", "VW", W("Du konstruierst ein Dreieck mit c = 7 cm, b = 6 cm und a = 5 cm. Du zeichnest AB = 7 cm. Wie findest du C?",
+    "Kreisbogen um A mit 6 cm und um B mit 5 cm; sie schneiden sich in C", [("Kreisbogen um A und um B mit je 5 cm", "b wäre dann auch 5 cm"), ("Kreisbogen um A und um B mit je 6 cm", "a wäre dann auch 6 cm"), ("Kreisbogen um A mit 7 cm und um B mit 5 cm", "AC wäre dann 7 cm statt 6 cm")],
+    "Die Seite b liegt an der Ecke A, die Seite a an der Ecke B.", "AC = b = 6 cm, also ein Kreisbogen um A mit 6 cm. BC = a = 5 cm, also ein Kreisbogen um B mit 5 cm.",
+    lambda: sorted((7, 6, 5)) == [5, 6, 7] and sorted((7, 5, 5)) != [5, 6, 7] and sorted((7, 6, 6)) != [5, 6, 7] and sorted((7, 7, 5)) != [5, 6, 7])
+    , g="darstellung")
+neu(f, "vierecke", "LW", L("Im Parallelogramm ABCD ist α = 65°. Alle vier Winkel zusammen haben ①°. Der Nachbarwinkel β hat ②°.",
+    K(2), [360, 115], ["360", "180 - 65"], ["2 * 180", "115"], "Nachbarwinkel im Parallelogramm ergeben zusammen eine gerade Linie.", "Die Winkelsumme im Viereck ist 360°. β = 180° − 65° = 115°.",
+    {0: [(180, None, "mit der Winkelsumme im Dreieck verwechselt")], 1: [(65, None, "mit dem gegenüberliegenden Winkel verwechselt")]}, hinweis=GZ))
+neu(f, "vierecke", "FD", FDZ("Eine Raute hat einen Winkel von 40°. Kim berechnet den Nachbarwinkel.",
+    [("Eine Raute ist ein Parallelogramm.", True), ("Nachbarwinkel im Parallelogramm ergeben zusammen 180°.", True), ("Der Nachbarwinkel hat 180° − 40° = 120°.", 180 - 40 == 120)],
+    "Rechne 180 − 40 noch einmal.", "180° − 40° = 140°. Der Nachbarwinkel hat 140°."))
+neu(f, "vierecke", "VW", W("Ein Viereck hat die Winkel 85°, 95° und 100°. Welche Rechnung gibt den vierten Winkel?",
+    "360° − 85° − 95° − 100° = 80°", [("180° − 85° − 95° − 100° = −100°", "die Winkelsumme des Dreiecks benutzt"), ("85° + 95° + 100° = 280°", "nur addiert"), ("360° − 85° − 95° = 180°", "einen Winkel nicht abgezogen")],
+    "Ein Viereck hat eine feste Winkelsumme.", "Die drei Winkel haben zusammen 280°. 360° − 280° = 80°.",
+    lambda: 360 - 85 - 95 - 100 == 80 and 180 - 85 - 95 - 100 != 80 and 85 + 95 + 100 != 80 and 360 - 85 - 95 != 80))
+neu(f, "satz_kehrsatz", "FD", FDZ("Satz: „Wenn ein Dreieck gleichseitig ist, dann hat es drei gleich große Winkel.“ Kim bildet den Kehrsatz.",
+    [("Der Satz hat die Form: Wenn A, dann B.", True), ("Den Kehrsatz bildet man, indem man A und B vertauscht.", True), ("Er lautet: Wenn ein Dreieck gleichseitig ist, dann hat es drei gleich große Winkel.", False)],
+    "Vergleiche den Kehrsatz mit dem Satz. Was hat sich geändert?", "Das ist der Satz selbst. Der Kehrsatz lautet: Wenn ein Dreieck drei gleich große Winkel hat, dann ist es gleichseitig."))
+neu(f, "satz_kehrsatz", "VW", W("Satz: „Wenn eine Zahl durch 6 teilbar ist, dann ist sie durch 3 teilbar.“ Was gilt für den Kehrsatz?",
+    "Der Kehrsatz ist falsch. Gegenbeispiel: 9 ist durch 3 teilbar, aber nicht durch 6", [("Der Kehrsatz ist wahr, denn der Satz ist wahr", "einen wahren Satz mit seinem Kehrsatz gleichgesetzt"), ("Der Kehrsatz ist falsch. Gegenbeispiel: 12", "12 ist durch 6 teilbar, also kein Gegenbeispiel"), ("Der Kehrsatz ist wahr, weil 3 ein Teiler von 6 ist", "der Teiler macht den Kehrsatz nicht wahr")],
+    "Der Kehrsatz lautet: Wenn eine Zahl durch 3 teilbar ist, dann ist sie durch 6 teilbar. Suche eine Zahl, die nicht passt.", "9 : 3 = 3, aber 9 ist nicht durch 6 teilbar. Ein Gegenbeispiel genügt.",
+    lambda: 9 % 3 == 0 and 9 % 6 != 0 and 12 % 3 == 0 and 12 % 6 == 0), g="begruenden")
+neu(f, "vierecke_konstruieren", "LW", L("Du konstruierst ein Parallelogramm ABCD mit a = 6 cm, b = 4 cm und α = 70°. Der Winkel β bei B hat ①°. Alle vier Winkel zusammen haben ②°.",
+    K(2), [110, 360], ["180 - 70", "360"], ["110", "2 * 180"], "Nachbarwinkel im Parallelogramm ergänzen sich zu 180°.", "β = 180° − 70° = 110°. Die vier Winkel ergeben 360°.",
+    {0: [(70, None, "mit dem gegenüberliegenden Winkel verwechselt")], 1: [(180, None, "mit der Winkelsumme im Dreieck verwechselt")]}, hinweis=GZ))
+neu(f, "vierecke_konstruieren", "FD", FDZ("Kim konstruiert ein Parallelogramm ABCD aus a = 6 cm, b = 4 cm und α = 70°.",
+    [("Zeichne AB = 6 cm und trage bei A den Winkel 70° an.", True), ("Auf dem freien Schenkel liegt D mit AD = 4 cm.", True), ("C erhältst du mit BC = 6 cm und CD = 4 cm.", False)],
+    "Gegenüberliegende Seiten im Parallelogramm sind gleich lang. Welche Seite liegt gegenüber von AB?", "BC liegt gegenüber von AD, also BC = 4 cm. CD liegt gegenüber von AB, also CD = 6 cm."))
+
 # ═════════════════════ Kind 2 · Flug f2 · Lineare Funktionen ═════════════════════
 f = "f2"
 FORM = "id.funktionen.gleichung_form"

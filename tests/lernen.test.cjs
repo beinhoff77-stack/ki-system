@@ -5674,7 +5674,7 @@ test('RU: Kind öffnet das Regel-Universum über das Menü – Sonne → Regel �
     else { assert.equal(await page.locator('.ru-sonne0').isVisible(), false); assert.equal(await page.locator('.ru-system a.ru-sp').count(), 9); await s('.ru-sp-sonne').click(); }
     await page.locator('.ru-schichten').waitFor();
     assert.equal(await page.locator('.ru-schicht').count(), 4); assert.equal(await page.locator('.ru-zeile').count(), 14);
-    assert.match(await page.locator('.ru-zeile', { hasText: 'Rechnen mit Brüchen' }).locator('.ru-z-merk').innerText(), /^Plus, Minus: gleiche Nenner\. Mal: oben mal oben, unten mal unten\. Geteilt: mal Kehrwert\.$/);
+    assert.match(await page.locator('.ru-zeile', { hasText: 'Rechnen mit Brüchen' }).locator('.ru-z-merk').innerText(), /^Plus\/Minus: erst gleiche Nenner\. Mal: oben mal oben, unten mal unten\. Geteilt: mal Kehrwert\.$/);
     await ruPruefen(page, `${b} Sonne`);
     await ruBild(page, `ebene1-sonne-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
     await page.locator('.ru-sc-ziel[data-schicht="3"] text').click(); // Schnitt durch die Sonne: Tipp springt zur Schicht

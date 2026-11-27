@@ -300,14 +300,14 @@
     },
     "a": [
      "Die Zahlen hinter dem Komma wie ganze Zahlen vergleichen: 8 und 75.",
-     "Beide Zahlen mit gleich vielen Nachkommastellen schreiben (0,80 und 0,75) und dann die Hundertstel vergleichen: 80 Hundertstel mit 75 Hundertsteln.",
+     "Rechts vom Komma bei Bedarf Nullen anhängen, bis beide Zahlen gleich viele Nachkommastellen haben. Dann bei beiden das Komma streichen und die ganzen Zahlen vergleichen. Beim Beispiel vergleichst du 80 mit 75.",
      "Die Ziffern zählen: Die Zahl mit mehr Ziffern ist die größere."
     ],
     "o": {
      "index": 1
     },
     "h": "Schreibe beide Zahlen mit gleich vielen Nachkommastellen.",
-    "w": "Gleiche Stellenzahl: 0,8 = 0,80 und 0,75. Es ist 80 > 75, also 0,8 > 0,75. Die Länge der Ziffernfolge sagt nichts über die Größe."
+    "w": "Hänge Nullen an, bis beide Zahlen gleich viele Nachkommastellen haben, streiche dann das Komma und vergleiche die ganzen Zahlen. Beim Beispiel: 0,8 = 0,80 und 0,75, also 80 und 75. Es ist 80 > 75, also 0,8 > 0,75. Das klappt für jedes Paar, z. B. 0,751 und 0,759: 751 < 759. Die Länge der Ziffernfolge sagt nichts über die Größe."
    }
   },
   {

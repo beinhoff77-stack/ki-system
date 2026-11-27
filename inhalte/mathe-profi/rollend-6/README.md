@@ -72,3 +72,6 @@ Alle Punkte der Arbeitsliste umgesetzt, Lösungsschlüssel unverändert bis auf 
 - V047 (Weg für jedes Paar, nur zwei falsche Wege), V121 (Termart per Nummer abgefragt, Term mit − 6), V170 (ganzer Rechenschritt ersetzt, Suche nach dem Einheitenwechsel „: 1000 =“ in allen Feldern ohne weiteren Treffer).
 - Auflagen: V065, V069, V102, V127, V131, V136, V157.
 - `bauen.py --voll` OK, `tools/rollend_sql.py --runden 6` 198 Aufgaben.
+
+## Nach dritter Gegenprüfung (Werkstatt 1113)
+- V047: richtiger Weg und Lösungsweg für jedes Paar verallgemeinert (Nullen anhängen, Komma streichen, ganze Zahlen vergleichen). Ablenker und Reihenfolge unverändert; JSON-Vergleich zeigt genau eine geänderte Aufgabe.

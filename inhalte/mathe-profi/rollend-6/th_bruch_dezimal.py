@@ -29,11 +29,11 @@ neu(T, "vergleichen_ordnen", "lueckenweg", L(
     hinweis="Je Lücke eine ganze Zahl."), regel="rr.stellenwert")
 neu(T, "vergleichen_ordnen", "verfahren_waehlen", W(
     "Du willst zwei Dezimalzahlen vergleichen, zum Beispiel 0,8 und 0,75. Welcher Weg entscheidet für jedes Paar nichtnegativer Dezimalzahlen richtig?",
-    "Beide Zahlen mit gleich vielen Nachkommastellen schreiben (0,80 und 0,75) und dann die Hundertstel vergleichen: 80 Hundertstel mit 75 Hundertsteln.",
+    "Rechts vom Komma bei Bedarf Nullen anhängen, bis beide Zahlen gleich viele Nachkommastellen haben. Dann bei beiden das Komma streichen und die ganzen Zahlen vergleichen. Beim Beispiel vergleichst du 80 mit 75.",
     [("Die Zahlen hinter dem Komma wie ganze Zahlen vergleichen: 8 und 75.", "die Stellenzahl nicht angeglichen: 75 gegen 8"),
      ("Die Ziffern zählen: Die Zahl mit mehr Ziffern ist die größere.", "die Zahl der Ziffern statt des Werts verglichen")],
     "Schreibe beide Zahlen mit gleich vielen Nachkommastellen.",
-    "Gleiche Stellenzahl: 0,8 = 0,80 und 0,75. Es ist 80 > 75, also 0,8 > 0,75. Die Länge der Ziffernfolge sagt nichts über die Größe.",
+    "Hänge Nullen an, bis beide Zahlen gleich viele Nachkommastellen haben, streiche dann das Komma und vergleiche die ganzen Zahlen. Beim Beispiel: 0,8 = 0,80 und 0,75, also 80 und 75. Es ist 80 > 75, also 0,8 > 0,75. Das klappt für jedes Paar, z. B. 0,751 und 0,759: 751 < 759. Die Länge der Ziffernfolge sagt nichts über die Größe.",
     lambda: F(8, 10) > F(75, 100) and F(8, 10) < F(75, 10) and len("0,75") > len("0,8")), g="mehrschritt", regel=None)
 neu(T, "vergleichen_ordnen", "anwenden", Z(
     "Drei Papierflieger fliegen 4,35 m, 4,5 m und 4,305 m weit. Um wie viele Zentimeter ist der weiteste Flug weiter als der kürzeste?",

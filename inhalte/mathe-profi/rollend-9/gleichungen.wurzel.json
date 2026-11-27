@@ -1,0 +1,1107 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-9",
+ "kuerzel": "K9A",
+ "flug": "k9a-gleichungen.wurzel",
+ "titel": "gleichungen.wurzel",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "gleichungen.wurzel"
+ ],
+ "themen_datei_im_bestand": "gleichungen.wurzel",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K9A-V043",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "definitionsmenge",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.erlaubte_zahlen",
+   "regel_name": "Erlaubte Zahlen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -5,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Vorzeichen falsch: −15 : 3",
+     "c": "-15 / 3"
+    },
+    {
+     "luecke": 1,
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 3 malgenommen statt geteilt: 15 · 3",
+     "c": "15 * 3"
+    },
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die kleinste Zahl von D angegeben statt der größten Zahl außerhalb",
+     "c": "(5)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle zehn Zahlen gezählt",
+     "c": "10"
+    }
+   ],
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Bestimme die Definitionsmenge von √(3x − 15) über ℝ. Der Radikand darf nicht negativ sein. Der Radikand ist null für x = ①. Dann ist die größte ganze Zahl, die nicht in D liegt, gleich ②. Also liegen von den Zahlen 1 bis 10 genau ③ in D.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      5,
+      4,
+      6
+     ]
+    },
+    "c": [
+     "15 // 3",
+     "(5) - 1",
+     "10 - (5) + 1"
+    ],
+    "h": "Löse 3x − 15 = 0 wie eine Waage. Ab dieser Zahl ist der Radikand nicht mehr negativ.",
+    "w": "3x − 15 = 0 gilt für x = 5. Für x ≥ 5 ist der Radikand nicht negativ, also D = {x | x ≥ 5}. Die größte ganze Zahl außerhalb ist 4. Von 1 bis 10 liegen die Zahlen 5, 6, 7, 8, 9, 10 in D, das sind 6."
+   }
+  },
+  {
+   "kennung": "K9A-V044",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "definitionsmenge",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.erlaubte_zahlen",
+   "regel_name": "Erlaubte Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "2 − x",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Richtung vertauscht: dann wäre D = {x | x ≤ 2}",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "x + 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grenze auf der falschen Seite von null: dann wäre die Grenze −2",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "x − 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die falsche Zahl abgezogen: dann wäre die Grenze 6",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Zahlenstrahl zeigt die Definitionsmenge D einer Wurzel √T. Der schattierte Bereich gehört dazu und geht nach rechts weiter. Welcher Term T gehört dazu?",
+     "grafik": {
+      "typ": "zahlenstrahl",
+      "start": -4,
+      "ende": 8,
+      "abschnitte": 12,
+      "bereich": {
+       "von": 2,
+       "bis": 8
+      },
+      "beschriftet": "alle"
+     }
+    },
+    "a": [
+     "x − 2",
+     "2 − x",
+     "x + 2",
+     "x − 6"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Der Radikand darf nicht negativ sein. Setze eine Zahl links und eine rechts der Grenze ein.",
+    "w": "D beginnt bei 2 und geht nach rechts. Für T = x − 2 gilt x − 2 ≥ 0 genau für x ≥ 2. Bei 2 − x wäre der Bereich links von 2, bei x + 2 beginnt er bei −2, bei x − 6 bei 6."
+   }
+  },
+  {
+   "kennung": "K9A-V045",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "definitionsmenge",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.erlaubte_zahlen",
+   "regel_name": "Erlaubte Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim bestimmt die Definitionsmenge von √(10 − 2x) über ℝ. Zeile 1: Der Radikand darf nicht negativ sein: 10 − 2x ≥ 0, also 2x ≥ 10. Zeile 2: Daraus folgt x ≥ 5. Zeile 3: Also ist D = {x | x ≥ 5}. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Setze eine Zahl, die größer als die Grenze ist, in den Radikand ein.",
+    "w": "Zeile 1 enthält den Fehler: Aus 10 − 2x ≥ 0 folgt 10 ≥ 2x, also x ≤ 5. Die Zeilen 2 und 3 folgen aus Zeile 1 richtig weiter. Richtig ist D = {x | x ≤ 5}. Probe: x = 6 gibt 10 − 12 = −2 < 0."
+   }
+  },
+  {
+   "kennung": "K9A-V046",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "quadrieren",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 verdoppelt statt quadriert: 5 · 2",
+     "c": "5 * 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 26,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1 addiert statt abgezogen: 25 + 1",
+     "c": "(25) + 1"
+    },
+    {
+     "luecke": 3,
+     "antwort": 12.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 1 vergessen: 25 : 2",
+     "c": "(25) / 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "quadrieren",
+    "t": "quadrieren",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Löse √(2x + 1) = 5. Beide Seiten werden quadriert: 2x + 1 = ①. Dann ist 2x = ②. Also ist x = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      25,
+      24,
+      12
+     ]
+    },
+    "c": [
+     "5 ** 2",
+     "(25) - 1",
+     "(24) // 2"
+    ],
+    "h": "Quadrieren heißt: beide Seiten mit sich selbst malnehmen.",
+    "w": "(√(2x + 1))² = 2x + 1 und 5² = 25. Aus 2x + 1 = 25 folgt 2x = 24 und x = 12. Probe: √(2 · 12 + 1) = √25 = 5."
+   }
+  },
+  {
+   "kennung": "K9A-V047",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "quadrieren",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "11 addiert statt abgezogen: 25 + 11",
+     "c": "5 ** 2 + 11"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ohne Quadrieren gerechnet: 5 + 11",
+     "c": "5 + 11"
+    },
+    {
+     "antwort": -14,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "Vorzeichen vertauscht: 11 − 25",
+     "c": "11 - 25"
+    }
+   ],
+   "aufgabe": {
+    "l": "quadrieren",
+    "t": "quadrieren",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Zahl a hat die Gleichung √(x + a) = 5 die Lösung x = 11?"
+    },
+    "o": {
+     "wert": 14
+    },
+    "c": "5 ** 2 - 11",
+    "h": "Setze x = 11 ein. Dann steht eine Wurzel, die den Wert 5 haben muss.",
+    "w": "Mit x = 11 gilt √(11 + a) = 5. Quadrieren: 11 + a = 25. Also a = 14. Probe: √(11 + 14) = √25 = 5."
+   }
+  },
+  {
+   "kennung": "K9A-V048",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "quadrieren",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "quadrieren",
+    "t": "quadrieren",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst √(x − 1) + 3 = 7. Zeile 1: √(x − 1) = 7 − 3 = 4 Zeile 2: Quadrieren: x − 1 = 4² = 8 Zeile 3: Also ist x = 8 + 1 = 9. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Rechne 4² nach. Mache am Ende die Probe in der Ausgangsgleichung.",
+    "w": "Zeile 1 stimmt. In Zeile 2 steht der Fehler: 4² = 16, nicht 8. Richtig: x − 1 = 16, also x = 17. Zeile 3 rechnet mit 8 richtig weiter. Probe: √(17 − 1) + 3 = 4 + 3 = 7."
+   }
+  },
+  {
+   "kennung": "K9A-V049",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "isolieren",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 addiert statt abgezogen: 8 + 2",
+     "c": "8 + 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 3 malgenommen statt quadriert: 6 · 3",
+     "c": "(6) * 3"
+    },
+    {
+     "luecke": 3,
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 3 geteilt",
+     "c": "(36)"
+    }
+   ],
+   "aufgabe": {
+    "l": "isolieren",
+    "t": "isolieren",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Löse 2 + √(3x) = 8. Zuerst wird die Wurzel allein gestellt: √(3x) = ①. Dann wird quadriert: 3x = ②. Also ist x = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      36,
+      12
+     ]
+    },
+    "c": [
+     "8 - 2",
+     "(6) ** 2",
+     "(36) // 3"
+    ],
+    "h": "Bringe zuerst die Zahl vor der Wurzel auf die andere Seite. Quadriere erst danach.",
+    "w": "2 + √(3x) = 8 gibt √(3x) = 6. Quadrieren: 3x = 36. Also x = 12. Probe: 2 + √(3 · 12) = 2 + 6 = 8."
+   }
+  },
+  {
+   "kennung": "K9A-V050",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "isolieren",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel √x = 5 als Ergebnis genommen, nicht quadriert",
+     "c": "(10 + 5) / 3"
+    },
+    {
+     "antwort": 225,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 3 geteilt: 15 quadriert",
+     "c": "(10 + 5) ** 2"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 5 addiert: 10 + 5",
+     "c": "10 + 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "isolieren",
+    "t": "isolieren",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Löse 3 · √x − 5 = 10 auf zwei Wegen. Weg A: Stelle die Wurzel durch Umformen allein und quadriere. Weg B: Lege eine Wertetabelle an, in der du für x der Reihe nach Quadratzahlen einsetzt (4, 9, 16, …), und lies ab, wann der Term den Wert 10 hat. Wie groß ist x?"
+    },
+    "o": {
+     "wert": 25
+    },
+    "c": "((10 + 5) / 3) ** 2",
+    "h": "Beide Wege müssen dasselbe x ergeben.",
+    "w": "Weg A: 3√x = 15, √x = 5, x = 25. Weg B: Für x = 16 ist 3 · 4 − 5 = 7. Für x = 25 ist 3 · 5 − 5 = 10. Probe: 3 · √25 − 5 = 10."
+   }
+  },
+  {
+   "kennung": "K9A-V051",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "isolieren",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 48.05,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Schall nicht abgezogen: 3,1² · 5",
+     "c": "3.1 ** 2 * 5"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht mit 5 malgenommen: 3²",
+     "c": "(3.1 - 0.1) ** 2"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht quadriert: 3 · 5",
+     "c": "(3.1 - 0.1) * 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "isolieren",
+    "t": "isolieren",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Stein fällt von einer Brücke ins Wasser. Den Aufprall hört man 3,1 s nach dem Loslassen. Der Schall braucht für den Rückweg etwa 0,1 s. Für die Fallzeit t (in s) aus der Höhe h (in m) gilt vereinfacht t = √(h : 5). Wie hoch ist die Brücke über dem Wasser?"
+    },
+    "o": {
+     "wert": 45,
+     "einheit": "m"
+    },
+    "c": "(3.1 - 0.1) ** 2 * 5",
+    "h": "Die Fallzeit ist kürzer als 3,1 s. Stelle erst t fest, dann löse die Gleichung nach h.",
+    "w": "Fallzeit: 3,1 − 0,1 = 3 s. Aus 3 = √(h : 5) folgt 9 = h : 5, also h = 45 m."
+   }
+  },
+  {
+   "kennung": "K9A-V052",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "probe",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Beide Zahlen in die quadrierte Gleichung 2x + 9 = (x + 3)² einsetzen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der umgeformten Gleichung geprüft: Dort stimmen beide Zahlen immer, weil sie daraus entstanden sind",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "Nur die kleinere Zahl prüfen, denn Quadrieren macht die Lösungen kleiner.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Regel erfunden, die es nicht gibt",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "Keine Probe machen: Quadrieren ändert die Lösungsmenge nie.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Quadrieren ist keine Äquivalenzumformung und kann Scheinlösungen erzeugen",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "probe",
+    "t": "probe",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Du löst √(2x + 9) = x + 3 durch Quadrieren und erhältst die Kandidaten x = 0 und x = −4. Womit machst du die Probe?"
+    },
+    "a": [
+     "Beide Zahlen in die quadrierte Gleichung 2x + 9 = (x + 3)² einsetzen.",
+     "Nur die kleinere Zahl prüfen, denn Quadrieren macht die Lösungen kleiner.",
+     "Beide Zahlen in die Ausgangsgleichung √(2x + 9) = x + 3 einsetzen.",
+     "Keine Probe machen: Quadrieren ändert die Lösungsmenge nie."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Quadrieren kann Zahlen hinzufügen, die zur ursprünglichen Gleichung nicht passen. Welche Gleichung ist die ursprüngliche?",
+    "w": "Probe in der Ausgangsgleichung: x = 0 gibt √9 = 3 und 0 + 3 = 3, das stimmt. x = −4 gibt √1 = 1, aber −4 + 3 = −1. Das stimmt nicht. Also ist x = −4 eine Scheinlösung. In der quadrierten Gleichung würden beide Zahlen passen."
+   }
+  },
+  {
+   "kennung": "K9A-V053",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "probe",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Scheinlösung genommen: (1 − 9) : 2",
+     "c": "(1 - 9) / 2"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler der Lösung nicht durch 2 geteilt: 1 + 9",
+     "c": "1 + 9"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl aus der Gleichung abgeschrieben",
+     "c": "20"
+    }
+   ],
+   "aufgabe": {
+    "l": "probe",
+    "t": "probe",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Löse √(x + 20) = x über ℝ auf zwei Wegen. Weg A: Quadriere, löse die entstehende Gleichung und setze beide Kandidaten in die Ausgangsgleichung ein. Weg B: Halte vorher fest, dass die rechte Seite nicht negativ sein darf. Quadriere dann und behalte nur Kandidaten, die diese Bedingung erfüllen. Wie lautet die Lösung?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "(1 + 9) / 2",
+    "h": "Beide Wege müssen dieselbe Lösung ergeben.",
+    "w": "Quadrieren: x + 20 = x², also x² − x − 20 = 0 mit den Kandidaten 5 und −4. Weg A: √25 = 5 stimmt. Für x = −4 steht links √16 = 4, rechts −4, das stimmt nicht. Weg B: Die rechte Seite x muss ≥ 0 sein, also fällt −4 weg. Die Lösung ist x = 5."
+   }
+  },
+  {
+   "kennung": "K9A-V054",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "probe",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "probe",
+    "t": "probe",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst √(x + 12) = x. Zeile 1: Quadrieren: x + 12 = x². Zeile 2: Umstellen gibt x² − x − 12 gleich null. Die Lösungen sind x = 4 und x = −3. Zeile 3: Probe mit der quadrierten Gleichung: 4 + 12 = 4² und −3 + 12 = (−3)². Also lösen beide Zahlen die Ausgangsgleichung. Zeile 4: Also ist L = {−3; 4}. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Setze beide Zahlen in die Gleichung √(x + 12) = x ein, also in die Ausgangsgleichung.",
+    "w": "Zeile 1 und 2 stimmen. In Zeile 3 wurde mit der quadrierten Gleichung geprüft. Die Probe muss in der Ausgangsgleichung stattfinden: x = 4 gibt √16 = 4 ✓. x = −3 gibt √9 = 3, aber rechts steht −3. Das stimmt nicht. Richtig ist L = {4}. Zeile 4 folgt aus Zeile 3."
+   }
+  },
+  {
+   "kennung": "K9A-V055",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "zwei_seiten",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "8 − 4 gerechnet",
+     "c": "8 - 4"
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt",
+     "c": "(12)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 26,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "rechte Seite falsch gerechnet: 3 · 6 + 8",
+     "c": "3 * (6) + 8"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_seiten",
+    "t": "zwei_seiten",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Löse √(x + 8) = √(3x − 4). Quadrieren gibt x + 8 = 3x − 4. Sortiert steht dort 2x = ①. Also ist x = ②. Dann ist der Radikand auf jeder Seite ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      12,
+      6,
+      14
+     ]
+    },
+    "c": [
+     "8 + 4",
+     "(12) // 2",
+     "(6) + 8"
+    ],
+    "h": "Bringe alle x auf eine Seite und alle Zahlen auf die andere Seite.",
+    "w": "x + 8 = 3x − 4 gibt 12 = 2x, also x = 6. Radikand links: 6 + 8 = 14. Radikand rechts: 3 · 6 − 4 = 14. Beide Seiten sind gleich, also ist x = 6 eine Lösung."
+   }
+  },
+  {
+   "kennung": "K9A-V056",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "zwei_seiten",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die rechte Seite gerechnet: 2 · 5 − 1",
+     "c": "2 * 5 - 1"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 + 1 gerechnet",
+     "c": "5 + 1"
+    },
+    {
+     "antwort": -4,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "Vorzeichen vertauscht: 5 − 9",
+     "c": "5 - 9"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_seiten",
+    "t": "zwei_seiten",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Zahl a hat die Gleichung √(x + a) = √(2x − 1) die Lösung x = 5?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "2 * 5 - 1 - 5",
+    "h": "Setze x = 5 ein. Die rechte Seite lässt sich ausrechnen.",
+    "w": "Rechts: 2 · 5 − 1 = 9. Links muss auch 9 unter der Wurzel stehen: 5 + a = 9. Also a = 4. Probe: √9 = √9."
+   }
+  },
+  {
+   "kennung": "K9A-V057",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "zwei_seiten",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Beide Kandidaten sind Lösungen, denn beide stammen aus der quadrierten Gleichung.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Probe in der Ausgangsgleichung nicht gemacht",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "Nur x = 1 ist Lösung, denn √1 = 1.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die linke Seite berechnet: rechts steht bei x = 1 aber −1",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "Es gibt keine Lösung, weil die Graphen sich nur berühren.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Graphen schneiden sich, sie berühren sich nicht",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_seiten",
+    "t": "zwei_seiten",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Zeichnung zeigt die Graphen von y = √x und y = x − 2. Quadrieren von √x = x − 2 führt auf die Kandidaten x = 1 und x = 4. Welche Aussage über die Gleichung √x = x − 2 stimmt?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -1,
+       6
+      ],
+      "y": [
+       -3,
+       4
+      ],
+      "graphen": [
+       {
+        "art": "wurzel",
+        "name": "y = √x"
+       },
+       {
+        "art": "linear",
+        "m": 1,
+        "t": -2,
+        "name": "y = x − 2"
+       }
+      ]
+     }
+    },
+    "a": [
+     "Beide Kandidaten sind Lösungen, denn beide stammen aus der quadrierten Gleichung.",
+     "Nur x = 1 ist Lösung, denn √1 = 1.",
+     "Nur x = 4 ist Lösung. Bei x = 1 liegt die Gerade unter der x-Achse, die Wurzelkurve darüber.",
+     "Es gibt keine Lösung, weil die Graphen sich nur berühren."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Eine Lösung ist eine Stelle, an der beide Graphen denselben y-Wert haben. Prüfe x = 1 und x = 4.",
+    "w": "Bei x = 4 haben beide Graphen den y-Wert 2: √4 = 2 und 4 − 2 = 2. Bei x = 1 ist √1 = 1, aber 1 − 2 = −1. Dort sind die y-Werte verschieden. Also ist x = 1 eine Scheinlösung."
+   }
+  },
+  {
+   "kennung": "K9A-V058",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "sachaufgabe",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 2 malgenommen statt geteilt: 6 · 2",
+     "c": "6 * 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 6 quadriert statt √l",
+     "c": "6 ** 2"
+    },
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Schwingdauern verglichen: 8 − 6",
+     "c": "8 - 6"
+    },
+    {
+     "luecke": 3,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die zweite Länge angegeben, nicht den Unterschied",
+     "c": "(8 // 2) ** 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgabe",
+    "t": "sachaufgabe",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Für die Schwingdauer T (in s) eines Pendels der Länge l (in m) gilt vereinfacht T = 2 · √l. Ein Pendel soll 6 s schwingen. Dann ist √l = ①. Also ist l = ② m. Dann ist ein Pendel mit 8 s Schwingdauer um ③ m länger.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      9,
+      7
+     ]
+    },
+    "c": [
+     "6 // 2",
+     "(3) ** 2",
+     "(8 // 2) ** 2 - (9)"
+    ],
+    "h": "Teile zuerst durch den Faktor vor der Wurzel. Die Länge folgt durch Quadrieren.",
+    "w": "6 = 2 · √l gibt √l = 3 und l = 9 m. Für 8 s: √l = 4 und l = 16 m. Der Unterschied ist 16 − 9 = 7 m."
+   }
+  },
+  {
+   "kennung": "K9A-V059",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "sachaufgabe",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche des Raums genommen und 1 abgezogen",
+     "c": "6 ** 2 - 1"
+    },
+    {
+     "antwort": 30.25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einmal 0,5 m abgezogen: 5,5²",
+     "c": "5.5 ** 2"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Seitenlänge statt der Fläche angegeben: 6 − 1",
+     "c": "6 - 1"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgabe",
+    "t": "sachaufgabe",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Für die Fläche A (in m²) eines quadratischen Teppichs gilt: Seitenlänge = √A. Ein quadratischer Raum ist 6 m breit. Der Teppich liegt so, dass ringsum 0,5 m Rand frei bleibt. Wie groß ist die Fläche A des Teppichs?"
+    },
+    "o": {
+     "wert": 25,
+     "einheit": "m²"
+    },
+    "c": "(6 - 1) ** 2",
+    "h": "Rand gibt es auf zwei gegenüberliegenden Seiten. Rechne erst die Seitenlänge des Teppichs aus.",
+    "w": "Die Seite des Teppichs ist 6 − 0,5 − 0,5 = 5 m lang. Also √A = 5 und A = 25 m²."
+   }
+  },
+  {
+   "kennung": "K9A-V060",
+   "thema": "gleichungen.wurzel",
+   "lernkarte": "sachaufgabe",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgabe",
+    "t": "sachaufgabe",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim berechnet die Länge l eines Pendels mit der Schwingdauer T = 5 s. Es gilt T = 2 · √l mit l in Metern. Zeile 1: 2 · √l = 5 Zeile 2: √l = 5 : 2 = 2,5 Zeile 3: l = 2,5² = 6,25 Zeile 4: Das Pendel ist 6,25 cm lang. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Prüfe die Einheit des Ergebnisses. In welcher Einheit ist l angegeben?",
+    "w": "Die Zeilen 1 bis 3 stimmen: l = 6,25. In Zeile 4 steht die falsche Einheit. l ist in Metern angegeben, das Pendel ist also 6,25 m lang."
+   }
+  }
+ ]
+}

@@ -77,6 +77,8 @@ def grafik_ok(g):
         return all(len(z) == len(g["kopf"]) and all(isinstance(x, str) for x in z) for z in g["zeilen"]) and all(isinstance(x, str) for x in g["kopf"])
     if g["typ"] == "koordinaten":
         return len(g["x"]) == len(g["y"]) == 2 and set(g) <= {"typ", "x", "y", "graphen", "kreise", "punkte", "schritt_x", "schritt_y", "name_x", "name_y"}
+    if g["typ"] == "zahlenstrahl":
+        return all(k in g for k in ("start", "ende", "abschnitte")) and set(g) <= {"typ", "start", "ende", "abschnitte", "punkte", "boegen", "bereich", "beschriftet"}
     if g["typ"] in ("saeulen", "kreisdiagramm"):
         return all(set(w) == {"name", "wert"} and len(w["name"]) <= 8 for w in g["werte"]) and (g["typ"] == "saeulen" or sum(w["wert"] for w in g["werte"]) == 100)
     return False
@@ -235,7 +237,7 @@ for a in A:
             wert_i, t = wert_von_c(v, soll)
             soll.append(wert_i)
             c_fertig.append(t)
-        zw = [z2(z) if isinstance(z, str) else F(z) for z in a["zweit"]]
+        zw = [z2(z) if isinstance(z, str) else F(z() if callable(z) else z) for z in a["zweit"]]
         assert soll == q["o"]["werte"] == zw, (kenn, soll, a["zweit"])
         assert not any(PLATZ.search(str(z)) for z in a["zweit"]), (kenn, "Zweitrechnung muss unabhängig sein")
         q["c"] = c_fertig

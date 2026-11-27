@@ -16,7 +16,7 @@ WURZEL = Path(__file__).resolve().parent.parent.parent
 TOOL = WURZEL / 'tools' / 'rollend_sql.py'
 PLAN = json.loads((WURZEL / 'inhalte/plan/rollend-einheiten.json').read_text(encoding='utf-8'))
 ZEILE = re.compile(r"\((\d+), '([\w.]+)', (\d+), (\d+), \$auf\$(.*?)\$auf\$::jsonb\)", re.S)
-SOLL = {1: 76, 2: 116, 3: 127, 4: 314, 5: 174, 6: 198, 7: 183, 8: 156, 9: 174, 10: 108, 11: 60}   # mit --mit-bedingung (Runden 1-4), Stand 27.11.2026
+SOLL = {1: 76, 2: 116, 3: 127, 4: 314, 5: 174, 6: 198, 7: 183, 8: 156, 9: 174, 10: 108, 11: 60, 12: 210}   # mit --mit-bedingung (Runden 1-4), Stand 27.11.2026
 
 
 def lauf(*args):

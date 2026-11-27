@@ -79,7 +79,7 @@ neu(T, "hauptnenner", "bruecke", W(
 # ───────── scheinloesung ─────────
 neu(T, "scheinloesung", "lueckenweg", L(
     "Löse (3x − 1)/(2x − 8) = 11/(2x − 8). Beide Seiten haben denselben Nenner. Multipliziere mit diesem Nenner und sortiere: 3x = ①. Der einzige Kandidat ist dann x = ②. Für diese Zahl hat der Nenner 2x − 8 den Wert ③. Die Gleichung hat ④ Lösungen.",
-    KOMM(4), [12, 4, 0, 0], ["11 + 1", "{1} // 3", "2 * {2} - 8", "min(1, abs({3}))"], ["12", "4", "0", "0"], "Aus gleichen Nennern folgt: Die Zähler müssen gleich sein. Ein Kandidat zählt nur, wenn der Nenner für ihn nicht null wird.",
+    KOMM(4), [12, 4, 0, 0], ["11 + 1", "{1} // 3", "2 * {2} - 8", "min(1, abs({3}))"], ["12", "4", "0", "0"], "Aus gleichen Nennern folgt: Die Zähler müssen gleich sein. Prüfe den Kandidaten in den ursprünglichen Nennern. Gehört er zur Definitionsmenge?",
     "3x − 1 = 11 ergibt 3x = 12 und den Kandidaten x = 4. Der Nenner ist 2 · 4 − 8 = 0. Die Zahl 4 liegt nicht in der Definitionsmenge, sie ist nur ein Kandidat und keine Lösung. Es gibt 0 Lösungen: L = { }.",
     {0: [(10, "fb.waage.zeichen_nicht_gedreht", "11 − 1 gerechnet", "11 - 1")], 2: [(8, None, "nur 2 · 4 gerechnet, die 8 nicht abgezogen", "2 * {2}")], 3: [(1, "fb.erlaubte_zahlen.nullstelle_des_nenners_als_loesung", "den Kandidaten 4 als Lösung gezählt, obwohl der Nenner 0 ist", False)]}, gleich_ok=True), regel="id.algebra.gleichung_loesen")
 neu(T, "scheinloesung", "fehler_detektiv", FD(

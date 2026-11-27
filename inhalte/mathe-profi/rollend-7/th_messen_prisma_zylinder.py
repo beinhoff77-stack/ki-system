@@ -87,7 +87,7 @@ neu(T, "zylinder_oberflaeche", "bruecke", W(
     lambda: gl("2*n*a**2+2*n*a*b", "2*n*a**2+2*n*a*b") and not gl("2*n*a**2+2*n*a*b", "n*a**2+2*n*a*b") and not gl("2*n*a**2+2*n*a*b", "2*n*a**2+n*a*b") and not gl("2*n*a**2+2*n*a*b", "2*n*a+2*n*b"),
     grafik=TAB(["Teil des Netzes", "Anzahl", "Fläche je Stück"], ["Kreis mit Radius r", "2", "π · r²"], ["Rechteck (Mantel)", "1", "2 · π · r · h"])), regel="id.flaeche_raum.haut")
 neu(T, "zylinder_oberflaeche", "anwenden", Z(
-    "Eine Blechdose hat den Durchmesser 8 cm und die Höhe 11 cm. Sie hat Boden, Deckel und Mantel. Wie viel Quadratzentimeter Blech braucht man für eine Dose, wenn nichts verschnitten wird? Rechne mit der π-Taste und runde auf ganze cm².",
+    "Eine gerade zylinderförmige Blechdose hat den Durchmesser 8 cm und die Höhe 11 cm. Sie hat Boden, Deckel und Mantel. Wie viel Quadratzentimeter Blech braucht man für eine Dose, wenn nichts verschnitten wird? Rechne mit der π-Taste und runde auf ganze cm².",
     377, f"round(2 * {P} * 4 ** 2 + 2 * {P} * 4 * 11)", 377, "Der Radius ist halb so groß wie der Durchmesser.",
     "r = 4 cm. Zwei Kreise: 2 · π · 16 ≈ 100,5. Mantel: 2 · π · 4 · 11 ≈ 276,5. O ≈ 377,0 cm², gerundet 377 cm². (Mit π ≈ 3,14 erhält man 376,8, gerundet ebenfalls 377.)",
     [(239, None, "den Mantel mit π · 4 · 11 statt 2π · 4 · 11 gerechnet", f"round(2 * {P} * 4 ** 2 + {P} * 4 * 11)"), (955, "fb.aus_dem_rechteck.durchmesser_statt_radius", "mit dem Durchmesser 8 als Radius gerechnet", f"round(2 * {P} * 8 ** 2 + 2 * {P} * 8 * 11)"), (276, "fb.haut.nur_drei_flaechen", "nur den Mantel gerechnet", f"round(2 * {P} * 4 * 11)")], "cm²"), g="einkleidung", regel="id.flaeche_raum.haut")

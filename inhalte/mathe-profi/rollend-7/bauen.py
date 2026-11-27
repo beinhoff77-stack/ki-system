@@ -137,6 +137,37 @@ def hang_ab(vorlage, soll, i, n):
     return False
 
 
+ZAHLWORT = {0: ("null", "kein", "keine", "keinen", "keiner", "keinem", "nie", "niemals"), 1: ("eins", "ein", "eine", "einen", "einem", "einer"), 2: ("zwei",), 3: ("drei",), 4: ("vier",), 5: ("fünf",), 6: ("sechs",), 7: ("sieben",), 8: ("acht",), 9: ("neun",), 10: ("zehn",), 11: ("elf",), 12: ("zwölf",), 13: ("dreizehn",), 14: ("vierzehn",), 15: ("fünfzehn",), 16: ("sechzehn",), 17: ("siebzehn",), 18: ("achtzehn",), 19: ("neunzehn",), 20: ("zwanzig",)}
+
+
+def verraet(text, wert):
+    """Steht der Lückenwert als eigene Ziffer oder als Zahlwort (null bis zwanzig, kein, nie) im Text? (ein/eine nur für 1 bei Wert 1 nicht geprüft: zu unscharf)"""
+    treffer = []
+    if float(wert) == int(wert):
+        w = int(wert)
+        for m in re.finditer(r"(?<![\w,.²³⁰-⁹])−?\d+(?![\w,²³⁰-⁹])(?![.,]\d)", text):
+            if int(m.group().replace("−", "-")) == w:
+                treffer.append(m.group())
+        if w in ZAHLWORT and w != 1:
+            for z in ZAHLWORT[w]:
+                if re.search(r"(?<![\wäöüß])" + z + r"(?![\wäöüß])", text, re.I):
+                    treffer.append(z)
+    return treffer
+
+
+GEFAESS = re.compile(r"\b(Dose|Dosen|Blechdose|Glas|Gläser|Fass|Fässer|Säule|Säulen|Rohr|Rohre|Kübel|Blumenkübel|Eimer|Tank|Wassertank|Behälter|Gefäß|Tonne|Becher|Vase|Topf|Kiste|Schachtel|Aquarium|Zelt|Schwimmbecken|Becken)\b")
+FORMWORT = re.compile(r"Zylinder|zylinderförmig|Prisma|Quader|Würfel|Kreiszylinder|quaderförmig|rechteckig")
+
+
+def formpruefen(kenn, thema, q):
+    """Körper/Gefäß im Messen-Thema: die Form, die die Rechnung voraussetzt, muss im Aufgabentext (oder in der Tabelle) ausdrücklich stehen."""
+    if not thema.startswith("messen."):
+        return
+    text = q["f"].get("text", "")
+    if GEFAESS.search(text):
+        assert FORMWORT.search(text), (kenn, "Gefäß ohne festgelegte Form im Aufgabentext", GEFAESS.search(text).group())
+
+
 def fb_pruefen(kenn, ort, wert, rechnung, frueher=()):
     """Das Fehlbild nennt eine Rechnung: sie muss den falschen Wert wirklich ergeben. Rückgabe: True = nachgerechnet, False = keine Rechnung."""
     assert rechnung is not None, (kenn, ort, wert, "Fehlbild ohne Rechnung (4. Eintrag: Ausdruck, Funktion oder False)")
@@ -253,9 +284,14 @@ for a in A:
                     assert n <= i, (kenn, "Verweis nach vorn")
                     assert hang_ab(vorlagen[i], soll, i, n), (kenn, i + 1, n, "Lücke hängt in Wahrheit nicht vom früheren Wert ab")
             n_abhaengig += 1
+        formpruefen(kenn, a["thema"], q)
         if a["form"] == "lueckenweg":
             assert len(soll) >= 2 and q["y"] == "luecken", (kenn, "Lückenweg: mindestens zwei Lücken")
             assert gleich_ok or len(set(soll)) == len(soll), (kenn, "Lückenwerte sollen verschieden sein")
+            for ort, txt in (("Fragetext", q["f"].get("text", "")), ("Schablone", q["f"].get("schablone", "")), ("Hinweis", q["f"].get("hinweis", "")), ("Tipp", q["h"])):
+                for wert in soll:
+                    treffer = verraet(txt, wert)
+                    assert not treffer, (kenn, ort, "nennt einen Lückenwert als Ziffer/Zahlwort:", treffer)
         n_rechnung += len(soll)
         for i, liste in sorted(a["fb"].items()):
             werte = set()

@@ -721,7 +721,7 @@
      "2 * (4) - 8",
      "min(1, abs((0)))"
     ],
-    "h": "Aus gleichen Nennern folgt: Die Zähler müssen gleich sein. Ein Kandidat zählt nur, wenn der Nenner für ihn nicht null wird.",
+    "h": "Aus gleichen Nennern folgt: Die Zähler müssen gleich sein. Prüfe den Kandidaten in den ursprünglichen Nennern. Gehört er zur Definitionsmenge?",
     "w": "3x − 1 = 11 ergibt 3x = 12 und den Kandidaten x = 4. Der Nenner ist 2 · 4 − 8 = 0. Die Zahl 4 liegt nicht in der Definitionsmenge, sie ist nur ein Kandidat und keine Lösung. Es gibt 0 Lösungen: L = { }."
    }
   },

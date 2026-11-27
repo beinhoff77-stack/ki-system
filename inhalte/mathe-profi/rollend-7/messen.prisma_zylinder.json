@@ -839,7 +839,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Eine Blechdose hat den Durchmesser 8 cm und die Höhe 11 cm. Sie hat Boden, Deckel und Mantel. Wie viel Quadratzentimeter Blech braucht man für eine Dose, wenn nichts verschnitten wird? Rechne mit der π-Taste und runde auf ganze cm²."
+     "text": "Eine gerade zylinderförmige Blechdose hat den Durchmesser 8 cm und die Höhe 11 cm. Sie hat Boden, Deckel und Mantel. Wie viel Quadratzentimeter Blech braucht man für eine Dose, wenn nichts verschnitten wird? Rechne mit der π-Taste und runde auf ganze cm²."
     },
     "o": {
      "wert": 377,

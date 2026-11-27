@@ -35,6 +35,12 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Volumen des Zimmers statt der Koordinatensumme angegeben"
+    },
+    {
+     "antwort": 22,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Längen in x- und y-Richtung malgenommen und die Höhe addiert"
     }
    ],
    "aufgabe": {
@@ -117,16 +123,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 30,
+     "antwort": 19,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Volumen nur durch 8 geteilt"
+     "beschreibung": "die Höhe des ersten Quaders statt der doppelten Höhe genommen"
     },
     {
-     "antwort": 40,
+     "antwort": 38,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Volumen nur durch 6 geteilt"
+     "beschreibung": "alle drei Koordinaten des ersten Quaders verdoppelt"
+    },
+    {
+     "antwort": 74,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen nur durch 8 geteilt und verdoppelt"
     }
    ],
    "aufgabe": {
@@ -137,14 +149,14 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Quader steht mit der Ecke A im Ursprung. Seine Kanten verlaufen parallel zu den Achsen. Die Ecke G, die A gegenüberliegt, hat die Koordinaten (8 | 6 | h). Das Volumen des Quaders ist 240 Volumeneinheiten. Wie groß ist h?"
+     "text": "Ein Quader steht auf dem Boden (der xy-Ebene) mit der Ecke A im Ursprung und ragt nach oben. Seine Kanten verlaufen parallel zu den Achsen. Die Ecke G, die A gegenüberliegt, hat die Koordinaten (8 | 6 | h). Das Volumen ist 240 Volumeneinheiten. Ein zweiter Quader hat dieselbe Grundfläche, ist aber doppelt so hoch. Wie groß ist die Summe der drei Koordinaten seiner Ecke G′, die A gegenüberliegt?"
     },
     "o": {
-     "wert": 5
+     "wert": 24
     },
-    "c": "240 / (8 * 6)",
-    "h": "Die Koordinaten von G sind die Kantenlängen des Quaders. Das Volumen ist Länge mal Breite mal Höhe.",
-    "w": "Die Kanten sind 8, 6 und h lang. Das Volumen ist 8 · 6 · h = 48h = 240. Also ist h = 240 : 48 = 5. Probe: 8 · 6 · 5 = 240."
+    "c": "8 + 6 + 2 * (240 / (8 * 6))",
+    "h": "Berechne zuerst h aus dem Volumen. Die Koordinaten von G′ sind die Kantenlängen des zweiten Quaders.",
+    "w": "Die Kanten sind 8, 6 und h lang. Das Volumen ist 8 · 6 · h = 240, also h = 5. Der zweite Quader ist 2 · 5 = 10 hoch, also G′(8 | 6 | 10). Die Summe ist 8 + 6 + 10 = 24."
    }
   },
   {
@@ -320,6 +332,12 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "mit dem Radius 3 cm statt des Durchmessers als Grundseite gerechnet"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 3 statt durch 2 geteilt, wie bei einem Volumen"
     }
    ],
    "aufgabe": {
@@ -414,6 +432,12 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Umfang nur durch 2 geteilt: Seite 24 cm"
+    },
+    {
+     "antwort": 678.24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe 6 cm statt 12 cm genommen"
     }
    ],
    "aufgabe": {

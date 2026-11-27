@@ -40,7 +40,7 @@
      "antwort": 150,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "einen Umfang berechnet"
+     "beschreibung": "zweimal die Summe aus Grundseite und Höhe gerechnet"
     }
    ],
    "aufgabe": {
@@ -125,10 +125,10 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 10.666666666666666,
+     "antwort": 13.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Grundseite und Höhe vertauscht"
+     "beschreibung": "mit der anderen Seite malgenommen und durch die Höhe geteilt"
     },
     {
      "antwort": 72,
@@ -137,10 +137,10 @@
      "beschreibung": "die Fläche statt der Höhe angegeben"
     },
     {
-     "antwort": 11,
+     "antwort": 13,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Seiten addiert und subtrahiert"
+     "beschreibung": "die Seiten addiert und die Höhe abgezogen"
     }
    ],
    "aufgabe": {
@@ -287,10 +287,10 @@
      "beschreibung": "das Produkt der ersten Maße als Höhe angegeben"
     },
     {
-     "antwort": 9,
+     "antwort": 35,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Maße addiert und abgezogen"
+     "beschreibung": "die Fläche statt der Höhe angegeben"
     }
    ],
    "aufgabe": {
@@ -425,10 +425,10 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": -2,
+     "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "zweimal die Fläche vergessen"
+     "beschreibung": "die Summe der parallelen Seiten halbiert"
     },
     {
      "antwort": 18,
@@ -501,15 +501,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Parallelogramm hat die Fläche 96 cm² und die Grundseite 12 cm. Wie hoch ist es?"
+     "text": "Ein Beet hat die Form eines Parallelogramms und ist 96 m² groß. Die Seite am Weg ist 12 m lang. Wie breit ist das Beet, gemessen als Abstand senkrecht zum Weg?"
     },
     "o": {
      "wert": 8,
-     "einheit": "cm"
+     "einheit": "m"
     },
     "c": "96 / 12",
-    "h": "Die Fläche ist Grundseite mal Höhe. Teile die Fläche durch die Grundseite.",
-    "w": "h = A : g = 96 : 12 = 8 cm. Probe: 12 · 8 = 96."
+    "h": "Die Fläche ist Grundseite mal Höhe. Teile die Fläche durch die Seite am Weg.",
+    "w": "Die Seite am Weg ist die Grundseite. h = A : g = 96 : 12 = 8 m. Probe: 12 · 8 = 96."
    }
   },
   {
@@ -534,7 +534,7 @@
      "antwort": 240,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Fläche mit der Höhe malgenommen"
+     "beschreibung": "die Fläche mit der Höhe malgenommen und durch 2 geteilt"
     },
     {
      "antwort": 960,
@@ -551,7 +551,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Dreieck hat die Fläche 60 cm² und die Höhe 8 cm. Wie lang ist die zugehörige Grundseite?"
+     "text": "Ein Stoffwimpel hat die Form eines Dreiecks mit der Fläche 60 cm². Er ist 8 cm hoch. Wie lang ist die Seite, an der er an der Schnur befestigt ist?"
     },
     "o": {
      "wert": 15,
@@ -584,7 +584,7 @@
      "antwort": 450,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Fläche mit der Grundseite malgenommen"
+     "beschreibung": "die Fläche mit der Grundseite malgenommen und durch 2 geteilt"
     },
     {
      "antwort": 45,
@@ -775,19 +775,19 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 1000,
+     "antwort": 1800,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Volumen statt der Oberfläche berechnet"
     },
     {
-     "antwort": 350,
+     "antwort": 522,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die drei Flächensorten nur einmal gezählt"
     },
     {
-     "antwort": 600,
+     "antwort": 900,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "ein Flächenpaar vergessen"
@@ -801,15 +801,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Geschenk ist ein Quader: 20 cm lang, 10 cm breit und 5 cm hoch. Es wird rundherum in Papier eingepackt, ohne dass sich das Papier überlappt. Wie viele Quadratzentimeter Papier braucht man mindestens?"
+     "text": "Ein Geschenk ist ein Quader: 25 cm lang, 12 cm breit und 6 cm hoch. Es wird rundherum in Papier eingepackt, ohne dass sich das Papier überlappt. Wie viele Quadratzentimeter Papier braucht man mindestens?"
     },
     "o": {
-     "wert": 700,
+     "wert": 1044,
      "einheit": "cm²"
     },
-    "c": "2 * (20 * 10 + 20 * 5 + 10 * 5)",
+    "c": "2 * (25 * 12 + 25 * 6 + 12 * 6)",
     "h": "Ein Quader hat drei Paare gleicher Flächen. Berechne jede Sorte einmal und verdopple die Summe.",
-    "w": "Boden und Deckel: 20 · 10 = 200. Vorder- und Rückseite: 20 · 5 = 100. Die beiden Seiten: 10 · 5 = 50. Summe: 350. Doppelt: 700 cm²."
+    "w": "Boden und Deckel: 25 · 12 = 300. Vorder- und Rückseite: 25 · 6 = 150. Die beiden Seiten: 12 · 6 = 72. Summe: 522. Doppelt: 1 044 cm²."
    }
   },
   {
@@ -925,22 +925,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 24,
+     "antwort": 35,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die alte Fläche angegeben"
+     "beschreibung": "die Fläche des ersten Beets angegeben"
     },
     {
-     "antwort": 96,
+     "antwort": 140,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Fläche vervierfacht"
     },
     {
-     "antwort": 32,
+     "antwort": 45,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die alte Grundseite zur Fläche addiert"
+     "beschreibung": "die Grundseite zur alten Fläche addiert"
     }
    ],
    "aufgabe": {
@@ -951,15 +951,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Dreieck hat die Grundseite 8 cm und die Höhe 6 cm. Die Grundseite wird verdoppelt, die Höhe bleibt gleich. Wie groß ist die neue Fläche?"
+     "text": "Ein dreieckiges Blumenbeet hat die Grundseite 10 m und die Höhe 7 m. Ein zweites Beet bekommt dieselbe Grundseite, aber die doppelte Höhe. Wie groß ist die Fläche des zweiten Beets?"
     },
     "o": {
-     "wert": 48,
-     "einheit": "cm²"
+     "wert": 70,
+     "einheit": "m²"
     },
-    "c": "16 * 6 / 2",
-    "h": "Wie ändert sich die Fläche, wenn die Grundseite doppelt so lang wird? Du kannst auch neu rechnen.",
-    "w": "Die neue Grundseite ist 16 cm. Fläche: 16 · 6 : 2 = 48 cm². Die Fläche hat sich verdoppelt (vorher 24 cm²)."
+    "c": "10 * 14 / 2",
+    "h": "Wie ändert sich die Fläche, wenn die Höhe doppelt so groß wird? Du kannst auch neu rechnen.",
+    "w": "Die neue Höhe ist 14 m. Fläche: 10 · 14 : 2 = 70 m². Die Fläche hat sich verdoppelt (vorher 35 m²)."
    }
   },
   {
@@ -1184,7 +1184,7 @@
      "antwort": 1440,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Fläche mit der Diagonale malgenommen"
+     "beschreibung": "die Fläche mit der Diagonale malgenommen und durch 2 geteilt"
     },
     {
      "antwort": 5760,

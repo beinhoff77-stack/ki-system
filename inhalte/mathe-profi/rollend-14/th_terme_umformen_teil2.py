@@ -25,17 +25,17 @@ a2(T, "ausklammern", Z(
     "Der Gewinn eines Marktstands ist G = 4x² + 28x Euro, wobei x die Zahl der verkauften Kisten ist. Klammert man den größten gemeinsamen Faktor aus, erhält man G = c · x · (x + d). Wie groß ist die Summe c + d?",
     11, "4 + 28 / 4", "4 + 7", "Welche Zahl und welche Potenz von x stecken in beiden Gliedern? Was bleibt in der Klammer?",
     "Der größte gemeinsame Faktor von 4x² und 28x ist 4x. 4x² : 4x = x und 28x : 4x = 7. Also G = 4x · (x + 7), das heißt c = 4 und d = 7. Die Summe ist 11. Probe: 4x · x + 4x · 7 = 4x² + 28x.",
-    [(28, None, "c und d malgenommen statt addiert", "4 * 7"), (7, None, "nur d angegeben", "7")]))
+    [(28, None, "c und d malgenommen statt addiert", "4 * 7"), (7, None, "nur d angegeben", "7"), (8, None, "den Faktor 4 vergessen, also c = 1", "1 + 7")]))
 a3(T, "ausklammern", Z(
     "Ein Rechteck hat die Fläche 6x² + 9x (in cm²) und eine Seite der Länge 3x cm. Wie groß ist der Umfang des Rechtecks in cm, wenn x = 4 ist?",
     46, "2 * (3 * 4 + (2 * 4 + 3))", "2 * (12 + 11)", "Die Fläche ist Länge mal Breite. Klammere 3x aus, dann erkennst du die andere Seite.",
     "6x² + 9x = 3x · (2x + 3). Die eine Seite ist 3x, die andere 2x + 3. Für x = 4: 12 cm und 11 cm. Umfang = 2 · (12 + 11) = 46 cm. Probe: Fläche 12 · 11 = 132 = 6 · 16 + 9 · 4.",
-    [(23, None, "den Umfang nicht verdoppelt: nur beide Seiten addiert", "12 + 11"), (132, None, "die Fläche statt des Umfangs angegeben", "12 * 11")], "cm"), g="verknuepfen")
+    [(23, None, "den Umfang nicht verdoppelt: nur beide Seiten addiert", "12 + 11"), (132, None, "die Fläche statt des Umfangs angegeben", "12 * 11"), (40, None, "die 3 in der zweiten Seite vergessen (2x statt 2x + 3)", "2 * (3 * 4 + 2 * 4)")], "cm"), g="verknuepfen")
 # ───────── binomisch ─────────
 a1(T, "binomisch", Z(
-    "Ein quadratischer Teppich hat die Seitenlänge (x + 3) m. Seine Fläche in m² ist ausmultipliziert x² + b · x + 9. Wie groß ist b?",
+    "Ein quadratischer Teppich hat die Seitenlänge (x + 3) m. Seine Fläche in m² ist ausmultipliziert x² + p · x + 9. Wie groß ist p?",
     6, "2 * 3", "3 + 3", "Das Mittelglied bei (a + b)² ist 2 · a · b. Was ist hier a und was ist b?",
-    "(x + 3)² = x² + 2 · x · 3 + 3² = x² + 6x + 9. Also ist b = 6. Das Mittelglied darf man nie vergessen.",
+    "(x + 3)² = x² + 2 · x · 3 + 3² = x² + 6x + 9. Also ist p = 6. Das Mittelglied darf man nie vergessen.",
     [(3, None, "nur die Zahl 3 als Mittelglied genommen", "3"), (0, None, "das Mittelglied ganz vergessen: (x + 3)² = x² + 9", "0"), (9, None, "das Quadrat 3² als Mittelglied genommen", "3 ** 2")]))
 a2(T, "binomisch", Z(
     "Ein rechteckiges Feld ist 52 m lang und 48 m breit. Wie groß ist seine Fläche in m²? Rechne geschickt mit (50 + 2) · (50 − 2).",
@@ -57,9 +57,9 @@ a2(T, "gleichungen_binomisch", Z(
     "Ein quadratisches Feld hat die Seitenlänge x + 5 m, ein zweites quadratisches Feld hat die Seitenlänge x − 3 m. Das erste Feld ist 96 m² größer als das zweite. Wie groß ist x?",
     5, "(96 - 16) / 16", "(96 - 25 + 9) / 16", "Multipliziere beide Klammern mit den binomischen Formeln aus. Was passiert mit x²?",
     "(x + 5)² − (x − 3)² = 96 → x² + 10x + 25 − (x² − 6x + 9) = 96 → 16x + 16 = 96 → 16x = 80 → x = 5. Die Felder sind 10 m und 2 m lang. Probe: 100 − 4 = 96.",
-    [(6, None, "16 nicht abgezogen: 96 durch 16 geteilt", "96 / 16"), (8, None, "das Mittelglied der zweiten Klammer vergessen: (x − 3)² = x² + 9", "(96 - 16) / 10")], "m"))
+    [(6, None, "16 nicht abgezogen: 96 durch 16 geteilt", "96 / 16"), (8, None, "das Mittelglied der zweiten Klammer vergessen: (x − 3)² = x² + 9", "(96 - 16) / 10"), (7, None, "die 16 addiert statt abgezogen", "(96 + 16) / 16")], "m"))
 a3(T, "gleichungen_binomisch", Z(
-    "Ein quadratisches Grundstück hat die Seitenlänge x + 3 m. Ein rechteckiges Grundstück ist x m breit und x + 7 m lang. Beide Grundstücke sind gleich groß. Wie lang ist die Seite des quadratischen Grundstücks in Metern?",
-    12, "9 + 3", "(9 * 16) ** 0.5", "Stelle die Gleichung (x + 3)² = x · (x + 7) auf. Multipliziere beide Seiten aus.",
-    "(x + 3)² = x · (x + 7) → x² + 6x + 9 = x² + 7x → 9 = x. Also ist x = 9 und die Seite des Quadrats ist 9 + 3 = 12 m lang. Probe: 12² = 144 und 9 · 16 = 144.",
-    [(9, None, "x statt der Seitenlänge x + 3 angegeben", "9"), (16, None, "die längere Seite des Rechtecks angegeben", "9 + 7")], "m"), g="verknuepfen")
+    "Ein quadratisches Grundstück hat die Seitenlänge x + 3 m. Ein rechteckiges Grundstück ist x m breit und x + 7 m lang. Beide Grundstücke sind gleich groß. Wie viele Quadratmeter hat jedes der beiden Grundstücke?",
+    144, "(9 + 3) * (9 + 3)", "9 * (9 + 7)", "Stelle die Gleichung (x + 3)² = x · (x + 7) auf und löse sie. Danach berechnest du eine der beiden Flächen.",
+    "(x + 3)² = x · (x + 7) → x² + 6x + 9 = x² + 7x → 9 = x. Also x = 9. Quadrat: (9 + 3)² = 12 · 12 = 144 m². Probe mit dem Rechteck: 9 · 16 = 144 m².",
+    [(81, None, "x = 9 als Seitenlänge des Quadrats genommen und quadriert", "9 * 9"), (12, None, "die Seitenlänge des Quadrats statt der Fläche angegeben", "9 + 3"), (63, None, "x mal 7 gerechnet", "9 * 7")], "m²"), g="verknuepfen")

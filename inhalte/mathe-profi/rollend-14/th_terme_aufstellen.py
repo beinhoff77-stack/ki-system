@@ -4,7 +4,7 @@ a1(T, "struktur", Z(
     "Kim rechnet den Term 3 + x · 2, Sam rechnet den Term (3 + x) · 2. Beide setzen x = 4 ein. Um wie viel ist Sams Ergebnis größer als Kims Ergebnis?",
     3, "(3 + 4) * 2 - (3 + 4 * 2)", "14 - 11", "Rechne beide Terme einzeln aus. Beachte: Klammern zuerst, dann Punkt vor Strich.",
     "Kim: 3 + 4 · 2 = 3 + 8 = 11 (Punkt vor Strich). Sam: (3 + 4) · 2 = 7 · 2 = 14 (Klammer zuerst). Unterschied: 14 − 11 = 3.",
-    [B("(3 + 4) * 2", "nur Sams Ergebnis angegeben"), B("3 + 4 * 2", "nur Kims Ergebnis angegeben"), B("3 * 2", "nur die Zahl 3 mit 2 malgenommen")]))
+    [B("(3 + 4) * 2", "nur Sams Ergebnis angegeben"), B("3 + 4 * 2", "nur Kims Ergebnis angegeben"), B("(3 + 4) * 2 - (3 + 4) * 2", "bei Kim Punkt vor Strich nicht beachtet, beide Terme gleich gerechnet")]))
 a2(T, "struktur", Z(
     "Berechne den Wert des Terms 36 : (x − 3) + 2 · x für x = 9. Beachte, welche Rechnungen zuerst kommen.",
     24, "36 / (9 - 3) + 2 * 9", "6 + 18", "Die Klammer kommt zuerst. Danach: Punktrechnung vor Strichrechnung. Zuletzt addierst du.",
@@ -22,7 +22,7 @@ a1(T, "termwert", Z(
     "5 + 0,05 · 120 = 5 + 6 = 11. Der Vertrag kostet 11 €.",
     [B("(5 + 0.05) * 120", "die Grundgebühr mit der Zahl der Minuten malgenommen"), B("5 + 0.05 + 120", "alle Zahlen addiert"), B("5 * 120 + 0.05", "die Grundgebühr mit 120 malgenommen")], "€"))
 a2(T, "termwert", Z(
-    "Alex hat auf einem Konto 50 €. Das Guthaben in Euro wird nach t Wochen durch den Term 50 − 4 · (t + 2) angegeben. Wie viel Euro sind es nach t = 3 Wochen?",
+    "Vor zwei Wochen hatte Alex 50 € auf dem Konto. Seitdem werden jede Woche 4 € abgebucht. Das Guthaben in Euro wird t Wochen ab heute durch den Term 50 − 4 · (t + 2) angegeben. Wie viel Euro sind es nach t = 3 Wochen?",
     30, "50 - 4 * (3 + 2)", "50 - 20", "Die Klammer kommt zuerst. Dann die Multiplikation, zuletzt die Subtraktion.",
     "Klammer: 3 + 2 = 5. Dann 4 · 5 = 20. Dann 50 − 20 = 30. Alex hat 30 €.",
     [B("50 - 4 * 3 + 2", "die Klammer weggelassen"), B("(50 - 4) * (3 + 2)", "zuerst 4 vom Guthaben abgezogen und dann mit der Klammer malgenommen"), B("50 - 4 * 3 - 2", "die Klammer als Minus 3 minus 2 gelesen")], "€"))

@@ -233,6 +233,12 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur d angegeben"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 4 vergessen, also c = 1"
     }
    ],
    "aufgabe": {
@@ -276,6 +282,12 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Fläche statt des Umfangs angegeben"
+    },
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 3 in der zweiten Seite vergessen (2x statt 2x + 3)"
     }
    ],
    "aufgabe": {
@@ -336,14 +348,14 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein quadratischer Teppich hat die Seitenlänge (x + 3) m. Seine Fläche in m² ist ausmultipliziert x² + b · x + 9. Wie groß ist b?"
+     "text": "Ein quadratischer Teppich hat die Seitenlänge (x + 3) m. Seine Fläche in m² ist ausmultipliziert x² + p · x + 9. Wie groß ist p?"
     },
     "o": {
      "wert": 6
     },
     "c": "2 * 3",
     "h": "Das Mittelglied bei (a + b)² ist 2 · a · b. Was ist hier a und was ist b?",
-    "w": "(x + 3)² = x² + 2 · x · 3 + 3² = x² + 6x + 9. Also ist b = 6. Das Mittelglied darf man nie vergessen."
+    "w": "(x + 3)² = x² + 2 · x · 3 + 3² = x² + 6x + 9. Also ist p = 6. Das Mittelglied darf man nie vergessen."
    }
   },
   {
@@ -519,6 +531,12 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Mittelglied der zweiten Klammer vergessen: (x − 3)² = x² + 9"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 16 addiert statt abgezogen"
     }
    ],
    "aufgabe": {
@@ -553,16 +571,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 9,
+     "antwort": 81,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "x statt der Seitenlänge x + 3 angegeben"
+     "beschreibung": "x = 9 als Seitenlänge des Quadrats genommen und quadriert"
     },
     {
-     "antwort": 16,
+     "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die längere Seite des Rechtecks angegeben"
+     "beschreibung": "die Seitenlänge des Quadrats statt der Fläche angegeben"
+    },
+    {
+     "antwort": 63,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x mal 7 gerechnet"
     }
    ],
    "aufgabe": {
@@ -573,15 +597,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Ein quadratisches Grundstück hat die Seitenlänge x + 3 m. Ein rechteckiges Grundstück ist x m breit und x + 7 m lang. Beide Grundstücke sind gleich groß. Wie lang ist die Seite des quadratischen Grundstücks in Metern?"
+     "text": "Ein quadratisches Grundstück hat die Seitenlänge x + 3 m. Ein rechteckiges Grundstück ist x m breit und x + 7 m lang. Beide Grundstücke sind gleich groß. Wie viele Quadratmeter hat jedes der beiden Grundstücke?"
     },
     "o": {
-     "wert": 12,
-     "einheit": "m"
+     "wert": 144,
+     "einheit": "m²"
     },
-    "c": "9 + 3",
-    "h": "Stelle die Gleichung (x + 3)² = x · (x + 7) auf. Multipliziere beide Seiten aus.",
-    "w": "(x + 3)² = x · (x + 7) → x² + 6x + 9 = x² + 7x → 9 = x. Also ist x = 9 und die Seite des Quadrats ist 9 + 3 = 12 m lang. Probe: 12² = 144 und 9 · 16 = 144."
+    "c": "(9 + 3) * (9 + 3)",
+    "h": "Stelle die Gleichung (x + 3)² = x · (x + 7) auf und löse sie. Danach berechnest du eine der beiden Flächen.",
+    "w": "(x + 3)² = x · (x + 7) → x² + 6x + 9 = x² + 7x → 9 = x. Also x = 9. Quadrat: (9 + 3)² = 12 · 12 = 144 m². Probe mit dem Rechteck: 9 · 16 = 144 m²."
    }
   }
  ]

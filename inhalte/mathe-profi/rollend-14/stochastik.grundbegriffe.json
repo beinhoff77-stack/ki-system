@@ -101,7 +101,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Würfel mit den Zahlen 1 bis 6 und eine Münze werden einmal geworfen. Ein Ergebnis ist ein Paar aus Zahl und Münzseite, zum Beispiel (5 | Wappen). Wie viele Ergebnisse gehören zum Ereignis „Die Würfelzahl ist größer als 4 oder die Münze zeigt Wappen“?"
+     "text": "Ein Würfel mit den Augenzahlen 1 bis 6 und eine Münze (Seiten „Wappen“ und „Zahl“) werden einmal geworfen. Ein Ergebnis ist ein Paar aus Augenzahl und Münzseite, zum Beispiel (5 | Wappen). Wie viele Ergebnisse gehören zum Ereignis „Die Augenzahl ist größer als 4 oder die Münze zeigt Wappen“?"
     },
     "o": {
      "wert": 8,
@@ -109,7 +109,7 @@
     },
     "c": "2 * 2 + 6 - 2",
     "h": "Zähle zuerst die Ergebnisse mit Würfelzahl 5 oder 6. Zähle dann die Ergebnisse mit Wappen. Was wurde doppelt gezählt?",
-    "w": "Würfelzahl größer als 4: (5 | W), (5 | Z), (6 | W), (6 | Z), das sind 4. Wappen: 6 Ergebnisse. Doppelt gezählt: (5 | W) und (6 | W), also 2. Zusammen 4 + 6 − 2 = 8. Probe: Nicht dazu gehören nur (1 bis 4 | Zahl), das sind 4 von 12 Ergebnissen."
+    "w": "Augenzahl größer als 4: Das sind 5 und 6, jeweils mit Wappen oder Zahl, also 4 Ergebnisse. Wappen: 6 Ergebnisse (jede Augenzahl mit Wappen). Doppelt gezählt: (5 | Wappen) und (6 | Wappen), also 2. Zusammen 4 + 6 − 2 = 8. Probe: Nicht dazu gehören nur die Augenzahlen 1 bis 4 mit der Münzseite Zahl, das sind 4 von 12 Ergebnissen."
    }
   },
   {
@@ -125,22 +125,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 12,
+     "antwort": 14,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 12 doppelt abgezogen"
+     "beschreibung": "die Ergebnisse von „A oder B“ (auch beide) angegeben"
     },
     {
-     "antwort": 7,
+     "antwort": 16,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Ergebnisse von „A oder B“ statt des Gegenereignisses angegeben"
+     "beschreibung": "die Ergebnisse in beiden Gruppen doppelt gezählt"
     },
     {
-     "antwort": 15,
+     "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur das Ereignis A abgezogen"
+     "beschreibung": "nur die Nummern in beiden Gruppen angegeben"
     }
    ],
    "aufgabe": {
@@ -151,15 +151,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Ein Glücksrad hat 20 gleich große Felder mit den Nummern 1 bis 20. Ereignis A: „Die Nummer ist ein Vielfaches von 4“. Ereignis B: „Die Nummer ist ein Vielfaches von 6“. Wie viele Ergebnisse gehören weder zu A noch zu B?"
+     "text": "Ein Glücksrad hat 30 gleich große Felder mit den Nummern 1 bis 30. Ereignis A: „Die Nummer ist ein Vielfaches von 3“. Ereignis B: „Die Nummer ist ein Vielfaches von 5“. Wie viele Ergebnisse gehören zu genau einem der beiden Ereignisse (zu A oder zu B, aber nicht zu beiden)?"
     },
     "o": {
-     "wert": 13,
+     "wert": 12,
      "einheit": "Ergebnisse"
     },
-    "c": "20 - (5 + 3 - 1)",
-    "h": "Zähle die Vielfachen von 4 und die von 6. Achte auf Zahlen, die in beiden Gruppen vorkommen.",
-    "w": "A: 4, 8, 12, 16, 20 – das sind 5. B: 6, 12, 18 – das sind 3. In beiden steht 12. A oder B: 5 + 3 − 1 = 7 Ergebnisse. Weder A noch B: 20 − 7 = 13. Probe: 13 Nummern bleiben übrig."
+    "c": "(10 - 2) + (6 - 2)",
+    "h": "Zähle die Vielfachen von 3 und die von 5. Welche Nummern stehen in beiden Gruppen?",
+    "w": "A: 3, 6, …, 30, das sind 10. B: 5, 10, …, 30, das sind 6. In beiden stehen 15 und 30, also 2. Nur A: 10 − 2 = 8. Nur B: 6 − 2 = 4. Genau eines der beiden: 8 + 4 = 12 Ergebnisse."
    }
   },
   {
@@ -425,22 +425,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 16,
+     "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "alle Radfahrer von den Frauen abgezogen"
+     "beschreibung": "den Anteil der Männer mit Rad statt ohne Rad angegeben"
     },
     {
-     "antwort": 10,
+     "antwort": 70,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Frauen mit Rad angegeben"
+     "beschreibung": "alle Personen ohne Rad auf alle Personen bezogen"
     },
     {
-     "antwort": 40,
+     "antwort": 50,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "alle Personen ohne Rad angegeben"
+     "beschreibung": "20 Männer mit Rad gerechnet (die Frauenzahl der Radfahrer)"
     }
    ],
    "aufgabe": {
@@ -451,15 +451,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "In einer Gruppe von 60 Personen sind 36 Frauen. 20 Personen kommen mit dem Rad. Unter den Radfahrern sind genauso viele Frauen wie Männer. Wie viele Frauen kommen nicht mit dem Rad?"
+     "text": "In einer Gruppe von 100 Personen sind 60 Frauen. 30 Personen kommen mit dem Rad. Unter den Radfahrern sind doppelt so viele Frauen wie Männer. Wie viel Prozent der Männer kommen nicht mit dem Rad?"
     },
     "o": {
-     "wert": 26,
-     "einheit": "Frauen"
+     "wert": 75,
+     "einheit": "%"
     },
-    "c": "36 - 20 / 2",
-    "h": "Zeichne eine Vierfeldertafel mit „Frau / Mann“ und „Rad / nicht Rad“. Wie viele Frauen fahren Rad?",
-    "w": "Die 20 Radfahrer sind zur Hälfte Frauen: 10 Frauen. Frauen insgesamt: 36. Frauen ohne Rad: 36 − 10 = 26. Probe: Männer mit Rad 10, Männer ohne Rad 24 − 10 = 14, zusammen 10 + 26 + 10 + 14 = 60."
+    "c": "(40 - 30 / 3) / 40 * 100",
+    "h": "Zeichne eine Vierfeldertafel mit „Frau / Mann“ und „Rad / nicht Rad“. Wie viele Männer fahren Rad? Rechne mit den 30 Radfahrern in zwei Teilen.",
+    "w": "Männer insgesamt: 100 − 60 = 40. Die Radfahrer sind in drei gleiche Teile geteilt: 2 Teile Frauen, 1 Teil Männer. Männer mit Rad: 30 : 3 = 10. Männer ohne Rad: 40 − 10 = 30. Anteil: 30 : 40 = 0,75 = 75 %."
    }
   }
  ]

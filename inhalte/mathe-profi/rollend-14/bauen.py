@@ -4,6 +4,7 @@ Aufruf: python3 -I inhalte/mathe-profi/rollend-14/bauen.py     (muss mit „OK�
 Lädt th_<Thema>.py (je Thema eine Datei mit den Aufgaben), prüft alles, schreibt je Thema <Thema>.json.
 Nur Inhalte. Nichts wird eingespielt.
 """
+import difflib
 import glob
 import json
 import math
@@ -128,6 +129,74 @@ for _p in glob.glob(os.path.join(WURZEL, "inhalte", "mathe-profi", "rollend-*", 
             ANDERE_BAU.add(bau_ohne_zahl(_t))
 
 
+# ═════════ Doppelungsprüfung über Zahlen, Sollwert und Wortlaut ═════════
+# Der Vergleich über den maskierten Fragetext (Bauplan) erkennt nur Aufgaben mit gleichem Wortlaut. Hier wird jede neue Aufgabe zusätzlich
+# gegen ALLE Aufgaben derselben Einheit im Bestand (inhalte/themen/<datei>.json, das sind auch die Generator-Ausgaben) und gegen alle
+# Aufgaben der früheren Runden (rollend-1 bis rollend-13) über Zahlenmenge, Sollwert und Wortlaut verglichen.
+DP_STOP = set("wieviel viele welche welcher wird werden sind ist hat haben eine einen einem eines dann auch nicht noch sich oder aber nach beim vom zum zur dass dieser wenn immer jede jeder jedes".split())
+DP_EINHEITHOCH = re.compile(r"(?<=[A-Za-zµ])[⁰¹²³⁴⁵⁶⁷⁸⁹]+")    # Hochzahl an einer Einheit (m², cm³) ist keine Zahl der Aufgabe
+DP_ZEHNER = re.compile(r"10[⁻⁰¹²³⁴⁵⁶⁷⁸⁹]")
+DP_PI_REST = F(14, 100)                                            # 3,14 ist vorgegeben und zählt nicht als gemeinsame Nachkommastellen
+
+
+def dp_zahlen(t):
+    t = HOCHLAUF.sub(lambda m: " " + m.group(0).translate(HOCH) + " ", DP_EINHEITHOCH.sub("", t))
+    return {F(re.sub(r"[  ]", "", m).replace("−", "").replace("-", "").replace(",", ".")) for m in ZAHL.findall(t)}
+
+
+def dp_merk(q):
+    t = q["f"].get("text", "")
+    o = q["o"]
+    return dict(t=t, N=dp_zahlen(t), S=F(str(o["wert"])) if "wert" in o else None, M=bau_ohne_zahl(t),
+                W={w for w in re.findall(r"[a-zäöüß]{4,}", t.lower())} - DP_STOP)
+
+
+def dp_dez(S):
+    """Nachkommaanteile der Dezimalzahlen (ohne den Rest von 3,14)"""
+    return {n - (n.numerator // n.denominator) for n in S if n.denominator != 1} - {DP_PI_REST}
+
+
+def dp_fein(x):
+    return (x * 1000).denominator == 1 and (x * 100).denominator != 1
+
+
+def dp_vergleich(a, b):
+    """a: Aufgabe der Runde, b: Aufgabe aus dem Bestand (beide als dp_merk). Liefert den Grund der Ähnlichkeit oder None."""
+    jac = lambda X, Y: len(X & Y) / max(1, len(X | Y))
+    sm = difflib.SequenceMatcher(None, a["M"], b["M"])
+    ratio = sm.ratio() if (abs(len(a["M"]) - len(b["M"])) < 40 and sm.real_quick_ratio() >= .7 and sm.quick_ratio() >= .7) else 0
+    ws, jn = jac(a["W"], b["W"]), jac(a["N"], b["N"])
+    gleich = a["S"] is not None and a["S"] == b["S"]
+    da, db = dp_dez(a["N"]), dp_dez(b["N"])
+    if gleich and len(a["N"]) >= 2 and jn >= .75 and ws >= .2:
+        return "gleiche Zahlen und gleicher Sollwert"
+    if gleich and jn >= .99 and len(a["N"]) >= 3 and ws >= .15:
+        return "dieselbe Zahlenmenge und gleicher Sollwert"
+    if gleich and jn >= .5 and len(a["N"]) >= 4 and DP_ZEHNER.search(a["t"]) and DP_ZEHNER.search(b["t"]):
+        return "Zehnerpotenzen mit fast denselben Zahlen und gleichem Sollwert"
+    if ratio >= .9:
+        return "fast gleicher Wortlaut"
+    if jn >= .99 and len(a["N"]) >= 2 and ws >= .5:
+        return "gleiche Zahlen im gleichen Sachverhalt"
+    if jn >= .99 and ratio >= .8 and ws >= .25:
+        return "gleiche Zahlen, fast gleicher Wortlaut"
+    if da & db and ratio >= .7 and ws >= .4:
+        return "gleicher Aufbau mit denselben Nachkommastellen"
+    if len(da & db) >= 2 and any(dp_fein(x) for x in da & db):
+        return "dieselben Nachkommastellen in mehreren Zahlen"
+    return None
+
+
+DP_BESTAND = {dat: [(f"{dat}:{i}", dp_merk(a)) for i, a in enumerate(d["aufgaben"]) if a["f"].get("text")] for dat, d in BESTAND.items()}
+DP_ANDERE = []
+for _p in sorted(glob.glob(os.path.join(WURZEL, "inhalte", "mathe-profi", "rollend-*", "*.json"))):
+    if "rollend-14" in _p:
+        continue
+    for _e in json.load(open(_p, encoding="utf-8")).get("aufgaben", []):
+        if isinstance(_e, dict) and "aufgabe" in _e and _e["aufgabe"]["f"].get("text"):
+            DP_ANDERE.append((os.path.basename(os.path.dirname(_p)) + ":" + str(_e.get("kennung", "")), dp_merk(_e["aufgabe"])))
+
+
 # ═════════ Hilfen für Lücken und Fehlbilder ═════════
 GGT = re.compile(r"ggT\(\s*(\(?-?\d+\)?)\s*,\s*(\(?-?\d+\)?)\s*\)")
 PLATZ = re.compile(r"\{(\d+)\}")
@@ -245,6 +314,10 @@ for a in A:
     if "grafik" in q["f"]:
         assert grafik_ok(q["f"]["grafik"]), (kenn, "grafik")
         n_grafik += 1
+    dm = dp_merk(q)
+    for dquelle, db_ in DP_BESTAND[datei] + DP_ANDERE:
+        grund = dp_vergleich(dm, db_)
+        assert not grund, (kenn, "Doppelung mit dem Bestand:", grund, dquelle, db_["t"][:100])
     alle_texte.add(text)
     alle_bau[datei].add(b)
     eintrag = dict(kennung=kenn, thema=a["thema"], lernkarte=a["lk"], stufe=a["s"], typ=FORM[a["form"]][0], form=a["form"], antwortform=q["y"],
@@ -432,6 +505,32 @@ for a in A:
         assert fw != w                                                                                 # kein Fehlbild entspricht dem richtigen Wert
         n_neg["Fehlbild-Wert um 1 verschoben fällt auf"] += 1
         n_neg["Fehlbild ist nicht die richtige Antwort"] += 1
+# 8. Doppelungsprüfung über Zahlen, Sollwert und Wortlaut: die zwölf Aufgaben des ersten Entwurfs (Stand df4ba006), die ein Prüfer als Doppelung
+#    mit dem Bestand gefunden hat, müssen erkannt werden; der Bauplan-Vergleich allein hat sie übersehen
+DP_ALT = [
+    ('011', 'terme.potenzgesetze_ganzzahlig', 'Ein Transistor auf einem Chip ist 5 · 10⁻⁹ m breit. Ein Streifen auf dem Chip ist 2 · 10⁻⁵ m lang. Auf dem Streifen sollen Transistoren lückenlos nebeneinander liegen. Wie viele Transistoren passen auf den Streifen?', 4000),
+    ('091', 'messen.koerper_berechnung', 'Ein offenes Schwimmbecken hat die Form eines Quaders: 10 m lang, 5 m breit und 2 m tief. Boden und die vier Wände werden gefliest. Wie viele Quadratmeter Fliesen werden gebraucht?', 110),
+    ('106', 'bruch.prozent', 'Noa löst in einem Test 34 von 40 Aufgaben richtig. Wie viel Prozent der Aufgaben hat Noa richtig gelöst?', 85),
+    ('112', 'bruch.prozent', 'Ein Paar Schuhe kostet 60 €. Beim Schlussverkauf gibt es 15 % Rabatt. Wie viel Euro kosten die Schuhe jetzt?', 51),
+    ('143', 'groessen.proportional', 'Alle Paare einer Tabelle gehören zu einer proportionalen Zuordnung, nur ein Wert wurde falsch eingetragen: (3 | 12), (5 | 20), (8 | 34). Welche Zahl müsste statt 34 stehen?', 32),
+    ('147', 'messen.volumen', 'Ein großer Würfel besteht aus 5 · 5 · 5 kleinen Würfeln. Er wird außen ganz blau angemalt. Wie viele kleine Würfel haben dann keine blaue Fläche?', 27),
+    ('169', 'bruch.dezimal', 'Drei Päckchen wiegen 2,35 kg, 2,4 kg und 2,305 kg. Um wie viele Gramm ist das leichteste Päckchen leichter als das schwerste?', 95),
+    ('170', 'bruch.dezimal', 'Wie viele Dezimalzahlen mit genau zwei Nachkommastellen liegen zwischen 0,4 und 0,5? Die Zahlen 0,4 und 0,5 selbst zählen nicht mit.', 9),
+    ('174', 'bruch.dezimal', 'Eine Dezimalzahl mit zwei Nachkommastellen wird auf Zehntel gerundet. Das Ergebnis ist 4,3. Welche ist die größte Zahl, für die das gilt?', 4.34),
+    ('175', 'bruch.dezimal', 'Kim trinkt 3/8 Liter Saft. Schreibe die Menge als Dezimalzahl.', 0.375),
+    ('188', 'bruch.dezimal', 'Welche Dezimalzahl liegt genau in der Mitte zwischen 2,4 und 2,5?', 2.45),
+    ('208', 'messen.flaechen_vielecke', 'Ein Dreieck hat die Grundseite 8 cm und die Höhe 6 cm. Die Grundseite wird verdoppelt, die Höhe bleibt gleich. Wie groß ist die neue Fläche?', 48),
+]
+for kz, dat, text, wert in DP_ALT:
+    m = dp_merk({"f": {"text": text}, "o": {"wert": wert}})
+    assert any(dp_vergleich(m, b) for _, b in DP_BESTAND[dat] + DP_ANDERE), ("Doppelung aus dem ersten Entwurf nicht erkannt", kz)
+    n_neg["Doppelung mit dem Bestand wird erkannt (alter Entwurf)"] += 1
+# eine Aufgabe mit anderem Sachverhalt und anderen Zahlen darf nicht anschlagen
+for dat, text, wert in [("messen.volumen", "Eine Regentonne ist innen 70 cm lang, 40 cm breit und 90 cm hoch. Wie viele Liter fasst sie?", 252),
+                        ("bruch.prozent", "Alex spart 15 € von 250 € Taschengeld. Wie viel Prozent sind das?", 6)]:
+    m = dp_merk({"f": {"text": text}, "o": {"wert": wert}})
+    assert not any(dp_vergleich(m, b) for _, b in DP_BESTAND[dat] + DP_ANDERE), ("falscher Alarm", text)
+    n_neg["andere Aufgabe schlägt nicht an"] += 1
 print()
 print("Selbstprüfung mit Negativproben (jede Probe muss die Prüfung zum Anschlagen bringen):")
 for k, v in n_neg.items():

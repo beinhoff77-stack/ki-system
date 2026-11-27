@@ -37,10 +37,10 @@
      "beschreibung": "nur Kims Ergebnis angegeben"
     },
     {
-     "antwort": 6,
+     "antwort": 0,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Zahl 3 mit 2 malgenommen"
+     "beschreibung": "bei Kim Punkt vor Strich nicht beachtet, beide Terme gleich gerechnet"
     }
    ],
    "aufgabe": {
@@ -248,7 +248,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Alex hat auf einem Konto 50 €. Das Guthaben in Euro wird nach t Wochen durch den Term 50 − 4 · (t + 2) angegeben. Wie viel Euro sind es nach t = 3 Wochen?"
+     "text": "Vor zwei Wochen hatte Alex 50 € auf dem Konto. Seitdem werden jede Woche 4 € abgebucht. Das Guthaben in Euro wird t Wochen ab heute durch den Term 50 − 4 · (t + 2) angegeben. Wie viel Euro sind es nach t = 3 Wochen?"
     },
     "o": {
      "wert": 30,

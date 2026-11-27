@@ -125,22 +125,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
+     "antwort": 320,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die proportionale Größe als Unterschied angegeben"
+    },
+    {
+     "antwort": 52,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied zu 128 cm statt zur Vorhersage berechnet"
+    },
+    {
      "antwort": 24,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das tatsächliche Wachstum angegeben"
-    },
-    {
-     "antwort": 192,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die proportionale Größe als Abweichung angegeben"
-    },
-    {
-     "antwort": 64,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "das Wachstum nach Sams Rechnung angegeben"
+     "beschreibung": "das tatsächliche Wachstum bis 12 Jahre angegeben"
     }
    ],
    "aufgabe": {
@@ -151,15 +151,15 @@
     "g": "pruefung",
     "y": "zahl",
     "f": {
-     "text": "Sam behauptet: „Die Zuordnung Alter → Körpergröße ist proportional. Mit 8 Jahren war ich 128 cm groß, mit 12 Jahren bin ich also 192 cm groß.“ Mit 12 Jahren ist Sam aber 152 cm groß. Um wie viele Zentimeter weicht der Wert, den die Proportionalität liefert, vom wirklichen Wert ab?"
+     "text": "Sam behauptet: „Die Zuordnung Alter → Körpergröße ist proportional.“ Mit 8 Jahren war Sam 128 cm groß, mit 12 Jahren ist Sam 152 cm groß. Sam rechnet vom Wert bei 8 Jahren proportional weiter und sagt voraus, wie groß er mit 20 Jahren wäre. Um wie viele Zentimeter ist diese Vorhersage größer als eine realistische Größe von 180 cm?"
     },
     "o": {
-     "wert": 40,
+     "wert": 140,
      "einheit": "cm"
     },
-    "c": "128 / 8 * 12 - 152",
-    "h": "Berechne zuerst, welche Größe bei Proportionalität für 12 Jahre herauskäme. Vergleiche mit 152 cm.",
-    "w": "Bei Proportionalität wären es 128 : 8 = 16 cm je Jahr und mit 12 Jahren 16 · 12 = 192 cm. Wirklich sind es 152 cm. Abweichung: 192 − 152 = 40 cm. Das Wachstum ist nicht proportional (zu 0 Jahren gehört nicht 0 cm)."
+    "c": "128 / 8 * 20 - 180",
+    "h": "Berechne zuerst, wie viele Zentimeter Sam bei 8 Jahren je Lebensjahr hat. Dann rechnest du auf 20 Jahre hoch und vergleichst.",
+    "w": "Bei Proportionalität: 128 : 8 = 16 cm je Jahr. Mit 20 Jahren wären es 16 · 20 = 320 cm. Das sind 320 − 180 = 140 cm mehr als realistisch. Die Annahme stimmt nicht: Schon bei 12 Jahren wären es 192 cm statt 152 cm."
    }
   },
   {
@@ -375,22 +375,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 28,
+     "antwort": 37,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "8 zum Wert 20 addiert"
-    },
-    {
-     "antwort": 24,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den Wert 12 verdoppelt"
+     "beschreibung": "10 zum Wert 27 addiert"
     },
     {
      "antwort": 40,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "8 mit 5 malgenommen"
+     "beschreibung": "mit 4 statt mit 4,5 malgenommen"
+    },
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10 mit 6 malgenommen"
     }
    ],
    "aufgabe": {
@@ -401,14 +401,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Alle Paare einer Tabelle gehören zu einer proportionalen Zuordnung, nur ein Wert wurde falsch eingetragen: (3 | 12), (5 | 20), (8 | 34). Welche Zahl müsste statt 34 stehen?"
+     "text": "Alle Paare einer Tabelle gehören zu einer proportionalen Zuordnung, nur ein Wert wurde falsch eingetragen: (4 | 18), (6 | 27), (10 | 46). Welche Zahl müsste statt 46 stehen?"
     },
     "o": {
-     "wert": 32
+     "wert": 45
     },
-    "c": "12 / 3 * 8",
+    "c": "18 / 4 * 10",
     "h": "Rechne in jeder Spalte zweite Zahl : erste Zahl. Welche Zahl kommt zweimal heraus?",
-    "w": "12 : 3 = 4 und 20 : 5 = 4. Der Faktor ist 4. Bei 8 müsste 4 · 8 = 32 stehen, nicht 34. Probe: 34 : 8 = 4,25, das passt nicht zu 4."
+    "w": "18 : 4 = 4,5 und 27 : 6 = 4,5. Der Faktor ist 4,5. Bei 10 müsste 4,5 · 10 = 45 stehen, nicht 46. Probe: 46 : 10 = 4,6, das passt nicht zu 4,5."
    }
   },
   {
@@ -424,22 +424,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 300,
+     "antwort": 11.25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Verbrauch für 15 km mit 250 malgenommen"
+     "beschreibung": "mit 1,5 malgenommen statt mit der Strecke je Liter"
     },
     {
-     "antwort": 2000,
+     "antwort": 750,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Verbrauch je km mit 8 statt 0,08 gerechnet"
+     "beschreibung": "die Strecke für einen Liter als 100 km angenommen"
     },
     {
-     "antwort": 16.666666666666668,
+     "antwort": 47.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Strecke durch 15 geteilt"
+     "beschreibung": "40 km zu den Litern addiert"
     }
    ],
    "aufgabe": {
@@ -450,15 +450,15 @@
     "g": "pruefung",
     "y": "zahl",
     "f": {
-     "text": "Eine Tabelle zeigt, wie viel Benzin ein Moped auf verschiedenen Strecken verbraucht: 15 km → 1,2 l; 24 km → 1,92 l; 33 km → 2,64 l. Die Zuordnung ist proportional. Wie viel Liter verbraucht das Moped auf 250 km?"
+     "text": "Eine Tabelle zeigt, wie viel Benzin ein Motorroller auf verschiedenen Strecken verbraucht: 40 km → 1 l; 60 km → 1,5 l; 100 km → 2,5 l. Die Zuordnung ist proportional. Wie viele Kilometer kommt der Roller mit 7,5 Litern?"
     },
     "o": {
-     "wert": 20,
-     "einheit": "l"
+     "wert": 300,
+     "einheit": "km"
     },
-    "c": "250 * 1.2 / 15",
-    "h": "Prüfe, ob in jeder Spalte Liter : Kilometer dieselbe Zahl ergibt. Dann rechnest du den Verbrauch für 250 km.",
-    "w": "1,2 : 15 = 0,08; 1,92 : 24 = 0,08; 2,64 : 33 = 0,08. Es sind immer 0,08 l je km, die Zuordnung ist proportional. 250 km: 250 · 0,08 = 20 l."
+    "c": "7.5 / (1.5 / 60)",
+    "h": "Prüfe, ob in jeder Spalte Liter : Kilometer dieselbe Zahl ergibt. Wie viele Kilometer fährt der Roller mit einem Liter? Dann rechnest du mit 7,5 Litern.",
+    "w": "1 : 40 = 0,025; 1,5 : 60 = 0,025; 2,5 : 100 = 0,025. Es sind immer 0,025 l je km, die Zuordnung ist proportional. Mit 1 l kommt der Roller 40 km weit, mit 7,5 l also 7,5 · 40 = 300 km."
    }
   }
  ]

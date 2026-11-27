@@ -11,10 +11,10 @@ a2(T, "erkennen", Z(
     "Bei Bäckerei B kostet schon die Tüte 1 €, auch bei 0 Brötchen: Das ist nicht proportional. Bei Bäckerei A kostet ein Brötchen 2,40 : 6 = 0,40 €. 12 Brötchen kosten 12 · 0,40 = 4,80 €. Das ist das Doppelte von 2,40 €.",
     [B("1 + 0.3 * 12", "den Preis der Bäckerei B berechnet, die nicht proportional ist"), B("2.4 + 6", "6 Brötchen dazugezählt und 6 € addiert"), B("2.4 / 6", "nur den Preis eines Brötchens angegeben")], "€"))
 a3(T, "erkennen", Z(
-    "Sam behauptet: „Die Zuordnung Alter → Körpergröße ist proportional. Mit 8 Jahren war ich 128 cm groß, mit 12 Jahren bin ich also 192 cm groß.“ Mit 12 Jahren ist Sam aber 152 cm groß. Um wie viele Zentimeter weicht der Wert, den die Proportionalität liefert, vom wirklichen Wert ab?",
-    40, "128 / 8 * 12 - 152", "192 - 152", "Berechne zuerst, welche Größe bei Proportionalität für 12 Jahre herauskäme. Vergleiche mit 152 cm.",
-    "Bei Proportionalität wären es 128 : 8 = 16 cm je Jahr und mit 12 Jahren 16 · 12 = 192 cm. Wirklich sind es 152 cm. Abweichung: 192 − 152 = 40 cm. Das Wachstum ist nicht proportional (zu 0 Jahren gehört nicht 0 cm).",
-    [B("152 - 128", "das tatsächliche Wachstum angegeben"), B("128 / 8 * 12", "die proportionale Größe als Abweichung angegeben"), B("192 - 128", "das Wachstum nach Sams Rechnung angegeben")], "cm"), g="pruefung")
+    "Sam behauptet: „Die Zuordnung Alter → Körpergröße ist proportional.“ Mit 8 Jahren war Sam 128 cm groß, mit 12 Jahren ist Sam 152 cm groß. Sam rechnet vom Wert bei 8 Jahren proportional weiter und sagt voraus, wie groß er mit 20 Jahren wäre. Um wie viele Zentimeter ist diese Vorhersage größer als eine realistische Größe von 180 cm?",
+    140, "128 / 8 * 20 - 180", "320 - 180", "Berechne zuerst, wie viele Zentimeter Sam bei 8 Jahren je Lebensjahr hat. Dann rechnest du auf 20 Jahre hoch und vergleichst.",
+    "Bei Proportionalität: 128 : 8 = 16 cm je Jahr. Mit 20 Jahren wären es 16 · 20 = 320 cm. Das sind 320 − 180 = 140 cm mehr als realistisch. Die Annahme stimmt nicht: Schon bei 12 Jahren wären es 192 cm statt 152 cm.",
+    [B("128 / 8 * 20", "die proportionale Größe als Unterschied angegeben"), B("180 - 128", "den Unterschied zu 128 cm statt zur Vorhersage berechnet"), B("152 - 128", "das tatsächliche Wachstum bis 12 Jahre angegeben")], "cm"), g="pruefung")
 # ───────── vervielfachen ─────────
 a1(T, "vervielfachen", Z(
     "Ein Auto verbraucht auf 100 km genau 6 Liter Benzin. Der Verbrauch ist auf jedem Kilometer gleich. Wie viele Liter Benzin verbraucht es auf 350 km?",
@@ -38,12 +38,12 @@ a1(T, "pruefen", Z(
     "5 : 2 = 2,5; 7,5 : 3 = 2,5; 12,5 : 5 = 2,5. Immer 2,50 € je kg, die Tabelle ist proportional. 8 kg kosten 8 · 2,5 = 20 €. Probe: 3 kg + 5 kg: 7,50 + 12,50 = 20.",
     [B("12.5 + 8", "8 € zum Preis von 5 kg addiert"), B("5 * 8", "die 5 € mit 8 malgenommen"), B("2.5 * 8 + 5", "5 € Grundpreis dazugezählt")], "€"))
 a2(T, "pruefen", Z(
-    "Alle Paare einer Tabelle gehören zu einer proportionalen Zuordnung, nur ein Wert wurde falsch eingetragen: (3 | 12), (5 | 20), (8 | 34). Welche Zahl müsste statt 34 stehen?",
-    32, "12 / 3 * 8", "20 / 5 * 8", "Rechne in jeder Spalte zweite Zahl : erste Zahl. Welche Zahl kommt zweimal heraus?",
-    "12 : 3 = 4 und 20 : 5 = 4. Der Faktor ist 4. Bei 8 müsste 4 · 8 = 32 stehen, nicht 34. Probe: 34 : 8 = 4,25, das passt nicht zu 4.",
-    [B("20 + 8", "8 zum Wert 20 addiert"), B("12 * 2", "den Wert 12 verdoppelt"), B("8 * 5", "8 mit 5 malgenommen")]))
+    "Alle Paare einer Tabelle gehören zu einer proportionalen Zuordnung, nur ein Wert wurde falsch eingetragen: (4 | 18), (6 | 27), (10 | 46). Welche Zahl müsste statt 46 stehen?",
+    45, "18 / 4 * 10", "27 / 6 * 10", "Rechne in jeder Spalte zweite Zahl : erste Zahl. Welche Zahl kommt zweimal heraus?",
+    "18 : 4 = 4,5 und 27 : 6 = 4,5. Der Faktor ist 4,5. Bei 10 müsste 4,5 · 10 = 45 stehen, nicht 46. Probe: 46 : 10 = 4,6, das passt nicht zu 4,5.",
+    [B("27 + 10", "10 zum Wert 27 addiert"), B("10 * 4", "mit 4 statt mit 4,5 malgenommen"), B("10 * 6", "10 mit 6 malgenommen")]))
 a3(T, "pruefen", Z(
-    "Eine Tabelle zeigt, wie viel Benzin ein Moped auf verschiedenen Strecken verbraucht: 15 km → 1,2 l; 24 km → 1,92 l; 33 km → 2,64 l. Die Zuordnung ist proportional. Wie viel Liter verbraucht das Moped auf 250 km?",
-    20, "250 * 1.2 / 15", "250 * 0.08", "Prüfe, ob in jeder Spalte Liter : Kilometer dieselbe Zahl ergibt. Dann rechnest du den Verbrauch für 250 km.",
-    "1,2 : 15 = 0,08; 1,92 : 24 = 0,08; 2,64 : 33 = 0,08. Es sind immer 0,08 l je km, die Zuordnung ist proportional. 250 km: 250 · 0,08 = 20 l.",
-    [B("1.2 * 250", "den Verbrauch für 15 km mit 250 malgenommen"), B("250 * 8", "den Verbrauch je km mit 8 statt 0,08 gerechnet"), B("250 / 15", "die Strecke durch 15 geteilt")], "l"), g="pruefung")
+    "Eine Tabelle zeigt, wie viel Benzin ein Motorroller auf verschiedenen Strecken verbraucht: 40 km → 1 l; 60 km → 1,5 l; 100 km → 2,5 l. Die Zuordnung ist proportional. Wie viele Kilometer kommt der Roller mit 7,5 Litern?",
+    300, "7.5 / (1.5 / 60)", "7.5 * 40", "Prüfe, ob in jeder Spalte Liter : Kilometer dieselbe Zahl ergibt. Wie viele Kilometer fährt der Roller mit einem Liter? Dann rechnest du mit 7,5 Litern.",
+    "1 : 40 = 0,025; 1,5 : 60 = 0,025; 2,5 : 100 = 0,025. Es sind immer 0,025 l je km, die Zuordnung ist proportional. Mit 1 l kommt der Roller 40 km weit, mit 7,5 l also 7,5 · 40 = 300 km.",
+    [B("7.5 * 1.5", "mit 1,5 malgenommen statt mit der Strecke je Liter"), B("7.5 * 100", "die Strecke für einen Liter als 100 km angenommen"), B("7.5 + 40", "40 km zu den Litern addiert")], "km"), g="pruefung")

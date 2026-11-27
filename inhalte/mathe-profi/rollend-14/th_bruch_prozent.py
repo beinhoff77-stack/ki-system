@@ -11,16 +11,16 @@ a2(T, "prozent_bedeutung", Z(
     "0,4 = 40/100 = 40 %. Orangensaft und Apfelsaft zusammen: 35 % + 40 % = 75 %. Wasser: 100 % − 75 % = 25 %.",
     [B("100 - 35 - 0.4", "0,4 als 0,4 % statt als 40 % gelesen"), B("100 - 35", "den Apfelsaft vergessen"), B("35 + 40", "die beiden Anteile angegeben statt den Rest")], "%"))
 a3(T, "prozent_bedeutung", Z(
-    "Eine Wanderstrecke ist 80 m lang. Davon sind 0,25 asphaltiert und 15 % geschottert. Ein Fünftel der Strecke ist Wiese. Der Rest ist ein Waldweg. Wie viele Meter ist der Waldweg lang?",
-    32, "80 * (1 - 0.25 - 15 / 100 - 1 / 5)", "80 * 40 / 100", "Schreibe alle Anteile als Prozent. Wie viel Prozent bleiben für den Waldweg?",
-    "0,25 = 25 %, 15 %, 1/5 = 20 %. Zusammen 25 % + 15 % + 20 % = 60 %. Der Waldweg ist 40 % der Strecke: 40 % von 80 m = 0,4 · 80 = 32 m.",
-    [B("80 * (1 - 0.25 - 0.15 - 0.5)", "ein Fünftel als 0,5 gelesen"), B("80 * (0.25 + 0.15 + 1 / 5)", "den befestigten Teil statt des Waldwegs berechnet"), B("100 - 60", "den Anteil 40 % als 40 m angegeben")], "m"), g="verknuepfen")
+    "Ein Parkweg ist 80 m lang. Davon sind 0,25 asphaltiert und 15 % geschottert. Ein Fünftel des Weges ist Wiese. Der Rest ist ein Sandweg. Wie viele Meter ist der Sandweg lang?",
+    32, "80 * (1 - 0.25 - 15 / 100 - 1 / 5)", "80 * 40 / 100", "Schreibe alle Anteile als Prozent. Wie viel Prozent bleiben für den Sandweg?",
+    "0,25 = 25 %, 15 %, 1/5 = 20 %. Zusammen 25 % + 15 % + 20 % = 60 %. Der Sandweg ist 40 % des Weges: 40 % von 80 m = 0,4 · 80 = 32 m.",
+    [B("80 * (1 - 0.25 - 0.15 - 0.5)", "ein Fünftel als 0,5 gelesen"), B("80 * (0.25 + 0.15 + 1 / 5)", "die drei genannten Anteile statt den Rest berechnet"), B("100 - 60", "den Anteil 40 % als 40 m angegeben")], "m"), g="verknuepfen")
 # ───────── prozentwert ─────────
 a1(T, "prozentwert", Z(
     "In einer Schule mit 480 Kindern fahren 35 % mit dem Fahrrad zur Schule. Wie viele Kinder fahren mit dem Fahrrad?",
     168, "480 * 35 / 100", "480 / 100 * 35", "Berechne zuerst 1 % der Kinder. Nimm das Ergebnis mal 35.",
     "1 % von 480 sind 4,8 Kinder. 35 % sind 35 · 4,8 = 168 Kinder. Probe: 168 : 480 = 0,35.",
-    [B("480 * 0.035", "35 % als 0,035 gerechnet"), B("480 - 168", "die Kinder ohne Fahrrad angegeben"), B("480 / 35", "durch 35 geteilt statt mit 35 % gerechnet")], "Kinder"))
+    [B("480 * 0.035", "35 % als 0,035 gerechnet"), B("480 - 168", "die Kinder ohne Fahrrad angegeben"), B("480 * 3.5", "35 % als 3,5 gerechnet")], "Kinder"))
 a2(T, "prozentwert", Z(
     "Ein Obsthändler hat 250 kg Äpfel. 12 % davon sind angefault und werden aussortiert. Wie viele Kilogramm Äpfel kann er verkaufen?",
     220, "250 - 250 * 12 / 100", "250 * 88 / 100", "Berechne zuerst, wie viele Kilogramm aussortiert werden. Oder: Wie viel Prozent bleiben?",
@@ -33,10 +33,10 @@ a3(T, "prozentwert", Z(
     [B("40 * 25 / 100", "25 % von allen 40 Kindern genommen"), B("40 * (60 + 25) / 100", "die beiden Prozentsätze addiert"), B("40 * 60 / 100", "nur die Zahl der Mädchen angegeben")], "Mädchen"), g="verknuepfen")
 # ───────── prozentsatz ─────────
 a1(T, "prozentsatz", Z(
-    "Noa löst in einem Test 34 von 40 Aufgaben richtig. Wie viel Prozent der Aufgaben hat Noa richtig gelöst?",
-    85, "34 / 40 * 100", "34 * 2.5", "Teile die richtigen Aufgaben durch alle Aufgaben. Dann rechnest du in Prozent um.",
-    "34 : 40 = 0,85 = 85 %. Oder: 34/40 = 85/100 = 85 %.",
-    [B("34 / 40", "als Dezimalzahl angegeben und nicht in Prozent umgerechnet"), B("6 / 40 * 100", "die Fehler statt der richtigen Aufgaben genommen"), B("40 - 34", "die Zahl der Fehler angegeben")], "%"))
+    "Noa beantwortet bei einem Quiz 33 von 44 Fragen richtig. Wie viel Prozent der Fragen hat Noa richtig beantwortet?",
+    75, "33 / 44 * 100", "3 / 4 * 100", "Teile die richtigen Fragen durch alle Fragen. Dann rechnest du in Prozent um. Kürzen hilft: 33 und 44 haben einen gemeinsamen Teiler.",
+    "33 : 44 = 0,75 = 75 %. Oder: 33/44 = 3/4 (gekürzt mit 11) = 75/100 = 75 %.",
+    [B("33 / 44", "als Dezimalzahl angegeben und nicht in Prozent umgerechnet"), B("11 / 44 * 100", "die falschen Antworten statt der richtigen genommen"), B("44 - 33", "die Zahl der falschen Antworten angegeben")], "%"))
 a2(T, "prozentsatz", Z(
     "Der Preis einer Eintrittskarte steigt von 250 € auf 280 €. Um wie viel Prozent ist der Preis gestiegen?",
     12, "(280 - 250) / 250 * 100", "30 / 2.5", "Wie viel Euro ist der Preis gestiegen? Auf welchen Preis bezieht sich der Prozentsatz?",
@@ -59,26 +59,26 @@ a2(T, "grundwert", Z(
     "45 % sind 144 Bäume, also 1 % = 3,2 Bäume und 100 % = 320 Bäume. 15 % von 320 = 48 Bäume sind erkrankt.",
     [B("144 * 15 / 100", "15 % von den Buchen genommen statt von allen Bäumen"), B("144 / 45 * 100", "nur die Zahl aller Bäume angegeben"), B("144 * 45 / 100", "45 % von 144 gerechnet statt den Grundwert zu bestimmen")], "Bäume"))
 a3(T, "grundwert", Z(
-    "Ein Dorf ist in den letzten Jahren um 12 % gewachsen. Heute hat es 1 120 Einwohner. Um wie viele Einwohner ist das Dorf gewachsen?",
-    120, "1120 - 1120 / 112 * 100", "1000 * 12 / 100", "Heute sind 112 % des früheren Werts. Berechne zuerst die frühere Einwohnerzahl.",
-    "Heute: 100 % + 12 % = 112 % sind 1 120 Einwohner. 1 % sind 10 Einwohner, 100 % sind 1 000. Gewachsen ist das Dorf um 1 120 − 1 000 = 120 Einwohner (12 % von 1 000).",
-    [B("1120 * 12 / 100", "12 % von der heutigen Einwohnerzahl genommen"), B("1120 / 112 * 100", "die frühere Einwohnerzahl angegeben"), B("1120 - 12", "12 statt 12 % abgezogen")], "Einwohner"), g="rueckwaerts")
+    "Ein Verein hat 27 Kinder als Mitglieder. Das sind 15 % aller Mitglieder. 40 % aller Mitglieder sind Frauen. Wie viele Frauen sind Mitglied im Verein?",
+    72, "27 / 15 * 100 * 40 / 100", "180 * 0.4", "Berechne zuerst, wie viele Mitglieder der Verein insgesamt hat. Die 27 Kinder sind 15 %.",
+    "15 % sind 27 Kinder, 1 % sind 27 : 15 = 1,8. Alle Mitglieder (100 %): 1,8 · 100 = 180. Frauen: 40 % von 180 = 0,4 · 180 = 72.",
+    [B("27 * 40 / 100", "40 % von den 27 Kindern genommen"), B("27 / 15 * 100", "die Zahl aller Mitglieder angegeben"), B("27 / 40 * 100", "die 27 Kinder als 40 % gelesen")], "Frauen"), g="verknuepfen")
 # ───────── rabatt_aufschlag ─────────
 a1(T, "rabatt_aufschlag", Z(
-    "Ein Paar Schuhe kostet 60 €. Beim Schlussverkauf gibt es 15 % Rabatt. Wie viel Euro kosten die Schuhe jetzt?",
-    51, "60 * 85 / 100", "60 - 9", "Wie viel Prozent vom alten Preis bezahlst du noch? Oder berechne den Rabatt in Euro und ziehe ihn ab.",
-    "Rabatt: 15 % von 60 € = 9 €. Neuer Preis: 60 − 9 = 51 €. Oder: 85 % von 60 € = 51 €.",
-    [B("60 * 15 / 100", "den Rabatt in Euro statt des neuen Preises angegeben"), B("60 - 15", "15 € statt 15 % abgezogen"), B("60 * 115 / 100", "den Rabatt aufgeschlagen")], "€"))
+    "Ein Paar Kopfhörer kostet 90 €. Beim Schlussverkauf gibt es 30 % Rabatt. Wie viel Euro kosten die Kopfhörer jetzt?",
+    63, "90 * 70 / 100", "90 - 27", "Wie viel Prozent vom alten Preis bezahlst du noch? Oder berechne den Rabatt in Euro und ziehe ihn ab.",
+    "Rabatt: 30 % von 90 € = 27 €. Neuer Preis: 90 − 27 = 63 €. Oder: 70 % von 90 € = 63 €.",
+    [B("90 * 30 / 100", "den Rabatt in Euro statt des neuen Preises angegeben"), B("90 - 30", "30 € statt 30 % abgezogen"), B("90 * 130 / 100", "den Rabatt aufgeschlagen")], "€"))
 a2(T, "rabatt_aufschlag", Z(
-    "Ein Händler kauft einen Fernseher für 400 € ein und schlägt 30 % auf. Beim Verkauf gibt er dem Kunden 10 % Rabatt auf den Verkaufspreis. Wie viel Euro zahlt der Kunde?",
-    468, "400 * 130 / 100 * 90 / 100", "520 - 52", "Berechne zuerst den Verkaufspreis nach dem Aufschlag. Der Rabatt bezieht sich auf diesen neuen Preis.",
-    "Aufschlag: 30 % von 400 € = 120 €, Verkaufspreis 520 €. Rabatt: 10 % von 520 € = 52 €. Der Kunde zahlt 520 − 52 = 468 €.",
-    [B("400 * 120 / 100", "30 % Aufschlag und 10 % Rabatt zu 20 % Aufschlag zusammengefasst"), B("400 * 130 / 100", "den Rabatt vergessen"), B("400 * 130 / 100 * 110 / 100", "den Rabatt aufgeschlagen statt abgezogen")], "€"))
+    "Ein Spiel kostet 60 €. Im Angebot gibt es 20 % Rabatt. Kim hat außerdem einen Gutschein über 8 €. Der Gutschein wird erst nach dem Rabatt vom Preis abgezogen. Wie viel Euro zahlt Kim?",
+    40, "60 * 80 / 100 - 8", "48 - 8", "Berechne zuerst den Preis nach dem Rabatt. Dann ziehst du den Gutschein ab.",
+    "Rabatt: 20 % von 60 € = 12 €. Preis nach dem Rabatt: 60 − 12 = 48 €. Gutschein: 48 − 8 = 40 €. Kim zahlt 40 €.",
+    [B("60 - 8", "nur den Gutschein abgezogen"), B("60 * 80 / 100", "den Gutschein vergessen"), B("60 * 20 / 100 - 8", "den Rabatt in Euro statt des Preises mit dem Gutschein verrechnet")], "€"))
 a3(T, "rabatt_aufschlag", Z(
-    "Alex zahlt für eine Jacke nach einem Rabatt von 25 % genau 90 €. Wie viel Euro hat Alex durch den Rabatt gespart?",
-    30, "90 / 75 * 100 - 90", "120 - 90", "Die 90 € sind nicht 100 %. Wie viel Prozent des alten Preises sind 90 €? Berechne den alten Preis.",
-    "90 € sind 75 % des alten Preises. 1 % sind 1,20 €, 100 % sind 120 €. Gespart: 120 − 90 = 30 € (das sind 25 % von 120 €).",
-    [B("90 * 25 / 100", "25 % vom bezahlten Preis genommen"), B("90 / 75 * 100", "den alten Preis statt der Ersparnis angegeben"), B("90 / 25", "durch 25 geteilt")], "€"), g="rueckwaerts")
+    "Alex vergleicht zwei Jacken. Jacke A kostet 120 €, dafür gibt es 30 % Rabatt. Jacke B kostet 95 € ohne Rabatt. Um wie viel Euro ist die günstigere Jacke billiger als die andere?",
+    11, "95 - 120 * 70 / 100", "95 - 84", "Berechne zuerst, wie viel Jacke A nach dem Rabatt kostet. Dann vergleichst du mit 95 €.",
+    "Jacke A: 30 % von 120 € = 36 €, also 120 − 36 = 84 €. Jacke B kostet 95 €. Jacke A ist günstiger: 95 − 84 = 11 €.",
+    [B("120 * 30 / 100", "den Rabatt in Euro als Preis genommen"), B("120 - 95", "den Rabatt bei Jacke A nicht berücksichtigt"), B("95 - 120 * 30 / 100", "den Rabatt statt des neuen Preises verglichen")], "€"), g="verknuepfen")
 # ───────── verstehen ─────────
 a1(T, "verstehen", Z(
     "Kim sagt: „Beide Läden geben 20 % Rabatt auf eine Jacke, also spare ich in beiden Läden gleich viel.“ Im Laden A kostet die Jacke 80 €, im Laden B kostet sie 120 €. Wie viel Euro spart man in Laden B mehr als in Laden A?",

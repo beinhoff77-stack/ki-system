@@ -9,7 +9,7 @@ a2(T, "quader", Z(
     "Aus einem 1,5 m langen Draht wird das Kantenmodell eines Quaders gebaut. Der Quader ist 12 cm lang, 8 cm breit und 5 cm hoch. Wie viele Zentimeter Draht bleiben übrig?",
     50, "150 - 4 * (12 + 8 + 5)", "150 - 100", "Wie viele Kanten gleicher Länge gibt es von jeder Sorte? Rechne zuerst in Zentimetern.",
     "Von jeder Sorte (Länge, Breite, Höhe) gibt es 4 Kanten. Draht für das Modell: 4 · (12 + 8 + 5) = 4 · 25 = 100 cm. 1,5 m = 150 cm. Es bleiben 150 − 100 = 50 cm übrig.",
-    [B("4 * (12 + 8 + 5)", "den verbrauchten Draht statt des Rests angegeben"), B("150 - (12 + 8 + 5)", "nur 3 Kanten gezählt"), B("1.5 - 100", "1,5 m nicht in Zentimeter umgerechnet")], "cm"))
+    [B("4 * (12 + 8 + 5)", "den verbrauchten Draht statt des Rests angegeben"), B("150 - (12 + 8 + 5)", "von jeder Sorte nur eine Kante gezählt"), B("150 - 4 * (12 + 8)", "die vier Höhenkanten vergessen")], "cm"))
 a3(T, "quader", Z(
     "Ein Quader ist 9 cm lang und 6 cm breit. Sein Volumen ist 270 cm³. Wie viele Zentimeter Draht braucht man für ein Kantenmodell dieses Quaders?",
     80, "4 * (9 + 6 + 270 / (9 * 6))", "4 * 20", "Berechne zuerst die fehlende Höhe aus dem Volumen. Danach zählst du alle 12 Kanten.",
@@ -33,10 +33,10 @@ a3(T, "oberflaeche", Z(
     [B("(148 - 6 * 4) / (2 * (6 + 4))", "nur eine Grundfläche abgezogen"), B("(148 - 2 * 6 * 4) / (6 + 4)", "den Mantel mit 1 · (l + b) statt 2 · (l + b) gerechnet"), B("148 / (2 * (6 + 4))", "die Grundflächen gar nicht abgezogen")], "cm"), g="rueckwaerts")
 # ───────── sachaufgaben ─────────
 a1(T, "sachaufgaben", Z(
-    "Ein offenes Schwimmbecken hat die Form eines Quaders: 10 m lang, 5 m breit und 2 m tief. Boden und die vier Wände werden gefliest. Wie viele Quadratmeter Fliesen werden gebraucht?",
-    110, "10 * 5 + 2 * (10 * 2) + 2 * (5 * 2)", "50 + 40 + 20", "Das Becken hat oben keine Fläche. Berechne den Boden und die vier Wände, die Wände paarweise.",
-    "Boden: 10 · 5 = 50 m². Zwei lange Wände: 2 · (10 · 2) = 40 m². Zwei kurze Wände: 2 · (5 · 2) = 20 m². Zusammen 50 + 40 + 20 = 110 m².",
-    [B("2 * (10 * 5) + 2 * (10 * 2) + 2 * (5 * 2)", "oben eine Deckfläche mitgezählt"), B("10 * 5", "nur den Boden gerechnet"), B("2 * 10 * 2 + 2 * 5 * 2", "den Boden vergessen")], "m²"))
+    "Ein offenes Becken im Garten hat die Form eines Quaders: 12 m lang, 6 m breit und 1,5 m tief. Boden und die vier Wände werden mit Folie ausgekleidet. Wie viele Quadratmeter Folie werden gebraucht?",
+    126, "12 * 6 + 2 * (12 * 1.5) + 2 * (6 * 1.5)", "72 + 36 + 18", "Das Becken hat oben keine Fläche. Berechne den Boden und die vier Wände, die Wände paarweise.",
+    "Boden: 12 · 6 = 72 m². Zwei lange Wände: 2 · (12 · 1,5) = 36 m². Zwei kurze Wände: 2 · (6 · 1,5) = 18 m². Zusammen 72 + 36 + 18 = 126 m².",
+    [B("2 * (12 * 6) + 2 * (12 * 1.5) + 2 * (6 * 1.5)", "oben eine Deckfläche mitgezählt"), B("12 * 6", "nur den Boden gerechnet"), B("2 * 12 * 1.5 + 2 * 6 * 1.5", "den Boden vergessen")], "m²"))
 a2(T, "sachaufgaben", Z(
     "Ein Zimmer ist 6 m lang, 4 m breit und 2,5 m hoch. Die vier Wände werden gestrichen. Die Tür (2 m²) und das Fenster (3 m²) werden nicht gestrichen. Ein Eimer Farbe reicht für 12 m². Wie viele Eimer muss man mindestens kaufen?",
     4, "(2 * (6 * 2.5) + 2 * (4 * 2.5) - 2 - 3 + 11) // 12", "4", "Berechne die Fläche der vier Wände und ziehe Tür und Fenster ab. Teile durch 12 und überlege, wie viele ganze Eimer nötig sind.",
@@ -49,17 +49,17 @@ a3(T, "sachaufgaben", Z(
     [B("(2 * (1.5 * 0.6) + 2 * (0.6 * 2)) * 12", "die Rückwand vergessen"), B("(2 * (1.5 * 0.6) + 2 * (0.6 * 2) + 1.5 * 2) * 12", "die Rückwand zum Holzpreis gerechnet"), B("(2 * (1.5 * 0.6) + 2 * (0.6 * 2) + 2 * (1.5 * 2)) * 12", "Vorderseite und Rückwand zum Holzpreis gerechnet")], "€"), g="verknuepfen")
 # ───────── zusammengesetzt ─────────
 a1(T, "zusammengesetzt", Z(
-    "Zwei Holzwürfel mit je 2 cm Kantenlänge werden mit einer ganzen Fläche aufeinander geklebt. Wie groß ist die Oberfläche des neuen Körpers?",
-    40, "2 * 6 * 2 * 2 - 2 * 2 * 2", "5 * 4 * 2", "Rechne die Oberflächen beider Würfel einzeln und ziehe die Klebefläche zweimal ab.",
-    "Ein Würfel: 6 · 4 = 24 cm². Beide: 48 cm². Die Klebefläche (4 cm²) liegt bei beiden Würfeln innen. Sie fällt zweimal weg: 48 − 2 · 4 = 40 cm². Kontrolle: Die neue Form hat 2 Quadrate (Enden) + 4 Rechtecke 2 mal 4 cm: 8 + 32 = 40.",
-    [B("2 * 6 * 2 * 2", "die Klebefläche nicht abgezogen"), B("2 * 6 * 2 * 2 - 2 * 2", "die Klebefläche nur einmal abgezogen"), B("2 * 6 * 2 * 2 - 2 * 2 * 2 * 2", "für jeden Würfel zwei Flächen abgezogen")], "cm²"))
+    "Ein Holzwürfel hat 6 cm Kantenlänge. Von oben nach unten wird ein quadratisches Loch mit 2 cm Seitenlänge ganz durchgebohrt. Wie groß ist die Oberfläche des durchbohrten Würfels, mit den Wänden im Loch?",
+    256, "6 * 6 * 6 - 2 * (2 * 2) + 4 * (2 * 6)", "208 + 48", "Berechne die Oberfläche des Würfels. Zwei Öffnungen fallen weg, dafür kommen die Wände im Loch dazu.",
+    "Würfel: 6 · 36 = 216 cm². Die zwei Öffnungen (je 2 · 2 = 4 cm²) fallen weg: 216 − 8 = 208 cm². Das Loch hat 4 Wände, jede 2 · 6 = 12 cm²: 48 cm². Zusammen 208 + 48 = 256 cm².",
+    [B("6 * 6 * 6", "das Loch nicht beachtet"), B("6 * 6 * 6 - 2 * (2 * 2)", "die Wände im Loch vergessen"), B("6 * 6 * 6 + 4 * (2 * 6)", "die Öffnungen nicht abgezogen")], "cm²"))
 a2(T, "zusammengesetzt", Z(
     "Auf einen Quader (6 cm lang, 4 cm breit, 3 cm hoch) wird ein Würfel mit 2 cm Kantenlänge geklebt. Der Würfel liegt mit seiner ganzen Unterseite auf der oberen Fläche des Quaders. Wie groß ist die Oberfläche des neuen Körpers?",
     124, "2 * (6 * 4 + 6 * 3 + 4 * 3) + 6 * 2 * 2 - 2 * (2 * 2)", "108 + 24 - 8", "Berechne beide Oberflächen einzeln. Wie groß ist die Fläche, an der beide Körper sich berühren?",
     "Quader: 2 · (24 + 18 + 12) = 108 cm². Würfel: 6 · 4 = 24 cm². Berührfläche: 2 · 2 = 4 cm². Sie fällt beim Quader und beim Würfel weg: 108 + 24 − 2 · 4 = 124 cm².",
-    [B("2 * (6 * 4 + 6 * 3 + 4 * 3) + 6 * 2 * 2", "die Berührfläche nicht abgezogen"), B("2 * (6 * 4 + 6 * 3 + 4 * 3) + 6 * 2 * 2 - 2 * 2", "die Berührfläche nur einmal abgezogen"), B("2 * (6 * 4 + 6 * 3 + 4 * 3) - 2 * 2", "den Würfel nicht dazugezählt")], "cm²"))
+    [B("2 * (6 * 4 + 6 * 3 + 4 * 3) + 6 * 2 * 2", "die Berührfläche nicht abgezogen"), B("2 * (6 * 4 + 6 * 3 + 4 * 3) + 6 * 2 * 2 - 2 * 2", "die Berührfläche nur einmal abgezogen"), B("2 * (6 * 4 + 6 * 3 + 4 * 3) - 2 * 2", "den Würfel nicht dazugezählt, aber die Berührfläche vom Quader abgezogen")], "cm²"))
 a3(T, "zusammengesetzt", Z(
-    "Aus einem Quader (5 cm lang, 4 cm breit, 3 cm hoch) wird an einer Ecke ein Würfel mit 2 cm Kantenlänge herausgesägt. Um wie viele Quadratzentimeter wird die Oberfläche des Körpers größer? Wird sie nicht größer, ist die Antwort 0.",
+    "Aus einem Quader (5 cm lang, 4 cm breit, 3 cm hoch) wird an einer Ecke ein Würfel mit 2 cm Kantenlänge herausgesägt. Wie viele Quadratzentimeter ist die Oberfläche des Körpers nach dem Heraussägen größer als vorher? Gib den Unterschied an.",
     0, "3 * 2 * 2 - 3 * 2 * 2", "0", "Welche Flächen gehen an der Ecke verloren? Welche neuen Flächen entstehen im Ausschnitt? Vergleiche ihre Größen.",
     "An der Ecke verschwinden 3 Quadrate des Quaders (je 2 · 2 = 4 cm²), zusammen 12 cm². Im Ausschnitt entstehen 3 neue Quadrate (je 4 cm²), zusammen 12 cm². Die Oberfläche bleibt gleich: 12 − 12 = 0 cm² mehr. Das gilt, solange der Würfel an einer Ecke herausgeschnitten wird.",
     [B("3 * 2 * 2", "nur die neuen Flächen gezählt, die alten nicht abgezogen"), B("6 * 2 * 2", "sechs neue Flächen gezählt"), B("2 * 2", "nur eine neue Fläche gezählt")], "cm²"), g="begruenden")

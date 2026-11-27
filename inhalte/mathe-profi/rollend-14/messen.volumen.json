@@ -123,22 +123,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 98,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl der angemalten Würfel angegeben"
-    },
-    {
-     "antwort": 125,
+     "antwort": 60,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "alle Würfel gezählt"
     },
     {
-     "antwort": 64,
+     "antwort": 54,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 4 statt mit 3 Würfeln je Richtung gerechnet"
+     "beschreibung": "die Zahl der angemalten Würfel angegeben"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Schicht je Richtung abgezogen"
     }
    ],
    "aufgabe": {
@@ -149,14 +149,14 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Ein großer Würfel besteht aus 5 · 5 · 5 kleinen Würfeln. Er wird außen ganz blau angemalt. Wie viele kleine Würfel haben dann keine blaue Fläche?"
+     "text": "Ein Quader besteht aus 5 · 4 · 3 kleinen Würfeln. Er wird außen ganz angemalt, auch unten. Wie viele kleine Würfel haben dann keine angemalte Fläche?"
     },
     "o": {
-     "wert": 27
+     "wert": 6
     },
-    "c": "(5 - 2) * (5 - 2) * (5 - 2)",
-    "h": "Welche kleinen Würfel liegen ganz innen? Wie viele Schichten sind es in jeder Richtung ohne die äußeren?",
-    "w": "Außen liegen je 2 Schichten nicht innen: in jeder Richtung bleiben 5 − 2 = 3 Würfel. Innen liegt ein Würfel aus 3 · 3 · 3 = 27 kleinen Würfeln."
+    "c": "(5 - 2) * (4 - 2) * (3 - 2)",
+    "h": "Welche kleinen Würfel liegen ganz innen? Wie viele Schichten bleiben in jeder Richtung ohne die äußeren?",
+    "w": "Außen liegen in jeder Richtung 2 Schichten. Es bleiben 5 − 2 = 3, 4 − 2 = 2 und 3 − 2 = 1 Würfel. Innen liegen 3 · 2 · 1 = 6 kleine Würfel."
    }
   },
   {
@@ -421,22 +421,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 0.1,
+     "antwort": 1.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ohne Umrechnung verglichen"
+     "beschreibung": "die Zahlen ohne Umrechnung verglichen"
     },
     {
-     "antwort": -2150,
+     "antwort": 800,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 100 statt mit 1 000 umgerechnet"
+     "beschreibung": "den mittleren statt den kleinsten Tank genommen"
     },
     {
-     "antwort": 2397.5,
+     "antwort": -2496,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Einheiten nicht angeglichen"
+     "beschreibung": "mit 1 000 statt mit 1 000 000 umgerechnet"
     }
    ],
    "aufgabe": {
@@ -447,15 +447,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Um wie viele Kubikzentimeter unterscheiden sich 2,5 dm³ und 2 400 cm³?"
+     "text": "Tank A fasst 0,004 m³, Tank B fasst 3,2 dm³ und Tank C fasst 2 500 cm³. Um wie viele Kubikzentimeter ist der größte Tank größer als der kleinste?"
     },
     "o": {
-     "wert": 100,
+     "wert": 1500,
      "einheit": "cm³"
     },
-    "c": "2.5 * 1000 - 2400",
-    "h": "Schreibe beide Angaben in derselben Einheit. Erst dann kannst du vergleichen.",
-    "w": "2,5 dm³ = 2 500 cm³. Der Unterschied ist 2 500 − 2 400 = 100 cm³."
+    "c": "0.004 * 1000000 - 2500",
+    "h": "Schreibe alle drei Angaben in derselben Einheit, am besten in cm³. Dann suchst du den größten und den kleinsten Tank.",
+    "w": "0,004 m³ = 4 000 cm³ und 3,2 dm³ = 3 200 cm³. Tank C hat 2 500 cm³. Der größte Tank ist A, der kleinste ist C: 4 000 − 2 500 = 1 500 cm³."
    }
   },
   {
@@ -720,22 +720,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 0.025,
+     "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ohne Umrechnung in cm³ geteilt"
+     "beschreibung": "den Platz für den Deckel vergessen"
     },
     {
-     "antwort": 125,
+     "antwort": 23,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Platz abgezogen statt addiert"
+    },
+    {
+     "antwort": 127,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur durch die Länge geteilt"
-    },
-    {
-     "antwort": 300,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "nur durch die Breite geteilt"
     }
    ],
    "aufgabe": {
@@ -746,15 +746,15 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Eine quaderförmige Dose ist innen 12 cm lang und 5 cm breit. Sie soll genau 1,5 Liter fassen. Wie hoch muss sie innen sein?"
+     "text": "Eine quaderförmige Dose ist innen 12 cm lang und 5 cm breit. Sie soll 1,5 Liter fassen. Damit der Deckel passt, muss oben 2 cm Platz bleiben. Wie hoch muss die Dose innen mindestens sein?"
     },
     "o": {
-     "wert": 25,
+     "wert": 27,
      "einheit": "cm"
     },
-    "c": "1500 / (12 * 5)",
-    "h": "1 Liter sind 1 000 cm³. Wie groß ist das Volumen in cm³? Dann teilst du durch die Grundfläche.",
-    "w": "1,5 l = 1 500 cm³. Grundfläche: 12 · 5 = 60 cm². Höhe: 1 500 : 60 = 25 cm."
+    "c": "1500 / (12 * 5) + 2",
+    "h": "1 Liter sind 1 000 cm³. Berechne zuerst die Höhe für 1,5 Liter. Was kommt wegen des Deckels dazu?",
+    "w": "1,5 l = 1 500 cm³. Grundfläche: 12 · 5 = 60 cm². Höhe für den Inhalt: 1 500 : 60 = 25 cm. Dazu 2 cm Platz: 27 cm."
    }
   },
   {

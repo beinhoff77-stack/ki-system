@@ -35,6 +35,12 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "mit der Winkelsumme 180° statt 360° gerechnet"
+    },
+    {
+     "antwort": 145,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkel bei C vergessen und den Rest halbiert"
     }
    ],
    "aufgabe": {
@@ -224,10 +230,10 @@
      "beschreibung": "den gleich großen Winkel bei D vergessen"
     },
     {
-     "antwort": 110,
+     "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit der Winkelsumme 180° im Dreieck gerechnet"
+     "beschreibung": "mit der Winkelsumme 180° wie im Dreieck gerechnet"
     },
     {
      "antwort": 95,

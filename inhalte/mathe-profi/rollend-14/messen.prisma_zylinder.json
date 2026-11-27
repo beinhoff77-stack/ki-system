@@ -135,6 +135,12 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Würfelvolumen durch die Kantenlänge geteilt"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch die Grundseite 9 cm statt durch die Grundfläche geteilt"
     }
    ],
    "aufgabe": {
@@ -219,56 +225,6 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 18200,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den offenen Deckel mit 70 cm Breite mitgezählt"
-    },
-    {
-     "antwort": 9000,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Stirnseiten vergessen"
-    },
-    {
-     "antwort": 10200,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "für die schrägen Seitenwände die Höhe 20 cm statt der Seitenlänge 25 cm genommen"
-    }
-   ],
-   "aufgabe": {
-    "l": "prisma_oberflaeche",
-    "t": "prisma_oberflaeche",
-    "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
-    "y": "zahl",
-    "f": {
-     "text": "Ein Blumenkasten ist 100 cm lang. Sein Querschnitt ist ein gleichschenkliges Trapez: unten (Boden) 40 cm breit, oben (offen) 70 cm breit, 20 cm hoch, die schrägen Seiten sind je 25 cm lang. Die obere Seite ist offen, es gibt dort keinen Deckel. Wie viele Quadratzentimeter Blech braucht man für Boden, beide Seitenwände und beide Stirnseiten?"
-    },
-    "o": {
-     "wert": 11200,
-     "einheit": "cm²"
-    },
-    "c": "2 * ((40 + 70) / 2 * 20) + 40 * 100 + 2 * 25 * 100",
-    "h": "Die Stirnseiten sind die beiden Trapeze. Die Länge 100 cm gilt für Boden und beide schräge Seitenwände. Die Höhe 20 cm ist nicht die Länge der schrägen Seite.",
-    "w": "Ein Trapez: (40 + 70) : 2 · 20 = 1 100 cm², zwei Stirnseiten: 2 200 cm². Boden: 40 · 100 = 4 000 cm². Schräge Seitenwände: 2 · 25 · 100 = 5 000 cm². Zusammen: 2 200 + 4 000 + 5 000 = 11 200 cm²."
-   }
-  },
-  {
-   "kennung": "R14-V060",
-   "thema": "messen.prisma_zylinder",
-   "lernkarte": "prisma_oberflaeche",
-   "stufe": 3,
-   "typ": "Anwenden",
-   "form": "anwenden",
-   "antwortform": "zahl",
-   "regel": null,
-   "regel_name": null,
-   "zaehlt": "ja",
-   "fehlbilder": [
-    {
      "antwort": 6.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -291,8 +247,8 @@
     "l": "prisma_oberflaeche",
     "t": "prisma_oberflaeche",
     "p": "uebung",
-    "s": 3,
-    "g": "rueckwaerts",
+    "s": 2,
+    "g": "mehrschritt",
     "y": "zahl",
     "f": {
      "text": "Ein Pralinenkarton hat die Form eines geraden Prismas mit einem Quadrat als Grundfläche. Die Grundkante ist 6 cm lang. Die ganze Oberfläche des Kartons ist 192 cm² groß. Wie hoch ist der Karton?"
@@ -304,6 +260,56 @@
     "c": "(192 - 2 * 6 * 6) / (4 * 6)",
     "h": "Ziehe von der Oberfläche zuerst die beiden Grundflächen ab. Der Rest ist der Mantel, ein Rechteck mit Umfang mal Höhe.",
     "w": "Zwei Quadrate: 2 · 36 = 72 cm². Mantel: 192 − 72 = 120 cm². Der Umfang der Grundfläche ist 4 · 6 = 24 cm. Also ist die Höhe 120 : 24 = 5 cm. Probe: 72 + 24 · 5 = 192."
+   }
+  },
+  {
+   "kennung": "R14-V060",
+   "thema": "messen.prisma_zylinder",
+   "lernkarte": "prisma_oberflaeche",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 18200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den offenen Deckel mit 70 cm Breite mitgezählt"
+    },
+    {
+     "antwort": 9000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Stirnseiten vergessen"
+    },
+    {
+     "antwort": 10200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "für die schrägen Seitenwände die Höhe 20 cm statt der Seitenlänge 25 cm genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "prisma_oberflaeche",
+    "t": "prisma_oberflaeche",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Blumenkasten ist 100 cm lang. Sein Querschnitt ist ein gleichschenkliges Trapez: unten (Boden) 40 cm breit, oben (offen) 70 cm breit, 20 cm hoch, die schrägen Seiten sind je 25 cm lang. Die obere Seite ist offen, es gibt dort keinen Deckel. Wie viele Quadratzentimeter Blech braucht man für Boden, beide Seitenwände und beide Stirnseiten?"
+    },
+    "o": {
+     "wert": 11200,
+     "einheit": "cm²"
+    },
+    "c": "2 * ((40 + 70) / 2 * 20) + 40 * 100 + 2 * 25 * 100",
+    "h": "Die Stirnseiten sind die beiden Trapeze. Die Länge 100 cm gilt für Boden und beide schräge Seitenwände. Die Höhe 20 cm ist nicht die Länge der schrägen Seite.",
+    "w": "Ein Trapez: (40 + 70) : 2 · 20 = 1 100 cm², zwei Stirnseiten: 2 200 cm². Boden: 40 · 100 = 4 000 cm². Schräge Seitenwände: 2 · 25 · 100 = 5 000 cm². Zusammen: 2 200 + 4 000 + 5 000 = 11 200 cm²."
    }
   },
   {
@@ -669,22 +675,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 1.57,
+     "antwort": 6.28,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur einen Anstrich gerechnet"
     },
     {
-     "antwort": 2.512,
+     "antwort": 9.42,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur den Mantel gestrichen"
     },
     {
-     "antwort": 7.536,
+     "antwort": 31.4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Durchmesser 1 m als Radius genommen"
+     "beschreibung": "den Durchmesser 2 m als Radius genommen"
     }
    ],
    "aufgabe": {
@@ -695,15 +701,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Wassertank ist ein geschlossener Zylinder mit dem Durchmesser 1 m und der Höhe 2 m. Er wird außen zweimal gestrichen. Ein Liter Farbe reicht für einen Anstrich von 5 m². Wie viele Liter Farbe braucht man für die beiden Anstriche? Rechne mit π ≈ 3,14."
+     "text": "Ein Wassertank ist ein geschlossener Zylinder mit dem Durchmesser 2 m und der Höhe 3 m. Er wird außen zweimal gestrichen. Ein Liter Farbe reicht für einen Anstrich von 4 m². Wie viele Liter Farbe braucht man für die beiden Anstriche? Rechne mit π ≈ 3,14."
     },
     "o": {
-     "wert": 3.14,
+     "wert": 12.56,
      "einheit": "l"
     },
-    "c": "(2 * 3.14 * 0.5 ** 2 + 2 * 3.14 * 0.5 * 2) * 2 / 5",
+    "c": "(2 * 3.14 * 1 ** 2 + 2 * 3.14 * 1 * 3) * 2 / 4",
     "h": "Berechne zuerst die ganze Oberfläche (Boden, Deckel, Mantel) in m². Der Radius ist die Hälfte des Durchmessers.",
-    "w": "r = 0,5 m. Boden und Deckel: 2 · 3,14 · 0,25 = 1,57 m². Mantel: 2 · 3,14 · 0,5 · 2 = 6,28 m². Oberfläche: 7,85 m². Zwei Anstriche: 15,7 m². Farbe: 15,7 : 5 = 3,14 Liter."
+    "w": "r = 1 m. Boden und Deckel: 2 · 3,14 · 1 = 6,28 m². Mantel: 2 · 3,14 · 1 · 3 = 18,84 m². Oberfläche: 25,12 m². Zwei Anstriche: 50,24 m². Farbe: 50,24 : 4 = 12,56 Liter."
    }
   },
   {
@@ -869,22 +875,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 2800,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den Unterschied nicht in Liter umgerechnet"
-    },
-    {
-     "antwort": 62.8,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "nur das Volumen des Zylinders angegeben"
-    },
-    {
-     "antwort": 191.2,
+     "antwort": 251.2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Durchmesser 40 cm als Radius genommen"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl π vergessen"
+    },
+    {
+     "antwort": 1570,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch eine Seite des Quaders geteilt"
     }
    ],
    "aufgabe": {
@@ -892,18 +898,18 @@
     "t": "sach",
     "p": "uebung",
     "s": 3,
-    "g": "verknuepfen",
+    "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein zylinderförmiger Behälter hat den Radius 20 cm. Ein quaderförmiger Behälter hat eine Grundfläche von 40 cm mal 30 cm. Beide sind 50 cm hoch mit Wasser gefüllt. Um wie viele Liter fasst der Zylinder mehr als der Quader? Rechne mit π ≈ 3,14. Es gilt 1 Liter = 1 000 cm³."
+     "text": "Ein zylinderförmiges Gefäß hat den Radius 20 cm. Es ist 50 cm hoch mit Wasser gefüllt. Das ganze Wasser wird in einen sehr hohen quaderförmigen Behälter mit der Grundfläche 40 cm mal 25 cm umgefüllt. Wie viele Zentimeter hoch steht das Wasser dann im Quader? Rechne mit π ≈ 3,14."
     },
     "o": {
-     "wert": 2.8,
-     "einheit": "l"
+     "wert": 62.8,
+     "einheit": "cm"
     },
-    "c": "(3.14 * 20 ** 2 * 50 - 40 * 30 * 50) / 1000",
-    "h": "Berechne beide Volumina in cm³. Danach bildest du die Differenz und rechnest in Liter um.",
-    "w": "Zylinder: 3,14 · 400 · 50 = 62 800 cm³ = 62,8 l. Quader: 40 · 30 · 50 = 60 000 cm³ = 60 l. Unterschied: 62,8 − 60 = 2,8 Liter."
+    "c": "3.14 * 20 ** 2 * 50 / (40 * 25)",
+    "h": "Berechne zuerst das Volumen des Wassers im Zylinder. Beim Quader teilst du das Volumen durch die Grundfläche.",
+    "w": "Wasser im Zylinder: 3,14 · 400 · 50 = 62 800 cm³. Grundfläche des Quaders: 40 · 25 = 1 000 cm². Höhe: 62 800 : 1 000 = 62,8 cm."
    }
   },
   {
@@ -929,6 +935,12 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "mit 2³ gerechnet, als wäre auch die Höhe verdoppelt"
+    },
+    {
+     "antwort": 360,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 3 statt mit 4 malgenommen"
     }
    ],
    "aufgabe": {

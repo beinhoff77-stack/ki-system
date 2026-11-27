@@ -209,7 +209,7 @@
     },
     "c": "50 / 10 ** 4 * 10 ** 5",
     "h": "Wie viele Staubkörner sind so dick wie ein Blatt? Teile 10⁻⁴ durch 10⁻⁵.",
-    "w": "Ein Blatt: 10⁻⁴ : 10⁻⁵ = 10⁻⁴⁻⁽⁻⁵⁾ = 10¹ = 10 Staubkörner. Bei 50 Blättern sind es 50 · 10 = 500 Staubkörner."
+    "w": "Ein Blatt: 10⁻⁴ : 10⁻⁵. Man zieht die Hochzahlen ab: −4 − (−5) = −4 + 5 = 1. Also 10¹ = 10 Staubkörner. Bei 50 Blättern sind es 50 · 10 = 500 Staubkörner."
    }
   },
   {
@@ -225,22 +225,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 400,
+     "antwort": 50,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Hochzahlen falsch subtrahiert: 10³ statt 10⁴"
+     "beschreibung": "die Hochzahlen falsch abgezogen: 10² statt 10³"
     },
     {
-     "antwort": 25000,
+     "antwort": 2000,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahlenfaktoren vertauscht (5 durch 2 statt 2 durch 5)"
+     "beschreibung": "die Zahlenfaktoren vertauscht (6 durch 3 statt 3 durch 6)"
     },
     {
-     "antwort": 40000,
+     "antwort": 500000000,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Hochzahl 5 statt 4 gerechnet"
+     "beschreibung": "die Hochzahlen addiert statt abgezogen"
     }
    ],
    "aufgabe": {
@@ -251,15 +251,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Transistor auf einem Chip ist 5 · 10⁻⁹ m breit. Ein Streifen auf dem Chip ist 2 · 10⁻⁵ m lang. Auf dem Streifen sollen Transistoren lückenlos nebeneinander liegen. Wie viele Transistoren passen auf den Streifen?"
+     "text": "Eine Zelle ist 6 · 10⁻⁶ m breit. Auf einem Objektträger liegt eine lückenlose Reihe solcher Zellen. Die Reihe ist 3 · 10⁻³ m lang. Wie viele Zellen sind es?"
     },
     "o": {
-     "wert": 4000,
-     "einheit": "Transistoren"
+     "wert": 500,
+     "einheit": "Zellen"
     },
-    "c": "2 / 10 ** 5 / (5 / 10 ** 9)",
-    "h": "Teile die Länge des Streifens durch die Breite eines Transistors. Rechne Zahlen und Zehnerpotenzen getrennt.",
-    "w": "Anzahl = (2 · 10⁻⁵) : (5 · 10⁻⁹) = (2 : 5) · 10⁻⁵⁻⁽⁻⁹⁾ = 0,4 · 10⁴ = 4 000. Es passen 4 000 Transistoren."
+    "c": "3 / 10 ** 3 / (6 / 10 ** 6)",
+    "h": "Teile die Länge der Reihe durch die Breite einer Zelle. Rechne die Zahlen und die Zehnerpotenzen getrennt.",
+    "w": "Anzahl = (3 · 10⁻³) : (6 · 10⁻⁶). Zahlen: 3 : 6 = 0,5. Hochzahlen abziehen: −3 − (−6) = −3 + 6 = 3. Also 0,5 · 10³ = 500 Zellen."
    }
   },
   {
@@ -285,6 +285,12 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Vorzeichen von k falsch bestimmt"
+    },
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen 3 und 2 voneinander abgezogen"
     }
    ],
    "aufgabe": {
@@ -352,7 +358,7 @@
     },
     "c": "1 / 2 ** 6",
     "h": "Fläche eines Quadrats = Seite mal Seite. Welche Hochzahl hat (2⁻³)²?",
-    "w": "A = (2⁻³)² = 2⁻³˙² = 2⁻⁶ = 1/64 = 0,015625 mm². Probe: 1/8 · 1/8 = 1/64."
+    "w": "A = (2⁻³)². Man multipliziert die Hochzahlen: (−3) · 2 = −6. Also A = 2⁻⁶ = 1/64 = 0,015625 mm². Probe: 1/8 · 1/8 = 1/64."
    }
   },
   {
@@ -451,7 +457,7 @@
     },
     "c": "(7 - 1) / 2",
     "h": "Fasse die linke Seite zu einer einzigen Potenz von 3 zusammen. Welche Hochzahl hat (3⁻²)ᵏ?",
-    "w": "(3⁻²)ᵏ = 3⁻²ᵏ. Dann ist 3⁻²ᵏ · 3⁷ = 3⁻²ᵏ⁺⁷. Das soll 3¹ sein, also −2k + 7 = 1, 2k = 6 und k = 3. Probe: (3⁻²)³ · 3⁷ = 3⁻⁶ · 3⁷ = 3."
+    "w": "Bei (3⁻²)ᵏ multipliziert man die Hochzahlen: Die Hochzahl ist −2 · k. Beim Malnehmen mit 3⁷ addiert man die Hochzahlen: −2 · k + 7. Das soll 1 sein (denn 3 = 3¹). Also −2 · k + 7 = 1, 2 · k = 6 und k = 3. Probe: (3⁻²)³ · 3⁷ = 3⁻⁶ · 3⁷ = 3."
    }
   },
   {
@@ -493,15 +499,14 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Rechteck hat den Flächeninhalt 6x⁴ cm². Eine Seite ist 2x⁶ cm lang. Dabei ist x = 2. Wie lang ist die andere Seite in Zentimetern?"
+     "text": "Kim vereinfacht den Term 6x⁴ : (2x⁶) und setzt danach x = 2 ein. Welchen Wert erhält Kim? Gib das Ergebnis als Dezimalzahl an."
     },
     "o": {
-     "wert": 0.75,
-     "einheit": "cm"
+     "wert": 0.75
     },
     "c": "6 * 2 ** 4 / (2 * 2 ** 6)",
-    "h": "Länge der anderen Seite = Fläche : bekannte Seite. Vereinfache den Bruch zuerst, setze x = 2 zuletzt ein.",
-    "w": "Andere Seite = 6x⁴ : (2x⁶) = 3 · x⁴⁻⁶ = 3x⁻² = 3/x². Für x = 2: 3/4 = 0,75 cm. Probe: 2 · 2⁶ = 128 cm mal 0,75 cm = 96 cm², und 6 · 2⁴ = 96."
+    "h": "Vereinfache zuerst: Zahlen für sich, Potenzen von x für sich. Setze x = 2 zuletzt ein.",
+    "w": "6x⁴ : (2x⁶) = (6 : 2) · x⁴⁻⁶ = 3 · x⁻² = 3/x². Für x = 2: 3/4 = 0,75. Probe ohne Vereinfachen: 6 · 16 = 96 und 2 · 64 = 128, und 96 : 128 = 0,75."
    }
   },
   {
@@ -600,7 +605,7 @@
     },
     "c": "6 / 2 ** 3 * 2 ** 5 / (3 / 2)",
     "h": "Fasse Zähler und Nenner getrennt zusammen. Beim Teilen durch x⁻¹ wird die Hochzahl −1 abgezogen.",
-    "w": "Zähler: 6x⁻³ · x⁵ = 6x². Dann 6x² : (3x⁻¹) = 2 · x²⁻⁽⁻¹⁾ = 2x³. Für x = 2: 2 · 8 = 16. Probe mit dem Ausgangsterm: 6 · 2⁻³ · 2⁵ = 24 und 3 · 2⁻¹ = 1,5, und 24 : 1,5 = 16."
+    "w": "Zähler: 6x⁻³ · x⁵. Hochzahlen addieren: −3 + 5 = 2, also 6x². Dann 6x² : (3x⁻¹): Zahlen 6 : 3 = 2, Hochzahlen abziehen: 2 − (−1) = 3. Das ergibt 2x³. Für x = 2: 2 · 8 = 16. Probe mit dem Ausgangsterm: 6 · 2⁻³ · 2⁵ = 24 und 3 · 2⁻¹ = 1,5, und 24 : 1,5 = 16."
    }
   },
   {
@@ -626,6 +631,12 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur die rechte Seite angegeben"
+    },
+    {
+     "antwort": 0.375,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Potenz 4⁻² als ein Achtel gerechnet"
     }
    ],
    "aufgabe": {
@@ -669,6 +680,12 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "statt −1 die Hochzahl 1 abgezogen, also 10² statt 10⁴"
+    },
+    {
+     "antwort": 100000000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen alle ohne Vorzeichen addiert"
     }
    ],
    "aufgabe": {
@@ -702,22 +719,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 2,
+     "antwort": 16,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Hochzahlen −6 und 5 so verrechnet, dass 1 statt −1 herauskommt (a¹)"
+     "beschreibung": "Kims Ergebnis a⁴ mit a = 2 ausgerechnet"
     },
     {
-     "antwort": 0.015625,
+     "antwort": 0.03125,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Produkt mit a⁵ vergessen"
+     "beschreibung": "beim Teilen durch a⁻⁴ die Hochzahl 4 statt −4 abgezogen: a⁻⁵"
     },
     {
-     "antwort": 32,
+     "antwort": 0.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur a⁵ berechnet"
+     "beschreibung": "das Teilen durch (a⁻¹)⁴ vergessen: a⁻¹"
     }
    ],
    "aufgabe": {
@@ -728,14 +745,14 @@
     "g": "pruefung",
     "y": "zahl",
     "f": {
-     "text": "Kim behauptet für a ≠ 0: (a⁻²)³ · a⁵ = a. Wie groß ist die linke Seite für a = 2, wenn man richtig rechnet?"
+     "text": "Kim behauptet für a ≠ 0: (a⁻²)³ · a⁵ : (a⁻¹)⁴ = a⁴. Kims Rechnung stimmt nicht. Wie groß ist die linke Seite für a = 2, wenn man richtig rechnet?"
     },
     "o": {
-     "wert": 0.5
+     "wert": 8
     },
-    "c": "1 / 2 ** 6 * 2 ** 5",
-    "h": "Berechne zuerst (a⁻²)³ mit der Regel für Potenz einer Potenz. Danach multiplizierst du mit a⁵.",
-    "w": "(a⁻²)³ = a⁻⁶. Dann a⁻⁶ · a⁵ = a⁻¹ = 1/a. Für a = 2 ist das 1/2 = 0,5. Kims Rechnung bricht bei −6 + 5 ab, das ist −1 und nicht 1. Probe: 2⁻⁶ · 2⁵ = 32/64 = 0,5."
+    "c": "1 / 2 ** 6 * 2 ** 5 / (1 / 2 ** 4)",
+    "h": "Fasse zuerst jeden Teil zu einer Potenz von a zusammen. Dann rechnest du mit den Hochzahlen von links nach rechts.",
+    "w": "(a⁻²)³ = a⁻⁶. Dann a⁻⁶ · a⁵ = a⁻¹. Außerdem (a⁻¹)⁴ = a⁻⁴. Beim Teilen zieht man die Hochzahlen ab: −1 − (−4) = −1 + 4 = 3. Die linke Seite ist a³, für a = 2 also 2³ = 8. Probe: 2⁻⁶ · 2⁵ = 1/2 und 2⁻⁴ = 1/16, und 1/2 : 1/16 = 8."
    }
   }
  ]

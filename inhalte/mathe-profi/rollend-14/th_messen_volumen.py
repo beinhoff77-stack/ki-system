@@ -11,10 +11,10 @@ a2(T, "einheitswuerfel", Z(
     "Eine Schicht hat 6 · 3 = 18 Würfel. Von 2 Schichten bleibt 1 Schicht. Es bleiben 18 Würfel liegen.",
     [B("6 * 3 * 2", "die Würfel vor dem Wegnehmen angegeben"), B("6 * 3 * 2 - 6", "nur eine Reihe statt einer Schicht weggenommen"), B("6 * 3 - 2", "die Zahl der Schichten von den Würfeln einer Schicht abgezogen")]))
 a3(T, "einheitswuerfel", Z(
-    "Ein großer Würfel besteht aus 5 · 5 · 5 kleinen Würfeln. Er wird außen ganz blau angemalt. Wie viele kleine Würfel haben dann keine blaue Fläche?",
-    27, "(5 - 2) * (5 - 2) * (5 - 2)", "3 * 3 * 3", "Welche kleinen Würfel liegen ganz innen? Wie viele Schichten sind es in jeder Richtung ohne die äußeren?",
-    "Außen liegen je 2 Schichten nicht innen: in jeder Richtung bleiben 5 − 2 = 3 Würfel. Innen liegt ein Würfel aus 3 · 3 · 3 = 27 kleinen Würfeln.",
-    [B("5 * 5 * 5 - 3 * 3 * 3", "die Zahl der angemalten Würfel angegeben"), B("5 * 5 * 5", "alle Würfel gezählt"), B("4 * 4 * 4", "mit 4 statt mit 3 Würfeln je Richtung gerechnet")]))
+    "Ein Quader besteht aus 5 · 4 · 3 kleinen Würfeln. Er wird außen ganz angemalt, auch unten. Wie viele kleine Würfel haben dann keine angemalte Fläche?",
+    6, "(5 - 2) * (4 - 2) * (3 - 2)", "3 * 2 * 1", "Welche kleinen Würfel liegen ganz innen? Wie viele Schichten bleiben in jeder Richtung ohne die äußeren?",
+    "Außen liegen in jeder Richtung 2 Schichten. Es bleiben 5 − 2 = 3, 4 − 2 = 2 und 3 − 2 = 1 Würfel. Innen liegen 3 · 2 · 1 = 6 kleine Würfel.",
+    [B("5 * 4 * 3", "alle Würfel gezählt"), B("5 * 4 * 3 - 3 * 2 * 1", "die Zahl der angemalten Würfel angegeben"), B("4 * 3 * 2", "nur eine Schicht je Richtung abgezogen")]), g="transfer")
 # ───────── quader ─────────
 a1(T, "quader", Z(
     "Ein Umzugskarton ist 40 cm lang, 25 cm breit und 20 cm hoch. Wie groß ist sein Volumen?",
@@ -43,10 +43,10 @@ a2(T, "einheiten", Z(
     "0,8 m³ = 800 dm³. Dann 800 : 40 = 20 Schubkarren.",
     [B("0.8 / 40", "ohne Umrechnung geteilt"), B("0.8 * 100 / 40", "mit 100 statt mit 1 000 umgerechnet"), B("0.8 * 1000 * 40", "malgenommen statt geteilt")]))
 a3(T, "einheiten", Z(
-    "Um wie viele Kubikzentimeter unterscheiden sich 2,5 dm³ und 2 400 cm³?",
-    100, "2.5 * 1000 - 2400", "2500 - 2400", "Schreibe beide Angaben in derselben Einheit. Erst dann kannst du vergleichen.",
-    "2,5 dm³ = 2 500 cm³. Der Unterschied ist 2 500 − 2 400 = 100 cm³.",
-    [B("2.5 - 2.4", "ohne Umrechnung verglichen"), B("2.5 * 100 - 2400", "mit 100 statt mit 1 000 umgerechnet"), B("2400 - 2.5", "die Einheiten nicht angeglichen")], "cm³"), g="verknuepfen")
+    "Tank A fasst 0,004 m³, Tank B fasst 3,2 dm³ und Tank C fasst 2 500 cm³. Um wie viele Kubikzentimeter ist der größte Tank größer als der kleinste?",
+    1500, "0.004 * 1000000 - 2500", "4000 - 2500", "Schreibe alle drei Angaben in derselben Einheit, am besten in cm³. Dann suchst du den größten und den kleinsten Tank.",
+    "0,004 m³ = 4 000 cm³ und 3,2 dm³ = 3 200 cm³. Tank C hat 2 500 cm³. Der größte Tank ist A, der kleinste ist C: 4 000 − 2 500 = 1 500 cm³.",
+    [B("4 - 2.5", "die Zahlen ohne Umrechnung verglichen"), B("4000 - 3200", "den mittleren statt den kleinsten Tank genommen"), B("0.004 * 1000 - 2500", "mit 1 000 statt mit 1 000 000 umgerechnet")], "cm³"), g="verknuepfen")
 # ───────── liter ─────────
 a1(T, "liter", Z(
     "Eine Regentonne ist innen 50 cm lang, 40 cm breit und 60 cm hoch. Wie viele Liter passen hinein, wenn sie ganz voll ist?",
@@ -75,10 +75,10 @@ a2(T, "rueckwaerts", Z(
     "Grundfläche: 2 · 1,5 = 3 m². Höhe: 0,6 : 3 = 0,2 m = 20 cm.",
     [B("0.6 / (2 * 1.5)", "die Höhe in Metern statt in Zentimetern angegeben"), B("0.6 / 2 * 100", "nur durch die Länge geteilt"), B("0.6 / 1.5 * 100", "nur durch die Breite geteilt")], "cm"))
 a3(T, "rueckwaerts", Z(
-    "Eine quaderförmige Dose ist innen 12 cm lang und 5 cm breit. Sie soll genau 1,5 Liter fassen. Wie hoch muss sie innen sein?",
-    25, "1500 / (12 * 5)", "1500 / 60", "1 Liter sind 1 000 cm³. Wie groß ist das Volumen in cm³? Dann teilst du durch die Grundfläche.",
-    "1,5 l = 1 500 cm³. Grundfläche: 12 · 5 = 60 cm². Höhe: 1 500 : 60 = 25 cm.",
-    [B("1.5 / (12 * 5)", "ohne Umrechnung in cm³ geteilt"), B("1500 / 12", "nur durch die Länge geteilt"), B("1500 / 5", "nur durch die Breite geteilt")], "cm"), g="rueckwaerts")
+    "Eine quaderförmige Dose ist innen 12 cm lang und 5 cm breit. Sie soll 1,5 Liter fassen. Damit der Deckel passt, muss oben 2 cm Platz bleiben. Wie hoch muss die Dose innen mindestens sein?",
+    27, "1500 / (12 * 5) + 2", "25 + 2", "1 Liter sind 1 000 cm³. Berechne zuerst die Höhe für 1,5 Liter. Was kommt wegen des Deckels dazu?",
+    "1,5 l = 1 500 cm³. Grundfläche: 12 · 5 = 60 cm². Höhe für den Inhalt: 1 500 : 60 = 25 cm. Dazu 2 cm Platz: 27 cm.",
+    [B("1500 / (12 * 5)", "den Platz für den Deckel vergessen"), B("1500 / (12 * 5) - 2", "den Platz abgezogen statt addiert"), B("1500 / 12 + 2", "nur durch die Länge geteilt")], "cm"), g="rueckwaerts")
 # ───────── zusammengesetzt ─────────
 a1(T, "zusammengesetzt", Z(
     "Ein Sockel besteht aus zwei Teilen. Unten liegt ein Quader mit 3 dm Länge, 2 dm Breite und 1 dm Höhe. Obendrauf steht ein Würfel mit 2 dm Kante. Wie groß ist das Volumen des ganzen Sockels?",

@@ -134,7 +134,7 @@
      "antwort": 48,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den befestigten Teil statt des Waldwegs berechnet"
+     "beschreibung": "die drei genannten Anteile statt den Rest berechnet"
     },
     {
      "antwort": 40,
@@ -151,15 +151,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Eine Wanderstrecke ist 80 m lang. Davon sind 0,25 asphaltiert und 15 % geschottert. Ein Fünftel der Strecke ist Wiese. Der Rest ist ein Waldweg. Wie viele Meter ist der Waldweg lang?"
+     "text": "Ein Parkweg ist 80 m lang. Davon sind 0,25 asphaltiert und 15 % geschottert. Ein Fünftel des Weges ist Wiese. Der Rest ist ein Sandweg. Wie viele Meter ist der Sandweg lang?"
     },
     "o": {
      "wert": 32,
      "einheit": "m"
     },
     "c": "80 * (1 - 0.25 - 15 / 100 - 1 / 5)",
-    "h": "Schreibe alle Anteile als Prozent. Wie viel Prozent bleiben für den Waldweg?",
-    "w": "0,25 = 25 %, 15 %, 1/5 = 20 %. Zusammen 25 % + 15 % + 20 % = 60 %. Der Waldweg ist 40 % der Strecke: 40 % von 80 m = 0,4 · 80 = 32 m."
+    "h": "Schreibe alle Anteile als Prozent. Wie viel Prozent bleiben für den Sandweg?",
+    "w": "0,25 = 25 %, 15 %, 1/5 = 20 %. Zusammen 25 % + 15 % + 20 % = 60 %. Der Sandweg ist 40 % des Weges: 40 % von 80 m = 0,4 · 80 = 32 m."
    }
   },
   {
@@ -187,10 +187,10 @@
      "beschreibung": "die Kinder ohne Fahrrad angegeben"
     },
     {
-     "antwort": 13.714285714285714,
+     "antwort": 1680,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch 35 geteilt statt mit 35 % gerechnet"
+     "beschreibung": "35 % als 3,5 gerechnet"
     }
    ],
    "aufgabe": {
@@ -325,22 +325,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 0.85,
+     "antwort": 0.75,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "als Dezimalzahl angegeben und nicht in Prozent umgerechnet"
     },
     {
-     "antwort": 15,
+     "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Fehler statt der richtigen Aufgaben genommen"
+     "beschreibung": "die falschen Antworten statt der richtigen genommen"
     },
     {
-     "antwort": 6,
+     "antwort": 11,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl der Fehler angegeben"
+     "beschreibung": "die Zahl der falschen Antworten angegeben"
     }
    ],
    "aufgabe": {
@@ -351,15 +351,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Noa löst in einem Test 34 von 40 Aufgaben richtig. Wie viel Prozent der Aufgaben hat Noa richtig gelöst?"
+     "text": "Noa beantwortet bei einem Quiz 33 von 44 Fragen richtig. Wie viel Prozent der Fragen hat Noa richtig beantwortet?"
     },
     "o": {
-     "wert": 85,
+     "wert": 75,
      "einheit": "%"
     },
-    "c": "34 / 40 * 100",
-    "h": "Teile die richtigen Aufgaben durch alle Aufgaben. Dann rechnest du in Prozent um.",
-    "w": "34 : 40 = 0,85 = 85 %. Oder: 34/40 = 85/100 = 85 %."
+    "c": "33 / 44 * 100",
+    "h": "Teile die richtigen Fragen durch alle Fragen. Dann rechnest du in Prozent um. Kürzen hilft: 33 und 44 haben einen gemeinsamen Teiler.",
+    "w": "33 : 44 = 0,75 = 75 %. Oder: 33/44 = 3/4 (gekürzt mit 11) = 75/100 = 75 %."
    }
   },
   {
@@ -575,22 +575,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 134.4,
+     "antwort": 10.8,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "12 % von der heutigen Einwohnerzahl genommen"
+     "beschreibung": "40 % von den 27 Kindern genommen"
     },
     {
-     "antwort": 1000,
+     "antwort": 180,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die frühere Einwohnerzahl angegeben"
+     "beschreibung": "die Zahl aller Mitglieder angegeben"
     },
     {
-     "antwort": 1108,
+     "antwort": 67.5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "12 statt 12 % abgezogen"
+     "beschreibung": "die 27 Kinder als 40 % gelesen"
     }
    ],
    "aufgabe": {
@@ -598,18 +598,18 @@
     "t": "grundwert",
     "p": "uebung",
     "s": 3,
-    "g": "rueckwaerts",
+    "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Ein Dorf ist in den letzten Jahren um 12 % gewachsen. Heute hat es 1 120 Einwohner. Um wie viele Einwohner ist das Dorf gewachsen?"
+     "text": "Ein Verein hat 27 Kinder als Mitglieder. Das sind 15 % aller Mitglieder. 40 % aller Mitglieder sind Frauen. Wie viele Frauen sind Mitglied im Verein?"
     },
     "o": {
-     "wert": 120,
-     "einheit": "Einwohner"
+     "wert": 72,
+     "einheit": "Frauen"
     },
-    "c": "1120 - 1120 / 112 * 100",
-    "h": "Heute sind 112 % des früheren Werts. Berechne zuerst die frühere Einwohnerzahl.",
-    "w": "Heute: 100 % + 12 % = 112 % sind 1 120 Einwohner. 1 % sind 10 Einwohner, 100 % sind 1 000. Gewachsen ist das Dorf um 1 120 − 1 000 = 120 Einwohner (12 % von 1 000)."
+    "c": "27 / 15 * 100 * 40 / 100",
+    "h": "Berechne zuerst, wie viele Mitglieder der Verein insgesamt hat. Die 27 Kinder sind 15 %.",
+    "w": "15 % sind 27 Kinder, 1 % sind 27 : 15 = 1,8. Alle Mitglieder (100 %): 1,8 · 100 = 180. Frauen: 40 % von 180 = 0,4 · 180 = 72."
    }
   },
   {
@@ -625,19 +625,19 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 9,
+     "antwort": 27,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Rabatt in Euro statt des neuen Preises angegeben"
     },
     {
-     "antwort": 45,
+     "antwort": 60,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "15 € statt 15 % abgezogen"
+     "beschreibung": "30 € statt 30 % abgezogen"
     },
     {
-     "antwort": 69,
+     "antwort": 117,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Rabatt aufgeschlagen"
@@ -651,15 +651,15 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Paar Schuhe kostet 60 €. Beim Schlussverkauf gibt es 15 % Rabatt. Wie viel Euro kosten die Schuhe jetzt?"
+     "text": "Ein Paar Kopfhörer kostet 90 €. Beim Schlussverkauf gibt es 30 % Rabatt. Wie viel Euro kosten die Kopfhörer jetzt?"
     },
     "o": {
-     "wert": 51,
+     "wert": 63,
      "einheit": "€"
     },
-    "c": "60 * 85 / 100",
+    "c": "90 * 70 / 100",
     "h": "Wie viel Prozent vom alten Preis bezahlst du noch? Oder berechne den Rabatt in Euro und ziehe ihn ab.",
-    "w": "Rabatt: 15 % von 60 € = 9 €. Neuer Preis: 60 − 9 = 51 €. Oder: 85 % von 60 € = 51 €."
+    "w": "Rabatt: 30 % von 90 € = 27 €. Neuer Preis: 90 − 27 = 63 €. Oder: 70 % von 90 € = 63 €."
    }
   },
   {
@@ -675,22 +675,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 480,
+     "antwort": 52,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "30 % Aufschlag und 10 % Rabatt zu 20 % Aufschlag zusammengefasst"
+     "beschreibung": "nur den Gutschein abgezogen"
     },
     {
-     "antwort": 520,
+     "antwort": 48,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Rabatt vergessen"
+     "beschreibung": "den Gutschein vergessen"
     },
     {
-     "antwort": 572,
+     "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Rabatt aufgeschlagen statt abgezogen"
+     "beschreibung": "den Rabatt in Euro statt des Preises mit dem Gutschein verrechnet"
     }
    ],
    "aufgabe": {
@@ -701,15 +701,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Händler kauft einen Fernseher für 400 € ein und schlägt 30 % auf. Beim Verkauf gibt er dem Kunden 10 % Rabatt auf den Verkaufspreis. Wie viel Euro zahlt der Kunde?"
+     "text": "Ein Spiel kostet 60 €. Im Angebot gibt es 20 % Rabatt. Kim hat außerdem einen Gutschein über 8 €. Der Gutschein wird erst nach dem Rabatt vom Preis abgezogen. Wie viel Euro zahlt Kim?"
     },
     "o": {
-     "wert": 468,
+     "wert": 40,
      "einheit": "€"
     },
-    "c": "400 * 130 / 100 * 90 / 100",
-    "h": "Berechne zuerst den Verkaufspreis nach dem Aufschlag. Der Rabatt bezieht sich auf diesen neuen Preis.",
-    "w": "Aufschlag: 30 % von 400 € = 120 €, Verkaufspreis 520 €. Rabatt: 10 % von 520 € = 52 €. Der Kunde zahlt 520 − 52 = 468 €."
+    "c": "60 * 80 / 100 - 8",
+    "h": "Berechne zuerst den Preis nach dem Rabatt. Dann ziehst du den Gutschein ab.",
+    "w": "Rabatt: 20 % von 60 € = 12 €. Preis nach dem Rabatt: 60 − 12 = 48 €. Gutschein: 48 − 8 = 40 €. Kim zahlt 40 €."
    }
   },
   {
@@ -725,22 +725,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 22.5,
+     "antwort": 36,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "25 % vom bezahlten Preis genommen"
+     "beschreibung": "den Rabatt in Euro als Preis genommen"
     },
     {
-     "antwort": 120,
+     "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den alten Preis statt der Ersparnis angegeben"
+     "beschreibung": "den Rabatt bei Jacke A nicht berücksichtigt"
     },
     {
-     "antwort": 3.6,
+     "antwort": 59,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch 25 geteilt"
+     "beschreibung": "den Rabatt statt des neuen Preises verglichen"
     }
    ],
    "aufgabe": {
@@ -748,18 +748,18 @@
     "t": "rabatt_aufschlag",
     "p": "uebung",
     "s": 3,
-    "g": "rueckwaerts",
+    "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Alex zahlt für eine Jacke nach einem Rabatt von 25 % genau 90 €. Wie viel Euro hat Alex durch den Rabatt gespart?"
+     "text": "Alex vergleicht zwei Jacken. Jacke A kostet 120 €, dafür gibt es 30 % Rabatt. Jacke B kostet 95 € ohne Rabatt. Um wie viel Euro ist die günstigere Jacke billiger als die andere?"
     },
     "o": {
-     "wert": 30,
+     "wert": 11,
      "einheit": "€"
     },
-    "c": "90 / 75 * 100 - 90",
-    "h": "Die 90 € sind nicht 100 %. Wie viel Prozent des alten Preises sind 90 €? Berechne den alten Preis.",
-    "w": "90 € sind 75 % des alten Preises. 1 % sind 1,20 €, 100 % sind 120 €. Gespart: 120 − 90 = 30 € (das sind 25 % von 120 €)."
+    "c": "95 - 120 * 70 / 100",
+    "h": "Berechne zuerst, wie viel Jacke A nach dem Rabatt kostet. Dann vergleichst du mit 95 €.",
+    "w": "Jacke A: 30 % von 120 € = 36 €, also 120 − 36 = 84 €. Jacke B kostet 95 €. Jacke A ist günstiger: 95 − 84 = 11 €."
    }
   },
   {

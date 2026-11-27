@@ -35,6 +35,12 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die y-Koordinaten von Z und P addiert"
+    },
+    {
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zweimal die y-Koordinate von P genommen und die y-Koordinate von Z abgezogen"
     }
    ],
    "aufgabe": {
@@ -117,19 +123,19 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 2,
+     "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die vier Koordinaten addiert und nicht halbiert"
     },
     {
-     "antwort": 0,
+     "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Vektor von P nach P′ genommen statt der Mitte"
+     "beschreibung": "nur die y-Koordinate von Z angegeben"
     },
     {
-     "antwort": -3,
+     "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur die x-Koordinate von Z angegeben"
@@ -143,14 +149,14 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Zwei Antennen stehen punktsymmetrisch zu einem Sendemast Z: die eine bei P(4 | −3), die andere bei P′(−10 | 11). Z ist also die Mitte der Strecke PP′. Wie groß ist die Summe der beiden Koordinaten von Z?"
+     "text": "Der Punkt P(4 | −3) wird an einem Punkt Z gespiegelt. Der Bildpunkt P′ liegt auf der y-Achse und hat die y-Koordinate 11. Wie groß ist die Summe der beiden Koordinaten von Z?"
     },
     "o": {
-     "wert": 1
+     "wert": 6
     },
-    "c": "(4 + (-10)) / 2 + (-3 + 11) / 2",
-    "h": "Z liegt in der Mitte von P und P′. Bestimme erst die x-Koordinate, dann die y-Koordinate von Z.",
-    "w": "Z ist die Mitte: x = (4 + (−10)) : 2 = −3 und y = (−3 + 11) : 2 = 4. Also Z(−3 | 4). Die Summe ist −3 + 4 = 1. Probe: Von P nach Z geht es 7 nach links und 7 nach oben, von Z nach P′ noch einmal 7 nach links und 7 nach oben."
+    "c": "(4 + 0) / 2 + (-3 + 11) / 2",
+    "h": "Wo liegen Punkte auf der y-Achse? Z ist die Mitte der Strecke von P nach P′.",
+    "w": "Ein Punkt auf der y-Achse hat die x-Koordinate 0, also ist P′(0 | 11). Z ist die Mitte von P und P′: x = (4 + 0) : 2 = 2 und y = (−3 + 11) : 2 = 4. Also Z(2 | 4) und die Summe ist 6. Probe: Von P nach Z geht es 2 nach links und 7 nach oben, von Z nach P′ noch einmal."
    }
   },
   {
@@ -169,7 +175,7 @@
      "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Koordinaten nur vertauscht, ohne ein Vorzeichen zu ändern"
+     "beschreibung": "die x-Koordinate 4 unverändert übernommen (nicht gedreht)"
     },
     {
      "antwort": 1,
@@ -274,6 +280,12 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "noch einmal um 90° weitergedreht statt zurückgedreht: (−4 | −3)"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe der Koordinaten von P′ angegeben"
     }
    ],
    "aufgabe": {
@@ -317,6 +329,12 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die erste Koordinate des gedrehten Vektors angegeben statt der zweiten"
+    },
+    {
+     "antwort": -2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die zweite Koordinate als −y statt als −x genommen"
     }
    ],
    "aufgabe": {

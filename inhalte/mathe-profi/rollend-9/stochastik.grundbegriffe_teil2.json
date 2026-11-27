@@ -1,0 +1,746 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-9",
+ "kuerzel": "K9A",
+ "flug": "k9a-stochastik.grundbegriffe_teil2",
+ "titel": "stochastik.grundbegriffe_teil2",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "stochastik.grundbegriffe_teil2"
+ ],
+ "themen_datei_im_bestand": "stochastik.grundbegriffe",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K9A-V112",
+   "thema": "stochastik.grundbegriffe_teil2",
+   "lernkarte": "laplace",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die blauen Kugeln gezählt statt der nicht blauen",
+     "c": "7"
+    },
+    {
+     "luecke": 2,
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur rote und blaue Kugeln gezählt: 4 + 7",
+     "c": "4 + 7"
+    },
+    {
+     "luecke": 3,
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wahrscheinlichkeit für blau statt für nicht blau angegeben",
+     "c": "7 * 100 // 20"
+    },
+    {
+     "luecke": 3,
+     "antwort": 186,
+     "fehlbild": "fb.anteil.guenstig_durch_unguenstig",
+     "regel_des_fehlbilds": "id.daten.anteil",
+     "beschreibung": "günstige durch ungünstige Kugeln geteilt und auf ganze Prozent gerundet",
+     "c": "round(13 * 100 / 7, 0)"
+    }
+   ],
+   "aufgabe": {
+    "l": "laplace",
+    "t": "laplace",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "In einer Urne liegen 4 rote, 7 blaue und 9 grüne Kugeln. Eine Kugel wird zufällig gezogen. Die Zahl der günstigen Kugeln für „nicht blau“ ist ①. Die Zahl aller Kugeln ist ②. Also ist P(nicht blau) gleich ③ %.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      13,
+      20,
+      65
+     ]
+    },
+    "c": [
+     "4 + 9",
+     "4 + 7 + 9",
+     "(13) * 100 // (20)"
+    ],
+    "h": "Günstig sind alle Kugeln, die nicht blau sind. Die Wahrscheinlichkeit ist günstige Kugeln durch alle Kugeln.",
+    "w": "Nicht blau sind 4 + 9 = 13 Kugeln. Alle Kugeln: 4 + 7 + 9 = 20. P(nicht blau) = 13/20 = 0,65 = 65 %. Probe: P(blau) = 7/20 = 35 % und 35 % + 65 % = 100 %."
+   }
+  },
+  {
+   "kennung": "K9A-V113",
+   "thema": "stochastik.grundbegriffe_teil2",
+   "lernkarte": "laplace",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen angegeben, die durch 2 oder durch 5 teilbar sind",
+     "c": "12 * 100 / 20"
+    },
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Bedingung „nicht durch 2“ beachtet",
+     "c": "10 * 100 / 20"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen, die durch beides teilbar sind, doppelt abgezogen",
+     "c": "(20 - 10 - 4) * 100 / 20"
+    }
+   ],
+   "aufgabe": {
+    "l": "laplace",
+    "t": "laplace",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Aus den Zahlen 1 bis 20 wird zufällig eine gezogen. Wie groß ist die Wahrscheinlichkeit in Prozent, dass sie weder durch 2 noch durch 5 teilbar ist? Weg A: Schreibe alle passenden Zahlen auf und zähle sie. Weg B: Zähle die durch 2 oder durch 5 teilbaren Zahlen mit dem Additionssatz (Überschneidung abziehen) und nimm das Gegenereignis."
+    },
+    "o": {
+     "wert": 40,
+     "einheit": "%"
+    },
+    "c": "(20 - (10 + 4 - 2)) * 100 / 20",
+    "h": "Beide Wege müssen dieselbe Wahrscheinlichkeit ergeben.",
+    "w": "Weg A: Passend sind 1, 3, 7, 9, 11, 13, 17, 19. Das sind 8 Zahlen, also 8 : 20 = 40 %. Weg B: Durch 2 teilbar sind 10 Zahlen, durch 5 teilbar 4 Zahlen, durch beides (also durch 10) 2 Zahlen. Durch 2 oder 5: 10 + 4 − 2 = 12. Gegenereignis: 20 − 12 = 8 Zahlen, also 40 %."
+   }
+  },
+  {
+   "kennung": "K9A-V114",
+   "thema": "stochastik.grundbegriffe_teil2",
+   "lernkarte": "laplace",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Kugeln gezählt, die nicht rot sind",
+     "c": "20 - 20 * 0.4"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch 2 geteilt: 12 : 2",
+     "c": "12 / 2"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die roten Kugeln angegeben",
+     "c": "20 * 0.4"
+    }
+   ],
+   "aufgabe": {
+    "l": "laplace",
+    "t": "laplace",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Urne enthält 20 Kugeln in den Farben rot, blau und grün. Es gilt P(rot) = 0,4. Es gibt doppelt so viele blaue wie grüne Kugeln. Wie viele grüne Kugeln liegen in der Urne?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "(20 - 20 * 0.4) / 3",
+    "h": "Wie viele rote Kugeln gibt es? Was bleibt dann für blau und grün zusammen? Das ist ein Vielfaches der Zahl grüner Kugeln.",
+    "w": "Rot: 0,4 · 20 = 8 Kugeln. Blau und grün zusammen: 20 − 8 = 12. Mit g grünen und 2g blauen Kugeln gilt 3g = 12, also g = 4. Probe: 8 + 8 + 4 = 20."
+   }
+  },
+  {
+   "kennung": "K9A-V115",
+   "thema": "stochastik.grundbegriffe_teil2",
+   "lernkarte": "laplace_pruefen",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Gibt es mehr als zwei mögliche Ergebnisse?",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Ergebnisse mit ihrer Gleichwahrscheinlichkeit verwechselt",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "Kann man das Experiment beliebig oft wiederholen?",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Wiederholbarkeit gehört nicht zur Definition",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "Ist die Zahl der möglichen Ergebnisse gerade?",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Eigenschaft geprüft, die damit nichts zu tun hat",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "laplace_pruefen",
+    "t": "laplace_pruefen",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst prüfen, ob ein Zufallsexperiment ein Laplace-Experiment ist. Welche Frage musst du beantworten?"
+    },
+    "a": [
+     "Haben alle möglichen Ergebnisse dieselbe Wahrscheinlichkeit?",
+     "Gibt es mehr als zwei mögliche Ergebnisse?",
+     "Kann man das Experiment beliebig oft wiederholen?",
+     "Ist die Zahl der möglichen Ergebnisse gerade?"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Bei einem Laplace-Experiment hat jedes Ergebnis genau denselben Anteil an allen Möglichkeiten.",
+    "w": "Ein Laplace-Experiment hat endlich viele Ergebnisse, die alle gleich wahrscheinlich sind. Nur dann gilt P(A) = günstige : mögliche. Wie viele Ergebnisse es gibt, ob sie sich wiederholen lassen oder ob die Zahl gerade ist, entscheidet nichts."
+   }
+  },
+  {
+   "kennung": "K9A-V116",
+   "thema": "stochastik.grundbegriffe_teil2",
+   "lernkarte": "laplace_pruefen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Es ist ein Laplace-Experiment, weil die Wahrscheinlichkeiten zusammen 100 % ergeben.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe 100 % gilt immer und sagt nichts über Gleichheit",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "Es ist ein Laplace-Experiment, weil es vier Ergebnisse gibt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl der Ergebnisse mit ihrer Gleichwahrscheinlichkeit verwechselt",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "Es ist kein Laplace-Experiment, weil drei Säulen gleich hoch sind.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Grund falsch benannt: gleich hohe Säulen sprechen nicht dagegen",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "laplace_pruefen",
+    "t": "laplace_pruefen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Das Säulendiagramm zeigt die Wahrscheinlichkeiten der vier Ergebnisse eines Zufallsexperiments in Prozent. Welche Aussage stimmt?",
+     "grafik": {
+      "typ": "saeulen",
+      "einheit": " %",
+      "werte": [
+       {
+        "name": "rot",
+        "wert": 30
+       },
+       {
+        "name": "blau",
+        "wert": 30
+       },
+       {
+        "name": "grün",
+        "wert": 30
+       },
+       {
+        "name": "gelb",
+        "wert": 10
+       }
+      ],
+      "zahlen": true
+     }
+    },
+    "a": [
+     "Es ist ein Laplace-Experiment, weil die Wahrscheinlichkeiten zusammen 100 % ergeben.",
+     "Es ist ein Laplace-Experiment, weil es vier Ergebnisse gibt.",
+     "Es ist kein Laplace-Experiment, weil drei Säulen gleich hoch sind.",
+     "Es ist kein Laplace-Experiment, weil gelb eine kleinere Wahrscheinlichkeit hat."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Bei einem Laplace-Experiment müssen alle Säulen gleich hoch sein. Wie sieht es hier aus?",
+    "w": "Die Säulen zeigen 30 %, 30 %, 30 % und 10 %. Zusammen sind es 100 %, aber gelb ist kleiner als die anderen. Nicht alle Ergebnisse sind gleich wahrscheinlich, also ist es kein Laplace-Experiment."
+   }
+  },
+  {
+   "kennung": "K9A-V117",
+   "thema": "stochastik.grundbegriffe_teil2",
+   "lernkarte": "laplace_pruefen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Werte gezählt, für die es kein Laplace-Experiment ist",
+     "c": "5"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle möglichen Werte von x gezählt",
+     "c": "12"
+    },
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur x = 6 genannt",
+     "c": "1"
+    }
+   ],
+   "aufgabe": {
+    "l": "laplace_pruefen",
+    "t": "laplace_pruefen",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Würfel hat auf seinen sechs gleich großen Seiten die Zahlen 1, 2, 3, 4, 5 und x. Das Ergebnis ist die oben liegende Zahl. Dabei ist x eine ganze Zahl von 1 bis 12. Für wie viele Werte von x ist das Werfen ein Laplace-Experiment?"
+    },
+    "o": {
+     "wert": 7
+    },
+    "c": "12 - 5",
+    "h": "Wann haben alle Ergebnisse dieselbe Wahrscheinlichkeit? Was passiert, wenn x schon als Zahl vorkommt?",
+    "w": "Kommt x zweimal vor, zum Beispiel x = 3, dann hat die Zahl 3 die Wahrscheinlichkeit 2/6, die anderen 1/6. Das ist kein Laplace-Experiment. Alle Zahlen sind verschieden für x = 6, 7, …, 12. Das sind 7 Werte."
+   }
+  },
+  {
+   "kennung": "K9A-V118",
+   "thema": "stochastik.grundbegriffe_teil2",
+   "lernkarte": "gegenereignis",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen der beiden Würfel addiert: 6 + 6",
+     "c": "6 + 6"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Paare mit Summe genau 4 gezählt",
+     "c": "3"
+    },
+    {
+     "luecke": 3,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Gegenereignis statt A angegeben",
+     "c": "(6)"
+    }
+   ],
+   "aufgabe": {
+    "l": "gegenereignis",
+    "t": "gegenereignis",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Zwei faire Würfel werden geworfen. Das Ergebnis ist ein Zahlenpaar. A: Die Augensumme ist größer als 4. Die Zahl aller möglichen Paare ist ①. Das Gegenereignis (Augensumme höchstens 4) hat ② Paare. Also hat A genau ③ Paare.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      36,
+      6,
+      30
+     ]
+    },
+    "c": [
+     "6 * 6",
+     "6",
+     "(36) - (6)"
+    ],
+    "h": "Das Gegenereignis ist leichter zu zählen. Schreibe die Paare mit kleiner Summe auf.",
+    "w": "Alle Paare: 6 · 6 = 36. Summe höchstens 4: (1|1), (1|2), (2|1), (1|3), (3|1), (2|2). Das sind 6 Paare. Also hat A 36 − 6 = 30 Paare. P(A) = 30/36 = 5/6."
+   }
+  },
+  {
+   "kennung": "K9A-V119",
+   "thema": "stochastik.grundbegriffe_teil2",
+   "lernkarte": "gegenereignis",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wahrscheinlichkeit für den Bus angegeben",
+     "c": "40"
+    },
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur zwei der drei anderen Gruppen addiert: 20 + 15",
+     "c": "20 + 15"
+    }
+   ],
+   "aufgabe": {
+    "l": "gegenereignis",
+    "t": "gegenereignis",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Das Kreisdiagramm zeigt, wie die Kinder einer Schule zur Schule kommen. Ein Kind wird zufällig ausgewählt. Wie groß ist die Wahrscheinlichkeit in Prozent, dass es nicht mit dem Bus kommt?",
+     "grafik": {
+      "typ": "kreisdiagramm",
+      "einheit": " %",
+      "werte": [
+       {
+        "name": "Bus",
+        "wert": 40
+       },
+       {
+        "name": "Rad",
+        "wert": 25
+       },
+       {
+        "name": "zu Fuß",
+        "wert": 20
+       },
+       {
+        "name": "Auto",
+        "wert": 15
+       }
+      ],
+      "zahlen": true
+     }
+    },
+    "o": {
+     "wert": 60,
+     "einheit": "%"
+    },
+    "c": "25 + 20 + 15",
+    "h": "Die Wahrscheinlichkeit für „nicht Bus“ ist die Wahrscheinlichkeit für alle anderen Möglichkeiten zusammen.",
+    "w": "Das Gegenereignis zu „Bus“ ist „nicht Bus“. P(nicht Bus) = 100 % − 40 % = 60 %. Probe: 25 % + 20 % + 15 % = 60 %."
+   }
+  },
+  {
+   "kennung": "K9A-V120",
+   "thema": "stochastik.grundbegriffe_teil2",
+   "lernkarte": "gegenereignis",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dreimal ein Sechstel addiert",
+     "c": "round(3 * 100 / 6, 0)"
+    },
+    {
+     "antwort": 58,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wahrscheinlichkeit für keine Sechs angegeben",
+     "c": "round((5 / 6) ** 3 * 100, 0)"
+    },
+    {
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Wurf betrachtet",
+     "c": "round(100 / 6, 0)"
+    }
+   ],
+   "aufgabe": {
+    "l": "gegenereignis",
+    "t": "gegenereignis",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einem Brettspiel darf man dreimal würfeln. Man gewinnt, wenn mindestens eine Sechs fällt. Wie groß ist die Gewinnwahrscheinlichkeit? Runde auf ganze Prozent."
+    },
+    "o": {
+     "wert": 42,
+     "einheit": "%"
+    },
+    "c": "round(42.12962962962962, 0)",
+    "h": "Das Gegenereignis von „mindestens eine Sechs“ ist „keine Sechs in allen drei Würfen“.",
+    "w": "P(keine Sechs in einem Wurf) = 5/6. In drei Würfen: (5/6)³ = 125/216 ≈ 0,579. Gegenereignis: 1 − 0,579 = 0,421, also etwa 42 %."
+   }
+  },
+  {
+   "kennung": "K9A-V121",
+   "thema": "stochastik.grundbegriffe_teil2",
+   "lernkarte": "grosse_zahlen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 0.36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Dezimalzahl statt in Prozent angegeben",
+     "c": "180 / 500"
+    },
+    {
+     "luecke": 2,
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 200 statt mit 2 000 gerechnet",
+     "c": "(36) * 200 // 100"
+    },
+    {
+     "luecke": 3,
+     "antwort": 720,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die ersten 500 Würfe vergessen",
+     "c": "(720)"
+    }
+   ],
+   "aufgabe": {
+    "l": "grosse_zahlen",
+    "t": "grosse_zahlen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Reißnagel landet in 500 Würfen 180-mal mit der Spitze nach oben. Die relative Häufigkeit dafür ist ① %. Damit erwartet man bei 2 000 weiteren Würfen ungefähr ② Würfe mit der Spitze nach oben. Also erwartet man bei allen 2 500 Würfen insgesamt ungefähr ③ Würfe mit der Spitze nach oben.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      36,
+      720,
+      900
+     ]
+    },
+    "c": [
+     "180 * 100 // 500",
+     "(36) * 2000 // 100",
+     "180 + (720)"
+    ],
+    "h": "Relative Häufigkeit = Treffer durch Versuche. Bei weiteren Versuchen rechnest du mit derselben Häufigkeit.",
+    "w": "180 : 500 = 0,36 = 36 %. Bei 2 000 weiteren Würfen: 0,36 · 2 000 = 720. Insgesamt erwartet man 180 + 720 = 900 Würfe mit der Spitze nach oben. Das sind wieder 36 % von 2 500."
+   }
+  },
+  {
+   "kennung": "K9A-V122",
+   "thema": "stochastik.grundbegriffe_teil2",
+   "lernkarte": "grosse_zahlen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 135,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "45 mit 3 malgenommen: 45 · 3",
+     "c": "45 * 3"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "45 durch 3 geteilt: 45 : 3",
+     "c": "45 / 3"
+    },
+    {
+     "antwort": 1.35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "45 mit 3 % als Dezimalzahl malgenommen: 45 · 0,03",
+     "c": "45 * 0.03"
+    }
+   ],
+   "aufgabe": {
+    "l": "grosse_zahlen",
+    "t": "grosse_zahlen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "In einer Fabrik sind erfahrungsgemäß 3 % der gefertigten Teile defekt. Wie viele Teile muss man ungefähr prüfen, um etwa 45 defekte zu finden?"
+    },
+    "o": {
+     "wert": 1500
+    },
+    "c": "45 * 100 / 3",
+    "h": "Wie viele Teile gehören zu einem defekten Teil, wenn 3 von 100 defekt sind?",
+    "w": "3 % sind 0,03. Gesucht ist die Zahl n mit 0,03 · n = 45, also n = 45 : 0,03 = 1 500. Probe: 3 % von 1 500 sind 45."
+   }
+  },
+  {
+   "kennung": "K9A-V123",
+   "thema": "stochastik.grundbegriffe_teil2",
+   "lernkarte": "grosse_zahlen",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die kürzeste Reihe genommen",
+     "c": "round(18 * 100 / 50, 0)"
+    },
+    {
+     "antwort": 33.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht auf ganze Prozent gerundet",
+     "c": "415 * 100 / 1250"
+    },
+    {
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Treffer aller Reihen durch die Zahl der längsten Reihe geteilt (halbiert)",
+     "c": "round(331 * 100 / 2000, 0)"
+    }
+   ],
+   "aufgabe": {
+    "l": "grosse_zahlen",
+    "t": "grosse_zahlen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Mit einem Glücksrad wurden drei Versuchsreihen gemacht: 50 Drehungen mit 18 Treffern, 200 Drehungen mit 66 Treffern und 1 000 Drehungen mit 331 Treffern. Schätze die Wahrscheinlichkeit für einen Treffer in Prozent, auf ganze Prozent gerundet. Weg A: Nimm nur die längste Reihe. Weg B: Fasse alle drei Reihen zusammen."
+    },
+    "o": {
+     "wert": 33,
+     "einheit": "%"
+    },
+    "c": "round(33.2, 0)",
+    "h": "Beide Wege müssen auf ganze Prozent gerundet dasselbe ergeben.",
+    "w": "Weg A: 331 : 1 000 = 33,1 %. Weg B: (18 + 66 + 331) : (50 + 200 + 1 000) = 415 : 1 250 = 33,2 %. Gerundet sind es in beiden Fällen 33 %. Je mehr Versuche, desto verlässlicher die Schätzung."
+   }
+  }
+ ]
+}

@@ -11,7 +11,7 @@ Das Universum hat heute **19 Suchwörter** (Abschnitt `stichwoerter`) und **8 Ar
 | `V-03` | Rabatt und Aufschlag | V9 | Einzelregel „Wachstumsfaktor“ | Rabatt, Aufschlag, Preisnachlass, Skonto, Mehrwertsteuer, Preis nach Rabatt, Preis mit Aufschlag | keines | 4 von 4 |
 | `V-04` | Prozente nicht addieren, mehrere Änderungen | V9 | Einzelregel „Wachstumsfaktor“ | mehrere Änderungen, Prozente addieren, erst plus dann minus | keines | 2 von 2 |
 | `V-05` | (−2)² und −2² | Z16 | Einzelregel „Potenz mit negativer Basis“ | Minus Quadrat, Klammer Potenz, negative Basis | keines | 2 von 2 |
-| `V-06` | Kürzen nur aus Produkten, nie aus Summen | A6 | Einzelregel „Bruchterme“ | aus Summen kürzen, kürzen, Bruchterm kürzen | kürzen (→ R9) | 2 von 2 |
+| `V-06` | Kürzen nur aus Produkten, nie aus Summen | A6 | Einzelregel „Bruchterme“ | aus Summen kürzen, Bruchterm kürzen, Kürzen im Bruchterm | keines | 2 von 2 |
 | `V-07` | Mindestens einmal (Gegenereignis) | D14 | Einzelregel „Gegenereignis“ | mindestens einmal, mindestens, keinmal, Gegenereignis | keines | 2 von 2 |
 | `V-08` | π schätzen (Zufallspunkte) | D20 | Einzelregel „Simulation“ | π schätzen, Monte-Carlo, Zufallspunkte | keines | 1 von 1 |
 | `V-09` | Zylindermantel | F15 | Einzelregel „Prisma und Zylinder“ | Mantel, Mantelfläche, Zylinder Netz, Etikett | keines | 1 von 1 |
@@ -38,7 +38,7 @@ Das Universum hat heute **19 Suchwörter** (Abschnitt `stichwoerter`) und **8 Ar
 
 ## Konflikte mit schon vorhandenen Suchwörtern oder Namen
 
-- `V-06`: Das Suchwort „kürzen“ soll auf `A6` zeigen, steht im Universum aber schon mit Ziel R9. Entscheiden: eines der beiden Ziele wählen oder die Suche beide anbieten lassen.
+keine
 
 ## Suchwörter, die in mehreren Verweisen stehen
 
@@ -47,7 +47,9 @@ keine
 ## Kurzbefund
 
 - V-01 und V-21 zeigen über die festen Kennungen `aw.ueberschlag` und `aw.skizze` (Auflage aus Werkstatt 1138/1139) statt über einen abweichenden Zieltext.
-- V-14 bleibt offen: `T-einheiten` ist ein Platzhalter, die Kennung der Tafel Einheiten vergibt der App-Bau.
+- V-01 und V-21: Die Kennungen `aw.*` sind Vorschläge; sie werden beim Einbau vergeben.
+- V-14 bleibt offen bis zum Einbau: Im App-Bau (origin/helfer-uni2) ist für die Einheiten-Tafel noch keine Kennung vergeben; `T-einheiten` ist nur der Platzhalter.
+- V-06: Das Suchwort „kürzen“ bleibt bei R9; A6 bekommt nur „aus Summen kürzen“, „Bruchterm kürzen“, „Kürzen im Bruchterm“ (keine Doppelbelegung).
 - 25 Verweise; 22 Ziele sind Einzelregeln oder Rechenregeln des Bestands, 2 sind Arbeitsweisen, 1 ohne Eintrag im Universum (siehe oben).
 - Alle Lernkarten der Verweise gibt es in `inhalte/themen/` (Spalte „Lernkarten da“); `pruefen.py` prüft das bei jedem Lauf.
 - Kein Verweis legt ein neues Ziel an; die Verweise ändern nur Suchwörter und Lernkarten-Verknüpfungen.

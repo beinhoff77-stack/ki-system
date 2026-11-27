@@ -3697,7 +3697,7 @@
    "name": "Asymptoten der Hyperbel",
    "satz": "Bei f(x) = a/(x + b) + c: Die senkrechte Asymptote ist x = −b (dort ist der Nenner 0), die waagerechte ist y = c. Der Graph kommt den Asymptoten beliebig nahe und erreicht sie nie. Die Wertemenge hängt von D ab: Bei D = ℚ \\ {−b} ist W = ℚ \\ {c}, bei D = ℝ \\ {−b} ist W = ℝ \\ {c}.",
    "beispiel": "f(x) = 2/(x + 4) − 3: senkrechte Asymptote x = −4, waagerechte y = −3. Für x = 1 000 ist f(x) = 2/1 004 − 3 ≈ −2,998.",
-   "voraus": "a ≠ 0. Die Grundmenge steht in der Aufgabe (oft ℚ, ab Klasse 9 ℝ). Der Bruch 2/(x + 4) wird nie 0, deshalb wird f(x) nie −3. Wird D weiter eingeschränkt, kann W kleiner sein.",
+   "voraus": "Voraussetzung: a, b und c gehören zur Grundmenge der Aufgabe (ℚ bzw. ℝ) und a ≠ 0; erst dann gilt W = ℚ \\ {c} bzw. ℝ \\ {c}. Die Grundmenge steht in der Aufgabe (oft ℚ, ab Klasse 9 ℝ). Der Bruch 2/(x + 4) wird nie 0, deshalb wird f(x) nie −3. Wird D weiter eingeschränkt, kann W kleiner sein.",
    "fehler": "Den Zähler als waagerechte Asymptote nehmen (y = 2): Sie liegt bei y = c = −3.",
    "gym": "8",
    "rs": "–",
@@ -4797,7 +4797,8 @@
      "lernkarte": "ueberschlag"
     }
    ],
-   "vorschlag": ""
+   "vorschlag": "",
+   "ziel_hinweis": "Kennung wird beim Einbau vergeben (aw.* ist nur der Vorschlag aus texte8/arbeitsweisen.json)."
   },
   {
    "kennung": "V-02",
@@ -4903,8 +4904,8 @@
    "begruendung": "A6 enthält im Feld „fehler“ genau diesen Fall: (x + 6)/(x + 2) ist nicht 3 (für x = 2 ist der Wert 2). Es fehlt nur die Verknüpfung der Lernkarten.",
    "stichwoerter": [
     "aus Summen kürzen",
-    "kürzen",
-    "Bruchterm kürzen"
+    "Bruchterm kürzen",
+    "Kürzen im Bruchterm"
    ],
    "lernkarten": [
     {
@@ -4916,7 +4917,8 @@
      "lernkarte": "fehler_finden"
     }
    ],
-   "vorschlag": ""
+   "vorschlag": "",
+   "hinweis_suchwort": "Das Suchwort „kürzen“ bleibt allein bei R9 (Bestand); A6 bekommt nur die eindeutigen Suchwörter. So gibt es keine Doppelbelegung; R9 nennt den Fehler „aus Summen kürzen“ schon selbst."
   },
   {
    "kennung": "V-07",
@@ -5128,7 +5130,7 @@
     }
    ],
    "vorschlag": "",
-   "ziel_offen": "T-einheiten ist ein Platzhalter: Die Kennung der Tafel Einheiten vergibt der App-Bau; bis dahin offen."
+   "ziel_offen": "Offen bis zum Einbau: Im App-Bau (Stand origin/helfer-uni2) ist für die Einheiten-Tafel noch keine Kennung vergeben; T-einheiten ist nur der Platzhalter aus einheiten/vorschlag.md."
   },
   {
    "kennung": "V-15",
@@ -5335,7 +5337,8 @@
      "lernkarte": "planfigur"
     }
    ],
-   "vorschlag": ""
+   "vorschlag": "",
+   "ziel_hinweis": "Kennung wird beim Einbau vergeben (aw.* ist nur der Vorschlag aus texte8/arbeitsweisen.json)."
   },
   {
    "kennung": "V-22",

@@ -217,6 +217,13 @@ if 3 * 30 + 30 * F(1, 2) != 105 or 30 * 6 - 105 != 75: f('N-G03: 3:30 rechnet ni
 va = {v['kennung']: v for v in V}
 if va['V-01']['ziel'] != 'aw.ueberschlag' or va['V-21']['ziel'] != 'aw.skizze': f('V-01/V-21: Ziel muss die feste Kennung der Arbeitsweise sein')
 if 'T-einheiten' in va['V-14']['ziel'] and not va['V-14'].get('ziel_offen'): f('V-14: Abhängigkeit von der Einheiten-Tafel nicht als offen vermerkt')
+# Auflagen aus Werkstatt 1143
+muss('N-U07', 'voraus', 'a, b und c gehören zur Grundmenge', 'ℚ bzw. ℝ')
+if RR['N-U07']['voraus'].index('gehören zur Grundmenge') > RR['N-U07']['voraus'].index('W = ℚ'): f('N-U07: Voraussetzung muss vor der Wertemenge stehen')
+if 'kürzen' in [w.lower() for w in va['V-06']['stichwoerter']]: f('V-06: „kürzen“ gehört zu R9 (Doppelbelegung)')
+for k in ('V-01', 'V-21'):
+    if 'beim Einbau vergeben' not in va[k].get('ziel_hinweis', ''): f('%s: Kennung „wird beim Einbau vergeben“ nicht vermerkt' % k)
+if 'Offen bis zum Einbau' not in va['V-14'].get('ziel_offen', ''): f('V-14: „offen bis zum Einbau“ fehlt')
 # Verweise-Abgleich: Datei vorhanden, nennt alle Verweise und jedes Ziel, das im Universum fehlt
 ab = (hier / 'verweise-abgleich.md').read_text(encoding='utf-8')
 bestand = set(ids) | {'Arbeitsweise ' + a for a in aw} | AW_KENNUNGEN

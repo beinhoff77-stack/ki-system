@@ -1,7 +1,7 @@
 # Vorher und nachher: Klartext-Vorschläge für das Regel-Universum
 
 Entwurf, nichts eingespielt. 72 Einträge (B oder C): 23 Ideen, 48 Einzelregeln, 1 Rechenregel. A-Einträge sind unverändert.
-Alle Zahlenbeispiele werden von `pruefen.py` nachgerechnet. Maßstab: Ein Kind schlägt nach und kann danach eine Aufgabe lösen. Bei den 23 Ideen steht zusätzlich die Zeile „Genau gesagt“ (vorher/nachher). Überarbeitet nach den Auflagen aus Werkstatt 1133/1137 und 1138/1139.
+Alle Zahlenbeispiele werden von `pruefen.py` nachgerechnet. Maßstab: Ein Kind schlägt nach und kann danach eine Aufgabe lösen. Bei den 23 Ideen steht zusätzlich die Zeile „Genau gesagt“ (vorher/nachher). Überarbeitet nach den Auflagen aus Werkstatt 1133/1137, 1138/1139 und 1143. Von den 23 Ideen haben 17 einen neuen Namen (gegenüber der ersten Fassung gezählt); die übrigen 6 behalten ihren Namen.
 
 Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und Klasse-8-Stoff.
 
@@ -210,9 +210,9 @@ Reihenfolge: „Daten und Zufall“ zuerst, dann die Gebiete mit Klasse-5- und K
 | | vorher | nachher |
 |---|---|---|
 | Name | Hoch und zurück | Potenzieren und Zurückrechnen |
-| Merksatz | Hoch rechnet hin, die Wurzel rechnet zurück: √(x²) = |x|. | Potenz (ab Klasse 5): 2³ = 8. Wurzel (ab Klasse 9): √49 = 7, weil 7 · 7 = 49; unter der Wurzel muss eine Zahl ≥ 0 stehen. Logarithmus (ab Klasse 10): log₂ 8 = 3, weil 2³ = 8; Basis > 0, Basis ≠ 1, Zahl > 0. |
+| Merksatz | Hoch rechnet hin, die Wurzel rechnet zurück: √(x²) = |x|. | Potenz (ab Klasse 5): Bei Hochzahl 1, 2, 3 … steht die Basis so oft als Faktor da (2³ = 8); a⁰ = 1 für a ≠ 0 ist festgelegt. Wurzel (ab Klasse 9): √49 = 7, weil 7 · 7 = 49; unter der Wurzel muss eine Zahl ≥ 0 stehen. Logarithmus (ab Klasse 10): log₂ 8 = 3, weil 2³ = 8; Basis > 0, Basis ≠ 1, Zahl > 0. |
 | Kurzbeschreibung | Potenz, Wurzel und Logarithmus gehören zu einer Gleichung und fragen nach Ergebnis, Basis oder Hochzahl. | Hoch rechnet vorwärts; Wurzel (ab Klasse 9) und Logarithmus (ab Klasse 10) rechnen zurück. |
-| Genau gesagt | Potenz, Wurzel und Logarithmus gehören zusammen: Die eine rechnet hoch, die beiden anderen fragen zurück. Die Quadratwurzel liefert die Zahl ab null: √(x²) = |x|. | Potenz (ab Klasse 5): Die Hochzahl sagt, wie oft die Basis als Faktor dasteht. Wurzel (ab Klasse 9): √a ist die Zahl ab 0, die mit sich selbst malgenommen a ergibt; es gibt sie nur für a ≥ 0. Logarithmus (ab Klasse 10): log_b x ist die Hochzahl, mit der aus b die Zahl x wird; nur für b > 0, b ≠ 1 und x > 0. |
+| Genau gesagt | Potenz, Wurzel und Logarithmus gehören zusammen: Die eine rechnet hoch, die beiden anderen fragen zurück. Die Quadratwurzel liefert die Zahl ab null: √(x²) = |x|. | Potenz (ab Klasse 5): Die Hochzahl sagt, wie oft die Basis als Faktor dasteht, aber nur für Hochzahlen 1, 2, 3 … (positive ganze Zahlen); a⁰ = 1 für a ≠ 0 ist eine eigene Festlegung. Wurzel (ab Klasse 9): √a ist die Zahl ab 0, die mit sich selbst malgenommen a ergibt; nur für a ≥ 0. Logarithmus (ab Klasse 10): log_b x ist die Hochzahl, mit der aus b die Zahl x wird; nur für b > 0, b ≠ 1 und x > 0. |
 
 - **Beispiel (nachgerechnet):** Potenz: 2³ = 2 · 2 · 2 = 8. Wurzel: √49 = 7, denn 7² = 49. Logarithmus: log₂ 8 = 3, denn 2³ = 8.
 - **Gilt, wenn:** Die Quadratwurzel gibt es nur für Zahlen ab 0 und ist nie negativ; √(x²) = |x|. Den Logarithmus gibt es nur für Basis b > 0, b ≠ 1 und Zahlen x > 0.

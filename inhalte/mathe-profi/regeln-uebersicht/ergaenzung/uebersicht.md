@@ -133,7 +133,7 @@ Abgleich mit dem Bestand: `verweise-abgleich.md`. Kein neuer Text; es genügt, d
 | `V-04` | Prozente nicht addieren, mehrere Änderungen (Kl. 7) | V9 | mehrere Änderungen, Prozente addieren, erst plus dann minus | bruch.prozent_grundwert (2) |  |
 | `V-21` | Planfigur und Konstruktionsbeschreibung (Kl. 7) | `aw.skizze` (Arbeitsweise Skizze) | Planfigur, Skizze, Konstruktionsbeschreibung | geometrie.konstruktion (1) |  |
 | `V-22` | Gleichungen mit Klammern, keine oder unendlich viele Lösungen (eine Gleichung) (Kl. 7) | A9 | Klammern lösen, keine Lösung, unendlich viele Lösungen | gleichungen.linear (2) |  |
-| `V-06` | Kürzen nur aus Produkten, nie aus Summen (Kl. 8) | A6 | aus Summen kürzen, kürzen, Bruchterm kürzen | terme.bruchterme (2) |  |
+| `V-06` | Kürzen nur aus Produkten, nie aus Summen (Kl. 8) | A6 | aus Summen kürzen, Bruchterm kürzen, Kürzen im Bruchterm | terme.bruchterme (2) |  |
 | `V-07` | Mindestens einmal (Gegenereignis) (Kl. 8) | D14 | mindestens einmal, mindestens, keinmal, Gegenereignis | stochastik.mehrstufig, stochastik.grundbegriffe (2) |  |
 | `V-09` | Zylindermantel (Kl. 8) | F15 | Mantel, Mantelfläche, Zylinder Netz, Etikett | messen.koerper_darstellung (1) |  |
 | `V-10` | Formeln umstellen (Kl. 8) | A13 | umstellen, Formel umstellen, nach h auflösen, Formel auflösen | gleichungen.formeln (5) |  |

@@ -168,11 +168,18 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 + 3 gerechnet"
+    },
+    {
      "luecke": 3,
-     "antwort": 12,
-     "fehlbild": "fb.potenz.basis_mal_hochzahl",
-     "regel_des_fehlbilds": "rr.potenz",
-     "beschreibung": "3 · 4 gerechnet"
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "27 + 3 gerechnet: addiert statt malgenommen"
     }
    ],
    "aufgabe": {
@@ -225,7 +232,7 @@
      "antwort": 16,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nach dem ersten Schritt aufgehört"
+     "beschreibung": "nach 4 · 4 aufgehört"
     }
    ],
    "aufgabe": {
@@ -236,14 +243,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Berechne 4³. Weg A: 4 · 4 · 4 in einem Zug. Weg B: erst 4 · 4 = 16, dann 16 · 4. Wie groß ist das Ergebnis?"
+     "text": "Berechne 4³. Weg A: die Mal-Kette 4 · 4 · 4. Weg B: 4 ist 2 · 2, also ist 4³ gleich 2⁶. Rechne 2⁶ als Mal-Kette aus. Wie groß ist das Ergebnis?"
     },
     "o": {
      "wert": 64
     },
     "c": "4**3",
     "h": "Beide Wege geben dieselbe Zahl. 4³ ist nicht 4 · 3.",
-    "w": "Weg A: 4 · 4 · 4 = 64. Weg B: 16 · 4 = 64."
+    "w": "Weg A: 4 · 4 · 4 = 64. Weg B: 4³ = (2 · 2)³ = 2⁶ = 2 · 2 · 2 · 2 · 2 · 2 = 64."
    }
   },
   {
@@ -500,14 +507,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Vergleiche 4³ und 3⁴. Weg A: beide Potenzen einzeln ausrechnen. Weg B: beide als Mal-Kette schreiben und rechnen. Um wie viel ist 3⁴ größer als 4³?"
+     "text": "Vergleiche 4³ und 3⁴. Weg A: beide als Mal-Kette ausrechnen (4 · 4 · 4 und 3 · 3 · 3 · 3). Weg B: 3⁴ als 9 · 9 und 4³ als 8 · 8 schreiben, denn 3⁴ = (3 · 3) · (3 · 3) und 4³ = 2⁶ = 2³ · 2³. Um wie viel ist 3⁴ größer als 4³?"
     },
     "o": {
      "wert": 17
     },
     "c": "3**4-4**3",
-    "h": "Die Zahlen sind dieselben, aber die Rollen sind vertauscht.",
-    "w": "4³ = 64. 3⁴ = 81. 81 − 64 = 17."
+    "h": "Beide Wege geben dieselbe Zahl. Welcher Weg rechnet mit kleineren Zahlen?",
+    "w": "Weg A: 4³ = 64 und 3⁴ = 81. Weg B: 8 · 8 = 64 und 9 · 9 = 81. 81 − 64 = 17."
    }
   },
   {
@@ -632,10 +639,10 @@
     },
     {
      "index": 2,
-     "antwort": "340 · 10⁵",
+     "antwort": "3 400 · 10⁵",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "eine Stelle zu viel"
+     "beschreibung": "die Nullen der 3 400 noch einmal angehängt"
     }
    ],
    "aufgabe": {
@@ -651,7 +658,7 @@
     "a": [
      "34 · 10⁶",
      "34 · 10⁴",
-     "340 · 10⁵",
+     "3 400 · 10⁵",
      "34 · 10⁵"
     ],
     "o": {
@@ -756,7 +763,7 @@
    "kennung": "K5A-V098",
    "thema": "zahlen.potenzen_basis",
    "lernkarte": "negativ",
-   "stufe": 2,
+   "stufe": 1,
    "form": "verfahren_waehlen",
    "typ": "Verfahren wählen",
    "antwortform": "auswahl",
@@ -790,8 +797,8 @@
     "l": "negativ",
     "t": "negativ",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
      "text": "Du sollst −3² berechnen (ohne Klammer um die −3). Welcher Weg ist richtig?"
@@ -842,7 +849,7 @@
      "wert": -5
     },
     "c": "-5",
-    "h": "Welche Zahl dreimal mit sich malgenommen gibt 125? Dann das Vorzeichen.",
+    "h": "Welche Zahl ergibt als Produkt aus drei gleichen Faktoren 125? Dann das Vorzeichen.",
     "w": "(−5) · (−5) · (−5) = 25 · (−5) = −125. Bei ungeradem Exponent bleibt das Minus."
    }
   },
@@ -928,7 +935,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Eine Kettennachricht: In Runde 1 schickt eine Person sie an 3 Personen. In jeder weiteren Runde schickt jede neue Person sie an 3 weitere Personen. Wie viele Personen bekommen die Nachricht in Runde 4 neu?"
+     "text": "Eine Kettennachricht: In Runde 1 schickt eine Person sie an 3 Personen. In jeder weiteren Runde schickt jede Person, die sie in der Runde davor neu bekommen hat, sie an 3 weitere Personen. Jeder Empfänger hat die Nachricht vorher noch nicht gehabt, und keine Person bekommt sie von zwei Absendern. Wie viele Personen bekommen die Nachricht in Runde 4 neu?"
     },
     "o": {
      "wert": 81

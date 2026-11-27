@@ -23,11 +23,11 @@ neu(TH, "schreibweise", "umkehren", "umkehr", Z(
 neu(TH, "berechnen", "lueckenweg", "direkt", L(
     "Du rechnest 3⁴ = 3 · 3 · 3 · 3 Schritt für Schritt. Erst 3 · 3 = ①. Dann ① · 3 = ②. Dann ② · 3 = ③.",
     ["3*3", "3*3*3", "3*3*3*3"], ["9", "27", "81"], "Immer das letzte Ergebnis noch einmal mit 3 malnehmen.", "3 · 3 = 9, 9 · 3 = 27, 27 · 3 = 81.",
-    {2: [(12, "fb.potenz.basis_mal_hochzahl", "3 · 4 gerechnet")]}), PO)
+    {0: [(6, None, "3 + 3 gerechnet")], 2: [(30, None, "27 + 3 gerechnet: addiert statt malgenommen")]}), PO)
 neu(TH, "berechnen", "zwei_wege", "mehrschritt", Z(
-    "Berechne 4³. Weg A: 4 · 4 · 4 in einem Zug. Weg B: erst 4 · 4 = 16, dann 16 · 4. Wie groß ist das Ergebnis?",
-    "4**3", "4*4*4", "Beide Wege geben dieselbe Zahl. 4³ ist nicht 4 · 3.", "Weg A: 4 · 4 · 4 = 64. Weg B: 16 · 4 = 64.",
-    [(12, "fb.potenz.basis_mal_hochzahl", "4 · 3 gerechnet"), (16, None, "nach dem ersten Schritt aufgehört")]), PO)
+    "Berechne 4³. Weg A: die Mal-Kette 4 · 4 · 4. Weg B: 4 ist 2 · 2, also ist 4³ gleich 2⁶. Rechne 2⁶ als Mal-Kette aus. Wie groß ist das Ergebnis?",
+    "4**3", "2**6", "Beide Wege geben dieselbe Zahl. 4³ ist nicht 4 · 3.", "Weg A: 4 · 4 · 4 = 64. Weg B: 4³ = (2 · 2)³ = 2⁶ = 2 · 2 · 2 · 2 · 2 · 2 = 64.",
+    [(12, "fb.potenz.basis_mal_hochzahl", "4 · 3 gerechnet"), (16, None, "nach 4 · 4 aufgehört")]), PO)
 neu(TH, "berechnen", "anwenden", "einkleidung", Z(
     "Eine Bakterienkultur verdoppelt sich jede Stunde. Am Anfang sind es 5 Bakterien. Wie viele Bakterien sind es nach 4 Stunden?",
     "5*2**4", "5*2*2*2*2", "Nach jeder Stunde mal 2. Das sind 4 Verdopplungen.", "2⁴ = 16. 5 · 16 = 80 Bakterien.",
@@ -54,8 +54,8 @@ neu(TH, "vertauschen", "lueckenweg", "direkt", L(
     ["5**3", "3**5", "3**5-5**3"], ["125", "243", "118"], "Zähle die Faktoren: Der Exponent sagt, wie oft die Basis dasteht.", "5³ = 125. 3⁵ = 243. 243 − 125 = 118.",
     {0: [(15, "fb.potenz.basis_mal_hochzahl", "5 · 3 gerechnet")]}), PO)
 neu(TH, "vertauschen", "zwei_wege", "mehrschritt", Z(
-    "Vergleiche 4³ und 3⁴. Weg A: beide Potenzen einzeln ausrechnen. Weg B: beide als Mal-Kette schreiben und rechnen. Um wie viel ist 3⁴ größer als 4³?",
-    "3**4-4**3", "81-64", "Die Zahlen sind dieselben, aber die Rollen sind vertauscht.", "4³ = 64. 3⁴ = 81. 81 − 64 = 17.",
+    "Vergleiche 4³ und 3⁴. Weg A: beide als Mal-Kette ausrechnen (4 · 4 · 4 und 3 · 3 · 3 · 3). Weg B: 3⁴ als 9 · 9 und 4³ als 8 · 8 schreiben, denn 3⁴ = (3 · 3) · (3 · 3) und 4³ = 2⁶ = 2³ · 2³. Um wie viel ist 3⁴ größer als 4³?",
+    "3**4-4**3", "9*9-8*8", "Beide Wege geben dieselbe Zahl. Welcher Weg rechnet mit kleineren Zahlen?", "Weg A: 4³ = 64 und 3⁴ = 81. Weg B: 8 · 8 = 64 und 9 · 9 = 81. 81 − 64 = 17.",
     [(-17, None, "falsch herum abgezogen")]), PO)
 neu(TH, "vertauschen", "anwenden", "einkleidung", Z(
     "Schloss A hat 5 Rädchen mit je 2 Symbolen. Seine Einstellungen zählt man mit 2⁵. Schloss B hat 2 Rädchen mit je 5 Symbolen. Seine Einstellungen zählt man mit 5². Wie viele Einstellungen hat Schloss A mehr als Schloss B?",
@@ -69,9 +69,9 @@ neu(TH, "zehner", "fehler_detektiv", "fehler", FDZ(
     "Zähle die Nullen in deiner Zahl und vergleiche mit dem Exponenten.", "7 und vier Nullen sind 70 000, nicht 700 000."), PO)
 neu(TH, "zehner", "bruecke", "darstellung", W(
     "Welche Schreibweise ist gleich der Zahl 3 400 000?",
-    "34 · 10⁵", [("34 · 10⁶", "eine Null zu viel"), ("34 · 10⁴", "eine Null zu wenig"), ("340 · 10⁵", "eine Stelle zu viel")],
+    "34 · 10⁵", [("34 · 10⁶", "eine Null zu viel"), ("34 · 10⁴", "eine Null zu wenig"), ("3 400 · 10⁵", "die Nullen der 3 400 noch einmal angehängt")],
     "Wie viele Nullen stehen hinter der 34?", "3 400 000 = 34 und fünf Nullen = 34 · 10⁵.",
-    34 * 10 ** 5 == 3400000 and 34 * 10 ** 6 != 3400000 and 34 * 10 ** 4 != 3400000 and 340 * 10 ** 5 != 3400000), PO)
+    34 * 10 ** 5 == 3400000 and 34 * 10 ** 6 != 3400000 and 34 * 10 ** 4 != 3400000 and 3400 * 10 ** 5 != 3400000 and len({34 * 10 ** 6, 34 * 10 ** 4, 3400 * 10 ** 5}) == 3), PO)
 neu(TH, "zehner", "umkehren", "umkehr", Z(
     "Die Zahl 25 000 000 000 soll als 25 · 10ⁿ geschrieben werden. Welche Zahl ist n?",
     "9", str(len(str(25000000000)) - 2), "Zähle die Nullen hinter der 25.", "25 000 000 000 hat hinter der 25 genau 9 Nullen. n = 9.",
@@ -82,7 +82,7 @@ neu(TH, "negativ", "lueckenweg", "direkt", L(
     "Du rechnest (−2)⁴ = (−2) · (−2) · (−2) · (−2). Erst (−2) · (−2) = ①. Dann ① · (−2) = ②. Dann ② · (−2) = ③.",
     ["(-2)*(-2)", "(-2)*(-2)*(-2)", "(-2)**4"], ["4", "-8", "16"], "Gleiche Vorzeichen ergeben plus, verschiedene minus.", "(−2) · (−2) = 4; 4 · (−2) = −8; (−8) · (−2) = 16. Gerader Exponent: Ergebnis positiv.",
     {1: [(8, "fb.vorzeichen.falsches_zeichen", "Vorzeichen vergessen")]}), VZ)
-neu(TH, "negativ", "verfahren_waehlen", "mehrschritt", W(
+neu(TH, "negativ", "verfahren_waehlen", "erkennen", W(
     "Du sollst −3² berechnen (ohne Klammer um die −3). Welcher Weg ist richtig?",
     "Erst 3² = 9, das Minus steht davor: −9", [("(−3) · (−3) = 9", "das Minus als Teil der Basis gelesen"), ("−3 · 2 = −6", "Basis mal Exponent gerechnet"), ("−3 + 2 = −1", "Plus statt Hoch")],
     "Zu welcher Zahl gehört der Exponent 2?", "Der Exponent gehört nur zur 3. Erst 3² = 9, dann das Minus: −9. Mit Klammern wäre (−3)² = 9.",
@@ -90,7 +90,7 @@ neu(TH, "negativ", "verfahren_waehlen", "mehrschritt", W(
 assert (-5) ** 3 == -125
 neu(TH, "negativ", "umkehren", "umkehr", Z(
     "Eine negative Zahl hoch 3 ergibt −125. Wie heißt die Basis?",
-    "-5", "-5", "Welche Zahl dreimal mit sich malgenommen gibt 125? Dann das Vorzeichen.", "(−5) · (−5) · (−5) = 25 · (−5) = −125. Bei ungeradem Exponent bleibt das Minus.",
+    "-5", "-5", "Welche Zahl ergibt als Produkt aus drei gleichen Faktoren 125? Dann das Vorzeichen.", "(−5) · (−5) · (−5) = 25 · (−5) = −125. Bei ungeradem Exponent bleibt das Minus.",
     [(5, "fb.vorzeichen.falsches_zeichen", "Vorzeichen vergessen")]), VZ)
 
 # ── sach ──
@@ -99,7 +99,7 @@ neu(TH, "sach", "fehler_detektiv", "fehler", FDZ(
     [("Nach dem 1. Falten sind es 2 Lagen.", 2 ** 1 == 2), ("Bei jedem weiteren Falten kommen 2 Lagen dazu.", 2 + 2 * 4 == 2 ** 5), ("Nach dem 5. Falten sind es 2 + 2 · 4 = 10 Lagen.", 2 + 2 * 4 == 10)],
     "Wie viele Lagen sind es nach dem 2. Falten? Nimm ein Blatt und falte.", "Beim Falten verdoppelt sich die Zahl der Lagen: 2, 4, 8, 16, 32. Nach 5-mal sind es 2⁵ = 32 Lagen."), PO)
 neu(TH, "sach", "anwenden", "einkleidung", Z(
-    "Eine Kettennachricht: In Runde 1 schickt eine Person sie an 3 Personen. In jeder weiteren Runde schickt jede neue Person sie an 3 weitere Personen. Wie viele Personen bekommen die Nachricht in Runde 4 neu?",
+    "Eine Kettennachricht: In Runde 1 schickt eine Person sie an 3 Personen. In jeder weiteren Runde schickt jede Person, die sie in der Runde davor neu bekommen hat, sie an 3 weitere Personen. Jeder Empfänger hat die Nachricht vorher noch nicht gehabt, und keine Person bekommt sie von zwei Absendern. Wie viele Personen bekommen die Nachricht in Runde 4 neu?",
     "3**4", "3*3*3*3", "Runde 1: 3, Runde 2: 9. Jede Runde mal 3.", "Runde 1: 3, Runde 2: 9, Runde 3: 27, Runde 4: 81. Das ist 3⁴.",
     [(12, "fb.potenz.basis_mal_hochzahl", "3 · 4 gerechnet"), (64, None, "Basis und Exponent vertauscht")]), PO)
 neu(TH, "sach", "bruecke", "darstellung", Z(

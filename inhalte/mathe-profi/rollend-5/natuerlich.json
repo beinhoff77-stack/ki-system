@@ -84,13 +84,13 @@
      "antwort": 350,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Nullen weggelassen"
+     "beschreibung": "die Null an der Hunderterstelle weggelassen"
     },
     {
      "antwort": 3500,
      "fehlbild": "fb.stellenwert.eine_stelle_daneben",
      "regel_des_fehlbilds": "rr.stellenwert",
-     "beschreibung": "die Ziffern falsch verteilt"
+     "beschreibung": "die 5 eine Stelle zu weit links gelesen (als Hunderter)"
     }
    ],
    "aufgabe": {
@@ -318,7 +318,14 @@
      "antwort": 48120,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die leere Gruppe 000 weggelassen"
+     "beschreibung": "die leere Tausendergruppe weggelassen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffern von 48 120 gezählt"
     }
    ],
    "aufgabe": {
@@ -329,22 +336,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Eine Zahl wird gelesen: „achtundvierzig Millionen einhundertzwanzig“. In Dreiergruppen: 48 | 000 | 120. Die Gruppe 48 steht vor „Millionen“: 48 · 1 000 000 = ①. Die Gruppe 000 liest man nicht. Mit der letzten Gruppe 120 ist die Zahl ① + 120 = ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Eine Zahl wird gelesen: „achtundvierzig Millionen einhundertzwanzig“. Die 48 steht vor „Millionen“: 48 · 1 000 000 = ①. Dazu kommen 120 Einer, dazwischen wird nichts gelesen: ① + 120 = ②. Die Zahl ② hat ③ Ziffern.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       48000000,
-      48000120
+      48000120,
+      8
      ]
     },
     "c": [
      "48*1000000",
-     "48*1000000+120"
+     "48*1000000+120",
+     "8"
     ],
-    "h": "Die Gruppe in der Mitte ist leer, sie hält nur die Stellen frei.",
-    "w": "48 · 1 000 000 = 48 000 000. Dazu 120: 48 000 120."
+    "h": "Die Zahl hat Dreiergruppen für Einer, Tausender und Millionen. Welche Gruppe bleibt hier leer?",
+    "w": "48 · 1 000 000 = 48 000 000. Dazu 120: 48 000 120. Die Tausendergruppe ist 000. Die Zahl hat 8 Ziffern."
    }
   },
   {
@@ -624,7 +633,14 @@
      "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Anfangsstrich mitgezählt"
+     "beschreibung": "Striche statt Abschnitte gezählt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Strecke genannt, nicht durch den Abschnittswert geteilt"
     }
    ],
    "aufgabe": {
@@ -924,10 +940,10 @@
     },
     {
      "luecke": 3,
-     "antwort": 48300,
+     "antwort": -72,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "abgerundet statt aufgerundet"
+     "beschreibung": "mit 48 300 gerechnet (abgerundet)"
     }
    ],
    "aufgabe": {
@@ -938,7 +954,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Zahl 48 372 wird auf Hunderter gerundet. Rechts neben der Hunderterstelle steht die Ziffer ①. Ist ① gleich 5 oder mehr, wird die Hunderterziffer 3 um 1 größer: Sie wird zur ②. Die gerundete Zahl hat vorn 48, dann die Hunderterziffer ② und dahinter zwei Nullen: ③.",
+     "text": "Die Zahl 48 372 wird auf Hunderter gerundet. Rechts neben der Hunderterstelle steht die Ziffer ①. Ist ① gleich 5 oder mehr, wird die Hunderterziffer 3 um 1 größer: Sie wird zur ②. Die gerundete Zahl hat vorn 48 dann die Hunderterziffer ② und dahinter zwei Nullen. Sie ist um ③ größer als 48 372.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -946,16 +962,16 @@
      "werte": [
       7,
       4,
-      48400
+      28
      ]
     },
     "c": [
      "48372//10%10",
      "48372//100%10+1",
-     "(48372+50)//100*100"
+     "(48372+50)//100*100-48372"
     ],
     "h": "Welche Ziffer steht direkt rechts von der Hunderterstelle?",
-    "w": "Rechts der Hunderterstelle steht die 7. Also aufrunden: aus 3 wird 4. Dahinter Nullen: 48 400."
+    "w": "Rechts der Hunderterstelle steht die 7. Also aufrunden: aus 3 wird 4. Dahinter Nullen: 48 400. 48 400 − 48 372 = 28."
    }
   },
   {
@@ -1233,7 +1249,7 @@
    "kennung": "K5A-V026",
    "thema": "zahlen.natuerlich",
    "lernkarte": "runden_sinnvoll",
-   "stufe": 2,
+   "stufe": 1,
    "form": "verfahren_waehlen",
    "typ": "Verfahren wählen",
    "antwortform": "auswahl",
@@ -1250,10 +1266,10 @@
     },
     {
      "index": 1,
-     "antwort": "für die Kasse: 6 800 € buchen",
+     "antwort": "für die Kasse: 6 800 € genau so buchen",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "bei Geld muss es genau stimmen"
+     "beschreibung": "ein Betrag, der gebucht wird, muss genau stimmen"
     },
     {
      "index": 2,
@@ -1267,15 +1283,15 @@
     "l": "runden_sinnvoll",
     "t": "runden_sinnvoll",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
      "text": "Du kennst die genaue Zahl 6 842. Für welchen Zweck darfst du sie runden?"
     },
     "a": [
      "für die Geheimzahl einer Karte: 6 800",
-     "für die Kasse: 6 800 € buchen",
+     "für die Kasse: 6 800 € genau so buchen",
      "für die Hausnummer: Haus 6 800",
      "für eine Zeitungsmeldung: „etwa 6 800 Zuschauer“"
     ],
@@ -1283,7 +1299,7 @@
      "index": 3
     },
     "h": "Frage: Reicht „ungefähr“ oder muss es genau stimmen?",
-    "w": "Runden ist erlaubt, wenn „ungefähr“ reicht, wie bei einer Meldung. Nummern, Geheimzahlen und Geldbeträge müssen genau sein."
+    "w": "Runden ist erlaubt, wenn „ungefähr“ reicht, wie bei einer Meldung. Nummern, Geheimzahlen und ein Betrag, der gebucht wird, müssen genau stimmen."
    }
   },
   {
@@ -1479,10 +1495,10 @@
     },
     {
      "luecke": 4,
-     "antwort": 1544,
+     "antwort": 2144,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "CM als 500 gelesen"
+     "beschreibung": "mit 1 100 für CM weitergerechnet"
     }
    ],
    "aufgabe": {
@@ -1590,13 +1606,13 @@
      "antwort": "XXXX",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "vier X hintereinander: das ist nicht erlaubt, XL ist selbst schon 40"
+     "beschreibung": "die 40 selbst nur mit Plus-Zeichen geschrieben statt den Vorgänger"
     },
     {
      "antwort": "XIL",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ein Paar, das es nicht gibt"
+     "beschreibung": "40 − 1 als XIL geschrieben: I vor L gibt es nicht"
     }
    ],
    "aufgabe": {
@@ -1698,14 +1714,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Wie viel ist MCMLXXXIV? Weg A: von links lesen, ein kleineres Zeichen vor einem größeren abziehen. Weg B: zerlegen in M + CM + LXXX + IV und die Teile addieren."
+     "text": "Wie viel ist MCMLXXXIV? Weg A: von links nach rechts lesen und jedes Zeichen zählen; ein kleineres Zeichen vor einem größeren wird abgezogen. Weg B: in eine Stellentafel eintragen: M zu den Tausendern, CM zu den Hundertern, LXXX zu den Zehnern, IV zu den Einern."
     },
     "o": {
      "wert": 1984
     },
     "c": "1000+900+80+4",
     "h": "Beide Wege geben dieselbe Zahl.",
-    "w": "M = 1 000, CM = 900, LXXX = 80, IV = 4. Summe: 1 984."
+    "w": "Weg A: 1 000 + 900 + 80 + 4 = 1 984. Weg B: Tausender 1, Hunderter 9, Zehner 8, Einer 4: 1 984."
    }
   },
   {
@@ -1787,7 +1803,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Zweierzahl 1101 hat die Stellenwerte 8, 4, 2 und 1. Gerechnet: 1 · 8 + 1 · 4 + 0 · 2 + 1 · 1 = ①. Die Zweierzahl 10010 hat die Stellenwerte 16, 8, 4, 2 und 1. Eine 1 steht bei 16 und bei 2: 16 + 2 = ②. Die zweite Zahl ist um ② − ① = ③ größer.",
+     "text": "Die Zweierzahl 1101 hat die Stellenwerte 8, 4, 2 und 1. Gerechnet: 1 · 8 + 1 · 4 + 0 · 2 + 1 · 1 = ①. Die Zweierzahl 10010 hat die Stellenwerte 16, 8, 4, 2 und 1. Ebenso gerechnet ist sie ②. Die zweite Zahl ist um ② − ① = ③ größer.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -1800,8 +1816,8 @@
     },
     "c": [
      "1*8+1*4+0*2+1*1",
-     "16+2",
-     "16+2-(1*8+1*4+1*1)"
+     "1*16+0*8+0*4+1*2+0*1",
+     "1*16+0*8+0*4+1*2+0*1-(1*8+1*4+0*2+1*1)"
     ],
     "h": "Nur die Stellenwerte mit einer 1 darunter werden addiert.",
     "w": "1101: 8 + 4 + 1 = 13. 10010: 16 + 2 = 18. 18 − 13 = 5."
@@ -1888,10 +1904,10 @@
      "beschreibung": "die 9 vergessen"
     },
     {
-     "antwort": 10101,
+     "antwort": 10110,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zweierzahl als normale Zahl gelesen"
+     "beschreibung": "die Zweierzahl 10101 als normale Zahl gelesen und 9 addiert"
     }
    ],
    "aufgabe": {
@@ -1902,7 +1918,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Lichtband hat fünf Lampen für die Stellenwerte 16, 8, 4, 2 und 1. Es leuchten die erste, die dritte und die fünfte Lampe von links. So zeigt das Band, wie viele Gäste im Saal sind. Dann kommen noch 9 Gäste. Wie viele Gäste sind es dann?"
+     "text": "Ein Lichtband hat fünf Lampen für die Stellenwerte 16, 8, 4, 2 und 1. Die Lampen sind von links nach rechts so geordnet. Es leuchten die erste, die dritte und die fünfte Lampe. So zeigt das Band, wie viele Gäste im Saal sind. Dann kommen noch 9 Gäste. Wie viele Gäste sind es dann?"
     },
     "o": {
      "wert": 30

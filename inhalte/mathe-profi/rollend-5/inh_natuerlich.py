@@ -31,7 +31,7 @@ neu(TH, "stellenwert", "lueckenweg", "direkt", L(
 neu(TH, "stellenwert", "bruecke", "darstellung", Z(
     "Die Tafel zeigt die Ziffern einer Zahl. Schreibe die Zahl.",
     "3*1000+0*100+5*10+0*1", "3050", "Lies die Tafel von links nach rechts. Eine Null hält die Stelle frei.", "3 Tausender, 0 Hunderter, 5 Zehner, 0 Einer: 3 000 + 50 = 3 050.",
-    [(350, None, "die Nullen weggelassen"), (3500, "fb.stellenwert.eine_stelle_daneben", "die Ziffern falsch verteilt")],
+    [(350, None, "die Null an der Hunderterstelle weggelassen"), (3500, "fb.stellenwert.eine_stelle_daneben", "die 5 eine Stelle zu weit links gelesen (als Hunderter)")],
     grafik=TAB(["T", "H", "Z", "E"], ["3", "0", "5", "0"])), SW)
 neu(TH, "stellenwert", "anwenden", "einkleidung", Z(
     "Eine Anzeige am Eingang eines Museums zeigt die Besucherzahl: 5 Tausender, 0 Hunderter, 7 Zehner, 3 Einer. Danach kommen noch 40 Besucher. Wie viele Besucher sind es dann?",
@@ -54,9 +54,9 @@ neu(TH, "zahlwort_zu_ziffern", "anwenden", "einkleidung", Z(
 
 # ── ziffern_zu_zahlwort ──
 neu(TH, "ziffern_zu_zahlwort", "lueckenweg", "direkt", L(
-    "Eine Zahl wird gelesen: „achtundvierzig Millionen einhundertzwanzig“. In Dreiergruppen: 48 | 000 | 120. Die Gruppe 48 steht vor „Millionen“: 48 · 1 000 000 = ①. Die Gruppe 000 liest man nicht. Mit der letzten Gruppe 120 ist die Zahl ① + 120 = ②.",
-    ["48*1000000", "48*1000000+120"], ["48*10**6", "48000000+120"], "Die Gruppe in der Mitte ist leer, sie hält nur die Stellen frei.", "48 · 1 000 000 = 48 000 000. Dazu 120: 48 000 120.",
-    {0: [(4800000, "fb.stellenwert.eine_stelle_daneben", "eine Null zu wenig")], 1: [(48120, None, "die leere Gruppe 000 weggelassen")]}), SS)
+    "Eine Zahl wird gelesen: „achtundvierzig Millionen einhundertzwanzig“. Die 48 steht vor „Millionen“: 48 · 1 000 000 = ①. Dazu kommen 120 Einer, dazwischen wird nichts gelesen: ① + 120 = ②. Die Zahl ② hat ③ Ziffern.",
+    ["48*1000000", "48*1000000+120", "8"], ["48*10**6", "48000000+120", "8"], "Die Zahl hat Dreiergruppen für Einer, Tausender und Millionen. Welche Gruppe bleibt hier leer?", "48 · 1 000 000 = 48 000 000. Dazu 120: 48 000 120. Die Tausendergruppe ist 000. Die Zahl hat 8 Ziffern.",
+    {0: [(4800000, "fb.stellenwert.eine_stelle_daneben", "eine Null zu wenig")], 1: [(48120, None, "die leere Tausendergruppe weggelassen")], 2: [(5, None, "die Ziffern von 48 120 gezählt")]}), SS)
 neu(TH, "ziffern_zu_zahlwort", "zwei_wege", "mehrschritt", Z(
     "Zwei Wege für die Zahl 20 305 060: Weg A teilt von rechts in Dreiergruppen. Weg B rechnet: Zahl der Ziffern minus 3 minus 3. Wie viele Ziffern hat die Gruppe ganz links?",
     "8-3-3", "8%3", "Zähle zuerst alle Ziffern der Zahl.", "Die Zahl hat 8 Ziffern. Zwei volle Gruppen sind 6 Ziffern. Es bleiben 8 − 6 = 2 Ziffern ganz links: „zwanzig“.",
@@ -87,7 +87,7 @@ neu(TH, "strahl_ablesen", "anwenden", "einkleidung", Z(
 neu(TH, "strahl_eintragen", "lueckenweg", "direkt", L(
     "Ein Strahl geht von 2 000 bis 3 000 und hat 5 Abschnitte. Ein Abschnitt ist (3 000 − 2 000) : 5 = ① wert. Die Zahl 2 600 liegt (2 600 − 2 000) : ① = ② Abschnitte nach dem Anfang.",
     ["(3000-2000)//5", "(2600-2000)//((3000-2000)//5)"], ["200", "600//200"], "Erst den Abschnittswert, dann die Strecke vom Anfang bis zur Zahl.", "1 000 : 5 = 200. 600 : 200 = 3 Abschnitte.",
-    {0: [(500, None, "durch 2 statt durch 5 geteilt")], 1: [(4, None, "den Anfangsstrich mitgezählt")]}), ZG)
+    {0: [(500, None, "durch 2 statt durch 5 geteilt")], 1: [(4, None, "Striche statt Abschnitte gezählt"), (600, None, "die Strecke genannt, nicht durch den Abschnittswert geteilt")]}), ZG)
 neu(TH, "strahl_eintragen", "umkehren", "umkehr", Z(
     "Auf einem Zahlenstrahl liegt die Zahl 4 500 genau 3 Abschnitte nach dem Anfang. Ein Abschnitt ist 500 wert. Bei welcher Zahl beginnt der Strahl?",
     "4500-3*500", "3000", "Gehe vom Pfeil rückwärts zum Anfang. Wie weit ist das in Zahlen?", "3 Abschnitte sind 3 · 500 = 1 500. 4 500 − 1 500 = 3 000. Der Strahl beginnt bei 3 000.",
@@ -115,9 +115,9 @@ neu(TH, "vergleichen", "anwenden", "einkleidung", Z(
 
 # ── runden_regel ──
 neu(TH, "runden_regel", "lueckenweg", "direkt", L(
-    "Die Zahl 48 372 wird auf Hunderter gerundet. Rechts neben der Hunderterstelle steht die Ziffer ①. Ist ① gleich 5 oder mehr, wird die Hunderterziffer 3 um 1 größer: Sie wird zur ②. Die gerundete Zahl hat vorn 48, dann die Hunderterziffer ② und dahinter zwei Nullen: ③.",
-    ["48372//10%10", "48372//100%10+1", "(48372+50)//100*100"], ["7", "4", "48400"], "Welche Ziffer steht direkt rechts von der Hunderterstelle?", "Rechts der Hunderterstelle steht die 7. Also aufrunden: aus 3 wird 4. Dahinter Nullen: 48 400.",
-    {0: [(2, None, "die letzte Ziffer genommen")], 1: [(3, None, "nicht aufgerundet")], 2: [(48300, None, "abgerundet statt aufgerundet")]}), BU)
+    "Die Zahl 48 372 wird auf Hunderter gerundet. Rechts neben der Hunderterstelle steht die Ziffer ①. Ist ① gleich 5 oder mehr, wird die Hunderterziffer 3 um 1 größer: Sie wird zur ②. Die gerundete Zahl hat vorn 48 dann die Hunderterziffer ② und dahinter zwei Nullen. Sie ist um ③ größer als 48 372.",
+    ["48372//10%10", "48372//100%10+1", "(48372+50)//100*100-48372"], ["7", "4", "28"], "Welche Ziffer steht direkt rechts von der Hunderterstelle?", "Rechts der Hunderterstelle steht die 7. Also aufrunden: aus 3 wird 4. Dahinter Nullen: 48 400. 48 400 − 48 372 = 28.",
+    {0: [(2, None, "die letzte Ziffer genommen")], 1: [(3, None, "nicht aufgerundet")], 2: [(-72, None, "mit 48 300 gerechnet (abgerundet)")]}), BU)
 neu(TH, "runden_regel", "umkehren", "umkehr", Z(
     "Eine Zahl wurde auf Tausender gerundet und ergibt 65 000. Welche ist die kleinste Zahl, die beim Runden auf Tausender zu 65 000 wird?",
     "65000-500", "64500", "Ab welcher Ziffer rechts wird aufgerundet? Gehe von 65 000 aus nach unten.", "Aufgerundet wird ab 500. 65 000 − 500 = 64 500. Die Zahl 64 499 würde schon zu 64 000.",
@@ -146,11 +146,11 @@ neu(TH, "runden_sinnvoll", "lueckenweg", "direkt", L(
     "Eine Zeitung schreibt über 4 987 Besucher. Auf Hunderter gerundet sind das ①. Der Veranstalter rechnet genau ab: Jeder Besucher zahlt 2 €. Das sind ② €. Mit der gerundeten Zahl wären es ① · 2 = ③ €, also 26 € zu viel.",
     ["(4987+50)//100*100", "4987*2", "(4987+50)//100*100*2"], ["5000", "9974", "10000"], "Runden darf man für eine Meldung. Für die Abrechnung nimmst du die genaue Zahl.", "4 987 ≈ 5 000. Genau: 4 987 · 2 = 9 974. Gerundet: 5 000 · 2 = 10 000. Unterschied: 26 €.",
     {0: [(4900, None, "abgerundet statt aufgerundet")], 2: [(9800, None, "mit 4 900 weitergerechnet")]}), BU)
-neu(TH, "runden_sinnvoll", "verfahren_waehlen", "mehrschritt", W(
+neu(TH, "runden_sinnvoll", "verfahren_waehlen", "erkennen", W(
     "Du kennst die genaue Zahl 6 842. Für welchen Zweck darfst du sie runden?",
     "für eine Zeitungsmeldung: „etwa 6 800 Zuschauer“",
-    [("für die Geheimzahl einer Karte: 6 800", "eine Geheimzahl muss genau stimmen"), ("für die Kasse: 6 800 € buchen", "bei Geld muss es genau stimmen"), ("für die Hausnummer: Haus 6 800", "eine Nummer rundet man nie")],
-    "Frage: Reicht „ungefähr“ oder muss es genau stimmen?", "Runden ist erlaubt, wenn „ungefähr“ reicht, wie bei einer Meldung. Nummern, Geheimzahlen und Geldbeträge müssen genau sein.", 6842 != 6800), BU)
+    [("für die Geheimzahl einer Karte: 6 800", "eine Geheimzahl muss genau stimmen"), ("für die Kasse: 6 800 € genau so buchen", "ein Betrag, der gebucht wird, muss genau stimmen"), ("für die Hausnummer: Haus 6 800", "eine Nummer rundet man nie")],
+    "Frage: Reicht „ungefähr“ oder muss es genau stimmen?", "Runden ist erlaubt, wenn „ungefähr“ reicht, wie bei einer Meldung. Nummern, Geheimzahlen und ein Betrag, der gebucht wird, müssen genau stimmen.", 6842 != 6800), BU)
 neu(TH, "runden_sinnvoll", "anwenden", "einkleidung", Z(
     "Für ein Fest kommen 238 Gäste. Jeder Gast bekommt einen Becher. Becher gibt es nur in Packungen zu je 50 Stück. Wie viele Packungen musst du mindestens kaufen?",
     "-(-238//50)", "(238+49)//50", "Eine Packung mehr ist besser als zu wenig Becher. Hier wird immer aufgerundet.", "238 : 50 = 4 Rest 38. Vier Packungen reichen nicht, es sind 5 Packungen.",
@@ -174,7 +174,7 @@ neu(TH, "unendlich", "anwenden", "einkleidung", Z(
 neu(TH, "roemisch_schreiben", "lueckenweg", "direkt", L(
     "MCMXLIV wird zerlegt. M = 1 000. CM = 1 000 − 100 = ①. XL = 50 − 10 = ②. IV = 5 − 1 = ③. Die Zahl ist die Summe 1 000 + ① + ② + ③ = ④.",
     ["1000-100", "50-10", "5-1", "1000+(1000-100)+(50-10)+(5-1)"], ["900", "40", "4", "1944"], "Ein kleineres Zeichen vor einem größeren wird abgezogen.", "CM = 900, XL = 40, IV = 4. Summe: 1 000 + 900 + 40 + 4 = 1 944.",
-    {0: [(1100, None, "CM als M + C gelesen")], 3: [(1544, None, "CM als 500 gelesen")]}, hinweis=GZ), SS)
+    {0: [(1100, None, "CM als M + C gelesen")], 3: [(2144, None, "mit 1 100 für CM weitergerechnet")]}, hinweis=GZ), SS)
 _z1 = zahl_zu_roem(1493)
 neu(TH, "roemisch_schreiben", "bruecke", "darstellung", T(
     "Die Tafel zeigt Tausender, Hunderter, Zehner und Einer einer Zahl. Schreibe die Zahl mit römischen Zeichen.",
@@ -184,7 +184,7 @@ neu(TH, "roemisch_schreiben", "bruecke", "darstellung", T(
 neu(TH, "roemisch_schreiben", "umkehren", "umkehr", T(
     "Der Nachfolger einer Zahl ist XL. Schreibe die Zahl mit römischen Zeichen.",
     "XXXIX", zahl_zu_roem(roem_zu_zahl("XL") - 1) == "XXXIX", "Wie viel ist XL? Gehe einen Schritt zurück.", "XL ist 40. Der Vorgänger ist 39 = 30 + 9 = XXX + IX = XXXIX.",
-    [("XXXX", "vier X hintereinander: das ist nicht erlaubt, XL ist selbst schon 40"), ("XIL", "ein Paar, das es nicht gibt")]), SS)
+    [("XXXX", "die 40 selbst nur mit Plus-Zeichen geschrieben statt den Vorgänger"), ("XIL", "40 − 1 als XIL geschrieben: I vor L gibt es nicht")]), SS)
 
 # ── roemisch_system ──
 neu(TH, "roemisch_system", "fehler_detektiv", "fehler", FDZ(
@@ -192,8 +192,8 @@ neu(TH, "roemisch_system", "fehler_detektiv", "fehler", FDZ(
     [("Bei IX steht das kleinere Zeichen I vor dem größeren X. Ich addiere trotzdem: 10 + 1 = 11.", roem_zu_zahl("IX") == 11), ("Bei XI steht das I hinter dem X: 10 + 1 = 11.", roem_zu_zahl("XI") == 11), ("Also haben IX und XI den gleichen Wert, nämlich 11.", True)],
     "Steht das I bei IX vor oder hinter dem X? Was bedeutet das?", "Steht ein kleineres Zeichen vor einem größeren, wird es abgezogen: IX = 10 − 1 = 9. XI = 10 + 1 = 11."), SS)
 neu(TH, "roemisch_system", "zwei_wege", "mehrschritt", Z(
-    "Wie viel ist MCMLXXXIV? Weg A: von links lesen, ein kleineres Zeichen vor einem größeren abziehen. Weg B: zerlegen in M + CM + LXXX + IV und die Teile addieren.",
-    "1000+900+80+4", str(roem_zu_zahl("MCMLXXXIV")), "Beide Wege geben dieselbe Zahl.", "M = 1 000, CM = 900, LXXX = 80, IV = 4. Summe: 1 984.",
+    "Wie viel ist MCMLXXXIV? Weg A: von links nach rechts lesen und jedes Zeichen zählen; ein kleineres Zeichen vor einem größeren wird abgezogen. Weg B: in eine Stellentafel eintragen: M zu den Tausendern, CM zu den Hundertern, LXXX zu den Zehnern, IV zu den Einern.",
+    "1000+900+80+4", str(roem_zu_zahl("MCMLXXXIV")), "Beide Wege geben dieselbe Zahl.", "Weg A: 1 000 + 900 + 80 + 4 = 1 984. Weg B: Tausender 1, Hunderter 9, Zehner 8, Einer 4: 1 984.",
     [(1884, None, "CM als 800 gelesen"), (1964, None, "LXXX als 60 gelesen")]), SS)
 neu(TH, "roemisch_system", "anwenden", "einkleidung", Z(
     "Über einer Haustür steht das Baujahr MDCCCLXXV. Wie viele Jahre ist das Haus im Jahr 2026 alt?",
@@ -202,8 +202,8 @@ neu(TH, "roemisch_system", "anwenden", "einkleidung", Z(
 
 # ── dualsystem ──
 neu(TH, "dualsystem", "lueckenweg", "direkt", L(
-    "Die Zweierzahl 1101 hat die Stellenwerte 8, 4, 2 und 1. Gerechnet: 1 · 8 + 1 · 4 + 0 · 2 + 1 · 1 = ①. Die Zweierzahl 10010 hat die Stellenwerte 16, 8, 4, 2 und 1. Eine 1 steht bei 16 und bei 2: 16 + 2 = ②. Die zweite Zahl ist um ② − ① = ③ größer.",
-    ["1*8+1*4+0*2+1*1", "16+2", "16+2-(1*8+1*4+1*1)"], ["13", "18", "5"], "Nur die Stellenwerte mit einer 1 darunter werden addiert.", "1101: 8 + 4 + 1 = 13. 10010: 16 + 2 = 18. 18 − 13 = 5.",
+    "Die Zweierzahl 1101 hat die Stellenwerte 8, 4, 2 und 1. Gerechnet: 1 · 8 + 1 · 4 + 0 · 2 + 1 · 1 = ①. Die Zweierzahl 10010 hat die Stellenwerte 16, 8, 4, 2 und 1. Ebenso gerechnet ist sie ②. Die zweite Zahl ist um ② − ① = ③ größer.",
+    ["1*8+1*4+0*2+1*1", "1*16+0*8+0*4+1*2+0*1", "1*16+0*8+0*4+1*2+0*1-(1*8+1*4+0*2+1*1)"], ["13", "18", "5"], "Nur die Stellenwerte mit einer 1 darunter werden addiert.", "1101: 8 + 4 + 1 = 13. 10010: 16 + 2 = 18. 18 − 13 = 5.",
     {0: [(1101, None, "die Zahl einfach wie bei uns gelesen")], 1: [(10010, None, "die Zahl einfach wie bei uns gelesen")], 2: [(8909, None, "mit den falsch gelesenen Zahlen gerechnet")]}), BU)
 neu(TH, "dualsystem", "bruecke", "darstellung", Z(
     "Die Tafel zeigt die Stellenwerte einer Zweierzahl und ihre Ziffern. Welche normale Zahl ist das?",
@@ -211,6 +211,6 @@ neu(TH, "dualsystem", "bruecke", "darstellung", Z(
     [(10110, None, "als normale Zahl gelesen"), (23, None, "den Stellenwert 1 zusätzlich mitgerechnet")],
     grafik=TAB(["16", "8", "4", "2", "1"], ["1", "0", "1", "1", "0"])), BU)
 neu(TH, "dualsystem", "anwenden", "einkleidung", Z(
-    "Ein Lichtband hat fünf Lampen für die Stellenwerte 16, 8, 4, 2 und 1. Es leuchten die erste, die dritte und die fünfte Lampe von links. So zeigt das Band, wie viele Gäste im Saal sind. Dann kommen noch 9 Gäste. Wie viele Gäste sind es dann?",
+    "Ein Lichtband hat fünf Lampen für die Stellenwerte 16, 8, 4, 2 und 1. Die Lampen sind von links nach rechts so geordnet. Es leuchten die erste, die dritte und die fünfte Lampe. So zeigt das Band, wie viele Gäste im Saal sind. Dann kommen noch 9 Gäste. Wie viele Gäste sind es dann?",
     "16+4+1+9", "21+9", "Die leuchtenden Lampen sind die Einsen. Erst die Zahl auf dem Band, dann addieren.", "Es leuchten die Lampen für 16, 4 und 1: 21 Gäste. 21 + 9 = 30.",
-    [(21, None, "die 9 vergessen"), (10101, None, "die Zweierzahl als normale Zahl gelesen")]), BU)
+    [(21, None, "die 9 vergessen"), (10110, None, "die Zweierzahl 10101 als normale Zahl gelesen und 9 addiert")]), BU)

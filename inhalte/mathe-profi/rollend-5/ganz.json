@@ -147,7 +147,7 @@
      "beschreibung": "4 − 3 gerechnet"
     },
     {
-     "antwort": 4,
+     "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur bis zur 0 gezählt"
@@ -161,7 +161,7 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "In einem Hochhaus ist das zweite Kellergeschoss die Etage −2. Ein Aufzug fährt vom Parkdeck in Etage −3 bis in die Etage 4. Wie viele Etagen fährt er?"
+     "text": "In einem Hochhaus ist das zweite Kellergeschoss die Etage −2. Das Erdgeschoss ist die Etage 0. Ein Aufzug fährt vom Parkdeck in Etage −3 bis in die Etage 4. Wie viele Etagen fährt er?"
     },
     "o": {
      "wert": 7
@@ -216,8 +216,8 @@
     "o": {
      "index": 0
     },
-    "h": "Wie lang ist die ganze Zahlengerade? Nicht nur die rechte Seite zählt.",
-    "w": "Die Gerade ist von −10 bis 10 insgesamt 20 lang. Ein Abschnitt ist 20 : 10 = 2 wert. 3 Abschnitte links von 0 sind −6."
+    "h": "Wie lang ist der dargestellte Abschnitt von −10 bis 10? Nicht nur die rechte Seite zählt.",
+    "w": "Der dargestellte Abschnitt reicht von −10 bis 10 und ist 20 lang. Ein Abschnitt ist 20 : 10 = 2 wert. 3 Abschnitte links von 0 sind −6."
    }
   },
   {
@@ -442,7 +442,7 @@
      "antwort": 7,
      "fehlbild": "fb.zahlengerade.nach_betrag_geordnet",
      "regel_des_fehlbilds": "id.zahlen.zahlengerade",
-     "beschreibung": "−9 als größte Zahl gesehen"
+     "beschreibung": "nach dem Betrag geordnet: −9 als größte und 2 als kleinste Zahl, 9 − 2"
     },
     {
      "antwort": 5,
@@ -595,14 +595,14 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Taucher ist 14 m unter der Wasseroberfläche (−14 m). Ein Kranhaken hängt 6 m über dem Wasser. Wie weit ist der Taucher vom Haken entfernt?"
+     "text": "Ein Taucher ist 14 m unter der Wasseroberfläche (−14 m). Ein Kranhaken hängt senkrecht über ihm, 6 m über dem Wasser. Wie groß ist der Höhenunterschied zwischen Taucher und Haken?"
     },
     "o": {
      "wert": 20,
      "einheit": "m"
     },
     "c": "abs(6-(-14))",
-    "h": "Rechne den Abstand: Das Ergebnis darf nicht negativ sein.",
+    "h": "Ein Höhenunterschied ist ein Abstand: Er darf nicht negativ sein.",
     "w": "Vom Taucher bis zur Oberfläche sind es 14 m, von dort bis zum Haken 6 m. Zusammen 20 m."
    }
   },
@@ -618,6 +618,13 @@
    "regel_name": "Stellenwert",
    "zaehlt": "nein",
    "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Übertrag aus den Zehnern vergessen"
+    },
     {
      "luecke": 3,
      "antwort": 5331,
@@ -641,7 +648,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Schriftlich 2 746 + 3 585. Einer: 6 + 5 = 11, ich schreibe 1 und merke 1. Zehner: 4 + 8 + 1 = ①. Ich schreibe 3 und merke 1. Hunderter: 7 + 5 + 1 = ②. Ich schreibe 3 und merke 1. Tausender: 2 + 3 + 1 = 6. Das Ergebnis besteht aus der 6 und der Einerziffer von ② und der Einerziffer von ① und der 1 der Einer. Das Ergebnis ist ③.",
+     "text": "Schriftlich 2 746 + 3 585. Einer: 6 + 5 = 11, ich schreibe 1 und merke 1. Zehner: 4 + 8 und der gemerkte Übertrag ergeben ①. Hunderter: 7 + 5 und der Übertrag aus den Zehnern (die Zehnerziffer von ①) ergeben ②. Tausender: 2 + 3 und der Übertrag aus den Hundertern (die Zehnerziffer von ②) ergeben 6. Das Ergebnis liest du von links: erst die 6 und danach die Einerziffer von ② und danach die Einerziffer von ① und zuletzt die 1 der Einer. Es ist ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -657,7 +664,7 @@
      "7+5+1",
      "2746+3585"
     ],
-    "h": "Den Übertrag jedes Mal mitnehmen.",
+    "h": "Den Übertrag aus der Spalte rechts davon jedes Mal mitnehmen.",
     "w": "4 + 8 + 1 = 13, 7 + 5 + 1 = 13, Tausender 6. Ergebnis: 6 331."
    }
   },
@@ -776,7 +783,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim rechnet (−7) + 4. Zeile 1: Plus bedeutet auf der Zahlengeraden: nach links. Zeile 2: Ich starte bei −7 und gehe 4 Schritte nach links. Zeile 3: Ich lande bei −11. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim rechnet (−7) + 4. Zeile 1: Die 4 ist positiv. Wer sie addiert, geht auf der Zahlengeraden nach links. Zeile 2: Ich starte bei −7 und gehe 4 Schritte nach links. Zeile 3: Ich lande bei −11. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -786,8 +793,8 @@
     "o": {
      "index": 0
     },
-    "h": "In welche Richtung geht es bei Plus?",
-    "w": "Plus heißt nach rechts. Von −7 vier Schritte nach rechts: −7 + 4 = −3."
+    "h": "In welche Richtung gehst du, wenn du eine positive Zahl addierst?",
+    "w": "Eine positive Zahl zu addieren heißt: nach rechts gehen. Von −7 vier Schritte nach rechts: −7 + 4 = −3."
    }
   },
   {
@@ -942,7 +949,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Minus eine Zahl heißt: plus die Gegenzahl. 5 − 13 = 5 + (−13) = ①. Dann ① − (−6) = ① + 6 = ②. Dann ② − (−11) = ② + 11 = ③.",
+     "text": "Minus eine Zahl heißt: plus die Gegenzahl. 5 − 13 = ①. Dann ① − (−6) = ②. Dann ② − (−11) = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -1110,7 +1117,7 @@
    "kennung": "K5A-V125",
    "thema": "zahlen.ganz",
    "lernkarte": "umkehraufgabe",
-   "stufe": 2,
+   "stufe": 1,
    "form": "verfahren_waehlen",
    "typ": "Verfahren wählen",
    "antwortform": "auswahl",
@@ -1144,8 +1151,8 @@
     "l": "umkehraufgabe",
     "t": "gleichungen",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
      "text": "Du löst x − 5 = −8. Welcher Weg ist richtig?"
@@ -1220,6 +1227,13 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 6,
+     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "− (−3) als Minus gerechnet: 9 − 3"
+    },
+    {
      "luecke": 3,
      "antwort": 2,
      "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
@@ -1229,9 +1243,9 @@
     {
      "luecke": 3,
      "antwort": -8,
-     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
-     "regel_des_fehlbilds": "rr.plusminus",
-     "beschreibung": "− (−3) als Minus gerechnet"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit ① = 6 weitergerechnet: 6 − 14"
     }
    ],
    "aufgabe": {
@@ -1242,7 +1256,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Rechne −4 + 9 − (−3) − 10. Das Minus vor der Klammer wird zu plus: − (−3) = + 3. Plus-Zahlen: 9 + 3 = ①. Minus-Zahlen: 4 + 10 = ②. Ergebnis: ① − ② = ③.",
+     "text": "Rechne −4 + 9 − (−3) − 10. Wer eine negative Zahl abzieht, addiert ihre Gegenzahl. Sammle alles, was dazukommt: die 9 und die Zahl aus der Klammer ergeben zusammen ①. Sammle alles, was abgeht: die 4 und die 10 ergeben zusammen ②. Ergebnis: ① − ② = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -1403,14 +1417,14 @@
      "index": 3
     },
     "h": "Probiere eine negative Zahl zum Abziehen, zum Beispiel 10 − (−4).",
-    "w": "Ein Gegenbeispiel widerlegt die Aussage: 10 − (−4) = 14 ist größer als 10. Beispiele allein beweisen nichts."
+    "w": "Der Fehler steckt in Zeile 4: Zwei passende Beispiele beweisen keine Aussage für alle Zahlen. Ein einziges Gegenbeispiel widerlegt sie: 10 − (−4) = 14 ist größer als 10."
    }
   },
   {
    "kennung": "K5A-V131",
    "thema": "zahlen.ganz",
    "lernkarte": "verstehen",
-   "stufe": 2,
+   "stufe": 3,
    "form": "verfahren_waehlen",
    "typ": "Verfahren wählen",
    "antwortform": "auswahl",
@@ -1427,10 +1441,10 @@
     },
     {
      "index": 2,
-     "antwort": "Nur den Fall b = 0 testen",
+     "antwort": "Nur den Fall b = 1 testen",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur einen Sonderfall geprüft"
+     "beschreibung": "nur einen Sonderfall geprüft, der die Aussage bestätigt"
     },
     {
      "index": 3,
@@ -1444,8 +1458,8 @@
     "l": "verstehen",
     "t": "begruenden",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 3,
+    "g": "begruenden",
     "y": "auswahl",
     "f": {
      "text": "Du willst prüfen, ob die Aussage „a + b ist immer größer als a“ stimmt. Was ist der beste Weg?"
@@ -1453,7 +1467,7 @@
     "a": [
      "Ein Gegenbeispiel suchen, zum Beispiel mit negativem b: 5 + (−2) = 3",
      "Viele Beispiele mit positiven Zahlen sammeln",
-     "Nur den Fall b = 0 testen",
+     "Nur den Fall b = 1 testen",
      "So lange rechnen, bis es stimmt"
     ],
     "o": {

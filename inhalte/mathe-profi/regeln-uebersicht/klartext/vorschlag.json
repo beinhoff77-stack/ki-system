@@ -237,7 +237,7 @@
    "alt_satz": "Hoch rechnet hin, die Wurzel rechnet zurück: √(x²) = |x|.",
    "alt_kurz": "Potenz, Wurzel und Logarithmus gehören zu einer Gleichung und fragen nach Ergebnis, Basis oder Hochzahl.",
    "neu_name": "Potenzieren und Zurückrechnen",
-   "neu_satz": "Potenz (ab Klasse 5): 2³ = 8. Wurzel (ab Klasse 9): √49 = 7, weil 7 · 7 = 49; unter der Wurzel muss eine Zahl ≥ 0 stehen. Logarithmus (ab Klasse 10): log₂ 8 = 3, weil 2³ = 8; Basis > 0, Basis ≠ 1, Zahl > 0.",
+   "neu_satz": "Potenz (ab Klasse 5): Bei Hochzahl 1, 2, 3 … steht die Basis so oft als Faktor da (2³ = 8); a⁰ = 1 für a ≠ 0 ist festgelegt. Wurzel (ab Klasse 9): √49 = 7, weil 7 · 7 = 49; unter der Wurzel muss eine Zahl ≥ 0 stehen. Logarithmus (ab Klasse 10): log₂ 8 = 3, weil 2³ = 8; Basis > 0, Basis ≠ 1, Zahl > 0.",
    "neu_kurz": "Hoch rechnet vorwärts; Wurzel (ab Klasse 9) und Logarithmus (ab Klasse 10) rechnen zurück.",
    "neu_warum_einstieg": "Potenzieren fragt: Was kommt heraus? Die Wurzel fragt zurück nach der Basis, der Logarithmus nach der Hochzahl. Alle drei gehören zu einer einzigen Gleichung wie 2³ = 8.",
    "beispiel": "Potenz: 2³ = 2 · 2 · 2 = 8. Wurzel: √49 = 7, denn 7² = 49. Logarithmus: log₂ 8 = 3, denn 2³ = 8.",
@@ -262,7 +262,7 @@
     "Quadratzahl"
    ],
    "alt_genau": "Potenz, Wurzel und Logarithmus gehören zusammen: Die eine rechnet hoch, die beiden anderen fragen zurück. Die Quadratwurzel liefert die Zahl ab null: √(x²) = |x|.",
-   "neu_genau": "Potenz (ab Klasse 5): Die Hochzahl sagt, wie oft die Basis als Faktor dasteht. Wurzel (ab Klasse 9): √a ist die Zahl ab 0, die mit sich selbst malgenommen a ergibt; es gibt sie nur für a ≥ 0. Logarithmus (ab Klasse 10): log_b x ist die Hochzahl, mit der aus b die Zahl x wird; nur für b > 0, b ≠ 1 und x > 0."
+   "neu_genau": "Potenz (ab Klasse 5): Die Hochzahl sagt, wie oft die Basis als Faktor dasteht, aber nur für Hochzahlen 1, 2, 3 … (positive ganze Zahlen); a⁰ = 1 für a ≠ 0 ist eine eigene Festlegung. Wurzel (ab Klasse 9): √a ist die Zahl ab 0, die mit sich selbst malgenommen a ergibt; nur für a ≥ 0. Logarithmus (ab Klasse 10): log_b x ist die Hochzahl, mit der aus b die Zahl x wird; nur für b > 0, b ≠ 1 und x > 0."
   },
   {
    "id": "I-geld-1",

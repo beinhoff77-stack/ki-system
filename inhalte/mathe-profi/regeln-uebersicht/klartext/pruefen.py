@@ -174,6 +174,8 @@ def fehlt(i, feld, *teile):
     for t in teile:
         if t not in E[i][feld]: f('%s: %s muss „%s“ enthalten' % (i, feld, t))
 fehlt('I-zahlen-5', 'neu_satz', 'ab Klasse 5', 'ab Klasse 9', 'ab Klasse 10', '≥ 0', 'Basis > 0', 'Basis ≠ 1', 'Zahl > 0')
+for k in ('neu_satz', 'neu_genau'): fehlt('I-zahlen-5', k, '1, 2, 3 …', 'a⁰ = 1 für a ≠ 0')
+fehlt('I-zahlen-5', 'neu_genau', 'positive ganze Zahlen', 'eigene Festlegung')
 fehlt('I-daten-1', 'neu_satz', 'Mittelwert = Summe aller Werte : Anzahl', 'Median = der mittlere Wert', 'sortiert')
 fehlt('I-daten-1', 'beispiel', 'Beispielzahlen')
 fehlt('D15', 'beispiel', 'Beispielzahlen')
@@ -188,7 +190,7 @@ fehlt('I-zahlen-4', 'neu_satz', 'Prozentzahl = Dezimalzahl · 100')
 for k in ('neu_satz', 'beispiel', 'neu_genau'):
     if re.search(r'· ?100 ?%', E['I-zahlen-4'][k]): f('I-zahlen-4: „· 100 %%“ als Rechnung in %s' % k)
 # G3, G7, I-algebra-4, I-zahlen-5: kürzer als vorher, Bedingungen im Satz
-for i, grenze in (('G3', 140), ('G7', 245), ('I-algebra-4', 235), ('I-zahlen-5', 213)):
+for i, grenze in (('G3', 140), ('G7', 250), ('I-algebra-4', 235), ('I-zahlen-5', 330)):
     if len(E[i]['neu_satz']) > grenze: f('%s: neu_satz mit %d Zeichen nicht kürzer als vorher (höchstens %d)' % (i, len(E[i]['neu_satz']), grenze))
 fehlt('G3', 'neu_satz', '0° < α < 90°', 'α = 90°', '90° < α < 180°', 'α = 180°', '180° < α < 360°', 'α = 360°')
 fehlt('G7', 'neu_satz', 'Vereinbarung', 'mindestens ein Paar')

@@ -224,7 +224,7 @@ function lernRahmen(kind, aktiv, ...inhalt) {
     const zu = () => { if (blatt.open) blatt.close(); };
     blatt.addEventListener('click', (ev) => { if (ev.target === blatt) zu(); });
     lernAnhaengen(blatt, el('div', { class: 'lr-blatt-liste' },
-      ...[['reise', 'Abflugtafel'], ['weg', 'Mein Weg'], ['merkheft', 'Merkheft'], ['reisepass', 'Reisepass'], ['regeln', 'Regel-Universum']].map(([v, t]) => // K2: Weltkarte ist jetzt in „Mein Weg“ · RU-App: Regel-Universum (lernen-regeln.js)
+      ...[['reise', lernStartWort(kind.id)], ['weg', 'Mein Weg'], ['merkheft', 'Merkheft'], ['reisepass', 'Reisepass'], ['regeln', 'Regel-Universum']].map(([v, t]) => // K2: Weltkarte ist jetzt in „Mein Weg“ · RU-App: Regel-Universum (lernen-regeln.js)
         el('a', { href: `#/${v}/${kind.id}`, class: v === aktiv ? 'on' : '', ...(v === aktiv ? { 'aria-current': 'page' } : {}), onclick: zu }, t)),
       el('button', { type: 'button', onclick: () => { try { localStorage.setItem('lern.gestaltung.' + kind.id, g === 'nacht' ? 'tag' : 'nacht'); } catch { /* egal */ } zu(); render(); } }, g === 'nacht' ? 'Helle Ansicht' : 'Dunkle Ansicht'),
       el('button', { type: 'button', class: 'lr-blatt-zu', onclick: zu }, 'Schließen')));
@@ -652,7 +652,7 @@ async function viewExpedition(arg) {
   const x = d.expeditionen.find((e) => e.id === Number(xArg));
   const { kind } = d;
   if (!x) { lernErsetze(main, lernRahmen(kind, 'reise', el('section', { class: 'lr-karte-box' }, el('p', {}, 'Diese Expedition ist gerade nicht offen.'),
-    el('a', { class: 'lr-knopf-zweit', href: `#/reise/${kind.id}` }, 'Zur Abflugtafel')))); return; }
+    el('a', { class: 'lr-knopf-zweit', href: `#/reise/${kind.id}` }, 'Zur ' + lernStartWort(kind.id))))); return; }
   $('#title').textContent = 'Expedition ' + x.titel;
   const s = lernExStation(x);
   const flaeche = el('div', { class: 'lr-expedition-teile' });
@@ -722,7 +722,7 @@ async function viewExpedition(arg) {
     el('section', { class: 'lr-karte-box lr-exp-einleitung' }, el('p', {}, ...lernMarkiert(x.einleitung || '')), x.grafik ? lernBild(x.grafik) : null,
       schonGeschafft ? null : el('p', { class: 'lr-leise' }, 'Du kannst jederzeit aufhören – erledigte Teile bleiben gespeichert.')),
     flaeche,
-    el('a', { class: 'lr-textlink lr-ex-flug', href: nf ? (nf.laeuft ? `#/lerneinheit/${kind.id}-${nf.id}-test` : lernUebenZiel(kind.id, nf)) : `#/reise/${kind.id}` }, nf ? `Zum Flug: weiter in ${nf.stadt || nf.titel} ›` : 'Zur Abflugtafel ›')));
+    el('a', { class: 'lr-textlink lr-ex-flug', href: nf ? (nf.laeuft ? `#/lerneinheit/${kind.id}-${nf.id}-test` : lernUebenZiel(kind.id, nf)) : `#/reise/${kind.id}` }, nf ? `Zum Flug: weiter in ${nf.stadt || nf.titel} ›` : `Zur ${lernStartWort(kind.id)} ›`)));
 }
 // Ansicht 4 – Stempel-Sammlung (Reisepass · Expeditionen). Gesperrte Stationen zeigen, was fehlt (Stand je Etappe aus schule_reise_karte, wenn da).
 // RK: Karten-Antwort (~170 KB) je Kind einmal je Sitzung laden und merken. Nach einer Änderung für das Kind (Landung, Plan …) gilt sie als alt:
@@ -1659,7 +1659,7 @@ async function viewReise(arg) {
   const ortVon = (n) => (n ? d.mit.filter((e) => e.block_id === n.block_id) : []).reduce((z, e) => { const m = merk.find((x) => x.einheit_id === e.id); const q = m ? lernEtappenZahl(m) : { n: e.n, f: e.fertig }; return { n: z.n + q.n, f: z.f + Math.min(q.f, q.n), fluege: z.fluege + 1 }; }, { n: 0, f: 0, fluege: 0 });
   let ort = ortVon(n);
   neuGest: if (lernNeu(kind) && (n || kartePromise)) {
-    // RK-App: Reisekarte statt Anzeigetafel (nur wenn der Server die Karte liefert; Schalter „Abflugtafel“ führt zurück)
+    // RK-App: Reisekarte statt Anzeigetafel (nur wenn der Server die Karte liefert; ohne Karte still die Abflugtafel)
     let karte = null;
     // WK F5: Steht die letzte Ansicht schon (gedimmt) da, auf die frische Karte warten (kommt gleichzeitig mit der Übersicht) – statt mit der alten zu zeichnen und danach alles ein zweites Mal zu laden
     if (kartePromise) { karte = (letzte ? null : karteAlt) || await kartePromise; if (!karte && karteAlt) karte = karteAlt; }
@@ -1677,8 +1677,7 @@ async function viewReise(arg) {
       if (karte === karteAlt) lernZielBisFrisch(main.firstElementChild, kartePromise, karteAlt, live); // WT: alte Karte → Hauptknopf gesperrt, bis die neue da ist
       return;
     }
-    lernErsetze(main, lernRahmen(kind, 'reise', ...lernAbflugtafel(d, { n, et, nWdh, wdhRest, wdhFertig: wdhGemacht, ort, ws }),
-      (mitKarte || lernRkAnsicht(kind.id) === 'tafel') ? el('button', { type: 'button', class: 'lr-textlink rk-zur-karte', onclick: () => { lernRkAnsicht(kind.id, 'karte'); render(); } }, 'Zur Reisekarte ›') : null));
+    lernErsetze(main, lernRahmen(kind, 'reise', ...lernAbflugtafel(d, { n, et, nWdh, wdhRest, wdhFertig: wdhGemacht, ort, ws }))); // Rückfall ohne Kartendaten
     lernDockErstNachTafel(main); // KJ 2 S6
     lernReiseLetzte.set(kind.id, main.firstElementChild);
     if (karte && karte === karteAlt) lernZielBisFrisch(main.firstElementChild, kartePromise, karteAlt, live); // WT: auch die Abflugtafel zeichnet mit der neuen Karte neu (vorher blieb der Schritt der alten stehen)
@@ -2018,7 +2017,12 @@ function lernKarteProj(q, lon, lat) {
   else { const f2 = f * f, f4 = f2 * f2; x = l * (0.8707 - 0.131979 * f2 + f4 * (-0.013791 + f4 * (0.003971 * f2 - 0.001529 * f4))); y = f * (1.007226 + f2 * (0.015085 + f4 * (-0.044475 + 0.028874 * f2 - 0.005916 * f4))); }
   return [q.tx + q.k * x, q.ty - q.k * y];
 }
-const lernRkAnsicht = (kindId, setzen) => { try { if (setzen) localStorage.setItem('lern.rk.' + kindId, setzen); return localStorage.getItem('lern.rk.' + kindId) === 'tafel' ? 'tafel' : 'karte'; } catch { return 'karte'; } };
+// Abflugtafel abgeschaltet (Entscheidung des Nutzers): die Reisekarte ist die Startseite, wann immer der Server sie liefert. Eine früher gemerkte
+// Wahl „tafel“ wird still entfernt; die Tafel bleibt nur als Rückfall ohne Kartendaten (alter Server, Netzproblem, Kind ohne Karte).
+const lernRkAnsicht = (kindId) => { try { localStorage.removeItem('lern.rk.' + kindId); } catch { /* egal */ } return 'karte'; };
+// Wortlaut der Startseite: „Reisekarte“ nur, wenn für das Kind schon eine Karte mit Flügen geladen ist (dort erscheint sie), sonst „Abflugtafel“
+const lernRkKarteDa = (kindId) => { const r = lernReiseKarteAlt.get(Number(kindId)); return Array.isArray(r?.kontinente) && r.kontinente.some((k) => (k.fluege || []).length); };
+const lernStartWort = (kindId) => (lernRkKarteDa(kindId) ? 'Reisekarte' : 'Abflugtafel');
 const lernRkSchl = (f) => (f.region ? `${f.iso}:${f.region}` : f.iso);
 const lernRkKurz = (t) => String(t || '').replace(/\s*\(.*?\)\s*/g, ' ').replace(/\s+–\s+neu.*$/, '').trim();
 const lernRkFlagge = (iso) => (iso ? LERN_KARTE_BASIS + 'flaggen/' + String(iso).toLowerCase() + '.svg' : '');
@@ -2048,7 +2052,7 @@ function lernRkStart(d, { n, et, nWdh, ws, wdhFertig }) {
   const ansage = nWdh && !n.laeuft && !testDran && ws?.neu && ws.offen ? `${ws.erledigt ? 'Noch' : 'Erst'} ${ws.offen} ${ws.offen === 1 ? 'Bordkarte' : 'Bordkarten'} Check-in · ca. ${Math.max(1, Math.ceil(ws.offen * 0.5))} Min.`
     : testDran && et.n ? `Alle ${et.n} ${et.n === 1 ? 'Stadt' : 'Städte'} gelandet – jetzt der Test` : null;
   const s = d.schritt && d.schritt.e === n ? d.schritt : null;
-  return { ziel, text, testDran, ansage, wdh: nWdh, einheit: n.id, flugThema: s?.f ? Number(s.f.thema_id) : null, nr: testDran ? null : s?.nr || n.etappeNr || null };
+  return { ziel, text, testDran, ansage, wdh: nWdh, ws, einheit: n.id, flugThema: s?.f ? Number(s.f.thema_id) : null, nr: testDran ? null : s?.nr || n.etappeNr || null };
 }
 
 function lernRkGrundText(f, laender) {
@@ -2130,12 +2134,12 @@ function lernReisekarte(d, karte, start) {
   const zuMir = () => { const f = nbFlug || dranFlug; if (!f) return; z.kont = f.kontinent_id; geheLand(lernRkSchl(f)); }; // NB: „Zu mir“ springt zur offenen Stadt
   const quelle = el('p', { class: 'rk-quelle' }, 'Karte: Natural Earth · Orte: GeoNames (CC BY 4.0)' + (z.ebene === 'welt' ? ' · Stationen: COMNAP' : ''));
   const kartenTeil = el('div', { class: 'rk-karte' }, rahmen, zoomKnoepfe, legende, quelle);
-  // S1/S2: eine Kopfzeile im App-Kopf (wie LW-3b): ‹ · Meine Reise · Pfad · Abflugtafel · ★ · ≡ – die Karte füllt den Rest des Fensters
+  // S1/S2: eine Kopfzeile im App-Kopf (wie LW-3b): ‹ · Meine Reise · Pfad · ★ · ≡ – die Karte füllt den Rest des Fensters
   const menue = () => { const dlg = wurzel.closest('.lr-mit-menue')?.querySelector('dialog.lr-blatt'); if (dlg && !dlg.open) dlg.showModal(); };
   const schmal = () => innerWidth <= 760;
   const kopf = el('div', { class: 'rk-kopf' }, el('b', { class: 'rk-titel' }, 'Meine Reise'), pfad,
     dranFlug ? el('button', { type: 'button', class: 'rk-zumir', 'aria-label': 'Zu mir', title: 'Zu mir', onclick: zuMir }, el('span', { class: 'rk-sym', 'aria-hidden': 'true' }, '📍'), el('span', { class: 'rk-wort' }, ' Zu mir')) : null,
-    el('button', { type: 'button', class: 'rk-tafel-knopf', 'aria-label': 'Abflugtafel', title: 'Abflugtafel', onclick: () => { lernRkAnsicht(kind.id, 'tafel'); render(); } }, el('span', { class: 'rk-sym', 'aria-hidden': 'true' }, '▤'), el('span', { class: 'rk-wort' }, ' Abflugtafel')),
+    // Abflugtafel abgeschaltet: kein Schalter mehr im Kartenkopf
     el('a', { class: 'lr-chip-stern rk-stern', href: `#/reisepass/${kind.id}`, 'aria-label': `${lernZahl(d.konto?.sterne ?? 0)} Sterne – zum Reisepass` }, '★ ' + lernZahl(d.konto?.sterne ?? 0)),
     el('button', { type: 'button', class: 'rk-menue', 'aria-label': 'Menü', 'aria-haspopup': 'dialog', onclick: menue }, '≡'));
   const wurzel = el('div', { class: 'rk' + (handy() ? ' rk-handy' : ' rk-rechner') }, el('div', { class: 'rk-koerper' }, kartenTeil, seite));
@@ -2182,8 +2186,9 @@ function lernReisekarte(d, karte, start) {
     const text = st && !start.testDran && !start.wdh && !/Test/.test(start.text) ? `Weiter in ${st.name}` : start.text; // Name der Stadt aus der Karte (Reise-Aufbau)
     const knopf = !start.ziel ? el('p', { class: 'rk-start rk-start-zu' }, el('span', {}, el('b', {}, '🔒 ' + start.text), el('small', {}, 'Frag Mama oder Papa nach dem Plan'))) : el('a', { class: 'rk-start', href: start.ziel }, el('span', {}, el('b', {}, text + ' ›'), st && !start.testDran && !start.wdh ? el('small', {}, `Stadt ${st.nr} · ${st.titel || ''}`) : start.wdh ? el('small', {}, 'Zuerst ein paar Bordkarten von früher') : null));
     const anr = anredeHolen();
-    const karteEl = el('div', { class: 'rk-schwebe-karte' + (kompakt ? ' kompakt' : '') + (anr ? ' lr-jw-ecke-traeger' : '') }, zeile, start.ansage ? el('p', { class: 'lr-dock-ansage rk-ansage' }, start.ansage) : null, knopf, kompakt ? sjZeile() : null, anr);
-    return [nb ? lernNbKarte(d, { kompakt }) : null, ex, karteEl,
+    const karteEl = el('div', { class: 'rk-schwebe-karte' + (kompakt ? ' kompakt' : '') + (anr ? ' lr-jw-ecke-traeger' : '') }, zeile, start.ansage ? el('p', { class: 'lr-dock-ansage rk-ansage' }, start.ansage) : null, knopf,
+      start.wdh ? null : lernExtraLink(start.ws, kind.id), kompakt ? sjZeile() : null, anr); // Bonus: „Noch 3 Extra-Bordkarten?“ wie auf der Tafel
+    return [lernNachbuchungHinweis(d), nb ? lernNbKarte(d, { kompakt }) : null, ex, karteEl, // Geschenk für die Landungen: auch auf der Karte (Abflugtafel abgeschaltet)
       lernZpKarte(d, { kompakt })]; // KJ §0.4: Zusatz · eingeplant unter „Gerade dran“
   };
 
@@ -3857,7 +3862,7 @@ function lernAbschlussEtappe({ e, nr, von, landung, daten, sterne, knopf, knobel
     lernLandungsBonus(landung, art), // FP: unter der großen Zahl, über dem Knopf
     el('p', { class: 'lr-ab-leise' }, ...leise),
     knopf,
-    el('a', { class: 'lr-ab-pause', href: `#/reise/${kind}` }, 'Pause – zur Abflugtafel'));
+    el('a', { class: 'lr-ab-pause', href: `#/reise/${kind}` }, 'Pause – zur ' + lernStartWort(kind)));
   return el('div', { class: `lr-ab-app lr-ab-${art} lr-ab-anim lr-abschluss-etappe`, 'data-art': art }, szene, blatt);
 }
 // FP (Vorgabe „faire Punkte“ 1): Landungs-Bonus als Kachel im Blatt der Etappen-Einblendung – eigene Wörter, nicht „Direktflug“.
@@ -4008,7 +4013,7 @@ function lernAbschlussBordkarte({ ctx, r }) {
       el('div', { class: 'lr-ab-riss', 'aria-hidden': 'true' }), el('div', { class: 'lr-ab-pass-unten' }, el('div', { class: 'lr-ab-strich', 'aria-hidden': 'true' }), el('b', {}, 'GATE: ERKLÄRUNG'))),
     // WK 2 (A2): der Knopf führt in die erste offene Etappe des nächsten Flugs laut Ständen (auch der zweite Flug desselben Plan-Platzes)
     lernSchrittKnopf(ctx.kind, { vorher: { text: wechsel ? `Abflug nach ${nachName || n.ort}` : `Boarding: ${n.titel}`, klein: 'Zuerst kommt die Erklärung', ziel } }),
-    el('a', { class: 'lr-ab-pause', href: `#/reise/${ctx.kind}` }, 'Später – zur Abflugtafel'));
+    el('a', { class: 'lr-ab-pause', href: `#/reise/${ctx.kind}` }, 'Später – zur ' + lernStartWort(ctx.kind)));
 }
 // Ablauf nach bestandenem Flug-Test: Flug → (Ort) → Bordkarte
 async function lernAbschlussFlugStart(ctx, r) {
@@ -4046,7 +4051,7 @@ function lernTestAufforderung(ctx, tf) {
     el('a', { class: 'lr-knopf lr-jetzt-test', href: `${basis}-test` }, tf.art === 'nachtrag' ? 'Test zu den neuen Etappen ›' : tf.art === 'laeuft' ? 'Angefangenen Test weitermachen ›' : 'Jetzt zum Test ›'),
     el('p', { class: 'lr-leise' }, tf.art === 'nachtrag' ? `${tf.n} ${tf.n === 1 ? 'Bordkarte' : 'Bordkarten'}, ohne Tipps – eine je neuer Etappe.` : `${tf.n} ${tf.n === 1 ? 'Bordkarte' : 'Bordkarten'}, ohne Tipps. Bestehst du ihn, ist der Flug geschafft.`),
     lernStempelRest(ctx) ? el('p', { class: 'lr-leise lr-stempel-rest' }, lernStempelRest(ctx)) : null,
-    el('a', { class: 'lr-textlink lr-pause', href: `#/reise/${ctx.kind}` }, 'Pause – zur Abflugtafel'));
+    el('a', { class: 'lr-textlink lr-pause', href: `#/reise/${ctx.kind}` }, 'Pause – zur ' + lernStartWort(ctx.kind)));
 }
 function lernTestTeil(ctx, etappen) {
   const { daten } = ctx;
@@ -4921,7 +4926,7 @@ function lernTestKnoepfe(ctx, r, geschafft = lernFlugGeschafft(ctx, r)) {
     el('a', { class: 'lr-knopf', href: nr ? `${basis}-ueben-${nr}` : `${basis}-ueben` }, `Erst üben: ${lernZielName(erste.lernziel)} ›`),
     verbessern,
     el('a', { class: 'lr-textlink', href: `${basis}-erklaeren` }, 'Zum Flug'),
-    el('a', { class: 'lr-textlink', href: `#/reise/${ctx.kind}` }, 'Zur Abflugtafel'));
+    el('a', { class: 'lr-textlink', href: `#/reise/${ctx.kind}` }, 'Zur ' + lernStartWort(ctx.kind)));
 }
 
 
@@ -6627,7 +6632,7 @@ async function viewRoute(arg) {
   if (!live()) return;
   if (!Array.isArray(m?.themen)) {
     lernErsetze(main, lernRahmen(kind, 'reise', lernKopf('MEINE ROUTE 5–10', 'Deine Route durch die Mathe-Welt'),
-      el('section', { class: 'lr-karte-box' }, el('p', { class: 'lr-leise' }, 'Die Route ist bald da.'), el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Zur Abflugtafel'))));
+      el('section', { class: 'lr-karte-box' }, el('p', { class: 'lr-leise' }, 'Die Route ist bald da.'), el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Zur ' + lernStartWort(kind.id)))));
     return;
   }
   const ich = (m.kinder || []).find((c) => c.id === kind.id) || {};

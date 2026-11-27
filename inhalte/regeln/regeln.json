@@ -1,0 +1,2660 @@
+{
+ "stand": "2026-11-27",
+ "zweck": "Inhalt für das Regel-Universum (Übersicht A „Sonnensystem“), Kinder-Karte und Lehrer-Blatt aus einer Quelle. Kein Lernstand, keine Namen.",
+ "regel_4_und_5": "Texte von Regel 4 und 5 stehen wörtlich in umsetzung.md Abschnitt 6.2 und 6.3; die anderen 13 sind neu nach demselben Muster geschrieben.",
+ "oberflaeche": {
+  "schreibweise": "{a|b} = Bruch (Zähler|Nenner); ⟦…⟧ = gelb markiert; __…__ = unterstrichen (Kurs-Farbe); Hochzahlen als ² ³ ⁵; „→“ = „dann gilt auch“; in probe.vorlage steht {x} für die eingesetzte Zahl.",
+  "kopf_ueberzeile": "{PLANET} · REGEL {nr} VON 15",
+  "abschnitte": {
+   "gewand": "Dieselbe Regel, drei Gewänder",
+   "grenze": "Die Grenze",
+   "probe": "Die Probe",
+   "orte": "Diese Regel brauchst du in …",
+   "gewand_art": {
+    "zahlen": "Zahlen",
+    "x": "mit x",
+    "brueche": "mit Brüchen"
+   },
+   "gewand_bild_an": "im Bild",
+   "gewand_bild_aus": "im Bild zeigen"
+  },
+  "probe": {
+   "x_label": "x =",
+   "gleich": "Beide Seiten geben {w}.",
+   "ungleich": "Links kommt {l} heraus, rechts {r}. Das ist nicht dasselbe."
+  },
+  "zustand": {
+   "sitzt": "sitzt",
+   "in_arbeit": "in Arbeit",
+   "spaeter": "kommt später"
+  },
+  "ruf_zeile": {
+   "weg_b": "{weg_b_satz}",
+   "weg_c": "Das kennst du schon. Hier kommt die Regel in neuem Gewand."
+  },
+  "fuss": {
+   "uebersicht": {
+    "knopf": "Drei Aufgaben zu dieser Regel ›",
+    "zeile": "Etwa 3 Minuten."
+   },
+   "weg_b": {
+    "knopf": "Zurück zur Aufgabe"
+   },
+   "weg_c": {
+    "knopf": "Weiter zur Erklärung ›"
+   },
+   "spaeter": {
+    "zeile": "Diese Regel kommt später auf deiner Reise."
+   }
+  },
+  "orte": "kommen vom Server (Ort, Flug, Klasse; höchstens vier); die Entwurfsliste in daten.js ist erfunden und wird nicht übernommen",
+  "sonne": {
+   "ueber": "SONNE",
+   "titel": "15 Regeln. Mehr sind es nicht.",
+   "text": "Sie kommen in jedem Thema wieder, nur in neuem Gewand: erst mit Zahlen, später mit x.",
+   "knopf": "Gemischte Fünf ›",
+   "knopf_zeile": "Fünf Aufgaben quer durch deine Regeln. Welche Regel dran ist, steht nicht dabei.",
+   "hinweis_knopf": "nur falls die Gemischte Fünf beschlossen wird"
+  },
+  "guertel": {
+   "ueber": "GÜRTEL · 5 ARBEITSWEISEN",
+   "titel": "Werkzeug-Gürtel",
+   "text": "Keine Regeln, sondern Arbeitsweisen. Hier gibt es kein Richtig oder Falsch – sie helfen dir bei jeder Aufgabe.",
+   "kapsel": "5 Arbeitsweisen"
+  },
+  "uebersicht": {
+   "titel_hoch": "Mehr sind es nicht.",
+   "hinweis": "Tippe auf einen Planeten.",
+   "titel_quer": "15 Regeln. Mehr sind es nicht.",
+   "erde_schild": "Deine Reise ›",
+   "zurueck": "Zur Reise",
+   "regeln_anzahl": "{n} Regeln"
+  },
+  "fehler": {
+   "titel": "Die Regeln sind gerade nicht zu erreichen.",
+   "text": "Prüfe das Internet und versuch es nochmal.",
+   "knopf": "Nochmal versuchen",
+   "zweit": "Zur Reise",
+   "zweit_blatt": "Schließen"
+  },
+  "laedt": "Die Regeln werden geholt …"
+ },
+ "planeten": [
+  {
+   "id": "vorzeichen",
+   "name": "Vorzeichen",
+   "zeichen": "±",
+   "satz": "Plus und Minus: wohin es geht und was beim Malnehmen passiert.",
+   "regeln": [
+    1,
+    2
+   ]
+  },
+  {
+   "id": "klammer",
+   "name": "Klammer",
+   "zeichen": "( )",
+   "satz": "Was zuerst gerechnet wird und was mit Klammern passiert.",
+   "regeln": [
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "id": "erde",
+   "name": "Erde",
+   "zeichen": "",
+   "satz": "Deine Reise.",
+   "regeln": [],
+   "erde": true
+  },
+  {
+   "id": "waage",
+   "name": "Waage",
+   "zeichen": "=",
+   "satz": "Gleichungen: Auf beiden Seiten steht gleich viel.",
+   "regeln": [
+    7,
+    8,
+    9,
+    15
+   ]
+  },
+  {
+   "id": "bruch",
+   "name": "Bruch",
+   "zeichen": "÷",
+   "satz": "Brüche und Hochzahlen.",
+   "regeln": [
+    10,
+    11,
+    12
+   ]
+  },
+  {
+   "id": "verhaeltnis",
+   "name": "Verhältnis",
+   "zeichen": ":",
+   "satz": "Stellen, Prozent und der Wert je Einheit.",
+   "regeln": [
+    13,
+    14
+   ]
+  }
+ ],
+ "regeln": [
+  {
+   "nr": 1,
+   "kennung": "richtung",
+   "kennung_universum": "rr.plusminus",
+   "name": "Richtung",
+   "name_fachlich": "Plus und Minus mit negativen Zahlen",
+   "planet": "vorzeichen",
+   "fest_ab_klasse": 5,
+   "satz": "Plus geht nach rechts, Minus nach links.",
+   "weg_b_satz": "Hier hat die Richtung geklemmt.",
+   "bild": {
+    "art": "zahlenstrahl_richtung",
+    "motiv": "Zahlenstrahl mit zwei Pfeilen: Plus nach rechts, Minus nach links; bei einer negativen Zahl klappt der Pfeil um",
+    "beschreibung": "Zahlenstrahl von 4 bis 16, beschriftet 4, 9, 14. Oben ein Pfeil von 9 nach 4 „− 5“ (Kurs-Farbe), er zeigt nach links. Darunter ein Pfeil von 9 nach 14 „− (−5)“ (gelb), er ist umgeklappt und zeigt nach rechts. Bei 14 ein gelber Punkt mit Rand. Das Bild bleibt für alle drei Zeilen gleich.",
+    "unter": "Minus geht nach links. Ist die Zahl dahinter negativ, klappt der Pfeil um: Er geht nach rechts."
+   },
+   "gewand": [
+    {
+     "art": "Zahlen",
+     "rechnung": "9 ⟦− (−5)⟧ = 9 ⟦+ 5⟧"
+    },
+    {
+     "art": "mit x",
+     "rechnung": "3x ⟦− (−2)⟧ = 3x ⟦+ 2⟧"
+    },
+    {
+     "art": "mit Brüchen",
+     "rechnung": "{1|2} ⟦− (−{1|4})⟧ = {1|2} ⟦+ {1|4}⟧"
+    }
+   ],
+   "satz2": "Eine negative Zahl dreht die Richtung um.",
+   "grenze": {
+    "satz": "Zwei Minus gehen nicht nach links.",
+    "text": "Minus vor einer negativen Zahl dreht um: Es geht nach rechts. Mit Zahlen siehst du es sofort:",
+    "rechnung": [
+     "5 − (−3) ≠ 5 − 3",
+     "8 ≠ 2"
+    ]
+   },
+   "probe": {
+    "text": "Stimmt die Umformung? Setz für x eine Zahl ein – 2 oder 3, nie 0 oder 1.",
+    "seiten": [
+     "3x − (−2)",
+     "3x + 2"
+    ],
+    "vorlage": [
+     "3 · {x} − (−2)",
+     "3 · {x} + 2"
+    ],
+    "x": [
+     2,
+     3,
+     4
+    ],
+    "vorgewaehlt": 3,
+    "ergebnisse": {
+     "2": [
+      "8",
+      "8"
+     ],
+     "3": [
+      "11",
+      "11"
+     ],
+     "4": [
+      "14",
+      "14"
+     ]
+    },
+    "gesamt": "stimmt"
+   },
+   "merksatz": "Minus heißt umdrehen – zweimal umdrehen ist wieder geradeaus.",
+   "genau_gesagt": "Beim Addieren zeigt das Vorzeichen der zweiten Zahl die Richtung. Beim Subtrahieren gehst du genau andersherum.",
+   "erklaerung_lehrer": "Auf der Zahlengeraden heißt „plus eine positive Zahl“ nach rechts gehen und „plus eine negative Zahl“ nach links. Subtrahieren ist das Gegenteil des Addierens, also läuft man jeweils in die andere Richtung. Deshalb ist 3 − (−2) dasselbe wie 3 + 2.",
+   "gilt_nicht": "Nur beim Addieren und Subtrahieren. Bei Mal und Geteilt entscheidet nicht die Richtung, sondern das Zeichen-Paar (Regel 2).",
+   "klassen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.ganz",
+     "text": "3 − (−2) = 3 + 2 = 5"
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "text": "½ − (−¼) = ½ + ¼ = ¾"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "terme.umformen",
+     "text": "3x − (−2x) = 3x + 2x = 5x"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "funktionen.linear",
+     "text": "f(x) = 3 − x, x = −2: 3 − (−2) = 3 + 2 = 5"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "zahlen.reell",
+     "text": "3√2 − (−2√2) = 3√2 + 2√2 = 5√2"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.ganzrational",
+     "text": "f(x) = 3 − 2x³, x = −1: 3 − (−2) = 3 + 2 = 5"
+    }
+   ],
+   "lehrplan": {
+    "quelle": [
+     "inhalte/themenliste.json",
+     "inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-pruefung.md"
+    ],
+    "stand": "27.11.2026",
+    "gruppe": "Gymnasium Bayern (gym_by), daneben Realschule Bayern (rs_by)",
+    "grenze": "Geprüft nur bis zum Thema, nicht bis zur Regel; die Lehrplan-Kopie der App ist nicht gegen LehrplanPLUS an der Quelle geprüft. Einstufung der Regel (Einführung / Anwendung) ist Einschätzung des Mathe-Profis.",
+    "eintraege": [
+     {
+      "klasse_der_regel": 5,
+      "thema": "zahlen.ganz",
+      "gym_by": {
+       "klasse": 5,
+       "lernbereich": "M5 1 Natürliche und ganze Zahlen – Addition und Subtraktion"
+      },
+      "rs_by": {
+       "klasse": 5,
+       "lernbereich": "M5 2 Ganze Zahlen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       5
+      ]
+     }
+    ]
+   },
+   "baut_auf": [],
+   "grundlage_fuer": [
+    2,
+    8
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.plusminus.doppelminus_uebersehen",
+     "beschreibung": "a − (−b) wird wie a − b gerechnet."
+    },
+    {
+     "kennung": "fb.plusminus.zeichen_des_ergebnisses",
+     "beschreibung": "Der Betrag stimmt, das Vorzeichen des Ergebnisses ist falsch (3 − 8 = 5)."
+    }
+   ],
+   "quelle_lehrer": "inhalte/mathe-profi/regeln-uebersicht/sonne.md, kennungen.json, klassenleiter.json (Mathe-Profi)"
+  },
+  {
+   "nr": 2,
+   "kennung": "zeichenpaar",
+   "kennung_universum": "rr.vorzeichen",
+   "name": "Zeichen-Paar",
+   "name_fachlich": "Vorzeichen bei Mal und Geteilt",
+   "planet": "vorzeichen",
+   "fest_ab_klasse": 5,
+   "satz": "Mal und geteilt: Gleiche Zeichen geben Plus, verschiedene geben Minus.",
+   "weg_b_satz": "Hier hat das Zeichen-Paar geklemmt.",
+   "bild": {
+    "art": "vierfeldertafel",
+    "motiv": "Vier-Felder-Tafel der Zeichen: gleiche Zeichen helles Feld mit Plus, verschiedene dunkles Feld mit Minus",
+    "beschreibung": "Tafel mit vier Feldern. Zeilen: erste Zahl (+ oder −), Spalten: zweite Zahl (+ oder −). Die Felder „+ mal +“ und „− mal −“ sind hell und tragen ein Plus. Die Felder „+ mal −“ und „− mal +“ sind dunkel und tragen ein Minus. Eine gelbe Marke liegt auf dem Feld „− mal −“.",
+    "unter": "Gleiche Zeichen: helles Feld, Plus. Verschiedene Zeichen: dunkles Feld, Minus."
+   },
+   "gewand": [
+    {
+     "art": "Zahlen",
+     "rechnung": "(⟦−⟧3) · (⟦−⟧4) = 3 · 4"
+    },
+    {
+     "art": "mit x",
+     "rechnung": "(⟦−⟧2) · (⟦−⟧3x) = 2 · 3x"
+    },
+    {
+     "art": "mit Brüchen",
+     "rechnung": "(⟦−⟧{1|2}) · (⟦−⟧{2|3}) = {1|2} · {2|3}"
+    }
+   ],
+   "satz2": "Zähl die Minus: gerade Zahl gibt Plus, ungerade gibt Minus.",
+   "grenze": {
+    "satz": "Nicht beim Addieren.",
+    "text": "Beim Plus werden zwei Minus nicht zu Plus. Mit Zahlen siehst du es sofort:",
+    "rechnung": [
+     "(−5) + (−3) ≠ 5 + 3",
+     "−8 ≠ 8"
+    ]
+   },
+   "probe": {
+    "text": "Stimmt die Umformung? Setz für x eine Zahl ein – 2 oder 3, nie 0 oder 1.",
+    "seiten": [
+     "(−2) · (−3x)",
+     "6x"
+    ],
+    "vorlage": [
+     "(−2) · (−3 · {x})",
+     "6 · {x}"
+    ],
+    "x": [
+     2,
+     3,
+     4
+    ],
+    "vorgewaehlt": 3,
+    "ergebnisse": {
+     "2": [
+      "12",
+      "12"
+     ],
+     "3": [
+      "18",
+      "18"
+     ],
+     "4": [
+      "24",
+      "24"
+     ]
+    },
+    "gesamt": "stimmt"
+   },
+   "merksatz": "Minus mal Minus gibt Plus, Minus mal Plus gibt Minus.",
+   "genau_gesagt": "Bei Mal und Geteilt mit zwei Zahlen ungleich null: Gleiche Vorzeichen ergeben Plus, verschiedene Minus.",
+   "erklaerung_lehrer": "In der Reihe 3 · (−2) = −6, 2 · (−2) = −4, 1 · (−2) = −2, 0 · (−2) = 0 wird das Ergebnis jedes Mal um 2 größer. Setzt man sie fort, muss (−1) · (−2) = 2 sein. Nur so bleiben die übrigen Rechengesetze gültig.",
+   "gilt_nicht": "Gilt nicht beim Addieren und Subtrahieren: (−3) + (−4) ist −7. Gilt nicht, wenn ein Faktor null ist; null hat kein Vorzeichen.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.rechengesetze",
+     "text": "(−3) · (−4) = +12"
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "text": "(−⅔) · (−¾) = +½"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "terme.umformen",
+     "text": "(−3x) · (−4) = +12x"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "funktionen.linear",
+     "text": "Steigung: (−6) : (−2) = +3"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "gleichungen.quadratisch",
+     "text": "(−5)² = (−5) · (−5) = +25"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.ganzrational",
+     "text": "(−2)³ = (−2) · (−2) · (−2) = −8"
+    }
+   ],
+   "lehrplan": {
+    "quelle": [
+     "inhalte/themenliste.json",
+     "inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-pruefung.md"
+    ],
+    "stand": "27.11.2026",
+    "gruppe": "Gymnasium Bayern (gym_by), daneben Realschule Bayern (rs_by)",
+    "grenze": "Geprüft nur bis zum Thema, nicht bis zur Regel; die Lehrplan-Kopie der App ist nicht gegen LehrplanPLUS an der Quelle geprüft. Einstufung der Regel (Einführung / Anwendung) ist Einschätzung des Mathe-Profis.",
+    "eintraege": [
+     {
+      "klasse_der_regel": 5,
+      "thema": "zahlen.rechengesetze",
+      "gym_by": {
+       "klasse": 5,
+       "lernbereich": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division"
+      },
+      "rs_by": {
+       "klasse": 5,
+       "lernbereich": "M5 1 Natürliche Zahlen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       5
+      ]
+     }
+    ]
+   },
+   "baut_auf": [
+    1
+   ],
+   "grundlage_fuer": [
+    5
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.vorzeichen.falsches_zeichen",
+     "beschreibung": "Bei Mal oder Geteilt stimmt der Betrag, das Vorzeichen ist falsch."
+    }
+   ],
+   "quelle_lehrer": "inhalte/mathe-profi/regeln-uebersicht/sonne.md, kennungen.json, klassenleiter.json (Mathe-Profi)"
+  },
+  {
+   "nr": 3,
+   "kennung": "rangfolge",
+   "kennung_universum": "rr.reihenfolge",
+   "name": "Rangfolge",
+   "name_fachlich": "Reihenfolge beim Rechnen",
+   "planet": "klammer",
+   "fest_ab_klasse": 5,
+   "satz": "Klammer zuerst, dann Hochzahl, dann Punkt, dann Strich.",
+   "weg_b_satz": "Hier hat die Rangfolge geklemmt.",
+   "bild": {
+    "art": "treppe",
+    "motiv": "Treppe mit vier Stufen: Klammer, Potenz, Punkt, Strich; die unterste Stufe trägt das Namensschild des Terms",
+    "beschreibung": "Treppe mit vier Stufen, von oben nach unten: „Klammer“, „Hochzahl“, „Mal und Geteilt“, „Plus und Minus“. Daneben eine Rechnung 2 + 3 · 4: Die 3 · 4 steht auf der Stufe „Mal und Geteilt“ (gelb), das Plus auf der untersten Stufe. Die unterste Stufe trägt das Schild „Summe“.",
+    "unter": "Du steigst von oben nach unten. Die letzte Stufe gibt dem Term den Namen: 2 + 3 · 4 ist eine Summe."
+   },
+   "gewand": [
+    {
+     "art": "Zahlen",
+     "rechnung": "2 + 3 · 4 = 2 + (⟦3 · 4⟧)"
+    },
+    {
+     "art": "mit x",
+     "rechnung": "2 + 3x = 2 + (⟦3x⟧)"
+    },
+    {
+     "art": "mit Brüchen",
+     "rechnung": "{1|2} + {1|2} · {1|3} = {1|2} + (⟦{1|2} · {1|3}⟧)"
+    }
+   ],
+   "satz2": "Die letzte Rechnung gibt dem Term den Namen.",
+   "grenze": {
+    "satz": "Nicht einfach von links nach rechts.",
+    "text": "Mal kommt vor Plus. Mit Zahlen siehst du es sofort:",
+    "rechnung": [
+     "2 + 3 · 4 ≠ (2 + 3) · 4",
+     "14 ≠ 20"
+    ]
+   },
+   "probe": {
+    "text": "Stimmt 2 + 3x = 5x? Setz für x eine Zahl ein – 2 oder 3, nie 0 oder 1.",
+    "seiten": [
+     "2 + 3x",
+     "5x"
+    ],
+    "vorlage": [
+     "2 + 3 · {x}",
+     "5 · {x}"
+    ],
+    "x": [
+     2,
+     3,
+     4
+    ],
+    "vorgewaehlt": 3,
+    "ergebnisse": {
+     "2": [
+      "8",
+      "10"
+     ],
+     "3": [
+      "11",
+      "15"
+     ],
+     "4": [
+      "14",
+      "20"
+     ]
+    },
+    "gesamt": "stimmt_nicht"
+   },
+   "merksatz": "Klammer zuerst, dann Hoch, dann Punkt vor Strich.",
+   "genau_gesagt": "Klammer zuerst, dann Hoch, dann Punkt, dann Strich – Gleichrangiges von links nach rechts.",
+   "erklaerung_lehrer": "Die Reihenfolge ist eine Vereinbarung, damit jeder dieselbe Rechnung gleich liest. Sie folgt dem Aufbau der Rechenarten: Hoch ist wiederholtes Malnehmen, Mal ist wiederholtes Addieren – die „stärkere“ Rechnung bindet enger.",
+   "gilt_nicht": "Die Reihenfolge ist eine Vereinbarung, kein Naturgesetz. Mal und Geteilt (ebenso Plus und Minus) stehen auf einer Stufe und werden von links nach rechts gerechnet: 12 : 3 · 2 = 8.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.rechengesetze",
+     "text": "2 + 3 · 4 = 2 + 12 = 14"
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "text": "½ + ½ · ½ = ½ + ¼ = ¾"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "terme.umformen",
+     "text": "2 + 3 · x bleibt 2 + 3x – nicht 5x"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "funktionen.linear",
+     "text": "f(x) = 2 + 3x, x = 4: 2 + 3 · 4 = 14"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "funktionen.quadratisch",
+     "text": "f(x) = 2 + 3x², x = 2: 2 + 3 · 2² = 14"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.exponential_log",
+     "text": "f(x) = 2 + 3 · 2ˣ, x = 2: 2 + 3 · 2² = 14"
+    }
+   ],
+   "lehrplan": {
+    "quelle": [
+     "inhalte/themenliste.json",
+     "inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-pruefung.md"
+    ],
+    "stand": "27.11.2026",
+    "gruppe": "Gymnasium Bayern (gym_by), daneben Realschule Bayern (rs_by)",
+    "grenze": "Geprüft nur bis zum Thema, nicht bis zur Regel; die Lehrplan-Kopie der App ist nicht gegen LehrplanPLUS an der Quelle geprüft. Einstufung der Regel (Einführung / Anwendung) ist Einschätzung des Mathe-Profis.",
+    "eintraege": [
+     {
+      "klasse_der_regel": 5,
+      "thema": "zahlen.rechengesetze",
+      "gym_by": {
+       "klasse": 5,
+       "lernbereich": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division"
+      },
+      "rs_by": {
+       "klasse": 5,
+       "lernbereich": "M5 1 Natürliche Zahlen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       5
+      ]
+     }
+    ]
+   },
+   "baut_auf": [],
+   "grundlage_fuer": [
+    4,
+    6,
+    7,
+    9,
+    12
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.reihenfolge.links_nach_rechts",
+     "beschreibung": "Strich wird vor Punkt gerechnet, weil er weiter links steht (2 + 3 · 4 = 20)."
+    },
+    {
+     "kennung": "fb.reihenfolge.mal_vor_hoch",
+     "beschreibung": "Mal wird vor Hoch gerechnet (2 · 3² = 36)."
+    },
+    {
+     "kennung": "fb.reihenfolge.minus_ins_quadrat",
+     "beschreibung": "Das Minus vor einer Potenz wird mitquadriert (−3² = 9)."
+    }
+   ],
+   "quelle_lehrer": "inhalte/mathe-profi/regeln-uebersicht/sonne.md, kennungen.json, klassenleiter.json (Mathe-Profi)"
+  },
+  {
+   "nr": 4,
+   "kennung": "verteilen",
+   "kennung_universum": "rr.ausmultiplizieren",
+   "name": "Verteilen",
+   "name_fachlich": "Ausmultiplizieren und Ausklammern",
+   "planet": "klammer",
+   "fest_ab_klasse": 5,
+   "satz": "Der Faktor trifft jeden in der Klammer.",
+   "weg_b_satz": "Hier hat das Verteilen geklemmt.",
+   "bild": {
+    "art": "rechteck",
+    "motiv": "Rechteck mit einer Höhe und zwei Breiten",
+    "beschreibung": "Rechteck. Links die Höhe als gelbe Marke, oben die Breiten, in den Teilen die Flächen. Antippen einer Gewand-Zeile zeigt diese Zeile im Bild; die gewählte Zeile hat links einen gelben Streifen 4 px und trägt „im Bild“, die anderen „im Bild zeigen“.",
+    "unter": "Eine Höhe, zwei Breiten: Die Höhe trifft beide Teile.",
+    "zeilen": [
+     {
+      "art": "Zahlen",
+      "beschreibung": "Breite 20 mit Maßlinie darüber; rechter Streifen „6 · 2“ schraffiert und gestrichelt; linker Teil „6 · 18“; darunter „18“ und „2 weg“",
+      "parameter": {
+       "f": "6",
+       "a": "20",
+       "b": "2",
+       "minus": true,
+       "fa": "6 · 20",
+       "fb": "6 · 2",
+       "rest": "18"
+      },
+      "unter": "Das ganze Rechteck ist 6 · 20. Der Streifen 6 · 2 kommt weg, übrig bleibt 6 · 18."
+     },
+     {
+      "art": "mit x",
+      "beschreibung": "zwei Teile mit den Breiten „x“ und „2“, darin „3 · x“ und „3 · 2“; darunter „zusammen: 3 · x + 3 · 2“",
+      "parameter": {
+       "f": "3",
+       "a": "x",
+       "b": "2",
+       "fa": "3 · x",
+       "fb": "3 · 2"
+      },
+      "unter": "Eine Höhe, zwei Breiten: Die Höhe trifft beide Teile."
+     },
+     {
+      "art": "mit Brüchen",
+      "beschreibung": "wie „mit x“ mit „4“ und „⅔“",
+      "parameter": {
+       "f": "½",
+       "a": "4",
+       "b": "⅔",
+       "fa": "½ · 4",
+       "fb": "½ · ⅔"
+      },
+      "unter": "Eine Höhe, zwei Breiten: Die Höhe trifft beide Teile."
+     }
+    ]
+   },
+   "gewand": [
+    {
+     "art": "Zahlen",
+     "rechnung": "⟦6⟧ · (20 − 2) = ⟦6⟧ · 20 − ⟦6⟧ · 2"
+    },
+    {
+     "art": "mit x",
+     "rechnung": "⟦3⟧ · (x + 2) = ⟦3⟧ · x + ⟦3⟧ · 2"
+    },
+    {
+     "art": "mit Brüchen",
+     "rechnung": "⟦{1|2}⟧ · (4 + {2|3}) = ⟦{1|2}⟧ · 4 + ⟦{1|2}⟧ · {2|3}"
+    }
+   ],
+   "satz2": "Rückwärts: Gemeinsames herausziehen.",
+   "grenze": {
+    "satz": "Nicht beim Quadrat.",
+    "text": "Das Quadrat trifft nicht jeden einzeln. Mit Zahlen siehst du es sofort:",
+    "rechnung": [
+     "(3 + 4)² ≠ 3² + 4²",
+     "49 ≠ 25"
+    ]
+   },
+   "probe": {
+    "text": "Stimmt die Umformung? Setz für x eine Zahl ein – 2 oder 3, nie 0 oder 1.",
+    "seiten": [
+     "3 · (x + 2)",
+     "3x + 6"
+    ],
+    "vorlage": [
+     "3 · ({x} + 2)",
+     "3 · {x} + 6"
+    ],
+    "x": [
+     2,
+     3,
+     4
+    ],
+    "vorgewaehlt": 3,
+    "ergebnisse": {
+     "2": [
+      "12",
+      "12"
+     ],
+     "3": [
+      "15",
+      "15"
+     ],
+     "4": [
+      "18",
+      "18"
+     ]
+    },
+    "gesamt": "stimmt"
+   },
+   "merksatz": "Was vor der Klammer steht, nimmt jeden in der Klammer mal.",
+   "genau_gesagt": "Der Faktor vor der Klammer multipliziert jeden Summanden – vorwärts ausmultiplizieren, rückwärts ausklammern.",
+   "erklaerung_lehrer": "Ein Rechteck mit den Seiten a und (b + c) hat dieselbe Fläche wie die zwei Teilrechtecke a · b und a · c zusammen. Rückwärts gelesen ist es das Ausklammern: Steckt in jedem Summanden derselbe Faktor, darf man ihn vor eine Klammer ziehen.",
+   "gilt_nicht": "Gilt nicht für Hochzahlen: (a + b)² ist nicht a² + b². Der Faktor muss vor einer Summe oder Differenz stehen.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.rechengesetze",
+     "text": "6 · (20 + 2) = 6 · 20 + 6 · 2 = 132"
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "text": "4 · (2 + ½) = 4 · 2 + 4 · ½ = 10"
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "terme.umformen",
+     "text": "3 · (x + 2) = 3 · x + 3 · 2 = 3x + 6"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "gleichungen.bruch",
+     "text": "x · (3/x + ½) = x · 3/x + x · ½, für x ≠ 0"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "zahlen.reell",
+     "text": "√2 · (√2 + 3) = √2 · √2 + √2 · 3 = 2 + 3√2"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "gleichungen.polynom",
+     "text": "x · (x² − 4) = x · x² − x · 4 = x³ − 4x"
+    }
+   ],
+   "lehrplan": {
+    "quelle": [
+     "inhalte/themenliste.json",
+     "inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-pruefung.md"
+    ],
+    "stand": "27.11.2026",
+    "gruppe": "Gymnasium Bayern (gym_by), daneben Realschule Bayern (rs_by)",
+    "grenze": "Geprüft nur bis zum Thema, nicht bis zur Regel; die Lehrplan-Kopie der App ist nicht gegen LehrplanPLUS an der Quelle geprüft. Einstufung der Regel (Einführung / Anwendung) ist Einschätzung des Mathe-Profis.",
+    "eintraege": [
+     {
+      "klasse_der_regel": 5,
+      "thema": "zahlen.rechengesetze",
+      "gym_by": {
+       "klasse": 5,
+       "lernbereich": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division"
+      },
+      "rs_by": {
+       "klasse": 5,
+       "lernbereich": "M5 1 Natürliche Zahlen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       5
+      ]
+     },
+     {
+      "klasse_der_regel": 7,
+      "thema": "terme.umformen",
+      "gym_by": {
+       "klasse": 7,
+       "lernbereich": "M7 1 Terme mit Variablen"
+      },
+      "rs_by": {
+       "klasse": 7,
+       "lernbereich": "M7 6 Terme, Gleichungen und Ungleichungen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       7
+      ]
+     }
+    ]
+   },
+   "baut_auf": [
+    3
+   ],
+   "grundlage_fuer": [
+    5,
+    10,
+    15
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.ausmultiplizieren.nur_erster_summand",
+     "beschreibung": "Der Faktor trifft nur den ersten Summanden (3 · (x + 2) = 3x + 2)."
+    },
+    {
+     "kennung": "fb.ausmultiplizieren.hoch_verteilt",
+     "beschreibung": "Das Quadrat wird auf die Summanden verteilt ((a + b)² = a² + b²)."
+    }
+   ],
+   "quelle_lehrer": "inhalte/mathe-profi/regeln-uebersicht/sonne.md, kennungen.json, klassenleiter.json (Mathe-Profi)",
+   "text_wortlich_aus": "inhalte/design/regeln-sonnensystem/umsetzung.md Abschnitt 6.2"
+  },
+  {
+   "nr": 5,
+   "kennung": "minusklammer",
+   "kennung_universum": "rr.minusklammer",
+   "name": "Minusklammer",
+   "name_fachlich": "Minus vor der Klammer",
+   "planet": "klammer",
+   "fest_ab_klasse": 5,
+   "satz": "Minus vor der Klammer dreht jedes Zeichen darin.",
+   "weg_b_satz": "Hier hat die Minusklammer geklemmt.",
+   "bild": {
+    "art": "zahlenstrahl",
+    "motiv": "Zahlenstrahl: zu weit zurück, ein Stück wieder vor",
+    "beschreibung": "Zahlenstrahl von 9 bis 21, beschriftet 12, 15, 20. Oben ein Pfeil von 20 nach 12 „− 8“ (Kurs-Farbe), darunter ein Pfeil von 12 nach 15 „+ 3“ (Farbe „gut“). Unter dem Strahl ein Pfeil von 20 nach 15 „− (8 − 3)“ in „leise“. Bei 15 ein gelber Punkt mit Rand. Das Bild bleibt für alle drei Zeilen gleich.",
+    "unter": "Erst 8 zurück – das war zu viel. Also 3 wieder vor."
+   },
+   "gewand": [
+    {
+     "art": "Zahlen",
+     "rechnung": "20 ⟦−⟧ (8 − 3) = 20 __− 8 + 3__"
+    },
+    {
+     "art": "mit x",
+     "rechnung": "5x ⟦−⟧ (3x − 2) = 5x __− 3x + 2__"
+    },
+    {
+     "art": "mit Brüchen",
+     "rechnung": "1 ⟦−⟧ ({1|2} − {1|4}) = 1 __− {1|2} + {1|4}__"
+    }
+   ],
+   "satz2": "Plus davor dreht nichts.",
+   "unter_gewand": "Das Bild zeigt es mit Zahlen. Mit x und mit Brüchen läuft es genauso.",
+   "grenze": {
+    "satz": "Plus davor dreht nichts.",
+    "text": "Nur das Minus dreht. Und es dreht jedes Zeichen, nicht nur das erste:",
+    "rechnung": [
+     "20 − (8 − 3) ≠ 20 − 8 − 3",
+     "15 ≠ 9"
+    ]
+   },
+   "probe": {
+    "text": "Stimmt die Umformung? Setz für x eine Zahl ein – 2 oder 3, nie 0 oder 1.",
+    "seiten": [
+     "5x − (3x − 2)",
+     "2x + 2"
+    ],
+    "vorlage": [
+     "5 · {x} − (3 · {x} − 2)",
+     "2 · {x} + 2"
+    ],
+    "x": [
+     2,
+     3,
+     4
+    ],
+    "vorgewaehlt": 3,
+    "ergebnisse": {
+     "2": [
+      "6",
+      "6"
+     ],
+     "3": [
+      "8",
+      "8"
+     ],
+     "4": [
+      "10",
+      "10"
+     ]
+    },
+    "gesamt": "stimmt"
+   },
+   "merksatz": "Minus vor der Klammer dreht alle Zeichen um.",
+   "genau_gesagt": "Löst du eine Minusklammer auf, wechselt jeder Summand in der Klammer sein Vorzeichen.",
+   "erklaerung_lehrer": "Ein Minus vor der Klammer heißt „mal (−1)“. Der Faktor −1 multipliziert jeden Summanden, also wechselt jedes Vorzeichen. Im Alltag: Wer 20 € hat und einen Einkauf von 8 € mit 3 € Rabatt bezahlt, behält 20 − 8 + 3 €.",
+   "gilt_nicht": "Gilt nur bei einem Minus vor der Klammer; bei Plus davor ändert sich nichts. Das Minus dreht jedes Zeichen, nicht nur das erste.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "art": "Vorwissen",
+     "thema": "zahlen.rechengesetze",
+     "text": "20 − (8 − 3) = 20 − 8 + 3 = 15"
+    },
+    {
+     "klasse": 6,
+     "art": "Vorwissen",
+     "thema": "bruch.rechnen",
+     "text": "2 − (¾ − ¼) = 2 − ¾ + ¼ = 1½"
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "terme.umformen",
+     "text": "5x − (3x − 2) = 5x − 3x + 2 = 2x + 2"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "gleichungen.ungleichungen",
+     "text": "7 − (2x − 6) = 7 − 2x + 6 = 13 − 2x"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "gleichungen.quadratisch",
+     "text": "x² − (x² − 3x) = x² − x² + 3x = 3x"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "gleichungen.polynom",
+     "text": "x³ − (x³ − 4x) = x³ − x³ + 4x = 4x"
+    }
+   ],
+   "lehrplan": {
+    "quelle": [
+     "inhalte/themenliste.json",
+     "inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-pruefung.md"
+    ],
+    "stand": "27.11.2026",
+    "gruppe": "Gymnasium Bayern (gym_by), daneben Realschule Bayern (rs_by)",
+    "grenze": "Geprüft nur bis zum Thema, nicht bis zur Regel; die Lehrplan-Kopie der App ist nicht gegen LehrplanPLUS an der Quelle geprüft. Einstufung der Regel (Einführung / Anwendung) ist Einschätzung des Mathe-Profis.",
+    "eintraege": [
+     {
+      "klasse_der_regel": 7,
+      "thema": "terme.umformen",
+      "gym_by": {
+       "klasse": 7,
+       "lernbereich": "M7 1 Terme mit Variablen"
+      },
+      "rs_by": {
+       "klasse": 7,
+       "lernbereich": "M7 6 Terme, Gleichungen und Ungleichungen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       7
+      ]
+     }
+    ]
+   },
+   "baut_auf": [
+    2,
+    4
+   ],
+   "grundlage_fuer": [],
+   "fehlbilder": [
+    {
+     "kennung": "fb.minusklammer.nur_erstes_zeichen",
+     "beschreibung": "Nur das erste Vorzeichen in der Klammer wechselt (a − (b − c) = a − b − c)."
+    }
+   ],
+   "quelle_lehrer": "inhalte/mathe-profi/regeln-uebersicht/sonne.md, kennungen.json, klassenleiter.json (Mathe-Profi)"
+  },
+  {
+   "nr": 6,
+   "kennung": "buendeln",
+   "kennung_universum": "rr.tauschen",
+   "name": "Tauschen und Bündeln",
+   "name_fachlich": "Tauschen, Klammern, Zusammenfassen",
+   "planet": "klammer",
+   "fest_ab_klasse": 5,
+   "satz": "Bei Plus und Mal darfst du tauschen und zusammenfassen.",
+   "weg_b_satz": "Hier hat das Bündeln geklemmt.",
+   "bild": {
+    "art": "zwei_kisten",
+    "motiv": "Zwei Kisten: gleiche Sorte in dieselbe Kiste (x zu x, Zahl zu Zahl)",
+    "beschreibung": "Zwei Kisten. Kiste „x“ enthält 3x und 2x, Kiste „Zahl“ enthält 5. Ein Pfeil führt jedes Stück in seine Kiste. Darunter: „5x + 5“. Eine gelbe Marke liegt auf dem Pfeil, der 2x zu 3x holt.",
+    "unter": "Gleiches kommt in dieselbe Kiste: x zu x, Zahl zu Zahl."
+   },
+   "gewand": [
+    {
+     "art": "Zahlen",
+     "rechnung": "38 + ⟦17⟧ + 62 = 38 + 62 + ⟦17⟧"
+    },
+    {
+     "art": "mit x",
+     "rechnung": "3x + ⟦5⟧ + 2x = 3x + 2x + ⟦5⟧"
+    },
+    {
+     "art": "mit Brüchen",
+     "rechnung": "{1|3} + ⟦{5|7}⟧ + {2|3} = {1|3} + {2|3} + ⟦{5|7}⟧"
+    }
+   ],
+   "satz2": "Zusammenfassen geht nur mit Gleichem.",
+   "grenze": {
+    "satz": "Nicht bei Minus und Geteilt.",
+    "text": "Hier ändert Tauschen das Ergebnis. Mit Zahlen siehst du es sofort:",
+    "rechnung": [
+     "8 − 3 ≠ 3 − 8",
+     "5 ≠ −5"
+    ]
+   },
+   "probe": {
+    "text": "Stimmt die Umformung? Setz für x eine Zahl ein – 2 oder 3, nie 0 oder 1.",
+    "seiten": [
+     "3x + 5 + 2x",
+     "5x + 5"
+    ],
+    "vorlage": [
+     "3 · {x} + 5 + 2 · {x}",
+     "5 · {x} + 5"
+    ],
+    "x": [
+     2,
+     3,
+     4
+    ],
+    "vorgewaehlt": 3,
+    "ergebnisse": {
+     "2": [
+      "15",
+      "15"
+     ],
+     "3": [
+      "20",
+      "20"
+     ],
+     "4": [
+      "25",
+      "25"
+     ]
+    },
+    "gesamt": "stimmt"
+   },
+   "merksatz": "Tauschen bei Plus und Mal. Zusammenfassen: nur Gleiches zu Gleichem.",
+   "genau_gesagt": "In einer Summe darfst du die Summanden tauschen und neu klammern, in einem Produkt die Faktoren. Zusammenfassen: gleicher Buchstabenteil – Vorzahlen addieren.",
+   "erklaerung_lehrer": "Bei einer Summe und bei einem Produkt kommt es nicht auf die Reihenfolge und nicht auf die Klammerung an (Vertauschungs- und Verbindungsgesetz). Zusammenfassen heißt zählen: 3 Stück a und 4 Stück a sind 7 Stück a.",
+   "gilt_nicht": "Gilt nicht bei Minus und Geteilt: 5 − 3 ist nicht 3 − 5. Zusammenfassen geht nur bei gleichem Buchstabenteil: 3a + 4b bleibt stehen.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.ganz",
+     "text": "12 − 30 + 18 = 12 + 18 − 30 = 0"
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "text": "¼ − ½ + ¾ = ¼ + ¾ − ½ = ½"
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "terme.umformen",
+     "text": "3a + 2b + 4a = 3a + 4a + 2b = 7a + 2b"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "gleichungen.lgs2",
+     "text": "2x + 3y − 2x + y = 2x − 2x + 4y = 4y"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "zahlen.reell",
+     "text": "3√2 + 5 + 2√2 = 3√2 + 2√2 + 5 = 5√2 + 5"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.ganzrational",
+     "text": "3x³ + 2x + 4x³ = 3x³ + 4x³ + 2x = 7x³ + 2x"
+    }
+   ],
+   "lehrplan": {
+    "quelle": [
+     "inhalte/themenliste.json",
+     "inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-pruefung.md"
+    ],
+    "stand": "27.11.2026",
+    "gruppe": "Gymnasium Bayern (gym_by), daneben Realschule Bayern (rs_by)",
+    "grenze": "Geprüft nur bis zum Thema, nicht bis zur Regel; die Lehrplan-Kopie der App ist nicht gegen LehrplanPLUS an der Quelle geprüft. Einstufung der Regel (Einführung / Anwendung) ist Einschätzung des Mathe-Profis.",
+    "eintraege": [
+     {
+      "klasse_der_regel": 5,
+      "thema": "zahlen.ganz",
+      "gym_by": {
+       "klasse": 5,
+       "lernbereich": "M5 1 Natürliche und ganze Zahlen – Addition und Subtraktion"
+      },
+      "rs_by": {
+       "klasse": 5,
+       "lernbereich": "M5 2 Ganze Zahlen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       5
+      ]
+     },
+     {
+      "klasse_der_regel": 7,
+      "thema": "terme.umformen",
+      "gym_by": {
+       "klasse": 7,
+       "lernbereich": "M7 1 Terme mit Variablen"
+      },
+      "rs_by": {
+       "klasse": 7,
+       "lernbereich": "M7 6 Terme, Gleichungen und Ungleichungen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       7
+      ]
+     }
+    ]
+   },
+   "baut_auf": [
+    3
+   ],
+   "grundlage_fuer": [],
+   "fehlbilder": [
+    {
+     "kennung": "fb.tauschen.minus_getauscht",
+     "beschreibung": "Bei Minus oder Geteilt werden die Zahlen vertauscht (3 − 8 gerechnet als 8 − 3, ohne das Zeichen mitzunehmen)."
+    },
+    {
+     "kennung": "fb.tauschen.ungleiches_zusammengefasst",
+     "beschreibung": "Verschiedene Buchstabenteile werden zusammengefasst (3a + 4b = 7ab)."
+    }
+   ],
+   "quelle_lehrer": "inhalte/mathe-profi/regeln-uebersicht/sonne.md, kennungen.json, klassenleiter.json (Mathe-Profi)"
+  },
+  {
+   "nr": 7,
+   "kennung": "waage",
+   "kennung_universum": "rr.waage",
+   "name": "Waage",
+   "name_fachlich": "Gleichung als Waage",
+   "planet": "waage",
+   "fest_ab_klasse": 5,
+   "satz": "Gleich heißt gleich viel.",
+   "weg_b_satz": "Hier hat die Waage geklemmt.",
+   "bild": {
+    "art": "balkenwaage",
+    "motiv": "Balkenwaage im Gleichgewicht; von beiden Schalen wird dasselbe genommen",
+    "beschreibung": "Balkenwaage im Gleichgewicht. Links Schale mit „x“ und einem Gewicht „5“, rechts Schale mit „12“. Von beiden Schalen führt ein Pfeil „− 5“ weg (gelb). Darunter die Waage wieder im Gleichgewicht: links „x“, rechts „7“.",
+    "unter": "Nimmst du links 5 weg, nimm rechts auch 5 weg. Dann bleibt die Waage im Gleichgewicht."
+   },
+   "gewand": [
+    {
+     "art": "Zahlen",
+     "rechnung": "7 + 5 = 12 → 7 + 5 ⟦− 5⟧ = 12 ⟦− 5⟧"
+    },
+    {
+     "art": "mit x",
+     "rechnung": "x + 5 = 12 → x + 5 ⟦− 5⟧ = 12 ⟦− 5⟧"
+    },
+    {
+     "art": "mit Brüchen",
+     "rechnung": "x + {1|2} = 2 → x + {1|2} ⟦− {1|2}⟧ = 2 ⟦− {1|2}⟧"
+    }
+   ],
+   "satz2": "Auf beiden Seiten dasselbe tun.",
+   "grenze": {
+    "satz": "Nicht nur auf einer Seite.",
+    "text": "Wer nur links etwas tut, kippt die Waage. Mit Zahlen siehst du es sofort:",
+    "rechnung": [
+     "7 + 5 − 5 ≠ 12",
+     "7 ≠ 12"
+    ]
+   },
+   "probe": {
+    "text": "Stimmt die Umformung? Setz für x eine Zahl ein – 2 oder 3, nie 0 oder 1.",
+    "seiten": [
+     "(x + 5) − 5",
+     "x"
+    ],
+    "vorlage": [
+     "({x} + 5) − 5",
+     "{x}"
+    ],
+    "x": [
+     2,
+     3,
+     4
+    ],
+    "vorgewaehlt": 3,
+    "ergebnisse": {
+     "2": [
+      "2",
+      "2"
+     ],
+     "3": [
+      "3",
+      "3"
+     ],
+     "4": [
+      "4",
+      "4"
+     ]
+    },
+    "gesamt": "stimmt"
+   },
+   "merksatz": "Eine Gleichung ist eine Waage: Was du links tust, musst du auch rechts tun.",
+   "genau_gesagt": "Dieselbe umkehrbare Rechnung auf beiden Seiten ändert die Lösungen nicht.",
+   "erklaerung_lehrer": "Das Gleichheitszeichen sagt: Links und rechts steht gleich viel. Nimmt man auf beiden Seiten einer Waage dasselbe weg oder halbiert beide Seiten, bleibt sie im Gleichgewicht. Weil man jede solche Rechnung zurücknehmen kann, geht keine Lösung verloren und keine kommt dazu.",
+   "gilt_nicht": "Erlaubt sind nur umkehrbare Rechnungen auf beiden Seiten; Mal null ist nicht umkehrbar. Wer mit einem Term malnimmt oder teilt, muss klären, wo der Term null wird. Quadrieren kann Scheinlösungen erzeugen.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "art": "Vorwissen",
+     "thema": "gleichungen.einfach",
+     "text": "□ + 7 = 3 | − 7 → □ = −4"
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "gleichungen.linear",
+     "text": "2x + 2 = 12 | − 2 → 2x = 10 | : 2 → x = 5"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "gleichungen.ungleichungen",
+     "text": "2x + 2 < 12 | − 2 → 2x < 10 | : 2 → x < 5"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "gleichungen.quadratisch",
+     "text": "2x² + 2 = 20 | − 2 → 2x² = 18 | : 2 → x² = 9"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "gleichungen.exponential",
+     "text": "2 · 2ˣ + 2 = 18 | − 2 → 2 · 2ˣ = 16 | : 2 → 2ˣ = 8"
+    }
+   ],
+   "lehrplan": {
+    "quelle": [
+     "inhalte/themenliste.json",
+     "inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-pruefung.md"
+    ],
+    "stand": "27.11.2026",
+    "gruppe": "Gymnasium Bayern (gym_by), daneben Realschule Bayern (rs_by)",
+    "grenze": "Geprüft nur bis zum Thema, nicht bis zur Regel; die Lehrplan-Kopie der App ist nicht gegen LehrplanPLUS an der Quelle geprüft. Einstufung der Regel (Einführung / Anwendung) ist Einschätzung des Mathe-Profis.",
+    "eintraege": [
+     {
+      "klasse_der_regel": 7,
+      "thema": "gleichungen.linear",
+      "gym_by": {
+       "klasse": 7,
+       "lernbereich": "M7 3 Lineare Gleichungen und Vertiefung der Prozentrechnung"
+      },
+      "rs_by": {
+       "klasse": 7,
+       "lernbereich": "M7 6 Terme, Gleichungen und Ungleichungen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       7
+      ]
+     }
+    ]
+   },
+   "baut_auf": [
+    3,
+    8
+   ],
+   "grundlage_fuer": [
+    15
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.waage.nur_ein_summand",
+     "beschreibung": "Beim Malnehmen oder Teilen einer Seite wird nur ein Summand verändert."
+    },
+    {
+     "kennung": "fb.waage.zeichen_nicht_gedreht",
+     "beschreibung": "Bei einer Ungleichung wird mit einer negativen Zahl malgenommen oder geteilt, ohne das Zeichen umzudrehen."
+    },
+    {
+     "kennung": "fb.waage.nur_eine_seite",
+     "beschreibung": "Die Rechnung wird nur auf einer Seite ausgeführt."
+    }
+   ],
+   "quelle_lehrer": "inhalte/mathe-profi/regeln-uebersicht/sonne.md, kennungen.json, klassenleiter.json (Mathe-Profi)"
+  },
+  {
+   "nr": 8,
+   "kennung": "umkehren",
+   "kennung_universum": "rr.gegenrechnung",
+   "name": "Umkehren",
+   "name_fachlich": "Gegenrechnung",
+   "planet": "waage",
+   "fest_ab_klasse": 5,
+   "satz": "Jede Rechnung hat eine Gegenrechnung.",
+   "weg_b_satz": "Hier hat das Umkehren geklemmt.",
+   "bild": {
+    "art": "hin_und_zurueck",
+    "motiv": "Hin- und Rückpfeil zwischen zwei Zahlen: hin „· 4“, zurück „: 4“",
+    "beschreibung": "Zwei Kästen, links „7“, rechts „28“. Ein Pfeil oben von links nach rechts mit „· 4“, ein Pfeil unten von rechts nach links mit „: 4“ (gelb).",
+    "unter": "Hin mal 4, zurück geteilt durch 4. Du landest wieder bei 7."
+   },
+   "gewand": [
+    {
+     "art": "Zahlen",
+     "rechnung": "7 · 4 = 28 → 7 = 28 ⟦: 4⟧"
+    },
+    {
+     "art": "mit x",
+     "rechnung": "x · 4 = 28 → x = 28 ⟦: 4⟧"
+    },
+    {
+     "art": "mit Brüchen",
+     "rechnung": "x · {2|3} = 4 → x = 4 ⟦: {2|3}⟧"
+    }
+   ],
+   "satz2": "Plus und Minus, Mal und Geteilt, Quadrat und Wurzel.",
+   "grenze": {
+    "satz": "Nicht dieselbe Rechnung noch einmal.",
+    "text": "Plus nimmst du mit Minus zurück, nicht mit Plus. Aus □ + 7 = 3 wird □ = 3 − 7. Mit Zahlen siehst du den Unterschied:",
+    "rechnung": [
+     "3 − 7 ≠ 3 + 7",
+     "−4 ≠ 10"
+    ]
+   },
+   "probe": {
+    "text": "Stimmt die Umformung? Setz für x eine Zahl ein – 2 oder 3, nie 0 oder 1.",
+    "seiten": [
+     "(x · 4) : 4",
+     "x"
+    ],
+    "vorlage": [
+     "({x} · 4) : 4",
+     "{x}"
+    ],
+    "x": [
+     2,
+     3,
+     4
+    ],
+    "vorgewaehlt": 3,
+    "ergebnisse": {
+     "2": [
+      "2",
+      "2"
+     ],
+     "3": [
+      "3",
+      "3"
+     ],
+     "4": [
+      "4",
+      "4"
+     ]
+    },
+    "gesamt": "stimmt"
+   },
+   "merksatz": "Rückwärts rechnen: Was zuletzt kam, geht zuerst.",
+   "genau_gesagt": "Rechne den Weg rückwärts: Was zuletzt gerechnet wurde, machst du zuerst rückgängig.",
+   "erklaerung_lehrer": "Zu jeder umkehrbaren Rechnung gibt es eine Gegenrechnung: Plus und Minus, Mal und Geteilt, Quadrat und Wurzel, später Hoch und Logarithmus. Wer weiß, was mit einer Zahl nacheinander gemacht wurde, findet sie, indem er den Weg rückwärts geht – wie beim Anziehen und Ausziehen: Der Schuh kam zuletzt, also kommt er zuerst weg.",
+   "gilt_nicht": "Nur für umkehrbare Rechnungen: Mal null löscht die Zahl, durch null kann man nicht teilen. Beim Quadrat gibt es zwei Lösungen: x² = 49 hat 7 und −7.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "gleichungen.einfach",
+     "text": "□ + 7 = 3, also □ = 3 − 7 = −4"
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "text": "□ · ¾ = 12, also □ = 12 : ¾ = 16"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "bruch.prozent_grundwert",
+     "text": "G · 1,2 = 60 €, also G = 60 € : 1,2 = 50 €"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "gleichungen.formeln",
+     "text": "A = g · h, also g = A : h"
+    },
+    {
+     "klasse": 9,
+     "art": "Einführung",
+     "thema": "gleichungen.quadratisch",
+     "text": "x hoch 2 = 49, also x = ±√49 = ±7"
+    },
+    {
+     "klasse": 10,
+     "art": "Einführung",
+     "thema": "gleichungen.exponential",
+     "text": "2 hoch x = 8, also x = log₂ 8 = 3"
+    }
+   ],
+   "lehrplan": {
+    "quelle": [
+     "inhalte/themenliste.json",
+     "inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-pruefung.md"
+    ],
+    "stand": "27.11.2026",
+    "gruppe": "Gymnasium Bayern (gym_by), daneben Realschule Bayern (rs_by)",
+    "grenze": "Geprüft nur bis zum Thema, nicht bis zur Regel; die Lehrplan-Kopie der App ist nicht gegen LehrplanPLUS an der Quelle geprüft. Einstufung der Regel (Einführung / Anwendung) ist Einschätzung des Mathe-Profis.",
+    "eintraege": [
+     {
+      "klasse_der_regel": 5,
+      "thema": "gleichungen.einfach",
+      "gym_by": {
+       "klasse": 5,
+       "lernbereich": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division"
+      },
+      "rs_by": {
+       "klasse": 6,
+       "lernbereich": "M6 5 Terme und Gleichungen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       5
+      ]
+     },
+     {
+      "klasse_der_regel": 9,
+      "thema": "gleichungen.quadratisch",
+      "gym_by": {
+       "klasse": 9,
+       "lernbereich": "M9 2 Quadratische Funktionen"
+      },
+      "rs_by": {
+       "klasse": 9,
+       "lernbereich": "M9 7 Quadratische Funktionen und quadratische Gleichungen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       9
+      ]
+     },
+     {
+      "klasse_der_regel": 10,
+      "thema": "gleichungen.exponential",
+      "gym_by": {
+       "klasse": 10,
+       "lernbereich": "M10 1 Exponentielles Wachstum und Logarithmus"
+      },
+      "rs_by": {
+       "klasse": 10,
+       "lernbereich": "M10 4 Exponentialfunktionen, Logarithmen und Logarithmusfunktionen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       10
+      ]
+     }
+    ]
+   },
+   "baut_auf": [
+    1
+   ],
+   "grundlage_fuer": [
+    7
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.gegenrechnung.gleiche_rechnung",
+     "beschreibung": "Statt der Gegenrechnung wird dieselbe Rechnung noch einmal gemacht (□ + 7 = 3, also □ = 10)."
+    },
+    {
+     "kennung": "fb.gegenrechnung.reihenfolge_nicht_umgekehrt",
+     "beschreibung": "Die Schritte werden in derselben statt in umgekehrter Reihenfolge zurückgenommen."
+    },
+    {
+     "kennung": "fb.gegenrechnung.zweite_loesung_fehlt",
+     "beschreibung": "Bei x² = a wird nur die positive Lösung genannt."
+    }
+   ],
+   "quelle_lehrer": "inhalte/mathe-profi/regeln-uebersicht/sonne.md, kennungen.json, klassenleiter.json (Mathe-Profi)"
+  },
+  {
+   "nr": 9,
+   "kennung": "probe",
+   "kennung_universum": null,
+   "name": "Einsetzen und Probe",
+   "name_fachlich": "Einsetzen und Probe (Zahlenprobe)",
+   "planet": "waage",
+   "fest_ab_klasse": 5,
+   "satz": "Setz eine Zahl für den Buchstaben ein.",
+   "weg_b_satz": "Hier hat die Probe gefehlt.",
+   "bild": {
+    "art": "einsetzfach",
+    "motiv": "Eine Zahl rutscht in das Fach „x“; zwei Wege enden auf derselben Anzeige",
+    "beschreibung": "Ein Fach „x“ mit der Zahl 3. Von dort zwei Wege: oben „5x − (3x − 2)“, unten „2x + 2“. Beide Wege enden an einer Anzeige mit „8“ (gelb).",
+    "unter": "Zeigen beide Wege dieselbe Anzeige, kann die Umformung stimmen. Zeigen sie Verschiedenes, ist sie falsch."
+   },
+   "gewand": [
+    {
+     "art": "Zahlen",
+     "rechnung": "4 · (⟦7⟧ − 12) = −20"
+    },
+    {
+     "art": "mit x",
+     "rechnung": "2 · ⟦5⟧ + 2 = 12"
+    },
+    {
+     "art": "mit Brüchen",
+     "rechnung": "4 · ⟦{1|2}⟧ + 1 = 3"
+    }
+   ],
+   "satz2": "So prüfst du jede Umformung und jede Lösung.",
+   "grenze": {
+    "satz": "Eine Zahl kann Glück haben.",
+    "text": "Bei x = 2 geben x · x und 2 · x beide 4. Erst eine zweite Zahl zeigt den Unterschied. Nimm darum mehrere Zahlen, nie nur 0 oder 1:",
+    "rechnung": [
+     "3 · 3 ≠ 2 · 3",
+     "9 ≠ 6"
+    ]
+   },
+   "probe": {
+    "text": "Stimmt die Umformung? Setz für x eine Zahl ein – 2 oder 3, nie 0 oder 1.",
+    "seiten": [
+     "2 · (x + 3)",
+     "2x + 6"
+    ],
+    "vorlage": [
+     "2 · ({x} + 3)",
+     "2 · {x} + 6"
+    ],
+    "x": [
+     2,
+     3,
+     4
+    ],
+    "vorgewaehlt": 3,
+    "ergebnisse": {
+     "2": [
+      "10",
+      "10"
+     ],
+     "3": [
+      "12",
+      "12"
+     ],
+     "4": [
+      "14",
+      "14"
+     ]
+    },
+    "gesamt": "stimmt"
+   },
+   "merksatz": "Geben beide Seiten bei einer eingesetzten Zahl Verschiedenes, ist die Umformung falsch.",
+   "genau_gesagt": "Setzt man für den Buchstaben eine Zahl ein, müssen beide Seiten einer richtigen Umformung dasselbe ergeben.",
+   "erklaerung_lehrer": "Eine Umformung gilt für alle Zahlen oder gar nicht. Ein einziges Zahlenbeispiel mit verschiedenen Ergebnissen widerlegt sie deshalb sicher. Gleiche Ergebnisse beweisen sie nicht; darum zwei Zahlen, nie nur 0 oder 1, weil dort oft Unterschiede wegfallen.",
+   "gilt_nicht": "Die Probe beweist nie, dass eine Umformung stimmt; sie kann nur Fehler aufdecken. Mit nur 0 oder 1 bleiben viele Fehler unentdeckt.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "gleichungen.einfach",
+     "text": "x = 5 einsetzen: 5 + 7 = 12"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "gleichungen.linear",
+     "text": "x = 3 einsetzen: 4 · 3 − 7 = 3 + 2"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "gleichungen.formeln",
+     "text": "Umstellung b = A : a prüfen mit a = 2, A = 6: b = 3 und 2 · 3 = 6"
+    }
+   ],
+   "lehrplan": "nicht geprüft",
+   "baut_auf": [
+    3
+   ],
+   "grundlage_fuer": [],
+   "fehlbilder": [
+    {
+     "kennung": "fb.probe.nur_null_oder_eins",
+     "vorschlag": true,
+     "beschreibung": "Es wird nur 0 oder 1 eingesetzt; dort geben x und x² dasselbe, der Fehler bleibt unentdeckt."
+    },
+    {
+     "kennung": "fb.probe.eine_zahl_als_beweis",
+     "vorschlag": true,
+     "beschreibung": "Gleiche Ergebnisse bei einer Zahl gelten als Beweis (x · x und 2 · x geben bei 2 beide 4)."
+    }
+   ],
+   "quelle_lehrer": "eigener Entwurf, vom Mathe-Profi noch nicht geprüft"
+  },
+  {
+   "nr": 10,
+   "kennung": "wertbleibt",
+   "kennung_universum": "rr.kuerzen",
+   "name": "Wert bleibt",
+   "name_fachlich": "Erweitern und Kürzen",
+   "planet": "bruch",
+   "fest_ab_klasse": 6,
+   "satz": "Oben und unten mit derselben Zahl malnehmen oder teilen ändert nichts.",
+   "weg_b_satz": "Hier hat „Wert bleibt“ geklemmt.",
+   "bild": {
+    "art": "bruchstreifen",
+    "motiv": "Ein Bruchstreifen, zweimal gezeichnet: grob und fein geschnitten, gleich lang gefärbt",
+    "beschreibung": "Zwei gleich lange Streifen untereinander. Oben in 3 Teile geschnitten, 2 gefärbt: „2/3“. Unten in 6 Teile geschnitten, 4 gefärbt: „4/6“. Die gefärbte Länge endet an derselben Stelle (gelbe Linie).",
+    "unter": "Der Streifen wird feiner geschnitten, aber gleich viel ist gefärbt."
+   },
+   "gewand": [
+    {
+     "art": "Zahlen",
+     "rechnung": "{12|18} = {12 ⟦: 6⟧|18 ⟦: 6⟧}"
+    },
+    {
+     "art": "mit x",
+     "rechnung": "{3x|9} = {3x ⟦: 3⟧|9 ⟦: 3⟧}"
+    },
+    {
+     "art": "mit Brüchen",
+     "rechnung": "{2|3} = {2 ⟦· 2⟧|3 ⟦· 2⟧}"
+    }
+   ],
+   "satz2": "Der Bruch bleibt gleich viel wert.",
+   "grenze": {
+    "satz": "Kürzen nur Faktoren, nie aus Summen.",
+    "text": "In einer Summe streichst du keine Zahl weg. Mit Zahlen siehst du es sofort:",
+    "rechnung": [
+     "{12 + 6|3} ≠ 12 + {6|3}",
+     "6 ≠ 14"
+    ]
+   },
+   "probe": {
+    "text": "Stimmt die Umformung? Setz für x eine Zahl ein – 2 oder 3, nie 0 oder 1.",
+    "seiten": [
+     "(3x + 6) : 3",
+     "x + 2"
+    ],
+    "vorlage": [
+     "(3 · {x} + 6) : 3",
+     "{x} + 2"
+    ],
+    "x": [
+     2,
+     3,
+     4
+    ],
+    "vorgewaehlt": 3,
+    "ergebnisse": {
+     "2": [
+      "4",
+      "4"
+     ],
+     "3": [
+      "5",
+      "5"
+     ],
+     "4": [
+      "6",
+      "6"
+     ]
+    },
+    "gesamt": "stimmt"
+   },
+   "merksatz": "Oben und unten dasselbe mal oder geteilt – der Bruch bleibt gleich.",
+   "genau_gesagt": "Ein gemeinsamer Faktor ungleich null darf in Zähler und Nenner dazukommen oder wegfallen – der Wert des Bruchs bleibt.",
+   "erklaerung_lehrer": "Der Nenner sagt, in wie viele gleiche Teile das Ganze geteilt ist, der Zähler, wie viele davon gemeint sind. Teilt man jedes Teil noch einmal, gibt es doppelt so viele Teile und man nimmt doppelt so viele: Die Menge bleibt gleich, nur die Einteilung wird feiner.",
+   "gilt_nicht": "Der Faktor darf nicht null sein und muss den ganzen Zähler und den ganzen Nenner betreffen. Aus Summen wird nicht gekürzt.",
+   "klassen": [
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "bruch.brueche",
+     "text": "12/18 = (2 · 6) / (3 · 6) = 2/3"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "gleichungen.linear",
+     "text": "6x/9 = (2x · 3) / (3 · 3) = 2x/3"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "terme.bruchterme",
+     "text": "(3 · (x + 2)) / (1 · (x + 2)) = 3, für x ≠ −2"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "abbildungen.aehnlichkeit",
+     "text": "6 cm : 9 cm = (2 · 3) : (3 · 3) = 2 : 3"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "stochastik.mehrstufig",
+     "text": "2/4 = (1 · 2) / (2 · 2) = ½"
+    }
+   ],
+   "lehrplan": {
+    "quelle": [
+     "inhalte/themenliste.json",
+     "inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-pruefung.md"
+    ],
+    "stand": "27.11.2026",
+    "gruppe": "Gymnasium Bayern (gym_by), daneben Realschule Bayern (rs_by)",
+    "grenze": "Geprüft nur bis zum Thema, nicht bis zur Regel; die Lehrplan-Kopie der App ist nicht gegen LehrplanPLUS an der Quelle geprüft. Einstufung der Regel (Einführung / Anwendung) ist Einschätzung des Mathe-Profis.",
+    "eintraege": [
+     {
+      "klasse_der_regel": 6,
+      "thema": "bruch.brueche",
+      "gym_by": {
+       "klasse": 6,
+       "lernbereich": "M6 1 Rationale Zahlen"
+      },
+      "rs_by": {
+       "klasse": 6,
+       "lernbereich": "M6 1 Rationale Zahlen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       6
+      ]
+     }
+    ]
+   },
+   "baut_auf": [
+    4
+   ],
+   "grundlage_fuer": [
+    11,
+    14
+   ],
+   "fehlbilder": [
+    {
+     "kennung": "fb.kuerzen.aus_summe",
+     "beschreibung": "Aus einer Summe wird gekürzt ((x + 6) : (x + 2) = 3)."
+    },
+    {
+     "kennung": "fb.kuerzen.nur_zaehler_oder_nenner",
+     "beschreibung": "Nur der Zähler oder nur der Nenner wird malgenommen oder geteilt."
+    }
+   ],
+   "quelle_lehrer": "inhalte/mathe-profi/regeln-uebersicht/sonne.md, kennungen.json, klassenleiter.json (Mathe-Profi)"
+  },
+  {
+   "nr": 11,
+   "kennung": "bruchrechnen",
+   "kennung_universum": "rr.bruchrechnen",
+   "name": "Bruchrechnen",
+   "name_fachlich": "Rechnen mit Brüchen",
+   "planet": "bruch",
+   "fest_ab_klasse": 6,
+   "satz": "Plus und Minus: erst gleicher Nenner.",
+   "weg_b_satz": "Hier hat das Bruchrechnen geklemmt.",
+   "bild": {
+    "art": "zwei_streifen",
+    "motiv": "Zwei Streifen mit verschiedener Teilung, darunter beide mit gemeinsamer Teilung",
+    "beschreibung": "Oben zwei Streifen: einer in 2 Teile geteilt (1 gefärbt), einer in 3 Teile geteilt (1 gefärbt). Darunter beide in 6 Teile geteilt: 3 gefärbt und 2 gefärbt, nebeneinander gelegt: „5/6“.",
+    "unter": "Erst bekommen beide Streifen gleich feine Stücke. Dann kannst du zählen."
+   },
+   "gewand": [
+    {
+     "art": "Zahlen",
+     "rechnung": "6 : {1|2} = 6 ⟦· 2⟧"
+    },
+    {
+     "art": "mit x",
+     "rechnung": "x : {1|2} = x ⟦· 2⟧"
+    },
+    {
+     "art": "mit Brüchen",
+     "rechnung": "{1|2} : {1|4} = {1|2} ⟦· 4⟧"
+    }
+   ],
+   "satz2": "Mal: oben mal oben, unten mal unten. Geteilt: mal Kehrbruch.",
+   "grenze": {
+    "satz": "Nicht Zähler plus Zähler und Nenner plus Nenner.",
+    "text": "Beim Plus bleibt der gleiche Nenner stehen. Mit Zahlen siehst du es sofort:",
+    "rechnung": [
+     "{1|2} + {1|3} ≠ {2|5}",
+     "{5|6} ≠ {2|5}"
+    ]
+   },
+   "probe": {
+    "text": "Stimmt die Umformung? Setz für x eine Zahl ein – 2 oder 3, nie 0 oder 1.",
+    "seiten": [
+     "x : 2 + x : 3",
+     "5x : 6"
+    ],
+    "vorlage": [
+     "{x} : 2 + {x} : 3",
+     "5 · {x} : 6"
+    ],
+    "x": [
+     2,
+     3,
+     4
+    ],
+    "vorgewaehlt": 3,
+    "ergebnisse": {
+     "2": [
+      "5/3",
+      "5/3"
+     ],
+     "3": [
+      "2,5",
+      "2,5"
+     ],
+     "4": [
+      "10/3",
+      "10/3"
+     ]
+    },
+    "gesamt": "stimmt"
+   },
+   "merksatz": "Plus und Minus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: mit dem Kehrwert malnehmen.",
+   "genau_gesagt": "Gleichnamige Brüche: Zähler addieren oder subtrahieren, Nenner behalten. Mal: Zähler mal Zähler, Nenner mal Nenner. Geteilt: mit dem Kehrwert malnehmen.",
+   "erklaerung_lehrer": "Addieren kann man nur gleich große Teile – Halbe und Drittel müssen erst in Sechstel umgerechnet werden. „Mal ½“ heißt „die Hälfte von“; deshalb werden beim Malnehmen die Teile feiner. Teilen fragt „wie oft passt es hinein“: In 6 passt ½ zwölfmal – das ist dasselbe wie 6 mal 2.",
+   "gilt_nicht": "Nenner sind nie null; beim Teilen darf auch der Bruch, durch den geteilt wird, nicht null sein. Beim Plus werden nicht Zähler und Nenner einzeln addiert.",
+   "klassen": [
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "bruch.rechnen",
+     "text": "1/2 + 1/3 = 3/6 + 2/6 = 5/6"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "gleichungen.linear",
+     "text": "x/2 + x/3 = 3x/6 + 2x/6 = 5x/6"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "terme.bruchterme",
+     "text": "1/x + 1/(2x) = 2/2x + 1/2x = 3/2x, für x ≠ 0"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "stochastik.verknuepft",
+     "text": "1/2 + 1/3 − 1/6 = 3/6 + 2/6 − 1/6 = 4/6"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "stochastik.mehrstufig",
+     "text": "1/6 + 1/3 = 1/6 + 2/6 = 3/6"
+    }
+   ],
+   "lehrplan": {
+    "quelle": [
+     "inhalte/themenliste.json",
+     "inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-pruefung.md"
+    ],
+    "stand": "27.11.2026",
+    "gruppe": "Gymnasium Bayern (gym_by), daneben Realschule Bayern (rs_by)",
+    "grenze": "Geprüft nur bis zum Thema, nicht bis zur Regel; die Lehrplan-Kopie der App ist nicht gegen LehrplanPLUS an der Quelle geprüft. Einstufung der Regel (Einführung / Anwendung) ist Einschätzung des Mathe-Profis.",
+    "eintraege": [
+     {
+      "klasse_der_regel": 6,
+      "thema": "bruch.rechnen",
+      "gym_by": {
+       "klasse": 6,
+       "lernbereich": "M6 1 Rationale Zahlen"
+      },
+      "rs_by": {
+       "klasse": 6,
+       "lernbereich": "M6 1 Rationale Zahlen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       6
+      ]
+     }
+    ]
+   },
+   "baut_auf": [
+    10
+   ],
+   "grundlage_fuer": [],
+   "fehlbilder": [
+    {
+     "kennung": "fb.bruchrechnen.zaehler_und_nenner_addiert",
+     "beschreibung": "Beim Addieren werden Zähler und Nenner je für sich addiert (½ + ⅓ = 2/5)."
+    },
+    {
+     "kennung": "fb.bruchrechnen.falscher_kehrwert",
+     "beschreibung": "Beim Teilen wird der erste statt des zweiten Bruchs umgedreht oder gar keiner."
+    }
+   ],
+   "quelle_lehrer": "inhalte/mathe-profi/regeln-uebersicht/sonne.md, kennungen.json, klassenleiter.json (Mathe-Profi)"
+  },
+  {
+   "nr": 12,
+   "kennung": "potenz",
+   "kennung_universum": "rr.potenz",
+   "name": "Potenz",
+   "name_fachlich": "Potenzen",
+   "planet": "bruch",
+   "fest_ab_klasse": 6,
+   "satz": "Hochzahl: wie oft du die Zahl malnimmst.",
+   "weg_b_satz": "Hier hat die Potenz geklemmt.",
+   "bild": {
+    "art": "verdoppelungsbaum",
+    "motiv": "Verdoppelungs-Baum: aus 1 werden 2, 4, 8; die Hochzahl zählt die Stufen",
+    "beschreibung": "Baum, der sich bei jeder Stufe verdoppelt: Stufe 0 „1“, Stufe 1 „2“, Stufe 2 „4“, Stufe 3 „8“. Rechts die Hochzahlen 2⁰, 2¹, 2², 2³. Die dritte Stufe ist gelb markiert.",
+    "unter": "Jede Stufe heißt: noch einmal mal 2. 2³ sind drei Stufen: 8."
+   },
+   "gewand": [
+    {
+     "art": "Zahlen",
+     "rechnung": "2³ · 2² = 2⟦⁵⟧"
+    },
+    {
+     "art": "mit x",
+     "rechnung": "x³ · x² = x⟦⁵⟧"
+    },
+    {
+     "art": "mit Brüchen",
+     "rechnung": "({2|3})³ · ({2|3})² = ({2|3})⟦⁵⟧"
+    }
+   ],
+   "satz2": "Gleiche Zahl unten: Hochzahlen addieren.",
+   "grenze": {
+    "satz": "a · a ist a², nicht 2a.",
+    "text": "Hochzahl 2 heißt: zweimal malnehmen. Mit Zahlen siehst du es sofort:",
+    "rechnung": [
+     "5² ≠ 2 · 5",
+     "25 ≠ 10"
+    ]
+   },
+   "probe": {
+    "text": "Stimmt die Umformung? Setz für x eine Zahl ein – 2 oder 3, nie 0 oder 1.",
+    "seiten": [
+     "x² · x³",
+     "x⁵"
+    ],
+    "vorlage": [
+     "{x}² · {x}³",
+     "{x}⁵"
+    ],
+    "x": [
+     2,
+     3,
+     4
+    ],
+    "vorgewaehlt": 3,
+    "ergebnisse": {
+     "2": [
+      "32",
+      "32"
+     ],
+     "3": [
+      "243",
+      "243"
+     ],
+     "4": [
+      "1024",
+      "1024"
+     ]
+    },
+    "gesamt": "stimmt"
+   },
+   "merksatz": "Hoch drei heißt: die Zahl dreimal hinschreiben und malnehmen.",
+   "genau_gesagt": "Hoch n heißt: n gleiche Faktoren. Bei gleicher Basis gilt: Mal – Hochzahlen addieren.",
+   "erklaerung_lehrer": "2³ · 2² ist (2 · 2 · 2) · (2 · 2) – zusammen fünf Zweien, also 2⁵. Teilt man, fallen Faktoren weg; deshalb werden die Hochzahlen abgezogen. Setzt man die Reihe 8, 4, 2 fort, ergibt sich 2⁰ = 1 und 2⁻¹ = ½: Eine negative Hochzahl heißt Kehrwert.",
+   "gilt_nicht": "Das Additionsgesetz der Hochzahlen gilt nur beim Malnehmen und bei gleicher Basis, nicht bei Plus: 2³ + 2² ist nicht 2⁵. Hoch 0 und negative Hochzahlen sind eigens festgelegt und brauchen eine Basis ungleich null.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.potenzen_basis",
+     "text": "2³ · 2² = (2 · 2 · 2) · (2 · 2) = 2⁵ = 32"
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "zahlen.potenzen_zehner",
+     "text": "10³ · 10² = 10⁵ = 100 000"
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "terme.potenzgesetze_natuerlich",
+     "text": "x³ · x² = (x · x · x) · (x · x) = x⁵"
+    },
+    {
+     "klasse": 8,
+     "art": "Einführung",
+     "thema": "terme.potenzgesetze_ganzzahlig",
+     "text": "x³ · x⁻² = x¹ = x, für x ≠ 0"
+    },
+    {
+     "klasse": 9,
+     "art": "Einführung",
+     "thema": "zahlen.rationale_exponenten",
+     "text": "x^½ · x^½ = x¹ = x, für x ≥ 0"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.exponential_log",
+     "text": "2ˣ · 2³ = 2 hoch x + 3"
+    }
+   ],
+   "lehrplan": {
+    "quelle": [
+     "inhalte/themenliste.json",
+     "inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-pruefung.md"
+    ],
+    "stand": "27.11.2026",
+    "gruppe": "Gymnasium Bayern (gym_by), daneben Realschule Bayern (rs_by)",
+    "grenze": "Geprüft nur bis zum Thema, nicht bis zur Regel; die Lehrplan-Kopie der App ist nicht gegen LehrplanPLUS an der Quelle geprüft. Einstufung der Regel (Einführung / Anwendung) ist Einschätzung des Mathe-Profis.",
+    "eintraege": [
+     {
+      "klasse_der_regel": 5,
+      "thema": "zahlen.potenzen_basis",
+      "gym_by": {
+       "klasse": 5,
+       "lernbereich": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division"
+      },
+      "rs_by": {
+       "klasse": 5,
+       "lernbereich": "M5 1 Natürliche Zahlen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       5
+      ]
+     },
+     {
+      "klasse_der_regel": 7,
+      "thema": "terme.potenzgesetze_natuerlich",
+      "gym_by": {
+       "klasse": 7,
+       "lernbereich": "M7 1 Terme mit Variablen"
+      },
+      "rs_by": {
+       "klasse": 7,
+       "lernbereich": "M7 1 Potenzen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       7
+      ]
+     },
+     {
+      "klasse_der_regel": 8,
+      "thema": "terme.potenzgesetze_ganzzahlig",
+      "gym_by": {
+       "klasse": 8,
+       "lernbereich": "M8 4 Bruchterme und Bruchgleichungen"
+      },
+      "rs_by": {
+       "klasse": 7,
+       "lernbereich": "M7 1 Potenzen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       8
+      ]
+     },
+     {
+      "klasse_der_regel": 9,
+      "thema": "zahlen.rationale_exponenten",
+      "gym_by": {
+       "klasse": 9,
+       "lernbereich": "M9 5 Potenzfunktionen mit natürlichen Exponenten und Erweiterung des Potenzbegriffs"
+      },
+      "rs_by": {
+       "klasse": 10,
+       "lernbereich": "M10 3 Potenzen und Potenzfunktionen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       9
+      ]
+     }
+    ]
+   },
+   "baut_auf": [
+    3
+   ],
+   "grundlage_fuer": [],
+   "fehlbilder": [
+    {
+     "kennung": "fb.potenz.basis_mal_hochzahl",
+     "beschreibung": "Basis und Hochzahl werden malgenommen (2³ = 6)."
+    },
+    {
+     "kennung": "fb.potenz.hochzahlen_malgenommen",
+     "beschreibung": "Beim Malnehmen gleicher Basen werden die Hochzahlen malgenommen statt addiert (x² · x³ = x⁶)."
+    },
+    {
+     "kennung": "fb.potenz.negative_hochzahl_als_minus",
+     "beschreibung": "Eine negative Hochzahl wird als negatives Ergebnis gelesen (2⁻¹ = −2)."
+    }
+   ],
+   "quelle_lehrer": "inhalte/mathe-profi/regeln-uebersicht/sonne.md, kennungen.json, klassenleiter.json (Mathe-Profi)"
+  },
+  {
+   "nr": 13,
+   "kennung": "stellenwert",
+   "kennung_universum": "rr.stellenwert",
+   "name": "Stellenwert",
+   "name_fachlich": "Stellenwert",
+   "planet": "verhaeltnis",
+   "fest_ab_klasse": 6,
+   "satz": "Mal 10 schiebt jede Ziffer eine Stelle nach links.",
+   "weg_b_satz": "Hier hat der Stellenwert geklemmt.",
+   "bild": {
+    "art": "stellentafel",
+    "motiv": "Stellentafel, in der jede Ziffer beim Malnehmen mit 10 eine Spalte wandert",
+    "beschreibung": "Stellentafel mit den Spalten H, Z, E, Komma, z, h. Zwei Zeilen: oben die Zahl 2,5 (2 in E, 5 in z), unten 25 (2 in Z, 5 in E). Von jeder Ziffer oben führt ein schräger Pfeil zur Ziffer eine Spalte weiter links (gelb), das Komma bleibt stehen.",
+    "unter": "Mal 10: Jede Ziffer geht eine Spalte nach links. Das Komma bleibt, die Ziffern wandern."
+   },
+   "gewand": [
+    {
+     "art": "Zahlen",
+     "rechnung": "15 % von 240 = ⟦{15|100}⟧ · 240"
+    },
+    {
+     "art": "mit x",
+     "rechnung": "15 % von x = ⟦{15|100}⟧ · x"
+    },
+    {
+     "art": "mit Brüchen",
+     "rechnung": "15 % von {2|3} = ⟦{15|100}⟧ · {2|3}"
+    }
+   ],
+   "satz2": "Prozent heißt Hundertstel.",
+   "grenze": {
+    "satz": "Nicht einfach eine Null anhängen.",
+    "text": "Mit Komma schiebst du die Ziffern, du hängst nichts an. Mit Zahlen siehst du es sofort:",
+    "rechnung": [
+     "2,5 · 10 ≠ 2,50",
+     "25 ≠ 2,5"
+    ]
+   },
+   "probe": {
+    "text": "Stimmt die Umformung? Setz für x eine Zahl ein – 2 oder 3, nie 0 oder 1.",
+    "seiten": [
+     "1,2x",
+     "x + 20 % von x"
+    ],
+    "vorlage": [
+     "1,2 · {x}",
+     "{x} + 0,2 · {x}"
+    ],
+    "x": [
+     2,
+     3,
+     4
+    ],
+    "vorgewaehlt": 3,
+    "ergebnisse": {
+     "2": [
+      "2,4",
+      "2,4"
+     ],
+     "3": [
+      "3,6",
+      "3,6"
+     ],
+     "4": [
+      "4,8",
+      "4,8"
+     ]
+    },
+    "gesamt": "stimmt"
+   },
+   "merksatz": "Mal zehn: Jede Ziffer rückt eins nach links.",
+   "genau_gesagt": "Mal 10 rückt jede Ziffer in die nächsthöhere Stelle, geteilt durch 10 in die nächstniedrigere.",
+   "erklaerung_lehrer": "Unser Zahlensystem bündelt in Zehnern: Jede Stelle ist zehnmal so viel wert wie die Stelle rechts von ihr. Beim Malnehmen mit 10 wird deshalb aus jedem Einer ein Zehner, aus jedem Zehntel ein Einer. Die Ziffern bleiben, nur ihre Plätze ändern sich.",
+   "gilt_nicht": "Gilt im Zehnersystem. Mit Komma wird nichts angehängt, die Ziffern rücken: 2,5 · 10 = 25.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.natuerlich",
+     "text": "34 · 10 = 340"
+    },
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "bruch.dezimal",
+     "text": "2,5 · 10 = 25"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "bruch.prozent_grundwert",
+     "text": "0,15 · 100 = 15, also 15 %"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "terme.potenzgesetze_ganzzahlig",
+     "text": "3 · 10⁻⁴ = 0,0003"
+    }
+   ],
+   "lehrplan": {
+    "quelle": [
+     "inhalte/themenliste.json",
+     "inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-pruefung.md"
+    ],
+    "stand": "27.11.2026",
+    "gruppe": "Gymnasium Bayern (gym_by), daneben Realschule Bayern (rs_by)",
+    "grenze": "Geprüft nur bis zum Thema, nicht bis zur Regel; die Lehrplan-Kopie der App ist nicht gegen LehrplanPLUS an der Quelle geprüft. Einstufung der Regel (Einführung / Anwendung) ist Einschätzung des Mathe-Profis.",
+    "eintraege": [
+     {
+      "klasse_der_regel": 5,
+      "thema": "zahlen.natuerlich",
+      "gym_by": {
+       "klasse": 5,
+       "lernbereich": "M5 1 Natürliche und ganze Zahlen – Addition und Subtraktion"
+      },
+      "rs_by": {
+       "klasse": 5,
+       "lernbereich": "M5 1 Natürliche Zahlen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       5
+      ]
+     },
+     {
+      "klasse_der_regel": 6,
+      "thema": "bruch.dezimal",
+      "gym_by": {
+       "klasse": 6,
+       "lernbereich": "M6 1 Rationale Zahlen"
+      },
+      "rs_by": {
+       "klasse": 6,
+       "lernbereich": "M6 1 Rationale Zahlen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       6
+      ]
+     }
+    ]
+   },
+   "baut_auf": [],
+   "grundlage_fuer": [],
+   "fehlbilder": [
+    {
+     "kennung": "fb.stellenwert.null_angehaengt",
+     "beschreibung": "Bei mal 10 wird eine Null angehängt, auch wenn ein Komma da ist (2,5 · 10 = 2,50)."
+    },
+    {
+     "kennung": "fb.stellenwert.eine_stelle_daneben",
+     "beschreibung": "Die Ziffern stimmen, das Ergebnis ist aber zehnmal zu groß oder zu klein."
+    }
+   ],
+   "quelle_lehrer": "inhalte/mathe-profi/regeln-uebersicht/sonne.md, kennungen.json, klassenleiter.json (Mathe-Profi)"
+  },
+  {
+   "nr": 14,
+   "kennung": "verhaeltnis",
+   "kennung_universum": "rr.verhaeltnis",
+   "name": "Verhältnis",
+   "name_fachlich": "Verhältnis (Dreisatz)",
+   "planet": "verhaeltnis",
+   "fest_ab_klasse": 6,
+   "satz": "Wert je Einheit: Erst auf eins, dann auf viele.",
+   "weg_b_satz": "Hier hat das Verhältnis geklemmt.",
+   "bild": {
+    "art": "doppelter_zahlenstrahl",
+    "motiv": "Doppelter Zahlenstrahl (oben kg, unten €), die Marken stehen übereinander",
+    "beschreibung": "Zwei Zahlenstrahlen untereinander. Oben „kg“ mit den Marken 0, 1, 3, 5. Unten „€“ mit den Marken 0, 2,50, 7,50, 12,50. Senkrechte gestrichelte Linien verbinden 1 mit 2,50 (gelb), 3 mit 7,50 und 5 mit 12,50.",
+    "unter": "Marken übereinander: 1 kg gehört zu 2,50 €, 3 kg zu 7,50 €, 5 kg zu 12,50 €."
+   },
+   "gewand": [
+    {
+     "art": "Zahlen",
+     "rechnung": "7,50 ⟦: 3⟧ · 5 = 7,50 · 5 : 3"
+    },
+    {
+     "art": "mit x",
+     "rechnung": "7,50 ⟦: 3⟧ · x = 7,50 · x : 3"
+    },
+    {
+     "art": "mit Brüchen",
+     "rechnung": "7,50 ⟦: 3⟧ · {1|2} = 7,50 · {1|2} : 3"
+    }
+   ],
+   "satz2": "Doppelte Menge, doppelter Wert.",
+   "grenze": {
+    "satz": "Nicht mit Grundgebühr.",
+    "text": "Ist ein fester Betrag dabei, wächst der Preis nicht im gleichen Verhältnis. Beispiel: 3 € fest und 2 € je km. Mit Zahlen siehst du es:",
+    "rechnung": [
+     "3 + 2 · 4 ≠ 2 · (3 + 2 · 2)",
+     "11 ≠ 14"
+    ]
+   },
+   "probe": {
+    "text": "Stimmt die Umformung? Setz für x eine Zahl ein – 2 oder 3, nie 0 oder 1.",
+    "seiten": [
+     "7,50 : 3 · x",
+     "2,5x"
+    ],
+    "vorlage": [
+     "7,50 : 3 · {x}",
+     "2,5 · {x}"
+    ],
+    "x": [
+     2,
+     3,
+     4
+    ],
+    "vorgewaehlt": 3,
+    "ergebnisse": {
+     "2": [
+      "5",
+      "5"
+     ],
+     "3": [
+      "7,5",
+      "7,5"
+     ],
+     "4": [
+      "10",
+      "10"
+     ]
+    },
+    "gesamt": "stimmt"
+   },
+   "merksatz": "Erst auf eins, dann auf viele.",
+   "genau_gesagt": "Bei gleichem Preis je Einheit: erst auf eins, dann auf die gewünschte Menge.",
+   "erklaerung_lehrer": "Wenn zwei Größen im selben Verhältnis wachsen, gehört zu jeder Einheit derselbe Wert. Wer den Wert für eine Einheit kennt, kennt jeden anderen: 3 kg kosten 7,50 €, also 1 kg 2,50 €, also 5 kg 12,50 €. Allgemein: y = k · x, und k ist der Wert für eine Einheit.",
+   "gilt_nicht": "Nur bei direkter Proportionalität: doppelte Menge, doppelter Wert, zu null gehört null. Mit Grundgebühr oder bei „mehr – weniger“ gilt sie nicht.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "groessen.proportional",
+     "text": "3 kg: 7,50 € → 1 kg: 2,50 € → 5 kg: 12,50 €"
+    },
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "bruch.prozent",
+     "text": "100 %: 60 € → 1 %: 0,60 € → 25 %: 15 €"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "bruch.prozent_grundwert",
+     "text": "80 %: 48 € → 1 %: 0,60 € → 100 %: 60 €"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "funktionen.linear",
+     "text": "x = 2: y = 3 → x = 1: y = 1,5 → x = 4: y = 6"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "abbildungen.aehnlichkeit",
+     "text": "2 cm: 3 cm → 1 cm: 1,5 cm → 4 cm: 6 cm"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.trig",
+     "text": "360°: 2π → 1°: π/180 → 90°: π/2"
+    }
+   ],
+   "lehrplan": {
+    "quelle": [
+     "inhalte/themenliste.json",
+     "inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-pruefung.md"
+    ],
+    "stand": "27.11.2026",
+    "gruppe": "Gymnasium Bayern (gym_by), daneben Realschule Bayern (rs_by)",
+    "grenze": "Geprüft nur bis zum Thema, nicht bis zur Regel; die Lehrplan-Kopie der App ist nicht gegen LehrplanPLUS an der Quelle geprüft. Einstufung der Regel (Einführung / Anwendung) ist Einschätzung des Mathe-Profis.",
+    "eintraege": [
+     {
+      "klasse_der_regel": 5,
+      "thema": "groessen.proportional",
+      "gym_by": {
+       "klasse": 5,
+       "lernbereich": "M5 4 Größen und ihre Einheiten"
+      },
+      "rs_by": {
+       "klasse": 6,
+       "lernbereich": "M6 6 Direkte Proportionalität"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       5
+      ]
+     },
+     {
+      "klasse_der_regel": 6,
+      "thema": "bruch.prozent",
+      "gym_by": {
+       "klasse": 6,
+       "lernbereich": "M6 3 Prozentrechnung, Daten und Diagramme"
+      },
+      "rs_by": {
+       "klasse": 6,
+       "lernbereich": "M6 6 Direkte Proportionalität"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       6
+      ]
+     }
+    ]
+   },
+   "baut_auf": [
+    10
+   ],
+   "grundlage_fuer": [],
+   "fehlbilder": [
+    {
+     "kennung": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "beschreibung": "Statt mit dem Wert für eins zu rechnen, wird ein fester Betrag dazugezählt."
+    },
+    {
+     "kennung": "fb.verhaeltnis.falsche_richtung",
+     "beschreibung": "Es wird malgenommen, wo geteilt werden muss, oder umgekehrt."
+    }
+   ],
+   "quelle_lehrer": "inhalte/mathe-profi/regeln-uebersicht/sonne.md, kennungen.json, klassenleiter.json (Mathe-Profi)"
+  },
+  {
+   "nr": 15,
+   "kennung": "nullprodukt",
+   "kennung_universum": "rr.nullprodukt",
+   "name": "Nullprodukt",
+   "name_fachlich": "Nullprodukt",
+   "planet": "waage",
+   "fest_ab_klasse": 9,
+   "satz": "Ist ein Produkt null, ist ein Faktor null.",
+   "weg_b_satz": "Hier hat das Nullprodukt geklemmt.",
+   "bild": {
+    "art": "zwei_kaesten_null",
+    "motiv": "Zwei Kästen mit Mal-Punkt dazwischen; einer zeigt 0, das Ergebnis-Feld zeigt 0",
+    "beschreibung": "Drei Kästen in einer Reihe: „[ 0 ] · [ ? ] = [ 0 ]“. Der erste Kasten zeigt 0 (gelb), der zweite ein Fragezeichen, das Ergebnis-Feld zeigt 0. Darunter dasselbe mit vertauschten Kästen.",
+    "unter": "Zeigt ein Kasten 0, zeigt auch das Ergebnis 0. Zeigt das Ergebnis 0, zeigt mindestens ein Kasten 0."
+   },
+   "gewand": [
+    {
+     "art": "Zahlen",
+     "rechnung": "(5 − 5) · 7 = 0 → 5 − 5 ⟦= 0⟧ oder 7 = 0"
+    },
+    {
+     "art": "mit x",
+     "rechnung": "(x − 2) · (x + 3) = 0 → x − 2 ⟦= 0⟧ oder x + 3 = 0"
+    },
+    {
+     "art": "mit Brüchen",
+     "rechnung": "(x − {1|2}) · x = 0 → x − {1|2} ⟦= 0⟧ oder x = 0"
+    }
+   ],
+   "satz2": "Das gilt nur bei null.",
+   "grenze": {
+    "satz": "Nur bei null.",
+    "text": "Bei jeder anderen Zahl sagt das Ergebnis nichts über die einzelnen Faktoren. Mit Zahlen siehst du es sofort:",
+    "rechnung": [
+     "2 · 3 = 6",
+     "2 ≠ 6 und 3 ≠ 6"
+    ]
+   },
+   "probe": {
+    "text": "Setz in (x − 2) · (x + 3) = 0 die Zahl 2, 3 oder 4 ein. Wann ist das Produkt null?",
+    "seiten": [
+     "(x − 2) · (x + 3)",
+     "0"
+    ],
+    "vorlage": [
+     "({x} − 2) · ({x} + 3)",
+     "0"
+    ],
+    "x": [
+     2,
+     3,
+     4
+    ],
+    "vorgewaehlt": 3,
+    "ergebnisse": {
+     "2": [
+      "0",
+      "0"
+     ],
+     "3": [
+      "6",
+      "0"
+     ],
+     "4": [
+      "14",
+      "0"
+     ]
+    },
+    "gesamt": "teils"
+   },
+   "merksatz": "Mal ergibt nur null, wenn eine der Zahlen null ist.",
+   "genau_gesagt": "Ein Produkt ist genau dann null, wenn mindestens ein Faktor null ist.",
+   "erklaerung_lehrer": "Null mal irgendetwas ist null. Umgekehrt kann aus zwei Zahlen, die beide nicht null sind, beim Malnehmen nie null werden. Deshalb darf man eine Gleichung „Produkt = 0“ in mehrere einfache Gleichungen zerlegen: Jeder Faktor für sich kann null sein.",
+   "gilt_nicht": "Nur wenn das Produkt null ist. Bei jeder anderen Zahl folgt nichts über die Faktoren: Aus (x − 2) · (x + 3) = 6 folgt nicht x − 2 = 6.",
+   "klassen": [
+    {
+     "klasse": 5,
+     "art": "Vorwissen",
+     "thema": "gleichungen.einfach",
+     "text": "□ · 7 = 0: □ = 0"
+    },
+    {
+     "klasse": 8,
+     "art": "Vorwissen",
+     "thema": "terme.bruchterme",
+     "text": "Nenner x · (x − 4) = 0: x = 0 oder 4"
+    },
+    {
+     "klasse": 9,
+     "art": "Einführung",
+     "thema": "gleichungen.quadratisch",
+     "text": "(x − 2) · (x + 3) = 0: x = 2 oder −3"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "gleichungen.polynom",
+     "text": "x · (x − 2) · (x + 2) = 0: x = 0, 2 oder −2"
+    }
+   ],
+   "lehrplan": {
+    "quelle": [
+     "inhalte/themenliste.json",
+     "inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt",
+     "inhalte/mathe-profi/regeln-uebersicht/lehrplan-pruefung.md"
+    ],
+    "stand": "27.11.2026",
+    "gruppe": "Gymnasium Bayern (gym_by), daneben Realschule Bayern (rs_by)",
+    "grenze": "Geprüft nur bis zum Thema, nicht bis zur Regel; die Lehrplan-Kopie der App ist nicht gegen LehrplanPLUS an der Quelle geprüft. Einstufung der Regel (Einführung / Anwendung) ist Einschätzung des Mathe-Profis.",
+    "eintraege": [
+     {
+      "klasse_der_regel": 9,
+      "thema": "gleichungen.quadratisch",
+      "gym_by": {
+       "klasse": 9,
+       "lernbereich": "M9 2 Quadratische Funktionen"
+      },
+      "rs_by": {
+       "klasse": 9,
+       "lernbereich": "M9 7 Quadratische Funktionen und quadratische Gleichungen"
+      },
+      "lehrplan_kopie_gym_neu_in_jahr": [
+       9
+      ]
+     }
+    ]
+   },
+   "baut_auf": [
+    4,
+    7
+   ],
+   "grundlage_fuer": [],
+   "fehlbilder": [
+    {
+     "kennung": "fb.nullprodukt.andere_zahl",
+     "beschreibung": "Die Regel wird angewendet, obwohl rechts nicht null steht."
+    },
+    {
+     "kennung": "fb.nullprodukt.vorzeichen_der_loesung",
+     "beschreibung": "Aus x − 2 = 0 wird x = −2 gemacht."
+    }
+   ],
+   "quelle_lehrer": "inhalte/mathe-profi/regeln-uebersicht/sonne.md, kennungen.json, klassenleiter.json (Mathe-Profi)"
+  }
+ ],
+ "arbeitsweisen": [
+  {
+   "nr": 1,
+   "kennung": "skizze",
+   "name": "Skizze",
+   "satz": "Erst zeichnen, dann rechnen.",
+   "quelle": "Namen und Sätze aus umsetzung.md Abschnitt 4.3 (Designer); vom Mathe-Profi noch nicht geprüft"
+  },
+  {
+   "nr": 2,
+   "kennung": "ueberschlag",
+   "name": "Überschlag",
+   "satz": "Vorher grob schätzen, was herauskommen muss.",
+   "quelle": "Namen und Sätze aus umsetzung.md Abschnitt 4.3 (Designer); vom Mathe-Profi noch nicht geprüft"
+  },
+  {
+   "nr": 3,
+   "kennung": "einheiten",
+   "name": "Einheiten prüfen",
+   "satz": "Passt die Einheit zum Ergebnis?",
+   "quelle": "Namen und Sätze aus umsetzung.md Abschnitt 4.3 (Designer); vom Mathe-Profi noch nicht geprüft"
+  },
+  {
+   "nr": 4,
+   "kennung": "zerlegen",
+   "name": "Zerlegen und Ergänzen",
+   "satz": "Schwieriges in einfache Teile schneiden oder zu etwas Einfachem auffüllen.",
+   "quelle": "Namen und Sätze aus umsetzung.md Abschnitt 4.3 (Designer); vom Mathe-Profi noch nicht geprüft"
+  },
+  {
+   "nr": 5,
+   "kennung": "darstellung",
+   "name": "Darstellung wechseln",
+   "satz": "Tabelle, Bild, Term: dieselbe Sache anders zeigen.",
+   "quelle": "Namen und Sätze aus umsetzung.md Abschnitt 4.3 (Designer); vom Mathe-Profi noch nicht geprüft"
+  }
+ ]
+}

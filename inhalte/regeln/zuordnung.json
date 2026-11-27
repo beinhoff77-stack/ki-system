@@ -1,0 +1,1209 @@
+{
+ "stand": "2026-11-27",
+ "zweck": "Regel -> Themen und Lernkarten der App. Der Server berechnet je Regel „sitzt / in Arbeit / kommt später“ aus den Karten in „themen[].lernkarten“. „vielleicht“ zählt NICHT.",
+ "schluessel": "thema = thema_schluessel in inhalte/themen/<thema>.json; lernkarte = Feld lernziel einer Etappe (inhalt.etappen[].lernziel) = lz in inhalte/plan/rollend-einheiten.json (dort für die 22 Themen mit Flug).",
+ "beispielaufgaben_hinweis": "index = Stelle in aufgaben[] der Themen-Datei (ab 0); ändert sich die Datei, kann der Index wandern. Die Datenbank-ID der Aufgabe liegt in diesem Repo nicht vor.",
+ "offen_ohne_gewissheit": "Zuordnung nach Lesen der Regeltexte und Titel der Karten, nicht der Aufgaben; vom Mathe-Profi nicht geprüft.",
+ "regeln": [
+  {
+   "nr": 1,
+   "kennung": "richtung",
+   "sicher": "ja",
+   "begruendung": "Die Karten Zahlengerade, Addieren, Subtrahieren und Ketten üben Richtung und Umklappen bei negativen Zahlen; „vorzeichen“ (rationale Zahlen) deckt zugleich Regel 2.",
+   "offen": false,
+   "themen": [
+    {
+     "thema": "zahlen.ganz",
+     "lernkarten": [
+      "zahlengerade",
+      "addieren",
+      "subtrahieren",
+      "ketten"
+     ]
+    },
+    {
+     "thema": "bruch.rechnen",
+     "lernkarten": [
+      "vorzeichen"
+     ]
+    }
+   ],
+   "vielleicht": [
+    {
+     "thema": "zahlen.ganz",
+     "lernkarten": [
+      "deuten"
+     ]
+    }
+   ],
+   "beispielaufgaben": [
+    {
+     "thema": "zahlen.ganz",
+     "datei": "inhalte/themen/zahlen.ganz.json",
+     "index": 39,
+     "lernziel": "zahlengerade",
+     "pool": "uebung",
+     "stufe": 1
+    },
+    {
+     "thema": "zahlen.ganz",
+     "datei": "inhalte/themen/zahlen.ganz.json",
+     "index": 40,
+     "lernziel": "zahlengerade",
+     "pool": "uebung",
+     "stufe": 2
+    },
+    {
+     "thema": "zahlen.ganz",
+     "datei": "inhalte/themen/zahlen.ganz.json",
+     "index": 54,
+     "lernziel": "zahlengerade",
+     "pool": "uebung",
+     "stufe": 3
+    }
+   ],
+   "abgleich_mathe_profi": {
+    "nur_hier": [],
+    "nur_dort": [
+     "gleichungen.ungleichungen",
+     "terme.umformen"
+    ]
+   }
+  },
+  {
+   "nr": 2,
+   "kennung": "zeichenpaar",
+   "sicher": "ja",
+   "begruendung": "Die Karten mal_ganz und geteilt_ganz nennen die Regel wörtlich; „produkte“ und „vorzeichen“ enthalten sie als Teil.",
+   "offen": false,
+   "themen": [
+    {
+     "thema": "zahlen.rechengesetze",
+     "lernkarten": [
+      "mal_ganz",
+      "geteilt_ganz"
+     ]
+    },
+    {
+     "thema": "bruch.rechnen",
+     "lernkarten": [
+      "vorzeichen"
+     ]
+    },
+    {
+     "thema": "terme.umformen",
+     "lernkarten": [
+      "produkte"
+     ]
+    }
+   ],
+   "vielleicht": [
+    {
+     "thema": "gleichungen.ungleichungen",
+     "lernkarten": [
+      "umdrehen"
+     ]
+    },
+    {
+     "thema": "zahlen.potenzen_basis",
+     "lernkarten": [
+      "negativ"
+     ]
+    }
+   ],
+   "beispielaufgaben": [
+    {
+     "thema": "zahlen.rechengesetze",
+     "datei": "inhalte/themen/zahlen.rechengesetze.json",
+     "index": 236,
+     "lernziel": "mal_ganz",
+     "pool": "uebung",
+     "stufe": 1
+    },
+    {
+     "thema": "zahlen.rechengesetze",
+     "datei": "inhalte/themen/zahlen.rechengesetze.json",
+     "index": 241,
+     "lernziel": "mal_ganz",
+     "pool": "uebung",
+     "stufe": 2
+    },
+    {
+     "thema": "zahlen.rechengesetze",
+     "datei": "inhalte/themen/zahlen.rechengesetze.json",
+     "index": 249,
+     "lernziel": "mal_ganz",
+     "pool": "uebung",
+     "stufe": 3
+    }
+   ],
+   "abgleich_mathe_profi": {
+    "nur_hier": [],
+    "nur_dort": [
+     "gleichungen.quadratisch",
+     "gleichungen.ungleichungen"
+    ]
+   }
+  },
+  {
+   "nr": 3,
+   "kennung": "rangfolge",
+   "sicher": "ja",
+   "begruendung": "Punkt_strich, klammern und termaufbau (Name nach der letzten Rechnung) sind die Regel; „struktur“ und „gemischt“ wenden sie an.",
+   "offen": false,
+   "themen": [
+    {
+     "thema": "zahlen.rechengesetze",
+     "lernkarten": [
+      "punkt_strich",
+      "klammern",
+      "termaufbau"
+     ]
+    },
+    {
+     "thema": "terme.aufstellen",
+     "lernkarten": [
+      "struktur"
+     ]
+    },
+    {
+     "thema": "bruch.rechnen",
+     "lernkarten": [
+      "gemischt"
+     ]
+    }
+   ],
+   "vielleicht": [
+    {
+     "thema": "terme.aufstellen",
+     "lernkarten": [
+      "termwert",
+      "uebersetzen"
+     ]
+    }
+   ],
+   "beispielaufgaben": [
+    {
+     "thema": "zahlen.rechengesetze",
+     "datei": "inhalte/themen/zahlen.rechengesetze.json",
+     "index": 1,
+     "lernziel": "punkt_strich",
+     "pool": "uebung",
+     "stufe": 1
+    },
+    {
+     "thema": "zahlen.rechengesetze",
+     "datei": "inhalte/themen/zahlen.rechengesetze.json",
+     "index": 0,
+     "lernziel": "punkt_strich",
+     "pool": "uebung",
+     "stufe": 2
+    },
+    {
+     "thema": "zahlen.rechengesetze",
+     "datei": "inhalte/themen/zahlen.rechengesetze.json",
+     "index": 3,
+     "lernziel": "punkt_strich",
+     "pool": "uebung",
+     "stufe": 3
+    }
+   ],
+   "abgleich_mathe_profi": {
+    "nur_hier": [
+     "terme.aufstellen"
+    ],
+    "nur_dort": [
+     "gleichungen.exponential",
+     "gleichungen.quadratisch",
+     "terme.potenzgesetze_ganzzahlig",
+     "terme.umformen"
+    ]
+   }
+  },
+  {
+   "nr": 4,
+   "kennung": "verteilen",
+   "sicher": "ja",
+   "begruendung": "„verteilen“, „ausmultiplizieren“ und „ausklammern“ nennen die Regel; Summe mal Summe und binomische Formeln sind wiederholtes Verteilen und grenzen das Quadrat ab.",
+   "offen": false,
+   "themen": [
+    {
+     "thema": "zahlen.rechengesetze",
+     "lernkarten": [
+      "verteilen"
+     ]
+    },
+    {
+     "thema": "terme.umformen",
+     "lernkarten": [
+      "ausmultiplizieren",
+      "summe_mal_summe",
+      "ausklammern",
+      "binomisch"
+     ]
+    }
+   ],
+   "vielleicht": [
+    {
+     "thema": "terme.umformen",
+     "lernkarten": [
+      "gleichungen_binomisch"
+     ]
+    },
+    {
+     "thema": "gleichungen.polynom",
+     "lernkarten": [
+      "ausklammern"
+     ]
+    },
+    {
+     "thema": "gleichungen.linear",
+     "lernkarten": [
+      "klammern"
+     ]
+    }
+   ],
+   "beispielaufgaben": [
+    {
+     "thema": "zahlen.rechengesetze",
+     "datei": "inhalte/themen/zahlen.rechengesetze.json",
+     "index": 197,
+     "lernziel": "verteilen",
+     "pool": "uebung",
+     "stufe": 1
+    },
+    {
+     "thema": "zahlen.rechengesetze",
+     "datei": "inhalte/themen/zahlen.rechengesetze.json",
+     "index": 198,
+     "lernziel": "verteilen",
+     "pool": "uebung",
+     "stufe": 2
+    },
+    {
+     "thema": "zahlen.rechengesetze",
+     "datei": "inhalte/themen/zahlen.rechengesetze.json",
+     "index": 209,
+     "lernziel": "verteilen",
+     "pool": "uebung",
+     "stufe": 3
+    }
+   ],
+   "abgleich_mathe_profi": {
+    "nur_hier": [],
+    "nur_dort": [
+     "bruch.rechnen",
+     "gleichungen.polynom",
+     "gleichungen.quadratisch",
+     "terme.bruchterme"
+    ]
+   }
+  },
+  {
+   "nr": 5,
+   "kennung": "minusklammer",
+   "sicher": "teilweise",
+   "begruendung": "Nur eine Karte ist ausdrücklich die Regel (terme.umformen.minusklammer, Klasse 7); gleichungen.linear.klammern enthält sie als Teil. Für Klasse 5 und 6 gibt es keine eigene Karte: Dort kommt „Minus vor der Klammer“ nur in Aufgaben vor.",
+   "offen": true,
+   "themen": [
+    {
+     "thema": "terme.umformen",
+     "lernkarten": [
+      "minusklammer"
+     ]
+    },
+    {
+     "thema": "gleichungen.linear",
+     "lernkarten": [
+      "klammern"
+     ]
+    }
+   ],
+   "vielleicht": [
+    {
+     "thema": "zahlen.ganz",
+     "lernkarten": [
+      "ketten"
+     ]
+    }
+   ],
+   "beispielaufgaben": [
+    {
+     "thema": "terme.umformen",
+     "datei": "inhalte/themen/terme.umformen.json",
+     "index": 65,
+     "lernziel": "minusklammer",
+     "pool": "uebung",
+     "stufe": 1
+    },
+    {
+     "thema": "terme.umformen",
+     "datei": "inhalte/themen/terme.umformen.json",
+     "index": 64,
+     "lernziel": "minusklammer",
+     "pool": "uebung",
+     "stufe": 2
+    },
+    {
+     "thema": "terme.umformen",
+     "datei": "inhalte/themen/terme.umformen.json",
+     "index": 69,
+     "lernziel": "minusklammer",
+     "pool": "uebung",
+     "stufe": 3
+    }
+   ],
+   "offen_text": "Karte für Minus vor einer Zahlenklammer in Klasse 5 fehlt (zahlen.rechengesetze.differenz_summe ist Tauschen, nicht Minusklammer).",
+   "abgleich_mathe_profi": {
+    "nur_hier": [
+     "gleichungen.linear"
+    ],
+    "nur_dort": [
+     "gleichungen.bruch",
+     "gleichungen.quadratisch",
+     "zahlen.rechengesetze"
+    ]
+   }
+  },
+  {
+   "nr": 6,
+   "kennung": "buendeln",
+   "sicher": "ja",
+   "begruendung": "„vorteil“ (tauschen und verbinden), „differenz_summe“ (das Minus wandert mit der Zahl) und „zusammenfassen“ sind die Regel; „rechenvorteile“ ist dieselbe Regel bei Brüchen.",
+   "offen": false,
+   "themen": [
+    {
+     "thema": "zahlen.rechengesetze",
+     "lernkarten": [
+      "vorteil",
+      "differenz_summe"
+     ]
+    },
+    {
+     "thema": "terme.umformen",
+     "lernkarten": [
+      "zusammenfassen"
+     ]
+    },
+    {
+     "thema": "bruch.rechnen",
+     "lernkarten": [
+      "rechenvorteile"
+     ]
+    }
+   ],
+   "vielleicht": [
+    {
+     "thema": "zahlen.rechengesetze",
+     "lernkarten": [
+      "kopfrechnen"
+     ]
+    }
+   ],
+   "beispielaufgaben": [
+    {
+     "thema": "zahlen.rechengesetze",
+     "datei": "inhalte/themen/zahlen.rechengesetze.json",
+     "index": 119,
+     "lernziel": "vorteil",
+     "pool": "uebung",
+     "stufe": 1
+    },
+    {
+     "thema": "zahlen.rechengesetze",
+     "datei": "inhalte/themen/zahlen.rechengesetze.json",
+     "index": 120,
+     "lernziel": "vorteil",
+     "pool": "uebung",
+     "stufe": 2
+    },
+    {
+     "thema": "zahlen.rechengesetze",
+     "datei": "inhalte/themen/zahlen.rechengesetze.json",
+     "index": 129,
+     "lernziel": "vorteil",
+     "pool": "uebung",
+     "stufe": 3
+    }
+   ],
+   "abgleich_mathe_profi": {
+    "nur_hier": [],
+    "nur_dort": [
+     "zahlen.ganz",
+     "zahlen.reell"
+    ]
+   }
+  },
+  {
+   "nr": 7,
+   "kennung": "waage",
+   "sicher": "ja",
+   "begruendung": "Beide Waage-Karten und „beide_seiten“ sowie „ein_bruch“ (beide Seiten mit dem Nenner malnehmen) üben „auf beiden Seiten dasselbe“.",
+   "offen": false,
+   "themen": [
+    {
+     "thema": "gleichungen.einfach",
+     "lernkarten": [
+      "waage"
+     ]
+    },
+    {
+     "thema": "gleichungen.linear",
+     "lernkarten": [
+      "waage",
+      "beide_seiten"
+     ]
+    },
+    {
+     "thema": "gleichungen.bruch",
+     "lernkarten": [
+      "ein_bruch"
+     ]
+    }
+   ],
+   "vielleicht": [
+    {
+     "thema": "gleichungen.lgs2",
+     "lernkarten": [
+      "addition"
+     ]
+    },
+    {
+     "thema": "groessen.proportional",
+     "lernkarten": [
+      "vervielfachen"
+     ]
+    }
+   ],
+   "beispielaufgaben": [
+    {
+     "thema": "gleichungen.einfach",
+     "datei": "inhalte/themen/gleichungen.einfach.json",
+     "index": 3,
+     "lernziel": "waage",
+     "pool": "uebung",
+     "stufe": 1
+    },
+    {
+     "thema": "gleichungen.einfach",
+     "datei": "inhalte/themen/gleichungen.einfach.json",
+     "index": 0,
+     "lernziel": "waage",
+     "pool": "uebung",
+     "stufe": 2
+    },
+    {
+     "thema": "gleichungen.einfach",
+     "datei": "inhalte/themen/gleichungen.einfach.json",
+     "index": 1,
+     "lernziel": "waage",
+     "pool": "uebung",
+     "stufe": 3
+    }
+   ],
+   "abgleich_mathe_profi": {
+    "nur_hier": [],
+    "nur_dort": [
+     "gleichungen.exponential",
+     "gleichungen.quadratisch"
+    ]
+   }
+  },
+  {
+   "nr": 8,
+   "kennung": "umkehren",
+   "sicher": "ja",
+   "begruendung": "Rückwärts rechnen, Umkehraufgaben und Formeln umstellen sind die Regel; „zurueck“ (Prozent: zurück zum Grundwert) und „grundform“ (Quadrat und Wurzel) sind ihre Anwendungen.",
+   "offen": false,
+   "themen": [
+    {
+     "thema": "gleichungen.einfach",
+     "lernkarten": [
+      "zwei_schritte"
+     ]
+    },
+    {
+     "thema": "zahlen.ganz",
+     "lernkarten": [
+      "umkehraufgabe"
+     ]
+    },
+    {
+     "thema": "zahlen.rechengesetze",
+     "lernkarten": [
+      "umkehraufgabe_mal",
+      "sach"
+     ]
+    },
+    {
+     "thema": "gleichungen.formeln",
+     "lernkarten": [
+      "ein_schritt",
+      "zwei_schritte"
+     ]
+    },
+    {
+     "thema": "bruch.prozent_grundwert",
+     "lernkarten": [
+      "zurueck"
+     ]
+    },
+    {
+     "thema": "gleichungen.reinquadratisch",
+     "lernkarten": [
+      "grundform"
+     ]
+    }
+   ],
+   "vielleicht": [
+    {
+     "thema": "bruch.prozent",
+     "lernkarten": [
+      "grundwert"
+     ]
+    },
+    {
+     "thema": "gleichungen.wurzel",
+     "lernkarten": [
+      "quadrieren"
+     ]
+    },
+    {
+     "thema": "gleichungen.exponential",
+     "lernkarten": [
+      "logarithmus"
+     ]
+    }
+   ],
+   "beispielaufgaben": [
+    {
+     "thema": "gleichungen.einfach",
+     "datei": "inhalte/themen/gleichungen.einfach.json",
+     "index": 36,
+     "lernziel": "zwei_schritte",
+     "pool": "uebung",
+     "stufe": 1
+    },
+    {
+     "thema": "gleichungen.einfach",
+     "datei": "inhalte/themen/gleichungen.einfach.json",
+     "index": 35,
+     "lernziel": "zwei_schritte",
+     "pool": "uebung",
+     "stufe": 2
+    },
+    {
+     "thema": "gleichungen.einfach",
+     "datei": "inhalte/themen/gleichungen.einfach.json",
+     "index": 38,
+     "lernziel": "zwei_schritte",
+     "pool": "uebung",
+     "stufe": 3
+    }
+   ],
+   "abgleich_mathe_profi": {
+    "nur_hier": [
+     "gleichungen.reinquadratisch",
+     "zahlen.ganz",
+     "zahlen.rechengesetze"
+    ],
+    "nur_dort": [
+     "bruch.rechnen",
+     "gleichungen.exponential",
+     "gleichungen.quadratisch"
+    ]
+   }
+  },
+  {
+   "nr": 9,
+   "kennung": "probe",
+   "sicher": "ja",
+   "begruendung": "Die Karten „probe“, „aequivalenz“ (ein Gegenbeispiel genügt), „formeln.pruefen“ (zwei erfundene Zahlen, keine 0 und keine 1) und das Einsetzen in Terme und Funktionen sind genau die Regel. Hinweis: Das Regel-Universum der Mathe-Profis führt „Probe“ als Arbeitsweise, nicht als Regel.",
+   "offen": false,
+   "themen": [
+    {
+     "thema": "gleichungen.einfach",
+     "lernkarten": [
+      "probe"
+     ]
+    },
+    {
+     "thema": "gleichungen.linear",
+     "lernkarten": [
+      "probe"
+     ]
+    },
+    {
+     "thema": "gleichungen.wurzel",
+     "lernkarten": [
+      "probe"
+     ]
+    },
+    {
+     "thema": "terme.umformen",
+     "lernkarten": [
+      "aequivalenz"
+     ]
+    },
+    {
+     "thema": "gleichungen.formeln",
+     "lernkarten": [
+      "pruefen"
+     ]
+    },
+    {
+     "thema": "terme.aufstellen",
+     "lernkarten": [
+      "termwert"
+     ]
+    },
+    {
+     "thema": "funktionen.grundbegriffe",
+     "lernkarten": [
+      "funktionswert"
+     ]
+    }
+   ],
+   "vielleicht": [
+    {
+     "thema": "gleichungen.lgs2",
+     "lernkarten": [
+      "pruefen"
+     ]
+    },
+    {
+     "thema": "gleichungen.ungleichungen",
+     "lernkarten": [
+      "pruefen"
+     ]
+    },
+    {
+     "thema": "terme.potenzgesetze",
+     "lernkarten": [
+      "fehler_finden"
+     ]
+    },
+    {
+     "thema": "funktionen.grundbegriffe",
+     "lernkarten": [
+      "wertetabelle"
+     ]
+    }
+   ],
+   "beispielaufgaben": [
+    {
+     "thema": "gleichungen.einfach",
+     "datei": "inhalte/themen/gleichungen.einfach.json",
+     "index": 73,
+     "lernziel": "probe",
+     "pool": "uebung",
+     "stufe": 1
+    },
+    {
+     "thema": "gleichungen.einfach",
+     "datei": "inhalte/themen/gleichungen.einfach.json",
+     "index": 71,
+     "lernziel": "probe",
+     "pool": "uebung",
+     "stufe": 2
+    },
+    {
+     "thema": "gleichungen.einfach",
+     "datei": "inhalte/themen/gleichungen.einfach.json",
+     "index": 77,
+     "lernziel": "probe",
+     "pool": "uebung",
+     "stufe": 3
+    }
+   ]
+  },
+  {
+   "nr": 10,
+   "kennung": "wertbleibt",
+   "sicher": "ja",
+   "begruendung": "Erweitern, Kürzen und gleichwertige Brüche sind die Regel; bei Bruchtermen gilt sie mit Termen statt Zahlen.",
+   "offen": false,
+   "themen": [
+    {
+     "thema": "bruch.brueche",
+     "lernkarten": [
+      "erweitern",
+      "kuerzen",
+      "gleichwertig"
+     ]
+    },
+    {
+     "thema": "terme.bruchterme",
+     "lernkarten": [
+      "kuerzen",
+      "erweitern"
+     ]
+    }
+   ],
+   "vielleicht": [
+    {
+     "thema": "bruch.brueche",
+     "lernkarten": [
+      "verhaeltnis_kuerzen"
+     ]
+    },
+    {
+     "thema": "groessen.verhaeltnisse",
+     "lernkarten": [
+      "kuerzen",
+      "gleichwertig"
+     ]
+    }
+   ],
+   "beispielaufgaben": [
+    {
+     "thema": "bruch.brueche",
+     "datei": "inhalte/themen/bruch.brueche.json",
+     "index": 84,
+     "lernziel": "erweitern",
+     "pool": "uebung",
+     "stufe": 1
+    },
+    {
+     "thema": "bruch.brueche",
+     "datei": "inhalte/themen/bruch.brueche.json",
+     "index": 87,
+     "lernziel": "erweitern",
+     "pool": "uebung",
+     "stufe": 2
+    },
+    {
+     "thema": "bruch.brueche",
+     "datei": "inhalte/themen/bruch.brueche.json",
+     "index": 267,
+     "lernziel": "erweitern",
+     "pool": "uebung",
+     "stufe": 3
+    }
+   ],
+   "abgleich_mathe_profi": {
+    "nur_hier": [],
+    "nur_dort": [
+     "abbildungen.aehnlichkeit",
+     "terme.umformen"
+    ]
+   }
+  },
+  {
+   "nr": 11,
+   "kennung": "bruchrechnen",
+   "sicher": "ja",
+   "begruendung": "Plus/Minus, Mal und Geteilt bei Brüchen sind die Regel; bei Bruchtermen dieselbe Regel mit Termen.",
+   "offen": false,
+   "themen": [
+    {
+     "thema": "bruch.rechnen",
+     "lernkarten": [
+      "brueche_plus_minus",
+      "brueche_mal",
+      "brueche_geteilt"
+     ]
+    },
+    {
+     "thema": "terme.bruchterme",
+     "lernkarten": [
+      "addieren",
+      "multiplizieren"
+     ]
+    }
+   ],
+   "vielleicht": [
+    {
+     "thema": "bruch.brueche",
+     "lernkarten": [
+      "kgv"
+     ]
+    },
+    {
+     "thema": "bruch.rechnen",
+     "lernkarten": [
+      "sach"
+     ]
+    },
+    {
+     "thema": "gleichungen.bruch",
+     "lernkarten": [
+      "hauptnenner"
+     ]
+    }
+   ],
+   "beispielaufgaben": [
+    {
+     "thema": "bruch.rechnen",
+     "datei": "inhalte/themen/bruch.rechnen.json",
+     "index": 0,
+     "lernziel": "brueche_plus_minus",
+     "pool": "uebung",
+     "stufe": 1
+    },
+    {
+     "thema": "bruch.rechnen",
+     "datei": "inhalte/themen/bruch.rechnen.json",
+     "index": 3,
+     "lernziel": "brueche_plus_minus",
+     "pool": "uebung",
+     "stufe": 2
+    },
+    {
+     "thema": "bruch.rechnen",
+     "datei": "inhalte/themen/bruch.rechnen.json",
+     "index": 283,
+     "lernziel": "brueche_plus_minus",
+     "pool": "uebung",
+     "stufe": 3
+    }
+   ],
+   "abgleich_mathe_profi": {
+    "nur_hier": [],
+    "nur_dort": [
+     "gleichungen.linear",
+     "stochastik.mehrstufig"
+    ]
+   }
+  },
+  {
+   "nr": 12,
+   "kennung": "potenz",
+   "sicher": "ja",
+   "begruendung": "Potenz schreiben, ausrechnen, nicht vertauschen und die Potenzgesetze (Hochzahlen addieren, malnehmen) sind die Regel; „bruch.rechnen.potenzen“ ist sie bei Brüchen.",
+   "offen": false,
+   "themen": [
+    {
+     "thema": "zahlen.potenzen_basis",
+     "lernkarten": [
+      "schreibweise",
+      "berechnen",
+      "vertauschen"
+     ]
+    },
+    {
+     "thema": "terme.potenzgesetze",
+     "lernkarten": [
+      "potenz_begriff"
+     ]
+    },
+    {
+     "thema": "terme.potenzgesetze_natuerlich",
+     "lernkarten": [
+      "mal_gleiche_basis",
+      "geteilt_gleiche_basis",
+      "potenz_von_potenz",
+      "gleicher_exponent"
+     ]
+    },
+    {
+     "thema": "terme.potenzgesetze_ganzzahlig",
+     "lernkarten": [
+      "gleiche_basis_ganz",
+      "exponent_und_potenz"
+     ]
+    },
+    {
+     "thema": "bruch.rechnen",
+     "lernkarten": [
+      "potenzen"
+     ]
+    }
+   ],
+   "vielleicht": [
+    {
+     "thema": "terme.potenzgesetze",
+     "lernkarten": [
+      "fehler_finden"
+     ]
+    },
+    {
+     "thema": "zahlen.potenzen_basis",
+     "lernkarten": [
+      "quadrat"
+     ]
+    }
+   ],
+   "beispielaufgaben": [
+    {
+     "thema": "zahlen.potenzen_basis",
+     "datei": "inhalte/themen/zahlen.potenzen_basis.json",
+     "index": 0,
+     "lernziel": "schreibweise",
+     "pool": "uebung",
+     "stufe": 1
+    },
+    {
+     "thema": "zahlen.potenzen_basis",
+     "datei": "inhalte/themen/zahlen.potenzen_basis.json",
+     "index": 2,
+     "lernziel": "schreibweise",
+     "pool": "uebung",
+     "stufe": 2
+    },
+    {
+     "thema": "zahlen.potenzen_basis",
+     "datei": "inhalte/themen/zahlen.potenzen_basis.json",
+     "index": 12,
+     "lernziel": "schreibweise",
+     "pool": "uebung",
+     "stufe": 3
+    }
+   ],
+   "abgleich_mathe_profi": {
+    "nur_hier": [
+     "bruch.rechnen",
+     "terme.potenzgesetze"
+    ],
+    "nur_dort": [
+     "funktionen.exponential_log",
+     "zahlen.potenzen_zehner"
+    ]
+   }
+  },
+  {
+   "nr": 13,
+   "kennung": "stellenwert",
+   "sicher": "teilweise",
+   "begruendung": "Stellenwert und Prozent (Hundertstel) haben eigene Karten. Das „Mal 10 schiebt die Ziffern“ hat keine eigene Karte; es steckt in Umrechnungskarten und Zehnerpotenzen, deren Zuordnung unsicher ist.",
+   "offen": true,
+   "themen": [
+    {
+     "thema": "zahlen.natuerlich",
+     "lernkarten": [
+      "stellenwert"
+     ]
+    },
+    {
+     "thema": "bruch.dezimal",
+     "lernkarten": [
+      "stellenwerte"
+     ]
+    },
+    {
+     "thema": "bruch.prozent",
+     "lernkarten": [
+      "prozent_bedeutung",
+      "prozentwert"
+     ]
+    }
+   ],
+   "vielleicht": [
+    {
+     "thema": "zahlen.potenzen_zehner",
+     "lernkarten": [
+      "zehnerpotenz"
+     ]
+    },
+    {
+     "thema": "groessen.einheiten",
+     "lernkarten": [
+      "laenge",
+      "kommaschreibweise"
+     ]
+    },
+    {
+     "thema": "bruch.prozent_grundwert",
+     "lernkarten": [
+      "faktor"
+     ]
+    }
+   ],
+   "beispielaufgaben": [
+    {
+     "thema": "zahlen.natuerlich",
+     "datei": "inhalte/themen/zahlen.natuerlich.json",
+     "index": 0,
+     "lernziel": "stellenwert",
+     "pool": "uebung",
+     "stufe": 1
+    },
+    {
+     "thema": "zahlen.natuerlich",
+     "datei": "inhalte/themen/zahlen.natuerlich.json",
+     "index": 6,
+     "lernziel": "stellenwert",
+     "pool": "uebung",
+     "stufe": 2
+    },
+    {
+     "thema": "zahlen.natuerlich",
+     "datei": "inhalte/themen/zahlen.natuerlich.json",
+     "index": 3,
+     "lernziel": "stellenwert",
+     "pool": "uebung",
+     "stufe": 3
+    }
+   ],
+   "offen_text": "Karte „Mal und geteilt durch 10, 100, 1000 (Komma wandert)“ fehlt als eigene Lernkarte.",
+   "abgleich_mathe_profi": {
+    "nur_hier": [],
+    "nur_dort": [
+     "groessen.einheiten",
+     "terme.potenzgesetze_ganzzahlig"
+    ]
+   }
+  },
+  {
+   "nr": 14,
+   "kennung": "verhaeltnis",
+   "sicher": "ja",
+   "begruendung": "Proportional erkennen, auf die Einheit schließen und Dreisatz, Einheitsrate und y = k · x sind die Regel „erst auf eins, dann auf viele“.",
+   "offen": false,
+   "themen": [
+    {
+     "thema": "groessen.proportional",
+     "lernkarten": [
+      "erkennen",
+      "vervielfachen",
+      "pruefen",
+      "einheit",
+      "dreisatz"
+     ]
+    },
+    {
+     "thema": "groessen.verhaeltnisse",
+     "lernkarten": [
+      "einheitsrate",
+      "proportion"
+     ]
+    },
+    {
+     "thema": "funktionen.linear",
+     "lernkarten": [
+      "proportional"
+     ]
+    }
+   ],
+   "vielleicht": [
+    {
+     "thema": "groessen.proportional",
+     "lernkarten": [
+      "geschickt",
+      "sach",
+      "aenderung"
+     ]
+    },
+    {
+     "thema": "groessen.einheiten",
+     "lernkarten": [
+      "massstab"
+     ]
+    },
+    {
+     "thema": "groessen.indirekt",
+     "lernkarten": [
+      "erkennen"
+     ]
+    },
+    {
+     "thema": "bruch.prozent_grundwert",
+     "lernkarten": [
+      "faktor"
+     ]
+    }
+   ],
+   "beispielaufgaben": [
+    {
+     "thema": "groessen.proportional",
+     "datei": "inhalte/themen/groessen.proportional.json",
+     "index": 1,
+     "lernziel": "erkennen",
+     "pool": "uebung",
+     "stufe": 1
+    },
+    {
+     "thema": "groessen.proportional",
+     "datei": "inhalte/themen/groessen.proportional.json",
+     "index": 0,
+     "lernziel": "erkennen",
+     "pool": "uebung",
+     "stufe": 2
+    },
+    {
+     "thema": "groessen.proportional",
+     "datei": "inhalte/themen/groessen.proportional.json",
+     "index": 11,
+     "lernziel": "erkennen",
+     "pool": "uebung",
+     "stufe": 3
+    }
+   ],
+   "abgleich_mathe_profi": {
+    "nur_hier": [
+     "groessen.verhaeltnisse"
+    ],
+    "nur_dort": [
+     "abbildungen.aehnlichkeit",
+     "bruch.prozent",
+     "bruch.prozent_grundwert"
+    ]
+   }
+  },
+  {
+   "nr": 15,
+   "kennung": "nullprodukt",
+   "sicher": "ja",
+   "begruendung": "Nullprodukt, Ausklammern mit Faktoren gleich null und Faktorisieren sind die Regel. Die ersten Karten liegen in Klasse 9 (Gymnasium); vorher bleibt die Regel „kommt später“.",
+   "offen": false,
+   "themen": [
+    {
+     "thema": "gleichungen.polynom",
+     "lernkarten": [
+      "nullprodukt",
+      "ausklammern"
+     ]
+    },
+    {
+     "thema": "gleichungen.quadratisch",
+     "lernkarten": [
+      "faktorisieren",
+      "ausklammern"
+     ]
+    }
+   ],
+   "vielleicht": [
+    {
+     "thema": "gleichungen.polynom",
+     "lernkarten": [
+      "substitution"
+     ]
+    }
+   ],
+   "beispielaufgaben": [
+    {
+     "thema": "gleichungen.polynom",
+     "datei": "inhalte/themen/gleichungen.polynom.json",
+     "index": 51,
+     "lernziel": "nullprodukt",
+     "pool": "uebung",
+     "stufe": 1
+    },
+    {
+     "thema": "gleichungen.polynom",
+     "datei": "inhalte/themen/gleichungen.polynom.json",
+     "index": 44,
+     "lernziel": "nullprodukt",
+     "pool": "uebung",
+     "stufe": 2
+    },
+    {
+     "thema": "gleichungen.polynom",
+     "datei": "inhalte/themen/gleichungen.polynom.json",
+     "index": 67,
+     "lernziel": "nullprodukt",
+     "pool": "uebung",
+     "stufe": 3
+    }
+   ],
+   "abgleich_mathe_profi": {
+    "nur_hier": [],
+    "nur_dort": [
+     "gleichungen.einfach",
+     "terme.bruchterme",
+     "zahlen.rechengesetze"
+    ]
+   }
+  }
+ ]
+}

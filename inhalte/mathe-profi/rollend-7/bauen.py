@@ -57,7 +57,12 @@ KOMMA_NEBEN = re.compile(r"[①②③④⑤□],|,[①②③④⑤□]")
 ZWEIDEUTIG = re.compile(r"\d/\d+[a-zA-Z]|/\([^()]*\(|\)\)/")
 
 
+HOCH = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹", "0123456789")
+HOCHLAUF = re.compile(r"[⁰¹²³⁴⁵⁶⁷⁸⁹]+")
+
+
 def zahlen_im(text):
+    text = HOCHLAUF.sub(lambda m: " " + m.group(0).translate(HOCH) + " ", text)   # Hochzahlen zählen als Zahlen im Text
     r = set()
     for m in ZAHL.findall(text):
         s = re.sub(r"[  ]", "", m).replace("−", "").replace("-", "").replace(",", ".")

@@ -59,7 +59,7 @@ test('Tausendergruppen bleiben ganz – im Nenner', () => {
   assert.deepEqual(lernBruchTeile('7/1 000'), [{ z: '7', n: '1 000' }]);
 });
 test('Tausendergruppen bleiben ganz – im Zähler und in beiden', () => {
-  assert.equal(kurz('9/12 = 11 880/20 736 = 55/96.'), '[9|12] = [11 880|20 736] = [55|96].');
+  assert.equal(kurz('9/12 = 11 880/20 736 = 55/96.'), '[9|12] = 11 880/20 736 = [55|96].'); // 0.93.8 (dritte Runde): zweideutige Gruppe im Zähler bleibt Text
   assert.equal(kurz('V = 2 299π/3 ≈ 2 407,5 cm³.'), 'V = [2 299π|3] ≈ 2 407,5 cm³.');
   // 0.93.8: Gruppe nur im Zähler ist zweideutig (Tausendergruppe oder gemischte Zahl) → ganzer Ausdruck bleibt Text
   for (const s of ['s(x) = 1 200/x + 15 Euro', '1 200/x', '1\u00a0200/x', '1\u202f200/x', '−1 500/x', '1 234 567/x']) assert.equal(kurz(s), s, s);
@@ -99,7 +99,7 @@ test('Zweideutige Gruppe im Zähler bleibt ganz Text, nie zerrissen', () => {
     assert.equal(kurz(s), s, s);
     assert.deepEqual(lernBruchTeile(s), [s], s);
   }
-  assert.deepEqual(lernBruchTeile('11 880/20 736'), [{ z: '11 880', n: '20 736' }]); // Gruppe auch im Nenner: eine Zahl
+  for (const s of ['Als gemischte Zahl: 2 125/2 048', '11 880/20 736']) assert.deepEqual(lernBruchTeile(s), [s], s); // Gruppe auch im Nenner hebt die Zweideutigkeit nicht auf
   assert.deepEqual(lernBruchTeile('7/1 000'), [{ z: '7', n: '1 000' }]); // Gruppe nur im Nenner: eindeutig
 });
 test('Gemischte Zahlen mit ein- oder zweistelligem Zähler wie in 0.93.6', () => {
@@ -125,7 +125,24 @@ test('Auswahl-Kürzel bleiben Text, Buchstabenbrüche nicht', () => {
   assert.equal(kurz('x/y + a/b und p/q'), '[x|y] + [a|b] und [p|q]');
 });
 test('Positivkontrollen 0.93.8', () => {
-  const soll = { 'x/y + a/b': '[x|y] + [a|b]', '7/1 000': '[7|1 000]', '11 880/20 736': '[11 880|20 736]', '4/x⁻²': '[4|x⁻²]',
+  const soll = { 'x/y + a/b': '[x|y] + [a|b]', '7/1 000': '[7|1 000]', '4/x⁻²': '[4|x⁻²]',
     '1/2ⁿ⁻¹': '[1|2ⁿ⁻¹]', '(x + 1)/(x − 2)': '[x + 1|x − 2]', '2 1/2': '2\u202f[1|2]', '3/4': '[3|4]' };
+  for (const [s, k] of Object.entries(soll)) assert.equal(kurz(s), k, s);
+});
+
+// Regressionstests 0.93.8, dritte Runde (Gegenprüfung): im Zweifel Text, nie raten
+test('Unbekannte Hoch-/Tiefzeichen hinter dem Nenner verhindern die Umwandlung', () => {
+  for (const s of ['4/xᴺ', '4/xᴬ', '4/xᵅ', '1/2₂', '4/(x)ᴺ']) assert.deepEqual(lernBruchTeile(s), [s], s);
+  assert.deepEqual(lernBruchTeile('4/xᵏ'), [{ z: '4', n: 'xᵏ' }]);
+  assert.deepEqual(lernBruchTeile('4/x⁻²'), [{ z: '4', n: 'x⁻²' }]);
+  assert.deepEqual(lernBruchTeile('1/2ⁿ⁻¹'), [{ z: '1', n: '2ⁿ⁻¹' }]);
+});
+test('Datumswort mit beliebigem Leerraum, Kürzel ohne Groß-/Kleinschreibung', () => {
+  for (const s of ['Termin am 27/11', 'Termin am  27/11', 'Termin am\n27/11', 'Termin am\u00a027/11', 'seit\u202f12/9']) assert.deepEqual(lernBruchTeile(s), [s], s);
+  for (const s of ['Auswahl: W/m', 'w/M', 'M/W', 'J/N', 'Ja/Nein']) assert.equal(kurz(s), s, s);
+});
+test('Positivkontrollen 0.93.8, dritte Runde', () => {
+  const soll = { 'x/y + a/b': '[x|y] + [a|b]', '7/1 000': '[7|1 000]', '(x + 1)/(x − 2)': '[x + 1|x − 2]', '2 1/2': '2\u202f[1|2]',
+    'von 3/8 bis 1/2': 'von [3|8] bis [1|2]' };
   for (const [s, k] of Object.entries(soll)) assert.equal(kurz(s), k, s);
 });

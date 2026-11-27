@@ -18,8 +18,9 @@ function ladeFunktion(quelle) {
   return new Function(quelle.slice(a, b) + '\nreturn [lernBruchTeile, LERN_HOCH];')();
 }
 const [alt] = ladeFunktion(execFileSync('git', ['show', `${altStand}:lernen.js`], { cwd: wurzel, encoding: 'utf8' }));
-// Zeichenliste der Hochzeichen kommt aus dem Arbeitsstand (dieselbe wie in lernBruchTeile, keine eigene engere Liste).
-const [neu, HOCH] = ladeFunktion(fs.readFileSync(path.join(wurzel, 'lernen.js'), 'utf8'));
+// Hochzeichen: allgemeine Unicode-Klasse wie LERN_HOCH_ALLG in lernen.js (Modifikator-Buchstaben/-Symbole, hoch-/tiefgestellte Zeichen), nicht nur die Liste.
+const HOCH_ALLG = /^[\p{Lm}\p{Sk}²³¹⁰-₟]/u;
+const [neu] = ladeFunktion(fs.readFileSync(path.join(wurzel, 'lernen.js'), 'utf8'));
 
 // Kurzform: Bruch als [Zähler|Nenner], Trenner sichtbar (· = U+00A0, ˙ = U+202F).
 const zeig = (t) => t.replace(/ /g, '·').replace(/ /g, '˙');
@@ -36,7 +37,7 @@ function verdaechtig(teile) {
     const vor = typeof teile[k - 1] === 'string' ? teile[k - 1] : '';
     if (/^\d/.test(nach)) funde.push('Ziffer danach');
     if (/^[   ]\d{3}(?!\d)/.test(nach)) funde.push('Tausendergruppe danach');
-    if (new RegExp(`^[${HOCH}^]`).test(nach)) funde.push('Hochzahl danach');
+    if (HOCH_ALLG.test(nach)) funde.push('Hochzahl danach');
     if (!t.vz && /\d[   ]$/.test(vor) && /^\d{3}(?!\d)/.test(t.z)) funde.push('Tausendergruppe davor');
   });
   return funde;
@@ -68,7 +69,7 @@ const ordner = path.join(wurzel, 'inhalte', 'themen');
 const sum = { texte: 0, mitStrich: 0, altBr: 0, neuBr: 0, geaendert: 0, verdAlt: 0, verdNeu: 0, weniger: 0, mehr: 0, zweideutig: 0 };
 const aenderungen = []; const restNeu = []; const zweideutigeTexte = [];
 // Zweideutige Gruppe im Zähler: 1–3 Ziffern, Trenner, genau 3 Ziffern, Schrägstrich (2 125/128 oder 1 200/x) – bleibt bewusst Text,
-// außer der Nenner hat auch eine Tausendergruppe (11 880/20 736).
+// auch wenn der Nenner eine Tausendergruppe hat (11 880/20 736).
 const ZWEIDEUTIG = /(?:^|[^\d,.])\d{1,3}[ \u00a0\u202f]\d{3}\//;
 const kuerze = (t) => (alle || t.length <= 160 ? t : t.slice(0, 157) + '…');
 for (const datei of fs.readdirSync(ordner).filter((f) => f.endsWith('.json')).sort()) {

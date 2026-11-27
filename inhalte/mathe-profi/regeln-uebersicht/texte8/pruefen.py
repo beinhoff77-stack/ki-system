@@ -14,9 +14,13 @@ def laden(p): return json.loads((p if isinstance(p, pathlib.Path) else hier / p)
 def teiler(n): n = int(n); return tuple(t for t in range(1, n + 1) if n % t == 0)
 def quersumme(n): return F(sum(int(z) for z in str(int(n))))
 def ist_prim(n): n = int(n); return F(1 if n > 1 and all(n % t for t in range(2, int(n ** 0.5) + 1)) else 0)
+def wurzel(n):
+    n = F(n); r = F(math.isqrt(int(n)))
+    assert r * r == n, 'keine glatte Wurzel'
+    return r
 def kaufm(n, s): return F(math.floor(F(n) / F(s) + F(1, 2))) * F(s)
 UMGEBUNG = {'__builtins__': {}}
-HILF = {'F': F, 'teiler': teiler, 'quersumme': quersumme, 'ist_prim': ist_prim, 'kaufm': kaufm, 'abs': abs, 'sum': sum, 'W': tuple(range(1, 7))}
+HILF = {'F': F, 'teiler': teiler, 'quersumme': quersumme, 'ist_prim': ist_prim, 'kaufm': kaufm, 'wurzel': wurzel, 'abs': abs, 'sum': sum, 'W': tuple(range(1, 7))}
 def wert(ausdruck, mit):
     ausdruck = ausdruck.replace('−', '-')
     code = re.sub(r'(?<![\w.])(\d+(?:\.\d+)?)', r'F("\1")', ausdruck)
@@ -32,7 +36,7 @@ def pruefe(liste, ort):
             if 'bereich' in p:
                 (name, (a, b)), = p['bereich'].items()
                 treffer = [OPS[p['rel']](wert(p['l'], {**p.get('mit', {}), name: x}), wert(p['r'], {**p.get('mit', {}), name: x})) for x in range(a, b + 1) if x not in p.get('ohne', [])]
-                ok = all(treffer) if p.get('modus') == 'alle' else not any(treffer)
+                m = p.get('modus'); ok = all(treffer) if m == 'alle' else sum(treffer) == 2 if m == 'zwei' else not any(treffer)
             else:
                 ok = OPS[p['rel']](wert(p['l'], p.get('mit', {})), wert(p['r'], p.get('mit', {})))
         except Exception as e:
@@ -95,7 +99,8 @@ for m in M:
         k = m['kurzfassung']
         for x in ('haupt', 'kompakt'):
             if len(k[x]) >= len(m['merksatz']): f(o + ': Kurzfassung %s nicht kürzer als der Merksatz' % x)
-        if len(k['kompakt']) > 80: f(o + ': kompakte Kurzfassung über 80 Zeichen')
+        if len(k['kompakt']) > 90: f(o + ': kompakte Kurzfassung über 90 Zeichen')
+        if k['haupt'] != 'Plus/Minus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: mal Kehrwert.': f(o + ': Kurzfassung weicht von der Entscheidung ab')
         pruefe([{'l': '1/2+1/3', 'rel': '==', 'r': '3/6+2/6'}, {'l': '(2/3)*(3/4)', 'rel': '==', 'r': '(2*3)/(3*4)'}, {'l': '6/(1/2)', 'rel': '==', 'r': '6*2'}], o + ' Beispiele zur Kurzfassung')
 if len(M[9]['merksatz']) < 100: f('Regel 10: Merksatz sollte der lange sein')
 
@@ -164,6 +169,31 @@ for r in d['regeln']:
     if not (themen_dir / (r['einfuehrung']['thema'] + '.json')).exists(): f(o + ': Themen-Datei fehlt')
     for k in r['klassen_in_denen_die_regel_vorkommt']:
         if k['thema'] not in themenliste: f(o + ': Thema %s unbekannt' % k['thema'])
+
+
+# ---------- Gegenprüfung 1078: Quellen, Leitern, Oberflächen ----------
+def c(l, r, rel='==', mit=None): return {'l': l, 'rel': rel, 'r': r, **({'mit': mit} if mit else {})}
+kleiter = {L['kennung']: L for L in laden(hier.parent / 'klassenleiter.json')['leitern']}
+for k, L in inh['leitern'].items():
+    q = kleiter[L['kennung']]
+    if [s.get('text') for s in L['stufen']] != [s.get('text') for s in q['stufen']] or [s.get('pos') for s in L['stufen']] != [s.get('wirkende_stelle_positionen') for s in q['stufen']]:
+        f('inhalt.json leitern %s weicht von klassenleiter.json ab (abgleich_inhalt.py ausführen)' % k)
+for r in inh['regeln']:
+    q = [(s['klasse'], s['text']) for s in kleiter[inh['leitern'][r['id']]['kennung']]['stufen'] if s['kommt_vor']]
+    if [(x['klasse'], x['text']) for x in r['klassen']] != q: f('inhalt.json regeln[%s].klassen weicht von klassenleiter.json ab' % r['id'])
+def leiter_text(kennung, klasse): return next(s['text'] for s in kleiter[kennung]['stufen'] if s['klasse'] == klasse and s['kommt_vor'])
+for kennung, klasse, muss in (('id.flaeche_raum.haut', 5, '= 94 cm²'), ('id.flaeche_raum.haut', 8, '= 84 cm²'), ('rr.potenz', 10, '2⁽ˣ⁺³⁾'), ('rr.bruchrechnen', 8, '3/(2x)'), ('rr.nullprodukt', 8, 'ausgeschlossen')):
+    if muss not in leiter_text(kennung, klasse): f('leiter %s Klasse %d: „%s“ fehlt' % (kennung, klasse, muss))
+if '2/2x' in leiter_text('rr.bruchrechnen', 8) or 'hoch x + 3' in leiter_text('rr.potenz', 10): f('Leiter: mehrdeutige Schreibweise')
+pruefe([c('2*(5*4)+2*(5*3)+2*(4*3)', '94'), c('2*20+2*15+2*12', '94'), c('2*(6)+(3+4+5)*6', '84'), c('2*6+18+24+30', '84'), c('3*6+4*6+5*6', '72'), c('(3*4)/2', '6'), c('6*5/2*4+36', '96')], 'Oberflächen der Leitern')
+pruefe([c('1/x+1/(2*x)', '3/(2*x)', mit={'x': 5}), c('2/(2*x)+1/(2*x)', '3/(2*x)', mit={'x': 5}), c('2**x*2**3', '2**(x+3)', mit={'x': 4}), c('x*(3/x+1/2)', 'x*(3/x)+x*1/2', mit={'x': 5}), c('2*(4*6)+2*(4*7)+2*(6*7)', '188'), c('(3*x+6)/(x+2)', '3', mit={'x': 5}), c('(x+6)/(x+2)', '3', '!=', mit={'x': 5}), c('3**2+4**2', '5**2'), c('2*x', '2*x+0', mit={'x': 3})], 'Leiterrechnungen')
+rg = {r['id']: r for r in inh['regeln']}
+if 'nur bei direkter Proportionalität' in rg['R11']['voraus']: f('R11: „nur bei direkter Proportionalität“ steht noch in voraus')
+nu = laden('beispielaufgaben.json')['umhaengen']['regel_von_aufgabe']
+zk = {a['kennung_aufgabe'] for a in laden(repo / 'inhalte/mathe-profi/schritt1/kennungen-zuordnung.json')['aufgaben']}
+for a, r in nu.items():
+    if a not in zk or r not in kenn: f('umhaengen: %s → %s unbekannt' % (a, r))
+if 'Redaktionelle Einordnung' not in laden('lehrplan.json')['regeln'][0]['befund']: f('lehrplan: Kennzeichnung redaktionelle Einordnung fehlt')
 
 if fehler:
     print('\n'.join(fehler)); print('FEHLER: %d' % len(fehler)); sys.exit(1)

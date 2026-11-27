@@ -78,7 +78,7 @@
    "kurz": "Eine Größe besteht aus Zahl und Einheit; die Einheit des Ergebnisses verrät, ob man richtig gerechnet hat.",
    "beispiel": {
     "klasse": 5,
-    "text": "Ein Zug fährt in 2 h genau 60 km. 60 km : 2 h = 30 km/h, das ist eine Geschwindigkeit, wie gefragt. Wer 60 km · 2 h rechnet, erhält 120 km·h, und das ist keine Geschwindigkeit: Der Ansatz stimmt nicht.",
+    "text": "Ein Zug fährt in 2 h genau 60 km. Wie schnell war er im Durchschnitt? 60 km : 2 h = 30 km/h, das ist eine Geschwindigkeit, wie gefragt. Wer 60 km · 2 h rechnet, erhält 120 km·h, und das ist keine Geschwindigkeit: Der Ansatz stimmt nicht.",
     "pruefung": [
      {
       "l": "60/2",
@@ -152,7 +152,7 @@
    "entwurf_schluessel": "weise-6",
    "kennung_vorschlag": "aw.begruenden",
    "merksatz": "Nenne den Satz, dann wende ihn an. Für „stimmt nicht“ genügt ein Gegenbeispiel.",
-   "kurz": "Begründen heißt, den passenden Satz zu nennen und anzuwenden; widerlegen kann man mit einem Gegenbeispiel.",
+   "kurz": "Begründen: den passenden Satz nennen und anwenden; eine allgemeine Behauptung widerlegt ein Gegenbeispiel.",
    "beispiel": {
     "klasse": 5,
     "text": "Warum ist 4 536 durch 3 teilbar? Satz: Eine Zahl ist durch 3 teilbar, wenn es ihre Quersumme ist. Quersumme: 4 + 5 + 3 + 6 = 18, und 18 : 3 = 6. Widerlegen: „Bei Minus darf man tauschen“ stimmt nicht, denn 5 − 3 = 2, aber 3 − 5 = −2.",
@@ -189,7 +189,7 @@
      }
     ]
    },
-   "erklaerung": "Das Begründen wird verlangt bei „Warum“, „Zeige“ und „Stimmt das?“. Man braucht es, wenn ein Ergebnis allein nicht reicht und gesagt werden soll, weshalb es gilt. Viele passende Beispiele beweisen nichts, aber ein einziges Gegenbeispiel widerlegt eine Behauptung."
+   "erklaerung": "Das Begründen wird verlangt bei „Warum“, „Zeige“ und „Stimmt das?“. Man braucht es, wenn ein Ergebnis allein nicht reicht und gesagt werden soll, weshalb es gilt. Viele passende Beispiele beweisen nichts, aber ein einziges Gegenbeispiel widerlegt eine allgemeine Behauptung."
   },
   {
    "name": "Ablesen und Darstellen",

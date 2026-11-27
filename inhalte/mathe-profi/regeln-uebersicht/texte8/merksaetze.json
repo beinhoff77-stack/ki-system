@@ -148,8 +148,8 @@
    "luecken": [
     {
      "wo": "voraus",
-     "text": "Bruchstrich, Wurzelstrich und Betragsstriche wirken wie eine Klammer: Der ganze Zähler wird zuerst gerechnet. (3 + 5)/2 = 4, aber 3 + 5/2 = 5,5.",
-     "grund": "Ab Klasse 8 stehen Terme als Brüche; dort gibt es keine sichtbare Klammer.",
+     "text": "Beim Bruch fasst der Strich Zähler und Nenner jeweils zusammen. Unter der Wurzel und zwischen Betragsstrichen gehört jeweils der ganze eingeschlossene Ausdruck zusammen. (3 + 5)/2 = 4, aber 3 + 5/2 = 5,5; √(9 + 16) = 5, aber √9 + 16 = 19.",
+     "grund": "Ab Klasse 8 stehen Terme als Brüche; dort gibt es keine sichtbare Klammer. Gegenprüfung 1078: drei getrennte Fälle statt „der ganze Zähler“ für alle.",
      "pruefung": [
       {
        "l": "(3+5)/2",
@@ -160,6 +160,26 @@
        "l": "3+5/2",
        "rel": "==",
        "r": "5.5"
+      },
+      {
+       "l": "wurzel(9+16)",
+       "rel": "==",
+       "r": "5"
+      },
+      {
+       "l": "wurzel(9)+16",
+       "rel": "==",
+       "r": "19"
+      },
+      {
+       "l": "abs(3-8)",
+       "rel": "==",
+       "r": "5"
+      },
+      {
+       "l": "abs(3)-8",
+       "rel": "==",
+       "r": "-5"
       }
      ]
     },
@@ -530,9 +550,9 @@
     }
    ],
    "kurzfassung": {
-    "haupt": "Plus, Minus: gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: mal Kehrwert.",
-    "kompakt": "Plus/Minus: gleiche Nenner. Mal: oben·oben, unten·unten. Geteilt: mal Kehrwert.",
-    "begruendung": "Beide Fassungen sagen dasselbe wie die drei Sätze: „erst gleiche Nenner“ wird zu „gleiche Nenner“ (der Zusatz „erst“ trägt nichts, die Reihenfolge steht in der Erklärung), „mit dem Kehrwert malnehmen“ zu „mal Kehrwert“. Länge 88 und 78 statt 110 Zeichen; die anderen Merksätze der Liste haben höchstens 75 Zeichen und brauchen am Handy zwei Zeilen. Gemessen ist die Zeilenzahl nicht (Annahme: 78 Zeichen ergeben zwei Zeilen, 88 vermutlich drei).",
+    "haupt": "Plus/Minus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: mal Kehrwert.",
+    "kompakt": "Plus/Minus: erst gleiche Nenner. Mal: oben·oben, unten·unten. Geteilt: mal Kehrwert.",
+    "begruendung": "Beide Fassungen sagen dasselbe wie die drei Sätze; „mit dem Kehrwert malnehmen“ wird zu „mal Kehrwert“. „Erst gleiche Nenner“ bleibt (Gegenprüfung 1078: ohne „erst“ bleibt offen, dass man gleichnamig machen muss). Länge 91 und 85 statt 110 Zeichen; die anderen Merksätze der Liste haben höchstens 75 Zeichen und brauchen am Handy zwei Zeilen. Gemessen ist die Zeilenzahl nicht (Annahme: zwei Zeilen). Der Projektleiter hat die Fassung „haupt“ als Merksatz von Regel 10 entschieden.",
     "verbindlich": false
    }
   },
@@ -551,8 +571,8 @@
    "luecken": [
     {
      "wo": "voraus",
-     "text": "„Erst auf eins“ klappt auch bei umgekehrter Proportionalität, nur mit umgekehrten Rechenarten: 3 Arbeiter brauchen 12 Tage, 1 Arbeiter 36 Tage, 4 Arbeiter 9 Tage. Nicht anwendbar ist es, wenn ein fester Betrag dazukommt.",
-     "grund": "Berichtigung am Bestandstext „Gilt nur bei direkter Proportionalität“: Das gilt für y = k · x, nicht für das Vorgehen „erst auf eins“. Der Merksatz selbst bleibt richtig.",
+     "text": "Das Vorgehen „erst auf eins“ klappt auch bei umgekehrter Proportionalität, nur mit umgekehrten Rechenarten: 3 Arbeiter brauchen 12 Tage, 1 Arbeiter dann 36 Tage, 4 Arbeiter 9 Tage. Nicht anwendbar ist es, wenn ein fester Betrag dazukommt.",
+     "grund": "Berichtigung (Gegenprüfung 1078): Der Bestandstext „Gilt nur bei direkter Proportionalität“ war für das Vorgehen zu eng; er ist in inhalt.json ersetzt, diese Ergänzung nennt den umgekehrten Fall.",
      "pruefung": [
       {
        "l": "3*12",
@@ -610,8 +630,8 @@
    "luecken": [
     {
      "wo": "voraus",
-     "text": "Aus x² = −4 gibt es keine Lösung, weil ein Quadrat nie negativ ist. Auch Runden und der Betrag lassen sich nicht umkehren.",
-     "grund": "Die Wurzel als Gegenrechnung zum Quadrat existiert nur für Zahlen ab null; im Text fehlt der Fall „keine Lösung“.",
+     "text": "Über den reellen Zahlen hat x² = −4 keine Lösung, weil ein Quadrat nie negativ ist. Runden lässt sich nicht eindeutig rückgängig machen: 3,4 und 3,2 ergeben beide 3. Beim Betrag gibt es zwei Möglichkeiten: |x| = 3 hat die Lösungen x = −3 und x = 3.",
+     "grund": "Die Wurzel als Gegenrechnung zum Quadrat existiert nur für Zahlen ab null; im Text fehlte der Fall „keine Lösung“. Gegenprüfung 1078: „Runden und Betrag lassen sich nicht umkehren“ war zu absolut.",
      "pruefung": [
       {
        "l": "x**2",
@@ -624,6 +644,28 @@
         ]
        },
        "modus": "keine"
+      },
+      {
+       "l": "kaufm(3.4,1)",
+       "rel": "==",
+       "r": "3"
+      },
+      {
+       "l": "kaufm(3.2,1)",
+       "rel": "==",
+       "r": "3"
+      },
+      {
+       "l": "abs(x)",
+       "rel": "==",
+       "r": "3",
+       "bereich": {
+        "x": [
+         -50,
+         50
+        ]
+       },
+       "modus": "zwei"
       }
      ]
     },
@@ -667,7 +709,7 @@
    "luecken": [
     {
      "wo": "voraus",
-     "text": "„Dasselbe tun“ heißt nicht „jede Rechnung ist erlaubt“: Quadrieren fügt Lösungen hinzu (aus x = 2 wird x² = 4, und −2 erfüllt x² = 4, aber nicht x = 2). Bei Ungleichungen dreht mal oder geteilt durch eine negative Zahl das Zeichen um.",
+     "text": "„Dasselbe tun“ heißt nicht „jede Rechnung ist erlaubt“: Quadrieren kann Lösungen hinzufügen (aus x = 2 wird x² = 4, und −2 erfüllt x² = 4, aber nicht x = 2). Bei Ungleichungen dreht mal oder geteilt durch eine negative Zahl das Zeichen um.",
      "grund": "Die Ungleichung steht nur im Feld „Verwandt“, nicht dort, wo die Grenze der Regel steht.",
      "pruefung": [
       {

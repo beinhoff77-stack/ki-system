@@ -63,7 +63,7 @@ LEITER_R = {
   (5, "E", "zahlen.rechengesetze", "⟦6⟧ · (20 + 2) = ⟦6⟧ · 20 + ⟦6⟧ · 2 = 132", lambda: 6 * 22 == 6 * 20 + 6 * 2 == 132),
   (6, "A", "bruch.rechnen", "⟦4⟧ · (2 + ½) = ⟦4⟧ · 2 + ⟦4⟧ · ½ = 10", lambda: 4 * (2 + F(1, 2)) == 10),
   (7, "E", "terme.umformen", "⟦3⟧ · (x + 2) = ⟦3⟧ · x + ⟦3⟧ · 2 = 3x + 6", lambda: alle(lambda x: 3 * (x + 2), lambda x: 3 * x + 6)),
-  (8, "A", "gleichungen.bruch", "⟦x⟧ · (3/x + ½) = ⟦x⟧ · 3/x + ⟦x⟧ · ½, für x ≠ 0", lambda: alle(lambda x: x * (3 / x + F(1, 2)), lambda x: 3 + x / 2)),
+  (8, "A", "gleichungen.bruch", "⟦x⟧ · (3/x + ½) = ⟦x⟧ · (3/x) + ⟦x⟧ · ½, für x ≠ 0", lambda: alle(lambda x: x * (3 / x + F(1, 2)), lambda x: 3 + x / 2)),
   (9, "A", "zahlen.reell", "⟦√2⟧ · (√2 + 3) = ⟦√2⟧ · √2 + ⟦√2⟧ · 3 = 2 + 3√2", lambda: nah(2 ** .5 * (2 ** .5 + 3), 2 + 3 * 2 ** .5, 9)),
   (10, "A", "gleichungen.polynom", "⟦x⟧ · (x² − 4) = ⟦x⟧ · x² − ⟦x⟧ · 4 = x³ − 4x", lambda: alle(lambda x: x * (x * x - 4), lambda x: x ** 3 - 4 * x))]),
  "rr.minusklammer": ("Das Minus vor der Klammer und das Zeichen in der Klammer, das wechselt.", [
@@ -79,7 +79,7 @@ LEITER_R = {
   (7, "E", "terme.potenzgesetze_natuerlich", "x⟦³⟧ · x⟦²⟧ = (x · x · x) · (x · x) = x⟦⁵⟧", lambda: alle(lambda x: x ** 3 * x ** 2, lambda x: x ** 5)),
   (8, "E", "terme.potenzgesetze_ganzzahlig", "x⟦³⟧ · x⟦⁻²⟧ = x⟦¹⟧ = x, für x ≠ 0", lambda: alle(lambda x: x ** 3 * x ** -2, lambda x: x)),
   (9, "E", "zahlen.rationale_exponenten", "x^⟦½⟧ · x^⟦½⟧ = x⟦¹⟧ = x, für x ≥ 0", lambda: nah(9 ** .5 * 9 ** .5, 9, 9)),
-  (10, "A", "funktionen.exponential_log", "2⟦ˣ⟧ · 2⟦³⟧ = 2 hoch ⟦x + 3⟧", lambda: all(2 ** x * 2 ** 3 == 2 ** (x + 3) for x in range(1, 6)))]),
+  (10, "A", "funktionen.exponential_log", "2⟦ˣ⟧ · 2⟦³⟧ = 2⁽⟦ˣ⁺³⟧⁾", lambda: all(2 ** x * 2 ** 3 == 2 ** (x + 3) for x in range(1, 6)))]),
  "rr.kuerzen": ("Der gemeinsame Faktor – einmal im Zähler, einmal im Nenner.", [
   (5, None, NOCH_NICHT + " (Brüche ab Klasse 6)"),
   (6, "E", "bruch.brueche", "12/18 = (2 · ⟦6⟧) / (3 · ⟦6⟧) = 2/3", lambda: F(12, 18) == F(2, 3) and 2 * 6 == 12 and 3 * 6 == 18),
@@ -91,7 +91,7 @@ LEITER_R = {
   (5, None, NOCH_NICHT + " (Brüche ab Klasse 6)"),
   (6, "E", "bruch.rechnen", "1/2 + 1/3 = 3/⟦6⟧ + 2/⟦6⟧ = 5/⟦6⟧", lambda: F(1, 2) + F(1, 3) == F(5, 6)),
   (7, "A", "gleichungen.linear", "x/2 + x/3 = 3x/⟦6⟧ + 2x/⟦6⟧ = 5x/⟦6⟧", lambda: alle(lambda x: x / 2 + x / 3, lambda x: 5 * x / 6)),
-  (8, "A", "terme.bruchterme", "1/x + 1/(2x) = 2/⟦2x⟧ + 1/⟦2x⟧ = 3/⟦2x⟧, für x ≠ 0", lambda: alle(lambda x: 1 / x + 1 / (2 * x), lambda x: 3 / (2 * x))),
+  (8, "A", "terme.bruchterme", "1/x + 1/(2x) = 2/⟦(2x)⟧ + 1/⟦(2x)⟧ = 3/⟦(2x)⟧, für x ≠ 0", lambda: alle(lambda x: 1 / x + 1 / (2 * x), lambda x: 3 / (2 * x))),
   (9, "A", "stochastik.verknuepft", "1/2 + 1/3 − 1/6 = 3/⟦6⟧ + 2/⟦6⟧ − 1/⟦6⟧ = 4/⟦6⟧", lambda: F(1, 2) + F(1, 3) - F(1, 6) == F(2, 3)),
   (10, "A", "stochastik.mehrstufig", "1/6 + 1/3 = 1/⟦6⟧ + 2/⟦6⟧ = 3/⟦6⟧", lambda: F(1, 6) + F(1, 3) == F(1, 2))]),
  "rr.verhaeltnis": ("Die Eins in der Mitte: erst auf eins, dann auf viele.", [
@@ -105,7 +105,7 @@ LEITER_R = {
   (5, "E", "gleichungen.einfach", "□ ⟦+ 7⟧ = 3, also □ = 3 ⟦− 7⟧ = −4", lambda: -4 + 7 == 3),
   (6, "A", "bruch.rechnen", "□ ⟦· ¾⟧ = 12, also □ = 12 ⟦: ¾⟧ = 16", lambda: 16 * F(3, 4) == 12),
   (7, "A", "bruch.prozent_grundwert", "G ⟦· 1,2⟧ = 60 €, also G = 60 € ⟦: 1,2⟧ = 50 €", lambda: 50 * F(12, 10) == 60),
-  (8, "A", "gleichungen.formeln", "A = g ⟦· h⟧, also g = A ⟦: h⟧", lambda: 6 * 7 == 42),
+  (8, "A", "gleichungen.formeln", "A = g ⟦· h⟧, also g = A ⟦: h⟧ (für h ≠ 0)", lambda: 6 * 7 == 42),
   (9, "E", "gleichungen.quadratisch", "x ⟦hoch 2⟧ = 49, also x = ⟦±√⟧49 = ±7", lambda: 7 ** 2 == 49 == (-7) ** 2),
   (10, "E", "gleichungen.exponential", "2 ⟦hoch x⟧ = 8, also x = ⟦log₂⟧ 8 = 3", lambda: 2 ** 3 == 8)]),
  "rr.waage": ("Was auf beiden Seiten getan wird – der Befehl hinter dem Strich.", [
@@ -118,7 +118,7 @@ LEITER_R = {
  "rr.nullprodukt": ("Die Null rechts und der Faktor, der null wird.", [
   (5, "V", "gleichungen.einfach", "⟦□⟧ · 7 = ⟦0⟧: □ = 0", lambda: [x for x in range(-5, 6) if x * 7 == 0] == [0]),
   (6, None, VORBEI), (7, None, VORBEI + " (Gleichungen mit x² erst ab Klasse 9)"),
-  (8, "V", "terme.bruchterme", "Nenner ⟦x⟧ · ⟦(x − 4)⟧ = ⟦0⟧: x = 0 oder 4", lambda: [x for x in range(-5, 9) if x * (x - 4) == 0] == [0, 4]),
+  (8, "V", "terme.bruchterme", "Nenner ⟦x⟧ · ⟦(x − 4)⟧ ist ⟦null⟧ für x = 0 oder x = 4: beide Werte sind ausgeschlossen", lambda: [x for x in range(-5, 9) if x * (x - 4) == 0] == [0, 4]),
   (9, "E", "gleichungen.quadratisch", "⟦(x − 2)⟧ · ⟦(x + 3)⟧ = ⟦0⟧: x = 2 oder −3", lambda: [x for x in range(-9, 9) if (x - 2) * (x + 3) == 0] == [-3, 2]),
   (10, "A", "gleichungen.polynom", "⟦x⟧ · ⟦(x − 2)⟧ · ⟦(x + 2)⟧ = ⟦0⟧: x = 0, 2 oder −2", lambda: [x for x in range(-9, 9) if x * (x - 2) * (x + 2) == 0] == [-2, 0, 2])]),
 }
@@ -165,7 +165,7 @@ LEITER_I = {
   (8, "A", "funktionen.grundbegriffe", "f(⟦5⟧) = 2 · ⟦5⟧ + 3 = 13", lambda: 2 * 5 + 3 == 13),
   (9, "A", "funktionen.quadratisch", "f(⟦5⟧) = 2 · ⟦5⟧² + 3 = 53", lambda: 2 * 25 + 3 == 53),
   (10, "A", "funktionen.exponential_log", "f(x) = 2 · 3ˣ + 3; f(⟦2⟧) = 2 · 3⟦²⟧ + 3 = 21", lambda: 2 * 9 + 3 == 21)]),
- "id.algebra.erlaubte_zahlen": ("Die Bedingung für x: Kein Nenner wird 0, unter keiner Wurzel steht etwas Negatives.", [
+ "id.algebra.erlaubte_zahlen": ("Die Bedingung für x: Kein Nenner wird 0, unter keiner Quadratwurzel steht etwas Negatives.", [
   (5, None, NOCH_NICHT), (6, None, NOCH_NICHT), (7, None, NOCH_NICHT),
   (8, "E", "terme.bruchterme", "1 : (x − 2): nicht erlaubt ⟦x = 2⟧", lambda: 2 - 2 == 0),
   (9, "A", "zahlen.wurzeln_basis", "√(x − 2): erlaubt nur ⟦x ≥ 2⟧", lambda: all((x - 2 >= 0) == (x >= 2) for x in range(-5, 9))),
@@ -223,7 +223,7 @@ LEITER_I = {
  "id.geometrie.aehnlich": ("Der Faktor, mit dem jede Länge malgenommen wird.", [
   (5, None, NOCH_NICHT), (6, None, NOCH_NICHT), (7, None, NOCH_NICHT), (8, None, NOCH_NICHT),
   (9, "E", "abbildungen.aehnlichkeit", "3, 4, 5 cm ⟦· 2⟧ → 6, 8, 10 cm", lambda: (3 * 2, 4 * 2, 5 * 2) == (6, 8, 10)),
-  (10, "A", "raum.pyramide_kegel_kugel", "Pyramide, obere Hälfte: Kanten ⟦· ½⟧, Volumen · ⅛", lambda: F(1, 2) ** 3 == F(1, 8))]),
+  (10, "A", "raum.pyramide_kegel_kugel", "Pyramide, Spitze bei halber Höhe abgeschnitten: Kanten ⟦· ½⟧, Volumen · ⅛", lambda: F(1, 2) ** 3 == F(1, 8))]),
  "id.geometrie.rechtwinklig": ("Die Quadrate der drei Seiten.", [
   (5, None, NOCH_NICHT), (6, None, NOCH_NICHT), (7, None, NOCH_NICHT), (8, None, NOCH_NICHT),
   (9, "E", "trigo.pythagoras", "Dreieck 3, 4, 5 cm: ⟦3² + 4² = 5²⟧", lambda: 3 ** 2 + 4 ** 2 == 5 ** 2),
@@ -249,9 +249,9 @@ LEITER_I = {
   (9, None, VORBEI),
   (10, "E", "raum.pyramide_kegel_kugel", "Pyramide: ⟦36 · 4⟧ : 3 = 48 cm³", lambda: F(36 * 4, 3) == 48)]),
  "id.flaeche_raum.haut": ("Das Plus: Die Flächen der Haut werden zusammengezählt.", [
-  (5, "E", "messen.koerper_berechnung", "Quader: 40 ⟦+⟧ 30 ⟦+⟧ 24 = 94 cm²", lambda: 2 * 20 + 2 * 15 + 2 * 12 == 40 + 30 + 24 == 94),
+  (5, "E", "messen.koerper_berechnung", "Quader 5 · 4 · 3 cm: 2 · 20 ⟦+⟧ 2 · 15 ⟦+⟧ 2 · 12 = 94 cm²", lambda: 2 * 20 + 2 * 15 + 2 * 12 == 40 + 30 + 24 == 94),
   (6, None, VORBEI), (7, None, VORBEI),
-  (8, "E", "messen.prisma_zylinder", "Prisma: 12 ⟦+⟧ 18 ⟦+⟧ 24 ⟦+⟧ 30 = 84 cm²", lambda: 2 * 6 + 3 * 6 + 4 * 6 + 5 * 6 == 12 + 18 + 24 + 30 == 84),
+  (8, "E", "messen.prisma_zylinder", "Prisma (Dreieck 3 · 4 · 5 cm, Höhe 6 cm): 2 · 6 ⟦+⟧ 18 ⟦+⟧ 24 ⟦+⟧ 30 = 84 cm²", lambda: 2 * 6 + 3 * 6 + 4 * 6 + 5 * 6 == 12 + 18 + 24 + 30 == 84),
   (9, None, VORBEI),
   (10, "E", "raum.pyramide_kegel_kugel", "Pyramide: 36 ⟦+⟧ 60 = 96 cm²", lambda: 36 + 4 * 15 == 36 + 60 == 96)]),
  "id.funktionen.zuordnung": ("Das Paar: zu diesem x genau dieses y.", [
@@ -262,7 +262,7 @@ LEITER_I = {
   (9, "A", "funktionen.quadratisch", "y = x²: zu ⟦x = 3⟧ gehört ⟦y = 9⟧", lambda: 3 ** 2 == 9),
   (10, "A", "funktionen.exponential_log", "y = 2ˣ: zu ⟦x = 3⟧ gehört ⟦y = 8⟧", lambda: 2 ** 3 == 8)]),
  "id.funktionen.wachstum": ("Der Schritt von einem Wert zum nächsten.", [
-  (5, "V", "groessen.proportional", "Preis je kg: 2,50; 5; 7,50 – immer ⟦+ 2,50⟧", lambda: [F(5, 2) * k for k in (1, 2, 3)] == [F(5, 2), 5, F(15, 2)]),
+  (5, "V", "groessen.proportional", "Preis für 1, 2, 3 kg: 2,50 €; 5 €; 7,50 € – immer ⟦+ 2,50 €⟧", lambda: [F(5, 2) * k for k in (1, 2, 3)] == [F(5, 2), 5, F(15, 2)]),
   (6, None, VORBEI), (7, None, VORBEI),
   (8, "E", "funktionen.linear", "y = 1 + 2x: 1; 3; 5; 7 – immer ⟦+ 2⟧", lambda: [1 + 2 * x for x in range(4)] == [1, 3, 5, 7]),
   (9, None, VORBEI + " (quadratisch wächst weder in gleichen Schritten noch mit gleichem Faktor)"),

@@ -1,5 +1,5 @@
 {
- "hinweis": "Lehrplan-Bezug je Rechenregel, nur aus Quellen im Repo. Im Repo liegen keine Lehrplan-Dateien; Quellen sind inhalte/themenliste.json (Klasse und Lernbereich je Thema und Schulart, Stichworte aus dem Lehrplan) und inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt (Kopie der Lehrplan-Daten der App) mit der Auswertung lehrplan-pruefung.md. Wo nichts vorliegt, steht „nicht geprüft“.",
+ "hinweis": "REDAKTIONELLE EINORDNUNG, nicht gegen den Fachlehrplan geprüft (Fundstelle nicht hinterlegt). Lehrplan-Bezug je Rechenregel, nur aus Quellen im Repo. Im Repo liegen keine Lehrplan-Dateien; Quellen sind inhalte/themenliste.json (Klasse und Lernbereich je Thema und Schulart, Stichworte aus dem Lehrplan) und inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt (Kopie der Lehrplan-Daten der App) mit der Auswertung lehrplan-pruefung.md. Wo nichts vorliegt, steht „nicht geprüft“.",
  "stand": "2026-11-27",
  "quellen": [
   "inhalte/themenliste.json",
@@ -57,7 +57,7 @@
      "lernbereich_gymnasium": "M8 4 Bruchterme und Bruchgleichungen"
     }
    ],
-   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "befund": "Redaktionelle Einordnung, nicht „gegen den Lehrplan geprüft“: Die Fundstelle im Fachlehrplan ist nicht hinterlegt. Belegt ist nur, dass das Thema der Einführung in themenliste.json und in der Lehrplan-Kopie der App steht; der Lehrplan nennt Themen, keine Rechenregeln.",
    "nicht_geprueft": [
     "LehrplanPLUS an der Quelle",
     "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
@@ -126,7 +126,7 @@
      "lernbereich_gymnasium": "M10 4 Ganzrationale Funktionen"
     }
    ],
-   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "befund": "Redaktionelle Einordnung, nicht „gegen den Lehrplan geprüft“: Die Fundstelle im Fachlehrplan ist nicht hinterlegt. Belegt ist nur, dass das Thema der Einführung in themenliste.json und in der Lehrplan-Kopie der App steht; der Lehrplan nennt Themen, keine Rechenregeln.",
    "nicht_geprueft": [
     "LehrplanPLUS an der Quelle",
     "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
@@ -195,7 +195,7 @@
      "lernbereich_gymnasium": "M10 4 Ganzrationale Funktionen"
     }
    ],
-   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "befund": "Redaktionelle Einordnung, nicht „gegen den Lehrplan geprüft“: Die Fundstelle im Fachlehrplan ist nicht hinterlegt. Belegt ist nur, dass das Thema der Einführung in themenliste.json und in der Lehrplan-Kopie der App steht; der Lehrplan nennt Themen, keine Rechenregeln.",
    "nicht_geprueft": [
     "LehrplanPLUS an der Quelle",
     "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
@@ -264,7 +264,7 @@
      "lernbereich_gymnasium": "M10 1 Exponentielles Wachstum und Logarithmus"
     }
    ],
-   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "befund": "Redaktionelle Einordnung, nicht „gegen den Lehrplan geprüft“: Die Fundstelle im Fachlehrplan ist nicht hinterlegt. Belegt ist nur, dass das Thema der Einführung in themenliste.json und in der Lehrplan-Kopie der App steht; der Lehrplan nennt Themen, keine Rechenregeln.",
    "nicht_geprueft": [
     "LehrplanPLUS an der Quelle",
     "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
@@ -333,7 +333,7 @@
      "lernbereich_gymnasium": "M10 4 Ganzrationale Funktionen"
     }
    ],
-   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "befund": "Redaktionelle Einordnung, nicht „gegen den Lehrplan geprüft“: Die Fundstelle im Fachlehrplan ist nicht hinterlegt. Belegt ist nur, dass das Thema der Einführung in themenliste.json und in der Lehrplan-Kopie der App steht; der Lehrplan nennt Themen, keine Rechenregeln.",
    "nicht_geprueft": [
     "LehrplanPLUS an der Quelle",
     "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
@@ -402,7 +402,7 @@
      "lernbereich_gymnasium": "M10 4 Ganzrationale Funktionen"
     }
    ],
-   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "befund": "Redaktionelle Einordnung, nicht „gegen den Lehrplan geprüft“: Die Fundstelle im Fachlehrplan ist nicht hinterlegt. Belegt ist nur, dass das Thema der Einführung in themenliste.json und in der Lehrplan-Kopie der App steht; der Lehrplan nennt Themen, keine Rechenregeln.",
    "nicht_geprueft": [
     "LehrplanPLUS an der Quelle",
     "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
@@ -469,7 +469,7 @@
      "lernbereich_gymnasium": "M10 4 Ganzrationale Funktionen"
     }
    ],
-   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "befund": "Redaktionelle Einordnung, nicht „gegen den Lehrplan geprüft“: Die Fundstelle im Fachlehrplan ist nicht hinterlegt. Belegt ist nur, dass das Thema der Einführung in themenliste.json und in der Lehrplan-Kopie der App steht; der Lehrplan nennt Themen, keine Rechenregeln.",
    "nicht_geprueft": [
     "LehrplanPLUS an der Quelle",
     "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt",
@@ -538,7 +538,7 @@
      "lernbereich_gymnasium": "M10 1 Exponentielles Wachstum und Logarithmus"
     }
    ],
-   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "befund": "Redaktionelle Einordnung, nicht „gegen den Lehrplan geprüft“: Die Fundstelle im Fachlehrplan ist nicht hinterlegt. Belegt ist nur, dass das Thema der Einführung in themenliste.json und in der Lehrplan-Kopie der App steht; der Lehrplan nennt Themen, keine Rechenregeln.",
    "nicht_geprueft": [
     "LehrplanPLUS an der Quelle",
     "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
@@ -601,7 +601,7 @@
      "lernbereich_gymnasium": "M10 2 Zusammengesetzte Zufallsexperimente und stochastische Simulationen"
     }
    ],
-   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "befund": "Redaktionelle Einordnung, nicht „gegen den Lehrplan geprüft“: Die Fundstelle im Fachlehrplan ist nicht hinterlegt. Belegt ist nur, dass das Thema der Einführung in themenliste.json und in der Lehrplan-Kopie der App steht; der Lehrplan nennt Themen, keine Rechenregeln.",
    "nicht_geprueft": [
     "LehrplanPLUS an der Quelle",
     "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
@@ -664,7 +664,7 @@
      "lernbereich_gymnasium": "M10 2 Zusammengesetzte Zufallsexperimente und stochastische Simulationen"
     }
    ],
-   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "befund": "Redaktionelle Einordnung, nicht „gegen den Lehrplan geprüft“: Die Fundstelle im Fachlehrplan ist nicht hinterlegt. Belegt ist nur, dass das Thema der Einführung in themenliste.json und in der Lehrplan-Kopie der App steht; der Lehrplan nennt Themen, keine Rechenregeln.",
    "nicht_geprueft": [
     "LehrplanPLUS an der Quelle",
     "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
@@ -731,7 +731,7 @@
      "lernbereich_gymnasium": "M10 3 Sinus- und Kosinusfunktion"
     }
    ],
-   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "befund": "Redaktionelle Einordnung, nicht „gegen den Lehrplan geprüft“: Die Fundstelle im Fachlehrplan ist nicht hinterlegt. Belegt ist nur, dass das Thema der Einführung in themenliste.json und in der Lehrplan-Kopie der App steht; der Lehrplan nennt Themen, keine Rechenregeln.",
    "nicht_geprueft": [
     "LehrplanPLUS an der Quelle",
     "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
@@ -799,7 +799,7 @@
      "lernbereich_gymnasium": "M10 1 Exponentielles Wachstum und Logarithmus"
     }
    ],
-   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "befund": "Redaktionelle Einordnung, nicht „gegen den Lehrplan geprüft“: Die Fundstelle im Fachlehrplan ist nicht hinterlegt. Belegt ist nur, dass das Thema der Einführung in themenliste.json und in der Lehrplan-Kopie der App steht; der Lehrplan nennt Themen, keine Rechenregeln.",
    "nicht_geprueft": [
     "LehrplanPLUS an der Quelle",
     "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
@@ -860,7 +860,7 @@
      "lernbereich_gymnasium": "M10 1 Exponentielles Wachstum und Logarithmus"
     }
    ],
-   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "befund": "Redaktionelle Einordnung, nicht „gegen den Lehrplan geprüft“: Die Fundstelle im Fachlehrplan ist nicht hinterlegt. Belegt ist nur, dass das Thema der Einführung in themenliste.json und in der Lehrplan-Kopie der App steht; der Lehrplan nennt Themen, keine Rechenregeln.",
    "nicht_geprueft": [
     "LehrplanPLUS an der Quelle",
     "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
@@ -916,7 +916,7 @@
      "lernbereich_gymnasium": "M10 4 Ganzrationale Funktionen"
     }
    ],
-   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "befund": "Redaktionelle Einordnung, nicht „gegen den Lehrplan geprüft“: Die Fundstelle im Fachlehrplan ist nicht hinterlegt. Belegt ist nur, dass das Thema der Einführung in themenliste.json und in der Lehrplan-Kopie der App steht; der Lehrplan nennt Themen, keine Rechenregeln.",
    "nicht_geprueft": [
     "LehrplanPLUS an der Quelle",
     "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt",

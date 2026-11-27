@@ -102,17 +102,17 @@
     },
     {
      "luecke": 3,
-     "antwort": 50,
+     "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 10 statt 100 geteilt"
+     "beschreibung": "wie bei Längen mit 10 gerechnet"
     },
     {
-     "luecke": 3,
-     "antwort": 50000,
+     "luecke": 4,
+     "antwort": 3000,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 100 malgenommen"
+     "beschreibung": "bei der zweiten Umrechnung mit 10 statt 100"
     }
    ],
    "aufgabe": {
@@ -123,24 +123,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "1 m² = ① dm², also 3 m² = 3 · ① = ② dm². Und 500 mm² = ③ cm².",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "1 m² = ① dm², also 3 m² = 3 · ① = ② dm². Ebenso gilt 1 dm² = ③ cm². Also sind 3 m² gleich ② · ③ = ④ cm².",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       100,
       300,
-      5
+      100,
+      30000
      ]
     },
     "c": [
      "10*10",
      "3*10*10",
-     "500//100"
+     "10*10",
+     "3*10*10*10*10"
     ],
     "h": "Bei Längen ist die Umrechnungszahl 10. Bei Flächen kommt sie zweimal vor.",
-    "w": "1 m² = 100 dm², 3 m² = 300 dm². 500 mm² = 5 cm²."
+    "w": "1 m² = 100 dm², 3 m² = 300 dm². 1 dm² = 100 cm². 300 · 100 = 30 000 cm²."
    }
   },
   {

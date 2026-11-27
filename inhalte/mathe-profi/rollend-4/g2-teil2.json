@@ -32,7 +32,7 @@
      "antwort": "Anzahl der Arbeiter → Zeit für den Bau",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mehr Arbeiter brauchen weniger Zeit, das ist antiproportional"
+     "beschreibung": "mehr Arbeiter brauchen (bei gleicher Leistung und teilbarer Arbeit) weniger Zeit: antiproportional, nicht proportional"
     },
     {
      "index": 3,
@@ -62,7 +62,7 @@
      "index": 0
     },
     "h": "Bei einer proportionalen Zuordnung ergibt das Doppelte links das Doppelte rechts.",
-    "w": "Bei 2 € pro Heft kosten doppelt so viele Hefte doppelt so viel, die Zuordnung Anzahl → Preis ist proportional. Größe wächst nicht gleichmäßig mit dem Alter, mehr Arbeiter brauchen weniger Zeit (das ist antiproportional), und die Fläche eines Quadrats wächst mit dem Quadrat der Seite."
+    "w": "Bei 2 € pro Heft kosten doppelt so viele Hefte doppelt so viel, die Zuordnung Anzahl → Preis ist proportional. Größe wächst nicht gleichmäßig mit dem Alter. Mehr Arbeiter brauchen weniger Zeit; wenn jeder gleich schnell arbeitet und sich die Arbeit beliebig teilen lässt, ist das antiproportional, nicht proportional. Die Fläche eines Quadrats wächst mit dem Quadrat der Seite."
    }
   }
  ]

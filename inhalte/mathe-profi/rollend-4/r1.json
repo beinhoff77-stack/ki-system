@@ -86,7 +86,7 @@
      "antwort": 24,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die beiden Flächen nicht richtig addiert"
+     "beschreibung": "2 · 3 statt 2 · 4 gerechnet"
     }
    ],
    "aufgabe": {
@@ -246,7 +246,7 @@
      "antwort": 4025,
      "fehlbild": "fb.stellenwert.eine_stelle_daneben",
      "regel_des_fehlbilds": "rr.stellenwert",
-     "beschreibung": "die 25 mit einer Null zu viel angehängt"
+     "beschreibung": "4 m² als 4 000 dm² gerechnet"
     }
    ],
    "aufgabe": {

@@ -50,7 +50,7 @@
      "10 * 100",
      "10 * 100 // 1000"
     ],
-    "h": "10 mal 100, dann in kg umrechnen.",
+    "h": "Erst das Gesamtgewicht in g, dann in kg umrechnen.",
     "w": "10 · 100 g = 1 000 g = 1 kg."
    }
   },
@@ -91,7 +91,7 @@
      "antwort": 685,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Ziffern vertauscht"
+     "beschreibung": "eine Stelle zu wenig genommen: 6 850 g als 685 g"
     }
    ],
    "aufgabe": {
@@ -151,10 +151,17 @@
     },
     {
      "luecke": 3,
-     "antwort": 739,
+     "antwort": 74,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "falsch zusammengezählt"
+     "beschreibung": "die Null in der Zehnerstelle weggelassen"
+    },
+    {
+     "luecke": 4,
+     "antwort": 309,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 74 cm statt 704 cm zusammengezählt"
     }
    ],
    "aufgabe": {
@@ -165,21 +172,23 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Hinter dem Komma bekommt jede kleinere Einheit ihre Stellen. 2,35 m sind 2 m 35 cm. Das sind insgesamt ① cm. 7,04 m sind 7 m ② cm. Beide Längen zusammen sind ① cm + 704 cm = ③ cm.",
-     "schablone": "① = □; ② = □; ③ = □",
-     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+     "text": "Hinter dem Komma bekommt jede kleinere Einheit ihre Stellen. 2,35 m sind 2 m 35 cm. Das sind insgesamt ① cm. 7,04 m sind 7 m und ② cm, also insgesamt ③ cm. Beide Längen zusammen sind ① cm + ③ cm = ④ cm.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       235,
       4,
+      704,
       939
      ]
     },
     "c": [
      "2*100+35",
      "704-700",
-     "2*100+35+704"
+     "7*100+(704-700)",
+     "2*100+35+7*100+4"
     ],
     "h": "Bei m und cm sind es zwei Stellen hinter dem Komma.",
     "w": "2,35 m = 235 cm. 7,04 m = 7 m 4 cm = 704 cm. Zusammen 235 + 704 = 939 cm."
@@ -196,6 +205,13 @@
    "regel_name": "Größe",
    "zaehlt": "nein",
    "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 23,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 + 20 gerechnet"
+    },
     {
      "luecke": 2,
      "antwort": 328,
@@ -818,21 +834,21 @@
      "antwort": "18 mm",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "18 mm sind nur etwa so lang wie ein Fingernagel"
+     "beschreibung": "18 mm wären kürzer als ein Streichholz"
     },
     {
      "index": 2,
      "antwort": "18 dm",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "18 dm sind fast 2 Meter"
+     "beschreibung": "18 dm sind 180 cm, so groß wie ein Erwachsener"
     },
     {
      "index": 3,
      "antwort": "18 m",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "18 m ist so lang wie ein Klassenzimmer"
+     "beschreibung": "18 m sind etwa vier Autos hintereinander"
     }
    ],
    "aufgabe": {
@@ -854,8 +870,8 @@
     "o": {
      "index": 1
     },
-    "h": "Stelle dir den Bleistift in deiner Hand vor.",
-    "w": "Ein Bleistift ist ungefähr so lang wie eine Handspanne, also 18 cm. 18 mm wären kürzer als ein Fingernagel, 18 dm fast zwei Meter, 18 m so lang wie ein Klassenzimmer."
+    "h": "Vergleiche mit einem Schullineal von 30 cm Länge.",
+    "w": "Ein Bleistift ist kürzer als ein Schullineal (30 cm) und länger als ein Streichholz (etwa 5 cm): 18 cm. 18 mm wären kürzer als ein Streichholz, 18 dm sind 180 cm, so groß wie ein Erwachsener, und 18 m sind etwa vier Autos hintereinander."
    }
   },
   {

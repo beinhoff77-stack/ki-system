@@ -1,0 +1,884 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-6",
+ "kuerzel": "K6",
+ "flug": "k6-messen.koerper_berechnung",
+ "titel": "messen.koerper_berechnung",
+ "fuer": "Klasse 6",
+ "klasse": 6,
+ "themen": [
+  "messen.koerper_berechnung"
+ ],
+ "themen_datei_im_bestand": "messen.koerper_berechnung",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema, lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder (mit Rechnung c, wo es eine gibt) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K6-V184",
+   "thema": "messen.koerper_berechnung",
+   "lernkarte": "quader",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt malgenommen",
+     "c": "15 + 4"
+    },
+    {
+     "luecke": 2,
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Maße addiert",
+     "c": "15 + 4 + 6"
+    },
+    {
+     "luecke": 3,
+     "antwort": 364,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Breite addiert statt verdoppelt",
+     "c": "(360) + 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "quader",
+    "t": "quader",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Quader ist 15 cm lang, 4 cm breit und 6 cm hoch. Seine Grundfläche ist ① cm². Sein Volumen ist ② cm³. Wird die Breite verdoppelt, ist das Volumen ③ cm³.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      60,
+      360,
+      720
+     ]
+    },
+    "c": [
+     "15 * 4",
+     "(60) * 6",
+     "(360) * 2"
+    ],
+    "h": "Volumen = Grundfläche mal Höhe.",
+    "w": "Grundfläche: 15 · 4 = 60 cm². Volumen: 60 · 6 = 360 cm³. Bei doppelter Breite verdoppelt sich das Volumen: 720 cm³."
+   }
+  },
+  {
+   "kennung": "K6-V185",
+   "thema": "messen.koerper_berechnung",
+   "lernkarte": "quader",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 108,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Oberfläche statt des Volumens berechnet",
+     "c": "2 * (6 * 4 + 6 * 3 + 4 * 3)"
+    },
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Kanten addiert",
+     "c": "6 + 4 + 3"
+    },
+    {
+     "antwort": 54,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Summe der drei verschiedenen Rechtecke",
+     "c": "6 * 4 + 6 * 3 + 4 * 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "quader",
+    "t": "quader",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Das Netz eines Quaders besteht aus sechs Rechtecken: zwei Rechtecke mit 6 cm mal 4 cm, zwei mit 6 cm mal 3 cm und zwei mit 4 cm mal 3 cm. Wie groß ist das Volumen des Quaders in cm³?"
+    },
+    "o": {
+     "wert": 72,
+     "einheit": "cm³"
+    },
+    "c": "6 * 4 * 3",
+    "h": "Aus den Rechtecken kannst du die drei Kantenlängen des Quaders ablesen.",
+    "w": "Die Kanten sind 6 cm, 4 cm und 3 cm lang. V = 6 · 4 · 3 = 72 cm³."
+   }
+  },
+  {
+   "kennung": "K6-V186",
+   "thema": "messen.koerper_berechnung",
+   "lernkarte": "quader",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Höhe eines Quaders angegeben",
+     "c": "200 / 25"
+    },
+    {
+     "antwort": 80,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch die Seitenlänge 5 statt durch die Grundfläche geteilt, dann verdoppelt",
+     "c": "2 * 200 / 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "quader",
+    "t": "quader",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader mit quadratischer Grundfläche (Seitenlänge 5 cm) hat das Volumen 200 cm³. Zwei solche Quader werden aufeinandergestellt. Wie hoch ist der Turm in Zentimetern?"
+    },
+    "o": {
+     "wert": 16,
+     "einheit": "cm"
+    },
+    "c": "2 * 200 / (5 * 5)",
+    "h": "Berechne zuerst die Höhe eines Quaders.",
+    "w": "Ein Quader: 5 · 5 · h = 200, also h = 200 : 25 = 8 cm. Zwei Quader: 2 · 8 cm = 16 cm."
+   }
+  },
+  {
+   "kennung": "K6-V187",
+   "thema": "messen.koerper_berechnung",
+   "lernkarte": "oberflaeche",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Fläche gerechnet",
+     "c": "10 * 6"
+    },
+    {
+     "luecke": 2,
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Fläche gerechnet",
+     "c": "10 * 4"
+    },
+    {
+     "luecke": 3,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Fläche gerechnet",
+     "c": "6 * 4"
+    },
+    {
+     "luecke": 4,
+     "antwort": 124,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "jede Fläche nur einmal gezählt",
+     "c": "10 * 6 + 10 * 4 + 6 * 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "oberflaeche",
+    "t": "oberflaeche",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Quader ist 10 cm lang, 6 cm breit und 4 cm hoch. Boden und Deckel zusammen haben ① cm². Vorder- und Rückseite zusammen haben ② cm². Die beiden Seitenflächen zusammen haben ③ cm². Die Oberfläche ist ④ cm².",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      120,
+      80,
+      48,
+      248
+     ]
+    },
+    "c": [
+     "2 * 10 * 6",
+     "2 * 10 * 4",
+     "2 * 6 * 4",
+     "(120) + (80) + (48)"
+    ],
+    "h": "Jede Fläche kommt zweimal vor.",
+    "w": "Boden und Deckel: 2 · 10 · 6 = 120 cm². Vorn und hinten: 2 · 10 · 4 = 80 cm². Seiten: 2 · 6 · 4 = 48 cm². Zusammen 248 cm²."
+   }
+  },
+  {
+   "kennung": "K6-V188",
+   "thema": "messen.koerper_berechnung",
+   "lernkarte": "oberflaeche",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3.12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Deckel mitgerechnet",
+     "c": "(2 * 40 * 30 + 2 * 40 * 20 + 2 * 30 * 20) / 10000 * 6"
+    },
+    {
+     "antwort": 0.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Fläche in m² angegeben",
+     "c": "4000 / 10000"
+    }
+   ],
+   "aufgabe": {
+    "l": "oberflaeche",
+    "t": "oberflaeche",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein offener Karton (ohne Deckel) ist 40 cm lang, 30 cm breit und 20 cm hoch. Ein Quadratmeter Pappe kostet 6 €. Wie viel Euro kostet die Pappe für einen Karton?"
+    },
+    "o": {
+     "wert": 2.4,
+     "einheit": "€"
+    },
+    "c": "(40 * 30 + 2 * 40 * 20 + 2 * 30 * 20) / 10000 * 6",
+    "h": "Rechne die Fläche zuerst in Quadratzentimetern und dann in Quadratmetern. 1 m² = 10 000 cm².",
+    "w": "Boden: 40 · 30 = 1200 cm². Vier Wände: 2 · 40 · 20 + 2 · 30 · 20 = 2800 cm². Zusammen 4000 cm² = 0,4 m². 0,4 · 6 € = 2,40 €."
+   }
+  },
+  {
+   "kennung": "K6-V189",
+   "thema": "messen.koerper_berechnung",
+   "lernkarte": "oberflaeche",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Fläche einer Seite angegeben",
+     "c": "150 / 6"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 5 statt durch 6 geteilt",
+     "c": "150 / 5"
+    },
+    {
+     "antwort": 75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "150 durch 2 geteilt",
+     "c": "150 / 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "oberflaeche",
+    "t": "oberflaeche",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Würfel hat die Oberfläche 150 cm². Wie lang ist eine Kante in Zentimetern?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "cm"
+    },
+    "c": "150 / 6 / 5",
+    "h": "Wie groß ist eine einzelne Seitenfläche? Welche Zahl mal sich selbst ergibt diese Fläche?",
+    "w": "Ein Würfel hat 6 gleiche Flächen. 150 : 6 = 25 cm². Eine Fläche ist a · a = 25, also a = 5 cm. Probe: 6 · 25 = 150."
+   }
+  },
+  {
+   "kennung": "K6-V190",
+   "thema": "messen.koerper_berechnung",
+   "lernkarte": "sachaufgaben",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 22.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur zwei Wände gerechnet",
+     "c": "(5 + 4) * 2.5"
+    },
+    {
+     "luecke": 2,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 + 4 gerechnet",
+     "c": "5 + 4"
+    },
+    {
+     "luecke": 3,
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "abgezogen statt addiert",
+     "c": "(45) - (20)"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgaben",
+    "t": "sachaufgaben",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Zimmer ist 5 m lang, 4 m breit und 2,5 m hoch. Die vier Wände und die Decke werden gestrichen, der Boden nicht. Die vier Wände haben zusammen ① m². Die Decke hat ② m². Zusammen sind das ③ m².",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      45,
+      20,
+      65
+     ]
+    },
+    "c": [
+     "2 * (5 + 4) * 2.5",
+     "5 * 4",
+     "(45) + (20)"
+    ],
+    "h": "Die Wände bilden zusammen einen Streifen: Umfang des Bodens mal Höhe.",
+    "w": "Wände: Umfang 2 · (5 + 4) = 18 m, mal 2,5 m = 45 m². Decke: 5 · 4 = 20 m². Zusammen 65 m²."
+   }
+  },
+  {
+   "kennung": "K6-V191",
+   "thema": "messen.koerper_berechnung",
+   "lernkarte": "sachaufgaben",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 350,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "jede Fläche nur einmal gezählt",
+     "c": "20 * 10 + 20 * 5 + 10 * 5"
+    },
+    {
+     "antwort": 1000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen statt der Oberfläche berechnet",
+     "c": "20 * 10 * 5"
+    },
+    {
+     "antwort": 500,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Deckel vergessen",
+     "c": "2 * (20 + 10) * 5 + 20 * 10"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgaben",
+    "t": "sachaufgaben",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Schachtel ist 20 cm lang, 10 cm breit und 5 cm hoch. Weg A: Berechne die sechs Seitenflächen einzeln. Weg B: Berechne den Mantel (Umfang des Bodens mal Höhe) und addiere Boden und Deckel. Wie viel Quadratzentimeter Pappe braucht man für die ganze Schachtel?"
+    },
+    "o": {
+     "wert": 700,
+     "einheit": "cm²"
+    },
+    "c": "2 * (20 * 10 + 20 * 5 + 10 * 5)",
+    "h": "Beide Wege müssen dieselbe Fläche ergeben.",
+    "w": "Weg A: 2 · (200 + 100 + 50) = 700 cm². Weg B: Mantel: 2 · (20 + 10) · 5 = 300 cm². Boden und Deckel: 2 · 200 = 400 cm². 300 + 400 = 700 cm²."
+   }
+  },
+  {
+   "kennung": "K6-V192",
+   "thema": "messen.koerper_berechnung",
+   "lernkarte": "sachaufgaben",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 13.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Deckel mitgerechnet",
+     "c": "(2 * 100 * 40 + 2 * 100 * 50 + 2 * 40 * 50) / 10000 * 6"
+    },
+    {
+     "antwort": 18000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in cm² angegeben statt den Preis berechnet",
+     "c": "100 * 40 + 2 * 100 * 50 + 2 * 40 * 50"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgaben",
+    "t": "sachaufgaben",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Aquarium ohne Deckel ist 100 cm lang, 40 cm breit und 50 cm hoch. Es wird aus Glas gebaut. Ein Quadratmeter Glas kostet 6 €. Wie viel Euro kostet das Glas?"
+    },
+    "o": {
+     "wert": 10.8,
+     "einheit": "€"
+    },
+    "c": "(100 * 40 + 2 * 100 * 50 + 2 * 40 * 50) / 10000 * 6",
+    "h": "Welche Flächen aus Glas gibt es? Der Deckel gehört nicht dazu.",
+    "w": "Boden: 100 · 40 = 4000 cm². Vorder- und Rückwand: 2 · 100 · 50 = 10 000 cm². Seitenwände: 2 · 40 · 50 = 4000 cm². Zusammen 18 000 cm² = 1,8 m². 1,8 · 6 € = 10,80 €."
+   }
+  },
+  {
+   "kennung": "K6-V193",
+   "thema": "messen.koerper_berechnung",
+   "lernkarte": "zusammengesetzt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Fläche gerechnet",
+     "c": "6 * 4"
+    },
+    {
+     "luecke": 2,
+     "antwort": 96,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Würfel gerechnet",
+     "c": "(96)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine verklebte Fläche abgezogen",
+     "c": "4 * 4"
+    },
+    {
+     "luecke": 4,
+     "antwort": 224,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die verklebten Flächen addiert statt abgezogen",
+     "c": "(192) + (32)"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Zwei Würfel mit je 4 cm Kante werden mit je einer Fläche aneinandergeklebt. Ein einzelner Würfel hat ① cm² Oberfläche. Beide einzeln zusammen haben ② cm². Die aufeinanderliegenden Flächen sind zusammen ③ cm² groß. Die Oberfläche des neuen Körpers ist ④ cm².",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      96,
+      192,
+      32,
+      160
+     ]
+    },
+    "c": [
+     "6 * 4 * 4",
+     "2 * (96)",
+     "2 * 4 * 4",
+     "(192) - (32)"
+    ],
+    "h": "Die verklebten Flächen liegen innen und gehören nicht mehr zur Oberfläche.",
+    "w": "Ein Würfel: 6 · 4 · 4 = 96 cm². Beide: 192 cm². Zwei verklebte Flächen: 2 · 16 = 32 cm². 192 − 32 = 160 cm²."
+   }
+  },
+  {
+   "kennung": "K6-V194",
+   "thema": "messen.koerper_berechnung",
+   "lernkarte": "zusammengesetzt",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 120,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Flächen gezählt, nichts abgezogen",
+     "c": "5 * 6 * 4"
+    },
+    {
+     "antwort": 22,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zahl der Flächen angegeben",
+     "c": "5 * 6 - 2 * 4"
+    },
+    {
+     "antwort": 96,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur drei Klebestellen abgezogen",
+     "c": "(5 * 6 - 2 * 3) * 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Fünf Würfel mit je 2 cm Kante liegen so zusammengeklebt: Vier Würfel bilden eine gerade Reihe, ein fünfter Würfel ist an der Seite des ersten Würfels der Reihe angeklebt. Alles liegt auf einer Ebene. Weg A: Zähle alle Würfelflächen (5 · 6) und ziehe die verdeckten Flächen ab (jede Klebestelle verdeckt 2 Flächen). Weg B: Zähle die sichtbaren Flächen von oben, unten, vorn, hinten, links und rechts. Wie groß ist die Oberfläche in cm²?"
+    },
+    "o": {
+     "wert": 88,
+     "einheit": "cm²"
+    },
+    "c": "(5 * 6 - 2 * 4) * 4",
+    "h": "Eine Würfelfläche hat 4 cm². Beide Wege müssen 22 Flächen ergeben.",
+    "w": "Weg A: 30 Flächen. Es gibt 4 Klebestellen, die 8 Flächen verdecken. 22 Flächen. Weg B: oben 5, unten 5, vorn 4, hinten 4, links 2, rechts 2: ebenfalls 22 Flächen. 22 · 4 cm² = 88 cm²."
+   }
+  },
+  {
+   "kennung": "K6-V195",
+   "thema": "messen.koerper_berechnung",
+   "lernkarte": "zusammengesetzt",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Fläche einer Würfelseite angegeben",
+     "c": "160 / 10"
+    },
+    {
+     "antwort": 13.33,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 12 statt durch 10 Flächen geteilt",
+     "c": "160 / 12"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 8 geteilt",
+     "c": "160 / 8"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei gleiche Würfel werden mit je einer Fläche aufeinandergeklebt. Der entstandene Quader hat die Oberfläche 160 cm². Wie lang ist die Kante eines Würfels in Zentimetern?"
+    },
+    "o": {
+     "wert": 4,
+     "einheit": "cm"
+    },
+    "c": "160 / 10 / 4",
+    "h": "Aus wie vielen Würfelflächen besteht die Oberfläche des Quaders?",
+    "w": "Zwei Würfel haben 12 Flächen, zwei davon sind verdeckt: 10 Flächen bleiben. 160 : 10 = 16 cm² je Fläche. Eine Fläche ist a · a = 16, also a = 4 cm."
+   }
+  },
+  {
+   "kennung": "K6-V196",
+   "thema": "messen.koerper_berechnung",
+   "lernkarte": "verstehen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 · 5 gerechnet",
+     "c": "6 * 5"
+    },
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 addiert statt verdoppelt",
+     "c": "5 + 2"
+    },
+    {
+     "luecke": 3,
+     "antwort": 300,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Oberfläche nur verdoppelt",
+     "c": "(150) * 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Würfel hat die Kantenlänge 5 cm. Seine Oberfläche ist ① cm². Wird jede Kante verdoppelt, ist die neue Kante ② cm lang. Die neue Oberfläche ist dann ③ cm².",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      150,
+      10,
+      600
+     ]
+    },
+    "c": [
+     "6 * 5 * 5",
+     "5 * 2",
+     "6 * (10) * (10)"
+    ],
+    "h": "Ein Würfel hat sechs gleiche Flächen.",
+    "w": "Oberfläche: 6 · 5 · 5 = 150 cm². Neue Kante: 10 cm. Neue Oberfläche: 6 · 10 · 10 = 600 cm². Das ist das Vierfache."
+   }
+  },
+  {
+   "kennung": "K6-V197",
+   "thema": "messen.koerper_berechnung",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Volumen eines Quaders mit den Kanten 5 cm, 4 cm und 3 cm: 94 cm³",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Volumen und Oberfläche verwechselt",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "Summe aller Kanten eines Quaders mit 5 cm, 4 cm und 3 cm: 94 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Kantensumme und Oberfläche verwechselt",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "Oberfläche eines Würfels mit der Kante 5 cm: 94 cm²",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Körper falsch erkannt: ein Würfel hätte 150 cm²",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Aussage passt zur Rechnung 2 · (5 · 4 + 5 · 3 + 4 · 3) = 94? Die Maße sind in cm angegeben."
+    },
+    "a": [
+     "Volumen eines Quaders mit den Kanten 5 cm, 4 cm und 3 cm: 94 cm³",
+     "Summe aller Kanten eines Quaders mit 5 cm, 4 cm und 3 cm: 94 cm",
+     "Oberfläche eines Würfels mit der Kante 5 cm: 94 cm²",
+     "Oberfläche eines Quaders mit den Kanten 5 cm, 4 cm und 3 cm: 94 cm²"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Wie viele Flächen hat ein Quader, und wie viele davon sind gleich groß?",
+    "w": "In der Klammer stehen die drei verschiedenen Flächen 5 · 4, 5 · 3 und 4 · 3. Jede kommt zweimal vor, deshalb der Faktor 2. Das ist die Oberfläche: 2 · 47 = 94 cm²."
+   }
+  },
+  {
+   "kennung": "K6-V198",
+   "thema": "messen.koerper_berechnung",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Mara behauptet: „Haben zwei Quader dasselbe Volumen, dann haben sie auch dieselbe Oberfläche.“ Sie vergleicht Quader A (4 cm · 3 cm · 2 cm) und Quader B (6 cm · 4 cm · 1 cm). Zeile 1: Volumen A: 4 · 3 · 2 = 24 cm³; Volumen B: 6 · 4 · 1 = 24 cm³ Zeile 2: Oberfläche A: 2 · (12 + 8 + 6) = 52 cm² Zeile 3: Oberfläche B: 2 · (24 + 6 + 4) = 68 cm² Zeile 4: Also haben beide Quader dieselbe Oberfläche. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Vergleiche die Oberflächen in Zeile 2 und 3.",
+    "w": "Die Volumen sind gleich (24 cm³), aber die Oberflächen sind 52 cm² und 68 cm². Zeile 4 widerspricht den Zeilen 2 und 3. Die Behauptung ist falsch."
+   }
+  }
+ ]
+}

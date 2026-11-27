@@ -33,7 +33,7 @@ neu(T, "bildgerade", "lueckenweg", L(
      2: [(20, None, "mit der Geraden g statt mit g' gerechnet: 3 · 6 + 2", "3 * 6 + 2")]}), regel=R)
 neu(T, "bildgerade", "zwei_wege", Z(
     "Die Gerade g: y = 2x + 5 wird mit dem Zentrum O(0 | 0) und dem Faktor k = 3 gestreckt. Wie groß ist der y-Achsenabschnitt der Bildgeraden g'? Rechne auf zwei Wegen. Weg A: Strecke den Punkt (0 | 5) von g und lies den y-Achsenabschnitt ab. Weg B: Ein Punkt (x' | y') liegt genau dann auf g', wenn (x' : 3 | y' : 3) auf g liegt. Setze x = x' : 3 und y = y' : 3 in die Gleichung von g ein und löse nach y' auf.",
-    15, "5 * 3", "3 * 5", "Beide Wege müssen dasselbe ergeben. Bei Weg B brauchst du zuerst die beiden Bildpunkte.",
+    15, "5 * 3", "3 * 5", "Was erhältst du, wenn du nach dem Einsetzen beide Seiten der Gleichung mit 3 multiplizierst?",
     "Weg A: (0 | 5) wird zu (0 | 15), der Achsenabschnitt ist 15. Weg B: y' : 3 = 2 · (x' : 3) + 5. Mit 3 malnehmen: y' = 2x' + 15. Der y-Achsenabschnitt ist 15. Beide Wege: 15.",
     [(5, None, "den y-Achsenabschnitt von g übernommen", "5"), (8, "fb.verhaeltnis.addiert_statt_malgenommen", "5 + 3 gerechnet statt 5 · 3", "5 + 3"), (45, None, "den Faktor 3 zweimal angewandt: 5 · 3 · 3", "5 * 3 * 3")]), regel=R)
 neu(T, "bildgerade", "fehler_detektiv", FD(
@@ -51,17 +51,17 @@ neu(T, "schwerpunkt", "lueckenweg", L(
     "① = □; ② = □; ③ = □; ④ = □", [12, 15, 4, 5], ["1 + 8 + 3", "2 + 3 + 10", "{1} / 3", "{2} / 3"], ["12", "15", "12 // 3", "15 // 3"],
     "Der Schwerpunkt eines Dreiecks hat als Koordinaten den Mittelwert der drei x-Koordinaten und den Mittelwert der drei y-Koordinaten.",
     "x: 1 + 8 + 3 = 12. y: 2 + 3 + 10 = 15. S = (12 : 3 | 15 : 3) = (4 | 5).",
-    {2: [(6, None, "durch 2 statt durch 3 geteilt: 12 : 2", "{1} / 2")], 3: [(7.5, None, "durch 2 statt durch 3 geteilt: 15 : 2", "{2} / 2")]}), regel=R)
+    {2: [(6, None, "durch 2 statt durch 3 geteilt: 12 : 2", "{1} / 2")], 3: [(7.5, None, "durch 2 statt durch 3 geteilt: 15 : 2", "{2} / 2")]}), regel=None)
 neu(T, "schwerpunkt", "umkehren", Z(
     "Ein Dreieck ABC hat die Eckpunkte A(0 | 0) und B(12 | 0). Sein Schwerpunkt ist S(8 | 3). Die Einheit im Koordinatensystem ist 1 cm. Wie lang ist die Seite AC in cm?",
     15, "wurzel((3 * 8 - 0 - 12) ** 2 + (3 * 3 - 0 - 0) ** 2)", "sqrt(12 ** 2 + 9 ** 2)", "Zwei Dinge musst du nacheinander bestimmen: zuerst, wo C liegt, dann, wie weit C von A entfernt ist.",
     "Für den Schwerpunkt gilt: x-Koordinate von S = (0 + 12 + x) : 3 = 8, also x = 12. y-Koordinate von S = (0 + 0 + y) : 3 = 3, also y = 9. C(12 | 9). AC² = 12² + 9² = 144 + 81 = 225, AC = 15 cm.",
-    [(5, None, "C als Unterschied von S und B bestimmt, also C(−4 | 3), und davon die Entfernung zu A berechnet", "wurzel((8 - 12) ** 2 + 3 ** 2)"), (21, "fb.rechtwinklig.ohne_quadrate", "die Koordinaten von C addiert statt die Länge AC zu berechnen: 12 + 9", "12 + 9"), (9, None, "nur die y-Koordinate von C als Länge angegeben", "3 * 3")], "cm"), g="rueckwaerts", regel=R)
+    [(5, None, "C als Unterschied von S und B bestimmt, also C(−4 | 3), und davon die Entfernung zu A berechnet", "wurzel((8 - 12) ** 2 + 3 ** 2)"), (21, "fb.rechtwinklig.ohne_quadrate", "die Koordinaten von C addiert statt die Länge AC zu berechnen: 12 + 9", "12 + 9"), (9, None, "nur die y-Koordinate von C als Länge angegeben", "3 * 3")], "cm"), g="rueckwaerts", regel=None)
 neu(T, "schwerpunkt", "anwenden", Z(
     "Eine dünne Platte besteht überall aus demselben Material mit gleicher Dichte und hat überall dieselbe Dicke. Sie hat die Form eines Dreiecks ABC mit A(0 | 0), B(12 | 0) und C(3 | 9). Die Maße sind in cm. Die Platte soll waagerecht auf einer Spitze balancieren. Wie weit ist der Auflagepunkt von der Seite AB entfernt? Gib den Abstand in cm an.",
     3, "(0 + 0 + 9) / 3", "9 / 3", "Der Auflagepunkt ist der Schwerpunkt des Dreiecks. Gefragt ist nur sein Abstand von der Seite AB, also die y-Koordinate.",
     "S = ((0 + 12 + 3) : 3 | (0 + 0 + 9) : 3) = (5 | 3). Die Seite AB liegt auf der x-Achse, der Abstand ist die y-Koordinate 3 cm.",
-    [(4.5, None, "die halbe Höhe genommen: 9 : 2", "9 / 2"), (6, None, "zwei Drittel der Höhe genommen: 2 · 9 : 3", "2 * 9 / 3"), (9, None, "die Höhe von C angegeben", "9")], "cm"), g="einkleidung", regel=R)
+    [(4.5, None, "die halbe Höhe genommen: 9 : 2", "9 / 2"), (6, None, "zwei Drittel der Höhe genommen: 2 · 9 : 3", "2 * 9 / 3"), (9, None, "die Höhe von C angegeben", "9")], "cm"), g="einkleidung", regel=None)
 
 # ───────── aehnlich ─────────
 neu(T, "aehnlich", "lueckenweg", L(
@@ -140,7 +140,7 @@ neu(T, "flaeche_volumen", "zwei_wege", Z(
     [(30, "fb.aehnlich.flaeche_mit_k", "die Fläche nur mit k vervielfacht: 12 · 2,5", "12 * 2.5"), (18, None, "den Unterschied der Grundseiten addiert: 12 + 6", "12 + (10 - 4)")], "cm²"), regel=R)
 neu(T, "flaeche_volumen", "anwenden", Z(
     "Ein Modellboot ist eine genaue Verkleinerung eines echten Boots aus demselben Rumpfform-Entwurf. Das Modell ist 0,6 m lang, sein Rumpf fasst 4 Liter. Der Rumpf des echten Boots fasst 4 000 Liter. Wie lang ist das echte Boot in Metern?",
-    6, "0.6 * 10", "0.6 * (4000 / 4) ** (1 / 3)", "Fasse zuerst zusammen, wie oft das Fassungsvermögen des echten Boots in das des Modells passt. Überlege dann, was das für die Längen heißt.",
+    6, "0.6 * 10", "0.6 * (4000 / 4) ** (1 / 3)", "Wie oft passt das Fassungsvermögen des Modells in das des echten Boots? Was sagt dieser Faktor über die Längen aus?",
     "Das Fassungsvermögen ist 4 000 : 4 = 1 000-mal so groß. Rauminhalte wachsen mit dem Faktor k³, also ist k³ = 1 000 und k = 10, denn 10 · 10 · 10 = 1 000. Länge des echten Boots: 0,6 · 10 = 6 m.",
     [(600, None, "den Rauminhaltsfaktor 1 000 als Längenfaktor genommen: 0,6 · 1 000", "0.6 * 1000"), (19, None, "mit der Quadratwurzel aus 1 000 statt mit der dritten Wurzel gerechnet (gerundet)", "round(0.6 * sqrt(1000), 0)"), (60, None, "den Flächenfaktor 100 als Längenfaktor genommen: 0,6 · 100", "0.6 * 100")], "m"), g="transfer", regel=R)
 

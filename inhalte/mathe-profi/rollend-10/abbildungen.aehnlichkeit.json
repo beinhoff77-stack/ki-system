@@ -293,7 +293,7 @@
      "wert": 15
     },
     "c": "5 * 3",
-    "h": "Beide Wege müssen dasselbe ergeben. Bei Weg B brauchst du zuerst die beiden Bildpunkte.",
+    "h": "Was erhältst du, wenn du nach dem Einsetzen beide Seiten der Gleichung mit 3 multiplizierst?",
     "w": "Weg A: (0 | 5) wird zu (0 | 15), der Achsenabschnitt ist 15. Weg B: y' : 3 = 2 · (x' : 3) + 5. Mit 3 malnehmen: y' = 2x' + 15. Der y-Achsenabschnitt ist 15. Beide Wege: 15."
    }
   },
@@ -354,8 +354,8 @@
    "typ": "Lückenweg",
    "form": "lueckenweg",
    "antwortform": "luecken",
-   "regel": "id.geometrie.aehnlich",
-   "regel_name": "Ähnlich",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "nein",
    "fehlbilder": [
     {
@@ -411,8 +411,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.geometrie.aehnlich",
-   "regel_name": "Ähnlich",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -461,8 +461,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.geometrie.aehnlich",
-   "regel_name": "Ähnlich",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1180,7 +1180,7 @@
      "einheit": "m"
     },
     "c": "0.6 * 10",
-    "h": "Fasse zuerst zusammen, wie oft das Fassungsvermögen des echten Boots in das des Modells passt. Überlege dann, was das für die Längen heißt.",
+    "h": "Wie oft passt das Fassungsvermögen des Modells in das des echten Boots? Was sagt dieser Faktor über die Längen aus?",
     "w": "Das Fassungsvermögen ist 4 000 : 4 = 1 000-mal so groß. Rauminhalte wachsen mit dem Faktor k³, also ist k³ = 1 000 und k = 10, denn 10 · 10 · 10 = 1 000. Länge des echten Boots: 0,6 · 10 = 6 m."
    }
   },

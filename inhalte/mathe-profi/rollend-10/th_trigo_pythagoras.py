@@ -102,7 +102,7 @@ neu(T, "raum", "umkehren", Z(
     "Ein Quader hat eine quadratische Grundfläche mit der Seitenlänge 4 cm. Seine Raumdiagonale ist 9 cm lang. Wie hoch ist der Quader?",
     7, "wurzel(9 ** 2 - 4 ** 2 - 4 ** 2)", "sqrt(81 - 16 - 16)", "Skizziere den Quader mit der Raumdiagonale. Suche rechtwinklige Dreiecke, in denen die Diagonale vorkommt.",
     "d² = 4² + 4² + h². 81 = 16 + 16 + h², also h² = 49 und h = 7 cm. Probe: 16 + 16 + 49 = 81 = 9².",
-    [(49, None, "das Quadrat der Höhe als Höhe angegeben", "9 ** 2 - 4 ** 2 - 4 ** 2"), (5, None, "9 − 4 gerechnet", "9 - 4"), (8, None, "nur eine Grundkante abgezogen und gerundet", "round(sqrt(9 ** 2 - 4 ** 2), 0)")], "cm"), g="rueckwaerts", regel=R)
+    [(49, None, "das Quadrat der Höhe als Höhe angegeben", "9 ** 2 - 4 ** 2 - 4 ** 2"), (5, None, "9 − 4 gerechnet", "9 - 4"), (8, None, "Du hast nur eine der beiden Grundrichtungen berücksichtigt: √(9² − 4²) = √65 ≈ 8,1. Für die Höhe musst du beide Grundkantenquadrate abziehen.", "round(sqrt(9 ** 2 - 4 ** 2), 0)")], "cm"), g="rueckwaerts", regel=R)
 wert_ka, c_ka = rd("sqrt(60 ** 2 + 40 ** 2 + 30 ** 2)", 0)
 neu(T, "raum", "anwenden", Z(
     "Ein quaderförmiger Karton ist innen 60 cm lang, 40 cm breit und 30 cm hoch. Man will einen möglichst langen, geraden, dünnen Stab hineinlegen. Wie lang darf der Stab höchstens sein? Gib die Länge in ganzen Zentimetern an und runde ab.",

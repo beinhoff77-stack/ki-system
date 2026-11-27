@@ -55,3 +55,6 @@ Alle Punkte der Arbeitsliste abgearbeitet, `bauen.py` OK, `rollend_sql.py --rund
 - Stufe 3 angehoben oder Tipp entschärft: V027, V039, V075, V081, V084 neu gefasst; Tipps von V012, V015, V045, V069, V087, V093, V099, V102 nur noch Anstoß.
 - V023 Weg B jetzt Einsetzen von x = x' : 3 und y = y' : 3 (anderes Verfahren). V050 letzter Ablenker ersetzt.
 - `bauen.py`: Regel-Kennung muss im Katalog stehen und zum Thema passen (eine begründete Ausnahme), Fehlbild-Kennung muss im Katalog stehen, Regel darf leer sein.
+
+## Nach zweiter Gegenprüfung (Werkstatt 1092)
+Arbeitsliste umgesetzt: V015, V023, V039, V091, V101, V057, V060, V069 berichtigt; Hauptverweis geleert bei V025 bis V027 und V067 bis V069 (Schwerpunkt bzw. Umfang hat der Katalog nicht), Fehlbildkennung bei V101 (33 493) geleert. Über alle 108 gelesen: Tipps zur Richtung des Lösungswegs, Hauptverweise zur verlangten Tätigkeit, Fehlbildkennungen zur Formel; nichts weiter gefunden. Restmeldung (iii) bei V091: die Rückmeldung nennt die richtige Rechnung 9 · 10, nicht die des Fehlwerts (Wortlaut so vorgegeben). `bauen.py` OK, `rollend_sql.py --runden 10` ohne Fehler.

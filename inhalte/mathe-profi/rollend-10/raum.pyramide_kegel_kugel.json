@@ -383,7 +383,7 @@
      "antwort": 19,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Grundfläche und Höhe addiert statt malgenommen: 9 + 10"
+     "beschreibung": "Du hast den π-Koeffizienten 9 zur Höhenmaßzahl 10 addiert. Für den gesuchten Volumenkoeffizienten musst du 9 · 10 rechnen."
     },
     {
      "luecke": 3,
@@ -918,8 +918,8 @@
     },
     {
      "antwort": 33493,
-     "fehlbild": "fb.aus_dem_rechteck.durchmesser_statt_radius",
-     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "den Durchmesser 2 m als Radius genommen (gerundet)"
     }
    ],

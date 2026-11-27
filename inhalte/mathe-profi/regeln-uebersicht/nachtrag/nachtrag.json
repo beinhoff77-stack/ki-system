@@ -9,7 +9,7 @@
    "titel": "Dreisatz – proportional (mehr Menge, mehr Wert)",
    "art": "verfahren",
    "formel": "Wert für 1 = Wert : Menge; gesuchter Wert = Wert für 1 · gesuchte Menge",
-   "bedingung": "Doppelte Menge heißt doppelter Wert, und es kommt kein fester Betrag dazu (keine Grundgebühr)",
+   "bedingung": "Der Wert pro Einheit bleibt gleich: Doppelte Menge heißt doppelter Wert, und es kommt kein fester Betrag dazu (keine Grundgebühr). Die Menge, durch die geteilt wird, ist positiv",
    "groessen": [
     {
      "zeichen": "Menge",
@@ -24,7 +24,7 @@
    ],
    "schritte": [
     "Schreibe auf, was du weißt: Menge links, Wert rechts (Zeile 1).",
-    "Teile beide Seiten durch die bekannte Menge. So erhältst du den Wert für 1 Stück (Zeile 2).",
+    "Teile beide Seiten durch die bekannte Menge (sie ist größer als 0). So erhältst du den Wert für 1 Stück (Zeile 2).",
     "Multipliziere beide Seiten mit der gesuchten Menge (Zeile 3).",
     "Prüfe: Mehr Menge muss mehr Wert ergeben. Schreibe die Einheit dazu."
    ],
@@ -52,6 +52,11 @@
     },
     {
      "l": "8 > 5 and 10.4 > 6.5",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "5 > 0",
      "rel": "==",
      "r": "1"
     }
@@ -84,7 +89,7 @@
      }
     ]
    },
-   "ab_klasse_hinweis": "Realschule: Die Themendatei sagt Klasse 6; die Lehrplan-Kopie (inhalte/pruefung/lehrplan/lk_daten_2211.json) führt den Dreisatz in der Realschule schon in Klasse 5 als neu. Zweifel siehe nachtrag/uebersicht.md.",
+   "ab_klasse_hinweis": "Gymnasium Klasse 5. Realschule, beides im Repo belegt: App-Thema (inhalte/themen/groessen.proportional.json) Klasse 6; erste Lehrplan-Zuordnung (inhalte/pruefung/lehrplan/lk_daten_2211.json, Lernbereich 4, Rolle neu) Klasse 5. ab_klasse folgt dem App-Thema (Klasse 6). Zweifel siehe nachtrag/uebersicht.md.",
    "regeln": [
     {
      "kennung": "R11",
@@ -111,7 +116,7 @@
    "titel": "Dreisatz – antiproportional (mehr Personen, weniger Zeit)",
    "art": "verfahren",
    "formel": "Wert für 1 = Wert · Menge; gesuchter Wert = Wert für 1 : gesuchte Menge",
-   "bedingung": "Mehr Menge heißt weniger Wert, und das Produkt Menge · Wert bleibt gleich (z. B. alle arbeiten gleich schnell, die Arbeit bleibt gleich groß)",
+   "bedingung": "Das Produkt Menge · Wert bleibt gleich (gleiche Gesamtarbeit, gleiche Leistung je Person oder Maschine). Dann gilt: doppelte Menge, halber Wert. Menge und Wert sind positiv; durch die gesuchte Menge wird geteilt",
    "groessen": [
     {
      "zeichen": "Menge",
@@ -126,10 +131,10 @@
    ],
    "schritte": [
     "Schreibe auf, was du weißt (Zeile 1).",
-    "Frage dich: Wenn die Menge größer wird, wird dann der Wert kleiner? Wenn ja, rechnest du antiproportional.",
+    "Prüfe, ob das Produkt aus Menge und Wert gleich bleibt: gleiche Gesamtarbeit, gleiche Leistung je Person oder Maschine. Nur dann rechnest du antiproportional. „Mehr Menge, weniger Wert“ allein genügt nicht.",
     "Zeile 2 (auf 1): Wert mal bekannte Menge. Eine Person allein braucht am längsten.",
     "Zeile 3 (auf die gesuchte Menge): Wert durch die gesuchte Menge teilen.",
-    "Prüfe: Weniger Personen müssen mehr Zeit brauchen, mehr Personen weniger."
+    "Prüfe: Weniger Personen müssen mehr Zeit brauchen, mehr Personen weniger, und das Produkt Menge · Wert ist in jeder Zeile gleich."
    ],
    "zeichnung": "Tabelle wie beim proportionalen Dreisatz. Zeile 2 „mal 6“ am Wert, Zeile 3 „durch 4“ am Wert; die Pfeile zeigen nach rechts und links in verschiedene Richtungen (zum Unterschied zur proportionalen Tabelle).",
    "beispiel": {
@@ -154,7 +159,7 @@
      "r": "4*12"
     },
     {
-     "l": "4 < 6 and 12 > 8",
+     "l": "4 > 0 and 6 > 0 and 8 > 0",
      "rel": "==",
      "r": "1"
     }
@@ -206,6 +211,39 @@
     "indirekt proportional",
     "je mehr desto weniger",
     "Arbeiter Tage"
+   ],
+   "fehler_zusatz": [
+    {
+     "falsch": "„Gegenläufig“ als Erkennung nehmen: Ein Guthaben von 10 € sinkt nach 1 € Ausgabe auf 9 €, nach 2 € auf 8 €. Mehr Ausgabe, weniger Guthaben, aber das Produkt ist nicht gleich (1 · 9 = 9, 2 · 8 = 16). Das ist kein antiproportionaler Zusammenhang, der Dreisatz „auf 1“ passt nicht.",
+     "richtig": "Zuerst prüfen, ob das Produkt Menge · Wert gleich bleibt (wie 6 · 8 = 48 = 4 · 12). Bleibt es nicht gleich, ist der antiproportionale Dreisatz falsch.",
+     "pruefung": [
+      {
+       "l": "1*9",
+       "rel": "==",
+       "r": "9"
+      },
+      {
+       "l": "2*8",
+       "rel": "==",
+       "r": "16"
+      },
+      {
+       "l": "1*9",
+       "rel": "!=",
+       "r": "2*8"
+      },
+      {
+       "l": "10-1",
+       "rel": "==",
+       "r": "9"
+      },
+      {
+       "l": "10-2",
+       "rel": "==",
+       "r": "8"
+      }
+     ]
+    }
    ]
   },
   {
@@ -217,7 +255,7 @@
     "SB' = SB · SA' : SA",
     "SA' = SA · SB' : SB"
    ],
-   "bedingung": "Zwei Geraden schneiden sich in S. Zwei parallele Geraden schneiden beide Geraden. Die Abschnitte werden immer von S aus gemessen",
+   "bedingung": "Zwei Geraden schneiden sich in S. Zwei verschiedene parallele Geraden, die nicht durch S gehen, schneiden beide Geraden (in A und B bzw. A' und B', keiner dieser Punkte ist S). Die Abschnitte werden immer von S aus gemessen",
    "groessen": [
     {
      "zeichen": "S",
@@ -367,7 +405,7 @@
     "A'B' = AB · SA' : SA",
     "AB = A'B' · SA : SA'"
    ],
-   "bedingung": "Zwei Geraden schneiden sich in S. AB und A'B' sind parallel. SA und SA' werden von S aus gemessen, nicht von A aus",
+   "bedingung": "Zwei Geraden schneiden sich in S. AB und A'B' liegen auf verschiedenen parallelen Geraden, die nicht durch S gehen. SA und SA' werden von S aus gemessen, nicht von A aus",
    "groessen": [
     {
      "zeichen": "SA, SA'",
@@ -511,7 +549,7 @@
     "s = v · t",
     "t = s : v"
    ],
-   "bedingung": "Gleichbleibende Geschwindigkeit oder Durchschnitt über die ganze Strecke. Einheiten müssen passen: km, h und km/h oder m, s und m/s",
+   "bedingung": "Gleichbleibende Geschwindigkeit oder Durchschnitt über die ganze Strecke. Einheiten müssen passen: km, h und km/h oder m, s und m/s. Zum Teilen: t > 0 für v = s : t, v > 0 für t = s : v",
    "groessen": [
     {
      "zeichen": "v",
@@ -571,6 +609,16 @@
      "l": "150/75",
      "rel": "==",
      "r": "2"
+    },
+    {
+     "l": "2 > 0",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "75 > 0",
+     "rel": "==",
+     "r": "1"
     }
    ],
    "fehler": {
@@ -624,11 +672,11 @@
     "m = ρ · V",
     "V = m : ρ"
    ],
-   "bedingung": "Der Stoff ist überall gleich dicht (ein einheitlicher Stoff). Masse und Volumen müssen zu den Einheiten der Dichte passen: g und cm³ ergeben g/cm³",
+   "bedingung": "Bei einem einheitlichen Stoff ist die Dichte überall gleich; bei uneinheitlichem Material liefert m : V die mittlere Dichte. Masse und Volumen müssen zu den Einheiten der Dichte passen: g und cm³ ergeben g/cm³. Zum Teilen: V > 0 für ρ = m : V, ρ > 0 für V = m : ρ",
    "groessen": [
     {
      "zeichen": "ρ",
-     "name": "Dichte (sprich „rho“): Masse von 1 cm³ des Stoffes",
+     "name": "Dichte (sprich „rho“): Masse pro Volumen. Der Zahlenwert in g/cm³ ist die Masse von 1 cm³ in Gramm, in kg/m³ die Masse von 1 m³ in Kilogramm",
      "einheit": "g/cm³ oder kg/m³"
     },
     {
@@ -669,6 +717,16 @@
      "l": "108/2.7",
      "rel": "==",
      "r": "40"
+    },
+    {
+     "l": "40 > 0",
+     "rel": "==",
+     "r": "1"
+    },
+    {
+     "l": "2.7 > 0",
+     "rel": "==",
+     "r": "1"
     }
    ],
    "fehler": {
@@ -846,14 +904,14 @@
   },
   {
    "kennung": "nt-08",
-   "titel": "Kreisring – Umfang (zwei Ränder)",
+   "titel": "Kreisring – Umfang (äußerer und innerer Rand)",
    "art": "formel",
    "figur": "Kreisring",
-   "formel": "äußerer Rand: uₐ = 2 · π · R; innerer Rand: uᵢ = 2 · π · r",
+   "formel": "äußerer Rand: uₐ = 2 · π · R; innerer Rand: uᵢ = 2 · π · r; Umfang des Kreisrings: u = uₐ + uᵢ = 2 · π · (R + r)",
    "umstellungen": [
-    "Beide Ränder zusammen: u = uₐ + uᵢ = 2 · π · (R + r)"
+    "Umfang des Kreisrings: u = uₐ + uᵢ = 2 · π · (R + r)"
    ],
-   "bedingung": "Beide Kreise haben dieselbe Mitte und R > r. Ein Kreisring hat keinen einzelnen Umfang, denn er hat zwei Ränder. Sage immer, welchen Rand du meinst, oder rechne beide zusammen",
+   "bedingung": "Beide Kreise haben dieselbe Mitte. Der Umfang des Kreisrings ist die Summe seines äußeren und inneren Randes: u = 2 · π · (R + r). Voraussetzung R > r > 0",
    "groessen": [
     {
      "zeichen": "R",
@@ -877,72 +935,77 @@
     }
    ],
    "schritte": [
-    "Lies in der Aufgabe, welcher Rand gemeint ist: außen, innen oder beide (z. B. Zaun außen und innen).",
+    "Lies in der Aufgabe, was gemeint ist: der äußere Rand, der innere Rand oder der Umfang des Kreisrings (beide Ränder, z. B. Zaun außen und innen).",
     "Außen: uₐ = 2 · π · R. Innen: uᵢ = 2 · π · r.",
-    "Brauchst du beide, addiere: u = uₐ + uᵢ. Subtrahiere nie.",
+    "Für den Umfang des Kreisrings addiere: u = uₐ + uᵢ. Subtrahiere nie.",
     "Schreibe cm dahinter und runde zuletzt."
    ],
    "zeichnung": "Zwei Kreise mit gemeinsamer Mitte M; der Ring dazwischen hell gefüllt. Der äußere Rand rot, der innere Rand blau nachziehen. R und r als Strecken von M zu den Rändern mit Maßpfeil.",
    "beispiel": {
-    "aufgabe": "Ein Ring hat den äußeren Radius R = 6 cm und den inneren Radius r = 4 cm. Wie lang sind die beiden Ränder?",
-    "rechnung": "uₐ = 2 · π · 6 cm = 12π cm ≈ 37,70 cm. uᵢ = 2 · π · 4 cm = 8π cm ≈ 25,13 cm. Zusammen: 12π cm + 8π cm = 20π cm ≈ 62,83 cm.",
-    "ergebnis": "uₐ ≈ 37,70 cm; uᵢ ≈ 25,13 cm; zusammen ≈ 62,83 cm"
+    "aufgabe": "Ein Ring hat den äußeren Radius R = 5 cm und den inneren Radius r = 2 cm. Wie lang sind die beiden Ränder, und wie groß ist der Umfang des Kreisrings?",
+    "rechnung": "uₐ = 2 · π · 5 cm = 10π cm ≈ 31,42 cm. uᵢ = 2 · π · 2 cm = 4π cm ≈ 12,57 cm. Umfang: u = 10π cm + 4π cm = 14π cm ≈ 43,98 cm (aus 14π gerundet).",
+    "ergebnis": "uₐ ≈ 31,42 cm; uᵢ ≈ 12,57 cm; Umfang u = 14π cm ≈ 43,98 cm"
    },
    "pruefung": [
     {
-     "l": "2*6",
+     "l": "2*5",
      "rel": "==",
-     "r": "12"
+     "r": "10"
     },
     {
-     "l": "2*4",
+     "l": "2*2",
      "rel": "==",
-     "r": "8"
+     "r": "4"
     },
     {
-     "l": "12+8",
+     "l": "10+4",
      "rel": "==",
-     "r": "20"
+     "r": "14"
     },
     {
-     "l": "rund(12*pi, 2)",
+     "l": "rund(10*pi, 2)",
      "rel": "==",
-     "r": "37.70"
+     "r": "31.42"
     },
     {
-     "l": "rund(8*pi, 2)",
+     "l": "rund(4*pi, 2)",
      "rel": "==",
-     "r": "25.13"
+     "r": "12.57"
     },
     {
-     "l": "rund(20*pi, 2)",
+     "l": "rund(14*pi, 2)",
      "rel": "==",
-     "r": "62.83"
+     "r": "43.98"
     },
     {
-     "l": "2*(6+4)",
+     "l": "2*(5+2)",
      "rel": "==",
-     "r": "20"
+     "r": "14"
+    },
+    {
+     "l": "5 > 2 and 2 > 0",
+     "rel": "==",
+     "r": "1"
     }
    ],
    "fehler": {
-    "falsch": "Wie bei der Fläche subtrahieren: 2 · π · (6 − 4) cm = 4π cm ≈ 12,57 cm. Das ist nur der Umfang eines Kreises mit Radius 2 cm, nicht die Länge der Ränder.",
-    "richtig": "Jeden Rand einzeln rechnen, dann addieren: 12π cm + 8π cm = 20π cm ≈ 62,83 cm.",
+    "falsch": "Wie bei der Fläche subtrahieren: 2 · π · (5 − 2) cm = 6π cm ≈ 18,85 cm. Das ist nur der Umfang eines Kreises mit Radius 3 cm, nicht der Umfang des Kreisrings.",
+    "richtig": "Jeden Rand einzeln rechnen, dann addieren: 10π cm + 4π cm = 14π cm ≈ 43,98 cm.",
     "pruefung": [
      {
-      "l": "2*(6-4)",
+      "l": "2*(5-2)",
       "rel": "==",
-      "r": "4"
+      "r": "6"
      },
      {
-      "l": "rund(4*pi, 2)",
+      "l": "rund(6*pi, 2)",
       "rel": "==",
-      "r": "12.57"
+      "r": "18.85"
      },
      {
-      "l": "2*(6-4)",
+      "l": "2*(5-2)",
       "rel": "!=",
-      "r": "20"
+      "r": "14"
      }
     ]
    },
@@ -971,7 +1034,7 @@
     "Ring Rand",
     "innerer Rand äußerer Rand",
     "Unterlegscheibe",
-    "zwei Ränder"
+    "beide Ränder"
    ]
   },
   {
@@ -979,7 +1042,7 @@
    "titel": "Kongruenzsatz SSS (drei Seiten)",
    "art": "kongruenz",
    "formel": "SSS: a, b, c gegeben",
-   "bedingung": "Alle drei Seiten sind gegeben, und je zwei Seiten sind zusammen länger als die dritte",
+   "bedingung": "Alle drei Seiten sind gegeben, und je zwei Seiten sind zusammen länger als die dritte. Alle Seitenlängen sind positiv, jeder Innenwinkel liegt zwischen 0° und 180°",
    "groessen": [
     {
      "zeichen": "a, b, c",
@@ -1118,7 +1181,7 @@
    "titel": "Kongruenzsatz SWS (Seite, Winkel, Seite)",
    "art": "kongruenz",
    "formel": "SWS: b, c und der Winkel α zwischen b und c gegeben",
-   "bedingung": "Der gegebene Winkel liegt zwischen den beiden gegebenen Seiten",
+   "bedingung": "Der gegebene Winkel liegt zwischen den beiden gegebenen Seiten. Alle Seitenlängen sind positiv, jeder Innenwinkel liegt zwischen 0° und 180°",
    "groessen": [
     {
      "zeichen": "b, c",
@@ -1136,7 +1199,7 @@
     "Zeichne die Seite c = 8 cm waagerecht. Endpunkte A und B.",
     "Lege das Geodreieck an A an und trage α = 50° ab. Zeichne einen Strahl.",
     "Miss auf dem Strahl von A aus b = 6 cm ab. Der Punkt ist C.",
-    "Verbinde C mit B. Das Dreieck ist festgelegt."
+    "Verbinde C mit B. Das Dreieck ist festgelegt. Miss danach die gesuchte Länge BC mit dem Lineal."
    ],
    "zeichnung": "Waagerechte Strecke AB unten (8 cm). An A der Winkelbogen 50° zwischen AB und AC. AC schräg nach oben (6 cm). Winkelbogen deutlich zwischen den beiden gegebenen Seiten. BC gestrichelt (wird erst am Ende gezogen).",
    "skizze": {
@@ -1177,9 +1240,9 @@
     ]
    },
    "beispiel": {
-    "aufgabe": "Gegeben: b = 6 cm, c = 8 cm und α = 50° zwischen ihnen. Ist das Dreieck festgelegt, und wie lang wird die dritte Seite a? (Die Länge brauchst du nur zur Kontrolle.)",
-    "rechnung": "Die Angaben haben die Form Seite, Winkel dazwischen, Seite. Das ist SWS, das Dreieck ist eindeutig. Kontrolle mit dem Kosinussatz: a² = 6² + 8² − 2 · 6 · 8 · cos 50° ≈ 36 + 64 − 61,71 = 38,29, also a ≈ 6,19 cm.",
-    "ergebnis": "SWS, eindeutig, a ≈ 6,19 cm"
+    "aufgabe": "Gegeben: b = 6 cm, c = 8 cm und α = 50° zwischen ihnen. Konstruiere das Dreieck, miss danach die dritte Seite a und gib an, ob das Dreieck festgelegt ist.",
+    "rechnung": "Die Angaben haben die Form Seite, Winkel dazwischen, Seite. Das ist SWS, das Dreieck ist eindeutig. Nach der Konstruktion misst du a = BC mit dem Lineal: etwa 6,2 cm. Spätere rechnerische Kontrolle (ab Klasse 10): Kosinussatz a² = 6² + 8² − 2 · 6 · 8 · cos 50° ≈ 36 + 64 − 61,71 = 38,29, also a ≈ 6,19 cm.",
+    "ergebnis": "SWS, eindeutig, a ≈ 6,2 cm (gemessen)"
    },
    "pruefung": [
     {
@@ -1201,21 +1264,31 @@
      "l": "rund(wurzel(100-2*6*8*cos_d(50)), 2)",
      "rel": "==",
      "r": "6.19"
+    },
+    {
+     "l": "6 > 0 and 8 > 0 and 0 < 50 and 50 < 180",
+     "rel": "==",
+     "r": "1"
     }
    ],
    "fehler": {
-    "falsch": "Den Winkel nicht zwischen die Seiten legen. Beispiel: 6 cm, 8 cm und 30°, wobei der Winkel der 6-cm-Seite gegenüberliegt. Das ist kein SWS, und es gibt zwei verschiedene Dreiecke (γ ≈ 41,8° oder γ ≈ 138,2°).",
+    "falsch": "Den Winkel nicht zwischen die Seiten legen. Beispiel: 6 cm, 8 cm und 30°, wobei der Winkel der 6-cm-Seite gegenüberliegt. Das ist kein SWS. Konstruktion: Seite AB = 8 cm, 30° an A, Kreisbogen mit 6 cm um B. Der Bogen schneidet den Strahl zweimal, du misst AC ≈ 11,4 cm oder AC ≈ 2,5 cm: zwei verschiedene Dreiecke.",
     "richtig": "Bei SWS liegt der Winkel genau zwischen den beiden gegebenen Seiten, an ihrer gemeinsamen Ecke.",
     "pruefung": [
      {
-      "l": "rund(asin_d(8*sin_d(30)/6), 1)",
+      "l": "rund(8*cos_d(30)+wurzel(6**2-(8*sin_d(30))**2), 1)",
       "rel": "==",
-      "r": "41.8"
+      "r": "11.4"
      },
      {
-      "l": "rund(180-asin_d(8*sin_d(30)/6), 1)",
+      "l": "rund(8*cos_d(30)-wurzel(6**2-(8*sin_d(30))**2), 1)",
       "rel": "==",
-      "r": "138.2"
+      "r": "2.5"
+     },
+     {
+      "l": "8*sin_d(30) < 6 and 6 < 8",
+      "rel": "==",
+      "r": "1"
      }
     ]
    },
@@ -1252,7 +1325,7 @@
    "titel": "Kongruenzsatz WSW (Winkel, Seite, Winkel)",
    "art": "kongruenz",
    "formel": "WSW: c und die beiden Winkel α und β an den Enden von c gegeben",
-   "bedingung": "Die gegebene Seite liegt zwischen den beiden gegebenen Winkeln; die Winkel ergeben zusammen weniger als 180°",
+   "bedingung": "Die gegebene Seite liegt zwischen den beiden gegebenen Winkeln; die Winkel ergeben zusammen weniger als 180°. Alle Seitenlängen sind positiv, jeder Innenwinkel liegt zwischen 0° und 180°",
    "groessen": [
     {
      "zeichen": "c",
@@ -1377,7 +1450,7 @@
    "titel": "Kongruenzsatz SsW (zwei Seiten, Winkel der längeren Seite gegenüber)",
    "art": "kongruenz",
    "formel": "SsW: a, c und der Winkel γ gegenüber der längeren Seite c gegeben (c > a)",
-   "bedingung": "Der gegebene Winkel liegt der längeren der beiden gegebenen Seiten gegenüber",
+   "bedingung": "Der gegebene Winkel liegt der längeren der beiden gegebenen Seiten gegenüber. Alle Seitenlängen sind positiv, jeder Innenwinkel liegt zwischen 0° und 180°",
    "groessen": [
     {
      "zeichen": "a, c",
@@ -1395,7 +1468,7 @@
     "Zeichne die Seite a = 6 cm waagerecht. Endpunkte C (links) und B (rechts).",
     "Trage an C den Winkel γ = 70° ab und zeichne einen Strahl nach oben.",
     "Stich mit dem Zirkel um B einen Kreisbogen mit Radius c = 8 cm. Er schneidet den Strahl in A.",
-    "Verbinde A mit B. Weil c die längere Seite ist, schneidet der Bogen den Strahl nur einmal oberhalb von C: Es gibt genau ein Dreieck."
+    "Verbinde A mit B. Weil c die längere Seite ist, schneidet der Bogen den Strahl nur einmal oberhalb von C: Es gibt genau ein Dreieck. Miss danach den gesuchten Winkel α an A mit dem Geodreieck."
    ],
    "zeichnung": "Waagerechte Strecke CB unten (6 cm), C links. An C Winkelbogen 70°, Strahl schräg nach oben rechts. Um B ein Kreisbogen mit 8 cm Radius; er schneidet den Strahl im Punkt A. Die Seite c = AB liegt dem Winkel γ gegenüber (gegenüberliegende Stelle durch Pfeil kennzeichnen).",
    "skizze": {
@@ -1436,9 +1509,9 @@
     ]
    },
    "beispiel": {
-    "aufgabe": "Gegeben: a = 6 cm, c = 8 cm und γ = 70° (γ liegt gegenüber von c). Ist das Dreieck eindeutig? Bestimme den Winkel α.",
-    "rechnung": "c = 8 cm ist länger als a = 6 cm, und γ liegt c gegenüber. Das ist SsW, das Dreieck ist eindeutig. sin α = a · sin γ : c = 6 · sin 70° : 8 ≈ 0,705, also α ≈ 44,8°.",
-    "ergebnis": "SsW, eindeutig, α ≈ 44,8°"
+    "aufgabe": "Gegeben: a = 6 cm, c = 8 cm und γ = 70° (γ liegt gegenüber von c). Konstruiere das Dreieck, miss danach den Winkel α an A und gib an, ob das Dreieck eindeutig ist.",
+    "rechnung": "c = 8 cm ist länger als a = 6 cm, und γ liegt c gegenüber. Das ist SsW, das Dreieck ist eindeutig. Nach der Konstruktion misst du α mit dem Geodreieck: etwa 45°. Spätere rechnerische Kontrolle (ab Klasse 10): Sinussatz sin α = a · sin γ : c = 6 · sin 70° : 8 ≈ 0,705, also α ≈ 44,8°.",
+    "ergebnis": "SsW, eindeutig, α ≈ 45° (gemessen)"
    },
    "pruefung": [
     {
@@ -1455,21 +1528,31 @@
      "l": "rund(asin_d(6*sin_d(70)/8), 1)",
      "rel": "==",
      "r": "44.8"
+    },
+    {
+     "l": "6 > 0 and 8 > 0 and 0 < 70 and 70 < 180",
+     "rel": "==",
+     "r": "1"
     }
    ],
    "fehler": {
-    "falsch": "Den Winkel der kürzeren Seite gegenüber geben: a = 5 cm, c = 8 cm und α = 30° (gegenüber von a, der kürzeren Seite). Dann gibt es zwei verschiedene Dreiecke (γ ≈ 53,1° oder γ ≈ 126,9°). SsW gilt dann nicht.",
+    "falsch": "Den Winkel der kürzeren Seite gegenüber geben: a = 5 cm, c = 8 cm und α = 30° (gegenüber von a, der kürzeren Seite). Konstruktion: AB = 8 cm, 30° an A, Kreisbogen mit 5 cm um B. Der Bogen schneidet den Strahl zweimal, du misst AC ≈ 9,9 cm oder AC ≈ 3,9 cm: zwei verschiedene Dreiecke. SsW gilt dann nicht.",
     "richtig": "Der gegebene Winkel muss der längeren Seite gegenüberliegen.",
     "pruefung": [
      {
-      "l": "rund(asin_d(8*sin_d(30)/5), 1)",
+      "l": "rund(8*cos_d(30)+wurzel(5**2-(8*sin_d(30))**2), 1)",
       "rel": "==",
-      "r": "53.1"
+      "r": "9.9"
      },
      {
-      "l": "rund(180-asin_d(8*sin_d(30)/5), 1)",
+      "l": "rund(8*cos_d(30)-wurzel(5**2-(8*sin_d(30))**2), 1)",
       "rel": "==",
-      "r": "126.9"
+      "r": "3.9"
+     },
+     {
+      "l": "8*sin_d(30) < 5 and 5 < 8",
+      "rel": "==",
+      "r": "1"
      }
     ]
    },

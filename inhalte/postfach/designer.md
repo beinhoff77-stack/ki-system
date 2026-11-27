@@ -2,8 +2,8 @@
 
 Neueste oben.
 
-## 2026-11-27 01:25 (Berlin) – FERTIG: Regel-Universum, sechste Runde (Vorgabe GB, Abschnitt F7)
-Zweig `designer`, Stand `lernen-app` 7e22808 eingemischt. `inhalte/design/gesetzbuch/`: `umsetzung.md` (Fassung 7, neu F7), `entwurf/` neu gebaut, `bilder/` (45 Bilder neu).
+## 2026-11-27 01:15 (Berlin) – FERTIG: Regel-Universum, sechste Runde (Vorgabe GB, Abschnitt F7)
+Zweig `designer`, Stand `lernen-app` 7e22808 eingemischt. `inhalte/design/gesetzbuch/`: `umsetzung.md` (Fassung 7, neu F7), `entwurf/` neu gebaut, `bilder/` (43 Bilder, alle neu).
 
 ### Geliefert
 1. **Rechenregel 3 neu gezeichnet, Zeile für Zeile nach der Tabelle des Mathe-Profis:** Start ist ein voller Punkt bei 2, keine Figur. Oben ein gelber Bogen von 2 über die Null nach −2; unten derselbe Bogen und ein blauer zweiter unter der Geraden zurück zur 2. Erstes Minus gelb, zweites blau, kein gestrichelter Pfeil. Kopfzeile, Rechnungen, Unterzeilen und Satz wörtlich. **Treppe:** Punkt auf der Null-Linie; die kleinen „+2“ stehen im Freien. Bilder: `gesetz-R3-1280-hell.jpg`, `gesetz-R3-400-hell.jpg`, `gesetz-R3-400-dunkel.jpg`.

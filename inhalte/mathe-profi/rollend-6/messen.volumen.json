@@ -1,0 +1,1210 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-6",
+ "kuerzel": "K6",
+ "flug": "k6-messen.volumen",
+ "titel": "messen.volumen",
+ "fuer": "Klasse 6",
+ "klasse": 6,
+ "themen": [
+  "messen.volumen"
+ ],
+ "themen_datei_im_bestand": "messen.volumen",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema, lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder (mit Rechnung c, wo es eine gibt) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K6-V163",
+   "thema": "messen.volumen",
+   "lernkarte": "einheitswuerfel",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 + 4 gerechnet",
+     "c": "6 + 4"
+    },
+    {
+     "luecke": 2,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Zahlen addiert: 6 + 4 + 5",
+     "c": "6 + 4 + 5"
+    },
+    {
+     "luecke": 3,
+     "antwort": 144,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt abgezogen",
+     "c": "(120) + (24)"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheitswuerfel",
+    "t": "einheitswuerfel",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Quader ist aus Einheitswürfeln mit 1 cm Kante gebaut: 6 Würfel in der Länge, 4 in der Breite und 5 Schichten übereinander. Eine Schicht hat ① Würfel. Der ganze Quader hat ② Würfel. Nimmt man die oberste Schicht weg, bleiben ③ Würfel.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      24,
+      120,
+      96
+     ]
+    },
+    "c": [
+     "6 * 4",
+     "(24) * 5",
+     "(120) - (24)"
+    ],
+    "h": "Zähle zuerst, wie viele Würfel in einer Schicht liegen.",
+    "w": "Eine Schicht: 6 · 4 = 24 Würfel. Fünf Schichten: 5 · 24 = 120 Würfel. Ohne die oberste Schicht: 120 − 24 = 96 Würfel."
+   }
+  },
+  {
+   "kennung": "K6-V164",
+   "thema": "messen.volumen",
+   "lernkarte": "einheitswuerfel",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2400,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Kistenvolumen nur durch 10 geteilt",
+     "c": "40 * 30 * 20 / 10"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 + 3 + 2 gerechnet",
+     "c": "4 + 3 + 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheitswuerfel",
+    "t": "einheitswuerfel",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Kiste ist innen 40 cm lang, 30 cm breit und 20 cm hoch. Sie wird mit Würfeln gefüllt, die 10 cm Kantenlänge haben. Wie viele Würfel passen hinein?"
+    },
+    "o": {
+     "wert": 24
+    },
+    "c": "(40 / 10) * (30 / 10) * (20 / 10)",
+    "h": "Wie viele Würfel passen in die Länge, in die Breite und in die Höhe?",
+    "w": "In die Länge passen 4 Würfel, in die Breite 3 und in die Höhe 2. 4 · 3 · 2 = 24 Würfel."
+   }
+  },
+  {
+   "kennung": "K6-V165",
+   "thema": "messen.volumen",
+   "lernkarte": "einheitswuerfel",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 576,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Volumen des Quaders in cm³ angegeben",
+     "c": "12 * 8 * 6"
+    },
+    {
+     "antwort": 288,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch die Kantenlänge 2 statt durch das Würfelvolumen 8 geteilt",
+     "c": "12 * 8 * 6 / 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheitswuerfel",
+    "t": "einheitswuerfel",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader ist 12 cm lang, 8 cm breit und 6 cm hoch. Er soll mit Würfeln der Kantenlänge 2 cm gefüllt werden. Weg A: Teile das Volumen des Quaders durch das Volumen eines kleinen Würfels. Weg B: Zähle, wie viele kleine Würfel an jeder Kante liegen, und multipliziere. Wie viele kleine Würfel sind es?"
+    },
+    "o": {
+     "wert": 72
+    },
+    "c": "12 * 8 * 6 / 8",
+    "h": "Beide Wege müssen dieselbe Anzahl ergeben. Ein kleiner Würfel hat 2 · 2 · 2 cm³.",
+    "w": "Weg A: Quader 12 · 8 · 6 = 576 cm³. Ein Würfel 8 cm³. 576 : 8 = 72. Weg B: 6 · 4 · 3 = 72."
+   }
+  },
+  {
+   "kennung": "K6-V166",
+   "thema": "messen.volumen",
+   "lernkarte": "quader",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt malgenommen",
+     "c": "8 + 5"
+    },
+    {
+     "luecke": 2,
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Maße addiert",
+     "c": "8 + 5 + 6"
+    },
+    {
+     "luecke": 3,
+     "antwort": 480,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen verdoppelt statt 2 cm Höhe dazuzurechnen",
+     "c": "(240) * 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "quader",
+    "t": "quader",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Quader ist 8 cm lang, 5 cm breit und 6 cm hoch. Die Grundfläche ist ① cm². Das Volumen ist ② cm³. Wird der Quader 2 cm höher, wächst das Volumen auf ③ cm³.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      40,
+      240,
+      320
+     ]
+    },
+    "c": [
+     "8 * 5",
+     "(40) * 6",
+     "(240) + (40) * 2"
+    ],
+    "h": "Volumen = Grundfläche mal Höhe.",
+    "w": "Grundfläche: 8 · 5 = 40 cm². Volumen: 40 · 6 = 240 cm³. Zwei Zentimeter mehr Höhe bringen 40 · 2 = 80 cm³ dazu: 320 cm³."
+   }
+  },
+  {
+   "kennung": "K6-V167",
+   "thema": "messen.volumen",
+   "lernkarte": "quader",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 108,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Grundfläche angegeben",
+     "c": "12 * 9"
+    },
+    {
+     "antwort": 648,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundfläche zum Volumen addiert",
+     "c": "12 * 9 * 5 + 12 * 9"
+    }
+   ],
+   "aufgabe": {
+    "l": "quader",
+    "t": "quader",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader ist 12 cm lang, 9 cm breit und 5 cm hoch. Weg A: Rechne Länge mal Breite mal Höhe. Weg B: Teile den Quader waagerecht in einen Quader von 2 cm Höhe und einen von 3 cm Höhe und addiere die beiden Volumen. Wie groß ist das Volumen in cm³?"
+    },
+    "o": {
+     "wert": 540,
+     "einheit": "cm³"
+    },
+    "c": "12 * 9 * 5",
+    "h": "Beide Wege müssen dasselbe Volumen ergeben.",
+    "w": "Weg A: 12 · 9 · 5 = 540 cm³. Weg B: 12 · 9 · 2 = 216 cm³ und 12 · 9 · 3 = 324 cm³. 216 + 324 = 540 cm³."
+   }
+  },
+  {
+   "kennung": "K6-V168",
+   "thema": "messen.volumen",
+   "lernkarte": "quader",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch die Höhe geteilt",
+     "c": "504 / 7"
+    },
+    {
+     "antwort": 56,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch die Länge geteilt",
+     "c": "504 / 9"
+    },
+    {
+     "antwort": 488,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Maße abgezogen",
+     "c": "504 - 9 - 7"
+    }
+   ],
+   "aufgabe": {
+    "l": "quader",
+    "t": "quader",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader hat das Volumen 504 cm³, ist 9 cm lang und 7 cm hoch. Wie breit ist er in Zentimetern?"
+    },
+    "o": {
+     "wert": 8,
+     "einheit": "cm"
+    },
+    "c": "504 / (9 * 7)",
+    "h": "Wie groß ist das Produkt aus Länge und Höhe?",
+    "w": "V = l · b · h. 504 = 9 · b · 7 = 63 · b. Also b = 504 : 63 = 8 cm."
+   }
+  },
+  {
+   "kennung": "K6-V169",
+   "thema": "messen.volumen",
+   "lernkarte": "einheiten",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 10 · 10 gerechnet, die dritte Richtung vergessen",
+     "c": "10 * 10"
+    },
+    {
+     "luecke": 2,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit 10 malgenommen",
+     "c": "2.4 * 10"
+    },
+    {
+     "luecke": 3,
+     "antwort": 24000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit 10 statt mit 1000 malgenommen",
+     "c": "(2400) * 10"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheiten",
+    "t": "einheiten",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Rechne 2,4 m³ in kleinere Einheiten um. Ein Kubikmeter sind ① dm³. 2,4 m³ sind ② dm³. Das sind ③ cm³.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      1000,
+      2400,
+      2400000
+     ]
+    },
+    "c": [
+     "10 * 10 * 10",
+     "(1000) * 2.4",
+     "(2400) * 1000"
+    ],
+    "h": "Ein Kubikmeter ist ein Würfel mit 10 dm Kante.",
+    "w": "1 m³ = 10 · 10 · 10 dm³ = 1000 dm³. 2,4 · 1000 = 2400 dm³. 1 dm³ = 1000 cm³, also 2 400 000 cm³."
+   }
+  },
+  {
+   "kennung": "K6-V170",
+   "thema": "messen.volumen",
+   "lernkarte": "einheiten",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "34 dm³",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 100 statt mit 1000 umgerechnet",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "0,34 dm³",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 000 geteilt",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "3,4 m³",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dm³ mit m³ verwechselt",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "einheiten",
+    "t": "einheiten",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Angabe ist genauso groß wie 3 400 cm³?"
+    },
+    "a": [
+     "34 dm³",
+     "3,4 dm³",
+     "0,34 dm³",
+     "3,4 m³"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wie viele cm³ hat ein dm³?",
+    "w": "1 dm³ = 1 000 cm³. Die Maßzahl in dm³ ist 3 400 : 1 000 = 3,4. Also sind 3 400 cm³ = 3,4 dm³."
+   }
+  },
+  {
+   "kennung": "K6-V171",
+   "thema": "messen.volumen",
+   "lernkarte": "einheiten",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wassermenge nicht in Liter umgerechnet",
+     "c": "45 / 12"
+    },
+    {
+     "antwort": 540,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Umrechnung in Liter ausgelassen und malgenommen statt geteilt: 45 · 12",
+     "c": "45 * 12"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheiten",
+    "t": "einheiten",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Schwimmbecken enthält 45 m³ Wasser. Mit einem Eimer, der 12 Liter fasst, soll es leer geschöpft werden. Es gilt 1 m³ = 1000 Liter. Wie oft muss man den Eimer füllen?"
+    },
+    "o": {
+     "wert": 3750
+    },
+    "c": "45 * 1000 / 12",
+    "h": "In welcher Einheit ist die Wassermenge angegeben, in welcher fasst der Eimer?",
+    "w": "45 m³ = 45 000 Liter. 45 000 : 12 = 3750. Man muss den Eimer 3750-mal füllen."
+   }
+  },
+  {
+   "kennung": "K6-V172",
+   "thema": "messen.volumen",
+   "lernkarte": "liter",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 130,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Maße addiert",
+     "c": "60 + 30 + 40"
+    },
+    {
+     "luecke": 2,
+     "antwort": 720,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 100 statt durch 1000 geteilt",
+     "c": "(72000) / 100"
+    },
+    {
+     "luecke": 3,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die fehlende Schicht angegeben",
+     "c": "60 * 30 * 5 / 1000"
+    }
+   ],
+   "aufgabe": {
+    "l": "liter",
+    "t": "liter",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Aquarium ist innen 60 cm lang, 30 cm breit und 40 cm hoch. Sein Volumen ist ① cm³. Das sind ② Liter. Steht das Wasser 5 cm unter dem Rand, sind ③ Liter darin.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      72000,
+      72,
+      63
+     ]
+    },
+    "c": [
+     "60 * 30 * 40",
+     "(72000) / 1000",
+     "(72) - 60 * 30 * 5 / 1000"
+    ],
+    "h": "Ein Liter ist 1 dm³ = 1000 cm³.",
+    "w": "V = 60 · 30 · 40 = 72 000 cm³ = 72 Liter. Die 5 cm unter dem Rand sind 60 · 30 · 5 = 9000 cm³ = 9 Liter. 72 − 9 = 63 Liter."
+   }
+  },
+  {
+   "kennung": "K6-V173",
+   "thema": "messen.volumen",
+   "lernkarte": "liter",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht in Liter umgerechnet",
+     "c": "50 * 30 * 4"
+    },
+    {
+     "antwort": 0.6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 10 000 geteilt",
+     "c": "50 * 30 * 4 / 10000"
+    },
+    {
+     "antwort": 84,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Maße addiert",
+     "c": "50 + 30 + 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "liter",
+    "t": "liter",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "In ein quaderförmiges Becken (50 cm lang, 30 cm breit) wird Wasser eingefüllt. Der Wasserspiegel steigt dabei um 4 cm. Wie viele Liter Wasser wurden eingefüllt?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "l"
+    },
+    "c": "50 * 30 * 4 / 1000",
+    "h": "Das eingefüllte Wasser bildet einen flachen Quader.",
+    "w": "Der flache Quader hat 50 · 30 · 4 = 6000 cm³. 1000 cm³ sind 1 Liter. Also wurden 6 Liter eingefüllt."
+   }
+  },
+  {
+   "kennung": "K6-V174",
+   "thema": "messen.volumen",
+   "lernkarte": "liter",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch die Länge 2 m geteilt",
+     "c": "4.8 / 2"
+    },
+    {
+     "antwort": 3.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch die Breite 1,5 m geteilt",
+     "c": "4.8 / 1.5"
+    },
+    {
+     "antwort": 1600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Liter nicht in m³ umgerechnet",
+     "c": "4800 / 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "liter",
+    "t": "liter",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quaderförmiger Tank hat eine Grundfläche von 2 m mal 1,5 m und fasst 4 800 Liter. Wie hoch ist der Tank in Metern?"
+    },
+    "o": {
+     "wert": 1.6,
+     "einheit": "m"
+    },
+    "c": "4.8 / (2 * 1.5)",
+    "h": "Passen die Einheiten von Grundfläche und Inhalt zusammen?",
+    "w": "4 800 Liter = 4,8 m³. Grundfläche: 2 · 1,5 = 3 m². Höhe = 4,8 : 3 = 1,6 m."
+   }
+  },
+  {
+   "kennung": "K6-V175",
+   "thema": "messen.volumen",
+   "lernkarte": "rueckwaerts",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 + 5 gerechnet",
+     "c": "9 + 5"
+    },
+    {
+     "luecke": 2,
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch die Länge geteilt",
+     "c": "360 / 9"
+    },
+    {
+     "luecke": 3,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch die Länge geteilt: 180 : 9",
+     "c": "180 / 9"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Quader hat das Volumen 360 cm³. Er ist 9 cm lang und 5 cm breit. Die Grundfläche ist ① cm². Die Höhe ist ② cm. Füllt man 180 cm³ Wasser in den Quader, steht das Wasser ③ cm hoch.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      45,
+      8,
+      4
+     ]
+    },
+    "c": [
+     "9 * 5",
+     "360 / (45)",
+     "180 / (45)"
+    ],
+    "h": "Aus Volumen = Grundfläche · Höhe folgt: Höhe = Volumen : Grundfläche.",
+    "w": "Grundfläche: 9 · 5 = 45 cm². Höhe: 360 : 45 = 8 cm. Füllhöhe: 180 : 45 = 4 cm."
+   }
+  },
+  {
+   "kennung": "K6-V176",
+   "thema": "messen.volumen",
+   "lernkarte": "rueckwaerts",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Grundfläche durch die Kante geteilt",
+     "c": "24 / 6"
+    },
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Fläche eines Würfelquadrats angegeben",
+     "c": "6 * 6"
+    },
+    {
+     "antwort": 216,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Volumen angegeben",
+     "c": "6 * 6 * 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader hat die Grundfläche 24 cm². Sein Volumen ist genauso groß wie das eines Würfels mit der Kantenlänge 6 cm. Wie hoch ist der Quader in Zentimetern?"
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "cm"
+    },
+    "c": "6 * 6 * 6 / 24",
+    "h": "Berechne zuerst das Volumen des Würfels.",
+    "w": "Würfel: 6 · 6 · 6 = 216 cm³. Quader: 24 · h = 216, also h = 216 : 24 = 9 cm."
+   }
+  },
+  {
+   "kennung": "K6-V177",
+   "thema": "messen.volumen",
+   "lernkarte": "rueckwaerts",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckwaerts",
+    "t": "rueckwaerts",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Lara bestimmt die Breite eines Quaders mit dem Volumen 420 cm³, der Länge 7 cm und der Höhe 5 cm. Zeile 1: V = l · b · h, also 420 = 7 · b · 5 Zeile 2: 7 · 5 = 35, also 420 = 35 · b Zeile 3: b = 420 : 35 = 12 Zeile 4: Probe: 7 · 12 = 84 und 84 · 5 = 410 In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Rechne die Probe selbst nach.",
+    "w": "84 · 5 = 420, nicht 410. Die Breite 12 cm war richtig, aber die Probe in Zeile 4 enthält einen Rechenfehler."
+   }
+  },
+  {
+   "kennung": "K6-V178",
+   "thema": "messen.volumen",
+   "lernkarte": "zusammengesetzt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Maße addiert",
+     "c": "12 + 5 + 4"
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Maße addiert",
+     "c": "4 + 5 + 3"
+    },
+    {
+     "luecke": 3,
+     "antwort": 180,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "abgezogen statt addiert",
+     "c": "(240) - (60)"
+    },
+    {
+     "luecke": 4,
+     "antwort": 300,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Gewicht je cm³ nicht beachtet",
+     "c": "(300)"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Körper besteht aus einem großen Quader (12 cm lang, 5 cm breit, 4 cm hoch). Obendrauf liegt ein kleiner Quader (4 cm lang, 5 cm breit, 3 cm hoch). Der große Quader hat ① cm³. Der kleine hat ② cm³. Zusammen sind es ③ cm³. Der Körper besteht aus Ton, jeder cm³ wiegt 2 g. Der Körper wiegt ④ g.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      240,
+      60,
+      300,
+      600
+     ]
+    },
+    "c": [
+     "12 * 5 * 4",
+     "4 * 5 * 3",
+     "(240) + (60)",
+     "(300) * 2"
+    ],
+    "h": "Rechne jeden Quader einzeln und addiere dann.",
+    "w": "Großer Quader: 12 · 5 · 4 = 240 cm³. Kleiner Quader: 4 · 5 · 3 = 60 cm³. Zusammen: 300 cm³. Gewicht: 300 · 2 g = 600 g."
+   }
+  },
+  {
+   "kennung": "K6-V179",
+   "thema": "messen.volumen",
+   "lernkarte": "zusammengesetzt",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 276,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den herausgeschnittenen Teil addiert statt abgezogen",
+     "c": "8 * 6 * 5 + 3 * 6 * 2"
+    },
+    {
+     "antwort": 240,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Ausschnitt vergessen",
+     "c": "8 * 6 * 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Aus einem Quader (8 cm lang, 6 cm breit, 5 cm hoch) wird an einer oberen Kante ein Quader von 3 cm Länge, 6 cm Breite und 2 cm Höhe herausgeschnitten. Weg A: Rechne den ganzen Quader minus den herausgeschnittenen Teil. Weg B: Zerlege den Rest in zwei Quader und addiere. Wie groß ist das Volumen des Restkörpers in cm³?"
+    },
+    "o": {
+     "wert": 204,
+     "einheit": "cm³"
+    },
+    "c": "8 * 6 * 5 - 3 * 6 * 2",
+    "h": "Beide Wege müssen dasselbe Volumen ergeben.",
+    "w": "Weg A: 240 cm³ − 36 cm³ = 204 cm³. Weg B: unten ein Quader 8 · 6 · 3 = 144 cm³, darüber 5 · 6 · 2 = 60 cm³. 144 + 60 = 204 cm³."
+   }
+  },
+  {
+   "kennung": "K6-V180",
+   "thema": "messen.volumen",
+   "lernkarte": "zusammengesetzt",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den unteren Quader gerechnet",
+     "c": "2 * 1 * 0.4 * 90"
+    },
+    {
+     "antwort": 1.3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Volumen angegeben",
+     "c": "2 * 1 * 0.4 + 1 * 1 * 0.5"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Betonsockel besteht aus zwei Quadern. Unten liegt ein Quader von 2 m Länge, 1 m Breite und 0,4 m Höhe. Darauf steht ein Quader von 1 m Länge, 1 m Breite und 0,5 m Höhe. Ein Kubikmeter Beton kostet 90 €. Wie viel Euro kostet der Beton für den Sockel?"
+    },
+    "o": {
+     "wert": 117,
+     "einheit": "€"
+    },
+    "c": "(2 * 1 * 0.4 + 1 * 1 * 0.5) * 90",
+    "h": "Berechne das Gesamtvolumen in Kubikmetern.",
+    "w": "Unterer Quader: 2 · 1 · 0,4 = 0,8 m³. Oberer Quader: 1 · 1 · 0,5 = 0,5 m³. Zusammen 1,3 m³. 1,3 · 90 € = 117 €."
+   }
+  },
+  {
+   "kennung": "K6-V181",
+   "thema": "messen.volumen",
+   "lernkarte": "verstehen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 · 3 gerechnet",
+     "c": "5 * 3"
+    },
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 addiert statt verdoppelt",
+     "c": "5 + 2"
+    },
+    {
+     "luecke": 3,
+     "antwort": 250,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen nur verdoppelt",
+     "c": "(125) * 2"
+    },
+    {
+     "luecke": 4,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gedacht, mit der Kante verdoppelt sich auch das Volumen",
+     "c": "2"
+    },
+    {
+     "luecke": 4,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie bei der Fläche gerechnet: 2 · 2",
+     "c": "2 * 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Würfel hat die Kantenlänge 5 cm. Sein Volumen ist ① cm³. Wird jede Kante verdoppelt, ist die neue Kantenlänge ② cm und das neue Volumen ③ cm³. Das neue Volumen ist ④-mal so groß wie das alte.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      125,
+      10,
+      1000,
+      8
+     ]
+    },
+    "c": [
+     "5 ** 3",
+     "5 * 2",
+     "(10) ** 3",
+     "(1000) / (125)"
+    ],
+    "h": "Bei einem Würfel wird die Kantenlänge dreimal malgenommen.",
+    "w": "V = 5 · 5 · 5 = 125 cm³. Neue Kante: 10 cm. Neues Volumen: 10 · 10 · 10 = 1000 cm³. Das Volumen ist 1000 : 125 = 8-mal so groß."
+   }
+  },
+  {
+   "kennung": "K6-V182",
+   "thema": "messen.volumen",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 343,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen angegeben",
+     "c": "343"
+    },
+    {
+     "antwort": 49,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Seitenfläche statt der Kante angegeben",
+     "c": "7 * 7"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Würfel hat das Volumen 343 cm³. Schätze zuerst, ob die Kante kürzer oder länger als 10 cm ist. Wie lang ist die Kante in Zentimetern?"
+    },
+    "o": {
+     "wert": 7,
+     "einheit": "cm"
+    },
+    "c": "343 / (7 * 7)",
+    "h": "Schätze zuerst: Was ergibt 5 · 5 · 5, was 10 · 10 · 10? Welche Zahl liegt dazwischen?",
+    "w": "7 · 7 · 7 = 343, die Kante ist 7 cm lang. Schätzen hilft: 5 · 5 · 5 = 125 ist zu klein, 10 · 10 · 10 = 1000 ist zu groß. Probe: 343 : 7 = 49 und 49 : 7 = 7."
+   }
+  },
+  {
+   "kennung": "K6-V183",
+   "thema": "messen.volumen",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Tim behauptet: „Verdoppelt man die Kantenlänge eines Würfels, verdoppelt sich das Volumen.“ Er prüft es. Zeile 1: Kante 2 cm: V = 2 · 2 · 2 = 8 cm³ Zeile 2: Kante 4 cm: V = 4 · 4 · 4 = 64 cm³ Zeile 3: 64 : 8 = 8 Zeile 4: Also hat sich das Volumen verdoppelt. In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Wie oft passt 8 in 64? Ist das dasselbe wie verdoppeln?",
+    "w": "Das Volumen ist 8-mal so groß, nicht 2-mal. Die Zeilen 1 bis 3 stimmen; Zeile 4 zieht aus 64 : 8 = 8 den falschen Schluss."
+   }
+  }
+ ]
+}

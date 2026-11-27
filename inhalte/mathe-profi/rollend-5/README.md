@@ -23,7 +23,7 @@ Neu bauen und prüfen: `python3 -I inhalte/mathe-profi/rollend-5/bauen.py` (muss
 - Je Lernkarte genau 3 Aufgaben, höchstens 1 Lückenweg, höchstens 1 Fehler-Detektiv, mindestens 1 zählende Form (umkehren, zwei Wege, Brücke, Verfahren wählen, anwenden). Je Thema kommen umkehren, zwei Wege, Brücke und anwenden mindestens zweimal vor.
 - Lückenwege: Antwortform `luecken`, mindestens 2 Lücken, spätere Lücken greifen im Text auf frühere zurück, kein Lückenwert steht im Text oder Tipp (ab 10 geprüft).
 - Fehler-Detektiv: Frage "In welcher Zeile passiert der erste Fehler?", 3 bis 4 Zeilen, genau 1 Fehlerzeile, so viele Antworten wie Zeilen. Folgezeilen rechnen mit dem Fehler korrekt weiter. Fehlerzeile 1/2/3/4: 7/7/7/6 (keine Zeile über einem Drittel von 27).
-- Ergebnis steht nicht im Text, Tipp verrät es nicht ab 10; keine Namen Leo oder Rosa; keine Dopplung zum Bestand (Fragetext und Bau ohne Zahlen).
+- Ergebnis steht nicht im Text, Tipp verrät es nicht ab 10; keine Vornamen der Kinder des Nutzers; keine Dopplung zum Bestand (Fragetext und Bau ohne Zahlen).
 - Kopien der Themen-Dateien mit den neuen Aufgaben: `python3 -I tools/inhalt_pruefen.py` ohne Fehler.
 
 ## Annahmen und offene Punkte (nicht gesichert)
@@ -45,3 +45,4 @@ Neu bauen und prüfen: `python3 -I inhalte/mathe-profi/rollend-5/bauen.py` (muss
 - Feld `g` der 12 Aufgaben „Verfahren wählen“ nach tatsächlicher Tätigkeit: 8 erkennen, 2 begründen, 2 mehrschritt. Die erlaubten Werte der Form stehen in `k5basis.py`.
 - Zusätzlich selbst gefunden: Fehlbilder, die aus dem Gerüst gar nicht entstehen können, Gerüste mit vorgegebenem Kernschritt, eine Auswahl mit zwei gleich großen falschen Werten, „Zwei Wege“ mit gleicher Rechnung, ein Fehlbild ohne nachvollziehbaren Rechenweg.
 - Noch offen: Darstellung der Aufgaben im Gerät, Test mit Kindern.
+- Nachprüfung (Werkstatt 1054): Zahlwörter unter einer Million zusammengeschrieben (004, 006, 009), 007 mit abhängiger dritter Lücke, 148 ohne Lückenwert als Ziffer oder Wort, 127 mit „Gegenzahl“, zusätzlich 103 (Lückenwert „vier“ im Text) umgebaut. `bauen.py` prüft jetzt für Lückenwege: kein Lückenwert als Ziffer oder Zahlwort in Text, Schablone oder Tipp; und getrennt geschriebene Zahlwörter unter einer Million in allen Texten.

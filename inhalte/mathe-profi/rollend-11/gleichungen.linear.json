@@ -1,0 +1,268 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-11",
+ "kuerzel": "S3",
+ "thema": "gleichungen.linear",
+ "titel": "gleichungen.linear",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen_datei_im_bestand": "gleichungen.linear",
+ "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "S3-V036",
+   "thema": "gleichungen.linear",
+   "lernkarte": "waage",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 2",
+     "rechnung": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus der falschen Zeile 2 richtig; der erste Fehler steckt weiter oben",
+     "rechnung": null
+    }
+   ],
+   "fehlerzeile": 2,
+   "fehler": "die 4 nur auf einer Seite der Gleichung addiert",
+   "zeilen": [
+    {
+     "zeile": 1,
+     "text": "Auf beiden Seiten 3x wegnehmen: 4x − 4 = 20",
+     "stimmt": true
+    },
+    {
+     "zeile": 2,
+     "text": "Auf der linken Seite 4 dazulegen: 4x − 4 + 4 = 20, also 4x = 20",
+     "stimmt": false
+    },
+    {
+     "zeile": 3,
+     "text": "Beide Seiten durch 4 teilen: x = 5",
+     "stimmt": true
+    }
+   ],
+   "aufgabe": {
+    "l": "waage",
+    "t": "umformen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst 7x − 4 = 3x + 20 und denkt dabei an eine Waage, die im Gleichgewicht bleiben muss. Zeile 1: Auf beiden Seiten 3x wegnehmen: 4x − 4 = 20 Zeile 2: Auf der linken Seite 4 dazulegen: 4x − 4 + 4 = 20, also 4x = 20 Zeile 3: Beide Seiten durch 4 teilen: x = 5 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Setze das Ergebnis in die Gleichung am Anfang ein.",
+    "w": "Zeile 1 stimmt. In Zeile 2 wird nur links 4 dazugelegt. Die Waage kippt: Auch rechts muss 4 dazukommen, also 4x = 24. Zeile 3 rechnet mit der falschen Zeile 2 richtig weiter. Richtig ist x = 6. Probe: 7 · 6 − 4 = 38 und 3 · 6 + 20 = 38."
+   }
+  },
+  {
+   "kennung": "S3-V037",
+   "thema": "gleichungen.linear",
+   "lernkarte": "probe",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Wochen genannt statt der Höhe",
+     "rechnung": "(30 - 12) / (3 - 1.5)"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 3 statt durch 1,5 geteilt (6 Wochen) und die Höhe von A genannt",
+     "rechnung": "12 + 3 * ((30 - 12) / 3)"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied der Anfangshöhen genannt",
+     "rechnung": "30 - 12"
+    }
+   ],
+   "aufgabe": {
+    "l": "probe",
+    "t": "pruefen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Pflanze A ist 12 cm hoch und wächst gleichmäßig 3 cm pro Woche. Eine Pflanze B ist 30 cm hoch und wächst gleichmäßig 1,5 cm pro Woche. Nach einiger Zeit sind beide gleich hoch. Löse die Gleichung und rechne mit der Lösung die Höhe beider Pflanzen aus. Das ist zugleich die Probe. Wie viele Zentimeter sind beide Pflanzen dann hoch?"
+    },
+    "o": {
+     "wert": 48,
+     "einheit": "cm"
+    },
+    "c": "12 + 3 * ((30 - 12) / (3 - 1.5))",
+    "h": "Stelle für w Wochen eine Gleichung auf: Höhe von A = Höhe von B. Die Probe: Setze w in beide Höhen ein, beide Werte müssen gleich sein.",
+    "w": "Nach w Wochen: 12 + 3w = 30 + 1,5w. Daraus 1,5w = 18, also w = 12 Wochen. Probe: Pflanze A: 12 + 3 · 12 = 48 cm. Pflanze B: 30 + 1,5 · 12 = 48 cm. Beide sind 48 cm hoch."
+   }
+  },
+  {
+   "kennung": "S3-V038",
+   "thema": "gleichungen.linear",
+   "lernkarte": "beide_seiten",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Raten voneinander abgezogen statt addiert",
+     "rechnung": "(82 - 12) / (8 - 6)"
+    },
+    {
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Unterschied der Anfangswerte genannt",
+     "rechnung": "82 - 12"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe der beiden Raten genannt statt der Zeit",
+     "rechnung": "8 + 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "beide_seiten",
+    "t": "umformen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Becken A wird gleichmäßig gefüllt, Becken B wird gleichmäßig leergepumpt. Die Tabelle zeigt die Wassermenge in beiden Becken in Litern. Nach wie vielen Minuten (nach Minute 0) enthalten beide Becken gleich viele Liter?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Minute",
+       "0",
+       "1",
+       "2",
+       "3"
+      ],
+      "zeilen": [
+       [
+        "Wassermenge Becken A in Litern",
+        "12",
+        "20",
+        "28",
+        "36"
+       ],
+       [
+        "Wassermenge Becken B in Litern",
+        "82",
+        "76",
+        "70",
+        "64"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "min"
+    },
+    "c": "(82 - 12) / (8 + 6)",
+    "h": "Wie viele Liter kommen bei A pro Minute dazu, wie viele gehen bei B pro Minute weg? Schreibe beide Wassermengen nach t Minuten als Term.",
+    "w": "Aus der Tabelle: A wächst um 8 Liter pro Minute, B nimmt um 6 Liter pro Minute ab. Nach t Minuten: A = 12 + 8t, B = 82 − 6t. Gleichsetzen: 12 + 8t = 82 − 6t, also 14t = 70 und t = 5. Probe: 12 + 40 = 52 und 82 − 30 = 52."
+   }
+  },
+  {
+   "kennung": "S3-V039",
+   "thema": "gleichungen.linear",
+   "lernkarte": "sach",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 96,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den gemeinsamen Endstand genannt",
+     "rechnung": "40 + 7 * 8"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied der Sparbeträge pro Woche mal 8 genannt",
+     "rechnung": "(9 - 7) * 8"
+    },
+    {
+     "antwort": 112,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Annas Anfangsbetrag plus Bens Gespartes gerechnet",
+     "rechnung": "40 + 9 * 8"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Anna hat anfangs 40 € und spart jede Woche 7 €. Ben spart jede Woche 9 €. Nach 8 Wochen haben beide gleich viel Geld. Wie viel Euro hatte Ben am Anfang?"
+    },
+    "o": {
+     "wert": 24,
+     "einheit": "€"
+    },
+    "c": "40 + 7 * 8 - 9 * 8",
+    "h": "Nenne Bens Anfangsbetrag b. Schreibe auf, wie viel Geld jeder nach 8 Wochen hat. Beide Beträge sind gleich.",
+    "w": "Bens Anfangsbetrag sei b. Nach 8 Wochen hat Anna 40 + 7 · 8 = 96 € und Ben b + 9 · 8 = b + 72 €. Gleichung: b + 72 = 96. Rückwärts gerechnet: b = 96 − 72 = 24 €. Probe: 24 + 72 = 96."
+   }
+  }
+ ]
+}

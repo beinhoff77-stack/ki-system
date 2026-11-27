@@ -142,7 +142,7 @@
    },
    "grenze": {
     "art": "typischer Fehler",
-    "text": "Teiler und Vielfache verwechseln: Die Vielfachen von 6 (6, 12, 18, …) hören nie auf, die Teiler von 18 sind endlich viele. Und: 7 ist kein Teiler von 20, denn 20 : 7 lässt Rest 6."
+    "text": "Hier geht es um positive natürliche Zahlen; ein Teiler ist nie 0, denn durch 0 kann man nicht teilen. Teiler und Vielfache verwechseln: Die Vielfachen von 6 (6, 12, 18, …) hören nie auf, die Teiler von 18 sind endlich viele. Und: 7 ist kein Teiler von 20, denn 20 : 7 lässt Rest 6."
    },
    "pruefung": [
     {
@@ -281,7 +281,7 @@
    },
    "grenze": {
     "art": "typischer Fehler",
-    "text": "Zeit rechnet nicht in Hundertern: 2,5 h sind 2 h 30 min, nicht 2 h 50 min. Bei Flächen (Klasse 6) ist die Umrechnungszahl 100, nicht 10."
+    "text": "Bei benachbarten metrischen Längeneinheiten ist der Faktor 10 (cm zu mm), zwischen km und m ist er 1 000. Zeit wird nicht dezimal umgerechnet (60 min = 1 h, 24 h = 1 Tag): 2,5 h sind 2 h 30 min, nicht 2 h 50 min. Bei Flächen (Klasse 6) ist der Faktor zwischen benachbarten Einheiten 100."
    },
    "pruefung": [
     {
@@ -836,7 +836,7 @@
    "satz_bestand": "Mit dem Hauptnenner malnehmen; die Lösung muss in der Definitionsmenge liegen. Bruch gleich Bruch: über Kreuz.",
    "begruendung": "Bruchgleichungen verbinden Waage, Definitionsmenge und Hauptnenner und sind die Hürde von Klasse 8.",
    "beispiel": {
-    "text": "3/x + 1/2 = 5/x, mal 2x: 6 + x = 10, also x = 4. Probe: 3/4 + 1/2 = 5/4."
+    "text": "3/x + 1/2 = 5/x für x ≠ 0, mal 2x: 6 + x = 10, also x = 4. Probe: 3/4 + 1/2 = 5/4."
    },
    "grenze": {
     "art": "gilt nicht",
@@ -1084,7 +1084,7 @@
    },
    "grenze": {
     "art": "gilt nicht",
-    "text": "Bei Plus gilt nichts davon: 2³ + 2⁴ = 8 + 16 = 24, nicht 2⁷ = 128. Verschiedene Basis und verschiedene Hochzahl lassen sich nicht zusammenfassen."
+    "text": "Bei Plus gilt nichts davon: 2³ + 2⁴ = 8 + 16 = 24, nicht 2⁷ = 128. Die Regeln für gleiche Basis oder gleiche Hochzahl sind erst nach einer passenden Umformung anwendbar: 2³ · 4² = 2³ · (2²)² = 2⁷. Mit positiver Basis gelten die Potenzgesetze für alle rationalen Exponenten. Die Basis 0 ist bei positivem Exponenten zulässig, bei negativem ausgeschlossen. Bei negativer Basis sind einzelne rationale Potenzen reell definiert, wenn der vollständig gekürzte Exponent einen ungeraden Nenner hat."
    },
    "pruefung": [
     {
@@ -1125,6 +1125,11 @@
     {
      "l": "2**3+2**4",
      "rel": "!=",
+     "r": "2**7"
+    },
+    {
+     "l": "2**3*4**2",
+     "rel": "==",
      "r": "2**7"
     }
    ]

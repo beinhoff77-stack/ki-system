@@ -1,0 +1,1098 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-6",
+ "kuerzel": "K6",
+ "flug": "k6-terme.aufstellen",
+ "titel": "terme.aufstellen",
+ "fuer": "Klasse 6",
+ "klasse": 6,
+ "themen": [
+  "terme.aufstellen"
+ ],
+ "themen_datei_im_bestand": "terme.aufstellen",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema, lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder (mit Rechnung c, wo es eine gibt) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K6-V121",
+   "thema": "terme.aufstellen",
+   "lernkarte": "struktur",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Summe bestimmt, weil in der Klammer ein Plus steht",
+     "c": "1"
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Produkt bestimmt, weil ein Malzeichen im Term steht",
+     "c": "3"
+    },
+    {
+     "luecke": 2,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 mal 5 gerechnet statt 3 plus 5",
+     "c": "3 * 5"
+    },
+    {
+     "luecke": 3,
+     "antwort": 23,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer ignoriert: 3 + 5 · 4",
+     "c": "3 + 5 * 4"
+    },
+    {
+     "luecke": 4,
+     "antwort": 38,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "plus statt minus 6",
+     "c": "(32) + 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "struktur",
+    "t": "struktur",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Termarten sind der Reihe nach nummeriert, beginnend bei 1: Summe, Differenz, Produkt, Quotient. Welche Nummer hat die Termart von (3 + a) · 4 − 6? ①. Für a = 5 hat die Klammer den Wert ②. Der erste Operand der letzten Rechnung hat den Wert ③. Der ganze Term hat den Wert ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      2,
+      8,
+      32,
+      26
+     ]
+    },
+    "c": [
+     "2",
+     "3 + 5",
+     "(8) * 4",
+     "(32) - 6"
+    ],
+    "h": "Welche Rechnung wird zuletzt ausgeführt?",
+    "w": "Zuletzt wird 6 abgezogen: Der Term ist eine Differenz, also Nummer 2. Klammer: 3 + 5 = 8. Der erste Operand der letzten Rechnung: 8 · 4 = 32. Der ganze Term: 32 − 6 = 26."
+   }
+  },
+  {
+   "kennung": "K6-V122",
+   "thema": "terme.aufstellen",
+   "lernkarte": "struktur",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Von links nach rechts rechnen: zuerst 2 · x, dann + 5. Also eine Summe.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer ignoriert",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "Die Klammer weglassen, denn Klammern ändern die Termart nicht: eine Summe aus 2 · x und 5.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Klammern als unwichtig behandelt",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "Den Term in Wörter fassen: zwei plus x plus fünf. Also eine Summe.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Malzeichen und die Klammer übersehen",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "struktur",
+    "t": "struktur",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst die Termart von 2 · (x + 5) bestimmen. Welcher Weg führt sicher zum Ziel?"
+    },
+    "a": [
+     "Ein Zahlenbeispiel (x = 1) in der richtigen Reihenfolge durchrechnen (Klammer 6, dann mal 2) und die letzte Rechnung benennen: ein Produkt.",
+     "Von links nach rechts rechnen: zuerst 2 · x, dann + 5. Also eine Summe.",
+     "Die Klammer weglassen, denn Klammern ändern die Termart nicht: eine Summe aus 2 · x und 5.",
+     "Den Term in Wörter fassen: zwei plus x plus fünf. Also eine Summe."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welche Rechenart wird zuletzt ausgeführt?",
+    "w": "Zuerst wird x + 5 gerechnet (Klammer), zuletzt wird mit 2 malgenommen. Also ein Produkt aus 2 und der Summe x + 5. Probe mit x = 1: 2 · 6 = 12, aber 2 · 1 + 5 = 7."
+   }
+  },
+  {
+   "kennung": "K6-V123",
+   "thema": "terme.aufstellen",
+   "lernkarte": "struktur",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 + 4 = 7 und 7 · 2 = 14 ist für sich richtig gerechnet. Es folgt aber der falschen Reihenfolge aus Zeile 1; dort steht der erste Fehler.",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 3 übernimmt nur das Ergebnis aus Zeile 2. Der erste Fehler steht schon in Zeile 1.",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "struktur",
+    "t": "struktur",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Tim berechnet 3 + 4 · a für a = 2. Zeile 1: Man rechnet zuerst 3 + 4 und dann mal a. Zeile 2: 3 + 4 = 7, also 7 · 2 = 14 Zeile 3: Der Wert des Terms ist 14. In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welche Rechnung kommt zuerst: Plus oder Mal?",
+    "w": "Punktrechnung geht vor Strichrechnung: 4 · 2 = 8, dann 3 + 8 = 11. Zeile 1 beschreibt eine falsche Reihenfolge, die Folgezeilen rechnen damit richtig weiter."
+   }
+  },
+  {
+   "kennung": "K6-V124",
+   "thema": "terme.aufstellen",
+   "lernkarte": "termwert",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Basis mal Hochzahl: 4 · 2",
+     "c": "4 * 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 64,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "erst 2 · 4 = 8, dann quadriert",
+     "c": "(2 * 4) ** 2"
+    },
+    {
+     "luecke": 3,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 + 5 gerechnet",
+     "c": "3 + 5"
+    },
+    {
+     "luecke": 4,
+     "antwort": 47,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "plus statt minus",
+     "c": "(32) + (15)"
+    }
+   ],
+   "aufgabe": {
+    "l": "termwert",
+    "t": "termwert",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne 2a² − 3b für a = 4 und b = 5. Zuerst die Potenz a²: ①. Dann 2 mal diese Zahl: ②. Dann 3b: ③. Der Termwert ist ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      16,
+      32,
+      15,
+      17
+     ]
+    },
+    "c": [
+     "4 ** 2",
+     "2 * (16)",
+     "3 * 5",
+     "(32) - (15)"
+    ],
+    "h": "Die Hochzahl 2 gehört nur zur 4, nicht zur 2 davor.",
+    "w": "4² = 16. 2 · 16 = 32. 3 · 5 = 15. 32 − 15 = 17."
+   }
+  },
+  {
+   "kennung": "K6-V125",
+   "thema": "terme.aufstellen",
+   "lernkarte": "termwert",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 4 · a ausmultipliziert, die 3 vergessen mit 4 zu multiplizieren",
+     "c": "4 * 5 + 3 - 2 * 5"
+    },
+    {
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "plus statt minus 2a",
+     "c": "4 * (5 + 3) + 2 * 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "termwert",
+    "t": "termwert",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne den Wert von 4 · (a + 3) − 2a für a = 5 auf zwei Wegen. Weg A: Setze a = 5 sofort ein. Weg B: Multipliziere die Klammer aus (jedes Glied in der Klammer mal 4), fasse gleiche Buchstabenteile zusammen und setze dann a = 5 ein. Wie groß ist der Wert des Terms?"
+    },
+    "o": {
+     "wert": 22
+    },
+    "c": "4 * (5 + 3) - 2 * 5",
+    "h": "Beide Wege müssen denselben Wert ergeben.",
+    "w": "Weg A: 4 · 8 − 10 = 32 − 10 = 22. Weg B: 4a + 12 − 2a = 2a + 12. Für a = 5: 10 + 12 = 22."
+   }
+  },
+  {
+   "kennung": "K6-V126",
+   "thema": "terme.aufstellen",
+   "lernkarte": "termwert",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 abgezogen statt addiert",
+     "c": "(21 - 3) / 4"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 3 addiert, nicht durch 4 geteilt",
+     "c": "21 + 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "termwert",
+    "t": "termwert",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Für welchen Wert von a hat der Term 4a − 3 den Wert 21?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "(21 + 3) / 4",
+    "h": "Kehre die Rechenschritte um, beginnend beim letzten.",
+    "w": "4a − 3 = 21. Erst 3 addieren: 4a = 24. Dann durch 4 teilen: a = 6. Probe: 4 · 6 − 3 = 21."
+   }
+  },
+  {
+   "kennung": "K6-V127",
+   "thema": "terme.aufstellen",
+   "lernkarte": "uebersetzen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Preise addiert: 11 + 13",
+     "c": "11 + 13"
+    },
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "vom Preis der 4-km-Fahrt nur 4 abgezogen: 11 − 4",
+     "c": "11 - 4"
+    },
+    {
+     "luecke": 3,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Kilometerpreis mal 12 gerechnet, die Grundgebühr vergessen: 12 · Kilometerpreis",
+     "c": "12 * (2)"
+    },
+    {
+     "luecke": 4,
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine der beiden Fahrten gerechnet",
+     "c": "(27)"
+    }
+   ],
+   "aufgabe": {
+    "l": "uebersetzen",
+    "t": "uebersetzen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Taxi berechnet eine feste Grundgebühr und dazu einen festen Preis je Kilometer. Eine Fahrt über 4 km kostet 11 €, eine Fahrt über 5 km kostet 13 €. Jeder Kilometer kostet ① €. Die Grundgebühr beträgt ② €. Der Preis für k Kilometer ist der Term ② + ① · k. Eine Fahrt über 12 km kostet ③ €. Hin- und Rückfahrt sind getrennte Taxifahrten über je 12 km, jede mit neuer Grundgebühr; sie kosten zusammen ④ €.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      2,
+      3,
+      27,
+      54
+     ]
+    },
+    "c": [
+     "13 - 11",
+     "11 - 4 * (2)",
+     "(3) + (2) * 12",
+     "2 * (27)"
+    ],
+    "h": "Was kommt von 4 km auf 5 km dazu?",
+    "w": "Ein Kilometer mehr kostet 13 € − 11 € = 2 €. Für 4 km zahlt man 4 · 2 € = 8 €, die restlichen 3 € sind die Grundgebühr. Term: 3 + 2 · k. 12 km: 3 + 2 · 12 = 27 €. Hin und zurück: 2 · 27 € = 54 €."
+   }
+  },
+  {
+   "kennung": "K6-V128",
+   "thema": "terme.aufstellen",
+   "lernkarte": "uebersetzen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "2 · (x − 5)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer falsch gesetzt: erst 5 abgezogen, dann verdoppelt",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "x² − 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Doppelte mit dem Quadrat verwechselt",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "2 + x − 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Doppelte mit „plus 2“ verwechselt",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "uebersetzen",
+    "t": "uebersetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welcher Term passt zu dem Satz: „Das Doppelte von x, vermindert um 5“?"
+    },
+    "a": [
+     "2 · (x − 5)",
+     "x² − 5",
+     "2x − 5",
+     "2 + x − 5"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Was passiert zuerst mit x, was danach?",
+    "w": "Das Doppelte von x ist 2x. Davon werden 5 abgezogen: 2x − 5. Probe mit x = 7: Doppeltes 14, minus 5 ergibt 9."
+   }
+  },
+  {
+   "kennung": "K6-V129",
+   "thema": "terme.aufstellen",
+   "lernkarte": "uebersetzen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 52,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Vater die 2 Jahre vergessen",
+     "c": "11 + 8 + 3 * 11"
+    },
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schwester 3 Jahre älter statt jünger",
+     "c": "11 + (11 + 3) + (3 * 11 + 2)"
+    }
+   ],
+   "aufgabe": {
+    "l": "uebersetzen",
+    "t": "uebersetzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Alex ist a Jahre alt. Seine Schwester ist 3 Jahre jünger als er. Sein Vater ist dreimal so alt wie Alex und noch 2 Jahre älter. Alex ist 11 Jahre alt. Wie viele Jahre sind die drei zusammen alt?"
+    },
+    "o": {
+     "wert": 54
+    },
+    "c": "11 + (11 - 3) + (3 * 11 + 2)",
+    "h": "Schreibe für jede Person einen Term mit a auf.",
+    "w": "Alex: a. Schwester: a − 3. Vater: 3a + 2. Zusammen: a + (a − 3) + (3a + 2) = 5a − 1. Für a = 11: 55 − 1 = 54. Probe: 11 + 8 + 35 = 54."
+   }
+  },
+  {
+   "kennung": "K6-V130",
+   "thema": "terme.aufstellen",
+   "lernkarte": "sachsituation",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Erwachsenenkarte gerechnet",
+     "c": "9"
+    },
+    {
+     "luecke": 1,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Erwachsenen mit dem Kinderpreis gerechnet: 2 · 7",
+     "c": "2 * 7"
+    },
+    {
+     "luecke": 2,
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den festen Teil vergessen: 7 · 3",
+     "c": "7 * 3"
+    },
+    {
+     "luecke": 3,
+     "antwort": 39,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Preis statt des Rückgelds angegeben",
+     "c": "(39)"
+    },
+    {
+     "luecke": 4,
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den festen Teil vergessen: 7 · 4",
+     "c": "7 * 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachsituation",
+    "t": "sachsituation",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Im Kino kostet eine Kinderkarte 7 € und eine Erwachsenenkarte 9 €. Eine Familie kauft Karten für k Kinder und 2 Erwachsene. Der Preis in Euro ist der Term 7 · k + ①. Für 3 Kinder zahlt die Familie ② €. Mit einem 50-Euro-Schein bekommt sie dann ③ € zurück. Für 4 Kinder zahlt sie ④ €.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      18,
+      39,
+      11,
+      46
+     ]
+    },
+    "c": [
+     "9 * 2",
+     "7 * 3 + (18)",
+     "50 - (39)",
+     "7 * 4 + (18)"
+    ],
+    "h": "Der feste Teil des Preises hängt nicht von k ab.",
+    "w": "Die Erwachsenenkarten kosten 2 · 9 € = 18 €, unabhängig von k. 3 Kinder: 7 · 3 + 18 = 39 €. Rückgeld: 50 € − 39 € = 11 €. 4 Kinder: 7 · 4 + 18 = 46 €."
+   }
+  },
+  {
+   "kennung": "K6-V131",
+   "thema": "terme.aufstellen",
+   "lernkarte": "sachsituation",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "5 − 0,80 · b + 2 · 0,60",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Klammer vergessen: die Äpfel werden zum Rückgeld addiert statt abgezogen",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "5 − 0,80 · (b + 2) − 0,60",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 2 Äpfel zum Brezelpreis 0,80 € gerechnet und zusätzlich 0,60 € für einen Apfel noch einmal abgezogen",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "(5 − 0,80) · b − 2 · 0,60",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Schein mit b malgenommen",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "sachsituation",
+    "t": "sachsituation",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Am Schulkiosk kostet eine Brezel 0,80 € und ein Apfel 0,60 €. Ein Kind kauft b Brezeln und 2 Äpfel und bezahlt mit einem 5-Euro-Schein. Welcher Term gibt an, wie viel Euro es zurückbekommt?"
+    },
+    "a": [
+     "5 − 0,80 · b + 2 · 0,60",
+     "5 − 0,80 · (b + 2) − 0,60",
+     "5 − (0,80 · b + 2 · 0,60)",
+     "(5 − 0,80) · b − 2 · 0,60"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Was kosten alle Brezeln und alle Äpfel zusammen? Das Rückgeld ist der Rest vom Schein.",
+    "w": "b Brezeln kosten 0,80 · b €, 2 Äpfel kosten 2 · 0,60 €. Zusammen 0,80 · b + 2 · 0,60. Das Rückgeld ist 5 − (0,80 · b + 2 · 0,60). Probe b = 3: 5 − (2,40 + 1,20) = 1,40 €."
+   }
+  },
+  {
+   "kennung": "K6-V132",
+   "thema": "terme.aufstellen",
+   "lernkarte": "sachsituation",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundgebühren und die Minutenpreise addiert statt Unterschiede gebildet",
+     "c": "(8 + 2) / (0.15 + 0.05)"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Unterschied der Grundgebühren angegeben",
+     "c": "8 - 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachsituation",
+    "t": "sachsituation",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Tarif A kostet 8 € Grundgebühr und 0,05 € je Minute. Tarif B kostet 2 € Grundgebühr und 0,15 € je Minute. Weg A: Lege eine Tabelle mit den Preisen für 10, 20, 30 … Minuten an und suche die Stelle, an der beide Preise gleich sind. Weg B: Teile den Unterschied der Grundgebühren durch den Unterschied der Minutenpreise. Nach wie vielen Minuten kosten beide Tarife gleich viel?"
+    },
+    "o": {
+     "wert": 60,
+     "einheit": "min"
+    },
+    "c": "(8 - 2) / (0.15 - 0.05)",
+    "h": "Wie viel mehr Grundgebühr zahlt man bei A, wie viel weniger pro Minute?",
+    "w": "Weg A: Die Tabelle zeigt bei 60 Minuten für A 8 € + 3 € = 11 € und für B 2 € + 9 € = 11 €. Weg B: 6 € Unterschied bei der Grundgebühr, pro Minute spart A 0,10 €. 6 : 0,10 = 60 Minuten."
+   }
+  },
+  {
+   "kennung": "K6-V133",
+   "thema": "terme.aufstellen",
+   "lernkarte": "muster",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das zweite Glied als Zuwachs genommen",
+     "c": "14"
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das erste Glied als Konstante genommen",
+     "c": "10"
+    },
+    {
+     "luecke": 3,
+     "antwort": 80,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Konstante vergessen",
+     "c": "(4) * 20"
+    }
+   ],
+   "aufgabe": {
+    "l": "muster",
+    "t": "muster",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Figur 1 hat 10 Plättchen, Figur 2 hat 14 und Figur 3 hat 18. Bei jeder Figur kommen ① Plättchen dazu. Die Anzahl bei Figur n ist ①n + ②. Figur 20 hat ③ Plättchen.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      4,
+      6,
+      86
+     ]
+    },
+    "c": [
+     "14 - 10",
+     "10 - (4)",
+     "(4) * 20 + (6)"
+    ],
+    "h": "Wie viele Plättchen kommen von einer Figur zur nächsten dazu?",
+    "w": "Von 10 zu 14 zu 18 sind es jedes Mal 4 mehr. Die Figur n hat 4n + 6 Plättchen (Figur 1: 4 + 6 = 10). Figur 20: 4 · 20 + 6 = 86."
+   }
+  },
+  {
+   "kennung": "K6-V134",
+   "thema": "terme.aufstellen",
+   "lernkarte": "muster",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "3n + 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den ersten Tabellenwert als Konstante genommen",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "n + 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die erste Zeile passend gewählt",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "7n",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem ersten Wert malgenommen",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "muster",
+    "t": "muster",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Wertetabelle zeigt: n = 1 ergibt 7, n = 2 ergibt 10, n = 3 ergibt 13, n = 4 ergibt 16. Welcher Term gehört zu dieser Tabelle?"
+    },
+    "a": [
+     "3n + 4",
+     "3n + 7",
+     "n + 6",
+     "7n"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wie viel kommt von einer Zeile zur nächsten dazu? Setze dann n = 1 ein.",
+    "w": "Von Zeile zu Zeile kommen 3 dazu, also 3n + etwas. Für n = 1: 3 + 4 = 7. Probe n = 4: 3 · 4 + 4 = 16."
+   }
+  },
+  {
+   "kennung": "K6-V135",
+   "thema": "terme.aufstellen",
+   "lernkarte": "muster",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 3 vergessen: 27 : 4",
+     "c": "27 / 4"
+    },
+    {
+     "antwort": 7.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 addiert statt abgezogen",
+     "c": "(27 + 3) / 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "muster",
+    "t": "muster",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Figur n eines Musters hat 4n + 3 Plättchen. Bei welcher Figur sind es genau 27 Plättchen?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "(27 - 3) / 4",
+    "h": "Kehre die Rechnung um: Was passiert zuletzt mit 4n?",
+    "w": "4n + 3 = 27. Erst 3 abziehen: 4n = 24. Dann durch 4 teilen: n = 6. Probe: 4 · 6 + 3 = 27."
+   }
+  },
+  {
+   "kennung": "K6-V136",
+   "thema": "terme.aufstellen",
+   "lernkarte": "deuten",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 152,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4x + 15 als (4 + 15) · x gerechnet: 19 · 8",
+     "c": "(4 + 15) * 8"
+    },
+    {
+     "luecke": 2,
+     "antwort": 62,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "statt des Verlängerungspreises von 12 € erneut die Grundgebühr von 15 € addiert: 47 + 15",
+     "c": "(47) + 15"
+    },
+    {
+     "luecke": 2,
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 3 € statt 3 · 4 € dazugerechnet: 47 + 3",
+     "c": "(47) + 3"
+    },
+    {
+     "luecke": 3,
+     "antwort": 53,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den 8-Stunden-Preis vom Schein abgezogen: 100 − 47",
+     "c": "100 - (47)"
+    }
+   ],
+   "aufgabe": {
+    "l": "deuten",
+    "t": "deuten",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Das Ausleihen eines Rollers kostet 4x + 15 Euro, wobei x die Zahl der Stunden ist. Für 8 Stunden zahlt man ① €. Verlängert man um 3 Stunden, zahlt man für 11 Stunden ② €. Mit einem 100-Euro-Schein bekommt man dafür ③ € zurück.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      47,
+      59,
+      41
+     ]
+    },
+    "c": [
+     "4 * 8 + 15",
+     "(47) + 4 * 3",
+     "100 - (59)"
+    ],
+    "h": "Wie viel Euro kommen mit jeder weiteren Stunde dazu?",
+    "w": "8 Stunden: 4 · 8 + 15 = 47. Jede weitere Stunde kostet 4 € mehr, 3 Stunden also 12 € mehr: 59 €. Probe: 4 · 11 + 15 = 59. Rückgeld: 100 € − 59 € = 41 €."
+   }
+  },
+  {
+   "kennung": "K6-V137",
+   "thema": "terme.aufstellen",
+   "lernkarte": "deuten",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Für 39 Stunden zahlt man 6 €.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x und Preis vertauscht",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "Eine Stunde kostet 39 €.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Gesamtpreis mit dem Preis je Stunde verwechselt",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "Man zahlt 15 Stunden lang je 4 €.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zahl der Stunden und Grundgebühr verwechselt",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "deuten",
+    "t": "deuten",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Für das Ausleihen eines Rollers gilt: Der Preis in Euro ist 4x + 15, wobei x die Zahl der Stunden ist. Was bedeutet die Rechnung 4 · 6 + 15 = 39?"
+    },
+    "a": [
+     "Für 39 Stunden zahlt man 6 €.",
+     "Eine Stunde kostet 39 €.",
+     "Man zahlt 15 Stunden lang je 4 €.",
+     "Für 6 Stunden zahlt man 39 €."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Was ist x? Was ist das Ergebnis der Rechnung?",
+    "w": "x ist die Zahl der Stunden. 4 · 6 steht für 6 Stunden zu je 4 €, die 15 € fallen einmal an. Das Ergebnis 39 ist der Preis in Euro."
+   }
+  },
+  {
+   "kennung": "K6-V138",
+   "thema": "terme.aufstellen",
+   "lernkarte": "deuten",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Für x = 2 ergibt 19x tatsächlich 38. Der Term 19x ist aber durch den Fehler in Zeile 1 entstanden; dort steht der erste Fehler.",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 3 übernimmt nur den Wert aus Zeile 2. Der erste Fehler steht schon in Zeile 1.",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "deuten",
+    "t": "deuten",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Nina vereinfacht den Term 4x + 15, der den Preis für das Ausleihen eines Rollers für x Stunden beschreibt. Zeile 1: Man darf die Zahlen 4 und 15 zusammenzählen: 4x + 15 = 19x. Zeile 2: Für x = 2 ergibt 19x den Wert 38. Zeile 3: Also kostet das Ausleihen für 2 Stunden 38 €. In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Setze x = 2 in den ursprünglichen Term ein und vergleiche.",
+    "w": "4x + 15 hat für x = 2 den Wert 4 · 2 + 15 = 23. Die 15 gehört nicht zu x, man darf sie nicht mit der 4 zusammenzählen. Die Zeilen 2 und 3 rechnen mit 19x richtig weiter."
+   }
+  }
+ ]
+}

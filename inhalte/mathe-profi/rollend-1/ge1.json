@@ -49,7 +49,7 @@
     "f": {
      "text": "Kim startet im Ursprung. Er geht 7 Schritte nach links, 8 nach unten, 4 nach rechts und 11 nach oben. Er steht jetzt bei x = −7 + 4 = ① und y = −8 + 11 = ②. Zurück zum Ursprung braucht er |①| + |②| = ③ Schritte, wenn er nur waagrecht und senkrecht geht.",
      "schablone": "① = □; ② = □; ③ = □",
-     "hinweis": "Je Lücke eine Anzahl von Schritten."
+     "hinweis": "Je Lücke eine ganze Zahl, wenn nötig mit Minus."
     },
     "o": {
      "werte": [
@@ -110,7 +110,7 @@
     "f": {
      "text": "A(−4 | 5) und B(8 | 5) liegen auf einer waagrechten Linie. Die Strecke [AB] ist 8 − (−4) = ① Einheiten lang. Die Mitte M liegt die Hälfte von ① Einheiten von A entfernt, also bei x = −4 + die Hälfte von ① = ②. Der Abstand von M zu B ist 8 − ② = ③.",
      "schablone": "① = □; ② = □; ③ = □",
-     "hinweis": "Je Lücke eine Länge."
+     "hinweis": "Je Lücke eine ganze Zahl, wenn nötig mit Minus."
     },
     "o": {
      "werte": [

@@ -1,0 +1,393 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-11",
+ "kuerzel": "S3",
+ "thema": "zahlen.rechengesetze",
+ "titel": "zahlen.rechengesetze",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen_datei_im_bestand": "zahlen.rechengesetze",
+ "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "S3-V008",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "klammern",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "20 + 10 · 3 − 15 : 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ohne Klammern gerechnet: Punkt vor Strich ergibt 20 + 30 − 3",
+     "rechnung": "20 + 10 * 3 - 15 / 5"
+    },
+    {
+     "index": 1,
+     "antwort": "(20 + 10) · 3 − 15 : 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die ersten beiden Schritte geklammert, das Teilen durch 5 trifft dann nur die 15",
+     "rechnung": "(20 + 10) * 3 - 15 / 5"
+    },
+    {
+     "index": 3,
+     "antwort": "20 + 10 · (3 − 15 : 5)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer um die falschen Schritte gesetzt",
+     "rechnung": "20 + 10 * (3 - 15 / 5)"
+    }
+   ],
+   "aufgabe": {
+    "l": "klammern",
+    "t": "vorrang",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle beschreibt eine Rechenmaschine. Sie führt die Schritte nacheinander aus, jeweils mit dem Ergebnis des Schritts davor. Welcher Term gibt genau das Ergebnis der Maschine an?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Schritt",
+       "1",
+       "2",
+       "3",
+       "4",
+       "5"
+      ],
+      "zeilen": [
+       [
+        "Rechnung",
+        "Start mit 20",
+        "plus 10",
+        "mal 3",
+        "minus 15",
+        "geteilt durch 5"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "20 + 10 · 3 − 15 : 5",
+     "(20 + 10) · 3 − 15 : 5",
+     "((20 + 10) · 3 − 15) : 5",
+     "20 + 10 · (3 − 15 : 5)"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne zuerst die Maschine Schritt für Schritt aus. Prüfe dann, welcher Term durch seine Klammern dieselbe Reihenfolge erzwingt.",
+    "w": "Die Maschine rechnet: 20 + 10 = 30; 30 · 3 = 90; 90 − 15 = 75; 75 : 5 = 15. Der Term ((20 + 10) · 3 − 15) : 5 hat dieselbe Reihenfolge und ergibt 15. Ohne Klammern gilt Punkt vor Strich, dann ändert sich die Reihenfolge."
+   }
+  },
+  {
+   "kennung": "S3-V009",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "vorteil",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 575,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Malnehmen mit 4 rückgängig gemacht",
+     "rechnung": "(2317 - 17) / 4"
+    },
+    {
+     "antwort": 92,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Malnehmen mit 25 rückgängig gemacht",
+     "rechnung": "(2317 - 17) / 25"
+    },
+    {
+     "antwort": 2300,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Addieren von 17 rückgängig gemacht",
+     "rechnung": "2317 - 17"
+    }
+   ],
+   "aufgabe": {
+    "l": "vorteil",
+    "t": "gesetze",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ich denke mir eine Zahl. Ich multipliziere sie mit 25, dann mit 4 und addiere zum Schluss 17. Das Ergebnis ist 2 317. Welche Zahl habe ich mir gedacht?"
+    },
+    "o": {
+     "wert": 23
+    },
+    "c": "(2317 - 17) / 4 / 25",
+    "h": "Mache die Schritte in umgekehrter Reihenfolge rückgängig.",
+    "w": "Rückwärts: 2 317 − 17 = 2 300. Das Malnehmen mit 25 und mit 4 ist zusammen ein Malnehmen mit 100. Also 2 300 : 100 = 23. Probe: 23 · 25 = 575, 575 · 4 = 2 300, 2 300 + 17 = 2 317."
+   }
+  },
+  {
+   "kennung": "S3-V010",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "verteilen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 2",
+     "rechnung": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus der falschen Zeile 2 richtig; der erste Fehler steckt weiter oben",
+     "rechnung": null
+    }
+   ],
+   "fehlerzeile": 2,
+   "fehler": "die Summe im Teiler wie im Dividenden verteilt",
+   "zeilen": [
+    {
+     "zeile": 1,
+     "text": "(84 + 12) : 6 = 84 : 6 + 12 : 6",
+     "stimmt": true
+    },
+    {
+     "zeile": 2,
+     "text": "84 : (3 + 4) = 84 : 3 + 84 : 4",
+     "stimmt": false
+    },
+    {
+     "zeile": 3,
+     "text": "84 : 3 + 84 : 4 = 28 + 21 = 49",
+     "stimmt": true
+    }
+   ],
+   "aufgabe": {
+    "l": "verteilen",
+    "t": "gesetze",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim rechnet mit dem Verteilungsgesetz. Zeile 1: (84 + 12) : 6 = 84 : 6 + 12 : 6 Zeile 2: 84 : (3 + 4) = 84 : 3 + 84 : 4 Zeile 3: 84 : 3 + 84 : 4 = 28 + 21 = 49 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Rechne beide Seiten jeder Gleichung getrennt aus.",
+    "w": "Zeile 1 stimmt: Beim Teilen darf man eine Summe im Dividenden verteilen. In Zeile 2 steht die Summe aber im Teiler. Das darf man nicht verteilen: 84 : (3 + 4) = 84 : 7 = 12, aber 28 + 21 = 49. Zeile 3 rechnet mit der falschen Zeile 2 richtig weiter."
+   }
+  },
+  {
+   "kennung": "S3-V011",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "mal_ganz",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -46,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Vergangenheit wie die Zukunft gerechnet (5 Minuten später)",
+     "rechnung": "-26 + (-4) * 5"
+    },
+    {
+     "antwort": -30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Minute gerechnet, und zwar vorwärts statt zurück: −26 + (−4)",
+     "rechnung": "-26 + (-4)"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Vorzeichen umgekehrt: statt −26 + 20 gerechnet 26 − 20",
+     "rechnung": "26 - 20"
+    }
+   ],
+   "aufgabe": {
+    "l": "mal_ganz",
+    "t": "ganz",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Tauchroboter sinkt gleichmäßig. Seine Höhe ändert sich jede Minute um −4 m (Meeresspiegel = 0 m). Jetzt befindet er sich bei −26 m. In welcher Höhe in Metern war er vor 5 Minuten?"
+    },
+    "o": {
+     "wert": -6,
+     "einheit": "m"
+    },
+    "c": "-26 + (-4) * (-5)",
+    "h": "Vor 5 Minuten heißt: Die Zeit ist −5 Minuten. Wie ändert sich die Höhe in dieser Zeit?",
+    "w": "Vor 5 Minuten war die Zeit −5 Minuten. Die Höhenänderung ist (−4) · (−5) = +20 m. Höhe damals: −26 + 20 = −6 m. Probe: Von −6 m sinkt er in 5 Minuten um 20 m auf −26 m."
+   }
+  },
+  {
+   "kennung": "S3-V012",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "umkehraufgabe_mal",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Abziehen von 15 falsch rückgängig gemacht (noch einmal abgezogen)",
+     "rechnung": "(11 * (-3) - 15) / (-6)"
+    },
+    {
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim letzten Schritt das Vorzeichen von −6 vergessen",
+     "rechnung": "(11 * (-3) + 15) / 6"
+    },
+    {
+     "antwort": -18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor (−6) nicht rückgängig gemacht",
+     "rechnung": "11 * (-3) + 15"
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehraufgabe_mal",
+    "t": "gleichungen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ich denke mir eine ganze Zahl. Ich multipliziere sie mit (−6) und ziehe 15 ab. Dann teile ich durch (−3). Ich erhalte 11. Welche Zahl habe ich mir gedacht?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "(11 * (-3) + 15) / (-6)",
+    "h": "Beginne mit dem letzten Schritt und kehre jeden Schritt um. Was ist die Umkehrung von „geteilt durch −3“?",
+    "w": "Rückwärts: Die Umkehrung von „: (−3)“ ist „· (−3)“: 11 · (−3) = −33. Die Umkehrung von „− 15“ ist „+ 15“: −33 + 15 = −18. Die Umkehrung von „· (−6)“ ist „: (−6)“: (−18) : (−6) = 3. Probe: 3 · (−6) = −18; −18 − 15 = −33; (−33) : (−3) = 11."
+   }
+  },
+  {
+   "kennung": "S3-V013",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "schriftlich",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1380,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die ganze erste Zeile genannt statt des einen Feldes",
+     "rechnung": "1380"
+    },
+    {
+     "antwort": 2580,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1 200 zu 1 380 dazugezählt statt abgezogen",
+     "rechnung": "1380 + 1200"
+    },
+    {
+     "antwort": 1060,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Feld der rechten Spalte (320) statt des Feldes 1 200 abgezogen",
+     "rechnung": "1380 - 320"
+    }
+   ],
+   "aufgabe": {
+    "l": "schriftlich",
+    "t": "verfahren",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Das Malgitter gehört zu einer schriftlichen Multiplikation. Die Zahlen am Rand fehlen, das Feld unten rechts ist verdeckt. Die linke Spalte gehört zum Zehnerwert des zweiten Faktors, die rechte Spalte zum Einerwert. Kim rechnet dieselbe Aufgabe schriftlich. Seine erste Zeile (die Multiplikation mit dem Zehnerwert) ergibt 1 380. Welche Zahl gehört in das Feld mit dem Fragezeichen?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Feld",
+       "linke Spalte",
+       "rechte Spalte"
+      ],
+      "zeilen": [
+       [
+        "oben",
+        "1 200",
+        "320"
+       ],
+       [
+        "unten",
+        "?",
+        "verdeckt"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 180
+    },
+    "c": "1380 - 1200",
+    "h": "Welche Felder des Gitters gehören zu Kims erster Zeile? Was muss ihre Summe ergeben?",
+    "w": "Kims erste Zeile ist die Summe der Felder der linken Spalte: 1 200 + ? = 1 380. Also ist ? = 1 380 − 1 200 = 180. Die rechte Spalte (320 und 48) gehört zur zweiten Zeile, der Multiplikation mit dem Einerwert."
+   }
+  }
+ ]
+}

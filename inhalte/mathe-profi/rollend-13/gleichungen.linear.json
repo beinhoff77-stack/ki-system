@@ -1,0 +1,658 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-13",
+ "kuerzel": "R8",
+ "flug": "r8-gleichungen.linear",
+ "titel": "gleichungen.linear",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen": [
+  "gleichungen.linear"
+ ],
+ "themen_datei_im_bestand": "gleichungen.linear",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R8-V019",
+   "thema": "gleichungen.linear",
+   "lernkarte": "waage",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 250,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gewichtsstücke addiert statt abgezogen: (350 + 150) : 2"
+    },
+    {
+     "antwort": 200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Gewichtsstücke abgezogen und nicht durch 2 geteilt"
+    },
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 4 statt durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "waage",
+    "t": "umformen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Balkenwaage ist im Gleichgewicht. Links liegen 4 Äpfel gleicher Masse und Gewichtsstücke mit zusammen 150 g. Rechts liegen 2 dieser Äpfel und Gewichtsstücke mit zusammen 350 g. Wie viel Gramm wiegt ein Apfel?"
+    },
+    "o": {
+     "wert": 100,
+     "einheit": "g"
+    },
+    "c": "(350 - 150) / (4 - 2)",
+    "h": "Nimm auf beiden Seiten gleich viel weg, damit die Waage im Gleichgewicht bleibt. Entferne zuerst 2 Äpfel.",
+    "w": "Die Gleichung ist 4a + 150 = 2a + 350. Nimm links und rechts 2 Äpfel weg: 2a + 150 = 350. Nimm 150 g weg: 2a = 200. Ein Apfel wiegt a = 100 g. Probe: 400 + 150 = 550 und 200 + 350 = 550."
+   }
+  },
+  {
+   "kennung": "R8-V020",
+   "thema": "gleichungen.linear",
+   "lernkarte": "waage",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "waage",
+    "t": "umformen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst die Gleichung 5x − 12 = 2x + 9. Zeile 1: Auf beiden Seiten 2x abziehen und 12 addieren: 3x = 9 + 12. Zeile 2: Zusammengefasst: 3x = 21. Zeile 3: Beide Seiten mal 3: x = 63 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wie wird aus 3x das einzelne x? Probe mit einer kleinen Zahl.",
+    "w": "3x bedeutet 3 mal x. Die Umkehrung ist das Teilen durch 3: x = 21 : 3 = 7. Probe: 5 · 7 − 12 = 23 und 2 · 7 + 9 = 23."
+   }
+  },
+  {
+   "kennung": "R8-V021",
+   "thema": "gleichungen.linear",
+   "lernkarte": "beide_seiten",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Wert des Schnittpunkts statt des x-Werts angegeben"
+    },
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die −2 mit falschem Vorzeichen auf die andere Seite gebracht (4 minus 2 statt 4 plus 2)"
+    },
+    {
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Zahlen mit dem falschen Vorzeichen auf die andere Seite gebracht"
+    }
+   ],
+   "aufgabe": {
+    "l": "beide_seiten",
+    "t": "umformen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Zeichnung zeigt die Geraden zu y = 3x − 2 und y = x + 4. Wo sich die Geraden schneiden, haben beide Terme denselben Wert. Das ist die Lösung der Gleichung 3x − 2 = x + 4. Bei welcher Zahl x ist das der Fall?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -1,
+       5
+      ],
+      "y": [
+       -3,
+       9
+      ],
+      "graphen": [
+       {
+        "art": "linear",
+        "m": 3,
+        "t": -2,
+        "name": "y = 3x − 2"
+       },
+       {
+        "art": "linear",
+        "m": 1,
+        "t": 4,
+        "name": "y = x + 4"
+       }
+      ]
+     }
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "(4 + 2) / (3 - 1)",
+    "h": "Wo schneiden sich die beiden Geraden? Lies die x-Koordinate des Schnittpunkts ab und rechne zur Probe nach.",
+    "w": "Die Geraden schneiden sich bei x = 3. Rechnung: 3x − x = 4 + 2, also 2x = 6 und x = 3. Probe: 3 · 3 − 2 = 7 und 3 + 4 = 7."
+   }
+  },
+  {
+   "kennung": "R8-V022",
+   "thema": "gleichungen.linear",
+   "lernkarte": "beide_seiten",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 − 17 gerechnet statt 17 − 20"
+    },
+    {
+     "antwort": 37,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "17 und 20 addiert"
+    },
+    {
+     "antwort": -11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "rechts nur die 9 beachtet, das 2x vergessen: 20 + a = 9"
+    }
+   ],
+   "aufgabe": {
+    "l": "beide_seiten",
+    "t": "umformen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Zahl a hat die Gleichung 5x + a = 2x + 9 die Lösung x = 4?"
+    },
+    "o": {
+     "wert": -3
+    },
+    "c": "2 * 4 + 9 - 5 * 4",
+    "h": "Eine Lösung macht die Gleichung wahr. Was passiert, wenn du sie einsetzt?",
+    "w": "Links: 5 · 4 + a = 20 + a. Rechts: 2 · 4 + 9 = 17. Aus 20 + a = 17 folgt a = −3. Probe: 5x − 3 = 2x + 9 hat die Lösung x = 4, denn 17 = 17."
+   }
+  },
+  {
+   "kennung": "R8-V023",
+   "thema": "gleichungen.linear",
+   "lernkarte": "klammern",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 11,
+     "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
+     "regel_des_fehlbilds": "rr.ausmultiplizieren",
+     "beschreibung": "bei der ersten Klammer nur x mit 3 malgenommen: aus 3(x + 2) wird 3x + 2"
+    },
+    {
+     "antwort": -2,
+     "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
+     "regel_des_fehlbilds": "rr.ausmultiplizieren",
+     "beschreibung": "bei der zweiten Klammer nur x mit 2 malgenommen: aus 2(x + 9) wird 2x + 9"
+    },
+    {
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Garderobe abgezogen statt addiert: aus +5 wird −5"
+    }
+   ],
+   "aufgabe": {
+    "l": "klammern",
+    "t": "umformen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Im Kino kostet eine Kinderkarte x €. Eine Erwachsenenkarte kostet 2 € mehr, eine Premiumkarte 9 € mehr als eine Kinderkarte. Gruppe A kauft 3 Erwachsenenkarten und zahlt dazu 5 € für die Garderobe. Gruppe B kauft 2 Premiumkarten. Beide Gruppen zahlen gleich viel. Wie viel Euro kostet eine Kinderkarte?"
+    },
+    "o": {
+     "wert": 7,
+     "einheit": "€"
+    },
+    "c": "(2 * 9 - 3 * 2 - 5) / (3 - 2)",
+    "h": "Eine Erwachsenenkarte kostet (x + 2) €, eine Premiumkarte (x + 9) €. Stelle für jede Gruppe den Gesamtpreis auf.",
+    "w": "Gruppe A: 3(x + 2) + 5. Gruppe B: 2(x + 9). Gleichung: 3(x + 2) + 5 = 2(x + 9). Ausmultiplizieren: 3x + 11 = 2x + 18. Dann x = 7. Probe: 3 · 9 + 5 = 32 und 2 · 16 = 32."
+   }
+  },
+  {
+   "kennung": "R8-V024",
+   "thema": "gleichungen.linear",
+   "lernkarte": "klammern",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "16 : 4 = 4 als a angegeben, ohne 5 − a = 4 zu lösen"
+    },
+    {
+     "antwort": -11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 4 vergessen: 5 − a = 16"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aus 5 − a = 4 wird a = 5 + 4 gemacht statt a = 5 − 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "klammern",
+    "t": "umformen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Zahl a hat die Gleichung 4(x − a) = 2x + 6 die Lösung x = 5?"
+    },
+    "o": {
+     "wert": 1
+    },
+    "c": "5 - (2 * 5 + 6) / 4",
+    "h": "Setze x = 5 ein. Was kannst du dann auf der rechten Seite ausrechnen?",
+    "w": "Rechts: 2 · 5 + 6 = 16. Links: 4(5 − a) = 16, also 5 − a = 4 und a = 1. Probe: 4(5 − 1) = 16."
+   }
+  },
+  {
+   "kennung": "R8-V025",
+   "thema": "gleichungen.linear",
+   "lernkarte": "probe",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "rechte Seite minus linke Seite gerechnet: das Vorzeichen des Unterschieds stimmt nicht"
+    },
+    {
+     "antwort": -9,
+     "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
+     "regel_des_fehlbilds": "rr.ausmultiplizieren",
+     "beschreibung": "die 5 in der Klammer nicht mit 2 malgenommen: aus 2(x + 5) wird 2x + 5"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das −3 als +3 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "probe",
+    "t": "pruefen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Kim hat die Gleichung 2(x + 5) − 3 = 4x − 7 gelöst und x = 9 erhalten. Bei der Probe vergleicht man die beiden Seiten. Weg A: Beide Seiten für x = 9 einzeln ausrechnen und den Unterschied bilden. Weg B: Zuerst den Unterschied 2(x + 5) − 3 − (4x − 7) zu einem Term in x zusammenfassen und dann x = 9 einsetzen. Wie groß ist der Unterschied „linke Seite minus rechte Seite“ für x = 9?"
+    },
+    "o": {
+     "wert": -4
+    },
+    "c": "2 * (9 + 5) - 3 - (4 * 9 - 7)",
+    "h": "Beide Wege müssen denselben Unterschied ergeben. Wäre x = 9 eine Lösung, müsste der Unterschied null sein.",
+    "w": "Weg A: Links ist 2 · 14 − 3 = 25, rechts ist 4 · 9 − 7 = 29. Der Unterschied ist 25 − 29 = −4. Weg B: 2x + 10 − 3 − 4x + 7 = −2x + 14. Für x = 9 ist das −18 + 14 = −4. Der Unterschied ist nicht null, also ist x = 9 keine Lösung. Richtig ist x = 7."
+   }
+  },
+  {
+   "kennung": "R8-V026",
+   "thema": "gleichungen.linear",
+   "lernkarte": "probe",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile enthält einen eigenen methodischen Fehler: Die Probe wurde in der umgeformten, schon fehlerhaften Gleichung gemacht und nicht in der Ausgangsgleichung. So kann sie den Fehler aus Zeile 1 nicht finden"
+    }
+   ],
+   "aufgabe": {
+    "l": "probe",
+    "t": "pruefen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst 4(x − 2) = 3x + 1 und macht eine Probe. Zeile 1: Ausmultiplizieren: 4(x − 2) = 4x − 2, also 4x − 2 = 3x + 1. Zeile 2: Beide Seiten minus 3x und plus 2: x = 3. Zeile 3: Probe in der Gleichung 4x − 2 = 3x + 1: links 4 · 3 − 2 = 10, rechts 3 · 3 + 1 = 10. Also stimmt x = 3. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wie lautet die Ausgangsgleichung? Setze x = 3 genau dort ein.",
+    "w": "4(x − 2) = 4x − 8, nicht 4x − 2: Die 2 wird auch mit 4 malgenommen. Dann ist 4x − 8 = 3x + 1 und x = 9. Die Probe in Zeile 3 benutzt die fehlerhafte Gleichung aus Zeile 1. Eine Probe gehört in die Ausgangsgleichung: 4(3 − 2) = 4, aber 3 · 3 + 1 = 10."
+   }
+  },
+  {
+   "kennung": "R8-V027",
+   "thema": "gleichungen.linear",
+   "lernkarte": "sonderfaelle",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Die Gleichung hat genau eine Lösung, nämlich x = 0, denn dort schneiden die Geraden die y-Achse.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Achsenabschnitte 3 und 5 mit einer Lösung verwechselt: bei x = 0 sind die Werte 3 und 5, nicht gleich"
+    },
+    {
+     "index": 1,
+     "antwort": "Jede Zahl ist Lösung, denn beide Geraden haben dieselbe Steigung.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gleiche Steigung mit gleichen Werten verwechselt: bei gleichem x liegt die zweite Gerade 2 Einheiten höher"
+    }
+   ],
+   "aufgabe": {
+    "l": "sonderfaelle",
+    "t": "pruefen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Zeichnung zeigt die Geraden zu y = 2x + 3 und y = 2x + 5. Gesucht sind alle Zahlen x (aus ℚ), für die 2x + 3 = 2x + 5 gilt. Was sagt die Zeichnung über diese Gleichung?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -3,
+       3
+      ],
+      "y": [
+       -2,
+       12
+      ],
+      "graphen": [
+       {
+        "art": "linear",
+        "m": 2,
+        "t": 3,
+        "name": "y = 2x + 3"
+       },
+       {
+        "art": "linear",
+        "m": 2,
+        "t": 5,
+        "name": "y = 2x + 5"
+       }
+      ]
+     }
+    },
+    "a": [
+     "Die Gleichung hat genau eine Lösung, nämlich x = 0, denn dort schneiden die Geraden die y-Achse.",
+     "Jede Zahl ist Lösung, denn beide Geraden haben dieselbe Steigung.",
+     "Die Gleichung hat keine Lösung, denn die Geraden sind parallel und haben keinen gemeinsamen Punkt."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wo hätten die Geraden einen gemeinsamen Punkt? Vergleiche die y-Werte bei x = 0 und bei x = 1.",
+    "w": "Beide Geraden haben die Steigung 2 und sind parallel. Bei gleichem x liegt die zweite Gerade 2 Einheiten höher, die Geraden haben keinen gemeinsamen Punkt. Rechnung: 2x + 3 = 2x + 5 führt auf 3 = 5, das ist falsch. Die Lösungsmenge ist leer."
+   }
+  },
+  {
+   "kennung": "R8-V028",
+   "thema": "gleichungen.linear",
+   "lernkarte": "sonderfaelle",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
+     "regel_des_fehlbilds": "rr.ausmultiplizieren",
+     "beschreibung": "nur x mit 3 malgenommen: aus 3(x + 2) wird 3x + 2, also k = 2"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 + 2 gerechnet statt 3 · 2"
+    },
+    {
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x = 0 eingesetzt, aber links nur 3 · 0 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "sonderfaelle",
+    "t": "pruefen",
+    "p": "uebung",
+    "s": 3,
+    "g": "parameter",
+    "y": "zahl",
+    "f": {
+     "text": "Es gibt genau eine Zahl k, für die die Gleichung 3(x + 2) = 3x + k für alle Zahlen x wahr ist. Weg A: Klammer ausmultiplizieren und beide Seiten vergleichen. Weg B: eine passende Zahl für x einsetzen, zum Beispiel x = 0, und daraus k bestimmen. Wie groß ist k?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "3 * (0 + 2) - 3 * 0",
+    "h": "Bei beiden Wegen musst du am Ende k = ... bestimmen. Welche Zahl steht links, wenn x = 0 ist?",
+    "w": "Weg A: 3(x + 2) = 3x + 6. Soll 3x + 6 = 3x + k für alle x gelten, muss k = 6 sein. Weg B: Für x = 0 steht links 3 · 2 = 6 und rechts k. Also k = 6. Probe: 3(x + 2) = 3x + 6 stimmt für jedes x."
+   }
+  },
+  {
+   "kennung": "R8-V029",
+   "thema": "gleichungen.linear",
+   "lernkarte": "sach",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 23,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Masse des leichteren Rucksacks angegeben"
+    },
+    {
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Hälfte der Gesamtmasse genommen, den Unterschied nicht beachtet"
+    },
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hälfte der Gesamtmasse um den ganzen Unterschied erhöht"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Rucksäcke wiegen zusammen 54 kg. Der schwerere ist 8 kg schwerer als der leichtere. Weg A: Stelle eine Gleichung auf. Weg B: Nimm den Unterschied erst weg, teile den Rest gerecht auf und gib dem schwereren Rucksack den Unterschied dann wieder dazu. Wie viele Kilogramm wiegt der schwerere Rucksack?"
+    },
+    "o": {
+     "wert": 31,
+     "einheit": "kg"
+    },
+    "c": "(54 + 8) / 2",
+    "h": "Beide Wege liefern dieselbe Masse. Bei Weg A ist die Masse des leichteren Rucksacks x kg.",
+    "w": "Weg A: x + (x + 8) = 54, also 2x = 46 und x = 23. Der schwerere Rucksack wiegt 23 + 8 = 31 kg. Weg B: 54 − 8 = 46, gerecht geteilt 23 kg, dann 8 kg dazu: 31 kg. Probe: 23 + 31 = 54."
+   }
+  },
+  {
+   "kennung": "R8-V030",
+   "thema": "gleichungen.linear",
+   "lernkarte": "sach",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Versandkosten abgezogen, den Rabatt nicht rückgängig gemacht"
+    },
+    {
+     "antwort": 57.6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 % auf 48 € aufgeschlagen statt durch 0,8 geteilt"
+    },
+    {
+     "antwort": 72.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Versandkosten addiert statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Tom bestellt eine Jacke im Internet. Der Rabatt von 20 % gilt nur für die Jacke. Danach kommen 5 € Versandkosten dazu. Tom zahlt insgesamt 53 €. Wie viel Euro hat die Jacke ohne Rabatt gekostet?"
+    },
+    "o": {
+     "wert": 60,
+     "einheit": "€"
+    },
+    "c": "(53 - 5) / 0.8",
+    "h": "Gehe rückwärts: Was hat Tom für die Jacke allein bezahlt? Wie viel Prozent des ursprünglichen Preises sind das?",
+    "w": "Gleichung: 0,8x + 5 = 53. Dann 0,8x = 48 und x = 48 : 0,8 = 60. Die Jacke kostete 60 €. Probe: 20 % von 60 € sind 12 €, 60 − 12 = 48 und 48 + 5 = 53."
+   }
+  }
+ ]
+}

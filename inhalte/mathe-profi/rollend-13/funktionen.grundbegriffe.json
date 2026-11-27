@@ -1,0 +1,1148 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-13",
+ "kuerzel": "R8",
+ "flug": "r8-funktionen.grundbegriffe",
+ "titel": "funktionen.grundbegriffe",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen": [
+  "funktionen.grundbegriffe"
+ ],
+ "themen_datei_im_bestand": "funktionen.grundbegriffe",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R8-V059",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "eindeutig",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Nur (b) ist eine Funktion.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Richtung vertauscht: in (b) gehören zu den Hausnummern 4 und 7 jeweils zwei Kinder"
+    },
+    {
+     "index": 1,
+     "antwort": "Beide Zuordnungen sind Funktionen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur auf die Eindeutigkeit von (a) geachtet: bei (b) hat die Hausnummer 4 die Kinder Kim und Ali"
+    },
+    {
+     "index": 3,
+     "antwort": "Keine der beiden Zuordnungen ist eine Funktion.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Mehrfachnennung der Hausnummern als Fehler von (a) gelesen: jedes Kind hat aber nur eine Hausnummer"
+    }
+   ],
+   "aufgabe": {
+    "l": "eindeutig",
+    "t": "eindeutig",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Fünf Kinder wohnen in einer Straße. Die Tabelle zeigt die Hausnummer jedes Kindes. Jedes Kind wohnt in genau einem Haus. Betrachte die Zuordnungen (a) Kind → Hausnummer und (b) Hausnummer → Kind (in der Tabelle vorkommende Hausnummern). Welche Aussage stimmt?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Kind",
+       "Kim",
+       "Tom",
+       "Ali",
+       "Zoe",
+       "Mia"
+      ],
+      "zeilen": [
+       [
+        "Hausnummer",
+        "4",
+        "7",
+        "4",
+        "9",
+        "7"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "Nur (b) ist eine Funktion.",
+     "Beide Zuordnungen sind Funktionen.",
+     "Nur (a) ist eine Funktion.",
+     "Keine der beiden Zuordnungen ist eine Funktion."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Eine Funktion ordnet jeder Eingabe genau eine Ausgabe zu. Prüfe, ob zu einer Eingabe zwei verschiedene Ausgaben gehören.",
+    "w": "(a) Jedes Kind hat genau eine Hausnummer: Kim 4, Tom 7, Ali 4, Zoe 9, Mia 7. Das ist eine Funktion. (b) Zur Hausnummer 4 gehören Kim und Ali, zur Hausnummer 7 gehören Tom und Mia. Eine Eingabe hat zwei Ausgaben, also keine Funktion. Dass zwei Kinder dieselbe Hausnummer haben, ist bei (a) kein Problem."
+   }
+  },
+  {
+   "kennung": "R8-V060",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "eindeutig",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Wert 9 selbst als a eingetragen"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 + 3 gerechnet statt 9 − 3"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Wert des ersten Paares genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "eindeutig",
+    "t": "eindeutig",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Die Zuordnung hat die Paare (1 | 4), (2 | a + 3), (3 | 5) und (2 | 9). Sie soll eine Funktion sein. Welche Zahl muss a sein?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "9 - 3",
+    "h": "Bei einer Funktion gehört zu jedem x genau ein y. Zu welchem x gibt es mehr als ein Paar?",
+    "w": "Zum x = 2 gibt es zwei Paare: (2 | a + 3) und (2 | 9). Eine Funktion ordnet 2 nur einen y-Wert zu, also muss a + 3 = 9 gelten und a = 6. Probe: Mit a = 6 ist (2 | 9) beide Male dasselbe Paar, das ist erlaubt."
+   }
+  },
+  {
+   "kennung": "R8-V061",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "mengen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "W = {−2; −1; 0; 1; 2}",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Definitionsmenge als Wertemenge angegeben"
+    },
+    {
+     "index": 2,
+     "antwort": "W = {0; 3}",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den kleinsten Funktionswert −1 übersehen, weil er nur einmal vorkommt"
+    }
+   ],
+   "aufgabe": {
+    "l": "mengen",
+    "t": "mengen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt die Funktion f(x) = x² − 1 für die Definitionsmenge D = {−2; −1; 0; 1; 2}. Welche Menge ist die Wertemenge W?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "x",
+       "−2",
+       "−1",
+       "0",
+       "1",
+       "2"
+      ],
+      "zeilen": [
+       [
+        "f(x)",
+        "3",
+        "0",
+        "−1",
+        "0",
+        "3"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "W = {−1; 0; 3}",
+     "W = {−2; −1; 0; 1; 2}",
+     "W = {0; 3}"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wertemenge: Welche verschiedenen Funktionswerte stehen in der unteren Zeile? Jeder Wert wird nur einmal genannt.",
+    "w": "Die Funktionswerte sind 3, 0, −1, 0, 3. Verschiedene Werte: −1, 0 und 3. Also W = {−1; 0; 3}. Die Zahlen aus D sind die Eingaben, nicht die Funktionswerte."
+   }
+  },
+  {
+   "kennung": "R8-V062",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "mengen",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle sieben Funktionswerte als verschieden gezählt"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Funktionswert −4 bei der Stelle 2 vergessen"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Wert −3 doppelt gezählt (bei x = 1 und bei x = 3)"
+    }
+   ],
+   "aufgabe": {
+    "l": "mengen",
+    "t": "mengen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Die Funktion f(x) = x² − 4x hat die Definitionsmenge D = {−1; 0; 1; 2; 3; 4; 5}. Weg A: alle sieben Funktionswerte ausrechnen. Weg B: nur f(2) und die Hälfte der Stellen ausrechnen, denn die Werte sind symmetrisch zur Stelle x = 2: Stellen mit gleichem Abstand von 2 haben denselben Funktionswert. Wie viele Elemente hat die Wertemenge W?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "7 - 3",
+    "h": "Beide Wege müssen dieselbe Zahl ergeben. Gleiche Funktionswerte werden in der Wertemenge nur einmal gezählt.",
+    "w": "Weg A: f(−1) = 5, f(0) = 0, f(1) = −3, f(2) = −4, f(3) = −3, f(4) = 0, f(5) = 5. Verschiedene Werte: −4, −3, 0, 5. Weg B: f(1) = f(3), f(0) = f(4), f(−1) = f(5). Nur f(−1), f(0), f(1), f(2) sind nötig: 5, 0, −3, −4. Es sind 4 Elemente."
+   }
+  },
+  {
+   "kennung": "R8-V063",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "funktionswert",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 80,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fallstrecke statt der Höhe über dem Wasser angegeben"
+    },
+    {
+     "antwort": -280,
+     "fehlbild": "fb.reihenfolge.mal_vor_hoch",
+     "regel_des_fehlbilds": "rr.reihenfolge",
+     "beschreibung": "5t zusammen quadriert statt nur t: (5t)² statt 5t²"
+    },
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Quadrat von t vergessen: 5t statt 5t²"
+    }
+   ],
+   "aufgabe": {
+    "l": "funktionswert",
+    "t": "funktionswert",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Stein wird von einer Brücke fallen gelassen, die 120 m über dem Wasser liegt. Ohne Luftwiderstand gilt für die Höhe über dem Wasser nach t Sekunden: h(t) = 120 − 5t². Wie hoch ist der Stein nach 4 Sekunden über dem Wasser (in Metern)?"
+    },
+    "o": {
+     "wert": 40,
+     "einheit": "m"
+    },
+    "c": "120 - 5 * 4 ** 2",
+    "h": "Rechne zuerst das Quadrat, dann mal 5, dann ziehe das Ergebnis von 120 ab.",
+    "w": "h(4) = 120 − 5 · 4² = 120 − 5 · 16 = 120 − 80 = 40. Nach 4 Sekunden ist der Stein noch 40 m über dem Wasser."
+   }
+  },
+  {
+   "kennung": "R8-V064",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "funktionswert",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2² als 2 gerechnet: 2a + 3 = 15"
+    },
+    {
+     "antwort": 3.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 3 nicht abgezogen: 4a = 15"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 4 geteilt: a = 15 − 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "funktionswert",
+    "t": "funktionswert",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Zahl a hat die Funktion f(x) = a · x² + 3 an der Stelle x = 2 den Funktionswert 15?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "(15 - 3) / 2 ** 2",
+    "h": "Setze x = 2 ein und rechne 2² zuerst. Dann bleibt eine Gleichung nur mit a.",
+    "w": "f(2) = a · 2² + 3 = 4a + 3. Aus 4a + 3 = 15 folgt 4a = 12 und a = 3. Probe: f(2) = 3 · 4 + 3 = 15."
+   }
+  },
+  {
+   "kennung": "R8-V065",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "stelle",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Wert als Stelle angegeben"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Nullstelle statt der gesuchten Stelle abgelesen"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Wert bei x = 0 abgelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "stelle",
+    "t": "stelle",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Zeichnung zeigt den Graphen einer linearen Funktion f. Für welche Stelle x gilt f(x) = 3?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -1,
+       6
+      ],
+      "y": [
+       -1,
+       8
+      ],
+      "graphen": [
+       {
+        "art": "linear",
+        "m": -1.5,
+        "t": 6,
+        "name": "f"
+       }
+      ],
+      "punkte": [
+       {
+        "x": 0,
+        "y": 6
+       },
+       {
+        "x": 4,
+        "y": 0
+       }
+      ]
+     }
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "(6 - 3) / 1.5",
+    "h": "Suche auf der y-Achse die Höhe 3 und gehe waagerecht bis zum Graphen. Lies dort die x-Koordinate ab.",
+    "w": "Auf dem Graphen liegen zum Beispiel die Punkte (0 | 6) und (4 | 0). Bei der Höhe y = 3 liegt der Punkt (2 | 3). Die gesuchte Stelle ist x = 2. Probe mit der Gleichung f(x) = −1,5x + 6: −1,5 · 2 + 6 = 3."
+   }
+  },
+  {
+   "kennung": "R8-V066",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "stelle",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 20 durch 4 geteilt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 durch 6 + 4 geteilt statt durch 6 − 4"
+    },
+    {
+     "antwort": -10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner mit vertauschten Zahlen gebildet: 4 minus 6 statt 6 minus 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "stelle",
+    "t": "stelle",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Fitnessstudio berechnet für n Besuche im Monat die Kosten K(n) = 20 + 4n (in Euro). Kim möchte, dass der Preis pro Besuch, also K(n)/n, genau 6 € beträgt. Bei wie vielen Besuchen im Monat ist das der Fall?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "Besuche"
+    },
+    "c": "20 / (6 - 4)",
+    "h": "Wie berechnest du den Preis pro Besuch aus K(n) und n?",
+    "w": "Gleichung: (20 + 4n)/n = 6. Mal n: 20 + 4n = 6n. Dann 20 = 2n und n = 10. Probe: K(10) = 60 €, und 60 : 10 = 6 €."
+   }
+  },
+  {
+   "kennung": "R8-V067",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "wertetabelle",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 1,8 · 25 gerechnet, die 32 vergessen"
+    },
+    {
+     "antwort": 57,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 25 + 32 gerechnet, das Malnehmen mit 1,8 vergessen"
+    },
+    {
+     "antwort": 845,
+     "fehlbild": "fb.reihenfolge.links_nach_rechts",
+     "regel_des_fehlbilds": "rr.reihenfolge",
+     "beschreibung": "von links nach rechts gerechnet: (32 + 1,8) · 25 statt 32 + 1,8 · 25"
+    }
+   ],
+   "aufgabe": {
+    "l": "wertetabelle",
+    "t": "wertetabelle",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Temperatur in Grad Fahrenheit hängt von der Temperatur C in Grad Celsius ab: F(C) = 32 + 1,8 · C. Die Tabelle zeigt einige Werte. Wie viel Grad Fahrenheit sind 25 °C?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "C in °C",
+       "0",
+       "10",
+       "20",
+       "30"
+      ],
+      "zeilen": [
+       [
+        "F in °F",
+        "32",
+        "50",
+        "68",
+        "86"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 77,
+     "einheit": "°F"
+    },
+    "c": "32 + 1.8 * 25",
+    "h": "Setze C = 25 in die Gleichung ein. Rechne zuerst das Malnehmen, dann das Addieren.",
+    "w": "F(25) = 32 + 1,8 · 25 = 32 + 45 = 77. 25 °C sind 77 °F. Passende Kontrolle mit der Tabelle: bei 20 °C sind es 68 °F und bei 30 °C sind es 86 °F, 77 liegt genau in der Mitte."
+   }
+  },
+  {
+   "kennung": "R8-V068",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "wertetabelle",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -19,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "6² mit der Hochzahl malgenommen statt potenziert"
+    },
+    {
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Wert der Nachbarstelle x = 5 aus der Tabelle übernommen"
+    },
+    {
+     "antwort": 77,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen des Summanden −6x überlesen und 36 + 36 + 5 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "wertetabelle",
+    "t": "wertetabelle",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle gehört zur Funktion f(x) = x² − 6x + 5. Weg A: f(6) direkt ausrechnen. Weg B: Die Werte der Tabelle sind symmetrisch zur Stelle x = 3. Lies den Wert an der Stelle ab, die genauso weit von 3 entfernt ist wie 6. Welcher Wert gehört an die Stelle x = 6?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "x",
+       "0",
+       "1",
+       "2",
+       "3",
+       "4",
+       "5",
+       "6"
+      ],
+      "zeilen": [
+       [
+        "f(x)",
+        "5",
+        "0",
+        "−3",
+        "−4",
+        "−3",
+        "0",
+        "?"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "6 ** 2 - 6 * 6 + 5",
+    "h": "Beide Wege müssen denselben Wert ergeben. Die Stelle 6 ist 3 Schritte rechts von 3. Welche Stelle ist 3 Schritte links davon?",
+    "w": "Weg A: f(6) = 36 − 36 + 5 = 5. Weg B: 6 hat den Abstand 3 von der Stelle 3; die Stelle 0 hat auch den Abstand 3 auf der anderen Seite. Aus der Tabelle: f(0) = 5. Also f(6) = 5."
+   }
+  },
+  {
+   "kennung": "R8-V069",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "graph_lesen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zeitpunkt des höchsten Punkts statt seiner Höhe abgelesen"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Flugdauer statt der größten Höhe abgelesen"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe nach einer Sekunde statt der größten Höhe abgelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "graph_lesen",
+    "t": "graph_lesen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Ball wird senkrecht nach oben geworfen. Die Zeichnung zeigt seine Höhe h in Metern in Abhängigkeit von der Zeit t in Sekunden (ohne Luftwiderstand). Wie viele Meter hoch fliegt der Ball höchstens?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       0,
+       5
+      ],
+      "y": [
+       -2,
+       25
+      ],
+      "graphen": [
+       {
+        "art": "poly",
+        "k": [
+         0,
+         20,
+         -5
+        ]
+       }
+      ],
+      "name_x": "t in s",
+      "name_y": "h in m"
+     }
+    },
+    "o": {
+     "wert": 20,
+     "einheit": "m"
+    },
+    "c": "-5 * 2 ** 2 + 20 * 2",
+    "h": "Wo liegt der höchste Punkt des Graphen? Lies seine Höhe an der senkrechten Achse ab.",
+    "w": "Der höchste Punkt des Graphen liegt bei t = 2 Sekunden auf der Höhe 20 Meter. Der Ball fliegt 20 m hoch. Er landet nach 4 Sekunden wieder (Höhe 0)."
+   }
+  },
+  {
+   "kennung": "R8-V070",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "graph_lesen",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Wert des Schnittpunkts statt der Stelle angegeben"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 1 statt durch 1,5 geteilt: 6 : 1"
+    },
+    {
+     "antwort": -12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "0,5x − (−x) falsch als 0,5 − 1 berechnet: 6 : (−0,5)"
+    }
+   ],
+   "aufgabe": {
+    "l": "graph_lesen",
+    "t": "graph_lesen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Die Zeichnung zeigt die Graphen von f(x) = 0,5x + 1 und g(x) = −x + 7. Weg A: Lies die x-Koordinate des Schnittpunkts am Bild ab. Weg B: Setze f(x) = g(x) und löse die Gleichung. Bei welcher Stelle x haben beide Funktionen denselben Funktionswert?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -2,
+       8
+      ],
+      "y": [
+       -2,
+       9
+      ],
+      "graphen": [
+       {
+        "art": "linear",
+        "m": 0.5,
+        "t": 1,
+        "name": "f"
+       },
+       {
+        "art": "linear",
+        "m": -1,
+        "t": 7,
+        "name": "g"
+       }
+      ]
+     }
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "(7 - 1) / (0.5 + 1)",
+    "h": "Beide Wege müssen dieselbe Stelle ergeben. Bei Weg B musst du 0,5x + 1 = −x + 7 nach x auflösen.",
+    "w": "Weg A: Die Graphen schneiden sich im Punkt (4 | 3). Weg B: 0,5x + 1 = −x + 7, also 1,5x = 6 und x = 4. Probe: f(4) = 3 und g(4) = 3."
+   }
+  },
+  {
+   "kennung": "R8-V071",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "nullstellen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "x = 2 und x = −3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Vorzeichen der Nullstellen vertauscht: für x = 2 ist f(2) = −4 und nicht 0"
+    },
+    {
+     "index": 1,
+     "antwort": "x = −6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Achsenabschnitt −6 als Nullstelle genommen: der Graph schneidet bei −6 die y-Achse, nicht die x-Achse"
+    }
+   ],
+   "aufgabe": {
+    "l": "nullstellen",
+    "t": "nullstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Zeichnung zeigt den Graphen von f(x) = x² − x − 6. Welche Zahlen sind die Nullstellen von f?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -4,
+       5
+      ],
+      "y": [
+       -8,
+       6
+      ],
+      "graphen": [
+       {
+        "art": "poly",
+        "k": [
+         -6,
+         -1,
+         1
+        ]
+       }
+      ]
+     }
+    },
+    "a": [
+     "x = 2 und x = −3",
+     "x = −6",
+     "x = −2 und x = 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Nullstellen liegen dort, wo der Graph die x-Achse schneidet. Prüfe mit f(x) = 0 durch Einsetzen.",
+    "w": "Der Graph schneidet die x-Achse bei x = −2 und bei x = 3. Probe: f(−2) = 4 + 2 − 6 = 0 und f(3) = 9 − 3 − 6 = 0. Mit x = 2 ergibt sich 4 − 2 − 6 = −4, mit x = −3 ergibt sich 9 + 3 − 6 = 6. Die Zahl −6 ist der Wert f(0), also der Schnittpunkt mit der y-Achse."
+   }
+  },
+  {
+   "kennung": "R8-V072",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "nullstellen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3² vergessen: 3b − 12 = 0"
+    },
+    {
+     "antwort": -7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl −12 mit dem falschen Vorzeichen übernommen"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "3² mit der Hochzahl malgenommen statt potenziert"
+    }
+   ],
+   "aufgabe": {
+    "l": "nullstellen",
+    "t": "nullstellen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Die Funktion f(x) = x² + b · x − 12 hat die Nullstelle x = 3. Welche Zahl ist b?"
+    },
+    "o": {
+     "wert": 1
+    },
+    "c": "(12 - 3 ** 2) / 3",
+    "h": "Setze x = 3 in die Funktion ein und setze das Ergebnis gleich 0. Es bleibt eine Gleichung nur mit b.",
+    "w": "f(3) = 3² + 3b − 12 = 9 + 3b − 12 = 3b − 3. Aus 3b − 3 = 0 folgt b = 1. Probe: f(x) = x² + x − 12, f(3) = 9 + 3 − 12 = 0."
+   }
+  },
+  {
+   "kennung": "R8-V073",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "punkt_graph",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Nur B und D",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "genau die Punkte gewählt, die nicht auf dem Graphen liegen: bei x = 2 ist f(2) = 4 und nicht 3, bei x = 4 ist f(4) = 0"
+    },
+    {
+     "index": 2,
+     "antwort": "A, B und C",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Wert 3 bei allen drei Punkten für richtig gehalten, weil er bei A und C stimmt: f(2) ist aber 4"
+    },
+    {
+     "index": 3,
+     "antwort": "Nur C",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Punkt geprüft: auch bei A ist f(1) = 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "punkt_graph",
+    "t": "punkt_graph",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Gegeben sind f(x) = −x² + 4x und die Punkte A(1 | 3), B(2 | 3), C(3 | 3) und D(4 | 4). Weg A: Prüfe jeden Punkt durch Einsetzen. Weg B: Sieh im Bild nach, ob der Punkt auf der Kurve liegt. Welche der Punkte liegen auf dem Graphen von f?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -1,
+       5
+      ],
+      "y": [
+       -3,
+       6
+      ],
+      "graphen": [
+       {
+        "art": "poly",
+        "k": [
+         0,
+         4,
+         -1
+        ]
+       }
+      ],
+      "punkte": [
+       {
+        "x": 1,
+        "y": 3,
+        "name": "A"
+       },
+       {
+        "x": 2,
+        "y": 3,
+        "name": "B"
+       },
+       {
+        "x": 3,
+        "y": 3,
+        "name": "C"
+       },
+       {
+        "x": 4,
+        "y": 4,
+        "name": "D"
+       }
+      ]
+     }
+    },
+    "a": [
+     "Nur A und C",
+     "Nur B und D",
+     "A, B und C",
+     "Nur C"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Setze für jeden Punkt die x-Koordinate in f ein und vergleiche mit der y-Koordinate.",
+    "w": "f(1) = −1 + 4 = 3, also liegt A(1 | 3) auf dem Graphen. f(2) = −4 + 8 = 4, nicht 3, also liegt B nicht darauf. f(3) = −9 + 12 = 3, also liegt C darauf. f(4) = −16 + 16 = 0, nicht 4, also liegt D nicht darauf. Im Bild liegen A und C auf der Kurve."
+   }
+  },
+  {
+   "kennung": "R8-V074",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "punkt_graph",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -0.7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Differenz in der falschen Richtung gebildet: 4,8 − 5,5"
+    },
+    {
+     "antwort": 4.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Höhe des Balls angegeben"
+    },
+    {
+     "antwort": -5.3,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "12² mit der Hochzahl malgenommen statt potenziert"
+    }
+   ],
+   "aufgabe": {
+    "l": "punkt_graph",
+    "t": "punkt_graph",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Ball fliegt auf einer Bahn mit der Höhe h(x) = −0,05x² + x (x ist der waagerechte Abstand in Metern, h die Höhe in Metern). Bei x = 12 steht ein Baum, dessen Spitze in P(12 | 5,5) liegt. Um wie viele Meter liegt die Baumspitze über der Stelle des Ballgraphen bei x = 12?"
+    },
+    "o": {
+     "wert": 0.7,
+     "einheit": "m"
+    },
+    "c": "5.5 - (-0.05 * 12 ** 2 + 12)",
+    "h": "Vergleiche zwei Höhen an derselben Stelle x = 12.",
+    "w": "h(12) = −0,05 · 144 + 12 = −7,2 + 12 = 4,8. Die Baumspitze liegt bei 5,5 m, der Ball fliegt dort nur 4,8 m hoch. Unterschied: 5,5 − 4,8 = 0,7 m. Der Punkt P liegt nicht auf dem Graphen, sondern 0,7 m darüber."
+   }
+  },
+  {
+   "kennung": "R8-V075",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "sachzusammenhang",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.0625,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "50 durch 800 geteilt statt 800 durch 50"
+    },
+    {
+     "antwort": 750,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Füllstand nach einer Stunde angegeben"
+    },
+    {
+     "antwort": -16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen vertauscht: −800 durch 50"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachzusammenhang",
+    "t": "sachzusammenhang",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Wassertank enthält am Anfang 800 Liter. Er verliert gleichmäßig 50 Liter pro Stunde. Für die Wassermenge nach t Stunden gilt V(t) = 800 − 50t. Nach wie vielen Stunden ist der Tank leer?"
+    },
+    "o": {
+     "wert": 16,
+     "einheit": "Stunden"
+    },
+    "c": "800 / 50",
+    "h": "Der Tank ist leer, wenn V(t) = 0 ist. Löse diese Gleichung nach t auf.",
+    "w": "V(t) = 0 bedeutet 800 − 50t = 0, also 50t = 800 und t = 16. Nach 16 Stunden ist der Tank leer. Probe: V(16) = 800 − 800 = 0."
+   }
+  },
+  {
+   "kennung": "R8-V076",
+   "thema": "funktionen.grundbegriffe",
+   "lernkarte": "sachzusammenhang",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen im Nenner vertauscht: 2 minus 3 statt 3 minus 2"
+    },
+    {
+     "antwort": 54,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhen addiert: (24 + 30) durch (3 − 2)"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch das Abbrennen von Kerze A geteilt: 6 durch 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachzusammenhang",
+    "t": "sachzusammenhang",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Kerze A ist 24 cm hoch und brennt gleichmäßig um 2 cm pro Stunde ab. Kerze B ist 30 cm hoch und brennt gleichmäßig um 3 cm pro Stunde ab. Beide werden gleichzeitig angezündet. Weg A: Gleichung 24 − 2t = 30 − 3t lösen. Weg B: eine Tabelle für t = 0, 1, 2, … anlegen und die Zeile mit gleichen Höhen suchen. Nach wie vielen Stunden sind beide erstmals gleich hoch, während beide noch brennen?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "Stunden"
+    },
+    "c": "(30 - 24) / (3 - 2)",
+    "h": "Beide Wege müssen dieselbe Zahl ergeben. Bei Weg B ändert sich der Höhenunterschied der beiden Kerzen Stunde für Stunde um dieselbe Zahl.",
+    "w": "Weg A: 24 − 2t = 30 − 3t, also t = 6. Weg B: Die Höhen nach 0, 1, 2, 3, 4, 5, 6 Stunden: A: 24, 22, 20, 18, 16, 14, 12 und B: 30, 27, 24, 21, 18, 15, 12. Nach 6 Stunden sind beide 12 cm hoch."
+   }
+  }
+ ]
+}

@@ -1,0 +1,1157 @@
+{
+ "stand": "2026-11-27",
+ "flug": "zahlen.potenzen_zehner",
+ "titel": "Zehnerpotenzen und wissenschaftliche Schreibweise",
+ "fuer": "Klasse 7",
+ "klasse": 7,
+ "themen": [
+  "zahlen.potenzen_zehner"
+ ],
+ "hinweis": "Vorrat an Aufgaben in neuer Form (Auftrag 21). Nicht eingespielt. Kennungen mit K7.",
+ "aufgaben": [
+  {
+   "kennung": "K7-V025",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "zehnerpotenz",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "index": null,
+     "antwort": 9,
+     "rechnung": "9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffern statt der Nullen gezählt"
+    },
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 24,
+     "rechnung": "L1 * 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Exponenten malgenommen statt addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "zehnerpotenz",
+    "t": "zehnerpotenz",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Zahl 100 000 000 ist eine 1 mit vielen Nullen. Man schreibt sie als 10 hoch ①. Nimmt man die Zahl dreimal hintereinander mit 10 mal, schreibt man das Ergebnis als 10 hoch ②. Das Ergebnis ist ③-mal so groß wie die alte Zahl.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      8,
+      11,
+      1000
+     ]
+    },
+    "c": [
+     "8",
+     "(8) + 3",
+     "10 ** (((8) + 3) - (8))"
+    ],
+    "h": "Zähle die Nullen. Jeder Faktor 10 hängt eine Null an.",
+    "w": "Hinter der 1 stehen 8 Nullen, also 10⁸. Drei Faktoren 10 mehr geben 10¹¹. Die Exponenten werden addiert (8 + 3), nicht malgenommen. 10¹¹ : 10⁸ = 10³ = 1 000."
+   }
+  },
+  {
+   "kennung": "K7-V026",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "zehnerpotenz",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 100001,
+     "rechnung": "100000 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1 dazugezählt statt den Exponenten um 1 erhöht"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 6,
+     "rechnung": "5 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den neuen Exponenten als Antwort genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "zehnerpotenz",
+    "t": "zehnerpotenz",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Lager hat 10ⁿ Fächer, nämlich 100 000. Ein größeres Lager hat 10ⁿ⁺¹ Fächer. Wie viele Fächer hat das größere Lager?"
+    },
+    "o": {
+     "wert": 1000000,
+     "einheit": "Fächer"
+    },
+    "c": "10 ** (5 + 1)",
+    "h": "Lies zuerst n ab, dann rechne mit n + 1.",
+    "w": "100 000 ist eine 1 mit 5 Nullen, also n = 5. Dann ist 10⁶ = 1 000 000 Fächer."
+   }
+  },
+  {
+   "kennung": "K7-V027",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "zehnerpotenz",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus Zeile 1: 10 · 6 = 60"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus Zeile 2: 60 ist sechsmal so groß wie 10"
+    }
+   ],
+   "aufgabe": {
+    "l": "zehnerpotenz",
+    "t": "zehnerpotenz",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind erklärt 10⁶. Zeile 1: Der Exponent 6 sagt, mit wie viel man 10 malnimmt: 10⁶ = 10 · 6. Zeile 2: Also ist 10⁶ = 60. Zeile 3: Damit ist 10⁶ sechsmal so groß wie 10. In welcher Zeile steckt der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Schreibe 10³ einmal ausführlich auf.",
+    "w": "Zeile 1 ist falsch: Der Exponent zählt die Faktoren 10, 10⁶ = 10 · 10 · 10 · 10 · 10 · 10 = 1 000 000. Die Zeilen 2 und 3 folgen richtig aus dem Fehler: 10 · 6 = 60, und 60 ist sechsmal 10."
+   }
+  },
+  {
+   "kennung": "K7-V028",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "gross_wissenschaftlich",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "index": null,
+     "antwort": 5,
+     "rechnung": "5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffern gezählt statt die Stellen, die das Komma wandert"
+    },
+    {
+     "luecke": 3,
+     "index": null,
+     "antwort": 4,
+     "rechnung": "L1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten nicht angepasst"
+    }
+   ],
+   "aufgabe": {
+    "l": "gross_wissenschaftlich",
+    "t": "gross_wissenschaftlich",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Zahl 62 000 soll als 6,2 · 10 hoch ① geschrieben werden. Die Zehnerpotenz 10 hoch ① ist ausgeschrieben die Zahl ②. Die zehnmal so große Zahl 620 000 hat bei gleicher Ziffernfolge den Exponenten ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      10000,
+      5
+     ]
+    },
+    "c": [
+     "4",
+     "10 ** (4)",
+     "(4) + 1"
+    ],
+    "h": "Zähle, um wie viele Stellen das Komma wandert.",
+    "w": "Von 62 000 zu 6,2 wandert das Komma 4 Stellen nach links, also 10⁴ = 10 000; 6,2 · 10 000 = 62 000. Die zehnmal so große Zahl braucht eine Stelle mehr: 6,2 · 10⁵ = 620 000."
+   }
+  },
+  {
+   "kennung": "K7-V029",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "gross_wissenschaftlich",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 0,
+     "antwort": "73 · 10⁵",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zwei Ziffern vor dem Komma"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "0,73 · 10⁷",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Null vor dem Komma"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "7,3 · 10⁵",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Stelle zu wenig gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "gross_wissenschaftlich",
+    "t": "gross_wissenschaftlich",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Schreibweise von 7 300 000 ist die wissenschaftliche?"
+    },
+    "a": [
+     "73 · 10⁵",
+     "7,3 · 10⁶",
+     "0,73 · 10⁷",
+     "7,3 · 10⁵"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Prüfe die Form: Wie viele Ziffern stehen vor dem Komma?",
+    "w": "7 300 000 = 7,3 · 10⁶. Die erste und die dritte Form haben denselben Wert, sind aber nicht wissenschaftlich (zwei Ziffern bzw. eine Null vor dem Komma). 7,3 · 10⁵ wäre nur 730 000."
+   }
+  },
+  {
+   "kennung": "K7-V030",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "gross_wissenschaftlich",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: eine Ziffer vor dem Komma"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus Zeile 2; der Fehler steht schon in Zeile 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "gross_wissenschaftlich",
+    "t": "gross_wissenschaftlich",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind schreibt 48 500 wissenschaftlich. Zeile 1: Komma hinter die erste Ziffer: 4,85. Zeile 2: Von 48 500 bis 4,85 wandert das Komma 5 Stellen nach links. Zeile 3: Also ist 48 500 = 4,85 · 10⁵. In welcher Zeile steckt der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Zähle die Stellen zwischen den beiden Kommastellungen selbst nach.",
+    "w": "Zeile 1 stimmt. In Zeile 2 sind es nur 4 Stellen (48 500 → 4,85). Zeile 3 folgt richtig aus Zeile 2, übernimmt aber die falsche 5. Richtig ist 4,85 · 10⁴."
+   }
+  },
+  {
+   "kennung": "K7-V031",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vorsilben_gross",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.buendeln",
+   "regel_name": "Bündeln in Zehnern",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "index": null,
+     "antwort": 18,
+     "rechnung": "6 * 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Exponenten malgenommen statt Tausend aufgesetzt"
+    },
+    {
+     "luecke": 3,
+     "index": null,
+     "antwort": 3000,
+     "rechnung": "3 * 10 ** 9 // 10 ** 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Kilo und Mega verwechselt, wie bei ② gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "vorsilben_gross",
+    "t": "vorsilben_gross",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Mega bedeutet 10⁶. Giga ist tausendmal so viel wie Mega. Ein Kraftwerk leistet 3 GW. Das sind 3 · 10 hoch ① Watt. In Megawatt sind es ② MW. In Kilowatt sind es ③ kW.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      9,
+      3000,
+      3000000
+     ]
+    },
+    "c": [
+     "9",
+     "3 * 10 ** ((9) - 6)",
+     "(3 * 10 ** ((9) - 6)) * 1000"
+    ],
+    "h": "Giga steht eine Stufe über Mega. Kilo ist tausendmal kleiner als Mega.",
+    "w": "Giga = 1 000 · 10⁶ = 10⁹, also 3 GW = 3 · 10⁹ W. In MW: 3 · 10⁹ : 10⁶ = 3 000 MW. 1 MW sind 1 000 kW, also 3 000 · 1 000 = 3 000 000 kW."
+   }
+  },
+  {
+   "kennung": "K7-V032",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vorsilben_gross",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.buendeln",
+   "regel_name": "Bündeln in Zehnern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 250,
+     "rechnung": "3000 / 12",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch herum geteilt"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 0.004,
+     "rechnung": "12 / 3000",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Einheiten nicht angeglichen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vorsilben_gross",
+    "t": "vorsilben_gross",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rechenzentrum braucht 12 MW Leistung. Ein Windrad liefert 3 000 kW. Wie viele Windräder braucht man dafür?"
+    },
+    "o": {
+     "wert": 4,
+     "einheit": "Windräder"
+    },
+    "c": "12 * 10 ** 6 // (3000 * 10 ** 3)",
+    "h": "Rechne beide Angaben zuerst in Watt um.",
+    "w": "12 MW = 12 000 000 W und 3 000 kW = 3 000 000 W. 12 000 000 : 3 000 000 = 4 Windräder."
+   }
+  },
+  {
+   "kennung": "K7-V033",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vorsilben_gross",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.buendeln",
+   "regel_name": "Bündeln in Zehnern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus Zeile 1: die Vorsilbe wird durch die Potenz ersetzt"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus Zeile 2: 7 · 10⁹ sind 7 000 · 10⁶"
+    }
+   ],
+   "aufgabe": {
+    "l": "vorsilben_gross",
+    "t": "vorsilben_gross",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind rechnet 7 TB in Byte um. Zeile 1: Tera bedeutet 10⁹. Zeile 2: Also sind 7 TB = 7 · 10⁹ Byte. Zeile 3: Das sind 7 000 Millionen Byte. In welcher Zeile steckt der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Tera steht über Giga (10⁹).",
+    "w": "Zeile 1 ist falsch: Tera bedeutet 10¹², nicht 10⁹. Die Zeilen 2 und 3 folgen richtig aus dem Fehler (7 · 10⁹ sind 7 000 Millionen). Richtig wären 7 · 10¹² Byte, also 7 000 000 Millionen."
+   }
+  },
+  {
+   "kennung": "K7-V034",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "negativer_exponent",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 6,
+     "rechnung": "L1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 1 mitgezählt"
+    },
+    {
+     "luecke": 3,
+     "index": null,
+     "antwort": 10,
+     "rechnung": "L1 + 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zu 6 noch 4 addiert statt 4 abzuziehen"
+    }
+   ],
+   "aufgabe": {
+    "l": "negativer_exponent",
+    "t": "negativer_exponent",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Zahl 0,000001 schreibt man als 10 hoch minus ①. Zwischen dem Komma und der 1 stehen ② Nullen. Eine 10 000-mal so große Zahl schreibt man als 10 hoch minus ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      5,
+      2
+     ]
+    },
+    "c": [
+     "6",
+     "(6) - 1",
+     "(6) - 4"
+    ],
+    "h": "Die Stelle der 1 nach dem Komma ist der Exponent ohne Minus.",
+    "w": "Die 1 steht an der 6. Stelle nach dem Komma: 10⁻⁶. Davor stehen 5 Nullen. Mal 10 000 = mal 10⁴ macht aus 10⁻⁶ die Zahl 10⁻²."
+   }
+  },
+  {
+   "kennung": "K7-V035",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "negativer_exponent",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 4,
+     "rechnung": "4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Stelle der 1 mitgezählt"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 5,
+     "rechnung": "4 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eins addiert statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "negativer_exponent",
+    "t": "negativer_exponent",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Nullen stehen bei 10⁻⁴ zwischen dem Komma und der 1? Weg A: vom Exponenten 1 abziehen. Weg B: die Zahl hinschreiben und die Nullen zählen."
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "4 - 1",
+    "h": "Schreibe 10⁻¹, 10⁻² und 10⁻³ als Dezimalzahlen hin.",
+    "w": "Weg A: 4 − 1 = 3. Weg B: 10⁻⁴ = 0,0001, zwischen Komma und 1 stehen 3 Nullen."
+   }
+  },
+  {
+   "kennung": "K7-V036",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "negativer_exponent",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig, sie liest nur den Exponenten ab"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus Zeile 2; der Fehler steht schon in Zeile 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "negativer_exponent",
+    "t": "negativer_exponent",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind sagt zu 10⁻² : Zeile 1: Der Exponent ist negativ. Zeile 2: Also ist die Zahl negativ. Zeile 3: Deshalb ist 10⁻² = −0,01. In welcher Zeile steckt der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wie ist 10⁻¹ aus 10⁰ = 1 entstanden?",
+    "w": "Zeile 1 stimmt. Zeile 2 ist falsch: Ein negativer Exponent macht die Zahl klein, nicht negativ. 10⁻² = 0,01. Zeile 3 folgt richtig aus Zeile 2."
+   }
+  },
+  {
+   "kennung": "K7-V037",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "klein_wissenschaftlich",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "index": null,
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Nullen nach dem Komma gezählt"
+    },
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 5,
+     "rechnung": "L1 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in die falsche Richtung angepasst"
+    }
+   ],
+   "aufgabe": {
+    "l": "klein_wissenschaftlich",
+    "t": "klein_wissenschaftlich",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Zahl 0,00036 schreibt man wissenschaftlich als 3,6 · 10 hoch minus ①. Die zehnmal so große Zahl hat bei gleicher Ziffernfolge den Exponenten minus ②. Die tausendmal kleinere Zahl hat den Exponenten minus ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      3,
+      7
+     ]
+    },
+    "c": [
+     "4",
+     "(4) - 1",
+     "(4) + 3"
+    ],
+    "h": "Zähle die Stellen, die das Komma nach rechts wandert.",
+    "w": "0,00036 = 3,6 · 10⁻⁴ (das Komma wandert 4 Stellen). Zehnmal so groß ist 0,0036 = 3,6 · 10⁻³. Tausendmal kleiner ist 0,00000036 = 3,6 · 10⁻⁷."
+   }
+  },
+  {
+   "kennung": "K7-V038",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "klein_wissenschaftlich",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 3,
+     "rechnung": "3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Exponenten genommen"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 2,
+     "rechnung": "2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Ziffern 2 und 5 gezählt, die Nullen nicht"
+    }
+   ],
+   "aufgabe": {
+    "l": "klein_wissenschaftlich",
+    "t": "klein_wissenschaftlich",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Zahl ist 2,5 · 10⁻³. Wie viele Stellen hat diese Zahl nach dem Komma?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "3 + 1",
+    "h": "Schreibe die Zahl als Dezimalzahl hin.",
+    "w": "2,5 · 10⁻³ = 0,0025. Die 2 steht an der 3. Stelle, die 5 an der 4. Stelle: 4 Stellen nach dem Komma."
+   }
+  },
+  {
+   "kennung": "K7-V039",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "klein_wissenschaftlich",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "0,00084",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Stelle zu wenig, das wäre 8,4 · 10⁻⁴"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "0,0000084",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Stelle zu viel, das wäre 8,4 · 10⁻⁶"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "840 000",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten positiv gelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "klein_wissenschaftlich",
+    "t": "klein_wissenschaftlich",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Dezimalzahl gehört zu 8,4 · 10⁻⁵?"
+    },
+    "a": [
+     "0,000084",
+     "0,00084",
+     "0,0000084",
+     "840 000"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Die erste Ziffer steht an der fünften Stelle nach dem Komma.",
+    "w": "Bei 10⁻⁵ steht die 8 an der 5. Stelle nach dem Komma: 0,000084."
+   }
+  },
+  {
+   "kennung": "K7-V040",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vorsilben_klein",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.buendeln",
+   "regel_name": "Bündeln in Zehnern",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "index": null,
+     "antwort": 1000000,
+     "rechnung": "10 ** 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Mikrometer mit Metern verglichen"
+    },
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 2000,
+     "rechnung": "L1 * 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 2 malgenommen statt durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vorsilben_klein",
+    "t": "vorsilben_klein",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Milli bedeutet 10⁻³, Mikro bedeutet 10⁻⁶. Ein Millimeter besteht aus ① Mikrometern. Ein Bakterium ist 2 µm lang. Hintereinander passen ② Bakterien in einen Millimeter und ③ Bakterien in einen Meter.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      1000,
+      500,
+      500000
+     ]
+    },
+    "c": [
+     "10 ** 3",
+     "(10 ** 3) // 2",
+     "((10 ** 3) // 2) * 1000"
+    ],
+    "h": "Vergleiche die beiden Exponenten.",
+    "w": "10⁻³ : 10⁻⁶ = 10³ = 1 000, ein Millimeter hat also 1 000 µm. 1 000 : 2 = 500 Bakterien in einem Millimeter. Ein Meter hat 1 000 mm: 500 · 1 000 = 500 000 Bakterien."
+   }
+  },
+  {
+   "kennung": "K7-V041",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vorsilben_klein",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.buendeln",
+   "regel_name": "Bündeln in Zehnern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 4,
+     "rechnung": "1000 / 250",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nano wie Mikro behandelt (1 000 statt 10⁶)"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 4000000,
+     "rechnung": "10 ** 9 // 250",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Millimeter und Meter verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vorsilben_klein",
+    "t": "vorsilben_klein",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Schutzfolie ist 250 nm dick. Wie viele solche Folien ergeben übereinander genau 1 mm?"
+    },
+    "o": {
+     "wert": 4000,
+     "einheit": "Folien"
+    },
+    "c": "10 ** 6 // 250",
+    "h": "Rechne beide Längen in Nanometer um.",
+    "w": "1 mm = 10⁻³ m = 10⁶ nm. 10⁶ : 250 = 4 000 Folien."
+   }
+  },
+  {
+   "kennung": "K7-V042",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vorsilben_klein",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.buendeln",
+   "regel_name": "Bündeln in Zehnern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "7 · 10³ s",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Vorsilbe als Vergrößerung gelesen"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "7 · 10⁻² s",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Milli mit Zenti verwechselt, das ergibt 0,07 s"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "7 · 10⁻⁶ s",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Milli mit Mikro verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vorsilben_klein",
+    "t": "vorsilben_klein",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Messung dauert 7 ms. Welche Rechnung gibt die Zeit in Sekunden?"
+    },
+    "a": [
+     "7 · 10⁻³ s",
+     "7 · 10³ s",
+     "7 · 10⁻² s",
+     "7 · 10⁻⁶ s"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Milli bedeutet 10⁻³.",
+    "w": "7 ms = 7 · 10⁻³ s = 0,007 s."
+   }
+  },
+  {
+   "kennung": "K7-V043",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vergleichen_pruefen",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "zuerst die Zahlen vor der Zehnerpotenz vergleichen",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dann käme hier 8 · 10⁶ heraus, obwohl es die kleinere Zahl ist"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "die Exponenten addieren und die Summen vergleichen",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Addieren hat mit dem Vergleich nichts zu tun"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "die Ziffern beider Zahlen zählen",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "funktioniert nur bei ausgeschriebenen Zahlen, nicht in dieser Schreibweise"
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen_pruefen",
+    "t": "vergleichen_pruefen",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst 3 · 10⁷ und 8 · 10⁶ vergleichen (beide in wissenschaftlicher Schreibweise). Welches Vorgehen führt sicher zum Ziel?"
+    },
+    "a": [
+     "zuerst die Exponenten vergleichen, bei Gleichheit die Zahl davor",
+     "zuerst die Zahlen vor der Zehnerpotenz vergleichen",
+     "die Exponenten addieren und die Summen vergleichen",
+     "die Ziffern beider Zahlen zählen"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welcher Teil entscheidet über die Größenordnung?",
+    "w": "7 ist größer als 6, also ist 3 · 10⁷ = 30 000 000 größer als 8 · 10⁶ = 8 000 000. Die Zahl vor der Potenz entscheidet nur bei gleichem Exponenten."
+   }
+  },
+  {
+   "kennung": "K7-V044",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vergleichen_pruefen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 100,
+     "rechnung": "10 ** 5 // 10 ** 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zehnerpotenzen geteilt"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 500,
+     "rechnung": "200000 // 400",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei 4 · 10³ eine Null vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen_pruefen",
+    "t": "vergleichen_pruefen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie oft passt 4 · 10³ in 2 · 10⁵? Weg A: beide Zahlen ausschreiben und teilen. Weg B: 2 : 4 rechnen und 10⁵ : 10³ dazunehmen."
+    },
+    "o": {
+     "wert": 50
+    },
+    "c": "2 * 10 ** 5 // (4 * 10 ** 3)",
+    "h": "Teile die Zahlen davor und die Zehnerpotenzen getrennt.",
+    "w": "Weg A: 200 000 : 4 000 = 50. Weg B: 2 : 4 = 0,5 und 10⁵ : 10³ = 100, also 0,5 · 100 = 50."
+   }
+  },
+  {
+   "kennung": "K7-V045",
+   "thema": "zahlen.potenzen_zehner",
+   "lernkarte": "vergleichen_pruefen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 1000000,
+     "rechnung": "(3 + 7) * 10 ** 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen davor addiert und die erste Zehnerpotenz behalten"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 307000,
+     "rechnung": "3 * 10 ** 5 + 7 * 10 ** 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die zweite Zahl mit 10³ gelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen_pruefen",
+    "t": "vergleichen_pruefen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Landkreise werden zusammengelegt. Der eine hat 3 · 10⁵ Einwohner, der andere 7 · 10⁴. Wie viele Einwohner hat der neue Landkreis?"
+    },
+    "o": {
+     "wert": 370000,
+     "einheit": "Einwohner"
+    },
+    "c": "3 * 10 ** 5 + 7 * 10 ** 4",
+    "h": "Schreibe beide Zahlen zuerst normal hin.",
+    "w": "3 · 10⁵ = 300 000 und 7 · 10⁴ = 70 000. Zusammen sind das 370 000 Einwohner."
+   }
+  }
+ ]
+}

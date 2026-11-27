@@ -81,10 +81,10 @@
     },
     {
      "luecke": 2,
-     "antwort": 75,
+     "antwort": 90,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Teilwinkel nicht abgezogen"
+     "beschreibung": "den Teilwinkel nicht abgezogen: 180° − 90°"
     },
     {
      "luecke": 3,
@@ -92,6 +92,13 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "mit 2 malgenommen"
+    },
+    {
+     "luecke": 4,
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "② + ③ gerechnet"
     }
    ],
    "aufgabe": {
@@ -102,24 +109,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Winkel hat 70°. Die Winkelhalbierende teilt ihn in zwei Winkel von je 70° : 2 = ①°. Ein Dreieck hat bei A diesen Teilwinkel und bei B den Winkel 90°. Dann hat der dritte Winkel 180° − ①° − 90° = ②°. Die Winkelhalbierende des 90°-Winkels teilt ihn in zwei Winkel von je ③°.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Ein Winkel hat 70°. Die Winkelhalbierende teilt ihn in zwei Winkel von je 70° : 2 = ①°. Ein Dreieck hat bei A diesen Teilwinkel und bei B den Winkel 90°. Dann hat der dritte Winkel 180° − ①° − 90° = ②°. Die Winkelhalbierende des 90°-Winkels teilt ihn in zwei Winkel von je ③°. Der dritte Winkel ist ② − ③ = ④° größer als eine dieser Hälften.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       35,
       55,
-      45
+      45,
+      10
      ]
     },
     "c": [
      "70//2",
      "180-70//2-90",
-     "90//2"
+     "90//2",
+     "(180-70//2-90)-90//2"
     ],
     "h": "Halbieren heißt durch 2 teilen. Im Dreieck sind es zusammen 180°.",
-    "w": "70 : 2 = 35. 180 − 35 − 90 = 55. 90 : 2 = 45."
+    "w": "70 : 2 = 35. 180 − 35 − 90 = 55. 90 : 2 = 45. 55 − 45 = 10."
    }
   },
   {
@@ -135,17 +144,45 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 8,
+     "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "v statt −v addiert"
+     "beschreibung": "6 + 1 gerechnet"
     },
     {
      "luecke": 2,
-     "antwort": -6,
+     "antwort": 1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "v statt −v addiert"
+     "beschreibung": "−2 + 3 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen des Gegenvektors vergessen"
+    },
+    {
+     "luecke": 4,
+     "antwort": -5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen des Gegenvektors vergessen"
+    },
+    {
+     "luecke": 5,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "v statt −v verwendet: 9 + 5"
+    },
+    {
+     "luecke": 6,
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "v statt −v verwendet: 2 − 5"
     }
    ],
    "aufgabe": {
@@ -156,22 +193,30 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Verschiebung mit v = (3 | −5) bringt P nach P'(5 | −1). Der Gegenvektor ist −v = (−3 | 5). Mit ihm geht P' zurück: P = (5 + (−3) | −1 + 5) = (① | ②).",
-     "schablone": "① = □; ② = □",
-     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+     "text": "Der Punkt P(1 | 3) wird durch eine Verschiebung auf P′(6 | −2) abgebildet. Der Verschiebungsvektor ist v = (6 − 1 | −2 − 3) = (① | ②). Der Gegenvektor −v hat die Koordinaten (③ | ④). Wendet man −v auf Q(9 | 2) an, erhält man (9 + ③ | 2 + ④) = (⑤ | ⑥).",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □; ⑤ = □; ⑥ = □",
+     "hinweis": "Je Lücke eine ganze Zahl, wenn nötig mit Minus."
     },
     "o": {
      "werte": [
-      2,
-      4
+      5,
+      -5,
+      -5,
+      5,
+      4,
+      7
      ]
     },
     "c": [
-     "5 + (-3)",
-     "-1 + 5"
+     "6-1",
+     "-2-3",
+     "-(6-1)",
+     "-(-2-3)",
+     "9-(6-1)",
+     "2-(-2-3)"
     ],
-    "h": "Rechne Zahl für Zahl: erst x, dann y.",
-    "w": "5 + (−3) = 2 und −1 + 5 = 4. Der Urpunkt ist P(2 | 4)."
+    "h": "Rechne Zahl für Zahl: erst x, dann y. Der Gegenvektor macht die Verschiebung rückgängig.",
+    "w": "v = (5 | −5). Der Gegenvektor hat die entgegengesetzten Vorzeichen: −v = (−5 | 5). Q wird zu (9 − 5 | 2 + 5) = (4 | 7)."
    }
   },
   {
@@ -186,11 +231,32 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 + 2 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 + 1 gerechnet"
+    },
+    {
      "luecke": 3,
      "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "um O statt um Z gedreht"
+     "beschreibung": "den Vektor falsch herum gedreht: (b | −a) zu Z addiert, 2 + 5"
+    },
+    {
+     "luecke": 4,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "b statt a addiert: 1 + 5"
     }
    ],
    "aufgabe": {
@@ -219,7 +285,7 @@
      "2 + (-(6 - 1))",
      "1 + (9 - 2)"
     ],
-    "h": "Der gedrehte Vektor ist (−5 | 7).",
+    "h": "Erst der Vektor von Z nach P, dann nach der Regel drehen, dann zu Z addieren.",
     "w": "(9 − 2 | 6 − 1) = (7 | 5). Gedreht: (−5 | 7). P' = (2 − 5 | 1 + 7) = (−3 | 8)."
    }
   },
@@ -236,21 +302,21 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 3,
+     "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Achsen durch gegenüberliegende Ecken gezählt"
+     "beschreibung": "die Zahl der Ecken statt der Eckenpaare"
     },
     {
      "luecke": 2,
-     "antwort": 4,
+     "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Achsen durch gegenüberliegende Ecken gezählt"
+     "beschreibung": "Seiten und Ecken addiert"
     },
     {
      "luecke": 3,
-     "antwort": 48,
+     "antwort": 9,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "malgenommen statt addiert"
@@ -264,24 +330,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein regelmäßiges n-Eck hat n Symmetrieachsen. Ein regelmäßiges Sechseck hat ① Symmetrieachsen. Ein regelmäßiges Achteck hat ② Symmetrieachsen. Zusammen haben die beiden ① + ② = ③ Achsen.",
+     "text": "Ein regelmäßiges Sechseck hat so viele Ecken wie Seiten. Eine Symmetrieachse geht entweder durch zwei gegenüberliegende Ecken oder durch die Mitten zweier gegenüberliegender Seiten. Die Zahl der Eckenpaare, durch die eine Achse geht, ist ①. Die Zahl der Seitenpaare ist ②. Zusammen gibt es ③ Symmetrieachsen.",
      "schablone": "① = □; ② = □; ③ = □",
-     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+     "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
-      6,
-      8,
-      14
+      3,
+      3,
+      6
      ]
     },
     "c": [
-     "6",
-     "8",
-     "6+8"
+     "6//2",
+     "6//2",
+     "6//2+6//2"
     ],
-    "h": "Bei einem regelmäßigen n-Eck gibt es n Achsen.",
-    "w": "Sechseck: 6 Achsen. Achteck: 8 Achsen. Zusammen 14."
+    "h": "Ein Paar besteht aus einer Ecke (oder Seite) und der gegenüberliegenden.",
+    "w": "Das Sechseck hat 6 Ecken, das sind 3 gegenüberliegende Eckenpaare, und 6 Seiten, das sind 3 gegenüberliegende Seitenpaare. 3 + 3 = 6 Achsen."
    }
   },
   {
@@ -315,6 +381,13 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Zahl der Paare statt des Unterschieds"
+    },
+    {
+     "luecke": 4,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Paare gezählt, nicht die Seiten"
     }
    ],
    "aufgabe": {
@@ -325,24 +398,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Im Haus der Vierecke ist jedes Parallelogramm auch ein Trapez. Ein Trapez hat mindestens ① Paar paralleler Seiten. Ein Parallelogramm hat ② Paare paralleler Seiten. Es hat also ② − ① = ③ Paar mehr als ein Trapez mindestens hat.",
-     "schablone": "① = □; ② = □; ③ = □",
-     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+     "text": "Im Haus der Vierecke ist jedes Parallelogramm auch ein Trapez. Zahl der parallelen Seitenpaare beim Trapez: mindestens ①. Zahl der parallelen Seitenpaare beim Parallelogramm: ②. Das Parallelogramm hat also ② − ① = ③ mehr als das Trapez mindestens hat. Alle Seiten des Parallelogramms liegen in parallelen Paaren: Jedes Paar besteht aus einer Seite und ihrer Gegenseite, also sind es ② + ② = ④ Seiten.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       1,
       2,
-      1
+      1,
+      4
      ]
     },
     "c": [
      "1",
      "2",
-     "2-1"
+     "2-1",
+     "2*2"
     ],
-    "h": "Ein Paar sind immer zwei Seiten.",
-    "w": "Trapez: mindestens 1 Paar. Parallelogramm: 2 Paare. Der Unterschied ist 1."
+    "h": "Zeichne die Vierecke und markiere gegenüberliegende parallele Seiten.",
+    "w": "Trapez: mindestens 1 paralleles Paar. Parallelogramm: 2 parallele Paare. Unterschied 2 − 1 = 1. Zwei Paare mit je 2 Seiten sind 4 Seiten."
    }
   },
   {
@@ -376,6 +451,13 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "mit dem Viereck verwechselt"
+    },
+    {
+     "luecke": 4,
+     "antwort": 38,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "11 addiert statt abgezogen"
     }
    ],
    "aufgabe": {
@@ -386,24 +468,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Dreieck hat die Seiten 7 cm, 9 cm und 11 cm. Sein Umfang ist 7 + 9 + 11 = ① cm. Das Dreieck wird gespiegelt. Das Bild hat denselben Umfang. Beide Dreiecke zusammen haben als Ränder ① + ① = ② cm. Die drei Winkel des Bildes ergeben zusammen ③°.",
-     "schablone": "① = □; ② = □; ③ = □",
-     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+     "text": "Ein Dreieck hat die Seiten 7 cm, 9 cm und 11 cm. Sein Umfang ist 7 + 9 + 11 = ① cm. Das Dreieck wird gespiegelt. Das Bild hat denselben Umfang. Beide Dreiecke zusammen haben als Ränder ① + ① = ② cm. Die drei Winkel des Bildes ergeben zusammen ③°. Die beiden kürzeren Seiten des Bildes sind zusammen ① − 11 = ④ cm lang.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       27,
       54,
-      180
+      180,
+      16
      ]
     },
     "c": [
      "7+9+11",
      "2*(7+9+11)",
-     "180"
+     "180",
+     "7+9+11-11"
     ],
     "h": "Eine Spiegelung ändert keine Längen und keine Winkel.",
-    "w": "7 + 9 + 11 = 27. Das Bild hat auch 27 cm Umfang, zusammen 54 cm. Die Winkelsumme im Dreieck ist 180°."
+    "w": "7 + 9 + 11 = 27. Das Bild hat auch 27 cm Umfang, zusammen 54 cm. Die Winkelsumme im Dreieck ist 180°. Die längste Seite bleibt 11 cm, die beiden anderen sind zusammen 27 − 11 = 16 cm lang."
    }
   },
   {

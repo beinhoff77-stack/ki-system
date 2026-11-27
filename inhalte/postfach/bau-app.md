@@ -2,6 +2,64 @@
 
 Neueste oben.
 
+## 2026-11-27 – FERTIG RU-1c (App 0.95.0) sw.js-Rückfall eingegrenzt, Werkstatt 1093 (Zweig `helfer-uni`, Cache v188)
+
+**Geliefert**
+- `sw.js`: Ersatz aus dem Cache bei HTTP-Fehler nur noch für `daten/` und nur bei 5xx (ohne gespeicherte Fassung die Antwort des Servers). 404/410 bei `daten/`: Antwort durchreichen und den Cache-Eintrag dieser Anfrage löschen. Übrige 4xx durchreichen. Netzabbruch getrennt wie bisher (Cache, sonst Navigations-Rückfall/`Response.error`). Hülle und `karte/` verhalten sich wieder genau wie in `origin/main` (Erfolg speichern, HTTP-Fehler durchreichen, Cache unberührt). Cache v188, Version 0.95.0.
+
+**Tests**
+- Node-vm-Matrix (ersetzt den alten SW-Test): 4 Pfadarten (daten/-JSON, Hülle index.html, karte/, API außerhalb) × 200/503/404/410/Netzabbruch × mit/ohne Cache = 40 Fälle mit Antwort und Cache-Eintrag; dazu Folge 200 → 410 (Eintrag weg) → 503 (Serverantwort) → 200 (wieder gespeichert) → 503 (gespeicherte Fassung).
+- Neu: Browser-Test mit echter Service-Worker-Registrierung (eigener Kontext ohne Sperre, lokaler Testserver liefert die Regel-JSON nach Vorgabe): 200 gespeichert → 503 Universum aus dem Cache → 404 Eintrag gelöscht, Meldung „lädt gerade nicht“ → wieder 200 über „Noch einmal versuchen“, wieder gespeichert. Grün.
+- Gesamttest 218/218 (`/tmp/gesamt-uni3.txt`), `lernen-regeln` 11/11 (Stand des anderen Helfers), `lernen-bruch` 24/24, `lernen-takt` 10/10, `node --check` alle geänderten Dateien. Keine Fehlschläge durch Regeltexte.
+
+**Nicht geprüft**: Safari/iOS-Service-Worker, echter Server.
+
+## 2026-11-27 – FERTIG RU-1b (App 0.95.0) Auflagen Werkstatt 1079 (Zweig `helfer-uni`, Cache v187)
+
+**Geliefert**
+- `sw.js`: `daten/regeln-universum.json` steht nicht mehr in der Vorab-Liste (fällt die Datei aus, scheitert die Hülle nicht mehr); der `daten/`-Handler speichert sie beim ersten Öffnen. Neu im Handler (für alle Hüllen- und Datendateien): Bei HTTP-Fehler (z. B. 503) kommt die gespeicherte Fassung, ohne gespeicherte Fassung die Antwort des Servers; bei Netzabbruch wie bisher der Cache. Cache v187, Version bleibt 0.95.0.
+- Kinderseiten ohne doppelten Kopf: eigene Marke „Regel-Universum“ entfällt (Titel steht im App-Kopf; zurück zu Ebene 0 über die Brotkrume „‹ Universum“), der Menüknopf der oberen Menüzeile steht jetzt rechts in der (klebenden) Zeile der Suche, die Überschrift „Regel-Universum“ auf Ebene 0 ist nur noch für Bildschirmleser da. Ebene 0 bei 400 × 860: 6 von 7 Gebieten im ersten Bildschirm (vorher 5). Menü unten, Suche, Umschalter unverändert. Eltern-Bereich unverändert.
+- Daten laden nicht: Meldung „Das Regel-Universum lädt gerade nicht. Prüfe das Internet und versuch es noch einmal.“ mit Knopf „Noch einmal versuchen“, beim Kind im Rahmen der Kinderseite (Menü bleibt).
+- Nicht angefasst: `daten/regeln-universum.json`, `tools/regeln_bauen.cjs`, `tests/lernen-regeln.test.cjs`, `inhalte/` außer Bildern und Postfach.
+
+**Tests**
+- 3 neue Tests in `tests/lernen.test.cjs` (Kopf 400 × 860 hell/dunkel: ≥ 6 Gebiete, Menü und Suche in einer Zeile; Ladefehler 503 → Meldung → „Noch einmal versuchen“ → Universum; Service Worker im Node-`vm` nachgestellt: nicht in der Vorab-Liste, beim ersten Abruf gespeichert, 503 und Netzabbruch → gespeicherte Fassung, ohne Speicher → Antwort des Servers).
+- Gesamttest 217/217 (1. Lauf 215/217: zwei Wettläufe in meinen eigenen Tests – sie warteten auf ein Element, das auch die vorige Seite hat, bzw. maßen während des Übergangs; berichtigt, mit `LERN_CPU=4` grün). `lernen-regeln` 6/6, `lernen-bruch` 24/24, `lernen-takt` 10/10, `node --check` alle geänderten Dateien.
+- Bilder erneuert (`inhalte/pruefung/regeln/bilder/`, neu `fehler-laden-400-dunkel.jpg`), angesehen: Ebene 0 400 dunkel/hell, 1280 hell, Fehlerseite.
+
+**Nicht geprüft**: Service Worker im echten Browser (Tests blockieren ihn), echte Geräte.
+
+## 2026-11-27 – FERTIG RU-1 (App 0.95.0) Regel-Universum Stufe 1, ohne Datenbank (Zweig `helfer-uni`, Cache v186)
+
+**Geliefert**
+- Kinder: Regel-Universum nach `umsetzung7.md` (Abschnitt 10) und `entwurf7/` – Ebene 0 (Sonne, 7 Gebiete, Arbeitsweisen; ab 900 px Sonnensystem-Bild), Ebene 1 Sonne (Schnitt durch die Sonne, 14 Regeln in 4 Schichten mit Merksatz und Klassenband, Legende), Gebiet (Ideen mit Band), Arbeitsweisen; Ebene 2 gestufte Regel-/Ideenseite (Kurzbeschreibung, Merksatz, Beispiel offen; „Dieselbe Regel in Klasse …“, „Genau erklärt“, „Typische Fehler“, „Aufbau“ zu), Arbeitsweise mit Kurzbeschreibung/Beispiel/Erklärung; Ebene 3 Einzelregel; Umschalter „Aufbau | Durch die Klassen“ (Handy Klassenwahl, Rechner Tabelle); Suche im Kopf; Brotkrumen; Übergang 220 ms; Sternenfeld dunkel auf Ebene 0/1. Kein Lernstand.
+- Einstieg Kind: Menüblatt der Kinderseiten (≡ Menü) – fünfter Eintrag „Regel-Universum“ → `#/regeln/<kind>`. Kein Verweis vor einer Aufgabe.
+- Eltern/Lehrer: „Regeln“ in „Nachschlagen“ der Startseite → `#/regeln` (Liste: 14 Rechenregeln nach Schichten, 28 Ideen nach Gebieten, 8 Arbeitsweisen) → Blatt `#/regeln/lehrer-r<n>` mit 5 Abschnitten offen (Merksatz, Was das Kind sieht, Fachliche Erklärung, Verweise und Zuordnung mit Lehrplan-Tabelle aus `texte8/lehrplan.json` und „Nicht geprüft“, Themen mit „Lehrer-Seite ›“ (öffnet den Lehrplan mit dem Thema), bis zu 3 Beispielaufgaben, Fehlbilder, Aufbau; Stand je Kind „Stand folgt“). „So sieht es das Kind ›“ → `#/regeln/kind-r<n>` (mit Leiste zurück zum Blatt).
+- Rückmeldung: gebaut, an Merksatz/Karte/Erklärung/Zuordnung. Weg `schule_rueckmeldung_geben` ohne Einheit, `bezug: 'allgemein'` (Migration 20261117 lässt `allgemein` zu, Einheit/Block sind optional; lernen-api reicht `daten` unverändert durch). Arten Fehler → `fehler`, Vorschlag/Frage → `sonstiges` (Prüfbedingung der Tabelle); Text beginnt mit „Regel 6 · Ausmultiplizieren und Ausklammern (rr.ausmultiplizieren) · Merksatz · Frage: “. `lernAuftragForm` hat dafür zwei optionale Parameter (`arten`, `vorsatz`), sonst unverändert.
+- Daten: `daten/regeln-universum.json` (606 kB, gzip 101 kB), erzeugt mit `node tools/regeln_bauen.cjs` (endet mit „OK“; `--pruefen` vergleicht). Übernommen aus `texte8`: 42 Kurzbeschreibungen (18 berichtigt), Regel 10 kürzere Fassung, 25 Lücken (genau/voraus/fehler), 8 Arbeitsweisen, 30 Einzelregeln (Beispiel + Grenze), Lehrplan je Regel, Beispielaufgaben R10/R14. Die Zeichnungen des Entwurfs werden beim Bau einmal ausgeführt und als SVG-Text abgelegt (42 Zeichnungen). Laden erst beim Öffnen; `sw.js` nimmt Datei, `lernen-regeln.js`, `lernen-regeln.css` in die Hülle.
+- Code: `lernen-regeln.js` (eigene Datei), `lernen-regeln.css` (alles unter `.ru`, Präfix `ru-`). `lernen.js` +4 Zeilen (Menüeintrag, Link „Regeln“, Formular-Optionen), `app.js`/`schule.js` je Route `regeln`. Hell/dunkel folgt der Gestaltung des Kindes bzw. dem System (kein eigener Umschalter). Version 0.95.0 an allen 5 Stellen, Cache v186.
+
+**Tests**
+- `tests/lernen-regeln.test.cjs` (neu, ohne Browser): 6/6 – Datei = Bau, Vollständigkeit (14/4/7/28/8, Merksatz, Kurzbeschreibung, Beispiel), texte8 übernommen (R10 kurz, R6 unverändert, 18 + 25), Suche, alle 235 Adressen ohne leere Texte/„undefined“, Adressen/Ebenen/Rückmelde-Text und Arten gegen die Migrationen.
+- `tests/lernen.test.cjs`: 2 neue Browser-Tests (Kind 400 hell/dunkel + 1280; Eltern 400 + 1280; Querscrollen, Tippflächen ≥ 44 px nach dem Übergang, keine Skriptfehler). Gesamttest 214/214.
+- `lernen-bruch` 24/24, `lernen-takt` 10/10. Bilder: `inhalte/pruefung/regeln/bilder/` (29, mit `RU_BILDER=1` aus den Browser-Tests).
+
+**Abweichungen vom Entwurf**
+- Über dem Universum stehen App-Kopf (Zurück, Titel) und die Menüzeile der Kinderseiten: Ebene 0 beginnt ~160 px tiefer; am Handy sind im ersten Bildschirm 5 statt 7 Gebiete zu sehen, am Rechner ist die Kapsel „Arbeitsweisen“ erst nach Wischen sichtbar.
+- Schnitt durch die Sonne: Tippfläche ist das ganze Band (im Entwurf nur die Schriftzeile, 26 px hoch).
+- Eltern-Bereich: Kopf und Klassenwahl kleben nicht (die App-Leiste klebt schon); Farben der App statt Abflug-Farben.
+- Für Ideen und Arbeitsweisen gibt es noch kein Lehrer-Blatt; die Liste verweist auf die Kinderseite.
+- Regel 9: Beispielaufgabe BG-05 nicht gezeigt (Stichprobe Mathe-Profi „passt nicht“), stattdessen Hinweis; R4/R11 mit Hinweis „nur teilweise geprüft“.
+
+**Nicht geprüft**
+- Echter Server (Rückmeldung nur gegen die simulierte lernen-api), echte Geräte/Safari, Offline-Betrieb (Tests blockieren den Service Worker; die eigene Lernen-Seite `lernen/` registriert keinen Service Worker), Bildschirmleser, dunkel im Eltern-Bereich, „Lehrer-Seite ›“ mit echten Themen-Nummern.
+
+**Annahmen**
+- Einstieg für Kinder im Menüblatt (nicht auf der Karte), weil es auf jeder Kinderseite da ist und nicht vor einer Aufgabe steht. Im alten Design (Leiste unten) gibt es keinen Einstieg.
+- Die Daten-HTML (Bruch-Schreibweise, SVG) wird als HTML eingesetzt – nur aus der im Repo erzeugten Datei; übrige Texte maskiert.
+
+**Stufe 2 braucht von der Datenbank**: Bezugsfeld „Regel“ (Kennung + Abschnitt) für `schule_rueckmeldung_geben` und `schule_rueckmeldungen`, Stand je Kind und Regel (sitzt / in Arbeit / kommt später), Fehlbilder je Regel aus dem Server.
+
 ## 2026-11-27 – FERTIG 0.94.0 Form-Takt, Nachbesserung nach Werkstatt 1039/1040 (Zweig `helfer-app2`, Cache v185)
 
 **Geliefert**

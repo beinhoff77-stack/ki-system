@@ -1,0 +1,764 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-12",
+ "kuerzel": "R5",
+ "flug": "r5-reserve-messen.flaechen",
+ "titel": "messen.flaechen",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen": [
+  "messen.flaechen"
+ ],
+ "themen_datei_im_bestand": "messen.flaechen",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag „Reserve“ (zwei zählende Aufgaben je Lernkarte, Stufe 2 und 3). Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R5-V133",
+   "thema": "messen.flaechen",
+   "lernkarte": "einheitsquadrate",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 und 12 addiert"
+    },
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Hälfte gezählt"
+    },
+    {
+     "antwort": 144,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 · 12 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheitsquadrate",
+    "t": "einheitsquadrate",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rechteck besteht aus 6 Reihen mit je 12 Einheitsquadraten. Weg A: Rechne 6 · 12. Weg B: Teile das Rechteck in zwei gleich große Hälften, die jeweils 6 Quadrate breit sind, bestimme die Zahl in einer Hälfte und verdopple. Wie viele Einheitsquadrate sind es?"
+    },
+    "o": {
+     "wert": 72,
+     "einheit": "Quadrate"
+    },
+    "c": "6 * 12",
+    "h": "Wie viele Quadrate sind eine Hälfte breit? Wie viele Reihen hat sie?",
+    "w": "Weg A: 6 · 12 = 72. Weg B: Jede Hälfte ist 6 Quadrate breit und hat 6 Reihen: 6 · 6 = 36. Zwei Hälften: 2 · 36 = 72."
+   }
+  },
+  {
+   "kennung": "R5-V134",
+   "thema": "messen.flaechen",
+   "lernkarte": "einheitsquadrate",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in m² gerechnet: 24 − 3"
+    },
+    {
+     "antwort": 96,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Beet nicht abgezogen"
+    },
+    {
+     "antwort": 93,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Beet in m² statt in Platten abgezogen: 96 − 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheitsquadrate",
+    "t": "einheitsquadrate",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Terrasse ist 6 m lang und 4 m breit. Sie wird lückenlos mit quadratischen Platten von 50 cm Seitenlänge belegt. Nur ein rechteckiges Beet von 3 m Länge und 1 m Breite bleibt frei. Das Beet liegt in einer Ecke, seine Ränder verlaufen entlang der Plattenreihen. Wie viele Platten braucht man?"
+    },
+    "o": {
+     "wert": 84,
+     "einheit": "Platten"
+    },
+    "c": "(6 * 2) * (4 * 2) - (3 * 2) * (1 * 2)",
+    "h": "Welche Einheit müssen Terrasse, Beet und Platte gemeinsam haben? Was wird nicht belegt?",
+    "w": "In 1 m passen 2 Platten. Terrasse: 6 · 2 = 12 Platten in der Länge, 4 · 2 = 8 in der Breite, zusammen 12 · 8 = 96 Platten. Beet: 3 · 2 = 6 mal 1 · 2 = 2, also 12 Platten. 96 − 12 = 84 Platten. Kontrolle: 24 m² − 3 m² = 21 m², auf 1 m² passen 4 Platten: 21 · 4 = 84."
+   }
+  },
+  {
+   "kennung": "R5-V135",
+   "thema": "messen.flaechen",
+   "lernkarte": "rechteck",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das erste Rechteck gerechnet"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": "fb.auslegen.umfang_statt_flaeche",
+     "regel_des_fehlbilds": "id.flaeche_raum.auslegen",
+     "beschreibung": "den Umfang statt der Fläche genannt"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Rechteck 6 m × 4 m für das größte gehalten"
+    }
+   ],
+   "aufgabe": {
+    "l": "rechteck",
+    "t": "rechteck",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt fünf Rechtecke, die alle den Umfang 20 m haben. Wie groß ist der Flächeninhalt des Rechtecks mit der größten Fläche? Gib die Fläche in m² an.",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Länge in m",
+       "Breite in m"
+      ],
+      "zeilen": [
+       [
+        "9",
+        "1"
+       ],
+       [
+        "8",
+        "2"
+       ],
+       [
+        "7",
+        "3"
+       ],
+       [
+        "6",
+        "4"
+       ],
+       [
+        "5",
+        "5"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 25,
+     "einheit": "m²"
+    },
+    "c": "5 * 5",
+    "h": "Berechne die Fläche jedes Rechtecks aus Länge mal Breite und vergleiche.",
+    "w": "Flächen: 9 · 1 = 9, 8 · 2 = 16, 7 · 3 = 21, 6 · 4 = 24, 5 · 5 = 25. Die größte Fläche hat das Quadrat mit 25 m²."
+   }
+  },
+  {
+   "kennung": "R5-V136",
+   "thema": "messen.flaechen",
+   "lernkarte": "rechteck",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "fehlbild": "fb.auslegen.umfang_statt_flaeche",
+     "regel_des_fehlbilds": "id.flaeche_raum.auslegen",
+     "beschreibung": "den halben Umfang als Fläche genannt"
+    },
+    {
+     "antwort": 81,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Quadrat mit gleichem Umfang angenommen"
+    },
+    {
+     "antwort": 36,
+     "fehlbild": "fb.auslegen.umfang_statt_flaeche",
+     "regel_des_fehlbilds": "id.flaeche_raum.auslegen",
+     "beschreibung": "den Umfang als Fläche genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "rechteck",
+    "t": "rechteck",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein rechteckiger Spielplatz hat den Umfang 36 m und ist doppelt so lang wie breit. Wie groß ist seine Fläche in m²?"
+    },
+    "o": {
+     "wert": 72,
+     "einheit": "m²"
+    },
+    "c": "(36 / 2 / 3 * 2) * (36 / 2 / 3)",
+    "h": "Wie hängen Länge und Breite zusammen? Was sagt der Umfang über Länge plus Breite?",
+    "w": "Länge + Breite = 36 : 2 = 18 m. Das sind 3 gleiche Teile (Breite + zweimal Breite), ein Teil ist 6 m. Breite 6 m, Länge 12 m. Fläche: 12 · 6 = 72 m²."
+   }
+  },
+  {
+   "kennung": "R5-V137",
+   "thema": "messen.flaechen",
+   "lernkarte": "einheiten",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 14400,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit m² statt mit Ar gerechnet"
+    },
+    {
+     "antwort": 14.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 1 000 statt durch 100 umgerechnet"
+    },
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche in Ar genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheiten",
+    "t": "einheiten",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Sportplatz hat eine Fläche von 7 200 m². Auf jedes Ar werden 2 kg Dünger gestreut. Wie viele kg Dünger werden gebraucht?"
+    },
+    "o": {
+     "wert": 144,
+     "einheit": "kg"
+    },
+    "c": "7200 / 100 * 2",
+    "h": "Wie viele m² hat ein Ar? Rechne zuerst die Fläche in Ar um.",
+    "w": "1 a = 100 m². 7 200 m² = 72 a (7 200 : 100). 72 · 2 kg = 144 kg."
+   }
+  },
+  {
+   "kennung": "R5-V138",
+   "thema": "messen.flaechen",
+   "lernkarte": "einheiten",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 1 ha = 1 000 m² gerechnet"
+    },
+    {
+     "antwort": 300000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 1 ha = 100 000 m² gerechnet"
+    },
+    {
+     "antwort": 300,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 1 ha = 100 m² gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheiten",
+    "t": "einheiten",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Fläche von 3 ha soll in m² angegeben werden. Weg A: Rechne mit 1 ha = 10 000 m². Weg B: Ein Quadrat mit 100 m Seitenlänge hat 1 ha. Bestimme die Fläche eines Quadrats mit 100 m Seitenlänge. Gib an, wie viele m² 3 ha sind."
+    },
+    "o": {
+     "wert": 30000,
+     "einheit": "m²"
+    },
+    "c": "3 * 10000",
+    "h": "Wie groß ist die Fläche eines Quadrats mit der Seitenlänge 100 m?",
+    "w": "Weg A: 3 · 10 000 m² = 30 000 m². Weg B: Ein Quadrat hat 100 m · 100 m = 10 000 m². Drei Quadrate: 30 000 m²."
+   }
+  },
+  {
+   "kennung": "R5-V139",
+   "thema": "messen.flaechen",
+   "lernkarte": "kommaschreibweise",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 84,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 statt mit 100 malgenommen"
+    },
+    {
+     "antwort": 8400,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 1 000 malgenommen"
+    },
+    {
+     "antwort": 0.084,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 100 geteilt statt malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "kommaschreibweise",
+    "t": "kommaschreibweise",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Fläche wurde zuerst in dm² angegeben und dann in m² umgerechnet. Das Ergebnis lautet 8,4 m². Welche Zahl stand vorher in dm²?"
+    },
+    "o": {
+     "wert": 840,
+     "einheit": "dm²"
+    },
+    "c": "8.4 * 100",
+    "h": "Wie viele dm² hat ein m²? Mache die Umrechnung rückgängig.",
+    "w": "1 m² = 100 dm². Rückwärts wird mit 100 malgenommen: 8,4 m² = 8,4 · 100 dm² = 840 dm². Probe: 840 dm² = 8,4 m², denn 100 dm² = 1 m²."
+   }
+  },
+  {
+   "kennung": "R5-V140",
+   "thema": "messen.flaechen",
+   "lernkarte": "kommaschreibweise",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 1 stimmt: 45 dm² = 0,45 m², denn 100 dm² = 1 m². Der Fehler steckt später."
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 3 übernimmt nur das Ergebnis aus Zeile 2. Der Fehler liegt schon in Zeile 2."
+    }
+   ],
+   "aufgabe": {
+    "l": "kommaschreibweise",
+    "t": "kommaschreibweise",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Mia berechnet 3,2 m² + 45 dm² und gibt das Ergebnis in m² an. Zeile 1: 1 m² sind 100 dm², also sind 45 dm² gleich 0,45 m². Zeile 2: 3,2 m² + 0,45 m² = 3,47 m². Zeile 3: Das Ergebnis ist 3,47 m². In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Prüfe jede Zeile für sich und rechne beim Addieren Komma unter Komma nach. Welche Zeile enthält zuerst einen Fehler?",
+    "w": "45 dm² = 0,45 m². 3,20 m² + 0,45 m² = 3,65 m². Richtig: 3,65 m². Der erste Fehler steht in Zeile 2."
+   }
+  },
+  {
+   "kennung": "R5-V141",
+   "thema": "messen.flaechen",
+   "lernkarte": "zerlegen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 108,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Teich nicht abgezogen"
+    },
+    {
+     "antwort": 128,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Teich dazu addiert"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Fläche des Teichs genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "zerlegen",
+    "t": "zerlegen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein rechteckiger Garten ist 12 m lang und 9 m breit. In einer Ecke liegt ein rechteckiger Teich, der 5 m lang und 4 m breit ist. Wie groß ist die Fläche des Gartens ohne den Teich?"
+    },
+    "o": {
+     "wert": 88,
+     "einheit": "m²"
+    },
+    "c": "12 * 9 - 5 * 4",
+    "h": "Berechne die Fläche des ganzen Rechtecks und die des Teichs. Was bleibt?",
+    "w": "Ganzer Garten: 12 · 9 = 108 m². Teich: 5 · 4 = 20 m². Rest: 108 − 20 = 88 m²."
+   }
+  },
+  {
+   "kennung": "R5-V142",
+   "thema": "messen.flaechen",
+   "lernkarte": "zerlegen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die herausgeschnittene Fläche als Breite genannt"
+    },
+    {
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "68 durch 4 geteilt"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Breite des ganzen Rechtecks genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "zerlegen",
+    "t": "zerlegen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Aus einem Rechteck, das 10 m lang und 8 m breit ist, wird an einer Ecke ein kleineres Rechteck herausgeschnitten. Dieses ist 4 m lang. Die übrige Fläche beträgt 68 m². Wie breit ist das herausgeschnittene Rechteck?"
+    },
+    "o": {
+     "wert": 3,
+     "einheit": "m"
+    },
+    "c": "(10 * 8 - 68) / 4",
+    "h": "Welche Fläche hat das ganze Rechteck? Was sagt die übrige Fläche über das herausgeschnittene Stück?",
+    "w": "Ganzes Rechteck: 10 · 8 = 80 m². Herausgeschnitten: 80 − 68 = 12 m². Breite: 12 : 4 = 3 m. Probe: 4 · 3 = 12 und 80 − 12 = 68."
+   }
+  },
+  {
+   "kennung": "R5-V143",
+   "thema": "messen.flaechen",
+   "lernkarte": "sachaufgaben",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 432,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Preis des Laminats gerechnet"
+    },
+    {
+     "antwort": 840,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Preis des Parketts gerechnet"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Preis je m² genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgaben",
+    "t": "sachaufgaben",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt drei Bodenbeläge mit ihrem Preis je m². Ein Zimmer ist 6 m lang und 4 m breit. Wie viel Euro kostet der günstigste Belag für das ganze Zimmer?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Belag",
+       "Preis je m²"
+      ],
+      "zeilen": [
+       [
+        "Laminat",
+        "18 €"
+       ],
+       [
+        "Teppich",
+        "12 €"
+       ],
+       [
+        "Parkett",
+        "35 €"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 288,
+     "einheit": "€"
+    },
+    "c": "6 * 4 * 12",
+    "h": "Berechne zuerst die Fläche des Zimmers. Welcher Belag ist je m² am billigsten?",
+    "w": "Fläche: 6 · 4 = 24 m². Der günstigste Belag ist Teppich mit 12 € je m². 24 · 12 = 288 €."
+   }
+  },
+  {
+   "kennung": "R5-V144",
+   "thema": "messen.flaechen",
+   "lernkarte": "sachaufgaben",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 34,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Platten in der Länge und in der Breite addiert"
+    },
+    {
+     "antwort": 4.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche in m² als Zahl der Platten genommen"
+    },
+    {
+     "antwort": 480,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 100 statt durch 400 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgaben",
+    "t": "sachaufgaben",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Gartenweg ist 6 m lang und 80 cm breit. Er wird lückenlos mit quadratischen Platten von 20 cm Seitenlänge belegt. Weg A: Teile die Fläche des Wegs durch die Fläche einer Platte (beides in cm²). Weg B: Bestimme, wie viele Platten in der Länge und wie viele in der Breite nebeneinander passen. Gib die Zahl der Platten an."
+    },
+    "o": {
+     "wert": 120,
+     "einheit": "Platten"
+    },
+    "c": "(600 * 80) / (20 * 20)",
+    "h": "Rechne alle Maße in cm. Wie viele Platten von 20 cm passen in 6 m?",
+    "w": "Weg A: Weg 600 cm · 80 cm = 48 000 cm², Platte 20 · 20 = 400 cm². 48 000 : 400 = 120. Weg B: 600 : 20 = 30 Platten in der Länge, 80 : 20 = 4 in der Breite. 30 · 4 = 120."
+   }
+  },
+  {
+   "kennung": "R5-V145",
+   "thema": "messen.flaechen",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 26,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Umfang des Rechtecks genannt"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Umfang des Quadrats genannt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Breite des Rechtecks genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quadrat und ein Rechteck haben denselben Flächeninhalt von 36 cm². Das Rechteck ist 9 cm lang. Um wie viel cm ist der Umfang des Rechtecks größer als der Umfang des Quadrats?"
+    },
+    "o": {
+     "wert": 2,
+     "einheit": "cm"
+    },
+    "c": "2 * (9 + 36 / 9) - 4 * 6",
+    "h": "Fläche = Länge mal Breite. Mache das Malnehmen rückgängig und bestimme beide Umfänge.",
+    "w": "Quadrat: 6 cm · 6 cm = 36 cm², also Seite 6 cm und Umfang 4 · 6 = 24 cm. Rechteck: Breite 36 : 9 = 4 cm, Umfang 2 · (9 + 4) = 26 cm. Unterschied: 26 − 24 = 2 cm. Probe: 9 · 4 = 36."
+   }
+  },
+  {
+   "kennung": "R5-V146",
+   "thema": "messen.flaechen",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "für Fläche und Umfang jeweils den Faktor 2 genommen: 2 + 2"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor der Fläche auch für den Umfang genommen: 4 + 4"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Faktor des Umfangs genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einem Rechteck mit 5 cm Länge und 7 cm Breite werden Länge und Breite verdoppelt. Wie oft so groß wird dabei der Flächeninhalt und wie oft so groß der Umfang? Weg A: Berechne alte und neue Fläche und alten und neuen Umfang und teile jeweils. Weg B: Überlege, mit welcher Zahl jede Seite malgenommen wird und was das für Fläche und Umfang bedeutet. Gib die Summe der beiden Faktoren an."
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "(10 * 14) / (5 * 7) + (2 * (10 + 14)) / (2 * (5 + 7))",
+    "h": "Vergleiche jeweils die neue mit der alten Größe: Wie oft passt die alte in die neue?",
+    "w": "Weg A: Fläche 5 · 7 = 35 cm² wird 10 · 14 = 140 cm², das ist 4-mal so viel. Umfang 2 · (5 + 7) = 24 cm wird 2 · (10 + 14) = 48 cm, das ist 2-mal so viel. 4 + 2 = 6. Weg B: Jede Seite wird 2-mal so lang. Der Umfang besteht aus Seiten, er wird 2-mal so groß. Die Fläche ist Länge mal Breite, sie wird 2 · 2 = 4-mal so groß. 4 + 2 = 6."
+   }
+  }
+ ]
+}

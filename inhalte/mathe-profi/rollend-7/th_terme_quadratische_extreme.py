@@ -72,7 +72,7 @@ neu(T, "mit_faktor", "fehler_detektiv", FD(
 neu(T, "mit_faktor", "zwei_wege", Z(
     "Bestimme das Minimum von T(x) = 2x² − 12x + 22 auf zwei Wegen. Weg A: Faktor ausklammern und quadratisch ergänzen. Weg B: T(2), T(3) und T(4) ausrechnen. Weil T(2) und T(4) gleich sind, liegt die Symmetrieachse der Parabel in der Mitte bei x = 3. Die Parabel öffnet sich nach oben, weil vor x² die positive Zahl 2 steht. Also ist der kleinste dieser drei Werte das Minimum. Wie groß ist das Minimum?",
     4, "22 - 2 * 3 ** 2", "2 * 3 ** 2 - 12 * 3 + 22", "Beide Wege müssen dasselbe Minimum ergeben.",
-    "Weg A: 2(x − 3)² + 4, Minimum 4. Weg B: T(2) = 6, T(3) = 4, T(4) = 6. Wegen T(2) = T(4) liegt die Symmetrieachse bei x = 3. Die Parabel öffnet sich nach oben (Faktor 2 vor x² ist positiv), also ist T(3) = 4 der tiefste Punkt und damit das Minimum für alle x.",
+    "Weg A: 2(x − 3)² + 4, Minimum 4. Weg B: T(2) = 6, T(3) = 4, T(4) = 6. Wegen T(2) = T(4) liegt die Symmetrieachse bei x = 3. Die Parabel öffnet sich nach oben (Faktor 2 vor x² ist positiv), also ist 4 der kleinste Funktionswert, der Minimalwert von T für alle x. Der tiefste Punkt der Parabel ist (3|4).",
     [(6, None, "den Wert am Rand der Tabelle T(2) als Minimum genommen", "2 * 2 ** 2 - 12 * 2 + 22"), (22, None, "den Wert bei x = 0 genommen", "2 * 0 ** 2 - 12 * 0 + 22"), (3, None, "die Stelle des Minimums statt seines Werts genommen", "6 // 2")]), regel="id.funktionen.gleichung_form")
 
 # ───────── optimierung ─────────

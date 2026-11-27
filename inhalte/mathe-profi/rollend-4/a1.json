@@ -21,11 +21,39 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 + 4 gerechnet"
+    },
+    {
      "luecke": 2,
-     "antwort": 33,
+     "antwort": 21,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "5 addiert statt abgezogen"
+    },
+    {
+     "luecke": 3,
+     "antwort": -8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Unterschied falsch herum gebildet"
+    },
+    {
+     "luecke": 4,
+     "antwort": 32,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal 4 statt geteilt durch 4"
+    },
+    {
+     "luecke": 5,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 8 nicht durch 4 geteilt: 4 + 8"
     }
    ],
    "aufgabe": {
@@ -36,24 +64,28 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Kim meint, dass x = 7 die Gleichung 4 · x − 5 = 19 löst. Probe: 4 · 7 = ①. Dann ① − 5 = ②. Das ist nicht 19, also hat Kim sich geirrt. Rückwärts: 19 + 5 = 24 und 24 : 4 = ③.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Kim meint, dass x = 4 die Gleichung 4 · x − 5 = 19 löst. Probe: 4 · 4 = ①. Dann ① − 5 = ②. Das ist nicht 19, also hat Kim sich geirrt: Der Wert ist 19 − ② = ③ zu klein. Pro Schritt von x wächst der Wert um 4, also fehlt bei x ein Stück von ③ : 4 = ④. Richtig ist x = 4 + ④ = ⑤.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □; ⑤ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      28,
-      23,
+      16,
+      11,
+      8,
+      2,
       6
      ]
     },
     "c": [
-     "4 * 7",
-     "4 * 7 - 5",
-     "(19 + 5) // 4"
+     "4*4",
+     "4*4-5",
+     "19-(4*4-5)",
+     "(19-(4*4-5))//4",
+     "4+(19-(4*4-5))//4"
     ],
     "h": "Setze erst x ein, rechne dann Mal vor Minus.",
-    "w": "4 · 7 = 28, 28 − 5 = 23. Das ist nicht 19. Richtig ist x = 6."
+    "w": "4 · 4 = 16, 16 − 5 = 11. 19 − 11 = 8. 8 : 4 = 2. x = 4 + 2 = 6. Probe: 4 · 6 − 5 = 19."
    }
   },
   {
@@ -68,11 +100,18 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
+     "luecke": 1,
      "antwort": 13,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "erst durch 3 geteilt, dann 4 addiert"
+     "beschreibung": "4 abgezogen statt addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 63,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal 3 statt geteilt durch 3"
     }
    ],
    "aufgabe": {
@@ -271,24 +310,24 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "2x = 6",
+     "antwort": "Die Geraden schneiden sich in genau einem Punkt: Die Gleichung hat genau eine Lösung.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "hat die Lösung x = 3"
+     "beschreibung": "gleiche Steigung bedeutet kein Schnittpunkt"
     },
     {
      "index": 2,
-     "antwort": "x + 3 = 3 + x",
+     "antwort": "Die Geraden liegen aufeinander: Die Gleichung hat unendlich viele Lösungen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "gilt für jedes x, hat unendlich viele Lösungen"
+     "beschreibung": "die Achsenabschnitte 3 und 5 sind verschieden, die Geraden fallen nicht zusammen"
     },
     {
      "index": 3,
-     "antwort": "x − 4 = 0",
+     "antwort": "Die Geraden stehen senkrecht aufeinander: Die Gleichung hat zwei Lösungen.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "hat die Lösung x = 4"
+     "beschreibung": "beide Geraden haben die Steigung 1, sie stehen nicht senkrecht"
     }
    ],
    "aufgabe": {
@@ -298,20 +337,20 @@
     "s": 1,
     "g": "erkennen",
     "f": {
-     "text": "Welche dieser Gleichungen hat keine Lösung?"
+     "text": "Die Gleichung x + 3 = x + 5 soll mit Hilfe von Geraden gedeutet werden. Angenommen, man zeichnet die Gerade y = x + 3 und die Gerade y = x + 5 in dasselbe Koordinatensystem. Was würde man dann sehen, und was folgt daraus für die Lösungen der Gleichung?"
     },
     "y": "auswahl",
     "a": [
-     "x + 3 = x + 5",
-     "2x = 6",
-     "x + 3 = 3 + x",
-     "x − 4 = 0"
+     "Die Geraden sind parallel und haben keinen gemeinsamen Punkt: Die Gleichung hat keine Lösung.",
+     "Die Geraden schneiden sich in genau einem Punkt: Die Gleichung hat genau eine Lösung.",
+     "Die Geraden liegen aufeinander: Die Gleichung hat unendlich viele Lösungen.",
+     "Die Geraden stehen senkrecht aufeinander: Die Gleichung hat zwei Lösungen."
     ],
     "o": {
      "index": 0
     },
-    "h": "Forme so um, dass x auf einer Seite allein steht. Entsteht dabei eine falsche Aussage?",
-    "w": "x + 3 = x + 5: Zieht man x ab, bleibt 3 = 5, eine falsche Aussage. Es gibt keine Lösung. 2x = 6 hat die Lösung 3, x + 3 = 3 + x gilt für jede Zahl, x − 4 = 0 hat die Lösung 4."
+    "h": "Ein gemeinsamer Punkt beider Geraden wäre eine Lösung der Gleichung. Vergleiche Steigung und Achsenabschnitt.",
+    "w": "Beide Geraden haben die Steigung 1, aber verschiedene Achsenabschnitte (3 und 5). Sie sind parallel und haben keinen gemeinsamen Punkt. Rechnerisch: x abziehen gibt 3 = 5, eine falsche Aussage. Also keine Lösung."
    }
   }
  ]

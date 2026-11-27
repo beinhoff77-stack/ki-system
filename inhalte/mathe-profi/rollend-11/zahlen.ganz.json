@@ -1,0 +1,399 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-11",
+ "kuerzel": "S3",
+ "thema": "zahlen.ganz",
+ "titel": "zahlen.ganz",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen_datei_im_bestand": "zahlen.ganz",
+ "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "S3-V017",
+   "thema": "zahlen.ganz",
+   "lernkarte": "deuten",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Beträge voneinander abgezogen, als lägen beide auf derselben Seite des Meeresspiegels: 100 − 72",
+     "rechnung": "100 - 72"
+    },
+    {
+     "antwort": 127,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Bewegungen vergessen und nur den Höhenunterschied am Anfang genannt: 85 + 42",
+     "rechnung": "85 + 42"
+    },
+    {
+     "antwort": 142,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Tieferschwimmen des Fisches vergessen: 100 + 42",
+     "rechnung": "100 + 42"
+    }
+   ],
+   "aufgabe": {
+    "l": "deuten",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Möwe fliegt 85 m über dem Meeresspiegel. Ein Fisch schwimmt bei −42 m. Dann steigt die Möwe noch 15 m auf und der Fisch taucht noch 30 m tiefer. Weg A: Rechne die beiden neuen Höhen aus und bilde dann den Höhenunterschied. Weg B: Rechne den Höhenunterschied am Anfang aus und addiere dazu, um wie viel sich beide Tiere voneinander entfernen. Wie viele Meter beträgt der Höhenunterschied zwischen Möwe und Fisch dann?"
+    },
+    "o": {
+     "wert": 172,
+     "einheit": "m"
+    },
+    "c": "(85 + 15) - (-42 - 30)",
+    "h": "Beide Wege müssen denselben Höhenunterschied ergeben. Der Höhenunterschied ist die höhere Höhe minus die tiefere Höhe.",
+    "w": "Weg A: Möwe 85 + 15 = 100 m, Fisch −42 − 30 = −72 m. Höhenunterschied: 100 − (−72) = 100 + 72 = 172 m. Weg B: Am Anfang 85 − (−42) = 127 m. Die Möwe steigt 15 m, der Fisch taucht 30 m, zusammen wächst der Unterschied um 45 m: 127 + 45 = 172 m. Beide Wege ergeben 172 m."
+   }
+  },
+  {
+   "kennung": "S3-V018",
+   "thema": "zahlen.ganz",
+   "lernkarte": "ordnen",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.zahlengerade",
+   "regel_name": "Zahlengerade",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 23,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nach dem Betrag statt nach der Lage geordnet: als zweitniedrigster Stand 12 und als zweithöchster 35 genommen, also 35 − 12",
+     "rechnung": "35 - 12"
+    },
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "höchsten und niedrigsten Stand genommen statt des zweithöchsten und des zweitniedrigsten",
+     "rechnung": "20 - (-80)"
+    },
+    {
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den drittniedrigsten Stand (−12) statt des zweitniedrigsten (−35) genommen",
+     "rechnung": "5 - (-12)"
+    }
+   ],
+   "aufgabe": {
+    "l": "ordnen",
+    "t": "ordnen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt die Kontostände von fünf Personen. Ordne die Stände gedanklich auf einer Zahlengerade von links nach rechts. Wie viele Euro liegen zwischen dem zweitniedrigsten und dem zweithöchsten Stand?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Person",
+       "Ali",
+       "Bea",
+       "Cem",
+       "Dora",
+       "Emil"
+      ],
+      "zeilen": [
+       [
+        "Stand in €",
+        "−35",
+        "20",
+        "−80",
+        "5",
+        "−12"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 40,
+     "einheit": "€"
+    },
+    "c": "5 - (-35)",
+    "h": "Welche Zahl liegt auf der Zahlengerade am weitesten links, welche als Nächstes? Mit negativen Zahlen kommt es nicht auf die Größe der Ziffer an.",
+    "w": "Von links nach rechts: −80, −35, −12, 5, 20. Der zweitniedrigste Stand ist −35 €, der zweithöchste ist 5 €. Zwischen ihnen liegen 5 − (−35) = 40 €."
+   }
+  },
+  {
+   "kennung": "S3-V019",
+   "thema": "zahlen.ganz",
+   "lernkarte": "schriftlich_plus_minus",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus der falschen Zeile 1 richtig; der erste Fehler steckt weiter oben",
+     "rechnung": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus der falschen Zeile 1 richtig; der erste Fehler steckt weiter oben",
+     "rechnung": null
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus der falschen Zeile 1 richtig; der erste Fehler steckt weiter oben",
+     "rechnung": null
+    }
+   ],
+   "fehlerzeile": 1,
+   "fehler": "bei der Summe 22 nur 1 statt 2 Zehner gemerkt",
+   "zeilen": [
+    {
+     "zeile": 1,
+     "text": "Einer: 8 + 9 + 5 = 22. Ich schreibe 2 hin und merke 1.",
+     "stimmt": false
+    },
+    {
+     "zeile": 2,
+     "text": "Zehner: 4 + 5 + 7 + 1 = 17. Ich schreibe 7 hin und merke 1.",
+     "stimmt": true
+    },
+    {
+     "zeile": 3,
+     "text": "Hunderter: 7 + 6 + 8 + 1 = 22. Ich schreibe 2 hin und merke 2.",
+     "stimmt": true
+    },
+    {
+     "zeile": 4,
+     "text": "Tausender: 3 + 2 + 1 + 2 = 8. Ich schreibe 8 hin.",
+     "stimmt": true
+    }
+   ],
+   "aufgabe": {
+    "l": "schriftlich_plus_minus",
+    "t": "schriftlich",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim addiert schriftlich 3 748 + 2 659 + 1 875 und rechnet von rechts nach links. Zeile 1: Einer: 8 + 9 + 5 = 22. Ich schreibe 2 hin und merke 1. Zeile 2: Zehner: 4 + 5 + 7 + 1 = 17. Ich schreibe 7 hin und merke 1. Zeile 3: Hunderter: 7 + 6 + 8 + 1 = 22. Ich schreibe 2 hin und merke 2. Zeile 4: Tausender: 3 + 2 + 1 + 2 = 8. Ich schreibe 8 hin. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Prüfe jede Zeile: Passen Summe, hingeschriebene Ziffer und gemerkter Übertrag zusammen?",
+    "w": "Die Summe in Zeile 1 stimmt: 8 + 9 + 5 = 22. Aber bei 22 muss man 2 merken (zwei Zehner), nicht 1. Alle weiteren Zeilen rechnen mit dem falschen Übertrag richtig weiter. Richtig wäre: Zehner 4 + 5 + 7 + 2 = 18 (schreibe 8, merke 1), Hunderter 7 + 6 + 8 + 1 = 22 (schreibe 2, merke 2), Tausender 3 + 2 + 1 + 2 = 8. Ergebnis: 8 282, Kim erhält 8 272."
+   }
+  },
+  {
+   "kennung": "S3-V020",
+   "thema": "zahlen.ganz",
+   "lernkarte": "subtrahieren",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Du hast von −2 nochmals (−9) abgezogen und so 7 erhalten. Um das Abziehen von −9 rückgängig zu machen, musst du (−9) addieren: −2 + (−9) = −11.",
+     "rechnung": "-21 - (-5) + 14 - (-9)"
+    },
+    {
+     "antwort": -16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den dritten Schritt (+ (−5)) nicht rückgängig gemacht",
+     "rechnung": "-21 + 14 + (-9)"
+    },
+    {
+     "antwort": -31,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gesamtänderung −10 zum Ergebnis addiert statt von ihm abgezogen",
+     "rechnung": "-21 + (-10)"
+    }
+   ],
+   "aufgabe": {
+    "l": "subtrahieren",
+    "t": "subtrahieren",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ich denke mir eine ganze Zahl. Davon ziehe ich −9 ab, dann ziehe ich 14 ab, und dann addiere ich −5. Ich erhalte −21. Wie heißt meine Zahl?"
+    },
+    "o": {
+     "wert": -11
+    },
+    "c": "-21 - (-5) + 14 + (-9)",
+    "h": "Mache jeden Schritt in umgekehrter Reihenfolge rückgängig. Was hebt „minus −9“ auf?",
+    "w": "Rückwärts, mit dem letzten Schritt zuerst: −21 − (−5) = −16. Dann −16 + 14 = −2. Dann −2 + (−9) = −11. Probe: −11 − (−9) = −2; −2 − 14 = −16; −16 + (−5) = −21. Die Zahl ist −11."
+   }
+  },
+  {
+   "kennung": "S3-V021",
+   "thema": "zahlen.ganz",
+   "lernkarte": "ketten",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 3",
+     "rechnung": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der erste Fehler steckt in Zeile 3",
+     "rechnung": null
+    }
+   ],
+   "fehlerzeile": 3,
+   "fehler": "„− (−13)“ als „− 13“ aufgelöst",
+   "zeilen": [
+    {
+     "zeile": 1,
+     "text": "Die ersten drei Zahlen: −14 − (−9) + (−6) = −14 + 9 − 6 = −11",
+     "stimmt": true
+    },
+    {
+     "zeile": 2,
+     "text": "Die Klammer: 8 − 21 = −13",
+     "stimmt": true
+    },
+    {
+     "zeile": 3,
+     "text": "Zusammen: −11 − (−13) = −11 − 13 = −24",
+     "stimmt": false
+    }
+   ],
+   "aufgabe": {
+    "l": "ketten",
+    "t": "verbinden",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim berechnet −14 − (−9) + (−6) − (8 − 21) in Teilschritten. Zeile 1: Die ersten drei Zahlen: −14 − (−9) + (−6) = −14 + 9 − 6 = −11 Zeile 2: Die Klammer: 8 − 21 = −13 Zeile 3: Zusammen: −11 − (−13) = −11 − 13 = −24 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne jede Zeile einzeln nach.",
+    "w": "Zeile 1 und Zeile 2 stimmen. In Zeile 3 steht „− (−13)“. Das heißt „plus 13“, nicht „minus 13“. Richtig: −11 + 13 = 2."
+   }
+  },
+  {
+   "kennung": "S3-V022",
+   "thema": "zahlen.ganz",
+   "lernkarte": "sach",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Startpegel −35 cm vergessen und nur die Bilanz −2 genommen",
+     "rechnung": "(60 + 25 + 38) - (45 + 80)"
+    },
+    {
+     "antwort": -33,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Bilanz −2 mit dem falschen Vorzeichen zum Start gerechnet: −35 − (−2)",
+     "rechnung": "-35 - (-2)"
+    },
+    {
+     "antwort": 37,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Vorzeichen des Ergebnisses vergessen",
+     "rechnung": "35 + 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "verbinden",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Der Pegel eines Baches steht am Montagmorgen bei −35 cm (Nullmarke ist 0). Montag steigt er um 60 cm, Dienstag fällt er um 45 cm, Mittwoch steigt er um 25 cm, Donnerstag fällt er um 80 cm, Freitag steigt er um 38 cm. Weg A: Verfolge den Pegel Tag für Tag. Weg B: Zähle alle Anstiege zusammen und alle Rückgänge zusammen und vergleiche beides mit dem Start. Welchen Pegel zeigt die Messlatte am Freitagabend in cm?"
+    },
+    "o": {
+     "wert": -37,
+     "einheit": "cm"
+    },
+    "c": "-35 + 60 - 45 + 25 - 80 + 38",
+    "h": "Beide Wege müssen dasselbe ergeben. Vergiss nicht, wo der Pegel am Montagmorgen steht.",
+    "w": "Weg A: −35 + 60 = 25; 25 − 45 = −20; −20 + 25 = 5; 5 − 80 = −75; −75 + 38 = −37. Weg B: Anstiege 60 + 25 + 38 = 123 cm, Rückgänge 45 + 80 = 125 cm, Bilanz −2 cm. −35 + (−2) = −37. Der Pegel steht bei −37 cm."
+   }
+  }
+ ]
+}

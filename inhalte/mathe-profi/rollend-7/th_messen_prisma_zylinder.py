@@ -64,7 +64,7 @@ neu(T, "zylinder_volumen", "zwei_wege", Z(
     "Ein Zylinder hat den Radius 5 cm und die Höhe 12 cm. Berechne sein Volumen in cm³ auf ganze Zahlen gerundet auf zwei Wegen. Weg A: mit π ≈ 3,14. Weg B: mit der π-Taste des Taschenrechners. Beide Wege führen auf dieselbe ganze Zahl. Welchen Wert erhältst du?",
     942, "3.14 * 5 ** 2 * 12", f"round({P} * 5 ** 2 * 12)", "Beide Wege dürfen sich nur in der Rundung unterscheiden.",
     "Weg A: 3,14 · 25 · 12 = 942. Weg B: π · 25 · 12 ≈ 942,48, gerundet 942. Das Volumen beträgt etwa 942 cm³.",
-    [(471, None, "durch 2 geteilt", "3.14 * 5 ** 2 * 12 / 2"), (377, "fb.potenz.basis_mal_hochzahl", "5² als 5 · 2 gerechnet: π · 5 · 2 · 12", "round(3.14 * 5 * 2 * 12)"), (3768, "fb.aus_dem_rechteck.durchmesser_statt_radius", "den Radius 5 verdoppelt, also mit 10 quadriert: π · 10² · 12", "3.14 * 10 ** 2 * 12")], "cm³"), regel="id.flaeche_raum.aus_dem_rechteck")
+    [(471, None, "durch 2 geteilt", "3.14 * 5 ** 2 * 12 / 2"), (377, "fb.potenz.basis_mal_hochzahl", "5² als 5 · 2 gerechnet: π · 5 · 2 · 12", "round(3.14 * 5 * 2 * 12)"), (3768, "fb.aus_dem_rechteck.durchmesser_statt_radius", "Weg A (π ≈ 3,14): den Radius 5 verdoppelt, also mit 10 quadriert: 3,14 · 10² · 12", "3.14 * 10 ** 2 * 12")], "cm³"), regel="id.flaeche_raum.aus_dem_rechteck")
 assert round(math.pi * 25 * 12) == 942 and round(3.14 * 25 * 12) == 942
 neu(T, "zylinder_volumen", "umkehren", Z(
     "Ein Zylinder ist 10 cm hoch. Sein Volumen beträgt etwa 785 cm³. Wie groß ist sein Radius in cm? Runde auf ganze cm.",
@@ -87,7 +87,7 @@ neu(T, "zylinder_oberflaeche", "bruecke", W(
     lambda: gl("2*n*a**2+2*n*a*b", "2*n*a**2+2*n*a*b") and not gl("2*n*a**2+2*n*a*b", "n*a**2+2*n*a*b") and not gl("2*n*a**2+2*n*a*b", "2*n*a**2+n*a*b") and not gl("2*n*a**2+2*n*a*b", "2*n*a+2*n*b"),
     grafik=TAB(["Teil des Netzes", "Anzahl", "Fläche je Stück"], ["Kreis mit Radius r", "2", "π · r²"], ["Rechteck (Mantel)", "1", "2 · π · r · h"])), regel="id.flaeche_raum.haut")
 neu(T, "zylinder_oberflaeche", "anwenden", Z(
-    "Eine Blechdose hat den Durchmesser 8 cm und die Höhe 11 cm. Sie hat Boden, Deckel und Mantel. Wie viel Quadratzentimeter Blech braucht man für eine Dose, wenn nichts verschnitten wird? Rechne mit der π-Taste und runde auf ganze cm².",
+    "Eine gerade zylinderförmige Blechdose hat den Durchmesser 8 cm und die Höhe 11 cm. Sie hat Boden, Deckel und Mantel. Wie viel Quadratzentimeter Blech braucht man für eine Dose, wenn nichts verschnitten wird? Rechne mit der π-Taste und runde auf ganze cm².",
     377, f"round(2 * {P} * 4 ** 2 + 2 * {P} * 4 * 11)", 377, "Der Radius ist halb so groß wie der Durchmesser.",
     "r = 4 cm. Zwei Kreise: 2 · π · 16 ≈ 100,5. Mantel: 2 · π · 4 · 11 ≈ 276,5. O ≈ 377,0 cm², gerundet 377 cm². (Mit π ≈ 3,14 erhält man 376,8, gerundet ebenfalls 377.)",
     [(239, None, "den Mantel mit π · 4 · 11 statt 2π · 4 · 11 gerechnet", f"round(2 * {P} * 4 ** 2 + {P} * 4 * 11)"), (955, "fb.aus_dem_rechteck.durchmesser_statt_radius", "mit dem Durchmesser 8 als Radius gerechnet", f"round(2 * {P} * 8 ** 2 + 2 * {P} * 8 * 11)"), (276, "fb.haut.nur_drei_flaechen", "nur den Mantel gerechnet", f"round(2 * {P} * 4 * 11)")], "cm²"), g="einkleidung", regel="id.flaeche_raum.haut")

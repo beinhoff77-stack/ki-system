@@ -7,7 +7,7 @@
    "entwurf_schluessel": "weise-1",
    "kennung_vorschlag": "aw.probe",
    "merksatz": "Setz ein und rechne nach.",
-   "kurz": "Die Probe zeigt, ob ein gefundenes Ergebnis wirklich stimmt.",
+   "kurz": "Die Probe zeigt, ob ein gefundenes Ergebnis die ursprüngliche Aufgabe erfüllt.",
    "beispiel": {
     "klasse": 5,
     "text": "Gleichung x + 8 = 20, gefunden: x = 12. Probe: 12 + 8 = 20, das stimmt. Wäre x = 11 gefunden worden, ergäbe die Probe 11 + 8 = 19, und das ist nicht 20: Der Fehler ist entdeckt.",
@@ -68,17 +68,17 @@
      }
     ]
    },
-   "erklaerung": "Der Überschlag hilft bei jeder größeren Rechnung, besonders mit Komma oder vielen Stellen. Man braucht ihn, wenn man das Ergebnis nicht grob im Kopf einordnen kann oder der Taschenrechner etwas Überraschendes zeigt. Man rundet auf Zahlen, mit denen man im Kopf rechnet, und vergleicht erst dann mit dem genauen Ergebnis."
+   "erklaerung": "Der Überschlag hilft bei größeren Rechnungen, besonders mit Komma oder vielen Stellen. Man braucht ihn, wenn man das Ergebnis nicht grob im Kopf einordnen kann oder der Taschenrechner etwas Überraschendes zeigt. Man rundet auf Zahlen, mit denen man im Kopf rechnet, und vergleicht erst dann mit dem genauen Ergebnis."
   },
   {
    "name": "Einheiten",
    "entwurf_schluessel": "weise-3",
    "kennung_vorschlag": "aw.einheiten",
-   "merksatz": "Rechne mit Einheiten – die Einheit des Ergebnisses prüft die Rechnung.",
-   "kurz": "Eine Größe besteht aus Zahl und Einheit; die Einheit des Ergebnisses verrät, ob man richtig gerechnet hat.",
+   "merksatz": "Rechne mit Einheiten – eine unpassende Dimension im Ergebnis zeigt einen Fehler an.",
+   "kurz": "Eine Größe besteht aus Zahl und Einheit; eine unpassende Dimension im Ergebnis zeigt einen Fehler an.",
    "beispiel": {
     "klasse": 5,
-    "text": "Ein Zug fährt in 2 h genau 60 km. 60 km : 2 h = 30 km/h, das ist eine Geschwindigkeit, wie gefragt. Wer 60 km · 2 h rechnet, erhält 120 km·h, und das ist keine Geschwindigkeit: Der Ansatz stimmt nicht.",
+    "text": "Ein Zug fährt in 2 h genau 60 km. Wie schnell war er im Durchschnitt? 60 km : 2 h = 30 km/h, das ist eine Geschwindigkeit, wie gefragt. Wer 60 km · 2 h rechnet, erhält 120 km·h, und das ist keine Geschwindigkeit: Der Ansatz stimmt nicht.",
     "pruefung": [
      {
       "l": "60/2",
@@ -92,7 +92,7 @@
      }
     ]
    },
-   "erklaerung": "Das Rechnen mit Einheiten hilft bei jeder Sachaufgabe und jeder Formel. Man braucht es, wenn Größen in verschiedenen Einheiten vorkommen, etwa m und cm, oder wenn man nicht weiß, welche Rechenart gemeint ist. Passt die Einheit des Ergebnisses nicht zur Frage, ist der Ansatz falsch."
+   "erklaerung": "Das Rechnen mit Einheiten hilft bei Sachaufgaben und Formeln. Man braucht es, wenn Größen in verschiedenen Einheiten vorkommen, etwa m und cm, oder wenn man nicht weiß, welche Rechenart gemeint ist. Zeigt das Ergebnis eine unpassende Dimension (km·h statt km/h), ist der Ansatz falsch; eine andere, umrechenbare Einheit wie cm statt m beweist keinen falschen Ansatz, und eine passende Dimension beweist keinen richtigen."
   },
   {
    "name": "Skizze",
@@ -145,14 +145,14 @@
      }
     ]
    },
-   "erklaerung": "Der Ansatz hilft bei jeder Textaufgabe, besonders wenn viele Zahlen vorkommen. Man braucht ihn, wenn man nicht weiß, womit man anfangen soll oder welche Zahlen überhaupt gebraucht werden. Der Antwortsatz am Ende zeigt, ob das Ergebnis zur Frage passt."
+   "erklaerung": "Der Ansatz hilft bei Textaufgaben, besonders wenn viele Zahlen vorkommen. Man braucht ihn, wenn man nicht weiß, womit man anfangen soll oder welche Zahlen überhaupt gebraucht werden. Der Antwortsatz am Ende zeigt, ob das Ergebnis zur Frage passt."
   },
   {
    "name": "Begründen",
    "entwurf_schluessel": "weise-6",
    "kennung_vorschlag": "aw.begruenden",
-   "merksatz": "Nenne den Satz, dann wende ihn an. Für „stimmt nicht“ genügt ein Gegenbeispiel.",
-   "kurz": "Begründen heißt, den passenden Satz zu nennen und anzuwenden; widerlegen kann man mit einem Gegenbeispiel.",
+   "merksatz": "Nenne den Satz, dann wende ihn an. Für „stimmt nicht“ bei einer allgemeinen Behauptung genügt ein Gegenbeispiel.",
+   "kurz": "Begründen: den passenden Satz nennen und anwenden; eine allgemeine Behauptung widerlegt ein Gegenbeispiel.",
    "beispiel": {
     "klasse": 5,
     "text": "Warum ist 4 536 durch 3 teilbar? Satz: Eine Zahl ist durch 3 teilbar, wenn es ihre Quersumme ist. Quersumme: 4 + 5 + 3 + 6 = 18, und 18 : 3 = 6. Widerlegen: „Bei Minus darf man tauschen“ stimmt nicht, denn 5 − 3 = 2, aber 3 − 5 = −2.",
@@ -189,7 +189,7 @@
      }
     ]
    },
-   "erklaerung": "Das Begründen wird verlangt bei „Warum“, „Zeige“ und „Stimmt das?“. Man braucht es, wenn ein Ergebnis allein nicht reicht und gesagt werden soll, weshalb es gilt. Viele passende Beispiele beweisen nichts, aber ein einziges Gegenbeispiel widerlegt eine Behauptung."
+   "erklaerung": "Das Begründen wird verlangt bei „Warum“, „Zeige“ und „Stimmt das?“. Man braucht es, wenn ein Ergebnis allein nicht reicht und gesagt werden soll, weshalb es gilt. Viele passende Beispiele beweisen nichts, aber ein einziges Gegenbeispiel widerlegt eine allgemeine Behauptung."
   },
   {
    "name": "Ablesen und Darstellen",

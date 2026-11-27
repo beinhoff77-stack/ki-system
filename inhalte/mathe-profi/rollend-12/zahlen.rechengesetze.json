@@ -1,0 +1,1367 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-12",
+ "kuerzel": "R5",
+ "flug": "r5-reserve-zahlen.rechengesetze",
+ "titel": "zahlen.rechengesetze",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen": [
+  "zahlen.rechengesetze"
+ ],
+ "themen_datei_im_bestand": "zahlen.rechengesetze",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag „Reserve“ (zwei zählende Aufgaben je Lernkarte, Stufe 2 und 3). Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R5-V027",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "punkt_strich",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "(20 + 6) · 4 − 8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zuerst 20 und 6 addiert, dann mit 4 malgenommen."
+    },
+    {
+     "index": 2,
+     "antwort": "20 + 6 · (4 − 8)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die 8 wird von der 4 statt vom Ergebnis abgezogen."
+    },
+    {
+     "index": 3,
+     "antwort": "20 + 6 + 4 − 8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das Produkt wurde durch eine Summe ersetzt."
+    }
+   ],
+   "aufgabe": {
+    "l": "punkt_strich",
+    "t": "vorrang",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Zu 20 wird das Produkt aus 6 und 4 addiert. Danach wird 8 abgezogen. Welcher Term beschreibt das richtig?"
+    },
+    "a": [
+     "(20 + 6) · 4 − 8",
+     "20 + 6 · 4 − 8",
+     "20 + 6 · (4 − 8)",
+     "20 + 6 + 4 − 8"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Das Produkt aus 6 und 4 ist ein eigener Rechenschritt. Schreibe es ohne Klammern auf.",
+    "w": "„Produkt aus 6 und 4“ ist 6 · 4. Dazu 20 addieren: 20 + 6 · 4. Dann 8 abziehen: 20 + 6 · 4 − 8. Punkt vor Strich passt hier ohne Klammern: 20 + 24 − 8 = 36."
+   }
+  },
+  {
+   "kennung": "R5-V028",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "punkt_strich",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 44,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 5 abgezogen, das Malnehmen mit 4 nicht rückgängig gemacht"
+    },
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "erst 5 und dann 4 abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "punkt_strich",
+    "t": "vorrang",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Welche Zahl muss im Kästchen stehen, damit die Gleichung stimmt? 5 + □ · 4 = 49"
+    },
+    "o": {
+     "wert": 11
+    },
+    "c": "(49 - 5) / 4",
+    "h": "Welche Rechenart wird in 5 + □ · 4 zuerst, welche zuletzt ausgeführt? Was folgt daraus für das Rückwärtsrechnen?",
+    "w": "Zuletzt wird 5 addiert, also zuerst 5 abziehen: 49 − 5 = 44. Dann das Malnehmen mit 4 rückgängig machen: 44 : 4 = 11. Probe: 5 + 11 · 4 = 5 + 44 = 49."
+   }
+  },
+  {
+   "kennung": "R5-V029",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "klammern",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 46,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer ignoriert: 48 − 12 : 6"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Teilergebnisse addiert statt voneinander abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "klammern",
+    "t": "vorrang",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Weg A: Rechne zuerst die Klammer aus. Weg B: Teile beide Zahlen in der Klammer einzeln durch 6 und ziehe die Ergebnisse voneinander ab. Berechne (48 − 12) : 6 auf zwei Wegen."
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "(48 - 12) / 6",
+    "h": "Bei Weg B teilst du jede Zahl in der Klammer durch 6.",
+    "w": "Weg A: 48 − 12 = 36, 36 : 6 = 6. Weg B: 48 : 6 = 8 und 12 : 6 = 2, 8 − 2 = 6. Beide Wege geben 6."
+   }
+  },
+  {
+   "kennung": "R5-V030",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "klammern",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 1 stimmt: Die Klammer wird zuerst gerechnet, 30 − 6 = 24. Der Fehler steckt später."
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 2 stimmt: 24 · 3 = 72 steht vor dem Minus, und 4 · 2 bleibt als Rest stehen. Der Fehler steckt später."
+    }
+   ],
+   "aufgabe": {
+    "l": "klammern",
+    "t": "vorrang",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Jan berechnet (30 − 6) · 3 − 4 · 2. Zeile 1: Zuerst die Klammer: 30 − 6 = 24. Zeile 2: Dann 24 · 3 = 72, also ist der Term gleich 72 − 4 · 2. Zeile 3: Von links nach rechts: 72 − 4 = 68, und 68 · 2 = 136. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Prüfe jede Zeile für sich und frage bei jedem Rechenschritt: Ist das die richtige Reihenfolge? Welche Zeile enthält zuerst einen Fehler?",
+    "w": "Punkt vor Strich: 4 · 2 = 8 muss vor dem Abziehen gerechnet werden. 72 − 8 = 64. Der erste Fehler steht in Zeile 3."
+   }
+  },
+  {
+   "kennung": "R5-V031",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "termaufbau",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch 3 geteilt, die 4 nicht abgezogen"
+    },
+    {
+     "antwort": 23,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die 4 abgezogen, nicht durch 3 geteilt"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "erst 3, dann 4 von 27 abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "termaufbau",
+    "t": "terme",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Der Term „das Dreifache der Summe aus einer Zahl und 4“ hat den Wert 27. Wie heißt die Zahl?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "27 / 3 - 4",
+    "h": "Schreibe den Term mit einem Kästchen für die Zahl auf. Was wird zuerst gerechnet, was zuletzt?",
+    "w": "3 · (□ + 4) = 27, also □ + 4 = 27 : 3 = 9 und □ = 9 − 4 = 5. Probe: 3 · (5 + 4) = 3 · 9 = 27."
+   }
+  },
+  {
+   "kennung": "R5-V032",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "termaufbau",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Wert von B genannt"
+    },
+    {
+     "antwort": 26,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Wert von A genannt"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 6 · 5 als Unterschied genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "termaufbau",
+    "t": "terme",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Term A ist 6 + 4 · 5, Term B ist (6 + 4) · 5. Weg A: Berechne beide Terme und bilde den Unterschied. Weg B: Schreibe B als 6 · 5 + 4 · 5 und vergleiche mit A, ohne beide ganz auszurechnen. Um wie viel ist B größer als A?"
+    },
+    "o": {
+     "wert": 24
+    },
+    "c": "(6 + 4) * 5 - (6 + 4 * 5)",
+    "h": "Bei B steht 4 · 5 schon im Term, bei A auch. Was unterscheidet die beiden Terme noch?",
+    "w": "Weg A: A = 6 + 20 = 26, B = 10 · 5 = 50, 50 − 26 = 24. Weg B: B = 6 · 5 + 4 · 5, A = 6 + 4 · 5. Der Unterschied ist 6 · 5 − 6 = 30 − 6 = 24."
+   }
+  },
+  {
+   "kennung": "R5-V033",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "vorteil",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 425,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch 4 geteilt, die 25 vergessen"
+    },
+    {
+     "antwort": 68,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch 25 geteilt, die 4 vergessen"
+    },
+    {
+     "antwort": 170000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 100 malgenommen statt durch 100 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vorteil",
+    "t": "gesetze",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Welche Zahl muss im Kästchen stehen, damit die Gleichung stimmt? 4 · □ · 25 = 1 700"
+    },
+    "o": {
+     "wert": 17
+    },
+    "c": "1700 / (4 * 25)",
+    "h": "Welche beiden der drei Faktoren ergeben zusammen eine runde Zahl? Rechne mit ihnen zuerst.",
+    "w": "Die Faktoren darf man tauschen und verbinden: 4 · 25 = 100. Also 100 · □ = 1 700 und □ = 1 700 : 100 = 17. Probe: 4 · 17 · 25 = 68 · 25 = 1 700."
+   }
+  },
+  {
+   "kennung": "R5-V034",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "vorteil",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 1 stimmt: In einem Produkt dürfen die Faktoren vertauscht werden. Der Fehler steckt später."
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 2 stimmt: 4 · 25 = 100. Der Fehler steckt später."
+    }
+   ],
+   "aufgabe": {
+    "l": "vorteil",
+    "t": "gesetze",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Eva berechnet 4 · 37 · 25 geschickt. Zeile 1: Man darf die Faktoren vertauschen: 4 · 37 · 25 = 4 · 25 · 37. Zeile 2: 4 · 25 = 100. Zeile 3: 100 · 37 = 3 070. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Prüfe jede Zeile für sich und rechne jedes Zwischenergebnis nach. Welche Zeile enthält zuerst einen Fehler?",
+    "w": "100 · 37 = 3 700, nicht 3 070. Richtig: 4 · 37 · 25 = 100 · 37 = 3 700. Der erste Fehler steht in Zeile 3."
+   }
+  },
+  {
+   "kennung": "R5-V035",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "differenz_summe",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "80 − 25 + 15",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das Minus gilt nur für die 25 €. Das Heft wurde dazugerechnet statt abgezogen."
+    },
+    {
+     "index": 1,
+     "antwort": "80 + (25 + 15)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Beide Ausgaben wurden zum Geld addiert statt abgezogen."
+    },
+    {
+     "index": 2,
+     "antwort": "80 − 25 · 15",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Ausgaben wurden malgenommen statt addiert."
+    }
+   ],
+   "aufgabe": {
+    "l": "differenz_summe",
+    "t": "gesetze",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Mia hat 80 €. Sie kauft ein Buch für 25 € und ein Heft für 15 €. Welche Rechnung gibt an, wie viel Geld ihr übrig bleibt?"
+    },
+    "a": [
+     "80 − 25 + 15",
+     "80 + (25 + 15)",
+     "80 − 25 · 15",
+     "80 − (25 + 15)"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Beide Einkäufe kosten Geld. Was kostet beides zusammen? Wie kommst du von 80 € zum Rest?",
+    "w": "Das Buch und das Heft kosten zusammen 25 € + 15 € = 40 €. Das Minus gilt für beide Ausgaben, deshalb steht die Summe in einer Klammer: 80 − (25 + 15) = 40 €."
+   }
+  },
+  {
+   "kennung": "R5-V036",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "differenz_summe",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 215,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Einzahlung auch abgezogen"
+    },
+    {
+     "antwort": 240,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Einzahlung vergessen"
+    },
+    {
+     "antwort": 865,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Beträge addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "differenz_summe",
+    "t": "gesetze",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Auf einem Konto sind 540 €. Es werden 175 € abgehoben, dann 25 € eingezahlt und danach 125 € abgehoben. Wie viel Euro sind danach auf dem Konto? Rechne geschickt: Fasse die beiden Abhebungen zusammen."
+    },
+    "o": {
+     "wert": 265,
+     "einheit": "€"
+    },
+    "c": "540 - (175 + 125) + 25",
+    "h": "Welche Beträge verringern das Konto, welche erhöhen es? Was lässt sich zusammenfassen?",
+    "w": "Abhebungen: 175 + 125 = 300. Einzahlung: 25. 540 − 300 + 25 = 265 €."
+   }
+  },
+  {
+   "kennung": "R5-V037",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "verteilen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 167,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die erste Zahl der Zerlegung malgenommen: 8 · 20 + 7"
+    },
+    {
+     "antwort": 160,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 8 · 20 gerechnet"
+    },
+    {
+     "antwort": 56,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 8 · 7 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "verteilen",
+    "t": "gesetze",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Weg A: Rechne die Malaufgabe schriftlich. Weg B: Zerlege 27 in 20 + 7 und rechne 8 · 20 + 8 · 7. Berechne 8 · 27."
+    },
+    "o": {
+     "wert": 216
+    },
+    "c": "8 * 27",
+    "h": "Bei Weg B rechnest du zwei einfache Malaufgaben und addierst.",
+    "w": "Weg A schriftlich: 8 · 7 = 56, schreibe 6 und merke 5; 8 · 2 = 16, dazu 5 ergibt 21; Ergebnis 216. Weg B: 8 · 20 = 160, 8 · 7 = 56, 160 + 56 = 216."
+   }
+  },
+  {
+   "kennung": "R5-V038",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "verteilen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 1 stimmt: 43 = 40 + 3. Der Fehler steckt später."
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 3 rechnet 6 · 40 + 3 richtig aus. Der Fehler liegt schon im Verteilen in Zeile 2."
+    }
+   ],
+   "aufgabe": {
+    "l": "verteilen",
+    "t": "gesetze",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Nina berechnet 6 · 43 mit dem Verteilungsgesetz. Zeile 1: 43 = 40 + 3, also ist 6 · 43 = 6 · (40 + 3). Zeile 2: Verteilt: 6 · (40 + 3) = 6 · 40 + 3. Zeile 3: 6 · 40 + 3 = 240 + 3 = 243. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Prüfe jede Zeile für sich und rechne die Aufgabe zum Vergleich anders aus. Welche Zeile enthält zuerst einen Fehler?",
+    "w": "Beide Summanden müssen mit 6 malgenommen werden: 6 · (40 + 3) = 6 · 40 + 6 · 3 = 240 + 18 = 258. Der erste Fehler steht in Zeile 2."
+   }
+  },
+  {
+   "kennung": "R5-V039",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "kopfrechnen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1089,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "99 abgezogen statt geteilt"
+    },
+    {
+     "antwort": 1287,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "99 addiert statt geteilt"
+    },
+    {
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 1 100 statt 1 200 gerechnet: 1 100 : 100"
+    }
+   ],
+   "aufgabe": {
+    "l": "kopfrechnen",
+    "t": "gesetze",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Welche Zahl ergibt mit 99 malgenommen 1 188? Tipp: 99 ist fast 100."
+    },
+    "o": {
+     "wert": 12
+    },
+    "c": "1188 / 99",
+    "h": "Mit 100 malzunehmen ist leicht. Wie weit ist 1 188 von einem Vielfachen von 100 entfernt?",
+    "w": "1 188 liegt knapp unter 1 200. 99 · 12 = 100 · 12 − 12 = 1 200 − 12 = 1 188. Die gesuchte Zahl ist 12."
+   }
+  },
+  {
+   "kennung": "R5-V040",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "kopfrechnen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2394,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei den Dübeln die Korrektur vergessen: 1 194 + 1 200"
+    },
+    {
+     "antwort": 2400,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Posten nur gerundet, keine Korrektur: 1 200 + 1 200"
+    },
+    {
+     "antwort": 1194,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Schrauben berechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "kopfrechnen",
+    "t": "gesetze",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Hausmeister kauft 199 Schrauben zu je 6 Cent und 99 Dübel zu je 12 Cent. Wie viele Cent kosten beide Posten zusammen? Rechne geschickt im Kopf."
+    },
+    "o": {
+     "wert": 2382,
+     "einheit": "Cent"
+    },
+    "c": "(200 - 1) * 6 + (100 - 1) * 12",
+    "h": "Welche Zahlen liegen knapp unter einer runden Zahl? Was musst du nach dem Runden korrigieren?",
+    "w": "Schrauben: 200 · 6 − 6 = 1 200 − 6 = 1 194 Cent. Dübel: 100 · 12 − 12 = 1 200 − 12 = 1 188 Cent. Zusammen 1 194 + 1 188 = 2 382 Cent."
+   }
+  },
+  {
+   "kennung": "R5-V041",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "mal_ganz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 24,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Vorzeichen vergessen (die Veränderung ist negativ)"
+    },
+    {
+     "antwort": -10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt malgenommen: −4 − 6"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 und −4 addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "mal_ganz",
+    "t": "ganz",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Taucher sinkt jede Minute um 4 Meter. Um wie viele Meter hat sich seine Höhe nach 6 Minuten verändert? Gib die Veränderung mit Vorzeichen an (sinken ist negativ)."
+    },
+    "o": {
+     "wert": -24,
+     "einheit": "m"
+    },
+    "c": "6 * (-4)",
+    "h": "Eine Minute bedeutet −4 Meter. Wie oft geschieht das?",
+    "w": "Jede Minute ändert sich die Höhe um −4 m. Nach 6 Minuten: 6 · (−4) = −24 m."
+   }
+  },
+  {
+   "kennung": "R5-V042",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "mal_ganz",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 120,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Vorzeichen falsch: bei drei negativen Faktoren wurde ein positives Ergebnis angenommen"
+    },
+    {
+     "antwort": -30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den letzten Faktor 4 vergessen"
+    },
+    {
+     "antwort": -6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt multipliziert: −2 − 5 − 3 + 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "mal_ganz",
+    "t": "ganz",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Weg A: Rechne von links nach rechts Schritt für Schritt. Weg B: Zähle die negativen Faktoren, bestimme so das Vorzeichen und multipliziere dann die Beträge. Berechne (−2) · (−5) · (−3) · 4 auf zwei Wegen."
+    },
+    "o": {
+     "wert": -120
+    },
+    "c": "(-2) * (-5) * (-3) * 4",
+    "h": "Bei Weg B: Ein negativer Faktor kehrt das Vorzeichen um. Wie oft passiert das?",
+    "w": "Weg A: (−2) · (−5) = 10, 10 · (−3) = −30, −30 · 4 = −120. Weg B: Drei Faktoren sind negativ, das Ergebnis ist negativ. 2 · 5 · 3 · 4 = 120, also −120."
+   }
+  },
+  {
+   "kennung": "R5-V043",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "geteilt_ganz",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die erste Division ausgerechnet"
+    },
+    {
+     "antwort": -7,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Vorzeichen falsch: minus durch minus ergibt plus"
+    }
+   ],
+   "aufgabe": {
+    "l": "geteilt_ganz",
+    "t": "ganz",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Weg A: Rechne von links nach rechts. Weg B: Rechne zuerst (−4) · 3 und teile dann −84 durch das Ergebnis. Berechne (−84) : (−4) : 3 auf zwei Wegen."
+    },
+    "o": {
+     "wert": 7
+    },
+    "c": "(-84) / (-4) / 3",
+    "h": "Bei Weg B ist der Teiler das Produkt aus (−4) und 3.",
+    "w": "Weg A: (−84) : (−4) = 21, 21 : 3 = 7. Weg B: (−4) · 3 = −12, (−84) : (−12) = 7."
+   }
+  },
+  {
+   "kennung": "R5-V044",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "geteilt_ganz",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Vorzeichen vergessen: 72 : 9"
+    },
+    {
+     "antwort": -648,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "multipliziert statt geteilt"
+    },
+    {
+     "antwort": -81,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 von −72 abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "geteilt_ganz",
+    "t": "ganz",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Durch welche ganze Zahl muss man −72 teilen, um 9 zu erhalten?"
+    },
+    "o": {
+     "wert": -8
+    },
+    "c": "-72 / 9",
+    "h": "Das Ergebnis 9 ist positiv, die Zahl −72 ist negativ. Welches Vorzeichen muss der Teiler haben?",
+    "w": "Aus −72 : □ = 9 folgt □ = (−72) : 9 = −8. Probe: (−72) : (−8) = 9."
+   }
+  },
+  {
+   "kennung": "R5-V045",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "umkehraufgabe_mal",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 13,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Vorzeichen vergessen"
+    },
+    {
+     "antwort": -1872,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "multipliziert statt geteilt"
+    },
+    {
+     "antwort": -144,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 addiert statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehraufgabe_mal",
+    "t": "gleichungen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Weg A: Teile −156 durch 12. Weg B: Zerlege −156 in −120 und −36 und überlege, womit man 12 jeweils malnehmen muss. Welche Zahl ergibt mit 12 malgenommen −156?"
+    },
+    "o": {
+     "wert": -13
+    },
+    "c": "-156 / 12",
+    "h": "Bei Weg B: Womit musst du 12 malnehmen, um −120 zu erhalten? Und für −36?",
+    "w": "Weg A: −156 : 12 = −13. Weg B: 12 · (−10) = −120, 12 · (−3) = −36. Zusammen 12 · (−13) = −156."
+   }
+  },
+  {
+   "kennung": "R5-V046",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "umkehraufgabe_mal",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 2 rechnet 40 · (−5) = −200 für sich richtig, benutzt aber die falsche Umkehraufgabe aus Zeile 1."
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 3 übernimmt nur das Ergebnis aus Zeile 2. Der Fehler liegt schon in Zeile 1."
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehraufgabe_mal",
+    "t": "gleichungen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst □ · (−5) = 40. Zeile 1: Die Umkehraufgabe heißt □ = 40 · (−5). Zeile 2: Also ist □ = −200. Zeile 3: Die gesuchte Zahl ist −200. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Prüfe jede Zeile für sich und mache mit dem Ergebnis die Probe in der Ausgangsgleichung. Welche Zeile enthält zuerst einen Fehler?",
+    "w": "Malnehmen mit (−5) macht man durch Teilen durch (−5) rückgängig: □ = 40 : (−5) = −8. Probe: (−8) · (−5) = 40. Der erste Fehler steht in Zeile 1."
+   }
+  },
+  {
+   "kennung": "R5-V047",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "ueberschlag",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.gegenrechnung",
+   "regel_name": "Gegenrechnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 480000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt geteilt"
+    },
+    {
+     "antwort": 5922,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "78 von 6 000 abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "ueberschlag",
+    "t": "verfahren",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einem Überschlag wird der erste Faktor 78 auf Zehner gerundet. Der Überschlag ergibt 6 000. Welche Zahl wurde für den zweiten Faktor eingesetzt?"
+    },
+    "o": {
+     "wert": 75
+    },
+    "c": "6000 / 80",
+    "h": "Auf Zehner gerundet wird 78 zu einer glatten Zahl. Was musst du mit ihr malnehmen, um 6 000 zu erhalten?",
+    "w": "78 wird zu 80 gerundet. 80 · □ = 6 000, also □ = 6 000 : 80 = 75."
+   }
+  },
+  {
+   "kennung": "R5-V048",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "ueberschlag",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "30 195",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Endziffer passt nicht: 7 · 2 = 14, das Produkt muss auf 4 enden."
+    },
+    {
+     "index": 2,
+     "antwort": "31 194",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Der Überschlag mit 500 · 62 = 31 000 ist nach oben gerundet. Das genaue Ergebnis muss kleiner als 31 000 sein."
+    }
+   ],
+   "aufgabe": {
+    "l": "ueberschlag",
+    "t": "verfahren",
+    "p": "uebung",
+    "s": 3,
+    "g": "pruefung",
+    "y": "auswahl",
+    "f": {
+     "text": "Maja rechnet 487 · 62 mit dem Taschenrechner und ist unsicher, ob sie sich vertippt hat. Zur Auswahl stehen drei Ergebnisse. Welches Ergebnis kann stimmen? Prüfe mit einem Überschlag, den du selbst wählst, und mit der Endziffer."
+    },
+    "a": [
+     "30 194",
+     "30 195",
+     "31 194"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Runde einen Faktor so, dass du genau sagen kannst, ob das Ergebnis größer oder kleiner sein muss. Welche Ziffer steht am Ende?",
+    "w": "Die Endziffer des Produkts kommt von 7 · 2 = 14, also endet es auf 4. Damit scheidet 30 195 aus. Rundet man 487 auf 500, wird das Produkt größer: 487 · 62 ist kleiner als 500 · 62 = 31 000. Damit scheidet 31 194 aus. Es bleibt 30 194. Genau gerechnet: 487 · 62 = 30 194."
+   }
+  },
+  {
+   "kennung": "R5-V049",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "schriftlich",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 700 : 14 gerechnet"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 28 : 14 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "schriftlich",
+    "t": "verfahren",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Weg A: Teile schriftlich. Weg B: Zerlege 728 in 700 + 28 und teile beide Teile einzeln durch 14. Berechne 728 : 14."
+    },
+    "o": {
+     "wert": 52
+    },
+    "c": "728 / 14",
+    "h": "Bei Weg B: Wie oft passt 14 in 700? Wie oft in 28?",
+    "w": "Weg A schriftlich: 72 : 14 = 5 Rest 2 (5 · 14 = 70); die 8 herunterholen: 28 : 14 = 2 Rest 0 (2 · 14 = 28); Ergebnis 52. Weg B: 700 : 14 = 50 und 28 : 14 = 2, zusammen 52. Probe: 52 · 14 = 728."
+   }
+  },
+  {
+   "kennung": "R5-V050",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "schriftlich",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 2 ist für sich richtig: 346 · 7 = 2 422. Sie hängt nicht von Zeile 1 ab."
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 3 addiert die beiden Zahlen aus den Zeilen davor richtig. Der Fehler liegt schon in Zeile 1."
+    }
+   ],
+   "aufgabe": {
+    "l": "schriftlich",
+    "t": "verfahren",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Tom rechnet schriftlich 346 · 27 und zerlegt: 27 = 20 + 7. Zeile 1: 346 · 20 = 692. Zeile 2: 346 · 7 = 2 422. Zeile 3: 692 + 2 422 = 3 114. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Prüfe jede Zeile für sich und überschlage die Teilprodukte. Welche Zeile enthält zuerst einen Fehler?",
+    "w": "346 · 20 = 6 920 (346 · 2 = 692, dann eine Null anhängen). Richtig: 6 920 + 2 422 = 9 342. Der erste Fehler steht in Zeile 1."
+   }
+  },
+  {
+   "kennung": "R5-V051",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "schriftlich_geteilt",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 22,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Gruppen statt des Rests"
+    },
+    {
+     "antwort": 23,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Gruppe mehr gezählt (aufgerundet)"
+    }
+   ],
+   "aufgabe": {
+    "l": "schriftlich_geteilt",
+    "t": "verfahren",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "275 Kinder sollen in Gruppen zu je 12 Kindern eingeteilt werden. Es werden so viele volle Gruppen gebildet wie möglich. Wie viele Kinder bleiben übrig?"
+    },
+    "o": {
+     "wert": 11,
+     "einheit": "Kinder"
+    },
+    "c": "275 % 12",
+    "h": "Teile schriftlich. Was bleibt am Ende als Rest?",
+    "w": "275 : 12 = 22 Rest 11, denn 22 · 12 = 264 und 275 − 264 = 11. Es bleiben 11 Kinder übrig."
+   }
+  },
+  {
+   "kennung": "R5-V052",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "schriftlich_geteilt",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 130,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Quotienten statt des Rests genannt"
+    },
+    {
+     "antwort": 128,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 128 − 3 000 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "schriftlich_geteilt",
+    "t": "verfahren",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Weg A: Teile schriftlich. Weg B: Ziehe von 3 128 zuerst 24 · 100 ab, dann so oft 24, wie es geht. Wie groß ist der Rest bei 3 128 : 24?"
+    },
+    "o": {
+     "wert": 8
+    },
+    "c": "3128 % 24",
+    "h": "Bei Weg B: Nach 24 · 100 bleibt eine Zahl übrig. Wie viele 24er passen noch hinein?",
+    "w": "Weg A schriftlich: 31 : 24 = 1 Rest 7 (1 · 24 = 24); die 2 herunterholen: 72 : 24 = 3 Rest 0 (3 · 24 = 72); die 8 herunterholen: 8 : 24 = 0 Rest 8. Ergebnis: 3 128 : 24 = 130 Rest 8. Weg B: 3 128 − 2 400 = 728. 728 − 30 · 24 = 728 − 720 = 8."
+   }
+  },
+  {
+   "kennung": "R5-V053",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "sach",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 65,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Preis minus den Zuschuss der Schule genannt"
+    },
+    {
+     "antwort": 92,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Preis nicht abgezogen, sondern den Zuschuss dazugezählt: 72 + 20"
+    },
+    {
+     "antwort": -13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zuschuss der Schule nicht beachtet: 72 − 85"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Klasse mit 24 Kindern kauft ein Geschenk für 85 €. Jedes Kind gibt 3 €, die Schule gibt 20 € dazu. Weg A: Rechne aus, wie viel Geld insgesamt zusammenkommt, und ziehe den Preis ab. Weg B: Rechne zuerst aus, wie viel die Kinder zahlen müssten, wenn die Schule 20 € gibt, und vergleiche mit dem, was sie zahlen. Wie viel Geld bleibt übrig?"
+    },
+    "o": {
+     "wert": 7,
+     "einheit": "€"
+    },
+    "c": "24 * 3 + 20 - 85",
+    "h": "Bei Weg B: Wie viel muss von den Kindern kommen, wenn die Schule schon 20 € gibt?",
+    "w": "Weg A: 24 · 3 = 72, 72 + 20 = 92, 92 − 85 = 7. Weg B: 85 − 20 = 65 müssen die Kinder zahlen, sie zahlen 72. 72 − 65 = 7. Es bleiben 7 € übrig."
+   }
+  },
+  {
+   "kennung": "R5-V054",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "sach",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 2 ist für sich richtig gerechnet (168 + 64 = 232), sie benutzt aber schon das falsche Ergebnis aus Zeile 1."
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 3 ist für sich richtig gerechnet (232 − 120 = 112). Der Fehler liegt schon in Zeile 1."
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Im Zug sitzen 245 Fahrgäste. In A steigen 87 aus und 64 ein. In B steigen 120 aus. Pia berechnet, wie viele noch im Zug sitzen. Zeile 1: 245 − 87 = 168. Zeile 2: 168 + 64 = 232. Zeile 3: 232 − 120 = 112. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Prüfe jede Zeile für sich und rechne die Aufgaben mit der Gegenrechnung nach. Welche Zeile enthält zuerst einen Fehler?",
+    "w": "245 − 87 = 158. Weiter: 158 + 64 = 222, 222 − 120 = 102. Es sitzen 102 Fahrgäste im Zug. Der erste Fehler steht in Zeile 1."
+   }
+  }
+ ]
+}

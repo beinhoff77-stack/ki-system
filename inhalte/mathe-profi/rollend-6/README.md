@@ -1,0 +1,77 @@
+# Vorrat neue Formen, Runde rollend-6 (Klasse 6, Kennung K6-V001 bis K6-V198)
+
+Nur Aufgabenvorrat, keine App-Änderung. Je Lernkarte 3 Aufgaben (Stufe 1 / 2 / 3).
+
+| Thema | Lernkarten | Aufgaben | Formen lw/fd/vw/zw/um/br/an | zaehlt ja/nein |
+|---|---|---|---|---|
+| bruch.brueche | 14 | 42 | 14/6/1/2/5/4/10 | 28/14 |
+| bruch.dezimal | 8 | 24 | 8/4/2/2/2/3/3 | 16/8 |
+| bruch.rechnen | 12 | 36 | 12/3/2/3/4/2/10 | 24/12 |
+| bruch.prozent | 6 | 18 | 6/2/1/2/2/2/3 | 12/6 |
+| terme.aufstellen | 6 | 18 | 6/2/1/2/2/3/2 | 12/6 |
+| messen.flaechen_vielecke | 8 | 24 | 8/2/0/3/5/2/4 | 16/8 |
+| messen.volumen | 7 | 21 | 7/2/0/3/4/2/3 | 14/7 |
+| messen.koerper_berechnung | 5 | 15 | 5/1/0/2/3/2/2 | 10/5 |
+| Summe | 66 | 198 | 66/22/7/19/27/20/37 | 132/66 |
+
+lw Lückenweg, fd Fehler-Detektiv, vw verfahren_waehlen, zw zwei_wege, um umkehren, br Brücke, an anwenden.
+Stufen: jede der 66 Lernkarten hat Stufe 1 (Lückenweg, zählt nicht), mindestens eine zählende Aufgabe auf Stufe 2 und eine auf Stufe 3.
+
+## Dateien
+- `th_*.py`: Inhalt je Thema. `kern.py`: Helfer. `bauen.py`: Prüfung und Erzeugung der `<thema>.json`.
+- Aufruf: `python3 -I inhalte/mathe-profi/rollend-6/bauen.py --voll` (`--ohne-c` listet Fehlbilder ohne Rechnung).
+
+## Wie geprüft (gesichert)
+- `bauen.py --voll` endet mit OK: drei Aufgaben je Lernkarte, Formgrenzen, Stufen je Lernkarte, kein Duplikat zum Bestand.
+- Lösungen zweifach mit exaktem Bruchrechnen nachgerechnet (365); Fehlbilder mit Rechnung c nachgerechnet (431), exakt, ohne gerundete Fehlwerte.
+- Lückenwege: Abhängigkeit der Lücken nachgewiesen (66), kein Lückenwert als Ziffer oder Zahlwort in Text, Schablone, Hinweis, Tipp.
+- Fehler-Detektiv: Zeilen davor richtig, Fehlerzeile falsch, Folgezeilen folgerichtig. Fehlerzeile je Zeile {1: 6, 2: 5, 3: 5, 4: 6}.
+- Auswahl: genau eine richtige Antwort, keine gleichen Werte (mit Einheit).
+- `inhalt_pruefen` je Thema: Code 0. `vorrat_pruefen` (Hülle auf rollend-6): 79 Meldungen, alle von Hand angesehen und als Fehlalarm bewertet (Heuristik zur Lücken-Abhängigkeit, Textparsing von Fehlbildern, V030 und V099 sind Denk- bzw. Folgefehler-Zeilen, kein Fehler).
+
+## Annahmen und offene Punkte (nicht gesichert)
+- Die Schlussdurchsicht nach Checkliste B ist inzwischen für alle acht Themen von einem zweiten Helfer von Hand erfolgt (siehe unten).
+- g und Stufe richten sich nach dem Standard der Form (lueckenweg direkt, fehler_detektiv fehler, zw/vw mehrschritt, um umkehr oder rueckwaerts, br darstellung, an einkleidung oder transfer).
+- Keine Lernkarte zurückgestellt.
+
+## Fehlbilder ohne Rechnung (c = null)
+Insgesamt 98, alles Wahl- oder Begründungsfehler ohne Zahlenrechnung:
+- Fehler-Detektiv: die Antworten „In Zeile n“ (falsche Zeile) in allen 22 Fehler-Detektiv-Aufgaben.
+- Auswahl mit Aussagen als Antworten (z. B. V041, V047, V065): falsche Denkweisen als Text.
+- Einzelne Lücken- oder Zahlfehlbilder ohne eindeutige Rechnung, z. B. „nur einen Teiler genommen, nicht den größten“ (V055, V004, V034, V043).
+- Weitere Aufgaben mit solchen Fehlbildern: V076, V077, V095, V098, V103, V113, V122, V128, V134, V137, V143, V170, V197.
+
+## Vorprüfung durch zweiten Helfer
+Alle 198 Aufgaben (Frage, Antworten, Schablone, Tipp, Lösungsweg, jedes Fehlbild) von Hand gelesen und nachgerechnet. 55 Aufgaben geändert (Kennungen stabil, nur Inhalt), die übrigen 143 ohne Befund.
+- Fehlbild passt nicht zur Beschreibung oder ist unrealistisch (gerundeter oder nicht ganzzahliger Fehlwert bei Lücken, die ganze Zahlen verlangen): V003, V043, V047, V068, V080, V083, V091, V104, V112, V119, V141, V145, V148, V172, V182, V190, V195 (17). `bauen.py` verlangt jetzt exakte Fehlwerte und ganze Zahlen bei Lücken.
+- Gerüste: Der letzte Lückenwert war aus der Schablone rückrechenbar (V016, V019). Außerdem hatten 28 Lückenwege nur eine abhängige Lücke; sie haben jetzt mindestens zwei (V001, V007, V010, V016, V019, V022, V025, V037, V043, V046, V052, V058, V061, V082, V088, V097, V100, V127, V130, V148, V151, V154, V160, V178, V181, V187, V190, V196). `bauen.py` prüft: ab drei Lücken mindestens zwei abhängige. Offen: In 25 Lückenwegen sind die ersten beiden Lücken unabhängig voneinander (Teil A, Teil B, dann Verknüpfung); das ist fachlich so gewollt (zwei Teilrechnungen), „jede spätere Lücke hängt von einer früheren ab“ gilt dort nicht streng.
+- Eindeutigkeit und Einkleidung: V011 (Antwort stand als Nenner im Text), V048 (Weitsprung mit Millimetern unplausibel), V063 (Folgezeilen bei 9/20 nicht folgerichtig, jetzt 7/20), V089, V123, V136, V137, V138 (Ausleihen statt Kauf).
+- Brücken: V017 (Text gab den Wechsel schon vor), V023 und V035 neu gefasst; V023 Verhältnis zu Bruchteil mit Kürzen, V035 Zahlenstrahl-Abschnitte zu Dezimalzahl über gemischte Zahl.
+- Tipp verriet Zwischenergebnis oder Lösungsidee: V161, V194.
+- Alle 21 Restmeldungen von `tools/vorrat_pruefen.py` (über Hülle auf rollend-6) und die 4 Fehler-Detektiv-Hinweise einzeln geprüft: alles Fehlalarme (Brüche und Einheiten im Text falsch gelesen, ganzzahliger Quotient, Rechnung steht nur in der Beschreibung); V030, V099, V198 sind richtig (Zeile spricht die falsche Behauptung aus bzw. Kettenrechnung mit Einheit).
+- Fehlbilder ohne Rechnung von Hand nachgerechnet: alle „In Zeile n“-Antworten, die Aussagen-Antworten (V041, V047, V065, V077, V095, V098, V113, V122, V128, V134, V137, V143, V170, V197; bei den meisten rechnet die Probe-Funktion die Aussage mit) und die „nur ein Teiler, nicht der größte“-Lücken (V004, V034, V055, V076, V103) sind richtig; eine Rechnung lässt sich dafür nicht sinnvoll hinterlegen.
+- Fraglich, nicht geändert: Die sieben „Verfahren wählen“ (V041, V047, V065, V077, V098, V113, V122) tragen g = mehrschritt (Stufe 2). Sie sind reine Methodenwahl (eher „erkennen“), `erkennen` gehört aber zu Stufe 1 und würde die Stufenregel (zählende Aufgabe auf Stufe 2) brechen; Entscheidung beim Projektleiter. V088 (Potenz eines Bruchs) und V126, V135 (Gleichung durch Umkehren in terme.aufstellen) liegen am oberen Rand von Klasse 6.
+
+## Nachtrag der Vorprüfung (zweiter Durchgang)
+- Regel-Kennungen: jede gesetzte Kennung gegen den Katalogtext (`genau`) in `regeln-uebersicht/kennungen.json` gelesen. Passte der Text nicht genau, ist `regel` jetzt leer (None): 57 von 198 Aufgaben (u. a. Bruchteil-von, ggT/kgV ohne Primfaktoren, Verhältnisse, gemischte Zahlen, Runden, Dezimal mal/geteilt in bruch.rechnen, Volumeneinheiten und Liter). Geändert zu passenden Kennungen: V043 (Bündeln), V151 bis V153 (aus dem Rechteck), V163 bis V165 (Auslegen). Alle Fehlbild-Kennungen bleiben leer. `bauen.py` prüft: Kennung steht im Katalog, das Thema steht in `themen` der Kennung oder das Paar steht in `REGEL_AUSNAHME` (rr.potenz in bruch.rechnen, id.flaeche_raum.aus_dem_quader in messen.volumen und messen.koerper_berechnung: Katalogtext trifft zu, das Thema fehlt dort nur in der Themenliste).
+- Fehler-Detektive (22): Rückmeldung für jede wählbare Zeile. Zeilen vor dem Fehler: „richtig, die erste falsche Aussage kommt später“. Für Zeilen nach dem Fehler schreibt `rueck=` von Hand, was dort Sache ist; eine für sich richtige Zeile wird nicht „falsch“ oder „nur Folge“ genannt (V006, V030, V045, V057, V087, V105, V123, V138 u. a.). `kern.FD` verlangt `rueck` für jede Zeile nach dem Fehler. Frage einheitlich: „In welcher Zeile steht zum ersten Mal eine falsche Aussage?“.
+- Gegen den Lernkarten-Titel gelesen und geändert: V037 (zählte nur ganze Zahlen; jetzt Teilpunkte mit Schritten 0,5), V040 und V064 (jetzt wirklich „Aussage prüfen“), V023 (Satz zum gleichwertigen Verhältnis), V119 (Max' Winkel prüfen statt Winkel berechnen), V121 (letzte Rechnung bestimmt die Termart), V127 (Term 3 + 2 · k genannt), V175 (Füllhöhe statt Oberfläche), V182 (Kante schätzen statt Seitenfläche). Falscher Bezug im Tipp: V048 („Sprung“ statt Flug).
+- Eingabefrage steht am Textende (V005 fehlte sie ganz; V053, V059, V060, V089, V092, V125, V132, V171, V197 umgestellt). Brüche als Antwort verlangen „vollständig gekürzt“ (V017, V036, V069, V078, V081, V090).
+- Stufe 3: Tipps nur noch Anstoß, nicht der Rechenschritt (V054, V081, V144, V156, V171, V174).
+- Entscheidungen des Projektleiters: (1) 25 Lückenwege mit zwei unabhängigen ersten Lücken bleiben, solange mindestens zwei abhängige folgen. (2) „Verfahren wählen“ bleibt Stufe 2 (`g = mehrschritt`). (3) V088 bis V090 (Potenzen von Brüchen) haben eine eigene Lernkarte im Themenbestand (bruch.rechnen, „potenzen“), bleiben. V126 und V135 (Umkehren eines Terms) stehen nicht eindeutig im Bestand von terme.aufstellen; die Zahlen sind vereinfacht (V126: 4a − 3 = 21; V135: 4n + 3 = 27, beides in zwei Schritten rückwärts zu lösen). (4) Der Rest bleibt.
+- Stand: `bauen.py --voll` OK, `tools/rollend_sql.py --runden 6` 198 Aufgaben OK, `vorrat_pruefen` über Hülle weiterhin 25 Meldungen, alle als Fehlalarm geprüft (Lesefehler des Werkzeugs bei Brüchen und Einheiten im Text).
+
+## Nach Gegenprüfung (Werkstatt 1094)
+Alle Punkte der Arbeitsliste umgesetzt, Lösungsschlüssel unverändert bis auf die Neubauten.
+- Fehlbild-Beschreibungen: über alle 198 gegen den gespeicherten Fehlwert nachgerechnet; geändert V002, V007, V014, V031, V013, V043 (Eingabe), V062, V069 (Paar 1 und 4), V082, V088, V118, V127, V130, V136, V149, V157, V158, V171, V187, V193.
+- Neu gebaut (nach dem Umbau wie neue Aufgaben geprüft, Form je Lernkarte nicht doppelt): V047, V065, V098, V122 (echte Methodenwahl), V100, V101, V102 (Anteile von Anteilen), V121, V127, V130, V131 (jetzt Auswahl des Terms), V136, V184, V186.
+- Auflagen und kleine Fassungen: V013, V023, V027, V055, V073, V079, V086, V087, V105, V109, V119, V125, V146, V154, V156, V160, V170, V182.
+- `bauen.py --voll` OK; `tools/rollend_sql.py --runden 6` 198 Aufgaben.
+
+## Nach zweiter Gegenprüfung (Werkstatt 1107)
+- V047 (Weg für jedes Paar, nur zwei falsche Wege), V121 (Termart per Nummer abgefragt, Term mit − 6), V170 (ganzer Rechenschritt ersetzt, Suche nach dem Einheitenwechsel „: 1000 =“ in allen Feldern ohne weiteren Treffer).
+- Auflagen: V065, V069, V102, V127, V131, V136, V157.
+- `bauen.py --voll` OK, `tools/rollend_sql.py --runden 6` 198 Aufgaben.
+
+## Nach dritter Gegenprüfung (Werkstatt 1113)
+- V047: richtiger Weg und Lösungsweg für jedes Paar verallgemeinert (Nullen anhängen, Komma streichen, ganze Zahlen vergleichen). Ablenker und Reihenfolge unverändert; JSON-Vergleich zeigt genau eine geänderte Aufgabe.

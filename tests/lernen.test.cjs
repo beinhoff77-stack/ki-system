@@ -6,10 +6,12 @@ const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
 let browser, server, origin;
+let ruDatenStatus = 0; const ruDatenAbrufe = []; // RU-SW-Test (Werkstatt 1093): 0 = normal
 const root = path.resolve(__dirname, '..');
 before(async () => {
   server = http.createServer((req, res) => {
     const name = new URL(req.url, 'http://localhost').pathname;
+    if (ruDatenStatus && name === '/daten/regeln-universum.json') { ruDatenAbrufe.push(ruDatenStatus); if (ruDatenStatus !== 200) { res.writeHead(ruDatenStatus); res.end(); return; } } // RU-SW-Test: Server liefert die Regel-Daten nach Vorgabe
     const file = path.join(root, name.endsWith('/') ? name + 'index.html' : name);
     if (!file.startsWith(root + path.sep) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) { res.writeHead(404); res.end(); return; }
     const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.webmanifest': 'application/manifest+json' };
@@ -619,7 +621,7 @@ test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, L
   // Menüblatt statt Leiste
   assert.equal(await page.locator('.lr-nav').count(), 0);
   await page.getByRole('button', { name: 'Menü', exact: true }).first().click();
-  assert.deepEqual(await page.locator('.lr-blatt-liste a').allInnerTexts(), ['Abflugtafel', 'Mein Weg', 'Merkheft', 'Reisepass']); // K2: 4 Einträge
+  assert.deepEqual(await page.locator('.lr-blatt-liste a').allInnerTexts(), ['Abflugtafel', 'Mein Weg', 'Merkheft', 'Reisepass', 'Regel-Universum']); // K2: 4 Einträge · RU-App: Regel-Universum als fünfter
   await page.screenshot({ path: path.join(root, 'test-results/abflug-menue-390.png') });
   await page.getByRole('button', { name: 'Schließen' }).click();
   await page.locator('.lr-flug-jetzt').click(); // KJ 2 S6: solange die Tafel zu sehen ist, startet man über ihre Zeile (die schwebende Leiste ist aus)
@@ -4632,7 +4634,7 @@ test('RK-App: Land antippen → Blatt → „Städte in Italien ansehen“ → S
 });
 
 test('RK-App 2 (0.92.2): Kopf einzeilig, Karte füllt das Fenster (S1/S2); Pin-Treffer ≥ 44 px, echter Klick trotz Puls (K1); Welt auf dem Handy als Ausschnitt, „Länder“ erst beim Hineinzoomen (S5)', async (t) => {
-  for (const [b, h, g] of [[400, 860, 'nacht'], [1280, 800, 'tag']]) {
+  for (const [b, h, g] of [[400, 860, 'nacht'], [400, 860, 'tag'], [1280, 800, 'tag']]) {
     const { page } = await rkOeffnen(t, b, h, { gestaltung: g });
     // S1/S2: eine Zeile in der oberen Leiste
     const kopf = page.locator('header.top .rk-kopf'); await kopf.waitFor();
@@ -5635,4 +5637,247 @@ test('Form-Takt Nachtrag: Mischkarte belegt keinen Takt-Platz und wird nicht nac
   const g = ftGezeigt(calls);
   assert.equal(g[0], 14, 'zuerst die Mischkarte');
   assert.equal(!!FT[g[1]].form, true, 'Platz 3 (bearbeitungen 2 + 1) ist nach der Mischkarte noch frei: Form-Bordkarte');
+});
+
+// ---------- RU-App (0.95.0): Regel-Universum, Stufe 1 (lernen-regeln.js, daten/regeln-universum.json) ----------
+// Prüft je Seite: kein Querscrollen, alle sichtbaren Tippflächen im Universum mindestens 44 px hoch (Links, Knöpfe, Klappzeilen, Suchfeld).
+async function ruPruefen(page, wo) {
+  await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)))); // neue Seite steht, Übergang hat begonnen
+  await page.waitForFunction(() => !(document.querySelector('.ru-seite')?.getAnimations() || []).length); // nachgemessen nach dem Übergang (220 ms)
+  const r = await page.evaluate(() => {
+    const quer = document.documentElement.scrollWidth > window.innerWidth + 1;
+    const klein = [...document.querySelectorAll('.ru a, .ru button, .ru summary, .ru input, .ru [role="button"]')].filter((x) => x.checkVisibility() && !x.closest('.lern-rm-arten'))
+      .map((x) => { const q = x.getBoundingClientRect(); return { t: (x.textContent || x.getAttribute('aria-label') || x.tagName).trim().slice(0, 30), h: Math.round(q.height) }; }).filter((x) => x.h < 44);
+    return { quer, klein };
+  });
+  assert.equal(r.quer, false, wo + ': Querscrollen');
+  assert.deepEqual(r.klein, [], wo + ': Tippflächen unter 44 px');
+}
+const ruBild = async (page, name) => { if (!process.env.RU_BILDER) return; await page.waitForFunction(() => !(document.querySelector('.ru-seite')?.getAnimations() || []).length); const d = path.join(root, 'inhalte/pruefung/regeln/bilder'); fs.mkdirSync(d, { recursive: true }); await page.screenshot({ path: path.join(d, name + '.jpg'), quality: 80, fullPage: !!name.match(/ganz$/) }); };
+
+test('RU: Kind öffnet das Regel-Universum über das Menü – Sonne → Regel → alle Stufen, Gebiet → Idee → Einzelregel → zurück, Umschalter, Suche (400 und 1280 px)', async (t) => {
+  for (const [b, h, g] of [[400, 860, 'nacht'], [400, 860, 'tag'], [1280, 800, 'tag']]) {
+    const { page } = await setup(t, { gestaltung: g });
+    await page.setViewportSize({ width: b, height: h });
+    const daten = []; page.on('request', (r) => { if (r.url().includes('regeln-universum.json')) daten.push(r.url()); });
+    await page.goto(origin + '/#/reise/1');
+    await page.getByRole('button', { name: 'Menü', exact: true }).first().click();
+    assert.equal(daten.length, 0, 'Daten erst beim Öffnen laden');
+    await page.locator('.lr-blatt-liste a', { hasText: 'Regel-Universum' }).click();
+    await page.locator('.ru-universum').waitFor();
+    assert.match(page.url(), /#\/regeln\/1$/); assert.equal(daten.length, 1); assert.match(daten[0], /v=0\.95\.0/);
+    assert.equal(await page.locator('.ru').getAttribute('data-ru-g'), g === 'tag' ? 'hell' : 'nacht');
+    assert.equal(await page.evaluate(() => document.body.hasAttribute('data-kindmodus')), true);
+    await ruBild(page, `ebene0-universum-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    await ruPruefen(page, `${b} Universum`);
+    const s = (sel) => page.locator(sel).filter({ visible: true }).first();
+    // Ebene 0 → Sonne (Handy: gestapelte Sonne, Rechner: Sonnensystem-Bild)
+    if (b < 900) { assert.equal(await page.locator('.ru-system').isVisible(), false); await s('.ru-sonne0').click(); }
+    else { assert.equal(await page.locator('.ru-sonne0').isVisible(), false); assert.equal(await page.locator('.ru-system a.ru-sp').count(), 9); await s('.ru-sp-sonne').click(); }
+    await page.locator('.ru-schichten').waitFor();
+    assert.equal(await page.locator('.ru-schicht').count(), 4); assert.equal(await page.locator('.ru-zeile').count(), 14);
+    assert.match(await page.locator('.ru-zeile', { hasText: 'Rechnen mit Brüchen' }).locator('.ru-z-merk').innerText(), /^Plus\/Minus: erst gleiche Nenner\. Mal: oben mal oben, unten mal unten\. Geteilt: mal Kehrwert\.$/);
+    await ruPruefen(page, `${b} Sonne`);
+    await ruBild(page, `ebene1-sonne-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    await page.locator('.ru-sc-ziel[data-schicht="3"] text').click(); // Schnitt durch die Sonne: Tipp springt zur Schicht
+    await page.waitForFunction(() => Math.abs(document.querySelector('#ru-schicht-3').getBoundingClientRect().top) < 220); // scroll-padding der App (110 px) + scroll-margin (70 px)
+    await page.locator('.ru-zeile', { hasText: 'Ausmultiplizieren' }).click();
+    await page.locator('.ru-regelseite .ru-merksatz').waitFor();
+    assert.match(page.url(), /#\/regeln\/1-r6$/);
+    assert.equal(await page.locator('.ru-merksatz').innerText(), 'Ein Faktor vor einer Summe multipliziert jeden Summanden.');
+    assert.equal(await page.locator('.ru-stufe[open]').count(), 0, 'Stufen 4–7 zu');
+    await ruBild(page, `ebene2-regel6-zu-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    for (const z of await page.locator('.ru-stufe > summary').all()) await z.click();
+    assert.equal(await page.locator('.ru-stufe[open]').count(), 4);
+    assert.equal(await page.locator('.ru-leiter.ru-gl li').count(), 6);
+    assert.ok(await page.locator('.ru-stufe[data-stufe="genau"] .ru-z-teil svg').count() >= 1, 'weitere Bilder');
+    await ruBild(page, `ebene2-regel6-offen-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    await ruPruefen(page, `${b} Regel 6 offen`);
+    await page.locator('.ru-pfad a', { hasText: 'Universum' }).click();
+    await page.locator('.ru-universum').waitFor();
+    // Gebiet → Idee → Einzelregel → zurück
+    if (b < 900) await s('.ru-planet0:has-text("Fläche und Raum")').click(); else await page.locator('.ru-system a.ru-sp', { hasText: 'Fläche und Raum' }).click();
+    await page.locator('.ru-ideen1').waitFor(); assert.match(page.url(), /1-gebiet-fur$/);
+    assert.equal(await page.locator('.ru-idee1').count(), 4);
+    await ruBild(page, `ebene1-gebiet-fur-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    await ruPruefen(page, `${b} Gebiet`);
+    await page.locator('.ru-idee1').nth(1).click(); await page.locator('.ru-regelseite').waitFor(); assert.match(page.url(), /1-idee-fur-2$/);
+    await page.locator('.ru-stufe[data-stufe="folge"] > summary').click();
+    await page.locator('.ru-folge .ru-karte').first().click(); await page.waitForURL(/1-regel-f\d+$/); await page.locator('.ru-r-kopf .ru-ueber', { hasText: /^Regel F\d+/ }).waitFor(); // Ebene 3 steht (nicht mehr die Idee)
+    await ruBild(page, `ebene3-einzelregel-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    await ruPruefen(page, `${b} Einzelregel`);
+    await page.goBack(); await page.waitForURL(/1-idee-fur-2$/); await page.locator('.ru-stufe[data-stufe="folge"]').waitFor();
+    await page.goBack(); await page.waitForURL(/1-gebiet-fur$/); await page.locator('.ru-ideen1').waitFor();
+    // Arbeitsweisen: Kurzbeschreibung, Beispiel, Erklärung (kein „Noch offen“)
+    await page.goto(origin + '/#/regeln/1-weise-1'); await page.locator('.ru-regelseite').waitFor();
+    assert.match(await page.locator('.ru-r-kopf .ru-kurz').innerText(), /Probe zeigt/); assert.equal(await page.locator('.ru-z-folgt').count(), 0);
+    // Umschalter „Durch die Klassen“
+    await page.goto(origin + '/#/regeln/1-universum'); await page.locator('.ru-umschalter a', { hasText: 'Durch die Klassen' }).click();
+    await page.locator('.ru-klassen-ansicht').waitFor();
+    if (b < 900) {
+      await page.locator('.ru-klassenwahl a', { hasText: '7' }).click(); await page.waitForURL(/1-klassen-7$/);
+      await page.locator('.ru-klassenwahl a[aria-current]', { hasText: '7' }).waitFor(); // Seite neu gezeichnet
+      assert.match(await page.locator('.ru-handy-teil .ru-g-name').innerText(), /Klasse 7/);
+      assert.equal(await page.locator('.ru-kzeile').filter({ visible: true }).count() >= 14, true);
+    } else assert.equal(await page.locator('.ru-tafel tbody tr').count(), 18);
+    await ruBild(page, `klassen-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    await ruPruefen(page, `${b} Klassen`);
+    await page.locator('.ru-umschalter a', { hasText: 'Aufbau' }).click(); await page.locator('.ru-universum').waitFor();
+    // Suche im Kopf: ab drei Buchstaben, Feld behält den Fokus
+    await page.locator('.ru-suche input').fill('Kegelmantel');
+    await page.locator('.ru-treffer .ru-karte').first().waitFor();
+    assert.match(page.url(), /1-suche$/); assert.equal(await page.evaluate(() => document.activeElement?.closest('.ru-suche') !== null), true);
+    assert.match(await page.locator('.ru-treffer .ru-karte').first().innerText(), /Kegel/);
+    await page.locator('.ru-treffer .ru-karte').first().click(); await page.locator('.ru-regelseite').waitFor();
+    await ruPruefen(page, `${b} Treffer`);
+    // Zurück-Knopf der App
+    await page.locator('#btn-back').click(); await page.waitForURL(/1-suche$/);
+    await page.goto(origin + '/#/regeln/1-idee-fur-2'); await page.locator('.ru-regelseite').waitFor(); await ruBild(page, `ebene2-idee-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    await page.goto(origin + '/#/regeln/1-weisen'); await page.locator('.ru-ideen1').waitFor(); await ruBild(page, `ebene1-weisen-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
+  }
+});
+
+test('RU: Eltern/Lehrer öffnen „Regeln“ → Blatt Regel 6 (alle Abschnitte offen, Rückmeldung ohne Einheit) → „So sieht es das Kind“', async (t) => {
+  for (const [b, h] of [[400, 860], [1280, 800]]) {
+    const { page, calls } = await setup(t);
+    await page.setViewportSize({ width: b, height: h });
+    await page.goto(origin + '/#/lernen');
+    await page.locator('.lern-nachschlagen').getByRole('link', { name: 'Regeln', exact: true }).click();
+    await page.locator('.ru-lz').first().waitFor();
+    assert.match(page.url(), /#\/regeln$/);
+    assert.equal(await page.locator('.ru-lz').count(), 14 + 28 + 8);
+    assert.equal(await page.evaluate(() => document.body.hasAttribute('data-kindmodus')), false);
+    await ruPruefen(page, `${b} Liste`);
+    await page.locator('.ru-lz', { hasText: 'Ausmultiplizieren' }).click();
+    await page.locator('.ru-l-kopf h2').first().waitFor(); assert.match(page.url(), /#\/regeln\/lehrer-r6$/); // Blatt steht (die Liste hat auch ru-l-abschnitt)
+    assert.deepEqual(await page.locator('.ru-l-kopf h2').allInnerTexts(), ['1 Merksatz', '2 Was das Kind sieht', '3 Fachliche Erklärung', '4 Verweise und Zuordnung', '5 Stand je Kind']);
+    assert.equal(await page.locator('.ru-lehrer details').count(), 0, 'alles offen');
+    assert.equal(await page.locator('.ru-rueck').count(), 4);
+    assert.equal(await page.locator('.ru-aufgaben li').count(), 3);
+    assert.match(await page.locator('.ru-lehrer').innerText(), /Nicht geprüft:/);
+    await ruPruefen(page, `${b} Blatt`);
+    await ruBild(page, `lehrer-regel6-${b}-hell`);
+    await page.locator('.ru-rueck[data-abschnitt="Merksatz"]').click();
+    const form = page.locator('.ru-rueck-form form');
+    await form.getByRole('button', { name: 'Frage', exact: true }).click();
+    await form.locator('textarea').fill('Ist „jeden“ für Klasse 5 klar genug?');
+    await form.getByRole('button', { name: 'Auftrag senden' }).click();
+    await form.getByText('Danke – der Auftrag ist angekommen.', { exact: false }).waitFor();
+    const rm = calls.find((c) => c.aktion === 'schule_rueckmeldung_geben');
+    assert.deepEqual(rm.daten, { bezug: 'allgemein', art: 'sonstiges', text: 'Regel 6 · Ausmultiplizieren und Ausklammern (rr.ausmultiplizieren) · Merksatz · Frage: Ist „jeden“ für Klasse 5 klar genug?' });
+    await page.locator('.ru-lehrer-band a', { hasText: 'So sieht es das Kind' }).click();
+    await page.locator('.ru-regelseite .ru-merksatz').waitFor(); assert.match(page.url(), /#\/regeln\/kind-r6$/);
+    assert.equal(await page.locator('.ru-band-kind').count(), 1); assert.equal(await page.locator('.ru-rueck').count(), 0);
+    await ruPruefen(page, `${b} Kinderansicht`);
+    await page.locator('.ru-band-kind a').click(); await page.locator('.ru-l-kopf h2').first().waitFor();
+  }
+});
+
+test('RU Nachbesserung: Kopf am Handy ohne Doppel – Ebene 0 zeigt bei 400 × 860 mindestens sechs Gebiete, Menü und Suche in einer Zeile', async (t) => {
+  for (const g of ['nacht', 'tag']) {
+    const { page } = await setup(t, { gestaltung: g });
+    await page.setViewportSize({ width: 400, height: 860 });
+    await page.goto(origin + '/#/regeln/1'); await page.locator('.ru-universum').waitFor();
+    await page.waitForFunction(() => !(document.querySelector('.ru-seite')?.getAnimations() || []).length);
+    const m = await page.evaluate(() => {
+      const r = (x) => x.getBoundingClientRect(), su = r(document.querySelector('.ru-suche input')), me = r(document.querySelector('.lr-menue'));
+      return { gebiete: [...document.querySelectorAll('.ru-planet0')].filter((x) => r(x).bottom <= innerHeight).length,
+        marke: document.querySelector('.ru-kopf-marke').checkVisibility(), titel: document.querySelector('.ru-universum > .ru-titel').checkVisibility() && r(document.querySelector('.ru-universum > .ru-titel')).height > 2,
+        eineZeile: Math.abs((su.top + su.bottom) / 2 - (me.top + me.bottom) / 2) < 8, frei: su.right <= me.left, h: me.height };
+    });
+    assert.ok(m.gebiete >= 6, `${g}: ${m.gebiete} Gebiete im ersten Bildschirm`);
+    assert.equal(m.marke, false); assert.equal(m.titel, false); assert.equal(m.eineZeile, true); assert.equal(m.frei, true); assert.ok(m.h >= 44);
+    await ruPruefen(page, `${g} Universum ohne Doppelkopf`);
+    await ruBild(page, `ebene0-universum-400-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    await page.locator('.lr-menue').first().click(); await page.locator('.lr-blatt-liste a', { hasText: 'Regel-Universum' }).waitFor(); // Menü funktioniert weiter
+  }
+});
+
+test('RU Nachbesserung: Daten laden nicht – kindgerechte Meldung mit „Noch einmal versuchen“, danach das Universum', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.setViewportSize({ width: 400, height: 860 });
+  let n = 0;
+  await page.route('**/daten/regeln-universum.json*', (r) => (++n === 1 ? r.fulfill({ status: 503, body: 'weg' }) : r.continue()));
+  await page.goto(origin + '/#/regeln/1');
+  await page.locator('.ru-fehler').getByText('Das Regel-Universum lädt gerade nicht.').waitFor();
+  assert.equal(await page.locator('.lr-menue').count() > 0, true, 'Menü der Kinderseite bleibt');
+  await ruBild(page, 'fehler-laden-400-dunkel');
+  await page.getByRole('button', { name: 'Noch einmal versuchen' }).click();
+  await page.locator('.ru-universum').waitFor(); assert.equal(n, 2);
+});
+
+// Werkstatt 1093: Service Worker im Node-vm – Matrix Pfadart × Antwort × Cache. Erwartung: Ersatz aus dem Cache bei HTTP-Fehler nur für daten/ und nur bei 5xx;
+// 404/410 löschen den Eintrag (nur daten/); Hülle und karte/ wie vor 0.95.0 (HTTP-Fehler durchreichen, Cache unberührt); Netzabbruch → Cache; API außerhalb unberührt.
+function ruSwLaden() {
+  const vm = require('node:vm');
+  const quelle = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
+  const hoerer = {}, gespeichert = new Map(); let netz = null;
+  const schl = (rq) => (typeof rq === 'string' ? rq : rq.url);
+  const cache = { put: async (rq, r) => { gespeichert.set(schl(rq), r); }, match: async (rq) => gespeichert.get(schl(rq)), delete: async (rq) => gespeichert.delete(schl(rq)), addAll: async () => {} };
+  const ctx = { self: { registration: { scope: 'https://x.test/app/' }, addEventListener: (n, f) => { hoerer[n] = f; } }, caches: { open: async () => cache, keys: async () => [] }, URL,
+    Request: class { constructor(u) { this.url = String(u); } }, Response: { error: () => ({ name: 'Response.error' }) }, fetch: (...a) => netz(...a) };
+  vm.runInNewContext(quelle + ';self.__HUELLE = HUELLE;', ctx);
+  const abruf = async (url, antwort) => {
+    netz = async () => { if (antwort === 'abbruch') throw new TypeError('Failed to fetch'); return { ok: antwort === 200, status: antwort, name: 'netz-' + antwort, clone() { return { name: 'gespeichert' }; } }; };
+    let p = null; const w = []; hoerer.fetch({ request: { url, method: 'GET', mode: 'cors' }, respondWith: (x) => { p = x; }, waitUntil: (x) => w.push(x) });
+    if (!p) return 'nicht bearbeitet'; const r = await p; await Promise.all(w); return r.name;
+  };
+  return { quelle, huelle: ctx.self.__HUELLE, gespeichert, abruf };
+}
+
+test('RU Nachbesserung: Service Worker – Regel-Daten nicht in der Vorab-Liste; Matrix Pfadart × 200/503/404/410/Netzabbruch × mit/ohne Cache', async () => {
+  const { quelle, huelle } = ruSwLaden();
+  assert.ok(!huelle.some((x) => x.includes('regeln-universum')), 'nicht in der Vorab-Liste');
+  assert.ok(huelle.includes('./lernen-regeln.js?v=0.95.0') && huelle.includes('./lernen-regeln.css?v=0.95.0'));
+  assert.match(quelle, /'v188'/);
+  const PFADE = { daten: 'https://x.test/app/daten/regeln-universum.json?v=0.95.0', huelle: 'https://x.test/app/index.html', karte: 'https://x.test/app/karte/welt.json', api: 'https://y.test/functions/v1/lernen-api/aktion' };
+  // Erwartete Antwort und ob der Eintrag danach noch (bzw. neu) im Cache ist
+  const soll = (art, antwort, mitCache) => {
+    if (art === 'api') return ['nicht bearbeitet', mitCache]; // außerhalb: der Worker greift nicht ein
+    if (antwort === 200) return ['netz-200', true];
+    if (antwort === 'abbruch') return [mitCache ? 'gespeichert' : 'Response.error', mitCache];
+    if (art === 'daten' && antwort === 503) return [mitCache ? 'gespeichert' : 'netz-503', mitCache];
+    if (art === 'daten') return ['netz-' + antwort, false]; // 404/410: durchreichen, Eintrag weg
+    return ['netz-' + antwort, mitCache]; // Hülle, karte/: wie vor 0.95.0
+  };
+  let faelle = 0;
+  for (const [art, url] of Object.entries(PFADE)) for (const antwort of [200, 503, 404, 410, 'abbruch']) for (const mitCache of [true, false]) {
+    const sw = ruSwLaden(); if (mitCache) sw.gespeichert.set(url, { name: 'gespeichert' });
+    const [antwortSoll, drin] = soll(art, antwort, mitCache);
+    assert.equal(await sw.abruf(url, antwort), antwortSoll, `${art} ${antwort} ${mitCache ? 'mit' : 'ohne'} Cache`);
+    assert.equal(sw.gespeichert.has(url), drin, `${art} ${antwort} ${mitCache ? 'mit' : 'ohne'} Cache: Eintrag`);
+    faelle++;
+  }
+  assert.equal(faelle, 40);
+  // Entfernte Datei (404) → Eintrag weg; wiederhergestellt (200) → wieder gefüllt; danach 503 → gespeicherte Fassung
+  const sw = ruSwLaden();
+  assert.equal(await sw.abruf(PFADE.daten, 200), 'netz-200'); assert.ok(sw.gespeichert.has(PFADE.daten));
+  assert.equal(await sw.abruf(PFADE.daten, 410), 'netz-410'); assert.ok(!sw.gespeichert.has(PFADE.daten));
+  assert.equal(await sw.abruf(PFADE.daten, 503), 'netz-503');
+  assert.equal(await sw.abruf(PFADE.daten, 200), 'netz-200'); assert.ok(sw.gespeichert.has(PFADE.daten));
+  assert.equal(await sw.abruf(PFADE.daten, 503), 'gespeichert');
+});
+
+test('RU Nachbesserung: echter Service Worker im Browser – Regel-Daten 200 gespeichert, 503 aus dem Cache, 404 Eintrag weg und Fehlermeldung, wieder 200', async (t) => {
+  const context = await browser.newContext({ viewport: { width: 400, height: 860 } }); // ohne serviceWorkers: 'block'
+  t.after(async () => { ruDatenStatus = 0; await context.close(); });
+  await context.addInitScript(() => { localStorage.setItem('ks_token', 'synthetic-test-session'); localStorage.setItem('lern.gestaltung', 'nacht'); });
+  await context.route('https://cdnjs.cloudflare.com/**', (r) => r.abort());
+  await context.route('**/functions/v1/**', (r) => r.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: {} }) }));
+  const page = await context.newPage(); const fehler = []; page.on('pageerror', (e) => fehler.push(e.message));
+  ruDatenAbrufe.length = 0; ruDatenStatus = 200;
+  await page.goto(origin + '/#/regeln');
+  await page.evaluate(() => navigator.serviceWorker.ready);
+  await page.reload(); await page.waitForFunction(() => !!navigator.serviceWorker.controller);
+  const imCache = () => page.evaluate(async () => { for (const k of await caches.keys()) { const c = await caches.open(k); if ((await c.keys()).some((r) => r.url.includes('regeln-universum.json'))) return true; } return false; });
+  const oeffnen = async () => { await page.reload(); await page.waitForFunction(() => !!navigator.serviceWorker.controller); await page.goto(origin + '/#/regeln/kind'); };
+  await oeffnen(); await page.locator('.ru-universum').waitFor();
+  assert.equal(await imCache(), true, '200: beim ersten Öffnen gespeichert');
+  ruDatenStatus = 503; await oeffnen(); await page.locator('.ru-universum').waitFor();
+  assert.equal(ruDatenAbrufe.at(-1), 503, 'Server lieferte 503'); assert.equal(await imCache(), true);
+  ruDatenStatus = 404; await oeffnen(); await page.locator('.ru-fehler').waitFor();
+  assert.equal(ruDatenAbrufe.at(-1), 404); assert.equal(await imCache(), false, '404: Eintrag gelöscht');
+  ruDatenStatus = 200; await page.getByRole('button', { name: 'Noch einmal versuchen' }).click(); await page.locator('.ru-universum').waitFor();
+  assert.equal(await imCache(), true, 'wiederhergestellt: wieder gespeichert');
+  assert.deepEqual(fehler, []);
 });

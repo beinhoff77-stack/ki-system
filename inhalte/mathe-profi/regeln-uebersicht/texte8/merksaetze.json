@@ -148,8 +148,8 @@
    "luecken": [
     {
      "wo": "voraus",
-     "text": "Bruchstrich, Wurzelstrich und Betragsstriche wirken wie eine Klammer: Der ganze Zähler wird zuerst gerechnet. (3 + 5)/2 = 4, aber 3 + 5/2 = 5,5.",
-     "grund": "Ab Klasse 8 stehen Terme als Brüche; dort gibt es keine sichtbare Klammer.",
+     "text": "Beim Bruch fasst der Strich Zähler und Nenner jeweils zusammen. Unter der Wurzel und zwischen Betragsstrichen gehört jeweils der ganze eingeschlossene Ausdruck zusammen. (3 + 5)/2 = 4, aber 3 + 5/2 = 5,5; √(9 + 16) = 5, aber √9 + 16 = 19.",
+     "grund": "Ab Klasse 8 stehen Terme als Brüche; dort gibt es keine sichtbare Klammer. Gegenprüfung 1078: drei getrennte Fälle statt „der ganze Zähler“ für alle.",
      "pruefung": [
       {
        "l": "(3+5)/2",
@@ -160,6 +160,26 @@
        "l": "3+5/2",
        "rel": "==",
        "r": "5.5"
+      },
+      {
+       "l": "wurzel(9+16)",
+       "rel": "==",
+       "r": "5"
+      },
+      {
+       "l": "wurzel(9)+16",
+       "rel": "==",
+       "r": "19"
+      },
+      {
+       "l": "abs(3-8)",
+       "rel": "==",
+       "r": "5"
+      },
+      {
+       "l": "abs(3)-8",
+       "rel": "==",
+       "r": "-5"
       }
      ]
     },
@@ -267,10 +287,14 @@
    "kennung": "rr.ausmultiplizieren",
    "entwurf_schluessel": "R6",
    "name": "Ausmultiplizieren und Ausklammern",
-   "merksatz": "Was vor der Klammer steht, nimmt jeden in der Klammer mal.",
+   "merksatz": "Ein Faktor vor einer Summe multipliziert jeden Summanden.",
    "urteil": "richtig, aber missverständlich formuliert; nicht falsch, deshalb unverändert",
-   "merksatz_geaendert": false,
-   "aenderung": null,
+   "merksatz_geaendert": true,
+   "aenderung": {
+    "alt": "Was vor der Klammer steht, nimmt jeden in der Klammer mal.",
+    "neu": "Ein Faktor vor einer Summe multipliziert jeden Summanden.",
+    "grund": "„Was vor der Klammer steht“ und „jeden in der Klammer“ lassen offen, was verteilt wird und worauf; die neue Fassung sagt es (Gegenprüfung 1112)."
+   },
    "im_bestand_gedeckt": [
     "voraus: Faktor vor Summe oder Differenz",
     "fehler: nur ersten Summanden; auf Hoch übertragen"
@@ -278,7 +302,7 @@
    "luecken": [
     {
      "wo": "voraus",
-     "text": "Verteilt wird nur ein Faktor auf die Summanden einer Klammer. Steht ein Plus davor, wird nichts verteilt: 5 + (x − 2) = 5 + x − 2. Steht in der Klammer ein Produkt, malt man nur einen Faktor: 3 · (2 · 5) = 30, nicht (3 · 2) · (3 · 5) = 90.",
+     "text": "Verteilt wird nur ein Faktor auf die Summanden einer Klammer. Steht ein Plus davor, wird nichts verteilt: 5 + (x − 2) = 5 + x − 2. Steht in der Klammer ein Produkt, kann man zuerst die Faktoren in der Klammer multiplizieren: 3 · (2 · 5) = 3 · 10 = 30, nicht (3 · 2) · (3 · 5) = 90.",
      "grund": "„Was vor der Klammer steht“ und „jeden in der Klammer“ lassen offen, ob das Plus, ein Faktor, ein Summand oder ein Faktor in der Klammer gemeint ist. Die Voraussetzung nennt nur die Summe.",
      "pruefung": [
       {
@@ -306,20 +330,20 @@
       }
      ]
     }
-   ],
-   "vorschlag": {
-    "text": "Der Faktor vor der Klammer wird mit jedem Summanden in der Klammer malgenommen.",
-    "status": "nur Vorschlag, Merksatz ist nicht falsch; 9 Zeichen länger. Entscheidung beim Projektleiter."
-   }
+   ]
   },
   {
    "kennung": "rr.minusklammer",
    "entwurf_schluessel": "R7",
    "name": "Minus vor der Klammer",
-   "merksatz": "Minus vor der Klammer dreht alle Zeichen um.",
-   "urteil": "richtig",
-   "merksatz_geaendert": false,
-   "aenderung": null,
+   "merksatz": "Beim Auflösen einer Minusklammer wechselt jeder Summand sein Vorzeichen.",
+   "urteil": "richtig; bei Klammern in der Klammer gilt „alle Zeichen“ nur für die äußere Klammer",
+   "merksatz_geaendert": true,
+   "aenderung": {
+    "alt": "Minus vor der Klammer dreht alle Zeichen um.",
+    "neu": "Beim Auflösen einer Minusklammer wechselt jeder Summand sein Vorzeichen.",
+    "grund": "„Alle Zeichen“ ist bei verschachtelten Klammern und Malzeichen missverständlich (Gegenprüfung 1112)."
+   },
    "im_bestand_gedeckt": [
     "voraus: gilt für jede Klammer mit Minus davor; Malzeichen bleiben",
     "fehler: nur erstes Vorzeichen wechseln"
@@ -327,8 +351,8 @@
    "luecken": [
     {
      "wo": "genau",
-     "text": "Alle Plus und Minus in der Klammer tauschen, auch das unsichtbare Plus des ersten Summanden: −(x − 3) = −x + 3 und −(−3 + x) = 3 − x.",
-     "grund": "„Alle Zeichen“ schließt das erste, nicht geschriebene Vorzeichen ein; das sagt nur der Fehler, nicht „Genau gesagt“.",
+     "text": "Alle Plus und Minus der Summanden in der gerade aufgelösten Klammer tauschen, auch das unsichtbare Plus des ersten Summanden: −(x − 3) = −x + 3 und −(−3 + x) = 3 − x. Steht eine Klammer in der Klammer, wechseln zuerst die Summanden der äußeren Klammer: −(a + (b − c)) = −a − (b − c); das innere Minus löst man danach auf: −a − b + c.",
+     "grund": "„Alle Zeichen“ schließt das erste, nicht geschriebene Vorzeichen ein; das sagt nur der Fehler, nicht „Genau gesagt“. Zweite Gegenprüfung 1090: Bei verschachtelten Klammern werden nur die Summanden der äußeren Klammer negiert; das innere Minus bleibt im ersten Schritt stehen.",
      "pruefung": [
       {
        "l": "-(x-3)",
@@ -344,6 +368,36 @@
        "r": "3-x",
        "mit": {
         "x": 5
+       }
+      },
+      {
+       "l": "-(a+(b-c))",
+       "rel": "==",
+       "r": "-a-(b-c)",
+       "mit": {
+        "a": 2,
+        "b": 5,
+        "c": 3
+       }
+      },
+      {
+       "l": "-a-(b-c)",
+       "rel": "==",
+       "r": "-a-b+c",
+       "mit": {
+        "a": 2,
+        "b": 5,
+        "c": 3
+       }
+      },
+      {
+       "l": "-(a+(b-c))",
+       "rel": "==",
+       "r": "-a-b+c",
+       "mit": {
+        "a": 7,
+        "b": -4,
+        "c": 9
        }
       }
      ]
@@ -437,8 +491,8 @@
     },
     {
      "wo": "genau",
-     "text": "Geteilt geht nur mit einer Zahl, die in Zähler und Nenner ohne Rest aufgeht: 12/18 wird durch 6 zu 2/3; durch 5 lässt sich 12/18 nicht kürzen, weil 12 : 5 Rest 2 lässt.",
-     "grund": "„dasselbe geteilt“ gilt in ganzen Zahlen nur bei gemeinsamem Teiler.",
+     "text": "Für das Kürzen eines Bruchs aus ganzen Zahlen auf ganze Zahlen nimmt man einen gemeinsamen Teiler; allgemein teilt man Zähler und Nenner durch dieselbe Zahl ungleich null. 12/18 wird durch 6 zu 2/3; durch 5 lässt sich 12/18 nicht auf ganze Zahlen kürzen, weil 12 : 5 Rest 2 lässt.",
+     "grund": "„dasselbe geteilt“ gilt in ganzen Zahlen nur bei gemeinsamem Teiler. Zweite Gegenprüfung 1090: allgemein genügt jede Zahl ungleich null.",
      "pruefung": [
       {
        "l": "12/18",
@@ -449,6 +503,11 @@
        "l": "12 % 5",
        "rel": "==",
        "r": "2"
+      },
+      {
+       "l": "12/18",
+       "rel": "==",
+       "r": "(12/5)/(18/5)"
       }
      ]
     }
@@ -530,9 +589,9 @@
     }
    ],
    "kurzfassung": {
-    "haupt": "Plus, Minus: gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: mal Kehrwert.",
-    "kompakt": "Plus/Minus: gleiche Nenner. Mal: oben·oben, unten·unten. Geteilt: mal Kehrwert.",
-    "begruendung": "Beide Fassungen sagen dasselbe wie die drei Sätze: „erst gleiche Nenner“ wird zu „gleiche Nenner“ (der Zusatz „erst“ trägt nichts, die Reihenfolge steht in der Erklärung), „mit dem Kehrwert malnehmen“ zu „mal Kehrwert“. Länge 88 und 78 statt 110 Zeichen; die anderen Merksätze der Liste haben höchstens 75 Zeichen und brauchen am Handy zwei Zeilen. Gemessen ist die Zeilenzahl nicht (Annahme: 78 Zeichen ergeben zwei Zeilen, 88 vermutlich drei).",
+    "haupt": "Plus/Minus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: mal Kehrwert.",
+    "kompakt": "Plus/Minus: erst gleiche Nenner. Mal: oben·oben, unten·unten. Geteilt: mal Kehrwert.",
+    "begruendung": "Beide Fassungen sagen dasselbe wie die drei Sätze; „mit dem Kehrwert malnehmen“ wird zu „mal Kehrwert“. „Erst gleiche Nenner“ bleibt (Gegenprüfung 1078: ohne „erst“ bleibt offen, dass man gleichnamig machen muss). Länge 91 und 85 statt 110 Zeichen; die anderen Merksätze der Liste haben höchstens 75 Zeichen und brauchen am Handy zwei Zeilen. Gemessen ist die Zeilenzahl nicht (Annahme: zwei Zeilen). Der Projektleiter hat die Fassung „haupt“ als Merksatz von Regel 10 entschieden.",
     "verbindlich": false
    }
   },
@@ -551,8 +610,8 @@
    "luecken": [
     {
      "wo": "voraus",
-     "text": "„Erst auf eins“ klappt auch bei umgekehrter Proportionalität, nur mit umgekehrten Rechenarten: 3 Arbeiter brauchen 12 Tage, 1 Arbeiter 36 Tage, 4 Arbeiter 9 Tage. Nicht anwendbar ist es, wenn ein fester Betrag dazukommt.",
-     "grund": "Berichtigung am Bestandstext „Gilt nur bei direkter Proportionalität“: Das gilt für y = k · x, nicht für das Vorgehen „erst auf eins“. Der Merksatz selbst bleibt richtig.",
+     "text": "Das Vorgehen „erst auf eins“ klappt auch bei umgekehrter Proportionalität, nur mit umgekehrten Rechenarten. Bei gleicher Leistung jeder Person gilt: 3 Arbeiter brauchen 12 Tage, 1 Arbeiter dann 36 Tage, 4 Arbeiter 9 Tage. Nicht anwendbar ist es, wenn ein fester Betrag dazukommt.",
+     "grund": "Berichtigung (Gegenprüfung 1078): Der Bestandstext „Gilt nur bei direkter Proportionalität“ war für das Vorgehen zu eng; er ist in inhalt.json ersetzt, diese Ergänzung nennt den umgekehrten Fall. Zweite Gegenprüfung 1090: Das Arbeiterbeispiel setzt gleiche Leistung jeder Person voraus.",
      "pruefung": [
       {
        "l": "3*12",
@@ -610,8 +669,8 @@
    "luecken": [
     {
      "wo": "voraus",
-     "text": "Aus x² = −4 gibt es keine Lösung, weil ein Quadrat nie negativ ist. Auch Runden und der Betrag lassen sich nicht umkehren.",
-     "grund": "Die Wurzel als Gegenrechnung zum Quadrat existiert nur für Zahlen ab null; im Text fehlt der Fall „keine Lösung“.",
+     "text": "Über den reellen Zahlen hat x² = −4 keine Lösung, weil ein Quadrat nie negativ ist. Runden lässt sich nicht eindeutig rückgängig machen: 3,4 und 3,2 ergeben beide 3. Beim Betrag gibt es zwei Möglichkeiten: |x| = 3 hat die Lösungen x = −3 und x = 3.",
+     "grund": "Die Wurzel als Gegenrechnung zum Quadrat existiert nur für Zahlen ab null; im Text fehlte der Fall „keine Lösung“. Gegenprüfung 1078: „Runden und Betrag lassen sich nicht umkehren“ war zu absolut.",
      "pruefung": [
       {
        "l": "x**2",
@@ -624,6 +683,28 @@
         ]
        },
        "modus": "keine"
+      },
+      {
+       "l": "kaufm(3.4,1)",
+       "rel": "==",
+       "r": "3"
+      },
+      {
+       "l": "kaufm(3.2,1)",
+       "rel": "==",
+       "r": "3"
+      },
+      {
+       "l": "abs(x)",
+       "rel": "==",
+       "r": "3",
+       "bereich": {
+        "x": [
+         -50,
+         50
+        ]
+       },
+       "modus": "zwei"
       }
      ]
     },
@@ -667,7 +748,7 @@
    "luecken": [
     {
      "wo": "voraus",
-     "text": "„Dasselbe tun“ heißt nicht „jede Rechnung ist erlaubt“: Quadrieren fügt Lösungen hinzu (aus x = 2 wird x² = 4, und −2 erfüllt x² = 4, aber nicht x = 2). Bei Ungleichungen dreht mal oder geteilt durch eine negative Zahl das Zeichen um.",
+     "text": "„Dasselbe tun“ heißt nicht „jede Rechnung ist erlaubt“: Quadrieren kann Lösungen hinzufügen (aus x = 2 wird x² = 4, und −2 erfüllt x² = 4, aber nicht x = 2). Bei Ungleichungen dreht mal oder geteilt durch eine negative Zahl das Zeichen um.",
      "grund": "Die Ungleichung steht nur im Feld „Verwandt“, nicht dort, wo die Grenze der Regel steht.",
      "pruefung": [
       {

@@ -3,6 +3,35 @@
  "stand": "2026-11-27",
  "zuordnung": [
   {
+   "regel": "rr.kuerzen",
+   "entwurf_schluessel": "R9",
+   "aufgaben": [
+    {
+     "datei": "inhalte/themen/bruch.brueche.json",
+     "lernkarte": "erweitern",
+     "index_in_aufgaben": 84,
+     "klasse": 6,
+     "zweck": "Erweitern mit einer Zahl"
+    },
+    {
+     "datei": "inhalte/themen/bruch.brueche.json",
+     "lernkarte": "kuerzen",
+     "index_in_aufgaben": 112,
+     "klasse": 6,
+     "zweck": "Kürzen mit einer Zahl"
+    },
+    {
+     "datei": "inhalte/themen/terme.bruchterme.json",
+     "lernkarte": "kuerzen",
+     "index_in_aufgaben": 93,
+     "klasse": 8,
+     "zweck": "Bruchterme kürzen"
+    }
+   ],
+   "weitere": [],
+   "bemerkung": "Ersatz für BG-05, das nicht zu Regel 9 gehört."
+  },
+  {
    "regel": "rr.bruchrechnen",
    "entwurf_schluessel": "R10",
    "aufgaben": [
@@ -46,6 +75,35 @@
      "bemerkung": "Antwortform auswahl."
     }
    ]
+  },
+  {
+   "regel": "rr.verhaeltnis",
+   "entwurf_schluessel": "R11",
+   "aufgaben": [
+    {
+     "datei": "inhalte/themen/groessen.proportional.json",
+     "lernkarte": "einheit",
+     "index_in_aufgaben": 110,
+     "klasse": 5,
+     "zweck": "Auf die Einheit schließen"
+    },
+    {
+     "datei": "inhalte/themen/groessen.proportional.json",
+     "lernkarte": "dreisatz",
+     "index_in_aufgaben": 148,
+     "klasse": 5,
+     "zweck": "Dreisatz, direkt"
+    },
+    {
+     "datei": "inhalte/themen/bruch.prozent.json",
+     "lernkarte": "grundwert",
+     "index_in_aufgaben": 84,
+     "klasse": 6,
+     "zweck": "Auf 1 % schließen, dann auf 100 %"
+    }
+   ],
+   "weitere": [],
+   "bemerkung": "Ergänzt die Verhältnisgleichung BG-13 aus Schritt 1 um klassische Dreisatz-Aufgaben."
   },
   {
    "regel": "rr.nullprodukt",
@@ -94,6 +152,26 @@
    ]
   }
  ],
+ "umhaengen": {
+  "hinweis": "Korrektur der Zuordnung in inhalte/mathe-profi/schritt1/kennungen-zuordnung.json (Gegenprüfung 1078); die Datei selbst bleibt unverändert, der Bau wendet diese Korrektur an.",
+  "regel_von_aufgabe": {
+   "BG-01": "rr.waage",
+   "BG-02": "rr.waage",
+   "BG-05": "rr.waage",
+   "BG-09": "rr.waage",
+   "GF-10": "rr.gegenrechnung"
+  },
+  "text_voranstellen": {
+   "BG-01": "Es gilt x ≠ 3 und x ≠ −3. ",
+   "BG-02": "Es gilt x ≠ −4 und x ≠ 2. ",
+   "BG-03": "Es gilt x ≠ 0. ",
+   "BG-13": "Es gilt x ≠ 0 und x ≠ −9. ",
+   "PG-01": "Es gilt a ≠ 0. ",
+   "PG-02": "Es gilt x ≠ 0. ",
+   "PG-03": "Es gilt a ≠ 0. ",
+   "terme.bruchterme#93": "Es gilt x ≠ 0. "
+  }
+ },
  "stichprobe_bestehende_zuordnung": {
   "quelle": "inhalte/mathe-profi/schritt1/kennungen-zuordnung.json und etiketten.json (78 Aufgaben)",
   "ergebnis": [
@@ -116,6 +194,7 @@
     ],
     "befund": "passt nicht",
     "text": "BG-05 vergleicht „über Kreuz“ und Kehrwert bei 5/(x + 3) = 2/(x − 3): Das ist Äquivalenzumformung (Regel 13), nicht Erweitern oder Kürzen. Danach hat Regel 9 in Schritt 1 keine Aufgabe.",
+    "neu_eingeordnet": "BG-05 gehört zu Regel 13 (Waage) und ist dort jetzt eingeordnet (umhaengen). Für Regel 9 stehen unten die Ersatzaufgaben.",
     "vorschlag": [
      {
       "datei": "inhalte/themen/bruch.brueche.json",
@@ -149,7 +228,7 @@
      "BG-13"
     ],
     "befund": "teilweise",
-    "text": "BG-01, BG-02 und BG-09 lösen Bruchgleichungen „über Kreuz“; das gehört eher zu Regel 13 (Waage) als zu „erst auf eins, dann auf viele“. BG-13 (Verhältnisgleichung 2/3 = 8/?) passt, wenn Regel 11 auch Verhältnisgleichungen umfassen soll. Ein klassischer Dreisatz fehlt in Schritt 1.",
+    "text": "BG-01, BG-02 und BG-09 lösen Bruchgleichungen „über Kreuz“. Entschieden: „Über Kreuz“ gehört primär zu Regel 13 (Waage; beide Nenner ungleich null); sie sind dort eingeordnet. Nur BG-13 (Verhältnisgleichung 2/3 = 8/?) bleibt bei Regel 11, weil es um gleiche Verhältnisse geht. Ein klassischer Dreisatz fehlt in Schritt 1; die Ersatzaufgaben stehen unten.",
     "vorschlag": [
      {
       "datei": "inhalte/themen/groessen.proportional.json",
@@ -182,7 +261,7 @@
      "GF-10"
     ],
     "befund": "teilweise",
-    "text": "RG-01 und RG-08 passen. GF-10 („K = G + n · p nach n umstellen, welcher Schritt zuerst?“) entscheidet über die Reihenfolge des Rückwärtsrechnens und gehört eher zu Regel 12 (Gegenrechnung)."
+    "text": "RG-01 und RG-08 passen. GF-10 („K = G + n · p nach n umstellen, welcher Schritt zuerst?“) entscheidet über die Reihenfolge des Rückwärtsrechnens und gehört zu Regel 12 (Gegenrechnung); dort ist es eingeordnet."
    },
    {
     "regel": "rr.waage",

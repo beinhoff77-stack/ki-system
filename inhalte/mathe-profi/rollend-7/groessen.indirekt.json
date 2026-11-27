@@ -221,7 +221,7 @@
      "antwort": 24,
      "fehlbild": "fb.verhaeltnis.falsche_richtung",
      "regel_des_fehlbilds": "rr.verhaeltnis",
-     "beschreibung": "mit dem falschen Wert 12 weiter mit 2 malgenommen"
+     "beschreibung": "vom richtigen Wert 12 ausgegangen, aber mit 2 malgenommen statt durch 2 geteilt"
     }
    ],
    "aufgabe": {

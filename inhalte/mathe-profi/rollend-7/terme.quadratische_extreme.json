@@ -623,7 +623,7 @@
     },
     "c": "22 - 2 * 3 ** 2",
     "h": "Beide Wege müssen dasselbe Minimum ergeben.",
-    "w": "Weg A: 2(x − 3)² + 4, Minimum 4. Weg B: T(2) = 6, T(3) = 4, T(4) = 6. Wegen T(2) = T(4) liegt die Symmetrieachse bei x = 3. Die Parabel öffnet sich nach oben (Faktor 2 vor x² ist positiv), also ist T(3) = 4 der tiefste Punkt und damit das Minimum für alle x."
+    "w": "Weg A: 2(x − 3)² + 4, Minimum 4. Weg B: T(2) = 6, T(3) = 4, T(4) = 6. Wegen T(2) = T(4) liegt die Symmetrieachse bei x = 3. Die Parabel öffnet sich nach oben (Faktor 2 vor x² ist positiv), also ist 4 der kleinste Funktionswert, der Minimalwert von T für alle x. Der tiefste Punkt der Parabel ist (3|4)."
    }
   },
   {

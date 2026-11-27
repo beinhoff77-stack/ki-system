@@ -1,0 +1,294 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-11",
+ "kuerzel": "S3",
+ "thema": "gleichungen.bruch",
+ "titel": "gleichungen.bruch",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen_datei_im_bestand": "gleichungen.bruch",
+ "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "S3-V044",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "definitionsmenge",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.algebra.erlaubte_zahlen",
+   "regel_name": "Erlaubte Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei v − 6 stehen geblieben und die Strömung nicht dazugerechnet",
+     "rechnung": "90 / 5"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 6 abgezogen statt addiert",
+     "rechnung": "90 / 5 - 6"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Fahrzeit mal Strömung gerechnet",
+     "rechnung": "5 * 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Boot fährt auf einem Fluss gegen die Strömung. Die Strömung hat 6 km/h. Das Boot schafft in ruhigem Wasser v km/h und kommt gegen die Strömung voran. Die Fahrzeit für 90 km beträgt 90/(v − 6) Stunden. Die Fahrt dauert 5 Stunden. Wie schnell ist das Boot in ruhigem Wasser?"
+    },
+    "o": {
+     "wert": 24,
+     "einheit": "km/h"
+    },
+    "c": "90 / 5 + 6",
+    "h": "Welche Werte von v sind rechnerisch erlaubt, welche passen zur Sache? Stelle dann die Gleichung auf: Fahrzeit = 5 Stunden.",
+    "w": "Rechnerisch muss der Nenner v − 6 von 0 verschieden sein, also v ≠ 6. Sachlich kommt das Boot nur voran, wenn v > 6 ist. Gleichung: 90/(v − 6) = 5. Mit (v − 6) multiplizieren: 90 = 5(v − 6). Dann 90 : 5 = 18 = v − 6, also v = 24 km/h. Die Lösung 24 erfüllt v > 6. Probe: 90 : (24 − 6) = 90 : 18 = 5 Stunden."
+   }
+  },
+  {
+   "kennung": "S3-V045",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "ein_bruch",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus der falschen Zeile 1 richtig; der erste Fehler steckt weiter oben",
+     "rechnung": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus der falschen Zeile 1 richtig; der erste Fehler steckt weiter oben",
+     "rechnung": null
+    }
+   ],
+   "fehlerzeile": 1,
+   "fehler": "nur aus einem Summanden des Zählers gekürzt (aus einer Summe gekürzt)",
+   "zeilen": [
+    {
+     "zeile": 1,
+     "text": "Ich kürze mit 3: (6x + 12)/(3x) = (2x + 12)/x, die Gleichung lautet also (2x + 12)/x = 4.",
+     "stimmt": false
+    },
+    {
+     "zeile": 2,
+     "text": "Mit x multiplizieren (x ≠ 0): 2x + 12 = 4x, also 12 = 2x und x = 6.",
+     "stimmt": true
+    },
+    {
+     "zeile": 3,
+     "text": "Die Lösung 6 ist erlaubt, denn 6 ≠ 0. Also ist L = {6}.",
+     "stimmt": true
+    }
+   ],
+   "aufgabe": {
+    "l": "ein_bruch",
+    "t": "ein_bruch",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst (6x + 12)/(3x) = 4 mit x ≠ 0. Zeile 1: Ich kürze mit 3: (6x + 12)/(3x) = (2x + 12)/x, die Gleichung lautet also (2x + 12)/x = 4. Zeile 2: Mit x multiplizieren (x ≠ 0): 2x + 12 = 4x, also 12 = 2x und x = 6. Zeile 3: Die Lösung 6 ist erlaubt, denn 6 ≠ 0. Also ist L = {6}. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Setze die Lösung in die Gleichung am Anfang ein.",
+    "w": "Gekürzt werden darf nur, wenn der ganze Zähler durch 3 geteilt wird: (6x + 12)/(3x) = (2x + 4)/x. In Zeile 1 wurde nur 6x durch 3 geteilt, die 12 blieb stehen. Die Zeilen 2 und 3 rechnen mit der falschen Zeile 1 richtig weiter. Richtig: 2x + 4 = 4x, also x = 2. Probe: (12 + 12)/6 = 4."
+   }
+  },
+  {
+   "kennung": "S3-V046",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "hauptnenner",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Mittelwert der beiden Geschwindigkeiten genommen",
+     "rechnung": "(60 + 40) / 2"
+    },
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Addieren der Brüche Zähler und Nenner addiert (1/60 + 1/40 = 2/100), also v = 2 : (2/100)",
+     "rechnung": "2 / (2 / 100)"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 2 (Hin- und Rückweg) vergessen: 1/v statt 2/v",
+     "rechnung": "120 / 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "hauptnenner",
+    "t": "hauptnenner",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Auto fährt eine Strecke hin mit 60 km/h und denselben Weg zurück mit 40 km/h. Die Länge s der einfachen Strecke ist nicht bekannt. Mit welcher gleichbleibenden Geschwindigkeit v (in km/h) müsste es Hin- und Rückweg fahren, um für beide Wege zusammen genauso lange zu brauchen?"
+    },
+    "o": {
+     "wert": 48,
+     "einheit": "km/h"
+    },
+    "c": "240 / 5",
+    "h": "Zeit = Weg : Geschwindigkeit. Stelle für beide Fahrten die Gesamtzeit auf und setze die Zeiten gleich.",
+    "w": "Gleichung: s/60 + s/40 = 2s/v. Durch s teilen: 1/60 + 1/40 = 2/v. Mit 120v multiplizieren: 2v + 3v = 240, also 5v = 240 und v = 48 km/h. Probe: Mit s = 120 km: hin 2 h, zurück 3 h, zusammen 5 h; 240 km : 5 h = 48 km/h."
+   }
+  },
+  {
+   "kennung": "S3-V047",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "verhaeltnis",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 240,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zuckermenge nachher (240 g) genannt statt der Mehlmenge",
+     "rechnung": "4 * 60"
+    },
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Größe eines Teils (60 g) genannt",
+     "rechnung": "120 / 2"
+    },
+    {
+     "antwort": 600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 120 g als einen Teil genommen",
+     "rechnung": "5 * 120"
+    }
+   ],
+   "aufgabe": {
+    "l": "verhaeltnis",
+    "t": "verhaeltnis",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "In einer Mischung ist das Verhältnis Mehl : Zucker = 5 : 2. Nach dem Zugeben von 120 g Zucker ist das Verhältnis Mehl : Zucker = 5 : 4. Stelle mit m für die Mehlmenge eine Verhältnisgleichung auf und löse sie. Wie viel Gramm Mehl sind in der Mischung?"
+    },
+    "o": {
+     "wert": 300,
+     "einheit": "g"
+    },
+    "c": "120 / (4 - 2) * 5",
+    "h": "Wie viel Gramm Zucker gehören vorher zu m Gramm Mehl? Wie viel Zucker ist es nachher? Nachher gilt Mehl : Zucker = 5 : 4.",
+    "w": "Mehl m Gramm. Vorher ist der Zucker 2m/5 Gramm, nachher 2m/5 + 120 Gramm. Verhältnisgleichung: m/(2m/5 + 120) = 5/4. Über Kreuz: 4m = 5 · (2m/5 + 120) = 2m + 600, also 2m = 600 und m = 300 g. Kontrolle mit Teilen: Dazugekommen sind 4 − 2 = 2 Teile Zucker, das sind 120 g, ein Teil ist 60 g, Mehl 5 · 60 = 300 g. Probe: Zucker vorher 120 g, nachher 240 g; 300 : 240 = 5 : 4."
+   }
+  },
+  {
+   "kennung": "S3-V048",
+   "thema": "gleichungen.bruch",
+   "lernkarte": "graphisch",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur b bestimmt und nicht den zweiten Schnittpunkt",
+     "rechnung": "-3 + 4"
+    },
+    {
+     "antwort": -4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den bekannten ersten Schnittpunkt noch einmal genannt",
+     "rechnung": "-4"
+    },
+    {
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Wert des ersten Schnittpunkts genannt",
+     "rechnung": "12 / (-4)"
+    }
+   ],
+   "aufgabe": {
+    "l": "graphisch",
+    "t": "graphisch",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Die Gerade y = x + b schneidet den Graphen von y = 12/x an der Stelle x = −4. Sie schneidet ihn noch ein zweites Mal bei einer positiven Zahl x. Bestimme zuerst b. Zeichne dann beide Graphen, lies die positive Schnittstelle ab und kontrolliere sie mit einer Wertetabelle. Wie lautet die x-Koordinate des zweiten Schnittpunkts?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "4 - 1",
+    "h": "Wie groß ist y = 12/x bei x = −4? Dieser y-Wert muss auch auf der Geraden liegen. Daraus folgt b. Die Schnittstelle liest du dort ab, wo sich beide Graphen treffen.",
+    "w": "Bei x = −4 ist y = 12 : (−4) = −3. Auf der Geraden gilt −3 = −4 + b, also b = 1. Die Gerade ist y = x + 1. Zeichnet man y = 12/x und y = x + 1, so treffen sich die Graphen für x > 0 bei x = 3. Kontrolle mit der Wertetabelle: x = 1: 12 und 2, x = 2: 6 und 3, x = 3: 4 und 4. Einsetzen von x = 3: 12/3 = 4 und 3 + 1 = 4, beide Funktionen haben dort den Wert 4. Der zweite Schnittpunkt liegt bei x = 3."
+   }
+  }
+ ]
+}

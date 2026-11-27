@@ -1,0 +1,1540 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-10",
+ "kuerzel": "K9B",
+ "flug": "k9b-abbildungen.aehnlichkeit",
+ "titel": "abbildungen.aehnlichkeit",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "abbildungen.aehnlichkeit"
+ ],
+ "themen_datei_im_bestand": "abbildungen.aehnlichkeit",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K9B-V019",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "streckung",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 + 1 gerechnet: das Zentrum nicht abgezogen, sondern addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die y-Koordinaten addiert statt subtrahiert: 2 + (−2)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 8,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "den Faktor addiert statt malgenommen: 5 + 3"
+    },
+    {
+     "luecke": 5,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "vom Ursprung statt von Z aus gestreckt: 3 · 6"
+    },
+    {
+     "luecke": 6,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "vom Ursprung statt von Z aus gestreckt: 3 · 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "streckung",
+    "t": "streckung",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine zentrische Streckung hat das Zentrum Z(1 | −2) und den Streckfaktor k = 3. Der Punkt P(6 | 2) wird abgebildet. Der Pfeil von Z nach P geht ① Einheiten nach rechts und ② Einheiten nach oben. Der Pfeil von Z zum Bildpunkt P' ist k-mal so lang: Er geht ③ Einheiten nach rechts und ④ Einheiten nach oben. Der Bildpunkt hat die Koordinaten P'(⑤ | ⑥).",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □; ⑤ = □; ⑥ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      5,
+      4,
+      15,
+      12,
+      16,
+      10
+     ]
+    },
+    "c": [
+     "6 - 1",
+     "2 - (-2)",
+     "3 * (6 - 1)",
+     "3 * (2 - (-2))",
+     "1 + (3 * (6 - 1))",
+     "-2 + (3 * (2 - (-2)))"
+    ],
+    "h": "Der Bildpunkt liegt auf dem Strahl von Z durch P. Gemessen wird immer vom Zentrum Z aus, nicht vom Ursprung.",
+    "w": "Pfeil ZP: (6 − 1 | 2 − (−2)) = (5 | 4). Pfeil ZP': 3 · (5 | 4) = (15 | 12). P' = Z + (15 | 12) = (1 + 15 | −2 + 12) = (16 | 10)."
+   }
+  },
+  {
+   "kennung": "K9B-V020",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "streckung",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ohne das Zentrum geteilt: 14 : 5"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Pfeilkomponenten subtrahiert: 12 − 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "streckung",
+    "t": "streckung",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine zentrische Streckung hat das Zentrum Z(2 | 1). Sie bildet den Punkt P(5 | 3) auf den Punkt P'(14 | 9) ab. Welchen Streckfaktor k hat diese Streckung?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "(14 - 2) / (5 - 2)",
+    "h": "Vergleiche den Pfeil von Z nach P mit dem Pfeil von Z nach P'.",
+    "w": "Pfeil ZP: (5 − 2 | 3 − 1) = (3 | 2). Pfeil ZP': (14 − 2 | 9 − 1) = (12 | 8). Es ist 12 : 3 = 4 und 8 : 2 = 4. Also k = 4. Probe: Z + 4 · (3 | 2) = (14 | 9)."
+   }
+  },
+  {
+   "kennung": "K9B-V021",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "streckung",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "streckung",
+    "t": "streckung",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Punkt P(4 | 3) wird zentrisch gestreckt, mit dem Zentrum Z(1 | 1) und dem Faktor k = 2. Kim berechnet den Bildpunkt P'. Zeile 1: Pfeil von Z nach P: (4 + 1 | 3 + 1) = (5 | 4). Zeile 2: Mit k = 2 wird der Pfeil zu (10 | 8). Zeile 3: Bildpunkt P' = Z + (10 | 8) = (1 + 10 | 1 + 8) = (11 | 9). In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wie bekommt man den Pfeil von einem Punkt Z zu einem Punkt P?",
+    "w": "Der Pfeil von Z nach P ist P − Z = (4 − 1 | 3 − 1) = (3 | 2). Dann ist ZP' = (6 | 4) und P' = (1 + 6 | 1 + 4) = (7 | 5). Der erste Fehler steht in Zeile 1: Kim hat addiert statt subtrahiert."
+   }
+  },
+  {
+   "kennung": "K9B-V022",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "bildgerade",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 7,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "2 + 5 gerechnet statt 2 · 5"
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "5 + 5 gerechnet statt 5 · 5"
+    },
+    {
+     "luecke": 3,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Geraden g statt mit g' gerechnet: 3 · 6 + 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "bildgerade",
+    "t": "bildgerade",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Gerade g: y = 3x + 2 wird mit dem Zentrum O(0 | 0) und dem Faktor k = 5 gestreckt. Der Punkt A(0 | 2) liegt auf g. Sein Bildpunkt A' hat die y-Koordinate ①. Der Punkt B(1 | 5) liegt auf g. Sein Bildpunkt B' hat die y-Koordinate ②. Die Bildgerade g' geht durch A' und B'. Für x = 6 hat g' den y-Wert ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      10,
+      25,
+      28
+     ]
+    },
+    "c": [
+     "2 * 5",
+     "5 * 5",
+     "(2 * 5) + ((5 * 5) - (2 * 5)) / (5 - 0) * 6"
+    ],
+    "h": "Beide Koordinaten des Punktes werden mit dem Faktor multipliziert. Für die Bildgerade brauchst du die Steigung zwischen A' und B'.",
+    "w": "A' = (0 | 10). B' = (5 | 25). Steigung von g': (25 − 10) : (5 − 0) = 3. g': y = 3x + 10. Für x = 6: 3 · 6 + 10 = 28."
+   }
+  },
+  {
+   "kennung": "K9B-V023",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "bildgerade",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Achsenabschnitt von g übernommen"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "5 + 3 gerechnet statt 5 · 3"
+    },
+    {
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 3 zweimal angewandt: 5 · 3 · 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "bildgerade",
+    "t": "bildgerade",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Die Gerade g: y = 2x + 5 wird mit dem Zentrum O(0 | 0) und dem Faktor k = 3 gestreckt. Wie groß ist der y-Achsenabschnitt der Bildgeraden g'? Rechne auf zwei Wegen. Weg A: Strecke den Punkt (0 | 5) von g und lies den y-Achsenabschnitt ab. Weg B: Ein Punkt (x' | y') liegt genau dann auf g', wenn (x' : 3 | y' : 3) auf g liegt. Setze x = x' : 3 und y = y' : 3 in die Gleichung von g ein und löse nach y' auf."
+    },
+    "o": {
+     "wert": 15
+    },
+    "c": "5 * 3",
+    "h": "Was erhältst du, wenn du nach dem Einsetzen beide Seiten der Gleichung mit 3 multiplizierst?",
+    "w": "Weg A: (0 | 5) wird zu (0 | 15), der Achsenabschnitt ist 15. Weg B: y' : 3 = 2 · (x' : 3) + 5. Mit 3 malnehmen: y' = 2x' + 15. Der y-Achsenabschnitt ist 15. Beide Wege: 15."
+   }
+  },
+  {
+   "kennung": "K9B-V024",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "bildgerade",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 3 übernimmt die falsche Steigung −2 aus Zeile 2. Dass der Achsenabschnitt 8 ist, ist richtig. Der erste Fehler steht in Zeile 2."
+    }
+   ],
+   "aufgabe": {
+    "l": "bildgerade",
+    "t": "bildgerade",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Gerade g: y = −x + 4 wird mit dem Zentrum O(0 | 0) und dem Faktor k = 2 gestreckt. Kim bestimmt die Bildgerade g'. Zeile 1: g hat die Steigung −1 und den y-Achsenabschnitt 4. Zeile 2: Die Streckung verdoppelt auch die Steigung: g' hat die Steigung −2. Zeile 3: Der y-Achsenabschnitt wird verdoppelt auf 8. Also ist g': y = −2x + 8. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wie liegen eine Gerade und ihre Bildgerade zueinander, wenn das Zentrum nicht auf der Geraden liegt? Was folgt daraus für die Steigung?",
+    "w": "Eine Gerade und ihre Bildgerade sind parallel, die Steigung bleibt −1. Nur der Achsenabschnitt wird verdoppelt. g': y = −x + 8. Der erste Fehler steht in Zeile 2."
+   }
+  },
+  {
+   "kennung": "K9B-V025",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "schwerpunkt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 statt durch 3 geteilt: 12 : 2"
+    },
+    {
+     "luecke": 4,
+     "antwort": 7.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 statt durch 3 geteilt: 15 : 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "schwerpunkt",
+    "t": "schwerpunkt",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Dreieck hat die Eckpunkte A(1 | 2), B(8 | 3) und C(3 | 10). Die x-Koordinaten der drei Eckpunkte ergeben zusammen ①. Die y-Koordinaten ergeben zusammen ②. Der Schwerpunkt S hat die Koordinaten S(③ | ④).",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      12,
+      15,
+      4,
+      5
+     ]
+    },
+    "c": [
+     "1 + 8 + 3",
+     "2 + 3 + 10",
+     "(1 + 8 + 3) / 3",
+     "(2 + 3 + 10) / 3"
+    ],
+    "h": "Der Schwerpunkt eines Dreiecks hat als Koordinaten den Mittelwert der drei x-Koordinaten und den Mittelwert der drei y-Koordinaten.",
+    "w": "x: 1 + 8 + 3 = 12. y: 2 + 3 + 10 = 15. S = (12 : 3 | 15 : 3) = (4 | 5)."
+   }
+  },
+  {
+   "kennung": "K9B-V026",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "schwerpunkt",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die halbe Höhe genommen: 9 : 2"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zwei Drittel der Höhe genommen: 2 · 9 : 3"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe von C angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "schwerpunkt",
+    "t": "schwerpunkt",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine dünne Platte besteht überall aus demselben Material mit gleicher Dichte und hat überall dieselbe Dicke. Sie hat die Form eines Dreiecks ABC mit A(0 | 0), B(12 | 0) und C(3 | 9). Die Maße sind in cm. Die Platte soll waagerecht auf einer Spitze balancieren. Wie weit ist der Auflagepunkt von der Seite AB entfernt? Gib den Abstand in cm an."
+    },
+    "o": {
+     "wert": 3,
+     "einheit": "cm"
+    },
+    "c": "(0 + 0 + 9) / 3",
+    "h": "Der Auflagepunkt ist der Schwerpunkt des Dreiecks. Gefragt ist nur sein Abstand von der Seite AB, also die y-Koordinate.",
+    "w": "S = ((0 + 12 + 3) : 3 | (0 + 0 + 9) : 3) = (5 | 3). Die Seite AB liegt auf der x-Achse, der Abstand ist die y-Koordinate 3 cm."
+   }
+  },
+  {
+   "kennung": "K9B-V027",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "schwerpunkt",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "C als Unterschied von S und B bestimmt, also C(−4 | 3), und davon die Entfernung zu A berechnet"
+    },
+    {
+     "antwort": 21,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Koordinaten von C addiert statt die Länge AC zu berechnen: 12 + 9"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die y-Koordinate von C als Länge angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "schwerpunkt",
+    "t": "schwerpunkt",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Dreieck ABC hat die Eckpunkte A(0 | 0) und B(12 | 0). Sein Schwerpunkt ist S(8 | 3). Die Einheit im Koordinatensystem ist 1 cm. Wie lang ist die Seite AC in cm?"
+    },
+    "o": {
+     "wert": 15,
+     "einheit": "cm"
+    },
+    "c": "15",
+    "h": "Zwei Dinge musst du nacheinander bestimmen: zuerst, wo C liegt, dann, wie weit C von A entfernt ist.",
+    "w": "Für den Schwerpunkt gilt: x-Koordinate von S = (0 + 12 + x) : 3 = 8, also x = 12. y-Koordinate von S = (0 + 0 + y) : 3 = 3, also y = 9. C(12 | 9). AC² = 12² + 9² = 144 + 81 = 225, AC = 15 cm."
+   }
+  },
+  {
+   "kennung": "K9B-V028",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "aehnlich",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 − 4 gerechnet statt 12 : 4"
+    },
+    {
+     "luecke": 2,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied 8 zu 6 addiert: 6 + 8"
+    },
+    {
+     "luecke": 3,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied 8 zu 8 addiert: 8 + 8"
+    },
+    {
+     "luecke": 4,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang von A statt von B angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "aehnlich",
+    "t": "aehnlich",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Das Dreieck B ist ähnlich zum Dreieck A. Das Dreieck A hat die Seiten 4 cm, 6 cm und 8 cm. Die kürzeste Seite von B ist 12 cm lang. Der Streckfaktor von A nach B ist ①. Die mittlere Seite von B ist ② cm lang, die längste Seite ③ cm. Der Umfang von B ist ④ cm.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      18,
+      24,
+      54
+     ]
+    },
+    "c": [
+     "12 / 4",
+     "6 * (12 / 4)",
+     "8 * (12 / 4)",
+     "12 + (6 * (12 / 4)) + (8 * (12 / 4))"
+    ],
+    "h": "Bei ähnlichen Dreiecken werden alle Seiten mit demselben Faktor vervielfacht. Vergleiche zuerst zwei entsprechende Seiten.",
+    "w": "k = 12 : 4 = 3. Mittlere Seite: 6 · 3 = 18 cm. Längste Seite: 8 · 3 = 24 cm. Umfang: 12 + 18 + 24 = 54 cm."
+   }
+  },
+  {
+   "kennung": "K9B-V029",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "aehnlich",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "A und B",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die beiden kürzeren Seiten verglichen: beide im Verhältnis 1 : 2, die längsten aber 6 : 9"
+    },
+    {
+     "index": 2,
+     "antwort": "B und C",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die ersten beiden Seiten stimmen im Verhältnis, die längsten nicht: 9 : 18"
+    },
+    {
+     "index": 3,
+     "antwort": "Alle drei Dreiecke",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "es passen nur zwei Dreiecke zusammen"
+    }
+   ],
+   "aufgabe": {
+    "l": "aehnlich",
+    "t": "aehnlich",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt die Seitenlängen von drei Dreiecken, jeweils von der kürzesten zur längsten Seite. Welche zwei Dreiecke sind zueinander ähnlich?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Dreieck",
+       "kürzeste Seite",
+       "mittlere Seite",
+       "längste Seite"
+      ],
+      "zeilen": [
+       [
+        "A",
+        "3 cm",
+        "4 cm",
+        "6 cm"
+       ],
+       [
+        "B",
+        "6 cm",
+        "8 cm",
+        "9 cm"
+       ],
+       [
+        "C",
+        "9 cm",
+        "12 cm",
+        "18 cm"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "A und C",
+     "A und B",
+     "B und C",
+     "Alle drei Dreiecke"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Teile für zwei Dreiecke jeweils entsprechende Seiten durcheinander. Alle drei Quotienten müssen gleich sein.",
+    "w": "A → C: 9 : 3 = 3, 12 : 4 = 3, 18 : 6 = 3. Alle Quotienten sind gleich. A → B: 2, 2 und 1,5, also nicht ähnlich. B → C: 1,5, 1,5 und 2, also nicht ähnlich."
+   }
+  },
+  {
+   "kennung": "K9B-V030",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "aehnlich",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "aehnlich",
+    "t": "aehnlich",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Das Dreieck B ist ähnlich zum Dreieck A. A hat die Seiten 4 cm, 6 cm und 8 cm. Die kürzeste Seite von B ist 12 cm lang. Kim berechnet die mittlere Seite von B und prüft sie. Zeile 1: Streckfaktor von A nach B: 12 : 4 = 3. Zeile 2: Mittlere Seite von B: 6 + 3 = 9 cm. Zeile 3: Damit ist das Verhältnis der mittleren Seiten von B und A gleich 9 : 6 = 1,5. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wie wirkt ein Streckfaktor auf eine Seitenlänge: addieren oder multiplizieren?",
+    "w": "Eine Seite wird mit dem Streckfaktor multipliziert: 6 · 3 = 18 cm. Kim hat 3 addiert. Außerdem müsste das Verhältnis der mittleren Seiten wieder 3 sein, nicht 1,5. Der erste Fehler steht in Zeile 2."
+   }
+  },
+  {
+   "kennung": "K9B-V031",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "strahlensatz1",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 − 4 gerechnet statt 12 : 4"
+    },
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "5 + 3 gerechnet statt 5 · 3"
+    },
+    {
+     "luecke": 3,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die ganze Strecke SB' statt des Stücks BB' angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "strahlensatz1",
+    "t": "strahlensatz1",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Zwei Strahlen mit dem gemeinsamen Anfangspunkt S werden von zwei parallelen Geraden geschnitten, die nicht durch S gehen. Die erste Gerade schneidet die Strahlen in A und B, die zweite in A' und B'. A und A' liegen auf dem einen Strahl, B und B' auf dem anderen, A und B liegen näher bei S. Es gilt SA = 4 cm, SA' = 12 cm und SB = 5 cm. Das Verhältnis SA' : SA ist ①. Die Strecke SB' ist ② cm lang. Die Strecke BB' ist ③ cm lang.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      15,
+      10
+     ]
+    },
+    "c": [
+     "12 / 4",
+     "5 * (12 / 4)",
+     "(5 * (12 / 4)) - 5"
+    ],
+    "h": "Nach dem 1. Strahlensatz haben die Verhältnisse SA' : SA und SB' : SB denselben Wert. BB' ist der Teil von SB', der nicht zu SB gehört.",
+    "w": "SA' : SA = 12 : 4 = 3. SB' = 3 · 5 = 15 cm. BB' = SB' − SB = 15 − 5 = 10 cm."
+   }
+  },
+  {
+   "kennung": "K9B-V032",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "strahlensatz1",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 37.33,
+     "fehlbild": "fb.verhaeltnis.falsche_richtung",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "das Verhältnis umgekehrt (Schatten durch Höhe statt Höhe durch Schatten), auf zwei Stellen gerundet"
+    },
+    {
+     "antwort": 27.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied von Stabhöhe und Schatten (0,5 m) vom Turmschatten abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "strahlensatz1",
+    "t": "strahlensatz1",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Sonnenstrahlen sind zueinander parallel. Ein senkrechter Stab ist 1,5 m hoch und wirft auf dem waagerechten Boden einen 2 m langen Schatten. Im selben Moment wirft ein senkrechter Turm einen 28 m langen Schatten. Wie hoch ist der Turm?"
+    },
+    "o": {
+     "wert": 21,
+     "einheit": "m"
+    },
+    "c": "28 * 1.5 / 2",
+    "h": "Stab mit Schatten und Turm mit Schatten bilden zwei Dreiecke mit demselben Verhältnis Höhe : Schattenlänge.",
+    "w": "Höhe : Schatten ist beim Stab 1,5 : 2 = 0,75. Beim Turm gilt dasselbe Verhältnis: Höhe = 0,75 · 28 = 21 m."
+   }
+  },
+  {
+   "kennung": "K9B-V033",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "strahlensatz1",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "strahlensatz1",
+    "t": "strahlensatz1",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Strahlen mit dem Anfangspunkt S werden von zwei parallelen Geraden geschnitten. Die erste schneidet in A und B, die zweite in A' und B'. A und A' liegen auf dem einen Strahl, B und B' auf dem anderen, A und B liegen näher bei S. Es gilt SA = 3 cm, SA' = 9 cm und SB = 4 cm. Kim berechnet die Strecke BB'. Zeile 1: 1. Strahlensatz: SA' : SA = SB' : SB, also 9 : 3 = SB' : 4. Zeile 2: Das Verhältnis 9 : 3 ist 3. Also ist SB' = 3 · 4 = 12 cm. Zeile 3: Dann ist BB' = SB' + SB = 12 + 4 = 16 cm. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "BB' ist ein Stück der Strecke SB'. Wie bekommt man dieses Stück?",
+    "w": "SB' = SB + BB', also BB' = SB' − SB = 12 − 4 = 8 cm. Kim hat in Zeile 3 addiert. Zeile 1 und 2 sind richtig."
+   }
+  },
+  {
+   "kennung": "K9B-V034",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "strahlensatz2",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "15 − 5 gerechnet statt 15 : 5"
+    },
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "4 + 3 gerechnet statt 4 · 3"
+    },
+    {
+     "luecke": 3,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "A'B' und AB addiert statt abgezogen: 12 + 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "strahlensatz2",
+    "t": "strahlensatz2",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Zwei Strahlen mit dem gemeinsamen Anfangspunkt S werden von zwei parallelen Geraden geschnitten, die nicht durch S gehen. Die erste Gerade schneidet die Strahlen in A und B, die zweite in A' und B'. A und A' liegen auf dem einen Strahl, B und B' auf dem anderen, A und B liegen näher bei S. Es gilt SA = 5 cm, SA' = 15 cm und AB = 4 cm. Nach dem 2. Strahlensatz ist das Verhältnis A'B' : AB so groß wie SA' : SA. Dieses Verhältnis ist ①. Die Strecke A'B' ist ② cm lang. Sie ist um ③ cm länger als AB.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      12,
+      8
+     ]
+    },
+    "c": [
+     "15 / 5",
+     "4 * (15 / 5)",
+     "(4 * (15 / 5)) - 4"
+    ],
+    "h": "Das Verhältnis der Strecken auf den Strahlen ist so groß wie das Verhältnis der Parallelstrecken A'B' und AB.",
+    "w": "SA' : SA = 15 : 5 = 3. A'B' = 3 · 4 = 12 cm. Unterschied: 12 − 4 = 8 cm."
+   }
+  },
+  {
+   "kennung": "K9B-V035",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "strahlensatz2",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "SA' statt AA' angegeben"
+    },
+    {
+     "antwort": 3.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zwei Fehler: das Verhältnis umgekehrt (SA' = 8 · 2 : 5 = 3,2) und SA' als Antwort genannt, ohne SA abzuziehen"
+    }
+   ],
+   "aufgabe": {
+    "l": "strahlensatz2",
+    "t": "strahlensatz2",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Strahlen mit dem Anfangspunkt S werden von zwei parallelen Geraden geschnitten. Die erste schneidet in A und B, die zweite in A' und B'. A und A' liegen auf dem einen Strahl, B und B' auf dem anderen, A liegt zwischen S und A'. Es gilt A'B' : AB = 5 : 2 und SA = 8 cm. Wie lang ist die Strecke AA'?"
+    },
+    "o": {
+     "wert": 12,
+     "einheit": "cm"
+    },
+    "c": "8 * 5 / 2 - 8",
+    "h": "Zuerst brauchst du SA'. Dann ist AA' das Stück von SA', das nicht zu SA gehört.",
+    "w": "Nach dem 2. Strahlensatz ist SA' : SA = A'B' : AB = 5 : 2. Also SA' = 8 · 5 : 2 = 20 cm. AA' = SA' − SA = 20 − 8 = 12 cm."
+   }
+  },
+  {
+   "kennung": "K9B-V036",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "strahlensatz2",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "strahlensatz2",
+    "t": "strahlensatz2",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Strahlen mit dem Anfangspunkt S werden von zwei parallelen Geraden geschnitten. Die erste schneidet in A und B, die zweite in A' und B'. A und A' liegen auf dem einen Strahl, B und B' auf dem anderen. Es gilt SA = 5 cm, SA' = 8 cm und AB = 10 cm. Kim berechnet A'B'. Zeile 1: 2. Strahlensatz: A'B' : AB = SA : SA'. Zeile 2: Also A'B' : 10 = 5 : 8 und A'B' = 10 · 5 : 8 = 6,25 cm. Zeile 3: A'B' ist also kürzer als AB. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "A' liegt weiter von S entfernt als A. Wird die Parallelstrecke dann länger oder kürzer?",
+    "w": "Es gilt A'B' : AB = SA' : SA = 8 : 5. Also A'B' = 10 · 8 : 5 = 16 cm. Zeile 1 hat die Verhältnisse vertauscht, die Folgezeilen rechnen daraus richtig weiter."
+   }
+  },
+  {
+   "kennung": "K9B-V037",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "flaeche_volumen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 − 2 gerechnet statt 6 : 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 · 2 statt 3² gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3² statt 3³ gerechnet"
+    },
+    {
+     "luecke": 4,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen nur mit k statt mit k³ vervielfacht: 8 · 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "flaeche_volumen",
+    "t": "flaeche_volumen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Zwei Würfel sind zueinander ähnlich. Der kleine Würfel hat die Kantenlänge 2 cm und das Volumen 8 Kubikzentimeter. Der große Würfel hat die Kantenlänge 6 cm. Der Streckfaktor von klein nach groß ist ①. Die Oberfläche wird mit dem Faktor ② vervielfacht, das Volumen mit dem Faktor ③. Das Volumen des großen Würfels ist ④ Kubikzentimeter.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      9,
+      27,
+      216
+     ]
+    },
+    "c": [
+     "6 / 2",
+     "(6 / 2) ** 2",
+     "(6 / 2) ** 3",
+     "8 * ((6 / 2) ** 3)"
+    ],
+    "h": "Längen werden mit k vervielfacht. Für Flächen und Rauminhalte gilt eine andere Regel: Zähle die Richtungen, in denen gestreckt wird.",
+    "w": "k = 6 : 2 = 3. Flächenfaktor 3² = 9. Volumenfaktor 3³ = 27. Volumen: 8 · 27 = 216 cm³. Probe: 6 · 6 · 6 = 216."
+   }
+  },
+  {
+   "kennung": "K9B-V038",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "flaeche_volumen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 30,
+     "fehlbild": "fb.aehnlich.flaeche_mit_k",
+     "regel_des_fehlbilds": "id.geometrie.aehnlich",
+     "beschreibung": "die Fläche nur mit k vervielfacht: 12 · 2,5"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied der Grundseiten addiert: 12 + 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "flaeche_volumen",
+    "t": "flaeche_volumen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein kleines Dreieck hat die Grundseite 4 cm und den Flächeninhalt 12 cm². Ein dazu ähnliches großes Dreieck hat die Grundseite 10 cm. Diese Seite entspricht der 4-cm-Seite des kleinen Dreiecks. Wie groß ist der Flächeninhalt des großen Dreiecks in cm²? Rechne auf zwei Wegen. Weg A: mit dem Streckfaktor der Längen und dem Flächenfaktor. Weg B: berechne die Höhe des kleinen Dreiecks, dann die Höhe des großen Dreiecks, dann seine Fläche."
+    },
+    "o": {
+     "wert": 75,
+     "einheit": "cm²"
+    },
+    "c": "12 * (10 / 4) ** 2",
+    "h": "Beide Wege müssen dasselbe ergeben. Der Streckfaktor der Längen ist 10 : 4.",
+    "w": "Weg A: k = 10 : 4 = 2,5. Flächenfaktor 2,5² = 6,25. Fläche: 12 · 6,25 = 75 cm². Weg B: Höhe klein: 2 · 12 : 4 = 6 cm. Höhe groß: 6 · 2,5 = 15 cm. Fläche: 10 · 15 : 2 = 75 cm²."
+   }
+  },
+  {
+   "kennung": "K9B-V039",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "flaeche_volumen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rauminhaltsfaktor 1 000 als Längenfaktor genommen: 0,6 · 1 000"
+    },
+    {
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Quadratwurzel aus 1 000 statt mit der dritten Wurzel gerechnet (gerundet)"
+    },
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Flächenfaktor 100 als Längenfaktor genommen: 0,6 · 100"
+    }
+   ],
+   "aufgabe": {
+    "l": "flaeche_volumen",
+    "t": "flaeche_volumen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Modellboot ist eine genaue Verkleinerung eines echten Boots aus demselben Rumpfform-Entwurf. Das Modell ist 0,6 m lang, sein Rumpf fasst 4 Liter. Der Rumpf des echten Boots fasst 4 000 Liter. Wie lang ist das echte Boot in Metern?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "m"
+    },
+    "c": "0.6 * 10",
+    "h": "Wie oft passt das Fassungsvermögen des Modells in das des echten Boots? Was sagt dieser Faktor über die Längen aus?",
+    "w": "Das Fassungsvermögen ist 4 000 : 4 = 1 000-mal so groß. Rauminhalte wachsen mit dem Faktor k³, also ist k³ = 1 000 und k = 10, denn 10 · 10 · 10 = 1 000. Länge des echten Boots: 0,6 · 10 = 6 m."
+   }
+  },
+  {
+   "kennung": "K9B-V040",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "anwendung",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "45 − 9 gerechnet statt 45 : 9"
+    },
+    {
+     "luecke": 2,
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied 36 zur Höhe addiert: 6 + 36"
+    },
+    {
+     "luecke": 3,
+     "antwort": 270,
+     "fehlbild": "fb.aehnlich.flaeche_mit_k",
+     "regel_des_fehlbilds": "id.geometrie.aehnlich",
+     "beschreibung": "die Fläche des Fotos nur mit k vervielfacht: 9 · 6 · 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "anwendung",
+    "t": "anwendung",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein rechteckiges Foto ist 9 cm breit und 6 cm hoch. Es wird zu einem ähnlichen Poster vergrößert, das 45 cm breit ist. Der Vergrößerungsfaktor ist ①. Das Poster ist ② cm hoch. Der Flächeninhalt des Posters ist ③ cm².",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      5,
+      30,
+      1350
+     ]
+    },
+    "c": [
+     "45 / 9",
+     "6 * (45 / 9)",
+     "45 * (6 * (45 / 9))"
+    ],
+    "h": "Bei einer ähnlichen Vergrößerung werden Breite und Höhe mit demselben Faktor vervielfacht. Die Fläche rechnest du am Schluss aus den neuen Seiten.",
+    "w": "k = 45 : 9 = 5. Höhe: 6 · 5 = 30 cm. Fläche: 45 · 30 = 1 350 cm²."
+   }
+  },
+  {
+   "kennung": "K9B-V041",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "anwendung",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 360,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Meter und Zentimeter gemischt: 180 · 12 : 6"
+    },
+    {
+     "antwort": 0.036,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Ergebnis in Meter statt in cm angegeben"
+    },
+    {
+     "antwort": 21.6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 1,8 · 12 gerechnet, nicht durch 6 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "anwendung",
+    "t": "anwendung",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Lochkamera ist ein Kasten mit einem winzigen Loch in der Vorderwand. Ein Baum, 1,8 m hoch, steht senkrecht 6 m vor dem Loch. Die Rückwand des Kastens ist 12 cm vom Loch entfernt. Der Baum erscheint auf der Rückwand als umgekehrtes Bild. Wie hoch ist dieses Bild in cm?"
+    },
+    "o": {
+     "wert": 3.6,
+     "einheit": "cm"
+    },
+    "c": "180 * 12 / 600",
+    "h": "Die Lichtstrahlen laufen durch das Loch. Vor und hinter dem Loch entstehen zwei Dreiecke mit gleichem Verhältnis Höhe : Abstand. Rechne in einer Einheit.",
+    "w": "Höhe : Abstand ist beim Baum 1,8 m : 6 m = 0,3. Beim Bild gilt dasselbe Verhältnis: Bildhöhe = 0,3 · 12 cm = 3,6 cm."
+   }
+  },
+  {
+   "kennung": "K9B-V042",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "anwendung",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "anwendung",
+    "t": "anwendung",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein senkrechter Stab ist 1,2 m hoch und wirft einen 0,8 m langen Schatten. Im selben Moment wirft eine senkrechte Fichte auf dem waagerechten Boden einen 10 m langen Schatten. Kim berechnet die Höhe der Fichte. Zeile 1: Beim Stab ist Höhe : Schatten = 1,2 : 0,8 = 1,5. Zeile 2: Bei der Fichte ist das Verhältnis Höhe : Schatten dasselbe, also 1,5. Zeile 3: Die Höhe der Fichte ist also 10 : 1,5 ≈ 6,7 m. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Prüfe jede Zeile nach. Bei Stab und Fichte ist das Verhältnis Höhe : Schatten gleich.",
+    "w": "Höhe = Verhältnis · Schatten = 1,5 · 10 = 15 m. Kim hat geteilt statt malgenommen. Eine Fichte, die niedriger ist als ihr Schatten, passt auch nicht zu einem Stab, der höher ist als sein Schatten."
+   }
+  },
+  {
+   "kennung": "K9B-V043",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "streckung_vektor",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen von k vergessen: 3 · 5"
+    },
+    {
+     "luecke": 2,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen von k vergessen: 3 · 3"
+    },
+    {
+     "luecke": 3,
+     "antwort": -15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Vektor ZP' als Bildpunkt angegeben, Z nicht addiert"
+    },
+    {
+     "luecke": 4,
+     "antwort": -9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Vektor ZP' als Bildpunkt angegeben, Z nicht addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "streckung_vektor",
+    "t": "streckung_vektor",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine zentrische Streckung hat das Zentrum Z(2 | 1) und den Faktor k = −3. Der Punkt P(7 | 4) wird zu P' abgebildet. Der Vektor von Z nach P hat die Komponenten (5 | 3). Der Vektor von Z nach P' hat die Komponenten (① | ②). Der Bildpunkt hat die Koordinaten P'(③ | ④).",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -15,
+      -9,
+      -13,
+      -8
+     ]
+    },
+    "c": [
+     "-3 * 5",
+     "-3 * 3",
+     "2 + (-3 * 5)",
+     "1 + (-3 * 3)"
+    ],
+    "h": "Der Vektor ZP' ist k-mal der Vektor ZP. Ein negativer Faktor dreht die Richtung um. Der Bildpunkt entsteht, wenn du den Vektor ZP' an Z anlegst.",
+    "w": "ZP' = −3 · (5 | 3) = (−15 | −9). P' = Z + ZP' = (2 − 15 | 1 − 9) = (−13 | −8)."
+   }
+  },
+  {
+   "kennung": "K9B-V044",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "streckung_vektor",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Der Streckfaktor ist k = 2. P' liegt auf derselben Seite von Z wie P und doppelt so weit von Z entfernt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen übersehen"
+    },
+    {
+     "index": 1,
+     "antwort": "Der Streckfaktor ist k = −2. P' liegt auf derselben Seite von Z wie P.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei negativem k liegt das Bild auf der anderen Seite von Z"
+    },
+    {
+     "index": 2,
+     "antwort": "Der Streckfaktor ist k = −0,5. P' liegt auf der anderen Seite von Z und halb so weit von Z entfernt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Verhältnis umgekehrt: Der Pfeil zu P' ist doppelt so lang, nicht halb so lang"
+    }
+   ],
+   "aufgabe": {
+    "l": "streckung_vektor",
+    "t": "streckung_vektor",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt, wie weit man von dem Zentrum Z der Streckung nach rechts und nach oben gehen muss, um zu P und zu dem Bildpunkt P' zu kommen. Negative Zahlen bedeuten nach links oder nach unten. Welche Aussage passt?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "",
+       "nach rechts",
+       "nach oben"
+      ],
+      "zeilen": [
+       [
+        "von Z zu P",
+        "2",
+        "1"
+       ],
+       [
+        "von Z zu P'",
+        "−4",
+        "−2"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "Der Streckfaktor ist k = 2. P' liegt auf derselben Seite von Z wie P und doppelt so weit von Z entfernt.",
+     "Der Streckfaktor ist k = −2. P' liegt auf derselben Seite von Z wie P.",
+     "Der Streckfaktor ist k = −0,5. P' liegt auf der anderen Seite von Z und halb so weit von Z entfernt.",
+     "Der Streckfaktor ist k = −2. P' liegt auf der anderen Seite von Z als P und doppelt so weit von Z entfernt."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Vergleiche den Pfeil zu P' mit dem Pfeil zu P: Mit welcher Zahl wird jede Komponente vervielfacht?",
+    "w": "Pfeil zu P: (2 | 1). Pfeil zu P': (−4 | −2) = −2 · (2 | 1). Also k = −2. Das Minuszeichen heißt: andere Seite von Z. Der Betrag 2 heißt: doppelt so weit entfernt."
+   }
+  },
+  {
+   "kennung": "K9B-V045",
+   "thema": "abbildungen.aehnlichkeit",
+   "lernkarte": "streckung_vektor",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.aehnlich",
+   "regel_name": "Ähnlich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Mittelpunkt von P und P' genommen: (7 + (−2)) : 2"
+    },
+    {
+     "antwort": -9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Differenz der x-Koordinaten genommen: −2 − 7"
+    }
+   ],
+   "aufgabe": {
+    "l": "streckung_vektor",
+    "t": "streckung_vektor",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Eine zentrische Streckung hat den Faktor k = −2. Sie bildet den Punkt P(7 | 3) auf den Punkt P'(−2 | −3) ab. Wie groß ist die x-Koordinate des Zentrums Z?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "(7 * (-2) - (-2)) / (-2 - 1)",
+    "h": "Das Bild P' entsteht durch Strecken von P vom Zentrum Z aus. Stelle für die x-Koordinaten eine Gleichung auf, in der die x-Koordinate von Z die Unbekannte ist.",
+    "w": "Mit x für die x-Koordinate von Z: −2 = x + (−2) · (7 − x) = x − 14 + 2x = 3x − 14. Also 3x = 12 und x = 4. Probe: 4 + (−2) · (7 − 4) = 4 − 6 = −2."
+   }
+  }
+ ]
+}

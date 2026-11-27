@@ -27,6 +27,13 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "6 addiert statt abgezogen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal 2 statt geteilt durch 2"
     }
    ],
    "aufgabe": {
@@ -82,10 +89,17 @@
     },
     {
      "luecke": 3,
-     "antwort": 12,
+     "antwort": 13,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "erst 3 + 3, dann mal 2"
+     "beschreibung": "wieder mit 5 gerechnet, ② nicht abgezogen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "② addiert statt abgezogen: 2 · (5 + 1) + 3"
     }
    ],
    "aufgabe": {
@@ -96,7 +110,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Prüfe, ob x = 5 die Ungleichung 2x + 3 ≤ 12 löst. Einsetzen: 2 · 5 + 3 = ①. Das liegt um ① − 12 = ② über 12, also ist 5 keine Lösung. Prüfe x = 3: 2 · 3 + 3 = ③. Das ist kleiner als 12, also ist 3 eine Lösung.",
+     "text": "Prüfe, ob x = 5 die Ungleichung 2x + 3 ≤ 12 löst. Einsetzen: 2 · 5 + 3 = ①. Das liegt um ① − 12 = ② über 12, also ist 5 keine Lösung. Prüfe die Zahl, die um ② kleiner ist als 5: 2 · (5 − ②) + 3 = ③. Das ist kleiner als 12, also ist diese Zahl eine Lösung.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -104,16 +118,16 @@
      "werte": [
       13,
       1,
-      9
+      11
      ]
     },
     "c": [
      "2*5+3",
      "2*5+3-12",
-     "2*3+3"
+     "2*(5-(2*5+3-12))+3"
     ],
-    "h": "Erst mal, dann plus.",
-    "w": "2 · 5 + 3 = 13, das ist um 1 größer als 12. 2 · 3 + 3 = 9 ≤ 12."
+    "h": "Setze die Zahl in die linke Seite ein. Mal geht vor Plus.",
+    "w": "2 · 5 + 3 = 13, das ist um 1 größer als 12. Die Zahl 5 − 1 = 4 ergibt 2 · 4 + 3 = 11 ≤ 12."
    }
   },
   {
@@ -300,6 +314,27 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "3 addiert statt abgezogen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 abgezogen statt addiert"
+    },
+    {
+     "luecke": 3,
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Grenzen addiert"
+    },
+    {
+     "luecke": 3,
+     "antwort": -1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Unterschied falsch herum gebildet"
     }
    ],
    "aufgabe": {
@@ -310,22 +345,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "x + 3 ≥ 9 ergibt x ≥ ①. x − 2 < 5 ergibt x < ②. Beides zusammen: ① ≤ x < ②. Als Intervall schreibst du das so: L = [①; ②[.",
-     "schablone": "① = □; ② = □",
+     "text": "x + 3 ≥ 9 ergibt x ≥ ①. x − 2 < 5 ergibt x < ②. Beides zusammen: ① ≤ x < ②. Als Intervall schreibst du das so: L = [①; ②[. Die Länge dieses Intervalls ist ② − ① = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       6,
-      7
+      7,
+      1
      ]
     },
     "c": [
      "9 - 3",
-     "5 + 2"
+     "5 + 2",
+     "(5 + 2) - (9 - 3)"
     ],
     "h": "Erst beide Ungleichungen einzeln lösen.",
-    "w": "x ≥ 6 und x < 7. Das Intervall ist [6; 7[."
+    "w": "x ≥ 6 und x < 7. Das Intervall ist [6; 7[ und hat die Länge 7 − 6 = 1."
    }
   },
   {
@@ -414,7 +451,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Kim sagt: „]1; 6[ und [2; 5] enthalten dieselben ganzen Zahlen.“ Schreibe beide Mengen auf und vergleiche die Elemente. In ]1; 6[ liegen ① ganze Zahlen, in [2; 5] liegen ② ganze Zahlen. Jede Zahl aus [2; 5] liegt auch in ]1; 6[. In [2; 5] fehlen also ① − ② = ③ der ganzen Zahlen aus ]1; 6[. Kims Aussage stimmt, wenn nichts fehlt.",
+     "text": "Kim sagt: „]1; 6[ und [2; 5] enthalten dieselben ganzen Zahlen.“ Schreibe beide Mengen auf und vergleiche die Elemente. In ]1; 6[ liegen ① ganze Zahlen, in [2; 5] liegen ② ganze Zahlen. Jede Zahl aus [2; 5] liegt auch in ]1; 6[. In [2; 5] fehlen also ① − ② = ③ der ganzen Zahlen aus ]1; 6[. Daran erkennt man, ob Kims Aussage stimmt.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -954,21 +991,21 @@
      "antwort": "]−1; 6[",
      "fehlbild": "fb.gleichung_loesen.klammer_falsch_herum",
      "regel_des_fehlbilds": "id.algebra.gleichung_loesen",
-     "beschreibung": "beide Grenzen falsch herum geschrieben"
+     "beschreibung": "linke Klammer verkehrt: −1 gehört wegen ≤ dazu"
     },
     {
      "index": 2,
      "antwort": "[−1; 6]",
      "fehlbild": "fb.gleichung_loesen.klammer_falsch_herum",
      "regel_des_fehlbilds": "id.algebra.gleichung_loesen",
-     "beschreibung": "rechte Klammer verkehrt"
+     "beschreibung": "rechte Klammer verkehrt: 6 gehört wegen < nicht dazu"
     },
     {
      "index": 3,
      "antwort": "]−1; 6]",
      "fehlbild": "fb.gleichung_loesen.klammer_falsch_herum",
      "regel_des_fehlbilds": "id.algebra.gleichung_loesen",
-     "beschreibung": "linke und rechte Klammer vertauscht"
+     "beschreibung": "beide Klammern verkehrt: −1 ausgeschlossen und 6 eingeschlossen"
     }
    ],
    "aufgabe": {
@@ -1531,24 +1568,24 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "x = 5",
+     "antwort": "2x − 3 > 7",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "7 ist nicht kleiner als 7"
+     "beschreibung": "für x = 4 ergibt sich 5, und 5 > 7 stimmt nicht: die Markierung wäre vertauscht"
     },
     {
      "index": 2,
-     "antwort": "x = 6",
+     "antwort": "2x − 3 < 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "2 · 6 − 3 = 9 ist größer als 7"
+     "beschreibung": "für x = 4 ergibt sich 5, und 5 < 3 stimmt nicht"
     },
     {
      "index": 3,
-     "antwort": "x = 7",
+     "antwort": "2x + 3 < 7",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "2 · 7 − 3 = 11 ist größer als 7"
+     "beschreibung": "für x = 4 ergibt sich 11, und 11 < 7 stimmt nicht"
     }
    ],
    "aufgabe": {
@@ -1558,20 +1595,20 @@
     "s": 2,
     "g": "darstellung",
     "f": {
-     "text": "Welche der Zahlen erfüllt die Ungleichung 2x − 3 < 7?"
+     "text": "Auf einem Zahlenstrahl ist die Zahl 4 grün markiert (sie erfüllt eine Ungleichung) und die Zahl 6 rot (sie erfüllt sie nicht). Welche Ungleichung passt zu dieser Markierung?"
     },
     "y": "auswahl",
     "a": [
-     "x = 4",
-     "x = 5",
-     "x = 6",
-     "x = 7"
+     "2x − 3 < 7",
+     "2x − 3 > 7",
+     "2x − 3 < 3",
+     "2x + 3 < 7"
     ],
     "o": {
      "index": 0
     },
-    "h": "Setze jede Zahl ein und vergleiche mit 7.",
-    "w": "x = 4: 2 · 4 − 3 = 5, und 5 < 7 stimmt. x = 5 gibt 7, das ist nicht kleiner als 7. x = 6 gibt 9 und x = 7 gibt 11. Nur x = 4 passt."
+    "h": "Setze 4 und 6 in jede Ungleichung ein. Die richtige gilt für 4 und gilt nicht für 6.",
+    "w": "x = 4: 2 · 4 − 3 = 5, und 5 < 7 stimmt. x = 6: 2 · 6 − 3 = 9, und 9 < 7 stimmt nicht. Die Markierung passt zu 2x − 3 < 7. Bei 2x − 3 > 7 wäre es umgekehrt, bei den anderen beiden gilt sie schon für 4 nicht."
    }
   },
   {
@@ -1677,7 +1714,7 @@
      "beschreibung": "die Grenze selbst mitgezählt"
     },
     {
-     "antwort": 13,
+     "antwort": 14,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "5 addiert statt abgezogen: 2x > 26"
@@ -1838,7 +1875,7 @@
     },
     "c": "4 + 7",
     "h": "Von der unteren Grenze aus geht es die Länge des Intervalls nach rechts.",
-    "w": "Obere Grenze = untere Grenze + Länge = 4 + 7 = 11. Das Intervall ist [4; 11]. Probe: 11 − 4 = 7."
+    "w": "Obere Grenze = untere Grenze + Länge = 4 + 7 = 11. Das Intervall reicht von 4 bis 11. Probe: 11 − 4 = 7. Ob die 11 dazugehört, wird hier nicht gefragt."
    }
   }
  ]

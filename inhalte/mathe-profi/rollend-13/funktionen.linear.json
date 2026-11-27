@@ -1,0 +1,1286 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-13",
+ "kuerzel": "R8",
+ "flug": "r8-funktionen.linear",
+ "titel": "funktionen.linear",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen": [
+  "funktionen.linear"
+ ],
+ "themen_datei_im_bestand": "funktionen.linear",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R8-V077",
+   "thema": "funktionen.linear",
+   "lernkarte": "ablesen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.wachstum",
+   "regel_name": "Wachstum",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Preis für einen Kilometer angegeben"
+    },
+    {
+     "antwort": 14.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Gesamtpreis für 5 km statt des Preisunterschieds berechnet"
+    },
+    {
+     "antwort": 5.7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Grundgebühr und Kilometerpreis addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "ablesen",
+    "t": "ablesen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Taxi berechnet den Fahrpreis P(x) = 3,5 + 2,2 · x in Euro (x in Kilometern). Um wie viel Euro wird die Fahrt teurer, wenn sie 5 km länger ist?"
+    },
+    "o": {
+     "wert": 11,
+     "einheit": "€"
+    },
+    "c": "2.2 * 5",
+    "h": "Welche Zahl in P(x) sagt, um wie viel der Preis pro Kilometer steigt? Wie oft kommt sie dazu?",
+    "w": "Die Steigung m = 2,2 ist der Preis je Kilometer. Für 5 km mehr kommen 5 · 2,2 = 11 € dazu. Die Grundgebühr 3,5 € fällt nur einmal an und ändert sich nicht."
+   }
+  },
+  {
+   "kennung": "R8-V078",
+   "thema": "funktionen.linear",
+   "lernkarte": "ablesen",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch −2 geteilt: nur die Zahl vor x abgelesen"
+    },
+    {
+     "antwort": -2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4x mit dem falschen Vorzeichen auf die andere Seite gebracht"
+    },
+    {
+     "antwort": 0.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Steigungsdreieck Rechts-Schritt durch Hoch-Schritt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "ablesen",
+    "t": "ablesen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Gerade hat die Gleichung 4x − 2y = 10. Weg A: Löse die Gleichung nach y auf und lies m ab. Weg B: Bestimme zwei Punkte der Geraden (zum Beispiel für x = 0 und für x = 1) und berechne die Steigung aus ihnen. Wie groß ist die Steigung m der Geraden?"
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "(-4 / -2)",
+    "h": "Beide Wege müssen dieselbe Zahl ergeben. Beim Auflösen nach y wird durch −2 geteilt.",
+    "w": "Weg A: 4x − 2y = 10 gibt −2y = −4x + 10, also y = 2x − 5. Die Steigung ist m = 2. Weg B: Für x = 0 ist y = −5, für x = 1 ist y = −3. Steigung = (−3 − (−5)) : (1 − 0) = 2."
+   }
+  },
+  {
+   "kennung": "R8-V079",
+   "thema": "funktionen.linear",
+   "lernkarte": "graph_ablesen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.wachstum",
+   "regel_name": "Wachstum",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Höhenunterschied angegeben, nicht durch die Zeit geteilt"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe am Ende durch die Zeit geteilt"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Starthöhe als Geschwindigkeit angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "graph_ablesen",
+    "t": "graph_ablesen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Heißluftballon steigt gleichmäßig. Die Zeichnung zeigt seine Höhe h in Metern in Abhängigkeit von der Zeit t in Minuten. Die Gerade geht durch die markierten Punkte (0 | 20) und (4 | 56). Mit welcher Geschwindigkeit steigt der Ballon (in Metern pro Minute)?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       0,
+       6
+      ],
+      "y": [
+       0,
+       80
+      ],
+      "graphen": [
+       {
+        "art": "linear",
+        "m": 9,
+        "t": 20
+       }
+      ],
+      "punkte": [
+       {
+        "x": 0,
+        "y": 20
+       },
+       {
+        "x": 4,
+        "y": 56
+       }
+      ],
+      "name_x": "t in min",
+      "name_y": "h in m"
+     }
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "m/min"
+    },
+    "c": "(56 - 20) / (4 - 0)",
+    "h": "Lies zwei markierte Punkte ab. Wie viel Meter kommen in wie vielen Minuten dazu?",
+    "w": "Die markierten Punkte sind (0 | 20) und (4 | 56). In 4 Minuten steigt der Ballon um 56 − 20 = 36 m. Geschwindigkeit: 36 : 4 = 9 Meter pro Minute."
+   }
+  },
+  {
+   "kennung": "R8-V080",
+   "thema": "funktionen.linear",
+   "lernkarte": "graph_ablesen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 14 − 2 gerechnet und nicht durch die Steigung geteilt"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Steigung 0,75 malgenommen statt geteilt: 12 · 0,75"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Wert als Stelle genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "graph_ablesen",
+    "t": "graph_ablesen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Die Zeichnung zeigt einen Teil einer Geraden g. Sie geht durch die markierten Punkte und läuft nach rechts und oben über das Bild hinaus weiter. Bei welcher Stelle x hat g den y-Wert 14?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       0,
+       8
+      ],
+      "y": [
+       0,
+       8
+      ],
+      "graphen": [
+       {
+        "art": "linear",
+        "m": 0.75,
+        "t": 2,
+        "name": "g"
+       }
+      ],
+      "punkte": [
+       {
+        "x": 0,
+        "y": 2
+       },
+       {
+        "x": 4,
+        "y": 5
+       }
+      ]
+     }
+    },
+    "o": {
+     "wert": 16
+    },
+    "c": "(14 - 2) / 0.75",
+    "h": "Was kannst du am Graphen ablesen, um die Gleichung der Geraden aufzustellen?",
+    "w": "Am Graphen: t = 2 (Punkt (0 | 2)). Von (0 | 2) nach (4 | 5) geht es 4 nach rechts und 3 nach oben, also m = 3 : 4 = 0,75. Gleichung: y = 0,75x + 2. Für y = 14: 0,75x + 2 = 14, also 0,75x = 12 und x = 16. Probe: 0,75 · 16 + 2 = 14."
+   }
+  },
+  {
+   "kennung": "R8-V081",
+   "thema": "funktionen.linear",
+   "lernkarte": "zwei_punkte",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "y = 6x − 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Steigung nur als Unterschied der y-Werte 11 − 5 gerechnet, nicht durch den Unterschied der x-Werte geteilt"
+    },
+    {
+     "index": 1,
+     "antwort": "y = 2x + 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Steigung richtig, aber den y-Wert des ersten Punkts als Achsenabschnitt genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_punkte",
+    "t": "zwei_punkte",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt die Koordinaten von zwei Punkten. Eine Gerade geht durch beide Punkte. Welche Gleichung gehört zu dieser Geraden?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "x",
+       "1",
+       "4"
+      ],
+      "zeilen": [
+       [
+        "y",
+        "5",
+        "11"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "y = 6x − 1",
+     "y = 2x + 5",
+     "y = 2x + 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Berechne zuerst die Steigung aus den beiden Punkten. Setze dann einen Punkt ein, um t zu bestimmen.",
+    "w": "Steigung: (11 − 5) : (4 − 1) = 6 : 3 = 2. Aus 5 = 2 · 1 + t folgt t = 3. Probe mit dem zweiten Punkt: 2 · 4 + 3 = 11. Bei y = 6x − 1 ergibt x = 4 den Wert 23, bei y = 2x + 5 ergibt x = 1 den Wert 7."
+   }
+  },
+  {
+   "kennung": "R8-V082",
+   "thema": "funktionen.linear",
+   "lernkarte": "zwei_punkte",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Stelle 10 zum y-Wert von B addiert"
+    },
+    {
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Stelle 10 zum y-Wert von A addiert"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur m · 10 gerechnet, den Achsenabschnitt vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_punkte",
+    "t": "zwei_punkte",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Gerade geht durch A(−2 | 1) und B(4 | 7). Weg A: Bestimme die Gleichung y = m·x + t und setze x = 10 ein. Weg B: Gehe von B aus mit der Steigung weiter: so weit nach rechts, wie es bis x = 10 nötig ist, und um die dazu passende Strecke nach oben. Welchen y-Wert hat der Punkt der Geraden mit x = 10?"
+    },
+    "o": {
+     "wert": 13
+    },
+    "c": "1 * 10 + 3",
+    "h": "Beide Wege müssen denselben y-Wert ergeben. Zuerst brauchst du die Steigung aus A und B.",
+    "w": "Steigung: (7 − 1) : (4 − (−2)) = 6 : 6 = 1. Weg A: 1 = 1 · (−2) + t gibt t = 3, also y = x + 3 und für x = 10 ist y = 13. Weg B: Von x = 4 bis x = 10 sind es 6 Schritte nach rechts, dabei geht es 6 · 1 = 6 nach oben: 7 + 6 = 13."
+   }
+  },
+  {
+   "kennung": "R8-V083",
+   "thema": "funktionen.linear",
+   "lernkarte": "proportional",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Wert des Punktes als k angegeben"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den x-Wert des Punktes als k angegeben"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Koordinaten addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "proportional",
+    "t": "proportional",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Zeichnung zeigt den Graphen einer proportionalen Funktion y = k · x. Der Graph geht durch den markierten Punkt. Wie groß ist k?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -1,
+       6
+      ],
+      "y": [
+       -1,
+       9
+      ],
+      "graphen": [
+       {
+        "art": "linear",
+        "m": 1.5,
+        "t": 0
+       }
+      ],
+      "punkte": [
+       {
+        "x": 4,
+        "y": 6
+       }
+      ]
+     }
+    },
+    "o": {
+     "wert": 1.5
+    },
+    "c": "6 / 4",
+    "h": "Bei einer proportionalen Funktion ist k der Quotient y : x für jeden Punkt des Graphen (außer dem Ursprung).",
+    "w": "Der markierte Punkt ist (4 | 6). Dann ist k = y : x = 6 : 4 = 1,5. Probe: y = 1,5 · 4 = 6."
+   }
+  },
+  {
+   "kennung": "R8-V084",
+   "thema": "funktionen.linear",
+   "lernkarte": "proportional",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die erste Pumpe berücksichtigt: 108 : 4,5"
+    },
+    {
+     "antwort": 14.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die zweite Pumpe berücksichtigt: 108 : 7,5"
+    },
+    {
+     "antwort": 38.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Einzelzeiten addiert statt die Mengen je Minute"
+    }
+   ],
+   "aufgabe": {
+    "l": "proportional",
+    "t": "proportional",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Pumpe fördert gleichmäßig 18 Liter in 4 Minuten, eine zweite gleichmäßig 15 Liter in 2 Minuten. Beide Pumpen beginnen gleichzeitig, einen leeren Tank mit 108 Litern Fassungsvermögen zu füllen. Die Menge jeder Pumpe ist proportional zur Zeit. Nach wie vielen Minuten ist der Tank voll?"
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "Minuten"
+    },
+    "c": "108 / (18 / 4 + 15 / 2)",
+    "h": "Wie viele Liter kommen pro Minute insgesamt dazu?",
+    "w": "Pumpe 1: 18 : 4 = 4,5 Liter je Minute. Pumpe 2: 15 : 2 = 7,5 Liter je Minute. Zusammen 12 Liter je Minute. Für 108 Liter: 108 : 12 = 9 Minuten. Probe: 4,5 · 9 + 7,5 · 9 = 40,5 + 67,5 = 108."
+   }
+  },
+  {
+   "kennung": "R8-V085",
+   "thema": "funktionen.linear",
+   "lernkarte": "aufstellen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.wachstum",
+   "regel_name": "Wachstum",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "h = 150 + 400t",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Anfangshöhe und Zunahme pro Stunde vertauscht: dieser Term ergibt für t = 1 den Wert 550, für t = 2 aber 950 statt 700"
+    },
+    {
+     "index": 2,
+     "antwort": "h = 550 + 150t",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe nach einer Stunde als Anfangshöhe genommen: für t = 0 ergibt der Term 550 statt 400"
+    }
+   ],
+   "aufgabe": {
+    "l": "aufstellen",
+    "t": "aufstellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Wandergruppe steigt gleichmäßig auf. Die Tabelle zeigt ihre Höhe h in Metern nach t Stunden. Welche Gleichung beschreibt die Höhe in Abhängigkeit von t?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "t in h",
+       "0",
+       "1",
+       "2",
+       "3"
+      ],
+      "zeilen": [
+       [
+        "h in m",
+        "400",
+        "550",
+        "700",
+        "850"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "h = 400 + 150t",
+     "h = 150 + 400t",
+     "h = 550 + 150t"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welche Höhe gehört zu t = 0? Wie viel kommt von einer Stunde zur nächsten dazu?",
+    "w": "Bei t = 0 ist die Höhe 400 m (das ist der Wert ohne t im Term). Von Stunde zu Stunde kommen 150 m dazu (Steigung m = 150). Also h = 400 + 150t. Probe: t = 3 gibt 400 + 450 = 850."
+   }
+  },
+  {
+   "kennung": "R8-V086",
+   "thema": "funktionen.linear",
+   "lernkarte": "aufstellen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.wachstum",
+   "regel_name": "Wachstum",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der falschen Steigung 6 gerechnet: 7 minus 2 mal 6"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Steigung als f(0) angegeben"
+    },
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "7 und 6 addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "aufstellen",
+    "t": "aufstellen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Eine lineare Funktion f hat f(2) = 7 und f(6) = 19. Wie groß ist f(0)?"
+    },
+    "o": {
+     "wert": 1
+    },
+    "c": "7 - 2 * ((19 - 7) / (6 - 2))",
+    "h": "Eine lineare Funktion ändert sich bei jedem Schritt in x um gleich viel.",
+    "w": "Steigung: (19 − 7) : (6 − 2) = 12 : 4 = 3. Von x = 2 zurück zu x = 0 sind es 2 Schritte, also 2 · 3 = 6 weniger: f(0) = 7 − 6 = 1. Probe: f(x) = 3x + 1 gibt f(2) = 7 und f(6) = 19."
+   }
+  },
+  {
+   "kennung": "R8-V087",
+   "thema": "funktionen.linear",
+   "lernkarte": "schnittpunkte",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Wert des Schnittpunkts angegeben"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2x − x statt 2x + x gerechnet"
+    },
+    {
+     "antwort": -2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Vorzeichen beim Umstellen vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "schnittpunkte",
+    "t": "schnittpunkte",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Die Geraden g: y = 2x + 1 und h: y = −x + 7 schneiden sich in einem Punkt. Weg A: Lege für x = 0, 1, 2, 3, 4 eine Wertetabelle für beide Geraden an und suche die Spalte mit gleichen y-Werten. Weg B: Setze 2x + 1 = −x + 7 und löse die Gleichung. Wie groß ist die x-Koordinate des Schnittpunkts?"
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "(7 - 1) / (2 + 1)",
+    "h": "Beide Wege müssen dieselbe Zahl ergeben. Im Schnittpunkt haben beide Geraden denselben y-Wert.",
+    "w": "Weg A: g hat die Werte 1, 3, 5, 7, 9 und h hat die Werte 7, 6, 5, 4, 3. Gleich ist die Spalte x = 2 mit y = 5. Weg B: 2x + x = 7 − 1, also 3x = 6 und x = 2. Der Schnittpunkt ist S(2 | 5)."
+   }
+  },
+  {
+   "kennung": "R8-V088",
+   "thema": "funktionen.linear",
+   "lernkarte": "schnittpunkte",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 7 mit dem falschen Vorzeichen auf die andere Seite gebracht"
+    },
+    {
+     "antwort": -2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 − 7 = −2 nicht durch 2 geteilt"
+    },
+    {
+     "antwort": 3.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 7 durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "schnittpunkte",
+    "t": "schnittpunkte",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Die Geraden g: y = 2x + 1 und h: y = a·x + 7 schneiden sich an der Stelle x = 2. Welche Zahl ist a?"
+    },
+    "o": {
+     "wert": -1
+    },
+    "c": "(2 * 2 + 1 - 7) / 2",
+    "h": "Im Schnittpunkt haben g und h denselben y-Wert.",
+    "w": "g(2) = 2 · 2 + 1 = 5. Auch h hat dort den Wert 5: 2a + 7 = 5, also 2a = −2 und a = −1. Probe: h(2) = −2 + 7 = 5."
+   }
+  },
+  {
+   "kennung": "R8-V089",
+   "thema": "funktionen.linear",
+   "lernkarte": "lage",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "y = −2x + 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Vorzeichen der Steigung gewechselt: die Steigungen 2 und −2 ergeben miteinander −4, nicht −1"
+    },
+    {
+     "index": 2,
+     "antwort": "y = 0,5x + 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Kehrwert gebildet: die Steigungen 2 und 0,5 ergeben miteinander 1, nicht −1"
+    }
+   ],
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Zeichnung zeigt die Gerade g. Die Gerade h steht senkrecht auf g und geht durch den Punkt P(0 | 3). Welche Gleichung hat h?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -3,
+       5
+      ],
+      "y": [
+       -4,
+       6
+      ],
+      "graphen": [
+       {
+        "art": "linear",
+        "m": 2,
+        "t": -1,
+        "name": "g"
+       }
+      ],
+      "punkte": [
+       {
+        "x": 0,
+        "y": -1
+       },
+       {
+        "x": 1,
+        "y": 1
+       },
+       {
+        "x": 0,
+        "y": 3,
+        "name": "P"
+       }
+      ]
+     }
+    },
+    "a": [
+     "y = −2x + 3",
+     "y = −0,5x + 3",
+     "y = 0,5x + 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Lies die Steigung von g ab. Bei senkrechten Geraden ist das Produkt der Steigungen −1.",
+    "w": "Die Gerade g geht durch (0 | −1) und (1 | 1): Steigung 2. Für die senkrechte Gerade gilt m · 2 = −1, also m = −0,5. Sie geht durch (0 | 3), also t = 3: y = −0,5x + 3."
+   }
+  },
+  {
+   "kennung": "R8-V090",
+   "thema": "funktionen.linear",
+   "lernkarte": "lage",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Steigung 2 statt −2 genommen: t = 4 − 2 · 4"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nur das Vorzeichen gewechselt und die Steigung −0,5 verwendet: t = 4 + 0,5 · 4"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Wert von P als Achsenabschnitt genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Im Plan eines Parks (Einheit 1 m) liegt Weg A auf der Geraden y = 0,5x + 2. Im Punkt P(4 | 4) auf Weg A zweigt rechtwinklig ein Weg B ab. Bei welchem y-Wert schneidet Weg B die y-Achse?"
+    },
+    "o": {
+     "wert": 12,
+     "einheit": "m"
+    },
+    "c": "4 + 2 * 4",
+    "h": "Was weißt du über die Steigungen zweier senkrechter Geraden? Weg B geht durch P.",
+    "w": "Steigung von Weg B: m · 0,5 = −1, also m = −2. Durch P(4 | 4): 4 = −2 · 4 + t, also t = 12. Weg B schneidet die y-Achse bei y = 12. Probe: −2 · 4 + 12 = 4."
+   }
+  },
+  {
+   "kennung": "R8-V091",
+   "thema": "funktionen.linear",
+   "lernkarte": "einsetzen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 22,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−2k als +2k gerechnet"
+    },
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer um k + 1 weggelassen: nur die 1 mit x malgenommen und k addiert"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Glied −2k vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "einsetzen",
+    "t": "einsetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Gegeben ist die Schar y = (k + 1)·x − 2k. Weg A: Setze zuerst k = 3 ein und dann x = 4. Weg B: Setze zuerst x = 4 ein, vereinfache den Term in k und setze dann k = 3 ein. Wie groß ist y für k = 3 und x = 4?"
+    },
+    "o": {
+     "wert": 10
+    },
+    "c": "(3 + 1) * 4 - 2 * 3",
+    "h": "Beide Wege müssen dieselbe Zahl ergeben. Beim Vereinfachen werden die k-Glieder zusammengefasst.",
+    "w": "Weg A: y = (3 + 1) · 4 − 2 · 3 = 16 − 6 = 10. Weg B: Mit x = 4 ist y = (k + 1) · 4 − 2k = 4k + 4 − 2k = 2k + 4. Für k = 3: 6 + 4 = 10."
+   }
+  },
+  {
+   "kennung": "R8-V092",
+   "thema": "funktionen.linear",
+   "lernkarte": "einsetzen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2.2,
+     "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
+     "regel_des_fehlbilds": "rr.ausmultiplizieren",
+     "beschreibung": "bei der Klammer nur k mit 3 malgenommen: aus (k − 2)·3 wird 3k − 2"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Glied 2k mit dem falschen Vorzeichen übernommen"
+    },
+    {
+     "antwort": 1.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5k − 6 = 9 falsch gelöst: 9 durch 6 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "einsetzen",
+    "t": "einsetzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Gerade der Schar y = (k − 2)·x + 2k geht durch den Punkt P(3 | 9). Welche Zahl ist k?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "(9 + 2 * 3) / (3 + 2)",
+    "h": "Setze die Koordinaten von P ein. Löse die Klammer auf und fasse die k-Glieder zusammen.",
+    "w": "Aus 9 = (k − 2) · 3 + 2k folgt 9 = 3k − 6 + 2k = 5k − 6. Also 5k = 15 und k = 3. Probe: y = x + 6 gibt für x = 3 den Wert 9."
+   }
+  },
+  {
+   "kennung": "R8-V093",
+   "thema": "funktionen.linear",
+   "lernkarte": "wirkung",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Preisänderung pro kWh angegeben"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die neue Rechnung statt der Erhöhung angegeben"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den neuen Verbrauchspreis für 50 kWh berechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "wirkung",
+    "t": "wirkung",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Stromtarif berechnet K(x) = 8 + 0,3x in Euro (x in kWh). Der Preis je kWh steigt von 0,30 € auf 0,40 €, die Grundgebühr von 8 € bleibt gleich. Um wie viel Euro steigt die Rechnung für 50 kWh?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "€"
+    },
+    "c": "(0.4 - 0.3) * 50",
+    "h": "Was ändert sich: die Grundgebühr oder der Preis je kWh? Wie wirkt sich die Änderung bei 50 kWh aus?",
+    "w": "Die Grundgebühr bleibt gleich. Pro kWh kommen 0,40 − 0,30 = 0,10 € dazu. Für 50 kWh sind das 50 · 0,10 = 5 €. Probe: alt 8 + 15 = 23 €, neu 8 + 20 = 28 €."
+   }
+  },
+  {
+   "kennung": "R8-V094",
+   "thema": "funktionen.linear",
+   "lernkarte": "wirkung",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Steigung 2 statt 4 gleichgesetzt: k − 1 = 2"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die gesuchte Steigung als k angegeben"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Steigung 2 plus 4 statt 2 mal 2 genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "wirkung",
+    "t": "wirkung",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Die Gerade y = (k − 1)·x + 3 hat eine Steigung, die doppelt so groß ist wie die Steigung von y = 2x + 3. Welche Zahl ist k?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "2 * 2 + 1",
+    "h": "Wie groß ist die Steigung der gesuchten Geraden? Wie hängt sie mit k zusammen?",
+    "w": "Die Gerade y = 2x + 3 hat die Steigung 2. Doppelt so steil bedeutet die Steigung 4. Es gilt k − 1 = 4, also k = 5. Probe: y = 4x + 3."
+   }
+  },
+  {
+   "kennung": "R8-V095",
+   "thema": "funktionen.linear",
+   "lernkarte": "bueschel",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "y = m·(x + 2) + 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen in der Klammer vertauscht: der gemeinsame Punkt wäre (−2 | 3)"
+    },
+    {
+     "index": 2,
+     "antwort": "y = m·(x − 3) + 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x- und y-Koordinate des gemeinsamen Punkts vertauscht: der gemeinsame Punkt wäre (3 | 2)"
+    }
+   ],
+   "aufgabe": {
+    "l": "bueschel",
+    "t": "bueschel",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Zeichnung zeigt drei Geraden einer Schar. Alle Geraden der Schar gehen durch denselben Punkt. Welche Gleichung beschreibt die Schar (m ist die Steigung der jeweiligen Geraden)?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -2,
+       6
+      ],
+      "y": [
+       -2,
+       8
+      ],
+      "graphen": [
+       {
+        "art": "linear",
+        "m": -1,
+        "t": 5
+       },
+       {
+        "art": "linear",
+        "m": 0.5,
+        "t": 2
+       },
+       {
+        "art": "linear",
+        "m": 2,
+        "t": -1
+       }
+      ],
+      "punkte": [
+       {
+        "x": 2,
+        "y": 3
+       }
+      ]
+     }
+    },
+    "a": [
+     "y = m·(x + 2) + 3",
+     "y = m·(x − 2) + 3",
+     "y = m·(x − 3) + 2"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wo schneiden sich die drei Geraden? Welcher Punkt ergibt sich, wenn in y = m·(x − a) + b der Wert x = a eingesetzt wird?",
+    "w": "Alle drei Geraden gehen durch den Punkt (2 | 3). In y = m·(x − 2) + 3 verschwindet der Klammerterm für x = 2, und y = 3 gilt für jede Steigung m. Die Geraden in der Zeichnung gehören zu m = −1, m = 0,5 und m = 2."
+   }
+  },
+  {
+   "kennung": "R8-V096",
+   "thema": "funktionen.linear",
+   "lernkarte": "bueschel",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Treffpunkt von Strahl A angegeben"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Höhen addiert statt subtrahiert"
+    },
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Steigungen verglichen: 0,75 plus 0,25"
+    }
+   ],
+   "aufgabe": {
+    "l": "bueschel",
+    "t": "bueschel",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Laserstrahlen starten im Punkt P(2 | 3) und verlaufen geradlinig. Strahl A hat die Steigung 0,75, Strahl B hat die Steigung −0,25. Bei x = 6 steht eine senkrechte Wand. Wie viele Einheiten liegen die beiden Treffpunkte an der Wand auseinander?"
+    },
+    "o": {
+     "wert": 4,
+     "einheit": "Einheiten"
+    },
+    "c": "(3 + 0.75 * (6 - 2)) - (3 - 0.25 * (6 - 2))",
+    "h": "Auf welcher Geraden durch P liegt jeder Strahl?",
+    "w": "Strahl A: y = 0,75 · (x − 2) + 3, bei x = 6 ist y = 0,75 · 4 + 3 = 6. Strahl B: y = −0,25 · (x − 2) + 3, bei x = 6 ist y = −1 + 3 = 2. Abstand der Treffpunkte: 6 − 2 = 4 Einheiten."
+   }
+  },
+  {
+   "kennung": "R8-V097",
+   "thema": "funktionen.linear",
+   "lernkarte": "deuten",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.wachstum",
+   "regel_name": "Wachstum",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Die Sonnenblume war am Anfang 1,5 cm hoch und wächst jeden Tag um 12 cm.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Anfangshöhe und Wachstum pro Tag vertauscht"
+    },
+    {
+     "index": 2,
+     "antwort": "Die Sonnenblume ist nach 12 Tagen 1,5 cm hoch.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen als Zeitpunkt und Höhe gelesen statt als Anfangshöhe und Zuwachs"
+    }
+   ],
+   "aufgabe": {
+    "l": "deuten",
+    "t": "deuten",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Höhe einer Sonnenblume wird durch H(t) = 12 + 1,5·t beschrieben (t in Tagen, H in Zentimetern). Welche Aussage stimmt?"
+    },
+    "a": [
+     "Die Sonnenblume war am Anfang 12 cm hoch und wächst jeden Tag um 1,5 cm.",
+     "Die Sonnenblume war am Anfang 1,5 cm hoch und wächst jeden Tag um 12 cm.",
+     "Die Sonnenblume ist nach 12 Tagen 1,5 cm hoch."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welche Höhe gehört zu t = 0? Um wie viel ändert sich H, wenn t um 1 größer wird?",
+    "w": "Für t = 0 ist H = 12: Am Anfang ist die Pflanze 12 cm hoch. Jeder Tag bringt 1,5 cm dazu, denn 1,5 steht vor t. Nach 10 Tagen ist H = 27 cm."
+   }
+  },
+  {
+   "kennung": "R8-V098",
+   "thema": "funktionen.linear",
+   "lernkarte": "deuten",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.wachstum",
+   "regel_name": "Wachstum",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Schnittstelle als Antwort angegeben: dort kosten beide gleich viel; die strenge Ungleichung (billiger, nicht gleich teuer) übersehen"
+    },
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch die Steigung von Tarif A statt durch den Unterschied der Steigungen geteilt und zusätzlich die strenge Ungleichung übersehen (aus 7 < 0,2x folgt x > 35, die erste ganze Minute wäre dann 36)"
+    },
+    {
+     "antwort": -70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen im Nenner vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "deuten",
+    "t": "deuten",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Tarif A kostet K_A(x) = 5 + 0,2x, Tarif B kostet K_B(x) = 12 + 0,1x (x Minuten Gesprächszeit, Kosten in Euro, abgerechnet wird nur für ganze Minuten). Weg A: Löse die Ungleichung 12 + 0,1x < 5 + 0,2x. Weg B: Bestimme die Minute, bei der beide Tarife gleich viel kosten, und überlege mit den Steigungen, welcher Tarif danach billiger ist. Wie viele ganze Minuten muss man mindestens telefonieren, damit Tarif B billiger ist als Tarif A?"
+    },
+    "o": {
+     "wert": 71,
+     "einheit": "Minuten"
+    },
+    "c": "(12 - 5) / (0.2 - 0.1) + 1",
+    "h": "Beide Wege müssen dieselbe Zahl ergeben. Der Tarif mit der größeren Steigung wird mit der Zeit teurer.",
+    "w": "Weg A: 12 + 0,1x < 5 + 0,2x gibt 7 < 0,1x, also x > 70. Weg B: Gleich teuer bei 12 + 0,1x = 5 + 0,2x, also x = 70 (beide 19 €). Tarif A hat die größere Steigung, wird also danach teurer. Ab 71 Minuten ist B billiger. Probe: 71 Minuten kosten bei A 19,20 € und bei B 19,10 €."
+   }
+  }
+ ]
+}

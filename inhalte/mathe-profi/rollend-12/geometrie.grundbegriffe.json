@@ -1,0 +1,819 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-12",
+ "kuerzel": "R5",
+ "flug": "r5-reserve-geometrie.grundbegriffe",
+ "titel": "geometrie.grundbegriffe",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen": [
+  "geometrie.grundbegriffe"
+ ],
+ "themen_datei_im_bestand": "geometrie.grundbegriffe",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag „Reserve“ (zwei zählende Aufgaben je Lernkarte, Stufe 2 und 3). Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R5-V105",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "koordinaten",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "(1 | −1)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Es wurde nur eine der beiden Verschiebungen rückgängig gemacht."
+    },
+    {
+     "index": 1,
+     "antwort": "(7 | −10)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die beiden Verschiebungen wurden noch einmal in dieselbe Richtung gerechnet statt zurück."
+    },
+    {
+     "index": 3,
+     "antwort": "(−1 | −10)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die x-Koordinate wurde zurückgerechnet, die y-Koordinate aber noch einmal nach unten."
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Punkt wird zweimal hintereinander um dieselbe Verschiebung bewegt: jedes Mal 2 Einheiten nach rechts und 3 Einheiten nach unten. Danach liegt er bei (3 | −4). Wo lag er am Anfang?"
+    },
+    "a": [
+     "(1 | −1)",
+     "(7 | −10)",
+     "(−1 | 2)",
+     "(−1 | −10)"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Welche Gesamtverschiebung ergeben die beiden Schritte? Wie kommst du von der Endlage zurück?",
+    "w": "Zweimal 2 nach rechts und 3 nach unten sind zusammen 4 nach rechts und 6 nach unten. Rückwärts: 4 nach links und 6 nach oben. x: 3 − 4 = −1, y: −4 + 6 = 2. Der Punkt lag bei (−1 | 2). Probe: (−1 + 4 | 2 − 6) = (3 | −4)."
+   }
+  },
+  {
+   "kennung": "R5-V106",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "koordinaten",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Beträge 2 und 7 addiert"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Fahrt nach unten genommen"
+    },
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand zur y-Achse genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Roboter steht im Punkt (−3 | 2). Er fährt zuerst 4 Einheiten nach rechts und dann 7 Einheiten nach unten. Weg A: Bestimme zuerst seine neue Position. Weg B: Vergleiche direkt, wie weit er nach unten fährt, mit seinem Abstand zur x-Achse am Start. Wie viele Einheiten ist er danach von der x-Achse entfernt?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "Einheiten"
+    },
+    "c": "abs(2 - 7)",
+    "h": "Welche Koordinate bestimmt den Abstand eines Punktes zur x-Achse? Wie ändert sie sich bei der Fahrt?",
+    "w": "Weg A: Nach 4 nach rechts: (1 | 2). Nach 7 nach unten: (1 | 2 − 7) = (1 | −5). Der Abstand zur x-Achse ist |−5| = 5 Einheiten. Weg B: Am Start liegt er 2 Einheiten über der x-Achse, er fährt 7 nach unten, also 7 − 2 = 5 Einheiten darunter."
+   }
+  },
+  {
+   "kennung": "R5-V107",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "strecken",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Beträge voneinander abgezogen (das Minus von −4 nicht beachtet)"
+    },
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die x-Koordinate von B genommen"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Länge in Einheiten statt in Metern angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "strecken",
+    "t": "strecken",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Weg verläuft waagrecht vom Punkt A(−4 | 1) zum Punkt B(5 | 1). Eine Einheit im Koordinatensystem entspricht 20 m. Weg A: Rechne mit den Koordinaten 5 − (−4). Weg B: Zähle die Einheiten von A bis zum Schnittpunkt (0 | 1) mit der y-Achse und von dort bis B. Wie lang ist der Weg in Metern?"
+    },
+    "o": {
+     "wert": 180,
+     "einheit": "m"
+    },
+    "c": "(5 - (-4)) * 20",
+    "h": "Der Weg schneidet die y-Achse im Punkt (0 | 1). Wie viele Einheiten sind es von A bis dorthin, wie viele von dort bis B?",
+    "w": "Weg A: 5 − (−4) = 9 Einheiten. Weg B: Von A(−4 | 1) bis (0 | 1) sind es 4 Einheiten, von (0 | 1) bis B(5 | 1) sind es 5 Einheiten, zusammen 4 + 5 = 9 Einheiten. Der Weg ist 9 Einheiten lang: 9 · 20 m = 180 m."
+   }
+  },
+  {
+   "kennung": "R5-V108",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "strecken",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Länge der längsten Strecke genannt"
+    },
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die längste mit der zweitlängsten verglichen"
+    },
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "längste und kürzeste Strecke addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "strecken",
+    "t": "strecken",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle nennt drei Strecken, die alle waagrecht oder senkrecht verlaufen. Um wie viele Einheiten ist die längste Strecke länger als die kürzeste?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Strecke",
+       "Anfangspunkt",
+       "Endpunkt"
+      ],
+      "zeilen": [
+       [
+        "[AB]",
+        "A(−3 | 2)",
+        "B(4 | 2)"
+       ],
+       [
+        "[CD]",
+        "C(1 | −5)",
+        "D(1 | 3)"
+       ],
+       [
+        "[EF]",
+        "E(−6 | −1)",
+        "F(−1 | −1)"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 3,
+     "einheit": "Einheiten"
+    },
+    "c": "8 - 5",
+    "h": "Berechne zuerst die Länge jeder Strecke. Nur eine Koordinate ändert sich.",
+    "w": "[AB]: 4 − (−3) = 7. [CD]: 3 − (−5) = 8. [EF]: −1 − (−6) = 5. Die längste ist 8, die kürzeste 5. 8 − 5 = 3."
+   }
+  },
+  {
+   "kennung": "R5-V109",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "lagebeziehungen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "noch einmal um 5 nach rechts statt zurück nach links gerechnet"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand als x-Koordinate genommen"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die y-Koordinate des Punktes genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "lagebeziehungen",
+    "t": "lagebeziehungen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Gerade g verläuft von oben nach unten (parallel zur y-Achse). Sie wird um 5 Einheiten nach rechts verschoben und heißt danach h. Die Geraden g und h sind also parallel und haben den Abstand 5. Die Gerade h geht durch den Punkt (7 | 3). Welche x-Koordinate haben alle Punkte von g?"
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "7 - 5",
+    "h": "Um wie viel und in welche Richtung wurde g verschoben? Wie kommst du von h zu g zurück?",
+    "w": "Alle Punkte von h haben die x-Koordinate 7, denn h geht durch (7 | 3) und verläuft von oben nach unten. g wurde um 5 nach rechts verschoben, also muss man um 5 nach links zurück: x = 7 − 5 = 2. Probe: 2 + 5 = 7, der Abstand von g und h ist 5."
+   }
+  },
+  {
+   "kennung": "R5-V110",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "lagebeziehungen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 − 3 gerechnet, das Vorzeichen übersehen"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand halbiert"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 · 3 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "lagebeziehungen",
+    "t": "lagebeziehungen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine waagrechte Hauptstraße liegt auf y = 2. Zwei Nebenstraßen stehen senkrecht auf ihr. Die eine geht durch den Punkt (5 | 2), die andere durch den Punkt (−3 | 2). Wie viele Einheiten sind die beiden Nebenstraßen voneinander entfernt?"
+    },
+    "o": {
+     "wert": 8,
+     "einheit": "Einheiten"
+    },
+    "c": "5 - (-3)",
+    "h": "Beide Nebenstraßen sind senkrecht. Welche Koordinate legt ihre Lage fest?",
+    "w": "Die Nebenstraßen liegen bei x = 5 und x = −3 und sind parallel. Ihr Abstand ist 5 − (−3) = 8 Einheiten."
+   }
+  },
+  {
+   "kennung": "R5-V111",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "kreis_lage",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Häuser gezählt"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei Haus Q die y-Koordinate von M statt der x-Koordinate abgezogen, so wird Q mitgezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreis_lage",
+    "t": "kreis_lage",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Funkmast steht im Punkt M(2 | 3) und erreicht alle Orte, die höchstens 4 Einheiten von M entfernt sind. Wie viele der vier Häuser P(2 | 6), Q(7 | 3), R(−1 | 3) und S(2 | −2) werden erreicht? (Alle Häuser liegen auf einer waagrechten oder senkrechten Linie durch M.)"
+    },
+    "o": {
+     "wert": 2,
+     "einheit": "Häuser"
+    },
+    "c": "2",
+    "h": "Bestimme für jedes Haus den Abstand zu M. Nur eine Koordinate ist anders.",
+    "w": "P: 6 − 3 = 3 ≤ 4, erreicht. Q: 7 − 2 = 5 > 4, nicht erreicht. R: 2 − (−1) = 3 ≤ 4, erreicht. S: 3 − (−2) = 5 > 4, nicht erreicht. Es sind 2 Häuser."
+   }
+  },
+  {
+   "kennung": "R5-V112",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "kreis_lage",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "11 und 3 addiert"
+    },
+    {
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Geraden als Radius genommen"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der y-Koordinate gerechnet: 11 − 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreis_lage",
+    "t": "kreis_lage",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kreis um M(3 | 2) berührt von links die senkrechte Gerade x = 11. Welchen Radius hat der Kreis?"
+    },
+    "o": {
+     "wert": 8
+    },
+    "c": "11 - 3",
+    "h": "Welcher Punkt des Kreises liegt auf der Geraden? Wo liegt er im Vergleich zu M?",
+    "w": "Der Berührpunkt ist (11 | 2). Der Radius ist der waagrechte Abstand von M: 11 − 3 = 8."
+   }
+  },
+  {
+   "kennung": "R5-V113",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "winkelarten",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Bis zur 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Eine Vierteldrehung ist ein rechter Winkel (90°)."
+    },
+    {
+     "index": 2,
+     "antwort": "Bis zur 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Eine halbe Drehung ist ein gestreckter Winkel (180°)."
+    },
+    {
+     "index": 3,
+     "antwort": "Bis zur 12 nach einer ganzen Runde",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Eine ganze Drehung ist ein Vollwinkel (360°)."
+    }
+   ],
+   "aufgabe": {
+    "l": "winkelarten",
+    "t": "winkelarten",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Minutenzeiger einer Uhr startet bei der 12 und dreht sich im Uhrzeigersinn bis zu einer Zahl auf dem Zifferblatt. Bis zu welcher Zahl hat er einen überstumpfen Winkel überstrichen?"
+    },
+    "a": [
+     "Bis zur 9",
+     "Bis zur 3",
+     "Bis zur 6",
+     "Bis zur 12 nach einer ganzen Runde"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welcher Teil einer ganzen Runde ist bis zur Zahl geschafft? Überstumpf liegt zwischen gestreckt und Vollwinkel.",
+    "w": "Von der 12 bis zur 3 ist es eine Vierteldrehung: 90°, ein rechter Winkel. Bis zur 6: halbe Drehung, 180°, gestreckt. Bis zur 9: Dreivierteldrehung, 270°, überstumpf. Bis zur 12 nach einer ganzen Runde: 360°, Vollwinkel."
+   }
+  },
+  {
+   "kennung": "R5-V114",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "winkelarten",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den gestreckten Winkel 180° mitgezählt"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den rechten Winkel 90° und den gestreckten Winkel 180° mitgezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "winkelarten",
+    "t": "winkelarten",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Tür lässt sich von 0° bis 180° öffnen. Ein Feststeller hält sie bei jedem Vielfachen von 15° fest (0°, 15°, 30°, … bis 180°). Bei wie vielen dieser Einstellungen ist der Öffnungswinkel ein stumpfer Winkel?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "Einstellungen"
+    },
+    "c": "(165 - 105) / 15 + 1",
+    "h": "Zwischen welchen beiden Gradzahlen liegen stumpfe Winkel? Welche Einstellungen des Feststellers fallen in diesen Bereich?",
+    "w": "Stumpf heißt: größer als 90° und kleiner als 180°. Das trifft auf 105°, 120°, 135°, 150° und 165° zu, also 5 Einstellungen. 90° ist ein rechter Winkel, 180° ein gestreckter."
+   }
+  },
+  {
+   "kennung": "R5-V115",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "vierecke",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Viereck A",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Alle Seiten gleich lang und vier rechte Winkel: das ist ein Quadrat."
+    },
+    {
+     "index": 1,
+     "antwort": "Viereck C",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Vier rechte Winkel, aber nicht alle Seiten gleich lang: ein Rechteck."
+    },
+    {
+     "index": 2,
+     "antwort": "Viereck D",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Viereck D hat nicht vier gleich lange Seiten und ist deshalb keine Raute."
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke",
+    "t": "vierecke",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle beschreibt vier Vierecke A bis D. Welches Viereck ist eine Raute, die kein Quadrat ist?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Viereck",
+       "Alle vier Seiten gleich lang",
+       "Vier rechte Winkel"
+      ],
+      "zeilen": [
+       [
+        "A",
+        "ja",
+        "ja"
+       ],
+       [
+        "B",
+        "ja",
+        "nein"
+       ],
+       [
+        "C",
+        "nein",
+        "ja"
+       ],
+       [
+        "D",
+        "nein",
+        "nein"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "Viereck A",
+     "Viereck C",
+     "Viereck D",
+     "Viereck B"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Eine Raute hat vier gleich lange Seiten. Ein Quadrat hat zusätzlich vier rechte Winkel.",
+    "w": "Eine Raute hat vier gleich lange Seiten. Ein Quadrat hätte zusätzlich vier rechte Winkel. Gesucht ist also: gleich lange Seiten (ja), rechte Winkel (nein). Das ist Viereck B."
+   }
+  },
+  {
+   "kennung": "R5-V116",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "vierecke",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur zwei Seiten gezählt (halber Umfang)"
+    },
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Flächeninhalt statt des Umfangs berechnet"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Seite zu wenig gezählt: 8 + 5 + 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke",
+    "t": "vierecke",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Beet hat die Form eines Rechtecks mit den Ecken A(−3 | −2), B(5 | −2), C(5 | 3) und D(−3 | 3). Eine Einheit entspricht 1 m. Wie viele Meter Zaun braucht man rund um das Beet?"
+    },
+    "o": {
+     "wert": 26,
+     "einheit": "m"
+    },
+    "c": "2 * (8 + 5)",
+    "h": "Wie lang sind die Seiten [AB] und [BC]? Eine Koordinate bleibt jeweils gleich.",
+    "w": "[AB] hat die Länge 5 − (−3) = 8 m. [BC] hat die Länge 3 − (−2) = 5 m. Rundherum: 2 · (8 + 5) = 26 m."
+   }
+  },
+  {
+   "kennung": "R5-V117",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Punkte über der x-Achse gezählt, auch E mit positivem x"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Punkte mit negativem x gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Mia behauptet: „Jeder Punkt mit negativer x-Koordinate liegt unter der x-Achse.“ In der Tabelle stehen sechs Punkte. Bei wie vielen von ihnen zeigt sich, dass die Behauptung nicht stimmt?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Punkt",
+       "x-Koordinate",
+       "y-Koordinate"
+      ],
+      "zeilen": [
+       [
+        "A",
+        "−3",
+        "4"
+       ],
+       [
+        "B",
+        "−2",
+        "−1"
+       ],
+       [
+        "C",
+        "5",
+        "−2"
+       ],
+       [
+        "D",
+        "−6",
+        "2"
+       ],
+       [
+        "E",
+        "1",
+        "3"
+       ],
+       [
+        "F",
+        "−4",
+        "−5"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 2,
+     "einheit": "Punkte"
+    },
+    "c": "2",
+    "h": "Zu einem Gegenbeispiel gehört eine negative x-Koordinate, aber ein Punkt, der nicht unter der x-Achse liegt. Welche Punkte der Tabelle sind das?",
+    "w": "Ein Gegenbeispiel hat x < 0 und liegt nicht unter der x-Achse, es gilt also x < 0 und y ≥ 0. Das trifft zu auf A(−3 | 4) und D(−6 | 2). B(−2 | −1) und F(−4 | −5) bestätigen die Behauptung, C(5 | −2) und E(1 | 3) haben ein positives x. Es sind 2 Punkte."
+   }
+  },
+  {
+   "kennung": "R5-V118",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Ein Quadrat mit 5 cm Seitenlänge",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das Quadrat passt zu Toms Aussage und widerlegt sie nicht."
+    },
+    {
+     "index": 2,
+     "antwort": "Ein Rechteck mit den Seiten 3 cm und 5 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Dieses Viereck hat keine vier gleich langen Seiten, es sagt über Toms Aussage nichts."
+    },
+    {
+     "index": 3,
+     "antwort": "Ein Parallelogramm mit den Seiten 4 cm und 6 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Auch hier sind nicht alle vier Seiten gleich lang, es ist also kein Gegenbeispiel."
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "auswahl",
+    "f": {
+     "text": "Tom behauptet: „Jedes Viereck mit vier gleich langen Seiten ist ein Quadrat.“ Welche Figur zeigt, dass Tom nicht recht hat?"
+    },
+    "a": [
+     "Ein Quadrat mit 5 cm Seitenlänge",
+     "Eine Raute mit 5 cm Seitenlänge und den Winkeln 60° und 120°",
+     "Ein Rechteck mit den Seiten 3 cm und 5 cm",
+     "Ein Parallelogramm mit den Seiten 4 cm und 6 cm"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Ein Gegenbeispiel muss die Voraussetzung (vier gleich lange Seiten) erfüllen, aber trotzdem kein Quadrat sein.",
+    "w": "Gesucht ist ein Viereck mit vier gleich langen Seiten, das kein Quadrat ist: Die Raute mit den Winkeln 60° und 120° hat vier gleich lange Seiten, aber keine rechten Winkel."
+   }
+  }
+ ]
+}

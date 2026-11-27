@@ -79,7 +79,7 @@
      "antwort": 5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "x − 5 mit 12 : 7 verwechselt"
+     "beschreibung": "12 − 7 gerechnet statt 12 : 2"
     }
    ],
    "aufgabe": {
@@ -138,7 +138,7 @@
      "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die x-Differenz mal 1 gerechnet"
+     "beschreibung": "nur den Unterschied der x-Werte genommen: 10 − 4"
     }
    ],
    "aufgabe": {
@@ -243,10 +243,10 @@
     },
     {
      "luecke": 2,
-     "antwort": 16,
+     "antwort": 26,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit x = 5 statt x = −5 gerechnet"
+     "beschreibung": "mit x = 5 statt x = −5 gerechnet: 2 · (5 + 3) + 10"
     }
    ],
    "aufgabe": {
@@ -904,25 +904,25 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "Klasse → Schüler dieser Klasse",
+     "index": 1,
+     "antwort": "Die Zuordnung ist eindeutig, denn jedem y-Wert gehört nur ein x-Wert.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "zu einer Klasse gehören mehrere Schüler"
+     "beschreibung": "es kommt auf die x-Werte an: Jedem x darf nur ein y gehören"
     },
     {
      "index": 2,
-     "antwort": "Zahl → ihre Teiler",
+     "antwort": "Die Zuordnung ist eindeutig, denn jedes x kommt vor.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "eine Zahl hat meist mehrere Teiler"
+     "beschreibung": "dass jedes x vorkommt, genügt nicht: Zu x = 2 gehören zwei y-Werte"
     },
     {
      "index": 3,
-     "antwort": "Zahl → eine kleinere Zahl",
+     "antwort": "Die Zuordnung ist nicht eindeutig, denn y wird immer größer.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "zu einer Zahl passen viele kleinere Zahlen"
+     "beschreibung": "dass y wächst, sagt nichts über die Eindeutigkeit"
     }
    ],
    "aufgabe": {
@@ -932,20 +932,20 @@
     "s": 1,
     "g": "erkennen",
     "f": {
-     "text": "Welche dieser Zuordnungen ist eindeutig, ordnet also jedem Wert genau einen Wert zu?"
+     "text": "Eine Wertetabelle enthält diese Zuordnungen: x = 1 → y = 5, x = 2 → y = 7, x = 3 → y = 9, x = 2 → y = 8. Was zeigt die Tabelle?"
     },
     "y": "auswahl",
     "a": [
-     "Klasse → Schüler dieser Klasse",
-     "Schüler → seine Klasse",
-     "Zahl → ihre Teiler",
-     "Zahl → eine kleinere Zahl"
+     "Die Zuordnung ist nicht eindeutig, denn zu x = 2 gehören zwei verschiedene y-Werte.",
+     "Die Zuordnung ist eindeutig, denn jedem y-Wert gehört nur ein x-Wert.",
+     "Die Zuordnung ist eindeutig, denn jedes x kommt vor.",
+     "Die Zuordnung ist nicht eindeutig, denn y wird immer größer."
     ],
     "o": {
-     "index": 1
+     "index": 0
     },
-    "h": "Prüfe: Gibt es einen Wert links, zu dem mehrere Werte rechts passen?",
-    "w": "Jeder Schüler hat genau eine Klasse, die Zuordnung Schüler → Klasse ist eindeutig. Zu einer Klasse gehören viele Schüler, zu einer Zahl gibt es mehrere Teiler und mehrere kleinere Zahlen, diese Zuordnungen sind nicht eindeutig."
+    "h": "Schau, ob ein x-Wert mehrmals mit verschiedenen y-Werten vorkommt.",
+    "w": "Bei einer eindeutigen Zuordnung gehört zu jedem x genau ein y. Hier kommt x = 2 zweimal vor, einmal mit y = 7 und einmal mit y = 8. Deshalb ist die Zuordnung nicht eindeutig und keine Funktion."
    }
   },
   {

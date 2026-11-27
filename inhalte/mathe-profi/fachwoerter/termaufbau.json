@@ -98,6 +98,20 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "malgenommen"
+    },
+    {
+     "luecke": 4,
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt geteilt"
+    },
+    {
+     "luecke": 4,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 − 4 gerechnet"
     }
    ],
    "aufgabe": {
@@ -108,24 +122,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Der Quotient aus 72 und 9 ist 72 : 9 = ①. Der Quotient aus ① und 2 ist ① : 2 = ②. Der Quotient aus 72 und 6 ist 72 : 6 = ③.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Der Quotient aus 72 und 9 ist 72 : 9 = ①. Der Quotient aus ① und 2 ist ① : 2 = ②. Der Quotient aus 72 und 6 ist 72 : 6 = ③. Der Quotient aus ③ und ② ist ③ : ② = ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       8,
       4,
-      12
+      12,
+      3
      ]
     },
     "c": [
      "72//9",
      "72//9//2",
-     "72//6"
+     "72//6",
+     "(72//6)//(72//9//2)"
     ],
     "h": "Quotient heißt geteilt. Die zuerst genannte Zahl wird geteilt.",
-    "w": "72 : 9 = 8. 8 : 2 = 4. 72 : 6 = 12. Bei „Quotient aus a und b“ wird a durch b geteilt."
+    "w": "72 : 9 = 8. 8 : 2 = 4. 72 : 6 = 12. 12 : 4 = 3. Bei „Quotient aus a und b“ wird a durch b geteilt."
    }
   },
   {
@@ -235,7 +251,7 @@
    "antwortform": "luecken",
    "regel": "rr.reihenfolge",
    "regel_name": "Reihenfolge beim Rechnen",
-   "zaehlt": "ja",
+   "zaehlt": "nein",
    "fehlbilder": [
     {
      "luecke": 1,
@@ -318,7 +334,7 @@
      "beschreibung": "dazugezählt statt abgezogen"
     },
     {
-     "antwort": 184,
+     "antwort": 276,
      "fehlbild": "fb.reihenfolge.links_nach_rechts",
      "regel_des_fehlbilds": "rr.reihenfolge",
      "beschreibung": "(50 − 4) · 6 gerechnet"
@@ -463,7 +479,7 @@
    "antwortform": "luecken",
    "regel": "id.algebra.term",
    "regel_name": "Term",
-   "zaehlt": "ja",
+   "zaehlt": "nein",
    "fehlbilder": [
     {
      "luecke": 1,
@@ -484,7 +500,21 @@
      "antwort": 12,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Klammer nicht beachtet"
+     "beschreibung": "mit Klammer gerechnet: das Ergebnis der zweiten Lücke übernommen"
+    },
+    {
+     "luecke": 4,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 − 6 gerechnet: das Minus von −6 übersehen"
+    },
+    {
+     "luecke": 4,
+     "antwort": -18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Unterschied falsch herum gebildet"
     }
    ],
    "aufgabe": {
@@ -495,24 +525,26 @@
     "g": "darstellung",
     "y": "luecken",
     "f": {
-     "text": "Die Summe aus −5 und 9 ist −5 + 9 = ①. Das Dreifache dieser Summe ist 3 · ① = ②. Ohne Klammer käme 3 · (−5) + 9 = ③ heraus, das ist etwas anderes.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Die Summe aus −5 und 9 ist −5 + 9 = ①. Das Dreifache dieser Summe ist 3 · ① = ②. Ohne Klammer käme 3 · (−5) + 9 = ③ heraus, das ist etwas anderes. Der Unterschied der beiden Ergebnisse ist ② − ③ = ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       4,
       12,
-      -6
+      -6,
+      18
      ]
     },
     "c": [
      "-5+9",
      "3*(-5+9)",
-     "3*(-5)+9"
+     "3*(-5)+9",
+     "3*(-5+9)-(3*(-5)+9)"
     ],
     "h": "„Das Dreifache von etwas“ heißt: mal 3. Die Klammer hält die Summe zusammen.",
-    "w": "−5 + 9 = 4. 3 · 4 = 12. Ohne Klammer: −15 + 9 = −6. Die Klammer hält die Summe zusammen: 3 · (−5 + 9)."
+    "w": "−5 + 9 = 4. 3 · 4 = 12. Ohne Klammer: −15 + 9 = −6. Der Unterschied ist 12 − (−6) = 18. Die Klammer hält die Summe zusammen: 3 · (−5 + 9)."
    }
   },
   {

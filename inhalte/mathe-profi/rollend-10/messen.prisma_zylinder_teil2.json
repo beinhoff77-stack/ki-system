@@ -1,0 +1,172 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-10",
+ "kuerzel": "K9B",
+ "flug": "k9b-messen.prisma_zylinder_teil2",
+ "titel": "messen.prisma_zylinder_teil2",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "messen.prisma_zylinder_teil2"
+ ],
+ "themen_datei_im_bestand": "messen.prisma_zylinder",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K9B-V106",
+   "thema": "messen.prisma_zylinder_teil2",
+   "lernkarte": "cavalieri",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Seiten addiert: 4 + 5"
+    },
+    {
+     "luecke": 2,
+     "antwort": 200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Länge der Seitenkante statt der senkrechten Höhe gerechnet: 20 · 10"
+    },
+    {
+     "luecke": 3,
+     "antwort": 160,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen als Unterschied angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "cavalieri",
+    "t": "cavalieri",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein schiefes Prisma hat als Grundfläche ein Rechteck mit den Seiten 4 cm und 5 cm. Seine schräge Seitenkante ist 10 cm lang. Der senkrechte Abstand zwischen Grund- und Deckfläche beträgt 8 cm. Die Grundfläche ist ① cm² groß. Das Volumen des Prismas ist ② cm³. Würde man fälschlich mit der Länge der Seitenkante rechnen, käme ein um ③ cm³ größeres Volumen heraus.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      20,
+      160,
+      40
+     ]
+    },
+    "c": [
+     "4 * 5",
+     "(4 * 5) * 8",
+     "(4 * 5) * 10 - ((4 * 5) * 8)"
+    ],
+    "h": "Nach dem Prinzip von Cavalieri hat ein schiefes Prisma dasselbe Volumen wie ein gerades Prisma mit gleicher Grundfläche und gleicher senkrechter Höhe.",
+    "w": "G = 4 · 5 = 20 cm². Mit der senkrechten Höhe: V = 20 · 8 = 160 cm³. Mit der Seitenkante käme 20 · 10 = 200 cm³ heraus, das sind 200 − 160 = 40 cm³ zu viel."
+   }
+  },
+  {
+   "kennung": "K9B-V107",
+   "thema": "messen.prisma_zylinder_teil2",
+   "lernkarte": "cavalieri",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 400,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Platte gezählt"
+    },
+    {
+     "antwort": 600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Kantenlänge mal die Höhe gerechnet: 20 · 30"
+    }
+   ],
+   "aufgabe": {
+    "l": "cavalieri",
+    "t": "cavalieri",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "30 quadratische Holzplatten mit der Kantenlänge 20 cm und der Dicke 1 cm werden zu einem Stapel aufgeschichtet. Jede Platte ist gegen die darunterliegende leicht verschoben, sodass der Stapel schief steht. Alle Platten liegen waagerecht. Wie groß ist das Volumen des Stapels in cm³?"
+    },
+    "o": {
+     "wert": 12000,
+     "einheit": "cm³"
+    },
+    "c": "20 * 20 * 30",
+    "h": "Jede Platte hat dasselbe Volumen, egal wie sie verschoben ist. Wie hoch ist der Stapel senkrecht gemessen?",
+    "w": "Der Stapel ist 30 · 1 = 30 cm hoch. Nach Cavalieri ist sein Volumen wie bei einem geraden Stapel: V = 20 · 20 · 30 = 12 000 cm³. Das ist auch 30 Platten mit je 400 cm³."
+   }
+  },
+  {
+   "kennung": "K9B-V108",
+   "thema": "messen.prisma_zylinder_teil2",
+   "lernkarte": "cavalieri",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch die Seitenkante statt durch die senkrechte Höhe geteilt: 252 : 10 : 9"
+    },
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundfläche statt der Breite angegeben"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe vergessen: 252 : 9"
+    }
+   ],
+   "aufgabe": {
+    "l": "cavalieri",
+    "t": "cavalieri",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein schiefes Prisma hat als Grundfläche ein Rechteck, das 9 cm lang ist. Der senkrechte Abstand zwischen Grund- und Deckfläche ist 7 cm, die schräge Seitenkante ist 10 cm lang. Das Volumen des Prismas beträgt 252 cm³. Wie breit ist das Rechteck der Grundfläche?"
+    },
+    "o": {
+     "wert": 4,
+     "einheit": "cm"
+    },
+    "c": "252 / 7 / 9",
+    "h": "Das Volumen eines schiefen Prismas ist Grundfläche mal senkrechte Höhe. Die Grundfläche ist ein Rechteck aus Länge und Breite.",
+    "w": "G = V : h = 252 : 7 = 36 cm². Breite = G : Länge = 36 : 9 = 4 cm. Probe: 9 · 4 · 7 = 252. Die Seitenkante von 10 cm ist nicht die Höhe und wird nicht gebraucht."
+   }
+  }
+ ]
+}

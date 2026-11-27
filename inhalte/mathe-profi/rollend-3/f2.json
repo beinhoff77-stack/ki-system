@@ -78,7 +78,29 @@
    "regel": "rr.verhaeltnis",
    "regel_name": "Verhältnis (Dreisatz)",
    "zaehlt": "nein",
-   "fehlbilder": [],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 + 1 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "11 + 2 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal statt geteilt"
+    }
+   ],
    "aufgabe": {
     "l": "zwei_punkte",
     "t": "zwei_punkte",

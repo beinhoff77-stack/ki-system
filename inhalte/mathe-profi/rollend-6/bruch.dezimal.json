@@ -1,0 +1,1354 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-6",
+ "kuerzel": "K6",
+ "flug": "k6-bruch.dezimal",
+ "titel": "bruch.dezimal",
+ "fuer": "Klasse 6",
+ "klasse": 6,
+ "themen": [
+  "bruch.dezimal"
+ ],
+ "themen_datei_im_bestand": "bruch.dezimal",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema, lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder (mit Rechnung c, wo es eine gibt) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K6-V043",
+   "thema": "bruch.dezimal",
+   "lernkarte": "stellenwerte",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.buendeln",
+   "regel_name": "Bündeln in Zehnern",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht gebündelt: 15 als Hundertstel genommen",
+     "c": "15"
+    },
+    {
+     "luecke": 2,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Bündeln nur 1 statt 10 Tausendstel abgezogen",
+     "c": "15 - (1)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 6251,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Hundertstel- und Tausendstelziffer vertauscht: 6,251",
+     "c": "(6 + 2/10 + (5)/100 + (1)/1000) * 1000"
+    },
+    {
+     "luecke": 4,
+     "antwort": 621,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "abgerundet statt aufgerundet",
+     "c": "(6215) // 10"
+    }
+   ],
+   "aufgabe": {
+    "l": "stellenwerte",
+    "t": "stellenwerte",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Zahl hat 6 Einer, 2 Zehntel und 15 Tausendstel. Bündele die 15 Tausendstel: Das sind ① Hundertstel und ② Tausendstel. Schreibe die Zahl mit genau drei Nachkommastellen. Die ganze Zahl, die entsteht, wenn du das Komma weglässt, ist ③. Auf Hundertstel gerundet sind es ④ Hundertstel.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      1,
+      5,
+      6215,
+      622
+     ]
+    },
+    "c": [
+     "15 // 10",
+     "15 % 10",
+     "(6 + 2/10 + (1)/100 + (5)/1000) * 1000",
+     "((6215) + 5) // 10"
+    ],
+    "h": "Zehn Tausendstel sind ein Hundertstel.",
+    "w": "15 Tausendstel = 1 Hundertstel und 5 Tausendstel. Die Zahl ist 6,215. Ohne Komma: 6215. Auf Hundertstel gerundet: 6,22, das sind 622 Hundertstel."
+   }
+  },
+  {
+   "kennung": "K6-V044",
+   "thema": "bruch.dezimal",
+   "lernkarte": "stellenwerte",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 120.7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 statt mit 100 malgenommen",
+     "c": "12.07 * 10"
+    },
+    {
+     "antwort": 12070,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 1000 malgenommen",
+     "c": "12.07 * 1000"
+    }
+   ],
+   "aufgabe": {
+    "l": "stellenwerte",
+    "t": "stellenwerte",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Stoppuhr zeigt 12,07 Sekunden. Wie viele Hundertstelsekunden sind das?"
+    },
+    "o": {
+     "wert": 1207,
+     "einheit": "Hundertstelsekunden"
+    },
+    "c": "12.07 * 100",
+    "h": "Wie viele Hundertstel passen in eine ganze Sekunde?",
+    "w": "Eine Sekunde hat 100 Hundertstelsekunden. 12 · 100 = 1200, dazu 7: 1207 Hundertstelsekunden."
+   }
+  },
+  {
+   "kennung": "K6-V045",
+   "thema": "bruch.dezimal",
+   "lernkarte": "stellenwerte",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "0,3 + 0,5 = 0,8 ist für sich richtig gerechnet. Es benutzt aber die falsche 0,5 aus Zeile 2; dort steht der erste Fehler.",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "stellenwerte",
+    "t": "stellenwerte",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Jonas schreibt „3 Zehntel und 5 Hundertstel“ als Dezimalzahl. Zeile 1: 3 Zehntel = 0,3 Zeile 2: 5 Hundertstel = 0,5 Zeile 3: 0,3 + 0,5 = 0,8 In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Welche Stelle hinter dem Komma gehört zu den Hundertsteln?",
+    "w": "5 Hundertstel sind 0,05. Zusammen: 0,3 + 0,05 = 0,35. In Zeile 2 steht die 5 an der Zehntelstelle. Zeile 3 rechnet damit richtig weiter."
+   }
+  },
+  {
+   "kennung": "K6-V046",
+   "thema": "bruch.dezimal",
+   "lernkarte": "vergleichen_ordnen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Hundertstel statt Tausendstel gezählt",
+     "c": "0.45 * 100"
+    },
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Zehntel statt Tausendstel gezählt",
+     "c": "0.5 * 10"
+    },
+    {
+     "luecke": 3,
+     "antwort": 950,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Tausendstel addiert statt abgezogen",
+     "c": "(450) + (500)"
+    },
+    {
+     "luecke": 4,
+     "antwort": 500,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 malgenommen statt durch 10 geteilt",
+     "c": "(50) * 10"
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen_ordnen",
+    "t": "vergleichen_ordnen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Vergleiche 0,45 und 0,5 als Tausendstel. 0,45 sind ① Tausendstel. 0,5 sind ② Tausendstel. Die größere Zahl ist um ③ Tausendstel größer. Der Unterschied sind ④ Hundertstel.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      450,
+      500,
+      50,
+      5
+     ]
+    },
+    "c": [
+     "0.45 * 1000",
+     "0.5 * 1000",
+     "(500) - (450)",
+     "(50) / 10"
+    ],
+    "h": "Wie viele Tausendstel sind ein Zehntel, wie viele ein Hundertstel?",
+    "w": "0,45 = 450/1000 und 0,5 = 500/1000. 500 − 450 = 50. Also ist 0,5 größer als 0,45, um 50 Tausendstel. 50 Tausendstel sind 5 Hundertstel."
+   }
+  },
+  {
+   "kennung": "K6-V047",
+   "thema": "bruch.dezimal",
+   "lernkarte": "vergleichen_ordnen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Die Zahlen hinter dem Komma wie ganze Zahlen vergleichen: 8 und 75.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Stellenzahl nicht angeglichen: 75 gegen 8",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "Die Ziffern zählen: Die Zahl mit mehr Ziffern ist die größere.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Ziffern statt des Werts verglichen",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen_ordnen",
+    "t": "vergleichen_ordnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Du willst zwei Dezimalzahlen vergleichen, zum Beispiel 0,8 und 0,75. Welcher Weg entscheidet für jedes Paar nichtnegativer Dezimalzahlen richtig?"
+    },
+    "a": [
+     "Die Zahlen hinter dem Komma wie ganze Zahlen vergleichen: 8 und 75.",
+     "Rechts vom Komma bei Bedarf Nullen anhängen, bis beide Zahlen gleich viele Nachkommastellen haben. Dann bei beiden das Komma streichen und die ganzen Zahlen vergleichen. Beim Beispiel vergleichst du 80 mit 75.",
+     "Die Ziffern zählen: Die Zahl mit mehr Ziffern ist die größere."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Schreibe beide Zahlen mit gleich vielen Nachkommastellen.",
+    "w": "Hänge Nullen an, bis beide Zahlen gleich viele Nachkommastellen haben, streiche dann das Komma und vergleiche die ganzen Zahlen. Beim Beispiel: 0,8 = 0,80 und 0,75, also 80 und 75. Es ist 80 > 75, also 0,8 > 0,75. Das klappt für jedes Paar, z. B. 0,751 und 0,759: 751 < 759. Die Länge der Ziffernfolge sagt nichts über die Größe."
+   }
+  },
+  {
+   "kennung": "K6-V048",
+   "thema": "bruch.dezimal",
+   "lernkarte": "vergleichen_ordnen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den weitesten mit dem mittleren statt mit dem kürzesten Flug verglichen",
+     "c": "(4.5 - 4.35) * 100"
+    },
+    {
+     "antwort": 0.195,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in Metern angegeben statt in Zentimetern",
+     "c": "4.5 - 4.305"
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen_ordnen",
+    "t": "vergleichen_ordnen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Drei Papierflieger fliegen 4,35 m, 4,5 m und 4,305 m weit. Um wie viele Zentimeter ist der weiteste Flug weiter als der kürzeste?"
+    },
+    "o": {
+     "wert": 19.5,
+     "einheit": "cm"
+    },
+    "c": "(4.5 - 4.305) * 100",
+    "h": "Welcher Flug ist der weiteste, welcher der kürzeste? Schreibe die Zahlen mit gleich vielen Stellen.",
+    "w": "Mit drei Nachkommastellen: 4,350 m, 4,500 m, 4,305 m. Weitester: 4,5 m, kürzester: 4,305 m. Unterschied 0,195 m = 19,5 cm."
+   }
+  },
+  {
+   "kennung": "K6-V049",
+   "thema": "bruch.dezimal",
+   "lernkarte": "runden",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hundertstelziffer statt der Tausendstelziffer genommen",
+     "c": "(43652 // 100) % 10"
+    },
+    {
+     "luecke": 2,
+     "antwort": 436,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "abgerundet statt aufgerundet",
+     "c": "43652 // 100"
+    },
+    {
+     "luecke": 3,
+     "antwort": 52,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nach dem Abrunden gerechnet: 4,3652 − 4,36",
+     "c": "43652 - 436 * 100"
+    }
+   ],
+   "aufgabe": {
+    "l": "runden",
+    "t": "runden",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Runde 4,3652 auf Hundertstel. Die Ziffer an der Tausendstelstelle ist ①. Gerundet sind es ② Hundertstel. Die Rundung ändert die Zahl um ③ Zehntausendstel.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      5,
+      437,
+      48
+     ]
+    },
+    "c": [
+     "(43652 // 10) % 10",
+     "436 + (5) // 5",
+     "(437) * 100 - 43652"
+    ],
+    "h": "Über die Rundung entscheidet die Ziffer direkt hinter der Rundungsstelle.",
+    "w": "An der Tausendstelstelle steht 5, es wird aufgerundet: 4,37 sind 437 Hundertstel. 4,37 − 4,3652 = 0,0048, das sind 48 Zehntausendstel."
+   }
+  },
+  {
+   "kennung": "K6-V050",
+   "thema": "bruch.dezimal",
+   "lernkarte": "runden",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 67.64,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet statt gerundet",
+     "c": "67.64"
+    },
+    {
+     "antwort": 67.6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur auf Zehntel gerundet",
+     "c": "round(38.45 * 1.759, 1)"
+    }
+   ],
+   "aufgabe": {
+    "l": "runden",
+    "t": "runden",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Beim Tanken kommen 38,45 Liter in den Tank. Ein Liter kostet 1,759 €. Berechne den Preis und runde auf ganze Cent. Wie viel Euro zahlst du?"
+    },
+    "o": {
+     "wert": 67.63,
+     "einheit": "€"
+    },
+    "c": "round(38.45 * 1.759, 2)",
+    "h": "Rechne zuerst genau und runde erst am Ende.",
+    "w": "38,45 · 1,759 = 67,63355. Auf Cent gerundet: 67,63 €, denn die dritte Nachkommastelle ist 3."
+   }
+  },
+  {
+   "kennung": "K6-V051",
+   "thema": "bruch.dezimal",
+   "lernkarte": "runden",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "runden",
+    "t": "runden",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Mira rundet 3,7449 auf Hundertstel. Zeile 1: Die Ziffer an der Tausendstelstelle ist 4. Zeile 2: 4 ist kleiner als 5, also wird abgerundet. Zeile 3: 3,7449 ≈ 3,75 In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Prüfe die Rundung noch einmal mit der Zahl.",
+    "w": "Es wird abgerundet, die Hundertstelziffer bleibt 4: 3,7449 ≈ 3,74. In Zeile 3 steht das Aufrunden trotz richtiger Regel."
+   }
+  },
+  {
+   "kennung": "K6-V052",
+   "thema": "bruch.dezimal",
+   "lernkarte": "bruch_zu_dezimal",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 992,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1000 − 8 gerechnet",
+     "c": "1000 - 8"
+    },
+    {
+     "luecke": 2,
+     "antwort": 132,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler addiert statt malgenommen",
+     "c": "7 + (125)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 87,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "abgerundet statt aufgerundet",
+     "c": "(875) // 10"
+    }
+   ],
+   "aufgabe": {
+    "l": "bruch_zu_dezimal",
+    "t": "bruch_zu_dezimal",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Schreibe 7/8 als Dezimalzahl. Erweitere auf den Nenner 1000. Die Erweiterungszahl ist ①. Der neue Zähler ist ②. Er gibt die Tausendstel an. Auf Hundertstel gerundet sind es ③ Hundertstel.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      125,
+      875,
+      88
+     ]
+    },
+    "c": [
+     "1000 / 8",
+     "7 * (125)",
+     "((875) + 5) // 10"
+    ],
+    "h": "Mit welcher Zahl wird aus 8 die 1000?",
+    "w": "1000 : 8 = 125. 7 · 125 = 875. Also 7/8 = 875/1000 = 0,875. Auf Hundertstel gerundet: 0,88, das sind 88 Hundertstel."
+   }
+  },
+  {
+   "kennung": "K6-V053",
+   "thema": "bruch.dezimal",
+   "lernkarte": "bruch_zu_dezimal",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 437.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "als Tausendstel statt als Zehntausendstel gezählt",
+     "c": "7 / 16 * 1000"
+    },
+    {
+     "antwort": 625,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Erweiterungszahl angegeben",
+     "c": "10000 / 16"
+    }
+   ],
+   "aufgabe": {
+    "l": "bruch_zu_dezimal",
+    "t": "bruch_zu_dezimal",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Weg A: Teile 7 durch 16 schriftlich und lies die Dezimalzahl ab. Weg B: Erweitere 7/16 auf den Nenner 10 000. Wie viele Zehntausendstel sind 7/16?"
+    },
+    "o": {
+     "wert": 4375
+    },
+    "c": "7 * 625",
+    "h": "Beide Wege liefern dieselbe Zahl. Mit welcher Zahl wird 16 zu 10 000?",
+    "w": "Weg A: 7 : 16 = 0,4375, das sind 4375 Zehntausendstel. Weg B: 10 000 : 16 = 625 und 7 · 625 = 4375. Also 7/16 = 4375/10 000."
+   }
+  },
+  {
+   "kennung": "K6-V054",
+   "thema": "bruch.dezimal",
+   "lernkarte": "bruch_zu_dezimal",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15.3125,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "16 − 0,6875 gerechnet",
+     "c": "16 - 0.6875"
+    },
+    {
+     "antwort": 0.04296875,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "0,6875 durch 16 geteilt",
+     "c": "0.6875 / 16"
+    }
+   ],
+   "aufgabe": {
+    "l": "bruch_zu_dezimal",
+    "t": "bruch_zu_dezimal",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Der Bruch ?/16 hat den Wert 0,6875. Welche Zahl steht an der Stelle des Fragezeichens?"
+    },
+    "o": {
+     "wert": 11
+    },
+    "c": "0.6875 * 16",
+    "h": "Der Bruch bedeutet Zähler : Nenner. Wie hängen Zähler, Nenner und Wert zusammen?",
+    "w": "Zähler : 16 = 0,6875. Also ist der Zähler 0,6875 · 16 = 11. Probe: 11 : 16 = 0,6875."
+   }
+  },
+  {
+   "kennung": "K6-V055",
+   "thema": "bruch.dezimal",
+   "lernkarte": "dezimal_zu_bruch",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen gemeinsamen Teiler genommen, nicht den größten",
+     "c": null
+    },
+    {
+     "luecke": 2,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch 2 gekürzt",
+     "c": "36 / 2"
+    },
+    {
+     "luecke": 3,
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch 2 gekürzt",
+     "c": "100 / 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "dezimal_zu_bruch",
+    "t": "dezimal_zu_bruch",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Schreibe 0,36 als vollständig gekürzten Bruch. Zuerst 36/100. Der ggT von 36 und 100 ist ①. Gekürzt ist der Bruch ②/③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      4,
+      9,
+      25
+     ]
+    },
+    "c": [
+     "4",
+     "36 / (4)",
+     "100 / (4)"
+    ],
+    "h": "Welche größte Zahl steckt in 36 und in 100?",
+    "w": "36/100: der ggT ist 4. 36 : 4 = 9 und 100 : 4 = 25. Also 0,36 = 9/25."
+   }
+  },
+  {
+   "kennung": "K6-V056",
+   "thema": "bruch.dezimal",
+   "lernkarte": "dezimal_zu_bruch",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 125,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler nicht gekürzt",
+     "c": "125 / 1"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner nicht gekürzt",
+     "c": "1000 / 1"
+    }
+   ],
+   "aufgabe": {
+    "l": "dezimal_zu_bruch",
+    "t": "dezimal_zu_bruch",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "luecken",
+    "f": {
+     "text": "Auf einem Messbecher steht 0,125 Liter. Schreibe 0,125 als vollständig gekürzten Bruch.",
+     "schablone": "□/□",
+     "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+    },
+    "o": {
+     "werte": [
+      1,
+      8
+     ]
+    },
+    "c": [
+     "125 / 125",
+     "1000 / 125"
+    ],
+    "h": "0,125 sind 125 Tausendstel. Kürze mit dem ggT von 125 und 1000.",
+    "w": "0,125 = 125/1000. Der ggT ist 125. 125 : 125 = 1 und 1000 : 125 = 8. Also 0,125 = 1/8."
+   }
+  },
+  {
+   "kennung": "K6-V057",
+   "thema": "bruch.dezimal",
+   "lernkarte": "dezimal_zu_bruch",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile ist richtig; die erste falsche Aussage kommt erst weiter unten.",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Das Kürzen 45/100 = 9/20 ist für sich richtig. Es baut aber auf dem falschen Nenner aus Zeile 2 auf; dort steht der erste Fehler.",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "dezimal_zu_bruch",
+    "t": "dezimal_zu_bruch",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Peter schreibt 0,045 als Bruch. Zeile 1: 0,045 hat drei Nachkommastellen, also ist der Nenner 1000. Zeile 2: 0,045 = 45/100 Zeile 3: 45/100 = 9/20 In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wie viele Stellen hat 0,045 hinter dem Komma?",
+    "w": "0,045 = 45/1000 = 9/200. In Zeile 2 steht der Nenner 100 statt 1000, obwohl Zeile 1 es richtig sagt. Zeile 3 kürzt 45/100 richtig."
+   }
+  },
+  {
+   "kennung": "K6-V058",
+   "thema": "bruch.dezimal",
+   "lernkarte": "merkwerte",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler als Zehntel genommen",
+     "c": "3"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler als Zehntel genommen",
+     "c": "4"
+    },
+    {
+     "luecke": 3,
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zehntel malgenommen statt addiert",
+     "c": "(6) * (8)"
+    },
+    {
+     "luecke": 4,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zehntel nicht in Hundertstel umgerechnet",
+     "c": "(14)"
+    }
+   ],
+   "aufgabe": {
+    "l": "merkwerte",
+    "t": "merkwerte",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Du weißt: 1/5 = 0,2. Also sind 3/5 genau ① Zehntel und 4/5 genau ② Zehntel. Zusammen sind 3/5 + 4/5 genau ③ Zehntel. Als Hundertstel sind das ④ Hundertstel.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      6,
+      8,
+      14,
+      140
+     ]
+    },
+    "c": [
+     "3 * 2",
+     "4 * 2",
+     "(6) + (8)",
+     "(14) * 10"
+    ],
+    "h": "Ein Fünftel sind zwei Zehntel.",
+    "w": "3/5 = 3 · 0,2 = 0,6, das sind 6 Zehntel. 4/5 sind 8 Zehntel. Zusammen 14 Zehntel, also 1,4. Das sind 140 Hundertstel."
+   }
+  },
+  {
+   "kennung": "K6-V059",
+   "thema": "bruch.dezimal",
+   "lernkarte": "merkwerte",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.005,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied als Dezimalzahl statt als Tausendstel angegeben",
+     "c": "5/8 - 0.62"
+    },
+    {
+     "antwort": 620,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 0,62 in Tausendstel angegeben",
+     "c": "0.62 * 1000"
+    }
+   ],
+   "aufgabe": {
+    "l": "merkwerte",
+    "t": "merkwerte",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Rechne 5/8 als Dezimalzahl und vergleiche mit 0,62. Um wie viele Tausendstel ist 5/8 größer als 0,62?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "5/8 * 1000 - 0.62 * 1000",
+    "h": "Merke dir 1/8 = 0,125.",
+    "w": "5/8 = 5 · 0,125 = 0,625. 0,625 − 0,62 = 0,005, das sind 5 Tausendstel."
+   }
+  },
+  {
+   "kennung": "K6-V060",
+   "thema": "bruch.dezimal",
+   "lernkarte": "merkwerte",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 144,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "48 mit 3 malgenommen",
+     "c": "48 * 3"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Achtel berechnet",
+     "c": "48 / 8"
+    }
+   ],
+   "aufgabe": {
+    "l": "merkwerte",
+    "t": "merkwerte",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne 0,375 · 48 auf zwei Wegen. Weg A: Multipliziere 0,375 mit 48. Weg B: Nimm 3/8 von 48. Wie groß ist das Ergebnis?"
+    },
+    "o": {
+     "wert": 18
+    },
+    "c": "0.375 * 48",
+    "h": "Beide Wege führen zum selben Ergebnis. Wie viele sind ein Achtel von 48?",
+    "w": "Weg A: 0,375 · 48 = 18. Weg B: 0,375 = 3/8. 48 : 8 = 6 und 3 · 6 = 18."
+   }
+  },
+  {
+   "kennung": "K6-V061",
+   "thema": "bruch.dezimal",
+   "lernkarte": "periodisch",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler als erste Nachkommaziffer genommen",
+     "c": "5"
+    },
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die erste Ziffer als Periode genommen",
+     "c": "(8)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 84,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet, obwohl die nächste Ziffer 3 ist",
+     "c": "(8) * 10 + (3) + 1"
+    },
+    {
+     "luecke": 4,
+     "antwort": 834,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet, obwohl die nächste Ziffer 3 ist",
+     "c": "(8) * 100 + (3) * 10 + (3) + 1"
+    }
+   ],
+   "aufgabe": {
+    "l": "periodisch",
+    "t": "periodisch",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Rechne 5 : 6. Nach dem Komma steht zuerst die Ziffer ①. Danach wiederholt sich immer dieselbe Ziffer ②. Auf Hundertstel gerundet sind das ③ Hundertstel. Auf Tausendstel gerundet sind das ④ Tausendstel.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      8,
+      3,
+      83,
+      833
+     ]
+    },
+    "c": [
+     "50 // 6",
+     "(50 % 6) * 10 // 6",
+     "(8) * 10 + (3) + (3) // 5",
+     "(8) * 100 + (3) * 10 + (3) + (3) // 5"
+    ],
+    "h": "Teile 50 durch 6 und achte auf den Rest.",
+    "w": "5 : 6 = 0,8333… Die 8 steht einmal, dann wiederholt sich die 3. Gerundet auf Hundertstel: 0,83, das sind 83 Hundertstel (die nächste Ziffer 3 rundet ab). Auf Tausendstel: 0,833, das sind 833 Tausendstel."
+   }
+  },
+  {
+   "kennung": "K6-V062",
+   "thema": "bruch.dezimal",
+   "lernkarte": "periodisch",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "27 als Zähler: die Probe 27 : 11 ergibt 2,4545… statt 0,2727…",
+     "c": "27"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 als Zähler: die Probe 9 : 11 ergibt 0,8181… statt 0,2727…",
+     "c": "9"
+    }
+   ],
+   "aufgabe": {
+    "l": "periodisch",
+    "t": "periodisch",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Dezimalzahl 0,272727… (die Ziffern 27 wiederholen sich) ist gleich ?/11. Welche Zahl steht im Zähler?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "27 / 99 * 11",
+    "h": "Teile für kleine Zähler Z : 11 schriftlich und vergleiche mit 0,2727…",
+    "w": "3 : 11 = 0,272727… Also ist 0,272727… = 3/11. Der Zähler ist 3."
+   }
+  },
+  {
+   "kennung": "K6-V063",
+   "thema": "bruch.dezimal",
+   "lernkarte": "periodisch",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.schreibweisen",
+   "regel_name": "Schreibweisen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile folgt aus der falschen Zerlegung in Zeile 1. Der erste Fehler steht in Zeile 1.",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile zieht nur den Schluss aus Zeile 2. Der erste Fehler steht schon in Zeile 1.",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "periodisch",
+    "t": "periodisch",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Mia will wissen, ob 7/20 endlich oder periodisch ist. Zeile 1: Der Nenner ist 20 = 2 · 2 · 3. Zeile 2: Der Nenner hat den Primfaktor 3, der nicht in 10 steckt. Zeile 3: Also ist 7/20 eine periodische Dezimalzahl. In welcher Zeile steht zum ersten Mal eine falsche Aussage?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Zerlege 20 noch einmal in Primfaktoren.",
+    "w": "20 = 2 · 2 · 5. Der Nenner hat nur die Primfaktoren 2 und 5, also ist 7/20 = 0,35 endlich. In Zeile 1 steht 3 statt 5."
+   }
+  },
+  {
+   "kennung": "K6-V064",
+   "thema": "bruch.dezimal",
+   "lernkarte": "verstehen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.stellenwert",
+   "regel_name": "Stellenwert",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 100 statt mit 10 malgenommen",
+     "c": "6 * 100"
+    },
+    {
+     "luecke": 2,
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht gekürzt",
+     "c": "(60) / 1"
+    },
+    {
+     "luecke": 3,
+     "antwort": 1000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht gekürzt",
+     "c": "1000 / 1"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Tom behauptet: 0,06 = 1/6. Prüfe die Aussage. 0,06 sind 6 Hundertstel. In Tausendsteln sind das ① Tausendstel. Der Bruch ①/1000 wird vollständig gekürzt zu ②/③. Vergleiche ihn mit Toms Bruch.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl."
+    },
+    "o": {
+     "werte": [
+      60,
+      3,
+      50
+     ]
+    },
+    "c": [
+     "6 * 10",
+     "(60) / 20",
+     "1000 / ((60) / (3))"
+    ],
+    "h": "Ein Hundertstel sind zehn Tausendstel.",
+    "w": "6 Hundertstel = 60 Tausendstel. 60/1000 wird durch 20 gekürzt: 3/50. Also 0,06 = 3/50, nicht 1/6: Toms Aussage ist falsch."
+   }
+  },
+  {
+   "kennung": "K6-V065",
+   "thema": "bruch.dezimal",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Die Zahlen 3 und 30 vergleichen: 30 ist größer, also ist 0,30 größer.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie ganze Zahlen verglichen",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "Die Stellen zählen: 0,3 hat weniger Stellen, also ist es kleiner.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Stellen verglichen",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "Die Schreibweise vergleichen: Sie ist verschieden, also sind die Werte verschieden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Schreibweise mit dem Wert verwechselt",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Du willst prüfen, ob 0,3 und 0,30 gleich groß sind. Welcher Weg zeigt es sicher?"
+    },
+    "a": [
+     "0,3 in Hundertstel umschreiben (3 Zehntel sind 30 Hundertstel) und mit 0,30 vergleichen.",
+     "Die Zahlen 3 und 30 vergleichen: 30 ist größer, also ist 0,30 größer.",
+     "Die Stellen zählen: 0,3 hat weniger Stellen, also ist es kleiner.",
+     "Die Schreibweise vergleichen: Sie ist verschieden, also sind die Werte verschieden."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wie viele Hundertstel sind drei Zehntel?",
+    "w": "Ein Zehntel sind 10 Hundertstel. 3 Zehntel sind 30 Hundertstel. Eine angehängte Null nach der letzten Nachkommastelle ändert den Wert nicht."
+   }
+  },
+  {
+   "kennung": "K6-V066",
+   "thema": "bruch.dezimal",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 gewählt: 3,24 rundet noch ab",
+     "c": "4"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die größte statt der kleinsten Ziffer genommen",
+     "c": "9"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Dezimalzahl hat 3 Einer, 2 Zehntel und ? Hundertstel und keine weitere Stelle. Auf Zehntel gerundet ist sie 3,3. Welche ist die kleinste Ziffer, die an der Stelle des Fragezeichens stehen kann?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "10 / 2",
+    "h": "Ab welcher Ziffer wird aufgerundet?",
+    "w": "Aufgerundet wird ab der Ziffer 5. 3,25 ≈ 3,3. Mit 4 würde abgerundet: 3,24 ≈ 3,2."
+   }
+  }
+ ]
+}

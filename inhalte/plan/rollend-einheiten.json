@@ -1,5 +1,5 @@
 {
- "stand": "2026-11-27, aus der Datenbank gelesen (nur Aufbau, keine Lerndaten); Runde 3 ergänzt",
+ "stand": "2026-11-27, aus der Datenbank gelesen (nur Aufbau, keine Lerndaten); Runde 3 und die Einheiten für rollend-5, -7, -8 ergänzt",
  "fluege": {
   "ge1": [
    "geometrie.grundbegriffe",
@@ -537,6 +537,1073 @@
     "dreisatz",
     "anwenden",
     "aenderung"
+   ]
+  },
+  "abbildungen.determinanten2": {
+   "id": 68,
+   "max_r": 411,
+   "lz": [
+    "det_berechnen",
+    "parallelogramm",
+    "dreieck",
+    "umlaufsinn",
+    "viereck",
+    "vieleck"
+   ],
+   "tf": [
+    "det_berechnen",
+    "parallelogramm",
+    "dreieck",
+    "umlaufsinn",
+    "viereck",
+    "vieleck"
+   ]
+  },
+  "daten.boxplot": {
+   "id": 56,
+   "max_r": 581,
+   "lz": [
+    "median",
+    "kennwerte",
+    "mittel_median",
+    "quartile",
+    "boxplot",
+    "vergleichen"
+   ],
+   "tf": [
+    "median",
+    "kennwerte",
+    "mittel_median",
+    "quartile",
+    "boxplot",
+    "vergleichen"
+   ]
+  },
+  "daten.kennwerte": {
+   "id": 14,
+   "max_r": 580,
+   "lz": [
+    "mittelwert",
+    "mittel_tabelle",
+    "mittel_rueckwaerts"
+   ],
+   "tf": [
+    "mittelwert",
+    "mittel_tabelle",
+    "mittel_rueckwaerts"
+   ]
+  },
+  "daten.stichproben": {
+   "id": 70,
+   "max_r": 402,
+   "lz": [
+    "begriffe",
+    "hochrechnen",
+    "repraesentativ",
+    "fehlerquellen",
+    "aussagen"
+   ],
+   "tf": [
+    "begriffe",
+    "hochrechnen",
+    "repraesentativ",
+    "fehlerquellen",
+    "aussagen"
+   ]
+  },
+  "finanzen.zinsen": {
+   "id": 2,
+   "max_r": 636,
+   "lz": [
+    "begriffe",
+    "rollen",
+    "jahreszinsen",
+    "jahreszinsen_komma",
+    "zinssatz",
+    "kapital",
+    "monatszinsen",
+    "zeitanteil"
+   ],
+   "tf": [
+    "begriffe",
+    "rollen",
+    "jahreszinsen",
+    "jahreszinsen_komma",
+    "zinssatz",
+    "kapital",
+    "monatszinsen",
+    "zeitanteil"
+   ]
+  },
+  "geometrie.kreis": {
+   "id": 58,
+   "max_r": 541,
+   "lz": [
+    "thales",
+    "umkehrung",
+    "beweis",
+    "lage",
+    "tangente",
+    "umkreis_inkreis"
+   ],
+   "tf": [
+    "thales",
+    "umkehrung",
+    "beweis",
+    "lage",
+    "tangente",
+    "umkreis_inkreis"
+   ]
+  },
+  "raum.schraegbilder": {
+   "id": 30,
+   "max_r": 604,
+   "lz": [
+    "pyramide",
+    "lage",
+    "wahre_groesse",
+    "raumwinkel"
+   ],
+   "tf": [
+    "pyramide",
+    "lage",
+    "koordinaten",
+    "rotation",
+    "axialschnitt",
+    "wahre_groesse",
+    "koerper_symmetrie",
+    "raumwinkel"
+   ]
+  },
+  "raum.schraegbilder_teil2": {
+   "id": 310,
+   "max_r": 582,
+   "lz": [
+    "koordinaten",
+    "rotation",
+    "axialschnitt",
+    "koerper_symmetrie"
+   ],
+   "tf": [
+    "pyramide",
+    "lage",
+    "koordinaten",
+    "rotation",
+    "axialschnitt",
+    "wahre_groesse",
+    "koerper_symmetrie",
+    "raumwinkel"
+   ]
+  },
+  "terme.potenzgesetze": {
+   "id": 35,
+   "max_r": 590,
+   "lz": [
+    "potenz_begriff",
+    "negativer_exponent",
+    "fehler_finden"
+   ],
+   "tf": [
+    "potenz_begriff",
+    "negativer_exponent",
+    "fehler_finden"
+   ]
+  },
+  "zahlen.potenzen_zehner": {
+   "id": 42,
+   "max_r": 549,
+   "lz": [
+    "zehnerpotenz",
+    "gross_wissenschaftlich",
+    "vorsilben_gross",
+    "negativer_exponent",
+    "klein_wissenschaftlich",
+    "vorsilben_klein",
+    "vergleichen_pruefen"
+   ],
+   "tf": [
+    "zehnerpotenz",
+    "gross_wissenschaftlich",
+    "vorsilben_gross",
+    "negativer_exponent",
+    "klein_wissenschaftlich",
+    "vorsilben_klein",
+    "vergleichen_pruefen"
+   ]
+  },
+  "zahlen.natuerlich": {
+   "id": 1,
+   "max_r": 805,
+   "lz": [
+    "stellenwert",
+    "zahlwort_zu_ziffern",
+    "ziffern_zu_zahlwort",
+    "strahl_ablesen",
+    "strahl_eintragen",
+    "vergleichen",
+    "runden_regel",
+    "runden_uebertrag",
+    "runden_sinnvoll",
+    "unendlich",
+    "roemisch_schreiben",
+    "roemisch_system",
+    "dualsystem"
+   ],
+   "tf": [
+    "stellenwert",
+    "zahlwort_zu_ziffern",
+    "ziffern_zu_zahlwort",
+    "strahl_ablesen",
+    "strahl_eintragen",
+    "vergleichen",
+    "runden_regel",
+    "runden_uebertrag",
+    "runden_sinnvoll",
+    "unendlich",
+    "roemisch_schreiben",
+    "roemisch_system",
+    "dualsystem"
+   ]
+  },
+  "zahlen.rechengesetze": {
+   "id": 44,
+   "max_r": 890,
+   "lz": [
+    "punkt_strich",
+    "klammern",
+    "termaufbau",
+    "vorteil",
+    "differenz_summe",
+    "verteilen",
+    "kopfrechnen",
+    "mal_ganz",
+    "geteilt_ganz",
+    "umkehraufgabe_mal",
+    "ueberschlag",
+    "schriftlich",
+    "schriftlich_geteilt",
+    "sach"
+   ],
+   "tf": [
+    "vorrang",
+    "gesetze",
+    "ganz",
+    "verfahren",
+    "terme",
+    "gleichungen",
+    "anwenden"
+   ]
+  },
+  "zahlen.potenzen_basis": {
+   "id": 41,
+   "max_r": 558,
+   "lz": [
+    "schreibweise",
+    "berechnen",
+    "quadrat",
+    "vertauschen",
+    "zehner",
+    "negativ",
+    "sach"
+   ],
+   "tf": [
+    "begriff",
+    "berechnen",
+    "zehner",
+    "negativ",
+    "anwenden"
+   ]
+  },
+  "zahlen.ganz": {
+   "id": 39,
+   "max_r": 789,
+   "lz": [
+    "deuten",
+    "zahlengerade",
+    "ordnen",
+    "betrag",
+    "schriftlich_plus_minus",
+    "addieren",
+    "subtrahieren",
+    "umkehraufgabe",
+    "ketten",
+    "verstehen",
+    "sach"
+   ],
+   "tf": [
+    "verstehen",
+    "ordnen",
+    "addieren",
+    "subtrahieren",
+    "verbinden",
+    "schriftlich",
+    "gleichungen",
+    "begruenden"
+   ]
+  },
+  "stochastik.kombinatorik": {
+   "id": 53,
+   "max_r": 533,
+   "lz": [
+    "systematisch",
+    "zaehlprinzip",
+    "reihenfolgen",
+    "baumdiagramm",
+    "bedingungen",
+    "grenzen",
+    "verstehen"
+   ],
+   "tf": [
+    "systematisch",
+    "zaehlprinzip",
+    "reihenfolgen",
+    "baumdiagramm",
+    "bedingungen",
+    "grenzen",
+    "verstehen"
+   ]
+  },
+  "messen.koerper_darstellung": {
+   "id": 28,
+   "max_r": 589,
+   "lz": [
+    "prisma",
+    "netz",
+    "zylinder",
+    "schraegbild",
+    "ansichten",
+    "beurteilen"
+   ],
+   "tf": [
+    "prisma",
+    "netz",
+    "zylinder",
+    "schraegbild",
+    "ansichten",
+    "beurteilen"
+   ]
+  },
+  "terme.umformen": {
+   "id": 3,
+   "max_r": 777,
+   "lz": [
+    "zusammenfassen",
+    "produkte",
+    "minusklammer",
+    "ausmultiplizieren",
+    "aequivalenz"
+   ],
+   "tf": [
+    "zusammenfassen",
+    "produkte",
+    "minusklammer",
+    "ausmultiplizieren",
+    "summe_mal_summe",
+    "ausklammern",
+    "aequivalenz",
+    "binomisch",
+    "gleichungen_binomisch"
+   ]
+  },
+  "terme.umformen_teil2": {
+   "id": 305,
+   "max_r": 789,
+   "lz": [
+    "summe_mal_summe",
+    "ausklammern",
+    "binomisch",
+    "gleichungen_binomisch"
+   ],
+   "tf": [
+    "zusammenfassen",
+    "produkte",
+    "minusklammer",
+    "ausmultiplizieren",
+    "summe_mal_summe",
+    "ausklammern",
+    "aequivalenz",
+    "binomisch",
+    "gleichungen_binomisch"
+   ]
+  },
+  "gleichungen.linear": {
+   "id": 5,
+   "max_r": 604,
+   "lz": [
+    "waage",
+    "beide_seiten",
+    "klammern",
+    "probe",
+    "sonderfaelle",
+    "sach"
+   ],
+   "tf": [
+    "umformen",
+    "pruefen",
+    "anwenden"
+   ]
+  },
+  "terme.bruchterme": {
+   "id": 34,
+   "max_r": 666,
+   "lz": [
+    "definitionsmenge",
+    "termwert",
+    "kuerzen",
+    "erweitern",
+    "addieren",
+    "multiplizieren",
+    "fehler_finden"
+   ],
+   "tf": [
+    "definitionsmenge",
+    "termwert",
+    "kuerzen",
+    "erweitern",
+    "addieren",
+    "multiplizieren",
+    "fehler_finden"
+   ]
+  },
+  "gleichungen.bruch": {
+   "id": 20,
+   "max_r": 660,
+   "lz": [
+    "definitionsmenge",
+    "ein_bruch",
+    "ueber_kreuz",
+    "hauptnenner",
+    "scheinloesung",
+    "verhaeltnis",
+    "graphisch"
+   ],
+   "tf": [
+    "definitionsmenge",
+    "ein_bruch",
+    "ueber_kreuz",
+    "hauptnenner",
+    "scheinloesung",
+    "verhaeltnis",
+    "graphisch"
+   ]
+  },
+  "terme.quadratische_extreme": {
+   "id": 72,
+   "max_r": 390,
+   "lz": [
+    "ergaenzen",
+    "scheitelform",
+    "extremwert",
+    "mit_faktor",
+    "optimierung"
+   ],
+   "tf": [
+    "ergaenzen",
+    "scheitelform",
+    "extremwert",
+    "mit_faktor",
+    "optimierung"
+   ]
+  },
+  "terme.potenzgesetze_natuerlich": {
+   "id": 111,
+   "max_r": 166,
+   "lz": [
+    "mal_gleiche_basis",
+    "gleicher_exponent",
+    "potenz_von_potenz",
+    "geteilt_gleiche_basis",
+    "anwenden"
+   ],
+   "tf": [
+    "mal_gleiche_basis",
+    "gleicher_exponent",
+    "geteilt_gleiche_basis",
+    "anwenden",
+    "potenz_von_potenz"
+   ]
+  },
+  "terme.potenzgesetze_ganzzahlig": {
+   "id": 112,
+   "max_r": 112,
+   "lz": [
+    "warum_gilt",
+    "gleiche_basis_ganz",
+    "exponent_und_potenz",
+    "terme_vereinfachen",
+    "fehler_ganz"
+   ],
+   "tf": [
+    "warum_gilt",
+    "gleiche_basis_ganz",
+    "exponent_und_potenz",
+    "terme_vereinfachen",
+    "fehler_ganz"
+   ]
+  },
+  "stochastik.grundbegriffe": {
+   "id": 31,
+   "max_r": 590,
+   "lz": [
+    "begriffe",
+    "rel_haeufigkeit",
+    "darstellen"
+   ],
+   "tf": [
+    "begriffe",
+    "rel_haeufigkeit",
+    "laplace",
+    "laplace_pruefen",
+    "gegenereignis",
+    "grosse_zahlen",
+    "darstellen"
+   ]
+  },
+  "messen.prisma_zylinder": {
+   "id": 94,
+   "max_r": 411,
+   "lz": [
+    "prisma_volumen",
+    "prisma_oberflaeche",
+    "prisma_umstellen",
+    "zylinder_volumen",
+    "zylinder_oberflaeche",
+    "sach",
+    "verstehen"
+   ],
+   "tf": [
+    "prisma_volumen",
+    "prisma_oberflaeche",
+    "prisma_umstellen",
+    "zylinder_volumen",
+    "zylinder_oberflaeche",
+    "sach",
+    "verstehen",
+    "cavalieri"
+   ]
+  },
+  "groessen.indirekt": {
+   "id": 7,
+   "max_r": 651,
+   "lz": [
+    "erkennen",
+    "vervielfachen",
+    "produkt",
+    "dreisatz",
+    "graph",
+    "unterscheiden",
+    "sach"
+   ],
+   "tf": [
+    "erkennen",
+    "rechnen",
+    "darstellen"
+   ]
+  },
+  "trigo.pythagoras": {
+   "id": 37,
+   "max_r": 555,
+   "lz": [
+    "hypotenuse",
+    "kathete",
+    "umkehrung",
+    "koordinaten",
+    "raum",
+    "anwendung"
+   ],
+   "tf": [
+    "hypotenuse",
+    "kathete",
+    "umkehrung",
+    "koordinaten",
+    "raum",
+    "anwendung"
+   ]
+  },
+  "abbildungen.aehnlichkeit": {
+   "id": 8,
+   "max_r": 640,
+   "lz": [
+    "streckung",
+    "bildgerade",
+    "schwerpunkt",
+    "aehnlich",
+    "strahlensatz1",
+    "strahlensatz2",
+    "flaeche_volumen",
+    "anwendung",
+    "streckung_vektor"
+   ],
+   "tf": [
+    "streckung",
+    "bildgerade",
+    "schwerpunkt",
+    "aehnlich",
+    "strahlensatz1",
+    "strahlensatz2",
+    "flaeche_volumen",
+    "anwendung",
+    "streckung_vektor"
+   ]
+  },
+  "trigo.rechtwinklig": {
+   "id": 38,
+   "max_r": 597,
+   "lz": [
+    "seiten",
+    "verhaeltnisse",
+    "seite",
+    "winkel",
+    "beziehungen",
+    "anwendung",
+    "schnittwinkel"
+   ],
+   "tf": [
+    "seiten",
+    "verhaeltnisse",
+    "seite",
+    "winkel",
+    "beziehungen",
+    "anwendung",
+    "schnittwinkel"
+   ]
+  },
+  "messen.kreisberechnung": {
+   "id": 29,
+   "max_r": 626,
+   "lz": [
+    "umfang",
+    "flaeche",
+    "exakt",
+    "verstehen",
+    "sektor",
+    "zusammengesetzt"
+   ],
+   "tf": [
+    "umfang",
+    "flaeche",
+    "exakt",
+    "verstehen",
+    "sektor",
+    "zusammengesetzt"
+   ]
+  },
+  "raum.pyramide_kegel_kugel": {
+   "id": 65,
+   "max_r": 563,
+   "lz": [
+    "pyr_volumen",
+    "pyr_oberflaeche",
+    "kegel_volumen",
+    "kegel_mantel",
+    "kugel",
+    "sachkontext",
+    "verstehen"
+   ],
+   "tf": [
+    "pyr_volumen",
+    "pyr_oberflaeche",
+    "kegel_volumen",
+    "kegel_mantel",
+    "kugel",
+    "sachkontext",
+    "verstehen"
+   ]
+  },
+  "messen.prisma_zylinder_teil2": {
+   "id": 311,
+   "max_r": 426,
+   "lz": [
+    "cavalieri"
+   ],
+   "tf": [
+    "prisma_volumen",
+    "prisma_oberflaeche",
+    "prisma_umstellen",
+    "zylinder_volumen",
+    "zylinder_oberflaeche",
+    "sach",
+    "verstehen",
+    "cavalieri"
+   ]
+  },
+  "zahlen.wurzeln_basis": {
+   "id": 46,
+   "max_r": 569,
+   "lz": [
+    "quadratwurzel",
+    "wurzel_dezimal",
+    "kubikwurzel",
+    "abschaetzen",
+    "wurzel_deuten",
+    "wurzel_sache"
+   ],
+   "tf": [
+    "quadratwurzel",
+    "wurzel_dezimal",
+    "kubikwurzel",
+    "abschaetzen",
+    "wurzel_deuten",
+    "wurzel_sache"
+   ]
+  },
+  "zahlen.reell": {
+   "id": 45,
+   "max_r": 619,
+   "lz": [
+    "zahlarten",
+    "eingrenzen",
+    "heron",
+    "wurzel_mal",
+    "teilweise",
+    "zusammenfassen",
+    "nenner_rational",
+    "irrational_beweis"
+   ],
+   "tf": [
+    "zahlarten",
+    "eingrenzen",
+    "heron",
+    "wurzel_mal",
+    "teilweise",
+    "zusammenfassen",
+    "nenner_rational",
+    "irrational_beweis"
+   ]
+  },
+  "gleichungen.wurzel": {
+   "id": 75,
+   "max_r": 404,
+   "lz": [
+    "definitionsmenge",
+    "quadrieren",
+    "isolieren",
+    "probe",
+    "zwei_seiten",
+    "sachaufgabe"
+   ],
+   "tf": [
+    "definitionsmenge",
+    "quadrieren",
+    "isolieren",
+    "probe",
+    "zwei_seiten",
+    "sachaufgabe"
+   ]
+  },
+  "gleichungen.quadratisch": {
+   "id": 25,
+   "max_r": 579,
+   "lz": [
+    "reinquadratisch",
+    "ausklammern",
+    "faktorisieren",
+    "ergaenzung",
+    "loesungsformel",
+    "bruchgleichung",
+    "diskriminante",
+    "sachaufgabe"
+   ],
+   "tf": [
+    "reinquadratisch",
+    "ausklammern",
+    "faktorisieren",
+    "ergaenzung",
+    "loesungsformel",
+    "bruchgleichung",
+    "diskriminante",
+    "sachaufgabe"
+   ]
+  },
+  "funktionen.quadratisch": {
+   "id": 19,
+   "max_r": 679,
+   "lz": [
+    "scheitel",
+    "parameter",
+    "spiegeln",
+    "umformen",
+    "nullstellen",
+    "punkte",
+    "bestimmen",
+    "schnittpunkte",
+    "extremwert"
+   ],
+   "tf": [
+    "scheitel",
+    "parameter",
+    "spiegeln",
+    "umformen",
+    "nullstellen",
+    "punkte",
+    "bestimmen",
+    "schnittpunkte",
+    "extremwert"
+   ]
+  },
+  "stochastik.grundbegriffe_teil2": {
+   "id": 309,
+   "max_r": 578,
+   "lz": [
+    "laplace",
+    "laplace_pruefen",
+    "gegenereignis",
+    "grosse_zahlen"
+   ],
+   "tf": [
+    "begriffe",
+    "rel_haeufigkeit",
+    "laplace",
+    "laplace_pruefen",
+    "gegenereignis",
+    "grosse_zahlen",
+    "darstellen"
+   ]
+  },
+  "stochastik.verknuepft": {
+   "id": 33,
+   "max_r": 748,
+   "lz": [
+    "elemente",
+    "schnitt",
+    "verknuepfen",
+    "additionssatz",
+    "venn",
+    "mengen_verstehen",
+    "vierfeld",
+    "tafel_wkeit",
+    "bedingt",
+    "rueckschluss",
+    "verstehen"
+   ],
+   "tf": [
+    "elemente",
+    "schnitt",
+    "verknuepfen",
+    "additionssatz",
+    "venn",
+    "mengen_verstehen",
+    "vierfeld",
+    "tafel_wkeit",
+    "bedingt",
+    "rueckschluss",
+    "verstehen"
+   ]
+  },
+  "stochastik.simulation": {
+   "id": 32,
+   "max_r": 562,
+   "lz": [
+    "zufallsgeraet",
+    "regel",
+    "zufallsziffern",
+    "auswerten",
+    "monte_carlo",
+    "beurteilen"
+   ],
+   "tf": [
+    "zufallsgeraet",
+    "regel",
+    "zufallsziffern",
+    "auswerten",
+    "monte_carlo",
+    "beurteilen"
+   ]
+  },
+  "bruch.brueche": {
+   "id": 9,
+   "max_r": 861,
+   "lz": [
+    "bruchteil_von",
+    "anteil_bestimmen",
+    "ganzes_bestimmen",
+    "erweitern",
+    "ggt",
+    "kuerzen",
+    "verhaeltnis_kuerzen",
+    "gleichwertig",
+    "gemischte_zahlen",
+    "kgv",
+    "vergleichen",
+    "zahlenstrahl",
+    "zahlbereiche",
+    "verstehen"
+   ],
+   "tf": [
+    "bruchteil_von",
+    "anteil_bestimmen",
+    "ganzes_bestimmen",
+    "erweitern",
+    "ggt",
+    "kuerzen",
+    "verhaeltnis_kuerzen",
+    "gleichwertig",
+    "gemischte_zahlen",
+    "kgv",
+    "vergleichen",
+    "zahlenstrahl",
+    "zahlbereiche",
+    "verstehen"
+   ]
+  },
+  "bruch.dezimal": {
+   "id": 10,
+   "max_r": 591,
+   "lz": [
+    "stellenwerte",
+    "vergleichen_ordnen",
+    "runden",
+    "bruch_zu_dezimal",
+    "dezimal_zu_bruch",
+    "merkwerte",
+    "periodisch",
+    "verstehen"
+   ],
+   "tf": [
+    "stellenwerte",
+    "vergleichen_ordnen",
+    "runden",
+    "bruch_zu_dezimal",
+    "dezimal_zu_bruch",
+    "merkwerte",
+    "periodisch",
+    "verstehen"
+   ]
+  },
+  "bruch.rechnen": {
+   "id": 12,
+   "max_r": 830,
+   "lz": [
+    "brueche_plus_minus",
+    "dezimal_plus_minus",
+    "vorzeichen",
+    "brueche_mal",
+    "brueche_geteilt",
+    "dezimal_mal",
+    "dezimal_geteilt",
+    "potenzen",
+    "rechenvorteile",
+    "gemischt",
+    "fehler_finden",
+    "sach"
+   ],
+   "tf": [
+    "brueche_plus_minus",
+    "dezimal_plus_minus",
+    "vorzeichen",
+    "brueche_mal",
+    "brueche_geteilt",
+    "dezimal_mal",
+    "dezimal_geteilt",
+    "potenzen",
+    "rechenvorteile",
+    "gemischt",
+    "fehler_finden",
+    "sach"
+   ]
+  },
+  "bruch.prozent": {
+   "id": 11,
+   "max_r": 621,
+   "lz": [
+    "prozent_bedeutung",
+    "prozentwert",
+    "prozentsatz",
+    "grundwert",
+    "rabatt_aufschlag",
+    "verstehen"
+   ],
+   "tf": [
+    "prozent_bedeutung",
+    "prozentwert",
+    "prozentsatz",
+    "grundwert",
+    "rabatt_aufschlag",
+    "verstehen"
+   ]
+  },
+  "terme.aufstellen": {
+   "id": 59,
+   "max_r": 534,
+   "lz": [
+    "struktur",
+    "termwert",
+    "uebersetzen",
+    "sachsituation",
+    "muster",
+    "deuten"
+   ],
+   "tf": [
+    "struktur",
+    "termwert",
+    "uebersetzen",
+    "sachsituation",
+    "muster",
+    "deuten"
+   ]
+  },
+  "messen.flaechen_vielecke": {
+   "id": 93,
+   "max_r": 375,
+   "lz": [
+    "parallelogramm",
+    "dreieck",
+    "trapez",
+    "rueckwaerts",
+    "zusammengesetzt",
+    "oberflaeche",
+    "verstehen",
+    "drachen_raute"
+   ],
+   "tf": [
+    "parallelogramm",
+    "dreieck",
+    "trapez",
+    "rueckwaerts",
+    "zusammengesetzt",
+    "oberflaeche",
+    "verstehen",
+    "drachen_raute"
+   ]
+  },
+  "messen.volumen": {
+   "id": 95,
+   "max_r": 369,
+   "lz": [
+    "einheitswuerfel",
+    "quader",
+    "einheiten",
+    "liter",
+    "rueckwaerts",
+    "zusammengesetzt",
+    "verstehen"
+   ],
+   "tf": [
+    "einheitswuerfel",
+    "quader",
+    "einheiten",
+    "liter",
+    "rueckwaerts",
+    "zusammengesetzt",
+    "verstehen"
+   ]
+  },
+  "messen.koerper_berechnung": {
+   "id": 52,
+   "max_r": 552,
+   "lz": [
+    "quader",
+    "oberflaeche",
+    "sachaufgaben",
+    "zusammengesetzt",
+    "verstehen"
+   ],
+   "tf": [
+    "quader",
+    "oberflaeche",
+    "sachaufgaben",
+    "zusammengesetzt",
+    "verstehen"
    ]
   }
  },

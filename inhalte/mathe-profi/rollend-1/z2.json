@@ -19,17 +19,24 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 22,
+     "antwort": 46,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "48 − 2 gerechnet"
     },
     {
      "luecke": 2,
-     "antwort": 15,
+     "antwort": 45,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "48 − 3 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 44,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "48 − 4 gerechnet"
     },
     {
      "luecke": 4,
@@ -40,10 +47,17 @@
     },
     {
      "luecke": 5,
-     "antwort": 5,
+     "antwort": 48,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "jedes Paar nur einmal gezählt"
+     "beschreibung": "mal statt plus gerechnet"
+    },
+    {
+     "luecke": 5,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 + 6 gerechnet"
     }
    ],
    "aufgabe": {
@@ -54,9 +68,9 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Teilerpaare von 48 sind 1 · 48 und vier weitere: 2 · ①, 3 · ②, 4 · ③, 6 · ④. Jedes Paar liefert zwei Teiler. Insgesamt hat 48 also 5 · 2 = ⑤ Teiler.",
+     "text": "Die Teilerpaare von 48 sind 1 · 48 und weitere: 2 · ①, 3 · ②, 4 · ③, 6 · ④. Das Paar mit den am nächsten beieinander liegenden Faktoren ist 6 · ④. Die Summe dieser beiden Faktoren ist 6 + ④ = ⑤.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □; ⑤ = □",
-     "hinweis": "Je Lücke eine Zahl."
+     "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
@@ -64,7 +78,7 @@
       16,
       12,
       8,
-      10
+      14
      ]
     },
     "c": [
@@ -72,10 +86,10 @@
      "48//3",
      "48//4",
      "48//6",
-     "5*2"
+     "6+48//6"
     ],
-    "h": "Teile die Zahl der Reihe nach durch 2, 3, 4 und 6.",
-    "w": "48 = 1 · 48 = 2 · 24 = 3 · 16 = 4 · 12 = 6 · 8. Das sind 5 Paare, also 10 Teiler."
+    "h": "Teile 48 der Reihe nach durch 2, 3, 4 und 6.",
+    "w": "48 = 2 · 24 = 3 · 16 = 4 · 12 = 6 · 8. Das Paar 6 · 8 liegt am engsten beieinander, 6 + 8 = 14."
    }
   },
   {
@@ -101,14 +115,35 @@
      "antwort": 63,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mal 3 statt geteilt"
+     "beschreibung": "21 · 3 statt 21 : 3 gerechnet"
     },
     {
      "luecke": 3,
-     "antwort": 1536,
+     "antwort": 4659,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "falsch geteilt"
+     "beschreibung": "die Quersumme addiert statt abgezogen: 4 638 + 21"
+    },
+    {
+     "luecke": 3,
+     "antwort": 4638,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Quersumme nicht abgezogen"
+    },
+    {
+     "luecke": 4,
+     "antwort": 1546,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 638 : 3 statt ③ : 3 gerechnet"
+    },
+    {
+     "luecke": 4,
+     "antwort": 4617,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 3 geteilt"
     }
    ],
    "aufgabe": {
@@ -119,24 +154,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ist 4 638 durch 3 teilbar? Quersumme: 4 + 6 + 3 + 8 = ①. Dann ① : 3 = ②, es bleibt kein Rest. Also geht auch 4 638 : 3 auf: ③.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Ist 4 638 durch 3 teilbar? Quersumme: 4 + 6 + 3 + 8 = ①. Dann ① : 3 = ②, es bleibt kein Rest, also ist 4 638 durch 3 teilbar. Der Unterschied zwischen einer Zahl und ihrer Quersumme ist immer durch 3 teilbar. Hier: 4 638 − ① = ③. Diese Zahl geteilt durch 3 ergibt ③ : 3 = ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine Zahl."
     },
     "o": {
      "werte": [
       21,
       7,
-      1546
+      4617,
+      1539
      ]
     },
     "c": [
      "4+6+3+8",
      "(4+6+3+8)//3",
-     "4638//3"
+     "4638-(4+6+3+8)",
+     "(4638-(4+6+3+8))//3"
     ],
-    "h": "Die Quersumme ist die Summe der Ziffern.",
-    "w": "Quersumme 21, 21 : 3 = 7 ohne Rest. 4 638 : 3 = 1 546."
+    "h": "Zähle alle Ziffern zusammen und teile durch 3. Ziehe dann die Quersumme von der Zahl ab.",
+    "w": "4 + 6 + 3 + 8 = 21. 21 : 3 = 7. 4 638 − 21 = 4 617. 4 617 : 3 = 1 539. Probe: 1 539 · 3 = 4 617."
    }
   },
   {
@@ -149,7 +186,29 @@
    "regel": "id.zahlen.bausteine",
    "regel_name": "Bausteine",
    "zaehlt": "nein",
-   "fehlbilder": [],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 82,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "84 − 2 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "42 − 2 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "21 − 3 gerechnet"
+    }
+   ],
    "aufgabe": {
     "l": "primfaktoren",
     "t": "primfaktoren",

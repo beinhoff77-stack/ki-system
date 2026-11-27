@@ -1,0 +1,1161 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-9",
+ "kuerzel": "K9A",
+ "flug": "k9a-stochastik.simulation",
+ "titel": "stochastik.simulation",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "stochastik.simulation"
+ ],
+ "themen_datei_im_bestand": "stochastik.simulation",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K9A-V157",
+   "thema": "stochastik.simulation",
+   "lernkarte": "zufallsgeraet",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahl als Winkel genommen",
+     "c": "35"
+    },
+    {
+     "luecke": 2,
+     "antwort": 126,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkel des Trefferfeldes statt des Rests genannt",
+     "c": "(126)"
+    },
+    {
+     "luecke": 2,
+     "antwort": 325,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 360 Grad nur die Prozentzahl abgezogen",
+     "c": "360 - 35"
+    },
+    {
+     "luecke": 3,
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wahrscheinlichkeit für einen Treffer statt für keinen genannt",
+     "c": "(126) * 100 // 360"
+    }
+   ],
+   "aufgabe": {
+    "l": "zufallsgeraet",
+    "t": "zufallsgeraet",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Glücksrad soll einen Treffer mit der Wahrscheinlichkeit 0,35 simulieren. Das Trefferfeld hat den Mittelpunktswinkel ① Grad. Dann hat der Rest des Rades ② Grad. Also ist die Wahrscheinlichkeit für keinen Treffer ③ %.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      126,
+      234,
+      65
+     ]
+    },
+    "c": [
+     "360 * 35 // 100",
+     "360 - (126)",
+     "(234) * 100 // 360"
+    ],
+    "h": "Das ganze Rad hat 360 Grad. Das Trefferfeld ist 0,35 vom ganzen Rad.",
+    "w": "Trefferfeld: 0,35 · 360° = 126°. Rest: 360° − 126° = 234°. Kein Treffer: 234 : 360 = 0,65 = 65 %. Probe: 100 % − 35 % = 65 %."
+   }
+  },
+  {
+   "kennung": "K9A-V158",
+   "thema": "stochastik.simulation",
+   "lernkarte": "zufallsgeraet",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Felder für einen Fehlschuss gezählt",
+     "c": "8 - 6"
+    },
+    {
+     "antwort": 75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Prozentwert als Zahl der Felder genommen",
+     "c": "75"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hälfte der Felder genommen",
+     "c": "8 / 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "zufallsgeraet",
+    "t": "zufallsgeraet",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Fußballspieler verwandelt Elfmeter mit der Wahrscheinlichkeit 75 %. Du simulierst ihn mit einem Glücksrad, das in 8 gleich große Felder eingeteilt ist. Wie viele Felder müssen Treffer sein?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "8 * 75 / 100",
+    "h": "Welcher Anteil der Felder muss Treffer sein? Rechne den Anteil auf 8 Felder um.",
+    "w": "75 % sind drei Viertel. Drei Viertel von 8 Feldern sind 6 Felder. Die übrigen 2 Felder sind kein Treffer."
+   }
+  },
+  {
+   "kennung": "K9A-V159",
+   "thema": "stochastik.simulation",
+   "lernkarte": "zufallsgeraet",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkelunterschied als Anteil am ganzen Rad genommen",
+     "c": "108 * 100 / 360"
+    },
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil des Restfeldes angegeben",
+     "c": "126 * 100 / 360"
+    },
+    {
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Winkelunterschied vom ganzen Rad abgezogen und dann durch das ganze Rad geteilt",
+     "c": "(360 - 108) * 100 / 360"
+    }
+   ],
+   "aufgabe": {
+    "l": "zufallsgeraet",
+    "t": "zufallsgeraet",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Glücksrad hat zwei Felder, ein Trefferfeld und ein Restfeld. Das Trefferfeld ist um 108° größer als das Restfeld. Welche Trefferwahrscheinlichkeit in Prozent simuliert das Rad?"
+    },
+    "o": {
+     "wert": 65,
+     "einheit": "%"
+    },
+    "c": "(360 + 108) / 2 * 100 / 360",
+    "h": "Beide Felder zusammen füllen das ganze Rad. Stelle für die Winkel eine Gleichung auf.",
+    "w": "Das Restfeld hat (360° − 108°) : 2 = 126°. Das Trefferfeld hat 126° + 108° = 234°. Es gilt 234 : 360 = 0,65, also 65 %."
+   }
+  },
+  {
+   "kennung": "K9A-V160",
+   "thema": "stochastik.simulation",
+   "lernkarte": "regel",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler als Anzahl genommen",
+     "c": "3"
+    },
+    {
+     "luecke": 1,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner als Anzahl genommen",
+     "c": "20"
+    },
+    {
+     "luecke": 2,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl als Obergrenze genommen, dann wären es eine Zahl zu viel",
+     "c": "(15)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Treffer statt der Nichttreffer genannt",
+     "c": "(15)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 86,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "100 − 14 gerechnet: den letzten Trefferwert 14 mit der Trefferanzahl verwechselt, weil die Zahl 00 übergangen wurde",
+     "c": "100 - (14)"
+    }
+   ],
+   "aufgabe": {
+    "l": "regel",
+    "t": "regel",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Mit zweistelligen Zufallszahlen von 00 bis 99, die alle gleich wahrscheinlich sind, soll ein Ereignis mit p = 3/20 simuliert werden. Dafür zählen ① Zahlen als Treffer. Dann sind die Zahlen von 00 bis ② Treffer. Also sind ③ Zahlen kein Treffer.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      15,
+      14,
+      85
+     ]
+    },
+    "c": [
+     "100 * 3 // 20",
+     "(15) - 1",
+     "100 - (15)"
+    ],
+    "h": "Wie viele der 100 Zahlen entsprechen dem Anteil 3/20? Die Zahl 00 zählt mit.",
+    "w": "100 · 3/20 = 15 Zahlen sind Treffer. Weil 00 mitzählt, sind es die Zahlen 00 bis 14. Kein Treffer sind 100 − 15 = 85 Zahlen."
+   }
+  },
+  {
+   "kennung": "K9A-V161",
+   "thema": "stochastik.simulation",
+   "lernkarte": "regel",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffern ohne Treffer gezählt",
+     "c": "6 * 100 / 10"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Treffer ohne Umrechnung angegeben",
+     "c": "4"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die ersten drei Ziffern gezählt",
+     "c": "3 * 100 / 10"
+    }
+   ],
+   "aufgabe": {
+    "l": "regel",
+    "t": "regel",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle legt fest, welche der Zufallsziffern 0 bis 9 als Treffer zählen. Alle zehn Ziffern sind gleich wahrscheinlich. Welche Wahrscheinlichkeit wird so simuliert? Gib sie in Prozent an.",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Ziffer",
+       "0",
+       "1",
+       "2",
+       "3",
+       "4",
+       "5",
+       "6",
+       "7",
+       "8",
+       "9"
+      ],
+      "zeilen": [
+       [
+        "Treffer",
+        "ja",
+        "ja",
+        "ja",
+        "nein",
+        "nein",
+        "nein",
+        "nein",
+        "ja",
+        "nein",
+        "nein"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 40,
+     "einheit": "%"
+    },
+    "c": "4 * 100 / 10",
+    "h": "Zähle die Ziffern mit „ja“. Alle zehn Ziffern sind gleich wahrscheinlich.",
+    "w": "Treffer sind die Ziffern 0, 1, 2 und 7, also 4 von 10 Ziffern. Das sind 4 : 10 = 0,4 = 40 %."
+   }
+  },
+  {
+   "kennung": "K9A-V162",
+   "thema": "stochastik.simulation",
+   "lernkarte": "regel",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "regel",
+    "t": "regel",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Mit zweistelligen Zufallszahlen von 00 bis 99, die alle gleich wahrscheinlich sind, soll ein Ereignis mit p = 0,08 simuliert werden. Lara legt die Regel fest. Zeile 1: Bei 8 % sind 8 von 100 Zahlen Treffer. Zeile 2: Die Zahlen von 00 bis 07 sind genau 8 Zahlen und zählen als Treffer. Zeile 3: Alle anderen Zahlen, also 08 bis 99, sind kein Treffer. Zeile 4: Das sind 91 Zahlen, also ist die Wahrscheinlichkeit für keinen Treffer 0,91. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Zähle nach, wie viele Zahlen zu jeder Gruppe der Regel gehören.",
+    "w": "Die Zeilen 1 bis 3 stimmen. Von 08 bis 99 sind es 92 Zahlen, denn 100 − 8 = 92. Die Wahrscheinlichkeit für keinen Treffer ist 0,92."
+   }
+  },
+  {
+   "kennung": "K9A-V163",
+   "thema": "stochastik.simulation",
+   "lernkarte": "zufallsziffern",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Ziffern gezählt, die kein Treffer sind",
+     "c": "13"
+    },
+    {
+     "luecke": 1,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auch die Ziffer 4 als Treffer gezählt",
+     "c": "9"
+    },
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Treffer statt der Nichttreffer genannt",
+     "c": "(7)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 65,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die relative Häufigkeit der Nichttreffer angegeben",
+     "c": "(13) * 100 / 20"
+    },
+    {
+     "luecke": 3,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Trefferzahl als Prozentwert übernommen",
+     "c": "(7)"
+    }
+   ],
+   "aufgabe": {
+    "l": "zufallsziffern",
+    "t": "zufallsziffern",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Ziffern 0 bis 3 sind Treffer. Zufallsziffern in vier Gruppen: 52803 91761 42989 07845. Von diesen 20 Ziffern sind ① Treffer. Dann sind ② Ziffern kein Treffer. Also ist die relative Häufigkeit der Treffer ③ %.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      7,
+      13,
+      35
+     ]
+    },
+    "c": [
+     "7",
+     "20 - (7)",
+     "(7) * 100 / 20"
+    ],
+    "h": "Gehe die Ziffern der Reihe nach durch und markiere jede Ziffer von 0 bis 3.",
+    "w": "Treffer sind 2, 0, 3 | 1, 1 | 2 | 0, das sind 7 Ziffern. Kein Treffer: 20 − 7 = 13. Relative Häufigkeit: 7 : 20 = 0,35 = 35 %."
+   }
+  },
+  {
+   "kennung": "K9A-V164",
+   "thema": "stochastik.simulation",
+   "lernkarte": "zufallsziffern",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Durchgänge ohne Treffer genannt",
+     "c": "1"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Durchgänge gezählt",
+     "c": "6"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Durchgänge mit mindestens zwei Treffern gezählt",
+     "c": "2"
+    }
+   ],
+   "aufgabe": {
+    "l": "zufallsziffern",
+    "t": "zufallsziffern",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Die Ziffern 1 bis 4 sind Treffer. Ein Durchgang besteht aus drei Ziffern. Zufallsziffern, nach Durchgängen geordnet: 827 135 906 444 583 298. In wie vielen der 6 Durchgänge gibt es mindestens einen Treffer? Weg A: Prüfe jeden Durchgang einzeln. Weg B: Zähle die Durchgänge ohne Treffer und nimm das Gegenereignis."
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "6 - 1",
+    "h": "Beide Wege müssen dieselbe Anzahl ergeben. Beachte: Die Ziffer 0 ist kein Treffer.",
+    "w": "Weg A: Treffer gibt es in 827 (die 2), 135, 444, 583 und 298, das sind 5 Durchgänge. Weg B: Nur 906 hat keinen Treffer, also 6 − 1 = 5."
+   }
+  },
+  {
+   "kennung": "K9A-V165",
+   "thema": "stochastik.simulation",
+   "lernkarte": "zufallsziffern",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Treffer genommen",
+     "c": "30"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Treffer durch zehn geteilt",
+     "c": "30 / 10"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil der Nichttreffer genommen",
+     "c": "20 * 10 / 50"
+    }
+   ],
+   "aufgabe": {
+    "l": "zufallsziffern",
+    "t": "zufallsziffern",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einer Simulation sind einige der Ziffern 0 bis 9 als Treffer festgelegt, die kleinsten zuerst. Die zehn Ziffern sind gleich wahrscheinlich. Von 50 Zufallsziffern waren 30 Treffer. Schätze anhand der beobachteten relativen Häufigkeit, wie viele der zehn Ziffern als Treffer festgelegt sind."
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "30 * 10 / 50",
+    "h": "Vergleiche den beobachteten Anteil der Treffer mit dem Anteil, den eine bestimmte Zahl von zehn Ziffern ergeben würde.",
+    "w": "Der Anteil der Treffer ist 30 : 50 = 0,6. Das passt zu 6 von 10 Ziffern, zum Beispiel 0 bis 5."
+   }
+  },
+  {
+   "kennung": "K9A-V166",
+   "thema": "stochastik.simulation",
+   "lernkarte": "auswerten",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Treffer als Prozentwert angegeben",
+     "c": "90"
+    },
+    {
+     "luecke": 1,
+     "antwort": 64,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil der Durchgänge ohne Treffer angegeben",
+     "c": "160 * 100 / 250"
+    },
+    {
+     "luecke": 2,
+     "antwort": 360,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 1 000 statt mit 10 000 Durchgängen gerechnet",
+     "c": "(36) * 1000 / 100"
+    },
+    {
+     "luecke": 3,
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Prozentzahl als Trefferzahl übernommen",
+     "c": "(36)"
+    }
+   ],
+   "aufgabe": {
+    "l": "auswerten",
+    "t": "auswerten",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine Simulation mit 250 Durchgängen ergab 90-mal das Ereignis E. Die relative Häufigkeit ist ① %. Dann erwartet man bei 10 000 echten Durchgängen etwa ② Treffer. Also erwartet man bei 1 000 Durchgängen etwa ③ Treffer.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      36,
+      3600,
+      360
+     ]
+    },
+    "c": [
+     "90 * 100 / 250",
+     "(36) * 10000 / 100",
+     "(3600) / 10"
+    ],
+    "h": "Relative Häufigkeit = Treffer durch Durchgänge. Rechne mit derselben Häufigkeit weiter.",
+    "w": "90 : 250 = 0,36 = 36 %. Bei 10 000 Durchgängen: 0,36 · 10 000 = 3 600. Bei 1 000 Durchgängen ist das ein Zehntel: 360."
+   }
+  },
+  {
+   "kennung": "K9A-V167",
+   "thema": "stochastik.simulation",
+   "lernkarte": "auswerten",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 56,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Treffer der Simulation übernommen",
+     "c": "56"
+    },
+    {
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die relative Häufigkeit in Prozent als Zahl der Tage genommen",
+     "c": "56 * 100 / 80"
+    },
+    {
+     "antwort": 160,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Durchgänge verdoppelt",
+     "c": "80 * 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "auswerten",
+    "t": "auswerten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "In einer Simulation kam ein Bus in 80 Durchgängen 56-mal pünktlich. Schätze mit der relativen Häufigkeit, an wie vielen von 200 Tagen der Bus pünktlich kommt. Jeder Tag verläuft wie ein Durchgang der Simulation. Weg A: Bilde die relative Häufigkeit der pünktlichen Durchgänge und multipliziere sie mit 200. Weg B: Bestimme die Zahl der unpünktlichen Durchgänge, schätze damit die unpünktlichen Tage und nimm das Gegenereignis."
+    },
+    "o": {
+     "wert": 140
+    },
+    "c": "56 / 80 * 200",
+    "h": "Beide Wege müssen dieselbe Zahl ergeben.",
+    "w": "Weg A: 56 : 80 = 0,7 und 0,7 · 200 = 140. Weg B: Unpünktlich waren 80 − 56 = 24 von 80 Durchgängen, also 24 : 80 = 0,3. Bei 200 Tagen sind das 0,3 · 200 = 60 unpünktliche Tage, also 200 − 60 = 140 pünktliche Tage."
+   }
+  },
+  {
+   "kennung": "K9A-V168",
+   "thema": "stochastik.simulation",
+   "lernkarte": "auswerten",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile ist rechnerisch richtig, weil 0,38 · 3 000 = 1 140 gilt. Der Fehler steckt im Wert 0,38 aus Zeile 1. Der erste Fehler steht früher.",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile ist rechnerisch richtig, weil 0,38 · 1 000 = 380 gilt. Der Fehler steckt im Wert 0,38 aus Zeile 1. Der erste Fehler steht früher.",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "auswerten",
+    "t": "auswerten",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Simulation mit 500 Durchgängen ergab 140 Treffer. Sven schätzt die Treffer für größere Durchgangszahlen. Zeile 1: Relative Häufigkeit: 140 : 500 = 0,38. Zeile 2: Bei 3 000 Durchgängen erwartet man 0,38 · 3 000 = 1 140 Treffer. Zeile 3: Bei 1 000 Durchgängen erwartet man davon ein Drittel, also 380 Treffer. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Lies die Zeilen der Reihe nach und rechne jede Zeile selbst nach.",
+    "w": "140 : 500 = 0,28 und nicht 0,38. Die Zeilen 2 und 3 rechnen mit dem falschen Wert 0,38 richtig weiter. Richtig wären 840 Treffer bei 3 000 Durchgängen."
+   }
+  },
+  {
+   "kennung": "K9A-V169",
+   "thema": "stochastik.simulation",
+   "lernkarte": "monte_carlo",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 32,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang statt des Flächeninhalts berechnet",
+     "c": "8 * 4"
+    },
+    {
+     "luecke": 2,
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Punkte in der Figur als Prozentzahl übernommen",
+     "c": "100"
+    },
+    {
+     "luecke": 2,
+     "antwort": 75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil der Punkte außerhalb der Figur angegeben",
+     "c": "300 * 100 / 400"
+    },
+    {
+     "luecke": 3,
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Prozentwert als Flächeninhalt übernommen",
+     "c": "(25)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil außerhalb der Figur mit der Fläche multipliziert",
+     "c": "(64) * 75 / 100"
+    }
+   ],
+   "aufgabe": {
+    "l": "monte_carlo",
+    "t": "monte_carlo",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Quadrat hat die Seitenlänge 8 cm. Von 400 Punkten, die gleichverteilt zufällig im Quadrat liegen, liegen 100 in einer Figur. Das Quadrat hat den Flächeninhalt ① cm². In der Figur liegen ② % der Punkte. Also schätzt man den Flächeninhalt der Figur auf ③ cm².",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      64,
+      25,
+      16
+     ]
+    },
+    "c": [
+     "8 * 8",
+     "100 * 100 / 400",
+     "(64) * (25) / 100"
+    ],
+    "h": "Fläche des Quadrats = Seitenlänge mal Seitenlänge. Der Anteil der Punkte in der Figur ist eine Schätzung für den Anteil der Fläche.",
+    "w": "Quadrat: 8 · 8 = 64 cm². Anteil der Punkte: 100 : 400 = 25 %. Figur: 25 % von 64 cm² = 16 cm²."
+   }
+  },
+  {
+   "kennung": "K9A-V170",
+   "thema": "stochastik.simulation",
+   "lernkarte": "monte_carlo",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Treffer aller Läufe als Fläche genommen",
+     "c": "22 + 28 + 26 + 24"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den besten Lauf genommen",
+     "c": "28"
+    },
+    {
+     "antwort": 22,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den ersten Lauf genommen",
+     "c": "22"
+    }
+   ],
+   "aufgabe": {
+    "l": "monte_carlo",
+    "t": "monte_carlo",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Das Säulendiagramm zeigt, wie viele von je 100 Zufallspunkten in vier Läufen in einer Figur lagen. Alle Punkte lagen gleichverteilt zufällig in einem Quadrat mit der Seitenlänge 10 cm. Schätze den Flächeninhalt der Figur aus allen vier Läufen zusammen in cm².",
+     "grafik": {
+      "typ": "saeulen",
+      "einheit": " Punkte",
+      "werte": [
+       {
+        "name": "Lauf 1",
+        "wert": 22
+       },
+       {
+        "name": "Lauf 2",
+        "wert": 28
+       },
+       {
+        "name": "Lauf 3",
+        "wert": 26
+       },
+       {
+        "name": "Lauf 4",
+        "wert": 24
+       }
+      ],
+      "zahlen": true
+     }
+    },
+    "o": {
+     "wert": 25,
+     "einheit": "cm²"
+    },
+    "c": "(22 + 28 + 26 + 24) * 100 / 400",
+    "h": "Fasse alle vier Läufe zusammen. Wie groß ist der Anteil der Punkte in der Figur? Das Quadrat hat 100 cm².",
+    "w": "In allen Läufen zusammen waren 22 + 28 + 26 + 24 = 100 von 400 Punkten in der Figur. Das sind 25 %. Die Figur hat etwa 25 % von 100 cm², also 25 cm²."
+   }
+  },
+  {
+   "kennung": "K9A-V171",
+   "thema": "stochastik.simulation",
+   "lernkarte": "monte_carlo",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 300,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche des Teichs als Zahl der Punkte genommen",
+     "c": "300"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil in Prozent statt der Zahl der Punkte angegeben",
+     "c": "300 * 100 / 1000"
+    },
+    {
+     "antwort": 250,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hälfte der Punkte genommen",
+     "c": "500 / 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "monte_carlo",
+    "t": "monte_carlo",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Teich liegt in einem Rechteck von 40 m mal 25 m. Aus einer Karte weiß man, dass der Teich etwa 300 m² groß ist. Es werden 500 Punkte gleichverteilt zufällig im Rechteck gewählt. Wie viele Punkte liegen ungefähr im Teich?"
+    },
+    "o": {
+     "wert": 150
+    },
+    "c": "500 * 300 / (40 * 25)",
+    "h": "Welchen Anteil der Rechteckfläche nimmt der Teich ein? Dieser Anteil der Punkte liegt erwartungsgemäß im Teich.",
+    "w": "Das Rechteck hat 40 · 25 = 1 000 m². Der Teich hat den Anteil 300 : 1 000 = 0,3. Von 500 Punkten liegen etwa 0,3 · 500 = 150 im Teich."
+   }
+  },
+  {
+   "kennung": "K9A-V172",
+   "thema": "stochastik.simulation",
+   "lernkarte": "beurteilen",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Ein fairer Würfel, bei dem nur die Augenzahl 6 ein Treffer ist.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Gerät mit der Wahrscheinlichkeit für einen Treffer von einem Sechstel gewählt",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "Eine faire Münze, bei der Kopf ein Treffer ist.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Gerät mit der Wahrscheinlichkeit für einen Treffer von einer Hälfte gewählt",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "Eine Urne mit 4 weißen und 1 roten Kugel, rot ist ein Treffer, es wird mit Zurücklegen gezogen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Gerät mit der Wahrscheinlichkeit für einen Treffer von einem Fünftel gewählt",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "beurteilen",
+    "t": "beurteilen",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Bauteil ist mit der Wahrscheinlichkeit 0,25 fehlerhaft. Welches Zufallsgerät eignet sich zur Simulation? Würfel und Münze sind fair, bei der Urne hat jede Kugel dieselbe Wahrscheinlichkeit."
+    },
+    "a": [
+     "Eine Urne mit 3 weißen und 1 roten Kugel, rot ist ein Treffer, es wird mit Zurücklegen gezogen.",
+     "Ein fairer Würfel, bei dem nur die Augenzahl 6 ein Treffer ist.",
+     "Eine faire Münze, bei der Kopf ein Treffer ist.",
+     "Eine Urne mit 4 weißen und 1 roten Kugel, rot ist ein Treffer, es wird mit Zurücklegen gezogen."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welche Wahrscheinlichkeit für einen Treffer hat das Gerät? Sie muss genau 0,25 sein.",
+    "w": "0,25 ist ein Viertel. Bei 1 roten von 4 Kugeln ist die Trefferwahrscheinlichkeit 1/4. Würfel (1/6), Münze (1/2) und die Urne mit 5 Kugeln (1/5) passen nicht."
+   }
+  },
+  {
+   "kennung": "K9A-V173",
+   "thema": "stochastik.simulation",
+   "lernkarte": "beurteilen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler des Bruchs als Zahl der Augenzahlen genommen",
+     "c": "2"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner des Bruchs als Zahl der Augenzahlen genommen",
+     "c": "3"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Augenzahl weniger als alle genommen",
+     "c": "6 - 1"
+    }
+   ],
+   "aufgabe": {
+    "l": "beurteilen",
+    "t": "beurteilen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Ereignis tritt mit der Wahrscheinlichkeit 2/3 ein. Du simulierst es mit einem fairen Würfel. Wie viele der sechs Augenzahlen musst du als Treffer festlegen?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "6 * 2 / 3",
+    "h": "Welcher Anteil der sechs Augenzahlen muss Treffer sein?",
+    "w": "Zwei Drittel von 6 sind 4. Also zählen vier Augenzahlen als Treffer, zum Beispiel 1, 2, 3 und 4."
+   }
+  },
+  {
+   "kennung": "K9A-V174",
+   "thema": "stochastik.simulation",
+   "lernkarte": "beurteilen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "beurteilen",
+    "t": "beurteilen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Ereignis hat die Wahrscheinlichkeit 0,4. Max simuliert es mit einer Urne mit 4 roten und 10 weißen Kugeln, es wird mit Zurücklegen gezogen, jede Kugel mit derselben Wahrscheinlichkeit. Zeile 1: Die Urne enthält 14 Kugeln, davon sind 4 rot. Zeile 2: Weil mit Zurücklegen gezogen wird, bleibt die Wahrscheinlichkeit bei jedem Zug gleich. Zeile 3: Die Wahrscheinlichkeit für rot ist das Verhältnis von roten zu weißen Kugeln, also 0,4. Zeile 4: Die Urne bildet also p = 0,4 ab und ist geeignet. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Lies die Zeilen der Reihe nach. Prüfe jede Zeile gegen die Beschreibung der Urne.",
+    "w": "Die Wahrscheinlichkeit für rot ist 4 : 14 und nicht 4 : 10. Das sind etwa 0,29. Die Urne ist nicht geeignet. Zeile 4 folgt aus der falschen Zeile 3."
+   }
+  }
+ ]
+}

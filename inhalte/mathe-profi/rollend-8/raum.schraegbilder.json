@@ -1,0 +1,681 @@
+{
+ "stand": "2026-11-27",
+ "flug": "raum.schraegbilder",
+ "titel": "Pyramiden, Lage und Schrägbild",
+ "fuer": "Klasse 7",
+ "klasse": 7,
+ "themen": [
+  "raum.schraegbilder"
+ ],
+ "hinweis": "Vorrat an Aufgaben in neuer Form (Auftrag 21). Nicht eingespielt. Kennungen mit K7.",
+ "aufgaben": [
+  {
+   "kennung": "K7-V133",
+   "thema": "raum.schraegbilder",
+   "lernkarte": "pyramide",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "index": null,
+     "antwort": 9,
+     "rechnung": "9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Spitze nicht mitgezählt"
+    },
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 9,
+     "rechnung": "L1 - 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Bodenkanten gezählt"
+    },
+    {
+     "luecke": 3,
+     "index": null,
+     "antwort": 9,
+     "rechnung": "L2 // 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundfläche nicht mitgezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "pyramide",
+    "t": "pyramide",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Grundfläche einer Pyramide hat 9 Ecken. Mit der Spitze hat die Pyramide ① Ecken. Von der Spitze läuft zu jeder Bodenecke eine Kante; zusammen mit den Bodenkanten hat die Pyramide ② Kanten. Die Seitenflächen sind Dreiecke; mit der Grundfläche hat die Pyramide ③ Flächen.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      10,
+      18,
+      10
+     ]
+    },
+    "c": [
+     "9 + 1",
+     "2 * ((9 + 1) - 1)",
+     "(2 * ((9 + 1) - 1)) // 2 + 1"
+    ],
+    "h": "Zähle getrennt: Boden, Spitze, Seiten.",
+    "w": "Ecken: 9 am Boden und die Spitze, also 10. Kanten: 9 am Boden und 9 zur Spitze, also 18. Flächen: 9 Dreiecke (so viele wie Bodenkanten) und die Grundfläche, also 10."
+   }
+  },
+  {
+   "kennung": "K7-V134",
+   "thema": "raum.schraegbilder",
+   "lernkarte": "pyramide",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 8,
+     "rechnung": "16 // 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Spitze nicht mitgezählt"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 17,
+     "rechnung": "16 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zu den Kanten 1 dazugezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "pyramide",
+    "t": "pyramide",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Pyramide hat 16 Kanten. Wie viele Ecken hat sie?"
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "Ecken"
+    },
+    "c": "16 // 2 + 1",
+    "h": "Wie viele Kanten gehören zum Boden, wie viele laufen zur Spitze?",
+    "w": "2n = 16, also n = 8: die Grundfläche ist ein Achteck. Ecken: 8 + 1 = 9."
+   }
+  },
+  {
+   "kennung": "K7-V135",
+   "thema": "raum.schraegbilder",
+   "lernkarte": "pyramide",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: fünfseitig heißt n = 5"
+    },
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: 6 Ecken und 10 Kanten"
+    }
+   ],
+   "aufgabe": {
+    "l": "pyramide",
+    "t": "pyramide",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind beschreibt eine fünfseitige Pyramide. Zeile 1: Die Grundfläche ist ein Fünfeck, also n = 5. Zeile 2: Sie hat 5 + 1 = 6 Ecken und 2 · 5 = 10 Kanten. Zeile 3: Flächen hat sie 5, nämlich die fünf Dreiecke. In welcher Zeile steckt der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Zähle die Flächen einer fünfseitigen Pyramide selbst durch.",
+    "w": "Zeile 1 und 2 stimmen. Zu den fünf Dreiecken kommt die Grundfläche dazu: 5 + 1 = 6 Flächen."
+   }
+  },
+  {
+   "kennung": "K7-V136",
+   "thema": "raum.schraegbilder",
+   "lernkarte": "lage",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "parallel",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "parallel verlangt dieselbe Richtung"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "schneidend",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "schneidend verlangt einen gemeinsamen Punkt"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "identisch",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "identische Geraden liegen ganz übereinander, hier ist y verschieden"
+    }
+   ],
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "In einem Koordinatensystem liegt die Kante 1 von P(0 | 0 | 0) nach Q(4 | 0 | 0) und die Kante 2 von R(4 | 3 | 0) nach S(4 | 3 | 2). Welche Lage haben die beiden Geraden, auf denen die Kanten liegen?"
+    },
+    "a": [
+     "windschief",
+     "parallel",
+     "schneidend",
+     "identisch"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Vergleiche die Richtungen und prüfe, ob es einen gemeinsamen Punkt gibt.",
+    "w": "Kante 1 läuft in x-Richtung, Kante 2 in z-Richtung: nicht dieselbe Richtung, also nicht parallel. Auf Gerade 1 ist y = 0, auf Gerade 2 ist y = 3: es gibt keinen gemeinsamen Punkt. Ohne gemeinsamen Punkt und ohne gleiche Richtung heißen die Geraden windschief."
+   }
+  },
+  {
+   "kennung": "K7-V137",
+   "thema": "raum.schraegbilder",
+   "lernkarte": "lage",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "prüfen, ob sie sich nicht schneiden",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "windschiefe Kanten schneiden sich auch nicht"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "prüfen, ob sie gleich lang sind",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gleich lange Kanten können windschief sein"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "prüfen, ob sie zur selben Seitenfläche gehören",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in einer Fläche können sie sich auch schneiden"
+    }
+   ],
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst entscheiden, ob zwei Kanten eines Quaders parallel sind. Welches Vorgehen führt zum Ziel?"
+    },
+    "a": [
+     "prüfen, ob sie dieselbe Richtung haben",
+     "prüfen, ob sie sich nicht schneiden",
+     "prüfen, ob sie gleich lang sind",
+     "prüfen, ob sie zur selben Seitenfläche gehören"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Überlege, was parallele Kanten von windschiefen unterscheidet.",
+    "w": "Parallel verlangt dieselbe Richtung. Kein Schnittpunkt genügt nicht, denn windschiefe Kanten schneiden sich auch nicht. Länge und Seitenfläche entscheiden gar nicht."
+   }
+  },
+  {
+   "kennung": "K7-V138",
+   "thema": "raum.schraegbilder",
+   "lernkarte": "lage",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "Sie sind gleich lang.",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Länge hat mit der Lage nichts zu tun"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "Sie schneiden sich in genau einem Punkt.",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dann wären sie schneidend"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "Sie haben dieselbe Richtung.",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dann wären sie parallel"
+    }
+   ],
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Kanten eines Quaders sind windschief. Was weiß man damit sicher über sie?"
+    },
+    "a": [
+     "Sie liegen in keiner gemeinsamen Ebene.",
+     "Sie sind gleich lang.",
+     "Sie schneiden sich in genau einem Punkt.",
+     "Sie haben dieselbe Richtung."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Was wäre bei parallelen oder bei schneidenden Kanten anders?",
+    "w": "Windschiefe Geraden liegen in keiner gemeinsamen Ebene: sie treffen sich nicht und haben nicht dieselbe Richtung. Über ihre Längen sagt das nichts."
+   }
+  },
+  {
+   "kennung": "K7-V139",
+   "thema": "raum.schraegbilder",
+   "lernkarte": "wahre_groesse",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "index": null,
+     "antwort": 1.5,
+     "rechnung": "3 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit q malgenommen statt geteilt"
+    },
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 8,
+     "rechnung": "3 + 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die gezeichneten Längen addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "wahre_groesse",
+    "t": "wahre_groesse",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Im Schrägbild ist eine Kante nach hinten mit q = 0,5 gezeichnet; im Bild ist sie 3 cm lang. Ihre wahre Länge ist ① cm. Eine Kante parallel zur Zeichenebene ist im Bild 5 cm lang. Beide Kanten zusammen haben die wahre Länge ② cm.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      11
+     ]
+    },
+    "c": [
+     "3 * 2",
+     "(3 * 2) + 5"
+    ],
+    "h": "Welche Kanten werden verkürzt, welche nicht?",
+    "w": "3 cm : 0,5 = 6 cm wahre Länge. Die Kante parallel zur Zeichenebene wird nicht verkürzt: 5 cm. Zusammen 11 cm."
+   }
+  },
+  {
+   "kennung": "K7-V140",
+   "thema": "raum.schraegbilder",
+   "lernkarte": "wahre_groesse",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 16,
+     "rechnung": "8 / (1 / 2)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch q geteilt statt malgenommen"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 8,
+     "rechnung": "8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Verkürzung vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "wahre_groesse",
+    "t": "wahre_groesse",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Kante nach hinten ist wahr 8 cm lang und wird mit q = 0,5 gezeichnet. Weg A: 8 cm mit q malnehmen. Weg B: eine Bildlänge ausprobieren und prüfen, ob man beim Zurückrechnen (durch q) auf 8 cm kommt. Wie lang ist die Kante im Schrägbild?"
+    },
+    "o": {
+     "wert": 4,
+     "einheit": "cm"
+    },
+    "c": "8 * 1 / 2",
+    "h": "Beim Zeichnen nimmst du mal q, beim Zurückrechnen teilst du durch q.",
+    "w": "Weg A: 8 cm · 0,5 = 4 cm. Weg B: Probe mit 4 cm im Bild: 4 cm : 0,5 = 8 cm stimmt. Im Schrägbild ist die Kante 4 cm lang."
+   }
+  },
+  {
+   "kennung": "K7-V141",
+   "thema": "raum.schraegbilder",
+   "lernkarte": "wahre_groesse",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 5,
+     "rechnung": "10 / 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Länge verkürzt statt der Tiefe"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 12,
+     "rechnung": "6 / (1 / 2)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch q geteilt statt malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "wahre_groesse",
+    "t": "wahre_groesse",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader ist 10 cm lang, 6 cm tief und 4 cm hoch. Seine Vorderfläche liegt in der Zeichenebene, im Schrägbild wird die Tiefe mit q = 0,5 gezeichnet. Wie lang wird die Tiefenkante im Schrägbild?"
+    },
+    "o": {
+     "wert": 3,
+     "einheit": "cm"
+    },
+    "c": "6 * 1 / 2",
+    "h": "Welche Kante läuft nach hinten?",
+    "w": "6 cm · 0,5 = 3 cm. Länge und Höhe bleiben mit 10 cm und 4 cm in wahrer Größe."
+   }
+  },
+  {
+   "kennung": "K7-V142",
+   "thema": "raum.schraegbilder",
+   "lernkarte": "raumwinkel",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "90°",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das gilt nur beim Quader"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "60°",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "60° ist der Winkel im gleichseitigen Dreieck"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "108°",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "108° gehört zum regelmäßigen Fünfeck"
+    }
+   ],
+   "aufgabe": {
+    "l": "raumwinkel",
+    "t": "raumwinkel",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein gerades Prisma hat ein regelmäßiges Sechseck als Grundfläche. Zwei benachbarte Seitenflächen treffen sich an einer senkrechten Kante. Wie groß ist der Winkel zwischen ihnen?"
+    },
+    "a": [
+     "120°",
+     "90°",
+     "60°",
+     "108°"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Stell dir das Prisma von oben gesehen vor.",
+    "w": "Im regelmäßigen Sechseck ist jeder Innenwinkel 120°. Beim geraden Prisma ist das auch der Winkel zwischen zwei benachbarten Seitenflächen."
+   }
+  },
+  {
+   "kennung": "K7-V143",
+   "thema": "raum.schraegbilder",
+   "lernkarte": "raumwinkel",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 72,
+     "rechnung": "360 // 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Außenwinkel 360° : 5 gerechnet"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 90,
+     "rechnung": "90",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie beim Quader 90° angenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "raumwinkel",
+    "t": "raumwinkel",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Pavillon ist ein gerades Prisma mit einem regelmäßigen Fünfeck als Grundfläche. Wie groß ist der Winkel zwischen zwei benachbarten Seitenwänden?"
+    },
+    "o": {
+     "wert": 108,
+     "einheit": "°"
+    },
+    "c": "(5 - 2) * 180 // 5",
+    "h": "Schau von oben auf den Pavillon: Welche Figur siehst du?",
+    "w": "Die Innenwinkelsumme ist (5 − 2) · 180° = 540°, jeder Innenwinkel also 540° : 5 = 108°. Das ist auch der Winkel zwischen den Seitenwänden."
+   }
+  },
+  {
+   "kennung": "K7-V144",
+   "thema": "raum.schraegbilder",
+   "lernkarte": "raumwinkel",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 45,
+     "rechnung": "360 // 8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Außenwinkel als Antwort genommen"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 1080,
+     "rechnung": "(8 - 2) * 180",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei der Innenwinkelsumme stehen geblieben"
+    }
+   ],
+   "aufgabe": {
+    "l": "raumwinkel",
+    "t": "raumwinkel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein gerades Prisma hat ein regelmäßiges Achteck als Grundfläche. Weg A: die Innenwinkelsumme (8 − 2) · 180° durch 8 teilen. Weg B: 360° : 8 = 45° als Außenwinkel bestimmen und 180° − 45° rechnen. Wie groß ist der Winkel zwischen zwei benachbarten Seitenflächen?"
+    },
+    "o": {
+     "wert": 135,
+     "einheit": "°"
+    },
+    "c": "(8 - 2) * 180 // 8",
+    "h": "Beide Wege geben denselben Innenwinkel.",
+    "w": "Weg A: (8 − 2) · 180° = 1 080°, geteilt durch 8 sind 135°. Weg B: 180° − 45° = 135°."
+   }
+  }
+ ]
+}

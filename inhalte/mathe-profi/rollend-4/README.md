@@ -110,3 +110,24 @@ Größter Anteil einer Zeile: vorher 69,5 %, nachher 34,7 % (eine Aufgabe hat vi
 Antwortform vorher und nachher: `luecken` 130, `auswahl` 0 (Auswahl-Lückenwege fanden sich im Bestand nicht).
 
 **Prüfen (27.11., nach der Mischung).** `python3 -I tools/rollend_sql.py --mit-bedingung`: ohne OFFEN und ohne Fehler; 633 Aufgaben (rollend-1 bis -4). Form: Lückenweg 126, Fehler-Detektiv 141, Verfahren wählen 91, Umkehren 79, Zwei Wege 39, Brücke 46, Anwenden 31, Viele Antworten 80. `zaehlt`: ja 507, nein 126. `rollend-4` allein: 314 Aufgaben (Lückenweg 93, Fehler-Detektiv 95, Verfahren wählen 63, Zwei Wege 22, Umkehren 22, Brücke 19); `zaehlt`: ja 221, nein 93. Alle Aufgaben aus `rollend-4` an Kopien der Themen-Dateien gehängt (18 Dateien): `tools/inhalt_pruefen.py` Code 0 bei allen. Die Zahlen im Abschnitt „Prüfen (27.11.)“ oben gelten für den Stand vor dieser Durchsicht.
+
+
+## Zweite Nachprüfung (nach Gegenprüfung, Werkstatt 1050/1051/1052)
+
+Stand: 633 Aufgaben (rollend-1 bis -4, `zaehlt` ja 507, nein 126), `tools/rollend_sql.py --mit-bedingung` ohne OFFEN und ohne Fehler, `tools/inhalt_pruefen.py` an allen Themenkopien Code 0 (Fehler: 0).
+
+Geändert: alle Punkte der Gegenprüfung (Lückenwerte im Text oder Tipp, Gerüste ohne abhängige Kette, Fehlbild-Beschreibungen ohne passende Rechnung, Brücken ohne echten Darstellungswechsel, Fehler-Detektive) wurden neu gerechnet; Frage, Tipp, Lösungsweg und Fehlbilder wurden jeweils zusammen angepasst. Bei der Durchsicht aller Lückenwege (126) und aller Fehlbild-Beschreibungen mit Zahlenantwort kamen weitere Fälle hinzu (Gerüste mit unabhängiger Schlusslücke, Tipps mit Lückenwert, Beschreibungen mit falscher Rechnung, fehlende Fehlbilder für einzelne Lücken); sie sind berichtigt.
+
+Neues Prüfskript `tools/vorrat_pruefen.py` (nur Standardbibliothek, `python3 -I tools/vorrat_pruefen.py`, optional `--kennung K…`). Es prüft (i) Lückenwerte als Ziffer oder Zahlwort in Text, Schablone und Tipp, (ii) Lückenwege ohne abhängige spätere Lücke oder mit unabhängiger Schlusslücke, (iii) Fehlbild-Beschreibungen mit Rechnung gegen die gespeicherte Antwort, (iv) Fehler-Detektive mit falscher Rechnung vor der Fehlerzeile oder rechnerisch richtiger Fehlerzeile. Nicht abgedeckt: Beschreibungen nur in Worten (verdoppelt, abgerundet, „erst …, dann …“), Rechnungen mit Variablen, Denkfehler, Abhängigkeit über den Satzbau (Heuristik).
+
+Meldungen nach der zweiten Nachprüfung (Stand dieses Abschnitts überholt durch die dritte Nachprüfung unten): Die pauschale Aussage „keine echten Fälle“ war falsch; siehe unten.
+
+## Dritte Nachprüfung (nach Gegenprüfung, Werkstatt 1070)
+
+Geändert: Fehler-Detektive GE1-V26 und GE1-V17 (die Schlüsselzeile spricht jetzt die falsche Behauptung selbst aus), Lückenwege Z2-V02 (erste Lücke verlangt jetzt einen echten Schritt: Teilen durch 10 statt Abschreiben der Endziffer), Z2-V03 und Z2-02 (die letzten Lücken hängen jetzt von der Quersumme ab; der Satz „Zahl minus Quersumme ist durch 9 bzw. 3 teilbar“ trägt die Folgefrage), Fehlbild-Beschreibungen F2-V01 und GE2-V04, Brücke A1-V06 (hypothetisch formuliert, keine Zeichnung nötig).
+
+Prüfskript `tools/vorrat_pruefen.py` verbessert: (i) prüft jetzt auch die Schablone; Zahlwörter bis hundert; Hochzahlen wie (−2)² werden mitgelesen (damit ist die falsche Rechnung in F1-V12 sichtbar: (−2)² = −4; die frühere Erklärung „nur Denkfehler“ war für F1-V12 falsch, die Aufgabe selbst stimmt: die Fehlerzeile enthält die falsche Rechnung); (ii) Abhängigkeit wird am Rechenausdruck festgemacht (enthält der Ausdruck einer Lücke den Anker oder einen Wert einer früheren Lücke), nicht mehr am Anschlusswort; (iv) meldet Fehlerzeilen, die nur richtige Rechnungen enthalten, mit dem Hinweis, von Hand zu prüfen, ob genau diese Zeile die falsche Behauptung ausspricht.
+
+Von Hand geprüft: alle 141 Fehler-Detektive (Schlüsselzeile gegen Folgezeile) und alle Lückenwege (erste Lücke als Abschreiben, letzte Lücke als unabhängige Nebenfrage). Zusätzlich gefunden und berichtigt: Z2-02 (gleiches Muster wie Z2-V03). Alle 14 Meldungen (iv) sind jetzt Fehlerzeilen, die die falsche Behauptung ausdrücklich enthalten (falscher Ansatz oder falsche Regel bei richtiger Rechnung): A6-V11, F1-V15, F2-V18, G1-V11, GE1-V17, GE1-V18, GE1-V26, GE2-V20, GE2-V21, GE3-V09, GE4-V23, GE4-V26, GE4-V30, R1-V10.
+
+Verbleibende Meldungen und Einordnung: (ii) A6-V06, GE1-V02, GE1-V07, GE1-V08: Die letzte oder zweite Lücke ist ein Vergleichsschluss („Abstand 9 > Radius 6, also 0 Punkte“); ein falscher Wert vorne ändert den Schluss, der Rechenanker zeigt das nicht. (iii) A4-09, F2-18 (Rundung), A1-06, A1-13, A4-V02, F1-V03, F1-V06 („erst …, dann …“ mit mehreren Teilrechnungen), R1-V03 (zwei Rechnungen in einer Beschreibung): von Hand nachgerechnet, passen zur gespeicherten Antwort. Nicht abgedeckt bleiben Beschreibungen nur in Worten, Variablen und die Frage, ob eine Behauptung inhaltlich falsch ist.

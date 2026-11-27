@@ -34,7 +34,7 @@
     },
     {
      "luecke": 2,
-     "antwort": 29,
+     "antwort": 16,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "3 + 13 gerechnet"
@@ -83,6 +83,13 @@
      "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
      "regel_des_fehlbilds": "rr.gegenrechnung",
      "beschreibung": "31 + 7 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 96,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal 4 statt geteilt durch 4"
     }
    ],
    "aufgabe": {

@@ -1,0 +1,2198 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-9",
+ "kuerzel": "K9A",
+ "flug": "k9a-stochastik.verknuepft",
+ "titel": "stochastik.verknuepft",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "stochastik.verknuepft"
+ ],
+ "themen_datei_im_bestand": "stochastik.verknuepft",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K9A-V124",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "elemente",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Nur die Zahlen von 1 bis 9 prüfen, denn größere Zahlen können keine Teiler von 18 sein.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 18 selbst als Teiler vergessen: Jede Zahl ist Teiler ihrer selbst",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "Die Vielfachen von 18 aufschreiben: 18, 36, 54, …",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Teiler und Vielfache verwechselt",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "Nur die Primfaktoren 2 und 3 aufschreiben.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Primfaktoren genannt: Teiler wie 6, 9 und 18 fehlen dann",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "elemente",
+    "t": "elemente",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst die Menge A aller Teiler von 18 vollständig aufzählen. Welche Vorgehensweise führt sicher zum Ziel?"
+    },
+    "a": [
+     "Nur die Zahlen von 1 bis 9 prüfen, denn größere Zahlen können keine Teiler von 18 sein.",
+     "Jede Zahl von 1 bis 18 prüfen: Geht 18 : n ohne Rest auf? Alle Zahlen, bei denen das gilt, aufschreiben.",
+     "Die Vielfachen von 18 aufschreiben: 18, 36, 54, …",
+     "Nur die Primfaktoren 2 und 3 aufschreiben."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Ein Teiler geht ohne Rest auf. Welche Zahlen kommen als Teiler überhaupt in Frage?",
+    "w": "Ein Teiler n von 18 geht ohne Rest auf, also 18 : n ohne Rest. Prüft man alle n von 1 bis 18, entdeckt man 1, 2, 3, 6, 9 und 18. So wird keiner vergessen, auch 18 selbst nicht. Vielfache sind etwas anderes, und die Primfaktoren 2 und 3 sind nur zwei der Teiler."
+   }
+  },
+  {
+   "kennung": "K9A-V125",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "elemente",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das sechste Vielfache genommen",
+     "c": "6 * 6"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Elemente als Obergrenze genommen",
+     "c": "5"
+    },
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die größte mögliche Obergrenze genannt, nicht die kleinste",
+     "c": "6 * 5 + 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "elemente",
+    "t": "elemente",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Die Menge A enthält alle Vielfachen von 6, die höchstens so groß sind wie die natürliche Zahl n. Die Vielfachen beginnen bei 6. A hat genau 5 Elemente. Welches ist der kleinste mögliche Wert von n?"
+    },
+    "o": {
+     "wert": 30
+    },
+    "c": "6 * 5",
+    "h": "Schreibe die ersten Vielfachen von 6 auf. Das fünfte ist die kleinste mögliche Obergrenze.",
+    "w": "Die Vielfachen von 6 sind 6, 12, 18, 24, 30. Das fünfte Vielfache ist 5 · 6 = 30. Bei n = 30 hat A genau fünf Elemente, bei n = 29 nur vier."
+   }
+  },
+  {
+   "kennung": "K9A-V126",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "elemente",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "elemente",
+    "t": "elemente",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Anna bestimmt A = die Primzahlen zwischen 10 und 30. Zeile 1: Zu prüfen sind die Zahlen von 11 bis 29. Zeile 2: Prim sind 11, 13, 17, 19, 21, 23 und 29. Zeile 3: A hat deshalb 7 Elemente. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Prüfe jede genannte Zahl anhand der Definition einer Primzahl.",
+    "w": "21 = 3 · 7 ist keine Primzahl. Richtig ist A = {11; 13; 17; 19; 23; 29} mit 6 Elementen. Zeile 3 folgt aus der falschen Zeile 2."
+   }
+  },
+  {
+   "kennung": "K9A-V127",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "schnitt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Elemente von A gezählt",
+     "c": "6"
+    },
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Elemente von B gezählt",
+     "c": "8"
+    },
+    {
+     "luecke": 2,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Elemente beider Mengen ohne Abzug der gemeinsamen addiert",
+     "c": "6 + 8"
+    },
+    {
+     "luecke": 3,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die gemeinsamen Elemente statt der Elemente nur in A genannt",
+     "c": "(4)"
+    }
+   ],
+   "aufgabe": {
+    "l": "schnitt",
+    "t": "schnitt",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "A = die Teiler von 18 (6 Elemente), B = die Teiler von 24 (8 Elemente). A ∩ B enthält die gemeinsamen Teiler und hat ① Elemente. Dann hat A ∪ B ② Elemente. Also liegen nur in A ③ Elemente.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      10,
+      2
+     ]
+    },
+    "c": [
+     "4",
+     "6 + 8 - (4)",
+     "6 - (4)"
+    ],
+    "h": "Schreibe zuerst die Teiler von 18 und die Teiler von 24 auf und streiche, was in beiden steht.",
+    "w": "Teiler von 18: 1, 2, 3, 6, 9, 18. Teiler von 24: 1, 2, 3, 4, 6, 8, 12, 24. Gemeinsam sind 1, 2, 3, 6, das sind 4 Zahlen. A ∪ B: 6 + 8 − 4 = 10. Nur in A: 6 − 4 = 2 (9 und 18)."
+   }
+  },
+  {
+   "kennung": "K9A-V128",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "schnitt",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Zahlen in A gezählt",
+     "c": "4"
+    },
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zahl gezählt, die in beiden liegt",
+     "c": "1"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Zahlen in A oder B gezählt",
+     "c": "4 + 2 - 1"
+    }
+   ],
+   "aufgabe": {
+    "l": "schnitt",
+    "t": "schnitt",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt für die Zahlen von 1 bis 8, ob sie in A (gerade Zahlen) und ob sie in B (durch 3 teilbare Zahlen) liegen. Wie viele dieser Zahlen liegen in A, aber nicht in B?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Zahl",
+       "1",
+       "2",
+       "3",
+       "4",
+       "5",
+       "6",
+       "7",
+       "8"
+      ],
+      "zeilen": [
+       [
+        "in A",
+        "nein",
+        "ja",
+        "nein",
+        "ja",
+        "nein",
+        "ja",
+        "nein",
+        "ja"
+       ],
+       [
+        "in B",
+        "nein",
+        "nein",
+        "ja",
+        "nein",
+        "nein",
+        "ja",
+        "nein",
+        "nein"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "4 - 1",
+    "h": "Lies zuerst alle Zahlen in A ab. Streiche dann die, die auch in B liegen.",
+    "w": "In A liegen 2, 4, 6 und 8. In B liegt von 1 bis 8 nur die 3 und die 6. Die 6 liegt in beiden. Nur in A liegen 2, 4 und 8, also 3 Zahlen."
+   }
+  },
+  {
+   "kennung": "K9A-V129",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "schnitt",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Elemente von B genannt",
+     "c": "4"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das kleinste gemeinsame Element genommen",
+     "c": "20"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "k passt zum Schnitt, aber B hätte dann acht Elemente",
+     "c": "40 / 8"
+    }
+   ],
+   "aufgabe": {
+    "l": "schnitt",
+    "t": "schnitt",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "A besteht aus den Vielfachen von 4 bis 40. B besteht aus den Vielfachen einer natürlichen Zahl k bis 40, wobei die Vielfachen bei k beginnen und k mindestens 2 ist. B hat genau 4 Elemente, und es gilt A ∩ B = {20; 40}. Bestimme k."
+    },
+    "o": {
+     "wert": 10
+    },
+    "c": "40 / 4",
+    "h": "Wie groß ist k, wenn B vier Vielfache bis 40 hat? Prüfe dann, ob 20 und 40 dazugehören und ob die Zahlen in B auch durch 4 teilbar sind.",
+    "w": "Vier Vielfache bis 40 haben nur k = 10 (10, 20, 30, 40) und k = 9 (9, 18, 27, 36). Für k = 9 liegt nur 36 in A. Für k = 10 liegen 20 und 40 in A. Also ist k = 10."
+   }
+  },
+  {
+   "kennung": "K9A-V130",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "verknuepfen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zahl 12 gefunden und die Zahl 24 übersehen",
+     "c": "1"
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Elemente von A und B ohne Abzug addiert",
+     "c": "7 + 5"
+    },
+    {
+     "luecke": 3,
+     "antwort": 23,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zahlen aus A abgezogen",
+     "c": "30 - 7"
+    },
+    {
+     "luecke": 3,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der gemeinsamen Elemente nicht beachtet",
+     "c": "30 - 12"
+    }
+   ],
+   "aufgabe": {
+    "l": "verknuepfen",
+    "t": "verknuepfen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Aus den Zahlen von 1 bis 30 wird eine gezogen. A: „Die Zahl ist durch 4 teilbar.“ (7 Zahlen) B: „Die Zahl ist durch 6 teilbar.“ (5 Zahlen) In A ∩ B liegen die Vielfachen von 12, das sind ① Zahlen. Dann liegen in A ∪ B ② Zahlen. Also gehören zu keinem der beiden Ereignisse ③ Zahlen.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      10,
+      20
+     ]
+    },
+    "c": [
+     "30 // 12",
+     "7 + 5 - (2)",
+     "30 - (10)"
+    ],
+    "h": "Zähle zuerst die Zahlen, die in beiden Ereignissen liegen. Sie wurden bei 7 + 5 mehrfach mitgezählt.",
+    "w": "Durch 4 und 6 teilbar sind 12 und 24, das sind 2 Zahlen. A ∪ B: 7 + 5 − 2 = 10. Weder A noch B: 30 − 10 = 20."
+   }
+  },
+  {
+   "kennung": "K9A-V131",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "verknuepfen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "A und B abgezogen, aber die doppelt gezählten Zahlen nicht wieder dazugerechnet",
+     "c": "40 - 13 - 8"
+    },
+    {
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zahlen aus A abgezogen",
+     "c": "40 - 13"
+    },
+    {
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die gemeinsamen Zahlen zusätzlich abgezogen",
+     "c": "40 - 13 - 8 - 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "verknuepfen",
+    "t": "verknuepfen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Aus den Zahlen von 1 bis 40 wird eine gezogen. A: „Die Zahl ist durch 3 teilbar.“ B: „Die Zahl ist durch 5 teilbar.“ Wie viele Zahlen gehören weder zu A noch zu B? Weg A: Prüfe die Zahlen von 1 bis 40 der Reihe nach. Weg B: Zähle A, B und A ∩ B und nimm das Gegenereignis."
+    },
+    "o": {
+     "wert": 21
+    },
+    "c": "40 - (13 + 8 - 2)",
+    "h": "Beide Wege müssen dieselbe Anzahl ergeben. Beachte die Zahlen, die in A und in B liegen.",
+    "w": "Weg A: Weder durch 3 noch durch 5 teilbar sind 1, 2, 4, 7, 8, 11, 13, 14, 16, 17, 19, 22, 23, 26, 28, 29, 31, 32, 34, 37, 38. Das sind 21 Zahlen. Weg B: In A liegen 13 Zahlen, in B liegen 8 Zahlen, in A ∩ B liegen 2 Zahlen (15 und 30). In A ∪ B liegen 13 + 8 − 2 = 19 Zahlen. Also 40 − 19 = 21."
+   }
+  },
+  {
+   "kennung": "K9A-V132",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "verknuepfen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "verknuepfen",
+    "t": "verknuepfen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Aus den Zahlen von 1 bis 20 wird zufällig eine gezogen, jede Zahl mit derselben Wahrscheinlichkeit. A: „durch 2 teilbar“, B: „durch 3 teilbar“. Ben bestimmt P(A und nicht B). Zeile 1: A hat 10 Elemente, B hat 6 Elemente. Zeile 2: A ∩ B besteht aus 6, 12 und 18. Zeile 3: Nur in A liegen 10 − 3 = 7 Zahlen. Zeile 4: P(A und nicht B) = 7 : 20 = 0,45. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Wo steckt der erste Rechenfehler? Prüfe jede Zeile einzeln, beginne oben.",
+    "w": "In den Zeilen 1 bis 3 stimmt alles. In Zeile 4 ist 7 : 20 = 0,35 und nicht 0,45."
+   }
+  },
+  {
+   "kennung": "K9A-V133",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "additionssatz",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 38,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Kinder beider Sportarten ohne Abzug der doppelt gezählten addiert",
+     "c": "22 + 16"
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von allen Kindern die Summe ohne Abzug abgezogen",
+     "c": "50 - (22 + 16)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil für mindestens eine Sportart statt für keine angegeben",
+     "c": "(30) * 100 / 50"
+    }
+   ],
+   "aufgabe": {
+    "l": "additionssatz",
+    "t": "additionssatz",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Von 50 Kindern spielen 22 Fußball (A), 16 Tennis (B) und 8 beides. Mindestens eine der beiden Sportarten spielen ① Kinder. Dann spielen keine der beiden Sportarten ② Kinder. Also gilt für ein zufällig gewähltes Kind P(weder A noch B) = ③ %.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      30,
+      20,
+      40
+     ]
+    },
+    "c": [
+     "22 + 16 - 8",
+     "50 - (30)",
+     "(20) * 100 / 50"
+    ],
+    "h": "Der Additionssatz: P(A ∪ B) = P(A) + P(B) − P(A ∩ B). Das Gegenereignis zu „mindestens eine“ ist „keine“.",
+    "w": "A ∪ B: 22 + 16 − 8 = 30 Kinder. Keine Sportart: 50 − 30 = 20 Kinder. P = 20 : 50 = 0,4 = 40 %."
+   }
+  },
+  {
+   "kennung": "K9A-V134",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "additionssatz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 77,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil für mindestens einen Dienst angegeben",
+     "c": "62 + 45 - 30"
+    },
+    {
+     "antwort": -7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "vom Ganzen beide Anteile abgezogen, ohne die Überschneidung zu beachten",
+     "c": "100 - 62 - 45"
+    },
+    {
+     "antwort": -37,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 100 die Summe der drei Prozentwerte abgezogen",
+     "c": "100 - 62 - 45 - 30"
+    }
+   ],
+   "aufgabe": {
+    "l": "additionssatz",
+    "t": "additionssatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "In einer Umfrage nutzen 62 % der Befragten einen Streamingdienst für Filme, 45 % nutzen einen für Musik, und 30 % nutzen beide. Wie viel Prozent der Befragten nutzen keinen der beiden Dienste?"
+    },
+    "o": {
+     "wert": 23,
+     "einheit": "%"
+    },
+    "c": "100 - (62 + 45 - 30)",
+    "h": "Wer beide Dienste nutzt, wird bei 62 + 45 doppelt gezählt. Ziehe das ab, bevor du das Gegenereignis bildest.",
+    "w": "Mindestens einen Dienst nutzen 62 % + 45 % − 30 % = 77 %. Keinen nutzen 100 % − 77 % = 23 %."
+   }
+  },
+  {
+   "kennung": "K9A-V135",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "additionssatz",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "P(A ∪ B) angegeben",
+     "c": "1 - 0.1"
+    },
+    {
+     "antwort": 0.1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die gegebene Wahrscheinlichkeit für weder noch übernommen",
+     "c": "0.1"
+    },
+    {
+     "antwort": 1.1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "P(A) und P(B) addiert",
+     "c": "0.6 + 0.5"
+    }
+   ],
+   "aufgabe": {
+    "l": "additionssatz",
+    "t": "additionssatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Für zwei Ereignisse A und B gilt P(A) = 0,6, P(B) = 0,5 und P(Ā ∩ B̄) = 0,1. Das heißt, mit der Wahrscheinlichkeit 0,1 tritt weder A noch B ein. Berechne P(A ∩ B)."
+    },
+    "o": {
+     "wert": 0.2
+    },
+    "c": "0.6 + 0.5 - (1 - 0.1)",
+    "h": "Was sagt P(Ā ∩ B̄) über P(A ∪ B)? Welche Regel verbindet das mit P(A ∩ B)?",
+    "w": "P(A ∪ B) = 1 − 0,1 = 0,9. Aus 0,9 = 0,6 + 0,5 − P(A ∩ B) folgt P(A ∩ B) = 1,1 − 0,9 = 0,2."
+   }
+  },
+  {
+   "kennung": "K9A-V136",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "venn",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Kinder aus A genommen, auch die im Schnitt",
+     "c": "14"
+    },
+    {
+     "luecke": 2,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Kinder aus B genommen, auch die im Schnitt",
+     "c": "9"
+    },
+    {
+     "luecke": 3,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von allen Kindern nur die aus A abgezogen",
+     "c": "26 - 14"
+    },
+    {
+     "luecke": 3,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von allen Kindern die Summe von A und B abgezogen, ohne den Schnitt zurückzugeben",
+     "c": "26 - 14 - 9"
+    }
+   ],
+   "aufgabe": {
+    "l": "venn",
+    "t": "venn",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "In einer Klasse mit 26 Kindern lesen 14 gern Krimis (A), 9 lesen gern Fantasy (B), und 4 lesen beides. Im Venn-Diagramm stehen nur im Kreis A ① Kinder. Dann stehen nur im Kreis B ② Kinder. Also stehen außerhalb beider Kreise ③ Kinder.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      10,
+      5,
+      7
+     ]
+    },
+    "c": [
+     "14 - 4",
+     "9 - 4",
+     "26 - (10) - 4 - (5)"
+    ],
+    "h": "Die vier Kinder im Schnitt zählen zu A und zu B. Zähle sie nur einmal.",
+    "w": "Nur A: 14 − 4 = 10. Nur B: 9 − 4 = 5. In den Kreisen liegen 10 + 4 + 5 = 19 Kinder, außerhalb liegen 26 − 19 = 7 Kinder."
+   }
+  },
+  {
+   "kennung": "K9A-V137",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "venn",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Kinder in A gezählt",
+     "c": "9 + 4"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Bereich außerhalb beider Kreise gezählt",
+     "c": "5"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Bereiche außer „nur B“ gezählt",
+     "c": "9 + 4 + 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "venn",
+    "t": "venn",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zählt, wie viele Kinder einer Klasse in welchem Bereich eines Venn-Diagramms liegen. A: „spielt Fußball“, B: „schwimmt“. Wie viele Kinder gehören nicht zu B?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Bereich",
+       "nur A",
+       "A und B",
+       "nur B",
+       "keines"
+      ],
+      "zeilen": [
+       [
+        "Kinder",
+        "9",
+        "4",
+        "7",
+        "5"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 14
+    },
+    "c": "9 + 5",
+    "h": "Nicht zu B gehören die Kinder, die nur in A liegen, und die Kinder außerhalb beider Kreise.",
+    "w": "Nicht in B liegen die Bereiche „nur A“ und „keines“: 9 + 5 = 14 Kinder. Probe: Zu B gehören 4 + 7 = 11 Kinder, und 25 − 11 = 14."
+   }
+  },
+  {
+   "kennung": "K9A-V138",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "venn",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Personen für mindestens eins angegeben",
+     "c": "40 - 5"
+    },
+    {
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe beider Gruppen ohne Abzug genommen",
+     "c": "26 + 22"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Personen gezählt, die Pasta, aber keine Pizza mögen",
+     "c": "40 - 5 - 26"
+    }
+   ],
+   "aufgabe": {
+    "l": "venn",
+    "t": "venn",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einer Befragung von 40 Personen mögen 26 Pizza, 22 mögen Pasta, und 5 mögen keins von beiden. Wie viele Personen mögen beides?"
+    },
+    "o": {
+     "wert": 13
+    },
+    "c": "26 + 22 - (40 - 5)",
+    "h": "Wie viele Personen mögen mindestens eins von beiden? Was passiert beim Addieren von 26 und 22?",
+    "w": "Mindestens eins mögen 40 − 5 = 35 Personen. Bei 26 + 22 = 48 werden die Personen, die beides mögen, doppelt gezählt: 48 − 35 = 13."
+   }
+  },
+  {
+   "kennung": "K9A-V139",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "mengen_verstehen",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Die Elemente beider Mengen addieren: A ∪ B hat immer 13 Elemente.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Überschneidung nicht beachtet",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "Nur die kleinere Menge betrachten: A ∪ B hat höchstens 5 Elemente.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die kleinere Menge als Obergrenze genommen",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "Die Zahlen der Elemente multiplizieren: A ∪ B hat 8 · 5 = 40 Elemente.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen der Elemente multipliziert",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "mengen_verstehen",
+    "t": "mengen_verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Menge A hat 8 Elemente und die Menge B hat 5 Elemente. Du sollst herausfinden, wie viele Elemente A ∪ B haben kann, wenn du sonst nichts weißt. Welche Vorgehensweise führt zum Ziel?"
+    },
+    "a": [
+     "Die Elemente beider Mengen addieren: A ∪ B hat immer 13 Elemente.",
+     "Die kleinste und die größte mögliche Überschneidung betrachten: Liegt B ganz in A, sind es 8 + 5 − 5 = 8 Elemente. Ohne gemeinsames Element sind es 8 + 5 = 13. Also mindestens 8 und höchstens 13 Elemente.",
+     "Nur die kleinere Menge betrachten: A ∪ B hat höchstens 5 Elemente.",
+     "Die Zahlen der Elemente multiplizieren: A ∪ B hat 8 · 5 = 40 Elemente."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Fange mit der kleinstmöglichen und der größtmöglichen Überschneidung an.",
+    "w": "Liegt B ganz in A, dann hat A ∪ B nur 8 Elemente. Haben A und B kein gemeinsames Element, dann hat A ∪ B 8 + 5 = 13 Elemente. Dazwischen ist alles möglich. Die Vereinigung hat also mindestens 8 und höchstens 13 Elemente."
+   }
+  },
+  {
+   "kennung": "K9A-V140",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "mengen_verstehen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Elemente von A und B addiert",
+     "c": "9 + 8"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von den Elementen der Vereinigung die Elemente von A abgezogen",
+     "c": "14 - 9"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von den Elementen der Vereinigung die Elemente von B abgezogen",
+     "c": "14 - 8"
+    }
+   ],
+   "aufgabe": {
+    "l": "mengen_verstehen",
+    "t": "mengen_verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "A hat 9 Elemente, B hat 8 Elemente, und A ∪ B hat 14 Elemente. Wie viele Elemente hat A ∩ B?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "9 + 8 - 14",
+    "h": "Bei 9 + 8 werden die Elemente in A ∩ B doppelt gezählt.",
+    "w": "Es gilt 14 = 9 + 8 − |A ∩ B|. Also ist |A ∩ B| = 17 − 14 = 3."
+   }
+  },
+  {
+   "kennung": "K9A-V141",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "mengen_verstehen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "mengen_verstehen",
+    "t": "mengen_verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "A hat 12 Elemente, B hat 7 Elemente, A ∩ B hat 4 Elemente. Jana bestimmt, wie viele Elemente A ∪ B hat. Zeile 1: Nur in A liegen 12 − 4 = 8 Elemente. Zeile 2: Nur in B liegen 7 − 4 = 3 Elemente. Zeile 3: A ∪ B besteht nur aus den Elementen, die nur in A oder nur in B liegen. Zeile 4: Also hat die Vereinigung 11 Elemente. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Prüfe jede Zeile gegen die Angaben: Welche Elemente gehören zu A ∪ B?",
+    "w": "Zeile 3 vergisst die 4 Elemente von A ∩ B. Richtig ist 8 + 3 + 4 = 15. Zeile 4 folgt aus der falschen Zeile 3: 8 + 3 = 11."
+   }
+  },
+  {
+   "kennung": "K9A-V142",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "vierfeld",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die ganze Zeile von A genommen",
+     "c": "70"
+    },
+    {
+     "luecke": 1,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gäste genommen, die nur getrunken haben",
+     "c": "60 - 45"
+    },
+    {
+     "luecke": 2,
+     "antwort": 130,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "70 und 60 ohne Abzug der doppelt gezählten addiert",
+     "c": "70 + 60"
+    },
+    {
+     "luecke": 3,
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von allen Gästen nur die Gäste mit A abgezogen",
+     "c": "120 - 70"
+    },
+    {
+     "luecke": 3,
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von allen Gästen nur die Gäste mit B abgezogen",
+     "c": "120 - 60"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierfeld",
+    "t": "vierfeld",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Von 120 Gästen eines Festes haben 70 gegessen (A), 45 von ihnen haben auch getrunken (B). Insgesamt haben 60 getrunken. In der Vierfeldertafel steht bei „A und nicht B“ die Zahl ①. Dann ist die Summe der drei Innenfelder „A und nicht B“, „A und B“ und „nicht A und B“ gleich ②. Also steht bei „weder A noch B“ die Zahl ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      25,
+      85,
+      35
+     ]
+    },
+    "c": [
+     "70 - 45",
+     "(25) + 45 + (60 - 45)",
+     "120 - (85)"
+    ],
+    "h": "Trage 120, 70, 60 und 45 in die Tafel ein. Rechne dann Zeile für Zeile.",
+    "w": "A und nicht B: 70 − 45 = 25. Nur B: 60 − 45 = 15. Die drei Innenfelder zusammen: 25 + 45 + 15 = 85. Weder noch: 120 − 85 = 35."
+   }
+  },
+  {
+   "kennung": "K9A-V143",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "vierfeld",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 22,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Gruppe „nur B“ genommen",
+     "c": "22"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Gruppe „A und B“ genommen",
+     "c": "18"
+    },
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe der Zeile von A genommen",
+     "c": "32 + 18"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierfeld",
+    "t": "vierfeld",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zählt 120 Schüler in vier getrennten Gruppen. A: „fährt mit dem Rad“, B: „fährt mit dem Bus“. Du trägst die Zahlen in eine Vierfeldertafel ein. Welche Zahl steht dann in der Summenzeile in der Spalte B?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Gruppe",
+       "nur A",
+       "A und B",
+       "nur B",
+       "keines"
+      ],
+      "zeilen": [
+       [
+        "Schüler",
+        "32",
+        "18",
+        "22",
+        "48"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 40
+    },
+    "c": "18 + 22",
+    "h": "In der Spalte B stehen die Schüler mit B, ob mit oder ohne A.",
+    "w": "Zu B gehören die Gruppen „A und B“ und „nur B“: 18 + 22 = 40. Probe: 120 − 32 − 48 = 40."
+   }
+  },
+  {
+   "kennung": "K9A-V144",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "vierfeld",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 170,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Personen mit mindestens einem Merkmal angegeben",
+     "c": "200 - 30"
+    },
+    {
+     "antwort": 220,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen für A und B addiert",
+     "c": "120 + 100"
+    },
+    {
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Personen mit A, aber ohne B berechnet",
+     "c": "170 - 100"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierfeld",
+    "t": "vierfeld",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "In einer Vierfeldertafel stehen 200 Personen. 120 haben das Merkmal A, 100 haben das Merkmal B, und 30 haben weder A noch B. Wie viele Personen haben A und B?"
+    },
+    "o": {
+     "wert": 50
+    },
+    "c": "120 + 100 - (200 - 30)",
+    "h": "Was weißt du über die Zahl der Personen mit mindestens einem Merkmal? Was passiert beim Addieren von 120 und 100?",
+    "w": "A oder B haben 200 − 30 = 170 Personen. Aus 170 = 120 + 100 − x folgt x = 220 − 170 = 50."
+   }
+  },
+  {
+   "kennung": "K9A-V145",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "tafel_wkeit",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 80,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl statt des Prozentwerts angegeben",
+     "c": "80"
+    },
+    {
+     "luecke": 2,
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl statt des Prozentwerts angegeben",
+     "c": "90"
+    },
+    {
+     "luecke": 3,
+     "antwort": 85,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Prozentwerte ohne Abzug des Schnitts addiert",
+     "c": "(40) + (45)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Wahrscheinlichkeit für den Schnitt genannt",
+     "c": "36 * 100 / 200"
+    }
+   ],
+   "aufgabe": {
+    "l": "tafel_wkeit",
+    "t": "tafel_wkeit",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Tafel zeigt 200 Personen. A: „fährt Rad“, B: „fährt Bus“. Eine Person wird zufällig ausgewählt, jede mit derselben Wahrscheinlichkeit. Dann ist P(A) = ① %. Weiter ist P(B) = ② %. Also ist P(A ∪ B) = ③ %.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ).",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "",
+       "B",
+       "nicht B",
+       "Summe"
+      ],
+      "zeilen": [
+       [
+        "A",
+        "36",
+        "44",
+        "80"
+       ],
+       [
+        "nicht A",
+        "54",
+        "66",
+        "120"
+       ],
+       [
+        "Summe",
+        "90",
+        "110",
+        "200"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "werte": [
+      40,
+      45,
+      67
+     ]
+    },
+    "c": [
+     "80 * 100 / 200",
+     "90 * 100 / 200",
+     "(40) + (45) - 36 * 100 / 200"
+    ],
+    "h": "Lies die Summen am Rand der Tafel ab. Teile durch 200 und rechne in Prozent um.",
+    "w": "A hat die Summe 80: 80 : 200 = 40 %. B hat die Summe 90: 90 : 200 = 45 %. P(A ∩ B) = 36 : 200 = 18 %. P(A ∪ B) = 40 % + 45 % − 18 % = 67 %."
+   }
+  },
+  {
+   "kennung": "K9A-V146",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "tafel_wkeit",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 78,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle drei Felder genommen, auch das Feld für beide",
+     "c": "24 + 36 + 18"
+    },
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Feld „?“ genommen",
+     "c": "36"
+    },
+    {
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wahrscheinlichkeit von B genommen",
+     "c": "42"
+    }
+   ],
+   "aufgabe": {
+    "l": "tafel_wkeit",
+    "t": "tafel_wkeit",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tafel zeigt Wahrscheinlichkeiten. Das Feld „?“ ist nicht gefüllt. Mit welcher Wahrscheinlichkeit trifft genau eines der beiden Ereignisse A und B zu, also A oder B, aber nicht beide? Gib das Ergebnis in Prozent an.",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "",
+       "B",
+       "nicht B",
+       "Summe"
+      ],
+      "zeilen": [
+       [
+        "A",
+        "0,24",
+        "?",
+        "0,6"
+       ],
+       [
+        "nicht A",
+        "0,18",
+        "0,22",
+        "0,4"
+       ],
+       [
+        "Summe",
+        "0,42",
+        "0,58",
+        "1"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 54,
+     "einheit": "%"
+    },
+    "c": "(0.6 - 0.24 + 0.18) * 100",
+    "h": "Das Feld „?“ ergibt sich aus der Zeilensumme von A. Genau eines heißt: „A und nicht B“ plus „nicht A und B“.",
+    "w": "Aus der Zeile A folgt „A und nicht B“ = 0,6 − 0,24 = 0,36. „Nicht A und B“ ist 0,18. Genau eines trifft zu mit 0,36 + 0,18 = 0,54, also mit 54 %."
+   }
+  },
+  {
+   "kennung": "K9A-V147",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "tafel_wkeit",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 66,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "P(A ∪ B) statt genau eines angegeben",
+     "c": "(45 + 55 + 65) * 100 / 250"
+    },
+    {
+     "antwort": 84,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "P(A) und P(B) addiert",
+     "c": "(100 + 110) * 100 / 250"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur P(A ∩ B) angegeben",
+     "c": "45 * 100 / 250"
+    }
+   ],
+   "aufgabe": {
+    "l": "tafel_wkeit",
+    "t": "tafel_wkeit",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tafel zeigt 250 Personen. Eine Person wird zufällig ausgewählt, jede mit derselben Wahrscheinlichkeit. Mit welcher Wahrscheinlichkeit trifft genau eines der Merkmale A und B zu? Gib das Ergebnis in Prozent an. Weg A: Addiere die Felder „A und nicht B“ und „nicht A und B“. Weg B: Nimm P(A) + P(B) und ziehe P(A ∩ B) zweimal ab.",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "",
+       "B",
+       "nicht B",
+       "Summe"
+      ],
+      "zeilen": [
+       [
+        "A",
+        "45",
+        "55",
+        "100"
+       ],
+       [
+        "nicht A",
+        "65",
+        "85",
+        "150"
+       ],
+       [
+        "Summe",
+        "110",
+        "140",
+        "250"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 48,
+     "einheit": "%"
+    },
+    "c": "(55 + 65) * 100 / 250",
+    "h": "Beide Wege müssen dasselbe Ergebnis liefern. Der Schnitt steckt in P(A) und in P(B).",
+    "w": "Weg A: 55 + 65 = 120, also 120 : 250 = 48 %. Weg B: P(A) = 100 : 250 = 40 %, P(B) = 110 : 250 = 44 %, P(A ∩ B) = 45 : 250 = 18 %. 40 % + 44 % − 2 · 18 % = 48 %."
+   }
+  },
+  {
+   "kennung": "K9A-V148",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "bedingt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Jungen mit Haustier genannt statt der Mädchen",
+     "c": "3"
+    },
+    {
+     "luecke": 1,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Kinder mit Haustier genannt",
+     "c": "12"
+    },
+    {
+     "luecke": 2,
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil der Jungen statt der Mädchen angegeben (3 von 12 Kindern mit Haustier)",
+     "c": "(12 - (9)) * 100 / 12"
+    },
+    {
+     "luecke": 2,
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch alle 20 Kinder der Klasse geteilt",
+     "c": "(9) * 100 / 20"
+    },
+    {
+     "luecke": 3,
+     "antwort": 75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Bedingung und Ereignis vertauscht: durch die 12 Kinder mit Haustier statt durch die 15 Mädchen geteilt",
+     "c": "(9) * 100 / 12"
+    },
+    {
+     "luecke": 3,
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch alle 20 Kinder der Klasse geteilt",
+     "c": "(9) * 100 / 20"
+    }
+   ],
+   "aufgabe": {
+    "l": "bedingt",
+    "t": "bedingt",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "In einer Klasse mit 20 Kindern haben 12 ein Haustier (A). Von den zwölf Kindern mit Haustier sind drei Jungen. Insgesamt sind 15 Kinder Mädchen (B). Ein Kind der Klasse wird zufällig ausgewählt. Jedes Kind hat dieselbe Wahrscheinlichkeit. Unter den Kindern mit Haustier sind ① Mädchen. Also ist P_A(B) = ② %. Dann ist P_B(A) = ③ %.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      9,
+      75,
+      60
+     ]
+    },
+    "c": [
+     "12 - 3",
+     "(9) * 100 / 12",
+     "(9) * 100 / 15"
+    ],
+    "h": "Die Mädchen mit Haustier gehören zu A und zu B. P_A(B) betrachtet nur die Kinder mit Haustier. P_B(A) betrachtet nur die Mädchen.",
+    "w": "Mädchen mit Haustier: 12 − 3 = 9. P_A(B) = 9 : 12 = 75 %. P_B(A) = 9 : 15 = 60 %."
+   }
+  },
+  {
+   "kennung": "K9A-V149",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "bedingt",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "P_A(B) statt P_B(A) abgelesen",
+     "c": "0.6"
+    },
+    {
+     "antwort": 0.3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur P(A ∩ B) angegeben",
+     "c": "0.5 * 0.6"
+    },
+    {
+     "antwort": 0.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "P(A) angegeben",
+     "c": "0.5"
+    }
+   ],
+   "aufgabe": {
+    "l": "bedingt",
+    "t": "bedingt",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Das Baumdiagramm gehört zu einem zweistufigen Zufallsexperiment. Berechne P_B(A), also die Wahrscheinlichkeit für A unter der Bedingung B, als Dezimalzahl.",
+     "grafik": {
+      "typ": "baum",
+      "aeste": [
+       {
+        "text": "A",
+        "p": "0,5",
+        "aeste": [
+         {
+          "text": "B",
+          "p": "0,6"
+         },
+         {
+          "text": "B̄",
+          "p": "0,4"
+         }
+        ]
+       },
+       {
+        "text": "Ā",
+        "p": "0,5",
+        "aeste": [
+         {
+          "text": "B",
+          "p": "0,2"
+         },
+         {
+          "text": "B̄",
+          "p": "0,8"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "o": {
+     "wert": 0.75
+    },
+    "c": "0.5 * 0.6 / (0.5 * 0.6 + 0.5 * 0.2)",
+    "h": "Welche beiden Pfade enden bei B? P_B(A) ist der Anteil des Pfads über A an diesen beiden Pfaden.",
+    "w": "Pfad A und B: 0,5 · 0,6 = 0,3. Pfad nicht A und B: 0,5 · 0,2 = 0,1. P(B) = 0,3 + 0,1 = 0,4. P_B(A) = 0,3 : 0,4 = 0,75."
+   }
+  },
+  {
+   "kennung": "K9A-V150",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "bedingt",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile ist richtig, weil in der Tafel 80 Personen B haben und 30 von ihnen auch A. Sie gehört aber zur falschen Bedingung aus Zeile 1. Der erste Fehler steht früher.",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "bedingt",
+    "t": "bedingt",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tafel zeigt 200 Personen. Eine der 200 Personen wird zufällig ausgewählt, jede mit derselben Wahrscheinlichkeit. Tom bestimmt P_A(B). Zeile 1: Die Bedingung ist B, also zählen nur die Personen mit B. Zeile 2: Das sind 80 Personen, davon haben 30 auch A. Zeile 3: P_A(B) = 30 : 80 = 0,375. In welcher Zeile passiert der erste Fehler?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "",
+       "B",
+       "nicht B",
+       "Summe"
+      ],
+      "zeilen": [
+       [
+        "A",
+        "30",
+        "70",
+        "100"
+       ],
+       [
+        "nicht A",
+        "50",
+        "50",
+        "100"
+       ],
+       [
+        "Summe",
+        "80",
+        "120",
+        "200"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Lies die Zeilen der Reihe nach. Wofür steht die Schreibweise P_A(B)?",
+    "w": "Bei P_A(B) ist A die Bedingung, nur die 100 Personen mit A zählen. Richtig ist P_A(B) = 30 : 100 = 0,3. Die Zeilen 2 und 3 rechnen mit der falschen Gruppe, aber richtig weiter."
+   }
+  },
+  {
+   "kennung": "K9A-V151",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "rueckschluss",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Prozentwert als Anzahl genommen",
+     "c": "30"
+    },
+    {
+     "luecke": 1,
+     "antwort": 700,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die guten Äpfel statt der faulen genommen",
+     "c": "1000 - 300"
+    },
+    {
+     "luecke": 2,
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Prozentwert als Anzahl genommen",
+     "c": "90"
+    },
+    {
+     "luecke": 2,
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10 % statt 90 % der faulen Äpfel genommen",
+     "c": "(300) * 10 // 100"
+    },
+    {
+     "luecke": 3,
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10 % der faulen statt der guten Äpfel genommen",
+     "c": "(300) * 10 // 100"
+    },
+    {
+     "luecke": 3,
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10 % von allen Äpfeln genommen",
+     "c": "1000 * 10 // 100"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckschluss",
+    "t": "rueckschluss",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "30 % der Äpfel einer Lieferung sind faul. Ein Test erkennt 90 % der faulen Äpfel, meldet aber auch 10 % der guten Äpfel fälschlich als faul. Stelle dir 1 000 Äpfel vor. Faul sind ① Äpfel. Dann meldet der Test ② dieser Äpfel. Also meldet er von den guten Äpfeln ③ fälschlich als faul.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      300,
+      270,
+      70
+     ]
+    },
+    "c": [
+     "1000 * 30 // 100",
+     "(300) * 90 // 100",
+     "(1000 - (300)) * 10 // 100"
+    ],
+    "h": "Rechne mit 1 000 Äpfeln. 30 % davon sind faul, die anderen sind gut.",
+    "w": "Faul: 30 % von 1 000 = 300. Davon erkannt: 90 % von 300 = 270. Gut sind 700 Äpfel, davon werden 10 % = 70 fälschlich gemeldet."
+   }
+  },
+  {
+   "kennung": "K9A-V152",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "rueckschluss",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 190,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die richtig gemeldeten defekten Bauteile gezählt",
+     "c": "10000 * 2 / 100 * 95 / 100"
+    },
+    {
+     "antwort": 392,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die fälschlich gemeldeten intakten Bauteile gezählt",
+     "c": "(10000 - 200) * 4 / 100"
+    },
+    {
+     "antwort": 592,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle defekten Bauteile statt der erkannten mit den falschen Meldungen addiert",
+     "c": "200 + 392"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckschluss",
+    "t": "rueckschluss",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "2 % der Bauteile einer Fertigung sind defekt. Ein Prüfgerät meldet 95 % der defekten Bauteile, aber auch 4 % der intakten Bauteile fälschlich als defekt. Stelle dir 10 000 Bauteile vor. Wie viele Bauteile meldet das Gerät insgesamt als defekt?"
+    },
+    "o": {
+     "wert": 582
+    },
+    "c": "10000 * 2 / 100 * 95 / 100 + (10000 - 10000 * 2 / 100) * 4 / 100",
+    "h": "Rechne getrennt: die defekten Bauteile, die erkannt werden, und die intakten Bauteile, die fälschlich gemeldet werden.",
+    "w": "Defekt sind 200 Bauteile, davon werden 95 % = 190 gemeldet. Intakt sind 9 800, davon werden 4 % = 392 gemeldet. Insgesamt sind es 190 + 392 = 582."
+   }
+  },
+  {
+   "kennung": "K9A-V153",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "rueckschluss",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Erkennungsrate der defekten Bauteile angegeben",
+     "c": "180 * 100 / 200"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wahrscheinlichkeit für defekt und gemeldet angegeben",
+     "c": "180 * 100 / 1000"
+    },
+    {
+     "antwort": 22,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil aller gemeldeten Bauteile angegeben",
+     "c": "220 * 100 / 1000"
+    }
+   ],
+   "aufgabe": {
+    "l": "rueckschluss",
+    "t": "rueckschluss",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "20 % der Bauteile einer Fertigung sind defekt. Ein Prüfgerät meldet 90 % der defekten Bauteile, aber auch 5 % der intakten Bauteile fälschlich als defekt. Bei einem Bauteil meldet das Gerät „defekt“. Mit welcher Wahrscheinlichkeit ist es wirklich defekt? Gib das Ergebnis in Prozent an, auf ganze Prozent gerundet. Weg A: Stelle dir 1 000 Bauteile vor und zähle. Weg B: Rechne mit den Pfaden eines Baumdiagramms."
+    },
+    "o": {
+     "wert": 82,
+     "einheit": "%"
+    },
+    "c": "round(81.81818181818183, 0)",
+    "h": "Beide Wege müssen auf ganze Prozent gerundet dasselbe ergeben. Überlege, welche Gruppe hier die Bedingung bildet.",
+    "w": "Weg A: Von 1 000 Bauteilen sind 200 defekt, 180 davon werden gemeldet. Von den 800 intakten werden 40 gemeldet. Gemeldet werden 220, davon sind 180 defekt: 180 : 220 ≈ 0,818. Weg B: 0,2 · 0,9 = 0,18 und 0,8 · 0,05 = 0,04. Dann ist 0,18 : 0,22 ≈ 0,818. Das sind etwa 82 %."
+   }
+  },
+  {
+   "kennung": "K9A-V154",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "verstehen",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "P(A) und P(B) malnehmen: P(A ∩ B) = 0,6 · 0,7 = 0,42.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wahrscheinlichkeiten multipliziert, obwohl nicht bekannt ist, ob die Ereignisse unabhängig sind",
+     "c": null
+    },
+    {
+     "index": 1,
+     "antwort": "Annehmen, dass A und B keine gemeinsamen Ergebnisse haben: P(A ∩ B) = 0.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe 0,6 + 0,7 = 1,3 über 1 nicht beachtet: dann müssen sich A und B überschneiden",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "P(A) und P(B) addieren: P(A ∩ B) = 0,6 + 0,7 = 1,3.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Schnitt und Vereinigung verwechselt: eine Wahrscheinlichkeit über 1 ist unmöglich",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Für zwei Ereignisse gilt P(A) = 0,6 und P(B) = 0,7. Mehr ist nicht bekannt. Du sollst P(A ∩ B) so gut wie möglich eingrenzen. Welche Vorgehensweise führt zum Ziel?"
+    },
+    "a": [
+     "P(A) und P(B) malnehmen: P(A ∩ B) = 0,6 · 0,7 = 0,42.",
+     "Annehmen, dass A und B keine gemeinsamen Ergebnisse haben: P(A ∩ B) = 0.",
+     "P(A) und P(B) addieren: P(A ∩ B) = 0,6 + 0,7 = 1,3.",
+     "Mit dem Additionssatz und P(A ∪ B) ≤ 1 die untere Grenze bestimmen: 0,6 + 0,7 − 1 = 0,3. Die obere Grenze ist die kleinere der beiden Wahrscheinlichkeiten, 0,6. Ergebnis: 0,3 ≤ P(A ∩ B) ≤ 0,6. Der genaue Wert ist offen."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "P(A ∪ B) darf nicht größer als 1 sein. Was folgt daraus für den Schnitt? Und der Schnitt kann nie größer sein als jede der beiden Mengen.",
+    "w": "Aus P(A ∪ B) = 0,6 + 0,7 − P(A ∩ B) ≤ 1 folgt P(A ∩ B) ≥ 0,3. Außerdem liegt A ∩ B in A und in B, also ist P(A ∩ B) ≤ 0,6. Also 0,3 ≤ P(A ∩ B) ≤ 0,6. Der genaue Wert ist offen."
+   }
+  },
+  {
+   "kennung": "K9A-V155",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Paare mit der Augensumme genau 10 gezählt",
+     "c": "3"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Paare mit der Augensumme 12 vergessen",
+     "c": "3 + 2"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl des Gegenereignisses angegeben",
+     "c": "36 - 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein fairer Würfel wird zweimal unabhängig geworfen, alle 36 Zahlenpaare sind gleich wahrscheinlich. Wie viele der 36 möglichen Zahlenpaare haben die Augensumme mindestens 10? Weg A: Schreibe die passenden Paare auf. Weg B: Nimm das Gegenereignis „Augensumme höchstens 9“."
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "36 - 30",
+    "h": "Beide Wege müssen dieselbe Anzahl ergeben. Beim Gegenereignis zählst du die Paare nach der Augensumme.",
+    "w": "Weg A: Summe 10 mit (4|6), (5|5), (6|4), Summe 11 mit (5|6), (6|5), Summe 12 mit (6|6). Das sind 6 Paare. Weg B: Für die Summen 2 bis 9 gibt es 1 + 2 + 3 + 4 + 5 + 6 + 5 + 4 = 30 Paare. 36 − 30 = 6."
+   }
+  },
+  {
+   "kennung": "K9A-V156",
+   "thema": "stochastik.verknuepft",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.daten.stufen",
+   "regel_name": "Stufen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders",
+     "c": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus dem Fehler davor richtig; der erste Fehler steht früher",
+     "c": null
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "In einer Urne liegen 3 rote und 2 blaue Kugeln. Es wird zweimal ohne Zurücklegen gezogen, bei jedem Zug hat jede noch vorhandene Kugel dieselbe Wahrscheinlichkeit. Mia bestimmt P(zwei rote Kugeln). Zeile 1: Beim ersten Zug ist die Wahrscheinlichkeit für rot 3/5. Zeile 2: Beim zweiten Zug liegen 4 Kugeln in der Urne, davon 3 rote: 3/4. Zeile 3: P(zwei rote Kugeln) = 3/5 · 3/4 = 9/20. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Lies die Zeilen der Reihe nach. Prüfe jede Zeile gegen die Beschreibung des Ziehens.",
+    "w": "Nach einer roten Kugel bleiben 2 rote unter 4 Kugeln, also 2/4. Richtig ist P = 3/5 · 2/4 = 6/20 = 3/10. Zeile 3 rechnet mit der falschen Zeile 2 richtig weiter."
+   }
+  }
+ ]
+}

@@ -119,7 +119,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 5 | ⟦6⟧ · (20 + 2) = ⟦6⟧ · 20 + ⟦6⟧ · 2 = 132 | Einführung | `zahlen.rechengesetze` |
 | 6 | ⟦4⟧ · (2 + ½) = ⟦4⟧ · 2 + ⟦4⟧ · ½ = 10 | Anwendung | `bruch.rechnen` |
 | 7 | ⟦3⟧ · (x + 2) = ⟦3⟧ · x + ⟦3⟧ · 2 = 3x + 6 | Einführung | `terme.umformen` |
-| 8 | ⟦x⟧ · (3/x + ½) = ⟦x⟧ · 3/x + ⟦x⟧ · ½, für x ≠ 0 | Anwendung | `gleichungen.bruch` |
+| 8 | ⟦x⟧ · (3/x + ½) = ⟦x⟧ · (3/x) + ⟦x⟧ · ½, für x ≠ 0 | Anwendung | `gleichungen.bruch` |
 | 9 | ⟦√2⟧ · (√2 + 3) = ⟦√2⟧ · √2 + ⟦√2⟧ · 3 = 2 + 3√2 | Anwendung | `zahlen.reell` |
 | 10 | ⟦x⟧ · (x² − 4) = ⟦x⟧ · x² − ⟦x⟧ · 4 = x³ − 4x | Anwendung | `gleichungen.polynom` |
 
@@ -151,7 +151,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 7 | x⟦³⟧ · x⟦²⟧ = (x · x · x) · (x · x) = x⟦⁵⟧ | Einführung | `terme.potenzgesetze_natuerlich` |
 | 8 | x⟦³⟧ · x⟦⁻²⟧ = x⟦¹⟧ = x, für x ≠ 0 | Einführung | `terme.potenzgesetze_ganzzahlig` |
 | 9 | x^⟦½⟧ · x^⟦½⟧ = x⟦¹⟧ = x, für x ≥ 0 | Einführung | `zahlen.rationale_exponenten` |
-| 10 | 2⟦ˣ⟧ · 2⟦³⟧ = 2 hoch ⟦x + 3⟧ | Anwendung | `funktionen.exponential_log` |
+| 10 | 2⟦ˣ⟧ · 2⟦³⟧ = 2⁽⟦ˣ⁺³⟧⁾ | Anwendung | `funktionen.exponential_log` |
 
 ### Rechenregel 9: Erweitern und Kürzen (`rr.kuerzen`)
 
@@ -179,7 +179,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 5 | *kommt nicht vor – der Stoff dafür beginnt später (Brüche ab Klasse 6)* | – | – |
 | 6 | 1/2 + 1/3 = 3/⟦6⟧ + 2/⟦6⟧ = 5/⟦6⟧ | Einführung | `bruch.rechnen` |
 | 7 | x/2 + x/3 = 3x/⟦6⟧ + 2x/⟦6⟧ = 5x/⟦6⟧ | Anwendung | `gleichungen.linear` |
-| 8 | 1/x + 1/(2x) = 2/⟦2x⟧ + 1/⟦2x⟧ = 3/⟦2x⟧, für x ≠ 0 | Anwendung | `terme.bruchterme` |
+| 8 | 1/x + 1/(2x) = 2/⟦(2x)⟧ + 1/⟦(2x)⟧ = 3/⟦(2x)⟧, für x ≠ 0 | Anwendung | `terme.bruchterme` |
 | 9 | 1/2 + 1/3 − 1/6 = 3/⟦6⟧ + 2/⟦6⟧ − 1/⟦6⟧ = 4/⟦6⟧ | Anwendung | `stochastik.verknuepft` |
 | 10 | 1/6 + 1/3 = 1/⟦6⟧ + 2/⟦6⟧ = 3/⟦6⟧ | Anwendung | `stochastik.mehrstufig` |
 
@@ -209,7 +209,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 5 | □ ⟦+ 7⟧ = 3, also □ = 3 ⟦− 7⟧ = −4 | Einführung | `gleichungen.einfach` |
 | 6 | □ ⟦· ¾⟧ = 12, also □ = 12 ⟦: ¾⟧ = 16 | Anwendung | `bruch.rechnen` |
 | 7 | G ⟦· 1,2⟧ = 60 €, also G = 60 € ⟦: 1,2⟧ = 50 € | Anwendung | `bruch.prozent_grundwert` |
-| 8 | A = g ⟦· h⟧, also g = A ⟦: h⟧ | Anwendung | `gleichungen.formeln` |
+| 8 | A = g ⟦· h⟧, also g = A ⟦: h⟧ (für h ≠ 0) | Anwendung | `gleichungen.formeln` |
 | 9 | x ⟦hoch 2⟧ = 49, also x = ⟦±√⟧49 = ±7 | Einführung | `gleichungen.quadratisch` |
 | 10 | 2 ⟦hoch x⟧ = 8, also x = ⟦log₂⟧ 8 = 3 | Einführung | `gleichungen.exponential` |
 
@@ -239,7 +239,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 5 | ⟦□⟧ · 7 = ⟦0⟧: □ = 0 | Vorwissen | `gleichungen.einfach` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 7 | *kommt nicht vor – kein Thema der App in dieser Klasse (Gleichungen mit x² erst ab Klasse 9)* | – | – |
-| 8 | Nenner ⟦x⟧ · ⟦(x − 4)⟧ = ⟦0⟧: x = 0 oder 4 | Vorwissen | `terme.bruchterme` |
+| 8 | Nenner ⟦x⟧ · ⟦(x − 4)⟧ ist ⟦null⟧ für x = 0 oder x = 4: beide Werte sind ausgeschlossen | Vorwissen | `terme.bruchterme` |
 | 9 | ⟦(x − 2)⟧ · ⟦(x + 3)⟧ = ⟦0⟧: x = 2 oder −3 | Einführung | `gleichungen.quadratisch` |
 | 10 | ⟦x⟧ · ⟦(x − 2)⟧ · ⟦(x + 2)⟧ = ⟦0⟧: x = 0, 2 oder −2 | Anwendung | `gleichungen.polynom` |
 
@@ -376,7 +376,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 
 > **Durch null teilen geht nie – prüfe das zuerst.**
 
-**In jeder Zeile markiert:** Die Bedingung für x: Kein Nenner wird 0, unter keiner Wurzel steht etwas Negatives.
+**In jeder Zeile markiert:** Die Bedingung für x: Kein Nenner wird 0, unter keiner Quadratwurzel steht etwas Negatives.
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
@@ -507,7 +507,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 |---|---|---|---|
 | 5 | Rechteck: Gegenseiten ⟦gleich lang⟧ | Vorwissen | `geometrie.grundbegriffe` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 7 | Spiegeln: [AB] = ⟦3⟧, danach [A′B′] = ⟦3⟧ | Einführung | `abbildungen.kongruenz` |
+| 7 | Spiegeln: &#124;AB&#124; = ⟦3⟧, danach &#124;A′B′&#124; = ⟦3⟧ | Einführung | `abbildungen.kongruenz` |
 | 8 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse (dort beginnt „Ähnlich“)* | – | – |
 | 10 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
@@ -525,7 +525,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 | 7 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 8 | *kommt nicht vor – der Stoff dafür beginnt später* | – | – |
 | 9 | 3, 4, 5 cm ⟦· 2⟧ → 6, 8, 10 cm | Einführung | `abbildungen.aehnlichkeit` |
-| 10 | Pyramide, obere Hälfte: Kanten ⟦· ½⟧, Volumen · ⅛ | Anwendung | `raum.pyramide_kegel_kugel` |
+| 10 | Pyramide, Schnitt parallel zur Grundfläche auf halber Höhe: Die abgeschnittene Spitze hat halbe Kantenlängen (⟦· ½⟧) und ⅛ des ursprünglichen Volumens, der Stumpf ⅞ | Anwendung | `raum.pyramide_kegel_kugel` |
 
 #### Rechtwinkliges Dreieck (`id.geometrie.rechtwinklig`) – läuft über die Klassen 9, 10
 
@@ -598,10 +598,10 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | Quader: 40 ⟦+⟧ 30 ⟦+⟧ 24 = 94 cm² | Einführung | `messen.koerper_berechnung` |
+| 5 | Quader 5 · 4 · 3 cm: 2 · 20 ⟦+⟧ 2 · 15 ⟦+⟧ 2 · 12 = 94 cm² | Einführung | `messen.koerper_berechnung` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 7 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
-| 8 | Prisma: 12 ⟦+⟧ 18 ⟦+⟧ 24 ⟦+⟧ 30 = 84 cm² | Einführung | `messen.prisma_zylinder` |
+| 8 | Gerades Prisma (Dreiecksseiten 3, 4, 5 cm, Höhe 6 cm): 2 · 6 ⟦+⟧ 18 ⟦+⟧ 24 ⟦+⟧ 30 = 84 cm² | Einführung | `messen.prisma_zylinder` |
 | 9 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 10 | Pyramide: 36 ⟦+⟧ 60 = 96 cm² | Einführung | `raum.pyramide_kegel_kugel` |
 
@@ -630,7 +630,7 @@ Für den Designer liegt dasselbe als `klassenleiter.json` vor – mit den genaue
 
 | Klasse | Beispiel (wirkende Stelle in ⟦ ⟧) | Art | Thema der App |
 |---|---|---|---|
-| 5 | Preis je kg: 2,50; 5; 7,50 – immer ⟦+ 2,50⟧ | Vorwissen | `groessen.proportional` |
+| 5 | Preis für 1, 2, 3 kg: 2,50 €; 5 €; 7,50 € – immer ⟦+ 2,50 €⟧ | Vorwissen | `groessen.proportional` |
 | 6 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 7 | *kommt nicht vor – kein Thema der App in dieser Klasse* | – | – |
 | 8 | y = 1 + 2x: 1; 3; 5; 7 – immer ⟦+ 2⟧ | Einführung | `funktionen.linear` |

@@ -1,0 +1,288 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-11",
+ "kuerzel": "S3",
+ "thema": "terme.bruchterme",
+ "titel": "terme.bruchterme",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen_datei_im_bestand": "terme.bruchterme",
+ "hinweis": "Je Lernkarte ohne Aufgabe auf Stufe 3 in rollend-5/rollend-7 genau eine zählende Aufgabe der Stufe 3 in neuer Form. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ, form, zaehlt, Regel-Kennung, Fehlbilder (mit rechnung) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "S3-V040",
+   "thema": "terme.bruchterme",
+   "lernkarte": "definitionsmenge",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.algebra.erlaubte_zahlen",
+   "regel_name": "Erlaubte Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die in der Tabelle sichtbaren Nullstellen −1 und 2 gezählt (die dritte, x = 5, liegt außerhalb der Tabelle)",
+     "rechnung": "3 - 1"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Spalten der Tabelle genannt",
+     "rechnung": "6"
+    },
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Nullstelle des Nenners gezählt",
+     "rechnung": "1"
+    }
+   ],
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt einige Werte des Nenners N(x) = (x − 2)(x + 1)(x − c) für eine feste Zahl c. Der Term T(x) = 7/N(x) hat diesen Nenner. Wie viele Zahlen muss man aus ℚ ausschließen, damit T(x) definiert ist?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "x",
+       "−2",
+       "−1",
+       "0",
+       "1",
+       "2",
+       "3"
+      ],
+      "zeilen": [
+       [
+        "N(x)",
+        "−28",
+        "0",
+        "10",
+        "8",
+        "0",
+        "−8"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 3,
+     "einheit": "Zahlen"
+    },
+    "c": "3",
+    "h": "Mit einem Wert aus der Tabelle kannst du c bestimmen. Wann ist ein Produkt aus drei Faktoren gleich null?",
+    "w": "Für x = 0 ist N(0) = (−2) · 1 · (−c) = 2c. Laut Tabelle ist N(0) = 10, also c = 5. Probe mit x = 1: (−1) · 2 · (1 − 5) = 8, das passt zur Tabelle. Der Nenner ist 0, wenn einer der Faktoren 0 ist: x = 2, x = −1 oder x = 5. Man muss 3 Zahlen ausschließen: D = ℚ \\ {−1; 2; 5}."
+   }
+  },
+  {
+   "kennung": "S3-V041",
+   "thema": "terme.bruchterme",
+   "lernkarte": "termwert",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Diese Zeile ist richtig: Der Nenner wird unabhängig vom Zähler berechnet, −2 + 4 = 2. Der erste Fehler steckt beim Quadrieren im Zähler (Zeile 1).",
+     "rechnung": null
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt aus der falschen Zeile 1 richtig; der erste Fehler steckt weiter oben",
+     "rechnung": null
+    }
+   ],
+   "fehlerzeile": 1,
+   "fehler": "(−2)² als −4 gerechnet (das Quadrat einer negativen Zahl)",
+   "zeilen": [
+    {
+     "zeile": 1,
+     "text": "Zähler: (−2)² = −4, also 3 − (−4) = 7",
+     "stimmt": false
+    },
+    {
+     "zeile": 2,
+     "text": "Nenner: −2 + 4 = 2",
+     "stimmt": true
+    },
+    {
+     "zeile": 3,
+     "text": "T(−2) = 7 : 2 = 3,5",
+     "stimmt": true
+    }
+   ],
+   "aufgabe": {
+    "l": "termwert",
+    "t": "termwert",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim berechnet T(−2) für T(x) = (3 − x²)/(x + 4). Zeile 1: Zähler: (−2)² = −4, also 3 − (−4) = 7 Zeile 2: Nenner: −2 + 4 = 2 Zeile 3: T(−2) = 7 : 2 = 3,5 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Rechne T(−2) selbst mit dem Taschenrechner nach.",
+    "w": "Zeile 1 enthält den Fehler: (−2)² = (−2) · (−2) = 4, nicht −4. Der Zähler ist also 3 − 4 = −1. Zeile 2 stimmt. Zeile 3 rechnet mit dem falschen Zähler 7 richtig weiter. Richtig ist T(−2) = −1 : 2 = −0,5."
+   }
+  },
+  {
+   "kennung": "S3-V042",
+   "thema": "terme.bruchterme",
+   "lernkarte": "erweitern",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler nicht mit erweitert",
+     "rechnung": "5"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit x − 2 statt mit x + 2 erweitert",
+     "rechnung": "5 * (5 - 2)"
+    },
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit x statt mit x + 2 erweitert",
+     "rechnung": "5 * 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "erweitern",
+    "t": "erweitern",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Der Bruch 5/(x − 2) (x ≠ 2 und x ≠ −2) wird so erweitert, dass der Nenner x² − 4 lautet. Weg A: Setze x = 5 in den alten und in den neuen Nenner ein und vergleiche die beiden Zahlen. Weg B: Zerlege x² − 4 mit der dritten binomischen Formel in Faktoren und vergleiche mit dem alten Nenner. Welchen Wert hat der neue Zähler für x = 5?"
+    },
+    "o": {
+     "wert": 35
+    },
+    "c": "5 * (5 + 2)",
+    "h": "Beide Wege müssen denselben Wert ergeben. Der Zähler wird mit demselben Faktor malgenommen wie der Nenner.",
+    "w": "Weg A: Für x = 5 ist der alte Nenner 5 − 2 = 3 und der neue Nenner 25 − 4 = 21. Der Nenner wurde mit 21 : 3 = 7 malgenommen, also auch der Zähler: 5 · 7 = 35. Weg B: x² − 4 = (x − 2)(x + 2), der alte Nenner ist ein Faktor davon, der Erweiterungsfaktor ist x + 2, für x = 5 also 7. Neuer Zähler: 5(x + 2) = 5 · 7 = 35. Beide Wege geben 35."
+   }
+  },
+  {
+   "kennung": "S3-V043",
+   "thema": "terme.bruchterme",
+   "lernkarte": "addieren",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "6/(2x + 2)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zähler und Nenner getrennt addiert: (4 + 2)/(x + x + 2)",
+     "rechnung": null
+    },
+    {
+     "index": 1,
+     "antwort": "(4x + 10)/(x(x + 2))",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den ersten Bruch auf den Hauptnenner erweitert: 4(x + 2) + 2 im Zähler",
+     "rechnung": null
+    },
+    {
+     "index": 3,
+     "antwort": "6/(x(x + 2))",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zähler addiert, aber nicht erweitert: 4 + 2 über dem Hauptnenner",
+     "rechnung": null
+    }
+   ],
+   "aufgabe": {
+    "l": "addieren",
+    "t": "addieren",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt einige Werte des Terms T(x) = 4/x + 2/(x + 2). Welcher zu einem Bruch zusammengefasste Term gehört zu allen Werten der Tabelle?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "x",
+       "2",
+       "3",
+       "4"
+      ],
+      "zeilen": [
+       [
+        "T(x)",
+        "5/2",
+        "26/15",
+        "4/3"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "6/(2x + 2)",
+     "(4x + 10)/(x(x + 2))",
+     "(6x + 8)/(x(x + 2))",
+     "6/(x(x + 2))"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Setze einen Wert aus der Tabelle in die Terme ein, zum Beispiel x = 2. Du kannst auch selbst mit dem Hauptnenner x(x + 2) zusammenfassen.",
+    "w": "Hauptnenner x(x + 2): 4/x = 4(x + 2)/(x(x + 2)) und 2/(x + 2) = 2x/(x(x + 2)). Summe: (4x + 8 + 2x)/(x(x + 2)) = (6x + 8)/(x(x + 2)). Probe x = 2: 20/8 = 5/2, das passt zur Tabelle."
+   }
+  }
+ ]
+}

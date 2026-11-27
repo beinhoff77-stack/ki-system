@@ -1,0 +1,542 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-13",
+ "kuerzel": "R8",
+ "flug": "r8-terme.quadratische_extreme",
+ "titel": "terme.quadratische_extreme",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen": [
+  "terme.quadratische_extreme"
+ ],
+ "themen_datei_im_bestand": "terme.quadratische_extreme",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R8-V099",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "ergaenzen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Streifenbreite 6 statt 3 zur Seite addiert"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Seitenlänge x des kleinen Quadrats angegeben"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Streifenbreite dreimal addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "ergaenzen",
+    "t": "ergaenzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quadrat hat die Seitenlänge x m. An zwei benachbarten Seiten wird je ein Streifen der Breite 3 m angelegt. Quadrat und beide Streifen haben zusammen die Fläche x² + 6x. An der Ecke fehlt noch ein kleines Quadrat, damit ein großes Quadrat entsteht. Wie lang ist die Seite des großen Quadrats in Metern, wenn x = 7 ist?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "m"
+    },
+    "c": "7 + 3",
+    "h": "Das große Quadrat besteht aus dem Quadrat mit Seite x, zwei Streifen und dem kleinen Eckquadrat. Welche Länge hat jede Seite des großen Quadrats?",
+    "w": "Das kleine Eckquadrat hat die Seitenlänge 3 m und die Fläche 9 m². Das große Quadrat hat die Fläche x² + 6x + 9 = (x + 3)². Seine Seite ist x + 3. Für x = 7 ist das 10 m."
+   }
+  },
+  {
+   "kennung": "R8-V100",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "ergaenzen",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Ausgleich −16 angegeben, die Zahl 5 vergessen"
+    },
+    {
+     "antwort": 21,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "16 addiert statt abgezogen"
+    },
+    {
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 minus 8 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "ergaenzen",
+    "t": "ergaenzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Die Funktion f(x) = x² + 8x + 5 soll in die Form (x + a)² + b gebracht werden. Weg A: quadratische Ergänzung. Weg B: (x + a)² + b ausmultiplizieren und die Zahlen vor x sowie die Zahlen ohne x vergleichen. Welche Zahl ist b?"
+    },
+    "o": {
+     "wert": -11
+    },
+    "c": "5 - 4 ** 2",
+    "h": "Beide Wege müssen dieselbe Zahl b ergeben. Aus der Zahl vor x erhältst du zuerst a.",
+    "w": "Weg A: x² + 8x + 16 − 16 + 5 = (x + 4)² − 11. Weg B: (x + a)² + b = x² + 2ax + a² + b. Aus 2a = 8 folgt a = 4. Aus a² + b = 5 folgt 16 + b = 5, also b = −11. Probe: (x + 4)² − 11 = x² + 8x + 5."
+   }
+  },
+  {
+   "kennung": "R8-V101",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "scheitelform",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Höhe bei x = 1 angegeben"
+    },
+    {
+     "antwort": 4.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die größte Höhe angegeben"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": "fb.gleichung_form.falsche_richtung_verschoben",
+     "regel_des_fehlbilds": "id.funktionen.gleichung_form",
+     "beschreibung": "die Klammer mit Plus statt mit Minus gelesen und h bei x = 1 falsch berechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheitelform",
+    "t": "scheitelform",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Springbrunnenstrahl verläuft auf der Parabel h(x) = −0,5·(x − 3)² + 4,5 (x ist der waagerechte Abstand von der Düse in Metern, h die Höhe in Metern). Um wie viele Meter liegt der höchste Punkt des Strahls höher als der Strahl bei x = 1?"
+    },
+    "o": {
+     "wert": 2,
+     "einheit": "m"
+    },
+    "c": "4.5 - (-0.5 * (1 - 3) ** 2 + 4.5)",
+    "h": "Lies aus der Scheitelform die größte Höhe ab. Berechne dann h(1).",
+    "w": "Der Scheitel liegt bei (3 | 4,5): Der Strahl ist höchstens 4,5 m hoch. h(1) = −0,5 · (−2)² + 4,5 = −2 + 4,5 = 2,5. Unterschied: 4,5 − 2,5 = 2 m."
+   }
+  },
+  {
+   "kennung": "R8-V102",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "scheitelform",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 − 1 gerechnet und nicht durch 4 geteilt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Quadrat der Klammer nicht gebildet"
+    },
+    {
+     "antwort": 2.25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 1 nicht abgezogen: 9 durch 4 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheitelform",
+    "t": "scheitelform",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Die Parabel y = a·(x − 2)² + 1 geht durch den Punkt P(4 | 9). Welche Zahl ist a?"
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "(9 - 1) / (4 - 2) ** 2",
+    "h": "Der Punkt P liegt auf der Parabel.",
+    "w": "Aus 9 = a · (4 − 2)² + 1 folgt 9 = 4a + 1, also 4a = 8 und a = 2. Probe: y = 2(x − 2)² + 1 gibt für x = 4 den Wert 2 · 4 + 1 = 9."
+   }
+  },
+  {
+   "kennung": "R8-V103",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "extremwert",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Stelle des Scheitels statt den Funktionswert angegeben"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen übersehen: Betrag des Funktionswerts angegeben"
+    },
+    {
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Mitte falsch bei 4 statt bei 3 gesetzt und dort eingesetzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "extremwert",
+    "t": "extremwert",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Zeichnung zeigt die beiden Nullstellen der Funktion f(x) = x² + bx + c. Welchen kleinsten Funktionswert hat f für alle reellen Zahlen x?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -1,
+       7
+      ],
+      "y": [
+       -1,
+       3
+      ],
+      "punkte": [
+       {
+        "x": 1,
+        "y": 0,
+        "name": "N1"
+       },
+       {
+        "x": 5,
+        "y": 0,
+        "name": "N2"
+       }
+      ]
+     }
+    },
+    "o": {
+     "wert": -4
+    },
+    "c": "(3 - 1) * (3 - 5)",
+    "h": "Der Scheitel einer Parabel liegt auf ihrer Symmetrieachse.",
+    "w": "Die Parabel ist nach oben geöffnet und hat die Form f(x) = (x − 1)(x − 5). Der Scheitel liegt in der Mitte der beiden Nullstellen, also bei x = 3. Dort ist f(3) = 2 · (−2) = −4. Probe: f(x) = x² − 6x + 5 gibt f(3) = 9 − 18 + 5 = −4."
+   }
+  },
+  {
+   "kennung": "R8-V104",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "extremwert",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "extremwert",
+    "t": "extremwert",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim sucht den größten Wert von g(x) = −x² + 6x − 2 für alle reellen Zahlen x. Zeile 1: Ausklammern von −1 bei den ersten beiden Gliedern: g(x) = −(x² − 6x) − 2. Zeile 2: Ergänzen mit 9 und −9: g(x) = −((x − 3)² − 9) − 2. Zeile 3: Zusammengefasst: g(x) = −(x − 3)² + 7. Zeile 4: Der größte Wert ist 7. Er wird bei x = 7 angenommen. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Wo ist (x − 3)² gleich null? Setze diese Stelle in g ein.",
+    "w": "Der größte Wert 7 stimmt. Aber (x − 3)² ist null bei x = 3 und nicht bei x = 7. Probe: g(3) = −9 + 18 − 2 = 7, aber g(7) = −49 + 42 − 2 = −9. Der größte Wert 7 wird bei x = 3 angenommen."
+   }
+  },
+  {
+   "kennung": "R8-V105",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "mit_faktor",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 12 durch 2 geteilt und die Stelle 3 nicht benutzt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 12 durch die Stelle 3 geteilt, ohne zu halbieren"
+    },
+    {
+     "antwort": 0.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Bruch verkehrt herum gerechnet: Stelle durch 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "mit_faktor",
+    "t": "mit_faktor",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Die Funktion f(x) = a·x² − 12x + 5 mit a ≠ 0 hat ihren Scheitel bei x = 3. Für eine Funktion f(x) = ax² + bx + c liegt die Scheitelstelle bei x = −b/(2a). Welche Zahl ist a?"
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "12 / (2 * 3)",
+    "h": "Welche Zahl ist hier b? Setze b und die Scheitelstelle 3 in x = −b/(2a) ein.",
+    "w": "Hier ist b = −12, also x = 12/(2a) = 6/a. Aus 6/a = 3 folgt a = 2. Dieselbe Stelle ergibt die quadratische Ergänzung: f(x) = a(x² − (12/a)·x) + 5. Die Klammer wird zu (x − 6/a)² − 36/a². Der Scheitel liegt bei x = 6/a. Probe: f(x) = 2x² − 12x + 5 = 2(x − 3)² − 13, der Scheitel liegt bei x = 3."
+   }
+  },
+  {
+   "kennung": "R8-V106",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "mit_faktor",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den größten Wert der ganzen Parabel genommen, obwohl der Preis höchstens 4 betragen darf"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Preis des Scheitels statt des Gewinns angegeben"
+    },
+    {
+     "antwort": 34,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Einsetzen den Faktor 2 vor p² weggelassen"
+    }
+   ],
+   "aufgabe": {
+    "l": "mit_faktor",
+    "t": "mit_faktor",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Laden verkauft einen Artikel zum Preis p (in Euro). Der Gewinn pro Tag beträgt G(p) = −2p² + 20p − 30 Euro. Dieses Modell gilt nur für Preise mit 3 ≤ p ≤ 4. Wie groß ist der größte Gewinn pro Tag in Euro, den der Laden mit einem Preis aus diesem Bereich erreichen kann?"
+    },
+    "o": {
+     "wert": 18,
+     "einheit": "€"
+    },
+    "c": "-2 * 4 ** 2 + 20 * 4 - 30",
+    "h": "Beachte, welche Preise erlaubt sind.",
+    "w": "G(p) = −2(p − 5)² + 20. Der größte Wert der ganzen Parabel liegt bei p = 5, aber der Preis darf nur zwischen 3 und 4 liegen. In diesem Bereich wächst G, denn der Scheitel liegt weiter rechts. Der größte Gewinn ist bei p = 4: G(4) = −32 + 80 − 30 = 18."
+   }
+  },
+  {
+   "kennung": "R8-V107",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "optimierung",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Seite des besten Rechtecks angegeben"
+    },
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche durch 4 geteilt, ohne Wurzel zu ziehen"
+    },
+    {
+     "antwort": 400,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche mit 4 malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "optimierung",
+    "t": "optimierung",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Mit einem Zaun der Länge L wird ein Rechteck vollständig umzäunt. Der ganze Zaun wird verbaut. Bei festem Umfang hat das Quadrat die größte Fläche. Die größte Fläche, die man so umzäunen kann, ist 100 m². Wie lang ist der Zaun in Metern?"
+    },
+    "o": {
+     "wert": 40,
+     "einheit": "m"
+    },
+    "c": "4 * 10",
+    "h": "Welche Form hat das Rechteck mit der größten Fläche? Wie hängt dann die Seitenlänge mit L zusammen?",
+    "w": "Das beste Rechteck ist ein Quadrat mit Seite s, die Fläche ist s² = 100, also s = 10 und L = 4 · 10 = 40. Dasselbe zeigt die Rechnung: Die andere Seite ist L/2 − b. Die Fläche ist A(b) = b(L/2 − b). Ihr größter Wert liegt in der Mitte der Nullstellen 0 und L/2, bei b = L/4. Dort ist A = (L/4)² = L²/16. Aus L²/16 = 100 folgt L² = 1600 und L = 40 (L > 0). Probe: Quadrat mit Seite 10 hat Umfang 40 und Fläche 100."
+   }
+  },
+  {
+   "kennung": "R8-V108",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "optimierung",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Mauer nicht berücksichtigt: Rechteck mit allen vier Seiten aus Zaun gerechnet"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Seite des Scheitels angegeben"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Länge der Seite parallel zur Mauer angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "optimierung",
+    "t": "optimierung",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Landwirt zäunt an einer langen Mauer ein Rechteck ab. Die Mauer ist eine Seite. Für die drei anderen Seiten hat er 40 m Zaun, der ganz verbaut wird. Weg A: Funktion der Fläche in Scheitelform umschreiben. Weg B: Nullstellen der Funktion bestimmen und die Symmetrie der Parabel nutzen. Wie groß ist die größte Fläche in Quadratmetern?"
+    },
+    "o": {
+     "wert": 200,
+     "einheit": "m²"
+    },
+    "c": "10 * (40 - 2 * 10)",
+    "h": "Die Seite senkrecht zur Mauer sei b. Wie lang ist dann die Seite parallel zur Mauer?",
+    "w": "Die Seite parallel zur Mauer ist 40 − 2b lang. Fläche: A(b) = b(40 − 2b) = −2b² + 40b. Weg A: A(b) = −2(b − 10)² + 200, der größte Wert ist 200. Weg B: A(b) = 0 für b = 0 und b = 20. Der Scheitel liegt in der Mitte, bei b = 10, und dort ist A = 10 · 20 = 200. Beide Wege geben 200 m²."
+   }
+  }
+ ]
+}

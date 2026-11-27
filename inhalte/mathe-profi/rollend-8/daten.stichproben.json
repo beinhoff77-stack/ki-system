@@ -1,0 +1,820 @@
+{
+ "stand": "2026-11-27",
+ "flug": "daten.stichproben",
+ "titel": "Stichproben",
+ "fuer": "Klasse 7",
+ "klasse": 7,
+ "themen": [
+  "daten.stichproben"
+ ],
+ "hinweis": "Vorrat an Aufgaben in neuer Form (Auftrag 21). Nicht eingespielt. Kennungen mit K7.",
+ "aufgaben": [
+  {
+   "kennung": "K7-V091",
+   "thema": "daten.stichproben",
+   "lernkarte": "begriffe",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "index": null,
+     "antwort": 8,
+     "rechnung": "8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand „jedes achte“ als Stichprobenumfang genommen"
+    },
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 60,
+     "rechnung": "L1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Stichprobe noch einmal genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "begriffe",
+    "t": "begriffe",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine Schule hat 480 Kinder. Für eine Umfrage wird jedes achte Kind befragt. Der Stichprobenumfang ist n = ①. Nicht befragt werden ② Kinder.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      60,
+      420
+     ]
+    },
+    "c": [
+     "480 // 8",
+     "480 - (480 // 8)"
+    ],
+    "h": "Jedes achte Kind: Wie oft passt 8 in die Gesamtzahl?",
+    "w": "480 : 8 = 60 befragte Kinder, das ist die Stichprobe. Die Grundgesamtheit sind alle 480 Kinder; 480 − 60 = 420 werden nicht befragt."
+   }
+  },
+  {
+   "kennung": "K7-V092",
+   "thema": "daten.stichproben",
+   "lernkarte": "begriffe",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 9,
+     "rechnung": "45 // 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 5 geteilt statt malgenommen"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 180,
+     "rechnung": "45 * 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die nicht Befragten gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "begriffe",
+    "t": "begriffe",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einer Umfrage ist der Stichprobenumfang n = 45. Das ist genau ein Fünftel der Grundgesamtheit. Wie groß ist die Grundgesamtheit?"
+    },
+    "o": {
+     "wert": 225,
+     "einheit": "Personen"
+    },
+    "c": "45 * 5",
+    "h": "Wie viele Stichproben dieser Größe passen in die ganze Gruppe?",
+    "w": "45 · 5 = 225. Die Grundgesamtheit umfasst 225 Personen, befragt wurden 45 davon."
+   }
+  },
+  {
+   "kennung": "K7-V093",
+   "thema": "daten.stichproben",
+   "lernkarte": "begriffe",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "Aus 60 Personen wurden 480 ausgewählt und befragt.",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "n und N vertauscht"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "Es wurden 60 % von 480 Personen befragt.",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 60 als Prozentsatz gelesen statt als Anzahl"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "Alle 480 Personen wurden befragt.",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Vollerhebung hätte n = N"
+    }
+   ],
+   "aufgabe": {
+    "l": "begriffe",
+    "t": "begriffe",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Bericht schreibt kurz: n = 60 und N = 480 (n ist der Stichprobenumfang, N die Größe der Grundgesamtheit). Welcher Satz sagt dasselbe?"
+    },
+    "a": [
+     "Aus 480 Personen wurden 60 ausgewählt und befragt.",
+     "Aus 60 Personen wurden 480 ausgewählt und befragt.",
+     "Es wurden 60 % von 480 Personen befragt.",
+     "Alle 480 Personen wurden befragt."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Lies nach, was n und was N bedeutet.",
+    "w": "N = 480 ist die Grundgesamtheit, n = 60 die Stichprobe: aus 480 Personen wurden 60 befragt. 60 % von 480 wären 288 Personen, und bei einer Befragung aller 480 wäre n = 480."
+   }
+  },
+  {
+   "kennung": "K7-V094",
+   "thema": "daten.stichproben",
+   "lernkarte": "hochrechnen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 20400,
+     "rechnung": "24 * 850",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 24 Radfahrer mit 850 malgenommen, ohne den Anteil zu bilden"
+    },
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 24,
+     "rechnung": "24",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Radfahrer aus der Stichprobe übernommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "hochrechnen",
+    "t": "hochrechnen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "In einer Stichprobe von 60 Kindern fahren 24 mit dem Rad. Auf 100 Kinder gerechnet sind das ① Prozent. Bei 850 Kindern insgesamt schätzt man ② Radfahrer.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      40,
+      340
+     ]
+    },
+    "c": [
+     "24 * 100 // 60",
+     "(24 * 100 // 60) * 850 // 100"
+    ],
+    "h": "Erst den Anteil in Prozent, dann auf die große Gruppe anwenden.",
+    "w": "24 : 60 = 0,4, also 40 %. 40 % von 850 sind 340 Kinder. Das Ergebnis ist eine Schätzung."
+   }
+  },
+  {
+   "kennung": "K7-V095",
+   "thema": "daten.stichproben",
+   "lernkarte": "hochrechnen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 10800,
+     "rechnung": "12 * 900",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 mit 900 malgenommen, ohne den Anteil zu bilden"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 18,
+     "rechnung": "900 // 50",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Vergrößerungsfaktor stehen geblieben"
+    }
+   ],
+   "aufgabe": {
+    "l": "hochrechnen",
+    "t": "hochrechnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "In einer Stichprobe von 50 zufällig ausgewählten Personen sind 12 Linkshänder, die Grundgesamtheit hat 900 Personen. Weg A: den Anteil 12 : 50 = 0,24 bilden und mit 900 malnehmen. Weg B: 900 : 50 = 18 rechnen, die Grundgesamtheit ist also 18-mal so groß, dann 12 · 18. Wie viele Linkshänder schätzt man?"
+    },
+    "o": {
+     "wert": 216,
+     "einheit": "Personen"
+    },
+    "c": "12 * (900 // 50)",
+    "h": "Beide Wege müssen dieselbe Schätzung ergeben.",
+    "w": "Weg A: 0,24 · 900 = 216. Weg B: 900 : 50 = 18 und 12 · 18 = 216. Man schätzt etwa 216 Linkshänder."
+   }
+  },
+  {
+   "kennung": "K7-V096",
+   "thema": "daten.stichproben",
+   "lernkarte": "hochrechnen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 324000,
+     "rechnung": "45 * 7200",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "45 mit 7 200 malgenommen, ohne den Anteil zu bilden"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 60,
+     "rechnung": "7200 // 120",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gemeinde durch die Stichprobe geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "hochrechnen",
+    "t": "hochrechnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Gemeinde mit 7 200 Einwohnern befragt 120 zufällig ausgewählte Personen. 45 von ihnen nutzen den Bus. Wie viele Busnutzer schätzt man in der ganzen Gemeinde?"
+    },
+    "o": {
+     "wert": 2700,
+     "einheit": "Einwohner"
+    },
+    "c": "45 * 7200 // 120",
+    "h": "Erst den Anteil der Stichprobe, dann auf alle Einwohner hochrechnen.",
+    "w": "45 : 120 = 0,375, also 37,5 %. 0,375 · 7 200 = 2 700 Einwohner. Das ist eine Schätzung."
+   }
+  },
+  {
+   "kennung": "K7-V097",
+   "thema": "daten.stichproben",
+   "lernkarte": "repraesentativ",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "Die Stichprobe ist sicher repräsentativ, weil mehr Mädchen als Jungen dabei sind.",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in der Schule sind auch mehr Mädchen, aber nicht so viele"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "Die Stichprobe ist repräsentativ, weil 100 eine runde Zahl ist.",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die runde Zahl sagt nichts über die Auswahl"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "Die Schule hat 70 Mädchen.",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "70 ist der Wert aus der Stichprobe, nicht aus der Schule"
+    }
+   ],
+   "aufgabe": {
+    "l": "repraesentativ",
+    "t": "repraesentativ",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Schule hat 1 000 Kinder: 520 Mädchen und 480 Jungen. In einer Stichprobe von 100 Kindern sind 70 Mädchen und 30 Jungen. Was legt der Vergleich der beiden Verteilungen nahe?"
+    },
+    "a": [
+     "Die Stichprobe bildet die Schule nicht gut ab, sie ist vermutlich nicht repräsentativ.",
+     "Die Stichprobe ist sicher repräsentativ, weil mehr Mädchen als Jungen dabei sind.",
+     "Die Stichprobe ist repräsentativ, weil 100 eine runde Zahl ist.",
+     "Die Schule hat 70 Mädchen."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Berechne in beiden Fällen den Anteil der Mädchen.",
+    "w": "In der Schule sind 52 % Mädchen, in der Stichprobe 70 %. Ein so großer Unterschied spricht dafür, dass die Auswahl einseitig war. Eine runde Zahl macht eine Stichprobe nicht repräsentativ."
+   }
+  },
+  {
+   "kennung": "K7-V098",
+   "thema": "daten.stichproben",
+   "lernkarte": "repraesentativ",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "alle Kinder des Schulorchesters befragen",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dort spielen fast alle ein Instrument"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "nur die Kinder befragen, die freiwillig antworten wollen",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Freiwillige sind keine zufällige Auswahl"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "die ersten 20 Kinder vor dem Musikraum befragen",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "am Musikraum sind Musizierende zu stark vertreten"
+    }
+   ],
+   "aufgabe": {
+    "l": "repraesentativ",
+    "t": "repraesentativ",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Du willst wissen, wie viele Kinder einer Schule ein Instrument spielen. Welches Vorgehen gibt die beste Stichprobe?"
+    },
+    "a": [
+     "in jeder Klasse einige Kinder zufällig auswählen",
+     "alle Kinder des Schulorchesters befragen",
+     "nur die Kinder befragen, die freiwillig antworten wollen",
+     "die ersten 20 Kinder vor dem Musikraum befragen"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Woher kommt eine einseitige Auswahl?",
+    "w": "Nur die zufällige Auswahl über alle Klassen ist repräsentativ. Orchester und Musikraum liefern zu viele musizierende Kinder, und Freiwillige haben meist eine starke Meinung."
+   }
+  },
+  {
+   "kennung": "K7-V099",
+   "thema": "daten.stichproben",
+   "lernkarte": "repraesentativ",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist für sich richtig: 500 ist eine große Zahl"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus den Zeilen 1 und 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "repraesentativ",
+    "t": "repraesentativ",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind beurteilt eine Umfrage, bei der 500 Mitglieder eines Sportvereins zu ihrer Freizeit befragt wurden. Zeile 1: Eine Stichprobe ist repräsentativ, wenn sie nur groß genug ist. Zeile 2: 500 Befragte sind eine große Stichprobe. Zeile 3: Also ist diese Umfrage repräsentativ für alle Menschen der Stadt. In welcher Zeile steckt der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Genügt eine große Zahl allein?",
+    "w": "Zeile 1 ist falsch: Repräsentativ heißt zufällig ausgewählt und groß genug. Vereinsmitglieder treiben fast alle Sport, die Auswahl ist einseitig. Die Zeilen 2 und 3 folgen richtig aus Zeile 1."
+   }
+  },
+  {
+   "kennung": "K7-V100",
+   "thema": "daten.stichproben",
+   "lernkarte": "fehlerquellen",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "„Warum muss der Pausenhof erneuert werden?“",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "setzt voraus, dass er erneuert werden muss"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "„Sind Sie gegen eine Erneuerung, obwohl alle dafür sind?“",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "setzt die Befragten unter Druck"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "„Wie dringend ist die Erneuerung des Pausenhofs?“",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "lässt die Antwort „gar nicht nötig“ nicht zu"
+    }
+   ],
+   "aufgabe": {
+    "l": "fehlerquellen",
+    "t": "fehlerquellen",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Frage lautet: „Finden Sie nicht auch, dass der Pausenhof dringend erneuert werden muss?“ Wie sollte man stattdessen fragen?"
+    },
+    "a": [
+     "„Soll der Pausenhof erneuert werden?“",
+     "„Warum muss der Pausenhof erneuert werden?“",
+     "„Sind Sie gegen eine Erneuerung, obwohl alle dafür sind?“",
+     "„Wie dringend ist die Erneuerung des Pausenhofs?“"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welche Frage setzt nichts voraus?",
+    "w": "Neutral ist die Frage ohne Vorannahme: „Soll der Pausenhof erneuert werden?“ Die anderen Formulierungen setzen die Erneuerung schon voraus oder drängen zu einer Antwort."
+   }
+  },
+  {
+   "kennung": "K7-V101",
+   "thema": "daten.stichproben",
+   "lernkarte": "fehlerquellen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 30,
+     "rechnung": "100 - 70",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anteil der Nein-Stimmen gerechnet"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 7,
+     "rechnung": "8400 // 1200",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Komma bei 0,7 falsch verschoben"
+    }
+   ],
+   "aufgabe": {
+    "l": "fehlerquellen",
+    "t": "fehlerquellen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einer Online-Abstimmung stimmen 8 400 von 12 000 Teilnehmenden mit Ja. Wie viel Prozent der Teilnehmenden sind das?"
+    },
+    "o": {
+     "wert": 70,
+     "einheit": "%"
+    },
+    "c": "8400 * 100 // 12000",
+    "h": "Anteil bilden und mit 100 malnehmen.",
+    "w": "8 400 : 12 000 = 0,7, also 70 %. Aussagekräftig ist die Zahl trotzdem nicht: es haben nur Freiwillige abgestimmt, und die haben meist eine starke Meinung."
+   }
+  },
+  {
+   "kennung": "K7-V102",
+   "thema": "daten.stichproben",
+   "lernkarte": "fehlerquellen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine neutrale Frage ist richtig"
+    },
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "rechnung": null,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die zufällige Auswahl ist richtig"
+    }
+   ],
+   "aufgabe": {
+    "l": "fehlerquellen",
+    "t": "fehlerquellen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind prüft eine Umfrage. Zeile 1: Die Frage war neutral gestellt. Zeile 2: Angeschrieben wurden 300 zufällig ausgewählte Personen. Zeile 3: Geantwortet haben nur die 40 Personen, die Lust dazu hatten – das Ergebnis ist deshalb genauso gut. In welcher Zeile steckt der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wer antwortet am Ende wirklich?",
+    "w": "Zeile 1 und 2 stimmen. Antworten am Ende nur Freiwillige, ist die Auswahl wieder einseitig – auch wenn vorher zufällig ausgewählt wurde."
+   }
+  },
+  {
+   "kennung": "K7-V103",
+   "thema": "daten.stichproben",
+   "lernkarte": "aussagen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 70,
+     "rechnung": "300 - 230",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Differenz der Anzahlen genommen"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 46,
+     "rechnung": "230 * 100 // 500",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Anteil von B genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "aussagen",
+    "t": "aussagen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "In Stichprobe A mögen 6 von 10 Kindern das Essen, in Stichprobe B 230 von 500. Weg A: beide Anteile in Prozent umrechnen und voneinander abziehen. Weg B: 6 von 10 als 300 von 500 schreiben und mit 230 vergleichen. Um wie viele Prozentpunkte liegt A über B?"
+    },
+    "o": {
+     "wert": 14,
+     "einheit": "Prozentpunkte"
+    },
+    "c": "6 * 100 // 10 - 230 * 100 // 500",
+    "h": "Beide Wege müssen denselben Unterschied zeigen.",
+    "w": "A: 6 : 10 = 60 %. B: 230 : 500 = 46 %. 60 − 46 = 14 Prozentpunkte. Weg B: 300 gegen 230 von 500 – derselbe Unterschied."
+   }
+  },
+  {
+   "kennung": "K7-V104",
+   "thema": "daten.stichproben",
+   "lernkarte": "aussagen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 60,
+     "rechnung": "30 * 200 // 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "30 % von 200 gerechnet"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 135,
+     "rechnung": "4500 * 3 // 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 % statt 30 % gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "aussagen",
+    "t": "aussagen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Stichprobe von 200 Haushalten ergibt 30 % mit Haustier. Die Gemeinde hat 4 500 Haushalte, die Stichprobe gilt als repräsentativ. Wie viele Haushalte mit Haustier schätzt man?"
+    },
+    "o": {
+     "wert": 1350,
+     "einheit": "Haushalte"
+    },
+    "c": "30 * 4500 // 100",
+    "h": "Der Anteil der Stichprobe wird auf alle übertragen.",
+    "w": "30 % von 4 500 sind 1 350 Haushalte. Weil der Wert aus nur 200 Haushalten geschätzt ist, kann der wahre Wert davon abweichen."
+   }
+  },
+  {
+   "kennung": "K7-V105",
+   "thema": "daten.stichproben",
+   "lernkarte": "aussagen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.teil_ganzes",
+   "regel_name": "Vom Teil aufs Ganze",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 144,
+     "rechnung": "360 * 40 // 100",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "40 % von 360 gerechnet"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 14400,
+     "rechnung": "360 * 40",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "360 mit der Prozentzahl 40 malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "aussagen",
+    "t": "aussagen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "In einer Stichprobe haben 40 % ein Haustier. Hochgerechnet auf die Grundgesamtheit sind das 360 Personen mit Haustier. Wie groß ist die Grundgesamtheit?"
+    },
+    "o": {
+     "wert": 900,
+     "einheit": "Personen"
+    },
+    "c": "360 * 100 // 40",
+    "h": "40 % entsprechen 360 Personen; gesucht sind 100 %.",
+    "w": "1 % sind 360 : 40 = 9 Personen. 100 % sind 9 · 100 = 900 Personen."
+   }
+  }
+ ]
+}

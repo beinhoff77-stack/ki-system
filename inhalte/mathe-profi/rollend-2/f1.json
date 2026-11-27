@@ -209,7 +209,7 @@
      "antwort": 14,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Probe bei x selbst gerechnet"
+     "beschreibung": "an der Stelle x selbst gerechnet statt eine Stelle weiter"
     }
    ],
    "aufgabe": {
@@ -220,7 +220,7 @@
     "g": "mehrschritt",
     "y": "luecken",
     "f": {
-     "text": "f(x) = 4x − 6. Für welches x ist f(x) = 14? Plus 6 auf beiden Seiten: 4x = ①. Geteilt durch 4: x = ②. Probe: Eine Stelle weiter rechts, bei x = ② + 1, ist f(② + 1) = ③.",
+     "text": "f(x) = 4x − 6. Für welches x ist f(x) = 14? Plus 6 auf beiden Seiten: 4x = ①. Geteilt durch 4: x = ②. Zusatzrechnung: Eine Stelle weiter rechts, bei x = ② + 1, ist f(② + 1) = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
@@ -237,7 +237,7 @@
      "4*((14+6)//4+1)-6"
     ],
     "h": "Das Ergebnis steht rechts vom Gleichheitszeichen.",
-    "w": "4x = 20, x = 5. f(5) = 14. Bei x = 6 ist f(6) = 4 · 6 − 6 = 18."
+    "w": "4x = 20, x = 5. Die Probe f(5) = 14 stimmt. Zusatzrechnung: Bei x = 6 ist f(6) = 4 · 6 − 6 = 18."
    }
   },
   {

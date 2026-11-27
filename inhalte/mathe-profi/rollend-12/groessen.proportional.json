@@ -1,0 +1,579 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-12",
+ "kuerzel": "R5",
+ "flug": "r5-reserve-groessen.proportional",
+ "titel": "groessen.proportional",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen": [
+  "groessen.proportional"
+ ],
+ "themen_datei_im_bestand": "groessen.proportional",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag „Reserve“ (zwei zählende Aufgaben je Lernkarte, Stufe 2 und 3). Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R5-V201",
+   "thema": "groessen.proportional",
+   "lernkarte": "einheit",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 € mit 12 malgenommen"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 € mit 5 malgenommen"
+    },
+    {
+     "antwort": 0.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Preis für 1 Apfel genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheit",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "5 Äpfel kosten 2 €. Was kosten 12 Äpfel? Weg A: Berechne zuerst den Preis für 1 Apfel und rechne dann mit 12. Weg B: Überlege, das Wievielfache von 5 die Zahl 12 ist, und nimm den Preis für 5 Äpfel mit diesem Faktor mal."
+    },
+    "o": {
+     "wert": 4.8,
+     "einheit": "€"
+    },
+    "c": "2 / 5 * 12",
+    "h": "Bei Weg B: Wie oft passt 5 in 12? Das Ergebnis ist keine ganze Zahl.",
+    "w": "Weg A: 1 Apfel kostet 2 € : 5 = 0,40 €. 12 Äpfel: 12 · 0,40 € = 4,80 €. Weg B: 12 : 5 = 2,4. 2,4 · 2 € = 4,80 €."
+   }
+  },
+  {
+   "kennung": "R5-V202",
+   "thema": "groessen.proportional",
+   "lernkarte": "einheit",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Liter je Minute genannt"
+    },
+    {
+     "antwort": 960,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "120 mit 8 malgenommen"
+    },
+    {
+     "antwort": 7200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "120 mit 60 malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "einheit",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Pumpe fördert in 8 Minuten 120 Liter Wasser. Wie viele Liter fördert sie in einer Stunde?"
+    },
+    "o": {
+     "wert": 900,
+     "einheit": "Liter"
+    },
+    "c": "120 / 8 * 60",
+    "h": "Wie viele Liter fördert sie in 1 Minute? Wie viele Minuten hat eine Stunde?",
+    "w": "In 1 Minute: 120 : 8 = 15 Liter. Eine Stunde hat 60 Minuten: 15 · 60 = 900 Liter."
+   }
+  },
+  {
+   "kennung": "R5-V203",
+   "thema": "groessen.proportional",
+   "lernkarte": "dreisatz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 160,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit dem Zeitunterschied der beiden Fahrten gerechnet"
+    },
+    {
+     "antwort": 720,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "240 mit 3 malgenommen"
+    },
+    {
+     "antwort": 1200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "240 mit 5 malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreisatz",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Lastwagen fährt in 3 Stunden 240 km. Er fährt immer gleich schnell. Wie weit kommt er in 5 Stunden?"
+    },
+    "o": {
+     "wert": 400,
+     "einheit": "km"
+    },
+    "c": "240 / 3 * 5",
+    "h": "Wie weit fährt er in einer Stunde?",
+    "w": "In 1 Stunde: 240 km : 3 = 80 km. In 5 Stunden: 5 · 80 km = 400 km."
+   }
+  },
+  {
+   "kennung": "R5-V204",
+   "thema": "groessen.proportional",
+   "lernkarte": "dreisatz",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 55,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "330 durch 6 geteilt"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die ersten 270 Blätter gerechnet"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die restlichen 60 Blätter gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "dreisatz",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kopierer druckt 90 Blätter in 6 Minuten. Wie lange braucht er für 330 Blätter? Weg A: Bestimme, wie viele Blätter er pro Minute druckt, und teile 330 durch diese Zahl. Weg B: Überlege, wie lange 270 Blätter dauern, und rechne die restlichen 60 Blätter dazu."
+    },
+    "o": {
+     "wert": 22,
+     "einheit": "min"
+    },
+    "c": "330 / (90 / 6)",
+    "h": "Bei Weg B: 270 Blätter sind das Dreifache von 90 Blättern. Wie lange dauern 60 Blätter?",
+    "w": "Weg A: 90 : 6 = 15 Blätter je Minute. 330 : 15 = 22 Minuten. Weg B: 270 Blätter brauchen 3 · 6 = 18 Minuten. 60 Blätter brauchen 60 : 15 = 4 Minuten. 18 + 4 = 22 Minuten."
+   }
+  },
+  {
+   "kennung": "R5-V205",
+   "thema": "groessen.proportional",
+   "lernkarte": "geschickt",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2,50 mit 36 malgenommen"
+    },
+    {
+     "antwort": 0.25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Preis für ein Ei genannt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "36 durch 9 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "geschickt",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "36 Eier kosten 9 €. Wie viele Eier bekommt man für 2,50 €?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "Eier"
+    },
+    "c": "2.5 / (9 / 36)",
+    "h": "Wie viel kostet ein Ei? Wie oft passt dieser Preis in 2,50 €?",
+    "w": "Ein Ei kostet 9 € : 36 = 0,25 €. 2,50 € : 0,25 € = 10. Man bekommt 10 Eier. Probe: 10 · 0,25 € = 2,50 €."
+   }
+  },
+  {
+   "kennung": "R5-V206",
+   "thema": "groessen.proportional",
+   "lernkarte": "geschickt",
+   "stufe": 3,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "14 mit 2 malgenommen"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Preis für 6 Hefte statt 4 Hefte addiert: 9 + 15"
+    },
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Preis für 10 Hefte genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "geschickt",
+    "t": "dreisatz",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle gehört zu einer proportionalen Zuordnung (Anzahl Hefte → Preis). Wie viel Euro kosten 14 Hefte? Tipp: 14 = 4 + 10.",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Hefte",
+       "Preis in €"
+      ],
+      "zeilen": [
+       [
+        "4",
+        "6"
+       ],
+       [
+        "6",
+        "9"
+       ],
+       [
+        "10",
+        "15"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 21,
+     "einheit": "€"
+    },
+    "c": "6 + 15",
+    "h": "Der Preis für 14 Hefte ist der Preis für 4 Hefte plus der Preis für 10 Hefte. Beide stehen in der Tabelle.",
+    "w": "14 Hefte sind 4 Hefte und 10 Hefte. Preis: 6 € + 15 € = 21 €. Kontrolle: Ein Heft kostet 1,50 €, 14 · 1,50 € = 21 €."
+   }
+  },
+  {
+   "kennung": "R5-V207",
+   "thema": "groessen.proportional",
+   "lernkarte": "sach",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "120 g mit 10 malgenommen"
+    },
+    {
+     "antwort": 480,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "120 g mit 4 malgenommen"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Menge für eine Person genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt ein Rezept für 4 Personen. Wie viel Gramm Butter braucht man für 10 Personen?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Zutat",
+       "Menge für 4 Personen"
+      ],
+      "zeilen": [
+       [
+        "Mehl",
+        "200 g"
+       ],
+       [
+        "Zucker",
+        "80 g"
+       ],
+       [
+        "Butter",
+        "120 g"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 300,
+     "einheit": "g"
+    },
+    "c": "120 / 4 * 10",
+    "h": "Wie viel Butter braucht eine Person?",
+    "w": "Für 1 Person: 120 g : 4 = 30 g Butter. Für 10 Personen: 10 · 30 g = 300 g."
+   }
+  },
+  {
+   "kennung": "R5-V208",
+   "thema": "groessen.proportional",
+   "lernkarte": "sach",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Kilometer je Liter genannt: 900 : 45"
+    },
+    {
+     "antwort": 405,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "45 mit 9 malgenommen"
+    },
+    {
+     "antwort": 0.05,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "45 durch 900 geteilt (Verbrauch je km)"
+    }
+   ],
+   "aufgabe": {
+    "l": "sach",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Mit einer Tankfüllung von 45 Litern kommt ein Auto 900 km weit. Wie viele Liter verbraucht es auf 100 km?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "Liter"
+    },
+    "c": "45 / (900 / 100)",
+    "h": "Wie viele Hunderter sind 900 km? Verteile die 45 Liter darauf.",
+    "w": "900 km sind 9 mal 100 km. 45 Liter : 9 = 5 Liter. Das Auto verbraucht 5 Liter auf 100 km."
+   }
+  },
+  {
+   "kennung": "R5-V209",
+   "thema": "groessen.proportional",
+   "lernkarte": "aenderung",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Anstieg in 2 Stunden genannt"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den gesamten Anstieg genannt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Stunden genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "aenderung",
+    "t": "aenderung",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt die Temperatur an einem Morgen. Sie steigt gleichmäßig. Um wie viel Grad steigt sie pro Stunde?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Uhrzeit",
+       "Temperatur in °C"
+      ],
+      "zeilen": [
+       [
+        "8 Uhr",
+        "12"
+       ],
+       [
+        "10 Uhr",
+        "18"
+       ],
+       [
+        "12 Uhr",
+        "24"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 3,
+     "einheit": "°C"
+    },
+    "c": "(24 - 12) / (12 - 8)",
+    "h": "Wie viele Grad kommen zwischen 8 Uhr und 12 Uhr dazu? Wie viele Stunden sind das?",
+    "w": "Von 8 Uhr bis 12 Uhr steigt die Temperatur um 24 − 12 = 12 Grad in 4 Stunden. Pro Stunde: 12 : 4 = 3 Grad."
+   }
+  },
+  {
+   "kennung": "R5-V210",
+   "thema": "groessen.proportional",
+   "lernkarte": "aenderung",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.wert_fuer_eins",
+   "regel_name": "Wert für eins",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6400,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "8 mit 800 malgenommen"
+    },
+    {
+     "antwort": 2800,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 800 Liter dazugerechnet"
+    },
+    {
+     "antwort": 3600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 450 Liter je Stunde gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "aenderung",
+    "t": "aenderung",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Becken wird gleichmäßig gefüllt. Nach 2 Stunden sind 800 Liter im Becken, nach 5 Stunden 2 000 Liter. Wie viele Liter sind nach 8 Stunden im Becken?"
+    },
+    "o": {
+     "wert": 3200,
+     "einheit": "Liter"
+    },
+    "c": "800 + 6 * (2000 - 800) / 3",
+    "h": "Wie viele Liter kommen pro Stunde dazu? Wie viele Stunden sind es noch bis zur 8. Stunde?",
+    "w": "Von der 2. bis zur 5. Stunde kommen 1 200 Liter in 3 Stunden dazu, also 400 Liter je Stunde. Von der 5. bis zur 8. Stunde noch einmal 3 · 400 = 1 200 Liter. 2 000 + 1 200 = 3 200 Liter."
+   }
+  }
+ ]
+}

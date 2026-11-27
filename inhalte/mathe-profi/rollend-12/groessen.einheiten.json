@@ -1,0 +1,868 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-12",
+ "kuerzel": "R5",
+ "flug": "r5-reserve-groessen.einheiten",
+ "titel": "groessen.einheiten",
+ "fuer": "Klasse 5",
+ "klasse": 5,
+ "themen": [
+  "groessen.einheiten"
+ ],
+ "themen_datei_im_bestand": "groessen.einheiten",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag „Reserve“ (zwei zählende Aufgaben je Lernkarte, Stufe 2 und 3). Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R5-V185",
+   "thema": "groessen.einheiten",
+   "lernkarte": "schaetzen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 180,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 mal 20 gerechnet"
+    },
+    {
+     "antwort": 4.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 durch 2 geteilt (m und cm nicht umgerechnet)"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Stufen für 1 m genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "schaetzen",
+    "t": "schaetzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Treppenstufe ist etwa 20 cm hoch. Wie viele Stufen braucht eine Treppe für einen Höhenunterschied von 9 m? Weg A: Rechne 9 m in cm um und teile durch die Höhe einer Stufe. Weg B: Überlege, wie viele Stufen auf 1 m kommen, und rechne damit weiter."
+    },
+    "o": {
+     "wert": 45,
+     "einheit": "Stufen"
+    },
+    "c": "900 / 20",
+    "h": "Wie viele Stufen von 20 cm sind zusammen 1 m hoch?",
+    "w": "Weg A: 9 m = 900 cm, 900 : 20 = 45. Weg B: 1 m = 100 cm, das sind 100 : 20 = 5 Stufen. Für 9 m sind es 9 · 5 = 45 Stufen."
+   }
+  },
+  {
+   "kennung": "R5-V186",
+   "thema": "groessen.einheiten",
+   "lernkarte": "schaetzen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Ergebnis in Metern statt in cm angegeben"
+    },
+    {
+     "antwort": 1.67,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "250 durch 150 geteilt (Teiler und Dividend vertauscht)"
+    },
+    {
+     "antwort": 37500,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "schaetzen",
+    "t": "schaetzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kind geht einen 150 m langen Weg in 250 Schritten. Wie lang ist ein Schritt etwa in cm?"
+    },
+    "o": {
+     "wert": 60,
+     "einheit": "cm"
+    },
+    "c": "150 * 100 / 250",
+    "h": "Rechne den Weg zuerst in cm um. Wie viel entfällt auf einen Schritt?",
+    "w": "150 m = 15 000 cm. 15 000 cm : 250 = 60 cm. Ein Schritt ist etwa 60 cm lang. Probe: 250 · 60 cm = 15 000 cm = 150 m."
+   }
+  },
+  {
+   "kennung": "R5-V187",
+   "thema": "groessen.einheiten",
+   "lernkarte": "laenge",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 80,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die gekürzte Länge von der jetzigen abgezogen"
+    },
+    {
+     "antwort": 2150,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 m 15 cm als 2 015 cm gelesen und 135 cm addiert"
+    },
+    {
+     "antwort": 215,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die jetzige Länge in cm genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "laenge",
+    "t": "laenge",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Band wurde um 135 cm gekürzt. Jetzt ist es 2 m 15 cm lang. Wie lang war es vorher in cm?"
+    },
+    "o": {
+     "wert": 350,
+     "einheit": "cm"
+    },
+    "c": "215 + 135",
+    "h": "Mache das Kürzen rückgängig. Rechne zuerst die jetzige Länge in cm.",
+    "w": "Jetzt: 2 m 15 cm = 215 cm. Vorher war das Band um 135 cm länger: 215 + 135 = 350 cm."
+   }
+  },
+  {
+   "kennung": "R5-V188",
+   "thema": "groessen.einheiten",
+   "lernkarte": "laenge",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 340,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 km als 300 m gerechnet"
+    },
+    {
+     "antwort": 3400,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "40 m als 400 m gerechnet"
+    },
+    {
+     "antwort": 30040,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 km als 30 000 m gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "laenge",
+    "t": "laenge",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Meter sind 3 km 40 m? Weg A: Rechne 3 km in m um und addiere 40 m. Weg B: Schreibe die Länge zuerst als Dezimalzahl in km und rechne dann in m um."
+    },
+    "o": {
+     "wert": 3040,
+     "einheit": "m"
+    },
+    "c": "3 * 1000 + 40",
+    "h": "Wie viele Meter hat 1 km? Wie schreibt man 40 m in km?",
+    "w": "Weg A: 3 km = 3 000 m, dazu 40 m: 3 040 m. Weg B: 40 m = 0,04 km, also 3 km 40 m = 3,04 km. 3,04 · 1 000 = 3 040 m."
+   }
+  },
+  {
+   "kennung": "R5-V189",
+   "thema": "groessen.einheiten",
+   "lernkarte": "masse",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3500,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in g angegeben statt in kg"
+    },
+    {
+     "antwort": 1002.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ohne Umrechnung 2,5 + 750 + 250 addiert"
+    },
+    {
+     "antwort": 3.0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 500 g bei den 2 kg vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "masse",
+    "t": "masse",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle zeigt die Zutaten für einen Kuchen in verschiedenen Einheiten. Wie viele Kilogramm wiegen alle drei Zutaten zusammen?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Zutat",
+       "Menge"
+      ],
+      "zeilen": [
+       [
+        "Mehl",
+        "2 kg 500 g"
+       ],
+       [
+        "Zucker",
+        "750 g"
+       ],
+       [
+        "Butter",
+        "250 g"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 3.5,
+     "einheit": "kg"
+    },
+    "c": "(2500 + 750 + 250) / 1000",
+    "h": "Schreibe alle Mengen in derselben Einheit, bevor du addierst.",
+    "w": "In g: 2 kg 500 g = 2 500 g, dazu 750 g und 250 g: 2 500 + 750 + 250 = 3 500 g = 3,5 kg."
+   }
+  },
+  {
+   "kennung": "R5-V190",
+   "thema": "groessen.einheiten",
+   "lernkarte": "masse",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auf 7 aufgerundet, obwohl das Limit überschritten würde"
+    },
+    {
+     "antwort": 160,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die freie Masse in kg genannt"
+    },
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1 000 durch 25 geteilt, die schon stehenden Kisten vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "masse",
+    "t": "masse",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Lastenaufzug trägt höchstens 1 t. Auf ihm stehen schon 7 Kisten zu je 120 kg. Wie viele weitere Kisten zu je 25 kg dürfen höchstens noch dazu gestellt werden?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "Kisten"
+    },
+    "c": "(1000 - 7 * 120) // 25",
+    "h": "Rechne 1 t in kg um. Wie viele kg sind noch frei?",
+    "w": "1 t = 1 000 kg. Schon da: 7 · 120 = 840 kg. Noch frei: 160 kg. 160 : 25 = 6,4, es passen also höchstens 6 Kisten."
+   }
+  },
+  {
+   "kennung": "R5-V191",
+   "thema": "groessen.einheiten",
+   "lernkarte": "zeit",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 125,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Stunden und Minuten falsch zusammengezählt: 1 h 25 min als 125 min"
+    },
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "47 − 12 Minuten gerechnet"
+    },
+    {
+     "antwort": 165,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zwei Stunden zu viel gerechnet: 12 + 47 + 106"
+    }
+   ],
+   "aufgabe": {
+    "l": "zeit",
+    "t": "zeit",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Der Fahrplan zeigt Abfahrt und Ankunft eines Zuges. Wie viele Minuten dauert die Fahrt?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Halt",
+       "Uhrzeit"
+      ],
+      "zeilen": [
+       [
+        "Abfahrt Hauptbahnhof",
+        "8:47 Uhr"
+       ],
+       [
+        "Ankunft Altstadt",
+        "10:12 Uhr"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 85,
+     "einheit": "min"
+    },
+    "c": "(10 * 60 + 12) - (8 * 60 + 47)",
+    "h": "Wie viele Minuten sind es bis 9:00 Uhr? Dann weiter bis 10:12 Uhr.",
+    "w": "Von 8:47 Uhr bis 9:00 Uhr sind es 13 Minuten, von 9:00 Uhr bis 10:12 Uhr sind es 72 Minuten. Zusammen 13 + 72 = 85 Minuten."
+   }
+  },
+  {
+   "kennung": "R5-V192",
+   "thema": "groessen.einheiten",
+   "lernkarte": "zeit",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 235,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1 h = 100 min gerechnet: 2 h 35 min als 2 h + 135"
+    },
+    {
+     "antwort": 175,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Minuten 35 und 10 falsch abgezogen: 125 + 50"
+    },
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur bis zur vollen Stunde gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "zeit",
+    "t": "zeit",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Minuten liegen zwischen 14:35 Uhr und 17:10 Uhr? Weg A: Ergänze bis zur vollen Stunde und zähle dann weiter. Weg B: Rechne beide Uhrzeiten in Minuten seit Mitternacht um und ziehe ab."
+    },
+    "o": {
+     "wert": 155,
+     "einheit": "min"
+    },
+    "c": "(17 * 60 + 10) - (14 * 60 + 35)",
+    "h": "Wie viele Minuten sind es von 14:35 Uhr bis 15:00 Uhr?",
+    "w": "Weg A: 14:35 bis 15:00 sind 25 min, 15:00 bis 17:00 sind 120 min, 17:00 bis 17:10 sind 10 min: 155 min. Weg B: 17:10 Uhr = 1 030 min, 14:35 Uhr = 875 min. 1 030 − 875 = 155."
+   }
+  },
+  {
+   "kennung": "R5-V193",
+   "thema": "groessen.einheiten",
+   "lernkarte": "kommaschreibweise",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7.7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Ergebnis in km statt in m angegeben"
+    },
+    {
+     "antwort": -4787.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ohne Umrechnung 12,5 − 4 800 gerechnet"
+    },
+    {
+     "antwort": 8500,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 4 000 m statt 4 800 m abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "kommaschreibweise",
+    "t": "kommaschreibweise",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Wanderweg ist 12,5 km lang. Marie ist schon 4 800 m gegangen. Wie viele Meter muss sie noch gehen?"
+    },
+    "o": {
+     "wert": 7700,
+     "einheit": "m"
+    },
+    "c": "12.5 * 1000 - 4800",
+    "h": "Rechne beide Längen in dieselbe Einheit um, bevor du abziehst.",
+    "w": "12,5 km = 12 500 m. Noch zu gehen: 12 500 − 4 800 = 7 700 m."
+   }
+  },
+  {
+   "kennung": "R5-V194",
+   "thema": "groessen.einheiten",
+   "lernkarte": "kommaschreibweise",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 275,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 100 statt mit 1 000 malgenommen"
+    },
+    {
+     "antwort": 27500,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 000 malgenommen"
+    },
+    {
+     "antwort": 2075,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "0,75 kg als 75 g gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "kommaschreibweise",
+    "t": "kommaschreibweise",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Gramm sind 2,75 kg? Weg A: Rechne 2,75 · 1 000. Weg B: Rechne 2 kg und 0,75 kg getrennt in g um und addiere."
+    },
+    "o": {
+     "wert": 2750,
+     "einheit": "g"
+    },
+    "c": "2.75 * 1000",
+    "h": "Wie viele Gramm sind 0,75 kg?",
+    "w": "Weg A: 2,75 · 1 000 = 2 750 g. Weg B: 2 kg = 2 000 g und 0,75 kg = 750 g, zusammen 2 750 g."
+   }
+  },
+  {
+   "kennung": "R5-V195",
+   "thema": "groessen.einheiten",
+   "lernkarte": "rechnen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet, obwohl das Geld nicht reicht"
+    },
+    {
+     "antwort": 6.38,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht auf ganze Hefte abgerundet"
+    },
+    {
+     "antwort": 35.25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "multipliziert statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "rechnen",
+    "t": "rechnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Heft kostet 2,35 €. Wie viele Hefte kann man für 15 € höchstens kaufen?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "Hefte"
+    },
+    "c": "15 // 2.35",
+    "h": "Wie viele Hefte kosten zusammen noch nicht mehr als 15 €? Rechne zurück.",
+    "w": "15 : 2,35 ≈ 6,38. Man kann nur ganze Hefte kaufen: höchstens 6 Hefte (6 · 2,35 € = 14,10 €). 7 Hefte würden 16,45 € kosten."
+   }
+  },
+  {
+   "kennung": "R5-V196",
+   "thema": "groessen.einheiten",
+   "lernkarte": "rechnen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 11.7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Trinkgeld vergessen"
+    },
+    {
+     "antwort": 13.7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "jedem 2 € Trinkgeld aufgerechnet"
+    },
+    {
+     "antwort": 48.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 4 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "rechnen",
+    "t": "rechnen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Vier Freunde teilen sich die Rechnung von 46,80 € und zusätzlich 2 € Trinkgeld gleichmäßig auf. Wie viel Euro zahlt jeder?"
+    },
+    "o": {
+     "wert": 12.2,
+     "einheit": "€"
+    },
+    "c": "(46.8 + 2) / 4",
+    "h": "Wie viel kostet alles zusammen? Wie teilst du das auf vier Personen auf?",
+    "w": "Insgesamt: 46,80 € + 2 € = 48,80 €. Jeder zahlt 48,80 € : 4 = 12,20 €."
+   }
+  },
+  {
+   "kennung": "R5-V197",
+   "thema": "groessen.einheiten",
+   "lernkarte": "massstab",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 1 000 statt durch 100 000 umgerechnet"
+    },
+    {
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 10 000 statt durch 100 000 umgerechnet"
+    },
+    {
+     "antwort": 0.2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 1 000 000 umgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "massstab",
+    "t": "massstab",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Auf einer Karte mit dem Maßstab 1 : 25 000 sind zwei Orte 8 cm voneinander entfernt. Wie viele Kilometer liegen sie in Wirklichkeit auseinander? Weg A: Rechne 8 cm mal 25 000 und wandle um. Weg B: Bestimme zuerst, wie viele Meter 1 cm auf der Karte in Wirklichkeit sind, und rechne damit."
+    },
+    "o": {
+     "wert": 2,
+     "einheit": "km"
+    },
+    "c": "8 * 25000 / 100 / 1000",
+    "h": "Wie viele cm sind 1 km? Wie viele m sind 25 000 cm?",
+    "w": "Weg A: 8 · 25 000 cm = 200 000 cm = 2 000 m = 2 km. Weg B: 1 cm auf der Karte sind 25 000 cm = 250 m. 8 · 250 m = 2 000 m = 2 km."
+   }
+  },
+  {
+   "kennung": "R5-V198",
+   "thema": "groessen.einheiten",
+   "lernkarte": "massstab",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Länge in km genannt"
+    },
+    {
+     "antwort": 1.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zeit in Stunden angegeben"
+    },
+    {
+     "antwort": 420,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "7 · 60 gerechnet (Geschwindigkeit nicht beachtet)"
+    }
+   ],
+   "aufgabe": {
+    "l": "massstab",
+    "t": "massstab",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Auf einer Wanderkarte mit dem Maßstab 1 : 50 000 ist der Weg zur Hütte 14 cm lang. Eine Gruppe wandert 4 km pro Stunde. Wie viele Minuten braucht sie für den Weg?"
+    },
+    "o": {
+     "wert": 105,
+     "einheit": "min"
+    },
+    "c": "14 * 50000 / 100000 / 4 * 60",
+    "h": "Rechne zuerst die Länge in Wirklichkeit in km aus. Dann: Wie viele Stunden sind das?",
+    "w": "14 · 50 000 cm = 700 000 cm = 7 km. 7 km : 4 km/h = 1,75 h. 1,75 h = 105 min."
+   }
+  },
+  {
+   "kennung": "R5-V199",
+   "thema": "groessen.einheiten",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "3 h 50 min",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Nachkommastelle 5 wurde als 50 Minuten gelesen."
+    },
+    {
+     "index": 1,
+     "antwort": "3 h 5 min",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Nachkommastelle 5 wurde als 5 Minuten gelesen."
+    },
+    {
+     "index": 3,
+     "antwort": "3 h 15 min",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Ein Viertel einer Stunde wurde mit einer halben Stunde verwechselt."
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Angabe ist genauso lang wie 3,5 Stunden?"
+    },
+    "a": [
+     "3 h 50 min",
+     "3 h 5 min",
+     "3 h 30 min",
+     "3 h 15 min"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Eine halbe Stunde hat wie viele Minuten? 0,5 h ist eine halbe Stunde.",
+    "w": "0,5 h ist eine halbe Stunde, das sind 30 Minuten. 3,5 h = 3 h 30 min."
+   }
+  },
+  {
+   "kennung": "R5-V200",
+   "thema": "groessen.einheiten",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "auswahl",
+   "regel": "id.verhaeltnisse.groesse",
+   "regel_name": "Größe",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "17:42 Uhr",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die Fahrzeit wurde addiert statt abgezogen."
+    },
+    {
+     "index": 1,
+     "antwort": "12:12 Uhr",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die 2,5 Stunden wurden als 3 Stunden gerechnet."
+    },
+    {
+     "index": 3,
+     "antwort": "12:22 Uhr",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Die 0,5 Stunden wurden als 50 Minuten gerechnet."
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Zug kommt um 15:12 Uhr an. Die Fahrt hat 2,5 Stunden gedauert. Wann ist er abgefahren?"
+    },
+    "a": [
+     "17:42 Uhr",
+     "12:12 Uhr",
+     "12:42 Uhr",
+     "12:22 Uhr"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne 2,5 Stunden in Stunden und Minuten um. Gehe dann rückwärts von der Ankunftszeit.",
+    "w": "2,5 h = 2 h 30 min. Rückwärts von 15:12 Uhr: 2 h zurück ergibt 13:12 Uhr, weitere 30 min zurück ergibt 12:42 Uhr. Probe: 12:42 Uhr + 2 h 30 min = 15:12 Uhr."
+   }
+  }
+ ]
+}

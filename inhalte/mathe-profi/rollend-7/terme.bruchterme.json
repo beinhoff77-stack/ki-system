@@ -25,11 +25,18 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
+     "luecke": 1,
      "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "durch 2 nicht geteilt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Wert für x = 3 statt x = 7 genommen"
     }
    ],
    "aufgabe": {
@@ -40,22 +47,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Bestimme die Definitionsmenge von 9/(2x − 6). Der Term ist nicht definiert, wenn der Nenner 0 ist: 2x − 6 = 0. Dann ist 2x = ① und damit x = ②. Die Definitionsmenge ist ℚ \\ {②}.",
-     "schablone": "① = □; ② = □",
+     "text": "Bestimme die Definitionsmenge von 9/(2x − 6). Der Nenner ist 0 für x = ①. Setzt du x = ① + 4 in den Nenner ein, erhältst du den Wert ②. In der Definitionsmenge fehlt genau ③ Zahl.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      6,
-      3
+      3,
+      8,
+      1
      ]
     },
     "c": [
-     "6",
-     "6 // 2"
+     "6 // 2",
+     "2 * (6 // 2 + 4) - 6",
+     "1"
     ],
-    "h": "Löse die Gleichung 2x − 6 = 0 wie eine Waage.",
-    "w": "2x − 6 = 0 ergibt 2x = 6 und x = 3. Für x = 3 wäre der Nenner 0. D = ℚ \\ {3}."
+    "h": "Setze den Nenner gleich 0 und löse wie eine Waage.",
+    "w": "2x − 6 = 0 ergibt x = 3. Für x = 7: 2 · 7 − 6 = 8. Nur die Zahl 3 wird ausgeschlossen. D = ℚ \\ {3}."
    }
   },
   {
@@ -122,17 +131,28 @@
    "stufe": 2,
    "typ": "Anwenden",
    "form": "anwenden",
-   "antwortform": "luecken",
+   "antwortform": "zahl",
    "regel": "id.algebra.erlaubte_zahlen",
    "regel_name": "Erlaubte Zahlen",
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": 28,
+     "antwort": -2,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Vorzeichen vertauscht"
+    },
+    {
+     "antwort": 0,
+     "fehlbild": "fb.erlaubte_zahlen.nullstelle_des_nenners_als_loesung",
+     "regel_des_fehlbilds": "id.algebra.erlaubte_zahlen",
+     "beschreibung": "den Wert 0 für n genommen"
+    },
+    {
+     "antwort": 18,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur den Nenner 30 − 2 ausgerechnet"
+     "beschreibung": "den Preis für 30 Schüler berechnet statt die verbotene Zahl zu suchen"
     }
    ],
    "aufgabe": {
@@ -141,24 +161,16 @@
     "p": "uebung",
     "s": 2,
     "g": "einkleidung",
-    "y": "luecken",
+    "y": "zahl",
     "f": {
-     "text": "Eine Klasse mietet einen Bus für 504 €. Zwei Schüler zahlen nichts. Bei n Schülern in der Klasse zahlt jeder der anderen 504/(n − 2) €. Der Term ist nicht definiert für n = ①. Hat die Klasse 30 Schüler, zahlt jeder ② €.",
-     "schablone": "① = □; ② = □",
-     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+     "text": "Eine Klasse mietet einen Bus für 504 €. Zwei Schüler zahlen nichts. Bei n Schülern in der Klasse (n ist eine ganze Zahl) zahlt jeder der anderen 504/(n − 2) €. Für welche Schülerzahl n lässt sich dieser Preis nicht berechnen?"
     },
     "o": {
-     "werte": [
-      2,
-      18
-     ]
+     "wert": 2
     },
-    "c": [
-     "2",
-     "504 // (30 - 2)"
-    ],
-    "h": "Wann ist der Nenner n − 2 gleich 0? Für 30 Schüler setzt du n = 30 ein.",
-    "w": "n − 2 = 0 gilt für n = 2. Für n = 30: 504 : 28 = 18. Jeder zahlt 18 €."
+    "c": 2,
+    "h": "Wann ist der Nenner n − 2 gleich 0?",
+    "w": "n − 2 = 0 gilt für n = 2. Dann zahlt niemand, und der Term hat keinen Sinn. Für n = 30 wären es 504 : 28 = 18 € je Schüler."
    }
   },
   {
@@ -175,10 +187,10 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 14,
-     "fehlbild": "fb.reihenfolge.links_nach_rechts",
-     "regel_des_fehlbilds": "rr.reihenfolge",
-     "beschreibung": "Zähler falsch geklammert: 2 · (3 + 4)"
+     "antwort": 9,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "5² als 2 · 5 gerechnet: 10 − 1"
     }
    ],
    "aufgabe": {
@@ -189,24 +201,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Berechne T(3) für T(x) = (2x + 4)/(x + 2). Zähler: 2 · 3 + 4 = ①. Nenner: 3 + 2 = ②. Der Wert ist ①/② = ③.",
+     "text": "Berechne T(5) für T(x) = (x² − 1)/(x − 1). Der Zähler hat für x = 5 den Wert ①. Der Nenner hat den Wert ②. Dann ist T(5) = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      10,
-      5,
-      2
+      24,
+      4,
+      6
      ]
     },
     "c": [
-     "2 * 3 + 4",
-     "3 + 2",
-     "10 // 5"
+     "5 ** 2 - 1",
+     "5 - 1",
+     "(5 ** 2 - 1) // (5 - 1)"
     ],
-    "h": "Setze für x überall 3 ein.",
-    "w": "Zähler 10, Nenner 5. 10 : 5 = 2. Also T(3) = 2."
+    "h": "Setze für x überall 5 ein. Rechne bei x² erst das Quadrat.",
+    "w": "Zähler: 25 − 1 = 24. Nenner: 4. 24 : 4 = 6."
    }
   },
   {
@@ -342,17 +354,17 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 12,
-     "fehlbild": "fb.kuerzen.aus_summe",
-     "regel_des_fehlbilds": "rr.kuerzen",
-     "beschreibung": "nur die Zahl ohne x betrachtet"
-    },
-    {
-     "luecke": 3,
      "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nicht den größten gemeinsamen Teiler genommen, 6/9 durch 2 nicht teilbar"
+     "beschreibung": "nicht den größten gemeinsamen Teiler genommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 6,
+     "fehlbild": "fb.kuerzen.nur_zaehler_oder_nenner",
+     "regel_des_fehlbilds": "rr.kuerzen",
+     "beschreibung": "nur den Zähler gekürzt: 12 : 2"
     }
    ],
    "aufgabe": {
@@ -363,24 +375,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Kürze (6x + 12)/(9x + 18). Klammere im Zähler aus: 6x + 12 = ①(x + 2). Klammere im Nenner aus: 9x + 18 = ②(x + 2). Kürze (x + 2). Übrig bleibt ①/②. Kürze diesen Bruch mit ③.",
+     "text": "Kürze (8x + 8)/(12x + 12). Beide Summen haben den Faktor (x + 1) und lassen sich damit kürzen. Übrig bleibt ein Zahlenbruch. Der größte gemeinsame Teiler von Zähler und Nenner dieses Zahlenbruchs ist ①. Der vollständig gekürzte Bruch ist ②/③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      6,
-      9,
+      4,
+      2,
       3
      ]
     },
     "c": [
-     "6",
-     "9",
-     "3"
+     "4",
+     "8 // 4",
+     "12 // 4"
     ],
-    "h": "Der Faktor vor (x + 2) ist der gemeinsame Faktor in beiden Gliedern.",
-    "w": "6x + 12 = 6(x + 2) und 9x + 18 = 9(x + 2). Dann 6/9 = 2/3 (gekürzt mit 3)."
+    "h": "Klammere zuerst in Zähler und Nenner den Faktor aus.",
+    "w": "8x + 8 = 8(x + 1) und 12x + 12 = 12(x + 1). Es bleibt 8/12. Der größte gemeinsame Teiler ist 4. 8/12 = 2/3."
    }
   },
   {
@@ -510,7 +522,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Erweitere 3/(2x) so, dass der Nenner 10x² wird. Der Nenner 2x wird mit ①x malgenommen: 2x · ①x = 10x². Der Zähler 3 wird mit demselben Faktor malgenommen: der neue Zähler ist ②x.",
+     "text": "Erweitere 3/(2x) so, dass der Nenner 10x² wird. Der Erweiterungsfaktor ist ①x. Der neue Zähler ist ②x.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -675,18 +687,18 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
-     "antwort": 2,
-     "fehlbild": "fb.kuerzen.nur_zaehler_oder_nenner",
-     "regel_des_fehlbilds": "rr.kuerzen",
-     "beschreibung": "den Zähler nicht mit erweitert"
+     "luecke": 1,
+     "antwort": 24,
+     "fehlbild": "fb.bruchrechnen.zaehler_und_nenner_addiert",
+     "regel_des_fehlbilds": "rr.bruchrechnen",
+     "beschreibung": "4 · 6 genommen statt des kleinsten gemeinsamen Vielfachen"
     },
     {
      "luecke": 3,
-     "antwort": 5,
-     "fehlbild": "fb.bruchrechnen.zaehler_und_nenner_addiert",
-     "regel_des_fehlbilds": "rr.bruchrechnen",
-     "beschreibung": "2 + 3 gerechnet"
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den zweiten Zähler genommen"
     }
    ],
    "aufgabe": {
@@ -697,24 +709,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Fasse zusammen: 2/x + 3/(2x). Der Hauptnenner ist ①x. Erweitere den ersten Bruch: 2/x = ②/(①x). Dann ist ②/(①x) + 3/(①x) = ③/(①x).",
+     "text": "Fasse zusammen: 1/(4x) + 1/(6x). Der Hauptnenner ist ①x. Der erste Bruch hat dann den Zähler ② und der zweite den Zähler 2. Der Zähler der Summe ist ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      2,
-      4,
-      7
+      12,
+      3,
+      5
      ]
     },
     "c": [
-     "2",
-     "2 * 2",
-     "4 + 3"
+     "12",
+     "12 // 4",
+     "12 // 4 + 12 // 6"
     ],
-    "h": "Der Nenner 2x enthält schon x. Was fehlt dem Nenner x?",
-    "w": "Hauptnenner 2x. 2/x = 4/(2x). 4/(2x) + 3/(2x) = 7/(2x)."
+    "h": "Welche kleinste Zahl kommt in der Viererreihe und in der Sechserreihe vor?",
+    "w": "Hauptnenner 12x. 1/(4x) = 3/(12x) und 1/(6x) = 2/(12x). Summe: 5/(12x)."
    }
   },
   {
@@ -831,6 +843,13 @@
      "fehlbild": "fb.bruchrechnen.zaehler_und_nenner_addiert",
      "regel_des_fehlbilds": "rr.bruchrechnen",
      "beschreibung": "4 + 3 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 17,
+     "fehlbild": "fb.bruchrechnen.zaehler_und_nenner_addiert",
+     "regel_des_fehlbilds": "rr.bruchrechnen",
+     "beschreibung": "9 + 8 gerechnet"
     }
    ],
    "aufgabe": {
@@ -841,23 +860,25 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Berechne und kürze: (4x/9) · (3/(8x)). Zähler mal Zähler: 4x · 3 = ①x. Nenner mal Nenner: 9 · 8x = ②x. Kürze mit ③x. Es bleibt 1/6.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Berechne und kürze: (4x/9) · (3/(8x)). Vor dem Kürzen steht oben ①x und unten ②x. Gekürzt ergibt sich der Bruch ③/④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       12,
       72,
-      12
+      1,
+      6
      ]
     },
     "c": [
      "4 * 3",
      "9 * 8",
-     "12"
+     "12 // 12",
+     "72 // 12"
     ],
-    "h": "Multipliziere oben mit oben und unten mit unten.",
+    "h": "Multipliziere oben mit oben und unten mit unten. Kürze dann mit dem gemeinsamen Faktor.",
     "w": "12x/(72x). Der gemeinsame Faktor ist 12x. 12x : 12x = 1 und 72x : 12x = 6. Ergebnis: 1/6."
    }
   },

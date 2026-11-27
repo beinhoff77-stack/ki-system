@@ -164,10 +164,14 @@ for a in A:
         soll = [ip.rechne(c) for c in q["c"]]
         assert soll == q["o"]["werte"] == [z2(z) if isinstance(z, str) else F(z) for z in a["zweit"]], (kenn, soll, a["zweit"])
         assert all(isinstance(w, int) for w in q["o"]["werte"]) and q["f"]["schablone"].count("□") == len(soll), kenn
-        im_text, im_tipp = zahlen_im(text), zahlen_im(q["h"])
+        im_text = zahlen_im(text + " " + q["f"]["schablone"] + " " + q["f"].get("hinweis", ""))
+        im_tipp = zahlen_im(q["h"])
         for v in soll:
-            assert abs(v) < 10 or abs(v) not in im_text, (kenn, v, "die gesuchte Zahl steht schon im Text")
-            assert abs(v) < 10 or abs(v) not in im_tipp, (kenn, v, "Tipp verrät die Zahl")
+            assert abs(v) not in im_text, (kenn, v, "Lückenwert steht schon in Text, Schablone oder Hinweis")
+            assert abs(v) not in im_tipp, (kenn, v, "Tipp verrät den Lückenwert")
+        if a["form"] == "lueckenweg":
+            assert len(soll) >= 2 and q["y"] == "luecken", (kenn, "Lückenweg: mindestens zwei Lücken")
+            assert len(set(soll)) == len(soll), (kenn, "Lückenwerte sollen verschieden sein")
         n_rechnung += len(soll)
         for i, liste in sorted(a["fb"].items()):
             werte = set()

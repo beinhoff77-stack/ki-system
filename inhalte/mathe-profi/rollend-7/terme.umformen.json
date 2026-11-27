@@ -36,7 +36,7 @@
      "antwort": 12,
      "fehlbild": "fb.tauschen.ungleiches_zusammengefasst",
      "regel_des_fehlbilds": "rr.tauschen",
-     "beschreibung": "auch die a-Glieder dazugezählt"
+     "beschreibung": "auch die a-Glieder dazugezählt: 3 + 4 + 5"
     }
    ],
    "aufgabe": {
@@ -47,22 +47,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Fasse zusammen: 6a + 3b + 5a + 4b. Gleichartige Glieder gehören zusammen. Bei a: 6a + 5a = ①a. Bei b: 3b + 4b = ②b.",
-     "schablone": "① = □; ② = □",
+     "text": "Fasse zusammen: 6a + 3b + 5a + 4b. Zuerst die a-Glieder, dann die b-Glieder. Das Ergebnis lautet ①a + ②b. Für a = 2 und b = 1 hat dieser Term den Wert ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       11,
-      7
+      7,
+      29
      ]
     },
     "c": [
      "6 + 5",
-     "3 + 4"
+     "3 + 4",
+     "(6 + 5) * 2 + (3 + 4) * 1"
     ],
     "h": "Zähle nur die Zahlen vor gleichen Buchstaben zusammen.",
-    "w": "6 + 5 = 11 und 3 + 4 = 7. Ergebnis: 11a + 7b. a und b bleiben getrennt."
+    "w": "6 + 5 = 11 und 3 + 4 = 7. Ergebnis: 11a + 7b. Für a = 2 und b = 1: 22 + 7 = 29."
    }
   },
   {
@@ -193,20 +195,22 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Vereinfache (−3a) · 4a · 2b. Die Zahlen werden malgenommen: (−3) · 4 · 2 = ①. Die Variablen a · a · b ergeben a²b. Ergebnis: ①a²b.",
-     "schablone": "① = □",
+     "text": "Vereinfache (−3a) · 4a · 2b. Das Ergebnis lautet ①a²b. Für a = 1 und b = 2 hat dieser Term den Wert ②.",
+     "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      -24
+      -24,
+      -48
      ]
     },
     "c": [
-     "(-3) * 4 * 2"
+     "(-3) * 4 * 2",
+     "(-3) * 4 * 2 * 1 * 2"
     ],
-    "h": "Multipliziere die Zahlen von links nach rechts. Achte auf das Vorzeichen.",
-    "w": "(−3) · 4 = −12 und −12 · 2 = −24. Ergebnis: −24a²b."
+    "h": "Multipliziere zuerst alle Zahlen. Achte auf das Vorzeichen.",
+    "w": "(−3) · 4 · 2 = −24. Ergebnis: −24a²b. Für a = 1 und b = 2: −24 · 1 · 2 = −48."
    }
   },
   {
@@ -315,17 +319,17 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": -7,
-     "fehlbild": "fb.minusklammer.nur_erstes_zeichen",
-     "regel_des_fehlbilds": "rr.minusklammer",
-     "beschreibung": "nur das erste Vorzeichen umgedreht"
-    },
-    {
-     "luecke": 2,
      "antwort": 13,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "9 + 4 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": -4,
+     "fehlbild": "fb.minusklammer.nur_erstes_zeichen",
+     "regel_des_fehlbilds": "rr.minusklammer",
+     "beschreibung": "nur das erste Vorzeichen umgedreht: −7 + 3"
     }
    ],
    "aufgabe": {
@@ -336,22 +340,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Löse die Klammer auf: 9x − (4x − 7). Das Minus vor der Klammer kehrt beide Vorzeichen um: 9x − 4x + ①. Zusammengefasst: ②x + ①.",
-     "schablone": "① = □; ② = □",
+     "text": "Löse die Klammer auf und fasse zusammen: 9x − (4x − 7) + 3. Das Ergebnis lautet ①x + ②. Für x = 3 hat der Term den Wert ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      7,
-      5
+      5,
+      10,
+      25
      ]
     },
     "c": [
-     "7",
-     "9 - 4"
+     "9 - 4",
+     "7 + 3",
+     "(9 - 4) * 3 + 7 + 3"
     ],
-    "h": "Aus − (… − 7) wird + 7.",
-    "w": "9x − (4x − 7) = 9x − 4x + 7 = 5x + 7."
+    "h": "Das Minus vor der Klammer kehrt beide Vorzeichen in der Klammer um.",
+    "w": "9x − 4x + 7 + 3 = 5x + 10. Für x = 3: 15 + 10 = 25."
    }
   },
   {
@@ -463,7 +469,7 @@
      "antwort": -3,
      "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
      "regel_des_fehlbilds": "rr.ausmultiplizieren",
-     "beschreibung": "die 5 nur beim ersten Glied verwendet"
+     "beschreibung": "die Zahl vor der Klammer nur beim ersten Glied verwendet"
     },
     {
      "luecke": 2,
@@ -481,22 +487,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Multipliziere aus: 5(2x − 3). Erstes Glied: 5 · 2x = ①x. Zweites Glied: 5 · (−3) = ②. Ergebnis: ①x + ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Multipliziere aus: 5(2x − 3). Das Ergebnis lautet ①x + ②. Für x = 4 hat dieser Term den Wert ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       10,
-      -15
+      -15,
+      25
      ]
     },
     "c": [
      "5 * 2",
-     "5 * (-3)"
+     "5 * (-3)",
+     "5 * 2 * 4 + 5 * (-3)"
     ],
-    "h": "Der Faktor 5 wird mit jedem Glied in der Klammer malgenommen.",
-    "w": "5 · 2x = 10x und 5 · (−3) = −15. Ergebnis: 10x − 15."
+    "h": "Der Faktor vor der Klammer wird mit jedem Glied in der Klammer malgenommen.",
+    "w": "5 · 2x = 10x und 5 · (−3) = −15. Für x = 4: 40 − 15 = 25."
    }
   },
   {
@@ -628,17 +636,17 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 11,
+     "antwort": 14,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Klammer wie beim zweiten Term gerechnet"
     },
     {
      "luecke": 2,
-     "antwort": 14,
+     "antwort": 20,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 2 wie bei der Klammer auf die 3 bezogen"
+     "beschreibung": "die 4 wie bei der Klammer auf die 2 bezogen"
     }
    ],
    "aufgabe": {
@@ -649,22 +657,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Sind 2(x + 3) und 2x + 3 äquivalent? Setze x = 4 ein. Für 2(x + 3) erhältst du 2 · (4 + 3) = ①. Für 2x + 3 erhältst du 2 · 4 + 3 = ②. Die Werte sind verschieden, also sind die Terme nicht äquivalent.",
-     "schablone": "① = □; ② = □",
+     "text": "Sind 4(x + 2) und 4x + 2 äquivalent? Setze x = 3 ein. Der erste Term hat dann den Wert ① und der zweite den Wert ②. Die beiden Werte unterscheiden sich um ③. Also sind die Terme nicht äquivalent.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
+      20,
       14,
-      11
+      6
      ]
     },
     "c": [
-     "2 * (4 + 3)",
-     "2 * 4 + 3"
+     "4 * (3 + 2)",
+     "4 * 3 + 2",
+     "4 * (3 + 2) - (4 * 3 + 2)"
     ],
-    "h": "Rechne erst die Klammer, dann das Malnehmen.",
-    "w": "2 · 7 = 14 und 8 + 3 = 11. Wären die Terme äquivalent, kämen für jedes x gleiche Werte heraus."
+    "h": "Rechne die Klammer zuerst aus. Dann erst malnehmen.",
+    "w": "4 · 5 = 20 und 12 + 2 = 14. Der Unterschied ist 6. Wären die Terme äquivalent, kämen für jedes x gleiche Werte heraus."
    }
   },
   {

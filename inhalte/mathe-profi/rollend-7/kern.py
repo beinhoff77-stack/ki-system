@@ -137,3 +137,8 @@ def wert_an(s, wert, var="x"):
     env = {"x": F(1), "y": F(1), "a": F(1), "b": F(1), "n": F(1)}
     env[var] = F(str(wert))
     return _ev(s, env)
+
+
+def pole(*terme, bereich=range(-9, 10)):
+    """Menge der ganzen Zahlen im Bereich, an denen mindestens einer der Terme nicht definiert ist."""
+    return {k for k in bereich if any(undef(t, k) for t in terme)}

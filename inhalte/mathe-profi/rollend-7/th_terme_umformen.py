@@ -1,10 +1,10 @@
 T = "terme.umformen"
 # ───────── zusammenfassen ─────────
 neu(T, "zusammenfassen", "lueckenweg", L(
-    "Fasse zusammen: 6a + 3b + 5a + 4b. Gleichartige Glieder gehören zusammen. Bei a: 6a + 5a = ①a. Bei b: 3b + 4b = ②b.",
-    KOMM(2), [11, 7], ["6 + 5", "3 + 4"], ["5 + 6", "7"], "Zähle nur die Zahlen vor gleichen Buchstaben zusammen.",
-    "6 + 5 = 11 und 3 + 4 = 7. Ergebnis: 11a + 7b. a und b bleiben getrennt.",
-    {0: [(30, None, "die Zahlen malgenommen statt addiert")], 1: [(12, "fb.tauschen.ungleiches_zusammengefasst", "auch die a-Glieder dazugezählt")]}), regel="rr.tauschen")
+    "Fasse zusammen: 6a + 3b + 5a + 4b. Zuerst die a-Glieder, dann die b-Glieder. Das Ergebnis lautet ①a + ②b. Für a = 2 und b = 1 hat dieser Term den Wert ③.",
+    KOMM(3), [11, 7, 29], ["6 + 5", "3 + 4", "(6 + 5) * 2 + (3 + 4) * 1"], ["5 + 6", "7", "22 + 7"], "Zähle nur die Zahlen vor gleichen Buchstaben zusammen.",
+    "6 + 5 = 11 und 3 + 4 = 7. Ergebnis: 11a + 7b. Für a = 2 und b = 1: 22 + 7 = 29.",
+    {0: [(30, None, "die Zahlen malgenommen statt addiert")], 1: [(12, "fb.tauschen.ungleiches_zusammengefasst", "auch die a-Glieder dazugezählt: 3 + 4 + 5")]}), regel="rr.tauschen")
 neu(T, "zusammenfassen", "fehler_detektiv", FD(
     "Kim fasst 3x² + 5x − x² + 2x zusammen.",
     [("Sortieren: 3x² + 5x − x² + 2x = 3x² − x² + 5x + 2x", gl("3*x**2+5*x-x**2+2*x", "3*x**2-x**2+5*x+2*x")),
@@ -22,9 +22,9 @@ assert gl("2*(3*x+4)+2*(x+2)", "8*x+12")
 
 # ───────── produkte ─────────
 neu(T, "produkte", "lueckenweg", L(
-    "Vereinfache (−3a) · 4a · 2b. Die Zahlen werden malgenommen: (−3) · 4 · 2 = ①. Die Variablen a · a · b ergeben a²b. Ergebnis: ①a²b.",
-    KOMM(1), [-24], ["(-3) * 4 * 2"], ["-3 * 8"], "Multipliziere die Zahlen von links nach rechts. Achte auf das Vorzeichen.",
-    "(−3) · 4 = −12 und −12 · 2 = −24. Ergebnis: −24a²b.",
+    "Vereinfache (−3a) · 4a · 2b. Das Ergebnis lautet ①a²b. Für a = 1 und b = 2 hat dieser Term den Wert ②.",
+    KOMM(2), [-24, -48], ["(-3) * 4 * 2", "(-3) * 4 * 2 * 1 * 2"], ["-3 * 8", "-24 * 2"], "Multipliziere zuerst alle Zahlen. Achte auf das Vorzeichen.",
+    "(−3) · 4 · 2 = −24. Ergebnis: −24a²b. Für a = 1 und b = 2: −24 · 1 · 2 = −48.",
     {0: [(24, "fb.vorzeichen.falsches_zeichen", "das Minus vergessen"), (3, "fb.tauschen.ungleiches_zusammengefasst", "−3 + 4 + 2 gerechnet")]}), regel="rr.vorzeichen")
 neu(T, "produkte", "zwei_wege", Z(
     "Berechne (−2x) · (3x) für x = 4 auf zwei Wegen. Weg A: erst vereinfachen, dann x = 4 einsetzen. Weg B: erst x = 4 einsetzen, dann malnehmen. Welchen Wert erhältst du?",
@@ -40,11 +40,11 @@ assert gl("(-4*x)*(-5*x**2)", "20*x**3")
 
 # ───────── minusklammer ─────────
 neu(T, "minusklammer", "lueckenweg", L(
-    "Löse die Klammer auf: 9x − (4x − 7). Das Minus vor der Klammer kehrt beide Vorzeichen um: 9x − 4x + ①. Zusammengefasst: ②x + ①.",
-    KOMM(2), [7, 5], ["7", "9 - 4"], ["-(-7)", "5"], "Aus − (… − 7) wird + 7.",
-    "9x − (4x − 7) = 9x − 4x + 7 = 5x + 7.",
-    {0: [(-7, "fb.minusklammer.nur_erstes_zeichen", "nur das erste Vorzeichen umgedreht")], 1: [(13, None, "9 + 4 gerechnet")]}), regel="rr.minusklammer")
-assert gl("9*x-(4*x-7)", "5*x+7")
+    "Löse die Klammer auf und fasse zusammen: 9x − (4x − 7) + 3. Das Ergebnis lautet ①x + ②. Für x = 3 hat der Term den Wert ③.",
+    KOMM(3), [5, 10, 25], ["9 - 4", "7 + 3", "(9 - 4) * 3 + 7 + 3"], ["5", "10", "15 + 10"], "Das Minus vor der Klammer kehrt beide Vorzeichen in der Klammer um.",
+    "9x − 4x + 7 + 3 = 5x + 10. Für x = 3: 15 + 10 = 25.",
+    {1: [(-4, "fb.minusklammer.nur_erstes_zeichen", "nur das erste Vorzeichen umgedreht: −7 + 3")], 0: [(13, None, "9 + 4 gerechnet")]}), regel="rr.minusklammer")
+assert gl("9*x-(4*x-7)+3", "5*x+10")
 neu(T, "minusklammer", "fehler_detektiv", FD(
     "Kim löst die Klammern auf und fasst zusammen: 6x − (2x + 5) − (x − 3).",
     [("6x − (2x + 5) − (x − 3) = 6x − 2x − 5 − x − 3", gl("6*x-(2*x+5)-(x-3)", "6*x-2*x-5-x-3")),
@@ -59,10 +59,10 @@ neu(T, "minusklammer", "zwei_wege", Z(
 
 # ───────── ausmultiplizieren ─────────
 neu(T, "ausmultiplizieren", "lueckenweg", L(
-    "Multipliziere aus: 5(2x − 3). Erstes Glied: 5 · 2x = ①x. Zweites Glied: 5 · (−3) = ②. Ergebnis: ①x + ②.",
-    KOMM(2), [10, -15], ["5 * 2", "5 * (-3)"], ["10", "-15"], "Der Faktor 5 wird mit jedem Glied in der Klammer malgenommen.",
-    "5 · 2x = 10x und 5 · (−3) = −15. Ergebnis: 10x − 15.",
-    {1: [(-3, "fb.ausmultiplizieren.nur_erster_summand", "die 5 nur beim ersten Glied verwendet"), (15, "fb.vorzeichen.falsches_zeichen", "das Minus vergessen")]}), regel="rr.ausmultiplizieren")
+    "Multipliziere aus: 5(2x − 3). Das Ergebnis lautet ①x + ②. Für x = 4 hat dieser Term den Wert ③.",
+    KOMM(3), [10, -15, 25], ["5 * 2", "5 * (-3)", "5 * 2 * 4 + 5 * (-3)"], ["10", "-15", "40 - 15"], "Der Faktor vor der Klammer wird mit jedem Glied in der Klammer malgenommen.",
+    "5 · 2x = 10x und 5 · (−3) = −15. Für x = 4: 40 − 15 = 25.",
+    {1: [(-3, "fb.ausmultiplizieren.nur_erster_summand", "die Zahl vor der Klammer nur beim ersten Glied verwendet"), (15, "fb.vorzeichen.falsches_zeichen", "das Minus vergessen")]}), regel="rr.ausmultiplizieren")
 neu(T, "ausmultiplizieren", "bruecke", W(
     "Die Tabelle zeigt das Ausmultiplizieren. In der Kopfzeile stehen die Glieder der Klammer, links der Faktor, in der Zeile die Teilergebnisse. Welcher Term wurde ausmultipliziert?",
     "3(2x − 5)", [("3(2x + 5)", "das Vorzeichen der 15 übersehen"), ("3 · 2x − 5", "die 3 nur auf das erste Glied bezogen"), ("2(3x − 5)", "Faktor und Glied vertauscht")],
@@ -78,10 +78,10 @@ neu(T, "ausmultiplizieren", "anwenden", Z(
 
 # ───────── aequivalenz ─────────
 neu(T, "aequivalenz", "lueckenweg", L(
-    "Sind 2(x + 3) und 2x + 3 äquivalent? Setze x = 4 ein. Für 2(x + 3) erhältst du 2 · (4 + 3) = ①. Für 2x + 3 erhältst du 2 · 4 + 3 = ②. Die Werte sind verschieden, also sind die Terme nicht äquivalent.",
-    KOMM(2), [14, 11], ["2 * (4 + 3)", "2 * 4 + 3"], ["2 * 7", "8 + 3"], "Rechne erst die Klammer, dann das Malnehmen.",
-    "2 · 7 = 14 und 8 + 3 = 11. Wären die Terme äquivalent, kämen für jedes x gleiche Werte heraus.",
-    {0: [(11, None, "die Klammer wie beim zweiten Term gerechnet")], 1: [(14, None, "die 2 wie bei der Klammer auf die 3 bezogen")]}), regel="id.algebra.term")
+    "Sind 4(x + 2) und 4x + 2 äquivalent? Setze x = 3 ein. Der erste Term hat dann den Wert ① und der zweite den Wert ②. Die beiden Werte unterscheiden sich um ③. Also sind die Terme nicht äquivalent.",
+    KOMM(3), [20, 14, 6], ["4 * (3 + 2)", "4 * 3 + 2", "4 * (3 + 2) - (4 * 3 + 2)"], ["4 * 5", "12 + 2", "20 - 14"], "Rechne die Klammer zuerst aus. Dann erst malnehmen.",
+    "4 · 5 = 20 und 12 + 2 = 14. Der Unterschied ist 6. Wären die Terme äquivalent, kämen für jedes x gleiche Werte heraus.",
+    {0: [(14, None, "die Klammer wie beim zweiten Term gerechnet")], 1: [(20, None, "die 4 wie bei der Klammer auf die 2 bezogen")]}), regel="id.algebra.term")
 neu(T, "aequivalenz", "bruecke", W(
     "Die Tabelle zeigt die Werte eines Terms für x = 1 bis 4. Welcher der Terme hat für alle vier Werte von x dieselben Werte?",
     "3(x + 1) + 2", [("3x + 2", "nur den Anfang der Tabelle nachgeprüft: für x = 1 ist 5, nicht 8"), ("5x + 3", "stimmt für x = 1, aber nicht für x = 2"), ("3(x + 5)", "Klammer falsch ausmultipliziert, ergibt 3x + 15")],

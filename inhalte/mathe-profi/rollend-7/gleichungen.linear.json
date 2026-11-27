@@ -29,7 +29,7 @@
      "antwort": 42,
      "fehlbild": "fb.waage.zeichen_nicht_gedreht",
      "regel_des_fehlbilds": "rr.waage",
-     "beschreibung": "die 9 addiert statt abgezogen"
+     "beschreibung": "die Zahl addiert statt abgezogen"
     },
     {
      "luecke": 2,
@@ -47,22 +47,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Löse 4x + 9 = 33. Auf beiden Seiten 9 abziehen: 4x = ①. Auf beiden Seiten durch 4 teilen: x = ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Löse 4x + 9 = 33. Nach dem ersten Schritt steht 4x = ①. Dann ist x = ②. Zur Probe: 5x hat für dieses x den Wert ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       24,
-      6
+      6,
+      30
      ]
     },
     "c": [
      "33 - 9",
-     "(33 - 9) / 4"
+     "(33 - 9) / 4",
+     "5 * ((33 - 9) // 4)"
     ],
     "h": "Mache auf beiden Seiten dasselbe.",
-    "w": "33 − 9 = 24. 24 : 4 = 6. Probe: 4 · 6 + 9 = 33."
+    "w": "33 − 9 = 24. 24 : 4 = 6. Dann ist 5 · 6 = 30. Probe: 4 · 6 + 9 = 33."
    }
   },
   {
@@ -179,17 +181,17 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 10,
+     "antwort": 12,
      "fehlbild": "fb.waage.zeichen_nicht_gedreht",
      "regel_des_fehlbilds": "rr.waage",
-     "beschreibung": "5 abgezogen statt addiert"
+     "beschreibung": "4 abgezogen statt addiert"
     },
     {
      "luecke": 2,
-     "antwort": 2.5,
+     "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "10 : 4 gerechnet"
+     "beschreibung": "12 : 4 gerechnet"
     }
    ],
    "aufgabe": {
@@ -200,22 +202,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Löse 6x − 5 = 2x + 15. Auf beiden Seiten 2x abziehen: 4x − 5 = 15. Auf beiden Seiten 5 addieren: 4x = ①. Durch 4 teilen: x = ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Löse 6x − 4 = 2x + 16. Sammle die x links und die Zahlen rechts. Dann steht dort 4x = ①. Also ist x = ②. Dann haben beide Seiten den Wert ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       20,
-      5
+      5,
+      26
      ]
     },
     "c": [
-     "15 + 5",
-     "(15 + 5) / 4"
+     "16 + 4",
+     "(16 + 4) / 4",
+     "2 * ((16 + 4) // 4) + 16"
     ],
-    "h": "Die 5 steht mit Minus. Sie wird durch Addieren weggeschafft.",
-    "w": "15 + 5 = 20. 20 : 4 = 5. Probe: 6 · 5 − 5 = 25 und 2 · 5 + 15 = 25."
+    "h": "Die Zahl mit Minus wird durch Addieren weggeschafft.",
+    "w": "16 + 4 = 20. 20 : 4 = 5. Probe: 6 · 5 − 4 = 26 und 2 · 5 + 16 = 26."
    }
   },
   {
@@ -322,7 +326,7 @@
      "antwort": 2,
      "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
      "regel_des_fehlbilds": "rr.ausmultiplizieren",
-     "beschreibung": "die 3 nur bei x gerechnet"
+     "beschreibung": "die Zahl vor der Klammer nur bei x gerechnet"
     },
     {
      "luecke": 3,
@@ -340,7 +344,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Löse 3(x − 2) = x + 8. Klammer auflösen: 3x − ① = x + 8. Auf beiden Seiten x abziehen: 2x − ① = 8. Auf beiden Seiten ① addieren: 2x = ②. Dann ist x = ③.",
+     "text": "Löse 3(x − 2) = x + 8. Nach dem Ausmultiplizieren steht links 3x − ①. Sammelst du alle x links und die Zahlen rechts, steht dort 2x = ②. Dann ist x = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -356,7 +360,7 @@
      "8 + 6",
      "(8 + 6) / 2"
     ],
-    "h": "Die 3 vor der Klammer gilt für jedes Glied in der Klammer.",
+    "h": "Die Zahl vor der Klammer gilt für jedes Glied in der Klammer.",
     "w": "3 · 2 = 6. 8 + 6 = 14. 14 : 2 = 7. Probe: 3 · 5 = 15 und 7 + 8 = 15."
    }
   },
@@ -487,22 +491,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Prüfe, ob x = 4 die Gleichung 5x − 4 = 2x + 5 löst. Links: 5 · 4 − 4 = ①. Rechts: 2 · 4 + 5 = ②. Die beiden Seiten sind verschieden. Also ist x = 4 keine Lösung.",
-     "schablone": "① = □; ② = □",
+     "text": "Prüfe, ob x = 4 die Gleichung 5x − 4 = 2x + 5 löst. Die linke Seite hat den Wert ① und die rechte Seite den Wert ②. Die beiden Werte unterscheiden sich um ③. Also ist x = 4 keine Lösung.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       16,
-      13
+      13,
+      3
      ]
     },
     "c": [
      "5 * 4 - 4",
-     "2 * 4 + 5"
+     "2 * 4 + 5",
+     "(5 * 4 - 4) - (2 * 4 + 5)"
     ],
     "h": "Setze für x überall die 4 ein. Rechne Punkt vor Strich.",
-    "w": "Links: 20 − 4 = 16. Rechts: 8 + 5 = 13. 16 ≠ 13. Die Lösung ist x = 3: 11 = 11."
+    "w": "Links: 20 − 4 = 16. Rechts: 8 + 5 = 13. Unterschied: 3. Die Lösung ist x = 3: 11 = 11."
    }
   },
   {
@@ -647,7 +653,14 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
+     "luecke": 1,
+     "antwort": 4,
+     "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
+     "regel_des_fehlbilds": "rr.ausmultiplizieren",
+     "beschreibung": "die Zahl vor der Klammer nur bei x gerechnet"
+    },
+    {
+     "luecke": 3,
      "antwort": 1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -662,22 +675,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Wie viele Lösungen hat 2(x + 3) = 2x + 7? Klammer auflösen: 2x + ① = 2x + 7. Auf beiden Seiten 2x abziehen: ① = 7. Diese Aussage stimmt für kein x. Die Gleichung hat ② Lösungen.",
-     "schablone": "① = □; ② = □",
+     "text": "Wie viele Lösungen hat 2(x + 4) = 2x + 5? Nach dem Ausmultiplizieren steht links 2x + ①. Ziehst du auf beiden Seiten 2x ab, so unterscheiden sich die Zahlen um ②. Die Aussage stimmt für kein x. Die Gleichung hat ③ Lösungen.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      6,
+      8,
+      3,
       0
      ]
     },
     "c": [
-     "2 * 3",
+     "2 * 4",
+     "2 * 4 - 5",
      "0"
     ],
-    "h": "2 mal 3 ergibt das Zahlglied der Klammer.",
-    "w": "2(x + 3) = 2x + 6. Aus 6 = 7 wird eine falsche Aussage. Dann gibt es keine Lösung."
+    "h": "Die Zahl vor der Klammer gilt für jedes Glied in der Klammer.",
+    "w": "2(x + 4) = 2x + 8. Aus 8 = 5 wird eine falsche Aussage. Dann gibt es keine Lösung."
    }
   },
   {
@@ -786,10 +801,10 @@
    "fehlbilder": [
     {
      "luecke": 1,
-     "antwort": 15,
+     "antwort": 14,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "10 + 5 gerechnet"
+     "beschreibung": "10 + 4 gerechnet"
     },
     {
      "luecke": 3,
@@ -807,24 +822,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ben hat 50 € und spart jede Woche 5 €. Mia hat 20 € und spart jede Woche 10 €. Nach w Wochen haben beide gleich viel: 50 + 5w = 20 + 10w. Auf beiden Seiten 5w abziehen: 50 = 20 + ①w. Dann 20 abziehen: ② = ①w. Also ist w = ③.",
+     "text": "Ben hat 50 € und spart jede Woche 4 €. Mia hat 20 € und spart jede Woche 10 €. Nach w Wochen haben beide gleich viel: 50 + 4w = 20 + 10w. Nach dem Sortieren steht ①w = ②. Also ist w = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      5,
+      6,
       30,
-      6
+      5
      ]
     },
     "c": [
-     "10 - 5",
+     "10 - 4",
      "50 - 20",
-     "(50 - 20) / (10 - 5)"
+     "(50 - 20) / (10 - 4)"
     ],
     "h": "Auf jeder Seite wird derselbe Term abgezogen.",
-    "w": "10w − 5w = 5w. 50 − 20 = 30. 30 : 5 = 6. Nach 6 Wochen haben beide 80 €."
+    "w": "10w − 4w = 6w. 50 − 20 = 30. 30 : 6 = 5. Nach 5 Wochen haben beide 70 €."
    }
   },
   {

@@ -1,10 +1,10 @@
 T = "terme.umformen_teil2"
 # ───────── summe_mal_summe ─────────
 neu(T, "summe_mal_summe", "lueckenweg", L(
-    "Multipliziere aus: (x + 5)(x + 3). Jedes Glied der ersten Klammer mal jedes Glied der zweiten. x · x = x². x · 3 = ①x. 5 · x = ②x. 5 · 3 = ③.",
-    KOMM(3), [3, 5, 15], ["1 * 3", "5 * 1", "5 * 3"], ["3", "5", "15"], "Es entstehen vier Produkte. Die beiden mit x kannst du danach zusammenfassen.",
-    "x² + 3x + 5x + 15 = x² + 8x + 15.",
-    {2: [(8, "fb.tauschen.ungleiches_zusammengefasst", "5 + 3 gerechnet statt 5 · 3")]}), regel="rr.ausmultiplizieren")
+    "Multipliziere aus: (x + 5)(x + 3). Es entstehen vier Produkte. Fasse die beiden Produkte mit x zusammen. Das Ergebnis lautet x² + ①x + ②. Für x = 1 hat dieser Term den Wert ③.",
+    KOMM(3), [8, 15, 24], ["5 + 3", "5 * 3", "1 + 8 + 15"], ["3 + 5", "15", "24"], "Jedes Glied der ersten Klammer wird mit jedem Glied der zweiten Klammer malgenommen.",
+    "x² + 3x + 5x + 15 = x² + 8x + 15. Für x = 1: 1 + 8 + 15 = 24.",
+    {1: [(8, "fb.tauschen.ungleiches_zusammengefasst", "5 + 3 gerechnet statt 5 · 3")]}), regel="rr.ausmultiplizieren")
 neu(T, "summe_mal_summe", "zwei_wege", Z(
     "Berechne (x + 3)(x − 2) für x = 5 auf zwei Wegen. Weg A: erst ausmultiplizieren (das gibt x² + x − 6), dann x = 5 einsetzen. Weg B: erst x = 5 in beide Klammern einsetzen, dann malnehmen. Welchen Wert erhältst du?",
     24, "(5 + 3) * (5 - 2)", "5 ** 2 + 5 - 6", "Beide Wege müssen denselben Wert ergeben.",
@@ -21,9 +21,9 @@ neu(T, "summe_mal_summe", "bruecke", W(
 
 # ───────── ausklammern ─────────
 neu(T, "ausklammern", "lueckenweg", L(
-    "Klammere aus: 12x + 18. Der größte gemeinsame Faktor von 12 und 18 ist ①. 12x : ① = ②x und 18 : ① = ③. Ergebnis: ①(②x + ③).",
+    "Klammere den größten gemeinsamen Faktor aus: 12x + 18. Der Faktor vor der Klammer ist ①. In der Klammer steht ②x + ③.",
     KOMM(3), [6, 2, 3], ["6", "12 // 6", "18 // 6"], ["2 * 3", "2", "18 // 6"], "Welche größte Zahl teilt 12 und 18 ohne Rest?",
-    "Der größte gemeinsame Teiler von 12 und 18 ist 6. 12x : 6 = 2x und 18 : 6 = 3. Probe: 6(2x + 3) = 12x + 18.",
+    "Der größte gemeinsame Teiler ist 6. 12x : 6 = 2x und 18 : 6 = 3. Probe: 6(2x + 3) = 12x + 18.",
     {0: [(2, None, "einen gemeinsamen Teiler genommen, aber nicht den größten"), (3, None, "einen gemeinsamen Teiler genommen, aber nicht den größten")]}), regel="rr.ausmultiplizieren")
 neu(T, "ausklammern", "zwei_wege", Z(
     "Berechne 6 · 17 + 6 · 13 auf zwei Wegen. Weg A: beide Produkte einzeln ausrechnen und addieren. Weg B: den Faktor 6 ausklammern und die Summe in der Klammer bilden. Was kommt heraus?",
@@ -38,8 +38,8 @@ neu(T, "ausklammern", "anwenden", Z(
 
 # ───────── binomisch ─────────
 neu(T, "binomisch", "lueckenweg", L(
-    "Multipliziere mit der 2. binomischen Formel aus: (2a − 3)². Das Quadrat des ersten Gliedes: (2a)² = ①a². Das doppelte Produkt: 2 · 2a · 3 = ②a (mit Minus). Das Quadrat des zweiten Gliedes: 3² = ③.",
-    KOMM(3), [4, 12, 9], ["2 ** 2", "2 * 2 * 3", "3 ** 2"], ["2 * 2", "12", "9"], "Die Zahl 2 in (2a)² wird mitquadriert.",
+    "Multipliziere mit der 2. binomischen Formel aus: (2a − 3)². Das Ergebnis lautet ①a² − ②a + ③.",
+    KOMM(3), [4, 12, 9], ["2 ** 2", "2 * 2 * 3", "3 ** 2"], ["2 * 2", "12", "9"], "Die Zahl vor a wird mitquadriert. Das mittlere Glied ist das doppelte Produkt.",
     "(2a)² = 4a². 2 · 2a · 3 = 12a. 3² = 9. Ergebnis: 4a² − 12a + 9.",
     {0: [(2, "fb.potenz.basis_mal_hochzahl", "die 2 in der Klammer nicht mitquadriert: 2a²")], 2: [(6, "fb.potenz.basis_mal_hochzahl", "3 · 2 statt 3² gerechnet")]}), regel="rr.ausmultiplizieren")
 assert gl("(2*a-3)**2", "4*a**2-12*a+9")

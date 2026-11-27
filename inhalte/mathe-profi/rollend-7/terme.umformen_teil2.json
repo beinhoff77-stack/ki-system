@@ -25,7 +25,7 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 3,
+     "luecke": 2,
      "antwort": 8,
      "fehlbild": "fb.tauschen.ungleiches_zusammengefasst",
      "regel_des_fehlbilds": "rr.tauschen",
@@ -40,24 +40,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Multipliziere aus: (x + 5)(x + 3). Jedes Glied der ersten Klammer mal jedes Glied der zweiten. x · x = x². x · 3 = ①x. 5 · x = ②x. 5 · 3 = ③.",
+     "text": "Multipliziere aus: (x + 5)(x + 3). Es entstehen vier Produkte. Fasse die beiden Produkte mit x zusammen. Das Ergebnis lautet x² + ①x + ②. Für x = 1 hat dieser Term den Wert ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      3,
-      5,
-      15
+      8,
+      15,
+      24
      ]
     },
     "c": [
-     "1 * 3",
-     "5 * 1",
-     "5 * 3"
+     "5 + 3",
+     "5 * 3",
+     "1 + 8 + 15"
     ],
-    "h": "Es entstehen vier Produkte. Die beiden mit x kannst du danach zusammenfassen.",
-    "w": "x² + 3x + 5x + 15 = x² + 8x + 15."
+    "h": "Jedes Glied der ersten Klammer wird mit jedem Glied der zweiten Klammer malgenommen.",
+    "w": "x² + 3x + 5x + 15 = x² + 8x + 15. Für x = 1: 1 + 8 + 15 = 24."
    }
   },
   {
@@ -215,7 +215,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Klammere aus: 12x + 18. Der größte gemeinsame Faktor von 12 und 18 ist ①. 12x : ① = ②x und 18 : ① = ③. Ergebnis: ①(②x + ③).",
+     "text": "Klammere den größten gemeinsamen Faktor aus: 12x + 18. Der Faktor vor der Klammer ist ①. In der Klammer steht ②x + ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -232,7 +232,7 @@
      "18 // 6"
     ],
     "h": "Welche größte Zahl teilt 12 und 18 ohne Rest?",
-    "w": "Der größte gemeinsame Teiler von 12 und 18 ist 6. 12x : 6 = 2x und 18 : 6 = 3. Probe: 6(2x + 3) = 12x + 18."
+    "w": "Der größte gemeinsame Teiler ist 6. 12x : 6 = 2x und 18 : 6 = 3. Probe: 6(2x + 3) = 12x + 18."
    }
   },
   {
@@ -357,7 +357,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Multipliziere mit der 2. binomischen Formel aus: (2a − 3)². Das Quadrat des ersten Gliedes: (2a)² = ①a². Das doppelte Produkt: 2 · 2a · 3 = ②a (mit Minus). Das Quadrat des zweiten Gliedes: 3² = ③.",
+     "text": "Multipliziere mit der 2. binomischen Formel aus: (2a − 3)². Das Ergebnis lautet ①a² − ②a + ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -373,7 +373,7 @@
      "2 * 2 * 3",
      "3 ** 2"
     ],
-    "h": "Die Zahl 2 in (2a)² wird mitquadriert.",
+    "h": "Die Zahl vor a wird mitquadriert. Das mittlere Glied ist das doppelte Produkt.",
     "w": "(2a)² = 4a². 2 · 2a · 3 = 12a. 3² = 9. Ergebnis: 4a² − 12a + 9."
    }
   },

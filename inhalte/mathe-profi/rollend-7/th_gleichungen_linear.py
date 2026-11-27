@@ -1,10 +1,10 @@
 T = "gleichungen.linear"
 # ───────── waage ─────────
 neu(T, "waage", "lueckenweg", L(
-    "Löse 4x + 9 = 33. Auf beiden Seiten 9 abziehen: 4x = ①. Auf beiden Seiten durch 4 teilen: x = ②.",
-    KOMM(2), [24, 6], ["33 - 9", "(33 - 9) / 4"], ["24", "24 // 4"], "Mache auf beiden Seiten dasselbe.",
-    "33 − 9 = 24. 24 : 4 = 6. Probe: 4 · 6 + 9 = 33.",
-    {0: [(42, "fb.waage.zeichen_nicht_gedreht", "die 9 addiert statt abgezogen")], 1: [(20, None, "24 − 4 gerechnet statt 24 : 4")]}), regel="rr.waage")
+    "Löse 4x + 9 = 33. Nach dem ersten Schritt steht 4x = ①. Dann ist x = ②. Zur Probe: 5x hat für dieses x den Wert ③.",
+    KOMM(3), [24, 6, 30], ["33 - 9", "(33 - 9) / 4", "5 * ((33 - 9) // 4)"], ["24", "24 // 4", "30"], "Mache auf beiden Seiten dasselbe.",
+    "33 − 9 = 24. 24 : 4 = 6. Dann ist 5 · 6 = 30. Probe: 4 · 6 + 9 = 33.",
+    {0: [(42, "fb.waage.zeichen_nicht_gedreht", "die Zahl addiert statt abgezogen")], 1: [(20, None, "24 − 4 gerechnet statt 24 : 4")]}), regel="rr.waage")
 neu(T, "waage", "bruecke", W(
     "Eine Waage ist im Gleichgewicht. Links liegen 4 gleiche Dosen mit je x g Inhalt und ein Gewicht von 30 g. Rechts liegen 2 solche Dosen und ein Gewicht von 90 g. Welche Gleichung gehört zur Waage?",
     "4x + 30 = 2x + 90", [("4x + 2x = 30 + 90", "die Dosen beider Seiten addiert statt gleichgesetzt"), ("x + 30 = x + 90", "die Zahl der Dosen vergessen"), ("4x − 30 = 2x − 90", "Gewichte als Abzug gelesen")],
@@ -19,10 +19,10 @@ neu(T, "waage", "umkehren", Z(
 
 # ───────── beide_seiten ─────────
 neu(T, "beide_seiten", "lueckenweg", L(
-    "Löse 6x − 5 = 2x + 15. Auf beiden Seiten 2x abziehen: 4x − 5 = 15. Auf beiden Seiten 5 addieren: 4x = ①. Durch 4 teilen: x = ②.",
-    KOMM(2), [20, 5], ["15 + 5", "(15 + 5) / 4"], ["20", "20 // 4"], "Die 5 steht mit Minus. Sie wird durch Addieren weggeschafft.",
-    "15 + 5 = 20. 20 : 4 = 5. Probe: 6 · 5 − 5 = 25 und 2 · 5 + 15 = 25.",
-    {0: [(10, "fb.waage.zeichen_nicht_gedreht", "5 abgezogen statt addiert")], 1: [(2.5, None, "10 : 4 gerechnet")]}), regel="rr.waage")
+    "Löse 6x − 4 = 2x + 16. Sammle die x links und die Zahlen rechts. Dann steht dort 4x = ①. Also ist x = ②. Dann haben beide Seiten den Wert ③.",
+    KOMM(3), [20, 5, 26], ["16 + 4", "(16 + 4) / 4", "2 * ((16 + 4) // 4) + 16"], ["20", "20 // 4", "10 + 16"], "Die Zahl mit Minus wird durch Addieren weggeschafft.",
+    "16 + 4 = 20. 20 : 4 = 5. Probe: 6 · 5 − 4 = 26 und 2 · 5 + 16 = 26.",
+    {0: [(12, "fb.waage.zeichen_nicht_gedreht", "4 abgezogen statt addiert")], 1: [(3, None, "12 : 4 gerechnet")]}), regel="rr.waage")
 neu(T, "beide_seiten", "zwei_wege", Z(
     "Löse 5x − 8 = 2x + 13 auf zwei Wegen. Weg A: erst 2x abziehen, sodass das x links steht. Weg B: erst 5x abziehen, sodass das x rechts steht. Welche Lösung erhältst du?",
     7, "(13 + 8) / (5 - 2)", "(8 + 13) / (5 - 2)", "Beide Wege führen zur selben Lösung. Bei Weg B ist das x-Glied am Ende negativ.",
@@ -36,10 +36,10 @@ neu(T, "beide_seiten", "anwenden", Z(
 
 # ───────── klammern ─────────
 neu(T, "klammern", "lueckenweg", L(
-    "Löse 3(x − 2) = x + 8. Klammer auflösen: 3x − ① = x + 8. Auf beiden Seiten x abziehen: 2x − ① = 8. Auf beiden Seiten ① addieren: 2x = ②. Dann ist x = ③.",
-    KOMM(3), [6, 14, 7], ["3 * 2", "8 + 6", "(8 + 6) / 2"], ["6", "14", "7"], "Die 3 vor der Klammer gilt für jedes Glied in der Klammer.",
+    "Löse 3(x − 2) = x + 8. Nach dem Ausmultiplizieren steht links 3x − ①. Sammelst du alle x links und die Zahlen rechts, steht dort 2x = ②. Dann ist x = ③.",
+    KOMM(3), [6, 14, 7], ["3 * 2", "8 + 6", "(8 + 6) / 2"], ["6", "14", "7"], "Die Zahl vor der Klammer gilt für jedes Glied in der Klammer.",
     "3 · 2 = 6. 8 + 6 = 14. 14 : 2 = 7. Probe: 3 · 5 = 15 und 7 + 8 = 15.",
-    {0: [(2, "fb.ausmultiplizieren.nur_erster_summand", "die 3 nur bei x gerechnet")], 2: [(1, "fb.waage.zeichen_nicht_gedreht", "8 − 6 statt 8 + 6 gerechnet: 2 : 2")]}), regel="rr.waage")
+    {0: [(2, "fb.ausmultiplizieren.nur_erster_summand", "die Zahl vor der Klammer nur bei x gerechnet")], 2: [(1, "fb.waage.zeichen_nicht_gedreht", "8 − 6 statt 8 + 6 gerechnet: 2 : 2")]}), regel="rr.waage")
 neu(T, "klammern", "fehler_detektiv", FD(
     "Kim löst die Gleichung 2(x + 5) − 3(x − 1) = 4.",
     [("Klammern auflösen: 2x + 10 − 3x + 3 = 4", gl("2*(x+5)-3*(x-1)", "2*x+10-3*x+3")), ("x-Glieder zusammenfassen: 2x − 3x = x, also x + 13 = 4", gl("2*x+10-3*x+3", "x+13")), ("13 abziehen: x = −9", ist_loesung("x+13", "4", -9))],
@@ -54,9 +54,9 @@ assert ist_loesung("4*(x-3)", "2*(x+5)", 11) and ist_loesung("2*(x-3)", "x+5", 1
 
 # ───────── probe ─────────
 neu(T, "probe", "lueckenweg", L(
-    "Prüfe, ob x = 4 die Gleichung 5x − 4 = 2x + 5 löst. Links: 5 · 4 − 4 = ①. Rechts: 2 · 4 + 5 = ②. Die beiden Seiten sind verschieden. Also ist x = 4 keine Lösung.",
-    KOMM(2), [16, 13], ["5 * 4 - 4", "2 * 4 + 5"], ["20 - 4", "8 + 5"], "Setze für x überall die 4 ein. Rechne Punkt vor Strich.",
-    "Links: 20 − 4 = 16. Rechts: 8 + 5 = 13. 16 ≠ 13. Die Lösung ist x = 3: 11 = 11.",
+    "Prüfe, ob x = 4 die Gleichung 5x − 4 = 2x + 5 löst. Die linke Seite hat den Wert ① und die rechte Seite den Wert ②. Die beiden Werte unterscheiden sich um ③. Also ist x = 4 keine Lösung.",
+    KOMM(3), [16, 13, 3], ["5 * 4 - 4", "2 * 4 + 5", "(5 * 4 - 4) - (2 * 4 + 5)"], ["20 - 4", "8 + 5", "16 - 13"], "Setze für x überall die 4 ein. Rechne Punkt vor Strich.",
+    "Links: 20 − 4 = 16. Rechts: 8 + 5 = 13. Unterschied: 3. Die Lösung ist x = 3: 11 = 11.",
     {0: [(20, None, "nur 5 · 4 gerechnet, das − 4 vergessen")], 1: [(18, None, "2 · (4 + 5) gerechnet, falsch geklammert")]}), regel="id.algebra.gleichung_loesen")
 neu(T, "probe", "bruecke", W(
     "Die Tabelle zeigt die Werte der beiden Seiten der Gleichung 3x − 2 = x + 6 für einige Zahlen x. Welche Zahl ist die Lösung?",
@@ -73,10 +73,10 @@ neu(T, "probe", "umkehren", Z(
 
 # ───────── sonderfaelle ─────────
 neu(T, "sonderfaelle", "lueckenweg", L(
-    "Wie viele Lösungen hat 2(x + 3) = 2x + 7? Klammer auflösen: 2x + ① = 2x + 7. Auf beiden Seiten 2x abziehen: ① = 7. Diese Aussage stimmt für kein x. Die Gleichung hat ② Lösungen.",
-    KOMM(2), [6, 0], ["2 * 3", "0"], ["6", "1 - 1"], "2 mal 3 ergibt das Zahlglied der Klammer.",
-    "2(x + 3) = 2x + 6. Aus 6 = 7 wird eine falsche Aussage. Dann gibt es keine Lösung.",
-    {1: [(1, None, "eine Lösung genannt, obwohl x herausfällt")]}), regel="id.algebra.gleichung_loesen")
+    "Wie viele Lösungen hat 2(x + 4) = 2x + 5? Nach dem Ausmultiplizieren steht links 2x + ①. Ziehst du auf beiden Seiten 2x ab, so unterscheiden sich die Zahlen um ②. Die Aussage stimmt für kein x. Die Gleichung hat ③ Lösungen.",
+    KOMM(3), [8, 3, 0], ["2 * 4", "2 * 4 - 5", "0"], ["8", "3", "1 - 1"], "Die Zahl vor der Klammer gilt für jedes Glied in der Klammer.",
+    "2(x + 4) = 2x + 8. Aus 8 = 5 wird eine falsche Aussage. Dann gibt es keine Lösung.",
+    {2: [(1, None, "eine Lösung genannt, obwohl x herausfällt")], 0: [(4, "fb.ausmultiplizieren.nur_erster_summand", "die Zahl vor der Klammer nur bei x gerechnet")]}), regel="id.algebra.gleichung_loesen")
 neu(T, "sonderfaelle", "fehler_detektiv", FD(
     "Kim löst die Gleichung 3(x − 2) + 6 = 3x.",
     [("Klammer auflösen: 3x − 6 − 6 = 3x", gl("3*(x-2)+6", "3*x-6-6")), ("3x abziehen: −12 = 0. Das stimmt für kein x.", gl("3*x-6-6-3*x", "-12")), ("Also hat die Gleichung keine Lösung.", True)],
@@ -91,10 +91,10 @@ assert ist_loesung("2*(3*x-1)", "6*x-2", 5) and ist_loesung("2*(3*x-1)", "6*x-2"
 
 # ───────── sach ─────────
 neu(T, "sach", "lueckenweg", L(
-    "Ben hat 50 € und spart jede Woche 5 €. Mia hat 20 € und spart jede Woche 10 €. Nach w Wochen haben beide gleich viel: 50 + 5w = 20 + 10w. Auf beiden Seiten 5w abziehen: 50 = 20 + ①w. Dann 20 abziehen: ② = ①w. Also ist w = ③.",
-    KOMM(3), [5, 30, 6], ["10 - 5", "50 - 20", "(50 - 20) / (10 - 5)"], ["5", "30", "6"], "Auf jeder Seite wird derselbe Term abgezogen.",
-    "10w − 5w = 5w. 50 − 20 = 30. 30 : 5 = 6. Nach 6 Wochen haben beide 80 €.",
-    {0: [(15, None, "10 + 5 gerechnet")], 2: [(10, None, "30 : 3 gerechnet")]}), regel="id.algebra.gleichung_loesen")
+    "Ben hat 50 € und spart jede Woche 4 €. Mia hat 20 € und spart jede Woche 10 €. Nach w Wochen haben beide gleich viel: 50 + 4w = 20 + 10w. Nach dem Sortieren steht ①w = ②. Also ist w = ③.",
+    KOMM(3), [6, 30, 5], ["10 - 4", "50 - 20", "(50 - 20) / (10 - 4)"], ["6", "30", "5"], "Auf jeder Seite wird derselbe Term abgezogen.",
+    "10w − 4w = 6w. 50 − 20 = 30. 30 : 6 = 5. Nach 5 Wochen haben beide 70 €.",
+    {0: [(14, None, "10 + 4 gerechnet")], 2: [(10, None, "30 : 3 gerechnet")]}), regel="id.algebra.gleichung_loesen")
 neu(T, "sach", "bruecke", W(
     "Ein Handwerker verlangt 35 € für die Anfahrt und 42 € für jede Stunde Arbeit. Die Rechnung beträgt 245 €. Mit x sind die Arbeitsstunden gemeint. Welche Gleichung gehört zur Rechnung?",
     "35 + 42x = 245", [("35x + 42 = 245", "Anfahrt und Stundenlohn vertauscht"), ("(35 + 42)x = 245", "die Anfahrt mit der Stundenzahl malgenommen"), ("35 + 42 + x = 245", "x einfach dazugezählt")],

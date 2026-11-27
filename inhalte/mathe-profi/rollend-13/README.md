@@ -76,3 +76,7 @@ Offen: die Zeichnungen (auch V058 mit neuem Graphen) sind nicht im Browser anges
 ## Nach zweiter Gegenprüfung (Werkstatt 1106)
 Umgesetzt: V123 und V124 als Auswahl, bewertet wird jetzt der Bauplan (bei V124 Bauplan und Dreiecksumfang gemeinsam, ein falscher Bauplan nennt ebenfalls den richtigen Umfang);
 V027, V039 (Auswahl verlangt Gegenprobe und Begründung), V045, V054 (Kandidaten selbst ermitteln und prüfen, Stufe 3), V009. Alle danach wie neue geprüft; übrige Aufgaben unverändert.
+
+## Nach dritter Gegenprüfung (Werkstatt 1114)
+Nur V123 und V124 geändert: Rückmeldungen zu je einer Auswahl ergänzt; bei V124 steht der Umfang in jeder Option mit Gedankenstrich abgesetzt (die App zeigt in Auswahloptionen keine Zeilenumbrüche).
+Der JSON-Vergleich gegen den Stand von lernen-app zeigt genau diese zwei Aufgaben als geändert.

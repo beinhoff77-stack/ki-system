@@ -176,7 +176,7 @@
      "antwort": "Auf dem Strahl von A aus AD = 5 cm abtragen. Durch D und durch B jeweils die Senkrechte zu AB zeichnen. Ihr Schnittpunkt ist C.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Länge stimmt, aber Senkrechte statt Parallelen zu AD: so entsteht kein Parallelogramm mit dem Winkel 60°"
+     "beschreibung": "Die Länge 5 cm stimmt. Die beiden Senkrechten zu AB durch B und D sind parallel und verschieden. Sie schneiden sich also nicht in C."
     },
     {
      "index": 2,
@@ -223,24 +223,24 @@
    "fehlbilder": [
     {
      "index": 1,
-     "antwort": "AD = 9 cm auf dem Strahl abtragen; durch D und durch B die Senkrechte zu AB zeichnen, Schnittpunkt C. Das Dreieck ABD ist gleichseitig, sein Rand ist 27 cm lang.",
+     "antwort": "AD = 9 cm auf dem Strahl abtragen; durch D und durch B die Senkrechte zu AB zeichnen, Schnittpunkt C. — Rand des Dreiecks ABD: 27 cm (das Dreieck ist gleichseitig).",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Länge und der Rand stimmen, aber mit Senkrechten statt Parallelen entsteht keine Raute"
     },
     {
      "index": 2,
-     "antwort": "AD = 9 cm auf dem Strahl abtragen; durch D die Parallele zu AB und durch B die Parallele zu AD zeichnen, Schnittpunkt C. Der Rand des Dreiecks ABD ist 18 cm lang.",
+     "antwort": "AD = 9 cm auf dem Strahl abtragen; durch D die Parallele zu AB und durch B die Parallele zu AD zeichnen, Schnittpunkt C. — Rand des Dreiecks ABD: 18 cm.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Diagonale BD vergessen: nur die zwei Raute-Seiten gezählt"
     },
     {
      "index": 3,
-     "antwort": "AD = 4,5 cm auf dem Strahl abtragen; durch D die Parallele zu AB und durch B die Parallele zu AD zeichnen, Schnittpunkt C. Der Rand des Dreiecks ABD ist 22,5 cm lang.",
+     "antwort": "AD = 4,5 cm auf dem Strahl abtragen; durch D die Parallele zu AB und durch B die Parallele zu AD zeichnen, Schnittpunkt C. — Rand des Dreiecks ABD: 22,5 cm.",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Seite AD nur halb so lang abgetragen, obwohl in der Raute alle Seiten 9 cm lang sind"
+     "beschreibung": "die Seite AD nur halb so lang abgetragen, obwohl in der Raute alle Seiten 9 cm lang sind. Mit der halben Seite AD ist das Dreieck nicht mehr gleichseitig. Du darfst für BD nicht wieder 9 cm einsetzen."
     }
    ],
    "aufgabe": {
@@ -254,10 +254,10 @@
      "text": "Ein Fliesenleger konstruiert eine Raute ABCD aus nur zwei Angaben: der Seitenlänge 9 cm und dem Winkel α = 60° bei A. Er zeichnet AB = 9 cm und trägt in A den Strahl für den Winkel 60° an. Danach schneidet er die Raute entlang der Diagonale BD in zwei Dreiecke. In einer Raute sind alle vier Seiten gleich lang. Welche Konstruktion und welcher Rand eines der beiden Dreiecke gehören zusammen?"
     },
     "a": [
-     "AD = 9 cm auf dem Strahl abtragen; durch D die Parallele zu AB und durch B die Parallele zu AD zeichnen, Schnittpunkt C. Das Dreieck ABD ist gleichseitig, sein Rand ist 27 cm lang.",
-     "AD = 9 cm auf dem Strahl abtragen; durch D und durch B die Senkrechte zu AB zeichnen, Schnittpunkt C. Das Dreieck ABD ist gleichseitig, sein Rand ist 27 cm lang.",
-     "AD = 9 cm auf dem Strahl abtragen; durch D die Parallele zu AB und durch B die Parallele zu AD zeichnen, Schnittpunkt C. Der Rand des Dreiecks ABD ist 18 cm lang.",
-     "AD = 4,5 cm auf dem Strahl abtragen; durch D die Parallele zu AB und durch B die Parallele zu AD zeichnen, Schnittpunkt C. Der Rand des Dreiecks ABD ist 22,5 cm lang."
+     "AD = 9 cm auf dem Strahl abtragen; durch D die Parallele zu AB und durch B die Parallele zu AD zeichnen, Schnittpunkt C. — Rand des Dreiecks ABD: 27 cm (das Dreieck ist gleichseitig).",
+     "AD = 9 cm auf dem Strahl abtragen; durch D und durch B die Senkrechte zu AB zeichnen, Schnittpunkt C. — Rand des Dreiecks ABD: 27 cm (das Dreieck ist gleichseitig).",
+     "AD = 9 cm auf dem Strahl abtragen; durch D die Parallele zu AB und durch B die Parallele zu AD zeichnen, Schnittpunkt C. — Rand des Dreiecks ABD: 18 cm.",
+     "AD = 4,5 cm auf dem Strahl abtragen; durch D die Parallele zu AB und durch B die Parallele zu AD zeichnen, Schnittpunkt C. — Rand des Dreiecks ABD: 22,5 cm."
     ],
     "o": {
      "index": 0

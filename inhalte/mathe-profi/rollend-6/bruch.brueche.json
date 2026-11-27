@@ -252,7 +252,7 @@
     "g": "mehrschritt",
     "y": "luecken",
     "f": {
-     "text": "In einer Klasse sind 28 Kinder, 21 davon kommen mit dem Rad. Weg A: Kürze 21/28 direkt. Weg B: Die 7 Kinder ohne Rad sind ein gekürzter Anteil; ziehe ihn von 1 ab. Beide Wege müssen denselben vollständig gekürzten Anteil ergeben.",
+     "text": "In einer Klasse sind 28 Kinder, 21 davon kommen mit dem Rad. Weg A: Kürze 21/28 direkt. Weg B: Berechne und kürze den Anteil der 7 Kinder ohne Rad und ziehe ihn von 1 ab. Beide Wege müssen denselben vollständig gekürzten Anteil ergeben.",
      "schablone": "□/□",
      "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
     },
@@ -638,8 +638,8 @@
      "antwort": 1,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "gedacht, 48 und der erste Rest hätten keinen gemeinsamen Teiler",
-     "c": null
+     "beschreibung": "den Quotienten 48 : 36 statt des Rests genommen",
+     "c": "48 // (36)"
     },
     {
      "luecke": 3,

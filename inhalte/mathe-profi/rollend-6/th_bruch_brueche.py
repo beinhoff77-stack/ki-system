@@ -24,7 +24,7 @@ neu(T, "anteil_bestimmen", "lueckenweg", L(
     {0: [(1, None, "nur mit 1 gekürzt: das verändert den Bruch nicht, 1 ist nicht der größte gemeinsame Teiler", False)],
      1: [(12, None, "den Nenner statt des Zählers durch den Teiler geteilt", "36 / {1}")], 2: [(5, None, "den Zähler noch einmal durch den Teiler geteilt", "15 / {1}")]}), regel="rr.kuerzen")
 neu(T, "anteil_bestimmen", "zwei_wege", L(
-    "In einer Klasse sind 28 Kinder, 21 davon kommen mit dem Rad. Weg A: Kürze 21/28 direkt. Weg B: Die 7 Kinder ohne Rad sind ein gekürzter Anteil; ziehe ihn von 1 ab. Beide Wege müssen denselben vollständig gekürzten Anteil ergeben.",
+    "In einer Klasse sind 28 Kinder, 21 davon kommen mit dem Rad. Weg A: Kürze 21/28 direkt. Weg B: Berechne und kürze den Anteil der 7 Kinder ohne Rad und ziehe ihn von 1 ab. Beide Wege müssen denselben vollständig gekürzten Anteil ergeben.",
     "□/□", [3, 4], ["21 / 7", "28 / 7"], ["3", "4"], "Prüfe, ob beide Wege am Ende dasselbe ergeben.",
     "Weg A: 21/28 = 3/4 (durch 7 gekürzt). Weg B: 7/28 = 1/4, dann 1 − 1/4 = 3/4. Beide Wege führen zu 3/4.",
     {0: [(1, None, "nur den Anteil der Kinder ohne Rad gekürzt (7/28 = 1/4) und dessen Zähler angegeben", "7 / 7")]},
@@ -76,7 +76,7 @@ neu(T, "ggt", "lueckenweg", L(
     KOMM(3), [36, 12, 15], ["180 % 48", "48 % {1}", "180 / {2}"], ["180 - 3 * 48", "48 - 36", "gcd(48, 180) * 15 / 12"],
     "Teile mit Rest: Welcher Rest bleibt, wenn du die größere Zahl durch die kleinere teilst?",
     "180 : 48 = 3 Rest 36. 48 : 36 = 1 Rest 12. 36 : 12 geht ohne Rest, also ist der ggT 12. 180 : 12 = 15, der neue Nenner ist 15 (48/180 = 4/15).",
-    {0: [(132, None, "nur einmal abgezogen: 180 − 48", "180 - 48")], 1: [(1, None, "gedacht, 48 und der erste Rest hätten keinen gemeinsamen Teiler", False)],
+    {0: [(132, None, "nur einmal abgezogen: 180 − 48", "180 - 48")], 1: [(1, None, "den Quotienten 48 : 36 statt des Rests genommen", "48 // {1}")],
      2: [(5, None, "mit dem ersten Rest 36 statt mit dem ggT gekürzt", "180 / {1}")]}), regel="id.zahlen.bausteine")
 neu(T, "ggt", "anwenden", Z(
     "Eine Fläche von 24 cm mal 36 cm soll ohne Lücken mit gleich großen Quadraten ausgelegt werden. Die Quadrate sollen so groß wie möglich sein. Wie lang ist die Seite eines Quadrats in Zentimetern?",

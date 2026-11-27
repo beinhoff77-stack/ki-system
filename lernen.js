@@ -6726,48 +6726,82 @@ const lernWwArt = (x) => (!x.fehlerart ? 'nicht erkannt' : x.fehlerart.quelle ==
   : x.fehlerart.text || 'nicht erkannt');
 const lernWwDatum = (x) => { const t = x.tag || String(x.am || '').slice(0, 10); const m = t.match(/^(\d{4})-(\d{2})-(\d{2})/); return m ? `${Number(m[3])}.${Number(m[2])}.` : ''; };
 const lernWwWochentag = (t) => { const d = new Date(t + 'T12:00:00'); return isNaN(d) ? '' : ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'][d.getDay()]; };
-const LERN_WW_HAKEN = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4.5 10.5l3.5 3.5 7.5-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+// Tag eines Zeitpunkts in der Zeitzone des Geräts (Gesprächstermin „besprochen am …“)
+const lernWwTagVon = (iso) => { const d = new Date(iso); return isNaN(d) ? '' : `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+const lernWwAm = (iso) => lernWwDatum({ tag: lernWwTagVon(iso) });
+// Wunsch des Nutzers (Teil 1): „Besprochen“ je Thema. Ein Thema mit dem Kind besprechen → „Besprochen“ → alle offenen Fehler des Themas sind markiert,
+// das Thema verschwindet aus der offenen Liste. Kommen später neue Fehler im Thema, steht dort ruhig „Schon besprochen am … – seitdem N neue Fehler“.
+// Datenquelle für „besprochen am“: schule_wackelt_analyse {tage: 0, erledigt: true} – alle besprochenen Fehler unabhängig vom gewählten Zeitraum
+// (der Server filtert „erledigt“ nach dem Zeitpunkt des Fehlers im Zeitraum; mit tage 0 entfällt das), höchstens die 200 zuletzt besprochenen.
+// „Besprochen“ schreibt nur schule.fehler_erledigt (Server) – keine Wirkung auf Karte, Wiederholungs- oder Mischkarten.
 async function lernWwSeite(kindId, ww, live) {
   const u = await lernCall('schule_uebersicht').catch(() => null); if (!live()) return;
   const name = (u?.lernende || []).find((x) => x.id === kindId)?.name || 'dem Kind';
   $('#title').textContent = 'Was wackelt? · ' + name;
-  const S = { A: ww.art === 'ok' ? ww.r : null, fehler: ww.art === 'fehler' ? ww.fehler : null, laedt: false, aufRow: new Set(), themaAuf: new Map(), erledigtAuf: false, erledigt: null, erledigtFehler: null };
+  const S = { A: ww.art === 'ok' ? ww.r : null, fehler: ww.art === 'fehler' ? ww.fehler : null, laedt: false, aufRow: new Set(), themaAuf: new Map(),
+    B: null, Bfehler: null, Blaedt: false, besprAuf: false };
   const wurzel = el('div', { class: 'ww', 'aria-busy': 'false' });
   const toast = el('div', { class: 'lw-toast ww-toast', role: 'status', hidden: true }); let uhr = null;
-  const meldung = (text, rueck = null) => { clearTimeout(uhr); toast.hidden = false;
-    const rk = rueck ? el('button', { type: 'button', onclick: () => { toast.hidden = true; rueck(); } }, 'Rückgängig') : null;
-    lernErsetze(toast, el('span', {}, text), rk);
-    if (rk && (!document.activeElement || document.activeElement === document.body || !document.activeElement.isConnected)) rk.focus({ preventScroll: true }); // der angetippte Knopf ist mit der Zeile verschwunden
-    uhr = setTimeout(() => { toast.hidden = true; }, rueck ? 5000 : 6000); };
+  // Meldung unten; knoepfe: [[Text, Aktion]] (z. B. Rückgängig)
+  const meldung = (text, knoepfe = []) => { clearTimeout(uhr); toast.hidden = false;
+    const kn = knoepfe.map(([t, f]) => el('button', { type: 'button', onclick: () => { toast.hidden = true; f(); } }, t));
+    lernErsetze(toast, el('span', {}, text), ...kn);
+    if (kn[0] && (!document.activeElement || document.activeElement === document.body || !document.activeElement.isConnected)) kn[0].focus({ preventScroll: true }); // der angetippte Knopf ist mit dem Thema verschwunden
+    uhr = setTimeout(() => { toast.hidden = true; }, kn.length ? 8000 : 6000); };
+  const da = () => document.body.contains(wurzel);
   const laden = async ({ still = false } = {}) => {
     S.laedt = true; wurzel.setAttribute('aria-busy', 'true'); if (!still) zeichne();
     const x = await lernWwHolen(kindId, { tage: lernWwZeit });
-    if (!document.body.contains(wurzel)) return;
+    if (!da()) return;
     S.laedt = false; wurzel.setAttribute('aria-busy', 'false');
     if (x.art === 'alt') { render(); return; } // Server kann es doch nicht (mehr): bisherige Ansicht
     S.A = x.art === 'ok' ? x.r : S.A; S.fehler = x.art === 'fehler' ? x.fehler : null;
-    if (S.erledigtAuf) await erledigtLaden();
     zeichne();
   };
-  const erledigtLaden = async () => { const x = await lernWwHolen(kindId, { tage: lernWwZeit, erledigt: true });
-    S.erledigt = x.art === 'ok' ? x.r.erledigt || [] : null; S.erledigtFehler = x.art === 'fehler' ? x.fehler : null; };
-  // Abhaken: verschwindet sofort, Meldung mit „Rückgängig“; danach die Auswertung vom Server neu
-  const abhaken = async (ids, was, zurueck = false) => {
-    const weg = new Set(ids.map(Number)); const vorher = S.A;
-    if (!zurueck && S.A) { S.A = { ...S.A, offen: (S.A.offen || []).filter((x) => !weg.has(Number(x.versuch_id))), offen_zahl: Math.max(0, Number(S.A.offen_zahl || 0) - weg.size) }; zeichne(); }
+  // Besprochenes (alle Zeiträume, höchstens 200): für „besprochen am …“ und den Abschnitt „Besprochen“. Ein Ladefehler lässt die bisherige Liste stehen.
+  const besprLaden = async () => {
+    S.Blaedt = true; if (da()) zeichne();
+    const x = await lernWwHolen(kindId, { tage: 0, erledigt: true });
+    if (!da()) return;
+    S.Blaedt = false;
+    if (x.art === 'ok' && Array.isArray(x.r.erledigt)) { S.B = { liste: x.r.erledigt, voll: x.r.erledigt.length >= 200 }; S.Bfehler = null; }
+    else S.Bfehler = x.art === 'fehler' ? x.fehler.message : 'Antwort ohne besprochene Fehler';
+    zeichne();
+  };
+  // je Thema: Gesprächstermine (Tag), letzter Zeitpunkt, Zahl der Fehler
+  const besprochenJe = () => { const m = new Map();
+    for (const x of S.B?.liste || []) { const k = String(x.thema_id); const am = Date.parse(x.erledigt?.am); if (isNaN(am)) continue;
+      if (!m.has(k)) m.set(k, { k, name: x.thema || '', termine: new Map(), letzte: 0, n: 0 }); const t = m.get(k);
+      const tg = lernWwTagVon(x.erledigt.am); if (!t.termine.has(tg)) t.termine.set(tg, { tag: tg, am, ids: [] });
+      const tt = t.termine.get(tg); tt.ids.push(Number(x.versuch_id)); tt.am = Math.max(tt.am, am); t.letzte = Math.max(t.letzte, am); t.n++; }
+    return m; };
+  const senden = async (ids, zurueck) => lernCall('schule_fehler_abhaken', { lernender_id: kindId, versuch_ids: ids, ...(zurueck ? { zurueck: true } : {}) });
+  // „Besprochen“ (Thema): alle gezeigten offenen Fehler des Themas; verschwindet sofort, Meldung mit „Rückgängig“
+  const besprechen = async (k, t) => {
+    const ids = t.alle.map((x) => Number(x.versuch_id)); const weg = new Set(ids); const vorher = S.A;
+    S.A = { ...S.A, offen: (S.A.offen || []).filter((x) => !weg.has(Number(x.versuch_id))), offen_zahl: Math.max(0, Number(S.A.offen_zahl || 0) - weg.size) }; zeichne();
     try {
-      const r = await lernCall('schule_fehler_abhaken', { lernender_id: kindId, versuch_ids: [...weg], ...(zurueck ? { zurueck: true } : {}) });
-      const n = Number(r?.geaendert ?? weg.size);
-      if (zurueck) meldung(n === 1 ? 'Wieder offen.' : `${n} wieder offen.`);
-      else meldung(n === 1 ? `Abgehakt: ${was}` : `${n} abgehakt${was ? ': ' + was : ''}`, () => abhaken([...weg], was, true));
-      await laden({ still: true });
+      const r = await senden(ids, false);
+      const n = Number(r?.geaendert ?? ids.length);
+      meldung(`${t.name} als besprochen markiert`, [['Rückgängig', () => zurueckholen(ids, t.name)]]);
+      await Promise.all([laden({ still: true }), besprLaden()]); void n;
     } catch (err) { S.A = vorher; zeichne(); meldung('Nicht gespeichert: ' + (err.message || 'Fehler')); }
   };
+  const zurueckholen = async (ids, was) => {
+    try { const r = await senden(ids, true); const n = Number(r?.geaendert ?? ids.length);
+      meldung(n ? `${was}: wieder offen` : `${was}: nichts geändert`); await Promise.all([laden({ still: true }), besprLaden()]); }
+    catch (err) { meldung('Nicht gespeichert: ' + (err.message || 'Fehler')); }
+  };
   const segment = () => el('div', { class: 'ww-seg', role: 'group', 'aria-label': 'Zeitraum' }, ...LERN_WW_ZEIT.map(([v, t]) => el('button', { type: 'button', 'aria-pressed': String(lernWwZeit === v),
-    onclick: () => { if (lernWwZeit === v) return; lernWwZeit = v; S.erledigt = null; laden(); } }, t)));
+    onclick: () => { if (lernWwZeit === v) return; lernWwZeit = v; laden(); } }, t)));
   const zeitWort = () => (lernWwZeit ? `letzte ${lernWwZeit} Tage` : 'gesamt');
+  // Wiederkehrer: Thema mit offenen Fehlern, das schon besprochen wurde
+  const wiederInfo = (k, offeneDesThemas, BJ) => { const b = BJ.get(k); if (!b) return null;
+    const neu = offeneDesThemas.filter((x) => Date.parse(x.am) > b.letzte).length; const mal = b.termine.size;
+    return { b, neu, mal, text: `Schon besprochen am ${lernWwAm(b.letzte)}` + (neu ? ` – seitdem ${neu} ${neu === 1 ? 'neuer Fehler' : 'neue Fehler'}` : '')
+      + (mal > 1 ? ` · insgesamt ${S.B?.voll ? 'mindestens ' : ''}${mal}-mal besprochen` : '') }; };
   // ---------- Auswertung (vier Kacheln + Fazit) ----------
-  function auswertung(A) {
+  function auswertung(A, wiederDa) {
     const aw = A.auswertung || {}; const themen = (aw.themen || []).slice(0, 6); const tage = (aw.lerntage || []).slice(-7);
     const max = Math.max(1, ...tage.map((t) => Number(t.richtig || 0) + Number(t.falsch || 0)));
     const wieder = (aw.wiederkehrend || []).slice(0, 3); const einmal = aw.einmal || {};
@@ -6789,6 +6823,10 @@ async function lernWwSeite(kindId, ww, live) {
       el('b', {}, w.text || LERN_WW_GRUND[String(w.schluessel || '').replace(/^g:/, '')] || 'Fehlerart'), el('span', { class: 'ww-anz' }, `${w.anzahl}×`),
       el('small', {}, (w.themen || []).map(themaName).filter(Boolean).join(', '))))))
       : el('p', { class: 'muted small' }, 'Kein Fehler kommt wieder.');
+    // Teil 1: Themen, die nach dem Besprechen neue Fehler haben – in derselben Kachel
+    const nachEl = wiederDa.length ? el('div', { class: 'ww-nach' }, el('h4', {}, 'Wieder da nach dem Besprechen'),
+      el('ul', {}, ...wiederDa.map((w) => el('li', {}, el('button', { type: 'button', class: 'ww-link-zeile', onclick: () => zuThema(w.k) },
+        el('b', {}, w.name), el('small', {}, `${w.neu} neu seit ${lernWwAm(w.b.letzte)}`)))))) : null;
     // Fazit (wie im Entwurf): häufigste wiederkehrende Fehlerart, dann das Thema mit den meisten offenen Fehlern, dann Fehler, die danach richtig gelöst wurden
     let fazit;
     if (!Number(A.offen_zahl ?? (A.offen || []).length)) fazit = [`${lernWwZeit ? `In den letzten ${lernWwZeit} Tagen` : 'Bisher'} ${aw.antworten || 0} Aufgaben, davon `, el('b', {}, `${aw.richtig || 0} richtig`), '.'];
@@ -6801,9 +6839,9 @@ async function lernWwSeite(kindId, ww, live) {
         ausr.length ? `; ${ausr.join(' und ')} ${ausr.length === 1 ? 'war ein Ausrutscher' : 'waren Ausrutscher'}.` : '.'].flat(2).filter((x) => x !== null); }
     return el('section', { class: 'ww-teil', 'aria-labelledby': 'ww-h-ausw' }, el('div', { class: 'ww-teil-kopf' }, el('h2', { id: 'ww-h-ausw' }, 'Auswertung'), el('span', {}, zeitWort())),
       el('div', { class: 'ww-kacheln' },
-        kachel('Fehler je Thema', balken, el('div', { class: 'ww-legende' }, el('span', {}, el('i', { class: 'f' }), 'offen falsch'), el('span', {}, el('i', { class: 'r' }), 'richtig oder erledigt'))),
+        kachel('Fehler je Thema', balken, el('div', { class: 'ww-legende' }, el('span', {}, el('i', { class: 'f' }), 'offen falsch'), el('span', {}, el('i', { class: 'r' }), 'richtig oder besprochen'))),
         kachel('Letzte Lerntage', saeulen, el('div', { class: 'ww-legende' }, el('span', {}, el('i', { class: 'r' }), 'richtig'), el('span', {}, el('i', { class: 'f' }), 'falsch'))),
-        kachel('Kommt immer wieder', wiederEl),
+        kachel('Kommt immer wieder', wiederEl, nachEl),
         kachel('Nur einmal passiert', el('p', { class: 'ww-gross' }, String(einmal.lernkarten || 0)),
           el('p', { class: 'muted small' }, Number(einmal.danach_richtig) ? `davon ${einmal.danach_richtig} danach richtig gelöst` : 'Fehler, die nur einmal vorkamen'))),
       el('p', { class: 'ww-fazit' }, ...fazit));
@@ -6811,12 +6849,14 @@ async function lernWwSeite(kindId, ww, live) {
   // ---------- eine Fehler-Zeile (Tabelle) ----------
   const aufgabeVon = (x) => ({ antworttyp: x.aufgabe?.antworttyp, antworten: x.aufgabe?.antworten, loesung: x.aufgabe?.loesung || {}, frage: x.aufgabe?.frage || {} });
   const kurz = (t) => String(t || '').replace(/\s+/g, ' ').trim();
-  function zeile(x, mitOrt) {
+  const zuThemaVon = (x) => { S.themaAuf.set(String(x.thema_id), true); zeichne(); wurzel.querySelector(`[data-ww-thema="${CSS.escape(String(x.thema_id))}"]`)?.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); };
+  function zeile(x, mitOrt, BJ) {
     const a = aufgabeVon(x); const id = String(x.versuch_id); const auf = S.aufRow.has(id);
     const frage = kurz(a.frage.text) || 'Aufgabe'; const ein = lernAntwortText(a, x.antwort) || '–'; const ok = lernLoesungText(a) || '–';
     const art = lernWwArt(x); const danach = !!x.danach_richtig;
     const zusatz = [Number(x.anlauf) === 2 ? '2. Anlauf' : '', x.mit_tipp ? 'mit Tipp' : '', danach ? 'danach richtig gelöst' : ''].filter(Boolean).join(' · ');
     const ort = `${x.thema || ''} › ${x.lernkarte || lernZielName(x.lernziel || '')}`;
+    const b = mitOrt ? BJ.get(String(x.thema_id)) : null;
     const z = el('div', { class: 'ww-z' + (mitOrt ? ' ww-mit-ort' : '') + (auf ? ' ww-auf' : ''), role: 'row', 'data-versuch': id },
       el('span', { class: 'ww-dat', role: 'cell' }, lernWwDatum(x)),
       mitOrt ? el('span', { class: 'ww-ort', role: 'cell', title: ort }, ort) : null,
@@ -6825,7 +6865,7 @@ async function lernWwSeite(kindId, ww, live) {
       el('span', { class: 'ww-ein', role: 'cell', title: 'eingegeben: ' + ein }, lernMathe(ein)),
       el('span', { class: 'ww-ok', role: 'cell', title: 'richtig: ' + ok }, lernMathe(ok)),
       el('span', { class: 'ww-art', role: 'cell', title: (x.fehlerart?.text || art) + (zusatz ? ' · ' + zusatz : '') }, danach ? el('span', { class: 'ww-gut', title: 'danach richtig gelöst' }, '✓ ', el('span', { class: 'lw-vh' }, 'danach richtig gelöst, ')) : null, art),
-      el('span', { class: 'ww-akt', role: 'cell' }, (() => { const b = el('button', { type: 'button', class: 'ww-sym', title: 'Abhaken', 'aria-label': `Abhaken: ${frage}`, onclick: () => abhaken([x.versuch_id], frage) }); b.innerHTML = LERN_WW_HAKEN; return b; })()));
+      el('span', { class: 'ww-akt', role: 'cell' }, b ? el('span', { class: 'ww-schon', title: `Thema schon besprochen am ${lernWwAm(b.letzte)}`, role: 'img', 'aria-label': `Thema schon besprochen am ${lernWwAm(b.letzte)}` }, '↺') : null));
     if (!auf) return [z];
     const auswahl = a.antworttyp === 'auswahl' && (a.antworten || []).length ? el('ol', { class: 'ww-zeilen' }, ...a.antworten.map((t, i) => el('li', { class: (i === Number(x.antwort?.index) ? 'ww-gewaehlt' : '') + (i === Number(a.loesung?.index) ? ' ww-richtig' : '') }, lernMathe(t)))) : null;
     return [z, el('div', { class: 'ww-mehr', role: 'row' }, el('div', { role: 'cell' },
@@ -6833,21 +6873,26 @@ async function lernWwSeite(kindId, ww, live) {
       Number(x.anlauf) === 2 && x.erst_antwort ? el('p', { class: 'muted' }, 'Erster Anlauf: ', lernMathe(lernAntwortText(a, x.erst_antwort) || '–')) : null,
       el('p', { class: 'muted' }, el('b', {}, 'Fehler: '), x.fehlerart?.text || 'nicht erkannt', zusatz ? ' · ' + zusatz : ''),
       x.aufgabe?.loesungsweg ? el('p', {}, el('span', { class: 'muted' }, 'Lösungsweg: '), lernMathe(x.aufgabe.loesungsweg)) : null,
-      mitOrt ? null : el('p', { class: 'muted small' }, ort)))];
+      mitOrt ? el('p', { class: 'muted small ww-mehr-ort' }, el('span', {}, ort), b ? ` · Thema schon besprochen am ${lernWwAm(b.letzte)}` : '', ' ',
+        el('button', { type: 'button', class: 'ww-link', onclick: () => zuThemaVon(x) }, '→ Thema')) : el('p', { class: 'muted small' }, ort)))];
   }
   const tabKopf = (mitOrt) => el('div', { class: 'ww-z ww-kopfz' + (mitOrt ? ' ww-mit-ort' : ''), role: 'row' }, el('span', { role: 'columnheader' }, 'Datum'),
     mitOrt ? el('span', { role: 'columnheader' }, 'Thema › Lernkarte') : null, el('span', { role: 'columnheader' }, 'Aufgabe'), el('span', { role: 'columnheader' }, 'Eingegeben'),
-    el('span', { role: 'columnheader' }, 'Richtig'), el('span', { role: 'columnheader' }, 'Fehlerart'), el('span', { role: 'columnheader', class: 'ww-akt' }, el('span', { class: 'lw-vh' }, 'Abhaken')));
-  // ---------- Erledigtes (aufklappbar, mit „zurückholen“) ----------
-  function erledigtTeil() {
-    const det = el('details', { class: 'ww-erledigt', ...(S.erledigtAuf ? { open: '' } : {}) }, el('summary', {}, 'Erledigtes', S.erledigt ? el('span', { class: 'ww-zaehler' }, String(S.erledigt.length)) : null));
-    det.addEventListener('toggle', async () => { S.erledigtAuf = det.open; if (det.open && !S.erledigt) { await erledigtLaden(); zeichne(); } });
-    if (S.erledigtAuf) lernAnhaengen(det, S.erledigtFehler ? el('p', { class: 'err-text small' }, 'Erledigtes lädt gerade nicht: ' + S.erledigtFehler.message)
-      : !S.erledigt ? el('p', { class: 'muted small', role: 'status' }, 'Lädt …')
-      : S.erledigt.length ? el('ul', {}, ...S.erledigt.map((x) => { const t = kurz(x.aufgabe?.frage?.text) || 'Aufgabe';
-        return el('li', {}, el('span', {}, lernMathe(t), el('span', { class: 'muted' }, ` · ${x.thema || ''} · ${lernWwDatum(x)}`)),
-          el('button', { type: 'button', class: 'ww-link', 'aria-label': `Zurückholen: ${t}`, onclick: () => abhaken([x.versuch_id], t, true) }, 'zurückholen')); }))
-      : el('p', { class: 'muted small' }, 'Noch nichts abgehakt.'));
+    el('span', { role: 'columnheader' }, 'Richtig'), el('span', { role: 'columnheader' }, 'Fehlerart'), el('span', { role: 'columnheader', class: 'ww-akt' }, el('span', { class: 'lw-vh' }, mitOrt ? 'Thema schon besprochen' : '')));
+  // ---------- Besprochen (aufklappbar, je Thema mit Datum, „zurückholen“) ----------
+  function besprochenTeil(BJ) {
+    const themen = [...BJ.values()].sort((a, b) => b.letzte - a.letzte);
+    const det = el('details', { class: 'ww-erledigt', ...(S.besprAuf ? { open: '' } : {}) }, el('summary', {}, 'Besprochen', S.B ? el('span', { class: 'ww-zaehler', 'aria-label': `${themen.length} Themen` }, String(themen.length)) : null));
+    det.addEventListener('toggle', () => { S.besprAuf = det.open; }); // merkt nur den Zustand – kein Laden, kein Neuzeichnen (Inhalt steht schon im Abschnitt)
+    const termin = (t, tt, mitName) => el('li', { class: 'ww-bs' + (mitName ? '' : ' ww-bs-termin') }, el('span', {}, mitName ? el('b', {}, t.name) : null, el('span', { class: 'muted' }, `${mitName ? ' · ' : ''}besprochen am ${lernWwAm(tt.am)} · ${tt.ids.length} ${tt.ids.length === 1 ? 'Fehler' : 'Fehler'}`)),
+      el('button', { type: 'button', class: 'ww-link', 'aria-label': `Zurückholen: ${t.name}, besprochen am ${lernWwAm(tt.am)}`, onclick: () => zurueckholen(tt.ids, t.name) }, 'zurückholen'));
+    const zeilen = themen.flatMap((t) => { const ts = [...t.termine.values()].sort((a, b) => b.am - a.am);
+      return ts.length === 1 ? [termin(t, ts[0], true)] : [el('li', { class: 'ww-bs ww-bs-kopf' }, el('span', {}, el('b', {}, t.name), el('span', { class: 'muted' }, ` · ${ts.length}-mal besprochen · ${t.n} Fehler`))), ...ts.map((tt) => termin(t, tt, false))]; });
+    lernAnhaengen(det,
+      S.Bfehler ? el('p', { class: 'err-text small', role: 'alert' }, 'Besprochenes lädt gerade nicht: ' + S.Bfehler + ' ', el('button', { type: 'button', class: 'ww-link', onclick: () => besprLaden() }, 'Noch einmal versuchen')) : null,
+      !S.B ? el('p', { class: 'muted small', role: 'status' }, S.Blaedt ? 'Lädt …' : '–')
+        : zeilen.length ? el('ul', {}, ...zeilen) : el('p', { class: 'muted small' }, 'Noch nichts besprochen.'),
+      S.B?.voll ? el('p', { class: 'muted small ww-grenze' }, 'Gezeigt: die 200 zuletzt besprochenen Fehler – ältere Gespräche nicht geladen.') : null);
     return det;
   }
   function zeichne() {
@@ -6856,34 +6901,40 @@ async function lernWwSeite(kindId, ww, live) {
       lernErsetze(wurzel, kopf, S.laedt ? el('p', { class: 'muted', role: 'status' }, 'Lädt …') : el('section', { class: 'card ww-fehler', role: 'alert' }, el('h3', {}, '„Was wackelt“ lädt gerade nicht.'),
         el('p', { class: 'muted small' }, String(S.fehler?.message || 'Unbekannter Fehler')), el('button', { type: 'button', class: 'secondary', onclick: () => laden() }, 'Noch einmal versuchen')), toast);
       return; }
-    const A = S.A; const offen = A.offen || []; const n = Number(A.offen_zahl ?? offen.length);
+    const A = S.A; const offen = A.offen || []; const n = Number(A.offen_zahl ?? offen.length); const BJ = besprochenJe();
     const letzte = offen.slice(0, 5);
     // Nach Themen: Thema → Lernkarte → Aufgaben (neueste zuerst); Themen nach Zahl offener Fehler; offen nur das größte (oder angetippte)
     const th = new Map(); for (const x of offen) { const k = String(x.thema_id); if (!th.has(k)) th.set(k, { name: x.thema, lk: new Map(), alle: [] }); const t = th.get(k);
       const lk = `${x.einheit_id}:${x.lernziel}`; if (!t.lk.has(lk)) t.lk.set(lk, { name: x.lernkarte || lernZielName(x.lernziel || ''), l: [] }); t.lk.get(lk).l.push(x); t.alle.push(x); }
     const thSort = [...th.entries()].sort((a, b) => b[1].alle.length - a[1].alle.length);
     const themaOffen = (k, i) => (S.themaAuf.has(k) ? S.themaAuf.get(k) : i === 0);
+    const wi = new Map(thSort.map(([k, t]) => [k, wiederInfo(k, t.alle, BJ)]));
+    const wiederDa = thSort.filter(([k]) => wi.get(k)?.neu).map(([k, t]) => ({ k, name: t.name, ...wi.get(k) }));
     lernErsetze(wurzel, kopf,
       S.fehler ? el('p', { class: 'err-text small', role: 'alert' }, 'Neu laden ging nicht: ' + S.fehler.message) : null,
       n ? null : el('section', { class: 'ww-teil' }, el('p', { class: 'ww-karte ww-leer' }, el('b', {}, '✓ Nichts offen'), ` – ${name} hat ${lernWwZeit ? `in den letzten ${lernWwZeit} Tagen` : ''} keine offenen Fehler.`.replace('  ', ' '))),
-      auswertung(A),
+      auswertung(A, wiederDa),
       letzte.length ? el('section', { class: 'ww-teil', 'aria-labelledby': 'ww-h-letzte' }, el('div', { class: 'ww-teil-kopf' }, el('h2', { id: 'ww-h-letzte' }, 'Letzte Fehler'), el('span', {}, `die ${letzte.length} neuesten von ${n} offenen`)),
-        el('div', { class: 'ww-karte ww-tabelle', role: 'table', 'aria-label': 'Letzte Fehler' }, tabKopf(true), ...letzte.flatMap((x) => zeile(x, true)))) : null,
+        el('div', { class: 'ww-karte ww-tabelle', role: 'table', 'aria-label': 'Letzte Fehler' }, tabKopf(true), ...letzte.flatMap((x) => zeile(x, true, BJ)))) : null,
       thSort.length ? el('section', { class: 'ww-teil', 'aria-labelledby': 'ww-h-themen' }, el('div', { class: 'ww-teil-kopf' }, el('h2', { id: 'ww-h-themen' }, 'Nach Themen'), el('span', {}, `${n} offene Fehler in ${thSort.length} ${thSort.length === 1 ? 'Thema' : 'Themen'}`)),
-        el('div', { class: 'ww-karte ww-tabelle ww-themen' }, ...thSort.map(([k, t], i) => { const auf = themaOffen(k, i); const arten = [...new Set(t.alle.map(lernWwArt))].filter((a) => a !== 'nicht erkannt');
-          return el('section', { class: 'ww-thema' + (auf ? ' ww-auf' : ''), 'data-ww-thema': k, 'aria-label': t.name },
+        el('div', { class: 'ww-karte ww-tabelle ww-themen' }, ...thSort.map(([k, t], i) => { const auf = themaOffen(k, i); const arten = [...new Set(t.alle.map(lernWwArt))].filter((a) => a !== 'nicht erkannt'); const w = wi.get(k);
+          return el('section', { class: 'ww-thema' + (auf ? ' ww-auf' : '') + (w ? ' ww-wiederda' : ''), 'data-ww-thema': k, 'aria-label': t.name },
             el('div', { class: 'ww-th-kopf' },
               el('button', { type: 'button', class: 'ww-th-titel', 'aria-expanded': String(auf), onclick: () => { S.themaAuf.set(k, !auf); zeichne(); } },
                 el('span', { class: 'ww-pf', 'aria-hidden': 'true' }, auf ? '▾' : '▸'), el('b', {}, t.name), el('span', { class: 'ww-zaehler', 'aria-label': `${t.alle.length} offen` }, String(t.alle.length)),
                 auf ? null : el('span', { class: 'ww-th-arten' }, arten.join(' · '))),
-              el('button', { type: 'button', class: 'ww-knopf-klein', 'aria-label': `Alle abhaken: ${t.name} (${t.alle.length})`, onclick: () => abhaken(t.alle.map((x) => x.versuch_id), t.name) }, 'alle abhaken')),
-            auf ? el('div', { role: 'table', 'aria-label': t.name }, tabKopf(false), ...[...t.lk.values()].flatMap((lk) => [el('div', { class: 'ww-lk', role: 'row' }, el('span', { role: 'cell' }, lk.name, ' ', el('span', { class: 'ww-zaehler' }, String(lk.l.length)))), ...lk.l.flatMap((x) => zeile(x, false))])) : null); }))) : null,
-      el('section', { class: 'ww-teil ww-teil-erl' }, erledigtTeil()),
+              el('button', { type: 'button', class: 'ww-knopf-klein ww-bespr', title: 'Mit dem Kind besprochen: alle offenen Fehler des Themas als besprochen markieren', 'aria-label': `Besprochen: ${t.name} (${t.alle.length} ${t.alle.length === 1 ? 'Fehler' : 'Fehler'})`, onclick: () => besprechen(k, t) },
+                el('span', { class: 'ww-bespr-h', 'aria-hidden': 'true' }, '✓'), 'Besprochen')),
+            w ? el('p', { class: 'ww-th-wieder' }, el('span', { 'aria-hidden': 'true' }, '↺ '), w.text) : null,
+            auf ? el('div', { role: 'table', 'aria-label': t.name }, tabKopf(false), ...[...t.lk.values()].flatMap((lk) => [el('div', { class: 'ww-lk', role: 'row' }, el('span', { role: 'cell' }, lk.name, ' ', el('span', { class: 'ww-zaehler' }, String(lk.l.length)))), ...lk.l.flatMap((x) => zeile(x, false, BJ))])) : null); }))) : null,
+      el('section', { class: 'ww-teil ww-teil-erl' }, besprochenTeil(BJ),
+        el('p', { class: 'muted small ww-fuss' }, '„Besprochen“ nimmt die Fehler nur von dieser Seite. Wiederholungs- und Mischkarten des Kindes bleiben, wie sie sind.')),
       toast);
     wurzel.classList.toggle('ww-laedt', S.laedt);
   }
   zeichne();
   lernErsetze(main, wurzel);
+  besprLaden();
 }
 
 // ---------- LM-6 (0.86.0): Kinderseite „Meine Route 5–10“ – die Lehrplan-Matrix für das eigene Kind, in Reisewörtern ----------

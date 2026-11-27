@@ -1,0 +1,849 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-7",
+ "kuerzel": "K8",
+ "flug": "k8-terme.quadratische_extreme",
+ "titel": "terme.quadratische_extreme",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen": [
+  "terme.quadratische_extreme"
+ ],
+ "themen_datei_im_bestand": "terme.quadratische_extreme",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K8-V088",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "ergaenzen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Minus der Hälfte vergessen"
+    },
+    {
+     "luecke": 1,
+     "antwort": -10,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "nicht halbiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": -25,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "(−5)² als −25 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 10 selbst statt der Ergänzung genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "ergaenzen",
+    "t": "ergaenzen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ergänze x² − 10x zu einem vollständigen Quadrat der Form (x + ①)². Dafür musst du zuerst ② addieren. Es gilt dann x² − 10x + ② = (x + ①)².",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -5,
+      25
+     ]
+    },
+    "c": [
+     "-10 // 2",
+     "(-10 // 2) ** 2"
+    ],
+    "h": "Nimm die Hälfte der Zahl vor x. Die Ergänzung ist deren Quadrat.",
+    "w": "Die Hälfte von −10 ist −5. (−5)² = 25. Also x² − 10x + 25 = (x − 5)²."
+   }
+  },
+  {
+   "kennung": "K8-V089",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "ergaenzen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
+     "regel_des_fehlbilds": "rr.ausmultiplizieren",
+     "beschreibung": "die 2 im doppelten Produkt vergessen"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "36 : 2 gerechnet"
+    },
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 · 36 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "ergaenzen",
+    "t": "ergaenzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche positive Zahl b ist x² + bx + 36 ein vollständiges Quadrat (x + c)² mit positivem c?"
+    },
+    "o": {
+     "wert": 12
+    },
+    "c": "2 * 6",
+    "h": "Zerlege 36 als Quadrat: c · c = 36. Das mittlere Glied ist das doppelte Produkt.",
+    "w": "c² = 36, also c = 6. Dann ist b = 2 · 6 = 12. Probe: (x + 6)² = x² + 12x + 36."
+   }
+  },
+  {
+   "kennung": "K8-V090",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "ergaenzen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "ergaenzen",
+    "t": "ergaenzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim bringt T(x) = x² + 8x + 3 in die Scheitelform. Zeile 1: Die Hälfte von 8 ist 4, und 4² = 16. Zeile 2: x² + 8x + 16 = (x + 4)² Zeile 3: Also ist T(x) = (x + 4)² + 3. Zeile 4: Der Scheitel ist S(−4 | 3). In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Du hast 16 addiert. Was musst du dann tun, damit der Term derselbe bleibt? Prüfe mit x = 0.",
+    "w": "Die addierte 16 muss wieder abgezogen werden: T(x) = (x + 4)² + 3 − 16 = (x + 4)² − 13. Probe mit x = 0: 16 − 13 = 3."
+   }
+  },
+  {
+   "kennung": "K8-V091",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "scheitelform",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht halbiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 13,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "9 + 4 gerechnet statt 9 − 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheitelform",
+    "t": "scheitelform",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Bringe x² + 6x + 4 mit quadratischer Ergänzung in die Form (x + ①)² − ②. Du addierst eine Zahl und ziehst sie wieder ab.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      5
+     ]
+    },
+    "c": [
+     "6 // 2",
+     "(6 // 2) ** 2 - 4"
+    ],
+    "h": "Die Zahl in der Klammer ist die Hälfte der Zahl vor x. Das Quadrat davon wird addiert und abgezogen.",
+    "w": "x² + 6x + 9 − 9 + 4 = (x + 3)² − 5. Probe mit x = 0: 9 − 5 = 4."
+   }
+  },
+  {
+   "kennung": "K8-V092",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "scheitelform",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "(x − 3)² + 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen der Zahl hinter der Klammer vertauscht"
+    },
+    {
+     "index": 1,
+     "antwort": "(x + 3)² − 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen in der Klammer vertauscht"
+    },
+    {
+     "index": 2,
+     "antwort": "(x − 5)² − 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 5 aus dem Term als Scheitelstelle genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheitelform",
+    "t": "scheitelform",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt einige Werte von T(x) = x² − 6x + 5. Welche Scheitelform gehört zu diesem Term?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "x",
+       "1",
+       "2",
+       "3",
+       "4",
+       "5"
+      ],
+      "zeilen": [
+       [
+        "T(x)",
+        "0",
+        "−3",
+        "−4",
+        "−3",
+        "0"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "(x − 3)² + 4",
+     "(x + 3)² − 4",
+     "(x − 5)² − 4",
+     "(x − 3)² − 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Der tiefste Wert der Tabelle liegt in der Mitte. Seine x-Stelle steht in der Klammer, sein Wert dahinter.",
+    "w": "Der kleinste Wert −4 steht bei x = 3. Die Scheitelform ist (x − 3)² − 4. Probe: (x − 3)² − 4 = x² − 6x + 9 − 4 = x² − 6x + 5."
+   }
+  },
+  {
+   "kennung": "K8-V093",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "scheitelform",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei Weg B das − 4 vergessen"
+    },
+    {
+     "antwort": 96,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "(7 + 3)² − 4 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "scheitelform",
+    "t": "scheitelform",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne T(7) für T(x) = x² − 6x + 5 auf zwei Wegen. Weg A: x = 7 direkt einsetzen. Weg B: zuerst in die Scheitelform (x − 3)² − 4 umformen, dann x = 7 einsetzen. Welchen Wert erhältst du?"
+    },
+    "o": {
+     "wert": 12
+    },
+    "c": "7 ** 2 - 6 * 7 + 5",
+    "h": "Beide Wege müssen denselben Wert ergeben.",
+    "w": "Weg A: 49 − 42 + 5 = 12. Weg B: (7 − 3)² − 4 = 16 − 4 = 12."
+   }
+  },
+  {
+   "kennung": "K8-V094",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "extremwert",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht halbiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 35,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "16 + 19 gerechnet statt 19 − 16"
+    }
+   ],
+   "aufgabe": {
+    "l": "extremwert",
+    "t": "extremwert",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Bestimme das Minimum von T(x) = x² − 8x + 19. Die Scheitelform lautet (x − ①)² + ②. Setzt du x = 6 in diese Form ein, erhältst du den Wert ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      3,
+      7
+     ]
+    },
+    "c": [
+     "8 // 2",
+     "19 - (8 // 2) ** 2",
+     "(6 - 4) ** 2 + 3"
+    ],
+    "h": "Halbiere die Zahl vor x. Das Quadrat davon ziehst du von 19 ab.",
+    "w": "x² − 8x + 16 − 16 + 19 = (x − 4)² + 3. Das Minimum 3 liegt bei x = 4. Für x = 6: 4 + 3 = 7."
+   }
+  },
+  {
+   "kennung": "K8-V095",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "extremwert",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe zu Beginn genommen"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "die Zeit des Maximums statt der Höhe angegeben"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl vor t genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "extremwert",
+    "t": "extremwert",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Ball wird geworfen. Seine Höhe in Metern nach t Sekunden ist h(t) = −t² + 6t + 1 (für t von 0 bis 6). Wie hoch kommt der Ball höchstens?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "m"
+    },
+    "c": "-(3) ** 2 + 6 * 3 + 1",
+    "h": "Bringe h(t) in die Scheitelform. Wegen des Minuszeichens vor t² ist der Scheitel ein Maximum.",
+    "w": "−t² + 6t + 1 = −(t − 3)² + 10. Das Maximum 10 liegt bei t = 3. Der Ball kommt höchstens 10 m hoch."
+   }
+  },
+  {
+   "kennung": "K8-V096",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "extremwert",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minimum statt T(5) genommen"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "(5 − 3) nicht quadriert: 2 + 7"
+    },
+    {
+     "antwort": -3,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "4 − 7 statt 4 + 7 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "extremwert",
+    "t": "extremwert",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Die Funktion T(x) = (x − 3)² + c hat das Minimum 7. Welchen Wert hat T(5)?"
+    },
+    "o": {
+     "wert": 11
+    },
+    "c": "(5 - 3) ** 2 + 7",
+    "h": "Das Minimum von (x − 3)² + c ist c. Wo liegt das Minimum?",
+    "w": "Das Minimum ist c = 7. Dann ist T(5) = (5 − 3)² + 7 = 4 + 7 = 11."
+   }
+  },
+  {
+   "kennung": "K8-V097",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "mit_faktor",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch den Faktor geteilt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor vor der Klammer vergessen"
+    },
+    {
+     "luecke": 4,
+     "antwort": 13,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "22 − 9 gerechnet, den Faktor 2 vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "mit_faktor",
+    "t": "mit_faktor",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Bestimme das Minimum von T(x) = 2x² − 12x + 22. Klammere 2 bei den ersten beiden Gliedern aus: 2(x² − ①x) + 22. Ergänze in der Klammer: 2(x − ②)² − ③ + 22. Das Minimum ist ④.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      3,
+      18,
+      4
+     ]
+    },
+    "c": [
+     "12 // 2",
+     "6 // 2",
+     "2 * (6 // 2) ** 2",
+     "22 - 2 * (6 // 2) ** 2"
+    ],
+    "h": "Die ergänzte Zahl steht in der Klammer und wird mit dem Faktor vor der Klammer malgenommen.",
+    "w": "2x² − 12x = 2(x² − 6x) = 2((x − 3)² − 9) = 2(x − 3)² − 18. Dazu 22: 2(x − 3)² + 4. Das Minimum ist 4 bei x = 3."
+   }
+  },
+  {
+   "kennung": "K8-V098",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "mit_faktor",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Randwert T(2) als Minimum genommen"
+    },
+    {
+     "antwort": 22,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Wert bei x = 0 genommen"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "die Stelle des Minimums statt seines Werts genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "mit_faktor",
+    "t": "mit_faktor",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Bestimme das Minimum von T(x) = 2x² − 12x + 22 auf zwei Wegen. Weg A: Faktor ausklammern und quadratisch ergänzen. Weg B: T(2), T(3) und T(4) ausrechnen und vergleichen (die Parabel ist symmetrisch). Wie groß ist das Minimum?"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "22 - 2 * 3 ** 2",
+    "h": "Beide Wege müssen dasselbe Minimum ergeben.",
+    "w": "Weg A: 2(x − 3)² + 4, Minimum 4. Weg B: T(2) = 6, T(3) = 4, T(4) = 6. Der kleinste Wert ist 4."
+   }
+  },
+  {
+   "kennung": "K8-V099",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "mit_faktor",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "mit_faktor",
+    "t": "mit_faktor",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim bestimmt das Minimum von T(x) = 3x² + 12x + 5. Zeile 1: 3x² + 12x + 5 = 3(x² + 4x) + 5 Zeile 2: Die Hälfte von 4 ist 2: 3((x + 2)² − 4) + 5 Zeile 3: Klammer auflösen: 3(x + 2)² − 12 + 5 = 3(x + 2)² − 7 Zeile 4: Das Minimum ist −7 bei x = 2. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Die Klammer heißt (x + 2)². Bei welchem x ist sie 0?",
+    "w": "Aus (x + 2)² = 0 folgt x = −2. Das Minimum −7 liegt bei x = −2. Probe: T(−2) = 12 − 24 + 5 = −7."
+   }
+  },
+  {
+   "kennung": "K8-V100",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "optimierung",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang statt des halben Umfangs genommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 · 10 gerechnet statt 5 · 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "optimierung",
+    "t": "optimierung",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Rechteck hat den Umfang 20 m. Eine Seite ist x lang. Die andere Seite ist ① − x. Die Fläche A(x) = x · (① − x) ist am größten bei x = ②. Dann ist die Fläche ③ m².",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      10,
+      5,
+      25
+     ]
+    },
+    "c": [
+     "20 // 2",
+     "(20 // 2) // 2",
+     "((20 // 2) // 2) * ((20 // 2) - (20 // 2) // 2)"
+    ],
+    "h": "Die beiden Seiten zusammen sind der halbe Umfang. Die Fläche ist am größten, wenn beide Seiten gleich lang sind.",
+    "w": "Halber Umfang 10. Andere Seite 10 − x. A(x) = −x² + 10x = −(x − 5)² + 25. Maximum bei x = 5, Fläche 25 m²."
+   }
+  },
+  {
+   "kennung": "K8-V101",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "optimierung",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "x(24 − x)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Seite x vom Zaun abgezogen"
+    },
+    {
+     "index": 2,
+     "antwort": "x(24 − 4x)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "vier Seiten x abgezogen, als gäbe es keine Wand"
+    },
+    {
+     "index": 3,
+     "antwort": "2x + (24 − 2x)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Seiten addiert statt Länge mal Breite"
+    }
+   ],
+   "aufgabe": {
+    "l": "optimierung",
+    "t": "optimierung",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Bauer hat 24 m Zaun. Er umzäunt ein Rechteck an einer Hauswand, sodass nur drei Seiten Zaun brauchen. Die beiden Seiten senkrecht zur Wand sind je x lang. Welcher Term gibt die Fläche des Rechtecks an?"
+    },
+    "a": [
+     "x(24 − x)",
+     "x(24 − 2x)",
+     "x(24 − 4x)",
+     "2x + (24 − 2x)"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Die Seite parallel zur Wand ist der Rest des Zauns nach Abzug der beiden Seiten x.",
+    "w": "Die Seite an der Wand ist 24 − 2x lang. Fläche: A = x · (24 − 2x) = −2x² + 24x."
+   }
+  },
+  {
+   "kennung": "K8-V102",
+   "thema": "terme.quadratische_extreme",
+   "lernkarte": "optimierung",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den größten möglichen Preis genommen"
+    },
+    {
+     "antwort": 160,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die größten Einnahmen statt des Preises angegeben"
+    },
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "80 : 2 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "optimierung",
+    "t": "optimierung",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Schülerfirma verkauft Kerzen. Bei dem Preis von p Euro je Kerze werden 80 − 10p Kerzen in der Woche verkauft (p liegt zwischen 0 und 8). Die Wocheneinnahmen sind p · (80 − 10p). Bei welchem Preis in Euro sind die Einnahmen am größten?"
+    },
+    "o": {
+     "wert": 4,
+     "einheit": "€"
+    },
+    "c": "80 / (2 * 10)",
+    "h": "Multipliziere aus: −10p² + 80p. Klammere −10 aus und ergänze quadratisch.",
+    "w": "p(80 − 10p) = −10p² + 80p = −10(p − 4)² + 160. Das Maximum liegt bei p = 4. Dann sind die Einnahmen 160 €."
+   }
+  }
+ ]
+}

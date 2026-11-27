@@ -14,7 +14,7 @@ Es wird nachgerechnet, nicht abgeschrieben:
   - Klassen-Nachtrag (nur dort ergänzt, wo die Tafel keine Klasse hat; frühestes Vorkommen im Bestand) und die Berichtigung zu V1,
   - die Parallelogramm-Benennung in den Tafeln (g = Grundseite, a und b = Seiten),
   - die Kurzformen-Tabelle gegen die Liste SONST im Bau.
-Am Ende laufen acht Negativprüfungen: Dieselbe Prüfung wird auf absichtlich verdorbene Kopien der Daten angewendet und muss jeweils anschlagen.
+Am Ende laufen die Negativprüfungen: Dieselbe Prüfung wird auf absichtlich verdorbene Kopien der Daten angewendet und muss jeweils anschlagen.
 
 Aufruf:  python3 -I inhalte/mathe-profi/regeln-uebersicht/nachtrag/pruefen.py
 Endet mit „OK“, sonst mit Fehlerliste und Exit-Code 1."""
@@ -207,6 +207,17 @@ def kong_pruefen(e, ort, fehler):
                 wink.append((m['scheitel'], m['von'], m['nach'], w))
             else: fehler.append('%s: Markierung mit unbekanntem Typ %r' % (ort, m.get('typ')))
         except (KeyError, AttributeError): fehler.append('%s: Markierung falsch aufgebaut: %r' % (ort, m))
+    for s in seiten:
+        if not s[2] > 0: fehler.append('%s: Seitenlänge nicht positiv: %s' % (ort, s))
+    for w in wink:
+        if not 0 < w[3] < 180: fehler.append('%s: Innenwinkel nicht zwischen 0° und 180°: %s' % (ort, w))
+    erg = e['beispiel']['ergebnis']
+    if e['kennung'] == 'nt-10':
+        m = re.search(r'a ≈ ([\d,]+) cm \(gemessen\)', erg)
+        if not m or abs(zahl(m.group(1)) - dist(pt['B'], pt['C'])) > 0.05: fehler.append('%s: gemessene Länge im Ergebnis passt nicht zur Skizze (BC = %.3f cm)' % (ort, dist(pt['B'], pt['C'])))
+    if e['kennung'] == 'nt-12':
+        m = re.search(r'α ≈ ([\d,]+)° \(gemessen\)', erg)
+        if not m or abs(zahl(m.group(1)) - winkel(pt['C'], pt['A'], pt['B'])) > 0.5: fehler.append('%s: gemessener Winkel im Ergebnis passt nicht zur Skizze (α = %.2f°)' % (ort, winkel(pt['C'], pt['A'], pt['B'])))
     k = e['kennung']
     if k == 'nt-09':
         if len(seiten) != 3 or wink: fehler.append('%s: SSS braucht drei Seiten und keinen Winkel' % ort)
@@ -268,6 +279,10 @@ def pruefe_nachtrag(daten, fehler):
         if len(sw) < 4 or not all(isinstance(s, str) and s.strip() for s in sw) or len(set(sw)) != len(sw): fehler.append('%s: stichwoerter fehlen, sind leer oder doppelt' % o)
         proben(e['pruefung'], o + '/pruefung', fehler, 2)
         proben(e['fehler'].get('pruefung'), o + '/fehler/pruefung', fehler, 1)
+        for i, z in enumerate(e.get('fehler_zusatz', [])):
+            if not (z.get('falsch') and z.get('richtig')): fehler.append('%s: fehler_zusatz[%d] ohne falsch oder richtig' % (o, i))
+            proben(z.get('pruefung'), '%s/fehler_zusatz[%d]/pruefung' % (o, i), fehler, 1)
+            for fld in ('falsch', 'richtig'): kette_pruefen(z.get(fld, ''), '%s/fehler_zusatz[%d]/%s' % (o, i, fld), fehler)
         # Texte
         for pf, t in blaetter(e, o, skip=('kennung', 'pruefung', 'stichwoerter', 'skizze', 'wort', 'lernziel', 'thema')):
             schreibweise(pf, t, fehler)
@@ -303,6 +318,46 @@ def pruefe_nachtrag(daten, fehler):
     soll = {'Dreisatz': 2, 'Strahlensatz': 2, 'Geschwindigkeit': 1, 'Dichte': 1, 'Pyramide': 1, 'Kreisring': 1, 'Kongruenzsatz': 4}
     for w, n in soll.items():
         if sum(1 for e in es if w in e.get('titel', '')) != n: fehler.append('nachtrag: %s sollte %d-mal vorkommen' % (w, n))
+
+def pruefe_auflagen(daten, kn, fehler):
+    """Auflagen aus Werkstatt 1155/1156: Wortlaut und Voraussetzungen in den Einträgen."""
+    E = {e['kennung']: e for e in daten['eintraege']}
+    if any('nt-%02d' % n not in E for n in range(1, 13)): fehler.append('auflagen: nt-01 bis nt-12 nicht vollständig'); return
+    def hat(k, feld, *teile):
+        try: txt = json.dumps(E[k][feld], ensure_ascii=False)
+        except KeyError: fehler.append('auflagen/%s: Eintrag oder Feld %s fehlt' % (k, feld)); return
+        for tl in teile:
+            if tl not in txt: fehler.append('auflagen/%s/%s: „%s“ fehlt' % (k, feld, tl))
+    hat('nt-01', 'bedingung', 'Der Wert pro Einheit bleibt gleich', 'positiv')
+    hat('nt-01', 'ab_klasse_hinweis', 'App-Thema', 'Klasse 6', 'erste Lehrplan-Zuordnung', 'Klasse 5')
+    hat('nt-02', 'bedingung', 'Produkt Menge · Wert bleibt gleich', 'positiv')
+    hat('nt-02', 'schritte', 'Produkt aus Menge und Wert gleich bleibt', 'genügt nicht')
+    if re.search(r'(?i)wenn die Menge größer wird, wird dann der Wert kleiner', json.dumps(E['nt-02']['schritte'], ensure_ascii=False)): fehler.append('auflagen/nt-02: gegenläufig als Erkennungsregel ist falsch')
+    hat('nt-02', 'fehler_zusatz', '10 €', '9 €', '8 €', 'Produkt ist nicht gleich')
+    for k in ('nt-03', 'nt-04'): hat(k, 'bedingung', 'verschieden', 'parallele', 'nicht durch S')
+    hat('nt-05', 'bedingung', 't > 0', 'v > 0')
+    hat('nt-06', 'groessen', 'Masse pro Volumen', 'Masse von 1 cm³ in Gramm', 'Masse von 1 m³ in Kilogramm')
+    hat('nt-06', 'bedingung', 'mittlere Dichte', 'V > 0', 'ρ > 0')
+    hat('nt-08', 'bedingung', 'Der Umfang des Kreisrings ist die Summe seines äußeren und inneren Randes: u = 2 · π · (R + r)', 'R > r > 0')
+    if 'keinen einzelnen Umfang' in json.dumps(E['nt-08'], ensure_ascii=False) or 'kein einzelner Umfang' in json.dumps(E['nt-08'], ensure_ascii=False): fehler.append('auflagen/nt-08: Satz „kein einzelner Umfang“ muss weg')
+    hat('nt-08', 'beispiel', 'R = 5 cm', 'r = 2 cm', 'u = 10π cm + 4π cm = 14π cm ≈ 43,98 cm')
+    for k in ('nt-09', 'nt-10', 'nt-11', 'nt-12'): hat(k, 'bedingung', 'positiv', 'zwischen 0° und 180°')
+    marke = 'spätere rechnerische Kontrolle (ab Klasse 10)'
+    trig = re.compile(r'(?i)\b(?:sin|cos|tan|asin|arcsin)\b|kosinussatz|sinussatz|umkehrfunktion')
+    for k in ('nt-10', 'nt-12'):
+        e = E.get(k)
+        if not e: continue
+        for pf, txt in (('aufgabe', e['beispiel']['aufgabe']), ('ergebnis', e['beispiel']['ergebnis']), ('schritte', ' '.join(e['schritte'])), ('fehler/falsch', e['fehler']['falsch']), ('fehler/richtig', e['fehler']['richtig']), ('so_liegt_es', e.get('so_liegt_es', '')), ('bedingung', e['bedingung'])):
+            if trig.search(txt): fehler.append('auflagen/%s/%s: Trigonometrie darf in Klasse 7 nicht vorausgesetzt werden' % (k, pf))
+        r = e['beispiel']['rechnung']; i = r.lower().find(marke.lower())
+        if i < 0: fehler.append('auflagen/%s: „%s“ fehlt in der Rechnung' % (k, marke))
+        elif trig.search(r[:i]): fehler.append('auflagen/%s: Trigonometrie vor der Kennzeichnung „%s“' % (k, marke))
+        if 'gemessen' not in e['beispiel']['ergebnis'] or 'miss' not in e['beispiel']['aufgabe']: fehler.append('auflagen/%s: gesuchte Größe muss nach der Konstruktion gemessen werden' % k)
+    for x in kn['eintraege']:
+        if x.get('status') == 'offen':
+            v = x.get('vermerk_vorkommen', '')
+            if 'Vorkommen' not in v or 'ausdrückliche Behandlung' not in v: fehler.append('klassen/%s: Vermerk „Vorkommen“ und „erste ausdrückliche Behandlung“ fehlt' % x.get('kennung'))
+    zaehle('auflagen', 1)
 
 def pruefe_klassen(kn, fehler):
     soll = {'fg-08', 'fg-11', 'zz-09', 'zz-11', 'zz-12', 'zz-15', 'sw-08', 'sw-09', 'sw-10', 'sw-11', 'ff-13', 'ff-14', 'ff-15', 'ff-16', 'ff-17', 'zw-w01'}
@@ -408,6 +463,7 @@ def pruefe_alles(daten, klassen, mit_extern=True):
     fehler = []
     pruefe_nachtrag(daten, fehler)
     pruefe_klassen(klassen, fehler)
+    pruefe_auflagen(daten, klassen, fehler)
     if mit_extern:
         pruefe_tafeln_parallelogramm(fehler)
         pruefe_kurzformen(daten, fehler)
@@ -457,6 +513,30 @@ def negativ():
     versuch('8 falsche Klasse im Klassen-Nachtrag (Summand Gymnasium 6)', 'klassen/zw-w01', hh)
     def ii(d, k): E(d, 'nt-04')['skizze']['punkte']["B'"] = [11, 7.5]
     versuch('9 Strahlensatz-Skizze nicht parallel', 'nicht parallel', ii)
+    def n10(d, k): E(d, 'nt-02')['schritte'][1] = 'Frage dich: Wenn die Menge größer wird, wird dann der Wert kleiner? Wenn ja, rechnest du antiproportional.'
+    versuch('10 Erkennungsregel „gegenläufig“ im antiproportionalen Dreisatz', 'gegenläufig als Erkennungsregel', n10)
+    def n11(d, k): E(d, 'nt-02')['fehler_zusatz'][0]['pruefung'][1]['r'] = '15'
+    versuch('11 falsche Probe im Gegenbeispiel (2 · 8 = 15)', 'Rechenprobe falsch', n11)
+    def n12(d, k): E(d, 'nt-05')['bedingung'] = 'Gleichbleibende Geschwindigkeit'
+    versuch('12 Geschwindigkeit ohne t > 0', 'auflagen/nt-05', n12)
+    def n13(d, k): E(d, 'nt-03')['bedingung'] = 'Zwei Geraden schneiden sich in S. Zwei parallele Geraden schneiden beide Geraden'
+    versuch('13 Strahlensatz ohne „nicht durch S“', 'nicht durch S', n13)
+    def n14(d, k): E(d, 'nt-08')['bedingung'] += ' Ein Kreisring hat keinen einzelnen Umfang.'
+    versuch('14 Kreisring: Satz „keinen einzelnen Umfang“ steht wieder da', 'kein einzelner Umfang', n14)
+    def n15(d, k): E(d, 'nt-08')['beispiel']['rechnung'] = E(d, 'nt-08')['beispiel']['rechnung'].replace('= 14π cm ≈ 43,98 cm', '= 14π cm ≈ 43,89 cm')
+    versuch('15 Kreisring: falsch gerundeter Randwert im Text', 'auflagen/nt-08', n15)
+    def n16(d, k): E(d, 'nt-10')['schritte'][3] = 'Verbinde C mit B. Berechne BC mit dem Kosinussatz.'
+    versuch('16 SWS: Kosinussatz in den Schritten (Klasse 7)', 'Trigonometrie darf in Klasse 7 nicht', n16)
+    def n17(d, k): E(d, 'nt-12')['beispiel']['ergebnis'] = 'SsW, eindeutig, α ≈ 50° (gemessen)'
+    versuch('17 SsW: gemessener Winkel passt nicht zur Skizze', 'gemessener Winkel', n17)
+    def n18(d, k): E(d, 'nt-10')['skizze']['markierungen'][2]['text'] = 'α = 190°'
+    versuch('18 SWS: Winkel über 180°', 'nicht zwischen 0° und 180°', n18)
+    def n19(d, k): E(d, 'nt-11')['skizze']['markierungen'][0]['text'] = 'c = 0 cm'
+    versuch('19 WSW: Seitenlänge nicht positiv', 'nicht positiv', n19)
+    def n20(d, k): [x for x in k['eintraege'] if x['kennung'] == 'ff-13'][0]['vermerk_vorkommen'] = 'Die Figur steht ab Klasse 6.'
+    versuch('20 Klassen-Nachtrag: Vermerk Vorkommen/Behandlung unvollständig', 'Vermerk „Vorkommen“', n20)
+    def n21(d, k): E(d, 'nt-01')['ab_klasse_hinweis'] = 'Realschule Klasse 6.'
+    versuch('21 Dreisatz Realschule: nur eine Klasse genannt', 'auflagen/nt-01/ab_klasse_hinweis', n21)
     return ergebnisse
 neg = negativ()
 for name, erwartet, ok, bsp in neg:

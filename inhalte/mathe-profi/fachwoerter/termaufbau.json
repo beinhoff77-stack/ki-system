@@ -1,0 +1,698 @@
+{
+ "stand": "2026-11-27",
+ "thema": "zahlen.rechengesetze",
+ "lernkarte": "termaufbau",
+ "klasse": 5,
+ "fuer": "beide Kinder",
+ "hinweis": "Übersetzung Wort → Term (Summe, Differenz, Produkt, Quotient). Nicht eingespielt. Aufbau je Eintrag wie in rollend-1 bis rollend-3.",
+ "aufgaben": [
+  {
+   "kennung": "FW-01",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "termaufbau",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Zahlen vertauscht"
+    },
+    {
+     "luecke": 2,
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen vergessen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "minus minus als minus gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "termaufbau",
+    "t": "terme",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Differenz aus 42 und 17 ist 42 − 17 = ①. Vertauscht man die Zahlen, ist 17 − 42 = ②. Die beiden Werte unterscheiden sich um ① − ② = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      25,
+      -25,
+      50
+     ]
+    },
+    "c": [
+     "42-17",
+     "17-42",
+     "(42-17)-(17-42)"
+    ],
+    "h": "Differenz heißt minus. Die zuerst genannte Zahl steht vorn.",
+    "w": "42 − 17 = 25. 17 − 42 = −25. 25 − (−25) = 50. Die Reihenfolge bei der Differenz ändert das Vorzeichen."
+   }
+  },
+  {
+   "kennung": "FW-02",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "termaufbau",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 648,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal 2 statt geteilt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 432,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "termaufbau",
+    "t": "terme",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Der Quotient aus 72 und 9 ist 72 : 9 = ①. Der Quotient aus ① und 2 ist ① : 2 = ②. Der Quotient aus 72 und 6 ist 72 : 6 = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      8,
+      4,
+      12
+     ]
+    },
+    "c": [
+     "72//9",
+     "72//9//2",
+     "72//6"
+    ],
+    "h": "Quotient heißt geteilt. Die zuerst genannte Zahl wird geteilt.",
+    "w": "72 : 9 = 8. 8 : 2 = 4. 72 : 6 = 12. Bei „Quotient aus a und b“ wird a durch b geteilt."
+   }
+  },
+  {
+   "kennung": "FW-03",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "termaufbau",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "12 − 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen vertauscht – das wäre die Differenz aus 12 und 5"
+    },
+    {
+     "index": 2,
+     "antwort": "5 + 12",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Summe statt Differenz"
+    },
+    {
+     "index": 3,
+     "antwort": "12 : 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Quotient statt Differenz"
+    }
+   ],
+   "aufgabe": {
+    "l": "termaufbau",
+    "t": "terme",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Welcher Ausdruck ist die Differenz aus 5 und 12?"
+    },
+    "a": [
+     "12 − 5",
+     "5 − 12",
+     "5 + 12",
+     "12 : 5"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Bei „aus … und …“ steht die zuerst genannte Zahl vorn.",
+    "w": "Die Differenz aus 5 und 12 ist 5 − 12 = −7. Bei 12 − 5 wären die Zahlen vertauscht."
+   }
+  },
+  {
+   "kennung": "FW-04",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "termaufbau",
+   "stufe": 1,
+   "typ": "Brücke",
+   "antwortform": "zahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -26,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "−7 − 19 gerechnet: Differenz statt Summe"
+    },
+    {
+     "antwort": 26,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "7 + 19 gerechnet: das Minus übersehen"
+    }
+   ],
+   "aufgabe": {
+    "l": "termaufbau",
+    "t": "terme",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne die Summe aus −7 und 19."
+    },
+    "o": {
+     "wert": 12
+    },
+    "c": "-7 + 19",
+    "h": "Summe heißt plus – auch wenn eine der beiden Zahlen negativ ist.",
+    "w": "Die Summe aus −7 und 19 ist −7 + 19 = 12. Von −7 aus 19 nach rechts: über die Null hinaus bis 12."
+   }
+  },
+  {
+   "kennung": "FW-05",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "termaufbau",
+   "stufe": 2,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen vertauscht"
+    },
+    {
+     "luecke": 2,
+     "antwort": -8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−6 − 2 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": -32,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Minus mal Minus als Minus gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": -12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "(−8) + (−4) gerechnet: addiert statt malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "termaufbau",
+    "t": "terme",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "luecken",
+    "f": {
+     "text": "Multipliziere die Differenz aus 3 und 11 mit der Summe aus −6 und 2. Die Differenz ist 3 − 11 = ①. Die Summe ist −6 + 2 = ②. Das Produkt ist ① · ② = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -8,
+      -4,
+      32
+     ]
+    },
+    "c": [
+     "3-11",
+     "-6+2",
+     "(3-11)*(-6+2)"
+    ],
+    "h": "Erst jede Klammer für sich, dann malnehmen.",
+    "w": "3 − 11 = −8. −6 + 2 = −4. (−8) · (−4) = 32. Zwei Minus ergeben beim Malnehmen ein Plus."
+   }
+  },
+  {
+   "kennung": "FW-06",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "termaufbau",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "zahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -26,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "24 − 50 gerechnet: „von“ überlesen und die Reihenfolge vertauscht"
+    },
+    {
+     "antwort": 74,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dazugezählt statt abgezogen"
+    },
+    {
+     "antwort": 184,
+     "fehlbild": "fb.reihenfolge.links_nach_rechts",
+     "regel_des_fehlbilds": "rr.reihenfolge",
+     "beschreibung": "(50 − 4) · 6 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "termaufbau",
+    "t": "terme",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne: Subtrahiere das Produkt aus 4 und 6 von 50."
+    },
+    "o": {
+     "wert": 26
+    },
+    "c": "50 - 4 * 6",
+    "h": "„Von 50 subtrahieren“ heißt: 50 steht vorn.",
+    "w": "Produkt aus 4 und 6: 24. Von 50 abgezogen: 50 − 24 = 26."
+   }
+  },
+  {
+   "kennung": "FW-07",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "termaufbau",
+   "stufe": 2,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Der Term ist richtig.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„von 20“ überlesen: so wird von der Summe abgezogen"
+    },
+    {
+     "index": 1,
+     "antwort": "Richtig wäre 20 − 3 + 4.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer fehlt – so wird nur die 3 abgezogen"
+    },
+    {
+     "index": 3,
+     "antwort": "Richtig wäre 20 : (3 + 4).",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "geteilt statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "termaufbau",
+    "t": "terme",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Jemand schreibt für „Subtrahiere die Summe aus 3 und 4 von 20“ den Term 3 + 4 − 20. Was stimmt?"
+    },
+    "a": [
+     "Der Term ist richtig.",
+     "Richtig wäre 20 − 3 + 4.",
+     "Richtig wäre 20 − (3 + 4) = 13.",
+     "Richtig wäre 20 : (3 + 4)."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Von welcher Zahl wird etwas abgezogen? Und was wird abgezogen?",
+    "w": "Abgezogen wird die ganze Summe, und zwar von 20: 20 − (3 + 4) = 20 − 7 = 13. Der Term 3 + 4 − 20 ergibt −13."
+   }
+  },
+  {
+   "kennung": "FW-08",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "termaufbau",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Addiere 20 zum Quotienten aus 4 und 6.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das wäre 20 + 4 : 6"
+    },
+    {
+     "index": 2,
+     "antwort": "Teile 20 durch die Summe aus 4 und 6.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das wäre 20 : (4 + 6)"
+    },
+    {
+     "index": 3,
+     "antwort": "Bilde die Summe aus 20 und dem Quotienten aus 4 und 6.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das wäre ebenfalls 20 + 4 : 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "termaufbau",
+    "t": "terme",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "auswahl",
+    "f": {
+     "text": "Welcher Satz beschreibt den Term (20 + 4) : 6?"
+    },
+    "a": [
+     "Teile die Summe aus 20 und 4 durch 6.",
+     "Addiere 20 zum Quotienten aus 4 und 6.",
+     "Teile 20 durch die Summe aus 4 und 6.",
+     "Bilde die Summe aus 20 und dem Quotienten aus 4 und 6."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Was steht in der Klammer, und was passiert mit der ganzen Klammer?",
+    "w": "Zuerst wird die Summe 20 + 4 gebildet, dann durch 6 geteilt: 24 : 6 = 4."
+   }
+  },
+  {
+   "kennung": "FW-09",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "termaufbau",
+   "stufe": 2,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−5 − 9 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Dreifache vergessen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammer nicht beachtet"
+    }
+   ],
+   "aufgabe": {
+    "l": "termaufbau",
+    "t": "terme",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "luecken",
+    "f": {
+     "text": "Die Summe aus −5 und 9 ist −5 + 9 = ①. Das Dreifache dieser Summe ist 3 · ① = ②. Ohne Klammer käme 3 · (−5) + 9 = ③ heraus, das ist etwas anderes.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      12,
+      -6
+     ]
+    },
+    "c": [
+     "-5+9",
+     "3*(-5+9)",
+     "3*(-5)+9"
+    ],
+    "h": "„Das Dreifache von etwas“ heißt: mal 3. Die Klammer hält die Summe zusammen.",
+    "w": "−5 + 9 = 4. 3 · 4 = 12. Ohne Klammer: −15 + 9 = −6. Die Klammer hält die Summe zusammen: 3 · (−5 + 9)."
+   }
+  },
+  {
+   "kennung": "FW-10",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "termaufbau",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "zahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 81,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "90 − 9 gerechnet: subtrahiert statt dividiert"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Differenz als Ergebnis genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "termaufbau",
+    "t": "terme",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne den Quotienten aus der Summe von 72 und 18 und der Differenz aus 15 und 6."
+    },
+    "o": {
+     "wert": 10
+    },
+    "c": "(72 + 18) / (15 - 6)",
+    "h": "Rechne zuerst die beiden Klammern aus.",
+    "w": "Summe: 72 + 18 = 90. Differenz: 15 − 6 = 9. Quotient: 90 : 9 = 10."
+   }
+  },
+  {
+   "kennung": "FW-11",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "termaufbau",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 34,
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "42 − 8 gerechnet statt 42 + 8"
+    },
+    {
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Produkt genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "termaufbau",
+    "t": "terme",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Von welcher Zahl muss man das Produkt aus 6 und 7 abziehen, damit 8 herauskommt?"
+    },
+    "o": {
+     "wert": 50
+    },
+    "c": "8 + 6 * 7",
+    "h": "Rechne rückwärts: Was wird abgezogen, und was bleibt übrig?",
+    "w": "Das Produkt ist 42. Gesucht ist die Zahl, von der 42 abgezogen 8 ergibt: 8 + 42 = 50. Probe: 50 − 42 = 8."
+   }
+  },
+  {
+   "kennung": "FW-12",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "termaufbau",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Ja, beim Minus darf man tauschen.",
+     "fehlbild": "fb.tauschen.minus_getauscht",
+     "regel_des_fehlbilds": "rr.tauschen",
+     "beschreibung": "beim Minus getauscht"
+    },
+    {
+     "index": 2,
+     "antwort": "Ja, denn beide Male steht 4 da.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Ziffern verglichen, nicht die Vorzeichen"
+    },
+    {
+     "index": 3,
+     "antwort": "Das lässt sich nicht entscheiden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Werte lassen sich ausrechnen"
+    }
+   ],
+   "aufgabe": {
+    "l": "termaufbau",
+    "t": "terme",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Jemand sagt: „Die Differenz aus 5 und 9 ist dasselbe wie die Differenz aus 9 und 5.“ Stimmt das?"
+    },
+    "a": [
+     "Ja, beim Minus darf man tauschen.",
+     "Nein: 5 − 9 = −4, aber 9 − 5 = 4.",
+     "Ja, denn beide Male steht 4 da.",
+     "Das lässt sich nicht entscheiden."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Rechne beide Differenzen aus und vergleiche.",
+    "w": "5 − 9 = −4 und 9 − 5 = 4. Die Zahlen sind verschieden. Tauschen darf man nur bei Plus und Mal."
+   }
+  },
+  {
+   "kennung": "FW-13",
+   "thema": "zahlen.rechengesetze",
+   "lernkarte": "termaufbau",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "luecken",
+   "regel": "rr.reihenfolge",
+   "regel_name": "Reihenfolge beim Rechnen",
+   "zaehlt": "ja",
+   "fehlbilder": [],
+   "aufgabe": {
+    "l": "termaufbau",
+    "t": "terme",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "luecken",
+    "f": {
+     "text": "Setze die Zahlen 3, 5 und 8 so in den Term ein, dass der Wert 25 herauskommt. Jede Zahl genau einmal.",
+     "schablone": "□ · (□ − □)",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      5,
+      8,
+      3
+     ]
+    },
+    "c": [
+     "5",
+     "8",
+     "3"
+    ],
+    "h": "Probiere: Welche Zahl steht vorn, welche beiden gehören in die Klammer?",
+    "w": "5 · (8 − 3) = 5 · 5 = 25. Die anderen Anordnungen ergeben 8 · (5 − 3) = 16 und 3 · (8 − 5) = 9."
+   }
+  }
+ ]
+}

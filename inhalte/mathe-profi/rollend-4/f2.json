@@ -1,0 +1,1205 @@
+{
+ "stand": "2026-11-27",
+ "flug": "f2",
+ "titel": "Lineare Funktionen",
+ "fuer": "Kind 2",
+ "klasse": 8,
+ "themen": [
+  "funktionen.linear"
+ ],
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Brücke), rollend-4. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag ja/nein) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: Stufe aufsteigend.",
+ "aufgaben": [
+  {
+   "kennung": "F2-V01",
+   "thema": "funktionen.linear",
+   "lernkarte": "ablesen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die rechte Seite von y = nicht geteilt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 6x geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "ablesen",
+    "t": "ablesen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Gleichung 2y = 6x + 8 wird durch 2 geteilt. Dann ist y = ①x + ②. Die Steigung ist ① und der Achsenabschnitt ist ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      4
+     ]
+    },
+    "c": [
+     "6 // 2",
+     "8 // 2"
+    ],
+    "h": "Teile beide Zahlen rechts durch 2, nicht nur eine.",
+    "w": "6x : 2 = 3x und 8 : 2 = 4. Also y = 3x + 4."
+   }
+  },
+  {
+   "kennung": "F2-V02",
+   "thema": "funktionen.linear",
+   "lernkarte": "graph_ablesen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Schrittweite genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "graph_ablesen",
+    "t": "graph_ablesen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Gerade y = 3x − 5 geht durch die Punkte (2 | ①) und (4 | ②). Zwischen den beiden Punkten steigt sie um ② − ① = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      1,
+      7,
+      6
+     ]
+    },
+    "c": [
+     "3 * 2 - 5",
+     "3 * 4 - 5",
+     "(3 * 4 - 5) - (3 * 2 - 5)"
+    ],
+    "h": "Setze erst x ein, rechne dann mal, dann minus.",
+    "w": "y(2) = 6 − 5 = 1. y(4) = 12 − 5 = 7. 7 − 1 = 6, also 2 Schritte mal Steigung 3."
+   }
+  },
+  {
+   "kennung": "F2-V03",
+   "thema": "funktionen.linear",
+   "lernkarte": "proportional",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 27,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "den Unterschied addiert statt mit k gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "proportional",
+    "t": "proportional",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Bei einer proportionalen Zuordnung y = k · x gehört zu x = 4 der Wert y = 20. Dann ist k = 20 : 4 = ①. Zu x = 7 gehört dann y = ① · 7 = ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      5,
+      35
+     ]
+    },
+    "c": [
+     "20 // 4",
+     "(20 // 4) * 7"
+    ],
+    "h": "k ist der Wert für x = 1.",
+    "w": "k = 5. y = 5 · 7 = 35."
+   }
+  },
+  {
+   "kennung": "F2-V04",
+   "thema": "funktionen.linear",
+   "lernkarte": "aufstellen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 addiert statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "aufstellen",
+    "t": "aufstellen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine Gerade hat die Steigung 2 und geht durch P(3 | 11). Ansatz: y = 2x + t. Einsetzen: 11 = 2 · 3 + t, also t = 11 − ① = ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      5
+     ]
+    },
+    "c": [
+     "2 * 3",
+     "11 - 2 * 3"
+    ],
+    "h": "Rechne erst 2 · 3 aus.",
+    "w": "2 · 3 = 6. t = 11 − 6 = 5. Die Gerade ist y = 2x + 5."
+   }
+  },
+  {
+   "kennung": "F2-V05",
+   "thema": "funktionen.linear",
+   "lernkarte": "lage",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen übersehen"
+    },
+    {
+     "luecke": 2,
+     "antwort": -1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dieselbe Steigung wie g genommen (parallel)"
+    },
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Beträge addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Gerade g hat die Gleichung y = −x + 3. Ihre Steigung ist ①. Für eine Gerade h senkrecht zu g gilt: Steigung von g mal Steigung von h ist minus eins. Also ist die Steigung von h gleich ②. Die Summe beider Steigungen ist ① + ② = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -1,
+      1,
+      0
+     ]
+    },
+    "c": [
+     "-1",
+     "1",
+     "-1+1"
+    ],
+    "h": "Die Steigung ist die Zahl vor dem x. Wie lautet sie bei −x?",
+    "w": "g hat die Steigung −1. Aus (−1) · m = −1 folgt m = 1. Die Summe ist 0."
+   }
+  },
+  {
+   "kennung": "F2-V06",
+   "thema": "funktionen.linear",
+   "lernkarte": "einsetzen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +2 vergessen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen von k übersehen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "minus minus als minus gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "einsetzen",
+    "t": "einsetzen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Geradenschar y = k · x + 2 enthält für k = 5 die Gerade y = 5x + 2. Für k = 5 und x = 3 ist y = ①. Für k = −4 und x = 3 ist y = ②. Der Unterschied der beiden y-Werte ist ① − ② = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      17,
+      -10,
+      27
+     ]
+    },
+    "c": [
+     "5*3+2",
+     "-4*3+2",
+     "(5*3+2)-(-4*3+2)"
+    ],
+    "h": "Ersetze nur k, alles andere bleibt.",
+    "w": "5 · 3 + 2 = 17. −4 · 3 + 2 = −10. 17 − (−10) = 27."
+   }
+  },
+  {
+   "kennung": "F2-V07",
+   "thema": "funktionen.linear",
+   "lernkarte": "wirkung",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht mit x malgenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 · 3 statt (5 − 1) · 3"
+    },
+    {
+     "luecke": 3,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wirkung von b vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "wirkung",
+    "t": "wirkung",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "In y = a · x + b verschiebt b die Gerade nach oben oder unten. Wird b von 2 auf 8 erhöht, wandert die Gerade um 8 − 2 = ① nach oben. Wird a von 1 auf 5 erhöht, liegt die Gerade bei x = 3 um (5 − 1) · 3 = ② höher. Ändert man beides, liegt die Gerade bei x = 3 um ① + ② = ③ höher.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      12,
+      18
+     ]
+    },
+    "c": [
+     "8-2",
+     "(5-1)*3",
+     "(8-2)+(5-1)*3"
+    ],
+    "h": "a wirkt bei jedem x. b wirkt immer gleich.",
+    "w": "b: 8 − 2 = 6. a: (5 − 1) · 3 = 12. Zusammen 6 + 12 = 18."
+   }
+  },
+  {
+   "kennung": "F2-V08",
+   "thema": "funktionen.linear",
+   "lernkarte": "bueschel",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 + 3 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 + 2 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +7 vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "bueschel",
+    "t": "bueschel",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Alle Geraden y = k · (x − 3) + 7 gehen durch einen Punkt Z. Für x = 3 ist die Klammer 0, also ist y = 7 für jedes k. Für k = 4 und x = 5 ist die Klammer 5 − 3 = ①. Dann ist k · ① = ②. Also ist y = ② + 7 = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      8,
+      15
+     ]
+    },
+    "c": [
+     "5-3",
+     "4*(5-3)",
+     "4*(5-3)+7"
+    ],
+    "h": "Rechne erst die Klammer aus, dann malnehmen, dann plus 7.",
+    "w": "5 − 3 = 2. 4 · 2 = 8. 8 + 7 = 15."
+   }
+  },
+  {
+   "kennung": "F2-V09",
+   "thema": "funktionen.linear",
+   "lernkarte": "deuten",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.funktionen.wachstum",
+   "regel_name": "Wachstum",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 · 5 addiert statt abgezogen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rest als Abfluss genommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 135,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "45 · 3 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "deuten",
+    "t": "deuten",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Behälter enthält am Anfang 45 l Wasser. Jede Minute fließen 3 l ab. Nach 5 Minuten sind es noch 45 − 3 · 5 = ① l. In dieser Zeit sind 45 − ① = ② l abgeflossen. Leer ist der Behälter, wenn 3 · t = 45 gilt, also nach ③ Minuten.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      30,
+      15,
+      15
+     ]
+    },
+    "c": [
+     "45-3*5",
+     "45-(45-3*5)",
+     "45//3"
+    ],
+    "h": "Die Rate ist negativ: Es wird weniger.",
+    "w": "45 − 15 = 30 l sind noch drin. 15 l sind abgeflossen. 3 · t = 45 ergibt t = 15 Minuten."
+   }
+  },
+  {
+   "kennung": "F2-V10",
+   "thema": "funktionen.linear",
+   "lernkarte": "zwei_punkte",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "(5 − 2) : (13 − 1) = 1/4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nach rechts durch nach oben gerechnet"
+    },
+    {
+     "index": 2,
+     "antwort": "(13 + 1) : (5 + 2) = 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Koordinaten addiert"
+    },
+    {
+     "index": 3,
+     "antwort": "13 − 1 = 12",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch den Schritt nach rechts geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_punkte",
+    "t": "zwei_punkte",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Gerade geht durch A(2 | 1) und B(5 | 13). Welche Rechnung gibt die Steigung?"
+    },
+    "a": [
+     "(13 − 1) : (5 − 2) = 4",
+     "(5 − 2) : (13 − 1) = 1/4",
+     "(13 + 1) : (5 + 2) = 2",
+     "13 − 1 = 12"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Steigung = nach oben geteilt durch nach rechts.",
+    "w": "Nach oben: 13 − 1 = 12. Nach rechts: 5 − 2 = 3. Steigung 12 : 3 = 4."
+   }
+  },
+  {
+   "kennung": "F2-V11",
+   "thema": "funktionen.linear",
+   "lernkarte": "proportional",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "x: 1, 2, 5 und y: 3, 5, 8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gleiche Schritte nach oben statt gleicher Faktor"
+    },
+    {
+     "index": 1,
+     "antwort": "x: 1, 2, 4 und y: 8, 4, 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Doppeltes x gibt halbes y"
+    },
+    {
+     "index": 2,
+     "antwort": "x: 1, 2, 3 und y: 4, 6, 8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "y wächst gleichmäßig, aber zu x = 0 gehörte 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "proportional",
+    "t": "proportional",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Wertetabelle gehört zu einer proportionalen Zuordnung?"
+    },
+    "a": [
+     "x: 1, 2, 5 und y: 3, 5, 8",
+     "x: 1, 2, 4 und y: 8, 4, 2",
+     "x: 1, 2, 3 und y: 4, 6, 8",
+     "x: 1, 2, 5 und y: 3, 6, 15"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Bei Proportionalität ist y : x überall gleich.",
+    "w": "3 : 1 = 6 : 2 = 15 : 5 = 3. In den anderen Tabellen ändert sich y : x."
+   }
+  },
+  {
+   "kennung": "F2-V12",
+   "thema": "funktionen.linear",
+   "lernkarte": "bueschel",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "(3 | 0)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x und y vertauscht"
+    },
+    {
+     "index": 2,
+     "antwort": "(1 | 3)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x = 1 statt x = 0 gewählt"
+    },
+    {
+     "index": 3,
+     "antwort": "(0 | 0)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Achsenabschnitt vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "bueschel",
+    "t": "bueschel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Alle Geraden y = k · x + 3 gehen durch denselben Punkt. Welcher ist es?"
+    },
+    "a": [
+     "(3 | 0)",
+     "(0 | 3), denn für x = 0 fällt k weg",
+     "(1 | 3)",
+     "(0 | 0)"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wo hat k keinen Einfluss auf y?",
+    "w": "Bei x = 0 ist k · 0 = 0, also y = 3 für jedes k. Der Punkt ist (0 | 3)."
+   }
+  },
+  {
+   "kennung": "F2-V13",
+   "thema": "funktionen.linear",
+   "lernkarte": "ablesen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "ablesen",
+    "t": "ablesen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim liest bei y = 4 − 3x Steigung und Achsenabschnitt ab. Zeile 1: Die Steigung m ist die erste Zahl: m = 4. Zeile 2: Der Achsenabschnitt t ist die Zahl ohne x: t = 4. Zeile 3: Die Gerade geht also durch den Punkt (0 | 4). In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "m steht vor dem x, nicht am Anfang der Gleichung.",
+    "w": "m = −3, denn −3 steht vor dem x. Zeile 2 und 3 stimmen: t = 4 und die Gerade geht durch (0 | 4)."
+   }
+  },
+  {
+   "kennung": "F2-V14",
+   "thema": "funktionen.linear",
+   "lernkarte": "proportional",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "proportional",
+    "t": "proportional",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Tabelle zeigt x = 2, 4, 6 und y = 6, 12, 20. Kim prüft, ob die Zuordnung proportional ist. Zeile 1: Für x = 2: y : x = 6 : 2 = 3. Zeile 2: Für x = 4: y : x = 12 : 4 = 3. Zeile 3: Für x = 6: y : x = 20 : 6 ist ungefähr 3. Also ist die Zuordnung proportional. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Für proportional muss in jeder Spalte genau dieselbe Zahl herauskommen.",
+    "w": "20 : 6 ist nicht 3, sondern ungefähr 3,33. Die Zuordnung ist nicht proportional."
+   }
+  },
+  {
+   "kennung": "F2-V15",
+   "thema": "funktionen.linear",
+   "lernkarte": "aufstellen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "aufstellen",
+    "t": "aufstellen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Gerade geht durch A(1 | 4) und B(3 | 10). Kim stellt die Gleichung auf. Zeile 1: Steigung: m = (10 − 4) : (3 − 1) = 3. Zeile 2: A einsetzen in y = 3x + t: 4 = 3 · 1 + t, also t = 4 + 3 = 7. Zeile 3: Die Gerade ist y = 3x + 7. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Aus 4 = 3 + t folgt t, wenn du auf beiden Seiten 3 abziehst.",
+    "w": "t = 4 − 3 = 1. Die Gerade ist y = 3x + 1. Probe mit B: 3 · 3 + 1 = 10."
+   }
+  },
+  {
+   "kennung": "F2-V16",
+   "thema": "funktionen.linear",
+   "lernkarte": "schnittpunkte",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "schnittpunkte",
+    "t": "schnittpunkte",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Geraden y = 2x + 1 und y = −x + 7 schneiden sich. Kim bestimmt den Schnittpunkt. Zeile 1: Gleichsetzen: 2x + 1 = −x + 7. Zeile 2: x auf die linke Seite bringen: x + 1 = 7, also x = 6. Zeile 3: Dann ist y = 2 · 6 + 1 = 13. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Wenn du −x auf die linke Seite bringst, wird daraus +x. Wie viele x stehen dann links?",
+    "w": "2x + x = 3x. Also 3x + 1 = 7, x = 2 und y = 5. Der Schnittpunkt ist (2 | 5)."
+   }
+  },
+  {
+   "kennung": "F2-V17",
+   "thema": "funktionen.linear",
+   "lernkarte": "lage",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "lage",
+    "t": "lage",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Geraden y = 2x + 5 und y = −2x + 5 sollen untersucht werden. Kim prüft ihre Lage. Zeile 1: Die Steigungen sind 2 und −2. Zeile 2: Das Produkt der Steigungen ist 2 · (−2) = −4. Zeile 3: Das Produkt ist −4, also stehen die Geraden senkrecht aufeinander. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Senkrecht heißt: Das Produkt der Steigungen ist genau minus eins.",
+    "w": "Das Produkt −4 ist nicht −1, und die Steigungen sind verschieden. Die Geraden sind weder parallel noch senkrecht."
+   }
+  },
+  {
+   "kennung": "F2-V18",
+   "thema": "funktionen.linear",
+   "lernkarte": "einsetzen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "einsetzen",
+    "t": "einsetzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Schar y = (k − 2) · x + 3 hat für k = 5 eine bestimmte Gerade. Kim setzt k = 5 ein. Zeile 1: Die Klammer wird zu 5 + 2 = 7. Zeile 2: Die Gerade ist also y = 7x + 3. Zeile 3: Für x = 2 ist y = 7 · 2 + 3 = 17. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "In der Klammer steht k − 2. Was ist 5 − 2?",
+    "w": "5 − 2 = 3. Die Gerade ist y = 3x + 3. Für x = 2 ist y = 9."
+   }
+  },
+  {
+   "kennung": "F2-V19",
+   "thema": "funktionen.linear",
+   "lernkarte": "wirkung",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "wirkung",
+    "t": "wirkung",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim untersucht die Geraden y = a · x + 3 für verschiedene a. Zeile 1: a steht vor x, es ändert also die Steigung. Zeile 2: Bei jedem a geht die Gerade durch den Punkt (0 | 3). Zeile 3: Wird a größer, verschiebt sich die Gerade nach oben, ohne dass sich die Steigung ändert. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Der Parameter a steht vor x. Was bewirkt das?",
+    "w": "Wird a größer, nimmt die Steigung zu: Die Gerade dreht sich um den Punkt (0 | 3). Sie verschiebt sich nicht nach oben. (Wie steil sie ist, hängt von |a| ab.)"
+   }
+  },
+  {
+   "kennung": "F2-V20",
+   "thema": "funktionen.linear",
+   "lernkarte": "bueschel",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "bueschel",
+    "t": "bueschel",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Alle Geraden y = k · (x + 2) + 4 gehen durch einen Punkt Z. Kim bestimmt Z. Zeile 1: Z liegt dort, wo k keinen Einfluss hat. Zeile 2: Das ist bei x + 2 = 0, also bei x = 2. Zeile 3: Dort ist y = 4. Also ist Z(2 | 4). In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Welche Zahl macht x + 2 gleich 0?",
+    "w": "x + 2 = 0 gilt für x = −2. Der Punkt ist Z(−2 | 4)."
+   }
+  },
+  {
+   "kennung": "F2-V21",
+   "thema": "funktionen.linear",
+   "lernkarte": "deuten",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.wachstum",
+   "regel_name": "Wachstum",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    }
+   ],
+   "aufgabe": {
+    "l": "deuten",
+    "t": "deuten",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Taxi kostet 3 € Grundpreis und 2 € je Kilometer: K(x) = 2x + 3. Kim deutet die Zahlen. Zeile 1: Der Grundpreis ist die Zahl vor dem x: 2 €. Zeile 2: Der Preis je Kilometer ist das Glied ohne x: 3 €. Zeile 3: Bei 0 km kostet die Fahrt also 2 €. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Setze x = 0 in den Term ein.",
+    "w": "K(0) = 2 · 0 + 3 = 3. Der Grundpreis ist das Glied ohne x (3 €), die Zahl vor dem x ist der Preis je Kilometer (2 €)."
+   }
+  },
+  {
+   "kennung": "F2-V22",
+   "thema": "funktionen.linear",
+   "lernkarte": "wirkung",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.funktionen.gleichung_form",
+   "regel_name": "Gleichung und Form",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Er ist steiler geworden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Steigung ist unverändert"
+    },
+    {
+     "index": 2,
+     "antwort": "Er ist um 3 nach rechts verschoben.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Verschiebung nach rechts ändert die Gleichung anders"
+    },
+    {
+     "index": 3,
+     "antwort": "Seine Steigung ist von 2 auf 4 gewachsen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 4 ist der y-Achsenabschnitt, nicht die Steigung"
+    }
+   ],
+   "aufgabe": {
+    "l": "wirkung",
+    "t": "wirkung",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Die Gerade y = 2x + 1 wird ersetzt durch y = 2x + 4. Wie hat sich der Graph verändert?"
+    },
+    "y": "auswahl",
+    "a": [
+     "Er ist um 3 nach oben verschoben und verläuft parallel zum alten.",
+     "Er ist steiler geworden.",
+     "Er ist um 3 nach rechts verschoben.",
+     "Seine Steigung ist von 2 auf 4 gewachsen."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Vergleiche, welche Zahl sich ändert: die vor dem x oder die am Ende.",
+    "w": "Die Zahl vor dem x ist gleich geblieben, die Steigung bleibt 2. Die Zahl am Ende wächst von 1 auf 4, der Graph schneidet die y-Achse 3 Einheiten höher. Er ist also um 3 nach oben verschoben, parallel zum alten."
+   }
+  },
+  {
+   "kennung": "F2-V23",
+   "thema": "funktionen.linear",
+   "lernkarte": "zwei_punkte",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 1 abgezogen, nicht durch 4 geteilt"
+    },
+    {
+     "antwort": 52,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "13 mit 4 multipliziert statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_punkte",
+    "t": "zwei_punkte",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Eine Gerade y = m · x + 1 geht durch den Punkt (4|13). Wie groß ist die Steigung m?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 3
+    },
+    "c": "(13 - 1) // 4",
+    "h": "Setze die Koordinaten des Punktes in die Gleichung ein und löse nach m auf.",
+    "w": "Einsetzen: 13 = m · 4 + 1. Dann 13 − 1 = 12 = 4m, also m = 12 : 4 = 3. Probe: 3 · 4 + 1 = 13."
+   }
+  }
+ ]
+}

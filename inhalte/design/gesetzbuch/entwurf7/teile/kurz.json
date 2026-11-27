@@ -1,0 +1,173 @@
+{
+ "hinweis": "Kurzbeschreibungen (Stufe 1 der Regelseite). Gekürzt vom Designer aus den Texten des Mathe-Profis (inhalt.json) – vom Mathe-Profi zu prüfen. „quelle“ sagt, woraus gekürzt.",
+ "texte": {
+  "R1": {
+   "text": "Jede Stelle ist zehnmal so viel wert wie die Stelle rechts von ihr.",
+   "quelle": "Satz 1 von „Warum“, gekürzt"
+  },
+  "R2": {
+   "text": "Plus und Minus sind Schritte auf der Zahlengeraden: nach rechts oder nach links.",
+   "quelle": "aus „Warum“ gekürzt"
+  },
+  "R3": {
+   "text": "Welches Vorzeichen das Ergebnis bei Mal und Geteilt bekommt.",
+   "quelle": "aus „Genau gesagt“ gekürzt"
+  },
+  "R4": {
+   "text": "Die Reihenfolge ist eine Vereinbarung, damit jeder dieselbe Rechnung gleich liest.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "R5": {
+   "text": "Bei einer Summe und bei einem Produkt kommt es nicht auf die Reihenfolge an.",
+   "quelle": "Satz 1 von „Warum“, gekürzt"
+  },
+  "R6": {
+   "text": "Ein Faktor vor einer Klammer: vorwärts ausmultiplizieren, rückwärts ausklammern.",
+   "quelle": "aus „Genau gesagt“ gekürzt"
+  },
+  "R7": {
+   "text": "Ein Minus vor der Klammer heißt „mal (−1)“.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "R8": {
+   "text": "Hoch ist wiederholtes Malnehmen.",
+   "quelle": "aus „Warum“ von Rechenregel 4, wörtlich"
+  },
+  "R9": {
+   "text": "Die Menge bleibt gleich, nur die Einteilung wird feiner.",
+   "quelle": "aus „Warum“, wörtlich"
+  },
+  "R10": {
+   "text": "Wie man Brüche addiert, subtrahiert, malnimmt und teilt.",
+   "quelle": "aus „Genau gesagt“ gekürzt"
+  },
+  "R11": {
+   "text": "Wer den Wert für eine Einheit kennt, kennt jeden anderen.",
+   "quelle": "aus „Warum“, wörtlich"
+  },
+  "R12": {
+   "text": "Zu jeder umkehrbaren Rechnung gibt es eine Gegenrechnung.",
+   "quelle": "Satz 1 von „Warum“, gekürzt"
+  },
+  "R13": {
+   "text": "Das Gleichheitszeichen sagt: Links und rechts steht gleich viel.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "R14": {
+   "text": "Eine Gleichung „Produkt = 0“ darf man in einfache Gleichungen zerlegen.",
+   "quelle": "aus „Warum“ gekürzt"
+  },
+  "I-zahlen-1": {
+   "text": "Auf der Zahlengeraden hat jede Zahl genau einen Platz – ganze Zahlen, Brüche, Kommazahlen, negative Zahlen und später Wurzeln.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-zahlen-2": {
+   "text": "Unser Zahlensystem tauscht immer zehn gleiche Teile gegen ein größeres.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-zahlen-3": {
+   "text": "Jede natürliche Zahl ab 2 lässt sich so lange in Faktoren zerlegen, bis nur noch Primzahlen übrig sind.",
+   "quelle": "aus „Warum“ gekürzt"
+  },
+  "I-zahlen-4": {
+   "text": "Ein Bruch, eine Kommazahl und eine Prozentangabe können genau dieselbe Zahl meinen.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-zahlen-5": {
+   "text": "Potenzieren fragt: Was kommt heraus? Die Wurzel fragt zurück: Welche Zahl wurde potenziert?",
+   "quelle": "aus „Warum“ gekürzt"
+  },
+  "I-algebra-1": {
+   "text": "Ein Term schreibt eine Rechnung auf, bevor man die Zahl kennt.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-algebra-2": {
+   "text": "Nicht jede Zahl darf in jeden Term: Durch null kann man nicht teilen, und aus einer negativen Zahl gibt es keine Quadratwurzel.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-algebra-3": {
+   "text": "Eine Gleichung ist eine Frage: Für welche Zahlen stimmt sie?",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-algebra-4": {
+   "text": "Bei Gleichungen mit x² hilft das Hin- und Herschieben einzelner Summanden nicht weiter.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-geld-1": {
+   "text": "Eine Größe besteht aus Zahl und Einheit.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-geld-2": {
+   "text": "Bei proportionalen Größen gehört zu jeder Einheit derselbe Wert.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-geld-3": {
+   "text": "Prozent ist nur ein anderes Wort für Hundertstel.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-geo-1": {
+   "text": "Schneidet eine Gerade zwei Parallelen, entstehen an beiden Kreuzungen dieselben Winkel.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-geo-2": {
+   "text": "Viele Linien der Geometrie sind „alle Punkte mit einer Abstandseigenschaft“.",
+   "quelle": "aus „Warum“ gekürzt"
+  },
+  "I-geo-3": {
+   "text": "Zwei Figuren sind deckungsgleich, wenn man die eine so auf die andere legen kann, dass sie genau passt.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-geo-4": {
+   "text": "Vergrößert man eine Figur wie mit einem Kopierer, bleiben alle Winkel, und jede Länge wird mit demselben Faktor malgenommen.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-geo-5": {
+   "text": "Der rechte Winkel macht das Dreieck berechenbar.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-fur-1": {
+   "text": "Eine Fläche misst man, indem man sie lückenlos mit gleich großen Quadraten auslegt und zählt.",
+   "quelle": "aus „Warum“ gekürzt"
+  },
+  "I-fur-2": {
+   "text": "Vom Rechteck weiß man die Fläche durch Zählen.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-fur-3": {
+   "text": "Ein Quader ist ein Stapel gleicher Schichten: Grundfläche mal Höhe.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-fur-4": {
+   "text": "Schneidet man einen Körper an seinen Kanten auf und klappt ihn flach, sieht man seine ganze Außenfläche auf einmal: das Netz.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-funktionen-1": {
+   "text": "Eine Funktion ist eine Zuordnung, bei der zu jedem x genau ein y gehört.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-funktionen-2": {
+   "text": "Es gibt zwei Grundarten zu wachsen.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-funktionen-3": {
+   "text": "An der Gleichung erkennt man, wie der Graph aussieht, bevor man einen einzigen Punkt berechnet.",
+   "quelle": "aus „Warum“ gekürzt"
+  },
+  "I-daten-1": {
+   "text": "Mittelwert, Median und Spannweite fassen viele Werte in einer Zahl zusammen.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-daten-2": {
+   "text": "Man kann selten alle fragen oder alles messen.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  },
+  "I-daten-3": {
+   "text": "Die Wahrscheinlichkeit eines Ereignisses ist sein Anteil an allen Möglichkeiten.",
+   "quelle": "aus „Warum“ gekürzt"
+  },
+  "I-daten-4": {
+   "text": "Besteht ein Versuch aus mehreren Schritten, zeichnet man einen Baum.",
+   "quelle": "Satz 1 von „Warum“, wörtlich"
+  }
+ }
+}

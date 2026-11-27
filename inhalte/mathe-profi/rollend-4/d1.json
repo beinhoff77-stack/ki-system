@@ -1,0 +1,473 @@
+{
+ "stand": "2026-11-27",
+ "flug": "d1",
+ "titel": "Daten darstellen",
+ "fuer": "Kind 1",
+ "klasse": 5,
+ "themen": [
+  "daten.darstellen"
+ ],
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Brücke), rollend-4. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag ja/nein) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: Stufe aufsteigend.",
+ "aufgaben": [
+  {
+   "kennung": "D1-V01",
+   "thema": "daten.darstellen",
+   "lernkarte": "tabelle_auswerten",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl als Prozentzahl genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "tabelle_auswerten",
+    "t": "tabelle_auswerten",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "In einer Tabelle stehen die Anzahlen Rot 6, Blau 9 und Grün 5. Summe: 6 + 9 + 5 = ①. Der Anteil von Blau ist 9 von ①. In Prozent sind das ② %.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      20,
+      45
+     ]
+    },
+    "c": [
+     "6 + 9 + 5",
+     "9 * 100 // (6 + 9 + 5)"
+    ],
+    "h": "Zähle zuerst alle Anzahlen zusammen. Dann erweiterst du den Bruch auf Hundertstel.",
+    "w": "9/20 = 45/100 = 45 %."
+   }
+  },
+  {
+   "kennung": "D1-V02",
+   "thema": "daten.darstellen",
+   "lernkarte": "saeulendiagramm",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 : 3 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 99,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal statt geteilt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied nicht in Kinder zurückgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "saeulendiagramm",
+    "t": "saeulendiagramm",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "In einem Säulendiagramm steht 1 cm Höhe für 3 Kinder. Eine Säule ist 6 cm hoch. Sie gehört zu 6 · 3 = ① Kindern. Eine zweite Säule gehört zu 33 Kindern. Sie ist 33 : 3 = ② cm hoch. Die zweite Säule ist ② − 6 cm höher, das sind (② − 6) · 3 = ③ Kinder mehr.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      18,
+      11,
+      15
+     ]
+    },
+    "c": [
+     "6*3",
+     "33//3",
+     "(33//3-6)*3"
+    ],
+    "h": "Höhe mal Maßstab gibt die Anzahl.",
+    "w": "6 · 3 = 18 Kinder. 33 : 3 = 11 cm. 11 − 6 = 5 cm Unterschied, 5 · 3 = 15 Kinder mehr (33 − 18 = 15)."
+   }
+  },
+  {
+   "kennung": "D1-V03",
+   "thema": "daten.darstellen",
+   "lernkarte": "kreisdiagramm",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3600,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal 10 statt geteilt durch 10"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreisdiagramm",
+    "t": "kreisdiagramm",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kreis hat 360°. 10 % davon sind 360° : 10 = ①°. 30 % sind dreimal so viel: ②°.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      36,
+      108
+     ]
+    },
+    "c": [
+     "360 // 10",
+     "3 * (360 // 10)"
+    ],
+    "h": "30 % sind dreimal 10 %.",
+    "w": "10 % sind 36°. 30 % sind 3 · 36° = 108°."
+   }
+  },
+  {
+   "kennung": "D1-V04",
+   "thema": "daten.darstellen",
+   "lernkarte": "irrefuehrend",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Achsenanfang nicht beachtet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die gezeichneten Höhen statt der Werte genommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "irrefuehrend",
+    "t": "irrefuehrend",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Achse eines Säulendiagramms beginnt bei 40 statt bei 0. Säule A reicht bis 50, Säule B bis 100. Die gezeichnete Höhe von B ist (100 − 40) : (50 − 40) = ①-mal so groß wie die von A. Die dargestellten Werte sind aber 50 und 100: Der Wert von B ist 100 : 50 = ②-mal so groß wie der von A. Das Bild übertreibt also um den Faktor ① : ② = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      2,
+      3
+     ]
+    },
+    "c": [
+     "(100-40)//(50-40)",
+     "100//50",
+     "((100-40)//(50-40))//(100//50)"
+    ],
+    "h": "Zieh bei der gekürzten Achse erst 40 ab.",
+    "w": "Gezeichnet sind 60 und 10, also 6-mal so hoch. Dargestellt sind die Werte 100 und 50: 2-mal. Das Bild übertreibt um 6 : 2 = 3."
+   }
+  },
+  {
+   "kennung": "D1-V05",
+   "thema": "daten.darstellen",
+   "lernkarte": "absolute_haeufigkeit",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "9 + 7 + 4 = 20",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Kinder mit Tier gezählt"
+    },
+    {
+     "index": 2,
+     "antwort": "25 − 9 = 16",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Tierart abgezogen"
+    },
+    {
+     "index": 3,
+     "antwort": "25 + 20 = 45",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "absolute_haeufigkeit",
+    "t": "absolute_haeufigkeit",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "25 Kinder werden nach ihrem Lieblingstier gefragt. Jedes Kind nennt höchstens eines: 9 nennen den Hund, 7 die Katze, 4 den Fisch. Die übrigen nennen kein Tier. Wie findest du die Zahl der Kinder, die kein Tier nennen?"
+    },
+    "a": [
+     "9 + 7 + 4 = 20",
+     "25 − (9 + 7 + 4) = 5",
+     "25 − 9 = 16",
+     "25 + 20 = 45"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Alle Gruppen zusammen sind die Gesamtzahl.",
+    "w": "Jedes Kind wird nur einmal gezählt. Mit Lieblingstier: 9 + 7 + 4 = 20. Ohne: 25 − 20 = 5."
+   }
+  },
+  {
+   "kennung": "D1-V06",
+   "thema": "daten.darstellen",
+   "lernkarte": "absolute_haeufigkeit",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "absolute_haeufigkeit",
+    "t": "absolute_haeufigkeit",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim hat 20-mal gewürfelt. Seine Strichliste: Augenzahl 1 dreimal, 2 fünfmal, 3 viermal, 4 zweimal, 5 viermal, 6 dreimal. Zeile 1: Alle Häufigkeiten zusammen müssen 20 ergeben. Zeile 2: 3 + 5 + 4 + 2 + 4 + 3 = 20. Zeile 3: Die Strichliste passt also zu 20 Würfen. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Rechne die Summe der sechs Anzahlen selbst nach.",
+    "w": "3 + 5 + 4 + 2 + 4 + 3 = 21. Die Liste hat einen Strich zu viel."
+   }
+  },
+  {
+   "kennung": "D1-V07",
+   "thema": "daten.darstellen",
+   "lernkarte": "relative_haeufigkeit",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    }
+   ],
+   "aufgabe": {
+    "l": "relative_haeufigkeit",
+    "t": "relative_haeufigkeit",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Bei 40 Würfen fällt 12-mal die Sechs. Kim berechnet die relative Häufigkeit. Zeile 1: Relative Häufigkeit = Anzahl : Gesamtzahl. Zeile 2: 12 : 40 = 0,03. Zeile 3: 0,03 sind 3 %. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "12 : 40 ist dasselbe wie 30 : 100. Wie schreibt man das als Dezimalzahl?",
+    "w": "12 : 40 = 0,3. 0,3 sind 30 %. Zeile 3 folgt richtig aus der falschen Zeile 2."
+   }
+  },
+  {
+   "kennung": "D1-V08",
+   "thema": "daten.darstellen",
+   "lernkarte": "tabelle_auswerten",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.daten.anteil",
+   "regel_name": "Anteil",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "tabelle_auswerten",
+    "t": "tabelle_auswerten",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Tabelle zeigt, wie 30 Kinder zur Schule kommen: Bus 12, Rad 8, zu Fuß 10. Zeile 1: Summe: 12 + 8 + 10 = 30. Zeile 2: Der Anteil Bus ist 12 von 30, also 12 : 30 = 0,4 = 40 %. Zeile 3: Der Anteil zu Fuß ist 10 von 12. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Durch welche Zahl teilt man, um einen Anteil zu bekommen?",
+    "w": "Man teilt immer durch die Summe aller Anzahlen: 10 von 30 sind etwa 33 %."
+   }
+  },
+  {
+   "kennung": "D1-V09",
+   "thema": "daten.darstellen",
+   "lernkarte": "saeulendiagramm",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.verhaeltnis",
+   "regel_name": "Verhältnis (Dreisatz)",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "saeulendiagramm",
+    "t": "saeulendiagramm",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Im Säulendiagramm steht 1 cm Höhe für 4 Kinder. Eine Säule ist 7 cm hoch. Kim liest sie ab. Zeile 1: Jeder Zentimeter steht für 4 Kinder. Zeile 2: Die Säule gehört also zu 7 : 4 Kindern, das sind weniger als 2 Kinder. Zeile 3: Eine Säule für 12 Kinder wäre 12 : 4 = 3 cm hoch. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Aus der Höhe in cm bekommst du die Anzahl mit mal oder mit geteilt?",
+    "w": "Höhe mal Maßstab: 7 · 4 = 28 Kinder."
+   }
+  }
+ ]
+}

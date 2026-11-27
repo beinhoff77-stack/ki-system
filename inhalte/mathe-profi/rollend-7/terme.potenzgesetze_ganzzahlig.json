@@ -1,0 +1,823 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-7",
+ "kuerzel": "K8",
+ "flug": "k8-terme.potenzgesetze_ganzzahlig",
+ "titel": "terme.potenzgesetze_ganzzahlig",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen": [
+  "terme.potenzgesetze_ganzzahlig"
+ ],
+ "themen_datei_im_bestand": "terme.potenzgesetze_ganzzahlig",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K8-V118",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "warum_gilt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "64 − 4 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4⁰ als 0 gelesen: 4 + 0"
+    },
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4⁰ als 4 gelesen: 4 + 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "warum_gilt",
+    "t": "warum_gilt",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Setze das Muster fort: 4⁴ = 256 und 4³ = 64. Bei jedem Schritt nach rechts wird durch 4 geteilt. Dann ist 4² = ① und die Summe 4¹ + 4⁰ ist ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      16,
+      5
+     ]
+    },
+    "c": [
+     "64 // 4",
+     "(16) // 4 + (16) // 4 // 4"
+    ],
+    "h": "Teile den Wert immer wieder durch die Basis. Wie oft musst du teilen, bis du bei der Hochzahl 0 bist?",
+    "w": "64 : 4 = 16 für 4². Dann 16 : 4 = 4 für 4¹ und 4 : 4 = 1 für 4⁰. Also 4⁰ = 1 und 4¹ + 4⁰ = 4 + 1 = 5."
+   }
+  },
+  {
+   "kennung": "K8-V119",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "warum_gilt",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "−4",
+     "fehlbild": "fb.potenz.negative_hochzahl_als_minus",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "negative Hochzahl als negative Zahl gelesen"
+    },
+    {
+     "index": 1,
+     "antwort": "1/2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Hochzahl −1 verwechselt"
+    },
+    {
+     "index": 3,
+     "antwort": "−1/4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "negative Hochzahl als Minus vor dem Bruch"
+    }
+   ],
+   "aufgabe": {
+    "l": "warum_gilt",
+    "t": "warum_gilt",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt das Muster der Potenzen von 2. Bei jedem Schritt nach rechts wird der Wert halbiert. Welcher Wert gehört zu 2⁻²?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "2³",
+       "2²",
+       "2¹",
+       "2⁰",
+       "2⁻¹",
+       "2⁻²"
+      ],
+      "zeilen": [
+       [
+        "8",
+        "4",
+        "2",
+        "1",
+        "?",
+        "?"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "−4",
+     "1/2",
+     "1/4",
+     "−1/4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Setze das Halbieren in der Tabelle von links nach rechts fort.",
+    "w": "2⁰ = 1, 2⁻¹ = 1/2, 2⁻² = 1/4. Bei jedem Schritt nach rechts wird halbiert."
+   }
+  },
+  {
+   "kennung": "K8-V120",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "warum_gilt",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": "fb.potenz.negative_hochzahl_als_minus",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "das Minus der Hochzahl vergessen"
+    },
+    {
+     "antwort": -9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "27 : 3 mit Minus gerechnet"
+    },
+    {
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "27 selbst als Hochzahl genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "warum_gilt",
+    "t": "warum_gilt",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche ganze Zahl k gilt 3^k = 1/27?"
+    },
+    "o": {
+     "wert": -3
+    },
+    "c": -3,
+    "h": "Schreibe 27 als Potenz von 3. Eine negative Hochzahl bedeutet: Kehrwert.",
+    "w": "27 = 3³. Also 1/27 = 1/3³ = 3⁻³. Probe: 3⁻³ = 1/27."
+   }
+  },
+  {
+   "kennung": "K8-V121",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "gleiche_basis_ganz",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 + 9 gerechnet"
+    },
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "das Vorzeichen des Ergebnisses vergessen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 + 6 gerechnet, das Minus der Hochzahl vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleiche_basis_ganz",
+    "t": "gleiche_basis_ganz",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Vereinfache z⁴ · z⁻⁹ für z ≠ 0 zu z^k. Die Hochzahlen werden addiert: k = ①. Multiplizierst du das Ergebnis noch mit z⁶, ergibt sich die Hochzahl ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -5,
+      1
+     ]
+    },
+    "c": [
+     "4 + (-9)",
+     "(-5) + 6"
+    ],
+    "h": "Gleiche Basis beim Malnehmen: Hochzahlen addieren. Achte auf das Vorzeichen.",
+    "w": "4 + (−9) = −5, also z⁻⁵. Mit z⁶: −5 + 6 = 1, also z¹ = z."
+   }
+  },
+  {
+   "kennung": "K8-V122",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "gleiche_basis_ganz",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 128,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 + 2 gerechnet: 2⁷"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "32 − 2 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleiche_basis_ganz",
+    "t": "gleiche_basis_ganz",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne 2⁵ · 2⁻² auf zwei Wegen. Weg A: schreibe 2⁻² als Bruch und rechne 32 mal diesen Bruch. Weg B: addiere die Hochzahlen und berechne die Potenz. Welchen Wert hat das Produkt?"
+    },
+    "o": {
+     "wert": 8
+    },
+    "c": "2 ** (5 + (-2))",
+    "h": "Beide Wege müssen denselben Wert ergeben.",
+    "w": "Weg A: 2⁻² = 1/4. 32 · 1/4 = 8. Weg B: 5 + (−2) = 3, also 2³ = 8."
+   }
+  },
+  {
+   "kennung": "K8-V123",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "gleiche_basis_ganz",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.01,
+     "fehlbild": "fb.gegenrechnung.reihenfolge_nicht_umgekehrt",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "die Zahlen vertauscht: 10⁻⁶ : 10⁻⁴"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Hochzahl 2 statt der Zahl 10² angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleiche_basis_ganz",
+    "t": "gleiche_basis_ganz",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Haar ist 10⁻⁴ m dick. Eine Zelle ist 10⁻⁶ m breit. Wie viele Zellen passen nebeneinander in die Dicke eines Haars?"
+    },
+    "o": {
+     "wert": 100,
+     "einheit": "Zellen"
+    },
+    "c": "10 ** -4 / 10 ** -6",
+    "h": "Teile die Dicke des Haars durch die Breite einer Zelle. Subtrahiere die Hochzahlen.",
+    "w": "10⁻⁴ : 10⁻⁶ = 10⁻⁴⁻⁽⁻⁶⁾ = 10² = 100. Es passen 100 Zellen nebeneinander."
+   }
+  },
+  {
+   "kennung": "K8-V124",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "exponent_und_potenz",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen addiert statt malgenommen: −3 + 4"
+    },
+    {
+     "luecke": 1,
+     "antwort": 12,
+     "fehlbild": "fb.potenz.negative_hochzahl_als_minus",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "das Vorzeichen vergessen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 48,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "4 · 12 gerechnet statt 2¹²"
+    }
+   ],
+   "aufgabe": {
+    "l": "exponent_und_potenz",
+    "t": "exponent_und_potenz",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Vereinfache (2⁻³)⁴ zu einer Potenz 2^k. Die Hochzahlen werden verrechnet: k = ①. Der Wert der Potenz ist dann 1/②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -12,
+      4096
+     ]
+    },
+    "c": [
+     "-3 * 4",
+     "2 ** (0 - (-12))"
+    ],
+    "h": "Eine Potenz wird noch einmal hoch genommen. Was geschieht mit den Hochzahlen?",
+    "w": "(2⁻³)⁴ = 2⁻¹². Das ist 1/2¹² = 1/4 096."
+   }
+  },
+  {
+   "kennung": "K8-V125",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "exponent_und_potenz",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -5,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Vorzeichen falsch gesetzt"
+    },
+    {
+     "antwort": -8,
+     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "−10 + 2 gerechnet, weil addiert statt malgenommen gedacht"
+    }
+   ],
+   "aufgabe": {
+    "l": "exponent_und_potenz",
+    "t": "exponent_und_potenz",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche ganze Zahl k gilt (a⁻²)^k = a⁻¹⁰ für alle Zahlen a ≠ 0?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "-10 // -2",
+    "h": "Beim Hoch-Nehmen werden die Hochzahlen malgenommen. Rechne rückwärts.",
+    "w": "(−2) · k = −10, also k = 5. Probe: (a⁻²)⁵ = a⁻¹⁰."
+   }
+  },
+  {
+   "kennung": "K8-V126",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "exponent_und_potenz",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "−a³",
+     "fehlbild": "fb.potenz.negative_hochzahl_als_minus",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "negative Hochzahl als Minuszeichen gelesen"
+    },
+    {
+     "index": 1,
+     "antwort": "(−a)³",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus in die Klammer geschoben"
+    },
+    {
+     "index": 3,
+     "antwort": "3a⁻¹",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 3 als Faktor gelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "exponent_und_potenz",
+    "t": "exponent_und_potenz",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Bruch 1/(a³) soll mit einer negativen Hochzahl geschrieben werden. Welche Schreibweise ist richtig (a ≠ 0)?"
+    },
+    "a": [
+     "−a³",
+     "(−a)³",
+     "a⁻³",
+     "3a⁻¹"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Eine negative Hochzahl bedeutet: Kehrwert.",
+    "w": "1/a³ = a⁻³. Probe mit a = 2: 1/8 = 2⁻³."
+   }
+  },
+  {
+   "kennung": "K8-V127",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "terme_vereinfachen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Hochzahlen subtrahieren: 5 − 2 = 3, also a³.",
+     "fehlbild": "fb.plusminus.doppelminus_uebersehen",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "das Minus der Hochzahl −2 übersehen"
+    },
+    {
+     "index": 2,
+     "antwort": "Hochzahlen addieren: 5 + (−2) = 3, also a³.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie beim Malnehmen gerechnet"
+    },
+    {
+     "index": 3,
+     "antwort": "Hochzahlen malnehmen: 5 · (−2) = −10, also a⁻¹⁰.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "terme_vereinfachen",
+    "t": "terme_vereinfachen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst a⁵ : a⁻² vereinfachen (a ≠ 0). Welcher Weg ist richtig?"
+    },
+    "a": [
+     "Hochzahlen subtrahieren: 5 − (−2) = 7, also a⁷.",
+     "Hochzahlen subtrahieren: 5 − 2 = 3, also a³.",
+     "Hochzahlen addieren: 5 + (−2) = 3, also a³.",
+     "Hochzahlen malnehmen: 5 · (−2) = −10, also a⁻¹⁰."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Beim Teilen wird die Hochzahl des Teilers abgezogen. Achte dabei auf das Vorzeichen.",
+    "w": "a⁵ : a⁻² = a⁵⁻⁽⁻²⁾ = a⁷. Probe mit a = 2: 32 : 1/4 = 128 = 2⁷."
+   }
+  },
+  {
+   "kennung": "K8-V128",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "terme_vereinfachen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "terme_vereinfachen",
+    "t": "terme_vereinfachen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim vereinfacht (4x⁻²) · (3x⁵) für x ≠ 0. Zeile 1: Die Zahlen werden malgenommen: 4 · 3 = 12. Zeile 2: Die Hochzahlen werden addiert: x⁻² · x⁵ = x³. Zeile 3: Weil die Hochzahl −2 negativ war, ist das Ergebnis negativ: −12x³. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Was bedeutet eine negative Hochzahl für die Zahl vor x? Probe mit x = 2.",
+    "w": "Eine negative Hochzahl macht die Zahl nicht negativ. Das Ergebnis ist 12x³. Probe mit x = 2: (4/4) · 96 = 96 und 12 · 8 = 96."
+   }
+  },
+  {
+   "kennung": "K8-V129",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "terme_vereinfachen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10⁴ durch 2 geteilt, dabei eine Null zu viel"
+    },
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10² statt 10³ gerechnet"
+    },
+    {
+     "antwort": 0.002,
+     "fehlbild": "fb.gegenrechnung.reihenfolge_nicht_umgekehrt",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "Länge der Bakterie durch 1 mm geteilt statt umgekehrt"
+    }
+   ],
+   "aufgabe": {
+    "l": "terme_vereinfachen",
+    "t": "terme_vereinfachen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Bakterie ist 2 · 10⁻⁶ m lang. Wie viele solche Bakterien ergeben hintereinander gelegt 1 mm? Es gilt 1 mm = 10⁻³ m."
+    },
+    "o": {
+     "wert": 500,
+     "einheit": "Bakterien"
+    },
+    "c": "10 ** -3 / (2 * 10 ** -6)",
+    "h": "Teile 10⁻³ durch 2 · 10⁻⁶. Teile die Zahlen und die Potenzen getrennt.",
+    "w": "10⁻³ : (2 · 10⁻⁶) = (1 : 2) · 10⁻³⁺⁶ = 0,5 · 10³ = 500. Es sind 500 Bakterien."
+   }
+  },
+  {
+   "kennung": "K8-V130",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "fehler_ganz",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0.0625,
+     "fehlbild": "fb.gegenrechnung.reihenfolge_nicht_umgekehrt",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "die Hochzahlen in der falschen Reihenfolge subtrahiert: 4⁻²"
+    },
+    {
+     "antwort": 256,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 4⁴ berechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "fehler_ganz",
+    "t": "fehler_ganz",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne 4⁻² : 4⁻⁴ auf zwei Wegen. Weg A: beide Potenzen als Brüche schreiben und teilen. Weg B: die Hochzahlen subtrahieren und die Potenz berechnen. Welchen Wert erhältst du?"
+    },
+    "o": {
+     "wert": 16
+    },
+    "c": "4 ** (-2 - (-4))",
+    "h": "Beide Wege müssen denselben Wert ergeben.",
+    "w": "Weg A: (1/16) : (1/256) = 256/16 = 16. Weg B: −2 − (−4) = 2, also 4² = 16."
+   }
+  },
+  {
+   "kennung": "K8-V131",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "fehler_ganz",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Die Hochzahlen addieren: 2⁻⁶ = 1/64.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "für die Summe ein Gesetz des Malnehmens benutzt"
+    },
+    {
+     "index": 1,
+     "antwort": "Die Basen addieren: 4⁻³ = 1/64.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Basen addiert, die Hochzahl behalten"
+    },
+    {
+     "index": 2,
+     "antwort": "Die Hochzahlen malnehmen: 2⁹ = 512.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "fehler_ganz",
+    "t": "fehler_ganz",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst 2⁻³ + 2⁻³ berechnen. Welcher Weg ist richtig?"
+    },
+    "a": [
+     "Die Hochzahlen addieren: 2⁻⁶ = 1/64.",
+     "Die Basen addieren: 4⁻³ = 1/64.",
+     "Die Hochzahlen malnehmen: 2⁹ = 512.",
+     "Beide Potenzen als Bruch schreiben: 1/8 + 1/8 = 1/4."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Für Plus gibt es kein Potenzgesetz. Schreibe erst jede Potenz als Zahl.",
+    "w": "2⁻³ = 1/8. Zwei Achtel sind 2/8 = 1/4."
+   }
+  },
+  {
+   "kennung": "K8-V132",
+   "thema": "terme.potenzgesetze_ganzzahlig",
+   "lernkarte": "fehler_ganz",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "fehler_ganz",
+    "t": "fehler_ganz",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim vereinfacht 3⁻² · 3⁻³ : 3⁻¹. Die Zeilen bauen aufeinander auf. Zeile 1: Beim Malnehmen werden die Hochzahlen addiert: −2 + (−3) = −5, also 3⁻⁵. Zeile 2: Beim Teilen durch 3⁻¹ werden die Hochzahlen subtrahiert: −5 − (−1). Zeile 3: Das ergibt −5 + 1 = −4, also 3⁻⁴. Zeile 4: Weil die Hochzahl negativ ist, gilt 3⁻⁴ = −81. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Was bedeutet eine negative Hochzahl für den Wert der Potenz? Prüfe mit 2⁻¹.",
+    "w": "Eine negative Hochzahl bedeutet den Kehrwert, nicht eine negative Zahl. 3⁻⁴ = 1/3⁴ = 1/81. Probe: 2⁻¹ = 1/2."
+   }
+  }
+ ]
+}

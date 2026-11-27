@@ -1,0 +1,1845 @@
+{
+ "stand": "2026-11-27",
+ "flug": "a4",
+ "titel": "Lineare Ungleichungen",
+ "fuer": "Kind 2",
+ "klasse": 8,
+ "themen": [
+  "gleichungen.ungleichungen",
+  "zahlen.intervalle"
+ ],
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Brücke), rollend-4. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag ja/nein) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: Stufe aufsteigend.",
+ "aufgaben": [
+  {
+   "kennung": "A4-V01",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "intervall",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 addiert statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "intervall",
+    "t": "intervall",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Löse 2x + 6 ≥ 14. Auf beiden Seiten 6 abziehen: 2x ≥ ①. Durch 2 teilen: x ≥ ②. Die Lösungsmenge ist das Intervall [②; ∞[.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      8,
+      4
+     ]
+    },
+    "c": [
+     "14 - 6",
+     "(14 - 6) // 2"
+    ],
+    "h": "Die Grenze gehört dazu, weil „≥“ dasteht.",
+    "w": "2x ≥ 8, also x ≥ 4. L = [4; ∞[."
+   }
+  },
+  {
+   "kennung": "A4-V02",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "pruefen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "erst 5 + 3, dann mal 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": -1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Unterschied falsch herum gebildet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "erst 3 + 3, dann mal 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "pruefen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Prüfe, ob x = 5 die Ungleichung 2x + 3 ≤ 12 löst. Einsetzen: 2 · 5 + 3 = ①. Das liegt um ① − 12 = ② über 12, also ist 5 keine Lösung. Prüfe x = 3: 2 · 3 + 3 = ③. Das ist kleiner als 12, also ist 3 eine Lösung.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      13,
+      1,
+      9
+     ]
+    },
+    "c": [
+     "2*5+3",
+     "2*5+3-12",
+     "2*3+3"
+    ],
+    "h": "Erst mal, dann plus.",
+    "w": "2 · 5 + 3 = 13, das ist um 1 größer als 12. 2 · 3 + 3 = 9 ≤ 12."
+   }
+  },
+  {
+   "kennung": "A4-V03",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "grafisch",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1 addiert statt abgezogen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +1 vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "grafisch",
+    "t": "grafisch",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Geraden f(x) = 3x + 1 und g(x) = x + 9 schneiden sich dort, wo 3x + 1 = x + 9 gilt. Auf beiden Seiten x und 1 abziehen: 2x = ①. Also ist x = ②. Der Schnittpunkt hat den y-Wert f(②) = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      8,
+      4,
+      13
+     ]
+    },
+    "c": [
+     "9-1",
+     "(9-1)//2",
+     "3*((9-1)//2)+1"
+    ],
+    "h": "Beim Schnittpunkt sind beide Funktionswerte gleich.",
+    "w": "2x = 8, also x = 4. f(4) = 3 · 4 + 1 = 13, und g(4) = 4 + 9 = 13."
+   }
+  },
+  {
+   "kennung": "A4-V04",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "sachaufgabe",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet statt abgerundet"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgabe",
+    "t": "sachaufgabe",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Lastenaufzug darf höchstens 500 kg tragen. Ein Rollwagen wiegt 30 kg. Jede Kiste darauf wiegt 40 kg. Für k Kisten muss gelten: 30 + 40 · k ≤ 500. Also ist 40 · k ≤ ①. Die größte ganze Zahl k, die passt, ist ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      470,
+      11
+     ]
+    },
+    "c": [
+     "500 - 30",
+     "(500 - 30) // 40"
+    ],
+    "h": "Teile durch 40 und lass die Nachkommastellen weg: Man kann keine halbe Kiste laden.",
+    "w": "40 · k ≤ 470, also k ≤ 11,75. Ganze Kisten: höchstens 11."
+   }
+  },
+  {
+   "kennung": "A4-V05",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "lesen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Grenze mitgezählt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Grenze mitgezählt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +1 vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "lesen",
+    "t": "lesen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Das Intervall ]−3; 5[ enthält alle Zahlen zwischen −3 und 5, ohne die Grenzen. Die kleinste ganze Zahl darin ist ①. Die größte ganze Zahl darin ist ②. Von ① bis ② liegen ② − (①) + 1 = ③ ganze Zahlen.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -2,
+      4,
+      7
+     ]
+    },
+    "c": [
+     "-3+1",
+     "5-1",
+     "(5-1)-(-3+1)+1"
+    ],
+    "h": "Die Grenzen selbst gehören nicht dazu.",
+    "w": "Die kleinste ganze Zahl ist −2, die größte 4. Von −2 bis 4 sind es 4 − (−2) + 1 = 7 Zahlen."
+   }
+  },
+  {
+   "kennung": "A4-V06",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "schreiben",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 addiert statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "schreiben",
+    "t": "schreiben",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "x + 3 ≥ 9 ergibt x ≥ ①. x − 2 < 5 ergibt x < ②. Beides zusammen: ① ≤ x < ②. Als Intervall schreibst du das so: L = [①; ②[.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      7
+     ]
+    },
+    "c": [
+     "9 - 3",
+     "5 + 2"
+    ],
+    "h": "Erst beide Ungleichungen einzeln lösen.",
+    "w": "x ≥ 6 und x < 7. Das Intervall ist [6; 7[."
+   }
+  },
+  {
+   "kennung": "A4-V07",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "enthalten",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grenze 4 mitgezählt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +1 vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "enthalten",
+    "t": "enthalten",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Das Intervall [−1; 4[ enthält die untere Grenze, aber nicht die obere. Die größte ganze Zahl darin ist 4 − 1 = ①. Die kleinste ist −1. Von −1 bis ① zählt man ① − (−1) + 1 = ② ganze Zahlen.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      5
+     ]
+    },
+    "c": [
+     "4-1",
+     "(4-1)-(-1)+1"
+    ],
+    "h": "Zähle von der unteren Grenze bis kurz vor der oberen.",
+    "w": "Die größte ganze Zahl ist 3. Von −1 bis 3 sind es 3 + 1 + 1 = 5 Zahlen: −1, 0, 1, 2, 3."
+   }
+  },
+  {
+   "kennung": "A4-V08",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "beurteilen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Grenze mitgezählt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das +1 vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "beurteilen",
+    "t": "beurteilen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Kim sagt: „]1; 6[ und [2; 5] enthalten dieselben ganzen Zahlen.“ Schreibe beide Mengen auf und vergleiche die Elemente. In ]1; 6[ liegen ① ganze Zahlen, in [2; 5] liegen ② ganze Zahlen. Jede Zahl aus [2; 5] liegt auch in ]1; 6[. In [2; 5] fehlen also ① − ② = ③ der ganzen Zahlen aus ]1; 6[. Kims Aussage stimmt, wenn nichts fehlt.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      4,
+      0
+     ]
+    },
+    "c": [
+     "6-1-1",
+     "5-2+1",
+     "(6-1-1)-(5-2+1)"
+    ],
+    "h": "Schreibe die ganzen Zahlen beider Intervalle auf.",
+    "w": "In ]1; 6[ liegen 2, 3, 4, 5. In [2; 5] liegen 2, 3, 4, 5. Es fehlt nichts, die Mengen sind gleich. Gleich viele Zahlen allein würde als Beweis nicht reichen; man vergleicht die Elemente."
+   }
+  },
+  {
+   "kennung": "A4-V09",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "umformen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Auf beiden Seiten 9 abziehen: 4x ≥ 6. Durch 4 teilen: x ≥ 1,5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei der Gegenrechnung addiert statt subtrahiert"
+    },
+    {
+     "index": 2,
+     "antwort": "Nur 4x durch 4 teilen: x − 9 ≥ 15. Dann 9 addieren: x ≥ 24",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einen Term geteilt"
+    },
+    {
+     "index": 3,
+     "antwort": "Beide Seiten durch 4 teilen: x − 9 ≥ 3. Dann 9 addieren: x ≥ 12",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 9 nicht mitgeteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "umformen",
+    "t": "umformen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Wie löst du 4x − 9 ≥ 15 richtig?"
+    },
+    "a": [
+     "Auf beiden Seiten 9 abziehen: 4x ≥ 6. Durch 4 teilen: x ≥ 1,5",
+     "Auf beiden Seiten 9 addieren: 4x ≥ 24. Durch 4 teilen: x ≥ 6",
+     "Nur 4x durch 4 teilen: x − 9 ≥ 15. Dann 9 addieren: x ≥ 24",
+     "Beide Seiten durch 4 teilen: x − 9 ≥ 3. Dann 9 addieren: x ≥ 12"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Erst die Zahl ohne x auf die andere Seite bringen. Dann teilen.",
+    "w": "4x − 9 ≥ 15, also 4x ≥ 24 und x ≥ 6. Probe: x = 6: 4 · 6 − 9 = 15."
+   }
+  },
+  {
+   "kennung": "A4-V10",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "umdrehen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "4 abziehen: −3x > 15. Durch −3 teilen, aber das Zeichen lassen: x > −5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeichen nicht umgedreht"
+    },
+    {
+     "index": 2,
+     "antwort": "4 abziehen: −3x > 15. Durch 3 teilen: x > 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus vor der 3 ignoriert"
+    },
+    {
+     "index": 3,
+     "antwort": "4 abziehen: −3x > 15. Durch −3 teilen und das Zeichen umdrehen: x < 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "15 : (−3) falsch vorzeichenbehaftet gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "umdrehen",
+    "t": "umdrehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Löse −3x + 4 > 19. Welcher Weg ist richtig?"
+    },
+    "a": [
+     "4 abziehen: −3x > 15. Durch −3 teilen, aber das Zeichen lassen: x > −5",
+     "4 abziehen: −3x > 15. Durch −3 teilen und das Zeichen umdrehen: x < −5",
+     "4 abziehen: −3x > 15. Durch 3 teilen: x > 5",
+     "4 abziehen: −3x > 15. Durch −3 teilen und das Zeichen umdrehen: x < 5"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Beim Teilen durch eine negative Zahl dreht sich das Zeichen um.",
+    "w": "−3x > 15. Durch −3 teilen: x < −5. Probe: x = −6: −3 · (−6) + 4 = 22 > 19."
+   }
+  },
+  {
+   "kennung": "A4-V11",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "klammern",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Klammer auflösen: 3x + 6 ≥ 5x − 4. Daraus folgt x ≥ 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Teilen durch −2 das Zeichen nicht umgedreht"
+    },
+    {
+     "index": 1,
+     "antwort": "Klammer auflösen: 3x + 2 ≥ 5x − 4. Daraus folgt x ≤ 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 2 in der Klammer nicht mit 3 multipliziert"
+    },
+    {
+     "index": 2,
+     "antwort": "Klammer auflösen: 3x + 6 ≥ 5x − 4. Daraus folgt x ≥ −5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Vorzeichen beim Umstellen verloren"
+    }
+   ],
+   "aufgabe": {
+    "l": "klammern",
+    "t": "klammern",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Löse 3(x + 2) ≥ 5x − 4. Welche Lösung stimmt?"
+    },
+    "a": [
+     "Klammer auflösen: 3x + 6 ≥ 5x − 4. Daraus folgt x ≥ 5",
+     "Klammer auflösen: 3x + 2 ≥ 5x − 4. Daraus folgt x ≤ 3",
+     "Klammer auflösen: 3x + 6 ≥ 5x − 4. Daraus folgt x ≥ −5",
+     "Klammer auflösen: 3x + 6 ≥ 5x − 4. Daraus folgt x ≤ 5"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Ordne: x-Terme auf eine Seite, Zahlen auf die andere. Beachte das Vorzeichen von x am Ende.",
+    "w": "3x + 6 ≥ 5x − 4 → 10 ≥ 2x → x ≤ 5. Probe: x = 5: 3 · 7 = 21 ≥ 21."
+   }
+  },
+  {
+   "kennung": "A4-V12",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "intervall",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "−x < −3, daraus folgt x < 3, also L = ]−∞; 3[",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeichen nicht umgedreht"
+    },
+    {
+     "index": 2,
+     "antwort": "−x < −3, durch −1 teilen und das Zeichen umdrehen: x > 3, also L = [3; ∞[",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Klammer bei „>“ falsch gesetzt"
+    },
+    {
+     "index": 3,
+     "antwort": "−x < −3, daraus folgt x > −3, also L = ]−3; ∞[",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen der Zahl nicht geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "intervall",
+    "t": "intervall",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Löse 5 − x < 2 und gib die Lösungsmenge als Intervall an. Welche Antwort stimmt?"
+    },
+    "a": [
+     "−x < −3, durch −1 teilen und das Zeichen umdrehen: x > 3, also L = ]3; ∞[",
+     "−x < −3, daraus folgt x < 3, also L = ]−∞; 3[",
+     "−x < −3, durch −1 teilen und das Zeichen umdrehen: x > 3, also L = [3; ∞[",
+     "−x < −3, daraus folgt x > −3, also L = ]−3; ∞["
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Auch bei −x dreht sich das Zeichen um, denn du teilst durch −1.",
+    "w": "5 − x < 2 → −x < −3 → x > 3. Die 3 gehört nicht dazu: L = ]3; ∞[."
+   }
+  },
+  {
+   "kennung": "A4-V13",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "grafisch",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "für x ≥ 2, denn rechts vom Schnittpunkt liegt f über g",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "links und rechts verwechselt"
+    },
+    {
+     "index": 1,
+     "antwort": "für x ≤ 6, denn bei x = 6 ist f(x) = 0",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Nullstelle von f für den Schnittpunkt gehalten"
+    },
+    {
+     "index": 3,
+     "antwort": "für x ≥ 6, denn dort ist g größer",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Nullstelle genommen und Richtung falsch"
+    }
+   ],
+   "aufgabe": {
+    "l": "grafisch",
+    "t": "grafisch",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Geraden f(x) = −x + 6 und g(x) = 2x schneiden sich bei x = 2. Für welche x gilt f(x) ≥ g(x)?"
+    },
+    "a": [
+     "für x ≥ 2, denn rechts vom Schnittpunkt liegt f über g",
+     "für x ≤ 6, denn bei x = 6 ist f(x) = 0",
+     "für x ≤ 2, denn links vom Schnittpunkt liegt f über g",
+     "für x ≥ 6, denn dort ist g größer"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Setze eine Zahl links vom Schnittpunkt ein, zum Beispiel x = 0.",
+    "w": "f(0) = 6 und g(0) = 0: links liegt f über g. Also f(x) ≥ g(x) für x ≤ 2."
+   }
+  },
+  {
+   "kennung": "A4-V14",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "sachaufgabe",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "3 + 2x ≥ 25, also x ≥ 11: mindestens 11 km",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„höchstens“ als „≥“ gelesen"
+    },
+    {
+     "index": 1,
+     "antwort": "2 + 3x ≤ 25, also x ≤ 7: höchstens 7 km",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Grundpreis und Kilometerpreis vertauscht"
+    },
+    {
+     "index": 3,
+     "antwort": "2x ≤ 25, also x ≤ 12: höchstens 12 km",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Grundpreis vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgabe",
+    "t": "sachaufgabe",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Taxi kostet 3 € Grundpreis und 2 € je Kilometer. Du hast 25 €. Wie viele Kilometer kannst du höchstens fahren? Welcher Ansatz passt?"
+    },
+    "a": [
+     "3 + 2x ≥ 25, also x ≥ 11: mindestens 11 km",
+     "2 + 3x ≤ 25, also x ≤ 7: höchstens 7 km",
+     "3 + 2x ≤ 25, also x ≤ 11: höchstens 11 km",
+     "2x ≤ 25, also x ≤ 12: höchstens 12 km"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Gesamtkosten = Grundpreis + Preis je km mal Kilometer. Sie dürfen 25 € nicht übersteigen.",
+    "w": "3 + 2x ≤ 25 → 2x ≤ 22 → x ≤ 11. Bei 11 km zahlst du genau 25 €."
+   }
+  },
+  {
+   "kennung": "A4-V15",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "schreiben",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "]2; 9[",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Grenzen ausgeschlossen"
+    },
+    {
+     "index": 2,
+     "antwort": "[2; 9[",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„höchstens“ als „kleiner als“ gelesen"
+    },
+    {
+     "index": 3,
+     "antwort": "]2; 9]",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„mindestens“ als „größer als“ gelesen"
+    }
+   ],
+   "aufgabe": {
+    "l": "schreiben",
+    "t": "schreiben",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Paket darf mindestens 2 kg und höchstens 9 kg wiegen. Wie schreibst du die erlaubten Gewichte als Intervall?"
+    },
+    "a": [
+     "[2; 9], denn beide Grenzen gehören dazu",
+     "]2; 9[",
+     "[2; 9[",
+     "]2; 9]"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "„Mindestens“ und „höchstens“ lassen die Grenze zu.",
+    "w": "Mindestens 2 heißt: 2 gehört dazu. Höchstens 9 heißt: 9 gehört dazu. L = [2; 9]."
+   }
+  },
+  {
+   "kennung": "A4-V16",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "enthalten",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "4 − (−3) = 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand gerechnet, aber eine Grenze nicht mitgezählt"
+    },
+    {
+     "index": 1,
+     "antwort": "4 − (−3) − 1 = 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Grenzen nicht mitgezählt"
+    },
+    {
+     "index": 2,
+     "antwort": "4 − 3 + 1 = 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus bei −3 übersehen"
+    }
+   ],
+   "aufgabe": {
+    "l": "enthalten",
+    "t": "enthalten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Wie viele ganze Zahlen liegen im Intervall [−3; 4]? Welche Rechnung ist richtig?"
+    },
+    "a": [
+     "4 − (−3) = 7",
+     "4 − (−3) − 1 = 6",
+     "4 − 3 + 1 = 2",
+     "4 − (−3) + 1 = 8, denn beide Grenzen gehören dazu"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Nimm als Beispiel [1; 3]: Wie viele ganze Zahlen sind das?",
+    "w": "Beide Grenzen zählen mit: −3, −2, −1, 0, 1, 2, 3, 4 sind 8 Zahlen. Rechnung: 4 + 3 + 1 = 8."
+   }
+  },
+  {
+   "kennung": "A4-V17",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "beurteilen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Es stimmt, denn 5 ist kleiner als 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die obere Grenze verglichen"
+    },
+    {
+     "index": 2,
+     "antwort": "Es stimmt, denn beide Intervalle beginnen bei 0",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammern übersehen"
+    },
+    {
+     "index": 3,
+     "antwort": "Es stimmt nicht: 5 liegt in [0; 5], aber nicht in ]0; 6[",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 gehört zu ]0; 6["
+    }
+   ],
+   "aufgabe": {
+    "l": "beurteilen",
+    "t": "beurteilen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim sagt: „Jede Zahl im Intervall [0; 5] liegt auch im Intervall ]0; 6[.“ Wie prüfst du das?"
+    },
+    "a": [
+     "Es stimmt, denn 5 ist kleiner als 6",
+     "Es stimmt nicht: 0 liegt in [0; 5], aber nicht in ]0; 6[",
+     "Es stimmt, denn beide Intervalle beginnen bei 0",
+     "Es stimmt nicht: 5 liegt in [0; 5], aber nicht in ]0; 6["
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Prüfe die Grenzen einzeln, besonders die Klammern.",
+    "w": "0 gehört zu [0; 5], aber nicht zu ]0; 6[. Ein Gegenbeispiel genügt: Die Aussage ist falsch."
+   }
+  },
+  {
+   "kennung": "A4-V24",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "lesen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "]−1; 6[",
+     "fehlbild": "fb.gleichung_loesen.klammer_falsch_herum",
+     "regel_des_fehlbilds": "id.algebra.gleichung_loesen",
+     "beschreibung": "beide Grenzen falsch herum geschrieben"
+    },
+    {
+     "index": 2,
+     "antwort": "[−1; 6]",
+     "fehlbild": "fb.gleichung_loesen.klammer_falsch_herum",
+     "regel_des_fehlbilds": "id.algebra.gleichung_loesen",
+     "beschreibung": "rechte Klammer verkehrt"
+    },
+    {
+     "index": 3,
+     "antwort": "]−1; 6]",
+     "fehlbild": "fb.gleichung_loesen.klammer_falsch_herum",
+     "regel_des_fehlbilds": "id.algebra.gleichung_loesen",
+     "beschreibung": "linke und rechte Klammer vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "lesen",
+    "t": "lesen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Zahlen x mit −1 ≤ x < 6 sollen als Intervall geschrieben werden. Welche Schreibweise passt?"
+    },
+    "a": [
+     "]−1; 6[",
+     "[−1; 6[",
+     "[−1; 6]",
+     "]−1; 6]"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Gehört die Grenze dazu, zeigt die Klammer zur Zahl hin.",
+    "w": "−1 gehört dazu (≤): die Klammer zeigt zur −1. 6 gehört nicht dazu (<): die Klammer zeigt von der 6 weg. Also [−1; 6[."
+   }
+  },
+  {
+   "kennung": "A4-V18",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "umformen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    }
+   ],
+   "aufgabe": {
+    "l": "umformen",
+    "t": "umformen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst 4x + 6 > 30. Zeile 1: Auf beiden Seiten 6 addieren: 4x > 36. Zeile 2: Durch 4 teilen: x > 9. Zeile 3: Die Lösung sind alle Zahlen größer als 9. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wie macht man „plus 6“ rückgängig?",
+    "w": "Plus 6 macht man mit minus 6 rückgängig: 4x > 24, also x > 6. Die Zeilen 2 und 3 folgen richtig aus der falschen Zeile 1."
+   }
+  },
+  {
+   "kennung": "A4-V19",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "klammern",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "klammern",
+    "t": "klammern",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst 2(x − 3) < x + 5. Zeile 1: Klammer auflösen: 2x − 3 < x + 5. Zeile 2: Auf beiden Seiten x abziehen: x − 3 < 5. Zeile 3: Auf beiden Seiten 3 addieren: x < 8. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Beim Auflösen der Klammer wird jede Zahl in der Klammer mit 2 multipliziert.",
+    "w": "2(x − 3) = 2x − 6, nicht 2x − 3. Richtig: 2x − 6 < x + 5, also x < 11."
+   }
+  },
+  {
+   "kennung": "A4-V20",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "intervall",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    }
+   ],
+   "aufgabe": {
+    "l": "intervall",
+    "t": "intervall",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst −2x ≤ 10 und schreibt die Lösung als Intervall. Zeile 1: Durch −2 teilen, das Zeichen bleibt: x ≤ −5. Zeile 2: Die Grenze −5 gehört dazu, die Klammer zeigt zur Zahl hin: −5]. Zeile 3: Es geht unbegrenzt nach links: L = ]−∞; −5]. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Was passiert mit dem Zeichen, wenn du durch eine negative Zahl teilst?",
+    "w": "Beim Teilen durch −2 dreht sich das Zeichen um: x ≥ −5, also L = [−5; ∞[. Die Zeilen 2 und 3 passen zur falschen Zeile 1."
+   }
+  },
+  {
+   "kennung": "A4-V21",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "pruefen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "pruefen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst −2x + 1 > 7 und prüft das Ergebnis. Zeile 1: 1 abziehen: −2x > 6. Zeile 2: Durch −2 teilen: x > −3. Zeile 3: Probe mit x = 0: −2 · 0 + 1 = 1, und 1 > 7 stimmt nicht. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Die Probe zeigt: 0 ist größer als −3 und trotzdem keine Lösung.",
+    "w": "Durch −2 teilen dreht das Zeichen um: x < −3. Die Probe mit x = 0 deckt den Fehler auf."
+   }
+  },
+  {
+   "kennung": "A4-V22",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "grafisch",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    }
+   ],
+   "aufgabe": {
+    "l": "grafisch",
+    "t": "grafisch",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Geraden f(x) = x + 2 und g(x) = 3x − 4 schneiden sich bei x = 3. Kim löst f(x) < g(x) mit den Graphen. Zeile 1: f(x) < g(x) heißt: Der Graph von f liegt über dem von g. Zeile 2: Links von x = 3 liegt g unter f, rechts von x = 3 liegt g über f. Zeile 3: f(x) < g(x) gilt also für alle x < 3. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Bei f(x) < g(x): Welcher der beiden Graphen liegt unten?",
+    "w": "f(x) < g(x) heißt: f liegt unter g. Das ist rechts vom Schnittpunkt der Fall: x > 3."
+   }
+  },
+  {
+   "kennung": "A4-V23",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "sachaufgabe",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgabe",
+    "t": "sachaufgabe",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Verein verlangt 8 € Grundgebühr und 3 € für jeden Besuch. Kim hat höchstens 50 € zur Verfügung und will wissen, wie oft er kommen kann. Zeile 1: Ansatz: 8 + 3x ≥ 50. Zeile 2: 8 abziehen: 3x ≥ 42. Zeile 3: Durch 3 teilen: x ≥ 14. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welches Zeichen gehört zu „höchstens“?",
+    "w": "„Höchstens 50 €“ heißt: Die Kosten sind kleiner oder gleich 50. Richtig: 8 + 3x ≤ 50, also x ≤ 14."
+   }
+  },
+  {
+   "kennung": "A4-V25",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "schreiben",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    }
+   ],
+   "aufgabe": {
+    "l": "schreiben",
+    "t": "schreiben",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim schreibt „alle Zahlen größer als −1 und höchstens 4“ als Intervall. Zeile 1: Die untere Grenze −1: „größer als“, also gehört −1 dazu. Die Klammer zeigt zur Zahl: [−1. Zeile 2: Die obere Grenze 4: „höchstens“, also gehört 4 dazu. Die Klammer zeigt zur Zahl: 4]. Zeile 3: Zusammen: L = [−1; 4]. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Gehört −1 dazu, wenn „größer als“ dasteht?",
+    "w": "„Größer als −1“ schließt −1 aus: Die Klammer zeigt weg, ]−1. Richtig ist L = ]−1; 4]. Zeile 3 folgt richtig aus Zeile 1 und 2."
+   }
+  },
+  {
+   "kennung": "A4-V26",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "enthalten",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    }
+   ],
+   "aufgabe": {
+    "l": "enthalten",
+    "t": "enthalten",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim prüft, welche der Zahlen −2, 0, 3 und 7 zum Intervall ]−2; 7] gehören. Zeile 1: −2 ist die Grenze. Die Klammer zeigt zur Zahl hin, also gehört −2 dazu. Zeile 2: 0 und 3 liegen zwischen −2 und 7, also gehören sie dazu. Zeile 3: 7 ist die Grenze. Die Klammer zeigt zur Zahl hin, also gehört 7 dazu. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welche Klammer steht bei −2: eine, die zur Zahl zeigt, oder eine, die wegzeigt?",
+    "w": "Bei −2 steht „]“: Die Klammer zeigt weg von der Zahl, −2 gehört nicht dazu. Die Zahlen 0, 3 und 7 gehören dazu."
+   }
+  },
+  {
+   "kennung": "A4-V27",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "grafisch",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "ausgefüllter Punkt bei −1, Pfeil nach links",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−1 gehört bei „kleiner als“ nicht zur Lösung"
+    },
+    {
+     "index": 2,
+     "antwort": "offener Kreis bei −1, Pfeil nach rechts",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "kleiner als −1 heißt nach links"
+    },
+    {
+     "index": 3,
+     "antwort": "offener Kreis bei 1, Pfeil nach links",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grenze ist −1, nicht 1"
+    }
+   ],
+   "aufgabe": {
+    "l": "grafisch",
+    "t": "grafisch",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Die Ungleichung x < −1 soll auf der Zahlengeraden dargestellt werden. Welche Darstellung ist richtig?"
+    },
+    "y": "auswahl",
+    "a": [
+     "offener Kreis bei −1, Pfeil nach links",
+     "ausgefüllter Punkt bei −1, Pfeil nach links",
+     "offener Kreis bei −1, Pfeil nach rechts",
+     "offener Kreis bei 1, Pfeil nach links"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Ein ausgefüllter Punkt gehört zur Lösung, ein offener Kreis nicht.",
+    "w": "Die Zahl −1 selbst erfüllt x < −1 nicht, deshalb steht bei −1 ein offener Kreis. Gesucht sind Zahlen kleiner als −1, der Pfeil zeigt nach links."
+   }
+  },
+  {
+   "kennung": "A4-V28",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "intervall",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die +1 vergessen: Schritte statt Zahlen gezählt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 − 2 + 1 gerechnet, das Vorzeichen von −2 übersehen"
+    }
+   ],
+   "aufgabe": {
+    "l": "intervall",
+    "t": "intervall",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Wie viele ganze Zahlen liegen im Intervall [−2; 5], beide Grenzen gehören dazu? Weg A: alle aufzählen. Weg B: 5 − (−2) + 1 rechnen."
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 8
+    },
+    "c": "5 - (-2) + 1",
+    "h": "Bei Grenzen, die dazugehören, zählt man beide Enden mit.",
+    "w": "Weg A: −2, −1, 0, 1, 2, 3, 4, 5 sind 8 Zahlen. Weg B: 5 − (−2) = 7 Schritte, dazu die 1 für das erste Ende, also 8."
+   }
+  },
+  {
+   "kennung": "A4-V29",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "klammern",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grenze selbst mitgezählt"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 3 nur mit x multipliziert: 3x + 2 > 21"
+    }
+   ],
+   "aufgabe": {
+    "l": "klammern",
+    "t": "klammern",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Gelöst werden soll 3 · (x + 2) > 21. Weg A: die Klammer ausmultiplizieren, 3x + 6 > 21. Weg B: erst beide Seiten durch 3 teilen, x + 2 > 7. Wie lautet die kleinste ganze Zahl, die die Ungleichung erfüllt?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 6
+    },
+    "c": "15 // 3 + 1",
+    "h": "Beide Wege geben x > 5. Wird die 5 selbst erfüllt?",
+    "w": "Weg A: 3x > 15, also x > 5. Weg B: x > 5. Die Zahl 5 erfüllt „größer als 5“ nicht, die kleinste ganze Lösung ist 6. Probe: 3 · (6 + 2) = 24 > 21."
+   }
+  },
+  {
+   "kennung": "A4-V30",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "pruefen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "x = 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "7 ist nicht kleiner als 7"
+    },
+    {
+     "index": 2,
+     "antwort": "x = 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 · 6 − 3 = 9 ist größer als 7"
+    },
+    {
+     "index": 3,
+     "antwort": "x = 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 · 7 − 3 = 11 ist größer als 7"
+    }
+   ],
+   "aufgabe": {
+    "l": "pruefen",
+    "t": "pruefen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Welche der Zahlen erfüllt die Ungleichung 2x − 3 < 7?"
+    },
+    "y": "auswahl",
+    "a": [
+     "x = 4",
+     "x = 5",
+     "x = 6",
+     "x = 7"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Setze jede Zahl ein und vergleiche mit 7.",
+    "w": "x = 4: 2 · 4 − 3 = 5, und 5 < 7 stimmt. x = 5 gibt 7, das ist nicht kleiner als 7. x = 6 gibt 9 und x = 7 gibt 11. Nur x = 4 passt."
+   }
+  },
+  {
+   "kennung": "A4-V31",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "sachaufgabe",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Grundpreis vergessen, 30 : 2 gerechnet"
+    },
+    {
+     "antwort": 26,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Grundpreis abgezogen, nicht durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachaufgabe",
+    "t": "sachaufgabe",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Eine Taxifahrt kostet 4 € Grundpreis plus 2 € für jeden gefahrenen Kilometer. Du willst höchstens 30 € bezahlen. Wie viele ganze Kilometer darfst du höchstens fahren?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 13,
+     "einheit": "km"
+    },
+    "c": "(30 - 4) // 2",
+    "h": "Ziehe zuerst den Grundpreis ab. Was bleibt für die Kilometer?",
+    "w": "Für die Kilometer bleiben 30 − 4 = 26 €. Jeder Kilometer kostet 2 €, also 26 : 2 = 13 Kilometer. Probe: 4 + 13 · 2 = 30 €."
+   }
+  },
+  {
+   "kennung": "A4-V32",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "umdrehen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grenze selbst mitgezählt"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen der Grenze verloren, x < 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "umdrehen",
+    "t": "umdrehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Gelöst werden soll −2x > 6. Weg A: durch −2 teilen und das Zeichen umdrehen. Weg B: zu beiden Seiten 2x addieren, dann 6 abziehen, dann durch 2 teilen. Welche ganze Zahl ist die größte Lösung?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": -4
+    },
+    "c": "(6 // 2) * (-1) - 1",
+    "h": "Beide Wege geben x < −3. Die −3 selbst gehört nicht dazu.",
+    "w": "Weg A: durch −2 teilen, das Zeichen dreht sich um: x < −3. Weg B: 0 > 6 + 2x, dann −6 > 2x, dann −3 > x. Die größte ganze Zahl kleiner als −3 ist −4. Probe: −2 · (−4) = 8 > 6."
+   }
+  },
+  {
+   "kennung": "A4-V33",
+   "thema": "gleichungen.ungleichungen",
+   "lernkarte": "umformen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.waage",
+   "regel_name": "Gleichung als Waage",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grenze selbst mitgezählt"
+    },
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 addiert statt abgezogen: 2x > 26"
+    }
+   ],
+   "aufgabe": {
+    "l": "umformen",
+    "t": "umformen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Du verdoppelst eine ganze Zahl und addierst 5. Das Ergebnis ist größer als 21. Wie lautet die kleinste ganze Zahl, auf die das zutrifft?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 9
+    },
+    "c": "(21 - 5) // 2 + 1",
+    "h": "Stelle die Ungleichung auf: 2x + 5 > 21, und forme um.",
+    "w": "2x + 5 > 21 gibt 2x > 16 und x > 8. Die Zahl 8 selbst erfüllt es nicht (2 · 8 + 5 = 21), die kleinste ganze Zahl ist 9."
+   }
+  },
+  {
+   "kennung": "A4-V34",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "beurteilen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "7 liegt im Intervall, 2 nicht.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Klammern sind vertauscht gelesen"
+    },
+    {
+     "index": 2,
+     "antwort": "Beide Zahlen liegen im Intervall.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die runde Klammer schließt die 7 aus"
+    },
+    {
+     "index": 3,
+     "antwort": "Keine der beiden Zahlen liegt im Intervall.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die eckige Klammer schließt die 2 ein"
+    }
+   ],
+   "aufgabe": {
+    "l": "beurteilen",
+    "t": "beurteilen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Welche Aussage über das Intervall [2; 7) stimmt?"
+    },
+    "y": "auswahl",
+    "a": [
+     "2 liegt im Intervall, 7 nicht.",
+     "7 liegt im Intervall, 2 nicht.",
+     "Beide Zahlen liegen im Intervall.",
+     "Keine der beiden Zahlen liegt im Intervall."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Eine eckige Klammer schließt die Grenze ein, eine runde schließt sie aus.",
+    "w": "Bei [2 gehört die 2 dazu, bei 7) gehört die 7 nicht dazu. Die Zahl 2 liegt im Intervall, die 7 nicht."
+   }
+  },
+  {
+   "kennung": "A4-V35",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "enthalten",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Enden mitgezählt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Enden ausgeschlossen"
+    }
+   ],
+   "aufgabe": {
+    "l": "enthalten",
+    "t": "enthalten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Wie viele ganze Zahlen liegen im Intervall (1; 6], die 1 gehört nicht dazu, die 6 gehört dazu? Weg A: aufzählen. Weg B: 6 − 1 rechnen."
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 5
+    },
+    "c": "6 - 1",
+    "h": "Bei einer Grenze, die nicht dazugehört, wird sie nicht mitgezählt.",
+    "w": "Weg A: 2, 3, 4, 5, 6 sind 5 Zahlen. Weg B: 6 − 1 = 5, weil nur ein Ende mitzählt."
+   }
+  },
+  {
+   "kennung": "A4-V36",
+   "thema": "zahlen.intervalle",
+   "lernkarte": "schreiben",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 − 7 gerechnet"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 · 7 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "schreiben",
+    "t": "schreiben",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Ein Intervall beginnt bei 4 (die 4 gehört dazu) und ist 7 lang. Wie lautet die obere Grenze?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 11
+    },
+    "c": "4 + 7",
+    "h": "Von der unteren Grenze aus geht es die Länge des Intervalls nach rechts.",
+    "w": "Obere Grenze = untere Grenze + Länge = 4 + 7 = 11. Das Intervall ist [4; 11]. Probe: 11 − 4 = 7."
+   }
+  }
+ ]
+}

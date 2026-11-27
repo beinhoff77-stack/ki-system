@@ -1,0 +1,800 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-7",
+ "kuerzel": "K8",
+ "flug": "k8-terme.umformen",
+ "titel": "terme.umformen",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen": [
+  "terme.umformen"
+ ],
+ "themen_datei_im_bestand": "terme.umformen",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K8-V001",
+   "thema": "terme.umformen",
+   "lernkarte": "zusammenfassen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahlen malgenommen statt addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "fehlbild": "fb.tauschen.ungleiches_zusammengefasst",
+     "regel_des_fehlbilds": "rr.tauschen",
+     "beschreibung": "auch die a-Glieder dazugezählt: 3 + 4 + 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Fasse zusammen: 6a + 3b + 5a + 4b. Zuerst die a-Glieder, dann die b-Glieder. Das Ergebnis lautet ①a + ②b. Setzt du in dieses Ergebnis a = 2 und b = 1 ein, erhältst du ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      11,
+      7,
+      29
+     ]
+    },
+    "c": [
+     "6 + 5",
+     "3 + 4",
+     "(11) * 2 + (7) * 1"
+    ],
+    "h": "Zähle nur die Zahlen vor gleichen Buchstaben zusammen.",
+    "w": "6 + 5 = 11 und 3 + 4 = 7. Ergebnis: 11a + 7b. Für a = 2 und b = 1: 22 + 7 = 29."
+   }
+  },
+  {
+   "kennung": "K8-V002",
+   "thema": "terme.umformen",
+   "lernkarte": "zusammenfassen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die halbe Rechnung: Länge plus Breite ohne Verdopplung"
+    },
+    {
+     "antwort": 54,
+     "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
+     "regel_des_fehlbilds": "rr.ausmultiplizieren",
+     "beschreibung": "die 2 nur bei den x-Gliedern gerechnet: 2 · 3 · 6 + 4 + 2 · 6 + 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Rechteck ist (3x + 4) cm lang und (x + 2) cm breit. Fasse den Umfang zuerst zu einem Term der Form ax + b zusammen und setze dann x = 6 ein. Wie viele Zentimeter beträgt der Umfang?"
+    },
+    "o": {
+     "wert": 60,
+     "einheit": "cm"
+    },
+    "c": "2 * (3 * 6 + 4) + 2 * (6 + 2)",
+    "h": "Der Umfang ist 2 · Länge + 2 · Breite. Fasse die x-Glieder und die Zahlen getrennt zusammen.",
+    "w": "U = 2(3x + 4) + 2(x + 2) = 6x + 8 + 2x + 4 = 8x + 12. Für x = 6: 8 · 6 + 12 = 60 cm."
+   }
+  },
+  {
+   "kennung": "K8-V003",
+   "thema": "terme.umformen",
+   "lernkarte": "zusammenfassen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.tauschen",
+   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammenfassen",
+    "t": "zusammenfassen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim fasst 3x² + 5x − x² + 2x zusammen. Zeile 1: Sortieren: 3x² + 5x − x² + 2x = 3x² − x² + 5x + 2x Zeile 2: Gleichartige Glieder zusammenfassen: 3x² − x² = 2x² und 5x + 2x = 7x² Zeile 3: Ergebnis: 2x² + 7x² = 9x² In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Welche Glieder sind wirklich gleichartig? Prüfe mit x = 2.",
+    "w": "5x + 2x = 7x, nicht 7x². Beim Zusammenfassen ändert sich die Hochzahl nicht. Richtig: 2x² + 7x. Probe mit x = 2: 8 + 14 = 22, aber 2x² + 7x² = 36 ist etwas anderes."
+   }
+  },
+  {
+   "kennung": "K8-V004",
+   "thema": "terme.umformen",
+   "lernkarte": "produkte",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 24,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Minus vergessen"
+    },
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": "fb.tauschen.ungleiches_zusammengefasst",
+     "regel_des_fehlbilds": "rr.tauschen",
+     "beschreibung": "−3 + 4 + 2 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "produkte",
+    "t": "produkte",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Vereinfache (−3a) · 4a · 2b. Das Ergebnis lautet ①a²b. Setzt du in dieses Ergebnis a = 1 und b = 2 ein, erhältst du ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      -24,
+      -48
+     ]
+    },
+    "c": [
+     "(-3) * 4 * 2",
+     "(-24) * 1 * 2"
+    ],
+    "h": "Multipliziere zuerst alle Zahlen. Achte auf das Vorzeichen.",
+    "w": "(−3) · 4 · 2 = −24. Ergebnis: −24a²b. Für a = 1 und b = 2: −24 · 1 · 2 = −48."
+   }
+  },
+  {
+   "kennung": "K8-V005",
+   "thema": "terme.umformen",
+   "lernkarte": "produkte",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 96,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Minus vergessen"
+    },
+    {
+     "antwort": -24,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "x² als x gerechnet: −6 · 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "produkte",
+    "t": "produkte",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne (−2x) · (3x) für x = 4 auf zwei Wegen. Weg A: erst vereinfachen, dann x = 4 einsetzen. Weg B: erst x = 4 einsetzen, dann malnehmen. Welchen Wert erhältst du?"
+    },
+    "o": {
+     "wert": -96
+    },
+    "c": "(-2 * 4) * (3 * 4)",
+    "h": "Beide Wege müssen dasselbe ergeben. Beachte das Vorzeichen.",
+    "w": "Weg A: (−2x) · (3x) = −6x². Für x = 4: −6 · 16 = −96. Weg B: (−8) · 12 = −96."
+   }
+  },
+  {
+   "kennung": "K8-V006",
+   "thema": "terme.umformen",
+   "lernkarte": "produkte",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.vorzeichen",
+   "regel_name": "Vorzeichen bei Mal und Geteilt",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Vorzeichen übersehen"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 − 4 gerechnet"
+    },
+    {
+     "antwort": -80,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 · (−4) gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "produkte",
+    "t": "produkte",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Zahl a gilt (−4x) · (a · x²) = 20x³ für alle Zahlen x?"
+    },
+    "o": {
+     "wert": -5
+    },
+    "c": "20 / (-4)",
+    "h": "Vergleiche die Zahlen vor x³. Was mal −4 ergibt 20?",
+    "w": "Die Zahlen: (−4) · a = 20, also a = 20 : (−4) = −5. Die Hochzahlen passen für jedes x: x · x² = x³. Probe: (−4x) · (−5x²) = 20x³."
+   }
+  },
+  {
+   "kennung": "K8-V007",
+   "thema": "terme.umformen",
+   "lernkarte": "minusklammer",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.minusklammer",
+   "regel_name": "Minus vor der Klammer",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 + 4 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": -4,
+     "fehlbild": "fb.minusklammer.nur_erstes_zeichen",
+     "regel_des_fehlbilds": "rr.minusklammer",
+     "beschreibung": "nur das erste Vorzeichen umgedreht: −7 + 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "minusklammer",
+    "t": "minusklammer",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Löse die Klammer auf und fasse zusammen: 9x − (4x − 7) + 3. Das Ergebnis lautet ①x + ②. Setzt du in dieses Ergebnis x = 3 ein, erhältst du ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      5,
+      10,
+      25
+     ]
+    },
+    "c": [
+     "9 - 4",
+     "7 + 3",
+     "(5) * 3 + (10)"
+    ],
+    "h": "Das Minus vor der Klammer kehrt beide Vorzeichen in der Klammer um.",
+    "w": "9x − 4x + 7 + 3 = 5x + 10. Für x = 3: 15 + 10 = 25."
+   }
+  },
+  {
+   "kennung": "K8-V008",
+   "thema": "terme.umformen",
+   "lernkarte": "minusklammer",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.minusklammer",
+   "regel_name": "Minus vor der Klammer",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": "fb.minusklammer.nur_erstes_zeichen",
+     "regel_des_fehlbilds": "rr.minusklammer",
+     "beschreibung": "−5 statt +5 aufgelöst: 32 − 12 − 5"
+    },
+    {
+     "antwort": 39,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "32 + 7 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "minusklammer",
+    "t": "minusklammer",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne den Term 8x − (3x − 5) für x = 4 auf zwei Wegen. Weg A: erst die Klammer auflösen und zusammenfassen, dann x = 4 einsetzen. Weg B: erst x = 4 einsetzen, dann rechnen. Welchen Wert hat der Term?"
+    },
+    "o": {
+     "wert": 25
+    },
+    "c": "8 * 4 - (3 * 4 - 5)",
+    "h": "Beide Wege müssen denselben Wert ergeben. Bei Weg A wird aus − (3x − 5) zuerst −3x + 5.",
+    "w": "Weg A: 8x − 3x + 5 = 5x + 5. Für x = 4: 25. Weg B: 8 · 4 = 32, 3 · 4 − 5 = 7, 32 − 7 = 25."
+   }
+  },
+  {
+   "kennung": "K8-V009",
+   "thema": "terme.umformen",
+   "lernkarte": "minusklammer",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.minusklammer",
+   "regel_name": "Minus vor der Klammer",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "minusklammer",
+    "t": "minusklammer",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim löst die Klammern auf und fasst zusammen: 6x − (2x + 5) − (x − 3). Zeile 1: 6x − (2x + 5) − (x − 3) = 6x − 2x − 5 − x − 3 Zeile 2: = (6x − 2x − x) + (−5 − 3) Zeile 3: = 3x − 8 In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wie ändert das Minus vor der zweiten Klammer das Vorzeichen von −3?",
+    "w": "Vor (x − 3) steht ein Minus. Dann wird aus −3 ein +3: 6x − 2x − 5 − x + 3 = 3x − 2."
+   }
+  },
+  {
+   "kennung": "K8-V010",
+   "thema": "terme.umformen",
+   "lernkarte": "ausmultiplizieren",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": -3,
+     "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
+     "regel_des_fehlbilds": "rr.ausmultiplizieren",
+     "beschreibung": "die Zahl vor der Klammer nur beim ersten Glied verwendet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 15,
+     "fehlbild": "fb.vorzeichen.falsches_zeichen",
+     "regel_des_fehlbilds": "rr.vorzeichen",
+     "beschreibung": "das Minus vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "ausmultiplizieren",
+    "t": "ausmultiplizieren",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Multipliziere aus: 5(2x − 3). Das Ergebnis lautet ①x + ②. Setzt du in dieses Ergebnis x = 4 ein, erhältst du ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      10,
+      -15,
+      25
+     ]
+    },
+    "c": [
+     "5 * 2",
+     "5 * (-3)",
+     "(10) * 4 + (-15)"
+    ],
+    "h": "Der Faktor vor der Klammer wird mit jedem Glied in der Klammer malgenommen.",
+    "w": "5 · 2x = 10x und 5 · (−3) = −15. Für x = 4: 40 − 15 = 25."
+   }
+  },
+  {
+   "kennung": "K8-V011",
+   "thema": "terme.umformen",
+   "lernkarte": "ausmultiplizieren",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "3(2x + 5)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen der 15 übersehen"
+    },
+    {
+     "index": 1,
+     "antwort": "3 · 2x − 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 3 nur auf das erste Glied bezogen"
+    },
+    {
+     "index": 3,
+     "antwort": "2(3x − 5)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Faktor und Glied vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "ausmultiplizieren",
+    "t": "ausmultiplizieren",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt das Ausmultiplizieren. In der Kopfzeile stehen die Glieder der Klammer, links der Faktor, in der Zeile die Teilergebnisse. Welcher Term wurde ausmultipliziert?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "·",
+       "2x",
+       "−5"
+      ],
+      "zeilen": [
+       [
+        "3",
+        "6x",
+        "−15"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "3(2x + 5)",
+     "3 · 2x − 5",
+     "3(2x − 5)",
+     "2(3x − 5)"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Der Faktor links mal jedes Kopfglied ergibt das Feld darunter.",
+    "w": "3 · 2x = 6x und 3 · (−5) = −15. Das passt zu 3(2x − 5) = 6x − 15."
+   }
+  },
+  {
+   "kennung": "K8-V012",
+   "thema": "terme.umformen",
+   "lernkarte": "ausmultiplizieren",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6.5,
+     "fehlbild": "fb.ausmultiplizieren.nur_erster_summand",
+     "regel_des_fehlbilds": "rr.ausmultiplizieren",
+     "beschreibung": "die +3 nicht berücksichtigt: 39 : 6"
+    },
+    {
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Länge 2x + 1 statt x angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "ausmultiplizieren",
+    "t": "ausmultiplizieren",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Terrasse ist 3 m breit und (2x + 1) m lang. Ihre Fläche ist 3(2x + 1) m². Die Fläche soll 39 m² groß sein. Wie groß ist x?"
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "(39 - 3) / 6",
+    "h": "Multipliziere zuerst aus. Dann hast du eine Gleichung mit x.",
+    "w": "3(2x + 1) = 6x + 3. Aus 6x + 3 = 39 folgt 6x = 36, also x = 6. Die Terrasse ist dann 13 m lang."
+   }
+  },
+  {
+   "kennung": "K8-V013",
+   "thema": "terme.umformen",
+   "lernkarte": "aequivalenz",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 4 nur auf die 3 bezogen, die Klammer nicht beachtet: 4 · 3 + 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 4 auch auf die 2 bezogen: 4 · (3 + 2)"
+    }
+   ],
+   "aufgabe": {
+    "l": "aequivalenz",
+    "t": "aequivalenz",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Sind 4(x + 2) und 4x + 2 äquivalent? Setze x = 3 ein. Der erste Term hat dann den Wert ① und der zweite den Wert ②. Die beiden Werte unterscheiden sich um ③. Also sind die Terme nicht äquivalent.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      20,
+      14,
+      6
+     ]
+    },
+    "c": [
+     "4 * (3 + 2)",
+     "4 * 3 + 2",
+     "(20) - (14)"
+    ],
+    "h": "Rechne die Klammer zuerst aus. Dann erst malnehmen.",
+    "w": "4 · 5 = 20 und 12 + 2 = 14. Der Unterschied ist 6. Wären die Terme äquivalent, kämen für jedes x gleiche Werte heraus."
+   }
+  },
+  {
+   "kennung": "K8-V014",
+   "thema": "terme.umformen",
+   "lernkarte": "aequivalenz",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "3x + 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beim Ausmultiplizieren 3 · 1 vergessen: schon für x = 1 ist der Wert 5, nicht 8"
+    },
+    {
+     "index": 2,
+     "antwort": "5x + 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die erste Spalte stimmt: für x = 1 ist der Wert 8, für x = 2 aber 13 statt 11"
+    },
+    {
+     "index": 3,
+     "antwort": "3(x + 5)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Klammer falsch ausmultipliziert, ergibt 3x + 15"
+    }
+   ],
+   "aufgabe": {
+    "l": "aequivalenz",
+    "t": "aequivalenz",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt die Werte eines Terms für x = 1 bis 4. Welcher der Terme hat für alle vier Werte von x dieselben Werte?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "x",
+       "1",
+       "2",
+       "3",
+       "4"
+      ],
+      "zeilen": [
+       [
+        "Wert",
+        "8",
+        "11",
+        "14",
+        "17"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "3(x + 1) + 2",
+     "3x + 2",
+     "5x + 3",
+     "3(x + 5)"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Prüfe jeden Term mit zwei Werten von x aus der Tabelle. Ein einziger Wert reicht nicht.",
+    "w": "3(x + 1) + 2 = 3x + 5: 8, 11, 14, 17. Das passt in allen vier Spalten. 5x + 3 liefert 8, 13, 18, 23."
+   }
+  },
+  {
+   "kennung": "K8-V015",
+   "thema": "terme.umformen",
+   "lernkarte": "aequivalenz",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 3 vor der Klammer nicht beachtet: a gleich 15 gesetzt"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "15 − 3 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "aequivalenz",
+    "t": "aequivalenz",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Zahl a haben die Terme 3(x + a) und 3x + 15 für jede Zahl x denselben Wert?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "15 / 3",
+    "h": "Multipliziere 3(x + a) aus. Dann vergleiche die Zahlen ohne x.",
+    "w": "3(x + a) = 3x + 3a. Es muss 3a = 15 gelten, also a = 5. Probe: 3(x + 5) = 3x + 15."
+   }
+  }
+ ]
+}

@@ -1,0 +1,2152 @@
+{
+ "stand": "2026-11-27",
+ "flug": "ge1",
+ "titel": "Formen und Grundbegriffe",
+ "fuer": "Kind 1",
+ "klasse": 5,
+ "themen": [
+  "geometrie.grundbegriffe",
+  "geometrie.ortslinien"
+ ],
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Brücke), rollend-4. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag ja/nein) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: Stufe aufsteigend.",
+ "aufgaben": [
+  {
+   "kennung": "GE1-V01",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "lagebeziehungen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei „minus minus“ das Vorzeichen übersehen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Abstände addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "lagebeziehungen",
+    "t": "lagebeziehungen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die senkrechte Linie g geht durch (4 | 0). Der Punkt P(9 | 2) hat von g den Abstand 9 − 4 = ① Einheiten. Die senkrechte Linie h geht durch (−1 | 0). Von P bis h sind es 9 − (−1) = ② Einheiten. Der Abstand der beiden Linien g und h ist ② − ① = ③ Einheiten.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      5,
+      10,
+      5
+     ]
+    },
+    "c": [
+     "9-4",
+     "9-(-1)",
+     "(9-(-1))-(9-4)"
+    ],
+    "h": "Rechne die x-Koordinaten gegeneinander. Minus minus bedeutet plus.",
+    "w": "9 − 4 = 5. 9 − (−1) = 10. 10 − 5 = 5: Von x = −1 bis x = 4 sind es 5 Einheiten."
+   }
+  },
+  {
+   "kennung": "GE1-V02",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "kreis_lage",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Radius und Abstand addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit einer Tangente verwechselt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand nicht verändert"
+    },
+    {
+     "luecke": 4,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine Passante für eine Sekante gehalten"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreis_lage",
+    "t": "kreis_lage",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kreis hat den Radius 6 cm. Die Gerade g hat vom Mittelpunkt den Abstand 4 cm. Der Abstand ist ① cm kleiner als der Radius. Also schneidet g den Kreis in ② Punkten. Rückt g um ① cm weiter weg, hat sie den Abstand 6 + ① = ③ cm. Dann hat g mit dem Kreis ④ gemeinsame Punkte.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      2,
+      8,
+      0
+     ]
+    },
+    "c": [
+     "6-4",
+     "2",
+     "6+(6-4)",
+     "0"
+    ],
+    "h": "Sekante, Tangente, Passante: Wie viele gemeinsame Punkte hat jede?",
+    "w": "6 − 4 = 2 cm. Abstand kleiner als der Radius: 2 gemeinsame Punkte (Sekante). Abstand 8 cm ist größer als der Radius: 0 gemeinsame Punkte (Passante)."
+   }
+  },
+  {
+   "kennung": "GE1-V03",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "winkelarten",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 90,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit einem rechten Winkel verwechselt"
+    },
+    {
+     "luecke": 1,
+     "antwort": 360,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Vollwinkel verwechselt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 110,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand zum vollen Winkel genommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand zum gestreckten Winkel genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "winkelarten",
+    "t": "winkelarten",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Winkel hat 250°. Ein gestreckter Winkel hat ①°. Der Winkel ist 250° − ①° = ②° größer als ein gestreckter Winkel, aber kleiner als ein voller Winkel. Deshalb heißt er überstumpf. Bis zum vollen Winkel fehlen noch 360° − 250° = ③°.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      180,
+      70,
+      110
+     ]
+    },
+    "c": [
+     "180",
+     "250-180",
+     "360-250"
+    ],
+    "h": "Ein gestreckter Winkel ist eine gerade Linie.",
+    "w": "Gestreckt: 180°. 250° − 180° = 70°. Bis 360° fehlen 110°. Überstumpf heißt: größer als 180° und kleiner als 360°."
+   }
+  },
+  {
+   "kennung": "GE1-V04",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "vierecke",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "jede Länge nur einmal gezählt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur zwei rechte Winkel gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke",
+    "t": "vierecke",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Parallelogramm hat zwei Paare gleich langer Gegenseiten: 9 cm und 5 cm. Die beiden Längen zusammen: 9 + 5 = ① cm. Jede Länge kommt zweimal vor, der Umfang ist also 2 · ① = ② cm. Ein Rechteck mit denselben Seiten hat ③ rechte Winkel.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      14,
+      28,
+      4
+     ]
+    },
+    "c": [
+     "9+5",
+     "2*(9+5)",
+     "4"
+    ],
+    "h": "Jede Länge kommt zweimal vor.",
+    "w": "9 + 5 = 14. 2 · 14 = 28 cm Umfang. Ein Rechteck hat vier rechte Winkel."
+   }
+  },
+  {
+   "kennung": "GE1-V05",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "kreislinie",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhen addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 + 2 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Radius nicht abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreislinie",
+    "t": "kreislinie",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kreis hat den Mittelpunkt M(1 | 2) und den Radius 5. Der Punkt P(1 | 10) liegt senkrecht über M. Sein Abstand zu M ist 10 − 2 = ①. Der Punkt Q(1 | 6) liegt auch senkrecht über M. Sein Abstand zu M ist 6 − 2 = ②. P liegt um ① − 5 = ③ außerhalb des Kreises.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      8,
+      4,
+      3
+     ]
+    },
+    "c": [
+     "10-2",
+     "6-2",
+     "10-2-5"
+    ],
+    "h": "Beide Punkte haben dieselbe x-Koordinate wie M. Es zählt nur die Höhe.",
+    "w": "10 − 2 = 8 und 6 − 2 = 4. P ist 8 von M entfernt, der Radius ist 5: P liegt 3 außerhalb."
+   }
+  },
+  {
+   "kennung": "GE1-V06",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "parallelen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 · 3 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "beide Parallelen oberhalb"
+    },
+    {
+     "luecke": 3,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Abstand zu g genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallelen",
+    "t": "parallelen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die waagrechte Linie g geht durch (0 | 4). Alle Punkte mit dem Abstand 3 von g liegen auf zwei Parallelen. Die obere geht durch y = 4 + 3 = ①. Die untere geht durch y = 4 − 3 = ②. Die beiden Parallelen sind ① − ② = ③ Einheiten voneinander entfernt.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      7,
+      1,
+      6
+     ]
+    },
+    "c": [
+     "4+3",
+     "4-3",
+     "(4+3)-(4-3)"
+    ],
+    "h": "Eine Parallele liegt über g, eine unter g.",
+    "w": "Obere: 7, untere: 1. 7 − 1 = 6, das ist 2 · 3."
+   }
+  },
+  {
+   "kennung": "GE1-V07",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "zwei_kreise",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 + 1 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt addiert"
+    },
+    {
+     "luecke": 3,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Summe statt Unterschied"
+    },
+    {
+     "luecke": 4,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit einer Berührung verwechselt"
+    },
+    {
+     "luecke": 4,
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "keinen Schnittpunkt angenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_kreise",
+    "t": "zwei_kreise",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kreis um A(1 | 0) hat den Radius 4. Ein Kreis um B(9 | 0) hat den Radius 6. Der Abstand AB ist 9 − 1 = ①. Die beiden Radien zusammen: 4 + 6 = ②. Ihr Unterschied: 6 − 4 = ③. Es gilt ③ < ① < ②: Die Kreise schneiden sich in ④ Punkten.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      8,
+      10,
+      2,
+      2
+     ]
+    },
+    "c": [
+     "9-1",
+     "4+6",
+     "6-4",
+     "2"
+    ],
+    "h": "Zähle die Schnittpunkte von zwei Kreislinien, die sich durchdringen.",
+    "w": "AB = 8, Radien zusammen 10, Unterschied 2. Der Abstand liegt dazwischen: 2 Schnittpunkte."
+   }
+  },
+  {
+   "kennung": "GE1-V08",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "verknuepfen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit einer Tangente verwechselt"
+    },
+    {
+     "luecke": 4,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "auch bei großem Abstand zwei Punkte gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "verknuepfen",
+    "t": "verknuepfen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kreis hat den Mittelpunkt M(1 | 7) und den Radius 5. Die senkrechte Linie g geht durch x = 4. Ihr Abstand zu M ist 4 − 1 = ①. Weil ① kleiner als der Radius ist, hat g mit dem Kreis ② gemeinsame Punkte. Die senkrechte Linie h geht durch x = 10. Ihr Abstand zu M ist 10 − 1 = ③. Weil ③ größer als der Radius ist, hat h mit dem Kreis ④ gemeinsame Punkte.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      3,
+      2,
+      9,
+      0
+     ]
+    },
+    "c": [
+     "4 - 1",
+     "2",
+     "10 - 1",
+     "0"
+    ],
+    "h": "Abstand kleiner als der Radius: zwei Punkte. Größer: kein Punkt.",
+    "w": "4 − 1 = 3 < 5: zwei Punkte. 10 − 1 = 9 > 5: kein Punkt."
+   }
+  },
+  {
+   "kennung": "GE1-V09",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "sachsituationen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "11 + 4 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "11 + 13 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 17,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Leinenlängen addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachsituationen",
+    "t": "sachsituationen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Hund ist mit einer 4 m langen Leine an einen Pfahl gebunden. Der Pfahl steht 11 m vom Straßenrand entfernt. Der Hund kommt bis auf 11 − 4 = ① m an den Straßenrand heran. Wäre die Leine 13 m lang, ragte der Kreis 13 − 11 = ② m über den Straßenrand hinaus. Die beiden Leinen unterscheiden sich um ① + ② = ③ m.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      7,
+      2,
+      9
+     ]
+    },
+    "c": [
+     "11-4",
+     "13-11",
+     "(11-4)+(13-11)"
+    ],
+    "h": "Die Leine ist der Radius des Kreises.",
+    "w": "11 − 4 = 7 m bleiben bis zum Straßenrand. 13 − 11 = 2 m zu viel. 7 + 2 = 9 = 13 − 4."
+   }
+  },
+  {
+   "kennung": "GE1-V10",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "koordinaten",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "x: 2 − 3 = −1 und y: 1 + 4 = 5, also R(−1 | 5)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "rechts mit links und oben mit unten verwechselt"
+    },
+    {
+     "index": 1,
+     "antwort": "x: 3 + 4 = 7 und y: 2 + 1 = 3, also R(7 | 3)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Zahlen vermischt"
+    },
+    {
+     "index": 3,
+     "antwort": "x: 1 − 4 = −3 und y: 2 + 3 = 5, also R(−3 | 5)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x und y vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Punkt A hat die Koordinaten (2 | 1). Der Punkt R liegt 3 Einheiten rechts von A und 4 Einheiten unter A. Welche Rechnung gibt die Koordinaten von R?"
+    },
+    "a": [
+     "x: 2 − 3 = −1 und y: 1 + 4 = 5, also R(−1 | 5)",
+     "x: 3 + 4 = 7 und y: 2 + 1 = 3, also R(7 | 3)",
+     "x: 2 + 3 = 5 und y: 1 − 4 = −3, also R(5 | −3)",
+     "x: 1 − 4 = −3 und y: 2 + 3 = 5, also R(−3 | 5)"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechts verändert die erste Zahl, oben und unten die zweite.",
+    "w": "Rechts: x wird größer, 2 + 3 = 5. Unten: y wird kleiner, 1 − 4 = −3. R(5 | −3)."
+   }
+  },
+  {
+   "kennung": "GE1-V11",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "lagebeziehungen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "5 − 3 = 2",
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "das Minus bei −3 übersehen"
+    },
+    {
+     "index": 2,
+     "antwort": "5 + 4 = 9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x-Wert von g mit y-Wert von P gerechnet"
+    },
+    {
+     "index": 3,
+     "antwort": "4 − 0 = 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die y-Werte statt der x-Werte genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "lagebeziehungen",
+    "t": "lagebeziehungen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Punkt P(−3 | 4) und die senkrechte Linie g durch (5 | 0) sind gegeben. Welche Rechnung gibt den Abstand von P zu g?"
+    },
+    "a": [
+     "5 − (−3) = 8",
+     "5 − 3 = 2",
+     "5 + 4 = 9",
+     "4 − 0 = 4"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "g ist senkrecht. In welche Richtung misst du dann den Abstand?",
+    "w": "Das Lot auf eine senkrechte Linie verläuft waagrecht. Es zählen die x-Werte: 5 − (−3) = 8."
+   }
+  },
+  {
+   "kennung": "GE1-V12",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "kreislinie",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "7 + 2 = 9 rechnen: 9 ist größer als 5, also außerhalb",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Koordinaten addiert statt den Abstand zu bilden"
+    },
+    {
+     "index": 1,
+     "antwort": "7 − 5 = 2 rechnen: gleich der y-Koordinate, also innerhalb",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Radius vom x-Wert abgezogen und mit y verglichen"
+    },
+    {
+     "index": 2,
+     "antwort": "2 + 2 = 4 rechnen: 4 ist kleiner als 5, also innerhalb",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Koordinaten von M benutzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreislinie",
+    "t": "kreislinie",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kreis um M(2 | 2) hat den Radius 5. Wie findest du heraus, ob der Punkt P(7 | 2) auf der Kreislinie liegt?"
+    },
+    "a": [
+     "7 + 2 = 9 rechnen: 9 ist größer als 5, also außerhalb",
+     "7 − 5 = 2 rechnen: gleich der y-Koordinate, also innerhalb",
+     "2 + 2 = 4 rechnen: 4 ist kleiner als 5, also innerhalb",
+     "Abstand 7 − 2 = 5 berechnen: gleich dem Radius, also auf der Kreislinie"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "P und M haben dieselbe Höhe. Wie groß ist ihr Abstand?",
+    "w": "P und M liegen auf einer Höhe. Der Abstand ist 7 − 2 = 5. Das ist gleich dem Radius: P liegt auf der Kreislinie."
+   }
+  },
+  {
+   "kennung": "GE1-V13",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "parallelen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "nur die Punkte mit y = −1 oder y = 5 (zwei Linien)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„genau“ statt „höchstens“ gelesen"
+    },
+    {
+     "index": 2,
+     "antwort": "alle Punkte mit y von 2 bis 5 (nur über g)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Seite von g gedacht"
+    },
+    {
+     "index": 3,
+     "antwort": "alle Punkte mit y von −3 bis 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "vom Ursprung statt von g gemessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallelen",
+    "t": "parallelen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Die waagrechte Linie g geht durch (0 | 2). Welche Punkte haben von g höchstens den Abstand 3?"
+    },
+    "a": [
+     "nur die Punkte mit y = −1 oder y = 5 (zwei Linien)",
+     "alle Punkte mit y von −1 bis 5 (ein Streifen um g)",
+     "alle Punkte mit y von 2 bis 5 (nur über g)",
+     "alle Punkte mit y von −3 bis 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "„Höchstens 3“ heißt: 3 oder weniger. Auf beiden Seiten von g.",
+    "w": "Von g aus 3 nach oben (2 + 3 = 5) und 3 nach unten (2 − 3 = −1): der Streifen von y = −1 bis y = 5."
+   }
+  },
+  {
+   "kennung": "GE1-V14",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "zwei_kreise",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "1 cm (4 − 3)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Fall „einer liegt im anderen“ erwischt"
+    },
+    {
+     "index": 2,
+     "antwort": "12 cm (3 · 4)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Radien multipliziert"
+    },
+    {
+     "index": 3,
+     "antwort": "3,5 cm (der Mittelwert)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Mittelwert statt der Summe genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_kreise",
+    "t": "zwei_kreise",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Kreise haben die Radien 3 cm und 4 cm. Wie weit sind die Mittelpunkte voneinander entfernt, wenn sich die Kreise von außen in genau einem Punkt berühren?"
+    },
+    "a": [
+     "1 cm (4 − 3)",
+     "7 cm (3 + 4)",
+     "12 cm (3 · 4)",
+     "3,5 cm (der Mittelwert)"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Bei einer Berührung von außen liegen die Kreise nebeneinander. Wie lang ist der Weg von Mittelpunkt zu Mittelpunkt?",
+    "w": "Von M₁ bis zum Berührpunkt sind es 3 cm, von dort bis M₂ weitere 4 cm: 3 + 4 = 7 cm."
+   }
+  },
+  {
+   "kennung": "GE1-V15",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "verknuepfen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "zwei: g geht durch den Kreis hindurch",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Tangente für eine Sekante gehalten"
+    },
+    {
+     "index": 1,
+     "antwort": "keinen: g ist größer als der Radius",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand 5 für „zu weit“ gehalten"
+    },
+    {
+     "index": 2,
+     "antwort": "unendlich viele: g und der Kreis liegen übereinander",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Gerade und Kreis verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "verknuepfen",
+    "t": "verknuepfen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Kreis um M(0 | 0) hat den Radius 5. Die senkrechte Linie g geht durch (5 | 0). Wie viele Punkte haben Kreis und g gemeinsam?"
+    },
+    "a": [
+     "zwei: g geht durch den Kreis hindurch",
+     "keinen: g ist größer als der Radius",
+     "unendlich viele: g und der Kreis liegen übereinander",
+     "genau einen: der Abstand von M zu g ist 5, gleich dem Radius"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Wie weit ist g von M entfernt? Vergleiche mit dem Radius.",
+    "w": "Abstand von M zu g: 5. Radius: 5. Gleich: g berührt den Kreis in genau einem Punkt, (5 | 0)."
+   }
+  },
+  {
+   "kennung": "GE1-V27",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Eine Parallele zur Strecke [MN] im Abstand 3 cm zeichnen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Abstand von einer Geraden statt von einem Punkt"
+    },
+    {
+     "index": 1,
+     "antwort": "Die Mittelsenkrechte von [MN] zeichnen.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Gleich weit von M und N ist etwas anderes: hier sind die Abstände verschieden"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "M und N liegen 9 cm auseinander. Gibt es einen Punkt, der von M genau 3 cm und von N genau 5 cm entfernt ist? Mit welchem Vorgehen prüfst du das?"
+    },
+    "a": [
+     "Eine Parallele zur Strecke [MN] im Abstand 3 cm zeichnen.",
+     "Die Mittelsenkrechte von [MN] zeichnen.",
+     "Zwei Kreise zeichnen (um M mit r = 3 cm, um N mit r = 5 cm) und nach gemeinsamen Punkten suchen."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Alle Punkte mit gleichem Abstand von einem Punkt liegen auf einer Kreislinie.",
+    "w": "Jede Bedingung gibt einen Kreis: um M mit r = 3 cm und um N mit r = 5 cm. Ein Punkt, der beides erfüllt, muss auf beiden Kreisen liegen. Hier gibt es keinen: 3 cm + 5 cm sind weniger als 9 cm, die Kreise berühren sich nicht."
+   }
+  },
+  {
+   "kennung": "GE1-V28",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Breite des Streifens als Abstand genommen"
+    },
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Breite verdoppelt statt halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Alle Punkte, die von einer Geraden g höchstens r cm entfernt sind, bilden einen Streifen. Der Streifen ist 18 cm breit. Wie groß ist r?"
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "cm"
+    },
+    "c": "18 // 2",
+    "h": "Der Streifen geht von g aus nach beiden Seiten.",
+    "w": "Der Streifen reicht r cm nach links und r cm nach rechts. Seine Breite ist 2 · r. Also ist r = 18 : 2 = 9 cm."
+   }
+  },
+  {
+   "kennung": "GE1-V29",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "eine Kreislinie mit Radius 6 km",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "„höchstens“ heißt auch alle Orte näher als 6 km, nicht nur die Linie"
+    },
+    {
+     "index": 1,
+     "antwort": "ein Streifen der Breite 12 km",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Streifen gehört zu einer Geraden, nicht zu einem Punkt"
+    },
+    {
+     "index": 3,
+     "antwort": "eine Kreisfläche mit Durchmesser 6 km",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Radius und Durchmesser verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Sender erreicht alle Orte, die höchstens 6 km von ihm entfernt sind. Wie sieht dieses Gebiet auf der Karte aus?"
+    },
+    "a": [
+     "eine Kreislinie mit Radius 6 km",
+     "ein Streifen der Breite 12 km",
+     "eine Kreisfläche mit Radius 6 km",
+     "eine Kreisfläche mit Durchmesser 6 km"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Vom Sender aus ist alles gleich weit entfernt. Denke an „höchstens“.",
+    "w": "Der Abstand wird vom Sender (einem Punkt) gemessen. „Höchstens 6 km“ heißt: auf dem Kreis und innen. Das ist eine Kreisfläche mit Radius 6 km."
+   }
+  },
+  {
+   "kennung": "GE1-V30",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Ja, beide haben vier rechte Winkel.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Vergleich der Winkel reicht nicht: die Seiten fehlen"
+    },
+    {
+     "index": 2,
+     "antwort": "Ja, alle Rechtecke haben vier gleich lange Seiten.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Rechtecke haben nur gegenüberliegende Seiten gleich lang"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Aussage „Jedes Quadrat ist ein Rechteck“ stimmt. Jetzt drehst du sie um: „Jedes Rechteck ist ein Quadrat.“ Stimmt die umgedrehte Aussage?"
+    },
+    "a": [
+     "Ja, beide haben vier rechte Winkel.",
+     "Nein, ein Rechteck mit 6 cm und 3 cm ist kein Quadrat.",
+     "Ja, alle Rechtecke haben vier gleich lange Seiten."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Suche ein Rechteck mit zwei verschiedenen Seitenlängen.",
+    "w": "Ein Rechteck mit 6 cm und 3 cm hat vier rechte Winkel, aber nicht gleich lange Seiten. Das ist ein Gegenbeispiel. Die umgedrehte Aussage stimmt nicht."
+   }
+  },
+  {
+   "kennung": "GE1-V31",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt: es sind zwei Seiten, die fehlen"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Seite von 24 abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Aussage: „Jedes Rechteck mit dem Umfang 24 cm ist ein Quadrat.“ Du suchst ein Gegenbeispiel mit einer Seite von 8 cm. Weg A: 24 − 8 − 8 = 8 und dann geteilt durch 2. Weg B: der halbe Umfang 24 : 2 = 12, davon 8 abziehen. Wie lang ist die andere Seite?"
+    },
+    "o": {
+     "wert": 4,
+     "einheit": "cm"
+    },
+    "c": "(24 - 8 - 8) // 2",
+    "h": "Beide Wege müssen dieselbe Länge ergeben.",
+    "w": "Weg A: 24 − 8 − 8 = 8, geteilt durch 2 sind 4. Weg B: 12 − 8 = 4. Das Rechteck hat 8 cm und 4 cm, ist also kein Quadrat. Die Aussage stimmt nicht."
+   }
+  },
+  {
+   "kennung": "GE1-V16",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "koordinaten",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim soll den Punkt P(−3 | 5) im Koordinatensystem finden. Zeile 1: Sie startet im Ursprung (0 | 0). Zeile 2: Die erste Zahl ist −3. Sie geht 3 Einheiten nach rechts. Zeile 3: Die zweite Zahl ist 5. Sie geht 5 Einheiten nach oben. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Eine negative erste Zahl heißt: in welche Richtung?",
+    "w": "Die erste Zahl ist −3, also negativ. Negativ heißt links. Richtig: 3 Einheiten nach links."
+   }
+  },
+  {
+   "kennung": "GE1-V17",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "strecken",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "rr.plusminus",
+   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "strecken",
+    "t": "strecken",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim berechnet die Länge der Strecke [AB] mit A(−4 | 3) und B(5 | 3). Zeile 1: A und B haben beide y = 3. Die Strecke liegt waagrecht. Zeile 2: Die y-Achse liegt zwischen A und B. Kim rechnet 5 − 4 = 1. Zeile 3: Die Strecke [AB] ist 1 Einheit lang. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Liegt die 0 zwischen den Punkten, was musst du dann tun?",
+    "w": "Die y-Achse liegt zwischen A und B. Dann addierst du die Teile: 4 + 5 = 9. Richtig: 9 Einheiten."
+   }
+  },
+  {
+   "kennung": "GE1-V18",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "lagebeziehungen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "lagebeziehungen",
+    "t": "lagebeziehungen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim soll den Abstand des Punktes P(2 | 7) von der waagrechten Linie g durch (0 | 3) bestimmen. Zeile 1: Der Abstand ist die Länge des Lots von P auf g. Zeile 2: Das Lot steht senkrecht auf g. Es verläuft also in y-Richtung. Zeile 3: Kim rechnet 2 − 3 = −1. Ein Abstand ist nie negativ, also ist er 1. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Welche Koordinate von P gehört zur Höhe?",
+    "w": "Das Lot verläuft in y-Richtung, also zählen die y-Werte: 7 und 3. Abstand: 7 − 3 = 4."
+   }
+  },
+  {
+   "kennung": "GE1-V19",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "kreis_lage",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreis_lage",
+    "t": "kreis_lage",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kreis hat den Radius 4 cm. Die Gerade g ist 7 cm vom Mittelpunkt entfernt. Kim sagt, was g für den Kreis ist. Zeile 1: Eine Gerade ist eine Sekante, wenn ihr Abstand vom Mittelpunkt größer als der Radius ist. Zeile 2: Hier ist der Abstand 7 cm und der Radius 4 cm. 7 ist größer als 4. Zeile 3: Also ist g eine Sekante und hat 2 Punkte mit dem Kreis gemeinsam. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wie nahe muss die Gerade am Mittelpunkt sein, damit sie den Kreis schneidet?",
+    "w": "Eine Sekante hat einen Abstand kleiner als der Radius. Hier ist der Abstand größer: g erreicht den Kreis nicht. g ist eine Passante und hat 0 gemeinsame Punkte."
+   }
+  },
+  {
+   "kennung": "GE1-V20",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "winkelarten",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    }
+   ],
+   "aufgabe": {
+    "l": "winkelarten",
+    "t": "winkelarten",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim ordnet Winkel nach ihrer Art. Zeile 1: Stumpf ist jeder Winkel, der größer als 90° ist. Zeile 2: 135° ist stumpf, denn er ist größer als 90°. Zeile 3: 300° ist stumpf, denn er ist größer als 90°. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wo hört „stumpf“ auf?",
+    "w": "Stumpf sind Winkel zwischen 90° und 180°. 300° ist größer als 180°, also überstumpf."
+   }
+  },
+  {
+   "kennung": "GE1-V21",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "vierecke",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke",
+    "t": "vierecke",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim sortiert Vierecke. Zeile 1: Ein Quadrat hat vier gleich lange Seiten und vier rechte Winkel. Zeile 2: Jedes Quadrat hat vier rechte Winkel, also ist jedes Quadrat auch ein Rechteck. Zeile 3: Jedes Rechteck hat vier rechte Winkel, also ist jedes Rechteck auch ein Quadrat. Zeile 4: Eine Raute hat vier gleich lange Seiten. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Denk an ein Rechteck, das 8 cm lang und 3 cm breit ist.",
+    "w": "Ein Rechteck von 8 cm mal 3 cm hat vier rechte Winkel, aber keine vier gleich langen Seiten. Es ist kein Quadrat."
+   }
+  },
+  {
+   "kennung": "GE1-V22",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "kreislinie",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreislinie",
+    "t": "kreislinie",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Gesucht sind alle Punkte auf der x-Achse, die von M(2 | 0) den Abstand 5 haben. Kim rechnet. Zeile 1: Es gibt zwei Punkte: einen rechts von M und einen links von M. Zeile 2: Rechts: x = 5 − 2 = 3. Zeile 3: Links: x = 2 − 5 = −3. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Rechts von M: Von welcher Zahl gehst du aus, und in welche Richtung?",
+    "w": "Rechts von M wird x größer: x = 2 + 5 = 7. Links: x = 2 − 5 = −3. Die Punkte sind (7 | 0) und (−3 | 0)."
+   }
+  },
+  {
+   "kennung": "GE1-V23",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "parallelen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallelen",
+    "t": "parallelen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "g ist die senkrechte Linie durch (5 | 0). Gesucht sind alle Punkte mit dem Abstand 2 von g. Kim rechnet. Zeile 1: Die Punkte liegen auf zwei senkrechten Parallelen zu g. Zeile 2: Die rechte Parallele geht durch x = 5 + 2 = 7. Zeile 3: Die linke Parallele geht durch x = 5 + 2 = 3. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Die linke Parallele liegt links von g. Wird x dort größer oder kleiner?",
+    "w": "Links wird x kleiner: x = 5 − 2 = 3. Kim hat plus statt minus gerechnet."
+   }
+  },
+  {
+   "kennung": "GE1-V24",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "zwei_kreise",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_kreise",
+    "t": "zwei_kreise",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kreis um A(0 | 0) hat den Radius 2. Ein Kreis um B(10 | 0) hat den Radius 3. Kim prüft, ob sie sich schneiden. Zeile 1: Die Kreise schneiden sich, wenn die beiden Radien zusammen kleiner sind als der Abstand AB. Zeile 2: Der Abstand AB ist 10, die Radien zusammen sind 2 + 3 = 5. Zeile 3: 5 ist kleiner als 10, also schneiden sich die Kreise in 2 Punkten. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Müssen die Radien zusammen bis zum anderen Mittelpunkt reichen?",
+    "w": "Die Kreise schneiden sich nur, wenn die Radien zusammen mindestens so groß sind wie der Abstand. 5 reicht nicht bis 10: 0 Schnittpunkte."
+   }
+  },
+  {
+   "kennung": "GE1-V25",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "verknuepfen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "verknuepfen",
+    "t": "verknuepfen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Kreis um M(3 | 0) hat den Radius 2. Gesucht sind die Schnittpunkte mit der x-Achse (y = 0). Kim rechnet. Zeile 1: Die x-Achse geht durch M. Es gibt also zwei Schnittpunkte. Zeile 2: Der eine liegt 2 Einheiten rechts von M: x = 3 + 2 = 5. Zeile 3: Der andere liegt 2 Einheiten links von M: x = 2 − 3 = −1. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Links von M geht es von 3 aus um 2 nach links.",
+    "w": "Links von M: x = 3 − 2 = 1. Kim hat 2 − 3 gerechnet und die Zahlen vertauscht."
+   }
+  },
+  {
+   "kennung": "GE1-V26",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "sachsituationen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachsituationen",
+    "t": "sachsituationen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Rasensprenger steht 5 m von einem Zaun entfernt. Er spritzt 3 m weit. Kim fragt, ob der Zaun nass wird. Zeile 1: Die nasse Fläche ist ein Kreis um den Sprenger. Die Reichweite 3 m ist der Durchmesser, der Radius ist doppelt so groß: 6 m. Zeile 2: Der Zaun ist 5 m entfernt. Das ist weniger als 6 m. Zeile 3: Also wird der Zaun nass. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wie weit reicht das Wasser vom Sprenger aus?",
+    "w": "Die Reichweite 3 m ist der Radius. Der Zaun ist 5 m weg, also bleibt er trocken."
+   }
+  },
+  {
+   "kennung": "GE1-V32",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim prüft die Aussage „Jedes Viereck mit zwei rechten Winkeln ist ein Rechteck.“ Zeile 1: Ich zeichne ein Viereck mit vier rechten Winkeln und den Seiten 5 cm und 3 cm. Zeile 2: Das ist ein Rechteck. Zeile 3: Also gilt die Aussage für jedes Viereck mit zwei rechten Winkeln. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Reicht ein Beispiel, um eine „immer“-Aussage zu beweisen?",
+    "w": "Ein einzelnes Beispiel kann eine „immer“-Aussage nicht beweisen. Es gibt Vierecke mit nur zwei rechten Winkeln, die kein Rechteck sind, zum Beispiel ein Trapez mit zwei rechten Winkeln."
+   }
+  },
+  {
+   "kennung": "GE1-V33",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "koordinaten",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche 6 · 4 berechnet"
+    },
+    {
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur Länge plus Breite, nicht mal 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Ein Rechteck hat die gegenüberliegenden Ecken A(1|1) und C(7|5), seine Seiten liegen parallel zu den Achsen. Weg A: Länge plus Breite, mal 2. Weg B: Länge verdoppeln, Breite verdoppeln und beides addieren. Wie groß ist der Umfang?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 20
+    },
+    "c": "(6 + 4) * 2",
+    "h": "Länge und Breite lesen sich an den Koordinaten ab.",
+    "w": "Länge: 7 − 1 = 6, Breite: 5 − 1 = 4. Weg A: (6 + 4) · 2 = 20. Weg B: 6 · 2 + 4 · 2 = 12 + 8 = 20. Der Umfang ist 20 Einheiten."
+   }
+  },
+  {
+   "kennung": "GE1-V34",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "lagebeziehungen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "g und h stehen senkrecht aufeinander.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "senkrechte Geraden schneiden sich, der Abstand ist dort 0"
+    },
+    {
+     "index": 2,
+     "antwort": "g und h schneiden sich in genau einem Punkt.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "am Schnittpunkt wäre der Abstand 0, nicht 3 cm"
+    },
+    {
+     "index": 3,
+     "antwort": "g und h sind dieselbe Gerade.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dann wäre der Abstand überall 0, nicht 3 cm"
+    }
+   ],
+   "aufgabe": {
+    "l": "lagebeziehungen",
+    "t": "lagebeziehungen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Die Gerade g hat von der Geraden h an jeder Stelle denselben Abstand von 3 cm. Welche Aussage über g und h stimmt?"
+    },
+    "y": "auswahl",
+    "a": [
+     "g und h sind parallel.",
+     "g und h stehen senkrecht aufeinander.",
+     "g und h schneiden sich in genau einem Punkt.",
+     "g und h sind dieselbe Gerade."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Überlege, ob sich Geraden mit überall gleichem Abstand je treffen.",
+    "w": "Überall gleicher Abstand bedeutet: Die beiden Geraden nähern sich nie und treffen sich nie. Sie sind parallel. Senkrechte Geraden schneiden sich, dort wäre der Abstand 0."
+   }
+  },
+  {
+   "kennung": "GE1-V35",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "vierecke",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 statt durch 4 geteilt"
+    },
+    {
+     "antwort": 144,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 4 multipliziert statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke",
+    "t": "vierecke",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Eine Raute hat vier gleich lange Seiten und den Umfang 36 cm. Wie lang ist eine Seite?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 9,
+     "einheit": "cm"
+    },
+    "c": "36 // 4",
+    "h": "Der Umfang ist die Summe aller vier Seiten.",
+    "w": "Alle vier Seiten sind gleich lang, der Umfang ist 4 · Seite. Also ist die Seite 36 : 4 = 9 cm."
+   }
+  },
+  {
+   "kennung": "GE1-V36",
+   "thema": "geometrie.grundbegriffe",
+   "lernkarte": "winkelarten",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.winkel",
+   "regel_name": "Winkel an Geraden",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 295,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "180° und 115° addiert"
+    },
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 90° statt 180° gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "winkelarten",
+    "t": "winkelarten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Ein stumpfer Winkel ist 115° groß. Weg A: 180° − 115°. Weg B: erst 180° − 100°, dann noch 15° abziehen. Wie groß ist sein Nebenwinkel?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 65,
+     "einheit": "°"
+    },
+    "c": "180 - 115",
+    "h": "Winkel und Nebenwinkel ergeben zusammen einen gestreckten Winkel.",
+    "w": "Ein gestreckter Winkel hat 180°. Weg A: 180° − 115° = 65°. Weg B: 180° − 100° = 80°, 80° − 15° = 65°. Der Nebenwinkel ist 65° und damit ein spitzer Winkel."
+   }
+  },
+  {
+   "kennung": "GE1-V37",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "kreislinie",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 26,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Durchmesser als Radius genommen"
+    },
+    {
+     "antwort": 52,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "verdoppelt statt halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "kreislinie",
+    "t": "kreislinie",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Ein Rasensprenger bewässert alle Punkte, die höchstens r Meter von ihm entfernt sind. Das bewässerte Gebiet ist an seiner breitesten Stelle 26 m breit. Wie groß ist r?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 13,
+     "einheit": "m"
+    },
+    "c": "26 // 2",
+    "h": "Die breiteste Stelle des Kreises geht durch den Mittelpunkt.",
+    "w": "Die breiteste Stelle ist der Durchmesser, er ist 2 · r lang. Also ist r = 26 : 2 = 13 m."
+   }
+  },
+  {
+   "kennung": "GE1-V38",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "parallelen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den ganzen Abstand genommen"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "verdoppelt statt halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "parallelen",
+    "t": "parallelen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Die parallelen Geraden g und h sind 14 cm voneinander entfernt. Die Mittelparallele liegt genau dazwischen. Weg A: 14 : 2. Weg B: Beide Abstände sind gleich groß, x + x = 14. Wie weit liegt die Mittelparallele von g?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 7,
+     "einheit": "cm"
+    },
+    "c": "14 // 2",
+    "h": "Die Mittelparallele hat von g und h denselben Abstand.",
+    "w": "Weg A: 14 : 2 = 7. Weg B: x + x = 14, also 2x = 14 und x = 7. Die Mittelparallele liegt 7 cm von g entfernt, und 7 cm von h."
+   }
+  },
+  {
+   "kennung": "GE1-V39",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "sachsituationen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die halbe Straßenbreite angegeben"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Grünstreifen addiert statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachsituationen",
+    "t": "sachsituationen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Ein Radweg liegt überall 6 m von der Mittellinie einer Straße entfernt. Zwischen Radweg und Straßenrand bleiben 2 m Grünstreifen. Wie breit ist die Straße?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 8,
+     "einheit": "m"
+    },
+    "c": "(6 - 2) * 2",
+    "h": "Von der Mittellinie bis zum Straßenrand ist es die halbe Straßenbreite.",
+    "w": "Von der Mittellinie bis zum Radweg sind es 6 m, davon sind 2 m Grünstreifen. Von der Mittellinie bis zum Straßenrand sind es also 6 − 2 = 4 m. Das ist die halbe Straße, die Straße ist 4 · 2 = 8 m breit."
+   }
+  },
+  {
+   "kennung": "GE1-V40",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "verknuepfen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "keinen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "der Radius 5 cm ist größer als 3 cm, der Kreis erreicht die Mittelsenkrechte"
+    },
+    {
+     "index": 1,
+     "antwort": "genau einen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur bei Radius 3 cm würde der Kreis die Mittelsenkrechte berühren"
+    },
+    {
+     "index": 3,
+     "antwort": "unendlich viele",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Kreis und eine Gerade schneiden sich höchstens zweimal"
+    }
+   ],
+   "aufgabe": {
+    "l": "verknuepfen",
+    "t": "verknuepfen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Die Punkte A und B sind 6 cm voneinander entfernt. Gesucht sind alle Punkte, die von A und von B gleich weit entfernt sind und zugleich genau 5 cm von A entfernt sind. Wie viele solche Punkte gibt es?"
+    },
+    "y": "auswahl",
+    "a": [
+     "keinen",
+     "genau einen",
+     "genau zwei",
+     "unendlich viele"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Die Punkte gleich weit von A und B liegen auf der Mittelsenkrechten. Wie weit ist sie von A entfernt?",
+    "w": "Die Mittelsenkrechte schneidet AB in der Mitte, 3 cm von A. Der Kreis um A mit Radius 5 cm reicht über die Mittelsenkrechte hinaus (5 > 3) und schneidet sie deshalb zweimal, einmal auf jeder Seite von AB."
+   }
+  },
+  {
+   "kennung": "GE1-V41",
+   "thema": "geometrie.ortslinien",
+   "lernkarte": "zwei_kreise",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Kreise liegen nicht getrennt, die Radien reichen genau"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zwei Schnittpunkte gäbe es nur, wenn sich die Kreise überschneiden"
+    }
+   ],
+   "aufgabe": {
+    "l": "zwei_kreise",
+    "t": "zwei_kreise",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Die Punkte A und B sind 10 cm voneinander entfernt. Um A liegt eine Kreislinie mit Radius 4 cm, um B eine Kreislinie mit Radius 6 cm. Weg A: Die Summe der beiden Radien mit dem Abstand AB vergleichen. Weg B: Auf der Strecke AB von A aus 4 cm abtragen und schauen, wie weit es noch bis B ist. Wie viele Punkte haben die beiden Kreislinien gemeinsam?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 1
+    },
+    "c": "(4 + 6) // 10",
+    "h": "Wenn die Radien zusammen genau so lang sind wie der Abstand, berühren sich die Kreise.",
+    "w": "Weg A: 4 + 6 = 10, das ist genau der Abstand AB. Weg B: 4 cm von A aus, es bleiben 10 − 4 = 6 cm bis B, das ist genau der Radius um B. Die Kreise berühren sich in einem Punkt."
+   }
+  }
+ ]
+}

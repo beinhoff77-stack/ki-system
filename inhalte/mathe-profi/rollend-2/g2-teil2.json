@@ -19,18 +19,32 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 − 4 gerechnet"
+    },
+    {
      "luecke": 2,
      "antwort": 10,
-     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
-     "regel_des_fehlbilds": "rr.verhaeltnis",
-     "beschreibung": "4 Hefte mehr, also 4 € mehr"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 + 4 gerechnet"
     },
     {
      "luecke": 3,
      "antwort": 4,
-     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
-     "regel_des_fehlbilds": "rr.verhaeltnis",
-     "beschreibung": "2 Hefte weniger, also 2 € weniger"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 4 geteilt"
+    },
+    {
+     "luecke": 4,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Preis halbiert und nochmal halbiert"
     }
    ],
    "aufgabe": {
@@ -41,24 +55,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "4 Hefte kosten 6 €. 8 Hefte sind ①-mal so viele; sie kosten ② €. 2 Hefte kosten ③ €.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "4 Hefte kosten 6 €. 12 Hefte sind ①-mal so viele; sie kosten 6 € · ① = ② €. Die Hälfte von 4 Heften kostet 6 € : ③ = ④ €.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
+      3,
+      18,
       2,
-      12,
       3
      ]
     },
     "c": [
-     "8 // 4",
-     "6 * 2",
-     "6 // 2"
+     "12//4",
+     "6*(12//4)",
+     "2",
+     "6//2"
     ],
     "h": "Was du mit der Menge tust, tust du auch mit dem Preis.",
-    "w": "Doppelte Menge, doppelter Preis: 12 €. Halbe Menge, halber Preis: 3 €."
+    "w": "12 : 4 = 3. 6 · 3 = 18 €. Die Hälfte: 6 : 2 = 3 €."
    }
   },
   {
@@ -71,7 +87,29 @@
    "regel": "id.verhaeltnisse.wert_fuer_eins",
    "regel_name": "Wert für eins",
    "zaehlt": "nein",
-   "fehlbilder": [],
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 5 geteilt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in Euro statt in Cent gerechnet"
+    },
+    {
+     "luecke": 4,
+     "antwort": 250,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Kilopreis statt des Gesamtpreises"
+    }
+   ],
    "aufgabe": {
     "l": "pruefen",
     "t": "begriff",
@@ -80,24 +118,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ist die Preisliste proportional? 2 kg kosten 5 €, 6 kg kosten 15 €, 10 kg kosten 24 €. Rechne jeweils den Preis für 1 kg in Cent: ①, ②, ③.",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Ist die Preisliste proportional? 2 kg kosten 5 €, 6 kg kosten 15 €, 10 kg kosten 24 €. Rechne jeweils den Preis für 1 kg in Cent: ①, ②, ③. Bei gleichem Kilopreis kosteten 10 kg ① · 10 = ④ Cent.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke ein Preis in Cent."
     },
     "o": {
      "werte": [
       250,
       250,
-      240
+      240,
+      2500
      ]
     },
     "c": [
-     "500 // 2",
-     "1500 // 6",
-     "2400 // 10"
+     "500//2",
+     "1500//6",
+     "2400//10",
+     "500//2*10"
     ],
     "h": "Teile jeden Preis durch seine Menge.",
-    "w": "5 € : 2 = 2,50 €. 15 € : 6 = 2,50 €. 24 € : 10 = 2,40 €. Der letzte Wert weicht ab: nicht proportional."
+    "w": "500 : 2 = 250, 1500 : 6 = 250, 2400 : 10 = 240. Der Preis für 1 kg ist nicht überall gleich: nicht proportional. Bei 250 Cent je kg wären es 2 500 Cent."
    }
   },
   {

@@ -4180,6 +4180,8 @@ details.lern-vorlage summary { cursor: pointer; min-height: 44px; display: flex;
 
 /* W176 Teil 3: Mischkarten */
 .lr-misch-hinweis { margin: 4px 16px 0; font-size: 14px; color: var(--lr-leise); font-style: italic; }
+/* Form-Takt: Gerüst-Bordkarte (zaehlt = nein) – ruhiger Hinweis im Kopf, kein eigener Farbton */
+.lr-zaehlt-nicht { display: block; margin-top: 2px; font-family: inherit; font-size: 12px; letter-spacing: 0; color: var(--lr-leise); }
 .lr-misch-das-war { margin: 0 0 6px; font-weight: 700; }
 
 /* Wunsch 18.11.: „Lernen starten“ als erster, hervorgehobener Knopf der Kinderkarte – auf dem Handy über die ganze erste Zeile */

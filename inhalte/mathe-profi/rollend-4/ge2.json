@@ -1,0 +1,1734 @@
+{
+ "stand": "2026-11-27",
+ "flug": "ge2",
+ "titel": "Spiegeln und Symmetrie",
+ "fuer": "Kind 2",
+ "klasse": 7,
+ "themen": [
+  "abbildungen.kongruenz"
+ ],
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Brücke), rollend-4. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag ja/nein) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: Stufe aufsteigend.",
+ "aufgaben": [
+  {
+   "kennung": "GE2-V01",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "mittelsenkrechte",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die x-Werte nicht halbiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die ganze Strecke statt der Hälfte"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittelsenkrechte",
+    "t": "mittelsenkrechte",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "A(2 | 3) und B(10 | 3) liegen auf einer waagrechten Linie. Die Mitte von [AB] hat die x-Koordinate (2 + 10) : 2 = ①. Die Mittelsenkrechte ist die senkrechte Linie durch diese Stelle. Sie hat von A den Abstand ① − 2 = ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      4
+     ]
+    },
+    "c": [
+     "(2 + 10) // 2",
+     "(2 + 10) // 2 - 2"
+    ],
+    "h": "Die Mitte liegt genau zwischen den beiden x-Werten.",
+    "w": "(2 + 10) : 2 = 6. Abstand zu A: 6 − 2 = 4."
+   }
+  },
+  {
+   "kennung": "GE2-V02",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "winkelhalbierende",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 140,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 2 malgenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Teilwinkel nicht abgezogen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 180,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 2 malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "winkelhalbierende",
+    "t": "winkelhalbierende",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Winkel hat 70°. Die Winkelhalbierende teilt ihn in zwei Winkel von je 70° : 2 = ①°. Ein Dreieck hat bei A diesen Teilwinkel und bei B den Winkel 90°. Dann hat der dritte Winkel 180° − ①° − 90° = ②°. Die Winkelhalbierende des 90°-Winkels teilt ihn in zwei Winkel von je ③°.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      35,
+      55,
+      45
+     ]
+    },
+    "c": [
+     "70//2",
+     "180-70//2-90",
+     "90//2"
+    ],
+    "h": "Halbieren heißt durch 2 teilen. Im Dreieck sind es zusammen 180°.",
+    "w": "70 : 2 = 35. 180 − 35 − 90 = 55. 90 : 2 = 45."
+   }
+  },
+  {
+   "kennung": "GE2-V03",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "gegenvektor",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "v statt −v addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": -6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "v statt −v addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "gegenvektor",
+    "t": "gegenvektor",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Verschiebung mit v = (3 | −5) bringt P nach P'(5 | −1). Der Gegenvektor ist −v = (−3 | 5). Mit ihm geht P' zurück: P = (5 + (−3) | −1 + 5) = (① | ②).",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      2,
+      4
+     ]
+    },
+    "c": [
+     "5 + (-3)",
+     "-1 + 5"
+    ],
+    "h": "Rechne Zahl für Zahl: erst x, dann y.",
+    "w": "5 + (−3) = 2 und −1 + 5 = 4. Der Urpunkt ist P(2 | 4)."
+   }
+  },
+  {
+   "kennung": "GE2-V04",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "drehung",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "um O statt um Z gedreht"
+    }
+   ],
+   "aufgabe": {
+    "l": "drehung",
+    "t": "drehung",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "P(9 | 6) wird um Z(2 | 1) um 90° gegen den Uhrzeigersinn gedreht. Zuerst der Vektor von Z nach P: (9 − 2 | 6 − 1) = (① | ②). Die Drehung macht aus (a | b) den Vektor (−b | a). Der Bildpunkt ist Z plus dieser Vektor: P'(③ | ④).",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      7,
+      5,
+      -3,
+      8
+     ]
+    },
+    "c": [
+     "9 - 2",
+     "6 - 1",
+     "2 + (-(6 - 1))",
+     "1 + (9 - 2)"
+    ],
+    "h": "Der gedrehte Vektor ist (−5 | 7).",
+    "w": "(9 − 2 | 6 − 1) = (7 | 5). Gedreht: (−5 | 7). P' = (2 − 5 | 1 + 7) = (−3 | 8)."
+   }
+  },
+  {
+   "kennung": "GE2-V05",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "symmetrie",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Achsen durch gegenüberliegende Ecken gezählt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Achsen durch gegenüberliegende Ecken gezählt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 48,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "symmetrie",
+    "t": "symmetrie",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein regelmäßiges n-Eck hat n Symmetrieachsen. Ein regelmäßiges Sechseck hat ① Symmetrieachsen. Ein regelmäßiges Achteck hat ② Symmetrieachsen. Zusammen haben die beiden ① + ② = ③ Achsen.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      8,
+      14
+     ]
+    },
+    "c": [
+     "6",
+     "8",
+     "6+8"
+    ],
+    "h": "Bei einem regelmäßigen n-Eck gibt es n Achsen.",
+    "w": "Sechseck: 6 Achsen. Achteck: 8 Achsen. Zusammen 14."
+   }
+  },
+  {
+   "kennung": "GE2-V06",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "vierecke_ordnen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Parallelogramm verwechselt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Paar gezählt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der Paare statt des Unterschieds"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke_ordnen",
+    "t": "vierecke_ordnen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Im Haus der Vierecke ist jedes Parallelogramm auch ein Trapez. Ein Trapez hat mindestens ① Paar paralleler Seiten. Ein Parallelogramm hat ② Paare paralleler Seiten. Es hat also ② − ① = ③ Paar mehr als ein Trapez mindestens hat.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      1,
+      2,
+      1
+     ]
+    },
+    "c": [
+     "1",
+     "2",
+     "2-1"
+    ],
+    "h": "Ein Paar sind immer zwei Seiten.",
+    "w": "Trapez: mindestens 1 Paar. Parallelogramm: 2 Paare. Der Unterschied ist 1."
+   }
+  },
+  {
+   "kennung": "GE2-V07",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "eigenschaften",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur zwei Seiten addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Dreieck gezählt"
+    },
+    {
+     "luecke": 3,
+     "antwort": 360,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Viereck verwechselt"
+    }
+   ],
+   "aufgabe": {
+    "l": "eigenschaften",
+    "t": "eigenschaften",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Dreieck hat die Seiten 7 cm, 9 cm und 11 cm. Sein Umfang ist 7 + 9 + 11 = ① cm. Das Dreieck wird gespiegelt. Das Bild hat denselben Umfang. Beide Dreiecke zusammen haben als Ränder ① + ① = ② cm. Die drei Winkel des Bildes ergeben zusammen ③°.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      27,
+      54,
+      180
+     ]
+    },
+    "c": [
+     "7+9+11",
+     "2*(7+9+11)",
+     "180"
+    ],
+    "h": "Eine Spiegelung ändert keine Längen und keine Winkel.",
+    "w": "7 + 9 + 11 = 27. Das Bild hat auch 27 cm Umfang, zusammen 54 cm. Die Winkelsumme im Dreieck ist 180°."
+   }
+  },
+  {
+   "kennung": "GE2-V08",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "vektor_koordinaten",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 4,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "6 − 2 statt 2 − 6 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "vektor_koordinaten",
+    "t": "vektor_koordinaten",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Der Vektor v zeigt von A(1 | 6) nach B(8 | 2): v = (8 − 1 | 2 − 6) = (① | ②). Addiert man v zu C(3 | 9), erhält man C'(③ | ④).",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      7,
+      -4,
+      10,
+      5
+     ]
+    },
+    "c": [
+     "8 - 1",
+     "2 - 6",
+     "3 + (8 - 1)",
+     "9 + (2 - 6)"
+    ],
+    "h": "Ende minus Anfang. Dann C plus v.",
+    "w": "v = (7 | −4). C' = (3 + 7 | 9 − 4) = (10 | 5)."
+   }
+  },
+  {
+   "kennung": "GE2-V09",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "vektor_drehen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vektor_drehen",
+    "t": "vektor_drehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Der Vektor v zeigt von A(1 | 2) nach B(5 | 9): v = (5 − 1 | 9 − 2) = (① | ②). Eine Drehung um +90° macht aus (x | y) den Vektor (−y | x). Gedreht ist v also (③ | ④).",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      7,
+      -7,
+      4
+     ]
+    },
+    "c": [
+     "5 - 1",
+     "9 - 2",
+     "-(9 - 2)",
+     "5 - 1"
+    ],
+    "h": "Die zweite Zahl wird zur ersten, mit anderem Vorzeichen.",
+    "w": "v = (4 | 7). Gedreht um +90°: (−7 | 4)."
+   }
+  },
+  {
+   "kennung": "GE2-V10",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "punktspiegelung",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "x: 7 − 3 = 4 und y: −2 − 4 = −6, also P'(4 | −6)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Vektor von Z nach P ausgerechnet"
+    },
+    {
+     "index": 2,
+     "antwort": "x: −7 und y: 2, also P'(−7 | 2)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "am Ursprung statt an Z gespiegelt"
+    },
+    {
+     "index": 3,
+     "antwort": "x: 3 − 7 = −4 und y: 4 − (−2) = 6, also P'(−4 | 6)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Vektor von P nach Z ausgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "punktspiegelung",
+    "t": "punktspiegelung",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Punkt P(7 | −2) wird am Punkt Z(3 | 4) gespiegelt. Welche Rechnung liefert den Bildpunkt P'?"
+    },
+    "a": [
+     "x: 7 − 3 = 4 und y: −2 − 4 = −6, also P'(4 | −6)",
+     "x: 2 · 3 − 7 = −1 und y: 2 · 4 − (−2) = 10, also P'(−1 | 10)",
+     "x: −7 und y: 2, also P'(−7 | 2)",
+     "x: 3 − 7 = −4 und y: 4 − (−2) = 6, also P'(−4 | 6)"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Z ist die Mitte von P und P'. Zum Doppelten von Z gehört noch etwas dazu.",
+    "w": "Z ist die Mitte: P' = 2 · Z − P. x: 6 − 7 = −1. y: 8 + 2 = 10."
+   }
+  },
+  {
+   "kennung": "GE2-V11",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "mittelsenkrechte",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "die senkrechte Linie durch x = 8",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Abstand AB statt der Mitte genommen"
+    },
+    {
+     "index": 2,
+     "antwort": "die waagrechte Linie durch y = 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Linie AB selbst genannt"
+    },
+    {
+     "index": 3,
+     "antwort": "die senkrechte Linie durch x = 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Wert für den x-Wert gehalten"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittelsenkrechte",
+    "t": "mittelsenkrechte",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Punkte A(1 | 4) und B(9 | 4) liegen auf einer waagrechten Linie. Welche Linie ist die Mittelsenkrechte von [AB]?"
+    },
+    "a": [
+     "die senkrechte Linie durch x = 8",
+     "die senkrechte Linie durch x = 5",
+     "die waagrechte Linie durch y = 4",
+     "die senkrechte Linie durch x = 4"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Die Mittelsenkrechte steht senkrecht auf [AB] und geht durch die Mitte.",
+    "w": "Die Mitte hat x = (1 + 9) : 2 = 5. Senkrecht zur waagrechten Strecke: senkrechte Linie durch x = 5."
+   }
+  },
+  {
+   "kennung": "GE2-V12",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "winkelhalbierende",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "1,5 cm, denn die Winkelhalbierende halbiert",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Halbieren des Winkels mit Halbieren des Abstands verwechselt"
+    },
+    {
+     "index": 1,
+     "antwort": "6 cm, denn der andere Schenkel liegt auf der anderen Seite",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Abstände addiert"
+    },
+    {
+     "index": 2,
+     "antwort": "Das lässt sich nicht sagen. Der Abstand kann beliebig sein",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Eigenschaft der Winkelhalbierenden nicht gekannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "winkelhalbierende",
+    "t": "winkelhalbierende",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Punkt liegt auf der Winkelhalbierenden eines Winkels. Er ist vom einen Schenkel 3 cm entfernt. Wie weit ist er vom anderen Schenkel entfernt?"
+    },
+    "a": [
+     "1,5 cm, denn die Winkelhalbierende halbiert",
+     "6 cm, denn der andere Schenkel liegt auf der anderen Seite",
+     "Das lässt sich nicht sagen. Der Abstand kann beliebig sein",
+     "3 cm, denn auf der Winkelhalbierenden ist der Abstand zu beiden Schenkeln gleich"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Welche Eigenschaft haben alle Punkte auf der Winkelhalbierenden?",
+    "w": "Alle Punkte auf der Winkelhalbierenden haben von beiden Schenkeln denselben Abstand: 3 cm."
+   }
+  },
+  {
+   "kennung": "GE2-V13",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "verschiebung",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "v = (2 − (−1) | 5 − 9) = (3 | −4), also B'(4 + 3 | 0 − 4) = (7 | −4)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Vektor rückwärts (A' nach A) gebildet"
+    },
+    {
+     "index": 2,
+     "antwort": "v = (−1 | 9), also B'(4 − 1 | 0 + 9) = (3 | 9)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Bildpunkt als Vektor genommen"
+    },
+    {
+     "index": 3,
+     "antwort": "v = (−3 | 4), also B'(4 | 0) bleibt, weil B nicht auf A liegt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur A wird verschoben"
+    }
+   ],
+   "aufgabe": {
+    "l": "verschiebung",
+    "t": "verschiebung",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine Verschiebung bringt A(2 | 5) nach A'(−1 | 9). Wohin kommt B(4 | 0) bei derselben Verschiebung, und wie berechnest du das?"
+    },
+    "a": [
+     "v = (−1 − 2 | 9 − 5) = (−3 | 4), also B'(4 − 3 | 0 + 4) = (1 | 4)",
+     "v = (2 − (−1) | 5 − 9) = (3 | −4), also B'(4 + 3 | 0 − 4) = (7 | −4)",
+     "v = (−1 | 9), also B'(4 − 1 | 0 + 9) = (3 | 9)",
+     "v = (−3 | 4), also B'(4 | 0) bleibt, weil B nicht auf A liegt"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Der Vektor zeigt von A nach A'. Ende minus Anfang.",
+    "w": "v = A' − A = (−3 | 4). Dann B' = B + v = (1 | 4)."
+   }
+  },
+  {
+   "kennung": "GE2-V14",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "gegenvektor",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Q' + v rechnen: (2 + 4 | 7 + (−3)) = (6 | 4)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "noch einmal verschoben statt zurück"
+    },
+    {
+     "index": 1,
+     "antwort": "v − Q' rechnen: (4 − 2 | −3 − 7) = (2 | −10)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Reihenfolge der Subtraktion vertauscht"
+    },
+    {
+     "index": 3,
+     "antwort": "x und y tauschen: (7 − 4 | 2 − (−3)) = (3 | 5)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x- und y-Zahl vermischt"
+    }
+   ],
+   "aufgabe": {
+    "l": "gegenvektor",
+    "t": "gegenvektor",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Punkt wurde mit v = (4 | −3) verschoben und liegt jetzt bei Q'(2 | 7). Wie findest du den Urpunkt Q?"
+    },
+    "a": [
+     "Q' + v rechnen: (2 + 4 | 7 + (−3)) = (6 | 4)",
+     "v − Q' rechnen: (4 − 2 | −3 − 7) = (2 | −10)",
+     "Q' − v rechnen: (2 − 4 | 7 − (−3)) = (−2 | 10)",
+     "x und y tauschen: (7 − 4 | 2 − (−3)) = (3 | 5)"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Der Weg zurück ist der Gegenvektor.",
+    "w": "Q' − v = (2 − 4 | 7 + 3) = (−2 | 10). Probe: (−2 + 4 | 10 − 3) = (2 | 7)."
+   }
+  },
+  {
+   "kennung": "GE2-V15",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "drehung",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "(x | y) wird (−y | x), also P'(−5 | 3)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "gegen den Uhrzeigersinn gedreht"
+    },
+    {
+     "index": 1,
+     "antwort": "(x | y) wird (−x | −y), also P'(−3 | −5)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "um 180° gedreht"
+    },
+    {
+     "index": 3,
+     "antwort": "(x | y) wird (y | x), also P'(5 | 3)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "an der Winkelhalbierenden gespiegelt statt gedreht"
+    }
+   ],
+   "aufgabe": {
+    "l": "drehung",
+    "t": "drehung",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Punkt P(3 | 5) wird um O(0 | 0) um 90° im Uhrzeigersinn gedreht. Welche Rechnung ist richtig?"
+    },
+    "a": [
+     "(x | y) wird (−y | x), also P'(−5 | 3)",
+     "(x | y) wird (−x | −y), also P'(−3 | −5)",
+     "(x | y) wird (y | −x), also P'(5 | −3)",
+     "(x | y) wird (y | x), also P'(5 | 3)"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Im Uhrzeigersinn ist die Gegenrichtung zu „gegen den Uhrzeigersinn“.",
+    "w": "Im Uhrzeigersinn um 90°: (x | y) wird (y | −x). Aus (3 | 5) wird (5 | −3)."
+   }
+  },
+  {
+   "kennung": "GE2-V16",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "vierecke_ordnen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Drachenviereck mitgezählt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Trapez nicht mitgezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vierecke_ordnen",
+    "t": "vierecke_ordnen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Zwei Wege: Weg A prüft jedes der sechs Vierecke einzeln. Weg B sucht nur die Vierecke, die das nicht haben, und zieht von 6 ab. Wie viele der Vierecke Quadrat, Rechteck, Raute, Parallelogramm, Trapez und Drachenviereck haben immer mindestens ein Paar paralleler Seiten?"
+    },
+    "o": {
+     "wert": 5
+    },
+    "c": "6 - 1",
+    "h": "Beim Drachenviereck gibt es keine Garantie für parallele Seiten.",
+    "w": "Quadrat, Rechteck, Raute, Parallelogramm und Trapez haben immer ein Paar paralleler Seiten. Das Drachenviereck nicht immer. 6 − 1 = 5."
+   }
+  },
+  {
+   "kennung": "GE2-V17",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "vektor_koordinaten",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "C(6 + 1 | 5 + 2) = (7 | 7)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Koordinaten von A statt des Vektors addiert"
+    },
+    {
+     "index": 2,
+     "antwort": "v = (1 − 6 | 2 − 5) = (−5 | −3), also C(6 − 5 | 5 − 3) = (1 | 2)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Rückweg gerechnet: das ist wieder A"
+    },
+    {
+     "index": 3,
+     "antwort": "C(6 · 2 | 5 · 2) = (12 | 10)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Koordinaten von B verdoppelt"
+    }
+   ],
+   "aufgabe": {
+    "l": "vektor_koordinaten",
+    "t": "vektor_koordinaten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Vektor v zeigt von A(1 | 2) nach B(6 | 5). Vom Punkt B aus gehst du noch einmal um v weiter und kommst zu C. Welche Rechnung ist richtig?"
+    },
+    "a": [
+     "v = (6 − 1 | 5 − 2) = (5 | 3), also C(6 + 5 | 5 + 3) = (11 | 8)",
+     "C(6 + 1 | 5 + 2) = (7 | 7)",
+     "v = (1 − 6 | 2 − 5) = (−5 | −3), also C(6 − 5 | 5 − 3) = (1 | 2)",
+     "C(6 · 2 | 5 · 2) = (12 | 10)"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Erst v ausrechnen, dann zu B addieren.",
+    "w": "v = (5 | 3). C = B + v = (11 | 8)."
+   }
+  },
+  {
+   "kennung": "GE2-V18",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "vektor_drehen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "(−5 | 2)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur einmal gedreht"
+    },
+    {
+     "index": 1,
+     "antwort": "(5 | −2)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "um −90° gedreht"
+    },
+    {
+     "index": 2,
+     "antwort": "(2 | −5)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "an der x-Achse gespiegelt statt gedreht"
+    }
+   ],
+   "aufgabe": {
+    "l": "vektor_drehen",
+    "t": "vektor_drehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Vektor v = (2 | 5) wird zweimal hintereinander um +90° gedreht. Welcher Vektor entsteht?"
+    },
+    "a": [
+     "(−5 | 2)",
+     "(5 | −2)",
+     "(2 | −5)",
+     "(−2 | −5), denn zweimal 90° sind zusammen 180°"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Zweimal 90° ergibt eine Drehung um wie viel Grad?",
+    "w": "Erst (2 | 5) → (−5 | 2), dann (−5 | 2) → (−2 | −5). Das ist eine Drehung um 180°."
+   }
+  },
+  {
+   "kennung": "GE2-V25",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "symmetrie",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Achsen durch die Ecken gezählt"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "jede Achse doppelt gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "symmetrie",
+    "t": "symmetrie",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Wie viele Symmetrieachsen hat ein regelmäßiges Sechseck? Weg A: 3 Achsen gehen durch gegenüberliegende Ecken, 3 weitere durch gegenüberliegende Seitenmitten. Weg B: Ein regelmäßiges Vieleck hat so viele Achsen, wie es Ecken hat."
+    },
+    "o": {
+     "wert": 6
+    },
+    "c": "3 + 3",
+    "h": "Beide Wege müssen dieselbe Zahl ergeben.",
+    "w": "Weg A: 3 + 3 = 6. Weg B: Ein Sechseck hat 6 Ecken, also 6 Achsen."
+   }
+  },
+  {
+   "kennung": "GE2-V19",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "achsenspiegelung",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    }
+   ],
+   "aufgabe": {
+    "l": "achsenspiegelung",
+    "t": "achsenspiegelung",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim spiegelt den Punkt P(4 | −3) an der y-Achse. Zeile 1: Bei der Spiegelung an der y-Achse bleibt der x-Wert gleich. Zeile 2: Der y-Wert wechselt das Vorzeichen: Aus −3 wird 3. Zeile 3: Das Bild ist P'(4 | 3). In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Die y-Achse ist senkrecht. Welcher Wert eines Punktes ändert sich bei der Spiegelung?",
+    "w": "Bei der y-Achse als Spiegelachse wechselt der x-Wert das Vorzeichen, die Höhe bleibt. Richtig: P'(−4 | −3)."
+   }
+  },
+  {
+   "kennung": "GE2-V20",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "punktspiegelung",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "punktspiegelung",
+    "t": "punktspiegelung",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim spiegelt P(6 | 3) am Punkt Z(2 | 1). Zeile 1: Von P nach Z geht man 4 nach links und 2 nach unten. Zeile 2: Von Z aus geht man denselben Weg weiter: x: 2 − 4 = −2 und y: 1 + 2 = 3. Zeile 3: Das Bild ist P'(−2 | 3). In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "„Nach unten“ heißt, dass y kleiner wird. Das gilt auch beim zweiten Teil des Weges.",
+    "w": "Von Z aus geht es 2 nach unten: y = 1 − 2 = −1. Richtig: P'(−2 | −1)."
+   }
+  },
+  {
+   "kennung": "GE2-V21",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "winkelhalbierende",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "winkelhalbierende",
+    "t": "winkelhalbierende",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Winkel hat 84°. Kim berechnet, wie groß die beiden Winkel sind, in die ihn die Winkelhalbierende teilt. Zeile 1: Die Winkelhalbierende teilt den Winkel in zwei gleich große Teile. Zeile 2: Jeder Teil hat 84° − 2 = 82°. Zeile 3: Die Winkelhalbierende liegt also 82° vom Schenkel entfernt. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Zwei gleich große Teile ergeben zusammen wieder 84°.",
+    "w": "Jeder Teil ist die Hälfte: 84° : 2 = 42°. Zusammen 42° + 42° = 84°."
+   }
+  },
+  {
+   "kennung": "GE2-V22",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "verschiebung",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    }
+   ],
+   "aufgabe": {
+    "l": "verschiebung",
+    "t": "verschiebung",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim verschiebt P(3 | −2) mit dem Vektor v = (−5 | 4). Zeile 1: Die erste Zahl −5 gehört zu y: y = −2 + (−5) = −7. Zeile 2: Die zweite Zahl 4 gehört zu x: x = 3 + 4 = 7. Zeile 3: Das Bild ist P'(7 | −7). In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welche Zahl des Vektors gehört zu x?",
+    "w": "Die erste Zahl gehört zu x: x = 3 + (−5) = −2. Die zweite zu y: y = −2 + 4 = 2. Richtig: P'(−2 | 2)."
+   }
+  },
+  {
+   "kennung": "GE2-V23",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "gegenvektor",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "gegenvektor",
+    "t": "gegenvektor",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Punkt P'(1 | −4) entstand durch die Verschiebung mit v = (6 | −2). Kim sucht den Urpunkt P. Zeile 1: Der Gegenvektor ist −v = (−6 | −2). Zeile 2: Neue x-Zahl: 1 + (−6) = −5. Zeile 3: Neue y-Zahl: −4 + (−2) = −6. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Beim Gegenvektor ändern sich beide Vorzeichen.",
+    "w": "Aus (6 | −2) wird (−6 | 2). Dann y: −4 + 2 = −2. Richtig: P(−5 | −2)."
+   }
+  },
+  {
+   "kennung": "GE2-V24",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "drehung",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    }
+   ],
+   "aufgabe": {
+    "l": "drehung",
+    "t": "drehung",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim dreht P(4 | 1) um O(0 | 0) um 180°. Zeile 1: Bei 180° wird aus (x | y) der Punkt (−x | −y). Zeile 2: Aus x = 4 wird 4. Zeile 3: Aus y = 1 wird −1. Das Bild ist P'(4 | −1). In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Bei 180° wechseln beide Zahlen das Vorzeichen.",
+    "w": "Aus x = 4 wird −4 und aus y = 1 wird −1. Richtig: P'(−4 | −1)."
+   }
+  },
+  {
+   "kennung": "GE2-V26",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "eigenschaften",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang des Bildes als Seite genommen"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die beiden bekannten Seiten zusammengezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "eigenschaften",
+    "t": "eigenschaften",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Dreieck wird an einer Achse gespiegelt. Das Bild hat die Seiten 6 cm und 10 cm und den Umfang 25 cm. Wie lang ist die dritte Seite des ursprünglichen Dreiecks?"
+    },
+    "o": {
+     "wert": 9,
+     "einheit": "cm"
+    },
+    "c": "25 - 6 - 10",
+    "h": "Eine Spiegelung ändert keine Längen.",
+    "w": "Das Original hat denselben Umfang wie das Bild: 25 cm. Die dritte Seite ist 25 − 6 − 10 = 9 cm."
+   }
+  },
+  {
+   "kennung": "GE2-V27",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "vektor_koordinaten",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile folgt richtig aus der Zeile davor; der Fehler passiert früher"
+    }
+   ],
+   "aufgabe": {
+    "l": "vektor_koordinaten",
+    "t": "vektor_koordinaten",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim berechnet den Vektor von A(5 | −2) nach B(1 | 4). Zeile 1: Regel: Anfang minus Ende. Zeile 2: Erste Zahl: 5 − 1 = 4. Zeile 3: Zweite Zahl: −2 − 4 = −6. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Beim Vektor von A nach B: Welcher Punkt steht in der Rechnung vorn?",
+    "w": "Ende minus Anfang: 1 − 5 = −4 und 4 − (−2) = 6. Der Vektor ist (−4 | 6)."
+   }
+  },
+  {
+   "kennung": "GE2-V28",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "vektor_drehen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "vektor_drehen",
+    "t": "vektor_drehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim dreht den Vektor v = (6 | −2) um −90°. Die Regel lautet: Aus (x | y) wird (y | −x). Zeile 1: x = 6 und y = −2. Zeile 2: Die neue erste Zahl ist y = −2. Zeile 3: Die neue zweite Zahl ist x = 6. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "In der Regel steht bei der zweiten Zahl ein Minus.",
+    "w": "Die zweite Zahl ist −x = −6. Richtig: (−2 | −6)."
+   }
+  },
+  {
+   "kennung": "GE2-V29",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "drehung",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "90° im Uhrzeigersinn",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Richtung vertauscht: im Uhrzeigersinn wäre die Regel (y|−x)"
+    },
+    {
+     "index": 2,
+     "antwort": "180°",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei 180° wären beide Vorzeichen vertauscht, aber nicht die Koordinaten"
+    },
+    {
+     "index": 3,
+     "antwort": "Spiegelung an der Geraden y = x",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Koordinaten vertauscht, das ist keine Drehung"
+    }
+   ],
+   "aufgabe": {
+    "l": "drehung",
+    "t": "drehung",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "f": {
+     "text": "Eine Drehung um den Ursprung wird durch die Regel (x|y) → (−y|x) beschrieben. Um welchen Winkel dreht sie?"
+    },
+    "y": "auswahl",
+    "a": [
+     "90° gegen den Uhrzeigersinn",
+     "90° im Uhrzeigersinn",
+     "180°",
+     "Spiegelung an der Geraden y = x"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Probiere die Regel mit dem Punkt (1|0) aus und schau, wohin er wandert.",
+    "w": "Der Punkt (1|0) wird zu (0|1). Er wandert von der x-Achse zur y-Achse, also um 90° gegen den Uhrzeigersinn. Ein Punkt (3|1) würde zu (−1|3), das passt zur Drehung gegen den Uhrzeigersinn."
+   }
+  },
+  {
+   "kennung": "GE2-V30",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "mittelsenkrechte",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die halbe Länge der Strecke genommen"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die ganze Länge der Strecke genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittelsenkrechte",
+    "t": "mittelsenkrechte",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Die Punkte A(2|5) und B(10|5) liegen auf einer waagerechten Linie. Die Mittelsenkrechte von AB ist eine senkrechte Gerade. Weg A: den Mittelwert der beiden x-Werte bilden. Weg B: die halbe Länge der Strecke AB zum x-Wert von A addieren. Welchen x-Wert haben alle Punkte der Mittelsenkrechten?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 6
+    },
+    "c": "(2 + 10) // 2",
+    "h": "Beide Wege suchen die Mitte der Strecke.",
+    "w": "Weg A: (2 + 10) : 2 = 6. Weg B: Die Strecke ist 10 − 2 = 8 lang, die Hälfte ist 4, und 2 + 4 = 6. Beide Wege geben 6. Die Mittelsenkrechte ist die Gerade x = 6."
+   }
+  },
+  {
+   "kennung": "GE2-V31",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "vektor_drehen",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Koordinaten des gedrehten Vektors addiert"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 − 5 gerechnet statt 5 + 9"
+    }
+   ],
+   "aufgabe": {
+    "l": "vektor_drehen",
+    "t": "vektor_drehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Ein Vektor wird um 90° gegen den Uhrzeigersinn gedreht. Dabei wird aus (x|y) der Vektor (−y|x). Der gedrehte Vektor ist (−9|5). Wie groß ist die Summe der beiden Koordinaten des ursprünglichen Vektors?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 14
+    },
+    "c": "5 + 9",
+    "h": "Vergleiche (−y|x) mit (−9|5): Welche Zahl ist x, welche y?",
+    "w": "Aus (−y|x) = (−9|5) folgt −y = −9, also y = 9, und x = 5. Der ursprüngliche Vektor ist (5|9). Die Summe ist 5 + 9 = 14."
+   }
+  },
+  {
+   "kennung": "GE2-V32",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "vektor_koordinaten",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 − 2 gerechnet, das Vorzeichen von −2 übersehen"
+    },
+    {
+     "antwort": -7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Anfangspunkt minus Endpunkt gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "vektor_koordinaten",
+    "t": "vektor_koordinaten",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Ein Vektor führt vom Punkt A(−2|3) zum Punkt B(5|−1). Weg A: die x-Werte voneinander abziehen (Endpunkt minus Anfangspunkt). Weg B: erst von −2 bis zur y-Achse gehen, dann von dort bis 5. Wie viele Einheiten geht der Vektor in x-Richtung?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 7
+    },
+    "c": "5 - (-2)",
+    "h": "Beide Wege messen den Weg auf der x-Achse von −2 bis 5.",
+    "w": "Weg A: 5 − (−2) = 7. Weg B: von −2 bis 0 sind es 2 Einheiten, von 0 bis 5 sind es 5 Einheiten, zusammen 7. Der Vektor geht 7 Einheiten nach rechts."
+   }
+  },
+  {
+   "kennung": "GE2-V33",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "verschiebung",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.deckungsgleich",
+   "regel_name": "Deckungsgleich",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Vektor addiert statt abgezogen: P(13|−1)"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine der beiden Koordinaten zurückgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "verschiebung",
+    "t": "verschiebung",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "f": {
+     "text": "Eine Verschiebung um den Vektor (4|−3) bildet den Punkt P auf den Bildpunkt P′(9|2) ab. Wie groß ist die Summe der beiden Koordinaten von P?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 10
+    },
+    "c": "(9 - 4) + (2 - (-3))",
+    "h": "Gehe vom Bildpunkt den Vektor rückwärts.",
+    "w": "Rückwärts gehen heißt abziehen: x = 9 − 4 = 5 und y = 2 − (−3) = 5. Also ist P(5|5), und die Summe ist 10."
+   }
+  },
+  {
+   "kennung": "GE2-V34",
+   "thema": "abbildungen.kongruenz",
+   "lernkarte": "winkelhalbierende",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.abstand",
+   "regel_name": "Gleicher Abstand",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 130,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den ganzen Winkel angegeben"
+    },
+    {
+     "antwort": 260,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "verdoppelt statt halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "winkelhalbierende",
+    "t": "winkelhalbierende",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "f": {
+     "text": "Zwei Wege treffen sich im Winkel von 130°. Ein dritter Weg soll genau in der Mitte zwischen ihnen verlaufen, er liegt auf der Winkelhalbierenden. Weg A: 130° : 2. Weg B: Beide Teilwinkel sind gleich groß, x + x = 130°. Wie groß ist der Winkel zwischen dem neuen Weg und einem der beiden anderen?"
+    },
+    "y": "zahl",
+    "o": {
+     "wert": 65,
+     "einheit": "°"
+    },
+    "c": "130 // 2",
+    "h": "Die Winkelhalbierende teilt den Winkel in zwei gleich große Teile.",
+    "w": "Weg A: 130° : 2 = 65°. Weg B: x + x = 130°, also 2x = 130° und x = 65°. Beide Wege geben 65°."
+   }
+  }
+ ]
+}

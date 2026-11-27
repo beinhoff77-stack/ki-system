@@ -33,10 +33,20 @@ Nur Themen, die das Kind in den letzten Wochen in der App bearbeitet hat (Versuc
 Themen gemischt: Klasse 5 Aufgabe 8 (`zahlen.ganz` + `zahlen.rechengesetze`), Klasse 8 Aufgabe 9 (`terme.umformen` + `gleichungen.linear`).
 Blatt B hat Aufgabe für Aufgabe dasselbe Muster, dieselben Punkte und dieselbe Tätigkeit wie Blatt A, mit anderen Zahlen und anderem Sachtext (das Skript prüft das).
 
-## Tragen 40 Minuten für Klasse 5?
+## Tragen 40 Minuten? – gemessen am 27.11.2026, Annahme widerlegt
 
-**Einschätzung (Annahme, nicht gemessen): ja, aber knapp.** 13 Teilaufgaben, im Mittel drei Minuten; die Texte haben höchstens drei kurze Sätze. Eng wird es, wenn das Kind in Teil 1 jeden Schritt sehr ausführlich schreibt.
-Deshalb: nicht verlängern, sondern im Bogen „bis zu welcher Aufgabe gekommen“ eintragen. Wird das Kind nicht fertig, ist das ein Ergebnis über das Tempo, nicht über den Stoff. Für Blatt B dann dieselbe Zeit.
+**Die frühere Einschätzung „ja, aber knapp“ war falsch.** In der ersten Durchführung reichten 40 Minuten bei **beiden** Blättern nicht: Gebraucht wurden für Blatt K5-A **58 Minuten** und für Blatt K8-A **52 Minuten**, also 45 % beziehungsweise 30 % über der angesetzten Zeit. Das ist eine Messung an je einem Blatt, keine Statistik.
+
+**Was daraus folgt – die Zeit bleibt bei 40 Minuten.** Sie wird nicht verlängert, denn eine Schulaufgabe verlängert auch niemand, und nur mit fester Zeit ist Blatt B in vier bis sechs Wochen vergleichbar. Stattdessen wird in **zwei Spalten** ausgewertet:
+
+| Spalte | Was sie misst | Wofür |
+|---|---|---|
+| **Stand nach 40 Minuten** | der eigentliche Testwert | Vergleich mit Blatt B |
+| **Stand mit Zugabe** | was ohne Zeitdruck da ist | trennt „kann es nicht“ von „kann es, aber nicht in der Zeit“ |
+
+Dafür: Nach 40 Minuten einen Strich unter die letzte fertige Aufgabe ziehen, die gebrauchte Zeit notieren und **weiterarbeiten lassen**. Der Unterschied zwischen beiden Spalten ist die eigentlich nützliche Zahl – er war in der ersten Durchführung bei beiden Blättern groß genug, dass die Diagnose ohne ihn in die Irre geführt hätte.
+
+Im Erfassungsbogen bleibt „bis zu welcher Aufgabe gekommen“ wie bisher; es kommt eine zweite Punktspalte dazu.
 
 ## Durchführung
 

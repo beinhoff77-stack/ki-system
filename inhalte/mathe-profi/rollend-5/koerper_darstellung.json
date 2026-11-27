@@ -1,0 +1,936 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-5",
+ "thema": "messen.koerper_darstellung",
+ "titel": "Körper und Darstellung",
+ "klasse": 5,
+ "hinweis": "Aufgaben auf Vorrat in neuen Formen (Feld form, Feld zaehlt). Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Form, zaehlt) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K5A-V157",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "prisma",
+   "stufe": 1,
+   "form": "lueckenweg",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Grundfläche gezählt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "prisma",
+    "t": "prisma",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Prisma hat ein Sechseck als Grundfläche. Grund- und Deckfläche haben je 6 Ecken, zusammen ①. An jeder Ecke treffen sich 3 Kanten, und jede Kante hat 2 Ecken. Die Zahl der Kanten ist deshalb ① · 3 : 2 = ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      12,
+      18
+     ]
+    },
+    "c": [
+     "2*6",
+     "2*6*3//2"
+    ],
+    "h": "Zähle die Ecken von Grund- und Deckfläche zusammen.",
+    "w": "Ecken: 6 + 6 = 12. Kanten: 12 · 3 : 2 = 18. Das ist auch 3 · 6."
+   }
+  },
+  {
+   "kennung": "K5A-V158",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "prisma",
+   "stufe": 2,
+   "form": "zwei_wege",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Seitenkanten vergessen"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "7 + 2 gerechnet"
+    },
+    {
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "prisma",
+    "t": "prisma",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Prisma hat ein Siebeneck als Grundfläche. Wie viele Kanten hat es? Weg A zählt die Ecken des Prismas. An jeder Ecke treffen sich 3 Kanten, und jede Kante hat 2 Ecken. Weg B zählt die Kanten der Grundfläche, die der Deckfläche und die Seitenkanten einzeln."
+    },
+    "o": {
+     "wert": 21
+    },
+    "c": "14*3//2",
+    "h": "Beide Wege geben dieselbe Zahl.",
+    "w": "Weg A: Ecken 7 + 7 = 14. Kanten 14 · 3 : 2 = 21. Weg B: 7 + 7 + 7 = 21 Kanten."
+   }
+  },
+  {
+   "kennung": "K5A-V159",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "prisma",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "abgerundet: es fehlen Aufkleber"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 8 Flächen gerechnet: 48 Aufkleber, also 4 Packungen"
+    }
+   ],
+   "aufgabe": {
+    "l": "prisma",
+    "t": "prisma",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Schachtel hat die Form eines Prismas mit einem Fünfeck als Grundfläche. Auf jede Fläche, auch Grund- und Deckfläche, kommt ein Aufkleber. Eine Packung enthält 15 Aufkleber. Wie viele Packungen braucht man mindestens für 6 Schachteln?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "-(-7*6//15)",
+    "h": "Wie viele Flächen hat das Prisma? Danach: Mit angebrochenen Packungen kommst du nicht aus.",
+    "w": "Flächen: 5 Seitenflächen + 2 = 7. 6 Schachteln: 42 Aufkleber. 42 : 15 = 2,8, also 3 Packungen."
+   }
+  },
+  {
+   "kennung": "K5A-V160",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "netz",
+   "stufe": 3,
+   "form": "fehler_detektiv",
+   "typ": "Fehler-Detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "netz",
+    "t": "netz",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Quader ist 6 cm lang, 2 cm breit und 3 cm hoch. Kim berechnet die Fläche seines Netzes. Zeile 1: Das Netz besteht aus 6 Rechtecken, je zwei gleiche. Zeile 2: Die drei verschiedenen Rechtecke haben die Flächen 6 · 2 = 12, 6 · 3 = 18 und 2 · 3 = 6 cm². Zeile 3: Ich zähle jede der drei Flächen nur einmal: 12 + 18 + 6 = 36 cm². Zeile 4: Das Netz hat 36 cm² Fläche. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wie viele Rechtecke hat das Netz? Wie oft kommt jede Fläche vor?",
+    "w": "Jedes der drei Rechtecke kommt zweimal vor: 2 · (12 + 18 + 6) = 72 cm²."
+   }
+  },
+  {
+   "kennung": "K5A-V161",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "netz",
+   "stufe": 2,
+   "form": "umkehren",
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche eines Quadrats als Kante genommen"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "150 : 5 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "netz",
+    "t": "netz",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Würfelnetz besteht aus 6 gleichen Quadraten und hat zusammen 150 cm² Fläche. Wie lang ist eine Würfelkante in cm?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "cm"
+    },
+    "c": "5",
+    "h": "Wie groß ist ein einzelnes Quadrat? Welche Zahl mal sich selbst gibt diese Fläche?",
+    "w": "150 : 6 = 25 cm² für ein Quadrat. 5 · 5 = 25, also ist die Kante 5 cm lang."
+   }
+  },
+  {
+   "kennung": "K5A-V162",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "netz",
+   "stufe": 2,
+   "form": "bruecke",
+   "typ": "Brücke",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 47,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "jede Fläche nur einmal gezählt"
+    },
+    {
+     "antwort": 60,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen 5 · 3 · 4 genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "netz",
+    "t": "netz",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Die Tabelle beschreibt die Rechtecke im Netz eines Quaders. Wie groß ist die ganze Netzfläche in cm²?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Fläche",
+       "Maße in cm",
+       "Anzahl"
+      ],
+      "zeilen": [
+       [
+        "Boden",
+        "5 × 3",
+        "2"
+       ],
+       [
+        "Vorderseite",
+        "5 × 4",
+        "2"
+       ],
+       [
+        "Seite",
+        "3 × 4",
+        "2"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 94,
+     "einheit": "cm²"
+    },
+    "c": "2*5*3+2*5*4+2*3*4",
+    "h": "Rechne erst jede Rechteckfläche, dann mal Anzahl, dann alles addieren.",
+    "w": "Boden und Deckel: 2 · 15 = 30. Vorder- und Rückseite: 2 · 20 = 40. Seiten: 2 · 12 = 24. Zusammen 94 cm²."
+   }
+  },
+  {
+   "kennung": "K5A-V163",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "zylinder",
+   "stufe": 1,
+   "form": "lueckenweg",
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "30 + 12 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 210,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 42 weitergerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "zylinder",
+    "t": "zylinder",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine zylindrische Dose ist 12 cm hoch. Der Umfang ihrer Grundfläche ist 30 cm. Der Mantel ist ein Rechteck: Länge = Umfang, Breite = Höhe. Die Mantelfläche einer Dose ist 30 · 12 = ①. Fünf solche Dosen sollen nur außen am Mantel gestrichen werden, ohne Boden und Deckel: Mantelfläche aller fünf Dosen ① · 5 = ②. Ein Eimer Farbe reicht für 600 cm². Man braucht ② : 600 = ③ Eimer.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      360,
+      1800,
+      3
+     ]
+    },
+    "c": [
+     "30*12",
+     "30*12*5",
+     "30*12*5//600"
+    ],
+    "h": "Der Mantel ist so lang wie der Umfang, nicht wie der Durchmesser.",
+    "w": "30 · 12 = 360 cm². 360 · 5 = 1 800 cm². 1 800 : 600 = 3 Eimer."
+   }
+  },
+  {
+   "kennung": "K5A-V164",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "zylinder",
+   "stufe": 2,
+   "form": "umkehren",
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 448,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "28 + 420 gerechnet"
+    },
+    {
+     "antwort": 11760,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "malgenommen statt geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "zylinder",
+    "t": "zylinder",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Das Mantel-Rechteck einer Dose hat die Fläche 420 cm². Der Umfang der Grundfläche beträgt 28 cm. Wie hoch ist die Dose?"
+    },
+    "o": {
+     "wert": 15,
+     "einheit": "cm"
+    },
+    "c": "420//28",
+    "h": "Fläche = Umfang mal Höhe. Welche Rechnung macht das Malnehmen rückgängig?",
+    "w": "420 : 28 = 15. Probe: 28 · 15 = 420. Die Dose ist 15 cm hoch."
+   }
+  },
+  {
+   "kennung": "K5A-V165",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "zylinder",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "aufgerundet: das 42. Etikett passt nicht mehr ganz auf das Band"
+    },
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur durch die Höhe 10 cm geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "zylinder",
+    "t": "zylinder",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Für jede Dose braucht man ein Etikett: ein Rechteck, 24 cm lang und 10 cm hoch. Du hast ein Papierband, das 10 cm breit und 1 000 cm lang ist. Die Etiketten werden nacheinander in einer Reihe aus dem Band geschnitten, jedes mit der 24-cm-Seite längs des Bandes. Wie viele ganze Etiketten bekommst du aus dem Band?"
+    },
+    "o": {
+     "wert": 41
+    },
+    "c": "1000//24",
+    "h": "Das Band ist so breit wie ein Etikett hoch. Wie oft passt die Länge 24 cm in 1 000 cm? Ein Rest zählt nicht.",
+    "w": "1 000 : 24 = 41 Rest 16. Es passen 41 ganze Etiketten. Für ein 42. Etikett fehlen 8 cm."
+   }
+  },
+  {
+   "kennung": "K5A-V166",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "schraegbild",
+   "stufe": 2,
+   "form": "zwei_wege",
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 96,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Tiefe nicht halbiert"
+    },
+    {
+     "antwort": 24,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Maße 8 + 6 + 10 addiert: weder mal 4 noch die Tiefe halbiert"
+    },
+    {
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die gezeichneten Längen 8 + 6 + 5 addiert, das Mal 4 vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "schraegbild",
+    "t": "schraegbild",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader ist 8 cm breit, 6 cm hoch und 10 cm tief. Im Schrägbild wird nur die Tiefe halb so lang gezeichnet. Wie lang sind alle zwölf Kanten des Schrägbilds zusammen? Weg A addiert die vier Kanten jeder Richtung, so wie sie gezeichnet werden. Weg B rechnet zuerst alle zwölf Kanten des echten Quaders und zieht dann ab, was die vier Tiefenkanten im Schrägbild kürzer sind."
+    },
+    "o": {
+     "wert": 76,
+     "einheit": "cm"
+    },
+    "c": "4*8+4*6+4*(10//2)",
+    "h": "Die vier Kanten jeder Richtung sind gleich lang.",
+    "w": "Weg A: Gezeichnet werden 8 cm, 6 cm und 5 cm. 32 + 24 + 20 = 76. Weg B: Der echte Quader hat 4 · 24 = 96. Die vier Tiefenkanten sind je 5 cm kürzer: 96 − 20 = 76."
+   }
+  },
+  {
+   "kennung": "K5A-V167",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "schraegbild",
+   "stufe": 2,
+   "form": "bruecke",
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "4 cm, 3 cm, 5 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle Kanten halbiert"
+    },
+    {
+     "index": 1,
+     "antwort": "8 cm, 6 cm, 10 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nichts verkürzt"
+    },
+    {
+     "index": 2,
+     "antwort": "8 cm, 3 cm, 10 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die falsche Kante halbiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "schraegbild",
+    "t": "schraegbild",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt die wahren Maße eines Quaders. Im Schrägbild wird nur die Kante nach hinten halbiert. Welche Längen zeichnest du für Breite, Höhe und Tiefe?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "",
+       "Breite",
+       "Höhe",
+       "Tiefe"
+      ],
+      "zeilen": [
+       [
+        "wahr",
+        "8 cm",
+        "6 cm",
+        "10 cm"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "4 cm, 3 cm, 5 cm",
+     "8 cm, 6 cm, 10 cm",
+     "8 cm, 3 cm, 10 cm",
+     "8 cm, 6 cm, 5 cm"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Nur eine Richtung wird verkürzt. Welche?",
+    "w": "Breite und Höhe liegen vorn und bleiben in wahrer Größe. Nur die Tiefe nach hinten wird halbiert: 10 : 2 = 5 cm."
+   }
+  },
+  {
+   "kennung": "K5A-V168",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "schraegbild",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Tiefe nicht halbiert"
+    },
+    {
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Maßstab vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "schraegbild",
+    "t": "schraegbild",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Du zeichnest ein Schrägbild eines Schranks. Er ist 90 cm breit, 200 cm hoch und 60 cm tief. Dein Maßstab ist 1 : 10, in der Zeichnung steht also 1 cm für 10 cm. Die Tiefe wird zusätzlich halb so lang gezeichnet. Wie viele Zentimeter lang zeichnest du die Kante nach hinten?"
+    },
+    "o": {
+     "wert": 3,
+     "einheit": "cm"
+    },
+    "c": "60//10//2",
+    "h": "Erst den Maßstab anwenden, dann die Tiefe halbieren.",
+    "w": "Im Maßstab 1 : 10 sind 60 cm nur 6 cm. Nach hinten wird halbiert: 3 cm."
+   }
+  },
+  {
+   "kennung": "K5A-V169",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "ansichten",
+   "stufe": 3,
+   "form": "fehler_detektiv",
+   "typ": "Fehler-Detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "ansichten",
+    "t": "ansichten",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim beschreibt die drei Ansichten einer stehenden zylinderförmigen Dose. Zeile 1: Von vorn sieht man ein Rechteck. Zeile 2: Von der Seite sieht man ebenfalls ein Rechteck. Zeile 3: Von oben sieht man nur den Deckel. Zeile 4: Der Deckel ist ein Rechteck. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3",
+     "In Zeile 4"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Welche Form hat der Deckel einer zylinderförmigen Dose?",
+    "w": "Der Deckel ist ein Kreis. Von oben sieht man deshalb einen Kreis."
+   }
+  },
+  {
+   "kennung": "K5A-V170",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "ansichten",
+   "stufe": 1,
+   "form": "verfahren_waehlen",
+   "typ": "Verfahren wählen",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "ein Quader, denn er hat überall Rechtecke",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von oben sieht ein Quader nie rund aus"
+    },
+    {
+     "index": 2,
+     "antwort": "ein Kegel, denn er hat einen Kreis",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von vorn sieht ein Kegel wie ein Dreieck aus"
+    },
+    {
+     "index": 3,
+     "antwort": "eine Kugel, denn sie ist rund",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von vorn und von der Seite ist eine Kugel ein Kreis"
+    }
+   ],
+   "aufgabe": {
+    "l": "ansichten",
+    "t": "ansichten",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Körper sieht von vorn aus wie ein Rechteck, von der Seite auch wie ein Rechteck und von oben wie ein Kreis. Welcher Körper ist es?"
+    },
+    "a": [
+     "ein Quader, denn er hat überall Rechtecke",
+     "ein stehender Zylinder: oben ein Kreis, vorn und von der Seite je ein Rechteck",
+     "ein Kegel, denn er hat einen Kreis",
+     "eine Kugel, denn sie ist rund"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Prüfe jeden Körper mit allen drei Ansichten.",
+    "w": "Nur beim Zylinder passt alles: vorn und seitlich ein Rechteck, oben ein Kreis."
+   }
+  },
+  {
+   "kennung": "K5A-V171",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "ansichten",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 50,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Breite mal Höhe genommen"
+    },
+    {
+     "antwort": 300,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Volumen genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "ansichten",
+    "t": "ansichten",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Architekt zeichnet ein Haus, das die Form eines Quaders hat: 10 m breit, 6 m tief und 5 m hoch. Wie groß ist die Fläche der Ansicht von oben in m²?"
+    },
+    "o": {
+     "wert": 60,
+     "einheit": "m²"
+    },
+    "c": "10*6",
+    "h": "Von oben sieht man Breite und Tiefe, nicht die Höhe.",
+    "w": "Die Ansicht von oben ist ein Rechteck mit 10 m und 6 m: 10 · 6 = 60 m²."
+   }
+  },
+  {
+   "kennung": "K5A-V172",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "beurteilen",
+   "stufe": 3,
+   "form": "verfahren_waehlen",
+   "typ": "Verfahren wählen",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Mit vielen Prismen, die ebene Flächen haben",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Beispiele beweisen nichts"
+    },
+    {
+     "index": 2,
+     "antwort": "Mit einer Kugel, denn sie hat keine ebenen Flächen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "passt nicht zur Behauptung"
+    },
+    {
+     "index": 3,
+     "antwort": "Mit dem Zählen der Kanten eines Würfels",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Würfel ist ein Prisma"
+    }
+   ],
+   "aufgabe": {
+    "l": "beurteilen",
+    "t": "beurteilen",
+    "p": "uebung",
+    "s": 3,
+    "g": "begruenden",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim behauptet: „Jeder Körper mit lauter ebenen Flächen ist ein Prisma.“ Wie widerlegst du das am besten?"
+    },
+    "a": [
+     "Mit vielen Prismen, die ebene Flächen haben",
+     "Mit einem Gegenbeispiel: Eine Pyramide hat lauter ebene Flächen, aber keine zwei parallelen Grundflächen",
+     "Mit einer Kugel, denn sie hat keine ebenen Flächen",
+     "Mit dem Zählen der Kanten eines Würfels"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Ein einziges Beispiel, das die Behauptung nicht erfüllt, genügt.",
+    "w": "Die Pyramide hat nur ebene Flächen. Sie ist aber kein Prisma, weil die zweite parallele Grundfläche fehlt."
+   }
+  },
+  {
+   "kennung": "K5A-V173",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "beurteilen",
+   "stufe": 2,
+   "form": "umkehren",
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zahl der Ecken des ganzen Körpers genannt"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von einem Quader ausgegangen"
+    }
+   ],
+   "aufgabe": {
+    "l": "beurteilen",
+    "t": "beurteilen",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Du baust ein Prisma aus Strohhalmen. Du brauchst genau 9 Halme als Kanten. Wie viele Ecken hat dann seine Grundfläche?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "9//3",
+    "h": "Ein Prisma mit einem n-Eck als Grundfläche hat 3 · n Kanten.",
+    "w": "3 · n = 9, also n = 9 : 3 = 3. Die Grundfläche ist ein Dreieck."
+   }
+  },
+  {
+   "kennung": "K5A-V174",
+   "thema": "messen.koerper_darstellung",
+   "lernkarte": "beurteilen",
+   "stufe": 2,
+   "form": "anwenden",
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 35,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Flächen vergessen"
+    },
+    {
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die zwei Grundflächen als Flächen vergessen: 14 + 21 + 7"
+    }
+   ],
+   "aufgabe": {
+    "l": "beurteilen",
+    "t": "beurteilen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Schmuckkästchen hat die Form eines Prismas mit einem Siebeneck als Grundfläche. Wie viele Ecken, Kanten und Flächen hat es zusammen?"
+    },
+    "o": {
+     "wert": 44
+    },
+    "c": "2*7+3*7+7+2",
+    "h": "Ecken: 2n, Kanten: 3n, Flächen: n + 2. Dann alles addieren.",
+    "w": "Ecken: 14. Kanten: 21. Flächen: 7 + 2 = 9. Zusammen 14 + 21 + 9 = 44."
+   }
+  }
+ ]
+}

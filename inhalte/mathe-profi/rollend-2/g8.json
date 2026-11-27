@@ -23,21 +23,28 @@
      "antwort": 35,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Rabatt selbst genannt"
+     "beschreibung": "den Rabatt als Rest genommen"
     },
     {
      "luecke": 2,
      "antwort": 35,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Aufschlag selbst genannt"
+     "beschreibung": "den Aufschlag als Gesamtwert genommen"
     },
     {
      "luecke": 2,
      "antwort": 65,
-     "fehlbild": "fb.prozent.prozente_addiert",
-     "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
-     "beschreibung": "wie beim Sinken gerechnet"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "minus statt plus"
+    },
+    {
+     "luecke": 3,
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Prozentsätze gleichgesetzt"
     }
    ],
    "aufgabe": {
@@ -48,22 +55,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Preis sinkt um 35 %. Es bleiben ① % des alten Preises. Ein anderer Preis steigt um 35 %; dort sind es ② % des alten Preises.",
-     "schablone": "① = □; ② = □",
+     "text": "Ein Preis sinkt um 35 %. Es bleiben ① % des alten Preises. Ein anderer Preis steigt um 35 %; dort sind es ② % des alten Preises. Der Unterschied der beiden Prozentsätze ist ② − ① = ③ Prozentpunkte.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       65,
-      135
+      135,
+      70
      ]
     },
     "c": [
-     "100 - 35",
-     "100 + 35"
+     "100-35",
+     "100+35",
+     "(100+35)-(100-35)"
     ],
     "h": "Rechne 100 % minus den Rabatt und 100 % plus den Aufschlag.",
-    "w": "100 % − 35 % = 65 %, als Faktor 0,65. 100 % + 35 % = 135 %, als Faktor 1,35."
+    "w": "100 − 35 = 65. 100 + 35 = 135. 135 − 65 = 70 Prozentpunkte."
    }
   },
   {
@@ -181,21 +190,28 @@
      "antwort": 20,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Rabatt selbst genannt"
+     "beschreibung": "den Rabatt als Rest genommen"
     },
     {
      "luecke": 2,
      "antwort": 72,
-     "fehlbild": "fb.prozent.falscher_grundwert",
-     "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
-     "beschreibung": "20 % von 60 € aufgeschlagen"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 % von 60 aufgeschlagen"
     },
     {
      "luecke": 2,
      "antwort": 48,
-     "fehlbild": "fb.prozent.falscher_grundwert",
-     "regel_des_fehlbilds": "id.verhaeltnisse.prozent",
-     "beschreibung": "noch einmal 20 % von 60 € abgezogen"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 % von 60 abgezogen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "20 % von 60 als Rabatt genommen"
     }
    ],
    "aufgabe": {
@@ -206,22 +222,24 @@
     "g": "mehrschritt",
     "y": "luecken",
     "f": {
-     "text": "Nach 20 % Rabatt kostet eine Jacke 60 €. Bezahlt wurden damit ① % des alten Preises. Der alte Preis war ② €.",
-     "schablone": "① = □; ② = □",
+     "text": "Nach 20 % Rabatt kostet eine Jacke 60 €. Bezahlt wurden damit 100 − 20 = ① % des alten Preises. Der alte Preis war 60 · 100 : ① = ② €. Der Rabatt betrug ② − 60 = ③ €.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       80,
-      75
+      75,
+      15
      ]
     },
     "c": [
-     "100 - 20",
-     "60 * 100 // 80"
+     "100-20",
+     "60*100//80",
+     "60*100//80-60"
     ],
     "h": "Wie viel Prozent des alten Preises sind nach dem Rabatt noch zu zahlen?",
-    "w": "100 % − 20 % = 80 %. 60 € sind 80 % des alten Preises: 60 € : 0,8 = 75 €. Probe: 75 € · 0,8 = 60 €."
+    "w": "100 − 20 = 80 %. 60 · 100 : 80 = 75 €. 75 − 60 = 15 €."
    }
   },
   {

@@ -229,11 +229,32 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "6 − 2 gerechnet"
+    },
+    {
      "luecke": 2,
-     "antwort": 13,
-     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
-     "regel_des_fehlbilds": "rr.gegenrechnung",
-     "beschreibung": "14 − 1 gerechnet"
+     "antwort": 22,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "1 abgezogen statt addiert"
+    },
+    {
+     "luecke": 3,
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht richtig geteilt"
+    },
+    {
+     "luecke": 4,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das −1 vergessen"
     }
    ],
    "aufgabe": {
@@ -244,26 +265,26 @@
     "g": "mehrschritt",
     "y": "luecken",
     "f": {
-     "text": "I: y = 2x − 1 und II: 3x + y = 14. Einsetzen: 3x + (2x − 1) = 14. Zusammenfassen: ①x − 1 = 14. Also ①x = ②, x = ③ und y = ④.",
+     "text": "I: y = 2x − 1 und II: 6x + y = 23. Einsetzen: 6x + (2x − 1) = 23. Zusammenfassen: ①x − 1 = 23. Also ①x = ②, x = ③ und y = ④.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
-      5,
-      15,
+      8,
+      24,
       3,
       5
      ]
     },
     "c": [
-     "3 + 2",
-     "14 + 1",
-     "(14 + 1) // (3 + 2)",
-     "2 * 3 - 1"
+     "6+2",
+     "23+1",
+     "(23+1)//(6+2)",
+     "2*((23+1)//(6+2))-1"
     ],
     "h": "Steht y = … schon da, setzt du diesen Term ein.",
-    "w": "5x − 1 = 14, 5x = 15, x = 3. Dann y = 2 · 3 − 1 = 5. Probe in II: 9 + 5 = 14."
+    "w": "8x − 1 = 23, also 8x = 24, x = 3 und y = 2 · 3 − 1 = 5. Probe in II: 6 · 3 + 5 = 23."
    }
   },
   {

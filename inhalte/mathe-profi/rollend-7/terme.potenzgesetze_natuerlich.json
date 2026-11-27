@@ -1,0 +1,762 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-7",
+ "kuerzel": "K8",
+ "flug": "k8-terme.potenzgesetze_natuerlich",
+ "titel": "terme.potenzgesetze_natuerlich",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen": [
+  "terme.potenzgesetze_natuerlich"
+ ],
+ "themen_datei_im_bestand": "terme.potenzgesetze_natuerlich",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K8-V103",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "mal_gleiche_basis",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 20,
+     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "die Hochzahlen malgenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 18,
+     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "9 · 2 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "mal_gleiche_basis",
+    "t": "mal_gleiche_basis",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Vereinfache 3⁴ · 3⁵ zu einer Potenz mit der Basis 3. Die Hochzahl ist dann ①. Multiplizierst du dieses Ergebnis noch mit 3², hat die Potenz die Hochzahl ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      9,
+      11
+     ]
+    },
+    "c": [
+     "4 + 5",
+     "(9) + 2"
+    ],
+    "h": "Gleiche Basis beim Malnehmen: Was passiert mit den Hochzahlen?",
+    "w": "3⁴ · 3⁵ = 3⁹, denn 4 + 5 = 9. Mit 3² dazu: 3¹¹, denn 9 + 2 = 11."
+   }
+  },
+  {
+   "kennung": "K8-V104",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "mal_gleiche_basis",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4096,
+     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "die Hochzahlen malgenommen: 2¹²"
+    },
+    {
+     "antwort": 14,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "Basis mal Hochzahl: 2 · 7"
+    }
+   ],
+   "aufgabe": {
+    "l": "mal_gleiche_basis",
+    "t": "mal_gleiche_basis",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne 2⁴ · 2³ auf zwei Wegen. Weg A: beide Potenzen einzeln ausrechnen und dann malnehmen. Weg B: erst die Hochzahlen zusammenfassen und dann die Potenz ausrechnen. Welchen Wert hat das Produkt?"
+    },
+    "o": {
+     "wert": 128
+    },
+    "c": "2 ** (4 + 3)",
+    "h": "Beide Wege müssen denselben Wert ergeben.",
+    "w": "Weg A: 16 · 8 = 128. Weg B: 2⁷ = 128."
+   }
+  },
+  {
+   "kennung": "K8-V105",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "mal_gleiche_basis",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "mal_gleiche_basis",
+    "t": "mal_gleiche_basis",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim vereinfacht a³ · a⁴ · a². Die Zeilen bauen aufeinander auf. Zeile 1: Die Basis ist überall a, die Hochzahlen werden malgenommen: 3 · 4 · 2 = 24. Zeile 2: Also ist a³ · a⁴ · a² = a²⁴. Zeile 3: Das Ergebnis lautet a²⁴. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Was geschieht mit den Hochzahlen, wenn man Potenzen mit gleicher Basis malnimmt? Probe mit a = 2 und kleinen Hochzahlen: 2² · 2³.",
+    "w": "Beim Malnehmen werden die Hochzahlen addiert: 3 + 4 + 2 = 9. Richtig ist a⁹. Probe mit 2² · 2³ = 4 · 8 = 32 = 2⁵ und nicht 2⁶."
+   }
+  },
+  {
+   "kennung": "K8-V106",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "gleicher_exponent",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "24 − 6 gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "4 · 3 statt 4³ gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleicher_exponent",
+    "t": "gleicher_exponent",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Berechne 24³ : 6³ geschickt. Beide Potenzen haben dieselbe Hochzahl. Du teilst zuerst die Basen und erhältst ①. Dieses Ergebnis nimmst du hoch drei und erhältst ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      64
+     ]
+    },
+    "c": [
+     "24 // 6",
+     "(4) ** 3"
+    ],
+    "h": "Bei gleichen Hochzahlen darfst du die Basen zuerst teilen.",
+    "w": "24 : 6 = 4. 4³ = 64. Probe: 24³ : 6³ = 13824 : 216 = 64."
+   }
+  },
+  {
+   "kennung": "K8-V107",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "gleicher_exponent",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "7⁴",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Basen addiert statt malgenommen"
+    },
+    {
+     "index": 2,
+     "antwort": "10⁸",
+     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "alle acht Faktoren gezählt und die Hochzahlen 4 + 4 addiert"
+    },
+    {
+     "index": 3,
+     "antwort": "10¹⁶",
+     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "die Hochzahlen malgenommen statt beibehalten"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleicher_exponent",
+    "t": "gleicher_exponent",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Das Produkt 2 · 2 · 2 · 2 · 5 · 5 · 5 · 5 soll als eine einzige Potenz geschrieben werden. Welche Potenz ist das?"
+    },
+    "a": [
+     "7⁴",
+     "10⁴",
+     "10⁸",
+     "10¹⁶"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Es gibt gleich viele Faktoren 2 und 5. Fasse je einen Faktor 2 und einen Faktor 5 zusammen.",
+    "w": "Vier Paare 2 · 5 = 10. Also 10 · 10 · 10 · 10 = 10⁴. Probe: 16 · 625 = 10 000."
+   }
+  },
+  {
+   "kennung": "K8-V108",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "gleicher_exponent",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 + 7 gerechnet"
+    },
+    {
+     "antwort": 98,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die 7 mit der Hochzahl 2 gerechnet: 2 · 7²"
+    },
+    {
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 · 7 · 3 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleicher_exponent",
+    "t": "gleicher_exponent",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Zahl a gilt a³ = 2³ · 7³?"
+    },
+    "o": {
+     "wert": 14
+    },
+    "c": "2 * 7",
+    "h": "Wenn die Hochzahlen gleich sind, darfst du die Basen malnehmen.",
+    "w": "2³ · 7³ = (2 · 7)³ = 14³. Also ist a = 14. Probe: 8 · 343 = 2 744 = 14³."
+   }
+  },
+  {
+   "kennung": "K8-V109",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "potenz_von_potenz",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 7,
+     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "die Hochzahlen addiert statt malgenommen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 128,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem falschen Wert 7 weitergerechnet: 2⁷"
+    }
+   ],
+   "aufgabe": {
+    "l": "potenz_von_potenz",
+    "t": "potenz_von_potenz",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Vereinfache (2³)⁴ zu einer Potenz 2^k. Die Hochzahlen werden verrechnet: k = ①. Der Wert der Potenz 2^k ist ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      12,
+      4096
+     ]
+    },
+    "c": [
+     "3 * 4",
+     "2 ** (12)"
+    ],
+    "h": "Eine Potenz wird noch einmal hoch genommen. Was geschieht mit den Hochzahlen?",
+    "w": "(2³)⁴ = 2³ · 2³ · 2³ · 2³ = 2¹². 2¹² = 4 096."
+   }
+  },
+  {
+   "kennung": "K8-V110",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "potenz_von_potenz",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 243,
+     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "die Hochzahlen addiert: 3⁵"
+    },
+    {
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 3³ gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "potenz_von_potenz",
+    "t": "potenz_von_potenz",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne (3²)³ auf zwei Wegen. Weg A: erst die Klammer 3² ausrechnen und das Ergebnis hoch 3 nehmen. Weg B: die Hochzahlen verrechnen und dann die Potenz ausrechnen. Welchen Wert hat (3²)³?"
+    },
+    "o": {
+     "wert": 729
+    },
+    "c": "9 ** 3",
+    "h": "Beide Wege müssen denselben Wert ergeben.",
+    "w": "Weg A: 9³ = 729. Weg B: 3⁶ = 729."
+   }
+  },
+  {
+   "kennung": "K8-V111",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "potenz_von_potenz",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "x⁴ · x²",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahl 2 als Faktor x² gelesen"
+    },
+    {
+     "index": 1,
+     "antwort": "x⁴ + x⁴",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Hoch zwei als Verdopplung verstanden"
+    },
+    {
+     "index": 2,
+     "antwort": "8x",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen 4 und 2 malgenommen und als Faktor vor x geschrieben"
+    }
+   ],
+   "aufgabe": {
+    "l": "potenz_von_potenz",
+    "t": "potenz_von_potenz",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Der Term (x⁴)² soll als Produkt geschrieben werden. Welches Produkt ist dasselbe wie (x⁴)²?"
+    },
+    "a": [
+     "x⁴ · x²",
+     "x⁴ + x⁴",
+     "8x",
+     "x⁴ · x⁴"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Hoch 2 heißt: Der Inhalt der Klammer kommt zweimal als Faktor vor.",
+    "w": "(x⁴)² = x⁴ · x⁴ = x⁸."
+   }
+  },
+  {
+   "kennung": "K8-V112",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "geteilt_gleiche_basis",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 13,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen addiert statt subtrahiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 + 2 gerechnet statt 5 − 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "geteilt_gleiche_basis",
+    "t": "geteilt_gleiche_basis",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Vereinfache 7⁹ : 7⁴ zu einer Potenz mit der Basis 7. Die Hochzahl ist dann ①. Teilst du das Ergebnis noch durch 7², hat die Potenz die Hochzahl ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      5,
+      3
+     ]
+    },
+    "c": [
+     "9 - 4",
+     "(5) - 2"
+    ],
+    "h": "Gleiche Basis beim Teilen: Was passiert mit den Hochzahlen?",
+    "w": "7⁹ : 7⁴ = 7⁵, denn 9 − 4 = 5. Noch durch 7²: 7³, denn 5 − 2 = 3."
+   }
+  },
+  {
+   "kennung": "K8-V113",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "geteilt_gleiche_basis",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": "fb.gegenrechnung.gleiche_rechnung",
+     "regel_des_fehlbilds": "rr.gegenrechnung",
+     "beschreibung": "7 − 4 gerechnet"
+    },
+    {
+     "antwort": 28,
+     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "7 · 4 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "geteilt_gleiche_basis",
+    "t": "geteilt_gleiche_basis",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "In der Rechnung 5^k : 5⁴ = 5⁷ fehlt die Hochzahl k. Wie groß ist k?"
+    },
+    "o": {
+     "wert": 11
+    },
+    "c": "7 + 4",
+    "h": "Beim Teilen werden die Hochzahlen subtrahiert. Rechne rückwärts.",
+    "w": "k − 4 = 7, also k = 11. Probe: 5¹¹ : 5⁴ = 5⁷."
+   }
+  },
+  {
+   "kennung": "K8-V114",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "geteilt_gleiche_basis",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "geteilt_gleiche_basis",
+    "t": "geteilt_gleiche_basis",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim vereinfacht a⁸ : a³ : a für a ≠ 0. Die Zeilen bauen aufeinander auf. Zeile 1: a⁸ : a³ = a⁵, denn 8 − 3 = 5. Zeile 2: a⁵ : a = a⁵, weil a keine Hochzahl hat. Zeile 3: Das Ergebnis lautet a⁵. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Welche Hochzahl hat a, wenn nichts dransteht? Probe mit a = 2.",
+    "w": "a ist dasselbe wie a¹. Also a⁵ : a¹ = a⁴. Probe mit a = 2: 32 : 2 = 16 = 2⁴."
+   }
+  },
+  {
+   "kennung": "K8-V115",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "anwenden",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2097152,
+     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "die Hochzahlen malgenommen: 2²¹"
+    },
+    {
+     "antwort": 56,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "8 · 7 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "anwenden",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Zelle teilt sich jede Stunde in zwei Zellen. Nach 3 Stunden sind aus einer Zelle 2³ Zellen geworden. Jede dieser Zellen vermehrt sich in 7 weiteren Stunden genauso weiter. Wie viele Zellen sind es dann insgesamt?"
+    },
+    "o": {
+     "wert": 1024,
+     "einheit": "Zellen"
+    },
+    "c": "2 ** (3 + 7)",
+    "h": "Jede Zelle wird in 7 Stunden zu 2⁷ Zellen. Wie viele solcher Gruppen gibt es?",
+    "w": "Es gibt 2³ = 8 Zellen. Jede wird zu 2⁷ = 128. Insgesamt 8 · 128 = 1 024 = 2¹⁰ Zellen."
+   }
+  },
+  {
+   "kennung": "K8-V116",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "anwenden",
+   "stufe": 1,
+   "typ": "Verfahren wählen (einfache Form)",
+   "form": "verfahren_waehlen",
+   "antwortform": "auswahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Die Hochzahlen teilen: 5³ = 125.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hochzahlen geteilt statt subtrahiert"
+    },
+    {
+     "index": 2,
+     "antwort": "Die Basen teilen und die Hochzahlen subtrahieren: 1⁴ = 1.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Basen geteilt, obwohl sie gleich bleiben"
+    },
+    {
+     "index": 3,
+     "antwort": "Die Hochzahlen addieren: 5⁸ = 390 625.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Rechenart für das Malnehmen benutzt"
+    }
+   ],
+   "aufgabe": {
+    "l": "anwenden",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 1,
+    "g": "erkennen",
+    "y": "auswahl",
+    "f": {
+     "text": "Du sollst 5⁶ : 5² berechnen. Welcher Weg ist richtig?"
+    },
+    "a": [
+     "Die Hochzahlen subtrahieren: 5⁴ = 625.",
+     "Die Hochzahlen teilen: 5³ = 125.",
+     "Die Basen teilen und die Hochzahlen subtrahieren: 1⁴ = 1.",
+     "Die Hochzahlen addieren: 5⁸ = 390 625."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Beim Teilen gleicher Basen bleibt die Basis. Nur die Hochzahlen werden verrechnet.",
+    "w": "5⁶ : 5² = 5⁶⁻² = 5⁴ = 625. Probe: 15 625 : 25 = 625."
+   }
+  },
+  {
+   "kennung": "K8-V117",
+   "thema": "terme.potenzgesetze_natuerlich",
+   "lernkarte": "anwenden",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.potenz",
+   "regel_name": "Potenzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": "fb.potenz.hochzahlen_malgenommen",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "die Hochzahlen addiert: 4 + 3"
+    },
+    {
+     "antwort": 64,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "4³ gerechnet statt (2⁴)³"
+    }
+   ],
+   "aufgabe": {
+    "l": "anwenden",
+    "t": "anwenden",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Würfel hat die Kantenlänge 2⁴ cm. Das Volumen ist Kante mal Kante mal Kante. Es lässt sich als Potenz 2^k cm³ schreiben. Wie groß ist k?"
+    },
+    "o": {
+     "wert": 12
+    },
+    "c": "4 * 3",
+    "h": "Schreibe das Volumen als (2⁴)³ und verrechne die Hochzahlen.",
+    "w": "V = (2⁴)³ = 2⁴ · 2⁴ · 2⁴ = 2¹². Das sind 4 096 cm³."
+   }
+  }
+ ]
+}

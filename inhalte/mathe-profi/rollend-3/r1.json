@@ -21,18 +21,32 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 3,
-     "antwort": 20,
-     "fehlbild": "fb.auslegen.umfang_statt_flaeche",
-     "regel_des_fehlbilds": "id.flaeche_raum.auslegen",
-     "beschreibung": "den Umfang berechnet"
-    },
-    {
-     "luecke": 3,
-     "antwort": 10,
+     "luecke": 1,
+     "antwort": 21,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Länge und Höhe zusammengezählt"
+     "beschreibung": "28 − 7 gerechnet"
+    },
+    {
+     "luecke": 1,
+     "antwort": 196,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mal statt geteilt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur Länge und Höhe addiert"
+    },
+    {
+     "luecke": 2,
+     "antwort": 28,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche als Umfang genommen"
     }
    ],
    "aufgabe": {
@@ -43,24 +57,22 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Rechteck ist 6 cm lang und 4 cm hoch. Du legst es mit Quadraten von 1 cm² aus: Es werden ① Reihen mit je ② Quadraten. Fläche: ③ cm².",
-     "schablone": "① = □; ② = □; ③ = □",
+     "text": "Ein Rechteck ist 7 cm lang. Du legst es mit Quadraten von 1 cm² in waagerechten Reihen übereinander aus: Jede Reihe hat 7 Quadrate. Insgesamt brauchst du 28 Quadrate. Dann sind es 28 : 7 = ① Reihen. Das Rechteck ist ① cm hoch. Sein Umfang ist 2 · 7 + 2 · ① = ② cm.",
+     "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       4,
-      6,
-      24
+      22
      ]
     },
     "c": [
-     "4",
-     "6",
-     "4 * 6"
+     "28//7",
+     "2*7+2*(28//7)"
     ],
     "h": "Wie viele Quadrate passen in eine Reihe, wie viele Reihen übereinander?",
-    "w": "4 Reihen mit je 6 Quadraten: 4 · 6 = 24 cm²."
+    "w": "28 : 7 = 4 Reihen, das Rechteck ist 4 cm hoch. Umfang: 14 + 8 = 22 cm."
    }
   },
   {
@@ -77,30 +89,30 @@
     {
      "luecke": 1,
      "antwort": 10,
-     "fehlbild": "fb.groesse.flaeche_mit_zehn",
-     "regel_des_fehlbilds": "id.verhaeltnisse.groesse",
-     "beschreibung": "Umrechnungszahl der Längen genommen"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie bei Längen mit 10 gerechnet"
     },
     {
      "luecke": 2,
      "antwort": 30,
-     "fehlbild": "fb.groesse.flaeche_mit_zehn",
-     "regel_des_fehlbilds": "id.verhaeltnisse.groesse",
-     "beschreibung": "mit 10 umgerechnet"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie bei Längen mit 10 gerechnet"
     },
     {
      "luecke": 3,
      "antwort": 50,
-     "fehlbild": "fb.groesse.flaeche_mit_zehn",
-     "regel_des_fehlbilds": "id.verhaeltnisse.groesse",
-     "beschreibung": "durch 10 geteilt"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 10 statt 100 geteilt"
     },
     {
      "luecke": 3,
      "antwort": 50000,
-     "fehlbild": "fb.groesse.falsche_richtung",
-     "regel_des_fehlbilds": "id.verhaeltnisse.groesse",
-     "beschreibung": "malgenommen statt geteilt"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 100 malgenommen"
     }
    ],
    "aufgabe": {
@@ -111,7 +123,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "1 m² = ① dm², also 3 m² = ② dm². Und 500 mm² = ③ cm².",
+     "text": "1 m² = ① dm², also 3 m² = 3 · ① = ② dm². Und 500 mm² = ③ cm².",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
@@ -123,12 +135,12 @@
      ]
     },
     "c": [
-     "10 * 10",
-     "3 * 100",
-     "500 // 100"
+     "10*10",
+     "3*10*10",
+     "500//100"
     ],
-    "h": "Bei Flächen ist die Umrechnungszahl 100.",
-    "w": "1 m² = 100 dm². 3 m² = 300 dm². 500 mm² = 5 cm²."
+    "h": "Bei Längen ist die Umrechnungszahl 10. Bei Flächen kommt sie zweimal vor.",
+    "w": "1 m² = 100 dm², 3 m² = 300 dm². 500 mm² = 5 cm²."
    }
   },
   {
@@ -1135,7 +1147,7 @@
     "g": "parameter",
     "y": "bedingung",
     "f": {
-     "text": "Aus einem Rechteck von 10 cm mal 6 cm wird an einer Ecke ein kleineres Rechteck herausgeschnitten (ganze Zentimeter). Übrig bleiben genau 48 cm². Nenne Länge und Breite des herausgeschnittenen Stücks.",
+     "text": "Aus einem Rechteck von 10 cm mal 6 cm wird an einer Ecke ein kleineres Rechteck herausgeschnitten (ganze Zentimeter). Es bleibt eine L-förmige Fläche von genau 48 cm² übrig. Beide Seiten des Stücks sind kürzer als die Seiten des großen Rechtecks. Nenne im ersten Feld die Länge (waagrecht, kleiner als 10 cm) und im zweiten Feld die Breite (senkrecht, kleiner als 6 cm) des herausgeschnittenen Stücks.",
      "felder": [
       {
        "art": "ganz"
@@ -1148,7 +1160,7 @@
     "o": {
      "bedingungen": [
       {
-       "name": "Stück passt in die Ecke",
+       "name": "Stück lässt eine L-Form übrig",
        "pruefe": [
         "und",
         [
@@ -1172,7 +1184,7 @@
          6
         ]
        ],
-       "hinweis": "Dein Stück passt nicht in die Ecke: Länge 1 bis 9 cm, Breite 1 bis 5 cm."
+       "hinweis": "Dein Stück muss in der Ecke liegen und beide Seiten müssen kürzer sein als die des großen Rechtecks: Länge 1 bis 9 cm, Breite 1 bis 5 cm."
       },
       {
        "name": "übrig bleiben 48 cm²",
@@ -1221,14 +1233,14 @@
         12,
         1
        ],
-       "verletzt": "Stück passt in die Ecke"
+       "verletzt": "Stück lässt eine L-Form übrig"
       },
       {
        "werte": [
         2,
         6
        ],
-       "verletzt": "Stück passt in die Ecke"
+       "verletzt": "Stück lässt eine L-Form übrig"
       },
       {
        "werte": [
@@ -1240,7 +1252,7 @@
      ]
     },
     "h": "Wie groß ist die ganze Fläche? Wie viel muss also weg?",
-    "w": "Das ganze Rechteck hat 60 cm². Es müssen 12 cm² weg: 4 cm mal 3 cm, 6 cm mal 2 cm oder 3 cm mal 4 cm."
+    "w": "Das ganze Rechteck hat 60 cm². Es müssen 12 cm² weg. Länge unter 10 cm, Breite unter 6 cm: 4 cm mal 3 cm, 3 cm mal 4 cm oder 6 cm mal 2 cm. Ein Streifen 2 cm mal 6 cm ginge über die ganze Breite, dann bleibt keine L-Form."
    }
   },
   {

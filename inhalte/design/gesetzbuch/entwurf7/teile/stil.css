@@ -254,5 +254,6 @@ body[data-g="nacht"].weltraum .bahn0 { border-top-color: rgba(169, 179, 193, .28
 body[data-g="nacht"] .s0-kreis { box-shadow: 0 0 60px 18px rgba(255, 190, 40, .35); }
 .system .sp text { paint-order: stroke; stroke: var(--bg); stroke-width: 5px; stroke-linejoin: round; }
 body[data-g="nacht"].weltraum .system .sp text { stroke: #070A10; }
-.system a.sp[href="#sonne"] text { stroke: none; }
+/* Schrift AUF der Sonne und die Zeichen IN den Planeten bekommen keine Kontur – auch nicht in der Weltraum-Fassung (sonst verschmiert sie). */
+.system a.sp[href="#sonne"] text, .system .sp g text, body[data-g="nacht"].weltraum .system a.sp[href="#sonne"] text, body[data-g="nacht"].weltraum .system .sp g text { stroke: none; }
 .s0-kreis { width: 118%; margin-left: -59%; }

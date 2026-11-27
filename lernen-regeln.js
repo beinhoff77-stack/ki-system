@@ -98,11 +98,22 @@ function ruIndex(D) {
     ziel: e.teil ? tafelZiel(e.t, e.teil) : tafelStart(e.t), ae: ['Tafel', e.t.id + (e.teil ? ' ' + e.teil.anker : '')] });
   // roh: die Eingabe, wie sie getippt wurde. Ein einzelner Buchstabe trifft ein einbuchstabiges Suchwort nur in derselben Schreibung (M Mega ≠ m Milli, N ℕ ≠ n Nano).
   function tafelSuche(teile, roh = '') {
-    const r = String(roh).trim(), einB = /^[A-Za-zÄÖÜäöüß]$/.test(r);
-    return TSUCH.map((e, i) => { let p = 0; const wk = einB ? e.wk.filter((l, j) => l.length !== 1 || l[0] !== r.toLowerCase() || e.stich[j].trim() === r) : e.wk;
+    const r = String(roh).trim(), einB = /^[A-Za-zÄÖÜäöüß]$/.test(r), ganz = woerter(r).join(' ');
+    const liste = TSUCH.map((e, i) => { let p = 0; const wk = einB ? e.wk.filter((l, j) => l.length !== 1 || l[0] !== r.toLowerCase() || e.stich[j].trim() === r) : e.wk;
       for (const w of teile) { const q = wk.some((l) => l.length === 1 && l[0] === w) ? 10 : e.wn.includes(w) ? 9 : wk.some((l) => l.includes(w)) ? 6 : trifft(e.wn, w) ? 4 : wk.some((l) => trifft(l, w)) ? 3 : 0;
         if (!q) return null; p += q; }
-      return { e, p: p + (e.teil ? 0 : 0.5), i }; }).filter(Boolean).sort((a, b) => b.p - a.p || a.i - b.i).slice(0, 4).map(({ e }) => tafelTreffer(e));
+      return { e, p: p + (e.teil ? 0 : 0.5), i, genau: !!ganz && wk.some((l) => l.join(' ') === ganz) }; }).filter(Boolean).sort((a, b) => b.p - a.p || a.i - b.i);
+    // Auflagen aus Werkstatt 1156: Die Wortsuche zeigt die vier besten Tafel-Treffer; eine Zeile, deren Stichwort genau der Eingabe entspricht
+    // („Prozent“, „Winkel“, „deckungsgleich“, „ist kongruent zu“), kommt immer dazu (hinter die vier, in derselben Reihenfolge).
+    // Sammelbegriff: Haben fünf oder mehr Zeilen eines Abschnitts dasselbe genaue Stichwort („griechischer Buchstabe“), steht statt der einzelnen Zeilen
+    // ein Treffer für den ganzen Abschnitt (das vollständige Verzeichnis) an erster Stelle.
+    const sammel = new Map();
+    for (const x of liste) if (x.genau && x.e.teil) { const ab = (x.e.t.abschnitte || []).find((a) => a.kennungen.includes(x.e.teil.anker)); if (ab) { const k = x.e.t.id + ' ' + ab.art; (sammel.get(k) || sammel.set(k, { t: x.e.t, ab, n: 0 }).get(k)).n++; } }
+    const gross = [...sammel.values()].filter((g) => g.n >= 5), imSammel = (x) => x.genau && x.e.teil && gross.some((g) => g.t === x.e.t && g.ab.kennungen.includes(x.e.teil.anker));
+    const rest = liste.filter((x) => !imSammel(x)), oben = rest.slice(0, 4);
+    return [...gross.map(({ t, ab }) => ({ id: 'tafel ' + t.id + ' ab-' + ab.art, art: 'Tafel', tafel: true, name: ab.name, satz: ruEsc(`alle ${ab.kennungen.length} im Verzeichnis`), ort: 'Tafeln · ' + t.titel,
+      ziel: adr.tafel(t.id, 'ab-' + ab.art), ae: ['Tafel', t.id + ' ab-' + ab.art], sammel: ab.kennungen.slice() })),
+      ...oben.map(({ e }) => tafelTreffer(e)), ...rest.slice(4).filter((x) => x.genau).map(({ e }) => tafelTreffer(e))];
   }
   // ---------- Zeichensuche (Auflagen aus Werkstatt 1152) ----------
   // Die Wortzerlegung kennt nur a–z, Ziffern, %, ‰, °, € – mathematische Zeichen und griechische Buchstaben fielen dort weg (≤, π, ∈, ∢ ohne Treffer, „µm“ wurde zu „m“).

@@ -50,9 +50,9 @@ Stand 2026-11-27. Entwurf: nichts ist in die App eingespielt; geprüft mit `../p
 | ff-15 | a = untere parallele Seite (untere Seite); b = linker Schenkel (linke Seite); c = obere parallele Seite (obere Seite); d = rechter Schenkel (rechte Seite) | u = 6 cm + 4 cm + 3 cm + 5 cm = 18 cm · Hilfe: 5² = 4² + 3² = 25 |
 | ff-16 | a = erste Seitenlänge (die zwei gleich langen Seiten an der einen Spitze); b = zweite Seitenlänge (die zwei gleich langen Seiten an der anderen Spitze) | u = 2 · (5 cm + 3 cm) = 2 · 8 cm = 16 cm |
 | ff-17 | a = Seitenlänge (eine Seite mit Maßpfeil; alle vier Seiten mit gleichen Strichen markieren) | u = 4 · 5 cm = 20 cm · Hilfe: 5² = (8 : 2)² + (6 : 2)² = 25 |
-| ff-18 | R = äußerer Radius (von der gemeinsamen Mitte M zum äußeren Rand); r = innerer Radius (von der gemeinsamen Mitte M zum inneren Rand) | A = π · (5² cm² − 3² cm²) = π · 16 cm² = 16π cm² ≈ 50,27 cm² |
+| ff-18 | R = äußerer Radius (von der gemeinsamen Mitte M zum äußeren Rand); r = innerer Radius (von der gemeinsamen Mitte M zum inneren Rand) | A = π · (5² cm² − 2² cm²) = π · 21 cm² = 21π cm² ≈ 65,97 cm² |
 | ff-19 | r = Radius (beide Begrenzungsradien); b = Bogenlänge (gebogener Maßpfeil am Rand) | u = 2 · 4 cm + 2π cm = 8 cm + 2π cm ≈ 14,28 cm · Hilfe: b = 2π cm aus ff-10 |
-| ff-20 | R = äußerer Radius; r = innerer Radius (wie ff-18) | u = 2 · π · (5 cm + 3 cm) = 2 · π · 8 cm = 16π cm ≈ 50,27 cm |
+| ff-20 | R = äußerer Radius; r = innerer Radius (wie ff-18) | u = 2 · π · (5 cm + 2 cm) = 2 · π · 7 cm = 14π cm ≈ 43,98 cm |
 
 ## Vorschlag zur Gliederung der Karte
 

@@ -429,3 +429,36 @@ test('Tafeln: Auflagen aus Werkstatt 1152 (Dezimalkomma, Kreisausschnitt, Kreisr
   const hilfe = fs.readFileSync(path.join(root, 'lernen.js'), 'utf8').split('\n').find((z) => z.includes("['Knobel-Bordkarten:'"));
   assert.ok(hilfe && hilfe.includes('Heute keine Knobel-Bordkarte') && !hilfe.includes('des Tages'), 'Hilfe ohne „Knobeln des Tages“');
 });
+
+// ---------- Auflagen aus Werkstatt 1156 a: Wort-Aliasse der Tafel „Zeichen und Wörter“ ----------
+test('Suche: jedes Stichwort jeder Zeile der Tafel „Zeichen und Wörter“ erreicht die eigene Zeile (Sammelbegriff: das ganze Verzeichnis)', () => {
+  const Q = TQ('tafeln/zeichen-woerter/zeichen-woerter.json').eintraege, S = L.ruSichten(I, (h) => '#/regeln/1-' + h, { klasse: 5, frage: '' }, 'kind'), seite = S.seite('tafel-zeichen-woerter');
+  const n = { paare: 0, direkt: 0, sammel: 0 }, fehlt = [];
+  for (const e of Q) for (const s of e.stichwoerter) {
+    n.paare++; const tr = I.suche(s), ziel = 'tafel-zeichen-woerter.' + e.kennung;
+    if (tr.some((t) => t.ziel === ziel)) { n.direkt++; continue; }
+    const sm = tr.find((t) => t.sammel && t.sammel.includes(e.kennung));
+    if (sm) { n.sammel++; const [, anker] = sm.ziel.split('.'); assert.ok(seite.includes(`id="ru-tf-${anker}"`), sm.ziel + ': Abschnitt auf der Seite'); continue; }
+    fehlt.push(`„${s}“ → ${e.kennung}`);
+  }
+  assert.deepEqual(fehlt, [], 'Stichwörter ohne eigene Zeile');
+  // die zwölf Fälle der Gegenprüfung ausdrücklich
+  const hat = (q, k) => I.suche(q).some((t) => t.ziel === 'tafel-zeichen-woerter.' + k);
+  for (const [q, k] of [['Prozent', 'zw-14'], ['Winkel', 'zw-28'], ['kongruent', 'zw-30'], ['deckungsgleich', 'zw-30'], ['ist kongruent zu', 'zw-30']]) assert.ok(hat(q, k), `${q} → ${k}`);
+  const g = I.suche('griechischer Buchstabe').filter((t) => t.tafel);
+  assert.equal(g[0].ziel, 'tafel-zeichen-woerter.ab-griechisch', 'Sammelbegriff: zuerst das Verzeichnis'); assert.equal(g[0].name, 'Griechische Buchstaben');
+  for (const k of ['zw-g1', 'zw-g5', 'zw-g8', 'zw-g11']) assert.ok(g[0].sammel.includes(k), k);
+  assert.equal(L.ruEbene('tafel-zeichen-woerter.ab-griechisch'), 2);
+  // bisherige Reihenfolge vorn unverändert (vier beste Treffer, dann genaue Stichwörter)
+  assert.equal(I.suche('Prozent')[0].ziel, 'tafel-bruch-dezimal-prozent'); assert.equal(I.suche('Kreis')[0].ziel, 'tafel-formeln.kreis');
+  assert.ok(n.paare >= 400 && n.sammel === 11, JSON.stringify(n));
+  console.log(`Stichwort-Zeilen-Paare „Zeichen und Wörter“: ${n.paare} (Zeichen/Buchstaben ${Q.filter((e) => e.art !== 'fachwort').reduce((a, e) => a + e.stichwoerter.length, 0)}), direkt ${n.direkt}, über das Verzeichnis ${n.sammel}`);
+});
+
+test('Kreisring-Beispiel (Werkstatt 1156, Empfehlung): R = 5 cm, r = 2 cm – Rand und Fläche ergeben verschiedene Zahlen', () => {
+  const q = TQ('tafeln/formeln-flaechen/formeln-flaechen.json').eintraege, A = q.find((e) => e.kennung === 'ff-18'), u = q.find((e) => e.kennung === 'ff-20');
+  for (const e of [A, u]) assert.deepEqual(e.beispiel.werte, { R: '5 cm', r: '2 cm' }, e.kennung);
+  assert.equal(A.beispiel.ergebnis, '21π cm² ≈ 65,97 cm²'); assert.equal(u.beispiel.ergebnis, '14π cm ≈ 43,98 cm');
+  assert.equal((Math.PI * (25 - 4)).toFixed(2), '65.97'); assert.equal((2 * Math.PI * 7).toFixed(2), '43.98');
+  assert.ok(!JSON.stringify(D.tafeln).includes('50,27'), 'altes Beispiel nirgends mehr');
+});

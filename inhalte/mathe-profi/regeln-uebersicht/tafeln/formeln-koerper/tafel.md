@@ -26,7 +26,7 @@ Stand 2026-11-27. Entwurf: nichts ist in die App eingespielt; geprüft mit `../p
 | fk-16 | Kugel – Volumen | V = 4/3 · π · r³ | – | universum | Gym 10 · RS 9 · IB 3 | F18 |
 | fk-17 | Kugel – Oberfläche | O = 4 · π · r² | – | universum | Gym 10 · RS 9 · IB 3 | F18 |
 | fk-18 | Pyramide – Oberfläche | O = G + M | M ist die Summe aller Seitendreiecke | ergaenzt | Gym 10 · RS 9 · IB 3 | I-fur-4 |
-| fk-19 | Pyramide mit quadratischer Grundfläche – Oberfläche | O = a² + 2 · a · hₛ | gerade Pyramide mit quadratischer Grundfläche (Seite a); hₛ ist die Höhe eines Seitendreiecks | ergaenzt | Gym 10 · RS 9 · IB 3 | I-fur-4 |
+| fk-19 | Pyramide mit quadratischer Grundfläche – Oberfläche (Sonderfall: gerade quadratische Pyramide) | O = a² + 2 · a · hₛ | gerade Pyramide mit quadratischer Grundfläche (Seite a); hₛ ist die Höhe eines Seitendreiecks | ergaenzt | Gym 10 · RS 9 · IB 3 | I-fur-4 |
 | fk-20 | Quader – Kantenlänge insgesamt | K = 4 · (a + b + c) | Quader; jede der drei Kantenlängen kommt viermal vor | ergaenzt | Gym 5 · RS 6 · IB 1 | – |
 | fk-21 | Würfel – Kantenlänge insgesamt | K = 12 · a | Würfel mit 12 gleich langen Kanten | ergaenzt | Gym 5 · RS 6 · IB 1 | – |
 | fk-22 | Quader – Raumdiagonale | d = √(a² + b² + c²) | Quader; d verbindet zwei gegenüberliegende Ecken durch das Innere | ergaenzt | Gym 9 · RS 9 · IB 3 | G24 |

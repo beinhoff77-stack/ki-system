@@ -11,6 +11,11 @@
    "merksatz": "n² heißt n · n: die Zahl mal sich selbst.",
    "liste": [
     {
+     "n": 0,
+     "text": "0² = 0",
+     "quadrat": 0
+    },
+    {
      "n": 1,
      "text": "1² = 1",
      "quadrat": 1
@@ -155,6 +160,11 @@
    "art": "liste",
    "merksatz": "n³ heißt n · n · n: die Zahl dreimal malnehmen.",
    "liste": [
+    {
+     "n": 0,
+     "text": "0³ = 0",
+     "kubik": 0
+    },
     {
      "n": 1,
      "text": "1³ = 1",

@@ -589,7 +589,7 @@
    "kennung": "ff-10",
    "titel": "Kreisausschnitt – Bogenlänge",
    "figur": "Kreisausschnitt",
-   "groesse": "Umfang",
+   "groesse": "Bogenlänge",
    "fuer": "Kreisausschnitt – Bogenlänge",
    "formel": "b = α : 360° · 2 · π · r",
    "bedingung": "α Mittelpunktswinkel",
@@ -1118,6 +1118,131 @@
     "Fläche Kreisring",
     "großer Kreis minus kleiner Kreis",
     "Unterlegscheibe"
+   ]
+  },
+  {
+   "kennung": "ff-19",
+   "titel": "Kreisausschnitt – Umfang",
+   "figur": "Kreisausschnitt",
+   "groesse": "Umfang",
+   "fuer": "Kreisausschnitt – Umfang",
+   "formel": "u = 2 · r + b",
+   "bedingung": "Der Rand besteht aus zwei Radien und dem Bogen b; b ist die Bogenlänge, b = α : 360° · 2 · π · r",
+   "herkunft": "ergaenzt",
+   "ergebnis": {
+    "zeichen": "u",
+    "name": "Umfang",
+    "art": "Länge",
+    "einheit": "cm"
+   },
+   "groessen": [
+    {
+     "zeichen": "r",
+     "name": "Radius",
+     "art": "Länge",
+     "beschriften": "beide Begrenzungsradien beschriften"
+    },
+    {
+     "zeichen": "b",
+     "name": "Bogenlänge",
+     "art": "Länge",
+     "beschriften": "b als gebogener Maßpfeil am Rand"
+    }
+   ],
+   "zeichnung": "Kreisausschnitt (Tortenstück): Mitte M, die beiden Radien r und der Bogen b; der ganze Rand ist hervorgehoben.",
+   "beispiel": {
+    "werte": {
+     "r": "4 cm",
+     "b": "2π cm"
+    },
+    "rechnung": "u = 2 · 4 cm + 2π cm = 8 cm + 2π cm ≈ 14,28 cm",
+    "ergebnis": "8 cm + 2π cm ≈ 14,28 cm",
+    "hilfe": "b aus dem Beispiel zur Bogenlänge: α = 90°, r = 4 cm, also b = 2π cm."
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "messen.kreisberechnung",
+      "lernziel": "sektor",
+      "wort": "Bogen"
+     }
+    ]
+   },
+   "regeln": [
+    {
+     "kennung": "F10",
+     "name": "Kreisausschnitt",
+     "passt": "Der Bogen b ist der Anteil α : 360° vom Kreisumfang; dazu kommen die beiden Radien."
+    }
+   ],
+   "stichwoerter": [
+    "Umfang Kreisausschnitt",
+    "Kreisausschnitt Umfang",
+    "Umfang Kreissektor",
+    "Rand Tortenstück"
+   ]
+  },
+  {
+   "kennung": "ff-20",
+   "titel": "Kreisring – Umfang (beide Ränder)",
+   "figur": "Kreisring",
+   "groesse": "Umfang",
+   "fuer": "Kreisring – Umfang (beide Ränder)",
+   "formel": "u = 2 · π · (R + r)",
+   "bedingung": "beide Ränder zusammen: äußerer Rand 2 · π · R, innerer Rand 2 · π · r; R > r, beide Kreise haben denselben Mittelpunkt",
+   "herkunft": "ergaenzt",
+   "ergebnis": {
+    "zeichen": "u",
+    "name": "Länge beider Ränder",
+    "art": "Länge",
+    "einheit": "cm"
+   },
+   "groessen": [
+    {
+     "zeichen": "R",
+     "name": "äußerer Radius",
+     "art": "Länge",
+     "beschriften": "von der gemeinsamen Mitte M zum äußeren Rand"
+    },
+    {
+     "zeichen": "r",
+     "name": "innerer Radius",
+     "art": "Länge",
+     "beschriften": "von der gemeinsamen Mitte M zum inneren Rand"
+    }
+   ],
+   "zeichnung": "Zwei Kreise mit derselben Mitte M; R zum äußeren, r zum inneren Rand; beide Ränder hervorgehoben.",
+   "beispiel": {
+    "werte": {
+     "R": "5 cm",
+     "r": "3 cm"
+    },
+    "rechnung": "u = 2 · π · (5 cm + 3 cm) = 2 · π · 8 cm = 16π cm ≈ 50,27 cm",
+    "ergebnis": "16π cm ≈ 50,27 cm"
+   },
+   "ab_klasse": {
+    "gymnasium_by": 8,
+    "realschule_by": 9,
+    "ib_myp": 3,
+    "beleg": [
+     {
+      "thema": "messen.kreisberechnung",
+      "lernziel": "zusammengesetzt",
+      "wort": "Kreisring"
+     }
+    ]
+   },
+   "regeln": [],
+   "regeln_hinweis": "Keine Einzelregel nennt den Kreisring; F9 (Kreis) liefert die beiden Kreisumfänge. Stimmt mit nachtrag nt-08 überein.",
+   "stichwoerter": [
+    "Umfang Kreisring",
+    "Kreisring Umfang",
+    "Rand Kreisring",
+    "äußerer Rand",
+    "innerer Rand"
    ]
   }
  ],

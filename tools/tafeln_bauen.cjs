@@ -112,11 +112,11 @@ const TAFELN = [
   { id: 'zeichen-woerter', titel: null, kurz: 'Zeichen, griechische Buchstaben, Fachwörter', chip: '≤ · π · ∈', gebiet: 'Algebra', gebiete: ['Sonne'],
     stich: ['Zeichen', 'Rechenzeichen', 'Symbole', 'griechische Buchstaben', 'Fachwörter', 'Wörterbuch', 'Fachbegriffe'] },
 ];
-// Formeltafeln: je Figur/Körper eine Karte (Zeichnung + Zeilen). „zusatz“: Zeilen im Aufklapper (formeln-koerper/tafel.md: Raumdiagonale, Kantenlänge als Zusatz).
+// Formeltafeln: je Figur/Körper eine Karte (Zeichnung + Zeilen). Kreisausschnitt: Umfang u = 2 · r + b und Bogenlänge b getrennt; Kreisring: Fläche und beide Ränder (Auflagen aus Werkstatt 1152). „zusatz“: Zeilen im Aufklapper (formeln-koerper/tafel.md: Raumdiagonale, Kantenlänge als Zusatz).
 const KARTEN = {
   'formeln-flaechen': [['rechteck', 'Rechteck', ['ff-01', 'ff-02']], ['quadrat', 'Quadrat', ['ff-03', 'ff-12']], ['parallelogramm', 'Parallelogramm', ['ff-04', 'ff-14']],
     ['dreieck', 'Dreieck', ['ff-05', 'ff-13']], ['trapez', 'Trapez', ['ff-06', 'ff-15']], ['drachen', 'Drachenviereck und Raute', ['ff-07', 'ff-16', 'ff-17']],
-    ['kreis', 'Kreis', ['ff-09', 'ff-08']], ['ausschnitt', 'Kreisausschnitt', ['ff-11', 'ff-10']], ['kreisring', 'Kreisring', ['ff-18']]],
+    ['kreis', 'Kreis', ['ff-09', 'ff-08']], ['ausschnitt', 'Kreisausschnitt', ['ff-11', 'ff-19', 'ff-10']], ['kreisring', 'Kreisring', ['ff-18', 'ff-20']]],
   'formeln-koerper': [['quader', 'Quader', ['fk-01', 'fk-03'], ['fk-20', 'fk-22']], ['wuerfel', 'Würfel', ['fk-02', 'fk-04'], ['fk-21']], ['prisma', 'Prisma', ['fk-05', 'fk-06', 'fk-07']],
     ['zylinder', 'Zylinder', ['fk-08', 'fk-09', 'fk-10']], ['pyramide', 'Pyramide', ['fk-11', 'fk-12', 'fk-18', 'fk-19']], ['kegel', 'Kegel', ['fk-13', 'fk-14', 'fk-15']],
     ['kugel', 'Kugel', ['fk-16', 'fk-17']]],
@@ -127,11 +127,11 @@ const SONST = [{ gesetz: 'V2' }, { tafel: 'bruch-dezimal-prozent', kennung: 'bd-
   { tafel: 'bruch-dezimal-prozent', kennung: 'bd-05' }, { gesetz: 'D3', kurz: ['Mittelwert = Summe aller Werte : Anzahl der Werte'] }, { tafel: 'figuren', kennung: 'fg-07' }, { gesetz: 'A4' },
   { tafel: 'bruch-dezimal-prozent', kennung: 'bd-06' },
   { gesetz: 'D4', kurz: ['Median: der mittlere Wert der geordneten Liste; bei gerader Anzahl der Mittelwert der beiden mittleren Werte', 'Modalwert: der häufigste Wert; bei Gleichstand gibt es mehrere Modalwerte', 'Spannweite = größter Wert − kleinster Wert'] },
-  { gesetz: 'D13', kurz: ['P = günstige Ergebnisse : mögliche Ergebnisse'], bed: 'nur wenn alle Ergebnisse gleich wahrscheinlich sind' },
+  { gesetz: 'D13', kurz: ['P = Anzahl günstiger Ergebnisse : Anzahl aller möglichen Ergebnisse'], bed: 'nur wenn alle Ergebnisse gleich wahrscheinlich sind' },
   { gesetz: 'U7', kurz: ['y = m · x + t'], bed: 'm ist die Steigung, t der Abschnitt auf der y-Achse' },
   { gesetz: 'G24', kurz: ['a² + b² = c²'], bed: 'nur im rechtwinkligen Dreieck; a, b Katheten, c Hypotenuse' },
-  { gesetz: 'G25', kurz: ['sin α = Gegenkathete : Hypotenuse', 'cos α = Ankathete : Hypotenuse', 'tan α = Gegenkathete : Ankathete'], bed: 'im rechtwinkligen Dreieck, für den spitzen Winkel α' },
-  { gesetz: 'A19', kurz: ['x = (−b ± √(b² − 4ac)) : (2a)'], bed: 'für a · x² + b · x + c = 0 mit a ≠ 0' }];
+  { gesetz: 'G25', kurz: ['sin α = Gegenkathete : Hypotenuse', 'cos α = Ankathete : Hypotenuse', 'tan α = Gegenkathete : Ankathete'], bed: 'im rechtwinkligen Dreieck, für den betrachteten spitzen Winkel α' },
+  { gesetz: 'A19', kurz: ['x = (−b ± √(b² − 4ac)) : (2a)', 'D = b² − 4ac: D < 0 keine, D = 0 eine, D > 0 zwei Lösungen'], bed: 'für a · x² + b · x + c = 0 mit a ≠ 0' }];
 // Ergänzungen für die Einzelheiten einer Zeile (Befund inhalte/mathe-profi/regeln-uebersicht/nachtrag/kurzformen.md); die Kurzzeile bleibt kurz.
 // Eigene Liste, damit SONST in der Form bleibt, die nachtrag/pruefen.py liest.
 const SONST_MEHR = {

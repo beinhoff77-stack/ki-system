@@ -363,3 +363,69 @@ test('Tafeln: Seiten bauen für Kind und Erwachsene; Knopf „Ändern lassen“ 
   assert.match(kind.seite('regel-v1'), /ru-tafel-v" href="#\/regeln\/1-tafel-einheiten/, 'Größe und Einheit → Maßeinheiten');
   assert.equal(L.ruEbene('tafel-einheiten.laenge'), 2);
 });
+
+// ---------- Auflagen aus Werkstatt 1152 ----------
+test('Zeichensuche: jedes Zeichen, jeder griechische Buchstabe und jedes Alias der Tafel „Zeichen und Wörter“ findet die eigene Zeile (zuerst), dazu µm, m², %, °', () => {
+  const Q = TQ('tafeln/zeichen-woerter/zeichen-woerter.json').eintraege, S = L.ruSichten(I, (h) => '#/regeln/1-' + h, { klasse: 5, frage: '' }, 'kind'), seite = S.seite('tafel-zeichen-woerter');
+  const ziel = (e) => 'tafel-zeichen-woerter.' + e.kennung, n = { zeichen: 0, griechisch: 0, alias: 0, erster: 0, faelle: 0 };
+  const pruefe = (q, e, art) => { const tr = I.suche(q).filter((t) => t.tafel), i = tr.findIndex((t) => t.ziel === ziel(e));
+    assert.ok(i >= 0, `${art} „${q}“ findet ${e.kennung} nicht: ${tr.map((t) => t.ziel).join(', ')}`); n[art]++; n.faelle++;
+    // „zuerst“: der erste Treffer ist die eigene Zeile oder eine Zeile mit demselben eigenen Zeichen (π steht als Zeichen und als griechischer Buchstabe)
+    const vorn = i === 0 || Q.some((x) => (x.zeichen || x.buchstabe) === (e.zeichen || e.buchstabe) && tr[0].ziel === ziel(x)); if (vorn) n.erster++; return vorn ? 0 : i; };
+  const zeichen = Q.filter((e) => e.art === 'zeichen'), griech = Q.filter((e) => e.art === 'griechisch');
+  assert.equal(zeichen.length, 40); assert.equal(griech.length, 11);
+  for (const e of zeichen) assert.equal(pruefe(e.zeichen, e, 'zeichen'), 0, e.zeichen + ': eigene Zeile zuerst');
+  for (const e of griech) assert.equal(pruefe(e.buchstabe, e, 'griechisch'), 0, e.buchstabe + ': eigene Zeile zuerst');
+  // Aliasse: jedes Suchwort der Tafel mit einem Zeichen oder aus Großbuchstaben (∢, 3,14, N, Z, Q, R …), dazu Tastatur-Schreibweisen
+  for (const e of [...zeichen, ...griech]) for (const s of e.stichwoerter) if (s !== (e.zeichen || e.buchstabe) && (/[^A-Za-zÄÖÜäöüß0-9\s]/.test(s) || /^[A-ZÄÖÜ]{1,3}$/.test(s))) pruefe(s, e, 'alias');
+  const E = Object.fromEntries(Q.map((e) => [e.kennung, e]));
+  for (const [q, k] of [['∢', 'zw-28'], ['<=', 'zw-06'], ['>=', 'zw-07'], ['!=', 'zw-02'], ['+-', 'zw-10'], ['=>', 'zw-38'], ['<=>', 'zw-39'], ['*', 'zw-08'], ['pi', 'zw-13'], ['alpha', 'zw-g1'], ['{}', 'zw-21']]) pruefe(q, E[k], 'alias');
+  assert.ok(n.alias >= 19, n.alias + ' Aliasse');
+  assert.equal(I.suche('∢')[0].ziel, 'tafel-zeichen-woerter.zw-28'); assert.equal(I.suche('<=')[0].ziel, 'tafel-zeichen-woerter.zw-06');
+  // jeder Treffer springt an eine Zeile, die es auf der Seite gibt (aufklappbar)
+  for (const e of [...zeichen, ...griech]) assert.ok(seite.includes(`id="ru-tf-${e.kennung}"`) && new RegExp(`id="ru-tf-${e.kennung}"[^>]*><tr><th scope="row" class="ru-tafel-fest"><button type="button" class="ru-tafel-auf"`).test(seite), e.kennung + ': Zeile mit Aufklapper');
+  // Groß/klein, wo es Verschiedenes meint
+  const ersterT = (q) => (I.suche(q).find((t) => t.tafel) || {}).ziel, alleT = (q) => I.suche(q).filter((t) => t.tafel).map((t) => t.ziel);
+  assert.equal(ersterT('Δ'), 'tafel-zeichen-woerter.zw-g8'); assert.ok(!alleT('Δ').includes('tafel-zeichen-woerter.zw-g4'));
+  assert.equal(ersterT('δ'), 'tafel-zeichen-woerter.zw-g4'); assert.ok(!alleT('δ').includes('tafel-zeichen-woerter.zw-g8'));
+  assert.ok(!alleT('Π').some((z) => /zw-13|zw-g7/.test(z)), 'Π ist nicht π'); assert.ok(!alleT('Σ').includes('tafel-zeichen-woerter.zw-g9'), 'Σ ist nicht σ');
+  assert.equal(ersterT('N'), 'tafel-zeichen-woerter.zw-22'); assert.equal(ersterT('n'), 'tafel-stellenwert.sw-16'); assert.ok(!alleT('n').includes('tafel-zeichen-woerter.zw-22'), 'n ist nicht ℕ');
+  assert.equal(ersterT('M'), 'tafel-stellenwert.sw-13'); assert.equal(ersterT('m'), 'tafel-einheiten.laenge');
+  // Einheiten und Zeichen mit Sonderzeichen
+  assert.equal(ersterT('µm'), 'tafel-stellenwert.sw-15', 'µm (Mikrozeichen) → Vorsilbe Mikro'); assert.equal(ersterT('μm'), 'tafel-stellenwert.sw-15', 'μm (griechisch) → Vorsilbe Mikro');
+  assert.equal(ersterT('m²'), 'tafel-einheiten.flaeche'); assert.equal(ersterT('%'), 'tafel-zeichen-woerter.zw-14'); assert.equal(ersterT('°'), 'tafel-zeichen-woerter.zw-37');
+  // bisherige Wortsuche unverändert
+  assert.equal(ersterT('cm'), 'tafel-einheiten.laenge'); assert.equal(ersterT('kg'), 'tafel-einheiten.masse');
+  assert.ok(sucheRegeln('π').some((t) => t.id === 'F9'), 'π: Regel Kreis folgt hinter der Tafel');
+  assert.equal(n.zeichen + n.griechisch, 51); console.log(`Zeichensuche: ${n.zeichen} Zeichen, ${n.griechisch} griechische Buchstaben, ${n.alias} Aliasse – ${n.erster} von ${n.faelle} Fällen als erster Treffer`);
+});
+
+test('Suche ohne Absenden: ab drei Zeichen, kürzer nur bei Tafel-Zeichen, Einheiten und Kurzwörtern', () => {
+  for (const q of ['π', '≤', '∢', '<=', 'cm', 'kg', 'm', '%', '°', 'µm', 'm²', 'h', 'N', 'Kre']) assert.equal(I.sofort(q), true, q);
+  for (const q of ['', ' ', 'qz', 'Π', 'Kr']) assert.equal(I.sofort(q), false, q);
+});
+
+test('Tafeln: Auflagen aus Werkstatt 1152 (Dezimalkomma, Kreisausschnitt, Kreisring, Pyramide, Körper-Satz, Kurzformen, Vierecke, n = 0, Einheiten-Ketten)', () => {
+  const S = L.ruSichten(I, (h) => '#/regeln/1-' + h, { klasse: 5, frage: '' }, 'kind'), text = (h) => h.replace(/<svg[\s\S]*?<\/svg>/g, '').replace(/<[^>]+>/g, ' ').replace(/ /g, ' ').replace(/&shy;/g, '').replace(/\s+/g, ' ');
+  const zeile = (h, a) => { const i = h.indexOf(`id="ru-tf-${a}"`); assert.ok(i >= 0, a); return text(h.slice(i, h.indexOf('</tr>', i))); };
+  for (const t of I.TAFELN) { const h = S.seite('tafel-' + t.id).replace(/<svg[\s\S]*?<\/svg>/g, ''); assert.doesNotMatch(h, /\d\.\d/, t.id + ': Dezimalpunkt'); }
+  const eh = S.seite('tafel-einheiten'); assert.match(text(eh), /km\/h ·3,6 m\/s/); assert.match(eh, /title="1 m\/s = 3,6 km\/h"/);
+  assert.equal((text(eh).match(/zusammengesetzte Einheit – rechne über die Kette/g) || []).length, 2, 'Geschwindigkeit und Dichte: Satz zur Kette');
+  const fo = S.seite('tafel-formeln');
+  const aus = zeile(fo, 'ausschnitt'); assert.match(aus, /u = 2 · r \+ b Bogenlänge b = α : 360° · 2 · π · r/, 'Umfang u = 2 · r + b, b getrennt benannt');
+  assert.match(zeile(fo, 'kreisring'), /u = 2 · π · \(R \+ r\)/); assert.match(fo, /äußerer Rand 2 · π · R, innerer Rand 2 · π · r/);
+  assert.match(zeile(fo, 'pyramide'), /Sonderfall: gerade quadratische Pyramide O = a² \+ 2 · a · hₛ/);
+  assert.match(text(fo), /G ist der Flächeninhalt der Grundfläche, M der Mantelflächeninhalt des Körpers\./); assert.doesNotMatch(fo, /beide stehen bei den ebenen Figuren/);
+  assert.match(zeile(fo, 'so-d4'), /der geordneten Liste; bei gerader Anzahl der Mittelwert der beiden mittleren Werte/);
+  assert.match(zeile(fo, 'so-d13'), /P = Anzahl günstiger Ergebnisse : Anzahl aller möglichen Ergebnisse nur wenn alle Ergebnisse gleich wahrscheinlich sind/);
+  assert.match(zeile(fo, 'so-g25'), /im rechtwinkligen Dreieck, für den betrachteten spitzen Winkel α/);
+  assert.match(zeile(fo, 'so-a19'), /D = b² − 4ac: D &lt; 0 keine, D = 0 eine, D &gt; 0 zwei Lösungen/);
+  const fg = S.seite('tafel-figuren'), vk = text(fg);
+  assert.match(vk, /parallele Seitenpaare \(mindestens\)/); assert.match(vk, /Symmetrieachsen \(mindestens\)/); assert.match(vk, /beide Paare gegenüberliegender Winkel gleich/); assert.doesNotMatch(vk, /Gegenwinkel gleich/);
+  assert.match(vk, /✓ = gilt immer, – = gilt nicht immer/); assert.doesNotMatch(fg, /aria-label="nein"/); assert.match(fg, /class="ru-tafel-nein" role="img" aria-label="gilt nicht immer">–/);
+  const za = S.seite('tafel-zahlen'), i0 = za.indexOf('<span class="ru-tafel-zk">0</span>'); assert.ok(i0 >= 0);
+  assert.equal(text(za.slice(i0, za.indexOf('</tr>', i0))).trim(), '0 0 0 1', 'n = 0: 0² = 0, 0³ = 0, 2⁰ = 1');
+  // Hilfe-Text: „Knobeln des Tages“ wird nicht mehr versprochen
+  const hilfe = fs.readFileSync(path.join(root, 'lernen.js'), 'utf8').split('\n').find((z) => z.includes("['Knobel-Bordkarten:'"));
+  assert.ok(hilfe && hilfe.includes('Heute keine Knobel-Bordkarte') && !hilfe.includes('des Tages'), 'Hilfe ohne „Knobeln des Tages“');
+});

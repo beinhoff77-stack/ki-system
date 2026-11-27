@@ -1182,6 +1182,7 @@
    "fuer": "Pyramide mit quadratischer Grundfläche – Oberfläche",
    "formel": "O = a² + 2 · a · hₛ",
    "bedingung": "gerade Pyramide mit quadratischer Grundfläche (Seite a); hₛ ist die Höhe eines Seitendreiecks",
+   "sonderfall": "gerade quadratische Pyramide",
    "herkunft": "ergaenzt",
    "ergebnis": {
     "zeichen": "O",

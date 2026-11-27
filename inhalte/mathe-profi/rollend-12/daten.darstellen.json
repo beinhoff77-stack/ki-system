@@ -20,8 +20,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -70,8 +70,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -87,10 +87,10 @@
      "beschreibung": "nur das Wochenende genannt"
     },
     {
-     "antwort": 150,
+     "antwort": 300,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das Wochenende als die Hälfte von 75 und doppelt gezählt: 75 + 75"
+     "beschreibung": "das Wochenende dreimal so groß statt ein Drittel gerechnet: 75 + 3 · 75"
     }
    ],
    "aufgabe": {
@@ -108,7 +108,7 @@
      "einheit": "Eis"
     },
     "c": "(12 + 15 + 9 + 18 + 21) + (12 + 15 + 9 + 18 + 21) / 3",
-    "h": "Zähle zuerst die Eis von Montag bis Freitag zusammen. Wie viele sind ein Drittel davon?",
+    "h": "Wie viele Eis wurden von Montag bis Freitag verkauft? Worauf bezieht sich das Drittel?",
     "w": "Montag bis Freitag: 12 + 15 + 9 + 18 + 21 = 75 Eis. Ein Drittel davon: 75 : 3 = 25 Eis am Wochenende. Insgesamt 75 + 25 = 100 Eis."
    }
   },
@@ -120,8 +120,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -170,8 +170,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -220,8 +220,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -295,8 +295,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -370,8 +370,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -441,8 +441,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -485,8 +485,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -560,8 +560,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -610,8 +610,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -659,8 +659,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {

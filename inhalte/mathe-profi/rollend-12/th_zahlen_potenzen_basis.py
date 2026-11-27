@@ -23,9 +23,9 @@ neu(T, "berechnen", "umkehren", Z(
 neu(T, "berechnen", "fehler_detektiv", FD(
     "Ben berechnet 5 · 2³ − 3².",
     [("2³ = 2 · 3 = 6, also ist 5 · 2³ = 5 · 6 = 30.", 2 ** 3 == 2 * 3, True),
-     ("3² = 3 · 3 = 9.", 3 ** 2 == 9, True),
-     ("30 − 9 = 21.", 30 - 9 == 21, True)],
-    "Was bedeutet 2³ ausgeschrieben? Wie oft steht die 2 da?",
+     ("3² = 3 · 3 = 9.", 3 ** 2 == 9, True, "Zeile 2 ist unabhängig von Zeile 1 und für sich richtig: 3² = 3 · 3 = 9."),
+     ("30 − 9 = 21.", 30 - 9 == 21, True, "Zeile 3 rechnet 30 − 9 = 21 für sich richtig, benutzt aber die 30 aus Zeile 1. Der Fehler liegt schon in Zeile 1.")],
+    "Prüfe jede Zeile für sich und schreibe jede Potenz als Produkt aus. Welche Zeile enthält zuerst einen Fehler?",
     "2³ = 2 · 2 · 2 = 8, nicht 2 · 3. Richtig: 5 · 8 = 40 und 40 − 9 = 31. Der erste Fehler steht in Zeile 1."), regel=PO)
 
 # ───────── quadrat ─────────
@@ -42,16 +42,16 @@ neu(T, "quadrat", "bruecke", Z(
 
 # ───────── vertauschen ─────────
 neu(T, "vertauschen", "umkehren", Z(
-    "Für welche Hochzahl gilt 2 hoch □ = 4³? Tipp: 4 = 2 · 2.",
-    6, "2 * 3", "6", "Berechne zuerst, wie oft die 2 als Faktor in 4 · 4 · 4 steckt.",
-    "4³ = 4 · 4 · 4 = 64. 2⁶ = 64. Auch: Jede 4 sind zwei Faktoren 2, dreimal 4 sind 3 · 2 = 6 Faktoren 2. Die Hochzahl ist 6.",
-    [(3, None, "die Hochzahl 3 übernommen", "3"), (64, None, "den Wert der Potenz statt der Hochzahl angegeben", "4 ** 3"), (8, None, "4 · 2 gerechnet", "4 * 2")]), g="umkehr", regel=PO)
+    "Für welche Hochzahl gilt 3 hoch □ = 81?",
+    4, "4", "81 / 27 + 1", "Wie oft muss die 3 als Faktor stehen, damit 81 herauskommt? Die Hochzahl sagt, wie oft die Basis als Faktor vorkommt.",
+    "3 · 3 = 9, 9 · 3 = 27, 27 · 3 = 81: Die 3 steht 4-mal als Faktor da, also 3⁴ = 81. Nicht verwechseln: 4³ ist 4 · 4 · 4 = 64. Probe: 3⁴ = 81.",
+    [(3, None, "Basis und Hochzahl vertauscht: die Basis 3 als Hochzahl genommen", "3"), (27, None, "81 durch 3 geteilt", "81 / 3"), (9, None, "nur zwei Faktoren 3 gemalt und 3 · 3 als Hochzahl genommen", "3 * 3")]), g="umkehr", regel=PO)
 neu(T, "vertauschen", "fehler_detektiv", FD(
     "Mia vergleicht 3⁴ und 4³.",
-    [("3⁴ = 3 · 3 · 3 · 3 = 81.", 3 ** 4 == 81, True),
-     ("4³ = 4 · 4 · 4 = 64.", 4 ** 3 == 64, True),
+    [("3⁴ = 3 · 3 · 3 · 3 = 81.", 3 ** 4 == 81, True, "Zeile 1 stimmt: 3 · 3 · 3 · 3 = 81. Der Fehler steckt später."),
+     ("4³ = 4 · 4 · 4 = 64.", 4 ** 3 == 64, True, "Zeile 2 stimmt: 4 · 4 · 4 = 64. Der Fehler steckt später."),
      ("Also sind die beiden Potenzen gleich, weil nur Basis und Hochzahl getauscht sind.", 3 ** 4 == 4 ** 3, True)],
-    "Vergleiche die Werte aus Zeile 1 und Zeile 2.",
+    "Prüfe jede Zeile für sich und rechne die Werte genau nach. Welche Zeile enthält zuerst einen Fehler?",
     "81 und 64 sind verschieden. Beim Vertauschen von Basis und Hochzahl ändert sich der Wert im Allgemeinen. Der erste Fehler steht in Zeile 3."), regel=PO)
 
 # ───────── zehner ─────────
@@ -71,13 +71,13 @@ neu(T, "negativ", "zwei_wege", Z(
     "Berechne (−3)³ auf zwei Wegen. Weg A: Schreibe (−3) · (−3) · (−3) und rechne Schritt für Schritt. Weg B: Bestimme das Vorzeichen daran, wie viele negative Faktoren es sind, und rechne dann 3³.",
     -27, "(-3) * (-3) * (-3)", "-(3 ** 3)", "Wie viele Faktoren (−3) gibt es? Wann ist ein Produkt negativ?",
     "Weg A: (−3) · (−3) = 9, 9 · (−3) = −27. Weg B: Drei negative Faktoren, das Produkt ist negativ. 3³ = 27, also −27.",
-    [(27, None, "das Vorzeichen vergessen", "3 ** 3"), (-9, BM, "Basis mal Hochzahl gerechnet: (−3) · 3", "(-3) * 3"), (9, None, "nur die ersten beiden Faktoren gerechnet", "(-3) * (-3)")]), regel="rr.vorzeichen")
+    [(27, "fb.vorzeichen.falsches_zeichen", "das Vorzeichen vergessen", "3 ** 3"), (-9, BM, "Basis mal Hochzahl gerechnet: (−3) · 3", "(-3) * 3"), (9, None, "nur die ersten beiden Faktoren gerechnet", "(-3) * (-3)")]), regel="rr.vorzeichen")
 neu(T, "negativ", "fehler_detektiv", FD(
     "Lena berechnet −2⁴ + (−2)⁴.",
-    [("−2⁴ bedeutet, dass 2⁴ negativ genommen wird: −2⁴ = −(2 · 2 · 2 · 2) = −16.", -(2 ** 4) == -16, True),
+    [("−2⁴ bedeutet, dass 2⁴ negativ genommen wird: −2⁴ = −(2 · 2 · 2 · 2) = −16.", -(2 ** 4) == -16, True, "Zeile 1 stimmt: Bei −2⁴ wird nur 2⁴ negativ genommen, −(2 · 2 · 2 · 2) = −16. Der Fehler steckt später."),
      ("(−2)⁴ = (−2) · (−2) · (−2) · (−2) = −16.", (-2) ** 4 == -16, True),
-     ("Also ist die Summe −16 + (−16) = −32.", -16 + (-16) == -32, True)],
-    "Ist ein Produkt aus vier negativen Faktoren negativ oder positiv?",
+     ("Also ist die Summe −16 + (−16) = −32.", -16 + (-16) == -32, True, "Zeile 3 rechnet −16 + (−16) = −32 für sich richtig, benutzt aber das falsche Ergebnis aus Zeile 2. Der Fehler liegt schon in Zeile 2.")],
+    "Prüfe jede Zeile für sich und zähle bei jedem Produkt die negativen Faktoren. Welche Zeile enthält zuerst einen Fehler?",
     "Zwei negative Faktoren ergeben plus, vier ebenso: (−2)⁴ = 16. Richtig: −16 + 16 = 0. Der erste Fehler steht in Zeile 2."), regel="rr.vorzeichen")
 
 # ───────── sach ─────────

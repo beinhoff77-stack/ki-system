@@ -4,30 +4,30 @@ _R = ["A", "B", "C", "D"]
 
 # ───────── koordinaten ─────────
 neu(T, "koordinaten", "umkehren", W(
-    "Ein Punkt wurde um 3 Einheiten nach rechts und um 5 Einheiten nach oben verschoben. Jetzt liegt er bei (1 | 2). Wo lag er vorher?",
-    "(−2 | −3)",
-    [("(4 | 7)", "Die Verschiebung wurde noch einmal in dieselbe Richtung gerechnet."), ("(−2 | 7)", "Nur die x-Koordinate wurde zurückgerechnet."), ("(4 | −3)", "Nur die y-Koordinate wurde zurückgerechnet.")],
-    "Mache die Verschiebung rückgängig: In welche Richtung musst du jetzt gehen?",
-    "Rückwärts: 3 nach links und 5 nach unten. x: 1 − 3 = −2, y: 2 − 5 = −3. Der Punkt lag bei (−2 | −3). Probe: (−2 + 3 | −3 + 5) = (1 | 2).",
-    lambda: (1 - 3, 2 - 5) == (-2, -3) and (1 + 3, 2 + 5) == (4, 7) and (1 - 3, 2 + 5) == (-2, 7) and (1 + 3, 2 - 5) == (4, -3)), g="umkehr", regel=KO)
+    "Ein Punkt wird zweimal hintereinander um dieselbe Verschiebung bewegt: jedes Mal 2 Einheiten nach rechts und 3 Einheiten nach unten. Danach liegt er bei (3 | −4). Wo lag er am Anfang?",
+    "(−1 | 2)",
+    [("(1 | −1)", "Es wurde nur eine der beiden Verschiebungen rückgängig gemacht."), ("(7 | −10)", "Die beiden Verschiebungen wurden noch einmal in dieselbe Richtung gerechnet statt zurück."), ("(−1 | −10)", "Die x-Koordinate wurde zurückgerechnet, die y-Koordinate aber noch einmal nach unten.")],
+    "Welche Gesamtverschiebung ergeben die beiden Schritte? Wie kommst du von der Endlage zurück?",
+    "Zweimal 2 nach rechts und 3 nach unten sind zusammen 4 nach rechts und 6 nach unten. Rückwärts: 4 nach links und 6 nach oben. x: 3 − 4 = −1, y: −4 + 6 = 2. Der Punkt lag bei (−1 | 2). Probe: (−1 + 4 | 2 − 6) = (3 | −4).",
+    lambda: (3 - 4, -4 + 6) == (-1, 2) and (3 - 2, -4 + 3) == (1, -1) and (3 + 4, -4 - 6) == (7, -10) and (3 - 4, -4 - 6) == (-1, -10)), g="umkehr")
 neu(T, "koordinaten", "zwei_wege", Z(
     "Ein Roboter steht im Punkt (−3 | 2). Er fährt zuerst 4 Einheiten nach rechts und dann 7 Einheiten nach unten. Wie viele Einheiten ist er danach von der x-Achse entfernt? Weg A: Bestimme zuerst seine neue Position. Weg B: Vergleiche direkt, wie weit er nach unten fährt, mit seinem Abstand zur x-Achse am Start.",
-    5, "abs(2 - 7)", "7 - 2", "Wo steht der Roboter am Ende? Der Abstand zur x-Achse hängt nur von der y-Koordinate ab.",
+    5, "abs(2 - 7)", "7 - 2", "Welche Koordinate bestimmt den Abstand eines Punktes zur x-Achse? Wie ändert sie sich bei der Fahrt?",
     "Nach 4 nach rechts: (1 | 2). Nach 7 nach unten: (1 | 2 − 7) = (1 | −5). Der Abstand zur x-Achse ist |−5| = 5 Einheiten.",
-    [(9, None, "die Beträge 2 und 7 addiert", "2 + 7"), (7, None, "nur die Fahrt nach unten genommen", "7"), (1, None, "den Abstand zur y-Achse genannt", "-3 + 4")], "Einheiten"), g="verknuepfen", regel=KO)
+    [(9, None, "die Beträge 2 und 7 addiert", "2 + 7"), (7, None, "nur die Fahrt nach unten genommen", "7"), (1, None, "den Abstand zur y-Achse genannt", "-3 + 4")], "Einheiten"), g="verknuepfen")
 
 # ───────── strecken ─────────
 neu(T, "strecken", "zwei_wege", Z(
     "Ein Weg verläuft waagrecht vom Punkt A(−4 | 1) zum Punkt B(5 | 1). Eine Einheit im Koordinatensystem entspricht 20 m. Wie lang ist der Weg in Metern? Weg A: Rechne mit den Koordinaten 5 − (−4). Weg B: Zähle die Einheiten von A bis zum Nullpunkt und von dort bis B.",
     180, "(5 - (-4)) * 20", "(4 + 5) * 20", "Wie viele Einheiten liegen zwischen x = −4 und x = 5? Denke an den Nullpunkt.",
     "Der Weg ist 5 − (−4) = 9 Einheiten lang. 9 · 20 m = 180 m.",
-    [(20, None, "nur die Beträge voneinander abgezogen (das Minus von −4 nicht beachtet)", "(5 - 4) * 20"), (100, None, "nur die x-Koordinate von B genommen", "5 * 20"), (9, None, "die Länge in Einheiten statt in Metern angegeben", "5 + 4")], "m"), regel=AB)
+    [(20, None, "nur die Beträge voneinander abgezogen (das Minus von −4 nicht beachtet)", "(5 - 4) * 20"), (100, None, "nur die x-Koordinate von B genommen", "5 * 20"), (9, None, "die Länge in Einheiten statt in Metern angegeben", "5 + 4")], "m"))
 neu(T, "strecken", "bruecke", Z(
     "Die Tabelle nennt drei Strecken, die alle waagrecht oder senkrecht verlaufen. Um wie viele Einheiten ist die längste Strecke länger als die kürzeste?",
-    3, "8 - 5", "(1 - (-5)) + 2 - 5", "Berechne zuerst die Länge jeder Strecke. Nur eine Koordinate ändert sich.",
+    3, "8 - 5", "(3 + 5) - (-1 + 6)", "Berechne zuerst die Länge jeder Strecke. Nur eine Koordinate ändert sich.",
     "[AB]: 4 − (−3) = 7. [CD]: 3 − (−5) = 8. [EF]: −1 − (−6) = 5. Die längste ist 8, die kürzeste 5. 8 − 5 = 3.",
-    [(8, None, "die Länge der längsten Strecke genannt", "8"), (1, None, "die längste mit der zweitlängsten verglichen", "8 - 7"), (13, None, "längste und kürzeste addiert", "8 + 5")], "Einheiten",
-    grafik=TAB(["Strecke", "Anfangspunkt", "Endpunkt"], ["[AB]", "A(−3 | 2)", "B(4 | 2)"], ["[CD]", "C(1 | −5)", "D(1 | 3)"], ["[EF]", "E(−6 | −1)", "F(−1 | −1)"])), g="verknuepfen", regel=AB)
+    [(8, None, "die Länge der längsten Strecke genannt", "8"), (1, None, "die längste mit der zweitlängsten verglichen", "8 - 7"), (13, None, "längste und kürzeste Strecke addiert", "8 + 5")], "Einheiten",
+    grafik=TAB(["Strecke", "Anfangspunkt", "Endpunkt"], ["[AB]", "A(−3 | 2)", "B(4 | 2)"], ["[CD]", "C(1 | −5)", "D(1 | 3)"], ["[EF]", "E(−6 | −1)", "F(−1 | −1)"])), g="verknuepfen")
 
 # ───────── lagebeziehungen ─────────
 neu(T, "lagebeziehungen", "umkehren", Z(
@@ -49,7 +49,7 @@ neu(T, "kreis_lage", "anwenden", Z(
     [(4, None, "alle Häuser gezählt", "2 + 2"), (3, None, "bei Haus Q die y-Koordinate von M statt der x-Koordinate abgezogen, so wird Q mitgezählt", lambda: abs(7 - 3) == 4)], "Häuser"), regel=AB)
 neu(T, "kreis_lage", "umkehren", Z(
     "Ein Kreis um M(3 | 2) berührt von links die senkrechte Gerade x = 11. Welchen Radius hat der Kreis?",
-    8, "11 - 3", "8", "Der Berührpunkt liegt auf der Geraden und auf derselben Höhe wie M. Wie weit ist das waagrecht von M?",
+    8, "11 - 3", "8", "Welcher Punkt des Kreises liegt auf der Geraden? Wo liegt er im Vergleich zu M?",
     "Der Berührpunkt ist (11 | 2). Der Radius ist der waagrechte Abstand von M: 11 − 3 = 8.",
     [(14, None, "11 und 3 addiert", "11 + 3"), (11, None, "die Zahl der Geraden als Radius genommen", "11"), (9, None, "mit der y-Koordinate gerechnet: 11 − 2", "11 - 2")]), g="rueckwaerts", regel=AB)
 
@@ -60,12 +60,12 @@ neu(T, "winkelarten", "bruecke", W(
     [("170°", "Das ist ein stumpfer Winkel (zwischen 90° und 180°)."), ("200°", "Das ist überstumpf, aber nicht kleiner als 200°."), ("360°", "Das ist ein Vollwinkel.")],
     "Überstumpf heißt: größer als der gestreckte Winkel, aber kleiner als der Vollwinkel.",
     "Überstumpf ist ein Winkel zwischen 180° und 360°. Kleiner als 200° kommt nur 190° in Frage.",
-    lambda: 180 < 190 < 200 and not 180 < 170 and not 200 < 200 and not 360 < 360), regel=WI)
+    lambda: [180 < w < 360 and w < 200 for w in (190, 170, 200, 360)] == [True, False, False, False]))
 neu(T, "winkelarten", "anwenden", Z(
-    "Ein Türfeststeller kann eine Tür bei den Winkeln 30°, 90°, 100°, 135° oder 180° festhalten. Wie viele dieser Einstellungen sind stumpfe Winkel?",
-    2, "2", "1 + 1", "Ein stumpfer Winkel ist größer als 90° und kleiner als 180°.",
-    "Stumpf sind nur 100° und 135°. 30° ist spitz, 90° ist ein rechter Winkel, 180° ist ein gestreckter Winkel. Es sind 2.",
-    [(3, None, "den gestreckten Winkel 180° mitgezählt", lambda: sum(90 < w <= 180 for w in (30, 90, 100, 135, 180)) == 3), (4, None, "auch 90° und 180° mitgezählt", lambda: sum(90 <= w <= 180 for w in (30, 90, 100, 135, 180)) == 4)], "Einstellungen"), g="transfer", regel=WI)
+    "Eine Tür lässt sich von 0° bis 180° öffnen. Ein Feststeller hält sie bei jedem Vielfachen von 15° fest (0°, 15°, 30°, … bis 180°). Bei wie vielen dieser Einstellungen ist der Öffnungswinkel ein stumpfer Winkel?",
+    5, "(165 - 105) / 15 + 1", "5", "Zwischen welchen beiden Gradzahlen liegen stumpfe Winkel? Welche Einstellungen des Feststellers fallen in diesen Bereich?",
+    "Stumpf heißt: größer als 90° und kleiner als 180°. Das trifft auf 105°, 120°, 135°, 150° und 165° zu, also 5 Einstellungen. 90° ist ein rechter Winkel, 180° ein gestreckter.",
+    [(6, None, "den gestreckten Winkel 180° mitgezählt", lambda: sum(90 < w <= 180 for w in range(0, 181, 15)) == 6), (7, None, "den rechten Winkel 90° und den gestreckten Winkel 180° mitgezählt", lambda: sum(90 <= w <= 180 for w in range(0, 181, 15)) == 7)], "Einstellungen"), g="transfer")
 
 # ───────── vierecke ─────────
 neu(T, "vierecke", "bruecke", W(
@@ -74,25 +74,24 @@ neu(T, "vierecke", "bruecke", W(
     [("Viereck A", "Alle Seiten gleich lang und vier rechte Winkel: das ist ein Quadrat."), ("Viereck C", "Vier rechte Winkel, aber nicht alle Seiten gleich lang: ein Rechteck."), ("Viereck D", "Weder alle Seiten gleich lang noch rechte Winkel: das ist keine Raute.")],
     "Eine Raute hat vier gleich lange Seiten. Ein Quadrat hat zusätzlich vier rechte Winkel.",
     "Eine Raute hat vier gleich lange Seiten. Ein Quadrat hätte zusätzlich vier rechte Winkel. Gesucht ist also: gleich lange Seiten (ja), rechte Winkel (nein). Das ist Viereck B.",
-    lambda: True, grafik=TAB(["Viereck", "Alle vier Seiten gleich lang", "Vier rechte Winkel"], ["A", "ja", "ja"], ["B", "ja", "nein"], ["C", "nein", "ja"], ["D", "nein", "nein"])), regel=WI)
+    lambda: [(s and not r) for s, r in ((True, True), (True, False), (False, True), (False, False))] == [False, True, False, False], grafik=TAB(["Viereck", "Alle vier Seiten gleich lang", "Vier rechte Winkel"], ["A", "ja", "ja"], ["B", "ja", "nein"], ["C", "nein", "ja"], ["D", "nein", "nein"])))
 neu(T, "vierecke", "anwenden", Z(
     "Ein Beet hat die Form eines Rechtecks mit den Ecken A(−3 | −2), B(5 | −2), C(5 | 3) und D(−3 | 3). Eine Einheit entspricht 1 m. Wie viele Meter Zaun braucht man rund um das Beet?",
     26, "2 * (8 + 5)", "8 + 5 + 8 + 5", "Wie lang sind die Seiten [AB] und [BC]? Eine Koordinate bleibt jeweils gleich.",
     "[AB] hat die Länge 5 − (−3) = 8 m. [BC] hat die Länge 3 − (−2) = 5 m. Rundherum: 2 · (8 + 5) = 26 m.",
-    [(13, None, "nur zwei Seiten gezählt (halber Umfang)", "8 + 5"), (40, None, "den Flächeninhalt statt des Umfangs berechnet", "8 * 5"), (18, None, "eine Seite zu wenig gezählt: 8 + 5 + 5", "8 + 5 + 5")], "m"), g="transfer", regel=AB)
+    [(13, None, "nur zwei Seiten gezählt (halber Umfang)", "8 + 5"), (40, None, "den Flächeninhalt statt des Umfangs berechnet", "8 * 5"), (18, None, "eine Seite zu wenig gezählt: 8 + 5 + 5", "8 + 5 + 5")], "m"), g="transfer")
 
 # ───────── verstehen ─────────
-neu(T, "verstehen", "bruecke", W(
-    "Welcher Punkt liegt rechts von der y-Achse und unter der x-Achse?",
-    "(3 | −4)",
-    [("(−3 | 4)", "Das ist links von der y-Achse und über der x-Achse."), ("(3 | 4)", "Das ist rechts, aber über der x-Achse."), ("(−3 | −4)", "Das ist unter der x-Achse, aber links von der y-Achse.")],
-    "Rechts von der y-Achse heißt: x ist positiv. Unter der x-Achse heißt: y ist negativ.",
-    "Rechts von der y-Achse ist x > 0, unter der x-Achse ist y < 0. Das trifft nur auf (3 | −4) zu.",
-    lambda: [(x > 0 and y < 0) for x, y in ((3, -4), (-3, 4), (3, 4), (-3, -4))] == [True, False, False, False]), regel=KO)
+neu(T, "verstehen", "bruecke", Z(
+    "Mia behauptet: „Jeder Punkt mit negativer x-Koordinate liegt unter der x-Achse.“ In der Tabelle stehen sechs Punkte. Bei wie vielen von ihnen zeigt sich, dass die Behauptung nicht stimmt?",
+    2, "2", "1 + 1", "Zu einem Gegenbeispiel gehört eine negative x-Koordinate, aber ein Punkt, der nicht unter der x-Achse liegt. Welche Punkte der Tabelle sind das?",
+    "Ein Gegenbeispiel hat x < 0 und liegt über der x-Achse (y > 0). Das gilt für A(−3 | 4) und D(−6 | 2). B(−2 | −1) und F(−4 | −5) bestätigen die Behauptung, C(5 | −2) und E(1 | 3) haben ein positives x. Es sind 2 Punkte.",
+    [(3, None, "alle Punkte über der x-Achse gezählt, auch E mit positivem x", lambda: sum(y > 0 for x, y in ((-3, 4), (-2, -1), (5, -2), (-6, 2), (1, 3), (-4, -5))) == 3), (4, None, "alle Punkte mit negativem x gezählt", lambda: sum(x < 0 for x, y in ((-3, 4), (-2, -1), (5, -2), (-6, 2), (1, 3), (-4, -5))) == 4)], "Punkte",
+    grafik=TAB(["Punkt", "x-Koordinate", "y-Koordinate"], ["A", "−3", "4"], ["B", "−2", "−1"], ["C", "5", "−2"], ["D", "−6", "2"], ["E", "1", "3"], ["F", "−4", "−5"])))
 neu(T, "verstehen", "anwenden", W(
-    "Ein Schatz liegt links von der y-Achse und unter der x-Achse. Er ist von beiden Achsen gleich weit entfernt, nämlich 6 Einheiten. Welche Koordinaten hat er?",
-    "(−6 | −6)",
-    [("(6 | −6)", "Das ist rechts von der y-Achse."), ("(−6 | 6)", "Das ist über der x-Achse."), ("(6 | 6)", "Das ist rechts und über den Achsen.")],
-    "Links der y-Achse heißt: x ist negativ. Unter der x-Achse heißt: y ist negativ.",
-    "Der Abstand von beiden Achsen ist 6, also |x| = 6 und |y| = 6. Links der y-Achse: x = −6. Unter der x-Achse: y = −6. Der Schatz liegt bei (−6 | −6).",
-    lambda: [(x < 0 and y < 0 and abs(x) == 6 and abs(y) == 6) for x, y in ((-6, -6), (6, -6), (-6, 6), (6, 6))] == [True, False, False, False]), g="transfer", regel=KO)
+    "Tom behauptet: „Jedes Viereck mit vier gleich langen Seiten ist ein Quadrat.“ Welche Figur zeigt, dass Tom nicht recht hat?",
+    "Eine Raute mit 5 cm Seitenlänge und den Winkeln 60° und 120°",
+    [("Ein Quadrat mit 5 cm Seitenlänge", "Das Quadrat passt zu Toms Aussage und widerlegt sie nicht."), ("Ein Rechteck mit den Seiten 3 cm und 5 cm", "Dieses Viereck hat keine vier gleich langen Seiten, es sagt über Toms Aussage nichts."), ("Ein Parallelogramm mit den Seiten 4 cm und 6 cm", "Auch hier sind nicht alle vier Seiten gleich lang, es ist also kein Gegenbeispiel.")],
+    "Ein Gegenbeispiel muss die Voraussetzung (vier gleich lange Seiten) erfüllen, aber trotzdem kein Quadrat sein.",
+    "Gesucht ist ein Viereck mit vier gleich langen Seiten, das kein Quadrat ist: Die Raute mit den Winkeln 60° und 120° hat vier gleich lange Seiten, aber keine rechten Winkel.",
+    lambda: [(len(set(s)) == 1 and not all(w == 90 for w in ws)) for s, ws in (((5, 5, 5, 5), (60, 120, 60, 120)), ((5, 5, 5, 5), (90, 90, 90, 90)), ((3, 5, 3, 5), (90, 90, 90, 90)), ((4, 6, 4, 6), (70, 110, 70, 110)))] == [True, False, False, False]), g="transfer")

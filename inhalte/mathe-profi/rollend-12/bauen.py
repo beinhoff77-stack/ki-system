@@ -24,6 +24,7 @@ VP = _iu.module_from_spec(_sp)
 _sp.loader.exec_module(VP)
 from kern import A, FORM, ip, WURZEL, z2   # noqa: E402
 
+REGEL_AUSNAHME = {("stochastik.kombinatorik", "id.daten.stufen"), ("zahlen.natuerlich", "id.zahlen.zahlengerade"), ("zahlen.rechengesetze", "rr.gegenrechnung"), ("zahlen.potenzen_basis", "rr.vorzeichen")}   # Ausnahmen von Hand gelesen: Zählprinzip und Baumdiagramm („entlang eines Pfades malnehmen“) und Zahlenstrahl ablesen und eintragen („jede Zahl hat genau einen Platz“) passen dem Text nach, die Themenliste der Idee nennt das Thema nicht
 KENN = json.load(open(os.path.join(HIER, "..", "regeln-uebersicht", "kennungen.json"), encoding="utf-8"))["kennungen"]
 REGELN = {e["kennung"]: e for e in KENN}
 FEHLBILD = {f["kennung"]: e["kennung"] for e in KENN for f in e["fehlbilder"]}
@@ -198,7 +199,9 @@ for a in A:
     gleich_ok = bool(q.pop("_gleich_ok", False))
     zaehler += 1
     kenn = f"{KUERZEL}-V{zaehler:03d}"
-    assert a["regel"] in REGELN, (kenn, a["regel"])
+    assert a["regel"] is None or a["regel"] in REGELN, (kenn, a["regel"])
+    # Katalog (kennungen.json): die tragende Idee muss zum Thema passen (Ausnahmen von Hand gelesen); passt nichts genau, bleibt die Kennung leer
+    assert a["regel"] is None or datei in REGELN[a["regel"]]["themen"] or (datei, a["regel"]) in REGEL_AUSNAHME, (kenn, a["regel"], "Thema steht nicht in der Themenliste der Idee")
     assert ip.STUFE_VON[a["g"]] == a["s"], kenn
     assert (datei, a["lk"]) in KARTE, (kenn, a["lk"])
     q.update({"l": a["lk"], "t": KARTE[(datei, a["lk"])], "p": "uebung", "s": a["s"], "g": a["g"]})
@@ -223,7 +226,7 @@ for a in A:
     alle_texte.add(text)
     alle_bau[datei].add(b)
     eintrag = dict(kennung=kenn, thema=a["thema"], lernkarte=a["lk"], stufe=a["s"], typ=FORM[a["form"]][0], form=a["form"], antwortform=q["y"],
-                   regel=a["regel"], regel_name=REGELN[a["regel"]]["name"], zaehlt=a["zaehlt"], fehlbilder=[])
+                   regel=a["regel"], regel_name=REGELN[a["regel"]]["name"] if a["regel"] else None, zaehlt=a["zaehlt"], fehlbilder=[])
 
     def fb_eintrag(ort, antwort, fbk, beschr):
         global n_fb

@@ -108,7 +108,7 @@
      "einheit": "Liter"
     },
     "c": "120 / 8 * 60",
-    "h": "Wie viele Liter fördert sie in 1 Minute? Wie viele Minuten hat eine Stunde?",
+    "h": "Auf welche gemeinsame Zeiteinheit musst du die Angaben bringen? Was lässt sich zuerst ausrechnen?",
     "w": "In 1 Minute: 120 : 8 = 15 Liter. Eine Stunde hat 60 Minuten: 15 · 60 = 900 Liter."
    }
   },
@@ -301,7 +301,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Die Tabelle gehört zu einer proportionalen Zuordnung (Anzahl Hefte → Preis). Wie viel Euro kosten 14 Hefte? Tipp: 14 = 4 + 10.",
+     "text": "Die Tabelle gehört zu einer proportionalen Zuordnung (Anzahl Hefte → Preis). Wie viel Euro kosten 14 Hefte?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -329,7 +329,7 @@
      "einheit": "€"
     },
     "c": "6 + 15",
-    "h": "Der Preis für 14 Hefte ist der Preis für 4 Hefte plus der Preis für 10 Hefte. Beide stehen in der Tabelle.",
+    "h": "Aus welchen Heftzahlen der Tabelle kannst du 14 zusammensetzen? Was bedeutet das für die Preise?",
     "w": "14 Hefte sind 4 Hefte und 10 Hefte. Preis: 6 € + 15 € = 21 €. Kontrolle: Ein Heft kostet 1,50 €, 14 · 1,50 € = 21 €."
    }
   },
@@ -462,8 +462,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.verhaeltnisse.wert_fuer_eins",
-   "regel_name": "Wert für eins",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -550,10 +550,10 @@
      "beschreibung": "nur 800 Liter dazugerechnet"
     },
     {
-     "antwort": 3600,
+     "antwort": 5600,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 450 Liter je Stunde gerechnet"
+     "beschreibung": "den Zuwachs von 1 200 Litern, der schon 3 Stunden umfasst, noch einmal mit 3 malgenommen"
     }
    ],
    "aufgabe": {

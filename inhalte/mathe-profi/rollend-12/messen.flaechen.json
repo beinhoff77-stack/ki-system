@@ -108,7 +108,7 @@
      "einheit": "Fliesen"
     },
     "c": "(4 * 2) * (3 * 2)",
-    "h": "Wie viele Fliesen von 50 cm passen in 1 m? Wie viele also in die Länge und in die Breite?",
+    "h": "Welche Einheit müssen Zimmer und Fliese gemeinsam haben? Wie viele Fliesen liegen nebeneinander?",
     "w": "In 1 m passen 2 Fliesen. Länge: 4 · 2 = 8 Fliesen, Breite: 3 · 2 = 6 Fliesen. 8 · 6 = 48 Fliesen. Kontrolle: 12 m² und jede Fliese hat 0,25 m², also 12 : 0,25 = 48."
    }
   },
@@ -120,8 +120,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -132,8 +132,8 @@
     },
     {
      "antwort": 20,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
+     "fehlbild": "fb.auslegen.umfang_statt_flaeche",
+     "regel_des_fehlbilds": "id.flaeche_raum.auslegen",
      "beschreibung": "den Umfang statt der Fläche genannt"
     },
     {
@@ -199,14 +199,14 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": "id.flaeche_raum.auslegen",
+   "regel_name": "Auslegen und zählen",
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "antwort": 18,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
+     "fehlbild": "fb.auslegen.umfang_statt_flaeche",
+     "regel_des_fehlbilds": "id.flaeche_raum.auslegen",
      "beschreibung": "den halben Umfang als Fläche genannt"
     },
     {
@@ -216,10 +216,10 @@
      "beschreibung": "ein Quadrat mit gleichem Umfang angenommen"
     },
     {
-     "antwort": 216,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Breite 6 m mit 36 m malgenommen"
+     "antwort": 36,
+     "fehlbild": "fb.auslegen.umfang_statt_flaeche",
+     "regel_des_fehlbilds": "id.flaeche_raum.auslegen",
+     "beschreibung": "den Umfang als Fläche genannt"
     }
    ],
    "aufgabe": {
@@ -237,7 +237,7 @@
      "einheit": "m²"
     },
     "c": "(36 / 2 / 3 * 2) * (36 / 2 / 3)",
-    "h": "Der halbe Umfang ist Länge plus Breite. Die Länge besteht aus zwei „Breiten“.",
+    "h": "Wie hängen Länge und Breite zusammen? Was sagt der Umfang über Länge plus Breite?",
     "w": "Länge + Breite = 36 : 2 = 18 m. Das sind 3 gleiche Teile (Breite + zweimal Breite), ein Teil ist 6 m. Breite 6 m, Länge 12 m. Fläche: 12 · 6 = 72 m²."
    }
   },
@@ -249,8 +249,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -299,8 +299,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -349,8 +349,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -399,8 +399,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -408,14 +408,14 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "Zeile 1 stimmt: 45 dm² : 100 = 0,45 m². Der Fehler steckt später."
     },
     {
      "index": 2,
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Zeile 3 übernimmt nur das Ergebnis aus Zeile 2. Der Fehler liegt schon in Zeile 2."
     }
    ],
    "aufgabe": {
@@ -436,7 +436,7 @@
     "o": {
      "index": 1
     },
-    "h": "Rechne 3,2 + 0,45 untereinander, Komma unter Komma.",
+    "h": "Prüfe jede Zeile für sich und rechne beim Addieren Komma unter Komma nach. Welche Zeile enthält zuerst einen Fehler?",
     "w": "3,20 + 0,45 = 3,65. Richtig: 3,65 m². Der erste Fehler steht in Zeile 2."
    }
   },
@@ -448,8 +448,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.auslegen",
-   "regel_name": "Auslegen und zählen",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -498,8 +498,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.auslegen",
-   "regel_name": "Auslegen und zählen",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -515,10 +515,10 @@
      "beschreibung": "68 durch 4 geteilt"
     },
     {
-     "antwort": 5,
+     "antwort": 8,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Breite mit der Differenz 8 − 3 verwechselt"
+     "beschreibung": "die Breite des ganzen Rechtecks genannt"
     }
    ],
    "aufgabe": {
@@ -536,7 +536,7 @@
      "einheit": "m"
     },
     "c": "(10 * 8 - 68) / 4",
-    "h": "Wie viele m² wurden herausgeschnitten? Wie breit muss dann das Rechteck sein, wenn es 4 m lang ist?",
+    "h": "Welche Fläche hat das ganze Rechteck? Was sagt die übrige Fläche über das herausgeschnittene Stück?",
     "w": "Ganzes Rechteck: 10 · 8 = 80 m². Herausgeschnitten: 80 − 68 = 12 m². Breite: 12 : 4 = 3 m. Probe: 4 · 3 = 12 und 80 − 12 = 68."
    }
   },
@@ -548,8 +548,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.auslegen",
-   "regel_name": "Auslegen und zählen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -669,8 +669,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -719,27 +719,27 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.flaeche_raum.aus_dem_rechteck",
-   "regel_name": "Aus dem Rechteck",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 2,
+     "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur den Faktor der Seiten genannt"
+     "beschreibung": "nur den Faktor der Fläche genannt"
     },
     {
      "antwort": 8,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 2 · 2 · 2 gerechnet"
+     "beschreibung": "den Faktor der Fläche auch für den Umfang genommen: 4 + 4"
     },
     {
      "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Unterschied der Faktoren gebildet: 4 − 1"
+     "beschreibung": "den Faktor 2 für den Umfang mit 1 addiert"
     }
    ],
    "aufgabe": {
@@ -750,14 +750,14 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Bei einem Rechteck mit 5 cm Länge und 7 cm Breite werden Länge und Breite verdoppelt. Wie oft so groß wird der Flächeninhalt? Weg A: Berechne beide Flächeninhalte und teile. Weg B: Überlege, mit welcher Zahl jede Seite malgenommen wird."
+     "text": "Bei einem Rechteck mit 5 cm Länge und 7 cm Breite werden Länge und Breite verdoppelt. Wie oft so groß wird dabei der Flächeninhalt und wie oft so groß der Umfang? Gib die Summe der beiden Faktoren an. Weg A: Berechne alte und neue Fläche und alten und neuen Umfang und teile jeweils. Weg B: Überlege, mit welcher Zahl jede Seite malgenommen wird und was das für Fläche und Umfang bedeutet."
     },
     "o": {
-     "wert": 4
+     "wert": 6
     },
-    "c": "(10 * 14) / (5 * 7)",
-    "h": "Berechne die alte Fläche und die neue Fläche. Wie oft passt die alte in die neue?",
-    "w": "Weg A: Alte Fläche 5 · 7 = 35 cm², neue Fläche 10 · 14 = 140 cm². 140 : 35 = 4. Weg B: Die Länge wird 2-mal so groß, die Breite auch: 2 · 2 = 4."
+    "c": "(10 * 14) / (5 * 7) + (2 * (10 + 14)) / (2 * (5 + 7))",
+    "h": "Berechne alte und neue Fläche und alten und neuen Umfang. Wie oft passt jeweils das Alte in das Neue?",
+    "w": "Weg A: Fläche 5 · 7 = 35 cm² wird 10 · 14 = 140 cm², das ist 4-mal so viel. Umfang 2 · (5 + 7) = 24 cm wird 2 · (10 + 14) = 48 cm, das ist 2-mal so viel. 4 + 2 = 6. Weg B: Jede Seite wird 2-mal so lang. Der Umfang besteht aus Seiten, er wird 2-mal so groß. Die Fläche ist Länge mal Breite, sie wird 2 · 2 = 4-mal so groß. 4 + 2 = 6."
    }
   }
  ]

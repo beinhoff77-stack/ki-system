@@ -108,7 +108,7 @@
      "einheit": "°"
     },
     "c": "180 - 48 - 35",
-    "h": "Wie groß ist der vergrößerte Winkel? Mache dann die Vergrößerung rückgängig.",
+    "h": "Welcher Winkel hängt direkt mit den 48° zusammen? Welcher Schritt kam zuletzt?",
     "w": "Der vergrößerte Winkel ist 180° − 48° = 132°. Vor der Vergrößerung war er 35° kleiner: 132° − 35° = 97°. Probe: 97° + 35° = 132°, 132° + 48° = 180°."
    }
   },
@@ -126,9 +126,9 @@
    "fehlbilder": [
     {
      "antwort": 38,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den gegebenen Winkel als größten genannt"
+     "fehlbild": "fb.winkel.neben_statt_scheitel",
+     "regel_des_fehlbilds": "id.geometrie.winkel",
+     "beschreibung": "den gegebenen Winkel als größten genannt (Scheitelwinkel statt Nebenwinkel genommen)"
     },
     {
      "antwort": 52,
@@ -138,9 +138,9 @@
     },
     {
      "antwort": 322,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "von 360° abgezogen"
+     "fehlbild": "fb.winkel.teil_der_drehung",
+     "regel_des_fehlbilds": "id.geometrie.winkel",
+     "beschreibung": "von 360° abgezogen (den falschen Teil der vollen Drehung genommen)"
     }
    ],
    "aufgabe": {
@@ -201,15 +201,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Zwei Geraden schneiden sich. Ein Winkel ist 24° größer als sein Nachbarwinkel. Wie groß ist der größere der beiden Winkel? Weg A: Rechne (180° + 24°) : 2. Weg B: Rechne zuerst den kleineren Winkel mit (180° − 24°) : 2 und addiere dann 24°."
+     "text": "Zwei Geraden schneiden sich. Ein Winkel ist 24° größer als sein Nachbarwinkel. Wie groß ist der größere der beiden Winkel? Weg A: Nenne den kleineren Winkel w und löse w + (w + 24°) = 180°. Weg B: Wären beide Winkel gleich groß, hätte jeder 90°. Überlege, wie viel Grad vom einen zum anderen wandern müssen, damit der Unterschied 24° beträgt."
     },
     "o": {
      "wert": 102,
      "einheit": "°"
     },
     "c": "(180 + 24) / 2",
-    "h": "Zwei Nachbarwinkel ergeben zusammen 180°. Der Unterschied ist 24°.",
-    "w": "Weg A: (180 + 24) : 2 = 204 : 2 = 102. Weg B: (180 − 24) : 2 = 78 ist der kleinere Winkel, 78 + 24 = 102. Probe: 102° + 78° = 180°."
+    "h": "Wie groß ist die Summe zweier Nachbarwinkel? Was geschieht mit dem Unterschied, wenn ein Winkel um 12° kleiner und der andere um 12° größer wird?",
+    "w": "Weg A: 2w + 24° = 180°, also 2w = 156°, w = 78°. Der größere Winkel ist 78° + 24° = 102°. Weg B: Von 90° und 90° wandern 12° vom einen zum anderen: 78° und 102°. Der Unterschied ist 24°. Probe: 102° + 78° = 180°."
    }
   },
   {
@@ -220,8 +220,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.geometrie.winkel",
-   "regel_name": "Winkel an Geraden",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -231,16 +231,16 @@
      "beschreibung": "die Summe der drei Winkel genannt"
     },
     {
-     "antwort": 75,
+     "antwort": 150,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "von 330° statt von 360° abgezogen"
+     "beschreibung": "den Sektor der Trauben vergessen: 360° − 120° − 90°"
     },
     {
-     "antwort": 225,
+     "antwort": 195,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "von 480° abgezogen"
+     "beschreibung": "den Sektor der Bananen vergessen: 360° − 120° − 45°"
     }
    ],
    "aufgabe": {
@@ -291,8 +291,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.geometrie.winkel",
-   "regel_name": "Winkel an Geraden",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -341,8 +341,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.geometrie.winkel",
-   "regel_name": "Winkel an Geraden",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -372,15 +372,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Um wie viel Grad dreht sich der Minutenzeiger einer Uhr in 25 Minuten? Weg A: Bestimme zuerst, um wie viel Grad er sich in 1 Minute dreht, und rechne dann mal 25. Weg B: Überlege, welchen Bruchteil einer Stunde 25 Minuten ausmachen, und nimm diesen Bruchteil von 360°."
+     "text": "Um wie viel Grad dreht sich der Minutenzeiger einer Uhr in 25 Minuten? Weg A: Bestimme zuerst, um wie viel Grad er sich in 1 Minute dreht, und rechne dann mal 25. Weg B: Zwischen zwei Zahlen auf dem Zifferblatt liegen 5 Minuten. Bestimme den Winkel zwischen zwei Zahlen und überlege, wie oft 5 Minuten in 25 Minuten passen."
     },
     "o": {
      "wert": 150,
      "einheit": "°"
     },
     "c": "360 / 60 * 25",
-    "h": "Eine ganze Stunde sind 360° für den Minutenzeiger. Wie viele Minuten hat eine Stunde?",
-    "w": "Weg A: In 60 Minuten dreht er sich um 360°, in 1 Minute um 6°. 25 · 6° = 150°. Weg B: 25 Minuten sind 25/60 einer Stunde, 25/60 von 360° sind 150°."
+    "h": "Eine ganze Stunde sind 360° für den Minutenzeiger. Wie viele Minuten hat eine Stunde, wie viele Zahlen das Zifferblatt?",
+    "w": "Weg A: In 60 Minuten dreht er sich um 360°, in 1 Minute um 6°. 25 · 6° = 150°. Weg B: Zwischen zwei Zahlen liegen 5 Minuten und 360° : 12 = 30°. 25 Minuten sind 5 solche Schritte, 5 · 30° = 150°."
    }
   },
   {
@@ -391,27 +391,27 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.geometrie.winkel",
-   "regel_name": "Winkel an Geraden",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "antwort": 90,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Stundenzeiger genau auf der 3 angenommen: 180° − 90°"
+     "beschreibung": "den Stundenzeiger genau auf der 7 angenommen: 210° − 120°"
     },
     {
-     "antwort": 105,
+     "antwort": 110,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Winkel des Stundenzeigers genannt"
+     "beschreibung": "den Stundenzeiger in den 20 Minuten um 20° statt um 10° weitergedreht: 230° − 120°"
     },
     {
-     "antwort": 60,
+     "antwort": 120,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Stundenzeiger bei 120° angenommen"
+     "beschreibung": "nur den Weg des Minutenzeigers genannt"
     }
    ],
    "aufgabe": {
@@ -422,15 +422,15 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Wie groß ist um 3:30 Uhr der kleinere Winkel zwischen Stundenzeiger und Minutenzeiger? Beachte: Der Stundenzeiger dreht sich in einer Stunde um 30°. Um 3:30 Uhr steht er genau in der Mitte zwischen der 3 und der 4."
+     "text": "Wie groß ist um 7:20 Uhr der kleinere Winkel zwischen Stundenzeiger und Minutenzeiger? Der Stundenzeiger dreht sich in einer Stunde um 30°, der Minutenzeiger in einer Stunde um 360°."
     },
     "o": {
-     "wert": 75,
+     "wert": 100,
      "einheit": "°"
     },
-    "c": "180 - (3 * 30 + 15)",
-    "h": "Wie weit ist der Stundenzeiger von der 12 entfernt gedreht? Der Minutenzeiger steht auf der 6.",
-    "w": "Der Minutenzeiger steht bei 180° (auf der 6). Der Stundenzeiger steht bei 3 · 30° + 15° = 105°. Der Unterschied ist 180° − 105° = 75°."
+    "c": "(7 * 30 + 20 / 2) - 20 * 6",
+    "h": "Wo steht der Minutenzeiger, gemessen von der 12 aus? Wie weit ist der Stundenzeiger schon über die 7 hinaus?",
+    "w": "Der Minutenzeiger hat nach 20 Minuten 20 · 6° = 120° zurückgelegt. Der Stundenzeiger hat 7 · 30° = 210° und in 20 Minuten noch 20 · 0,5° = 10° mehr, also 220°. Der Unterschied ist 220° − 120° = 100°. Das ist der kleinere Winkel, weil er kleiner als 180° ist."
    }
   },
   {
@@ -441,8 +441,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "auswahl",
-   "regel": "id.geometrie.winkel",
-   "regel_name": "Winkel an Geraden",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -453,18 +453,18 @@
      "beschreibung": "Nur die erste Drehung wurde beachtet."
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Süden",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Nur die zweite Drehung wurde beachtet."
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Norden",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Beide Drehungen wurden rückgängig gemacht."
+     "beschreibung": "Die beiden Drehungen wurden als gleich groß angesehen und gegeneinander aufgehoben."
     }
    ],
    "aufgabe": {
@@ -479,12 +479,12 @@
     },
     "a": [
      "Osten",
+     "Westen",
      "Süden",
-     "Norden",
-     "Westen"
+     "Norden"
     ],
     "o": {
-     "index": 3
+     "index": 1
     },
     "h": "Zeichne dir eine Windrose. Im Uhrzeigersinn geht es von Norden nach Osten.",
     "w": "Norden, 90° im Uhrzeigersinn: Osten. Von Osten 180° gegen den Uhrzeigersinn: Westen."
@@ -498,8 +498,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.geometrie.winkel",
-   "regel_name": "Winkel an Geraden",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -548,8 +548,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.geometrie.winkel",
-   "regel_name": "Winkel an Geraden",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -598,27 +598,27 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.geometrie.winkel",
-   "regel_name": "Winkel an Geraden",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 36,
+     "antwort": 30,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den kleineren Teil genannt"
     },
     {
-     "antwort": 18,
+     "antwort": 45,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur ein Fünftel genannt"
+     "beschreibung": "den rechten Winkel nur halbiert"
     },
     {
-     "antwort": 60,
+     "antwort": 180,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "durch 3 statt durch 5 geteilt und mit 2 malgenommen"
+     "beschreibung": "mit 2 malgenommen"
     }
    ],
    "aufgabe": {
@@ -629,15 +629,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "In einem Rechteck teilt eine Strecke von einer Ecke aus den rechten Winkel im Verhältnis 2 zu 3. Wie groß ist der größere der beiden Teilwinkel? Weg A: Berechne zuerst den kleineren Teil (zwei Fünftel von 90°) und ziehe ihn von 90° ab. Weg B: Berechne den größeren Teil direkt als drei Fünftel von 90°."
+     "text": "In einem Rechteck teilt eine Strecke von einer Ecke aus den rechten Winkel in zwei Teile. Der größere Teil ist doppelt so groß wie der kleinere. Wie groß ist der größere Teil? Weg A: Nenne den kleineren Teil w und löse w + 2 · w = 90°. Weg B: Teile den rechten Winkel in 3 gleich große Stücke. Der kleinere Teil ist ein Stück, der größere sind zwei Stücke."
     },
     "o": {
-     "wert": 54,
+     "wert": 60,
      "einheit": "°"
     },
-    "c": "90 - 90 / 5 * 2",
-    "h": "Das Verhältnis 2 zu 3 teilt den Winkel in 5 gleiche Teile.",
-    "w": "Weg A: Der kleinere Teil ist 90° : 5 · 2 = 36°. 90° − 36° = 54°. Weg B: 90° : 5 · 3 = 18° · 3 = 54°."
+    "c": "90 / 3 * 2",
+    "h": "Wie viele gleich große Stücke ergeben zusammen den rechten Winkel? Wie viele davon gehören zum größeren Teil?",
+    "w": "Weg A: 3 · w = 90°, also w = 30°. Der größere Teil ist 2 · 30° = 60°. Weg B: Ein Stück ist 90° : 3 = 30° groß, der größere Teil hat zwei Stücke: 60°. Probe: 30° + 60° = 90°."
    }
   },
   {
@@ -648,27 +648,21 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.geometrie.winkel",
-   "regel_name": "Winkel an Geraden",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den rechten Winkel 90° als stumpf mitgezählt"
+    },
     {
      "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den halben Vollwinkel geteilt"
-    },
-    {
-     "antwort": 11,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "eine Stelle zu wenig gezählt"
-    },
-    {
-     "antwort": 330,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "30° von 360° abgezogen"
+     "beschreibung": "alle Paare gezählt, weil die Summe immer größer als jeder Summand ist"
     }
    ],
    "aufgabe": {
@@ -679,14 +673,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Wie viele Winkel von je 30° passen zusammen in einen Vollwinkel? Weg A: Teile 360° durch 30°. Weg B: Denke an das Zifferblatt einer Uhr: Zwischen zwei Stundenzeichen liegen 30°."
+     "text": "Tim behauptet: „Addiert man zwei spitze Winkel, ist die Summe immer ein stumpfer Winkel.“ Bei wie vielen der Paare 20° + 40°, 50° + 60°, 80° + 70°, 30° + 30°, 60° + 85° und 45° + 45° stimmt die Behauptung? Weg A: Rechne jede Summe aus und ordne sie ein. Weg B: Schätze jede Summe und vergleiche sie mit 90° und 180°."
     },
     "o": {
-     "wert": 12
+     "wert": 3,
+     "einheit": "Paare"
     },
-    "c": "360 / 30",
-    "h": "Wie viele Stundenzeichen hat ein Zifferblatt?",
-    "w": "Weg A: 360° : 30° = 12. Weg B: Das Zifferblatt hat 12 Stundenzeichen im Abstand von 30°. Es passen 12 Winkel hinein."
+    "c": "3",
+    "h": "Ein stumpfer Winkel ist größer als 90° und kleiner als 180°. Ist 90° selbst stumpf?",
+    "w": "Weg A: Die Summen sind 60°, 110°, 150°, 60°, 145° und 90°. Stumpf, also größer als 90° und kleiner als 180°, sind 110°, 150° und 145°. Die Summe 90° ist ein rechter Winkel, 60° ist spitz. Weg B: Die Summe zweier Winkel unter 90° ist immer kleiner als 180°, entscheidend ist nur, ob sie über 90° liegt. Es sind 3 Paare."
    }
   },
   {
@@ -697,8 +692,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.geometrie.winkel",
-   "regel_name": "Winkel an Geraden",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -728,14 +723,14 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Ein Winkel wird verdoppelt, dann werden 20° dazugezählt. Das Ergebnis ist ein gestreckter Winkel. Wie groß war der Winkel am Anfang?"
+     "text": "Tim behauptet: „Wenn man einen Winkel verdoppelt und dann 20° dazuzählt, entsteht ein gestreckter Winkel.“ Für welchen Winkel stimmt Tims Aussage?"
     },
     "o": {
      "wert": 80,
      "einheit": "°"
     },
     "c": "(180 - 20) / 2",
-    "h": "Mache die Schritte in umgekehrter Reihenfolge rückgängig. Was war der letzte Schritt?",
+    "h": "Wie ist der gestreckte Winkel entstanden? Welcher Schritt war der letzte?",
     "w": "Rückwärts: Erst 20° abziehen: 180° − 20° = 160°. Dann das Verdoppeln rückgängig machen: 160° : 2 = 80°. Probe: 2 · 80° + 20° = 180°."
    }
   }

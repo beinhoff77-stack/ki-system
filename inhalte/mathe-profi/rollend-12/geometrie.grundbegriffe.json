@@ -20,30 +20,30 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "auswahl",
-   "regel": "id.geometrie.abstand",
-   "regel_name": "Gleicher Abstand",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "(4 | 7)",
+     "antwort": "(1 | −1)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Die Verschiebung wurde noch einmal in dieselbe Richtung gerechnet."
+     "beschreibung": "Es wurde nur eine der beiden Verschiebungen rückgängig gemacht."
     },
     {
      "index": 1,
-     "antwort": "(−2 | 7)",
+     "antwort": "(7 | −10)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Nur die x-Koordinate wurde zurückgerechnet."
+     "beschreibung": "Die beiden Verschiebungen wurden noch einmal in dieselbe Richtung gerechnet statt zurück."
     },
     {
      "index": 3,
-     "antwort": "(4 | −3)",
+     "antwort": "(−1 | −10)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Nur die y-Koordinate wurde zurückgerechnet."
+     "beschreibung": "Die x-Koordinate wurde zurückgerechnet, die y-Koordinate aber noch einmal nach unten."
     }
    ],
    "aufgabe": {
@@ -54,19 +54,19 @@
     "g": "umkehr",
     "y": "auswahl",
     "f": {
-     "text": "Ein Punkt wurde um 3 Einheiten nach rechts und um 5 Einheiten nach oben verschoben. Jetzt liegt er bei (1 | 2). Wo lag er vorher?"
+     "text": "Ein Punkt wird zweimal hintereinander um dieselbe Verschiebung bewegt: jedes Mal 2 Einheiten nach rechts und 3 Einheiten nach unten. Danach liegt er bei (3 | −4). Wo lag er am Anfang?"
     },
     "a": [
-     "(4 | 7)",
-     "(−2 | 7)",
-     "(−2 | −3)",
-     "(4 | −3)"
+     "(1 | −1)",
+     "(7 | −10)",
+     "(−1 | 2)",
+     "(−1 | −10)"
     ],
     "o": {
      "index": 2
     },
-    "h": "Mache die Verschiebung rückgängig: In welche Richtung musst du jetzt gehen?",
-    "w": "Rückwärts: 3 nach links und 5 nach unten. x: 1 − 3 = −2, y: 2 − 5 = −3. Der Punkt lag bei (−2 | −3). Probe: (−2 + 3 | −3 + 5) = (1 | 2)."
+    "h": "Welche Gesamtverschiebung ergeben die beiden Schritte? Wie kommst du von der Endlage zurück?",
+    "w": "Zweimal 2 nach rechts und 3 nach unten sind zusammen 4 nach rechts und 6 nach unten. Rückwärts: 4 nach links und 6 nach oben. x: 3 − 4 = −1, y: −4 + 6 = 2. Der Punkt lag bei (−1 | 2). Probe: (−1 + 4 | 2 − 6) = (3 | −4)."
    }
   },
   {
@@ -77,8 +77,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.geometrie.abstand",
-   "regel_name": "Gleicher Abstand",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -115,7 +115,7 @@
      "einheit": "Einheiten"
     },
     "c": "abs(2 - 7)",
-    "h": "Wo steht der Roboter am Ende? Der Abstand zur x-Achse hängt nur von der y-Koordinate ab.",
+    "h": "Welche Koordinate bestimmt den Abstand eines Punktes zur x-Achse? Wie ändert sie sich bei der Fahrt?",
     "w": "Nach 4 nach rechts: (1 | 2). Nach 7 nach unten: (1 | 2 − 7) = (1 | −5). Der Abstand zur x-Achse ist |−5| = 5 Einheiten."
    }
   },
@@ -127,8 +127,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.geometrie.abstand",
-   "regel_name": "Gleicher Abstand",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -177,8 +177,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.geometrie.abstand",
-   "regel_name": "Gleicher Abstand",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -197,7 +197,7 @@
      "antwort": 13,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "längste und kürzeste addiert"
+     "beschreibung": "längste und kürzeste Strecke addiert"
     }
    ],
    "aufgabe": {
@@ -432,7 +432,7 @@
      "wert": 8
     },
     "c": "11 - 3",
-    "h": "Der Berührpunkt liegt auf der Geraden und auf derselben Höhe wie M. Wie weit ist das waagrecht von M?",
+    "h": "Welcher Punkt des Kreises liegt auf der Geraden? Wo liegt er im Vergleich zu M?",
     "w": "Der Berührpunkt ist (11 | 2). Der Radius ist der waagrechte Abstand von M: 11 − 3 = 8."
    }
   },
@@ -444,19 +444,19 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "auswahl",
-   "regel": "id.geometrie.winkel",
-   "regel_name": "Winkel an Geraden",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "170°",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Das ist ein stumpfer Winkel (zwischen 90° und 180°)."
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "200°",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -481,13 +481,13 @@
      "text": "Welche Gradzahl gehört zu einem überstumpfen Winkel, der kleiner als 200° ist?"
     },
     "a": [
-     "190°",
      "170°",
      "200°",
+     "190°",
      "360°"
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "h": "Überstumpf heißt: größer als der gestreckte Winkel, aber kleiner als der Vollwinkel.",
     "w": "Überstumpf ist ein Winkel zwischen 180° und 360°. Kleiner als 200° kommt nur 190° in Frage."
@@ -501,21 +501,21 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.geometrie.winkel",
-   "regel_name": "Winkel an Geraden",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 3,
+     "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den gestreckten Winkel 180° mitgezählt"
     },
     {
-     "antwort": 4,
+     "antwort": 7,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "auch 90° und 180° mitgezählt"
+     "beschreibung": "den rechten Winkel 90° und den gestreckten Winkel 180° mitgezählt"
     }
    ],
    "aufgabe": {
@@ -526,15 +526,15 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Ein Türfeststeller kann eine Tür bei den Winkeln 30°, 90°, 100°, 135° oder 180° festhalten. Wie viele dieser Einstellungen sind stumpfe Winkel?"
+     "text": "Eine Tür lässt sich von 0° bis 180° öffnen. Ein Feststeller hält sie bei jedem Vielfachen von 15° fest (0°, 15°, 30°, … bis 180°). Bei wie vielen dieser Einstellungen ist der Öffnungswinkel ein stumpfer Winkel?"
     },
     "o": {
-     "wert": 2,
+     "wert": 5,
      "einheit": "Einstellungen"
     },
-    "c": "2",
-    "h": "Ein stumpfer Winkel ist größer als 90° und kleiner als 180°.",
-    "w": "Stumpf sind nur 100° und 135°. 30° ist spitz, 90° ist ein rechter Winkel, 180° ist ein gestreckter Winkel. Es sind 2."
+    "c": "(165 - 105) / 15 + 1",
+    "h": "Zwischen welchen beiden Gradzahlen liegen stumpfe Winkel? Welche Einstellungen des Feststellers fallen in diesen Bereich?",
+    "w": "Stumpf heißt: größer als 90° und kleiner als 180°. Das trifft auf 105°, 120°, 135°, 150° und 165° zu, also 5 Einstellungen. 90° ist ein rechter Winkel, 180° ein gestreckter."
    }
   },
   {
@@ -545,26 +545,26 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "auswahl",
-   "regel": "id.geometrie.winkel",
-   "regel_name": "Winkel an Geraden",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "Viereck A",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Alle Seiten gleich lang und vier rechte Winkel: das ist ein Quadrat."
     },
     {
-     "index": 1,
+     "index": 2,
      "antwort": "Viereck C",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Vier rechte Winkel, aber nicht alle Seiten gleich lang: ein Rechteck."
     },
     {
-     "index": 2,
+     "index": 3,
      "antwort": "Viereck D",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -612,13 +612,13 @@
      }
     },
     "a": [
+     "Viereck B",
      "Viereck A",
      "Viereck C",
-     "Viereck D",
-     "Viereck B"
+     "Viereck D"
     ],
     "o": {
-     "index": 3
+     "index": 0
     },
     "h": "Eine Raute hat vier gleich lange Seiten. Ein Quadrat hat zusätzlich vier rechte Winkel.",
     "w": "Eine Raute hat vier gleich lange Seiten. Ein Quadrat hätte zusätzlich vier rechte Winkel. Gesucht ist also: gleich lange Seiten (ja), rechte Winkel (nein). Das ist Viereck B."
@@ -632,8 +632,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.geometrie.abstand",
-   "regel_name": "Gleicher Abstand",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -681,31 +681,22 @@
    "stufe": 2,
    "typ": "Brücke",
    "form": "bruecke",
-   "antwortform": "auswahl",
-   "regel": "id.geometrie.abstand",
-   "regel_name": "Gleicher Abstand",
+   "antwortform": "zahl",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
-     "antwort": "(−3 | 4)",
+     "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Das ist links von der y-Achse und über der x-Achse."
+     "beschreibung": "alle Punkte über der x-Achse gezählt, auch E mit positivem x"
     },
     {
-     "index": 2,
-     "antwort": "(3 | 4)",
+     "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Das ist rechts, aber über der x-Achse."
-    },
-    {
-     "index": 3,
-     "antwort": "(−3 | −4)",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "Das ist unter der x-Achse, aber links von der y-Achse."
+     "beschreibung": "alle Punkte mit negativem x gezählt"
     }
    ],
    "aufgabe": {
@@ -714,21 +705,57 @@
     "p": "uebung",
     "s": 2,
     "g": "darstellung",
-    "y": "auswahl",
+    "y": "zahl",
     "f": {
-     "text": "Welcher Punkt liegt rechts von der y-Achse und unter der x-Achse?"
+     "text": "Mia behauptet: „Jeder Punkt mit negativer x-Koordinate liegt unter der x-Achse.“ In der Tabelle stehen sechs Punkte. Bei wie vielen von ihnen zeigt sich, dass die Behauptung nicht stimmt?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Punkt",
+       "x-Koordinate",
+       "y-Koordinate"
+      ],
+      "zeilen": [
+       [
+        "A",
+        "−3",
+        "4"
+       ],
+       [
+        "B",
+        "−2",
+        "−1"
+       ],
+       [
+        "C",
+        "5",
+        "−2"
+       ],
+       [
+        "D",
+        "−6",
+        "2"
+       ],
+       [
+        "E",
+        "1",
+        "3"
+       ],
+       [
+        "F",
+        "−4",
+        "−5"
+       ]
+      ]
+     }
     },
-    "a": [
-     "(−3 | 4)",
-     "(3 | −4)",
-     "(3 | 4)",
-     "(−3 | −4)"
-    ],
     "o": {
-     "index": 1
+     "wert": 2,
+     "einheit": "Punkte"
     },
-    "h": "Rechts von der y-Achse heißt: x ist positiv. Unter der x-Achse heißt: y ist negativ.",
-    "w": "Rechts von der y-Achse ist x > 0, unter der x-Achse ist y < 0. Das trifft nur auf (3 | −4) zu."
+    "c": "2",
+    "h": "Zu einem Gegenbeispiel gehört eine negative x-Koordinate, aber ein Punkt, der nicht unter der x-Achse liegt. Welche Punkte der Tabelle sind das?",
+    "w": "Ein Gegenbeispiel hat x < 0 und liegt über der x-Achse (y > 0). Das gilt für A(−3 | 4) und D(−6 | 2). B(−2 | −1) und F(−4 | −5) bestätigen die Behauptung, C(5 | −2) und E(1 | 3) haben ein positives x. Es sind 2 Punkte."
    }
   },
   {
@@ -739,30 +766,30 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "auswahl",
-   "regel": "id.geometrie.abstand",
-   "regel_name": "Gleicher Abstand",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "(6 | −6)",
+     "antwort": "Ein Quadrat mit 5 cm Seitenlänge",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Das ist rechts von der y-Achse."
+     "beschreibung": "Das Quadrat passt zu Toms Aussage und widerlegt sie nicht."
+    },
+    {
+     "index": 1,
+     "antwort": "Ein Rechteck mit den Seiten 3 cm und 5 cm",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Dieses Viereck hat keine vier gleich langen Seiten, es sagt über Toms Aussage nichts."
     },
     {
      "index": 2,
-     "antwort": "(−6 | 6)",
+     "antwort": "Ein Parallelogramm mit den Seiten 4 cm und 6 cm",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Das ist über der x-Achse."
-    },
-    {
-     "index": 3,
-     "antwort": "(6 | 6)",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "Das ist rechts und über den Achsen."
+     "beschreibung": "Auch hier sind nicht alle vier Seiten gleich lang, es ist also kein Gegenbeispiel."
     }
    ],
    "aufgabe": {
@@ -773,19 +800,19 @@
     "g": "transfer",
     "y": "auswahl",
     "f": {
-     "text": "Ein Schatz liegt links von der y-Achse und unter der x-Achse. Er ist von beiden Achsen gleich weit entfernt, nämlich 6 Einheiten. Welche Koordinaten hat er?"
+     "text": "Tom behauptet: „Jedes Viereck mit vier gleich langen Seiten ist ein Quadrat.“ Welche Figur zeigt, dass Tom nicht recht hat?"
     },
     "a": [
-     "(6 | −6)",
-     "(−6 | −6)",
-     "(−6 | 6)",
-     "(6 | 6)"
+     "Ein Quadrat mit 5 cm Seitenlänge",
+     "Ein Rechteck mit den Seiten 3 cm und 5 cm",
+     "Ein Parallelogramm mit den Seiten 4 cm und 6 cm",
+     "Eine Raute mit 5 cm Seitenlänge und den Winkeln 60° und 120°"
     ],
     "o": {
-     "index": 1
+     "index": 3
     },
-    "h": "Links der y-Achse heißt: x ist negativ. Unter der x-Achse heißt: y ist negativ.",
-    "w": "Der Abstand von beiden Achsen ist 6, also |x| = 6 und |y| = 6. Links der y-Achse: x = −6. Unter der x-Achse: y = −6. Der Schatz liegt bei (−6 | −6)."
+    "h": "Ein Gegenbeispiel muss die Voraussetzung (vier gleich lange Seiten) erfüllen, aber trotzdem kein Quadrat sein.",
+    "w": "Gesucht ist ein Viereck mit vier gleich langen Seiten, das kein Quadrat ist: Die Raute mit den Winkeln 60° und 120° hat vier gleich lange Seiten, aber keine rechten Winkel."
    }
   }
  ]

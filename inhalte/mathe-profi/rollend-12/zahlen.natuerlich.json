@@ -119,27 +119,27 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 6,
+     "antwort": 0,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die beiden Dreiergruppen hinter den Millionen gezählt: 3 + 3"
+     "beschreibung": "die Hunderttausenderstelle abgelesen"
     },
     {
-     "antwort": 12,
+     "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "vier Dreiergruppen angenommen: 4 · 3"
+     "beschreibung": "die Millionenstelle abgelesen"
     },
     {
-     "antwort": 8,
+     "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Tausender-Gruppe nur mit zwei Ziffern gezählt: 3 + 2 + 3"
+     "beschreibung": "die erste Ziffer der Zahl genommen"
     }
    ],
    "aufgabe": {
@@ -150,15 +150,15 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Wie viele Ziffern hat die Zahl „dreihundertzwölf Millionen vierzigtausend“, wenn man sie mit Ziffern schreibt? Weg A: Schreibe die Zahl mit Ziffern hin und zähle. Weg B: Überlege, wie viele Ziffern die Millionen-Gruppe und die beiden Dreiergruppen dahinter haben."
+     "text": "Welche Ziffer steht an der Zehntausenderstelle der Zahl „dreihundertzwölf Millionen vierzigtausend“? Weg A: Schreibe die ganze Zahl mit Ziffern hin und lies die Stelle ab. Weg B: Überlege, welches Zahlwort überhaupt bis zu den Zehntausendern reicht."
     },
     "o": {
-     "wert": 9,
-     "einheit": "Ziffern"
+     "wert": 4,
+     "einheit": "Ziffer"
     },
-    "c": "3 + 3 + 3",
-    "h": "Hinter den Millionen kommen immer zwei Gruppen mit je drei Ziffern.",
-    "w": "Weg A: 312 040 000 hat 9 Ziffern. Weg B: die Millionen-Gruppe 312 hat 3 Ziffern, die Tausender-Gruppe 040 hat 3 Ziffern, die Einer-Gruppe 000 hat 3 Ziffern. 3 + 3 + 3 = 9."
+    "c": "312040000 // 10000 % 10",
+    "h": "Die Zehntausenderstelle ist die fünfte Stelle von rechts. Welcher Teil des Zahlworts liefert sie?",
+    "w": "Weg A: 312 040 000, von rechts gezählt: Einer 0, Zehner 0, Hunderter 0, Tausender 0, Zehntausender 4. Weg B: Die Millionen reichen nur bis zur Millionenstelle; „vierzigtausend“ ist 40 000 und hat 4 Zehntausender."
    }
   },
   {
@@ -169,8 +169,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "auswahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -226,8 +226,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "auswahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -283,8 +283,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -292,21 +292,21 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "Zeile 1 stimmt: Die Ziffern 7, 0, 3, 0, 5 gehören zu den genannten Stellen. Der Fehler steckt später."
     },
     {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "Zeile 2 stimmt: 7 · 10 000 = 70 000. Der Fehler steckt später."
     },
     {
      "index": 3,
      "antwort": "In Zeile 4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Zeile 4 übernimmt nur das falsche Wort aus Zeile 3. Der Fehler liegt schon davor."
     }
    ],
    "aufgabe": {
@@ -328,7 +328,7 @@
     "o": {
      "index": 2
     },
-    "h": "Schreibe 3 Hunderter und 5 Einer als Zahl. Was steht an der Zehnerstelle?",
+    "h": "Prüfe jede Zeile für sich und schreibe die Zahl selbst in Worten auf. Welche Aussage stimmt zum ersten Mal nicht?",
     "w": "3 Hunderter und 5 Einer sind 305, also „dreihundertfünf“ (die Zehnerstelle ist leer). Richtig: siebzigtausenddreihundertfünf. Der erste Fehler steht in Zeile 3."
    }
   },
@@ -348,7 +348,7 @@
      "antwort": 4007,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "7 statt 7 Abschnitte à 100 addiert"
+     "beschreibung": "nur 7 addiert statt 7 Abschnitte mit je 100"
     },
     {
      "antwort": 4070,
@@ -394,22 +394,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 1500,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "durch 9 statt durch 10 geteilt (Striche statt Abschnitte gezählt)"
-    },
-    {
      "antwort": 45,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Länge eines Abschnitts angegeben"
+     "beschreibung": "nur den Abstand zweier Striche angegeben"
     },
     {
-     "antwort": 1459,
+     "antwort": 1495,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "9 statt 45 addiert"
+     "beschreibung": "den 1. Strich statt des 4. Strichs genannt"
+    },
+    {
+     "antwort": 1720,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den ganzen Abstand von 135 statt eines Abschnitts addiert"
     }
    ],
    "aufgabe": {
@@ -420,14 +420,14 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Auf einem Zahlenstrahl sind die Zahlen 1 450 und 1 900 markiert. Zwischen den beiden Marken liegen 9 weitere Striche, die alle gleich weit auseinander stehen. Bei welcher Zahl steht der Strich direkt rechts neben 1 450?"
+     "text": "Auf einem Zahlenstrahl ist die Marke 1 450 beschriftet. Ein Pfeil zeigt auf die Zahl 1 585. Er steht auf dem 3. Strich rechts von der Marke 1 450. Alle Striche haben gleichen Abstand. Welche Zahl gehört zum 4. Strich rechts von 1 450?"
     },
     "o": {
-     "wert": 1495
+     "wert": 1630
     },
-    "c": "1450 + (1900 - 1450) / 10",
-    "h": "Wie viele Abschnitte entstehen, wenn 9 Striche zwischen zwei Marken liegen?",
-    "w": "9 Striche zwischen den Marken ergeben 10 gleich große Abschnitte. Ein Abschnitt ist 450 : 10 = 45. Der nächste Strich liegt bei 1 450 + 45 = 1 495."
+    "c": "1585 + (1585 - 1450) / 3",
+    "h": "Was weißt du über den Abstand zweier Striche? Wie kannst du ihn aus den Angaben bestimmen?",
+    "w": "Von 1 450 bis 1 585 sind es 135 in 3 Abschnitten, ein Abschnitt ist also 135 : 3 = 45 lang. Der 4. Strich liegt einen Abschnitt hinter dem Pfeil: 1 585 + 45 = 1 630. Probe: 1 450 + 4 · 45 = 1 630."
    }
   },
   {
@@ -497,14 +497,14 @@
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Zeile 2 ist für sich richtig gerechnet (6 · 40 + 10 = 250). Sie benutzt aber schon die falsche Abschnittslänge aus Zeile 1."
     },
     {
      "index": 2,
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Zeile 3 folgt richtig aus Zeile 2. Der Fehler liegt schon in Zeile 1."
     }
    ],
    "aufgabe": {
@@ -525,7 +525,7 @@
     "o": {
      "index": 0
     },
-    "h": "Rechne 8 · 40 nach. Kommt dabei 400 heraus?",
+    "h": "Prüfe jede Zeile für sich und mache bei den Rechnungen die Gegenprobe. Welche Aussage stimmt zum ersten Mal nicht?",
     "w": "400 : 8 = 50, nicht 40 (8 · 40 = 320). Richtig: ein Abschnitt ist 50 lang, 250 : 50 = 5, die Marke 250 liegt genau 5 Abschnitte von der 0 entfernt. Der erste Fehler steht in Zeile 1."
    }
   },
@@ -537,8 +537,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "rr.stellenwert",
-   "regel_name": "Stellenwert",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -606,8 +606,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.stellenwert",
-   "regel_name": "Stellenwert",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -714,14 +714,14 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "Zeile 1 stimmt: An der Hunderterstelle steht die 4. Der Fehler steckt später."
     },
     {
      "index": 2,
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Zeile 3 folgt richtig aus der Entscheidung „aufrunden“ in Zeile 2. Der Fehler liegt schon davor."
     }
    ],
    "aufgabe": {
@@ -742,7 +742,7 @@
     "o": {
      "index": 1
     },
-    "h": "Auf welcher Seite der Rundungsstelle steht die Ziffer, die entscheidet?",
+    "h": "Prüfe jede Zeile für sich: Stimmt die Aussage, und folgt der Schritt aus der Rundungsregel? Welche Zeile enthält zuerst einen Fehler?",
     "w": "Entscheidend ist die Ziffer rechts neben der Rundungsstelle, hier die 2 der Zehnerstelle. 2 ist kleiner als 5, also wird abgerundet: 38 400. Der erste Fehler steht in Zeile 2."
    }
   },
@@ -760,8 +760,8 @@
    "fehlbilder": [
     {
      "antwort": 3,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
+     "fehlbild": "fb.buendeln.abgeschnitten_statt_gerundet",
+     "regel_des_fehlbilds": "id.zahlen.buendeln",
      "beschreibung": "abgeschnitten statt gerundet (Zehner und Einer weggelassen)"
     },
     {
@@ -862,13 +862,13 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Eine Zahl wurde auf volle Hunderter gerundet und ergibt 8 000. Welches ist die kleinste ganze Zahl, bei der das passiert?"
+     "text": "Eine ganze Zahl wurde mit der üblichen Rundungsregel (ab 5 wird aufgerundet) auf volle Hunderter gerundet und ergibt 8 000. Welches ist die kleinste ganze Zahl, bei der das passiert?"
     },
     "o": {
      "wert": 7950
     },
     "c": "8000 - 50",
-    "h": "Ab welcher Zehnerziffer wird aufgerundet? Gehe vom nächsten kleineren vollen Hunderter aus.",
+    "h": "Teste Zahlen knapp unter 8 000: Welche werden noch zu 8 000, welche schon zu 7 900?",
     "w": "Aufgerundet wird ab einer Zehnerziffer 5. Der kleinere volle Hunderter ist 7 900. Die kleinste Zahl, die zu 8 000 aufgerundet wird, ist 7 950. 7 949 würde zu 7 900 abgerundet."
    }
   },
@@ -880,8 +880,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.zahlen.buendeln",
-   "regel_name": "Bündeln in Zehnern",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -924,8 +924,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.zahlen.buendeln",
-   "regel_name": "Bündeln in Zehnern",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -933,14 +933,14 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "Zeile 1 stimmt: 47 · 2 = 94. Der Fehler steckt später."
     },
     {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "Zeile 2 stimmt: 11 · 8 = 88, dazu der Rest 6 ergibt 94. Der Fehler steckt später."
     }
    ],
    "aufgabe": {
@@ -951,7 +951,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Eine Klasse bestellt Pizza. 47 Personen essen je 2 Stücke. Eine Pizza hat 8 Stücke. Nico rechnet. Zeile 1: 47 Personen essen zusammen 47 · 2 = 94 Stücke. Zeile 2: 94 geteilt durch 8 ergibt 11 Rest 6. Zeile 3: Es reichen 11 Pizzen, weil 6 Stücke weniger als eine halbe Pizza sind. In welcher Zeile passiert der erste Fehler?"
+     "text": "Eine Klasse bestellt Pizza. 47 Personen essen je 2 Stücke. Eine Pizza hat 8 Stücke. Nico rechnet. Zeile 1: 47 Personen essen zusammen 47 · 2 = 94 Stücke. Zeile 2: 94 geteilt durch 8 ergibt 11 Rest 6. Zeile 3: Es reichen 11 Pizzen, denn die übrigen 6 Stücke sind weniger als eine ganze Pizza. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -961,7 +961,7 @@
     "o": {
      "index": 2
     },
-    "h": "Rechne nach: Wie viele Stücke haben 11 Pizzen? Reichen sie für 94 Stücke?",
+    "h": "Prüfe jede Zeile für sich: Rechnet sie richtig, und passt der Schluss zur Aufgabe? Welche Zeile enthält zuerst einen Fehler?",
     "w": "11 Pizzen haben nur 11 · 8 = 88 Stücke, es fehlen 6. Man muss aufrunden: 12 Pizzen (96 Stücke). Der erste Fehler steht in Zeile 3."
    }
   },
@@ -973,8 +973,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.zahlen.zahlengerade",
-   "regel_name": "Zahlengerade",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1023,8 +1023,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.zahlen.zahlengerade",
-   "regel_name": "Zahlengerade",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1072,8 +1072,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "auswahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1129,8 +1129,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1138,14 +1138,21 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "Zeile 1 stimmt: 50 − 1 = 49. Der Fehler steckt später."
     },
     {
      "index": 1,
      "antwort": "In Zeile 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "Zeile 2 stimmt: L ist 50 und I ist 1. Der Fehler steckt später."
+    },
+    {
+     "index": 3,
+     "antwort": "In Zeile 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zeile 4 übernimmt nur die Schreibweise aus Zeile 3. Der Fehler liegt schon davor."
     }
    ],
    "aufgabe": {
@@ -1156,18 +1163,19 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Lena schreibt die Zahl 49 in römischen Zahlzeichen. Zeile 1: 49 ist 50 − 1. Das Zeichen für 50 ist L, das Zeichen für 1 ist I. Zeile 2: Steht ein kleineres Zeichen vor einem größeren, wird es abgezogen. Also kommt die I vor die L. Zeile 3: Also schreibt man 49 als IL. In welcher Zeile passiert der erste Fehler?"
+     "text": "Lena schreibt die Zahl 49 in römischen Zahlzeichen. Zeile 1: 49 ist 50 − 1. Zeile 2: Das Zeichen für 50 ist L, das Zeichen für 1 ist I. Zeile 3: Ein kleineres Zeichen vor einem größeren wird abgezogen, also darf die I direkt vor der L stehen. Zeile 4: Also schreibt man 49 als IL. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
      "In Zeile 2",
-     "In Zeile 3"
+     "In Zeile 3",
+     "In Zeile 4"
     ],
     "o": {
      "index": 2
     },
-    "h": "Vor welchen Zeichen darf ein I stehen, um abgezogen zu werden?",
-    "w": "Die I darf nur vor V und X stehen. 49 = 40 + 9 = XL + IX = XLIX. Der erste Fehler steht in Zeile 3."
+    "h": "Prüfe jede Zeile für sich und denke an die Regeln für das Abziehen bei römischen Zahlen. Welche Zeile enthält zuerst einen Fehler?",
+    "w": "Das Abziehen ist eingeschränkt: Die I darf nur vor V und X stehen, die X nur vor L und C. 49 = 40 + 9 = XL + IX = XLIX. Der erste Fehler steht in Zeile 3."
    }
   },
   {
@@ -1178,30 +1186,23 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "auswahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "DCCCL",
+     "antwort": "ML",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Das ist 850."
+     "beschreibung": "Das ist 1 050: MCM wurde als 1 000 + 100 + 1 000 = 2 100 gelesen und halbiert, dabei wurde das C falsch addiert."
     },
     {
      "index": 2,
-     "antwort": "MCL",
+     "antwort": "MMMDCCC",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Das ist 1 150."
-    },
-    {
-     "index": 3,
-     "antwort": "CDL",
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "Das ist 450."
+     "beschreibung": "Das ist 3 800: Es wurde verdoppelt statt halbiert."
     }
    ],
    "aufgabe": {
@@ -1215,16 +1216,15 @@
      "text": "Das Doppelte einer Zahl ist MCM. Welche römische Zahl ist es?"
     },
     "a": [
-     "DCCCL",
+     "ML",
      "CML",
-     "MCL",
-     "CDL"
+     "MMMDCCC"
     ],
     "o": {
      "index": 1
     },
     "h": "Schreibe MCM zuerst mit Ziffern. Rechne dann rückwärts.",
-    "w": "MCM ist 1 900. Die Zahl ist die Hälfte: 1 900 : 2 = 950. 950 = 900 + 50 = CM + L = CML. Probe: 2 · 950 = 1 900."
+    "w": "MCM ist 1 900 (M = 1 000 und CM = 900). Die Zahl ist die Hälfte: 1 900 : 2 = 950. 950 = 900 + 50 = CM + L = CML. Probe: 2 · 950 = 1 900."
    }
   },
   {
@@ -1235,21 +1235,27 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "alle römischen Zeichen gezählt, die 3 Ziffern nicht abgezogen"
+    },
     {
      "antwort": 6,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl des Zeichens als Minuten gelesen"
+     "beschreibung": "die Fünfer-Zeichen D, L und V nicht mitgezählt: 3 + 3 + 3 − 3"
     },
     {
-     "antwort": 11,
+     "antwort": 3,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "6 und 5 addiert"
+     "beschreibung": "nur die Zahl der Ziffern genannt"
     }
    ],
    "aufgabe": {
@@ -1260,15 +1266,15 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Ein Zifferblatt hat römische Zahlzeichen. Der große Zeiger zeigt auf das Zeichen VI. Wie viele Minuten nach der vollen Stunde ist es? Zwischen zwei Zeichen liegen 5 Minuten."
+     "text": "Römische Zahlen haben keinen Stellenwert und keine Null: Für jede Stelle braucht man mehrere Zeichen. Die Zahl 888 hat in Ziffern 3 Zeichen. Wie viele Zeichen mehr braucht ihre römische Schreibweise (DCCCLXXXVIII)?"
     },
     "o": {
-     "wert": 30,
-     "einheit": "Minuten"
+     "wert": 9,
+     "einheit": "Zeichen"
     },
-    "c": "6 * 5",
-    "h": "Welche Zahl bedeutet VI? Wie viele Minuten liegen zwischen zwei Zeichen?",
-    "w": "VI ist 6. Zwischen zwei Zeichen liegen 5 Minuten, also 6 · 5 = 30 Minuten nach der vollen Stunde."
+    "c": "(1 + 3) + (1 + 3) + (1 + 3) - 3",
+    "h": "Zähle die Zeichen D, C, L, X, V und I in der römischen Zahl einzeln. Was gehört zu den Ziffern 8?",
+    "w": "888 = 800 + 80 + 8 = DCCC + LXXX + VIII. Jede 8 braucht 4 Zeichen (ein Fünfer-Zeichen und drei Einer-Zeichen), zusammen 12 Zeichen. In Ziffern sind es 3. Also 12 − 3 = 9 Zeichen mehr."
    }
   },
   {
@@ -1279,8 +1285,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1322,8 +1328,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.zahlen.schreibweisen",
-   "regel_name": "Schreibweisen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -1331,14 +1337,14 @@
      "antwort": "In Zeile 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+     "beschreibung": "Zeile 1 stimmt: 8 + 4 + 1 = 13. Der Fehler steckt später."
     },
     {
      "index": 2,
      "antwort": "In Zeile 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+     "beschreibung": "Zeile 3 schreibt die Ziffern aus Zeile 2 richtig hintereinander. Der Fehler liegt schon in Zeile 2."
     }
    ],
    "aufgabe": {
@@ -1359,7 +1365,7 @@
     "o": {
      "index": 1
     },
-    "h": "Welche Stellenwerte wurden in der Zerlegung 8 + 4 + 1 benutzt?",
+    "h": "Prüfe jede Zeile für sich und rechne die Dualzahl zur Probe zurück. Welche Zeile enthält zuerst einen Fehler?",
     "w": "In 13 = 8 + 4 + 1 kommt die 2 nicht vor. Richtig: bei 8 eine 1, bei 4 eine 1, bei 2 eine 0, bei 1 eine 1: 1101. Der erste Fehler steht in Zeile 2."
    }
   }

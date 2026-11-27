@@ -457,3 +457,9 @@
 /* Grundregeln der App für details/summary (Abstand, Akzentfarbe) gelten im Universum nicht */
 .ru details { margin: 0; }
 .ru summary { color: var(--ru-text); margin: 0; }
+/* RU-App Nachbesserung (Werkstatt 1079): Kinderseiten ohne doppelten Kopf. Der Titel steht schon im Kopf der App; die eigene Marke entfällt
+   (zurück zu Ebene 0 über die Brotkrume „‹ Universum“), der Menüknopf steht in der Zeile der Suche statt in einer eigenen Zeile. */
+.ru.ru-im-kind .ru-kopf-marke { display: none; }
+.ru .ru-menue-ort { flex: none; display: inline-flex; }
+.ru.ru-im-kind .ru-universum > .ru-titel { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.ru.ru-im-kind .ru-universum > .ru-lead { margin-top: 10px; }

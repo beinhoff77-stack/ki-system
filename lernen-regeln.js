@@ -362,10 +362,21 @@ async function viewRegeln(arg) {
   const schluessel = istKind ? 'kind:' + k.kindId : 'eltern'; // Eltern: Liste, Blatt und Kinderansicht teilen Kopf und Suchfeld
   const weiter = ruAktiv && ruAktiv.schluessel === schluessel && ruAktiv.wurzel.isConnected;
   if (!weiter && !ruDaten) loading('Regel-Universum wird geladen …');
-  const [I, kind] = await Promise.all([ruDatenHolen(), istKind && !weiter ? lernLadeKind(k.kindId, { still: true }).then((d) => d?.kind || null).catch(() => null) : null]);
+  const kindP = istKind && !weiter ? lernLadeKind(k.kindId, { still: true }).then((d) => d?.kind || null).catch(() => null) : Promise.resolve(null);
+  let I; try { I = await ruDatenHolen(); } catch (err) { if (live()) ruFehler(err, istKind ? (await kindP) || { id: k.kindId } : null); return; }
+  const kind = await kindP;
   if (!live()) return;
   if (!weiter) ruAktiv = ruAufbauen(I, k, kind || (istKind ? { id: k.kindId } : null), schluessel);
   ruZeigen(k.h);
+}
+// Daten nicht geladen (kein Netz, Serverfehler): verständliche Meldung mit „Noch einmal versuchen“; beim Kind im eigenen Rahmen (Menü bleibt)
+function ruFehler(err, kind) {
+  ruAktiv = null;
+  const box = el('section', { class: 'card lern-fehlerseite ru-fehler', role: 'alert' }, el('h2', {}, 'Das Regel-Universum lädt gerade nicht.'),
+    el('p', {}, 'Prüfe das Internet und versuch es noch einmal.'),
+    el('button', { type: 'button', class: 'primary', onclick: () => render() }, 'Noch einmal versuchen'),
+    el('p', { class: 'small muted' }, String(err?.message || err)));
+  lernErsetze(main, kind ? lernRahmen(kind, 'regeln', box) : box);
 }
 function ruAufbauen(I, k, kind, schluessel) {
   const ziel = (h) => (h === 'liste' ? '#/regeln' : h.startsWith('lehrer-') ? '#/regeln/' + h : '#/regeln/' + k.praefix + h);
@@ -397,7 +408,11 @@ function ruAufbauen(I, k, kind, schluessel) {
     kopfZeile.after(el('div', { class: 'ru-rueck-form' }, lernAuftragForm({}, { bezug: 'allgemein', wo: `Regel ${r.nr} · ${r.name} · ${abschnitt}`, arten: RU_ARTEN, art: 'vorschlag', vorsatz: ruRueckVorsatz(r, kennung, abschnitt) })));
     b.setAttribute('aria-expanded', 'true');
   });
-  lernErsetze(main, kind ? lernRahmen(kind, 'regeln', wurzel) : wurzel);
+  const rahmen = kind ? lernRahmen(kind, 'regeln', wurzel) : wurzel;
+  // Werkstatt 1079: kein doppelter Kopf beim Kind – der Menüknopf der Kinderseite (obere Menüzeile) wandert in die Zeile der Suche
+  const menue = kind && rahmen.querySelector('.lr-menue-zeile:not(.unten) .lr-menue');
+  if (menue) { const zeile = menue.closest('.lr-menue-zeile'); kopf.firstChild.append(el('span', { class: 'ru-menue-ort' }, menue)); zeile.remove(); }
+  lernErsetze(main, rahmen);
   return { schluessel, wurzel, seite, sichten, feld, ziel };
 }
 function ruZeigen(h) {

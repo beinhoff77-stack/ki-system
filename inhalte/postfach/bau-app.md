@@ -2,6 +2,21 @@
 
 Neueste oben.
 
+## 2026-11-27 – FERTIG RU-1b (App 0.95.0) Auflagen Werkstatt 1079 (Zweig `helfer-uni`, Cache v187)
+
+**Geliefert**
+- `sw.js`: `daten/regeln-universum.json` steht nicht mehr in der Vorab-Liste (fällt die Datei aus, scheitert die Hülle nicht mehr); der `daten/`-Handler speichert sie beim ersten Öffnen. Neu im Handler (für alle Hüllen- und Datendateien): Bei HTTP-Fehler (z. B. 503) kommt die gespeicherte Fassung, ohne gespeicherte Fassung die Antwort des Servers; bei Netzabbruch wie bisher der Cache. Cache v187, Version bleibt 0.95.0.
+- Kinderseiten ohne doppelten Kopf: eigene Marke „Regel-Universum“ entfällt (Titel steht im App-Kopf; zurück zu Ebene 0 über die Brotkrume „‹ Universum“), der Menüknopf der oberen Menüzeile steht jetzt rechts in der (klebenden) Zeile der Suche, die Überschrift „Regel-Universum“ auf Ebene 0 ist nur noch für Bildschirmleser da. Ebene 0 bei 400 × 860: 6 von 7 Gebieten im ersten Bildschirm (vorher 5). Menü unten, Suche, Umschalter unverändert. Eltern-Bereich unverändert.
+- Daten laden nicht: Meldung „Das Regel-Universum lädt gerade nicht. Prüfe das Internet und versuch es noch einmal.“ mit Knopf „Noch einmal versuchen“, beim Kind im Rahmen der Kinderseite (Menü bleibt).
+- Nicht angefasst: `daten/regeln-universum.json`, `tools/regeln_bauen.cjs`, `tests/lernen-regeln.test.cjs`, `inhalte/` außer Bildern und Postfach.
+
+**Tests**
+- 3 neue Tests in `tests/lernen.test.cjs` (Kopf 400 × 860 hell/dunkel: ≥ 6 Gebiete, Menü und Suche in einer Zeile; Ladefehler 503 → Meldung → „Noch einmal versuchen“ → Universum; Service Worker im Node-`vm` nachgestellt: nicht in der Vorab-Liste, beim ersten Abruf gespeichert, 503 und Netzabbruch → gespeicherte Fassung, ohne Speicher → Antwort des Servers).
+- Gesamttest 217/217 (1. Lauf 215/217: zwei Wettläufe in meinen eigenen Tests – sie warteten auf ein Element, das auch die vorige Seite hat, bzw. maßen während des Übergangs; berichtigt, mit `LERN_CPU=4` grün). `lernen-regeln` 6/6, `lernen-bruch` 24/24, `lernen-takt` 10/10, `node --check` alle geänderten Dateien.
+- Bilder erneuert (`inhalte/pruefung/regeln/bilder/`, neu `fehler-laden-400-dunkel.jpg`), angesehen: Ebene 0 400 dunkel/hell, 1280 hell, Fehlerseite.
+
+**Nicht geprüft**: Service Worker im echten Browser (Tests blockieren ihn), echte Geräte.
+
 ## 2026-11-27 – FERTIG RU-1 (App 0.95.0) Regel-Universum Stufe 1, ohne Datenbank (Zweig `helfer-uni`, Cache v186)
 
 **Geliefert**

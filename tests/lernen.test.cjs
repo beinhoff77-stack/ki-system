@@ -5640,6 +5640,7 @@ test('Form-Takt Nachtrag: Mischkarte belegt keinen Takt-Platz und wird nicht nac
 // ---------- RU-App (0.95.0): Regel-Universum, Stufe 1 (lernen-regeln.js, daten/regeln-universum.json) ----------
 // Prüft je Seite: kein Querscrollen, alle sichtbaren Tippflächen im Universum mindestens 44 px hoch (Links, Knöpfe, Klappzeilen, Suchfeld).
 async function ruPruefen(page, wo) {
+  await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)))); // neue Seite steht, Übergang hat begonnen
   await page.waitForFunction(() => !(document.querySelector('.ru-seite')?.getAnimations() || []).length); // nachgemessen nach dem Übergang (220 ms)
   const r = await page.evaluate(() => {
     const quer = document.documentElement.scrollWidth > window.innerWidth + 1;
@@ -5700,7 +5701,7 @@ test('RU: Kind öffnet das Regel-Universum über das Menü – Sonne → Regel �
     await ruPruefen(page, `${b} Gebiet`);
     await page.locator('.ru-idee1').nth(1).click(); await page.locator('.ru-regelseite').waitFor(); assert.match(page.url(), /1-idee-fur-2$/);
     await page.locator('.ru-stufe[data-stufe="folge"] > summary').click();
-    await page.locator('.ru-folge .ru-karte').first().click(); await page.locator('.ru-regelseite .ru-pfad').waitFor(); assert.match(page.url(), /1-regel-f\d+$/);
+    await page.locator('.ru-folge .ru-karte').first().click(); await page.waitForURL(/1-regel-f\d+$/); await page.locator('.ru-r-kopf .ru-ueber', { hasText: /^Regel F\d+/ }).waitFor(); // Ebene 3 steht (nicht mehr die Idee)
     await ruBild(page, `ebene3-einzelregel-${b}-${g === 'tag' ? 'hell' : 'dunkel'}`);
     await ruPruefen(page, `${b} Einzelregel`);
     await page.goBack(); await page.waitForURL(/1-idee-fur-2$/); await page.locator('.ru-stufe[data-stufe="folge"]').waitFor();
@@ -5746,7 +5747,7 @@ test('RU: Eltern/Lehrer öffnen „Regeln“ → Blatt Regel 6 (alle Abschnitte 
     assert.equal(await page.evaluate(() => document.body.hasAttribute('data-kindmodus')), false);
     await ruPruefen(page, `${b} Liste`);
     await page.locator('.ru-lz', { hasText: 'Ausmultiplizieren' }).click();
-    await page.locator('.ru-l-abschnitt').first().waitFor(); assert.match(page.url(), /#\/regeln\/lehrer-r6$/);
+    await page.locator('.ru-l-kopf h2').first().waitFor(); assert.match(page.url(), /#\/regeln\/lehrer-r6$/); // Blatt steht (die Liste hat auch ru-l-abschnitt)
     assert.deepEqual(await page.locator('.ru-l-kopf h2').allInnerTexts(), ['1 Merksatz', '2 Was das Kind sieht', '3 Fachliche Erklärung', '4 Verweise und Zuordnung', '5 Stand je Kind']);
     assert.equal(await page.locator('.ru-lehrer details').count(), 0, 'alles offen');
     assert.equal(await page.locator('.ru-rueck').count(), 4);
@@ -5766,6 +5767,61 @@ test('RU: Eltern/Lehrer öffnen „Regeln“ → Blatt Regel 6 (alle Abschnitte 
     await page.locator('.ru-regelseite .ru-merksatz').waitFor(); assert.match(page.url(), /#\/regeln\/kind-r6$/);
     assert.equal(await page.locator('.ru-band-kind').count(), 1); assert.equal(await page.locator('.ru-rueck').count(), 0);
     await ruPruefen(page, `${b} Kinderansicht`);
-    await page.locator('.ru-band-kind a').click(); await page.locator('.ru-l-abschnitt').first().waitFor();
+    await page.locator('.ru-band-kind a').click(); await page.locator('.ru-l-kopf h2').first().waitFor();
   }
+});
+
+test('RU Nachbesserung: Kopf am Handy ohne Doppel – Ebene 0 zeigt bei 400 × 860 mindestens sechs Gebiete, Menü und Suche in einer Zeile', async (t) => {
+  for (const g of ['nacht', 'tag']) {
+    const { page } = await setup(t, { gestaltung: g });
+    await page.setViewportSize({ width: 400, height: 860 });
+    await page.goto(origin + '/#/regeln/1'); await page.locator('.ru-universum').waitFor();
+    await page.waitForFunction(() => !(document.querySelector('.ru-seite')?.getAnimations() || []).length);
+    const m = await page.evaluate(() => {
+      const r = (x) => x.getBoundingClientRect(), su = r(document.querySelector('.ru-suche input')), me = r(document.querySelector('.lr-menue'));
+      return { gebiete: [...document.querySelectorAll('.ru-planet0')].filter((x) => r(x).bottom <= innerHeight).length,
+        marke: document.querySelector('.ru-kopf-marke').checkVisibility(), titel: document.querySelector('.ru-universum > .ru-titel').checkVisibility() && r(document.querySelector('.ru-universum > .ru-titel')).height > 2,
+        eineZeile: Math.abs((su.top + su.bottom) / 2 - (me.top + me.bottom) / 2) < 8, frei: su.right <= me.left, h: me.height };
+    });
+    assert.ok(m.gebiete >= 6, `${g}: ${m.gebiete} Gebiete im ersten Bildschirm`);
+    assert.equal(m.marke, false); assert.equal(m.titel, false); assert.equal(m.eineZeile, true); assert.equal(m.frei, true); assert.ok(m.h >= 44);
+    await ruPruefen(page, `${g} Universum ohne Doppelkopf`);
+    await ruBild(page, `ebene0-universum-400-${g === 'tag' ? 'hell' : 'dunkel'}`);
+    await page.locator('.lr-menue').first().click(); await page.locator('.lr-blatt-liste a', { hasText: 'Regel-Universum' }).waitFor(); // Menü funktioniert weiter
+  }
+});
+
+test('RU Nachbesserung: Daten laden nicht – kindgerechte Meldung mit „Noch einmal versuchen“, danach das Universum', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.setViewportSize({ width: 400, height: 860 });
+  let n = 0;
+  await page.route('**/daten/regeln-universum.json*', (r) => (++n === 1 ? r.fulfill({ status: 503, body: 'weg' }) : r.continue()));
+  await page.goto(origin + '/#/regeln/1');
+  await page.locator('.ru-fehler').getByText('Das Regel-Universum lädt gerade nicht.').waitFor();
+  assert.equal(await page.locator('.lr-menue').count() > 0, true, 'Menü der Kinderseite bleibt');
+  await ruBild(page, 'fehler-laden-400-dunkel');
+  await page.getByRole('button', { name: 'Noch einmal versuchen' }).click();
+  await page.locator('.ru-universum').waitFor(); assert.equal(n, 2);
+});
+
+test('RU Nachbesserung: Service Worker – Regel-Daten nicht in der Vorab-Liste; bei Netzabbruch und HTTP-Fehler die gespeicherte Fassung', async () => {
+  const vm = require('node:vm');
+  const quelle = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
+  const hoerer = {}, gespeichert = new Map(); let netz;
+  const cache = { put: async (rq, r) => { gespeichert.set(rq.url, r); }, match: async (rq) => gespeichert.get(typeof rq === 'string' ? rq : rq.url), addAll: async () => {} };
+  const ctx = { self: { registration: { scope: 'https://x.test/app/' }, addEventListener: (n, f) => { hoerer[n] = f; } }, caches: { open: async () => cache, keys: async () => [] }, URL, Request: class { constructor(u) { this.url = String(u); } }, Response: { error: () => ({ fehler: true }) }, fetch: (...a) => netz(...a) };
+  vm.runInNewContext(quelle, ctx);
+  const huelle = vm.runInNewContext(quelle + ';HUELLE', { ...ctx, self: { ...ctx.self, addEventListener: () => {} } });
+  assert.ok(!huelle.some((x) => x.includes('regeln-universum')), 'nicht in der Vorab-Liste');
+  assert.ok(huelle.includes('./lernen-regeln.js?v=0.95.0') && huelle.includes('./lernen-regeln.css?v=0.95.0'));
+  assert.match(quelle, /'v187'/);
+  const abruf = async () => { let p, w = []; hoerer.fetch({ request: { url: 'https://x.test/app/daten/regeln-universum.json?v=0.95.0', method: 'GET', mode: 'cors' }, respondWith: (x) => { p = x; }, waitUntil: (x) => w.push(x) }); const r = await p; await Promise.all(w); return r; };
+  netz = async () => ({ ok: true, status: 200, name: 'frisch', clone() { return { name: 'kopie' }; } });
+  assert.equal((await abruf()).name, 'frisch'); assert.equal(gespeichert.size, 1, 'beim ersten Öffnen gespeichert');
+  netz = async () => ({ ok: false, status: 503, name: 'fehler' });
+  assert.equal((await abruf()).name, 'kopie', 'HTTP-Fehler → gespeicherte Fassung');
+  netz = async () => { throw new TypeError('offline'); };
+  assert.equal((await abruf()).name, 'kopie', 'Netzabbruch → gespeicherte Fassung');
+  gespeichert.clear(); netz = async () => ({ ok: false, status: 503, name: 'fehler' });
+  assert.equal((await abruf()).name, 'fehler', 'ohne Speicher die Antwort des Servers');
 });

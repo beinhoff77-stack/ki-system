@@ -34,9 +34,8 @@ mindestens zweimal vor. **Zurückgestellt: keine Lernkarte.** Wo eine Form fachl
   Umkehren/Zwei Wege/Brücke/Anwenden braucht acht davon. Vorrang hatte diese Vorgabe, deshalb nur ein
   Lückenweg und kein Fehler-Detektiv – der Bestand hat dort schon `fehler`-Aufgaben in jeder Lernkarte.
 - `zahlen.potenzen_zehner`/`vergleichen_pruefen`: kein Fehler-Detektiv (drei im Bestand), dafür
-  Verfahren wählen, Zwei Wege, Anwenden.
-- `raum.schraegbilder`/`lage`, `daten.stichproben`/`repraesentativ` und `fehlerquellen` sind
-  qualitativ: kein Lückenweg, weil es keine sinnvollen Zahlenlücken gibt.
+  Verfahren wählen, Zwei Wege, Anwenden. `raum.schraegbilder`/`lage`, `daten.stichproben`/
+  `repraesentativ` und `fehlerquellen` sind qualitativ: kein Lückenweg, keine sinnvollen Zahlenlücken.
 
 ## Geprüft
 
@@ -55,8 +54,8 @@ VW und ZW Stufe 2 `mehrschritt`, UM `umkehr`, BR `darstellung`, AN `einkleidung`
 ## Offene Punkte (nichts geändert)
 
 - `tools/rollend_sql.py` meldet alle zehn Dateien als „ohne Zuordnung": die Themen fehlen in
-  `inhalte/plan/rollend-einheiten.json`, und beides darf ich nicht ändern (anderer Helfer). Erwartet,
-  wie zuvor bei rollend-3. Keine Prüfung in der App, keine Prüfung durch Kinder.
+  `inhalte/plan/rollend-einheiten.json`; beides darf ich nicht ändern (anderer Helfer). Erwartet, wie
+  bei rollend-3. Keine Prüfung in der App, keine Prüfung durch Kinder.
 - Befund im Bestand, außerhalb meines Ordners: In `daten.boxplot` begründet der Hinweis zur Spannweite
   bei negativen Werten eine Strichrechnung mit der Vorzeichenregel der Punktrechnung. Das sind zwei
   getrennte Kennungen (`rr.plusminus`, `rr.vorzeichen`).

@@ -205,7 +205,7 @@ fehlt('F14', 'neu_satz', '45°', 'q = 1/2', 'Aufgabe kann andere Werte vorgeben'
 
 # ---------- Nur unter klartext/ geschrieben? ----------
 git_hinweis = ''
-ERLAUBT = tuple('inhalte/mathe-profi/regeln-uebersicht/%s/' % o for o in ('klartext', 'tafeln', 'ergaenzung', 'einheiten'))  # Auflagen aus Werkstatt 1133/1137: Helfer 3 arbeitet in allen vier Ordnern
+ERLAUBT = tuple('inhalte/mathe-profi/regeln-uebersicht/%s/' % o for o in ('klartext', 'tafeln', 'ergaenzung', 'einheiten', 'nachtrag'))  # Auflagen aus Werkstatt 1133/1137: Helfer 3 arbeitet in den ersten vier Ordnern, Helfer 5 zusätzlich in nachtrag
 try:
     st = subprocess.run(['git', '-C', str(repo), 'status', '--porcelain'], capture_output=True, text=True, check=True).stdout.splitlines()
     pfade = [z[3:].strip().strip('"') for z in st]
@@ -217,7 +217,7 @@ try:
         pfade += subprocess.run(['git', '-C', str(repo), 'diff', '--name-only', base, 'HEAD'], capture_output=True, text=True, check=True).stdout.split('\n')
     else: git_hinweis = ' (Vergleich mit dem Ausgangsstand übersprungen: kein Basiszweig gefunden)'
     for p in pfade:
-        if p and not p.startswith(ERLAUBT): f('Änderung außerhalb der Inhaltsordner (klartext, tafeln, ergaenzung, einheiten): ' + p)
+        if p and not p.startswith(ERLAUBT): f('Änderung außerhalb der Inhaltsordner (klartext, tafeln, ergaenzung, einheiten, nachtrag): ' + p)
 except Exception as ex:
     git_hinweis = ' (git nicht verfügbar: %s)' % ex
 

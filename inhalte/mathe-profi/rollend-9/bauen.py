@@ -81,6 +81,10 @@ def grafik_ok(g):
         return all(k in g for k in ("start", "ende", "abschnitte")) and set(g) <= {"typ", "start", "ende", "abschnitte", "punkte", "boegen", "bereich", "beschriftet"}
     if g["typ"] in ("saeulen", "kreisdiagramm"):
         return all(set(w) == {"name", "wert"} and len(w["name"]) <= 8 for w in g["werte"]) and (g["typ"] == "saeulen" or sum(w["wert"] for w in g["werte"]) == 100)
+    if g["typ"] == "baum":
+        def ast_ok(a):
+            return isinstance(a, list) and a and all(set(x) <= {"text", "p", "aeste"} and {"text", "p"} <= set(x) and (("aeste" not in x) or ast_ok(x["aeste"])) for x in a)
+        return set(g) == {"typ", "aeste"} and ast_ok(g["aeste"])
     return False
 
 

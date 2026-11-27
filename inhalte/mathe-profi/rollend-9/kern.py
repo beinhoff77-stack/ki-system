@@ -55,9 +55,7 @@ def gl(a, b):
 
 
 def z2(ausdruck):
-    if "round(" in str(ausdruck):          # Rundung kennt nur der Rechner aus tools/inhalt_pruefen.py
-        return F(ip.rechne(ausdruck))
-    return F(_ev(ausdruck, {"wz": wz, "kw": kw, "isq": lambda n: F(math.isqrt(int(n)))}))
+    return F(_ev(ausdruck, {"wz": wz, "kw": kw, "isq": lambda n: F(math.isqrt(int(n))), "round": lambda x, n=0: F(round(x, int(n)))}))
 
 
 # ---------- Bausteine ----------
@@ -171,7 +169,7 @@ def pole(*terme, bereich=range(-9, 10)):
 # ---------- Wurzeln und Gleitkomma-Hilfen (rollend-9) ----------
 import decimal
 decimal.getcontext().prec = 60
-_MATH = {"sqrt": math.sqrt, "cbrt": lambda x: math.copysign(abs(x) ** (1 / 3), x), "round": round, "abs": abs, "pi": math.pi, "min": min, "max": max, "F": F}
+_MATH = {"sqrt": math.sqrt, "cbrt": lambda x: math.copysign(abs(x) ** (1 / 3), x), "round": round, "abs": abs, "floor": math.floor, "pi": math.pi, "min": min, "max": max, "F": F}
 
 
 def evm(s, **env):
@@ -212,3 +210,8 @@ def rund(x, stellen):
 def zahl_aus(antwort):
     s = str(antwort).replace("−", "-").replace(",", ".").replace(" ", "")
     return float(re.sub(r"[^0-9.\-]", "", s))
+
+
+def RC(x, n):
+    """Rechenausdruck „round(x, n)“ mit der Gleitkomma-Zahl x (für das Feld c bei gerundeten Ergebnissen)."""
+    return f"round({float(x)!r}, {n})"

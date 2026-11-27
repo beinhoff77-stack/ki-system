@@ -8,17 +8,17 @@ neu(T, "quadratwurzel", "lueckenweg", L(
     "21 · 21 = 441, also ist die Wurzel aus 441 gleich 21. Die Wurzel aus 4 ist 2. Dann ist √1764 = 21 · 2 = 42. Probe: 42 · 42 = 1764.",
     {1: [(4, None, "die 4 stehen lassen, statt ihre Wurzel zu ziehen", "4")], 2: [(23, None, "die Wurzeln addiert statt malgenommen: 21 + 2", "{1} + {2}")]}), regel=HZ)
 neu(T, "quadratwurzel", "umkehren", Z(
-    "Für eine Zahl n gilt: √n + 3 = 17. Wie groß ist n?",
-    196, "(17 - 3) ** 2", lambda: next(n for n in range(1, 1000) if math.isqrt(n) ** 2 == n and math.isqrt(n) + 3 == 17),
-    "Mache zuerst das Addieren rückgängig. Dann das Wurzelziehen.",
-    "Rückwärts: Erst 3 abziehen: √n = 17 − 3 = 14. Dann quadrieren: n = 14² = 196. Probe: √196 = 14 und 14 + 3 = 17.",
-    [(286, None, "erst quadriert und danach 3 abgezogen", "17 ** 2 - 3"), (400, None, "3 addiert statt abgezogen und dann quadriert", "(17 + 3) ** 2"), (14, None, "nur 3 abgezogen, aber nicht quadriert: 17 − 3", "17 - 3")]), g="umkehr", regel=HZ)
+    "Für eine Zahl n gilt: 2 · √(n − 4) + 3 = 17. Wie groß ist n?",
+    53, "((17 - 3) / 2) ** 2 + 4", lambda: next(n for n in range(4, 1000) if math.isqrt(n - 4) ** 2 == n - 4 and 2 * math.isqrt(n - 4) + 3 == 17),
+    "Mache die Rechenschritte in umgekehrter Reihenfolge rückgängig, von außen nach innen.",
+    "Rückwärts: 17 − 3 = 14. Dann 14 : 2 = 7, also √(n − 4) = 7. Quadrieren: n − 4 = 49. Also n = 53. Probe: 2 · √49 + 3 = 14 + 3 = 17.",
+    [(52, None, "quadriert, aber 3 statt 4 addiert: 7² + 3", "((17 - 3) / 2) ** 2 + 3"), (45, None, "die 4 abgezogen statt addiert: 7² − 4", "((17 - 3) / 2) ** 2 - 4"), (200, None, "durch 2 nicht geteilt: 14² + 4", "(17 - 3) ** 2 + 4")]), g="rueckwaerts", regel=HZ)
 neu(T, "quadratwurzel", "zwei_wege", Z(
     "Berechne √2025 auf zwei Wegen. Weg A: Zerlege 2025 in Primfaktoren (3 · 3 · 3 · 3 · 5 · 5) und bilde Paare. Weg B: Schätze zwischen zwei Quadraten voller Zehner und achte auf die Endziffer. Wie groß ist √2025?",
     45, "3 * 3 * 5", lambda: wz(2025),
     "Beide Wege müssen dasselbe Ergebnis haben.",
     "Weg A: Aus jedem Paar gleicher Faktoren kommt eine Zahl: 3 · 3 und 5. Also 3 · 3 · 5 = 45. Weg B: 40² = 1600 und 50² = 2500, die Wurzel liegt zwischen 40 und 50. Endziffer 5 gibt 45. Probe: 45 · 45 = 2025.",
-    [(15, None, "aus den Primfaktoren nur je eine Sorte genommen: 3 · 5", "3 * 5"), (1012.5, "fb.hoch_zurueck.wurzel_halbiert", "2025 halbiert statt die Wurzel gezogen", "2025 / 2"), (405, None, "durch 5 geteilt statt die Wurzel gezogen: 2025 : 5", "2025 / 5")]), regel=HZ)
+    [(15, None, "aus den Primfaktoren nur je eine Sorte genommen: 3 · 5", "3 * 5"), (1012.5, "fb.hoch_zurueck.wurzel_halbiert", "2025 halbiert statt die Wurzel gezogen", "2025 / 2"), (405, None, "durch 5 geteilt statt die Wurzel gezogen: 2025 : 5", "2025 / 5")]), g="mehrschritt", regel=HZ)
 
 # ───────── wurzel_dezimal ─────────
 neu(T, "wurzel_dezimal", "lueckenweg", L(
@@ -59,7 +59,7 @@ neu(T, "kubikwurzel", "anwenden", Z(
     70, "343 / 49 * 10", lambda: kw(343) * 10,
     "Zuerst die Kante in dm bestimmen, dann in cm umrechnen.",
     "343 Liter sind 343 dm³. Die Kante ist ∛343 = 7 dm. 1 dm = 10 cm, also 7 · 10 = 70 cm.",
-    [(7, None, "in dm stehen geblieben, nicht in cm umgerechnet", "cbrt(343)"), (114.33, None, "durch drei geteilt statt die dritte Wurzel gezogen (auf zwei Stellen gerundet)", "round(343 / 3, 2)"), (700, None, "mit 100 statt mit 10 umgerechnet", "cbrt(343) * 100")], "cm"), g="einkleidung", regel=HZ)
+    [(7, None, "in dm stehen geblieben, nicht in cm umgerechnet", "cbrt(343)"), (114.33, None, "durch drei geteilt statt die dritte Wurzel gezogen (auf zwei Stellen gerundet)", "round(343 / 3, 2)"), (700, None, "mit 100 statt mit 10 umgerechnet", "cbrt(343) * 100")], "cm"), g="transfer", regel=HZ)
 
 # ───────── abschaetzen ─────────
 neu(T, "abschaetzen", "lueckenweg", L(
@@ -80,7 +80,7 @@ neu(T, "abschaetzen", "anwenden", Z(
     28, "4 * (6 + 1)", lambda: 4 * next(n for n in range(1, 50) if n * n >= 40),
     "Finde zuerst die kleinste ganze Seitenlänge, deren Quadrat mindestens 40 ist.",
     "6² = 36 ist zu klein, 7² = 49 reicht. Die Seite ist mindestens 7 m lang. Der Zaun ist der Umfang: 4 · 7 = 28 m.",
-    [(24, None, "mit der abgerundeten Seite 6 m gerechnet: 4 · 6", "4 * 6"), (160, None, "mit der Fläche statt der Seite gerechnet: 4 · 40", "4 * 40"), (7, None, "nur die Seitenlänge angegeben, nicht den Zaun", "7")], "m"), g="einkleidung", regel=HZ)
+    [(24, None, "mit der abgerundeten Seite 6 m gerechnet: 4 · 6", "4 * 6"), (160, None, "mit der Fläche statt der Seite gerechnet: 4 · 40", "4 * 40"), (7, None, "nur die Seitenlänge angegeben, nicht den Zaun", "7")], "m"), g="transfer", regel=HZ)
 
 # ───────── wurzel_deuten ─────────
 neu(T, "wurzel_deuten", "lueckenweg", L(
@@ -115,7 +115,7 @@ neu(T, "wurzel_sache", "umkehren", Z(
     81, "(12 - 3) ** 2", lambda: (wz(144) - 3) ** 2,
     "Rechne rückwärts: erst von der neuen Fläche zur neuen Seite.",
     "Die neue Seite ist √144 = 12 m. Vorher war sie 12 − 3 = 9 m lang. Die alte Fläche ist 9² = 81 m².",
-    [(141, None, "von der Fläche einfach 3 abgezogen: 144 − 3", "144 - 3"), (9, None, "die alte Seitenlänge als Fläche angegeben: 12 − 3", "12 - 3")], "m²"), g="umkehr", regel=HZ)
+    [(141, None, "von der Fläche einfach 3 abgezogen: 144 − 3", "144 - 3"), (9, None, "die alte Seitenlänge als Fläche angegeben: 12 − 3", "12 - 3")], "m²"), g="rueckwaerts", regel=HZ)
 neu(T, "wurzel_sache", "anwenden", Z(
     "Ein quadratisches Solarfeld soll eine Leistung von 36 kW haben. Ein Quadratmeter der Module liefert 250 W. Es gilt 1 kW = 1 000 W. Wie lang ist eine Seite des Feldes in Metern?",
     12, "144 / 12", lambda: wz(F(36 * 1000, 250)),

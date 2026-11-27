@@ -74,58 +74,6 @@
    "thema": "zahlen.wurzeln_basis",
    "lernkarte": "quadratwurzel",
    "stufe": 2,
-   "typ": "Umkehren",
-   "form": "umkehren",
-   "antwortform": "zahl",
-   "regel": "id.zahlen.hoch_zurueck",
-   "regel_name": "Hoch und zurück",
-   "zaehlt": "ja",
-   "fehlbilder": [
-    {
-     "antwort": 286,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "erst quadriert und danach 3 abgezogen",
-     "c": "17 ** 2 - 3"
-    },
-    {
-     "antwort": 400,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "3 addiert statt abgezogen und dann quadriert",
-     "c": "(17 + 3) ** 2"
-    },
-    {
-     "antwort": 14,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "nur 3 abgezogen, aber nicht quadriert: 17 − 3",
-     "c": "17 - 3"
-    }
-   ],
-   "aufgabe": {
-    "l": "quadratwurzel",
-    "t": "quadratwurzel",
-    "p": "uebung",
-    "s": 2,
-    "g": "umkehr",
-    "y": "zahl",
-    "f": {
-     "text": "Für eine Zahl n gilt: √n + 3 = 17. Wie groß ist n?"
-    },
-    "o": {
-     "wert": 196
-    },
-    "c": "(17 - 3) ** 2",
-    "h": "Mache zuerst das Addieren rückgängig. Dann das Wurzelziehen.",
-    "w": "Rückwärts: Erst 3 abziehen: √n = 17 − 3 = 14. Dann quadrieren: n = 14² = 196. Probe: √196 = 14 und 14 + 3 = 17."
-   }
-  },
-  {
-   "kennung": "K9A-V003",
-   "thema": "zahlen.wurzeln_basis",
-   "lernkarte": "quadratwurzel",
-   "stufe": 2,
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
@@ -171,6 +119,58 @@
     "c": "3 * 3 * 5",
     "h": "Beide Wege müssen dasselbe Ergebnis haben.",
     "w": "Weg A: Aus jedem Paar gleicher Faktoren kommt eine Zahl: 3 · 3 und 5. Also 3 · 3 · 5 = 45. Weg B: 40² = 1600 und 50² = 2500, die Wurzel liegt zwischen 40 und 50. Endziffer 5 gibt 45. Probe: 45 · 45 = 2025."
+   }
+  },
+  {
+   "kennung": "K9A-V003",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "quadratwurzel",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 52,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "quadriert, aber 3 statt 4 addiert: 7² + 3",
+     "c": "((17 - 3) / 2) ** 2 + 3"
+    },
+    {
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 4 abgezogen statt addiert: 7² − 4",
+     "c": "((17 - 3) / 2) ** 2 - 4"
+    },
+    {
+     "antwort": 200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 nicht geteilt: 14² + 4",
+     "c": "(17 - 3) ** 2 + 4"
+    }
+   ],
+   "aufgabe": {
+    "l": "quadratwurzel",
+    "t": "quadratwurzel",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Für eine Zahl n gilt: 2 · √(n − 4) + 3 = 17. Wie groß ist n?"
+    },
+    "o": {
+     "wert": 53
+    },
+    "c": "((17 - 3) / 2) ** 2 + 4",
+    "h": "Mache die Rechenschritte in umgekehrter Reihenfolge rückgängig, von außen nach innen.",
+    "w": "Rückwärts: 17 − 3 = 14. Dann 14 : 2 = 7, also √(n − 4) = 7. Quadrieren: n − 4 = 49. Also n = 53. Probe: 2 · √49 + 3 = 14 + 3 = 17."
    }
   },
   {
@@ -464,7 +464,7 @@
    "kennung": "K9A-V009",
    "thema": "zahlen.wurzeln_basis",
    "lernkarte": "kubikwurzel",
-   "stufe": 2,
+   "stufe": 3,
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
@@ -498,8 +498,8 @@
     "l": "kubikwurzel",
     "t": "kubikwurzel",
     "p": "uebung",
-    "s": 2,
-    "g": "einkleidung",
+    "s": 3,
+    "g": "transfer",
     "y": "zahl",
     "f": {
      "text": "Ein würfelförmiger Komposter fasst 343 Liter. Wie viele Zentimeter ist eine Innenkante lang? Es gilt 1 Liter = 1 dm³."
@@ -656,7 +656,7 @@
    "kennung": "K9A-V012",
    "thema": "zahlen.wurzeln_basis",
    "lernkarte": "abschaetzen",
-   "stufe": 2,
+   "stufe": 3,
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
@@ -690,8 +690,8 @@
     "l": "abschaetzen",
     "t": "abschaetzen",
     "p": "uebung",
-    "s": 2,
-    "g": "einkleidung",
+    "s": 3,
+    "g": "transfer",
     "y": "zahl",
     "f": {
      "text": "Ein quadratisches Beet soll mindestens 40 m² groß sein. Die Seitenlänge ist eine ganze Zahl in Metern. Rundherum soll ein Zaun stehen. Wie viele Meter Zaun braucht man dann mindestens?"
@@ -935,52 +935,6 @@
    "thema": "zahlen.wurzeln_basis",
    "lernkarte": "wurzel_sache",
    "stufe": 2,
-   "typ": "Umkehren",
-   "form": "umkehren",
-   "antwortform": "zahl",
-   "regel": "id.zahlen.hoch_zurueck",
-   "regel_name": "Hoch und zurück",
-   "zaehlt": "ja",
-   "fehlbilder": [
-    {
-     "antwort": 141,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "von der Fläche einfach 3 abgezogen: 144 − 3",
-     "c": "144 - 3"
-    },
-    {
-     "antwort": 9,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die alte Seitenlänge als Fläche angegeben: 12 − 3",
-     "c": "12 - 3"
-    }
-   ],
-   "aufgabe": {
-    "l": "wurzel_sache",
-    "t": "wurzel_sache",
-    "p": "uebung",
-    "s": 2,
-    "g": "umkehr",
-    "y": "zahl",
-    "f": {
-     "text": "Ein quadratisches Feld wird auf jeder Seite um 3 m verlängert. Danach hat es 144 m² Fläche. Wie groß war die Fläche vor der Verlängerung?"
-    },
-    "o": {
-     "wert": 81,
-     "einheit": "m²"
-    },
-    "c": "(12 - 3) ** 2",
-    "h": "Rechne rückwärts: erst von der neuen Fläche zur neuen Seite.",
-    "w": "Die neue Seite ist √144 = 12 m. Vorher war sie 12 − 3 = 9 m lang. Die alte Fläche ist 9² = 81 m²."
-   }
-  },
-  {
-   "kennung": "K9A-V018",
-   "thema": "zahlen.wurzeln_basis",
-   "lernkarte": "wurzel_sache",
-   "stufe": 2,
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
@@ -1027,6 +981,52 @@
     "c": "144 / 12",
     "h": "Teile zuerst die Gesamtleistung durch die Leistung je Quadratmeter. Das ergibt die Fläche.",
     "w": "36 kW sind 36 000 W. Fläche: 36 000 : 250 = 144 m². Seite: √144 = 12 m."
+   }
+  },
+  {
+   "kennung": "K9A-V018",
+   "thema": "zahlen.wurzeln_basis",
+   "lernkarte": "wurzel_sache",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.zahlen.hoch_zurueck",
+   "regel_name": "Hoch und zurück",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 141,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von der Fläche einfach 3 abgezogen: 144 − 3",
+     "c": "144 - 3"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die alte Seitenlänge als Fläche angegeben: 12 − 3",
+     "c": "12 - 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "wurzel_sache",
+    "t": "wurzel_sache",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quadratisches Feld wird auf jeder Seite um 3 m verlängert. Danach hat es 144 m² Fläche. Wie groß war die Fläche vor der Verlängerung?"
+    },
+    "o": {
+     "wert": 81,
+     "einheit": "m²"
+    },
+    "c": "(12 - 3) ** 2",
+    "h": "Rechne rückwärts: erst von der neuen Fläche zur neuen Seite.",
+    "w": "Die neue Seite ist √144 = 12 m. Vorher war sie 12 − 3 = 9 m lang. Die alte Fläche ist 9² = 81 m²."
    }
   }
  ]

@@ -227,7 +227,7 @@ for a in A:
             n_fb_ohne += not ok_r
             fb_eintrag({}, w, fbk, beschr, c_r)
     elif q["y"] == "luecken":
-        assert not KOMMA_LUECKE.search(text + " " + q["f"]["schablone"]), (kenn, "Lücke hinter dem Komma")
+        assert not KOMMA_LUECKE.search(text + " " + q["f"]["schablone"]), (kenn, "Lücke hinter dem Komma", text)
         assert not KOMMA_NEBEN.search(text + " " + q["f"]["schablone"]), (kenn, "Komma direkt neben einer Lücke")
         vorlagen = [str(c) for c in q["c"]]
         soll, c_fertig = [], []
@@ -304,6 +304,10 @@ for schl in geladen:
         assert formen["lueckenweg"] <= 1, (schl, lk, "höchstens ein Lückenweg")
         assert formen["fehler_detektiv"] <= 1, (schl, lk, "höchstens ein Fehler-Detektiv")
         assert any(e["zaehlt"] == "ja" and e["form"] in ZAEHLT_JA_AUS for e in xs), (schl, lk, "mindestens eine Aufgabe mit zaehlt ja aus umkehren/zwei_wege/bruecke/verfahren_waehlen/anwenden")
+        zj = [e for e in xs if e["zaehlt"] == "ja"]
+        assert any(e["stufe"] == 3 for e in zj), (schl, lk, "mindestens eine zählende Aufgabe in neuer Form auf Stufe 3")
+        assert any(e["stufe"] == 2 for e in zj), (schl, lk, "mindestens eine zählende Aufgabe in neuer Form auf Stufe 2")
+        assert all(e["stufe"] == 1 for e in xs if e["form"] == "lueckenweg"), (schl, lk, "Lückenweg gehört auf Stufe 1")
         mix.append((schl, lk, formen))
 AUSNAHME = {}     # (Thema, Form): Begründung, wenn die Form fachlich nicht zweimal passt
 for schl in geladen:
@@ -369,6 +373,7 @@ assert all("In welcher Zeile passiert der erste Fehler?" in e["aufgabe"]["f"]["t
 print("Fehler-Detektiv: Fehlerzeile je Zeile", dict(sorted(verteilung.items())), "von", len(fd))
 if fd:
     assert max(verteilung.values()) <= len(fd) // 3 + 1, "Fehlerzeile zu einseitig verteilt"
+print("Stufen (Aufgaben je Stufe 1/2/3):", dict(sorted(Counter(a["s"] for a in A).items())))
 print("Themen geladen:", ", ".join(geladen))
 import glob as _glob      # noqa: E402
 import vorrat_pruefen as vp   # noqa: E402

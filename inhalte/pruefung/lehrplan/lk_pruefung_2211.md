@@ -113,7 +113,7 @@ Bau-Auftrag LK, Abschnitt LK-D, mit den Nachträgen „vorhandener Lernstand der
 | IB | Thema | braucht | Art | Lage | Vorschlag |
 |---|---|---|---|---|---|
 | MYP 1 | 63 Verknüpfte Ereignisse (Mengen-Etappen) | 61 Zufall und Laplace (MYP 2) | hart | Voraussetzung später | Mengen-Etappen von 63 hängen nicht an 61 → Voraussetzung nur für die Wahrscheinlichkeits-Etappen (Etappenebene) |
-| MYP 1 | 29 Terme umformen | 102 Potenzgesetze (kein IB-Hauptpunkt) | hart | nicht Lehrplanstoff | **Sebastians harte Entscheidung nur melden**; IB-Lage von 102 prüfen |
+| MYP 1 | 29 Terme umformen | 102 Potenzgesetze (kein IB-Hauptpunkt) | hart | nicht Lehrplanstoff | **harte Entscheidung des Nutzers nur melden**; IB-Lage von 102 prüfen |
 | MYP 1 | 23 Rechnen mit rationalen Zahlen | 16 Ganze Zahlen (MYP 2) | empfohlen | später | Lage prüfen (Oxford 1 bringt Bruchrechnen vor ganzen Zahlen) |
 | MYP 1 | 100 / 101 Volumen | 25, 99, 51 (MYP 2) | empfohlen | später | Lage prüfen; 100/101 haben keine IB-Klasse |
 | MYP 2 | 44 Konstruktionen | 46 Kongruenzabbildungen (MYP 3) | empfohlen | später | Voraussetzung ändern (Konstruktion geht ohne Abbildungen) |
@@ -134,7 +134,7 @@ Bau-Auftrag LK, Abschnitt LK-D, mit den Nachträgen „vorhandener Lernstand der
 **d) Kein Pflichtstoff dieser Schulart oder Gruppe** (kein Hauptpunkt in der Spur; vollständig in `kein_pflichtstoff`):
 - **Gymnasium (17):**
   - 13, 49, 59, 65, 66, 70, 74, 75, 76, 79, 80, 81, 84, 97;
-  - dazu 43 Mit Winkeln rechnen, 69 Intervalle und 71 Zinsen, die im Gymnasium nur als Nebenbezug vorkommen. Ihre Gym-Klasse (5, 8, 6) kommt allein aus diesem Nebenbezug, und **die Kinder sehen sie heute als Gym-Thema**. Vorschlag: so lassen und als „Vertiefung“ kennzeichnen (Entscheidung Sebastian).
+  - dazu 43 Mit Winkeln rechnen, 69 Intervalle und 71 Zinsen, die im Gymnasium nur als Nebenbezug vorkommen. Ihre Gym-Klasse (5, 8, 6) kommt allein aus diesem Nebenbezug, und **die Kinder sehen sie heute als Gym-Thema**. Vorschlag: so lassen und als „Vertiefung“ kennzeichnen (Entscheidung des Nutzers).
 - **RS Gruppe I (22):** u. a. 4, 7, 9, 11, 34, 39, 63, 64, 68, 101, 103.
 - **RS II/III (27):** zusätzlich 13, 14, 36, 49, 96.
 - **IB:** rund 40 je Kurs. Die Schulbuch-Verzeichnisse sind grob, viele Themen kommen dort nur als Teil eines Kapitels vor. Das ist eine Orientierung, keine Lücke.
@@ -181,7 +181,7 @@ Je Karte gibt es 12 Übungen (Stufe 1–3, alle Aufgabentypen nach Bau-Auftrag F
 | 8 Quadratische Gleichungen | Kl. 9, 7 Et. | RS II/III: 9 (1) + 10 (5) | 0 | 0 | zusammen lassen |
 | 63 Verknüpfte Ereignisse | Kl. 9, 9 Et. | IB: 1 (4 Mengen-Etappen) + 4 (4) | 0 | 0 | zusammen lassen; IB-Mengen sind Orientierung |
 
-Sebastian entscheidet die Liste. Bei „teilen“ gilt das Muster vom 21.11. (Lernstand je Etappe umhängen, Vorher/Nachher je Kind).
+Der Nutzer entscheidet die Liste. Bei „teilen“ gilt das Muster vom 21.11. (Lernstand je Etappe umhängen, Vorher/Nachher je Kind).
 
 **Nachtrag Lernstand, Punkt 6** (nur Nummern, lesend, Spur Gymnasium):
 - Themen mit Lernstand, die auf mehrere Gym-Klassen verteilt sind: **keine**.
@@ -535,7 +535,7 @@ Spalten: Lernbereich · Titel · Stunden · Punkte Original/DB · Themen (neu/we
 
 **Offen:**
 - Zweitquellen Gym 6–10 (Inhalt) und neuer Abruf der IB-Verzeichnisse: Die Freigabe für den Abruf blieb unbeantwortet.
-- Entscheidungen von Sebastian:
+- Entscheidungen vom Nutzer:
   - Teilungsliste (Empfehlung: nichts teilen);
   - 43/69/71 im Gymnasium als Vertiefung;
   - IB-Voraussetzungen (2 harte; berichtigt, vorher fälschlich 3).

@@ -85,7 +85,7 @@ Ich habe nur geprüft: keine Inhalte geändert, nichts in die Datenbank, kein Ap
 3. **Gym 6, `offen` der Themendatei veraltet:** nennt „rationale Exponenten“ im `umfang` (steht dort nicht mehr) und als Beispiel „2³ · 2⁴ = 2ᵏ“, ein Potenzgesetz.
 4. **Themenliste `terme.umformen`, `lehrplan_rs`:** „Terme vereinfachen, auch mit Potenzgesetzen …“. Nach der Teilung missverständlich; der Inhalts-Chat hat das selbst als offen gemeldet.
 5. **kann-Text Gym 6 (`kurz`):** „Mal-Aufgaben mit immer gleichen Zahlen kurz schreiben …“ verschweigt Hoch 0 und negative Exponenten, die jetzt den halben Flug ausmachen.
-6. **Flug A, M7 1.2 „Potenzen von Potenzen“** hat keine Karte; das hat der Inhalts-Chat offen gemeldet, Sebastian entscheidet. Fachlich wäre es eine Pflichtkarte in Flug A: Der Lehrplan nennt es in M7.
+6. **Flug A, M7 1.2 „Potenzen von Potenzen“** hat keine Karte; das hat der Inhalts-Chat offen gemeldet, der Nutzer entscheidet. Fachlich wäre es eine Pflichtkarte in Flug A: Der Lehrplan nennt es in M7.
 7. **Flug B, Einstieg von `terme_vereinfachen`:** „Im Algenmodell rechnest du oft mit Variablen“ wirkt aufgesetzt. Ein direkter Einstieg („Terme wie 6x³ · x⁻⁵ …“) genügt.
 8. **Flug B, Knobel `fehler_ganz` „2⁻¹ + 2⁻² + 2⁻³ + …“ (163):** Die Summe 63/64 ist richtig. Die Aussage „Größer als 1 wird die Summe nie“ ist ein Grenzwertgedanke, als Knobel aber in Ordnung.
 

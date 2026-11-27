@@ -45,3 +45,52 @@ test('Mehrere Brüche hintereinander und Text bleibt vollständig', () => {
   const s = 'Vergleiche 2/3 mit 4/6 und (x − 1)/4 mit 0,5.';
   assert.equal(lernBruchTeile(s).map((t) => (typeof t === 'string' ? t : (t.vz || '') + (/[ +−]/.test(t.z) ? `(${t.z})` : t.z) + '/' + t.n)).join(''), s);
 });
+
+// Regressionstests 0.93.7 (Gegenprüfung): Die Erkennung darf keine Zahl und keine Formel verändern.
+// Echte Trenner in inhalte/themen bei „/“: normales Leerzeichen; geschütztes (U+00A0) und schmales geschütztes (U+202F) zur Sicherheit mitgeprüft.
+test('Tausendergruppen bleiben ganz – im Nenner', () => {
+  assert.equal(kurz('Schreibe als Dezimalzahl: 5 + 9/100 + 7/1 000'), 'Schreibe als Dezimalzahl: 5 + [9|100] + [7|1 000]');
+  assert.equal(kurz('0,875 = 875/1 000. Gekürzt mit 125: 7/8.'), '0,875 = [875|1 000]. Gekürzt mit 125: [7|8].');
+  assert.equal(kurz('10⁻⁶ = 1/1 000 000.'), '10⁻⁶ = [1|1 000 000].');
+  assert.equal(kurz('(1/4)⁶ = 1/4 096.'), '([1|4])⁶ = [1|4 096].');
+  assert.equal(kurz('25/10 000'), '[25|10 000]');
+  assert.equal(kurz('12 · m/1 000 + …'), '12 · [m|1 000] + …');
+  assert.deepEqual(lernBruchTeile('7/1 000'), [{ z: '7', n: '1 000' }]);
+  assert.deepEqual(lernBruchTeile('7/1 000'), [{ z: '7', n: '1 000' }]);
+});
+test('Tausendergruppen bleiben ganz – im Zähler und in beiden', () => {
+  assert.equal(kurz('s(x) = 1 200/x + 15 Euro'), 's(x) = [1 200|x] + 15 Euro');
+  assert.equal(kurz('9/12 = 11 880/20 736 = 55/96.'), '[9|12] = [11 880|20 736] = [55|96].');
+  assert.equal(kurz('V = 2 299π/3 ≈ 2 407,5 cm³.'), 'V = [2 299π|3] ≈ 2 407,5 cm³.');
+  assert.deepEqual(lernBruchTeile('1 200/x'), [{ z: '1 200', n: 'x' }]);
+  assert.deepEqual(lernBruchTeile('1 200/x'), [{ z: '1 200', n: 'x' }]);
+  assert.equal(kurz('−1 500/x'), '−[1 500|x]');
+  // nicht eindeutig begrenzt: lieber Text als zerrissen
+  for (const s of ['12,5 200/x', '1/2,5 000', '7/1 000,5', 'x/1 000x']) assert.equal(kurz(s), s, s);
+});
+test('Gemischte Zahl wird nicht mit Tausendergruppe verwechselt', () => {
+  // (vor dem Bruch steht dann ein schmales geschütztes Leerzeichen: kein Umbruch zwischen Ganzen und Bruch)
+  assert.equal(kurz('Addiere 2 1/2 und 3 12/25.'), 'Addiere 2\u202f[1|2] und 3\u202f[12|25].');
+  assert.equal(kurz('2 7/1 000'), '2\u202f[7|1 000]');
+});
+test('Hochzahlen gehören ganz zum Nenner oder der Ausdruck bleibt Text', () => {
+  assert.equal(kurz('4/x⁻²'), '[4|x⁻²]');
+  assert.equal(kurz('Sₙ = 2 − 1/2ⁿ⁻¹.'), 'Sₙ = 2 − [1|2ⁿ⁻¹].');
+  assert.equal(kurz('(1/2)¹⁰ = 1/2¹⁰ = 1/1 024'), '([1|2])¹⁰ = [1|2¹⁰] = [1|1 024]');
+  assert.equal(kurz('8⁻¹ = 1/8¹ = 1/8.'), '8⁻¹ = [1|8¹] = [1|8].');
+  assert.equal(kurz('x⁻²/4 und 1/b²'), '[x⁻²|4] und [1|b²]');
+  for (const s of ['2/3^2', '3^2/4', '1/x^(1/2)', '2^(−1/2) = 1/2^(1/2)', 'x^-1/2', '1/(x + 1)^2', '1/(x + 1)⁻¹']) assert.equal(kurz(s), s, s);
+});
+test('Paare einzelner Großbuchstaben (römische Zahlzeichen) bleiben Text', () => {
+  const s = 'Teile in Gruppen: M…, dann C/D, dann X/L, dann I/V.';
+  assert.equal(kurz(s), s);
+  for (const t of ['2021 A/B (Teil)', 'M/D']) assert.equal(kurz(t), t, t);
+  assert.equal(kurz('x/y + a/b'), '[x|y] + [a|b]');
+});
+test('Kurzdaten und Jahre bleiben Text', () => {
+  for (const s of ['am 03/04', 'am 3/04', 'Schuljahr 2026/27', 'Saison 2019/2020', '27/11/2026', '68/95/99,7 %', 'km/h', 'm/s', 'oben/unten', 'x^(1/2)']) {
+    assert.equal(kurz(s), s, s);
+  }
+  assert.equal(kurz('1800/60 = 30'), '[1800|60] = 30');
+  assert.equal(kurz('0,5/2'), '[0,5|2]');
+});

@@ -74,7 +74,7 @@ function sucheAuswahl(t, states, call, live, changed) {
   const exclude = el('button', { type: 'button', class: 'sel-out', onclick: () => save(state.saved === 'ausgeschlossen' ? 'aktiv' : 'ausgeschlossen') });
   const maybe = el('button', { type: 'button', class: 'sel-maybe', onclick: () => save(state.saved === 'vielleicht' ? 'aktiv' : 'vielleicht') }); // W98c: dritte Option „Na ja“
   const undo = el('button', { type: 'button', onclick: () => save(state.undo, true) }, 'Rückgängig');
-  // 0.35.3 (Sebastian 21.10.): Auswahl sofort zeigen, Speichern im Hintergrund; bei Fehler zurücksetzen.
+  // 0.35.3 (Nutzer 21.10.): Auswahl sofort zeigen, Speichern im Hintergrund; bei Fehler zurücksetzen.
   async function save(next, isUndo = false) {
     if (state.pending || state.refreshRequired || !['aktiv', 'favorit', 'wow', 'vielleicht', 'ausgeschlossen'].includes(next)) return;
     const previous = state.saved, undoBefore = state.undo, uebernommen = t.urteil_uebernommen;

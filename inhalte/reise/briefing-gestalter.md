@@ -1,6 +1,6 @@
 # Die Route – wie Kontinente, Länder und Städte zusammenhängen (für den Gestalter)
 
-Stand 22.11.2026, Haupt-Chat. Zweck: Grundlage für eine neue Kinderseite mit **echter, interaktiver Karte** statt Anzeigetafel. Was die Karte können und wie sie aussehen soll, sagt Sebastian selbst. Hier steht nur, **was dargestellt wird**.
+Stand 22.11.2026, Haupt-Chat. Zweck: Grundlage für eine neue Kinderseite mit **echter, interaktiver Karte** statt Anzeigetafel. Was die Karte können und wie sie aussehen soll, sagt der Nutzer selbst. Hier steht nur, **was dargestellt wird**.
 **Alle Zahlen sind der Stand von heute und ändern sich noch:** Themen werden nach der Lehrplan-Prüfung auf Klassen verteilt, manche in zwei Flüge geteilt (zweiter Teil ins Nachbarland), und es kommen Themen dazu. Die Karte darf von keiner festen Anzahl Länder oder Städte ausgehen.
 Quelle der Zuordnung: `inhalte/reise/aufbau-vorschlag.md` und `.json` (alle Länder und Städte in Reihenfolge). Noch nicht gebaut; heute live ist der alte Aufbau mit „Orten“.
 
@@ -62,5 +62,5 @@ Die frühere Ebene „Ort“ (eine Stadt für mehrere Flüge) gibt es für Kinde
 
 ## 7 Offen / nicht entschieden
 - Hawaii zählt als Gebiet, obwohl die USA schon ein Land sind.
-- Aussehen und Bedienung der Karte (Sebastian).
+- Aussehen und Bedienung der Karte (Nutzer).
 - Ob die Eltern-/Lehrerseite dieselbe Karte bekommt (bisher: Matrix „Unser Lehrplan“).

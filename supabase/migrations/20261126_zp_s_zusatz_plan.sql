@@ -1,4 +1,4 @@
--- ZP-S (Bau-Auftrag ZP, Entscheidung Sebastian 23.11. 02:35; Nachtrag Rückläufer ChatGPT 964): eingeplanter Zusatz-Teil.
+-- ZP-S (Bau-Auftrag ZP, Entscheidung des Nutzers 23.11. 02:35; Nachtrag Rückläufer ChatGPT 964): eingeplanter Zusatz-Teil.
 -- Zwei getrennte Eigenschaften:
 --   1) Pflicht/Kür je Gruppe – unverändert (thema.zusatz, Pflichtlisten der Einheit).
 --   2) „von den Eltern eingeplant“ mit eigenem Platz – der Plan-Eintrag bleibt route.art 'normal' an seiner Position (die Eltern-Planung der App

@@ -35,7 +35,7 @@ async function tripEdit(e,onSaved){
  d.addEventListener('cancel',ev=>{if(pending)ev.preventDefault();});
  form.onsubmit=async ev=>{ev.preventDefault();if(pending)return;pending=true;save.disabled=true;close.disabled=true;try{const r=await tripCall('unterkunft_etappe_speichern',{id:e.id,version:e.version,...Object.fromEntries(Object.entries(inputs).map(([k,v])=>[k,v.value]))});if(r.etappe?.id!==e.id)throw Error('Änderung nicht bestätigt.');d.close();await onSaved();}catch(err){status.textContent=err.message+' Dein Entwurf bleibt hier. Bitte neu lesen, bevor du erneut speicherst.';}finally{pending=false;close.disabled=false;}};
 }
-// W131 (Sebastian 07.11.2026): Reiseplan = nur echte Buchungen. Oben Gesamtausgaben, je Land Zwischensumme,
+// W131 (Nutzer 07.11.2026): Reiseplan = nur echte Buchungen. Oben Gesamtausgaben, je Land Zwischensumme,
 // eine kompakte Zeile pro Unterkunft; Details und Aktionen erst nach Antippen. Pläne getrennt darunter.
 function tripNights(e){const n=Number(e.naechte);if(Number.isFinite(n)&&n>0)return n;const d=Math.round((Date.parse(e.abreise)-Date.parse(e.anreise))/86400000);return d>0?d:0;}
 function tripPrice(e){const v=Number(e.buchung?.preis_gesamt_eur??e.preis_gesamt_eur);return Number.isFinite(v)&&v>0?v:null;}
@@ -78,7 +78,7 @@ function segRow(p,s,i,today){
  });
  return item;
 }
-// W142 (Sebastian 07.11.2026): Nebenkosten vor Ort je Monat und Kategorie, am Monatsende im Reiseplan
+// W142 (Nutzer 07.11.2026): Nebenkosten vor Ort je Monat und Kategorie, am Monatsende im Reiseplan
 const NK_KAT={essen:'Essen & Trinken',erleben:'Erlebnisse & Wellness',unterwegs:'Unterwegs',sonst:'Sonstiges'};
 const NK_KURZ={essen:'Essen',erleben:'Erlebnisse',unterwegs:'Unterwegs',sonst:'Sonstiges'};
 function kostenRow(n,today){
@@ -98,7 +98,7 @@ function kostenRow(n,today){
  });
  return item;
 }
-// W140 (Sebastian 07.11.2026): Tauchtage als eigene Art – ein Segment je Tauchtag, mit Taucher, Gebiet und Log-Werten
+// W140 (Nutzer 07.11.2026): Tauchtage als eigene Art – ein Segment je Tauchtag, mit Taucher, Gebiet und Log-Werten
 function diveNum(v,d=1){const n=Number(v);return Number.isFinite(n)?n.toLocaleString('de-DE',{maximumFractionDigits:d}):'';}
 function diveRow(p,s,i,today){
  const price=Number(p.preis_gesamt_eur),hasPrice=Number.isFinite(price)&&price>0,tg=Array.isArray(s.tg)?s.tg:[],n=Number(s.tauchgaenge)||tg.length||0;

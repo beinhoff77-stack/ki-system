@@ -2,7 +2,7 @@
 
 Stand: 2026-11-18. Zweig `doppelt-pruefen`, abgezweigt von `lernen-app` (Commit 04f0fec). **Nur Prüfung und Vorschlag.** Nichts an Themendateien, `themenliste.json`, Datenbank oder App geändert. Kein Merge.
 
-**Frage (Sebastian):** „Die lernen doch grundsätzlich dasselbe Mathe – warum so viele neue Themen?“ `vorschlag-mindeststand.md` plant alle 24 Themen ohne Gymnasium-Klasse als zusätzliche Flüge ein.
+**Frage (Nutzer):** „Die lernen doch grundsätzlich dasselbe Mathe – warum so viele neue Themen?“ `vorschlag-mindeststand.md` plant alle 24 Themen ohne Gymnasium-Klasse als zusätzliche Flüge ein.
 
 **Wörter:** Flug = Thema, Lernkarte = Etappe (`inhalt.etappen`, Schlüssel `l`). **A** = schon in einem Gym-Flug, **B** = kleiner Zusatz zu einem Gym-Flug, **C** = in keinem Gym-Flug. Plan-Klasse wie in `vorschlag-mindeststand.md`. RS = Realschule Bayern, „Gruppe I“ = Wahlpflichtfächergruppe I (mathematischer Zweig). IB-Stufen (MYP 1–3, Standard, Extended, Enrichment) und Haese-Kapitel (H1 … H5E) wie in `vorschlag-rsib.md`.
 
@@ -444,7 +444,7 @@ Abgleich mit `vorschlag-rsib.md` Teil 2 und „Was aus dem Framework fehlt“, j
 | **Zeit: Zeitzonen, 24-Stunden-Uhr, Fahrpläne** | IB MYP 1–3 | `groessen.einheiten`/zeit („Mit Zeit rechnen“) da; Zeitzonen fehlen (Suche „Zeitzone“, „Ortszeit“: 0) | 3–4 Aufgaben in `groessen.einheiten`/zeit (IB, Vertiefung) |
 | **Stängel-Blatt-Diagramm, gruppierte Daten, Summenkurve, Perzentile** | IB MYP 1–3 bzw. Standard | Quartilsabstand da (`daten.boxplot`/quartile); der Rest fehlt (Suche: 0) | 2 Lernkarten: „Stängel-Blatt“ in `daten.darstellen` (5), „Gruppierte Daten und Summenkurve“ in `daten.boxplot` (7); IB, Vertiefung |
 | **Peilungen / Kurswinkel** | IB Standard (H4 Kap. 23G) | nur eine Aufgabe mit „Nordrichtung“ in `trigo.allgemein`/kosinussatz_seite | 3–4 Aufgaben in `trigo.allgemein`/anwendung |
-| **Algorithmen, Flussdiagramme** | IB (laut `vorschlag-rsib.md`, Stufe unklar) | fehlt (Suche: 0) | **für Sebastian:** keine sinnvolle Gym-Heimat; weglassen oder später eigenes kleines Thema |
+| **Algorithmen, Flussdiagramme** | IB (laut `vorschlag-rsib.md`, Stufe unklar) | fehlt (Suche: 0) | **für den Nutzer:** keine sinnvolle Gym-Heimat; weglassen oder später eigenes kleines Thema |
 | Kegel, Kugel, Zylinder nach Ecken/Kanten/Flächen beschreiben | RS alle Zweige M5 LB3 | nicht geprüft (Textsuche nach „Kugel“ liefert nur Eiskugeln/Urnen) | offen |
 | Ortsbereiche, Tangente von einem Außenpunkt | RS M7 LB5 (I) / LB3 (II) | **da**: `geometrie.ortslinien`/parallelen („Streifen aller Punkte, die … höchstens 2,5 cm entfernt sind“), `geometrie.kreis`/tangente und beweis | – |
 | Vierecke, Drehung | RS M8 LB1, LB2 | **da** (Teil 3a) | – |
@@ -458,7 +458,7 @@ Abgleich mit `vorschlag-rsib.md` Teil 2 und „Was aus dem Framework fehlt“, j
 
 ---
 
-## Teil 4 – Für Sebastian zu entscheiden
+## Teil 4 – Für den Nutzer zu entscheiden
 
 1. **Grundsatz:** 11 Themen auflösen, 13 behalten, keine neuen Themen (statt 4) – Stoff als Lernkarten/Aufgaben in bestehende Flüge (Liste unten). Zusätzliche Flüge: Kind A 13 statt 28, Kind B 13 statt 28 (5 davon in abgeschlossenen Klassen statt 9).
 2. **`terme.quadratische_extreme` (Sonderfall).** Inhaltlich vollständig in `funktionen.quadratisch` – aber dort erst Plan-Klasse 9; die Realschule verlangt es in Kl. 8 (alle Zweige).

@@ -2,7 +2,7 @@
 
 **Nur Vorschlag.** Kein App-Code, nichts in der Datenbank geändert, die Datenbank nur gelesen. Grundlagen in `inhalte/AUFTRAEGE.md`:
 - Festlegungen 1–14 („Vorarbeit ‚Reise-Aufbau‘“), Nachtrag „Vorschlag fortschreiben“ (15:25), „Entscheidung Teilung“ (16:20).
-- „Entscheidungen Sebastian (17:05)“: Salomonen statt Neukaledonien; Marokko → Algerien → Mauretanien bleibt; 101 geteilt; drei neue Etappen aus LK-D 3.
+- „Entscheidungen des Nutzers (17:05)“: Salomonen statt Neukaledonien; Marokko → Algerien → Mauretanien bleibt; 101 geteilt; drei neue Etappen aus LK-D 3.
 - „Rückläufer ChatGPT 947–950 (19:30)“, Abschnitt „Reise-Aufbau 4“: drei fehlende Städte, Insel-Ausnahme, Reserve Ozeanien.
 - Teilung aus `inhalte/pruefung/lehrplan/lk_teilung_2211.json` (Stand `lernen-app` 456c6ec2: 7 Themen, 15 Teile); Kartenbedarf aus `inhalte/pruefung/kind/karte/umsetzung.md`.
 
@@ -30,7 +30,7 @@ Dateien:
 
 ## Was „Reise-Aufbau 3“ ändert (gegenüber Reise-Aufbau 2)
 
-- **61 Teil 2 → Salomonen** (statt Neukaledonien; Entscheidung Sebastian 17:05). 4 Städte: Honiara → Tulagi → Auki → Kirakira. Die Salomonen sind kein Nachbarland, sondern eine Insel-Ausnahme (ca. 3 200 km über das Meer). Das ist bewusst so entschieden: Neuseelands Nachbarn sind sonst belegt.
+- **61 Teil 2 → Salomonen** (statt Neukaledonien; Entscheidung des Nutzers 17:05). 4 Städte: Honiara → Tulagi → Auki → Kirakira. Die Salomonen sind kein Nachbarland, sondern eine Insel-Ausnahme (ca. 3 200 km über das Meer). Das ist bewusst so entschieden: Neuseelands Nachbarn sind sonst belegt.
 - **101 geteilt:**
   - Teil 1 „gerade Prismen und Zylinder“ bleibt Brasilien – Südosten (7 Städte).
   - **Teil 2 „schiefe Körper und Cavalieri“ → Brasilien – Mittelwesten**, Kurzflug mit **Brasília** (Etappe `cavalieri`).
@@ -54,8 +54,8 @@ Dateien:
 | 26 Proportionalität | Kuba (5) | Teil 2 → **Jamaika** (3) | über die Jamaikastraße, ca. 150 km Meer |
 | 29 Terme umformen | Kasachstan (5) | Teil 2 → **Turkmenistan** (4) | Landgrenze |
 | 44 Konstruktionen | Ruanda (5) | Teil 2 → **Burundi** (2, Kurzflug) | Landgrenze |
-| 46 Kongruenzabbildungen | Marokko (6) | Teil 2 → **Algerien** (3), Teil 3 → **Mauretanien** (3) | Algerien: Landgrenze; Mauretanien: Landgrenze zu Algerien, zu Marokko nur über Westsahara (von Sebastian bestätigt) |
-| 61 Zufall und Laplace | Neuseeland – Nordinsel (3) | Teil 2 → **Salomonen** (4) | **Insel-Ausnahme**, kein Nachbarland (Entscheidung Sebastian) |
+| 46 Kongruenzabbildungen | Marokko (6) | Teil 2 → **Algerien** (3), Teil 3 → **Mauretanien** (3) | Algerien: Landgrenze; Mauretanien: Landgrenze zu Algerien, zu Marokko nur über Westsahara (vom Nutzer bestätigt) |
+| 61 Zufall und Laplace | Neuseeland – Nordinsel (3) | Teil 2 → **Salomonen** (4) | **Insel-Ausnahme**, kein Nachbarland (Entscheidung des Nutzers) |
 | 91 Schrägbilder | Paraguay (4) | Teil 2 → **Brasilien – Süden** (4) | Landgrenze (Ciudad del Este ↔ Foz do Iguaçu) |
 | 101 Prismen und Zylinder | Brasilien – Südosten (7) | Teil 2 → **Brasilien – Mittelwesten** (1, Kurzflug) | gemeinsame Grenze der Großregionen |
 
@@ -161,7 +161,7 @@ Nachbarländer für die übrigen Flüge begonnener Orte: Rom → Österreich, Sc
 - **Vereinigtes Königreich** als ein Land (heute steht „Schottland“ bei Edinburgh). Edinburgh und Glasgow bleiben als Städte erhalten.
 - **Kindgerecht, aber wenig bekannt:** Kasachstan, Kirgisistan, Mongolei, Bhutan, Bangladesch, Laos, Aserbaidschan, Papua-Neuguinea, Vanuatu, Samoa, Tonga, Französisch-Polynesien. In Polynesien sind die „Städte“ kleine Hauptorte (500–30 000 Einwohner).
 - **Irak, Iran, Saudi-Arabien** gehören laut Festlegung 2 dazu. Inhaltlich gibt es dort gute Highlights (Babylon, Persepolis/Isfahan, AlUla), real gelten aber Reisewarnungen. Mekka ist bewusst nicht dabei (für Nicht-Muslime gesperrt).
-- **Strittige Gebiete gemieden:** kein Kaschmir, Tibet, Xinjiang, Taiwan, Krim, Westsahara, Abchasien/Südossetien, Bergkarabach, Kirkuk; kein Sabah (Anspruch der Philippinen), Mindanao, Belize, Bougainville. Neukaledonien bleibt gemieden (Entscheidung Sebastian 22.11., 17:05). Mauretanien grenzt an Marokko nur über Westsahara – Route Marokko → Algerien → Mauretanien von Sebastian bestätigt. Bewusst nicht gewählt wegen Krieg/Krise: Ukraine, Russland, Israel/Palästina, Syrien, Jemen, Libyen, Sudan, Mali (heute Timbuktu), Myanmar, Venezuela, Afghanistan.
+- **Strittige Gebiete gemieden:** kein Kaschmir, Tibet, Xinjiang, Taiwan, Krim, Westsahara, Abchasien/Südossetien, Bergkarabach, Kirkuk; kein Sabah (Anspruch der Philippinen), Mindanao, Belize, Bougainville. Neukaledonien bleibt gemieden (Entscheidung des Nutzers 22.11., 17:05). Mauretanien grenzt an Marokko nur über Westsahara – Route Marokko → Algerien → Mauretanien vom Nutzer bestätigt. Bewusst nicht gewählt wegen Krieg/Krise: Ukraine, Russland, Israel/Palästina, Syrien, Jemen, Libyen, Sudan, Mali (heute Timbuktu), Myanmar, Venezuela, Afghanistan.
 - **Fahrbar** heißt Straße oder Fähre (z. B. Sansibar, Kangaroo Island, Bali, Philippinen, Fidschi/Samoa/Tonga). Hawaii, Französisch-Polynesien, Vanuatu, Papua-Neuguinea (Port Moresby hat keine Straße nach Lae) brauchen Inselflüge – **Annahme:** für Inselgebiete zulässig.
 - **Reihenfolge innerhalb eines Landes** ist eine Strecke, nicht immer ein geschlossener Ring.
 - Städtenamen auf Deutsch, wo gebräuchlich (Mailand, Breslau, Täbris); sonst Landesschreibweise.

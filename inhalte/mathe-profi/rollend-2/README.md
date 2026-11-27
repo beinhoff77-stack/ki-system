@@ -105,3 +105,32 @@ Sonst habe ich Brüche vermieden und „6 von 24“, „ein Viertel“ oder „:
 - `a1` rechnet in ℕ, wie die Lernkarte „Gibt es immer eine Lösung?“. Negative Zahlen kommen nicht vor.
 - Regel-Kennungen, wo die Liste nicht genau passt: „Textaufgabe als Gleichung“ (a1) hängt an `id.algebra.term`; „irreführende Diagramme“ und „absolute Häufigkeit“ (d1) an `id.daten.kennzahl`; „relative Häufigkeit“ und „Kreisdiagramm“ an `id.daten.anteil`. Dessen Merksatz spricht von Wahrscheinlichkeit; gemeint ist hier derselbe Gedanke „Teil durch Ganzes“.
 - Namen in Aufgaben (Tom, Nora, Mia, Paul …) sind erfunden.
+
+## Auftrag 20 – Berichtigungen nach der Inhaltsprüfung (27.11.2026)
+
+Alle Änderungen über `bauen.py`, Lauf endet mit „OK“. Kennungen unverändert.
+
+### Muss
+
+| Kennung | Befund | Was geändert |
+|---|---|---|
+| A1-04 | „noch einmal auf demselben Weg lösen“ ist nicht falsch, nur nicht gemeint | **geändert:** Frage auf die Einsetzprobe zugeschnitten („Wie machst du die Einsetzprobe für x = 9 …“); die vierte Antwort ist jetzt eindeutig falsch („6 für x einsetzen, weil die 6 vor dem x steht“). |
+| G1-07 | Lücke hinter „0,“ ist eine Ziffernfolge | **geändert:** Weg B rechnet in **Millimetern** (1 500 mm − 850 mm = ② mm), Werte 65 und 650. Zwei neue Fehlbilder. |
+| G8-01 | dasselbe Muster („Der Faktor ist 0,②“) | **geändert:** zweite Lücke fragt jetzt den Aufschlag ab („steigt um 35 % → ② % des alten Preises“), Werte 65 und 135. Die Faktoren 0,65 und 1,35 stehen im Lösungsweg, nicht in einer Lücke. |
+| G8-04 | dasselbe Muster („Der Faktor war 0,①“) | **geändert:** gefragt sind ① % (= 80) und der alte Preis ② € (= 75); Zahlen auf 60 € umgestellt, damit beide Fehlbilder ganzzahlig bleiben (72 und 48). |
+| G1-12 | Leergewicht nicht ausdrücklich genannt | **geändert:** „Der **leere** Lieferwagen wiegt 2 800 kg; dazu kommen 900 kg Ladung.“ |
+| G2T2-03 | „gleiche Brötchen“ garantiert kein „immer proportional“ | **geändert:** Die richtige Antwort nennt die Voraussetzung („fester Stückpreis, kein Mengenrabatt“); der Lösungsweg sagt ausdrücklich, dass es mit Mengenrabatt nicht gälte. |
+
+### Kann so – Entscheidung
+
+| Kennung | Befund | Entscheidung |
+|---|---|---|
+| G1-04 | Tipp als „so viele Stellen“ | **geändert:** Tipp jetzt „1 cm ist ein Hundertstel Meter – zwei Stellen hinter dem Komma.“ |
+| G1-08 | dasselbe | **geändert:** „1 g ist ein Tausendstel Kilogramm – drei Stellen hinter dem Komma.“ |
+| D1-12 | „wirkt größer“ braucht gleiche Zeichenfläche | **geändert:** „Zwei **gleich große** Diagramme …“. Die Antworten sprechen schon vom Höhenverhältnis und bleiben. |
+| G8-14 | setzt Wurzelziehen voraus | **geändert:** Tipp und Lösungsweg führen jetzt übers Probieren (1,05 · 1,05 zu klein, 1,1 · 1,1 = 1,21). |
+| F1-07 | Achsenzahlen liegen auf dem Graphen | **geändert:** Ausschnitt x [−1; 4], y [−3; 7]. Die Gerade läuft nicht mehr über die Zahlen am linken Rand. |
+| F1-15 | Achsenzahlen liegen auf dem Kreis | **geändert:** Kreis um M(1 | 0) statt um den Ursprung, Ausschnitt x [−3; 5]. Antwort und Lösungsweg auf x = 1 umgestellt. |
+| D1-02, -03, -04, -05, -06, -10, -13, -14 | Prozent, relative Häufigkeit und Kreisdiagramm sind am bayerischen Gymnasium Stoff der 6. Klasse | **bleibt, weil** der Flug `d1` diese Lernkarten selbst enthält und erklärt. **Als Vorgriff gekennzeichnet:** Diese acht Aufgaben gehören nicht zum Mindeststand der Klasse 5. Für die Realschule (Klasse 5) sind sie regulär. |
+
+**Neue Prüfung in `bauen.py`:** Keine Lücke unmittelbar hinter einem Komma (Ziffernfolge statt Zahl). Nach der Berichtigung meldet die Prüfung in allen drei Runden nichts mehr.

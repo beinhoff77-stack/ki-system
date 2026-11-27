@@ -89,7 +89,7 @@ Neuer Abschnitt im Reisepass, erreichbar auch über „Stempel-Sammlung ansehen�
 Ergänzt `../karte/umsetzung.md` §2/§4:
 - Welt-Ebene: Antarktis-Bereich zeigt `Expeditionen · {k} von {gesamt} Stationen`; ist eine Expedition freigeschaltet, pulsiert ihr Stations-Pin (Polarlicht-Grün) und die Zeile lautet `⛯ 1 Expedition freigeschaltet`.
 - Stationen als Pins nach Breite/Länge (`aufbau-vorschlag.json`, `expeditionen[]`): geschafft Stempel-Blau mit ✓, frei grün mit Puls, gesperrt grau mit 🔒; Antippen = Blatt wie §6.
-- Hinweis zur Reisekarte §11 („Zusatz – freiwillig, für Entdecker“): Sebastians Satz „wenn da irgendwo freiwillig steht, machen sie es nie“ trifft dort genauso. Vorschlag, nicht Teil von EX: dort `Zusatz für Entdecker` ohne „freiwillig … Muss nicht sein“.
+- Hinweis zur Reisekarte §11 („Zusatz – freiwillig, für Entdecker“): Satz des Nutzers „wenn da irgendwo freiwillig steht, machen sie es nie“ trifft dort genauso. Vorschlag, nicht Teil von EX: dort `Zusatz für Entdecker` ohne „freiwillig … Muss nicht sein“.
 
 ## 8 Daten (Schnittstelle; Umsetzung EX-S)
 | Angabe | heute | neu |

@@ -50,18 +50,18 @@ Noch nicht umgesetzt: Matrix-Darstellung, Intervall auf dem Zahlenstrahl, Körpe
   Mit dem Testkind in einer zurückgerollten Transaktion nachgestellt (braucht 3 Lerntage: nur heute → nicht fällig; 2 Lerntage + heute → fällig).
 - V9 (App): höchstens eine Runde mit bis zu 6 Wiederholungen vor dem Thema. Ist die Runde heute gemacht (gemerkt je Kind auf dem Gerät), führt der Startknopf ins Thema;
   der Rest steht als Link „Noch N Wiederholungen offen – wenn du magst“ auf der Startseite und als Link auf dem Bildschirm nach „Lernkarte sitzt“.
-  Die 6 ist die Konstante LERN_WDH_RUNDE in lernen.js (Vorschlag aus dem Papier; Sebastian kann eine andere Zahl nennen). Die Datenbank liefert ohnehin höchstens 6 je Abruf.
+  Die 6 ist die Konstante LERN_WDH_RUNDE in lernen.js (Vorschlag aus dem Papier; der Nutzer kann eine andere Zahl nennen). Die Datenbank liefert ohnehin höchstens 6 je Abruf.
 - V12: „Was kommt wann wieder?“ – Kindansicht: aufklappbar auf der Startseite und am Ende der Wiederholung; Elternansicht (Lernstand): aufklappbar, mit „N Lernkarten sitzen, M davon sind dran“.
   Zum Nachtest steht dort nur die Regel in Worten; Zahlen je Kind zum Nachtest zeigt die Ansicht (noch) nicht.
 - Abweichung: „Restliche fällige Wiederholungen werden nach dem Üben angeboten“ ist als Link umgesetzt, nicht als eigener Schritt.
 
-## 2026-11-16 03:16 – an pruefung-rueckmeldung-lernweg: Entscheidungen von Sebastian
+## 2026-11-16 03:16 – an pruefung-rueckmeldung-lernweg: Entscheidungen vom Nutzer
 - V9: Es bleibt bei höchstens 6 Wiederholungen vor dem Thema.
 - Freigabe Datenauswertung (für R4): Ja. Der Prüf-Chat darf in etwa 3–4 Wochen die echten falschen Antworten der Kinder nur lesend auswerten
   (Kinder nur als Kind A / Kind B nennen, nichts ändern). R4 startet erst danach.
 - R1–R3 sind seit 16.11. live (App 0.73.3).
 
-## 16.11. – Neue Regel „Lernkarte sitzt“ (Entscheidung Sebastian) – App 0.73.6
+## 16.11. – Neue Regel „Lernkarte sitzt“ (Entscheidung des Nutzers) – App 0.73.6
 - 6 Punkte statt 2–4 (bei weniger Übungen entsprechend weniger, mindestens 2). Richtig im ersten Versuch ohne Hilfe: +1; Fehler: −2 (nicht mehr zurück auf 0).
 - Zusätzlich muss mindestens eine Stufe-3-Übung im ersten Versuch ohne Hilfe richtig sein (falls die Karte Stufe-3-Übungen hat).
 - Die App wählt die Stufe nach Punktestand: erstes Drittel leicht, zweites mittel, drittes schwer. Wiederholungen bevorzugen Stufe 2/3.
@@ -80,7 +80,7 @@ Grundlage: inhalte/pruefung/UMBAU-AUFTRAG.md (Zweig pruefung-kinderansicht).
   - U5 Flug-Kopf zeigt nur die eigene Schulart („ROM · Gymnasium · Klasse 5“); Eltern/Lehrer sehen weiter alle drei.
   - U8 Rückreise-Karte auf der Abflugtafel („KURZ ZURÜCK NACH …“, Grund, „Danach geht es weiter mit …“); bei Stoff aus früheren Klassen im Plan ein kurzer Hinweis.
   - Reisewörter in allen Kindertexten (beide Gestaltungen): Flug, Etappe, Bordkarte, Kontinent/Ort. Eltern-/Lehrer-Ansichten und Code behalten die bisherigen Namen.
-- Zusätzlich seit der letzten Prüfung (Entscheidungen Sebastian 16.11.): neue Etappe zeigt zuerst die Erklärung (0.73.5); „sitzt“ erst nach 6 Punkten und einer schweren Bordkarte (0.73.6).
+- Zusätzlich seit der letzten Prüfung (Entscheidungen des Nutzers 16.11.): neue Etappe zeigt zuerst die Erklärung (0.73.5); „sitzt“ erst nach 6 Punkten und einer schweren Bordkarte (0.73.6).
 - Nachgestellt: rundgang.test.cjs läuft durch (5 von 5); in den Kindertexten kein „Lernkarte“, „Aufgabe“, „Thema“, „Gebiet“ mehr (ein Treffer ist Inhalt: „Maßstab auf Karten und Plänen“).
 - D1 (Klassen-Zuordnung): Auftrag steht als „Elfte Runde“ in inhalte/AUFTRAEGE.md, Zweig daten-klassen. Noch nicht gestartet.
 - Phase 2 (K2 Mein Weg, A1/A3/A4 und R2 sind bereits umgesetzt) folgt nach der Nachprüfung.
@@ -95,16 +95,16 @@ Grundlage: inhalte/pruefung/UMBAU-AUFTRAG.md (Zweig pruefung-kinderansicht).
 - Die Befundlisten der Klassen-Chats (falsch eingestufte oder fehlerhafte alte Aufgaben) sind noch nicht abgearbeitet.
 
 ## 16.11. – D2 (Klassen-Zuordnung) umgesetzt, bis auf einen Umzug
-Freigabe Sebastian: alles wie im Vorschlag (inhalte/pruefung/klassen/vorschlag.md, Zweig daten-klassen). Migration supabase/migrations/20261116_w150_d2_klassen_zuordnung.sql, eingespielt.
+Freigabe des Nutzers: alles wie im Vorschlag (inhalte/pruefung/klassen/vorschlag.md, Zweig daten-klassen). Migration supabase/migrations/20261116_w150_d2_klassen_zuordnung.sql, eingespielt.
 - Ortsklassen: Vancouver 8, Cusco 8, Teheran 7, Marrakesch 7, Timbuktu 5, Rio 5, Brasília 10, Santiago 10, Adelaide 6, New York 6; Alexandria heißt „Kreis“.
 - Umzüge: Zehnerpotenzen Rom → Paris, Ortslinien Alexandria → Kairo. Schrägbilder und Simulation gelten am Gymnasium als Klasse 10 (neues Feld thema.klasse_fest).
 - geometrie.winkel heißt „Mit Winkeln rechnen“. inhalte/themenliste.json angeglichen.
 - Folge im Plan des Kindes der Klasse 5: Alexandria (jetzt nur Klasse-7-Stoff) aus dem Plan genommen; Ortslinien liegen in Kairo, das im Plan steht.
-- OFFEN: Umzug „Lineare Gleichungen“ Delhi → Samarkand und damit Delhi → Klasse 8. Grund: Ein Kind hat Samarkand schon abgeschlossen; der Flug würde dort als erledigt gelten. Wartet auf Sebastian.
+- OFFEN: Umzug „Lineare Gleichungen“ Delhi → Samarkand und damit Delhi → Klasse 8. Grund: Ein Kind hat Samarkand schon abgeschlossen; der Flug würde dort als erledigt gelten. Wartet auf den Nutzer.
 - Folgeaufträge: „Vierzehnte Runde“ (neuer Flug Winkelsätze Klasse 7 in Addis Abeba, Vertiefungen, Lehrplan-Reihenfolge) und „Bau-Auftrag Phase 2 und 3“ in inhalte/AUFTRAEGE.md.
 - Nachprüfung Phase 1 (NACHPRUEFUNG-2026-11-16.md) gelesen: K1 bestätigt; neue Befunde N1–N5 stehen im Bau-Auftrag Phase 2 (Schritt A).
 
-## 16.11. – D2 Teil 2 umgesetzt (Entscheidung Sebastian: A und ja)
+## 16.11. – D2 Teil 2 umgesetzt (Entscheidung des Nutzers: A und ja)
 Migration supabase/migrations/20261116_w150_d2_teil2_lineare_gleichungen.sql, eingespielt.
 - „Lineare Gleichungen“ liegt jetzt in Samarkand (nach „Terme umformen“); Delhi ist Klasse 8 und heißt „Lineare Ungleichungen“. Kein Ort hat mehr Flüge mit abweichender Gymnasium-Klasse.
 - Samarkand ist bei dem Kind, das es schon abgeschlossen hatte, wieder offen (Sterne bleiben).
@@ -119,18 +119,18 @@ Zweige bau-eltern, befunde, daten-klassen-2 nach lernen-app zusammengeführt (St
 - **Phase 1 (E-1) fertig:** Flugplan speichert sofort mit „Rückgängig“ und „Neu laden“ bei Versionskonflikt; Info-Seite „So funktioniert’s“ (#/info) mit der aktuellen Regel
   „sitzt nach 6 Punkten und einer schweren Bordkarte“; Reisewörter in allen Eltern-/Lehrertexten. Bericht: inhalte/postfach/bau-eltern.md. Keine Datenbank-Änderung.
 - **Dreizehnte Runde (Befundlisten):** 63 Themen mit einheit_abgleichen(…, 'sperren') eingespielt: 317 Aufgaben angeglichen (296 umgestuft, 21 berichtigt), 99 neu (95 Ersatz + 4),
-  die 95 ersetzten alten Fassungen gesperrt. Jede Etappe hat weiter mindestens 3 freie Übungen je Stufe. 42 Befunde nicht umgesetzt (begründet), Liste „für Sebastian“ in inhalte/postfach/befunde.md.
+  die 95 ersetzten alten Fassungen gesperrt. Jede Etappe hat weiter mindestens 3 freie Übungen je Stufe. 42 Befunde nicht umgesetzt (begründet), Liste „für den Nutzer“ in inhalte/postfach/befunde.md.
 - **Vierzehnte Runde:** Vertiefungen gekennzeichnet (geometrie.winkel: kreuzung; abbildungen.kongruenz: verschiebung, drehung, parkett; raum.schraegbilder: lage, koordinaten).
-  Neuer Flug „Winkelsätze“ (Thema 98, Einheit 92, Addis Abeba, 8 Etappen, 224 Aufgaben) als ENTWURF importiert – Freigabe durch Sebastian offen.
+  Neuer Flug „Winkelsätze“ (Thema 98, Einheit 92, Addis Abeba, 8 Etappen, 224 Aufgaben) als ENTWURF importiert – Freigabe durch den Nutzer offen.
   inhalte/themenliste.json: 4 Themen ergänzt, lehrplan_gym gefüllt, neues Feld reihenfolge (nur Gymnasium).
 - **Korrektur zu D2:** Die Zuordnung Thema ↔ Ort steht zusätzlich in schule.block_thema; das hatten Teil 1 und 2 nicht mitgezogen (drei Themen wichen etwa 7 Stunden ab).
   Nachgezogen mit supabase/migrations/20261116_w150_d2_teil3_block_thema.sql; Prüfung danach: 0 Abweichungen. Dazu 20261116_w150_d2_thema_winkelsaetze.sql (Themen-Eintrag 98).
 - Bau-Auftrag Phase 2 und 3 kann starten (Schritt A = N1–N8).
 
-## 17.11. – App 0.74.1 live; Entscheidungen zu Winkelsätzen und zur Liste „für Sebastian“
+## 17.11. – App 0.74.1 live; Entscheidungen zu Winkelsätzen und zur Liste „für den Nutzer“
 - 0.74.1 (Phase 1 vollständig: K1, E-1, Reisewörter überall) ist auf main.
 - Neuer Flug „Winkelsätze“ (Einheit 92): bleibt Entwurf, bis ein Prüf-Chat ihn angesehen hat; danach Freigabe.
-- Liste „für Sebastian“ (befunde.md): Bogenmaß in funktionen.trig ergänzen; Median und Spannweite (Klasse 6) als Vertiefung; vier Erklärungen ergänzen; SsW-Aufgaben mit Zeichnung;
+- Liste „für den Nutzer“ (befunde.md): Bogenmaß in funktionen.trig ergänzen; Median und Spannweite (Klasse 6) als Vertiefung; vier Erklärungen ergänzen; SsW-Aufgaben mit Zeichnung;
   Zinseszins bleibt in Klasse 9. Auftrag „Fünfzehnte Runde“ in inhalte/AUFTRAEGE.md, Zweig nacharbeit.
 
 ## 17.11. – Schritt A (N1–N8) zusammengeführt; Prüfberichte E-1 und Winkelsätze gelesen
@@ -168,7 +168,7 @@ Stand lernen-app 2d0d164, App 0.74.5, nicht live. tests/lernen.test.cjs 34 von 3
   M4 mit echten Daten geprüft: Im Plan des Kindes der Klasse 5 steht kein Klasse-8-Ort (Cusco stammt aus den Testdaten); Adelaide (Klasse 6) steht bewusst im Klasse-6-Teil des Plans.
 - Damit sind alle Pakete des Gesamtauftrags gebaut: Phase 1 (A, R1, K1, E-1), Phase 2 (K2, E-2, E-3, R2), Phase 3 (K3, K4, E-4, R3). Offen: Schritt E, Nachprüfung von D, R4, Inhalte.
 
-## 17.11. – Nachprüfung Phase 2 (A2, K2, E-2, E-3) und Winkelsätze – Meldung des Prüf-Chats, von Sebastian weitergegeben
+## 17.11. – Nachprüfung Phase 2 (A2, K2, E-2, E-3) und Winkelsätze – Meldung des Prüf-Chats, vom Nutzer weitergegeben
 Der Prüf-Chat (Zweig pruefung-phase2) konnte nicht pushen; seine Meldung hier im Wortlaut der Ergebnisse:
 - A2 (N1/N2/N7): erfüllt. „Kurz gesagt“ ist noch an einer Stelle zu lang: bei funktionen.reihen hält die App „: 2.“ für eine Aufzählung.
 - K2: erfüllt, ein Befund: Die Karte wählt die Orte nach block.ziel_klasse und beachtet die Schulart nicht. Der Reiter „Stand“ rechnet dagegen mit jahrgang[schulart].
@@ -181,11 +181,11 @@ Der Prüf-Chat (Zweig pruefung-phase2) konnte nicht pushen; seine Meldung hier i
 - Geprüft mit tests/lernen.test.cjs (34 von 34), eigenen Skripten über 593 Merksätze, alle Schrittbilder und die Winkelsätze-Datei; Datenbank nur gelesen; API mit Kind-Code nicht prüfbar.
 Folgen (Haupt-Chat):
 - Winkelsätze: Generator korrigiert (Stand eb6a852): Bei „stützt sich auf“ erscheinen Sätze über Vielecke mit weniger Ecken nicht mehr als falsche Auswahl; beim Stufenwinkel-Satz nicht mehr
-  „Scheitelwinkel“ (derselbe Fehlertyp). Datei neu erzeugt, inhalt_pruefen OK, Entwurf in der Datenbank ersetzt (11 Aufgaben der Etappe beweisen neu gezogen). Wartet auf Sebastians Freigabe.
+  „Scheitelwinkel“ (derselbe Fehlertyp). Datei neu erzeugt, inhalt_pruefen OK, Entwurf in der Datenbank ersetzt (11 Aufgaben der Etappe beweisen neu gezogen). Wartet auf Freigabe des Nutzers.
 - Die drei App-Befunde stehen als „Zusatz 4 zum Bau-Auftrag“ (P1–P3) in inhalte/AUFTRAEGE.md.
 
 ## 17.11. – Winkelsätze freigegeben; Themen-Einträge für drei neue Flüge; Achtzehnte Runde
-- Entscheidung Sebastian („alles so, wie du sagst“): Winkelsätze freigeben, „Live“ erst nach Schritt E, Inhalte: zuerst Lücken, dann RS/IB.
+- Entscheidung des Nutzers („alles so, wie du sagst“): Winkelsätze freigeben, „Live“ erst nach Schritt E, Inhalte: zuerst Lücken, dann RS/IB.
 - Flug „Winkelsätze“ (Einheit 92, Addis Abeba, vor „Konstruktionen“) ist freigegeben: 8 Etappen, 224 Aufgaben.
 - Migration supabase/migrations/20261117_w150_luecken_themen_quito.sql eingespielt: neuer Ort Quito (Klasse 6, Kontinent „Fläche und Raum“, block_id 114) und drei Themen-Einträge –
   messen.flaechen_vielecke (99, Quito), messen.volumen (100, Quito), messen.prisma_zylinder (101, Cusco). Noch ohne Inhalt.
@@ -224,7 +224,7 @@ Eigene Gegenprüfung über alle 23 geänderten Themen: keine alte Aufgabe fehlt,
   Frage, ob die neuen Pflichtkarten der Klasse 9 auch für Realschule/IB Pflicht sind; gleichungen.trig nach Klasse 10?
 - Teil A (drei neue Flüge, Zweig luecken-neu) ist noch nicht gestartet bzw. hat noch nichts hochgeladen.
 
-## 17.11. – Prüfung der Achtzehnten Runde Teil B (Prüf-Chat, von Sebastian weitergegeben) – Ergebnis und Folgen
+## 17.11. – Prüfung der Achtzehnten Runde Teil B (Prüf-Chat, vom Nutzer weitergegeben) – Ergebnis und Folgen
 Geprüft: 26 neue und 8 erweiterte Etappen (Stand e32f315), je neue Etappe Erklärung und etwa 13 Bordkarten von Hand, alle Koordinaten-Grafiken der 799 neuen Aufgaben per Skript. **Keine falsche Lösung gefunden.**
 Befunde des Prüf-Chats (Nummern = Position in der Aufgabenliste, ab 0 gezählt):
 - MUSS – abbildungen.kongruenz / winkelhalbierende: Gerade h (x = −3 bzw. −2) und ein Auswahlpunkt liegen außerhalb des Bildausschnitts.
@@ -245,7 +245,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - Freie Übungen jetzt: Stufe 1: 2 874 · Stufe 2: 4 698 · Stufe 3: 3 243 (vorher 2 541 / 4 027 / 4 153). 489 Etappen, keine unter 3 Übungen je Stufe; 162 Etappen haben weniger als 6 Stufe-3-Übungen → wird in der Zwanzigsten Runde aufgefüllt.
 - Konflikt: `raum.schraegbilder` und `stochastik.simulation` wurden von Klasse 8 und Klasse 10 bearbeitet. Es gilt die Fassung von Klasse 10 (Themenliste: Klasse 10); die Änderungen aus Klasse 8 an diesen zwei Themen sind nicht übernommen. Das Hilfsskript von Klasse 8 heißt jetzt `_durchsicht_nachweis_kl8.py`.
 - Nur umgestuft wurde der Pool `uebung`. Test, Korrektur und Sicherung sind nicht vollständig durchgesehen (Klasse 8 und 9 melden das ausdrücklich).
-- Die Listen „Für Sebastian“ (Überschneidungen, Reihenfolge, Vertiefung, App-Wünsche) und die neun Entscheidungen aus `inhalte/pruefung/klassen/vorschlag-rsib.md` liegen bei Sebastian. Bis zu seiner Entscheidung nichts davon umsetzen.
+- Die Listen „Für den Nutzer“ (Überschneidungen, Reihenfolge, Vertiefung, App-Wünsche) und die neun Entscheidungen aus `inhalte/pruefung/klassen/vorschlag-rsib.md` liegen beim Nutzer. Bis zu seiner Entscheidung nichts davon umsetzen.
 - Nächster Schritt: Bau-Auftrag F (Aufgabentyp `g`, Stufenanzeige, Knobel-Bordkarte), danach Zwanzigste Runde (echte Stufen je Lernkarte).
 
 ## 17.11. 14:20 – an bau-stufen: Teil 1 übernommen, Migration F eingespielt; Zusatz 1
@@ -255,28 +255,28 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 ## 17.11. 14:20 – an durchsicht-rsib-1, durchsicht-rsib-2, luecken-neu: übernommen
 - Alle drei Zweige sind in `lernen-app`. 24 Realschul-/IB-Themen als Entwurf abgeglichen (alte, nicht mehr enthaltene Aufgaben gesperrt, nichts gelöscht). Drei neue Flüge als Entwurf importiert: Einheit 93 (Flächen von Parallelogramm, Dreieck, Trapez – Quito), 95 (Volumen – Quito), 94 (Prismen und Zylinder – Cusco), je 7 Lernkarten und 196 Aufgaben.
-- Nichts davon ist freigegeben. Freigabe entscheidet Sebastian (drei neue Flüge: nach unabhängiger Prüfung).
+- Nichts davon ist freigegeben. Freigabe entscheidet der Nutzer (drei neue Flüge: nach unabhängiger Prüfung).
 - **Zwanzigste Runde kann starten** („Schritt 2 erledigt“): Feld `g`, Pool `bonus` und die neuen Prüfregeln sind im Arbeitszweig und in der Datenbank.
 
 ## 17.11. 14:30 – an bau-stufen: Teil 2 (App 0.75.0) übernommen
 - Teil 2 ist in `lernen-app`. App-Tests: 51 von 51. Migration F war schon eingespielt – bitte jetzt die echte Antwortform prüfen (aufgabe_anzeige typ/bonus, einheit_lesen bonus, uebung_pruefen bei Bonus, konto knobel_sterne/knobel_tag, lernstand knobel_*), wie angekündigt.
 - Noch offen: **Zusatz 1 zu Bau-Auftrag F** in `inhalte/AUFTRAEGE.md` („Lernstand“ öffnet die Klassen-Übersicht des Kindes). Bitte vom aktuellen `lernen-app` aus auf `bau-stufen` bauen und melden.
-- `main` bleibt bis zu Sebastians „Live“ auf 0.74.7.
+- `main` bleibt bis zu „Live“ des Nutzers auf 0.74.7.
 
 ## 17.11. 15:15 – an stufen-kl6, stufen-kl7, stufen-kl10, bau-stufen: übernommen und eingespielt
 - `stufen-kl6`, `stufen-kl7`, `stufen-kl10` und `bau-stufen` (App 0.75.1, Zusatz 1) sind in `lernen-app`. Prüfskript: 95 von 95 OK. App-Tests: 52 von 52.
 - Eingespielt: 29 Themen (27 freigegeben, 2 Entwurf). In der Datenbank jetzt 5 060 Aufgaben mit Typ und 420 Knobel-Bordkarten. Etappen mit weniger als 6 Stufe-3-Übungen: 77 (vorher 162) – der Rest gehört zu Klasse 5, 8, 9.
-- **Überzählige Übungen (ohne `g`):** bleiben vorerst freigegeben. Die App wechselt Typ und Satzbau ohnehin ab. Ob sie gesperrt werden, entscheidet Sebastian.
-- `main` ist 0.75.0; 0.75.1 wartet auf Sebastians „Live“.
+- **Überzählige Übungen (ohne `g`):** bleiben vorerst freigegeben. Die App wechselt Typ und Satzbau ohnehin ab. Ob sie gesperrt werden, entscheidet der Nutzer.
+- `main` ist 0.75.0; 0.75.1 wartet auf „Live“ des Nutzers.
 
 ## 17.11. 15:35 – an stufen-kl5, stufen-kl8, stufen-kl9 (und alle der Zwanzigsten Runde): übernommen und eingespielt
 - Alle sechs Zweige der Zwanzigsten Runde sind in `lernen-app`. Prüfskript: 95 von 95 OK. Namenskonflikt: `_stufen_nachweis.py` ist die Fassung von Klasse 7; die von Klasse 8 heißt `_stufen_nachweis_kl8.py`.
 - Datenbank: alle 489 Etappen der 68 freigegebenen Flüge haben Aufgabentypen, mindestens 4 / 6 / 8 freie Übungen auf Stufe 1 / 2 / 3 und mindestens eine Knobel-Bordkarte. Freie Übungen: Stufe 1: 2 742 · Stufe 2: 4 130 · Stufe 3: 4 010.
-- **Überzählige Übungen (ohne `g`) sind auf Sebastians Entscheidung gesperrt, nicht gelöscht** (928 in Klasse 6/7/10, 1 443 in Klasse 5/8/9). Annahme der Chats damit bestätigt.
+- **Überzählige Übungen (ohne `g`) sind auf Entscheidung des Nutzers gesperrt, nicht gelöscht** (928 in Klasse 6/7/10, 1 443 in Klasse 5/8/9). Annahme der Chats damit bestätigt.
 - Offen: unabhängige Stichprobe der neuen Stufe-3- und Knobel-Aufgaben; Test-, Korrektur- und Sicherungsaufgaben haben keine Typen; 24 Realschul-/IB-Themen haben noch keine Typen.
 
-## 17.11. 15:50 – Entscheidungen von Sebastian und was daraus folgt
-- **Drei neue Flüge freigegeben** (Einheiten 93, 94, 95) – auf Sebastians Entscheidung, ohne unabhängige Prüfung (so vermerkt). Quito steht im Plan von Kind A hinter Florenz. Überzählige Übungen dort gesperrt.
+## 17.11. 15:50 – Entscheidungen vom Nutzer und was daraus folgt
+- **Drei neue Flüge freigegeben** (Einheiten 93, 94, 95) – auf Entscheidung des Nutzers, ohne unabhängige Prüfung (so vermerkt). Quito steht im Plan von Kind A hinter Florenz. Überzählige Übungen dort gesperrt.
 - **Lehrplan-Reihenfolge Klasse 9 geändert:** `zahlen.rationale_exponenten` 8, `funktionen.potenz` 9, `gleichungen.potenz` 10, `trigo.allgemein` 13, `gleichungen.trig` 14 (Datenbank und Themenliste). Klasse 6 und 8 mit den neuen Flügen in der Datenbank nachgezogen.
 - **Realschule und IB werden nicht zurückgestellt:** neue Abschnitte in `inhalte/AUFTRAEGE.md` – „Zwanzigste Runde – Zusatz Realschule und IB“ (zwei Chats) und „Einundzwanzigste Runde“ (Teil A Bereinigen, Teil B Mindeststand je Jahrgang).
 
@@ -286,7 +286,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 17.11. 16:30 – an bau-motivation: Teil 1 übernommen, Probelauf bestanden, Migration noch nicht eingespielt
 - Teil 1 (App 0.76.0) ist in `lernen-app`. App-Tests: 55 von 55.
 - Probelauf gegen die echte Datenbank in einer zurückgerollten Transaktion (Migration + Rauchtest): Rauchtest ohne Fehler; sitzende Etappen und Punktesumme vorher = nachher, keine sitzende Etappe ohne eigene Lösungen.
-- Die Migration spiele ich erst unmittelbar vor Sebastians „Live“ ein, damit die alte App nicht tagelang „volle Punkte, aber nicht gelandet“ zeigt. Prüfbitte an ChatGPT ist gestellt (Werkstatt, Wunsch 176, Nachricht 841).
+- Die Migration spiele ich erst unmittelbar vor „Live“ des Nutzers ein, damit die alte App nicht tagelang „volle Punkte, aber nicht gelandet“ zeigt. Prüfbitte an ChatGPT ist gestellt (Werkstatt, Wunsch 176, Nachricht 841).
 - **Bitte jetzt mit Teil 2 weitermachen** (Format für Expeditionen: README und Prüfskript) – dafür braucht es die Migration nicht.
 
 ## 17.11. 16:35 – an bau-motivation: Teil 2 übernommen; an stufen-rsib-1: übernommen und als Entwurf eingespielt
@@ -301,16 +301,16 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **bau-motivation, Teil 3 – Probelauf der Migration (zurückgerollt): Rauchtest bricht bei „FEHLER 2“ ab.** Ursache: `schule.mischkarten` nimmt für das Testkind auch Aufgaben mit `freigegeben = false` (`a.freigegeben or (select test from ich)`). Seit dem 17.11. sind 2 500 überzählige Übungen in freigegebenen Flügen gesperrt (`freigegeben = false`, `typ is null`); das Testkind bekommt sie als Mischkarte. Für echte Kinder stimmt die Auswahl. Mit `and a.freigegeben` an dieser Stelle läuft der ganze Rauchtest fehlerfrei durch (Probelauf). Bitte in der Migrationsdatei korrigieren (gesperrte Aufgaben nie als Mischkarte, auch nicht für das Testkind; Entwurfs-Flüge des Testkinds bleiben über den Status der Einheit erlaubt) und prüfen, ob dieselbe Stelle anderswo vorkommt (z. B. Wiederholung, Übungsauswahl). Danach „FERTIG: Teil 3 (korrigiert)“ melden. Die Migration ist nicht eingespielt; App 0.77.0 ist nicht live.
 
 ## 18.11. 03:45 – an alle: Realschul-Klasse und IB-Jahr je Thema sind jetzt fest eingetragen
-- Befund (Sebastian): Die App zeigte z. B. „Terme umformen“ mit Realschule 6 und IB 1. Ursache: `schule.thema_jahrgang` nahm je Schulart die früheste Zuordnung, auch Neben-Zuordnungen; 860 von 862 Zuordnungen sind ungeprüft.
+- Befund (Nutzer): Die App zeigte z. B. „Terme umformen“ mit Realschule 6 und IB 1. Ursache: `schule.thema_jahrgang` nahm je Schulart die früheste Zuordnung, auch Neben-Zuordnungen; 860 von 862 Zuordnungen sind ungeprüft.
 - Jetzt gilt für `rs_by` und `ib_myp` der Wert aus `inhalte/pruefung/klassen/vorschlag-mindeststand.md`, Punkt 1 (RS korrigiert nach `vorschlag-rsib.md`; IB = Vorschlag rsib, sonst bisheriger Wert). Migration `supabase/migrations/20261118_w150_klassen_rs_ib_fest.sql` ist eingespielt; `inhalte/themenliste.json` hat dieselben Werte (54 Einträge geändert). `gym_by` ist unverändert.
 - `ib_myp` ist das Jahr 1–5 im IB Middle Years Programme (entspricht etwa Klasse 6–10), keine Klasse. IB-Werte bleiben „üblich“ oder „Annahme“ – das IB legt keinen Stoff je Jahr fest.
-- **an bau-motivation (Zusatz, mit der Korrektur zu Teil 3 liefern):** Überall, wo die App IB anzeigt (Lernstand-Tabelle, Mini-Linien, Flugplan, Lehrplan-Übersicht, Info-Seite): Beschriftung „MYP-Jahr 1–5“ mit dem Hinweis „entspricht etwa Klasse 6–10“; keine Spalte „Kl. 5“ für IB. Prüfen, wo die App MYP-Jahr in eine Klasse umrechnet (bisher teils + 4) – richtig ist + 5. Dazu der Knopf „Lernen starten“ als erster Knopf an der Kinderkarte (siehe Kopiertext von Sebastian).
+- **an bau-motivation (Zusatz, mit der Korrektur zu Teil 3 liefern):** Überall, wo die App IB anzeigt (Lernstand-Tabelle, Mini-Linien, Flugplan, Lehrplan-Übersicht, Info-Seite): Beschriftung „MYP-Jahr 1–5“ mit dem Hinweis „entspricht etwa Klasse 6–10“; keine Spalte „Kl. 5“ für IB. Prüfen, wo die App MYP-Jahr in eine Klasse umrechnet (bisher teils + 4) – richtig ist + 5. Dazu der Knopf „Lernen starten“ als erster Knopf an der Kinderkarte (siehe Kopiertext vom Nutzer).
 
 ## 18.11. 04:10 – an stufen-kl5: Korrekturen übernommen und eingespielt; an bau-motivation: Teil 3 (korrigiert) und Teil 4 übernommen, Probelauf
 - `stufen-kl5` (Stand ce83787, 31 korrigierte Aufgaben in 8 Themen) ist in `lernen-app` und eingespielt: 16 Aufgaben neu angelegt (Frage oder Antworten geändert; die alte Fassung ist gesperrt), die übrigen an Ort und Stelle berichtigt. Die Formulierung „k. Strich nach dem Anfang“ steht in keiner freigegebenen Aufgabe von `zahlen.ganz` mehr. Lernstände unverändert.
 - `bau-motivation` (Teil 3 korrigiert, Teil 4, IB-Beschriftung, App 0.78.0) ist in `lernen-app`. App-Tests 62 von 62, Prüfskript 96 von 96.
 - Probelauf beider Migrationen gegen die echte Datenbank (zurückgerollt): **Teil 3** – Rauchtest ohne Fehler. **Teil 4** – Migration läuft; der Rauchtest bricht mit „column reference k.einheit_id is ambiguous“ ab. Das ist ein Fehler **im Test**, nicht in der Migration: Die Variable `k` (Zeile `schule.karte_stand`) kollidiert mit dem Tabellen-Alias `k` in den Zeilen 20–52. Mit `#variable_conflict use_column` läuft der ganze Test fehlerfrei durch. Bitte in `supabase/tests/w176_t4_rauchtest.sql` beheben (Alias oder Variable umbenennen) – die Migration bleibt, wie sie ist.
-- Eingespielt wird beides bei Sebastians „Live“.
+- Eingespielt wird beides bei „Live“ des Nutzers.
 
 ## 18.11. 04:50 – an stufen-kl6 … stufen-kl10: inhaltliche Prüfung übernommen und eingespielt; an bau-motivation: Sperr-Korrektur eingespielt
 - Alle fünf Zweige sind in `lernen-app` (ohne Konflikt; alle 56 geänderten Themen aus den Generatoren neu erzeugt – deckungsgleich). Prüfskript 96 von 96 OK.
@@ -322,35 +322,35 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **`20261119_w176_h_muss.sql` bricht im Probelauf gegen die echte Datenbank ab:** `record "v" is not assigned yet` in der Schleife des H2-Blocks (`select k.* from schule.karte_stand k where not k.sitzt and k.folge > 0 and not exists (select 1 from schule.versuch v join …)`). Ursache: Im selben `do`-Block ist eine Variable `v` (record) deklariert; sie kollidiert mit dem Tabellen-Alias `v`. Bitte Alias oder Variable umbenennen und die ganze Datei auf weitere solche Kollisionen prüfen (auch `h_sollte`, das ich deshalb noch nicht laufen lassen konnte).
 - **Rauchtests:** `w176_t4_rauchtest.sql` bricht ab mit `"a_ids" is not a known variable` (nach der Änderung von Schritt 9). `w176_t3_rauchtest.sql` Schritt 4 erwartet nach einer falschen Mischkarte noch `wdh_fehler = 1` – seit H8 ist das überholt („FEHLER 4“); bitte an die neue Regel anpassen. `w176_h8_rauchtest.sql` läuft durch.
 - Hinweis zum Probelauf: Ich führe die Migrationen in einer Transaktion aus, die am Ende zurückgerollt wird, und danach die `do`-Blöcke der Rauchtests. Du kannst die Datenbank lesen, aber nichts ausführen – deshalb bitte besonders auf Namenskonflikte zwischen plpgsql-Variablen und Tabellen-Aliasen achten (dritter Fall dieser Art).
-- Nach „FERTIG: Auftrag H (korrigiert)“ spiele ich `h_muss` und `h_sollte` ein; App 0.79.0 geht mit Sebastians „Live“ zusammen mit `h_muss` live.
+- Nach „FERTIG: Auftrag H (korrigiert)“ spiele ich `h_muss` und `h_sollte` ein; App 0.79.0 geht mit „Live“ des Nutzers zusammen mit `h_muss` live.
 - **Danach neuer Auftrag:** „Bau-Auftrag LA (18.11.): Lehrer-Aufbau“ in `inhalte/AUFTRAEGE.md` (Zweig `bau-lehrer`).
 
 ## 18.11. 06:35 – an expedition-kl5, expedition-kl8, doppelt-pruefen: übernommen
 - Alle drei Zweige sind in `lernen-app`. Prüfskript: 116 von 116 OK (95 Themen, 21 Expeditionen).
-- Die 21 Expeditionen (10 Klasse 5, 11 Klasse 8 mit dem Beispiel) sind als **Entwurf** in der Datenbank; für echte Kinder nicht sichtbar. Fachliche Prüfbitte an ChatGPT ist gestellt (Werkstatt, Wunsch 176). Freigabe erst nach dieser Prüfung, nach Bau-Auftrag H (H9–H11) und Sebastians Entscheidung.
-- `doppelt-pruefen`: Ergebnis liegt bei Sebastian (11 Themen auflösen, 13 bleiben, keine neuen Themen nötig). Bis zu seiner Entscheidung nichts umsetzen.
+- Die 21 Expeditionen (10 Klasse 5, 11 Klasse 8 mit dem Beispiel) sind als **Entwurf** in der Datenbank; für echte Kinder nicht sichtbar. Fachliche Prüfbitte an ChatGPT ist gestellt (Werkstatt, Wunsch 176). Freigabe erst nach dieser Prüfung, nach Bau-Auftrag H (H9–H11) und Entscheidung des Nutzers.
+- `doppelt-pruefen`: Ergebnis liegt beim Nutzer (11 Themen auflösen, 13 bleiben, keine neuen Themen nötig). Bis zu seiner Entscheidung nichts umsetzen.
 
 ## 18.11. 08:40 – an bau-motivation: Auftrag H läuft jetzt im Probelauf durch (eine Zeile von mir berichtigt); Rauchtest H12b anpassen
 - `h_muss` brach wieder ab: `"n_gleich" is not a known variable`. Ursache: Im H2-Block stand der Kommentar `-- w, nicht v …` mitten in der `declare`-Zeile und verschluckte `n_neu`, `n_null`, `n_gleich`. Ich habe den Kommentar ans Zeilenende gesetzt (Commit 9d2f9be in `lernen-app`) – bitte in deinen Zweig übernehmen, nicht überschreiben.
 - Probelauf danach (zurückgerollt): `h_muss`, `h_sollte` und die Rauchtests `h_muss`, `h8` ohne Fehler. Die Folge-Summe eines Kindes steigt durch H2 um 2, gelandete Etappen und eigene Lösungen unverändert.
 - `w176_h_sollte_rauchtest.sql` meldet „FEHLER H12b: ungültiger Import hat geschrieben“ – nur weil `8-handytarif` schon als Entwurf in der Datenbank liegt. Mit einem anderen Schlüssel läuft der Test durch. Bitte im Test einen Schlüssel nehmen, den es nicht gibt.
-- Eingespielt ist noch nichts; `h_muss`, `h_sollte` und App 0.79.0/0.80.0 warten auf Sebastians „Live“.
+- Eingespielt ist noch nichts; `h_muss`, `h_sollte` und App 0.79.0/0.80.0 warten auf „Live“ des Nutzers.
 
 ## 18.11. 08:40 – an bau-lehrer: LA übernommen; ein Test wackelt
-- Zweig ist in `lernen-app` (App 0.80.0). `la_3` und `la_4` mit Rauchtests im Probelauf (zurückgerollt) ohne Fehler; eingespielt wird mit Sebastians „Live“.
+- Zweig ist in `lernen-app` (App 0.80.0). `la_3` und `la_4` mit Rauchtests im Probelauf (zurückgerollt) ohne Fehler; eingespielt wird mit „Live“ des Nutzers.
 - Tests lernen: 80 von 81. „LA-1: Seite des Kindes mit 4 Reitern …“ scheitert im Gesamtlauf (auch auf deinem Zweig allein), einzeln läuft er: `allInnerTexts()` liest die Reiter direkt nach `waitForURL`, bevor sie gezeichnet sind (Ergebnis `[]`). Bitte vorher auf `.lern-reiter a` warten.
 
 ## 18.11. 08:40 – an aufloesen: übernommen, noch nicht eingespielt
 - Zweig ist in `lernen-app`; Prüfskript 116 von 116 OK; Generatoren und Dateien stimmen überein.
-- Eingespielt wird erst nach Sebastians Entscheidung zu deinen Punkten 3 (gegenvektor Pflicht, verschiebung Vertiefung) und 4 (Dualsystem Pflicht für alle), weil sonst abgeschlossene Flüge beider Kinder wieder offen werden.
+- Eingespielt wird erst nach Entscheidung des Nutzers zu deinen Punkten 3 (gegenvektor Pflicht, verschiebung Vertiefung) und 4 (Dualsystem Pflicht für alle), weil sonst abgeschlossene Flüge beider Kinder wieder offen werden.
 
 ## 18.11. 08:40 – an expedition-kl5, expedition-kl8: fachliche Prüfung da – 4 Auflagen
 - ChatGPT (Werkstatt 853): 17 freigabereif, 4 mit Auflagen (Text, keine Rechnung). Auftrag: „Expeditionen – Korrekturen nach der fachlichen Prüfung“ am Ende von `inhalte/AUFTRAEGE.md`.
 
 ## 18.11. 11:20 – an alle: App 0.80.0 ist live; Auflösen eingespielt; 14 Flüge und 17 Expeditionen freigegeben
-- **Live (Sebastians „Live“):** `main` = App 0.80.0 (Lehrer-Aufbau LA-1 bis LA-7, Auftrag H). Eingespielt: `h_muss` (berichtigt), `h_sollte`, `la_3`, `la_4`; Rauchtests danach ohne Fehler.
-- **aufloesen:** Die 17 Zielthemen sind eingespielt (15 freigegeben, 2 damals Entwurf). Sebastians Entscheidung: **Dualsystem und Gegenvektor sind Vertiefung** (in `_af_neu.py` und `_af_plan.py` geändert, Commit 216d50b) – kein abgeschlossener Flug wird wieder offen. Die 10 aufgelösten Themen bleiben als Entwurf liegen.
-- **Freigegeben (Sebastian):** 14 Flüge – `abbildungen.determinanten2`, `daten.stichproben`, `terme.quadratische_extreme`, `abbildungen.matrizen`, `gleichungen.wurzel`, `funktionen.reihen`, `funktionen.betrag`, `daten.zweidimensional`, `daten.standardabweichung`, `daten.normalverteilung`, `sonder.graphentheorie`, `sonder.logik`, `sonder.optimierung`, `zahlen.schranken`. Im Plan von Kind B neu: Shanghai (Kl. 8), Perth und Lagos (Kl. 7). `gleichungen.wurzel` ist in Tokio abgewählt (freiwillig). Die übrigen liegen in Zusatz-Orten außerhalb des Plans.
+- **Live („Live“ des Nutzers):** `main` = App 0.80.0 (Lehrer-Aufbau LA-1 bis LA-7, Auftrag H). Eingespielt: `h_muss` (berichtigt), `h_sollte`, `la_3`, `la_4`; Rauchtests danach ohne Fehler.
+- **aufloesen:** Die 17 Zielthemen sind eingespielt (15 freigegeben, 2 damals Entwurf). Entscheidung des Nutzers: **Dualsystem und Gegenvektor sind Vertiefung** (in `_af_neu.py` und `_af_plan.py` geändert, Commit 216d50b) – kein abgeschlossener Flug wird wieder offen. Die 10 aufgelösten Themen bleiben als Entwurf liegen.
+- **Freigegeben (Nutzer):** 14 Flüge – `abbildungen.determinanten2`, `daten.stichproben`, `terme.quadratische_extreme`, `abbildungen.matrizen`, `gleichungen.wurzel`, `funktionen.reihen`, `funktionen.betrag`, `daten.zweidimensional`, `daten.standardabweichung`, `daten.normalverteilung`, `sonder.graphentheorie`, `sonder.logik`, `sonder.optimierung`, `zahlen.schranken`. Im Plan von Kind B neu: Shanghai (Kl. 8), Perth und Lagos (Kl. 7). `gleichungen.wurzel` ist in Tokio abgewählt (freiwillig). Die übrigen liegen in Zusatz-Orten außerhalb des Plans.
 - **Expeditionen:** 17 freigegeben; `5-flug_toronto`, `5-schatzsuche`, `8-radtour`, `8-pool` bleiben Entwurf bis zu den Korrekturen (Auftrag am Ende von `AUFTRAEGE.md`).
 - **an bau-motivation – Fehler gefunden:** `schule.einheit_abgleichen(…, 'sperren')` sperrt auch Expeditions-Teile (`pool = 'expedition'`) des Flugs, weil sie nicht in der Themendatei stehen (heute 21 Teile in 14 Expeditionen; durch erneuten Import behoben). Bitte als Migration liefern: Abgleich lässt `pool = 'expedition'` unberührt; Rauchtest dazu.
 
@@ -366,34 +366,34 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **Neuer Auftrag:** „Bau-Auftrag I (20.11.)“ am Ende von `inhalte/AUFTRAEGE.md`. **Zuerst Teil 1 (`bau-lehrer`), danach Teil 2 (`bau-motivation`)** – nicht gleichzeitig.
 
 ## 20.11. 03:10 – an bau-lehrer: Auftrag I, Teil 1 hat einen Zusatz (Punkt 10)
-- Sebastian hat entschieden: **Reisetage und Pausen** werden eintragbar (Punkt 10 in Teil 1). Die Stand-Zellen bleiben ohne Ampel. Falls du schon begonnen hast: Punkt 10 bitte mit aufnehmen.
+- Der Nutzer hat entschieden: **Reisetage und Pausen** werden eintragbar (Punkt 10 in Teil 1). Die Stand-Zellen bleiben ohne Ampel. Falls du schon begonnen hast: Punkt 10 bitte mit aufnehmen.
 - An bau-motivation (Teil 2, Punkt 6): Die Frist nach einem Nachtragstest bleibt, wie sie ist – nur beschreiben.
 
 ## 20.11. 03:35 – an bau-lehrer: zusätzlich Teil 1b (LA-8 „Lehrplan nach Themengebiet“)
-- Sebastian hat LA-8 freigegeben. Auftrag: „Teil 1b“ im Abschnitt „Bau-Auftrag I (20.11.)“ in `inhalte/AUFTRAEGE.md`; Vorgabe `inhalte/pruefung/lehrer/umsetzung.md` Abschnitt LA-8, Entwurf `inhalte/pruefung/lehrer/entwurf/lehrplan-spalte.html` (jetzt in `lernen-app`). Nach Teil 1, im selben Zweig, eine Version 0.81.0.
+- Der Nutzer hat LA-8 freigegeben. Auftrag: „Teil 1b“ im Abschnitt „Bau-Auftrag I (20.11.)“ in `inhalte/AUFTRAEGE.md`; Vorgabe `inhalte/pruefung/lehrer/umsetzung.md` Abschnitt LA-8, Entwurf `inhalte/pruefung/lehrer/entwurf/lehrplan-spalte.html` (jetzt in `lernen-app`). Nach Teil 1, im selben Zweig, eine Version 0.81.0.
 
 ## 20.11. 03:35 – an expedition-kl5: zwei Sätze nach ChatGPTs Nachprüfung (875) vom Haupt-Chat geändert
 - `5-flug_toronto` Teil d: „Von der Landung bis zur Ankunft im Hotel vergehen insgesamt 1 h 30 min – einschließlich Aussteigen, Gepäckabholen und Fahrt.“ `5-pyramide` Teil c: „Die echten großen Pyramiden bestehen aus Steinblöcken und sind viel größer als die beiden Holzmodelle.“ Beides im Generator geändert, Prüfskript OK. Bitte vor weiteren Änderungen `lernen-app` holen.
 
 ## 20.11. 03:55 – an bau-lehrer, bau-motivation, pruefung-kinderansicht, pruefung-neu-1/2: übernommen
-- **bau-lehrer:** Auftrag I Teil 1 und Teil 1b (LA-8) sind in `lernen-app` (App 0.81.0, Tests lernen 94 von 94). `20261120_i_pause.sql` mit Rauchtest im Probelauf (zurückgerollt) ohne Fehler. Eingespielt und live erst mit Sebastians „Live“.
+- **bau-lehrer:** Auftrag I Teil 1 und Teil 1b (LA-8) sind in `lernen-app` (App 0.81.0, Tests lernen 94 von 94). `20261120_i_pause.sql` mit Rauchtest im Probelauf (zurückgerollt) ohne Fehler. Eingespielt und live erst mit „Live“ des Nutzers.
 - **bau-motivation:** Teil 1 ist zusammengeführt – **Teil 2 kann beginnen** (Stand `lernen-app` 67dae64 oder neuer holen; Version 0.81.1).
 - **pruefung-kinderansicht:** Der Bau ist fertig zum Nachprüfen (Mängel aus der Nachprüfung, Reisetage, LA-8) – Stand `lernen-app`, noch nicht live.
 - **pruefung-neu-1, pruefung-neu-2:** Korrekturen übernommen (Prüfskript 116 von 116, Generatoren = Dateien); werden eingespielt, sobald kein Kind übt.
 
 ## 20.11. 04:00 – an alle: App 0.81.0 ist live; Prüf-Korrekturen und Expeditionen eingespielt
-- **Live (Sebastians „Live“):** `main` = App 0.81.0 (Auftrag I Teil 1 und 1b). `20261120_i_pause.sql` ist eingespielt, Rauchtest danach ohne Fehler.
+- **Live („Live“ des Nutzers):** `main` = App 0.81.0 (Auftrag I Teil 1 und 1b). `20261120_i_pause.sql` ist eingespielt, Rauchtest danach ohne Fehler.
 - **pruefung-neu-1/2:** Korrekturen an 13 Flügen sind in der Datenbank (Mindestmengen erfüllt, nichts gelöscht).
-- **Expeditionen:** alle 21 freigegeben (Sebastians Entscheidung), 0 gesperrte Teile.
+- **Expeditionen:** alle 21 freigegeben (Entscheidung des Nutzers), 0 gesperrte Teile.
 - **bau-motivation:** Teil 2 baut auf `lernen-app` 68a663d oder neuer auf (Version 0.81.1).
 
 ## 20.11. 04:30 – an bau-motivation: Auftrag I Teil 2 übernommen; ein Testfehler
 - Zweig ist in `lernen-app` (App 0.81.1, Tests lernen 95 von 95). Probelauf (zurückgerollt): `20261120_i2_lernregeln.sql` ohne Fehler; Rauchtests `i2`, `w177` Block 1, `h_muss`, `h_sollte`, `h8`, `t1`, `t3`, `abgleich` ohne Fehler; Lernstände unverändert.
 - **`w177_nachtragstest_rauchtest.sql`, zweiter Block, bricht ab:** `operator does not exist: bigint = bigint[]` im `if` in Zeile 54 des Blocks (nach dem Sterne-Vergleich). Bitte den Vergleich berichtigen (vermutlich `= any(…)`).
-- Eingespielt und live erst mit Sebastians „Live“.
+- Eingespielt und live erst mit „Live“ des Nutzers.
 
 ## 20.11. 04:30 – an pruefung-kinderansicht: Nachprüfung 2 übernommen
-- Dein Muss (Pausen-Migration vor dem Merge) ist erfüllt: `i_pause` ist eingespielt, Rauchtest danach ohne Fehler; 0.81.0 ist live. Die Stand-Zellen bleiben ohne Ampel (Sebastians Entscheidung vom 20.11.). Sollte 1 und 2 (Trennung im Umschalter, lange Überschriften auf dem Handy) und die Kann-Punkte gehen in den nächsten Bau-Auftrag.
+- Dein Muss (Pausen-Migration vor dem Merge) ist erfüllt: `i_pause` ist eingespielt, Rauchtest danach ohne Fehler; 0.81.0 ist live. Die Stand-Zellen bleiben ohne Ampel (Entscheidung des Nutzers vom 20.11.). Sollte 1 und 2 (Trennung im Umschalter, lange Überschriften auf dem Handy) und die Kann-Punkte gehen in den nächsten Bau-Auftrag.
 
 ## 20.11. 04:25 – an alle: App 0.81.1 ist live
 - `main` = App 0.81.1 (Auftrag I Teil 2). `20261120_i2_lernregeln.sql` ist eingespielt; Rauchtests `i2`, `h_muss`, `h_sollte`, `h8`, `t1`, `t3` danach ohne Fehler, Lernstände unverändert. Prüfbitte an ChatGPT ist gestellt.
@@ -403,15 +403,15 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - bau-motivation: Test-Korrektur W177 übernommen. ChatGPT (Werkstatt 878) hat zu Teil 2 zwei Muss bei H2 gefunden (endgültige Wertung festhalten; Nachbuchen genau einmal) und vier Sollte. Auftrag: „Teil 3“ im Abschnitt „Bau-Auftrag I“ in `inhalte/AUFTRAEGE.md`.
 - bau-lehrer: „Teil 4“ (Restpunkte des Gestalters) – erst nach Teil 3.
 
-## 20.11. 05:05 – an alle: neuer Bau-Auftrag LB (vom Gestalter, von Sebastian freigegeben)
+## 20.11. 05:05 – an alle: neuer Bau-Auftrag LB (vom Gestalter, vom Nutzer freigegeben)
 - Abschnitt „Bau-Auftrag LB (20.11.)“ am Ende von `inhalte/AUFTRAEGE.md`; Vorgabe `inhalte/pruefung/lehrer/umsetzung-lb.md` und Entwurf liegen jetzt in `lernen-app`.
-- Reihenfolge: `bau-motivation` Teil 3 → (LB-3 Serverteil, sobald Sebastian LB-3 bestätigt hat) → `bau-lehrer` Teil 4 + LB-1 + LB-2. Neuer Inhalts-Chat `lehrplan-lb` für LB-4 läuft sofort.
+- Reihenfolge: `bau-motivation` Teil 3 → (LB-3 Serverteil, sobald der Nutzer LB-3 bestätigt hat) → `bau-lehrer` Teil 4 + LB-1 + LB-2. Neuer Inhalts-Chat `lehrplan-lb` für LB-4 läuft sofort.
 
 ## 20.11. 05:20 – an bau-motivation, bau-lehrer: Bau-Auftrag LB erweitert (LB-3 bestätigt, LB-5 neu)
-- Sebastian hat **LB-3 bestätigt** (ohne Vortest). Neu in LB-3: „Wieder in die Wiederholung“ für ◉-Themen und Sammelaktionen (mehrere Flüge in einem Aufruf, eine Rücknahme). `bau-motivation` baut den Serverteil direkt nach Teil 3.
+- Der Nutzer hat **LB-3 bestätigt** (ohne Vortest). Neu in LB-3: „Wieder in die Wiederholung“ für ◉-Themen und Sammelaktionen (mehrere Flüge in einem Aufruf, eine Rücknahme). `bau-motivation` baut den Serverteil direkt nach Teil 3.
 - Neu **LB-5 „Plan = Cockpit“** – gehört zum Paket von `bau-lehrer` (Teil 4 + LB-1 + LB-2 + LB-5, App 0.82.0). Vorgabe `inhalte/pruefung/lehrer/umsetzung-lb.md` in der Fassung von 04:43 liegt in `lernen-app`.
 
-## 20.11. 05:35 – an bau-lehrer, pruefung-kinderansicht: zwei Ergänzungen von Sebastian
+## 20.11. 05:35 – an bau-lehrer, pruefung-kinderansicht: zwei Ergänzungen vom Nutzer
 - bau-lehrer: Teil 4 hat zwei neue Punkte – 4 („in Prüfung“ → „aussortiert“ in „Inhalte ansehen“) und 5 (Kinderansicht: nach der Knobel-Bordkarte zurück zum Landebildschirm; gelandete Etappe zeigt „Hier bist du fertig“ mit Knopf zum nächsten Schritt).
 - pruefung-kinderansicht: neuer Entwurfs-Auftrag „Kinderansicht: Abschluss nach Etappe und Flug“ am Ende von `inhalte/AUFTRAEGE.md`.
 
@@ -423,10 +423,10 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 ## 20.11. 05:55 – an bau-lehrer: Du bist dran – Teil 4 + LB-1 + LB-2 + LB-5 (App 0.82.0)
 - Stand `lernen-app` 63d10b0 oder neuer holen. Der Serverteil LB-3 liegt als Migration `20261120_lb3_kann_wiederholen.sql` im Zweig; die neuen Felder und Aktionen stehen in `inhalte/postfach/bau-motivation.md` (oberster Eintrag, Abschnitt „Für bau-lehrer“). Teil 4 hat inzwischen die Punkte 4 und 5.
-- LB-4 (Lehrplan-Daten) ist geliefert, wird aber auf Sebastians Wunsch gerade noch einmal geprüft und ist noch nicht in `lernen-app`. Die App muss ohne diese Felder laufen.
+- LB-4 (Lehrplan-Daten) ist geliefert, wird aber auf Wunsch des Nutzers gerade noch einmal geprüft und ist noch nicht in `lernen-app`. Die App muss ohne diese Felder laufen.
 
 ## 20.11. 05:55 – an lehrplan-lb: geliefert, noch nicht übernommen
-- Sebastian lässt LB-4 noch einmal prüfen. Ich übernehme den Zweig danach und bringe die Felder in die Datenbank.
+- Der Nutzer lässt LB-4 noch einmal prüfen. Ich übernehme den Zweig danach und bringe die Felder in die Datenbank.
 
 ## 20.11. 05:45 – an alle: App 0.81.3 ist live
 - `main` = App 0.81.3. `20261120_i3_lernregeln_nachpruefung.sql` und `20261120_lb3_kann_wiederholen.sql` sind eingespielt; 15 Rauchtests danach ohne Fehler, Lernstände unverändert; `thema_stufe` für alle Themen eines Kindes 43 ms. Prüfbitte an ChatGPT ist gestellt.
@@ -445,7 +445,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **bau-lehrer:** Teil 4, Punkt 5 ist geändert: d) Knobel-Bordkarte kommt immer von selbst hinten dran, e) nach der letzten Pflicht-Etappe folgt der Test, f) richtige/falsche Antworten im Test-Ergebnis deutlicher. Bitte die aktuelle Fassung lesen (ersetzt den früheren Unterpunkt d).
 - **bau-motivation:** nach „Misch-Ausgaben wiederverwenden“ → **AB-S** (Server, nur Migration und Rauchtest); **AB-A** (App 0.83.0) erst nach 0.82.0.
 - **Neue Inhalts-Chats `kann-1`, `kann-2`, `kann-3`:** AB-I (Texte „kann“ und „kurz“).
-- **pruefung-kinderansicht:** Entwurf 2 ist übernommen und als „Bau-Auftrag AB“ verteilt. Zusätze von Sebastian: Knobel immer hinten dran (beim Sturmflug nur als Textlink), Test folgt von selbst, Test-Ergebnis deutlicher.
+- **pruefung-kinderansicht:** Entwurf 2 ist übernommen und als „Bau-Auftrag AB“ verteilt. Zusätze vom Nutzer: Knobel immer hinten dran (beim Sturmflug nur als Textlink), Test folgt von selbst, Test-Ergebnis deutlicher.
 
 ## 20.11. 06:20 – an bau-lehrer: Teil 4, Punkt 5 g) – „Verbessern ›“ nach dem Test tut nichts
 - Fehler aus dem Betrieb: Der Link zeigt auf die Adresse, auf der das Kind schon steht. Beschreibung und Änderung im Auftrag (Punkt 5 g). Bitte mit 0.82.0 beheben.
@@ -457,7 +457,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **bau-lehrer:** Teil 4 und LB-1/LB-2/LB-5 sind in `lernen-app` (App 0.82.0, Tests lernen 102 von 102). `20261120_lb_lehrplan_felder.sql` mit Rauchtest im Probelauf ohne Fehler. **Offen bei dir (kam nach deinem Stand): Teil 4, Punkt 5 d) bis h)** – Knobel immer hinten dran, Test folgt von selbst, Test-Ergebnis deutlicher, „Verbessern ›“ tut nichts, nach bestandenem Verbessern alter Stand. Bitte als **App 0.82.1** (Stand `lernen-app` e965e5c oder neuer).
 - **bau-motivation:** „Misch-Ausgaben wiederverwenden“ übernommen; `20261120_i4_misch_ausgabe_wieder.sql` und alle Rauchtests (i4, i3 mit S3d, lb3, i2, h_muss, t3, la_4) im Probelauf ohne Fehler. **Offen bei dir:** `thema_stufe` und offener Nachtragstest (Eintrag 06:00) und **AB-S**. AB-A erst nach 0.82.1.
 - **kann-1, kann-2, kann-3:** übernommen – 85 Dateien, 600 Etappen; meine Gegenprüfung per Skript: jede Etappe genau ein Text, Längen eingehalten. (Für Klasse 5/6 gab es zwei Lieferungen; übernommen ist der Zweig `kann-1`, `kann-1-b` nicht.) In die Datenbank kommen die Texte, sobald AB-S die Ablage angelegt hat.
-- **lehrplan-lb:** übernommen (Reihenfolge, Lernbereich, Lehrplan-Texte für Gymnasium, Realschule, IB). Kommt nach dem Einspielen von `lb_lehrplan_felder` in die Datenbank. Sebastians Entscheidung zu den Potenzgesetzen (zwei neue Flüge A und B) bereitet der Haupt-Chat als eigenen Auftrag vor.
+- **lehrplan-lb:** übernommen (Reihenfolge, Lernbereich, Lehrplan-Texte für Gymnasium, Realschule, IB). Kommt nach dem Einspielen von `lb_lehrplan_felder` in die Datenbank. Entscheidung des Nutzers zu den Potenzgesetzen (zwei neue Flüge A und B) bereitet der Haupt-Chat als eigenen Auftrag vor.
 
 ## 20.11. 07:10 – an alle: App 0.82.0 ist live; Lehrplan-Daten (LB-4) sind in der Datenbank
 - `main` = App 0.82.0. Eingespielt: `20261120_i4_misch_ausgabe_wieder.sql`, `20261120_lb_lehrplan_felder.sql` und `20261120_lb4_lehrplan_daten.sql` (vom Haupt-Chat aus `themenliste.json` erzeugt: `lehrplan_reihenfolge`, `lernbereich`, `lehrplan` für 95 Themen; Realschule 76, IB 84, Gymnasium 71 mit Lernbereich; Realschule Klasse 7 = 18 Themen). Lernstände unverändert.
@@ -467,7 +467,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 ## 20.11. 07:30 – an bau-motivation: i5 und AB-S übernommen, Probelauf ohne Fehler
 - Zweig ist in `lernen-app` (f75361d). `i4` ist schon live (seit 07:10). Probelauf gegen die echte Datenbank (zurückgerollt): `i5` und `ab_s` ohne Fehler eingespielt; Rauchtests `i5`, `ab_s`, `i4`, `lb3`, `i2`, `w177` (beide Blöcke), `h_muss`, `h_sollte`, `t1`, `t3`, `t4`, `la_4`, `lb_lehrplan_felder` ohne Fehler; Lernstände unverändert. Nur `i3_lernregeln_rauchtest.sql` bricht weiter mit `duplicate key … misch_ausgabe_offen_eindeutig` ab (Eintrag 07:10) – bitte den Test vom Zufall der Kartenauswahl lösen.
-- Deine drei Fragen (Lerntage zählen nicht für den Sturmflug · „wieder gelandet“ = Sauber und ersetzt die frühere Art · keine nachträgliche Art für bestehende Landungen) liegen bei Sebastian; bis zu seiner Antwort gilt, was du gebaut hast.
+- Deine drei Fragen (Lerntage zählen nicht für den Sturmflug · „wieder gelandet“ = Sauber und ersetzt die frühere Art · keine nachträgliche Art für bestehende Landungen) liegen beim Nutzer; bis zu seiner Antwort gilt, was du gebaut hast.
 - **AB-A (App 0.83.0) beginnt erst nach App 0.82.1** – `bau-lehrer` baut gerade Teil 4, Punkt 5 d–h. Ich melde es hier.
 
 ## 20.11. 07:45 – an bau-lehrer, bau-motivation: Teil 4 Punkt 5 d–h übernommen – als App 0.82.1
@@ -478,7 +478,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **bau-lehrer:** Dein Stand „App 0.82.1“ ist übernommen (Konflikt nur in `sw.js`, Cache v147; Tests lernen 108 von 108). **Neu: „Bau-Auftrag LB, Teil 5“** (Mängel aus Nachprüfung 3: 1 Muss Tablet, 4 Sollte, 4 Kann) am Ende von `inhalte/AUFTRAEGE.md` – als App 0.82.2.
 - **bau-motivation:** AB-A (App 0.83.0) beginnt, wenn Teil 5 zusammengeführt ist – ich melde es hier.
 - **pruefung-kinderansicht:** Nachprüfung 3 übernommen und als Teil 5 beauftragt.
-- Noch nicht live: App 0.82.1, `i5`, `ab_s` (warten auf Sebastians „Live“).
+- Noch nicht live: App 0.82.1, `i5`, `ab_s` (warten auf „Live“ des Nutzers).
 
 ## 20.11. 08:25 – an alle: App 0.82.1 ist live; AB-S und die Texte „kurz“/„kann“ sind in der Datenbank
 - `main` = App 0.82.1. Eingespielt: `20261120_i5_stufe_nachtragstest.sql`, `20261120_ab_s_abschluss.sql`, `20261120_ab_i_texte.sql` (85 Flüge mit `kurz`, 600 Etappen mit `kann`; jede Etappe aller freigegebenen Flüge hat einen Text). 14 Rauchtests danach ohne Fehler, Lernstände unverändert.
@@ -486,33 +486,33 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 - **bau-motivation:** AB-A (App 0.83.0) beginnt, wenn Teil 5 zusammengeführt ist. Der Server liefert `landung`, `abzeichen`, `sterne_flug`, `kurz`, `kann` schon jetzt.
 
 ## 20.11. 08:50 – an bau-lehrer, bau-motivation, pruefung-kinderansicht: Teil 5 übernommen; bau-motivation ist dran
-- **bau-lehrer:** LB Teil 5 ist in `lernen-app` (App 0.82.2, Cache v148, Tests lernen 112 von 112). Live mit Sebastians Wort.
+- **bau-lehrer:** LB Teil 5 ist in `lernen-app` (App 0.82.2, Cache v148, Tests lernen 112 von 112). Live mit Wort des Nutzers.
 - **bau-motivation:** Zuerst **„Bau-Auftrag LB-3, Nachbesserung“** (drei Muss von ChatGPT, Werkstatt 881/882; nur Migration und Rauchtest) – Abschnitt am Ende von `inhalte/AUFTRAEGE.md`. Danach **AB-A** (App 0.83.0) auf dem Stand mit 0.82.2. `bau-lehrer` baut jetzt nicht – du darfst an `lernen.js`.
 - **pruefung-kinderansicht:** Teil 5 (deine Nachprüfung 3) ist gebaut; Nachprüfen, sobald 0.82.2 live ist.
 
 ## 20.11. 13:25 – an bau-lehrer, bau-motivation, pruefung-kinderansicht
 
 - **LB-3 Nachbesserung (bau-lehrer, 28c9860):** in `lernen-app` übernommen (dc8a048). Probelauf gegen die echte Datenbank, alles zurückgerollt: Migration läuft; `lb3_nachbesserung`, `i2`, `i3`, `i4`, `i5`, `ab_s` bestanden; Lernstände vorher/nachher gleich. **Nicht bestanden: `lb3_rauchtest.sql`** – Abbruch „Inzwischen wurde etwas anderes geändert.“: Zeile 102 macht Schritt `v_sa` rückgängig, nach dem Schritt in Zeile 96 ist er nicht mehr der jüngste (neue Regel Sollte 4). Bitte die Testdatei anpassen (z. B. Rückgängig direkt nach dem Schritt, oder die Lage anders herstellen), sodass die Prüfungen 3–6 wieder laufen. Nur Testdatei, kein App-Code.
-- **Noch nicht eingespielt.** Prüfbitte an ChatGPT ist raus (Werkstatt 884); eingespielt wird nach dessen Antwort und Sebastians Okay.
+- **Noch nicht eingespielt.** Prüfbitte an ChatGPT ist raus (Werkstatt 884); eingespielt wird nach dessen Antwort und Okay des Nutzers.
 - **Nachprüfung 4 (Gestalter):** übernommen. Teil 5 vollständig erledigt; N1–N5 stehen als „Bau-Auftrag LB, Teil 6“ in `AUFTRAEGE.md` und werden zusammen mit AB-A gebaut (0.83.0, ein Bau-Chat: bau-motivation).
 
 ## 20.11. 13:45 – an bau-lehrer, potenz-teilen
 
-- **bau-lehrer:** berichtigter `lb3_rauchtest.sql` übernommen; Probelauf (Migration + Test, zurückgerollt): bestanden, Lernstände gleich. Damit laufen alle 7 Rauchtests. Einspielen nach ChatGPT (Werkstatt 884) und Sebastians Okay.
-- **potenz-teilen:** Lieferung übernommen (65f9e37); Prüfskript 118 × OK, Reihenfolgen je Schulart und Klasse lückenlos. Abweichungen 1, 2, 4, 5, 6 angenommen. Zu 3 entscheidet Sebastian (Empfehlung des Haupt-Chats: die leichten „Stimmt die Rechnung?“-Aufgaben auf Stufe 1 „erkennen“). Unabhängige Prüfung: Siebenundzwanzigste Runde. Noch nichts in der Datenbank.
+- **bau-lehrer:** berichtigter `lb3_rauchtest.sql` übernommen; Probelauf (Migration + Test, zurückgerollt): bestanden, Lernstände gleich. Damit laufen alle 7 Rauchtests. Einspielen nach ChatGPT (Werkstatt 884) und Okay des Nutzers.
+- **potenz-teilen:** Lieferung übernommen (65f9e37); Prüfskript 118 × OK, Reihenfolgen je Schulart und Klasse lückenlos. Abweichungen 1, 2, 4, 5, 6 angenommen. Zu 3 entscheidet der Nutzer (Empfehlung des Haupt-Chats: die leichten „Stimmt die Rechnung?“-Aufgaben auf Stufe 1 „erkennen“). Unabhängige Prüfung: Siebenundzwanzigste Runde. Noch nichts in der Datenbank.
 
 ## 20.11. 13:55 – an bau-lehrer, bau-motivation, potenz-teilen
 
 - **ChatGPT 885:** drei Muss geschlossen, kein neues Muss in i4/i5/AB-S. Sollte stehen in `AUFTRAEGE.md`, „Nachträge aus ChatGPTs Prüfergebnis 885“: Tests ergänzen (bau-lehrer), Anzeige-Punkte (bau-motivation, in 0.83.0).
-- **pruefung-potenz:** Bericht übernommen, Nachbesserung = Achtundzwanzigste Runde (potenz-teilen). Kann 6 wartet auf Sebastians Antwort.
+- **pruefung-potenz:** Bericht übernommen, Nachbesserung = Achtundzwanzigste Runde (potenz-teilen). Kann 6 wartet auf Antwort des Nutzers.
 
 ## 20.11. 14:50 – an potenz-teilen
 
-- **Entscheidung Sebastian zu Kann 6: JA.** Flug A bekommt die fünfte Pflichtkarte „Potenzen von Potenzen“, Lernziel-Schlüssel `potenz_von_potenz`, vollständig nach Bausatz (Achtundzwanzigste Runde). Die vier bestehenden Schlüssel bleiben unverändert. Themenliste (`umfang`, Lehrplan-Bezug M7 1.2 mit Quelle) und kann-Text nachziehen.
+- **Entscheidung des Nutzers zu Kann 6: JA.** Flug A bekommt die fünfte Pflichtkarte „Potenzen von Potenzen“, Lernziel-Schlüssel `potenz_von_potenz`, vollständig nach Bausatz (Achtundzwanzigste Runde). Die vier bestehenden Schlüssel bleiben unverändert. Themenliste (`umfang`, Lehrplan-Bezug M7 1.2 mit Quelle) und kann-Text nachziehen.
 
 ## 20.11. 14:55 – an alle
 
-- **LB-3 Nachbesserung ist eingespielt** (`20261120_lb3_nachbesserung.sql`, nach ChatGPT 885 und Sebastians Okay). Danach `lb3_nachbesserung` und `lb3` erneut gelaufen (zurückgerollt): bestanden; Lernstände unverändert. App live weiter 0.82.2 – Rückgängig-Ablehnung, Rückfall-Hinweis und `heute_bis` nutzt die App erst mit 0.83.0.
+- **LB-3 Nachbesserung ist eingespielt** (`20261120_lb3_nachbesserung.sql`, nach ChatGPT 885 und Okay des Nutzers). Danach `lb3_nachbesserung` und `lb3` erneut gelaufen (zurückgerollt): bestanden; Lernstände unverändert. App live weiter 0.82.2 – Rückgängig-Ablehnung, Rückfall-Hinweis und `heute_bis` nutzt die App erst mit 0.83.0.
 
 ## 20.11. 15:15 – an bau-lehrer, bau-motivation, potenz-teilen
 
@@ -529,11 +529,11 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 20.11. 15:35 – an bau-lehrer, potenz-teilen
 
 - **bau-lehrer „flug_geschafft“:** übernommen (d6e3888). Probelauf (zurückgerollt): Migration + `ab_s`, `lb3_nachbesserung`, `lb3` bestanden, Lernstände gleich. Eingespielt wird zusammen mit App 0.83.1 (die Live-App 0.83.0 erwartet die Abschluss-Felder noch bei `einheit_abgeschlossen`).
-- **Nachprüfung Potenz:** übernommen. Kein Muss. Lief im selben Chat wie der Bau (offen gekennzeichnet) – zählt als Selbstprüfung. Sollte 1 (Typ der sieben „Was ist falsch?“-Aufgaben) und Sollte 2 (neue Pflichtkarte öffnet Flug A für ein Kind wieder) liegen bei Sebastian.
+- **Nachprüfung Potenz:** übernommen. Kein Muss. Lief im selben Chat wie der Bau (offen gekennzeichnet) – zählt als Selbstprüfung. Sollte 1 (Typ der sieben „Was ist falsch?“-Aufgaben) und Sollte 2 (neue Pflichtkarte öffnet Flug A für ein Kind wieder) liegen beim Nutzer.
 
 ## 20.11. 15:58 – an bau-motivation, pruefung-kinderansicht
 
-- **0.83.1 übernommen** (LB Teil 8, Nachtrag B). App-Tests 127/127. Wartet auf Sebastians „Live“; `ab_s_flug_abschluss_einmal` wird dann mit eingespielt. Offene Punkte 1–3 aus Teil 8 (Etappen-Liste, „Wieder in die Wiederholung“, Link in eigener Zeile) liegen bei Sebastian/Gestalter.
+- **0.83.1 übernommen** (LB Teil 8, Nachtrag B). App-Tests 127/127. Wartet auf „Live“ des Nutzers; `ab_s_flug_abschluss_einmal` wird dann mit eingespielt. Offene Punkte 1–3 aus Teil 8 (Etappen-Liste, „Wieder in die Wiederholung“, Link in eigener Zeile) liegen beim Nutzer/Gestalter.
 - **Nachprüfung 5 und Nachprüfung Abschluss übernommen.** Teil 6 und 7 bestätigt, AB-A bestätigt. Neue Punkte = „Bau-Auftrag LB, Teil 9“ (0.83.2).
 
 ## 21.11. 00:55 (Berlin) – an alle
@@ -543,8 +543,8 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 ## 21.11. 01:10 (Berlin) – an bau-motivation
 
-- **0.83.2 übernommen** (94f1983): Teil 9 Punkte 1, 2, 4, 5, 6. App-Tests 132/132. Wartet auf Sebastians „Live“.
-- **Noch offen für 0.83.3:** die Ergänzungen zu Teil 9 aus „Entscheidungen Sebastian (21.11.)“, Punkte 3 und 4 (Textlink „Etappen ▸“ mit Liste und Stand; Wort „Themen“ auf Eltern-/Lehrerseiten erlaubt, Reisewörter-Test nur noch für Kinderseiten). Dein Stand b2a71ba lag vor diesem Eintrag.
+- **0.83.2 übernommen** (94f1983): Teil 9 Punkte 1, 2, 4, 5, 6. App-Tests 132/132. Wartet auf „Live“ des Nutzers.
+- **Noch offen für 0.83.3:** die Ergänzungen zu Teil 9 aus „Entscheidungen des Nutzers (21.11.)“, Punkte 3 und 4 (Textlink „Etappen ▸“ mit Liste und Stand; Wort „Themen“ auf Eltern-/Lehrerseiten erlaubt, Reisewörter-Test nur noch für Kinderseiten). Dein Stand b2a71ba lag vor diesem Eintrag.
 
 ## 21.11. 01:15 (Berlin) – an alle
 
@@ -565,7 +565,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 ## 21.11. 04:25 (Berlin) – an bau-lehrer, bau-motivation, pruefung-kinderansicht, lehrplan-lb
 
-- **bau-motivation, 0.83.3:** übernommen, App-Tests 135/135. Wartet auf Sebastians „Live“. Enge Auslegung der Reisewörter auf Eltern-/Lehrerseiten ist in Ordnung.
+- **bau-motivation, 0.83.3:** übernommen, App-Tests 135/135. Wartet auf „Live“ des Nutzers. Enge Auslegung der Reisewörter auf Eltern-/Lehrerseiten ist in Ordnung.
 - **bau-lehrer, „flug_geschafft robust“:** übernommen, aber **wirkt auf dem Live-Stand nicht.** `20261120_ab_s_flug_abschluss_einmal.sql` ist seit 20.11. eingespielt (zusammen mit App 0.83.1) – die geänderte Datei steigt an der Stelle „schon eingespielt“ aus und legt nur `flug_fertig_nach` an. Probelauf (zurückgerollt): neue Bedingung nicht aktiv, Rauchtest bricht richtig ab mit „FEHLER 9c: alte Sitzung NULL + Flug offen …“. Bitte als **neue Datei** `supabase/migrations/20261121_ab_s_flug_geschafft_robust.sql` liefern, die die schon eingespielte Funktion `test_abschliessen_intern` umbaut (alte Bedingung `x.flug_geschafft is distinct from false` → neue), wiederholt ausführbar; die alte Datei wieder auf den eingespielten Stand zurücksetzen (md5 f79c1701…). Nicht dringend: im Bestand gibt es keinen betroffenen Fall.
 - **Neu: „Bau-Auftrag LM“ (Lehrplan-Matrix)** in `AUFTRAEGE.md` – Schritt 1 LM-S (bau-lehrer, Server-Dateien), Schritt 2 LM-1 bis LM-5 (bau-motivation, 0.84.0), Schritt 3 LM-6 Kinderseite (0.85.0). Vorgabe des Gestalters liegt unter `inhalte/pruefung/lehrer/matrix/`.
 - **lehrplan-lb:** Nachtrag zur Dreißigsten Runde beachten (Ablageort von „eigenständig“ nennen; drei Prüfregeln in den Rauchtest).
@@ -589,23 +589,23 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 ## 21.11. 06:00 (Berlin) – an lehrplan-lb
 
-- **Entscheidung Sebastian:** „Zuordnung und Funktion“ (32) bleibt wie von dir umgesetzt in **MYP 3** vor 33, weiter als Annahme gekennzeichnet. 33 wird nicht verschoben.
+- **Entscheidung des Nutzers:** „Zuordnung und Funktion“ (32) bleibt wie von dir umgesetzt in **MYP 3** vor 33, weiter als Annahme gekennzeichnet. 33 wird nicht verschoben.
 
 ## 21.11. 06:45 (Berlin) – an lehrplan-lb, bau-lehrer, bau-motivation, pruefung-kinderansicht
 
 - **Alle drei Lieferungen übernommen** (7235ab3). Probelauf auf der echten Datenbank, zurückgerollt: `lehrplan_zuordnung_voraussetzungen` (30 c), `lm_s_lehrplan_matrix` (LM-S 3), `ab_s_flug_geschafft_robust` (flug_erstabschluss) laufen; Rauchtests `lm_s` und `ab_s` bestanden; `v_ort_visum` 49 → 46; Stufen, Plan, Reiseoptionen und Lernstand aller Kinder vorher/nachher gleich.
 - **App 0.84.0 b:** 141 Tests, im Gesamtlauf wackelt „LB Teil 8: aufgeklappte Karte“ (einzeln zweimal bestanden).
-- **Noch nichts eingespielt, nichts live.** Prüfbitte an ChatGPT ist raus (Werkstatt 904); danach in einem Zug: Migrationen, lernen-api 0.8.0, App 0.84.0 – auf Sebastians „Live“.
-- Offen bei Sebastian: 102 ← 30 hart oder empfohlen.
+- **Noch nichts eingespielt, nichts live.** Prüfbitte an ChatGPT ist raus (Werkstatt 904); danach in einem Zug: Migrationen, lernen-api 0.8.0, App 0.84.0 – auf „Live“ des Nutzers.
+- Offen beim Nutzer: 102 ← 30 hart oder empfohlen.
 
 ## 22.11. 00:30 (Berlin) – an bau-lehrer, lehrplan-lb
 
 - **ChatGPT 907:** kein Fremdzugriff über die Matrix-Aktionen gefunden; zwei Muss (Altzustand beim Nachtrag `flug_erstabschluss`; Rauchtest j darf nicht still ausfallen) sind durch Bestandsprüfung und den Einspielweg des Haupt-Chats erledigt. Nacharbeit steht in `AUFTRAEGE.md`, „Nacharbeit aus ChatGPTs Prüfergebnis 907“ – blockiert das Einspielen nicht.
-- Einspielen und App 0.84.0 warten nur noch auf Sebastians „Live“ und seine Entscheidung zu 102 ← 30.
+- Einspielen und App 0.84.0 warten nur noch auf „Live“ des Nutzers und seine Entscheidung zu 102 ← 30.
 
 ## 22.11. 00:45 (Berlin) – an alle: Paket Lehrplan-Matrix ist eingespielt und live
 
-- **Datenbank** (eine Transaktion, auf Sebastians „Live“): Lehrplan Runde 30 c (128 Verbindungen, 66 hart; `thema.eigenstaendig` als Text; 102 ← 30 bleibt **hart** – Entscheidung Sebastian), LM-S 3 (`api.schule_lehrplan_matrix`, `api.schule_lehrplan_thema`), `schule.flug_erstabschluss` (Nachtrag 4 Flüge). Stufen, Plan, Reiseoptionen und Lernstand aller Kinder in der Transaktion verglichen: unverändert. Rauchtests `lm_s` und `ab_s` danach bestanden.
+- **Datenbank** (eine Transaktion, auf „Live“ des Nutzers): Lehrplan Runde 30 c (128 Verbindungen, 66 hart; `thema.eigenstaendig` als Text; 102 ← 30 bleibt **hart** – Entscheidung des Nutzers), LM-S 3 (`api.schule_lehrplan_matrix`, `api.schule_lehrplan_thema`), `schule.flug_erstabschluss` (Nachtrag 4 Flüge). Stufen, Plan, Reiseoptionen und Lernstand aller Kinder in der Transaktion verglichen: unverändert. Rauchtests `lm_s` und `ab_s` danach bestanden.
 - **Server-Funktion** `lernen-api` 0.8.0 ist ausgerollt (zwei neue Aktionen).
 - **App 0.84.0 ist live** (main 44c1e7a): Lehrplan-Matrix für Eltern/Lehrer (LM-1 bis LM-5).
 - **Gestalter:** `schule.voraussetzung` und Themenliste sind aktualisiert; „eigenständig“ steht in `schule.thema.eigenstaendig` (Text = Begründung, null = nicht gekennzeichnet).
@@ -623,7 +623,7 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 22.11. 10:35 (Berlin) – an bau-lehrer, bau-motivation, lehrplan-lb
 
 - **Alle drei Nachbesserungen übernommen** (6effafa). App 0.86.1: 154/154 Tests. Probelauf auf der echten Datenbank, zurückgerollt: `nacharbeit_907`, `lehrplan_nacharbeit_907` (b), `wd_s_wiederholungen` (WD-S 2) und `wd_4b_stau_strecken` laufen; Rauchtests `wd_s`, `ab_s_nacharbeit_907`, `lm_s_nacharbeit_907` bestanden; Stufen, Plan, Reiseoptionen, Lernstand und Sterne aller Kinder gleich.
-- **Noch nichts eingespielt, nichts live.** Code-Prüfbitte an ChatGPT ist raus (Werkstatt 916). Danach in einem Zug auf Sebastians „Live“: drei Migrationen, lernen-api 0.9.0, App 0.86.1; WD-4b nur mit seinem eigenen Okay.
+- **Noch nichts eingespielt, nichts live.** Code-Prüfbitte an ChatGPT ist raus (Werkstatt 916). Danach in einem Zug auf „Live“ des Nutzers: drei Migrationen, lernen-api 0.9.0, App 0.86.1; WD-4b nur mit seinem eigenen Okay.
 
 ## 22.11. 10:55 (Berlin) – an bau-lehrer, bau-motivation
 
@@ -631,29 +631,29 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 
 ## 22.11. 11:05 (Berlin) – an bau-lehrer, bau-motivation
 
-- **Entscheidungen Sebastian:** Wiederholung zählt nur im ersten Versuch ohne Tipp (`wdh_nur_selbst` true); `sterne_wdh_richtig` = 10; WD-4b wird eingespielt (nach WD-S 3). Einzelheiten in `AUFTRAEGE.md`, „Entscheidungen Sebastian (22.11., 11:00 Berlin)“.
+- **Entscheidungen des Nutzers:** Wiederholung zählt nur im ersten Versuch ohne Tipp (`wdh_nur_selbst` true); `sterne_wdh_richtig` = 10; WD-4b wird eingespielt (nach WD-S 3). Einzelheiten in `AUFTRAEGE.md`, „Entscheidungen des Nutzers (22.11., 11:00 Berlin)“.
 
 ## 22.11., 11:15 Berlin – Haupt-Chat: WD-Paket zusammengeführt, Probelauf
 
 - `lernen-app` 7675d32: WD-S 3, WD-4b (neu), Nacharbeit 907 c, App 0.86.2, Gestalter-Vorgabe Reise-Aufbau. App-Tests 157/157, Prüfskript ok.
 - Probelauf echte Datenbank (alles zurückgerollt): fünf Migrationen in Reihenfolge ok; Stufen, Reiseoptionen, Lernstand, Sterne vorher = nachher. WD-4b: fällige beim Kind 2 von 42 auf 14.
 - Tests: 907 (zwei), WD-S 2 grün. WD-S 3 bricht in Schritt 2 – Fehler im Test (rechnet nur mit Auswahl-Aufgaben), Funktion richtig; mit angepasster Vorbereitung ganz grün. Auftrag an `bau-lehrer` steht in AUFTRAEGE.md („Nachtrag WD-S 3 – Rauchtest stabil machen“).
-- Noch nichts eingespielt. Offen: Prüfung ChatGPT, dann „Live“ von Sebastian. Beide Kinder üben gerade (11:10).
+- Noch nichts eingespielt. Offen: Prüfung ChatGPT, dann „Live“ vom Nutzer. Beide Kinder üben gerade (11:10).
 
 ## 22.11., 11:55 Berlin – Haupt-Chat: ChatGPT 921, faire Punkte
 
 - ChatGPT 921: vier Muss aus 919 zu, fünf neue Muss (Mischkarte beim Einlösen, Sterne bei Wiederholung mit Hilfe, Runde fertig bei gleichzeitigen Antworten, Rückweg Staffel unter Sperre, Rauchtest). Auftrag „Nachtrag WD-S 4“ in AUFTRAEGE.md an `bau-lehrer` und `bau-motivation` (0.86.3). Nichts eingespielt.
-- Neu entschieden (Sebastian): „Bau-Auftrag FP – faire Punkte“ (10/5, Landungs-Bonus 80/40/10, nachträglich). Reihenfolge: WD-S 4 → einspielen → FP.
+- Neu entschieden (Nutzer): „Bau-Auftrag FP – faire Punkte“ (10/5, Landungs-Bonus 80/40/10, nachträglich). Reihenfolge: WD-S 4 → einspielen → FP.
 
 ## 22.11., 12:45 Berlin – Haupt-Chat: WD-S 4, FP-S, 0.87.0 zusammengeführt, Probelauf grün
 
 - `lernen-app` 358145d: WD-S 4, FP-S, Aufgaben frisch (24), App 0.87.0, Vorgabe faire Punkte. App-Tests 163/163, Prüfskript ok.
 - Probelauf echte Datenbank (zurückgerollt): acht Dateien in Reihenfolge ok, fünf Rauchtests grün, Stufen/Reise/Lernstand/Sterne unverändert; fällige Kind 2: 42 → 14; `etappen_wenig_frisch` leer; Nachbuchung Landungs-Bonus: 25 / 28 Etappen, +1620 / +2200 Sterne.
-- Prüfbitte an ChatGPT gesendet. Nichts eingespielt; danach „Live“ von Sebastian.
+- Prüfbitte an ChatGPT gesendet. Nichts eingespielt; danach „Live“ vom Nutzer.
 
 ## 22.11., 13:45 Berlin – Haupt-Chat: LIVE Wiederholungen + faire Punkte
 
-- Eingespielt auf Sebastians „Live“: 907, 907 c, WD-S 2/3/4, WD-4b, FP-S, FP-S 2, 24 neue Aufgaben; Nachbuchung Landungs-Bonus (25 / 28 Etappen, +1620 / +2200). `lernen-api` 0.9.1, App 0.87.0 (`main` 4e042d1, Pages ok).
+- Eingespielt auf „Live“ des Nutzers: 907, 907 c, WD-S 2/3/4, WD-4b, FP-S, FP-S 2, 24 neue Aufgaben; Nachbuchung Landungs-Bonus (25 / 28 Etappen, +1620 / +2200). `lernen-api` 0.9.1, App 0.87.0 (`main` 4e042d1, Pages ok).
 - Danach geprüft: Stufen, Reise, Lernstand unverändert; fällige Kind 2: 14; keine Etappe mit zu wenig frischen Aufgaben; vier Rauchtests grün, `fp_s` Teil 5 Testartefakt (siehe AUFTRAEGE).
 - Offen: FP-S 3 (`bau-lehrer`), 0.87.1 (`bau-motivation`), LP-RS (`lehrplan-lb`, Maßstab Gruppe I), Nachprüfung Gestalter.
 
@@ -674,15 +674,15 @@ Die Punkte außer dem MUSS gehen an die Klassen-Chats der Neunzehnten Runde (Kla
 ## 22.11., 15:50 Berlin – Haupt-Chat
 - Übernommen: LW-S 2, LK-S 2, FP-S 4, App 0.87.2, LW-1 (0.88.0). Probelauf grün bis auf `lk_s_rauchtest.sql` (Check-Constraint `eintrag_bearbeitung_check`) → `bau-lehrer`.
 - ChatGPT 936/937: Gymnasium-Lehrplan bestätigt; Audit der Übergänge und schiefe Körper (Gym 10) → `lehrplan-lb` (LK-D 2); IB 3 vs. 2 harte Verstöße berichtigen.
-- Neue Teilungsregel (Sebastian): so viele Teile wie nötig, Maßstab Gym und RS I gemeinsam, Benennung „Teil x von y“, Aufbau neu prüfen – siehe AUFTRAEGE.md ab „Nachtrag LK – Teilungsregel NEU“.
+- Neue Teilungsregel (Nutzer): so viele Teile wie nötig, Maßstab Gym und RS I gemeinsam, Benennung „Teil x von y“, Aufbau neu prüfen – siehe AUFTRAEGE.md ab „Nachtrag LK – Teilungsregel NEU“.
 - Nichts eingespielt seit FP-S 3.
 
 ## 22.11., 16:00 Berlin – Haupt-Chat: Gymnasium-Korrektur eingespielt
-- `lk_korrektur_2211.sql` eingespielt (Freigabe Sebastian). Gymnasium: 237 von 237 Lehrplan-Punkten mit Hauptthema; Realschule 263 von 297 (die 34 offenen liegen in Gruppe II/III, nur Bericht). Kinder und Klassen unverändert.
+- `lk_korrektur_2211.sql` eingespielt (Freigabe des Nutzers). Gymnasium: 237 von 237 Lehrplan-Punkten mit Hauptthema; Realschule 263 von 297 (die 34 offenen liegen in Gruppe II/III, nur Bericht). Kinder und Klassen unverändert.
 - App-Tests 0.88.0: 141/141 (34 alte Plan-/Stand-Tests entfernt, 6 neue) – Gestalter prüft LW-1 am Bildschirm.
 
 ## 22.11., 19:00 Berlin – Haupt-Chat: LIVE 0.88.0 (LW-1, enthält 0.87.2)
-- Auf Sebastians „Live“: App 0.88.0 auf `main` b1c7743, nur App, keine Datenbank-Änderung. Prüfung Gestalter ohne Muss; Nacharbeit (S1, S2, K1, K2) mit LW-2.
+- Auf „Live“ des Nutzers: App 0.88.0 auf `main` b1c7743, nur App, keine Datenbank-Änderung. Prüfung Gestalter ohne Muss; Nacharbeit (S1, S2, K1, K2) mit LW-2.
 - Nicht eingespielt: FP-S 4, LW-S 2, LK-S, TL-S 4 (Probelauf grün, ChatGPT 945/946 offen), `lk_korrektur_2211.sql` Stand LK-D 4.
 
 ## 2026-11-23 – an bau-lehrer: Probelauf TL-S 6 – ein Test offen

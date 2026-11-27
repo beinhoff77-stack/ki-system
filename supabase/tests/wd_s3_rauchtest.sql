@@ -145,7 +145,7 @@ begin
   perform pg_temp.w3_karte(v_l, v_e, v_lz, 4, 30, 110);
   w := pg_temp.w3_antwort(v_l, v_ids[3], true, 0, null, false);                                -- selbst
   if not (w->'wiederholung'->>'bestanden')::boolean or not (w ? 'abgelegt') then raise exception 'FEHLER 5 selbst nicht abgelegt: %', w; end if;
-  update schule.regel set wert = 'false' where schluessel = 'wdh_nur_selbst';                   -- Umschalten (Sebastians Entscheidung)
+  update schule.regel set wert = 'false' where schluessel = 'wdh_nur_selbst';                   -- Umschalten (Entscheidung des Nutzers)
   perform pg_temp.w3_karte(v_l, v_e2, v_lz2, 1, 3, 9);
   w := pg_temp.w3_antwort(v_l, (select a.id from schule.aufgabe a where a.einheit_id = v_e2 and a.variante_gruppe = v_lz2 and a.pool = 'uebung' and a.freigegeben and a.antworttyp = 'auswahl'
                                  and not exists (select 1 from schule.versuch v where v.lernender_id = v_l and v.aufgabe_id = a.id) order by a.id limit 1), true, 1, null, false);

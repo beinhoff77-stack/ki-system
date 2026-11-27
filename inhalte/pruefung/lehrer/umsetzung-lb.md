@@ -1,4 +1,4 @@
-# Bauauftrag LB: Lehrplan nach Klasse, 4 Stufen, Lehrpläne RS/IB (Sebastian, 2026-11-20)
+# Bauauftrag LB: Lehrplan nach Klasse, 4 Stufen, Lehrpläne RS/IB (Nutzer, 2026-11-20)
 
 Geprüft an App 0.81.1 (`origin/lernen-app`), Themenliste und Datenbank (nur Lehrstoff-Struktur).
 Entwurf zum Ansehen: `entwurf/lehrplan-klasse-4-stufen.html` (echte Themen, Beispiel-Lernstand). Bilder: `bilder/lehrplan-klasse-gym8.png`, `bilder/lehrplan-klasse-rs7.png`.
@@ -7,7 +7,7 @@ Gilt für die Lehrer- und Elternansicht. Die Kinderansicht bleibt bei Orten.
 ## Befund (0.81.1, nachgestellt)
 
 1. „Nach Klasse (Lehrplan)“ zeigt **Orte**, nicht Themen. Ein Ort erscheint, sobald einer seiner Flüge in der Klasse liegt; die Zeile zeigt dann alle Flüge mit anderen Klassen (5 Orte mischen Gym-Klassen). Das Kästchen zeigt immer die Gymnasium-Klasse, auch bei Realschule/IB → bei „RS 7“ stehen Kästchen 5, 6, 7, 8 untereinander.
-2. Reihenfolge: erst „nicht im Plan“, dann „im Plan“ (grau, unten), innerhalb nach Klasse – **nicht** nach Lehrplan. Bei Gym 8 steht Lehrplan-Nr. 13/14 oben. Vermutung zu Sebastians Beobachtung „bei RS nur die Zusatzthemen“: Die gemeinsamen Themen sind bei seinem Kind schon im Plan oder geschafft und stehen grau ganz unten; oben stehen nur die RS-Zusatzthemen mit „+“. (In der Datenbank hat RS 7 18 Themen, 15 davon gemeinsam mit Gym.)
+2. Reihenfolge: erst „nicht im Plan“, dann „im Plan“ (grau, unten), innerhalb nach Klasse – **nicht** nach Lehrplan. Bei Gym 8 steht Lehrplan-Nr. 13/14 oben. Vermutung zu Beobachtung des Nutzers „bei RS nur die Zusatzthemen“: Die gemeinsamen Themen sind bei seinem Kind schon im Plan oder geschafft und stehen grau ganz unten; oben stehen nur die RS-Zusatzthemen mit „+“. (In der Datenbank hat RS 7 18 Themen, 15 davon gemeinsam mit Gym.)
 3. Zählung „Klasse 8: 9 von 14 Flügen“ zählt Flüge, die Liste zeigt Orte.
 4. Lehrplan-Bezug (z. B. „M8 1 Funktion und Term“) steht in der Themenliste (`lehrplan_gym`), wird aber nicht angezeigt.
 5. Lehrplan-Reihenfolge gibt es nur für das Gymnasium (71 Themen, `reihenfolge.gym_by`). Für Realschule und IB MYP fehlt sie ganz; RS-/IB-Bezüge nur bei 27 Themen (`lehrplan_andere`).
@@ -27,7 +27,7 @@ Gilt für die Lehrer- und Elternansicht. Die Kinderansicht bleibt bei Orten.
 Begriffe wie in „So funktioniert’s“: gelandet, sicher (Wiederholung nach 14 Lerntagen bestanden + Mischkarte richtig + Bordkarte im Flug-Nachtest richtig), wieder offen (zwei Fehler in einer fälligen Wiederholung).
 Für „Kann er – aber wiederholen“ gilt „sicher“ ohne Flug-Nachtest: Wiederholung nach 14 Lerntagen bestanden (+ Mischkarte, wenn eine kam) → ◉.
 
-Keine Zählung je Stufe und kein Filter nach Stufe (Sebastian: braucht niemand). Oben bleibt nur eine Zeile „Gym 8: 12 von 14 Themen im Plan oder schon gekonnt“ mit Balken.
+Keine Zählung je Stufe und kein Filter nach Stufe (Nutzer: braucht niemand). Oben bleibt nur eine Zeile „Gym 8: 12 von 14 Themen im Plan oder schon gekonnt“ mit Balken.
 
 ## Pakete
 
@@ -56,7 +56,7 @@ Gleiche Zeichen, Farben und Wörter in:
 
 ### LB-3 „Kann er – aber wiederholen“ (Haupt-Chat, Datenbank nach W1–W7 + App)
 
-Von Sebastian bestätigt (2026-11-20): ohne Vortest, die Wiederholungsregeln prüfen selbst. Typische Nutzung: ein Kind in Klasse 8 bekommt mehrere Themen aus Klasse 7 nur zur Wiederholung; schafft es die Durchläufe, wird das Thema wieder abgelegt (◉).
+Vom Nutzer bestätigt (2026-11-20): ohne Vortest, die Wiederholungsregeln prüfen selbst. Typische Nutzung: ein Kind in Klasse 8 bekommt mehrere Themen aus Klasse 7 nur zur Wiederholung; schafft es die Durchläufe, wird das Thema wieder abgelegt (◉).
 - Setzt alle Etappen des Flugs auf **gelandet** und startet die Wiederholung bei Stufe 1 (fällig nach 1 Lerntag, dann 3, 7, 14, 30).
 - Es gelten die bestehenden Regeln: höchstens 6 Wiederholungen vor einem Flug; ein Fehler → am nächsten Lerntag wieder; zwei Fehler hintereinander → **wieder offen**, das Kind übt die Etappe (braucht 3 richtige in Folge). So fällt ein falsch eingeschätztes Thema von selbst zurück auf ▶.
 - Zählt im Stand als gelandet. Mischkarten und Expeditionen dürfen daraus entstehen.

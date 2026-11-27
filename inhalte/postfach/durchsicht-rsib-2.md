@@ -107,7 +107,7 @@ Stufenregel: S1 = Musterbeispiel mit anderen Zahlen · S2 = mehrere Schritte, Ei
 - zahlen.schranken: Einheit kg bei Seiten, Strecken und Umfang; Brett-Aufgabe fast immer „Nein“.
 - Alle Themen: S2/S3-Aufgaben, die nur S1 mit größeren Zahlen waren, sind aus S2/S3 herausgenommen.
 
-### 5. Für Sebastian (nicht umgesetzt, Entscheidung nötig)
+### 5. Für den Nutzer (nicht umgesetzt, Entscheidung nötig)
 - **Klassen fehlen:** daten.normalverteilung, finanzen.zinseszins, sonder.logik, zahlen.schranken haben keine Klasse (Datei: `{"zusatz": 10}`). Vorschlag aus Teil C (`inhalte/pruefung/klassen/vorschlag-rsib.md`): zinseszins und logik MYP 4, schranken und normalverteilung MYP 5. Alle als „Annahme“ gekennzeichnet.
 - **Realschule:** Keines der 12 Themen hat einen `rs_by`-Eintrag. Am nächsten dran: finanzen.zinseszins (RS 10 Wachstum, Mittelschule M9 Zinseszins) und stochastik.bedingt (Teil C: stochastik.verknuepft Klasse 9).
 - **Reihenfolge:** stochastik.bedingt setzt Venn-Diagramm und P(A ∪ B) voraus. Es sollte nach `stochastik.verknuepft` kommen (Teil C: MYP 5 Platz 2, verknuepft MYP 4).

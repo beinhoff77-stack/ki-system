@@ -603,7 +603,7 @@ BF = Befunde('gleichungen.potenz', 13_9_5)
 BF.stufe('gerade', 'Welche Lösungsmenge hat 5x² = 0?', 2)
 BF.stufe('gerade', 'Welche Lösungsmenge hat 4x⁸ = 0?', 2)
 BF.stufe('ungerade', 'Löse x⁵ = −0,03125.', 2)
-BF.nicht_umgesetzt('sachaufgabe S2 Zinseszins („Guthaben wächst in 2 Jahren …“)', 'Aufgaben richtig; mathematisch nur (1 + p)² = q, also eine Potenzgleichung. Ob der Sachkontext in Kl. 9 passt, ist eine Plan-Frage (siehe „für Sebastian“).')
+BF.nicht_umgesetzt('sachaufgabe S2 Zinseszins („Guthaben wächst in 2 Jahren …“)', 'Aufgaben richtig; mathematisch nur (1 + p)² = q, also eine Potenzgleichung. Ob der Sachkontext in Kl. 9 passt, ist eine Plan-Frage (siehe „für den Nutzer“).')
 BF.fuer_sebastian('gleichungen.potenz/sachaufgabe: Zinseszins-Aufgaben (Stufe 2, alle Pools) – Zinseszins ist laut Themenliste Zusatzstoff Kl. 10 (finanzen.zinseszins). In Kl. 9 belassen?')
 
 # ---- BEFUNDE ENDE ----

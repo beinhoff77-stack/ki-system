@@ -100,3 +100,23 @@ Ohne jeden Bau lösbar ist Stufe C: Den ge3-Aufgaben eine Figur beilegen (die Ze
 - `ge4` hat 16 Lernkarten; deshalb 18 statt 15 Aufgaben ohne Bau, die meisten Lernkarten nur einmal. Ebenso `f2` (11 Lernkarten, 18 Aufgaben).
 - In `g2` stehen Preise in Lücken in Cent, weil Lücken nur ganze Zahlen nehmen.
 - Namen in Aufgaben (Ole, Kim, Pia, Tim, Lars, Emil, Jule, Nico, Mia, Jan, Ben) sind erfunden.
+
+## Auftrag 20 – dieselben Fehlermuster in Runde 3 gesucht (27.11.2026)
+
+Alle 127 Aufgaben gegen die vier Muster der Gegenprüfung durchgesehen; `bauen.py` endet mit „OK“. Kennungen unverändert.
+
+| Muster | Suche | Befund |
+|---|---|---|
+| **Ziffernfolge als Zahl** (Lücke hinter dem Komma) | maschinell über Text und Schablone aller Lücken-Aufgaben | **kein Fall.** Die Prüfung ist jetzt fest in `bauen.py` eingebaut (gilt für alle drei Runden). |
+| **0 als Lösung möglich** | alle Fragen mit „kleinste“, „größte“, „mindestens“ durchgesehen; zusätzlich maschinell: nimmt eine `bedingung`-Aufgabe lauter Nullen als richtig an? | **kein Fall.** `Z2-09` (kleinste Ziffer, damit 82□4 durch 3 teilbar) schließt die 0 rechnerisch aus (1, 4, 7); `GE4-12`, `A4-07`, `R1-13` sind eindeutig; keine der 30 `bedingung`-Aufgaben nimmt lauter Nullen an. |
+| **nicht-falsche Falschantwort** | alle 31 Auswahl-Aufgaben einzeln gelesen | **kein Fall zum Ändern.** Nächstliegend ist `GE3-03` („Er ist gleich groß“ – trifft bei 90° zufällig zu); die Frage lautet aber „Wie **findest** du den anderen?“, und als Verfahren ist die Antwort falsch. **Bleibt.** |
+| **fehlende Modellvoraussetzung** | alle Sach- und Begründungsaufgaben | **ein Fall: `G2-03`** – „3 kg Kartoffeln kosten 4,50 €. Was kosten 5 kg?“ ist ohne Zusatz nicht zwingend proportional (Mengenrabatt). **Geändert:** „…; jedes Kilogramm kostet gleich viel“, und der Lösungsweg sagt, dass es ohne diese Angabe nicht gälte. |
+
+**Abgleich mit einer zweiten, unabhängigen Fassung desselben Auftrags (vier Aufgaben):**
+
+- `A6-04` · Die Falschantwort „Addieren“ ist nach Umstellen durchaus möglich, also für ein Kind vertretbar richtig · **geändert:** „Addieren“ → „beide Gleichungen so addieren, wie sie dastehen“; Fehlbild: „so addiert fällt y nicht weg: 2y bliebe stehen“.
+- `R1-04` · „Weil 1 m = 100 cm ist.“ ist eine wahre Aussage (nur keine Begründung für 100 bei Flächen) · **geändert:** → „Weil 1 dm = 100 cm ist.“ (falsch, 1 dm = 10 cm); Fehlbild: „falsche Längen-Umrechnung: 1 dm sind nur 10 cm“.
+- `G2-11` · Gleiche Arbeitsgeschwindigkeit nicht genannt · **bleibt, weil** die Aufgabe auch ohne sie eindeutig ist: Bei jedem zweiten Maler mit positiver Geschwindigkeit dauert es unter 3 Stunden, also sind „Jule hat recht“, „auch 3 Stunden“ und „5 Stunden“ immer falsch und „kein Dreisatz“ immer richtig.
+- `G2-15` · „Jede Person bekommt gleich viel“ nicht genannt · **bleibt, weil** das Rezept „für 4 Personen“ die Menge je Person festlegt und der Dreisatz hier die Aufgabe selbst ist; die Voraussetzung gehört nur dorthin, wo nach der Proportionalität gefragt wird (`G2-03`).
+
+**Abgrenzung, die ich dabei gezogen habe [M]:** Die Voraussetzung muss dort stehen, wo die Aufgabe **nach** der Proportionalität fragt (`G2-03`, `G2T2-03`) – nicht in jeder Dreisatz-Rechnung. In `G2-01` („5 Äpfel kosten 2 €, was kostet einer?“) ist der feste Stückpreis die Aufgabenstellung selbst; dort wäre der Zusatz nur Ballast. `G2-11` (zwei Maler) nennt keine Voraussetzung, aber die richtige Antwort lautet „Jule darf den Dreisatz hier nicht nehmen“ – das stimmt unabhängig vom Modell. **Bleibt.**

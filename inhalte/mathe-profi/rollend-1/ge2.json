@@ -622,7 +622,7 @@
    "kennung": "GE2-12",
    "thema": "abbildungen.kongruenz",
    "lernkarte": "achsenspiegelung",
-   "stufe": 3,
+   "stufe": 2,
    "typ": "Umkehren",
    "antwortform": "zahl",
    "regel": "id.geometrie.abstand",
@@ -652,8 +652,8 @@
     "l": "achsenspiegelung",
     "t": "achsenspiegelung",
     "p": "uebung",
-    "s": 3,
-    "g": "rueckwaerts",
+    "s": 2,
+    "g": "umkehr",
     "y": "zahl",
     "f": {
      "text": "P(2 | 7) wird an einer waagrechten Achse gespiegelt und fällt auf P′(2 | −1). Durch welchen y-Wert geht die Achse?"

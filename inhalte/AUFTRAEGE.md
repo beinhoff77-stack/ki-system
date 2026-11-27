@@ -687,7 +687,7 @@ Meldungen (Status nach jedem Thema, Fragen, Abschlussbericht) in inhalte/postfac
 
 # Achte Runde: Umbau der Lernkarten auf das neue Muster (Vorgabe 16.11.)
 
-Grundlage: inhalte/pruefung/erklaerungen/darstellung/umsetzung.md (Sebastians Auswahl). Die App kann das neue Format seit Version 0.73.0
+Grundlage: inhalte/pruefung/erklaerungen/darstellung/umsetzung.md (Auswahl des Nutzers). Die App kann das neue Format seit Version 0.73.0
 (Übersicht → eine Karte, Bildergeschichte, „Pass auf!“, antippbare Wörter, gestapelte Brüche, neue Zeichnungsarten, Prüfregeln).
 Aufgaben bleiben unverändert.
 
@@ -701,7 +701,7 @@ Aufgaben bleiben unverändert.
 | U10 | `umbau-kl10` | 10 | 7 | erst nach dem Test mit den Kindern starten |
 | UR | `umbau-rest` | ohne gym_by | 24 | Realschule/IB; zuletzt |
 
-Reihenfolge: U5 → U8 → (Test je einer umgebauten Karte mit beiden Kindern, Sebastian gibt frei) → U6 → U7 → U9 → U10 → UR.
+Reihenfolge: U5 → U8 → (Test je einer umgebauten Karte mit beiden Kindern, der Nutzer gibt frei) → U6 → U7 → U9 → U10 → UR.
 
 Auftragstext je Paket (`<zweig>` und `<klasse>` ersetzen; bei UR statt „mit "gym_by": <klasse>“: „ohne gym_by“):
 
@@ -823,7 +823,7 @@ Reihenfolge: Klasse 8 und 5 zuerst (dort arbeiten die Kinder), dann 7, 6, 9, 10.
 # Elfte Runde (D1 im Gesamtauftrag Umbau): Klassen-Zuordnung prüfen
 
 Grundlage: `inhalte/pruefung/UMBAU-AUFTRAG.md` im Zweig pruefung-kinderansicht (Phase 1, Spalte Daten) und Befund B8 im Bericht Kinderansicht.
-Ergebnis ist nur ein Vorschlag an Sebastian. Geändert wird erst nach seiner Freigabe (D2).
+Ergebnis ist nur ein Vorschlag an den Nutzer. Geändert wird erst nach seiner Freigabe (D2).
 
 ```text
 Du prüfst die Klassen-Zuordnung der Themen einer Mathe-Lern-App gegen den bayerischen LehrplanPLUS (Gymnasium, Mathematik).
@@ -848,7 +848,7 @@ und desselben Gebiets um, und in welcher Reihenfolge laut Lehrplan stehen die Th
 Ergebnis: eine Datei inhalte/pruefung/klassen/vorschlag.md mit zwei Tabellen
  (1) Thema · Klasse heute · Klasse laut LehrplanPLUS · Lernbereich (Kürzel und Titel) · Quelle (Adresse) · Vorschlag (bleibt / ändern auf …)
  (2) Ort · Klasse heute · Themen mit Klasse · Vorschlag (Klasse des Ortes, Umzüge, Reihenfolge)
-und einer kurzen Liste der Punkte, die Sebastian entscheiden muss. Einfache Sprache, keine Fachkürzel ohne Erklärung.
+und einer kurzen Liste der Punkte, die der Nutzer entscheiden muss. Einfache Sprache, keine Fachkürzel ohne Erklärung.
 
 Grenzen: In dieser Runde KEINE Änderung an inhalte/themenliste.json, Generatoren, Datenbank, App-Code oder Tests – nur der Vorschlag. Kein Merge.
 Meldungen in inhalte/postfach/daten-klassen.md ablegen und pushen. Arbeite ohne Rückfragen durch.
@@ -898,7 +898,7 @@ Aufgabe je Thema: Jeden Befund prüfen (selbst nachrechnen, nicht blind überneh
  b) Falsche oder unklare Lösung, Tipp oder Lösungsweg bei gleicher Frage: Lösung (o), Tipp (h), Lösungsweg (w) berichtigen. Frage und Antworten bleiben gleich.
  c) Fehler in der Frage selbst oder in den Antwortmöglichkeiten, Beinahe-Dubletten, mehrdeutige Aufgaben: die Aufgabe durch eine berichtigte ersetzen (neue Frage).
     Führe dazu in inhalte/postfach/befunde.md je Thema eine Liste „ersetzt“ mit dem genauen alten Fragetext – der Haupt-Chat sperrt die alten Fassungen in der Datenbank.
- d) Erklärung und Aufgabe passen nicht zusammen: die Aufgabe anpassen oder ersetzen (wie c), die Lernkarten-Texte NICHT ändern; solche Fälle zusätzlich unter „für Sebastian“ notieren.
+ d) Erklärung und Aufgabe passen nicht zusammen: die Aufgabe anpassen oder ersetzen (wie c), die Lernkarten-Texte NICHT ändern; solche Fälle zusätzlich unter „für den Nutzer“ notieren.
 Regeln:
 - Alle nicht betroffenen Aufgaben bleiben Zeichen für Zeichen unverändert (per Skript gegen den Stand von lernen-app nachweisen: geändert sind nur die gemeldeten Aufgaben).
 - Nach dem Umstufen muss jede Lernkarte weiter mindestens 3 Übungen je Stufe haben; fehlt dadurch etwas, passende neue Übungen ergänzen (Regeln der Zehnten Runde in inhalte/AUFTRAEGE.md).
@@ -906,7 +906,7 @@ Regeln:
 - Ein Thema ist fertig, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet und der Nachweis stimmt. Ein Thema = ein Commit + Push auf befunde.
 Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Keine Namen oder Daten von Kindern.
 Meldungen in inhalte/postfach/befunde.md ablegen und pushen: nach jedem Thema eine Zeile (Thema fertig, Zahl umgestuft / berichtigt / ersetzt / nicht umgesetzt), am Ende ein
-Abschlussbericht mit den Listen „ersetzt“ (alte Fragetexte je Thema), „nicht umgesetzt“ und „für Sebastian“. Arbeite ohne Rückfragen durch.
+Abschlussbericht mit den Listen „ersetzt“ (alte Fragetexte je Thema), „nicht umgesetzt“ und „für den Nutzer“. Arbeite ohne Rückfragen durch.
 ```
 
 Einspielen (Haupt-Chat): einheit_abgleichen(…, 'lassen') übernimmt geänderte Stufen, Lösungen, Tipps und Lösungswege und fügt Ersatz-Aufgaben ein; die alten Fassungen aus „ersetzt“ danach sperren (freigegeben = false).
@@ -960,7 +960,7 @@ Danach (Haupt-Chat): Zweig bau-eltern prüfen, nach lernen-app zusammenführen, 
 
 # Bau-Auftrag Phase 2 und 3 (App): Kinderansicht K2–K4, Eltern E-2–E-4, Befunde N1–N5
 
-Entscheidung Sebastian 16.11.: Der Bau-Chat übernimmt den ganzen App-Umbau der Phasen 2 und 3. Voraussetzung: Bau-Auftrag E-1 ist fertig und nach lernen-app zusammengeführt.
+Entscheidung des Nutzers 16.11.: Der Bau-Chat übernimmt den ganzen App-Umbau der Phasen 2 und 3. Voraussetzung: Bau-Auftrag E-1 ist fertig und nach lernen-app zusammengeführt.
 Es baut immer nur EIN Chat am App-Code.
 
 ```text
@@ -1007,7 +1007,7 @@ Grenzen wie im Bau-Auftrag E-1: keine Schlüssel oder Kinderdaten, kein Merge na
 
 # Vierzehnte Runde (D2-Folge, Inhalte): neuer Flug „Winkelsätze“ (Klasse 7), Vertiefungen kennzeichnen, Lehrplan-Reihenfolge
 
-Entscheidungen Sebastian 16.11. zum Vorschlag inhalte/pruefung/klassen/vorschlag.md (Zweig daten-klassen): alles wie empfohlen. In der Datenbank schon umgesetzt:
+Entscheidungen des Nutzers 16.11. zum Vorschlag inhalte/pruefung/klassen/vorschlag.md (Zweig daten-klassen): alles wie empfohlen. In der Datenbank schon umgesetzt:
 Ortsklassen, Umzüge Zehnerpotenzen → Paris und Ortslinien → Kairo, Schrägbilder und Simulation am Gymnasium Klasse 10, Titel „Mit Winkeln rechnen“.
 
 ```text
@@ -1035,15 +1035,15 @@ Fertig, wenn `python3 -I tools/inhalt_pruefen.py` für alle geänderten Themenda
 Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Meldungen in inhalte/postfach/daten-klassen-2.md. Arbeite ohne Rückfragen durch.
 ```
 
-# Fünfzehnte Runde: offene Punkte aus der Liste „für Sebastian“ (Befund-Chat) umsetzen
+# Fünfzehnte Runde: offene Punkte aus der Liste „für den Nutzer“ (Befund-Chat) umsetzen
 
-Entscheidung Sebastian 17.11.: wie vom Haupt-Chat vorgeschlagen. Grundlage: inhalte/postfach/befunde.md, Abschnitt „Liste „für Sebastian““.
+Entscheidung des Nutzers 17.11.: wie vom Haupt-Chat vorgeschlagen. Grundlage: inhalte/postfach/befunde.md, Abschnitt „Liste „für den Nutzer““.
 
 ```text
 Du überarbeitest einzelne Lernkarten und Aufgaben einer Mathe-Lern-App (bayerisches Gymnasium).
 Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig nacharbeit an und arbeite nur dort.
 Lies zuerst vollständig: inhalte/README.md (Format, „Verständliche Erklärungen“ mit „Vorgabe seit 16.11.“, „Zeichnungen“), inhalte/postfach/README.md,
-inhalte/postfach/befunde.md (Abschnitt „Liste „für Sebastian““ und die Arbeitsweise im Abschlussbericht) sowie in inhalte/AUFTRAEGE.md die Abschnitte „Zehnte Runde“ und „Dreizehnte Runde“.
+inhalte/postfach/befunde.md (Abschnitt „Liste „für den Nutzer““ und die Arbeitsweise im Abschlussbericht) sowie in inhalte/AUFTRAEGE.md die Abschnitte „Zehnte Runde“ und „Dreizehnte Runde“.
 Die Themen sind für Kinder freigegeben: Was du nicht ausdrücklich ändern sollst, bleibt Zeichen für Zeichen gleich (Nachweis per Skript wie in der Dreizehnten Runde,
 Werkzeug inhalte/generatoren/_befunde_nachweis.py bzw. ein eigenes Vergleichsskript gegen origin/lernen-app).
 
@@ -1106,7 +1106,7 @@ Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge, keine anderen 
 Arbeite ohne Rückfragen durch.
 ```
 
-Einspielen (Haupt-Chat): Entwurf → einheit_abgleichen(…, 'loeschen'); danach kurze Nachprüfung und Freigabe durch Sebastian.
+Einspielen (Haupt-Chat): Entwurf → einheit_abgleichen(…, 'loeschen'); danach kurze Nachprüfung und Freigabe durch den Nutzer.
 
 # Zusatz zum Bau-Auftrag Phase 2 (17.11.): Befunde aus der Nachprüfung E-1
 
@@ -1214,7 +1214,7 @@ P3 Flugplan: Wählt man den letzten offenen Flug eines Ortes ab, zählt der Stem
 # Achtzehnte Runde: Lücken laut Lehrplan schließen (Gymnasium)
 
 Grundlage: Aufbau-Prüfung vom 14.11. (inhalte/pruefung/aufbau/klasse5.json … klasse10.json, Feld „luecken“). Ein Teil ist inzwischen erledigt (zahlen.natuerlich, zahlen.teilbarkeit, terme.umformen,
-gleichungen.linear, geometrie.winkelsaetze, Bogenmaß in funktionen.trig, ergänzte Erklärschritte der Fünfzehnten Runde). Entscheidung Sebastian 17.11.: Lücken schließen.
+gleichungen.linear, geometrie.winkelsaetze, Bogenmaß in funktionen.trig, ergänzte Erklärschritte der Fünfzehnten Runde). Entscheidung des Nutzers 17.11.: Lücken schließen.
 Teil A: drei neue Flüge (ein Chat, Zweig luecken-neu). Teil B: fehlende Etappen in vorhandenen Flügen (ein Chat je Klasse, Zweige luecken-kl5 … luecken-kl10).
 
 ## Teil A – drei neue Flüge
@@ -1270,12 +1270,12 @@ Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Meldungen in i
 am Ende ein Abschlussbericht (neue Lernkarten mit Lehrplan-Bezug und Quelle, erweiterte Karten, was offen blieb und warum). Arbeite ohne Rückfragen durch.
 ```
 
-Einspielen (Haupt-Chat): Teil A als Entwurf importieren (einheit_importieren), prüfen lassen, Freigabe durch Sebastian; Quito danach in den Plan der Klasse 6 aufnehmen.
+Einspielen (Haupt-Chat): Teil A als Entwurf importieren (einheit_importieren), prüfen lassen, Freigabe durch den Nutzer; Quito danach in den Plan der Klasse 6 aufnehmen.
 Teil B mit einheit_abgleichen(…, 'sperren') (Weg A); neue Etappen sind sofort sichtbar.
 
 # Neunzehnte Runde: Gesamtdurchsicht der Stoffsammlung – je Klasse, dazu Realschule und IB
 
-Auftrag Sebastian 17.11.: Jede Klasse geht ihre gesamte Stoffsammlung noch einmal durch – passen die Themen, sind die Erklärungen gut, einfach, schlüssig und mit Beispielen,
+Auftrag des Nutzers 17.11.: Jede Klasse geht ihre gesamte Stoffsammlung noch einmal durch – passen die Themen, sind die Erklärungen gut, einfach, schlüssig und mit Beispielen,
 unterscheiden sich die Stufen der Bordkarten wirklich im Gedanken und nicht nur in der Größe der Zahlen. Mängel werden gleich behoben (in Grenzen), alles Übrige gemeldet.
 Teil A: Gymnasium, ein Chat je Klasse (Zweige durchsicht-kl5 … durchsicht-kl10). Teil B: die 24 Realschul-/IB-Themen in zwei Chats (durchsicht-rsib-1, durchsicht-rsib-2).
 Teil C: Abgleich aller Themen mit dem Realschul-Lehrplan und dem IB MYP (ein Chat, Zweig lehrplan-rsib, nur Vorschlag).
@@ -1322,7 +1322,7 @@ Meldungen in inhalte/postfach/durchsicht-kl<N>.md: je Thema eine Zeile nach Absc
  (2) Tabelle je Lernkarte: worin sich die Stufen unterscheiden (vorher → nachher),
  (3) Zahlen: umgestuft, berichtigt, ersetzt, neu, Lernkarten verbessert,
  (4) Liste „ersetzt“ (alte Fragetexte je Thema),
- (5) Liste „für Sebastian“: was nicht passt und eine Entscheidung braucht (Thema in anderer Klasse, fehlender Stoff, Überschneidungen, App-Wünsche),
+ (5) Liste „für den Nutzer“: was nicht passt und eine Entscheidung braucht (Thema in anderer Klasse, fehlender Stoff, Überschneidungen, App-Wünsche),
  (6) was du nicht prüfen konntest. Trenne Tatsachen, Annahmen und Meinung. Arbeite ohne Rückfragen durch.
 ```
 
@@ -1353,7 +1353,7 @@ Je Thema, vollständig (jede Lernkarte ganz, jede Aufgabe gelesen und nachgerech
    Realschule Bayern, Jahrgangsstufentests, IB-Aufgabenformate – und 1 Knobelaufgabe), dazu 1 Test, 3 Korrektur, 6 Sicherung. Vorhandene gute Aufgaben bleiben.
 Fertig je Thema, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK ohne Hinweise meldet. Ein Thema = ein Commit + Push.
 Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge, keine anderen Themen. Keine Schulbuch- oder Prüfungsaufgaben wörtlich übernehmen.
-Meldungen in inhalte/postfach/<ZWEIG>.md: je Thema eine Zeile; am Ende Abschlussbericht wie in Teil A (Urteil je Thema mit Noten, Stufen-Tabelle, Zahlen, „für Sebastian“, nicht Geprüftes)
+Meldungen in inhalte/postfach/<ZWEIG>.md: je Thema eine Zeile; am Ende Abschlussbericht wie in Teil A (Urteil je Thema mit Noten, Stufen-Tabelle, Zahlen, „für den Nutzer“, nicht Geprüftes)
 und je Thema „freigabereif: ja/nein“. Arbeite ohne Rückfragen durch.
 ```
 
@@ -1372,17 +1372,17 @@ Teil 2 – Was fehlt der Realschule? Gehe den LehrplanPLUS Realschule Mathematik
 Teil 3 – IB MYP: Für jedes Thema mit ib_myp die Zuordnung zu MYP-Jahr und Bereich des Mathematics Framework prüfen (Standard oder Extended). Das MYP gibt keinen festen Stoff je Jahr vor –
  nenne deshalb je Thema, worauf sich das Jahr stützt (Framework, typische Schulcurricula, Lehrwerke mit Quelle) und wie sicher es ist (sicher / üblich / Annahme). Liste, was aus dem Framework
  (Standard, dazu Extended getrennt) fehlt. Vorschlag für reihenfolge.ib_myp nur, wo belegbar.
-Nichts raten: ohne Beleg „kein Beleg gefunden“ schreiben. Ergebnis: inhalte/pruefung/klassen/vorschlag-rsib.md mit den Tabellen und einer kurzen Liste der Punkte, die Sebastian entscheiden muss.
+Nichts raten: ohne Beleg „kein Beleg gefunden“ schreiben. Ergebnis: inhalte/pruefung/klassen/vorschlag-rsib.md mit den Tabellen und einer kurzen Liste der Punkte, die der Nutzer entscheiden muss.
 Grenzen: KEINE Änderung an inhalte/themenliste.json, Generatoren, Datenbank, App-Code oder Tests – nur der Vorschlag. Kein Merge. Meldungen in inhalte/postfach/lehrplan-rsib.md.
 Arbeite ohne Rückfragen durch.
 ```
 
-Einspielen (Haupt-Chat): Teil A mit einheit_abgleichen(…, 'sperren') (Weg A) und Sperren der „ersetzt“-Fassungen; Teil B als Entwurf abgleichen ('loeschen'), Freigabe durch Sebastian;
+Einspielen (Haupt-Chat): Teil A mit einheit_abgleichen(…, 'sperren') (Weg A) und Sperren der „ersetzt“-Fassungen; Teil B als Entwurf abgleichen ('loeschen'), Freigabe durch den Nutzer;
 Teil C ist Entscheidungsgrundlage (Klassen, Reihenfolge, neue Themen).
 
 # Bau-Auftrag F (App, Prüfskript, Datenbank): echte Stufen sichtbar und erzwungen, Bonus-Bordkarten
 
-Anlass (Sebastian 17.11.): Alle Durchsichten melden dasselbe – Stufe 2 oft dieselbe Rechnung wie Stufe 1, Stufe 3 mit Aufgaben der Stufe 2, dazu 3 bis 6 gleich gebaute Aufgaben hintereinander.
+Anlass (Nutzer 17.11.): Alle Durchsichten melden dasselbe – Stufe 2 oft dieselbe Rechnung wie Stufe 1, Stufe 3 mit Aufgaben der Stufe 2, dazu 3 bis 6 gleich gebaute Aufgaben hintereinander.
 Bisher prüft nichts mechanisch, ob sich Stufen im Gedanken unterscheiden. Das wird jetzt Regel, Prüfung und Anzeige. Danach folgt die Inhalts-Runde „Zwanzigste Runde“.
 
 ```text
@@ -1426,9 +1426,9 @@ Meldung in inhalte/postfach/bau-stufen.md: zuerst „Teil 1 fertig“ (README, P
 Grenzen wie im Bau-Auftrag E-1: Datenbank nicht ausführen, kein Merge nach main oder lernen-app, keine Inhalte in inhalte/themen ändern. Arbeite ohne Rückfragen durch.
 ```
 
-## Zusatz 1 zu Bau-Auftrag F (17.11., Wunsch von Sebastian): „Lernstand“ öffnet die Klassen-Übersicht
+## Zusatz 1 zu Bau-Auftrag F (17.11., Wunsch vom Nutzer): „Lernstand“ öffnet die Klassen-Übersicht
 
-**Befund (Sebastian, mit Bildschirmfoto):** Die Seite „Stand über Schularten“ in der Kind-Ebene (Tabelle Kontinente × Klassen, z. B. „Kind A · Gymnasium“) ist für ihn *der* Lernstand. Man kommt aber nur über die kleine Karte „Stand über Schularten“ und dann über das Kind dorthin. Der Knopf „Lernstand“ an der Kinderkarte öffnet stattdessen „Was wackelt?“ – das erwartet er dort nicht.
+**Befund (Nutzer, mit Bildschirmfoto):** Die Seite „Stand über Schularten“ in der Kind-Ebene (Tabelle Kontinente × Klassen, z. B. „Kind A · Gymnasium“) ist für ihn *der* Lernstand. Man kommt aber nur über die kleine Karte „Stand über Schularten“ und dann über das Kind dorthin. Der Knopf „Lernstand“ an der Kinderkarte öffnet stattdessen „Was wackelt?“ – das erwartet er dort nicht.
 
 **Auftrag (in Teil 2 mit erledigen, kein eigener Zweig):**
 1. Der Knopf „Lernstand“ an jeder Kinderkarte (Eltern/Lehrer-Startseite) öffnet direkt die Kind-Ebene von „Stand über Schularten“ für dieses Kind, in seiner Schulart (Tabelle Kontinente × Klassen). Ein Klick, kein Umweg.
@@ -1472,14 +1472,14 @@ gelesen und nachgerechnet hast. Ein Thema = ein Commit + Push auf stufen-kl<N>.
 Grenzen: Keine Datenbank, kein App-Code, keine Tests, kein Merge. Keine Namen oder Daten von Kindern. Keine Schulbuch-, Prüfungs- oder Wettbewerbsaufgaben wörtlich übernehmen.
 Meldungen in inhalte/postfach/stufen-kl<N>.md: je Thema eine Zeile; am Ende Abschlussbericht mit (1) Stufen-Leiter je Lernkarte, (2) Tabelle je Lernkarte: Übungen je Stufe und Typ vorher → nachher,
 (3) Zahl neuer Übungen und Knobel-Bordkarten, (4) Liste „überzählig“, (5) Quellen der Prüfungsvorbilder, (6) drei Beispiel-Bordkarten je Stufe aus einer Lernkarte deiner Wahl im Wortlaut,
-damit Sebastian den Unterschied sieht. Arbeite ohne Rückfragen durch.
+damit der Nutzer den Unterschied sieht. Arbeite ohne Rückfragen durch.
 ```
 
 Einspielen (Haupt-Chat): Migration F einspielen, dann einheit_abgleichen(…, 'lassen') je Thema (übernimmt typ und Stufe, fügt Neues ein); „überzählig“ sperren.
 
 # Zwanzigste Runde – Zusatz Realschule und IB (17.11.): Typen, echte Stufe 3 und Knobel-Bordkarten für die 24 Themen ohne Gymnasium-Klasse
 
-Entscheidung von Sebastian (17.11.): Die Realschul- und IB-Themen werden **nicht** zurückgestellt. Sie kommen in den Plan der Kinder (Ziel: nach Klasse 8 der Stand von Gymnasium, Realschule und IB). Dafür brauchen sie dieselbe Qualität wie die Gymnasium-Themen.
+Entscheidung vom Nutzer (17.11.): Die Realschul- und IB-Themen werden **nicht** zurückgestellt. Sie kommen in den Plan der Kinder (Ziel: nach Klasse 8 der Stand von Gymnasium, Realschule und IB). Dafür brauchen sie dieselbe Qualität wie die Gymnasium-Themen.
 
 Es gelten **alle Regeln des Abschnitts „Zwanzigste Runde (Inhalte): echte Stufe 3 und Knobel-Bordkarten“** (Stufen-Leiter je Lernkarte, Feld `g` für jede Übung, Stufe 1 mindestens 4 Übungen aus 2 Typen, Stufe 2 mindestens 6 aus 3 Typen, Stufe 3 mindestens 8 aus 4 Typen, 2 Knobel-Bordkarten je Lernkarte, überzählige Übungen ohne `g` und im Bericht gelistet, drei Beispiel-Bordkarten je Stufe im Bericht). Statt „Klasse `<N>`“ gilt die Themenliste unten. Vorher `inhalte/README.md`, Abschnitt „Stufen und Aufgabentypen“, lesen.
 
@@ -1494,13 +1494,13 @@ Ein Thema = ein Commit + Push. Kein Merge, keine Datenbank, kein App-Code, keine
 
 # Einundzwanzigste Runde (17.11.): Bereinigen und Mindeststand je Jahrgang
 
-Entscheidungen von Sebastian (17.11.): Reihenfolge-Fehler beheben · Überschneidungen **zusammenlegen** · Stoff über dem Lehrplan **verschieben** · Realschule gehört in den Plan: **Mindeststand je Jahrgang** (Gymnasium ist die Basis; hat die Realschule ein Thema früher, gilt die frühere Klasse).
+Entscheidungen vom Nutzer (17.11.): Reihenfolge-Fehler beheben · Überschneidungen **zusammenlegen** · Stoff über dem Lehrplan **verschieben** · Realschule gehört in den Plan: **Mindeststand je Jahrgang** (Gymnasium ist die Basis; hat die Realschule ein Thema früher, gilt die frühere Klasse).
 
 Schon erledigt (Haupt-Chat): Lehrplan-Reihenfolge Klasse 9 (rationale Exponenten vor Potenzfunktionen; `trigo.allgemein` vor `gleichungen.trig`); drei neue Flüge freigegeben; Überzählige gesperrt.
 
 ## Teil A – Bereinigen (EIN Chat, Zweig `bereinigen`, Meldungen in `inhalte/postfach/bereinigen.md`)
 
-Nur die Gymnasium-Themen (Klasse 5–10). Grundlage sind die Listen „Für Sebastian“ in `inhalte/postfach/durchsicht-kl5.md` … `durchsicht-kl10.md`. Regeln der Zwanzigsten Runde gelten weiter (jede Übung mit `g`, Mindestmengen 4 / 6 / 8, 2 Knobel-Bordkarten je Lernkarte, Prüfskript OK).
+Nur die Gymnasium-Themen (Klasse 5–10). Grundlage sind die Listen „Für den Nutzer“ in `inhalte/postfach/durchsicht-kl5.md` … `durchsicht-kl10.md`. Regeln der Zwanzigsten Runde gelten weiter (jede Übung mit `g`, Mindestmengen 4 / 6 / 8, 2 Knobel-Bordkarten je Lernkarte, Prüfskript OK).
 
 **A1 Zusammenlegen (derselbe Stoff steht in zwei Flügen):** Je Paar bleibt der Stoff an **einer** Stelle – dort, wo er laut Lehrplan zuerst gebraucht wird. An der anderen Stelle entfällt die Lernkarte oder wird zu einer kurzen Wiederholung mit Verweis. Die besten Aufgaben beider Stellen bleiben erhalten (keine doppelten Fragetexte). Paare:
 - Kl. 5: `gleichungen.einfach` (umkehr_plus, umkehr_mal) ↔ `zahlen.ganz`/umkehraufgabe ↔ `zahlen.rechengesetze`/umkehraufgabe_mal · `messen.koerper_berechnung`/volumen (und die 7 Volumen-Aussagen in „verstehen“) ↔ `messen.volumen` (Kl. 6)
@@ -1528,7 +1528,7 @@ Ziel: Ein Kind soll am Ende jeder Klasse mindestens den Stand von Gymnasium **un
 Grundlagen: `inhalte/themenliste.json` (Felder `klasse`, `reihenfolge`, `block_id`, `ort`), `inhalte/pruefung/klassen/vorschlag-rsib.md` (Lehrplan-Abgleich Realschule/IB mit Korrekturen), `inhalte/pruefung/klassen/vorschlag.md` (Klassenzuordnung der Orte, D1/D2).
 
 1. **Plan-Klasse je Thema** (alle 95): Gymnasium-Klasse; ist die (nach `vorschlag-rsib.md` korrigierte) Realschul-Klasse kleiner, gilt sie; Themen ohne Gymnasium-Klasse: Realschul-Klasse; reine IB-Themen nach Punkt 2. Spalten: Thema · Gym · RS (alt → korrigiert) · IB · Plan-Klasse · Grund. Die sieben Klassen-Korrekturen und fünf Nachträge für `rs_by` aus `vorschlag-rsib.md` sind beschlossen.
-2. **IB läuft nebenbei (Entscheidung Sebastian, 17.11.):** IB zieht **keinen** Gymnasium-Stoff nach vorn. Die Themen, die nur IB hat (keine Gymnasium- und keine Realschul-Klasse), werden sinnvoll auf die Jahrgangsstufen verteilt: nach Vorwissen und so, dass keine Klasse überladen wird (höchstens 2–3 zusätzliche IB-Flüge je Klasse). Die IB-Jahresangabe ist dabei nur ein Anhaltspunkt. Je Thema: vorgeschlagene Plan-Klasse, Vorwissen, Grund. Die vier Themen ohne Klasse (`daten.normalverteilung`, `finanzen.zinseszins`, `sonder.logik`, `zahlen.schranken`) ebenfalls einordnen. Zur Kenntnis (ohne Folge für den Plan): Liste der Gymnasium-Themen, die IB früher hat.
+2. **IB läuft nebenbei (Entscheidung des Nutzers, 17.11.):** IB zieht **keinen** Gymnasium-Stoff nach vorn. Die Themen, die nur IB hat (keine Gymnasium- und keine Realschul-Klasse), werden sinnvoll auf die Jahrgangsstufen verteilt: nach Vorwissen und so, dass keine Klasse überladen wird (höchstens 2–3 zusätzliche IB-Flüge je Klasse). Die IB-Jahresangabe ist dabei nur ein Anhaltspunkt. Je Thema: vorgeschlagene Plan-Klasse, Vorwissen, Grund. Die vier Themen ohne Klasse (`daten.normalverteilung`, `finanzen.zinseszins`, `sonder.logik`, `zahlen.schranken`) ebenfalls einordnen. Zur Kenntnis (ohne Folge für den Plan): Liste der Gymnasium-Themen, die IB früher hat.
 3. **Vorwissen prüfen:** Für jedes Thema, dessen Plan-Klasse kleiner ist als die Gymnasium-Klasse: Welche Themen setzt es voraus, und liegen die dann davor? Wo nicht: Thema lassen oder Voraussetzung mitziehen.
 4. **Orte:** Für jedes Thema, dessen Ort (`ziel_klasse`) nicht zur Plan-Klasse passt, und für die 24 Themen ohne Gymnasium-Klasse (ihre Orte haben teils keine Klasse): Zielort vorschlagen (bestehender Ort derselben Klasse auf demselben Kontinent oder neuer Ort mit Stadt, Titel, Kontinent, Koordinaten). Kein Ort mit mehr als 4 Flügen.
 5. **Reihenfolge je Klasse** über alle Themen der Plan-Klasse (Vorwissen zuerst), als Zahlenliste.
@@ -1538,13 +1538,13 @@ Tatsachen, Annahmen und Meinungen trennen; Quellen nennen. Meldung in `inhalte/p
 
 # Bau-Auftrag G (Werkstatt-Wunsch 176): Motivation & Lernerfolg – P1 Punkteregel ohne Minuspunkte, P2 Mischkarten, P3 Expeditionen (Technik)
 
-Von Sebastian freigegeben (17.11.2026). **Nicht neu verhandeln:** (1) Minuspunkte raus – Regel und Text. (2) 6 Aufgaben allein reichen nicht als Nachweis; die Regel unten gilt und wird nach dem Start an echten Daten überprüft. (3) Gemischte Aufgaben: vor allem Expeditionen, zusätzlich gemischte Reihenfolge. (4) P4–P7 kommen danach (nicht Teil dieses Auftrags).
+Vom Nutzer freigegeben (17.11.2026). **Nicht neu verhandeln:** (1) Minuspunkte raus – Regel und Text. (2) 6 Aufgaben allein reichen nicht als Nachweis; die Regel unten gilt und wird nach dem Start an echten Daten überprüft. (3) Gemischte Aufgaben: vor allem Expeditionen, zusätzlich gemischte Reihenfolge. (4) P4–P7 kommen danach (nicht Teil dieses Auftrags).
 
 **Rahmen:** Repository beinhoff77-stack/ki-system, Zweig `bau-motivation` (von aktuellem `lernen-app`). Es baut nur dieser eine Chat am App-Code. Die Datenbank ändert nur der Haupt-Chat: Migrationen als Datei nach `supabase/migrations/20261118_w176_<teil>_<name>.sql`, nicht ausführen; kein DROP von Tabellen, Spalten, Funktionen, kein DELETE; Lernstände dürfen nie verloren gehen. Lesen der Datenbank ist erlaubt. Keine Kindernamen, Schlüssel oder Zugangscodes in Code, Commits, Meldungen. Reisewörter gelten überall (Flug, Etappe, Bordkarte, Kontinent). Ändert sich eine Lernregel, wird die Info-Seite „So funktioniert’s“ und `inhalte/README.md` im selben Schritt angepasst. Tests: `tests/lernen.test.cjs` erweitern, alle grün. Kein Merge nach `lernen-app` oder `main`. Meldungen in `inhalte/postfach/bau-motivation.md` (neueste oben), nach jedem Teil „FERTIG: Teil n“ mit: was gebaut, welche Migration, welche neuen Felder für die App, was nicht geprüft werden konnte.
 
 **Stand heute (wichtig, weicht von der ersten Spezifikation ab):** App 0.75.1 live. Migration F ist eingespielt: `schule.aufgabe.typ` ist für alle Übungen der 71 freigegebenen Flüge gesetzt (Typen: Stufe 1 direkt, erkennen · Stufe 2 mehrschritt, einkleidung, umkehr, darstellung · Stufe 3 rueckwaerts, verknuepfen, begruenden, fehler, transfer, parameter, pruefung · Bonus knobel); jede Etappe hat mindestens 4 / 6 / 8 freie Übungen auf Stufe 1 / 2 / 3 und Knobel-Bordkarten (Pool `bonus`, zählen nicht für „sitzt“). `schule.karte_buchen` (zuletzt geändert durch `20261118_w150_f_stufen_typ_bonus.sql`, davor `20261116_w150_sitzt_regel_6_mit_schwer.sql`): richtig im 1. Versuch ohne Tipp +1, Fehler −2 (mindestens 0), Tipp oder 2. Versuch 0; „sitzt“ bei `serie ≥ karte_ziel` (6; bei wenigen Aufgaben mindestens 2) und `schwer_ok`. Die App wählt die Bordkarte mit `lernWaehleBordkarte` (Stufe nach Punktestand, nie zwei gleiche Typen hintereinander).
 
-Reihenfolge: **Teil 1 (P1) → Teil 2 (Format für P3) → Teil 3 (P2) → Teil 4 (P3 Technik).** Nach jedem Teil melden und auf den Haupt-Chat warten (Zusammenführen, Migration, Prüfung durch ChatGPT, „Live“ von Sebastian).
+Reihenfolge: **Teil 1 (P1) → Teil 2 (Format für P3) → Teil 3 (P2) → Teil 4 (P3 Technik).** Nach jedem Teil melden und auf den Haupt-Chat warten (Zusammenführen, Migration, Prüfung durch ChatGPT, „Live“ vom Nutzer).
 
 ## Teil 1 – P1: Neue Punkteregel „gelandet“ / „sicher“ ohne Minuspunkte
 
@@ -1612,7 +1612,7 @@ Ziel: Das Kind muss selbst erkennen, welches Verfahren passt. Keine Zusatzkarten
 
 # Zweiundzwanzigste Runde (18.11., Auftrag des Lehrers): mehr Textaufgaben in Klasse 8
 
-**Befund des Lehrers (von Sebastian weitergegeben):** In Klasse 8 sind zu wenig Textaufgaben. Zählung heute: Von 1 907 freien Übungen der 14 Themen mit Gymnasium-Klasse 8 sind 286 vom Typ `einkleidung` oder `transfer` (15 %; je Thema 10–20 %). Weitere Sachaufgaben stecken in anderen Typen, sind aber nicht gezählt.
+**Befund des Lehrers (vom Nutzer weitergegeben):** In Klasse 8 sind zu wenig Textaufgaben. Zählung heute: Von 1 907 freien Übungen der 14 Themen mit Gymnasium-Klasse 8 sind 286 vom Typ `einkleidung` oder `transfer` (15 %; je Thema 10–20 %). Weitere Sachaufgaben stecken in anderen Typen, sind aber nicht gezählt.
 
 **Ein Chat, Zweig `text-kl8` (von aktuellem `lernen-app`), Meldungen in `inhalte/postfach/text-kl8.md`.** Themen: alle mit `klasse.gym_by = 8` in `inhalte/themenliste.json` (funktionen.grundbegriffe, funktionen.linear, zahlen.intervalle, gleichungen.ungleichungen, groessen.indirekt, funktionen.gebrochen, terme.bruchterme, gleichungen.bruch, gleichungen.formeln, stochastik.grundbegriffe, gleichungen.lgs2, messen.kreisberechnung, messen.koerper_darstellung, messen.prisma_zylinder). Vorher `inhalte/README.md` lesen (Themen-Bausatz, „Stufen und Aufgabentypen“).
 
@@ -1658,7 +1658,7 @@ Voraussetzung erfüllt: Das Format steht in `inhalte/README.md`, Abschnitt „Ex
 
 # Dreiundzwanzigste Runde (18.11.): Was an den 24 Realschul-/IB-Themen ist wirklich neu? (nur Prüfung und Vorschlag)
 
-**Anlass (Sebastian):** „Die lernen doch grundsätzlich dasselbe Mathe – warum so viele neue Themen?“ Der Vorschlag `inhalte/pruefung/klassen/vorschlag-mindeststand.md` plant alle 24 Themen ohne Gymnasium-Klasse als zusätzliche Flüge ein. Vermutung: Ein großer Teil davon steckt schon in Gymnasium-Flügen und wäre doppelt.
+**Anlass (Nutzer):** „Die lernen doch grundsätzlich dasselbe Mathe – warum so viele neue Themen?“ Der Vorschlag `inhalte/pruefung/klassen/vorschlag-mindeststand.md` plant alle 24 Themen ohne Gymnasium-Klasse als zusätzliche Flüge ein. Vermutung: Ein großer Teil davon steckt schon in Gymnasium-Flügen und wäre doppelt.
 
 **Ein Chat, Zweig `doppelt-pruefen`, Ergebnis `inhalte/pruefung/klassen/doppelt-rsib.md`, Meldung in `inhalte/postfach/doppelt-pruefen.md`.** Nur lesen und vorschlagen: keine Änderung an Themendateien, Themenliste, Datenbank oder App. Kein Merge.
 
@@ -1674,7 +1674,7 @@ Voraussetzung erfüllt: Das Format steht in `inhalte/README.md`, Abschnitt „Ex
 4. Für jedes Thema, das bleibt oder verkleinert wird: für wen ist es Pflicht? Realschule alle Zweige · nur Realschule Wahlpflichtgruppe I (mathematischer Zweig) · nur IB (Standard oder Extended) · keines (Zusatz). Mit Lehrplanstelle (LehrplanPLUS Realschule Bayern, Jahrgangsstufe und Lernbereich; IB Mathematics guide/Lehrwerk wie in `vorschlag-rsib.md`). Vorschlag für Plan-Klasse und Ort.
 5. Gegenprobe in die andere Richtung: Gibt es Stoff, den Realschule (alle Zweige) oder IB bis Jahr 4 verlangen und der in **keinem** Flug steht? (Abgleich mit `vorschlag-rsib.md`, Teil 2 und „Was aus dem Framework fehlt“.) Die vier dort vorgeschlagenen neuen Themen ebenso einordnen: wirklich nötig oder als Lernkarten in bestehende Flüge?
 
-**Ergebnisdatei:** Kurzfassung oben (Zahl der Themen je Urteil; Zahl der Flüge, die Kind A und Kind B danach zusätzlich hätten – nur als Kind A, Klasse 5, und Kind B, Klasse 8); Tabelle aller 24 Themen (Urteil, Pflicht für wen, Plan-Klasse); je Thema die Lernkarten-Tabelle mit Gruppe A/B/C und Beleg; Liste „Für Sebastian zu entscheiden“ (z. B. ob der mathematische Realschul-Zweig abgedeckt werden soll). Tatsachen, Annahmen und Meinungen trennen; sagen, was nicht geprüft wurde. Keine Schulbuch- oder Prüfungsaufgaben wörtlich übernehmen.
+**Ergebnisdatei:** Kurzfassung oben (Zahl der Themen je Urteil; Zahl der Flüge, die Kind A und Kind B danach zusätzlich hätten – nur als Kind A, Klasse 5, und Kind B, Klasse 8); Tabelle aller 24 Themen (Urteil, Pflicht für wen, Plan-Klasse); je Thema die Lernkarten-Tabelle mit Gruppe A/B/C und Beleg; Liste „Für den Nutzer zu entscheiden“ (z. B. ob der mathematische Realschul-Zweig abgedeckt werden soll). Tatsachen, Annahmen und Meinungen trennen; sagen, was nicht geprüft wurde. Keine Schulbuch- oder Prüfungsaufgaben wörtlich übernehmen.
 
 # Bau-Auftrag H (Werkstatt-Wunsch 176): Befunde aus der Prüfung von ChatGPT zu Teil 1 (Punkteregel) – vier „muss“, drei „sollte“
 
@@ -1724,7 +1724,7 @@ Stand der Prüfung: `main`, App 0.78.1, Live-Funktionen lesend geprüft. Urteil:
 
 # Bau-Auftrag LA (18.11.): Lehrer-Aufbau – Pakete LA-1 bis LA-7
 
-**Auswahl Sebastian:** 1A · 2B · 3B · 4A · 5A · 6B · 7A. **Der vollständige Bauauftrag steht in `inhalte/pruefung/lehrer/umsetzung.md`**, die Befunde dazu (L1–L9, App 0.78.1) in `inhalte/pruefung/lehrer/bericht.md`, Bilder des heutigen Stands in `inhalte/pruefung/lehrer/bilder/` (alle drei aus dem Zweig `pruefung-kinderansicht` nach `lernen-app` übernommen). Dieser Abschnitt legt nur fest, was dort offen ist oder von unseren Regeln abweicht.
+**Auswahl des Nutzers:** 1A · 2B · 3B · 4A · 5A · 6B · 7A. **Der vollständige Bauauftrag steht in `inhalte/pruefung/lehrer/umsetzung.md`**, die Befunde dazu (L1–L9, App 0.78.1) in `inhalte/pruefung/lehrer/bericht.md`, Bilder des heutigen Stands in `inhalte/pruefung/lehrer/bilder/` (alle drei aus dem Zweig `pruefung-kinderansicht` nach `lernen-app` übernommen). Dieser Abschnitt legt nur fest, was dort offen ist oder von unseren Regeln abweicht.
 
 **Wer baut:** der Bau-Chat (nicht der Haupt-Chat, anders als in der Tabelle „Wer macht was“). Zweig `bau-lehrer` von aktuellem `lernen-app`, **erst nachdem H8 und H1–H4 aus Bau-Auftrag H gemeldet sind** – es baut immer nur ein Chat am App-Code. Datenbank: Migrationen als Datei nach `supabase/migrations/20261119_la_<paket>_<name>.sql`, nicht ausführen; kein DROP, kein DELETE; Lernstände und Pläne bleiben erhalten. Meldungen in `inhalte/postfach/bau-lehrer.md`, je Paket „FERTIG: LA-n“. Kein Merge nach `lernen-app` oder `main`. Reisewörter überall; Info-Seite „So funktioniert’s“ im selben Schritt; Tests in `tests/lernen.test.cjs` je Paket.
 
@@ -1741,7 +1741,7 @@ Stand der Prüfung: `main`, App 0.78.1, Live-Funktionen lesend geprüft. Urteil:
 
 # Vierundzwanzigste Runde (18.11.): Realschul-/IB-Themen auflösen, wo der Stoff schon da ist
 
-**Entscheidungen von Sebastian (18.11.) zu `inhalte/pruefung/klassen/doppelt-rsib.md`:**
+**Entscheidungen vom Nutzer (18.11.) zu `inhalte/pruefung/klassen/doppelt-rsib.md`:**
 1. Grundsatz angenommen: **11 Themen auflösen, 13 bleiben, keine neuen Themen.**
 2. Von den 13 bleibenden sind im Plan der Kinder **Pflicht** nur die zwei für alle Realschul-Zweige (`abbildungen.determinanten2`, `daten.stichproben`). Alle anderen (IB Standard, IB Extended, Zusatz, mathematischer Realschul-Zweig) werden **freiwillig angeboten**. (Das stellt der Haupt-Chat im Plan ein – nicht Teil dieses Auftrags.)
 3. `terme.quadratische_extreme` bleibt als eigener Flug in Klasse 8 (Realschule verlangt es dort); die entsprechenden Gymnasium-Lernkarten in Klasse 9 werden zur kurzen Wiederholung mit Verweis.
@@ -1763,9 +1763,9 @@ Stand der Prüfung: `main`, App 0.78.1, Live-Funktionen lesend geprüft. Urteil:
 
 **Bericht (Pflicht):** Umzugstabelle `altes Thema / Lernkarte → Zielthema / Lernkarte · Pflicht oder Vertiefung · Klasse · Zahl der Aufgaben`; Liste der entfallenen A-Lernkarten mit dem Gymnasium-Gegenstück; neue Lernkarten aus Teil B; was sich für ein Kind ändert, das den Zielflug schon abgeschlossen hat (neue Pflicht-Lernkarte = Flug wieder offen – je Zielthema nennen); was nicht geprüft wurde. Ein Zielthema = ein Commit + Push. Prüfskript OK je Thema. Kein Merge, keine Datenbank, kein App-Code, keine Tests. Ohne Rückfragen durcharbeiten; bei Unklarheit die sinnvollste Lesart nehmen und nennen.
 
-# Ortsprüfung (18.11., Wunsch von Sebastian): ein ausführlicher Test je Ort – gibt Punkte und Geld
+# Ortsprüfung (18.11., Wunsch vom Nutzer): ein ausführlicher Test je Ort – gibt Punkte und Geld
 
-**Entscheidungen von Sebastian:** Nach jedem Ort ein ausführlicher Test („Ortsprüfung“). **Keine Noten** – nur eine Punkte-Übersicht; ab einer Schwelle gibt es Punkte und Geld. **Keine Zeitbegrenzung**; die Zeit wird gemessen, eine gute Zeit kann einen Bonus bringen (ein Abzug für „zu lange“ ist möglich, aber standardmäßig aus). **Wiederholen:** Das Kind kann sagen „die will ich in ein paar Tagen noch einmal schreiben“; es zählt das bessere Ergebnis, bei der Wiederholung mit etwas Abzug. **Der Rechenweg zählt:** Das Kind rechnet auf Papier. Die Kinder wollen lieber mehrere kleinere Prüfungen als wenige große. Die bisherigen Sterne werden **Fleißsterne** (kleiner Betrag, gedeckelt).
+**Entscheidungen vom Nutzer:** Nach jedem Ort ein ausführlicher Test („Ortsprüfung“). **Keine Noten** – nur eine Punkte-Übersicht; ab einer Schwelle gibt es Punkte und Geld. **Keine Zeitbegrenzung**; die Zeit wird gemessen, eine gute Zeit kann einen Bonus bringen (ein Abzug für „zu lange“ ist möglich, aber standardmäßig aus). **Wiederholen:** Das Kind kann sagen „die will ich in ein paar Tagen noch einmal schreiben“; es zählt das bessere Ergebnis, bei der Wiederholung mit etwas Abzug. **Der Rechenweg zählt:** Das Kind rechnet auf Papier. Die Kinder wollen lieber mehrere kleinere Prüfungen als wenige große. Die bisherigen Sterne werden **Fleißsterne** (kleiner Betrag, gedeckelt).
 
 ## Teil 1 – Dateiformat (gilt für Bau- und Inhalte-Chats)
 
@@ -1850,12 +1850,12 @@ Für beide Teile: Zweig vom aktuellen `lernen-app`; Datenbank nur lesen; Migrati
 8. Tablet: Rahmen der ⚙-Zelle ausrichten; „noch kein MYP-Jahr“ kürzer („– (ab Kl. 6)“); Spaltenkopf „AKTIONEN“ weglassen; Hinweis „über der Klasse des Kindes“ nicht abschneiden.
 9. Hinweise mit dem Wort „Datenbank“ durch neutrale Sätze ersetzen.
 
-**Zusatz (Sebastians Entscheidung 20.11.)**
+**Zusatz (Entscheidung des Nutzers 20.11.)**
 10. **Reisetage und Pausen eintragen.** Eltern und Lehrer können je Kind Zeiträume ohne Lernen eintragen (von–bis, optional ein Wort wie „Reisetag“, „krank“, „Ferien“; auch für alle Kinder zugleich). Ort: „⚙ Einstellen“ des Kindes und ein kurzer Weg von der Startseite („Reisetag eintragen“). Wirkung: Eingetragene Tage zählen nicht für „rot/gelb“ bei „Lernt“ und nicht für „kein Lerntag seit …“ in „Zu tun“; in der Zeile steht dann z. B. „Pause bis 24.11.“. An Lernregeln, Wiederholungen und Nachtests ändert sich nichts (die zählen ohnehin in Lerntagen). Eintragen, ändern und löschen muss gehen; vergangene Einträge bleiben sichtbar. Datenbank: Migration als Datei (Tabelle z. B. `schule.pause`: Kind oder alle, von, bis, grund, wer, wann) mit Rauchtest; Zugriff nur für Eltern/Lehrer. Info-Seite um einen Satz ergänzen.
 
 **Entschieden, nicht bauen:** Die Stand-Zellen (GYM, RS, IB) bleiben ohne Ampelfarbe.
 
-## Teil 1b – LA-8 „Lehrplan nach Themengebiet“ (Chat `bau-lehrer`, gleicher Zweig, nach Teil 1; von Sebastian am 20.11. freigegeben)
+## Teil 1b – LA-8 „Lehrplan nach Themengebiet“ (Chat `bau-lehrer`, gleicher Zweig, nach Teil 1; vom Nutzer am 20.11. freigegeben)
 
 Vorgabe des Gestalters: `inhalte/pruefung/lehrer/umsetzung.md`, Abschnitt **LA-8** (vollständig, mit „Fertig, wenn“). Entwurf zum Ansehen: `inhalte/pruefung/lehrer/entwurf/lehrplan-spalte.html` (im Browser öffnen, enthält die echte Themenliste). Bild: `inhalte/pruefung/lehrer/bilder/lehrplan-spalte-entwurf.png`. LA-8 ergänzt LA-4 (Flugplan, rechte Spalte) und LA-7 (Lehrplan-Übersicht). Es gilt für Lehrer und Eltern; **die Kinderansicht behält die Orte**.
 
@@ -1878,14 +1878,14 @@ Hinweise des Haupt-Chats: Themengebiet = `schule.kontinent.titel` des Ortes (Zah
 3. **H4/H11/H14 – fehlende Tests:** Nachtest mit 80 % bestanden, aber diese Etappe falsch → nicht „sicher“ (Negativtest); Expedition bei zwei Versionen eines Themas über die ganze Buchung (nicht nur die Hilfsfunktion); Expedition unterbrochen und fortgesetzt.
 4. **H12 – Import:** zusätzlich angegebene Voraussetzungen auch auf vorhandene Lernkarte (Lernziel) prüfen, nicht nur auf das Thema.
 5. **H6 – Tageszähler:** Die App nimmt für „heute selbst gelöst“ den Tag, den der Server liefert, nicht den Kalendertag des Geräts.
-6. **W177 – Nachtragstest:** Rauchtest um Sterne (vorher/nachher, keine Doppelbuchung bei Abbruch und Wiederaufnahme) und um den Fall „offene und fehlerhafte Pflicht-Etappen zugleich“ ergänzen. Frist des nächsten Nachtests nach einem Nachtragstest: im Bericht beschreiben, was heute geschieht (beginnt die 10-Lerntage-Frist neu?) – nichts ändern, Sebastian entscheidet.
+6. **W177 – Nachtragstest:** Rauchtest um Sterne (vorher/nachher, keine Doppelbuchung bei Abbruch und Wiederaufnahme) und um den Fall „offene und fehlerhafte Pflicht-Etappen zugleich“ ergänzen. Frist des nächsten Nachtests nach einem Nachtragstest: im Bericht beschreiben, was heute geschieht (beginnt die 10-Lerntage-Frist neu?) – nichts ändern, der Nutzer entscheidet.
 7. **H5/H13:** im Bericht ehrlich festhalten, was nur über die innere Funktion und was über den äußeren Zugang getestet ist. Ein Test über den äußeren Zugang braucht einen Schlüssel und entfällt.
 
 ---
 
 # Fünfundzwanzigste Runde (20.11.): unabhängige Prüfung der 14 neu freigegebenen Flüge
 
-Sebastian hat am 18.11. 14 Flüge freigegeben, die bisher nur von ihren Autoren-Chats und vom Prüfskript geprüft sind. Diese Runde holt die unabhängige inhaltliche Prüfung nach. **Wer hier prüft, darf keines dieser Themen selbst geschrieben haben** – deshalb zwei neue Chats.
+Der Nutzer hat am 18.11. 14 Flüge freigegeben, die bisher nur von ihren Autoren-Chats und vom Prüfskript geprüft sind. Diese Runde holt die unabhängige inhaltliche Prüfung nach. **Wer hier prüft, darf keines dieser Themen selbst geschrieben haben** – deshalb zwei neue Chats.
 
 - **Chat `pruefung-neu-1`** (Zweig `pruefung-neu-1`, Meldungen `inhalte/postfach/pruefung-neu-1.md`) – zuerst die Flüge, die im Plan eines Kindes stehen: `abbildungen.determinanten2`, `daten.stichproben`, `terme.quadratische_extreme`, dann `gleichungen.wurzel`, `abbildungen.matrizen`, `funktionen.reihen`, `funktionen.betrag`.
 - **Chat `pruefung-neu-2`** (Zweig `pruefung-neu-2`, Meldungen `inhalte/postfach/pruefung-neu-2.md`): `daten.zweidimensional`, `daten.standardabweichung`, `daten.normalverteilung`, `sonder.graphentheorie`, `sonder.logik`, `sonder.optimierung`, `zahlen.schranken`.
@@ -1931,12 +1931,12 @@ Grundlage: `inhalte/pruefung/lehrer/nachpruefung-2.md` (mit Bildern).
 1. Umschalter „Nach Themengebiet | Nach Klasse (Lehrplan)“ auf dem Tablet ohne Trennung im Wort (kürzere Beschriftung „Themengebiet | Klasse“ unter 1100 px ist in Ordnung).
 2. Plan links auf dem Handy: lange Überschriften nicht mitten im Wort trennen (kleinere Schrift, Pfeile unter den Text oder Kürzen mit „…“ wie auf dem Tablet).
 3. Kann, wenn ohne Umbau: heller Verlauf auch links im Plan; gestrichelte Linie bei IB auch für ein Kind ohne MYP-Jahr (dann ganz oben); Legende auf Tablet und Rechner ohne inneres Rollen sichtbar; Vorlese-Namen der Knöpfe an die sichtbare Überschrift angleichen; doppeltes „–“ in der IB-Zelle für Klasse 5 weglassen; im Info-Text ein Satz, dass ein Pausentag nach dem Kalendertag am Aufenthaltsort des Kindes zählt.
-4. **„Inhalte ansehen“: gesperrte Bordkarten heißen fälschlich „in Prüfung“** (Sebastian, 20.11., Bild: „54 Bordkarten (5 in Prüfung)“). In freigegebenen Flügen sind Bordkarten mit `freigegeben = false` nicht „in Prüfung“, sondern aussortiert: überzählige alte Übungen ohne Typ und alte Fassungen, die durch eine Korrektur ersetzt wurden. Sie werden nie wieder ausgegeben. Änderung: In der Zeile der Etappe nur die aktiven Bordkarten zählen („49 Bordkarten“); aussortierte nicht in der Liste zeigen, sondern am Ende der Etappe zugeklappt „5 aussortierte Bordkarten (ersetzt oder überzählig) anzeigen“; dort statt „in Prüfung“ das Wort „aussortiert“. „In Prüfung“ bleibt nur für Flüge, die als Ganzes noch Entwurf sind. Die Zahl der Bordkarten in der Lehrplan-Übersicht („Fertig · n Etappen · m Bordkarten“) zählt ebenfalls nur aktive. Info-Seite anpassen.
-5. **Kinderansicht – nach der Landung nicht zurück in die Übungen** (Sebastian, 20.11.; Fehler aus dem Betrieb: Ein Kind landete die letzte Etappe eines Flugs, löste die Knobel-Bordkarte und wurde danach in die Übungen derselben Etappe zurückgeschickt – es übte 12 Bordkarten weiter, ohne zu merken, dass es fertig war).
+4. **„Inhalte ansehen“: gesperrte Bordkarten heißen fälschlich „in Prüfung“** (Nutzer, 20.11., Bild: „54 Bordkarten (5 in Prüfung)“). In freigegebenen Flügen sind Bordkarten mit `freigegeben = false` nicht „in Prüfung“, sondern aussortiert: überzählige alte Übungen ohne Typ und alte Fassungen, die durch eine Korrektur ersetzt wurden. Sie werden nie wieder ausgegeben. Änderung: In der Zeile der Etappe nur die aktiven Bordkarten zählen („49 Bordkarten“); aussortierte nicht in der Liste zeigen, sondern am Ende der Etappe zugeklappt „5 aussortierte Bordkarten (ersetzt oder überzählig) anzeigen“; dort statt „in Prüfung“ das Wort „aussortiert“. „In Prüfung“ bleibt nur für Flüge, die als Ganzes noch Entwurf sind. Die Zahl der Bordkarten in der Lehrplan-Übersicht („Fertig · n Etappen · m Bordkarten“) zählt ebenfalls nur aktive. Info-Seite anpassen.
+5. **Kinderansicht – nach der Landung nicht zurück in die Übungen** (Nutzer, 20.11.; Fehler aus dem Betrieb: Ein Kind landete die letzte Etappe eines Flugs, löste die Knobel-Bordkarte und wurde danach in die Übungen derselben Etappe zurückgeschickt – es übte 12 Bordkarten weiter, ohne zu merken, dass es fertig war).
    a) Nach einer Knobel-Bordkarte, die vom Landebildschirm aus gestartet wurde (richtig, falsch oder abgebrochen), geht es **zurück zum Landebildschirm** dieser Etappe – nicht in `zeichneUeben()`. Gleiches gilt für jeden anderen Rückweg vom Landebildschirm.
    b) Öffnet das Kind eine **schon gelandete Etappe** zum Üben, steht oben deutlich „Hier bist du fertig ✓“ mit **einem großen Knopf zum nächsten Schritt** (nächste offene Etappe · „Zum Test“, wenn alle Pflicht-Etappen gelandet sind · nächster Flug bzw. Abflugtafel, wenn der Flug geschafft ist). Weiterüben bleibt möglich, aber als zweiter, kleiner Knopf („Trotzdem weiterüben“). Nach jeder weiteren Bordkarte in einer gelandeten Etappe bleibt der Knopf zum nächsten Schritt sichtbar.
    c) Die Abflugtafel und „Weiter geht’s“ führen nie in eine gelandete Etappe, solange es einen nächsten Schritt gibt (prüfen und, falls nötig, berichtigen).
-   d) **Reihenfolge am Ende einer Etappe (Sebastian, 20.11., ersetzt die frühere Fassung von d):** Die **Knobel-Bordkarte kommt immer von selbst hinten dran** – nicht als Angebot zur Auswahl. Ablauf: letzte Übung → „gelandet“ wird gebucht → sofort die Knobel-Bordkarte dieser Etappe (eine, die das Kind noch nicht gelöst hat; gibt es keine, entfällt der Schritt), mit einer Zeile darüber „Zum Schluss eine harte Nuss – falsch kostet nichts.“ → danach der Landebildschirm. Die Regeln der Knobel-Bordkarte bleiben (ein Versuch, falsch kostet nichts und zeigt den Weg, richtig = 30 Sterne, zählt nicht für „gelandet“). Ein kleiner Textlink „Heute keine Knobel-Bordkarte“ darf bleiben.
+   d) **Reihenfolge am Ende einer Etappe (Nutzer, 20.11., ersetzt die frühere Fassung von d):** Die **Knobel-Bordkarte kommt immer von selbst hinten dran** – nicht als Angebot zur Auswahl. Ablauf: letzte Übung → „gelandet“ wird gebucht → sofort die Knobel-Bordkarte dieser Etappe (eine, die das Kind noch nicht gelöst hat; gibt es keine, entfällt der Schritt), mit einer Zeile darüber „Zum Schluss eine harte Nuss – falsch kostet nichts.“ → danach der Landebildschirm. Die Regeln der Knobel-Bordkarte bleiben (ein Versuch, falsch kostet nichts und zeigt den Weg, richtig = 30 Sterne, zählt nicht für „gelandet“). Ein kleiner Textlink „Heute keine Knobel-Bordkarte“ darf bleiben.
    e) **Nach der letzten Pflicht-Etappe kommt der Test von selbst** („Warum landet er zum Schluss nicht automatisch beim Test?“): Sind mit dieser Landung alle Pflicht-Etappen des Flugs gelandet, folgt nach der Knobel-Bordkarte und dem Landebildschirm **ohne Umweg die Startseite des Flug-Tests** – der Landebildschirm hat dann nur den einen großen Knopf „Jetzt zum Test“ („6 Bordkarten, ohne Tipps. Bestehst du ihn, ist der Flug geschafft.“; bei einem Nachtragstest „Test zu den neuen Etappen“; dazu, was für den Stempel des Ortes noch fehlt) und klein „Pause – zur Abflugtafel“. Öffnet das Kind einen Flug, in dem alle Pflicht-Etappen gelandet sind und nur der Test fehlt, kommt zuerst diese Aufforderung, nicht die Übungen; „Weiter geht’s“ auf der Abflugtafel führt dann direkt zur Testseite. Für gesetzte Flüge ohne Test (LB-3) entfällt das.
    f) **Test-Ergebnis: richtige Antworten deutlicher** (Rückmeldung eines Kindes: „nur ein ganz dünner grüner Rahmen“). In der Antwortliste nach dem Test jede Zeile klar als richtig oder falsch kennzeichnen: kräftige Fläche oder breiter linker Balken in Grün bzw. Rot, großes ✓ bzw. ✗ und das Wort „richtig“/„falsch“ – nicht nur Farbe (auch für Farbenblinde lesbar), in beiden Gestaltungen (hell und „nacht“), Kontrast gemessen. Oben die Summe groß („5 von 6 richtig“).
    g) **„Verbessern ›“ nach dem Test tut nichts** (Fehler aus dem Betrieb, 20.11.: Ein Kind hatte 4 von 6 im Flug-Test und konnte „Verbessern“ nicht antippen). Ursache (gelesen): `lernTestKnoepfe` verlinkt „Verbessern ›“ auf `…-test` – das ist die Adresse, auf der das Kind schon steht, also passiert nichts. Der Server würde die Korrektur starten (geprüft: `test_starten_intern` mit `art: korrektur` liefert für diesen Fall 2 Bordkarten). Änderung: Der Knopf startet die Korrektur direkt (wie „Verbessern starten“ auf der Testseite) bzw. zeichnet die Testseite neu. Nach dem Ergebnis mit Fehlern gibt es genau zwei klare Wege: groß „Erst üben: <Etappe> ›“ und daneben „Gleich verbessern ›“; beide müssen in beiden Gestaltungen funktionieren. Test dazu (Ergebnis mit Fehler → „Verbessern“ → Korrektur läuft). Prüfe bei der Gelegenheit alle Knöpfe und Links der Test- und Ergebnisseiten darauf, ob sie auf die eigene Adresse zeigen.
@@ -1948,9 +1948,9 @@ Tests für 1, 2, 4 und 5 (Messung: kein Wort wird getrennt; Zählung ohne aussor
 
 # Bau-Auftrag LB (20.11.): Plan als Cockpit, Lehrplan nach Klasse je Thema, 4 Stufen, „Kann er – aber wiederholen“, Lehrpläne Realschule/IB
 
-Von Sebastian freigegeben. **Maßgeblich ist die Vorgabe des Gestalters:** `inhalte/pruefung/lehrer/umsetzung-lb.md` (Befund, die 4 Stufen, Pakete LB-1 bis LB-5, „Fertig, wenn“; Fassung vom 20.11. 04:43 mit LB-5). **Leitidee:** Der Reiter „Plan“ ist das Cockpit des Lehrers – dort bearbeitet er den individuellen Lehrplan mit allen Funktionen. Entwurf zum Ansehen: `inhalte/pruefung/lehrer/entwurf/lehrplan-klasse-4-stufen.html` (echte Themen, Lernstand nur Beispiel). Bilder: `inhalte/pruefung/lehrer/bilder/lehrplan-klasse-gym8.png`, `lehrplan-klasse-rs7.png`. Gilt für Lehrer und Eltern; **die Kinderansicht bleibt bei Orten.**
+Vom Nutzer freigegeben. **Maßgeblich ist die Vorgabe des Gestalters:** `inhalte/pruefung/lehrer/umsetzung-lb.md` (Befund, die 4 Stufen, Pakete LB-1 bis LB-5, „Fertig, wenn“; Fassung vom 20.11. 04:43 mit LB-5). **Leitidee:** Der Reiter „Plan“ ist das Cockpit des Lehrers – dort bearbeitet er den individuellen Lehrplan mit allen Funktionen. Entwurf zum Ansehen: `inhalte/pruefung/lehrer/entwurf/lehrplan-klasse-4-stufen.html` (echte Themen, Lernstand nur Beispiel). Bilder: `inhalte/pruefung/lehrer/bilder/lehrplan-klasse-gym8.png`, `lehrplan-klasse-rs7.png`. Gilt für Lehrer und Eltern; **die Kinderansicht bleibt bei Orten.**
 
-Reihenfolge (es baut immer nur EIN Chat am App-Code): Bau-Auftrag I Teil 3 (`bau-motivation`) → **LB-3 Serverteil** (`bau-motivation`; von Sebastian am 20.11. bestätigt, ohne Vortest) → **Teil 4 + LB-1 + LB-2 + LB-5** (`bau-lehrer`). **LB-4** ist reine Inhaltsarbeit und läuft sofort nebenher.
+Reihenfolge (es baut immer nur EIN Chat am App-Code): Bau-Auftrag I Teil 3 (`bau-motivation`) → **LB-3 Serverteil** (`bau-motivation`; vom Nutzer am 20.11. bestätigt, ohne Vortest) → **Teil 4 + LB-1 + LB-2 + LB-5** (`bau-lehrer`). **LB-4** ist reine Inhaltsarbeit und läuft sofort nebenher.
 
 ## LB-4 – Lehrpläne Realschule und IB MYP, Lernbereiche (neuer Inhalts-Chat `lehrplan-lb`, Zweig `lehrplan-lb`, Meldungen `inhalte/postfach/lehrplan-lb.md`) – sofort
 
@@ -1958,13 +1958,13 @@ Je Thema in `inhalte/themenliste.json` ergänzen (alle 95 Themen):
 - `reihenfolge.rs_by` und `reihenfolge.ib_myp`: Platz in der Lehrplan-Reihenfolge **innerhalb der Klasse** dieser Schulart (1, 2, 3 …; `reihenfolge.gym_by` gibt es schon – nicht ändern). Realschule: LehrplanPLUS Bayern, Mathematik, Wahlpflichtfächergruppe I (Abweichungen von II/III im Bericht nennen). IB: MYP Mathematics, Jahr 1–5 (MYP-Jahr = Klasse − 5).
 - `lernbereich: { "gym_by": "…", "rs_by": "…", "ib_myp": "…" }`: Lernbereich bzw. Kapitel als Überschrift, so wie er im Lehrplan heißt (z. B. „M8 1 Funktion und Term“). Für das Gymnasium aus `lehrplan_gym` ableiten und gegen den Lehrplan prüfen. Hat ein Thema in einer Schulart keine Klasse, bleibt der Eintrag dort weg.
 - `lehrplan_rs` und `lehrplan_ib`: Kompetenzerwartungen in derselben Form wie `lehrplan_gym` (kurz, in eigenen Worten, nichts wörtlich in Länge abschreiben). `lehrplan_andere` bleibt stehen, bis der Haupt-Chat es entfernt.
-- **Klassen nicht ändern.** Das Feld `klasse` hat Sebastian am 18.11. festgelegt (und die Generatoren lesen es). Hältst du eine Klasse für falsch: als Liste im Bericht (Thema, heute, Vorschlag, Quelle) – nicht in der Datei ändern.
+- **Klassen nicht ändern.** Das Feld `klasse` hat der Nutzer am 18.11. festgelegt (und die Generatoren lesen es). Hältst du eine Klasse für falsch: als Liste im Bericht (Thema, heute, Vorschlag, Quelle) – nicht in der Datei ändern.
 - Quelle zu jeder Angabe: Lehrplan-Seite mit Abschnitt und Abrufdatum im Bericht (je Klasse und Schulart eine Tabelle). Was sich nicht belegen lässt, als Annahme kennzeichnen; lässt sich eine Lehrplan-Seite nicht abrufen, das ausdrücklich sagen und nicht aus dem Gedächtnis füllen.
 - **Dateiformat erhalten:** `themenliste.json` nicht neu formatieren (kein `json.dump` über die ganze Datei) – nur gezielt Felder einfügen, damit der Unterschied lesbar bleibt. Danach `python3 -I tools/inhalt_pruefen.py --alle` (muss OK bleiben).
 - Selbstprüfung per Skript im Bericht: je Schulart und Klasse sind die Reihenfolge-Nummern lückenlos und eindeutig; jedes Thema mit Klasse hat einen Lernbereich; „Realschule Klasse 7“ hat 18 Themen (Stand Datenbank).
 Kein App-Code, keine Datenbank, kein Merge nach `main`. Ein Commit je Schulart. Meldung „FERTIG: LB-4“. Der Haupt-Chat übernimmt die Felder in die Datenbank.
 
-## LB-3 – „Kann er – aber wiederholen“, Serverteil (Chat `bau-motivation`, nach Teil 3; **von Sebastian bestätigt, ohne Vortest**)
+## LB-3 – „Kann er – aber wiederholen“, Serverteil (Chat `bau-motivation`, nach Teil 3; **vom Nutzer bestätigt, ohne Vortest**)
 
 Regel laut `umsetzung-lb.md`, Abschnitt LB-3: Der Lehrer setzt einen Flug auf „kann er – aber wiederholen“. Dann gelten alle Etappen des Flugs als gelandet, die Wiederholung beginnt bei Stufe 1 (fällig nach 1 Lerntag, dann 3, 7, 14, 30); es gelten die bestehenden Regeln (höchstens 6 Wiederholungen vor einem Flug; ein Fehler → am nächsten Lerntag wieder; zwei Fehler hintereinander → wieder offen). Kein Flug-Test und keine Flug-Nachtests für diese Flüge; „sicher“ = Wiederholung nach 14 Lerntagen bestanden (und eine Mischkarte richtig, falls eine kam). Mischkarten und Expeditionen dürfen daraus entstehen.
 - Neues Feld je Kind und Ort analog `route.kann_schon_themen` (z. B. `kann_wdh_themen bigint[]`), setzbar über `api.schule_plan_setzen` (gleiches Muster wie `kann_schon_themen`, gleiche Prüfungen), lesbar über `schule_plan_lesen`.
@@ -1988,11 +1988,11 @@ Regel laut `umsetzung-lb.md`, Abschnitt LB-3: Der Lehrer setzt einen Flug auf �
 
 ---
 
-# Kinderansicht: Abschluss nach Etappe und Flug (20.11., Wunsch von Sebastian) – zuerst Entwurf des Gestalters
+# Kinderansicht: Abschluss nach Etappe und Flug (20.11., Wunsch vom Nutzer) – zuerst Entwurf des Gestalters
 
-**Anlass:** Die Kinder merken nicht deutlich genug, wann sie fertig sind und dass jetzt etwas Neues kommt. Ein Kind hat nach der Landung endlos weitergeübt. Sebastian will: nach jeder Etappe eine **kleine Motivations-Ansicht, je nachdem wie das Kind es geschafft hat**; nach einem Flug eine **spektakulärere Ansicht** – und **unübersehbar, dass es jetzt zu einem neuen Thema geht**.
+**Anlass:** Die Kinder merken nicht deutlich genug, wann sie fertig sind und dass jetzt etwas Neues kommt. Ein Kind hat nach der Landung endlos weitergeübt. Der Nutzer will: nach jeder Etappe eine **kleine Motivations-Ansicht, je nachdem wie das Kind es geschafft hat**; nach einem Flug eine **spektakulärere Ansicht** – und **unübersehbar, dass es jetzt zu einem neuen Thema geht**.
 
-**Chat `pruefung-kinderansicht` (Gestalter), Zweig `pruefung-kinderansicht`: nur Entwurf und Beschreibung, kein App-Code.** Sebastian gibt den Entwurf frei, danach baut ein Bau-Chat.
+**Chat `pruefung-kinderansicht` (Gestalter), Zweig `pruefung-kinderansicht`: nur Entwurf und Beschreibung, kein App-Code.** der Nutzer gibt den Entwurf frei, danach baut ein Bau-Chat.
 
 **Was es heute gibt (lesen, nicht raten):** `lernen.js` – Landebildschirm im Übungsablauf (`lr-gelandet`: „ETAPPE n VON m“, Stempel „GELANDET“, Titel, „x Bordkarten selbst gelöst …“, Sterne, Knobel-Angebot, Knopf zur nächsten Etappe bzw. Test, „Zur Abflugtafel“), Abschluss des Flug-Tests („Flug geschafft! 🎉“ als eine Zeile), Abflugtafel. Beide Gestaltungen der Kinderansicht (hell und „nacht“) beachten. Regeln: `inhalte/README.md`, Abschnitt „Lernregel ‚gelandet‘ und ‚sicher‘“.
 
@@ -2013,11 +2013,11 @@ Regel laut `umsetzung-lb.md`, Abschnitt LB-3: Der Lehrer setzt einen Flug auf �
 
 ---
 
-# Bau-Auftrag AB (20.11.): Abschluss nach Etappe, Flug und Ort (Kinderansicht) – Entwurf 2 des Gestalters, von Sebastian freigegeben
+# Bau-Auftrag AB (20.11.): Abschluss nach Etappe, Flug und Ort (Kinderansicht) – Entwurf 2 des Gestalters, vom Nutzer freigegeben
 
 **Maßgeblich:** `inhalte/pruefung/kind/abschluss/umsetzung.md` (Abschnitte 1–5 mit „Fertig, wenn“ je Ansicht; Abschnitt 7 Freigabe: Schwellen wie vorgeschlagen, Abzeichen werden im Reisepass gezählt). Klickbarer Entwurf: `inhalte/pruefung/kind/abschluss/entwurf/abschluss.html` (Handy/Tablet, hell/nacht, Bewegung umschaltbar). Bilder: `inhalte/pruefung/kind/abschluss/bilder/` (`uebersicht-etappe.png`, `uebersicht-flug-ort.png`, `uebersicht-tablet.png`).
 
-**Zusätze von Sebastian (20.11.), gehen der Vorgabe vor:**
+**Zusätze vom Nutzer (20.11.), gehen der Vorgabe vor:**
 - **Ablauf:** Übungen → Knobel-Bordkarte (immer hinten dran, nicht zur Auswahl) → Abschluss-Ansicht der Etappe. Nach der letzten Pflicht-Etappe: Knobel-Bordkarte → Abschluss-Ansicht → **Flug-Test** → Abschluss-Ansicht des Flugs (und des Orts). Das Knobel-Angebot auf dem Blatt der Abschluss-Ansicht entfällt damit; die Vorgabe „beim Sturmflug kein Knobel-Angebot“ gilt so: Beim Sturmflug kommt die Knobel-Bordkarte nicht von selbst (das Kind hat sich gerade durchgekämpft) – sie steht dort nur als kleiner Textlink.
 - **Test-Ergebnis:** richtige und falsche Antworten deutlich kennzeichnen (Teil 4, Punkt 5 f) – gilt auch für „Test ansehen“.
 
@@ -2031,7 +2031,7 @@ Regel laut `umsetzung-lb.md`, Abschnitt LB-3: Der Lehrer setzt einen Flug auf �
 - Rauchtest: je eine Landung `direkt`, `sauber`, `sturm` (auch „wieder gelandet“); Zählung im Reisepass; Test-Ergebnis mit `sterne_flug`, nächstem Flug und „Ort geschafft“. Die alte App darf nicht brechen. Meldung „FERTIG: AB-S“ mit genauer Feldbeschreibung für den App-Teil.
 
 ## AB-A – App (Chat `bau-motivation`, **erst wenn `bau-lehrer` mit App 0.82.0 fertig und zusammengeführt ist**; App 0.83.0)
-Ansichten 1–3, Bewegung, Wege nach dem Abschluss, Abzeichen-Zeile im Reisepass („⚡ Direkt · ✓ Sauber · ⚡ Ausdauer“ mit Anzahl) – genau nach `umsetzung.md` und dem klickbaren Entwurf, mit den Zusätzen von Sebastian oben. Baut auf Teil 4, Punkt 5 (a–f) auf, der mit 0.82.0 kommt. Beide Gestaltungen (hell, „nacht“), Handy 400 px und Tablet 820 px; Tests für jedes „Fertig, wenn“ aus `umsetzung.md`; Bilder der fertigen Ansichten nach `docs/previews/ab/`. Meldung „FERTIG: AB-A“ – der Gestalter prüft nach.
+Ansichten 1–3, Bewegung, Wege nach dem Abschluss, Abzeichen-Zeile im Reisepass („⚡ Direkt · ✓ Sauber · ⚡ Ausdauer“ mit Anzahl) – genau nach `umsetzung.md` und dem klickbaren Entwurf, mit den Zusätzen vom Nutzer oben. Baut auf Teil 4, Punkt 5 (a–f) auf, der mit 0.82.0 kommt. Beide Gestaltungen (hell, „nacht“), Handy 400 px und Tablet 820 px; Tests für jedes „Fertig, wenn“ aus `umsetzung.md`; Bilder der fertigen Ansichten nach `docs/previews/ab/`. Meldung „FERTIG: AB-A“ – der Gestalter prüft nach.
 
 ## AB-I – Texte „kann“ und „kurz“ (drei neue Inhalts-Chats, sofort; reine Inhaltsarbeit)
 Je freigegebenem Flug eine Datei **`inhalte/kann/<thema_schluessel>.json`**: `{"thema_schluessel": "…", "kurz": "…", "etappen": {"<lernziel>": "…", …}}`.
@@ -2081,7 +2081,7 @@ Migration `…_lb3_nachbesserung.sql` mit Rauchtest (Rollback, nur Testkind); al
 
 ---
 
-# Sechsundzwanzigste Runde (20.11.): Potenzgesetze in zwei eigene Flüge teilen – Entscheidung von Sebastian
+# Sechsundzwanzigste Runde (20.11.): Potenzgesetze in zwei eigene Flüge teilen – Entscheidung vom Nutzer
 
 Grundlage: `inhalte/postfach/lehrplan-lb.md`, Einträge „AUFTRAGSENTWURF: Potenzgesetze in zwei eigene Flüge teilen“ und „ENTSCHEIDUNG SEBASTIAN“ (beide lesen – sie gelten, soweit hier nichts anderes steht). Neuer Inhalts-Chat **`potenz-teilen`**, Zweig `potenz-teilen` vom aktuellen `lernen-app`, Meldungen `inhalte/postfach/potenz-teilen.md`. Vorher lesen: `inhalte/README.md` (Themen-Bausatz, Stufen und Aufgabentypen, Vertiefung), `inhalte/generatoren/_aufloesen.py` und `_af_plan.py` (Werkzeug zum Umziehen von Lernkarten aus der Vierundzwanzigsten Runde).
 
@@ -2115,7 +2115,7 @@ Grundlage: `inhalte/postfach/lehrplan-lb.md`, Einträge „AUFTRAGSENTWURF: Pote
 
 **Prüfen und melden:** Generatoren für beide neuen Flüge und die zwei geänderten; `python3 -I tools/inhalt_pruefen.py --alle` muss OK melden; jede Lösung selbst nachrechnen. Bericht: Zahl der Aufgaben je Flug, Karte, Pool und Stufe; welche Aufgaben wohin umgezogen sind (alte → neue Stelle); Lehrplan-Quellen; was nicht geprüft wurde. Ein Commit je Flug + einer für Themenliste und Texte. **Nichts in die Datenbank schreiben, kein App-Code, kein Merge nach `main`, keine Kinderdaten.** Am Ende „FERTIG: Potenzgesetze geteilt“.
 
-**Danach der Haupt-Chat:** Themen 102 und 103 in der Datenbank anlegen und den Orten zuordnen, Flüge einspielen (Entwurf), unabhängig prüfen lassen, den Lernstand des betroffenen Kindes von `terme.umformen` auf Flug A umhängen (Landungen, Wiederholungen, Nachweise – ohne Verlust; der abgeschlossene Ort bleibt abgeschlossen), Lehrplan-Felder nachziehen; Freigabe und Plan entscheidet Sebastian.
+**Danach der Haupt-Chat:** Themen 102 und 103 in der Datenbank anlegen und den Orten zuordnen, Flüge einspielen (Entwurf), unabhängig prüfen lassen, den Lernstand des betroffenen Kindes von `terme.umformen` auf Flug A umhängen (Landungen, Wiederholungen, Nachweise – ohne Verlust; der abgeschlossene Ort bleibt abgeschlossen), Lehrplan-Felder nachziehen; Freigabe und Plan entscheidet der Nutzer.
 
 ---
 
@@ -2159,7 +2159,7 @@ Geprüft werden `inhalte/themen/terme.potenzgesetze_natuerlich.json` (Flug A, 19
 
 Bericht: Muss / Sollte / Kann mit Fundstelle (Flug, Karte, Fragetext), dazu was nicht geprüft wurde. Keine Kinderdaten, nichts in die Datenbank, kein App-Code. Am Ende „FERTIG: Prüfung Potenz“.
 
-**Nachtrag zur Sechsundzwanzigsten Runde – Entscheidung Sebastian (20.11.):** In Flug A werden die vier leichten „Stimmt die Rechnung? …“-Aufgaben (aus Gym 6 umgezogen, derzeit Stufe 3 „fehler“ in `mal_gleiche_basis`) zu **Stufe 1, Typ „erkennen“**. Grund: Eine Landung verlangt eine gelöste Stufe-3-Aufgabe; leichte Aufgaben dort entwerten die Hürde. `potenz-teilen` setzt das zusammen mit den Ergebnissen der Siebenundzwanzigsten Runde um (eine Nachbesserung, nicht zwei); der Prüf-Chat nennt weitere Stufe-3-Aufgaben, die zu leicht sind.
+**Nachtrag zur Sechsundzwanzigsten Runde – Entscheidung des Nutzers (20.11.):** In Flug A werden die vier leichten „Stimmt die Rechnung? …“-Aufgaben (aus Gym 6 umgezogen, derzeit Stufe 3 „fehler“ in `mal_gleiche_basis`) zu **Stufe 1, Typ „erkennen“**. Grund: Eine Landung verlangt eine gelöste Stufe-3-Aufgabe; leichte Aufgaben dort entwerten die Hürde. `potenz-teilen` setzt das zusammen mit den Ergebnissen der Siebenundzwanzigsten Runde um (eine Nachbesserung, nicht zwei); der Prüf-Chat nennt weitere Stufe-3-Aufgaben, die zu leicht sind.
 
 ---
 
@@ -2175,13 +2175,13 @@ Chat **`potenz-teilen`** (weiter auf seinem Zweig, vorher `lernen-app` holen). G
 1. Gym 6: Tipps zu Hoch 0 (Aufgaben 31, 37) ohne Quotientengesetz, über das Muster der Lernkarte.
 2. Flug A, `geteilt_gleiche_basis`, Aufgaben 131 und 135: nach Flug B verlegen und in Flug A gleichwertig ersetzen (erster Exponent nie kleiner).
 3. Flug A: die sechs unpassenden Ablenker (Aufgaben 14, 16, 18, 68, 88, 136) durch typische Fehler ersetzen, die zur jeweiligen Rechnung passen.
-4. **Stufe und Typ der 23 umgezogenen Aufgaben** (Entscheidung Sebastian + Prüfbericht; ersetzt „alle Stufe 3 fehler“ aus der Sechsundzwanzigsten Runde): die **sechs** „Stimmt die Rechnung?“ mit richtiger Rechnung (2, 4, 6, 112, 116, 122) → Stufe 1 `erkennen`; 26 → `parameter`; 31 → `rueckwaerts`; 178 → `begruenden`; 43 zurück in den Knobel-Pool oder ersetzen (zu nah an 44). Stufe folgt dem Typ laut README. Danach Mindestmengen und Typ-Mischung je Karte neu prüfen (Stufe 3 von `mal_gleiche_basis` nicht mehr von „fehler“ beherrscht).
+4. **Stufe und Typ der 23 umgezogenen Aufgaben** (Entscheidung des Nutzers + Prüfbericht; ersetzt „alle Stufe 3 fehler“ aus der Sechsundzwanzigsten Runde): die **sechs** „Stimmt die Rechnung?“ mit richtiger Rechnung (2, 4, 6, 112, 116, 122) → Stufe 1 `erkennen`; 26 → `parameter`; 31 → `rueckwaerts`; 178 → `begruenden`; 43 zurück in den Knobel-Pool oder ersetzen (zu nah an 44). Stufe folgt dem Typ laut README. Danach Mindestmengen und Typ-Mischung je Karte neu prüfen (Stufe 3 von `mal_gleiche_basis` nicht mehr von „fehler“ beherrscht).
 5. **IB:** Flug A nach MYP 3, vor `terme.umformen` (wie im Gymnasium); Reihenfolgen MYP 3 und MYP 4 nachziehen, weiter als Annahme gekennzeichnet.
 6. Flug A: Aufgaben 75, 76 bekommen einen Typ; 30, 154, 156 einheitlich einstufen.
 
 **Kann (umsetzen):** 1 („Bruch“ statt „Bruchterm“, wo der Begriff in RS/IB noch fehlt) · 2 (Hinweis-Satz in „Gleiche Basis: teilen“) · 3 (`offen` in Gym 6 bereinigen) · 4 (`lehrplan_rs` von `terme.umformen`) · 5 (kann-Text `kurz` Gym 6) · 7 (Einstieg `terme_vereinfachen`). Kann 8 bleibt.
 
-**Kann 6 („Potenzen von Potenzen“ als Karte in Flug A, M7 1.2): nur bauen, wenn der Haupt-Chat Sebastians Ja im Postfach meldet.** Dann als **Pflichtkarte** mit eigenem Lernziel-Schlüssel `potenz_von_potenz`, vollständig nach Bausatz; die vier bestehenden Schlüssel bleiben unverändert.
+**Kann 6 („Potenzen von Potenzen“ als Karte in Flug A, M7 1.2): nur bauen, wenn der Haupt-Chat Ja des Nutzers im Postfach meldet.** Dann als **Pflichtkarte** mit eigenem Lernziel-Schlüssel `potenz_von_potenz`, vollständig nach Bausatz; die vier bestehenden Schlüssel bleiben unverändert.
 
 Prüfskript `--alle` OK, Selbstprüfung der Reihenfolgen, Bericht mit alt → neu je geänderter Aufgabe. Nichts in die Datenbank, kein App-Code. Am Ende „FERTIG: Potenz nachgebessert“.
 
@@ -2209,7 +2209,7 @@ Am Ende „FERTIG: LB-3 Tests ergänzt“.
 
 # Nachträge 20.11. nachmittags
 
-**A – `bau-lehrer`: „Flug geschafft“ auch nach Verbessern (Entscheidung Haupt-Chat, im Sinne von Sebastians Vorgabe „nach einem Flug eine spektakulärere Ansicht“).** `supabase/migrations/20261120_ab_s_flug_abschluss_einmal.sql` ist **nicht eingespielt** und wird so geändert: `flug_geschafft` = dieser Aufruf schließt die Sitzung ab **und der Flug wird dadurch zum ersten Mal fertig** – egal ob über den Flug-Test (`blocktest`) oder über Verbessern (`korrektur`). Weiter false: nicht bestandener Test, Nachtragstest, Nachtest, erneuter Aufruf einer anderen Sitzung, alles nach dem ersten Fertigwerden. Erneuter Aufruf derselben Sitzung liefert dasselbe wie beim ersten Mal. Rauchtest 9c entsprechend (Verbessern, das den Flug erstmals fertig macht → `flug_geschafft` true mit Feldern; zweites Verbessern/Nachtest → false). Nur Datei, nicht ausführen. „FERTIG: flug_geschafft“.
+**A – `bau-lehrer`: „Flug geschafft“ auch nach Verbessern (Entscheidung Haupt-Chat, im Sinne von Vorgabe des Nutzers „nach einem Flug eine spektakulärere Ansicht“).** `supabase/migrations/20261120_ab_s_flug_abschluss_einmal.sql` ist **nicht eingespielt** und wird so geändert: `flug_geschafft` = dieser Aufruf schließt die Sitzung ab **und der Flug wird dadurch zum ersten Mal fertig** – egal ob über den Flug-Test (`blocktest`) oder über Verbessern (`korrektur`). Weiter false: nicht bestandener Test, Nachtragstest, Nachtest, erneuter Aufruf einer anderen Sitzung, alles nach dem ersten Fertigwerden. Erneuter Aufruf derselben Sitzung liefert dasselbe wie beim ersten Mal. Rauchtest 9c entsprechend (Verbessern, das den Flug erstmals fertig macht → `flug_geschafft` true mit Feldern; zweites Verbessern/Nachtest → false). Nur Datei, nicht ausführen. „FERTIG: flug_geschafft“.
 
 **B – `bau-motivation` (erst nach A und nach dem Live von 0.83.0): App 0.83.1** – Abschluss-Ansicht des Flugs an `flug_geschafft` (oder `ort_geschafft`) hängen statt an `einheit_abgeschlossen`; fehlt das Feld (alter Server), Verhalten wie 0.83.0. Tests. „FERTIG: 0.83.1“.
 
@@ -2217,9 +2217,9 @@ Am Ende „FERTIG: LB-3 Tests ergänzt“.
 
 ---
 
-# Bau-Auftrag LB, Teil 8 (20.11.): Aufgeklappte Themen-Karte im Lehrplan kompakter – Variante A (von Sebastian gewählt)
+# Bau-Auftrag LB, Teil 8 (20.11.): Aufgeklappte Themen-Karte im Lehrplan kompakter – Variante A (vom Nutzer gewählt)
 
-Betrifft die aufgeklappte Themen-Karte im Lehrplan des Plans, Ansichten „Nach Klasse“ und „Nach Themengebiet“ (LB-2). Vorlage: Entwurf des Gestalters im Chat mit Sebastian („Variante A“); es gibt keine Entwurfsdatei – die folgende Beschreibung ist die Vorgabe. Nur App, kein Server. Wird von `bau-motivation` zusammen mit Nachtrag B (`flug_geschafft`) als **0.83.1** gebaut.
+Betrifft die aufgeklappte Themen-Karte im Lehrplan des Plans, Ansichten „Nach Klasse“ und „Nach Themengebiet“ (LB-2). Vorlage: Entwurf des Gestalters im Chat mit dem Nutzer („Variante A“); es gibt keine Entwurfsdatei – die folgende Beschreibung ist die Vorgabe. Nur App, kein Server. Wird von `bau-motivation` zusammen mit Nachtrag B (`flug_geschafft`) als **0.83.1** gebaut.
 
 Heute: vier große Felder für die Stufen (je zwei Zeilen Erklärung) nehmen die halbe Karte ein, „Inhalte ansehen ›“ ist nur ein kleiner Link neben dem Ort, darüber neun Etappen-Kästchen.
 
@@ -2243,7 +2243,7 @@ Grundlage: `inhalte/pruefung/lehrer/nachpruefung-5.md` (N6–N8, Info-Seite) und
 **Lehrer-Ansicht**
 1. **N6 (Sollte):** Gewählter Themengebiet-Knopf (`aria-pressed="true"`) bleibt beim Hover dunkel mit weißer Schrift.
 2. **N7 (Sollte):** Plan links auf dem Handy: Titel nur das Thema, Themengebiet klein und grau in der Zeile darunter; ↑ ↓ kleiner (32 px) oder untereinander. Ziel bei 400 px: höchstens wenige Titel mit „…“, nie Trennstrich und „…“ hintereinander.
-3. **N8 (Kann):** bleibt wie es ist, bis Sebastian entscheidet (Wort „Themen“ in der Lehrer-Ansicht).
+3. **N8 (Kann):** bleibt wie es ist, bis der Nutzer entscheidet (Wort „Themen“ in der Lehrer-Ansicht).
 4. **Info-Seite (Kann):** Schritt 1 „Rechts (auf dem Handy darunter) der Lehrplan“.
 
 **Abschluss-Ansichten (Kind)**
@@ -2254,7 +2254,7 @@ Tests ergänzen (N6, N7 als Messung, N1), alle laufen lassen. „FERTIG: 0.83.2�
 
 ---
 
-# Entscheidungen Sebastian (21.11.) – „alles wie empfohlen“
+# Entscheidungen des Nutzers (21.11.) – „alles wie empfohlen“
 
 1. **Neue Pflicht-Etappe „Potenzen von Potenzen“ (Flug A):** Das betroffene Kind übt sie normal (Landung, dann Nachtragstest); sie wird nicht gesetzt. Der Ort zeigt bis dahin wieder einen offenen Flug; Stempel und Orts-Sterne bleiben.
 2. **Flug A, sieben Aufgaben „Ein Kind rechnet … Was ist falsch?“ / „Welcher Satz beschreibt den Fehler richtig?“** (6 in `mal_gleiche_basis`, 1 in `gleicher_exponent`, derzeit Stufe 1 `erkennen`): bekommen **keinen Typ** (überzählig, werden beim Einspielen gesperrt, nicht gelöscht). → **`potenz-teilen`, Neunundzwanzigste Runde:** genau das umsetzen, dazu aus der Nachprüfung Kann 2 (zwei Ablenker, die eine Basis verlieren), Kann 4 („2¹⁰ : 2ⁿ = 16“ → Stufe 2 `umkehr`), Kann 6 (Wort „potenziert“ einfacher), Kann 7 (Flug B `exponent_und_potenz` verweist auf Klasse 7). Mindestmengen und Typ-Mischung danach prüfen, Prüfskript `--alle` OK. „FERTIG: Potenz Runde 29“.
@@ -2274,7 +2274,7 @@ Tests ergänzen (N6, N7 als Messung, N1), alle laufen lassen. „FERTIG: 0.83.2�
 
 # Dreißigste Runde (21.11.): Lehrplan-Prüfung – Zuordnungen und Voraussetzungen der Themenliste
 
-Chat **`lehrplan-lb`** (Inhalte, kein App-Code), Zweig `lehrplan-lb` auf den Stand von `lernen-app` bringen, Meldung `inhalte/postfach/lehrplan-lb.md`. Anlass: Sebastians Übersichtsblatt „Mathe 5–10 – was gelernt wird“ (Matrix Klasse × Themengebiet aus `inhalte/themenliste.json` und `schule.voraussetzung`) zeigt Lücken. Auftrag des Gestalters, vom Haupt-Chat übernommen.
+Chat **`lehrplan-lb`** (Inhalte, kein App-Code), Zweig `lehrplan-lb` auf den Stand von `lernen-app` bringen, Meldung `inhalte/postfach/lehrplan-lb.md`. Anlass: Übersichtsblatt des Nutzers „Mathe 5–10 – was gelernt wird“ (Matrix Klasse × Themengebiet aus `inhalte/themenliste.json` und `schule.voraussetzung`) zeigt Lücken. Auftrag des Gestalters, vom Haupt-Chat übernommen.
 
 **1. Themen ohne Klasse prüfen (Gymnasium Bayern)**
 - **Reinquadratische Gleichungen:** `gym_by` fehlt, ist aber harte Voraussetzung für „Quadratische Gleichungen (allgemein)“ (Gym Kl. 9). Entweder Gym Kl. 9 zuordnen oder die Voraussetzung für Gym anders lösen. Danach prüfen, ob ein Gymnasiast das Thema im Plan bekommt.
@@ -2296,7 +2296,7 @@ Chat **`lehrplan-lb`** (Inhalte, kein App-Code), Zweig `lehrplan-lb` auf den Sta
 
 # Bau-Auftrag LM (21.11.): Lehrplan-Matrix „Mathe 5–10“ – bei Lehrer/Eltern und auf der Kinderseite
 
-Von Sebastian gewünscht. Vorgabe des Gestalters (maßgeblich, vollständig lesen): `inhalte/pruefung/lehrer/matrix/umsetzung.md` (LM-1 bis LM-6), Vorlage `inhalte/pruefung/lehrer/matrix/entwurf/lehrplan-matrix.html` (läuft ohne Server, erfundener Lernstand „Kind A“/„Kind B“).
+Vom Nutzer gewünscht. Vorgabe des Gestalters (maßgeblich, vollständig lesen): `inhalte/pruefung/lehrer/matrix/umsetzung.md` (LM-1 bis LM-6), Vorlage `inhalte/pruefung/lehrer/matrix/entwurf/lehrplan-matrix.html` (läuft ohne Server, erfundener Lernstand „Kind A“/„Kind B“).
 
 **Schritt 1 – LM-S, Server (`bau-lehrer`, nur Dateien, parallel möglich):** Prüfen, was die Matrix an Daten braucht und was `api.schule_lehrplan_uebersicht` heute liefert. Fehlendes als Migrationsdatei mit Rauchtest (nicht ausführen): je Thema Titel, Themengebiet, Klasse/Reihenfolge/Lernbereich je Schulart, „Was gefordert ist“ (`thema.beschreibung`), Lehrplan-Wortlaut, „Das muss sitzen“ (`merke` der freigegebenen Einheit), Etappen (Titel, Pflicht); die Verbindungen aus `schule.voraussetzung` (Art, Begründung); je sichtbarem Kind Stufe, Etappen gesamt/gelandet („Etappe x von y“), im Plan ja/nein – für alle Kinder in einem Aufruf. Zugriff: Eltern/Lehrer sehen ihre Kinder; ein Kind sieht nur sich selbst und bekommt weder Lehrplan-Wortlaut noch Daten anderer Kinder. Die Ansicht muss mit dem heutigen Stand von `schule.voraussetzung` funktionieren (die Vervollständigung läuft getrennt, Dreißigste Runde). Bericht: Feldliste für den App-Bau. „FERTIG: LM-S“.
 
@@ -2314,7 +2314,7 @@ Von Sebastian gewünscht. Vorgabe des Gestalters (maßgeblich, vollständig lese
 - Detail: Was du hier lernst, Das muss sitzen, Das brauchst du vorher (mit eigener Stufe), Danach geht’s weiter mit, Etappen mit ✓. Plan nicht änderbar; nur beim ▶-Flug großer Knopf „Weiter lernen ›“.
 - Handy/Tablet zuerst.
 
-**Für alle Schritte:** Tests nur mit Testkind und erfundenen Daten, keine Kinderdaten in Dateien. Abnahme bei 400, 820, 1280 px (kein Wort mitten im Wort umbrochen, Trennstrich erlaubt; Linien hinter den Karten). Nach jedem Schritt im Postfach melden – der Gestalter prüft nach. Merge nach `main` erst nach Sebastians „Live“.
+**Für alle Schritte:** Tests nur mit Testkind und erfundenen Daten, keine Kinderdaten in Dateien. Abnahme bei 400, 820, 1280 px (kein Wort mitten im Wort umbrochen, Trennstrich erlaubt; Linien hinter den Karten). Nach jedem Schritt im Postfach melden – der Gestalter prüft nach. Merge nach `main` erst nach „Live“ des Nutzers.
 
 **Nachtrag zur Dreißigsten Runde (21.11., vom Gestalter):** Im Bericht ausdrücklich angeben, **wo und wie „eigenständig“ abgelegt wird** (Spalte oder Eintrag, mit Namen) – nur dann kann das Übersichtsblatt es anzeigen. Der Gestalter prüft danach: kein Thema mit Klasse ohne Verbindung, außer ausdrücklich eigenständig; keine Voraussetzung liegt in einer späteren Klasse als das Thema (je Schulart); die Themen 100–103 sind verknüpft. Diese drei Regeln als Selbstprüfung in den Rauchtest aufnehmen. Stand: 102/103 sind seit 21.11. in der Datenbank und freigegeben.
 
@@ -2332,7 +2332,7 @@ Probelauf (echte Datenbank, zurückgerollt): alle drei Migrationen laufen (`lehr
 
 # Rückläufer 21.11. morgens (Probelauf des Haupt-Chats, ChatGPT 896) – nichts davon ist eingespielt
 
-**A – `lehrplan-lb`, Runde 30 c: harte Voraussetzungen ändern die Visum-Regeln der Kinder.** Die Migration läuft und ihr Rauchtest besteht; Stufen und Lernstand bleiben gleich. **Aber:** `schule.v_ort_visum` wächst von 49 auf 81 Zeilen, und `schule.reiseoptionen` liefert für die Kinder andere Ergebnisse (neue „Visum fehlt“-Sperren, z. B. braucht ein Ort der Klasse 5 jetzt das Visum eines anderen Orts). „Plan-Folgen: keine“ stimmt also nicht – harte Verbindungen steuern, in welchen Ort ein Kind reisen darf. Bitte: (1) `v_ort_visum` und `reiseoptionen` lesen und verstehen; (2) für jede neue oder geänderte **harte** Verbindung prüfen, ob sie wirklich eine Reise-Sperre sein soll – sonst `empfohlen`; (3) im Bericht je Kind (ohne Namen, „Kind Klasse 5“, „Kind Klasse 8“) vorher/nachher: welche Orte sind wählbar, welche gesperrt und wodurch; Ziel: Für die heutigen Pläne ändert sich nichts, außer es ist fachlich zwingend und einzeln begründet (das entscheidet dann Sebastian); (4) Rauchtest-Regel: `reiseoptionen` der vorhandenen Kinder vor und nach der Migration vergleichen und Unterschiede ausgeben. „FERTIG: Lehrplan Runde 30 c“.
+**A – `lehrplan-lb`, Runde 30 c: harte Voraussetzungen ändern die Visum-Regeln der Kinder.** Die Migration läuft und ihr Rauchtest besteht; Stufen und Lernstand bleiben gleich. **Aber:** `schule.v_ort_visum` wächst von 49 auf 81 Zeilen, und `schule.reiseoptionen` liefert für die Kinder andere Ergebnisse (neue „Visum fehlt“-Sperren, z. B. braucht ein Ort der Klasse 5 jetzt das Visum eines anderen Orts). „Plan-Folgen: keine“ stimmt also nicht – harte Verbindungen steuern, in welchen Ort ein Kind reisen darf. Bitte: (1) `v_ort_visum` und `reiseoptionen` lesen und verstehen; (2) für jede neue oder geänderte **harte** Verbindung prüfen, ob sie wirklich eine Reise-Sperre sein soll – sonst `empfohlen`; (3) im Bericht je Kind (ohne Namen, „Kind Klasse 5“, „Kind Klasse 8“) vorher/nachher: welche Orte sind wählbar, welche gesperrt und wodurch; Ziel: Für die heutigen Pläne ändert sich nichts, außer es ist fachlich zwingend und einzeln begründet (das entscheidet dann der Nutzer); (4) Rauchtest-Regel: `reiseoptionen` der vorhandenen Kinder vor und nach der Migration vergleichen und Unterschiede ausgeben. „FERTIG: Lehrplan Runde 30 c“.
 
 **B – `bau-lehrer`, LM-S 3: Migration bricht ab.** `20261121_lm_s_lehrplan_matrix.sql` (md5 544f48ff…) scheitert beim Ausführen auf der echten Datenbank mit „mismatched parentheses at or near ")"“; danach fehlt die Funktion, der Rauchtest läuft nicht. Bitte beheben und die Datei wirklich ausführbar prüfen (z. B. mit `plpgsql_check` oder lokal gegen Postgres; pglast prüft den Funktionsrumpf nicht). „FERTIG: LM-S 3“.
 
@@ -2357,15 +2357,15 @@ Die zwei Muss aus 907 sind erledigt: Der Altzustand (früher fertiger Flug mit n
 
 # Bau-Auftrag WD (22.11.): Wiederholungen dynamisch – Stau vermeiden, Belohnung fürs Ablegen
 
-Anlass: Sebastian und die Kinder. Jede gelandete Etappe erzeugt 5 Wiederholungen (1, 3, 7, 14, 30 Lerntage); die Runde am Anfang hat fest 6 Aufgaben. Bei mehr als etwa 1,2 Landungen pro Lerntag staut es sich; ein Kind hat nach dem Setzen mehrerer Flüge 41 fällige Etappen. **Entscheidungen Sebastians (22.11.):** Die Wiederholungs-Runde am Anfang bleibt (einmal pro Tag); ihre Größe wird errechnet; Mischkarten bleiben und bauen mit ab; **kein Bündeln je Flug – jede Etappe für sich**; Sterne 5 / 30 / 100; kein neues Abzeichen, sondern der vorhandene Stempel wird golden. **Gebaut wird erst nach ChatGPTs Prüfung des Konzepts und der Vorgabe des Gestalters.**
+Anlass: Der Nutzer und die Kinder. Jede gelandete Etappe erzeugt 5 Wiederholungen (1, 3, 7, 14, 30 Lerntage); die Runde am Anfang hat fest 6 Aufgaben. Bei mehr als etwa 1,2 Landungen pro Lerntag staut es sich; ein Kind hat nach dem Setzen mehrerer Flüge 41 fällige Etappen. **Entscheidungen des Nutzers (22.11.):** Die Wiederholungs-Runde am Anfang bleibt (einmal pro Tag); ihre Größe wird errechnet; Mischkarten bleiben und bauen mit ab; **kein Bündeln je Flug – jede Etappe für sich**; Sterne 5 / 30 / 100; kein neues Abzeichen, sondern der vorhandene Stempel wird golden. **Gebaut wird erst nach ChatGPTs Prüfung des Konzepts und der Vorgabe des Gestalters.**
 
-**WD-1 Größe der Runde (Server liefert, App zeigt) – geändert 22.11., Sebastian: lockerer, ein Stau darf sich über 5 Lerntage auflösen:** fällige Etappen bis 6 → alle; darüber **ein Fünftel der fälligen, aufgerundet, mindestens 6, höchstens 12** (bis Klasse 6 höchstens 10). Beispiele: 20 fällig → 6; 41 → 9; 60 → 12. Werte in `schule.regel` (änderbar ohne Bau). Reihenfolge: zuerst Etappen mit einem Wiederholungs-Fehler, dann die am längsten fälligen, dann niedrigste Stufe. Weitere fällige bleiben freiwillig angeboten wie heute.
+**WD-1 Größe der Runde (Server liefert, App zeigt) – geändert 22.11., der Nutzer: lockerer, ein Stau darf sich über 5 Lerntage auflösen:** fällige Etappen bis 6 → alle; darüber **ein Fünftel der fälligen, aufgerundet, mindestens 6, höchstens 12** (bis Klasse 6 höchstens 10). Beispiele: 20 fällig → 6; 41 → 9; 60 → 12. Werte in `schule.regel` (änderbar ohne Bau). Reihenfolge: zuerst Etappen mit einem Wiederholungs-Fehler, dann die am längsten fälligen, dann niedrigste Stufe. Weitere fällige bleiben freiwillig angeboten wie heute.
 
 **WD-2 „Runde heute gemacht“ merkt sich der Server** (heute nur das Gerät, `localStorage`): je Kind und Lerntag (`heute_bis`), damit ein Gerätewechsel keine zweite Pflicht-Runde auslöst.
 
 **WD-3 Mischkarten bauen mit ab:** Die Auswahl der Mischkarten bevorzugt fällige Etappen (sonst wie bisher). Eine Mischkarte aus einer fälligen Etappe, richtig im ersten Versuch ohne Tipp, gilt als bestandene Wiederholung: Die Etappe rückt im Takt weiter wie nach einer richtigen Wiederholung, zusätzlich zum bisherigen Beleg für „sicher“. Falsch bleibt wie heute (am nächsten Lerntag fällig, öffnet nie). Häufigkeit unverändert (jede 4., bis Klasse 6 jede 6., ab 3 gelandeten Etappen im Flug).
 
-**WD-4 Gesetzte Flüge gestaffelt:** „Kann er – aber wiederholen“ bringt je Kind höchstens 6 Etappen pro Lerntag neu in den Takt (ein Flug nach dem anderen, in Plan-Reihenfolge); die übrigen warten sichtbar („kommt ab …“). Für den vorhandenen Stau eine einmalige, verlustfreie Umverteilung vorschlagen (nur Fälligkeiten strecken; keine Landung, kein Stand geht verloren) – als eigene, gut lesbare Migration, die der Haupt-Chat erst nach Probelauf und Sebastians Okay einspielt.
+**WD-4 Gesetzte Flüge gestaffelt:** „Kann er – aber wiederholen“ bringt je Kind höchstens 6 Etappen pro Lerntag neu in den Takt (ein Flug nach dem anderen, in Plan-Reihenfolge); die übrigen warten sichtbar („kommt ab …“). Für den vorhandenen Stau eine einmalige, verlustfreie Umverteilung vorschlagen (nur Fälligkeiten strecken; keine Landung, kein Stand geht verloren) – als eigene, gut lesbare Migration, die der Haupt-Chat erst nach Probelauf und Okay des Nutzers einspielt.
 
 **WD-5 Sterne:** 5 Sterne je richtiger Wiederholung (Runde am Anfang, freiwillige Wiederholung oder Mischkarte nach WD-3; je Etappe und Fälligkeit einmal). Vorher feststellen und melden, was Wiederholungen und Mischkarten heute geben (Mischkarte in der App: 10) – nichts doppelt buchen, nichts stillschweigend kürzen.
 
@@ -2373,13 +2373,13 @@ Anlass: Sebastian und die Kinder. Jede gelandete Etappe erzeugt 5 Wiederholungen
 
 **Aufteilung:** Server (`bau-lehrer`, Migrationen als Datei mit Rauchtests: Rundengröße, Server-Merker, Mischkarte als Wiederholung, Staffelung, Sterne, Ablegen einmalig; Lernstände bleiben unverändert – Vergleich vorher/nachher im Test). App (`bau-motivation`, nach LM-6): Runde in errechneter Größe, Einblendungen nach Vorgabe des Gestalters, goldener Flug-Eintrag und Stempel, Info-Seite. Gestalter: zwei Einblendungen („Etappe abgelegt“, „Flug abgelegt“) und das Gold im Reisepass, Vorgabe unter `inhalte/pruefung/kind/abgelegt/`.
 
-**Nachtrag zum Bau-Auftrag WD (22.11., Sebastian: „Wiederholungen zuerst“) – Reihenfolge und Schnittstelle.** WD hat Vorrang vor LM-6. Server und App werden **gleichzeitig** gebaut; dafür gilt diese Schnittstelle verbindlich (Abweichungen nur mit Meldung im Postfach, bevor gebaut wird). ChatGPTs Prüfung des Konzepts (Werkstatt 909/910) läuft parallel; ihre Ergebnisse werden eingearbeitet, eingespielt wird erst danach.
+**Nachtrag zum Bau-Auftrag WD (22.11., der Nutzer: „Wiederholungen zuerst“) – Reihenfolge und Schnittstelle.** WD hat Vorrang vor LM-6. Server und App werden **gleichzeitig** gebaut; dafür gilt diese Schnittstelle verbindlich (Abweichungen nur mit Meldung im Postfach, bevor gebaut wird). ChatGPTs Prüfung des Konzepts (Werkstatt 909/910) läuft parallel; ihre Ergebnisse werden eingearbeitet, eingespielt wird erst danach.
 
 - `schule_wiederholung` (bestehende Aktion) liefert zusätzlich: `runde` (Zahl der Pflicht-Aufgaben heute nach WD-1), `faellig` (alle fälligen Etappen), `runde_gemacht` (true, wenn die Pflicht-Runde dieses Lerntags erledigt ist – WD-2), `aufgaben[]` in der Reihenfolge nach WD-1 (die ersten `runde` sind Pflicht, weitere freiwillig), `gestaffelt` (Zahl gesetzter Etappen, die noch warten – WD-4). Neue Aktion `schule_wiederholung_runde_fertig {lernender_id}` setzt den Merker.
 - `schule_uebung_pruefen` liefert bei einer Wiederholung oder einer Mischkarte nach WD-3 zusätzlich `wiederholung: { bestanden, sterne, stufe_neu, naechste_in }` und, wenn dadurch etwas abgelegt wird, `abgelegt: { etappe: { titel, sterne }, flug?: { titel, sterne }, ort_gold?: true }` – höchstens einmal je Kind und Etappe/Flug/Ort.
 - Konto/Reisepass (`schule_konto`): je Flug `abgelegt: true|false` und `etappen_abgelegt`/`etappen`; je Ort `gold: true|false`.
 - Regeln in `schule.regel`: `wdh_runde_min` 6, `wdh_runde_max` 12, `wdh_runde_max_bis_kl6` 10, `wdh_runde_teiler` 5, `wdh_gesetzt_je_lerntag` 6, `sterne_wdh_richtig` 5, `sterne_etappe_abgelegt` 30, `sterne_flug_abgelegt` 100.
-- **Sterne heute:** `sterne_uebung_richtig` = 10. `bau-lehrer` stellt fest, ob eine richtige Wiederholung heute schon 10 Sterne gibt. Wenn ja: **nicht kürzen**, sondern melden – Sebastian entscheidet dann zwischen 5 und 10.
+- **Sterne heute:** `sterne_uebung_richtig` = 10. `bau-lehrer` stellt fest, ob eine richtige Wiederholung heute schon 10 Sterne gibt. Wenn ja: **nicht kürzen**, sondern melden – der Nutzer entscheidet dann zwischen 5 und 10.
 - App ohne neue Server-Felder (alter Server): Verhalten wie 0.84.0.
 - Einblendungen: `bau-motivation` baut sie im Stil der vorhandenen Abschluss-Ansichten („Etappe abgelegt“ klein, „Flug abgelegt“ groß, Gold im Reisepass); der Gestalter liefert parallel die Vorgabe und prüft nach – Abweichungen werden danach angeglichen.
 
@@ -2387,7 +2387,7 @@ Anlass: Sebastian und die Kinder. Jede gelandete Etappe erzeugt 5 Wiederholungen
 
 # Vorarbeit „Reise-Aufbau“ (22.11.): Kontinent → Land → Stadt – Festlegungen des Haupt-Chats
 
-Richtung von Sebastian (22.11.): Kontinent = Themengebiet (bleibt); **Flug = ein Thema = ein Land** auf diesem Kontinent; **Etappe = eine Stadt** in diesem Land; Aufgaben = Highlights der Stadt, ohne Namen; sinnvoll gegliedert. Die Ebene „Ort“ entfällt. **Reihenfolge: erst der Bau-Auftrag WD, dann dieser Umbau.** Bis dahin nur Vorarbeit (Vorschlagsliste, kein Bau). Sebastian hat die Sonderfälle dem Haupt-Chat überlassen; festgelegt (er kann widersprechen):
+Richtung vom Nutzer (22.11.): Kontinent = Themengebiet (bleibt); **Flug = ein Thema = ein Land** auf diesem Kontinent; **Etappe = eine Stadt** in diesem Land; Aufgaben = Highlights der Stadt, ohne Namen; sinnvoll gegliedert. Die Ebene „Ort“ entfällt. **Reihenfolge: erst der Bau-Auftrag WD, dann dieser Umbau.** Bis dahin nur Vorarbeit (Vorschlagsliste, kein Bau). Der Nutzer hat die Sonderfälle dem Haupt-Chat überlassen; festgelegt (er kann widersprechen):
 
 1. **Antarktis ist kein Lern-Kontinent mehr.** Dort gibt es keine Länder und Städte. Die Antarktis wird Heimat der **Expeditionen** (Forschungsstationen statt Städte) – das passt zum Wort und braucht keine Länder.
 2. **„Funktionen“ zieht in den Orient** (Naher Osten und Kaukasus, als eigener Reise-Kontinent neben Asien): 10 Länder, z. B. Türkei, Georgien, Armenien, Aserbaidschan, Iran, Irak, Jordanien, Saudi-Arabien, Vereinigte Arabische Emirate, Oman. Bisher hat dort kein Kind etwas gelernt – es geht nichts verloren.
@@ -2398,7 +2398,7 @@ Richtung von Sebastian (22.11.): Kontinent = Themengebiet (bleibt); **Flug = ein
 7. **Länder nach Größe:** ein Flug hat 3 bis 12 Etappen – nur Länder mit genug bekannten Städten; Reihenfolge der Länder je Kontinent = Reihenfolge der Klassen als Route, Städte je Land als fahrbare Rundreise.
 8. Eltern/Lehrer sehen weiter „Themengebiet · Thema · Etappe“; die Reise-Namen sind nur die Kinderseite.
 
-**Nachtrag „Reise-Aufbau“ (22.11., zweite Durchsicht des Haupt-Chats; Sebastian: es können Themen dazukommen):**
+**Nachtrag „Reise-Aufbau“ (22.11., zweite Durchsicht des Haupt-Chats; der Nutzer: es können Themen dazukommen):**
 
 9. **Wachstum eingeplant.** „Land“ heißt überall **Land oder großer Landesteil** (Bundesstaat, Provinz, Region) – nicht nur in Australien. Große Länder dürfen also geteilt werden (z. B. USA, Kanada, Brasilien, Indien, China), wenn ein Kontinent sonst keine Länder mehr frei hat. Je Kontinent bleibt mindestens ein Drittel der möglichen Länder/Landesteile **unbenutzt als Reserve** (im Vorschlag auflisten); je Land mindestens **drei Reserve-Städte** für spätere Etappen. Neuer Flug = nächstes freies Land auf der Route; neue Etappe = Reserve-Stadt; geteilter Flug (wie bei den Potenzgesetzen) = Nachbarland. Wird ein Flug stillgelegt, bleibt sein Land für immer vergeben (kein Wiederverwenden – Stempel der Kinder).
 10. **Jedes Fach hat seine eigene Reise-Welt.** Die Zuordnung gilt nur für Mathematik (`fach`); ein späteres Fach darf dieselben Länder mit eigenem Reisepass neu belegen.
@@ -2419,7 +2419,7 @@ Richtung von Sebastian (22.11.): Kontinent = Themengebiet (bleibt); **Flug = ein
 3. **ChatGPT 911, MUSS 3:** je Fälligkeit genau ein Stufenfortschritt und eine Vergütung – auch bei zwei Geräten oder doppelt gesendeter Antwort (Test dazu); eine nicht fällige Mischkarte gibt nur den Misch-Beleg, keinen Fortschritt (Test). Falsche Mischkarte als Wiederholungs-Fehler für die Reihenfolge der nächsten Runde zählen.
 4. **Reihenfolge der Runde:** mindestens ein Drittel der Pflicht-Plätze für die am längsten fälligen Etappen, damit Fehler-Etappen die übrigen nicht verdrängen.
 5. **Nachtest nach dem Ablegen (ChatGPT MUSS 4, statt „7 Lerntage“):** Fällt eine abgelegte Etappe im Nachtest oder beim Üben durch, kommt sie am **nächsten Lerntag** zurück in den Takt (Stufe 2); Gold, Sterne und Einblendung bleiben, ein zweites Ablegen gibt nichts. Als Teil dieser Lieferung bauen. Ablegen bleibt an der bestandenen fünften Wiederholung (30 Lerntage nach der vierten) – nicht zusätzlich an „sicher“ gebunden (Wunsch der Kinder); im Kopf der Migration festhalten: frühestens 55 Lerntage nach der Landung; `abgelegt` ist ein eigenes Ereignis, nie aus `wdh_stufe` abgeleitet.
-6. **Sterne:** `sterne_wdh_richtig` bleibt bis zu Sebastians Entscheidung auf 10. Letzte Wiederholung: Wiederholungs-Sterne + 30 + ggf. 100 kommen zusammen, je einmal.
+6. **Sterne:** `sterne_wdh_richtig` bleibt bis zu Entscheidung des Nutzers auf 10. Letzte Wiederholung: Wiederholungs-Sterne + 30 + ggf. 100 kommen zusammen, je einmal.
 7. Im Kopf von `wd_s`: Ziel ist „Stau schrittweise abbauen, etwa fünf Lerntage bei ausreichender Kapazität“ – keine Garantie (ChatGPT MUSS 1); bekannte Grenze: ohne Bündeln trägt die Kapazität dauerhaft etwa 3 Landungen je Lerntag (MUSS 2).
 8. Tests zusätzlich: 20/41/60/100 fällige, keine Mischkarten, zwei Geräte, Abbruch mitten in der Runde, Tageswechsel, letzte Stufe, Rückfall nach dem Ablegen. „FERTIG: WD-S 2“.
 
@@ -2447,7 +2447,7 @@ Richtung von Sebastian (22.11.): Kontinent = Themengebiet (bleibt); **Flug = ein
 - **`bau-lehrer`, WD-S 3 (Dateien):** (a) Auswahl der Mischkarten: zuerst Aufgaben, die das Kind **noch nie** beantwortet hat, dann die am längsten zurückliegenden; **nie** eine Aufgabe, die es in den letzten 3 Lerntagen beantwortet hat (egal ob Üben, Wiederholung, Mischkarte, Test); unter gleichwertigen zufällig. (b) Offene Ausgabe verfällt sofort, wenn dieselbe Aufgabe anders beantwortet wird. (c) Dieselbe Regel für die Aufgaben der Wiederholungs-Runde (`schule_wiederholung`): keine Aufgabe von heute oder gestern, wenn die Etappe andere hat. (d) Kommt eine Mischkarte ohne gültige Ausgabe an, antwortet der Server mit `misch: { gueltig: false }`, bucht sie nicht als Wiederholung und liefert die tatsächlich gebuchten Sterne (`sterne`) mit. Tests: gleiche Aufgabe nicht zweimal am Tag; Pool mit nur einer Aufgabe; nach normalem Üben keine Mischkarte derselben Aufgabe. „FERTIG: WD-S 3“.
 - **`bau-motivation`, 0.86.2:** (a) Eine gezeigte Mischkarte wird für die ganze Sitzung des Flugs aus der Liste genommen (nicht je Etappe neu); ist die Liste leer, einmal neu vom Server holen, sonst ohne Mischkarte weiter. (b) Sterne-Anzeige nur aus der Antwort des Servers (keine eigenen „+10“). (c) Bei `misch.gueltig === false` kein „Das war …“-Lob als Wiederholung. Test: drei Etappen nacheinander, keine Mischkarte doppelt. „FERTIG: 0.86.2“.
 
-**Nachtrag „WD-S 3 – frische Aufgaben“ (22.11., Entscheidung Sebastian):**
+**Nachtrag „WD-S 3 – frische Aufgaben“ (22.11., Entscheidung des Nutzers):**
 - Wiederholungen nach **1, 3 und 7 Lerntagen** (Stufe 0–2) und **jede Mischkarte**: nur Aufgaben, die das Kind **noch nie** beantwortet hat (egal in welcher Rolle: Üben, Wiederholung, Mischkarte, Test, Knobeln).
 - Wiederholungen nach **14 und 30 Lerntagen** (Stufe 3–4): beliebige Aufgabe der Etappe, bevorzugt die am längsten zurückliegende.
 - Ist keine frische Aufgabe mehr da: die am längsten zurückliegende, **nie** eine aus den letzten 3 Lerntagen; gibt es auch die nicht, an diesem Tag keine Aufgabe dieser Etappe (Wiederholung bleibt fällig).
@@ -2461,7 +2461,7 @@ Richtung von Sebastian (22.11.): Kontinent = Themengebiet (bleibt); **Flug = ein
 (ChatGPT 918 betrifft die alte Fassung von `flug_geschafft` und ist durch `flug_erstabschluss` überholt.)
 
 **`bau-lehrer` – in WD-S 3 mit erledigen (zusätzlich zu „Fehler Mischkarten“ und „WD-S 3 – frische Aufgaben“):**
-1. **MUSS 1 – bestandene Wiederholung.** Heute rückt eine fällige Wiederholung auch mit Tipp oder im zweiten Versuch weiter; damit könnte eine Etappe mit Hilfe „abgelegt“ werden. Neu (vorbehaltlich Sebastians Entscheidung, Standard so bauen, per Regel `wdh_nur_selbst` = true umschaltbar): **Stufenfortschritt, Wiederholungs-Sterne und Ablegen nur bei richtig im ersten Versuch ohne Tipp** – für Runde, freiwillige Wiederholung und Mischkarte gleich. Richtig mit Tipp oder im zweiten Versuch: kein Fortschritt, kein Fehler; die Etappe kommt am nächsten Lerntag wieder. Endgültig falsch: wie bisher. Test über den echten Antwortweg (Stufe 4, Tipp bzw. zweiter Versuch → nicht abgelegt).
+1. **MUSS 1 – bestandene Wiederholung.** Heute rückt eine fällige Wiederholung auch mit Tipp oder im zweiten Versuch weiter; damit könnte eine Etappe mit Hilfe „abgelegt“ werden. Neu (vorbehaltlich Entscheidung des Nutzers, Standard so bauen, per Regel `wdh_nur_selbst` = true umschaltbar): **Stufenfortschritt, Wiederholungs-Sterne und Ablegen nur bei richtig im ersten Versuch ohne Tipp** – für Runde, freiwillige Wiederholung und Mischkarte gleich. Richtig mit Tipp oder im zweiten Versuch: kein Fortschritt, kein Fehler; die Etappe kommt am nächsten Lerntag wieder. Endgültig falsch: wie bisher. Test über den echten Antwortweg (Stufe 4, Tipp bzw. zweiter Versuch → nicht abgelegt).
 2. **MUSS 2 – WD-4b und die festgehaltene Tagesrunde.** WD-4b nimmt Etappen aus, die in einer offenen Runde von heute stehen (oder aktualisiert die Runde mit). Test „Runde begonnen → WD-4b → offene Pflichtaufgabe zählt“.
 3. **MUSS 3 – WD-4b zählt belegte Folgetage mit:** höchstens `wdh_gesetzt_je_lerntag` erste Wiederholungen je Kind und Lerntag einschließlich der schon von WD-4 geplanten. Test mit vorbelegtem Folgetag.
 4. **Sollte:** Misch-Fehler für die Reihenfolge erst nach endgültiger Wertung (`schule.versuch_wertung`); echter Test mit zwei gleichzeitigen Transaktionen (ein Fortschritt, einmal Sterne) und über die API-Antwort; Rückweg von WD-4b nur ohne Zwischenübung (prüfen und sonst ablehnen), kein zweiter Lauf; Lerntage statt Kalendertage belegen (Test mit eingetragenen Reisetagen); vorhandene Einträge in `flug_erstabschluss` gegenprüfen.
@@ -2470,7 +2470,7 @@ Richtung von Sebastian (22.11.): Kontinent = Themengebiet (bleibt); **Flug = ein
 
 **`bau-motivation` – in 0.86.2 mit erledigen:** Text nach dem Ablegen nicht „kommt nicht mehr wieder“, sondern sinngemäß „aus der regelmäßigen Wiederholung – wird nur noch bei Bedarf aufgefrischt“; Antwort `wiederholung.bestanden === false` bei richtig mit Tipp/zweitem Versuch freundlich zeigen („Richtig – morgen noch einmal ohne Hilfe“).
 
-**Entscheidungen Sebastian (22.11., 11:00 Berlin) zum WD-Paket und zum Reise-Aufbau:**
+**Entscheidungen des Nutzers (22.11., 11:00 Berlin) zum WD-Paket und zum Reise-Aufbau:**
 1. **Wiederholung zählt nur selbstständig:** Fortschritt im Takt, Wiederholungs-Sterne und Ablegen nur bei richtig im ersten Versuch ohne Tipp (`wdh_nur_selbst` = true bleibt). Mit Tipp oder im zweiten Versuch richtig: kein Fehler, die Etappe kommt am nächsten Lerntag wieder.
 2. **10 Sterne je richtiger Wiederholung** (`sterne_wdh_richtig` = 10, keine Kürzung); dazu 30 je abgelegter Etappe und 100 je abgelegtem Flug.
 3. **Stau strecken (WD-4b): ja** – nach WD-S 3, Probelauf und ChatGPT, zusammen mit dem Paket.
@@ -2485,7 +2485,7 @@ Ursache liegt im Test, nicht in der Funktion: Der Test rechnet nur mit den Auswa
 
 Bitte nur die Testdatei ändern (keine Migration): Vor Schritt 1 alle übrigen Übungsaufgaben beider Test-Etappen als „innerhalb der Sperre beantwortet“ markieren (z. B. `w3_gesehen` am Vortag, nicht heute) – mit genau dieser Änderung läuft der ganze Test bei mir grün. Meldung im Postfach: „FERTIG: WD-S 3 Test“.
 
-## Bau-Auftrag FP – faire Punkte (22.11., 11:30 Berlin) · Entscheidung Sebastian: „Ja“
+## Bau-Auftrag FP – faire Punkte (22.11., 11:30 Berlin) · Entscheidung des Nutzers: „Ja“
 
 **Anlass:** Die Kinder haben bemerkt, dass eine Etappe mit Fehlern mehr Sterne bringt (Daten: 0 Fehler ≈ 5 Aufgaben ≈ 50 Sterne, 3+ Fehler ≈ 15 Aufgaben ≈ 145 Sterne). Je Aufgabe ist es gleich, je Etappe nicht. Sauberes Arbeiten soll sich lohnen, ohne das Kind zu bestrafen, das mehr üben muss.
 
@@ -2543,7 +2543,7 @@ Meldung im Postfach: „FERTIG: FP-S 2“.
 
 ## Prüf-Auftrag LP-RS – Realschul-Lehrplan Punkt für Punkt (22.11., 13:00 Berlin) · an `lehrplan-lb`
 
-**Anlass (Sebastian):** „Ich glaube euch irgendwie noch nicht.“ In der Matrix hat RS 7 rund 20 Themen, RS 8 nur 7–10. Stichprobe des Haupt-Chats gegen LehrplanPLUS (Gruppe I, 7 und 8):
+**Anlass (Nutzer):** „Ich glaube euch irgendwie noch nicht.“ In der Matrix hat RS 7 rund 20 Themen, RS 8 nur 7–10. Stichprobe des Haupt-Chats gegen LehrplanPLUS (Gruppe I, 7 und 8):
 - Lernbereiche und Stunden stimmen (7: 8 Lernbereiche, 8: 7 Lernbereiche, je ca. 112 Std.).
 - RS 8: Lernbereich 1 Vierecke (12 Std.), 2 Drehung (6 Std.), 7 Daten und Zufall (8 Std.) haben kein Thema in Klasse 8; Lernbereich 4 (40 Std.) nur eines – Terme/Gleichungen stehen in Klasse 7, weil ein Thema nur an einer Klasse hängt.
 - Zuordnungen fehlen ganz: RS 7 „Dreiecke“ (5 Punkte), „Ortslinien“ (6 Punkte) – obwohl Themen 44, 45, 73 diesen Lernbereich als Beschriftung tragen; RS 8 „Daten und Zufall“ 2 von 3; RS 9 „Kreis“ 2 von 2. Zuordnungstabelle und `thema.lernbereich` widersprechen sich.
@@ -2574,18 +2574,18 @@ ChatGPT hat alle acht amtlichen Pläne (7–10 × Gruppe I, II/III) unabhängig 
 - Nicht pauschal verschieben: Extremwerte quadratischer Terme stehen in beiden Gruppen in 8; Schrägbilder 7 I und 8 II/III; Determinanten auch 7 II/III; Baumdiagramme/Vierfeldertafel schon in 8, Laplace 9, Pfadregeln 10.
 - Im Repo auffällig: Themen 48 und 78 ohne RS-Klasse trotz RS-Lernbereich; 91 steht bei RS 8, beschreibt aber auch 7 I; 46 (RS 6) enthält Drehung (8 I); 33 mischt y = mx und y = mx + t.
 - Zweitquellen, die ChatGPT lesen konnte: Inhaltsverzeichnis Westermann 7 I (kapiert.de), Kapitelübersicht 8 II/III (braille.bildung.hessen.de), ISB-Leistungsaufgaben 9, Abschlussprüfung 2026 I und II/III (isb.bayern.de). Die Jahrgangsstufenprofil-Adressen für 8–10 führten auf die Startseite – nicht als Beleg verwenden.
-- **Vorschlag Datenmodell (Punkt 6 des Auftrags) deshalb verbindlich so anlegen:** Zuordnung je `Gruppe × Klasse × Lernbereich × Punkt → Thema/Etappe` mit Bezug „neu/weitergeführt“; Lernstand und Sterne werden nie doppelt geführt. Welche Gruppe die App zeigt, entscheidet Sebastian (offen).
+- **Vorschlag Datenmodell (Punkt 6 des Auftrags) deshalb verbindlich so anlegen:** Zuordnung je `Gruppe × Klasse × Lernbereich × Punkt → Thema/Etappe` mit Bezug „neu/weitergeführt“; Lernstand und Sterne werden nie doppelt geführt. Welche Gruppe die App zeigt, entscheidet der Nutzer (offen).
 
 ### Stand 22.11., 13:45 Berlin – LIVE: Wiederholungen und faire Punkte
 
-Sebastian: „live und gruppe 1“. Eingespielt (eine Transaktion, md5 geprüft): 907, 907 c, WD-S 2/3/4, WD-4b, FP-S, FP-S 2, Aufgaben frisch (24); Nachbuchung Landungs-Bonus ausgeführt. `lernen-api` 0.9.1, App 0.87.0 auf `main` 4e042d1.
-- **Offen bleibt FP-S 3** (Mischkarte atomar einlösen, ChatGPT 929) – bewusst nach dem Live, Entscheidung Sebastian.
+Der Nutzer: „live und gruppe 1“. Eingespielt (eine Transaktion, md5 geprüft): 907, 907 c, WD-S 2/3/4, WD-4b, FP-S, FP-S 2, Aufgaben frisch (24); Nachbuchung Landungs-Bonus ausgeführt. `lernen-api` 0.9.1, App 0.87.0 auf `main` 4e042d1.
+- **Offen bleibt FP-S 3** (Mischkarte atomar einlösen, ChatGPT 929) – bewusst nach dem Live, Entscheidung des Nutzers.
 - **An `bau-lehrer` zusätzlich (in FP-S 3 mit erledigen):** `fp_s_rauchtest.sql` Teil 5 scheitert nach dem Einspielen („Hinweis für die App“), weil das Testkind schon eine Zeile in `schule.landung_nachbuchung` hat (ON CONFLICT DO NOTHING behält die erste Zusammenfassung). Test so bauen, dass er mit vorhandener Zeile läuft. Die übrigen vier Rauchtests sind nach dem Einspielen grün.
 - **Entscheidung Realschule: Gruppe I** (Wahlpflichtfächergruppe I) ist der Maßstab der App. `lehrplan-lb`: Prüfung LP-RS weiter für beide Gruppen dokumentieren, Korrektur-SQL und Klassenlage aber nach Gruppe I; II/III nur als Bericht.
 
 ## Bau-Auftrag LK – ein Thema in mehreren Klassen, für alle Schularten (22.11., 14:15 Berlin)
 
-**Entscheidung Sebastian:** „Natürlich kann ein Thema in mehreren Klassen vorkommen. Das soll für alle Klassen gelten … für alle Schulen. Du musst dann auch in unserer Lehrplan-Übersicht schauen, was aufeinander aufbaut.“
+**Entscheidung des Nutzers:** „Natürlich kann ein Thema in mehreren Klassen vorkommen. Das soll für alle Klassen gelten … für alle Schulen. Du musst dann auch in unserer Lehrplan-Übersicht schauen, was aufeinander aufbaut.“
 
 **Problem heute:** Je Thema und Schulart gibt es genau eine Klasse (`thema.klasse_fest` bzw. die abgeleitete Klasse). „Terme umformen“ steht z. B. nur in RS 7, obwohl es in RS 8 der größte Block ist (40 Std.). Folge: Klassen sehen leer aus (RS 8: 5 Themen), die Anzeige stimmt nicht, und „was baut worauf auf“ ist nicht je Klasse sichtbar.
 
@@ -2597,7 +2597,7 @@ Geltung: **Gymnasium Bayern 5–10, Realschule Bayern 5–10 (Maßstab Gruppe I,
 1. **Gymnasium 5–10 und IB MYP 1–5** nach demselben Verfahren wie LP-RS: jede amtliche Seite neu abrufen (IB: die bei uns hinterlegte Quelle; wo kein amtlicher Jahresplan existiert, das ausdrücklich als „Orientierung“ kennzeichnen), Punkt für Punkt gegen `schule.eintrag`; jeder Punkt → Hauptthema oder „Lücke“. Zweitquelle je Klasse (Gym: zugelassenes Schulbuch/Stoffverteilungsplan).
 2. **Für alle drei Schularten je Punkt:** `rolle` (neu / weitergeführt) und `etappen` (Lernziel-Schlüssel der Etappen, die dieser Punkt verlangt; leer nur, wenn wirklich das ganze Thema gemeint ist). Für die Realschule die Lücke aus LP-RS schließen („Etappenzuordnung erst für Themen mit Klassenwechsel“).
 3. **Aufbau prüfen („was baut aufeinander auf“):**
-   a) Jede Voraussetzung in `schule.voraussetzung` (hart und empfohlen) gegen die neue Klassenlage: Die Voraussetzung muss in derselben Schulart in derselben oder einer früheren Klasse liegen. Liste aller Verstöße je Schulart mit Vorschlag (Voraussetzung ändern / Lage prüfen). Sebastians harte Entscheidungen (z. B. 102 ← 30) bleiben und werden nur gemeldet.
+   a) Jede Voraussetzung in `schule.voraussetzung` (hart und empfohlen) gegen die neue Klassenlage: Die Voraussetzung muss in derselben Schulart in derselben oder einer früheren Klasse liegen. Liste aller Verstöße je Schulart mit Vorschlag (Voraussetzung ändern / Lage prüfen). harte Entscheidungen des Nutzers (z. B. 102 ← 30) bleiben und werden nur gemeldet.
    b) Innerhalb eines Themas: „weitergeführt“-Etappen dürfen nur auf Etappen aufbauen, die in einer früheren oder derselben Klasse „neu“ sind.
    c) Je Thema eine Aufbau-Kette in Worten für die Anzeige: „baut auf … (Kl. x) · wird weitergeführt in Kl. y: …“.
    d) Themen, die in einer Schulart in keiner Klasse verlangt werden (z. B. 49, 36, 96 in RS II/III), als „kein Pflichtstoff dieser Schulart/Gruppe“ ausweisen.
@@ -2632,27 +2632,27 @@ Matrix, Lehrplan-Reiter und „Meine Route 5–10“ auf die neue Schnittstelle 
 
 ### Nachtrag LK – vorhandener Lernstand der Kinder (22.11., 14:20 Berlin) · an `bau-lehrer`, `lehrplan-lb`, Gestalter
 
-Sebastian: „Du musst die bestehenden erledigten Sachen der Kinder beachten … du siehst ja die erledigten Etappen.“ Verbindlich:
+Der Nutzer: „Du musst die bestehenden erledigten Sachen der Kinder beachten … du siehst ja die erledigten Etappen.“ Verbindlich:
 1. **Nichts geht verloren, nichts wird neu verlangt, was schon gelandet ist.** Der Lernstand hängt an der Etappe. Wird ein Thema auf mehrere Klassen verteilt, gilt je Klasse: Etappen dieser Klasse gelandet/gesetzt = dieser Teil ist erledigt. Ein Kind, das alle Etappen eines Themas schon hat, sieht es in jeder Klasse als fertig.
 2. **Flug bleibt Flug.** Flug-Abschluss, Stempel, Flug-Test, Nachtests, „abgelegt“ und die Sterne dafür zählen weiter je Thema (alle Pflicht-Etappen), nicht je Klasse. Schon erreichte Abschlüsse (`flug_erstabschluss`, Stempel, Sterne) bleiben unverändert und werden nie ein zweites Mal vergeben.
 3. **„Kann er“ / „Kann er – aber wiederholen“** gilt weiter für das ganze Thema (alle Klassen).
 4. **Plan:** Ein eingeplantes Thema bleibt eingeplant. Etappen, die der Lehrplan erst in einer späteren Klasse verlangt, sind bis dahin freiwillig; hat das Kind sie schon, zählen sie.
-5. **Echtes Teilen eines Themas** (wie bei den Potenzgesetzen) nur, wenn `lehrplan-lb` es begründet vorschlägt und Sebastian zustimmt – dann mit Umhängen des Lernstands nach dem Muster vom 21.11. (Probelauf, Vorher/Nachher je Kind).
+5. **Echtes Teilen eines Themas** (wie bei den Potenzgesetzen) nur, wenn `lehrplan-lb` es begründet vorschlägt und der Nutzer zustimmt – dann mit Umhängen des Lernstands nach dem Muster vom 21.11. (Probelauf, Vorher/Nachher je Kind).
 6. **`lehrplan-lb` liefert dazu je Kind (nur Nummern, lesend):** Themen mit Lernstand, die auf mehrere Klassen verteilt werden – je Klasse „Etappen verlangt / davon gelandet oder gesetzt“; und alle Fälle, in denen ein Kind ein Thema als geschafft hat, obwohl Etappen einer späteren Klasse noch fehlen (kein Fehler, nur Hinweis für die Anzeige).
 7. **`bau-lehrer`:** Rauchtest und Probelauf mit Vorher/Nachher je Kind: gelandete Etappen, Flug-Abschlüsse, Stempel, Sterne, Plan, Reiseoptionen identisch.
 8. **Gestalter:** Karte „weitergeführt“ zeigt den Stand nur für die Etappen dieser Klasse („2 von 3 neuen Etappen“), die erste Karte den Stand ihrer Etappen; ein abgeschlossener Flug bleibt in allen Zeilen als geschafft erkennbar.
 
-### Nachtrag LK – Route: zweiter Teil eines Themas fliegt ins Nachbarland (22.11., 14:25 Berlin) · Entscheidung Sebastian
+### Nachtrag LK – Route: zweiter Teil eines Themas fliegt ins Nachbarland (22.11., 14:25 Berlin) · Entscheidung des Nutzers
 
 „Und wenn der zweite Teil von Terme umformen dann einfach in ein Nachbarland geht?“ – **Ja, so wird es gemacht.**
 - **Regel:** Verlangt der Lehrplan (Maßstab: Gymnasium; ohne Gym-Klasse Realschule Gruppe I, dann IB) von einem Thema in einer späteren Klasse **drei oder mehr eigene Etappen**, wird das Thema dort geteilt: eigener Flug, eigenes Land – ein **Nachbarland** des ersten Teils auf demselben Kontinent. Vorbild: Potenzgesetze (21.11.).
 - Bei nur ein oder zwei Etappen oder reiner Vertiefung bleibt es **ein** Flug (ein Flug braucht mindestens 3 Etappen); die Lehrplan-Übersicht zeigt das Thema trotzdem in beiden Klassen (LK).
 - Ersetzt Punkt 2 und 5 des Nachtrags „vorhandener Lernstand“ für die geteilten Themen: Jeder Teil hat eigenen Flug-Test, Stempel, Abschluss. Lernstand wird je Etappe umgehängt; ist ein Teil dadurch vollständig, gilt er als geschafft – ohne zweite Sterne für schon vergütete Abschlüsse, mit Nachtrag von Stempel/Bonus für den neuen Teil nach derselben Regel wie beim Reise-Aufbau (Festlegung 14).
-- **`lehrplan-lb` (in LK-D):** Liste aller Themen, die nach dieser Regel geteilt werden: Thema, Klassen, Etappen je Teil, Titelvorschlag je Teil, Voraussetzung (Teil 2 braucht Teil 1), Stand je Kind (nur Nummern). Dazu Grenzfälle (genau 3 Etappen, andere Lage in RS/IB) mit Empfehlung „teilen“ / „zusammen lassen“. Sebastian entscheidet die Liste.
+- **`lehrplan-lb` (in LK-D):** Liste aller Themen, die nach dieser Regel geteilt werden: Thema, Klassen, Etappen je Teil, Titelvorschlag je Teil, Voraussetzung (Teil 2 braucht Teil 1), Stand je Kind (nur Nummern). Dazu Grenzfälle (genau 3 Etappen, andere Lage in RS/IB) mit Empfehlung „teilen“ / „zusammen lassen“. Der Nutzer entscheidet die Liste.
 - **Chat `reise-aufbau`:** nach der Liste den Vorschlag ergänzen – je neuem Flug ein Nachbarland mit Städten (aus der Reserve), Skript-Prüfung wie bisher.
 - **`bau-lehrer`:** Teilen als wiederholbares Verfahren (Thema anlegen, Etappen/Aufgaben/Lernstand umhängen, Voraussetzung setzen, Vorher/Nachher je Kind) – als Funktion oder Vorlage, noch nichts einspielen.
 
-## Bau-Auftrag LW – „Unser Lehrplan“ (22.11., 14:30 Berlin) · Sebastian hat freigegeben („das setzen wir so um“)
+## Bau-Auftrag LW – „Unser Lehrplan“ (22.11., 14:30 Berlin) · der Nutzer hat freigegeben („das setzen wir so um“)
 
 **Vorgabe (gilt):** `inhalte/pruefung/lehrer/werkstatt/umsetzung.md`, Entwurf zum Anklicken `inhalte/pruefung/lehrer/werkstatt/entwurf/unser-lehrplan.html`, Bilder `werkstatt/bilder/` – in `lernen-app` übernommen (Stand Gestalter-Zweig 22.11.).
 
@@ -2661,7 +2661,7 @@ Sebastian: „Du musst die bestehenden erledigten Sachen der Kinder beachten …
 - **LW-2 (0.89.0):** Ziehen Matrix → Fahrplan und zurück (zurück = aus dem Plan, mit Rückgängig). Warnungen bei harten Voraussetzungen (3 Fälle, Abschnitt 4a) mit Reparieren-Knopf, keine Sperre. Farben nach Abschnitt 3: gerade dran blau, im Plan hellgelb, Wiederholung hellgrün, fertig durchsichtig, eigene Schule weiß, nur andere Schule grau.
 - **LW-3 (0.90.0, braucht LW-S):** Kinder-Umschalter im Kopf (Reiter bleibt beim Wechsel), Überblick-Karten mit Sprüngen, „Was wackelt“ als Arbeitsliste (Zu besprechen / Beobachten / Besprochen).
 - **Prüfen nach jedem Schritt:** 400 / 820 / 1280; keine Funktion aus „Plan“ verloren (Auswählen, Sammelaktion, Rückgängig, Konflikt „Neu laden“, Wieder in die Wiederholung); Stand-Zahlen gleich wie unter Nachschlagen → Lehrplan. Testkind und erfundene Daten, keine echten Kinderdaten. Tests ergänzen, Info-Seite anpassen.
-- Meldung je Schritt: „FERTIG: LW-1“ / „LW-2“ / „LW-3“ mit Versionsnummer. Merge auf `main` erst nach Sebastians „Live“. Die Prüfung nach dem Bau übernimmt der Gestalter.
+- Meldung je Schritt: „FERTIG: LW-1“ / „LW-2“ / „LW-3“ mit Versionsnummer. Merge auf `main` erst nach „Live“ des Nutzers. Die Prüfung nach dem Bau übernimmt der Gestalter.
 
 ### LW-S · an `bau-lehrer` (Server für LW-3; Datei, nicht einspielen)
 Migration `supabase/migrations/20261123_lw_s_wackelt_status.sql`: gespeicherter Status je Kind und Thema (bei Bedarf je Etappe, siehe Vorgabe Abschnitt 1a) für „Was wackelt“: `zu_besprechen` | `beobachten` | `besprochen`, mit Zeitpunkt und wer; neue Fehler im selben Thema setzen einen Eintrag wieder auf „zu besprechen“. Aktionen `schule_wackelt_lesen` / `schule_wackelt_setzen` mit Zugriffsprüfung (nur Eltern/Lehrer), Zahl „zu besprechen“ für den Reiter. Rauchtest (Testkind). Lernstand, Stufen, Plan, Sterne unverändert. Kein DROP, kein DELETE. Meldung: „FERTIG: LW-S“ mit Schnittstelle.
@@ -2672,7 +2672,7 @@ Migration `supabase/migrations/20261123_lw_s_wackelt_status.sql`: gespeicherter 
 - **Server:** LK-S und LW-S sind getrennte Dateien; beide dürfen parallel entstehen.
 - Warnungen bei Voraussetzungen (LW-2) nutzen später die Aufbau-Daten aus LK („Baut auf“).
 
-### Entscheidung Sebastian (22.11., 14:25 Berlin) – lange Flüge bleiben
+### Entscheidung des Nutzers (22.11., 14:25 Berlin) – lange Flüge bleiben
 Die drei Flüge mit 13–14 Etappen (Brüche und Anteile, Grundrechenarten und Rechengesetze, Natürliche Zahlen und Stellenwertsysteme) werden **nicht** geteilt („so lassen – jedes Land hat doch genügend Städte“). Sie liegen in Gym und RS nur in einer Klasse. Im Reise-Aufbau bekommen sie große Länder. Geteilt wird nur nach der Lehrplan-Regel (spätere Klasse mit drei oder mehr eigenen Etappen).
 
 ### Nachtrag Kinderansicht 0.87.2 – Nachprüfung des Gestalters (22.11., 14:45 Berlin) · an `bau-motivation`
@@ -2710,11 +2710,11 @@ ChatGPT hat LW-S und LK-S bei Commit 73cfb45 gelesen. Zugriff, Rechte, Sichten-A
 Meldung: „FERTIG: LW-S 2“ und „FERTIG: LK-S 2“.
 
 ### Stand 22.11., 15:15 Berlin – LK-D geliefert
-`lehrplan-lb`: Gymnasium 5–10 und IB geprüft (`lk_pruefung_2211.md`). Probelauf `lk_korrektur_2211.sql` und FP-S 4 grün (Kinder und Klassen unverändert, Gym-Punkte ohne Hauptthema 134 → 0). Gegenprobe Gymnasium bei ChatGPT angefragt. Entscheidungen bei Sebastian: Teilungsliste (Empfehlung: nichts teilen), 43/69/71 im Gymnasium als „Vertiefung“, drei harte IB-Voraussetzungen.
+`lehrplan-lb`: Gymnasium 5–10 und IB geprüft (`lk_pruefung_2211.md`). Probelauf `lk_korrektur_2211.sql` und FP-S 4 grün (Kinder und Klassen unverändert, Gym-Punkte ohne Hauptthema 134 → 0). Gegenprobe Gymnasium bei ChatGPT angefragt. Entscheidungen beim Nutzer: Teilungsliste (Empfehlung: nichts teilen), 43/69/71 im Gymnasium als „Vertiefung“, drei harte IB-Voraussetzungen.
 
 ### Nachtrag Reise-Aufbau – Vorschlag fortschreiben (22.11., 15:25 Berlin) · an Chat `reise-aufbau`
 
-Stand nach LK-D: **Kein Thema wird geteilt** (Maßstab Gymnasium; Empfehlung `lehrplan-lb`, Bestätigung Sebastian steht aus – bei anderer Entscheidung folgt ein weiterer Nachtrag). Es bleibt bei: **ein Flug = ein Land, jedes Land genau einmal, jede Stadt genau einmal – unabhängig von Schulart und Klasse.** Realschule und IB fliegen dieselben Länder, nur in einer anderen Klasse.
+Stand nach LK-D: **Kein Thema wird geteilt** (Maßstab Gymnasium; Empfehlung `lehrplan-lb`, Bestätigung des Nutzers steht aus – bei anderer Entscheidung folgt ein weiterer Nachtrag). Es bleibt bei: **ein Flug = ein Land, jedes Land genau einmal, jede Stadt genau einmal – unabhängig von Schulart und Klasse.** Realschule und IB fliegen dieselben Länder, nur in einer anderen Klasse.
 Bitte `inhalte/reise/aufbau-vorschlag.md`/`.json` fortschreiben:
 1. **Neue Etappen = neue Städte:** Sechs neue Lernkarten (Vertiefung/Kür) aus LK-D brauchen je eine Stadt im Land ihres Flugs, passend in die Strecke eingefügt: Thema 46 Kongruenzabbildungen (+2: Vektoren in Koordinaten, Vektoren drehen), 47 Ähnlichkeit (+1), 44 Konstruktionen (+1), 99 Flächen von Vielecken (+1), 91 Schrägbilder (+1). Kür-Städte als solche kennzeichnen.
 2. **Abgleich mit dem aktuellen Stand:** Themen, Einheiten und Etappenzahlen neu aus der Datenbank lesen (`db_stand.json` erneuern); Abweichungen zum Vorschlag vom 22.11. morgens auflisten.
@@ -2723,7 +2723,7 @@ Bitte `inhalte/reise/aufbau-vorschlag.md`/`.json` fortschreiben:
 5. Prüfskript wie bisher (jedes Land einmal, jede Stadt einmal, Stadt im richtigen Land, Städte = Etappen je Flug).
 Nur Vorschlag, kein App-Code, keine Datenbank-Änderung. Meldung: „FERTIG: Reise-Aufbau 2“.
 
-### Nachtrag LK – Teilungsregel NEU (22.11., 15:30 Berlin) · Entscheidung Sebastian · ersetzt „Maßstab Gymnasium“
+### Nachtrag LK – Teilungsregel NEU (22.11., 15:30 Berlin) · Entscheidung des Nutzers · ersetzt „Maßstab Gymnasium“
 
 „Ich will eine Teilung! Wenn z. B. Gymnasium in Klasse 7 und Real 7 und 8 – dann im Gymnasium 2 Teile und Realschule 7. und 8. Klasse.“
 
@@ -2732,14 +2732,14 @@ Nur Vorschlag, kein App-Code, keine Datenbank-Änderung. Meldung: „FERTIG: Rei
 2. Jede Schulart ordnet die Teile ihren Klassen zu: Beispiel „Terme umformen“ – Realschule: Teil 1 in 7, Teil 2 in 8; Gymnasium: **beide Teile in 7**, als zwei Flüge nacheinander. Teil 2 setzt Teil 1 voraus.
 3. Geteilt wird nur, wenn **jeder** Teil mindestens 3 Etappen hat. Sonst bleibt es ein Flug; die Lehrplan-Übersicht zeigt dann „weitergeführt“ (LK-App).
 4. Folge: Jedes (Teil-)Thema liegt je Schulart in genau **einer** Klasse. „Thema in mehreren Klassen“ bleibt nur für die Reste unter 3 Etappen und für IB / RS II/III als Anzeige.
-5. IB und RS Gruppe II/III lösen **keine** Teilung aus (IB ist nur Orientierung, II/III nur Bericht) – Vorschlag Haupt-Chat, Bestätigung Sebastian offen; solche Fälle als Grenzfall listen.
+5. IB und RS Gruppe II/III lösen **keine** Teilung aus (IB ist nur Orientierung, II/III nur Bericht) – Vorschlag Haupt-Chat, Bestätigung des Nutzers offen; solche Fälle als Grenzfall listen.
 6. Lernstand: je Etappe in den richtigen Teil umhängen (Muster 21.11.); ist ein Teil dadurch vollständig, gilt er als geschafft, Stempel für den neuen Teil nachträglich, keine doppelten Sterne für schon vergütete Abschlüsse.
 
 **An `lehrplan-lb` (LK-D 2):** Teilungsliste nach dieser Regel neu erstellen (erste Kandidaten aus dem Bericht: 29 Terme umformen RS 7 + 8; 46 Kongruenzabbildungen RS 6 + 7 + 8; 91 Schrägbilder RS 7 + 8; prüfen: 26, 61 – erster bzw. zweiter Teil unter 3 Etappen). Je Teil: Titel, Etappen, Klasse je Schulart (Gym, RS I, RS II/III, IB), Voraussetzungen, Aufbau-Verstöße nach der Teilung, Stand je Kind (nur Nummern). Grenzfälle mit Empfehlung. Datei `inhalte/pruefung/lehrplan/lk_teilung_2211.md` + JSON. Meldung: „FERTIG: LK-D 2“.
 **An `bau-lehrer`:** Das Teil-Verfahren (LK-S, Muss B3/B4 aus ChatGPT 934) wird jetzt gebraucht – Vorrang vor der Mehr-Klassen-Anzeige. Mehrfach-Teilung (drei Teile) muss möglich sein.
-**An `reise-aufbau`:** Nachbarländer für die neuen Teile kommen nach Sebastians Entscheidung der Liste; der Nachtrag „Vorschlag fortschreiben“ gilt sonst weiter (Punkt „kein Thema wird geteilt“ ist überholt).
+**An `reise-aufbau`:** Nachbarländer für die neuen Teile kommen nach Entscheidung des Nutzers der Liste; der Nachtrag „Vorschlag fortschreiben“ gilt sonst weiter (Punkt „kein Thema wird geteilt“ ist überholt).
 
-### Berichtigung Teilungsregel (22.11., 15:35 Berlin) · Entscheidung Sebastian
+### Berichtigung Teilungsregel (22.11., 15:35 Berlin) · Entscheidung des Nutzers
 
 „Nicht zwingend 2 – so, dass der gesamte Lehrplan abzubilden wäre: so viele Splits wie nötig!“
 - **So viele Teile wie nötig:** Je Klassenabschnitt (über Gymnasium und Realschule Gruppe I zusammen betrachtet) ein eigener Teil = eigener Flug = eigenes Land. Liegen die Schnitte der beiden Schularten verschieden, wird an **allen** Schnittstellen geteilt (feinste gemeinsame Teilung).
@@ -2749,44 +2749,44 @@ Nur Vorschlag, kein App-Code, keine Datenbank-Änderung. Meldung: „FERTIG: Rei
 - **`bau-lehrer`:** prüfen und melden, ob irgendwo mindestens 3 Etappen je Flug vorausgesetzt werden (Flug-Test, Mischkarten ab 3 gelandeten Etappen, Abschluss, Nachtests) und was ein Flug mit 1–2 Etappen dort bewirkt; Teil-Verfahren ohne Mindestzahl, beliebig viele Teile, B3 entsprechend anpassen (disjunkt, vollständig, kein Teil leer).
 - **`reise-aufbau`:** Länder dürfen 1–2 Städte haben (Kurzflug).
 
-### Ergänzung Teilungsregel – Benennung und Aufbau (22.11., 15:40 Berlin) · Entscheidung Sebastian
+### Ergänzung Teilungsregel – Benennung und Aufbau (22.11., 15:40 Berlin) · Entscheidung des Nutzers
 
 „Mir ist egal, wie viele Etappen es gibt – Hauptsache, die Lehrpläne werden sichtbar. Und wenn du im Gymnasium was teilst, benenne das in Teil 1 von 3 … und prüfe den Aufbau, was aufeinander aufbaut.“
 - **Etappenzahl je Teil ist egal** (auch 1). Kein Ergänzen von Inhalten nur wegen der Größe; „zu dünn“ nur melden.
 - **Benennung:** Geteilte Themen heißen überall „‹Titel› – Teil 1 von 3“, „… – Teil 2 von 3“ (Kinderseite, Lehrplan-Übersicht, Plan, Stempel). Zusätzlich darf ein Untertitel sagen, was der Teil enthält („Teil 2 von 2 · binomische Formeln“). Auch dort, wo eine Schulart alle Teile in derselben Klasse hat (Gymnasium), stehen sie als Teil 1/2/3 nacheinander.
-- **Aufbau prüfen (`lehrplan-lb`, Pflicht in LK-D 2):** nach der Teilung für jede Schulart: Teil n setzt Teil n−1 voraus (hart); alle bisherigen Voraussetzungen des Themas dem richtigen Teil zuordnen (welcher Teil braucht was, welcher Teil wird wovon gebraucht); danach die ganze Kette gegen die Klassenlage prüfen – kein Teil darf etwas brauchen, das in dieser Schulart erst in einer späteren Klasse liegt. Verstöße mit Vorschlag listen; Sebastians harte Entscheidungen (z. B. 102 ← 30) bleiben. Ergebnis als Aufbau-Kette je Teil für die Anzeige („Baut auf“ / „Geht weiter in“).
+- **Aufbau prüfen (`lehrplan-lb`, Pflicht in LK-D 2):** nach der Teilung für jede Schulart: Teil n setzt Teil n−1 voraus (hart); alle bisherigen Voraussetzungen des Themas dem richtigen Teil zuordnen (welcher Teil braucht was, welcher Teil wird wovon gebraucht); danach die ganze Kette gegen die Klassenlage prüfen – kein Teil darf etwas brauchen, das in dieser Schulart erst in einer späteren Klasse liegt. Verstöße mit Vorschlag listen; harte Entscheidungen des Nutzers (z. B. 102 ← 30) bleiben. Ergebnis als Aufbau-Kette je Teil für die Anzeige („Baut auf“ / „Geht weiter in“).
 - **Gestalter / `bau-motivation`:** „Teil x von y“ in Karte, Detail und Route zeigen.
 
 ### Stand 22.11., 15:50 Berlin – Lieferungen und Rückläufer ChatGPT 936/937
 
 **Übernommen in `lernen-app` (f28f8c7 ff.):** LW-S 2, LK-S 2, FP-S 4 (`bau-lehrer`); App 0.87.2 und LW-1 = 0.88.0 (`bau-motivation`).
 **Probelauf echte Datenbank (zurückgerollt):** `lk_korrektur_2211.sql`, FP-S 4, LW-S 2, LK-S 2 laufen; Stufen/Plan/Reise/Lernstand/Sterne/Klassen unverändert; Rauchtests wd_s, wd_s3, fp_s, lw_s grün. **`lk_s_rauchtest.sql` scheitert:** „new row for relation eintrag violates check constraint eintrag_bearbeitung_check“ – der Test legt einen Eintrag mit einem `bearbeitung`-Wert an, den die echte Datenbank nicht erlaubt. **An `bau-lehrer`:** erlaubte Werte aus der echten Constraint lesen, Test anpassen (keine Migration). Meldung: „FERTIG: LK-S Test“.
-**Noch nichts davon eingespielt.** Gymnasium-Korrektur wartet auf Sebastians ausdrückliches Okay.
+**Noch nichts davon eingespielt.** Gymnasium-Korrektur wartet auf ausdrückliches Okay des Nutzers.
 
 **ChatGPT 936/937 (Gegenprobe Gymnasium, IB, FP-S 4):**
 - Gymnasium: Stunden und Titel aller Lernbereiche 5–10 unabhängig bestätigt (amtlich + mathe.delta je Klasse); 237 Punkte, alle mit Hauptthema; „jedes Thema in genau einer Gym-Klasse“ stimmt formal für die gewählten Zuordnungen.
 - **Muss A1 → an `lehrplan-lb` (in LK-D 2 mit erledigen):** Daraus folgt nicht, dass spätere Klassen nichts Neues bringen. Aufgaben-/Kompetenz-Audit an den Übergängen 7→8, 8→9, 9→10: verlangt der Lehrplan dort etwas, das unsere Etappen nicht enthalten? Konkret Gym 10 Lernbereich 5: schiefe Prismen/Körper, Volumengleichheit (Cavalieri) – Punkt 285 hängt nur an der vorhandenen Etappe `prisma_volumen` (gerade Körper, Gym 8). Fehlendes als neue Etappe liefern; nach der neuen Teilungsregel wird ein solcher 10er Abschnitt ein eigener Teil („Prismen und Zylinder – Teil 2 von 2“).
 - **Sollte A2:** „0 Aufbau-Verstöße“ gilt für Themen-Hauptbezüge; Voraussetzungen je Etappe ergänzen, wo die 87 Reihenfolge-Hinweise es zeigen.
-- **Sollte A3:** 43, 69, 71 im Gymnasium als Zusatz/Vertiefung kennzeichnen (Entscheidung Sebastian offen).
+- **Sollte A3:** 43, 69, 71 im Gymnasium als Zusatz/Vertiefung kennzeichnen (Entscheidung des Nutzers offen).
 - **IB Muss B1:** Bericht nennt 3 harte Voraussetzungs-Verstöße je Kurs, die JSON enthält 2 (63 ← 61; 29 ← 102). Bericht berichtigen oder den dritten belegen.
 - **FP-S 4:** code-seitig in Ordnung; Sollte: Paralleltest mit echter Sperrbarriere/Timeout statt `sleep` (an `bau-lehrer`, ohne Eile).
 
 ## Bau-Auftrag RK – Reisekarte der Kinderseite (22.11., 16:05 Berlin) · vorgemerkt, noch NICHT bauen
 
-Sebastian: „Das soll die neue Darstellung werden – aber erst, wenn die neuen Etappen umgesetzt sind. Zudem braucht er dann noch die echten Städte und deren Position.“
-**Vorgabe (gilt):** `inhalte/pruefung/kind/karte/umsetzung.md`, Entwurf `karte/entwurf/reisekarte.html`, Bilder `karte/bilder/` – in `lernen-app` übernommen. Ersetzt die Anzeigetafel der Kinderseite. Entscheidungen Sebastian: echte Karte ohne Google; Land-Zeichen als Flaggen-Pin (Kopf = Flagge, Spitze = Hauptstadt, Schild Land + Hauptstadt); Startknopf schwebend in der Karte; dezente gezeichnete Linie statt Straßenverlauf; keine eigene Karte für Eltern/Lehrer. Ebenen Welt › Kontinent › Land, alles aus den Daten (keine feste Anzahl); golden = „alles sitzt“.
+Der Nutzer: „Das soll die neue Darstellung werden – aber erst, wenn die neuen Etappen umgesetzt sind. Zudem braucht er dann noch die echten Städte und deren Position.“
+**Vorgabe (gilt):** `inhalte/pruefung/kind/karte/umsetzung.md`, Entwurf `karte/entwurf/reisekarte.html`, Bilder `karte/bilder/` – in `lernen-app` übernommen. Ersetzt die Anzeigetafel der Kinderseite. Entscheidungen des Nutzers: echte Karte ohne Google; Land-Zeichen als Flaggen-Pin (Kopf = Flagge, Spitze = Hauptstadt, Schild Land + Hauptstadt); Startknopf schwebend in der Karte; dezente gezeichnete Linie statt Straßenverlauf; keine eigene Karte für Eltern/Lehrer. Ebenen Welt › Kontinent › Land, alles aus den Daten (keine feste Anzahl); golden = „alles sitzt“.
 
 **Reihenfolge (verbindlich):**
-1. Teilungsliste (`lehrplan-lb`, LK-D 2) → Entscheidung Sebastian.
+1. Teilungsliste (`lehrplan-lb`, LK-D 2) → Entscheidung des Nutzers.
 2. Teilen in der Datenbank (`bau-lehrer`, Teil-Verfahren) – „die neuen Etappen“.
 3. Reise-Aufbau fortschreiben (`reise-aufbau`): je Flug/Teil ein Land, je Etappe eine Stadt, **mit Koordinaten je Stadt und je Antarktis-Station, deutschen Hauptstadt-Namen, ISO-Ländercode je Land** (für Flagge und Kartenpfad).
 4. Reise-Aufbau in die Datenbank (`bau-lehrer`): Länder/Städte je Thema/Etappe, Lernstand und Stempel übernehmen.
 5. **RK-App** (`bau-motivation`): Karte nach Vorgabe; Kartenpfade im Build vorrechnen, je Kontinent eine Datei, Flaggen erst beim Anzeigen laden, kein Kartenserver.
 **Vor dem Bau zu klären (Haupt-Chat):** Lizenzen der Quellen – Natural Earth (gemeinfrei), flag-icons, i18n-iso-countries, countries-list (MIT), GeoNames (CC BY 4.0, Quellenangabe auf der Info-Seite); Größe der Kartendateien für die statische Seite.
 
-## Entscheidung Teilung (22.11., 16:20 Berlin) · Sebastian
+## Entscheidung Teilung (22.11., 16:20 Berlin) · der Nutzer
 
-Grundlage `inhalte/pruefung/lehrplan/lk_teilung_2211.md`/`.json`. Sebastian fragte nach der Empfehlung des Haupt-Chats und hat zugestimmt („ja“):
+Grundlage `inhalte/pruefung/lehrplan/lk_teilung_2211.md`/`.json`. Der Nutzer fragte nach der Empfehlung des Haupt-Chats und hat zugestimmt („ja“):
 1. **Die Liste gilt:** 6 Themen → 15 Teile (26: 2 · 29: 2 · 44: 2 · 46: 3 · 61: 2 · 91: 2), 9 neue Flüge. Titel „‹Titel› – Teil x von y“, Untertitel wie im Bericht.
 2. **Zusatz statt Pflicht:** Ein Teil ohne Lehrplan-Punkt in der Schulart des Kindes ist dort **Zusatz** – keine Pflicht, sperrt nichts dahinter (Voraussetzung nur „empfohlen“). Betrifft im Gymnasium 46 Teil 2 (Verschieben und Vektoren) und 44 Teil 2 (Vierecke); 46 Teil 3 braucht im Gymnasium hart nur Teil 1.
 3. **Kurzflüge bleiben** (44 Teil 2, 61 Teil 1: je 2 Etappen).
@@ -2817,7 +2817,7 @@ ChatGPT hat die sechs Schnitte gegen LehrplanPLUS geprüft: fachlich nachvollzie
 - **LW-Rest (Muss):** `schule.besprochen_aktiv` (LA-3) auf dieselbe endgültige Fehler-Semantik wie LW-S 2 umstellen; Regression: alte Besprochen-Markierung + neuer endgültiger erster Fehlversuch → wieder offen.
 - Sollte: neue Teile sind freigegebene, vollständige Einheiten mit eigenem Flug-Test; Rauchtest in realistischer, zurückgerollter Transaktion.
 
-## Sammel-Auftrag PM – Prüfungsmaterial sammeln, archivieren, Themen zuordnen (22.11., 16:50 Berlin) · Sebastian
+## Sammel-Auftrag PM – Prüfungsmaterial sammeln, archivieren, Themen zuordnen (22.11., 16:50 Berlin) · der Nutzer
 
 „Lass die Klassen 5 und 8 intensiv nach Prüfungsmaterial suchen vom Gymnasium und Klasse 7 und 8 Realschule – also Inhalte von Schulaufgaben. Die sollen sie alle archivieren und unseren Themen schon mal zuordnen.“
 
@@ -2839,7 +2839,7 @@ ChatGPT hat die sechs Schnitte gegen LehrplanPLUS geprüft: fachlich nachvollzie
 
 **Lieferung je Chat:** `katalog.json` (maschinenlesbar, eine Zeile je Aufgabe), `katalog.md` (Übersicht je Arbeit), `auswertung.md` (Punkte 1–6, gesichert / Annahme / offen getrennt), `quellen.md` (alle Links mit Abrufdatum, auch die nicht verwertbaren mit Grund). Datenbank und App nicht anfassen, nichts einspielen, kein Merge nach `main`. Meldung in `inhalte/postfach/<chatname>.md`: „FERTIG: PM Gym“ bzw. „FERTIG: PM RS“.
 
-### Entscheidungen Sebastian (22.11., 17:05 Berlin) – Teilung, Stand LK-D 3 und Reise-Aufbau 2
+### Entscheidungen des Nutzers (22.11., 17:05 Berlin) – Teilung, Stand LK-D 3 und Reise-Aufbau 2
 
 Stand der Liste: **7 Themen, 15 Teile, 8 neue Flüge** (26, 29, 44, 46 ×3, 61, 91, 101). „Ja, so wie du sagst – oder lass GPT nochmal prüfen“:
 1. **Zusatz-Regel auch je Etappe:** Eine Etappe ohne Lehrplan-Punkt in der Schulart des Kindes ist dort **Kür** (zählt nicht für Flug-Abschluss, Flug-Test, Stempel). Folge: Kind 2 hat 29 Teil 2 im Gymnasium vollständig (neue Etappe `gleichungen_binomisch` ist nur RS 8) → Stempel und 100 Sterne nachträglich wie entschieden.
@@ -2861,7 +2861,7 @@ Stand `lernen-app` 67f3c88, alles zurückgerollt. Reihenfolge: `lk_korrektur_221
 - Liste erweitern auf **7 Themen / 15 Teile** (101 mit `cavalieri`), neue Etappen aus LK-D 3 (`cavalieri`, `koerper_symmetrie`, `gleichungen_binomisch`, `darstellen`, `raumwinkel`) und Kür je Etappe und Schulart (Entscheidung 17:05).
 - Meldung: „FERTIG: TL-S 2“.
 
-### Flug-Test und Nachtests bei kleinen Teilen (Antwort `bau-lehrer`, 22.11.) – Entscheidung Sebastian offen
+### Flug-Test und Nachtests bei kleinen Teilen (Antwort `bau-lehrer`, 22.11.) – Entscheidung des Nutzers offen
 Fakten: Flug-Test nimmt alle Test-Aufgaben der Einheit; ein Fehler löst nur einen Korrektur-Test der Etappe aus (kein Durchfallen). **Nachtests** (10/25/60 Lerntage): je Pflicht-Etappe eine Sicherungs-Aufgabe, Quote ≥ 0,8 bestanden, ≥ 0,6 wiederholen, sonst Rückreise → bei 2 Etappen bedeutet ein Fehler Rückreise. Vorschlag `bau-lehrer`: Nachtest mindestens 5 Aufgaben je Flug (1 Etappe → 5, 2 → je 3, 3–4 → je 2, ab 5 → je 1); dafür je Etappe mindestens 9 Sicherungs-Aufgaben (live 6–17). Eigener Bau-Auftrag nach Entscheidung.
 
 ### Rückläufer ChatGPT 942/943 (22.11., 17:40 Berlin) – Liste LK-D 3, Kür je Etappe, Reise-Aufbau 2
@@ -2877,7 +2877,7 @@ Schon erledigt bzw. beauftragt: 2 und 57 (seit LK-D 3 Ergänzung als begründete
 **An Gestalter / `bau-motivation`:** je Etappe sichtbar „Pflicht im Gymnasium / Kür in der Realschule“ mit Lehrplan-Bezug; Nenner je Kind.
 **Karte (RK):** Marokko–Algerien–Mauretanien nicht als befahrbare Strecke darstellen (Linie nur dekorativ); Antarktis-Stationen als virtuelle Ziele; Quellenangaben auf der Info-Seite.
 
-## Bau-Auftrag NT – Nachtests bei kleinen Flügen (22.11., 17:50 Berlin) · Entscheidung Sebastian: ja
+## Bau-Auftrag NT – Nachtests bei kleinen Flügen (22.11., 17:50 Berlin) · Entscheidung des Nutzers: ja
 
 **Problem:** Nachtests (10/25/60 Lerntage) ziehen je Pflicht-Etappe eine Sicherungs-Aufgabe; Quote ≥ 0,8 bestanden, ≥ 0,6 wiederholen, sonst Rückreise. Bei 2 Etappen bedeutet ein Fehler 50 % = Rückreise.
 **Regel (entschieden):** Jeder Nachtest hat **mindestens 5 Aufgaben je Flug**: 1 Pflicht-Etappe → 5 Aufgaben, 2 → je 3, 3–4 → je 2, ab 5 → je 1. Gezählt werden nur Pflicht-Etappen des Kindes (Kür je Schulart). Keine Aufgabe doppelt innerhalb eines Nachtests; über die drei Nachtests möglichst keine Wiederholung.
@@ -2896,7 +2896,7 @@ Meldung: „FERTIG: TL-S 3“.
 ### Probelauf TL-S 3 auf der echten Datenbank (22.11., 18:30 Berlin) – Abbruch am Visum-Vergleich IB · an `bau-lehrer`
 
 Stand `lernen-app` 8af4fee, zurückgerollt. Vorgänger laufen (lk_korrektur Stand LK-D 4, FP-S 4, LW-S 2, LK-S), fünf Rauchtests danach grün. Der Fall „gesetztes Thema 46“ ist behoben.
-**Neuer Abbruch** (Migration und Rauchtest): „TL-S: Visum außerhalb der erlaubten Deltas: ib_myp:109→86“. Für Gymnasium und Realschule meldet der Vergleich nichts. Bitte klären und beheben: Woher kommen 23 Visum-Zeilen weniger für IB – gewollte Folge der Kanten je Schulart (dann als ausdrücklich erlaubtes, begründetes Delta mit Liste der betroffenen Themen im Bericht) oder Fehler (z. B. IB-Kanten fehlen in `voraussetzung_schulart`, „empfohlen“ statt „hart“)? Sebastians harte Entscheidungen (z. B. 102 ← 30, 29 ← 102) dürfen in keiner Schulart verschwinden. Auf dem echten Stand lesend vorher/nachher je Schulart vergleichen.
+**Neuer Abbruch** (Migration und Rauchtest): „TL-S: Visum außerhalb der erlaubten Deltas: ib_myp:109→86“. Für Gymnasium und Realschule meldet der Vergleich nichts. Bitte klären und beheben: Woher kommen 23 Visum-Zeilen weniger für IB – gewollte Folge der Kanten je Schulart (dann als ausdrücklich erlaubtes, begründetes Delta mit Liste der betroffenen Themen im Bericht) oder Fehler (z. B. IB-Kanten fehlen in `voraussetzung_schulart`, „empfohlen“ statt „hart“)? harte Entscheidungen des Nutzers (z. B. 102 ← 30, 29 ← 102) dürfen in keiner Schulart verschwinden. Auf dem echten Stand lesend vorher/nachher je Schulart vergleichen.
 Abbruch sauber: Lernstand, Sterne, Reiseoptionen, Erstabschlüsse, Zahl der Themen/Aufgaben/Versuche unverändert. Meldung: „FERTIG: TL-S 4“.
 
 ### Prüfung LW-1 des Gestalters (22.11., 18:40 Berlin) – kein Muss · Nacharbeit an `bau-motivation` (in LW-2 mit erledigen)
@@ -2915,12 +2915,12 @@ Stand `lernen-app` e20266e, zurückgerollt. Reihenfolge lk_korrektur (LK-D 4), F
 - Kind 2: +100 Sterne (eine Buchung „ort“), ein Erstabschluss mehr (29 Teil 2); 29 Teil 1 und 2 „wiederholung“, 46 Teil 1–3 „komplett“. Themen im Plan: Kind 1 25 → 26, Kind 2 70 → 74.
 - Rauchtests wd_s, wd_s3, fp_s, lw_s nach der Teilung grün.
 - **An `bau-lehrer`:** `lk_s_rauchtest.sql` scheitert **nach** der Teilung („FEHLER 3 Thema 61“, erwartet 61 in Klasse 8 und 9) – Test so umstellen, dass er vor und nach der Teilung gilt (Teile über `teil_stamm`). Meldung: „FERTIG: LK-S Test 2“.
-- **Vor dem Einspielen noch offen:** ChatGPT-Prüfung (945 + Nachtrag), Einspiel-SQL für die neuen Lernkarten aus LK-D (liefert `lehrplan-lb`: 46 `vektor_koordinaten`/`vektor_drehen`, 47 `streckung_vektor`, 44 `vierecke_konstruieren`, 99 `drachen_raute`, 91 `wahre_groesse`/`koerper_symmetrie`/`raumwinkel`, 101 `cavalieri`, 29 `gleichungen_binomisch`, 61 `darstellen`, 20 `irrational_beweis` – als Datei wie `aufgaben_frisch_2211.sql`, Meldung „FERTIG: LK-D Einspiel“), Sebastians „Live“. Länder/Städte folgen mit dem Reise-Aufbau; bis dahin tragen neue Teile vorläufige Orte.
+- **Vor dem Einspielen noch offen:** ChatGPT-Prüfung (945 + Nachtrag), Einspiel-SQL für die neuen Lernkarten aus LK-D (liefert `lehrplan-lb`: 46 `vektor_koordinaten`/`vektor_drehen`, 47 `streckung_vektor`, 44 `vierecke_konstruieren`, 99 `drachen_raute`, 91 `wahre_groesse`/`koerper_symmetrie`/`raumwinkel`, 101 `cavalieri`, 29 `gleichungen_binomisch`, 61 `darstellen`, 20 `irrational_beweis` – als Datei wie `aufgaben_frisch_2211.sql`, Meldung „FERTIG: LK-D Einspiel“), „Live“ des Nutzers. Länder/Städte folgen mit dem Reise-Aufbau; bis dahin tragen neue Teile vorläufige Orte.
 
-## Auftrag PM 2 – Prüfungsmaterial: Originale privat ablegen (A) und Aufgaben nachbauen (B) (22.11., 19:15 Berlin) · Entscheidung Sebastian: „ja, A und B“
+## Auftrag PM 2 – Prüfungsmaterial: Originale privat ablegen (A) und Aufgaben nachbauen (B) (22.11., 19:15 Berlin) · Entscheidung des Nutzers: „ja, A und B“
 
 Hintergrund: Das Repo ist öffentlich. Originale Prüfungsaufgaben werden deshalb **nicht** ins Repo kopiert.
-**A – Originale in Sebastians Google Drive (privat):** Ordner „Prüfungsmaterial Mathe (Lernen Schule)“ ist angelegt, darin die Tabelle „Linkliste Prüfungsmaterial (115 Arbeiten)“ (Schulart, Klasse, Gruppe, Art, Titel, Link, Ziel-Unterordner). Ein Chat mit Zugriff auf Sebastians Rechner/Browser lädt die PDFs (Aufgaben und Lösungen) und legt sie in Unterordnern ab; nichts davon ins Repo.
+**A – Originale in Google des Nutzers Drive (privat):** Ordner „Prüfungsmaterial Mathe (Lernen Schule)“ ist angelegt, darin die Tabelle „Linkliste Prüfungsmaterial (115 Arbeiten)“ (Schulart, Klasse, Gruppe, Art, Titel, Link, Ziel-Unterordner). Ein Chat mit Zugriff auf Rechner des Nutzers/Browser lädt die PDFs (Aufgaben und Lösungen) und legt sie in Unterordnern ab; nichts davon ins Repo.
 **B – Nachbau im Repo (`pruefmaterial-gym`, `pruefmaterial-rs`):** Zu jeder katalogisierten Einzelaufgabe eine **eigene** Aufgabe gleichen Typs, gleicher Kompetenz und gleichen Niveaus – eigener Text, eigene Zahlen und Sachkontexte, eigene Abbildungsbeschreibung, mit Lösung, Lösungsweg und Punkteverteilung. Kein Umformulieren Satz für Satz, keine übernommenen Zahlenwerte, kein wiedererkennbarer Aufbau einer einzelnen fremden Aufgabe; Typ und Schwierigkeit dürfen gleich sein. Je Arbeit wird daraus eine **nachgebaute Schulaufgabe** (gleiche Zeit, Punktesumme, Niveauverteilung, Themenmix) als druckbare Datei (Markdown) mit Lösungsblatt. Zuordnung jeder Aufgabe zu Thema/Etappe (auch Teile nach `lk_teilung_2211.json`). Lösungen nachrechnen (Skript). Reihenfolge: zuerst Gym 8 und Gym 5 (Kinder), dann RS 7/8.
 Lieferung: `inhalte/pruefmaterial/<gym|rs>/nachbau/<arbeit_id>.md` + `nachbau.json` (maschinenlesbar, für ein späteres Schulaufgaben-Training in der App – nichts bauen). Meldung: „FERTIG: PM 2 Gym“ / „FERTIG: PM 2 RS“.
 
@@ -2947,14 +2947,14 @@ Läuft: lk_korrektur, FP-S 4, LW-S 2, LK-S, lk_einspiel (+264 Aufgaben), TL-S 5 
 Meldung: „FERTIG: TL-S 6“.
 **Befund 4 · `lehrplan-lb`: `nt_einspiel_2211.sql` bricht an der eigenen Prüfung ab:** „Rauchtest NT-D: 45 von 44 Aufgaben“ (nach lk_einspiel, vor TL-S). Zählung oder Daten berichtigen. Meldung: „FERTIG: NT-D 2“.
 
-### Entscheidung Sebastian (22.11., 20:20 Berlin) – nach dem Teilen gilt nur selbst Geschafftes
+### Entscheidung des Nutzers (22.11., 20:20 Berlin) – nach dem Teilen gilt nur selbst Geschafftes
 
 „Kind 2 geschafft nur, wenn er es selber geschafft hat. Den Rest kannst du erstmal wieder rausnehmen – den teilen wir später zu oder markieren ihn als geschafft.“
-**Regel (Lesart des Haupt-Chats, Sebastian vorgelegt):**
+**Regel (Lesart des Haupt-Chats, der Nutzer vorgelegt):**
 1. Ein neuer Teil gilt nach dem Teilen nur dann als **geschafft** (Stempel, Erstabschluss, 100 Sterne), wenn das Kind **alle Pflicht-Etappen dieses Teils selbst gelandet** hat (Pflicht nach Schulart/Gruppe, Kür zählt nicht) und der frühere Flug-Test diese Etappen abgedeckt hat. Stufe, Stempel und Sterne müssen dabei übereinstimmen.
 2. **Alles andere wird nicht automatisch übertragen:** keine Vererbung von „Kann er komplett“ / „Kann er – aber wiederholen“ auf neue Teile, kein automatischer Plan-Platz für neue Teile, keine nachträglichen Stempel/Sterne ohne eigene Leistung. Teil 1 behält, was das alte Thema hatte.
-3. Neue Teile ohne eigene Leistung stehen danach **nicht im Plan** („noch nicht zugeteilt“). Sebastian teilt sie später zu oder markiert sie als geschafft (vorhandene Funktionen „einplanen“ / „Kann er“).
-4. Nach der Teilung liefert der Haupt-Chat Sebastian die Liste je Kind: neue Teile mit „selbst geschafft“, „teilweise selbst (x von y Pflicht-Etappen)“, „vom alten Thema gesetzt, jetzt offen“.
+3. Neue Teile ohne eigene Leistung stehen danach **nicht im Plan** („noch nicht zugeteilt“). Der Nutzer teilt sie später zu oder markiert sie als geschafft (vorhandene Funktionen „einplanen“ / „Kann er“).
+4. Nach der Teilung liefert der Haupt-Chat der Nutzer die Liste je Kind: neue Teile mit „selbst geschafft“, „teilweise selbst (x von y Pflicht-Etappen)“, „vom alten Thema gesetzt, jetzt offen“.
 Ersetzt die Vorgabe aus „Probelauf TL-S 2“ (Setzung vererbt sich) und Punkt 4 der „Entscheidung Teilung (16:20)“ nur insoweit, als Stempel/100 Sterne an eigene Leistung gebunden sind.
 **An `bau-lehrer` (TL-S 6):** so umsetzen; Abbruch-Vergleich: erlaubtes Delta = neue Teile „nicht im Plan“, Teil 1 unverändert; kein Lernstand geht verloren (gelandete Etappen bleiben gelandet, auch in nicht zugeteilten Teilen). Folgen prüfen: Visum/Reiseoptionen dürfen sich für kein Kind verschlechtern (ein vorher gesetztes Thema, das andere freigeschaltet hat, schaltet sie weiter frei – nötigenfalls über Teil 1 oder eine ausdrückliche Übergangsregel; bitte Lösung vorschlagen und melden).
 
@@ -2985,7 +2985,7 @@ Einig: Reihenfolge der Kette richtig; Kür-Etappe bleibt erreichbar (Kind 1, The
 - D2: Pflicht-Zählung in NT-S und `nachtest_vorrat` nach der Gruppe des Kindes (`pflicht_lernziele`), nicht nach der globalen Liste; Vorrat für RS II/III ausweisen.
 - lk_s Teil 4: nicht md5 über das ganze Stufen-JSON; stattdessen Lern-/Sternbuchungen unverändert und Etappenzahl = Pflichtliste der jeweiligen Gruppe.
 - App-Test: Thema in „Wiederholung“ mit offener Kür-Etappe ist startbar (bau-motivation, später).
-- Visum-Übergang (bewusste Ausnahme, dauerhaft): in der Liste je Kind als eigene Spalte zeigen; Sebastian bestätigt einmal.
+- Visum-Übergang (bewusste Ausnahme, dauerhaft): in der Liste je Kind als eigene Spalte zeigen; der Nutzer bestätigt einmal.
 
 PM Gym Runde 3 übernommen (Kl. 8 um 22 Arbeiten erweitert).
 
@@ -3005,7 +3005,7 @@ Muss M1 (Handy: Reihenfolge-Warnung liegt hinter dem Detail-Blatt), Soll S1 (War
 
 ## EINGESPIELT: Teilung (TL-S 7) mit ganzer Kette – 23.11., 00:25 Berlin
 
-Freigabe Sebastian („Teilung in die Datenbank einspielen“), Prüfung Werkstatt 958/959 (Freigabe). Migration `tl_s7_teilung_kette_einspielen`, Werkstatt-Änderung 379. Stand der Dateien: `lernen-app` b2fe4d3.
+Freigabe des Nutzers („Teilung in die Datenbank einspielen“), Prüfung Werkstatt 958/959 (Freigabe). Migration `tl_s7_teilung_kette_einspielen`, Werkstatt-Änderung 379. Stand der Dateien: `lernen-app` b2fe4d3.
 
 - In einem Durchgang: lk_korrektur → FP-S 4 → LW-S 2 → LK-S → lk_einspiel → nt_einspiel (NT-D 2) → TL-S 7 → NT-S 2.
 - Vorher geprüft: kein Kind in den letzten 30 Minuten aktiv, keine offene Test-Sitzung in den sieben Themen.
@@ -3013,8 +3013,8 @@ Freigabe Sebastian („Teilung in die Datenbank einspielen“), Prüfung Werksta
 - Danach auf dem echten Stand (Rollback): tl_s, wd_s, wd_s3, fp_s, lw_s, lk_s, nt_s grün.
 - Edge Function `lernen-api` bleibt 0.9.1; 0.9.2 (Wackelt-Status) mit App 0.89.x.
 - Neue Teile (Thema-ID): 276 Dreisatz T2, 277 Terme umformen T2, 278 Konstruktionen T2, 279/280 Kongruenzabbildungen T2/T3, 281 Zufall und Laplace T2, 282 Schrägbilder T2, 283 Prismen und Zylinder T2.
-- Offen für Sebastian (Liste je Kind): Kind 2 – „vom alten Thema gesetzt, jetzt offen“: 276, 279, 280; alle übrigen neuen Teile offen, nicht im Plan. Kind 1 – alle neuen Teile offen, nicht im Plan.
-- Visum-Übergang bleibt wie gebaut (dauerhaft); Sebastians ausdrückliche Bestätigung steht noch aus.
+- Offen für den Nutzer (Liste je Kind): Kind 2 – „vom alten Thema gesetzt, jetzt offen“: 276, 279, 280; alle übrigen neuen Teile offen, nicht im Plan. Kind 1 – alle neuen Teile offen, nicht im Plan.
+- Visum-Übergang bleibt wie gebaut (dauerhaft); ausdrückliche Bestätigung des Nutzers steht noch aus.
 
 ## LIVE: App 0.89.1 (LW-2 + LW-2b) – 23.11., 00:35 Berlin
 
@@ -3042,9 +3042,9 @@ Schritt 4 der Reihenfolge aus „Bau-Auftrag RK“. Die Teilung ist eingespielt 
 
 LW-S 2 ist eingespielt (`schule_wackelt_lesen` / `schule_wackelt_setzen` in der Datenbank). Edge Function 0.9.2 rollt der Haupt-Chat zusammen mit dem Live von 0.90.0 aus. Auftrag wie „Bau-Auftrag LW“, LW-3; Schnittstelle laut `inhalte/postfach/bau-lehrer.md` (LW-S / LW-S 2).
 
-## Nachtrag LW-3: Kopf der Kind-Seite schlank, Matrix groß (23.11., 00:50 Berlin) · Rückmeldung Sebastian zu 0.89.1
+## Nachtrag LW-3: Kopf der Kind-Seite schlank, Matrix groß (23.11., 00:50 Berlin) · Rückmeldung des Nutzers zu 0.89.1
 
-Sebastian (Rechner, Reiter „Lehrplan“): Seitenaufbau passt nicht – der Block mit Reitern und großer Überschrift „Lehrplan ‹Kind›“ ist zu dominant, die Matrix dadurch zu klein; es fehlt der Wechsel zwischen den Kindern; „Einordnen“ ist nicht selbsterklärend.
+Der Nutzer (Rechner, Reiter „Lehrplan“): Seitenaufbau passt nicht – der Block mit Reitern und großer Überschrift „Lehrplan ‹Kind›“ ist zu dominant, die Matrix dadurch zu klein; es fehlt der Wechsel zwischen den Kindern; „Einordnen“ ist nicht selbsterklärend.
 
 Zusätzlich zu LW-3 an `bau-motivation`:
 1. **Eine Kopfzeile** statt Reiter-Block plus Überschrift: Zurück · Kinder-Umschalter (Name als Auswahl; ersetzt die Überschrift) · Reiter Überblick | Was wackelt | Lehrplan · rechts Version/Abmelden klein. Ziel Rechner 1280 × 800: Kopf höchstens etwa 60 px.
@@ -3057,11 +3057,11 @@ Zusätzlich zu LW-3 an `bau-motivation`:
 `schule.expedition.voraussetzungen` nennt Thema + Lernziel. Nach TL-S 7 liegen `laplace` und `grosse_zahlen` in „Zufall und Laplace – Teil 2 von 2“, die Expedition „8-schulfest“ verweist aber noch auf Thema 61 (Teil 1). Folge: Sie kann keinem Kind mehr angeboten werden. Alle anderen 20 Expeditionen passen (geprüft: jede Voraussetzung findet ihre Etappe im genannten Thema). Derzeit kein Kind betroffen.
 Verlangt: Korrektur als Datei (Voraussetzung über `teil_stamm` auf den Teil umstellen, der das Lernziel enthält – keine feste ID), `expedition_voraussetzungen_ok` so, dass eine künftige Teilung das nicht mehr bricht (Familie des Themas statt Thema), Rauchtest „jede Voraussetzung jeder Expedition findet ihre Etappe“.
 
-## Auftrag EX – Expeditionen dem Kind vor die Nase legen (23.11., 01:10 Berlin) · Sebastian: „ok“
+## Auftrag EX – Expeditionen dem Kind vor die Nase legen (23.11., 01:10 Berlin) · der Nutzer: „ok“
 
-Sebastian: Wichtig ist, dass das Kind Lust auf die Expedition hat und sie ihm vor die Nase gelegt wird; „wenn da irgendwo freiwillig steht, machen sie es nie“. Lehrer muss sie nicht zuweisen. Stand heute: Überschrift „EXPEDITION · FREIWILLIG“, ein Eintrag auf der Abflugtafel, 50 Sterne (`sterne_expedition_geschafft`), noch keinem Kind angeboten.
+Der Nutzer: Wichtig ist, dass das Kind Lust auf die Expedition hat und sie ihm vor die Nase gelegt wird; „wenn da irgendwo freiwillig steht, machen sie es nie“. Lehrer muss sie nicht zuweisen. Stand heute: Überschrift „EXPEDITION · FREIWILLIG“, ein Eintrag auf der Abflugtafel, 50 Sterne (`sterne_expedition_geschafft`), noch keinem Kind angeboten.
 
-**Entschieden (Vorschlag Haupt-Chat, Sebastian „ok“):**
+**Entschieden (Vorschlag Haupt-Chat, der Nutzer „ok“):**
 1. Das Wort „freiwillig“ verschwindet aus der Kinderseite; stattdessen „Expedition freigeschaltet“. Regel bleibt: sperrt nichts, zählt nicht für „gelandet“.
 2. Freischalten als Ereignis: nach der Landung, die die letzte Voraussetzung erfüllt, eigene Ansicht mit großem „Jetzt starten“ und kleinem „Später“.
 3. Solange offen: oberste, größte Karte der Abflugtafel, vor dem nächsten Flug; nach „Später“ am nächsten Lerntag wieder vorn.
@@ -3095,17 +3095,17 @@ Prüfbitte an ChatGPT gestellt.
 
 ## EINGESPIELT + LIVE: Routen (RD-S), EX-F, EX-S, lernen-api 0.9.3, App 0.90.1 – 23.11., 02:00–02:10 Berlin
 
-Freigaben Sebastian: „Routen in die Datenbank einspielen“, „live“, „Beide machen eine Pause, jetzt bitte einspielen“. Prüfung Werkstatt 961 (Freigabe). Werkstatt-Änderung 380.
+Freigaben der Nutzer: „Routen in die Datenbank einspielen“, „live“, „Beide machen eine Pause, jetzt bitte einspielen“. Prüfung Werkstatt 961 (Freigabe). Werkstatt-Änderung 380.
 - Datenbank: Migration `rd_s_reise_ex_f_ex_s_einspielen` (RD-S → rd_einspiel_2311 → EX-F → EX-S), Stand der Dateien `lernen-app` 0d8717d. Vorher/Nachher gleich: Karten, Sterne, Lernziel-Stände, Erstabschlüsse, Stufen, Reiseoptionen, Ortsnamen, Versuche. 123 Länder, 827 Städte, 21 Stationen, 0 Abweichungen. Danach alle neun Rauchtests grün (Rollback). 0 Expeditions-Angebote; Regelwerte 150/200.
 - Edge Function `lernen-api` 0.9.3 (Version 11), `/hilfe` antwortet mit 0.9.3.
 - App 0.90.1: `main` 3934f2b, Auslieferung erfolgreich, App-Tests 159 von 159. Gestalter hat 0.90.0/0.90.1 nicht geprüft (offen).
 - Nachkontrolle erste Sitzung nach Teilung/fairen Punkten: Sterne-Buchungen passen (wdh 10, uebung 10, landung 80, Knobel 30).
 
-Offen: Legende hinter ⓘ (Rechner) – Entscheidung Sebastian; Prüfung Gestalter 0.90.1; EX-App und RK-App an `bau-motivation`; Lizenz COMNAP (Stationen) vor RK-App; Zuteilung der neuen Teile durch Sebastian.
+Offen: Legende hinter ⓘ (Rechner) – Entscheidung des Nutzers; Prüfung Gestalter 0.90.1; EX-App und RK-App an `bau-motivation`; Lizenz COMNAP (Stationen) vor RK-App; Zuteilung der neuen Teile durch den Nutzer.
 
 ## Bau-Aufträge EX-App und RK-App (23.11., 02:15 Berlin) · an `bau-motivation`, in dieser Reihenfolge
 
-Sebastian: „Ich dachte, sie sehen schon was. Dann mach weiter.“ Server ist live: `lernen-api` 0.9.3 mit `schule_reise_karte` und `schule_expedition_spaeter`; `expeditionen_stand` in `schule_konto` und `schule_uebersicht`. Schnittstellen: `inhalte/postfach/bau-lehrer.md` (RD-S, RD-S 2, EX-S).
+Der Nutzer: „Ich dachte, sie sehen schon was. Dann mach weiter.“ Server ist live: `lernen-api` 0.9.3 mit `schule_reise_karte` und `schule_expedition_spaeter`; `expeditionen_stand` in `schule_konto` und `schule_uebersicht`. Schnittstellen: `inhalte/postfach/bau-lehrer.md` (RD-S, RD-S 2, EX-S).
 
 ### Schritt 1 – EX-App (0.91.0, klein, zuerst)
 Vorgabe: `inhalte/pruefung/kind/expedition/umsetzung.md` (Abschnitte 1–6, 8, 9), Entwurf und Bilder daneben. Kein „freiwillig“ mehr auf der Kinderseite; Ansicht „Expedition freigeschaltet“ nach der auslösenden Landung („Jetzt starten“ groß, „Später“ klein → `schule_expedition_spaeter`); offene Expedition als oberste, größte Karte der Abflugtafel (`expeditionen_stand.oben_id`); Ansicht nach geschaffter Expedition mit 150 bzw. 200 Sternen; Stempel-Sammlung „n von 21 Stationen“. Abschnitt 7 (Antarktis auf der Karte) gehört zu Schritt 2. Tests mit nachgestelltem Server, 400 und 820 px. Meldung „FERTIG: EX-App (0.91.0)“.
@@ -3115,12 +3115,12 @@ Vorgabe: `inhalte/pruefung/kind/karte/umsetzung.md` (inkl. § 11 Teile/Zusatz), 
 - Technik: keine Kartenkacheln, kein Kartenserver, kein Google. Umrisse aus Natural Earth im Build vorrechnen (Skript im Repo, je Kontinent eine Datei), Flaggen erst beim Anzeigen laden. Alles statisch aus dem Repo.
 - Lizenzen (geklärt durch Haupt-Chat): Natural Earth gemeinfrei; GeoNames CC BY 4.0 → Quellenangabe auf der Info-Seite und klein an der Karte (`quellen` aus der Antwort); flag-icons, i18n-iso-countries, countries-list MIT (Lizenztext ins Repo); COMNAP-Stationen: nur private, nicht kommerzielle Bildungs-Nutzung, mit Quellenangabe.
 - Karten-Antwort ist rund 170 KB je Kind: einmal je Sitzung laden und merken; Ladezeit und Dateigrößen messen und melden.
-- Die alte Anzeigetafel bleibt hinter einem Schalter erreichbar, bis Sebastian die Karte freigibt (Rückweg).
+- Die alte Anzeigetafel bleibt hinter einem Schalter erreichbar, bis der Nutzer die Karte freigibt (Rückweg).
 - Prüfen 400 / 820 / 1280, Finger und Maus; Start, Wiederholungsrunde, Test, Expedition müssen von der Karte aus erreichbar sein wie bisher von der Tafel. Meldung „FERTIG: RK-App (0.92.0)“.
 
 Jeweils: nur App, keine Datenbank, kein Merge nach `main`, keine Namen. Prüfung nach jedem Schritt durch den Gestalter.
 
-## Bau-Auftrag LZ – Ladezeit der Lehrer-Seiten (23.11., 02:20 Berlin) · Sebastian: „Ladezeiten der Lehrer-Seiten sind etwas lang“
+## Bau-Auftrag LZ – Ladezeit der Lehrer-Seiten (23.11., 02:20 Berlin) · der Nutzer: „Ladezeiten der Lehrer-Seiten sind etwas lang“
 
 **Gemessen (Haupt-Chat, echte Datenbank und Funktions-Logs 23.11. 02:08–02:10):**
 - Einzelne Anfragen an `lernen-api` dauern 5–9 Sekunden (mehrfach 8,2–8,9 s), mehrere davon gleichzeitig.
@@ -3130,9 +3130,9 @@ Jeweils: nur App, keine Datenbank, kein Merge nach `main`, keine Namen. Prüfung
 **LZ-S · an `bau-lehrer` (Datei, nicht einspielen):** `lehrplan_matrix`, `lehrplan_matrix_lk`, `schule_uebersicht`, `schule_lernstand`, `schule_plan_lesen`, `reise_karte` beschleunigen – Ziel je Anfrage unter 1 Sekunde auf dem echten Stand. Ansatz: `thema_stufe` nicht je Thema einzeln (mengenweise je Kind rechnen), keine wiederholten Unterabfragen je Zeile, passende Indizes; Ergebnis **inhaltlich unverändert** (Test: md5 der Antwort vor/nach je Kind und für das Testkind in allen fünf Gruppen gleich). Messwerte vorher/nachher (lesend auf der echten Datenbank mit `explain analyze`) in die Meldung. Kein DROP von Tabellen, kein DELETE.
 **LZ-App · an `bau-motivation` (nach EX-App, vor RK-App):** `schule_uebersicht` und Matrix je Sitzung einmal laden und merken (nach Änderungen gezielt erneuern), alle Anfragen eines Reiters gleichzeitig starten, Kopf und Reiter sofort zeichnen und Inhalte nachladen, Kinder-Wechsel ohne erneutes Laden der kindunabhängigen Daten. Messung im Test: Zahl der Anfragen je Reiter-Aufruf.
 
-## Nachtrag LZ-App + Kopf (23.11., 02:25 Berlin) · Rückmeldung Sebastian zu 0.90.1 (Bild)
+## Nachtrag LZ-App + Kopf (23.11., 02:25 Berlin) · Rückmeldung des Nutzers zu 0.90.1 (Bild)
 
-Sebastian: „Die Kopfzeile ist jetzt etwas sehr klein und sie lässt sich auch nicht flüssig umschalten.“
+Der Nutzer: „Die Kopfzeile ist jetzt etwas sehr klein und sie lässt sich auch nicht flüssig umschalten.“
 1. **Kopfzeile größer, ohne die Matrix wieder zu verdrängen:** Höhe etwa 68–72 px (statt 53), Kindernamen und Reiter mindestens 16–17 px, aktives Kind und aktiver Reiter deutlich (Kontrast, Fläche), Klick-/Tippflächen mindestens 44 px hoch, Zusatz „Gymnasium · Kl. 8“ bei allen Kindern klein sichtbar (Rechner). Dafür die Leiste darunter am Rechner auf höchstens zwei Zeilen (Legende hinter ⓘ, Empfehlung des Gestalters abwarten, falls sie vorliegt).
 2. **Umschalten flüssig:** Klick auf Kind oder Reiter wechselt die Markierung sofort (unter 100 ms), der alte Inhalt bleibt abgeblendet stehen, bis der neue da ist (kein leerer Ladebildschirm, kein Springen des Kopfs). Kindunabhängige Daten (Übersicht, Matrix-Gerüst) nicht neu laden; Daten je Kind nach dem ersten Laden merken und im Hintergrund auffrischen; das jeweils andere Kind vorab laden.
 3. Sonst wie „Bau-Auftrag LZ“, Teil LZ-App. Version 0.91.x nach EX-App, vor RK-App. Messung im Test: Zeit bis zur Markierung, Zahl der Anfragen je Wechsel.
@@ -3145,26 +3145,26 @@ Datei `inhalte/pruefung/lehrer/werkstatt/nachpruefung_lw3.md`. Zusätzlich zu �
 - **S3** Matrix rollt beim Öffnen 30 px zu weit (Klassen-Kopf halb verdeckt) → Höhe der Spaltenzeile abziehen.
 - **S4** Handy-Kopf: eine Zeile ‹ · Kinder · ⋯, darunter die Reiter.
 - **K1** Hinweistext „Lehrplan von“ mit Beispiel. **K2** „Einstieg prüfen …“ → „Bereit für Klasse …?“. **K4** kürzere Knöpfe in „Was wackelt“ auf dem Handy.
-- Offen für Sebastian: **K3** Testkind im Kinder-Umschalter ausblenden oder ans Ende mit Marke „Test“.
-Hinweis: Der Gestalter hält den Kopf (53 px) für in Ordnung; Sebastians Rückmeldung („etwas sehr klein“) geht vor – Kopf 68–72 px.
+- Offen für den Nutzer: **K3** Testkind im Kinder-Umschalter ausblenden oder ans Ende mit Marke „Test“.
+Hinweis: Der Gestalter hält den Kopf (53 px) für in Ordnung; Rückmeldung des Nutzers („etwas sehr klein“) geht vor – Kopf 68–72 px.
 
 ## Probelauf LZ-S (23.11., 02:30 Berlin, echte Datenbank, alles zurückgerollt)
 
 Stand `lernen-app` 4994319. Migration `20261126_lz_s_ladezeit.sql` zweimal ohne Fehler.
 - **Ergebnis inhaltlich gleich** (eigener md5-Vergleich vorher/nachher: Matrix Kind 2, Matrix ohne Kind, Reisekarte und Reiseoptionen aller Kinder, `thema_stufe` aller Themen aller Kinder).
 - **Zeiten vorher → nachher:** Matrix je Kind 2532 → 186 ms · Matrix ohne Kind 4462 → 536 ms · Reisekarte 1037 → 219 ms · Stufen aller Themen (3 Kinder) 2537 → 244 ms.
-- Tests mit LZ: lz_s, rd_s, ex_s, nt_s, lk_s, wd_s, wd_s3, fp_s, lw_s grün. Ein erster Lauf von lz_s meldete „Antwort verändert“ bei Kind 2 – Ursache: Sebastian änderte in diesen Sekunden den Plan von Kind 2 (Plan-Änderung 02:30:44); Wiederholung ohne gleichzeitige Änderung grün.
+- Tests mit LZ: lz_s, rd_s, ex_s, nt_s, lk_s, wd_s, wd_s3, fp_s, lw_s grün. Ein erster Lauf von lz_s meldete „Antwort verändert“ bei Kind 2 – Ursache: Der Nutzer änderte in diesen Sekunden den Plan von Kind 2 (Plan-Änderung 02:30:44); Wiederholung ohne gleichzeitige Änderung grün.
 - **tl_s rot, unabhängig von LZ** (auch ohne LZ): „FEHLER 5: offener Zusatz-Teil als Pflicht im Plan“ – siehe nächster Abschnitt.
 Prüfbitte an ChatGPT gestellt.
 
 ## Befund: Zusatz-Teil lässt sich als normaler Flug einplanen (23.11., 02:30 Berlin) · an `bau-lehrer`
 
-Sebastian hat über „Unser Lehrplan“ (App 0.90.1) für Kind 2 „Kongruenzabbildungen – Teil 2 von 3“ eingeplant (route.id 485, art `normal`, status `offen`, Platz 21). Der Teil ist im Gymnasium Zusatz (keine Pflicht-Etappe). `schule_plan_setzen` legt ihn trotzdem als `normal` an.
-Zu klären und als Datei zu liefern (ZP-S): Was passiert mit einem bewusst eingeplanten Zusatz-Teil? Vorschlag Haupt-Chat: Einplanen bleibt erlaubt (Entscheidung der Eltern), der Eintrag wird als Zusatz geführt (`art` passend), er sperrt nichts dahinter, gilt als erledigt, sobald alle seine Etappen gelandet sind (ohne Pflicht-Test; Stempel/100 Sterne: Entscheidung Sebastian), und die Lehrer-Ansicht zeigt ihn als „Zusatz · eingeplant“. Prüfen: Kann der Flug mit `art normal` und leerer Pflichtliste heute je „fertig“ werden, oder bleibt er für immer offen im Plan? Bestehenden Eintrag 485 mit umstellen. `tl_s_rauchtest` Teil 5 muss danach auf dem echten Stand grün sein. Entscheidung Sebastian zu Stempel/Sternen steht aus.
+Der Nutzer hat über „Unser Lehrplan“ (App 0.90.1) für Kind 2 „Kongruenzabbildungen – Teil 2 von 3“ eingeplant (route.id 485, art `normal`, status `offen`, Platz 21). Der Teil ist im Gymnasium Zusatz (keine Pflicht-Etappe). `schule_plan_setzen` legt ihn trotzdem als `normal` an.
+Zu klären und als Datei zu liefern (ZP-S): Was passiert mit einem bewusst eingeplanten Zusatz-Teil? Vorschlag Haupt-Chat: Einplanen bleibt erlaubt (Entscheidung der Eltern), der Eintrag wird als Zusatz geführt (`art` passend), er sperrt nichts dahinter, gilt als erledigt, sobald alle seine Etappen gelandet sind (ohne Pflicht-Test; Stempel/100 Sterne: Entscheidung des Nutzers), und die Lehrer-Ansicht zeigt ihn als „Zusatz · eingeplant“. Prüfen: Kann der Flug mit `art normal` und leerer Pflichtliste heute je „fertig“ werden, oder bleibt er für immer offen im Plan? Bestehenden Eintrag 485 mit umstellen. `tl_s_rauchtest` Teil 5 muss danach auf dem echten Stand grün sein. Entscheidung des Nutzers zu Stempel/Sternen steht aus.
 
-## Entscheidung Sebastian (23.11., 02:35 Berlin): eingeplanter Zusatz-Teil · Bau-Auftrag ZP-S an `bau-lehrer`
+## Entscheidung des Nutzers (23.11., 02:35 Berlin): eingeplanter Zusatz-Teil · Bau-Auftrag ZP-S an `bau-lehrer`
 
-Sebastian: „Entscheidung ja“ zum Vorschlag des Haupt-Chats:
+Der Nutzer: „Entscheidung ja“ zum Vorschlag des Haupt-Chats:
 1. Einen Zusatz-Teil einzuplanen bleibt erlaubt (Entscheidung der Eltern).
 2. Er wird im Plan als Zusatz geführt, nicht als normaler Pflicht-Flug, und sperrt nichts dahinter (kein Visum, keine harte Voraussetzung).
 3. Er gilt als erledigt, sobald alle seine Etappen selbst gelandet sind – ohne Pflicht-Test.
@@ -3184,12 +3184,12 @@ Nicht eingeplante Zusatz-Teile bleiben wie bisher freiwillig und ohne Stempel.
 **ZP-S: Muss, eigener Auftrag – Nachtrag an `bau-lehrer` (ZP-S) und `bau-motivation` (ZP-App):**
 - Nur `route.art = 'zusatz'` setzen reicht nicht: Die Kinder-App nimmt Route-Einträge ohne Filter auf `art` in „jetzt“ und „nächster Flug“; `geschafft` = n > 0 und fertig ≥ n → ein Flug mit 0 Pflicht-Etappen bliebe für immer als nächster offener Flug stehen. Die Eltern-Planung verwirft Einträge mit `art <> 'normal'` (Arbeitskopie) → der Eintrag wäre unsichtbar und nicht mehr änderbar.
 - Verlangt: zwei getrennte Eigenschaften – Pflicht/Kür je Gruppe (unverändert) und „von den Eltern eingeplant“ mit eigenem Platz. Der eingeplante Zusatz-Flug bleibt in der Lehrer-Ansicht wählbar, abwählbar, sortierbar („Zusatz · eingeplant“), ist auf der Kinderseite anklickbar, zählt aber nicht als Pflicht-Weiterflug, nicht für Visum und nicht in die Lehrplan-Quote; der nächste Pflicht-Flug bleibt erreichbar. Fortschritt x/y über alle Etappen; nach der letzten Landung „Zusatz geschafft“.
-- Stempel und 100 Sterne: **von Sebastian entschieden (02:35): ja, genau einmal** – ChatGPT kannte die Entscheidung noch nicht. Buchung bewusst und getestet, nicht als Nebenwirkung von `route.status = 'fertig'`.
+- Stempel und 100 Sterne: **vom Nutzer entschieden (02:35): ja, genau einmal** – ChatGPT kannte die Entscheidung noch nicht. Buchung bewusst und getestet, nicht als Nebenwirkung von `route.status = 'fertig'`.
 - Bestehenden Eintrag (route 485) reparieren, Platz und Absicht erhalten; Karten und Sterne unverändert.
 
-## Entscheidung Sebastian (23.11., 02:54 Berlin): wieder offene Etappe wird dem Kind zuerst vorgelegt · Auftrag NB
+## Entscheidung des Nutzers (23.11., 02:54 Berlin): wieder offene Etappe wird dem Kind zuerst vorgelegt · Auftrag NB
 
-Frage Sebastian: Was passiert, wenn ein Kind in der Wiederholung zwei Fehler hintereinander macht – geht die Etappe automatisch an Stelle 1 des Lehrplans?
+Frage des Nutzers: Was passiert, wenn ein Kind in der Wiederholung zwei Fehler hintereinander macht – geht die Etappe automatisch an Stelle 1 des Lehrplans?
 **Stand heute (gelesen in `karte_buchen`, `thema_stufe`, `lernReiseDaten`; bisher bei keinem Kind eingetreten):** 1. Fehler in der fälligen Wiederholung → bleibt gelandet, Stufe −1, nächster Lerntag wieder. 2. Fehler in Folge → Etappe „wieder offen“ (`sitzt = false`, Belege bleiben, es fehlen 3 eigene Lösungen in Folge; danach Wiederholung von vorn). Thema springt auf „dran / wieder offen“, erscheint in „Was wackelt“ und „Zu tun“. Der Fahrplan ändert sich nicht. Kinderseite: Ist der Ort noch offen, kommt der Flug über seinen Platz meist als nächster Start; **ist der Ort schon fertig, bleibt der Flug unter „Geschafft – zum Wiederholen“ und die Etappe ist nicht mehr in der Wiederholungsrunde – Lücke.**
 
 **Entschieden („ja“ zum Vorschlag des Haupt-Chats):** Eine wieder offene Etappe wird dem Kind immer zuerst vorgelegt, egal ob der Ort abgeschlossen ist – eigene Karte ganz oben („Nachbessern: ‹Etappe›, noch 3 richtige in Folge“), vor dem nächsten Flug und vor einer Expedition. Fahrplan, Stempel und Sterne bleiben unverändert.
@@ -3199,7 +3199,7 @@ Frage Sebastian: Was passiert, wenn ein Kind in der Wiederholung zwei Fehler hin
 
 ## Auftrag SJ – „Wie viel ist noch?“ je Schuljahr, für Eltern und Kinder (23.11., 03:10 Berlin)
 
-Sebastian (zum Ring „Gym Kl. 5 · 26 % · 2/15 Themen“): „Ich und die Kids wollen einen Überblick, wie viele Flüge sie noch haben und wie viele Etappen – in den Schuljahren. Bei Kind 1 immer in dem Jahr, wo sie gerade hauptsächlich ist, und ein Jahr weiter. Bei Kind 2 hauptsächlich Klasse 8, aber auch 7 und 9.“ Frage: Wie wird der Prozentsatz gerechnet?
+Der Nutzer (zum Ring „Gym Kl. 5 · 26 % · 2/15 Themen“): „Ich und die Kids wollen einen Überblick, wie viele Flüge sie noch haben und wie viele Etappen – in den Schuljahren. Bei Kind 1 immer in dem Jahr, wo sie gerade hauptsächlich ist, und ein Jahr weiter. Bei Kind 2 hauptsächlich Klasse 8, aber auch 7 und 9.“ Frage: Wie wird der Prozentsatz gerechnet?
 **Heutige Rechnung (lernLwRing):** Prozent = gelandete Etappen ÷ alle Etappen der Pflicht-Flüge dieser Schulart in dieser Klasse; Flüge in Wiederholung oder „kann er“ zählen mit allen Etappen. „2/15 Themen“ = fertige Flüge von allen Pflicht-Flügen der Klasse. Zusatz-Teile zählen nicht.
 **Stand heute (Haupt-Chat, Gymnasium, ohne Zusatz):** Kind 1 Kl. 5: 15 Flüge, 2 fertig, 13 offen; 107 Etappen, 28 gelandet, 79 offen (26 %). Kl. 6: 11 Flüge, 78 Etappen, alles offen. Kind 2 Kl. 7: 12 Flüge, 5 fertig, 7 offen; 61 Etappen, 23 gelandet. Kl. 8: 16 Flüge, 1 fertig, 15 offen; 97 Etappen, 9 gelandet. Kl. 9: 14 Flüge, 87 Etappen, alles offen.
 
@@ -3212,7 +3212,7 @@ Sebastian (zum Ring „Gym Kl. 5 · 26 % · 2/15 Themen“): „Ich und die Kids
 
 ## EINGESPIELT: LZ-S (Ladezeit) – 23.11., 03:10 Berlin
 
-Freigabe Sebastian („Ladezeit in die Datenbank einspielen“), Prüfung Werkstatt 963 (Freigabe), Werkstatt-Änderung 381. Abweichung von der 30-Minuten-Regel: letzte Antwort eines Kindes 13 Minuten vorher, keine offene Test-Sitzung; die Migration ändert nur Lese-Funktionen und legt einen Index auf `zuordnung` an.
+Freigabe des Nutzers („Ladezeit in die Datenbank einspielen“), Prüfung Werkstatt 963 (Freigabe), Werkstatt-Änderung 381. Abweichung von der 30-Minuten-Regel: letzte Antwort eines Kindes 13 Minuten vorher, keine offene Test-Sitzung; die Migration ändert nur Lese-Funktionen und legt einen Index auf `zuordnung` an.
 In der Transaktion geprüft: Antworten vorher = nachher. Zeiten danach: Matrix je Kind 208 ms (vorher rund 2,5 s), Matrix ohne Kind 551 ms (4,5 s), Reisekarte 240 ms (1,0 s). Tests danach grün: lz_s, ex_s, nt_s, lk_s, wd_s, fp_s, lw_s.
 
 ## Probelauf ZP-S (23.11., 03:10 Berlin, echte Datenbank mit LZ-S, alles zurückgerollt)
@@ -3222,22 +3222,22 @@ Laut bau-lehrer haben die Eltern inzwischen selbst Teile eingeplant: Kind 1 Drei
 
 ## App 0.91.1 (EX-App + LZ-App): 166 von 168, zwei Tests wackeln – Nachtrag „absichern“ (23.11., 03:15 Berlin)
 
-Gesamtlauf (Stand e646650): rot `W176 T4: Abbruch verliert nichts …` und `LW-3 (1a): Kinder-Umschalter – Klick und Alt+←/→ …`; beide einzeln wiederholt grün. Während des Gesamtlaufs liefen parallel Datenbank-Probeläufe (Last). Sebastian: „absichern“, erst danach live.
+Gesamtlauf (Stand e646650): rot `W176 T4: Abbruch verliert nichts …` und `LW-3 (1a): Kinder-Umschalter – Klick und Alt+←/→ …`; beide einzeln wiederholt grün. Während des Gesamtlaufs liefen parallel Datenbank-Probeläufe (Last). Der Nutzer: „absichern“, erst danach live.
 An `bau-motivation`: Ursache klären (Zeitabhängigkeit des Tests oder echter Wettlauf beim Kinder-Wechsel mit gemerkten/vorgeladenen Daten – z. B. alte Antwort überschreibt neue Ansicht, Detail bleibt offen, Reiter springt), beheben, beide Tests so schreiben, dass sie auf Zustände warten statt auf Zeiten; Gesamtlauf dreimal hintereinander grün, einmal davon unter Last (gedrosselte CPU). Version 0.91.2.
 
 ## Probelauf NB-S + SJ-S (23.11., 03:30 Berlin, echte Datenbank mit LZ-S, ZP-S im Probelauf; alles zurückgerollt)
 
 Stand `lernen-app` 74a4185. Beide Migrationen zweimal ohne Fehler; Karten, Sterne, Plan, Reiseoptionen, Stufen unverändert. `schuljahr_stand` liefert auf dem echten Stand die Zahlen aus der Meldung (Kind 1 Kl. 5: 15/2/13 Flüge, 112/29/83 Etappen, 26 %; Kind 2 Kl. 7: 12/5/7, 69/26/43, 38 %; Kl. 8: 16/1/15, 102/9/93, 9 %; Kl. 9: 14/0/14, 107/0/107). zp_s und tl_s danach grün.
 **Rot: `nb_s_rauchtest` und `sj_s_rauchtest`** auf dem echten Stand, vor und nach: „cannot insert a non-DEFAULT value into column "id"“ – die Tests fügen in eine Tabelle mit `generated always`-Spalte eine feste id ein (lokal offenbar anders angelegt). → Nachtrag: Tests ohne feste ids (oder `overriding system value`), auf dem echten Stand lauffähig.
-**Offene Fachfrage (Sebastian):** Der Ring und `schuljahr_stand` zählen **alle** Etappen der Pflicht-Flüge (auch Kür-Etappen); die Angabe des Haupt-Chats von 03:10 zählte nur die Pflicht-Etappen (107 statt 112 usw.). Für „wie viel ist noch?“ empfiehlt der Haupt-Chat: nur Pflicht-Etappen zählen, Kür getrennt ausweisen – dann auch den Ring umstellen.
+**Offene Fachfrage (Nutzer):** Der Ring und `schuljahr_stand` zählen **alle** Etappen der Pflicht-Flüge (auch Kür-Etappen); die Angabe des Haupt-Chats von 03:10 zählte nur die Pflicht-Etappen (107 statt 112 usw.). Für „wie viel ist noch?“ empfiehlt der Haupt-Chat: nur Pflicht-Etappen zählen, Kür getrennt ausweisen – dann auch den Ring umstellen.
 
 ## EINGESPIELT: ZP-S (Zusatz im Plan) – 23.11., 03:32 Berlin
 
-Freigabe Sebastian („Zusatz-Plan in die Datenbank einspielen“), Prüfung Werkstatt 966 (Freigabe), Werkstatt-Änderung 382. Letzte Antwort eines Kindes 36 Minuten vorher, kein Test offen. In der Transaktion geprüft: Karten, Sterne, Lernziel-Stände, Erstabschlüsse, Plan und Reiseoptionen unverändert. Danach grün: zp_s, tl_s, rd_s, ex_s, nt_s, lk_s, wd_s, fp_s, lw_s, lz_s. Eingeplanter Zusatz heute: Kind 2, „Kongruenzabbildungen – Teil 2 von 3“ (kommt, 0 von 3).
+Freigabe des Nutzers („Zusatz-Plan in die Datenbank einspielen“), Prüfung Werkstatt 966 (Freigabe), Werkstatt-Änderung 382. Letzte Antwort eines Kindes 36 Minuten vorher, kein Test offen. In der Transaktion geprüft: Karten, Sterne, Lernziel-Stände, Erstabschlüsse, Plan und Reiseoptionen unverändert. Danach grün: zp_s, tl_s, rd_s, ex_s, nt_s, lk_s, wd_s, fp_s, lw_s, lz_s. Eingeplanter Zusatz heute: Kind 2, „Kongruenzabbildungen – Teil 2 von 3“ (kommt, 0 von 3).
 Offen: ZP-App (Anzeige „Zusatz · eingeplant“, Muss laut ChatGPT 966); Nachtrag `bau-lehrer`: zwei Testfälle (mehrere Zusatz-Flüge an einem Ort; Entfernen eines abgeschlossenen Zusatz-Flugs).
 Übernommen: Vorgabe „Karten“ des Gestalters (`inhalte/pruefung/kind/karten/`), NT-D 3 von `lehrplan-lb` (`nt_einspiel_2311.sql`, noch nicht geprüft/eingespielt).
 
-## Entscheidung Sebastian (23.11., 03:32 Berlin): „Wie viel ist noch?“ zählt alle Etappen
+## Entscheidung des Nutzers (23.11., 03:32 Berlin): „Wie viel ist noch?“ zählt alle Etappen
 
 „Mein Schuljahr“, Karte „Stand“ und der Ring zählen **alle Etappen der Pflicht-Flüge** der Klasse (wie heute der Ring und `schuljahr_stand.etappen`), nicht nur die Pflicht-Etappen. Die Vorgabe des Gestalters gilt damit unverändert. Die Zusatzfelder `etappen_pflicht`/`kuer` aus dem Nachtrag NB-S/SJ-S sind nicht nötig (dürfen bleiben, wenn schon gebaut; die App nutzt `etappen`).
 
@@ -3251,7 +3251,7 @@ Stand `lernen-app` 600609c. `nt_einspiel_2311.sql` zweimal ohne Fehler (30162 �
 
 App 0.91.2 (abgesichert): Ursache war ein echter Wettlauf beim Kinder-Wechsel (A → B → A blieb bei B) plus zeitabhängige Tests; behoben. Gesamtlauf läuft.
 
-## Entscheidung Sebastian (23.11., 03:37 Berlin): Zulauf gesetzter Etappen drosseln (6 → 3 je Lerntag) · Bau-Auftrag WD-5 an `bau-lehrer`
+## Entscheidung des Nutzers (23.11., 03:37 Berlin): Zulauf gesetzter Etappen drosseln (6 → 3 je Lerntag) · Bau-Auftrag WD-5 an `bau-lehrer`
 
 **Befund Haupt-Chat (Kind 2, echte Daten 23.11.):** nach der Tagesrunde (6) noch 23 fällig; fällig werden 24.–26.11. je 11–12, danach 6, 9, 3. Davon „gesetzt, erste Wiederholung“ (wdh_gesetzt_am, Stufe 0): je 6 pro Tag bis 28.11., 2 am 29.11. (Staffel `wdh_gesetzt_je_lerntag` = 6). Rundengröße = Rückstau ÷ 5, mindestens 6, höchstens 12 → Stau pendelt um 30 statt sich in etwa 5 Lerntagen aufzulösen (Hochrechnung). Alle Wiederholungs-Aufgaben der heutigen Sitzung waren frisch (0 von 42 schon gesehen).
 **Entschieden:** gesetzte Etappen kommen nur noch mit 3 statt 6 je Lerntag neu in den Takt.
@@ -3266,7 +3266,7 @@ App 0.91.2 (abgesichert): Ursache war ein echter Wettlauf beim Kinder-Wechsel (A
 
 Datei `inhalte/pruefung/kind/expedition/nachpruefung_ex.md`. Für den nächsten App-Schritt (mit NB/SJ/ZP-Karten):
 - S1 Ansicht „Expedition freigeschaltet“ bei 360 × 640: Voraussetzungs-Chips verdeckt → höchstens 2 Chips + „+2 weitere“ oder Szene scrollt.
-- S2 „freiwillig“ steht noch bei den Knobel-Bordkarten (Knopf, Link, Info-Text). Sebastian (23.11.): „wenn da irgendwo freiwillig steht, machen sie es nie“ → auf der ganzen Kinderseite ersetzen („für Profis“), Eltern-/Lehrer-Seiten dürfen es behalten.
+- S2 „freiwillig“ steht noch bei den Knobel-Bordkarten (Knopf, Link, Info-Text). Der Nutzer (23.11.): „wenn da irgendwo freiwillig steht, machen sie es nie“ → auf der ganzen Kinderseite ersetzen („für Profis“), Eltern-/Lehrer-Seiten dürfen es behalten.
 - K1 begonnene Expedition: Kopf „EXPEDITION · TEIL B VON 3“. K2 Stand-Kacheln über der Expeditions-Karte nach unten bzw. in „Mein Schuljahr“. K3 „gesehen am“ vom Server (zweites Gerät) – EX-S-Nachtrag. K4 kein Bau.
 
 ## LIVE: App 0.91.2 – 23.11., 03:45 Berlin
@@ -3278,13 +3278,13 @@ Datei `inhalte/pruefung/kind/expedition/nachpruefung_ex.md`. Für den nächsten 
 Stand `lernen-app` 6b16f6b.
 - **NB-S + SJ-S + nt_einspiel_2311:** zweimal ohne Fehler; Karten, Sterne, Plan, Reiseoptionen, Stufen unverändert. Tests grün: nb_s, sj_s, zp_s (mit neuen Fällen 12/13) vor und nach; tl_s, nt_s, lz_s nach.
 - **WD-5:** zweimal ohne Fehler; Regel 3; alles außer den Fälligkeiten gesetzter Erst-Wiederholungen unverändert (Kind 1 ganz unverändert, Sterne, Plan). Kind 2 fällig je Tag vorher 23·11·11·12·6·9·3, nachher 16·8·8·9·3·6·4·3·3·3·3·3·3·3; gesetzte je Lerntag 3. Tests grün: wd5 (vor und nach), wd_s, wd_s3, fp_s.
-- **Befund bau-lehrer (Hochrechnung):** 3 je Lerntag allein löst den Stau nicht auf (pendelt um 20–30), weil die Runde (Rückstau ÷ 5, mindestens 6) kaum über dem Zulauf liegt. Vorschlag: `wdh_runde_teiler` 5 → 1 (Runde = alle fälligen, höchstens 12; bis Kl. 6 höchstens 10) → mit WD-5 Stau nach etwa 4 Lerntagen weg, danach 0–4. Milder: Teiler 2 → nach 14 Lerntagen noch um 10. Entscheidung Sebastian.
+- **Befund bau-lehrer (Hochrechnung):** 3 je Lerntag allein löst den Stau nicht auf (pendelt um 20–30), weil die Runde (Rückstau ÷ 5, mindestens 6) kaum über dem Zulauf liegt. Vorschlag: `wdh_runde_teiler` 5 → 1 (Runde = alle fälligen, höchstens 12; bis Kl. 6 höchstens 10) → mit WD-5 Stau nach etwa 4 Lerntagen weg, danach 0–4. Milder: Teiler 2 → nach 14 Lerntagen noch um 10. Entscheidung des Nutzers.
 Prüfbitte an ChatGPT gestellt (beide Pakete).
 RK-App 0.92.0 (Reisekarte) von `bau-motivation` zusammengeführt; App-Tests laufen.
 
-## Wunsch Sebastian (23.11., 04:05 Berlin): Jugendwörter in den Geschafft- und Belohnungs-Ansichten · Auftrag JW (vorgemerkt)
+## Wunsch des Nutzers (23.11., 04:05 Berlin): Jugendwörter in den Geschafft- und Belohnungs-Ansichten · Auftrag JW (vorgemerkt)
 
-Sebastian: In den Geschafft-Bildern/Belohnungsfeldern nach einer Etappe „die neumodernen Jugendwörter einbauen (Digger …) – die müssen auch erst recherchiert werden“.
+Der Nutzer: In den Geschafft-Bildern/Belohnungsfeldern nach einer Etappe „die neumodernen Jugendwörter einbauen (Digger …) – die müssen auch erst recherchiert werden“.
 Erste Recherche Haupt-Chat (Langenscheidt-Wahl): 2026 Platz 1 „Ragebait“, 2 „Peak“, 3 „Crashout“; Top 10 außerdem „67“, „Digga“, „Du bist gut genug“, „Gute Käse“, „Macker“, „Schere“, „Süper“. 2025: „Das crazy“ vor „goonen“ und „checkst du“.
 Vorschlag: gepflegte Wortliste (Wort, Bedeutung, wofür geeignet: Lob / Fehler / neutral, Quelle, Jahr, ungeeignet-Kennzeichen), ungeeignete Wörter ausgeschlossen (beleidigend, sexuell, abwertend), die Kinder wählen selbst aus und können es je Kind abschalten; Sprüche wechseln; Liste halbjährlich prüfen. Schritte: Recherche → Auswahl durch die Kinder → Texte (Gestalter) → App (`bau-motivation`).
 
@@ -3293,10 +3293,10 @@ Vorschlag: gepflegte Wortliste (Wort, Bedeutung, wofür geeignet: Lob / Fehler /
 **Paket 1 (NB-S, SJ-S, nt_einspiel_2311): Freigabe** zum Einspielen in einer Transaktion. Hinweis: Rauchtests ersetzen die Zugriffskontrolle, sind kein Nachweis eines abgewiesenen Fremdzugriffs (Funktionen nutzen die bestehende Prüfung).
 **Muss für die gemeinsame Anzeige (App, nicht Datenbank):** Der Ring (`lernLwRing`, lernen.js) filtert nur Schulart/Klasse und zieht Zusatz der Gruppe nicht ab; `schuljahr_stand` zieht ihn ab. Für RS II/III und MYP Standard weichen die Zahlen ab (Gegenprobe: 60 % gegen 100 %). → SJ-App: Ring an `schuljahr_stand` anbinden bzw. dieselbe Auswahl; Test mit einem Gruppen-Zusatzfall. Betrifft heute kein Kind (beide Gymnasium).
 **Paket 2 (WD-5): Muss vor Freigabe** – Rückweg `wdh_drosseln_zurueck` (Zeilen 103–116): Eine verschobene Etappe, die nach der Migration in die offene Tagesrunde kommt, wird vor der ersten Antwort noch zurückgeschrieben (Rundenausschluss fehlt im Rückweg). Verlangt: Rücknahme ablehnen, wenn eine betroffene Etappe in einer offenen Runde steht, mit Sperre gegen parallelen Rundenstart; auch beim Einspielen parallelen Rundenstart ausschließen; Test (drosseln → Runde öffnen → Rückweg vor erster Antwort → nichts verändert); Test 4 ergänzen: ältere WD-4b-Sicherungen feldweise vor/nach dem Rückweg vergleichen.
-**Lernsicht:** Teiler 1 für zunächst vier tatsächliche Lerntage erproben (höchstens 12, bis Kl. 6 höchstens 10), danach Rest, Dauer und Fehler ansehen; Teiler 2, falls die längeren Runden neues Lernen verdrängen. Entscheidung Sebastian getrennt.
-- Nachtrag JW (23.11., 04:15): Sebastian will „unbedingt“ das Wort, das wie „Tschüsch“ klingt → gemeint ist sehr wahrscheinlich **„Çüş“ / „Cüs“** (gesprochen „Tschüüüsch“, aus dem Türkischen; Ausruf des Staunens wie „Krass!“, „Heftig!“; ursprünglich Halte-Ruf für Esel/Pferde, kann auch „mach mal halblang“ bedeuten). Für Lob nur eindeutig staunend verwenden („Çüüüş – 5 in Folge!“). Schreibweise und Einsatz von den Kindern bestätigen lassen.
+**Lernsicht:** Teiler 1 für zunächst vier tatsächliche Lerntage erproben (höchstens 12, bis Kl. 6 höchstens 10), danach Rest, Dauer und Fehler ansehen; Teiler 2, falls die längeren Runden neues Lernen verdrängen. Entscheidung des Nutzers getrennt.
+- Nachtrag JW (23.11., 04:15): Der Nutzer will „unbedingt“ das Wort, das wie „Tschüsch“ klingt → gemeint ist sehr wahrscheinlich **„Çüş“ / „Cüs“** (gesprochen „Tschüüüsch“, aus dem Türkischen; Ausruf des Staunens wie „Krass!“, „Heftig!“; ursprünglich Halte-Ruf für Esel/Pferde, kann auch „mach mal halblang“ bedeuten). Für Lob nur eindeutig staunend verwenden („Çüüüş – 5 in Folge!“). Schreibweise und Einsatz von den Kindern bestätigen lassen.
 
-## Auftrag JW – Jugendwörter in Geschafft- und Belohnungs-Ansichten (23.11., 04:20 Berlin) · Sebastian: „macht euch Gedanken, wie man die cool einbauen kann, und setzt die ein“
+## Auftrag JW – Jugendwörter in Geschafft- und Belohnungs-Ansichten (23.11., 04:20 Berlin) · der Nutzer: „macht euch Gedanken, wie man die cool einbauen kann, und setzt die ein“
 
 **JW-G · an den Gestalter (Recherche + Vorgabe):** `inhalte/pruefung/kind/jugendwoerter/umsetzung.md` + `woerter.json`.
 1. Recherche: 60–80 aktuelle deutsche Jugendwörter (Langenscheidt-Wahlen 2024–2026 und weitere Quellen), je Wort: Schreibweise(n), Bedeutung, Tonlage, Jahr, Quelle, geeignet für `lob_klein` / `lob_gross` / `staunen` / `fehler_mild` / `anrede` oder `ungeeignet` mit Grund. Fest dabei: „Çüş“ (Tschüsch), „Digga“, „Peak“, „Gute Käse“, „Süper“, „Das crazy“, „Schere“ (nur Fehler). Ausschluss: beleidigend, sexuell, abwertend, Wut/Provokation (z. B. „goonen“, „Ragebait“, „Crashout“, „sybau“).
@@ -3308,9 +3308,9 @@ Vorschlag: gepflegte Wortliste (Wort, Bedeutung, wofür geeignet: Lob / Fehler /
 
 ## EINGESPIELT: NB-S, SJ-S, NT-D 3 – 23.11., 04:22 Berlin
 
-Freigabe Sebastian („Nachbessern und Schuljahr in die Datenbank einspielen“), Prüfung Werkstatt 968 (Paket 1 Freigabe), Werkstatt-Änderung 384. Kinder 86 bzw. 157 Minuten ohne Antwort, kein Test offen. In der Transaktion geprüft: Karten, Sterne, Lernziel-Stände, Erstabschlüsse, Plan, Reiseoptionen, Stufen unverändert; Aufgaben 30162 → 30176. Danach grün: nb_s, sj_s, zp_s, tl_s, nt_s, lz_s. `schuljahr_stand` live: Kind 1 Kl. 5 13/15 Flüge, 83/112 Etappen offen (26 %); Kind 2 Kl. 7 7/12, 43/69 (38 %), Kl. 8 15/16, 93/102 (9 %), Kl. 9 14/14, 107/107.
+Freigabe des Nutzers („Nachbessern und Schuljahr in die Datenbank einspielen“), Prüfung Werkstatt 968 (Paket 1 Freigabe), Werkstatt-Änderung 384. Kinder 86 bzw. 157 Minuten ohne Antwort, kein Test offen. In der Transaktion geprüft: Karten, Sterne, Lernziel-Stände, Erstabschlüsse, Plan, Reiseoptionen, Stufen unverändert; Aufgaben 30162 → 30176. Danach grün: nb_s, sj_s, zp_s, tl_s, nt_s, lz_s. `schuljahr_stand` live: Kind 1 Kl. 5 13/15 Flüge, 83/112 Etappen offen (26 %); Kind 2 Kl. 7 7/12, 43/69 (38 %), Kl. 8 15/16, 93/102 (9 %), Kl. 9 14/14, 107/107.
 
-## Entscheidung Sebastian (23.11., 04:20 Berlin): Rundengröße „A“
+## Entscheidung des Nutzers (23.11., 04:20 Berlin): Rundengröße „A“
 
 Wiederholungsrunde = alle fälligen, höchstens 12 (bis Kl. 6 höchstens 10): `wdh_runde_teiler` 5 → 1, zunächst für vier tatsächliche Lerntage zum Erproben; danach Rest, Dauer und Fehler ansehen (Haupt-Chat), bei Bedarf Teiler 2. Wird zusammen mit WD-5 eingespielt.
 
@@ -3332,9 +3332,9 @@ Datei `inhalte/pruefung/kind/karte/nachpruefung_rk.md`.
 
 **ChatGPT 970:** Muss-Punkte aus 968 an WD-5 2 behoben. Einzige Bedingung vor gemeinsamer Freigabe von WD-5 + Teiler 1: `wd_s_rauchtest` Teil 1 für den neuen Teiler korrigieren und im gemeinsamen Rollback-Lauf grün nachweisen; danach kein weiterer Muss-Einwand.
 **Probelauf (Stand `lernen-app` 410cc6b):** WD-5 3 (b6432679…, setzt `wdh_gesetzt_je_lerntag` = 3 und `wdh_runde_teiler` = 1) und RK-D (ddb5d738…) je zweimal ohne Fehler. Alles außer den Fälligkeiten gesetzter Erst-Wiederholungen unverändert (Karten sonst, Sterne, Plan, Reiseoptionen; Kind 1 ganz). Tests grün vor und nach: wd5, wd_s (Teiler 5 und 1), wd_s3, fp_s, rk_d. Kind 2 nachher fällig je Lerntag 16·8·8·9·3·6·4·3·3·3·3·3·3·3, Runde heute 12. Reisekarte Kind 2 mit RK-D: 282 ms, 31 Flüge „gesperrt“, 0 Städte „abgelegt“.
-→ Bedingung aus 970 erfüllt: WD-5 3 einspielbar nach Sebastians Satz. RK-D: Prüfbitte an ChatGPT.
+→ Bedingung aus 970 erfüllt: WD-5 3 einspielbar nach Satz des Nutzers. RK-D: Prüfbitte an ChatGPT.
 
-## Vorgabe JW (Jugendwörter) vom Gestalter, Fassung 2 – laut Vorgabe von Sebastian so festgelegt
+## Vorgabe JW (Jugendwörter) vom Gestalter, Fassung 2 – laut Vorgabe vom Nutzer so festgelegt
 
 `inhalte/pruefung/kind/jugendwoerter/` (umsetzung.md, woerter.json, Entwurf, Bilder). Ein Sticker je Geschafft-Ansicht, Satz bleibt normales Deutsch; **keine Einstellungen, keine Auswahl, keine Altersstufen, Anrede „Digga“**; 74 Wörter geprüft, 30 im Einsatz, 52 Sprüche; Antippen zeigt die Bedeutung. Überholt die Punkte „je Kind abschaltbar / Wort gefällt mir nicht“ aus dem Auftrag JW. → JW-App an `bau-motivation` nach RK-App 2.
 
@@ -3353,11 +3353,11 @@ Stand `lernen-app` d23b9fc, Datei `20261129_rk_d_karte_felder.sql` (a22f6b2d…)
 
 ## EINGESPIELT: WD-5 3 (Drosseln), Rundengröße A (Teiler 1), RK-D 2 (Kartenfelder) – 23.11., 05:00 Berlin
 
-Freigabe Sebastian („Drosseln, Rundengröße und Kartenfelder in die Datenbank einspielen“), Prüfung Werkstatt 972 und 974 (Freigaben), Werkstatt-Änderung 385. Kinder 125 bzw. 197 Minuten ohne Antwort, kein Test offen. In der Transaktion geprüft: außer den Fälligkeiten gesetzter Erst-Wiederholungen nichts verändert; `naechster_start` gleich; höchstens 3 gesetzte je Lerntag. Danach grün: wd5, wd_s, wd_s3, fp_s, rk_d, rd_s.
+Freigabe des Nutzers („Drosseln, Rundengröße und Kartenfelder in die Datenbank einspielen“), Prüfung Werkstatt 972 und 974 (Freigaben), Werkstatt-Änderung 385. Kinder 125 bzw. 197 Minuten ohne Antwort, kein Test offen. In der Transaktion geprüft: außer den Fälligkeiten gesetzter Erst-Wiederholungen nichts verändert; `naechster_start` gleich; höchstens 3 gesetzte je Lerntag. Danach grün: wd5, wd_s, wd_s3, fp_s, rk_d, rd_s.
 Kind 2: fällig heute 16 (vorher 23), danach 8·8·9·3·6·4·3…; Kind 1: 0 fällig. Regeln: `wdh_gesetzt_je_lerntag` = 3, `wdh_runde_teiler` = 1.
 **Erprobung:** vier tatsächliche Lerntage; danach Rest nach der Runde, Dauer und Fehler bei Kind 2 ansehen (Haupt-Chat). Rückweg: Teiler 2 oder 5 (eine Einstellung); `schule.wdh_drosseln_zurueck()` nur, solange keine verschobene Etappe geübt wurde.
 
-## App 0.92.2 (RK-App 2): Gesamtlauf 179 von 179; Sebastian: „Mach nochmal Prüfung“ (23.11., 05:20 Berlin)
+## App 0.92.2 (RK-App 2): Gesamtlauf 179 von 179; der Nutzer: „Mach nochmal Prüfung“ (23.11., 05:20 Berlin)
 
 Kein Live vor der zweiten Prüfung des Gestalters. Eigene Datenprüfung Haupt-Chat (echte Karten-Antwort, lesend): je Kind 95 Flüge, kein Flug ohne Stadt, keine fehlende Lage. Kind 1: Start Schweiz/Chur (Stadt 5 von 14), 26 im Plan, **68 von 95 Flügen gesperrt**, davon 9 eingeplante (alle Grund Visum, u. a. Platz 3, 7, 8, 10), 2 Stempel. Kind 2: Start Nepal/Lalitpur (Stadt 2 von 5), 44 im Plan, 31 gesperrt, davon 2 eingeplante (Kongruenzabbildungen Teil 2 und 3), 5 Stempel. Für die Prüfung wichtig: Mit echten Daten trägt die Mehrheit der Länder ein Schloss; bekannte Überlappung der Länder-Schilder in Mitteleuropa auf dem Handy.
 
@@ -3370,7 +3370,7 @@ Datei `inhalte/pruefung/kind/karte/nachpruefung_rk2.md`. Erste Prüfung: M1, S1,
 **Soll:** S1 Haltestellen-Kästchen entzerren (wie die Namen); S2 Länder-Schilder in dichten Gegenden nach Abschnitt 2 (Vorrang, vier Lagen, weglassen statt überdecken, Hauptstadt-Zeile nur für dran/nächste 3/angetippt, Fächer für Pin-Köpfe). **Kann:** K1 Quellen-Zeile, K2 Welt-Ausschnitt mit Nachbarn, K4 kleine Legende hinter ⓘ.
 Urteil Gestalter zu Frage 8: „was als Nächstes kommt“ ja auf allen Größen; „wo bin ich“ auf dem Handy erst mit M1.
 
-## Reihenfolge App (Entscheidung Sebastian 23.11., 05:50 Berlin: „getrennt“) · Bau-Auftrag KJ (0.93.0) an `bau-motivation`
+## Reihenfolge App (Entscheidung des Nutzers 23.11., 05:50 Berlin: „getrennt“) · Bau-Auftrag KJ (0.93.0) an `bau-motivation`
 
 1. **RK-App 3 (0.92.3)** – Reisekarte live (läuft).
 2. **KJ (0.93.0), direkt danach, ein Schritt:**
@@ -3383,7 +3383,7 @@ Urteil Gestalter zu Frage 8: „was als Nächstes kommt“ ja auf allen Größen
 ### Live App 0.92.3 – Reisekarte (23.11.2026)
 
 - `main` 2cce57b = `lernen-app` mit bau-motivation 2d90366 (RK-App 3). Gesamttest 183/183 grün, Auslieferung erfolgreich.
-- Vorher geprüft: letzte Übung beider Kinder über 3 Stunden her. Sebastian: „Live“ / „Live, sobald grün“.
+- Vorher geprüft: letzte Übung beider Kinder über 3 Stunden her. Der Nutzer: „Live“ / „Live, sobald grün“.
 - Offen (kein Muss): gedämpfte Pins in dichten Gegenden eng; Stadtname auf 360 px gekürzt.
 - Nächster Schritt: bau-motivation baut KJ (0.93.0: Jugendwort-Sticker, Karten Nachbessern / Mein Schuljahr / Zusatz eingeplant, Ring an schuljahr_stand).
 
@@ -3396,36 +3396,36 @@ Datei `inhalte/pruefung/kind/karten/nachpruefung_kj.md`, Bilder in `nachpruefung
 
 ## LIVE: App 0.93.1 – Jugendwörter und drei Karten (23.11., 08:15 Berlin)
 
-- `main` 67e387b = `lernen-app` mit bau-motivation a2e59f8 (KJ 2). Gesamttest 190/190, Auslieferung erfolgreich. Sebastian: „Live“.
+- `main` 67e387b = `lernen-app` mit bau-motivation a2e59f8 (KJ 2). Gesamttest 190/190, Auslieferung erfolgreich. Der Nutzer: „Live“.
 - Vorher geprüft: letzte Übung beider Kinder über 5 Stunden her.
 - Offen (später): K1, K3–K8 der Prüfung `nachpruefung_kj.md`; enge Pins auf der Reisekarte; „Zusatz geschafft“ einmal je Gerät.
 - Tageslauf 23.11.: keine neuen Lehrer-Aufträge, keine neue Werkstatt-Nachricht.
 
 ## Fehler Kind 2 (24.11., 02:30 Berlin): „Weiter in Kathmandu“ führt in schon gelandete Etappe, Kopf zeigt alten Ortsnamen · Bau-Auftrag WK (0.93.2) an `bau-motivation`
 
-Meldung Sebastian mit zwei Bildern (Übung `#/lerneinheit/2-112-ueben-2`, Reisekarte Asien) und: Rückweg von der Aufgabe zur Übersicht lädt lange.
+Meldung der Nutzer mit zwei Bildern (Übung `#/lerneinheit/2-112-ueben-2`, Reisekarte Asien) und: Rückweg von der Aufgabe zur Übersicht lädt lange.
 **Befund (Daten + Code gelesen):**
 - Einheit 112 = Flug Nepal (Städte: Bhaktapur, Lalitpur, Kathmandu, Pokhara, Bharatpur). Etappe 1 und 2 gelandet, Etappe 3 (Kathmandu) noch ohne Karten-Stand. Etappe 2 ist heute zur Wiederholung fällig; Etappe 1 war es bis zur ersten Antwort heute.
 - **F1:** Der Knopf „Weiter in ‹Stadt›“ (Reisekarte und Abflugtafel) verlinkt auf `…-ueben` ohne Etappen-Nummer. `empfohlen()` (lernen.js ~3637) nimmt zuerst eine fällige Etappe, erst danach die nächste offene. Folge: statt Stadt 3 öffnet sich Etappe 1 bzw. 2.
 - **F2:** Eine fällige, gelandete Etappe hat in der Flug-Übung kein Ende: `fertigHier` gilt nur ohne `faellig`, der Stand wird nach der Antwort nicht nachgezogen. Kind 2 hat heute 10 Bordkarten in Etappe 1 gelöst, ohne dass etwas passiert.
 - **F3:** Kopf der Lerneinheit zeigt `ort.stadt` aus `schule_uebersicht` (alter Block-Ort „Mumbai“), die Karte nennt Land Nepal und Stadt je Etappe. Zwei Namen für denselben Flug.
 - **F4 (offen):** Im ersten Bild steht unter der Etappen-Leiste nur das Zahlenfeld, keine Aufgabe. Ob Ladezustand oder Fehler, ist nicht geklärt.
-- **F5:** Rückweg Aufgabe → Übersicht langsam (Angabe Sebastian, nicht gemessen).
+- **F5:** Rückweg Aufgabe → Übersicht langsam (Angabe der Nutzer, nicht gemessen).
 
 ## App 0.93.2 (WK) geliefert, Korrektur Gestalter zu JW/KJ (24.11., 03:25 Berlin) · Nachtrag RS (0.93.3) an `bau-motivation`
 
 - WK zusammengeführt (bau-motivation 789079f): F1 Knöpfe führen zur genannten Etappe, F2 Ende bei fälliger Etappe, F3 Namen der Reisekarte (Kind und Lehrer; Liste der verbleibenden alten Namen in der Meldung), F4 Ursache: klebendes Tastenfeld verdeckte die Bordkarte bei niedrigem Fenster – behoben, F5 Rückweg 10 Abrufe/5 Runden → 6/2, Sofortbild aus dem Speicher. Echte Serverzeiten nicht gemessen.
-- **Korrektur Gestalter (von Sebastian übermittelt):** 1) Abflugtafel ist nur noch Nebenansicht; Anrede „Digga“ gehört als Sticker auf die Ecke der Startkarte „Weiter in …“ der Reisekarte (Handy: Karte unten über der Landkarte, Rechner: rechte Spalte); auf der Abflugtafel darf sie bleiben, zählt aber mit (höchstens einmal je Lerntag insgesamt). 2) M1/M2 der Prüfung KJ zu Soll herabgestuft (beide sind seit 0.93.1 ohnehin erledigt). 3) Neues Soll: „Mein Schuljahr“ auf Handy/Tablet als Zeile „Klasse 5 · 26 % ›“ in der schwebenden Startkarte, Antippen öffnet die Karte.
+- **Korrektur Gestalter (vom Nutzer übermittelt):** 1) Abflugtafel ist nur noch Nebenansicht; Anrede „Digga“ gehört als Sticker auf die Ecke der Startkarte „Weiter in …“ der Reisekarte (Handy: Karte unten über der Landkarte, Rechner: rechte Spalte); auf der Abflugtafel darf sie bleiben, zählt aber mit (höchstens einmal je Lerntag insgesamt). 2) M1/M2 der Prüfung KJ zu Soll herabgestuft (beide sind seit 0.93.1 ohnehin erledigt). 3) Neues Soll: „Mein Schuljahr“ auf Handy/Tablet als Zeile „Klasse 5 · 26 % ›“ in der schwebenden Startkarte, Antippen öffnet die Karte.
 
 ## LIVE: App 0.93.2 – Fehlerbehebung WK (24.11., 03:55 Berlin)
 
 - `main` 93a2c69 = `lernen-app` 73b5664. Gesamttest 195/195, Auslieferung erfolgreich.
-- Beide Kinder übten kurz vorher; Sebastian: „Machen Pause also live“.
-- Offen: echte Serverzeiten des Rückwegs nicht gemessen; Nachtrag RS (0.93.3: Anrede auf der Reisekarte, „Mein Schuljahr“ auf Handy/Tablet) liegt als Kopiertext bei Sebastian.
+- Beide Kinder übten kurz vorher; der Nutzer: „Machen Pause also live“.
+- Offen: echte Serverzeiten des Rückwegs nicht gemessen; Nachtrag RS (0.93.3: Anrede auf der Reisekarte, „Mein Schuljahr“ auf Handy/Tablet) liegt als Kopiertext beim Nutzer.
 
 ## Fehler Kind 2 (24.11., 04:10 Berlin): „Gerade dran“ zeigt Stadt 1, obwohl alle Städte gelandet sind · Nachtrag WK 2 an `bau-motivation` (mit in 0.93.3)
 
-Meldung Sebastian mit zwei Bildern (Reisekarte: „Bhaktapur · Stadt 1 von 5“; Übung Sri Lanka Etappe 2/7).
+Meldung der Nutzer mit zwei Bildern (Reisekarte: „Bhaktapur · Stadt 1 von 5“; Übung Sri Lanka Etappe 2/7).
 **Befund (Datenbank gelesen):**
 - Flug Nepal (Thema 103, Einheit 112): alle 5 Städte „gelandet“ (heute), Stufe „dran“, kein Stempel → als Nächstes fehlt der Flug-Test.
 - `schule.reise_karte` baut `naechster_start.stadt` als `coalesce(v_offen, v_st->0)`: ohne offene Stadt fällt sie auf Stadt 1 zurück. Die App zeigt deshalb „Weiter in ‹Stadt 1›“.
@@ -3433,7 +3433,7 @@ Meldung Sebastian mit zwei Bildern (Reisekarte: „Bhaktapur · Stadt 1 von 5“
 - Nepal und Sri Lanka (Thema 5) stehen beide auf Plan-Platz 2 und sind beide „dran“. Die Karte „Gerade dran“ zeigt nur den ersten Flug des Platzes.
 **Auftrag:** App: sind alle Pflicht-Städte des Flugs gelandet → „Flug-Test ‹Land›“ mit Knopf zum Test, nie Stadt 1 als Rückfall; Links mit Nummer zeigen bei gelandeter Etappe und fälligem Test die Test-Aufforderung; mehrere Flüge auf einem Platz sichtbar machen. Server (später, `bau-lehrer`): `naechster_start.stadt` = null und `grund = 'test'`, wenn keine Stadt offen ist.
 
-## Entscheidung Sebastian (24.11., 04:50 Berlin): Ablauf läuft automatisch · WK 2 neu gefasst als App 0.93.4
+## Entscheidung des Nutzers (24.11., 04:50 Berlin): Ablauf läuft automatisch · WK 2 neu gefasst als App 0.93.4
 
 „Eigentlich soll fast alles automatisch laufen, außer er will Gelerntes sich nochmal anschauen.“
 - Ein Hauptknopf führt immer zum richtigen nächsten Schritt: offene Etappe → Flug-Test → nächster Flug (auch der zweite Flug desselben Plan-Platzes). Keine Auswahl-Zeilen („Auch dran“ entfällt).
@@ -3443,15 +3443,15 @@ Meldung Sebastian mit zwei Bildern (Reisekarte: „Bhaktapur · Stadt 1 von 5“
 
 ## LIVE: App 0.93.4 – ein Hauptknopf, automatisch weiter (24.11., 08:35 Berlin)
 
-- `main` ab67ff4 = `lernen-app` 8b0b83b (WK 2 + RS). Auslieferung erfolgreich. Sebastian: „Live“. Kinder über 3 Stunden ohne Übung.
+- `main` ab67ff4 = `lernen-app` 8b0b83b (WK 2 + RS). Auslieferung erfolgreich. Der Nutzer: „Live“. Kinder über 3 Stunden ohne Übung.
 - Gesamttest: 1. Lauf 201/202 – „KJ §0: Kinderseite – Nachbessern zuerst …“ rot, Fehlermeldung nicht erfasst; einzeln 3× grün; 2. Lauf 202/202. **Offen: Ursache des wackligen Tests** (Verdacht: Hauptknopf wird nachträglich gefüllt, Test liest zu früh oder Knopf zeigt kurz das alte Ziel) → an `bau-motivation`.
-- Tageslauf 24.11.: keine neuen Lehrer-Aufträge; Test-Eintrag 2 auf „erledigt“ (Sebastian: ja). Gestalter-Vorgabe FX (Spezialeffekte) liegt vor; Sebastian: warten.
-- Neuer Chat `mathe-profi` geplant (Kopiertext bei Sebastian): bewertet Inhalte, liefert Erklärungen, Aufgaben, neue Aufgabenformen unter `inhalte/mathe-profi/`, Zweig `mathe-profi`.
+- Tageslauf 24.11.: keine neuen Lehrer-Aufträge; Test-Eintrag 2 auf „erledigt“ (Nutzer: ja). Gestalter-Vorgabe FX (Spezialeffekte) liegt vor; der Nutzer: warten.
+- Neuer Chat `mathe-profi` geplant (Kopiertext beim Nutzer): bewertet Inhalte, liefert Erklärungen, Aufgaben, neue Aufgabenformen unter `inhalte/mathe-profi/`, Zweig `mathe-profi`.
 - Offen für `bau-lehrer`: `reise_karte.naechster_start` ohne offene Stadt → `stadt = null`, `grund = 'test'`.
 
 ## Umstellung: Helfer statt Kopiertexte – Probelauf mit Auftrag WT (25.11., 01:30 Berlin)
 
-Entscheidung Sebastian: Der Projektleiter steuert die Rollen künftig selbst als Helfer an; Kopieren zwischen Chats entfällt. Rollenbeschreibungen liegen unter `inhalte/rollen/`. Einspielen in die Datenbank und Live bleiben beim Projektleiter und brauchen weiter Sebastians ausdrückliches Wort.
+Entscheidung des Nutzers: Der Projektleiter steuert die Rollen künftig selbst als Helfer an; Kopieren zwischen Chats entfällt. Rollenbeschreibungen liegen unter `inhalte/rollen/`. Einspielen in die Datenbank und Live bleiben beim Projektleiter und brauchen weiter ausdrückliches Wort des Nutzers.
 **Probelauf – Auftrag WT (App 0.93.5) an Rolle `bau-app`, Zweig `bau-app`:**
 - Befund: Gesamtlauf auf 8b0b83b: 1. Lauf 201/202, rot „KJ §0: Kinderseite – Nachbessern zuerst (Expedition als Chip), Gerade dran, Zusatz · eingeplant, Mein Schuljahr; Zahlen aus schuljahr_stand; gelber Knopf nie Zusatz (400/820, Tag und Nacht)“, Meldung nicht erfasst; einzeln 3× grün; 2. Lauf 202/202.
 - 1. Ursache finden, nicht nur den Test beruhigen: Gesamtlauf wiederholen, bis der Fehler wieder auftritt (höchstens 4 Läufe), Meldung im Wortlaut festhalten; zusätzlich den Test mit künstlich verzögerten Antworten des nachgestellten Servers laufen lassen (Karte 800 ms nach Übersicht und umgekehrt).
@@ -3465,7 +3465,7 @@ Entscheidung Sebastian: Der Projektleiter steuert die Rollen künftig selbst als
 
 - Aus `origin/mathe-profi` 39545b4 übernommen: `inhalte/mathe-profi/` (rolle.md, auftrag1.md, ideen.md mit 22 Ideen, entwurf-formen.html, nachrechnen.py) und Postfach. `nachrechnen.py` hier gelaufen: „OK: 12 Aufgaben, alle zweifach nachgerechnet“. Ein Name im Postfach durch „dem Nutzer“ ersetzt.
 - Zahlen des Mathe-Profis in der Datenbank nachgeprüft: zahl 54,3 %, auswahl 31,1 %, luecken 14,0 %, markierung 0,5 %, text 0,1 %; 3 314 von 30 176 Aufgaben mit Bild.
-- Entscheidung Sebastian: Team mit drei Chats bei ihm (Projektleiter, Mathe-Profi auf Fable, Designer auf Fable), übrige Rollen als Helfer. Neuer Mathe-Profi-Chat nimmt die Ablage auf und denkt sie neu durch. Rollen-Dateien: `inhalte/rollen/README.md`, `mathe-profi.md`, `designer.md`, `bau-app.md`.
+- Entscheidung des Nutzers: Team mit drei Chats bei ihm (Projektleiter, Mathe-Profi auf Fable, Designer auf Fable), übrige Rollen als Helfer. Neuer Mathe-Profi-Chat nimmt die Ablage auf und denkt sie neu durch. Rollen-Dateien: `inhalte/rollen/README.md`, `mathe-profi.md`, `designer.md`, `bau-app.md`.
 - Noch nicht inhaltlich geprüft durch den Projektleiter: `auftrag1.md`, `ideen.md`.
 
 ## Probelauf Helfer bestanden: App 0.93.5 in `lernen-app`; Übergabe Projektleiter (25.11., 03:00 Berlin)

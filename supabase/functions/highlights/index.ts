@@ -61,7 +61,7 @@ const PERSONA = `Du bist ein erfahrener, stilsicherer Reiseberater. Ihr beratet 
 Mische ehrlich: Natur & Landschaft, Tiere, Meer & Tauchen, Kultur, Essen & Trinken, besondere Orte. Tauchen nur, wo es wirklich herausragt; nicht jeder Vorschlag braucht Wasser.
 Geschmack: individuell, beeindruckend, kein Massentourismus, Stil statt Protz; gutes Budget, wenn es sich lohnt. Erfinde nichts.`
 
-// WOW-Skala (Sebastian 10.11.: ein Markt ist kein 4er) – streng und vergleichend, damit die Punkte etwas bedeuten
+// WOW-Skala (Nutzer 10.11.: ein Markt ist kein 4er) – streng und vergleichend, damit die Punkte etwas bedeuten
 const WOW_SKALA = `WOW-Skala (streng, gemessen an allem, was die Familie weltweit erleben kann): 5 = weltweit einzigartig, allein ein Grund für die Reise (z. B. mit wilden Seelöwen schwimmen); 4 = eines der Top-Erlebnisse des Landes, lohnt einen Umweg; 3 = schöner Programmpunkt, wenn man ohnehin in der Gegend ist; 2 = nett, aber austauschbar (Märkte, Stadtparks, übliche Weingüter, Museen ohne Besonderheit); 1 = Füller. Nur etwa jedes fünfte Highlight verdient eine 5.`
 
 function stufe(k: any): 1 | 2 | 3 { return !k.eltern ? 1 : k.eltern.typ === 'region' ? 2 : 3 }
@@ -416,7 +416,7 @@ async function wowNeu(sucheId: number) {
   return { ok: true, bewertet: neu.length, von: ks.length, kosten_usd: kosten }
 }
 // Routen-Fazit je Region aus den TATSÄCHLICH vorhandenen Highlights (ohne Websuche, ca. 0,01 USD je Region) –
-// sonst nennt das Fazit Dinge, die gar nicht in der Liste stehen (Sebastian 10.11.: „Nordküste, aber kein Highlight dort“)
+// sonst nennt das Fazit Dinge, die gar nicht in der Liste stehen (Nutzer 10.11.: „Nordküste, aber kein Highlight dort“)
 async function fazitNeu(sucheId: number, nurRegion: number | null = null) {
   const regionen = await sql`select r.id, r.titel, r.steckbrief->>'hauptort' as hauptort from highlights.knoten r
     where r.suche_id = ${sucheId} and r.parent_id is null and r.typ = 'region' and (${nurRegion}::bigint is null or r.id = ${nurRegion})`

@@ -1,6 +1,6 @@
 # Nachprüfung Lehrer-Aufbau (LA-1 bis LA-7), App 0.80.0
 
-Stand 2026-11-20. Geprüft wurde `main` 15d2c2d gegen zwei Vorgaben: `umsetzung.md` (dieser Ordner) und Sebastians Auswahl 1A · 2B · 3B · 4A · 5A · 6B · 7A. Abweichungen laut `inhalte/postfach/bau-lehrer.md` (Zweig lernen-app) sind berücksichtigt.
+Stand 2026-11-20. Geprüft wurde `main` 15d2c2d gegen zwei Vorgaben: `umsetzung.md` (dieser Ordner) und Auswahl des Nutzers 1A · 2B · 3B · 4A · 5A · 6B · 7A. Abweichungen laut `inhalte/postfach/bau-lehrer.md` (Zweig lernen-app) sind berücksichtigt.
 
 Ich habe nur gelesen: kein App-Code, keine Datenbank, kein Merge geändert.
 
@@ -73,7 +73,7 @@ Ich habe nur gelesen: kein App-Code, keine Datenbank, kein Merge geändert.
 | Rechner 1280 | 790 px | 1057 px | 800 px | Lehrer ja, Eltern nein |
 
 **Abweichend**
-1. Stand-Zellen (GYM, RS, IB) sind ohne Ampelfarbe. Die Vorgabe verlangte rot/gelb/grün wie im Entwurf. Das ist eine bewusste Abweichung des Baus mit plausibler Begründung: Mitte des Jahres wäre fast alles rot. Sebastian sollte sie bestätigen.
+1. Stand-Zellen (GYM, RS, IB) sind ohne Ampelfarbe. Die Vorgabe verlangte rot/gelb/grün wie im Entwurf. Das ist eine bewusste Abweichung des Baus mit plausibler Begründung: Mitte des Jahres wäre fast alles rot. Der Nutzer sollte sie bestätigen.
 2. „Pausen/Reisetage“ als Ausnahme für rot fehlt (Abweichung 4 laut Bau). Auf der Weltreise wird „kein Lerntag seit 3 Tagen“ an Reisetagen rot, obwohl alles in Ordnung ist.
 3. Eltern: Über „Zu tun“ steht der Kasten „Wartet auf dich – Kind A möchte ‚Eis‘ einlösen“. „Zu tun“ ist damit nicht mehr oben, und auf dem Rechner (800 px hoch) passt die Tabelle nicht ohne Rollen. Besser als eigener Eintrag in „Zu tun“ (Sollte).
 4. Tablet: Die Rahmenlinie der Zelle „⚙ Einstellen“ sitzt nicht auf der Zeilenlinie (`lehrer-1-start-820`). „noch kein MYP-Jahr“ bricht in vier Zeilen um (Kann).
@@ -178,7 +178,7 @@ Ich habe nur gelesen: kein App-Code, keine Datenbank, kein Merge geändert.
 2. **Eltern-Startseite:** „Wartet auf dich“ (Belohnung) als blauen Eintrag in „Zu tun“ statt darüber. Dann passt die Tabelle auch auf dem Rechner ohne Rollen.
 3. **Lehrplan-Übersicht auf dem Handy:** als Liste oder mit fester erster Spalte.
 4. **Reisewörter beim ersten Vorkommen** kurz erklären („Rückreise = Wiederholung nach nicht bestandenem Nachtest“, „Etappe = Lernschritt“).
-5. **Stand-Zellen ohne Ampel:** Sebastian bestätigt die Abweichung, oder die Ampel kommt so, dass sie zur Jahreszeit passt.
+5. **Stand-Zellen ohne Ampel:** der Nutzer bestätigt die Abweichung, oder die Ampel kommt so, dass sie zur Jahreszeit passt.
 
 ### Kann
 1. Überblick Kind B: „Nichts wackelt.“ und die Rückreise nicht direkt untereinander. Zum Beispiel „Keine Etappe wackelt · Rückreise Pisa offen“.

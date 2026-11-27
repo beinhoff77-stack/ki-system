@@ -195,7 +195,7 @@ Geänderte Lernkarten (vorher → nachher):
   - lage / uebung / Stufe 3: „Ein Kreis hat den Mittelpunkt M(−2 | 3) und den Radius 2. Wie viele der Geraden x = 0, y = 0, y = 5 und x = −5 sind Tangenten?“
   - tangente / uebung / Stufe 2: „Ein Kreis um M(0 | 0) berührt eine Tangente im Punkt B(0 | 3). Gib die Gleichung der Tangente an.“
 
-### (5) Für Sebastian (braucht eine Entscheidung)
+### (5) Für den Nutzer (braucht eine Entscheidung)
 - abbildungen.kongruenz / achsenspiegelung (Tatsache): 21 freigegebene Aufgaben und die Karte selbst nutzen Geradengleichungen („an der Geraden x = 3“, „y = 4“, „Winkelhalbierende y = x“). Nach dem Prüf-Befund kommen diese erst in Klasse 8. Ich habe sie nicht ersetzt, weil die ganze Karte darauf aufbaut. Ersetzen (rund 21 Aufgaben + Karte) oder als bekannte Schreibweise lassen?
 - Überschneidung (Tatsache): geometrie.konstruktion hat die Karten parallelen und winkelsumme, die fast dasselbe prüfen wie geometrie.winkelsaetze (stufen_wechsel, innenwinkelsumme). Vorschlag (Meinung): in geometrie.konstruktion als Wiederholung kennzeichnen oder streichen.
 - Reihenfolge (Tatsache): geometrie.konstruktion / satz_kehrsatz nutzt in Stufe 3 den Satz des Thales, der erst in geometrie.kreis (danach) kommt. abbildungen.kongruenz / parkett (Vertiefung) nutzt Innenwinkel regelmäßiger Vielecke vor geometrie.winkelsaetze.

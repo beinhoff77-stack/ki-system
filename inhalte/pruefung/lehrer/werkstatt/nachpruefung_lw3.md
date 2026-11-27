@@ -47,8 +47,8 @@ Hinweis zu Frage 2: Bei 1280 × 800 sind es heute **zwei** Leisten-Zeilen, nicht
 
 ### Kann
 - **K1 – „Lehrplan von:“ (Frage 3):** richtig platziert (vorne, links von „Zeigen“), Wort verständlich. Hinweistext klarer mit Beispiel: „Nach welchem Lehrplan die Themen den Klassen zugeordnet werden – z. B. steht ‚Satz des Pythagoras‘ im Gymnasium in Kl. 8, in der Realschule in Kl. 9. Gezeigt werden immer alle Themen.“
-- **K2 – „Einstieg prüfen …“ umbenennen in „Bereit für Klasse …?“** – der heutige Name verrät nicht, dass er die Lücken bis zu einer Klasse zeigt (Rückfrage Sebastian 23.11.).
-- **K3 – Testkind im Kinder-Umschalter** (Annahme des Bau-Chats): für den Alltag ausblenden oder ans Ende mit Marke „Test“ – Entscheidung Sebastian.
+- **K2 – „Einstieg prüfen …“ umbenennen in „Bereit für Klasse …?“** – der heutige Name verrät nicht, dass er die Lücken bis zu einer Klasse zeigt (Rückfrage der Nutzer 23.11.).
+- **K3 – Testkind im Kinder-Umschalter** (Annahme des Bau-Chats): für den Alltag ausblenden oder ans Ende mit Marke „Test“ – Entscheidung des Nutzers.
 - **K4 – Handy „Was wackelt“:** Knöpfe brechen in zwei Zeilen („Im Lehrplan“ allein). Kürzer: „✓ Besprochen“, „Beobachten“, „→ Lehrplan“.
 - **K5 – Alte Tabelle „Je Etappe: richtig / falsch …“ und „Alle Etappen mit Stand“** unter der Arbeitsliste: zugeklappt ok; nach Einführung prüfen, ob noch gebraucht.
 

@@ -1131,7 +1131,7 @@ def datei():
         },
         'aufgaben': auf,
         'offen': ['Überschneidung: geometrie.konstruktion (gleicher Ort Addis Abeba) hat schon die Lernkarten „parallelen“, „winkelsumme“ und „vierecke“. '
-                  'Liste der überlappenden Karten in inhalte/postfach/winkelsaetze-2.md – Entscheidung Sebastian.',
+                  'Liste der überlappenden Karten in inhalte/postfach/winkelsaetze-2.md – Entscheidung des Nutzers.',
                   'Winkel werden vom Kind nicht gemessen oder gezeichnet (kann die App nicht). Die Zeichnungen sind maßstäblich: angeschriebene Winkel weichen höchstens 3° ab.',
                   'Der Begriff „Nachbarwinkel“ (E-Winkel) steht nicht im LehrplanPLUS M7 2.2 und wird nicht eingeführt; solche Winkel werden über Stufen- und Nebenwinkel berechnet.'],
     }, anz

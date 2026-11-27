@@ -277,10 +277,16 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": -6,
+     "antwort": 3,
      "fehlbild": "fb.plusminus.doppelminus_uebersehen",
      "regel_des_fehlbilds": "rr.plusminus",
-     "beschreibung": "das Minus der −6 stehen gelassen"
+     "beschreibung": "9 − 6 gerechnet: das Minus der −6 stehen gelassen"
+    },
+    {
+     "antwort": -15,
+     "fehlbild": "fb.plusminus.zeichen_des_ergebnisses",
+     "regel_des_fehlbilds": "rr.plusminus",
+     "beschreibung": "Vorzeichen des Ergebnisses falsch"
     }
    ],
    "aufgabe": {
@@ -291,14 +297,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Zwei Wege für die Länge von [CD] mit C(2 | −6) und D(2 | 9). Weg A: 6 + 9. Weg B: 9 − (−6) = 9 + ?. Welche Zahl steht für das Fragezeichen?"
+     "text": "Zwei Wege für die Länge von [CD] mit C(2 | −6) und D(2 | 9). Weg A zerlegt die Strecke an der x-Achse und zählt die beiden Stücke zusammen. Weg B rechnet 9 − (−6). Wie lang ist [CD]?"
     },
     "o": {
-     "wert": 6
+     "wert": 15
     },
-    "c": "0 - (-6)",
+    "c": "9 - (-6)",
     "h": "Beide Wege müssen dieselbe Länge ergeben.",
-    "w": "Minus (−6) heißt plus 6. Beide Wege ergeben 15."
+    "w": "Weg A: 6 Einheiten unter der x-Achse und 9 darüber, zusammen 15. Weg B: 9 − (−6) = 9 + 6 = 15."
    }
   },
   {
@@ -605,7 +611,7 @@
    "kennung": "GE1-13",
    "thema": "geometrie.grundbegriffe",
    "lernkarte": "kreis_lage",
-   "stufe": 3,
+   "stufe": 2,
    "typ": "Umkehren",
    "antwortform": "zahl",
    "regel": "id.geometrie.abstand",
@@ -635,8 +641,8 @@
     "l": "kreis_lage",
     "t": "kreis_lage",
     "p": "uebung",
-    "s": 3,
-    "g": "rueckwaerts",
+    "s": 2,
+    "g": "umkehr",
     "y": "zahl",
     "f": {
      "text": "Ein Kreis um M(1 | 3) hat den Radius 5. Die Gerade h verläuft senkrecht (parallel zur y-Achse), liegt rechts von M und ist eine Tangente des Kreises. Durch welchen x-Wert geht h?"

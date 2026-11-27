@@ -299,6 +299,12 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
+     "antwort": 0,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 0 kommt in jeder Reihe vor, ist hier aber ausgenommen"
+    },
+    {
      "antwort": 48,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -325,14 +331,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Welches ist die kleinste Zahl, die sowohl in der Sechserreihe als auch in der Achterreihe vorkommt?"
+     "text": "Welches ist die kleinste Zahl größer als 0, die sowohl in der Sechserreihe als auch in der Achterreihe vorkommt?"
     },
     "o": {
      "wert": 24
     },
     "c": "6 * 8 // 2",
-    "h": "Schreib die Achterreihe auf und prüfe jede Zahl auf Teilbarkeit durch 6.",
-    "w": "Achterreihe: 8, 16, 24 … Die 24 ist auch 4 · 6. Kleiner geht es nicht."
+    "h": "Schreib die Achterreihe ab der 8 auf und prüfe jede Zahl auf Teilbarkeit durch 6.",
+    "w": "Achterreihe: 8, 16, 24 … Die 24 ist auch 4 · 6. Kleiner geht es nicht; die 0 ist ausgenommen."
    }
   },
   {

@@ -1,4 +1,4 @@
-# Umsetzung Lehrer-Aufbau (Auswahl Sebastian, 2026-11-18)
+# Umsetzung Lehrer-Aufbau (Auswahl des Nutzers, 2026-11-18)
 
 Grundlage: `bericht.md` (Befunde L1–L9, App 0.78.1) und der Auswahl-Entwurf „Lehrer-Ansicht: neuer Aufbau“ (Artifact).
 Auswahl: 1A · 2B · 3B · 4A · 5A · 6B · 7A.
@@ -89,7 +89,7 @@ Reisewörter wie gehabt: Flug = Thema, Etappe = Lernkarte, Bordkarte = Aufgabe, 
 - Klasse, Stufen, Notizen nur noch im ⚙-Blatt.
 - Lehrplan Gym 5 passt auf einen Tablet-Bildschirm.
 
-## LA-8 Lehrplan-Spalte: Themengebiet statt Ort, Ansicht nach Gebiet (Sebastian, 2026-11-20)
+## LA-8 Lehrplan-Spalte: Themengebiet statt Ort, Ansicht nach Gebiet (Nutzer, 2026-11-20)
 
 Ergänzt LA-4 (Flugplan, rechte Spalte) und LA-7 (Lehrplan-Übersicht). Entwurf: `entwurf/lehrplan-spalte.html` (mit echter Themenliste), Bild `bilder/lehrplan-spalte-entwurf.png`. Gilt für Lehrer- und Elternansicht; die Kinderansicht behält die Orte.
 

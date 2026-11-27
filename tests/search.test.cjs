@@ -2768,21 +2768,21 @@ test('W140: Tauchtage mit Tauchern, Gebiet, Log-Werten, Euro-Summe und eigenem F
  const data=stage2Data();
  data.etappen=[{...data.etappen[1],id:1,anreise:day(-5),abreise:day(5),buchung:{name:'Haus Insel',preis_gesamt_eur:1000,land:'Japan'}}];
  data.posten=[{id:7,reise_id:1,art:'tauchen',status:'gebucht',titel:'Tauchen',anbieter:'Aqua-no-jikan',preis_original:86000,waehrung:'JPY',preis_gesamt_eur:480.5,preis_ca:true,kurs:{kurs:0.0055875,datum:day(-2)},
-  segmente:[{ab:day(-2)+'T09:19',an:day(-2)+'T11:21',ort:'Ishigaki',land:'Japan',gebiet:'Westküste vor Sakieda',taucher:['Sebastian','Kerstin','Leo','Rosa'],tauchgaenge:2,modus:'Gerät',tg:[{nr:1,start:'09:19',dauer_min:44,max_tiefe_m:16.7,temp_c:28.2,lat:24.42,lon:124.08},{nr:2,start:'10:28',dauer_min:53,max_tiefe_m:14.9,lat:24.41,lon:124.08}]}]},
+  segmente:[{ab:day(-2)+'T09:19',an:day(-2)+'T11:21',ort:'Ishigaki',land:'Japan',gebiet:'Westküste vor Sakieda',taucher:['Anna','Ben','Cleo','Dan'],tauchgaenge:2,modus:'Gerät',tg:[{nr:1,start:'09:19',dauer_min:44,max_tiefe_m:16.7,temp_c:28.2,lat:24.42,lon:124.08},{nr:2,start:'10:28',dauer_min:53,max_tiefe_m:14.9,lat:24.41,lon:124.08}]}]},
   {id:8,reise_id:1,art:'tauchen',status:'gebucht',titel:'Tauchen 2',anbieter:'Euro Divers',preis_original:94600,waehrung:'JPY',preis_gesamt_eur:null,preis_ca:true,kurs:{offen:true},
-  segmente:[{ab:day(1)+'T09:30',an:day(1)+'T12:00',ort:'Ishigaki',land:'Japan',taucher:['Sebastian','Kerstin'],tauchgaenge:2,tg:[]}]}];
+  segmente:[{ab:day(1)+'T09:30',an:day(1)+'T12:00',ort:'Ishigaki',land:'Japan',taucher:['Anna','Ben'],tauchgaenge:2,tg:[]}]}];
  const {page}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:{fotos:[]},{width:390,height:844});
  await page.goto(origin+'/#/reisen/1');await page.locator('.rp-sec').first().waitFor();
  await rpOpenAll(page);
  const row=page.locator('[data-posten="7"]');
  assert.match(await row.locator('.rp-seg-main').textContent(),/2 Tauchgänge · bis 16,7 m · alle 4/);
  assert.match(await row.locator('.rp-seg-sub').textContent(),/Westküste vor Sakieda · Aqua-no-jikan/);
- assert.match(await page.locator('[data-posten="8"] .rp-seg-main').textContent(),/Sebastian, Kerstin/);
+ assert.match(await page.locator('[data-posten="8"] .rp-seg-main').textContent(),/Anna, Ben/);
  assert.match(await page.locator('[data-posten="8"] .rp-seg-price').textContent(),/Kurs folgt/);
  assert.match(await page.locator('.rp-tiles').textContent(),/Tauchen & Erlebnisse\s*481/);
  assert.match(await page.locator('.rp-total-hint').textContent(),/Wechselkurs wird abgerufen/);
  await row.locator('summary').click();
- assert.match(await row.locator('.rp-facts').textContent(),/Sebastian, Kerstin, Leo, Rosa/);
+ assert.match(await row.locator('.rp-facts').textContent(),/Anna, Ben, Cleo, Dan/);
  assert.equal(await row.locator('.rp-dive-list li').count(),2);
  assert.match(await row.locator('.rp-dive-list a').first().getAttribute('href'),/maps\?q=24\.42,124\.08/);
  assert.equal(await page.locator('[data-kind="tauchen"]:visible').count(),2);

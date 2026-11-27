@@ -25,7 +25,7 @@ Grundlage: AUFTRAEGE `lernen-app` 456c6ec2, „Rückläufer ChatGPT 947–950“
 
 ## 2026-11-22 17:30 – FERTIG: Reise-Aufbau 3
 
-Grundlage: AUFTRAEGE `lernen-app` 723770dd, „Entscheidungen Sebastian (17:05)“, Abschnitt „An reise-aufbau – Reise-Aufbau 3“. Nur Vorschlag – kein App-Code, keine DB-Änderung (DB nur gelesen). Dateien in `inhalte/reise/`.
+Grundlage: AUFTRAEGE `lernen-app` 723770dd, „Entscheidungen des Nutzers (17:05)“, Abschnitt „An reise-aufbau – Reise-Aufbau 3“. Nur Vorschlag – kein App-Code, keine DB-Änderung (DB nur gelesen). Dateien in `inhalte/reise/`.
 
 **Ergebnis (Prüfskript grün, Exit 0):**
 - 95 Flüge (87 + 8 neue Teile); 95 Länder/Landesteile, jedes einmal.
@@ -52,7 +52,7 @@ Grundlage: AUFTRAEGE `lernen-app` 723770dd, „Entscheidungen Sebastian (17:05)�
 
 ## 2026-11-22 16:55 – FERTIG: Reise-Aufbau 2
 
-Grundlage: AUFTRAEGE `lernen-app` ea507c4 („Vorschlag fortschreiben“ 15:25, „Entscheidung Teilung“ 16:20), Berichtigung Sebastian: **7 neue Flüge (13 Teile), nicht 9**. Nur Vorschlag – kein App-Code, keine DB-Änderung (DB nur lesend). Dateien in `inhalte/reise/`; Bericht `aufbau-vorschlag.md`, Daten `aufbau-vorschlag.json`.
+Grundlage: AUFTRAEGE `lernen-app` ea507c4 („Vorschlag fortschreiben“ 15:25, „Entscheidung Teilung“ 16:20), Berichtigung der Nutzer: **7 neue Flüge (13 Teile), nicht 9**. Nur Vorschlag – kein App-Code, keine DB-Änderung (DB nur lesend). Dateien in `inhalte/reise/`; Bericht `aufbau-vorschlag.md`, Daten `aufbau-vorschlag.json`.
 
 **Ergebnis (Prüfskript grün, Exit 0):** 94 Flüge (87 + 7 Teile), 94 Länder/Landesteile je einmal, 612 Städte je einmal (606 + 6 neue LK-D-Etappen), Städte = Etappen bei allen Flügen, 612/612 Städte in GeoNames im richtigen Land/Landesteil, 9/9 begonnene Orte erhalten, 21 Stationen.
 
@@ -72,7 +72,7 @@ Grundlage: AUFTRAEGE `lernen-app` ea507c4 („Vorschlag fortschreiben“ 15:25, 
 - **Reserve:** Europa 5, Nordamerika 3, Asien 3, Orient 4, Afrika 3, Südamerika 4 (3 brasilianische Großregionen + Suriname), Ozeanien **nur 2**, Pazifik 3 (Palau nur 3 Orte); dazu 18 frei gewordene Städte.
 - **Erweiterbar:** Teilung wird aus `lk_teilung_2211.json` gelesen; ein dort neu geteiltes Thema ohne Eintrag ist ein Skript-Fehler mit vorgemerktem Nachbarn (2 → Tadschikistan, 101 → Brasilien – Mittelwesten/Nordosten). Gegen `lk_teilung_2211.json` von ea507c4 abgeglichen: 13 Teile, passt.
 
-**Offen / Entscheidung Sebastian bzw. Haupt-Chat:**
+**Offen / Entscheidung des Nutzers bzw. Haupt-Chat:**
 1. 46 Teil 3 Mauretanien grenzt an Marokko nur über Westsahara (an Algerien direkt). Alternative Mali (Reisewarnung).
 2. 61 Teil 2 Neukaledonien (am Morgen gemieden). Alternative Salomonen (kein Nachbar).
 3. Falls 57 geteilt wird: South Australia hat keinen freien Nachbarn – ACT oder Kangaroo Island als Landesteil.

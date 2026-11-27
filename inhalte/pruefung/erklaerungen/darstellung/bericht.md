@@ -171,7 +171,7 @@ Heutiger Zustand: `<thema>-handy-erklaeren-ganz.png` (ganze Seite, halbe Auflös
 - **Grobe Zählungen:** Die Zahlen zu Satzlänge und „Einstieg ≠ Beispiel“ sind grobe automatische Zählungen; die Einzelfälle sind genannt, die Gesamtzahlen sind Richtwerte.
 - **Messwerte:** Gemessen mit lokalem Chrome unter Linux; die Schrift der App kann auf Apple-Geräten etwas schmaler laufen. Die Seitenhöhen ändern sich dadurch nur wenig (Annahme).
 
-## 6. Auswahl Sebastian (2026-11-16)
+## 6. Auswahl des Nutzers (2026-11-16)
 
 Gewählt auf der Vergleichsseite (Heute / Vorschlag A / B). **Wo die Auswahl von Abschnitt 2 abweicht, gilt die Auswahl.**
 

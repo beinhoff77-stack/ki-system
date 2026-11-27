@@ -31,7 +31,7 @@ Klasse 6 Lambacher Schweizer 6 (M6 1.1–1.3, 2), lehrplanplus Lernbereiche M6 2
 
 **Zusammenfassung der Runde:** Teil 1 neuer Flug geometrie.winkelsaetze (224 Aufgaben), Teil 2 Vertiefungen in 3 Themen, Teil 3 themenliste.json. Je Teil ein Commit auf daten-klassen-2.
 `tools/inhalt_pruefen.py` meldet OK für geometrie.winkelsaetze, geometrie.winkel, abbildungen.kongruenz, raum.schraegbilder. Keine Datenbank, kein App-Code, kein Merge.
-Für Sebastian zu entscheiden: (1) Überschneidung geometrie.konstruktion (Karten parallelen/winkelsumme/vierecke) mit dem neuen Flug; (2) Annahmen (*) oben bestätigen;
+Für den Nutzer zu entscheiden: (1) Überschneidung geometrie.konstruktion (Karten parallelen/winkelsumme/vierecke) mit dem neuen Flug; (2) Annahmen (*) oben bestätigen;
 (3) README um einen Abschnitt „Vertiefung“ ergänzen (Auftrag verweist darauf, er fehlt).
 
 ## 2026-11-16 06:55 – STATUS Teil 2
@@ -48,4 +48,4 @@ Neuer Flug `geometrie.winkelsaetze` (thema_id 98, block 80 Addis Abeba, gym_by 7
 8 Lernkarten im neuen Muster (einstieg, woerter, Schritte mit Zeichnungen, fehler/fehler_bild, regel), je 18 Übungen (4/6/8), 1 Test, 3 Korrektur, 6 Sicherung = 224 Aufgaben.
 Je Lernkarte 2 Stufe-3-Aufgaben nach Prüfungsvorbild und 1 Knobelaufgabe. Prüfskript OK ohne Hinweise. Eintrag in themenliste.json vor geometrie.konstruktion.
 Lernkarten: Scheitel-/Nebenwinkel · Stufen-/Wechselwinkel · Parallelität prüfen · Innenwinkelsumme begründen · Außenwinkel · Winkelsumme im Vieleck · Winkel in Figuren · Begründen mit Winkelsätzen.
-Offen (Entscheidung Sebastian): geometrie.konstruktion am selben Ort hat schon die Karten „parallelen“, „winkelsumme“, „vierecke“ – Überschneidung. Vorschlag: dort später auf Konstruktion/Kongruenz kürzen oder als Wiederholung lassen.
+Offen (Entscheidung des Nutzers): geometrie.konstruktion am selben Ort hat schon die Karten „parallelen“, „winkelsumme“, „vierecke“ – Überschneidung. Vorschlag: dort später auf Konstruktion/Kongruenz kürzen oder als Wiederholung lassen.

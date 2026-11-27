@@ -29,7 +29,7 @@ Neueste Meldung oben.
 - Ohne fehler_bild bleiben Karten, deren Fehler ein Rechen-, Vorzeichen- oder Deutungsfehler ist, den ein Bild nicht zeigt (Einzelheiten in den STATUS-Meldungen).
 - Situationen je Thema: Teppich/Würfel, Beete, Bakterien, Fliesen/Gemüsebeet, Zahlenautomat, Kiosk/Bonbons, Skaterbahn/Springbrunnen, Rechenmaschine, Schattenspiel/Foto, Beet/Leiter/Schachtel, Rampe, Uhrzeiger/Wanderung, Riesenrad, Schulfest. Alle Zahlen nachgerechnet.
 - Annahmen: Sätze ≤ 15 Wörter, weil das Prüfskript den kleinsten Wert aus `klasse` nimmt – hier die IB-MYP-Stufe 3 oder 4, nicht Klasse 9. Vermutlich unbeabsichtigt (App-Wunsch: gym_by maßgeblich machen); kürzere Sätze schaden aber nicht. Beispiele der Karten teils angepasst, damit Bild und Beispiel zusammenpassen (z. B. ∛8 statt ∛64, Einheitskreis-Schritte); die Aufgaben sind davon nicht berührt.
-- Hinweis: Laut AUFTRAEGE.md sollte U9 erst nach dem Test mit den Kindern starten; Sebastian hat das Paket direkt beauftragt.
+- Hinweis: Laut AUFTRAEGE.md sollte U9 erst nach dem Test mit den Kindern starten; der Nutzer hat das Paket direkt beauftragt.
 - Offene Fragen: keine. Kein Merge.
 
 ## 2026-11-16 03:14 – STATUS
@@ -89,5 +89,5 @@ zahlen.wurzeln_basis umgebaut (6 Karten): einstieg, woerter (≤ 3), Kartenbild,
 Aufgaben-Vergleich gegen `git show origin/lernen-app:inhalte/themen/zahlen.wurzeln_basis.json`: 168 Aufgaben, alle wörtlich gleich. inhalt_pruefen: 0 Fehler, 0 Hinweise. Ohne fehler_bild: wurzel_deuten, wurzel_sache (Rechenfehler, im Bild nicht sinnvoll zu zeigen).
 
 ## 2026-11-16 02:50 – STATUS
-Start Paket U9 auf Auftrag von Sebastian (16.11.). Hinweis: Laut AUFTRAEGE.md sollte U9 erst nach dem Test mit den Kindern starten; Sebastian hat das Paket direkt beauftragt, ich werte das als Freigabe.
+Start Paket U9 auf Auftrag vom Nutzer (16.11.). Hinweis: Laut AUFTRAEGE.md sollte U9 erst nach dem Test mit den Kindern starten; der Nutzer hat das Paket direkt beauftragt, ich werte das als Freigabe.
 Technik: `_kl9.py` hat jetzt `umbau(ETAPPEN, UMBAU)`. Es läuft nach `klar()` und legt die neuen Erklärfelder über die Karten. Für den Dopplungsabgleich bleiben die alten Beispielschritte (ALT_SCHRITTE) maßgeblich, darum bleiben alle Aufgaben wörtlich gleich. Die alte `probe` fällt weg.

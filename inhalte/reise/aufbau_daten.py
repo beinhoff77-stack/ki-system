@@ -163,7 +163,7 @@ NACHBARSCHAFT = {
  "44-2": "Ruanda ↔ Burundi: gemeinsame Landgrenze",
  "46-2": "Marokko ↔ Algerien: gemeinsame Landgrenze",
  "46-3": "Marokko ↔ Mauretanien: nur über das umstrittene Westsahara-Gebiet; Nachbar von Teil 2 (Algerien) mit Landgrenze",
- "61-2": "Insel-Ausnahme (kein Nachbarland): Neuseeland – Nordinsel → Salomonen über das Meer; Entscheidung Sebastian 22.11. 17:05 – keine strittigen Gebiete, Neuseelands Nachbarn sonst belegt",
+ "61-2": "Insel-Ausnahme (kein Nachbarland): Neuseeland – Nordinsel → Salomonen über das Meer; Entscheidung des Nutzers 22.11. 17:05 – keine strittigen Gebiete, Neuseelands Nachbarn sonst belegt",
  "101-2": "Brasilien – Südosten ↔ Brasilien – Mittelwesten: gemeinsame Grenze (Minas Gerais ↔ Goiás/Distrito Federal)",
  "91-2": "Paraguay ↔ Brasilien – Süden: gemeinsame Landgrenze (Ciudad del Este ↔ Foz do Iguaçu)",
 }

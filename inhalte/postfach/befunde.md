@@ -206,21 +206,21 @@ Klasse 6:
 - bruch.rechnen: gemischt S3 „3/2 · 2/5 − 1/4 · 5/2 …“ mit negativem Ergebnis – Laut Befund in Ordnung (Vorzeichen-Karte kommt vorher).
 
 Klasse 9:
-- gleichungen.potenz: sachaufgabe S2 Zinseszins („Guthaben wächst in 2 Jahren …“) – Aufgaben richtig; mathematisch nur (1 + p)² = q, also eine Potenzgleichung. Ob der Sachkontext in Kl. 9 passt, ist eine Plan-Frage (siehe „für Sebastian“).
-- gleichungen.lgs3: loesen S3 „Wie viele Lösungen hat das System …?“ (unendlich viele) – Lösungen richtig; als Vertiefung vertretbar. Die Lernkarte bleibt unverändert (siehe „für Sebastian“).
+- gleichungen.potenz: sachaufgabe S2 Zinseszins („Guthaben wächst in 2 Jahren …“) – Aufgaben richtig; mathematisch nur (1 + p)² = q, also eine Potenzgleichung. Ob der Sachkontext in Kl. 9 passt, ist eine Plan-Frage (siehe „für den Nutzer“).
+- gleichungen.lgs3: loesen S3 „Wie viele Lösungen hat das System …?“ (unendlich viele) – Lösungen richtig; als Vertiefung vertretbar. Die Lernkarte bleibt unverändert (siehe „für den Nutzer“).
 - funktionen.quadratisch: bestimmen S3 „Parabel durch drei Punkte“ überschneidet sich mit gleichungen.lgs3/parabel – Laut Befund kein Fehler; Überschneidung betrifft den Plan.
-- trigo.allgemein: kosinussatz_seite S3 viermal „Schiff fährt … dreht um … nach links“; Lernkarte erklärt „180° − Drehwinkel“ nicht – Aufgaben richtig; der Tipp nennt den Schritt („Der Innenwinkel am Wendepunkt ist 180° minus Drehwinkel“), der Lösungsweg rechnet ihn vor. Seit Runde 10 gibt es auf Stufe 3 weitere Typen. Lernkarte siehe „für Sebastian“.
+- trigo.allgemein: kosinussatz_seite S3 viermal „Schiff fährt … dreht um … nach links“; Lernkarte erklärt „180° − Drehwinkel“ nicht – Aufgaben richtig; der Tipp nennt den Schritt („Der Innenwinkel am Wendepunkt ist 180° minus Drehwinkel“), der Lösungsweg rechnet ihn vor. Seit Runde 10 gibt es auf Stufe 3 weitere Typen. Lernkarte siehe „für den Nutzer“.
 - trigo.allgemein: sinussatz_seite S3 viermal „Zwei Beobachter … Baum auf der anderen Seite eines Sees“ – Kein Fehler; seit Runde 10 gibt es auf Stufe 3 vier andere Typen.
 - gleichungen.trig: tangens S3 Rampe/„22 % Steigung“ gehören inhaltlich zu trigo.rechtwinklig – Lösungen richtig; tan x = Wert mit spitzem Winkel ist ein Sonderfall der Gleichung. Die Zuordnung zum Thema betrifft den Plan.
 
 Klasse 10:
 - gleichungen.polynom: vielfachheit: Ablenker „Nein, die Nullstelle ist 3-fach (ungerade)“ in sich widersprüchlich – Laut Befund kein Fehler; als Ablenker zulässig (prüft, ob man „ungerade ⇒ Wechsel“ kennt).
 - gleichungen.polynom: Lückenaufgaben „x₁ = □; x₂ = □ …“ verraten die Zahl der Lösungen – Steht bereits unter „offen“; Runde 10 fragt die Anzahl teils als Zahl ab. Ein Umbau aller Lückenaufgaben wäre keine Einzelkorrektur.
-- funktionen.trig: periode, parameter, zuordnen, eigenschaften, anwendung: fast nur Gradmaß statt Bogenmaß (LehrplanPLUS M10 3, Abitur) – Kein Fehler in einzelnen Aufgaben; ein Umstellen aller alten Aufgaben auf Bogenmaß wäre ein Umbau der Karten. Runde 10 hat Bogenmaß-Aufgaben ergänzt (siehe „für Sebastian“).
+- funktionen.trig: periode, parameter, zuordnen, eigenschaften, anwendung: fast nur Gradmaß statt Bogenmaß (LehrplanPLUS M10 3, Abitur) – Kein Fehler in einzelnen Aufgaben; ein Umstellen aller alten Aufgaben auf Bogenmaß wäre ein Umbau der Karten. Runde 10 hat Bogenmaß-Aufgaben ergänzt (siehe „für den Nutzer“).
 - funktionen.ganzrational: randverhalten S1 mit Polynom 7. Grades und 8 Gliedern – Laut Befund inhaltlich richtig; nur das höchste Glied zählt, das ist der Lerninhalt der Karte.
 - stochastik.mehrstufig: simulation S2 „Simulation 500-mal … relative Häufigkeit“ (reines Ablesen) – Lösungen richtig; die eigentliche Simulation (Zufallszahlen zuordnen) wurde in Runde 10 ergänzt.
 
-### Liste „für Sebastian“
+### Liste „für den Nutzer“
 
 Klasse 8:
 - funktionen.grundbegriffe: Der Eintrag in „offen“ („Kreis kann die App nicht zeichnen“) ist veraltet – die App zeichnet Kreise (koordinaten.kreise). Nur der Haupt-Chat ändert „offen“.
@@ -276,8 +276,8 @@ funktionen.ganzrational fertig: umgestuft 2 / berichtigt 6 / ersetzt 0 / neu 0 /
 ## 2026-11-16 05:53 – STATUS
 funktionen.trig fertig: umgestuft 4 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - nicht umgesetzt:
-  - periode, parameter, zuordnen, eigenschaften, anwendung: fast nur Gradmaß statt Bogenmaß (LehrplanPLUS M10 3, Abitur) – Kein Fehler in einzelnen Aufgaben; ein Umstellen aller alten Aufgaben auf Bogenmaß wäre ein Umbau der Karten. Runde 10 hat Bogenmaß-Aufgaben ergänzt (siehe „für Sebastian“).
-- für Sebastian:
+  - periode, parameter, zuordnen, eigenschaften, anwendung: fast nur Gradmaß statt Bogenmaß (LehrplanPLUS M10 3, Abitur) – Kein Fehler in einzelnen Aufgaben; ein Umstellen aller alten Aufgaben auf Bogenmaß wäre ein Umbau der Karten. Runde 10 hat Bogenmaß-Aufgaben ergänzt (siehe „für den Nutzer“).
+- für den Nutzer:
   - funktionen.trig: Die alten Aufgaben arbeiten fast nur im Gradmaß; LehrplanPLUS M10 3 und Abitur nutzen das Bogenmaß. Die Begründung unter „offen“ (keine π-Beschriftung) ist seit 15.11. überholt. Karten/alte Aufgaben auf Bogenmaß umstellen?
 
 ## 2026-11-16 05:53 – STATUS
@@ -314,9 +314,9 @@ gleichungen.trig fertig: umgestuft 9 / berichtigt 0 / ersetzt 1 / neu 0 / nicht 
 ## 2026-11-16 05:51 – STATUS
 trigo.allgemein fertig: umgestuft 5 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 2. Prüfskript OK, Nachweis OK.
 - nicht umgesetzt:
-  - kosinussatz_seite S3 viermal „Schiff fährt … dreht um … nach links“; Lernkarte erklärt „180° − Drehwinkel“ nicht – Aufgaben richtig; der Tipp nennt den Schritt („Der Innenwinkel am Wendepunkt ist 180° minus Drehwinkel“), der Lösungsweg rechnet ihn vor. Seit Runde 10 gibt es auf Stufe 3 weitere Typen. Lernkarte siehe „für Sebastian“.
+  - kosinussatz_seite S3 viermal „Schiff fährt … dreht um … nach links“; Lernkarte erklärt „180° − Drehwinkel“ nicht – Aufgaben richtig; der Tipp nennt den Schritt („Der Innenwinkel am Wendepunkt ist 180° minus Drehwinkel“), der Lösungsweg rechnet ihn vor. Seit Runde 10 gibt es auf Stufe 3 weitere Typen. Lernkarte siehe „für den Nutzer“.
   - sinussatz_seite S3 viermal „Zwei Beobachter … Baum auf der anderen Seite eines Sees“ – Kein Fehler; seit Runde 10 gibt es auf Stufe 3 vier andere Typen.
-- für Sebastian:
+- für den Nutzer:
   - trigo.allgemein/kosinussatz_seite: Lernkarte erklärt nicht, dass der Dreieckswinkel 180° minus Drehwinkel ist (Schiff-Aufgaben). Ergänzen? Karten-Text nicht geändert.
 
 ## 2026-11-16 05:50 – STATUS
@@ -347,15 +347,15 @@ gleichungen.lgs3 fertig: umgestuft 6 / berichtigt 0 / ersetzt 1 / neu 0 / nicht 
 - ersetzt (alte Fragetexte, bitte sperren):
   - „Gegeben: (I) −x − 2y − z = −10; (III) −2x − 4y − z = −20. Berechne (III) − 2 · (I).“
 - nicht umgesetzt:
-  - loesen S3 „Wie viele Lösungen hat das System …?“ (unendlich viele) – Lösungen richtig; als Vertiefung vertretbar. Die Lernkarte bleibt unverändert (siehe „für Sebastian“).
-- für Sebastian:
+  - loesen S3 „Wie viele Lösungen hat das System …?“ (unendlich viele) – Lösungen richtig; als Vertiefung vertretbar. Die Lernkarte bleibt unverändert (siehe „für den Nutzer“).
+- für den Nutzer:
   - gleichungen.lgs3/loesen: Stufe-3-Aufgaben „Wie viele Lösungen hat das System …?“ (keine/unendlich viele) gehen über den LehrplanPLUS-Text hinaus und werden auf der Lernkarte nicht erklärt – Erklärung ergänzen oder als Vertiefung kennzeichnen?
 
 ## 2026-11-16 05:49 – STATUS
 gleichungen.potenz fertig: umgestuft 3 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - nicht umgesetzt:
-  - sachaufgabe S2 Zinseszins („Guthaben wächst in 2 Jahren …“) – Aufgaben richtig; mathematisch nur (1 + p)² = q, also eine Potenzgleichung. Ob der Sachkontext in Kl. 9 passt, ist eine Plan-Frage (siehe „für Sebastian“).
-- für Sebastian:
+  - sachaufgabe S2 Zinseszins („Guthaben wächst in 2 Jahren …“) – Aufgaben richtig; mathematisch nur (1 + p)² = q, also eine Potenzgleichung. Ob der Sachkontext in Kl. 9 passt, ist eine Plan-Frage (siehe „für den Nutzer“).
+- für den Nutzer:
   - gleichungen.potenz/sachaufgabe: Zinseszins-Aufgaben (Stufe 2, alle Pools) – Zinseszins ist laut Themenliste Zusatzstoff Kl. 10 (finanzen.zinseszins). In Kl. 9 belassen?
 
 ## 2026-11-16 05:48 – STATUS
@@ -381,7 +381,7 @@ daten.kennwerte fertig: umgestuft 4 / berichtigt 0 / ersetzt 4 / neu 0 / nicht u
   - „Die Tabelle zeigt die Umfrage „Wie viele Geschwister hast du?“. Wie viele Geschwister hat ein Kind im Mittel?“
   - „Stimmt die Aussage? „Taschengeld (€): 9, 8, 8, 9, 77. Der Median beschreibt ein typisches Kind besser als der Mittelwert.““
   - „Stimmt die Aussage? „Taschengeld (€): 7, 4, 11, 12, 82. Der Median beschreibt ein typisches Kind besser als der Mittelwert.““
-- für Sebastian:
+- für den Nutzer:
   - daten.kennwerte: laut themenliste lehrplan_gym ist für Kl. 6 nur „Arithmetisches Mittel bestimmen“ vorgesehen; die Karten modal_spannweite und median gehen darüber hinaus (BMT8-Stoff bis Kl. 7). Als Vertiefung führen? Karten nicht geändert.
 
 ## 2026-11-16 05:46 – STATUS
@@ -448,7 +448,7 @@ geometrie.kreis fertig: umgestuft 3 / berichtigt 0 / ersetzt 0 / neu 0 / nicht u
 geometrie.konstruktion fertig: umgestuft 6 / berichtigt 0 / ersetzt 0 / neu 0 / nicht umgesetzt 1. Prüfskript OK, Nachweis OK.
 - nicht umgesetzt:
   - kongruenzsatz S3 SsW-Fälle „Wie viele Dreiecke gibt es?“: Hinweis „Zeichne es auf Papier“ ergänzen – Der Tipp sagt schon „Zeichne c und α. Schlage um B einen Kreis mit Radius a …“; Lösungen richtig. Ein Hinweis im Fragetext wäre eine Änderung der Frage.
-- für Sebastian:
+- für den Nutzer:
   - geometrie.konstruktion/kongruenzsatz: SsW-Fälle (Stufe 3) sind ohne Zeichnung kaum zu entscheiden (Rechnung bräuchte den Sinus) – als Vertiefung kennzeichnen? Karten-Text nicht geändert.
 
 ## 2026-11-16 05:42 – STATUS
@@ -513,7 +513,7 @@ geometrie.ortslinien fertig: umgestuft 0 / berichtigt 0 / ersetzt 8 / neu 0 / ni
   - „Kreis um A mit r = 4 cm, Kreis um B mit r = 8 cm, [AB] = 4 cm. Wie viele Schnittpunkte haben die Kreise?“
   - „Ein großer Kreis um A hat r = 8 cm, ein kleiner Kreis um B hat r = 3 cm. B liegt im großen Kreis, [AB] = 5 cm. Wie viele gemeinsame Punkte haben die Kreise?“
   - „Jemand sagt: „Kreise mit r = 3 cm und r = 5 cm, deren Mittelpunkte 1 cm auseinander liegen, schneiden sich, weil 1 cm < 3 cm + 5 cm.“ Stimmt das?“
-- für Sebastian:
+- für den Nutzer:
   - geometrie.ortslinien/zwei_kreise: Die Lernkarte erklärt nur sich schneidende/berührende Kreise; „Kreis im Kreis“ (r₁ − r₂) ist aus den älteren Übungen genommen; die Aufgabe „Welcher Abstand [AB] ist möglich?“ (Runde 10) nutzt die Grenze r₁ − r₂ noch (im Lösungsweg erklärt). Soll die Lernkarte das ergänzen? Außerdem: lehrplan_gym leer, Ortslinien stehen im LehrplanPLUS Gym erst in Jgst. 7 (laut D2 inzwischen Kairo/Kl. 7). Karten-Text nicht geändert.
 
 ## 2026-11-16 05:37 – STATUS
@@ -528,7 +528,7 @@ geometrie.grundbegriffe fertig: umgestuft 2 / berichtigt 0 / ersetzt 2 / neu 0 /
 - ersetzt (alte Fragetexte, bitte sperren):
   - „g geht durch A(−6 | −3) und B(−6 | 0), h geht durch C(4 | −3) und D(8 | −3). Wie liegen g und h zueinander?“
   - „Zwei Kreise haben die Radien 7 cm und 4 cm. Ihre Mittelpunkte sind 3 cm voneinander entfernt. Wie viele gemeinsame Punkte haben sie?“
-- für Sebastian:
+- für den Nutzer:
   - geometrie.grundbegriffe/kreis_lage: Die Lernkarte erklärt nur Kreis und Gerade; die übrigen Stufe-3-Aufgaben zu zwei Kreisen (von außen berühren, getrennt) setzen r₁ + r₂ voraus. Erklärung ergänzen oder Aufgaben belassen? Karten-Text nicht geändert.
 
 ## 2026-11-16 05:36 – STATUS
@@ -560,7 +560,7 @@ groessen.indirekt fertig: umgestuft 0 / berichtigt 0 / ersetzt 1 / neu 0 / nicht
   - unterscheiden S1/S2 „Welche Art von Zuordnung zeigt die Tabelle?“ (11×) – Kein Fehler; Stufe 2 hat den zusätzlichen Ablenker „nicht zu entscheiden“ und andere Tabellen.
   - sach S2 „Taxi … Was kosten 6 km?“ (weder noch) – Laut Befund gut als Abgrenzung; Lösung richtig.
   - Überschneidung mit funktionen.gebrochen/„indirekt“ – Reihenfolge im Plan (Haupt-Chat), keine einzelne Aufgabe.
-- für Sebastian:
+- für den Nutzer:
   - groessen.indirekt: lehrplan_gym leer und Überschneidung mit funktionen.gebrochen/„indirekt“ – Reihenfolge im Plan klären. Karten-Texte nicht geändert.
 
 ## 2026-11-16 05:34 – STATUS
@@ -569,7 +569,7 @@ stochastik.simulation fertig: umgestuft 4 / berichtigt 1 / ersetzt 1 / neu 0 / n
   - „Ein Bauteil ist fehlerhaft mit p = 5/6. Simuliert wird mit einer Urne mit 7 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?“
 - nicht umgesetzt:
   - auswerten S3 „Gruppe A 100 / B 50 Durchgänge – wessen Schätzwert …“ (3×) – Kein Fehler; Übungsreihe zum selben Gedanken mit verschiedenen Zahlen.
-- für Sebastian:
+- für den Nutzer:
   - stochastik.simulation: lehrplan_gym leer; Simulation steht im LehrplanPLUS Gym Kl. 8 nicht als eigener Inhalt – als Vertiefung zu Laplace/relative Häufigkeit führen? Karten-Texte nicht geändert.
 
 ## 2026-11-16 05:33 – STATUS
@@ -587,7 +587,7 @@ raum.schraegbilder fertig: umgestuft 6 / berichtigt 0 / ersetzt 0 / neu 1 / nich
 - nicht umgesetzt:
   - koordinaten S2 „Gib die z-Koordinate von C an“ (3× gleicher Typ) – Laut Befund in Ordnung; Lösungen richtig.
   - Karte „laengen“ ≈ messen.koerper_darstellung/„schraegbild“ – Doppelung im Plan (Haupt-Chat), keine einzelne fehlerhafte Aufgabe.
-- für Sebastian:
+- für den Nutzer:
   - raum.schraegbilder: lehrplan_gym leer; Raumkoordinaten und windschiefe Geraden stehen im LehrplanPLUS Gymnasium nicht in Jgst. 8 – Thema im Plan als Vertiefung markieren? Karten-Texte nicht geändert.
 
 ## 2026-11-16 05:32 – STATUS
@@ -620,7 +620,7 @@ zahlen.intervalle fertig: umgestuft 3 / berichtigt 0 / ersetzt 1 / neu 0 / nicht
   - „Ein Aquarium braucht Wasser von mindestens 24 °C bis höchstens 28 °C. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?“
 - nicht umgesetzt:
   - enthalten S1 „Welche Zahl liegt im Intervall [1; 7]?“ hat nur 3 Antworten – Zulässig und richtig; kein Fehler.
-- für Sebastian:
+- für den Nutzer:
   - zahlen.intervalle: lehrplan_gym der Karten ist leer – das Thema hat keine eigene LehrplanPLUS-Zeile (Inhalt gehört zu Ungleichungen, Kl. 8). Karten-Text nicht geändert.
 
 ## 2026-11-16 05:30 – STATUS
@@ -666,5 +666,5 @@ funktionen.grundbegriffe fertig: umgestuft 3 / berichtigt 0 / ersetzt 3 / neu 0 
   - „Für welches x gilt f(x) = −4, wenn f(x) = −1(x + 4)?“
 - nicht umgesetzt:
   - punkt_graph S2 „Lies am Graphen ab: f(4) = ?“ (gehört eher zu graph_lesen) – Bei erneuter Prüfung passend: Den Punkt (4 | f(4)) am Graphen ablesen gehört zu „Liegt der Punkt auf dem Graphen?“. Lösung richtig, kein Mangel.
-- für Sebastian:
+- für den Nutzer:
   - funktionen.grundbegriffe: Der Eintrag in „offen“ („Kreis kann die App nicht zeichnen“) ist veraltet – die App zeichnet Kreise (koordinaten.kreise). Nur der Haupt-Chat ändert „offen“.

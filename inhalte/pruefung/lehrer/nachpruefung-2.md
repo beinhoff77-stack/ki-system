@@ -33,7 +33,7 @@ Ich habe nur gelesen: kein App-Code, keine Datenbank, kein Merge.
 | Sollte 2: Wunsch in „Zu tun“ | **erfüllt** | Blauer Eintrag „Kind A möchte ‚Eis‘ einlösen (300 Sterne)“ mit „Bestätigen“ und „Ablehnen“. Kein Kasten „Wartet auf dich“ mehr. Die Tabelle endet auf 1280 × 800 bei 747 px (vorher 1057), also ohne Rollen. Lehrer sehen den Wunsch nicht (richtig). | `eltern-1-start-1280`, `eltern-1-start-820` |
 | Sollte 3: Lehrplan auf dem Handy | **erfüllt** | Liste je Flug (fertig, Ort und andere Schularten, je Kind „geschafft/offen“). Kein Querrollen, nichts abgeschnitten. Ab 820 px Tabelle ohne Querrollen. | `*-4-lehrplan-400` |
 | Sollte 4: Reisewörter erklärt | **erfüllt** | Zu tun: „Rückreise Pisa (Wiederholung nach nicht bestandenem Nachtest)“. Überblick: „Bordkarten (Aufgabe)“, „Flug (Thema)“, „Etappe (Lernschritt)“. Was wackelt: Spaltenkopf „Etappe (Lernschritt)“. | `*-3-ueberblick-B-*` |
-| Sollte 5: Stand-Zellen ohne Ampel | **offen (Entscheidung)** | Bau: „entschieden, nicht gebaut“. Sebastians Bestätigung kenne ich nicht. | – |
+| Sollte 5: Stand-Zellen ohne Ampel | **offen (Entscheidung)** | Bau: „entschieden, nicht gebaut“. Bestätigung des Nutzers kenne ich nicht. | – |
 | Kann 1: Überblick Kind B | **erfüllt** | „Keine Etappe (Lernschritt) wackelt · Rückreise Pisa offen“ mit Erklärung darunter. | `*-3-ueberblick-B-*` |
 | Kann 2: „noch kein Inhalt“ | nicht selbst gesehen | Nur durch den App-Test I-7 belegt. | – |
 | Kann 3: Tablet-Tabelle | **erfüllt** | Die ⚙-Zelle sitzt auf der Zeilenlinie, Knöpfe untereinander. IB-Text „– (ab Kl. 6)“; darunter steht noch ein zweites „–“ für die Prozent (Kann). | `*-1-start-820` |
@@ -105,7 +105,7 @@ Ich habe nur gelesen: kein App-Code, keine Datenbank, kein Merge.
 
 | Abweichung | Bewertung |
 |---|---|
-| Stand-Zellen ohne Ampelfarbe | Annehmbar fachlich, braucht aber **Sebastians Bestätigung**. Sie war Sollte 5. |
+| Stand-Zellen ohne Ampelfarbe | Annehmbar fachlich, braucht aber **Bestätigung des Nutzers**. Sie war Sollte 5. |
 | Orange 9 als Rand 2,98 : 1 (knapp unter 3 : 1) | Annehmbar: Die Klasse steht zusätzlich im Kästchen (≥ 4,5 : 1). |
 | Eltern-/Lehrer-Bereich nur hell, keine dunkle Variante | Annehmbar. |
 | Tablet links: eine Zeile je Ort mit „…“ | Annehmbar, wegen der Regel aus E-2 (12 Orte, je Zeile höchstens 72 px). Aufgeklappt steht der volle Text. Der Tooltip hilft auf dem iPad nicht (Kann). |
@@ -125,7 +125,7 @@ Ich habe nur gelesen: kein App-Code, keine Datenbank, kein Merge.
 ### Sollte
 1. Umschalter „Nach Themengebiet“ auf dem Tablet ohne Trennung im Wort, zum Beispiel kürzer („Themengebiet“ | „Klasse“) oder mit `hyphens: manual`.
 2. Plan links auf dem Handy: lange Überschriften nicht mitten im Wort trennen. Mögliche Wege: kleinere Schrift, die Pfeile ↑ ↓ unter den Text, oder Kürzen mit „…“ wie auf dem Tablet.
-3. Die Ampel in den Stand-Zellen von Sebastian bestätigen lassen.
+3. Die Ampel in den Stand-Zellen vom Nutzer bestätigen lassen.
 
 ### Kann
 1. Den hellen Verlauf auch links im Plan zeigen, wie rechts und im Entwurf.

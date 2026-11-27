@@ -368,7 +368,7 @@ Entwurf, nicht eingespielt. Die Namen sind Vorschläge; die Grundsätze sind fes
 **Grundsätze**
 1. Der Lehrplan beschreibt, *wann* etwas dran ist: Gruppe × Klasse × Lernbereich × Punkt. Das Thema beschreibt, *was* gelernt wird (Etappen). Die Zuordnung verbindet beides.
 2. Der Lernstand hängt nur an Thema und Etappe, nie an Gruppe, Klasse oder Lehrplanpunkt. Kommt ein Thema in 8 und 9 vor, gibt es **einen** Lernstand und **einen** Satz Sterne.
-3. Die Klasse eines Themas wird für das Kind aus seiner Gruppe abgeleitet. `klasse_fest` bleibt nur als Ausnahme (Sebastians harte Entscheidungen, z. B. 102 ← 30).
+3. Die Klasse eines Themas wird für das Kind aus seiner Gruppe abgeleitet. `klasse_fest` bleibt nur als Ausnahme (harte Entscheidungen des Nutzers, z. B. 102 ← 30).
 
 **Struktur (ist schon fast da)**
 
@@ -423,7 +423,7 @@ group by lb.id;
 
 ## 7 Korrektur-SQL `rs_korrektur_2211.sql` (Maßstab Gruppe I)
 
-Grundlage ist die Entscheidung von Sebastian vom 22.11., 13:45 (AUFTRAEGE, `lernen-app` 01caab63): Gruppe I ist der Maßstab der App.
+Grundlage ist die Entscheidung vom Nutzer vom 22.11., 13:45 (AUFTRAEGE, `lernen-app` 01caab63): Gruppe I ist der Maßstab der App.
 
 - **Umfang:** RS 5 und 6 (gelten für beide Gruppen) und 7 I, 8 I, 9 I, 10 I, also die Quellen 7, 8, 24, 12, 13 und 15.
 - **Gruppe II/III** (25, 26, 14, 16) wird nicht angefasst. Der Vorschlag je Punkt steht in der JSON (`korrektur_sql: false`).

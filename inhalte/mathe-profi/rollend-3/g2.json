@@ -154,7 +154,7 @@
      "text": "Bei welcher Aufgabe darfst du mit dem Dreisatz rechnen?"
     },
     "a": [
-     "3 kg Kartoffeln kosten 4,50 €. Was kosten 5 kg?",
+     "3 kg Kartoffeln kosten 4,50 €; jedes Kilogramm kostet gleich viel. Was kosten 5 kg?",
      "Ein Kind ist mit 6 Jahren 1,20 m groß. Wie groß ist es mit 12 Jahren?",
      "Ein Lied dauert 3 Minuten, wenn ein Kind es singt. Wie lange dauert es, wenn 4 Kinder es zusammen singen?"
     ],
@@ -162,7 +162,7 @@
      "index": 0
     },
     "h": "Prüfe: doppelte Menge, doppelter Wert?",
-    "w": "Doppelt so viele Kartoffeln kosten doppelt so viel. Größe und Liedlänge verdoppeln sich nicht."
+    "w": "Weil jedes Kilogramm gleich viel kostet, kosten doppelt so viele Kartoffeln doppelt so viel. Ohne diese Angabe (Mengenrabatt) dürfte man auch hier nicht rechnen. Größe und Liedlänge verdoppeln sich nicht."
    }
   },
   {

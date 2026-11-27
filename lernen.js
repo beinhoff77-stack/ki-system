@@ -1061,7 +1061,7 @@ async function viewLernen() {
 }
 
 // ---------- Bau-Auftrag LA (18.11.): Lehrer-Aufbau ----------
-// Rolle der Anmeldung: Lern-Seite kennt sie (schule_ich); die ganze App ist Sebastians Eltern-Zugang.
+// Rolle der Anmeldung: Lern-Seite kennt sie (schule_ich); die ganze App ist Eltern-Zugang des Nutzers.
 // „Lernen starten“ bleibt für Eltern (die Kinder kommen über den Eltern-Zugang auf ihre Abflugtafel), entfällt für Lehrer.
 const lernRolle = () => (typeof lernIch !== 'undefined' && lernIch?.rolle) || 'eltern';
 const lernTag = (t) => new Date(t).toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' });
@@ -1938,7 +1938,7 @@ const lernZpGesehen = (kid, thema) => { try { return localStorage.getItem(`lern.
 // Vorgabe inhalte/pruefung/kind/karte/umsetzung.md (§1–11) und EX-Vorgabe §7 (Antarktis). Ebenen Welt › Kontinent › Land, alles aus schule_reise_karte
 // (keine feste Zahl an Kontinenten, Ländern, Städten). Umrisse: karte/welt.json und karte/kontinent-<id>.json (Natural Earth, im Build vorgerechnet von
 // tools/karte/bauen.mjs), Flaggen karte/flaggen/<iso>.svg – erst beim Anzeigen geladen. Keine Kartenkacheln, kein Kartenserver.
-// Die alte Anzeigetafel bleibt hinter dem Schalter „Abflugtafel“ erreichbar (je Kind auf dem Gerät gemerkt), bis Sebastian die Karte freigibt.
+// Die alte Anzeigetafel bleibt hinter dem Schalter „Abflugtafel“ erreichbar (je Kind auf dem Gerät gemerkt), bis der Nutzer die Karte freigibt.
 const LERN_KARTE_BASIS = (() => { try { const s = document.currentScript?.src || [...document.scripts].map((x) => x.src).find((x) => /lernen\.js/.test(x)); return new URL('karte/', s || location.href).href; } catch { return 'karte/'; } })();
 const lernKarteDateien = new Map(); // Datei → Promise (einmal je Sitzung)
 const lernKarteMessung = {}; // Datei → { ms, bytes } (Ladezeit und Größe; Test/Meldung)
@@ -2969,8 +2969,13 @@ const LERN_BUCHST = 'A-Za-zÄÖÜäöüß';
 // Erkannt: 3/4 · 2,5/3 · x/2 · 2x/27 · 11π/6 · 1/b² · 1/√2 · (x + 1)/(x − 2) · 1/(2x) – die Klammern fallen weg, der Bruchstrich fasst zusammen.
 // Nicht erkannt (bleibt Text): km/h, m/s, ja/nein, und/oder · Daten und Ketten wie 3/4/2026, 68/95/99,7 · Hochzahlen wie x^(1/2) ·
 // f(x)/2, √(…)/2, 2(x + 1)/3 (Zähler nicht eindeutig) · 1/2x (zweideutig) · x/y-Ebene.
+// 0.93.7 (Gegenprüfung): Tausendergruppen bleiben ganz (7/1 000 → 7 über 1 000; 11 880/20 736; sonst Text) ·
+// Hochzahlen ganz am Nenner (4/x⁻², 1/2ⁿ⁻¹), ^-Schreibweise (2/3^2, 3^2/4) bleibt Text · C/D, X/L (einzelne Großbuchstaben) bleiben Text ·
+// führende Null (03/04) und Jahr/Jahr (2026/27) bleiben Text.
 const LERN_EINHEIT = new Set(['m', 'km', 'cm', 'mm', 'dm', 's', 'h', 'g', 'l']);
-const LERN_BRUCH_TERM = '(?:\\d{1,4}(?:,\\d{1,3})?)?(?:√\\d{1,4}|[a-zA-Zα-ω])?[²³⁴⁵⁶⁷⁸⁹ⁿ]?°?';
+const LERN_HOCH = '⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺ⁿ'; // hochgestellte Zeichen: gehören ganz zur Basis
+const LERN_LZ = '[ \\u00a0\\u202f]'; // Trenner von Tausendergruppen (Leerzeichen, geschützt, schmal geschützt)
+const LERN_BRUCH_TERM = `(?:\\d{1,4}(?:,\\d{1,3})?)?(?:√\\d{1,4}|[a-zA-Zα-ω])?[${LERN_HOCH}]*°?`;
 const LERN_BRUCH_LINKS = new RegExp(`(${LERN_BRUCH_TERM})$`);
 const LERN_BRUCH_RECHTS = new RegExp(`^(${LERN_BRUCH_TERM})`);
 function lernBruchTeile(text) {
@@ -2983,29 +2988,39 @@ function lernBruchTeile(text) {
     if (s[i - 1] === ')') {
       const p = s.lastIndexOf('(', i - 1); if (p < last) continue;
       z = s.slice(p + 1, i - 1); a0 = p;
-      if (!klammerOk(z) || (p > 0 && new RegExp(`[\\d${LERN_BUCHST}α-ω√^⁻¹²³⁴⁵⁶⁷⁸⁹ⁿ]`).test(s[p - 1]))) continue; // f(x)/2, √(…)/2, 2(x+1)/3
+      if (!klammerOk(z) || (p > 0 && new RegExp(`[\\d${LERN_BUCHST}α-ω√^${LERN_HOCH}]`).test(s[p - 1]))) continue; // f(x)/2, √(…)/2, 2(x+1)/3
     } else {
       const m = LERN_BRUCH_LINKS.exec(s.slice(Math.max(last, i - 14), i)); if (!m || !kern(m[1])) continue;
       z = m[1]; a0 = i - z.length;
-      if (a0 > 0 && new RegExp(`[\\d/.,:${LERN_BUCHST}α-ω√²³⁴⁵⁶⁷⁸⁹ⁿ°]`).test(s[a0 - 1])) continue; // km/h, 3/4/2026, 1.5/2
+      if (a0 > 0 && new RegExp(`[\\d/.,:^${LERN_BUCHST}α-ω√${LERN_HOCH}°]`).test(s[a0 - 1])) continue; // km/h, 3/4/2026, 1.5/2, 3^2/4
+      if (/^\d{3}(?!\d)/.test(z) && new RegExp(`\\d${LERN_LZ}$`).test(s.slice(0, a0))) { // Tausendergruppe: 1 200/x, 11 880/…
+        const g = new RegExp(`(?:^|[^\\d,.])(\\d{1,3}(?:${LERN_LZ}\\d{3})*${LERN_LZ})$`).exec(s.slice(last, a0)); if (!g) continue; // nicht eindeutig: Text
+        z = g[1] + z; a0 -= g[1].length;
+        if (a0 > 0 && new RegExp(`[\\d/.,:^${LERN_BUCHST}α-ω√${LERN_HOCH}°]`).test(s[a0 - 1])) continue;
+      }
     }
     const davor = s.slice(Math.max(0, a0 - 3), a0);
-    if (/\^\($/.test(davor) || /\^\([−-]$/.test(davor)) continue; // Hochzahl x^(1/2) bleibt, wie sie ist
+    if (/\^\($/.test(davor) || /\^\(?[−-]$/.test(davor)) continue; // Hochzahl x^(1/2), x^-1/2 bleibt, wie sie ist
     let b1; let n;
     if (s[i + 1] === '(') {
       const q = s.indexOf(')', i + 2); if (q === -1) continue;
       n = s.slice(i + 2, q); b1 = q + 1;
-      if (!klammerOk(n) || /[²³⁴⁵⁶⁷⁸⁹ⁿ^]/.test(s[b1] || '')) continue;
+      if (!klammerOk(n) || new RegExp(`[${LERN_HOCH}^]`).test(s[b1] || '')) continue;
     } else {
       const m = LERN_BRUCH_RECHTS.exec(s.slice(i + 1, i + 15)); if (!m || !kern(m[1])) continue;
       n = m[1]; b1 = i + 1 + n.length;
+      const tg = new RegExp(`^(?:${LERN_LZ}\\d{3}(?!\\d))+`).exec(s.slice(b1)); // Tausendergruppen im Nenner: 7/1 000, 1/4 096
+      if (tg) { if (!/^\d{1,3}$/.test(n)) continue; n += tg[0]; b1 += tg[0].length; }
       if (/^\d.*[a-zA-Zα-ω]/.test(n)) continue; // 1/2x ist zweideutig (½ · x oder 1 durch 2x): bleibt Text; eindeutig ist 1/(2x)
       const nach = s.slice(b1, b1 + 2);
-      if (new RegExp(`^[\\d/(√α-ω${LERN_BUCHST}]`).test(nach) || /^[.,:]\d/.test(nach) || new RegExp(`^-[${LERN_BUCHST}]`).test(nach)) continue; // 3/4/2026, 1/2x, x/y-Ebene
+      if (new RegExp(`^[\\d/(√α-ω^${LERN_HOCH}${LERN_BUCHST}]`).test(nach) || /^[.,:]\d/.test(nach) || new RegExp(`^-[${LERN_BUCHST}]`).test(nach)) continue; // 3/4/2026, 1/2x, x/y-Ebene
     }
     if (LERN_EINHEIT.has(z) && LERN_EINHEIT.has(n)) continue; // m/s, g/l
+    if (/^[A-ZÄÖÜ]$/.test(z) && /^[A-ZÄÖÜ]$/.test(n)) continue; // C/D, X/L, I/V (römische Zahlzeichen), Teil A/B: Text
+    if (/^0\d/.test(z) || /^0\d/.test(n)) continue; // führende Null: Datum 03/04
+    if (/^(?:1[89]|20)\d\d$/.test(z) && (Number(n) === Number(z) + 1 || (/^\d\d$/.test(n) && Number(n) === (Number(z) + 1) % 100))) continue; // Schuljahr 2026/27
     let vor = s.slice(last, a0);
-    if (/^\d+$/.test(z) && /^\d+$/.test(n) && Number(z) < Number(n)) vor = vor.replace(/(^|[^\d,.])(\d{1,3}) $/, '$1$2 '); // gemischte Zahl 1 1/4: nicht umbrechen
+    if (/^\d+$/.test(z) && /^\d+$/.test(n.replace(/[ \u00a0\u202f]/g, '')) && Number(z) < Number(n.replace(/[ \u00a0\u202f]/g, ''))) vor = vor.replace(/(^|[^\d,.])(\d{1,3}) $/, '$1$2 '); // gemischte Zahl 1 1/4: nicht umbrechen
     const vz = /[−-]$/.test(vor) ? vor.slice(-1) : ''; // Minus direkt davor: bleibt am Bruch (kein Zeilenumbruch dazwischen)
     if (vz) vor = vor.slice(0, -1);
     if (vor) aus.push(vor);
@@ -3076,7 +3091,7 @@ function lernKurzGesagt(regel) { // N2: ganz zeigen, nie mit „…“ abschneid
   const t = String(regel ?? '').replace(/⟦|⟧/g, '').trim();
   const e = lernSatzEnde(t); return (e > 0 ? t.slice(0, e) : t).trim();
 }
-// Kl. 7–10: „Kurz gesagt“ zusätzlich als erste Zeile in der Karte (Schalter je Kind und Gerät, Standard aus – Entscheidung von Sebastian offen).
+// Kl. 7–10: „Kurz gesagt“ zusätzlich als erste Zeile in der Karte (Schalter je Kind und Gerät, Standard aus – Entscheidung vom Nutzer offen).
 function lernKurzOben(kind) {
   if (!kind?.klasse || kind.klasse < 7) return false;
   try { return localStorage.getItem('lern.kurzoben.' + kind.id) === '1'; } catch { return false; }

@@ -9,7 +9,7 @@ der NACH allen bisherigen Bauschritten auf die fertige Datei angewendet wird:
   karte(...)    e) Lernkarte verbessern (einstieg, woerter, bild, schritte, fehler, fehler_bild, regel, probe) – streng nach README geprüft;
                    Lernziel, Titel und Reihenfolge bleiben. vorher/nachher-Satz kommt in den Bericht.
 Alle übrigen Aufgaben und Karten bleiben Zeichen für Zeichen gleich (Nachweis: _durchsicht_kl5_nachweis.py).
-Bericht je Thema: /tmp/durchsicht_<thema>.json (Zähler, ersetzt, Karten, für Sebastian).
+Bericht je Thema: /tmp/durchsicht_<thema>.json (Zähler, ersetzt, Karten, für den Nutzer).
 """
 import collections
 import json

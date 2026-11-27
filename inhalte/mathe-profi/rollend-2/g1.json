@@ -221,7 +221,7 @@
     "o": {
      "index": 3
     },
-    "h": "Bei m und cm gibt es zwei Stellen hinter dem Komma.",
+    "h": "1 cm ist ein Hundertstel Meter – zwei Stellen hinter dem Komma.",
     "w": "1 cm ist ein Hundertstel Meter. 7 cm = 0,07 m, also 4,07 m. 4,7 m wären 4 m 70 cm."
    }
   },
@@ -341,6 +341,20 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "dazugezählt statt abgezogen"
+    },
+    {
+     "luecke": 2,
+     "antwort": 65,
+     "fehlbild": "fb.groesse.falsche_richtung",
+     "regel_des_fehlbilds": "id.verhaeltnisse.groesse",
+     "beschreibung": "das Ergebnis in cm statt in mm angegeben"
+    },
+    {
+     "luecke": 2,
+     "antwort": 2350,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dazugezählt statt abgezogen"
     }
    ],
    "aufgabe": {
@@ -351,22 +365,22 @@
     "g": "mehrschritt",
     "y": "luecken",
     "f": {
-     "text": "1,5 m − 85 cm auf zwei Wegen. Weg A in cm: 150 cm − 85 cm = ① cm. Weg B in m: 1,50 m − 0,85 m = 0,② m.",
+     "text": "1,5 m − 85 cm auf zwei Wegen. Weg A in cm: 150 cm − 85 cm = ① cm. Weg B in mm: 1 500 mm − 850 mm = ② mm.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl."
     },
     "o": {
      "werte": [
       65,
-      65
+      650
      ]
     },
     "c": [
      "150 - 85",
-     "(1.5 - 0.85) * 100"
+     "1500 - 850"
     ],
-    "h": "Beide Wege müssen dieselbe Länge ergeben.",
-    "w": "150 − 85 = 65 cm. In Metern: 1,50 − 0,85 = 0,65 m. Das ist dasselbe."
+    "h": "Beide Wege müssen dieselbe Länge ergeben – einmal in cm, einmal in mm.",
+    "w": "150 − 85 = 65 cm. In Millimetern: 1 500 − 850 = 650 mm. 650 mm sind 65 cm, also dasselbe."
    }
   },
   {
@@ -408,7 +422,7 @@
      "einheit": "kg"
     },
     "c": "3 + 40 / 1000",
-    "h": "Bei kg und g gibt es drei Stellen hinter dem Komma.",
+    "h": "1 g ist ein Tausendstel Kilogramm – drei Stellen hinter dem Komma.",
     "w": "40 g = 0,040 kg. Also 3,040 kg = 3,04 kg."
    }
   },
@@ -593,7 +607,7 @@
     "g": "einkleidung",
     "y": "auswahl",
     "f": {
-     "text": "Auf einem Schild steht: „Brücke bis 3,5 t“. Ein Lieferwagen wiegt 2 800 kg und hat 900 kg geladen. Darf er über die Brücke fahren?"
+     "text": "Auf einem Schild steht: „Brücke bis 3,5 t“. Der leere Lieferwagen wiegt 2 800 kg; dazu kommen 900 kg Ladung. Darf er über die Brücke fahren?"
     },
     "a": [
      "Ja, 3 700 kg sind weniger als 35 000 kg.",

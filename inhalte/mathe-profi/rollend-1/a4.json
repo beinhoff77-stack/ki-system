@@ -324,7 +324,7 @@
     "g": "mehrschritt",
     "y": "luecken",
     "f": {
-     "text": "Löse: 2 · (x − 3) > 5x + 9. Klammer auflösen: 2x − ① > 5x + 9. Minus 5x auf beiden Seiten: ② · x − 6 > 9. Plus 6: −3x > ③. Geteilt durch −3, Zeichen umdrehen: x < ④.",
+     "text": "Löse: 2 · (x − 3) > 5x + 9. Klammer auflösen: 2x − ① > 5x + 9. Minus 5x auf beiden Seiten: ② · x − ① > 9. Plus ①: ② · x > ③. Geteilt durch ②, Zeichen umdrehen: x < ④.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },

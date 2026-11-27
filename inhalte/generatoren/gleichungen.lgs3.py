@@ -652,7 +652,7 @@ BF.ersetze('eliminieren', 'Gegeben: (I) −x − 2y − z = −10; (III) −2x �
     'Gegeben: (I) −x − 2y − z = −10; (III) −2x − 4y − z = −20. Berechne (III) − 2 · (I). Welchen Wert hat z?', 0, '(-20) - (2) * (-10)',
     '(III) − 2 · (I): −2x − (−2x) = 0, −4y − (−4y) = 0, −z − (−2z) = z; rechts −20 − (−20) = 0. Es bleibt z = 0 – hier fallen x und y zugleich weg.',
     'Rechne Glied für Glied, auch auf der rechten Seite.'))
-BF.nicht_umgesetzt('loesen S3 „Wie viele Lösungen hat das System …?“ (unendlich viele)', 'Lösungen richtig; als Vertiefung vertretbar. Die Lernkarte bleibt unverändert (siehe „für Sebastian“).')
+BF.nicht_umgesetzt('loesen S3 „Wie viele Lösungen hat das System …?“ (unendlich viele)', 'Lösungen richtig; als Vertiefung vertretbar. Die Lernkarte bleibt unverändert (siehe „für den Nutzer“).')
 BF.fuer_sebastian('gleichungen.lgs3/loesen: Stufe-3-Aufgaben „Wie viele Lösungen hat das System …?“ (keine/unendlich viele) gehen über den LehrplanPLUS-Text hinaus und werden auf der Lernkarte nicht erklärt – Erklärung ergänzen oder als Vertiefung kennzeichnen?')
 
 # ---- BEFUNDE ENDE ----

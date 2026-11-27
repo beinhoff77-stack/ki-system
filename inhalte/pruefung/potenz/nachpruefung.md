@@ -67,10 +67,10 @@ Keins.
 1. **Entscheidung 1 widerspricht der README-Definition der Typen.**
    - Sieben Aufgaben der Form „Ein Kind rechnet: … Was ist falsch?“ bzw. „Welcher Satz beschreibt den Fehler richtig?“ sind jetzt Stufe 1 `erkennen`. Sechs stehen in `mal_gleiche_basis`, eine in `gleicher_exponent` (2² · 5² = 10⁴).
    - Die README nennt genau diese Form als Beispiel für `fehler`: „Lea rechnet … Was hat sie falsch gemacht?“. `erkennen` heißt „zuordnen, ablesen, benennen“.
-   - Das Ziel ist richtig (Stufe 3 nicht mehr von leichten Aufgaben beherrscht, Sebastians Grund). Aber der Typ beschreibt jetzt nicht mehr den Gedanken der Aufgabe.
+   - Das Ziel ist richtig (Stufe 3 nicht mehr von leichten Aufgaben beherrscht, Grund des Nutzers). Aber der Typ beschreibt jetzt nicht mehr den Gedanken der Aufgabe.
    - Folge: In `mal_gleiche_basis` besteht Stufe 1 aus 11 × `erkennen` gegen 8 × `direkt`. Gut die Hälfte der leichten Stufe ist damit „Fehler benennen“.
    - Die achte Umstufung („Stimmt die Rechnung? 5² · 5³ = 5⁶“, Antwort Nein) halte ich für vertretbar: Das ist ein Urteil über eine Rechnung, wie bei den sechs richtigen Rechnungen.
-   - Vorschlag zur Entscheidung (Sebastian oder Haupt-Chat):
+   - Vorschlag zur Entscheidung (Nutzer oder Haupt-Chat):
      - **(a)** Die sieben Aufgaben bekommen keinen Typ, sind also überzählig und werden beim Einspielen gesperrt. Stufe 3 behält 3 × `fehler`, und keine Aufgabe trägt einen falschen Typ. Die Karte hat genug andere Übungen.
      - **(b)** Es bleibt so, aber die README bekommt den Satz: „Auswahl mit Regelnamen (‚Was ist falsch?‘) zählt als `erkennen`.“ Dann gilt das auch für andere Flüge.
 2. **Lernstand: Die neue Pflichtkarte öffnet Flug A wieder.**

@@ -140,7 +140,7 @@ const STAY_DESK_SPALTEN = [
   { key: 'kueche', label: 'Küche', v: t => stayFieldValue(t, 'kueche', {}), r: t => stayFieldValue(t, 'kueche', {}) ?? '?' },
   { key: 'waschmaschine', label: 'Waschm.', v: t => stayFieldValue(t, 'waschmaschine', {}), r: t => stayFieldValue(t, 'waschmaschine', {}) ?? '?' },
   { key: 'balkon', label: 'Balkon', v: t => stayFieldValue(t, 'balkon', {}), r: t => stayFieldValue(t, 'balkon', {}) ?? '?' },
-  // W100: weitere Kriterien aus Sebastians Auswahl (ja oder ?)
+  // W100: weitere Kriterien aus Auswahl des Nutzers (ja oder ?)
   ...[['klima', 'Klima'], ['fruehstueck', 'Frühst.'], ['pool', 'Pool'], ['sauna', 'Sauna'], ['spa', 'Spa/Onsen'], ['fitness', 'Fitness'], ['parkplatz', 'Parken'], ['wlan', 'WLAN'], ['meerblick', 'Meerblick']]
     .map(([key, label]) => ({ key, label, v: t => stayFieldValue(t, key, {}), r: t => stayFieldValue(t, key, {}) ?? '?' })),
   { key: 'strand', label: 'Strand', num: true, klein: true, v: t => sucheZahl(t.strand_m), r: t => stayStrandText(t) }, // W100: Luftlinie, auf 50 m gerundet
@@ -171,7 +171,7 @@ function stayDeskFilter(text, spalte) {
   if (m) { const x = num(m[2]); if (!Number.isFinite(x)) return null; const op = m[1] || (spalte.klein ? '≤' : '≥'); if (/[≥>]/.test(op)) lo = x; else hi = x; }
   else if ((m = s.match(/^([\d.,]+)\s*[-–]\s*([\d.,]+)$/))) { lo = num(m[1]); hi = num(m[2]); if (!Number.isFinite(lo) || !Number.isFinite(hi)) return null; }
   else return null;
-  return v => v === null || v === undefined || (v >= lo && v <= hi); // unbekannte Angaben bleiben sichtbar (Sebastian 20.10.)
+  return v => v === null || v === undefined || (v >= lo && v <= hi); // unbekannte Angaben bleiben sichtbar (Nutzer 20.10.)
 }
 
 const stayDeskState = new Map();
@@ -326,7 +326,7 @@ function stayUrteilChips(rows, onChange) {
   const an = stayUrteilFilter(), relevant = rows.filter(t => t.topf !== 'ausgeschlossen' || STAY_STATUS_URTEIL[t.status]);
   const zahl = k => relevant.filter(t => stayUrteilKey(t) === k).length, alle = ['offen', 'favorit', 'wow', 'vielleicht', 'raus'];
   const setze = next => { stayWrite('ks_urteil_filter', [...next]); onChange(); };
-  // 0.36.3 (Sebastian 21.10.: „Zeichen vereinheitlichen“): dieselben Symbole wie die Knöpfe in der Zeile (♥ / Welle / ✕).
+  // 0.36.3 (Nutzer 21.10.: „Zeichen vereinheitlichen“): dieselben Symbole wie die Knöpfe in der Zeile (♥ / Welle / ✕).
   // Gedrückt sieht nur aus, was du gewählt hast: „Ohne Raus“ oder „Alle“ – oder einzelne Urteile. Ein Urteils-Chip aus „Ohne Raus“/„Alle“ heraus wählt nur dieses.
   const standard = STAY_URTEIL_FILTER_STANDARD.every(k => an.has(k)) && !an.has('raus') && an.size === STAY_URTEIL_FILTER_STANDARD.length, allesAn = alle.every(k => an.has(k));
   const chip = (k, label) => el('button', { type: 'button', class: 'urteil-chip uc-' + k, 'aria-label': `${label} ${zahl(k)}`, title: label, 'aria-pressed': String(!standard && !allesAn && an.has(k)),
@@ -339,7 +339,7 @@ function stayUrteilChips(rows, onChange) {
     chip('favorit', '♥ Favoriten'), chip('wow', '★ Wow, zu teuer'), chip('vielleicht', '~ Na ja'), chip('offen', 'Offen'), chip('raus', '✕ Raus'));
 }
 
-// ===== 0.36.0 (Sebastian 21.10.: „Spalten = Filter“): ein gemeinsamer Filter für Liste, Karte, Durchsehen und Tabelle =====
+// ===== 0.36.0 (Nutzer 21.10.: „Spalten = Filter“): ein gemeinsamer Filter für Liste, Karte, Durchsehen und Tabelle =====
 // Werte im Tabellen-Format („≤ 150“, „≥ 8“, „2–3“, Text = enthält). Unbekannte Angaben bleiben sichtbar, außer „Unbekannte ausblenden“.
 const stayFilterStates = new Map();
 function stayFilterState(id) {

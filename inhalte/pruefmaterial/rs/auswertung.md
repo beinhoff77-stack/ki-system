@@ -179,7 +179,7 @@ Einordnung:
    - Punkt im Koordinatensystem setzen (prüfbar über Koordinaten)
    - Fehler markieren (markierung gibt es schon)
 4. **Die drei häufigsten Etappen-Lücken zuerst schließen:** Mittelpunkt einer Strecke, Vektoraddition, Seiten-Winkel-Beziehung.
-5. **Auswertung „wie in der Schule“:** Punkte und daraus eine Note nach dem üblichen Notenschlüssel. [O] Welcher Schlüssel genau? Das ist Schulsache, Sebastian entscheidet.
+5. **Auswertung „wie in der Schule“:** Punkte und daraus eine Note nach dem üblichen Notenschlüssel. [O] Welcher Schlüssel genau? Das ist Schulsache, der Nutzer entscheidet.
 
 ## Offene Punkte
 

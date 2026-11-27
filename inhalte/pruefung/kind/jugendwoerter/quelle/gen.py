@@ -44,7 +44,7 @@ def w(id, wort, sw, bed, ton, jahr, q, einsatz, staerke, alter, verfall, neben, 
 w('cues', 'Çüş', ['Çüş', 'Cüs', 'Cüüüs'], 'Ausruf des Staunens: „boah“, „krass“, „oha“.', 'staunen', None, 'QC', ['staunen'], 3, B, '2028-05',
   'Türkisch ursprünglich Halte-Ruf für Esel und Pferde; kann auch „mach mal halblang“ oder „igitt“ heißen (desired). Nur nach klar gutem Ergebnis, nie bei Fehlern.', gesprochen='Tschüsch', quelle2={'titel': Q['DC'][0], 'link': Q['DC'][1]})
 w('digga', 'Digga', ['Digga', 'Diggah', 'Digger'], 'Kumpel, Bro; Anrede für jeden, auch Ausruf.', 'locker', 2021, 'Z26', ['anrede', 'lob_klein'], 2, B, '2028-11',
-  'Seit 2021 jedes Jahr in den Top 10. Festgelegte Anrede der App für beide Kinder (Entscheidung Sebastian 23.11.2026). Nie in Fehler-Sprüchen allein als Vorwurf, nur freundlich („Schere, Digga.“).')
+  'Seit 2021 jedes Jahr in den Top 10. Festgelegte Anrede der App für beide Kinder (Entscheidung des Nutzers 23.11.2026). Nie in Fehler-Sprüchen allein als Vorwurf, nur freundlich („Schere, Digga.“).')
 w('peak', 'Peak', ['Peak', 'PEAK'], 'Das Beste vom Besten, absoluter Höhepunkt.', 'lob', 2026, 'Z26', ['lob_gross'], 3, B, '2027-11',
   'Wird auch ironisch gesteigert („peak cringe“). Nie mit einem negativen Wort kombinieren, nur bei wirklich bestem Ergebnis.')
 w('gute_kaese', 'Gute Käse', ['Gute Käse', 'Gute Käses'], 'Etwas ist richtig gut oder stabil; Lob oder Zustimmung, ohne wörtlichen Sinn.', 'lob', 2026, 'Z26', ['lob_klein'], 1, B, '2027-11',
@@ -186,7 +186,7 @@ out = {
  'hinweis': 'Vorgabe JW – Daten für die App. Wörter mit verfall < heute oder einsatz „ungeeignet“ werden nie gezogen. Keine Einstellungen, keine Altersunterscheidung.',
  'anlaesse': ANL,
  'regeln': {'erfolg': 'jede Geschafft-Ansicht bekommt genau einen Sticker', 'fehler': 'Sticker beim 1., 3., 5. … Fehler eines Lerntags; nie ab dem 2. Fehler in Folge', 'anrede': 'einmal je Lerntag auf der Abflugtafel, immer „Digga“',
-            'nie_wiederholen_letzte': 1, 'wort_sperre_letzte_sticker': 4, 'einstellungen': 'keine – festgelegt (Sebastian, 23.11.2026)'},
+            'nie_wiederholen_letzte': 1, 'wort_sperre_letzte_sticker': 4, 'einstellungen': 'keine – festgelegt (Nutzer, 23.11.2026)'},
  'woerter': W, 'sprueche': S,
 }
 import sys

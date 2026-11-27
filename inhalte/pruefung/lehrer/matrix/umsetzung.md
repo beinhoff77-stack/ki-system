@@ -1,7 +1,7 @@
-# Umsetzung Lehrplan-Matrix (LM) – Entwurf, von Sebastian gewünscht
+# Umsetzung Lehrplan-Matrix (LM) – Entwurf, vom Nutzer gewünscht
 
 Stand 21.11.2026. Vorlage: `entwurf/lehrplan-matrix.html` (läuft ohne Server, mit erfundenem Lernstand „Kind A“/„Kind B“), live als Artifact „Mathe 5–10 – was gelernt wird“.
-Nur Entwurf und Beschreibung. Der Bau-Chat baut, Merge nach main erst nach Sebastians „Live“.
+Nur Entwurf und Beschreibung. Der Bau-Chat baut, Merge nach main erst nach „Live“ des Nutzers.
 
 ## Ziel
 Eltern/Lehrer sehen auf einer Seite, was in Mathe von Klasse 5 bis 10 gelernt wird, wie die Themen aufeinander aufbauen und wo jedes Kind steht.
@@ -21,7 +21,7 @@ Titel, Themengebiet, Klassen je Schulart, Lernbereich; „Was gefordert ist“ (
 ## LM-3 Verbindungen
 Thema antippen: direkte Voraussetzungen gelb mit Linie, weiter zurück hellgelb, darauf aufbauend blau mit Linie, alles andere blass; „empfohlen“ gestrichelte Linie. „→ n“ an Themen, die Grundlage für ≥ 2 Themen sind. Linien hinter den Themen-Karten, auf Handy keine Linien (nur Farben).
 
-## LM-4 Lernstand je Kind (neu, Sebastians Wunsch)
+## LM-4 Lernstand je Kind (neu, Wunsch des Nutzers)
 - Leiste „Lernstand: Aus · ‹Kind 1› · ‹Kind 2› · Beide vergleichen“ (echte Namen aus der App, je Kind die eigene Schulart → „Einordnen nach“ springt darauf).
 - Ein Kind: Hintergrund je Stufe wie im Plan (LB): ◉ kann (grün), ↻ Wiederholung (gelb, „Wdh n von 5“), ▶ gerade dran (blau, Rahmen, „Etappe x von y · hier ist ‹Name›“), ○ kommt noch, + nicht im Plan (gestrichelt, blass). Beim Einschalten zum ▶-Thema scrollen.
 - Beide vergleichen: je Thema eine Zeile „A/B“ mit zwei Punkten in der Stufenfarbe (kommt noch/nicht im Plan: weiß mit Rand).
@@ -36,7 +36,7 @@ Thema antippen: direkte Voraussetzungen gelb mit Linie, weiter zurück hellgelb,
 ## Prüfen
 400, 820, 1280 px; keine Wörter mitten im Wort umbrochen (Trennstrich erlaubt); Schalter-Zustände; Lernstand-Modi; Linien liegen hinter den Karten.
 
-## LM-5 Einbau Lehrer/Eltern (Sebastian: „bei den Kindern und beim Lehrer einbauen“)
+## LM-5 Einbau Lehrer/Eltern (Nutzer: „bei den Kindern und beim Lehrer einbauen“)
 - **Nachschlagen → „Lehrplan“** öffnet die Matrix (LM-1 bis LM-4), Lernstand-Leiste mit allen Kindern und „Beide vergleichen“.
 - **Seite des Kindes, Reiter „Plan“**: oben rechts Link „Als Matrix ansehen ›“. Er öffnet die Matrix mit diesem Kind vorgewählt und dessen Schulart. Kein fünfter Reiter (LA-1: vier Reiter + ⚙).
 - **Im Detail eines Themas** für Lehrer/Eltern zusätzlich die Stufen-Knöpfe aus LB Teil 8 (Variante A): „Lernen · Kann er – wiederholen · Kann er komplett“ und rechts „Aus dem Plan nehmen“ bzw. „In den Plan nehmen“. Gleiche Server-Aufrufe und Rückgängig wie im Plan, nur wenn genau ein Kind gewählt ist. Damit kann der Lehrer direkt aus der Übersicht planen.

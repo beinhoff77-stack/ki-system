@@ -1,6 +1,6 @@
 # Vorgabe „Drei Karten für die Kinderseite“ – Nachbessern · Mein Schuljahr · Zusatz eingeplant
 
-Stand 23.11.2026, Grundlage `inhalte/AUFTRAEGE.md` (lernen-app 83ada52): „Entscheidung Sebastian (23.11., 02:54): wieder offene Etappe … · Auftrag NB“, „Auftrag SJ – Wie viel ist noch? je Schuljahr“, „Entscheidung Sebastian (23.11., 02:35): eingeplanter Zusatz-Teil“ (mit Rückläufer ChatGPT 963/964). Passt zu `kind/karte/umsetzung.md` (Reisekarte, §4/§11) und `kind/expedition/umsetzung.md` (EX). Entwurf zum Anklicken: `entwurf/karten.html` (Ansicht und Gerät oben umschaltbar). Bilder: `bilder/400-*.png`, `bilder/820-*.png`. Beispielzahlen aus dem Auftrag, Testkind; keine Namen.
+Stand 23.11.2026, Grundlage `inhalte/AUFTRAEGE.md` (lernen-app 83ada52): „Entscheidung des Nutzers (23.11., 02:54): wieder offene Etappe … · Auftrag NB“, „Auftrag SJ – Wie viel ist noch? je Schuljahr“, „Entscheidung des Nutzers (23.11., 02:35): eingeplanter Zusatz-Teil“ (mit Rückläufer ChatGPT 963/964). Passt zu `kind/karte/umsetzung.md` (Reisekarte, §4/§11) und `kind/expedition/umsetzung.md` (EX). Entwurf zum Anklicken: `entwurf/karten.html` (Ansicht und Gerät oben umschaltbar). Bilder: `bilder/400-*.png`, `bilder/820-*.png`. Beispielzahlen aus dem Auftrag, Testkind; keine Namen.
 
 ## 0 Reihenfolge auf der Startseite (Abflugtafel heute / schwebende Zone der Reisekarte später)
 1. **Nachbessern** (wenn vorhanden) – oberste Karte, immer zuerst.

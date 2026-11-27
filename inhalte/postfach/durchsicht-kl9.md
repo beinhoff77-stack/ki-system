@@ -155,7 +155,7 @@ Bei allen Karten gilt: Schlüssel, Titel und Reihenfolge sind unverändert. Die 
 - gleichungen.trig/anwendung S3: „Im Dreieck ABC ist a = 9 cm, b = 12 cm und α = 40°. Der Winkel β ist stumpf. Berechne β (auf eine Nachkommastelle).“ – braucht den Sinussatz, der erst in trigo.allgemein kommt
 - gleichungen.trig/anwendung S3: „Ein Dreieck hat die Seiten a = 5 cm und b = 8 cm und den Flächeninhalt 10 cm². Der Winkel γ zwischen a und b ist stumpf. Wie groß ist γ?“ – braucht die Flächenformel ohne Erklärung; jetzt steht die Formel in der Aufgabe
 
-### (5) Für Sebastian
+### (5) Für den Nutzer
 1. **Reihenfolge gleichungen.trig (13) vor trigo.allgemein (14).** Der Einheitskreis und sin(180° − α) werden erst in trigo.allgemein erklärt. Vorschlag: die beiden Themen tauschen. Offen ist noch die frühere Frage, ob gleichungen.trig nach Klasse 10 gehört.
 2. **Reihenfolge funktionen.potenz (8) vor zahlen.rationale_exponenten (10).** Ich habe die Aufgaben mit x^(1/2) ersetzt. Die Reihenfolge selbst bleibt zu prüfen.
 3. **gleichungen.lgs3: 6 Karten sind viel.** Der Lehrplan (M9 2.2) verlangt nur wenige einfache Beispiele. Vorschlag: pruefen, stufenform und eliminieren als Vertiefung führen.
@@ -185,7 +185,7 @@ Bei allen Karten gilt: Schlüssel, Titel und Reihenfolge sind unverändert. Die 
 trigo.allgemein fertig: 33 umgestuft (Kartenbeispiele auf Stufe 1, Winkelsumme vor Sinussatz und Runden auf Stufe 2). Keine Karte geändert. inhalt_pruefen OK, Nachweis OK.
 
 ## 2026-11-17 13:34 – STATUS
-gleichungen.trig fertig: 15 umgestuft, 2 ersetzt (anwendung: Sinussatz und Flächenformel ohne Erklärung – kommen erst in trigo.allgemein), 1 neu (kosinus S3). Keine Karte geändert. Für Sebastian: Reihenfolge 13/14 tauschen. inhalt_pruefen OK, Nachweis OK.
+gleichungen.trig fertig: 15 umgestuft, 2 ersetzt (anwendung: Sinussatz und Flächenformel ohne Erklärung – kommen erst in trigo.allgemein), 1 neu (kosinus S3). Keine Karte geändert. Für den Nutzer: Reihenfolge 13/14 tauschen. inhalt_pruefen OK, Nachweis OK.
 
 ## 2026-11-17 13:33 – STATUS
 trigo.rechtwinklig fertig: 17 umgestuft, 4 neu (seite S3: Fläche, Mindestlänge; winkel S3: Diagonalen, Basiswinkel). Karte beziehungen: Schritt 5 und Regel ergänzt (sin α = cos(90° − α), das die Aufgaben schon nutzten). inhalt_pruefen OK, Nachweis OK.
@@ -209,7 +209,7 @@ abbildungen.aehnlichkeit fertig: 10 umgestuft (Kartenbeispiele Bildpunkt und Sta
 stochastik.verknuepft fertig: 14 umgestuft (Gegenereignis-Wiederholungen auf Stufe 1, „mindestens eines“ und „Gesamt minus drei Felder“ von 3 auf 2), Karte verstehen: Schritt 5 zum Gegenereignis „mindestens einmal ↔ keinmal“ (vorher nur im Fehler). inhalt_pruefen OK, Nachweis OK.
 
 ## 2026-11-17 13:25 – STATUS
-gleichungen.lgs3 fertig: 18 umgestuft (größere Zahlen/gewöhnliche Systeme von 3 auf 2, Zahlenrätsel von 2 auf 1), 2 neu (parabel Stufe 3: Symmetrie nutzen, Fehler finden). Keine Karte geändert. Für Sebastian: Umfang (6 Karten) groß gegenüber dem Lehrplan. inhalt_pruefen OK, Nachweis OK.
+gleichungen.lgs3 fertig: 18 umgestuft (größere Zahlen/gewöhnliche Systeme von 3 auf 2, Zahlenrätsel von 2 auf 1), 2 neu (parabel Stufe 3: Symmetrie nutzen, Fehler finden). Keine Karte geändert. Für den Nutzer: Umfang (6 Karten) groß gegenüber dem Lehrplan. inhalt_pruefen OK, Nachweis OK.
 
 ## 2026-11-17 13:24 – STATUS
 Zusatz aus der Prüfung der Achtzehnten Runde erledigt: gleichungen.quadratisch/bruchgleichung – Scheinlösung jetzt in der Bildergeschichte (Schritt 5 mit Tabelle, Wort „Scheinlösung“, Merksatz) und in einer Sicherungsaufgabe (ersetzt: „Löse die Bruchgleichung 2/x = x + 1 (D = ℝ ohne 0). Kleinere Lösung zuerst.“ → x²/(x − 4) = 16/(x − 4)). lernen-app (c976669) vorher in den Zweig geführt. inhalt_pruefen OK, Nachweis OK.

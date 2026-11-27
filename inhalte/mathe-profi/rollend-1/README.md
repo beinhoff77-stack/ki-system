@@ -69,3 +69,17 @@ Eine Beobachtung, kein Fehler: In Aufgabe 4 (Bruchterm negativ) nennt der Hinwei
 - Aufgaben ohne Grafik, weil „ohne Bau“; Koordinaten und Achsen stehen im Text.
 - Die Themen der Flüge wie in `lehrplan-kinder/plan.py`: ge1 = `geometrie.grundbegriffe`, `geometrie.ortslinien`; z2 = `zahlen.teilbarkeit`; ge2 = `abbildungen.kongruenz`; a4 = `gleichungen.ungleichungen`, `zahlen.intervalle`.
 - In ge2 sind die zwei Vektor-Lernkarten der Realschule (`vektor_koordinaten`, `vektor_drehen`) ausgelassen.
+
+## Auftrag 20 – Berichtigungen nach der Inhaltsprüfung (27.11.2026)
+
+Alle Änderungen über `bauen.py`, Lauf endet mit „OK“. **Die Kennungen sind unverändert geblieben.** Die Ausgabe wird jetzt stabil nach Stufe sortiert (`sorted(..., key=stufe)`), damit eine Stufen-Änderung die Nummerierung nicht verschiebt.
+
+| Kennung | Befund | Was geändert |
+|---|---|---|
+| Z2-07 | „kleinste Zahl in beiden Reihen“ lässt die 0 zu | **geändert:** „kleinste Zahl **größer als 0**“; Tipp „Achterreihe **ab der 8**“; Lösungsweg nennt die Ausnahme. Lösung bleibt 24. Neues Fehlbild: Antwort 0. |
+| GE1-06 | die gesuchte 6 stand schon in Weg A | **geändert:** Weg A wird nur noch beschrieben („zerlegt die Strecke an der x-Achse“), gefragt ist jetzt die **Länge 15**. Fehlbilder neu: 3 (Minus stehen gelassen), −15. |
+| GE1-13 | Stufe 3 zu hoch | **geändert:** Stufe 2, Typ `umkehr` statt `rueckwaerts`. Es ist ein Schritt (Abstand = r), keine Kette rückwärts. |
+| GE2-12 | Stufe 3 zu hoch | **geändert:** Stufe 2, Typ `umkehr`. Die Achse ist die Mitte – ein Schritt. |
+| A4-06 | zwei Lückenwerte standen später ausgeschrieben in der Frage | **geändert:** Die Folgezeilen nennen die Zahlen nicht mehr, sondern verweisen auf die Lücken: „② · x − ① > 9. Plus ①: ② · x > ③. Geteilt durch ②“. Werte unverändert. |
+
+**Neue Prüfung in `bauen.py`** (in allen drei Runden): Eine Lücke darf nicht unmittelbar hinter einem Komma stehen. Sonst wäre sie eine Ziffernfolge, die App vergleicht aber ganze Zahlen. In Runde 1 gab es keinen solchen Fall.

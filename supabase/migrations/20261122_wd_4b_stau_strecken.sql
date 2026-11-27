@@ -1,5 +1,5 @@
 -- Bau-Auftrag WD-4, Teil b: den vorhandenen Stau einmalig und verlustfrei strecken (Stand WD-S 3, 22.11.).
--- NUR nach Probelauf und Sebastians Okay einspielen (Haupt-Chat), nach 20261122_wd_s_wiederholungen.sql und 20261122_wd_s3_frische_aufgaben.sql.
+-- NUR nach Probelauf und Okay des Nutzers einspielen (Haupt-Chat), nach 20261122_wd_s_wiederholungen.sql und 20261122_wd_s3_frische_aufgaben.sql.
 --
 -- Was passiert – in Worten:
 --   Betroffen sind nur Etappen, die über „Kann er – aber wiederholen“ gesetzt wurden, noch auf Stufe 0 stehen (erste Wiederholung offen),

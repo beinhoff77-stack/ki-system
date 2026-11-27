@@ -42,4 +42,4 @@ Zwei kleine Anmerkungen zur Info-Seite, beide Kann:
 2. ↑ ↓ kleiner (32 px statt etwa 46 px) oder untereinander.
 Bild: `n5/plan-400.png`.
 
-**N8 (Kann) – „Themen“ statt „Flüge“ in der Lehrer-Ansicht.** Im Lehrplan des Plans steht „Gym 8: 13 von 15 Themen im Plan oder schon gekonnt“. Die Info-Seite musste wegen der Reisewörter „Thema“ vermeiden. Eines von beiden sollte angeglichen werden. Mein Vorschlag: in der Lehrer-Ansicht „Themen“ erlauben (Lehrer denken in Themen) und den Test der Reisewörter nur auf die Kinderseiten anwenden. Das ist eine Entscheidung für Sebastian.
+**N8 (Kann) – „Themen“ statt „Flüge“ in der Lehrer-Ansicht.** Im Lehrplan des Plans steht „Gym 8: 13 von 15 Themen im Plan oder schon gekonnt“. Die Info-Seite musste wegen der Reisewörter „Thema“ vermeiden. Eines von beiden sollte angeglichen werden. Mein Vorschlag: in der Lehrer-Ansicht „Themen“ erlauben (Lehrer denken in Themen) und den Test der Reisewörter nur auf die Kinderseiten anwenden. Das ist eine Entscheidung für den Nutzer.

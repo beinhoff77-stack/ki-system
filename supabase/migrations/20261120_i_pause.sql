@@ -1,4 +1,4 @@
--- Bau-Auftrag I, Teil 1, Punkt 10 (Sebastians Entscheidung 20.11.): Reisetage und Pausen eintragen.
+-- Bau-Auftrag I, Teil 1, Punkt 10 (Entscheidung des Nutzers 20.11.): Reisetage und Pausen eintragen.
 -- Nicht ausgeführt – der Haupt-Chat spielt ein. Kein DROP, kein DELETE (Löschen = als gelöscht markieren; vergangene Einträge bleiben sichtbar).
 --
 -- Neu: Tabelle schule.pause (je Kind: von, bis, grund, wer, am; geaendert_am, geloescht_am).

@@ -2,7 +2,7 @@
 
 Stand 23.11.2026 · Grundlage `lernen-app` c98fffd (`lernAbschlussEtappe`, `lernAbschlussFlug`, `lernExGeschafftAnsicht`, Knobel- und Bordkarten-Rückmeldung) · Daten: `woerter.json` · Entwurf: `entwurf/jugendwoerter.html` · Bilder: `bilder/*_400|820_tag|nacht.png` · Entwurf online: Artefakt f41b44f0-f8fc-460f-85ef-2e3df5760deb
 
-Kein App-Code, keine Datenbank, keine Namen. **Fassung 2 (23.11.2026, Sebastian):** keine Einstellungen, keine Auswahl, keine Unterscheidung 11/14, Anrede „Digga“, Wörter werden wirklich verwendet. Alles ist festgelegt.
+Kein App-Code, keine Datenbank, keine Namen. **Fassung 2 (23.11.2026, der Nutzer):** keine Einstellungen, keine Auswahl, keine Unterscheidung 11/14, Anrede „Digga“, Wörter werden wirklich verwendet. Alles ist festgelegt.
 
 ## 0. Kurzfassung
 
@@ -227,7 +227,7 @@ Hinweis Anrede: J50–J52 setzen den Sticker auf die unveränderte Ansage der Ab
 
 ## 4. Einstellungen
 
-**Keine.** Festgelegt von Sebastian am 23.11.2026: kein Ein/Aus, keine Dosis, keine Auswahl der Anrede, kein Ausblenden, keine Altersstufen.
+**Keine.** Festgelegt vom Nutzer am 23.11.2026: kein Ein/Aus, keine Dosis, keine Auswahl der Anrede, kein Ausblenden, keine Altersstufen.
 
 Was bleibt:
 - **Antippen des Stickers** → kleines Blatt mit Wort, „gesprochen …“ (bei Çüş), Bedeutung in einem Satz, „Schließen“ (Bild `bedeutung_*`). Kein Ausblenden.

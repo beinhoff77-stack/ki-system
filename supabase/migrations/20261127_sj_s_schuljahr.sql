@@ -7,7 +7,7 @@
 --   Fertig = Stufe „komplett“ (kann er, auch gesetzt) oder „wiederholung“ → zählt mit allen Etappen; sonst gelandete Etappen (höchstens alle).
 --   Prozent = gelandet ÷ gesamt, gerundet.
 --   Zusatz (übrige Themen der Klasse mit Einheit) getrennt: gleiche Rechnung, dazu eingeplant (ZP-S).
---   SJ-S 2 (vorbereitet, Entscheidung Sebastian offen): je Klasse zusätzlich etappen_pflicht (nur Pflicht-Etappen der Gruppe des Kindes,
+--   SJ-S 2 (vorbereitet, Entscheidung des Nutzers offen): je Klasse zusätzlich etappen_pflicht (nur Pflicht-Etappen der Gruppe des Kindes,
 --   wie thema_stufe.etappen) mit prozent_pflicht, und kuer (übrige Etappen der Pflicht-Flüge). Die App wählt die Zählung ohne neue Migration.
 -- Nur lesend. Baut auf LZ-S und ZP-S auf. Wiederholbar; kein DROP, kein DELETE.
 

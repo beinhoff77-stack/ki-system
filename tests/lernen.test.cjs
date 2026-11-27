@@ -5972,6 +5972,14 @@ test('Karte-Bilder: Kontinent und Land bei 400 px hell/dunkel und 1280 px hell',
     await page.locator('.rk-st-hier').waitFor(); await page.waitForTimeout(700);
     await page.screenshot({ path: path.join(ziel, `${art}-land-${b}-${g === 'tag' ? 'hell' : 'dunkel'}.jpg`), type: 'jpeg', quality: 80 });
   }
+  // Regel-Universum in der Karte: Welt-Ebene je Ansicht
+  for (const [b, h, g] of [[400, 860, 'tag'], [400, 860, 'nacht'], [1280, 800, 'tag'], [1280, 800, 'nacht']]) {
+    const { page } = await rkOeffnen(t, b, h, { gestaltung: g }); await page.waitForTimeout(400);
+    await page.locator('.rk-pfad-teil', { hasText: 'Welt' }).click(); await page.locator('.rk-kname').first().waitFor(); await page.waitForTimeout(500);
+    await page.screenshot({ path: path.join(ziel, `${art}-welt-${b}-${g === 'tag' ? 'hell' : 'dunkel'}.jpg`), type: 'jpeg', quality: 80 });
+    if (b === 1280) { await page.locator('.rk-kname', { hasText: 'EUROPA' }).dispatchEvent('click'); await page.locator('.rk-pin[data-id="IT"]').waitFor(); await page.waitForTimeout(400);
+      await page.screenshot({ path: path.join(ziel, `${art}-kontinent-${b}-${g === 'tag' ? 'hell' : 'dunkel'}.jpg`), type: 'jpeg', quality: 80 }); }
+  }
   // Vorschlag gesperrt/wartend mit Thema: Klasse-8-Lage (Europa, Deutschland wartet) und Klasse-5-Lage (Afrika, alles gesperrt)
   for (const [lage, kont] of [['kl8', null], ['kl5', 'AFRIKA']]) for (const [b, h] of [[400, 860], [1280, 800]]) {
     const { page } = await rkOeffnen(t, b, h, { lage }); await page.waitForTimeout(300);
@@ -6027,4 +6035,38 @@ test('Abflugtafel aus: Geschenk-Hinweis („Geschenk für deine Landungen“) au
   }
   const alt = rkServer({ karte: false }); const { page: p2 } = await setup(t, { gestaltung: 'tag', anpassen: alt.anpassen }); await p2.goto(origin + '/#/reise/1'); await p2.locator('.lr-abflugtafel').waitFor();
   assert.equal(await p2.locator('.lr-blatt-liste a').first().textContent(), 'Abflugtafel', 'ohne Karte heißt die Startseite weiter Abflugtafel');
+});
+
+// ---------- Regel-Universum schwebt in der Reisekarte (Welt, Kontinent, Land), Textlink daneben; Tafel-Rückfall mit Link ----------
+test('Karte: Regel-Universum schwebt auf allen Ebenen, verdeckt keine Pins/Haltestellen der Route und keine Bedienelemente, führt zu #/regeln; reduzierte Bewegung ohne Kreisen', async (t) => {
+  for (const [b, h] of [[400, 860], [1280, 800]]) {
+    const { page } = await rkOeffnen(t, b, h); const u = page.locator('.rk-karte .rk-universum');
+    const pruefen = async (ebene, sel) => {
+      await page.waitForTimeout(500); await u.waitFor();
+      assert.equal(await u.getAttribute('href'), '#/regeln/1'); assert.equal(await u.getAttribute('aria-label'), 'Zum Regel-Universum');
+      const ub = await u.boundingBox(); assert.ok(ub.width >= 44 && ub.height >= 44, `${b} ${ebene}: Trefferfläche ${ub.width}×${ub.height}`);
+      const kb = await page.locator('.rk-karte').boundingBox(); assert.ok(ub.x >= kb.x && ub.y >= kb.y && ub.x + ub.width <= kb.x + kb.width && ub.y + ub.height <= kb.y + kb.height, `${b} ${ebene}: in der Karte`);
+      const [uk] = await rkKasten(u); const andere = await rkKasten(page.locator(`${sel}, .rk-zoom button, .rk-quelle, .rk-schwebe > *, .rk-legende:not([hidden])`));
+      for (const x of andere) { if (rkUeber(uk, x, 1)) await page.screenshot({ path: path.join(root, `test-results/uni-fehler-${b}-${ebene}.png`) }); assert.ok(!rkUeber(uk, x, 1), `${b} ${ebene}: Universum überdeckt ${x.n} ${JSON.stringify([uk, x])} Ecke ${await u.getAttribute('data-ecke')}`); }
+      return ub; };
+    const k0 = await pruefen('Kontinent', '.rk-pin-flug .rk-kopfring, .rk-pin-flug .rk-pland');
+    // fest am Rahmen: Verschieben der Karte bewegt das Universum nicht
+    const kb = await page.locator('.rk-rahmen').boundingBox(); await page.mouse.move(kb.x + kb.width / 2, kb.y + kb.height / 3); await page.mouse.down(); await page.mouse.move(kb.x + kb.width / 2 + 60, kb.y + kb.height / 3 + 40, { steps: 5 }); await page.mouse.up();
+    await page.waitForTimeout(300); const k1 = await u.boundingBox(); assert.ok(Math.abs(k1.x - k0.x) < 1 && Math.abs(k1.y - k0.y) < 1, 'nicht mitgeschoben');
+    await page.locator('.rk-pin[data-id="IT"]').dblclick(); await page.locator('.rk-st-hier').waitFor();
+    await pruefen('Land', '.rk-st-g .rk-stadt, .rk-st-name, .rk-pin-flug .rk-kopfring');
+    if (b <= 760) { await page.locator('.rk-pfad-kurz').click(); await page.locator('.rk-pfad-teil.an', { hasText: 'Europa' }).waitFor(); }
+    await page.locator('.rk-pfad-teil', { hasText: 'Welt' }).click(); await page.locator('.rk-kname').first().waitFor();
+    await pruefen('Welt', '.rk-kname, .rk-kzahl');
+    // Textlink: Rechner rechte Spalte, Handy in der Startkarte bei „Mein Schuljahr“
+    assert.equal(await page.locator(`${b >= 1100 ? '.rk-seite' : '.rk-schwebe'} .rk-ru-link`).getAttribute('href'), '#/regeln/1');
+    await u.click(); await page.waitForURL(/#\/regeln\/1$/);
+  }
+  // reduzierte Bewegung: kein Kreisen
+  const { page } = await rkOeffnen(t, 400, 860); await page.emulateMedia({ reducedMotion: 'reduce' });
+  assert.equal(await page.locator('.rk-uni-b1').evaluate((e) => getComputedStyle(e).animationName), 'none');
+  await page.emulateMedia({ reducedMotion: 'no-preference' }); assert.equal(await page.locator('.rk-uni-b1').evaluate((e) => getComputedStyle(e).animationName), 'rk-uni-dreh');
+  // Rückfall Tafel (ohne Karte): Link zum Regel-Universum
+  const alt = rkServer({ karte: false }); const { page: p2 } = await setup(t, { gestaltung: 'tag', anpassen: alt.anpassen }); await p2.goto(origin + '/#/reise/1'); await p2.locator('.lr-abflugtafel').waitFor();
+  assert.equal(await p2.locator('.lr-ru-link').getAttribute('href'), '#/regeln/1');
 });

@@ -25,22 +25,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 8,
+     "antwort": 0,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Seite BC statt x angegeben"
+     "beschreibung": "die Winkel gleichgesetzt, als lägen die Ecken gegenüber: x + 30 = 2x + 30"
     },
     {
-     "antwort": 23,
+     "antwort": 100,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "jede Seitenlänge nur einmal gezählt: nur AB und BC im Umfang"
+     "beschreibung": "die Summe 360° statt 180° genommen: 3x + 60 = 360"
     },
     {
-     "antwort": 14,
+     "antwort": 60,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Differenz zum Umfang minus 2 gerechnet, aber nicht durch 2 geteilt"
+     "beschreibung": "die Zahlen 30 vergessen: x + 2x = 180"
     }
    ],
    "aufgabe": {
@@ -51,7 +51,7 @@
     "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "In der Zeichnung ist ein Parallelogramm ABCD mit seinen Seitenlängen (in cm) zu sehen. Die Seiten sind AB = 9 und BC = x + 2. Im Parallelogramm sind gegenüberliegende Seiten gleich lang. Der Umfang beträgt 34 cm. Welche Zahl ist x?",
+     "text": "In der Zeichnung ist ein Parallelogramm ABCD mit zwei Winkelangaben (in Grad) zu sehen. Benachbarte Winkel im Parallelogramm ergänzen sich zu 180°. Welche Zahl ist x?",
      "grafik": {
       "typ": "figur",
       "punkte": {
@@ -65,11 +65,11 @@
        ],
        "C": [
         8,
-        3
+        5.5
        ],
        "D": [
         2,
-        3
+        5.5
        ]
       },
       "flaeche": [
@@ -78,26 +78,28 @@
        "C",
        "D"
       ],
-      "linien": [
+      "winkel": [
        [
         "A",
         "B",
-        "9 cm"
+        "D",
+        "(x + 30)°"
        ],
        [
         "B",
         "C",
-        "x + 2 cm"
+        "A",
+        "(2x + 30)°"
        ]
       ]
      }
     },
     "o": {
-     "wert": 6
+     "wert": 40
     },
-    "c": "(34 - 2 * 9) / 2 - 2",
-    "h": "Wie viele Seiten haben die Länge AB, wie viele die Länge BC? Stelle den Umfang als Gleichung auf.",
-    "w": "Gegenüberliegende Seiten sind gleich lang. Der Umfang ist 2 · 9 + 2 · (x + 2) = 34. Daraus folgt 18 + 2x + 4 = 34, also 2x = 12 und x = 6. Probe: BC = 8 cm, Umfang 2 · 9 + 2 · 8 = 34 cm."
+    "c": "(180 - 30 - 30) / 3",
+    "h": "Liegen die Ecken A und B nebeneinander oder gegenüber? Was gilt dann für die beiden Winkel?",
+    "w": "A und B sind benachbarte Ecken. Benachbarte Winkel ergeben zusammen 180°: (x + 30) + (2x + 30) = 180. Also 3x + 60 = 180, 3x = 120 und x = 40. Probe: 70° + 110° = 180°."
    }
   },
   {
@@ -139,7 +141,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "ABCD ist eine Raute: Alle vier Seiten sind gleich lang. Der Winkel bei A ist α = 50°. Wie groß ist der Winkel zwischen der Seite AB und der Diagonale AC? Weg A: Die Diagonale halbiert den Winkel der Raute. Weg B: Das Dreieck ABC ist gleichschenklig mit AB = BC. Der Winkel β bei B ist der Nachbarwinkel von α. Rechne den Basiswinkel bei A aus."
+     "text": "ABCD ist eine Raute: Alle vier Seiten sind gleich lang. Der Winkel bei A ist α = 50°. Weg A: Die Diagonale halbiert den Winkel der Raute. Weg B: Das Dreieck ABC ist gleichschenklig mit AB = BC. Der Winkel β bei B ist der Nachbarwinkel von α. Rechne den Basiswinkel bei A aus. Wie groß ist der Winkel zwischen der Seite AB und der Diagonale AC?"
     },
     "o": {
      "wert": 25,
@@ -158,8 +160,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.geometrie.deckungsgleich",
-   "regel_name": "Deckungsgleich",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -239,7 +241,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Ein Fliesenleger schneidet eine Raute ABCD mit der Seitenlänge 9 cm und dem Winkel α = 60° bei A entlang der Diagonale BD in zwei Dreiecke. In einer Raute sind alle vier Seiten gleich lang. Wie viele Zentimeter ist der Rand eines der beiden Dreiecke lang?"
+     "text": "Ein Fliesenleger konstruiert eine Raute ABCD aus nur zwei Angaben: der Seitenlänge 9 cm und dem Winkel α = 60° bei A. Er schneidet die Raute entlang der Diagonale BD in zwei Dreiecke. In einer Raute sind alle vier Seiten gleich lang. Wie viele Zentimeter ist der Rand eines der beiden Dreiecke lang?"
     },
     "o": {
      "wert": 27,

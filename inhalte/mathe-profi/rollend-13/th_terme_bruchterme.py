@@ -22,12 +22,12 @@ neu(T, "termwert", "anwenden", Z(
     "Eine Klasse mietet einen Bus. Der Bus kostet 360 € Grundpreis, dazu kommen 6 € Verpflegung je Person. Bei k Personen zahlt jede Person (360 + 6k)/k Euro (k ≥ 1). Wie viel Euro zahlt jede Person bei k = 40?",
     15, "(360 + 6 * 40) / 40", "360 / 40 + 6", "Setze k = 40 im Zähler und im Nenner ein. Rechne den Zähler zuerst aus.",
     "Zähler: 360 + 6 · 40 = 360 + 240 = 600. Nenner: 40. Dann 600 : 40 = 15. Jede Person zahlt 15 €. Probe: 9 € für den Bus plus 6 € Verpflegung.",
-    [(366, "fb.kuerzen.aus_summe", "das k in der Summe im Zähler gekürzt: aus (360 + 6k)/k wird 360 + 6", "360 + 6"), (9, None, "nur den Grundpreis durch die Personenzahl geteilt, die 6 € je Person vergessen", "360 / 40"), (240, None, "nur den Verpflegungsanteil im Zähler gerechnet und nicht geteilt", "6 * 40")], "€"), g="einkleidung", regel="rr.bruchrechnen")
+    [(366, "fb.kuerzen.aus_summe", "das k in der Summe im Zähler gekürzt: aus (360 + 6k)/k wird 360 + 6", "360 + 6"), (9, None, "nur den Grundpreis durch die Personenzahl geteilt, die 6 € je Person vergessen", "360 / 40"), (240, None, "nur den Verpflegungsanteil im Zähler gerechnet und nicht geteilt", "6 * 40")], "€"), g="einkleidung", regel="id.algebra.erlaubte_zahlen")
 neu(T, "termwert", "umkehren", Z(
-    "Für welche Zahl k hat der Term T(x) = (x + k)/(x − 2) an der Stelle x = 5 den Wert 3? (Der Term ist für x ≠ 2 definiert.)",
-    4, "3 * (5 - 2) - 5", "9 - 5", "Rechne den Nenner an der Stelle x = 5 aus. Mit welcher Zahl wurde der Zähler geteilt, um 3 zu erhalten?",
+    "Der Term T(x) = (x + k)/(x − 2) ist für x ≠ 2 definiert. Für welche Zahl k hat er an der Stelle x = 5 den Wert 3?",
+    4, "3 * (5 - 2) - 5", "9 - 5", "Rechne zuerst den Nenner an der Stelle x = 5 aus.",
     "Der Nenner ist 5 − 2 = 3. Der Zähler muss 3 · 3 = 9 sein. Also 5 + k = 9 und k = 4. Probe: (5 + 4)/(5 − 2) = 9 : 3 = 3.",
-    [(-2, None, "den Nenner vergessen: 5 + k = 3", "3 - 5"), (9, None, "nur 3 · 3 gerechnet und die 5 im Zähler nicht abgezogen", "3 * 3"), (16, None, "den Nenner mit x + 2 statt x − 2 berechnet", "3 * (5 + 2) - 5")]), g="rueckwaerts", regel="rr.bruchrechnen")
+    [(-2, None, "den Nenner vergessen: 5 + k = 3", "3 - 5"), (9, None, "nur 3 · 3 gerechnet und die 5 im Zähler nicht abgezogen", "3 * 3"), (16, None, "den Nenner mit x + 2 statt x − 2 berechnet", "3 * (5 + 2) - 5")]), g="rueckwaerts", regel="id.algebra.erlaubte_zahlen")
 # ───────── kuerzen ─────────
 neu(T, "kuerzen", "zwei_wege", Z(
     "Berechne den Wert von (x² − 25)/(x² + 5x) für x = 10 auf zwei Wegen (der Term ist für x ≠ 0 und x ≠ −5 definiert). Weg A: Zähler und Nenner in Faktoren zerlegen, kürzen und dann x = 10 einsetzen. Weg B: x = 10 sofort in Zähler und Nenner einsetzen und den Zahlenbruch ausrechnen. Welchen Wert hat der Term?",
@@ -35,10 +35,10 @@ neu(T, "kuerzen", "zwei_wege", Z(
     "Weg A: Der Zähler ist (x − 5)(x + 5), der Nenner ist x(x + 5). Nach dem Kürzen mit x + 5 bleibt (x − 5)/x. Für x = 10 ist das 5/10 = 0,5. Weg B: Zähler 100 − 25 = 75, Nenner 100 + 50 = 150, und 75 : 150 = 0,5.",
     [(-0.5, "fb.kuerzen.aus_summe", "aus den Summen gekürzt: nur −25 im Zähler und 5x im Nenner übrig gelassen", "-25 / (5 * 10)"), (0.75, None, "im Nenner den Summanden 5x vergessen", "(10 ** 2 - 25) / 10 ** 2"), (2, None, "Zähler und Nenner des gekürzten Terms vertauscht", "10 / (10 - 5)")]), g="mehrschritt", regel="rr.kuerzen")
 neu(T, "kuerzen", "anwenden", Z(
-    "Ein rechteckiges Beet hat den Flächeninhalt (x² − 16) m² und die Länge (x + 4) m (x > 4). Die Breite ist der Quotient aus Fläche und Länge. Wie breit ist das Beet in Metern für x = 12?",
-    8, "(12 ** 2 - 16) / (12 + 4)", "12 - 4", "Zerlege x² − 16 mit einer binomischen Formel in zwei Faktoren. Dann kannst du durch die Länge kürzen.",
-    "x² − 16 = (x − 4)(x + 4). Breite = (x − 4)(x + 4)/(x + 4) = x − 4. Für x = 12 ist das 8 m. Probe: Fläche 144 − 16 = 128 m², Länge 16 m, 128 : 16 = 8.",
-    [(140, "fb.kuerzen.aus_summe", "aus der Summe x + 4 mit der 16 gekürzt: aus (x² − 16)/(x + 4) wird x² − 4", "12 ** 2 - 4"), (128, None, "die Fläche selbst als Breite angegeben, nicht durch die Länge geteilt", "12 ** 2 - 16"), (16, None, "die Länge als Breite angegeben", "12 + 4")], "m"), g="transfer", regel="rr.kuerzen")
+    "Ein rechteckiges Grundstück hat den Flächeninhalt (x² − 16) m² und die Länge (x + 4) m (x > 4). Die Breite ist der Quotient aus Fläche und Länge. Wie breit ist das Grundstück in Metern für x = 60?",
+    56, "(60 ** 2 - 16) / (60 + 4)", "60 - 4", "Die Breite ist ein Quotient. Vereinfache ihn zuerst, bevor du x einsetzt.",
+    "x² − 16 = (x − 4)(x + 4). Breite = (x − 4)(x + 4)/(x + 4) = x − 4. Für x = 60 ist das 56 m. Probe: Fläche 3600 − 16 = 3584 m², Länge 64 m, 3584 : 64 = 56.",
+    [(3584, None, "die Fläche selbst als Breite angegeben, nicht durch die Länge geteilt", "60 ** 2 - 16"), (64, None, "die Länge als Breite angegeben", "60 + 4"), (49, None, "x² − 16 falsch als (x − 4)(x − 4) zerlegt: (x − 4)²/(x + 4)", "(60 - 4) ** 2 / (60 + 4)")], "m"), g="transfer", regel="rr.kuerzen")
 assert gl("(x**2-16)/(x+4)", "x-4")
 # ───────── erweitern ─────────
 neu(T, "erweitern", "umkehren", Z(
@@ -75,7 +75,7 @@ neu(T, "multiplizieren", "zwei_wege", Z(
     "Berechne (x² − 4)/(x + 3) · (x + 3)/(x − 2) für x = 5 auf zwei Wegen (x ≠ −3 und x ≠ 2). Weg A: erst die Brüche multiplizieren, kürzen und vereinfachen, dann x = 5 einsetzen. Weg B: x = 5 sofort in beide Brüche einsetzen und die zwei Zahlenbrüche multiplizieren. Welchen Wert hat das Produkt?",
     7, "(5 ** 2 - 4) / (5 + 3) * ((5 + 3) / (5 - 2))", "5 + 2", "Beide Wege müssen denselben Wert ergeben. Zerlege x² − 4 in zwei Faktoren.",
     "Weg A: (x − 2)(x + 2)/(x + 3) · (x + 3)/(x − 2) = x + 2. Für x = 5 ist das 7. Weg B: 21/8 · 8/3 = 168/24 = 7.",
-    [(168, None, "nur die Zähler der beiden Brüche malgenommen", "(5 ** 2 - 4) * (5 + 3)"), (3, "fb.kuerzen.aus_summe", "beim Kürzen aus der Differenz: aus (x² − 4)/(x − 2) wird x − 2", "5 - 2"), (2.625, None, "nur den ersten Bruch ausgerechnet", "(5 ** 2 - 4) / (5 + 3)")]), g="mehrschritt", regel="rr.bruchrechnen")
+    [(168, None, "nur die Zähler der beiden Brüche malgenommen", "(5 ** 2 - 4) * (5 + 3)"), (3, None, "x² − 4 falsch als (x − 2)(x − 2) zerlegt, dann bleibt beim Kürzen x − 2", "5 - 2"), (2.625, None, "nur den ersten Bruch ausgerechnet", "(5 ** 2 - 4) / (5 + 3)")]), g="mehrschritt", regel="rr.bruchrechnen")
 assert gl("(x**2-4)/(x+3)*(x+3)/(x-2)", "x+2")
 neu(T, "multiplizieren", "umkehren", Z(
     "Das Produkt 4x/(x − 2) · (x − 2)/(a · x²) soll für alle Zahlen x mit x ≠ 0 und x ≠ 2 gleich 2/x sein. Welche Zahl a ist das?",
@@ -87,7 +87,7 @@ assert gl("4*x/(x-2)*(x-2)/(2*x**2)", "2/x")
 _f = lambda k: wert_an("(x+6)/(x+2)", k)
 neu(T, "fehler_finden", "bruecke", W(
     "Kim behauptet: Es gilt (x + 6)/(x + 2) = 3 für alle Zahlen x ≠ −2. Die Tabelle zeigt beide Seiten für einige Zahlen x. Was folgt aus der Tabelle?",
-    "Die Behauptung ist falsch: Schon für x = 2 ist der linke Wert 2 und nicht 3.",
+    "Die Behauptung ist falsch: Zum Beispiel für x = 2 ist der linke Wert 2 und nicht 3.",
     [("Die Behauptung ist richtig, denn für x = 0 stimmen beide Seiten überein.", "von einem einzigen passenden Beispiel auf alle Zahlen geschlossen"), ("Die Behauptung ist falsch, denn für x = 0 sind beide Seiten verschieden.", "die Spalte x = 0 falsch gelesen: dort sind beide Seiten gleich 3")],
     "Eine Behauptung „für alle x“ ist schon falsch, wenn sie für eine einzige Zahl nicht stimmt. Suche eine solche Zahl in der Tabelle.",
     "Für x = 0 ist (0 + 6)/(0 + 2) = 3, die Seiten sind gleich. Für x = 2 ist 8/4 = 2, nicht 3. Ein einziges Gegenbeispiel genügt, um „für alle x“ zu widerlegen. Gekürzt werden darf nicht aus einer Summe.",
@@ -95,7 +95,7 @@ neu(T, "fehler_finden", "bruecke", W(
     grafik=TAB(["x", "0", "1", "2", "4"], ["(x + 6)/(x + 2)", "3", "7/3", "2", "5/3"], ["rechte Seite 3", "3", "3", "3", "3"])), g="darstellung", regel="rr.kuerzen")
 neu(T, "fehler_finden", "umkehren", Z(
     "Kim kürzt falsch und behauptet (x² + 9)/(x + 3) = x + 3. Die Behauptung ist für fast alle Zahlen falsch, aber für genau eine Zahl x ≠ −3 stimmt sie zufällig. Für welche Zahl?",
-    0, "(9 - 9) / 6", 0, "Setze beide Seiten gleich. Multipliziere mit dem Nenner x + 3 und löse die Gleichung.",
+    0, "(9 - 9) / 6", 0, "Für welche Zahlen x sind beide Seiten gleich?",
     "(x² + 9)/(x + 3) = x + 3 bedeutet x² + 9 = (x + 3)² = x² + 6x + 9. Dann 6x = 0, also x = 0. Probe: 9/3 = 3 und 0 + 3 = 3. Für alle anderen Zahlen x ≠ −3 ist die Behauptung falsch, zum Beispiel für x = 1: 10/4 ist nicht 4.",
     [(1.5, None, "die 9 nicht abgezogen: 6x = 9", "9 / 6"), (-1.5, None, "das Vorzeichen vertauscht: 6x = −9", "-9 / 6"), (-3, "fb.erlaubte_zahlen.nullstelle_des_nenners_als_loesung", "die Nullstelle des Nenners als Lösung angegeben", "-3")]), g="rueckwaerts", regel="rr.kuerzen")
 assert gl("(x**2+9)/(x+3)", "x+3") is False

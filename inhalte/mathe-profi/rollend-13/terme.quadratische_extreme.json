@@ -20,8 +20,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.potenz",
-   "regel_name": "Potenzen",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -70,8 +70,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "rr.potenz",
-   "regel_name": "Potenzen",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -101,7 +101,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Die Funktion f(x) = x² + 8x + 5 soll in die Form (x + a)² + b gebracht werden. Welche Zahl ist b? Weg A: quadratische Ergänzung. Weg B: (x + a)² + b ausmultiplizieren und die Zahlen vor x sowie die Zahlen ohne x vergleichen."
+     "text": "Die Funktion f(x) = x² + 8x + 5 soll in die Form (x + a)² + b gebracht werden. Weg A: quadratische Ergänzung. Weg B: (x + a)² + b ausmultiplizieren und die Zahlen vor x sowie die Zahlen ohne x vergleichen. Welche Zahl ist b?"
     },
     "o": {
      "wert": -11
@@ -119,8 +119,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.funktionen.gleichung_form",
-   "regel_name": "Gleichung und Form",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -169,8 +169,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.funktionen.gleichung_form",
-   "regel_name": "Gleichung und Form",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -181,8 +181,8 @@
     },
     {
      "antwort": 4,
-     "fehlbild": "fb.potenz.basis_mal_hochzahl",
-     "regel_des_fehlbilds": "rr.potenz",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "das Quadrat der Klammer nicht gebildet"
     },
     {
@@ -206,7 +206,7 @@
      "wert": 2
     },
     "c": "(9 - 1) / (4 - 2) ** 2",
-    "h": "Setze die Koordinaten von P ein. Rechne zuerst die Klammer und das Quadrat aus.",
+    "h": "Der Punkt P liegt auf der Parabel.",
     "w": "Aus 9 = a · (4 − 2)² + 1 folgt 9 = 4a + 1, also 4a = 8 und a = 2. Probe: y = 2(x − 2)² + 1 gibt für x = 4 den Wert 2 · 4 + 1 = 9."
    }
   },
@@ -218,8 +218,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.funktionen.gleichung_form",
-   "regel_name": "Gleichung und Form",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -249,7 +249,30 @@
     "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "Die Funktion f(x) = x² + bx + c hat die Nullstellen 1 und 5. Welchen kleinsten Funktionswert hat f für alle reellen Zahlen x?"
+     "text": "Die Zeichnung zeigt die beiden Nullstellen der Funktion f(x) = x² + bx + c. Welchen kleinsten Funktionswert hat f für alle reellen Zahlen x?",
+     "grafik": {
+      "typ": "koordinaten",
+      "x": [
+       -1,
+       7
+      ],
+      "y": [
+       -1,
+       3
+      ],
+      "punkte": [
+       {
+        "x": 1,
+        "y": 0,
+        "name": "N1"
+       },
+       {
+        "x": 5,
+        "y": 0,
+        "name": "N2"
+       }
+      ]
+     }
     },
     "o": {
      "wert": -4
@@ -267,8 +290,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "id.funktionen.gleichung_form",
-   "regel_name": "Gleichung und Form",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -324,8 +347,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.funktionen.gleichung_form",
-   "regel_name": "Gleichung und Form",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -373,8 +396,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.funktionen.gleichung_form",
-   "regel_name": "Gleichung und Form",
+   "regel": "id.algebra.term",
+   "regel_name": "Term",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -411,7 +434,7 @@
      "einheit": "€"
     },
     "c": "-2 * 4 ** 2 + 20 * 4 - 30",
-    "h": "Prüfe, ob die Stelle des größten Wertes der ganzen Parabel im erlaubten Preisbereich liegt.",
+    "h": "Beachte, welche Preise erlaubt sind.",
     "w": "G(p) = −2(p − 5)² + 20. Der größte Wert der ganzen Parabel liegt bei p = 5, aber der Preis darf nur zwischen 3 und 4 liegen. In diesem Bereich wächst G, denn der Scheitel liegt weiter rechts. Der größte Gewinn ist bei p = 4: G(4) = −32 + 80 − 30 = 18."
    }
   },
@@ -423,8 +446,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.funktionen.gleichung_form",
-   "regel_name": "Gleichung und Form",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -473,8 +496,8 @@
    "typ": "Zwei Wege vergleichen",
    "form": "zwei_wege",
    "antwortform": "zahl",
-   "regel": "id.funktionen.gleichung_form",
-   "regel_name": "Gleichung und Form",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -504,7 +527,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Ein Landwirt zäunt an einer langen Mauer ein Rechteck ab. Die Mauer ist eine Seite. Für die drei anderen Seiten hat er 40 m Zaun, der ganz verbaut wird. Wie groß ist die größte Fläche in Quadratmetern? Weg A: Funktion der Fläche in Scheitelform umschreiben. Weg B: Nullstellen der Funktion bestimmen und die Symmetrie der Parabel nutzen."
+     "text": "Ein Landwirt zäunt an einer langen Mauer ein Rechteck ab. Die Mauer ist eine Seite. Für die drei anderen Seiten hat er 40 m Zaun, der ganz verbaut wird. Weg A: Funktion der Fläche in Scheitelform umschreiben. Weg B: Nullstellen der Funktion bestimmen und die Symmetrie der Parabel nutzen. Wie groß ist die größte Fläche in Quadratmetern?"
     },
     "o": {
      "wert": 200,

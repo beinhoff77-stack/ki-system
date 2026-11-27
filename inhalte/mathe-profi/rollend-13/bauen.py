@@ -45,6 +45,17 @@ THEMEN = {
     "raum.schraegbilder_teil2": ("raum.schraegbilder", ["koordinaten", "rotation", "axialschnitt", "koerper_symmetrie"]),
 }
 KUERZEL = "R8"
+REGEL_AUSNAHME = {("geometrie.konstruktion", "id.geometrie.winkel"),          # Winkel im Parallelogramm und in der Raute: Winkel an Parallelen (Nachbarwinkel)
+                  ("gleichungen.linear", "rr.ausmultiplizieren"),            # Klammer in der Gleichung zuerst ausmultiplizieren
+                  ("gleichungen.bruch", "rr.bruchrechnen"),                  # gleichnamige Brüche addieren
+                  ("gleichungen.bruch", "rr.verhaeltnis"),                   # Verhältnisgleichung, Wert für eins
+                  ("funktionen.linear", "id.funktionen.gleichung_form"),     # Parameter in der Geradengleichung verschiebt oder dreht die Gerade
+                  ("terme.umformen", "rr.ausmultiplizieren")}          # (Thema-Datei, Idee): Themenliste nennt das Thema nicht, Text passt trotzdem (von Hand gelesen)
+FEHLBILD_GELESEN = {("R8-V023", "fb.ausmultiplizieren.nur_erster_summand"), ("R8-V025", "fb.ausmultiplizieren.nur_erster_summand"), ("R8-V028", "fb.ausmultiplizieren.nur_erster_summand"),
+                    ("R8-V049", "fb.ausmultiplizieren.nur_erster_summand"), ("R8-V050", "fb.ausmultiplizieren.nur_erster_summand"), ("R8-V092", "fb.ausmultiplizieren.nur_erster_summand"),
+                    ("R8-V055", "fb.verhaeltnis.addiert_statt_malgenommen"), ("R8-V063", "fb.reihenfolge.mal_vor_hoch"), ("R8-V067", "fb.reihenfolge.links_nach_rechts"),
+                    ("R8-V068", "fb.potenz.basis_mal_hochzahl"), ("R8-V068", "fb.vorzeichen.falsches_zeichen"), ("R8-V072", "fb.potenz.basis_mal_hochzahl"), ("R8-V074", "fb.potenz.basis_mal_hochzahl"),
+                    ("R8-V101", "fb.gleichung_form.falsche_richtung_verschoben")}        # (Kennung der Aufgabe, Fehlbild-Kennung): Katalogtext genau gegen den gespeicherten Fehlwert gelesen
 GEPRUEFT = ("umkehren", "zwei_wege", "bruecke", "anwenden")
 ZAEHLT_JA_AUS = ("umkehren", "zwei_wege", "bruecke", "verfahren_waehlen", "anwenden")
 
@@ -217,7 +228,9 @@ for a in A:
     gleich_ok = bool(q.pop("_gleich_ok", False))
     zaehler += 1
     kenn = f"{KUERZEL}-V{zaehler:03d}"
-    assert a["regel"] in REGELN, (kenn, a["regel"])
+    assert a["regel"] is None or a["regel"] in REGELN, (kenn, a["regel"])
+    # Katalog (kennungen.json): die tragende Idee muss zum Thema passen (Ausnahmen von Hand gelesen); Kennung leer, wenn der Katalog nichts Passendes hat
+    assert a["regel"] is None or datei in REGELN[a["regel"]]["themen"] or (datei, a["regel"]) in REGEL_AUSNAHME, (kenn, a["regel"], "Thema steht nicht in der Themenliste der Idee")
     assert ip.STUFE_VON[a["g"]] == a["s"], kenn
     assert (datei, a["lk"]) in KARTE, (kenn, a["lk"])
     q.update({"l": a["lk"], "t": KARTE[(datei, a["lk"])], "p": "uebung", "s": a["s"], "g": a["g"]})
@@ -242,11 +255,12 @@ for a in A:
     alle_texte.add(text)
     alle_bau[datei].add(b)
     eintrag = dict(kennung=kenn, thema=a["thema"], lernkarte=a["lk"], stufe=a["s"], typ=FORM[a["form"]][0], form=a["form"], antwortform=q["y"],
-                   regel=a["regel"], regel_name=REGELN[a["regel"]]["name"], zaehlt=a["zaehlt"], fehlbilder=[])
+                   regel=a["regel"], regel_name=REGELN[a["regel"]]["name"] if a["regel"] else None, zaehlt=a["zaehlt"], fehlbilder=[])
 
     def fb_eintrag(ort, antwort, fbk, beschr):
         global n_fb
-        assert fbk is None or fbk in FEHLBILD, (kenn, fbk)
+        assert fbk is None or fbk in FEHLBILD, (kenn, fbk, "Fehlbild-Kennung nicht im Katalog")
+        assert fbk is None or datei in REGELN[FEHLBILD[fbk]]["themen"] or (kenn, fbk) in FEHLBILD_GELESEN, (kenn, fbk, "Fehlbild-Kennung: Thema nicht in der Themenliste, Katalogtext von Hand lesen und in FEHLBILD_GELESEN eintragen")
         assert beschr and len(beschr) > 5, (kenn, "Beschreibung des Fehlbilds")
         n_fb += 1
         eintrag["fehlbilder"].append(dict(**ort, antwort=antwort, fehlbild=fbk, regel_des_fehlbilds=FEHLBILD.get(fbk), beschreibung=beschr))

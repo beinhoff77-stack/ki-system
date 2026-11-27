@@ -25,14 +25,14 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "6/(x + 1)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "dieser Term ist an der Stelle x = −1 nicht definiert, nicht an der Stelle x = 1; das Vorzeichen der Nullstelle des Nenners ist vertauscht"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "6/x",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -71,12 +71,12 @@
      }
     },
     "a": [
-     "6/(x − 1)",
      "6/(x + 1)",
-     "6/x"
+     "6/x",
+     "6/(x − 1)"
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "h": "An welcher Stelle wird der Nenner 0? Setze auch x = 2 ein und vergleiche mit der Tabelle.",
     "w": "Für 6/(x − 1) ist der Nenner bei x = 1 gleich 0, dort ist der Term nicht definiert. Die Werte: x = −1 ergibt 6/(−2) = −3, x = 0 ergibt −6, x = 2 ergibt 6, x = 3 ergibt 3. Das passt zur Tabelle."
@@ -139,8 +139,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": "id.algebra.erlaubte_zahlen",
+   "regel_name": "Erlaubte Zahlen",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -189,8 +189,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": "id.algebra.erlaubte_zahlen",
+   "regel_name": "Erlaubte Zahlen",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -220,13 +220,13 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Für welche Zahl k hat der Term T(x) = (x + k)/(x − 2) an der Stelle x = 5 den Wert 3? (Der Term ist für x ≠ 2 definiert.)"
+     "text": "Der Term T(x) = (x + k)/(x − 2) ist für x ≠ 2 definiert. Für welche Zahl k hat er an der Stelle x = 5 den Wert 3?"
     },
     "o": {
      "wert": 4
     },
     "c": "3 * (5 - 2) - 5",
-    "h": "Rechne den Nenner an der Stelle x = 5 aus. Mit welcher Zahl wurde der Zähler geteilt, um 3 zu erhalten?",
+    "h": "Rechne zuerst den Nenner an der Stelle x = 5 aus.",
     "w": "Der Nenner ist 5 − 2 = 3. Der Zähler muss 3 · 3 = 9 sein. Also 5 + k = 9 und k = 4. Probe: (5 + 4)/(5 − 2) = 9 : 3 = 3."
    }
   },
@@ -292,22 +292,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 140,
-     "fehlbild": "fb.kuerzen.aus_summe",
-     "regel_des_fehlbilds": "rr.kuerzen",
-     "beschreibung": "aus der Summe x + 4 mit der 16 gekürzt: aus (x² − 16)/(x + 4) wird x² − 4"
-    },
-    {
-     "antwort": 128,
+     "antwort": 3584,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Fläche selbst als Breite angegeben, nicht durch die Länge geteilt"
     },
     {
-     "antwort": 16,
+     "antwort": 64,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Länge als Breite angegeben"
+    },
+    {
+     "antwort": 49,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x² − 16 falsch als (x − 4)(x − 4) zerlegt: (x − 4)²/(x + 4)"
     }
    ],
    "aufgabe": {
@@ -318,15 +318,15 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Ein rechteckiges Beet hat den Flächeninhalt (x² − 16) m² und die Länge (x + 4) m (x > 4). Die Breite ist der Quotient aus Fläche und Länge. Wie breit ist das Beet in Metern für x = 12?"
+     "text": "Ein rechteckiges Grundstück hat den Flächeninhalt (x² − 16) m² und die Länge (x + 4) m (x > 4). Die Breite ist der Quotient aus Fläche und Länge. Wie breit ist das Grundstück in Metern für x = 60?"
     },
     "o": {
-     "wert": 8,
+     "wert": 56,
      "einheit": "m"
     },
-    "c": "(12 ** 2 - 16) / (12 + 4)",
-    "h": "Zerlege x² − 16 mit einer binomischen Formel in zwei Faktoren. Dann kannst du durch die Länge kürzen.",
-    "w": "x² − 16 = (x − 4)(x + 4). Breite = (x − 4)(x + 4)/(x + 4) = x − 4. Für x = 12 ist das 8 m. Probe: Fläche 144 − 16 = 128 m², Länge 16 m, 128 : 16 = 8."
+    "c": "(60 ** 2 - 16) / (60 + 4)",
+    "h": "Die Breite ist ein Quotient. Vereinfache ihn zuerst, bevor du x einsetzt.",
+    "w": "x² − 16 = (x − 4)(x + 4). Breite = (x − 4)(x + 4)/(x + 4) = x − 4. Für x = 60 ist das 56 m. Probe: Fläche 3600 − 16 = 3584 m², Länge 64 m, 3584 : 64 = 56."
    }
   },
   {
@@ -440,7 +440,7 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 0,
+     "index": 1,
      "antwort": "2/(2x + 1)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -484,12 +484,12 @@
      }
     },
     "a": [
-     "2/(2x + 1)",
      "(2x + 1)/(x² + x)",
+     "2/(2x + 1)",
      "2/(x² + x)"
     ],
     "o": {
-     "index": 1
+     "index": 0
     },
     "h": "Setze x = 1 in jeden Term ein und vergleiche mit der Tabelle.",
     "w": "Hauptnenner x(x + 1) = x² + x: 1/x = (x + 1)/(x² + x) und 1/(x + 1) = x/(x² + x). Summe: (2x + 1)/(x² + x). Für x = 1: 3/2, für x = 2: 5/6, für x = 3: 7/12, für x = 4: 9/20."
@@ -564,9 +564,9 @@
     },
     {
      "antwort": 3,
-     "fehlbild": "fb.kuerzen.aus_summe",
-     "regel_des_fehlbilds": "rr.kuerzen",
-     "beschreibung": "beim Kürzen aus der Differenz: aus (x² − 4)/(x − 2) wird x − 2"
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "x² − 4 falsch als (x − 2)(x − 2) zerlegt, dann bleibt beim Kürzen x − 2"
     },
     {
      "antwort": 2.625,
@@ -707,7 +707,7 @@
     },
     "a": [
      "Die Behauptung ist richtig, denn für x = 0 stimmen beide Seiten überein.",
-     "Die Behauptung ist falsch: Schon für x = 2 ist der linke Wert 2 und nicht 3.",
+     "Die Behauptung ist falsch: Zum Beispiel für x = 2 ist der linke Wert 2 und nicht 3.",
      "Die Behauptung ist falsch, denn für x = 0 sind beide Seiten verschieden."
     ],
     "o": {
@@ -762,7 +762,7 @@
      "wert": 0
     },
     "c": "(9 - 9) / 6",
-    "h": "Setze beide Seiten gleich. Multipliziere mit dem Nenner x + 3 und löse die Gleichung.",
+    "h": "Für welche Zahlen x sind beide Seiten gleich?",
     "w": "(x² + 9)/(x + 3) = x + 3 bedeutet x² + 9 = (x + 3)² = x² + 6x + 9. Dann 6x = 0, also x = 0. Probe: 9/3 = 3 und 0 + 3 = 3. Für alle anderen Zahlen x ≠ −3 ist die Behauptung falsch, zum Beispiel für x = 1: 10/4 ist nicht 4."
    }
   }

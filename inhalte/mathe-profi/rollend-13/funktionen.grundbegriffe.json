@@ -103,22 +103,22 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den y-Wert 9 selbst als a eingetragen"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 + 3 gerechnet statt 9 − 3"
+    },
+    {
      "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den y-Wert des ersten Paares genommen"
-    },
-    {
-     "antwort": 5,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "den y-Wert des dritten Paares genommen"
-    },
-    {
-     "antwort": 2,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahl x = 2 selbst als a eingetragen"
     }
    ],
    "aufgabe": {
@@ -129,14 +129,14 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Die Zuordnung hat die Paare (1 | 4), (2 | 6), (3 | 5) und (2 | a). Sie soll eine Funktion sein. Welche Zahl muss a sein?"
+     "text": "Die Zuordnung hat die Paare (1 | 4), (2 | a + 3), (3 | 5) und (2 | 9). Sie soll eine Funktion sein. Welche Zahl muss a sein?"
     },
     "o": {
      "wert": 6
     },
-    "c": "6",
-    "h": "Bei einer Funktion gehört zu jedem x genau ein y. Welches x kommt zweimal vor?",
-    "w": "Das x = 2 kommt zweimal vor: (2 | 6) und (2 | a). Eine Funktion ordnet 2 nur einen y-Wert zu, also muss a = 6 sein. Dann steht dasselbe Paar zweimal da, das ist erlaubt."
+    "c": "9 - 3",
+    "h": "Bei einer Funktion gehört zu jedem x genau ein y. Zu welchem x gibt es mehr als ein Paar?",
+    "w": "Zum x = 2 gibt es zwei Paare: (2 | a + 3) und (2 | 9). Eine Funktion ordnet 2 nur einen y-Wert zu, also muss a + 3 = 9 gelten und a = 6. Probe: Mit a = 6 ist (2 | 9) beide Male dasselbe Paar, das ist erlaubt."
    }
   },
   {
@@ -152,14 +152,14 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "index": 1,
+     "index": 0,
      "antwort": "W = {−2; −1; 0; 1; 2}",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Definitionsmenge als Wertemenge angegeben"
     },
     {
-     "index": 2,
+     "index": 1,
      "antwort": "W = {0; 3}",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
@@ -198,12 +198,12 @@
      }
     },
     "a": [
-     "W = {−1; 0; 3}",
      "W = {−2; −1; 0; 1; 2}",
-     "W = {0; 3}"
+     "W = {0; 3}",
+     "W = {−1; 0; 3}"
     ],
     "o": {
-     "index": 0
+     "index": 2
     },
     "h": "Wertemenge: Welche verschiedenen Funktionswerte stehen in der unteren Zeile? Jeder Wert wird nur einmal genannt.",
     "w": "Die Funktionswerte sind 3, 0, −1, 0, 3. Verschiedene Werte: −1, 0 und 3. Also W = {−1; 0; 3}. Die Zahlen aus D sind die Eingaben, nicht die Funktionswerte."
@@ -237,7 +237,7 @@
      "antwort": 5,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Werte 5 und −1 für verschieden gehalten und mitgezählt"
+     "beschreibung": "den Wert −3 doppelt gezählt (bei x = 1 und bei x = 3)"
     }
    ],
    "aufgabe": {
@@ -248,7 +248,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Die Funktion f(x) = x² − 4x hat die Definitionsmenge D = {−1; 0; 1; 2; 3; 4; 5}. Wie viele Elemente hat die Wertemenge W? Weg A: alle sieben Funktionswerte ausrechnen. Weg B: nur f(2) und die Hälfte der Stellen ausrechnen, denn die Werte sind symmetrisch zur Stelle x = 2: Stellen mit gleichem Abstand von 2 haben denselben Funktionswert."
+     "text": "Die Funktion f(x) = x² − 4x hat die Definitionsmenge D = {−1; 0; 1; 2; 3; 4; 5}. Weg A: alle sieben Funktionswerte ausrechnen. Weg B: nur f(2) und die Hälfte der Stellen ausrechnen, denn die Werte sind symmetrisch zur Stelle x = 2: Stellen mit gleichem Abstand von 2 haben denselben Funktionswert. Wie viele Elemente hat die Wertemenge W?"
     },
     "o": {
      "wert": 4
@@ -266,8 +266,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.reihenfolge",
-   "regel_name": "Reihenfolge beim Rechnen",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -316,14 +316,14 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "rr.reihenfolge",
-   "regel_name": "Reihenfolge beim Rechnen",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
    "zaehlt": "ja",
    "fehlbilder": [
     {
      "antwort": 6,
-     "fehlbild": "fb.potenz.basis_mal_hochzahl",
-     "regel_des_fehlbilds": "rr.potenz",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
      "beschreibung": "2² als 2 gerechnet: 2a + 3 = 15"
     },
     {
@@ -443,8 +443,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.gegenrechnung",
-   "regel_name": "Gegenrechnung",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -481,7 +481,7 @@
      "einheit": "Besuche"
     },
     "c": "20 / (6 - 4)",
-    "h": "Der Preis pro Besuch ist (20 + 4n)/n. Setze diesen Bruch gleich 6 und löse nach n auf.",
+    "h": "Wie berechnest du den Preis pro Besuch aus K(n) und n?",
     "w": "Gleichung: (20 + 4n)/n = 6. Mal n: 20 + 4n = 6n. Dann 20 = 2n und n = 10. Probe: K(10) = 60 €, und 60 : 10 = 6 €."
    }
   },
@@ -493,8 +493,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.reihenfolge",
-   "regel_name": "Reihenfolge beim Rechnen",
+   "regel": "id.funktionen.zuordnung",
+   "regel_name": "Zuordnung",
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -582,7 +582,7 @@
      "antwort": 77,
      "fehlbild": "fb.vorzeichen.falsches_zeichen",
      "regel_des_fehlbilds": "rr.vorzeichen",
-     "beschreibung": "das Minus bei −6x übersehen"
+     "beschreibung": "das Minus vor dem Glied 6x übersehen und 36 + 36 + 5 gerechnet"
     }
    ],
    "aufgabe": {
@@ -593,7 +593,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Die Tabelle gehört zur Funktion f(x) = x² − 6x + 5. Welcher Wert gehört an die Stelle x = 6? Weg A: f(6) direkt ausrechnen. Weg B: Die Werte der Tabelle sind symmetrisch zur Stelle x = 3. Lies den Wert an der Stelle ab, die genauso weit von 3 entfernt ist wie 6.",
+     "text": "Die Tabelle gehört zur Funktion f(x) = x² − 6x + 5. Weg A: f(6) direkt ausrechnen. Weg B: Die Werte der Tabelle sind symmetrisch zur Stelle x = 3. Lies den Wert an der Stelle ab, die genauso weit von 3 entfernt ist wie 6. Welcher Wert gehört an die Stelle x = 6?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -740,7 +740,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Die Zeichnung zeigt die Graphen von f(x) = 0,5x + 1 und g(x) = −x + 7. Bei welcher Stelle x haben beide Funktionen denselben Funktionswert? Weg A: Lies die x-Koordinate des Schnittpunkts am Bild ab. Weg B: Setze f(x) = g(x) und löse die Gleichung.",
+     "text": "Die Zeichnung zeigt die Graphen von f(x) = 0,5x + 1 und g(x) = −x + 7. Weg A: Lies die x-Koordinate des Schnittpunkts am Bild ab. Weg B: Setze f(x) = g(x) und löse die Gleichung. Bei welcher Stelle x haben beide Funktionen denselben Funktionswert?",
      "grafik": {
       "typ": "koordinaten",
       "x": [
@@ -789,17 +789,17 @@
    "fehlbilder": [
     {
      "index": 0,
-     "antwort": "f(x) = (x − 2)(x + 3)",
+     "antwort": "x = 2 und x = −3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Vorzeichen der Nullstellen vertauscht: dieser Graph schneidet die x-Achse bei 2 und bei −3"
+     "beschreibung": "die Vorzeichen der Nullstellen vertauscht: für x = 2 ist f(2) = −4 und nicht 0"
     },
     {
-     "index": 2,
-     "antwort": "f(x) = (x + 2)(x + 3)",
+     "index": 1,
+     "antwort": "x = −6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "beide Nullstellen mit dem Minus der Zahl übernommen: dieser Graph schneidet die x-Achse bei −2 und bei −3"
+     "beschreibung": "den Achsenabschnitt −6 als Nullstelle genommen: der Graph schneidet bei −6 die y-Achse, nicht die x-Achse"
     }
    ],
    "aufgabe": {
@@ -810,7 +810,7 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Der Graph einer Funktion f(x) = x² + bx + c schneidet die x-Achse bei x = −2 und bei x = 3 (siehe Zeichnung). Welche Funktionsgleichung gehört zu dem Graphen?",
+     "text": "Die Zeichnung zeigt den Graphen von f(x) = x² − x − 6. Welche Zahlen sind die Nullstellen von f?",
      "grafik": {
       "typ": "koordinaten",
       "x": [
@@ -830,29 +830,19 @@
          1
         ]
        }
-      ],
-      "punkte": [
-       {
-        "x": -2,
-        "y": 0
-       },
-       {
-        "x": 3,
-        "y": 0
-       }
       ]
      }
     },
     "a": [
-     "f(x) = (x − 2)(x + 3)",
-     "f(x) = (x + 2)(x − 3)",
-     "f(x) = (x + 2)(x + 3)"
+     "x = 2 und x = −3",
+     "x = −6",
+     "x = −2 und x = 3"
     ],
     "o": {
-     "index": 1
+     "index": 2
     },
-    "h": "Ein Produkt ist 0, wenn ein Faktor 0 ist. Für welches x wird (x + 2) null, für welches (x − 3)?",
-    "w": "Für x = −2 ist x + 2 = 0 und für x = 3 ist x − 3 = 0. Dann ist das Produkt (x + 2)(x − 3) in beiden Fällen 0. Ausmultipliziert: x² − x − 6. Die anderen Terme haben die Nullstellen 2 und −3 beziehungsweise −2 und −3."
+    "h": "Nullstellen liegen dort, wo der Graph die x-Achse schneidet. Prüfe mit f(x) = 0 durch Einsetzen.",
+    "w": "Der Graph schneidet die x-Achse bei x = −2 und bei x = 3. Probe: f(−2) = 4 + 2 − 6 = 0 und f(3) = 9 − 3 − 6 = 0. Mit x = 2 ergibt sich 4 − 2 − 6 = −4, mit x = −3 ergibt sich 9 + 3 − 6 = 6. Die Zahl −6 ist der Wert f(0), also der Schnittpunkt mit der y-Achse."
    }
   },
   {
@@ -921,7 +911,7 @@
      "antwort": "Nur B und D",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die y-Werte falsch zugeordnet: bei x = 2 ist f(2) = 4 und nicht 3, und bei x = 4 ist f(4) = 0"
+     "beschreibung": "genau die Punkte gewählt, die nicht auf dem Graphen liegen: bei x = 2 ist f(2) = 4 und nicht 3, bei x = 4 ist f(4) = 0"
     },
     {
      "index": 2,
@@ -946,7 +936,7 @@
     "g": "mehrschritt",
     "y": "auswahl",
     "f": {
-     "text": "Gegeben sind f(x) = −x² + 4x und die Punkte A(1 | 3), B(2 | 3), C(3 | 3) und D(4 | 4). Welche der Punkte liegen auf dem Graphen von f? Weg A: Prüfe jeden Punkt durch Einsetzen. Weg B: Zeichne den Graphen (siehe Bild) und prüfe, ob der Punkt auf der Kurve liegt.",
+     "text": "Gegeben sind f(x) = −x² + 4x und die Punkte A(1 | 3), B(2 | 3), C(3 | 3) und D(4 | 4). Weg A: Prüfe jeden Punkt durch Einsetzen. Weg B: Sieh im Bild nach, ob der Punkt auf der Kurve liegt. Welche der Punkte liegen auf dem Graphen von f?",
      "grafik": {
       "typ": "koordinaten",
       "x": [
@@ -1050,7 +1040,7 @@
      "einheit": "m"
     },
     "c": "5.5 - (-0.05 * 12 ** 2 + 12)",
-    "h": "Berechne zuerst die Höhe des Balls bei x = 12. Vergleiche sie mit der Höhe der Spitze.",
+    "h": "Vergleiche zwei Höhen an derselben Stelle x = 12.",
     "w": "h(12) = −0,05 · 144 + 12 = −7,2 + 12 = 4,8. Die Baumspitze liegt bei 5,5 m, der Ball fliegt dort nur 4,8 m hoch. Unterschied: 5,5 − 4,8 = 0,7 m. Der Punkt P liegt nicht auf dem Graphen, sondern 0,7 m darüber; der Ball trifft den Baum."
    }
   },
@@ -1143,14 +1133,14 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Kerze A ist 24 cm hoch und brennt gleichmäßig um 2 cm pro Stunde ab. Kerze B ist 30 cm hoch und brennt gleichmäßig um 3 cm pro Stunde ab. Beide werden gleichzeitig angezündet. Nach wie vielen Stunden sind beide gleich hoch? Weg A: Gleichung 24 − 2t = 30 − 3t lösen. Weg B: eine Tabelle für t = 0, 1, 2, … anlegen und die Zeile mit gleichen Höhen suchen."
+     "text": "Kerze A ist 24 cm hoch und brennt gleichmäßig um 2 cm pro Stunde ab. Kerze B ist 30 cm hoch und brennt gleichmäßig um 3 cm pro Stunde ab. Beide werden gleichzeitig angezündet. Weg A: Gleichung 24 − 2t = 30 − 3t lösen. Weg B: eine Tabelle für t = 0, 1, 2, … anlegen und die Zeile mit gleichen Höhen suchen. Nach wie vielen Stunden sind beide gleich hoch?"
     },
     "o": {
      "wert": 6,
      "einheit": "Stunden"
     },
     "c": "(30 - 24) / (3 - 2)",
-    "h": "Beide Wege müssen dieselbe Zahl ergeben. Bei Weg B wächst der Höhenunterschied oder er schrumpft Stunde für Stunde um dieselbe Zahl.",
+    "h": "Beide Wege müssen dieselbe Zahl ergeben. Bei Weg B ändert sich der Höhenunterschied der beiden Kerzen Stunde für Stunde um dieselbe Zahl.",
     "w": "Weg A: 24 − 2t = 30 − 3t, also t = 6. Weg B: Die Höhen nach 0, 1, 2, 3, 4, 5, 6 Stunden: A: 24, 22, 20, 18, 16, 14, 12 und B: 30, 27, 24, 21, 18, 15, 12. Nach 6 Stunden sind beide 12 cm hoch."
    }
   }

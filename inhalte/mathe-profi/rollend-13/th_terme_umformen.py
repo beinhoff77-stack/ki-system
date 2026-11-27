@@ -20,7 +20,7 @@ assert gl("7*x+3-5*x+2*x-8", "4*x-5")
 
 # ───────── produkte ─────────
 neu(T, "produkte", "anwenden", Z(
-    "Aus einem Tank fließt Wasser ab. Pro Minute ändert sich die Füllmenge um (−4a) Liter. Das Ventil bleibt 3b Minuten offen. Dabei ist a = 5 und b = 2. Um wie viele Liter ändert sich die Füllmenge insgesamt? Gib die Abnahme als negative Zahl an.",
+    "Aus einem Tank fließt Wasser ab. Pro Minute ändert sich die Füllmenge um (−4a) Liter. Das Ventil bleibt 3b Minuten offen. Dabei ist a = 5 und b = 2. Eine Abnahme zählt als negative Zahl. Um wie viele Liter ändert sich die Füllmenge insgesamt?",
     -120, "(-4 * 5) * (3 * 2)", "-4 * 3 * 5 * 2", "Die gesamte Änderung ist die Änderung pro Minute mal die Zahl der Minuten. Vereinfache zuerst (−4a)·(3b).",
     "(−4a)·(3b) = −12ab. Für a = 5 und b = 2 ist das −12 · 5 · 2 = −120. Die Füllmenge nimmt um 120 Liter ab.",
     [(120, "fb.vorzeichen.falsches_zeichen", "das Minus vergessen: 4 · 5 · 3 · 2", "4 * 5 * 3 * 2"), (-14, None, "addiert statt malgenommen: −4 · 5 + 3 · 2", "-4 * 5 + 3 * 2"), (-60, None, "das b nicht eingesetzt: der Faktor 3 statt 3b", "(-4 * 5) * 3")], "Liter"), g="einkleidung", regel="rr.vorzeichen")
@@ -49,7 +49,7 @@ neu(T, "ausmultiplizieren", "zwei_wege", Z(
     "In einem Saal stehen 17 Reihen mit je 24 Stühlen. Berechne die Zahl der Stühle im Kopf mit dem Verteilungsgesetz auf zwei Wegen. Weg A: 17 · (20 + 4). Weg B: (10 + 7) · 24. Wie viele Stühle sind es?",
     408, "17 * (20 + 4)", "(10 + 7) * 24", "Beide Wege müssen dasselbe Ergebnis haben. Jeder Summand in der Klammer wird mit dem anderen Faktor malgenommen.",
     "Weg A: 17 · 20 + 17 · 4 = 340 + 68 = 408. Weg B: 10 · 24 + 7 · 24 = 240 + 168 = 408. Beide Wege führen auf 408 Stühle.",
-    [(344, "fb.ausmultiplizieren.nur_erster_summand", "Weg A: nur die 20 mit 17 malgenommen, die 4 nur addiert", "17 * 20 + 4"), (178, "fb.ausmultiplizieren.nur_erster_summand", "Weg B: nur die 7 mit 24 malgenommen, die 10 nur addiert", "10 + 7 * 24"), (68, None, "nur den zweiten Summanden berücksichtigt: 17 · 4", "17 * 4")], "Stühle"), g="mehrschritt", regel="rr.ausmultiplizieren")
+    [(344, "fb.ausmultiplizieren.nur_erster_summand", "Weg A: nur die 20 mit 17 malgenommen, die 4 nur addiert", "17 * 20 + 4"), (178, None, "Weg B: nur die 7 mit 24 malgenommen, die 10 nur addiert", "10 + 7 * 24"), (68, None, "nur den zweiten Summanden berücksichtigt: 17 · 4", "17 * 4")], "Stühle"), g="mehrschritt", regel="rr.ausmultiplizieren")
 neu(T, "ausmultiplizieren", "fehler_detektiv", FD(
     "Kim löst die Klammer auf und fasst zusammen: −2x(3x − 4) + 5x.",
     [("−2x(3x − 4) = −6x² − 8x", gl("-2*x*(3*x-4)", "-6*x**2-8*x"), True),

@@ -1,0 +1,1019 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-10",
+ "kuerzel": "K9B",
+ "flug": "k9b-messen.kreisberechnung",
+ "titel": "messen.kreisberechnung",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "messen.kreisberechnung"
+ ],
+ "themen_datei_im_bestand": "messen.kreisberechnung",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K9B-V067",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "umfang",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 78.5,
+     "fehlbild": "fb.aus_dem_rechteck.durchmesser_statt_radius",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "beschreibung": "mit dem Radius statt mit dem Durchmesser gerechnet: 3,14 · 25"
+    },
+    {
+     "luecke": 2,
+     "antwort": 161,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "4 addiert statt malgenommen: 157 + 4"
+    },
+    {
+     "luecke": 3,
+     "antwort": 1413,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang von der Strecke abgezogen: 1 570 − 157"
+    }
+   ],
+   "aufgabe": {
+    "l": "umfang",
+    "t": "umfang",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Rad hat den Durchmesser 50 cm. Rechne mit π ≈ 3,14. Der Umfang des Rades ist ① cm. Bei 4 Umdrehungen rollt das Rad ② cm weit. Um 1 570 cm weit zu rollen, braucht das Rad ③ Umdrehungen.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      157,
+      628,
+      10
+     ]
+    },
+    "c": [
+     "3.14 * 50",
+     "4 * (3.14 * 50)",
+     "1570 / (3.14 * 50)"
+    ],
+    "h": "Der Umfang eines Kreises ist π mal Durchmesser. Eine Umdrehung entspricht genau einem Umfang.",
+    "w": "u = 3,14 · 50 = 157 cm. 4 Umdrehungen: 4 · 157 = 628 cm. 1 570 : 157 = 10 Umdrehungen."
+   }
+  },
+  {
+   "kennung": "K9B-V068",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "umfang",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 439.6,
+     "fehlbild": "fb.aus_dem_rechteck.durchmesser_statt_radius",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "beschreibung": "2 · π · d gerechnet, als wäre d der Radius: 2 · 3,14 · 70"
+    },
+    {
+     "antwort": 91.4,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "den Unterschied der Durchmesser addiert statt den Faktor zu nehmen: 31,4 + 60"
+    },
+    {
+     "antwort": 21.98,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur mit dem Faktor 7 und π gerechnet: 3,14 · 7"
+    }
+   ],
+   "aufgabe": {
+    "l": "umfang",
+    "t": "umfang",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kreis mit dem Durchmesser 10 cm hat den Umfang 31,4 cm. Wie groß ist der Umfang eines Kreises mit dem Durchmesser 70 cm? Rechne mit π ≈ 3,14. Weg A: mit der Formel u = π · d. Weg B: Der Umfang ist proportional zum Durchmesser. Der zweite Durchmesser ist ein Vielfaches des ersten, der Umfang wächst mit demselben Faktor."
+    },
+    "o": {
+     "wert": 219.8,
+     "einheit": "cm"
+    },
+    "c": "3.14 * 70",
+    "h": "Beide Wege müssen denselben Umfang ergeben. Bei Weg B brauchst du zuerst den Faktor von 10 cm auf 70 cm.",
+    "w": "Weg A: u = 3,14 · 70 = 219,8 cm. Weg B: Faktor 70 : 10 = 7. u = 31,4 · 7 = 219,8 cm."
+   }
+  },
+  {
+   "kennung": "K9B-V069",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "umfang",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 30,
+     "fehlbild": "fb.aus_dem_rechteck.durchmesser_statt_radius",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "beschreibung": "den Durchmesser als Radius angegeben: 94,2 : 3,14"
+    },
+    {
+     "antwort": 7.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zweimal durch 2 geteilt: 94,2 : 3,14 : 4"
+    },
+    {
+     "antwort": 295.788,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit π multipliziert statt dividiert: 94,2 · 3,14"
+    }
+   ],
+   "aufgabe": {
+    "l": "umfang",
+    "t": "umfang",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Band ist 94,2 cm lang. Es wird straff und ohne Überlappung genau einmal um einen kreisrunden Baumstamm gelegt und passt genau. Rechne mit π ≈ 3,14. Welchen Radius hat der Querschnitt des Stamms?"
+    },
+    "o": {
+     "wert": 15,
+     "einheit": "cm"
+    },
+    "c": "94.2 / (2 * 3.14)",
+    "h": "Das Band ist so lang wie der Umfang. Stelle u = 2 · π · r nach r um.",
+    "w": "u = 2 · π · r, also r = u : (2 · π) = 94,2 : 6,28 = 15 cm. Probe: 2 · 3,14 · 15 = 94,2."
+   }
+  },
+  {
+   "kennung": "K9B-V070",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "flaeche",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Durchmesser verdoppelt statt halbiert: 20 · 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 20,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "10 · 2 statt 10² gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 62.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang statt der Fläche gerechnet: 2 · 3,14 · 10"
+    }
+   ],
+   "aufgabe": {
+    "l": "flaeche",
+    "t": "flaeche",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kreis hat den Durchmesser 20 cm. Rechne mit π ≈ 3,14. Der Radius ist ① cm. Das Quadrat des Radius ist ② cm². Der Flächeninhalt des Kreises ist ③ cm².",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      10,
+      100,
+      314
+     ]
+    },
+    "c": [
+     "20 / 2",
+     "(20 / 2) ** 2",
+     "3.14 * ((20 / 2) ** 2)"
+    ],
+    "h": "Die Fläche eines Kreises ist π mal Radius mal Radius. Gegeben ist der Durchmesser.",
+    "w": "r = 20 : 2 = 10 cm. r² = 100 cm². A = 3,14 · 100 = 314 cm²."
+   }
+  },
+  {
+   "kennung": "K9B-V071",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "flaeche",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 628,
+     "fehlbild": "fb.aus_dem_rechteck.halbieren_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "beschreibung": "den ganzen Umfang statt des halben genommen: 62,8 · 10"
+    },
+    {
+     "antwort": 62.8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Umfang berechnet"
+    },
+    {
+     "antwort": 31.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den halben Umfang als Fläche angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "flaeche",
+    "t": "flaeche",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kreis hat den Radius 10 cm. Rechne mit π ≈ 3,14. Berechne den Flächeninhalt auf zwei Wegen. Weg A: mit der Formel A = π · r². Weg B: Zerlege den Kreis in sehr viele schmale Kreisstücke und lege sie abwechselnd zu einem fast rechteckigen Streifen zusammen. Seine Länge ist der halbe Umfang des Kreises, seine Breite der Radius."
+    },
+    "o": {
+     "wert": 314,
+     "einheit": "cm²"
+    },
+    "c": "3.14 * 10 ** 2",
+    "h": "Beide Wege müssen denselben Flächeninhalt ergeben. Bei Weg B brauchst du zuerst den Umfang.",
+    "w": "Weg A: A = 3,14 · 10² = 314 cm². Weg B: Umfang 2 · 3,14 · 10 = 62,8 cm, halber Umfang 31,4 cm. Streifen: 31,4 · 10 = 314 cm²."
+   }
+  },
+  {
+   "kennung": "K9B-V072",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "flaeche",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "flaeche",
+    "t": "flaeche",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kreis hat den Durchmesser 12 cm. Kim berechnet den Flächeninhalt mit π ≈ 3,14. Zeile 1: Der Radius ist r = 12 · 2 = 24 cm. Zeile 2: Die Fläche ist A = 3,14 · 24² = 3,14 · 576 = 1 808,64 cm². Zeile 3: Gerundet auf ganze Quadratzentimeter ist das etwa 1 809 cm². In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wie hängen Durchmesser und Radius zusammen?",
+    "w": "Der Radius ist halb so groß wie der Durchmesser: r = 12 : 2 = 6 cm. Dann ist A = 3,14 · 36 = 113,04 cm². Der erste Fehler steht in Zeile 1."
+   }
+  },
+  {
+   "kennung": "K9B-V073",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "exakt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 18,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "9 · 2 statt 9² gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 10,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "5 · 2 statt 5² gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "erst die beiden Radien voneinander abgezogen und dann quadriert"
+    }
+   ],
+   "aufgabe": {
+    "l": "exakt",
+    "t": "exakt",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kreisring liegt zwischen zwei Kreisen mit demselben Mittelpunkt. Der äußere Kreis hat den Radius 9 cm, der innere den Radius 5 cm. Der äußere Kreis hat die Fläche ① · π cm². Der innere Kreis hat die Fläche ② · π cm². Der Kreisring hat die Fläche ③ · π cm².",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      81,
+      25,
+      56
+     ]
+    },
+    "c": [
+     "9 ** 2",
+     "5 ** 2",
+     "(9 ** 2) - (5 ** 2)"
+    ],
+    "h": "Die Fläche eines Kreises ist π mal Radius zum Quadrat. Den Ring erhältst du durch Abziehen.",
+    "w": "Außen: 9² = 81, also 81π cm². Innen: 5² = 25, also 25π cm². Ring: 81π − 25π = 56π cm²."
+   }
+  },
+  {
+   "kennung": "K9B-V074",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "exakt",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "21,98 cm²",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 7 · 3,14 gerechnet, den Radius nicht quadriert"
+    },
+    {
+     "index": 2,
+     "antwort": "307,72 cm²",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "98 · 3,14 gerechnet, die 49 verdoppelt"
+    },
+    {
+     "index": 3,
+     "antwort": "52,14 cm²",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "49 + 3,14 gerechnet, statt mit π zu multiplizieren"
+    }
+   ],
+   "aufgabe": {
+    "l": "exakt",
+    "t": "exakt",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kreis hat den Flächeninhalt 49π cm². Welcher Wert ist der Flächeninhalt als Dezimalzahl, wenn man mit π ≈ 3,14 rechnet?"
+    },
+    "a": [
+     "21,98 cm²",
+     "153,86 cm²",
+     "307,72 cm²",
+     "52,14 cm²"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "In 49π steht ein Malzeichen zwischen 49 und π. Setze für π die Näherung ein.",
+    "w": "49π bedeutet 49 · π. Mit π ≈ 3,14: 49 · 3,14 = 153,86 cm²."
+   }
+  },
+  {
+   "kennung": "K9B-V075",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "exakt",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 196,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "14 quadriert, ohne den Radius zu bestimmen: 14²"
+    },
+    {
+     "antwort": 98,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "14 · 7 gerechnet"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Radius statt der Fläche angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "exakt",
+    "t": "exakt",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Der Umfang eines Kreises ist 14π cm. Gib den Flächeninhalt des Kreises exakt an: A = □ · π cm². Welche Zahl gehört in das Kästchen?"
+    },
+    "o": {
+     "wert": 49
+    },
+    "c": "(14 / 2) ** 2",
+    "h": "Aus dem Umfang erhältst du zuerst den Radius. u = 2 · π · r.",
+    "w": "u = 2π · r = 14π, also r = 7 cm. A = π · 7² = 49π cm²."
+   }
+  },
+  {
+   "kennung": "K9B-V076",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "verstehen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 6,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "3 · 2 statt 3² gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 12,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "6 · 2 statt 6² gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Radien verglichen: 6 : 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kreis hat den Radius 3 cm, ein zweiter Kreis den Radius 6 cm. Der erste Kreis hat die Fläche ① · π cm², der zweite ② · π cm². Die zweite Fläche ist ③-mal so groß wie die erste.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      9,
+      36,
+      4
+     ]
+    },
+    "c": [
+     "3 ** 2",
+     "6 ** 2",
+     "(6 ** 2) / (3 ** 2)"
+    ],
+    "h": "Die Fläche eines Kreises ist π mal Radius zum Quadrat. Vergleiche die beiden Flächen mit einer Division.",
+    "w": "A₁ = π · 3² = 9π. A₂ = π · 6² = 36π. 36 : 9 = 4. Der Radius ist 2-mal so groß, die Fläche 4-mal so groß."
+   }
+  },
+  {
+   "kennung": "K9B-V077",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Der Umfang und die Fläche werden beide doppelt so groß.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Umfang gelesen und für die Fläche übernommen"
+    },
+    {
+     "index": 1,
+     "antwort": "Der Umfang wird viermal so groß, die Fläche doppelt so groß.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Umfang und Fläche vertauscht"
+    },
+    {
+     "index": 2,
+     "antwort": "Der Umfang und die Fläche werden beide viermal so groß.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche gelesen und für den Umfang übernommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt Umfang und Fläche von drei Kreisen mit den Radien 1 cm, 2 cm und 3 cm (π ≈ 3,14). Der Radius wird von 1 cm auf 2 cm verdoppelt. Was passiert mit Umfang und Fläche?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Radius",
+       "Umfang",
+       "Fläche"
+      ],
+      "zeilen": [
+       [
+        "1 cm",
+        "6,28 cm",
+        "3,14 cm²"
+       ],
+       [
+        "2 cm",
+        "12,56 cm",
+        "12,56 cm²"
+       ],
+       [
+        "3 cm",
+        "18,84 cm",
+        "28,26 cm²"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "Der Umfang und die Fläche werden beide doppelt so groß.",
+     "Der Umfang wird viermal so groß, die Fläche doppelt so groß.",
+     "Der Umfang und die Fläche werden beide viermal so groß.",
+     "Der Umfang wird doppelt so groß, die Fläche wird viermal so groß."
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Teile in der Tabelle den Wert für r = 2 cm durch den Wert für r = 1 cm, einmal beim Umfang und einmal bei der Fläche.",
+    "w": "Umfang: 12,56 : 6,28 = 2. Fläche: 12,56 : 3,14 = 4. Der Umfang wächst mit dem Radius (Faktor 2), die Fläche mit dem Quadrat des Radius (Faktor 4)."
+   }
+  },
+  {
+   "kennung": "K9B-V078",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim untersucht, was mit der Fläche eines Kreises passiert, wenn man den Radius verdoppelt. Zeile 1: Die Fläche eines Kreises mit dem Radius r ist A = π · r². Zeile 2: Mit dem Radius 2r ist die neue Fläche A' = π · (2r)² = π · 2r² = 2πr². Zeile 3: Also ist A' doppelt so groß wie A. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Was bedeutet (2r)²? Probiere es mit r = 1.",
+    "w": "(2r)² = 2r · 2r = 4r². Also ist A' = 4πr², die Fläche wird 4-mal so groß. Probe mit r = 1: A = π, A' = π · 2² = 4π. Der Fehler steckt in Zeile 2."
+   }
+  },
+  {
+   "kennung": "K9B-V079",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "sektor",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 270,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied zum vollen Winkel genommen: 360 − 90"
+    },
+    {
+     "luecke": 2,
+     "antwort": 24,
+     "fehlbild": "fb.aus_dem_rechteck.durchmesser_statt_radius",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "beschreibung": "mit dem Durchmesser gerechnet: 2 · 12"
+    },
+    {
+     "luecke": 3,
+     "antwort": 144,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche des ganzen Kreises angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "sektor",
+    "t": "sektor",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Kreissektor hat den Radius 12 cm und den Mittelpunktswinkel 90°. Der Sektor ist der ①-te Teil des ganzen Kreises. Der ganze Kreis hat die Fläche ② · π cm². Der Sektor hat die Fläche ③ · π cm².",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      4,
+      144,
+      36
+     ]
+    },
+    "c": [
+     "360 // 90",
+     "12 ** 2",
+     "(12 ** 2) / (360 // 90)"
+    ],
+    "h": "Der volle Winkel um einen Punkt ist 360°. Der Sektor hat denselben Anteil an der Fläche wie sein Winkel am vollen Winkel.",
+    "w": "360 : 90 = 4, der Sektor ist ein Viertel. Ganzer Kreis: 12² = 144, also 144π cm². Sektor: 144π : 4 = 36π cm²."
+   }
+  },
+  {
+   "kennung": "K9B-V080",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "sektor",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5024,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche des ganzen Kreises angegeben"
+    },
+    {
+     "antwort": 77,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Bogenlänge statt der Fläche berechnet (gerundet)"
+    }
+   ],
+   "aufgabe": {
+    "l": "sektor",
+    "t": "sektor",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Scheibenwischer wird als Strecke vom Drehpunkt bis zum Ende des Wischblatts angenommen und ist 40 cm lang. Er schwenkt um 110° und überstreicht dabei einen Kreissektor. Wie groß ist die überstrichene Fläche? Rechne mit π ≈ 3,14 und runde auf ganze cm²."
+    },
+    "o": {
+     "wert": 1535,
+     "einheit": "cm²"
+    },
+    "c": "round(1535.111111111111, 0)",
+    "h": "Der Sektor ist ein Anteil des Kreises mit Radius 40 cm. Der Anteil ist Winkel durch 360°.",
+    "w": "Kreisfläche: 3,14 · 40² = 5 024 cm². Anteil: 110 : 360. Sektor: 5 024 · 110 : 360 ≈ 1 535,1 cm². Gerundet 1 535 cm²."
+   }
+  },
+  {
+   "kennung": "K9B-V081",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "sektor",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 540,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "den Radius nicht quadriert: 9 · 360 : 6"
+    },
+    {
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "360 durch 9 geteilt: 360 : 9"
+    }
+   ],
+   "aufgabe": {
+    "l": "sektor",
+    "t": "sektor",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Kreissektor hat den Radius 6 cm und den Flächeninhalt 9π cm². Wie groß ist sein Mittelpunktswinkel in Grad?"
+    },
+    "o": {
+     "wert": 90,
+     "einheit": "°"
+    },
+    "c": "9 * 360 / 6 ** 2",
+    "h": "Vergleiche den Sektor mit dem ganzen Kreis. Wie viel Fläche hat der ganze Kreis? Welcher Anteil ist 9π davon?",
+    "w": "Ganzer Kreis: π · 6² = 36π cm². Anteil: 9π : 36π = 1/4. Winkel: 1/4 von 360° = 90°."
+   }
+  },
+  {
+   "kennung": "K9B-V082",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "zusammengesetzt",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Seiten addiert: 8 + 6"
+    },
+    {
+     "luecke": 2,
+     "antwort": 48,
+     "fehlbild": "fb.aus_dem_rechteck.halbieren_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "beschreibung": "den ganzen Kreis statt des Halbkreises gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 96,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Halbkreis doppelt gezählt: 48 + 2 · 24"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine Fensterform besteht aus einem Rechteck, 8 cm breit und 6 cm hoch. Auf die 8 cm lange Seite ist ein Halbkreis aufgesetzt. Rechne mit π ≈ 3. Das Rechteck hat die Fläche ① cm². Der Halbkreis hat die Fläche ② cm². Die ganze Form hat die Fläche ③ cm².",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      48,
+      24,
+      72
+     ]
+    },
+    "c": [
+     "8 * 6",
+     "3 * 4 ** 2 / 2",
+     "(8 * 6) + (3 * 4 ** 2 / 2)"
+    ],
+    "h": "Der Durchmesser des Halbkreises ist die aufgesetzte Seite. Berechne zuerst die Fläche eines ganzen Kreises und nimm davon die Hälfte.",
+    "w": "Rechteck: 8 · 6 = 48 cm². Halbkreis: Radius 4 cm, Kreis 3 · 4² = 48, Hälfte 24 cm². Gesamt: 48 + 24 = 72 cm²."
+   }
+  },
+  {
+   "kennung": "K9B-V083",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "zusammengesetzt",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "12 · 8 − π · 6²",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit dem Durchmesser statt dem Radius gerechnet"
+    },
+    {
+     "index": 2,
+     "antwort": "12 · 8 − 2 · π · 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Umfang statt der Fläche abgezogen"
+    },
+    {
+     "index": 3,
+     "antwort": "12 · 8 + π · 3²",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche des Lochs addiert statt abgezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Aus einer rechteckigen Platte, 12 cm lang und 8 cm breit, wird in der Mitte ein kreisrundes Loch mit dem Durchmesser 6 cm ausgeschnitten. Das Loch liegt ganz in der Platte. Welcher Term gibt den Flächeninhalt der Platte nach dem Ausschneiden an (in cm²)?"
+    },
+    "a": [
+     "12 · 8 − π · 3²",
+     "12 · 8 − π · 6²",
+     "12 · 8 − 2 · π · 3",
+     "12 · 8 + π · 3²"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Von der Fläche des Rechtecks wird die Fläche des Lochs abgezogen. Die Fläche des Lochs ist ein Kreis.",
+    "w": "Rechteck: 12 · 8. Loch: Radius 6 : 2 = 3 cm, Fläche π · 3². Rest: 12 · 8 − π · 3² ≈ 96 − 28,3 = 67,7 cm²."
+   }
+  },
+  {
+   "kennung": "K9B-V084",
+   "thema": "messen.kreisberechnung",
+   "lernkarte": "zusammengesetzt",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7413,
+     "fehlbild": "fb.aus_dem_rechteck.halbieren_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "beschreibung": "nur einen Halbkreis gezählt: 6 000 + 1 413"
+    },
+    {
+     "antwort": 17304,
+     "fehlbild": "fb.aus_dem_rechteck.durchmesser_statt_radius",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "beschreibung": "den Durchmesser 60 m als Radius des Kreises genommen"
+    },
+    {
+     "antwort": 6000,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Rechteck gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "zusammengesetzt",
+    "t": "zusammengesetzt",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Sportplatz besteht aus einem Rechteck, 100 m lang und 60 m breit. An den beiden schmalen Seiten ist je ein Halbkreis mit dem Durchmesser 60 m angesetzt. Die ganze Fläche soll mit Kunstrasen belegt werden. Wie viele Quadratmeter Kunstrasen braucht man mindestens? Rechne mit π ≈ 3,14."
+    },
+    "o": {
+     "wert": 8826,
+     "einheit": "m²"
+    },
+    "c": "100 * 60 + 3.14 * 30 ** 2",
+    "h": "Die beiden Halbkreise ergeben zusammen einen ganzen Kreis. Der Radius ist halb so groß wie der Durchmesser.",
+    "w": "Rechteck: 100 · 60 = 6 000 m². Die zwei Halbkreise ergeben einen Kreis mit r = 30 m: 3,14 · 30² = 2 826 m². Gesamt: 6 000 + 2 826 = 8 826 m²."
+   }
+  }
+ ]
+}

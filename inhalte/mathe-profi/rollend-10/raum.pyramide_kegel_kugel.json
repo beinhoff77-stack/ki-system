@@ -1,0 +1,1179 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-10",
+ "kuerzel": "K9B",
+ "flug": "k9b-raum.pyramide_kegel_kugel",
+ "titel": "raum.pyramide_kegel_kugel",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "raum.pyramide_kegel_kugel"
+ ],
+ "themen_datei_im_bestand": "raum.pyramide_kegel_kugel",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K9B-V085",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "pyr_volumen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Kantenlänge verdoppelt statt quadriert: 6 · 2"
+    },
+    {
+     "luecke": 2,
+     "antwort": 44,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "Grundfläche und Höhe addiert: 36 + 8"
+    },
+    {
+     "luecke": 3,
+     "antwort": 288,
+     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
+     "beschreibung": "den Faktor ein Drittel vergessen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 864,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 3 malgenommen statt durch 3 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "pyr_volumen",
+    "t": "pyr_volumen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine gerade Pyramide hat als Grundfläche ein Quadrat mit der Kantenlänge 6 cm. Die Pyramide ist 8 cm hoch. Die Grundfläche ist ① cm² groß. Grundfläche mal Höhe ergibt ② cm³. Das Volumen der Pyramide ist ③ cm³.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      36,
+      288,
+      96
+     ]
+    },
+    "c": [
+     "6 * 6",
+     "(6 * 6) * 8",
+     "((6 * 6) * 8) / 3"
+    ],
+    "h": "Das Volumen einer Pyramide ist nur ein Teil des Volumens eines Prismas mit gleicher Grundfläche und gleicher Höhe.",
+    "w": "G = 6 · 6 = 36 cm². G · h = 36 · 8 = 288 cm³. Eine Pyramide fasst ein Drittel davon: V = 288 : 3 = 96 cm³."
+   }
+  },
+  {
+   "kennung": "K9B-V086",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "pyr_volumen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 21.6,
+     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
+     "beschreibung": "den Faktor ein Drittel vergessen: 9 · 2,4"
+    },
+    {
+     "antwort": 2.4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Kantenlänge statt der Grundfläche genommen: 3 · 2,4 : 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "pyr_volumen",
+    "t": "pyr_volumen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Zelt hat die Form einer geraden Pyramide mit quadratischer Grundfläche. Die Grundkante ist 3 m lang, die Zeltspitze liegt 2,4 m über dem Boden. Wie viele Kubikmeter Luft sind im Zelt?"
+    },
+    "o": {
+     "wert": 7.2,
+     "einheit": "m³"
+    },
+    "c": "3 * 3 * 2.4 / 3",
+    "h": "Die Grundfläche ist ein Quadrat. Die Höhe der Spitze über dem Boden ist die Körperhöhe.",
+    "w": "G = 3 · 3 = 9 m². V = 9 · 2,4 : 3 = 7,2 m³. Im Zelt sind 7,2 m³ Luft."
+   }
+  },
+  {
+   "kennung": "K9B-V087",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "pyr_volumen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundfläche statt der Kantenlänge angegeben"
+    },
+    {
+     "antwort": 3.5,
+     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
+     "beschreibung": "den Faktor 3 vergessen und aus der so erhaltenen Grundfläche die Wurzel gezogen (gerundet)"
+    }
+   ],
+   "aufgabe": {
+    "l": "pyr_volumen",
+    "t": "pyr_volumen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Eine gerade Pyramide hat eine quadratische Grundfläche. Ihr Volumen beträgt 108 cm³ und ihre Höhe 9 cm. Wie lang ist eine Kante der Grundfläche?"
+    },
+    "o": {
+     "wert": 6,
+     "einheit": "cm"
+    },
+    "c": "6",
+    "h": "Stelle V = G · h : 3 nach G um. Aus der Fläche eines Quadrats bekommst du die Kantenlänge.",
+    "w": "G = 3 · V : h = 3 · 108 : 9 = 36 cm². Kante: √36 = 6 cm. Probe: 36 · 9 : 3 = 108."
+   }
+  },
+  {
+   "kennung": "K9B-V088",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "pyr_oberflaeche",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 130,
+     "fehlbild": "fb.aus_dem_rechteck.halbieren_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "beschreibung": "das Halbieren vergessen: 10 · 13"
+    },
+    {
+     "luecke": 3,
+     "antwort": 195,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur drei Seitendreiecke gezählt: 3 · 65"
+    },
+    {
+     "luecke": 4,
+     "antwort": 260,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundfläche vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "pyr_oberflaeche",
+    "t": "pyr_oberflaeche",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine gerade Pyramide hat als Grundfläche ein Quadrat mit der Kantenlänge 10 cm. Die vier Seitenflächen sind gleich große Dreiecke. Die Höhe eines solchen Dreiecks, gemessen von der Grundkante bis zur Spitze, ist 13 cm. Die Grundfläche ist ① cm² groß. Ein Seitendreieck hat ② cm². Die vier Seitendreiecke zusammen haben ③ cm². Die Oberfläche ist ④ cm².",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      100,
+      65,
+      260,
+      360
+     ]
+    },
+    "c": [
+     "10 * 10",
+     "10 * 13 / 2",
+     "4 * (10 * 13 / 2)",
+     "(10 * 10) + (4 * (10 * 13 / 2))"
+    ],
+    "h": "Die Oberfläche besteht aus der Grundfläche und dem Mantel. Der Mantel besteht aus allen Seitendreiecken.",
+    "w": "G = 100 cm². Ein Dreieck: 10 · 13 : 2 = 65 cm². Vier Dreiecke: 4 · 65 = 260 cm². O = 100 + 260 = 360 cm²."
+   }
+  },
+  {
+   "kennung": "K9B-V089",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "pyr_oberflaeche",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "104 cm²",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur ein Seitendreieck gezählt: 64 + 40"
+    },
+    {
+     "index": 1,
+     "antwort": "160 cm²",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Mantel gezählt, die Grundfläche vergessen"
+    },
+    {
+     "index": 3,
+     "antwort": "384 cm²",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die vier Dreiecke doppelt gezählt: 64 + 8 · 40"
+    }
+   ],
+   "aufgabe": {
+    "l": "pyr_oberflaeche",
+    "t": "pyr_oberflaeche",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt alle Teile des Netzes einer geraden Pyramide mit quadratischer Grundfläche. Wie groß ist die Oberfläche der Pyramide?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Teil des Netzes",
+       "Anzahl",
+       "Fläche je Stück"
+      ],
+      "zeilen": [
+       [
+        "Quadrat (Grundfläche)",
+        "1",
+        "64 cm²"
+       ],
+       [
+        "Dreieck (Seitenfläche)",
+        "4",
+        "40 cm²"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "104 cm²",
+     "160 cm²",
+     "224 cm²",
+     "384 cm²"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Rechne für jede Zeile Anzahl mal Fläche je Stück und addiere.",
+    "w": "Quadrat: 1 · 64 = 64 cm². Dreiecke: 4 · 40 = 160 cm². O = 64 + 160 = 224 cm²."
+   }
+  },
+  {
+   "kennung": "K9B-V090",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "pyr_oberflaeche",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "pyr_oberflaeche",
+    "t": "pyr_oberflaeche",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Eine gerade Pyramide hat ein Quadrat mit der Kantenlänge 6 cm als Grundfläche. Die Höhe eines Seitendreiecks (von der Grundkante bis zur Spitze) ist 5 cm. Kim berechnet die Oberfläche. Zeile 1: Grundfläche: 6 · 6 = 36 cm². Zeile 2: Ein Seitendreieck: 6 · 5 : 2 = 15 cm². Zeile 3: Oberfläche: Grundfläche plus ein Seitendreieck, also 36 + 15 = 51 cm². In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wie viele Seitendreiecke hat eine Pyramide mit quadratischer Grundfläche?",
+    "w": "Die Pyramide hat vier Seitendreiecke. O = 36 + 4 · 15 = 36 + 60 = 96 cm². Der Fehler steckt in Zeile 3."
+   }
+  },
+  {
+   "kennung": "K9B-V091",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "kegel_volumen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 6,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "3 · 2 statt 3² gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 19,
+     "fehlbild": "fb.verhaeltnis.addiert_statt_malgenommen",
+     "regel_des_fehlbilds": "rr.verhaeltnis",
+     "beschreibung": "Grundfläche und Höhe addiert: 9 + 10"
+    },
+    {
+     "luecke": 3,
+     "antwort": 90,
+     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
+     "beschreibung": "den Faktor ein Drittel vergessen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 270,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 3 malgenommen statt durch 3 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "kegel_volumen",
+    "t": "kegel_volumen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein gerader Kegel hat den Radius 3 cm und die Höhe 10 cm. Die Grundfläche ist ① · π cm² groß. Ein Zylinder mit derselben Grundfläche und derselben Höhe hat das Volumen ② · π cm³. Das Volumen des Kegels ist ③ · π cm³.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      9,
+      90,
+      30
+     ]
+    },
+    "c": [
+     "3 ** 2",
+     "(3 ** 2) * 10",
+     "((3 ** 2) * 10) / 3"
+    ],
+    "h": "Die Grundfläche ist ein Kreis. Ein Kegel fasst nur einen Teil von dem Zylinder mit gleicher Grundfläche und Höhe.",
+    "w": "G = π · 3² = 9π cm². Zylinder: 9π · 10 = 90π cm³. Kegel: ein Drittel davon, 90π : 3 = 30π cm³."
+   }
+  },
+  {
+   "kennung": "K9B-V092",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "kegel_volumen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 11.304,
+     "fehlbild": "fb.aus_dem_rechteck.durchmesser_statt_radius",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "beschreibung": "den Durchmesser 3 m als Radius genommen"
+    },
+    {
+     "antwort": 8.478,
+     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
+     "beschreibung": "den Faktor ein Drittel vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "kegel_volumen",
+    "t": "kegel_volumen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Sandhaufen hat die Form eines geraden Kegels. Sein Durchmesser am Boden ist 3 m, seine Höhe ist 1,2 m. Rechne mit π ≈ 3,14. Wie viele Kubikmeter Sand sind das? Gib das Ergebnis ohne Rundung an."
+    },
+    "o": {
+     "wert": 2.826,
+     "einheit": "m³"
+    },
+    "c": "3.14 * 1.5 ** 2 * 1.2 / 3",
+    "h": "Der Radius ist halb so groß wie der Durchmesser.",
+    "w": "r = 3 : 2 = 1,5 m. V = 3,14 · 1,5² · 1,2 : 3 = 3,14 · 2,25 · 0,4 = 2,826 m³."
+   }
+  },
+  {
+   "kennung": "K9B-V093",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "kegel_volumen",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "r² statt r angegeben"
+    },
+    {
+     "antwort": 1.7,
+     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
+     "beschreibung": "den Faktor 3 vergessen und die Wurzel gezogen (gerundet)"
+    }
+   ],
+   "aufgabe": {
+    "l": "kegel_volumen",
+    "t": "kegel_volumen",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein gerader Kegel ist 12 cm hoch und hat das Volumen 113,04 cm³. Rechne mit π ≈ 3,14. Wie groß ist der Radius seiner Grundfläche?"
+    },
+    "o": {
+     "wert": 3,
+     "einheit": "cm"
+    },
+    "c": "3",
+    "h": "Stelle V = π · r² · h : 3 nach r² um. Welche Zahl mal sich selbst ergibt r²?",
+    "w": "r² = 3 · V : (π · h) = 339,12 : 37,68 = 9. Also r = 3 cm. Probe: 3,14 · 9 · 12 : 3 = 113,04."
+   }
+  },
+  {
+   "kennung": "K9B-V094",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "kegel_mantel",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 17,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "Radius und Höhe addiert: 5 + 12"
+    },
+    {
+     "luecke": 2,
+     "antwort": 169,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 156,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Höhe statt mit dem Radius gerechnet: 12 · 13"
+    }
+   ],
+   "aufgabe": {
+    "l": "kegel_mantel",
+    "t": "kegel_mantel",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein gerader Kegel hat den Radius 5 cm und die Höhe 12 cm. Das Quadrat der Mantellinie s ist ① cm². Die Mantellinie s ist ② cm lang. Die Mantelfläche ist ③ · π cm² groß.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      169,
+      13,
+      65
+     ]
+    },
+    "c": [
+     "5 ** 2 + 12 ** 2",
+     "(((5 ** 2 + 12 ** 2)) / 13)",
+     "5 * ((((5 ** 2 + 12 ** 2)) / 13))"
+    ],
+    "h": "Radius, Höhe und Mantellinie bilden ein rechtwinkliges Dreieck. Die Mantelfläche ist π mal Radius mal Mantellinie.",
+    "w": "s² = 5² + 12² = 25 + 144 = 169. s = 13 cm. M = π · r · s = π · 5 · 13 = 65π cm²."
+   }
+  },
+  {
+   "kennung": "K9B-V095",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "kegel_mantel",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 30,
+     "fehlbild": "fb.aus_dem_rechteck.halbieren_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "beschreibung": "das Halbieren vergessen: 6 · 5"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundfläche statt des Mantels angegeben: 3²"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Radius und Mantellinie addiert: 3 + 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "kegel_mantel",
+    "t": "kegel_mantel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein gerader Kegel hat den Radius 3 cm und die Mantellinie 5 cm. Gib die Mantelfläche in der Form M = □ · π cm² an. Welche Zahl gehört in das Kästchen? Rechne auf zwei Wegen. Weg A: mit der Formel M = π · r · s. Weg B: Der abgewickelte Mantel ist ein Kreissektor mit dem Radius s. Seine Bogenlänge ist der Umfang des Grundkreises. Die Fläche des Sektors ist Bogenlänge mal Radius geteilt durch 2."
+    },
+    "o": {
+     "wert": 15
+    },
+    "c": "3 * 5",
+    "h": "Beide Wege müssen dieselbe Zahl ergeben. Bei Weg B ist die Bogenlänge ein Vielfaches von π.",
+    "w": "Weg A: M = π · 3 · 5 = 15π cm². Weg B: Bogenlänge = 2π · 3 = 6π cm. Sektorfläche = 6π · 5 : 2 = 15π cm². Beide Wege: 15."
+   }
+  },
+  {
+   "kennung": "K9B-V096",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "kegel_mantel",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.haut",
+   "regel_name": "Haut des Körpers",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "kegel_mantel",
+    "t": "kegel_mantel",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein gerader Kegel hat den Radius 6 cm und die Höhe 8 cm. Kim berechnet die Oberfläche des Kegels, also Mantel und Grundfläche. Zeile 1: Mantellinie: s² = 6² + 8² = 100, also s = 10 cm. Zeile 2: Mantel: M = π · r · s = π · 6 · 10 = 60π cm². Zeile 3: Oberfläche: O = M + G = 60π + π · 6 · 2 = 72π cm². In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wie berechnet man die Fläche eines Kreises mit dem Radius 6 cm?",
+    "w": "Die Grundfläche ist π · r² = π · 36 = 36π cm², nicht π · 6 · 2. O = 60π + 36π = 96π cm². Der Fehler steckt in Zeile 3."
+   }
+  },
+  {
+   "kennung": "K9B-V097",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "kugel",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 12,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "6 · 2 statt 6² gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 mal statt 4 mal gerechnet: 2 · 36"
+    },
+    {
+     "luecke": 3,
+     "antwort": 864,
+     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
+     "beschreibung": "den Faktor ein Drittel vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "kugel",
+    "t": "kugel",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine Kugel hat den Radius 6 cm. Das Quadrat des Radius ist ① cm². Die Oberfläche ist ② · π cm². Das Volumen ist ③ · π cm³.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      36,
+      144,
+      288
+     ]
+    },
+    "c": [
+     "6 ** 2",
+     "4 * (6 ** 2)",
+     "(4 * (6 ** 2)) * 6 / 3"
+    ],
+    "h": "Die Oberfläche einer Kugel ist 4 mal π mal Radius zum Quadrat. Das Volumen ist vier Drittel mal π mal Radius hoch drei. Mit der Oberfläche geht es kürzer: V = O · r : 3.",
+    "w": "r² = 36. O = 4π · 36 = 144π cm². V = 4/3 · π · 6³ = 4/3 · 216π = 288π cm³. Kontrolle: 144π · 6 : 3 = 288π."
+   }
+  },
+  {
+   "kennung": "K9B-V098",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "kugel",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 108,
+     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
+     "beschreibung": "den Faktor ein Drittel vergessen: 4 · 27"
+    },
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "r² statt r³ genommen: 4 · 3² : 3"
+    },
+    {
+     "antwort": 54,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Volumen des Zylinders angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "kugel",
+    "t": "kugel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Kugel hat den Radius 3 cm. Gib ihr Volumen in der Form V = □ · π cm³ an. Welche Zahl gehört in das Kästchen? Rechne auf zwei Wegen. Weg A: mit der Formel V = 4/3 · π · r³. Weg B: Berechne das Volumen eines Zylinders mit dem Radius 3 cm und der Höhe 6 cm. Ziehe davon die Volumina von zwei Kegeln ab. Beide Kegel haben den Radius 3 cm und die Höhe 3 cm, ihre Spitzen liegen im Mittelpunkt des Zylinders, ihre Grundflächen sind Boden und Deckel. Der Rest hat dasselbe Volumen wie die Kugel, weil er in jeder Höhe denselben Querschnitt hat."
+    },
+    "o": {
+     "wert": 36
+    },
+    "c": "4 * 3 ** 3 / 3",
+    "h": "Beide Wege müssen dieselbe Zahl ergeben. Bei Weg B rechnest du das Volumen des Zylinders und das der beiden Kegel jeweils in Vielfachen von π.",
+    "w": "Weg A: V = 4/3 · π · 27 = 36π cm³. Weg B: Zylinder: π · 3² · 6 = 54π. Ein Kegel: π · 3² · 3 : 3 = 9π, zwei Kegel 18π. Rest: 54π − 18π = 36π cm³. Beide Wege: 36."
+   }
+  },
+  {
+   "kennung": "K9B-V099",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "kugel",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_rechteck",
+   "regel_name": "Aus dem Rechteck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 729,
+     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
+     "beschreibung": "nur r³ gerechnet, den Faktor vier Drittel vergessen"
+    },
+    {
+     "antwort": 108,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "r² statt r³ genommen"
+    },
+    {
+     "antwort": 324,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Oberfläche als Volumen angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "kugel",
+    "t": "kugel",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Kugel hat die Oberfläche 324π cm². Gib ihr Volumen in der Form V = □ · π cm³ an. Welche Zahl gehört in das Kästchen?"
+    },
+    "o": {
+     "wert": 972
+    },
+    "c": "4 * 9 ** 3 / 3",
+    "h": "Aus der Oberfläche O = 4π · r² bekommst du zuerst r². Dann den Radius, dann das Volumen.",
+    "w": "4 · r² = 324, also r² = 81 und r = 9 cm. V = 4/3 · π · 9³ = 4/3 · 729π = 972π cm³."
+   }
+  },
+  {
+   "kennung": "K9B-V100",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "sachkontext",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 243,
+     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
+     "beschreibung": "den Faktor ein Drittel vergessen: 3 · 9 · 9"
+    },
+    {
+     "luecke": 2,
+     "antwort": 108,
+     "fehlbild": "fb.aus_dem_rechteck.halbieren_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "beschreibung": "die ganze Kugel statt der halben gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 81,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Waffel gezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachkontext",
+    "t": "sachkontext",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine Eiswaffel hat die Form eines geraden Kegels mit dem Radius 3 cm und der Höhe 9 cm. Auf der Öffnung liegt eine halbe Eiskugel mit demselben Radius. Rechne mit π ≈ 3. Das Volumen der Waffel ist ① cm³. Das Volumen der halben Kugel ist ② cm³. Zusammen sind das ③ cm³.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      81,
+      54,
+      135
+     ]
+    },
+    "c": [
+     "3 * 3 ** 2 * 9 / 3",
+     "4 * 3 * 3 ** 3 / 3 / 2",
+     "(3 * 3 ** 2 * 9 / 3) + (4 * 3 * 3 ** 3 / 3 / 2)"
+    ],
+    "h": "Das Volumen der Waffel ist das Volumen eines Kegels. Eine halbe Kugel ist die Hälfte einer ganzen Kugel.",
+    "w": "Kegel: V = 3 · 3² · 9 : 3 = 81 cm³. Ganze Kugel: 4/3 · 3 · 3³ = 108 cm³, halbe Kugel: 54 cm³. Zusammen: 81 + 54 = 135 cm³."
+   }
+  },
+  {
+   "kennung": "K9B-V101",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "sachkontext",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12560,
+     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
+     "beschreibung": "den Faktor ein Drittel vergessen: 4 · 3,14 · 1 000"
+    },
+    {
+     "antwort": 33493,
+     "fehlbild": "fb.aus_dem_rechteck.durchmesser_statt_radius",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_rechteck",
+     "beschreibung": "den Durchmesser 2 m als Radius genommen (gerundet)"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachkontext",
+    "t": "sachkontext",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein kugelförmiger Wassertank hat den Innendurchmesser 2 m. Wie viele Liter Wasser passen höchstens hinein? Rechne mit π ≈ 3,14 und 1 m³ = 1 000 Liter. Runde auf ganze Liter."
+    },
+    "o": {
+     "wert": 4187,
+     "einheit": "Liter"
+    },
+    "c": "round(4 * 3.14 * 1 ** 3 / 3 * 1000, 0)",
+    "h": "Der Radius ist halb so groß wie der Durchmesser. Rechne das Volumen zuerst in m³, dann in Liter.",
+    "w": "r = 1 m. V = 4/3 · 3,14 · 1³ ≈ 4,1867 m³. In Liter: 4,1867 · 1 000 ≈ 4 187 l. Es passen etwa 4 187 Liter hinein."
+   }
+  },
+  {
+   "kennung": "K9B-V102",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "sachkontext",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
+     "beschreibung": "bei der Höhe den Faktor 3 vergessen: 288 : 36"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "für die Kugel r² statt r³ genommen: 4/3 · 36 = 48, dann 48 · 3 : 36"
+    }
+   ],
+   "aufgabe": {
+    "l": "sachkontext",
+    "t": "sachkontext",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Wachskugel mit dem Radius 6 cm wird vollständig eingeschmolzen. Aus dem Wachs wird ein gerader Kegel mit dem Radius 6 cm gegossen. Das Volumen bleibt dabei gleich. Wie hoch ist der Kegel?"
+    },
+    "o": {
+     "wert": 24,
+     "einheit": "cm"
+    },
+    "c": "4 * 6 ** 3 / 3 * 3 / 6 ** 2",
+    "h": "Das Volumen der Kugel ist das Volumen des Kegels. Stelle die Kegelformel nach der Höhe um.",
+    "w": "Kugel: V = 4/3 · π · 6³ = 288π cm³. Kegel: π · 6² · h : 3 = 12π · h. Aus 12π · h = 288π folgt h = 24 cm."
+   }
+  },
+  {
+   "kennung": "K9B-V103",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "verstehen",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 54,
+     "fehlbild": "fb.aus_dem_quader.drittel_vergessen",
+     "regel_des_fehlbilds": "id.flaeche_raum.aus_dem_quader",
+     "beschreibung": "den Faktor ein Drittel vergessen: 3 · 3 · 6"
+    },
+    {
+     "luecke": 2,
+     "antwort": 36,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur doppeltes Volumen angenommen: 2 · 18"
+    },
+    {
+     "luecke": 3,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Kanten verglichen: 6 : 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine gerade Pyramide hat als Grundfläche ein Quadrat mit der Kantenlänge 3 cm und ist 6 cm hoch. Ihr Volumen ist ① cm³. Eine zweite Pyramide hat dieselbe Höhe, aber ein Quadrat mit der Kantenlänge 6 cm als Grundfläche. Ihr Volumen ist ② cm³. Das Volumen der zweiten Pyramide ist ③-mal so groß wie das der ersten.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      18,
+      72,
+      4
+     ]
+    },
+    "c": [
+     "3 * 3 * 6 / 3",
+     "6 * 6 * 6 / 3",
+     "(6 * 6 * 6 / 3) / (3 * 3 * 6 / 3)"
+    ],
+    "h": "Rechne beide Volumina aus und vergleiche sie mit einer Division. Die Grundkante wird bei der Grundfläche quadriert.",
+    "w": "V₁ = 3 · 3 · 6 : 3 = 18 cm³. V₂ = 6 · 6 · 6 : 3 = 72 cm³. 72 : 18 = 4. Die Kante wurde verdoppelt, das Volumen wurde 4-mal so groß."
+   }
+  },
+  {
+   "kennung": "K9B-V104",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "verstehen",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Verdoppelt man den Radius, wird das Volumen doppelt so groß.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Radien verglichen"
+    },
+    {
+     "index": 1,
+     "antwort": "Verdoppelt man den Radius, wird das Volumen 4-mal so groß.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "wie bei der Fläche gerechnet"
+    },
+    {
+     "index": 3,
+     "antwort": "Verdoppelt man den Radius, wird das Volumen 6-mal so groß.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor 3 mit 2 malgenommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt das Volumen von drei Kugeln (π ≈ 3,14, auf zwei Dezimalstellen gerundet). Wie hängt das Volumen vom Radius ab?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Radius",
+       "Volumen"
+      ],
+      "zeilen": [
+       [
+        "1 cm",
+        "4,19 cm³"
+       ],
+       [
+        "2 cm",
+        "33,51 cm³"
+       ],
+       [
+        "3 cm",
+        "113,10 cm³"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "Verdoppelt man den Radius, wird das Volumen doppelt so groß.",
+     "Verdoppelt man den Radius, wird das Volumen 4-mal so groß.",
+     "Verdoppelt man den Radius, wird das Volumen 8-mal so groß.",
+     "Verdoppelt man den Radius, wird das Volumen 6-mal so groß."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Teile das Volumen bei r = 2 cm durch das Volumen bei r = 1 cm. Teile auch das Volumen bei r = 3 cm durch das bei r = 1 cm.",
+    "w": "33,51 : 4,19 ≈ 8 und 113,10 : 4,19 ≈ 27. Die Faktoren sind 2³ und 3³. Das Volumen wächst mit der dritten Potenz des Radius."
+   }
+  },
+  {
+   "kennung": "K9B-V105",
+   "thema": "raum.pyramide_kegel_kugel",
+   "lernkarte": "verstehen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.flaeche_raum.aus_dem_quader",
+   "regel_name": "Aus dem Quader",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "verstehen",
+    "t": "verstehen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim vergleicht einen geraden Kegel mit einem geraden Zylinder. Beide haben denselben Radius und dieselbe Höhe. Der Zylinder hat den Radius 3 cm und die Höhe 5 cm. Zeile 1: Der Kegel hat die Hälfte des Volumens des Zylinders. Zeile 2: Das Volumen des Zylinders ist V = π · 3² · 5 = 45π cm³. Zeile 3: Also hat der Kegel das Volumen 22,5π cm³. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wie viele Kegel mit gleichem Radius und gleicher Höhe passen in Volumen genau in einen Zylinder?",
+    "w": "Der Kegel hat ein Drittel des Volumens des Zylinders, nicht die Hälfte: 45π : 3 = 15π cm³. Der erste Fehler steht in Zeile 1."
+   }
+  }
+ ]
+}

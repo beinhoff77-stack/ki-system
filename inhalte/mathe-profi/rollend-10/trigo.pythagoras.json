@@ -1,0 +1,1058 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-10",
+ "kuerzel": "K9B",
+ "flug": "k9b-trigo.pythagoras",
+ "titel": "trigo.pythagoras",
+ "fuer": "Klasse 9",
+ "klasse": 9,
+ "themen": [
+  "trigo.pythagoras"
+ ],
+ "themen_datei_im_bestand": "trigo.pythagoras",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "K9B-V001",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "hypotenuse",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 40,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "20 · 2 statt 20² gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 42,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "21 · 2 statt 21² gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 41,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Seitenlängen 20 + 21 statt der Quadrate addiert"
+    },
+    {
+     "luecke": 4,
+     "antwort": 841,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen: AB² als Länge angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "hypotenuse",
+    "t": "hypotenuse",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Dreieck ABC hat bei C einen rechten Winkel. Es gilt AC = 20 cm und BC = 21 cm. Gesucht ist die Länge der Hypotenuse AB. Das Quadrat über AC hat den Flächeninhalt ① cm², das Quadrat über BC hat ② cm². Beide Quadrate zusammen haben ③ cm². Die Hypotenuse AB ist ④ cm lang.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      400,
+      441,
+      841,
+      29
+     ]
+    },
+    "c": [
+     "20 ** 2",
+     "21 ** 2",
+     "(20 ** 2) + (21 ** 2)",
+     "((((20 ** 2) + (21 ** 2))) / 29)"
+    ],
+    "h": "Die Quadrate über den beiden Katheten ergeben zusammen das Quadrat über der Hypotenuse. Die Seitenlänge erhältst du aus dem Flächeninhalt des Quadrats.",
+    "w": "AC² = 20² = 400. BC² = 21² = 441. AB² = 400 + 441 = 841. AB = √841 = 29 cm."
+   }
+  },
+  {
+   "kennung": "K9B-V002",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "hypotenuse",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 169,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen: die Fläche 169 cm² als Länge angegeben"
+    },
+    {
+     "antwort": 17,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Katheten addiert: 5 + 12"
+    },
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Katheten subtrahiert: 12 − 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "hypotenuse",
+    "t": "hypotenuse",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Dreieck hat bei C einen rechten Winkel. Die Katheten sind 5 cm und 12 cm lang. Berechne die Länge der Hypotenuse auf zwei Wegen. Weg A: Satz des Pythagoras. Weg B: Lege vier Kopien des Dreiecks so um ein Quadrat, dass ein großes Quadrat mit der Seitenlänge 17 cm entsteht (5 cm + 12 cm). In der Mitte bleibt ein Quadrat, dessen Seite die Hypotenuse ist. Seine Fläche ist die Fläche des großen Quadrats minus die Fläche der vier Dreiecke. Wie lang ist die Hypotenuse?"
+    },
+    "o": {
+     "wert": 13,
+     "einheit": "cm"
+    },
+    "c": "13",
+    "h": "Beide Wege müssen dieselbe Länge ergeben. Bei Weg B erhältst du zuerst eine Fläche.",
+    "w": "Weg A: c² = 5² + 12² = 25 + 144 = 169, c = 13 cm. Weg B: großes Quadrat 17² = 289 cm², vier Dreiecke 4 · (5 · 12 : 2) = 120 cm². Mittleres Quadrat: 289 − 120 = 169 cm², Seite √169 = 13 cm. Beide Wege führen auf 13 cm."
+   }
+  },
+  {
+   "kennung": "K9B-V003",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "hypotenuse",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 81,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Diagonale in cm gerundet, die Umrechnung in Zoll vergessen"
+    },
+    {
+     "antwort": 43,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "Breite plus Höhe (110 cm) statt der Diagonalen in Zoll umgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "hypotenuse",
+    "t": "hypotenuse",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Der rechteckige Bildschirm eines Fernsehers ist 70 cm breit und 40 cm hoch. Die Größe eines Bildschirms wird als Länge seiner Diagonalen in Zoll angegeben. Es gilt 1 Zoll = 2,54 cm. Wie groß ist dieser Bildschirm? Runde auf ganze Zoll."
+    },
+    "o": {
+     "wert": 32,
+     "einheit": "Zoll"
+    },
+    "c": "round(31.741172237395862, 0)",
+    "h": "Die Diagonale teilt das Rechteck in zwei rechtwinklige Dreiecke. Rechne am Ende von cm in Zoll um.",
+    "w": "Diagonale: d² = 70² + 40² = 4 900 + 1 600 = 6 500, d = √6 500 ≈ 80,6 cm. 80,6 : 2,54 ≈ 31,7. Der Bildschirm hat etwa 32 Zoll."
+   }
+  },
+  {
+   "kennung": "K9B-V004",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "kathete",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 52,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "26 · 2 statt 26² gerechnet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 20,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "10 · 2 statt 10² gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 776,
+     "fehlbild": "fb.rechtwinklig.kathete_als_hypotenuse",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "addiert statt subtrahiert: 676 + 100"
+    },
+    {
+     "luecke": 4,
+     "antwort": 576,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen: BC² als Länge angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "kathete",
+    "t": "kathete",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Dreieck ABC hat bei C einen rechten Winkel. Die Hypotenuse AB ist 26 cm lang, die Kathete AC ist 10 cm lang. Gesucht ist die Kathete BC. Das Quadrat über AB hat den Flächeninhalt ① cm², das Quadrat über AC hat ② cm². Das Quadrat über BC hat ③ cm². Die Kathete BC ist ④ cm lang.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      676,
+      100,
+      576,
+      24
+     ]
+    },
+    "c": [
+     "26 ** 2",
+     "10 ** 2",
+     "(26 ** 2) - (10 ** 2)",
+     "((((26 ** 2) - (10 ** 2))) / 24)"
+    ],
+    "h": "Die beiden Quadrate über den Katheten ergeben zusammen das Quadrat über der Hypotenuse. Ein Summand fehlt dir.",
+    "w": "AB² = 26² = 676. AC² = 10² = 100. BC² = 676 − 100 = 576. BC = √576 = 24 cm."
+   }
+  },
+  {
+   "kennung": "K9B-V005",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "kathete",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 256,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Quadratfläche 256 cm² als Seitenlänge angegeben"
+    },
+    {
+     "antwort": 544,
+     "fehlbild": "fb.rechtwinklig.kathete_als_hypotenuse",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Flächen addiert: 400 + 144 (Fläche statt Länge)"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "erst die Wurzeln gezogen, dann subtrahiert: 20 − 12"
+    }
+   ],
+   "aufgabe": {
+    "l": "kathete",
+    "t": "kathete",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "zahl",
+    "f": {
+     "text": "Über den Seiten eines Dreiecks ABC mit einem rechten Winkel bei C stehen Quadrate. Die Tabelle zeigt die Flächeninhalte von zwei dieser Quadrate. Wie lang ist die Seite AC?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Seite",
+       "Lage im Dreieck",
+       "Fläche des Quadrats über der Seite"
+      ],
+      "zeilen": [
+       [
+        "BC",
+        "Kathete",
+        "144 cm²"
+       ],
+       [
+        "AB",
+        "Hypotenuse",
+        "400 cm²"
+       ]
+      ]
+     }
+    },
+    "o": {
+     "wert": 16,
+     "einheit": "cm"
+    },
+    "c": "16",
+    "h": "Die Quadratfläche über der Hypotenuse ist so groß wie die beiden Quadrate über den Katheten zusammen. Aus der Fläche eines Quadrats erhältst du seine Seitenlänge.",
+    "w": "Das Quadrat über AB (Hypotenuse) hat 400 cm². Das Quadrat über AC hat 400 − 144 = 256 cm². Seitenlänge: √256 = 16 cm. Probe: 144 + 256 = 400."
+   }
+  },
+  {
+   "kennung": "K9B-V006",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "kathete",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "kathete",
+    "t": "kathete",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim berechnet die Kathete b eines Dreiecks mit einem rechten Winkel. Die Hypotenuse ist c = 17 cm, die andere Kathete ist a = 8 cm. Zeile 1: c² = 17² = 289 und a² = 8² = 64. Zeile 2: b² = c² + a² = 289 + 64 = 353. Zeile 3: b = √353 ≈ 18,8 cm. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Welche Seite ist die längste im rechtwinkligen Dreieck? Welches Quadrat ist die Summe der beiden anderen?",
+    "w": "Die Hypotenuse c steht allein: c² = a² + b². Also ist b² = c² − a² = 289 − 64 = 225 und b = 15 cm. Kim hat in Zeile 2 addiert statt subtrahiert."
+   }
+  },
+  {
+   "kennung": "K9B-V007",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "umkehrung",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": 21,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Seitenlängen 10 + 11 statt ihrer Quadrate addiert"
+    },
+    {
+     "luecke": 4,
+     "antwort": 15,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die längste Seite nicht quadriert"
+    },
+    {
+     "luecke": 5,
+     "antwort": 125,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Quadrat der längsten Seite mit nur einem Quadrat verglichen: 225 − 100"
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehrung",
+    "t": "umkehrung",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Dreieck hat die Seitenlängen 10 cm, 11 cm und 15 cm. Ob es einen rechten Winkel hat, prüfst du mit den Quadraten der Seitenlängen. Das Quadrat der Seite 10 cm ist ① cm², das Quadrat der Seite 11 cm ist ② cm². Beide zusammen sind ③ cm². Das Quadrat der längsten Seite ist ④ cm². Der Unterschied zwischen ④ und ③ ist ⑤. Nur bei einem Unterschied von null wäre das Dreieck rechtwinklig.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □; ⑤ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      100,
+      121,
+      221,
+      225,
+      4
+     ]
+    },
+    "c": [
+     "10 ** 2",
+     "11 ** 2",
+     "(10 ** 2) + (11 ** 2)",
+     "15 ** 2",
+     "(15 ** 2) - ((10 ** 2) + (11 ** 2))"
+    ],
+    "h": "Die Umkehrung des Satzes von Pythagoras vergleicht zwei Flächen: das Quadrat der längsten Seite und die Summe der Quadrate der beiden kürzeren Seiten.",
+    "w": "10² = 100, 11² = 121, Summe 221. 15² = 225. Unterschied 225 − 221 = 4, nicht null. Das Dreieck hat keinen rechten Winkel."
+   }
+  },
+  {
+   "kennung": "K9B-V008",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "umkehrung",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Das Dreieck hat einen rechten Winkel. Er liegt gegenüber der Seite mit dem Quadrat 36 cm².",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Lage des rechten Winkels verwechselt: er liegt gegenüber der längsten Seite"
+    },
+    {
+     "index": 1,
+     "antwort": "Das Dreieck hat keinen rechten Winkel, denn 85 ist keine Quadratzahl.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Seitenlängen müssen nicht ganzzahlig sein"
+    },
+    {
+     "index": 3,
+     "antwort": "Das Dreieck hat keinen rechten Winkel, denn 36 + 85 ist nicht 49.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die falschen zwei Flächen addiert"
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehrung",
+    "t": "umkehrung",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Über den drei Seiten eines Dreiecks stehen Quadrate. Die Tabelle zeigt ihre Flächeninhalte. Was stimmt?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "Seite",
+       "Fläche des Quadrats über der Seite"
+      ],
+      "zeilen": [
+       [
+        "a",
+        "36 cm²"
+       ],
+       [
+        "b",
+        "49 cm²"
+       ],
+       [
+        "c",
+        "85 cm²"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "Das Dreieck hat einen rechten Winkel. Er liegt gegenüber der Seite mit dem Quadrat 36 cm².",
+     "Das Dreieck hat keinen rechten Winkel, denn 85 ist keine Quadratzahl.",
+     "Das Dreieck hat einen rechten Winkel. Er liegt gegenüber der Seite mit dem Quadrat 85 cm².",
+     "Das Dreieck hat keinen rechten Winkel, denn 36 + 85 ist nicht 49."
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Vergleiche die größte Quadratfläche mit der Summe der beiden anderen.",
+    "w": "36 + 49 = 85. Die Summe der beiden kleineren Quadrate ist so groß wie das größte Quadrat. Nach der Umkehrung des Satzes von Pythagoras ist das Dreieck rechtwinklig. Der rechte Winkel liegt der längsten Seite gegenüber, also der Seite mit dem Quadrat 85 cm²."
+   }
+  },
+  {
+   "kennung": "K9B-V009",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "umkehrung",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "umkehrung",
+    "t": "umkehrung",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim prüft, ob ein Dreieck mit den Seitenlängen 7 cm, 9 cm und 12 cm einen rechten Winkel hat. Zeile 1: Die längste Seite ist 12 cm. Ihr Quadrat ist 12 · 2 = 24. Zeile 2: Die Quadrate der beiden anderen Seiten ergeben zusammen 7² + 9² = 49 + 81 = 130. Zeile 3: 130 ist nicht gleich 24, also hat das Dreieck keinen rechten Winkel. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wie berechnet man das Quadrat einer Zahl?",
+    "w": "Das Quadrat von 12 ist 12² = 144, nicht 24. Dann vergleicht man 144 mit 130: Beides ist verschieden, das Dreieck hat keinen rechten Winkel. Das Ergebnis stimmt, aber der Fehler steckt in Zeile 1."
+   }
+  },
+  {
+   "kennung": "K9B-V010",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "koordinaten",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "−2 + 7 gerechnet: das Vorzeichen von −2 nicht beachtet"
+    },
+    {
+     "luecke": 2,
+     "antwort": 14,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "13 + 1 gerechnet statt zu subtrahieren"
+    },
+    {
+     "luecke": 3,
+     "antwort": 21,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die beiden Unterschiede addiert: 9 + 12"
+    },
+    {
+     "luecke": 3,
+     "antwort": 225,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Im Koordinatensystem liegen die Punkte A(−2 | 1) und B(7 | 13). Die Einheit auf beiden Achsen ist 1 cm. Der Unterschied der x-Koordinaten von A und B ist ① cm. Der Unterschied der y-Koordinaten ist ② cm. Diese beiden Unterschiede sind die Katheten eines rechtwinkligen Dreiecks, dessen Hypotenuse die Strecke AB ist. Die Strecke AB ist ③ cm lang.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      9,
+      12,
+      15
+     ]
+    },
+    "c": [
+     "7 - (-2)",
+     "13 - 1",
+     "(((7 - (-2)) ** 2 + (13 - 1) ** 2) / 15)"
+    ],
+    "h": "Der Unterschied zweier Koordinaten ist die größere Zahl minus die kleinere Zahl. Vorsicht bei negativen Zahlen.",
+    "w": "x: 7 − (−2) = 9. y: 13 − 1 = 12. AB² = 9² + 12² = 81 + 144 = 225, AB = 15 cm."
+   }
+  },
+  {
+   "kennung": "K9B-V011",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "koordinaten",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1300,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Unterschiede addiert: (7 + 6) · 100"
+    },
+    {
+     "antwort": 8500,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen: 85 · 100"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Umrechnung in Meter vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Drohne soll in gerader Linie vom Startpunkt S(3 | 2) zum Landeplatz L(10 | 8) fliegen. Die Punkte stammen aus einem Plan, in dem jede Einheit des Koordinatensystems 100 m in der Wirklichkeit entspricht. Wie lang ist der Flug? Runde auf ganze Meter."
+    },
+    "o": {
+     "wert": 922,
+     "einheit": "m"
+    },
+    "c": "round(921.9544457292888, 0)",
+    "h": "Bestimme zuerst die beiden Koordinatenunterschiede. Rechne erst am Schluss in Meter um.",
+    "w": "Unterschiede: 10 − 3 = 7 und 8 − 2 = 6. Abstand im Plan: √(49 + 36) = √85 ≈ 9,22 Einheiten. 9,22 · 100 ≈ 922. Der Flug ist etwa 922 m lang."
+   }
+  },
+  {
+   "kennung": "K9B-V012",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "koordinaten",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Unterschied y − 2 angegeben, nicht y selbst"
+    },
+    {
+     "antwort": -10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in die andere Richtung gerechnet: 2 − 12, obwohl y > 2 verlangt ist"
+    },
+    {
+     "antwort": 18,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Abstand und x-Unterschied addiert: 13 + 5"
+    }
+   ],
+   "aufgabe": {
+    "l": "koordinaten",
+    "t": "koordinaten",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Die Punkte A(1 | 2) und B(6 | y) haben den Abstand 13 Längeneinheiten voneinander. Es gilt y > 2. Wie groß ist y?"
+    },
+    "o": {
+     "wert": 14
+    },
+    "c": "2 + 12",
+    "h": "Der Abstand ist die Hypotenuse. Ein Unterschied der Koordinaten ist bekannt. Der andere Unterschied ist die fehlende Kathete.",
+    "w": "Unterschied der x-Koordinaten: 6 − 1 = 5. Dann (y − 2)² = 13² − 5² = 169 − 25 = 144, also y − 2 = 12 (wegen y > 2). y = 14. Probe: Abstand √(5² + 12²) = 13."
+   }
+  },
+  {
+   "kennung": "K9B-V013",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "raum",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 17,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Kanten addiert: 8 + 9"
+    },
+    {
+     "luecke": 2,
+     "antwort": 157,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Höhe nicht quadriert: 145 + 12"
+    },
+    {
+     "luecke": 3,
+     "antwort": 289,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "raum",
+    "t": "raum",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Quader hat die Kantenlängen 8 cm, 9 cm und 12 cm. Die Diagonale e der Grundfläche (8 cm mal 9 cm) hat das Quadrat e² = ① cm². Die Raumdiagonale d bildet mit e und der Kante der Höhe 12 cm ein rechtwinkliges Dreieck. Das Quadrat der Raumdiagonale ist d² = ② cm². Die Raumdiagonale ist ③ cm lang.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      145,
+      289,
+      17
+     ]
+    },
+    "c": [
+     "8 ** 2 + 9 ** 2",
+     "(8 ** 2 + 9 ** 2) + 12 ** 2",
+     "((((8 ** 2 + 9 ** 2) + 12 ** 2)) / 17)"
+    ],
+    "h": "Rechne zuerst in der Grundfläche, dann im zweiten Dreieck. Die Quadrate darfst du stehen lassen, bis du am Ende die Wurzel ziehst.",
+    "w": "e² = 8² + 9² = 64 + 81 = 145. d² = e² + 12² = 145 + 144 = 289. d = √289 = 17 cm."
+   }
+  },
+  {
+   "kennung": "K9B-V014",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "raum",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 130,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die drei Kanten addiert: 60 + 40 + 30"
+    },
+    {
+     "antwort": 72,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Diagonale des Bodens genommen, die Höhe vergessen"
+    },
+    {
+     "antwort": 6100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "raum",
+    "t": "raum",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quaderförmiger Karton ist innen 60 cm lang, 40 cm breit und 30 cm hoch. Man will einen möglichst langen, geraden, dünnen Stab hineinlegen. Wie lang darf der Stab höchstens sein? Gib die Länge in ganzen Zentimetern an und runde ab."
+    },
+    "o": {
+     "wert": 78,
+     "einheit": "cm"
+    },
+    "c": "round(78.10249675906654, 0)",
+    "h": "Der längste Stab liegt auf der Raumdiagonale des Kartons.",
+    "w": "d² = 60² + 40² + 30² = 3 600 + 1 600 + 900 = 6 100. d = √6 100 ≈ 78,1 cm. Der Stab darf höchstens 78 cm lang sein."
+   }
+  },
+  {
+   "kennung": "K9B-V015",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "raum",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 49,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Quadrat der Höhe als Höhe angegeben"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 − 4 gerechnet"
+    },
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Grundkante abgezogen und gerundet"
+    }
+   ],
+   "aufgabe": {
+    "l": "raum",
+    "t": "raum",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Quader hat eine quadratische Grundfläche mit der Seitenlänge 4 cm. Seine Raumdiagonale ist 9 cm lang. Wie hoch ist der Quader?"
+    },
+    "o": {
+     "wert": 7,
+     "einheit": "cm"
+    },
+    "c": "7",
+    "h": "Für die Raumdiagonale d gilt: d² ist die Summe der Quadrate der drei Kanten. Hier ist eine Kante unbekannt.",
+    "w": "d² = 4² + 4² + h². 81 = 16 + 16 + h², also h² = 49 und h = 7 cm. Probe: 16 + 16 + 49 = 81 = 9²."
+   }
+  },
+  {
+   "kennung": "K9B-V016",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "anwendung",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "form": "lueckenweg",
+   "antwortform": "luecken",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 10,
+     "fehlbild": "fb.potenz.basis_mal_hochzahl",
+     "regel_des_fehlbilds": "rr.potenz",
+     "beschreibung": "5 · 2 statt 5² gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 34,
+     "fehlbild": "fb.rechtwinklig.kathete_als_hypotenuse",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "addiert statt subtrahiert: 25 + 9"
+    },
+    {
+     "luecke": 4,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen"
+    }
+   ],
+   "aufgabe": {
+    "l": "anwendung",
+    "t": "anwendung",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Eine 5 m lange Leiter lehnt an einer senkrechten Hauswand. Ihr Fuß steht auf waagerechtem Boden und ist 3 m von der Wand entfernt. Das Quadrat der Leiterlänge ist ① m². Das Quadrat des Wandabstands ist ② m². Das Quadrat der Höhe, in der die Leiter die Wand berührt, ist ③ m². Die Leiter berührt die Wand in einer Höhe von ④ m.",
+     "schablone": "① = □; ② = □; ③ = □; ④ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      25,
+      9,
+      16,
+      4
+     ]
+    },
+    "c": [
+     "5 ** 2",
+     "3 ** 2",
+     "(5 ** 2) - (3 ** 2)",
+     "((((5 ** 2) - (3 ** 2))) / 4)"
+    ],
+    "h": "Leiter, Wand und Boden bilden ein rechtwinkliges Dreieck. Die Leiter ist die längste Seite.",
+    "w": "Leiter: 5² = 25. Abstand: 3² = 9. Höhe²: 25 − 9 = 16. Höhe: √16 = 4 m."
+   }
+  },
+  {
+   "kennung": "K9B-V017",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "anwendung",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 21,
+     "fehlbild": "fb.rechtwinklig.ohne_quadrate",
+     "regel_des_fehlbilds": "id.geometrie.rechtwinklig",
+     "beschreibung": "die Strecken addiert: 9 + 12"
+    },
+    {
+     "antwort": 225,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wurzel nicht gezogen"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor vergessen: die Hypotenuse 5 des kleinen Dreiecks genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "anwendung",
+    "t": "anwendung",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Boot fährt vom Hafen aus 9 km genau nach Osten und dann 12 km genau nach Norden. Wie weit ist es dann in gerader Linie vom Hafen entfernt? Berechne es auf zwei Wegen. Weg A: Satz des Pythagoras. Weg B: Das Dreieck mit den Seiten 9 km und 12 km ist ein Vielfaches des Dreiecks mit den Seiten 3, 4 und 5. Bestimme den Vervielfältigungsfaktor."
+    },
+    "o": {
+     "wert": 15,
+     "einheit": "km"
+    },
+    "c": "15",
+    "h": "Beide Wege müssen dieselbe Entfernung ergeben. Bei Weg B hilft die Frage: Mit welcher Zahl wurde 3 zu 9?",
+    "w": "Weg A: 9² + 12² = 81 + 144 = 225, √225 = 15 km. Weg B: 9 = 3 · 3 und 12 = 3 · 4, der Faktor ist 3. Die Hypotenuse ist 3 · 5 = 15 km."
+   }
+  },
+  {
+   "kennung": "K9B-V018",
+   "thema": "trigo.pythagoras",
+   "lernkarte": "anwendung",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "id.geometrie.rechtwinklig",
+   "regel_name": "Rechtwinkliges Dreieck",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 108,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der halben Breite 6 m statt der Schräge gerechnet: 2 · 6 · 9"
+    },
+    {
+     "antwort": 81,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit der Höhe 4,5 m statt der Schräge gerechnet: 2 · 4,5 · 9"
+    },
+    {
+     "antwort": 67.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Dachfläche berechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "anwendung",
+    "t": "anwendung",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Satteldach hat zwei gleich große, rechteckige Dachflächen. Das Haus ist 12 m breit, das Dach ist 9 m lang. Der First liegt 4,5 m höher als die Decke und genau über der Mitte des Hauses. Wie viele Quadratmeter Dachfläche hat das Dach insgesamt? Der Dachüberstand wird nicht berücksichtigt."
+    },
+    "o": {
+     "wert": 135,
+     "einheit": "m²"
+    },
+    "c": "2 * 7.5 * 9",
+    "h": "Die Schräge einer Dachfläche ist die Hypotenuse eines rechtwinkligen Dreiecks. Eine Kathete ist die halbe Hausbreite.",
+    "w": "Halbe Breite: 6 m. Schräge: √(6² + 4,5²) = √(36 + 20,25) = √56,25 = 7,5 m. Eine Dachfläche: 7,5 · 9 = 67,5 m². Zwei Dachflächen: 135 m²."
+   }
+  }
+ ]
+}

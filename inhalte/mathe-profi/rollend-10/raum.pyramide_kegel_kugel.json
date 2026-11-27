@@ -867,7 +867,7 @@
      "antwort": 81,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Waffel gezählt"
+     "beschreibung": "nur den Kegel gezählt"
     }
    ],
    "aufgabe": {
@@ -878,7 +878,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Eine Eiswaffel hat die Form eines geraden Kegels mit dem Radius 3 cm und der Höhe 9 cm. Auf der Öffnung liegt eine halbe Eiskugel mit demselben Radius. Rechne mit π ≈ 3. Das Volumen der Waffel ist ① cm³. Das Volumen der halben Kugel ist ② cm³. Zusammen sind das ③ cm³.",
+     "text": "Eine Eiswaffel hat die Form eines geraden Kegels mit dem Radius 3 cm und der Höhe 9 cm. Auf der Öffnung liegt eine halbe Eiskugel mit demselben Radius. Rechne mit π ≈ 3. Das Volumen des Kegels ist ① cm³. Das Volumen der halben Kugel ist ② cm³. Zusammen sind das ③ cm³.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -1090,7 +1090,7 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "Die Tabelle zeigt das Volumen von drei Kugeln (π ≈ 3,14, auf zwei Dezimalstellen gerundet). Wie hängt das Volumen vom Radius ab?",
+     "text": "Die Tabelle zeigt das Volumen von drei Kugeln (mit dem genauen Wert von π berechnet und auf zwei Dezimalstellen gerundet). Wie hängt das Volumen vom Radius ab?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [

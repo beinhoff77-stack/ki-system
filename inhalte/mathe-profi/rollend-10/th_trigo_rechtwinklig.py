@@ -25,7 +25,7 @@ neu(T, "seiten", "fehler_detektiv", FD(
 
 # ───────── verhaeltnisse ─────────
 neu(T, "verhaeltnisse", "lueckenweg", L(
-    "Ein Dreieck ABC hat bei C einen rechten Winkel. Die Gegenkathete BC von α ist 9 cm lang, die Ankathete AC ist 12 cm lang. Die Hypotenuse ist ① cm lang. Ein zweites Dreieck hat denselben Winkel α und einen rechten Winkel. Seine Hypotenuse ist 30 cm lang. Es entsteht durch Strecken mit dem Faktor ②. Die Gegenkathete von α ist in diesem Dreieck ③ cm lang, die Ankathete ④ cm.",
+    "Ein Dreieck ABC hat bei C einen rechten Winkel. Die Gegenkathete BC von α ist 9 cm lang, die Ankathete AC ist 12 cm lang. Die Hypotenuse ist ① cm lang. Ein anderes Dreieck hat denselben Winkel α und einen rechten Winkel. Seine Hypotenuse ist 30 cm lang. Es entsteht durch Strecken mit dem Faktor ②. Die Gegenkathete von α ist in diesem Dreieck ③ cm lang, die Ankathete ④ cm.",
     "① = □; ② = □; ③ = □; ④ = □", [15, 2, 18, 24], ["wurzel(9 ** 2 + 12 ** 2)", "30 / {1}", "9 * {2}", "12 * {2}"], ["15", "2", "18", "24"],
     "Die Verhältnisse der Seiten hängen nur vom Winkel ab, nicht von der Größe des Dreiecks. Vergleiche zuerst die beiden Hypotenusen.",
     "AB = √(9² + 12²) = √225 = 15 cm. Faktor: 30 : 15 = 2. Gegenkathete: 9 · 2 = 18 cm. Ankathete: 12 · 2 = 24 cm. Das Verhältnis Gegenkathete : Hypotenuse ist in beiden Dreiecken 9 : 15 = 18 : 30.",
@@ -84,7 +84,7 @@ neu(T, "winkel", "fehler_detektiv", FD(
     "Ein Dreieck ABC hat bei C einen rechten Winkel. Die Gegenkathete von α ist 3 cm, die Ankathete 4 cm lang. Kim berechnet α in Grad.",
     [("tan α = Gegenkathete : Ankathete = 3 : 4 = 0,75.", 3 / 4 == 0.75, True),
      ("Gesucht ist der Winkel, dessen Tangens 0,75 ist, also α = tan⁻¹(0,75).", True, True),
-     ("Mit dem Taschenrechner (Bogenmaß, RAD) erhalte ich α ≈ 0,64.", False, round(math.atan(0.75), 2) == 0.64)],
+     ("Mit dem Taschenrechner (Bogenmaß, RAD) erhalte ich α ≈ 0,64°.", False, round(math.atan(0.75), 2) == 0.64)],
     "In welcher Einheit soll der Winkel angegeben werden? Auf welche Einstellung muss der Taschenrechner dann stehen?",
     "Der Taschenrechner muss auf Gradmaß (DEG) stehen. Dann ist α = tan⁻¹(0,75) ≈ 36,9°. Der Wert 0,64 ist der Winkel im Bogenmaß. Der Fehler steckt in Zeile 3."), regel=R)
 
@@ -120,13 +120,13 @@ neu(T, "anwendung", "anwenden", Z(
     rd("asin(0.6 / 5)", 1)[0], rd("asin(0.6 / 5)", 1)[1], "round(asin(0.12), 1)", "Die Länge der Rampe ist die Hypotenuse, der Höhenunterschied die Gegenkathete des Neigungswinkels.",
     "sin α = 0,6 : 5 = 0,12. α = sin⁻¹(0,12) ≈ 6,89°. Der Neigungswinkel ist etwa 6,9°.",
     [(6.8, None, "mit dem Tangens gerechnet, als wäre 5 m die waagerechte Strecke (gerundet)", "round(atan(0.6 / 5), 1)"), (83.1, None, "den Winkel zur Senkrechten berechnet: cos⁻¹(0,12) (gerundet)", "round(acos(0.6 / 5), 1)"), (0.12, None, "ohne Umkehrfunktion: das Verhältnis als Winkel angegeben", "round(0.6 / 5, 2)")], "°"), g="einkleidung", regel=R)
-wert_ma, c_ma = rd("20 / tan(25)", 0)
+wert_ma, c_ma = rd("(20 - 1.6) / tan(25)", 0)
 neu(T, "anwendung", "umkehren", Z(
-    "Ein senkrechter Mast ist 20 m hoch und steht auf ebenem Boden. Die Spitze soll von einem Punkt auf dem Boden unter einem Höhenwinkel von 25° zu sehen sein. Der Höhenwinkel ist der Winkel zwischen Waagerechter und Blickrichtung. Wie weit vom Fußpunkt des Mastes muss man stehen? Die Augenhöhe wird nicht beachtet. Runde auf ganze Meter. " + GRAD,
-    wert_ma, c_ma, "round(20 / tan(25), 0)", "Der Mast ist die Gegenkathete des Winkels 25°. Gesucht ist die Ankathete.",
-    "tan 25° = 20 : d, also d = 20 : tan 25° ≈ 42,9 m. Man muss etwa 43 m entfernt stehen. Probe: tan⁻¹(20 : 43) ≈ 25°.",
-    [(9, None, "den Tangens malgenommen statt geteilt: 20 · tan 25° (gerundet)", "round(20 * tan(25), 0)"), (47, None, "den Sinus statt des Tangens genommen: 20 : sin 25° (gerundet)", "round(20 / sin(25), 0)")], "m"), g="rueckwaerts", regel=R)
-assert wert_ma == 43
+    "Ein senkrechter Mast ist 20 m hoch und steht auf ebenem Boden. Eine Person, deren Augen 1,6 m über dem Boden liegen, soll die Mastspitze unter einem Höhenwinkel von 25° sehen. Der Höhenwinkel ist der Winkel zwischen der Waagerechten durch die Augen und der Blickrichtung. Wie weit vom Fußpunkt des Mastes muss die Person stehen? Runde auf ganze Meter. " + GRAD,
+    wert_ma, c_ma, "round(18.4 / tan(25), 0)", "Zeichne die Waagerechte durch die Augen. Die Gegenkathete des Winkels 25° ist nicht die ganze Masthöhe. Gesucht ist die Ankathete.",
+    "Die Spitze liegt 20 − 1,6 = 18,4 m über den Augen. tan 25° = 18,4 : d, also d = 18,4 : tan 25° ≈ 39,5 m. Gerundet etwa 39 m. Probe: 18,4 : 39 ≈ 0,47 und tan 25° ≈ 0,47.",
+    [(43, None, "die Augenhöhe vergessen: 20 : tan 25° (gerundet)", "round(20 / tan(25), 0)"), (46, None, "die Augenhöhe addiert statt abgezogen: 21,6 : tan 25° (gerundet)", "round((20 + 1.6) / tan(25), 0)"), (9, None, "den Tangens malgenommen statt geteilt: 18,4 · tan 25° (gerundet)", "round(18.4 * tan(25), 0)")], "m"), g="rueckwaerts", regel=R)
+assert wert_ma == 39
 
 # ───────── schnittwinkel ─────────
 neu(T, "schnittwinkel", "lueckenweg", L(
@@ -141,9 +141,9 @@ neu(T, "schnittwinkel", "bruecke", Z(
     "Steigung: (y₂ − y₁) : (x₂ − x₁) = (3 − 1) : (4 − 0) = 0,5. tan α = 0,5, α = tan⁻¹(0,5) ≈ 26,57°. Der Winkel ist etwa 26,6°.",
     [(63.4, None, "das Verhältnis umgekehrt (Änderung von x durch Änderung von y): tan⁻¹(2) (gerundet)", "round(atan(2), 1)"), (0.5, None, "die Steigung statt des Winkels angegeben", "0.5")], "°",
     grafik=TAB(["x", "0", "2", "4", "6"], ["y", "1", "2", "3", "4"])), regel=R)
-wert_sw, c_sw = rd("5 * tan(35)", 1)
+wert_sw, c_sw = rd("2 + 5 * tan(35)", 1)
 neu(T, "schnittwinkel", "umkehren", Z(
-    "Die Gerade h geht durch den Ursprung O(0 | 0) und durch den Punkt P(5 | y) mit y > 0. Sie schneidet die x-Achse unter einem Winkel von 35°. Wie groß ist y? Runde auf eine Dezimale. " + GRAD,
-    wert_sw, c_sw, "round(5 * tan(35), 1)", "Die Strecke von O bis zum Fußpunkt (5 | 0) ist die Ankathete des Winkels 35°. Gesucht ist die Gegenkathete.",
-    "tan 35° = y : 5, also y = 5 · tan 35° ≈ 3,501. Gerundet y = 3,5. Probe: tan⁻¹(3,5 : 5) ≈ 35°.",
-    [(7.1, None, "durch den Tangens geteilt: 5 : tan 35° (gerundet)", "round(5 / tan(35), 1)"), (2.9, None, "den Sinus statt des Tangens genommen: 5 · sin 35° (gerundet)", "round(5 * sin(35), 1)")]), g="rueckwaerts", regel=R)
+    "Die Gerade h geht durch den Punkt Q(1 | 2) und steigt von links nach rechts. Sie schneidet die x-Achse unter einem Winkel von 35°. Auch der Punkt P(6 | y) liegt auf h. Wie groß ist y? Runde auf eine Dezimale. " + GRAD,
+    wert_sw, c_sw, "round(2 + 5 * tan(35), 1)", "Von Q nach P gehst du 5 Einheiten nach rechts. Die Steigung ist der Tangens des Winkels zur x-Achse.",
+    "Steigung m = tan 35° ≈ 0,70. Von Q nach P: 5 Einheiten nach rechts, also 5 · 0,70 ≈ 3,50 nach oben. y = 2 + 3,50 ≈ 5,5. Probe: (5,5 − 2) : 5 = 0,7 und tan 35° ≈ 0,70.",
+    [(3.5, None, "nur den Anstieg angegeben, die 2 von Q vergessen: 5 · tan 35° (gerundet)", "round(5 * tan(35), 1)"), (9.1, None, "durch den Tangens geteilt statt mit ihm malgenommen (gerundet)", "round(2 + 5 / tan(35), 1)"), (4.9, None, "den Sinus statt des Tangens genommen (gerundet)", "round(2 + 5 * sin(35), 1)")]), g="rueckwaerts", regel=R)

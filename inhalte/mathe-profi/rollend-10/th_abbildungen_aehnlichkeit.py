@@ -35,13 +35,13 @@ neu(T, "bildgerade", "zwei_wege", Z(
     "Die Gerade g: y = 2x + 5 wird mit dem Zentrum O(0 | 0) und dem Faktor k = 3 gestreckt. Wie groß ist der y-Achsenabschnitt der Bildgeraden g'? Rechne auf zwei Wegen. Weg A: Strecke den Punkt (0 | 5) von g und lies den y-Achsenabschnitt ab. Weg B: Strecke zwei andere Punkte von g, zum Beispiel die mit x = 1 und x = 2, und bestimme die Gerade durch die beiden Bildpunkte.",
     15, "5 * 3", "(2 * 1 + 5) * 3 - (((2 * 2 + 5) * 3) - ((2 * 1 + 5) * 3)) / (2 * 3 - 1 * 3) * (1 * 3)", "Beide Wege müssen dasselbe ergeben. Bei Weg B brauchst du zuerst die beiden Bildpunkte.",
     "Weg A: (0 | 5) wird zu (0 | 15), der Achsenabschnitt ist 15. Weg B: (1 | 7) wird zu (3 | 21), (2 | 9) wird zu (6 | 27). Steigung: (27 − 21) : (6 − 3) = 2. Dann 21 − 2 · 3 = 15. Beide Wege: 15.",
-    [(5, None, "den y-Achsenabschnitt von g übernommen", "5"), (8, "fb.verhaeltnis.addiert_statt_malgenommen", "5 + 3 gerechnet statt 5 · 3", "5 + 3"), (6, None, "die Steigung 2 mit dem Faktor 3 vervielfacht: 2 · 3", "2 * 3")]), regel=R)
+    [(5, None, "den y-Achsenabschnitt von g übernommen", "5"), (8, "fb.verhaeltnis.addiert_statt_malgenommen", "5 + 3 gerechnet statt 5 · 3", "5 + 3"), (21, None, "den y-Wert des Bildpunkts (3 | 21) als Achsenabschnitt angegeben: (2 · 1 + 5) · 3", "(2 * 1 + 5) * 3")]), regel=R)
 neu(T, "bildgerade", "fehler_detektiv", FD(
     "Die Gerade g: y = −x + 4 wird mit dem Zentrum O(0 | 0) und dem Faktor k = 2 gestreckt. Kim bestimmt die Bildgerade g'.",
     [("g hat die Steigung −1 und den y-Achsenabschnitt 4.", True, True),
      ("Die Streckung verdoppelt auch die Steigung: g' hat die Steigung −2.", False, True),
      ("Der y-Achsenabschnitt wird verdoppelt auf 8. Also ist g': y = −2x + 8.", False, 2 * 4 == 8)],
-    "Bei einer Streckung mit dem Zentrum O ist das Bild einer Geraden parallel zu ihr (wenn sie nicht durch O geht). Was heißt das für die Steigung?",
+    "Wie liegen eine Gerade und ihre Bildgerade zueinander, wenn das Zentrum nicht auf der Geraden liegt? Was folgt daraus für die Steigung?",
     "Eine Gerade und ihre Bildgerade sind parallel, die Steigung bleibt −1. Nur der Achsenabschnitt wird verdoppelt. g': y = −x + 8. Der erste Fehler steht in Zeile 2."), regel=R)
 
 # ───────── schwerpunkt ─────────
@@ -80,7 +80,7 @@ neu(T, "aehnlich", "fehler_detektiv", FD(
     "Eine Seite wird mit dem Streckfaktor multipliziert: 6 · 3 = 18 cm. Kim hat 3 addiert. Außerdem müsste das Verhältnis der mittleren Seiten wieder 3 sein, nicht 1,5. Der erste Fehler steht in Zeile 2."), regel=R)
 neu(T, "aehnlich", "bruecke", W(
     "Die Tabelle zeigt die Seitenlängen von drei Dreiecken, jeweils von der kürzesten zur längsten Seite. Welche zwei Dreiecke sind zueinander ähnlich?",
-    "A und C", [("A und B", "nur die kürzesten Seiten verglichen: sie sind im Verhältnis 1 : 2, die längsten aber 6 : 9"), ("B und C", "die ersten beiden Seiten stimmen im Verhältnis, die längsten nicht: 9 : 18"), ("Alle drei Dreiecke", "es passen nur zwei Dreiecke zusammen")],
+    "A und C", [("A und B", "nur die beiden kürzeren Seiten verglichen: beide im Verhältnis 1 : 2, die längsten aber 6 : 9"), ("B und C", "die ersten beiden Seiten stimmen im Verhältnis, die längsten nicht: 9 : 18"), ("Alle drei Dreiecke", "es passen nur zwei Dreiecke zusammen")],
     "Teile für zwei Dreiecke jeweils entsprechende Seiten durcheinander. Alle drei Quotienten müssen gleich sein.",
     "A → C: 9 : 3 = 3, 12 : 4 = 3, 18 : 6 = 3. Alle Quotienten sind gleich. A → B: 2, 2 und 1,5, also nicht ähnlich. B → C: 1,5, 1,5 und 2, also nicht ähnlich.",
     lambda: (9 / 3 == 12 / 4 == 18 / 6) and not (6 / 3 == 8 / 4 == 9 / 6) and not (9 / 6 == 12 / 8 == 18 / 9),
@@ -161,7 +161,7 @@ neu(T, "anwendung", "fehler_detektiv", FD(
     [("Beim Stab ist Höhe : Schatten = 1,2 : 0,8 = 1,5.", round(1.2 / 0.8, 9) == 1.5, True),
      ("Bei der Fichte ist das Verhältnis Höhe : Schatten dasselbe, also 1,5.", True, True),
      ("Die Höhe der Fichte ist also 10 : 1,5 ≈ 6,7 m.", 10 * 1.5 == 10 / 1.5, round(10 / 1.5, 1) == 6.7)],
-    "Das Verhältnis Höhe : Schatten ist 1,5. Wie bekommt man daraus die Höhe, wenn der Schatten 10 m lang ist?",
+    "Prüfe jede Zeile nach. Bei Stab und Fichte ist das Verhältnis Höhe : Schatten gleich.",
     "Höhe = Verhältnis · Schatten = 1,5 · 10 = 15 m. Kim hat geteilt statt malgenommen. Eine Fichte, die niedriger ist als ihr Schatten, passt auch nicht zu einem Stab, der höher ist als sein Schatten."), regel=R)
 
 # ───────── streckung_vektor ─────────

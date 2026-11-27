@@ -12,7 +12,7 @@ neu(T, "cavalieri", "anwenden", Z(
     "Der Stapel ist 30 · 1 = 30 cm hoch. Nach Cavalieri ist sein Volumen wie bei einem geraden Stapel: V = 20 · 20 · 30 = 12 000 cm³. Das ist auch 30 Platten mit je 400 cm³.",
     [(400, None, "nur eine Platte gezählt", "20 * 20 * 1"), (600, None, "eine Kantenlänge mal die Höhe gerechnet: 20 · 30", "20 * 30")], "cm³"), g="einkleidung", regel=R)
 neu(T, "cavalieri", "umkehren", Z(
-    "Ein schiefes Prisma hat das Volumen 84 cm³ und die Grundfläche 12 cm². Seine schräge Seitenkante ist 10 cm lang. Wie groß ist der senkrechte Abstand zwischen Grund- und Deckfläche?",
-    7, "84 / 12", "84 // 12", "Das Volumen eines schiefen Prismas ist Grundfläche mal senkrechte Höhe. Die Seitenkante wird nicht gebraucht.",
-    "V = G · h, also h = V : G = 84 : 12 = 7 cm. Die Seitenkante von 10 cm ist länger als die Höhe und nicht nötig.",
-    [(8.4, None, "durch die Seitenkante statt durch die Grundfläche geteilt: 84 : 10", "84 / 10"), (10, None, "die Länge der Seitenkante als Höhe angegeben", "10")], "cm"), g="rueckwaerts", regel=R)
+    "Ein schiefes Prisma hat als Grundfläche ein Rechteck, das 9 cm lang ist. Der senkrechte Abstand zwischen Grund- und Deckfläche ist 7 cm, die schräge Seitenkante ist 10 cm lang. Das Volumen des Prismas beträgt 252 cm³. Wie breit ist das Rechteck der Grundfläche?",
+    4, "252 / 7 / 9", "252 / 63", "Das Volumen eines schiefen Prismas ist Grundfläche mal senkrechte Höhe. Die Grundfläche ist ein Rechteck aus Länge und Breite.",
+    "G = V : h = 252 : 7 = 36 cm². Breite = G : Länge = 36 : 9 = 4 cm. Probe: 9 · 4 · 7 = 252. Die Seitenkante von 10 cm ist nicht die Höhe und wird nicht gebraucht.",
+    [(2.8, None, "durch die Seitenkante statt durch die senkrechte Höhe geteilt: 252 : 10 : 9", "252 / 10 / 9"), (36, None, "die Grundfläche statt der Breite angegeben", "252 / 7"), (28, None, "die Höhe vergessen: 252 : 9", "252 / 9")], "cm"), g="rueckwaerts", regel=R)

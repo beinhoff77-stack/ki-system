@@ -29,10 +29,10 @@ neu(T, "flaeche", "lueckenweg", L(
     {0: [(40, None, "den Durchmesser verdoppelt statt halbiert: 20 · 2", "20 * 2")], 1: [(20, "fb.potenz.basis_mal_hochzahl", "10 · 2 statt 10² gerechnet", "{1} * 2")],
      2: [(62.8, None, "den Umfang statt der Fläche gerechnet: 2 · 3,14 · 10", "2 * 3.14 * {1}")]}), regel=R)
 neu(T, "flaeche", "zwei_wege", Z(
-    "Ein Kreis hat den Radius 10 cm. Rechne mit π ≈ 3,14. Berechne den Flächeninhalt auf zwei Wegen. Weg A: mit der Formel A = π · r². Weg B: Zerlege den Kreis in sehr viele schmale Kreisstücke und lege sie abwechselnd zu einem fast rechteckigen Streifen zusammen. Seine Länge ist der halbe Umfang des Kreises, seine Breite der Radius.",
-    314, "3.14 * 10 ** 2", "(2 * 3.14 * 10 / 2) * 10", "Beide Wege müssen denselben Flächeninhalt ergeben. Bei Weg B brauchst du zuerst den Umfang.",
-    "Weg A: A = 3,14 · 10² = 314 cm². Weg B: Umfang 2 · 3,14 · 10 = 62,8 cm, halber Umfang 31,4 cm. Streifen: 31,4 · 10 = 314 cm².",
-    [(628, "fb.aus_dem_rechteck.halbieren_vergessen", "den ganzen Umfang statt des halben genommen: 62,8 · 10", "2 * 3.14 * 10 * 10"), (62.8, None, "nur den Umfang berechnet", "2 * 3.14 * 10"), (31.4, None, "den halben Umfang als Fläche angegeben", "3.14 * 10")], "cm²"), regel=R)
+    "Ein Kreis hat den Radius 10 cm. Rechne mit π ≈ 3,14. Berechne den Flächeninhalt auf zwei Wegen. Weg A: mit der Formel A = π · r². Weg B: Ein Kreis mit dem Radius 1 cm hat den Flächeninhalt 3,14 cm². Der Kreis mit dem Radius 10 cm entsteht daraus durch Vergrößern mit dem Längenfaktor 10. Wende den passenden Flächenfaktor an.",
+    314, "3.14 * 10 ** 2", "3.14 * 100", "Beide Wege müssen denselben Flächeninhalt ergeben. Bei Weg B wird nicht nur eine Länge vergrößert.",
+    "Weg A: A = 3,14 · 10² = 314 cm². Weg B: Längenfaktor 10, Flächenfaktor 10² = 100. A = 3,14 · 100 = 314 cm².",
+    [(31.4, "fb.aehnlich.flaeche_mit_k", "nur mit dem Längenfaktor 10 vervielfacht: 3,14 · 10", "3.14 * 10"), (62.8, None, "nur den Umfang berechnet: 2 · 3,14 · 10", "2 * 3.14 * 10"), (100, None, "nur den Flächenfaktor 100 als Fläche angegeben", "10 ** 2")], "cm²"), regel=R)
 neu(T, "flaeche", "fehler_detektiv", FD(
     "Ein Kreis hat den Durchmesser 12 cm. Kim berechnet den Flächeninhalt mit π ≈ 3,14.",
     [("Der Radius ist r = 12 · 2 = 24 cm.", 12 * 2 == 12 / 2, True),
@@ -50,7 +50,7 @@ neu(T, "exakt", "lueckenweg", L(
     {0: [(18, "fb.potenz.basis_mal_hochzahl", "9 · 2 statt 9² gerechnet", "9 * 2")], 1: [(10, "fb.potenz.basis_mal_hochzahl", "5 · 2 statt 5² gerechnet", "5 * 2")], 2: [(16, None, "erst die beiden Radien voneinander abgezogen und dann quadriert", "(9 - 5) ** 2")]}), regel=R)
 neu(T, "exakt", "bruecke", W(
     "Ein Kreis hat den Flächeninhalt 49π cm². Welcher Wert ist der Flächeninhalt als Dezimalzahl, wenn man mit π ≈ 3,14 rechnet?",
-    "153,86 cm²", [("21,98 cm²", "nur 7 · 3,14 gerechnet, den Radius nicht quadriert"), ("307,72 cm²", "98 · 3,14 gerechnet, die 49 verdoppelt"), ("52,14 cm²", "49 + 3,14 gerechnet, statt mit π zu multiplizieren")],
+    "153,86 cm²", [("21,98 cm²", "nur 7 · 3,14 gerechnet: aus 49 die Wurzel gezogen"), ("307,72 cm²", "98 · 3,14 gerechnet, die 49 verdoppelt"), ("52,14 cm²", "49 + 3,14 gerechnet, statt mit π zu multiplizieren")],
     "In 49π steht ein Malzeichen zwischen 49 und π. Setze für π die Näherung ein.",
     "49π bedeutet 49 · π. Mit π ≈ 3,14: 49 · 3,14 = 153,86 cm².",
     lambda: round(49 * 3.14, 2) == 153.86 and round(7 * 3.14, 2) == 21.98 and round(98 * 3.14, 2) == 307.72 and round(49 + 3.14, 2) == 52.14), regel=R)
@@ -85,11 +85,11 @@ neu(T, "verstehen", "fehler_detektiv", FD(
 
 # ───────── sektor ─────────
 neu(T, "sektor", "lueckenweg", L(
-    "Ein Kreissektor hat den Radius 12 cm und den Mittelpunktswinkel 90°. Der Sektor ist der ①-te Teil des ganzen Kreises. Der ganze Kreis hat die Fläche ② · π cm². Der Sektor hat die Fläche ③ · π cm².",
+    "Ein Kreissektor hat den Radius 12 cm und den Mittelpunktswinkel 90°. Der Sektor ist 1/① des ganzen Kreises. Der ganze Kreis hat die Fläche ② · π cm². Der Sektor hat die Fläche ③ · π cm².",
     "① = □; ② = □; ③ = □", [4, 144, 36], ["360 // 90", "12 ** 2", "{2} / {1}"], ["4", "144", "144 // 4"],
     "Der volle Winkel um einen Punkt ist 360°. Der Sektor hat denselben Anteil an der Fläche wie sein Winkel am vollen Winkel.",
     "360 : 90 = 4, der Sektor ist ein Viertel. Ganzer Kreis: 12² = 144, also 144π cm². Sektor: 144π : 4 = 36π cm².",
-    {0: [(270, None, "den Unterschied zum vollen Winkel genommen: 360 − 90", "360 - 90")], 1: [(24, DM, "mit dem Durchmesser gerechnet: 2 · 12", "2 * 12")], 2: [(144, None, "die Fläche des ganzen Kreises angegeben", "{2}")]}), regel=R)
+    {0: [(270, None, "den Unterschied zum vollen Winkel genommen: 360 − 90", "360 - 90")], 1: [(576, DM, "mit dem Durchmesser statt dem Radius gerechnet: 24²", "(2 * 12) ** 2")], 2: [(144, None, "die Fläche des ganzen Kreises angegeben", "{2}")]}), regel=R)
 wert_sc, c_sc = rd("3.14 * 40 ** 2 * 110 / 360", 0)
 neu(T, "sektor", "anwenden", Z(
     "Ein Scheibenwischer wird als Strecke vom Drehpunkt bis zum Ende des Wischblatts angenommen und ist 40 cm lang. Er schwenkt um 110° und überstreicht dabei einen Kreissektor. Wie groß ist die überstrichene Fläche? Rechne mit π ≈ 3,14 und runde auf ganze cm².",

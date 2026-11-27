@@ -32,3 +32,17 @@ Formen: lw Lückenweg, fd Fehler-Detektiv, vw Verfahren wählen, zw Zwei Wege, u
   - `messen.prisma_zylinder_teil2`: eine Lernkarte, daher kommen Umkehren, Brücke, Zwei Wege nicht je zweimal vor (Zwei Wege und Brücke fehlen, die Formen passen zu „schief“ fachlich nicht gut).
   - Verfahren wählen kommt nicht vor (Entwürfe waren nur „erkennen“, Stufe 1; durch die Stufenvorgabe ersetzt).
 - Annahmen in den Texten: π ≈ 3,14 oder π ≈ 3 oder exakt in π, Gradmaß (DEG) am Taschenrechner, Rundung stets genannt, Figuren ausdrücklich (gerade Pyramide, Kegel, Prisma schief, Dach symmetrisch).
+
+## Vorprüfung durch zweiten Helfer
+Alle 108 Aufgaben vollständig gelesen (Frage, Antworten, Schablone, Tipp, Lösungsweg, Fehlbilder) und von Hand nachgerechnet. 16 Aufgaben geändert, Kennungen unverändert.
+- Lösung falsch / mehrdeutig: 0 gefunden. Alle Zahlen- und Lückenlösungen stimmen, jede Auswahl hat genau eine richtige Antwort.
+- Tabelle und Text widersprachen sich: V104 (Tabelle mit genauem π gerechnet, Text sagte π ≈ 3,14). Text berichtigt, Prüffunktion rechnet die Tabelle jetzt nach.
+- Fehlbild passte nicht zur Antwort oder war unklar: V079 (Antwort 24 war kein Quadrat, jetzt 576 mit Durchmesser), V023 (Antwort 6 ohne sinnvollen Fehler, jetzt 21), V074 (Beschreibung), V029 (Beschreibung „kürzeste“ statt „beiden kürzeren“ Seiten).
+- Form hielt nicht, was sie versprach: V071 (Zwei Wege war dieselbe Rechnung mit Zwischenschritt, jetzt Formel gegen Flächenfaktor), V079 (Text „der 4-te Teil“, jetzt „1/① des Kreises“).
+- Sprache und Eindeutigkeit: V049 („zweites“ neben Lücke 2), V100 („Volumen der Waffel“ statt des Kegels), V018 („Decke“ statt Oberkanten der Außenwände), V057 (Zeile 3 ohne Einheit, jetzt 0,64°).
+- Tipp verriet die Antwort: V024, V042 (Tipp nannte die geltende Regel bzw. welche Zeilen stimmen), jetzt neutral.
+- Stufe 3 zu leicht (Einschritt-Aufgaben): V003 (Fernseher: jetzt Seitenverhältnis 16 : 9, Diagonale in Zoll, Breite gesucht), V063 (Mast mit Augenhöhe, zwei Schritte), V066 (Gerade durch Q(1 | 2), zwei Schritte), V108 (Breite aus Volumen, Höhe und Länge, zwei Schritte).
+- Fehler-Detektive V009, V030, V090: bewertete Zeile spricht die falsche Behauptung ausdrücklich aus („Quadrat ist 12 · 2“, „mittlere Seite 6 + 3 = 9“, „Oberfläche = Grundfläche plus ein Seitendreieck“). Restmeldungen (iv) bleiben, sind damit begründet. Auch V006, V021, V024, V033, V036, V042, V048, V051, V057, V060, V072, V078, V096, V105 lesen: Fehlerzeile spricht die Behauptung aus, Folgezeilen folgen richtig.
+- Fehlbild-Texte der Auswahl-Aufgaben (V008, V044, V050, V074, V077, V083, V089, V099 u. a.) von Hand gegen die Antwort gelesen.
+- Offen / fraglich (nicht geändert): Stufe 3 bleibt eher mittelschwer bei V027, V039, V054, V069, V075, V081, V084, V087, V093 (ein bis zwei Schritte, Klasse 9 gewohnt). V023 Weg B ist dasselbe Streckungsverfahren an anderen Punkten (Verfahren, nicht Rechnung, verschieden). V095 Weg B (Abwicklung) gibt rechnerisch π · r · s. V050 falsche Antwort „Dreieck 1 und 3“: der Grund gilt auch für Dreieck 2, die Antwort bleibt falsch.
+- Skript: V104 prüft jetzt die Tabellenwerte gegen π; weitere Funde waren Wortlaut, den `vorrat_pruefen.py` und `bauen.py` nicht erkennen können.

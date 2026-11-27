@@ -1,10 +1,49 @@
 # Vorgabe GB: Regel-Universum – Zeichenstil, Übersicht, eine Regel aufgeschlagen
 
-Designer, 27.11.2026, **Fassung 6 (fünfte Runde)**. Stand `lernen-app` cc4a5b1. Der Ordner heißt weiter `gesetzbuch/`, damit nichts bricht; sichtbar heißt alles „Regel-Universum“. Kein App-Code, keine Datenbank, kein Lernstand.
-Mathe-Inhalt wörtlich vom Mathe-Profi: Texte aus `origin/mathe-profi` 5a70763, Klassenleitern aus `inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json` (Stand 27.11.), eingelesen mit `entwurf/inhalt_lesen.py`.
+Designer, 27.11.2026, **Fassung 7 (sechste Runde)**. Stand `lernen-app` 7e22808. Der Ordner heißt weiter `gesetzbuch/`, damit nichts bricht; sichtbar heißt alles „Regel-Universum“. Kein App-Code, keine Datenbank, kein Lernstand.
+Mathe-Inhalt wörtlich vom Mathe-Profi: Texte aus `origin/mathe-profi` f46aaab, Klassenleitern aus `inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json` (Stand 27.11.), eingelesen mit `entwurf/inhalt_lesen.py`.
 **[G]** gesichert (im Entwurf gebaut und gemessen) · **[A]** Annahme · **[M]** Meinung.
 
 Die frühere Vorgabe RS-H (`inhalte/design/regeln-sonnensystem/`) ist abgelehnt und gilt nicht mehr.
+
+## F7 Sechste Runde – Rechenregel 3 nach Vorgabe, gekürzte Leitern, Vergleich A/B (gilt vor F6 bis F2 und den Abschnitten 0 bis 12)
+
+Anlass: Auftrag des Projektleiters 27.11., 01:10. F6.7 (Rechenregel 3) ist damit ersetzt; die Zahlen in F6.1 und F6.3 sind überholt.
+
+### F7.1 Rechenregel 3, Hauptzeichnung „Mal (−1) heißt umdrehen“ [G – nach der Tabelle des Mathe-Profis, Auftrag 17]
+Feld 320 × 478. Keine Figur, kein Fähnchen, kein gestrichelter Pfeil.
+| Stelle | Inhalt |
+|---|---|
+| Ganz oben, zwei Zeilen, 14 px fett | „Erst ohne Vorzeichen: 1 · 2 = 2.“ / „Dann dreht jedes Minus einmal um.“ |
+| Obere Rechnung | „(−1) · 2 = −2“, das Minus gelb mit Rahmen |
+| Darunter | ein Kehrtwende-Zeichen (gelb) + „ein Minus: einmal umdrehen“ |
+| Obere Gerade | −3 bis 3, 42 px je Einheit; −2, 0, 2 fett. **Voller Punkt bei 2.** Gelber Bogen (gelb 9 px, Tinte 2,5 px darüber) **von 2 über die Null nach −2**, Scheitel über der 0, Pfeilspitze bei −2. Ziel-Ring bei −2 (Radius 7). |
+| Untere Rechnung | „(−1) · (−2) = +2“, erstes Minus gelb, **zweites Minus blau** mit Rahmen |
+| Darunter | zwei Kehrtwende-Zeichen (gelb, blau) + „zwei Minus: zweimal umdrehen“ |
+| Untere Gerade | Voller Punkt bei 2. Bogen 1 wie oben (gelb), kleiner Zwischen-Ring bei −2 (Radius 5). **Bogen 2 blau unter der Geraden von −2 zurück nach 2**, Scheitel unter der 0. Blauer Ziel-Ring um den Startpunkt bei 2 (Radius 10,5). |
+| Satz darunter | „Die 2 springt auf die andere Seite der Null. Einmal: −2. Zweimal: wieder 2. Anders als bei Regel 2 geht hier niemand – die Zahl wechselt die Seite.“ |
+- Beide Bögen sind gleich weit (4 Einheiten) und spiegelbildlich zur Null.
+- Der blaue Bogen beginnt und endet **unter den Zahlen** der Geraden (34 px unter der Linie), damit er keine Zahl durchstreicht. [A – meine Lösung]
+- Kleine Zeichnung in der Übersicht: nur die obere Gerade mit Rechnung und Kehrtwende.
+
+### F7.2 Treppe („Warum das gilt“) [G]
+- In der Spalte „0“ liegt ein **voller Punkt auf der Null-Linie** (Radius 5,5); die „0“ steht links über dem Punkt, nicht mehr darunter.
+- Die Werte −6, −4, −2 stehen **im Balken an seinem unteren Ende**; +2 über dem gelben Balken.
+- Die kleinen „+2“ stehen **im Freien**: rechts neben dem Pfeil unter dem kürzeren Balken; beim letzten Schritt links neben dem Pfeil über der Null-Linie. [A – „Wert im Balken“ ist meine Lösung, damit daneben Platz ist]
+
+### F7.3 Klassenleitern neu eingelesen [G gemessen]
+42 Leitern, **174 Beispiele**. Stellen bis **13** Zeichen brechen nie in sich um (vorher 12; wegen „2 · 2 · 3 · 5“).
+| Breite | Sprossen zweizeilig (vorher) | Leitern betroffen | Stelle bricht in sich um (vorher) |
+|---|---|---|---|
+| 360 px | 96 von 174 (119 von 172) | 30 | **0** (6 Leitern) |
+| 400 px | 68 von 174 (103 von 172) | 24 | **0** (2 Leitern) |
+| 820 px | 0 (13) | 0 | 0 |
+| 1280 px | 10 (21) | 7 | 0 |
+Bei allen vier Breiten steht die erste Stelle jeder Leiter auf einer senkrechten Linie; nichts läuft über den Rand.
+
+### F7.4 Übersicht A und B nebeneinander [G]
+`bilder/vergleich-a-b-400-anfang.jpg` (die ersten 3 200 px beider Seiten) und `bilder/vergleich-a-b-400-ganz.jpg` (beide Seiten ganz, je fünf Spalten). Beide ohne „Genau gesagt“.
+In B bricht „Kl. 10“ nicht mehr um.
 
 ## F6 Fünfte Runde – Klassenleitern des Mathe-Profis, Ideen-Leitern, Handy (gilt vor F5 bis F2 und den Abschnitten 0 bis 12)
 

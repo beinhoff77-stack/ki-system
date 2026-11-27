@@ -16,7 +16,7 @@ def bloecke(text, kopf, stopp):
 def feld(block, name):
     f = re.search(r'^\*\*' + name + r'[^*\n]*\*\*:? ?(.*)$', block, re.M); return f.group(1).strip() if f else ''
 def zeichen(block):
-    z = re.search(r'^\*\*Zeichen-Vorgabe\*\*\n((?:- .*\n?)+)', block, re.M)
+    z = re.search(r'^\*\*Zeichen-Vorgabe\*\*.*\n((?:- .*\n?)+)', block, re.M)
     return {a: b.strip() for a, b in re.findall(r'^- \*\*(.*?):\*\* (.*)$', z.group(1), re.M)} if z else None
 def beispiele(block):
     aus = []

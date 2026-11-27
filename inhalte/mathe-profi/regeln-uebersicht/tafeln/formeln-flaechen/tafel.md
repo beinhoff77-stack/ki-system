@@ -34,7 +34,7 @@ Stand 2026-11-27. Entwurf: nichts ist in die App eingespielt; geprüft mit `../p
 | ff-01 | a = Länge (untere Seite mit Maßpfeil); b = Breite (rechte Seite mit Maßpfeil) | A = 6 cm · 4 cm = 24 cm² |
 | ff-02 | a = Länge (untere und obere Seite); b = Breite (linke und rechte Seite) | u = 2 · (6 cm + 4 cm) = 2 · 10 cm = 20 cm |
 | ff-03 | a = Seitenlänge (eine Seite mit Maßpfeil; die anderen drei Seiten tragen ebenfalls a) | A = 5 cm · 5 cm = 25 cm² |
-| ff-04 | g = Grundseite (untere Seite mit Maßpfeil); h = Höhe (gestrichelte Senkrechte auf g (rechter Winkel markieren), bis zur gegenüberliegenden Seite) | A = 8 cm · 3 cm = 24 cm² |
+| ff-04 | g = Grundseite (eine der Seiten a oder b) (untere Seite mit Maßpfeil; sie ist eine der beiden Seiten a und b, zu ihr gehört die Höhe h); h = Höhe (gestrichelte Senkrechte auf g (rechter Winkel markieren), bis zur gegenüberliegenden Seite) | A = 8 cm · 3 cm = 24 cm² |
 | ff-05 | g = Grundseite (untere Seite mit Maßpfeil); h = Höhe (gestrichelte Senkrechte auf g von der Gegenecke aus (rechter Winkel markieren); bei stumpfem Winkel liegt sie außen) | A = 6 cm · 4 cm : 2 = 12 cm² |
 | ff-06 | a = untere parallele Seite (untere Seite mit Maßpfeil); c = obere parallele Seite (obere Seite mit Maßpfeil); h = Höhe (gestrichelte Senkrechte zwischen a und c (rechter Winkel markieren)) | A = (7 cm + 3 cm) : 2 · 4 cm = 20 cm² |
 | ff-07 | e = erste Diagonale (Diagonale von Ecke zu Ecke, gestrichelt); f = zweite Diagonale (zweite Diagonale, gestrichelt, senkrecht zu e (rechter Winkel im Schnittpunkt)) | A = 10 cm · 6 cm : 2 = 30 cm² |
@@ -44,7 +44,7 @@ Stand 2026-11-27. Entwurf: nichts ist in die App eingespielt; geprüft mit `../p
 | ff-11 | α = Mittelpunktswinkel (Winkelbogen an der Mitte M mit Gradzahl); r = Radius (beide Begrenzungsradien beschriften) | A = 90° : 360° · π · 4² cm² = 4π cm² ≈ 12,57 cm² |
 | ff-12 | a = Seitenlänge (eine Seite mit Maßpfeil; die anderen Seiten tragen ebenfalls a) | u = 4 · 5 cm = 20 cm |
 | ff-13 | a = erste Seite (Seite mit Maßpfeil); b = zweite Seite (Seite mit Maßpfeil); c = dritte Seite (Seite mit Maßpfeil) | u = 3 cm + 4 cm + 5 cm = 12 cm |
-| ff-14 | a = Grundseite (untere und obere Seite (gleich lang)); b = Nachbarseite (linke und rechte Seite (gleich lang)) | u = 2 · (8 cm + 5 cm) = 2 · 13 cm = 26 cm |
+| ff-14 | a = Seite a (untere und obere Seite (gleich lang)); b = Seite b (Nachbarseite von a) (linke und rechte Seite (gleich lang)) | u = 2 · (8 cm + 5 cm) = 2 · 13 cm = 26 cm |
 | ff-15 | a = untere parallele Seite (untere Seite); b = linker Schenkel (linke Seite); c = obere parallele Seite (obere Seite); d = rechter Schenkel (rechte Seite) | u = 6 cm + 4 cm + 3 cm + 5 cm = 18 cm · Hilfe: 5² = 4² + 3² = 25 |
 | ff-16 | a = erste Seitenlänge (die zwei gleich langen Seiten an der einen Spitze); b = zweite Seitenlänge (die zwei gleich langen Seiten an der anderen Spitze) | u = 2 · (5 cm + 3 cm) = 2 · 8 cm = 16 cm |
 | ff-17 | a = Seitenlänge (eine Seite mit Maßpfeil; alle vier Seiten mit gleichen Strichen markieren) | u = 4 · 5 cm = 20 cm · Hilfe: 5² = (8 : 2)² + (6 : 2)² = 25 |

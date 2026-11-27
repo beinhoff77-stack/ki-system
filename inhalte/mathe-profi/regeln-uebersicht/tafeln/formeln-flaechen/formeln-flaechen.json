@@ -214,9 +214,9 @@
    "groessen": [
     {
      "zeichen": "g",
-     "name": "Grundseite",
+     "name": "Grundseite (eine der Seiten a oder b)",
      "art": "Länge",
-     "beschriften": "untere Seite mit Maßpfeil"
+     "beschriften": "untere Seite mit Maßpfeil; sie ist eine der beiden Seiten a und b, zu ihr gehört die Höhe h"
     },
     {
      "zeichen": "h",
@@ -225,7 +225,7 @@
      "beschriften": "gestrichelte Senkrechte auf g (rechter Winkel markieren), bis zur gegenüberliegenden Seite"
     }
    ],
-   "zeichnung": "Schiefes Parallelogramm; h als gestrichelte Linie senkrecht zu g, nicht an der schrägen Seite entlang.",
+   "zeichnung": "Schiefes Parallelogramm; h als gestrichelte Linie senkrecht zu g, nicht an der schrägen Seite entlang. g ist eine der beiden Seiten a und b (hier die untere); die Seiten a und b stehen bei „Parallelogramm – Umfang“.",
    "beispiel": {
     "werte": {
      "g": "8 cm",
@@ -854,18 +854,18 @@
    "groessen": [
     {
      "zeichen": "a",
-     "name": "Grundseite",
+     "name": "Seite a",
      "art": "Länge",
      "beschriften": "untere und obere Seite (gleich lang)"
     },
     {
      "zeichen": "b",
-     "name": "Nachbarseite",
+     "name": "Seite b (Nachbarseite von a)",
      "art": "Länge",
      "beschriften": "linke und rechte Seite (gleich lang)"
     }
    ],
-   "zeichnung": "Schiefes Parallelogramm; a an der unteren, b an der schrägen Seite; Gegenseiten mit gleichen Strichen markieren.",
+   "zeichnung": "Schiefes Parallelogramm; a an der unteren, b an der schrägen Seite; Gegenseiten mit gleichen Strichen markieren. Die Grundseite g der Flächenformel ist eine dieser beiden Seiten (a oder b).",
    "beispiel": {
     "werte": {
      "a": "8 cm",

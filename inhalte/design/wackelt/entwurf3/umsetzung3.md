@@ -1,3 +1,5 @@
+> **Überholt durch Entwurf 4 (27.11.): Auswertung übernommen, Fehlerdarstellung zu groß.** Siehe `../entwurf4/umsetzung4.md`.
+
 # Vorgabe WK, dritte Runde: „Was wackelt“ – Auswertung, letzte Fehler, nach Themen
 
 Designer, 27.11.2026. Ersetzt `../entwurf1/` und `../entwurf2/` (beide abgelehnt). Entwurf: `index.html` (eine Datei, ohne Netz), Bilder: `bilder/`.

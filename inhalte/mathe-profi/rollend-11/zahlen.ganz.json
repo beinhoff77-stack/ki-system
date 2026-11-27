@@ -32,7 +32,7 @@
      "antwort": 127,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Bewegungen vergessen und nur die Anfangshöhen genommen: 85 + 42",
+     "beschreibung": "die Bewegungen vergessen und nur den Höhenunterschied am Anfang genannt: 85 + 42",
      "rechnung": "85 + 42"
     },
     {
@@ -51,15 +51,15 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Eine Möwe fliegt 85 m über dem Meeresspiegel. Ein Fisch schwimmt bei −42 m. Dann steigt die Möwe noch 15 m auf und der Fisch taucht noch 30 m tiefer. Weg A: Rechne den neuen Abstand in zwei Teilen: von der Möwe bis zum Meeresspiegel und von dort bis zum Fisch. Weg B: Rechne die beiden neuen Höhen mit einer Subtraktion. Wie viele Meter sind Möwe und Fisch dann voneinander entfernt?"
+     "text": "Eine Möwe fliegt 85 m über dem Meeresspiegel. Ein Fisch schwimmt bei −42 m. Dann steigt die Möwe noch 15 m auf und der Fisch taucht noch 30 m tiefer. Weg A: Rechne die beiden neuen Höhen aus und bilde dann den Höhenunterschied. Weg B: Rechne den Höhenunterschied am Anfang aus und addiere dazu, um wie viel sich beide Tiere voneinander entfernen. Wie viele Meter beträgt der Höhenunterschied zwischen Möwe und Fisch dann?"
     },
     "o": {
      "wert": 172,
      "einheit": "m"
     },
     "c": "(85 + 15) - (-42 - 30)",
-    "h": "Bestimme zuerst, in welcher Höhe sich Möwe und Fisch nach den Bewegungen befinden.",
-    "w": "Möwe: 85 + 15 = 100 m. Fisch: −42 − 30 = −72 m. Weg A: 100 m bis zum Meeresspiegel und 72 m weiter bis zum Fisch: 100 + 72 = 172 m. Weg B: 100 − (−72) = 100 + 72 = 172 m. Beide Wege ergeben 172 m."
+    "h": "Beide Wege müssen denselben Höhenunterschied ergeben. Der Höhenunterschied ist die höhere Höhe minus die tiefere Höhe.",
+    "w": "Weg A: Möwe 85 + 15 = 100 m, Fisch −42 − 30 = −72 m. Höhenunterschied: 100 − (−72) = 100 + 72 = 172 m. Weg B: Am Anfang 85 − (−42) = 127 m. Die Möwe steigt 15 m, der Fisch taucht 30 m, zusammen wächst der Unterschied um 45 m: 127 + 45 = 172 m. Beide Wege ergeben 172 m."
    }
   },
   {
@@ -144,8 +144,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "rr.plusminus",
-   "regel_name": "Plus und Minus mit negativen Zahlen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {

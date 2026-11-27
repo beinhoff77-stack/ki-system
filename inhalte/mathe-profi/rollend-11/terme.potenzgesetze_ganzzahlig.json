@@ -17,8 +17,8 @@
    "typ": "Fehler-Detektiv (einfache Form)",
    "form": "fehler_detektiv",
    "antwortform": "auswahl",
-   "regel": "rr.potenz",
-   "regel_name": "Potenzen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -127,17 +127,17 @@
    "zeilen": [
     {
      "zeile": 1,
-     "text": "a⁻⁴ · a⁷ = a⁻⁴⁺⁷ = a³",
+     "text": "a⁻⁴ · a⁷: Die Hochzahlen werden addiert, (−4) + 7 = 3. Also ist a⁻⁴ · a⁷ = a³.",
      "stimmt": true
     },
     {
      "zeile": 2,
-     "text": "a³ : a⁻² = a³⁻⁽⁻²⁾ = a⁵",
+     "text": "a³ : a⁻²: Die Hochzahlen werden subtrahiert, 3 − (−2) = 5. Also ist a³ : a⁻² = a⁵.",
      "stimmt": true
     },
     {
      "zeile": 3,
-     "text": "a⁵ · a⁻⁵ = a⁵⁺⁽⁻⁵⁾ = a⁰ = 0",
+     "text": "a⁵ · a⁻⁵: Die Hochzahlen werden addiert, 5 + (−5) = 0. Also ist a⁵ · a⁻⁵ = a⁰ = 0.",
      "stimmt": false
     }
    ],
@@ -149,7 +149,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim vereinfacht (a ≠ 0) den Term a⁻⁴ · a⁷ : a⁻² · a⁻⁵. Zeile 1: a⁻⁴ · a⁷ = a⁻⁴⁺⁷ = a³ Zeile 2: a³ : a⁻² = a³⁻⁽⁻²⁾ = a⁵ Zeile 3: a⁵ · a⁻⁵ = a⁵⁺⁽⁻⁵⁾ = a⁰ = 0 In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim vereinfacht (a ≠ 0) den Term a⁻⁴ · a⁷ : a⁻² · a⁻⁵. Zeile 1: a⁻⁴ · a⁷: Die Hochzahlen werden addiert, (−4) + 7 = 3. Also ist a⁻⁴ · a⁷ = a³. Zeile 2: a³ : a⁻²: Die Hochzahlen werden subtrahiert, 3 − (−2) = 5. Also ist a³ : a⁻² = a⁵. Zeile 3: a⁵ · a⁻⁵: Die Hochzahlen werden addiert, 5 + (−5) = 0. Also ist a⁵ · a⁻⁵ = a⁰ = 0. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -205,14 +205,14 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Berechne (2⁻²)⁻³ · 2⁻⁴. Weg A: Verrechne die Hochzahlen mit den Potenzgesetzen und rechne dann die eine Potenz aus. Weg B: Schreibe die Potenzen mit negativer Hochzahl als Brüche und rechne mit den Brüchen."
+     "text": "Berechne (2⁻²)⁻³ · 2⁻⁴. Weg A: Verrechne die Hochzahlen mit den Potenzgesetzen und rechne dann die eine Potenz aus. Weg B: Schreibe die Potenzen mit negativer Hochzahl als Brüche und rechne mit den Brüchen. Welchen Wert hat der Term?"
     },
     "o": {
      "wert": 4
     },
     "c": "2 ** ((-2) * (-3) + (-4))",
     "h": "Beide Wege müssen denselben Wert ergeben. Bei einer Potenz von einer Potenz werden die Hochzahlen malgenommen, bei einem Produkt gleicher Basen addiert.",
-    "w": "Weg A: (2⁻²)⁻³ = 2⁽⁻²⁾·⁽⁻³⁾ = 2⁶. Dann 2⁶ · 2⁻⁴ = 2⁶⁺⁽⁻⁴⁾ = 2² = 4. Weg B: 2⁻² = 1/4. (1/4)⁻³ = 4³ = 64. 2⁻⁴ = 1/16. 64 · 1/16 = 4. Beide Wege: 4."
+    "w": "Weg A: Die Hochzahlen werden multipliziert: (−2) · (−3) = 6. Also ist (2⁻²)⁻³ = 2⁶. Dann werden bei 2⁶ · 2⁻⁴ die Hochzahlen addiert: 6 + (−4) = 2, also 2² = 4. Weg B: 2⁻² = 1/4. (1/4)⁻³ = 4³ = 64. 2⁻⁴ = 1/16. 64 · 1/16 = 4. Beide Wege: 4."
    }
   }
  ]

@@ -7,8 +7,8 @@ ziffern = [1, 2, 3, 4, 5]
 paare = [(a, b) for a in ziffern for b in ziffern if a != b and (a + b) % 2 == 0]
 assert len(paare) == 8      # Weg A: alle zweistelligen Zahlen aufgelistet
 Z(T, "systematisch", "zwei_wege",
-  "Aus den Ziffern 1, 2, 3, 4 und 5 werden zweistellige Zahlen mit zwei verschiedenen Ziffern gebildet. Wie viele davon haben eine gerade Quersumme? "
-  "Weg A: Schreibe alle diese Zahlen systematisch auf und zähle die passenden. Weg B: Zähle getrennt die Zahlen mit zwei ungeraden Ziffern und die Zahlen mit zwei geraden Ziffern.",
+  "Aus den Ziffern 1, 2, 3, 4 und 5 werden zweistellige Zahlen mit zwei verschiedenen Ziffern gebildet. "
+  "Weg A: Schreibe alle diese Zahlen systematisch auf und zähle die passenden. Weg B: Zähle getrennt die Zahlen mit zwei ungeraden Ziffern und die Zahlen mit zwei geraden Ziffern. Wie viele der Zahlen haben eine gerade Quersumme?",
   8, "3 * 2 + 2 * 1", "6 + 2",
   "Beide Wege müssen dieselbe Anzahl ergeben. Welche der Ziffern sind gerade, welche ungerade?",
   "Weg A: Passend sind 13, 15, 31, 35, 51, 53 (zwei ungerade Ziffern) und 24, 42 (zwei gerade Ziffern): 8 Zahlen. "

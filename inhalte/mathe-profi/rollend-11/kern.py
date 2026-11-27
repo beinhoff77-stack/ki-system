@@ -39,11 +39,11 @@ def W(thema, lk, form, text, antworten, richtig, wahr, h, w, fb, regel, werte=No
     _neu(thema, lk, form, g, regel, dict(y="auswahl", text=text, a=antworten, richtig=richtig, wahr=wahr, h=h, w=w, fb=fb, werte=werte, grafik=grafik))
 
 
-def FD(thema, lk, einleitung, zeilen, h, w, regel, fb_text, g=None):
+def FD(thema, lk, einleitung, zeilen, h, w, regel, fb_text, g=None, frage=None, rueck=None):
     """Fehler-Detektiv. zeilen: [(Text, stimmt)]. stimmt wird im Programm berechnet (True/False aus einer Python-Rechnung):
     vor der Fehlerzeile True, Fehlerzeile False, danach True (die Folgezeile rechnet mit dem Fehler richtig weiter).
     fb_text: Beschreibung des Fehlers in der Fehlerzeile (für die Rückmeldung)."""
-    _neu(thema, lk, "fehler_detektiv", g, regel, dict(y="fd", einleitung=einleitung, zeilen=zeilen, h=h, w=w, fb_text=fb_text))
+    _neu(thema, lk, "fehler_detektiv", g, regel, dict(y="fd", einleitung=einleitung, zeilen=zeilen, h=h, w=w, fb_text=fb_text, frage=frage, rueck=rueck or {}))
 
 
 # ---------- Termgleichheit (exakt, an mehreren Stellen) ----------

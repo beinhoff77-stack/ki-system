@@ -27,7 +27,8 @@ FD(T, "termwert",
     ("T(−2) = 7 : 2 = 3,5", 7 / 2 == 3.5)],
    "Rechne T(−2) selbst mit dem Taschenrechner nach.",
    "Zeile 1 enthält den Fehler: (−2)² = (−2) · (−2) = 4, nicht −4. Der Zähler ist also 3 − 4 = −1. Zeile 2 stimmt. Zeile 3 rechnet mit dem falschen Zähler 7 richtig weiter. Richtig ist T(−2) = −1 : 2 = −0,5.",
-   "rr.reihenfolge", "(−2)² als −4 gerechnet (das Quadrat einer negativen Zahl)")
+   "rr.reihenfolge", "(−2)² als −4 gerechnet (das Quadrat einer negativen Zahl)",
+   rueck={1: "Diese Zeile ist richtig: Der Nenner wird unabhängig vom Zähler berechnet, −2 + 4 = 2. Der erste Fehler steckt beim Quadrieren im Zähler (Zeile 1)."})
 
 # ───────── erweitern: Zwei Wege ─────────
 assert gl("(x-2)*(x+2)", "x**2-4")
@@ -41,7 +42,7 @@ Z(T, "erweitern", "zwei_wege",
   [(5, "5", "den Zähler nicht mit erweitert"),
    (15, "5 * (5 - 2)", "mit x − 2 statt mit x + 2 erweitert"),
    (25, "5 * 5", "mit x statt mit x + 2 erweitert")],
-  "rr.bruchrechnen")
+  "rr.kuerzen")
 
 # ───────── addieren: Brücke ─────────
 wertetabelle = {2: F(5, 2), 3: F(26, 15), 4: F(4, 3)}

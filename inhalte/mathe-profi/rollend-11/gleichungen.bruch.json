@@ -51,15 +51,15 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Ein Boot fährt auf einem Fluss gegen die Strömung. Die Strömung hat 6 km/h. Das Boot schafft in ruhigem Wasser v km/h (v ist größer als 6, sonst käme es nicht voran). Die Fahrzeit für 90 km beträgt 90/(v − 6) Stunden. Die Fahrt dauert 5 Stunden. Wie schnell ist das Boot in ruhigem Wasser?"
+     "text": "Ein Boot fährt auf einem Fluss gegen die Strömung. Die Strömung hat 6 km/h. Das Boot schafft in ruhigem Wasser v km/h und kommt gegen die Strömung voran. Die Fahrzeit für 90 km beträgt 90/(v − 6) Stunden. Die Fahrt dauert 5 Stunden. Wie schnell ist das Boot in ruhigem Wasser?"
     },
     "o": {
      "wert": 24,
      "einheit": "km/h"
     },
     "c": "90 / 5 + 6",
-    "h": "Der Nenner v − 6 darf nicht 0 sein. Multipliziere beide Seiten der Gleichung 90/(v − 6) = 5 mit dem Nenner.",
-    "w": "Gleichung: 90/(v − 6) = 5 mit v ≠ 6. Mit (v − 6) multiplizieren: 90 = 5(v − 6). Dann 90 : 5 = 18 = v − 6, also v = 24 km/h. Probe: 90 : (24 − 6) = 90 : 18 = 5 Stunden."
+    "h": "Welche Werte von v sind rechnerisch erlaubt, welche passen zur Sache? Stelle dann die Gleichung auf: Fahrzeit = 5 Stunden.",
+    "w": "Rechnerisch muss der Nenner v − 6 von 0 verschieden sein, also v ≠ 6. Sachlich kommt das Boot nur voran, wenn v > 6 ist. Gleichung: 90/(v − 6) = 5. Mit (v − 6) multiplizieren: 90 = 5(v − 6). Dann 90 : 5 = 18 = v − 6, also v = 24 km/h. Die Lösung 24 erfüllt v > 6. Probe: 90 : (24 − 6) = 90 : 18 = 5 Stunden."
    }
   },
   {
@@ -96,17 +96,17 @@
    "zeilen": [
     {
      "zeile": 1,
-     "text": "Ich kürze die 2 im Bruch links: (2x + 6)/2 = x + 6, die Gleichung lautet also x + 6 = 7.",
+     "text": "Ich kürze mit 3: (6x + 12)/(3x) = (2x + 12)/x, die Gleichung lautet also (2x + 12)/x = 4.",
      "stimmt": false
     },
     {
      "zeile": 2,
-     "text": "Von beiden Seiten 6 abziehen: x = 7 − 6 = 1.",
+     "text": "Mit x multiplizieren (x ≠ 0): 2x + 12 = 4x, also 12 = 2x und x = 6.",
      "stimmt": true
     },
     {
      "zeile": 3,
-     "text": "Die Lösungsmenge ist L = {1}.",
+     "text": "Die Lösung 6 ist erlaubt, denn 6 ≠ 0. Also ist L = {6}.",
      "stimmt": true
     }
    ],
@@ -118,7 +118,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim löst (2x + 6)/2 = 7. Zeile 1: Ich kürze die 2 im Bruch links: (2x + 6)/2 = x + 6, die Gleichung lautet also x + 6 = 7. Zeile 2: Von beiden Seiten 6 abziehen: x = 7 − 6 = 1. Zeile 3: Die Lösungsmenge ist L = {1}. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim löst (6x + 12)/(3x) = 4 mit x ≠ 0. Zeile 1: Ich kürze mit 3: (6x + 12)/(3x) = (2x + 12)/x, die Gleichung lautet also (2x + 12)/x = 4. Zeile 2: Mit x multiplizieren (x ≠ 0): 2x + 12 = 4x, also 12 = 2x und x = 6. Zeile 3: Die Lösung 6 ist erlaubt, denn 6 ≠ 0. Also ist L = {6}. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -128,8 +128,8 @@
     "o": {
      "index": 0
     },
-    "h": "Setze die Lösung in die Gleichung am Anfang ein. ",
-    "w": "Gekürzt werden darf nur, wenn der ganze Zähler durch 2 geteilt wird: (2x + 6)/2 = x + 3. In Zeile 1 wurde nur die 2x gekürzt, die 6 blieb stehen. Die Zeilen 2 und 3 rechnen mit der falschen Zeile 1 richtig weiter. Richtig: x + 3 = 7, also x = 4. Probe: (8 + 6)/2 = 7."
+    "h": "Setze die Lösung in die Gleichung am Anfang ein.",
+    "w": "Gekürzt werden darf nur, wenn der ganze Zähler durch 3 geteilt wird: (6x + 12)/(3x) = (2x + 4)/x. In Zeile 1 wurde nur 6x durch 3 geteilt, die 12 blieb stehen. Die Zeilen 2 und 3 rechnen mit der falschen Zeile 1 richtig weiter. Richtig: 2x + 4 = 4x, also x = 2. Probe: (12 + 12)/6 = 4."
    }
   },
   {
@@ -140,8 +140,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.bruchrechnen",
-   "regel_name": "Rechnen mit Brüchen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -193,8 +193,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "rr.verhaeltnis",
-   "regel_name": "Verhältnis (Dreisatz)",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -246,8 +246,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.funktionen.gleichung_form",
-   "regel_name": "Gleichung und Form",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -280,7 +280,7 @@
     "g": "rueckwaerts",
     "y": "zahl",
     "f": {
-     "text": "Die Gerade y = x + b schneidet den Graphen von y = 12/x an der Stelle x = −4. Sie schneidet ihn noch ein zweites Mal bei einer positiven Zahl x. Bestimme zuerst b. Suche dann mit einer Wertetabelle von y = 12/x und y = x + b die x-Koordinate des zweiten Schnittpunkts."
+     "text": "Die Gerade y = x + b schneidet den Graphen von y = 12/x an der Stelle x = −4. Sie schneidet ihn noch ein zweites Mal bei einer positiven Zahl x. Bestimme zuerst b. Suche dann mit einer Wertetabelle von y = 12/x und y = x + b den zweiten Schnittpunkt. Wie lautet seine x-Koordinate?"
     },
     "o": {
      "wert": 3

@@ -17,8 +17,8 @@
    "typ": "Brücke",
    "form": "bruecke",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -51,7 +51,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Zwei Glücksräder werden gedreht. Rad A zeigt die Zahlen 1, 2, 3, Rad B zeigt die Zahlen 1, 2, 3, 4. Die Tabelle zeigt für jedes Zahlenpaar das Produkt. Jedes Feld der Tabelle ist ein Ergebnis. Das Ereignis E lautet: „Das Produkt ist eine Primzahl.“ Wie viele Ergebnisse gehören zum Gegenereignis von E?",
+     "text": "Zwei Glücksräder werden gedreht. Rad A zeigt die Zahlen 1, 2, 3, Rad B zeigt die Zahlen 1, 2, 3, 4. Die Tabelle zeigt für jedes Zahlenpaar (Rad A | Rad B) das Produkt. Das Ereignis E lautet: „Das Produkt ist eine Primzahl.“ Wie viele Ergebnisse gehören zum Gegenereignis von E?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -91,7 +91,7 @@
      "einheit": "Ergebnisse"
     },
     "c": "12 - 4",
-    "h": "Zähle zuerst die Felder, in denen eine Primzahl steht. Eine Primzahl hat genau zwei Teiler. Das Gegenereignis enthält alle übrigen Felder.",
+    "h": "Überlege, welche Ergebnisse zum Ereignis E gehören. Das Gegenereignis besteht aus allen anderen Ergebnissen.",
     "w": "Die Tabelle hat 3 · 4 = 12 Felder. Primzahlen als Produkt: 2 (1 · 2), 3 (1 · 3), 2 (2 · 1) und 3 (3 · 1). Das sind 4 Felder. Das Gegenereignis von E enthält die übrigen 12 − 4 = 8 Felder. Die 1 ist keine Primzahl."
    }
   },
@@ -103,8 +103,8 @@
    "typ": "Umkehren",
    "form": "umkehren",
    "antwortform": "zahl",
-   "regel": "id.daten.anteil",
-   "regel_name": "Anteil",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -156,8 +156,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "id.daten.teil_ganzes",
-   "regel_name": "Vom Teil aufs Ganze",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {
@@ -190,14 +190,14 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "In einer Klasse mit 28 Kindern gehen 17 Kinder in den Chor und 15 Kinder in die Theater-AG. 6 Kinder gehen in beide Gruppen. Wie viele Kinder gehen in keine der beiden Gruppen? Eine Vierfeldertafel (Chor ja/nein, Theater ja/nein) hilft."
+     "text": "In einer Klasse mit 28 Kindern gehen 17 Kinder in den Chor und 15 Kinder in die Theater-AG. 6 Kinder gehen in beide Gruppen. Wie viele Kinder gehen in keine der beiden Gruppen?"
     },
     "o": {
      "wert": 2,
      "einheit": "Kinder"
     },
     "c": "28 - (17 + 15 - 6)",
-    "h": "Fülle die Vierfeldertafel: Wie viele sind nur im Chor, wie viele nur im Theater, wie viele in beiden?",
+    "h": "Eine Vierfeldertafel mit den Spalten „Chor ja“ und „Chor nein“ und den Zeilen „Theater ja“ und „Theater nein“ kann helfen.",
     "w": "Nur Chor: 17 − 6 = 11. Nur Theater: 15 − 6 = 9. Beide: 6. Zusammen in mindestens einer Gruppe: 11 + 9 + 6 = 26. Keine der beiden Gruppen: 28 − 26 = 2 Kinder."
    }
   }

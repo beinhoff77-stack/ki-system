@@ -51,7 +51,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Aus den Ziffern 1, 2, 3, 4 und 5 werden zweistellige Zahlen mit zwei verschiedenen Ziffern gebildet. Wie viele davon haben eine gerade Quersumme? Weg A: Schreibe alle diese Zahlen systematisch auf und zähle die passenden. Weg B: Zähle getrennt die Zahlen mit zwei ungeraden Ziffern und die Zahlen mit zwei geraden Ziffern."
+     "text": "Aus den Ziffern 1, 2, 3, 4 und 5 werden zweistellige Zahlen mit zwei verschiedenen Ziffern gebildet. Weg A: Schreibe alle diese Zahlen systematisch auf und zähle die passenden. Weg B: Zähle getrennt die Zahlen mit zwei ungeraden Ziffern und die Zahlen mit zwei geraden Ziffern. Wie viele der Zahlen haben eine gerade Quersumme?"
     },
     "o": {
      "wert": 8

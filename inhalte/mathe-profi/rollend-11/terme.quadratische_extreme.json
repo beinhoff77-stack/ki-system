@@ -17,8 +17,8 @@
    "typ": "Anwenden",
    "form": "anwenden",
    "antwortform": "zahl",
-   "regel": "rr.tauschen",
-   "regel_name": "Tauschen, Klammern, Zusammenfassen",
+   "regel": null,
+   "regel_name": null,
    "zaehlt": "ja",
    "fehlbilder": [
     {

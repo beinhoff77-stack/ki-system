@@ -116,7 +116,7 @@ for nr, a in enumerate(A, 1):
     datei = DATEI[thema]
     assert (thema, lk) in OHNE3, (kenn, thema, lk, "diese Lernkarte hat schon Stufe 3 oder gibt es nicht")
     assert form not in {f for fs in VORHER[(thema, lk)].values() for f in fs}, (kenn, "Form kommt in dieser Lernkarte schon vor", form)
-    assert form != "lueckenweg" and a["regel"] in REGELN, (kenn, a["regel"])
+    assert form != "lueckenweg" and (a["regel"] is None or a["regel"] in REGELN), (kenn, a["regel"])
     assert ip.STUFE_VON[a["g"]] == 3, kenn
     t = T_VON[(thema, lk)]
     assert t in PLAN["einheiten"][thema]["tf"] and lk in PLAN["einheiten"][thema]["lz"], (kenn, "t oder l nicht in der Einheit")
@@ -184,15 +184,15 @@ for nr, a in enumerate(A, 1):
         assert 3 <= len(z) <= 4 and all(isinstance(x[1], bool) for x in z), (kenn, "Zeilen")
         falsch = [i for i, (_, ok) in enumerate(z) if not ok]
         assert len(falsch) == 1, (kenn, "genau eine Zeile darf nicht stimmen", falsch)
-        text = a["einleitung"] + " " + " ".join(f"Zeile {i + 1}: {tx}" for i, (tx, _) in enumerate(z)) + " In welcher Zeile passiert der erste Fehler?"
+        text = a["einleitung"] + " " + " ".join(f"Zeile {i + 1}: {tx}" for i, (tx, _) in enumerate(z)) + " " + (a["frage"] or "In welcher Zeile passiert der erste Fehler?")
         ant = [f"In Zeile {i + 1}" for i in range(len(z))]
         FEHLERZEILEN.append((kenn, falsch[0] + 1, KLASSE[thema]))
         n_zeilen += len(z)
         n_rechnung += 1
         for i in range(len(z)):
             if i != falsch[0]:
-                fb_liste.append(({"index": i}, ant[i], "diese Zeile ist richtig; der erste Fehler steckt in Zeile %d" % (falsch[0] + 1) if i < falsch[0] else
-                                 "diese Zeile folgt aus der falschen Zeile %d richtig; der erste Fehler steckt weiter oben" % (falsch[0] + 1), None))
+                fb_liste.append(({"index": i}, ant[i], a["rueck"].get(i) or ("diese Zeile ist richtig; der erste Fehler steckt in Zeile %d" % (falsch[0] + 1) if i < falsch[0] else
+                                 "diese Zeile folgt aus der falschen Zeile %d richtig; der erste Fehler steckt weiter oben" % (falsch[0] + 1)), None))
         n_fb_ohne += len(z) - 1
         aufg = {"y": "auswahl", "f": {"text": text}, "a": ant, "o": {"index": falsch[0]}}
         antwortform = "auswahl"
@@ -213,7 +213,7 @@ for nr, a in enumerate(A, 1):
     alle_bau[datei].add(b)
     aufg = dict(l=lk, t=t, p="uebung", s=3, g=a["g"], **aufg, h=h, w=w)
     eintrag = dict(kennung=kenn, thema=thema, lernkarte=lk, stufe=3, typ=FORM[form][0], form=form, antwortform=antwortform,
-                   regel=a["regel"], regel_name=REGELN[a["regel"]]["name"], zaehlt="ja", fehlbilder=[])
+                   regel=a["regel"], regel_name=REGELN[a["regel"]]["name"] if a["regel"] else None, zaehlt="ja", fehlbilder=[])
     for ort, antw, beschr, rech in fb_liste:
         eintrag["fehlbilder"].append(dict(**ort, antwort=antw, fehlbild=None, regel_des_fehlbilds=None, beschreibung=beschr, rechnung=rech))
     if y == "fd":
@@ -294,6 +294,7 @@ RESTMELDUNGEN = {
     ("iii", "S3-V054"): "Potenzschreibweise 2¹⁰ = 1 024 in der Beschreibung wird vom Werkzeug nicht als Rechnung gelesen",
     ("iv", "S3-V036"): "Werkzeug liest das Bruchstück „− 4 = 20“ in 4x − 4 = 20 als Rechnung; die Zeile ist richtig (Gleichung mit x)",
     ("iv", "S3-V024"): "Fehlerzeile: 6 + 2 = 8 ist richtig gerechnet, falsch ist die Behauptung „zusammengezählt“ (Rechenart), sie steht in dieser Zeile",
+    ("iv", "S3-V053"): "Fehlerzeile: 5 + (−5) = 0 ist richtig, falsch ist die ausgesprochene Folgerung a⁰ = 0 (richtig a⁰ = 1), sie steht in dieser Zeile",
     ("iv", "S3-V019"): "Fehlerzeile: 8 + 9 + 5 = 22 ist richtig, falsch ist der danach ausgesprochene Übertrag „merke 1“, er steht in dieser Zeile",
 }
 if len(geladen) == len(THEMEN):

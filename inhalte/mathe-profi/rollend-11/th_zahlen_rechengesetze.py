@@ -28,7 +28,7 @@ Z(T, "vorteil", "umkehren",
   [(575, "(2317 - 17) / 4", "nur das Malnehmen mit 4 rückgängig gemacht"),
    (92, "(2317 - 17) / 25", "nur das Malnehmen mit 25 rückgängig gemacht"),
    (2300, "2317 - 17", "nur das Addieren von 17 rückgängig gemacht")],
-  "rr.reihenfolge")
+  "rr.tauschen")
 
 # ───────── verteilen: Fehler-Detektiv ─────────
 FD(T, "verteilen",
@@ -39,7 +39,7 @@ FD(T, "verteilen",
    "Rechne beide Seiten jeder Gleichung getrennt aus.",
    "Zeile 1 stimmt: Beim Teilen darf man eine Summe im Dividenden verteilen. In Zeile 2 steht die Summe aber im Teiler. Das darf man nicht verteilen: 84 : (3 + 4) = 84 : 7 = 12, aber 28 + 21 = 49. "
    "Zeile 3 rechnet mit der falschen Zeile 2 richtig weiter.",
-   "rr.ausmultiplizieren", "die Summe im Teiler wie im Dividenden verteilt")
+   None, "die Summe im Teiler wie im Dividenden verteilt")
 
 # ───────── mal_ganz: Anwenden ─────────
 Z(T, "mal_ganz", "anwenden",
@@ -48,8 +48,8 @@ Z(T, "mal_ganz", "anwenden",
   "Vor 5 Minuten heißt: Die Zeit ist −5 Minuten. Wie ändert sich die Höhe in dieser Zeit?",
   "Vor 5 Minuten war die Zeit −5 Minuten. Die Höhenänderung ist (−4) · (−5) = +20 m. Höhe damals: −26 + 20 = −6 m. Probe: Von −6 m sinkt er in 5 Minuten um 20 m auf −26 m.",
   [(-46, "-26 + (-4) * 5", "die Vergangenheit wie die Zukunft gerechnet (5 Minuten später)"),
-   (-30, "-26 + (-4)", "nur eine Minute zurückgerechnet"),
-   (6, "26 - 20", "das Vorzeichen des Startwerts vergessen")],
+   (-30, "-26 + (-4)", "nur eine Minute gerechnet, und zwar vorwärts statt zurück: −26 + (−4)"),
+   (6, "26 - 20", "beide Vorzeichen umgekehrt: statt −26 + 20 gerechnet 26 − 20")],
   "rr.vorzeichen", einheit="m")
 
 # ───────── umkehraufgabe_mal: Umkehren ─────────
@@ -62,19 +62,19 @@ Z(T, "umkehraufgabe_mal", "umkehren",
   [(8, "(11 * (-3) - 15) / (-6)", "das Abziehen von 15 falsch rückgängig gemacht (noch einmal abgezogen)"),
    (-3, "(11 * (-3) + 15) / 6", "beim letzten Schritt das Vorzeichen von −6 vergessen"),
    (-18, "11 * (-3) + 15", "den Faktor (−6) nicht rückgängig gemacht")],
-  "rr.vorzeichen")
+  "rr.gegenrechnung")
 
-# ───────── schriftlich: Brücke ─────────
-W(T, "schriftlich", "bruecke",
-  "Das Malgitter zeigt die Teilprodukte von 46 · 38. Kim rechnet dieselbe Aufgabe schriftlich. Zuerst rechnet er die Zeile mit der Zehnerziffer 3 (also 46 · 30), dann die Zeile mit der Einerziffer 8 (also 46 · 8). "
-  "Welche beiden Felder des Gitters ergeben zusammen Kims erste Zeile 46 · 30?",
-  ["1 200 und 180", "1 200 und 320", "320 und 48", "180 und 48"], 0,
-  [1200 + 180 == 46 * 30, 1200 + 320 == 46 * 30, 320 + 48 == 46 * 30, 180 + 48 == 46 * 30],
-  "46 · 30 heißt: beide Teile von 46 mal 30. Welche Felder gehören dazu?",
-  "Die erste Zeile 46 · 30 = 1 380 gehört zur Spalte mit 30: 40 · 30 = 1 200 und 6 · 30 = 180, zusammen 1 380. "
-  "Die zweite Zeile 46 · 8 = 368 gehört zur Spalte mit 8: 320 + 48 = 368. Zusammen 1 380 + 368 = 1 748.",
-  {1: ("ein Feld der Spalte 30 mit einem Feld der Spalte 8 gemischt: 1 200 + 320", "1200 + 320"),
-   2: ("die Spalte mit 8 genommen (das ist die zweite Zeile 46 · 8 = 368)", "320 + 48"),
-   3: ("die untere Zeile des Gitters genommen (6 · 30 und 6 · 8) statt der Spalte 30", "180 + 48")},
-  "rr.stellenwert", werte=[1380, 1520, 368, 228],
-  grafik={"typ": "tabelle", "kopf": ["·", "30", "8"], "zeilen": [["40", "1 200", "320"], ["6", "180", "48"]]})
+# ───────── schriftlich: Brücke (fehlenden Gitterwert aus der schriftlichen Zeile rekonstruieren) ─────────
+assert 46 * 30 == 1380 and 40 * 30 == 1200 and 1380 - 1200 == 6 * 30 == 180
+Z(T, "schriftlich", "bruecke",
+  "Das Malgitter zeigt die Teilprodukte von 46 · 38, ein Feld ist unleserlich. Kim rechnet dieselbe Aufgabe schriftlich. In seiner ersten Zeile (46 · 30) steht 1 380. "
+  "Welche Zahl gehört in das Feld mit dem Fragezeichen?",
+  180, "1380 - 1200", "6 * 30",
+  "Die erste Zeile der schriftlichen Rechnung ist die Summe von Feldern des Gitters. Welche Felder sind das? Was bleibt für das Fragezeichen übrig?",
+  "Die erste Zeile 46 · 30 = 1 380 besteht aus den Feldern 40 · 30 = 1 200 und 6 · 30. Also gilt 1 200 + ? = 1 380 und ? = 1 380 − 1 200 = 180. Kontrolle: 6 · 30 = 180. "
+  "Die zweite Zeile 46 · 8 = 368 besteht aus 320 und 48.",
+  [(18, "6 * 3", "6 · 3 gerechnet, die Null von 30 vergessen"),
+   (1380, "46 * 30", "die ganze erste Zeile genannt statt des einen Feldes"),
+   (2580, "1380 + 1200", "1 200 zu 1 380 dazugezählt statt abgezogen")],
+  None,
+  grafik={"typ": "tabelle", "kopf": ["·", "30", "8"], "zeilen": [["40", "1 200", "320"], ["6", "?", "48"]]})

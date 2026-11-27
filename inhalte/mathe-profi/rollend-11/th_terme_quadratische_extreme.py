@@ -11,4 +11,4 @@ Z(T, "scheitelform", "anwenden",
   [(14, "14", "die Einheit vergessen: 14 statt 14 Hundert Euro"),
    (600, "6 * 100", "den x-Wert des Scheitels genannt statt des Minimalwerts"),
    (8600, "(36 + 50) * 100", "die ergänzte 36 addiert statt abgezogen")],
-  "rr.tauschen", einheit="€")
+  None, einheit="€")

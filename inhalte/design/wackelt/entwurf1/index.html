@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Was wackelt – Entwurf 1 (Designer)</title>
+<style>
+/* Grundfarben = Gestaltung „Abflug hell / dunkel“ (wie inhalte/design/gesetzbuch/entwurf/teile/grund.css). Neu nur: --gruen, --art-*. */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+:root { --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace; --grotesk: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif; }
+body { font-family: var(--grotesk); font-size: 17px; font-weight: 500; line-height: 1.4; background: var(--bg); color: var(--text); -webkit-text-size-adjust: 100%; }
+body[data-g="hell"] { color-scheme: light; --bg: #F3F1EA; --flaeche: #FFFFFF; --flaeche2: #F6F4EE; --text: #11161D; --leise: #4A5563; --linie: #C9C4B6;
+  --akzent: #FFD23F; --gelb-fl: #FFF3C4; --gelb-rand: #E3B600; --blau: #1F5FBF; --blau-fl: #D9E8FB; --rot: #B3261E; --rot-fl: #FFF0EE; --rot-text: #7A1712;
+  --gruen: #1E7A46; --gruen-fl: #E3F4E9; --schatten: 0 12px 34px rgba(17, 22, 29, .16); --papier: #FFFEFA; --karo: #C7D8E8; }
+body[data-g="nacht"] { color-scheme: dark; --bg: #0B0F14; --flaeche: #151B24; --flaeche2: #1D2530; --text: #F2F4F7; --leise: #A9B3C1; --linie: #2E3947;
+  --akzent: #FFD23F; --gelb-fl: #3A3212; --gelb-rand: #C79E1C; --blau: #7CB7FF; --blau-fl: #1B3A5F; --rot: #FF8A8A; --rot-fl: #2A1A1C; --rot-text: #FFC9C9;
+  --gruen: #7ED6A0; --gruen-fl: #13301F; --schatten: 0 14px 40px rgba(0, 0, 0, .5); --papier: #10161E; --karo: #243140; }
+button, input, textarea { font: inherit; color: inherit; } button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--text); outline-offset: 2px; border-radius: 6px; }
+h1, h2, h3, h4, p { margin: 0; }
+.ueber { font-family: var(--mono); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--leise); font-weight: 600; }
+.leise { color: var(--leise); }
+.mono, .re { font-family: var(--mono); font-weight: 600; }
+.re { white-space: nowrap; }
+
+/* ---------- Kopf der Kind-Seite (wie die App: ‹ · Kinder · ⋯, darunter die Reiter) ---------- */
+.kopf { position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--linie); }
+.kopf-zeile { max-width: 1240px; margin: 0 auto; padding: 8px 12px 0; display: flex; align-items: center; gap: 8px; min-height: 56px; }
+.k-zurueck, .k-mehr { width: 44px; height: 44px; border-radius: 12px; border: 1.5px solid var(--linie); background: var(--flaeche); font-size: 22px; font-weight: 700; display: grid; place-items: center; flex: none; }
+.kinder { flex: 1; display: flex; gap: 4px; padding: 4px; background: var(--flaeche2); border: 1.5px solid var(--linie); border-radius: 14px; min-width: 0; }
+.kinder button { flex: 1; min-height: 40px; border: 0; border-radius: 10px; background: none; font-weight: 700; font-size: 16px; color: var(--leise); white-space: nowrap; padding: 0 8px; }
+.kinder button small { font-weight: 600; font-size: 13px; margin-left: 4px; }
+.kinder button[aria-current] { background: var(--text); color: var(--bg); }
+.reiter { max-width: 1240px; margin: 0 auto; padding: 4px 12px 0; display: flex; gap: 2px; }
+.reiter a { text-decoration: none; padding: 10px 12px 11px; font-weight: 700; font-size: 16px; color: var(--leise); border-bottom: 3px solid transparent; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.reiter a[aria-current] { color: var(--text); border-bottom-color: var(--text); }
+.zb { min-width: 24px; height: 24px; border-radius: 12px; background: var(--rot); color: var(--bg); font-size: 14px; font-weight: 700; display: inline-grid; place-items: center; padding: 0 7px; font-family: var(--mono); }
+.zb.null { background: var(--linie); color: var(--leise); }
+
+/* ---------- Seite ---------- */
+main { max-width: 1240px; margin: 0 auto; padding: 12px 12px 110px; }
+.steuer { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+.zeitraum { flex: 1 1 320px; display: grid; grid-template-columns: 1.25fr 1fr 1fr; gap: 4px; padding: 4px; background: var(--flaeche2); border: 1.5px solid var(--linie); border-radius: 14px; }
+.zeitraum button { min-height: 44px; border: 0; border-radius: 10px; background: none; font-weight: 700; font-size: 15px; color: var(--leise); line-height: 1.1; padding: 2px 4px; }
+.zeitraum button small { display: block; font-size: 12px; font-weight: 600; font-family: var(--mono); }
+.zeitraum button[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+.knopf { min-height: 44px; border-radius: 12px; border: 1.5px solid var(--text); background: var(--flaeche); font-weight: 700; font-size: 16px; padding: 0 14px; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; }
+.knopf.voll { background: var(--text); color: var(--bg); }
+.knopf.leise { border-color: var(--linie); }
+.knopf.klein { min-height: 36px; font-size: 14px; padding: 0 10px; border-radius: 10px; }
+.steuer .knopf { flex: none; }
+
+/* Voranalyse */
+.vor { background: var(--flaeche); border: 1.5px solid var(--linie); border-radius: 18px; padding: 14px 14px 12px; }
+.vor h1 { font-size: 22px; line-height: 1.25; font-weight: 700; margin: 4px 0 6px; }
+.vor .zahlen { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 15px; color: var(--leise); }
+.vor-knoepfe { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+.vor .zahlen b { color: var(--text); font-family: var(--mono); }
+.abschnitt { margin-top: 18px; }
+.abschnitt > h2 { font-size: 13px; font-family: var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--leise); font-weight: 700; margin: 0 2px 8px; display: flex; justify-content: space-between; gap: 8px; }
+.abschnitt > h2 span:last-child { letter-spacing: 0; text-transform: none; font-family: var(--grotesk); font-weight: 600; }
+.zuerst > h2 { color: var(--text); font-size: 15px; }
+.punkte { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+
+/* Punkt */
+.punkt { background: var(--flaeche); border: 1.5px solid var(--linie); border-radius: 16px; overflow: hidden; border-left: 8px solid var(--art); }
+.punkt.fv { --art: var(--rot); } .punkt.lu { --art: var(--gelb-rand); } .punkt.fl { --art: var(--blau); }
+.punkt.offen-auf { border-color: var(--text); border-left-color: var(--art); }
+.p-kopf { width: 100%; text-align: left; background: none; border: 0; display: grid; grid-template-columns: 32px minmax(0, 1fr) 24px; gap: 10px; padding: 12px 12px 12px 10px; align-items: start; }
+.p-nr { width: 32px; height: 32px; border-radius: 50%; background: var(--text); color: var(--bg); font-family: var(--mono); font-weight: 700; display: grid; place-items: center; font-size: 16px; }
+.p-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.p-marken { display: flex; flex-wrap: wrap; gap: 4px 6px; }
+.p-titel { font-size: 19px; font-weight: 700; line-height: 1.2; }
+.p-ort { font-size: 14px; color: var(--leise); }
+.p-grund { font-size: 16px; line-height: 1.35; }
+.p-meta { font-size: 14px; color: var(--leise); font-family: var(--mono); }
+.chev { width: 24px; height: 24px; color: var(--leise); transition: transform .15s; margin-top: 4px; }
+.offen-auf .chev { transform: rotate(180deg); }
+.marke { font-size: 13px; font-weight: 700; border-radius: 7px; padding: 2px 7px; line-height: 1.3; white-space: nowrap; border: 1.5px solid transparent; }
+.m-fv { background: var(--rot-fl); color: var(--rot-text); border-color: var(--rot); }
+.m-lu { background: var(--gelb-fl); color: var(--text); border-color: var(--gelb-rand); }
+.m-fl { background: var(--blau-fl); color: var(--text); border-color: var(--blau); }
+.m-be { border: 1.5px dashed var(--linie); color: var(--leise); }
+.m-wieder { background: var(--rot); color: var(--bg); }
+.m-besp { background: var(--blau-fl); border-color: var(--blau); }
+.m-spaeter { border: 1.5px dashed var(--leise); color: var(--leise); }
+.m-sitzt { background: var(--gruen-fl); border-color: var(--gruen); }
+
+/* Detail eines Punkts */
+.detail { padding: 0 12px 14px; display: grid; gap: 14px; }
+.d-block > h3 { font-size: 13px; font-family: var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--leise); font-weight: 700; margin: 0 0 6px; }
+.einstieg { background: var(--gelb-fl); border: 1.5px solid var(--gelb-rand); border-radius: 14px; padding: 12px 14px; }
+.einstieg .frage { font-size: 20px; font-weight: 700; line-height: 1.3; margin: 2px 0 6px; }
+.einstieg .tipp { font-size: 15px; color: var(--leise); }
+.einstieg .tipp b { color: var(--text); }
+.regel { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; border: 1.5px solid var(--linie); border-radius: 14px; padding: 10px 12px; background: var(--flaeche2); }
+.regel .r-satz { font-size: 17px; font-weight: 700; }
+.regel a { font-size: 15px; font-weight: 700; text-underline-offset: 3px; min-height: 32px; display: inline-flex; align-items: center; }
+.aufgaben { display: grid; gap: 10px; }
+.aufg { border: 1.5px solid var(--linie); border-radius: 14px; padding: 10px 12px 10px; background: var(--flaeche); }
+.a-kopf { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.a-text { font-size: 17px; margin: 4px 0 8px; }
+.a-zeilen { font-family: var(--mono); font-size: 15px; margin: 6px 0 8px; padding: 0; list-style: none; display: grid; gap: 2px; }
+.a-zeilen li { padding: 3px 8px; border-radius: 6px; background: var(--flaeche2); }
+.vgl { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 8px 0 6px; }
+.vgl > div { border-radius: 10px; padding: 6px 10px 7px; border: 1.5px solid; min-width: 0; }
+.vgl .du { background: var(--rot-fl); border-color: var(--rot); }
+.vgl .ziel { background: var(--gruen-fl); border-color: var(--gruen); }
+.vgl span { display: block; font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-weight: 700; color: var(--leise); }
+.vgl b { font-family: var(--mono); font-size: 19px; overflow-wrap: anywhere; }
+.optionen { list-style: none; margin: 6px 0; padding: 0; display: grid; gap: 4px; }
+.optionen li { display: flex; justify-content: space-between; gap: 8px; border: 1.5px solid var(--linie); border-radius: 10px; padding: 6px 10px; font-size: 16px; }
+.optionen li.gewaehlt { border-color: var(--rot); background: var(--rot-fl); }
+.optionen li.richtig { border-color: var(--gruen); background: var(--gruen-fl); }
+.optionen li em { font-style: normal; font-size: 13px; font-weight: 700; font-family: var(--mono); white-space: nowrap; }
+.a-fehler { font-size: 16px; line-height: 1.35; padding: 6px 0 2px; }
+.a-fehler b { font-weight: 700; }
+.a-meta { font-size: 14px; color: var(--leise); margin-top: 4px; }
+.a-meta .ok { color: var(--gruen); font-weight: 700; }
+.a-weg { margin-top: 6px; border-top: 1px dashed var(--linie); }
+.a-weg summary { min-height: 40px; display: flex; align-items: center; font-weight: 700; font-size: 15px; cursor: pointer; list-style: none; }
+.a-weg summary::-webkit-details-marker { display: none; }
+.a-weg summary::before { content: "▸"; width: 18px; }
+.a-weg[open] summary::before { content: "▾"; }
+.a-weg p { font-size: 16px; padding-bottom: 4px; }
+table.tab { border-collapse: collapse; font-size: 15px; margin: 4px 0 6px; background: var(--papier); }
+table.tab th, table.tab td { border: 1.5px solid var(--linie); padding: 4px 10px; text-align: left; }
+table.tab th { background: var(--flaeche2); font-weight: 700; }
+table.tab td.z { font-family: var(--mono); text-align: right; }
+.zeichnung { display: block; max-width: 300px; width: 100%; height: auto; background: var(--papier); border: 1.5px solid var(--linie); border-radius: 12px; margin: 4px 0 6px; }
+.nachueben { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.nachueben li { border: 1.5px dashed var(--linie); border-radius: 12px; padding: 8px 10px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 10px; align-items: center; }
+.nachueben li span.l { font-family: var(--mono); font-weight: 700; }
+.nachueben .ganz { font-size: 14px; color: var(--leise); margin-top: 6px; }
+
+/* Zustand */
+.zustand { border-top: 1.5px solid var(--linie); padding-top: 12px; display: grid; gap: 8px; }
+.zustand.oben { border-top: 0; padding: 10px 12px; background: var(--blau-fl); border-radius: 14px; }
+.z-zeile { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.z-text { font-size: 15px; color: var(--leise); }
+.notizfeld { width: 100%; min-height: 72px; border-radius: 12px; border: 1.5px solid var(--linie); background: var(--flaeche); padding: 10px 12px; font-size: 16px; resize: vertical; }
+.notiz { border-left: 4px solid var(--blau); background: var(--flaeche2); border-radius: 8px; padding: 6px 10px; font-size: 15px; }
+.notiz b { font-size: 13px; font-family: var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--leise); display: block; }
+.punktreihe { display: inline-flex; gap: 4px; vertical-align: middle; }
+.punktreihe i { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--gruen); display: block; }
+.punktreihe i.voll { background: var(--gruen); }
+.entwurf-hilfe { font-size: 13px; color: var(--leise); font-style: italic; }
+
+/* Listen unten */
+.kurzliste { list-style: none; margin: 0; padding: 0; background: var(--flaeche); border: 1.5px solid var(--linie); border-radius: 16px; overflow: hidden; }
+.kurzliste > li + li { border-top: 1px solid var(--linie); }
+.kz { width: 100%; text-align: left; background: none; border: 0; padding: 10px 12px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 10px; align-items: center; min-height: 52px; }
+.kz b { font-size: 16px; } .kz small { display: block; font-size: 14px; color: var(--leise); font-weight: 500; }
+.kz-innen { padding: 0 12px 12px; }
+details.verlauf, details.info { background: var(--flaeche); border: 1.5px solid var(--linie); border-radius: 16px; }
+details.verlauf > summary, details.info > summary { min-height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 6px 12px; font-weight: 700; cursor: pointer; list-style: none; }
+details.verlauf > summary::-webkit-details-marker, details.info > summary::-webkit-details-marker { display: none; }
+details[open] > summary .chev { transform: rotate(180deg); }
+.vl { list-style: none; margin: 0; padding: 0 12px 10px; display: grid; gap: 0; }
+.vl li { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 8px; padding: 9px 0; border-top: 1px solid var(--linie); align-items: start; }
+.vl .h { color: var(--gruen); font-weight: 700; }
+.vl b { font-size: 16px; } .vl small { display: block; font-size: 14px; color: var(--leise); }
+.info-text { padding: 0 14px 14px; font-size: 15px; display: grid; gap: 8px; }
+.info-text ol { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+
+/* Leerer Zustand */
+.leer { background: var(--flaeche); border: 1.5px solid var(--linie); border-radius: 18px; padding: 16px 14px; display: grid; gap: 12px; }
+.leer .gross { font-size: 22px; font-weight: 700; display: flex; gap: 10px; align-items: center; }
+.leer .haken { width: 40px; height: 40px; border-radius: 50%; background: var(--gruen-fl); border: 2px solid var(--gruen); color: var(--gruen); display: grid; place-items: center; font-size: 22px; flex: none; }
+.leer ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; font-size: 16px; }
+.lob { background: var(--gelb-fl); border: 1.5px solid var(--gelb-rand); border-radius: 14px; padding: 10px 12px; }
+.lob .frage { font-size: 18px; font-weight: 700; }
+
+/* Variante B: Aufgaben zuerst */
+.b-band { display: flex; gap: 6px; flex-wrap: wrap; margin: 10px 0 0; }
+.b-band button { border: 1.5px solid var(--linie); background: var(--flaeche); border-radius: 999px; min-height: 40px; padding: 0 12px; font-weight: 700; font-size: 15px; display: inline-flex; gap: 6px; align-items: center; }
+.b-band button[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+.b-gruppe { margin-top: 16px; }
+.b-top { margin: 2px 0 0; padding-left: 22px; font-size: 16px; font-weight: 600; display: grid; gap: 2px; }
+.b-gruppe > h3 { font-size: 17px; font-weight: 700; margin: 0 2px 6px; display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; }
+.b-gruppe > h3 small { font-size: 14px; color: var(--leise); font-weight: 500; width: 100%; }
+.b-gruppe .aufgaben { gap: 8px; }
+.b-status { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+
+/* Rechner: zwei Spalten in Variante A */
+.spalten { display: block; }
+.rechts { display: none; }
+@media (min-width: 1000px) {
+  main { padding: 18px 28px 80px; }
+  .kopf-zeile, .reiter { padding-left: 28px; padding-right: 28px; }
+  .kinder { flex: 0 1 460px; }
+  body[data-v="A"] .spalten { display: grid; grid-template-columns: minmax(0, 470px) minmax(0, 1fr); gap: 22px; align-items: start; }
+  body[data-v="A"] .rechts { display: block; position: sticky; top: 124px; max-height: calc(100vh - 140px); overflow: auto; background: var(--flaeche); border: 1.5px solid var(--text); border-radius: 18px; }
+  body[data-v="A"] .rechts .detail { padding: 16px 18px 18px; }
+  body[data-v="A"] .punkt .detail { display: none; }
+  body[data-v="A"] .punkt .chev { transform: rotate(-90deg); }
+  body[data-v="A"] .punkt.offen-auf { box-shadow: 0 0 0 2px var(--text); }
+  .rechts .r-kopf { padding: 16px 18px 0; display: grid; gap: 4px; }
+  .rechts .r-kopf h2 { font-size: 24px; line-height: 1.2; }
+  .rechts .detail .aufgaben { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+  body[data-v="B"] main { max-width: 900px; }
+  body[data-v="A"] .zeitraum { flex: 0 1 470px; }
+}
+
+/* Toast */
+.toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: 64px; z-index: 40; background: var(--text); color: var(--bg); border-radius: 14px; padding: 8px 8px 8px 14px; display: flex; gap: 10px; align-items: center; box-shadow: var(--schatten); font-size: 15px; max-width: calc(100vw - 24px); }
+.toast button { background: var(--bg); color: var(--text); border: 0; border-radius: 10px; min-height: 36px; padding: 0 10px; font-weight: 700; white-space: nowrap; }
+
+/* Gesprächszettel */
+.zettel { background: var(--papier); color: var(--text); border: 1.5px solid var(--linie); border-radius: 16px; padding: 18px 18px 24px; max-width: 760px; margin: 0 auto; }
+.zettel h1 { font-size: 24px; } .zettel h2 { font-size: 19px; margin-top: 18px; padding-top: 12px; border-top: 2px solid var(--text); }
+.zettel p, .zettel li { font-size: 16px; }
+.zettel .frage { font-size: 19px; font-weight: 700; margin: 6px 0; }
+.zettel .linien { height: 84px; background: repeating-linear-gradient(to bottom, transparent 0 27px, var(--linie) 27px 28px); margin-top: 6px; }
+.zettel-knoepfe { display: flex; gap: 8px; justify-content: center; margin: 0 0 12px; }
+@media print {
+  body { background: #fff; --bg: #fff; --papier: #fff; --text: #000; --leise: #333; --linie: #999; }
+  .kopf, .entwurf, .zettel-knoepfe, .toast { display: none !important; }
+  main { padding: 0; } .zettel { border: 0; padding: 0; }
+}
+
+/* Entwurfs-Schalter: gehört nicht zur App */
+.entwurf { position: fixed; left: 8px; right: 8px; bottom: 8px; z-index: 30; font-family: system-ui, sans-serif; font-size: 13px; display: flex; justify-content: center; pointer-events: none; }
+.entwurf div { pointer-events: auto; display: flex; flex-wrap: wrap; gap: 4px; align-items: center; background: #2b2b2b; color: #fff; border-radius: 12px; padding: 5px 6px; box-shadow: 0 6px 20px rgba(0,0,0,.3); }
+.ohne-schalter .entwurf { display: none; }
+.entwurf b { padding: 0 4px; font-weight: 600; opacity: .8; }
+.entwurf button { background: #444; color: #fff; border: 0; border-radius: 8px; min-height: 30px; padding: 0 9px; font-size: 13px; }
+.entwurf button[aria-pressed="true"] { background: #FFD23F; color: #111; font-weight: 700; }
+@media (max-width: 999px) { .nur-rechner { display: none !important; } }
+</style>
+</head>
+<body data-g="hell" data-v="A">
+<header class="kopf">
+  <div class="kopf-zeile">
+    <button class="k-zurueck" aria-label="Zurück">‹</button>
+    <nav class="kinder" aria-label="Kind wechseln" id="kinder"></nav>
+    <button class="k-mehr" aria-label="Mehr">⋯</button>
+  </div>
+  <nav class="reiter" aria-label="Reiter" id="reiter"></nav>
+</header>
+<main id="main"></main>
+<div class="entwurf" aria-label="Entwurfs-Schalter (nicht Teil der App)"><div id="entwurf"></div></div>
+<script>
+'use strict';
+// ====================================================================================================
+// ERFUNDENE BEISPIELDATEN. Keine echten Lerndaten, keine Namen. „Heute“ = Fr 27.11.2026.
+// Felder wie in der App/Datenbank, soweit vorhanden (schule.versuch: am, richtig, antwort, anlauf, hilfe; aufgabe: frage.text,
+// frage.grafik, antworttyp, antworten, loesung, loesungsweg). fb = erkanntes Fehlbild (Stufe 2: aus aufgabe.fehlbilder);
+// grund = heutiges grobes Fehlermuster (antwort_bewerten: vorzeichen, komma, vertauscht, gerundet, falsche_einheit).
+// ====================================================================================================
+const HEUTE = new Date('2026-11-27T19:00:00');
+const FB = { // Fehlbilder aus kennungen.json / regeln-universum.json (Beschreibung wörtlich bzw. gekürzt), dazu Gesprächseinstieg (neu, Vorschlag)
+  'fb.minusklammer.nur_erstes_zeichen': { titel: 'Minus vor der Klammer: nur das erste Zeichen gedreht', kurz: 'Nur das erste Vorzeichen in der Klammer wechselt.',
+    regel: { nr: 7, name: 'Minus vor der Klammer', satz: 'Beim Auflösen einer Minusklammer wechselt jeder Summand sein Vorzeichen.', href: '#/regeln/lehrer-r7' },
+    einstieg: 'Lies mir 7x − (3x − 5) laut vor. Was macht das Minus vor der Klammer mit der 5?',
+    nach: [['Vereinfache: 10 − (6 − y)', '4 + y'], ['Vereinfache: 3a − (a + 7)', '2a − 7'], ['Löse: 15 − (x − 3) = 10', 'x = 8']] },
+  'fb.waage.zeichen_nicht_gedreht': { titel: 'Ungleichung: Zeichen beim Teilen durch Minus nicht gedreht', kurz: 'Bei einer Ungleichung wird durch eine negative Zahl geteilt, ohne das Zeichen umzudrehen.',
+    regel: { nr: 13, name: 'Gleichung als Waage', satz: 'Eine Gleichung ist eine Waage: Was du links tust, musst du auch rechts tun.', href: '#/regeln/lehrer-r13' },
+    einstieg: 'Stimmt 2 < 5? Nimm beide Seiten mal (−1). Stimmt es dann noch?',
+    nach: [['Löse: −4x > 20', 'x < −5'], ['Löse: 6 − 2x ≤ 0', 'x ≥ 3'], ['Stimmt das? Aus −x < 3 folgt x > −3.', 'ja']] },
+  'fb.stellenwert.eine_stelle_daneben': { titel: 'Umrechnen: eine Stelle daneben', kurz: 'Die Ziffern stimmen, das Ergebnis ist aber zehnmal zu groß oder zu klein.',
+    regel: { nr: 1, name: 'Stellenwert', satz: 'Mal zehn: Jede Ziffer rückt eins nach links.', href: '#/regeln/lehrer-r1' },
+    einstieg: 'Ist 3,5 kg mehr oder weniger als 1 kg? Und wie viel Gramm hat 1 kg?',
+    nach: [['Wie viel Gramm sind 2,4 kg?', '2 400 g'], ['Wie viele Meter sind 350 cm?', '3,5 m'], ['Wie viele Cent sind 1,05 €?', '105 ct']] },
+  'fb.bruchrechnen.falscher_kehrwert': { titel: 'Bruch geteilt durch Bruch: falscher Kehrwert', kurz: 'Beim Teilen wird der erste statt des zweiten Bruchs umgedreht.', regel: { nr: 10, name: 'Rechnen mit Brüchen' } },
+  'fb.potenz.basis_mal_hochzahl': { titel: 'Potenz: Basis mal Hochzahl', kurz: '2³ wird als 2 · 3 gerechnet.', regel: { nr: 8, name: 'Potenzen' } },
+  'fb.winkel.neben_statt_scheitel': { titel: 'Scheitelwinkel statt Nebenwinkel', kurz: 'Den gegebenen Winkel genommen statt seinen Nebenwinkel.' },
+  'fb.rechtwinklig.ohne_quadrate': { titel: 'Pythagoras ohne Quadrate', kurz: 'Die Seiten werden ohne Quadrate addiert.' },
+};
+const LK = { // Lernkarten (Etappen): Thema, Name, Gesprächseinstieg und Nachüben bei einer Lücke, Bezug ins Regel-Universum
+  minusklammer: { thema: 'Terme umformen', name: 'Minusklammer auflösen' },
+  klammer_gleichung: { thema: 'Lineare Gleichungen', name: 'Gleichungen mit Klammern' },
+  seite_berechnen: { thema: 'Satz des Pythagoras', name: 'Fehlende Seite berechnen',
+    einstieg: 'Zeig mir auf der Zeichnung die längste Seite. Woran erkennst du sie, ohne zu messen?',
+    regel: { nr: null, name: 'Idee: Rechtwinkliges Dreieck (Geometrie 5)', satz: 'Rechter Winkel im Dreieck: a² plus b² ist c² – c liegt dem rechten Winkel gegenüber.', href: '#/regeln/kind-idee-geo-5', idee: true },
+    nach: [['Katheten 9 cm und 12 cm. Wie lang ist die Hypotenuse?', '15 cm'], ['Hypotenuse 10 cm, eine Kathete 6 cm. Wie lang ist die andere?', '8 cm']] },
+  ungleichung_negativ: { thema: 'Lineare Ungleichungen', name: 'Mal oder geteilt durch eine negative Zahl' },
+  steigung_tabelle: { thema: 'Lineare Funktionen', name: 'Steigung aus einer Tabelle' },
+  prozentwert: { thema: 'Prozentrechnung', name: 'Prozentwert berechnen' },
+  bruch_geteilt: { thema: 'Rechnen mit Brüchen', name: 'Bruch durch Bruch' },
+  potenz_basis: { thema: 'Potenzen', name: 'Potenzen ausrechnen' },
+  gewicht: { thema: 'Größen und Einheiten', name: 'Gewichte umrechnen' },
+  laenge: { thema: 'Größen und Einheiten', name: 'Längen umrechnen' },
+  geld: { thema: 'Größen und Einheiten', name: 'Geld umrechnen' },
+  tabelle_auswerten: { thema: 'Daten darstellen', name: 'Tabelle auswerten',
+    einstieg: 'Lies mir die Frage vor und zeig mit dem Finger auf die Zeilen der Tabelle, die dazugehören.',
+    regel: { nr: null, name: 'Arbeitsweise 7: Ablesen und Darstellen', satz: 'Erst Achsen und Einheiten lesen, dann die Werte.', href: '#/regeln/kind-weise-7', idee: true },
+    nach: [['Umfrage: Hund 9, Katze 7, Pferd 4, Fisch 2. Wie viele Kinder wählten kein Haustier mit Fell?', '2'], ['Dieselbe Tabelle: Wie viele mehr wählten Hund als Pferd?', '5']] },
+  absolute_haeufigkeit: { thema: 'Daten darstellen', name: 'Absolute Häufigkeit' },
+  kreuzung: { thema: 'Winkel', name: 'Winkel an einer Kreuzung' },
+  subtraktion: { thema: 'Natürliche Zahlen', name: 'Schriftlich subtrahieren' },
+};
+const TAB_SPORT = { typ: 'tabelle', kopf: ['Sportart', 'Anzahl Kinder'], zeilen: [['Fußball', '11'], ['Schwimmen', '6'], ['Tennis', '4'], ['Tanzen', '7']] };
+const TAB_BUECHEREI = { typ: 'tabelle', kopf: ['Tag', 'Besucher'], zeilen: [['Montag', '34'], ['Dienstag', '27'], ['Mittwoch', '41'], ['Donnerstag', '19'], ['Freitag', '25']] };
+const TAB_STEIGUNG = { typ: 'tabelle', quer: true, kopf: ['x', '0', '1', '2', '3'], zeilen: [['y', '5', '3', '1', '−1']] };
+const A = { // Aufgaben (wie aufgabe.f.text, o, w; fb je falscher Antwort wie aufgabe.fehlbilder)
+  mk1: { lk: 'minusklammer', text: 'Vereinfache: 7x − (3x − 5)', o: '4x + 5', w: 'Das Minus vor der Klammer dreht jedes Zeichen in der Klammer um: 7x − 3x + 5 = 4x + 5.' },
+  mk2: { lk: 'minusklammer', text: 'Vereinfache: 12 − (4 − a) + 2a', o: '8 + 3a', w: '12 − 4 + a + 2a = 8 + 3a. Aus „− (− a)“ wird „+ a“.' },
+  mk5: { lk: 'minusklammer', text: 'Vereinfache: 9 − (2 + b)', o: '7 − b', w: '9 − 2 − b = 7 − b.' },
+  mk3: { lk: 'klammer_gleichung', form: 'fehler_detektiv', text: 'Ben löst 5x − (2x − 6) = 21. In welcher Zeile passiert der erste Fehler?',
+    zeilen: ['5x − 2x − 6 = 21', '3x − 6 = 21', '3x = 27', 'x = 9'], optionen: ['In Zeile 1', 'In Zeile 2', 'In Zeile 3', 'In Zeile 4'], richtig: 0,
+    w: 'Zeile 1 ist schon falsch: aus − (−6) wird + 6. Richtig: 5x − 2x + 6 = 21, also 3x = 15, x = 5.' },
+  mk4: { lk: 'klammer_gleichung', text: 'Löse: 20 − (x + 4) = 9', o: 'x = 7', w: '20 − x − 4 = 9, also 16 − x = 9, x = 7. Probe: 20 − 11 = 9 ✓' },
+  py1: { lk: 'seite_berechnen', text: 'Berechne die Länge der Seite c.', grafik: { typ: 'dreieck', a: '6 cm', b: '8 cm', c: 'c = ?' }, o: '10 cm', w: 'c² = 6² + 8² = 36 + 64 = 100, also c = 10 cm.' },
+  py2: { lk: 'seite_berechnen', text: 'Berechne die Länge der Seite b.', grafik: { typ: 'dreieck', a: '5 cm', b: 'b = ?', c: '13 cm' }, o: '12 cm', w: 'b ist eine Kathete: b² = 13² − 5² = 169 − 25 = 144, also b = 12 cm.' },
+  py3: { lk: 'seite_berechnen', text: 'Eine 5 m lange Leiter lehnt an einer Wand. Ihr Fuß steht 1,4 m von der Wand entfernt. In welcher Höhe berührt sie die Wand?', o: '4,8 m', w: 'h² = 5² − 1,4² = 25 − 1,96 = 23,04, also h = √23,04 = 4,8 m.' },
+  py4: { lk: 'seite_berechnen', text: 'Katheten 3 cm und 4 cm. Wie lang ist die Hypotenuse?', o: '5 cm', w: '3² + 4² = 25, √25 = 5.' },
+  un1: { lk: 'ungleichung_negativ', text: 'Löse: −3x < 12', o: 'x > −4', w: 'Durch −3 teilen und dabei das Zeichen umdrehen: x > −4.' },
+  un2: { lk: 'ungleichung_negativ', text: 'Löse: −2x ≥ 8', o: 'x ≤ −4', w: 'Durch −2 teilen, Zeichen umdrehen: x ≤ −4.' },
+  lf1: { lk: 'steigung_tabelle', text: 'Wie groß ist die Steigung m der Geraden?', grafik: TAB_STEIGUNG, o: '−2', w: 'Wenn x um 1 wächst, nimmt y um 2 ab: m = −2.' },
+  lf2: { lk: 'steigung_tabelle', text: 'x: 0, 1, 2 · y: 1, 4, 7. Steigung?', o: '3', w: '' },
+  pz1: { lk: 'prozentwert', text: 'Wie viel sind 18 % von 250 €?', o: '45 €', w: '250 € : 100 · 18 = 2,50 € · 18 = 45 €.' },
+  pz2: { lk: 'prozentwert', text: 'Wie viel sind 12 % von 400 €?', o: '48 €', w: '' },
+  br1: { lk: 'bruch_geteilt', text: '3/4 : 1/2', o: '3/2', w: '' }, po1: { lk: 'potenz_basis', text: '2³', o: '8', w: '' },
+  st1: { lk: 'gewicht', text: 'Wie viel Gramm sind 3,5 kg?', o: '3 500 g', w: '1 kg = 1 000 g, also 3,5 kg = 3,5 · 1 000 g = 3 500 g. Jede Ziffer rückt drei Stellen nach links.' },
+  st2: { lk: 'laenge', text: 'Wie viele Zentimeter sind 4,2 m?', o: '420 cm', w: '1 m = 100 cm, also 4,2 m = 420 cm.' },
+  st3: { lk: 'geld', text: 'Wie viele Cent sind 0,60 €?', o: '60 ct', w: '1 € = 100 ct, also 0,60 € = 60 ct.' },
+  st4: { lk: 'gewicht', text: 'Wie viel Gramm sind 2 kg?', o: '2 000 g', w: '' },
+  tb1: { lk: 'tabelle_auswerten', text: 'Die Tabelle zeigt eine Umfrage zum Lieblingssport. Wie viele Kinder haben nicht „Fußball“ gewählt?', grafik: TAB_SPORT, o: '17', w: 'Schwimmen 6 + Tennis 4 + Tanzen 7 = 17. Oder: insgesamt 28 Kinder, 28 − 11 = 17.' },
+  tb2: { lk: 'tabelle_auswerten', text: 'Wie viele Besucher kamen am Mittwoch mehr als am Donnerstag?', grafik: TAB_BUECHEREI, o: '22', w: '„Wie viele mehr“ heißt Unterschied: 41 − 19 = 22.' },
+  ah1: { lk: 'absolute_haeufigkeit', text: 'Bei einer Umfrage unter 30 Kindern nannten 12 Kinder Fußball und 8 Kinder Schwimmen. Alle übrigen nannten Tanzen. Wie oft wurde Tanzen genannt?', o: '10', w: '12 + 8 = 20; 30 − 20 = 10.' },
+  wk1: { lk: 'kreuzung', text: 'Zwei gerade Straßen kreuzen sich. Einer der vier Winkel beträgt 38°. Wie groß ist der größte der vier Winkel?', grafik: { typ: 'kreuzung' }, o: '142°', w: 'Der Nachbarwinkel von 38° ist 180° − 38° = 142°. Gegenüberliegende Winkel sind gleich groß, der größte ist 142°.' },
+  wk2: { lk: 'kreuzung', text: 'Ein Winkel an einer Kreuzung ist 65°. Wie groß ist sein Nachbarwinkel?', o: '115°', w: '' },
+  sb1: { lk: 'subtraktion', text: '702 − 358', o: '344', w: '' },
+};
+// Versuche: [aufgabe, am, richtig, antwort, {anlauf, erst (1. Anlauf), tipp, fb, grund, fbText}]
+const V = {
+  1: [ ['sb1', '2026-11-12T16:00', false, '454', { fbText: 'Übertrag vergessen' }], ['sb1', '2026-11-14T16:00', false, '456', { fbText: 'Übertrag vergessen' }],
+       ['sb1', '2026-11-21T10:00', true], ['sb1', '2026-11-22T10:00', true], ['sb1', '2026-11-23T10:00', true],
+       ['st4', '2026-11-21T09:30', true],
+       ['st1', '2026-11-22T09:40', false, '350 g', { fb: 'fb.stellenwert.eine_stelle_daneben' }],
+       ['wk1', '2026-11-23T11:05', false, '38°', { fb: 'fb.winkel.neben_statt_scheitel', fbText: 'den gegebenen Winkel als größten genannt (Scheitelwinkel statt Nebenwinkel genommen)' }],
+       ['wk2', '2026-11-24T10:20', true], ['wk1', '2026-11-26T10:10', true],
+       ['tb1', '2026-11-24T10:40', false, '28', { fbText: 'alle befragten Kinder genannt – Fußball nicht abgezogen' }],
+       ['st2', '2026-11-25T09:15', false, '4 200 cm', { anlauf: 2, erst: '4 200', fb: 'fb.stellenwert.eine_stelle_daneben' }],
+       ['ah1', '2026-11-25T09:50', false, '20', { fbText: 'nur Fußball und Schwimmen zusammengezählt' }],
+       ['st3', '2026-11-26T09:20', false, '6 ct', { fb: 'fb.stellenwert.eine_stelle_daneben', tipp: true }],
+       ['tb2', '2026-11-26T09:45', false, '60', { fbText: 'beide Zahlen addiert statt den Unterschied gebildet' }] ],
+  2: [ ['po1', '2026-10-27T17:00', false, '6', { fb: 'fb.potenz.basis_mal_hochzahl' }], ['po1', '2026-10-28T17:00', false, '6', { fb: 'fb.potenz.basis_mal_hochzahl' }],
+       ['po1', '2026-11-01T17:00', true], ['po1', '2026-11-02T17:00', true], ['po1', '2026-11-03T17:00', true],
+       ['br1', '2026-11-03T18:00', false, '2/3', { fb: 'fb.bruchrechnen.falscher_kehrwert' }], ['br1', '2026-11-04T18:00', false, '3/8', { fb: 'fb.bruchrechnen.falscher_kehrwert' }],
+       ['br1', '2026-11-07T18:00', true], ['br1', '2026-11-08T18:00', true], ['br1', '2026-11-09T18:00', true],
+       ['un2', '2026-11-14T17:30', false, 'x ≥ −4', { fb: 'fb.waage.zeichen_nicht_gedreht' }], ['un2', '2026-11-16T17:30', false, 'x ≥ −4', { fb: 'fb.waage.zeichen_nicht_gedreht' }],
+       ['mk5', '2026-11-19T17:10', true], ['mk1', '2026-11-17T17:00', true],
+       ['pz1', '2026-11-20T18:20', false, '4,50 €', { grund: 'komma' }], ['pz2', '2026-11-25T18:00', true],
+       ['lf1', '2026-11-21T17:40', false, '2', { grund: 'vorzeichen' }], ['lf2', '2026-11-23T17:00', true], ['lf2', '2026-11-24T17:00', true], ['lf1', '2026-11-26T17:20', true],
+       ['un1', '2026-11-22T18:05', false, 'x < −4', { fb: 'fb.waage.zeichen_nicht_gedreht' }],
+       ['mk1', '2026-11-23T17:15', false, '4x − 5', { fb: 'fb.minusklammer.nur_erstes_zeichen' }],
+       ['py4', '2026-11-22T17:50', true],
+       ['py1', '2026-11-24T18:10', false, '14 cm', { fb: 'fb.rechtwinklig.ohne_quadrate', fbText: '6 + 8 gerechnet – die Seiten ohne Quadrate addiert' }],
+       ['mk2', '2026-11-25T17:30', false, '8 + a', { anlauf: 2, erst: '8 − a', fb: 'fb.minusklammer.nur_erstes_zeichen' }],
+       ['py2', '2026-11-25T17:55', false, '13,9 cm', { fbText: 'beide Quadrate addiert, obwohl die gesuchte Seite eine Kathete ist (√(169 + 25))' }],
+       ['mk3', '2026-11-26T17:05', false, 2, { fb: 'fb.minusklammer.nur_erstes_zeichen', fbText: 'hält Zeile 1 für richtig – dort wurde das Minus nur auf 2x angewendet' }],
+       ['mk4', '2026-11-26T17:25', false, 'x = 15', { fb: 'fb.minusklammer.nur_erstes_zeichen', fbText: 'gerechnet mit 20 − x + 4: nur das erste Zeichen in der Klammer gedreht' }],
+       ['py3', '2026-11-26T18:00', false, '23,04 m', { tipp: true, fbText: 'Wurzel am Ende vergessen: 25 − 1,96 = 23,04' }] ],
+};
+const KINDER = { 1: { name: 'Kind 1', kl: 5, schule: 'Gymnasium' }, 2: { name: 'Kind 2', kl: 8, schule: 'Gymnasium' } };
+// gespeicherte Zustände je Kind und Punkt (Schlüssel: fb:<kennung> oder lk:<lernkarte>) – entspricht schule.wackelt_status (+ notiz, neu)
+const STATUS0 = {
+  1: { 'lk:subtraktion': { st: 'besprochen', am: '2026-11-20T19:00', notiz: 'Beim Übertrag die kleine 1 vergessen. Wir schreiben sie jetzt immer rot.', art: 'lu' } },
+  2: { 'fb:fb.potenz.basis_mal_hochzahl': { st: 'besprochen', am: '2026-10-30T19:00', notiz: 'Hat 2³ = 2 · 3 gerechnet. Mit Würfelbild erklärt.', art: 'fv' },
+       'fb:fb.bruchrechnen.falscher_kehrwert': { st: 'besprochen', am: '2026-11-05T19:00', notiz: '', art: 'fv' },
+       'fb:fb.waage.zeichen_nicht_gedreht': { st: 'besprochen', am: '2026-11-18T19:00', notiz: 'Meinte, das Zeichen dreht sich nur, wenn rechts eine negative Zahl steht.', art: 'fv' } },
+};
+const NAME_ZEITRAUM = { g: 'Seit Gespräch', w: '7 Tage', a: 'Alles' };
+
+// ====================================================================================================
+// ZUSTAND DES ENTWURFS
+// ====================================================================================================
+const S = { kind: 2, zeitraum: 'g', v: 'A', g: 'hell', leer: false, offen: null, zettel: false, wegOffen: false, filterB: null, notizAuf: null, toast: null };
+const STATUS = JSON.parse(JSON.stringify(STATUS0));
+const SIM = { 1: [], 2: [] }; // im Entwurf simuliertes Nachüben: zusätzliche richtige Versuche
+(function ausAdresse() { // #k=2&z=g&v=A&g=nacht&p=1&weg=1&leer=1&zettel=1&besp=1
+  const q = new URLSearchParams(location.hash.slice(1));
+  if (q.get('k')) S.kind = Number(q.get('k')); if (q.get('z')) S.zeitraum = q.get('z'); if (q.get('v')) S.v = q.get('v');
+  if (q.get('g')) S.g = q.get('g'); if (q.get('leer')) S.leer = true; if (q.get('zettel')) S.zettel = true; if (q.get('weg')) S.wegOffen = true;
+  S.pStart = q.get('p'); S.besp = q.get('besp'); if (q.get('ohne')) document.documentElement.classList.add('ohne-schalter');
+})();
+
+// ====================================================================================================
+// HILFEN
+// ====================================================================================================
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const tag = (iso) => { const d = new Date(iso); return ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'][d.getDay()] + ' ' + d.getDate() + '.' + (d.getMonth() + 1) + '.'; };
+const kurzTag = (iso) => { const d = new Date(iso); return d.getDate() + '.' + (d.getMonth() + 1) + '.'; };
+const tageHer = (iso) => { const a = new Date(iso); a.setHours(0, 0, 0, 0); const h = new Date(HEUTE); h.setHours(0, 0, 0, 0); return Math.round((h - a) / 864e5); };
+const wann = (iso) => { const t = tageHer(iso); return t <= 0 ? 'heute' : t === 1 ? 'gestern' : t < 7 ? `vor ${t} Tagen` : 'am ' + kurzTag(iso); };
+const mal = (n) => (n === 1 ? 'einmal' : n === 2 ? 'zweimal' : n === 3 ? 'dreimal' : n + '-mal');
+const CHEV = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>';
+const ART = { fv: 'Fehlvorstellung', lu: 'Lücke', fl: 'Flüchtigkeit', be: 'Einmal falsch' };
+
+function versuche(kind) {
+  let v = V[kind].map(([a, am, r, ant, x], i) => ({ id: kind + '-' + i, a, am, r, ant, ...(x || {}), lk: A[a].lk }));
+  v = v.concat(SIM[kind]);
+  if (S.leer) { const gespr = letztesGespraech(kind); v = v.filter((x) => x.r || x.am <= gespr || x.a === 'wk1'); } // Entwurf: „nichts wackelt“
+  return v.sort((x, y) => x.am.localeCompare(y.am));
+}
+// letztes Gespräch = letzter Tag VOR heute, an dem etwas als besprochen markiert wurde (wer heute bespricht, verschiebt den Zeitraum erst morgen)
+function letztesGespraech(kind) { const h = HEUTE.toISOString().slice(0, 10); return Object.values(STATUS[kind]).filter((s) => s.am && s.st === 'besprochen' && s.am.slice(0, 10) < h).map((s) => s.am).sort().pop() || '2000-01-01'; }
+function seitWann(kind) { return S.zeitraum === 'g' ? letztesGespraech(kind) : S.zeitraum === 'w' ? new Date(HEUTE - 7 * 864e5).toISOString().slice(0, 16) : '2000-01-01'; }
+
+// ====================================================================================================
+// VORANALYSE – Regeln wie in umsetzung1.md, Abschnitt 3 (R1–R8)
+// ====================================================================================================
+function analyse(kind, seit) {
+  const alle = versuche(kind);
+  // R0: Fehler, die schon zu einem bearbeiteten Punkt gehören (vor dessen Zeitpunkt „besprochen“/„später“), zählen nicht noch einmal
+  const erledigt = (x) => Object.entries(STATUS[kind]).some(([key, s]) => s.st !== 'offen' && x.am <= s.am && (key.startsWith('fb:') ? x.fb === key.slice(3) : x.lk === key.slice(3)));
+  const falsch = alle.filter((x) => !x.r && x.am > seit && !erledigt(x)); // endgültig falsch (der 1. Anlauf mit zweiter Chance zählt nicht – im Entwurf schon herausgerechnet)
+  const punkte = [];
+  const verbraucht = new Set();
+  // R1 Fehlvorstellung: dasselbe erkannte Fehlbild ≥ 3-mal in ≥ 2 Aufgaben, oder ≥ 2-mal in ≥ 2 Lernkarten
+  const jeFb = {}; for (const x of falsch) if (x.fb) (jeFb[x.fb] = jeFb[x.fb] || []).push(x);
+  for (const [fb, l] of Object.entries(jeFb)) {
+    const aufg = new Set(l.map((x) => x.a)).size, lks = new Set(l.map((x) => x.lk)).size;
+    if ((l.length >= 3 && aufg >= 2) || (l.length >= 2 && lks >= 2)) { punkte.push({ key: 'fb:' + fb, art: 'fv', fb, fehler: l, lks: [...new Set(l.map((x) => x.lk))] }); l.forEach((x) => verbraucht.add(x.id)); }
+  }
+  // R2 Lücke: in einer Lernkarte ≥ 2 falsch in ≥ 2 verschiedenen Aufgaben (ohne die schon einer Fehlvorstellung zugeordneten)
+  const jeLk = {}; for (const x of falsch) if (!verbraucht.has(x.id)) (jeLk[x.lk] = jeLk[x.lk] || []).push(x);
+  for (const [lk, l] of Object.entries(jeLk)) {
+    if (l.length >= 2 && new Set(l.map((x) => x.a)).size >= 2) { punkte.push({ key: 'lk:' + lk, art: 'lu', fehler: l, lks: [lk] }); l.forEach((x) => verbraucht.add(x.id)); }
+  }
+  // R4 Wieder offen: gespeicherter Punkt + neuer endgültiger Fehler danach → zurück, Art bleibt
+  for (const [key, s] of Object.entries(STATUS[kind])) {
+    if (punkte.some((p) => p.key === key)) continue;
+    const pass = (x) => (key.startsWith('fb:') ? x.fb === key.slice(3) : x.lk === key.slice(3));
+    const neu = falsch.filter((x) => !verbraucht.has(x.id) && pass(x) && x.am > s.am);
+    if (neu.length) { punkte.push({ key, art: s.art, fb: key.startsWith('fb:') ? key.slice(3) : null, fehler: neu, lks: [...new Set(neu.map((x) => x.lk))] }); neu.forEach((x) => verbraucht.add(x.id)); }
+  }
+  // R3 Flüchtigkeit / einmal falsch: übrige Lernkarten mit genau einem Fehler
+  const rest = {}; for (const x of falsch) if (!verbraucht.has(x.id)) (rest[x.lk] = rest[x.lk] || []).push(x);
+  const nebenbei = [];
+  for (const [lk, l] of Object.entries(rest)) {
+    const letzter = l[l.length - 1]; const danach = alle.filter((x) => x.lk === lk && x.am > letzter.am);
+    const richtigDanach = danach.filter((x) => x.r && !x.tipp).length;
+    nebenbei.push({ key: 'lk:' + lk, art: richtigDanach >= 1 && l.length === 1 ? 'fl' : 'be', fehler: l, lks: [lk], richtigDanach });
+  }
+  // Zustand, Nachüben, Gewicht
+  for (const p of punkte) {
+    const s = STATUS[kind][p.key]; const letzter = p.fehler[p.fehler.length - 1].am;
+    p.wieder = !!(s && s.st !== 'offen' && p.fehler.some((x) => x.am > s.am));
+    p.st = p.wieder || !s ? 'offen' : s.st; p.s = s;
+    const imPunkt = (x) => p.lks.includes(x.lk);
+    const nachG = s && s.st === 'besprochen' && !p.wieder ? alle.filter((x) => imPunkt(x) && x.am > s.am) : [];
+    let folge = 0; for (const x of nachG) folge = x.r && !x.tipp ? folge + 1 : 0; p.folge = folge;
+    if (p.st === 'besprochen' && folge >= 3) p.st = 'sitzt';
+    const danach = alle.filter((x) => imPunkt(x) && x.am > letzter); let f2 = 0; for (const x of danach) f2 = x.r && !x.tipp ? f2 + 1 : 0;
+    p.erholt = f2;
+    p.letzter = letzter;
+    p.gewicht = (p.art === 'fv' ? 30 : 20) + 5 * Math.min(p.fehler.length, 5) + (tageHer(letzter) <= 1 ? 10 : tageHer(letzter) <= 7 ? 5 : 0) + (p.wieder ? 15 : 0) - (f2 >= 2 ? 10 : 0);
+  }
+  punkte.sort((x, y) => y.gewicht - x.gewicht || y.letzter.localeCompare(x.letzter));
+  return { alle, falsch, punkte, nebenbei, imZeitraum: alle.filter((x) => x.am > seit) };
+}
+// Punkte ohne neue Fehler im Zeitraum, aber mit gespeichertem Zustand (besprochen und wartet aufs Nachüben, später, sitzt wieder) – für Abschnitte und Verlauf
+function gespeicherte(kind, an) {
+  const alle = versuche(kind); const out = [];
+  for (const [key, s] of Object.entries(STATUS[kind])) {
+    if (an.punkte.some((p) => p.key === key)) continue;
+    const lkPass = (x) => (key.startsWith('fb:') ? alle.some((y) => y.fb === key.slice(3) && y.lk === x.lk) : x.lk === key.slice(3));
+    const nach = alle.filter((x) => lkPass(x) && x.am > s.am); let folge = 0, am = null;
+    for (const x of nach) { folge = x.r && !x.tipp ? folge + 1 : 0; if (folge === 3 && !am) am = x.am; }
+    const fehler = alle.filter((x) => !x.r && (key.startsWith('fb:') ? x.fb === key.slice(3) : x.lk === key.slice(3)));
+    out.push({ key, art: s.art, fb: key.startsWith('fb:') ? key.slice(3) : null, fehler, lks: [...new Set(fehler.map((x) => x.lk))], s,
+      st: s.st === 'besprochen' && (folge >= 3 || am) ? 'sitzt' : s.st, folge, sitztAm: am, letzter: fehler.length ? fehler[fehler.length - 1].am : s.am });
+  }
+  return out;
+}
+// Zahl am Reiter: alle offenen Punkte ohne Zeitraum-Filter (Erledigtes zählt nach R0 ohnehin nicht) – die Zahl springt nicht mit dem Filter
+function zuBesprechen(kind) { const an = analyse(kind, '2000-01-01'); return an.punkte.filter((p) => p.st === 'offen').length; }
+
+// Texte je Punkt
+function titel(p) { return p.fb && FB[p.fb] ? FB[p.fb].titel : LK[p.lks[0]].name; }
+function ort(p) { const t = {}; for (const lk of p.lks) (t[LK[lk].thema] = t[LK[lk].thema] || []).push(LK[lk].name); return Object.entries(t).map(([th, n]) => `${th} › ${n.join(', ')}`).join(' · '); }
+function begruendung(p) {
+  const n = p.fehler.length, a = new Set(p.fehler.map((x) => x.a)).size;
+  if (p.wieder) return `Am ${kurzTag(p.s.am)} besprochen – danach ${mal(n)} wieder derselbe Fehler.`;
+  if (p.art === 'fv') return `${mal(n)[0].toUpperCase() + mal(n).slice(1)} derselbe Fehler in ${a} Aufgaben${new Set(p.lks.map((l) => LK[l].thema)).size > 1 ? ' aus ' + new Set(p.lks.map((l) => LK[l].thema)).size + ' Themen' : p.lks.length > 1 ? ' aus ' + p.lks.length + ' Lernkarten' : ''}: ${FB[p.fb].kurz}`;
+  if (p.art === 'lu') { const ver = new Set(p.fehler.map((x) => x.fb || x.fbText || x.grund || '?')).size;
+    return `${n} von ${a} Aufgaben zu „${LK[p.lks[0]].name}“ falsch${ver > 1 ? ', jedes Mal mit einem anderen Fehler' : ''} – das Verfahren sitzt noch nicht.`; }
+  return '';
+}
+function meta(p) {
+  const n = p.fehler.length;
+  return [`${n} falsch`, 'zuletzt ' + wann(p.letzter), p.erholt >= 1 ? `danach ${p.erholt}× richtig` : 'seitdem nicht richtig'].join(' · ');
+}
+function einstieg(p) { return (p.fb && FB[p.fb]?.einstieg) || LK[p.lks[0]].einstieg || 'Erklär mir, wie du bei dieser Aufgabe vorgegangen bist – Schritt für Schritt.'; }
+function regelVon(p) { return (p.fb && FB[p.fb]?.regel?.satz && FB[p.fb].regel) || LK[p.lks[0]].regel || null; }
+function nachueben(p) { return (p.fb && FB[p.fb]?.nach) || LK[p.lks[0]].nach || []; }
+function fehlerText(x) {
+  if (x.fbText) return x.fbText;
+  if (x.fb && FB[x.fb]) return FB[x.fb].kurz;
+  return { vorzeichen: 'Vorzeichen falsch – der Betrag stimmt.', komma: 'Komma verrutscht – die Ziffern stimmen.', gerundet: 'falsch gerundet', vertauscht: 'Zahlen vertauscht', falsche_einheit: 'falsche Einheit' }[x.grund] || null;
+}
+
+// ====================================================================================================
+// ZEICHNEN
+// ====================================================================================================
+function grafik(g) {
+  if (!g) return '';
+  if (g.typ === 'tabelle' && g.quer) return `<table class="tab"><tr>${g.kopf.map((c, i) => (i ? `<td class="z">${esc(c)}</td>` : `<th>${esc(c)}</th>`)).join('')}</tr>${g.zeilen.map((z) => `<tr>${z.map((c, i) => (i ? `<td class="z">${esc(c)}</td>` : `<th>${esc(c)}</th>`)).join('')}</tr>`).join('')}</table>`;
+  if (g.typ === 'tabelle') return `<table class="tab"><tr>${g.kopf.map((c) => `<th>${esc(c)}</th>`).join('')}</tr>${g.zeilen.map((z) => `<tr><td>${esc(z[0])}</td><td class="z">${esc(z[1])}</td></tr>`).join('')}</table>`;
+  if (g.typ === 'dreieck') return `<svg class="zeichnung" viewBox="0 0 300 180" role="img" aria-label="Rechtwinkliges Dreieck, a ${esc(g.a)}, b ${esc(g.b)}, c ${esc(g.c)}">
+    <path d="M75 150 L75 30 L270 150 Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M75 132 L93 132 L93 150" fill="none" stroke="currentColor" stroke-width="1.8"/>
+    <text x="66" y="95" text-anchor="end" font-size="15" font-family="monospace" fill="currentColor" font-weight="700">${esc(g.a)}</text>
+    <text x="172" y="172" text-anchor="middle" font-size="15" font-family="monospace" fill="currentColor" font-weight="700">${esc(g.b)}</text>
+    <text x="180" y="80" text-anchor="start" font-size="15" font-family="monospace" fill="currentColor" font-weight="700">${esc(g.c)}</text></svg>`;
+  if (g.typ === 'kreuzung') return `<svg class="zeichnung" viewBox="0 0 300 170" role="img" aria-label="Zwei Geraden kreuzen sich, ein Winkel 38 Grad">
+    <line x1="20" y1="130" x2="280" y2="40" stroke="currentColor" stroke-width="2.5"/><line x1="20" y1="70" x2="280" y2="100" stroke="currentColor" stroke-width="2.5"/>
+    <path d="M190 71 A 40 40 0 0 1 192 89" fill="none" stroke="currentColor" stroke-width="2"/>
+    <text x="200" y="85" font-size="15" font-family="monospace" fill="currentColor" font-weight="700">38°</text>
+    <text x="118" y="70" font-size="15" font-family="monospace" fill="currentColor" font-weight="700" text-anchor="middle">?</text></svg>`;
+  return '';
+}
+function aufgabeKarte(x, alle, opt = {}) {
+  const a = A[x.a]; const danach = alle.filter((y) => y.a === x.a && y.am > x.am && y.r); const lkDanach = alle.filter((y) => y.lk === x.lk && y.am > x.am);
+  const wieOft = alle.filter((y) => y.a === x.a && y.am <= x.am).length;
+  const spaeter = danach.length ? `<span class="ok">✓ später richtig gelöst (${tag(danach[0].am)})</span>`
+    : lkDanach.some((y) => y.r) ? `<span class="ok">✓ danach eine andere Aufgabe dieser Lernkarte richtig</span>` : 'seitdem nicht richtig gelöst';
+  const fd = a.form === 'fehler_detektiv';
+  const ft = fehlerText(x);
+  return `<article class="aufg">
+    <div class="a-kopf"><span class="ueber">${fd ? 'Fehler-Detektiv · ' : ''}${esc(LK[a.lk].thema)}</span><span class="ueber">${tag(x.am)}</span></div>
+    <p class="a-text">${esc(a.text)}</p>
+    ${a.zeilen ? `<ol class="a-zeilen">${a.zeilen.map((z, i) => `<li>Zeile ${i + 1}: ${esc(z)}</li>`).join('')}</ol>` : ''}
+    ${grafik(a.grafik)}
+    ${fd ? `<ul class="optionen" aria-label="Auswahl">${a.optionen.map((o, i) => `<li class="${i === x.ant ? 'gewaehlt' : ''} ${i === a.richtig ? 'richtig' : ''}"><span>${esc(o)}</span>${i === x.ant ? '<em>✗ gewählt</em>' : i === a.richtig ? '<em>✓ richtig</em>' : ''}</li>`).join('')}</ul>`
+      : `<div class="vgl"><div class="du"><span>Eingegeben</span><b>${esc(x.ant)}</b></div><div class="ziel"><span>Richtig</span><b>${esc(a.o)}</b></div></div>`}
+    <p class="a-fehler">${ft ? `<b>Erkannter Fehler:</b> ${esc(ft)}` : '<span class="leise">Fehlerart nicht erkannt.</span>'}</p>
+    <p class="a-meta">${wieOft === 1 ? 'Erstes Mal an dieser Aufgabe' : wieOft + '. Mal an dieser Aufgabe'}${x.anlauf === 2 ? ` · im 2. Anlauf (1. Anlauf: <span class="re">${esc(x.erst)}</span>)` : ''} · ${x.tipp ? 'mit Tipp' : 'ohne Tipp'} · ${spaeter}</p>
+    <details class="a-weg"${opt.weg ? ' open' : ''}><summary>Lösungsweg</summary><p>${esc(a.w)}</p></details>
+  </article>`;
+}
+
+// ====================================================================================================
+// TEILE DER SEITE
+// ====================================================================================================
+function marken(p) {
+  const m = [`<span class="marke m-${p.art}">${ART[p.art]}</span>`];
+  if (p.wieder) m.push('<span class="marke m-wieder">wieder offen</span>');
+  if (p.st === 'besprochen') m.push(`<span class="marke m-besp">besprochen ${kurzTag(p.s.am)}</span>`);
+  if (p.st === 'spaeter') m.push('<span class="marke m-spaeter">später</span>');
+  if (p.st === 'sitzt') m.push('<span class="marke m-sitzt">✓ sitzt wieder</span>');
+  return `<span class="p-marken">${m.join('')}</span>`;
+}
+function punktKarte(p, nr) {
+  const auf = S.offen === p.key;
+  return `<li class="punkt ${p.art}${auf ? ' offen-auf' : ''}" data-key="${esc(p.key)}">
+    <button class="p-kopf" data-auf="${esc(p.key)}" aria-expanded="${auf}">
+      <span class="p-nr">${nr}</span>
+      <span class="p-text">${marken(p)}<b class="p-titel">${esc(titel(p))}</b><span class="p-ort">${esc(ort(p))}</span>
+        ${nr !== '·' ? `<span class="p-grund">${esc(begruendung(p))}</span>` : ''}<span class="p-meta">${esc(meta(p))}</span></span>${CHEV}</button>
+    ${auf ? `<div class="detail">${detail(p)}</div>` : ''}</li>`;
+}
+function detail(p) {
+  const an = analyse(S.kind, '2000-01-01'); const r = regelVon(p); const nu = nachueben(p);
+  const fehler = p.fehler.slice().reverse();
+  const oben = p.st !== 'offen' ? `<section class="zustand oben" aria-label="Bearbeiten">${zustandTeil(p)}</section>` : '';
+  return `${oben}
+  <section class="d-block"><h3>So fangen Sie an</h3>
+    <div class="einstieg"><p class="frage">„${esc(einstieg(p))}“</p>
+      <p class="tipp"><b>Dann zuhören, nicht vorrechnen.</b> Das Kind soll selbst sagen, was es gemacht hat. Erst wenn es stockt: die Regel unten zeigen und die erste Aufgabe gemeinsam noch einmal lösen.</p></div></section>
+  ${r ? `<section class="d-block"><h3>Wenn es stockt: die Regel</h3><div class="regel"><span class="ueber">${r.nr ? 'Rechenregel ' + r.nr + ' · ' : ''}${esc(r.name)}</span><span class="r-satz">${esc(r.satz)}</span>
+      ${r.href ? `<a href="${esc(r.href)}">${r.idee ? 'Im Regel-Universum ansehen ›' : 'Blatt für Eltern und Lehrer ›'}</a>` : ''}</div></section>` : ''}
+  <section class="d-block"><h3>Die Aufgaben (${fehler.length}) · neueste zuerst</h3><div class="aufgaben">${fehler.filter((x, i) => i < 2 || breit() || S.alleAufg === p.key).map((x, i) => aufgabeKarte(x, an.alle, { weg: S.wegOffen && i === 0 })).join('')}</div>
+    ${fehler.length > 2 && !breit() && S.alleAufg !== p.key ? `<button class="knopf leise" style="width:100%;margin-top:8px" data-tun="alle" data-key="${esc(p.key)}">Noch ${fehler.length - 2} ${fehler.length - 2 === 1 ? 'Aufgabe' : 'Aufgaben'} zeigen</button>` : ''}</section>
+  ${nu.length ? `<section class="d-block"><h3>Danach üben lassen</h3><ul class="nachueben">${nu.map(([t, l]) => `<li><span>${esc(t)}</span><span class="l">${esc(l)}</span></li>`).join('')}</ul>
+    <p class="nachueben ganz">Auf Papier oder mündlich. Die App prüft danach von selbst: 3 eigene Lösungen in Folge in diesen Lernkarten = „sitzt wieder“.</p></section>` : ''}
+  ${p.st === 'offen' ? `<section class="zustand" aria-label="Bearbeiten">${zustandTeil(p)}</section>` : ''}`;
+}
+function zustandTeil(p) {
+  const k = esc(p.key);
+  if (S.notizAuf === p.key) return `<label class="ueber" for="notiz">Besprochen am ${tag(HEUTE.toISOString())} – Notiz (freiwillig)</label>
+    <textarea id="notiz" class="notizfeld" placeholder="Was hat das Kind gesagt? z. B. „dachte, das Minus gilt nur für die erste Zahl“"></textarea>
+    <div class="z-zeile"><button class="knopf voll" data-tun="besprochen" data-key="${k}">✓ Besprochen speichern</button><button class="knopf leise" data-tun="abbrechen">Abbrechen</button></div>`;
+  const alteNotiz = p.s && p.s.notiz ? `<div class="notiz"><b>Notiz vom ${kurzTag(p.s.am)}</b>${esc(p.s.notiz)}</div>` : '';
+  if (p.st === 'offen') return `${p.wieder ? alteNotiz : ''}<div class="z-zeile"><button class="knopf voll" data-tun="notiz" data-key="${k}">✓ Besprochen …</button><button class="knopf leise" data-tun="spaeter" data-key="${k}">Später</button></div>
+    <p class="z-text">„Später“ legt den Punkt zur Seite. Ein neuer Fehler holt ihn zurück.</p>`;
+  if (p.st === 'besprochen') { const f = p.folge || 0;
+    return `${alteNotiz}<p class="z-text"><b>Nachüben:</b> <span class="punktreihe" aria-label="${f} von 3">${[0, 1, 2].map((i) => `<i class="${i < f ? 'voll' : ''}"></i>`).join('')}</span> ${f} von 3 eigenen Lösungen in Folge. Danach „sitzt wieder“ und der Punkt wandert in den Verlauf.</p>
+      <div class="z-zeile"><button class="knopf klein leise" data-tun="sim" data-key="${k}">Entwurf: Kind löst eine Aufgabe richtig ▸</button><button class="knopf klein leise" data-tun="offen" data-key="${k}">Doch noch offen</button></div>`; }
+  if (p.st === 'spaeter') return `<p class="z-text">Zur Seite gelegt am ${kurzTag(p.s.am)}.</p><div class="z-zeile"><button class="knopf" data-tun="offen" data-key="${k}">Doch jetzt besprechen</button></div>`;
+  if (p.st === 'sitzt') return `${alteNotiz}<p class="z-text">✓ Sitzt wieder – steht im Verlauf.</p>`;
+  return '';
+}
+function verlaufListe(liste) {
+  if (!liste.length) return '<p class="leise" style="padding:0 12px 12px">Noch nichts erledigt.</p>';
+  return `<ul class="vl">${liste.map((p) => `<li><span class="h">✓</span><span><b>${esc(titel(p))}</b><small>${ART[p.art]} · besprochen ${kurzTag(p.s.am)}${p.sitztAm ? ' · sitzt wieder seit ' + kurzTag(p.sitztAm) : ''}</small>${p.s.notiz ? `<small>„${esc(p.s.notiz)}“</small>` : ''}</span>
+    <button class="knopf klein leise" data-tun="offen" data-key="${esc(p.key)}">Wieder öffnen</button></li>`).join('')}</ul>`;
+}
+function infoRegeln() {
+  return `<details class="info"><summary>ⓘ So entsteht die Voranalyse ${CHEV}</summary><div class="info-text">
+    <p>Gezählt werden nur endgültig falsche Antworten im gewählten Zeitraum (ein falscher erster Versuch mit zweiter Chance zählt nicht).</p>
+    <ol><li><b>Fehlvorstellung:</b> derselbe erkannte Fehler mindestens dreimal in zwei Aufgaben, oder zweimal in zwei Lernkarten. Übung allein hilft hier selten – darum zuerst.</li>
+      <li><b>Lücke:</b> in einer Lernkarte mindestens zwei verschiedene Aufgaben falsch, mit unterschiedlichen Fehlern.</li>
+      <li><b>Flüchtigkeit:</b> einmal falsch, danach richtig. Nicht besprechen.</li>
+      <li>Reihenfolge: Art, Zahl der Fehler, wie frisch, „wieder offen“; wer sich schon selbst erholt (zweimal richtig in Folge), rutscht nach unten. Höchstens drei Punkte stehen oben.</li></ol></div></details>`;
+}
+
+// ---------- Variante A: Gesprächsplan ----------
+function seiteA(an, kind) {
+  const offen = an.punkte.filter((p) => p.st === 'offen');
+  const top = offen.slice(0, 3), weitere = offen.slice(3);
+  const gesp = gespeicherte(kind, an).concat(an.punkte.filter((p) => p.st !== 'offen'));
+  const wartet = gesp.filter((p) => p.st === 'besprochen'), spaeter = gesp.filter((p) => p.st === 'spaeter'), verlauf = gesp.filter((p) => p.st === 'sitzt');
+  const fl = an.nebenbei.filter((p) => p.art === 'fl'), be = an.nebenbei.filter((p) => p.art === 'be');
+  if (S.offen === undefined || (S.offen === null && S.pStart !== undefined)) { S.offen = S.pStart ? (offen[Number(S.pStart) - 1] || wartet[0] || {}).key || null : null; S.pStart = undefined; }
+  const nRichtig = an.imZeitraum.filter((x) => x.r).length;
+  const kopf = `<section class="vor" aria-label="Voranalyse"><p class="ueber">Voranalyse · ${S.zeitraum === 'g' ? 'seit dem Gespräch am ' + kurzTag(letztesGespraech(kind)) : NAME_ZEITRAUM[S.zeitraum]}</p>
+    <h1>${top.length ? `${top.length === 1 ? 'Ein Punkt lohnt' : (top.length === 2 ? 'Zwei Punkte lohnen' : 'Drei Punkte lohnen')} ein Gespräch${fl.length ? '. ' + (fl.length === 1 ? 'Ein Fehler war nur Flüchtigkeit' : ['', '', 'Zwei', 'Drei'][fl.length] + ' Fehler waren nur Flüchtigkeit') : ''}.` : 'Nichts zu besprechen.'}</h1>
+    <p class="zahlen"><span><b>${an.imZeitraum.length}</b> Aufgaben</span><span><b>${nRichtig}</b> richtig</span><span><b>${an.imZeitraum.length - nRichtig}</b> falsch</span><span>dauert etwa <b>${Math.max(5, top.length * 5)}</b> Min.</span></p>
+    ${top.length ? `<div class="vor-knoepfe"><button class="knopf klein" data-tun="zettel">Gesprächszettel drucken</button></div>` : ''}</section>`;
+  if (!top.length && !wartet.length) return leer(an, kind, fl, verlauf);
+  if (S.offen && ![...top, ...weitere, ...wartet, ...spaeter, ...fl, ...be].some((p) => p.key === S.offen)) S.offen = null;
+  if (breit() && !S.offen && (top[0] || wartet[0])) S.offen = (top[0] || wartet[0]).key;
+  const links = `${kopf}
+    ${top.length ? `<section class="abschnitt zuerst"><h2><span>Das zuerst besprechen</span><span>${top.length} von ${offen.length}</span></h2><ol class="punkte">${top.map((p, i) => punktKarte(p, i + 1)).join('')}</ol></section>` : ''}
+    ${wartet.length ? `<section class="abschnitt"><h2><span>Besprochen – wird nachgeübt</span><span>${wartet.length}</span></h2><ol class="punkte">${wartet.map((p) => punktKarte(p, '✓')).join('')}</ol></section>` : ''}
+    ${weitere.length ? `<section class="abschnitt"><h2><span>Auch noch offen</span><span>${weitere.length}</span></h2><ol class="punkte">${weitere.map((p) => punktKarte(p, '·')).join('')}</ol></section>` : ''}
+    ${fl.length || be.length ? `<section class="abschnitt"><h2><span>Nicht besprechen</span><span>${fl.length + be.length}</span></h2><ul class="kurzliste">${[...fl, ...be].map((p) => kurzZeile(p, an)).join('')}</ul></section>` : ''}
+    ${spaeter.length ? `<section class="abschnitt"><h2><span>Später</span><span>${spaeter.length}</span></h2><ol class="punkte">${spaeter.map((p) => punktKarte(p, '·')).join('')}</ol></section>` : ''}
+    <section class="abschnitt"><details class="verlauf"${S.verlaufAuf ? ' open' : ''}><summary><span>Verlauf · erledigt (${verlauf.length})</span>${CHEV}</summary>${verlaufListe(verlauf)}</details></section>
+    <section class="abschnitt">${infoRegeln()}</section>`;
+  const gew = [...top, ...wartet, ...weitere, ...spaeter].find((p) => p.key === S.offen) || top[0] || wartet[0];
+  const rechts = gew ? `<div class="r-kopf">${marken(gew)}<h2>${esc(titel(gew))}</h2><p class="leise">${esc(ort(gew))}</p><p>${esc(begruendung(gew))}</p></div><div class="detail">${detail(gew)}</div>` : '';
+  return `<div class="spalten"><div class="links">${links}</div><aside class="rechts" aria-label="Gewählter Punkt">${rechts}</aside></div>`;
+}
+function kurzZeile(p, an) {
+  const x = p.fehler[0]; const auf = S.offen === p.key;
+  const satz = p.art === 'fl' ? `Einmal falsch (${tag(x.am)}), danach ${p.richtigDanach}× richtig.` : `Einmal falsch (${tag(x.am)}), seitdem nicht wieder geübt – kommt in der Wiederholung.`;
+  return `<li><button class="kz" data-auf="${esc(p.key)}" aria-expanded="${auf}"><span><b>${esc(LK[p.lks[0]].name)}</b><small>${esc(LK[p.lks[0]].thema)} · ${esc(satz)}</small></span><span class="marke m-${p.art}">${ART[p.art]}</span></button>
+    ${auf ? `<div class="kz-innen">${aufgabeKarte(x, an.alle)}</div>` : ''}</li>`;
+}
+function leer(an, kind, fl, verlauf) {
+  const seit = S.zeitraum === 'g' ? 'seit dem Gespräch am ' + kurzTag(letztesGespraech(kind)).slice(0, -1) : NAME_ZEITRAUM[S.zeitraum] === 'Alles' ? 'bisher' : 'in den letzten 7 Tagen';
+  const gut = an.imZeitraum.filter((x) => x.r); const jeLk = {}; for (const x of gut) jeLk[x.lk] = (jeLk[x.lk] || 0) + 1;
+  const best = Object.entries(jeLk).sort((a, b) => b[1] - a[1])[0];
+  return `<section class="leer" aria-label="Nichts wackelt"><p class="gross"><span class="haken">✓</span>Nichts wackelt ${seit}.</p>
+    <p>${an.imZeitraum.length} Aufgaben, ${gut.length} richtig.${fl.length ? ` ${fl.length === 1 ? 'Ein Fehler war' : fl.length + ' Fehler waren'} nur Flüchtigkeit – danach richtig.` : ''}</p>
+    <div class="lob"><p class="ueber">Statt Fehler: einmal konkret loben</p><p class="frage">„${best && best[1] >= 2 ? `${esc(LK[best[0]].name)}: jetzt ${mal(best[1])} richtig. Erklär mir, wie du das machst.` : 'Was war diese Woche leicht, was schwer?'}“</p></div>
+    <ul><li>Wieder sicher: ${verlauf.length ? verlauf.map((p) => esc(titel(p))).join(', ') : '–'}</li><li>Was als Nächstes kommt: <a href="#/kind/lehrplan">im Lehrplan ansehen ›</a></li></ul></section>
+    ${fl.length ? `<section class="abschnitt"><h2><span>Nicht besprechen</span><span>${fl.length}</span></h2><ul class="kurzliste">${fl.map((p) => kurzZeile(p, an)).join('')}</ul></section>` : ''}
+    <section class="abschnitt"><details class="verlauf"><summary><span>Verlauf · erledigt (${verlauf.length})</span>${CHEV}</summary>${verlaufListe(verlauf)}</details></section>`;
+}
+
+// ---------- Variante B: Aufgaben zuerst (nach Thema › Lernkarte, Voranalyse nur als Band) ----------
+function seiteB(an, kind) {
+  const offen = an.punkte.filter((p) => p.st === 'offen'); const top = offen.slice(0, 3);
+  const band = `<section class="vor" aria-label="Voranalyse"><p class="ueber">Voranalyse · ${S.zeitraum === 'g' ? 'seit dem Gespräch am ' + kurzTag(letztesGespraech(kind)) : NAME_ZEITRAUM[S.zeitraum]}</p>
+    <h1>${an.falsch.length} falsche Aufgaben in ${new Set(an.falsch.map((x) => x.lk)).size} Lernkarten.</h1>
+    <p class="ueber" style="margin-top:6px">Zuerst besprechen</p><ol class="b-top">${top.map((p) => `<li>${esc(titel(p))}</li>`).join('') || '<li>–</li>'}</ol>
+    <div class="b-band" role="group" aria-label="Zeigen"><button data-fb="" aria-pressed="${!S.filterB}">Alle</button>${top.map((p, i) => `<button data-fb="${esc(p.key)}" aria-pressed="${S.filterB === p.key}">${i + 1} · ${ART[p.art]}</button>`).join('')}</div></section>`;
+  const punktVon = (x) => an.punkte.find((p) => p.fehler.includes(x)) || an.nebenbei.find((p) => p.fehler.includes(x));
+  const gruppen = {};
+  for (const x of an.falsch.slice().reverse()) { const p = punktVon(x); if (S.filterB && p?.key !== S.filterB) continue; (gruppen[x.lk] = gruppen[x.lk] || []).push(x); }
+  const rang = (lk) => { const p = punktVon(gruppen[lk][0]); const i = top.indexOf(p); return i >= 0 ? i : p.art === 'fv' || p.art === 'lu' ? 5 : 9; };
+  const html = Object.entries(gruppen).sort((a, b) => rang(a[0]) - rang(b[0])).map(([lk, l]) => { const p = punktVon(l[0]); const nr = top.indexOf(p);
+    return `<section class="b-gruppe"><h3>${nr >= 0 ? `<span class="p-nr" style="width:26px;height:26px;font-size:14px">${nr + 1}</span>` : ''}${esc(LK[lk].name)} <span class="marke m-${p.art}">${ART[p.art]}</span>${p.wieder ? '<span class="marke m-wieder">wieder offen</span>' : ''}<small>${esc(LK[lk].thema)} · ${l.length} falsch</small></h3>
+      <div class="aufgaben">${l.map((x) => aufgabeKarte(x, an.alle)).join('')}</div>
+      ${p.art === 'fv' || p.art === 'lu' ? `<div class="b-status">${p.st === 'offen' ? `<button class="knopf klein voll" data-tun="notiz" data-key="${esc(p.key)}" data-b="1">✓ Besprochen …</button><button class="knopf klein leise" data-tun="spaeter" data-key="${esc(p.key)}">Später</button>` : marken(p)}</div>` : ''}</section>`; }).join('');
+  return band + (html || '<p class="leer">Keine falschen Aufgaben in diesem Zeitraum.</p>') + `<section class="abschnitt">${infoRegeln()}</section>`;
+}
+
+// ---------- Gesprächszettel (Druck) ----------
+function zettel(an, kind) {
+  const top = an.punkte.filter((p) => p.st === 'offen').slice(0, 3);
+  return `<div class="zettel-knoepfe"><button class="knopf voll" onclick="window.print()">Drucken</button><button class="knopf" data-tun="zettelzu">Schließen</button></div>
+  <article class="zettel"><p class="ueber">Gesprächszettel · ${KINDER[kind].name} · ${tag(HEUTE.toISOString())}</p><h1>${top.length} Punkte, etwa ${top.length * 5} Minuten</h1>
+  ${top.map((p, i) => { const r = regelVon(p); return `<h2>${i + 1}. ${esc(titel(p))}</h2><p>${esc(begruendung(p))}</p>
+    <p class="frage">Fragen: „${esc(einstieg(p))}“</p>
+    <p><b>Die Aufgaben:</b></p><ul>${p.fehler.slice().reverse().map((x) => { const a = A[x.a]; return `<li>${esc(a.text)}${a.zeilen ? ' (' + a.zeilen.map((z, j) => 'Z' + (j + 1) + ': ' + z).join(' · ') + ')' : ''} – Kind: <b>${esc(typeof x.ant === 'number' ? a.optionen[x.ant] : x.ant)}</b>, richtig: <b>${esc(a.o || a.optionen[a.richtig])}</b></li>`; }).join('')}</ul>
+    ${r ? `<p><b>Wenn es stockt:</b> ${esc(r.satz)}</p>` : ''}
+    ${nachueben(p).length ? `<p><b>Danach üben:</b> ${nachueben(p).map(([t, l]) => esc(t) + ' (' + esc(l) + ')').join(' · ')}</p>` : ''}
+    <p class="leise">Notiz:</p><div class="linien"></div>`; }).join('')}</article>`;
+}
+
+// ====================================================================================================
+// ZEICHNEN UND BEDIENEN
+// ====================================================================================================
+const breit = () => window.matchMedia('(min-width: 1000px)').matches;
+function zeichne() {
+  document.body.dataset.g = S.g; document.body.dataset.v = S.v;
+  const kind = S.kind; const seit = seitWann(kind); const an = analyse(kind, seit);
+  document.getElementById('kinder').innerHTML = [1, 2].map((k) => `<button data-kind="${k}" ${k === kind ? 'aria-current="page"' : ''}>${KINDER[k].name}<small>Kl. ${KINDER[k].kl}</small></button>`).join('');
+  const zb = zuBesprechen(kind);
+  document.getElementById('reiter').innerHTML = `<a href="#">Überblick</a><a href="#" aria-current="page">Was wackelt <span class="zb${zb ? '' : ' null'}" aria-label="${zb} zu besprechen">${zb}</span></a><a href="#">Lehrplan</a>`;
+  const steuer = `<div class="steuer"><div class="zeitraum" role="group" aria-label="Zeitraum">${['g', 'w', 'a'].map((z) => `<button data-z="${z}" aria-pressed="${S.zeitraum === z}">${NAME_ZEITRAUM[z]}${z === 'g' ? `<small>${kurzTag(letztesGespraech(kind))}</small>` : ''}</button>`).join('')}</div>
+</div>`;
+  document.getElementById('main').innerHTML = S.zettel ? zettel(an, kind) : steuer + (S.v === 'A' ? seiteA(an, kind) : seiteB(an, kind));
+  document.getElementById('entwurf').innerHTML = `<b>Entwurf</b>${['A', 'B'].map((v) => `<button data-v="${v}" aria-pressed="${S.v === v}">${v === 'A' ? 'A Gesprächsplan' : 'B Aufgaben zuerst'}</button>`).join('')}
+    <button data-g="${S.g === 'hell' ? 'nacht' : 'hell'}">${S.g === 'hell' ? '☾ dunkel' : '☀ hell'}</button><button data-leer aria-pressed="${S.leer}">leer</button><button data-reset>↺</button>`;
+  if (S.toast) { let t = document.querySelector('.toast'); if (!t) { t = document.createElement('div'); t.className = 'toast'; t.setAttribute('role', 'status'); document.body.append(t); }
+    t.innerHTML = `<span>${esc(S.toast.text)}</span>${S.toast.undo ? '<button data-tun="undo">↶ Rückgängig</button>' : ''}`; } else document.querySelector('.toast')?.remove();
+}
+let uhr = null; let vorher = null;
+function setze(kind, key, neu, text, art) {
+  vorher = { kind, key, alt: STATUS[kind][key] ? { ...STATUS[kind][key] } : null };
+  if (neu === null) delete STATUS[kind][key]; else STATUS[kind][key] = { art, ...STATUS[kind][key], ...neu };
+  S.toast = { text, undo: true }; clearTimeout(uhr); uhr = setTimeout(() => { S.toast = null; zeichne(); }, 5000);
+}
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('button, a'); if (!b) return;
+  if (b.tagName === 'A' && b.getAttribute('href')?.startsWith('#')) { e.preventDefault(); if (b.closest('.regel')) { S.toast = { text: 'Öffnet in der App: ' + b.getAttribute('href') }; clearTimeout(uhr); uhr = setTimeout(() => { S.toast = null; zeichne(); }, 2500); zeichne(); } return; }
+  const d = b.dataset; const kind = S.kind;
+  const an = analyse(kind, seitWann(kind)); const alleP = [...an.punkte, ...gespeicherte(kind, an)];
+  const p = d.key ? alleP.find((x) => x.key === d.key) : null;
+  if (d.kind) { S.kind = Number(d.kind); S.offen = null; S.filterB = null; S.notizAuf = null; }
+  else if (d.z) { S.zeitraum = d.z; S.offen = null; }
+  else if (d.v) { S.v = d.v; S.offen = null; }
+  else if (d.g) S.g = d.g;
+  else if ('leer' in d) S.leer = !S.leer;
+  else if ('reset' in d) { location.hash = ''; location.reload(); return; }
+  else if (d.fb !== undefined) S.filterB = d.fb || null;
+  else if (d.auf) { S.offen = S.offen === d.auf && !breit() ? null : d.auf; S.notizAuf = null; }
+  else if (d.tun === 'notiz') { S.notizAuf = d.key; S.offen = d.key; if (d.b) S.v = 'A'; }
+  else if (d.tun === 'abbrechen') S.notizAuf = null;
+  else if (d.tun === 'alle') S.alleAufg = d.key;
+  else if (d.tun === 'besprochen') { const n = document.getElementById('notiz')?.value.trim() || '';
+    setze(kind, d.key, { st: 'besprochen', am: HEUTE.toISOString().slice(0, 16), notiz: n }, `„${titel(p)}“: besprochen`, p.art); S.notizAuf = null; }
+  else if (d.tun === 'spaeter') { setze(kind, d.key, { st: 'spaeter', am: HEUTE.toISOString().slice(0, 16) }, `„${titel(p)}“: später`, p.art); S.offen = null; }
+  else if (d.tun === 'offen') { setze(kind, d.key, { st: 'offen', am: HEUTE.toISOString().slice(0, 16) }, `„${titel(p)}“: wieder offen`, p.art); S.offen = d.key; }
+  else if (d.tun === 'sim') { // Entwurf: Kind löst eine Aufgabe dieser Lernkarte richtig (Zeit nach dem Gespräch)
+    const n = SIM[kind].length; const lk = p.lks[0]; const a = Object.keys(A).find((k) => A[k].lk === lk);
+    SIM[kind].push({ id: 'sim' + n, a, lk, r: true, am: new Date(HEUTE.getTime() + (n + 1) * 36e5).toISOString().slice(0, 16) });
+    const neu = gespeicherte(kind, analyse(kind, seitWann(kind))).concat(analyse(kind, seitWann(kind)).punkte).find((x) => x.key === d.key);
+    if (neu && neu.st === 'sitzt') { S.toast = { text: `„${titel(p)}“ sitzt wieder → Verlauf` }; S.offen = null; S.verlaufAuf = true; clearTimeout(uhr); uhr = setTimeout(() => { S.toast = null; zeichne(); }, 4000); }
+  }
+  else if (d.tun === 'undo') { if (vorher) { if (vorher.alt) STATUS[vorher.kind][vorher.key] = vorher.alt; else delete STATUS[vorher.kind][vorher.key]; } S.toast = null; }
+  else if (d.tun === 'zettel') S.zettel = true;
+  else if (d.tun === 'zettelzu') S.zettel = false;
+  else return;
+  zeichne();
+  if (d.auf && S.offen && !breit()) document.querySelector(`[data-key="${CSS.escape(S.offen)}"]`)?.scrollIntoView({ block: 'start' });
+});
+window.addEventListener('resize', () => zeichne());
+// Startzustand für Bildschirmfotos: #…&besp=<n> setzt Punkt n als besprochen (mit Notiz, 1 von 3 nachgeübt)
+if (S.besp) { const an = analyse(S.kind, seitWann(S.kind)); const p = an.punkte.filter((x) => x.st === 'offen')[Number(S.besp) - 1];
+  if (p) { STATUS[S.kind][p.key] = { st: 'besprochen', am: '2026-11-27T17:00', notiz: 'Hat erklärt: „Das Minus gehört nur zur ersten Zahl.“ Mit Zahlen probiert: 10 − (6 − 2) = 6, nicht 2.', art: p.art };
+    const a = Object.keys(A).find((k) => A[k].lk === p.lks[0]); SIM[S.kind].push({ id: 'simb', a, lk: p.lks[0], r: true, am: '2026-11-27T18:00' }); S.offen = p.key; S.pStart = undefined; } }
+zeichne();
+</script>
+</body>
+</html>

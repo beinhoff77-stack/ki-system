@@ -113,3 +113,10 @@ def neu(thema, lk, form, bau, g=None, regel="rr.waage", thema_datei=None):
 KOMM = lambda n: "; ".join(f"{'①②③④⑤'[i]} = □" for i in range(n))
 TAB = lambda kopf, *zeilen: {"typ": "tabelle", "kopf": kopf, "zeilen": [list(z) for z in zeilen]}
 KO = lambda x, y, **mehr: {"typ": "koordinaten", "x": x, "y": y, **mehr}
+
+
+def ist_loesung(links, rechts, wert, var="x"):
+    """True, wenn die Gleichung links = rechts für var = wert stimmt (exakt)."""
+    env = {"x": F(0), "y": F(0), "a": F(0), "b": F(0), "n": F(0)}
+    env[var] = F(str(wert)) if not isinstance(wert, F) else wert
+    return _ev(links, env) == _ev(rechts, env)

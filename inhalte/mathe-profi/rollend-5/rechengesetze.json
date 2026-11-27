@@ -169,11 +169,18 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 3,
-     "antwort": 1,
+     "luecke": 1,
+     "antwort": 20,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Klammer übersehen: 14 − 6 · 3 + 5"
+     "beschreibung": "14 + 6 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "5 abgezogen statt addiert: 24 − 5"
     }
    ],
    "aufgabe": {
@@ -462,6 +469,13 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "antwort": 425,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht das glatte Paar gewählt, sondern 25 · 17"
+    },
+    {
      "luecke": 2,
      "antwort": 170,
      "fehlbild": null,
@@ -477,7 +491,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Du rechnest 25 · 17 · 4 geschickt. Tausche die Zahlen: 25 · 4 = ①. Dann ① · 17 = ②.",
+     "text": "Du rechnest 25 · 17 · 4 geschickt. Beim Malnehmen darfst du die Reihenfolge tauschen. Stelle das Paar nach vorn, das zusammen eine glatte Zahl ergibt: Das Paar ergibt ①. Die dritte Zahl ist 17: ① · 17 = ②.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -610,7 +624,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim rechnet 52 − 17 + 8 geschickt. Zeile 1: Das Minus gehört zur 17, das Plus gehört zur 8. Zeile 2: Ich tausche 17 und 8, aber die Zeichen bleiben an ihrem Platz: 52 + 17 − 8. Zeile 3: 52 + 17 = 69 und 69 − 8 = 61. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim rechnet 52 − 17 + 8 geschickt. Zeile 1: Das Minus gehört zur 17, das Plus gehört zur 8. Zeile 2: Ich tausche die Plätze von 17 und 8. Die Zeichen lasse ich an ihrem Platz stehen: 52 − 8 + 17. Zeile 3: 52 − 8 = 44 und 44 + 17 = 61. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -723,11 +737,18 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 3,
-     "antwort": 298,
+     "luecke": 2,
+     "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die 6 nur mit dem ersten Teil malgenommen"
+    },
+    {
+     "luecke": 3,
+     "antwort": 312,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "300 + 12 gerechnet"
     }
    ],
    "aufgabe": {
@@ -1147,10 +1168,10 @@
     },
     {
      "index": 3,
-     "antwort": "5 − 12",
+     "antwort": "(−12) : 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "falsche Rechenart"
+     "beschreibung": "geteilt statt malgenommen"
     }
    ],
    "aufgabe": {
@@ -1167,7 +1188,7 @@
      "5 · (−12)",
      "5 + (−12)",
      "(−5) · (−12)",
-     "5 − 12"
+     "(−12) : 5"
     ],
     "o": {
      "index": 0
@@ -1363,7 +1384,7 @@
    "kennung": "K5A-V068",
    "thema": "zahlen.rechengesetze",
    "lernkarte": "umkehraufgabe_mal",
-   "stufe": 2,
+   "stufe": 1,
    "form": "verfahren_waehlen",
    "typ": "Verfahren wählen",
    "antwortform": "auswahl",
@@ -1397,8 +1418,8 @@
     "l": "umkehraufgabe_mal",
     "t": "gleichungen",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
      "text": "Du sollst x : 4 = −9 lösen. Welcher Weg ist richtig?"
@@ -1559,10 +1580,10 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 2264,
+     "antwort": 1600,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "28 · 312 falsch gerechnet (7 736)"
+     "beschreibung": "nur 28 · 300 = 8 400 gerechnet: Zehner und Einer von 312 vergessen"
     },
     {
      "antwort": 1000,
@@ -1624,7 +1645,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Schriftlich 123 · 45. Erst mit der Einerziffer 5: 123 · 5 = ①. Dann mit der Zehnerziffer 4, das sind 40: 123 · 40 = ②. Beides addieren: ① + ② = ③.",
+     "text": "Schriftlich 123 · 45. Erst mit der Einerziffer 5: 123 · 5 = ①. Dann mit der Zehnerziffer 4: Sie steht an der Zehnerstelle, du rechnest also mit ihrem Wert. Das Teilergebnis ist ②. Beides addieren: ① + ② = ③.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -1766,7 +1787,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim rechnet 7 308 : 18 schriftlich. Zeile 1: 73 : 18 = 4, denn 4 · 18 = 72. Rest 1. Zeile 2: Ich hole die 0 herunter. 10 : 18 geht nicht, also schreibe ich nichts ins Ergebnis. Zeile 3: Ich hole die 8 herunter: 108 : 18 = 6. Zeile 4: Ergebnis: 46. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim rechnet 7 308 : 18 schriftlich. Zeile 1: Die 7 ist zu klein, ich nehme 73. Es gilt 73 = 4 · 18 + 1. Ich schreibe 4 ins Ergebnis und merke den Rest 1. Zeile 2: Ich hole die 0 herunter. 10 : 18 geht nicht, also schreibe ich nichts ins Ergebnis. Zeile 3: Ich hole die 8 herunter: 108 : 18 = 6. Zeile 4: Ergebnis: 46. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -1785,7 +1806,7 @@
    "kennung": "K5A-V077",
    "thema": "zahlen.rechengesetze",
    "lernkarte": "schriftlich_geteilt",
-   "stufe": 2,
+   "stufe": 1,
    "form": "verfahren_waehlen",
    "typ": "Verfahren wählen",
    "antwortform": "auswahl",
@@ -1819,8 +1840,8 @@
     "l": "schriftlich_geteilt",
     "t": "verfahren",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
      "text": "Du teilst 5 472 durch 24 schriftlich. Was hilft dir dabei am meisten?"
@@ -1835,7 +1856,7 @@
      "index": 2
     },
     "h": "Welche Hilfsliste zeigt dir, wie oft 24 hineinpasst?",
-    "w": "Mit den Vielfachen von 24 siehst du schnell, wie oft 24 in 54, 187 und 192 passt. Ergebnis: 5 472 : 24 = 228."
+    "w": "Mit den Vielfachen von 24 siehst du schnell, wie oft 24 in 54, 67 und 192 passt. Ergebnis: 5 472 : 24 = 228."
    }
   },
   {
@@ -1888,11 +1909,18 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
+     "luecke": 1,
      "antwort": 108,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Reihenfolge nicht umgekehrt: 120 − 12"
+     "beschreibung": "erst 12 abgezogen statt durch 4 geteilt: Reihenfolge nicht umgekehrt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "12 addiert statt abgezogen"
     }
    ],
    "aufgabe": {
@@ -1903,7 +1931,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ich denke mir eine Zahl. Ich addiere 12 und multipliziere mit 4. Dann erhalte ich 120. Rückwärts: 120 : 4 = ①. Dann ① − 12 = ②. Die gedachte Zahl ist ②.",
+     "text": "Ich denke mir eine Zahl. Ich addiere 12 und multipliziere die Summe mit 4. Dann erhalte ich 120. Rückwärts kehrst du zuerst den letzten Schritt um: Das ergibt ①. Danach kehrst du den ersten Schritt um: ① wird zu ②. Die gedachte Zahl ist ②.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -1940,7 +1968,7 @@
      "beschreibung": "Schritte nicht umgekehrt: 24 + 35"
     },
     {
-     "antwort": 23,
+     "antwort": 27,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "35 − 24 : 3 gerechnet"

@@ -82,6 +82,12 @@
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "7 + 2 gerechnet"
+    },
+    {
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht durch 2 geteilt"
     }
    ],
    "aufgabe": {
@@ -92,14 +98,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Prisma hat ein Siebeneck als Grundfläche. Wie viele Kanten hat es? Weg A rechnet 3 · 7. Weg B zählt die Kanten von Grund- und Deckfläche (7 + 7) und die Seitenkanten (7) einzeln."
+     "text": "Ein Prisma hat ein Siebeneck als Grundfläche. Wie viele Kanten hat es? Weg A zählt die Ecken des Prismas. An jeder Ecke treffen sich 3 Kanten, und jede Kante hat 2 Ecken. Weg B zählt die Kanten der Grundfläche, die der Deckfläche und die Seitenkanten einzeln."
     },
     "o": {
      "wert": 21
     },
-    "c": "3*7",
+    "c": "14*3//2",
     "h": "Beide Wege geben dieselbe Zahl.",
-    "w": "Weg A: 3 · 7 = 21. Weg B: 7 + 7 + 7 = 21 Kanten."
+    "w": "Weg A: Ecken 7 + 7 = 14. Kanten 14 · 3 : 2 = 21. Weg B: 7 + 7 + 7 = 21 Kanten."
    }
   },
   {
@@ -115,16 +121,16 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 3,
+     "antwort": 2,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "abgerundet: es fehlen Aufkleber"
     },
     {
-     "antwort": 5,
+     "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 8 Flächen gerechnet (zu viele)"
+     "beschreibung": "mit 8 Flächen gerechnet: 48 Aufkleber, also 4 Packungen"
     }
    ],
    "aufgabe": {
@@ -135,14 +141,14 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Eine Schachtel hat die Form eines Prismas mit einem Fünfeck als Grundfläche. Auf jede Fläche, auch Grund- und Deckfläche, kommt ein Aufkleber. Eine Packung enthält 12 Aufkleber. Wie viele Packungen braucht man mindestens für 6 Schachteln?"
+     "text": "Eine Schachtel hat die Form eines Prismas mit einem Fünfeck als Grundfläche. Auf jede Fläche, auch Grund- und Deckfläche, kommt ein Aufkleber. Eine Packung enthält 15 Aufkleber. Wie viele Packungen braucht man mindestens für 6 Schachteln?"
     },
     "o": {
-     "wert": 4
+     "wert": 3
     },
-    "c": "-(-7*6//12)",
+    "c": "-(-7*6//15)",
     "h": "Wie viele Flächen hat das Prisma? Danach: Mit angebrochenen Packungen kommst du nicht aus.",
-    "w": "Flächen: 5 Seitenflächen + 2 = 7. 6 Schachteln: 42 Aufkleber. 42 : 12 = 3,5, also 4 Packungen."
+    "w": "Flächen: 5 Seitenflächen + 2 = 7. 6 Schachteln: 42 Aufkleber. 42 : 15 = 2,8, also 3 Packungen."
    }
   },
   {
@@ -350,7 +356,7 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Eine Dose ist 12 cm hoch. Der Umfang ihrer Grundfläche ist 30 cm. Der Mantel ist ein Rechteck: Länge = Umfang, Breite = Höhe. Fläche einer Dose: 30 · 12 = ①. Fünf solche Dosen: ① · 5 = ②. Ein Eimer Farbe reicht für 600 cm². Man braucht ② : 600 = ③ Eimer.",
+     "text": "Eine zylindrische Dose ist 12 cm hoch. Der Umfang ihrer Grundfläche ist 30 cm. Der Mantel ist ein Rechteck: Länge = Umfang, Breite = Höhe. Die Mantelfläche einer Dose ist 30 · 12 = ①. Fünf solche Dosen sollen nur am Mantel gestrichen werden, ohne Deckel und Boden: Mantelfläche aller fünf Dosen ① · 5 = ②. Ein Eimer Farbe reicht für 600 cm². Man braucht ② : 600 = ③ Eimer.",
      "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
@@ -427,16 +433,16 @@
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 42,
+     "antwort": 41,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "aufgerundet: ein Etikett wäre unvollständig"
+     "beschreibung": "nur die Flächen geteilt: 10 000 : 240 (der Rest am Rand reicht nicht für ein Etikett)"
     },
     {
-     "antwort": 240,
+     "antwort": 50,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Fläche eines Etiketts genannt"
+     "beschreibung": "100 : 24 auf 5 aufgerundet: 5 · 10"
     }
    ],
    "aufgabe": {
@@ -447,14 +453,14 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Für jede Dose braucht man ein Etikett: ein Rechteck mit dem Umfang 24 cm als Länge und 10 cm Höhe. Aus einem Bogen von 10 000 cm² Papier schneidet man Etiketten, Verschnitt bleibt übrig. Wie viele ganze Etiketten bekommt man höchstens?"
+     "text": "Für jede Dose braucht man ein Etikett: ein Rechteck, 24 cm lang und 10 cm hoch. Ein Papierbogen ist 100 cm lang und 100 cm breit. Alle Etiketten werden in gleicher Richtung gelegt, mit der 24-cm-Seite längs der Bogenlänge. Wie viele ganze Etiketten passen auf einen Bogen?"
     },
     "o": {
-     "wert": 41
+     "wert": 40
     },
-    "c": "10000//(24*10)",
-    "h": "Wie groß ist ein Etikett? Wie oft passt es in den Bogen?",
-    "w": "Ein Etikett: 24 · 10 = 240 cm². 10 000 : 240 = 41,6 …: Es passen 41 ganze Etiketten."
+    "c": "(100//24)*(100//10)",
+    "h": "Wie viele Etiketten passen in die Länge, wie viele in die Breite? Ein Rest zählt nicht.",
+    "w": "In die Länge passen 100 : 24 = 4 Etiketten (Rest 4 cm). In die Breite passen 100 : 10 = 10 Etiketten. 4 · 10 = 40. Nach der Fläche allein wären es 41, aber der Rest am Rand reicht nicht für ein Etikett."
    }
   },
   {
@@ -479,7 +485,13 @@
      "antwort": 24,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die drei Längen addiert"
+     "beschreibung": "nur die Maße 8 + 6 + 10 addiert: weder mal 4 noch die Tiefe halbiert"
+    },
+    {
+     "antwort": 19,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die gezeichneten Längen 8 + 6 + 5 addiert, das Mal 4 vergessen"
     }
    ],
    "aufgabe": {
@@ -490,7 +502,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Quader ist 8 cm breit, 6 cm hoch und 10 cm tief. Im Schrägbild wird nur die Tiefe halb so lang gezeichnet. Wie lang sind alle zwölf Kanten des Schrägbilds zusammen? Weg A addiert die vier Kanten jeder Richtung einzeln. Weg B addiert erst die drei Längen und nimmt dann mal 4."
+     "text": "Ein Quader ist 8 cm breit, 6 cm hoch und 10 cm tief. Im Schrägbild wird nur die Tiefe halb so lang gezeichnet. Wie lang sind alle zwölf Kanten des Schrägbilds zusammen? Weg A addiert die vier Kanten jeder Richtung, so wie sie gezeichnet werden. Weg B rechnet zuerst alle zwölf Kanten des echten Quaders und zieht dann ab, was die vier Tiefenkanten im Schrägbild kürzer sind."
     },
     "o": {
      "wert": 76,
@@ -498,7 +510,7 @@
     },
     "c": "4*8+4*6+4*(10//2)",
     "h": "Die vier Kanten jeder Richtung sind gleich lang.",
-    "w": "Gezeichnet werden 8 cm, 6 cm und 5 cm (Tiefe halbiert). Weg A: 32 + 24 + 20 = 76. Weg B: 4 · 19 = 76."
+    "w": "Weg A: Gezeichnet werden 8 cm, 6 cm und 5 cm. 32 + 24 + 20 = 76. Weg B: Der echte Quader hat 4 · 24 = 96. Die vier Tiefenkanten sind je 5 cm kürzer: 96 − 20 = 76."
    }
   },
   {
@@ -661,7 +673,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Kim beschreibt die drei Ansichten einer stehenden Dose. Zeile 1: Von vorn sieht man ein Rechteck. Zeile 2: Von der Seite sieht man ebenfalls ein Rechteck. Zeile 3: Von oben sieht man nur den Deckel. Zeile 4: Der Deckel ist ein Rechteck. In welcher Zeile passiert der erste Fehler?"
+     "text": "Kim beschreibt die drei Ansichten einer stehenden zylindrischen Dose. Zeile 1: Von vorn sieht man ein Rechteck. Zeile 2: Von der Seite sieht man ebenfalls ein Rechteck. Zeile 3: Von oben sieht man nur den Deckel. Zeile 4: Der Deckel ist ein Rechteck. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -672,7 +684,7 @@
     "o": {
      "index": 3
     },
-    "h": "Welche Form hat der Deckel einer Dose?",
+    "h": "Welche Form hat der Deckel einer zylindrischen Dose?",
     "w": "Der Deckel ist ein Kreis. Von oben sieht man deshalb einen Kreis."
    }
   },
@@ -680,7 +692,7 @@
    "kennung": "K5A-V170",
    "thema": "messen.koerper_darstellung",
    "lernkarte": "ansichten",
-   "stufe": 2,
+   "stufe": 1,
    "form": "verfahren_waehlen",
    "typ": "Verfahren wählen",
    "antwortform": "auswahl",
@@ -714,8 +726,8 @@
     "l": "ansichten",
     "t": "ansichten",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
      "text": "Ein Körper sieht von vorn aus wie ein Rechteck, von der Seite auch wie ein Rechteck und von oben wie ein Kreis. Welcher Körper ist es?"
@@ -724,7 +736,7 @@
      "ein Quader, denn er hat überall Rechtecke",
      "ein Kegel, denn er hat einen Kreis",
      "eine Kugel, denn sie ist rund",
-     "ein stehender Zylinder, denn nur ein Zylinder hat oben einen Kreis und senkrechte Seiten"
+     "ein stehender Zylinder: oben ein Kreis, vorn und von der Seite je ein Rechteck"
     ],
     "o": {
      "index": 3
@@ -781,7 +793,7 @@
    "kennung": "K5A-V172",
    "thema": "messen.koerper_darstellung",
    "lernkarte": "beurteilen",
-   "stufe": 2,
+   "stufe": 3,
    "form": "verfahren_waehlen",
    "typ": "Verfahren wählen",
    "antwortform": "auswahl",
@@ -815,8 +827,8 @@
     "l": "beurteilen",
     "t": "beurteilen",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 3,
+    "g": "begruenden",
     "y": "auswahl",
     "f": {
      "text": "Kim behauptet: „Jeder Körper mit lauter ebenen Flächen ist ein Prisma.“ Wie widerlegst du das am besten?"
@@ -896,10 +908,10 @@
      "beschreibung": "die Flächen vergessen"
     },
     {
-     "antwort": 29,
+     "antwort": 42,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur 7 + 7 + 7 + 8 gerechnet"
+     "beschreibung": "die zwei Grundflächen als Flächen vergessen: 14 + 21 + 7"
     }
    ],
    "aufgabe": {

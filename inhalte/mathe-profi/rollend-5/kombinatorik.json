@@ -68,7 +68,7 @@
      "antwort": 4,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Tabelle gezählt"
+     "beschreibung": "nur die gezeichneten Zeilen gezählt"
     },
     {
      "antwort": 5,
@@ -85,7 +85,7 @@
     "g": "darstellung",
     "y": "zahl",
     "f": {
-     "text": "Die Tabelle zeigt alle Eisbecher für zwei der drei Sorten. Die dritte Sorte, Erdbeere, gibt es mit denselben Soßen. Wie viele Becher gibt es für alle drei Sorten?",
+     "text": "Die Tabelle zeigt die Eisbecher mit Vanille und mit Schoko. Jedes Feld steht für einen Becher. Die Zeile für Erdbeere fehlt noch. Sie hätte dieselben Soßen wie die anderen Zeilen. Wie viele Becher-Felder hätte die Tabelle insgesamt, wenn die Zeile für Erdbeere dazukäme?",
      "grafik": {
       "typ": "tabelle",
       "kopf": [
@@ -111,8 +111,8 @@
      "wert": 6
     },
     "c": "3*2",
-    "h": "Wie viele Zeilen hat die Tabelle für die dritte Sorte? Gleich viele wie bei den anderen.",
-    "w": "Pro Sorte gibt es 2 Becher (2 Soßen). 3 Sorten: 3 · 2 = 6 Becher."
+    "h": "Wie viele Felder hat eine Zeile? Wie viele Zeilen hätte die Tabelle dann?",
+    "w": "Jede Zeile hat 2 Felder (2 Soßen). Mit Erdbeere sind es 3 Zeilen: 3 · 2 = 6 Becher."
    }
   },
   {
@@ -248,14 +248,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Ein Fahrrad gibt es in 4 Farben, 3 Größen und 2 Lenkerformen. Jedes Rad hat von jedem eines. Weg A zählt erst Farbe und Größe zusammen, dann den Lenker. Weg B zählt erst Größe und Lenker zusammen, dann die Farbe. Wie viele verschiedene Räder gibt es?"
+     "text": "Ein Fahrrad gibt es in 4 Farben, 3 Größen und 2 Lenkerformen. Jedes Rad hat von jedem eines. Weg A multipliziert die drei Anzahlen. Weg B zählt alle Räder einer Farbe auf und addiert diese Anzahl dann für jede Farbe. Wie viele verschiedene Räder gibt es?"
     },
     "o": {
      "wert": 24
     },
     "c": "4*3*2",
     "h": "Beide Wege führen zur selben Zahl.",
-    "w": "Weg A: 4 · 3 = 12, dann 12 · 2 = 24. Weg B: 3 · 2 = 6, dann 6 · 4 = 24."
+    "w": "Weg A: 4 · 3 · 2 = 24. Weg B: Je Farbe gibt es 3 · 2 = 6 Räder. Für 4 Farben: 6 + 6 + 6 + 6 = 24."
    }
   },
   {
@@ -325,11 +325,11 @@
      "antwort": 64,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "mit 4 · 4 · 4 gerechnet"
+     "beschreibung": "mit 4 · 4 · 4 · 1 gerechnet"
     },
     {
      "luecke": 3,
-     "antwort": 14,
+     "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "4 + 3 + 2 + 1 gerechnet"
@@ -523,7 +523,7 @@
    "kennung": "K5A-V146",
    "thema": "stochastik.kombinatorik",
    "lernkarte": "baumdiagramm",
-   "stufe": 2,
+   "stufe": 1,
    "form": "verfahren_waehlen",
    "typ": "Verfahren wählen",
    "antwortform": "auswahl",
@@ -557,8 +557,8 @@
     "l": "baumdiagramm",
     "t": "baumdiagramm",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
      "text": "Du willst alle Ergebnisse von drei Münzwürfen nacheinander zählen. Welcher Weg ist sicher?"
@@ -633,17 +633,38 @@
    "fehlbilder": [
     {
      "luecke": 1,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur „nicht 0“ beachtet statt „ungerade“"
+    },
+    {
+     "luecke": 1,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "eine ungerade Ziffer vergessen"
+    },
+    {
+     "luecke": 2,
      "antwort": 10,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die 0 als erste Ziffer erlaubt"
+     "beschreibung": "die erste Ziffer nicht abgezogen"
+    },
+    {
+     "luecke": 4,
+     "antwort": 648,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 9 · 9 · 8 gerechnet: nur die 0 vorn verboten"
     },
     {
      "luecke": 4,
      "antwort": 720,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "10 · 9 · 8 gerechnet: führende Null erlaubt"
+     "beschreibung": "mit 10 · 9 · 8 gerechnet: vorn keine Einschränkung"
     }
    ],
    "aufgabe": {
@@ -654,26 +675,26 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Gesucht sind dreistellige Zahlen mit lauter verschiedenen Ziffern. Es gibt 10 Ziffern von null bis neun. Die erste Ziffer darf nicht 0 sein: Dafür gibt es ① Möglichkeiten. Für die zweite Ziffer bleibt die 0 erlaubt, aber die erste Ziffer ist verbraucht: 10 − 1 = ②. Für die dritte Ziffer bleibt eine weniger als bei der zweiten: ③. Zusammen ① · ② · ③ = ④.",
+     "text": "Gesucht sind dreistellige Zahlen mit lauter verschiedenen Ziffern, deren erste Ziffer ungerade ist. Es gibt 10 Ziffern von null bis neun. Für die erste Ziffer gibt es ① Möglichkeiten. Für die zweite Ziffer darf jede Ziffer außer der ersten stehen, auch die 0: Das sind ② Möglichkeiten. Für die dritte Ziffer bleibt eine weniger als bei der zweiten: ③. Zusammen ① · ② · ③ = ④.",
      "schablone": "① = □; ② = □; ③ = □; ④ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      9,
+      5,
       9,
       8,
-      648
+      360
      ]
     },
     "c": [
-     "9",
+     "10//2",
      "10-1",
      "10-2",
-     "9*9*8"
+     "5*9*8"
     ],
-    "h": "Beginne mit der Ziffer, die am stärksten eingeschränkt ist.",
-    "w": "Erste Ziffer: 9 (ohne 0). Zweite: 9 (10 − 1). Dritte: 8. 9 · 9 · 8 = 648."
+    "h": "Beginne mit der Stelle, für die eine Bedingung gilt. Welche Ziffern von 0 bis 9 sind ungerade?",
+    "w": "Ungerade Ziffern: 1, 3, 5, 7, 9. Das sind 5 Möglichkeiten. Zweite Ziffer: 10 minus die erste, also 9. Dritte Ziffer: 8. Zusammen 5 · 9 · 8 = 360."
    }
   },
   {
@@ -695,10 +716,10 @@
      "beschreibung": "führende Null erlaubt"
     },
     {
-     "antwort": 720,
+     "antwort": 4536,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "ohne Wiederholung gerechnet"
+     "beschreibung": "ohne Wiederholung gerechnet: 9 · 9 · 8 · 7"
     }
    ],
    "aufgabe": {
@@ -966,7 +987,7 @@
    "kennung": "K5A-V155",
    "thema": "stochastik.kombinatorik",
    "lernkarte": "verstehen",
-   "stufe": 2,
+   "stufe": 1,
    "form": "verfahren_waehlen",
    "typ": "Verfahren wählen",
    "antwortform": "auswahl",
@@ -1000,11 +1021,11 @@
     "l": "verstehen",
     "t": "verstehen",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
-     "text": "Drei Freunde bestellen jeweils ein Getränk aus 4 Sorten. Dieselbe Sorte darf mehrfach bestellt werden. Welche Rechnung zählt die möglichen Bestellungen?"
+     "text": "Drei Freunde bestellen jeweils ein Getränk aus 4 Sorten. Dieselbe Sorte darf mehrfach bestellt werden. Es zählt, wer was bestellt: Nimmt Freund 1 Cola und Freund 2 Tee, ist das etwas anderes, als wenn es umgekehrt ist. Welche Rechnung zählt die möglichen Bestellungen?"
     },
     "a": [
      "4 · 3 · 2",
@@ -1041,7 +1062,7 @@
      "antwort": 25,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur zweimal malgenommen und das Ergebnis 25 genannt"
+     "beschreibung": "die Fälle nach zwei Wahlen genannt (5 · 5)"
     }
    ],
    "aufgabe": {
@@ -1058,7 +1079,7 @@
      "wert": 5
     },
     "c": "5",
-    "h": "Welche Zahl dreimal mit sich malgenommen gibt 125?",
+    "h": "Welche Zahl ergibt als Produkt aus drei gleichen Faktoren 125?",
     "w": "5 · 5 · 5 = 125. Jede Wahl hat 5 Möglichkeiten."
    }
   }

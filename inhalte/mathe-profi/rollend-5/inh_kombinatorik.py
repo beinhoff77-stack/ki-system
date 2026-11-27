@@ -11,9 +11,9 @@ neu(TH, "systematisch", "lueckenweg", "direkt", L(
     ["2", "3*2"], ["2", "6"], "Zähle die Soßen, die zu einer einzigen Sorte passen.", "Zu Vanille passen 2 Soßen, genauso zu Schoko und Erdbeere. 3 · 2 = 6 Becher.",
     {1: [(5, None, "3 + 2 gerechnet")]}), ST)
 neu(TH, "systematisch", "bruecke", "darstellung", Z(
-    "Die Tabelle zeigt alle Eisbecher für zwei der drei Sorten. Die dritte Sorte, Erdbeere, gibt es mit denselben Soßen. Wie viele Becher gibt es für alle drei Sorten?",
-    "3*2", "2*2+2", "Wie viele Zeilen hat die Tabelle für die dritte Sorte? Gleich viele wie bei den anderen.", "Pro Sorte gibt es 2 Becher (2 Soßen). 3 Sorten: 3 · 2 = 6 Becher.",
-    [(4, None, "nur die Tabelle gezählt"), (5, None, "3 + 2 gerechnet")],
+    "Die Tabelle zeigt die Eisbecher mit Vanille und mit Schoko. Jedes Feld steht für einen Becher. Die Zeile für Erdbeere fehlt noch. Sie hätte dieselben Soßen wie die anderen Zeilen. Wie viele Becher-Felder hätte die Tabelle insgesamt, wenn die Zeile für Erdbeere dazukäme?",
+    "3*2", "2*2+2", "Wie viele Felder hat eine Zeile? Wie viele Zeilen hätte die Tabelle dann?", "Jede Zeile hat 2 Felder (2 Soßen). Mit Erdbeere sind es 3 Zeilen: 3 · 2 = 6 Becher.",
+    [(4, None, "nur die gezeichneten Zeilen gezählt"), (5, None, "3 + 2 gerechnet")],
     grafik=TAB(["", "Karamell", "Himbeer"], ["Vanille", "Becher 1", "Becher 2"], ["Schoko", "Becher 3", "Becher 4"])), ST)
 neu(TH, "systematisch", "anwenden", "einkleidung", Z(
     "Eine Pizzeria bietet 3 Teigarten und 4 Beläge an. Jede Pizza hat genau eine Teigart und genau einen Belag. Kim will jede mögliche Kombination genau einmal probieren, eine Pizza pro Tag. Wie viele Tage braucht sie?",
@@ -26,8 +26,8 @@ neu(TH, "zaehlprinzip", "fehler_detektiv", "fehler", FDZ(
     [("Es gibt 3 Vorspeisen.", True), ("Zu jeder Vorspeise passen 4 Hauptgerichte: 3 · 4 = 12 Paare.", 3 * 4 == 12), ("Zu jedem der 12 Paare gibt es 2 Nachspeisen.", True), ("Also gibt es 12 + 2 = 14 Menüs.", 12 + 2 == 3 * 4 * 2)],
     "Wie werden Anzahlen verbunden, wenn man nacheinander wählt?", "Wahlen nacheinander werden malgenommen: 12 · 2 = 24 Menüs."), ST)
 neu(TH, "zaehlprinzip", "zwei_wege", "mehrschritt", Z(
-    "Ein Fahrrad gibt es in 4 Farben, 3 Größen und 2 Lenkerformen. Jedes Rad hat von jedem eines. Weg A zählt erst Farbe und Größe zusammen, dann den Lenker. Weg B zählt erst Größe und Lenker zusammen, dann die Farbe. Wie viele verschiedene Räder gibt es?",
-    "4*3*2", "(3*2)*4", "Beide Wege führen zur selben Zahl.", "Weg A: 4 · 3 = 12, dann 12 · 2 = 24. Weg B: 3 · 2 = 6, dann 6 · 4 = 24.",
+    "Ein Fahrrad gibt es in 4 Farben, 3 Größen und 2 Lenkerformen. Jedes Rad hat von jedem eines. Weg A multipliziert die drei Anzahlen. Weg B zählt alle Räder einer Farbe auf und addiert diese Anzahl dann für jede Farbe. Wie viele verschiedene Räder gibt es?",
+    "4*3*2", "(3*2)+(3*2)+(3*2)+(3*2)", "Beide Wege führen zur selben Zahl.", "Weg A: 4 · 3 · 2 = 24. Weg B: Je Farbe gibt es 3 · 2 = 6 Räder. Für 4 Farben: 6 + 6 + 6 + 6 = 24.",
     [(9, None, "alle Anzahlen addiert"), (12, None, "den Lenker vergessen")]), ST)
 neu(TH, "zaehlprinzip", "anwenden", "einkleidung", Z(
     "Ein Nummernschloss hat 3 Rädchen. Auf jedem Rädchen kann man eine Ziffer von 0 bis 9 einstellen, auch dieselbe Ziffer mehrmals. Wie viele Einstellungen gibt es?",
@@ -38,7 +38,7 @@ neu(TH, "zaehlprinzip", "anwenden", "einkleidung", Z(
 neu(TH, "reihenfolgen", "lueckenweg", "direkt", L(
     "Vier Kinder setzen sich auf vier Plätze nebeneinander, jedes auf einen anderen. Auf den ersten Platz kann jedes der 4 Kinder. Für den zweiten Platz bleiben ① Kinder. Für den dritten Platz bleibt eins weniger als beim zweiten: ②. Zusammen: 4 · ① · ② · 1 = ③ Reihenfolgen.",
     ["4-1", "4-1-1", "4*3*2*1"], ["3", "2", "24"], "Jedes Kind sitzt nur auf einem Platz. Die Auswahl wird jedes Mal um eins kleiner.", "Platz 2: 3 Kinder, Platz 3: 2 Kinder, Platz 4: 1 Kind. 4 · 3 · 2 · 1 = 24.",
-    {0: [(4, None, "ein Kind sitzt schon, das vergessen")], 2: [(64, None, "mit 4 · 4 · 4 gerechnet"), (14, None, "4 + 3 + 2 + 1 gerechnet")]}), ST)
+    {0: [(4, None, "ein Kind sitzt schon, das vergessen")], 2: [(64, None, "mit 4 · 4 · 4 · 1 gerechnet"), (10, None, "4 + 3 + 2 + 1 gerechnet")]}), ST)
 assert math.factorial(5) == 120
 neu(TH, "reihenfolgen", "umkehren", "umkehr", Z(
     "Mehrere Kinder stellen sich in einer Reihe auf, alle verschieden. Dafür gibt es 120 mögliche Reihenfolgen. Wie viele Kinder sind es?",
@@ -55,7 +55,7 @@ neu(TH, "baumdiagramm", "bruecke", "darstellung", Z(
     "4-1", "3", "Zähle alle Pfade und streiche den, bei dem kein Z vorkommt.", "Es gibt 4 Pfade: KK, KZ, ZK, ZZ. Nur KK hat kein Z. Es bleiben 3 Pfade.",
     [(2, None, "nur KZ und ZK gezählt"), (1, None, "nur ZZ gezählt")],
     grafik={"typ": "baum", "aeste": [{"text": "K", "aeste": [{"text": "K"}, {"text": "Z"}]}, {"text": "Z", "aeste": [{"text": "K"}, {"text": "Z"}]}]}), ST)
-neu(TH, "baumdiagramm", "verfahren_waehlen", "mehrschritt", W(
+neu(TH, "baumdiagramm", "verfahren_waehlen", "erkennen", W(
     "Du willst alle Ergebnisse von drei Münzwürfen nacheinander zählen. Welcher Weg ist sicher?",
     "Ein Baumdiagramm mit drei Stufen zeichnen und die Pfade zählen: 2 · 2 · 2 = 8",
     [("Die Äste einer Stufe zählen und mit 3 malnehmen: 2 · 3 = 6", "Zahl der Würfe als Faktor genommen"), ("Die Äste addieren: 2 + 2 + 2 = 6", "Anzahlen addiert statt malgenommen"), ("Nur Kopf-Kopf-Kopf und Zahl-Zahl-Zahl zählen: 2", "nur zwei Pfade betrachtet")],
@@ -68,13 +68,13 @@ neu(TH, "baumdiagramm", "umkehren", "umkehr", Z(
 
 # ── bedingungen ──
 neu(TH, "bedingungen", "lueckenweg", "direkt", L(
-    "Gesucht sind dreistellige Zahlen mit lauter verschiedenen Ziffern. Es gibt 10 Ziffern von null bis neun. Die erste Ziffer darf nicht 0 sein: Dafür gibt es ① Möglichkeiten. Für die zweite Ziffer bleibt die 0 erlaubt, aber die erste Ziffer ist verbraucht: 10 − 1 = ②. Für die dritte Ziffer bleibt eine weniger als bei der zweiten: ③. Zusammen ① · ② · ③ = ④.",
-    ["9", "10-1", "10-2", "9*9*8"], ["10-1", "9", "8", "648"], "Beginne mit der Ziffer, die am stärksten eingeschränkt ist.", "Erste Ziffer: 9 (ohne 0). Zweite: 9 (10 − 1). Dritte: 8. 9 · 9 · 8 = 648.",
-    {0: [(10, None, "die 0 als erste Ziffer erlaubt")], 3: [(720, None, "10 · 9 · 8 gerechnet: führende Null erlaubt")]}), ST)
+    "Gesucht sind dreistellige Zahlen mit lauter verschiedenen Ziffern, deren erste Ziffer ungerade ist. Es gibt 10 Ziffern von null bis neun. Für die erste Ziffer gibt es ① Möglichkeiten. Für die zweite Ziffer darf jede Ziffer außer der ersten stehen, auch die 0: Das sind ② Möglichkeiten. Für die dritte Ziffer bleibt eine weniger als bei der zweiten: ③. Zusammen ① · ② · ③ = ④.",
+    ["10//2", "10-1", "10-2", "5*9*8"], ["5", "9", "8", "360"], "Beginne mit der Stelle, für die eine Bedingung gilt. Welche Ziffern von 0 bis 9 sind ungerade?", "Ungerade Ziffern: 1, 3, 5, 7, 9. Das sind 5 Möglichkeiten. Zweite Ziffer: 10 minus die erste, also 9. Dritte Ziffer: 8. Zusammen 5 · 9 · 8 = 360.",
+    {0: [(9, None, "nur „nicht 0“ beachtet statt „ungerade“"), (4, None, "eine ungerade Ziffer vergessen")], 1: [(10, None, "die erste Ziffer nicht abgezogen")], 3: [(648, None, "mit 9 · 9 · 8 gerechnet: nur die 0 vorn verboten"), (720, None, "mit 10 · 9 · 8 gerechnet: vorn keine Einschränkung")]}), ST)
 neu(TH, "bedingungen", "zwei_wege", "mehrschritt", Z(
     "Eine PIN hat 4 Ziffern. Die erste Ziffer darf nicht 0 sein, die anderen dürfen beliebig sein, auch gleich. Weg A rechnet 9 · 10 · 10 · 10. Weg B nimmt alle 10 000 Ziffernfolgen und zieht die 1 000 Folgen mit 0 vorn ab. Wie viele PINs gibt es?",
     "9*10*10*10", "10000-1000", "Beide Wege geben dieselbe Zahl.", "Weg A: 9 · 1 000 = 9 000. Weg B: 10 000 − 1 000 = 9 000.",
-    [(10000, None, "führende Null erlaubt"), (720, None, "ohne Wiederholung gerechnet")]), ST)
+    [(10000, None, "führende Null erlaubt"), (4536, None, "ohne Wiederholung gerechnet: 9 · 9 · 8 · 7")]), ST)
 neu(TH, "bedingungen", "anwenden", "einkleidung", Z(
     "Ein Team hat 6 Kinder. Es wird ein Kapitän und eine Stellvertretung gewählt. Dasselbe Kind kann nicht beides sein. Wie viele Möglichkeiten gibt es?",
     "6*5", "30", "Beginne mit dem Kapitän. Wie viele Kinder bleiben für die Stellvertretung?", "Kapitän: 6 Möglichkeiten. Stellvertretung: 5 Kinder bleiben. 6 · 5 = 30.",
@@ -100,13 +100,13 @@ neu(TH, "verstehen", "fehler_detektiv", "fehler", FDZ(
     "Kim zählt Wörter aus den vier Buchstaben A, B, C und D. Jeder Buchstabe darf in einem Wort genau einmal vorkommen, jedes Wort hat vier Buchstaben.",
     [("Für den ersten Buchstaben gibt es 4 Möglichkeiten.", True), ("Für den zweiten bleiben 3, für den dritten 2, für den vierten 1.", True), ("Die Buchstaben werden nacheinander gewählt.", True), ("Also gibt es 4 + 3 + 2 + 1 = 10 Wörter.", 4 + 3 + 2 + 1 == 4 * 3 * 2 * 1)],
     "Wie verbindet man Anzahlen bei Wahlen nacheinander?", "Nacheinander heißt malnehmen: 4 · 3 · 2 · 1 = 24 Wörter."), ST)
-neu(TH, "verstehen", "verfahren_waehlen", "mehrschritt", W(
-    "Drei Freunde bestellen jeweils ein Getränk aus 4 Sorten. Dieselbe Sorte darf mehrfach bestellt werden. Welche Rechnung zählt die möglichen Bestellungen?",
+neu(TH, "verstehen", "verfahren_waehlen", "erkennen", W(
+    "Drei Freunde bestellen jeweils ein Getränk aus 4 Sorten. Dieselbe Sorte darf mehrfach bestellt werden. Es zählt, wer was bestellt: Nimmt Freund 1 Cola und Freund 2 Tee, ist das etwas anderes, als wenn es umgekehrt ist. Welche Rechnung zählt die möglichen Bestellungen?",
     "4 · 4 · 4", [("4 · 3 · 2", "als dürfte sich nichts wiederholen"), ("4 + 4 + 4", "Anzahlen addiert"), ("4 · 3", "nur zwei Freunde gezählt")],
     "Darf sich etwas wiederholen? Dann bleibt die Auswahl bei jeder Wahl gleich groß.", "Jeder der 3 Freunde hat 4 Sorten zur Wahl. 4 · 4 · 4 = 64 Bestellungen.",
     4 ** 3 == 64 and 4 * 3 * 2 != 64 and 4 + 4 + 4 != 64 and 4 * 3 != 64), ST)
 assert 5 ** 3 == 125
 neu(TH, "verstehen", "umkehren", "umkehr", Z(
     "Bei 3 Wahlen nacheinander gibt es jedes Mal gleich viele Möglichkeiten, und dieselbe Möglichkeit darf wiederholt werden. Insgesamt gibt es 125 Fälle. Wie viele Möglichkeiten hat jede einzelne Wahl?",
-    "5", str(next(n for n in range(1, 20) if n ** 3 == 125)), "Welche Zahl dreimal mit sich malgenommen gibt 125?", "5 · 5 · 5 = 125. Jede Wahl hat 5 Möglichkeiten.",
-    [(42, None, "125 : 3 gerundet"), (25, None, "nur zweimal malgenommen und das Ergebnis 25 genannt")]), ST)
+    "5", str(next(n for n in range(1, 20) if n ** 3 == 125)), "Welche Zahl ergibt als Produkt aus drei gleichen Faktoren 125?", "5 · 5 · 5 = 125. Jede Wahl hat 5 Möglichkeiten.",
+    [(42, None, "125 : 3 gerundet"), (25, None, "die Fälle nach zwei Wahlen genannt (5 · 5)")]), ST)

@@ -23,7 +23,7 @@ FEHLBILD = {f["kennung"]: e["kennung"] for e in KENN for f in e["fehlbilder"]}
 FORMEN = {
     "lueckenweg": ("Lückenweg", {"direkt", "erkennen"}, "nein"),
     "fehler_detektiv": ("Fehler-Detektiv", {"fehler"}, "ja"),
-    "verfahren_waehlen": ("Verfahren wählen", {"mehrschritt"}, "ja"),
+    "verfahren_waehlen": ("Verfahren wählen", {"mehrschritt", "erkennen", "begruenden"}, "ja"),
     "zwei_wege": ("Zwei Wege vergleichen", {"mehrschritt"}, "ja"),
     "umkehren": ("Umkehren", {"umkehr", "rueckwaerts"}, "ja"),
     "bruecke": ("Brücke", {"darstellung"}, "ja"),

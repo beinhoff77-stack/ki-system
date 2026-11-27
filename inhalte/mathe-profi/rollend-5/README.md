@@ -27,7 +27,7 @@ Neu bauen und prüfen: `python3 -I inhalte/mathe-profi/rollend-5/bauen.py` (muss
 - Kopien der Themen-Dateien mit den neuen Aufgaben: `python3 -I tools/inhalt_pruefen.py` ohne Fehler.
 
 ## Annahmen und offene Punkte (nicht gesichert)
-- Die Zuordnung Form zu `g` ist von mir festgelegt: Lückenweg direkt, Fehler-Detektiv fehler, Verfahren wählen und zwei Wege mehrschritt, umkehren umkehr (zwei Aufgaben rueckwaerts), Brücke darstellung, anwenden einkleidung. Bitte gegen `verhaeltnis.md` prüfen. Alle 42 anwenden-Aufgaben sind Typ einkleidung, keine transfer/pruefung.
+- Die Zuordnung Form zu `g` ist von mir festgelegt: Lückenweg direkt, Fehler-Detektiv fehler, zwei Wege mehrschritt, Verfahren wählen je nach Tätigkeit (siehe „Nach Gegenprüfung“), umkehren umkehr (zwei Aufgaben rueckwaerts), Brücke darstellung, anwenden einkleidung. Bitte gegen `verhaeltnis.md` prüfen. Alle 42 anwenden-Aufgaben sind Typ einkleidung, keine transfer/pruefung.
 - Fehlbild-Kennungen sind nur gesetzt, wo ein passender Eintrag in `regeln-uebersicht/kennungen.json` existiert; sonst `null`.
 - Zeichnungen: nur vorhandene Bauteile (Tabelle, Zahlenstrahl mit Pfeil/Punkten, Baum). Das Aussehen im Gerät ist nicht geprüft, ebenso nicht die Darstellung von Zahlenstrahl-`punkte` ohne Bogen.
 - Zylinder-Aufgaben bleiben ohne π (Umfang wird gegeben), wie im Bestand.
@@ -38,3 +38,10 @@ Neu bauen und prüfen: `python3 -I inhalte/mathe-profi/rollend-5/bauen.py` (muss
 - ziffern_zu_zahlwort, zwei Wege: Die beiden Wege rechnen nur die Gruppengröße; die Aufgabe liest keine Zahlwörter laut.
 - roemisch_system und unendlich: "zwei Wege" und "Brücke" passen nur mühsam; dort stehen Fehler-Detektiv, zwei Wege oder anwenden.
 - Keine Lernkarte zurückgestellt.
+
+## Nach Gegenprüfung (Werkstatt 1041/1042)
+- Geändert: 57 von 174 Aufgaben (Kennungen im Git-Verlauf: Inhalte in `inh_*.py`, Dateien neu gebaut). `bauen.py` endet mit OK, `inhalt_pruefen.py` ohne Fehler. Bei 36 davon stammt die Änderung aus der Arbeitsliste, bei 21 aus eigener Durchsicht aller übrigen Aufgaben.
+- Art der Änderungen: Fehlbilder neu nachgerechnet und ihre Beschreibung dem Rechenfehler angepasst (falscher Wert oder falsche Begründung); Gerüste so umgebaut, dass der Text keine Lücke mehr vorwegnimmt und spätere Lücken von früheren abhängen; fehlende Voraussetzungen im Text ergänzt (Körperform, Wiederholung, Unterscheidung nach Person, Höhenunterschied, Schnittmuster); Auswahlaufgaben mit zwei gleichwertigen oder zwei richtigen Antworten bereinigt; „Zwei Wege“, die dieselbe Rechnung zeigten, durch einen wirklich anderen zweiten Weg ersetzt; mehrdeutige Fragen und Zahlenwerte (Rundung von Geldbeträgen, Etiketten, Packungsgröße) eindeutig gemacht.
+- Feld `g` der 12 Aufgaben „Verfahren wählen“ nach tatsächlicher Tätigkeit: 8 erkennen, 2 begründen, 2 mehrschritt. Die erlaubten Werte der Form stehen in `k5basis.py`.
+- Zusätzlich selbst gefunden: Fehlbilder, die aus dem Gerüst gar nicht entstehen können, Gerüste mit vorgegebenem Kernschritt, eine Auswahl mit zwei gleich großen falschen Werten, „Zwei Wege“ mit gleicher Rechnung, ein Fehlbild ohne nachvollziehbaren Rechenweg.
+- Noch offen: Darstellung der Aufgaben im Gerät, Test mit Kindern.

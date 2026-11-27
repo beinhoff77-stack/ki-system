@@ -10,13 +10,13 @@ neu(TH, "prisma", "lueckenweg", "direkt", L(
     ["2*6", "2*6*3//2"], ["12", "18"], "Zähle die Ecken von Grund- und Deckfläche zusammen.", "Ecken: 6 + 6 = 12. Kanten: 12 · 3 : 2 = 18. Das ist auch 3 · 6.",
     {0: [(6, None, "nur die Grundfläche gezählt")], 1: [(36, None, "nicht durch 2 geteilt")]}), HA)
 neu(TH, "prisma", "zwei_wege", "mehrschritt", Z(
-    "Ein Prisma hat ein Siebeneck als Grundfläche. Wie viele Kanten hat es? Weg A rechnet 3 · 7. Weg B zählt die Kanten von Grund- und Deckfläche (7 + 7) und die Seitenkanten (7) einzeln.",
-    "3*7", "7+7+7", "Beide Wege geben dieselbe Zahl.", "Weg A: 3 · 7 = 21. Weg B: 7 + 7 + 7 = 21 Kanten.",
-    [(14, None, "die Seitenkanten vergessen"), (9, None, "7 + 2 gerechnet")]), HA)
+    "Ein Prisma hat ein Siebeneck als Grundfläche. Wie viele Kanten hat es? Weg A zählt die Ecken des Prismas. An jeder Ecke treffen sich 3 Kanten, und jede Kante hat 2 Ecken. Weg B zählt die Kanten der Grundfläche, die der Deckfläche und die Seitenkanten einzeln.",
+    "14*3//2", "7+7+7", "Beide Wege geben dieselbe Zahl.", "Weg A: Ecken 7 + 7 = 14. Kanten 14 · 3 : 2 = 21. Weg B: 7 + 7 + 7 = 21 Kanten.",
+    [(14, None, "die Seitenkanten vergessen"), (9, None, "7 + 2 gerechnet"), (42, None, "nicht durch 2 geteilt")]), HA)
 neu(TH, "prisma", "anwenden", "einkleidung", Z(
-    "Eine Schachtel hat die Form eines Prismas mit einem Fünfeck als Grundfläche. Auf jede Fläche, auch Grund- und Deckfläche, kommt ein Aufkleber. Eine Packung enthält 12 Aufkleber. Wie viele Packungen braucht man mindestens für 6 Schachteln?",
-    "-(-7*6//12)", "(7*6+11)//12", "Wie viele Flächen hat das Prisma? Danach: Mit angebrochenen Packungen kommst du nicht aus.", "Flächen: 5 Seitenflächen + 2 = 7. 6 Schachteln: 42 Aufkleber. 42 : 12 = 3,5, also 4 Packungen.",
-    [(3, None, "abgerundet: es fehlen Aufkleber"), (5, None, "mit 8 Flächen gerechnet (zu viele)")]), HA)
+    "Eine Schachtel hat die Form eines Prismas mit einem Fünfeck als Grundfläche. Auf jede Fläche, auch Grund- und Deckfläche, kommt ein Aufkleber. Eine Packung enthält 15 Aufkleber. Wie viele Packungen braucht man mindestens für 6 Schachteln?",
+    "-(-7*6//15)", "(7*6+14)//15", "Wie viele Flächen hat das Prisma? Danach: Mit angebrochenen Packungen kommst du nicht aus.", "Flächen: 5 Seitenflächen + 2 = 7. 6 Schachteln: 42 Aufkleber. 42 : 15 = 2,8, also 3 Packungen.",
+    [(2, None, "abgerundet: es fehlen Aufkleber"), (4, None, "mit 8 Flächen gerechnet: 48 Aufkleber, also 4 Packungen")]), HA)
 
 # ── netz ──
 neu(TH, "netz", "fehler_detektiv", "fehler", FDZ(
@@ -36,7 +36,7 @@ neu(TH, "netz", "bruecke", "darstellung", Z(
 
 # ── zylinder ──
 neu(TH, "zylinder", "lueckenweg", "direkt", L(
-    "Eine Dose ist 12 cm hoch. Der Umfang ihrer Grundfläche ist 30 cm. Der Mantel ist ein Rechteck: Länge = Umfang, Breite = Höhe. Fläche einer Dose: 30 · 12 = ①. Fünf solche Dosen: ① · 5 = ②. Ein Eimer Farbe reicht für 600 cm². Man braucht ② : 600 = ③ Eimer.",
+    "Eine zylindrische Dose ist 12 cm hoch. Der Umfang ihrer Grundfläche ist 30 cm. Der Mantel ist ein Rechteck: Länge = Umfang, Breite = Höhe. Die Mantelfläche einer Dose ist 30 · 12 = ①. Fünf solche Dosen sollen nur am Mantel gestrichen werden, ohne Deckel und Boden: Mantelfläche aller fünf Dosen ① · 5 = ②. Ein Eimer Farbe reicht für 600 cm². Man braucht ② : 600 = ③ Eimer.",
     ["30*12", "30*12*5", "30*12*5//600"], ["360", "1800", "3"], "Der Mantel ist so lang wie der Umfang, nicht wie der Durchmesser.", "30 · 12 = 360 cm². 360 · 5 = 1 800 cm². 1 800 : 600 = 3 Eimer.",
     {0: [(42, None, "30 + 12 gerechnet")], 1: [(210, None, "mit 42 weitergerechnet")]}), HA)
 neu(TH, "zylinder", "umkehren", "umkehr", Z(
@@ -44,15 +44,15 @@ neu(TH, "zylinder", "umkehren", "umkehr", Z(
     "420//28", "15", "Fläche = Umfang mal Höhe. Welche Rechnung macht das Malnehmen rückgängig?", "420 : 28 = 15. Probe: 28 · 15 = 420. Die Dose ist 15 cm hoch.",
     [(448, None, "28 + 420 gerechnet"), (11760, None, "malgenommen statt geteilt")], einheit="cm"), HA)
 neu(TH, "zylinder", "anwenden", "einkleidung", Z(
-    "Für jede Dose braucht man ein Etikett: ein Rechteck mit dem Umfang 24 cm als Länge und 10 cm Höhe. Aus einem Bogen von 10 000 cm² Papier schneidet man Etiketten, Verschnitt bleibt übrig. Wie viele ganze Etiketten bekommt man höchstens?",
-    "10000//(24*10)", "41", "Wie groß ist ein Etikett? Wie oft passt es in den Bogen?", "Ein Etikett: 24 · 10 = 240 cm². 10 000 : 240 = 41,6 …: Es passen 41 ganze Etiketten.",
-    [(42, None, "aufgerundet: ein Etikett wäre unvollständig"), (240, None, "nur die Fläche eines Etiketts genannt")]), HA)
+    "Für jede Dose braucht man ein Etikett: ein Rechteck, 24 cm lang und 10 cm hoch. Ein Papierbogen ist 100 cm lang und 100 cm breit. Alle Etiketten werden in gleicher Richtung gelegt, mit der 24-cm-Seite längs der Bogenlänge. Wie viele ganze Etiketten passen auf einen Bogen?",
+    "(100//24)*(100//10)", "4*10", "Wie viele Etiketten passen in die Länge, wie viele in die Breite? Ein Rest zählt nicht.", "In die Länge passen 100 : 24 = 4 Etiketten (Rest 4 cm). In die Breite passen 100 : 10 = 10 Etiketten. 4 · 10 = 40. Nach der Fläche allein wären es 41, aber der Rest am Rand reicht nicht für ein Etikett.",
+    [(41, None, "nur die Flächen geteilt: 10 000 : 240 (der Rest am Rand reicht nicht für ein Etikett)"), (50, None, "100 : 24 auf 5 aufgerundet: 5 · 10")]), HA)
 
 # ── schraegbild ──
 neu(TH, "schraegbild", "zwei_wege", "mehrschritt", Z(
-    "Ein Quader ist 8 cm breit, 6 cm hoch und 10 cm tief. Im Schrägbild wird nur die Tiefe halb so lang gezeichnet. Wie lang sind alle zwölf Kanten des Schrägbilds zusammen? Weg A addiert die vier Kanten jeder Richtung einzeln. Weg B addiert erst die drei Längen und nimmt dann mal 4.",
-    "4*8+4*6+4*(10//2)", "4*(8+6+5)", "Die vier Kanten jeder Richtung sind gleich lang.", "Gezeichnet werden 8 cm, 6 cm und 5 cm (Tiefe halbiert). Weg A: 32 + 24 + 20 = 76. Weg B: 4 · 19 = 76.",
-    [(96, None, "die Tiefe nicht halbiert"), (24, None, "nur die drei Längen addiert")], einheit="cm"), AQ)
+    "Ein Quader ist 8 cm breit, 6 cm hoch und 10 cm tief. Im Schrägbild wird nur die Tiefe halb so lang gezeichnet. Wie lang sind alle zwölf Kanten des Schrägbilds zusammen? Weg A addiert die vier Kanten jeder Richtung, so wie sie gezeichnet werden. Weg B rechnet zuerst alle zwölf Kanten des echten Quaders und zieht dann ab, was die vier Tiefenkanten im Schrägbild kürzer sind.",
+    "4*8+4*6+4*(10//2)", "4*(8+6+10)-4*(10-10//2)", "Die vier Kanten jeder Richtung sind gleich lang.", "Weg A: Gezeichnet werden 8 cm, 6 cm und 5 cm. 32 + 24 + 20 = 76. Weg B: Der echte Quader hat 4 · 24 = 96. Die vier Tiefenkanten sind je 5 cm kürzer: 96 − 20 = 76.",
+    [(96, None, "die Tiefe nicht halbiert"), (24, None, "nur die Maße 8 + 6 + 10 addiert: weder mal 4 noch die Tiefe halbiert"), (19, None, "nur die gezeichneten Längen 8 + 6 + 5 addiert, das Mal 4 vergessen")], einheit="cm"), AQ)
 neu(TH, "schraegbild", "bruecke", "darstellung", W(
     "Die Tabelle zeigt die wahren Maße eines Quaders. Im Schrägbild wird nur die Kante nach hinten halbiert. Welche Längen zeichnest du für Breite, Höhe und Tiefe?",
     "8 cm, 6 cm, 5 cm", [("4 cm, 3 cm, 5 cm", "alle Kanten halbiert"), ("8 cm, 6 cm, 10 cm", "nichts verkürzt"), ("8 cm, 3 cm, 10 cm", "die falsche Kante halbiert")],
@@ -65,12 +65,12 @@ neu(TH, "schraegbild", "anwenden", "einkleidung", Z(
 
 # ── ansichten ──
 neu(TH, "ansichten", "fehler_detektiv", "fehler", FDZ(
-    "Kim beschreibt die drei Ansichten einer stehenden Dose.",
+    "Kim beschreibt die drei Ansichten einer stehenden zylindrischen Dose.",
     [("Von vorn sieht man ein Rechteck.", True), ("Von der Seite sieht man ebenfalls ein Rechteck.", True), ("Von oben sieht man nur den Deckel.", True), ("Der Deckel ist ein Rechteck.", False)],
-    "Welche Form hat der Deckel einer Dose?", "Der Deckel ist ein Kreis. Von oben sieht man deshalb einen Kreis."), HA)
-neu(TH, "ansichten", "verfahren_waehlen", "mehrschritt", W(
+    "Welche Form hat der Deckel einer zylindrischen Dose?", "Der Deckel ist ein Kreis. Von oben sieht man deshalb einen Kreis."), HA)
+neu(TH, "ansichten", "verfahren_waehlen", "erkennen", W(
     "Ein Körper sieht von vorn aus wie ein Rechteck, von der Seite auch wie ein Rechteck und von oben wie ein Kreis. Welcher Körper ist es?",
-    "ein stehender Zylinder, denn nur ein Zylinder hat oben einen Kreis und senkrechte Seiten",
+    "ein stehender Zylinder: oben ein Kreis, vorn und von der Seite je ein Rechteck",
     [("ein Quader, denn er hat überall Rechtecke", "von oben sieht ein Quader nie rund aus"), ("ein Kegel, denn er hat einen Kreis", "von vorn sieht ein Kegel wie ein Dreieck aus"), ("eine Kugel, denn sie ist rund", "von vorn und von der Seite ist eine Kugel ein Kreis")],
     "Prüfe jeden Körper mit allen drei Ansichten.", "Nur beim Zylinder passt alles: vorn und seitlich ein Rechteck, oben ein Kreis.", True), HA)
 neu(TH, "ansichten", "anwenden", "einkleidung", Z(
@@ -79,7 +79,7 @@ neu(TH, "ansichten", "anwenden", "einkleidung", Z(
     [(50, None, "Breite mal Höhe genommen"), (300, None, "das Volumen genommen")], einheit="m²"), HA)
 
 # ── beurteilen ──
-neu(TH, "beurteilen", "verfahren_waehlen", "mehrschritt", W(
+neu(TH, "beurteilen", "verfahren_waehlen", "begruenden", W(
     "Kim behauptet: „Jeder Körper mit lauter ebenen Flächen ist ein Prisma.“ Wie widerlegst du das am besten?",
     "Mit einem Gegenbeispiel: Eine Pyramide hat lauter ebene Flächen, aber keine zwei parallelen Grundflächen",
     [("Mit vielen Prismen, die ebene Flächen haben", "Beispiele beweisen nichts"), ("Mit einer Kugel, denn sie hat keine ebenen Flächen", "passt nicht zur Behauptung"), ("Mit dem Zählen der Kanten eines Würfels", "ein Würfel ist ein Prisma")],
@@ -91,4 +91,4 @@ neu(TH, "beurteilen", "umkehren", "umkehr", Z(
 neu(TH, "beurteilen", "anwenden", "einkleidung", Z(
     "Ein Schmuckkästchen hat die Form eines Prismas mit einem Siebeneck als Grundfläche. Wie viele Ecken, Kanten und Flächen hat es zusammen?",
     "2*7+3*7+7+2", "14+21+9", "Ecken: 2n, Kanten: 3n, Flächen: n + 2. Dann alles addieren.", "Ecken: 14. Kanten: 21. Flächen: 7 + 2 = 9. Zusammen 14 + 21 + 9 = 44.",
-    [(35, None, "die Flächen vergessen"), (29, None, "nur 7 + 7 + 7 + 8 gerechnet")]), HA)
+    [(35, None, "die Flächen vergessen"), (42, None, "die zwei Grundflächen als Flächen vergessen: 14 + 21 + 7")]), HA)

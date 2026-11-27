@@ -24,8 +24,16 @@ Die App zieht je Lernkarte die erste passende Aufgabe in der gelieferten Reihenf
 - **Werkzeug:** `tools/rollend_sql.py` gibt `form` und `zaehlt` aus den Dateien des Mathe-Profis mit (`typ` → `form`).
 - **Inhalte:** je Lernkarte etwa drei Aufgaben in neuer Form; es fehlen rund 105.
 
-## Reihenfolge
-1. Bau Datenbank als Dateien (Migration und Einspiel-Paket), Probe gegen die Live-Fassung nur lesend → Gegenprüfung → Satz des Nutzers → einspielen.
-2. Bau App → Gesamttest → „Live“.
-3. Vorrats-Aufgaben einspielen (nach eigener Inhaltsprüfung), mit `form` und `zaehlt`.
-Bis Schritt 3 ändert sich für die Kinder nur Regel 6 (Sachaufgaben-Pflicht) – sie greift mit Schritt 1 und 2.
+## Reihenfolge (berichtigt am 27.11. nach Gegenprüfung, Werkstatt 1030/1032/1039/1048)
+1. **App 0.94.0 live** (abwärtsverträglich: ohne `form` und ohne Pflicht läuft die alte Auswahl unverändert).
+2. **Datenbank FT-S einspielen mit `anwenden_pflicht = 0`** (Sachaufgaben-Pflicht aus). Selbstprüfendes Paket, vorher Probelauf – beides nur nach ausdrücklichem Satz des Nutzers.
+3. **Reale Lernsitzung** mit frisch geladenem, aktualisiertem Client (Testkind): Bearbeitungsstand, Form-Platz und die beiden Sperrfälle prüfen.
+4. **Schalter:** `update schule.regel set wert = '1'::jsonb where schluessel = 'anwenden_pflicht';` – erst danach gilt Regel 6; anschließend mit neu gelesenen Serverdaten sichtbar machen.
+5. Vorrats-Aufgaben einspielen (nach Inhaltsprüfung), mit `form` und `zaehlt`.
+
+## Ergänzungen zu den Regeln (27.11.)
+- **Regel 4, Ausnahme „Notfall“:** Die Verbote „nie zwei Gerüste hintereinander“ und „kein Fehler-Detektiv direkt nach einem eigenen Fehler“ gelten an allen Auswahlwegen (zentrale Stelle `lernTaktErlaubt`). Nur wenn mit den Verboten gar keine andere Aufgabe wählbar ist (außer der gerade gelösten), wird ohne sie gewählt. Das ist eine bewusste Ausnahme zu „nie“, keine unbedingte Garantie.
+- **Schwere Aufgabe:** Eine Aufgabe mit `zaehlt = nein` erfüllt die Pflicht „schwere Aufgabe“ nicht und wird dafür nicht bevorzugt.
+- **Sterne (Entscheidung des Nutzers):** Gerüst-Aufgaben (`zaehlt = nein`) geben die normalen Übungssterne; Belohnung ist getrennt vom Nachweis.
+- **Gerüste nicht erratbar (Vorgabe des Nutzers):** Regeln in `vorrat-auftrag.md`, Abschnitt „Gerüst-Aufgaben“.
+- **Takt nur beim normalen Üben offener Karten;** Wiederholung und Mischkarten behalten die Serverauswahl. Beim Wiederöffnen läuft der Takt am nächsten Gesamtplatz weiter.

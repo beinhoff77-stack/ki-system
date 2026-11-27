@@ -1,0 +1,771 @@
+{
+ "hinweis": "Gegenlesen der 14 Merksätze auf Grenzfälle. Ein Merksatz wird nur geändert, wenn er falsch ist; sonst gehört die Grenze in „Genau gesagt“ (genau), „Wann sie gilt – und wann nicht“ (voraus) oder „Typische Fehler“ (fehler). Feld „luecken“ liefert den fehlenden Text; „wo“ nennt das Zielfeld in inhalt.json.",
+ "stand": "2026-11-27",
+ "zusammenfassung": {
+  "merksaetze": 14,
+  "geaendert": 0,
+  "luecken_gesamt": 25
+ },
+ "regeln": [
+  {
+   "kennung": "rr.stellenwert",
+   "entwurf_schluessel": "R1",
+   "name": "Stellenwert",
+   "merksatz": "Mal zehn: Jede Ziffer rückt eins nach links.",
+   "urteil": "richtig",
+   "merksatz_geaendert": false,
+   "aenderung": null,
+   "im_bestand_gedeckt": [
+    "voraus: gilt im Zehnersystem, auch hinter dem Komma",
+    "fehler: „Null anhängen“ bei Kommazahlen"
+   ],
+   "luecken": [
+    {
+     "wo": "genau",
+     "text": "Mal 100 rückt jede Ziffer zwei Stellen nach links, mal 1 000 drei – so viele Stellen, wie die Zehnerpotenz Nullen hat. Bei 10⁻ⁿ rückt sie n Stellen nach rechts: 1,25 · 100 = 125 und 7 · 10⁻³ = 0,007.",
+     "grund": "Der Merksatz sagt „eins“; die Klassenleiter nutzt aber · 100 und · 10⁻⁴. Die Verallgemeinerung steht nirgends.",
+     "pruefung": [
+      {
+       "l": "1.25*100",
+       "rel": "==",
+       "r": "125"
+      },
+      {
+       "l": "7*10**(-3)",
+       "rel": "==",
+       "r": "0.007"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kennung": "rr.plusminus",
+   "entwurf_schluessel": "R2",
+   "name": "Plus und Minus mit negativen Zahlen",
+   "merksatz": "Minus heißt umdrehen – zweimal umdrehen ist wieder geradeaus.",
+   "urteil": "richtig; Grenzfall mit Doppel-Minus fehlt",
+   "merksatz_geaendert": false,
+   "aenderung": null,
+   "im_bestand_gedeckt": [
+    "voraus: gilt für alle Zahlen",
+    "fehler: 3 − (−2) = 1; −30 für größer als −10 halten"
+   ],
+   "luecken": [
+    {
+     "wo": "voraus",
+     "text": "Zweimal umdrehen gilt dort, wo hinter dem Rechenzeichen Minus eine negative Zahl abgezogen wird: 3 − (−2) = 5. Bei −3 − 4 dreht nur ein Minus: Das erste ist das Vorzeichen der 3 (Startpunkt links von null), das zweite das Rechenzeichen. Ergebnis −7.",
+     "grund": "Der Merksatz „zweimal umdrehen“ lässt sich auf zwei Minuszeichen in einer Reihe übertragen, die nichts miteinander zu tun haben.",
+     "pruefung": [
+      {
+       "l": "3-(-2)",
+       "rel": "==",
+       "r": "5"
+      },
+      {
+       "l": "-3-4",
+       "rel": "==",
+       "r": "-7"
+      }
+     ]
+    },
+    {
+     "wo": "fehler",
+     "text": "Aus zwei Minuszeichen immer Plus machen: −3 − 4 ist −7, nicht +7.",
+     "grund": "Häufiger Folgefehler des Merksatzes.",
+     "pruefung": [
+      {
+       "l": "-3-4",
+       "rel": "==",
+       "r": "-7"
+      },
+      {
+       "l": "-3-4",
+       "rel": "!=",
+       "r": "7"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kennung": "rr.vorzeichen",
+   "entwurf_schluessel": "R3",
+   "name": "Vorzeichen bei Mal und Geteilt",
+   "merksatz": "Minus mal Minus gibt Plus, Minus mal Plus gibt Minus.",
+   "urteil": "richtig",
+   "merksatz_geaendert": false,
+   "aenderung": null,
+   "im_bestand_gedeckt": [
+    "voraus: beide Zahlen ungleich null",
+    "genau: Geteilt eingeschlossen",
+    "fehler: auf Plus übertragen"
+   ],
+   "luecken": [
+    {
+     "wo": "genau",
+     "text": "Bei mehr als zwei Faktoren zählt man die Minuszeichen: gerade Anzahl gibt Plus, ungerade Minus. (−2) · (−2) · (−2) = −8.",
+     "grund": "Klassenleiter Klasse 10 und Potenzen mit negativer Basis brauchen mehr als zwei Faktoren; der Merksatz nennt nur zwei.",
+     "pruefung": [
+      {
+       "l": "(-2)*(-2)*(-2)",
+       "rel": "==",
+       "r": "-8"
+      }
+     ]
+    },
+    {
+     "wo": "genau",
+     "text": "Der Merksatz nennt nur Mal; Geteilt folgt denselben Vorzeichen: (−12) : (−4) = 3, (−12) : 4 = −3.",
+     "grund": "Geteilt steht nur im Namen der Regel und in „Genau gesagt“, nicht im Merksatz.",
+     "pruefung": [
+      {
+       "l": "(-12)/(-4)",
+       "rel": "==",
+       "r": "3"
+      },
+      {
+       "l": "(-12)/4",
+       "rel": "==",
+       "r": "-3"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kennung": "rr.reihenfolge",
+   "entwurf_schluessel": "R4",
+   "name": "Reihenfolge beim Rechnen",
+   "merksatz": "Klammer zuerst, dann Hoch, dann Punkt vor Strich.",
+   "urteil": "richtig; drei Grenzfälle fehlen",
+   "merksatz_geaendert": false,
+   "aenderung": null,
+   "im_bestand_gedeckt": [
+    "voraus: gleichrangig von links nach rechts (12 : 3 · 2 = 8)",
+    "fehler: von links nach rechts durchrechnen; 2 + 3x zusammenziehen"
+   ],
+   "luecken": [
+    {
+     "wo": "voraus",
+     "text": "Bruchstrich, Wurzelstrich und Betragsstriche wirken wie eine Klammer: Der ganze Zähler wird zuerst gerechnet. (3 + 5)/2 = 4, aber 3 + 5/2 = 5,5.",
+     "grund": "Ab Klasse 8 stehen Terme als Brüche; dort gibt es keine sichtbare Klammer.",
+     "pruefung": [
+      {
+       "l": "(3+5)/2",
+       "rel": "==",
+       "r": "4"
+      },
+      {
+       "l": "3+5/2",
+       "rel": "==",
+       "r": "5.5"
+      }
+     ]
+    },
+    {
+     "wo": "voraus",
+     "text": "Hochzahlen übereinander rechnet man von oben nach unten: 2 hoch (3²) = 2⁹ = 512, nicht (2³)² = 64.",
+     "grund": "Gleichrangig heißt bei Hoch nicht „von links nach rechts“.",
+     "pruefung": [
+      {
+       "l": "2**(3**2)",
+       "rel": "==",
+       "r": "512"
+      },
+      {
+       "l": "(2**3)**2",
+       "rel": "==",
+       "r": "64"
+      }
+     ]
+    },
+    {
+     "wo": "fehler",
+     "text": "Das Minus vor einer Potenz mitquadrieren: −3² = −9, denn erst Hoch, dann das Minus; (−3)² = 9. Und Mal vor Hoch rechnen: 2 · 3² = 18, nicht 36.",
+     "grund": "Beide Fehlbilder stehen in kennungen.json (fb.reihenfolge.minus_ins_quadrat, fb.reihenfolge.mal_vor_hoch), aber nicht im Text „Häufiger Fehler“.",
+     "pruefung": [
+      {
+       "l": "-3**2",
+       "rel": "==",
+       "r": "-9"
+      },
+      {
+       "l": "(-3)**2",
+       "rel": "==",
+       "r": "9"
+      },
+      {
+       "l": "2*3**2",
+       "rel": "==",
+       "r": "18"
+      },
+      {
+       "l": "(2*3)**2",
+       "rel": "==",
+       "r": "36"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kennung": "rr.tauschen",
+   "entwurf_schluessel": "R5",
+   "name": "Tauschen, Klammern, Zusammenfassen",
+   "merksatz": "Tauschen bei Plus und Mal. Zusammenfassen: nur Gleiches zu Gleichem.",
+   "urteil": "richtig",
+   "merksatz_geaendert": false,
+   "aenderung": null,
+   "im_bestand_gedeckt": [
+    "voraus: nur reine Summen und Produkte; Differenz erst als Summe",
+    "fehler: bei Minus tauschen; 3a + 4b zu 7ab"
+   ],
+   "luecken": [
+    {
+     "wo": "voraus",
+     "text": "Zusammengefasst wird nur bei gleichem Buchstabenteil: 3x + 2x = 5x, aber 3x + 2x² bleibt stehen, weil x und x² verschiedene Dinge sind. (Für x = 2 ergibt 3x + 2x² die Zahl 14, nicht 5x² = 20.)",
+     "grund": "Der Merksatz sagt „nur Gleiches“, nicht, was gleich heißt: Die Hochzahl gehört zum Buchstabenteil.",
+     "pruefung": [
+      {
+       "l": "3*x+2*x",
+       "rel": "==",
+       "r": "5*x",
+       "mit": {
+        "x": 2
+       }
+      },
+      {
+       "l": "3*x+2*x**2",
+       "rel": "==",
+       "r": "14",
+       "mit": {
+        "x": 2
+       }
+      },
+      {
+       "l": "5*x**2",
+       "rel": "==",
+       "r": "20",
+       "mit": {
+        "x": 2
+       }
+      },
+      {
+       "l": "3*x+2*x**2",
+       "rel": "!=",
+       "r": "5*x**2",
+       "mit": {
+        "x": 2
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kennung": "rr.ausmultiplizieren",
+   "entwurf_schluessel": "R6",
+   "name": "Ausmultiplizieren und Ausklammern",
+   "merksatz": "Was vor der Klammer steht, nimmt jeden in der Klammer mal.",
+   "urteil": "richtig, aber missverständlich formuliert; nicht falsch, deshalb unverändert",
+   "merksatz_geaendert": false,
+   "aenderung": null,
+   "im_bestand_gedeckt": [
+    "voraus: Faktor vor Summe oder Differenz",
+    "fehler: nur ersten Summanden; auf Hoch übertragen"
+   ],
+   "luecken": [
+    {
+     "wo": "voraus",
+     "text": "Verteilt wird nur ein Faktor auf die Summanden einer Klammer. Steht ein Plus davor, wird nichts verteilt: 5 + (x − 2) = 5 + x − 2. Steht in der Klammer ein Produkt, malt man nur einen Faktor: 3 · (2 · 5) = 30, nicht (3 · 2) · (3 · 5) = 90.",
+     "grund": "„Was vor der Klammer steht“ und „jeden in der Klammer“ lassen offen, ob das Plus, ein Faktor, ein Summand oder ein Faktor in der Klammer gemeint ist. Die Voraussetzung nennt nur die Summe.",
+     "pruefung": [
+      {
+       "l": "5+(x-2)",
+       "rel": "==",
+       "r": "5+x-2",
+       "mit": {
+        "x": 7
+       }
+      },
+      {
+       "l": "3*(2*5)",
+       "rel": "==",
+       "r": "30"
+      },
+      {
+       "l": "(3*2)*(3*5)",
+       "rel": "==",
+       "r": "90"
+      },
+      {
+       "l": "(3*2)*(3*5)",
+       "rel": "!=",
+       "r": "3*(2*5)"
+      }
+     ]
+    }
+   ],
+   "vorschlag": {
+    "text": "Der Faktor vor der Klammer wird mit jedem Summanden in der Klammer malgenommen.",
+    "status": "nur Vorschlag, Merksatz ist nicht falsch; 9 Zeichen länger. Entscheidung beim Projektleiter."
+   }
+  },
+  {
+   "kennung": "rr.minusklammer",
+   "entwurf_schluessel": "R7",
+   "name": "Minus vor der Klammer",
+   "merksatz": "Minus vor der Klammer dreht alle Zeichen um.",
+   "urteil": "richtig",
+   "merksatz_geaendert": false,
+   "aenderung": null,
+   "im_bestand_gedeckt": [
+    "voraus: gilt für jede Klammer mit Minus davor; Malzeichen bleiben",
+    "fehler: nur erstes Vorzeichen wechseln"
+   ],
+   "luecken": [
+    {
+     "wo": "genau",
+     "text": "Alle Plus und Minus in der Klammer tauschen, auch das unsichtbare Plus des ersten Summanden: −(x − 3) = −x + 3 und −(−3 + x) = 3 − x.",
+     "grund": "„Alle Zeichen“ schließt das erste, nicht geschriebene Vorzeichen ein; das sagt nur der Fehler, nicht „Genau gesagt“.",
+     "pruefung": [
+      {
+       "l": "-(x-3)",
+       "rel": "==",
+       "r": "-x+3",
+       "mit": {
+        "x": 5
+       }
+      },
+      {
+       "l": "-(-3+x)",
+       "rel": "==",
+       "r": "3-x",
+       "mit": {
+        "x": 5
+       }
+      }
+     ]
+    },
+    {
+     "wo": "fehler",
+     "text": "Das Minus vor einem Faktor mit dem Minus vor einer Klammer verwechseln: 7 − 2 · (x − 3) ist 7 − 2x + 6, nicht 7 − 2x − 3. Hier steht das Minus nicht unmittelbar vor der Klammer; erst ausmultiplizieren (Regel 6).",
+     "grund": "Der Bestandsbeispiel-Eintrag „7 − 2 · (x − 3)“ in inhalt.json (klassen, Klasse 8) ist kein reiner Fall dieser Regel.",
+     "pruefung": [
+      {
+       "l": "7-2*(x-3)",
+       "rel": "==",
+       "r": "7-2*x+6",
+       "mit": {
+        "x": 5
+       }
+      },
+      {
+       "l": "7-2*(x-3)",
+       "rel": "!=",
+       "r": "7-2*x-3",
+       "mit": {
+        "x": 5
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kennung": "rr.potenz",
+   "entwurf_schluessel": "R8",
+   "name": "Potenzen",
+   "merksatz": "Hoch drei heißt: die Zahl dreimal hinschreiben und malnehmen.",
+   "urteil": "richtig",
+   "merksatz_geaendert": false,
+   "aenderung": null,
+   "im_bestand_gedeckt": [
+    "voraus: n gleiche Faktoren gilt für n = 1, 2, 3 …; Hoch 0 und negativ eigens festgelegt; gleiche Basis",
+    "fehler: Basis mal Hochzahl; Plus statt Mal"
+   ],
+   "luecken": [
+    {
+     "wo": "voraus",
+     "text": "Die Klammer entscheidet über die Basis: (−2)² = 4, aber −2² = −4 (erst Hoch, dann das Minus, Regel 4).",
+     "grund": "Bei negativer Basis ist die Gefahr groß; der Text sagt nur „gleiche Faktoren“.",
+     "pruefung": [
+      {
+       "l": "(-2)**2",
+       "rel": "==",
+       "r": "4"
+      },
+      {
+       "l": "-2**2",
+       "rel": "==",
+       "r": "-4"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kennung": "rr.kuerzen",
+   "entwurf_schluessel": "R9",
+   "name": "Erweitern und Kürzen",
+   "merksatz": "Oben und unten dasselbe mal oder geteilt – der Bruch bleibt gleich.",
+   "urteil": "richtig; Grenze „nicht plus/minus“ fehlt",
+   "merksatz_geaendert": false,
+   "aenderung": null,
+   "im_bestand_gedeckt": [
+    "voraus: Faktor nicht null, ganzer Zähler und Nenner",
+    "fehler: aus Summen kürzen"
+   ],
+   "luecken": [
+    {
+     "wo": "fehler",
+     "text": "Auf beiden Seiten dasselbe addieren oder subtrahieren: ½ ist nicht (1 + 1)/(2 + 1) = ⅔. Nur Mal und Geteilt lassen den Wert des Bruchs gleich.",
+     "grund": "„Oben und unten dasselbe“ wird gern auf Plus und Minus übertragen; im Merksatz steht „mal oder geteilt“, aber der Fehler dazu fehlt.",
+     "pruefung": [
+      {
+       "l": "1/2",
+       "rel": "!=",
+       "r": "(1+1)/(2+1)"
+      },
+      {
+       "l": "(1+1)/(2+1)",
+       "rel": "==",
+       "r": "2/3"
+      }
+     ]
+    },
+    {
+     "wo": "genau",
+     "text": "Geteilt geht nur mit einer Zahl, die in Zähler und Nenner ohne Rest aufgeht: 12/18 wird durch 6 zu 2/3; durch 5 lässt sich 12/18 nicht kürzen, weil 12 : 5 Rest 2 lässt.",
+     "grund": "„dasselbe geteilt“ gilt in ganzen Zahlen nur bei gemeinsamem Teiler.",
+     "pruefung": [
+      {
+       "l": "12/18",
+       "rel": "==",
+       "r": "2/3"
+      },
+      {
+       "l": "12 % 5",
+       "rel": "==",
+       "r": "2"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kennung": "rr.bruchrechnen",
+   "entwurf_schluessel": "R10",
+   "name": "Rechnen mit Brüchen",
+   "merksatz": "Plus und Minus: erst gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: mit dem Kehrwert malnehmen.",
+   "urteil": "richtig; Merksatz drei Sätze, am Handy drei Zeilen",
+   "merksatz_geaendert": false,
+   "aenderung": null,
+   "im_bestand_gedeckt": [
+    "voraus: Nenner nie null; beim Teilen auch der Teiler-Bruch nicht null; ungleichnamig erst gleichnamig",
+    "fehler: Zähler plus Zähler und Nenner plus Nenner"
+   ],
+   "luecken": [
+    {
+     "wo": "voraus",
+     "text": "Gemischte Zahlen zuerst in einen Bruch umwandeln: 1½ · 2 = 3/2 · 2 = 3, nicht 1 · 2 + ½ = 2½.",
+     "grund": "Gemischte Zahlen sind eine eigene Lernkarte (bruch.rechnen, gemischt); im Merksatz-Text kommen sie nicht vor.",
+     "pruefung": [
+      {
+       "l": "(3/2)*2",
+       "rel": "==",
+       "r": "3"
+      },
+      {
+       "l": "1*2+1/2",
+       "rel": "==",
+       "r": "5/2"
+      },
+      {
+       "l": "1*2+1/2",
+       "rel": "!=",
+       "r": "3"
+      }
+     ]
+    },
+    {
+     "wo": "voraus",
+     "text": "Mal und Geteilt brauchen keinen gemeinsamen Nenner. Ganze Zahlen schreibt man als Bruch mit Nenner 1: 3 : ½ = 3/1 · 2/1 = 6.",
+     "grund": "Häufige Übertragung der Plus-Regel auf Mal.",
+     "pruefung": [
+      {
+       "l": "3/(1/2)",
+       "rel": "==",
+       "r": "6"
+      },
+      {
+       "l": "(3/1)*(2/1)",
+       "rel": "==",
+       "r": "6"
+      }
+     ]
+    },
+    {
+     "wo": "fehler",
+     "text": "Beim Teilen den falschen Bruch kehren: 3/4 : 1/2 = 3/4 · 2/1 = 3/2, nicht 4/3 · 1/2 = 2/3. Der Bruch, durch den man teilt, wird gekehrt, nicht der erste.",
+     "grund": "Der Merksatz „mit dem Kehrwert malnehmen“ sagt nicht, von welchem Bruch.",
+     "pruefung": [
+      {
+       "l": "(3/4)/(1/2)",
+       "rel": "==",
+       "r": "3/2"
+      },
+      {
+       "l": "(4/3)*(1/2)",
+       "rel": "==",
+       "r": "2/3"
+      },
+      {
+       "l": "(3/4)*(2/1)",
+       "rel": "==",
+       "r": "3/2"
+      }
+     ]
+    }
+   ],
+   "kurzfassung": {
+    "haupt": "Plus, Minus: gleiche Nenner. Mal: oben mal oben, unten mal unten. Geteilt: mal Kehrwert.",
+    "kompakt": "Plus/Minus: gleiche Nenner. Mal: oben·oben, unten·unten. Geteilt: mal Kehrwert.",
+    "begruendung": "Beide Fassungen sagen dasselbe wie die drei Sätze: „erst gleiche Nenner“ wird zu „gleiche Nenner“ (der Zusatz „erst“ trägt nichts, die Reihenfolge steht in der Erklärung), „mit dem Kehrwert malnehmen“ zu „mal Kehrwert“. Länge 88 und 78 statt 110 Zeichen; die anderen Merksätze der Liste haben höchstens 75 Zeichen und brauchen am Handy zwei Zeilen. Gemessen ist die Zeilenzahl nicht (Annahme: 78 Zeichen ergeben zwei Zeilen, 88 vermutlich drei).",
+    "verbindlich": false
+   }
+  },
+  {
+   "kennung": "rr.verhaeltnis",
+   "entwurf_schluessel": "R11",
+   "name": "Verhältnis (Dreisatz)",
+   "merksatz": "Erst auf eins, dann auf viele.",
+   "urteil": "richtig; „gilt nur bei direkter Proportionalität“ im Bestandstext zu eng",
+   "merksatz_geaendert": false,
+   "aenderung": null,
+   "im_bestand_gedeckt": [
+    "voraus: nur direkte Proportionalität; Menge null gehört Wert null",
+    "fehler: Grundgebühr; mehr-weniger"
+   ],
+   "luecken": [
+    {
+     "wo": "voraus",
+     "text": "„Erst auf eins“ klappt auch bei umgekehrter Proportionalität, nur mit umgekehrten Rechenarten: 3 Arbeiter brauchen 12 Tage, 1 Arbeiter 36 Tage, 4 Arbeiter 9 Tage. Nicht anwendbar ist es, wenn ein fester Betrag dazukommt.",
+     "grund": "Berichtigung am Bestandstext „Gilt nur bei direkter Proportionalität“: Das gilt für y = k · x, nicht für das Vorgehen „erst auf eins“. Der Merksatz selbst bleibt richtig.",
+     "pruefung": [
+      {
+       "l": "3*12",
+       "rel": "==",
+       "r": "36"
+      },
+      {
+       "l": "36/4",
+       "rel": "==",
+       "r": "9"
+      }
+     ]
+    },
+    {
+     "wo": "fehler",
+     "text": "Mit Grundgebühr proportional rechnen: Taxi mit 3 € Grundgebühr und 2 € je km: 2 km kosten 7 €, 4 km aber 11 €, nicht 14 €.",
+     "grund": "Konkretes Zahlenbeispiel zum bestehenden Fehlerhinweis.",
+     "pruefung": [
+      {
+       "l": "3+2*2",
+       "rel": "==",
+       "r": "7"
+      },
+      {
+       "l": "3+2*4",
+       "rel": "==",
+       "r": "11"
+      },
+      {
+       "l": "2*(3+2*2)",
+       "rel": "==",
+       "r": "14"
+      },
+      {
+       "l": "3+2*4",
+       "rel": "!=",
+       "r": "14"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kennung": "rr.gegenrechnung",
+   "entwurf_schluessel": "R12",
+   "name": "Gegenrechnung",
+   "merksatz": "Rückwärts rechnen: Was zuletzt kam, geht zuerst.",
+   "urteil": "richtig",
+   "merksatz_geaendert": false,
+   "aenderung": null,
+   "im_bestand_gedeckt": [
+    "voraus: Rechnung muss umkehrbar sein; Mal null; durch null",
+    "fehler: gleiche Reihenfolge; Quadrat nur eine Lösung"
+   ],
+   "luecken": [
+    {
+     "wo": "voraus",
+     "text": "Aus x² = −4 gibt es keine Lösung, weil ein Quadrat nie negativ ist. Auch Runden und der Betrag lassen sich nicht umkehren.",
+     "grund": "Die Wurzel als Gegenrechnung zum Quadrat existiert nur für Zahlen ab null; im Text fehlt der Fall „keine Lösung“.",
+     "pruefung": [
+      {
+       "l": "x**2",
+       "rel": "==",
+       "r": "-4",
+       "bereich": {
+        "x": [
+         -50,
+         50
+        ]
+       },
+       "modus": "keine"
+      }
+     ]
+    },
+    {
+     "wo": "fehler",
+     "text": "Nur die Reihenfolge umkehren, aber die Rechenzeichen nicht: Bei 3x − 2 = 10 rechnet man erst + 2, dann : 3 und erhält x = 4. Wer − 2 und dann · 3 rechnet, bekommt 24.",
+     "grund": "„Rückwärts rechnen“ meint Reihenfolge und Gegenrechnung zugleich.",
+     "pruefung": [
+      {
+       "l": "3*4-2",
+       "rel": "==",
+       "r": "10"
+      },
+      {
+       "l": "(10+2)/3",
+       "rel": "==",
+       "r": "4"
+      },
+      {
+       "l": "(10-2)*3",
+       "rel": "==",
+       "r": "24"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kennung": "rr.waage",
+   "entwurf_schluessel": "R13",
+   "name": "Gleichung als Waage",
+   "merksatz": "Eine Gleichung ist eine Waage: Was du links tust, musst du auch rechts tun.",
+   "urteil": "richtig als Gedächtnisstütze; „Was du tust“ ist keine Erlaubnis für jede Rechnung",
+   "merksatz_geaendert": false,
+   "aenderung": null,
+   "im_bestand_gedeckt": [
+    "voraus: nur mit Zahl ungleich null malnehmen/teilen; Term vorher klären",
+    "fehler: nur einen Summanden; Quadrieren und Probe",
+    "verwandt: Ungleichung dreht bei negativer Zahl"
+   ],
+   "luecken": [
+    {
+     "wo": "voraus",
+     "text": "„Dasselbe tun“ heißt nicht „jede Rechnung ist erlaubt“: Quadrieren fügt Lösungen hinzu (aus x = 2 wird x² = 4, und −2 erfüllt x² = 4, aber nicht x = 2). Bei Ungleichungen dreht mal oder geteilt durch eine negative Zahl das Zeichen um.",
+     "grund": "Die Ungleichung steht nur im Feld „Verwandt“, nicht dort, wo die Grenze der Regel steht.",
+     "pruefung": [
+      {
+       "l": "x**2",
+       "rel": "==",
+       "r": "4",
+       "mit": {
+        "x": -2
+       }
+      },
+      {
+       "l": "x",
+       "rel": "!=",
+       "r": "2",
+       "mit": {
+        "x": -2
+       }
+      }
+     ]
+    },
+    {
+     "wo": "fehler",
+     "text": "Aus beiden Seiten nur eine Wurzel ziehen: x² = 9 hat zwei Lösungen, 3 und −3. Nur 3 zu nennen ist unvollständig.",
+     "grund": "Gehört zu Klasse 9/10 und ist ein klassischer Waage-Fehler.",
+     "pruefung": [
+      {
+       "l": "x**2",
+       "rel": "==",
+       "r": "9",
+       "mit": {
+        "x": 3
+       }
+      },
+      {
+       "l": "x**2",
+       "rel": "==",
+       "r": "9",
+       "mit": {
+        "x": -3
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kennung": "rr.nullprodukt",
+   "entwurf_schluessel": "R14",
+   "name": "Nullprodukt",
+   "merksatz": "Mal ergibt nur null, wenn eine der Zahlen null ist.",
+   "urteil": "richtig",
+   "merksatz_geaendert": false,
+   "aenderung": null,
+   "im_bestand_gedeckt": [
+    "voraus: Produkt auf der einen, null auf der anderen Seite",
+    "fehler: Produkt = 6"
+   ],
+   "luecken": [
+    {
+     "wo": "fehler",
+     "text": "Durch x teilen statt ausklammern: x² = 4x durch x gibt x = 4 und verliert x = 0. Richtig: x² − 4x = 0, also x · (x − 4) = 0, also x = 0 oder x = 4.",
+     "grund": "Einer der häufigsten Fehler im Zusammenhang mit dieser Regel; fehlt im Fehlerhinweis.",
+     "pruefung": [
+      {
+       "l": "x**2",
+       "rel": "==",
+       "r": "4*x",
+       "mit": {
+        "x": 0
+       }
+      },
+      {
+       "l": "x**2",
+       "rel": "==",
+       "r": "4*x",
+       "mit": {
+        "x": 4
+       }
+      },
+      {
+       "l": "x*(x-4)",
+       "rel": "==",
+       "r": "0",
+       "mit": {
+        "x": 0
+       }
+      },
+      {
+       "l": "x*(x-4)",
+       "rel": "==",
+       "r": "0",
+       "mit": {
+        "x": 4
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

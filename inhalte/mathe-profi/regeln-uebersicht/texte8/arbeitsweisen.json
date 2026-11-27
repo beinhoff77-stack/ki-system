@@ -1,0 +1,243 @@
+{
+ "hinweis": "Acht Arbeitsweisen: Kurzbeschreibung (ein Satz), Beispiel (Klasse 5/6, nachgerechnet in pruefen.py) und Erklärung (zwei bis drei Sätze). Arbeitsweisen haben im Bestand keine Kennung (kennungen.json, „ohne_kennung“); „kennung_vorschlag“ ist nur ein Vorschlag.",
+ "stand": "2026-11-27",
+ "arbeitsweisen": [
+  {
+   "name": "Probe",
+   "entwurf_schluessel": "weise-1",
+   "kennung_vorschlag": "aw.probe",
+   "merksatz": "Setz ein und rechne nach.",
+   "kurz": "Die Probe zeigt, ob ein gefundenes Ergebnis wirklich stimmt.",
+   "beispiel": {
+    "klasse": 5,
+    "text": "Gleichung x + 8 = 20, gefunden: x = 12. Probe: 12 + 8 = 20, das stimmt. Wäre x = 11 gefunden worden, ergäbe die Probe 11 + 8 = 19, und das ist nicht 20: Der Fehler ist entdeckt.",
+    "pruefung": [
+     {
+      "l": "12+8",
+      "rel": "==",
+      "r": "20"
+     },
+     {
+      "l": "11+8",
+      "rel": "==",
+      "r": "19"
+     },
+     {
+      "l": "11+8",
+      "rel": "!=",
+      "r": "20"
+     }
+    ]
+   },
+   "erklaerung": "Die Probe hilft nach jeder Rechnung, bei der man das Ergebnis einsetzen oder umkehren kann, vor allem bei Gleichungen. Man braucht sie, wenn man sich unsicher ist oder das Ergebnis seltsam aussieht. Wichtig ist, in die ursprüngliche Aufgabe einzusetzen und nicht in die umgeformte, sonst bleiben Umformungsfehler unbemerkt."
+  },
+  {
+   "name": "Überschlag",
+   "entwurf_schluessel": "weise-2",
+   "kennung_vorschlag": "aw.ueberschlag",
+   "merksatz": "Erst grob, dann genau.",
+   "kurz": "Der Überschlag schätzt das Ergebnis grob, damit grobe Fehler sofort auffallen.",
+   "beispiel": {
+    "klasse": 5,
+    "text": "398 · 52 grob: 400 · 50 = 20 000. Genau gerechnet kommt 20 696 heraus, das passt zur Größenordnung. Wäre 2 069,6 oder 206 960 herausgekommen, hätte der Überschlag den Fehler sofort gezeigt.",
+    "pruefung": [
+     {
+      "l": "400*50",
+      "rel": "==",
+      "r": "20000"
+     },
+     {
+      "l": "398*52",
+      "rel": "==",
+      "r": "20696"
+     },
+     {
+      "l": "398*52",
+      "rel": "!=",
+      "r": "2069.6"
+     },
+     {
+      "l": "398*52",
+      "rel": "!=",
+      "r": "206960"
+     },
+     {
+      "l": "(398*52)/(400*50)",
+      "rel": "==",
+      "r": "1.0348"
+     }
+    ]
+   },
+   "erklaerung": "Der Überschlag hilft bei jeder größeren Rechnung, besonders mit Komma oder vielen Stellen. Man braucht ihn, wenn man das Ergebnis nicht grob im Kopf einordnen kann oder der Taschenrechner etwas Überraschendes zeigt. Man rundet auf Zahlen, mit denen man im Kopf rechnet, und vergleicht erst dann mit dem genauen Ergebnis."
+  },
+  {
+   "name": "Einheiten",
+   "entwurf_schluessel": "weise-3",
+   "kennung_vorschlag": "aw.einheiten",
+   "merksatz": "Rechne mit Einheiten – die Einheit des Ergebnisses prüft die Rechnung.",
+   "kurz": "Eine Größe besteht aus Zahl und Einheit; die Einheit des Ergebnisses verrät, ob man richtig gerechnet hat.",
+   "beispiel": {
+    "klasse": 5,
+    "text": "Ein Zug fährt in 2 h genau 60 km. 60 km : 2 h = 30 km/h, das ist eine Geschwindigkeit, wie gefragt. Wer 60 km · 2 h rechnet, erhält 120 km·h, und das ist keine Geschwindigkeit: Der Ansatz stimmt nicht.",
+    "pruefung": [
+     {
+      "l": "60/2",
+      "rel": "==",
+      "r": "30"
+     },
+     {
+      "l": "60*2",
+      "rel": "==",
+      "r": "120"
+     }
+    ]
+   },
+   "erklaerung": "Das Rechnen mit Einheiten hilft bei jeder Sachaufgabe und jeder Formel. Man braucht es, wenn Größen in verschiedenen Einheiten vorkommen, etwa m und cm, oder wenn man nicht weiß, welche Rechenart gemeint ist. Passt die Einheit des Ergebnisses nicht zur Frage, ist der Ansatz falsch."
+  },
+  {
+   "name": "Skizze",
+   "entwurf_schluessel": "weise-4",
+   "kennung_vorschlag": "aw.skizze",
+   "merksatz": "Zeichne, was du weißt.",
+   "kurz": "Eine Skizze macht eine Aufgabe sichtbar: Was liegt wo, und welche Zahl gehört wohin?",
+   "beispiel": {
+    "klasse": 5,
+    "text": "Ein Garten ist 8 m lang und 5 m breit, ringsum soll ein Zaun stehen. In der Skizze sieht man vier Seiten: 8 + 5 + 8 + 5 = 26 m. Wer nur 8 + 5 = 13 m rechnet, hat zwei Seiten vergessen.",
+    "pruefung": [
+     {
+      "l": "8+5+8+5",
+      "rel": "==",
+      "r": "26"
+     },
+     {
+      "l": "2*(8+5)",
+      "rel": "==",
+      "r": "26"
+     },
+     {
+      "l": "8+5",
+      "rel": "==",
+      "r": "13"
+     },
+     {
+      "l": "8+5",
+      "rel": "!=",
+      "r": "26"
+     }
+    ]
+   },
+   "erklaerung": "Eine Skizze hilft bei Aufgaben mit Figuren, Wegen, Lagen oder Teilen eines Ganzen. Man braucht sie, wenn im Text Wörter wie neben, zwischen, ringsum oder entlang vorkommen oder wenn unklar ist, welche Zahl wohin gehört. Sie muss nicht schön sein, sie soll nur Namen und Zahlen an die richtige Stelle bringen."
+  },
+  {
+   "name": "Ansatz",
+   "entwurf_schluessel": "weise-5",
+   "kennung_vorschlag": "aw.ansatz",
+   "merksatz": "Gegeben, gesucht, Rechnung, Antwort.",
+   "kurz": "Der Ansatz ordnet eine Textaufgabe in vier Schritte, bevor gerechnet wird.",
+   "beispiel": {
+    "klasse": 5,
+    "text": "Ein Heft kostet 2,50 €. Wie viel kosten 6 Hefte? Gegeben: 2,50 € je Heft, 6 Hefte. Gesucht: der Gesamtpreis. Rechnung: 6 · 2,50 € = 15 €. Antwort: 6 Hefte kosten 15 €.",
+    "pruefung": [
+     {
+      "l": "6*2.5",
+      "rel": "==",
+      "r": "15"
+     }
+    ]
+   },
+   "erklaerung": "Der Ansatz hilft bei jeder Textaufgabe, besonders wenn viele Zahlen vorkommen. Man braucht ihn, wenn man nicht weiß, womit man anfangen soll oder welche Zahlen überhaupt gebraucht werden. Der Antwortsatz am Ende zeigt, ob das Ergebnis zur Frage passt."
+  },
+  {
+   "name": "Begründen",
+   "entwurf_schluessel": "weise-6",
+   "kennung_vorschlag": "aw.begruenden",
+   "merksatz": "Nenne den Satz, dann wende ihn an. Für „stimmt nicht“ genügt ein Gegenbeispiel.",
+   "kurz": "Begründen heißt, den passenden Satz zu nennen und anzuwenden; widerlegen kann man mit einem Gegenbeispiel.",
+   "beispiel": {
+    "klasse": 5,
+    "text": "Warum ist 4 536 durch 3 teilbar? Satz: Eine Zahl ist durch 3 teilbar, wenn es ihre Quersumme ist. Quersumme: 4 + 5 + 3 + 6 = 18, und 18 : 3 = 6. Widerlegen: „Bei Minus darf man tauschen“ stimmt nicht, denn 5 − 3 = 2, aber 3 − 5 = −2.",
+    "pruefung": [
+     {
+      "l": "quersumme(4536)",
+      "rel": "==",
+      "r": "18"
+     },
+     {
+      "l": "4536 % 3",
+      "rel": "==",
+      "r": "0"
+     },
+     {
+      "l": "18/3",
+      "rel": "==",
+      "r": "6"
+     },
+     {
+      "l": "5-3",
+      "rel": "==",
+      "r": "2"
+     },
+     {
+      "l": "3-5",
+      "rel": "==",
+      "r": "-2"
+     },
+     {
+      "l": "5-3",
+      "rel": "!=",
+      "r": "3-5"
+     }
+    ]
+   },
+   "erklaerung": "Das Begründen wird verlangt bei „Warum“, „Zeige“ und „Stimmt das?“. Man braucht es, wenn ein Ergebnis allein nicht reicht und gesagt werden soll, weshalb es gilt. Viele passende Beispiele beweisen nichts, aber ein einziges Gegenbeispiel widerlegt eine Behauptung."
+  },
+  {
+   "name": "Ablesen und Darstellen",
+   "entwurf_schluessel": "weise-7",
+   "kennung_vorschlag": "aw.ablesen_und_darstellen",
+   "merksatz": "Erst Achsen und Einheiten lesen, dann die Werte.",
+   "kurz": "Beim Ablesen zählen zuerst Achsen und Einheiten, erst dann der Wert.",
+   "beispiel": {
+    "klasse": 5,
+    "text": "Im Säulendiagramm zählt die senkrechte Achse in Fünferschritten: 0, 5, 10 und so weiter. Eine Säule endet am dritten Strich über der Null. Ihr Wert ist 3 · 5 = 15, nicht 3.",
+    "pruefung": [
+     {
+      "l": "3*5",
+      "rel": "==",
+      "r": "15"
+     },
+     {
+      "l": "3*5",
+      "rel": "!=",
+      "r": "3"
+     }
+    ]
+   },
+   "erklaerung": "Das Ablesen hilft bei Tabellen, Diagrammen, Zahlenstrahlen und Koordinatensystemen. Man braucht es, wenn die Striche nicht in Einerschritten laufen, die Achse nicht bei null beginnt oder zwei Größen im Bild stehen. Wer Achsen und Einheiten zuerst liest, vermeidet die häufigsten Ablesefehler."
+  },
+  {
+   "name": "Formel anwenden",
+   "entwurf_schluessel": "weise-8",
+   "kennung_vorschlag": "aw.formel_anwenden",
+   "merksatz": "Formel hinschreiben, einsetzen, auflösen.",
+   "kurz": "Bei einer Formel schreibt man erst die Beziehung hin und setzt dann die Zahlen ein.",
+   "beispiel": {
+    "klasse": 5,
+    "text": "Fläche eines Rechtecks: A = a · b. Mit a = 7 cm und b = 4 cm ist A = 7 cm · 4 cm = 28 cm². Umgekehrt: Ist A = 28 cm² und a = 7 cm, dann ist b = 28 cm² : 7 cm = 4 cm.",
+    "pruefung": [
+     {
+      "l": "7*4",
+      "rel": "==",
+      "r": "28"
+     },
+     {
+      "l": "28/7",
+      "rel": "==",
+      "r": "4"
+     }
+    ]
+   },
+   "erklaerung": "Formeln helfen, wenn zwischen Größen eine feste Beziehung gilt, etwa bei Fläche, Umfang, Prozent oder Geschwindigkeit. Man braucht sie, wenn die Aufgabe Werte für Größen liefert und eine andere Größe verlangt. Erst die Formel hinschreiben, dann einsetzen und zuletzt auflösen verhindert, dass Zahlen am falschen Platz landen."
+  }
+ ]
+}

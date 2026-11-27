@@ -1,0 +1,927 @@
+{
+ "hinweis": "Lehrplan-Bezug je Rechenregel, nur aus Quellen im Repo. Im Repo liegen keine Lehrplan-Dateien; Quellen sind inhalte/themenliste.json (Klasse und Lernbereich je Thema und Schulart, Stichworte aus dem Lehrplan) und inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt (Kopie der Lehrplan-Daten der App) mit der Auswertung lehrplan-pruefung.md. Wo nichts vorliegt, steht „nicht geprüft“.",
+ "stand": "2026-11-27",
+ "quellen": [
+  "inhalte/themenliste.json",
+  "inhalte/mathe-profi/regeln-uebersicht/klassenleiter.json",
+  "inhalte/mathe-profi/regeln-uebersicht/lehrplan-kopie-zuordnung.txt",
+  "inhalte/mathe-profi/regeln-uebersicht/lehrplan-pruefung.md"
+ ],
+ "regeln": [
+  {
+   "kennung": "rr.stellenwert",
+   "entwurf_schluessel": "R1",
+   "name": "Stellenwert",
+   "einfuehrung": {
+    "klasse_gymnasium": 5,
+    "thema": "zahlen.natuerlich",
+    "titel": "Natürliche Zahlen",
+    "lernbereich_gymnasium": "M5 1 Natürliche und ganze Zahlen – Addition und Subtraktion",
+    "lehrplan_stichworte_gymnasium": [
+     "M5 1.1 Natürliche Zahlen und ihre Erweiterung zu den ganzen Zahlen"
+    ],
+    "realschule_klasse": 5,
+    "lernbereich_realschule": "M5 1 Natürliche Zahlen",
+    "ib_myp_jahr": 1,
+    "lernbereich_ib": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
+   },
+   "lehrplan_kopie_neu_in_jahr": {
+    "realschule_gruppe_I": "5",
+    "realschule_gruppe_II_III": "5",
+    "ib_myp": "1",
+    "bemerkung": ""
+   },
+   "klassen_in_denen_die_regel_vorkommt": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.natuerlich",
+     "lernbereich_gymnasium": "M5 1 Natürliche und ganze Zahlen – Addition und Subtraktion"
+    },
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "bruch.dezimal",
+     "lernbereich_gymnasium": "M6 1 Rationale Zahlen"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "bruch.prozent_grundwert",
+     "lernbereich_gymnasium": "M7 3 Lineare Gleichungen und Vertiefung der Prozentrechnung"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "terme.potenzgesetze_ganzzahlig",
+     "lernbereich_gymnasium": "M8 4 Bruchterme und Bruchgleichungen"
+    }
+   ],
+   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "nicht_geprueft": [
+    "LehrplanPLUS an der Quelle",
+    "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
+   ]
+  },
+  {
+   "kennung": "rr.plusminus",
+   "entwurf_schluessel": "R2",
+   "name": "Plus und Minus mit negativen Zahlen",
+   "einfuehrung": {
+    "klasse_gymnasium": 5,
+    "thema": "zahlen.ganz",
+    "titel": "Ganze Zahlen",
+    "lernbereich_gymnasium": "M5 1 Natürliche und ganze Zahlen – Addition und Subtraktion",
+    "lehrplan_stichworte_gymnasium": [
+     "Addition und Subtraktion ganzer Zahlen",
+     "Ganze Zahlen ordnen, am Zahlenstrahl darstellen, Betrag veranschaulichen",
+     "Notwendigkeit negativer Zahlen erkennen, Alltagssituationen beschreiben"
+    ],
+    "realschule_klasse": 5,
+    "lernbereich_realschule": "M5 2 Ganze Zahlen",
+    "ib_myp_jahr": 2,
+    "lernbereich_ib": "MYP 2 Numerical and abstract reasoning (Zahl und Algebra)"
+   },
+   "lehrplan_kopie_neu_in_jahr": {
+    "realschule_gruppe_I": "5",
+    "realschule_gruppe_II_III": "5",
+    "ib_myp": "2",
+    "bemerkung": ""
+   },
+   "klassen_in_denen_die_regel_vorkommt": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.ganz",
+     "lernbereich_gymnasium": "M5 1 Natürliche und ganze Zahlen – Addition und Subtraktion"
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "lernbereich_gymnasium": "M6 1 Rationale Zahlen"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "terme.umformen",
+     "lernbereich_gymnasium": "M7 1 Terme mit Variablen"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "funktionen.linear",
+     "lernbereich_gymnasium": "M8 2 Lineare Funktionen"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "zahlen.reell",
+     "lernbereich_gymnasium": "M9 1 Quadratwurzeln"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.ganzrational",
+     "lernbereich_gymnasium": "M10 4 Ganzrationale Funktionen"
+    }
+   ],
+   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "nicht_geprueft": [
+    "LehrplanPLUS an der Quelle",
+    "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
+   ]
+  },
+  {
+   "kennung": "rr.vorzeichen",
+   "entwurf_schluessel": "R3",
+   "name": "Vorzeichen bei Mal und Geteilt",
+   "einfuehrung": {
+    "klasse_gymnasium": 5,
+    "thema": "zahlen.rechengesetze",
+    "titel": "Grundrechenarten und Rechengesetze",
+    "lernbereich_gymnasium": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division",
+    "lehrplan_stichworte_gymnasium": [
+     "Kommutativ- und Assoziativgesetz für Rechenvorteile nutzen; Differenz als Summe deuten",
+     "Multiplikation und Division ganzer Zahlen",
+     "Schriftlich multiplizieren und dividieren, Ergebnisse abschätzen"
+    ],
+    "realschule_klasse": 5,
+    "lernbereich_realschule": "M5 1 Natürliche Zahlen",
+    "ib_myp_jahr": 1,
+    "lernbereich_ib": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
+   },
+   "lehrplan_kopie_neu_in_jahr": {
+    "realschule_gruppe_I": "5",
+    "realschule_gruppe_II_III": "5",
+    "ib_myp": "1",
+    "bemerkung": ""
+   },
+   "klassen_in_denen_die_regel_vorkommt": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.rechengesetze",
+     "lernbereich_gymnasium": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division"
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "lernbereich_gymnasium": "M6 1 Rationale Zahlen"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "terme.umformen",
+     "lernbereich_gymnasium": "M7 1 Terme mit Variablen"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "funktionen.linear",
+     "lernbereich_gymnasium": "M8 2 Lineare Funktionen"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "gleichungen.quadratisch",
+     "lernbereich_gymnasium": "M9 2 Quadratische Funktionen"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.ganzrational",
+     "lernbereich_gymnasium": "M10 4 Ganzrationale Funktionen"
+    }
+   ],
+   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "nicht_geprueft": [
+    "LehrplanPLUS an der Quelle",
+    "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
+   ]
+  },
+  {
+   "kennung": "rr.reihenfolge",
+   "entwurf_schluessel": "R4",
+   "name": "Reihenfolge beim Rechnen",
+   "einfuehrung": {
+    "klasse_gymnasium": 5,
+    "thema": "zahlen.rechengesetze",
+    "titel": "Grundrechenarten und Rechengesetze",
+    "lernbereich_gymnasium": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division",
+    "lehrplan_stichworte_gymnasium": [
+     "Kommutativ- und Assoziativgesetz für Rechenvorteile nutzen; Differenz als Summe deuten",
+     "Multiplikation und Division ganzer Zahlen",
+     "Schriftlich multiplizieren und dividieren, Ergebnisse abschätzen"
+    ],
+    "realschule_klasse": 5,
+    "lernbereich_realschule": "M5 1 Natürliche Zahlen",
+    "ib_myp_jahr": 1,
+    "lernbereich_ib": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
+   },
+   "lehrplan_kopie_neu_in_jahr": {
+    "realschule_gruppe_I": "5",
+    "realschule_gruppe_II_III": "5",
+    "ib_myp": "1",
+    "bemerkung": ""
+   },
+   "klassen_in_denen_die_regel_vorkommt": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.rechengesetze",
+     "lernbereich_gymnasium": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division"
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "lernbereich_gymnasium": "M6 1 Rationale Zahlen"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "terme.umformen",
+     "lernbereich_gymnasium": "M7 1 Terme mit Variablen"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "funktionen.linear",
+     "lernbereich_gymnasium": "M8 2 Lineare Funktionen"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "funktionen.quadratisch",
+     "lernbereich_gymnasium": "M9 2 Quadratische Funktionen"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.exponential_log",
+     "lernbereich_gymnasium": "M10 1 Exponentielles Wachstum und Logarithmus"
+    }
+   ],
+   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "nicht_geprueft": [
+    "LehrplanPLUS an der Quelle",
+    "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
+   ]
+  },
+  {
+   "kennung": "rr.tauschen",
+   "entwurf_schluessel": "R5",
+   "name": "Tauschen, Klammern, Zusammenfassen",
+   "einfuehrung": {
+    "klasse_gymnasium": 5,
+    "thema": "zahlen.ganz",
+    "titel": "Ganze Zahlen",
+    "lernbereich_gymnasium": "M5 1 Natürliche und ganze Zahlen – Addition und Subtraktion",
+    "lehrplan_stichworte_gymnasium": [
+     "Addition und Subtraktion ganzer Zahlen",
+     "Ganze Zahlen ordnen, am Zahlenstrahl darstellen, Betrag veranschaulichen",
+     "Notwendigkeit negativer Zahlen erkennen, Alltagssituationen beschreiben"
+    ],
+    "realschule_klasse": 5,
+    "lernbereich_realschule": "M5 2 Ganze Zahlen",
+    "ib_myp_jahr": 2,
+    "lernbereich_ib": "MYP 2 Numerical and abstract reasoning (Zahl und Algebra)"
+   },
+   "lehrplan_kopie_neu_in_jahr": {
+    "realschule_gruppe_I": "5",
+    "realschule_gruppe_II_III": "5",
+    "ib_myp": "2",
+    "bemerkung": ""
+   },
+   "klassen_in_denen_die_regel_vorkommt": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.ganz",
+     "lernbereich_gymnasium": "M5 1 Natürliche und ganze Zahlen – Addition und Subtraktion"
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "lernbereich_gymnasium": "M6 1 Rationale Zahlen"
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "terme.umformen",
+     "lernbereich_gymnasium": "M7 1 Terme mit Variablen"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "gleichungen.lgs2",
+     "lernbereich_gymnasium": "M8 6 Lineare Gleichungssysteme"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "zahlen.reell",
+     "lernbereich_gymnasium": "M9 1 Quadratwurzeln"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.ganzrational",
+     "lernbereich_gymnasium": "M10 4 Ganzrationale Funktionen"
+    }
+   ],
+   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "nicht_geprueft": [
+    "LehrplanPLUS an der Quelle",
+    "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
+   ]
+  },
+  {
+   "kennung": "rr.ausmultiplizieren",
+   "entwurf_schluessel": "R6",
+   "name": "Ausmultiplizieren und Ausklammern",
+   "einfuehrung": {
+    "klasse_gymnasium": 5,
+    "thema": "zahlen.rechengesetze",
+    "titel": "Grundrechenarten und Rechengesetze",
+    "lernbereich_gymnasium": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division",
+    "lehrplan_stichworte_gymnasium": [
+     "Kommutativ- und Assoziativgesetz für Rechenvorteile nutzen; Differenz als Summe deuten",
+     "Multiplikation und Division ganzer Zahlen",
+     "Schriftlich multiplizieren und dividieren, Ergebnisse abschätzen"
+    ],
+    "realschule_klasse": 5,
+    "lernbereich_realschule": "M5 1 Natürliche Zahlen",
+    "ib_myp_jahr": 1,
+    "lernbereich_ib": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
+   },
+   "lehrplan_kopie_neu_in_jahr": {
+    "realschule_gruppe_I": "5",
+    "realschule_gruppe_II_III": "5",
+    "ib_myp": "1",
+    "bemerkung": ""
+   },
+   "klassen_in_denen_die_regel_vorkommt": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.rechengesetze",
+     "lernbereich_gymnasium": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division"
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "lernbereich_gymnasium": "M6 1 Rationale Zahlen"
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "terme.umformen",
+     "lernbereich_gymnasium": "M7 1 Terme mit Variablen"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "gleichungen.bruch",
+     "lernbereich_gymnasium": "M8 4 Bruchterme und Bruchgleichungen"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "zahlen.reell",
+     "lernbereich_gymnasium": "M9 1 Quadratwurzeln"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "gleichungen.polynom",
+     "lernbereich_gymnasium": "M10 4 Ganzrationale Funktionen"
+    }
+   ],
+   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "nicht_geprueft": [
+    "LehrplanPLUS an der Quelle",
+    "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
+   ]
+  },
+  {
+   "kennung": "rr.minusklammer",
+   "entwurf_schluessel": "R7",
+   "name": "Minus vor der Klammer",
+   "einfuehrung": {
+    "klasse_gymnasium": 7,
+    "thema": "terme.umformen",
+    "titel": "Terme umformen",
+    "lernbereich_gymnasium": "M7 1 Terme mit Variablen",
+    "lehrplan_stichworte_gymnasium": [
+     "M7 1.2 Umformen von Termen"
+    ],
+    "realschule_klasse": 7,
+    "lernbereich_realschule": "M7 6 Terme, Gleichungen und Ungleichungen",
+    "ib_myp_jahr": 3,
+    "lernbereich_ib": "MYP 3 Numerical and abstract reasoning (Zahl und Algebra)"
+   },
+   "lehrplan_kopie_neu_in_jahr": {
+    "realschule_gruppe_I": "7",
+    "realschule_gruppe_II_III": "–",
+    "ib_myp": "1",
+    "bemerkung": "Gruppen I und II/III verschieden"
+   },
+   "klassen_in_denen_die_regel_vorkommt": [
+    {
+     "klasse": 5,
+     "art": "Vorwissen",
+     "thema": "zahlen.rechengesetze",
+     "lernbereich_gymnasium": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division"
+    },
+    {
+     "klasse": 6,
+     "art": "Vorwissen",
+     "thema": "bruch.rechnen",
+     "lernbereich_gymnasium": "M6 1 Rationale Zahlen"
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "terme.umformen",
+     "lernbereich_gymnasium": "M7 1 Terme mit Variablen"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "gleichungen.ungleichungen",
+     "lernbereich_gymnasium": "M8 2 Lineare Funktionen"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "gleichungen.quadratisch",
+     "lernbereich_gymnasium": "M9 2 Quadratische Funktionen"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "gleichungen.polynom",
+     "lernbereich_gymnasium": "M10 4 Ganzrationale Funktionen"
+    }
+   ],
+   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "nicht_geprueft": [
+    "LehrplanPLUS an der Quelle",
+    "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt",
+    "Realschule Gruppe II/III und IB: in der Kopie nicht als „neu“ genannt"
+   ]
+  },
+  {
+   "kennung": "rr.potenz",
+   "entwurf_schluessel": "R8",
+   "name": "Potenzen",
+   "einfuehrung": {
+    "klasse_gymnasium": 5,
+    "thema": "zahlen.potenzen_basis",
+    "titel": "Potenzen als Schreibweise",
+    "lernbereich_gymnasium": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division",
+    "lehrplan_stichworte_gymnasium": [
+     "Potenzen mit natürlichen Exponenten, auch ganzzahlige Basen; Quadratzahlen bis 400; große Zahlen mit Zehnerpotenzen",
+     "Sachanwendungen"
+    ],
+    "realschule_klasse": 5,
+    "lernbereich_realschule": "M5 1 Natürliche Zahlen",
+    "ib_myp_jahr": 1,
+    "lernbereich_ib": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
+   },
+   "lehrplan_kopie_neu_in_jahr": {
+    "realschule_gruppe_I": "5",
+    "realschule_gruppe_II_III": "5",
+    "ib_myp": "1",
+    "bemerkung": ""
+   },
+   "klassen_in_denen_die_regel_vorkommt": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "zahlen.potenzen_basis",
+     "lernbereich_gymnasium": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division"
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "zahlen.potenzen_zehner",
+     "lernbereich_gymnasium": "M6 1 Rationale Zahlen"
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "terme.potenzgesetze_natuerlich",
+     "lernbereich_gymnasium": "M7 1 Terme mit Variablen"
+    },
+    {
+     "klasse": 8,
+     "art": "Einführung",
+     "thema": "terme.potenzgesetze_ganzzahlig",
+     "lernbereich_gymnasium": "M8 4 Bruchterme und Bruchgleichungen"
+    },
+    {
+     "klasse": 9,
+     "art": "Einführung",
+     "thema": "zahlen.rationale_exponenten",
+     "lernbereich_gymnasium": "M9 5 Potenzfunktionen mit natürlichen Exponenten und Erweiterung des Potenzbegriffs"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.exponential_log",
+     "lernbereich_gymnasium": "M10 1 Exponentielles Wachstum und Logarithmus"
+    }
+   ],
+   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "nicht_geprueft": [
+    "LehrplanPLUS an der Quelle",
+    "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
+   ]
+  },
+  {
+   "kennung": "rr.kuerzen",
+   "entwurf_schluessel": "R9",
+   "name": "Erweitern und Kürzen",
+   "einfuehrung": {
+    "klasse_gymnasium": 6,
+    "thema": "bruch.brueche",
+    "titel": "Brüche und Anteile",
+    "lernbereich_gymnasium": "M6 1 Rationale Zahlen",
+    "lehrplan_stichworte_gymnasium": [
+     "Anteil, Bruchteil und Ganzes bestimmen",
+     "Anteile deuten und mit Flächendiagrammen veranschaulichen",
+     "Brüche vergleichen, auch über den Hauptnenner"
+    ],
+    "realschule_klasse": 6,
+    "lernbereich_realschule": "M6 1 Rationale Zahlen",
+    "ib_myp_jahr": 1,
+    "lernbereich_ib": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
+   },
+   "lehrplan_kopie_neu_in_jahr": {
+    "realschule_gruppe_I": "6",
+    "realschule_gruppe_II_III": "6",
+    "ib_myp": "1",
+    "bemerkung": ""
+   },
+   "klassen_in_denen_die_regel_vorkommt": [
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "bruch.brueche",
+     "lernbereich_gymnasium": "M6 1 Rationale Zahlen"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "gleichungen.linear",
+     "lernbereich_gymnasium": "M7 3 Lineare Gleichungen und Vertiefung der Prozentrechnung"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "terme.bruchterme",
+     "lernbereich_gymnasium": "M8 4 Bruchterme und Bruchgleichungen"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "abbildungen.aehnlichkeit",
+     "lernbereich_gymnasium": "M9 4 Ähnlichkeit und Strahlensatz"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "stochastik.mehrstufig",
+     "lernbereich_gymnasium": "M10 2 Zusammengesetzte Zufallsexperimente und stochastische Simulationen"
+    }
+   ],
+   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "nicht_geprueft": [
+    "LehrplanPLUS an der Quelle",
+    "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
+   ]
+  },
+  {
+   "kennung": "rr.bruchrechnen",
+   "entwurf_schluessel": "R10",
+   "name": "Rechnen mit Brüchen",
+   "einfuehrung": {
+    "klasse_gymnasium": 6,
+    "thema": "bruch.rechnen",
+    "titel": "Rechnen mit rationalen Zahlen",
+    "lernbereich_gymnasium": "M6 1 Rationale Zahlen",
+    "lehrplan_stichworte_gymnasium": [
+     "Addition und Subtraktion rationaler Zahlen",
+     "Multiplikation und Division rationaler Zahlen",
+     "Rechenvorteile bei Produkten und Quotienten nutzen"
+    ],
+    "realschule_klasse": 6,
+    "lernbereich_realschule": "M6 1 Rationale Zahlen",
+    "ib_myp_jahr": 2,
+    "lernbereich_ib": "MYP 2 Numerical and abstract reasoning (Zahl und Algebra)"
+   },
+   "lehrplan_kopie_neu_in_jahr": {
+    "realschule_gruppe_I": "6",
+    "realschule_gruppe_II_III": "6",
+    "ib_myp": "1",
+    "bemerkung": ""
+   },
+   "klassen_in_denen_die_regel_vorkommt": [
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "bruch.rechnen",
+     "lernbereich_gymnasium": "M6 1 Rationale Zahlen"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "gleichungen.linear",
+     "lernbereich_gymnasium": "M7 3 Lineare Gleichungen und Vertiefung der Prozentrechnung"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "terme.bruchterme",
+     "lernbereich_gymnasium": "M8 4 Bruchterme und Bruchgleichungen"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "stochastik.verknuepft",
+     "lernbereich_gymnasium": "M9 3 Wahrscheinlichkeit verknüpfter Ereignisse"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "stochastik.mehrstufig",
+     "lernbereich_gymnasium": "M10 2 Zusammengesetzte Zufallsexperimente und stochastische Simulationen"
+    }
+   ],
+   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "nicht_geprueft": [
+    "LehrplanPLUS an der Quelle",
+    "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
+   ]
+  },
+  {
+   "kennung": "rr.verhaeltnis",
+   "entwurf_schluessel": "R11",
+   "name": "Verhältnis (Dreisatz)",
+   "einfuehrung": {
+    "klasse_gymnasium": 5,
+    "thema": "groessen.proportional",
+    "titel": "Direkte Proportionalität und Dreisatz",
+    "lernbereich_gymnasium": "M5 4 Größen und ihre Einheiten",
+    "lehrplan_stichworte_gymnasium": [
+     "Schlussrechnung und Dreisatz in Sachaufgaben"
+    ],
+    "realschule_klasse": 6,
+    "lernbereich_realschule": "M6 6 Direkte Proportionalität",
+    "ib_myp_jahr": 2,
+    "lernbereich_ib": "MYP 2 Numerical and abstract reasoning (Zahl und Algebra)"
+   },
+   "lehrplan_kopie_neu_in_jahr": {
+    "realschule_gruppe_I": "5",
+    "realschule_gruppe_II_III": "5",
+    "ib_myp": "2",
+    "bemerkung": ""
+   },
+   "klassen_in_denen_die_regel_vorkommt": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "groessen.proportional",
+     "lernbereich_gymnasium": "M5 4 Größen und ihre Einheiten"
+    },
+    {
+     "klasse": 6,
+     "art": "Einführung",
+     "thema": "bruch.prozent",
+     "lernbereich_gymnasium": "M6 3 Prozentrechnung, Daten und Diagramme"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "bruch.prozent_grundwert",
+     "lernbereich_gymnasium": "M7 3 Lineare Gleichungen und Vertiefung der Prozentrechnung"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "funktionen.linear",
+     "lernbereich_gymnasium": "M8 2 Lineare Funktionen"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "abbildungen.aehnlichkeit",
+     "lernbereich_gymnasium": "M9 4 Ähnlichkeit und Strahlensatz"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "funktionen.trig",
+     "lernbereich_gymnasium": "M10 3 Sinus- und Kosinusfunktion"
+    }
+   ],
+   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "nicht_geprueft": [
+    "LehrplanPLUS an der Quelle",
+    "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
+   ]
+  },
+  {
+   "kennung": "rr.gegenrechnung",
+   "entwurf_schluessel": "R12",
+   "name": "Gegenrechnung",
+   "einfuehrung": {
+    "klasse_gymnasium": 5,
+    "thema": "gleichungen.einfach",
+    "titel": "Einfache Gleichungen",
+    "lernbereich_gymnasium": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division",
+    "lehrplan_stichworte_gymnasium": [
+     "M5 1.2 Addition und Subtraktion ganzer Zahlen",
+     "M5 3.1 Multiplikation und Division ganzer Zahlen"
+    ],
+    "realschule_klasse": 6,
+    "lernbereich_realschule": "M6 5 Terme und Gleichungen",
+    "ib_myp_jahr": 1,
+    "lernbereich_ib": "MYP 1 Numerical and abstract reasoning (Zahl und Algebra)"
+   },
+   "lehrplan_kopie_neu_in_jahr": {
+    "realschule_gruppe_I": "6",
+    "realschule_gruppe_II_III": "6",
+    "ib_myp": "1",
+    "bemerkung": "Realschule in anderer Klasse als Gymnasium"
+   },
+   "klassen_in_denen_die_regel_vorkommt": [
+    {
+     "klasse": 5,
+     "art": "Einführung",
+     "thema": "gleichungen.einfach",
+     "lernbereich_gymnasium": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division"
+    },
+    {
+     "klasse": 6,
+     "art": "Anwendung",
+     "thema": "bruch.rechnen",
+     "lernbereich_gymnasium": "M6 1 Rationale Zahlen"
+    },
+    {
+     "klasse": 7,
+     "art": "Anwendung",
+     "thema": "bruch.prozent_grundwert",
+     "lernbereich_gymnasium": "M7 3 Lineare Gleichungen und Vertiefung der Prozentrechnung"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "gleichungen.formeln",
+     "lernbereich_gymnasium": "M8 1 Funktion und Term"
+    },
+    {
+     "klasse": 9,
+     "art": "Einführung",
+     "thema": "gleichungen.quadratisch",
+     "lernbereich_gymnasium": "M9 2 Quadratische Funktionen"
+    },
+    {
+     "klasse": 10,
+     "art": "Einführung",
+     "thema": "gleichungen.exponential",
+     "lernbereich_gymnasium": "M10 1 Exponentielles Wachstum und Logarithmus"
+    }
+   ],
+   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "nicht_geprueft": [
+    "LehrplanPLUS an der Quelle",
+    "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
+   ]
+  },
+  {
+   "kennung": "rr.waage",
+   "entwurf_schluessel": "R13",
+   "name": "Gleichung als Waage",
+   "einfuehrung": {
+    "klasse_gymnasium": 7,
+    "thema": "gleichungen.linear",
+    "titel": "Lineare Gleichungen",
+    "lernbereich_gymnasium": "M7 3 Lineare Gleichungen und Vertiefung der Prozentrechnung",
+    "lehrplan_stichworte_gymnasium": [
+     "M7 3 Lineare Gleichungen und Vertiefung der Prozentrechnung"
+    ],
+    "realschule_klasse": 7,
+    "lernbereich_realschule": "M7 6 Terme, Gleichungen und Ungleichungen",
+    "ib_myp_jahr": 2,
+    "lernbereich_ib": "MYP 2 Numerical and abstract reasoning (Zahl und Algebra)"
+   },
+   "lehrplan_kopie_neu_in_jahr": {
+    "realschule_gruppe_I": "7",
+    "realschule_gruppe_II_III": "7",
+    "ib_myp": "2",
+    "bemerkung": ""
+   },
+   "klassen_in_denen_die_regel_vorkommt": [
+    {
+     "klasse": 5,
+     "art": "Vorwissen",
+     "thema": "gleichungen.einfach",
+     "lernbereich_gymnasium": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division"
+    },
+    {
+     "klasse": 7,
+     "art": "Einführung",
+     "thema": "gleichungen.linear",
+     "lernbereich_gymnasium": "M7 3 Lineare Gleichungen und Vertiefung der Prozentrechnung"
+    },
+    {
+     "klasse": 8,
+     "art": "Anwendung",
+     "thema": "gleichungen.ungleichungen",
+     "lernbereich_gymnasium": "M8 2 Lineare Funktionen"
+    },
+    {
+     "klasse": 9,
+     "art": "Anwendung",
+     "thema": "gleichungen.quadratisch",
+     "lernbereich_gymnasium": "M9 2 Quadratische Funktionen"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "gleichungen.exponential",
+     "lernbereich_gymnasium": "M10 1 Exponentielles Wachstum und Logarithmus"
+    }
+   ],
+   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "nicht_geprueft": [
+    "LehrplanPLUS an der Quelle",
+    "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt"
+   ]
+  },
+  {
+   "kennung": "rr.nullprodukt",
+   "entwurf_schluessel": "R14",
+   "name": "Nullprodukt",
+   "einfuehrung": {
+    "klasse_gymnasium": 9,
+    "thema": "gleichungen.quadratisch",
+    "titel": "Quadratische Gleichungen (allgemein)",
+    "lernbereich_gymnasium": "M9 2 Quadratische Funktionen",
+    "lehrplan_stichworte_gymnasium": [
+     "Lösbarkeit begründen",
+     "Quadratische Gleichungen mit passender Methode lösen"
+    ],
+    "realschule_klasse": 9,
+    "lernbereich_realschule": "M9 7 Quadratische Funktionen und quadratische Gleichungen",
+    "ib_myp_jahr": 4,
+    "lernbereich_ib": "MYP 4 Numerical and abstract reasoning (Zahl und Algebra)"
+   },
+   "lehrplan_kopie_neu_in_jahr": {
+    "realschule_gruppe_I": "9",
+    "realschule_gruppe_II_III": "–",
+    "ib_myp": "–",
+    "bemerkung": "Gruppen I und II/III verschieden; IB: nicht als „neu“ genannt"
+   },
+   "klassen_in_denen_die_regel_vorkommt": [
+    {
+     "klasse": 5,
+     "art": "Vorwissen",
+     "thema": "gleichungen.einfach",
+     "lernbereich_gymnasium": "M5 3 Natürliche und ganze Zahlen – Multiplikation und Division"
+    },
+    {
+     "klasse": 8,
+     "art": "Vorwissen",
+     "thema": "terme.bruchterme",
+     "lernbereich_gymnasium": "M8 4 Bruchterme und Bruchgleichungen"
+    },
+    {
+     "klasse": 9,
+     "art": "Einführung",
+     "thema": "gleichungen.quadratisch",
+     "lernbereich_gymnasium": "M9 2 Quadratische Funktionen"
+    },
+    {
+     "klasse": 10,
+     "art": "Anwendung",
+     "thema": "gleichungen.polynom",
+     "lernbereich_gymnasium": "M10 4 Ganzrationale Funktionen"
+    }
+   ],
+   "befund": "Thema der Einführung steht in themenliste.json und in der Lehrplan-Kopie; die Regel selbst ist nicht geprüft (der Lehrplan nennt Themen, keine Rechenregeln).",
+   "nicht_geprueft": [
+    "LehrplanPLUS an der Quelle",
+    "ob die Regel in genau dieser Klasse als Einführung oder Vorwissen gilt",
+    "Realschule Gruppe II/III und IB: in der Kopie nicht als „neu“ genannt"
+   ]
+  }
+ ]
+}

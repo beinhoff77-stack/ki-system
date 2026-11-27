@@ -1,3 +1,5 @@
+> **Vom Nutzer am 27.11. angenommen** („Die Lehrer-Startseite gefällt mir besser“). Vorlage für den Bau zusammen mit „Was wackelt“ (Entwurf 4). Beim Bau die Zeile „Schuljahr“ glätten (Aufklapper „andere Schularten“ ruhiger setzen).
+
 # Vorgabe LS, erste Runde: Lehrer-Startseite „Was ist los?“
 
 Designer, 27.11.2026. Entwurf: `index.html` (eine Datei, ohne Netz), Bilder: `bilder/`. Adresse: `#g=nacht`, `#leer=1`.

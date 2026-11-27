@@ -57,6 +57,28 @@ def grafik_ok(g):
     return False
 
 
+EINER = ["null", "ein", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun", "zehn", "elf", "zwölf", "dreizehn", "vierzehn", "fünfzehn", "sechzehn", "siebzehn", "achtzehn", "neunzehn"]
+ZEHNER = {2: "zwanzig", 3: "dreißig", 4: "vierzig", 5: "fünfzig", 6: "sechzig", 7: "siebzig", 8: "achtzig", 9: "neunzig"}
+
+
+def zahlwoerter(n):
+    """Zahlwort(e) einer Zahl unter 1000 (klein, zusammengeschrieben); sonst leer."""
+    if n < 20:
+        return [EINER[n]]
+    if n < 100:
+        z, e = divmod(n, 10)
+        return [ZEHNER[z]] if e == 0 else [("ein" if e == 1 else EINER[e]) + "und" + ZEHNER[z]]
+    if n < 1000:
+        h, r = divmod(n, 100)
+        basis = ("ein" if h == 1 else EINER[h]) + "hundert"
+        return [basis] if r == 0 else [basis + w for w in zahlwoerter(r)]
+    return []
+
+
+# Zahlwörter unter einer Million werden zusammengeschrieben (nicht „dreihunderttausend vierzig“)
+GETRENNT = re.compile(r"(?:hundert|tausend)\s+(?:ein|eins|zwei|drei|vier|fünf|sechs|sieben|acht|neun|zehn|elf|zwölf|\w*zehn|\w*zig|\w+und\w+|hundert)\b", re.I)
+
+
 def texte_von(q):
     return [q["f"]["text"], q["h"], q["w"]] + list(q.get("a", [])) + [q["f"].get("hinweis", "")]
 
@@ -78,6 +100,7 @@ for a in sorted(A, key=lambda a: (THEMEN.index(a["thema"]), KARTEN[a["thema"]].i
     text = q["f"]["text"]
     for t in texte_von(q):
         assert not ZWEIDEUTIG.search(t), (kenn, "Bruch nicht eindeutig", t)
+        assert not GETRENNT.search(t), (kenn, "Zahlwort getrennt geschrieben", t)
         assert "Leo" not in re.findall(r"\w+", t) and "Rosa" not in re.findall(r"\w+", t), (kenn, "Name")
     assert text not in alle_texte and text not in BESTAND_TEXT[a["thema"]], (kenn, "Fragetext schon vorhanden")
     b = bau_ohne_zahl(text)
@@ -123,7 +146,11 @@ for a in sorted(A, key=lambda a: (THEMEN.index(a["thema"]), KARTEN[a["thema"]].i
         im_text, im_tipp = zahlen_im(text), zahlen_im(q["h"])
         for v in soll:
             assert abs(v) not in im_text, (kenn, v, "gesuchte Zahl steht schon im Text")
-            assert abs(v) < 10 or abs(v) not in im_tipp, (kenn, v, "Tipp verrät die Zahl")
+            assert abs(v) not in im_tipp, (kenn, v, "Tipp verrät die Zahl")
+            if abs(v) >= 2:
+                alles = " ".join([text, q["f"]["schablone"], q["f"].get("hinweis", ""), q["h"]]).lower()
+                for w in zahlwoerter(int(abs(v))):
+                    assert not re.search(r"\b" + w + r"\b", alles), (kenn, v, "Lückenwert als Zahlwort im Text oder Tipp", w)
         n_rechnung += len(soll)
         for i, liste in sorted(a["fb"].items()):
             werte = set()

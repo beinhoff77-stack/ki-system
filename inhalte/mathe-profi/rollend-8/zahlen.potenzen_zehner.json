@@ -21,12 +21,22 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
+     "luecke": 1,
      "index": null,
-     "antwort": 40,
+     "antwort": 9,
+     "rechnung": "9",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "10 mit dem Exponenten malgenommen"
+     "beschreibung": "die Ziffern statt der Nullen gezählt"
+    },
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 24,
+     "rechnung": "L1 * 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Exponenten malgenommen statt addiert"
     }
    ],
    "aufgabe": {
@@ -37,22 +47,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "10⁴ bedeutet 10 · 10 · 10 · 10. Jeder Faktor 10 schiebt die 1 eine Stelle nach links. Hinter der 1 stehen deshalb ① Nullen, und 10⁴ ist die Zahl ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Die Zahl 100 000 000 ist eine 1 mit vielen Nullen. Man schreibt sie als 10 hoch ①. Nimmt man die Zahl dreimal hintereinander mit 10 mal, schreibt man das Ergebnis als 10 hoch ②. Das Ergebnis ist ③-mal so groß wie die alte Zahl.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      4,
-      10000
+      8,
+      11,
+      1000
      ]
     },
     "c": [
-     "4",
-     "10 ** 4"
+     "8",
+     "(8) + 3",
+     "10 ** (((8) + 3) - (8))"
     ],
-    "h": "Zähle die Faktoren 10.",
-    "w": "Es sind vier Faktoren 10, also vier Nullen hinter der 1: 10⁴ = 10 000."
+    "h": "Zähle die Nullen. Jeder Faktor 10 hängt eine Null an.",
+    "w": "Hinter der 1 stehen 8 Nullen, also 10⁸. Drei Faktoren 10 mehr geben 10¹¹. Die Exponenten werden addiert (8 + 3), nicht malgenommen. 10¹¹ : 10⁸ = 10³ = 1 000."
    }
   },
   {
@@ -70,6 +82,7 @@
      "luecke": null,
      "index": null,
      "antwort": 100001,
+     "rechnung": "100000 + 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "1 dazugezählt statt den Exponenten um 1 erhöht"
@@ -78,9 +91,10 @@
      "luecke": null,
      "index": null,
      "antwort": 6,
+     "rechnung": "5 + 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "den Exponenten als Antwort genannt"
+     "beschreibung": "den neuen Exponenten als Antwort genannt"
     }
    ],
    "aufgabe": {
@@ -115,19 +129,21 @@
    "fehlbilder": [
     {
      "luecke": null,
-     "index": 0,
-     "antwort": "In Zeile 1",
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig: der Exponent zählt die Nullen"
+     "beschreibung": "diese Zeile folgt richtig aus Zeile 1: 10 · 6 = 60"
     },
     {
      "luecke": null,
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig: eine 1 mit sechs Nullen"
+     "beschreibung": "diese Zeile folgt richtig aus Zeile 2: 60 ist sechsmal so groß wie 10"
     }
    ],
    "aufgabe": {
@@ -138,7 +154,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kind erklärt 10⁶. Zeile 1: Der Exponent 6 sagt, wie viele Nullen hinter der 1 stehen. Zeile 2: Also ist 10⁶ = 1 000 000. Zeile 3: Damit ist 10⁶ sechsmal so groß wie 10. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Kind erklärt 10⁶. Zeile 1: Der Exponent 6 sagt, mit wie viel man 10 malnimmt: 10⁶ = 10 · 6. Zeile 2: Also ist 10⁶ = 60. Zeile 3: Damit ist 10⁶ sechsmal so groß wie 10. In welcher Zeile steckt der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -146,10 +162,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Rechne einmal 1 000 000 : 10.",
-    "w": "Zeile 1 und 2 stimmen. 1 000 000 : 10 = 100 000, also ist 10⁶ hunderttausendmal so groß wie 10. Der Exponent zählt die Faktoren, nicht das Vielfache."
+    "h": "Schreibe 10³ einmal ausführlich auf.",
+    "w": "Zeile 1 ist falsch: Der Exponent zählt die Faktoren 10, 10⁶ = 10 · 10 · 10 · 10 · 10 · 10 = 1 000 000. Die Zeilen 2 und 3 folgen richtig aus dem Fehler: 10 · 6 = 60, und 60 ist sechsmal 10."
    }
   },
   {
@@ -167,9 +183,19 @@
      "luecke": 1,
      "index": null,
      "antwort": 5,
+     "rechnung": "5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Ziffern gezählt statt die Stellen, die das Komma wandert"
+    },
+    {
+     "luecke": 3,
+     "index": null,
+     "antwort": 4,
+     "rechnung": "L1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Exponenten nicht angepasst"
     }
    ],
    "aufgabe": {
@@ -180,22 +206,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Zahl 62 000 soll wissenschaftlich geschrieben werden. Das Komma kommt hinter die erste Ziffer: 6,2. Dabei wandert es ① Stellen nach links. Die Zehnerpotenz 10 hoch ① ist die Zahl ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Die Zahl 62 000 soll als 6,2 · 10 hoch ① geschrieben werden. Die Zehnerpotenz 10 hoch ① ist ausgeschrieben die Zahl ②. Die zehnmal so große Zahl 620 000 hat bei gleicher Ziffernfolge den Exponenten ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       4,
-      10000
+      10000,
+      5
      ]
     },
     "c": [
      "4",
-     "10 ** 4"
+     "10 ** (4)",
+     "(4) + 1"
     ],
     "h": "Zähle, um wie viele Stellen das Komma wandert.",
-    "w": "Von 62 000 zu 6,2 wandert das Komma 4 Stellen nach links. 10⁴ = 10 000, und 6,2 · 10 000 = 62 000."
+    "w": "Von 62 000 zu 6,2 wandert das Komma 4 Stellen nach links, also 10⁴ = 10 000; 6,2 · 10 000 = 62 000. Die zehnmal so große Zahl braucht eine Stelle mehr: 6,2 · 10⁵ = 620 000."
    }
   },
   {
@@ -213,6 +241,7 @@
      "luecke": null,
      "index": 0,
      "antwort": "73 · 10⁵",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "zwei Ziffern vor dem Komma"
@@ -221,6 +250,7 @@
      "luecke": null,
      "index": 2,
      "antwort": "0,73 · 10⁷",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "eine Null vor dem Komma"
@@ -229,9 +259,10 @@
      "luecke": null,
      "index": 3,
      "antwort": "7,3 · 10⁵",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "zwei Stellen zu wenig gezählt"
+     "beschreibung": "eine Stelle zu wenig gezählt"
     }
    ],
    "aufgabe": {
@@ -253,8 +284,8 @@
     "o": {
      "index": 1
     },
-    "h": "Vor dem Komma muss genau eine Ziffer von 1 bis 9 stehen.",
-    "w": "7 300 000 = 7,3 · 10⁶. Die ersten und dritten Formen haben denselben Wert, sind aber nicht wissenschaftlich. 7,3 · 10⁵ wäre nur 730 000."
+    "h": "Prüfe die Form: Wie viele Ziffern stehen vor dem Komma?",
+    "w": "7 300 000 = 7,3 · 10⁶. Die erste und die dritte Form haben denselben Wert, sind aber nicht wissenschaftlich (zwei Ziffern bzw. eine Null vor dem Komma). 7,3 · 10⁵ wäre nur 730 000."
    }
   },
   {
@@ -272,17 +303,19 @@
      "luecke": null,
      "index": 0,
      "antwort": "In Zeile 1",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig: eine Ziffer vor dem Komma"
     },
     {
      "luecke": null,
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig: es sind 4 Stellen"
+     "beschreibung": "diese Zeile folgt richtig aus Zeile 2; der Fehler steht schon in Zeile 2"
     }
    ],
    "aufgabe": {
@@ -293,7 +326,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kind schreibt 48 500 wissenschaftlich. Zeile 1: Komma hinter die erste Ziffer: 4,85. Zeile 2: Von 48 500 bis 4,85 wandert das Komma 4 Stellen nach links. Zeile 3: Weil es nach links wandert, ist der Exponent negativ: 4,85 · 10⁻⁴. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Kind schreibt 48 500 wissenschaftlich. Zeile 1: Komma hinter die erste Ziffer: 4,85. Zeile 2: Von 48 500 bis 4,85 wandert das Komma 5 Stellen nach links. Zeile 3: Also ist 48 500 = 4,85 · 10⁵. In welcher Zeile steckt der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -301,10 +334,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "Prüfe grob: Ist 48 500 groß oder klein?",
-    "w": "Zeile 1 und 2 stimmen. 48 500 ist eine große Zahl, der Exponent ist deshalb positiv: 4,85 · 10⁴. Negative Exponenten gehören zu Zahlen unter 1."
+    "h": "Zähle die Stellen zwischen den beiden Kommastellungen selbst nach.",
+    "w": "Zeile 1 stimmt. In Zeile 2 sind es nur 4 Stellen (48 500 → 4,85). Zeile 3 folgt richtig aus Zeile 2, übernimmt aber die falsche 5. Richtig ist 4,85 · 10⁴."
    }
   },
   {
@@ -319,12 +352,22 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
-     "luecke": 2,
+     "luecke": 1,
      "index": null,
-     "antwort": 3000,
+     "antwort": 18,
+     "rechnung": "6 * 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Kilo und Mega verwechselt"
+     "beschreibung": "die Exponenten malgenommen statt Tausend aufgesetzt"
+    },
+    {
+     "luecke": 3,
+     "index": null,
+     "antwort": 3000,
+     "rechnung": "3 * 10 ** 9 // 10 ** 6",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Kilo und Mega verwechselt, wie bei ② gerechnet"
     }
    ],
    "aufgabe": {
@@ -335,22 +378,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Kraftwerk leistet 3 GW. Giga bedeutet 10⁹, also sind das 3 · 10⁹ Watt. Eine Million ist 10⁶; in Millionen Watt sind das ①. Ein Kilowatt ist 10³ Watt; in Kilowatt sind es ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Mega bedeutet 10⁶. Giga ist tausendmal so viel wie Mega. Ein Kraftwerk leistet 3 GW. Das sind 3 · 10 hoch ① Watt. In Megawatt sind es ② MW. In Kilowatt sind es ③ kW.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
+      9,
       3000,
       3000000
      ]
     },
     "c": [
-     "3 * 10 ** 9 // 10 ** 6",
-     "3 * 10 ** 9 // 10 ** 3"
+     "9",
+     "3 * 10 ** ((9) - 6)",
+     "(3 * 10 ** ((9) - 6)) * 1000"
     ],
-    "h": "Teile die Wattzahl einmal durch 10⁶ und einmal durch 10³.",
-    "w": "3 GW = 3 000 000 000 W. Das sind 3 000 Millionen Watt und 3 000 000 kW."
+    "h": "Giga steht eine Stufe über Mega. Kilo ist tausendmal kleiner als Mega.",
+    "w": "Giga = 1 000 · 10⁶ = 10⁹, also 3 GW = 3 · 10⁹ W. In MW: 3 · 10⁹ : 10⁶ = 3 000 MW. 1 MW sind 1 000 kW, also 3 000 · 1 000 = 3 000 000 kW."
    }
   },
   {
@@ -368,14 +413,16 @@
      "luecke": null,
      "index": null,
      "antwort": 250,
+     "rechnung": "3000 / 12",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Mega und Kilo gleich behandelt"
+     "beschreibung": "falsch herum geteilt"
     },
     {
      "luecke": null,
      "index": null,
-     "antwort": 4000,
+     "antwort": 0.004,
+     "rechnung": "12 / 3000",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Einheiten nicht angeglichen"
@@ -413,19 +460,21 @@
    "fehlbilder": [
     {
      "luecke": null,
-     "index": 0,
-     "antwort": "In Zeile 1",
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig: Tera ist 10¹²"
+     "beschreibung": "diese Zeile folgt richtig aus Zeile 1: die Vorsilbe wird durch die Potenz ersetzt"
     },
     {
      "luecke": null,
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig: die Vorsilbe wird durch die Potenz ersetzt"
+     "beschreibung": "diese Zeile folgt richtig aus Zeile 2: 7 · 10⁹ sind 7 000 · 10⁶"
     }
    ],
    "aufgabe": {
@@ -436,7 +485,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kind rechnet 7 TB in Byte um. Zeile 1: Tera bedeutet 10¹². Zeile 2: Also sind 7 TB = 7 · 10¹² Byte. Zeile 3: Das sind 7 000 Millionen Byte. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Kind rechnet 7 TB in Byte um. Zeile 1: Tera bedeutet 10⁹. Zeile 2: Also sind 7 TB = 7 · 10⁹ Byte. Zeile 3: Das sind 7 000 Millionen Byte. In welcher Zeile steckt der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -444,10 +493,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 0
     },
-    "h": "Wie viele Nullen hat eine Million?",
-    "w": "Zeile 1 und 2 stimmen. Eine Million ist 10⁶, und 7 · 10¹² : 10⁶ = 7 · 10⁶. Es sind also 7 000 000 Millionen Byte; 7 000 Millionen wären nur 7 · 10⁹."
+    "h": "Tera steht über Giga (10⁹).",
+    "w": "Zeile 1 ist falsch: Tera bedeutet 10¹², nicht 10⁹. Die Zeilen 2 und 3 folgen richtig aus dem Fehler (7 · 10⁹ sind 7 000 Millionen). Richtig wären 7 · 10¹² Byte, also 7 000 000 Millionen."
    }
   },
   {
@@ -464,10 +513,20 @@
     {
      "luecke": 2,
      "index": null,
-     "antwort": 5,
+     "antwort": 6,
+     "rechnung": "L1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die 1 mitgezählt"
+    },
+    {
+     "luecke": 3,
+     "index": null,
+     "antwort": 10,
+     "rechnung": "L1 + 4",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zu 6 noch 4 addiert statt 4 abzuziehen"
     }
    ],
    "aufgabe": {
@@ -478,22 +537,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Von 10⁰ = 1 geht es durch 10 weiter: 10⁻¹ = 0,1 und 10⁻² = 0,01. Bei 10⁻ⁿ steht die 1 an der n-ten Stelle nach dem Komma. Bei 10⁻⁵ hat die Zahl ① Stellen nach dem Komma, davon ② Nullen vor der 1.",
-     "schablone": "① = □; ② = □",
+     "text": "Die Zahl 0,000001 schreibt man als 10 hoch minus ①. Zwischen dem Komma und der 1 stehen ② Nullen. Eine 10 000-mal so große Zahl schreibt man als 10 hoch minus ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
+      6,
       5,
-      4
+      2
      ]
     },
     "c": [
-     "5",
-     "5 - 1"
+     "6",
+     "(6) - 1",
+     "(6) - 4"
     ],
-    "h": "Schreibe 10⁻⁵ einmal als Dezimalzahl hin.",
-    "w": "10⁻⁵ = 0,00001. Nach dem Komma stehen 5 Stellen; die ersten 4 sind Nullen, dann kommt die 1."
+    "h": "Die Stelle der 1 nach dem Komma ist der Exponent ohne Minus.",
+    "w": "Die 1 steht an der 6. Stelle nach dem Komma: 10⁻⁶. Davor stehen 5 Nullen. Mal 10 000 = mal 10⁴ macht aus 10⁻⁶ die Zahl 10⁻²."
    }
   },
   {
@@ -511,6 +572,7 @@
      "luecke": null,
      "index": null,
      "antwort": 4,
+     "rechnung": "4",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Stelle der 1 mitgezählt"
@@ -519,9 +581,10 @@
      "luecke": null,
      "index": null,
      "antwort": 5,
+     "rechnung": "4 + 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "eine Null zu viel gezählt"
+     "beschreibung": "eins addiert statt abgezogen"
     }
    ],
    "aufgabe": {
@@ -538,7 +601,7 @@
      "wert": 3
     },
     "c": "4 - 1",
-    "h": "Die 1 steht an der vierten Stelle nach dem Komma.",
+    "h": "Schreibe 10⁻¹, 10⁻² und 10⁻³ als Dezimalzahlen hin.",
     "w": "Weg A: 4 − 1 = 3. Weg B: 10⁻⁴ = 0,0001, zwischen Komma und 1 stehen 3 Nullen."
    }
   },
@@ -557,17 +620,19 @@
      "luecke": null,
      "index": 0,
      "antwort": "In Zeile 1",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig, sie liest nur den Exponenten ab"
     },
     {
      "luecke": null,
-     "index": 1,
-     "antwort": "In Zeile 2",
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "diese Zeile ist richtig: 10⁻² liegt unter 1"
+     "beschreibung": "diese Zeile folgt richtig aus Zeile 2; der Fehler steht schon in Zeile 2"
     }
    ],
    "aufgabe": {
@@ -578,7 +643,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kind sagt zu 10⁻² : Zeile 1: Der Exponent ist negativ. Zeile 2: Also ist die Zahl kleiner als 1. Zeile 3: Deshalb ist 10⁻² = −0,01. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Kind sagt zu 10⁻² : Zeile 1: Der Exponent ist negativ. Zeile 2: Also ist die Zahl negativ. Zeile 3: Deshalb ist 10⁻² = −0,01. In welcher Zeile steckt der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -586,10 +651,10 @@
      "In Zeile 3"
     ],
     "o": {
-     "index": 2
+     "index": 1
     },
-    "h": "Kann eine Zahl kleiner als 1 und trotzdem größer als null sein?",
-    "w": "Zeile 1 und 2 stimmen. 10⁻² = 0,01 liegt zwischen null und 1. Ein negativer Exponent macht die Zahl klein, nicht negativ."
+    "h": "Wie ist 10⁻¹ aus 10⁰ = 1 entstanden?",
+    "w": "Zeile 1 stimmt. Zeile 2 ist falsch: Ein negativer Exponent macht die Zahl klein, nicht negativ. 10⁻² = 0,01. Zeile 3 folgt richtig aus Zeile 2."
    }
   },
   {
@@ -607,9 +672,19 @@
      "luecke": 1,
      "index": null,
      "antwort": 3,
+     "rechnung": "3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur die Nullen nach dem Komma gezählt"
+    },
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 5,
+     "rechnung": "L1 + 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "in die falsche Richtung angepasst"
     }
    ],
    "aufgabe": {
@@ -620,22 +695,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Die Zahl 0,00036 soll wissenschaftlich geschrieben werden. Das Komma kommt hinter die erste Ziffer ungleich null: 3,6. Dabei wandert es ① Stellen nach rechts. Die Zehnerpotenz 10 hoch ① ist ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Die Zahl 0,00036 schreibt man wissenschaftlich als 3,6 · 10 hoch minus ①. Die zehnmal so große Zahl hat bei gleicher Ziffernfolge den Exponenten minus ②. Die tausendmal kleinere Zahl hat den Exponenten minus ③.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       4,
-      10000
+      3,
+      7
      ]
     },
     "c": [
      "4",
-     "10 ** 4"
+     "(4) - 1",
+     "(4) + 3"
     ],
     "h": "Zähle die Stellen, die das Komma nach rechts wandert.",
-    "w": "0,00036 = 3,6 · 10⁻⁴. Das Komma wandert 4 Stellen nach rechts, 10⁴ = 10 000, und 3,6 : 10 000 ergibt wieder 0,00036."
+    "w": "0,00036 = 3,6 · 10⁻⁴ (das Komma wandert 4 Stellen). Zehnmal so groß ist 0,0036 = 3,6 · 10⁻³. Tausendmal kleiner ist 0,00000036 = 3,6 · 10⁻⁷."
    }
   },
   {
@@ -653,6 +730,7 @@
      "luecke": null,
      "index": null,
      "antwort": 3,
+     "rechnung": "3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur den Exponenten genommen"
@@ -661,9 +739,10 @@
      "luecke": null,
      "index": null,
      "antwort": 2,
+     "rechnung": "2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Nullen nicht mitgezählt"
+     "beschreibung": "nur die Ziffern 2 und 5 gezählt, die Nullen nicht"
     }
    ],
    "aufgabe": {
@@ -699,6 +778,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "0,00084",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "eine Stelle zu wenig, das wäre 8,4 · 10⁻⁴"
@@ -707,6 +787,7 @@
      "luecke": null,
      "index": 2,
      "antwort": "0,0000084",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "eine Stelle zu viel, das wäre 8,4 · 10⁻⁶"
@@ -715,6 +796,7 @@
      "luecke": null,
      "index": 3,
      "antwort": "840 000",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Exponenten positiv gelesen"
@@ -758,9 +840,19 @@
      "luecke": 1,
      "index": null,
      "antwort": 1000000,
+     "rechnung": "10 ** 6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Mikrometer mit Metern verglichen"
+    },
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 2000,
+     "rechnung": "L1 * 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "mit 2 malgenommen statt durch 2 geteilt"
     }
    ],
    "aufgabe": {
@@ -771,22 +863,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Ein Bakterium ist 2 µm lang. Mikro bedeutet 10⁻⁶ m, Milli bedeutet 10⁻³ m. Ein Millimeter besteht aus ① Mikrometern. Das Bakterium ist der ②-te Teil eines Millimeters.",
-     "schablone": "① = □; ② = □",
+     "text": "Milli bedeutet 10⁻³, Mikro bedeutet 10⁻⁶. Ein Millimeter besteht aus ① Mikrometern. Ein Bakterium ist 2 µm lang. Hintereinander passen ② Bakterien in einen Millimeter und ③ Bakterien in einen Meter.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       1000,
-      500
+      500,
+      500000
      ]
     },
     "c": [
      "10 ** 3",
-     "10 ** 3 // 2"
+     "(10 ** 3) // 2",
+     "((10 ** 3) // 2) * 1000"
     ],
-    "h": "Mikro ist tausendmal kleiner als Milli.",
-    "w": "10⁻³ : 10⁻⁶ = 10³ = 1 000, ein Millimeter hat also 1 000 µm. 1 000 : 2 = 500: das Bakterium ist der 500-te Teil eines Millimeters."
+    "h": "Vergleiche die beiden Exponenten.",
+    "w": "10⁻³ : 10⁻⁶ = 10³ = 1 000, ein Millimeter hat also 1 000 µm. 1 000 : 2 = 500 Bakterien in einem Millimeter. Ein Meter hat 1 000 mm: 500 · 1 000 = 500 000 Bakterien."
    }
   },
   {
@@ -804,14 +898,16 @@
      "luecke": null,
      "index": null,
      "antwort": 4,
+     "rechnung": "1000 / 250",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Nano wie Mikro behandelt"
+     "beschreibung": "Nano wie Mikro behandelt (1 000 statt 10⁶)"
     },
     {
      "luecke": null,
      "index": null,
      "antwort": 4000000,
+     "rechnung": "10 ** 9 // 250",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Millimeter und Meter verwechselt"
@@ -840,7 +936,7 @@
    "kennung": "K7-V042",
    "thema": "zahlen.potenzen_zehner",
    "lernkarte": "vorsilben_klein",
-   "stufe": 2,
+   "stufe": 1,
    "typ": "Verfahren wählen (einfache Form)",
    "antwortform": "auswahl",
    "regel": "id.zahlen.buendeln",
@@ -851,6 +947,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "7 · 10³ s",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Vorsilbe als Vergrößerung gelesen"
@@ -858,15 +955,17 @@
     {
      "luecke": null,
      "index": 2,
-     "antwort": "7 : 10⁻³ s",
+     "antwort": "7 · 10⁻² s",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "geteilt statt malgenommen, das ergibt 7 000 s"
+     "beschreibung": "Milli mit Zenti verwechselt, das ergibt 0,07 s"
     },
     {
      "luecke": null,
      "index": 3,
      "antwort": "7 · 10⁻⁶ s",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Milli mit Mikro verwechselt"
@@ -876,8 +975,8 @@
     "l": "vorsilben_klein",
     "t": "vorsilben_klein",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
      "text": "Eine Messung dauert 7 ms. Welche Rechnung gibt die Zeit in Sekunden?"
@@ -885,7 +984,7 @@
     "a": [
      "7 · 10⁻³ s",
      "7 · 10³ s",
-     "7 : 10⁻³ s",
+     "7 · 10⁻² s",
      "7 · 10⁻⁶ s"
     ],
     "o": {
@@ -899,7 +998,7 @@
    "kennung": "K7-V043",
    "thema": "zahlen.potenzen_zehner",
    "lernkarte": "vergleichen_pruefen",
-   "stufe": 2,
+   "stufe": 1,
    "typ": "Verfahren wählen (einfache Form)",
    "antwortform": "auswahl",
    "regel": "rr.potenz",
@@ -910,6 +1009,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "zuerst die Zahlen vor der Zehnerpotenz vergleichen",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "dann käme hier 8 · 10⁶ heraus, obwohl es die kleinere Zahl ist"
@@ -918,6 +1018,7 @@
      "luecke": null,
      "index": 2,
      "antwort": "die Exponenten addieren und die Summen vergleichen",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Addieren hat mit dem Vergleich nichts zu tun"
@@ -926,6 +1027,7 @@
      "luecke": null,
      "index": 3,
      "antwort": "die Ziffern beider Zahlen zählen",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "funktioniert nur bei ausgeschriebenen Zahlen, nicht in dieser Schreibweise"
@@ -935,11 +1037,11 @@
     "l": "vergleichen_pruefen",
     "t": "vergleichen_pruefen",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
-     "text": "Du sollst 3 · 10⁷ und 8 · 10⁶ vergleichen. Welches Vorgehen führt sicher zum Ziel?"
+     "text": "Du sollst 3 · 10⁷ und 8 · 10⁶ vergleichen (beide in wissenschaftlicher Schreibweise). Welches Vorgehen führt sicher zum Ziel?"
     },
     "a": [
      "zuerst die Exponenten vergleichen, bei Gleichheit die Zahl davor",
@@ -969,6 +1071,7 @@
      "luecke": null,
      "index": null,
      "antwort": 100,
+     "rechnung": "10 ** 5 // 10 ** 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur die Zehnerpotenzen geteilt"
@@ -977,9 +1080,10 @@
      "luecke": null,
      "index": null,
      "antwort": 500,
+     "rechnung": "200000 // 400",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "beim Teilen der Zahlen davor verrechnet"
+     "beschreibung": "bei 4 · 10³ eine Null vergessen"
     }
    ],
    "aufgabe": {
@@ -1004,7 +1108,7 @@
    "kennung": "K7-V045",
    "thema": "zahlen.potenzen_zehner",
    "lernkarte": "vergleichen_pruefen",
-   "stufe": 3,
+   "stufe": 2,
    "typ": "Anwenden",
    "antwortform": "zahl",
    "regel": "rr.potenz",
@@ -1015,14 +1119,16 @@
      "luecke": null,
      "index": null,
      "antwort": 1000000,
+     "rechnung": "(3 + 7) * 10 ** 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Zahlen davor und die Exponenten einzeln addiert"
+     "beschreibung": "die Zahlen davor addiert und die erste Zehnerpotenz behalten"
     },
     {
      "luecke": null,
      "index": null,
-     "antwort": 310000,
+     "antwort": 307000,
+     "rechnung": "3 * 10 ** 5 + 7 * 10 ** 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die zweite Zahl mit 10³ gelesen"
@@ -1032,8 +1138,8 @@
     "l": "vergleichen_pruefen",
     "t": "vergleichen_pruefen",
     "p": "uebung",
-    "s": 3,
-    "g": "transfer",
+    "s": 2,
+    "g": "einkleidung",
     "y": "zahl",
     "f": {
      "text": "Zwei Landkreise werden zusammengelegt. Der eine hat 3 · 10⁵ Einwohner, der andere 7 · 10⁴. Wie viele Einwohner hat der neue Landkreis?"

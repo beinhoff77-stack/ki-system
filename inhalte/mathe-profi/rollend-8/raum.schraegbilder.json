@@ -21,12 +21,31 @@
    "zaehlt": "nein",
    "fehlbilder": [
     {
+     "luecke": 1,
+     "index": null,
+     "antwort": 9,
+     "rechnung": "9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Spitze nicht mitgezählt"
+    },
+    {
      "luecke": 2,
      "index": null,
-     "antwort": 6,
+     "antwort": 9,
+     "rechnung": "L1 - 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "nur die Bodenkanten gezählt"
+    },
+    {
+     "luecke": 3,
+     "index": null,
+     "antwort": 9,
+     "rechnung": "L2 // 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Grundfläche nicht mitgezählt"
     }
    ],
    "aufgabe": {
@@ -37,22 +56,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Eine Pyramide hat ein Sechseck als Grundfläche, also n = 6. Ecken: 6 + 1 = ①. Kanten: 2 · 6 = ②. Flächen: so viele wie Ecken.",
-     "schablone": "① = □; ② = □",
+     "text": "Die Grundfläche einer Pyramide hat 9 Ecken. Mit der Spitze hat die Pyramide ① Ecken. Von der Spitze läuft zu jeder Bodenecke eine Kante; zusammen mit den Bodenkanten hat die Pyramide ② Kanten. Die Seitenflächen sind Dreiecke; mit der Grundfläche hat die Pyramide ③ Flächen.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      7,
-      12
+      10,
+      18,
+      10
      ]
     },
     "c": [
-     "6 + 1",
-     "2 * 6"
+     "9 + 1",
+     "2 * ((9 + 1) - 1)",
+     "(2 * ((9 + 1) - 1)) // 2 + 1"
     ],
-    "h": "Die eine Ecke mehr ist die Spitze.",
-    "w": "Ecken: 6 am Boden und die Spitze, also 7. Kanten: 6 am Boden und 6 zur Spitze, also 12. Flächen: 6 Dreiecke und die Grundfläche, also auch 7."
+    "h": "Zähle getrennt: Boden, Spitze, Seiten.",
+    "w": "Ecken: 9 am Boden und die Spitze, also 10. Kanten: 9 am Boden und 9 zur Spitze, also 18. Flächen: 9 Dreiecke (so viele wie Bodenkanten) und die Grundfläche, also 10."
    }
   },
   {
@@ -70,6 +91,7 @@
      "luecke": null,
      "index": null,
      "antwort": 8,
+     "rechnung": "16 // 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Spitze nicht mitgezählt"
@@ -78,6 +100,7 @@
      "luecke": null,
      "index": null,
      "antwort": 17,
+     "rechnung": "16 + 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "zu den Kanten 1 dazugezählt"
@@ -98,7 +121,7 @@
      "einheit": "Ecken"
     },
     "c": "16 // 2 + 1",
-    "h": "Die Hälfte der Kanten liegt am Boden.",
+    "h": "Wie viele Kanten gehören zum Boden, wie viele laufen zur Spitze?",
     "w": "2n = 16, also n = 8: die Grundfläche ist ein Achteck. Ecken: 8 + 1 = 9."
    }
   },
@@ -117,6 +140,7 @@
      "luecke": null,
      "index": 0,
      "antwort": "In Zeile 1",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig: fünfseitig heißt n = 5"
@@ -125,6 +149,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "In Zeile 2",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "diese Zeile ist richtig: 6 Ecken und 10 Kanten"
@@ -138,7 +163,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Kind beschreibt eine fünfseitige Pyramide. Zeile 1: Die Grundfläche ist ein Fünfeck, also n = 5. Zeile 2: Sie hat 5 + 1 = 6 Ecken und 2 · 5 = 10 Kanten. Zeile 3: Flächen hat sie 5, nämlich die fünf Dreiecke. In welcher Zeile steckt der Fehler?"
+     "text": "Ein Kind beschreibt eine fünfseitige Pyramide. Zeile 1: Die Grundfläche ist ein Fünfeck, also n = 5. Zeile 2: Sie hat 5 + 1 = 6 Ecken und 2 · 5 = 10 Kanten. Zeile 3: Flächen hat sie 5, nämlich die fünf Dreiecke. In welcher Zeile steckt der erste Fehler?"
     },
     "a": [
      "In Zeile 1",
@@ -148,7 +173,7 @@
     "o": {
      "index": 2
     },
-    "h": "Welche Fläche fehlt in der Zählung?",
+    "h": "Zähle die Flächen einer fünfseitigen Pyramide selbst durch.",
     "w": "Zeile 1 und 2 stimmen. Zu den fünf Dreiecken kommt die Grundfläche dazu: 5 + 1 = 6 Flächen."
    }
   },
@@ -167,6 +192,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "parallel",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "parallel verlangt dieselbe Richtung"
@@ -175,6 +201,7 @@
      "luecke": null,
      "index": 2,
      "antwort": "schneidend",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "schneidend verlangt einen gemeinsamen Punkt"
@@ -182,10 +209,11 @@
     {
      "luecke": null,
      "index": 3,
-     "antwort": "deckungsgleich",
+     "antwort": "identisch",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "das beschreibt Figuren, nicht die Lage zweier Geraden"
+     "beschreibung": "identische Geraden liegen ganz übereinander, hier ist y verschieden"
     }
    ],
    "aufgabe": {
@@ -196,26 +224,26 @@
     "g": "darstellung",
     "y": "auswahl",
     "f": {
-     "text": "In einem Quader ABCDEFGH laufen die Kanten AB und CG. Sie haben keinen gemeinsamen Punkt und auch nicht dieselbe Richtung. Wie heißt diese Lage?"
+     "text": "In einem Koordinatensystem liegt die Kante 1 von P(0 | 0 | 0) nach Q(4 | 0 | 0) und die Kante 2 von R(4 | 3 | 0) nach S(4 | 3 | 2). Welche Lage haben die beiden Geraden, auf denen die Kanten liegen?"
     },
     "a": [
      "windschief",
      "parallel",
      "schneidend",
-     "deckungsgleich"
+     "identisch"
     ],
     "o": {
      "index": 0
     },
-    "h": "Kein gemeinsamer Punkt und nicht dieselbe Richtung.",
-    "w": "Zwei Geraden im Raum ohne gemeinsamen Punkt und ohne gleiche Richtung heißen windschief. AB läuft unten nach rechts, CG hinten senkrecht nach oben, und sie treffen sich nicht."
+    "h": "Vergleiche die Richtungen und prüfe, ob es einen gemeinsamen Punkt gibt.",
+    "w": "Kante 1 läuft in x-Richtung, Kante 2 in z-Richtung: nicht dieselbe Richtung, also nicht parallel. Auf Gerade 1 ist y = 0, auf Gerade 2 ist y = 3: es gibt keinen gemeinsamen Punkt. Ohne gemeinsamen Punkt und ohne gleiche Richtung heißen die Geraden windschief."
    }
   },
   {
    "kennung": "K7-V137",
    "thema": "raum.schraegbilder",
    "lernkarte": "lage",
-   "stufe": 2,
+   "stufe": 1,
    "typ": "Verfahren wählen (einfache Form)",
    "antwortform": "auswahl",
    "regel": "id.flaeche_raum.haut",
@@ -226,6 +254,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "prüfen, ob sie sich nicht schneiden",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "windschiefe Kanten schneiden sich auch nicht"
@@ -234,6 +263,7 @@
      "luecke": null,
      "index": 2,
      "antwort": "prüfen, ob sie gleich lang sind",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "gleich lange Kanten können windschief sein"
@@ -242,6 +272,7 @@
      "luecke": null,
      "index": 3,
      "antwort": "prüfen, ob sie zur selben Seitenfläche gehören",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "in einer Fläche können sie sich auch schneiden"
@@ -251,8 +282,8 @@
     "l": "lage",
     "t": "lage",
     "p": "uebung",
-    "s": 2,
-    "g": "mehrschritt",
+    "s": 1,
+    "g": "erkennen",
     "y": "auswahl",
     "f": {
      "text": "Du sollst entscheiden, ob zwei Kanten eines Quaders parallel sind. Welches Vorgehen führt zum Ziel?"
@@ -266,7 +297,7 @@
     "o": {
      "index": 0
     },
-    "h": "Ohne Schnittpunkt heißt im Raum nicht automatisch parallel.",
+    "h": "Überlege, was parallele Kanten von windschiefen unterscheidet.",
     "w": "Parallel verlangt dieselbe Richtung. Kein Schnittpunkt genügt nicht, denn windschiefe Kanten schneiden sich auch nicht. Länge und Seitenfläche entscheiden gar nicht."
    }
   },
@@ -285,6 +316,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "Sie sind gleich lang.",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Länge hat mit der Lage nichts zu tun"
@@ -293,6 +325,7 @@
      "luecke": null,
      "index": 2,
      "antwort": "Sie schneiden sich in genau einem Punkt.",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "dann wären sie schneidend"
@@ -301,6 +334,7 @@
      "luecke": null,
      "index": 3,
      "antwort": "Sie haben dieselbe Richtung.",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "dann wären sie parallel"
@@ -344,9 +378,19 @@
      "luecke": 1,
      "index": null,
      "antwort": 1.5,
+     "rechnung": "3 / 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "mit q malgenommen statt geteilt"
+    },
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 8,
+     "rechnung": "3 + 5",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die gezeichneten Längen addiert"
     }
    ],
    "aufgabe": {
@@ -357,22 +401,22 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Im Schrägbild ist eine Kante nach hinten mit q = 0,5 gezeichnet; gezeichnet ist sie 3 cm lang. Ihre wahre Länge ist 3 cm : 0,5 = ① cm. Eine Kante parallel zur Zeichenebene ist 4 cm gezeichnet und deshalb auch wahr 4 cm lang. Zusammen sind beide wahren Längen ② cm.",
+     "text": "Im Schrägbild ist eine Kante nach hinten mit q = 0,5 gezeichnet; im Bild ist sie 3 cm lang. Ihre wahre Länge ist ① cm. Eine Kante parallel zur Zeichenebene ist im Bild 5 cm lang. Beide Kanten zusammen haben die wahre Länge ② cm.",
      "schablone": "① = □; ② = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
       6,
-      10
+      11
      ]
     },
     "c": [
-     "3 / (1 / 2)",
-     "3 / (1 / 2) + 4"
+     "3 * 2",
+     "(3 * 2) + 5"
     ],
-    "h": "Nach hinten teilst du durch q; parallel zur Zeichenebene bleibt die Länge echt.",
-    "w": "3 cm : 0,5 = 6 cm wahre Länge. Die andere Kante bleibt 4 cm. Zusammen 10 cm."
+    "h": "Welche Kanten werden verkürzt, welche nicht?",
+    "w": "3 cm : 0,5 = 6 cm wahre Länge. Die Kante parallel zur Zeichenebene wird nicht verkürzt: 5 cm. Zusammen 11 cm."
    }
   },
   {
@@ -390,6 +434,7 @@
      "luecke": null,
      "index": null,
      "antwort": 16,
+     "rechnung": "8 / (1 / 2)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "durch q geteilt statt malgenommen"
@@ -398,6 +443,7 @@
      "luecke": null,
      "index": null,
      "antwort": 8,
+     "rechnung": "8",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Verkürzung vergessen"
@@ -411,7 +457,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Eine Kante nach hinten ist wahr 8 cm lang und wird mit q = 0,5 gezeichnet. Weg A: 8 cm mit q malnehmen. Weg B: die Hälfte von 8 cm nehmen. Wie lang ist die Kante im Schrägbild?"
+     "text": "Eine Kante nach hinten ist wahr 8 cm lang und wird mit q = 0,5 gezeichnet. Weg A: 8 cm mit q malnehmen. Weg B: eine Bildlänge ausprobieren und prüfen, ob man beim Zurückrechnen (durch q) auf 8 cm kommt. Wie lang ist die Kante im Schrägbild?"
     },
     "o": {
      "wert": 4,
@@ -419,7 +465,7 @@
     },
     "c": "8 * 1 / 2",
     "h": "Beim Zeichnen nimmst du mal q, beim Zurückrechnen teilst du durch q.",
-    "w": "Weg A: 8 cm · 0,5 = 4 cm. Weg B: die Hälfte von 8 cm ist 4 cm. Im Schrägbild ist sie 4 cm lang."
+    "w": "Weg A: 8 cm · 0,5 = 4 cm. Weg B: Probe mit 4 cm im Bild: 4 cm : 0,5 = 8 cm stimmt. Im Schrägbild ist die Kante 4 cm lang."
    }
   },
   {
@@ -437,6 +483,7 @@
      "luecke": null,
      "index": null,
      "antwort": 5,
+     "rechnung": "10 / 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Länge verkürzt statt der Tiefe"
@@ -445,6 +492,7 @@
      "luecke": null,
      "index": null,
      "antwort": 12,
+     "rechnung": "6 / (1 / 2)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "durch q geteilt statt malgenommen"
@@ -458,14 +506,14 @@
     "g": "einkleidung",
     "y": "zahl",
     "f": {
-     "text": "Ein Quader ist 10 cm lang, 6 cm tief und 4 cm hoch. Im Schrägbild wird die Tiefe mit q = 0,5 gezeichnet. Wie lang wird die Tiefenkante im Schrägbild?"
+     "text": "Ein Quader ist 10 cm lang, 6 cm tief und 4 cm hoch. Seine Vorderfläche liegt in der Zeichenebene, im Schrägbild wird die Tiefe mit q = 0,5 gezeichnet. Wie lang wird die Tiefenkante im Schrägbild?"
     },
     "o": {
      "wert": 3,
      "einheit": "cm"
     },
     "c": "6 * 1 / 2",
-    "h": "Nur die Kanten nach hinten werden verkürzt.",
+    "h": "Welche Kante läuft nach hinten?",
     "w": "6 cm · 0,5 = 3 cm. Länge und Höhe bleiben mit 10 cm und 4 cm in wahrer Größe."
    }
   },
@@ -484,6 +532,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "90°",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das gilt nur beim Quader"
@@ -492,6 +541,7 @@
      "luecke": null,
      "index": 2,
      "antwort": "60°",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "60° ist der Winkel im gleichseitigen Dreieck"
@@ -500,6 +550,7 @@
      "luecke": null,
      "index": 3,
      "antwort": "108°",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "108° gehört zum regelmäßigen Fünfeck"
@@ -524,7 +575,7 @@
     "o": {
      "index": 0
     },
-    "h": "Der Winkel ist der Innenwinkel der Grundfläche.",
+    "h": "Stell dir das Prisma von oben gesehen vor.",
     "w": "Im regelmäßigen Sechseck ist jeder Innenwinkel 120°. Beim geraden Prisma ist das auch der Winkel zwischen zwei benachbarten Seitenflächen."
    }
   },
@@ -543,6 +594,7 @@
      "luecke": null,
      "index": null,
      "antwort": 72,
+     "rechnung": "360 // 5",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Außenwinkel 360° : 5 gerechnet"
@@ -551,6 +603,7 @@
      "luecke": null,
      "index": null,
      "antwort": 90,
+     "rechnung": "90",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "wie beim Quader 90° angenommen"
@@ -571,7 +624,7 @@
      "einheit": "°"
     },
     "c": "(5 - 2) * 180 // 5",
-    "h": "Rechne den Innenwinkel des regelmäßigen Fünfecks.",
+    "h": "Schau von oben auf den Pavillon: Welche Figur siehst du?",
     "w": "Die Innenwinkelsumme ist (5 − 2) · 180° = 540°, jeder Innenwinkel also 540° : 5 = 108°. Das ist auch der Winkel zwischen den Seitenwänden."
    }
   },
@@ -590,6 +643,7 @@
      "luecke": null,
      "index": null,
      "antwort": 45,
+     "rechnung": "360 // 8",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Außenwinkel als Antwort genommen"
@@ -598,6 +652,7 @@
      "luecke": null,
      "index": null,
      "antwort": 1080,
+     "rechnung": "(8 - 2) * 180",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "bei der Innenwinkelsumme stehen geblieben"

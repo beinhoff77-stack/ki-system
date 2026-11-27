@@ -30,7 +30,7 @@ REGELN = {e["kennung"]: e for e in KENN}
 TYP = {
     "LW": ("Lückenweg", "direkt", "nein"),
     "FD": ("Fehler-Detektiv (einfache Form)", "fehler", "ja"),
-    "VW": ("Verfahren wählen (einfache Form)", "mehrschritt", "ja"),
+    "VW": ("Verfahren wählen (einfache Form)", "erkennen", "ja"),
     "ZW": ("Zwei Wege vergleichen", "mehrschritt", "ja"),
     "UM": ("Umkehren", "umkehr", "ja"),
     "BR": ("Brücke", "darstellung", "ja"),
@@ -64,16 +64,68 @@ THEMEN = [
      ["koordinaten", "rotation", "axialschnitt", "koerper_symmetrie"]),
 ]
 
+SUP = {"⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5", "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9", "⁻": "-"}
+# Zahlwörter und Umschreibungen, an denen man einen Lückenwert erraten könnte (Wortanfang genügt)
+ZAHLWORT = {
+    0: r"null|kein\w*|nie|nichts", 1: r"eins|einmal|einzig\w*", 2: r"zwei\w*|doppelt\w*|paar", 3: r"drei\w*|dritt\w*",
+    4: r"vier\w*", 5: r"fünf\w*", 6: r"sechs\w*", 7: r"sieben\w*", 8: r"acht\w*", 9: r"neun\w*", 10: r"zehn\w*",
+    11: r"elf\w*", 12: r"zwölf\w*", 20: r"zwanzig\w*", 100: r"hundert\w*", 1000: r"tausend\w*", 1000000: r"million\w*",
+}
+# Wörter, die zufällig wie ein Zahlwort beginnen, aber nichts verraten
+HARMLOS = re.compile(r"\b(dreieck\w*|viereck\w*|vieleck\w*|zehnerpotenz\w*|viertel\w*|dritte[nrs]?|nachdrei\w*)\b", re.I)
 ZAHL = re.compile(r"[−-]?\d+(?:[  ]\d{3})*(?:[,.]\d+)?")
 ohne_zahlen = lambda t: re.sub(r"\s+", " ", ZAHL.sub("#", t)).strip()
 KOMMA_LUECKE = re.compile(r"\d\s*,\s*[①②③④⑤□]")
 fehler = []
+FEHLERZEILEN = []
 
 
-def rechne(ausdruck):
-    """Rechnet einen Ausdruck mit Brüchen aus (ganze Zahlen werden zu Fraction, damit : exakt bleibt)."""
+def pruefe_fehlbild(k, fb, antwort, richtig, env):
+    """Fehlbild einer Zahl- oder Lückenaufgabe: die beschriebene Rechnung muss genau die gespeicherte Fehlantwort ergeben."""
+    if "rechnung" not in fb:
+        fehler.append(f"{k}: Fehlbild „{fb.get('beschreibung', '')[:40]}“ hat keine Rechnung zum Nachrechnen")
+        return
+    try:
+        v = rechne(fb["rechnung"], env)
+    except Exception as ex:      # noqa: BLE001
+        fehler.append(f"{k}: Fehlbild-Rechnung {fb['rechnung']!r} nicht auswertbar ({ex})")
+        return
+    if not gleich(v, antwort):
+        fehler.append(f"{k}: Fehlbild „{fb['beschreibung'][:50]}“: Rechnung {fb['rechnung']} ergibt {float(v):g}, gespeichert ist {antwort}")
+    if gleich(antwort, richtig):
+        fehler.append(f"{k}: Fehlbild-Antwort {antwort} ist gleich der richtigen Antwort")
+
+
+def rechne(ausdruck, env=None):
+    """Rechnet einen Ausdruck mit Brüchen aus (ganze Zahlen werden zu Fraction, damit : exakt bleibt).
+    env: Namen wie L1, L2 (schon berechnete Lücken) für die Prüfung der Abhängigkeit."""
     genau = re.sub(r"(?<![\w.])(\d+)(?![\w.])", r"F(\1)", ausdruck)
-    return F(eval(genau, {"__builtins__": {}}, {"F": F, "abs": abs, "min": min, "max": max, "round": round}))
+    namen = {"F": F, "abs": abs, "min": min, "max": max, "round": round}
+    namen.update(env or {})
+    return F(eval(genau, {"__builtins__": {}}, namen))
+
+
+def norm(t):
+    """Text für die Suche nach Lückenwerten: Hochzahlen als ^n, Tausenderleerzeichen entfernt."""
+    t = re.sub(r"[⁻⁰¹²³⁴⁵⁶⁷⁸⁹]+", lambda m: "^" + "".join(SUP[c] for c in m.group()), t)
+    return re.sub(r"(?<=\d)[ \u00a0\u202f\u2009](?=\d{3}(?!\d))", "", t)
+
+
+def steht_als_ziffer(w, t):
+    return re.search(rf"(?<![\d,.]){re.escape(str(w))}(?!\d|[,.]\d)", norm(t)) is not None
+
+
+def steht_als_zahlwort(w, t):
+    if w not in ZAHLWORT:
+        return None
+    rest = HARMLOS.sub(" ", t)
+    m = re.search(rf"\b({ZAHLWORT[w]})\b", rest, re.I)
+    return m.group(0) if m else None
+
+
+def gleich(a, b):
+    a, b = float(a), float(b)
+    return abs(a - b) <= 1e-9 + 1e-3 * max(abs(a), abs(b))
 
 
 def als_zahl(x):
@@ -117,25 +169,81 @@ def eintrag_bauen(e, thema, karte_zu_t, kuerzel):
     a = {"l": e["karte"], "t": karte_zu_t.get(e["karte"], e["karte"]), "p": "uebung", "s": s, "g": g, "y": y, "f": f}
 
     if y == "luecken":
-        werte = [als_zahl(rechne(c)) for c in e["c"]]
+        env, werte = {}, []
+        for i, c in enumerate(e["c"], 1):
+            v = rechne(c, env)
+            env[f"L{i}"] = v
+            werte.append(als_zahl(v))
         if werte != list(e["erwartet"]):
             fehler.append(f"{k}: Lücken nachgerechnet {werte}, von Hand erwartet {list(e['erwartet'])}")
         a["o"] = {"werte": werte}
-        a["c"] = list(e["c"])
+        # Im Datensatz steht c ohne Namen: frühere Lücken werden als Klammerausdruck eingesetzt (tools/inhalt_pruefen.py kennt nur Rechnungen)
+        c_aus = []
+        for c in e["c"]:
+            c_aus.append(re.sub(r"\bL(\d+)\b", lambda m: "(" + c_aus[int(m.group(1)) - 1] + ")", c))
+        if [als_zahl(rechne(c)) for c in c_aus] != werte:
+            fehler.append(f"{k}: eingesetzte c-Ausdrücke ergeben andere Werte")
+        a["c"] = c_aus
         if f["schablone"].count("□") != len(werte):
             fehler.append(f"{k}: {f['schablone'].count('□')} Kästchen, aber {len(werte)} Werte")
         if re.search(r"[a-zäöüß]", f["schablone"]):
             fehler.append(f"{k}: Kleinbuchstabe in der Schablone wäre eine Term-Vorlage (dann kein Zahlenfeld)")
         if KOMMA_LUECKE.search(e["text"]) or KOMMA_LUECKE.search(f["schablone"]):
             fehler.append(f"{k}: Komma direkt neben einer Lücke")
+        # --- Selbstprüfung nach den Maßstäben der Gegenprüfung (Lückenwege) ---
+        if len(werte) < 2:
+            fehler.append(f"{k}: Lückenweg braucht mindestens zwei Lücken")
+        if any(not isinstance(w, int) for w in werte):
+            fehler.append(f"{k}: Lückenwerte müssen ganze Zahlen sein: {werte}")
+        sichtbar = {"Text": e["text"], "Schablone": f["schablone"], "Tipp": e["h"], "Eingabehinweis": f.get("hinweis", "")}
         for w in werte:
-            if ZAHL.fullmatch(str(w)) and re.search(rf"(?<![\d,.]){re.escape(str(w))}(?![\d,.])", e["text"]):
-                fehler.append(f"{k}: gesuchte Zahl {w} steht schon im Aufgabentext")
+            for ort, t in sichtbar.items():
+                if steht_als_ziffer(w, t):
+                    fehler.append(f"{k}: Lückenwert {w} steht als Zahl im {ort}")
+                zw = steht_als_zahlwort(w, t)
+                if zw:
+                    fehler.append(f"{k}: Lückenwert {w} steht als Zahlwort „{zw}“ im {ort}")
+        # Abhängigkeit: spätere Lücke muss sich ändern, wenn man eine frühere Lücke verändert
+        abhaengig = []
+        for j in range(1, len(e["c"])):
+            bez = sorted({int(n) for n in re.findall(r"\bL(\d+)\b", e["c"][j]) if int(n) <= j})
+            if not bez:
+                continue
+            geaendert = False
+            for i in bez:
+                for delta in (420, -420):          # 420 ist durch 2, 3, 4, 5, 6, 7, 10, 12 teilbar
+                    env2 = {n: v for n, v in env.items()}
+                    env2[f"L{i}"] = env[f"L{i}"] + delta
+                    if rechne(e["c"][j], env2) != env[f"L{j+1}"]:
+                        geaendert = True
+            if geaendert:
+                abhaengig.append(j + 1)
+            else:
+                fehler.append(f"{k}: Lücke {j+1} ändert sich nicht, wenn man eine frühere Lücke ändert")
+        if not abhaengig:
+            fehler.append(f"{k}: keine spätere Lücke hängt von einer früheren ab")
+        if len(e["c"]) not in abhaengig:
+            fehler.append(f"{k}: die letzte Lücke hängt von keiner früheren ab (wäre eine Nebenfrage)")
+        ent = e.get("entscheidend")
+        if ent not in range(1, len(werte) + 1):
+            fehler.append(f"{k}: Feld entscheidend (Nummer der Lücke an der entscheidenden Stelle) fehlt oder ist falsch")
+        elif not any(fb.get("luecke") == ent for fb in e["fehlbilder"]):
+            fehler.append(f"{k}: zur entscheidenden Lücke {ent} gibt es kein Fehlbild")
+        for fb in e["fehlbilder"]:
+            n = fb.get("luecke")
+            if n not in range(1, len(werte) + 1):
+                fehler.append(f"{k}: Fehlbild mit unbekannter Lücke {n}")
+                continue
+            pruefe_fehlbild(k, fb, fb.get("antwort"), werte[n - 1], env)
     elif y == "zahl":
         wert = als_zahl(rechne(e["c"]))
         if wert != e["erwartet"]:
             fehler.append(f"{k}: nachgerechnet {wert}, von Hand erwartet {e['erwartet']}")
         a["o"] = {"wert": wert}
+        for fb in e["fehlbilder"]:
+            pruefe_fehlbild(k, fb, fb.get("antwort"), wert, {})
+        if steht_als_ziffer(wert, e["h"]) and wert not in (1, 2, 3, 4, 5, 10):
+            fehler.append(f"{k}: Ergebnis {wert} steht im Tipp")
         if e.get("einheit"):
             a["o"]["einheit"] = e["einheit"]
         a["c"] = e["c"]
@@ -148,6 +256,17 @@ def eintrag_bauen(e, thema, karte_zu_t, kuerzel):
             fehler.append(f"{k}: zwei gleiche Antworten")
         if len(e["a"]) < 3:
             fehler.append(f"{k}: weniger als drei Antworten")
+        if "a_rechnung" in e:
+            if len(e["a_rechnung"]) != len(e["a"]):
+                fehler.append(f"{k}: a_rechnung hat nicht so viele Einträge wie Antworten")
+            else:
+                vals = [float(rechne(x)) for x in e["a_rechnung"]]
+                for i, v in enumerate(vals):
+                    for j in range(i + 1, len(vals)):
+                        if gleich(v, vals[j]):
+                            fehler.append(f"{k}: Antworten {i} und {j} sind rechnerisch gleich ({v})")
+                if not gleich(vals[e["richtig"]], e["a_wert"]):
+                    fehler.append(f"{k}: richtige Antwort rechnet {vals[e['richtig']]}, erwartet {e['a_wert']}")
         falsch = {fb["index"] for fb in e["fehlbilder"] if "index" in fb}
         if falsch != set(range(len(e["a"]))) - {e["richtig"]}:
             fehler.append(f"{k}: zu jeder falschen Antwort gehört ein Fehlbild (fehlt: "
@@ -159,6 +278,13 @@ def eintrag_bauen(e, thema, karte_zu_t, kuerzel):
         a["o"] = {"text": e["erwartet"]}
     else:
         fehler.append(f"{k}: Antwortform {y} ist hier nicht vorgesehen")
+    if typ == "FD":
+        if "erste Fehler" not in e["text"]:
+            fehler.append(f"{k}: Fehler-Detektiv muss nach dem ERSTEN Fehler fragen")
+        zeilen = len(re.findall(r"Zeile \d:", e["text"]))
+        if y != "auswahl" or len(e["a"]) != zeilen or e["a"] != [f"In Zeile {i}" for i in range(1, zeilen + 1)]:
+            fehler.append(f"{k}: Antworten müssen genau den {zeilen} Zeilen entsprechen")
+        FEHLERZEILEN.append((k, e["richtig"] + 1))
     a["h"] = e["h"]
     a["w"] = e["w"]
     if len(e["w"]) < 15:
@@ -171,7 +297,7 @@ def eintrag_bauen(e, thema, karte_zu_t, kuerzel):
     return {
         "kennung": k, "thema": thema, "lernkarte": e["karte"], "stufe": s, "typ": name, "antwortform": y,
         "regel": e["regel"], "regel_name": regel["name"] if regel else "?", "zaehlt": zaehlt,
-        "fehlbilder": [{"luecke": fb.get("luecke"), "index": fb.get("index"), "antwort": fb.get("antwort"),
+        "fehlbilder": [{"luecke": fb.get("luecke"), "index": fb.get("index"), "antwort": fb.get("antwort"), "rechnung": fb.get("rechnung"),
                         "fehlbild": fb.get("fehlbild"), "regel_des_fehlbilds": fb.get("regel_des_fehlbilds"),
                         "beschreibung": fb["beschreibung"]} for fb in e["fehlbilder"]],
         "aufgabe": a,
@@ -280,6 +406,8 @@ def main():
     print("zaehlt:", dict(Counter(e["zaehlt"] for e in alle)))
     print("Stufen:", dict(sorted(Counter(e["stufe"] for e in alle).items())))
     print("Antwortformen:", dict(Counter(e["antwortform"] for e in alle)))
+    if not sys.argv[1:]:
+        print("Fehlerzeilen der Fehler-Detektive:", dict(sorted(Counter(z for _, z in FEHLERZEILEN).items())))
     if fehler:
         print("\nFEHLER:")
         for f in fehler:

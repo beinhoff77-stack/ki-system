@@ -23,10 +23,20 @@
     {
      "luecke": 2,
      "index": null,
-     "antwort": 12,
+     "antwort": 48,
+     "rechnung": "L1 * 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Basis mal Exponent gerechnet"
+     "beschreibung": "mit dem Exponenten 3 statt mit der Basis 4 malgenommen"
+    },
+    {
+     "luecke": 3,
+     "index": null,
+     "antwort": 0,
+     "rechnung": "12 - 12",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4³ als 4 · 3 gerechnet, dann gibt es keinen Unterschied"
     }
    ],
    "aufgabe": {
@@ -37,22 +47,24 @@
     "g": "direkt",
     "y": "luecken",
     "f": {
-     "text": "Bei 3⁴ ist die Basis 3 und der Exponent 4. Ausgeschrieben heißt das 3 · 3 · 3 · 3. Rechne von links: 3 · 3 = ①, dann ① · 3 = 27 und 27 · 3 = ②.",
-     "schablone": "① = □; ② = □",
+     "text": "Bei 4³ ist die Basis 4 dreimal als Faktor zu schreiben: 4 · 4 · 4. Rechne von links: 4 · 4 = ①, dann mit dem dritten Faktor ②. Das Produkt 4 · 3 der Basis mit dem Exponenten ist 12. Um ③ ist 4³ größer als dieses Produkt.",
+     "schablone": "① = □; ② = □; ③ = □",
      "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
     },
     "o": {
      "werte": [
-      9,
-      81
+      16,
+      64,
+      52
      ]
     },
     "c": [
-     "3 * 3",
-     "3 ** 4"
+     "4 * 4",
+     "(4 * 4) * 4",
+     "((4 * 4) * 4) - 4 * 3"
     ],
-    "h": "Rechne Schritt für Schritt, immer mal 3.",
-    "w": "3 · 3 = 9, dann 9 · 3 = 27 und 27 · 3 = 81. Also ist 3⁴ = 81 – und nicht 3 · 4 = 12."
+    "h": "Rechne Schritt für Schritt, immer mal 4.",
+    "w": "4 · 4 = 16, dann 16 · 4 = 64. Also ist 4³ = 64 und nicht 4 · 3 = 12. Der Unterschied ist 64 − 12 = 52."
    }
   },
   {
@@ -70,6 +82,7 @@
      "luecke": null,
      "index": null,
      "antwort": 96,
+     "rechnung": "64 * 3 // 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "64 mit dem Verhältnis der Basen malgenommen"
@@ -78,6 +91,7 @@
      "luecke": null,
      "index": null,
      "antwort": 6,
+     "rechnung": "6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Exponenten als Antwort genannt"
@@ -116,6 +130,7 @@
      "luecke": null,
      "index": null,
      "antwort": 10,
+     "rechnung": "5 * 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Anzahl der Faltungen mit 2 malgenommen"
@@ -124,6 +139,7 @@
      "luecke": null,
      "index": null,
      "antwort": 25,
+     "rechnung": "5 ** 2",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Basis und Exponent getauscht"
@@ -163,6 +179,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "−25",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Minus als Vorzeichen des Ergebnisses gelesen"
@@ -171,6 +188,7 @@
      "luecke": null,
      "index": 2,
      "antwort": "−1/25",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Kehrbruch gebildet und zusätzlich ein Minus gesetzt"
@@ -179,6 +197,7 @@
      "luecke": null,
      "index": 3,
      "antwort": "1/10",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Basis mal Exponent gerechnet statt 5²"
@@ -203,7 +222,7 @@
     "o": {
      "index": 0
     },
-    "h": "Ein negativer Exponent bedeutet Kehrbruch.",
+    "h": "Schau dir die Reihe 5², 5¹, 5⁰ an: Was passiert beim Weitergehen?",
     "w": "5⁻² = 1/5² = 1/25. Das Minus im Exponenten macht die Zahl nicht negativ, sondern bildet den Kehrbruch."
    }
   },
@@ -222,6 +241,7 @@
      "luecke": null,
      "index": null,
      "antwort": 0.25,
+     "rechnung": "1 / 4 + 0",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "4⁰ als 0 gerechnet"
@@ -230,6 +250,7 @@
      "luecke": null,
      "index": null,
      "antwort": 5,
+     "rechnung": "4 + 1",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "4⁻¹ als 4 und 4⁰ als 1 gerechnet"
@@ -243,14 +264,14 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Berechne 4⁻¹ + 4⁰. Weg A: beide Potenzen einzeln bestimmen und addieren. Weg B: 4⁻¹ als Kehrbruch schreiben und 4⁰ = 1 dazunehmen."
+     "text": "Berechne 4⁻¹ + 4⁰. Weg A: beide Potenzen einzeln als Zahlen bestimmen und addieren. Weg B: 4⁻¹ ausklammern: 4⁻¹ · (1 + 4¹), denn 4⁰ = 4⁻¹ · 4¹."
     },
     "o": {
      "wert": 1.25
     },
     "c": "1 / 4 + 1",
-    "h": "Jede Zahl hoch 0 ist 1.",
-    "w": "4⁻¹ = 1/4 und 4⁰ = 1. Zusammen: 1/4 + 1 = 1,25. Beide Wege führen zum selben Ergebnis."
+    "h": "Beide Wege müssen denselben Wert ergeben.",
+    "w": "Weg A: 4⁻¹ = 1/4 und 4⁰ = 1, zusammen 1/4 + 1 = 1,25. Weg B: 4⁻¹ · (1 + 4) = 1/4 · 5 = 1,25."
    }
   },
   {
@@ -268,6 +289,7 @@
      "luecke": null,
      "index": null,
      "antwort": 3,
+     "rechnung": "3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Minus vergessen"
@@ -276,6 +298,7 @@
      "luecke": null,
      "index": null,
      "antwort": 27,
+     "rechnung": "27",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Wert statt des Exponenten genannt"
@@ -289,13 +312,13 @@
     "g": "umkehr",
     "y": "zahl",
     "f": {
-     "text": "Eine Potenz mit der Basis 3 hat den Wert 1/27. Wie groß ist der Exponent?"
+     "text": "Eine Potenz mit der Basis 3 hat den Wert 1/27. Wie groß ist ihr (ganzzahliger) Exponent?"
     },
     "o": {
      "wert": -3
     },
     "c": "0 - 3",
-    "h": "1/27 ist der Kehrbruch von 27.",
+    "h": "Schreibe zuerst 27 als Potenz von 3.",
     "w": "27 = 3³, also ist 1/27 = 3⁻³. Der Exponent ist −3."
    }
   },
@@ -314,6 +337,7 @@
      "luecke": null,
      "index": null,
      "antwort": -8,
+     "rechnung": "-(2 ** 3)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "das Minus als Vorzeichen des Ergebnisses gelesen"
@@ -322,6 +346,7 @@
      "luecke": null,
      "index": null,
      "antwort": 8,
+     "rechnung": "2 ** 3",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "den Kehrbruch nicht gebildet"
@@ -341,7 +366,7 @@
      "wert": 0.125
     },
     "c": "1 / 8",
-    "h": "Ein Minus im Exponenten bildet den Kehrbruch, es macht keine negative Zahl.",
+    "h": "Setze die Reihe 2³, 2², 2¹, 2⁰ fort.",
     "w": "Weg A: 2⁻³ = 1/2³ = 1/8. Weg B: 2; 1; 1/2; 1/4; 1/8. Beide Wege geben 1/8 = 0,125, nicht −8."
    }
   },
@@ -360,6 +385,7 @@
      "luecke": null,
      "index": null,
      "antwort": 16,
+     "rechnung": "2 * 8",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "Basis mal Zahl der Teilungen gerechnet"
@@ -368,6 +394,7 @@
      "luecke": null,
      "index": null,
      "antwort": 8,
+     "rechnung": "8",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "die Zahl der Teilungen genannt"
@@ -381,7 +408,7 @@
     "g": "transfer",
     "y": "zahl",
     "f": {
-     "text": "Ein Bakterium teilt sich jede halbe Stunde; aus einem werden dabei immer zwei. Wie viele Bakterien sind es nach 4 Stunden?"
+     "text": "Ein Bakterium teilt sich jede halbe Stunde in zwei. Jedes Bakterium teilt sich weiter, keines stirbt. Wie viele Bakterien sind es nach 4 Stunden?"
     },
     "o": {
      "wert": 256,
@@ -407,6 +434,7 @@
      "luecke": null,
      "index": 1,
      "antwort": "−2²",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
      "beschreibung": "ohne Klammern wird nur die 2 quadriert: −4"
@@ -414,18 +442,20 @@
     {
      "luecke": null,
      "index": 2,
-     "antwort": "−(2²)",
+     "antwort": "2⁻²",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "dasselbe wie −2², also −4"
+     "beschreibung": "negativer Exponent, das ergibt 1/4"
     },
     {
      "luecke": null,
      "index": 3,
-     "antwort": "2⁻²",
+     "antwort": "(−2)³",
+     "rechnung": null,
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "negativer Exponent, das ergibt 1/4"
+     "beschreibung": "dritte statt zweiter Potenz, das ergibt −8"
     }
    ],
    "aufgabe": {
@@ -441,14 +471,14 @@
     "a": [
      "(−2)²",
      "−2²",
-     "−(2²)",
-     "2⁻²"
+     "2⁻²",
+     "(−2)³"
     ],
     "o": {
      "index": 0
     },
-    "h": "Eine negative Basis steht in Klammern.",
-    "w": "Nur in (−2)² wird die −2 selbst quadriert: (−2) · (−2) = 4. Ohne Klammern gilt das Quadrat nur für die 2, also ist −2² = −4. Und 2⁻² ist der Kehrbruch 1/4."
+    "h": "Prüfe, was genau quadriert wird.",
+    "w": "Nur in (−2)² wird die −2 selbst quadriert: (−2) · (−2) = 4. Ohne Klammern gilt das Quadrat nur für die 2, also ist −2² = −4. 2⁻² ist der Kehrbruch 1/4, und (−2)³ = −8."
    }
   }
  ]

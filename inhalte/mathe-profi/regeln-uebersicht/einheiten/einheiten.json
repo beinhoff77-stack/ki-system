@@ -1,0 +1,1572 @@
+{
+ "hinweis": "Inhalte für die Nachschlage-Tafel „Einheiten umrechnen“ (Entwurf, nichts in die App eingespielt). Geprüft mit pruefen.py. Schreibweise wie im Bestand: Dezimalkomma, Tausender mit Leerzeichen, Malpunkt, Einheit mit Leerzeichen. Treppe: „1 [Einheit] = [Zahl] [nächste kleinere Einheit]“, abwärts mal, aufwärts geteilt.",
+ "stand": "2026-11-27",
+ "regel_der_richtung": {
+  "merksatz": "Kleinere Einheit, größere Zahl – größere Einheit, kleinere Zahl.",
+  "kennung": "I-geld-1",
+  "abwaerts": "mal",
+  "aufwaerts": "geteilt"
+ },
+ "arten": [
+  {
+   "art": "Länge",
+   "treppe": [
+    {
+     "einheit": "km",
+     "name": "Kilometer",
+     "zur_naechsten": "1 000"
+    },
+    {
+     "einheit": "m",
+     "name": "Meter",
+     "zur_naechsten": "10"
+    },
+    {
+     "einheit": "dm",
+     "name": "Dezimeter",
+     "zur_naechsten": "10"
+    },
+    {
+     "einheit": "cm",
+     "name": "Zentimeter",
+     "zur_naechsten": "10"
+    },
+    {
+     "einheit": "mm",
+     "name": "Millimeter",
+     "zur_naechsten": null
+    }
+   ],
+   "darstellung": "km –1 000→ m –10→ dm –10→ cm –10→ mm",
+   "gleichungen": [
+    "1 km = 1 000 m",
+    "1 m = 10 dm",
+    "1 m = 100 cm",
+    "1 m = 1 000 mm",
+    "1 dm = 10 cm",
+    "1 cm = 10 mm",
+    "1 km = 100 000 cm",
+    "1 km = 1 000 000 mm"
+   ],
+   "merksatz": "Abwärts malnehmen, aufwärts teilen: von km nach m ist es 1 000, sonst immer 10.",
+   "so_gehts": [
+    "Suche beide Einheiten auf der Treppe und zähle die Schritte dazwischen.",
+    "Zur kleineren Einheit (abwärts) rechnest du mal, zur größeren (aufwärts) geteilt; jeder Schritt hat seine Zahl.",
+    "Schreibe die neue Einheit hinter die Zahl und prüfe: Kleinere Einheit, größere Zahl."
+   ],
+   "beispiele": [
+    {
+     "typ": [
+      "kleinere",
+      "komma"
+     ],
+     "von": "3,5 km",
+     "nach": "3 500 m",
+     "rechnung": "3,5 · 1 000 = 3 500",
+     "denn": "1 km = 1 000 m",
+     "text": "3,5 km = 3 500 m, denn 1 km = 1 000 m."
+    },
+    {
+     "typ": [
+      "groessere",
+      "komma"
+     ],
+     "von": "35 dm",
+     "nach": "3,5 m",
+     "rechnung": "35 : 10 = 3,5",
+     "denn": "1 m = 10 dm",
+     "text": "35 dm = 3,5 m, denn 1 m = 10 dm."
+    },
+    {
+     "typ": [
+      "kleinere",
+      "zwei_stufen",
+      "komma"
+     ],
+     "von": "2,4 m",
+     "nach": "240 cm",
+     "rechnung": "2,4 · 10 · 10 = 240",
+     "denn": "1 m = 100 cm",
+     "achtung": "Zwischen m und cm liegt dm: zwei Schritte, also mal 10 und noch einmal mal 10.",
+     "text": "2,4 m = 240 cm, denn 1 m = 100 cm. Zwischen m und cm liegt dm: zwei Schritte, also mal 10 und noch einmal mal 10."
+    },
+    {
+     "typ": [
+      "groessere",
+      "zwei_stufen",
+      "komma"
+     ],
+     "von": "85 cm",
+     "nach": "0,85 m",
+     "rechnung": "85 : 10 : 10 = 0,85",
+     "denn": "1 m = 100 cm",
+     "text": "85 cm = 0,85 m, denn 1 m = 100 cm."
+    }
+   ],
+   "stolperstellen": [
+    {
+     "fehler": "Von km nach m mit 10 statt 1 000 gerechnet.",
+     "richtig": "3,5 km sind 3 500 m, nicht 35 m.",
+     "pruefung": [
+      {
+       "gleichung": "3,5 km = 3 500 m",
+       "stimmt": true
+      },
+      {
+       "gleichung": "3,5 km = 35 m",
+       "stimmt": false
+      }
+     ]
+    },
+    {
+     "fehler": "Eine Stufe vergessen: Zwischen m und cm liegt dm, das sind zwei Schritte.",
+     "richtig": "2,4 m sind 240 cm, nicht 24 cm.",
+     "pruefung": [
+      {
+       "gleichung": "2,4 m = 240 cm",
+       "stimmt": true
+      },
+      {
+       "gleichung": "2,4 m = 24 cm",
+       "stimmt": false
+      }
+     ]
+    },
+    {
+     "fehler": "In die größere Einheit malgenommen statt geteilt.",
+     "richtig": "85 cm sind 0,85 m, nicht 8 500 m.",
+     "pruefung": [
+      {
+       "gleichung": "85 cm = 0,85 m",
+       "stimmt": true
+      },
+      {
+       "gleichung": "85 cm = 8 500 m",
+       "stimmt": false
+      }
+     ],
+     "fehlbild": "fb.groesse.falsche_richtung"
+    },
+    {
+     "fehler": "Das Komma in die falsche Richtung geschoben.",
+     "richtig": "35 dm sind 3,5 m, nicht 0,35 m.",
+     "pruefung": [
+      {
+       "gleichung": "35 dm = 3,5 m",
+       "stimmt": true
+      },
+      {
+       "gleichung": "35 dm = 0,35 m",
+       "stimmt": false
+      }
+     ]
+    },
+    {
+     "fehler": "Die Einheit vergessen.",
+     "richtig": "Schreibe immer Zahl und Einheit: 240 cm, nicht nur 240."
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "groessen.einheiten",
+      "lernziel": "laenge"
+     }
+    ]
+   },
+   "etappen_im_bestand": [
+    {
+     "thema": "groessen.einheiten",
+     "lernziel": "laenge",
+     "titel": "Längen umrechnen"
+    },
+    {
+     "thema": "groessen.einheiten",
+     "lernziel": "kommaschreibweise",
+     "titel": "Größen in Kommaschreibweise"
+    }
+   ],
+   "regeln": [
+    {
+     "kennung": "I-geld-1",
+     "lang": "id.verhaeltnisse.groesse",
+     "name": "Größe",
+     "passt": "Kleinere Einheit, größere Zahl."
+    },
+    {
+     "kennung": "V1",
+     "name": "Größe und Einheit",
+     "passt": "Umrechnungszahlen für Längen."
+    },
+    {
+     "kennung": "R1",
+     "lang": "rr.stellenwert",
+     "name": "Stellenwert",
+     "passt": "Mal 10 schiebt die Ziffern eine Stelle nach links."
+    },
+    {
+     "kennung": "Z18",
+     "name": "Zehnerpotenzen",
+     "passt": "Kilo und Milli sind Zehnerpotenzen."
+    }
+   ],
+   "hinweise": []
+  },
+  {
+   "art": "Fläche",
+   "treppe": [
+    {
+     "einheit": "km²",
+     "name": "Quadratkilometer",
+     "zur_naechsten": "100"
+    },
+    {
+     "einheit": "ha",
+     "name": "Hektar",
+     "zur_naechsten": "100"
+    },
+    {
+     "einheit": "a",
+     "name": "Ar",
+     "zur_naechsten": "100"
+    },
+    {
+     "einheit": "m²",
+     "name": "Quadratmeter",
+     "zur_naechsten": "100"
+    },
+    {
+     "einheit": "dm²",
+     "name": "Quadratdezimeter",
+     "zur_naechsten": "100"
+    },
+    {
+     "einheit": "cm²",
+     "name": "Quadratzentimeter",
+     "zur_naechsten": "100"
+    },
+    {
+     "einheit": "mm²",
+     "name": "Quadratmillimeter",
+     "zur_naechsten": null
+    }
+   ],
+   "darstellung": "km² –100→ ha –100→ a –100→ m² –100→ dm² –100→ cm² –100→ mm²",
+   "gleichungen": [
+    "1 km² = 100 ha",
+    "1 ha = 100 a",
+    "1 a = 100 m²",
+    "1 ha = 10 000 m²",
+    "1 km² = 1 000 000 m²",
+    "1 m² = 100 dm²",
+    "1 m² = 10 000 cm²",
+    "1 dm² = 100 cm²",
+    "1 cm² = 100 mm²"
+   ],
+   "herleitung": [
+    {
+     "text": "Eine Längeneinheit, die zehnmal kleiner ist, passt zehnmal in die Länge und zehnmal in die Breite.",
+     "gleichungen": []
+    },
+    {
+     "text": "1 m ist 10 dm lang, also hat ein Quadrat von 1 m Seitenlänge 10 · 10 = 100 Quadrate von 1 dm Seitenlänge.",
+     "gleichungen": [
+      "1 m² = 100 dm²"
+     ]
+    }
+   ],
+   "merksatz": "Bei Flächen ist jeder Schritt der Treppe 100, nicht 10: abwärts mal, aufwärts geteilt.",
+   "so_gehts": [
+    "Suche beide Einheiten auf der Treppe und zähle die Schritte dazwischen.",
+    "Jeder Schritt ist 100: abwärts mal 100, aufwärts durch 100 (zwei Schritte: mal 10 000).",
+    "Schreibe das ² hinter die Einheit und prüfe: Kleinere Einheit, größere Zahl."
+   ],
+   "beispiele": [
+    {
+     "typ": [
+      "kleinere"
+     ],
+     "von": "3 m²",
+     "nach": "300 dm²",
+     "rechnung": "3 · 100 = 300",
+     "denn": "1 m² = 100 dm²",
+     "text": "3 m² = 300 dm², denn 1 m² = 100 dm²."
+    },
+    {
+     "typ": [
+      "groessere",
+      "komma"
+     ],
+     "von": "350 dm²",
+     "nach": "3,5 m²",
+     "rechnung": "350 : 100 = 3,5",
+     "denn": "1 m² = 100 dm²",
+     "text": "350 dm² = 3,5 m², denn 1 m² = 100 dm²."
+    },
+    {
+     "typ": [
+      "kleinere",
+      "zwei_stufen",
+      "komma"
+     ],
+     "von": "0,5 m²",
+     "nach": "5 000 cm²",
+     "rechnung": "0,5 · 100 · 100 = 5 000",
+     "denn": "1 m² = 10 000 cm²",
+     "text": "0,5 m² = 5 000 cm², denn 1 m² = 10 000 cm²."
+    },
+    {
+     "typ": [
+      "kleinere",
+      "zwei_stufen",
+      "komma"
+     ],
+     "von": "2,5 ha",
+     "nach": "25 000 m²",
+     "rechnung": "2,5 · 100 · 100 = 25 000",
+     "denn": "1 ha = 10 000 m²",
+     "text": "2,5 ha = 25 000 m², denn 1 ha = 10 000 m²."
+    }
+   ],
+   "stolperstellen": [
+    {
+     "fehler": "Mit 10 statt 100 gerechnet, weil bei Längen 10 gilt.",
+     "richtig": "3 m² sind 300 dm², nicht 30 dm².",
+     "pruefung": [
+      {
+       "gleichung": "3 m² = 300 dm²",
+       "stimmt": true
+      },
+      {
+       "gleichung": "3 m² = 30 dm²",
+       "stimmt": false
+      }
+     ],
+     "fehlbild": "fb.groesse.flaeche_mit_zehn"
+    },
+    {
+     "fehler": "Hektar und Ar verwechselt oder mit 1 000 statt 10 000 m² gerechnet.",
+     "richtig": "2,5 ha sind 25 000 m², nicht 2 500 m².",
+     "pruefung": [
+      {
+       "gleichung": "2,5 ha = 25 000 m²",
+       "stimmt": true
+      },
+      {
+       "gleichung": "2,5 ha = 2 500 m²",
+       "stimmt": false
+      }
+     ]
+    },
+    {
+     "fehler": "In der Kommaschreibweise bekommt jede Stufe zwei Stellen, nicht eine.",
+     "richtig": "3 m² 5 dm² sind 3,05 m², nicht 3,5 m².",
+     "pruefung": [
+      {
+       "gleichung": "3 m² 5 dm² = 3,05 m²",
+       "stimmt": true
+      },
+      {
+       "gleichung": "3 m² 5 dm² = 3,5 m²",
+       "stimmt": false
+      }
+     ]
+    },
+    {
+     "fehler": "Das ² vergessen.",
+     "richtig": "Flächen schreibt man in m² oder cm², nicht in m oder cm."
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 1,
+    "beleg": [
+     {
+      "thema": "messen.flaechen",
+      "lernziel": "einheiten"
+     }
+    ]
+   },
+   "etappen_im_bestand": [
+    {
+     "thema": "messen.flaechen",
+     "lernziel": "einheiten",
+     "titel": "Flächeneinheiten umrechnen"
+    },
+    {
+     "thema": "messen.flaechen",
+     "lernziel": "kommaschreibweise",
+     "titel": "Flächen in Kommaschreibweise"
+    }
+   ],
+   "regeln": [
+    {
+     "kennung": "F1",
+     "name": "Fläche messen",
+     "passt": "Längeneinheit zehnmal kleiner, 100-mal so viele Einheitsquadrate."
+    },
+    {
+     "kennung": "I-geld-1",
+     "lang": "id.verhaeltnisse.groesse",
+     "name": "Größe",
+     "passt": "Kleinere Einheit, größere Zahl; Fehlbild: Fläche mit 10."
+    },
+    {
+     "kennung": "R1",
+     "lang": "rr.stellenwert",
+     "name": "Stellenwert",
+     "passt": "Mal 100 schiebt die Ziffern zwei Stellen nach links."
+    }
+   ],
+   "hinweise": [
+    "1 a = 100 m² (ein Quadrat von 10 m Seitenlänge); 1 ha = 10 000 m² (ein Quadrat von 100 m Seitenlänge)."
+   ]
+  },
+  {
+   "art": "Volumen und Hohlmaße",
+   "treppe": [
+    {
+     "einheit": "m³",
+     "name": "Kubikmeter",
+     "zur_naechsten": "1 000"
+    },
+    {
+     "einheit": "dm³",
+     "name": "Kubikdezimeter",
+     "zur_naechsten": "1 000"
+    },
+    {
+     "einheit": "cm³",
+     "name": "Kubikzentimeter",
+     "zur_naechsten": "1 000"
+    },
+    {
+     "einheit": "mm³",
+     "name": "Kubikmillimeter",
+     "zur_naechsten": null
+    }
+   ],
+   "darstellung": "m³ –1 000→ dm³ –1 000→ cm³ –1 000→ mm³",
+   "weitere_treppen": [
+    {
+     "name": "Hohlmaße",
+     "treppe": [
+      {
+       "einheit": "hl",
+       "name": "Hektoliter",
+       "zur_naechsten": "100",
+       "zusatz": true
+      },
+      {
+       "einheit": "l",
+       "name": "Liter",
+       "zur_naechsten": "10"
+      },
+      {
+       "einheit": "dl",
+       "name": "Deziliter",
+       "zur_naechsten": "10",
+       "zusatz": true
+      },
+      {
+       "einheit": "cl",
+       "name": "Zentiliter",
+       "zur_naechsten": "10",
+       "zusatz": true
+      },
+      {
+       "einheit": "ml",
+       "name": "Milliliter",
+       "zur_naechsten": null
+      }
+     ],
+     "darstellung": "hl –100→ l –10→ dl –10→ cl –10→ ml"
+    }
+   ],
+   "verbindung": [
+    {
+     "links": "1 l",
+     "rechts": "1 dm³"
+    },
+    {
+     "links": "1 ml",
+     "rechts": "1 cm³"
+    }
+   ],
+   "gleichungen": [
+    "1 l = 1 dm³",
+    "1 ml = 1 cm³",
+    "1 l = 1 000 ml",
+    "1 l = 1 000 cm³",
+    "1 m³ = 1 000 l",
+    "1 hl = 100 l",
+    "1 m³ = 1 000 000 cm³",
+    "1 dm³ = 1 000 cm³",
+    "1 cm³ = 1 000 mm³"
+   ],
+   "herleitung": [
+    {
+     "text": "1 m ist 10 dm lang: Ein Würfel von 1 m Kantenlänge fasst 10 · 10 · 10 = 1 000 Würfel von 1 dm Kantenlänge.",
+     "gleichungen": [
+      "1 m³ = 1 000 dm³"
+     ]
+    },
+    {
+     "text": "Der Liter ist ein Würfel von 1 dm Kantenlänge; der Milliliter ist der tausendste Teil davon, also 1 cm³.",
+     "gleichungen": [
+      "1 l = 1 dm³",
+      "1 ml = 1 cm³",
+      "1 dm³ = 1 000 cm³"
+     ]
+    }
+   ],
+   "merksatz": "Bei Raummaßen ist jeder Schritt 1 000, und 1 l ist genau 1 dm³.",
+   "so_gehts": [
+    "Suche beide Einheiten auf der Treppe und zähle die Schritte dazwischen.",
+    "Bei m³, dm³, cm³, mm³ ist jeder Schritt 1 000: abwärts mal 1 000, aufwärts durch 1 000.",
+    "Für Liter: 1 l = 1 dm³ und 1 ml = 1 cm³; dann rechnest du auf der Treppe weiter."
+   ],
+   "beispiele": [
+    {
+     "typ": [
+      "kleinere"
+     ],
+     "von": "2 dm³",
+     "nach": "2 000 cm³",
+     "rechnung": "2 · 1 000 = 2 000",
+     "denn": "1 dm³ = 1 000 cm³",
+     "text": "2 dm³ = 2 000 cm³, denn 1 dm³ = 1 000 cm³."
+    },
+    {
+     "typ": [
+      "groessere",
+      "komma"
+     ],
+     "von": "3 400 cm³",
+     "nach": "3,4 dm³",
+     "rechnung": "3 400 : 1 000 = 3,4",
+     "denn": "1 dm³ = 1 000 cm³",
+     "text": "3 400 cm³ = 3,4 dm³, denn 1 dm³ = 1 000 cm³."
+    },
+    {
+     "typ": [
+      "kleinere",
+      "zwei_stufen",
+      "komma"
+     ],
+     "von": "0,5 m³",
+     "nach": "500 000 cm³",
+     "rechnung": "0,5 · 1 000 · 1 000 = 500 000",
+     "denn": "1 m³ = 1 000 000 cm³",
+     "text": "0,5 m³ = 500 000 cm³, denn 1 m³ = 1 000 000 cm³."
+    },
+    {
+     "typ": [
+      "kleinere",
+      "komma",
+      "liter"
+     ],
+     "von": "0,75 l",
+     "nach": "750 cm³",
+     "rechnung": "0,75 · 1 000 = 750",
+     "denn": "1 l = 1 000 cm³",
+     "achtung": "1 l = 1 dm³, und 1 dm³ = 1 000 cm³.",
+     "text": "0,75 l = 750 cm³, denn 1 l = 1 000 cm³. 1 l = 1 dm³, und 1 dm³ = 1 000 cm³."
+    }
+   ],
+   "stolperstellen": [
+    {
+     "fehler": "Mit 10 oder 100 statt 1 000 gerechnet.",
+     "richtig": "2 dm³ sind 2 000 cm³, nicht 200 cm³.",
+     "pruefung": [
+      {
+       "gleichung": "2 dm³ = 2 000 cm³",
+       "stimmt": true
+      },
+      {
+       "gleichung": "2 dm³ = 200 cm³",
+       "stimmt": false
+      }
+     ],
+     "fehlbild": "fb.groesse.flaeche_mit_zehn"
+    },
+    {
+     "fehler": "Liter und cm³ verwechselt: Der Liter ist ein dm³, nicht ein cm³.",
+     "richtig": "1 l sind 1 000 cm³; ein cm³ ist 1 ml.",
+     "pruefung": [
+      {
+       "gleichung": "1 l = 1 000 cm³",
+       "stimmt": true
+      },
+      {
+       "gleichung": "1 l = 1 cm³",
+       "stimmt": false
+      },
+      {
+       "gleichung": "1 ml = 1 cm³",
+       "stimmt": true
+      }
+     ]
+    },
+    {
+     "fehler": "In der Kommaschreibweise bekommt jede Stufe drei Stellen.",
+     "richtig": "2 dm³ 50 cm³ sind 2,05 dm³ (2,050 dm³), nicht 2,5 dm³.",
+     "pruefung": [
+      {
+       "gleichung": "2 dm³ 50 cm³ = 2,05 dm³",
+       "stimmt": true
+      },
+      {
+       "gleichung": "2 dm³ 50 cm³ = 2,5 dm³",
+       "stimmt": false
+      }
+     ]
+    },
+    {
+     "fehler": "Beim Hektoliter mit 1 000 statt 100 gerechnet.",
+     "richtig": "1 hl sind 100 l, nicht 1 000 l.",
+     "pruefung": [
+      {
+       "gleichung": "1 hl = 100 l",
+       "stimmt": true
+      },
+      {
+       "gleichung": "1 hl = 1 000 l",
+       "stimmt": false
+      }
+     ]
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 6,
+    "realschule_by": 6,
+    "ib_myp": null,
+    "beleg": [
+     {
+      "thema": "messen.volumen",
+      "lernziel": "einheiten"
+     },
+     {
+      "thema": "messen.volumen",
+      "lernziel": "liter"
+     }
+    ]
+   },
+   "etappen_im_bestand": [
+    {
+     "thema": "messen.volumen",
+     "lernziel": "einheiten",
+     "titel": "Volumeneinheiten umrechnen"
+    },
+    {
+     "thema": "messen.volumen",
+     "lernziel": "liter",
+     "titel": "Liter und Milliliter"
+    }
+   ],
+   "regeln": [
+    {
+     "kennung": "F11",
+     "name": "Volumen messen",
+     "passt": "Längeneinheit zehnmal kleiner, 1 000-mal so viele Einheitswürfel; 1 Liter = 1 dm³."
+    },
+    {
+     "kennung": "I-geld-1",
+     "lang": "id.verhaeltnisse.groesse",
+     "name": "Größe",
+     "passt": "Kleinere Einheit, größere Zahl; Fehlbild: Raumeinheit mit 10."
+    },
+    {
+     "kennung": "R1",
+     "lang": "rr.stellenwert",
+     "name": "Stellenwert",
+     "passt": "Mal 1 000 schiebt die Ziffern drei Stellen nach links."
+    }
+   ],
+   "hinweise": [
+    "Nur bei m³, dm³, cm³, mm³ ist jeder Schritt 1 000; bei den Hohlmaßen gilt l zu ml 1 000, hl zu l 100.",
+    "hl, dl und cl stehen nicht in den Lernkarten des Bestands (dort nur l und ml); sie sind hier als Zusatz markiert.",
+    "Hohlmaße (l, ml) und Raummaße (dm³, cm³) messen dasselbe: den Rauminhalt."
+   ]
+  },
+  {
+   "art": "Masse",
+   "treppe": [
+    {
+     "einheit": "t",
+     "name": "Tonne",
+     "zur_naechsten": "1 000"
+    },
+    {
+     "einheit": "kg",
+     "name": "Kilogramm",
+     "zur_naechsten": "1 000"
+    },
+    {
+     "einheit": "g",
+     "name": "Gramm",
+     "zur_naechsten": "1 000"
+    },
+    {
+     "einheit": "mg",
+     "name": "Milligramm",
+     "zur_naechsten": null
+    }
+   ],
+   "darstellung": "t –1 000→ kg –1 000→ g –1 000→ mg",
+   "gleichungen": [
+    "1 t = 1 000 kg",
+    "1 kg = 1 000 g",
+    "1 g = 1 000 mg",
+    "1 t = 1 000 000 g",
+    "1 kg = 1 000 000 mg"
+   ],
+   "merksatz": "Bei Massen ist jeder Schritt 1 000: abwärts mal, aufwärts geteilt.",
+   "so_gehts": [
+    "Suche beide Einheiten auf der Treppe und zähle die Schritte dazwischen.",
+    "Jeder Schritt ist 1 000: abwärts mal 1 000, aufwärts durch 1 000.",
+    "Schreibe die neue Einheit dahinter und prüfe: Kleinere Einheit, größere Zahl."
+   ],
+   "beispiele": [
+    {
+     "typ": [
+      "kleinere",
+      "komma"
+     ],
+     "von": "2,5 t",
+     "nach": "2 500 kg",
+     "rechnung": "2,5 · 1 000 = 2 500",
+     "denn": "1 t = 1 000 kg",
+     "text": "2,5 t = 2 500 kg, denn 1 t = 1 000 kg."
+    },
+    {
+     "typ": [
+      "groessere",
+      "komma"
+     ],
+     "von": "750 g",
+     "nach": "0,75 kg",
+     "rechnung": "750 : 1 000 = 0,75",
+     "denn": "1 kg = 1 000 g",
+     "text": "750 g = 0,75 kg, denn 1 kg = 1 000 g."
+    },
+    {
+     "typ": [
+      "kleinere",
+      "zwei_stufen",
+      "komma"
+     ],
+     "von": "0,4 kg",
+     "nach": "400 000 mg",
+     "rechnung": "0,4 · 1 000 · 1 000 = 400 000",
+     "denn": "1 kg = 1 000 000 mg",
+     "text": "0,4 kg = 400 000 mg, denn 1 kg = 1 000 000 mg."
+    },
+    {
+     "typ": [
+      "groessere",
+      "komma"
+     ],
+     "von": "45 mg",
+     "nach": "0,045 g",
+     "rechnung": "45 : 1 000 = 0,045",
+     "denn": "1 g = 1 000 mg",
+     "text": "45 mg = 0,045 g, denn 1 g = 1 000 mg."
+    }
+   ],
+   "stolperstellen": [
+    {
+     "fehler": "Mit 100 statt 1 000 gerechnet.",
+     "richtig": "3 kg sind 3 000 g, nicht 300 g.",
+     "pruefung": [
+      {
+       "gleichung": "3 kg = 3 000 g",
+       "stimmt": true
+      },
+      {
+       "gleichung": "3 kg = 300 g",
+       "stimmt": false
+      }
+     ]
+    },
+    {
+     "fehler": "Von t nach kg mit 100 gerechnet.",
+     "richtig": "2,5 t sind 2 500 kg, nicht 250 kg.",
+     "pruefung": [
+      {
+       "gleichung": "2,5 t = 2 500 kg",
+       "stimmt": true
+      },
+      {
+       "gleichung": "2,5 t = 250 kg",
+       "stimmt": false
+      }
+     ]
+    },
+    {
+     "fehler": "Das Komma nur um eine Stelle geschoben.",
+     "richtig": "750 g sind 0,75 kg, nicht 7,5 kg.",
+     "pruefung": [
+      {
+       "gleichung": "750 g = 0,75 kg",
+       "stimmt": true
+      },
+      {
+       "gleichung": "750 g = 7,5 kg",
+       "stimmt": false
+      }
+     ]
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "groessen.einheiten",
+      "lernziel": "masse"
+     }
+    ]
+   },
+   "etappen_im_bestand": [
+    {
+     "thema": "groessen.einheiten",
+     "lernziel": "masse",
+     "titel": "Massen umrechnen"
+    }
+   ],
+   "regeln": [
+    {
+     "kennung": "I-geld-1",
+     "lang": "id.verhaeltnisse.groesse",
+     "name": "Größe",
+     "passt": "Kleinere Einheit, größere Zahl."
+    },
+    {
+     "kennung": "V1",
+     "name": "Größe und Einheit",
+     "passt": "Umrechnungszahl für Massen 1 000."
+    },
+    {
+     "kennung": "R1",
+     "lang": "rr.stellenwert",
+     "name": "Stellenwert",
+     "passt": "Mal 1 000 schiebt die Ziffern drei Stellen nach links."
+    },
+    {
+     "kennung": "Z18",
+     "name": "Zehnerpotenzen",
+     "passt": "Kilo und Milli sind Zehnerpotenzen."
+    }
+   ],
+   "hinweise": [
+    "Was man im Alltag Gewicht nennt, heißt in Mathe Masse."
+   ]
+  },
+  {
+   "art": "Zeit",
+   "treppe": [
+    {
+     "einheit": "d",
+     "name": "Tag",
+     "zur_naechsten": "24"
+    },
+    {
+     "einheit": "h",
+     "name": "Stunde",
+     "zur_naechsten": "60"
+    },
+    {
+     "einheit": "min",
+     "name": "Minute",
+     "zur_naechsten": "60"
+    },
+    {
+     "einheit": "s",
+     "name": "Sekunde",
+     "zur_naechsten": null
+    }
+   ],
+   "darstellung": "d –24→ h –60→ min –60→ s",
+   "gleichungen": [
+    "1 d = 24 h",
+    "1 h = 60 min",
+    "1 min = 60 s",
+    "1 h = 3 600 s",
+    "1 d = 1 440 min",
+    "1 d = 86 400 s"
+   ],
+   "merksatz": "Zeit zählt nicht in Zehnern: 1 h = 60 min, 1 min = 60 s, 1 d = 24 h.",
+   "so_gehts": [
+    "Suche beide Einheiten auf der Treppe: Tag, Stunde, Minute, Sekunde.",
+    "Abwärts mal 24 oder mal 60, aufwärts durch 24 oder durch 60; ein Komma in der Zahl liest du als Dezimalzahl (1,5 h sind 1,5 · 60 min).",
+    "Für Uhrzeiten und Zeitspannen rechnest du bis zur vollen Stunde und dann weiter, nicht wie mit Dezimalzahlen."
+   ],
+   "beispiele": [
+    {
+     "typ": [
+      "kleinere",
+      "komma"
+     ],
+     "von": "1,5 h",
+     "nach": "90 min",
+     "rechnung": "1,5 · 60 = 90",
+     "denn": "1 h = 60 min",
+     "achtung": "1,5 h sind 1 h 30 min, weil 0,5 h eine halbe Stunde sind.",
+     "text": "1,5 h = 90 min, denn 1 h = 60 min. 1,5 h sind 1 h 30 min, weil 0,5 h eine halbe Stunde sind."
+    },
+    {
+     "typ": [
+      "groessere",
+      "komma"
+     ],
+     "von": "150 min",
+     "nach": "2,5 h",
+     "rechnung": "150 : 60 = 2,5",
+     "denn": "1 h = 60 min",
+     "text": "150 min = 2,5 h, denn 1 h = 60 min."
+    },
+    {
+     "typ": [
+      "kleinere",
+      "zwei_stufen"
+     ],
+     "von": "2 d",
+     "nach": "2 880 min",
+     "rechnung": "2 · 24 · 60 = 2 880",
+     "denn": "1 d = 1 440 min",
+     "text": "2 d = 2 880 min, denn 1 d = 1 440 min."
+    },
+    {
+     "typ": [
+      "kleinere",
+      "komma",
+      "warnung"
+     ],
+     "von": "1,30 h",
+     "nach": "78 min",
+     "rechnung": "1,3 · 60 = 78",
+     "denn": "1 h = 60 min",
+     "achtung": "1,30 h ist nicht 1 h 30 min: Die Zahl nach dem Komma zählt Zehntel einer Stunde, keine Minuten.",
+     "nicht": [
+      [
+       "1",
+       "h"
+      ],
+      [
+       "30",
+       "min"
+      ]
+     ],
+     "text": "1,30 h = 78 min, denn 1 h = 60 min. 1,30 h ist nicht 1 h 30 min: Die Zahl nach dem Komma zählt Zehntel einer Stunde, keine Minuten."
+    }
+   ],
+   "stolperstellen": [
+    {
+     "fehler": "Zeit dezimal gelesen: die Zahl nach dem Komma als Minuten genommen.",
+     "richtig": "1,5 h sind 1 h 30 min, nicht 1 h 50 min.",
+     "pruefung": [
+      {
+       "gleichung": "1,5 h = 1 h 30 min",
+       "stimmt": true
+      },
+      {
+       "gleichung": "1,5 h = 1 h 50 min",
+       "stimmt": false
+      }
+     ]
+    },
+    {
+     "fehler": "1,30 h mit 1 h 30 min verwechselt.",
+     "richtig": "1,30 h sind 78 min; 1 h 30 min sind 90 min.",
+     "pruefung": [
+      {
+       "gleichung": "1,30 h = 78 min",
+       "stimmt": true
+      },
+      {
+       "gleichung": "1,30 h = 1 h 30 min",
+       "stimmt": false
+      }
+     ]
+    },
+    {
+     "fehler": "Mit 100 statt 60 gerechnet.",
+     "richtig": "2 h sind 120 min, nicht 200 min.",
+     "pruefung": [
+      {
+       "gleichung": "2 h = 120 min",
+       "stimmt": true
+      },
+      {
+       "gleichung": "2 h = 200 min",
+       "stimmt": false
+      }
+     ]
+    },
+    {
+     "fehler": "Uhrzeiten wie normale Zahlen abgezogen: 2 015 − 1 840 = 175.",
+     "richtig": "20:15 Uhr minus 18:40 Uhr sind 1 h 35 min, also 95 min, nicht 175 min.",
+     "pruefung": [
+      {
+       "gleichung": "1 h 35 min = 95 min",
+       "stimmt": true
+      },
+      {
+       "gleichung": "1 h 35 min = 175 min",
+       "stimmt": false
+      }
+     ]
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "groessen.einheiten",
+      "lernziel": "zeit"
+     }
+    ]
+   },
+   "etappen_im_bestand": [
+    {
+     "thema": "groessen.einheiten",
+     "lernziel": "zeit",
+     "titel": "Mit Zeit rechnen"
+    }
+   ],
+   "regeln": [
+    {
+     "kennung": "V1",
+     "name": "Größe und Einheit",
+     "passt": "Umrechnungszahlen für Zeit 60 und 24; Zeit nicht dezimal umrechnen."
+    },
+    {
+     "kennung": "I-geld-1",
+     "lang": "id.verhaeltnisse.groesse",
+     "name": "Größe",
+     "passt": "Kleinere Einheit, größere Zahl."
+    }
+   ],
+   "hinweise": [
+    "1 Woche = 7 Tage.",
+    "1 Jahr = 365 Tage, aber nur in einem Jahr ohne Schalttag; im Schaltjahr sind es 366 Tage.",
+    "Ein Monat hat 28 bis 31 Tage: Dafür gibt es keine feste Umrechnungszahl."
+   ]
+  },
+  {
+   "art": "Geld",
+   "treppe": [
+    {
+     "einheit": "€",
+     "name": "Euro",
+     "zur_naechsten": "100"
+    },
+    {
+     "einheit": "ct",
+     "name": "Cent",
+     "zur_naechsten": null
+    }
+   ],
+   "darstellung": "€ –100→ ct",
+   "gleichungen": [
+    "1 € = 100 ct"
+   ],
+   "merksatz": "1 € = 100 ct: in Cent mal 100, in Euro durch 100.",
+   "so_gehts": [
+    "Euro in Cent: mal 100, das Komma wandert zwei Stellen nach rechts.",
+    "Cent in Euro: durch 100, das Komma wandert zwei Stellen nach links; Euro schreibt man mit zwei Nachkommastellen.",
+    "Geld hat nur diese eine Stufe."
+   ],
+   "beispiele": [
+    {
+     "typ": [
+      "kleinere",
+      "komma"
+     ],
+     "von": "4,50 €",
+     "nach": "450 ct",
+     "rechnung": "4,5 · 100 = 450",
+     "denn": "1 € = 100 ct",
+     "text": "4,50 € = 450 ct, denn 1 € = 100 ct."
+    },
+    {
+     "typ": [
+      "groessere",
+      "komma"
+     ],
+     "von": "275 ct",
+     "nach": "2,75 €",
+     "rechnung": "275 : 100 = 2,75",
+     "denn": "1 € = 100 ct",
+     "text": "275 ct = 2,75 €, denn 1 € = 100 ct."
+    },
+    {
+     "typ": [
+      "groessere",
+      "komma"
+     ],
+     "von": "7 ct",
+     "nach": "0,07 €",
+     "rechnung": "7 : 100 = 0,07",
+     "denn": "1 € = 100 ct",
+     "text": "7 ct = 0,07 €, denn 1 € = 100 ct."
+    },
+    {
+     "typ": [
+      "kleinere",
+      "komma"
+     ],
+     "von": "12,07 €",
+     "nach": "1 207 ct",
+     "rechnung": "12,07 · 100 = 1 207",
+     "denn": "1 € = 100 ct",
+     "text": "12,07 € = 1 207 ct, denn 1 € = 100 ct."
+    }
+   ],
+   "stolperstellen": [
+    {
+     "fehler": "Die Null nach dem Komma weggelassen und falsch gelesen.",
+     "richtig": "4,5 € sind 4,50 € und damit 450 ct; 4,05 € sind 405 ct.",
+     "pruefung": [
+      {
+       "gleichung": "4,5 € = 4,50 €",
+       "stimmt": true
+      },
+      {
+       "gleichung": "4,5 € = 4,05 €",
+       "stimmt": false
+      },
+      {
+       "gleichung": "4,5 € = 450 ct",
+       "stimmt": true
+      },
+      {
+       "gleichung": "4,05 € = 405 ct",
+       "stimmt": true
+      }
+     ]
+    },
+    {
+     "fehler": "Cent als Zehntel eines Euro gelesen.",
+     "richtig": "7 ct sind 0,07 €, nicht 0,7 €.",
+     "pruefung": [
+      {
+       "gleichung": "7 ct = 0,07 €",
+       "stimmt": true
+      },
+      {
+       "gleichung": "7 ct = 0,7 €",
+       "stimmt": false
+      }
+     ]
+    },
+    {
+     "fehler": "Beim Wechsel in Cent geteilt statt malgenommen.",
+     "richtig": "2,75 € sind 275 ct, nicht 0,0275 ct.",
+     "pruefung": [
+      {
+       "gleichung": "2,75 € = 275 ct",
+       "stimmt": true
+      },
+      {
+       "gleichung": "2,75 € = 0,0275 ct",
+       "stimmt": false
+      }
+     ],
+     "fehlbild": "fb.groesse.falsche_richtung"
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": 5,
+    "realschule_by": 5,
+    "ib_myp": 2,
+    "beleg": [
+     {
+      "thema": "groessen.einheiten",
+      "lernziel": "kommaschreibweise"
+     }
+    ]
+   },
+   "etappen_im_bestand": [
+    {
+     "thema": "groessen.einheiten",
+     "lernziel": "kommaschreibweise",
+     "titel": "Größen in Kommaschreibweise"
+    }
+   ],
+   "regeln": [
+    {
+     "kennung": "I-geld-1",
+     "lang": "id.verhaeltnisse.groesse",
+     "name": "Größe",
+     "passt": "Kleinere Einheit, größere Zahl."
+    },
+    {
+     "kennung": "V1",
+     "name": "Größe und Einheit",
+     "passt": "Eine Größe ist Zahl mal Einheit."
+    },
+    {
+     "kennung": "R1",
+     "lang": "rr.stellenwert",
+     "name": "Stellenwert",
+     "passt": "Mal 100 schiebt die Ziffern zwei Stellen nach links."
+    }
+   ],
+   "hinweise": [
+    "Geld hat nur eine Stufe; ein Beispiel über zwei Stufen gibt es deshalb nicht."
+   ]
+  },
+  {
+   "art": "Geschwindigkeit",
+   "zusammengesetzt": true,
+   "treppe": [
+    {
+     "einheit": "m/s",
+     "name": "Meter pro Sekunde",
+     "zur_naechsten": "3,6"
+    },
+    {
+     "einheit": "km/h",
+     "name": "Kilometer pro Stunde",
+     "zur_naechsten": null
+    }
+   ],
+   "darstellung": "m/s –3,6→ km/h",
+   "gleichungen": [
+    "1 m/s = 3,6 km/h",
+    "10 m/s = 36 km/h",
+    "1 km/h = 1 000 m/h",
+    "1 m/s = 60 m/min",
+    "1 m/min = 0,06 km/h"
+   ],
+   "herleitung": [
+    {
+     "text": "1 m/s heißt: 1 m in 1 s.",
+     "gleichungen": []
+    },
+    {
+     "text": "Eine Stunde hat 3 600 s. In dieser Zeit sind es 3 600 m, das sind 3,6 km.",
+     "gleichungen": [
+      "1 h = 3 600 s",
+      "3 600 m = 3,6 km"
+     ]
+    },
+    {
+     "text": "Also legt man mit 1 m/s in einer Stunde 3,6 km zurück: 1 m/s sind 3,6 km/h.",
+     "gleichungen": [
+      "1 m/s = 3,6 km/h"
+     ]
+    }
+   ],
+   "merksatz": "m/s in km/h: mal 3,6; km/h in m/s: durch 3,6.",
+   "so_gehts": [
+    "Von m/s nach km/h mal 3,6 rechnen; von km/h nach m/s durch 3,6.",
+    "Bei anderen Einheiten (m/min) rechnest du Zähler und Nenner getrennt: m zu km durch 1 000, min zu h mal 60.",
+    "Prüfe mit 10 m/s = 36 km/h."
+   ],
+   "beispiele": [
+    {
+     "typ": [
+      "kleinere"
+     ],
+     "von": "15 m/s",
+     "nach": "54 km/h",
+     "rechnung": "15 · 3,6 = 54",
+     "denn": "1 m/s = 3,6 km/h",
+     "text": "15 m/s = 54 km/h, denn 1 m/s = 3,6 km/h."
+    },
+    {
+     "typ": [
+      "groessere"
+     ],
+     "von": "72 km/h",
+     "nach": "20 m/s",
+     "rechnung": "72 : 3,6 = 20",
+     "denn": "1 m/s = 3,6 km/h",
+     "text": "72 km/h = 20 m/s, denn 1 m/s = 3,6 km/h."
+    },
+    {
+     "typ": [
+      "kleinere",
+      "komma"
+     ],
+     "von": "2,5 m/s",
+     "nach": "9 km/h",
+     "rechnung": "2,5 · 3,6 = 9",
+     "denn": "1 m/s = 3,6 km/h",
+     "text": "2,5 m/s = 9 km/h, denn 1 m/s = 3,6 km/h."
+    },
+    {
+     "typ": [
+      "groessere",
+      "zaehler_und_nenner"
+     ],
+     "von": "300 m/min",
+     "nach": "18 km/h",
+     "rechnung": "300 : 1 000 · 60 = 18",
+     "denn": "1 m/min = 0,06 km/h",
+     "achtung": "Zähler: 300 m sind 0,3 km. Nenner: 1 min ist 1/60 h, also mal 60.",
+     "text": "300 m/min = 18 km/h, denn 1 m/min = 0,06 km/h. Zähler: 300 m sind 0,3 km. Nenner: 1 min ist 1/60 h, also mal 60."
+    }
+   ],
+   "stolperstellen": [
+    {
+     "fehler": "Beim Wechsel von km/h nach m/s mit 3,6 malgenommen statt geteilt.",
+     "richtig": "36 km/h sind 10 m/s, nicht 129,6 m/s.",
+     "pruefung": [
+      {
+       "gleichung": "36 km/h = 10 m/s",
+       "stimmt": true
+      },
+      {
+       "gleichung": "36 km/h = 129,6 m/s",
+       "stimmt": false
+      }
+     ],
+     "fehlbild": "fb.groesse.falsche_richtung"
+    },
+    {
+     "fehler": "Den Faktor 3,6 durch 10 ersetzt.",
+     "richtig": "10 m/s sind 36 km/h, nicht 100 km/h.",
+     "pruefung": [
+      {
+       "gleichung": "10 m/s = 36 km/h",
+       "stimmt": true
+      },
+      {
+       "gleichung": "10 m/s = 100 km/h",
+       "stimmt": false
+      }
+     ]
+    },
+    {
+     "fehler": "Nur den Zähler umgerechnet und den Nenner stehen lassen.",
+     "richtig": "300 m/min sind 18 km/h, nicht 0,3 km/h.",
+     "pruefung": [
+      {
+       "gleichung": "300 m/min = 18 km/h",
+       "stimmt": true
+      },
+      {
+       "gleichung": "300 m/min = 0,3 km/h",
+       "stimmt": false
+      }
+     ]
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Die Umrechnung km/h und m/s hat im Bestand keine Lernkarte, nur eine Aufgabe im Thema Formeln (Gymnasium Klasse 8: m/s in km/h über 3 600 s). km/h kommt als Einheit ab Klasse 8 (Realschule 7) vor.",
+   "vorkommen_im_bestand": [
+    {
+     "thema": "gleichungen.formeln",
+     "was": "Aufgabe: 400 m in 50 s, Ergebnis in km/h (Gymnasium Klasse 8)"
+    },
+    {
+     "thema": "groessen.indirekt",
+     "was": "km/h in Aufgaben (Gymnasium Klasse 8, Realschule Klasse 7)"
+    },
+    {
+     "thema": "funktionen.potenz",
+     "was": "m/s in Aufgaben (Gymnasium Klasse 9, Realschule Klasse 10)"
+    }
+   ],
+   "etappen_im_bestand": [],
+   "regeln": [
+    {
+     "kennung": "V1",
+     "name": "Größe und Einheit",
+     "passt": "Eine Größe ist Zahl mal Einheit."
+    },
+    {
+     "kennung": "I-geld-1",
+     "lang": "id.verhaeltnisse.groesse",
+     "name": "Größe",
+     "passt": "Kleinere Einheit, größere Zahl."
+    }
+   ],
+   "hinweise": [
+    "Geschwindigkeit = Strecke : Zeit; hier geht es nur um das Umrechnen der Einheit."
+   ]
+  },
+  {
+   "art": "Dichte",
+   "zusammengesetzt": true,
+   "treppe": [
+    {
+     "einheit": "g/cm³",
+     "name": "Gramm pro Kubikzentimeter",
+     "zur_naechsten": "1 000"
+    },
+    {
+     "einheit": "kg/m³",
+     "name": "Kilogramm pro Kubikmeter",
+     "zur_naechsten": null,
+     "zusatz": true
+    }
+   ],
+   "darstellung": "g/cm³ –1 000→ kg/m³",
+   "gleichungen": [
+    "1 g/cm³ = 1 000 kg/m³",
+    "1 kg/dm³ = 1 g/cm³",
+    "1 t/m³ = 1 g/cm³"
+   ],
+   "herleitung": [
+    {
+     "text": "1 g/cm³ heißt: 1 cm³ hat die Masse 1 g.",
+     "gleichungen": []
+    },
+    {
+     "text": "1 m³ sind 1 000 000 cm³. Die haben zusammen 1 000 000 g, das sind 1 000 kg.",
+     "gleichungen": [
+      "1 m³ = 1 000 000 cm³",
+      "1 000 000 g = 1 000 kg"
+     ]
+    },
+    {
+     "text": "Also hat 1 m³ die Masse 1 000 kg: 1 g/cm³ sind 1 000 kg/m³.",
+     "gleichungen": [
+      "1 g/cm³ = 1 000 kg/m³"
+     ]
+    }
+   ],
+   "merksatz": "Von g/cm³ in kg/m³ mal 1 000, zurück durch 1 000.",
+   "so_gehts": [
+    "Dichte ist Masse durch Volumen: Wie viel Masse hat 1 Volumeneinheit?",
+    "Von g/cm³ nach kg/m³ mal 1 000, von kg/m³ nach g/cm³ durch 1 000.",
+    "Rechnest du mit anderen Einheiten, rechne Masse und Volumen einzeln um."
+   ],
+   "beispiele": [
+    {
+     "typ": [
+      "kleinere",
+      "komma"
+     ],
+     "von": "0,7 g/cm³",
+     "nach": "700 kg/m³",
+     "rechnung": "0,7 · 1 000 = 700",
+     "denn": "1 g/cm³ = 1 000 kg/m³",
+     "text": "0,7 g/cm³ = 700 kg/m³, denn 1 g/cm³ = 1 000 kg/m³."
+    },
+    {
+     "typ": [
+      "kleinere",
+      "komma"
+     ],
+     "von": "7,86 g/cm³",
+     "nach": "7 860 kg/m³",
+     "rechnung": "7,86 · 1 000 = 7 860",
+     "denn": "1 g/cm³ = 1 000 kg/m³",
+     "text": "7,86 g/cm³ = 7 860 kg/m³, denn 1 g/cm³ = 1 000 kg/m³."
+    },
+    {
+     "typ": [
+      "groessere",
+      "komma"
+     ],
+     "von": "2 700 kg/m³",
+     "nach": "2,7 g/cm³",
+     "rechnung": "2 700 : 1 000 = 2,7",
+     "denn": "1 g/cm³ = 1 000 kg/m³",
+     "text": "2 700 kg/m³ = 2,7 g/cm³, denn 1 g/cm³ = 1 000 kg/m³."
+    }
+   ],
+   "stolperstellen": [
+    {
+     "fehler": "Mit 1 000 000 statt 1 000 gerechnet, weil m³ und cm³ sich um 1 000 000 unterscheiden; die Masse wechselt aber auch (g zu kg).",
+     "richtig": "1 g/cm³ sind 1 000 kg/m³, nicht 1 000 000 kg/m³.",
+     "pruefung": [
+      {
+       "gleichung": "1 g/cm³ = 1 000 kg/m³",
+       "stimmt": true
+      },
+      {
+       "gleichung": "1 g/cm³ = 1 000 000 kg/m³",
+       "stimmt": false
+      }
+     ]
+    },
+    {
+     "fehler": "In die falsche Richtung gerechnet.",
+     "richtig": "2 700 kg/m³ sind 2,7 g/cm³, nicht 2 700 000 g/cm³.",
+     "pruefung": [
+      {
+       "gleichung": "2 700 kg/m³ = 2,7 g/cm³",
+       "stimmt": true
+      },
+      {
+       "gleichung": "2 700 kg/m³ = 2 700 000 g/cm³",
+       "stimmt": false
+      }
+     ]
+    },
+    {
+     "fehler": "kg/dm³ umgerechnet, obwohl sich nichts ändert.",
+     "richtig": "1 kg/dm³ sind 1 g/cm³: Masse und Volumen werden beide 1 000-mal kleiner.",
+     "pruefung": [
+      {
+       "gleichung": "1 kg/dm³ = 1 g/cm³",
+       "stimmt": true
+      },
+      {
+       "gleichung": "1 kg/dm³ = 1 000 g/cm³",
+       "stimmt": false
+      }
+     ]
+    }
+   ],
+   "ab_klasse": {
+    "gymnasium_by": null,
+    "realschule_by": null,
+    "ib_myp": null,
+    "beleg": []
+   },
+   "ab_klasse_hinweis": "Dichte kommt im Bestand nur in Aufgaben vor (Formeln, Gymnasium Klasse 8; Körper, Gymnasium Klasse 10, Realschule Klasse 9); eine Lernkarte zur Umrechnung der Einheit gibt es nicht.",
+   "vorkommen_im_bestand": [
+    {
+     "thema": "gleichungen.formeln",
+     "was": "Aufgaben mit ρ = m : V und ρ in g/cm³ (Gymnasium Klasse 8)"
+    },
+    {
+     "thema": "raum.pyramide_kegel_kugel",
+     "was": "Dichte in g/cm³ in Aufgaben (Realschule Klasse 9, Gymnasium Klasse 10)"
+    }
+   ],
+   "etappen_im_bestand": [],
+   "regeln": [
+    {
+     "kennung": "V1",
+     "name": "Größe und Einheit",
+     "passt": "Eine Größe ist Zahl mal Einheit."
+    }
+   ],
+   "hinweise": [
+    "Dichte = Masse : Volumen, also Masse = Volumen · Dichte (so im Bestand).",
+    "kg/m³ steht nicht im Bestand und ist hier als Zusatz markiert."
+   ]
+  }
+ ],
+ "nicht_aufgenommen": [
+  {
+   "art": "Winkel",
+   "grund": "Im Bestand nur Grad (°), ohne Umrechnung in Winkelminuten oder Bogenmaß; es gibt keine Treppe mit Faktoren."
+  },
+  {
+   "art": "Temperatur",
+   "grund": "Im Bestand nur °C als Zahl mit Vorzeichen (negative Zahlen); Umrechnung in K oder °F hat keine Treppe mit Faktor, sondern eine Verschiebung (im Bestand nur als Formelaufgabe F = 1,8 · C + 32, Gymnasium Klasse 8, Thema gleichungen.formeln)."
+  }
+ ]
+}

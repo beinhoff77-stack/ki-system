@@ -3030,6 +3030,9 @@ const LERN_HOCH = '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ⁿⁱᵃᵇᶜᵈ�
 const LERN_AUSWAHL = new Set(['w/m', 'm/w', 'm/w/d', 'j/n', 'ja/nein', 'u/o']); // Auswahl-Kürzel: Text (Groß-/Kleinschreibung egal)
 // Allgemeine Klasse: Modifikator-Buchstaben, Modifikator-Symbole (u. a. ^), hoch-/tiefgestellte Ziffern und Zeichen (ᴺ, ᴬ, ᵅ, ᵏ, ⁿ, ₂ …)
 const LERN_HOCH_ALLG = /[\p{Lm}\p{Sk}²³¹⁰-₟]/u;
+// 0.94.0: an den Grenzen ganze Codepoints prüfen (Zeichen außerhalb der BMP wie U+107A5 sind zwei UTF-16-Hälften)
+const lernZeichenAb = (s, i) => (i >= 0 && i < s.length ? String.fromCodePoint(s.codePointAt(i)) : '');
+const lernZeichenVor = (s, i) => (i <= 0 ? '' : i >= 2 && /[\udc00-\udfff]/.test(s[i - 1]) && /[\ud800-\udbff]/.test(s[i - 2]) ? s.slice(i - 2, i) : s[i - 1]);
 // Eng gefasst: „bis“ und „ab“ treffen echte Brüche im Bestand („von 1/3 bis 1/2“, „AB 2/4“), „den“ wäre zu riskant („den 3/4“).
 const LERN_DATUMSWORT = /(?:^|[^A-Za-zÄÖÜäöüß])(?:am|vom|zum|seit)\s+$/i; // „am 27/11“, „bis zum 3/12“: Datum, Text
 const LERN_LZ = '[ \\u00a0\\u202f]'; // Trenner von Tausendergruppen (Leerzeichen, geschützt, schmal geschützt)
@@ -3046,16 +3049,16 @@ function lernBruchTeile(text) {
     if (s[i - 1] === ')') {
       const p = s.lastIndexOf('(', i - 1); if (p < last) continue;
       z = s.slice(p + 1, i - 1); a0 = p;
-      if (!klammerOk(z) || (p > 0 && (new RegExp(`[\\d${LERN_BUCHST}α-ω√^${LERN_HOCH}]`).test(s[p - 1]) || LERN_HOCH_ALLG.test(s[p - 1])))) continue; // f(x)/2, √(…)/2, 2(x+1)/3
+      if (!klammerOk(z) || (p > 0 && (new RegExp(`[\\d${LERN_BUCHST}α-ω√^${LERN_HOCH}]`).test(s[p - 1]) || LERN_HOCH_ALLG.test(lernZeichenVor(s, p))))) continue; // f(x)/2, √(…)/2, 2(x+1)/3
     } else {
       const m = LERN_BRUCH_LINKS.exec(s.slice(Math.max(last, i - 14), i)); if (!m || !kern(m[1])) continue;
       z = m[1]; a0 = i - z.length;
-      if (a0 > 0 && (new RegExp(`[\\d/.,:^${LERN_BUCHST}α-ω√${LERN_HOCH}°]`).test(s[a0 - 1]) || LERN_HOCH_ALLG.test(s[a0 - 1]))) continue; // km/h, 3/4/2026, 1.5/2, 3^2/4
+      if (a0 > 0 && (new RegExp(`[\\d/.,:^${LERN_BUCHST}α-ω√${LERN_HOCH}°]`).test(s[a0 - 1]) || LERN_HOCH_ALLG.test(lernZeichenVor(s, a0)))) continue; // km/h, 3/4/2026, 1.5/2, 3^2/4
       if (/^\d{3}(?!\d)/.test(z) && new RegExp(`\\d${LERN_LZ}$`).test(s.slice(0, a0))) { // Tausendergruppe: 1 200/x, 11 880/…
         const g = new RegExp(`(?:^|[^\\d,.])(\\d{1,3}(?:${LERN_LZ}\\d{3})*${LERN_LZ})$`).exec(s.slice(last, a0)); if (!g) continue; // nicht eindeutig: Text
         if (/^\d{3}$/.test(z)) zweideutig = true; // 2 125/128: Tausendergruppe oder gemischte Zahl?
         z = g[1] + z; a0 -= g[1].length;
-        if (a0 > 0 && (new RegExp(`[\\d/.,:^${LERN_BUCHST}α-ω√${LERN_HOCH}°]`).test(s[a0 - 1]) || LERN_HOCH_ALLG.test(s[a0 - 1]))) continue;
+        if (a0 > 0 && (new RegExp(`[\\d/.,:^${LERN_BUCHST}α-ω√${LERN_HOCH}°]`).test(s[a0 - 1]) || LERN_HOCH_ALLG.test(lernZeichenVor(s, a0)))) continue;
       }
     }
     const davor = s.slice(Math.max(0, a0 - 3), a0);
@@ -3064,7 +3067,7 @@ function lernBruchTeile(text) {
     if (s[i + 1] === '(') {
       const q = s.indexOf(')', i + 2); if (q === -1) continue;
       n = s.slice(i + 2, q); b1 = q + 1;
-      if (!klammerOk(n) || LERN_HOCH_ALLG.test(s[b1] || '')) continue; // auch unbekannte Hochzeichen: Text
+      if (!klammerOk(n) || LERN_HOCH_ALLG.test(lernZeichenAb(s, b1))) continue; // auch unbekannte Hochzeichen: Text
     } else {
       const m = LERN_BRUCH_RECHTS.exec(s.slice(i + 1, i + 15)); if (!m || !kern(m[1])) continue;
       n = m[1]; b1 = i + 1 + n.length;
@@ -3072,7 +3075,7 @@ function lernBruchTeile(text) {
       if (tg) { if (!/^\d{1,3}$/.test(n)) continue; n += tg[0]; b1 += tg[0].length; } // Gruppe im Nenner hebt die Zweideutigkeit im Zähler NICHT auf
       if (/^\d.*[a-zA-Zα-ω]/.test(n)) continue; // 1/2x ist zweideutig (½ · x oder 1 durch 2x): bleibt Text; eindeutig ist 1/(2x)
       const nach = s.slice(b1, b1 + 2);
-      if (new RegExp(`^[\\d/(√α-ω^${LERN_HOCH}${LERN_BUCHST}]`).test(nach) || /^[.,:]\d/.test(nach) || LERN_HOCH_ALLG.test(nach[0] || '') || new RegExp(`^-[${LERN_BUCHST}]`).test(nach)) continue; // 3/4/2026, 1/2x, x/y-Ebene
+      if (new RegExp(`^[\\d/(√α-ω^${LERN_HOCH}${LERN_BUCHST}]`).test(nach) || /^[.,:]\d/.test(nach) || LERN_HOCH_ALLG.test(lernZeichenAb(s, b1)) || new RegExp(`^-[${LERN_BUCHST}]`).test(nach)) continue; // 3/4/2026, 1/2x, x/y-Ebene
     }
     if (zweideutig) continue; // 2 125/128, 1 200/x: ganz Text, nie zerreißen, nie raten
     if (LERN_EINHEIT.has(z) && LERN_EINHEIT.has(n)) continue; // m/s, g/l
@@ -4241,7 +4244,9 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
           const dasWar = a.misch && mischGueltig ? el('p', { class: 'lr-misch-das-war' }, `Das war: ${r.misch?.etappe || a.etappe || 'eine frühere Etappe'}` + ((lernStadtName(ctx.kind, a) || r.misch?.stadt) ? ` – ${a.lernziel && lernRkFlugVon(ctx.kind, a.thema_id || lernEinheitThema.get(Number(a.einheit_id))) ? lernStadtName(ctx.kind, a) : r.misch?.stadt || a.stadt}` : '')) : null;
           const warFaellig = e.faellig; let wdhFertigBox = null;
           if (r.karte && !a.misch) { if (r.karte.eigene_loesungen !== undefined) Object.assign(e, lernRegelFelder(r.karte)); e.serie = r.karte.serie; e.ziel = r.karte.ziel; e.sitzt = r.karte.sitzt; e.schwerOk = !!r.karte.schwer_ok; e.schwerNoetig = !!r.karte.schwer_noetig; e.fertig = r.karte.fertig !== undefined ? !!r.karte.fertig : e.fertig || r.karte.sitzt; e.wiederOffen = !r.karte.sitzt && (e.wiederOffen || warSitzt); /* H1: der Server entscheidet */ if (warSitzt && r.karte.sitzt) e.faellig = false; }
-          if (!a.misch) { if (typeof r.karte?.bearbeitungen === 'number') { e.bearbeitungen = r.karte.bearbeitungen; e.taktSitzung = 0; } else e.taktSitzung = (e.taktSitzung || 0) + 1; } // Form-Takt: Stand vom Server gilt, sonst selbst mitzählen
+          // Form-Takt: Stand vom Server gilt (in karte oder daneben); fehlt er – z. B. fehlt karte nach der ersten nicht zählenden Bordkarte ganz –, ist der Platz trotzdem verbraucht: selbst weiterzählen
+          if (!a.misch) { const bs = typeof r.karte?.bearbeitungen === 'number' ? r.karte.bearbeitungen : typeof r.bearbeitungen === 'number' ? r.bearbeitungen : null;
+            if (bs !== null) { e.bearbeitungen = bs; e.taktSitzung = 0; } else e.taktSitzung = (e.taktSitzung || 0) + 1; }
           zeichnePunkte(); zeichneFortschritt();
           const jetztSitzt = !!r.karte?.neu_sitzt || (!warSitzt && e.sitzt);
           const weiter = el('button', { type: 'button', class: 'lr-knopf lr-weiter', onclick: () => { zeigeAufgabe(); window.scrollTo(0, 0); } }, neu ? 'Neue Bordkarte ›' : 'Nächste Bordkarte');

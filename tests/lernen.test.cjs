@@ -5504,9 +5504,12 @@ for (const [id, typ, mehr] of [[701, 'direkt'], [702, 'erkennen'], [703, 'direkt
   FT[id] = { id, lernziel: 'stellenwert', stufe: 1, typ, antworttyp: 'zahl', frage: { text: `Bordkarte ${id}: Wie viel ist ${id} − ${id - 7}?` }, loesung: { wert: 7 }, ...(mehr || {}) };
 Object.assign(AUFG, FT);
 // Server nach FT-S: einheit_lesen mit den Form-Takt-Bordkarten der Etappe „stellenwert“; Antworten halten die Etappe offen (sie soll hier nicht landen)
-const ftServer = ({ felder = {}, ids, extra = {}, bearbeitungen = null } = {}) => { let n = 0; return (aktion, e) => {
+// ohneKarte: Antwort ohne `karte` (so nach der ersten nicht zählenden Bordkarte); daneben: `bearbeitungen` neben statt in `karte`
+const ftServer = ({ felder = {}, ids, extra = {}, bearbeitungen = null, ohneKarte = false, daneben = false } = {}) => { let n = 0; return (aktion, e) => {
   if (aktion === 'schule_uebung_pruefen' && e.karte) { n++;
-    return { ...e, karte: { ...e.karte, sitzt: false, neu_sitzt: false, fertig: false, eigene_loesungen: 0, folge: 0, folge_ziel: 3, typen_anzahl: 0, typen_noetig: 1, ...(bearbeitungen !== null ? { bearbeitungen: bearbeitungen + n } : {}) } }; }
+    const b = bearbeitungen !== null ? { bearbeitungen: bearbeitungen + n } : {};
+    if (ohneKarte) { const { karte: _k, ...rest } = e; return { ...rest, ...(daneben ? b : {}) }; }
+    return { ...e, karte: { ...e.karte, sitzt: false, neu_sitzt: false, fertig: false, eigene_loesungen: 0, folge: 0, folge_ziel: 3, typen_anzahl: 0, typen_noetig: 1, ...(daneben ? {} : b) }, ...(daneben ? b : {}) }; }
   if (aktion !== 'schule_einheit_lesen') return null;
   const x = neueRegel({ stellenwert: felder })(aktion, e);
   x.uebungen = [...x.uebungen.filter((a) => a.lernziel !== 'stellenwert'), ...ids.map((id) => zeig(AUFG[id]))]; Object.assign(x, extra); return x; }; };
@@ -5583,4 +5586,53 @@ test('Form-Takt: Bordkarte mit zaehlt = nein zeigt im Kopf „Zum Aufwärmen –
   const { page: p2 } = await setup(t, { anpassen: ftServer({ ids: [762] }) });
   await p2.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await p2.getByText(/AUFGABE 1/).waitFor();
   await p2.getByText('Zum Aufwärmen – zählt nicht für die Landung').waitFor();
+});
+
+test('Form-Takt Nachtrag: Antwort ohne karte verbraucht den Platz trotzdem; bearbeitungen neben karte wird übernommen (nicht doppelt gezählt)', async (t) => {
+  // Antworten ganz ohne karte (erste nicht zählende Bordkarte): die App zählt selbst weiter → Platz 3 hat form
+  const s1 = await setup(t, { gestaltung: 'nacht', anpassen: ftServer({ ids: [701, 702, 703, 704, 721, 722], extra: { form_jede: 3 }, felder: { bearbeitungen: 0 }, ohneKarte: true }) });
+  await s1.page.goto(origin + '/#/lerneinheit/1-1-ueben-1');
+  for (let i = 1; i <= 3; i++) await ftBeantworte(s1.page, i, true);
+  assert.deepEqual(ftGezeigt(s1.calls).map((id) => !!FT[id].form), [false, false, true], String(ftGezeigt(s1.calls)));
+  // bearbeitungen außerhalb von karte (mit und ohne karte): Stand vom Server gilt; doppelt gezählt wären es die Plätze 2, 4, 6, 8
+  for (const ohneKarte of [true, false]) {
+    const s2 = await setup(t, { gestaltung: 'nacht', anpassen: ftServer({ ids: [701, 702, 703, 704, 705, 721, 722, 723], extra: { form_jede: 2 }, felder: { bearbeitungen: 1 }, bearbeitungen: 1, daneben: true, ohneKarte }) });
+    await s2.page.goto(origin + '/#/lerneinheit/1-1-ueben-1');
+    for (let i = 1; i <= 4; i++) await ftBeantworte(s2.page, i, true);
+    assert.deepEqual(ftGezeigt(s2.calls).map((id) => !!FT[id].form), [true, false, true, false], `ohneKarte ${ohneKarte}: ${ftGezeigt(s2.calls)}`);
+  }
+});
+
+test('Form-Takt Nachtrag: kein Takt in der Wiederholung; nach dem Wiederöffnen läuft der Takt am nächsten Gesamtplatz weiter', async (t) => {
+  // fällige (gelandete) Etappe, Platz 3 wäre ein Form-Platz: in der Wiederholung bleibt die bisherige Reihenfolge (keine Auswahl nach Takt)
+  const wdh = { sitzt: true, fertig: true, faellig: true, eigene_loesungen: 2, folge: 2, typen_anzahl: 1, bearbeitungen: 2 };
+  const { page, calls } = await setup(t, { gestaltung: 'nacht', anpassen: ftServer({ ids: [701, 721, 702, 703, 704, 722], extra: { form_jede: 3 }, felder: wdh }) });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.getByText('Gelandet – heute wiederholen').waitFor();
+  // die Antwort öffnet die Etappe wieder (ftServer: sitzt/fertig false) – Bordkarte 1 war Platz 3 (Wiederholung, ohne Takt), Bordkarte 2 ist Platz 4, Bordkarte 3 Platz 5, 4 = Platz 6
+  for (let i = 1; i <= 4; i++) await ftBeantworte(page, i, true);
+  const g = ftGezeigt(calls);
+  assert.equal(g[0], 701, 'Wiederholung: Reihenfolge des Servers, keine Form-Bordkarte vorgezogen');
+  assert.deepEqual(g.slice(1).map((id) => !!FT[id].form), [false, false, true], `nach dem Wiederöffnen weiter am Gesamtplatz: ${g}`);
+  // vom Server wieder geöffnet geliefert (wieder_offen, bearbeitungen 5): die erste Bordkarte ist Platz 6, nicht Platz 1
+  const s2 = await setup(t, { gestaltung: 'nacht', anpassen: ftServer({ ids: [701, 702, 703, 721, 722], extra: { form_jede: 3 }, felder: { wieder_offen: true, eigene_loesungen: 0, bearbeitungen: 5 } }) });
+  await s2.page.goto(origin + '/#/lerneinheit/1-1-ueben-1');
+  await ftBeantworte(s2.page, 1, true);
+  assert.equal(!!FT[ftGezeigt(s2.calls)[0]].form, true);
+});
+
+test('Form-Takt Nachtrag: Mischkarte belegt keinen Takt-Platz und wird nicht nach dem Takt gewählt', async (t) => {
+  const misch = (aktion, e) => { const x = ftServer({ ids: [701, 702, 703, 721, 722], extra: { form_jede: 3 }, felder: { bearbeitungen: 2 } })(aktion, e); if (aktion !== 'schule_einheit_lesen') return x;
+    x.etappen_stand.strahl.sitzt = true;
+    x.mischkarten = [{ ...zeig(AUFG[14]), stufe: 2, einheit_id: 2, quelle: 'aelter', stadt: 'New York', etappe: 'Große Zahlen lesen' }]; x.misch_jede = 1; x.misch_ab = 1; return x; };
+  const { page, calls } = await setup(t, { gestaltung: 'nacht', anpassen: misch });
+  await page.goto(origin + '/#/lerneinheit/1-1-ueben-1');
+  await page.getByText('BORDKARTE 1 · AUS DEINER REISE').waitFor();
+  await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click();
+  await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('Das war: Große Zahlen lesen – New York').waitFor();
+  await page.getByRole('button', { name: /Neue Bordkarte/ }).click();
+  await ftBeantworte(page, 2, true);
+  const g = ftGezeigt(calls);
+  assert.equal(g[0], 14, 'zuerst die Mischkarte');
+  assert.equal(!!FT[g[1]].form, true, 'Platz 3 (bearbeitungen 2 + 1) ist nach der Mischkarte noch frei: Form-Bordkarte');
 });

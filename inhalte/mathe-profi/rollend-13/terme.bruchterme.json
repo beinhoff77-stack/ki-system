@@ -1,0 +1,770 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-13",
+ "kuerzel": "R8",
+ "flug": "r8-terme.bruchterme",
+ "titel": "terme.bruchterme",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen": [
+  "terme.bruchterme"
+ ],
+ "themen_datei_im_bestand": "terme.bruchterme",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R8-V031",
+   "thema": "terme.bruchterme",
+   "lernkarte": "definitionsmenge",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.erlaubte_zahlen",
+   "regel_name": "Erlaubte Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "6/(x + 1)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dieser Term ist an der Stelle x = −1 nicht definiert, nicht an der Stelle x = 1; das Vorzeichen der Nullstelle des Nenners ist vertauscht"
+    },
+    {
+     "index": 2,
+     "antwort": "6/x",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dieser Term ist an der Stelle x = 0 nicht definiert; für x = 2 ergibt er 3 statt 6"
+    }
+   ],
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt einige Werte eines Bruchterms T(x). An der Stelle x = 1 ist T nicht definiert. Welcher Term passt zu allen Einträgen der Tabelle?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "x",
+       "−1",
+       "0",
+       "1",
+       "2",
+       "3"
+      ],
+      "zeilen": [
+       [
+        "T(x)",
+        "−3",
+        "−6",
+        "nicht definiert",
+        "6",
+        "3"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "6/(x − 1)",
+     "6/(x + 1)",
+     "6/x"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "An welcher Stelle wird der Nenner 0? Setze auch x = 2 ein und vergleiche mit der Tabelle.",
+    "w": "Für 6/(x − 1) ist der Nenner bei x = 1 gleich 0, dort ist der Term nicht definiert. Die Werte: x = −1 ergibt 6/(−2) = −3, x = 0 ergibt −6, x = 2 ergibt 6, x = 3 ergibt 3. Das passt zur Tabelle."
+   }
+  },
+  {
+   "kennung": "R8-V032",
+   "thema": "terme.bruchterme",
+   "lernkarte": "definitionsmenge",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.erlaubte_zahlen",
+   "regel_name": "Erlaubte Zahlen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "definitionsmenge",
+    "t": "definitionsmenge",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim bestimmt die Definitionsmenge des Terms (x + 1)/(x² − 9) über ℚ. Zeile 1: Der Nenner darf nicht 0 sein: x² − 9 ≠ 0. Zeile 2: Aus x² = 9 folgt x = 3, also ist nur x = 3 verboten. Zeile 3: Die Definitionsmenge ist D = ℚ \\ {3}. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Welche Zahlen ergeben beim Quadrieren 9? Probiere auch negative Zahlen.",
+    "w": "Aus x² = 9 folgen zwei Zahlen: x = 3 und x = −3, denn auch (−3)² = 9. Beide machen den Nenner 0. Richtig: D = ℚ \\ {−3; 3}. Zeile 3 übernimmt nur die unvollständige Zeile 2."
+   }
+  },
+  {
+   "kennung": "R8-V033",
+   "thema": "terme.bruchterme",
+   "lernkarte": "termwert",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 366,
+     "fehlbild": "fb.kuerzen.aus_summe",
+     "regel_des_fehlbilds": "rr.kuerzen",
+     "beschreibung": "das k in der Summe im Zähler gekürzt: aus (360 + 6k)/k wird 360 + 6"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Grundpreis durch die Personenzahl geteilt, die 6 € je Person vergessen"
+    },
+    {
+     "antwort": 240,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Verpflegungsanteil im Zähler gerechnet und nicht geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "termwert",
+    "t": "termwert",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Klasse mietet einen Bus. Der Bus kostet 360 € Grundpreis, dazu kommen 6 € Verpflegung je Person. Bei k Personen zahlt jede Person (360 + 6k)/k Euro (k ≥ 1). Wie viel Euro zahlt jede Person bei k = 40?"
+    },
+    "o": {
+     "wert": 15,
+     "einheit": "€"
+    },
+    "c": "(360 + 6 * 40) / 40",
+    "h": "Setze k = 40 im Zähler und im Nenner ein. Rechne den Zähler zuerst aus.",
+    "w": "Zähler: 360 + 6 · 40 = 360 + 240 = 600. Nenner: 40. Dann 600 : 40 = 15. Jede Person zahlt 15 €. Probe: 9 € für den Bus plus 6 € Verpflegung."
+   }
+  },
+  {
+   "kennung": "R8-V034",
+   "thema": "terme.bruchterme",
+   "lernkarte": "termwert",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner vergessen: 5 + k = 3"
+    },
+    {
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 3 · 3 gerechnet und die 5 im Zähler nicht abgezogen"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Nenner mit x + 2 statt x − 2 berechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "termwert",
+    "t": "termwert",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Zahl k hat der Term T(x) = (x + k)/(x − 2) an der Stelle x = 5 den Wert 3? (Der Term ist für x ≠ 2 definiert.)"
+    },
+    "o": {
+     "wert": 4
+    },
+    "c": "3 * (5 - 2) - 5",
+    "h": "Rechne den Nenner an der Stelle x = 5 aus. Mit welcher Zahl wurde der Zähler geteilt, um 3 zu erhalten?",
+    "w": "Der Nenner ist 5 − 2 = 3. Der Zähler muss 3 · 3 = 9 sein. Also 5 + k = 9 und k = 4. Probe: (5 + 4)/(5 − 2) = 9 : 3 = 3."
+   }
+  },
+  {
+   "kennung": "R8-V035",
+   "thema": "terme.bruchterme",
+   "lernkarte": "kuerzen",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": -0.5,
+     "fehlbild": "fb.kuerzen.aus_summe",
+     "regel_des_fehlbilds": "rr.kuerzen",
+     "beschreibung": "aus den Summen gekürzt: nur −25 im Zähler und 5x im Nenner übrig gelassen"
+    },
+    {
+     "antwort": 0.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "im Nenner den Summanden 5x vergessen"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zähler und Nenner des gekürzten Terms vertauscht"
+    }
+   ],
+   "aufgabe": {
+    "l": "kuerzen",
+    "t": "kuerzen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne den Wert von (x² − 25)/(x² + 5x) für x = 10 auf zwei Wegen (der Term ist für x ≠ 0 und x ≠ −5 definiert). Weg A: Zähler und Nenner in Faktoren zerlegen, kürzen und dann x = 10 einsetzen. Weg B: x = 10 sofort in Zähler und Nenner einsetzen und den Zahlenbruch ausrechnen. Welchen Wert hat der Term?"
+    },
+    "o": {
+     "wert": 0.5
+    },
+    "c": "(10 ** 2 - 25) / (10 ** 2 + 5 * 10)",
+    "h": "Beide Wege müssen denselben Wert liefern. Der Zähler ist (x − 5)(x + 5), der Nenner ist x(x + 5).",
+    "w": "Weg A: Der Zähler ist (x − 5)(x + 5), der Nenner ist x(x + 5). Nach dem Kürzen mit x + 5 bleibt (x − 5)/x. Für x = 10 ist das 5/10 = 0,5. Weg B: Zähler 100 − 25 = 75, Nenner 100 + 50 = 150, und 75 : 150 = 0,5."
+   }
+  },
+  {
+   "kennung": "R8-V036",
+   "thema": "terme.bruchterme",
+   "lernkarte": "kuerzen",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 140,
+     "fehlbild": "fb.kuerzen.aus_summe",
+     "regel_des_fehlbilds": "rr.kuerzen",
+     "beschreibung": "aus der Summe x + 4 mit der 16 gekürzt: aus (x² − 16)/(x + 4) wird x² − 4"
+    },
+    {
+     "antwort": 128,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche selbst als Breite angegeben, nicht durch die Länge geteilt"
+    },
+    {
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Länge als Breite angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "kuerzen",
+    "t": "kuerzen",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein rechteckiges Beet hat den Flächeninhalt (x² − 16) m² und die Länge (x + 4) m (x > 4). Die Breite ist der Quotient aus Fläche und Länge. Wie breit ist das Beet in Metern für x = 12?"
+    },
+    "o": {
+     "wert": 8,
+     "einheit": "m"
+    },
+    "c": "(12 ** 2 - 16) / (12 + 4)",
+    "h": "Zerlege x² − 16 mit einer binomischen Formel in zwei Faktoren. Dann kannst du durch die Länge kürzen.",
+    "w": "x² − 16 = (x − 4)(x + 4). Breite = (x − 4)(x + 4)/(x + 4) = x − 4. Für x = 12 ist das 8 m. Probe: Fläche 144 − 16 = 128 m², Länge 16 m, 128 : 16 = 8."
+   }
+  },
+  {
+   "kennung": "R8-V037",
+   "thema": "terme.bruchterme",
+   "lernkarte": "erweitern",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Erweiterungsfaktor x + 2 berechnet, den Zähler 4 nicht mitgenommen"
+    },
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Zähler nicht mit erweitert"
+    },
+    {
+     "antwort": 22,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Faktor addiert statt malgenommen: 4 · 5 + 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "erweitern",
+    "t": "erweitern",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Der Bruchterm 4/(x − 2) wurde so erweitert, dass der neue Nenner x² − 4 ist (x ≠ 2 und x ≠ −2). Welchen Wert hat der neue Zähler für x = 5?"
+    },
+    "o": {
+     "wert": 28
+    },
+    "c": "4 * (5 + 2)",
+    "h": "Womit musst du x − 2 malnehmen, um x² − 4 zu erhalten? Mit demselben Term wird auch der Zähler malgenommen.",
+    "w": "x² − 4 = (x − 2)(x + 2). Es wurde mit x + 2 erweitert. Der neue Zähler ist 4(x + 2). Für x = 5: 4 · 7 = 28. Probe: 4/3 = 28/21."
+   }
+  },
+  {
+   "kennung": "R8-V038",
+   "thema": "terme.bruchterme",
+   "lernkarte": "erweitern",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "erweitern",
+    "t": "erweitern",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim erweitert 2/(x − 1) so, dass der Nenner x² − 1 wird. Zeile 1: Es ist x² − 1 = (x − 1)(x + 1). Also wird mit x + 1 erweitert. Zeile 2: Der Zähler wird 2 · (x + 1) = 2x + 1. Zeile 3: Ergebnis: (2x + 1)/(x² − 1) mit x ≠ 1 und x ≠ −1. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Rechne 2 · (x + 1) einzeln aus. Wird jeder Summand malgenommen?",
+    "w": "2 · (x + 1) = 2x + 2, nicht 2x + 1. Beim Erweitern müssen Zähler und Nenner mit demselben ganzen Term malgenommen werden. Richtig: (2x + 2)/(x² − 1). Zeile 3 übernimmt nur den Fehler der Zeile 2."
+   }
+  },
+  {
+   "kennung": "R8-V039",
+   "thema": "terme.bruchterme",
+   "lernkarte": "addieren",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "2/(2x + 1)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Zähler und Nenner getrennt addiert; für x = 1 ergibt der Term 2/3 statt 3/2"
+    },
+    {
+     "index": 2,
+     "antwort": "2/(x² + x)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zähler addiert, aber die Nenner malgenommen; für x = 1 ergibt der Term 1 statt 3/2"
+    }
+   ],
+   "aufgabe": {
+    "l": "addieren",
+    "t": "addieren",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Die Tabelle zeigt einige Werte von T(x) = 1/x + 1/(x + 1) (x ≠ 0 und x ≠ −1). Welcher Bruchterm ist zu T(x) gleichwertig?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "x",
+       "1",
+       "2",
+       "3",
+       "4"
+      ],
+      "zeilen": [
+       [
+        "T(x)",
+        "3/2",
+        "5/6",
+        "7/12",
+        "9/20"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "2/(2x + 1)",
+     "(2x + 1)/(x² + x)",
+     "2/(x² + x)"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Setze x = 1 in jeden Term ein und vergleiche mit der Tabelle.",
+    "w": "Hauptnenner x(x + 1) = x² + x: 1/x = (x + 1)/(x² + x) und 1/(x + 1) = x/(x² + x). Summe: (2x + 1)/(x² + x). Für x = 1: 3/2, für x = 2: 5/6, für x = 3: 7/12, für x = 4: 9/20."
+   }
+  },
+  {
+   "kennung": "R8-V040",
+   "thema": "terme.bruchterme",
+   "lernkarte": "addieren",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl vor x im Ergebnis direkt als a genommen"
+    },
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 − 2 gerechnet: den Zahlenteil 2 vom Ergebnis abgezogen"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "3 + 2 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "addieren",
+    "t": "addieren",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Für welche Zahl a gilt 1/x + a/(x + 2) = (3x + 2)/(x² + 2x) für alle Zahlen x mit x ≠ 0 und x ≠ −2?"
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "3 - 1",
+    "h": "Bringe die linke Seite auf den Nenner x² + 2x. Vergleiche dann die Zähler: die Zahl vor x und die Zahl ohne x.",
+    "w": "Hauptnenner x(x + 2) = x² + 2x. 1/x = (x + 2)/(x² + 2x) und a/(x + 2) = ax/(x² + 2x). Zähler: (x + 2) + ax = (1 + a)x + 2. Das soll 3x + 2 sein, also 1 + a = 3 und a = 2."
+   }
+  },
+  {
+   "kennung": "R8-V041",
+   "thema": "terme.bruchterme",
+   "lernkarte": "multiplizieren",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 168,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Zähler der beiden Brüche malgenommen"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": "fb.kuerzen.aus_summe",
+     "regel_des_fehlbilds": "rr.kuerzen",
+     "beschreibung": "beim Kürzen aus der Differenz: aus (x² − 4)/(x − 2) wird x − 2"
+    },
+    {
+     "antwort": 2.625,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den ersten Bruch ausgerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "multiplizieren",
+    "t": "multiplizieren",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne (x² − 4)/(x + 3) · (x + 3)/(x − 2) für x = 5 auf zwei Wegen (x ≠ −3 und x ≠ 2). Weg A: erst die Brüche multiplizieren, kürzen und vereinfachen, dann x = 5 einsetzen. Weg B: x = 5 sofort in beide Brüche einsetzen und die zwei Zahlenbrüche multiplizieren. Welchen Wert hat das Produkt?"
+    },
+    "o": {
+     "wert": 7
+    },
+    "c": "(5 ** 2 - 4) / (5 + 3) * ((5 + 3) / (5 - 2))",
+    "h": "Beide Wege müssen denselben Wert ergeben. Zerlege x² − 4 in zwei Faktoren.",
+    "w": "Weg A: (x − 2)(x + 2)/(x + 3) · (x + 3)/(x − 2) = x + 2. Für x = 5 ist das 7. Weg B: 21/8 · 8/3 = 168/24 = 7."
+   }
+  },
+  {
+   "kennung": "R8-V042",
+   "thema": "terme.bruchterme",
+   "lernkarte": "multiplizieren",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.bruchrechnen",
+   "regel_name": "Rechnen mit Brüchen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 8,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 · 2 gerechnet statt 4 : 2"
+    },
+    {
+     "antwort": 0.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "2 : 4 gerechnet statt 4 : 2"
+    },
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 + 2 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "multiplizieren",
+    "t": "multiplizieren",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Das Produkt 4x/(x − 2) · (x − 2)/(a · x²) soll für alle Zahlen x mit x ≠ 0 und x ≠ 2 gleich 2/x sein. Welche Zahl a ist das?"
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "4 / 2",
+    "h": "Kürze zuerst alles, was oben und unten gleich vorkommt. Vergleiche dann den Rest mit 2/x.",
+    "w": "Im Produkt kürzt sich x − 2 weg, und ein x kürzt sich auch. Es bleibt der Bruch 4/(a · x). Das soll 2/x sein, also 4/a = 2 und a = 2. Probe: 4x/(2x²) = 2/x."
+   }
+  },
+  {
+   "kennung": "R8-V043",
+   "thema": "terme.bruchterme",
+   "lernkarte": "fehler_finden",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Die Behauptung ist richtig, denn für x = 0 stimmen beide Seiten überein.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von einem einzigen passenden Beispiel auf alle Zahlen geschlossen"
+    },
+    {
+     "index": 2,
+     "antwort": "Die Behauptung ist falsch, denn für x = 0 sind beide Seiten verschieden.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Spalte x = 0 falsch gelesen: dort sind beide Seiten gleich 3"
+    }
+   ],
+   "aufgabe": {
+    "l": "fehler_finden",
+    "t": "fehler_finden",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim behauptet: Es gilt (x + 6)/(x + 2) = 3 für alle Zahlen x ≠ −2. Die Tabelle zeigt beide Seiten für einige Zahlen x. Was folgt aus der Tabelle?",
+     "grafik": {
+      "typ": "tabelle",
+      "kopf": [
+       "x",
+       "0",
+       "1",
+       "2",
+       "4"
+      ],
+      "zeilen": [
+       [
+        "(x + 6)/(x + 2)",
+        "3",
+        "7/3",
+        "2",
+        "5/3"
+       ],
+       [
+        "rechte Seite 3",
+        "3",
+        "3",
+        "3",
+        "3"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "Die Behauptung ist richtig, denn für x = 0 stimmen beide Seiten überein.",
+     "Die Behauptung ist falsch: Schon für x = 2 ist der linke Wert 2 und nicht 3.",
+     "Die Behauptung ist falsch, denn für x = 0 sind beide Seiten verschieden."
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Eine Behauptung „für alle x“ ist schon falsch, wenn sie für eine einzige Zahl nicht stimmt. Suche eine solche Zahl in der Tabelle.",
+    "w": "Für x = 0 ist (0 + 6)/(0 + 2) = 3, die Seiten sind gleich. Für x = 2 ist 8/4 = 2, nicht 3. Ein einziges Gegenbeispiel genügt, um „für alle x“ zu widerlegen. Gekürzt werden darf nicht aus einer Summe."
+   }
+  },
+  {
+   "kennung": "R8-V044",
+   "thema": "terme.bruchterme",
+   "lernkarte": "fehler_finden",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.kuerzen",
+   "regel_name": "Erweitern und Kürzen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 1.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die 9 nicht abgezogen: 6x = 9"
+    },
+    {
+     "antwort": -1.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Vorzeichen vertauscht: 6x = −9"
+    },
+    {
+     "antwort": -3,
+     "fehlbild": "fb.erlaubte_zahlen.nullstelle_des_nenners_als_loesung",
+     "regel_des_fehlbilds": "id.algebra.erlaubte_zahlen",
+     "beschreibung": "die Nullstelle des Nenners als Lösung angegeben"
+    }
+   ],
+   "aufgabe": {
+    "l": "fehler_finden",
+    "t": "fehler_finden",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Kim kürzt falsch und behauptet (x² + 9)/(x + 3) = x + 3. Die Behauptung ist für fast alle Zahlen falsch, aber für genau eine Zahl x ≠ −3 stimmt sie zufällig. Für welche Zahl?"
+    },
+    "o": {
+     "wert": 0
+    },
+    "c": "(9 - 9) / 6",
+    "h": "Setze beide Seiten gleich. Multipliziere mit dem Nenner x + 3 und löse die Gleichung.",
+    "w": "(x² + 9)/(x + 3) = x + 3 bedeutet x² + 9 = (x + 3)² = x² + 6x + 9. Dann 6x = 0, also x = 0. Probe: 9/3 = 3 und 0 + 3 = 3. Für alle anderen Zahlen x ≠ −3 ist die Behauptung falsch, zum Beispiel für x = 1: 10/4 ist nicht 4."
+   }
+  }
+ ]
+}

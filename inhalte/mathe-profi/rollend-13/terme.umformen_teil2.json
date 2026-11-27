@@ -1,0 +1,467 @@
+{
+ "stand": "2026-11-27",
+ "runde": "rollend-13",
+ "kuerzel": "R8",
+ "flug": "r8-terme.umformen_teil2",
+ "titel": "terme.umformen_teil2",
+ "fuer": "Klasse 8",
+ "klasse": 8,
+ "themen": [
+  "terme.umformen_teil2"
+ ],
+ "themen_datei_im_bestand": "terme.umformen",
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Feld form: lueckenweg, fehler_detektiv, verfahren_waehlen, zwei_wege, umkehren, bruecke, anwenden), Auftrag Vorrat neue Formen. Nicht eingespielt. Je Eintrag: thema (Einheit), lernkarte, typ (Name wie in tools/rollend_sql.py), form, zaehlt (ja/nein), Regel-Kennung, Fehlbilder und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md.",
+ "aufgaben": [
+  {
+   "kennung": "R8-V011",
+   "thema": "terme.umformen_teil2",
+   "lernkarte": "summe_mal_summe",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "form": "anwenden",
+   "antwortform": "zahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 6,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur x² und das Produkt der Zahlen beachtet: (x + 3)(x + 2) als x² + 6 gerechnet"
+    },
+    {
+     "antwort": 100,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Produkt der beiden Zahlen nicht mitgezählt: nur 5x"
+    },
+    {
+     "antwort": 5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "addiert statt ausmultipliziert: x² + 3 + 2"
+    }
+   ],
+   "aufgabe": {
+    "l": "summe_mal_summe",
+    "t": "summe_mal_summe",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein quadratischer Spielplatz hat die Seitenlänge x m. Er wird in der einen Richtung um 3 m und in der anderen Richtung um 2 m erweitert, sodass ein Rechteck entsteht. Um wie viele Quadratmeter wächst die Fläche, wenn x = 20 ist?"
+    },
+    "o": {
+     "wert": 106,
+     "einheit": "m²"
+    },
+    "c": "(20 + 3) * (20 + 2) - 20 * 20",
+    "h": "Die neue Fläche ist Länge mal Breite des Rechtecks. Ziehe die alte Fläche ab. Jeder Summand der ersten Klammer wird mit jedem der zweiten malgenommen.",
+    "w": "Neue Fläche: (x + 3)(x + 2) = x² + 2x + 3x + 6 = x² + 5x + 6. Zuwachs: x² + 5x + 6 − x² = 5x + 6. Für x = 20: 100 + 6 = 106 m². Probe: 23 · 22 = 506, 506 − 400 = 106."
+   }
+  },
+  {
+   "kennung": "R8-V012",
+   "thema": "terme.umformen_teil2",
+   "lernkarte": "summe_mal_summe",
+   "stufe": 3,
+   "typ": "Umkehren",
+   "form": "umkehren",
+   "antwortform": "zahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die größere der beiden Zahlen angegeben"
+    },
+    {
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Produkt geprüft: 2 und 6 haben das Produkt 12, aber die Summe 8"
+    },
+    {
+     "antwort": 1,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur das Produkt geprüft: 1 und 12 haben das Produkt 12, aber die Summe 13"
+    }
+   ],
+   "aufgabe": {
+    "l": "summe_mal_summe",
+    "t": "summe_mal_summe",
+    "p": "uebung",
+    "s": 3,
+    "g": "rueckwaerts",
+    "y": "zahl",
+    "f": {
+     "text": "Für zwei ganze Zahlen a und b mit 0 < a < b gilt (x + a)(x + b) = x² + 7x + 12 für alle Zahlen x. Wie groß ist a?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "7 - 4",
+    "h": "Beim Ausmultiplizieren entsteht x² + (a + b)x + a · b. Welche zwei Zahlen haben die Summe 7 und das Produkt 12?",
+    "w": "(x + a)(x + b) = x² + (a + b)x + ab. Also gilt a + b = 7 und ab = 12. Mit 0 < a < b passt nur a = 3 und b = 4. Probe: (x + 3)(x + 4) = x² + 7x + 12."
+   }
+  },
+  {
+   "kennung": "R8-V013",
+   "thema": "terme.umformen_teil2",
+   "lernkarte": "ausklammern",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "4(x + 5)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Breite und Höhe vertauscht: dieser Term ist 4x + 20, also 4x + 20 statt 5x + 20"
+    },
+    {
+     "index": 2,
+     "antwort": "x(5 + 4)",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dieser Term ist 9x; die 5 und die 4 wurden nur zusammengezählt"
+    }
+   ],
+   "aufgabe": {
+    "l": "ausklammern",
+    "t": "ausklammern",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Das Rechteck in der Zeichnung ist in zwei Teile geteilt. Die Höhe ist 5 cm. Die Breite des linken Teils ist x cm, die des rechten Teils 4 cm. Welcher Term gibt den Flächeninhalt des ganzen Rechtecks in cm² als Produkt an (Breite mal Höhe)?",
+     "grafik": {
+      "typ": "figur",
+      "punkte": {
+       "A": [
+        0,
+        0
+       ],
+       "B": [
+        9,
+        0
+       ],
+       "C": [
+        9,
+        5
+       ],
+       "D": [
+        0,
+        5
+       ],
+       "E": [
+        5,
+        0
+       ],
+       "F": [
+        5,
+        5
+       ]
+      },
+      "flaeche": [
+       "A",
+       "B",
+       "C",
+       "D"
+      ],
+      "linien": [
+       [
+        "A",
+        "E",
+        "x cm"
+       ],
+       [
+        "E",
+        "B",
+        "4 cm"
+       ],
+       [
+        "B",
+        "C",
+        "5 cm"
+       ],
+       [
+        "E",
+        "F",
+        "",
+        "gestrichelt"
+       ]
+      ]
+     }
+    },
+    "a": [
+     "5(x + 4)",
+     "4(x + 5)",
+     "x(5 + 4)"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Wie breit ist das ganze Rechteck? Setze zur Probe x = 1 ein und rechne die Teilflächen einzeln aus.",
+    "w": "Gesamtbreite: x + 4. Höhe: 5. Fläche: 5(x + 4) = 5x + 20, das ist die Summe der Teilflächen 5x und 20. Die anderen Terme ergeben 4x + 20 und 9x."
+   }
+  },
+  {
+   "kennung": "R8-V014",
+   "thema": "terme.umformen_teil2",
+   "lernkarte": "ausklammern",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "ausklammern",
+    "t": "ausklammern",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim klammert in 8a²b + 12ab² den größten gemeinsamen Faktor aus. Zeile 1: Der größte gemeinsame Teiler von 8 und 12 ist 4. Beide Glieder enthalten a und b. Ausgeklammert wird 4ab. Zeile 2: Teilen durch 4ab: 8a²b : 4ab = 2 und 12ab² : 4ab = 3. Zeile 3: Also gilt 8a²b + 12ab² = 4ab(2 + 3) = 20ab. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Teile 8a²b durch 4ab. Welche Buchstaben bleiben übrig?",
+    "w": "8a²b : 4ab = 2a und 12ab² : 4ab = 3b. Richtig: 8a²b + 12ab² = 4ab(2a + 3b). In Zeile 2 sind die Buchstaben verloren gegangen, Zeile 3 rechnet damit nur weiter."
+   }
+  },
+  {
+   "kennung": "R8-V015",
+   "thema": "terme.umformen_teil2",
+   "lernkarte": "binomisch",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 2491,
+     "fehlbild": "fb.ausmultiplizieren.hoch_verteilt",
+     "regel_des_fehlbilds": "rr.ausmultiplizieren",
+     "beschreibung": "nur die Quadrate 50² und 3² voneinander abgezogen, das doppelte Produkt in der Mitte vergessen"
+    },
+    {
+     "antwort": 2509,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Quadrate 50² und 3² addiert, die Mitte vergessen"
+    },
+    {
+     "antwort": 2200,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Quadrat 3² am Ende vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "binomisch",
+    "t": "binomisch",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Berechne 47² auf zwei Wegen. Weg A: 47 · (40 + 7) mit dem Verteilungsgesetz. Weg B: (50 − 3)² mit der zweiten binomischen Formel. Welchen Wert hat 47²?"
+    },
+    "o": {
+     "wert": 2209
+    },
+    "c": "47 ** 2",
+    "h": "Beide Wege müssen dasselbe Ergebnis haben. Die zweite binomische Formel hat in der Mitte einen eigenen Summanden.",
+    "w": "Weg A: 47 · 40 + 47 · 7 = 1 880 + 329 = 2 209. Weg B: (50 − 3)² = 50² − 2 · 50 · 3 + 3² = 2 500 − 300 + 9 = 2 209. Beide Wege führen auf 2 209."
+   }
+  },
+  {
+   "kennung": "R8-V016",
+   "thema": "terme.umformen_teil2",
+   "lernkarte": "binomisch",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "form": "fehler_detektiv",
+   "antwortform": "auswahl",
+   "regel": "rr.ausmultiplizieren",
+   "regel_name": "Ausmultiplizieren und Ausklammern",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    },
+    {
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist nur die Folge des ersten Fehlers"
+    }
+   ],
+   "aufgabe": {
+    "l": "binomisch",
+    "t": "binomisch",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim multipliziert (3x − 5)² mit der zweiten binomischen Formel aus. Zeile 1: Setze a = 3x und b = 5. Dann ist a² = 3x². Zeile 2: Das doppelte Produkt ist 2ab = 2 · 3x · 5 = 30x, und es ist b² = 25. Zeile 3: Also gilt (3x − 5)² = 3x² − 30x + 25. In welcher Zeile passiert der erste Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Setze x = 1 ein: Was ergibt (3 · 1)²?",
+    "w": "Das Quadrat von 3x ist (3x)² = 9x², denn auch die 3 wird quadriert. Richtig: (3x − 5)² = 9x² − 30x + 25. Zeile 2 ist richtig, Zeile 3 übernimmt nur den Fehler der Zeile 1."
+   }
+  },
+  {
+   "kennung": "R8-V017",
+   "thema": "terme.umformen_teil2",
+   "lernkarte": "gleichungen_binomisch",
+   "stufe": 2,
+   "typ": "Brücke",
+   "form": "bruecke",
+   "antwortform": "auswahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "x² + 4² = x² + 56",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Fläche des größeren Quadrats als x² + 4² gerechnet; diese Gleichung hat keine Lösung, weil 16 = 56 nicht stimmt"
+    },
+    {
+     "index": 1,
+     "antwort": "(x + 4)² = 56",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die neue Fläche mit dem Zuwachs gleichgesetzt; für x = 5 ergibt die linke Seite 81, nicht 56"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleichungen_binomisch",
+    "t": "gleichungen_binomisch",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Quadrat hat die Seitenlänge x cm. Verlängert man jede Seite um 4 cm, so wird die Fläche um 56 cm² größer. Welche Gleichung beschreibt diese Aussage?"
+    },
+    "a": [
+     "x² + 4² = x² + 56",
+     "(x + 4)² = 56",
+     "(x + 4)² = x² + 56"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Wie groß ist die neue Fläche? Wie groß ist sie, wenn sie um 56 cm² wächst?",
+    "w": "Neue Seitenlänge x + 4, neue Fläche (x + 4)². Sie ist um 56 größer als die alte Fläche x². Also (x + 4)² = x² + 56. Ausmultipliziert: 8x + 16 = 56, also x = 5. Probe: 81 = 25 + 56."
+   }
+  },
+  {
+   "kennung": "R8-V018",
+   "thema": "terme.umformen_teil2",
+   "lernkarte": "gleichungen_binomisch",
+   "stufe": 3,
+   "typ": "Zwei Wege vergleichen",
+   "form": "zwei_wege",
+   "antwortform": "zahl",
+   "regel": "id.algebra.gleichung_loesen",
+   "regel_name": "Gleichung lösen",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "antwort": 5.75,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das Minus vor der zweiten Klammer nur bei x² beachtet: 8x + 34 = 80"
+    },
+    {
+     "antwort": 2.5,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl 16 vergessen: 32x = 80"
+    },
+    {
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "16 addiert statt subtrahiert: 32x = 96"
+    }
+   ],
+   "aufgabe": {
+    "l": "gleichungen_binomisch",
+    "t": "gleichungen_binomisch",
+    "p": "uebung",
+    "s": 3,
+    "g": "verknuepfen",
+    "y": "zahl",
+    "f": {
+     "text": "Löse (2x + 5)² − (2x − 3)² = 80 auf zwei Wegen. Weg A: beide Klammern ausmultiplizieren. Weg B: die Differenz zweier Quadrate als Produkt (a + b)(a − b) schreiben, mit a = 2x + 5 und b = 2x − 3. Welche Zahl ist die Lösung x?"
+    },
+    "o": {
+     "wert": 2
+    },
+    "c": "(80 - 16) / 32",
+    "h": "Bei beiden Wegen verschwindet x² und es bleibt eine Gleichung mit x. Setze zur Probe in die Ausgangsgleichung ein.",
+    "w": "Weg A: 4x² + 20x + 25 − 4x² + 12x − 9 = 32x + 16 = 80, also x = 2. Weg B: a + b = 4x + 2 und a − b = 8. Dann 8(4x + 2) = 80, also 4x + 2 = 10 und x = 2. Probe: 9² − 1² = 81 − 1 = 80."
+   }
+  }
+ ]
+}

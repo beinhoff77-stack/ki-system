@@ -250,6 +250,71 @@ neu(f, "sachsituationen", "FD", FDZ("Ein Rasensprenger steht 5 m von einem Zaun 
     [("Die nasse Fläche ist ein Kreis um den Sprenger mit dem Radius 3 m.", True), ("Der Zaun ist 5 m entfernt. Das ist mehr als 3 m.", 5 > 3), ("Also wird der Zaun nass.", 5 <= 3)],
     "Wie weit reicht das Wasser höchstens?", "Das Wasser reicht höchstens 3 m weit, der Zaun ist 5 m weg. Der Zaun bleibt trocken."))
 
+# ═════════════════════ Kind 1 · Flug z2 · Teilbarkeit ═════════════════════
+f = "z2"
+prim = lambda n: n > 1 and all(n % d for d in range(2, int(n ** 0.5) + 1))
+teiler = lambda n: [d for d in range(1, n + 1) if n % d == 0]
+# teiler
+neu(f, "teiler", "FD", FDZ("Kim prüft, ob 7 ein Teiler von 52 ist.",
+    [("Ich rechne 52 : 7.", True), ("Es ist 7 · 7 = 49 und 7 · 8 = 56.", 7 * 7 == 49 and 7 * 8 == 56), ("Es bleibt kein Rest, also ist 7 ein Teiler von 52.", 52 % 7 == 0)],
+    "Liegt 52 genau auf einem Ergebnis der Siebenerreihe?", "52 liegt zwischen 49 und 56, ist also kein Vielfaches von 7. Es bleibt der Rest 3. 7 ist kein Teiler von 52."))
+neu(f, "teiler", "VW", W("Wie findest du alle Teiler von 28 sicher?",
+    "Teilerpaare suchen: 1 · 28, 2 · 14, 4 · 7. Teiler: 1, 2, 4, 7, 14, 28",
+    [("Nur bis 7 probieren. Teiler: 1, 2, 4, 7", "die großen Partner der Paare vergessen"), ("28 immer durch 2 teilen: 14, 7. Teiler: 14, 7", "Halbieren findet nicht alle Teiler"), ("Die Siebenerreihe aufschreiben: 7, 14, 21, 28. Teiler: 7, 14, 21, 28", "Vielfache statt Teiler")],
+    "Zu jedem Teiler gehört ein Partner mit dem Produkt 28.", "Paare mit dem Produkt 28: 1 · 28, 2 · 14, 4 · 7. Das gibt sechs Teiler.",
+    lambda: teiler(28) == [1, 2, 4, 7, 14, 28] and [1, 2, 4, 7] != teiler(28) and [14, 7] != teiler(28) and [7, 14, 21, 28] != teiler(28)), g="mehrschritt")
+# vielfache
+neu(f, "vielfache", "LW", L("Die ersten Vielfachen von 6 sind 6, 12 und 18. Das vierte Vielfache ist 4 · 6 = ①. Das siebte Vielfache ist 7 · 6 = ②. Das zehnte Vielfache ist 10 · 6 = ③.",
+    K(3), [24, 42, 60], ["4 * 6", "7 * 6", "10 * 6"], ["18 + 6", "6 * 6 + 6", "6 * 5 * 2"], "Das n-te Vielfache von 6 ist n · 6.", "4 · 6 = 24, 7 · 6 = 42, 10 · 6 = 60.",
+    {0: [(10, None, "4 + 6 gerechnet")], 2: [(16, None, "10 + 6 gerechnet")]}, hinweis=GZ))
+gem = [x for x in range(1, 40) if x % 4 == 0 and x % 6 == 0]
+neu(f, "vielfache", "FD", FDZ("Kim sucht die kleinste Zahl, die in der Viererreihe und in der Sechserreihe vorkommt.",
+    [("Viererreihe: 4, 8, 12, 16, 20, 24.", [4 * k for k in range(1, 7)] == [4, 8, 12, 16, 20, 24]), ("Sechserreihe: 6, 12, 18, 24.", [6 * k for k in range(1, 5)] == [6, 12, 18, 24]), ("Die erste Zahl, die in beiden Reihen steht, ist 24.", gem[0] == 24)],
+    "Schau von links: Welche Zahl kommt zuerst in beiden Reihen vor?", "In beiden Reihen steht schon die 12: 4 · 3 = 12 und 6 · 2 = 12. Die gesuchte Zahl ist 12."))
+neu(f, "vielfache", "VW", W("Bus A fährt alle 12 Minuten, Bus B alle 18 Minuten. Um 8:00 Uhr fahren beide gleichzeitig ab. Wie findest du, nach wie vielen Minuten sie zum ersten Mal wieder gleichzeitig abfahren?",
+    "Beide Reihen aufschreiben (12, 24, 36 und 18, 36): die erste gemeinsame Zahl ist 36",
+    [("12 + 18 = 30 rechnen", "die beiden Zeiten addiert"), ("12 · 18 = 216 rechnen", "ein gemeinsames Vielfaches, aber nicht das erste"), ("18 − 12 = 6 rechnen", "den Unterschied der Zeiten genommen")],
+    "Suche eine Zahl, die in der Zwölferreihe und in der Achtzehnerreihe steht – die kleinste.", "Zwölferreihe: 12, 24, 36. Achtzehnerreihe: 18, 36. Zuerst gemeinsam: 36. Nach 36 Minuten fahren beide wieder zusammen ab.",
+    lambda: min(x for x in range(1, 400) if x % 12 == 0 and x % 18 == 0) == 36 and 12 + 18 != 36 and 12 * 18 != 36 and 18 - 12 != 36), g="einkleidung")
+# endziffer
+neu(f, "endziffer", "LW", L("Die Zahl 4 730 hat die Endziffer ①. Sie ist durch 10 teilbar: 4 730 : 10 = ②. Die Zahl 4 736 ist durch 2 teilbar, weil ihre Endziffer ③ gerade ist.",
+    K(3), [0, 473, 6], ["4730 % 10", "4730 // 10", "4736 % 10"], ["0", "473 * 10 // 10", "4736 - 4730"], "Die Endziffer ist die letzte Ziffer der Zahl.", "Endziffer von 4 730: 0. 4 730 : 10 = 473. Endziffer von 4 736: 6.",
+    {1: [(47, None, "zwei Stellen abgestrichen")]}, hinweis=GZ))
+neu(f, "endziffer", "FD", FDZ("Kim prüft die Zahl 2 450.",
+    [("Die Endziffer ist 0.", 2450 % 10 == 0), ("Die Endziffer 0 heißt: Die Zahl ist durch 10 teilbar.", 2450 % 10 == 0), ("2 450 ist durch 10 teilbar, aber nicht durch 5.", 2450 % 10 == 0 and 2450 % 5 != 0)],
+    "Jede Zahl, die durch 10 teilbar ist, ist auch durch 5 teilbar. Warum?", "10 = 2 · 5. Was durch 10 geht, geht auch durch 5. 2 450 ist durch 10 und durch 5 teilbar."))
+# quersumme
+neu(f, "quersumme", "FD", FDZ("Kim prüft, ob 4 281 durch 3 teilbar ist.",
+    [("Quersumme: 4 + 2 + 8 + 1 = 15.", 4 + 2 + 8 + 1 == 15), ("15 : 3 = 5, es bleibt kein Rest.", 15 % 3 == 0), ("Also ist 4 281 nicht durch 3 teilbar.", 4281 % 3 != 0)],
+    "Was folgt, wenn die Quersumme durch 3 teilbar ist?", "Die Quersumme 15 ist durch 3 teilbar. Dann ist auch 4 281 durch 3 teilbar: 4 281 : 3 = 1 427."))
+neu(f, "quersumme", "VW", W("Du willst wissen, ob 7 428 durch 3 teilbar ist. Welcher Weg führt sicher zum Ziel?",
+    "Quersumme 7 + 4 + 2 + 8 = 21 bilden. 21 ist durch 3 teilbar, also auch 7 428",
+    [("Die Endziffer 8 ansehen. 8 ist nicht durch 3 teilbar, also auch 7 428 nicht", "die Endziffer-Regel von 2 und 5 auf die 3 übertragen"), ("Die Ziffern zählen: Es sind 4. 4 ist nicht durch 3 teilbar, also auch 7 428 nicht", "die Anzahl der Ziffern statt ihrer Summe benutzt"), ("Die erste Ziffer 7 ansehen. 7 ist nicht durch 3 teilbar, also auch 7 428 nicht", "nur eine Ziffer angesehen")],
+    "Zähle alle Ziffern zusammen, nicht nur eine.", "Die Quersumme 21 ist durch 3 teilbar, also ist 7 428 durch 3 teilbar: 7 428 : 3 = 2 476. Die anderen Wege schließen auf „nicht teilbar“ – das ist falsch.",
+    lambda: 7428 % 3 == 0 and sum(map(int, "7428")) == 21 and 8 % 3 != 0 and 7 % 3 != 0 and 4 % 3 != 0), g="mehrschritt")
+# neunerregel
+neu(f, "neunerregel", "LW", L("Prüfe 5 481 auf Teilbarkeit durch 9. Quersumme: 5 + 4 + 8 + 1 = ①. Dann ① : 9 = ② ohne Rest. Also ist 5 481 durch 9 teilbar, und 5 481 : 9 = ③.",
+    K(3), [18, 2, 609], ["5 + 4 + 8 + 1", "(5 + 4 + 8 + 1) // 9", "5481 // 9"], ["10 + 8", "36 // 18", "5400 // 9 + 9"], "Zähle alle Ziffern zusammen und teile dann durch 9.", "5 + 4 + 8 + 1 = 18. 18 : 9 = 2. 5 481 : 9 = 609.",
+    {2: [(69, None, "bei 54 : 9 die Null vergessen")]}, hinweis=GZ))
+neu(f, "neunerregel", "VW", W("Wie entscheidest du, ob 7 235 durch 9 teilbar ist?",
+    "Quersumme 7 + 2 + 3 + 5 = 17 bilden. 17 ist nicht durch 9 teilbar, also ist 7 235 nicht durch 9 teilbar",
+    [("Quersumme 7 + 2 + 3 + 5 = 17 bilden. 17 ist durch 3 teilbar, also ist 7 235 durch 9 teilbar", "17 ist gar nicht durch 3 teilbar"), ("Die letzten zwei Ziffern 35 ansehen. 35 ist durch 9 teilbar, also ist 7 235 durch 9 teilbar", "35 ist nicht durch 9 teilbar"), ("Die erste Ziffer 7 ansehen. 7 ist nicht durch 9 teilbar, also ist 7 235 durch 9 teilbar", "falscher Schluss aus einer einzelnen Ziffer")],
+    "Bei der Neunerregel zählt die Quersumme, nicht eine einzelne Ziffer.", "Quersumme: 7 + 2 + 3 + 5 = 17. 17 ist nicht durch 9 teilbar, also ist auch 7 235 nicht durch 9 teilbar.",
+    lambda: sum(map(int, "7235")) == 17 and 7235 % 9 != 0 and 17 % 3 != 0 and 35 % 9 != 0), g="mehrschritt")
+# primzahl
+neu(f, "primzahl", "LW", L("Prüfe, ob 39 eine Primzahl ist. 39 : 3 = ①. Neben 1, 3 und 39 ist auch ① ein Teiler. 39 hat also genau ② Teiler. Eine Primzahl hat nur ③ Teiler.",
+    K(3), [13, 4, 2], ["39 // 3", "4", "2"], ["3 * 13 // 3", str(len(teiler(39))), "1 + 1"], "Zähle alle Teiler von 39 mit ihren Partnern.", "39 : 3 = 13. Teiler: 1, 3, 13, 39. Das sind vier, also keine Primzahl. Eine Primzahl hat genau zwei Teiler.",
+    {1: [(2, None, "nur 1 und 39 gezählt"), (3, None, "einen Partner vergessen")]}, hinweis=GZ))
+neu(f, "primzahl", "FD", FDZ("Kim prüft, ob 51 eine Primzahl ist.",
+    [("51 ist ungerade, also nicht durch 2 teilbar.", 51 % 2 != 0), ("51 endet nicht auf 0 oder 5, also nicht durch 5 teilbar.", 51 % 5 != 0), ("Mehr Teiler muss ich nicht suchen: 51 ist eine Primzahl.", prim(51))],
+    "Prüfe auch die Quersumme: Ist 5 + 1 durch 3 teilbar?", "Die Quersumme 5 + 1 = 6 ist durch 3 teilbar. Also ist 51 = 3 · 17 und keine Primzahl."))
+# primfaktoren
+neu(f, "primfaktoren", "VW", W("Welche Zerlegung ist die Primfaktorzerlegung von 90?",
+    "90 = 2 · 3 · 3 · 5",
+    [("90 = 9 · 10", "nicht bis zu Primzahlen zerlegt"), ("90 = 2 · 5 · 9", "9 ist keine Primzahl"), ("90 = 2 · 3 · 3 · 3", "falsch gerechnet: das Produkt ist 54")],
+    "Zerlege so lange, bis nur noch Primzahlen dastehen.", "90 = 2 · 45 = 2 · 3 · 15 = 2 · 3 · 3 · 5. Alle Faktoren sind Primzahlen, und 2 · 3 · 3 · 5 = 90.",
+    lambda: 2 * 3 * 3 * 5 == 90 and all(prim(x) for x in (2, 3, 3, 5)) and not prim(9) and 2 * 3 * 3 * 3 != 90), g="mehrschritt")
+
 # ═════════════════════ Prüfen ═════════════════════
 KOMMA_LUECKE = re.compile(r"\d\s*,\s*[①②③④⑤□]")          # Lücke unmittelbar hinter dem Komma: wäre eine Ziffernfolge, keine Zahl (Auftrag 20)
 KOMMA_NEBEN = re.compile(r"[①②③④⑤□],|,[①②③④⑤□]")      # Komma direkt neben einem Lückenzeichen

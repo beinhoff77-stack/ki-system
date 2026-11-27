@@ -1,0 +1,735 @@
+{
+ "stand": "2026-11-27",
+ "flug": "z2",
+ "titel": "Teilbarkeit",
+ "fuer": "Kind 1",
+ "klasse": 5,
+ "themen": [
+  "zahlen.teilbarkeit"
+ ],
+ "hinweis": "Aufgaben auf Vorrat in neuer Form (Lückenweg, Fehler-Detektiv, Verfahren wählen, Zwei Wege vergleichen, Brücke), rollend-4. Nicht eingespielt. Je Eintrag: Zusatzangaben (Regel-Kennung, Fehlbilder, Typ, Zählvorschlag ja/nein) und unter „aufgabe“ die Aufgabe im Format von inhalte/README.md. Reihenfolge: Stufe aufsteigend.",
+ "aufgaben": [
+  {
+   "kennung": "Z2-V01",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "vielfache",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "4 + 6 gerechnet"
+    },
+    {
+     "luecke": 3,
+     "antwort": 16,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "10 + 6 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "vielfache",
+    "t": "vielfache",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die ersten Vielfachen von 6 sind 6, 12 und 18. Das vierte Vielfache ist 4 · 6 = ①. Das siebte Vielfache ist 7 · 6 = ②. Das zehnte Vielfache ist 10 · 6 = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      24,
+      42,
+      60
+     ]
+    },
+    "c": [
+     "4 * 6",
+     "7 * 6",
+     "10 * 6"
+    ],
+    "h": "Das n-te Vielfache von 6 ist n · 6.",
+    "w": "4 · 6 = 24, 7 · 6 = 42, 10 · 6 = 60."
+   }
+  },
+  {
+   "kennung": "Z2-V02",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "endziffer",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 47,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "zwei Stellen abgestrichen"
+    }
+   ],
+   "aufgabe": {
+    "l": "endziffer",
+    "t": "endziffer",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Zahl 4 730 hat die Endziffer ①. Sie ist durch 10 teilbar: 4 730 : 10 = ②. Die Zahl 4 736 ist durch 2 teilbar, weil ihre Endziffer ③ gerade ist.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      0,
+      473,
+      6
+     ]
+    },
+    "c": [
+     "4730 % 10",
+     "4730 // 10",
+     "4736 % 10"
+    ],
+    "h": "Die Endziffer ist die letzte Ziffer der Zahl.",
+    "w": "Endziffer von 4 730: 0. 4 730 : 10 = 473. Endziffer von 4 736: 6."
+   }
+  },
+  {
+   "kennung": "Z2-V03",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "neunerregel",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 3,
+     "antwort": 69,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei 54 : 9 die Null vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "neunerregel",
+    "t": "neunerregel",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Prüfe 5 481 auf Teilbarkeit durch 9. Quersumme: 5 + 4 + 8 + 1 = ①. Dann ① : 9 = ② ohne Rest. Also ist 5 481 durch 9 teilbar, und 5 481 : 9 = ③.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      18,
+      2,
+      609
+     ]
+    },
+    "c": [
+     "5 + 4 + 8 + 1",
+     "(5 + 4 + 8 + 1) // 9",
+     "5481 // 9"
+    ],
+    "h": "Zähle alle Ziffern zusammen und teile dann durch 9.",
+    "w": "5 + 4 + 8 + 1 = 18. 18 : 9 = 2. 5 481 : 9 = 609."
+   }
+  },
+  {
+   "kennung": "Z2-V04",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "primzahl",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur 1 und 39 gezählt"
+    },
+    {
+     "luecke": 2,
+     "antwort": 3,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "einen Partner vergessen"
+    }
+   ],
+   "aufgabe": {
+    "l": "primzahl",
+    "t": "primzahl",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Prüfe, ob 39 eine Primzahl ist. 39 : 3 = ①. Neben 1, 3 und 39 ist auch ① ein Teiler. 39 hat also genau ② Teiler. Eine Primzahl hat nur ③ Teiler.",
+     "schablone": "① = □; ② = □; ③ = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      13,
+      4,
+      2
+     ]
+    },
+    "c": [
+     "39 // 3",
+     "4",
+     "2"
+    ],
+    "h": "Zähle alle Teiler von 39 mit ihren Partnern.",
+    "w": "39 : 3 = 13. Teiler: 1, 3, 13, 39. Das sind vier, also keine Primzahl. Eine Primzahl hat genau zwei Teiler."
+   }
+  },
+  {
+   "kennung": "Z2-V05",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "teiler",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Nur bis 7 probieren. Teiler: 1, 2, 4, 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die großen Partner der Paare vergessen"
+    },
+    {
+     "index": 2,
+     "antwort": "28 immer durch 2 teilen: 14, 7. Teiler: 14, 7",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Halbieren findet nicht alle Teiler"
+    },
+    {
+     "index": 3,
+     "antwort": "Die Siebenerreihe aufschreiben: 7, 14, 21, 28. Teiler: 7, 14, 21, 28",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Vielfache statt Teiler"
+    }
+   ],
+   "aufgabe": {
+    "l": "teiler",
+    "t": "teiler",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Wie findest du alle Teiler von 28 sicher?"
+    },
+    "a": [
+     "Teilerpaare suchen: 1 · 28, 2 · 14, 4 · 7. Teiler: 1, 2, 4, 7, 14, 28",
+     "Nur bis 7 probieren. Teiler: 1, 2, 4, 7",
+     "28 immer durch 2 teilen: 14, 7. Teiler: 14, 7",
+     "Die Siebenerreihe aufschreiben: 7, 14, 21, 28. Teiler: 7, 14, 21, 28"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Zu jedem Teiler gehört ein Partner mit dem Produkt 28.",
+    "w": "Paare mit dem Produkt 28: 1 · 28, 2 · 14, 4 · 7. Das gibt sechs Teiler."
+   }
+  },
+  {
+   "kennung": "Z2-V06",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "vielfache",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "12 + 18 = 30 rechnen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die beiden Zeiten addiert"
+    },
+    {
+     "index": 1,
+     "antwort": "12 · 18 = 216 rechnen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein gemeinsames Vielfaches, aber nicht das erste"
+    },
+    {
+     "index": 3,
+     "antwort": "18 − 12 = 6 rechnen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Unterschied der Zeiten genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vielfache",
+    "t": "vielfache",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "auswahl",
+    "f": {
+     "text": "Bus A fährt alle 12 Minuten, Bus B alle 18 Minuten. Um 8:00 Uhr fahren beide gleichzeitig ab. Wie findest du, nach wie vielen Minuten sie zum ersten Mal wieder gleichzeitig abfahren?"
+    },
+    "a": [
+     "12 + 18 = 30 rechnen",
+     "12 · 18 = 216 rechnen",
+     "Beide Reihen aufschreiben (12, 24, 36 und 18, 36): die erste gemeinsame Zahl ist 36",
+     "18 − 12 = 6 rechnen"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Suche eine Zahl, die in der Zwölferreihe und in der Achtzehnerreihe steht – die kleinste.",
+    "w": "Zwölferreihe: 12, 24, 36. Achtzehnerreihe: 18, 36. Zuerst gemeinsam: 36. Nach 36 Minuten fahren beide wieder zusammen ab."
+   }
+  },
+  {
+   "kennung": "Z2-V07",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "quersumme",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "Die Endziffer 8 ansehen. 8 ist nicht durch 3 teilbar, also auch 7 428 nicht",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Endziffer-Regel von 2 und 5 auf die 3 übertragen"
+    },
+    {
+     "index": 1,
+     "antwort": "Die Ziffern zählen: Es sind 4. 4 ist nicht durch 3 teilbar, also auch 7 428 nicht",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Anzahl der Ziffern statt ihrer Summe benutzt"
+    },
+    {
+     "index": 3,
+     "antwort": "Die erste Ziffer 7 ansehen. 7 ist nicht durch 3 teilbar, also auch 7 428 nicht",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur eine Ziffer angesehen"
+    }
+   ],
+   "aufgabe": {
+    "l": "quersumme",
+    "t": "quersumme",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Du willst wissen, ob 7 428 durch 3 teilbar ist. Welcher Weg führt sicher zum Ziel?"
+    },
+    "a": [
+     "Die Endziffer 8 ansehen. 8 ist nicht durch 3 teilbar, also auch 7 428 nicht",
+     "Die Ziffern zählen: Es sind 4. 4 ist nicht durch 3 teilbar, also auch 7 428 nicht",
+     "Quersumme 7 + 4 + 2 + 8 = 21 bilden. 21 ist durch 3 teilbar, also auch 7 428",
+     "Die erste Ziffer 7 ansehen. 7 ist nicht durch 3 teilbar, also auch 7 428 nicht"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Zähle alle Ziffern zusammen, nicht nur eine.",
+    "w": "Die Quersumme 21 ist durch 3 teilbar, also ist 7 428 durch 3 teilbar: 7 428 : 3 = 2 476. Die anderen Wege schließen auf „nicht teilbar“ – das ist falsch."
+   }
+  },
+  {
+   "kennung": "Z2-V08",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "neunerregel",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 1,
+     "antwort": "Quersumme 7 + 2 + 3 + 5 = 17 bilden. 17 ist durch 3 teilbar, also ist 7 235 durch 9 teilbar",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "17 ist gar nicht durch 3 teilbar"
+    },
+    {
+     "index": 2,
+     "antwort": "Die letzten zwei Ziffern 35 ansehen. 35 ist durch 9 teilbar, also ist 7 235 durch 9 teilbar",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "35 ist nicht durch 9 teilbar"
+    },
+    {
+     "index": 3,
+     "antwort": "Die erste Ziffer 7 ansehen. 7 ist nicht durch 9 teilbar, also ist 7 235 durch 9 teilbar",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falscher Schluss aus einer einzelnen Ziffer"
+    }
+   ],
+   "aufgabe": {
+    "l": "neunerregel",
+    "t": "neunerregel",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Wie entscheidest du, ob 7 235 durch 9 teilbar ist?"
+    },
+    "a": [
+     "Quersumme 7 + 2 + 3 + 5 = 17 bilden. 17 ist nicht durch 9 teilbar, also ist 7 235 nicht durch 9 teilbar",
+     "Quersumme 7 + 2 + 3 + 5 = 17 bilden. 17 ist durch 3 teilbar, also ist 7 235 durch 9 teilbar",
+     "Die letzten zwei Ziffern 35 ansehen. 35 ist durch 9 teilbar, also ist 7 235 durch 9 teilbar",
+     "Die erste Ziffer 7 ansehen. 7 ist nicht durch 9 teilbar, also ist 7 235 durch 9 teilbar"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Bei der Neunerregel zählt die Quersumme, nicht eine einzelne Ziffer.",
+    "w": "Quersumme: 7 + 2 + 3 + 5 = 17. 17 ist nicht durch 9 teilbar, also ist auch 7 235 nicht durch 9 teilbar."
+   }
+  },
+  {
+   "kennung": "Z2-V09",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "primfaktoren",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "90 = 9 · 10",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nicht bis zu Primzahlen zerlegt"
+    },
+    {
+     "index": 1,
+     "antwort": "90 = 2 · 5 · 9",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "9 ist keine Primzahl"
+    },
+    {
+     "index": 2,
+     "antwort": "90 = 2 · 3 · 3 · 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "falsch gerechnet: das Produkt ist 54"
+    }
+   ],
+   "aufgabe": {
+    "l": "primfaktoren",
+    "t": "primfaktoren",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Welche Zerlegung ist die Primfaktorzerlegung von 90?"
+    },
+    "a": [
+     "90 = 9 · 10",
+     "90 = 2 · 5 · 9",
+     "90 = 2 · 3 · 3 · 3",
+     "90 = 2 · 3 · 3 · 5"
+    ],
+    "o": {
+     "index": 3
+    },
+    "h": "Zerlege so lange, bis nur noch Primzahlen dastehen.",
+    "w": "90 = 2 · 45 = 2 · 3 · 15 = 2 · 3 · 3 · 5. Alle Faktoren sind Primzahlen, und 2 · 3 · 3 · 5 = 90."
+   }
+  },
+  {
+   "kennung": "Z2-V10",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "teiler",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "teiler",
+    "t": "teiler",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim prüft, ob 7 ein Teiler von 52 ist. Zeile 1: Ich rechne 52 : 7. Zeile 2: Es ist 7 · 7 = 49 und 7 · 8 = 56. Zeile 3: Es bleibt kein Rest, also ist 7 ein Teiler von 52. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Liegt 52 genau auf einem Ergebnis der Siebenerreihe?",
+    "w": "52 liegt zwischen 49 und 56, ist also kein Vielfaches von 7. Es bleibt der Rest 3. 7 ist kein Teiler von 52."
+   }
+  },
+  {
+   "kennung": "Z2-V11",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "vielfache",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "vielfache",
+    "t": "vielfache",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim sucht die kleinste Zahl, die in der Viererreihe und in der Sechserreihe vorkommt. Zeile 1: Viererreihe: 4, 8, 12, 16, 20, 24. Zeile 2: Sechserreihe: 6, 12, 18, 24. Zeile 3: Die erste Zahl, die in beiden Reihen steht, ist 24. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Schau von links: Welche Zahl kommt zuerst in beiden Reihen vor?",
+    "w": "In beiden Reihen steht schon die 12: 4 · 3 = 12 und 6 · 2 = 12. Die gesuchte Zahl ist 12."
+   }
+  },
+  {
+   "kennung": "Z2-V12",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "endziffer",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "endziffer",
+    "t": "endziffer",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim prüft die Zahl 2 450. Zeile 1: Die Endziffer ist 0. Zeile 2: Die Endziffer 0 heißt: Die Zahl ist durch 10 teilbar. Zeile 3: 2 450 ist durch 10 teilbar, aber nicht durch 5. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Jede Zahl, die durch 10 teilbar ist, ist auch durch 5 teilbar. Warum?",
+    "w": "10 = 2 · 5. Was durch 10 geht, geht auch durch 5. 2 450 ist durch 10 und durch 5 teilbar."
+   }
+  },
+  {
+   "kennung": "Z2-V13",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "quersumme",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "quersumme",
+    "t": "quersumme",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim prüft, ob 4 281 durch 3 teilbar ist. Zeile 1: Quersumme: 4 + 2 + 8 + 1 = 15. Zeile 2: 15 : 3 = 5, es bleibt kein Rest. Zeile 3: Also ist 4 281 nicht durch 3 teilbar. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Was folgt, wenn die Quersumme durch 3 teilbar ist?",
+    "w": "Die Quersumme 15 ist durch 3 teilbar. Dann ist auch 4 281 durch 3 teilbar: 4 281 : 3 = 1 427."
+   }
+  },
+  {
+   "kennung": "Z2-V14",
+   "thema": "zahlen.teilbarkeit",
+   "lernkarte": "primzahl",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.zahlen.bausteine",
+   "regel_name": "Bausteine",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    },
+    {
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig; der Fehler steckt woanders"
+    }
+   ],
+   "aufgabe": {
+    "l": "primzahl",
+    "t": "primzahl",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Kim prüft, ob 51 eine Primzahl ist. Zeile 1: 51 ist ungerade, also nicht durch 2 teilbar. Zeile 2: 51 endet nicht auf 0 oder 5, also nicht durch 5 teilbar. Zeile 3: Mehr Teiler muss ich nicht suchen: 51 ist eine Primzahl. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Prüfe auch die Quersumme: Ist 5 + 1 durch 3 teilbar?",
+    "w": "Die Quersumme 5 + 1 = 6 ist durch 3 teilbar. Also ist 51 = 3 · 17 und keine Primzahl."
+   }
+  }
+ ]
+}

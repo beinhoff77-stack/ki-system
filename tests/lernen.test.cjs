@@ -5979,3 +5979,38 @@ test('Karte-Bilder: Kontinent und Land bei 400 px hell/dunkel und 1280 px hell',
     await page.screenshot({ path: path.join(ziel, `${art}-gesperrt-${lage}-${b}-hell.jpg`), type: 'jpeg', quality: 80 });
   }
 });
+
+// ---------- Tabellen am Handy: keine Buchstaben-/Ziffern-Umbrüche, breite Tabellen rollen nur in sich (eigener Rollbereich) ----------
+const TAB_BREIT = { typ: 'tabelle', kopf: ['Ziffer', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'], zeilen: [['Treffer', 'ja', 'ja', 'ja', 'nein', 'nein', 'nein', 'nein', 'ja', 'nein', 'nein'], ['Anzahl', '12', '120', '1 200', '12 000', '3', '45', '678', '9', '10', '11']] };
+const TAB_SCHMAL = { typ: 'tabelle', kopf: ['x', 'y'], zeilen: [['1', '2'], ['3', '?']] };
+const tabSeite = async (t, grafik, gestaltung = 'tag') => {
+  const { page } = await setup(t, { gestaltung, rolle: 'kind', anpassen: (a, e) => (a === 'schule_einheit_lesen' && e ? { ...e, inhalt: { ...e.inhalt, etappen: [ETAPPEN[0]] },
+    uebungen: [{ id: 11, lernziel: 'stellenwert', antworttyp: 'zahl', frage: { text: 'Lies die Tabelle.', grafik }, tipp: 'Tipp.' }], stand: [{ lernziel: 'stellenwert', pflicht: true, status: 'offen' }] } : e) });
+  await page.setViewportSize({ width: 400, height: 860 }); await page.goto(origin + '/#/lerneinheit/1-1-ueben-1'); await page.locator('.lr-bordkarte .lr-tafel').waitFor(); await page.waitForTimeout(250);
+  return page; };
+const tabZeilen = (page) => page.locator('.lr-bordkarte .lr-tafel').evaluate((tb) => [...tb.querySelectorAll('th,td')].map((c) => { const rg = document.createRange(); rg.selectNodeContents(c); const tops = new Set();
+  for (const q of rg.getClientRects()) if (q.width) tops.add(Math.round(q.top / 4)); return [c.textContent.trim(), tops.size]; }));
+
+test('Tabelle 400 px: breite Tabelle – Seite rollt nicht, eigener Rollbereich (Tastatur, aria), Zahlen einzeilig, letzte Spalte erreichbar; schmale Tabelle unverändert', async (t) => {
+  for (const g of ['tag', 'nacht']) {
+    const page = await tabSeite(t, TAB_BREIT, g);
+    assert.ok(await ohneQuerrollen(page), `${g}: Seite rollt nicht seitlich`);
+    const roll = page.locator('.lr-bordkarte .lr-tafel-roll');
+    assert.equal(await roll.getAttribute('role'), 'region'); assert.equal(await roll.getAttribute('tabindex'), '0'); assert.equal(await roll.getAttribute('aria-label'), 'Tabelle, seitlich rollbar');
+    assert.ok(await roll.evaluate((e) => e.scrollWidth > e.clientWidth + 1 && getComputedStyle(e).overflowX === 'auto'), 'Tabelle rollt in sich');
+    assert.ok(await page.locator('.lr-bild-tabelle.eng.rollt.schatten-r').count() === 1, 'erst enger, dann rollen; Schatten rechts');
+    assert.ok(await page.locator('.lr-tafel-hinweis:not([hidden])').isVisible(), 'Hinweis sichtbar');
+    for (const [txt, n] of await tabZeilen(page)) if (/\d/.test(txt) || txt.length <= 14) assert.equal(n, 1, `${g}: „${txt}“ in ${n} Zeilen`);
+    // Tastatur: fokussieren und rollen, bis die letzte Spalte im Bild ist
+    await roll.focus(); for (let i = 0; i < 12; i++) await page.keyboard.press('ArrowRight'); await page.waitForTimeout(200);
+    const [r, z] = [await roll.boundingBox(), await page.locator('.lr-bordkarte .lr-tafel tr').first().locator('th,td').last().boundingBox()];
+    assert.ok(z.x + z.width <= r.x + r.width + 1 && z.x >= r.x - 1, `${g}: letzte Spalte erreichbar (${z.x}+${z.width} / ${r.x}+${r.width})`);
+    assert.equal(await page.locator('.lr-bild-tabelle.schatten-l').count(), 1, 'Schatten links nach dem Rollen');
+    await page.evaluate(() => document.activeElement?.blur());
+    await page.screenshot({ path: path.join(root, `test-results/tabelle-breit-400-${g}.png`) });
+  }
+  const page = await tabSeite(t, TAB_SCHMAL);
+  const st = await page.locator('.lr-bordkarte .lr-tafel').evaluate((tb) => ({ fs: getComputedStyle(tb).fontSize, pad: getComputedStyle(tb.querySelector('td')).padding, kasten: tb.closest('.lr-bild-tabelle').className, tab: tb.parentElement.getAttribute('tabindex') }));
+  assert.deepEqual(st, { fs: '15.2px', pad: '6px 12px', kasten: 'lr-bild lr-bild-tabelle', tab: null }, 'schmale Tabelle wie bisher');
+  assert.ok(await page.locator('.lr-tafel-hinweis').isHidden());
+});

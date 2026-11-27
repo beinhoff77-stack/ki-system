@@ -3235,7 +3235,7 @@ function lernBild(b) {
   if (b.typ === 'figur') return el('div', { class: 'lr-bild' }, lernFigur(b));
   if (b.typ === 'saeulen') return el('div', { class: 'lr-bild' }, lernSaeulen(b));
   if (b.typ === 'kreisdiagramm') return el('div', { class: 'lr-bild' }, lernKreisdiagramm(b));
-  if (b.typ === 'tabelle') return el('div', { class: 'lr-bild lr-bild-tabelle' }, lernTabelle(b));
+  if (b.typ === 'tabelle') return lernTafelRoll(lernTabelle(b));
   if (b.typ === 'boxplot') return el('div', { class: 'lr-bild' }, lernBoxplot(b));
   if (b.typ === 'baum') return el('div', { class: 'lr-bild' }, lernBaum(b));
   if (b.typ === 'thermometer') return el('div', { class: 'lr-bild' }, lernThermometer(b));
@@ -3453,10 +3453,34 @@ function lernBaum(b) {
   zeichne(wurzel);
   return svg;
 }
+// Tabellen-Zellen: Zahlen und kurze Einträge brechen nie um (Klasse „kurz“), längere Texte nur an Wort-/Silbengrenzen (CSS)
+const lernTafelKurz = (c) => { const t = String(c ?? '').trim(); return t.length <= 14 || /^[\d\s.,:;−+\-–%€$°'·×()=<>≈/^²³]+$/.test(t); };
 function lernTabelle(b) {
-  return el('table', { class: 'lr-tafel' },
-    b.kopf ? el('thead', {}, el('tr', {}, ...b.kopf.map((k) => el('th', {}, lernMathe(k))))) : null,
-    el('tbody', {}, ...(b.zeilen || []).map((z, r) => el('tr', {}, ...z.map((c, i) => el(i === 0 && b.erste_spalte_kopf !== false ? 'th' : 'td', b._neu?.zellen?.has(`${r},${i}`) ? { class: 'neu' } : {}, lernMathe(c)))))));
+  const zelle = (tag, c, neu) => { const k = [neu ? 'neu' : null, lernTafelKurz(c) ? 'kurz' : null].filter(Boolean).join(' '); return el(tag, k ? { class: k } : {}, lernMathe(c)); };
+  const spalten = Math.max(b.kopf?.length || 0, ...(b.zeilen || []).map((z) => z.length));
+  return el('table', { class: 'lr-tafel', 'data-spalten': String(spalten) },
+    b.kopf ? el('thead', {}, el('tr', {}, ...b.kopf.map((k) => zelle('th', k, false)))) : null,
+    el('tbody', {}, ...(b.zeilen || []).map((z, r) => el('tr', {}, ...z.map((c, i) => zelle(i === 0 && b.erste_spalte_kopf !== false ? 'th' : 'td', c, b._neu?.zellen?.has(`${r},${i}`)))))));
+}
+// Breite Tabellen: erst Schrift/Polsterung maßvoll verkleinern („eng“), passt es dann noch nicht, rollt NUR die Tabelle seitlich – eigener Rollbereich
+// (per Tastatur fokussierbar, beschriftet), Schatten am Rand, auf dem gerollt werden kann, und ein kurzer Hinweis darunter. Kleine Tabellen bleiben wie bisher.
+function lernTafelRoll(tab) {
+  const roll = el('div', { class: 'lr-tafel-roll' }, tab);
+  const hinweis = el('p', { class: 'lr-tafel-hinweis', hidden: true, 'aria-hidden': 'true' }, '‹ Tabelle zur Seite wischen ›');
+  const kasten = el('div', { class: 'lr-bild lr-bild-tabelle' }, roll, hinweis);
+  const rand = () => { const rest = roll.scrollWidth - roll.clientWidth - roll.scrollLeft; kasten.classList.toggle('schatten-l', roll.scrollLeft > 2); kasten.classList.toggle('schatten-r', rest > 2); };
+  let breite = -1;
+  const messen = () => { if (!roll.isConnected) return; const w = roll.clientWidth; if (!w || w === breite) return; breite = w;
+    kasten.classList.remove('eng'); let zuBreit = roll.scrollWidth > w + 1;
+    if (zuBreit) { kasten.classList.add('eng'); zuBreit = roll.scrollWidth > w + 1; }
+    kasten.classList.toggle('rollt', zuBreit); hinweis.hidden = !zuBreit;
+    if (zuBreit) { roll.setAttribute('tabindex', '0'); roll.setAttribute('role', 'region'); roll.setAttribute('aria-label', 'Tabelle, seitlich rollbar'); }
+    else { roll.removeAttribute('tabindex'); roll.removeAttribute('role'); roll.removeAttribute('aria-label'); }
+    rand(); };
+  roll.addEventListener('scroll', rand, { passive: true });
+  if (typeof ResizeObserver === 'function') { const ro = new ResizeObserver(() => requestAnimationFrame(messen)); ro.observe(roll); }
+  requestAnimationFrame(messen);
+  return kasten;
 }
 // Erklärung einer Etappe: Regel, vorgerechnetes Beispiel Schritt für Schritt, Probe, typischer Fehler.
 function lernSchrittBild(zustand, b) {
@@ -4423,7 +4447,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr, { einsteigen = false } = {
   if (neu) rahmen.classList.add('lr-ohne-nav');
   if (neu) { // W150 Abflug: waagrecht wischen wechselt den Reiter (Erklären ↔ Üben ↔ Fehler)
     let sx = 0, sy = 0, ok = false;
-    flaeche.addEventListener('touchstart', (ev) => { const t = ev.touches[0]; ok = ev.touches.length === 1 && !ev.target.closest?.('input, textarea, select, .lern-zeichnung, .lr-tafel, .lr-tastenfeld, .lr-kurs, .lern-stellen'); sx = t.clientX; sy = t.clientY; }, { passive: true });
+    flaeche.addEventListener('touchstart', (ev) => { const t = ev.touches[0]; ok = ev.touches.length === 1 && !ev.target.closest?.('input, textarea, select, .lern-zeichnung, .lr-tafel, .lr-tafel-roll, .lr-tastenfeld, .lr-kurs, .lern-stellen'); sx = t.clientX; sy = t.clientY; }, { passive: true });
     flaeche.addEventListener('touchend', (ev) => {
       if (!ok) return; const t = ev.changedTouches[0]; const dx = t.clientX - sx, dy = t.clientY - sy;
       if (Math.abs(dx) < 70 || Math.abs(dy) > Math.abs(dx) * 0.6) return;

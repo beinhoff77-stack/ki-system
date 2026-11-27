@@ -24,7 +24,7 @@ const genau = (x) => (x.genau ? `<span class="genau"><i>Genau gesagt:</i> ${x.ge
 // Die wirkende Stelle kommt als Zeichenpositionen; die erste Stelle richtet die Zeile aus, alle Stellen sind gelb umrahmt.
 const LEITER = INHALT.leitern, ART_KURZ = { Einführung: 'E', Anwendung: 'A', Vorwissen: 'V' };
 for (const r of INHALT.regeln) { const L = LEITER[r.id]; r.klassen = L.stufen.filter((s) => s.text); r.stufen = Object.fromEntries(L.stufen.map((s) => [s.klasse, s.text ? ART_KURZ[s.art] : 'N'])); }
-const mkText = (text, pos, von, bis) => { let aus = '', p = von; for (const [a, e] of pos) { if (e <= von || a >= bis) continue; aus += esc(text.slice(p, a)) + `<b class="w${e - a <= 12 ? ' fest' : ''}">${esc(text.slice(a, e))}</b>`; p = e; } return aus + esc(text.slice(p, bis)); };
+const mkText = (text, pos, von, bis) => { let aus = '', p = von; for (const [a, e] of pos) { if (e <= von || a >= bis) continue; aus += esc(text.slice(p, a)) + `<b class="w${e - a <= 13 ? ' fest' : ''}">${esc(text.slice(a, e))}</b>`; p = e; } return aus + esc(text.slice(p, bis)); };
 // Teilt eine Zeile in Vorzeile (grau, darüber) · davor · Stelle · danach. „grenze“ = so viele Zeichen dürfen links der Stelle stehen.
 function zeileTeile(s, grenze) { const [a, e] = s.pos[0], vor = s.text.slice(0, a); let schnitt = 0;
   if (vor.length > grenze) { const doppel = vor.lastIndexOf(': '); if (doppel >= 0 && vor.length - doppel - 2 <= grenze) schnitt = doppel + 2;
@@ -38,7 +38,7 @@ function klassenLeiter(id, o = {}) {
   const fest = Math.max(...L.stufen.filter((s) => s.text).map((s) => zeileTeile(s, grenze).nVor)); // so viele Zeichen belegt die Spalte „davor“ in jeder Zeile
   return `<ol class="leiter gl">${stufen.map((s) => { if (!s.text) return `<li class="luecke"><span class="stufe">${s.klasse}</span><p class="ganz">Kommt in Klasse ${s.klasse} nicht vor: ${esc(s.grund)}.</p></li>`;
     const z = zeileTeile(s, grenze); z.n = fest + (s.text.length - s.pos[0][0]); const meta = o.ohneMeta ? '' : `<p class="kl ganz">${s.art}${s.thema && thema(s.thema) ? ' · ' + thema(s.thema) : ''}</p>`;
-    return `<li><span class="stufe">${s.klasse}</span>${z.vorsatz ? `<p class="rechnung vorsatz ganz">${z.vorsatz}</p>` : ''}<span class="rechnung vor">${z.vor}</span><span class="rechnung ab"><b class="w mk${s.pos[0][1] - s.pos[0][0] <= 12 ? ' fest' : ''}">${z.marke}</b><span class="nach">${z.nach}</span></span>${meta}</li>`; }).join('')}</ol>`;
+    return `<li><span class="stufe">${s.klasse}</span>${z.vorsatz ? `<p class="rechnung vorsatz ganz">${z.vorsatz}</p>` : ''}<span class="rechnung vor">${z.vor}</span><span class="rechnung ab"><b class="w mk${s.pos[0][1] - s.pos[0][0] <= 13 ? ' fest' : ''}">${z.marke}</b><span class="nach">${z.nach}</span></span>${meta}</li>`; }).join('')}</ol>`;
 }
 const leiterOrt = (id) => { const k = LEITER[id].klassen; return k.length === 1 ? `Kommt nur in Klasse ${k[0]} vor` : k.length === 2 ? `Kommt in Klasse ${k[0]} und ${k[1]} vor` : `Läuft von Klasse ${k[0]} bis ${k[k.length - 1]}`; };
 // Einfache Liste für die Beispiele einer einzelnen Regel der Planeten (ohne Ausrichtung)

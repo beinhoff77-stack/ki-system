@@ -2,6 +2,43 @@
 
 Neueste oben.
 
+## 2026-11-27 01:25 (Berlin) – FERTIG: Regel-Universum, sechste Runde (Vorgabe GB, Abschnitt F7)
+Zweig `designer`, Stand `lernen-app` 7e22808 eingemischt. `inhalte/design/gesetzbuch/`: `umsetzung.md` (Fassung 7, neu F7), `entwurf/` neu gebaut, `bilder/` (45 Bilder neu).
+
+### Geliefert
+1. **Rechenregel 3 neu gezeichnet, Zeile für Zeile nach der Tabelle des Mathe-Profis:** Start ist ein voller Punkt bei 2, keine Figur. Oben ein gelber Bogen von 2 über die Null nach −2; unten derselbe Bogen und ein blauer zweiter unter der Geraden zurück zur 2. Erstes Minus gelb, zweites blau, kein gestrichelter Pfeil. Kopfzeile, Rechnungen, Unterzeilen und Satz wörtlich. **Treppe:** Punkt auf der Null-Linie; die kleinen „+2“ stehen im Freien. Bilder: `gesetz-R3-1280-hell.jpg`, `gesetz-R3-400-hell.jpg`, `gesetz-R3-400-dunkel.jpg`.
+2. **Klassenleitern neu eingelesen** (174 Beispiele). Nachgemessen:
+   - 360 px: 96 von 174 Sprossen zweizeilig (vorher 119 von 172), in 30 Leitern.
+   - 400 px: 68 von 174 (vorher 103), in 24 Leitern.
+   - 820 px: 0 (vorher 13). 1280 px: 10 (vorher 21).
+   - **Die Stelle selbst bricht nirgends mehr um** (vorher 6 Leitern bei 360 px, 2 bei 400 px).
+   - In allen 42 Leitern steht die erste Stelle bei allen vier Breiten auf einer Linie, nichts läuft über den Rand.
+3. **Übersicht A und B nebeneinander bei 400 px:** `bilder/vergleich-a-b-400-anfang.jpg` (Anfang beider Seiten) und `vergleich-a-b-400-ganz.jpg` (beide ganz). Ohne „Genau gesagt“.
+4. **Zur Zwischenlösung Brüche/Zahlenfelder** (`tests/sicht-bruch-und-zahlenfelder.html`, bei 400 px in Chrome angesehen, nichts geändert):
+   - Bruch in Antwortknöpfen weiter 11,5 px (mein Befund 1 aus `inhalte/design/bruch/befund.md` steht noch).
+   - Im Zahlenfeld steht „1/2“ mit Schrägstrich, in der Frage darüber gestapelt – zwei Schreibweisen in einer Aufgabe.
+   - Im Lösungsweg bleibt „(2x + 2)/(x(x + 1))“ Text neben gestapelten Brüchen.
+   - Die Seite zeigt oben „FEHLER: Script error“ (Meldung: „Cannot read properties of null (reading 'addEventListener')“), als Datei geöffnet. Ursache nicht untersucht.
+
+Selbstprüfung (Chrome): 304 Seitenaufrufe ohne Querrollen, keine Schrift unter 13 px, keine Skriptfehler.
+
+### Offen
+- Am Handy sind weiter 68 (400 px) bzw. 96 (360 px) Sprossen zweizeilig. Mit Umbruch allein geht es nicht weiter herunter; dafür müssten Zeilen noch kürzer werden (Mathe-Profi) oder die Schrift am Handy kleiner (jetzt 16 px) – das will ich nicht ohne Entscheidung.
+- Entscheidung des Nutzers: Übersicht A oder B.
+
+### Nicht geprüft
+- Kein echtes Gerät, kein Safari, kein Firefox; Kontraste nicht gemessen (auch nicht Blau auf Dunkel bei Rechenregel 3).
+- Ob ein Kind den Unterschied „gehen“ (Regel 2) und „springen“ (Regel 3) an den Zeichnungen erkennt – nicht erprobt.
+- Fachliche Gegenprüfung der neuen Zeichnung durch den Mathe-Profi steht aus.
+- Varianten der Zeichnung (Geteilt, Brüche, drei Minus) sind nicht gezeichnet.
+
+### Annahmen
+- Der blaue Bogen beginnt und endet unter den Zahlen der Geraden (nicht an der Linie), damit er keine Zahl durchstreicht. Die Vorgabe sagt nur „unterhalb der Geraden“.
+- Treppe: Die Werte −6, −4, −2 stehen jetzt im Balken an seinem Ende, damit die kleinen „+2“ daneben frei stehen; die „0“ steht links über dem Punkt.
+- Kopfzeile nach der Tabelle im Postfach („Erst ohne Vorzeichen: …“), nicht nach `sonne.md` („Erst ohne Vorzeichen rechnen: …“) – die Tabelle ist jünger.
+- Grenze „bricht nie in sich um“ von 12 auf 13 Zeichen gehoben (Primfaktoren der 60).
+- Kleine Änderung ohne Auftrag: In Übersicht B bricht „Kl. 10“ nicht mehr um.
+
 ## 2026-11-27 01:10 (Berlin) – AUFTRAG vom Projektleiter: Regel-Universum, sechste Runde (kurz)
 Deine fünfte Runde ist in `lernen-app` übernommen; der Nutzer findet das Regel-Universum „jetzt besser“ und zeigt den Kindern je eine Regel. Der Mathe-Profi hat geprüft und geliefert (Auftrag 17, in `lernen-app`); seine Berichtigung zu Rechenregel 3 steht weiter unten in diesem Postfach, Zeile für Zeile.
 1. **Rechenregel 3 nach seiner Vorgabe neu zeichnen:** Start bei 2, die Zahl springt über die Null (oben ein Sprung, unten zwei). Der Unterschied zu Regel 2 muss sitzen: dort geht die Figur, hier springt die Zahl auf die andere Seite. Kein gestrichelter Pfeil mit zwei Bedeutungen. Treppe: Punkt auf der Null-Linie ergänzen; die „+2“ bei 400 px nicht im Balken.

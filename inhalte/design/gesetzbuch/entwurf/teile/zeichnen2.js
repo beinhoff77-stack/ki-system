@@ -50,31 +50,43 @@ function zUmdrehen() {
 
 // ---------- Rechenregel 3 · Treppe: der erste Faktor zählt herunter, jede Stufe geht 2 hoch ----------
 function zTreppe() {
-  const bw = 58, x0 = 16, y0 = 62, e = 13, werte = [-6, -4, -2, 0, 2], fak = ['3', '2', '1', '0', '(−1)'], Y = (v) => y0 - v * e, unten = Y(-6) + 22; let s = '';
+  const bw = 58, x0 = 16, y0 = 62, e = 13, werte = [-6, -4, -2, 0, 2], fak = ['3', '2', '1', '0', '(−1)'], Y = (v) => y0 - v * e, unten = Y(-6) + 6; let s = '';
   werte.forEach((v, i) => { if (!v) return; const x = x0 + i * bw + 7, oben = Math.min(Y(v), y0), h = Math.abs(Y(v) - y0);
     s += `<rect x="${x}" y="${oben}" width="${bw - 14}" height="${h}" fill="${v > 0 ? ZF.gelb : ZF.blauFl}" stroke="${ZF.tinte}" stroke-width="${v > 0 ? 4 : 2.5}" stroke-linejoin="round"/>`; });
   s += zL(6, y0, 314, y0, { b: 3 }) + zT(8, y0 - 8, 'Null-Linie', { g: 14, a: 'start', grotesk: true, w: 700 });
-  werte.forEach((v, i) => { const x = x0 + i * bw + bw / 2; s += zT(x, v > 0 ? Y(v) - 8 : v < 0 ? Y(v) + 19 : y0 + 19, v > 0 ? '+2' : v < 0 ? '−' + (-v) : '0', { g: 18, w: 800 });
-    if (i) s += zPfeil(x0 + i * bw, Y(werte[i - 1]) - (i === 4 ? 3 : 0), x0 + i * bw, Y(v) + 2, { b: 2, kopf: 8 }) + zT(x0 + i * bw - 5, (Y(v) + Y(werte[i - 1])) / 2 + 5, '+2', { g: 14, w: 700, a: 'end' });
+  werte.forEach((v, i) => { const x = x0 + i * bw + bw / 2;
+    if (!v) s += `<circle cx="${x}" cy="${y0}" r="5.5" fill="${ZF.tinte}"/>` + zT(x - 9, y0 - 11, '0', { g: 18, w: 800 });
+    else s += zT(x, v > 0 ? Y(v) - 8 : Y(v) - 7, v > 0 ? '+2' : '−' + (-v), { g: 18, w: 800 }); // Wert am Ende des Balkens, im Balken: so bleibt der Platz daneben frei für den Schritt „+2“
+    // kleiner Schritt „+2“: immer im Freien – rechts neben dem Pfeil unter dem kürzeren Balken, beim letzten Schritt links über der Null-Linie
+    if (i) s += zPfeil(x0 + i * bw, Y(werte[i - 1]) - (i === 4 ? 3 : 0), x0 + i * bw, Y(v) + 2, { b: 2, kopf: 8 })
+      + (i === 4 ? zT(x0 + i * bw - 5, y0 - 8, '+2', { g: 14, w: 700, a: 'end' }) : zT(x0 + i * bw + 6, Y(werte[i - 1]) - 1, '+2', { g: 14, w: 700, a: 'start' }));
     s += zT(x, unten + 22, fak[i], { g: 17, w: 800 }) + zT(x, unten + 42, '· (−2)', { g: 14 }); });
-  return zBlatt(320, 240, s, 'Fünf Rechnungen nebeneinander: 3 mal minus 2 bis minus 1 mal minus 2. Die Balken hängen von der Null-Linie nach unten: minus 6, minus 4, minus 2. Bei 0 ist kein Balken. Der letzte Balken ragt nach oben: plus 2. Von Rechnung zu Rechnung geht es um 2 nach oben');
+  return zBlatt(320, 224, s, 'Fünf Rechnungen nebeneinander: 3 mal minus 2 bis minus 1 mal minus 2. Die Balken hängen von der Null-Linie nach unten: minus 6, minus 4, minus 2. Bei 0 liegt ein Punkt auf der Null-Linie. Der letzte Balken ragt nach oben: plus 2. Von Rechnung zu Rechnung geht es um 2 nach oben');
 }
-// Hauptzeichnung zu Regel 3: dieselbe Bildsprache wie Regel 2. Die Figur steht bei 0 und schaut zur 2; jedes „· (−1)“ ist eine Kehrtwende.
+// Hauptzeichnung zu Regel 3 (Vorgabe des Mathe-Profis, Auftrag 17): Die Zahl 2 liegt schon da und springt über die Null auf die andere Seite.
+// Keine Figur, kein Gehen (das ist Regel 2). Bogen spiegelbildlich zur Null, Scheitel genau über (unter) der 0. Erstes Minus gelb, zweites blau.
 function zVorzeichen() {
   const X = (v) => 160 + v * 42;
-  const wende = (x, y) => `<rect x="${x - 13}" y="${y - 15}" width="26" height="26" rx="7" fill="${ZF.gelb}" stroke="${ZF.tinte}" stroke-width="1.5"/>` + zPfad(`M${x + 6} ${y + 6}V${y - 3}a6 6 0 0 0 -12 0V${y + 3}`, { b: 2.25, f: '#11161D' }) + `<polygon points="${x - 6},${y + 8} ${x - 10.5},${y + 1} ${x - 1.5},${y + 1}" fill="#11161D"/>`;
-  const gerade = (ya, ziel, teile, wort, n) => { let s = zL(22, ya, 290, ya, { b: 2 }) + zP([[300, ya], [289, ya - 5], [289, ya + 5]], { fl: ZF.tinte, b: 1 });
+  const wende = (x, y, blau) => `<rect x="${x - 13}" y="${y - 15}" width="26" height="26" rx="7" fill="${blau ? ZF.blauFl : ZF.gelb}" stroke="${blau ? ZF.blau : ZF.tinte}" stroke-width="${blau ? 2 : 1.5}"/>` + zPfad(`M${x + 6} ${y + 6}V${y - 3}a6 6 0 0 0 -12 0V${y + 3}`, { b: 2.25, f: blau ? ZF.tinte : '#11161D' }) + `<polygon points="${x - 6},${y + 8} ${x - 10.5},${y + 1} ${x - 1.5},${y + 1}" fill="${blau ? ZF.tinte : '#11161D'}"/>`;
+  const zeile = (y, teile, g = 17) => { const bw = g * 0.6, rand = 5, breite = teile.reduce((n, t) => n + (Array.isArray(t) ? t[0].length * bw + 2 * rand : t.length * bw), 0); let cx = 160 - breite / 2, aus = '';
+    for (const t of teile) { const m = Array.isArray(t), txt = m ? t[0] : t, w = txt.length * bw, blau = m && t[1];
+      if (m) { cx += rand; aus += `<rect x="${cx - 4}" y="${y - g + 1}" width="${w + 8}" height="${g + 7}" rx="5" fill="${blau ? ZF.blauFl : ZF.gelb}" stroke="${blau ? ZF.blau : ZF.tinte}" stroke-width="${blau ? 2 : 1.5}"/>`; }
+      aus += zT(cx + w / 2, y, txt, { g, w: 700, f: m && !blau ? '#11161D' : ZF.tinte }); cx += w + (m ? rand : 0); }
+    return aus; };
+  const gerade = (ya, zwei) => { let s = zL(22, ya, 290, ya, { b: 2 }) + zP([[300, ya], [289, ya - 5], [289, ya + 5]], { fl: ZF.tinte, b: 1 });
     for (let v = -3; v <= 3; v++) s += zL(X(v), ya - 6, X(v), ya + 6, { b: v === 0 ? 3 : 1.75 }) + zT(X(v), ya + 24, v < 0 ? '−' + (-v) : v, { g: 15, w: v === 0 || Math.abs(v) === 2 ? 800 : 600, f: v === 0 || Math.abs(v) === 2 ? ZF.tinte : ZF.leise });
-    s += zBogenPfeil(X(0), ya - 40, X(-ziel), ya - 12, 30, { f: ZF.leise, b: 1.75, strich: '4 4' });
-    s += zBogenPfeil(X(0), ya - 40, X(ziel), ya - 10, 44, { f: ZF.gelb, b: 9 }) + zBogenPfeil(X(0), ya - 40, X(ziel), ya - 10, 44, { b: 2.5 });
-    s += `<circle cx="${X(ziel)}" cy="${ya}" r="7" fill="${ZF.papier}" stroke="${ZF.tinte}" stroke-width="2.5"/>`;
-    const d = ziel > 0 ? 1 : -1; s += zL(X(0), ya - 8, X(0), ya - 24, { b: 3 }) + `<circle cx="${X(0)}" cy="${ya - 30}" r="6" fill="${ZF.papier}" stroke="${ZF.tinte}" stroke-width="2.5"/>` + zPfad(`M${X(0) + d * 6} ${ya - 30}h${d * 7}`, { b: 2 }) + `<circle cx="${X(0) + d * 2.5}" cy="${ya - 31}" r="1.3" fill="${ZF.tinte}"/>`;
-    const bw = n * 30, tx = 160 - (bw + 8 + wort.length * 8.2) / 2; for (let i = 0; i < n; i++) s += wende(tx + 13 + i * 30, ya - 74);
-    return s + zGl(160, ya - 104, teile) + zT(tx + bw + 8, ya - 68, wort, { g: 15, a: 'start', grotesk: true, w: 700 }); };
-  const oben = gerade(134, -2, ['2 · (', ['−'], '1) = −2'], 'einmal umdrehen', 1), unten = gerade(304, 2, ['2 · (', ['−'], '1) · (', ['−'], '1) = 2'], 'zweimal umdrehen', 2);
+    s += zBogenPfeil(X(2), ya - 12, X(-2), ya - 11, 78, { f: ZF.gelb, b: 9 }) + zBogenPfeil(X(2), ya - 12, X(-2), ya - 11, 78, { b: 2.5 });
+    if (zwei) s += zBogenPfeil(X(-2), ya + 34, X(2), ya + 33, -72, { f: ZF.blauFl, b: 9 }) + zBogenPfeil(X(-2), ya + 34, X(2), ya + 33, -72, { f: ZF.blau, b: 2.5 });
+    s += `<circle cx="${X(-2)}" cy="${ya}" r="${zwei ? 5 : 7}" fill="${ZF.papier}" stroke="${ZF.tinte}" stroke-width="2.5"/>`;
+    if (zwei) s += `<circle cx="${X(2)}" cy="${ya}" r="10.5" fill="${ZF.papier}" stroke="${ZF.blau}" stroke-width="2.5"/>`;
+    s += `<circle cx="${X(2)}" cy="${ya}" r="6" fill="${ZF.tinte}"/>`;
+    const wort = zwei ? 'zwei Minus: zweimal umdrehen' : 'ein Minus: einmal umdrehen', n = zwei ? 2 : 1, bw = n * 30, tx = 160 - (bw + 8 + wort.length * 7.5) / 2;
+    for (let i = 0; i < n; i++) s += wende(tx + 13 + i * 30, ya - 104, i === 1);
+    return s + zeile(ya - 134, zwei ? ['(', ['−'], '1) · (', ['−', 1], '2) = +2'] : ['(', ['−'], '1) · 2 = −2']) + zT(tx + bw + 8, ya - 98, wort, { g: 14, a: 'start', grotesk: true, w: 700 }); };
+  const kopf = zT(160, 22, 'Erst ohne Vorzeichen: 1 · 2 = 2.', { g: 14, grotesk: true, w: 700 }) + zT(160, 42, 'Dann dreht jedes Minus einmal um.', { g: 14, grotesk: true, w: 700 });
   return { name: 'Vorzeichen bei Mal und Geteilt', felder: [
-    { svg: zBlatt(320, 338, oben + unten, 'Zwei Zahlengeraden von minus 3 bis 3 untereinander. Die Figur steht bei 0. Oben: 2 mal minus 1, eine Kehrtwende, der Pfeil führt zur minus 2. Unten: 2 mal minus 1 mal minus 1, zwei Kehrtwenden, der Pfeil führt wieder zur 2'),
-      mini: zBlatt(320, 168, oben, 'Zahlengerade: Figur bei 0, eine Kehrtwende, der Pfeil führt zur minus 2'), kopf: 'Mal (−1) heißt umdrehen', gl: '', satz: 'Die Figur steht bei 0 und will zur 2. Jedes „mal (−1)“ ist eine Kehrtwende: einmal umgedreht landet sie bei −2, zweimal umgedreht wieder bei 2. Gestrichelt: wohin sie ohne die letzte Kehrtwende gegangen wäre.' },
+    { svg: zBlatt(320, 478, kopf + gerade(214, false) + gerade(404, true), 'Zwei Zahlengeraden von minus 3 bis 3 untereinander, der Start ist beide Male ein voller Punkt bei 2. Oben: minus 1 mal 2, ein gelber Bogen von 2 über die Null nach minus 2. Unten: minus 1 mal minus 2, derselbe gelbe Bogen nach minus 2 und ein blauer Bogen unter der Geraden zurück zur 2'),
+      mini: zBlatt(320, 172, gerade(144, false), 'Zahlengerade: Punkt bei 2, ein gelber Bogen über die Null nach minus 2'), kopf: 'Mal (−1) heißt umdrehen', gl: '', satz: 'Die 2 springt auf die andere Seite der Null. Einmal: −2. Zweimal: wieder 2. Anders als bei Regel 2 geht hier niemand – die Zahl wechselt die Seite.' },
     { svg: zTreppe(), kopf: 'Die Treppe', gl: W('(−1) · (−2) = +2'), satz: 'Der erste Faktor zählt herunter: 3, 2, 1, 0, −1. Jedes Mal wird das Ergebnis um 2 größer: −6, −4, −2, 0 – und dann +2.', neu: 'Warum das gilt' },
   ] };
 }

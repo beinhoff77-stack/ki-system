@@ -16,7 +16,7 @@ function karten() {
   let s = '';
   for (const nr of [1, 2, 3, 4]) { s += `<p class="b-schicht" style="background:${SF[nr]}">Schicht ${nr} · ${ETAGE[nr]}</p><div class="b-karten">`;
     for (const r of INHALT.regeln.filter((x) => x.etage === nr)) s += `<a class="karte b-karte" href="#/regel/${r.id}"><span class="nr">REGEL ${r.nr}</span> <span class="leise" style="font-size:15px;font-weight:600">${esc(r.name)}</span><span class="satz">${r.satz}</span>
-      <span class="streifen" aria-label="${regelSpanne(r)}">${[5, 6, 7, 8, 9, 10].map((k) => `<i class="${r.klassen.some((x) => x.klasse === k) ? 'an' : ''}">${k}</i>`).join('')}</span><ul>${r.klassen.map((k) => `<li><span>Kl. ${k.klasse}</span>${esc(k.text)}</li>`).join('')}</ul></a>`;
+      <span class="streifen" aria-label="${regelSpanne(r)}">${[5, 6, 7, 8, 9, 10].map((k) => `<i class="${r.klassen.some((x) => x.klasse === k) ? 'an' : ''}">${k}</i>`).join('')}</span><ul>${r.klassen.map((k) => `<li><span>Kl.&nbsp;${k.klasse}</span>${esc(k.text)}</li>`).join('')}</ul></a>`;
     s += '</div>'; }
   return s;
 }

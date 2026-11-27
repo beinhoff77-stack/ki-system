@@ -36,3 +36,21 @@ Es sind Antworten bei Auswahlaufgaben (Begründungen, Mengenschreibweisen, Aussa
 - stochastik.verknuepft / elemente und mengen_verstehen: „Zwei Wege“ und „Anwenden“ passen kaum zu reinen Mengenfragen; dort stehen Verfahren wählen, Umkehren und Fehler-Detektiv.
 - zahlen.wurzeln_basis / wurzel_deuten und reell / zahlarten, irrational_beweis: statt Anwenden stehen Verfahren wählen, Umkehren und Fehler-Detektiv.
 - Verfahren wählen steht nur auf erkennenden Lernkarten (Stufe 1).
+
+## Vorprüfung durch zweiten Helfer
+Alle 174 Aufgaben (58 Lernkarten) wurden vollständig gelesen und von Hand nachgerechnet: Frage, alle Antworten, Schablone, Tipp, Lösungsweg und jedes Fehlbild, darunter die 117 Fehlbilder ohne Rechnung (Auswahl-Antworten und Detektiv-Zeilen). Dabei besonders geprüft: Definitionsmengen und Scheinlösungen (Probe in der Ausgangsgleichung), beide Lösungen bzw. ausdrückliche Auswahl, Diskriminante und Lösungszahl, Scheitel gegen Extremwert, Rundung gegen exakten Wert, gleich wahrscheinliche Ergebnisse, mit/ohne Zurücklegen, Richtung der bedingten Wahrscheinlichkeit, stimmige Vierfeldertafeln, Eindeutigkeit der Zufallsgeräte.
+Ergebnis: Alle Lösungen, Fehlbild-Werte, Tafeln, Diagramme und Detektiv-Ketten stimmen. Gefunden und berichtigt wurden 11 Aufgaben (Kennungen unverändert, nur Wortlaut), je Muster:
+- Lösung im Fragetext (1): K9A-V038 (Zwei Wege, Weg B nannte schon den Faktor a = 5).
+- Fehlende Modellannahme (4): K9A-V120 („fairen“ Würfel ergänzt); „zufällig“ ergänzt in K9A-V132, K9A-V156 und K9A-V174 (Ziehung bzw. Urne ausdrücklich zufällig).
+- Auswahl, zweite Antwort scheinbar richtig oder Grenzen mehrdeutig (2): K9A-V116 (letzte Antwort „kein Laplace-Experiment, weil drei Säulen gleich hoch sind“ hatte ein richtiges Ergebnis mit falscher Begründung, jetzt eindeutig falsch), K9A-V139 („zwischen 8 und 13“ jetzt „mindestens 8 und höchstens 13“).
+- Tipp zu nah an der Lösung (1): K9A-V032 (nannte den Rechenschritt √36 = 6).
+- Fehlbild-Beschreibung missverständlich oder zur Rechnung unpassend (2): K9A-V023, K9A-V123.
+- Formulierung (1): K9A-V027 („auf zwei Nachkommastellen gerundet auf zwei Wege“).
+Prüfwerkzeug: `tools/vorrat_pruefen.py` meldet auf der Runde genau eine Stelle (K9A-V054, Prüfung iv). Das ist ein Fehlalarm: Zeile 3 enthält nur richtig gerechnete Gleichungen, die falsche Folgerung („Also lösen beide Zahlen die Ausgangsgleichung“) steht aber in dieser Zeile. Sie ist in `bauen.py` als RESTMELDUNGEN einzeln begründet ausgenommen; jede andere Meldung lässt den Bau scheitern.
+Fraglich / offen (nicht berichtigt):
+- K9A-V135 (Zwei Wege, Simulation auswerten): „relative Häufigkeit mal 200“ und „Dreisatz“ sind rechnerisch fast dasselbe Verfahren; als zwei Wege vertretbar, aber schwach.
+- K9A-V053 (Zwei Wege, Wurzelgleichung): beide Wege quadrieren; sie unterscheiden sich nur darin, wann die Bedingung „rechte Seite nicht negativ“ geprüft wird.
+- K9A-V133 (Umkehren, Simulation): „vermutlich 6 Ziffern“ ist eine Schätzung aus 30 von 50; 5 oder 7 wären zufällig auch möglich, „vermutlich“ steht im Text.
+- K9A-V042 (Umkehren, Beweis): der Schluss ergibt sich fast unmittelbar aus der genannten Gleichung p² = 3q².
+- K9A-V065 (Anzahl der Lösungen = 2): die Antwort ist leicht zu erraten; Fehlbilder 1 und 3 stehen dagegen.
+Hinweis: die Aufgabenanzahl je Muster oben ist gezählt aus der Durchsicht, nicht maschinell.

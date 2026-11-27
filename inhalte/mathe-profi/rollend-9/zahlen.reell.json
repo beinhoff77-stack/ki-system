@@ -250,7 +250,7 @@
      "antwort": "zwischen 2,5 und 2,6",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "zu weit links abgelesen: 6,76 ist schon näher an 7",
+     "beschreibung": "eine Spalte zu weit links abgelesen: 7 liegt über 6,76, nicht zwischen 6,25 und 6,76",
      "c": null
     },
     {
@@ -504,7 +504,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Bestimme √12 auf zwei Nachkommastellen gerundet auf zwei Wegen. Weg A: Intervallschachtelung mit Zehntelzahlen, dann mit Hundertstelzahlen, und die Mitte der letzten Schachtel prüfen. Weg B: Heron-Verfahren mit dem Startwert 3,5 und zwei Schritten. Wie lautet der gerundete Wert?"
+     "text": "Bestimme √12, gerundet auf zwei Nachkommastellen, auf zwei Wegen. Weg A: Intervallschachtelung mit Zehntelzahlen, dann mit Hundertstelzahlen, und die Mitte der letzten Schachtel prüfen. Weg B: Heron-Verfahren mit dem Startwert 3,5 und zwei Schritten. Wie lautet der gerundete Wert?"
     },
     "o": {
      "wert": 3.46
@@ -803,7 +803,7 @@
     "o": {
      "index": 1
     },
-    "h": "Die 6 muss in die Wurzel hinein. Dafür wird sie quadriert: √36 = 6.",
+    "h": "Die 6 muss in die Wurzel hinein. Überlege, was mit der 6 dabei geschehen muss, damit der Wert gleich bleibt.",
     "w": "6 = √36. Also 6√2 = √36 · √2 = √(36 · 2) = √72. Probe: √72 = √(36 · 2) = 6√2."
    }
   },
@@ -1148,7 +1148,7 @@
     "g": "mehrschritt",
     "y": "zahl",
     "f": {
-     "text": "Schreibe 30/√6 als a · √6 auf zwei Wegen. Weg A: Erweitere den Bruch mit √6. Weg B: Schreibe 30 als 5 · 6 = 5 · √6 · √6 und kürze mit √6. Wie groß ist a?"
+     "text": "Schreibe 30/√6 als a · √6 auf zwei Wegen. Weg A: Erweitere den Bruch mit √6. Weg B: Schreibe 30 als Produkt aus einer Zahl und 6, ersetze die 6 durch √6 · √6 und kürze mit √6. Wie groß ist a?"
     },
     "o": {
      "wert": 5

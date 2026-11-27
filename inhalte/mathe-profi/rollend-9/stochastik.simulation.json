@@ -1142,7 +1142,7 @@
     "g": "fehler",
     "y": "auswahl",
     "f": {
-     "text": "Ein Ereignis hat die Wahrscheinlichkeit 0,4. Max simuliert es mit einer Urne mit 4 roten und 10 weißen Kugeln, es wird mit Zurücklegen gezogen. Zeile 1: Die Urne enthält 14 Kugeln, davon sind 4 rot. Zeile 2: Weil mit Zurücklegen gezogen wird, bleibt die Wahrscheinlichkeit bei jedem Zug gleich. Zeile 3: Die Wahrscheinlichkeit für rot ist das Verhältnis von roten zu weißen Kugeln, also 0,4. Zeile 4: Die Urne bildet also p = 0,4 ab und ist geeignet. In welcher Zeile passiert der erste Fehler?"
+     "text": "Ein Ereignis hat die Wahrscheinlichkeit 0,4. Max simuliert es mit einer Urne mit 4 roten und 10 weißen Kugeln, es wird zufällig mit Zurücklegen gezogen. Zeile 1: Die Urne enthält 14 Kugeln, davon sind 4 rot. Zeile 2: Weil mit Zurücklegen gezogen wird, bleibt die Wahrscheinlichkeit bei jedem Zug gleich. Zeile 3: Die Wahrscheinlichkeit für rot ist das Verhältnis von roten zu weißen Kugeln, also 0,4. Zeile 4: Die Urne bildet also p = 0,4 ab und ist geeignet. In welcher Zeile passiert der erste Fehler?"
     },
     "a": [
      "In Zeile 1",

@@ -385,5 +385,16 @@ import glob as _glob      # noqa: E402
 import vorrat_pruefen as vp   # noqa: E402
 vp.DATEIEN = sorted(_glob.glob(os.path.join(HIER, "*.json")))
 sys.argv = [sys.argv[0]]
-assert vp.main() == 0, "tools/vorrat_pruefen.py meldet etwas (siehe oben)"
+# Restmeldungen von tools/vorrat_pruefen.py, jede einzeln von Hand geprüft und begründet (Fehlalarme); alles andere lässt die Runde scheitern
+RESTMELDUNGEN = {
+    ("iv", "K9A-V054"): "Fehlerzeile 3 enthält nur richtig gerechnete Gleichungen (4 + 12 = 4², −3 + 12 = (−3)²); falsch ist die in DIESER Zeile ausgesprochene Folgerung „Also lösen beide Zahlen die Ausgangsgleichung“ (die Probe wurde mit der quadrierten statt mit der Ausgangsgleichung gemacht)",
+}
+_funde = []
+for _f, _a in vp.alle():
+    for _p in (vp.pruefe_i, vp.pruefe_ii, vp.pruefe_iii, vp.pruefe_iv):
+        _p(_f, _a, lambda art, a, text: _funde.append((art, a["kennung"], text)))
+_neu = [x for x in _funde if (x[0], x[1]) not in RESTMELDUNGEN]
+assert not _neu, ("tools/vorrat_pruefen.py meldet etwas Neues", _neu)
+assert len(_funde) == len(RESTMELDUNGEN), ("begründete Restmeldung tritt nicht mehr auf", set(RESTMELDUNGEN) - {(x[0], x[1]) for x in _funde})
+print("tools/vorrat_pruefen.py auf die Runde angewandt:", len(_funde), "Restmeldung(en), einzeln begründet (RESTMELDUNGEN)")
 print("OK")

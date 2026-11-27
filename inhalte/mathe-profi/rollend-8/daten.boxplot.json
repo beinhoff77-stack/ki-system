@@ -1,0 +1,908 @@
+{
+ "stand": "2026-11-27",
+ "flug": "daten.boxplot",
+ "titel": "Median, Quartile und Boxplot",
+ "fuer": "Klasse 7",
+ "klasse": 7,
+ "themen": [
+  "daten.boxplot"
+ ],
+ "hinweis": "Vorrat an Aufgaben in neuer Form (Auftrag 21). Nicht eingespielt. Kennungen mit K7.",
+ "aufgaben": [
+  {
+   "kennung": "K7-V073",
+   "thema": "daten.boxplot",
+   "lernkarte": "median",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "index": null,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den dritten Wert genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "median",
+    "t": "median",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Die Werte 10; 3; 15; 6 werden geordnet: 3; 6; 10; 15. Es sind vier Werte, in der Mitte stehen 6 und 10. Der Median ist (6 + 10) : 2 = ①. Die Spannweite ist 15 − 3 = ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      8,
+      12
+     ]
+    },
+    "c": [
+     "(6 + 10) // 2",
+     "15 - 3"
+    ],
+    "h": "Bei gerader Anzahl liegt der Median zwischen den beiden mittleren Werten.",
+    "w": "Der Median ist (6 + 10) : 2 = 8. Die Spannweite ist 15 − 3 = 12."
+   }
+  },
+  {
+   "kennung": "K7-V074",
+   "thema": "daten.boxplot",
+   "lernkarte": "median",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur den Zuschlag genannt"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 11,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den vierten Wert genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "median",
+    "t": "median",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Fünf Werte stehen geordnet da: 2; 5; x; 11; 14. Der Median ist um 4 größer als der zweite Wert. Wie groß ist x?"
+    },
+    "o": {
+     "wert": 9
+    },
+    "c": "5 + 4",
+    "h": "Bei fünf geordneten Werten ist der dritte der Median.",
+    "w": "Der Median ist der dritte Wert, also x. Er ist 5 + 4 = 9. Die Reihenfolge stimmt dann auch: 9 liegt zwischen 5 und 11."
+   }
+  },
+  {
+   "kennung": "K7-V075",
+   "thema": "daten.boxplot",
+   "lernkarte": "median",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig, so ist der Median bestimmt"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "In Zeile 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: bei ungerader Anzahl gibt es einen mittleren Wert"
+    }
+   ],
+   "aufgabe": {
+    "l": "median",
+    "t": "median",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind bestimmt den Median von 8; 2; 11; 5; 14. Zeile 1: Der Median ist der mittlere Wert. Zeile 2: In der Mitte dieser Liste steht die 11, also ist der Median 11. Zeile 3: Es sind fünf Werte, deshalb gibt es genau einen mittleren Wert. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 1
+    },
+    "h": "Was muss vor dem Ablesen passieren?",
+    "w": "Zeile 1 und 3 stimmen. Vor dem Ablesen muss man ordnen: 2; 5; 8; 11; 14. Der mittlere Wert ist 8."
+   }
+  },
+  {
+   "kennung": "K7-V076",
+   "thema": "daten.boxplot",
+   "lernkarte": "kennwerte",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den häufigsten Wert als Mittelwert genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "kennwerte",
+    "t": "kennwerte",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Fünf Kinder haben 3, 7, 7, 9 und 14 Bücher. Zusammen sind das ① Bücher. Der Mittelwert ist ① : 5 = ② Bücher.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      40,
+      8
+     ]
+    },
+    "c": [
+     "3 + 7 + 7 + 9 + 14",
+     "(3 + 7 + 7 + 9 + 14) // 5"
+    ],
+    "h": "Summe durch Anzahl.",
+    "w": "3 + 7 + 7 + 9 + 14 = 40 und 40 : 5 = 8 Bücher. Der Modalwert wäre 7, die Spannweite 11."
+   }
+  },
+  {
+   "kennung": "K7-V077",
+   "thema": "daten.boxplot",
+   "lernkarte": "kennwerte",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 30,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den größten Wert genannt"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den häufigsten Wert genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "kennwerte",
+    "t": "kennwerte",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Sechs Zeiten sind 21; 25; 19; 30; 25 und 22 Sekunden. Weg A: größten und kleinsten Wert suchen und voneinander abziehen. Weg B: alle Werte ordnen und die beiden Randwerte vergleichen. Wie groß ist die Spannweite?"
+    },
+    "o": {
+     "wert": 11,
+     "einheit": "s"
+    },
+    "c": "30 - 19",
+    "h": "Die Spannweite ist der Abstand zwischen größtem und kleinstem Wert.",
+    "w": "Der größte Wert ist 30 s, der kleinste 19 s: 30 − 19 = 11 s. Beide Wege führen zu denselben Randwerten."
+   }
+  },
+  {
+   "kennung": "K7-V078",
+   "thema": "daten.boxplot",
+   "lernkarte": "kennwerte",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 27,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Mittelwert genannt"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Spannweite genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "kennwerte",
+    "t": "kennwerte",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Verein notiert an sechs Tagen die Besucherzahlen 24, 30, 24, 31, 24 und 29. Um wie viel liegt der Mittelwert über dem häufigsten Wert?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "(24 * 3 + 30 + 31 + 29) // 6 - 24",
+    "h": "Rechne erst den Mittelwert, dann suche den häufigsten Wert.",
+    "w": "Die Summe ist 162, der Mittelwert 162 : 6 = 27. Der häufigste Wert ist 24 (dreimal). 27 − 24 = 3."
+   }
+  },
+  {
+   "kennung": "K7-V079",
+   "thema": "daten.boxplot",
+   "lernkarte": "mittel_median",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "Alle Werte liegen dicht beieinander.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "dann sind Median und Mittelwert fast gleich"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "Es gibt genau zwei verschiedene Werte.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Zahl der verschiedenen Werte entscheidet nicht"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "Die Anzahl der Werte ist gerade.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das ändert nur die Berechnung des Medians, nicht seine Aussagekraft"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittel_median",
+    "t": "mittel_median",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Satz lautet: „Bei diesen Daten beschreibt der Median die Mitte besser als der Mittelwert.“ Welche Lage passt dazu?"
+    },
+    "a": [
+     "Ein einzelner sehr großer Wert zieht den Mittelwert nach oben.",
+     "Alle Werte liegen dicht beieinander.",
+     "Es gibt genau zwei verschiedene Werte.",
+     "Die Anzahl der Werte ist gerade."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welcher der beiden Kennwerte reagiert stark auf einen Ausreißer?",
+    "w": "Ein Ausreißer zieht den Mittelwert zu sich, der Median bleibt in der Mitte der geordneten Liste. Liegen alle Werte dicht beieinander, sind beide Kennwerte ähnlich."
+   }
+  },
+  {
+   "kennung": "K7-V080",
+   "thema": "daten.boxplot",
+   "lernkarte": "mittel_median",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "den Mittelwert nehmen, weil er alle Werte benutzt",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "der Ausreißer zieht ihn auf 3 960 €, das verdient niemand in der Gruppe"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "die Spannweite nehmen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Spannweite beschreibt die Streuung, nicht die Mitte"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "den größten Wert nehmen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das ist gerade der Ausreißer"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittel_median",
+    "t": "mittel_median",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "In einer Gruppe verdienen fünf Personen 1 800 €, 1 900 €, 2 000 €, 2 100 € und 12 000 €. Du sollst den typischen Verdienst angeben. Welches Vorgehen passt?"
+    },
+    "a": [
+     "den Median nehmen, weil ein Ausreißer dabei ist",
+     "den Mittelwert nehmen, weil er alle Werte benutzt",
+     "die Spannweite nehmen",
+     "den größten Wert nehmen"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Schau, ob ein Wert weit außerhalb der anderen liegt.",
+    "w": "Der Median ist 2 000 €, der Mittelwert 3 960 €. Vier der fünf Personen verdienen rund 2 000 €; der Median beschreibt die Gruppe deshalb besser."
+   }
+  },
+  {
+   "kennung": "K7-V081",
+   "thema": "daten.boxplot",
+   "lernkarte": "mittel_median",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: die Summe ist 145"
+    },
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: der dritte von fünf Werten ist 11"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittel_median",
+    "t": "mittel_median",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind vergleicht Mittelwert und Median von 8; 11; 11; 14; 101. Zeile 1: Der Mittelwert ist 145 : 5 = 29. Zeile 2: Der Median ist 11. Zeile 3: Also liegen die meisten Werte bei etwa 29. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Zähle, wie viele Werte wirklich in der Nähe von 29 liegen.",
+    "w": "Zeile 1 und 2 stimmen. Vier der fünf Werte liegen zwischen 8 und 14. Der Mittelwert 29 entsteht nur durch den Ausreißer 101; die meisten Werte liegen bei etwa 11."
+   }
+  },
+  {
+   "kennung": "K7-V082",
+   "thema": "daten.boxplot",
+   "lernkarte": "quartile",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 1,
+     "index": null,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den zweiten Wert genommen statt den Median der Hälfte"
+    }
+   ],
+   "aufgabe": {
+    "l": "quartile",
+    "t": "quartile",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Acht Werte stehen geordnet da: 2; 4; 8; 10; 12; 14; 18; 20. Die untere Hälfte ist 2; 4; 8; 10, ihr Median ist Q₁ = (4 + 8) : 2 = ①. Die obere Hälfte ist 12; 14; 18; 20, ihr Median ist Q₃ = (14 + 18) : 2 = ②.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      6,
+      16
+     ]
+    },
+    "c": [
+     "(4 + 8) // 2",
+     "(14 + 18) // 2"
+    ],
+    "h": "Q₁ und Q₃ sind die Mediane der beiden Hälften.",
+    "w": "Q₁ = (4 + 8) : 2 = 6 und Q₃ = (14 + 18) : 2 = 16. Zwischen beiden liegt die mittlere Hälfte der Werte."
+   }
+  },
+  {
+   "kennung": "K7-V083",
+   "thema": "daten.boxplot",
+   "lernkarte": "quartile",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 4,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "einen der mittleren Werte genommen statt ihres Mittels"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den zweiten Wert als Q₁ genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "quartile",
+    "t": "quartile",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Neun Werte stehen geordnet da: 1; 2; 4; 5; 7; 8; 10; 11; 15. Weg A: den Median streichen und von der unteren Hälfte den Median nehmen. Weg B: die vier kleinsten Werte nehmen und deren Median bilden. Wie groß ist Q₁?"
+    },
+    "o": {
+     "wert": 3
+    },
+    "c": "(2 + 4) // 2",
+    "h": "Bei ungerader Anzahl gehört der Median zu keiner der beiden Hälften.",
+    "w": "Der Median ist 7. Die untere Hälfte ist 1; 2; 4; 5, ihr Median ist (2 + 4) : 2 = 3. Beide Wege nehmen dieselben vier Werte."
+   }
+  },
+  {
+   "kennung": "K7-V084",
+   "thema": "daten.boxplot",
+   "lernkarte": "quartile",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Breite abgezogen statt dazugezählt"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Breite als Q₃ genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "quartile",
+    "t": "quartile",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "Bei einem Datensatz ist Q₁ = 14, und die Box eines Boxplots ist 12 Einheiten breit. Wie groß ist Q₃?"
+    },
+    "o": {
+     "wert": 26
+    },
+    "c": "14 + 12",
+    "h": "Die Box reicht von Q₁ bis Q₃.",
+    "w": "Die Breite der Box ist Q₃ − Q₁. Also ist Q₃ = 14 + 12 = 26."
+   }
+  },
+  {
+   "kennung": "K7-V085",
+   "thema": "daten.boxplot",
+   "lernkarte": "boxplot",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 32,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "von 8 bis 40 gerechnet, das ist die Spannweite"
+    }
+   ],
+   "aufgabe": {
+    "l": "boxplot",
+    "t": "boxplot",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Ein Boxplot zeigt: kleinster Wert 8, Q₁ = 16, Median 22, Q₃ = 30, größter Wert 40. Die Box reicht von 16 bis 30, ist also ① Einheiten breit. Die rechte Antenne reicht von 30 bis 40, ist also ② Einheiten lang.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      14,
+      10
+     ]
+    },
+    "c": [
+     "30 - 16",
+     "40 - 30"
+    ],
+    "h": "Ziehe jeweils die beiden Randwerte voneinander ab.",
+    "w": "Die Box ist 30 − 16 = 14 breit, die rechte Antenne 40 − 30 = 10 lang. In der Box liegt die mittlere Hälfte der Werte, in der Antenne ein Viertel."
+   }
+  },
+  {
+   "kennung": "K7-V086",
+   "thema": "daten.boxplot",
+   "lernkarte": "boxplot",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "Etwa drei Viertel der Werte sind höchstens 23.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "am Median liegt die Hälfte, nicht drei Viertel"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "Genau 30 Werte liegen in der Box.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "30 ist ein Messwert, keine Anzahl"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "Der größte Wert ist 30.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "rechts von Q₃ geht die Antenne noch weiter"
+    }
+   ],
+   "aufgabe": {
+    "l": "boxplot",
+    "t": "boxplot",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "In einem Boxplot liegt der Median bei 23 und Q₃ bei 30. Welcher Satz passt dazu?"
+    },
+    "a": [
+     "Etwa drei Viertel der Werte sind höchstens 30.",
+     "Etwa drei Viertel der Werte sind höchstens 23.",
+     "Genau 30 Werte liegen in der Box.",
+     "Der größte Wert ist 30."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Was bedeutet die Lage von Q₃?",
+    "w": "Links von Q₃ liegen drei Viertel der Werte, also sind etwa 75 % höchstens 30. Links vom Median liegt die Hälfte."
+   }
+  },
+  {
+   "kennung": "K7-V087",
+   "thema": "daten.boxplot",
+   "lernkarte": "boxplot",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Hälfte genommen, das gilt für den Median"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 25,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Wartezeit als Anzahl genommen"
+    }
+   ],
+   "aufgabe": {
+    "l": "boxplot",
+    "t": "boxplot",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Ein Boxplot zeigt die Wartezeiten von 40 Personen. Q₃ liegt bei 25 Minuten. Wie viele Personen haben etwa länger als 25 Minuten gewartet?"
+    },
+    "o": {
+     "wert": 10,
+     "einheit": "Personen"
+    },
+    "c": "40 // 4",
+    "h": "Rechts von Q₃ liegt ein Viertel der Werte.",
+    "w": "Rechts von Q₃ liegt ein Viertel der Daten: 40 : 4 = 10 Personen."
+   }
+  },
+  {
+   "kennung": "K7-V088",
+   "thema": "daten.boxplot",
+   "lernkarte": "vergleichen",
+   "stufe": 2,
+   "typ": "Verfahren wählen (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "die Spannweiten vergleichen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Spannweite beschreibt die Streuung"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "die längsten Antennen vergleichen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Antennen zeigen die äußeren Viertel, nicht die Mitte"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "die Anzahl der Kinder vergleichen",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "ein Boxplot zeigt die Anzahl gar nicht"
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen",
+    "t": "vergleichen",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "auswahl",
+    "f": {
+     "text": "Zwei Klassen haben Laufzeiten gemessen, beide Boxplots liegen vor. Du sollst sagen, welche Klasse in der Mitte schneller ist. Welches Vorgehen passt?"
+    },
+    "a": [
+     "die Mediane der beiden Boxplots vergleichen",
+     "die Spannweiten vergleichen",
+     "die längsten Antennen vergleichen",
+     "die Anzahl der Kinder vergleichen"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Welcher Kennwert beschreibt die Mitte?",
+    "w": "Die Mitte beschreibt der Median. Spannweite und Antennen zeigen die Streuung; die Anzahl der Kinder sagt über die Zeiten nichts."
+   }
+  },
+  {
+   "kennung": "K7-V089",
+   "thema": "daten.boxplot",
+   "lernkarte": "vergleichen",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Box von B gerechnet"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 2,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Mediane verglichen"
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen",
+    "t": "vergleichen",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Klasse A hat den Median 24 s, ihre Box reicht von 22 s bis 26 s. Klasse B hat den Median 22 s, ihre Box reicht von 18 s bis 27 s. Um wie viele Sekunden ist die Box von B breiter als die von A?"
+    },
+    "o": {
+     "wert": 5,
+     "einheit": "s"
+    },
+    "c": "(27 - 18) - (26 - 22)",
+    "h": "Rechne beide Boxbreiten einzeln aus.",
+    "w": "Box A: 26 − 22 = 4 s. Box B: 27 − 18 = 9 s. 9 − 4 = 5 s: in B streuen die Zeiten mehr."
+   }
+  },
+  {
+   "kennung": "K7-V090",
+   "thema": "daten.boxplot",
+   "lernkarte": "vergleichen",
+   "stufe": 3,
+   "typ": "Fehler-Detektiv (einfache Form)",
+   "antwortform": "auswahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 0,
+     "antwort": "In Zeile 1",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile liest nur ab"
+    },
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "In Zeile 2",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "diese Zeile ist richtig: größere Spannweite heißt mehr Streuung"
+    }
+   ],
+   "aufgabe": {
+    "l": "vergleichen",
+    "t": "vergleichen",
+    "p": "uebung",
+    "s": 3,
+    "g": "fehler",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Kind vergleicht zwei Boxplots. Zeile 1: Klasse A hat die Spannweite 20, Klasse B die Spannweite 12. Zeile 2: Bei A streuen die Werte also stärker. Zeile 3: Deshalb hat Klasse A mehr Kinder als Klasse B. In welcher Zeile steckt der Fehler?"
+    },
+    "a": [
+     "In Zeile 1",
+     "In Zeile 2",
+     "In Zeile 3"
+    ],
+    "o": {
+     "index": 2
+    },
+    "h": "Sagt eine Spannweite etwas über die Anzahl der Kinder?",
+    "w": "Zeile 1 und 2 stimmen. Die Spannweite zeigt nur, wie weit die Werte auseinanderliegen. Über die Anzahl der Kinder sagt ein Boxplot nichts."
+   }
+  }
+ ]
+}

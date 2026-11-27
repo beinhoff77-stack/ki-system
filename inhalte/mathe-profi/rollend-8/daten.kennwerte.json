@@ -1,0 +1,455 @@
+{
+ "stand": "2026-11-27",
+ "flug": "daten.kennwerte",
+ "titel": "Mittelwert",
+ "fuer": "Klasse 7",
+ "klasse": 7,
+ "themen": [
+  "daten.kennwerte"
+ ],
+ "hinweis": "Vorrat an Aufgaben in neuer Form (Auftrag 21). Nicht eingespielt. Kennungen mit K7.",
+ "aufgaben": [
+  {
+   "kennung": "K7-V064",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "stufe": 1,
+   "typ": "Lückenweg",
+   "antwortform": "luecken",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "nein",
+   "fehlbilder": [
+    {
+     "luecke": 2,
+     "index": null,
+     "antwort": 20,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch 2 statt durch 4 geteilt"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "uebung",
+    "s": 1,
+    "g": "direkt",
+    "y": "luecken",
+    "f": {
+     "text": "Vier Kinder haben 6, 8, 11 und 15 Punkte. Zusammen sind das 6 + 8 + 11 + 15 = ① Punkte. Bei gerechter Verteilung bekommt jedes Kind ① : 4 = ② Punkte.",
+     "schablone": "① = □; ② = □",
+     "hinweis": "Je Lücke eine ganze Zahl (mit Minus, falls negativ)."
+    },
+    "o": {
+     "werte": [
+      40,
+      10
+     ]
+    },
+    "c": [
+     "6 + 8 + 11 + 15",
+     "(6 + 8 + 11 + 15) // 4"
+    ],
+    "h": "Erst alles zusammenzählen, dann durch die Anzahl teilen.",
+    "w": "Die Summe ist 40 Punkte. Auf 4 Kinder verteilt: 40 : 4 = 10 Punkte für jedes Kind."
+   }
+  },
+  {
+   "kennung": "K7-V065",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 70,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei der Summe stehen geblieben"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 12,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den häufigsten Wert genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "Fünf Messwerte sind 12; 12; 12; 14 und 20. Weg A: alle Werte addieren und durch 5 teilen. Weg B: die drei gleichen Werte als 3 · 12 zusammenfassen und dann 14 und 20 dazu. Wie groß ist der Mittelwert?"
+    },
+    "o": {
+     "wert": 14
+    },
+    "c": "(12 * 3 + 14 + 20) // 5",
+    "h": "Beide Wege müssen dieselbe Summe ergeben.",
+    "w": "Weg A: 12 + 12 + 12 + 14 + 20 = 70, also 70 : 5 = 14. Weg B: 36 + 14 + 20 = 70, dasselbe Ergebnis."
+   }
+  },
+  {
+   "kennung": "K7-V066",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittelwert",
+   "stufe": 2,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 110,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe genannt"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 23,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "einen einzelnen Tag genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittelwert",
+    "t": "mittelwert",
+    "p": "uebung",
+    "s": 2,
+    "g": "einkleidung",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Klasse sammelt an fünf Tagen 18, 24, 15, 30 und 23 Pfandflaschen. Wie viele Flaschen sind das im Mittel pro Tag?"
+    },
+    "o": {
+     "wert": 22,
+     "einheit": "Flaschen"
+    },
+    "c": "(18 + 24 + 15 + 30 + 23) // 5",
+    "h": "Summe durch Anzahl der Tage.",
+    "w": "18 + 24 + 15 + 30 + 23 = 110 Flaschen. 110 : 5 = 22 Flaschen pro Tag."
+   }
+  },
+  {
+   "kennung": "K7-V067",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_tabelle",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "(1 + 2 + 3) : 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Häufigkeiten weggelassen"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "(2 + 5 + 3) : 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur die Häufigkeiten addiert"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "(1 · 2 + 2 · 5 + 3 · 3) : 3",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "durch die Zahl der Spalten geteilt statt durch die Zahl der Noten"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittel_tabelle",
+    "t": "mittel_tabelle",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "In einer Tabelle steht: Note 1 kommt 2-mal vor, Note 2 kommt 5-mal vor, Note 3 kommt 3-mal vor. Welche Rechnung gibt die Durchschnittsnote?"
+    },
+    "a": [
+     "(1 · 2 + 2 · 5 + 3 · 3) : 10",
+     "(1 + 2 + 3) : 3",
+     "(2 + 5 + 3) : 3",
+     "(1 · 2 + 2 · 5 + 3 · 3) : 3"
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Jede Note zählt so oft, wie sie vorkommt.",
+    "w": "Note mal Anzahl: 2 + 10 + 9 = 21. Es sind 10 Noten, also 21 : 10 = 2,1."
+   }
+  },
+  {
+   "kennung": "K7-V068",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_tabelle",
+   "stufe": 2,
+   "typ": "Zwei Wege vergleichen",
+   "antwortform": "zahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 74,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "bei der Summe stehen geblieben"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 6.67,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "nur (4 + 6 + 10) : 3 gerechnet"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittel_tabelle",
+    "t": "mittel_tabelle",
+    "p": "uebung",
+    "s": 2,
+    "g": "mehrschritt",
+    "y": "zahl",
+    "f": {
+     "text": "In einer Tabelle kommt der Wert 4 dreimal vor, der Wert 6 zweimal und der Wert 10 fünfmal. Weg A: jeden Wert mal seine Anzahl, addieren und durch 10 teilen. Weg B: alle zehn Werte einzeln hinschreiben und addieren. Wie groß ist der Mittelwert?"
+    },
+    "o": {
+     "wert": 7.4
+    },
+    "c": "(4 * 3 + 6 * 2 + 10 * 5) / 10",
+    "h": "Beide Wege müssen dieselbe Summe ergeben.",
+    "w": "Weg A: 4 · 3 = 12, 6 · 2 = 12 und 10 · 5 = 50, zusammen 74. 74 : 10 = 7,4. Weg B gibt dieselben 74."
+   }
+  },
+  {
+   "kennung": "K7-V069",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_tabelle",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 7,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Mittelwert als fehlenden Wert genommen"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 42,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Summe genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittel_tabelle",
+    "t": "mittel_tabelle",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "In einer Tabelle kommt der Wert 5 dreimal vor und der Wert 8 zweimal. Dazu kommt ein weiterer Wert, der einmal vorkommt. Der Mittelwert aller sechs Werte ist 7. Wie groß ist der sechste Wert?"
+    },
+    "o": {
+     "wert": 11
+    },
+    "c": "7 * 6 - (5 * 3 + 8 * 2)",
+    "h": "Rechne zuerst die Summe aller sechs Werte.",
+    "w": "Die Summe ist 7 · 6 = 42. Bekannt sind 5 · 3 + 8 · 2 = 31. Der sechste Wert ist 42 − 31 = 11."
+   }
+  },
+  {
+   "kennung": "K7-V070",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "stufe": 2,
+   "typ": "Umkehren",
+   "antwortform": "zahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 10,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Mittelwert als fehlenden Wert angenommen"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 40,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gesamtsumme genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "uebung",
+    "s": 2,
+    "g": "umkehr",
+    "y": "zahl",
+    "f": {
+     "text": "In vier Tests hat jemand im Mittel 10 Punkte erreicht. Die ersten drei Tests hatten 7, 12 und 8 Punkte. Wie viele Punkte hatte der vierte Test?"
+    },
+    "o": {
+     "wert": 13
+    },
+    "c": "10 * 4 - (7 + 12 + 8)",
+    "h": "Summe = Mittelwert · Anzahl.",
+    "w": "Summe aller vier Tests: 10 · 4 = 40 Punkte. Bekannt sind 7 + 12 + 8 = 27. Der vierte Test hatte 40 − 27 = 13 Punkte."
+   }
+  },
+  {
+   "kennung": "K7-V071",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "stufe": 3,
+   "typ": "Anwenden",
+   "antwortform": "zahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 9,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "den Mittelwert als Tagesstrecke genommen"
+    },
+    {
+     "luecke": null,
+     "index": null,
+     "antwort": 45,
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "die Gesamtstrecke genannt"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "uebung",
+    "s": 3,
+    "g": "transfer",
+    "y": "zahl",
+    "f": {
+     "text": "Eine Läuferin will an fünf Trainingstagen im Mittel 9 km pro Tag laufen. An den ersten vier Tagen lief sie 6, 9, 7 und 10 km. Wie viele Kilometer muss sie am fünften Tag laufen?"
+    },
+    "o": {
+     "wert": 13,
+     "einheit": "km"
+    },
+    "c": "9 * 5 - (6 + 9 + 7 + 10)",
+    "h": "Rechne zuerst, wie viele Kilometer insgesamt nötig sind.",
+    "w": "Insgesamt nötig: 9 · 5 = 45 km. Gelaufen sind 6 + 9 + 7 + 10 = 32 km. Am fünften Tag fehlen 45 − 32 = 13 km."
+   }
+  },
+  {
+   "kennung": "K7-V072",
+   "thema": "daten.kennwerte",
+   "lernkarte": "mittel_rueckwaerts",
+   "stufe": 2,
+   "typ": "Brücke",
+   "antwortform": "auswahl",
+   "regel": "id.daten.kennzahl",
+   "regel_name": "Kennzahl",
+   "zaehlt": "ja",
+   "fehlbilder": [
+    {
+     "luecke": null,
+     "index": 1,
+     "antwort": "Jede der sechs Zahlen ist 12.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "das wäre ein Sonderfall, nicht die Regel"
+    },
+    {
+     "luecke": null,
+     "index": 2,
+     "antwort": "Die größte der sechs Zahlen ist 12.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "Werte über dem Mittelwert sind erlaubt"
+    },
+    {
+     "luecke": null,
+     "index": 3,
+     "antwort": "Alle sechs Zahlen liegen zwischen 6 und 12.",
+     "fehlbild": null,
+     "regel_des_fehlbilds": null,
+     "beschreibung": "der Mittelwert sagt nichts über die Spannweite"
+    }
+   ],
+   "aufgabe": {
+    "l": "mittel_rueckwaerts",
+    "t": "mittel_rueckwaerts",
+    "p": "uebung",
+    "s": 2,
+    "g": "darstellung",
+    "y": "auswahl",
+    "f": {
+     "text": "Ein Satz lautet: „Der Mittelwert von sechs Zahlen ist 12.“ Was weiß man damit sicher?"
+    },
+    "a": [
+     "Die Summe der sechs Zahlen ist 72.",
+     "Jede der sechs Zahlen ist 12.",
+     "Die größte der sechs Zahlen ist 12.",
+     "Alle sechs Zahlen liegen zwischen 6 und 12."
+    ],
+    "o": {
+     "index": 0
+    },
+    "h": "Summe = Mittelwert · Anzahl.",
+    "w": "Aus dem Mittelwert folgt nur die Summe: 12 · 6 = 72. Die einzelnen Zahlen können sehr verschieden sein, auch größer als 12."
+   }
+  }
+ ]
+}

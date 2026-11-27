@@ -1,3 +1,5 @@
+> **ABGELEHNT am 27.11. („passt mir noch gar nicht“) – Aufbau Liste/Detail falsch, Analyse zu dünn, Fehler erst nach Klick sichtbar, Optik zu grau/technisch und nicht im Stil der App; nicht weiterverwenden.** Nachfolger: `../entwurf3/umsetzung3.md`.
+
 # Vorgabe WK, zweite Runde: „Was wackelt“ als Arbeitswerkzeug
 
 Designer, 27.11.2026. Ersetzt `../entwurf1/` (abgelehnt). Entwurf: `index.html` (eine Datei, ohne Netz), Bilder: `bilder/`.

@@ -6065,3 +6065,109 @@ body.rk-kopf-oben:has(#tabs[hidden]) { padding-bottom: 0; }
 .lr-blatt-liste .lr-wdh-erklaert > summary:focus-visible { outline: 3px solid var(--lr-akzent); outline-offset: -3px; }
 .lr-blatt-liste .lr-wdh-erklaert > p { margin: 0 14px 10px; font-size: 15px; line-height: 1.45; color: var(--lr-text); }
 .lr-blatt[open] { max-height: 92dvh; overflow: auto; }
+/* ---------- 0.96.0 Teil 2: „Was wackelt“ für Eltern/Lehrer (Entwurf 4, ohne Nachüben) – Klassen ww-… ---------- */
+.ww { --ww-f: #d9737b; --ww-r: #b9dfc6; display: block; max-width: 1240px; margin: 0 auto; transition: opacity .15s; }
+.ww.ww-laedt > :not(.ww-titel):not(.lw-toast) { opacity: .55; }
+.ww-titel { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; margin: 6px 0 0; }
+.ww-titel h2 { margin: 0; font-size: 24px; color: var(--accent); }
+.ww-seg { display: inline-flex; background: var(--surface-muted); border-radius: 11px; padding: 3px; gap: 2px; }
+.ww-seg button { border: 0; background: none; border-radius: 9px; min-height: 40px; padding: 0 14px; color: var(--muted); font: inherit; font-weight: 600; font-size: 14px; white-space: nowrap; cursor: pointer; }
+.ww-seg button[aria-pressed="true"] { background: var(--surface); color: var(--text); box-shadow: 0 1px 3px rgb(30 57 43 / 12%); }
+.ww button:focus-visible, .ww summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ww-teil { margin-top: 30px; }
+.ww-teil + .ww-teil { padding-top: 26px; border-top: 1px solid var(--border); }
+.ww-teil-kopf { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin-bottom: 12px; }
+.ww-teil-kopf h2 { margin: 0; font-size: 18px; color: var(--accent); }
+.ww-teil-kopf span { color: var(--muted); font-size: 14px; }
+.ww-karte { background: var(--surface); border: 1px solid var(--border); border-radius: 19px; box-shadow: var(--shadow); }
+.ww-kacheln { display: grid; grid-template-columns: 1.45fr 1fr 1.15fr .7fr; gap: 14px; }
+.ww-kachel { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.ww-kachel h3 { margin: 0; font-size: 14px; font-weight: 600; color: var(--muted); }
+.ww-balken { display: grid; gap: 7px; }
+.ww-balken button { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; align-items: center; border: 0; background: none; padding: 3px 4px; margin: 0 -4px; border-radius: 8px; text-align: left; font: inherit; color: var(--text); cursor: pointer; }
+.ww-balken button:disabled { cursor: default; opacity: 1; }
+.ww-balken button:not(:disabled):hover { background: var(--surface-muted); }
+.ww-name { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ww-wert { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ww-wert b { color: var(--text); }
+.ww-spur { grid-column: 1 / -1; height: 8px; border-radius: 4px; background: var(--ww-r); overflow: hidden; display: flex; }
+.ww-spur i { display: block; height: 100%; background: var(--ww-f); }
+.ww-legende { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; color: var(--muted); margin-top: auto; }
+.ww-legende i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.ww-legende i.f { background: var(--ww-f); } .ww-legende i.r { background: var(--ww-r); }
+.ww-tage { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 6px; align-items: end; height: 150px; }
+.ww-tag { display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; justify-content: flex-end; min-width: 0; }
+.ww-saeule { width: 100%; max-width: 22px; display: flex; flex-direction: column-reverse; border-radius: 5px; overflow: hidden; max-height: calc(100% - 34px); min-height: 4px; }
+.ww-saeule i { display: block; } .ww-saeule .r { background: var(--ww-r); } .ww-saeule .f { background: var(--ww-f); }
+.ww-tag small { font-size: 11px; color: var(--muted); text-align: center; line-height: 1.25; white-space: nowrap; letter-spacing: -.02em; }
+.ww-wieder { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.ww-wieder button { width: 100%; border: 0; background: var(--warn-bg); color: var(--text); border-radius: 11px; padding: 8px 10px; text-align: left; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0 10px; font: inherit; cursor: pointer; }
+.ww-wieder b { font-weight: 600; font-size: 14px; }
+.ww-anz { font-weight: 700; color: var(--warn); font-variant-numeric: tabular-nums; }
+.ww-wieder small { grid-column: 1 / -1; font-size: 12.5px; color: var(--muted); }
+.ww-gross { margin: 0; font-size: 34px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.ww-kachel p { margin: 0; }
+.ww-fazit { margin: 14px 0 0; font-size: 15px; }
+.ww-fazit b { font-weight: 600; }
+.ww-leer { margin: 0; padding: 18px 20px; font-size: 16px; }
+.ww-leer b { color: var(--ok); }
+/* Tabelle: Zeilen als Raster (Spalten 52 · 300 · Rest · 96 · 96 · 176 · Abhaken) */
+.ww-tabelle { padding: 2px 0 4px; overflow: hidden; }
+.ww-z { display: grid; grid-template-columns: 52px minmax(0, 1fr) 118px 118px 200px 44px; column-gap: 14px; align-items: center; min-height: 44px; padding: 0 16px; border-top: 1px solid var(--border); }
+.ww-z.ww-mit-ort { grid-template-columns: 52px minmax(0, 300px) minmax(0, 1fr) 96px 96px 176px 44px; }
+.ww-kopfz { min-height: 34px; border-top: 0; font-size: 12.5px; color: var(--muted); font-weight: 600; }
+.ww-thema .ww-kopfz { border-top: 1px solid var(--border); }
+.ww-z:not(.ww-kopfz):hover, .ww-z.ww-auf, .ww-z.ww-auf + .ww-mehr { background: color-mix(in srgb, var(--surface-muted) 45%, transparent); }
+.ww-dat { color: var(--muted); font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.ww-ort { color: var(--muted); font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ww-aufg-zelle { min-width: 0; }
+.ww-aufg { display: flex; align-items: center; width: 100%; min-height: 40px; border: 0; background: none; padding: 0; text-align: left; font: inherit; font-size: 14.5px; color: var(--text); cursor: pointer; min-width: 0; }
+.ww-aufg-t { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.ww-pf { display: inline-block; flex: none; width: 14px; color: var(--muted); font-size: 11px; }
+.ww-ein, .ww-ok { font-size: 14.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-variant-numeric: tabular-nums; }
+.ww-ein { color: var(--err); } .ww-ok { color: var(--ok); }
+.ww-art { font-size: 13.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ww-gut { color: var(--ok); }
+.ww-akt { display: flex; justify-content: flex-end; }
+.ww-sym { width: 40px; height: 40px; border: 1px solid var(--border); background: var(--surface); border-radius: 10px; color: var(--muted); display: grid; place-items: center; padding: 0; cursor: pointer; }
+.ww-sym svg { width: 18px; height: 18px; }
+.ww-sym:hover { color: var(--ok); border-color: var(--muted); }
+.ww-mehr { padding: 2px 16px 14px 82px; font-size: 14.5px; }
+.ww-mehr > div { display: grid; gap: 6px; }
+.ww-mehr p { margin: 0; }
+.ww-zeilen { margin: 0; padding: 8px 12px 8px 30px; background: var(--surface-muted); border-radius: 11px; max-width: 420px; font-size: 13.5px; }
+.ww-zeilen .ww-gewaehlt { color: var(--err); } .ww-zeilen .ww-richtig { color: var(--ok); font-weight: 600; }
+.ww-themen { padding: 0; }
+.ww-thema { border-top: 1px solid var(--border); scroll-margin-top: 140px; }
+.ww-thema:first-child { border-top: 0; }
+.ww-th-kopf { display: flex; align-items: center; gap: 12px; padding: 6px 16px; min-height: 52px; }
+.ww-th-titel { flex: 1; min-width: 0; min-height: 44px; display: flex; align-items: center; gap: 10px; border: 0; background: none; padding: 0; text-align: left; font: inherit; color: var(--text); cursor: pointer; }
+.ww-th-titel b { font-size: 15.5px; color: var(--accent); white-space: nowrap; }
+.ww-zaehler { font-size: 12.5px; font-weight: 700; background: var(--surface-muted); border-radius: 999px; padding: 1px 8px; color: var(--text); font-variant-numeric: tabular-nums; margin-left: 6px; }
+.ww-th-arten { color: var(--muted); font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.ww-knopf-klein { flex: none; border: 1px solid var(--border); background: var(--surface); border-radius: 9px; min-height: 40px; padding: 0 12px; font: inherit; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; }
+.ww-knopf-klein:hover { color: var(--text); border-color: var(--muted); }
+.ww-lk { padding: 10px 16px 6px 82px; font-size: 14px; font-weight: 600; border-top: 1px solid var(--border); }
+.ww-erledigt { background: var(--surface); border: 1px solid var(--border); border-radius: 19px; padding: 4px 18px; }
+.ww-erledigt summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-weight: 600; color: var(--accent); }
+.ww-erledigt ul { list-style: none; margin: 0 0 8px; padding: 0; }
+.ww-erledigt li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 4px 0; border-top: 1px solid var(--border); font-size: 14px; }
+.ww-erledigt > p { margin: 0 0 10px; }
+.ww-link { border: 0; background: none; color: var(--muted); font: inherit; font-size: 14px; text-decoration: underline; text-underline-offset: 3px; padding: 0 4px; min-height: 40px; cursor: pointer; white-space: nowrap; }
+.ww-fehler { margin-top: 16px; }
+@media (max-width: 1100px) { .ww-kacheln { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 760px) {
+  .ww-titel h2 { font-size: 21px; }
+  .ww-kacheln { grid-template-columns: minmax(0, 1fr); }
+  .ww-z, .ww-z.ww-mit-ort { grid-template-columns: auto auto minmax(0, 1fr) auto; grid-template-areas: "aufg aufg aufg aufg" "ein ok dat akt"; row-gap: 2px; column-gap: 10px; padding: 6px 12px; min-height: 0; }
+  .ww-kopfz, .ww-ort, .ww-art { display: none; }
+  .ww-aufg-zelle { grid-area: aufg; } .ww-ein { grid-area: ein; } .ww-ok { grid-area: ok; } .ww-dat { grid-area: dat; } .ww-akt { grid-area: akt; }
+  .ww-ok::before { content: "→ "; color: var(--muted); }
+  .ww-ein, .ww-ok { max-width: 110px; }
+  .ww-mehr { padding: 0 12px 12px 26px; }
+  .ww-lk { padding-left: 12px; }
+  .ww-th-kopf { flex-wrap: wrap; padding: 6px 12px; gap: 0 10px; }
+  .ww-th-arten { display: none; }
+  .ww-th-titel { flex: 1 1 100%; } .ww-knopf-klein { margin: 0 0 6px 24px; }
+  .ww-tage { height: 120px; }
+}

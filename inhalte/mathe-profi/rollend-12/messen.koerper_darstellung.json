@@ -522,7 +522,7 @@
      "antwort": "Dreiecksprisma (liegend)",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "Von oben sieht man ein Rechteck, von der Seite ein Rechteck."
+     "beschreibung": "Blickst du auf die dreieckige Stirnfläche, ist die Ansicht quer zur Längsrichtung rechteckig. Das Prisma erklärt daher nicht beide Dreiecksansichten."
     },
     {
      "index": 2,

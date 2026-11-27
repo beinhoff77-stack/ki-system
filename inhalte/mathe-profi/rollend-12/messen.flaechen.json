@@ -330,7 +330,7 @@
     "g": "verknuepfen",
     "y": "zahl",
     "f": {
-     "text": "Eine Fläche von 3 ha soll in m² angegeben werden. Weg A: Rechne mit 1 ha = 10 000 m². Weg B: Ein Quadrat mit 100 m Seitenlänge hat 1 ha. Berechne die Fläche von 3 solchen Quadraten in m². Gib an, wie viele m² 3 ha sind."
+     "text": "Eine Fläche von 3 ha soll in m² angegeben werden. Weg A: Rechne mit 1 ha = 10 000 m². Weg B: Ein Quadrat mit 100 m Seitenlänge hat 1 ha. Bestimme die Fläche eines Quadrats mit 100 m Seitenlänge. Gib an, wie viele m² 3 ha sind."
     },
     "o": {
      "wert": 30000,

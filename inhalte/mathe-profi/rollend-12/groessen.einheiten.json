@@ -69,28 +69,24 @@
    "stufe": 3,
    "typ": "Umkehren",
    "form": "umkehren",
-   "antwortform": "zahl",
+   "antwortform": "auswahl",
    "regel": "id.verhaeltnisse.groesse",
    "regel_name": "Größe",
    "zaehlt": "ja",
    "fehlbilder": [
     {
-     "antwort": 75,
+     "index": 1,
+     "antwort": "2 cm",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "nur die Schrittlänge des Erwachsenen genannt: 15 000 : 200"
+     "beschreibung": "Das wäre nur ein winziger Unterschied; er passt nicht zu einem Viertel mehr Schritte."
     },
     {
-     "antwort": 50,
+     "index": 2,
+     "antwort": "2 m",
      "fehlbild": null,
      "regel_des_fehlbilds": null,
-     "beschreibung": "die Schrittzahlen statt der Schrittlängen verglichen: 250 − 200"
-    },
-    {
-     "antwort": 0.15,
-     "fehlbild": null,
-     "regel_des_fehlbilds": null,
-     "beschreibung": "das Ergebnis in Metern statt in cm angegeben: 0,75 m − 0,6 m"
+     "beschreibung": "Das wäre länger als ein ganzer Kinderschritt; der Unterschied ist viel kleiner."
     }
    ],
    "aufgabe": {
@@ -99,17 +95,20 @@
     "p": "uebung",
     "s": 3,
     "g": "rueckwaerts",
-    "y": "zahl",
+    "y": "auswahl",
     "f": {
-     "text": "Ein Kind geht einen 150 m langen Weg im Durchschnitt in 250 Schritten, ein Erwachsener braucht für denselben Weg im Durchschnitt 200 Schritte. Entscheide zuerst mit einem Überschlag aus den Schrittzahlen, ob ein Schritt des Erwachsenen im Durchschnitt um etwa 2 cm, 20 cm oder 2 m länger ist als ein Schritt des Kindes. Berechne dann den genauen Unterschied. Um wie viel cm ist ein Schritt des Erwachsenen im Durchschnitt länger?"
+     "text": "Ein Kind geht einen 150 m langen Weg im Durchschnitt in 250 Schritten, ein Erwachsener braucht für denselben Weg im Durchschnitt 200 Schritte. Um etwa wie viel ist ein Schritt des Erwachsenen im Durchschnitt länger als ein Schritt des Kindes?"
     },
+    "a": [
+     "20 cm",
+     "2 cm",
+     "2 m"
+    ],
     "o": {
-     "wert": 15,
-     "einheit": "cm"
+     "index": 0
     },
-    "c": "150 * 100 / 200 - 150 * 100 / 250",
-    "h": "Für 150 m braucht das Kind mehr Schritte als der Erwachsene. Wie lang ist dann ungefähr ein Schritt von jedem?",
-    "w": "Überschlag: Für 150 m braucht das Kind 250 und der Erwachsene 200 Schritte, ein Schritt ist also etwa 60 cm bzw. 75 cm lang. Der Unterschied liegt bei etwa 20 cm; 2 cm wären zu wenig, und 2 m wäre ein Sprung. Genau: 150 m = 15 000 cm. Kind: 15 000 cm : 250 = 60 cm je Schritt. Erwachsener: 15 000 cm : 200 = 75 cm je Schritt. Unterschied: 75 cm − 60 cm = 15 cm. Probe: 200 · 75 cm = 15 000 cm = 150 m."
+    "h": "Für 150 m braucht das Kind mehr Schritte als der Erwachsene. Um welchen Bruchteil mehr, und was folgt daraus für die Schrittlängen?",
+    "w": "Größenordnung: Das Kind braucht für denselben Weg ein Viertel mehr Schritte. Der Erwachsenenschritt ist deshalb rund ein Viertel einer Kinderschrittlänge länger. Von 2 cm, 20 cm und 2 m passt 20 cm. Genau: 150 m = 15 000 cm. Kind: 15 000 cm : 250 = 60 cm je Schritt. Erwachsener: 15 000 cm : 200 = 75 cm je Schritt. Unterschied: 75 cm − 60 cm = 15 cm. Probe: 200 · 75 cm = 15 000 cm = 150 m."
    }
   },
   {

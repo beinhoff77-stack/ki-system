@@ -7,11 +7,14 @@ neu(T, "schaetzen", "zwei_wege", Z(
     45, "900 / 20", "9 * (100 / 20)", "Wie viele Stufen von 20 cm sind zusammen 1 m hoch?",
     "Weg A: 9 m = 900 cm, 900 : 20 = 45. Weg B: 1 m = 100 cm, das sind 100 : 20 = 5 Stufen. Für 9 m sind es 9 · 5 = 45 Stufen.",
     [(180, None, "9 mal 20 gerechnet", "9 * 20"), (0.45, None, "9 durch 20 geteilt, ohne die Meter in cm umzurechnen", "9 / 20"), (5, None, "nur die Stufen für 1 m genannt", "100 / 20")], "Stufen"), regel=GR)
-neu(T, "schaetzen", "umkehren", Z(
-    "Ein Kind geht einen 150 m langen Weg im Durchschnitt in 250 Schritten, ein Erwachsener braucht für denselben Weg im Durchschnitt 200 Schritte. Entscheide zuerst mit einem Überschlag aus den Schrittzahlen, ob ein Schritt des Erwachsenen im Durchschnitt um etwa 2 cm, 20 cm oder 2 m länger ist als ein Schritt des Kindes. Berechne dann den genauen Unterschied. Um wie viel cm ist ein Schritt des Erwachsenen im Durchschnitt länger?",
-    15, "150 * 100 / 200 - 150 * 100 / 250", "75 - 60", "Für 150 m braucht das Kind mehr Schritte als der Erwachsene. Wie lang ist dann ungefähr ein Schritt von jedem?",
-    "Überschlag: Für 150 m braucht das Kind 250 und der Erwachsene 200 Schritte, ein Schritt ist also etwa 60 cm bzw. 75 cm lang. Der Unterschied liegt bei etwa 20 cm; 2 cm wären zu wenig, und 2 m wäre ein Sprung. Genau: 150 m = 15 000 cm. Kind: 15 000 cm : 250 = 60 cm je Schritt. Erwachsener: 15 000 cm : 200 = 75 cm je Schritt. Unterschied: 75 cm − 60 cm = 15 cm. Probe: 200 · 75 cm = 15 000 cm = 150 m.",
-    [(75, None, "nur die Schrittlänge des Erwachsenen genannt: 15 000 : 200", "150 * 100 / 200"), (50, None, "die Schrittzahlen statt der Schrittlängen verglichen: 250 − 200", "250 - 200"), (0.15, None, "das Ergebnis in Metern statt in cm angegeben: 0,75 m − 0,6 m", "150 / 200 - 150 / 250")], "cm"), g="rueckwaerts", regel=GR)
+neu(T, "schaetzen", "umkehren", W(
+    "Ein Kind geht einen 150 m langen Weg im Durchschnitt in 250 Schritten, ein Erwachsener braucht für denselben Weg im Durchschnitt 200 Schritte. Um etwa wie viel ist ein Schritt des Erwachsenen im Durchschnitt länger als ein Schritt des Kindes?",
+    "20 cm",
+    [("2 cm", "Das wäre nur ein winziger Unterschied; er passt nicht zu einem Viertel mehr Schritte."),
+     ("2 m", "Das wäre länger als ein ganzer Kinderschritt; der Unterschied ist viel kleiner.")],
+    "Für 150 m braucht das Kind mehr Schritte als der Erwachsene. Um welchen Bruchteil mehr, und was folgt daraus für die Schrittlängen?",
+    "Größenordnung: Das Kind braucht für denselben Weg ein Viertel mehr Schritte. Der Erwachsenenschritt ist deshalb rund ein Viertel einer Kinderschrittlänge länger. Von 2 cm, 20 cm und 2 m passt 20 cm. Genau: 150 m = 15 000 cm. Kind: 15 000 cm : 250 = 60 cm je Schritt. Erwachsener: 15 000 cm : 200 = 75 cm je Schritt. Unterschied: 75 cm − 60 cm = 15 cm. Probe: 200 · 75 cm = 15 000 cm = 150 m.",
+    lambda: 250 == 200 * 5 // 4 and 150 * 100 / 200 - 150 * 100 / 250 == 15 and 2 < 15 < 200 and abs(15 - 20) < abs(15 - 2) and abs(15 - 20) < abs(15 - 200)), g="rueckwaerts", regel=GR)
 
 # ───────── laenge ─────────
 neu(T, "laenge", "umkehren", Z(
